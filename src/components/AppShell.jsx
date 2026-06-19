@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Flame } from "lucide-react";
 import BottomNav from "./BottomNav.jsx";
-import RungMark from "./RungMark.jsx";
 import { C, F } from "../theme.js";
 import { useStore } from "../store/useStore.js";
 
@@ -40,7 +39,13 @@ export default function AppShell() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
-          <RungMark size={26} />
+          <img
+            src="/icon-192.png"
+            alt="VocaLingo"
+            width={26}
+            height={26}
+            style={{ borderRadius: 7, display: "block" }}
+          />
           <span style={{ fontFamily: F.disp, fontWeight: 700, fontSize: 18, letterSpacing: -0.3 }}>
             VocaLingo
           </span>

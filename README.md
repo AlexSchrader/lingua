@@ -45,9 +45,12 @@ end to end and persists across reload.
 > where `cdn.playwright.dev` is not on the network allowlist, run them on a
 > machine with network access (or add the host to the egress settings).
 
-## Icons
-`scripts/generate-icons.mjs` renders the rung-mark PWA icons (192 + 512) with no
-image dependencies. Re-run with `node scripts/generate-icons.mjs`.
+## Icons & branding
+Brand assets live in `public/`: the ladder mark on ai-indigo as `icon-192.png`
+/ `icon-512.png` (PWA + in-app header), `icon-maskable-512.png` (Android safe
+zone), `apple-touch-icon.png` (180), `favicon-32.png`, and `preview-rounded.png`
+(og/social). The manifest and `index.html` reference them; to refresh the set,
+replace the files in `public/`.
 
 ## Not in this brief
 Real FSRS tuning · Whisper speech grading · KanjiVG tracing · LLM practice · the
