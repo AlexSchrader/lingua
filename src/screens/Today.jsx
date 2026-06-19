@@ -66,6 +66,7 @@ export default function Today() {
   const ja = useStore((s) => s.languages.ja);
   const dueItemsFn = useStore((s) => s.dueItems);
   const reviewsLockedFn = useStore((s) => s.reviewsLocked);
+  const devSeedReviews = useStore((s) => s.devSeedReviews);
 
   const due = useMemo(() => dueItemsFn(), [items, dueItemsFn]);
   const reviewsLocked = useMemo(() => reviewsLockedFn(), [items, daily, reviewsLockedFn]);
@@ -194,6 +195,28 @@ export default function Today() {
       <div style={{ fontSize: 12, color: C.inkSoft, textAlign: "center" }}>
         {ja.flag} {ja.name} · {ja.level} · {ja.target} goal
       </div>
+
+      {/* Dev-only playtest shortcut — stripped from production builds. */}
+      {import.meta.env.DEV && (
+        <button
+          onClick={() => {
+            devSeedReviews();
+            if (TODAY_LESSON) navigate(`/lesson/${TODAY_LESSON.id}`);
+          }}
+          style={{
+            padding: "8px 12px",
+            borderRadius: 10,
+            border: `1px dashed ${C.locked}`,
+            background: "transparent",
+            color: C.inkSoft,
+            fontSize: 12,
+            fontFamily: F.mono,
+            cursor: "pointer",
+          }}
+        >
+          DEV: force reviews due → play
+        </button>
+      )}
 
       {/* Version watermark */}
       <div
