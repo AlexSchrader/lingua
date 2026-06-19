@@ -22,6 +22,7 @@ export function seedItems() {
           lesson: lesson.lesson,
           meaning: item.meaning ?? null,
           example: item.example ?? null,
+          accept: item.accept ?? [], // optional synonyms accepted for typed answers
           // srs (an FSRS card) is attached by the store's seedOnce, not here,
           // so this stays a pure content loader.
           rung: 0,
