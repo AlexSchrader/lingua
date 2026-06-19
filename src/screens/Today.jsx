@@ -71,6 +71,11 @@ export default function Today() {
   const due = useMemo(() => dueItemsFn(), [items, dueItemsFn]);
   const reviewsLocked = useMemo(() => reviewsLockedFn(), [items, daily, reviewsLockedFn]);
 
+  // Dev affordance is shown in dev builds, or on any build when the URL carries
+  // ?dev — so it can be triggered on the deployed Vercel preview for playtesting
+  // while staying hidden in normal use.
+  const devMode = import.meta.env.DEV || new URLSearchParams(location.search).has("dev");
+
   const reviewState = daily.reviewsCleared ? "done" : "active";
   const lessonState = daily.lessonDone ? "done" : reviewsLocked ? "locked" : "active";
   const proveState = daily.lessonDone ? "done" : "active";
@@ -196,8 +201,8 @@ export default function Today() {
         {ja.flag} {ja.name} · {ja.level} · {ja.target} goal
       </div>
 
-      {/* Dev-only playtest shortcut — stripped from production builds. */}
-      {import.meta.env.DEV && (
+      {/* Playtest shortcut — shown in dev builds, or on any build via ?dev. */}
+      {devMode && (
         <button
           onClick={() => {
             devSeedReviews();
