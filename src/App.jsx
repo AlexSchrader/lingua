@@ -4,6 +4,7 @@ import Today from "./screens/Today.jsx";
 import Ladder from "./screens/Ladder.jsx";
 import Haruki from "./screens/Haruki.jsx";
 import Stats from "./screens/Stats.jsx";
+import Settings from "./screens/Settings.jsx";
 import Lesson from "./screens/Lesson.jsx";
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="ladder" element={<Ladder />} />
         <Route path="haruki" element={<Haruki />} />
         <Route path="stats" element={<Stats />} />
+        <Route path="settings" element={<Settings />} />
       </Route>
       <Route path="lesson/:lessonId" element={<Lesson />} />
       <Route path="*" element={<Navigate to="/" replace />} />

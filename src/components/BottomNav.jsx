@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { Home, ListTree, MessageCircle, BarChart3 } from "lucide-react";
+import { Home, ListTree, MessageCircle, BarChart3, Settings } from "lucide-react";
 import { C, F } from "../theme.js";
 
 const TABS = [
@@ -7,6 +7,7 @@ const TABS = [
   { label: "Ladder", path: "/ladder", icon: ListTree },
   { label: "Haruki", path: "/haruki", icon: MessageCircle },
   { label: "Stats", path: "/stats", icon: BarChart3 },
+  { label: "Settings", path: "/settings", icon: Settings },
 ];
 
 export default function BottomNav() {
