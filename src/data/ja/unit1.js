@@ -9,6 +9,7 @@ export const UNIT1 = {
       unit: 1,
       lesson: 1,
       title: "Greetings",
+      cefr: "A1",
       dominantMode: "recall",
       canDo: "Greet by time of day, say goodbye, say yes/no.",
       items: [

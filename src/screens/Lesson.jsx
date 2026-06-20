@@ -7,8 +7,21 @@ import TypeCard from "../components/games/TypeCard.jsx";
 import BuildCard from "../components/games/BuildCard.jsx";
 import { useStore } from "../store/useStore.js";
 import { getLesson } from "../data/index.js";
+import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { initLearn, currentStep, answerStep } from "../store/learnQueue.js";
 import { C, F } from "../theme.js";
+
+// Guard: the runner must only route kinds that are declared in LIVE_CARD_KINDS.
+// Throws immediately (in all environments) so wiring a new card without
+// registering it in contract.js fails loud rather than silently shipping.
+function assertLiveKind(kindKey) {
+  if (!LIVE_CARD_KINDS.includes(kindKey)) {
+    throw new Error(
+      `Lesson runner routed unlisted card kind "${kindKey}". ` +
+        `Add it to LIVE_CARD_KINDS in src/data/contract.js first.`
+    );
+  }
+}
 
 // Pick the REVIEW card for a due item from its mastery rung — the ladder doing
 // its job. (Learning steps for new items are handled separately below.)
@@ -153,8 +166,11 @@ export default function Lesson() {
   const onCheck = (grade) => {
     const result = { pass: grade !== "again", clean: grade === "good" || grade === "easy" };
     const { state, graduated } = answerStep(learn, result);
-    if (graduated) graduateItem(graduated.id, graduated.grade);
+    // setLearn BEFORE graduateItem: graduateItem triggers a Zustand useSyncExternalStore
+    // notification that forces a synchronous React re-render. Queuing the learn-state
+    // update first ensures React picks up pos+1 in that sync render instead of pos.
     setLearn(state);
+    if (graduated) graduateItem(graduated.id, graduated.grade);
   };
 
   // --- current card ---
@@ -165,6 +181,8 @@ export default function Lesson() {
     const item = items[step.id];
     label = "Review";
     const onGraded = (g) => onReviewGrade(item.id, g);
+    const kindKey = step.kind === "type" ? `type:${step.mode}` : step.kind;
+    assertLiveKind(kindKey);
     body =
       step.kind === "choice" ? (
         <ChoiceCard key={`r${reviewIdx}`} item={item} allItems={items} onGraded={onGraded} />
@@ -178,14 +196,18 @@ export default function Lesson() {
     // Key by queue position so a re-presented (or repeated) card mounts fresh.
     const k = `l${learn.pos}`;
     if (learnStep.step === "teach") {
+      assertLiveKind("teach");
       label = "Learn";
       body = <TeachCard key={k} item={item} onAdvance={advanceTeach} />;
     } else if (learnStep.step === "check1") {
+      assertLiveKind("choice");
       label = "Practice";
       body = <ChoiceCard key={k} item={item} allItems={items} onGraded={onCheck} />;
     } else {
+      const mode = recallMode(item);
+      assertLiveKind(`type:${mode}`);
       label = "Practice";
-      body = <TypeCard key={k} item={item} mode={recallMode(item)} onGraded={onCheck} />;
+      body = <TypeCard key={k} item={item} mode={mode} onGraded={onCheck} />;
     }
   }
 
