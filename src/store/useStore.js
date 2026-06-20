@@ -192,6 +192,24 @@ export const useStore = create(
           ui: {},
         });
       },
+
+      // Dev-only playtest helper (wired behind import.meta.env.DEV in the UI):
+      // make every item due now across a spread of rungs so a single session
+      // shows all the active-recall card types. Kana cap at RECALLED (no awkward
+      // typed-kana production); vocab spread up to PRODUCED (Build).
+      devSeedReviews: () => {
+        set((s) => {
+          const items = { ...s.items };
+          const duePast = new Date(Date.now() - 1000);
+          Object.keys(items).forEach((id, i) => {
+            const it = items[id];
+            const maxR = it.type === "kana" ? 2 : 3;
+            const rung = 1 + (i % maxR);
+            items[id] = { ...it, rung, srs: { ...it.srs, due: duePast } };
+          });
+          return { items, daily: { ...s.daily, reviewsCleared: false } };
+        });
+      },
     }),
     {
       name: "vocalingo-v1",

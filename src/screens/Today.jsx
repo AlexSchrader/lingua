@@ -66,9 +66,15 @@ export default function Today() {
   const ja = useStore((s) => s.languages.ja);
   const dueItemsFn = useStore((s) => s.dueItems);
   const reviewsLockedFn = useStore((s) => s.reviewsLocked);
+  const devSeedReviews = useStore((s) => s.devSeedReviews);
 
   const due = useMemo(() => dueItemsFn(), [items, dueItemsFn]);
   const reviewsLocked = useMemo(() => reviewsLockedFn(), [items, daily, reviewsLockedFn]);
+
+  // Dev affordance is shown in dev builds, or on any build when the URL carries
+  // ?dev — so it can be triggered on the deployed Vercel preview for playtesting
+  // while staying hidden in normal use.
+  const devMode = import.meta.env.DEV || new URLSearchParams(location.search).has("dev");
 
   const reviewState = daily.reviewsCleared ? "done" : "active";
   const lessonState = daily.lessonDone ? "done" : reviewsLocked ? "locked" : "active";
@@ -194,6 +200,28 @@ export default function Today() {
       <div style={{ fontSize: 12, color: C.inkSoft, textAlign: "center" }}>
         {ja.flag} {ja.name} · {ja.level} · {ja.target} goal
       </div>
+
+      {/* Playtest shortcut — shown in dev builds, or on any build via ?dev. */}
+      {devMode && (
+        <button
+          onClick={() => {
+            devSeedReviews();
+            if (TODAY_LESSON) navigate(`/lesson/${TODAY_LESSON.id}`);
+          }}
+          style={{
+            padding: "8px 12px",
+            borderRadius: 10,
+            border: `1px dashed ${C.locked}`,
+            background: "transparent",
+            color: C.inkSoft,
+            fontSize: 12,
+            fontFamily: F.mono,
+            cursor: "pointer",
+          }}
+        >
+          DEV: force reviews due → play
+        </button>
+      )}
 
       {/* Version watermark */}
       <div

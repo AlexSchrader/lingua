@@ -1,5 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { C, F } from "../../theme.js";
+import { deriveGrade } from "../../store/grading.js";
 
 function shuffle(arr) {
   const a = [...arr];
@@ -10,17 +11,30 @@ function shuffle(arr) {
   return a;
 }
 
-// Visual build card ported from the mockup. Local interaction only: the learner
-// reconstructs the reading from scrambled syllable tiles. No real mastery write.
-// TODO: real LLM-generated build exercises.
-export default function BuildCard({ item, onAdvance }) {
+// Build card (rung PRODUCED): reconstruct the reading from scrambled syllable
+// tiles. App-judged — assembling the correct reading grades by speed; a wrong
+// final assembly grades `again`.
+export default function BuildCard({ item, onGraded }) {
   const target = (item.reading || item.front).replace(/[ˉ̄]/g, "");
   const tiles = useMemo(() => shuffle(target.split("")), [item.id, target]);
+  const shownAt = useRef(performance.now());
   const [picked, setPicked] = useState([]);
 
   const assembled = picked.map((i) => tiles[i]).join("");
   const correct = assembled === target;
   const full = picked.length === tiles.length;
+
+  const commit = () => {
+    const grade = correct
+      ? deriveGrade({
+          kind: "typed",
+          correct: true,
+          elapsedMs: performance.now() - shownAt.current,
+          target,
+        })
+      : "again";
+    onGraded(grade);
+  };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>
@@ -102,7 +116,7 @@ export default function BuildCard({ item, onAdvance }) {
           Reset
         </button>
         <button
-          onClick={onAdvance}
+          onClick={commit}
           disabled={!full}
           style={{
             flex: 1,

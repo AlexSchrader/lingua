@@ -1,18 +1,29 @@
 import { useMemo, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import PhaseShell from "../components/PhaseShell.jsx";
-import RecallCard from "../components/games/RecallCard.jsx";
-import TraceCard from "../components/games/TraceCard.jsx";
-import SpeakCard from "../components/games/SpeakCard.jsx";
+import TeachCard from "../components/games/TeachCard.jsx";
+import ChoiceCard from "../components/games/ChoiceCard.jsx";
+import TypeCard from "../components/games/TypeCard.jsx";
 import BuildCard from "../components/games/BuildCard.jsx";
 import { useStore } from "../store/useStore.js";
 import { getLesson } from "../data/index.js";
 import { C, F } from "../theme.js";
 
+// Pick the review card for an item from its mastery rung — the ladder doing its
+// job. New (rung 0) items are taught, not tested; that's handled separately.
+//   RECOGNIZED (1) → multiple choice
+//   RECALLED   (2) → type the meaning (kana: type the rōmaji)
+//   PRODUCED+  (3+) → produce the Japanese (vocab: build; kana: type)
+function reviewStepFor(item) {
+  const rung = item.rung ?? 1;
+  if (rung <= 1) return { kind: "choice" };
+  if (rung === 2) return { kind: "type", mode: "meaning" };
+  return item.type === "vocab" ? { kind: "build" } : { kind: "type", mode: "produce" };
+}
+
 // The daily session runner. It plays, in order:
-//   1. REVIEW   — every due item, graded (writes SRS + rung).
-//   2. LEARN    — the lesson's fresh items, graded (introduces them).
-//   3. PROVE    — a couple of production cards (speak/build) to close the loop.
+//   1. REVIEW — every due item, app-judged (computes grade → SRS + rung).
+//   2. LEARN  — the lesson's fresh items, taught (Teach card, no grading).
 // Finishing calls completeReviews + completeLesson + rollDailyGoal, then returns
 // to Today with the loop visibly satisfied.
 export default function Lesson() {
@@ -31,24 +42,18 @@ export default function Lesson() {
   // Snapshot the session queue once on mount so grading (which mutates due/rung)
   // doesn't reshuffle the steps mid-session.
   const steps = useMemo(() => {
-    const reviewQueue = dueItems().map((it) => ({ kind: "recall", phase: "review", id: it.id }));
+    // Reviews first (clear the debt), then teach new material.
+    const reviewQueue = dueItems().map((it) => ({
+      ...reviewStepFor(it),
+      phase: "review",
+      id: it.id,
+    }));
     const lessonItems = (lesson?.items ?? [])
       .map((def) => items[def.id])
       .filter(Boolean);
     const fresh = lessonItems.filter((it) => (it.rung ?? 0) < 1);
-    const learnQueue = (fresh.length ? fresh : lessonItems).map((it) => ({
-      kind: "recall",
-      phase: "learn",
-      id: it.id,
-    }));
-    // Prove-it phase: trace a kana, speak the first vocab, build the second.
-    const kana = lessonItems.filter((it) => it.type === "kana");
-    const vocab = lessonItems.filter((it) => it.type === "vocab");
-    const proveQueue = [];
-    if (kana[0]) proveQueue.push({ kind: "trace", phase: "prove", id: kana[0].id });
-    if (vocab[0]) proveQueue.push({ kind: "speak", phase: "prove", id: vocab[0].id });
-    if (vocab[1]) proveQueue.push({ kind: "build", phase: "prove", id: vocab[1].id });
-    return [...reviewQueue, ...learnQueue, ...proveQueue];
+    const learnQueue = fresh.map((it) => ({ kind: "teach", phase: "learn", id: it.id }));
+    return [...reviewQueue, ...learnQueue];
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lessonId]);
 
@@ -142,8 +147,7 @@ export default function Lesson() {
 
   const step = steps[idx];
   const item = items[step.id];
-  const phaseLabel =
-    step.phase === "review" ? "Review" : step.phase === "learn" ? "Learn" : "Prove it";
+  const phaseLabel = step.phase === "review" ? "Review" : "Learn";
 
   return (
     <PhaseShell
@@ -151,10 +155,14 @@ export default function Lesson() {
       progress={progress}
       onClose={() => navigate("/")}
     >
-      {step.kind === "recall" && <RecallCard item={item} onGrade={(g) => onGrade(item.id, g)} />}
-      {step.kind === "trace" && <TraceCard item={item} onAdvance={advance} />}
-      {step.kind === "speak" && <SpeakCard item={item} onAdvance={advance} />}
-      {step.kind === "build" && <BuildCard item={item} onAdvance={advance} />}
+      {step.kind === "teach" && <TeachCard item={item} onAdvance={advance} />}
+      {step.kind === "choice" && (
+        <ChoiceCard item={item} allItems={items} onGraded={(g) => onGrade(item.id, g)} />
+      )}
+      {step.kind === "type" && (
+        <TypeCard item={item} mode={step.mode} onGraded={(g) => onGrade(item.id, g)} />
+      )}
+      {step.kind === "build" && <BuildCard item={item} onGraded={(g) => onGrade(item.id, g)} />}
     </PhaseShell>
   );
 }
