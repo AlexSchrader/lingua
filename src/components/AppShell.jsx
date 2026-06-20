@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { Outlet } from "react-router-dom";
-import { Flame } from "lucide-react";
+import { Outlet, useNavigate } from "react-router-dom";
+import { Flame, Settings } from "lucide-react";
 import BottomNav from "./BottomNav.jsx";
 import { C, F } from "../theme.js";
 import { useStore } from "../store/useStore.js";
@@ -8,6 +8,7 @@ import { useStore } from "../store/useStore.js";
 // 100dvh flex column: pinned top bar, scrolling content, pinned bottom nav.
 // Fluid layout only — no device breakpoints.
 export default function AppShell() {
+  const navigate = useNavigate();
   const seedOnce = useStore((s) => s.seedOnce);
   const streak = useStore((s) => s.streak);
 
@@ -50,22 +51,45 @@ export default function AppShell() {
             VocaLingo
           </span>
         </div>
-        <div
-          aria-label="streak"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 5,
-            padding: "5px 11px",
-            borderRadius: 999,
-            background: C.aiSoft,
-            color: C.aiDeep,
-            fontWeight: 700,
-            fontSize: 13,
-          }}
-        >
-          <Flame size={15} color={C.shu} fill={streak.current > 0 ? C.shu : "none"} />
-          {streak.current}
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div
+            aria-label="streak"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 5,
+              padding: "5px 11px",
+              borderRadius: 999,
+              background: C.aiSoft,
+              color: C.aiDeep,
+              fontWeight: 700,
+              fontSize: 13,
+            }}
+          >
+            <Flame size={15} color={C.shu} fill={streak.current > 0 ? C.shu : "none"} />
+            {streak.current}
+          </div>
+          {/* Settings lives here as a gear (to the right of the streak), not in
+              the bottom nav, which stays the four primary tabs. */}
+          <button
+            aria-label="Settings"
+            onClick={() => navigate("/settings")}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 34,
+              height: 34,
+              borderRadius: 999,
+              border: "none",
+              background: "transparent",
+              color: C.inkSoft,
+              cursor: "pointer",
+              padding: 0,
+            }}
+          >
+            <Settings size={20} strokeWidth={1.9} />
+          </button>
         </div>
       </header>
 
