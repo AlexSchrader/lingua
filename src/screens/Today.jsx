@@ -9,13 +9,15 @@ import { VERSION } from "../version.js";
 // First playable (item-bearing) lesson — "today's lesson" for the scaffold.
 const TODAY_LESSON = UNITS[0].lessons.find((l) => l.items);
 
-function Step({ icon: Icon, n, title, sub, state }) {
+function Step({ icon: Icon, n, title, sub, state, onClick }) {
   // state: "active" | "done" | "locked"
   const done = state === "done";
   const locked = state === "locked";
+  const tappable = state === "active" && !!onClick;
   const accent = done ? C.matcha : locked ? C.locked : C.ai;
   return (
     <div
+      onClick={tappable ? onClick : undefined}
       style={{
         display: "flex",
         alignItems: "center",
@@ -25,6 +27,7 @@ function Step({ icon: Icon, n, title, sub, state }) {
         background: locked ? C.lockedBg : C.surface,
         border: `1px solid ${locked ? C.lockedBg : C.line}`,
         opacity: locked ? 0.7 : 1,
+        cursor: tappable ? "pointer" : "default",
       }}
     >
       <div
@@ -76,7 +79,8 @@ export default function Today() {
   // while staying hidden in normal use.
   const devMode = import.meta.env.DEV || new URLSearchParams(location.search).has("dev");
 
-  const reviewState = daily.reviewsCleared ? "done" : "active";
+  // No reviews to clear when the queue is empty — treat as already done.
+  const reviewState = daily.reviewsCleared || due.length === 0 ? "done" : "active";
   const lessonState = daily.lessonDone ? "done" : reviewsLocked ? "locked" : "active";
 
   // Is there still new material to learn? (rung-0 items remain in the lesson.)
@@ -145,7 +149,7 @@ export default function Today() {
         </div>
       )}
 
-      {/* The 3-step loop */}
+      {/* The 2-step loop */}
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         <Step
           icon={RotateCcw}
@@ -159,6 +163,7 @@ export default function Today() {
               : "Nothing due — you're clear"
           }
           state={reviewState}
+          onClick={start}
         />
         <Step
           icon={BookOpen}
@@ -172,6 +177,7 @@ export default function Today() {
               : TODAY_LESSON?.canDo ?? "Learn new items"
           }
           state={lessonState}
+          onClick={start}
         />
       </div>
 

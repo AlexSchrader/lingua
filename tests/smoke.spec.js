@@ -122,6 +122,15 @@ test("settings opens from the header gear, not the bottom nav", async ({ page })
   await expect(page.getByRole("button", { name: "Reset all progress" })).toBeVisible();
 });
 
+test("zero-reviews-due: review step shows done, CTA goes straight to lesson", async ({ page }) => {
+  // Fresh install: all items at rung 0, nothing reviewable. The review step
+  // should look done (green checkmark, "Nothing due — you're clear") and the
+  // CTA must not say "Start reviews" — it should offer the lesson directly.
+  await page.goto("/");
+  await expect(page.getByText("Nothing due — you're clear")).toBeVisible();
+  await expect(page.getByTestId("start-session")).toHaveText("Start lesson");
+});
+
 test("new words are taught, the loop completes, and it persists", async ({ page }) => {
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
