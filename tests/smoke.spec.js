@@ -115,6 +115,13 @@ test("can navigate all four tabs", async ({ page }) => {
   }
 });
 
+test("settings opens from the header gear, not the bottom nav", async ({ page }) => {
+  await page.goto("/");
+  // The header gear opens the Settings screen (content intact).
+  await page.getByRole("button", { name: "Settings" }).click();
+  await expect(page.getByRole("button", { name: "Reset all progress" })).toBeVisible();
+});
+
 test("new words are taught, the loop completes, and it persists", async ({ page }) => {
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
