@@ -55,6 +55,12 @@ for (let i = 0; i < items.length; i++) {
   const out = join(OUT_DIR, `${item.id}.mp3`);
   const tag = `[${String(i + 1).padStart(2)}/${items.length}] ${item.id}`;
 
+  // Kana items: send the romaji reading (e.g. "no", "ka") so the model
+  // produces a clean isolated phoneme. Sending a raw kana character causes
+  // the multilingual model to read it as a particle/word and mispronounce it.
+  // Vocab items: send the full Japanese text — the model handles full words well.
+  const text = item.type === "kana" ? item.reading : item.front;
+
   if (existsSync(out)) {
     console.log(`  skip   ${tag}`);
     skipped++;
@@ -70,9 +76,16 @@ for (let i = 0; i < items.length; i++) {
         Accept: "audio/mpeg",
       },
       body: JSON.stringify({
-        text: item.front,
+        text,
         model_id: "eleven_multilingual_v2",
-        voice_settings: { stability: 0.65, similarity_boost: 0.75 },
+        // Lower stability = more natural human variation (less flat/robotic).
+        // style adds expressiveness; use_speaker_boost sharpens clarity.
+        voice_settings: {
+          stability: 0.35,
+          similarity_boost: 0.80,
+          style: 0.25,
+          use_speaker_boost: true,
+        },
       }),
     });
 
@@ -84,7 +97,7 @@ for (let i = 0; i < items.length; i++) {
     }
 
     writeFileSync(out, Buffer.from(await res.arrayBuffer()));
-    console.log(`  gen    ${tag}  "${item.front}"`);
+    console.log(`  gen    ${tag}  "${text}"`);
     done++;
   } catch (err) {
     console.error(`  ERROR  ${tag}: ${err.message}`);
