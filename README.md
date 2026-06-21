@@ -39,12 +39,12 @@ across reload, and every `LIVE_CARD_KIND` is exercised in a single session.
 > `cdn.playwright.dev` is blocked, run smoke tests on a machine with network access.
 
 ## Architecture
-- `src/store/useStore.js` — app state + actions (seed, grade, daily loop, streak).
+- `src/store/useStore.js` — app state + actions (seed, grade, daily loop, streak, cascade, `inventoryFor`).
 - `src/store/learnQueue.js` — in-session teach → check1 → check2 → graduate loop.
 - `src/store/srs.js` / `fsrs.js` — FSRS scheduling (via `ts-fsrs`).
 - `src/store/answer.js` — typed-answer checking with romaji normalisation.
 - `src/store/grading.js` — derives FSRS grade from correctness + response speed.
-- `src/data/contract.js` — `LIVE_CARD_KINDS` list + `validateContent()` (10 hard
+- `src/data/contract.js` — `LIVE_CARD_KINDS` list + `validateContent()` (11 hard
   rules + 2 warnings; item key allowlist enforced; run via `validate:content`).
 - `src/data/index.js` — imports all units, seeds items into the store on first run.
 - `src/data/ja/unit1.js` — 5 lessons: あ/か/さ/た/な rows + thematic vocab.
@@ -59,5 +59,4 @@ it enforces id patterns, CEFR fields, kana-no-duplicates, reading normalisabilit
 and the item key allowlist. CI runs it first before any tests.
 
 ## Not yet built
-Whisper speech grading · KanjiVG tracing · ElevenLabs audio · real Haruki agent ·
-A1 gate math + cascade unlock · leaderboards.
+Whisper speech grading · KanjiVG tracing · ElevenLabs audio · real Haruki agent · leaderboards.
