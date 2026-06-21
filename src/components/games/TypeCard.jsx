@@ -66,6 +66,7 @@ export default function TypeCard({ item, mode, onGraded }) {
   return (
     <div
       data-testid="type-card"
+      data-card-kind={mode === "produce" ? "type:produce" : "type:meaning"}
       data-answer={spec.answer}
       style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}
     >
@@ -92,7 +93,11 @@ export default function TypeCard({ item, mode, onGraded }) {
         data-testid="type-input"
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && !feedback && submit()}
+        onKeyDown={(e) => {
+          if (e.key !== "Enter") return;
+          if (feedback) onGraded(grade);
+          else submit();
+        }}
         disabled={feedback}
         autoFocus
         autoComplete="off"
