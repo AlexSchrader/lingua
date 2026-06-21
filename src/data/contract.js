@@ -19,6 +19,7 @@ const VALID_CEFR = Object.keys(CEFR_ORDER);
 const VALID_DOMINANT_MODE = ["recall", "recognize", "produce", "speak", "trace"];
 const VALID_ITEM_TYPES = ["kana", "vocab"];
 const LOCKED_STUB_KEYS = new Set(["id", "title", "locked"]);
+const ITEM_KEYS = new Set(["id", "type", "front", "reading", "meaning", "example", "accept", "hint"]);
 const UNIT_ID_RE = /^[a-z]{2}-u\d+$/;
 const LESSON_ID_RE = /^[a-z]{2}-u\d+l\d+$/;
 const ITEM_ID_RE = /^[a-z]{2}-u\d+l\d+-[a-z0-9]+$/;
@@ -131,6 +132,10 @@ export function validateContent(units, languages) {
           if (itemIds.has(item.id)) e(`item ${item.id}: duplicate id`);
           itemIds.add(item.id);
 
+          const strayItemKeys = Object.keys(item).filter((k) => !ITEM_KEYS.has(k));
+          if (strayItemKeys.length)
+            e(`item ${item.id}: unknown field(s): ${strayItemKeys.join(", ")}`);
+
           if (!ITEM_ID_RE.test(item.id))
             e(`item ${item.id}: id must match ${ITEM_ID_RE}`);
           if (!VALID_ITEM_TYPES.includes(item.type))
@@ -144,6 +149,9 @@ export function validateContent(units, languages) {
             if (!/^[a-z]+$/.test(norm))
               e(`item ${item.id}: reading "${item.reading}" normalizes to "${norm}" which contains non-latin characters`);
           }
+
+          if (item.hint !== undefined && (typeof item.hint !== "string" || !item.hint.trim()))
+            e(`item ${item.id}: hint must be a non-empty string if present`);
 
           if (item.type === "kana") {
             if (item.meaning !== null)

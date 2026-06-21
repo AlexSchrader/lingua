@@ -76,6 +76,7 @@ Only three fields are allowed — any additional field is a validation error.
 | reading | string  | ✓        | romaji; must be `[a-z]+` after `normalizeReading()` |
 | meaning | `null`  | ✓        | must be `null` for kana |
 | example | `null`  | ✓        | must be `null` for kana |
+| hint    | string (opt) |     | visual/sound mnemonic shown on TeachCard; must be non-empty if present |
 
 Each kana **character** (not item) may appear in the corpus at most once.
 
@@ -90,6 +91,7 @@ Each kana **character** (not item) may appear in the corpus at most once.
 | meaning | string            | ✓        | English gloss; non-empty |
 | example | `{ jp, en }`      | ✓        | one sentence in each language |
 | accept  | string[] (opt)    |          | alternate accepted meanings for typed answers |
+| hint    | string (opt)      |          | memory hook shown on TeachCard; must be non-empty if present |
 
 ---
 
@@ -135,6 +137,8 @@ Dormant (not yet wired):
 8. Vocab items have a non-empty `meaning` and a `{ jp, en }` example.
 9. Each `reading` is `[a-z]+` after `normalizeReading()` (no stray kana or spaces).
 10. Each kana *character* appears in at most one item across the corpus.
+11. Items contain only known fields: `{ id, type, front, reading, meaning, example, accept, hint }`.
+    Any unknown key is a hard error. `hint` must be a non-empty string if present.
 
 ## Validation rules (warnings — advisory)
 
