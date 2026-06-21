@@ -55,15 +55,15 @@ for (let i = 0; i < items.length; i++) {
   const out = join(OUT_DIR, `${item.id}.mp3`);
   const tag = `[${String(i + 1).padStart(2)}/${items.length}] ${item.id}`;
 
-  // Kana items → send romaji. "ka", "shi", "tsu" etc. are unambiguous in any
-  // language. Two vowels need phonetic overrides: bare "i" is read as the
-  // English pronoun "I" (eye sound); bare "u" triggers a verbal filler.
-  // "ee" and "oo" give the correct Japanese vowel sounds without language_code.
-  // Vocab items → send full Japanese text; multi-character words are fine as-is.
-  const ROMAJI_FIX = { i: "ee", u: "oo" };
-  const text = item.type === "kana"
-    ? (ROMAJI_FIX[item.reading] ?? item.reading)
-    : item.front;
+  // Kana items: convert hiragana → katakana before sending with language_code:"ja".
+  // Katakana is the phonetic script for isolated/foreign sounds — Haruki reads
+  // ア, カ, ノ as clean phonemes without word-completing them.
+  // Hiragana alone (あ, か) gets completed into words ("asai", "da").
+  // Romaji gets Japanese-English accent ("oo"→"oh", "e"→"ay") because Haruki
+  // is a Japanese voice. Katakana + language_code:"ja" is the correct fix.
+  // Vocab items send hiragana/kanji text as-is — multi-char words are fine.
+  const toKatakana = (s) => s.replace(/[ぁ-ゖ]/g, (c) => String.fromCharCode(c.charCodeAt(0) + 0x60));
+  const text = item.type === "kana" ? toKatakana(item.front) : item.front;
 
   if (existsSync(out)) {
     console.log(`  skip   ${tag}`);
@@ -82,6 +82,7 @@ for (let i = 0; i < items.length; i++) {
       body: JSON.stringify({
         text,
         model_id: "eleven_multilingual_v2",
+        language_code: "ja",
         voice_settings: {
           stability: 0.35,
           similarity_boost: 0.80,
