@@ -31,12 +31,11 @@ Mark work that's actively being built (PR open, not merged) as `[~]` with
 
 ## Status at a glance
 
-- **Current phase:** Phase 2 — Curriculum (Units 2–5)
-- **In flight:** PR #11 (draft, Phase 1) waiting for Alex merge. PR #12 (draft, Phase 2) adds
-  lessons 2–5 (か/さ/た/な rows), dynamic lesson progression, kana memory hooks, accept[]
-  synonym arrays, real A1 progress math on Ladder, generalized cascade, and `inventoryFor`.
-  Depends on PR #11 merging first.
-- **Next action (Alex):** merge PR #11 → rebase PR #12 onto main → CI green → merge.
+- **Current phase:** Phase 2 — COMPLETE. Phase 3 (audio) is next.
+- **In flight:** nothing. Both PRs merged (#11 + #13).
+- **Next action (Alex):** `?dev` feel-check of the 5-lesson progression rhythm — play through
+  all 5 lessons, note any timing or pacing that feels off, report back. Phase 3 (audio clips)
+  can start in parallel.
 - **Last updated:** 2026-06-21
 
 **Legend:** `[ ]` todo — `[~]` in progress (PR open) — `[x]` done (stamped)
@@ -59,43 +58,43 @@ shell. This is the "not flashcards" core, and it's live on `main`.
 
 ---
 
-## Phase 1 — Content contract + validator — IN PROGRESS
+## Phase 1 — Content contract + validator — COMPLETE
 
 The structural lock: content becomes pure schema-validated data; bad content can't ship.
 Must land before mass curriculum. Brief: `BUILD-BRIEF-content-contract.md`.
 
-- [~] `src/data/contract.js` — `validateContent()` (10 hard rules) + `LIVE_CARD_KINDS`; `scripts/validate-content.mjs` CLI; `CONTENT.md` schema reference — STARTED 2026-06-21, PR #11
-- [~] Hard validation rules — global id uniqueness, id patterns, per-type field rules, lesson/unit numbering, kana-no-duplicates invariant, reading normalizability (via `normalizeReading`) — STARTED 2026-06-21, PR #11
-- [~] Validation warning — distractor sparseness (≥3 same-type peers needed for 4-option choice card) — STARTED 2026-06-21, PR #11
-- [~] Validation warning — empty `accept[]` on multi-word vocab (typed-meaning check rejects valid paraphrases; advisory only) — STARTED 2026-06-21, PR #11
-- [~] Add `cefr` field to every existing lesson — `ja-u1l1` is the only playable lesson; `cefr: "A1"` added — STARTED 2026-06-21, PR #11
-- [~] Validate existing `languages.js` shape (`target`/`unlock`/`unlocked`/`id`) — checked in `validateContent`; no migration needed — STARTED 2026-06-21, PR #11
-- [~] `inventoryFor({lang, maxLevel, maxRung})` selector — on-topic curriculum filter for future Haruki — STARTED 2026-06-21, PR #12
-- [~] Card-kind coverage matrix — `kindFixtureState` fixture in smoke tests exercises every `LIVE_CARD_KINDS` entry; runner asserts with `assertLiveKind`; `test.skip` stubs for `trace`/`speak` — STARTED 2026-06-21, PR #11
-- [~] CI wiring — `validate:content` first, then `test:unit` (28 tests, `node --test` glob; supersedes vitest plan since no extra dep needed), broken-fixture coverage in `contract.test.mjs` — STARTED 2026-06-21, PR #11
-- [~] App fix included in PR #11: React 19 / Zustand `useSyncExternalStore` ordering bug in `Lesson.jsx` (`setLearn` before `graduateItem`) — this was the root cause of lesson sessions getting stuck at `type:produce` — STARTED 2026-06-21, PR #11
-- [ ] Alex `?dev` phone feel-check of A.1 reinforcement rhythm + timing fairness (can run in parallel with Phase 2; report vibe → tune constants if off)
+- [x] `src/data/contract.js` — `validateContent()` (11 hard rules) + `LIVE_CARD_KINDS`; `scripts/validate-content.mjs` CLI; `CONTENT.md` schema reference — DONE 2026-06-21, PR #11
+- [x] Hard validation rules — global id uniqueness, id patterns, per-type field rules, lesson/unit numbering, kana-no-duplicates invariant, reading normalizability (via `normalizeReading`), item key allowlist — DONE 2026-06-21, PR #11
+- [x] Validation warning — distractor sparseness (≥3 same-type peers needed for 4-option choice card) — DONE 2026-06-21, PR #11
+- [x] Validation warning — empty `accept[]` on multi-word vocab (typed-meaning check rejects valid paraphrases; advisory only) — DONE 2026-06-21, PR #11
+- [x] Add `cefr` field to every existing lesson — `ja-u1l1` is the only playable lesson; `cefr: "A1"` added — DONE 2026-06-21, PR #11
+- [x] Validate existing `languages.js` shape (`target`/`unlock`/`unlocked`/`id`) — checked in `validateContent`; no migration needed — DONE 2026-06-21, PR #11
+- [x] `inventoryFor({lang, maxLevel, maxRung})` selector — on-topic curriculum filter for future Haruki — DONE 2026-06-21, PR #13
+- [x] Card-kind coverage matrix — `kindFixtureState` fixture in smoke tests exercises every `LIVE_CARD_KINDS` entry; runner asserts with `assertLiveKind`; `test.skip` stubs for `trace`/`speak` — DONE 2026-06-21, PR #11
+- [x] CI wiring — `validate:content` first, then `test:unit` (30 tests, `node --test` glob), broken-fixture coverage in `contract.test.mjs` — DONE 2026-06-21, PR #11
+- [x] App fix included in PR #11: React 19 / Zustand `useSyncExternalStore` ordering bug in `Lesson.jsx` (`setLearn` before `graduateItem`) — this was the root cause of lesson sessions getting stuck at `type:produce` — DONE 2026-06-21, PR #11
+- [ ] Alex `?dev` phone feel-check of A.1 reinforcement rhythm + timing fairness (can run in parallel with Phase 3; report vibe → tune constants if off)
 
 ---
 
-## Phase 2 — Curriculum (Units 2–5)
+## Phase 2 — Curriculum (Units 2–5) — COMPLETE
 
 Turns the one-lesson demo into a real daily-usable app. Has the contract to validate
 against and the gate fields to compute the real cascade.
 
-- [~] Author Unit 1 lessons 2–5 as contract-valid data — か/さ/た/な rows (5 kana + 6 vocab each, 44 new items); all validate:content clean — STARTED 2026-06-21, PR #12
-- [~] `cefr: "A1"` band on every new lesson — all 4 new lessons tagged — STARTED 2026-06-21, PR #12
-- [~] Fill `accept[]` synonym arrays — added to all new vocab items (and retro-fitted to lesson 1 vocab) to reduce typed-answer friction — STARTED 2026-06-21, PR #12
-- [~] Kana memory hooks — `hint` field on every kana item; displayed on TeachCard as "Memory hook: …" in soft italic box — STARTED 2026-06-21, PR #12 (neurodivergent-friendly: visual-association mnemonics for each character)
-- [~] Dynamic lesson progression — Today screen advances `currentLesson` to the first lesson with rung-0 items; no hardcoded lesson 1; shows "Lesson N/5 · ~X min" — STARTED 2026-06-21, PR #12
-- [~] Fix kana learn-step pedagogy — `recallMode()` now returns "meaning" for all items at check2 (kana: show character → type rōmaji); "produce" kana only at rung 3+ in reviews — STARTED 2026-06-21, PR #12
-- [~] `inventoryFor({lang, maxLevel, maxRung})` selector — on-topic curriculum filter for Haruki; pure store selector, CEFR+rung scoped — STARTED 2026-06-21, PR #12
-- [~] Validation warning — empty `accept[]` on multi-word vocab — STARTED 2026-06-21, PR #11
-- [~] Generalize `checkCascade` — now reads `unlock: {lang, level}` from LANGUAGES data; handles ja→es AND es→fr; no hardcoding — STARTED 2026-06-21, PR #12
-- [~] Define the "A1 complete" predicate — `isLevelComplete(langId, "A1", items)` in useStore.js; fires from `completeLesson` and `rollDailyGoal` — STARTED 2026-06-21, PR #12
-- [~] Fix `es`/`fr` `target` — changed from `"A1"` to `"B1"` (aspirational side-language goal) — STARTED 2026-06-21, PR #12
-- [~] Replace Ladder A1% XP placeholder with real progress math — `a1PercentFor(langId, items)` counts rung≥1 items / total A1 items — STARTED 2026-06-21, PR #12
-- [ ] Alex `?dev` feel-check of 5-lesson progression rhythm (can run in parallel with next PR)
+- [x] Author Unit 1 lessons 2–5 as contract-valid data — か/さ/た/な rows (5 kana + 6 vocab each, 44 new items); all validate:content clean — DONE 2026-06-21, PR #13
+- [x] `cefr: "A1"` band on every new lesson — all 4 new lessons tagged — DONE 2026-06-21, PR #13
+- [x] Fill `accept[]` synonym arrays — added to all new vocab items (and retro-fitted to lesson 1 vocab) to reduce typed-answer friction — DONE 2026-06-21, PR #13
+- [x] Kana memory hooks — `hint` field on every kana item; displayed on TeachCard as "Memory hook: …" in soft italic box — DONE 2026-06-21, PR #13 (neurodivergent-friendly: visual-association mnemonics for each character)
+- [x] Dynamic lesson progression — Today screen advances `currentLesson` to the first lesson with rung-0 items; no hardcoded lesson 1; shows "Lesson N/5 · ~X min" — DONE 2026-06-21, PR #13
+- [x] Fix kana learn-step pedagogy — `recallMode()` now returns "meaning" for all items at check2 (kana: show character → type rōmaji); "produce" kana only at rung 3+ in reviews — DONE 2026-06-21, PR #13
+- [x] `inventoryFor({lang, maxLevel, maxRung})` selector — on-topic curriculum filter for Haruki; pure store selector, CEFR+rung scoped — DONE 2026-06-21, PR #13
+- [x] Validation warning — empty `accept[]` on multi-word vocab — DONE 2026-06-21, PR #11
+- [x] Generalize `checkCascade` — now reads `unlock: {lang, level}` from LANGUAGES data; handles ja→es AND es→fr; no hardcoding — DONE 2026-06-21, PR #13
+- [x] Define the "A1 complete" predicate — `isLevelComplete(langId, "A1", items)` in useStore.js; fires from `completeLesson` and `rollDailyGoal` — DONE 2026-06-21, PR #13
+- [x] Fix `es`/`fr` `target` — changed from `"A1"` to `"B1"` (aspirational side-language goal) — DONE 2026-06-21, PR #13
+- [x] Replace Ladder A1% XP placeholder with real progress math — `a1PercentFor(langId, items)` counts rung≥1 items / total A1 items — DONE 2026-06-21, PR #13
+- [ ] Alex `?dev` feel-check of 5-lesson progression rhythm (report any timing/pacing that feels off → tune constants)
 
 ---
 
