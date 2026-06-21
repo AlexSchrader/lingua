@@ -1,13 +1,14 @@
 # VocaLingo
 
 A phone-first PWA for learning languages through a tight daily loop:
-**clear reviews → lesson → prove it**. This is Build Brief 1 — an end-to-end
-scaffold with all four screens, a persistent data layer, and one fully playable
-lesson (Japanese Unit 1, Lesson 1: Greetings).
+**clear reviews → lesson → prove it**. Japanese Unit 1 has 5 playable lessons
+(あ/か/さ/た/な rows, greetings, and ~55 vocabulary items) with FSRS spaced
+repetition, app-judged recall, and kana memory hooks.
 
 ## Stack
 - Vite 5 + React 19
 - PWA via `vite-plugin-pwa` (`autoUpdate`, installable, offline precache)
+- `ts-fsrs` — open-source FSRS scheduler (Free Spaced Repetition Scheduler)
 - Zustand + `persist` → localStorage (isolated behind `store/` so it can swap to
   IndexedDB later)
 - `react-router-dom` (App.jsx holds routes only)
@@ -16,42 +17,46 @@ lesson (Japanese Unit 1, Lesson 1: Greetings).
 ## Run
 ```bash
 npm install
-npm run dev        # http://localhost:5173
-npm run build      # production build
-npm run preview    # serve the build
+npm run dev              # http://localhost:5173
+npm run build            # production build
+npm run preview          # serve the build
+npm run validate:content # check content schema (hard errors + warnings)
 ```
-
-## Architecture
-- `src/store/useStore.js` — the whole app state + actions (seed, grade, daily
-  loop, streak, cascade).
-- `src/store/srs.js` — simple swappable interval scheduler (FSRS drops in later).
-- `src/store/mastery.js` — mastery rungs (`SEEN…MASTERED`) and gate checks.
-- `src/data/` — language defs + cascade and seeded lesson content.
-- `src/screens/` — Today, Ladder, Haruki, Stats, Lesson (session runner).
-- `src/components/games/` — RecallCard (wired), Trace/Speak/Build (visual).
 
 ## Tests
 ```bash
-npx playwright install chromium   # one-time; needs network access to the
-                                  # Playwright CDN
-npm test                          # dev mode
-SMOKE_MODE=preview npm test       # against the production build
+npx playwright install chromium   # one-time setup
+npm run test:unit                 # 30 unit tests (FSRS, SRS logic, content schema)
+npm test                          # 7 Playwright smoke tests (dev)
+SMOKE_MODE=preview npm test       # same tests against the production build
 ```
-`tests/smoke.spec.js` guards "works in dev, blank on prod": it asserts the app
-mounts with no console errors, all four tabs navigate, and the daily loop runs
-end to end and persists across reload.
 
-> Note: the smoke tests require the Playwright Chromium browser. In sandboxes
-> where `cdn.playwright.dev` is not on the network allowlist, run them on a
-> machine with network access (or add the host to the egress settings).
+`tests/smoke.spec.js` asserts: app mounts clean, all tabs navigate, the daily loop
+runs end-to-end (teach → choice → typed recall → build → graduate), grades persist
+across reload, and every `LIVE_CARD_KIND` is exercised in a single session.
 
-## Icons & branding
-Brand assets live in `public/`: the ladder mark on ai-indigo as `icon-192.png`
-/ `icon-512.png` (PWA + in-app header), `icon-maskable-512.png` (Android safe
-zone), `apple-touch-icon.png` (180), `favicon-32.png`, and `preview-rounded.png`
-(og/social). The manifest and `index.html` reference them; to refresh the set,
-replace the files in `public/`.
+> Playwright requires the Chromium browser. In sandboxes where
+> `cdn.playwright.dev` is blocked, run smoke tests on a machine with network access.
 
-## Not in this brief
-Real FSRS tuning · Whisper speech grading · KanjiVG tracing · LLM practice · the
-Haruki API · Units 2–5 content · A1 gate math + real cascade · leaderboards.
+## Architecture
+- `src/store/useStore.js` — app state + actions (seed, grade, daily loop, streak, cascade, `inventoryFor`).
+- `src/store/learnQueue.js` — in-session teach → check1 → check2 → graduate loop.
+- `src/store/srs.js` / `fsrs.js` — FSRS scheduling (via `ts-fsrs`).
+- `src/store/answer.js` — typed-answer checking with romaji normalisation.
+- `src/store/grading.js` — derives FSRS grade from correctness + response speed.
+- `src/data/contract.js` — `LIVE_CARD_KINDS` list + `validateContent()` (11 hard
+  rules + 2 warnings; item key allowlist enforced; run via `validate:content`).
+- `src/data/index.js` — imports all units, seeds items into the store on first run.
+- `src/data/ja/unit1.js` — 5 lessons: あ/か/さ/た/な rows + thematic vocab.
+- `src/screens/` — Today, Ladder, Haruki, Stats, Lesson (session runner).
+- `src/components/games/` — TeachCard, ChoiceCard, TypeCard, BuildCard.
+- `CONTENT.md` — schema reference for adding new content.
+
+## Content
+Content lives in `src/data/ja/`. Each unit file exports an object that matches the
+schema in `CONTENT.md`. Run `npm run validate:content` after any content change —
+it enforces id patterns, CEFR fields, kana-no-duplicates, reading normalisability,
+and the item key allowlist. CI runs it first before any tests.
+
+## Not yet built
+Whisper speech grading · KanjiVG tracing · ElevenLabs audio · real Haruki agent · leaderboards.

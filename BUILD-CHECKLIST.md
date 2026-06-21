@@ -31,11 +31,12 @@ Mark work that's actively being built (PR open, not merged) as `[~]` with
 
 ## Status at a glance
 
-- **Current phase:** Phase 1 — Content contract + validator
-- **In flight:** PR #11 (draft) covers almost all of Phase 1. Needs Alex review + merge.
-- **Next action (Alex):** un-draft and merge PR #11 after CI green + feel-check. Then two
-  remaining Phase 1 items (`inventoryFor` selector and the `accept[]` warning) can land
-  in Phase 2 prep or a follow-up PR — neither blocks Phase 2 curriculum work.
+- **Current phase:** Phase 2 — Curriculum (Units 2–5)
+- **In flight:** PR #11 (draft, Phase 1) waiting for Alex merge. PR #12 (draft, Phase 2) adds
+  lessons 2–5 (か/さ/た/な rows), dynamic lesson progression, kana memory hooks, accept[]
+  synonym arrays, real A1 progress math on Ladder, generalized cascade, and `inventoryFor`.
+  Depends on PR #11 merging first.
+- **Next action (Alex):** merge PR #11 → rebase PR #12 onto main → CI green → merge.
 - **Last updated:** 2026-06-21
 
 **Legend:** `[ ]` todo — `[~]` in progress (PR open) — `[x]` done (stamped)
@@ -66,10 +67,10 @@ Must land before mass curriculum. Brief: `BUILD-BRIEF-content-contract.md`.
 - [~] `src/data/contract.js` — `validateContent()` (10 hard rules) + `LIVE_CARD_KINDS`; `scripts/validate-content.mjs` CLI; `CONTENT.md` schema reference — STARTED 2026-06-21, PR #11
 - [~] Hard validation rules — global id uniqueness, id patterns, per-type field rules, lesson/unit numbering, kana-no-duplicates invariant, reading normalizability (via `normalizeReading`) — STARTED 2026-06-21, PR #11
 - [~] Validation warning — distractor sparseness (≥3 same-type peers needed for 4-option choice card) — STARTED 2026-06-21, PR #11
-- [ ] Validation warning — empty `accept[]` on multi-word vocab (typed-meaning check rejects valid paraphrases; advisory only)
+- [~] Validation warning — empty `accept[]` on multi-word vocab (typed-meaning check rejects valid paraphrases; advisory only) — STARTED 2026-06-21, PR #11
 - [~] Add `cefr` field to every existing lesson — `ja-u1l1` is the only playable lesson; `cefr: "A1"` added — STARTED 2026-06-21, PR #11
 - [~] Validate existing `languages.js` shape (`target`/`unlock`/`unlocked`/`id`) — checked in `validateContent`; no migration needed — STARTED 2026-06-21, PR #11
-- [ ] `inventoryFor({lang, maxLevel, maxRung})` selector — on-topic curriculum filter for future Haruki; can land in Phase 2 prep
+- [~] `inventoryFor({lang, maxLevel, maxRung})` selector — on-topic curriculum filter for future Haruki — STARTED 2026-06-21, PR #12
 - [~] Card-kind coverage matrix — `kindFixtureState` fixture in smoke tests exercises every `LIVE_CARD_KINDS` entry; runner asserts with `assertLiveKind`; `test.skip` stubs for `trace`/`speak` — STARTED 2026-06-21, PR #11
 - [~] CI wiring — `validate:content` first, then `test:unit` (28 tests, `node --test` glob; supersedes vitest plan since no extra dep needed), broken-fixture coverage in `contract.test.mjs` — STARTED 2026-06-21, PR #11
 - [~] App fix included in PR #11: React 19 / Zustand `useSyncExternalStore` ordering bug in `Lesson.jsx` (`setLearn` before `graduateItem`) — this was the root cause of lesson sessions getting stuck at `type:produce` — STARTED 2026-06-21, PR #11
@@ -82,13 +83,19 @@ Must land before mass curriculum. Brief: `BUILD-BRIEF-content-contract.md`.
 Turns the one-lesson demo into a real daily-usable app. Has the contract to validate
 against and the gate fields to compute the real cascade.
 
-- [ ] Author Units 2–5 lessons as contract-valid data (6–8 themed vocab/lesson; verified kana accumulation; greetings/goodbyes kept together)
-- [ ] `cefr` band on every new lesson
-- [ ] Generalize `checkCascade` to READ the `unlock: {lang, level}` field (currently hardcodes ja→es and ignores it; doesn't handle es→fr)
-- [ ] Define the "A1 complete" predicate (derive from `cefr:A1` lesson completion)
-- [ ] Fix `es`/`fr` `target` — currently `"A1"`, should reflect A2–B1 side-language goals (likely `B1`, with A2 milestone)
-- [ ] Replace Ladder A1% XP placeholder with real progress math
-- [ ] Fill `accept[]` synonym arrays where typed-meaning rejects valid answers
+- [~] Author Unit 1 lessons 2–5 as contract-valid data — か/さ/た/な rows (5 kana + 6 vocab each, 44 new items); all validate:content clean — STARTED 2026-06-21, PR #12
+- [~] `cefr: "A1"` band on every new lesson — all 4 new lessons tagged — STARTED 2026-06-21, PR #12
+- [~] Fill `accept[]` synonym arrays — added to all new vocab items (and retro-fitted to lesson 1 vocab) to reduce typed-answer friction — STARTED 2026-06-21, PR #12
+- [~] Kana memory hooks — `hint` field on every kana item; displayed on TeachCard as "Memory hook: …" in soft italic box — STARTED 2026-06-21, PR #12 (neurodivergent-friendly: visual-association mnemonics for each character)
+- [~] Dynamic lesson progression — Today screen advances `currentLesson` to the first lesson with rung-0 items; no hardcoded lesson 1; shows "Lesson N/5 · ~X min" — STARTED 2026-06-21, PR #12
+- [~] Fix kana learn-step pedagogy — `recallMode()` now returns "meaning" for all items at check2 (kana: show character → type rōmaji); "produce" kana only at rung 3+ in reviews — STARTED 2026-06-21, PR #12
+- [~] `inventoryFor({lang, maxLevel, maxRung})` selector — on-topic curriculum filter for Haruki; pure store selector, CEFR+rung scoped — STARTED 2026-06-21, PR #12
+- [~] Validation warning — empty `accept[]` on multi-word vocab — STARTED 2026-06-21, PR #11
+- [~] Generalize `checkCascade` — now reads `unlock: {lang, level}` from LANGUAGES data; handles ja→es AND es→fr; no hardcoding — STARTED 2026-06-21, PR #12
+- [~] Define the "A1 complete" predicate — `isLevelComplete(langId, "A1", items)` in useStore.js; fires from `completeLesson` and `rollDailyGoal` — STARTED 2026-06-21, PR #12
+- [~] Fix `es`/`fr` `target` — changed from `"A1"` to `"B1"` (aspirational side-language goal) — STARTED 2026-06-21, PR #12
+- [~] Replace Ladder A1% XP placeholder with real progress math — `a1PercentFor(langId, items)` counts rung≥1 items / total A1 items — STARTED 2026-06-21, PR #12
+- [ ] Alex `?dev` feel-check of 5-lesson progression rhythm (can run in parallel with next PR)
 
 ---
 

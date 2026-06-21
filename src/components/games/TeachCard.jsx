@@ -40,6 +40,23 @@ export default function TeachCard({ item, onAdvance }) {
           </div>
         )}
 
+        {item.hint && (
+          <div
+            style={{
+              fontSize: 12,
+              color: C.inkSoft,
+              fontStyle: "italic",
+              textAlign: "center",
+              maxWidth: 280,
+              padding: "8px 14px",
+              background: C.washi,
+              borderRadius: 10,
+            }}
+          >
+            Memory hook: {item.hint}
+          </div>
+        )}
+
         {/* Audio slot reserved for Brief B. */}
         <button
           disabled

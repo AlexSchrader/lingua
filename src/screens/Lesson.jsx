@@ -35,10 +35,10 @@ function reviewStepFor(item) {
   return item.type === "vocab" ? { kind: "build" } : { kind: "type", mode: "produce" };
 }
 
-// The recall (check2) card for an item in its learning steps: recall the meaning
-// (vocab) or produce the rōmaji (kana).
-function recallMode(item) {
-  return item.type === "vocab" ? "meaning" : "produce";
+// The recall (check2) card for an item in its learning steps: type the meaning
+// (vocab) or the rōmaji (kana). "produce" kana only appears at rung 3+ in reviews.
+function recallMode() {
+  return "meaning";
 }
 
 // The daily session runner (Brief A.1):
