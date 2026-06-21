@@ -55,11 +55,11 @@ for (let i = 0; i < items.length; i++) {
   const out = join(OUT_DIR, `${item.id}.mp3`);
   const tag = `[${String(i + 1).padStart(2)}/${items.length}] ${item.id}`;
 
-  // Always send the Japanese text. language_code:"ja" forces the multilingual
-  // model to interpret every character as Japanese phonetics — single kana
-  // like い or の are pronounced as their correct Japanese phonemes instead of
-  // being read as English ("I", "no" interjection, etc.).
-  const text = item.front;
+  // Single kana characters (あ, か, の…) get word-completed by the TTS model
+  // when sent alone — e.g. "あ" becomes "asai". Appending the long-vowel mark
+  // "ー" forces the model to read just the mora sound ("aー", "kaー") with no
+  // ambiguity. Multi-character items (vocab words) are sent as-is.
+  const text = item.front.length === 1 ? item.front + "ー" : item.front;
 
   if (existsSync(out)) {
     console.log(`  skip   ${tag}`);
