@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
+import { sfxClick } from "../../store/sfx.js";
 
 function useItemAudio(itemId) {
   const ref = useRef(null);
@@ -97,7 +98,7 @@ export default function TeachCard({ item, onAdvance }) {
       </div>
 
       <button
-        onClick={onAdvance}
+        onClick={() => { sfxClick(); onAdvance(); }}
         style={{
           padding: 16,
           borderRadius: 14,
