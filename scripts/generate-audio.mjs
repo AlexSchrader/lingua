@@ -6,8 +6,16 @@
  *   npm run generate:audio
  *
  * Reads ELEVENLABS_API_KEY from .env.local or the environment.
+ * Voice is set in server/companions.js (COMPANIONS.ja.voiceId).
  * Writes to: public/audio/ja/{item.id}.mp3
  * Re-running is safe — existing files are skipped.
+ *
+ * Haruki voice design description (used when designing the voice in ElevenLabs Voice Lab):
+ *   "A warm, friendly Japanese man in his mid 20s. Casual and easygoing, with a gentle,
+ *    encouraging tone and a slight smile in his voice. Natural conversational pacing, clear
+ *    and articulate. Native Japanese speaker who also speaks English with a light Japanese
+ *    accent. Patient and approachable, like a good friend explaining something.
+ *    Perfect audio quality."
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
@@ -17,7 +25,6 @@ import { fileURLToPath } from "node:url";
 const __dir = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dir, "..");
 
-// Load .env.local into process.env (Vite reads it automatically; Node scripts don't)
 try {
   const lines = readFileSync(join(ROOT, ".env.local"), "utf8").split("\n");
   for (const line of lines) {
@@ -55,16 +62,6 @@ for (let i = 0; i < items.length; i++) {
   const out = join(OUT_DIR, `${item.id}.mp3`);
   const tag = `[${String(i + 1).padStart(2)}/${items.length}] ${item.id}`;
 
-  // Kana items: convert hiragana → katakana before sending with language_code:"ja".
-  // Katakana is the phonetic script for isolated/foreign sounds — Haruki reads
-  // ア, カ, ノ as clean phonemes without word-completing them.
-  // Hiragana alone (あ, か) gets completed into words ("asai", "da").
-  // Romaji gets Japanese-English accent ("oo"→"oh", "e"→"ay") because Haruki
-  // is a Japanese voice. Katakana + language_code:"ja" is the correct fix.
-  // Vocab items send hiragana/kanji text as-is — multi-char words are fine.
-  const toKatakana = (s) => s.replace(/[ぁ-ゖ]/g, (c) => String.fromCharCode(c.charCodeAt(0) + 0x60));
-  const text = item.type === "kana" ? toKatakana(item.front) : item.front;
-
   if (existsSync(out)) {
     console.log(`  skip   ${tag}`);
     skipped++;
@@ -80,13 +77,12 @@ for (let i = 0; i < items.length; i++) {
         Accept: "audio/mpeg",
       },
       body: JSON.stringify({
-        text,
+        text: item.front,
         model_id: "eleven_multilingual_v2",
-        language_code: "ja",
         voice_settings: {
-          stability: 0.35,
-          similarity_boost: 0.80,
-          style: 0.25,
+          stability: 0.5,
+          similarity_boost: 0.75,
+          style: 0.0,
           use_speaker_boost: true,
         },
       }),
@@ -100,14 +96,13 @@ for (let i = 0; i < items.length; i++) {
     }
 
     writeFileSync(out, Buffer.from(await res.arrayBuffer()));
-    console.log(`  gen    ${tag}  "${text}"`);
+    console.log(`  gen    ${tag}  "${item.front}"`);
     done++;
   } catch (err) {
     console.error(`  ERROR  ${tag}: ${err.message}`);
     errors++;
   }
 
-  // Brief pause — polite to the API, avoids rate-limit 429s
   if (i < items.length - 1) await new Promise((r) => setTimeout(r, 500));
 }
 
