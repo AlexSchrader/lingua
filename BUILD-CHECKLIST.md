@@ -31,11 +31,11 @@ Mark work that's actively being built (PR open, not merged) as `[~]` with
 
 ## Status at a glance
 
-- **Current phase:** Phase 1 — Content contract + validator
-- **In flight:** PR #11 (draft) covers almost all of Phase 1. Needs Alex review + merge.
-- **Next action (Alex):** un-draft and merge PR #11 after CI green + feel-check. Then two
-  remaining Phase 1 items (`inventoryFor` selector and the `accept[]` warning) can land
-  in Phase 2 prep or a follow-up PR — neither blocks Phase 2 curriculum work.
+- **Current phase:** Phase 2 — Curriculum (Units 2–5)
+- **In flight:** PR #11 (draft, Phase 1) waiting for Alex merge. PR #12 (draft, Phase 2) adds
+  lessons 2–5 (か/さ/た/な rows), dynamic lesson progression, kana memory hooks, and accept[]
+  synonym arrays. Depends on PR #11 merging first.
+- **Next action (Alex):** merge PR #11 → rebase PR #12 onto main → CI green → merge.
 - **Last updated:** 2026-06-21
 
 **Legend:** `[ ]` todo — `[~]` in progress (PR open) — `[x]` done (stamped)
@@ -82,13 +82,19 @@ Must land before mass curriculum. Brief: `BUILD-BRIEF-content-contract.md`.
 Turns the one-lesson demo into a real daily-usable app. Has the contract to validate
 against and the gate fields to compute the real cascade.
 
-- [ ] Author Units 2–5 lessons as contract-valid data (6–8 themed vocab/lesson; verified kana accumulation; greetings/goodbyes kept together)
-- [ ] `cefr` band on every new lesson
+- [~] Author Unit 1 lessons 2–5 as contract-valid data — か/さ/た/な rows (5 kana + 6 vocab each, 44 new items); all validate:content clean — STARTED 2026-06-21, PR #12
+- [~] `cefr: "A1"` band on every new lesson — all 4 new lessons tagged — STARTED 2026-06-21, PR #12
+- [~] Fill `accept[]` synonym arrays — added to all new vocab items (and retro-fitted to lesson 1 vocab) to reduce typed-answer friction — STARTED 2026-06-21, PR #12
+- [~] Kana memory hooks — `hint` field on every kana item; displayed on TeachCard as "Memory hook: …" in soft italic box — STARTED 2026-06-21, PR #12 (neurodivergent-friendly: visual-association mnemonics for each character)
+- [~] Dynamic lesson progression — Today screen advances `currentLesson` to the first lesson with rung-0 items; no hardcoded lesson 1; shows "Lesson N/5 · ~X min" — STARTED 2026-06-21, PR #12
+- [~] Fix kana learn-step pedagogy — `recallMode()` now returns "meaning" for all items at check2 (kana: show character → type rōmaji); "produce" kana only at rung 3+ in reviews — STARTED 2026-06-21, PR #12
+- [ ] `inventoryFor({lang, maxLevel, maxRung})` selector — on-topic curriculum filter for Haruki (carried from Phase 1)
+- [ ] Validation warning — empty `accept[]` on multi-word vocab (carried from Phase 1)
 - [ ] Generalize `checkCascade` to READ the `unlock: {lang, level}` field (currently hardcodes ja→es and ignores it; doesn't handle es→fr)
 - [ ] Define the "A1 complete" predicate (derive from `cefr:A1` lesson completion)
 - [ ] Fix `es`/`fr` `target` — currently `"A1"`, should reflect A2–B1 side-language goals (likely `B1`, with A2 milestone)
 - [ ] Replace Ladder A1% XP placeholder with real progress math
-- [ ] Fill `accept[]` synonym arrays where typed-meaning rejects valid answers
+- [ ] Alex `?dev` feel-check of 5-lesson progression rhythm (can run in parallel with next PR)
 
 ---
 
