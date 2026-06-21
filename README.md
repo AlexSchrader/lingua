@@ -2,7 +2,7 @@
 
 A phone-first PWA for learning languages through a tight daily loop:
 **clear reviews → lesson → prove it**. Japanese Unit 1 has 5 playable lessons
-(あ/か/さ/た/な rows, greetings, and ~55 vocabulary items) with FSRS spaced
+(あ/か/さ/た/な rows, greetings, and 54 items) with FSRS spaced
 repetition, app-judged recall, and kana memory hooks.
 
 ## Stack
