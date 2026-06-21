@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { seedItems, LANGUAGES } from "../data/index.js";
+import { seedItems, LANGUAGES, UNITS } from "../data/index.js";
 import { newCard, schedule, isDue } from "./srs.js";
 import { nextRung, isReviewable } from "./mastery.js";
 import { migrateState, PERSIST_VERSION } from "./migrate.js";
@@ -29,6 +29,31 @@ function yesterdayISO() {
 }
 
 const XP_BY_GRADE = { again: 2, hard: 5, good: 10, easy: 15 };
+
+const CEFR_ORDER = { A1: 0, A2: 1, B1: 2, B2: 3 };
+
+// Lazy cache: itemId → { cefr, lang } — built once from UNITS on first access.
+let _itemMeta = null;
+function itemMetaMap() {
+  if (_itemMeta) return _itemMeta;
+  _itemMeta = {};
+  for (const unit of UNITS)
+    for (const lesson of unit.lessons)
+      if (lesson.cefr && lesson.items)
+        for (const def of lesson.items)
+          _itemMeta[def.id] = { cefr: lesson.cefr, lang: unit.lang };
+  return _itemMeta;
+}
+
+// True when every item at CEFR ≤ targetLevel for langId is at rung ≥ 1.
+function isLevelComplete(langId, targetLevel, items) {
+  const maxIdx = CEFR_ORDER[targetLevel] ?? 0;
+  const defs = UNITS.filter((u) => u.lang === langId)
+    .flatMap((u) => u.lessons.filter((l) => l.items && (CEFR_ORDER[l.cefr] ?? 0) <= maxIdx))
+    .flatMap((l) => l.items);
+  if (defs.length === 0) return false;
+  return defs.every((def) => (items[def.id]?.rung ?? 0) >= 1);
+}
 
 // Default language progress state, derived from the static LANGUAGES table.
 function initialLanguages() {
@@ -127,6 +152,7 @@ export const useStore = create(
       // graduateItem (Brief A.1) — this no longer blanket-graduates anything.
       completeLesson: () => {
         set((s) => ({ daily: { ...s.daily, date: todayISO(), lessonDone: true } }));
+        get().checkCascade();
       },
 
       // Daily goal is met when both halves of the loop are done. On the first
@@ -168,17 +194,48 @@ export const useStore = create(
         });
       },
 
-      // Cascade: unlock the next language once its prerequisite level is met.
-      // Level computation is stubbed for this brief.
+      // Cascade: update each language's CEFR level from actual item completion,
+      // then unlock any language whose prerequisite is now satisfied.
       checkCascade: () => {
         set((s) => {
-          const ja = s.languages.ja;
-          // TODO: A1 gate math lands with the curriculum brief. Until then the
-          // Japanese level is "pre-A1" and nothing cascades.
-          if (ja && ja.level === "A1" && !s.languages.es.unlocked) {
-            return { languages: { ...s.languages, es: { ...s.languages.es, unlocked: true } } };
+          const newLangs = { ...s.languages };
+          let changed = false;
+
+          for (const langDef of LANGUAGES) {
+            const st = newLangs[langDef.id];
+            if (!st || st.level !== "pre-A1") continue;
+            if (isLevelComplete(langDef.id, "A1", s.items)) {
+              newLangs[langDef.id] = { ...st, level: "A1" };
+              changed = true;
+            }
           }
-          return s;
+
+          for (const langDef of LANGUAGES) {
+            const st = newLangs[langDef.id];
+            if (!st || st.unlocked || !langDef.unlock) continue;
+            const prereq = newLangs[langDef.unlock.lang];
+            if (!prereq) continue;
+            if ((CEFR_ORDER[prereq.level] ?? -1) >= (CEFR_ORDER[langDef.unlock.level] ?? 0)) {
+              newLangs[langDef.id] = { ...st, unlocked: true };
+              changed = true;
+            }
+          }
+
+          return changed ? { languages: newLangs } : s;
+        });
+      },
+
+      // Selector: items the learner has touched for `lang`, scoped to CEFR ≤
+      // maxLevel and rung ≤ maxRung. Used by Haruki to know what the learner
+      // actually knows before generating practice prompts.
+      inventoryFor: ({ lang, maxLevel = "A1", maxRung = Infinity }) => {
+        const maxIdx = CEFR_ORDER[maxLevel] ?? 0;
+        const meta = itemMetaMap();
+        return Object.values(get().items).filter((it) => {
+          if (it.lang !== lang) return false;
+          if ((it.rung ?? 0) > maxRung) return false;
+          const m = meta[it.id];
+          return m && (CEFR_ORDER[m.cefr] ?? 0) <= maxIdx;
         });
       },
 

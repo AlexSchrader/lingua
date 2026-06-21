@@ -1,13 +1,17 @@
 import { Lock } from "lucide-react";
 import { useStore } from "../store/useStore.js";
-import { LANGUAGES } from "../data/index.js";
+import { LANGUAGES, UNITS } from "../data/index.js";
 import { C, F } from "../theme.js";
 
-// A1 progress is a placeholder until gate math lands with the curriculum brief.
-// TODO: compute real A1 % from mastered items / CEFR coverage.
-function a1Percent(langProgress) {
-  // Stub: scale off accumulated XP so the bar shows life. Caps at 100.
-  return Math.min(100, Math.round((langProgress.xp ?? 0) / 5));
+// Real A1 progress: fraction of A1-lesson items at rung ≥ 1 (graduated from learn).
+function a1PercentFor(langId, items) {
+  const defs = UNITS
+    .filter((u) => u.lang === langId)
+    .flatMap((u) => u.lessons.filter((l) => l.cefr === "A1" && Array.isArray(l.items)))
+    .flatMap((l) => l.items);
+  if (defs.length === 0) return 0;
+  const done = defs.filter((def) => (items[def.id]?.rung ?? 0) >= 1).length;
+  return Math.min(100, Math.round((done / defs.length) * 100));
 }
 
 function unlockText(lang) {
@@ -18,6 +22,7 @@ function unlockText(lang) {
 
 export default function Ladder() {
   const languages = useStore((s) => s.languages);
+  const items = useStore((s) => s.items);
   const stations = LANGUAGES.map((l) => languages[l.id] ?? { ...l, level: "pre-A1", xp: 0 });
 
   return (
@@ -29,7 +34,7 @@ export default function Ladder() {
 
       {stations.map((lang) => {
         const locked = !lang.unlocked;
-        const pct = a1Percent(lang);
+        const pct = a1PercentFor(lang.id, items);
         return (
           <div
             key={lang.id}
