@@ -6,9 +6,6 @@ import { UNITS } from "../data/index.js";
 import { C, F } from "../theme.js";
 import { VERSION } from "../version.js";
 
-// First playable (item-bearing) lesson — "today's lesson" for the scaffold.
-const TODAY_LESSON = UNITS[0].lessons.find((l) => l.items);
-
 function Step({ icon: Icon, n, title, sub, state, onClick }) {
   // state: "active" | "done" | "locked"
   const done = state === "done";
@@ -74,6 +71,32 @@ export default function Today() {
   const due = useMemo(() => dueItemsFn(), [items, dueItemsFn]);
   const reviewsLocked = useMemo(() => reviewsLockedFn(), [items, daily, reviewsLockedFn]);
 
+  // All lessons across all units that have item content (ordered).
+  const allPlayableLessons = useMemo(
+    () => UNITS.flatMap((u) => u.lessons.filter((l) => Array.isArray(l.items))),
+    []
+  );
+  // Advance to the first lesson that still has rung-0 items — natural progression
+  // without a separate unlock system. null when all lessons are complete.
+  const currentLesson = useMemo(
+    () =>
+      allPlayableLessons.find((l) => l.items.some((def) => (items[def.id]?.rung ?? 0) < 1)) ??
+      null,
+    [allPlayableLessons, items]
+  );
+
+  const lessonNum = currentLesson
+    ? allPlayableLessons.indexOf(currentLesson) + 1
+    : allPlayableLessons.length;
+  const totalLessons = allPlayableLessons.length;
+  // How many rung-0 items remain in the current lesson (for the time estimate).
+  const newItemCount = useMemo(
+    () => (currentLesson?.items ?? []).filter((def) => (items[def.id]?.rung ?? 0) < 1).length,
+    [currentLesson, items]
+  );
+  // Rough estimate: ~45 s per item × 3 cards each ≈ 0.75 min/item.
+  const estMinutes = Math.max(1, Math.ceil(newItemCount * 0.75));
+
   // Dev affordance is shown in dev builds, or on any build when the URL carries
   // ?dev — so it can be triggered on the deployed Vercel preview for playtesting
   // while staying hidden in normal use.
@@ -83,13 +106,17 @@ export default function Today() {
   const reviewState = daily.reviewsCleared || due.length === 0 ? "done" : "active";
   const lessonState = daily.lessonDone ? "done" : reviewsLocked ? "locked" : "active";
 
-  // Is there still new material to learn? (rung-0 items remain in the lesson.)
-  const hasNew = (TODAY_LESSON?.items ?? []).some((d) => (items[d.id]?.rung ?? 0) < 1);
+  // Is there still new material to learn? (any lesson has rung-0 items.)
+  const hasNew = currentLesson !== null;
   // Daily goal is a FLOOR, not a ceiling: meeting it ticks the streak and shows
   // a marker, but never ends the session or caps how much you can do.
   const goalMet = daily.reviewsCleared && daily.lessonDone;
 
-  const start = () => TODAY_LESSON && navigate(`/lesson/${TODAY_LESSON.id}`);
+  const start = () => {
+    // Fall back to lesson 1 URL for review-only sessions when all content is done.
+    const target = currentLesson ?? allPlayableLessons[0] ?? null;
+    if (target) navigate(`/lesson/${target.id}`);
+  };
 
   // Continuous CTA — no "done for today" wall. Locked reviews first; then learn
   // as long as there's new material; otherwise you're genuinely caught up until
@@ -168,13 +195,15 @@ export default function Today() {
         <Step
           icon={BookOpen}
           n={2}
-          title={`Lesson · ${TODAY_LESSON?.title ?? "—"}`}
+          title={`Lesson ${lessonNum}/${totalLessons} · ${currentLesson?.title ?? "—"}`}
           sub={
             lessonState === "locked"
               ? "Locked until reviews are clear"
               : daily.lessonDone
               ? "Lesson complete"
-              : TODAY_LESSON?.canDo ?? "Learn new items"
+              : currentLesson
+              ? `${currentLesson.canDo ?? "Learn new items"} · ~${estMinutes} min`
+              : "All lessons complete"
           }
           state={lessonState}
           onClick={start}
@@ -242,7 +271,8 @@ export default function Today() {
         <button
           onClick={() => {
             devSeedReviews();
-            if (TODAY_LESSON) navigate(`/lesson/${TODAY_LESSON.id}`);
+            const target = currentLesson ?? allPlayableLessons[0];
+            if (target) navigate(`/lesson/${target.id}`);
           }}
           style={{
             padding: "8px 12px",

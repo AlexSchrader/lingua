@@ -77,9 +77,11 @@ function reviewState() {
 
 // Fixture that exercises all LIVE_CARD_KINDS in one session:
 //   konnichiwa rung=3 due   → build (review)
+//   あ          rung=3 due   → type:produce (review — kana rung 3+ uses produce mode)
 //   ohayou     rung=0 vocab → teach + choice + type:meaning (lesson)
-//   あ          rung=0 kana  → teach + choice + type:produce (lesson)
 //   all others rung=1 not due → skipped from both queues
+// Note: recallMode() returns "meaning" for ALL items at check2 (learn steps), so
+// type:produce only appears in reviews at rung 3+, never in the learn phase.
 function kindFixtureState() {
   const defs = [
     { id: "ja-u1l1-ohayou",     type: "vocab", front: "おはよう",   reading: "ohayō",      meaning: "good morning", example: { jp: "おはよう！",   en: "Good morning!" }, accept: [], lang: "ja", unit: 1, lesson: 1 },
@@ -96,9 +98,10 @@ function kindFixtureState() {
   const items = {};
   for (const it of defs) {
     let rung, srs;
-    if (it.id === "ja-u1l1-konnichiwa")                            { rung = 3; srs = dueCard();   } // due → build review
-    else if (it.id === "ja-u1l1-ohayou" || it.id === "ja-u1l1-a") { rung = 0; srs = freshCard(); } // new → lesson
-    else                                                             { rung = 1; srs = freshCard(); } // graduated, not due → skipped
+    if (it.id === "ja-u1l1-konnichiwa")  { rung = 3; srs = dueCard();   } // due → build review
+    else if (it.id === "ja-u1l1-a")      { rung = 3; srs = dueCard();   } // due → type:produce review (kana rung 3+)
+    else if (it.id === "ja-u1l1-ohayou") { rung = 0; srs = freshCard(); } // new vocab → teach + choice + type:meaning
+    else                                  { rung = 1; srs = freshCard(); } // graduated, not due → skipped
     items[it.id] = { ...it, rung, srs };
   }
   return {
