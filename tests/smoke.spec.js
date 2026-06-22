@@ -77,11 +77,9 @@ function reviewState() {
 
 // Fixture that exercises all LIVE_CARD_KINDS in one session:
 //   konnichiwa rung=3 due   → build (review)
-//   あ          rung=3 due   → type:produce (review — kana rung 3+ uses produce mode)
 //   ohayou     rung=0 vocab → teach + choice + type:meaning (lesson)
+//   い          rung=0 kana  → teach + choice + trace:guided (lesson — kana check2 = trace)
 //   all others rung=1 not due → skipped from both queues
-// Note: recallMode() returns "meaning" for ALL items at check2 (learn steps), so
-// type:produce only appears in reviews at rung 3+, never in the learn phase.
 function kindFixtureState() {
   const defs = [
     { id: "ja-u1l1-ohayou",     type: "vocab", front: "おはよう",   reading: "ohayō",      meaning: "good morning", example: { jp: "おはよう！",   en: "Good morning!" }, accept: [], lang: "ja", unit: 1, lesson: 1 },
@@ -99,8 +97,8 @@ function kindFixtureState() {
   for (const it of defs) {
     let rung, srs;
     if (it.id === "ja-u1l1-konnichiwa")  { rung = 3; srs = dueCard();   } // due → build review
-    else if (it.id === "ja-u1l1-a")      { rung = 3; srs = dueCard();   } // due → type:produce review (kana rung 3+)
     else if (it.id === "ja-u1l1-ohayou") { rung = 0; srs = freshCard(); } // new vocab → teach + choice + type:meaning
+    else if (it.id === "ja-u1l1-i")      { rung = 0; srs = freshCard(); } // new kana  → teach + choice + trace:guided
     else                                  { rung = 1; srs = freshCard(); } // graduated, not due → skipped
     items[it.id] = { ...it, rung, srs };
   }
@@ -124,6 +122,7 @@ async function playCard(page) {
   const finish      = page.getByRole("button", { name: "Back to Today" });
   const teach       = page.getByRole("button", { name: "Got it" });
   const typeCard    = page.getByTestId("type-card");
+  const tracePad    = page.getByTestId("trace-pad");
   const option      = page.locator('[data-correct="true"]');
   const tile        = page.locator('[data-testid="tile"]');
   const continueBtn = page.getByRole("button", { name: "Continue" });
@@ -132,6 +131,7 @@ async function playCard(page) {
     finish.waitFor({ state: "visible", timeout: 8000 }),
     teach.waitFor({ state: "visible", timeout: 8000 }),
     typeCard.waitFor({ state: "visible", timeout: 8000 }),
+    tracePad.waitFor({ state: "visible", timeout: 8000 }),
     option.first().waitFor({ state: "visible", timeout: 8000 }),
     tile.first().waitFor({ state: "visible", timeout: 8000 }),
   ]).catch(() => {});
@@ -141,6 +141,24 @@ async function playCard(page) {
   if (await teach.isVisible().catch(() => false)) {
     await teach.click();
     return "teach";
+  }
+
+  if (await tracePad.isVisible().catch(() => false)) {
+    const box = await tracePad.boundingBox().catch(() => null);
+    if (box) {
+      // Guided mode: wait for animation → draw any stroke → repeat for each stroke
+      for (let s = 0; s < 6; s++) {
+        if (!(await tracePad.isVisible().catch(() => false))) break;
+        // Wait for the animated guide to finish and hand off to user
+        await page.locator("text=/now trace it/").waitFor({ state: "visible", timeout: 6000 }).catch(() => {});
+        await page.mouse.move(box.x + box.width * 0.3, box.y + box.height * 0.35);
+        await page.mouse.down();
+        await page.mouse.move(box.x + box.width * 0.7, box.y + box.height * 0.65, { steps: 15 });
+        await page.mouse.up();
+        await page.waitForTimeout(1000); // snap animation + next stroke setup
+      }
+    }
+    return "trace";
   }
 
   if (await typeCard.isVisible().catch(() => false)) {
@@ -250,7 +268,7 @@ test("card-kind coverage: every LIVE_CARD_KIND appears in one session", async ({
   await page.getByTestId("start-session").click();
 
   const seenKinds = new Set();
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 60; i++) {
     const kind = await playCard(page);
     if (kind === false) break;
     if (typeof kind === "string") seenKinds.add(kind);
@@ -265,7 +283,6 @@ test("card-kind coverage: every LIVE_CARD_KIND appears in one session", async ({
 
 // Dormant card kinds — wired here once the brief ships so the coverage test
 // knows about them before the runner does.
-test.skip("trace cards appear when a kana item reaches rung 4", async () => {});
 test.skip("speak cards appear when a vocab item reaches rung 5", async () => {});
 
 test("reviews are app-judged — no self-grading, grades persist", async ({ page }) => {

@@ -8,8 +8,8 @@ export const LIVE_CARD_KINDS = [
   "teach",
   "choice",
   "type:meaning",
-  "type:produce",
   "build",
+  "trace",
 ];
 
 // --- internal constants -------------------------------------------------------
