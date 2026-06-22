@@ -3,9 +3,15 @@ import { C, F } from "../../theme.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { KANJIVG } from "../../data/kanjivg.js";
 
-const KVG_SIZE = 109;
-const SAMPLE_N = 80;
-const MATCH_THRESHOLD = 0.22;
+const KVG_SIZE = 109; // fixed by KanjiVG spec — not a tuning knob
+
+// All tuning knobs in one place. A playtest feel-fix is a one-line change here.
+const TRACE_OPTS = {
+  resampleN: 80,        // points to resample each stroke path to
+  matchThreshold: 0.22, // distance normalization in strokeScore; larger = more tolerant
+  acceptScore: 0.3,     // minimum strokeScore result to accept a drawn stroke
+  retryLimit: 2,        // misses before grade degrades from "hard" to "again"
+};
 
 // Sample an SVG path string into N evenly-spaced [x,y] points using the DOM.
 function samplePath(d, n) {
@@ -50,7 +56,7 @@ function strokeScore(drawn, expected, canvasW) {
     }
     total += min;
   }
-  return Math.max(0, 1 - total / a.length / MATCH_THRESHOLD);
+  return Math.max(0, 1 - total / a.length / TRACE_OPTS.matchThreshold);
 }
 
 // Draw a polyline on canvas ctx.
@@ -131,7 +137,7 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
   // Reset everything when item changes.
   useEffect(() => {
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    strokePts.current = strokes.map((d) => samplePath(d, SAMPLE_N));
+    strokePts.current = strokes.map((d) => samplePath(d, TRACE_OPTS.resampleN));
     setStrokeIdx(0);
     setDoneStrokes([]);
     setPhase(mode === "guided" ? "animating" : "drawing");
@@ -302,7 +308,7 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
     } else {
       // Free: score the stroke
       const score = strokeScore(pts, expected, canvasW);
-      if (score > 0.3) {
+      if (score > TRACE_OPTS.acceptScore) {
         setFeedback("correct");
         sfxCorrect();
         const nextDone = [...doneStrokes, strokeIdx];
@@ -316,7 +322,7 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
           setFeedback(null);
           redrawConfirmed();
           // After 2 misses, show the stroke guide briefly
-          if (newMisses >= 2) {
+          if (newMisses >= TRACE_OPTS.retryLimit) {
             const guidePts = scale(strokePts.current[strokeIdx] ?? [], s);
             drawLine(getCtx(), guidePts, `${C.shu}99`, 10);
             setTimeout(() => redrawConfirmed(), 1000);
@@ -330,10 +336,46 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
 
   useEffect(() => {
     if (phase !== "done") return;
-    const grade = misses === 0 ? "good" : misses <= 2 ? "hard" : "again";
+    const grade = misses === 0 ? "good" : misses <= TRACE_OPTS.retryLimit ? "hard" : "again";
     const timer = setTimeout(() => onGraded?.(grade), 500);
     return () => clearTimeout(timer);
   }, [phase]);
+
+  // --- test hook (dev only) ---
+  // Exposes window.__trace.{ submitGood, submitBad } so the smoke test can drive
+  // free-mode trace deterministically without pointer events. Never shipped in
+  // production builds. hookRef is updated every render so the hook always sees
+  // the latest phase/strokeIdx/doneStrokes without the effect re-registering.
+  const hookRef = useRef({});
+  hookRef.current = {
+    submitGood() {
+      if (phase !== "drawing" && phase !== "waiting") return;
+      const s = getScale();
+      const pts = scale(strokePts.current[strokeIdx] ?? [], s);
+      if (pts.length < 3) return;
+      drawing.current = true;
+      currentPts.current = pts;
+      onPointerUp();
+    },
+    submitBad() {
+      if (phase !== "drawing" && phase !== "waiting") return;
+      // Points in the far bottom-right corner — guaranteed to fail the direction
+      // check for every kana stroke, which starts near the character centre.
+      const c = canvasRef.current;
+      const w = c?.getBoundingClientRect().width ?? 280;
+      drawing.current = true;
+      currentPts.current = Array.from({ length: 5 }, (_, i) => [w - 5, w - 5 + i]);
+      onPointerUp();
+    },
+  };
+  useEffect(() => {
+    if (import.meta.env.PROD) return;
+    window.__trace = {
+      submitGood: () => hookRef.current.submitGood(),
+      submitBad: () => hookRef.current.submitBad(),
+    };
+    return () => { delete window.__trace; };
+  }, [item.id]);
 
   // --- render ---
 
