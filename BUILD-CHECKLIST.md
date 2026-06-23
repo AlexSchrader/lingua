@@ -31,12 +31,10 @@ Mark work that's actively being built (PR open, not merged) as `[~]` with
 
 ## Status at a glance
 
-- **Current phase:** Phase 2 — COMPLETE. Phase 3 (audio) is next.
-- **In flight:** nothing. Both PRs merged (#11 + #13).
-- **Next action (Alex):** `?dev` feel-check of the 5-lesson progression rhythm — play through
-  all 5 lessons, note any timing or pacing that feels off, report back. Phase 3 (audio clips)
-  can start in parallel.
-- **Last updated:** 2026-06-21
+- **Current phase:** Phase 4 (KanjiVG trace card, PR #19) + curriculum Unit 2 (PR open) — both in flight.
+- **In flight:** `feat/trace-card` (PR #19 — trace card, Web Speech API, 46-kana stroke data); `feat/unit-2` (PR open — は through ん, 5 lessons, hiragana checkpoint).
+- **Next action (Alex):** review + feel-check PR #19 (trace card + Web Speech API), then PR for Unit 2.
+- **Last updated:** 2026-06-23
 
 **Legend:** `[ ]` todo — `[~]` in progress (PR open) — `[x]` done (stamped)
 
@@ -95,6 +93,8 @@ against and the gate fields to compute the real cascade.
 - [x] Fix `es`/`fr` `target` — changed from `"A1"` to `"B1"` (aspirational side-language goal) — DONE 2026-06-21, PR #13
 - [x] Replace Ladder A1% XP placeholder with real progress math — `a1PercentFor(langId, items)` counts rung≥1 items / total A1 items — DONE 2026-06-21, PR #13
 - [ ] Alex `?dev` feel-check of 5-lesson progression rhythm (report any timing/pacing that feels off → tune constants)
+- [~] Unit 2 — よろしく — は/ひ/ふ/へ/ほ, ま/み/む/め/も, や/ゆ/よ, ら/り/る/れ/ろ, わ・を・ん; 5 lessons, 21 new kana + 28 vocab; hiragana set complete — STARTED 2026-06-23, PR #(TBD)
+- [ ] JLPT dual-tagging — add a `jlpt` tag (N5/N4/…) alongside `cefr` on Japanese-track items and align vocab/kanji to the community-reconstructed N5 list as units grow. CEFR stays the engine's universal spine (cross-language); JLPT is an additional Japanese-only recognition tag. Low-cost now, expensive to retrofit — fold in as units are authored.
 
 ---
 
@@ -160,6 +160,12 @@ architecture from the design sessions.
 - [ ] Commitment mode
 - [ ] Money stakes (optional, OFF by default)
 - [ ] Additional language content beyond ja/es/fr scaffolding
+
+---
+
+## Phase 9 — App Store submission
+
+- [ ] **HARD GATE — Native-speaker content review:** a qualified native Japanese speaker reviews ALL curriculum content before any "professional / certified / JLPT-aligned" marketing claim or App Store submission. AI-authored content is not course-grade until reviewed. This gate must be cleared before listing in the App Store.
 
 ---
 
