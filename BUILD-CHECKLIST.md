@@ -25,11 +25,11 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 ## Status at a glance
 
-- **Current phase:** Phase 4 (tracing) in flight on `feat/trace-card`. **Curriculum (Phase 2) is the live default thread** — Unit 2 authoring is the next action after tracing ships, not onboarding or audio.
-- **In flight:** Phase 4 trace card (`feat/trace-card`) — DoD gaps closed, ready for CI + Alex feel-check.
-- **⚡️ Single next action (Alex):** feel-check `feat/trace-card` → merge → immediately shift to Unit 2 curriculum authoring (Phase 2 re-opens).
+- **Current phase:** Phase 4 (tracing) in flight on `feat/trace-card`. **Curriculum thread is active** — Unit 2 shipped (PR #20, Alex-reviewed); Unit 3 (dakuten rows) is next.
+- **In flight:** Phase 4 trace card (`feat/trace-card`, PR #19) — Web Speech API, 46-kana stroke data, ready for feel-check + merge.
+- **⚡️ Single next action (Alex):** feel-check `feat/trace-card` → merge → then Unit 3 curriculum.
 - **Phase numbers = dependency map, not a queue.** Curriculum runs as the default thread between every feature sprint. Onboarding (Phase 5) and audio (Phase 3) slot in when curriculum has momentum, not before.
-- **Last updated:** 2026-06-22
+- **Last updated:** 2026-06-23
 
 ---
 
@@ -77,9 +77,9 @@ The structural lock: content becomes pure schema-validated data; bad content can
 
 ---
 
-## Phase 2 — Curriculum *(Unit 1 complete — ongoing)*
+## Phase 2 — Curriculum *(Unit 1 + 2 complete — ongoing)*
 
-The make-or-break thread. Unit 1 (5 lessons, あ/か/さ/た/な rows) shipped and validated. The remaining hiragana rows, vocab expansion, and eventually kanji live here. **This phase never fully closes** — curriculum authoring is the default work between every feature sprint.
+The make-or-break thread. Units 1–2 (46 base hiragana, あ-ん) shipped and Alex-reviewed. Dakuten/handakuten rows, vocab expansion, and eventually kanji live here. **This phase never fully closes** — curriculum authoring is the default work between every feature sprint.
 
 - [x] Author Unit 1 lessons 2–5 as contract-valid data — か/さ/た/な rows (5 kana + 6 vocab each, 44 new items); all validate:content clean — DONE 2026-06-21, PR #13 (Claude/CC)
 - [x] `cefr: "A1"` band on every new lesson — all 4 new lessons tagged — DONE 2026-06-21, PR #13 (CC)
@@ -93,37 +93,39 @@ The make-or-break thread. Unit 1 (5 lessons, あ/か/さ/た/な rows) shipped a
 - [x] Define the "A1 complete" predicate — `isLevelComplete(langId, "A1", items)` in useStore.js; fires from `completeLesson` and `rollDailyGoal` — DONE 2026-06-21, PR #13 (CC)
 - [x] Fix `es`/`fr` `target` — changed from `"A1"` to `"B1"` (aspirational side-language goal) — DONE 2026-06-21, PR #13 (CC)
 - [x] Replace Ladder A1% XP placeholder with real progress math — `a1PercentFor(langId, items)` counts rung≥1 items / total A1 items — DONE 2026-06-21, PR #13 (CC)
+- [x] Unit 2 — よろしく — は/ひ/ふ/へ/ほ, ま/み/む/め/も, や/ゆ/よ, ら/り/る/れ/ろ, わ・を・ん; 5 lessons, 21 kana + 28 vocab; hiragana set complete; Alex-reviewed line-by-line — DONE 2026-06-23, PR #20 (Claude/CC)
 - [ ] Alex `?dev` feel-check of 5-lesson progression rhythm (report any timing/pacing that feels off → tune constants) (Alex)
-- [ ] Unit 2 — は/ま/や rows + vocab (brief to be authored; same contract shape as Unit 1) (Claude/CC)
-- [ ] Unit 3 — ら/わ/ん rows + vocab; completes the 46 base hiragana (Claude/CC)
+- [ ] Unit 3 — dakuten/handakuten rows (が/ざ/だ/ば/ぱ + combinations); completes "full hiragana + voiced" — brief to be authored (Claude/CC)
 - [ ] Unit 4+ — vocab expansion, particles, basic grammar; scope TBD after Unit 3 ships (Claude/CC)
-- [ ] Add kanjivg.js entries for any kana introduced in Unit 2+ (required by the stroke-data validator added in Phase 4) (CC)
+- [ ] JLPT dual-tagging — add a `jlpt` tag (N5/N4/…) alongside `cefr` on Japanese-track items; align vocab to community-reconstructed N5 list as units grow. CEFR stays the engine's universal spine (cross-language); JLPT is an additional Japanese-only recognition tag. Low-cost now, expensive to retrofit — fold in as units are authored. (CC)
+- [ ] を reading edge — if playtest shows learners typing "o" (を is phonetically /o/ in modern Japanese), fold wo↔o tolerance into `checkReading`. (CC)
+- [ ] Non-blocking content polish from Unit 2 review: ja-u2l2-mono example (これはなんですか preferred over このものはなんですか); ja-u2l4-roku example (ろくじです introduces time-telling ahead of where it's taught). Fix in a content-only PR. (Claude/CC)
 
 ---
 
 ## Phase 3 — Brief B — Audio out (no backend)
 
-The "hear it" joy-hit. Pre-generated pronunciation clips, no server needed.
+Web Speech API (window.speechSynthesis, lang:"ja-JP") replaces ElevenLabs MP3 pipeline. Ships with Phase 4.
 
-- [ ] Pre-generate per-item pronunciation clips in Haruki's ElevenLabs voice (CC)
-- [ ] Wire audio playback into cards (tap to hear; autoplay-on-reveal option) (CC)
+- [~] Switch TeachCard to Web Speech API — no files, no staleness, autoplay on reveal, replay button — STARTED 2026-06-22, PR #19 (CC)
 
 ---
 
 ## Phase 4 — Brief 3 — KanjiVG tracing
 
-Real stroke-order scoring; completes the "produce/write" half of the mastery ladder.
+Real stroke-order tracing; completes the "produce/write" half of the mastery ladder.
 
-- [ ] KanjiVG stroke-order scoring (CC)
-- [ ] Wire `TraceCard` into the Lesson runner (currently exists in `components/games/` but unrouted) (CC)
-- [ ] Route rung-appropriate kana to trace instead of typed card (CC)
-- [ ] Add `trace` to `LIVE_CARD_KINDS`, un-skip its coverage stub, add fixture coverage (CC)
+- [~] KanjiVG stroke data (`src/data/kanjivg.js`) — 46-kana SVG paths from KanjiVG (CC BY-SA 3.0); fetch script unit-agnostic — STARTED 2026-06-22, PR #19 (CC)
+- [~] TraceCard component — guided mode (animation → trace, check2 in learn phase) + free mode (draw from memory, rung 3+ reviews) — STARTED 2026-06-22, PR #19 (CC)
+- [~] Wire TraceCard into Lesson runner; route rung-appropriate kana to trace instead of typed card — STARTED 2026-06-22, PR #19 (CC)
+- [~] Add `trace` to `LIVE_CARD_KINDS`, un-skip coverage stub, add fixture coverage — STARTED 2026-06-22, PR #19 (CC)
+- [~] Stroke-data validator in contract.js — hard-errors if a kana item has no kanjivg entry; covers all 46 base hiragana — STARTED 2026-06-22, PR #19 (CC)
 
 ---
 
 ## Phase 5 — Onboarding + User Profile
 
-Front-door UX and the user profile data shape. Frontend-only — no backend required. Spec: `ONBOARDING-SPEC.md`. **Do not start until Phase 4 closes and Unit 2 curriculum is moving** — a front door to one room isn't worth much yet.
+Front-door UX and the user profile data shape. Frontend-only — no backend required. Spec: `ONBOARDING-SPEC.md`. **Do not start until Phase 4 closes and Unit 3 curriculum is moving** — a front door to one room isn't worth much yet.
 
 - [!] Convert `ONBOARDING-SPEC.md` to a full build brief — BLOCKED ON: Phase 4 complete (Claude)
 - [!] Upfront onboarding flow (~4 taps): language pick (one active, others locked), display name, why (travel/heritage/work/fun), optional reminder time — BLOCKED ON: Phase 4 complete (CC)
@@ -178,6 +180,12 @@ Claude brain + ElevenLabs voice, multi-tutor from `companions.js`. The two-bank 
 
 ---
 
+## Phase 10 — App Store submission
+
+- [ ] **HARD GATE — Native-speaker content review:** a qualified native Japanese speaker reviews ALL curriculum content before any "professional / certified / JLPT-aligned" marketing claim or App Store submission. AI-authored content is not course-grade until reviewed. This gate must be cleared before listing in the App Store. (Alex)
+
+---
+
 ## Continuous (ongoing, not a phase)
 
 - [ ] Tuning from playtests — `LEARN_OPTS` (learnQueue.js), `TIMING` (grading.js), FSRS params. Report a vibe → one-line constant change. (Alex/CC)
@@ -209,3 +217,5 @@ Claude brain + ElevenLabs voice, multi-tutor from `companions.js`. The two-bank 
 - **Don't regenerate the logo or app icons.** Use the committed skewed-rung files and the canonical SVG; CC-redrawn icons have drifted before. Treat the icon set as canonical content, not regeneration fodder.
 - **The repo is the source of truth, not memory.** Reasoning about code shapes from memory is unreliable; read the actual file before changing or diagnosing it. (This rule has bitten more than once.)
 - **Fix-script anchors must include the full closing `}`** of the target object. Anchoring on a partial field or a string that also appears mid-object will embed the fix in the wrong place.
+- **Curriculum correctness is not schema-correctness.** `validate:content` catches structure, not natural Japanese. Verb collocations, particle usage, register, and concept-sequencing require an authoring eye. Every new unit needs Alex's line-by-line review before merge — not just CI green.
+- **ElevenLabs MP3 pipeline abandoned** — stale files caused pronunciation regressions (PR #18 fixed katakana, but cached MP3s pre-dated the fix and played wrong). Replaced with `window.speechSynthesis` (lang:"ja-JP") in PR #19. No audio files needed; no regeneration step.
