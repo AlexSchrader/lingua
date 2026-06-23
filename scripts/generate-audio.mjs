@@ -36,15 +36,13 @@ if (!API_KEY) {
 }
 
 const { COMPANIONS } = await import("../server/companions.js");
-const { UNITS } = await import("../src/data/index.js");
+const { UNIT1 } = await import("../src/data/ja/unit1.js");
 
 const VOICE_ID = COMPANIONS.ja.voiceId;
 const OUT_DIR = join(ROOT, "public", "audio", "ja");
 mkdirSync(OUT_DIR, { recursive: true });
 
-const items = UNITS
-  .filter((u) => u.lang === "ja")
-  .flatMap((u) => u.lessons)
+const items = UNIT1.lessons
   .filter((l) => Array.isArray(l.items))
   .flatMap((l) => l.items);
 
