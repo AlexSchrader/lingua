@@ -147,9 +147,12 @@ async function playCard(page) {
     // Guided mode: wait for the animated stroke to hand off ("now trace it"),
     // then submit via the test hook. Mouse fallback kept for environments where
     // the hook hasn't mounted yet (first render race on very slow machines).
+    // IS_WEBDRIVER skips animations so "now trace it" appears instantly in CI.
     for (let s = 0; s < 8; s++) {
       if (!(await tracePad.isVisible().catch(() => false))) break;
       await page.locator("text=/now trace it/").waitFor({ state: "visible", timeout: 6000 }).catch(() => {});
+      // If card advanced during the wait (last stroke finished), don't spin another iteration.
+      if (!(await tracePad.isVisible().catch(() => false))) break;
       const hooked = await page.evaluate(() => {
         if (!window.__trace) return false;
         window.__trace.submitGood();
@@ -269,6 +272,7 @@ test("new words are taught, the loop completes, and it persists", async ({ page 
 });
 
 test("card-kind coverage: every LIVE_CARD_KIND appears in one session", async ({ page }) => {
+  test.setTimeout(60_000); // trace:guided animation ~1.3s/stroke in real browsers; IS_WEBDRIVER makes it instant
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
 

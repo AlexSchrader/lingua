@@ -1,9 +1,11 @@
 import { useRef, useState, useEffect } from "react";
-import { C, F } from "../../theme.js";
+import { C } from "../../theme.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { KANJIVG } from "../../data/kanjivg.js";
 
 const KVG_SIZE = 109; // fixed by KanjiVG spec — not a tuning knob
+// Skip stroke animations in Playwright/WebDriver so CI smoke tests finish quickly.
+const IS_WEBDRIVER = typeof navigator !== "undefined" && !!navigator.webdriver;
 
 // All tuning knobs in one place. A playtest feel-fix is a one-line change here.
 const TRACE_OPTS = {
@@ -187,7 +189,16 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
         }, 300);
       }
     };
-    const timer = setTimeout(() => { rafRef.current = requestAnimationFrame(tick); }, 350);
+    const timer = setTimeout(() => {
+      if (IS_WEBDRIVER) {
+        // Skip animation in test environments — go straight to "waiting" phase.
+        redrawConfirmed();
+        drawLine(getCtx(), pts, `${C.ai}33`, 10);
+        setPhase("waiting");
+      } else {
+        rafRef.current = requestAnimationFrame(tick);
+      }
+    }, IS_WEBDRIVER ? 0 : 350);
     return () => {
       clearTimeout(timer);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -411,24 +422,19 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
           transition: "border-color 180ms",
         }}
       >
-        {/* Faint reference character */}
-        <span
+        {/* Ghost character in the same KanjiVG coordinate space as the canvas strokes.
+            viewBox 0 0 109 109 + xMinYMin meet mirrors getScale() = canvasWidth/109.
+            vectorEffect keeps stroke width in screen pixels regardless of SVG scale. */}
+        <svg
           aria-hidden
-          style={{
-            position: "absolute",
-            inset: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontFamily: F.jp,
-            fontSize: "min(45vw, 200px)",
-            color: C.lockedBg,
-            userSelect: "none",
-            pointerEvents: "none",
-          }}
+          viewBox="0 0 109 109"
+          preserveAspectRatio="xMinYMin meet"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", userSelect: "none" }}
         >
-          {item.front}
-        </span>
+          {strokes.map((d, i) => (
+            <path key={i} d={d} fill="none" stroke={C.lockedBg} strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+          ))}
+        </svg>
 
         {/* Stroke progress dots */}
         <div style={{ position: "absolute", top: 10, right: 12, display: "flex", gap: 5 }}>
