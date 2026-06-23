@@ -14,17 +14,9 @@ import { fileURLToPath } from "node:url";
 const __dir = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dir, "..");
 
-const { UNIT1 } = await import("../src/data/ja/unit1.js");
-
-// Collect every unique kana character across all lessons
-const kanaChars = [
-  ...new Set(
-    UNIT1.lessons
-      .flatMap((l) => l.items ?? [])
-      .filter((it) => it.type === "kana")
-      .map((it) => it.front)
-  ),
-];
+// All 46 base hiragana — fixed script, doesn't change with curriculum additions.
+// Add dakuten/handakuten/combination characters here when those units ship.
+const kanaChars = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん".split("");
 
 console.log(`Fetching KanjiVG data for ${kanaChars.length} kana: ${kanaChars.join(" ")}\n`);
 
