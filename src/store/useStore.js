@@ -155,11 +155,13 @@ export const useStore = create(
         get().checkCascade();
       },
 
-      // Daily goal is met when both halves of the loop are done. On the first
-      // time it's met today, run streak logic and stamp lastActive.
+      // Daily goal: reviews are mandatory; lesson is optional bonus.
+      // Streak triggers when reviews are cleared, OR when there are no reviews
+      // due today and the lesson was done (new learner, early days).
       rollDailyGoal: () => {
         const { daily } = get();
-        const met = daily.reviewsCleared && daily.lessonDone;
+        const nothingDue = get().dueItems().length === 0;
+        const met = daily.reviewsCleared || (nothingDue && daily.lessonDone);
         if (!met) return false;
         get().bumpStreak();
         get().checkCascade();

@@ -271,7 +271,7 @@ test("new words are taught, the loop completes, and it persists", async ({ page 
   expect(errors).toEqual([]);
 });
 
-test("card-kind coverage: every LIVE_CARD_KIND appears in one session", async ({ page }) => {
+test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson sessions", async ({ page }) => {
   test.setTimeout(60_000); // trace:guided animation ~1.3s/stroke in real browsers; IS_WEBDRIVER makes it instant
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
@@ -281,10 +281,22 @@ test("card-kind coverage: every LIVE_CARD_KIND appears in one session", async ({
     JSON.stringify(kindFixtureState())
   );
   await page.goto("/");
-  await page.getByTestId("start-session").click();
 
   const seenKinds = new Set();
-  for (let i = 0; i < 60; i++) {
+
+  // Session 1: reviews — konnichiwa (rung=3 due) → build card.
+  await page.getByTestId("start-session").click();
+  for (let i = 0; i < 20; i++) {
+    const kind = await playCard(page);
+    if (kind === false) break;
+    if (typeof kind === "string") seenKinds.add(kind);
+    await page.waitForTimeout(50);
+  }
+  await page.getByRole("button", { name: "Back to Today" }).click();
+
+  // Session 2: lesson — い + おはよう (both rung=0) → teach/choice/trace/type:meaning.
+  await page.getByTestId("start-session").click();
+  for (let i = 0; i < 40; i++) {
     const kind = await playCard(page);
     if (kind === false) break;
     if (typeof kind === "string") seenKinds.add(kind);
@@ -335,7 +347,8 @@ test("trace free-mode scoring: correct strokes grade good and rung advances", as
     JSON.stringify(traceFreeFixtureState())
   );
   await page.goto("/");
-  await page.goto("/lesson/ja-u1l1");
+  // い is rung=3 and due → appears as a free-trace review card at /review.
+  await page.getByTestId("start-session").click();
 
   const tracePad = page.getByTestId("trace-pad");
   await tracePad.waitFor({ state: "visible", timeout: 8000 });
@@ -363,7 +376,8 @@ test("trace free-mode scoring: wrong strokes grade again and rung does not advan
     JSON.stringify(traceFreeFixtureState())
   );
   await page.goto("/");
-  await page.goto("/lesson/ja-u1l1");
+  // い is rung=3 and due → appears as a free-trace review card at /review.
+  await page.getByTestId("start-session").click();
 
   const tracePad = page.getByTestId("trace-pad");
   await tracePad.waitFor({ state: "visible", timeout: 8000 });
@@ -414,8 +428,8 @@ test("reviews are app-judged — no self-grading, grades persist", async ({ page
   }
   await page.getByRole("button", { name: "Back to Today" }).click();
 
+  // Reviews are a separate session from lessons — lesson step remains active.
   await expect(page.getByText("Reviews cleared")).toBeVisible();
-  await expect(page.getByText("Lesson complete")).toBeVisible();
   await page.reload();
   await expect(page.getByText("Reviews cleared")).toBeVisible();
   expect(errors).toEqual([]);

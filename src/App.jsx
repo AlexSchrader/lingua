@@ -6,6 +6,7 @@ import Haruki from "./screens/Haruki.jsx";
 import Stats from "./screens/Stats.jsx";
 import Settings from "./screens/Settings.jsx";
 import Lesson from "./screens/Lesson.jsx";
+import Review from "./screens/Review.jsx";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="stats" element={<Stats />} />
         <Route path="settings" element={<Settings />} />
       </Route>
+      <Route path="review" element={<Review />} />
       <Route path="lesson/:lessonId" element={<Lesson />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
