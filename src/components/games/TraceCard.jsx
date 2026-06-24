@@ -411,7 +411,8 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
 
       <div
         style={{
-          flex: 1,
+          aspectRatio: "1 / 1",
+          alignSelf: "stretch",
           position: "relative",
           background: C.surface,
           border: `2px solid ${
