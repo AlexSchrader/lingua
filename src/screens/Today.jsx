@@ -3,8 +3,20 @@ import { useNavigate } from "react-router-dom";
 import { Flame, BookOpen, RotateCcw, Lock, Check } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { UNITS } from "../data/index.js";
+import { isReviewable, isMastered } from "../store/mastery.js";
 import { C, F } from "../theme.js";
 import { VERSION } from "../version.js";
+
+// Friendly relative time for the next scheduled review.
+function fmtWhen(ts) {
+  if (!ts) return null;
+  const ms = ts - Date.now();
+  if (ms <= 0) return "now";
+  const hours = ms / 3_600_000;
+  if (hours < 24) return hours <= 1 ? "within an hour" : `in ~${Math.round(hours)} h`;
+  const days = Math.round(hours / 24);
+  return days <= 1 ? "tomorrow" : `in ~${days} days`;
+}
 
 function Step({ icon: Icon, n, title, sub, state, onClick }) {
   // state: "active" | "done" | "locked"
@@ -111,6 +123,28 @@ export default function Today() {
   // Daily goal is a FLOOR, not a ceiling: meeting it ticks the streak and shows
   // a marker, but never ends the session or caps how much you can do.
   const goalMet = daily.reviewsCleared && daily.lessonDone;
+
+  // Progress glance + next-review timing (from the data we already track).
+  const masteredKana = useMemo(
+    () => Object.values(items).filter((it) => it.type === "kana" && isMastered(it)).length,
+    [items]
+  );
+  const nextReviewAt = useMemo(() => {
+    const times = Object.values(items)
+      .filter((it) => isReviewable(it) && it.srs?.due)
+      .map((it) => new Date(it.srs.due).getTime())
+      .filter((t) => t > Date.now());
+    return times.length ? Math.min(...times) : null;
+  }, [items]);
+
+  // Mascot pose + a calm, non-nagging line for the current state.
+  const mascot = goalMet
+    ? { pose: "celebrate", msg: "Nice work today. Come back tomorrow — or keep going if you're in the zone." }
+    : reviewsLocked
+    ? { pose: "think", msg: "A few reviews are waiting. Clear them and you're set for the day." }
+    : hasNew
+    ? { pose: "cheer", msg: "Ready when you are. One lesson at a time — no rush." }
+    : { pose: "sleepy", msg: "All caught up. Rest up — your reviews will come back around." };
 
   const startReview = () => navigate("/review");
   const startLesson = () => {
@@ -260,6 +294,28 @@ export default function Today() {
         </div>
       )}
 
+      {/* Up next — a forward look (next lesson's can-do), or the next review when caught up. */}
+      <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 16, padding: 14 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 0.5, color: C.ai, marginBottom: 4 }}>
+          {hasNew ? "UP NEXT" : "CAUGHT UP"}
+        </div>
+        {hasNew ? (
+          <>
+            <div style={{ fontFamily: F.jp, fontSize: 15, fontWeight: 700 }}>
+              Lesson {lessonNum}/{totalLessons} · {currentLesson?.title}
+            </div>
+            <div style={{ fontSize: 13, color: C.inkSoft, marginTop: 2 }}>
+              {currentLesson?.canDo ?? "Learn new items"}
+            </div>
+          </>
+        ) : (
+          <div style={{ fontSize: 13, color: C.inkSoft }}>
+            You've learned every lesson available.{" "}
+            {nextReviewAt ? `Next review ${fmtWhen(nextReviewAt)}.` : "More units coming soon."}
+          </div>
+        )}
+      </div>
+
       {/* Quick stats from store */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
         <Stat label="Streak" value={streak.current} />
@@ -268,6 +324,35 @@ export default function Today() {
       </div>
       <div style={{ fontSize: 12, color: C.inkSoft, textAlign: "center" }}>
         {ja.flag} {ja.name} · {ja.level} · {ja.target} goal
+      </div>
+
+      {/* Mascot — Lingua warms up the screen + a calm line and a quiet progress glance. */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 14,
+          padding: 14,
+          borderRadius: 16,
+          background: C.surface,
+          border: `1px solid ${C.line}`,
+        }}
+      >
+        <img
+          src={`/lingua-${mascot.pose}.png`}
+          alt=""
+          aria-hidden
+          style={{ width: 72, height: 72, objectFit: "contain", flexShrink: 0 }}
+        />
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ fontSize: 14, color: C.ink, lineHeight: 1.35 }}>{mascot.msg}</div>
+          <div style={{ fontSize: 12, color: C.inkSoft, fontWeight: 600, marginTop: 6 }}>
+            {masteredKana > 0
+              ? `${masteredKana} kana mastered`
+              : "Mastery grows as you review"}
+            {nextReviewAt ? ` · next review ${fmtWhen(nextReviewAt)}` : ""}
+          </div>
+        </div>
       </div>
 
       {/* Playtest shortcut — shown in dev builds, or on any build via ?dev. */}
