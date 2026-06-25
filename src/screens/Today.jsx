@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { Flame, BookOpen, RotateCcw, Lock, Check } from "lucide-react";
+import { BookOpen, RotateCcw, Lock, Check } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { UNITS } from "../data/index.js";
 import { isReviewable, isMastered } from "../store/mastery.js";
@@ -146,6 +146,23 @@ export default function Today() {
     ? { pose: "cheer", msg: "Ready when you are. One lesson at a time — no rush." }
     : { pose: "sleepy", msg: "All caught up. Rest up — your reviews will come back around." };
 
+  // The lesson AFTER the current one — a genuine forward look (Step 2 already
+  // shows the current lesson, so "Up next" should be the one beyond it).
+  const nextLesson = useMemo(() => {
+    if (!currentLesson) return null;
+    const idx = allPlayableLessons.indexOf(currentLesson);
+    return allPlayableLessons[idx + 1] ?? null;
+  }, [currentLesson, allPlayableLessons]);
+  const nextLessonNum = nextLesson ? allPlayableLessons.indexOf(nextLesson) + 1 : null;
+
+  // Hiragana progress for the fullness strip.
+  const kanaTotal = useMemo(() => Object.values(items).filter((it) => it.type === "kana").length, [items]);
+  const kanaLearned = useMemo(
+    () => Object.values(items).filter((it) => it.type === "kana" && (it.rung ?? 0) >= 1).length,
+    [items]
+  );
+  const kanaPct = kanaTotal ? Math.round((kanaLearned / kanaTotal) * 100) : 0;
+
   const startReview = () => navigate("/review");
   const startLesson = () => {
     const target = currentLesson ?? allPlayableLessons[0] ?? null;
@@ -170,27 +187,18 @@ export default function Today() {
 
   return (
     <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 16, minHeight: "100%" }}>
-      {/* Header row: greeting + streak pill */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <div>
-          <div style={{ fontFamily: F.disp, fontSize: 22, fontWeight: 700 }}>Today</div>
-          <div style={{ fontSize: 13, color: C.inkSoft }}>Clear reviews, then learn — go as long as you like</div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 6,
-            padding: "8px 12px",
-            borderRadius: 999,
-            background: C.aiSoft,
-            color: C.aiDeep,
-            fontWeight: 700,
-          }}
-        >
-          <Flame size={16} color={C.shu} fill={streak.current > 0 ? C.shu : "none"} />
-          {streak.current} day{streak.current === 1 ? "" : "s"}
-        </div>
+      {/* Greeting */}
+      <div>
+        <div style={{ fontFamily: F.disp, fontSize: 22, fontWeight: 700 }}>Today</div>
+        <div style={{ fontSize: 13, color: C.inkSoft }}>Clear reviews, then learn — go as long as you like</div>
+      </div>
+
+      {/* Stats — at the top. The streak flame lives in the app top bar, so it's
+          not duplicated here; this is the at-a-glance trio. */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+        <Stat label="Streak" value={streak.current} />
+        <Stat label="XP" value={stats.xpTotal} />
+        <Stat label="Freezes" value={streak.freezes} />
       </div>
 
       {/* Review-debt banner */}
@@ -294,37 +302,44 @@ export default function Today() {
         </div>
       )}
 
-      {/* Up next — a forward look (next lesson's can-do), or the next review when caught up. */}
+      {/* Up next — the lesson AFTER the current one (Step 2 already shows the
+          current lesson, so this is a genuine peek ahead). */}
       <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 16, padding: 14 }}>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 0.5, color: C.ai, marginBottom: 4 }}>
-          {hasNew ? "UP NEXT" : "CAUGHT UP"}
+          {nextLesson ? "UP NEXT" : "AFTER THIS"}
         </div>
-        {hasNew ? (
+        {nextLesson ? (
           <>
             <div style={{ fontFamily: F.jp, fontSize: 15, fontWeight: 700 }}>
-              Lesson {lessonNum}/{totalLessons} · {currentLesson?.title}
+              Lesson {nextLessonNum}/{totalLessons} · {nextLesson.title}
             </div>
             <div style={{ fontSize: 13, color: C.inkSoft, marginTop: 2 }}>
-              {currentLesson?.canDo ?? "Learn new items"}
+              {nextLesson.canDo ?? "Learn new items"}
             </div>
           </>
         ) : (
           <div style={{ fontSize: 13, color: C.inkSoft }}>
-            You've learned every lesson available.{" "}
-            {nextReviewAt ? `Next review ${fmtWhen(nextReviewAt)}.` : "More units coming soon."}
+            {hasNew
+              ? "Last lesson available — more units coming soon."
+              : `You've learned every lesson available.${nextReviewAt ? ` Next review ${fmtWhen(nextReviewAt)}.` : ""}`}
           </div>
         )}
       </div>
 
-      {/* Quick stats from store */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
-        <Stat label="Streak" value={streak.current} />
-        <Stat label="XP" value={stats.xpTotal} />
-        <Stat label="Freezes" value={streak.freezes} />
-      </div>
-      <div style={{ fontSize: 12, color: C.inkSoft, textAlign: "center" }}>
-        {ja.flag} {ja.name} · {ja.level} · {ja.target} goal
-      </div>
+      {/* Hiragana progress — fills the screen + ties Today to the Ladder. */}
+      {kanaTotal > 0 && (
+        <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 16, padding: 14 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, marginBottom: 8 }}>
+            <span style={{ fontWeight: 700 }}>Hiragana</span>
+            <span style={{ color: C.inkSoft }}>
+              {kanaLearned}/{kanaTotal} learned{masteredKana > 0 ? ` · ${masteredKana} mastered` : ""}
+            </span>
+          </div>
+          <div style={{ height: 8, borderRadius: 999, background: C.lockedBg, overflow: "hidden" }}>
+            <div style={{ width: `${kanaPct}%`, height: "100%", background: C.ai, transition: "width 250ms ease" }} />
+          </div>
+        </div>
+      )}
 
       {/* Mascot — Lingua warms up the screen + a calm line and a quiet progress glance. */}
       <div
@@ -347,9 +362,7 @@ export default function Today() {
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontSize: 14, color: C.ink, lineHeight: 1.35 }}>{mascot.msg}</div>
           <div style={{ fontSize: 12, color: C.inkSoft, fontWeight: 600, marginTop: 6 }}>
-            {masteredKana > 0
-              ? `${masteredKana} kana mastered`
-              : "Mastery grows as you review"}
+            {ja.flag} {ja.name} · {ja.level === "pre-A1" ? "Starting out" : ja.level} → {ja.target} goal
             {nextReviewAt ? ` · next review ${fmtWhen(nextReviewAt)}` : ""}
           </div>
         </div>
