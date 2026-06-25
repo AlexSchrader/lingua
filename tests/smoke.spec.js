@@ -148,11 +148,13 @@ async function playCard(page) {
     // then submit via the test hook. Mouse fallback kept for environments where
     // the hook hasn't mounted yet (first render race on very slow machines).
     // IS_WEBDRIVER skips animations so "now trace it" appears instantly in CI.
-    for (let s = 0; s < 8; s++) {
-      if (!(await tracePad.isVisible().catch(() => false))) break;
+    // The card no longer auto-advances — on completion a "Continue" button gates
+    // the next card, so loop until it appears, then click it.
+    const traceContinue = page.getByRole("button", { name: "Continue" });
+    for (let s = 0; s < 10; s++) {
+      if (await traceContinue.isVisible().catch(() => false)) break;
       await page.locator("text=/now trace it/").waitFor({ state: "visible", timeout: 6000 }).catch(() => {});
-      // If card advanced during the wait (last stroke finished), don't spin another iteration.
-      if (!(await tracePad.isVisible().catch(() => false))) break;
+      if (await traceContinue.isVisible().catch(() => false)) break;
       const hooked = await page.evaluate(() => {
         if (!window.__trace) return false;
         window.__trace.submitGood();
@@ -169,6 +171,7 @@ async function playCard(page) {
       }
       await page.waitForTimeout(400); // snap animation + next stroke setup
     }
+    await traceContinue.click({ force: true }).catch(() => {});
     return "trace";
   }
 
@@ -353,11 +356,14 @@ test("trace free-mode scoring: correct strokes grade good and rung advances", as
   const tracePad = page.getByTestId("trace-pad");
   await tracePad.waitFor({ state: "visible", timeout: 8000 });
 
-  for (let s = 0; s < 8; s++) {
-    if (!(await tracePad.isVisible().catch(() => false))) break;
+  // Trace completes to a "Continue" gate (no auto-advance); click it to grade.
+  const traceContinue = page.getByRole("button", { name: "Continue" });
+  for (let s = 0; s < 10; s++) {
+    if (await traceContinue.isVisible().catch(() => false)) break;
     await page.evaluate(() => window.__trace?.submitGood());
     await page.waitForTimeout(900);
   }
+  await traceContinue.click();
 
   await expect(page.getByRole("button", { name: "Back to Today" })).toBeVisible({ timeout: 12000 });
   const persisted = await page.evaluate(() => localStorage.getItem("lingua-v1"));
@@ -388,11 +394,13 @@ test("trace free-mode scoring: wrong strokes grade again and rung does not advan
     await page.evaluate(() => window.__trace?.submitBad());
     await page.waitForTimeout(900);
   }
-  for (let s = 0; s < 8; s++) {
-    if (!(await tracePad.isVisible().catch(() => false))) break;
+  const traceContinue = page.getByRole("button", { name: "Continue" });
+  for (let s = 0; s < 10; s++) {
+    if (await traceContinue.isVisible().catch(() => false)) break;
     await page.evaluate(() => window.__trace?.submitGood());
     await page.waitForTimeout(900);
   }
+  await traceContinue.click();
 
   await expect(page.getByRole("button", { name: "Back to Today" })).toBeVisible({ timeout: 12000 });
   const persisted = await page.evaluate(() => localStorage.getItem("lingua-v1"));

@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
-import { C } from "../../theme.js";
+import { Volume2 } from "lucide-react";
+import { C, F } from "../../theme.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { KANJIVG } from "../../data/kanjivg.js";
 
@@ -76,6 +77,25 @@ function drawLine(ctx, pts, color, width) {
   ctx.restore();
 }
 
+// Speak the kana so the learner knows what they're tracing (sound ↔ shape).
+// Same Web Speech path as TeachCard. Skipped under WebDriver to keep CI fast/clean.
+function useKanaVoice(text) {
+  const [active, setActive] = useState(false);
+  function play() {
+    if (IS_WEBDRIVER) return;
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "ja-JP";
+    u.rate = 0.8;
+    u.onstart = () => setActive(true);
+    u.onend = () => setActive(false);
+    u.onerror = () => setActive(false);
+    window.speechSynthesis.speak(u);
+  }
+  return { play, active };
+}
+
 // ---
 
 // mode: "guided" → animated guide then trace; "free" → draw from memory with snap
@@ -95,6 +115,11 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
   const [doneStrokes, setDoneStrokes] = useState([]); // confirmed stroke indices
   const [feedback, setFeedback] = useState(null); // null|"correct"|"wrong"
   const [misses, setMisses] = useState(0);
+
+  const { play: playVoice, active: voiceActive } = useKanaVoice(item.front);
+  // Hear the kana up front so the learner knows what they're tracing.
+  useEffect(() => { playVoice(); }, [item.id]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => () => { if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel(); }, []);
 
   // --- canvas helpers ---
 
@@ -344,14 +369,18 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
     }
   }
 
-  // --- grade on done ---
-
+  // --- on done: replay the kana, then wait for the learner to tap Continue ---
+  // No auto-advance — finishing a character should land, not snap to the next card.
   useEffect(() => {
     if (phase !== "done") return;
-    const grade = misses === 0 ? "good" : misses <= TRACE_OPTS.retryLimit ? "hard" : "again";
-    const timer = setTimeout(() => onGraded?.(grade), 500);
-    return () => clearTimeout(timer);
+    playVoice();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
+
+  function handleContinue() {
+    const grade = misses === 0 ? "good" : misses <= TRACE_OPTS.retryLimit ? "hard" : "again";
+    onGraded?.(grade);
+  }
 
   // --- test hook (dev only) ---
   // Exposes window.__trace.{ submitGood, submitBad } so the smoke test can drive
@@ -404,9 +433,27 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0, gap: 16 }}>
       <div style={{ flexShrink: 0, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
-          {mode === "guided" ? "Trace the character" : "Write from memory"}
-        </span>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <button
+            onClick={playVoice}
+            aria-label="Play pronunciation"
+            style={{
+              width: 34, height: 34, borderRadius: "50%",
+              border: `1px solid ${voiceActive ? C.ai : C.line}`,
+              background: voiceActive ? C.ai : C.washi,
+              color: voiceActive ? "#fff" : C.ai,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              cursor: "pointer", flexShrink: 0,
+              transition: "background 150ms, border-color 150ms",
+            }}
+          >
+            <Volume2 size={17} />
+          </button>
+          {/* Romaji so the learner knows which kana this is (sound + label). */}
+          <span style={{ fontFamily: F.mono, fontSize: 18, fontWeight: 700, color: C.ai }}>
+            {item.reading}
+          </span>
+        </div>
         <span style={{ fontSize: 12, color: C.inkSoft }}>{hint}</span>
       </div>
 
@@ -479,6 +526,27 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
         />
       </div>
       </div>
+
+      {/* Continue gate: completing a character lands here, doesn't auto-advance. */}
+      {phase === "done" && (
+        <button
+          onClick={handleContinue}
+          style={{
+            flexShrink: 0,
+            padding: 16,
+            borderRadius: 14,
+            border: "none",
+            background: C.ai,
+            color: "#fff",
+            fontSize: 16,
+            fontWeight: 700,
+            fontFamily: F.body,
+            cursor: "pointer",
+          }}
+        >
+          Continue
+        </button>
+      )}
     </div>
   );
 }
