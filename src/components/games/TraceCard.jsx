@@ -401,18 +401,23 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
     : "";
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+    <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0, gap: 16 }}>
+      <div style={{ flexShrink: 0, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <span style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
           {mode === "guided" ? "Trace the character" : "Write from memory"}
         </span>
         <span style={{ fontSize: 12, color: C.inkSoft }}>{hint}</span>
       </div>
 
+      {/* Centering wrapper fills the remaining space; the square inside is sized
+          to the SMALLER of available width/height so it never overflows (no scroll)
+          on wide screens. height:100% + aspectRatio + maxWidth:100% = fit-square. */}
+      <div style={{ flex: 1, minHeight: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
       <div
         style={{
+          height: "100%",
           aspectRatio: "1 / 1",
-          alignSelf: "stretch",
+          maxWidth: "100%",
           position: "relative",
           background: C.surface,
           border: `2px solid ${
@@ -469,6 +474,7 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
             cursor: phase === "animating" || phase === "snapping" ? "default" : "crosshair",
           }}
         />
+      </div>
       </div>
     </div>
   );
