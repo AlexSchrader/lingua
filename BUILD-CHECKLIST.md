@@ -27,10 +27,10 @@ This file is updated as part of the PR that completes work. When a task is finis
 ## Status at a glance
 
 - **Shipped to `main`:** Phase 4 (trace card, 46-kana) + Unit 2 — PRs #19/#20 (2026-06-23). Phase 4.5 session structure (review/lesson split, teach-order, trace polish) — PR #21 merged 2026-06-24. Full hiragana あ-ん is live.
-- **Shipped to `main` (2026-06-25):** Phase 3 real audio (PR #22) — eleven_v3 TTS clips for all 101 items replace the Web Speech robot in lessons; cards play mp3 with Web Speech fallback. Robot voice is gone from lessons.
+- **Shipped to `main` (2026-06-25):** Phase 3 real audio (PR #22, eleven_v3 clips, robot gone from lessons) · Stats rung-0 relabel SEEN→NEW (PR #23) · **Phase 4.6 Ladder full-climb view (PR #24)** — CEFR spine + mascot, kana grid with per-letter mastery bars, units/roadmap, locked future langs; mascot PNGs de-checkerboarded.
 - **Haruki agent (6.5):** configured + pronunciation validated by ear (agent `agent_0301kt9…`, Haiku 4.5). Backend wiring still to build.
-- **Queued (no backend):** Phase 4.6 Ladder full-climb view (`BUILD-BRIEF-ladder-display.md`); Unit 3 dakuten curriculum.
-- **⚡️ Single next action (Alex):** feel-check the real lesson audio on `main` (kana should be Haruki's voice, not robot) → pick next: Ladder, Unit 3, or Phase 6.5 backend.
+- **Queued (no backend):** Unit 3 dakuten curriculum; mastery-feel tuning (Alex review); mascot per-language costumes (Future section).
+- **⚡️ Single next action (Alex):** do a few reviews → judge the mastery-bar feel (45-day threshold) → pick next: Unit 3, Phase 6.5 backend, or mascot work.
 - **Phase numbers = dependency map, not a queue.** Curriculum runs as the default thread between every feature sprint. Onboarding (Phase 5), the Ladder screen (4.6), and the Haruki agent (6.5) slot in as their dependencies clear.
 - **Last updated:** 2026-06-25
 
@@ -147,17 +147,18 @@ Reviews and lessons are now **separate sessions**, per Alex's pedagogy call: rev
 
 Brief: `BUILD-BRIEF-ladder-display.md`. The app "looks blank" — the Ladder shows little beyond the active unit and an XP-placeholder A1%. Make the Ladder present the whole curriculum (done / current / coming units, CEFR rungs, future languages) so progress and the path ahead are visible. **Frontend-only, reads UNITS data, no backend dependency.** Alex expanded scope 2026-06-25: also a **kana section** (see learned characters) + a **per-letter mastery bar**. This screen is the focus for a while before Unit 3.
 
-- [~] Full unit list for active language — DONE/CURRENT/COMING + roadmap "coming soon" rows (`src/data/ja/roadmap.js`, clearly-marked placeholders) — STARTED 2026-06-25, `feat/ladder-display` (CC)
-- [~] CEFR level ladder — vertical rungs A1 → target, goal at top, "you're here" marker + progress on current rung; the visual spine — STARTED 2026-06-25, PR (CC)
-- [~] Future languages — es/fr locked with unlock condition — STARTED 2026-06-25, PR (CC)
-- [~] Real progress, not XP — A1% from items at rung ≥ 1; per-unit done/total — STARTED 2026-06-25, PR (CC)
-- [~] Mascot warm-up — `lingua-proud` in the active-language hero — STARTED 2026-06-25, PR (CC)
-- [~] Kana section — grid of all hiragana, learned ones highlighted, N/46 + mastered count — STARTED 2026-06-25, PR (CC)
-- [~] Per-letter mastery bar + mastery model — `masteryPct(item)` from FSRS `stability` / `MASTERY_FULL_DAYS` (45); reachable with current cards, grows with successful spaced reviews. **Mastery definition is Alex's call to confirm/tune** (threshold + stability-vs-reps) — STARTED 2026-06-25, PR (CC)
-- [~] Kana progress bars appear on introduction — bar shows once a char is rung ≥ 1 (min 6% sliver), grows with mastery; un-introduced kana show no bar — STARTED 2026-06-25, PR #24 (CC)
-- [ ] Contract-driven (no hardcoded unit names), fluid layout, CI green; **draft PR — Alex feel-check + merge** (visual feature) (CC/Alex)
+- [x] Full unit list for active language — DONE/CURRENT/COMING + roadmap "coming soon" rows (`src/data/ja/roadmap.js`, clearly-marked placeholders) — DONE 2026-06-25, PR #24 (CC)
+- [x] CEFR level ladder — vertical rungs A1 → target, goal at top, "you're here" marker + progress on current rung; the visual spine — DONE 2026-06-25, PR #24 (CC)
+- [x] Future languages — es/fr locked with unlock condition — DONE 2026-06-25, PR #24 (CC)
+- [x] Real progress, not XP — A1% from items at rung ≥ 1; per-unit done/total — DONE 2026-06-25, PR #24 (CC)
+- [x] Mascot warm-up — `lingua-proud` in the active-language hero — DONE 2026-06-25, PR #24 (CC)
+- [x] Kana section — grid of all hiragana, learned ones highlighted, N/46 + mastered count — DONE 2026-06-25, PR #24 (CC)
+- [x] Per-letter mastery bar + mastery model — `masteryPct(item)` from FSRS `stability` / `MASTERY_FULL_DAYS` (45); reachable with current cards, grows with successful spaced reviews — DONE 2026-06-25, PR #24 (CC). **Mastery definition still Alex's to confirm/tune by feel** (threshold + stability-vs-reps) — see Future section.
+- [x] Kana progress bars appear on introduction — bar shows once a char is rung ≥ 1 (min 6% sliver), grows with mastery; un-introduced kana show no bar — DONE 2026-06-25, PR #24 (CC)
+- [x] Contract-driven (no hardcoded unit names), fluid layout, CI green — DONE 2026-06-25, PR #24, Alex feel-checked ("looks good") (CC/Alex)
+- [x] Mascot back on the Ladder — `lingua-proud` in the hero. Baked checkerboard stripped from all 8 `lingua-*` PNGs via `scripts/strip-mascot-bg.mjs` (edge flood-fill, removes checker + soft shadow, art preserved) — DONE 2026-06-25, PR #24 (CC)
 - [ ] **Ladder must grow with content (standing):** kana section auto-includes dakuten (same `type:"kana"`) when Unit 3 ships, but katakana likely wants its own grouping and **kanji needs a new section** (different type/UI). Units + roadmap sections grow from data. Re-check the Ladder reflects reality whenever a unit ships. (CC)
-- [~] Mascot back on the Ladder — `lingua-proud` in the hero. Baked checkerboard stripped from all 8 `lingua-*` PNGs via `scripts/strip-mascot-bg.mjs` (edge flood-fill, removes checker + soft shadow, art preserved) — STARTED 2026-06-25, PR #24 (CC)
+- [ ] Mastery feel-check + tune — Alex does real reviews, judges whether bars fill too slow/fast; tune `MASTERY_FULL_DAYS` or swap the model. (Alex/CC)
 
 ---
 
@@ -256,6 +257,7 @@ Parking for ideas and growth tasks we've named but aren't building yet. Per the 
 - **Mastery model still being settled** — currently FSRS `stability` / `MASTERY_FULL_DAYS` (45d). Alex to confirm by feel: threshold + whether stability is the right measure vs. a simpler review-count. Tune once there's real review data. (See `[[project-lesson-audio]]`-style memory `project-ladder-mastery` if created.)
 - **Language path generalization** — see Phase 5; the ja→es→fr chain must become user-choice. Logged there; noted here so the concept isn't buried in a blocked phase.
 - ~~**Mascot art needs real transparency**~~ — RESOLVED 2026-06-25, PR #24. Baked checkerboard stripped from all 8 `lingua-*` PNGs via `scripts/strip-mascot-bg.mjs` (edge flood-fill removes checker + soft drop-shadow; panda art preserved behind its black outline). Re-runnable if new mascot art is added with the same baked background.
+- **Dress Lingua up to match the language (Alex, 2026-06-25) — big effort, its own sprint.** The mascot (Lingua the panda) should be costumed/themed per the language being learned — e.g. Japanese touches for ja, a beret for fr, etc. Alex flags this as needing "some good time" — likely new art generation per language × the existing pose set (base/wave/proud/cheer/celebrate/sleepy/think/wistful), kept consistent. Decide art pipeline (generate vs commission), keep transparency-clean (re-run the strip script). Promote to a real phase when we pick it up; ties into the per-language identity + companion screens.
 
 ---
 
