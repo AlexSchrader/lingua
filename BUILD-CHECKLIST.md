@@ -112,6 +112,7 @@ Real per-item pronunciation clips (ElevenLabs Haruki voice), with Web Speech as 
 - [x] Switch TeachCard to Web Speech API — autoplay on reveal, replay button — DONE 2026-06-23, PR #19 (CC). Superseded as primary by the clip pipeline below; Web Speech is now only the fallback.
 - [x] Real lesson-audio clips — `generate-audio.mjs` rewritten to **`eleven_v3` + bare call** (no language_code, no katakana, no custom voice_settings), iterates all units; 101 clips generated to `public/audio/ja/`. Shared `useItemAudio` hook (TeachCard + TraceCard) plays the mp3, falls back to Web Speech if missing — DONE 2026-06-25, PR #22 (CC). *Key finding: the old robot voice on isolated kana was caused by over-loaded TTS params, NOT a TTS limitation. `eleven_v3` bare call pronounces single kana correctly (Alex confirmed by ear). See gotchas.*
 - [ ] Standing step when a unit ships: run `npm run generate:audio` (new items only; `--force` to regenerate all). (CC)
+- [ ] Voice naturalness fine-tuning (deferred 2026-06-25) — clips pronounce correctly but **cut off final phonemes / sound clipped & too short**. Try: trailing padding/punctuation on the text (likely fixes cutoff), *mild* voice_settings (~0.5 stability, NOT the old 0.35/style 0.25 that broke kana), v3's recommended settings, or kana-vs-word handling. Regenerate with `--force` + judge by ear. (Alex/CC)
 
 ---
 
