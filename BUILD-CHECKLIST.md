@@ -28,8 +28,9 @@ This file is updated as part of the PR that completes work. When a task is finis
 - **Shipped to `main`:** Phase 3 (Web Speech audio) + Phase 4 (trace card, 46-kana) — PR #19 merged 2026-06-23. Unit 2 — PR #20 merged 2026-06-23 (Alex-reviewed). Full hiragana あ-ん is live.
 - **In flight:** Phase 4.5 session structure (`feat/session-structure`, PR #21) — review/lesson split, teach-order fix, trace size fixes. Awaiting CI + Alex feel-check.
 - **Queued (no backend):** Phase 4.6 Ladder full-climb view (`BUILD-BRIEF-ladder-display.md`); Unit 3 dakuten curriculum.
-- **⚡️ Single next action (Alex):** feel-check PR #21 on device (review-first flow + trace size) → merge → pick Ladder or Unit 3 next.
-- **Phase numbers = dependency map, not a queue.** Curriculum runs as the default thread between every feature sprint. Onboarding (Phase 5) and the Ladder screen (4.6) slot in when curriculum has momentum, not before.
+- **Resequenced:** Phase 6.5 (`BUILD-BRIEF-agent-audio.md`) **pulls the backend forward** — the only pipeline that pronounced Japanese correctly is an ElevenLabs Conversational Agent + Claude LLM, not raw TTS. Alex can configure the agent in the ElevenLabs dashboard now, in parallel (unblocks the rest).
+- **⚡️ Single next action (Alex):** feel-check PR #21 on device (review-first flow + trace size) → merge → pick next (Ladder, Unit 3, or kick off the Haruki agent by configuring it in the ElevenLabs dashboard).
+- **Phase numbers = dependency map, not a queue.** Curriculum runs as the default thread between every feature sprint. Onboarding (Phase 5), the Ladder screen (4.6), and the Haruki agent (6.5) slot in as their dependencies clear.
 - **Last updated:** 2026-06-24
 
 ---
@@ -108,7 +109,7 @@ The make-or-break thread. Units 1–2 (46 base hiragana, あ-ん) shipped and Al
 
 Web Speech API (window.speechSynthesis, lang:"ja-JP") replaces ElevenLabs MP3 pipeline. Ships with Phase 4.
 
-- [x] Switch TeachCard to Web Speech API — no files, no staleness, autoplay on reveal, replay button — DONE 2026-06-23, PR #19 (CC). *Open: voice is quiet + may be English-accented; real fix is a native-JP ElevenLabs voice (Alex auditions Voice Library) + per-unit clip generation, with Web Speech as last-resort fallback.*
+- [x] Switch TeachCard to Web Speech API — no files, no staleness, autoplay on reveal, replay button — DONE 2026-06-23, PR #19 (CC). *Web Speech is quiet + English-accented — it's the FALLBACK, not the answer. The real fix is architectural: see **Phase 6.5** (`BUILD-BRIEF-agent-audio.md`) — the old app's correct pronunciation came from an ElevenLabs Conversational Agent + Claude LLM, not raw TTS. Capture that agent's config, apply it to the clip generator.*
 
 ---
 
@@ -166,11 +167,26 @@ Front-door UX and the user profile data shape. Frontend-only — no backend requ
 
 ## Phase 6 — Brief E — Backend foundation
 
-Serverless infra. Required for graded speaking and real Haruki — both core, both staged last after the no-backend wins. API keys are env secrets, never frontend.
+Serverless infra. Required for graded speaking and real Haruki. **No longer staged last** — Phase 6.5 (the agent-audio brief) pulls it forward, because the only voice pipeline that ever pronounced Japanese correctly runs through the backend. API keys are env secrets, never frontend.
 
 - [ ] Serverless setup (Vercel functions / edge) (CC)
 - [ ] `/api/speak.js` edge function for per-character TTS (CC)
 - [ ] Secret/env handling for ElevenLabs + Claude keys (CC)
+
+---
+
+## Phase 6.5 — Haruki via ElevenLabs Conversational Agent (the audio that actually worked)
+
+Brief: `BUILD-BRIEF-agent-audio.md`. **The key realization:** the old app's Haruki pronounced Japanese correctly because it ran through an ElevenLabs **Conversational AI agent with Claude as the LLM** — NOT a raw `voiceId` → `/v1/text-to-speech` call. The rebuild fought raw TTS for four rounds (#15–#18), never matched it, and fell back to robotic Web Speech. The fix is architectural: adopt the agent path. **This is the concrete, proven path for Phase 8 (Real Haruki)** and the reason the backend is pulled forward.
+
+- [!] **Configure the Haruki agent in the ElevenLabs dashboard** — voice `YYufJjbyLSFHuWXzJAaG`, LLM = Claude, system prompt = in-app Haruki persona from `server/companions.js`, language = Japanese. This is the piece that made pronunciation work. BLOCKED ON: nothing — Alex can do this now, in parallel. (Alex)
+- [!] Backend session-auth endpoint — Vercel function that mints a signed/authorized agent session (signed URL or conversation token); ElevenLabs key stays server-side only; mirror `/api/speak.js`, reuse server-side companions config — BLOCKED ON: Phase 6 backend foundation (CC)
+- [!] Frontend connection — `@elevenlabs/react` (already a dep, v1.6.4) starts a live conversation from the Haruki tab; the existing Haruki screen becomes the real conversational tutor — BLOCKED ON: session-auth endpoint (CC)
+- [!] **Capture + document the agent's working speech config** — this is the source of truth for fixing lesson clips; without it we're back to guessing — BLOCKED ON: agent working end-to-end (CC)
+- [!] Apply the captured agent config to the per-item clip generator (lesson pronunciation) — recommend pre-generated clips (cacheable, offline, instant), but only once the agent's exact config is known. Web Speech stays as fallback until then. — BLOCKED ON: config captured (CC)
+- [ ] **CC: verify against CURRENT ElevenLabs docs before implementing** — the Conversational AI session-auth flow and the `@elevenlabs/react` hook/component API change; confirm server-side session authorization, the current SDK API, and how to set the agent LLM to Claude. Do NOT assume the token/SDK shape from memory. (CC)
+
+*DoD: live Japanese voice conversation works end-to-end; Alex confirms pronunciation by ear; agent config captured for the clip generator. Curriculum (Unit 3) proceeds in parallel — content pipeline is unaffected.*
 
 ---
 
@@ -185,7 +201,7 @@ Serverless infra. Required for graded speaking and real Haruki — both core, bo
 
 ## Phase 8 — Brief D — Real Haruki
 
-Claude brain + ElevenLabs voice, multi-tutor from `companions.js`. The two-bank memory architecture from the design sessions.
+Claude brain + ElevenLabs voice, multi-tutor from `companions.js`. The two-bank memory architecture from the design sessions. **Note:** the voice/conversation transport is now specified concretely in **Phase 6.5** (ElevenLabs Conversational Agent) — this phase is the memory architecture and tutor logic layered on top of that proven pipeline.
 
 - [!] Write the Haruki agent spec doc (persona + memory architecture + tool boundaries + quiz-vs-chat routing) — BLOCKED ON: Phase 6 (Claude)
 - [!] Curriculum memory bank (on-topic) = `inventoryFor` output; the ONLY thing the graded "quiz me" path reads — BLOCKED ON: Phase 6 (CC)
