@@ -209,10 +209,13 @@ function KanaChip({ char, item }) {
       >
         {char}
       </div>
-      {/* mastery bar */}
-      <div style={{ height: 4, background: C.lockedBg }}>
-        <div style={{ width: `${pct * 100}%`, height: "100%", background: accent, transition: "width 250ms ease" }} />
-      </div>
+      {/* Mastery bar — only once the character has been introduced (rung ≥ 1).
+          Un-introduced kana show just the muted glyph, no bar. */}
+      {learned && (
+        <div style={{ height: 4, background: C.lockedBg }}>
+          <div style={{ width: `${Math.max(6, pct * 100)}%`, height: "100%", background: accent, transition: "width 250ms ease" }} />
+        </div>
+      )}
     </div>
   );
 }

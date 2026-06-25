@@ -20,6 +20,7 @@ This file is updated as part of the PR that completes work. When a task is finis
 6. Mark work that's actively being built (PR open, not merged) as `[~]` with ` — STARTED <date>`. Flip to `[x]` only on merge.
 7. Use `[!] — BLOCKED ON: <thing>` for anything stuck on a dependency (e.g. Phase 6 is blocked on the Phase 5 backend), so it's never mistaken for a plain todo.
 8. When you discover a gotcha that wasn't obvious from the docs — a React 19 / Zustand ordering trap, a CI-vs-local difference, a content-contract subtlety — append it to **Dead ends & gotchas** so the next session doesn't re-walk it. Bugs fixed *within* a feature PR (like the `useSyncExternalStore` ordering fix in PR #11) should also be noted on the parent item so the history is preserved.
+9. **Log everything, even concepts (Alex's standing rule, 2026-06-25).** Anything we add, change, or even just discuss as a future idea goes in this file — if it's not actionable now, park it in **Future / come back later** so nothing is lost. Don't rely on memory or chat history; the checklist is the record.
 
 ---
 
@@ -153,7 +154,10 @@ Brief: `BUILD-BRIEF-ladder-display.md`. The app "looks blank" — the Ladder sho
 - [~] Mascot warm-up — `lingua-proud` in the active-language hero — STARTED 2026-06-25, PR (CC)
 - [~] Kana section — grid of all hiragana, learned ones highlighted, N/46 + mastered count — STARTED 2026-06-25, PR (CC)
 - [~] Per-letter mastery bar + mastery model — `masteryPct(item)` from FSRS `stability` / `MASTERY_FULL_DAYS` (45); reachable with current cards, grows with successful spaced reviews. **Mastery definition is Alex's call to confirm/tune** (threshold + stability-vs-reps) — STARTED 2026-06-25, PR (CC)
+- [~] Kana progress bars appear on introduction — bar shows once a char is rung ≥ 1 (min 6% sliver), grows with mastery; un-introduced kana show no bar — STARTED 2026-06-25, PR #24 (CC)
 - [ ] Contract-driven (no hardcoded unit names), fluid layout, CI green; **draft PR — Alex feel-check + merge** (visual feature) (CC/Alex)
+- [ ] **Ladder must grow with content (standing):** kana section auto-includes dakuten (same `type:"kana"`) when Unit 3 ships, but katakana likely wants its own grouping and **kanji needs a new section** (different type/UI). Units + roadmap sections grow from data. Re-check the Ladder reflects reality whenever a unit ships. (CC)
+- [ ] Mascot back on the Ladder once `lingua-*` PNGs have real transparency (currently baked checkerboard — see Parking lot). (CC)
 
 ---
 
@@ -164,7 +168,8 @@ Front-door UX and the user profile data shape. Frontend-only — no backend requ
 - [!] Convert `ONBOARDING-SPEC.md` to a full build brief — BLOCKED ON: Phase 4 complete (Claude)
 - [!] Upfront onboarding flow (~4 taps): language pick (one active, others locked), display name, why (travel/heritage/work/fun), optional reminder time — BLOCKED ON: Phase 4 complete (CC)
 - [!] User profile in Zustand persist store (`activeLanguage`, `displayName`, `reason`, `reminderTime`; sync-ready shape) — BLOCKED ON: Phase 4 complete (CC)
-- [!] One-language lock enforced in code: `activeLanguage` set once; others stay locked via existing `unlock: {lang, level}` cascade until A1 — BLOCKED ON: Phase 4 complete (CC)
+- [!] One-language lock enforced in code: `activeLanguage` set once; others stay locked until A1 — BLOCKED ON: Phase 4 complete (CC)
+- [!] **Language path is user-selectable, NOT a hardcoded ja→es→fr chain (Alex, 2026-06-25).** Today `languages.js` bakes the order (`es` unlocks at `ja` A1, `fr` at `es` A1). The data model must let the learner pick their *next* language after A1, not force Spanish-then-French. The app is built for Alex but must generalize to any learner. **Alex's personal preference: French next** (going to France 2028; Spain 2031) — a default *hint* for onboarding, never something to hardcode. Likely a data-model change: "unlock the *choice* of next language at A1," not a fixed predecessor chain. — BLOCKED ON: Phase 5 design (CC)
 - [!] Lazy-collected fields: `location` (asked before location-grammar lesson), `selfReference` (asked before first gendered-agreement lesson) — BLOCKED ON: Phase 4 complete (CC)
 - [!] Content-contract extension: profile templating tokens (`{displayName}`, `{location.city}`) + `requires: []` lesson field + validator (token references known field + non-null fallback exists) — BLOCKED ON: Phase 4 complete (CC)
 - [!] Account system (display name + email + auth + cross-device sync) — BLOCKED ON: Phase 6 (backend foundation) (CC)
@@ -240,6 +245,17 @@ Claude brain + ElevenLabs voice, multi-tutor from `companions.js`. The two-bank 
 - [ ] Tuning from playtests — `LEARN_OPTS` (learnQueue.js), `TIMING` (grading.js), FSRS params. Report a vibe → one-line constant change. (Alex/CC)
 - [ ] Per-phase `?dev` feel-checks before merging anything that changes the learning feel. (Alex)
 - [ ] `accept[]` synonym arrays — fill as typed-answer gaps surface. (Claude/CC)
+
+---
+
+## Future / come back later (concepts & growth — not yet scheduled)
+
+Parking for ideas and growth tasks we've named but aren't building yet. Per the standing rule (#9 above), everything we discuss lands here so it's not lost. Promote items into a real phase when they're ready to build.
+
+- **Ladder content sections grow over time** — today it shows Hiragana. As content lands: dakuten folds into the kana grid automatically (`type:"kana"`); **Katakana** likely wants its own labeled section; **Kanji** needs a brand-new section (different type + likely different UI: meaning/reading, not stroke-grid). The Units list + roadmap grow from data. Standing check: when a unit ships, confirm the Ladder reflects it.
+- **Mastery model still being settled** — currently FSRS `stability` / `MASTERY_FULL_DAYS` (45d). Alex to confirm by feel: threshold + whether stability is the right measure vs. a simpler review-count. Tune once there's real review data. (See `[[project-lesson-audio]]`-style memory `project-ladder-mastery` if created.)
+- **Language path generalization** — see Phase 5; the ja→es→fr chain must become user-choice. Logged there; noted here so the concept isn't buried in a blocked phase.
+- **Mascot art needs real transparency** — all `lingua-*` PNGs ship with a baked-in checkerboard (alpha channel present but every pixel opaque). Re-export transparent (Alex) or strip programmatically (CC) before using them anywhere. Blocks mascots on Ladder + companion screens.
 
 ---
 
