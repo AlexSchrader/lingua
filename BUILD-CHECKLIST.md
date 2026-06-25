@@ -144,14 +144,16 @@ Reviews and lessons are now **separate sessions**, per Alex's pedagogy call: rev
 
 ## Phase 4.6 — Ladder screen: full climb view
 
-Brief: `BUILD-BRIEF-ladder-display.md`. The app "looks blank" — the Ladder shows little beyond the active unit and an XP-placeholder A1%. Make the Ladder present the whole curriculum (done / current / coming units, CEFR rungs, future languages) so progress and the path ahead are visible. **Frontend-only, reads UNITS data, no backend dependency** — can run alongside curriculum.
+Brief: `BUILD-BRIEF-ladder-display.md`. The app "looks blank" — the Ladder shows little beyond the active unit and an XP-placeholder A1%. Make the Ladder present the whole curriculum (done / current / coming units, CEFR rungs, future languages) so progress and the path ahead are visible. **Frontend-only, reads UNITS data, no backend dependency.** Alex expanded scope 2026-06-25: also a **kana section** (see learned characters) + a **per-letter mastery bar**. This screen is the focus for a while before Unit 3.
 
-- [ ] Full unit list for active language — render ALL units (UNITS + roadmap) as DONE / CURRENT / COMING; authored-but-locked and not-yet-authored both show as "coming soon" (clearly-marked placeholders, not fabricated content) (CC)
-- [ ] CEFR level ladder — rungs A1 → … → target with current position marked; the visual spine of the screen (CC)
-- [ ] Future languages — es/fr shown locked with unlock condition ("Unlock at A1 Japanese"); reinforces one-at-a-time (CC)
-- [ ] Real progress, not XP — A1% reflects units/items completed toward the level, not fabricated XP (extends `a1PercentFor` from PR #13) (CC)
-- [ ] Mascot warm-up — natural home for a `lingua-*` pose (e.g. `lingua-proud` at the top rung) (CC)
-- [ ] Contract-driven (no hardcoded unit names), fluid layout, CI green; fresh branch off `main`, draft PR (CC)
+- [~] Full unit list for active language — DONE/CURRENT/COMING + roadmap "coming soon" rows (`src/data/ja/roadmap.js`, clearly-marked placeholders) — STARTED 2026-06-25, `feat/ladder-display` (CC)
+- [~] CEFR level ladder — vertical rungs A1 → target, goal at top, "you're here" marker + progress on current rung; the visual spine — STARTED 2026-06-25, PR (CC)
+- [~] Future languages — es/fr locked with unlock condition — STARTED 2026-06-25, PR (CC)
+- [~] Real progress, not XP — A1% from items at rung ≥ 1; per-unit done/total — STARTED 2026-06-25, PR (CC)
+- [~] Mascot warm-up — `lingua-proud` in the active-language hero — STARTED 2026-06-25, PR (CC)
+- [~] Kana section — grid of all hiragana, learned ones highlighted, N/46 + mastered count — STARTED 2026-06-25, PR (CC)
+- [~] Per-letter mastery bar + mastery model — `masteryPct(item)` from FSRS `stability` / `MASTERY_FULL_DAYS` (45); reachable with current cards, grows with successful spaced reviews. **Mastery definition is Alex's call to confirm/tune** (threshold + stability-vs-reps) — STARTED 2026-06-25, PR (CC)
+- [ ] Contract-driven (no hardcoded unit names), fluid layout, CI green; **draft PR — Alex feel-check + merge** (visual feature) (CC/Alex)
 
 ---
 
