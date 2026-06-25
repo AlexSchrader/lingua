@@ -25,11 +25,13 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 ## Status at a glance
 
-- **Current phase:** Phase 4 (tracing) in flight on `feat/trace-card`. **Curriculum thread is active** — Unit 2 shipped (PR #20, Alex-reviewed); Unit 3 (dakuten rows) is next.
-- **In flight:** Phase 4 trace card (`feat/trace-card`, PR #19) — Web Speech API, 46-kana stroke data, ready for feel-check + merge.
-- **⚡️ Single next action (Alex):** feel-check `feat/trace-card` → merge → then Unit 3 curriculum.
-- **Phase numbers = dependency map, not a queue.** Curriculum runs as the default thread between every feature sprint. Onboarding (Phase 5) and audio (Phase 3) slot in when curriculum has momentum, not before.
-- **Last updated:** 2026-06-23
+- **Shipped to `main`:** Phase 3 (Web Speech audio) + Phase 4 (trace card, 46-kana) — PR #19 merged 2026-06-23. Unit 2 — PR #20 merged 2026-06-23 (Alex-reviewed). Full hiragana あ-ん is live.
+- **In flight:** Phase 4.5 session structure (`feat/session-structure`, PR #21) — review/lesson split, teach-order fix, trace size fixes. Awaiting CI + Alex feel-check.
+- **Queued (no backend):** Phase 4.6 Ladder full-climb view (`BUILD-BRIEF-ladder-display.md`); Unit 3 dakuten curriculum.
+- **Resequenced:** Phase 6.5 (`BUILD-BRIEF-agent-audio.md`) **pulls the backend forward** — the only pipeline that pronounced Japanese correctly is an ElevenLabs Conversational Agent + Claude LLM, not raw TTS. Alex can configure the agent in the ElevenLabs dashboard now, in parallel (unblocks the rest).
+- **⚡️ Single next action (Alex):** feel-check PR #21 on device (review-first flow + trace size) → merge → pick next (Ladder, Unit 3, or kick off the Haruki agent by configuring it in the ElevenLabs dashboard).
+- **Phase numbers = dependency map, not a queue.** Curriculum runs as the default thread between every feature sprint. Onboarding (Phase 5), the Ladder screen (4.6), and the Haruki agent (6.5) slot in as their dependencies clear.
+- **Last updated:** 2026-06-24
 
 ---
 
@@ -107,7 +109,7 @@ The make-or-break thread. Units 1–2 (46 base hiragana, あ-ん) shipped and Al
 
 Web Speech API (window.speechSynthesis, lang:"ja-JP") replaces ElevenLabs MP3 pipeline. Ships with Phase 4.
 
-- [~] Switch TeachCard to Web Speech API — no files, no staleness, autoplay on reveal, replay button — STARTED 2026-06-22, PR #19 (CC)
+- [x] Switch TeachCard to Web Speech API — no files, no staleness, autoplay on reveal, replay button — DONE 2026-06-23, PR #19 (CC). *Web Speech is quiet + English-accented — it's the FALLBACK, not the answer. The real fix is architectural: see **Phase 6.5** (`BUILD-BRIEF-agent-audio.md`) — the old app's correct pronunciation came from an ElevenLabs Conversational Agent + Claude LLM, not raw TTS. Capture that agent's config, apply it to the clip generator.*
 
 ---
 
@@ -115,11 +117,37 @@ Web Speech API (window.speechSynthesis, lang:"ja-JP") replaces ElevenLabs MP3 pi
 
 Real stroke-order tracing; completes the "produce/write" half of the mastery ladder.
 
-- [~] KanjiVG stroke data (`src/data/kanjivg.js`) — 46-kana SVG paths from KanjiVG (CC BY-SA 3.0); fetch script unit-agnostic — STARTED 2026-06-22, PR #19 (CC)
-- [~] TraceCard component — guided mode (animation → trace, check2 in learn phase) + free mode (draw from memory, rung 3+ reviews) — STARTED 2026-06-22, PR #19 (CC)
-- [~] Wire TraceCard into Lesson runner; route rung-appropriate kana to trace instead of typed card — STARTED 2026-06-22, PR #19 (CC)
-- [~] Add `trace` to `LIVE_CARD_KINDS`, un-skip coverage stub, add fixture coverage — STARTED 2026-06-22, PR #19 (CC)
-- [~] Stroke-data validator in contract.js — hard-errors if a kana item has no kanjivg entry; covers all 46 base hiragana — STARTED 2026-06-22, PR #19 (CC)
+- [x] KanjiVG stroke data (`src/data/kanjivg.js`) — 46-kana SVG paths from KanjiVG (CC BY-SA 3.0); fetch script unit-agnostic — DONE 2026-06-23, PR #19 (CC)
+- [x] TraceCard component — guided mode (animation → trace, check2 in learn phase) + free mode (draw from memory, rung 3+ reviews) — DONE 2026-06-23, PR #19 (CC). *Follow-ups in PR #21: ghost/stroke coordinate alignment, fit-to-viewport + 380px size cap, IS_WEBDRIVER animation skip for CI.*
+- [x] Wire TraceCard into Lesson runner; route rung-appropriate kana to trace instead of typed card — DONE 2026-06-23, PR #19 (CC)
+- [x] Add `trace` to `LIVE_CARD_KINDS`, un-skip coverage stub, add fixture coverage — DONE 2026-06-23, PR #19 (CC)
+- [x] Stroke-data validator in contract.js — hard-errors if a kana item has no kanjivg entry; covers all 46 base hiragana — DONE 2026-06-23, PR #19 (CC)
+- [ ] KanjiVG shows *handwritten* stroke forms (さ/き separated, not the connected printed-font shape). Pedagogically correct for stroke order, but may read as "wrong" against the printed font elsewhere in the app. Decide: keep handwritten-correct (rec) or font-match. (Alex)
+
+---
+
+## Phase 4.5 — Session structure (review/lesson split) `[feat/session-structure]`
+
+Reviews and lessons are now **separate sessions**, per Alex's pedagogy call: review is the mandatory daily habit (streak triggers on it), lesson is an optional bonus. First-teach respects authored kana→vocab order so you can't be quizzed on はな before は and な are taught; reviews still interleave (good for retention).
+
+- [~] Split `/review` and `/lesson` into separate routes + runners; Today CTA routes reviews-first, lesson when clear — STARTED 2026-06-24, PR #21 (CC)
+- [~] Teach-order fix — `buildLearnQueue` front-loads all teaches in authored order (kana before vocab); checks still interleave — STARTED 2026-06-24, PR #21 (CC)
+- [~] Daily goal — `rollDailyGoal` triggers streak on reviews cleared (lesson optional); fallback to lesson when nothing is due (new learner) — STARTED 2026-06-24, PR #21 (CC)
+- [~] TraceCard fit-to-viewport + 380px cap — square never overflows (no scroll), glyph stays a readable size — STARTED 2026-06-24, PR #21 (CC)
+- [ ] Alex `?dev` feel-check — review-first flow, teach-order (all kana before vocab), trace size on real device; scroll-test each card kind (teach/choice/type/build) at actual screen size (Alex)
+
+---
+
+## Phase 4.6 — Ladder screen: full climb view
+
+Brief: `BUILD-BRIEF-ladder-display.md`. The app "looks blank" — the Ladder shows little beyond the active unit and an XP-placeholder A1%. Make the Ladder present the whole curriculum (done / current / coming units, CEFR rungs, future languages) so progress and the path ahead are visible. **Frontend-only, reads UNITS data, no backend dependency** — can run alongside curriculum.
+
+- [ ] Full unit list for active language — render ALL units (UNITS + roadmap) as DONE / CURRENT / COMING; authored-but-locked and not-yet-authored both show as "coming soon" (clearly-marked placeholders, not fabricated content) (CC)
+- [ ] CEFR level ladder — rungs A1 → … → target with current position marked; the visual spine of the screen (CC)
+- [ ] Future languages — es/fr shown locked with unlock condition ("Unlock at A1 Japanese"); reinforces one-at-a-time (CC)
+- [ ] Real progress, not XP — A1% reflects units/items completed toward the level, not fabricated XP (extends `a1PercentFor` from PR #13) (CC)
+- [ ] Mascot warm-up — natural home for a `lingua-*` pose (e.g. `lingua-proud` at the top rung) (CC)
+- [ ] Contract-driven (no hardcoded unit names), fluid layout, CI green; fresh branch off `main`, draft PR (CC)
 
 ---
 
@@ -139,11 +167,26 @@ Front-door UX and the user profile data shape. Frontend-only — no backend requ
 
 ## Phase 6 — Brief E — Backend foundation
 
-Serverless infra. Required for graded speaking and real Haruki — both core, both staged last after the no-backend wins. API keys are env secrets, never frontend.
+Serverless infra. Required for graded speaking and real Haruki. **No longer staged last** — Phase 6.5 (the agent-audio brief) pulls it forward, because the only voice pipeline that ever pronounced Japanese correctly runs through the backend. API keys are env secrets, never frontend.
 
 - [ ] Serverless setup (Vercel functions / edge) (CC)
 - [ ] `/api/speak.js` edge function for per-character TTS (CC)
 - [ ] Secret/env handling for ElevenLabs + Claude keys (CC)
+
+---
+
+## Phase 6.5 — Haruki via ElevenLabs Conversational Agent (the audio that actually worked)
+
+Brief: `BUILD-BRIEF-agent-audio.md`. **The key realization:** the old app's Haruki pronounced Japanese correctly because it ran through an ElevenLabs **Conversational AI agent with Claude as the LLM** — NOT a raw `voiceId` → `/v1/text-to-speech` call. The rebuild fought raw TTS for four rounds (#15–#18), never matched it, and fell back to robotic Web Speech. The fix is architectural: adopt the agent path. **This is the concrete, proven path for Phase 8 (Real Haruki)** and the reason the backend is pulled forward.
+
+- [!] **Configure the Haruki agent in the ElevenLabs dashboard** — voice `YYufJjbyLSFHuWXzJAaG`, LLM = Claude, system prompt = in-app Haruki persona from `server/companions.js`, language = Japanese. This is the piece that made pronunciation work. BLOCKED ON: nothing — Alex can do this now, in parallel. (Alex)
+- [!] Backend session-auth endpoint — Vercel function that mints a signed/authorized agent session (signed URL or conversation token); ElevenLabs key stays server-side only; mirror `/api/speak.js`, reuse server-side companions config — BLOCKED ON: Phase 6 backend foundation (CC)
+- [!] Frontend connection — `@elevenlabs/react` (already a dep, v1.6.4) starts a live conversation from the Haruki tab; the existing Haruki screen becomes the real conversational tutor — BLOCKED ON: session-auth endpoint (CC)
+- [!] **Capture + document the agent's working speech config** — this is the source of truth for fixing lesson clips; without it we're back to guessing — BLOCKED ON: agent working end-to-end (CC)
+- [!] Apply the captured agent config to the per-item clip generator (lesson pronunciation) — recommend pre-generated clips (cacheable, offline, instant), but only once the agent's exact config is known. Web Speech stays as fallback until then. — BLOCKED ON: config captured (CC)
+- [ ] **CC: verify against CURRENT ElevenLabs docs before implementing** — the Conversational AI session-auth flow and the `@elevenlabs/react` hook/component API change; confirm server-side session authorization, the current SDK API, and how to set the agent LLM to Claude. Do NOT assume the token/SDK shape from memory. (CC)
+
+*DoD: live Japanese voice conversation works end-to-end; Alex confirms pronunciation by ear; agent config captured for the clip generator. Curriculum (Unit 3) proceeds in parallel — content pipeline is unaffected.*
 
 ---
 
@@ -158,7 +201,7 @@ Serverless infra. Required for graded speaking and real Haruki — both core, bo
 
 ## Phase 8 — Brief D — Real Haruki
 
-Claude brain + ElevenLabs voice, multi-tutor from `companions.js`. The two-bank memory architecture from the design sessions.
+Claude brain + ElevenLabs voice, multi-tutor from `companions.js`. The two-bank memory architecture from the design sessions. **Note:** the voice/conversation transport is now specified concretely in **Phase 6.5** (ElevenLabs Conversational Agent) — this phase is the memory architecture and tutor logic layered on top of that proven pipeline.
 
 - [!] Write the Haruki agent spec doc (persona + memory architecture + tool boundaries + quiz-vs-chat routing) — BLOCKED ON: Phase 6 (Claude)
 - [!] Curriculum memory bank (on-topic) = `inventoryFor` output; the ONLY thing the graded "quiz me" path reads — BLOCKED ON: Phase 6 (CC)

@@ -112,22 +112,26 @@ export default function Today() {
   // a marker, but never ends the session or caps how much you can do.
   const goalMet = daily.reviewsCleared && daily.lessonDone;
 
-  const start = () => {
-    // Fall back to lesson 1 URL for review-only sessions when all content is done.
+  const startReview = () => navigate("/review");
+  const startLesson = () => {
     const target = currentLesson ?? allPlayableLessons[0] ?? null;
     if (target) navigate(`/lesson/${target.id}`);
   };
 
-  // Continuous CTA — no "done for today" wall. Locked reviews first; then learn
-  // as long as there's new material; otherwise you're genuinely caught up until
-  // FSRS surfaces the next review (not a cap).
+  // Primary CTA: reviews first if due; lesson once reviews are clear.
   let ctaLabel;
   let ctaDisabled = false;
-  if (reviewsLocked) ctaLabel = "Start reviews";
-  else if (hasNew) ctaLabel = goalMet ? "Keep learning" : "Start lesson";
-  else {
+  let ctaAction;
+  if (due.length > 0 && !daily.reviewsCleared) {
+    ctaLabel = "Clear reviews";
+    ctaAction = startReview;
+  } else if (hasNew) {
+    ctaLabel = daily.lessonDone ? "Keep learning" : "Start lesson";
+    ctaAction = startLesson;
+  } else {
     ctaLabel = "All caught up";
     ctaDisabled = true;
+    ctaAction = undefined;
   }
 
   return (
@@ -190,7 +194,7 @@ export default function Today() {
               : "Nothing due — you're clear"
           }
           state={reviewState}
-          onClick={start}
+          onClick={startReview}
         />
         <Step
           icon={BookOpen}
@@ -206,7 +210,7 @@ export default function Today() {
               : "All lessons complete"
           }
           state={lessonState}
-          onClick={start}
+          onClick={startLesson}
         />
       </div>
 
@@ -233,7 +237,7 @@ export default function Today() {
       {/* Primary CTA — continuous, no daily wall. */}
       <button
         data-testid="start-session"
-        onClick={start}
+        onClick={ctaAction}
         disabled={ctaDisabled}
         style={{
           padding: 18,
@@ -271,8 +275,7 @@ export default function Today() {
         <button
           onClick={() => {
             devSeedReviews();
-            const target = currentLesson ?? allPlayableLessons[0];
-            if (target) navigate(`/lesson/${target.id}`);
+            navigate("/review");
           }}
           style={{
             padding: "8px 12px",

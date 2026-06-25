@@ -148,11 +148,13 @@ async function playCard(page) {
     // then submit via the test hook. Mouse fallback kept for environments where
     // the hook hasn't mounted yet (first render race on very slow machines).
     // IS_WEBDRIVER skips animations so "now trace it" appears instantly in CI.
-    for (let s = 0; s < 8; s++) {
-      if (!(await tracePad.isVisible().catch(() => false))) break;
+    // The card no longer auto-advances — on completion a "Continue" button gates
+    // the next card, so loop until it appears, then click it.
+    const traceContinue = page.getByRole("button", { name: "Continue" });
+    for (let s = 0; s < 10; s++) {
+      if (await traceContinue.isVisible().catch(() => false)) break;
       await page.locator("text=/now trace it/").waitFor({ state: "visible", timeout: 6000 }).catch(() => {});
-      // If card advanced during the wait (last stroke finished), don't spin another iteration.
-      if (!(await tracePad.isVisible().catch(() => false))) break;
+      if (await traceContinue.isVisible().catch(() => false)) break;
       const hooked = await page.evaluate(() => {
         if (!window.__trace) return false;
         window.__trace.submitGood();
@@ -169,6 +171,7 @@ async function playCard(page) {
       }
       await page.waitForTimeout(400); // snap animation + next stroke setup
     }
+    await traceContinue.click({ force: true }).catch(() => {});
     return "trace";
   }
 
@@ -271,7 +274,7 @@ test("new words are taught, the loop completes, and it persists", async ({ page 
   expect(errors).toEqual([]);
 });
 
-test("card-kind coverage: every LIVE_CARD_KIND appears in one session", async ({ page }) => {
+test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson sessions", async ({ page }) => {
   test.setTimeout(60_000); // trace:guided animation ~1.3s/stroke in real browsers; IS_WEBDRIVER makes it instant
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
@@ -281,10 +284,22 @@ test("card-kind coverage: every LIVE_CARD_KIND appears in one session", async ({
     JSON.stringify(kindFixtureState())
   );
   await page.goto("/");
-  await page.getByTestId("start-session").click();
 
   const seenKinds = new Set();
-  for (let i = 0; i < 60; i++) {
+
+  // Session 1: reviews — konnichiwa (rung=3 due) → build card.
+  await page.getByTestId("start-session").click();
+  for (let i = 0; i < 20; i++) {
+    const kind = await playCard(page);
+    if (kind === false) break;
+    if (typeof kind === "string") seenKinds.add(kind);
+    await page.waitForTimeout(50);
+  }
+  await page.getByRole("button", { name: "Back to Today" }).click();
+
+  // Session 2: lesson — い + おはよう (both rung=0) → teach/choice/trace/type:meaning.
+  await page.getByTestId("start-session").click();
+  for (let i = 0; i < 40; i++) {
     const kind = await playCard(page);
     if (kind === false) break;
     if (typeof kind === "string") seenKinds.add(kind);
@@ -335,16 +350,20 @@ test("trace free-mode scoring: correct strokes grade good and rung advances", as
     JSON.stringify(traceFreeFixtureState())
   );
   await page.goto("/");
-  await page.goto("/lesson/ja-u1l1");
+  // い is rung=3 and due → appears as a free-trace review card at /review.
+  await page.getByTestId("start-session").click();
 
   const tracePad = page.getByTestId("trace-pad");
   await tracePad.waitFor({ state: "visible", timeout: 8000 });
 
-  for (let s = 0; s < 8; s++) {
-    if (!(await tracePad.isVisible().catch(() => false))) break;
+  // Trace completes to a "Continue" gate (no auto-advance); click it to grade.
+  const traceContinue = page.getByRole("button", { name: "Continue" });
+  for (let s = 0; s < 10; s++) {
+    if (await traceContinue.isVisible().catch(() => false)) break;
     await page.evaluate(() => window.__trace?.submitGood());
     await page.waitForTimeout(900);
   }
+  await traceContinue.click();
 
   await expect(page.getByRole("button", { name: "Back to Today" })).toBeVisible({ timeout: 12000 });
   const persisted = await page.evaluate(() => localStorage.getItem("lingua-v1"));
@@ -363,7 +382,8 @@ test("trace free-mode scoring: wrong strokes grade again and rung does not advan
     JSON.stringify(traceFreeFixtureState())
   );
   await page.goto("/");
-  await page.goto("/lesson/ja-u1l1");
+  // い is rung=3 and due → appears as a free-trace review card at /review.
+  await page.getByTestId("start-session").click();
 
   const tracePad = page.getByTestId("trace-pad");
   await tracePad.waitFor({ state: "visible", timeout: 8000 });
@@ -374,11 +394,13 @@ test("trace free-mode scoring: wrong strokes grade again and rung does not advan
     await page.evaluate(() => window.__trace?.submitBad());
     await page.waitForTimeout(900);
   }
-  for (let s = 0; s < 8; s++) {
-    if (!(await tracePad.isVisible().catch(() => false))) break;
+  const traceContinue = page.getByRole("button", { name: "Continue" });
+  for (let s = 0; s < 10; s++) {
+    if (await traceContinue.isVisible().catch(() => false)) break;
     await page.evaluate(() => window.__trace?.submitGood());
     await page.waitForTimeout(900);
   }
+  await traceContinue.click();
 
   await expect(page.getByRole("button", { name: "Back to Today" })).toBeVisible({ timeout: 12000 });
   const persisted = await page.evaluate(() => localStorage.getItem("lingua-v1"));
@@ -414,8 +436,8 @@ test("reviews are app-judged — no self-grading, grades persist", async ({ page
   }
   await page.getByRole("button", { name: "Back to Today" }).click();
 
+  // Reviews are a separate session from lessons — lesson step remains active.
   await expect(page.getByText("Reviews cleared")).toBeVisible();
-  await expect(page.getByText("Lesson complete")).toBeVisible();
   await page.reload();
   await expect(page.getByText("Reviews cleared")).toBeVisible();
   expect(errors).toEqual([]);

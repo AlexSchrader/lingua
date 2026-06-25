@@ -15,20 +15,19 @@ export const LEARN_OPTS = {
   maxMisses: 2, // after this many misses on a step, graduate anyway (as `hard`)
 };
 
-// Build the initial interleaved queue. Each item contributes teach + check1 +
-// check2 at virtual slots (i, i+off1, i+off2); a stable sort by slot interleaves
-// them and clamps past-the-end checks to the tail. The tie-rank (teach 0 <
-// check1 1 < check2 2) guarantees, per item, teach < check1 < check2 and that a
-// check never lands right after its own teach (no echo).
+// Build the learning queue. All teaches run first in authored order (kana before
+// vocab), then checks interleave by position. This guarantees a learner sees
+// every item in the lesson before any recognition/recall checks appear — you
+// can't be quizzed on はな before は and な have both been introduced.
 export function buildLearnQueue(ids, opts = LEARN_OPTS) {
-  const entries = [];
+  const teaches = ids.map((id) => ({ id, step: "teach" }));
+  const checks = [];
   ids.forEach((id, i) => {
-    entries.push({ id, step: "teach", k: i * 10 + 0 });
-    entries.push({ id, step: "check1", k: (i + opts.off1) * 10 + 1 });
-    entries.push({ id, step: "check2", k: (i + opts.off2) * 10 + 2 });
+    checks.push({ id, step: "check1", k: (i + opts.off1) * 10 + 1 });
+    checks.push({ id, step: "check2", k: (i + opts.off2) * 10 + 2 });
   });
-  entries.sort((a, b) => a.k - b.k);
-  return entries.map(({ id, step }) => ({ id, step }));
+  checks.sort((a, b) => a.k - b.k);
+  return [...teaches, ...checks.map(({ id, step }) => ({ id, step }))];
 }
 
 export function initLearn(ids, opts = LEARN_OPTS) {
