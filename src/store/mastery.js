@@ -1,5 +1,8 @@
 // Mastery rungs: the learner's depth of knowledge for a single item.
-export const RUNGS = ["SEEN", "RECOGNIZED", "RECALLED", "PRODUCED", "SPOKEN", "MASTERED"];
+// Rung 0 = "NEW" — seeded into the deck but not yet started (NOT "seen"; every
+// item, including future lessons, sits here until a lesson graduates it to rung 1).
+// These are DISPLAY labels only; all rung logic is by index.
+export const RUNGS = ["NEW", "RECOGNIZED", "RECALLED", "PRODUCED", "SPOKEN", "MASTERED"];
 export const MAX_RUNG = RUNGS.length - 1; // 5
 
 export function rungName(rung) {
