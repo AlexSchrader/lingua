@@ -86,32 +86,37 @@ function ActiveLanguage({ lang, items }) {
             {lang.level === "pre-A1" ? "Starting out" : lang.level} → {lang.target} goal
           </div>
         </div>
-        <img
-          src="/lingua-proud.png"
-          alt=""
-          aria-hidden
-          style={{ width: 56, height: 56, objectFit: "contain", marginTop: -6, marginBottom: -6 }}
-        />
       </div>
 
-      {/* CEFR rungs, goal at the top — the literal ladder. */}
-      <div style={{ marginTop: 14, display: "flex", flexDirection: "column" }}>
-        {[...rungs].reverse().map((rung, i, arr) => {
-          const done = CEFR_IDX[rung] <= levelIdx;
-          const current = rung === currentRung;
-          const pct = current && rung === "A1" ? a1PercentFor(lang.id, items) : null;
-          return (
-            <CefrRung
-              key={rung}
-              level={rung}
-              done={done}
-              current={current}
-              pct={pct}
-              first={i === 0}
-              last={i === arr.length - 1}
-            />
-          );
-        })}
+      {/* CEFR rungs (goal at top) on the left; Lingua stands big at the bottom
+          rung — right by "A1 · you're here" — filling the space. */}
+      <div style={{ marginTop: 14, display: "flex", gap: 8, alignItems: "stretch" }}>
+        <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column" }}>
+          {[...rungs].reverse().map((rung, i, arr) => {
+            const done = CEFR_IDX[rung] <= levelIdx;
+            const current = rung === currentRung;
+            const pct = current && rung === "A1" ? a1PercentFor(lang.id, items) : null;
+            return (
+              <CefrRung
+                key={rung}
+                level={rung}
+                done={done}
+                current={current}
+                pct={pct}
+                first={i === 0}
+                last={i === arr.length - 1}
+              />
+            );
+          })}
+        </div>
+        <div style={{ flexShrink: 0, display: "flex", alignItems: "flex-end" }}>
+          <img
+            src="/lingua-proud.png"
+            alt=""
+            aria-hidden
+            style={{ maxHeight: "100%", width: "auto", maxWidth: 150, objectFit: "contain", objectPosition: "bottom" }}
+          />
+        </div>
       </div>
     </div>
   );
