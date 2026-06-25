@@ -25,11 +25,12 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 ## Status at a glance
 
-- **Current phase:** Phase 4 (tracing) in flight on `feat/trace-card`. **Curriculum thread is active** — Unit 2 shipped (PR #20, Alex-reviewed); Unit 3 (dakuten rows) is next.
-- **In flight:** Phase 4 trace card (`feat/trace-card`, PR #19) — Web Speech API, 46-kana stroke data, ready for feel-check + merge.
-- **⚡️ Single next action (Alex):** feel-check `feat/trace-card` → merge → then Unit 3 curriculum.
-- **Phase numbers = dependency map, not a queue.** Curriculum runs as the default thread between every feature sprint. Onboarding (Phase 5) and audio (Phase 3) slot in when curriculum has momentum, not before.
-- **Last updated:** 2026-06-23
+- **Shipped to `main`:** Phase 3 (Web Speech audio) + Phase 4 (trace card, 46-kana) — PR #19 merged 2026-06-23. Unit 2 — PR #20 merged 2026-06-23 (Alex-reviewed). Full hiragana あ-ん is live.
+- **In flight:** Phase 4.5 session structure (`feat/session-structure`, PR #21) — review/lesson split, teach-order fix, trace size fixes. Awaiting CI + Alex feel-check.
+- **Queued (no backend):** Phase 4.6 Ladder full-climb view (`BUILD-BRIEF-ladder-display.md`); Unit 3 dakuten curriculum.
+- **⚡️ Single next action (Alex):** feel-check PR #21 on device (review-first flow + trace size) → merge → pick Ladder or Unit 3 next.
+- **Phase numbers = dependency map, not a queue.** Curriculum runs as the default thread between every feature sprint. Onboarding (Phase 5) and the Ladder screen (4.6) slot in when curriculum has momentum, not before.
+- **Last updated:** 2026-06-24
 
 ---
 
@@ -107,7 +108,7 @@ The make-or-break thread. Units 1–2 (46 base hiragana, あ-ん) shipped and Al
 
 Web Speech API (window.speechSynthesis, lang:"ja-JP") replaces ElevenLabs MP3 pipeline. Ships with Phase 4.
 
-- [~] Switch TeachCard to Web Speech API — no files, no staleness, autoplay on reveal, replay button — STARTED 2026-06-22, PR #19 (CC)
+- [x] Switch TeachCard to Web Speech API — no files, no staleness, autoplay on reveal, replay button — DONE 2026-06-23, PR #19 (CC). *Open: voice is quiet + may be English-accented; real fix is a native-JP ElevenLabs voice (Alex auditions Voice Library) + per-unit clip generation, with Web Speech as last-resort fallback.*
 
 ---
 
@@ -115,11 +116,37 @@ Web Speech API (window.speechSynthesis, lang:"ja-JP") replaces ElevenLabs MP3 pi
 
 Real stroke-order tracing; completes the "produce/write" half of the mastery ladder.
 
-- [~] KanjiVG stroke data (`src/data/kanjivg.js`) — 46-kana SVG paths from KanjiVG (CC BY-SA 3.0); fetch script unit-agnostic — STARTED 2026-06-22, PR #19 (CC)
-- [~] TraceCard component — guided mode (animation → trace, check2 in learn phase) + free mode (draw from memory, rung 3+ reviews) — STARTED 2026-06-22, PR #19 (CC)
-- [~] Wire TraceCard into Lesson runner; route rung-appropriate kana to trace instead of typed card — STARTED 2026-06-22, PR #19 (CC)
-- [~] Add `trace` to `LIVE_CARD_KINDS`, un-skip coverage stub, add fixture coverage — STARTED 2026-06-22, PR #19 (CC)
-- [~] Stroke-data validator in contract.js — hard-errors if a kana item has no kanjivg entry; covers all 46 base hiragana — STARTED 2026-06-22, PR #19 (CC)
+- [x] KanjiVG stroke data (`src/data/kanjivg.js`) — 46-kana SVG paths from KanjiVG (CC BY-SA 3.0); fetch script unit-agnostic — DONE 2026-06-23, PR #19 (CC)
+- [x] TraceCard component — guided mode (animation → trace, check2 in learn phase) + free mode (draw from memory, rung 3+ reviews) — DONE 2026-06-23, PR #19 (CC). *Follow-ups in PR #21: ghost/stroke coordinate alignment, fit-to-viewport + 380px size cap, IS_WEBDRIVER animation skip for CI.*
+- [x] Wire TraceCard into Lesson runner; route rung-appropriate kana to trace instead of typed card — DONE 2026-06-23, PR #19 (CC)
+- [x] Add `trace` to `LIVE_CARD_KINDS`, un-skip coverage stub, add fixture coverage — DONE 2026-06-23, PR #19 (CC)
+- [x] Stroke-data validator in contract.js — hard-errors if a kana item has no kanjivg entry; covers all 46 base hiragana — DONE 2026-06-23, PR #19 (CC)
+- [ ] KanjiVG shows *handwritten* stroke forms (さ/き separated, not the connected printed-font shape). Pedagogically correct for stroke order, but may read as "wrong" against the printed font elsewhere in the app. Decide: keep handwritten-correct (rec) or font-match. (Alex)
+
+---
+
+## Phase 4.5 — Session structure (review/lesson split) `[feat/session-structure]`
+
+Reviews and lessons are now **separate sessions**, per Alex's pedagogy call: review is the mandatory daily habit (streak triggers on it), lesson is an optional bonus. First-teach respects authored kana→vocab order so you can't be quizzed on はな before は and な are taught; reviews still interleave (good for retention).
+
+- [~] Split `/review` and `/lesson` into separate routes + runners; Today CTA routes reviews-first, lesson when clear — STARTED 2026-06-24, PR #21 (CC)
+- [~] Teach-order fix — `buildLearnQueue` front-loads all teaches in authored order (kana before vocab); checks still interleave — STARTED 2026-06-24, PR #21 (CC)
+- [~] Daily goal — `rollDailyGoal` triggers streak on reviews cleared (lesson optional); fallback to lesson when nothing is due (new learner) — STARTED 2026-06-24, PR #21 (CC)
+- [~] TraceCard fit-to-viewport + 380px cap — square never overflows (no scroll), glyph stays a readable size — STARTED 2026-06-24, PR #21 (CC)
+- [ ] Alex `?dev` feel-check — review-first flow, teach-order (all kana before vocab), trace size on real device; scroll-test each card kind (teach/choice/type/build) at actual screen size (Alex)
+
+---
+
+## Phase 4.6 — Ladder screen: full climb view
+
+Brief: `BUILD-BRIEF-ladder-display.md`. The app "looks blank" — the Ladder shows little beyond the active unit and an XP-placeholder A1%. Make the Ladder present the whole curriculum (done / current / coming units, CEFR rungs, future languages) so progress and the path ahead are visible. **Frontend-only, reads UNITS data, no backend dependency** — can run alongside curriculum.
+
+- [ ] Full unit list for active language — render ALL units (UNITS + roadmap) as DONE / CURRENT / COMING; authored-but-locked and not-yet-authored both show as "coming soon" (clearly-marked placeholders, not fabricated content) (CC)
+- [ ] CEFR level ladder — rungs A1 → … → target with current position marked; the visual spine of the screen (CC)
+- [ ] Future languages — es/fr shown locked with unlock condition ("Unlock at A1 Japanese"); reinforces one-at-a-time (CC)
+- [ ] Real progress, not XP — A1% reflects units/items completed toward the level, not fabricated XP (extends `a1PercentFor` from PR #13) (CC)
+- [ ] Mascot warm-up — natural home for a `lingua-*` pose (e.g. `lingua-proud` at the top rung) (CC)
+- [ ] Contract-driven (no hardcoded unit names), fluid layout, CI green; fresh branch off `main`, draft PR (CC)
 
 ---
 
