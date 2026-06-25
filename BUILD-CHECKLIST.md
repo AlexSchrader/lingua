@@ -157,7 +157,7 @@ Brief: `BUILD-BRIEF-ladder-display.md`. The app "looks blank" — the Ladder sho
 - [~] Kana progress bars appear on introduction — bar shows once a char is rung ≥ 1 (min 6% sliver), grows with mastery; un-introduced kana show no bar — STARTED 2026-06-25, PR #24 (CC)
 - [ ] Contract-driven (no hardcoded unit names), fluid layout, CI green; **draft PR — Alex feel-check + merge** (visual feature) (CC/Alex)
 - [ ] **Ladder must grow with content (standing):** kana section auto-includes dakuten (same `type:"kana"`) when Unit 3 ships, but katakana likely wants its own grouping and **kanji needs a new section** (different type/UI). Units + roadmap sections grow from data. Re-check the Ladder reflects reality whenever a unit ships. (CC)
-- [ ] Mascot back on the Ladder once `lingua-*` PNGs have real transparency (currently baked checkerboard — see Parking lot). (CC)
+- [~] Mascot back on the Ladder — `lingua-proud` in the hero. Baked checkerboard stripped from all 8 `lingua-*` PNGs via `scripts/strip-mascot-bg.mjs` (edge flood-fill, removes checker + soft shadow, art preserved) — STARTED 2026-06-25, PR #24 (CC)
 
 ---
 
@@ -255,7 +255,7 @@ Parking for ideas and growth tasks we've named but aren't building yet. Per the 
 - **Ladder content sections grow over time** — today it shows Hiragana. As content lands: dakuten folds into the kana grid automatically (`type:"kana"`); **Katakana** likely wants its own labeled section; **Kanji** needs a brand-new section (different type + likely different UI: meaning/reading, not stroke-grid). The Units list + roadmap grow from data. Standing check: when a unit ships, confirm the Ladder reflects it.
 - **Mastery model still being settled** — currently FSRS `stability` / `MASTERY_FULL_DAYS` (45d). Alex to confirm by feel: threshold + whether stability is the right measure vs. a simpler review-count. Tune once there's real review data. (See `[[project-lesson-audio]]`-style memory `project-ladder-mastery` if created.)
 - **Language path generalization** — see Phase 5; the ja→es→fr chain must become user-choice. Logged there; noted here so the concept isn't buried in a blocked phase.
-- **Mascot art needs real transparency** — all `lingua-*` PNGs ship with a baked-in checkerboard (alpha channel present but every pixel opaque). Re-export transparent (Alex) or strip programmatically (CC) before using them anywhere. Blocks mascots on Ladder + companion screens.
+- ~~**Mascot art needs real transparency**~~ — RESOLVED 2026-06-25, PR #24. Baked checkerboard stripped from all 8 `lingua-*` PNGs via `scripts/strip-mascot-bg.mjs` (edge flood-fill removes checker + soft drop-shadow; panda art preserved behind its black outline). Re-runnable if new mascot art is added with the same baked background.
 
 ---
 

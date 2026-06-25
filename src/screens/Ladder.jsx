@@ -86,8 +86,12 @@ function ActiveLanguage({ lang, items }) {
             {lang.level === "pre-A1" ? "Starting out" : lang.level} → {lang.target} goal
           </div>
         </div>
-        {/* Mascot (lingua-proud) goes here once the lingua-* PNGs have real
-            transparency — they currently ship with a baked-in checkerboard. */}
+        <img
+          src="/lingua-proud.png"
+          alt=""
+          aria-hidden
+          style={{ width: 56, height: 56, objectFit: "contain", marginTop: -6, marginBottom: -6 }}
+        />
       </div>
 
       {/* CEFR rungs, goal at the top — the literal ladder. */}
