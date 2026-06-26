@@ -5,6 +5,11 @@ import BottomNav from "./BottomNav.jsx";
 import { C, F } from "../theme.js";
 import { useStore } from "../store/useStore.js";
 
+// Max content width — on phones the app fills the screen; on wider/desktop it
+// stays a centered column so it reads like a real app instead of stretching
+// sparse edge-to-edge. Fluid (max-width + auto margins), no device breakpoints.
+const MAXW = 600;
+
 // 100dvh flex column: pinned top bar, scrolling content, pinned bottom nav.
 // Fluid layout only — no device breakpoints.
 export default function AppShell() {
@@ -30,15 +35,12 @@ export default function AppShell() {
       <header
         style={{
           flexShrink: 0,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "12px 16px",
-          paddingTop: "calc(12px + env(safe-area-inset-top))",
+          paddingTop: "env(safe-area-inset-top)",
           background: C.surface,
           borderBottom: `1px solid ${C.line}`,
         }}
       >
+       <div style={{ maxWidth: MAXW, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
           <img
             src="/icon-192.png"
@@ -91,10 +93,13 @@ export default function AppShell() {
             <Settings size={20} strokeWidth={1.9} />
           </button>
         </div>
+       </div>
       </header>
 
       <main style={{ flex: 1, overflowY: "auto", WebkitOverflowScrolling: "touch" }}>
-        <Outlet />
+        <div style={{ maxWidth: MAXW, margin: "0 auto", minHeight: "100%" }}>
+          <Outlet />
+        </div>
       </main>
 
       <BottomNav />
