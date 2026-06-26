@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { BookOpen, RotateCcw, Lock, Check } from "lucide-react";
+import { BookOpen, RotateCcw, Lock, Check, Flame, Zap, Snowflake } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { UNITS } from "../data/index.js";
 import { isReviewable, isMastered } from "../store/mastery.js";
@@ -16,6 +16,14 @@ function fmtWhen(ts) {
   if (hours < 24) return hours <= 1 ? "within an hour" : `in ~${Math.round(hours)} h`;
   const days = Math.round(hours / 24);
   return days <= 1 ? "tomorrow" : `in ~${days} days`;
+}
+
+// Time-of-day greeting (name folds in later, once onboarding gives us one).
+function greeting() {
+  const h = new Date().getHours();
+  if (h < 12) return "Good morning";
+  if (h < 18) return "Good afternoon";
+  return "Good evening";
 }
 
 function Step({ icon: Icon, n, title, sub, state, onClick }) {
@@ -187,18 +195,44 @@ export default function Today() {
 
   return (
     <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 16, minHeight: "100%" }}>
-      {/* Greeting */}
+      {/* Greeting — time-of-day */}
       <div>
-        <div style={{ fontFamily: F.disp, fontSize: 22, fontWeight: 700 }}>Today</div>
-        <div style={{ fontSize: 13, color: C.inkSoft }}>Clear reviews, then learn — go as long as you like</div>
+        <div style={{ fontFamily: F.disp, fontSize: 22, fontWeight: 700 }}>{greeting()}</div>
+        <div style={{ fontSize: 13, color: C.inkSoft }}>Clear reviews, then learn — go as long as you like.</div>
       </div>
 
-      {/* Stats — at the top. The streak flame lives in the app top bar, so it's
-          not duplicated here; this is the at-a-glance trio. */}
+      {/* Stats trio — at the top, with icons to match the Stats screen. */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
-        <Stat label="Streak" value={streak.current} />
-        <Stat label="XP" value={stats.xpTotal} />
-        <Stat label="Freezes" value={streak.freezes} />
+        <Stat icon={Flame} color={C.shu} label="Streak" value={streak.current} />
+        <Stat icon={Zap} color={C.ai} label="XP" value={stats.xpTotal} />
+        <Stat icon={Snowflake} color={C.ai} label="Freezes" value={streak.freezes} />
+      </div>
+
+      {/* Mascot greeting banner — Lingua, right under the stats. Adaptive size. */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 14,
+          padding: 14,
+          borderRadius: 16,
+          background: C.surface,
+          border: `1px solid ${C.line}`,
+        }}
+      >
+        <img
+          src={`/lingua-${mascot.pose}.png`}
+          alt=""
+          aria-hidden
+          style={{ width: "clamp(72px, 18vw, 132px)", height: "auto", objectFit: "contain", flexShrink: 0 }}
+        />
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ fontSize: 15, color: C.ink, lineHeight: 1.35, fontWeight: 600 }}>{mascot.msg}</div>
+          <div style={{ fontSize: 12, color: C.inkSoft, fontWeight: 600, marginTop: 6 }}>
+            {ja.flag} {ja.name} · {ja.level === "pre-A1" ? "Starting out" : ja.level} → {ja.target} goal
+            {nextReviewAt ? ` · next review ${fmtWhen(nextReviewAt)}` : ""}
+          </div>
+        </div>
       </div>
 
       {/* Review-debt banner */}
@@ -341,33 +375,6 @@ export default function Today() {
         </div>
       )}
 
-      {/* Mascot — Lingua warms up the screen + a calm line and a quiet progress glance. */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 14,
-          padding: 14,
-          borderRadius: 16,
-          background: C.surface,
-          border: `1px solid ${C.line}`,
-        }}
-      >
-        <img
-          src={`/lingua-${mascot.pose}.png`}
-          alt=""
-          aria-hidden
-          style={{ width: 72, height: 72, objectFit: "contain", flexShrink: 0 }}
-        />
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontSize: 14, color: C.ink, lineHeight: 1.35 }}>{mascot.msg}</div>
-          <div style={{ fontSize: 12, color: C.inkSoft, fontWeight: 600, marginTop: 6 }}>
-            {ja.flag} {ja.name} · {ja.level === "pre-A1" ? "Starting out" : ja.level} → {ja.target} goal
-            {nextReviewAt ? ` · next review ${fmtWhen(nextReviewAt)}` : ""}
-          </div>
-        </div>
-      </div>
-
       {/* Playtest shortcut — shown in dev builds, or on any build via ?dev. */}
       {devMode && (
         <button
@@ -407,7 +414,7 @@ export default function Today() {
   );
 }
 
-function Stat({ label, value }) {
+function Stat({ label, value, icon: Icon, color }) {
   return (
     <div
       style={{
@@ -418,6 +425,7 @@ function Stat({ label, value }) {
         textAlign: "center",
       }}
     >
+      {Icon && <Icon size={18} color={color ?? C.ai} style={{ marginBottom: 2 }} />}
       <div style={{ fontFamily: F.disp, fontSize: 22, fontWeight: 700, color: C.ai }}>{value}</div>
       <div style={{ fontSize: 11, color: C.inkSoft, fontWeight: 600 }}>{label}</div>
     </div>
