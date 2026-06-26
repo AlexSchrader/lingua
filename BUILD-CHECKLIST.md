@@ -27,10 +27,10 @@ This file is updated as part of the PR that completes work. When a task is finis
 ## Status at a glance
 
 - **Shipped to `main`:** Phase 4 (trace card, 46-kana) + Unit 2 — PRs #19/#20 (2026-06-23). Phase 4.5 session structure (review/lesson split, teach-order, trace polish) — PR #21 merged 2026-06-24. Full hiragana あ-ん is live.
-- **Shipped to `main` (2026-06-25):** Phase 3 real audio (PR #22, eleven_v3 clips, robot gone from lessons) · Stats rung-0 relabel SEEN→NEW (PR #23) · **Phase 4.6 Ladder full-climb view (PR #24)** — CEFR spine + mascot, kana grid with per-letter mastery bars, units/roadmap, locked future langs; mascot PNGs de-checkerboarded.
+- **Shipped to `main` (2026-06-25):** Phase 3 real audio (PR #22) · Stats SEEN→NEW (PR #23) · PWA auto-update fix (PR #25, no stale builds after deploy) · **Ladder full-climb view (PR #24)** + bigger adaptive mascot & full-width progress (PR #27) · **Today warm-up/polish (PR #26)** — greeting, stat icons, adaptive mascot banner, fixed Up Next, hiragana strip.
 - **Haruki agent (6.5):** configured + pronunciation validated by ear (agent `agent_0301kt9…`, Haiku 4.5). Backend wiring still to build.
-- **Queued (no backend):** Unit 3 dakuten curriculum; mastery-feel tuning (Alex review); mascot per-language costumes (Future section).
-- **⚡️ Single next action (Alex):** do a few reviews → judge the mastery-bar feel (45-day threshold) → pick next: Unit 3, Phase 6.5 backend, or mascot work.
+- **Queued (no backend):** Unit 3 dakuten curriculum; mastery-feel tuning (Alex review); mascot per-language costumes; mini-games (Future section).
+- **⚡️ Next build thread:** **Unit 3 (dakuten curriculum)** or **Phase 6.5 (Haruki agent backend)**. Mastery-feel tuning + voice naturalness are smaller follow-ups.
 - **Phase numbers = dependency map, not a queue.** Curriculum runs as the default thread between every feature sprint. Onboarding (Phase 5), the Ladder screen (4.6), and the Haruki agent (6.5) slot in as their dependencies clear.
 - **Last updated:** 2026-06-25
 
