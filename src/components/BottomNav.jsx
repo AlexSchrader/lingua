@@ -9,6 +9,8 @@ const TABS = [
   { label: "Stats", path: "/stats", icon: BarChart3 },
 ];
 
+const MAXW = 600; // keep tabs aligned with the centered content column (see AppShell)
+
 export default function BottomNav() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -16,13 +18,13 @@ export default function BottomNav() {
   return (
     <nav
       style={{
-        display: "flex",
         borderTop: `1px solid ${C.line}`,
         background: C.surface,
         paddingBottom: "env(safe-area-inset-bottom)",
         flexShrink: 0,
       }}
     >
+     <div style={{ maxWidth: MAXW, margin: "0 auto", display: "flex" }}>
       {TABS.map(({ label, path, icon: Icon }) => {
         const active = pathname === path;
         return (
@@ -51,6 +53,7 @@ export default function BottomNav() {
           </button>
         );
       })}
+     </div>
     </nav>
   );
 }

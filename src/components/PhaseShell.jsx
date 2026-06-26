@@ -75,7 +75,10 @@ export default function PhaseShell({ title, progress, onClose, children, footer 
           padding: 16,
         }}
       >
-        {children}
+        {/* Centered column on wide screens so lessons match the rest of the app. */}
+        <div style={{ width: "100%", maxWidth: 600, margin: "0 auto", flex: 1, display: "flex", flexDirection: "column", minHeight: 0 }}>
+          {children}
+        </div>
       </main>
 
       {footer && (
