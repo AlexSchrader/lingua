@@ -118,7 +118,7 @@ function HarukiChat() {
       <div style={{ flex: 1, minHeight: 0, overflowY: "auto", display: "flex", flexDirection: "column", gap: 10, padding: "4px 0" }}>
         {empty ? (
           <div style={{ margin: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 10, textAlign: "center", color: C.inkSoft }}>
-            <img src="/lingua-wave.png" alt="" aria-hidden style={{ width: "clamp(120px, 32vw, 180px)", height: "auto", objectFit: "contain" }} />
+            <img src="/mascot/lingua-wave.png" alt="" aria-hidden style={{ width: "clamp(120px, 32vw, 180px)", height: "auto", objectFit: "contain" }} />
             <div style={{ fontSize: 14, maxWidth: 260 }}>Say something in Japanese — type it below, or tap the phone to talk.</div>
           </div>
         ) : (

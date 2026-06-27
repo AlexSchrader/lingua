@@ -43,7 +43,7 @@ export default function AppShell() {
        <div style={{ maxWidth: MAXW, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
           <img
-            src="/icon-192.png"
+            src="/logo/icon-192.png"
             alt="Lingua"
             width={26}
             height={26}

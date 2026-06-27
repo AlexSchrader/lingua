@@ -13,11 +13,11 @@ export default defineConfig({
       // cached build stick until a manual hard-refresh.
       injectRegister: false,
       includeAssets: [
-        "favicon-32.png",
-        "apple-touch-icon.png",
-        "icon-192.png",
-        "icon-512.png",
-        "icon-maskable-512.png",
+        "logo/favicon-32.png",
+        "logo/apple-touch-icon.png",
+        "logo/icon-192.png",
+        "logo/icon-512.png",
+        "logo/icon-maskable-512.png",
       ],
       manifest: {
         name: "Lingua",
@@ -27,9 +27,9 @@ export default defineConfig({
         theme_color: "#2A4A7B",
         start_url: "/",
         icons: [
-          { src: "icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
-          { src: "icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
-          { src: "icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+          { src: "logo/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+          { src: "logo/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+          { src: "logo/icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
         ],
       },
     }),
