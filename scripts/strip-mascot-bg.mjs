@@ -16,7 +16,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import zlib from "node:zlib";
 
-const PUB = join(dirname(fileURLToPath(import.meta.url)), "..", "public");
+const PUB = join(dirname(fileURLToPath(import.meta.url)), "..", "public", "mascot");
 const TOL = 38; // colour distance (max per-channel) that still counts as background
 
 // --- decode ---------------------------------------------------------------

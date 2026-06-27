@@ -109,7 +109,7 @@ function ActiveLanguage({ lang, items }) {
         </div>
         <div style={{ flexShrink: 0, display: "flex", alignItems: "flex-end" }}>
           <img
-            src="/lingua-proud.png"
+            src="/mascot/lingua-proud.png"
             alt=""
             aria-hidden
             style={{ width: "clamp(120px, 30vw, 220px)", height: "auto", objectFit: "contain", objectPosition: "bottom" }}

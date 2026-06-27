@@ -221,7 +221,7 @@ export default function Today() {
         }}
       >
         <img
-          src={`/lingua-${mascot.pose}.png`}
+          src={`/mascot/lingua-${mascot.pose}.png`}
           alt=""
           aria-hidden
           style={{ width: "clamp(72px, 18vw, 132px)", height: "auto", objectFit: "contain", flexShrink: 0 }}
