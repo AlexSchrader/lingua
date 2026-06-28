@@ -11,6 +11,7 @@ export const UNIT4 = {
   lang: "ja",
   title: "カタカナ",
   order: 4,
+  stage: "pre-a1",
   lessons: [
     // Lesson 1: vowels ア イ ウ エ オ + the ー long-vowel mark
     {
