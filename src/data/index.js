@@ -2,8 +2,9 @@ import { LANGUAGES } from "./ja/languages.js";
 import { UNIT1 } from "./ja/unit1.js";
 import { UNIT2 } from "./ja/unit2.js";
 import { UNIT3 } from "./ja/unit3.js";
+import { UNIT4 } from "./ja/unit4.js";
 
-export const UNITS = [UNIT1, UNIT2, UNIT3];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4];
 
 export { LANGUAGES };
 
