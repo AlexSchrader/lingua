@@ -165,7 +165,9 @@ export function validateContent(units, languages) {
               e(`item ${item.id}: kana item must have meaning: null`);
             if (item.example !== null)
               e(`item ${item.id}: kana item must have example: null`);
-            if (!KANJIVG[item.front])
+            // Single-glyph kana need stroke data; yōon digraphs (きょ, しゃ…) are a
+            // pair of already-learned kana and carry no single stroke entry.
+            if ([...item.front].length === 1 && !KANJIVG[item.front])
               e(`item ${item.id}: kana "${item.front}" has no stroke data in KANJIVG — add it to src/data/kanjivg.js`);
           } else if (item.type === "vocab") {
             if (!item.meaning || typeof item.meaning !== "string" || !item.meaning.trim())
@@ -226,7 +228,9 @@ export function validateContent(units, languages) {
   // across the entire corpus (no re-teaching the same hiragana in a later lesson).
   const kanaFronts = new Map(); // character → first item id
   for (const { item } of allItems) {
-    if (item.type !== "kana") continue;
+    // Only single-glyph kana are "introduced once"; yōon digraphs (きょ…) reuse
+    // already-introduced kana, so they're exempt from the no-repeat invariant.
+    if (item.type !== "kana" || [...item.front].length > 1) continue;
     for (const ch of item.front) {
       if (kanaFronts.has(ch))
         e(

@@ -63,6 +63,7 @@ export default function Ladder() {
 
       <ActiveLanguage lang={active} items={items} />
       <KanaSection langId={active.id} items={items} showRomaji={showRomaji} />
+      <YoonSection langId={active.id} items={items} showRomaji={showRomaji} />
       <KanjiSection langId={active.id} items={items} showRomaji={showRomaji} />
       <UnitsSection langId={active.id} items={items} />
 
@@ -249,7 +250,8 @@ function GojuonGrid({ defs, items, showRomaji }) {
 }
 
 function KanaSection({ langId, items, showRomaji }) {
-  const kanaDefs = defsFor(langId, (d) => d.type === "kana");
+  // Single-glyph kana only — yōon digraphs (きょ…) get their own section below.
+  const kanaDefs = defsFor(langId, (d) => d.type === "kana" && [...d.front].length === 1);
   if (kanaDefs.length === 0) return null;
   const groups = KANA_GROUPS
     .map((g) => ({ ...g, defs: kanaDefs.filter((d) => kanaGroupOf(d.front) === g.key) }))
@@ -305,6 +307,49 @@ function KanjiSection({ langId, items, showRomaji }) {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 6 }}>
         {kanjiDefs.map((d) => (
           <KanaChip key={d.id} char={d.front} reading={d.reading} item={items[d.id]} showRomaji={showRomaji} />
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+// Yōon (combination kana: きょ, しゃ, ぎょ…) — their own table: consonant rows ×
+// the ゃ/ゅ/ょ columns. Two-glyph kana, so they live here, not in the gojūon grid.
+function YoonSection({ langId, items, showRomaji }) {
+  const defs = defsFor(langId, (d) => d.type === "kana" && [...d.front].length > 1);
+  if (defs.length === 0) return null;
+  const learned = defs.filter((d) => (items[d.id]?.rung ?? 0) >= 1).length;
+  const mastered = defs.filter((d) => isMastered(items[d.id])).length;
+  const YCOL = { a: 0, u: 1, o: 2 };
+  const rows = [];
+  let row = [null, null, null];
+  let started = false;
+  let prev = -1;
+  const flush = () => { if (started) { rows.push(row); row = [null, null, null]; started = false; prev = -1; } };
+  for (const d of defs) {
+    const col = YCOL[d.reading[d.reading.length - 1]] ?? 0;
+    if (started && col <= prev) flush();
+    row[col] = d;
+    started = true;
+    prev = col;
+  }
+  flush();
+  return (
+    <Section title="Yōon">
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+        <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: 0.6, color: C.ai, textTransform: "uppercase" }}>
+          Combination kana (yōon)
+        </span>
+        <div style={{ flex: 1, height: 1, background: C.line }} />
+        <span style={{ fontSize: 11, color: C.inkSoft, whiteSpace: "nowrap", flexShrink: 0 }}>
+          {learned}/{defs.length} learned{mastered > 0 ? ` · ${mastered} mastered` : ""}
+        </span>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+        {rows.map((r, ri) => (
+          <div key={ri} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 6 }}>
+            {r.map((d, ci) => (d ? <KanaChip key={d.id} char={d.front} reading={d.reading} item={items[d.id]} showRomaji={showRomaji} /> : <div key={ci} />))}
+          </div>
         ))}
       </div>
     </Section>

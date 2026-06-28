@@ -100,8 +100,14 @@ export function lintCurriculum(units = []) {
         if ((item.front === "を" || item.front === "ヲ") && r !== "wo")
           e(`item ${id}: "${item.front}" must have reading "wo" (got "${r}")`);
 
+        // A yōon digraph (きょ, しゃ, ぎょ…) is kana spelled with two glyphs — a
+        // combination of already-learned kana, with no single stroke entry.
+        const comboKana = type === "kana" && [...(item.front || "")].length > 1;
+
+        // density "card" count — vocab, kanji, and yōon digraphs each count.
+        if (type === "vocab" || type === "kanji" || comboKana) vocabCount++;
+
         if (type === "vocab" || type === "kanji") {
-          vocabCount++; // both are "word" cards for density purposes
           // accept[] present (may be empty)
           if (!Array.isArray(item.accept))
             w(`item ${id}: ${type} should have an accept[] array (may be empty)`);
@@ -113,7 +119,9 @@ export function lintCurriculum(units = []) {
           }
         }
 
-        if (type === "kana" || type === "kanji") {
+        // Single-glyph kana + kanji: stroke data, gojūon order, teach-front scope.
+        // yōon digraphs are exempt (they reuse known kana and have no own stroke).
+        if ((type === "kana" && !comboKana) || type === "kanji") {
           // stroke data required
           if (typeof item.front === "string" && !KANJIVG[item.front])
             e(`item ${id}: ${type} "${item.front}" has no KanjiVG stroke entry`);
@@ -139,8 +147,8 @@ export function lintCurriculum(units = []) {
         }
       }
 
-      // --- density: ~5–8 word cards per lesson; 0 is an error ---
-      if (vocabCount === 0) e(`lesson ${lesson.id}: has no vocab/kanji word cards`);
+      // --- density: ~5–8 cards per lesson (vocab/kanji/yōon); 0 is an error ---
+      if (vocabCount === 0) e(`lesson ${lesson.id}: has no word/glyph cards`);
       else if (vocabCount < 5 || vocabCount > 8)
         w(`lesson ${lesson.id}: ${vocabCount} word cards (recommend 5–8)`);
     }

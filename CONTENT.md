@@ -79,7 +79,14 @@ Only three fields are allowed — any additional field is a validation error.
 | example | `null`  | ✓        | must be `null` for kana |
 | hint    | string (opt) |     | visual/sound mnemonic shown on TeachCard; must be non-empty if present |
 
-Each kana **character** (not item) may appear in the corpus at most once.
+Each single-glyph kana **character** (not item) may appear in the corpus at most once.
+
+**Yōon digraphs** (combination kana: きょ, しゃ, ぎょ…) are also `type: "kana"`, but the `front` is
+**two glyphs**. They're a combination of already-learned kana, so they're exempt from: the
+single-character KanjiVG stroke requirement (no own stroke entry), the one-introduction-per-kana
+invariant, and the gojūon-order/teach-front-scope checks. In the engine they teach reading-based
+(Teach → Choice → Type), never trace; on the Ladder they appear in their own Yōon table (not the
+gojūon grid). They count toward a lesson's card-density.
 
 ## Item — vocab
 

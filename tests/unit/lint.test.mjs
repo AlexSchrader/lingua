@@ -80,6 +80,28 @@ test("flags a kanji item in a pre-a1 unit (kanji is a1+ only)", () => {
   assert.ok(errors.find((e) => e.includes("kanji") && e.includes("a1+")), `got:\n${errors.join("\n")}`);
 });
 
+test("accepts yōon digraph kana (no stroke/scope/order errors; counts for density)", () => {
+  const u = {
+    id: "ja-u1", lang: "ja", order: 1, stage: "pre-a1", title: "Yōon",
+    lessons: [
+      {
+        id: "ja-u1l1", unit: 1, lesson: 1, title: "L", dominantMode: "recall", canDo: "c", cefr: "A1",
+        items: [
+          { id: "ja-u1l1-kya", type: "kana", front: "きゃ", reading: "kya", meaning: null, example: null },
+          { id: "ja-u1l1-kyu", type: "kana", front: "きゅ", reading: "kyu", meaning: null, example: null },
+          { id: "ja-u1l1-kyo", type: "kana", front: "きょ", reading: "kyo", meaning: null, example: null },
+          { id: "ja-u1l1-sha", type: "kana", front: "しゃ", reading: "sha", meaning: null, example: null },
+          { id: "ja-u1l1-sho", type: "kana", front: "しょ", reading: "sho", meaning: null, example: null },
+        ],
+      },
+    ],
+  };
+  const { errors, warnings } = lintCurriculum([u]);
+  assert.deepEqual(errors, [], `yōon digraphs should lint clean, got:\n${errors.join("\n")}`);
+  // 5 yōon = 5 "cards" → no density warning
+  assert.ok(!warnings.find((x) => x.includes("ja-u1l1") && x.includes("card")), `unexpected density warning: ${warnings.join("\n")}`);
+});
+
 test("flags a word front taught twice", () => {
   const u = kanaUnit();
   u.lessons[0].items[3].front = "ねこ"; // duplicate of items[2]

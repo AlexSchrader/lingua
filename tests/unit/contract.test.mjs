@@ -294,6 +294,25 @@ test("accepts a kanji item type but requires meaning + stroke data", () => {
   assert.ok(noStrokes, "expected a kanji stroke-data error for 本");
 });
 
+test("accepts a yōon digraph kana (2 glyphs, no stroke entry required)", () => {
+  const unit = {
+    id: "ja-u1", lang: "ja", order: 1, stage: "pre-a1", title: "Yōon",
+    lessons: [
+      {
+        id: "ja-u1l1", unit: 1, lesson: 1, title: "L", dominantMode: "recall", canDo: "c", cefr: "A1",
+        items: [
+          { id: "ja-u1l1-kyo", type: "kana", front: "きょ", reading: "kyo", meaning: null, example: null },
+          { id: "ja-u1l1-sho", type: "kana", front: "しょ", reading: "sho", meaning: null, example: null },
+        ],
+      },
+    ],
+  };
+  const { errors } = validateContent([unit], LANGUAGES);
+  // No "no stroke data" error (digraphs are exempt) and no kana-uniqueness error.
+  assert.ok(!errors.find((e) => e.includes("stroke data")), `unexpected stroke error: ${errors.join("\n")}`);
+  assert.ok(!errors.find((e) => e.includes("already introduced")), `unexpected uniqueness error: ${errors.join("\n")}`);
+});
+
 // ---- LIVE_CARD_KINDS canonical set ------------------------------------------
 
 // This test defines the expected set. If you add a new card kind to the runner,

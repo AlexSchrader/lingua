@@ -21,8 +21,10 @@ function reviewStepFor(item) {
   const rung = item.rung ?? 1;
   if (rung <= 1) return { kind: "choice" };
   if (rung === 2) return { kind: "type", mode: "meaning" };
-  // Glyphs (kana + kanji) are produced by stroke tracing; words by building.
-  return item.type === "kana" || item.type === "kanji" ? { kind: "trace" } : { kind: "build" };
+  // Single-glyph kana + kanji are produced by stroke tracing; yōon digraphs
+  // (きょ, no own stroke) and words are produced by building.
+  const traceable = (item.type === "kana" && [...item.front].length === 1) || item.type === "kanji";
+  return traceable ? { kind: "trace" } : { kind: "build" };
 }
 
 export default function Review() {

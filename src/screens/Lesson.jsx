@@ -163,7 +163,7 @@ export default function Lesson() {
     assertLiveKind("choice");
     label = "Practice";
     body = <ChoiceCard key={k} item={item} allItems={items} onGraded={onCheck} />;
-  } else if (item.type === "kana") {
+  } else if (item.type === "kana" && [...item.front].length === 1) {
     assertLiveKind("trace");
     label = "Practice";
     body = <TraceCard key={k} item={item} mode="guided" onGraded={onCheck} />;
