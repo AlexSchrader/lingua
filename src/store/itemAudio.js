@@ -4,11 +4,11 @@ import { useStore } from "./useStore.js";
 // Skip audio under Playwright/WebDriver so CI smoke tests stay fast and quiet.
 const IS_WEBDRIVER = typeof navigator !== "undefined" && !!navigator.webdriver;
 
-// Plays the pre-generated pronunciation clip /audio/{lang}/{id}.mp3 (ElevenLabs
-// Haruki voice). Falls back to Web Speech (window.speechSynthesis) only if the
-// clip is missing or fails to load — so a not-yet-generated item still says
-// something instead of going silent. The clip is the real voice; Web Speech is
-// the last-resort robot fallback.
+// Plays the pre-generated pronunciation clip /audio/{lang}/{id}.mp3 (the real
+// ElevenLabs voice). If the clip is missing or fails, it stays SILENT — there is
+// deliberately no Web Speech fallback (that synthesized "robot" voice was scrapped
+// 2026-06-28; better silence than a robot). Items without a generated clip just
+// don't speak until one is generated.
 export function useItemAudio(item) {
   const [active, setActive] = useState(false);
   const audioRef = useRef(null);
@@ -17,20 +17,8 @@ export function useItemAudio(item) {
   const autoplay = useStore((s) => s.settings?.autoplayAudio ?? true);
 
   function stop() {
-    if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel();
     if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
-  }
-
-  function speakFallback() {
-    if (typeof window === "undefined" || !window.speechSynthesis) return;
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(item.front);
-    u.lang = "ja-JP";
-    u.rate = 0.8;
-    u.onstart = () => setActive(true);
-    u.onend = () => setActive(false);
-    u.onerror = () => setActive(false);
-    window.speechSynthesis.speak(u);
+    setActive(false);
   }
 
   function play() {
@@ -40,8 +28,8 @@ export function useItemAudio(item) {
     audioRef.current = a;
     a.onplay = () => setActive(true);
     a.onended = () => { setActive(false); audioRef.current = null; };
-    a.onerror = () => { setActive(false); audioRef.current = null; speakFallback(); };
-    a.play().catch(() => speakFallback());
+    a.onerror = () => { setActive(false); audioRef.current = null; }; // no clip → silent
+    a.play().catch(() => { setActive(false); }); // no robot fallback
   }
 
   // Autoplay on mount / when the item changes — unless the user turned it off.

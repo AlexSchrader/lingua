@@ -208,6 +208,45 @@ const KANA_GROUPS = [
   { key: "kata-voiced", label: "Katakana dakuten/handakuten" },
 ];
 
+// Lay kana out as the gojūon table: 5 columns (a/i/u/e/o), one row per sound
+// group (か-row separate from あ-row), aligned by vowel so や・ゆ・よ and わ・を sit
+// in their real columns with gaps. ん stands on its own row. Driven by the reading
+// (data is already in gojūon order), so dakuten rows and katakana fall out for free.
+const VOWEL_COL = { a: 0, i: 1, u: 2, e: 3, o: 4 };
+function vowelCol(reading) {
+  if (!reading || reading === "n") return null; // ん / ン: no vowel column
+  return VOWEL_COL[reading[reading.length - 1]] ?? null;
+}
+function gojuonRows(defs) {
+  const rows = [];
+  let row = [null, null, null, null, null];
+  let started = false;
+  let prevCol = -1;
+  const flush = () => { if (started) { rows.push(row); row = [null, null, null, null, null]; started = false; prevCol = -1; } };
+  for (const d of defs) {
+    const col = vowelCol(d.reading);
+    if (col === null) { flush(); rows.push([d, null, null, null, null]); continue; } // ん alone
+    if (started && col <= prevCol) flush(); // vowel didn't advance → new sound group
+    row[col] = d;
+    started = true;
+    prevCol = col;
+  }
+  flush();
+  return rows;
+}
+
+function GojuonGrid({ defs, items }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+      {gojuonRows(defs).map((row, ri) => (
+        <div key={ri} style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 6 }}>
+          {row.map((d, ci) => (d ? <KanaChip key={d.id} char={d.front} item={items[d.id]} /> : <div key={ci} />))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function KanaSection({ langId, items }) {
   const kanaDefs = defsFor(langId, (d) => d.type === "kana");
   if (kanaDefs.length === 0) return null;
@@ -235,11 +274,7 @@ function KanaSection({ langId, items }) {
                   {learned}/{g.defs.length} learned{mastered > 0 ? ` · ${mastered} mastered` : ""}
                 </span>
               </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                {g.defs.map((d) => (
-                  <KanaChip key={d.id} char={d.front} item={items[d.id]} />
-                ))}
-              </div>
+              <GojuonGrid defs={g.defs} items={items} />
             </div>
           );
         })}
@@ -266,7 +301,7 @@ function KanjiSection({ langId, items }) {
           {learned}/{kanjiDefs.length} learned{mastered > 0 ? ` · ${mastered} mastered` : ""}
         </span>
       </div>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 6 }}>
         {kanjiDefs.map((d) => (
           <KanaChip key={d.id} char={d.front} item={items[d.id]} />
         ))}
@@ -283,8 +318,8 @@ function KanaChip({ char, item }) {
   return (
     <div
       style={{
-        width: 44,
-        borderRadius: 10,
+        width: "100%",
+        borderRadius: 12,
         border: `1px solid ${learned ? accent : C.line}`,
         background: learned ? C.surface : C.lockedBg,
         opacity: learned ? 1 : 0.5,
@@ -295,12 +330,12 @@ function KanaChip({ char, item }) {
     >
       <div
         style={{
-          height: 40,
+          aspectRatio: "1 / 1",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           fontFamily: F.jp,
-          fontSize: 22,
+          fontSize: "clamp(26px, 7vw, 40px)",
           fontWeight: 500,
           color: learned ? C.ink : C.locked,
         }}
