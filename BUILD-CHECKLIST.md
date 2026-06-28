@@ -33,6 +33,7 @@ This file is updated as part of the PR that completes work. When a task is finis
 - **⚡️ Next build thread:** **Speech grading (Brief C / Phase 7)** — Alex's call: say-the-word → detect + grade → climb the SPOKEN rung. Design doc written (`BUILD-BRIEF-speech-grading.md`); decisions to lock before code. *Curriculum status:* Unit 3 fully shipped + corrected to Alex's real bytes (PR #30 + #31). Next curriculum = Unit 4 (カタカナ), waiting on Alex to re-send the base64 (prior blob was corrupt).
 - **Phase numbers = dependency map, not a queue.** Curriculum runs as the default thread between every feature sprint. Onboarding (Phase 5), the Ladder screen (4.6), and the Haruki agent (6.5) slot in as their dependencies clear.
 - **Shipped to `main` (2026-06-27):** **Dev Mode** — hidden playtest panel in Settings (unlock `L071201`), launches any unit/lesson bypassing gating in a fully-isolated sandbox run (byte-identical real state before/after). PR #32. See Phase 4.7. Remaining: Alex device feel-check.
+- **In review (draft PR, off `main`):** **CEFR stage sectioning** — `stage` field on every unit (`pre-a1 | a1 | a2 | b1 | b2`), enum-validated in `contract.js`; Ladder Units list now grouped under stage headers (JA shows the JLPT tag, e.g. "A1 · N5"); Phase 2 list regrouped under the five stages. Display + one tag only, content unchanged. *Coordination:* in-flight unit PRs (Unit 4 #34, and the Units 5–10 branch) each need `stage:` added before they go green after this merges — Units 5–10 already carry it; Unit 4 needs the one-line add.
 - **Last updated:** 2026-06-27
 
 ---
@@ -85,6 +86,10 @@ The structural lock: content becomes pure schema-validated data; bad content can
 
 The make-or-break thread. Units 1–2 (46 base hiragana, あ-ん) shipped and Alex-reviewed. Dakuten/handakuten rows, vocab expansion, and eventually kanji live here. **This phase never fully closes** — curriculum authoring is the default work between every feature sprint.
 
+**Sectioned by CEFR stage (2026-06-27).** The curriculum is grouped into stages that mirror the Ladder's section headers: **Pre-A1** (the kana scripts, Units 1–6), **A1** (kanji + thematic vocab, JLPT N5), then **A2 / B1 / B2** placeholders. Every unit carries a `stage` field (`pre-a1 | a1 | a2 | b1 | b2`), validated by `contract.js`; the Ladder renders only the stages that have units, and the JA section headers show the JLPT tag (A1 · N5 …). Latin-alphabet languages later get no Pre-A1 group.
+
+### Curriculum engine & infra (done)
+
 - [x] Author Unit 1 lessons 2–5 as contract-valid data — か/さ/た/な rows (5 kana + 6 vocab each, 44 new items); all validate:content clean — DONE 2026-06-21, PR #13 (Claude/CC)
 - [x] `cefr: "A1"` band on every new lesson — all 4 new lessons tagged — DONE 2026-06-21, PR #13 (CC)
 - [x] Fill `accept[]` synonym arrays — added to all new vocab items (and retro-fitted to lesson 1 vocab) to reduce typed-answer friction — DONE 2026-06-21, PR #13 (Claude/CC)
@@ -97,14 +102,36 @@ The make-or-break thread. Units 1–2 (46 base hiragana, あ-ん) shipped and Al
 - [x] Define the "A1 complete" predicate — `isLevelComplete(langId, "A1", items)` in useStore.js; fires from `completeLesson` and `rollDailyGoal` — DONE 2026-06-21, PR #13 (CC)
 - [x] Fix `es`/`fr` `target` — changed from `"A1"` to `"B1"` (aspirational side-language goal) — DONE 2026-06-21, PR #13 (CC)
 - [x] Replace Ladder A1% XP placeholder with real progress math — `a1PercentFor(langId, items)` counts rung≥1 items / total A1 items — DONE 2026-06-21, PR #13 (CC)
+- [x] **Stage sectioning** — `stage` field (`pre-a1 | a1 | a2 | b1 | b2`) added + enum-validated in `contract.js`; stamped on Units 1–3 + roadmap; Ladder groups units under stage headers (JA shows JLPT tag); this list regrouped below — DONE 2026-06-27, PR #TBD (CC)
+
+#### Pre-A1 — scripts: hiragana + katakana (Units 1–6, no JLPT tag)
+
+- [x] Unit 1 — はじめまして — base hiragana あ-row → な-row + greetings (authored via the lesson items above); `stage: "pre-a1"` — DONE (pre-tracker) (Claude/CC)
 - [x] Unit 2 — よろしく — は/ひ/ふ/へ/ほ, ま/み/む/め/も, や/ゆ/よ, ら/り/る/れ/ろ, わ・を・ん; 5 lessons, 21 kana + 28 vocab; hiragana set complete; Alex-reviewed line-by-line — DONE 2026-06-23, PR #20 (Claude/CC)
 - [ ] Alex `?dev` feel-check of 5-lesson progression rhythm (report any timing/pacing that feels off → tune constants) (Alex)
 - [x] Unit 3 — まいにち — dakuten/handakuten rows: が/ざ/だ/ば (dakuten) + ぱ (handakuten); 5 lessons, 25 voiced kana + 30 vocab. Stroke data added for all 25 (KanjiVG); eleven_v3 audio generated; validate:content clean. **Alex authored; the #30 upload arrived mojibake-garbled so CC reconstructed the Japanese — then Alex re-sent the real file gzip+base64 and PR #31 swapped in his exact bytes, fixing 3 drift items (このひと→あのひと "that person" error; さんぽをします; KEE/GEE hint).** — DONE 2026-06-27, PR #30 (initial) + PR #31 (real bytes) (Alex/CC)
 - [ ] Unit 3 audio decision — `eleven_v3` clips for Unit 3 are on `main` (from #30), but Alex's note said "no audio yet" for these. Clips are the *good* pipeline (same as Units 1–2) and fronts didn't change, so they still match. **Keep (rec) or remove?** (Alex)
 - [ ] Unit 4 (カタカナ) — Alex's base64 blob arrived corrupt (`Z_DATA_ERROR`, gzip CRC caught it). **Alex re-sends the Unit 4 base64** → CC decodes + wires it (fresh, real, no reconstruction). (Alex/CC)
-- [ ] Unit 4 — カタカナ part 1 (vowels + k/s/t/n rows, 25 katakana) — Alex authored, queued next (same reconstruction caveat). (Alex/CC)
-- [ ] Unit 4+ — vocab expansion, particles, basic grammar; scope TBD after Unit 3 ships (Claude/CC)
-- [ ] JLPT dual-tagging — add a `jlpt` tag (N5/N4/…) alongside `cefr` on Japanese-track items; align vocab to community-reconstructed N5 list as units grow. CEFR stays the engine's universal spine (cross-language); JLPT is an additional Japanese-only recognition tag. Low-cost now, expensive to retrofit — fold in as units are authored. (CC)
+- [ ] Unit 4 — カタカナ part 1 (vowels + k/s/t/n rows, 25 katakana) — Alex authored, queued next (same reconstruction caveat). `stage: "pre-a1"`. (Alex/CC)
+- [ ] Unit 5 — カタカナ part 2 (h/m/y/r/w rows + ン, 21 katakana) — finishes the base katakana script. `stage: "pre-a1"`; authored in-repo by CC. (CC)
+- [ ] Unit 6 — katakana dakuten/handakuten (ガ/ザ/ダ/バ/パ rows, 25 kana) + small combos (ャ/ュ/ョ/ッ/ー); completes the katakana script. `stage: "pre-a1"`. (CC)
+
+#### A1 — kanji + thematic vocab (JLPT N5)
+
+- [ ] First kanji — numbers, days, everyday kanji. `stage: "a1"`. (Claude/CC)
+- [ ] Particles — build sentences は・が・を・に・で. `stage: "a1"`. (Claude/CC)
+- [ ] Thematic vocab units (Units 7–10): numbers/time, family & people, food & daily verbs, places & directions — native-word vocab in kana, example sentences modeling basic grammar. `stage: "a1"`; authored in-repo by CC. (CC)
+- [ ] Unit 4+ — vocab expansion, particles, basic grammar; scope TBD after Unit 3 ships (now folded into the A1 thematic + grammar items above) (Claude/CC)
+- [ ] JLPT dual-tagging — add a `jlpt` tag (N5/N4/…) alongside `cefr` on Japanese-track items; align vocab to community-reconstructed N5 list as units grow. CEFR stays the engine's universal spine (cross-language); JLPT is an additional Japanese-only recognition tag. Low-cost now, expensive to retrofit — fold in as units are authored. (The Ladder JLPT header tag is display-only; this item is the per-item data tag.) (CC)
+
+#### A2 / B1 / B2 — placeholders (shape-level)
+
+- [ ] A2 (JLPT N4) — broaden grammar + vocab, more kanji. Shape TBD. (Claude/CC)
+- [ ] B1 (JLPT N3) — placeholder. (Claude/CC)
+- [ ] B2 — the Japanese deep-climb goal (Polyglot Ladder summit). Placeholder. (Claude/CC)
+
+#### Cross-cutting curriculum notes
+
 - [ ] を reading edge — if playtest shows learners typing "o" (を is phonetically /o/ in modern Japanese), fold wo↔o tolerance into `checkReading`. (CC)
 - [ ] Non-blocking content polish from Unit 2 review: ja-u2l2-mono example (これはなんですか preferred over このものはなんですか); ja-u2l4-roku example (ろくじです introduces time-telling ahead of where it's taught). Fix in a content-only PR. (Claude/CC)
 
