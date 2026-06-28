@@ -13,8 +13,9 @@ import { UNIT11 } from "./ja/unit11.js";
 import { UNIT12 } from "./ja/unit12.js";
 import { UNIT13 } from "./ja/unit13.js";
 import { UNIT14 } from "./ja/unit14.js";
+import { UNIT15 } from "./ja/unit15.js";
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15];
 
 export { LANGUAGES };
 
