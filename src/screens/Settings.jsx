@@ -168,6 +168,15 @@ export default function Settings() {
         />
       </Section>
 
+      <Section title="Display">
+        <Toggle
+          label="Show romaji"
+          desc="Show the romaji reading under each character on the Ladder and on new-word cards. Turn off to read kana and kanji without the crutch."
+          checked={settings?.showRomaji ?? true}
+          onChange={(v) => setSetting("showRomaji", v)}
+        />
+      </Section>
+
       <Section title="Progress">
         {!confirming ? (
           <button

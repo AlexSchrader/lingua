@@ -2,9 +2,11 @@ import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { sfxClick } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
+import { useStore } from "../../store/useStore.js";
 
 export default function TeachCard({ item, onAdvance }) {
   const { play, active } = useItemAudio(item);
+  const showRomaji = useStore((s) => s.settings?.showRomaji ?? true);
   const label = item.type === "kana" ? "character" : item.type === "kanji" ? "kanji" : "word";
   return (
     <div style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>
@@ -30,9 +32,11 @@ export default function TeachCard({ item, onAdvance }) {
         <div style={{ fontFamily: F.jp, fontSize: 72, fontWeight: 500, lineHeight: 1 }}>
           {item.front}
         </div>
-        <div style={{ fontFamily: F.mono, fontSize: 20, color: C.ai, fontWeight: 600 }}>
-          {item.reading}
-        </div>
+        {showRomaji && (
+          <div style={{ fontFamily: F.mono, fontSize: 20, color: C.ai, fontWeight: 600 }}>
+            {item.reading}
+          </div>
+        )}
         {item.meaning && <div style={{ fontSize: 18 }}>{item.meaning}</div>}
         {item.example && (
           <div style={{ fontSize: 14, color: C.inkSoft }}>

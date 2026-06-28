@@ -47,6 +47,7 @@ function unlockText(lang) {
 export default function Ladder() {
   const languages = useStore((s) => s.languages);
   const items = useStore((s) => s.items);
+  const showRomaji = useStore((s) => s.settings?.showRomaji ?? true);
 
   const stations = LANGUAGES.map((l) => languages[l.id] ?? { ...l, level: "pre-A1", xp: 0 });
   // Active language = the first unlocked one still being climbed (Japanese today).
@@ -61,8 +62,8 @@ export default function Ladder() {
       </div>
 
       <ActiveLanguage lang={active} items={items} />
-      <KanaSection langId={active.id} items={items} />
-      <KanjiSection langId={active.id} items={items} />
+      <KanaSection langId={active.id} items={items} showRomaji={showRomaji} />
+      <KanjiSection langId={active.id} items={items} showRomaji={showRomaji} />
       <UnitsSection langId={active.id} items={items} />
 
       {others.length > 0 && (
@@ -235,19 +236,19 @@ function gojuonRows(defs) {
   return rows;
 }
 
-function GojuonGrid({ defs, items }) {
+function GojuonGrid({ defs, items, showRomaji }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
       {gojuonRows(defs).map((row, ri) => (
         <div key={ri} style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 6 }}>
-          {row.map((d, ci) => (d ? <KanaChip key={d.id} char={d.front} item={items[d.id]} /> : <div key={ci} />))}
+          {row.map((d, ci) => (d ? <KanaChip key={d.id} char={d.front} reading={d.reading} item={items[d.id]} showRomaji={showRomaji} /> : <div key={ci} />))}
         </div>
       ))}
     </div>
   );
 }
 
-function KanaSection({ langId, items }) {
+function KanaSection({ langId, items, showRomaji }) {
   const kanaDefs = defsFor(langId, (d) => d.type === "kana");
   if (kanaDefs.length === 0) return null;
   const groups = KANA_GROUPS
@@ -274,7 +275,7 @@ function KanaSection({ langId, items }) {
                   {learned}/{g.defs.length} learned{mastered > 0 ? ` · ${mastered} mastered` : ""}
                 </span>
               </div>
-              <GojuonGrid defs={g.defs} items={items} />
+              <GojuonGrid defs={g.defs} items={items} showRomaji={showRomaji} />
             </div>
           );
         })}
@@ -285,7 +286,7 @@ function KanaSection({ langId, items }) {
 
 // Kanji get their own section (they're not kana — different glyph set, and they
 // carry meaning). Renders once the first kanji item ships; reuses the kana chip.
-function KanjiSection({ langId, items }) {
+function KanjiSection({ langId, items, showRomaji }) {
   const kanjiDefs = defsFor(langId, (d) => d.type === "kanji");
   if (kanjiDefs.length === 0) return null;
   const learned = kanjiDefs.filter((d) => (items[d.id]?.rung ?? 0) >= 1).length;
@@ -303,18 +304,19 @@ function KanjiSection({ langId, items }) {
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 6 }}>
         {kanjiDefs.map((d) => (
-          <KanaChip key={d.id} char={d.front} item={items[d.id]} />
+          <KanaChip key={d.id} char={d.front} reading={d.reading} item={items[d.id]} showRomaji={showRomaji} />
         ))}
       </div>
     </Section>
   );
 }
 
-function KanaChip({ char, item }) {
+function KanaChip({ char, reading, item, showRomaji }) {
   const learned = (item?.rung ?? 0) >= 1;
   const pct = masteryPct(item);
   const mastered = isMastered(item);
   const accent = mastered ? C.matcha : C.ai;
+  const romaji = showRomaji && reading;
   return (
     <div
       style={{
@@ -330,7 +332,11 @@ function KanaChip({ char, item }) {
     >
       <div
         style={{
-          aspectRatio: "1 / 1",
+          // When romaji shows, the glyph sits a little higher so the reading fits;
+          // otherwise the glyph fills a square cell.
+          aspectRatio: romaji ? "auto" : "1 / 1",
+          paddingTop: romaji ? "14%" : 0,
+          paddingBottom: romaji ? "2%" : 0,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -342,6 +348,19 @@ function KanaChip({ char, item }) {
       >
         {char}
       </div>
+      {romaji && (
+        <div
+          style={{
+            textAlign: "center",
+            fontFamily: F.mono,
+            fontSize: "clamp(9px, 2.6vw, 12px)",
+            color: learned ? C.inkSoft : C.locked,
+            paddingBottom: 4,
+          }}
+        >
+          {reading}
+        </div>
+      )}
       {/* Mastery bar — only once the character has been introduced (rung ≥ 1).
           Un-introduced kana show just the muted glyph, no bar. */}
       {learned && (
