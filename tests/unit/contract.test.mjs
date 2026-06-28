@@ -274,6 +274,27 @@ test("allows a vocab front that matches an earlier kana item's front (kana → w
   assert.ok(!err, `Did not expect a vocab-front error for kana→word reuse, got: ${err}`);
 });
 
+test("accepts a kanji item type but requires meaning + stroke data", () => {
+  const mk = (over) => ({
+    id: "ja-u1", lang: "ja", order: 1, stage: "a1", title: "Kanji",
+    lessons: [
+      {
+        id: "ja-u1l1", unit: 1, lesson: 1, title: "L", dominantMode: "recall", canDo: "c", cefr: "A1",
+        items: [{ id: "ja-u1l1-x", type: "kanji", front: "一", reading: "ichi", meaning: "one", example: { jp: "一。", en: "One." }, accept: [], ...over }],
+      },
+    ],
+  });
+  // type "kanji" is accepted (no "type is not valid" error)
+  const typeErr = validateContent([mk()], LANGUAGES).errors.find((e) => e.includes("is not valid"));
+  assert.ok(!typeErr, `kanji type should be accepted, got: ${typeErr}`);
+  // missing meaning → error
+  const noMeaning = validateContent([mk({ meaning: "" })], LANGUAGES).errors.find((e) => e.includes("kanji") && e.includes("meaning"));
+  assert.ok(noMeaning, "expected a kanji-meaning error");
+  // 一 has no KanjiVG entry in the test corpus → stroke-data error fires
+  const noStrokes = validateContent([mk()], LANGUAGES).errors.find((e) => e.includes("stroke data"));
+  assert.ok(noStrokes, "expected a kanji stroke-data error (一 not in KANJIVG yet)");
+});
+
 // ---- LIVE_CARD_KINDS canonical set ------------------------------------------
 
 // This test defines the expected set. If you add a new card kind to the runner,

@@ -13,7 +13,7 @@ UNIT[]
   └─ LESSON[]
        ├─ (locked stub)   — { id, title, locked: true } only
        └─ (playable)      — full object with items[]
-            └─ ITEM[]     — kana or vocab
+            └─ ITEM[]     — kana, vocab, or kanji
 ```
 
 ---
@@ -96,6 +96,27 @@ Each kana **character** (not item) may appear in the corpus at most once.
 
 ---
 
+## Item — kanji
+
+A kanji is a **glyph that carries meaning**: it has stroke data like a kana (single character,
+KanjiVG-traced) AND a meaning + example like a vocab. In the engine it teaches like a word —
+recognition/recall test the **meaning** (choice + typed), production is **stroke tracing** at high
+rungs. Allowed only in `a1`+ stage units. KanjiVG entry required (add the char to
+`scripts/fetch-kanjivg.mjs` and regenerate).
+
+| field   | type              | required | notes |
+|---------|-------------------|----------|-------|
+| id      | string            | ✓        | same id pattern |
+| type    | `"kanji"`         | ✓        |       |
+| front   | string            | ✓        | a single kanji; must have a KanjiVG stroke entry |
+| reading | string            | ✓        | romaji; `[a-z]+` after normalization |
+| meaning | string            | ✓        | English gloss; non-empty |
+| example | `{ jp, en }`      | ✓        | one sentence in each language |
+| accept  | string[] (opt)    |          | alternate accepted meanings |
+| hint    | string (opt)      |          | memory hook; non-empty if present |
+
+---
+
 ## CEFR levels
 
 Valid values (in order): `"A1"` `"A2"` `"B1"` `"B2"`.
@@ -175,8 +196,8 @@ mechanical rule passed.
 - **Teach-front scope** — a kana/kanji *teach* front may only use glyphs already introduced (its
   own single new glyph excepted). Vocab and example words are exempt (the reading carries them).
 - **Density** — ~5–8 word cards (vocab/kanji) per lesson (warning outside that band; **error at 0**).
-- **Kanji rules (forward-compatible, inert until a `kanji` type ships)** — stroke data required,
-  fronts globally unique, allowed only in `a1`+ stages.
+- **Kanji rules (live — the `kanji` type shipped)** — stroke data required, fronts globally unique
+  (with vocab), allowed only in `a1`+ stages.
 
 **What the lint does NOT check:** language *naturalness* — particle choice, register (です/ます),
 idiomatic collocation, whether a sentence is something a native would say. No test can read meaning;

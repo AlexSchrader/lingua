@@ -15,6 +15,8 @@ Default to thoroughness and self-sufficiency. Don't ask permission for routine w
 
 **Open draft PRs only — never mark ready, never merge.** The merge gate is always Alex's, after CI is green AND a personal feel-check.
 
+**Exception — autonomous curriculum authoring (Alex enabled 2026-06-28, `BUILD-BRIEF-curriculum-lint.md` Part 3):** CC may author AND **self-merge curriculum content units** without per-unit approval, once `lint:curriculum` + `validate:content` + unit tests + Playwright smoke + build are all green. Native-speaker review is batched (per sub-section), not per unit; Claude spot-review is on-request only. Alex playtests merged units in Dev Mode. **Scope limit: curriculum content only.** Schema/contract/engine changes still go through draft PRs and stay Alex's call (unless he explicitly directs otherwise for a specific change).
+
 ---
 
 ## What this is

@@ -80,7 +80,8 @@ export function runnerWriters(sandbox, real) {
 // static UNITS data + KanjiVG table, no store. Flags any kana missing stroke data.
 export function devDiagnostics() {
   const items = Object.values(seedItems());
-  const kana = items.filter((it) => it.type === "kana");
+  // kana + kanji are both stroke-traced glyphs, so both need KanjiVG entries.
+  const kana = items.filter((it) => it.type === "kana" || it.type === "kanji");
   const kanaMissing = kana.filter((it) => !KANJIVG[it.front]).map((it) => it.front);
 
   const units = UNITS.map((u) => {
