@@ -60,6 +60,26 @@ test("flags kana out of gojūon order within a unit", () => {
   assert.ok(errors.find((e) => e.includes("gojūon")), `got:\n${errors.join("\n")}`);
 });
 
+test("flags a kanji item in a pre-a1 unit (kanji is a1+ only)", () => {
+  const u = {
+    id: "ja-u1", lang: "ja", order: 1, stage: "pre-a1", title: "T",
+    lessons: [
+      {
+        id: "ja-u1l1", unit: 1, lesson: 1, title: "L", dominantMode: "recall", canDo: "c", cefr: "A1",
+        items: [
+          { id: "ja-u1l1-k", type: "kanji", front: "一", reading: "ichi", meaning: "one", example: { jp: "一。", en: "One." }, accept: [] },
+          { id: "ja-u1l1-v1", type: "vocab", front: "ねこ", reading: "neko", meaning: "cat", example: { jp: "ねこ。", en: "Cat." }, accept: [] },
+          { id: "ja-u1l1-v2", type: "vocab", front: "いぬ", reading: "inu", meaning: "dog", example: { jp: "いぬ。", en: "Dog." }, accept: [] },
+          { id: "ja-u1l1-v3", type: "vocab", front: "すし", reading: "sushi", meaning: "sushi", example: { jp: "すし。", en: "Sushi." }, accept: [] },
+          { id: "ja-u1l1-v4", type: "vocab", front: "みず", reading: "mizu", meaning: "water", example: { jp: "みず。", en: "Water." }, accept: [] },
+        ],
+      },
+    ],
+  };
+  const { errors } = lintCurriculum([u]);
+  assert.ok(errors.find((e) => e.includes("kanji") && e.includes("a1+")), `got:\n${errors.join("\n")}`);
+});
+
 test("flags a word front taught twice", () => {
   const u = kanaUnit();
   u.lessons[0].items[3].front = "ねこ"; // duplicate of items[2]

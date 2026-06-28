@@ -22,7 +22,7 @@ const VALID_CEFR = Object.keys(CEFR_ORDER);
 // Latin-alphabet languages simply won't have any pre-a1 units.
 const VALID_STAGE = ["pre-a1", "a1", "a2", "b1", "b2"];
 const VALID_DOMINANT_MODE = ["recall", "recognize", "produce", "speak", "trace"];
-const VALID_ITEM_TYPES = ["kana", "vocab"];
+const VALID_ITEM_TYPES = ["kana", "vocab", "kanji"];
 const LOCKED_STUB_KEYS = new Set(["id", "title", "locked"]);
 const ITEM_KEYS = new Set(["id", "type", "front", "reading", "meaning", "example", "accept", "hint"]);
 const UNIT_ID_RE = /^[a-z]{2}-u\d+$/;
@@ -146,7 +146,7 @@ export function validateContent(units, languages) {
           if (!ITEM_ID_RE.test(item.id))
             e(`item ${item.id}: id must match ${ITEM_ID_RE}`);
           if (!VALID_ITEM_TYPES.includes(item.type))
-            e(`item ${item.id}: type "${item.type}" is not valid (must be kana or vocab)`);
+            e(`item ${item.id}: type "${item.type}" is not valid (must be kana, vocab, or kanji)`);
           if (!item.front || typeof item.front !== "string" || !item.front.trim())
             e(`item ${item.id}: front is empty`);
           if (!item.reading || typeof item.reading !== "string" || !item.reading.trim())
@@ -177,6 +177,21 @@ export function validateContent(units, languages) {
               !item.example.en
             )
               e(`item ${item.id}: vocab item must have example { jp, en }`);
+          } else if (item.type === "kanji") {
+            // A kanji is a glyph (like kana: stroke data) that also carries a
+            // meaning + example (like vocab). Recognition/recall test the meaning;
+            // production is stroke tracing.
+            if (!item.meaning || typeof item.meaning !== "string" || !item.meaning.trim())
+              e(`item ${item.id}: kanji item must have a non-empty meaning`);
+            if (
+              !item.example ||
+              typeof item.example !== "object" ||
+              !item.example.jp ||
+              !item.example.en
+            )
+              e(`item ${item.id}: kanji item must have example { jp, en }`);
+            if (!KANJIVG[item.front])
+              e(`item ${item.id}: kanji "${item.front}" has no stroke data in KANJIVG — add it to src/data/kanjivg.js`);
           }
 
           allItems.push({ item, lessonCefr: lesson.cefr ?? null });
@@ -221,17 +236,17 @@ export function validateContent(units, languages) {
     }
   }
 
-  // Vocab front uniqueness: a given word (vocab front) gets exactly one home —
-  // teaching the same word in two units is a duplicate to dedupe. A vocab front
-  // MAY coincide with a kana item's front (e.g. the number-word に / ご is the
-  // same single character as the kana — that kana→word reuse is intentional), so
-  // this checks vocab against vocab only, never against kana.
+  // Word-front uniqueness: a given word (vocab OR kanji front) gets exactly one
+  // home — teaching the same word/kanji in two units is a duplicate to dedupe. A
+  // word front MAY coincide with a kana item's front (e.g. the number-word に / ご
+  // is the same single character as the kana — that kana→word reuse is
+  // intentional), so this checks vocab/kanji against vocab/kanji, never kana.
   const vocabFronts = new Map(); // front → first item id
   for (const { item } of allItems) {
-    if (item.type !== "vocab") continue;
+    if (item.type !== "vocab" && item.type !== "kanji") continue;
     if (vocabFronts.has(item.front))
       e(
-        `item ${item.id}: vocab front "${item.front}" is already taught in item ${vocabFronts.get(item.front)} — ` +
+        `item ${item.id}: ${item.type} front "${item.front}" is already taught in item ${vocabFronts.get(item.front)} — ` +
           `a word should have a single home (dedupe the duplicate)`
       );
     else vocabFronts.set(item.front, item.id);

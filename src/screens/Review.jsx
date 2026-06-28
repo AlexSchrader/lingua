@@ -21,7 +21,8 @@ function reviewStepFor(item) {
   const rung = item.rung ?? 1;
   if (rung <= 1) return { kind: "choice" };
   if (rung === 2) return { kind: "type", mode: "meaning" };
-  return item.type === "kana" ? { kind: "trace" } : { kind: "build" };
+  // Glyphs (kana + kanji) are produced by stroke tracing; words by building.
+  return item.type === "kana" || item.type === "kanji" ? { kind: "trace" } : { kind: "build" };
 }
 
 export default function Review() {

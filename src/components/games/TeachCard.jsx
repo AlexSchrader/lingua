@@ -5,11 +5,11 @@ import { useItemAudio } from "../../store/itemAudio.js";
 
 export default function TeachCard({ item, onAdvance }) {
   const { play, active } = useItemAudio(item);
-  const isKana = item.type === "kana";
+  const label = item.type === "kana" ? "character" : item.type === "kanji" ? "kanji" : "word";
   return (
     <div style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>
       <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
-        New {isKana ? "character" : "word"}
+        New {label}
       </div>
 
       <div

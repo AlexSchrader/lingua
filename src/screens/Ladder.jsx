@@ -62,6 +62,7 @@ export default function Ladder() {
 
       <ActiveLanguage lang={active} items={items} />
       <KanaSection langId={active.id} items={items} />
+      <KanjiSection langId={active.id} items={items} />
       <UnitsSection langId={active.id} items={items} />
 
       {others.length > 0 && (
@@ -242,6 +243,33 @@ function KanaSection({ langId, items }) {
             </div>
           );
         })}
+      </div>
+    </Section>
+  );
+}
+
+// Kanji get their own section (they're not kana — different glyph set, and they
+// carry meaning). Renders once the first kanji item ships; reuses the kana chip.
+function KanjiSection({ langId, items }) {
+  const kanjiDefs = defsFor(langId, (d) => d.type === "kanji");
+  if (kanjiDefs.length === 0) return null;
+  const learned = kanjiDefs.filter((d) => (items[d.id]?.rung ?? 0) >= 1).length;
+  const mastered = kanjiDefs.filter((d) => isMastered(items[d.id])).length;
+  return (
+    <Section title="Kanji">
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+        <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: 0.6, color: C.ai, textTransform: "uppercase" }}>
+          Kanji
+        </span>
+        <div style={{ flex: 1, height: 1, background: C.line }} />
+        <span style={{ fontSize: 11, color: C.inkSoft, whiteSpace: "nowrap", flexShrink: 0 }}>
+          {learned}/{kanjiDefs.length} learned{mastered > 0 ? ` · ${mastered} mastered` : ""}
+        </span>
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+        {kanjiDefs.map((d) => (
+          <KanaChip key={d.id} char={d.front} item={items[d.id]} />
+        ))}
       </div>
     </Section>
   );
