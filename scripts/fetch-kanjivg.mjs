@@ -24,10 +24,13 @@ const DAKUTEN = "がぎぐげござじずぜぞだぢづでどばびぶべぼぱ
 const KATAKANA = "アイウエオカキクケコサシスセソタチツテトナニヌネノ" + // Unit 4
   "ハヒフヘホマミムメモヤユヨラリルレロワヲン" +                       // Unit 5
   "ガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポ";                  // Unit 6
-// First kanji (Unit 11) — numbers, days/nature, people/position (N5 starter set).
-const KANJI = "一二三四五六七八九十" + // numbers
-  "日月火水木金土山川田" +              // days / nature
-  "人大小中上下";                        // people / position
+// Kanji — N5 set, grows as kanji units ship.
+const KANJI = "一二三四五六七八九十" + // numbers (Unit 11)
+  "日月火水木金土山川田" +              // days / nature (Unit 11)
+  "人大小中上下" +                      // people / position (Unit 11)
+  "何時分半午曜週年今毎" +              // time / calendar (Unit 13)
+  "行来見出入食飲言聞読" +              // everyday verbs (Unit 14)
+  "父母男女子学校生先友";                // people / school (Unit 15)
 const kanaChars = (HIRAGANA + DAKUTEN + KATAKANA + KANJI).split("");
 
 console.log(`Fetching KanjiVG data for ${kanaChars.length} characters: ${kanaChars.join(" ")}\n`);

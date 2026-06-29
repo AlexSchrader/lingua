@@ -11,9 +11,12 @@ import { UNIT9 } from "./ja/unit9.js";
 import { UNIT10 } from "./ja/unit10.js";
 import { UNIT11 } from "./ja/unit11.js";
 import { UNIT12 } from "./ja/unit12.js";
-import { UNIT16 } from "./ja/unit16.js"; // yōon (id u16; temp order 13 on this branch — see unit16.js)
+import { UNIT13 } from "./ja/unit13.js";
+import { UNIT14 } from "./ja/unit14.js";
+import { UNIT15 } from "./ja/unit15.js";
+import { UNIT16 } from "./ja/unit16.js"; // yōon (pre-a1 kana digraphs)
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT16];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16];
 
 export { LANGUAGES };
 
