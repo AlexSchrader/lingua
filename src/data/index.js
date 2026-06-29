@@ -15,8 +15,13 @@ import { UNIT13 } from "./ja/unit13.js";
 import { UNIT14 } from "./ja/unit14.js";
 import { UNIT15 } from "./ja/unit15.js";
 import { UNIT16 } from "./ja/unit16.js"; // yōon (pre-a1 kana digraphs)
+import { UNIT17 } from "./ja/unit17.js";
+import { UNIT18 } from "./ja/unit18.js";
+import { UNIT19 } from "./ja/unit19.js";
+import { UNIT20 } from "./ja/unit20.js";
+import { UNIT21 } from "./ja/unit21.js";
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21];
 
 export { LANGUAGES };
 

@@ -30,7 +30,12 @@ const KANJI = "一二三四五六七八九十" + // numbers (Unit 11)
   "人大小中上下" +                      // people / position (Unit 11)
   "何時分半午曜週年今毎" +              // time / calendar (Unit 13)
   "行来見出入食飲言聞読" +              // everyday verbs (Unit 14)
-  "父母男女子学校生先友";                // people / school (Unit 15)
+  "父母男女子学校生先友" +              // people / school (Unit 15)
+  "百千万円右左前後外間" +              // numbers / money / position (Unit 17)
+  "東西南北道駅店国本名" +              // compass / places (Unit 18)
+  "書話立休買会待知作持" +              // more verbs (Unit 19)
+  "高安新古多少長白気元" +              // adjectives / state (Unit 20)
+  "目耳口手足雨電車私語";                // body / nature (Unit 21)
 const kanaChars = (HIRAGANA + DAKUTEN + KATAKANA + KANJI).split("");
 
 console.log(`Fetching KanjiVG data for ${kanaChars.length} characters: ${kanaChars.join(" ")}\n`);

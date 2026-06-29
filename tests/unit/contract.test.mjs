@@ -289,9 +289,10 @@ test("accepts a kanji item type but requires meaning + stroke data", () => {
   // missing meaning → error
   const noMeaning = validateContent([mk({ meaning: "" })], LANGUAGES).errors.find((e) => e.includes("kanji") && e.includes("meaning"));
   assert.ok(noMeaning, "expected a kanji-meaning error");
-  // a kanji with no KanjiVG entry → stroke-data error fires (本 isn't in the corpus)
-  const noStrokes = validateContent([mk({ front: "本", reading: "hon", meaning: "book" })], LANGUAGES).errors.find((e) => e.includes("stroke data"));
-  assert.ok(noStrokes, "expected a kanji stroke-data error for 本");
+  // a kanji with no KanjiVG entry → stroke-data error fires (鬱 is far beyond the
+  // beginner set, so it will never be fetched into kanjivg.js)
+  const noStrokes = validateContent([mk({ front: "鬱", reading: "utsu", meaning: "gloom" })], LANGUAGES).errors.find((e) => e.includes("stroke data"));
+  assert.ok(noStrokes, "expected a kanji stroke-data error for 鬱");
 });
 
 test("accepts a yōon digraph kana (2 glyphs, no stroke entry required)", () => {
