@@ -116,11 +116,22 @@ export const useStore = create(
           return next;
         }),
 
-      // Merge seed items in on first run; no-op once items exist. Also rolls the
-      // daily bookkeeping over if the calendar day has changed.
+      // Reconcile the deck against the current curriculum on every run:
+      //  - NEW items (units shipped since last seed) get added at rung 0,
+      //  - existing items keep their progress (rung + FSRS srs) but take the
+      //    latest CONTENT (so reading/meaning fixes propagate),
+      //  - items no longer in the curriculum are dropped.
+      // This replaces the old "seed only when empty" rule, which left existing
+      // learners stuck at whatever item count was present on their first run.
       seedOnce: () => {
         set((s) => {
-          const items = Object.keys(s.items).length ? s.items : freshSeed();
+          const seed = freshSeed();
+          const prev = s.items || {};
+          const items = {};
+          for (const [id, fresh] of Object.entries(seed)) {
+            const p = prev[id];
+            items[id] = p ? { ...fresh, rung: p.rung ?? 0, srs: p.srs ?? fresh.srs } : fresh;
+          }
           let daily = s.daily;
           if (daily.date !== todayISO()) {
             daily = { date: todayISO(), reviewsCleared: false, lessonDone: false };
