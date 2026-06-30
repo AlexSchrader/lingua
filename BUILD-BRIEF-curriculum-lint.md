@@ -3,6 +3,14 @@
 > Transcribed into the repo by CC (the chat copy arrived with mojibake'd Japanese
 > examples; those are restored here). Design + intent unchanged.
 
+## Status (2026-06-30)
+- **Part 1 (lint): DONE & live.** `npm run lint:curriculum` runs in CI; backfilled clean on U1–10; documented in `CONTENT.md`.
+- **Part 3 (autonomous self-merge): APPROVED & live** — Alex enabled it 2026-06-28 ("self-merge on green, batch to native review. Go."). The old "pending Alex's go-ahead" note below is superseded.
+- **⚠️ Open gap (the load-bearing one): the native-review half is NOT wired.** No named reviewer, no format, no cadence. Until it is, language-heavy content that self-merges is never actually language-checked, and **A1 cannot be claimed "done / JLPT-aligned."** This is a real-world dependency only Alex can close (name a person + format + cadence).
+- **Merge-timing rule (codifying what's already in practice — a RISK TIER):**
+  - *Mechanical / script content* (kana, katakana, yōon, KanjiVG strokes, pure recognition): self-merge on green. Low naturalness surface.
+  - *Language-heavy content* (grammar/particles, register, example sentences, kanji example sentences): **HELD before merge** until the batch native review exists. Grammar + the U11/U13–21 kanji batch are currently held on this basis.
+
 ## Goal
 CC authors units **autonomously, in batches, without per-unit human approval.** Everything
 mechanical is enforced by an automated lint (CC's PRs self-certify in CI); language naturalness —
@@ -65,8 +73,10 @@ certified / JLPT-aligned" claim or store launch.
    NOT a required gate. Required gates = lint (mechanical, automated) + native review (language, batched).
 
 > NOTE (CC): Part 3 overrides CLAUDE.md's standing "draft PRs only — Alex always merges" rule for
-> curriculum. Pending Alex's explicit go-ahead before CC self-merges any unit. Part 1 (this lint)
-> ships as a normal draft PR.
+> curriculum. **APPROVED by Alex 2026-06-28** — CC self-merges curriculum on full green. Subject to
+> the risk tier in **Status** above: mechanical/script content self-merges; language-heavy content
+> (grammar, examples) is HELD until the batch native review is actually wired. Schema/contract/engine
+> changes still go through draft PRs and stay Alex's call.
 
 ---
 
