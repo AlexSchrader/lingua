@@ -28,6 +28,8 @@ export const UNIT9 = {
         { id: "ja-u9l1-ocha",   type: "vocab", front: "おちゃ", reading: "ocha", meaning: "tea", example: { jp: "おちゃをのみます。", en: "I drink tea." }, accept: ["green tea"] },
         { id: "ja-u9l1-okashi", type: "vocab", front: "おかし", reading: "okashi", meaning: "sweets", example: { jp: "おかしがすきです。", en: "I like sweets." }, accept: ["candy", "snacks", "snack"] },
         { id: "ja-u9l1-asagohan", type: "vocab", front: "あさごはん", reading: "asagohan", meaning: "breakfast", example: { jp: "あさごはんをたべます。", en: "I eat breakfast." }, accept: ["morning meal"] },
+        { id: "ja-u9l1-onigiri", type: "vocab", front: "おにぎり", reading: "onigiri", meaning: "rice ball", example: { jp: "おにぎりをたべます。", en: "I eat a rice ball." }, accept: ["rice balls"] },
+        { id: "ja-u9l1-misoshiru", type: "vocab", front: "みそしる", reading: "misoshiru", meaning: "miso soup", example: { jp: "あさ、みそしるをのみます。", en: "I drink miso soup in the morning." }, accept: ["miso"] },
       ],
     },
     // Lesson 2: meals & taste
@@ -46,6 +48,8 @@ export const UNIT9 = {
         { id: "ja-u9l2-aji",   type: "vocab", front: "あじ", reading: "aji", meaning: "flavor", example: { jp: "このあじがすきです。", en: "I like this flavor." }, accept: ["taste", "flavour"] },
         { id: "ja-u9l2-amai",  type: "vocab", front: "あまい", reading: "amai", meaning: "sweet", example: { jp: "これはあまいです。", en: "This is sweet." }, accept: ["sweet-tasting"] },
         { id: "ja-u9l2-karai", type: "vocab", front: "からい", reading: "karai", meaning: "spicy", example: { jp: "カレーはからいです。", en: "Curry is spicy." }, accept: ["hot", "hot (spicy)"] },
+        { id: "ja-u9l2-oishii", type: "vocab", front: "おいしい", reading: "oishii", meaning: "delicious", example: { jp: "このケーキはおいしいです。", en: "This cake is delicious." }, accept: ["tasty", "yummy", "good"] },
+        { id: "ja-u9l2-nigai", type: "vocab", front: "にがい", reading: "nigai", meaning: "bitter", example: { jp: "このおちゃはにがいです。", en: "This tea is bitter." }, accept: ["bitter-tasting"] },
       ],
     },
     // Lesson 3: everyday verbs (1) — the ～ます forms as vocabulary
@@ -64,6 +68,8 @@ export const UNIT9 = {
         { id: "ja-u9l3-nomimasu", type: "vocab", front: "のみます", reading: "nomimasu", meaning: "drink", example: { jp: "みずをのみます。", en: "I drink water." }, accept: ["to drink", "drinks"] },
         { id: "ja-u9l3-mimasu",  type: "vocab", front: "みます", reading: "mimasu", meaning: "see", example: { jp: "テレビをみます。", en: "I watch TV." }, accept: ["watch", "to see", "look"] },
         { id: "ja-u9l3-shimasu", type: "vocab", front: "します", reading: "shimasu", meaning: "do", example: { jp: "テニスをします。", en: "I play tennis." }, accept: ["to do", "play (a sport)"] },
+        { id: "ja-u9l3-yomimasu", type: "vocab", front: "よみます", reading: "yomimasu", meaning: "read", example: { jp: "ほんをよみます。", en: "I read a book." }, accept: ["to read", "reads"] },
+        { id: "ja-u9l3-kakimasu", type: "vocab", front: "かきます", reading: "kakimasu", meaning: "write", example: { jp: "なまえをかきます。", en: "I write my name." }, accept: ["to write", "writes"] },
       ],
     },
     // Lesson 4: everyday verbs (2)
@@ -82,6 +88,8 @@ export const UNIT9 = {
         { id: "ja-u9l4-kaimasu", type: "vocab", front: "かいます", reading: "kaimasu", meaning: "buy", example: { jp: "パンをかいます。", en: "I buy bread." }, accept: ["to buy", "buys", "purchase"] },
         { id: "ja-u9l4-hanashimasu", type: "vocab", front: "はなします", reading: "hanashimasu", meaning: "speak", example: { jp: "えいごをはなします。", en: "I speak English." }, accept: ["talk", "to speak", "say"] },
         { id: "ja-u9l4-kikimasu", type: "vocab", front: "ききます", reading: "kikimasu", meaning: "listen", example: { jp: "おんがくをききます。", en: "I listen to music." }, accept: ["hear", "to listen", "ask"] },
+        { id: "ja-u9l4-aimasu", type: "vocab", front: "あいます", reading: "aimasu", meaning: "meet", example: { jp: "ともだちにあいます。", en: "I meet a friend." }, accept: ["to meet", "meets", "see (someone)"] },
+        { id: "ja-u9l4-wakarimasu", type: "vocab", front: "わかります", reading: "wakarimasu", meaning: "understand", example: { jp: "えいごがわかります。", en: "I understand English." }, accept: ["to understand", "understands", "know"] },
       ],
     },
     // Lesson 5: daily-life nouns
@@ -100,6 +108,8 @@ export const UNIT9 = {
         { id: "ja-u9l5-benkyo",  type: "vocab", front: "べんきょう", reading: "benkyō", meaning: "study", example: { jp: "べんきょうをします。", en: "I study." }, accept: ["studying", "studies"] },
         { id: "ja-u9l5-kaimono", type: "vocab", front: "かいもの", reading: "kaimono", meaning: "shopping", example: { jp: "かいものをします。", en: "I do the shopping." }, accept: ["errands"] },
         { id: "ja-u9l5-ongaku",  type: "vocab", front: "おんがく", reading: "ongaku", meaning: "music", example: { jp: "おんがくがすきです。", en: "I like music." }, accept: [] },
+        { id: "ja-u9l5-eiga", type: "vocab", front: "えいが", reading: "eiga", meaning: "movie", example: { jp: "えいがをみます。", en: "I watch a movie." }, accept: ["film", "movies"] },
+        { id: "ja-u9l5-shukudai", type: "vocab", front: "しゅくだい", reading: "shukudai", meaning: "homework", example: { jp: "まいにち、しゅくだいをします。", en: "I do homework every day." }, accept: ["assignment"] },
       ],
     },
   ],
