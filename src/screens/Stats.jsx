@@ -14,6 +14,17 @@ export default function Stats() {
   const rungCounts = RUNGS.map((_, r) => itemList.filter((it) => (it.rung ?? 0) === r).length);
   const learned = itemList.filter((it) => (it.rung ?? 0) >= 1).length;
 
+  // Real per-language progress: fraction of that language's items actually
+  // learned (rung ≥ 1). Replaces an old xp/5 placeholder that drifted to ~75%
+  // off a few hundred XP while only a handful of items were learned.
+  const byLang = {};
+  for (const it of itemList) {
+    if (!it.lang) continue;
+    const e = (byLang[it.lang] ??= { total: 0, learned: 0 });
+    e.total += 1;
+    if ((it.rung ?? 0) >= 1) e.learned += 1;
+  }
+
   return (
     <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 16 }}>
       <div>
@@ -32,14 +43,17 @@ export default function Stats() {
       <Section title="Languages">
         {LANGUAGES.map((l) => {
           const lang = languages[l.id] ?? { ...l, level: "pre-A1", xp: 0 };
-          const pct = Math.min(100, Math.round((lang.xp ?? 0) / 5));
+          const lp = byLang[l.id] ?? { total: 0, learned: 0 };
+          const pct = lp.total ? Math.round((lp.learned / lp.total) * 100) : 0;
           return (
             <div key={l.id} style={{ marginBottom: 12 }}>
               <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, marginBottom: 5 }}>
                 <span>
                   {lang.flag} {lang.name} {!lang.unlocked && "🔒"}
                 </span>
-                <span style={{ color: C.inkSoft }}>{lang.level}</span>
+                <span style={{ color: C.inkSoft }}>
+                  {lang.unlocked && lp.total ? `${lp.learned}/${lp.total} · ` : ""}{lang.level}
+                </span>
               </div>
               <div style={{ height: 8, borderRadius: 999, background: C.lockedBg, overflow: "hidden" }}>
                 <div style={{ width: `${lang.unlocked ? pct : 0}%`, height: "100%", background: C.ai }} />

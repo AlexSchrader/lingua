@@ -121,7 +121,7 @@ export const useStore = create(
             if (items[id]) items[id] = it;
           }
           const next = { items, lastModified: Date.now() };
-          for (const k of ["languages", "streak", "stats", "daily", "devMode", "settings"]) {
+          for (const k of ["languages", "streak", "stats", "daily", "devMode", "settings", "profile"]) {
             if (blob[k] !== undefined) next[k] = blob[k];
           }
           return next;

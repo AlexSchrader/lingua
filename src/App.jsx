@@ -43,6 +43,9 @@ export default function App() {
   if (AUTH_ENABLED) {
     if (!auth.ready) return <Splash />;
     if (!auth.user) return <Auth />;
+    // Wait out the first cloud pull before deciding onboarding, so a returning
+    // user's synced `onboarded` lands before we'd flash the onboarding screen.
+    if (!onboarded && auth.status === "syncing") return <Splash />;
     if (!onboarded) return <Onboarding />;
   }
 
