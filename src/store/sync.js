@@ -19,7 +19,7 @@
 
 // The persisted slice that travels to/from the cloud. Must mirror `partialize`
 // in useStore.js — keep the two in lockstep when either changes.
-export const SYNC_KEYS = ["items", "languages", "streak", "stats", "daily", "devMode", "settings"];
+export const SYNC_KEYS = ["items", "languages", "streak", "stats", "daily", "devMode", "settings", "profile"];
 
 // Pull just the synced slice out of a full store snapshot.
 export function extractProgress(state = {}) {

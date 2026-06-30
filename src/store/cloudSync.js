@@ -68,6 +68,18 @@ async function onSignIn(u) {
   currentUser = u;
   const st = useStore.getState();
   st.setAuth({ user: { id: u.id, email: u.email ?? null }, status: "syncing", error: null });
+  // Best-effort: pull the chosen username so the UI can greet by handle.
+  try {
+    const { data: prof } = await supabase
+      .from("profiles")
+      .select("username")
+      .eq("id", u.id)
+      .maybeSingle();
+    if (prof?.username)
+      useStore.getState().setAuth({ user: { id: u.id, email: u.email ?? null, username: prof.username } });
+  } catch {
+    /* non-fatal — greeting just falls back to the display name */
+  }
   try {
     const cloud = await fetchCloud(u.id);
     const local = { updatedAt: useStore.getState().lastModified ?? 0, blob: blobNow() };
@@ -95,27 +107,87 @@ function onSignOut() {
   useStore.getState().setAuth({ user: null, status: "idle", error: null });
 }
 
-// Call once at startup. No-op (feature dormant) when Supabase isn't configured.
+// --- auth actions (username + email + password) ------------------------------
+// All return { ok: true } or { error: "<message>" } so the UI can show a line
+// without importing the Supabase SDK. The onAuthStateChange listener handles the
+// resulting session (sync + greeting); these just kick it off.
+
+// Sign up needs all three. Supabase auth is keyed on the real email (so reset
+// works); the username lives in `profiles` for login-by-handle.
+async function signUp({ username, email, password }) {
+  const uname = (username ?? "").trim();
+  const mail = (email ?? "").trim();
+  try {
+    const { data: free, error: rpcErr } = await supabase.rpc("username_available", { p_username: uname });
+    if (rpcErr) return { error: rpcErr.message };
+    if (!free) return { error: "That username is taken." };
+
+    const { data, error } = await supabase.auth.signUp({ email: mail, password });
+    if (error) return { error: error.message };
+    if (!data.session) {
+      // "Confirm email" is still ON in Supabase — the user can't log straight in.
+      return { error: "Check your email to confirm your account, then log in." };
+    }
+    const { error: pErr } = await supabase
+      .from("profiles")
+      .insert({ id: data.user.id, username: uname, email: mail });
+    if (pErr) return { error: pErr.message };
+    return { ok: true }; // onAuthStateChange → onSignIn fires next
+  } catch (e) {
+    return { error: String(e?.message ?? e) };
+  }
+}
+
+// Log in with username + password: resolve the handle to its email, then auth.
+async function signIn({ username, password }) {
+  const uname = (username ?? "").trim();
+  try {
+    const { data: email, error: rpcErr } = await supabase.rpc("email_for_username", { p_username: uname });
+    if (rpcErr) return { error: rpcErr.message };
+    if (!email) return { error: "No account with that username." };
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) return { error: "Wrong username or password." };
+    return { ok: true };
+  } catch (e) {
+    return { error: String(e?.message ?? e) };
+  }
+}
+
+// Password reset goes to the real email on file (Supabase sends the link).
+async function requestPasswordReset(email) {
+  try {
+    const { error } = await supabase.auth.resetPasswordForEmail((email ?? "").trim(), {
+      redirectTo: window.location.origin,
+    });
+    return error ? { error: error.message } : { ok: true };
+  } catch (e) {
+    return { error: String(e?.message ?? e) };
+  }
+}
+
+// Call once at startup. When Supabase isn't configured (no env, e.g. CI/local),
+// mark auth ready+unconfigured so the gate falls through to the app.
 export function initCloudSync() {
   if (!isCloudConfigured) {
-    useStore.getState().setAuth({ configured: false });
+    useStore.getState().setAuth({ configured: false, ready: true });
     return;
   }
   useStore.getState().setAuth({ configured: true });
 
-  // Expose sign-in/out through the store so the UI never imports the SDK.
+  // Expose auth actions through the store so the UI never imports the SDK.
   useStore.setState({
-    signInWithGoogle: () =>
-      supabase.auth.signInWithOAuth({ provider: "google", options: { redirectTo: window.location.origin } }),
-    signInWithApple: () =>
-      supabase.auth.signInWithOAuth({ provider: "apple", options: { redirectTo: window.location.origin } }),
+    signUp,
+    signIn,
+    requestPasswordReset,
     signOut: () => supabase.auth.signOut(),
   });
 
-  // INITIAL_SESSION / SIGNED_IN / TOKEN_REFRESHED all arrive here with a session.
+  // INITIAL_SESSION / SIGNED_IN / TOKEN_REFRESHED all arrive here. The first
+  // event (session or not) means auth is resolved → the gate can render.
   supabase.auth.onAuthStateChange((_event, session) => {
     if (session?.user) onSignIn(session.user);
     else onSignOut();
+    if (!useStore.getState().auth.ready) useStore.getState().setAuth({ ready: true });
   });
 
   // Upload local changes (debounced) while signed in.

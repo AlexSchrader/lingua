@@ -87,10 +87,21 @@ export const useStore = create(
       // cloudSync.initCloudSync wires the real Supabase calls in — that keeps the
       // SDK out of the main bundle and out of the store module.
       lastModified: 0,
-      auth: { configured: false, user: null, status: "idle", error: null },
-      signInWithGoogle: async () => {},
-      signInWithApple: async () => {},
+      // `ready` flips true once Supabase resolves the initial session (or when
+      // unconfigured), so the auth gate can render without a flash. The auth
+      // actions are no-ops until cloudSync.initCloudSync wires the real Supabase
+      // calls in — keeping the SDK out of the main bundle and the store module.
+      auth: { configured: false, ready: false, user: null, status: "idle", error: null },
+      signUp: async () => ({ error: "Auth isn't configured." }),
+      signIn: async () => ({ error: "Auth isn't configured." }),
+      requestPasswordReset: async () => ({ error: "Auth isn't configured." }),
       signOut: async () => {},
+
+      // Onboarding profile (persisted + synced via the progress blob). `onboarded`
+      // gates the flow: a fresh account runs onboarding before reaching the app.
+      profile: { onboarded: false, displayName: null, reason: null, reminderTime: null },
+      completeOnboarding: (answers) =>
+        set((s) => ({ profile: { ...s.profile, ...answers, onboarded: true } })),
 
       setSetting: (key, value) =>
         set((s) => ({ settings: { ...s.settings, [key]: value } })),
@@ -348,6 +359,7 @@ export const useStore = create(
         daily: s.daily,
         devMode: s.devMode,
         settings: s.settings,
+        profile: s.profile,
         lastModified: s.lastModified,
         // ui + auth (and the signIn*/signOut fns) are transient; not persisted.
       }),

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogIn, LogOut, Cloud, CheckCircle2 } from "lucide-react";
+import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogOut, Cloud, CheckCircle2 } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES } from "../data/index.js";
 import { C, F } from "../theme.js";
@@ -70,7 +70,6 @@ export default function Settings() {
   const settings = useStore((s) => s.settings);
   const setSetting = useStore((s) => s.setSetting);
   const auth = useStore((s) => s.auth);
-  const signInWithGoogle = useStore((s) => s.signInWithGoogle);
   const signOut = useStore((s) => s.signOut);
   const [confirming, setConfirming] = useState(false);
   const [code, setCode] = useState("");
@@ -121,8 +120,13 @@ export default function Settings() {
               <Cloud size={18} color={C.ai} />
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontSize: 14, fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                  {auth.user.email ?? "Signed in"}
+                  {auth.user.username ?? auth.user.email ?? "Signed in"}
                 </div>
+                {auth.user.email && (
+                  <div style={{ fontSize: 12, color: C.inkSoft, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                    {auth.user.email}
+                  </div>
+                )}
                 <div style={{ fontSize: 12, color: auth.status === "error" ? C.shu : C.inkSoft, display: "flex", alignItems: "center", gap: 4, marginTop: 2 }}>
                   {auth.status === "synced" && <><CheckCircle2 size={12} color={C.matcha} /> Progress synced to your account</>}
                   {auth.status === "syncing" && "Syncing…"}
@@ -139,17 +143,7 @@ export default function Settings() {
             </button>
           </div>
         ) : (
-          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            <div style={{ fontSize: 13, color: C.inkSoft, lineHeight: 1.4 }}>
-              Sign in to save your progress to your account and pick up on any device.
-            </div>
-            <button
-              onClick={() => signInWithGoogle()}
-              style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.ai}`, background: C.aiSoft, color: C.aiDeep, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
-            >
-              <LogIn size={18} /> Sign in with Google
-            </button>
-          </div>
+          <div style={{ fontSize: 13, color: C.inkSoft }}>Signed out.</div>
         )}
       </Section>
 

@@ -7,7 +7,63 @@
 -- updated_at; the client decides push-vs-pull (see src/store/sync.js).
 -- Row-Level Security guarantees a signed-in user can ONLY read/write their own
 -- row — there is no way to reach another user's progress, even with the anon key.
+--
+-- Auth model: username + email + password. Supabase auth itself is keyed on
+-- email (the real email, so password-reset emails work); `profiles` maps a
+-- chosen username to that account so users can LOG IN with username + password.
 
+create extension if not exists citext;
+
+-- ---------------------------------------------------------------------------
+-- profiles — username ↔ account identity (one row per user)
+-- ---------------------------------------------------------------------------
+create table if not exists public.profiles (
+  id          uuid primary key references auth.users (id) on delete cascade,
+  username    citext unique not null,     -- case-insensitive, the login handle
+  email       text   not null,            -- the auth email (kept for clarity/reset)
+  created_at  timestamptz not null default now()
+);
+
+alter table public.profiles enable row level security;
+
+-- A signed-in user can read/insert/update only their OWN profile row.
+drop policy if exists "own profile: select" on public.profiles;
+create policy "own profile: select" on public.profiles
+  for select using (auth.uid() = id);
+
+drop policy if exists "own profile: insert" on public.profiles;
+create policy "own profile: insert" on public.profiles
+  for insert with check (auth.uid() = id);
+
+drop policy if exists "own profile: update" on public.profiles;
+create policy "own profile: update" on public.profiles
+  for update using (auth.uid() = id) with check (auth.uid() = id);
+
+-- Login-by-username needs an ANONYMOUS lookup (the user isn't signed in yet) of
+-- username → auth email. security definer bypasses RLS, but it returns ONLY the
+-- email for an exact username match — no table listing. (Tradeoff: this lets a
+-- caller confirm a username exists and learn its email; acceptable here. Move
+-- login behind a serverless function if that ever needs to be airtight.)
+create or replace function public.email_for_username(p_username citext)
+returns text
+language sql security definer set search_path = public as $$
+  select email from public.profiles where username = p_username limit 1;
+$$;
+
+-- Username availability check for sign-up (so we don't create an orphaned auth
+-- user when the name is taken). Returns true when the name is free.
+create or replace function public.username_available(p_username citext)
+returns boolean
+language sql security definer set search_path = public as $$
+  select not exists (select 1 from public.profiles where username = p_username);
+$$;
+
+grant execute on function public.email_for_username(citext) to anon, authenticated;
+grant execute on function public.username_available(citext) to anon, authenticated;
+
+-- ---------------------------------------------------------------------------
+-- progress — the synced store blob (one row per user)
+-- ---------------------------------------------------------------------------
 create table if not exists public.progress (
   user_id     uuid primary key references auth.users (id) on delete cascade,
   data        jsonb       not null default '{}'::jsonb,  -- the persisted store blob
