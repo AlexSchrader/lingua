@@ -1,0 +1,11 @@
+# Don't upload these to Vercel — they aren't needed to build the app, and the
+# Playwright Chrome download (chrome/, ~275 MB) blows past the 100 MB file cap.
+chrome/
+node_modules/
+.git/
+dist/
+playwright-report/
+test-results/
+tests/
+scripts/
+*.log
