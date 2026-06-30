@@ -6,7 +6,7 @@
 ## Status (2026-06-30)
 - **Part 1 (lint): DONE & live.** `npm run lint:curriculum` runs in CI; backfilled clean on U1–10; documented in `CONTENT.md`.
 - **Part 3 (autonomous self-merge): APPROVED & live** — Alex enabled it 2026-06-28 ("self-merge on green, batch to native review. Go."). The old "pending Alex's go-ahead" note below is superseded.
-- **⚠️ Open gap (the load-bearing one): the native-review half is NOT wired.** No named reviewer, no format, no cadence. Until it is, language-heavy content that self-merges is never actually language-checked, and **A1 cannot be claimed "done / JLPT-aligned."** This is a real-world dependency only Alex can close (name a person + format + cadence).
+- **⚠️ Open gap (the load-bearing one): the native-review half is named but not yet RUN.** **Channel decided 2026-06-30:** crowd-source via **Reddit r/LearnJapanese** — CC generates a review packet (example sentences + glosses, plain text), Alex posts it as a learner asking for corrections, fixes return as one PR. **Runs when Alex is ready for testing (not yet).** Until it actually runs, language-heavy self-merged content is unchecked and **A1 cannot be claimed "done / JLPT-aligned."**
 - **Merge-timing rule (codifying what's already in practice — a RISK TIER):**
   - *Mechanical / script content* (kana, katakana, yōon, KanjiVG strokes, pure recognition): self-merge on green. Low naturalness surface.
   - *Language-heavy content* (grammar/particles, register, example sentences, kanji example sentences): **HELD before merge** until the batch native review exists. Grammar + the U11/U13–21 kanji batch are currently held on this basis.
