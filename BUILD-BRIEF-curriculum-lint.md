@@ -7,9 +7,13 @@
 - **Part 1 (lint): DONE & live.** `npm run lint:curriculum` runs in CI; backfilled clean on U1–10; documented in `CONTENT.md`.
 - **Part 3 (autonomous self-merge): APPROVED & live** — Alex enabled it 2026-06-28 ("self-merge on green, batch to native review. Go."). The old "pending Alex's go-ahead" note below is superseded.
 - **⚠️ Open gap (the load-bearing one): the native-review half is named but not yet RUN.** **Channel decided 2026-06-30:** crowd-source via **Reddit r/LearnJapanese** — CC generates a review packet (example sentences + glosses, plain text), Alex posts it as a learner asking for corrections, fixes return as one PR. **Runs when Alex is ready for testing (not yet).** Until it actually runs, language-heavy self-merged content is unchecked and **A1 cannot be claimed "done / JLPT-aligned."**
-- **Merge-timing rule (codifying what's already in practice — a RISK TIER):**
-  - *Mechanical / script content* (kana, katakana, yōon, KanjiVG strokes, pure recognition): self-merge on green. Low naturalness surface.
-  - *Language-heavy content* (grammar/particles, register, example sentences, kanji example sentences): **HELD before merge** until the batch native review exists. Grammar + the U11/U13–21 kanji batch are currently held on this basis.
+- **Merge-timing rule (codifying what's actually happened — a RISK TIER):**
+  - *Mechanical / script content* (kana, katakana, yōon, KanjiVG strokes): self-merge on green. Negligible naturalness surface.
+  - *Kanji units (U11–21):* **self-merge on green too** — and they did (U11/U12 → PR #45, U13 → PR #46; U14–21 are unpushed only because of the GitHub outage, **not** a content hold). Recognition is mechanical; the naturalness risk is the **example sentences**, which are checked by the **post-merge native batch**, not a pre-merge gate.
+  - *Grammar / particles:* **HELD before authoring** (highest naturalness risk — particle/register errors spike here). Not started.
+  - **What the native batch actually gates (it's a POST-merge quality pass, per Part 3 step 4):** (a) any claim that A1 / the kanji are "done / JLPT-aligned," and (b) the *start* of grammar. It does **not** block kanji units from merging. Residual risk to accept: unreviewed kanji example sentences are live on `main`/prod until the batch runs and returns fixes as one PR.
+
+> **Re "are Units 11–21 held?"** — No. They self-merge on green like the rest of curriculum; what's gated is the *"done/JLPT-aligned" claim* and *grammar*, pending the post-merge native batch. U14–21 sitting local is the outage, not a gate.
 
 ## Goal
 CC authors units **autonomously, in batches, without per-unit human approval.** Everything

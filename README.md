@@ -11,6 +11,22 @@ anti-burnout design, built with neurodivergent learners in mind.
 
 ---
 
+## Status
+
+- **Shipped to `main`:** Units 1–10 (kana scripts + A1 thematic vocab).
+- **Built locally, awaiting GitHub resume:** Units 11–21 (kanji stack + yōon) — validated and tested, not yet pushed.
+- **Blocker:** PR #46 (Unit 13) is held by a GitHub account suspension. See [Known issues](#known-issues).
+
+---
+
+## Known issues
+
+- **GitHub account suspended** — pushes, PRs, and CI are blocked, which also halts the normal `main` → Vercel deploy. Units 11–21 (including PR #46, Unit 13) are authored, validated, and green locally but can't land on `main` until access returns. The current production build was shipped directly via the Vercel CLI, so **production is ahead of `main`**; once GitHub resumes, the local work must be pushed and reconciled into `main` *before* any git-triggered deploy, or production would roll back.
+
+Full running list and detail: **`BUILD-CHECKLIST.md`** — readers shouldn't have to infer hidden problems.
+
+---
+
 ## What's built today
 
 **Curriculum — 21 units · 82 lessons · 604 items** (`npm run audit` for the live breakdown):
@@ -25,12 +41,12 @@ anti-burnout design, built with neurodivergent learners in mind.
 **Engine & app:**
 
 - **FSRS spaced repetition** (`ts-fsrs`) — app-judged recall, FSRS grade derived from correctness + response speed.
-- **Mastery rungs** per item; card kind is chosen by rung (teach → choice → type → build).
+- **Mastery rungs** per item; card kind is chosen by rung (teach → choice → type → build, with characters traced stroke-by-stroke).
 - **Accounts + cross-device sync** — Supabase auth (Google sign-in), per-user progress with row-level security, last-write-wins with fresh-device safety.
 - **Haruki** — an in-app text + voice tutor (ElevenLabs conversational agent on Claude Haiku 4.5, native-JP voice, serverless signed-URL auth so the key stays server-side).
 - **Real audio** — ElevenLabs Haruki-voice clips per item, played from the teach card.
 - **Ladder** — full-climb view, collapsible sections (writing system / yōon / kanji / units), optional romaji under each glyph.
-- **Settings** — SFX toggle, auto-play pronunciation, show-romaji toggle, and a hidden **Dev Mode** playtest panel (launch any unit/lesson in an isolated sandbox run).
+- **Settings** — SFX toggle, auto-play pronunciation, show-romaji toggle, and a hidden **Dev Mode** (unlocked with a code in Settings) that launches any unit or lesson — bypassing the normal review/unlock gating — in a throwaway sandbox run that never touches real progress, FSRS state, or the streak.
 - **PWA** — installable, offline precache, `autoUpdate` (no stale builds after deploy).
 
 **Card kinds** (`LIVE_CARD_KINDS` in `src/data/contract.js`):
@@ -40,9 +56,9 @@ anti-burnout design, built with neurodivergent learners in mind.
 | `teach` | presentation card, no testing | live |
 | `choice` | 4-option multiple choice | live |
 | `type:meaning` | type the English meaning | live |
-| `type:produce` | type the rōmaji / kana | live |
+| `type:produce` | type the rōmaji / kana | built, not routed (production is via `trace` / `build`) |
 | `build` | assemble the reading from tiles | live |
-| `trace` | KanjiVG touch-to-trace | dormant (Brief 3) |
+| `trace` | KanjiVG touch-to-trace — every kana and kanji | live |
 | `speak` | Whisper speech recognition | dormant (Brief C) |
 
 ---
@@ -115,6 +131,12 @@ Lesson 47 runs the same code as lesson 1 — no lesson- or item-specific branchi
 - `src/components/games/` — TeachCard, ChoiceCard, TypeCard, BuildCard (Trace/Speak dormant).
 - `server/companions.js` — companion config, server-side only (voice ids ok, keys are env secrets).
 
+### Workflow
+
+- **Curriculum is autonomous.** Claude Code authors units and **self-merges** them once the full gate is green: `lint:curriculum` → `validate:content` → unit tests → smoke → build.
+- **Schema and engine changes stay as draft PRs** for Alex to review before merge — the structural pieces (contract, store, card runner) keep a human gate.
+- **Why it matters:** content ships fast and stays fresh, while the parts that can break everything still get a deliberate review.
+
 ---
 
 ## Content
@@ -139,5 +161,7 @@ are the **batched native-speaker review** gate, required before any "JLPT-aligne
 
 ## Not yet built
 
-Particles & grammar (gated on native review) · Whisper speech grading (Brief C) · KanjiVG
-tracing card (Brief 3) · Apple sign-in · side languages (es, fr).
+Particles & grammar (gated on native review) · Whisper speech grading (Brief C, the one
+dormant card kind) · Apple sign-in · side languages (es, fr).
+
+*(KanjiVG tracing is **live**, not pending — it shipped PR #19 and kanji production reuses it.)*
