@@ -106,24 +106,49 @@ export default function Onboarding() {
           </div>
         </div>
 
-        <label style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           <span style={{ fontSize: 13, fontWeight: 700 }}>Daily reminder <span style={{ color: C.inkSoft, fontWeight: 600 }}>(optional)</span></span>
-          <input
-            type="time"
-            value={reminderTime}
-            onChange={(e) => setReminderTime(e.target.value)}
-            style={{
-              padding: "13px 14px",
-              borderRadius: 12,
-              border: `1.5px solid ${C.line}`,
-              background: C.surface,
-              color: C.ink,
-              fontSize: 16,
-              fontFamily: F.body,
-              outline: "none",
-            }}
-          />
-        </label>
+          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <input
+              type="time"
+              value={reminderTime}
+              onChange={(e) => setReminderTime(e.target.value)}
+              style={{
+                flex: 1,
+                minWidth: 0,
+                padding: "13px 14px",
+                borderRadius: 12,
+                border: `1.5px solid ${C.line}`,
+                background: C.surface,
+                color: reminderTime ? C.ink : C.inkSoft,
+                fontSize: 16,
+                fontFamily: F.body,
+                outline: "none",
+              }}
+            />
+            {reminderTime && (
+              <button
+                type="button"
+                onClick={() => setReminderTime("")}
+                style={{
+                  flexShrink: 0,
+                  padding: "13px 16px",
+                  borderRadius: 12,
+                  border: `1.5px solid ${C.line}`,
+                  background: C.surface,
+                  color: C.inkSoft,
+                  fontSize: 14,
+                  fontWeight: 700,
+                  fontFamily: F.body,
+                  cursor: "pointer",
+                }}
+              >
+                Clear
+              </button>
+            )}
+          </div>
+          <span style={{ fontSize: 12, color: C.inkSoft }}>No reminder unless you set a time.</span>
+        </div>
 
         <button
           onClick={finish}
