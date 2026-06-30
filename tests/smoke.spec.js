@@ -243,7 +243,7 @@ test("settings opens from the header gear, not the bottom nav", async ({ page })
 
 test("zero-reviews-due: review step shows done, CTA goes straight to lesson", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByText("Nothing due — you're clear")).toBeVisible();
+  await expect(page.getByText("All clear")).toBeVisible();
   await expect(page.getByTestId("start-session")).toHaveText("Start lesson");
 });
 
@@ -261,7 +261,7 @@ test("new words are taught, the loop completes, and it persists", async ({ page 
   }
   await page.getByRole("button", { name: "Back to Today" }).click();
 
-  await expect(page.getByText("Lesson complete")).toBeVisible();
+  await expect(page.getByText("Done", { exact: true })).toBeVisible();
 
   const persisted = await page.evaluate(() => localStorage.getItem("lingua-v1"));
   const state = JSON.parse(persisted).state;
@@ -271,7 +271,7 @@ test("new words are taught, the loop completes, and it persists", async ({ page 
   expect(new Date(graded.srs.due).getTime()).toBeGreaterThan(Date.now());
 
   await page.reload();
-  await expect(page.getByText("Lesson complete")).toBeVisible();
+  await expect(page.getByText("Done", { exact: true })).toBeVisible();
   expect(errors).toEqual([]);
 });
 
@@ -438,9 +438,9 @@ test("reviews are app-judged — no self-grading, grades persist", async ({ page
   await page.getByRole("button", { name: "Back to Today" }).click();
 
   // Reviews are a separate session from lessons — lesson step remains active.
-  await expect(page.getByText("Reviews cleared")).toBeVisible();
+  await expect(page.getByText("Cleared", { exact: true })).toBeVisible();
   await page.reload();
-  await expect(page.getByText("Reviews cleared")).toBeVisible();
+  await expect(page.getByText("Cleared", { exact: true })).toBeVisible();
   expect(errors).toEqual([]);
 });
 

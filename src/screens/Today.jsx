@@ -26,32 +26,31 @@ function greeting() {
   return "Good evening";
 }
 
-function Step({ icon: Icon, n, title, sub, state, onClick }) {
+function StatusPill({ icon: Icon, label, value, state }) {
   // state: "active" | "done" | "locked"
   const done = state === "done";
   const locked = state === "locked";
-  const tappable = state === "active" && !!onClick;
-  const accent = done ? C.matcha : locked ? C.locked : C.ai;
+  const color = done ? C.matcha : locked ? C.locked : C.ai;
   return (
     <div
-      onClick={tappable ? onClick : undefined}
       style={{
+        flex: 1,
+        minWidth: 0,
         display: "flex",
         alignItems: "center",
-        gap: 14,
-        padding: 14,
-        borderRadius: 16,
-        background: locked ? C.lockedBg : C.surface,
-        border: `1px solid ${locked ? C.lockedBg : C.line}`,
+        gap: 10,
+        padding: "12px 14px",
+        borderRadius: 14,
+        background: C.surface,
+        border: `1px solid ${C.line}`,
         opacity: locked ? 0.7 : 1,
-        cursor: tappable ? "pointer" : "default",
       }}
     >
       <div
         style={{
-          width: 42,
-          height: 42,
-          borderRadius: 12,
+          width: 32,
+          height: 32,
+          borderRadius: 9,
           background: done ? C.matcha : locked ? C.locked : C.aiSoft,
           color: done || locked ? "#fff" : C.aiDeep,
           display: "flex",
@@ -60,14 +59,11 @@ function Step({ icon: Icon, n, title, sub, state, onClick }) {
           flexShrink: 0,
         }}
       >
-        {done ? <Check size={20} /> : locked ? <Lock size={18} /> : <Icon size={20} />}
+        {done ? <Check size={16} /> : locked ? <Lock size={15} /> : <Icon size={16} />}
       </div>
-      <div style={{ flex: 1 }}>
-        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 0.5, color: accent }}>
-          STEP {n}
-        </div>
-        <div style={{ fontWeight: 600, fontSize: 15 }}>{title}</div>
-        <div style={{ fontSize: 13, color: C.inkSoft }}>{sub}</div>
+      <div style={{ minWidth: 0 }}>
+        <div style={{ fontSize: 11, color: C.inkSoft, fontWeight: 600 }}>{label}</div>
+        <div style={{ fontSize: 14, fontWeight: 700, color, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{value}</div>
       </div>
     </div>
   );
@@ -195,20 +191,7 @@ export default function Today() {
 
   return (
     <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 16, minHeight: "100%" }}>
-      {/* Greeting — time-of-day */}
-      <div>
-        <div style={{ fontFamily: F.disp, fontSize: 22, fontWeight: 700 }}>{greeting()}</div>
-        <div style={{ fontSize: 13, color: C.inkSoft }}>Clear reviews, then learn — go as long as you like.</div>
-      </div>
-
-      {/* Stats trio — at the top, with icons to match the Stats screen. */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
-        <Stat icon={Flame} color={C.shu} label="Streak" value={streak.current} />
-        <Stat icon={Zap} color={C.ai} label="XP" value={stats.xpTotal} />
-        <Stat icon={Snowflake} color={C.ai} label="Freezes" value={streak.freezes} />
-      </div>
-
-      {/* Mascot greeting banner — Lingua, right under the stats. Adaptive size. */}
+      {/* Greeting + mascot in one banner — a single hello, not two. Adaptive size. */}
       <div
         style={{
           display: "flex",
@@ -227,12 +210,20 @@ export default function Today() {
           style={{ width: "clamp(72px, 18vw, 132px)", height: "auto", objectFit: "contain", flexShrink: 0 }}
         />
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontSize: 15, color: C.ink, lineHeight: 1.35, fontWeight: 600 }}>{mascot.msg}</div>
+          <div style={{ fontFamily: F.disp, fontSize: 19, fontWeight: 700, marginBottom: 2 }}>{greeting()}</div>
+          <div style={{ fontSize: 14, color: C.ink, lineHeight: 1.35, fontWeight: 600 }}>{mascot.msg}</div>
           <div style={{ fontSize: 12, color: C.inkSoft, fontWeight: 600, marginTop: 6 }}>
             {ja.flag} {ja.name} · {ja.level === "pre-A1" ? "Starting out" : ja.level} → {ja.target} goal
             {nextReviewAt ? ` · next review ${fmtWhen(nextReviewAt)}` : ""}
           </div>
         </div>
+      </div>
+
+      {/* Stats trio — with icons to match the Stats screen. */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+        <Stat icon={Flame} color={C.shu} label="Streak" value={streak.current} />
+        <Stat icon={Zap} color={C.ai} label="XP" value={stats.xpTotal} />
+        <Stat icon={Snowflake} color={C.ai} label="Freezes" value={streak.freezes} />
       </div>
 
       {/* Review-debt banner */}
@@ -256,37 +247,20 @@ export default function Today() {
         </div>
       )}
 
-      {/* The 2-step loop */}
-      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-        <Step
+      {/* Compact status — reviews + lesson at a glance. The button below is the
+          single action, so these stay slim indicators, not a second set of CTAs. */}
+      <div style={{ display: "flex", gap: 10 }}>
+        <StatusPill
           icon={RotateCcw}
-          n={1}
-          title="Clear reviews"
-          sub={
-            daily.reviewsCleared
-              ? "Reviews cleared"
-              : due.length > 0
-              ? `${due.length} due today`
-              : "Nothing due — you're clear"
-          }
+          label="Reviews"
+          value={daily.reviewsCleared ? "Cleared" : due.length > 0 ? `${due.length} due` : "All clear"}
           state={reviewState}
-          onClick={startReview}
         />
-        <Step
+        <StatusPill
           icon={BookOpen}
-          n={2}
-          title={`Lesson ${lessonNum}/${totalLessons} · ${currentLesson?.title ?? "—"}`}
-          sub={
-            lessonState === "locked"
-              ? "Locked until reviews are clear"
-              : daily.lessonDone
-              ? "Lesson complete"
-              : currentLesson
-              ? `${currentLesson.canDo ?? "Learn new items"} · ~${estMinutes} min`
-              : "All lessons complete"
-          }
+          label="Lesson"
+          value={daily.lessonDone ? "Done" : lessonState === "locked" ? "Locked" : `${lessonNum}/${totalLessons}`}
           state={lessonState}
-          onClick={startLesson}
         />
       </div>
 
@@ -330,11 +304,15 @@ export default function Today() {
       >
         {ctaLabel}
       </button>
-      {ctaDisabled && (
+      {ctaDisabled ? (
         <div style={{ fontSize: 12, color: C.inkSoft, textAlign: "center", marginTop: -6 }}>
           Nothing due right now — your reviews are scheduled for later.
         </div>
-      )}
+      ) : ctaLabel !== "Clear reviews" && currentLesson ? (
+        <div style={{ fontSize: 12, color: C.inkSoft, textAlign: "center", marginTop: -6 }}>
+          {currentLesson.title} · {currentLesson.canDo ?? "Learn new items"} · ~{estMinutes} min
+        </div>
+      ) : null}
 
       {/* Up next — the lesson AFTER the current one (Step 2 already shows the
           current lesson, so this is a genuine peek ahead). */}
