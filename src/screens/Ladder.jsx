@@ -1,4 +1,5 @@
-import { Lock, Check } from "lucide-react";
+import { useState } from "react";
+import { Lock, Check, ChevronRight } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
 import { roadmapFor } from "../data/ja/roadmap.js";
@@ -256,9 +257,10 @@ function KanaSection({ langId, items, showRomaji }) {
   const groups = KANA_GROUPS
     .map((g) => ({ ...g, defs: kanaDefs.filter((d) => kanaGroupOf(d.front) === g.key) }))
     .filter((g) => g.defs.length > 0);
+  const learnedTotal = kanaDefs.filter((d) => (items[d.id]?.rung ?? 0) >= 1).length;
 
   return (
-    <Section title="Writing system">
+    <Section title="Writing system" collapsible defaultOpen={false} summary={`${learnedTotal}/${kanaDefs.length} kana`}>
       <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 14 }}>
         The bar under each character fills as you review it over time.
       </div>
@@ -294,16 +296,7 @@ function KanjiSection({ langId, items, showRomaji }) {
   const learned = kanjiDefs.filter((d) => (items[d.id]?.rung ?? 0) >= 1).length;
   const mastered = kanjiDefs.filter((d) => isMastered(items[d.id])).length;
   return (
-    <Section title="Kanji">
-      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-        <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: 0.6, color: C.ai, textTransform: "uppercase" }}>
-          Kanji
-        </span>
-        <div style={{ flex: 1, height: 1, background: C.line }} />
-        <span style={{ fontSize: 11, color: C.inkSoft, whiteSpace: "nowrap", flexShrink: 0 }}>
-          {learned}/{kanjiDefs.length} learned{mastered > 0 ? ` · ${mastered} mastered` : ""}
-        </span>
-      </div>
+    <Section title="Kanji" collapsible defaultOpen={false} summary={`${learned}/${kanjiDefs.length} learned${mastered > 0 ? ` · ${mastered} mastered` : ""}`}>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 6 }}>
         {kanjiDefs.map((d) => (
           <KanaChip key={d.id} char={d.front} reading={d.reading} item={items[d.id]} showRomaji={showRomaji} />
@@ -335,16 +328,7 @@ function YoonSection({ langId, items, showRomaji }) {
   }
   flush();
   return (
-    <Section title="Yōon">
-      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-        <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: 0.6, color: C.ai, textTransform: "uppercase" }}>
-          Combination kana (yōon)
-        </span>
-        <div style={{ flex: 1, height: 1, background: C.line }} />
-        <span style={{ fontSize: 11, color: C.inkSoft, whiteSpace: "nowrap", flexShrink: 0 }}>
-          {learned}/{defs.length} learned{mastered > 0 ? ` · ${mastered} mastered` : ""}
-        </span>
-      </div>
+    <Section title="Yōon (combination kana)" collapsible defaultOpen={false} summary={`${learned}/${defs.length} learned${mastered > 0 ? ` · ${mastered} mastered` : ""}`}>
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         {rows.map((r, ri) => (
           <div key={ri} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 6 }}>
@@ -446,9 +430,10 @@ function UnitsSection({ langId, items }) {
     (s) => unitRows.some((r) => r.stage === s) || roadmapRows.some((r) => r.stage === s)
   );
   let n = 0;
+  const doneUnits = unitRows.filter((r) => r.status === "done").length;
 
   return (
-    <Section title="Units">
+    <Section title="Units" collapsible defaultOpen summary={`${doneUnits}/${unitRows.length} done`}>
       <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
         {stagesPresent.map((stage) => {
           const rows = [
@@ -549,11 +534,29 @@ function LangRow({ lang }) {
   );
 }
 
-function Section({ title, children }) {
+function Section({ title, summary, collapsible = false, defaultOpen = true, children }) {
+  const [open, setOpen] = useState(defaultOpen);
+  const box = { background: C.surface, border: `1px solid ${C.line}`, borderRadius: 18, padding: 16 };
+  if (!collapsible) {
+    return (
+      <div style={box}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: C.inkSoft, marginBottom: 12 }}>{title}</div>
+        {children}
+      </div>
+    );
+  }
   return (
-    <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 18, padding: 16 }}>
-      <div style={{ fontSize: 13, fontWeight: 700, color: C.inkSoft, marginBottom: 12 }}>{title}</div>
-      {children}
+    <div style={box}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, background: "none", border: "none", padding: 0, cursor: "pointer", textAlign: "left", fontFamily: F.body }}
+      >
+        <ChevronRight size={16} color={C.inkSoft} style={{ flexShrink: 0, transform: open ? "rotate(90deg)" : "none", transition: "transform 150ms" }} />
+        <span style={{ fontSize: 13, fontWeight: 700, color: C.inkSoft }}>{title}</span>
+        {summary && <span style={{ marginLeft: "auto", fontSize: 11, fontWeight: 600, color: C.inkSoft, whiteSpace: "nowrap" }}>{summary}</span>}
+      </button>
+      {open && <div style={{ marginTop: 14 }}>{children}</div>}
     </div>
   );
 }
