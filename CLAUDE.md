@@ -110,7 +110,8 @@ Alex is neurodivergent and the app is built specifically with ND learners in min
 - State: Zustand + persist → localStorage (single store module, swappable to IndexedDB).
 - Routing: react-router-dom (`App.jsx` = routes only).
 - Scheduling: FSRS via `ts-fsrs`.
-- Deploy: Vercel — `main` = production, every other branch = preview.
+- Accounts & sync: Supabase (auth + Postgres + RLS) — Google sign-in, per-user progress, last-write-wins. Client in `src/lib/supabase.js`; `VITE_SUPABASE_*` live in `.env.local` (anon key public-by-design) **and must also be set in the Vercel project env** or deployed builds ship with Supabase off.
+- Deploy: Vercel — `main` = production, every other branch = preview. **Outage fallback:** deploy straight from local with `npx vercel` (preview) / `npx vercel --prod` (production) — bypasses GitHub entirely. `.vercelignore` keeps the upload lean (excludes `chrome/`, `node_modules`, `dist`).
 - Dev environment: PowerShell on Windows. Repo is currently public.
 - CI: GitHub Actions — `validate:content`, unit tests (`node --test`), Playwright smoke (dev + `SMOKE_MODE=preview`), build.
 
