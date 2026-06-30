@@ -1,8 +1,12 @@
+import { useMemo, useState } from "react";
 import { Flame, Snowflake, Trophy } from "lucide-react";
 import { useStore } from "../store/useStore.js";
-import { LANGUAGES } from "../data/index.js";
+import { LANGUAGES, UNITS } from "../data/index.js";
 import { RUNGS } from "../store/mastery.js";
 import { C, F } from "../theme.js";
+
+const STAGE_ORDER = ["pre-a1", "a1", "a2", "b1", "b2"];
+const STAGE_LABEL = { "pre-a1": "Pre-A1", a1: "A1", a2: "A2", b1: "B1", b2: "B2" };
 
 export default function Stats() {
   const streak = useStore((s) => s.streak);
@@ -10,20 +14,36 @@ export default function Stats() {
   const languages = useStore((s) => s.languages);
   const items = useStore((s) => s.items);
 
-  const itemList = Object.values(items);
-  const rungCounts = RUNGS.map((_, r) => itemList.filter((it) => (it.rung ?? 0) === r).length);
-  const learned = itemList.filter((it) => (it.rung ?? 0) >= 1).length;
+  const itemList = useMemo(() => Object.values(items), [items]);
 
-  // Real per-language progress: fraction of that language's items actually
-  // learned (rung ≥ 1). Replaces an old xp/5 placeholder that drifted to ~75%
-  // off a few hundred XP while only a handful of items were learned.
-  const byLang = {};
-  for (const it of itemList) {
-    if (!it.lang) continue;
-    const e = (byLang[it.lang] ??= { total: 0, learned: 0 });
-    e.total += 1;
-    if ((it.rung ?? 0) >= 1) e.learned += 1;
-  }
+  // Per-language, per-stage progress straight from the curriculum (UNITS hold the
+  // stage), cross-referenced with the learner's rung. So each language reads
+  // "X/Y Pre-A1, X/Y A1 …" — real counts, not an XP proxy.
+  const langStages = useMemo(() => {
+    const out = {};
+    for (const u of UNITS) {
+      const lang = u.lang;
+      const stage = u.stage ?? "a1";
+      (out[lang] ??= {});
+      (out[lang][stage] ??= { total: 0, learned: 0 });
+      for (const l of u.lessons)
+        for (const def of l.items ?? []) {
+          out[lang][stage].total += 1;
+          if ((items[def.id]?.rung ?? 0) >= 1) out[lang][stage].learned += 1;
+        }
+    }
+    return out;
+  }, [items]);
+
+  // Mastery is per-language. Default to the active (first unlocked) language;
+  // "all" aggregates every language. Other languages stay out unless chosen.
+  const activeLang = LANGUAGES.find((l) => languages[l.id]?.unlocked)?.id ?? LANGUAGES[0].id;
+  const [masteryLang, setMasteryLang] = useState(activeLang);
+
+  const masteryItems = masteryLang === "all" ? itemList : itemList.filter((it) => it.lang === masteryLang);
+  const rungCounts = RUNGS.map((_, r) => masteryItems.filter((it) => (it.rung ?? 0) === r).length);
+  const learned = masteryItems.filter((it) => (it.rung ?? 0) >= 1).length;
+  const xp = masteryLang === "all" ? stats.xpTotal : languages[masteryLang]?.xp ?? 0;
 
   return (
     <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 16 }}>
@@ -39,35 +59,63 @@ export default function Stats() {
         <Metric icon={Snowflake} color={C.ai} value={streak.freezes} label="Freezes" />
       </div>
 
-      {/* Per-language bars */}
+      {/* Per-language, per-stage progress */}
       <Section title="Languages">
-        {LANGUAGES.map((l) => {
-          const lang = languages[l.id] ?? { ...l, level: "pre-A1", xp: 0 };
-          const lp = byLang[l.id] ?? { total: 0, learned: 0 };
-          const pct = lp.total ? Math.round((lp.learned / lp.total) * 100) : 0;
-          return (
-            <div key={l.id} style={{ marginBottom: 12 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, marginBottom: 5 }}>
-                <span>
-                  {lang.flag} {lang.name} {!lang.unlocked && "🔒"}
-                </span>
-                <span style={{ color: C.inkSoft }}>
-                  {lang.unlocked && lp.total ? `${lp.learned}/${lp.total} · ` : ""}{lang.level}
-                </span>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          {LANGUAGES.map((l) => {
+            const lang = languages[l.id] ?? { ...l, level: "pre-A1", unlocked: l.unlocked };
+            const stages = langStages[l.id];
+            const present = STAGE_ORDER.filter((s) => stages?.[s]?.total > 0);
+            return (
+              <div key={l.id}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 14, marginBottom: present.length ? 8 : 0 }}>
+                  <span style={{ fontWeight: 700 }}>
+                    {lang.flag} {lang.name} {!lang.unlocked && "🔒"}
+                  </span>
+                  <span style={{ color: C.inkSoft, fontSize: 12 }}>
+                    {lang.level === "pre-A1" ? "Starting out" : lang.level}
+                  </span>
+                </div>
+                {present.length === 0 ? (
+                  <div style={{ fontSize: 12, color: C.inkSoft }}>Lessons coming soon.</div>
+                ) : (
+                  <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+                    {present.map((s) => {
+                      const { total, learned: lrn } = stages[s];
+                      const pct = total ? Math.round((lrn / total) * 100) : 0;
+                      const done = total > 0 && lrn === total;
+                      return (
+                        <div key={s} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12 }}>
+                          <span style={{ width: 52, color: C.inkSoft, fontWeight: 600 }}>{STAGE_LABEL[s]}</span>
+                          <div style={{ flex: 1, height: 6, background: C.lockedBg, borderRadius: 999, overflow: "hidden" }}>
+                            <div style={{ width: `${pct}%`, height: "100%", background: done ? C.matcha : C.ai, transition: "width 250ms ease" }} />
+                          </div>
+                          <span style={{ width: 56, textAlign: "right", fontWeight: 700, color: done ? C.matcha : C.ink }}>
+                            {lrn}/{total}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
-              <div style={{ height: 8, borderRadius: 999, background: C.lockedBg, overflow: "hidden" }}>
-                <div style={{ width: `${lang.unlocked ? pct : 0}%`, height: "100%", background: C.ai }} />
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </Section>
 
-      {/* Metric grid */}
+      {/* Mastery — scoped to one language (or all) */}
       <Section title="Mastery">
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
+          {LANGUAGES.map((l) => (
+            <LangChip key={l.id} label={`${l.flag} ${l.name}`} on={masteryLang === l.id} onClick={() => setMasteryLang(l.id)} />
+          ))}
+          <LangChip label="All languages" on={masteryLang === "all"} onClick={() => setMasteryLang("all")} />
+        </div>
+
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 12 }}>
-          <Tile value={stats.xpTotal} label="Total XP" />
-          <Tile value={itemList.length} label="Items" />
+          <Tile value={xp} label="Total XP" />
+          <Tile value={masteryItems.length} label="Items" />
           <Tile value={learned} label="Learned" />
           <Tile value={rungCounts[5]} label="Mastered" />
         </div>
@@ -78,7 +126,7 @@ export default function Stats() {
               <div style={{ flex: 1, height: 6, background: C.lockedBg, borderRadius: 999, overflow: "hidden" }}>
                 <div
                   style={{
-                    width: itemList.length ? `${(rungCounts[r] / itemList.length) * 100}%` : 0,
+                    width: masteryItems.length ? `${(rungCounts[r] / masteryItems.length) * 100}%` : 0,
                     height: "100%",
                     background: r === 5 ? C.matcha : C.ai,
                   }}
@@ -90,6 +138,28 @@ export default function Stats() {
         </div>
       </Section>
     </div>
+  );
+}
+
+function LangChip({ label, on, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        padding: "7px 12px",
+        borderRadius: 999,
+        border: `1.5px solid ${on ? C.ai : C.line}`,
+        background: on ? C.aiSoft : C.surface,
+        color: on ? C.aiDeep : C.inkSoft,
+        fontSize: 12,
+        fontWeight: 700,
+        fontFamily: F.body,
+        cursor: "pointer",
+        whiteSpace: "nowrap",
+      }}
+    >
+      {label}
+    </button>
   );
 }
 
