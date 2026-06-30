@@ -100,6 +100,7 @@ Alex is neurodivergent and the app is built specifically with ND learners in min
 - **Cross-platform npm scripts:** Linux CI runs scripts via `/bin/sh`. Don't quote globs in scripts (`node --test tests/unit/*.test.mjs`, not `"...*.test.mjs"`) — let the shell expand them.
 - **Don't regenerate the logo or app icons.** Use the committed skewed-rung files and the canonical SVG.
 - **Tuning is constants, not structure.** If something feels too fast/repetitive/harsh, it's a one-line change to `LEARN_OPTS` or `TIMING` + a re-run — not a rebuild.
+- **Never hammer the GitHub API — pace pushes, PRs, and merges.** A burst of rapid create/merge/poll calls **got Alex's 4-year-old account auto-suspended for "abuse"** (2026-06-30). The abuse-detector has no context; it just counts requests per window. Hard rules: **no tight `gh`/API poll loops** (don't poll PR/CI status on a <30s loop — wait for the run, or check once and move on); **space out PR creates and merges** (don't fire several back-to-back — batch the work into fewer PRs and pause between operations); **prefer local validation** (`lint`/`validate`/`test`/`build`) over round-tripping the API to check state. If you genuinely need many operations, do them slowly and deliberately, not in a script-driven burst. When the API starts erroring (403/suspension/rate-limit), **stop immediately and build locally** — never retry into the throttle.
 
 ---
 
