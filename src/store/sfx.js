@@ -63,6 +63,27 @@ export function sfxCorrect() {
   });
 }
 
+// Lesson-complete fanfare — a warm major arpeggio (C5 E5 G5 C6) with a soft
+// attack so it celebrates without startling. Gated by the SFX preference via safe().
+export function sfxFanfare() {
+  safe((ctx) => {
+    [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const g = ctx.createGain();
+      osc.connect(g);
+      g.connect(ctx.destination);
+      osc.type = "triangle";
+      osc.frequency.value = freq;
+      const t = ctx.currentTime + i * 0.12;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(0.2, t + 0.03);
+      g.gain.exponentialRampToValueAtTime(0.001, t + 0.5);
+      osc.start(t);
+      osc.stop(t + 0.55);
+    });
+  });
+}
+
 // Gentle descending slide — soft "oops", not a harsh buzzer.
 export function sfxWrong() {
   safe((ctx) => {

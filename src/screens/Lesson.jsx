@@ -7,6 +7,7 @@ import TypeCard from "../components/games/TypeCard.jsx";
 import BuildCard from "../components/games/BuildCard.jsx";
 import TraceCard from "../components/games/TraceCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
+import Celebration from "../components/Celebration.jsx";
 import { useStore } from "../store/useStore.js";
 import { getLesson } from "../data/index.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
@@ -100,6 +101,7 @@ export default function Lesson() {
     const learned = freshIds.length;
     return (
       <PhaseShell title={lesson.title} progress={1}>
+        <Celebration />
         <div
           style={{
             margin: "auto",
