@@ -6,10 +6,12 @@ import ChoiceCard from "../components/games/ChoiceCard.jsx";
 import TypeCard from "../components/games/TypeCard.jsx";
 import BuildCard from "../components/games/BuildCard.jsx";
 import TraceCard from "../components/games/TraceCard.jsx";
+import CardBreath from "../components/CardBreath.jsx";
 import { useStore } from "../store/useStore.js";
 import { getLesson } from "../data/index.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { initLearn, currentStep, answerStep } from "../store/learnQueue.js";
+import { isTraceable } from "../store/cardRouting.js";
 import { buildSandboxItems, runnerWriters } from "../store/dev.js";
 import { C, F } from "../theme.js";
 
@@ -154,24 +156,26 @@ export default function Lesson() {
   const item = items[learnStep.id];
   const k = `l${learn.pos}`;
   let label;
-  let body;
+  let card;
   if (learnStep.step === "teach") {
     assertLiveKind("teach");
     label = "Learn";
-    body = <TeachCard key={k} item={item} onAdvance={advanceTeach} />;
+    card = <TeachCard item={item} onAdvance={advanceTeach} />;
   } else if (learnStep.step === "check1") {
     assertLiveKind("choice");
     label = "Practice";
-    body = <ChoiceCard key={k} item={item} allItems={items} onGraded={onCheck} />;
-  } else if (item.type === "kana" && [...item.front].length === 1) {
+    card = <ChoiceCard item={item} allItems={items} onGraded={onCheck} />;
+  } else if (isTraceable(item)) {
+    // Every character — kana AND kanji — is recalled by writing it stroke by
+    // stroke. (Yōon digraphs have no single stroke entry, so they fall through.)
     assertLiveKind("trace");
     label = "Practice";
-    body = <TraceCard key={k} item={item} mode="guided" onGraded={onCheck} />;
+    card = <TraceCard item={item} mode="guided" onGraded={onCheck} />;
   } else {
     const mode = recallMode(item);
     assertLiveKind(`type:${mode}`);
     label = "Practice";
-    body = <TypeCard key={k} item={item} mode={mode} onGraded={onCheck} />;
+    card = <TypeCard item={item} mode={mode} onGraded={onCheck} />;
   }
 
   return (
@@ -180,7 +184,9 @@ export default function Lesson() {
       progress={progress}
       onClose={() => navigate(home)}
     >
-      {body}
+      {/* Keyed remount per card drives the entrance "breath" (fade + brief
+          input guard) so carried taps don't bleed into the next card. */}
+      <CardBreath key={k}>{card}</CardBreath>
     </PhaseShell>
   );
 }

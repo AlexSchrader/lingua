@@ -5,8 +5,10 @@ import ChoiceCard from "../components/games/ChoiceCard.jsx";
 import TypeCard from "../components/games/TypeCard.jsx";
 import BuildCard from "../components/games/BuildCard.jsx";
 import TraceCard from "../components/games/TraceCard.jsx";
+import CardBreath from "../components/CardBreath.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable } from "../store/mastery.js";
+import { isTraceable } from "../store/cardRouting.js";
 import { buildSandboxItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
@@ -23,8 +25,7 @@ function reviewStepFor(item) {
   if (rung === 2) return { kind: "type", mode: "meaning" };
   // Single-glyph kana + kanji are produced by stroke tracing; yōon digraphs
   // (きょ, no own stroke) and words are produced by building.
-  const traceable = (item.type === "kana" && [...item.front].length === 1) || item.type === "kanji";
-  return traceable ? { kind: "trace" } : { kind: "build" };
+  return isTraceable(item) ? { kind: "trace" } : { kind: "build" };
 }
 
 export default function Review() {
@@ -132,20 +133,22 @@ export default function Review() {
   const kindKey = step.kind === "type" ? `type:${step.mode}` : step.kind;
   assertLiveKind(kindKey);
 
-  let body;
+  let card;
   if (step.kind === "choice") {
-    body = <ChoiceCard key={`r${idx}`} item={item} allItems={items} onGraded={onGraded} />;
+    card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} />;
   } else if (step.kind === "type") {
-    body = <TypeCard key={`r${idx}`} item={item} mode={step.mode} onGraded={onGraded} />;
+    card = <TypeCard item={item} mode={step.mode} onGraded={onGraded} />;
   } else if (step.kind === "trace") {
-    body = <TraceCard key={`r${idx}`} item={item} mode="free" onGraded={onGraded} />;
+    card = <TraceCard item={item} mode="free" onGraded={onGraded} />;
   } else {
-    body = <BuildCard key={`r${idx}`} item={item} onGraded={onGraded} />;
+    card = <BuildCard item={item} onGraded={onGraded} />;
   }
 
   return (
     <PhaseShell title={`${sandbox ? "🧪 Dev · " : ""}Review · ${idx + 1}/${reviewQueue.length}`} progress={progress} onClose={() => navigate(home)}>
-      {body}
+      {/* Keyed remount per card drives the entrance "breath" (fade + brief
+          input guard) so carried taps don't bleed into the next card. */}
+      <CardBreath key={`r${idx}`}>{card}</CardBreath>
     </PhaseShell>
   );
 }
