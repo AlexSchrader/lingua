@@ -14,7 +14,7 @@ try {
   setActiveTheme(resolveTheme(pref, systemDark));
   document.documentElement.style.colorScheme = resolveTheme(pref, systemDark);
   document.body.style.background = C.washi;
-  const scale = { small: 0.9, default: 1, large: 1.15 }[settings.textSize ?? "default"] ?? 1;
+  const scale = { small: 0.85, default: 1.05, large: 1.2 }[settings.textSize ?? "default"] ?? 1.05;
   document.documentElement.style.setProperty("--app-zoom", String(scale));
   document.documentElement.style.zoom = String(scale);
 } catch {

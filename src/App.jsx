@@ -72,7 +72,7 @@ export default function App() {
   // viewport tall at any scale — the pinned top-bar/bottom-nav never break.
   const textSize = useStore((s) => s.settings?.textSize ?? "default");
   useEffect(() => {
-    const scale = { small: 0.9, default: 1, large: 1.15 }[textSize] ?? 1;
+    const scale = { small: 0.85, default: 1.05, large: 1.2 }[textSize] ?? 1.05;
     document.documentElement.style.setProperty("--app-zoom", String(scale));
     document.documentElement.style.zoom = String(scale);
   }, [textSize]);
