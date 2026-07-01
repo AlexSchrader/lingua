@@ -40,21 +40,23 @@ function stageStats(langId, stage, items) {
   return { total, done, pct: total ? Math.round((done / total) * 100) : 0, complete: total > 0 && done === total };
 }
 
-function unlockText(lang) {
-  if (!lang.unlock) return "";
-  const src = LANGUAGES.find((l) => l.id === lang.unlock.lang);
-  return `Unlocks at ${src?.name ?? lang.unlock.lang} ${lang.unlock.level}`;
-}
+const hasContent = (id) => UNITS.some((u) => u.lang === id);
 
 export default function Ladder() {
   const languages = useStore((s) => s.languages);
   const items = useStore((s) => s.items);
   const showRomaji = useStore((s) => s.settings?.showRomaji ?? true);
+  const profile = useStore((s) => s.profile);
+  const startLanguage = useStore((s) => s.startLanguage);
+  const setActiveLang = useStore((s) => s.setActiveLang);
+  const canAdd = useStore((s) => s.canAddLanguage)();
 
-  const stations = LANGUAGES.map((l) => languages[l.id] ?? { ...l, level: "pre-A1", xp: 0 });
-  // Active language = the first unlocked one still being climbed (Japanese today).
-  const active = stations.find((l) => l.unlocked) ?? stations[0];
-  const others = stations.filter((l) => l.id !== active.id);
+  const langData = (id) => ({ ...LANGUAGES.find((l) => l.id === id), ...(languages[id] ?? {}) });
+  // Started = the languages the learner chose (falls back to ja for safety).
+  const started = profile.languages?.length ? profile.languages : ["ja"];
+  const activeId = profile.activeLang && started.includes(profile.activeLang) ? profile.activeLang : started[0];
+  const active = langData(activeId);
+  const notStarted = LANGUAGES.filter((l) => !started.includes(l.id));
 
   return (
     <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 16 }}>
@@ -63,20 +65,41 @@ export default function Ladder() {
         <div style={{ fontSize: 13, color: C.inkSoft }}>Your whole climb — what's done, what's next.</div>
       </div>
 
+      {/* Switch focus among started languages */}
+      {started.length > 1 && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+          {started.map((id) => {
+            const l = langData(id);
+            const on = id === activeId;
+            return (
+              <button
+                key={id}
+                onClick={() => setActiveLang(id)}
+                style={{ padding: "7px 12px", borderRadius: 999, border: `1.5px solid ${on ? C.ai : C.line}`, background: on ? C.aiSoft : C.surface, color: on ? C.aiDeep : C.inkSoft, fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer", whiteSpace: "nowrap" }}
+              >
+                {l.flag} {l.name}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
       <ActiveLanguage lang={active} items={items} />
       <KanaSection langId={active.id} items={items} showRomaji={showRomaji} />
       <YoonSection langId={active.id} items={items} showRomaji={showRomaji} />
       <KanjiSection langId={active.id} items={items} showRomaji={showRomaji} />
       <UnitsSection langId={active.id} items={items} />
 
-      {others.length > 0 && (
-        <Section title="Next languages">
-          <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 10 }}>
-            One at a time — each unlocks when its predecessor reaches A1.
+      {notStarted.length > 0 && (
+        <Section title="Add a language">
+          <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 12 }}>
+            {canAdd
+              ? "You've reached A1 — start another whenever you like. One at a time."
+              : `Reach A1 in ${active.name} to unlock another language.`}
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            {others.map((l) => (
-              <LangRow key={l.id} lang={l} />
+            {notStarted.map((l) => (
+              <AddLangRow key={l.id} lang={l} canAdd={canAdd} onStart={() => startLanguage(l.id)} />
             ))}
           </div>
         </Section>
@@ -592,17 +615,27 @@ function Num({ n, color }) {
 
 // --- Other languages --------------------------------------------------------
 
-function LangRow({ lang }) {
+function AddLangRow({ lang, canAdd, onStart }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 12, padding: 12, borderRadius: 12, background: C.lockedBg, border: `1px solid ${C.lockedBg}`, opacity: 0.8 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 12, padding: 12, borderRadius: 12, background: canAdd ? C.surface : C.lockedBg, border: `1px ${canAdd ? "solid" : "dashed"} ${C.line}`, opacity: canAdd ? 1 : 0.85 }}>
       <div style={{ fontSize: 26 }}>{lang.flag}</div>
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          <span style={{ fontFamily: F.disp, fontSize: 15, fontWeight: 700, color: C.inkSoft }}>{lang.name}</span>
-          <Lock size={13} color={C.locked} />
+          <span style={{ fontFamily: F.disp, fontSize: 15, fontWeight: 700, color: canAdd ? C.ink : C.inkSoft }}>{lang.name}</span>
+          {!canAdd && <Lock size={13} color={C.locked} />}
         </div>
-        <div style={{ fontSize: 12, color: C.inkSoft }}>{unlockText(lang)} · {lang.target} goal</div>
+        <div style={{ fontSize: 12, color: C.inkSoft }}>
+          {lang.target} goal{hasContent(lang.id) ? "" : " · content coming"}
+        </div>
       </div>
+      {canAdd && (
+        <button
+          onClick={onStart}
+          style={{ padding: "8px 16px", borderRadius: 999, border: "none", background: C.ai, color: "#fff", fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer", flexShrink: 0 }}
+        >
+          Start
+        </button>
+      )}
     </div>
   );
 }

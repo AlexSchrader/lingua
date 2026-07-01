@@ -98,10 +98,25 @@ export const useStore = create(
       signOut: async () => {},
 
       // Onboarding profile (persisted + synced via the progress blob). `onboarded`
-      // gates the flow: a fresh account runs onboarding before reaching the app.
-      profile: { onboarded: false, displayName: null, reason: null, reminderTime: null },
+      // gates the flow. `languages` = the ordered list the learner has STARTED
+      // (user-chosen, not a hardcoded chain); `activeLang` = the one in focus.
+      profile: { onboarded: false, displayName: null, reason: null, reminderTime: null, languages: [], activeLang: null },
       completeOnboarding: (answers) =>
         set((s) => ({ profile: { ...s.profile, ...answers, onboarded: true } })),
+
+      // Begin a language (onboarding pick or the "add a language" flow) and make
+      // it the active one. Idempotent — re-picking a started language just focuses it.
+      startLanguage: (id) =>
+        set((s) => {
+          const languages = s.profile.languages.includes(id)
+            ? s.profile.languages
+            : [...s.profile.languages, id];
+          return { profile: { ...s.profile, languages, activeLang: id } };
+        }),
+
+      // Switch focus among languages already started.
+      setActiveLang: (id) =>
+        set((s) => (s.profile.languages.includes(id) ? { profile: { ...s.profile, activeLang: id } } : s)),
 
       setSetting: (key, value) =>
         set((s) => ({ settings: { ...s.settings, [key]: value } })),
@@ -149,7 +164,17 @@ export const useStore = create(
           }
           // Backfill any language progress entries added since last persist.
           const languages = { ...initialLanguages(), ...s.languages };
-          return { items, daily, languages };
+          // Migration: an existing learner (already onboarded, or with real
+          // progress) from before language-selection defaults to Japanese as
+          // their started + active language, so nothing they've done resets.
+          let profile = s.profile;
+          if (!profile.languages || profile.languages.length === 0) {
+            const hasProgress = Object.values(items).some((it) => (it.rung ?? 0) >= 1);
+            if (profile.onboarded || hasProgress) {
+              profile = { ...profile, languages: ["ja"], activeLang: "ja" };
+            }
+          }
+          return { items, daily, languages, profile };
         });
       },
 
@@ -260,13 +285,14 @@ export const useStore = create(
         });
       },
 
-      // Cascade: update each language's CEFR level from actual item completion,
-      // then unlock any language whose prerequisite is now satisfied.
+      // Cascade: promote each language's CEFR level from actual item completion.
+      // Unlocking the NEXT language is no longer automatic/hardcoded — the learner
+      // chooses it (startLanguage) once their current language reaches A1 (see
+      // canAddLanguage). This only advances levels.
       checkCascade: () => {
         set((s) => {
           const newLangs = { ...s.languages };
           let changed = false;
-
           for (const langDef of LANGUAGES) {
             const st = newLangs[langDef.id];
             if (!st || st.level !== "pre-A1") continue;
@@ -275,20 +301,17 @@ export const useStore = create(
               changed = true;
             }
           }
-
-          for (const langDef of LANGUAGES) {
-            const st = newLangs[langDef.id];
-            if (!st || st.unlocked || !langDef.unlock) continue;
-            const prereq = newLangs[langDef.unlock.lang];
-            if (!prereq) continue;
-            if ((CEFR_ORDER[prereq.level] ?? -1) >= (CEFR_ORDER[langDef.unlock.level] ?? 0)) {
-              newLangs[langDef.id] = { ...st, unlocked: true };
-              changed = true;
-            }
-          }
-
           return changed ? { languages: newLangs } : s;
         });
+      },
+
+      // Can the learner start another language yet? True once any language they've
+      // already started has reached at least A1 (the "lock till A1" rule).
+      canAddLanguage: () => {
+        const { profile, languages } = get();
+        return (profile.languages ?? []).some(
+          (id) => (CEFR_ORDER[languages[id]?.level] ?? -1) >= CEFR_ORDER.A1
+        );
       },
 
       // Selector: items the learner has touched for `lang`, scoped to CEFR ≤

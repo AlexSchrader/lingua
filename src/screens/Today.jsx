@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { BookOpen, RotateCcw, Lock, Check, Flame, Zap, Snowflake } from "lucide-react";
 import { useStore } from "../store/useStore.js";
-import { UNITS } from "../data/index.js";
+import { UNITS, LANGUAGES } from "../data/index.js";
 import { isReviewable, isMastered } from "../store/mastery.js";
 import { C, F } from "../theme.js";
 import { VERSION } from "../version.js";
@@ -79,7 +79,12 @@ export default function Today() {
   const daily = useStore((s) => s.daily);
   const streak = useStore((s) => s.streak);
   const stats = useStore((s) => s.stats);
-  const ja = useStore((s) => s.languages.ja);
+  const languages = useStore((s) => s.languages);
+  const profile = useStore((s) => s.profile);
+  // The active language drives everything on Today (falls back to ja for safety).
+  const startedLangs = profile.languages?.length ? profile.languages : ["ja"];
+  const activeId = profile.activeLang && startedLangs.includes(profile.activeLang) ? profile.activeLang : startedLangs[0];
+  const active = { ...LANGUAGES.find((l) => l.id === activeId), ...(languages[activeId] ?? {}) };
   const dueItemsFn = useStore((s) => s.dueItems);
   const reviewsLockedFn = useStore((s) => s.reviewsLocked);
   const devSeedReviews = useStore((s) => s.devSeedReviews);
@@ -89,8 +94,8 @@ export default function Today() {
 
   // All lessons across all units that have item content (ordered).
   const allPlayableLessons = useMemo(
-    () => UNITS.flatMap((u) => u.lessons.filter((l) => Array.isArray(l.items))),
-    []
+    () => UNITS.filter((u) => u.lang === activeId).flatMap((u) => u.lessons.filter((l) => Array.isArray(l.items))),
+    [activeId]
   );
   // Advance to the first lesson that still has rung-0 items — natural progression
   // without a separate unlock system. null when all lessons are complete.
@@ -130,16 +135,16 @@ export default function Today() {
 
   // Progress glance + next-review timing (from the data we already track).
   const masteredKana = useMemo(
-    () => Object.values(items).filter((it) => it.type === "kana" && isMastered(it)).length,
-    [items]
+    () => Object.values(items).filter((it) => it.lang === activeId && it.type === "kana" && isMastered(it)).length,
+    [items, activeId]
   );
   const nextReviewAt = useMemo(() => {
     const times = Object.values(items)
-      .filter((it) => isReviewable(it) && it.srs?.due)
+      .filter((it) => it.lang === activeId && isReviewable(it) && it.srs?.due)
       .map((it) => new Date(it.srs.due).getTime())
       .filter((t) => t > Date.now());
     return times.length ? Math.min(...times) : null;
-  }, [items]);
+  }, [items, activeId]);
 
   // Mascot pose + a calm, non-nagging line for the current state.
   const mascot = goalMet
@@ -160,10 +165,10 @@ export default function Today() {
   const nextLessonNum = nextLesson ? allPlayableLessons.indexOf(nextLesson) + 1 : null;
 
   // Hiragana progress for the fullness strip.
-  const kanaTotal = useMemo(() => Object.values(items).filter((it) => it.type === "kana").length, [items]);
+  const kanaTotal = useMemo(() => Object.values(items).filter((it) => it.lang === activeId && it.type === "kana").length, [items, activeId]);
   const kanaLearned = useMemo(
-    () => Object.values(items).filter((it) => it.type === "kana" && (it.rung ?? 0) >= 1).length,
-    [items]
+    () => Object.values(items).filter((it) => it.lang === activeId && it.type === "kana" && (it.rung ?? 0) >= 1).length,
+    [items, activeId]
   );
   const kanaPct = kanaTotal ? Math.round((kanaLearned / kanaTotal) * 100) : 0;
 
@@ -213,7 +218,7 @@ export default function Today() {
           <div style={{ fontFamily: F.disp, fontSize: 19, fontWeight: 700, marginBottom: 2 }}>{greeting()}</div>
           <div style={{ fontSize: 14, color: C.ink, lineHeight: 1.35, fontWeight: 600 }}>{mascot.msg}</div>
           <div style={{ fontSize: 12, color: C.inkSoft, fontWeight: 600, marginTop: 6 }}>
-            {ja.flag} {ja.name} · {ja.level === "pre-A1" ? "Starting out" : ja.level} → {ja.target} goal
+            {active.flag} {active.name} · {active.level === "pre-A1" ? "Starting out" : active.level} → {active.target} goal
             {nextReviewAt ? ` · next review ${fmtWhen(nextReviewAt)}` : ""}
           </div>
         </div>
