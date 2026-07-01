@@ -7,7 +7,7 @@
 // in Units 4-6, so it's no longer a roadmap placeholder.)
 export const ROADMAP = {
   ja: [
-    { title: "Particles & grammar", theme: "Build sentences — は・が・を・に・で", cefr: "A1", stage: "a1" },
+    { title: "Verbs & more particles", theme: "を・が・に・で and ～ます sentences", cefr: "A1", stage: "a1" },
     { title: "A2 — N4", theme: "More grammar, kanji and vocabulary", cefr: "A2", stage: "a2" },
   ],
 };

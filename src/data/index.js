@@ -17,8 +17,9 @@ import { UNIT15 } from "./ja/unit15.js";
 import { UNIT16 } from "./ja/unit16.js"; // yōon (pre-a1 kana digraphs)
 import { UNIT17 } from "./ja/unit17.js";
 import { UNIT18 } from "./ja/unit18.js";
+import { UNIT19 } from "./ja/unit19.js"; // ぶんぽう — first grammar unit (copula sentence)
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19];
 
 export { LANGUAGES };
 
