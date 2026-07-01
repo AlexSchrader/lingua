@@ -19,8 +19,9 @@ import { UNIT17 } from "./ja/unit17.js";
 import { UNIT18 } from "./ja/unit18.js";
 import { UNIT19 } from "./ja/unit19.js"; // ぶんぽう — first grammar unit (copula sentence)
 import { UNIT20 } from "./ja/unit20.js"; // ぶんぽう・2 — verbs & particles (を/に/が/で)
+import { UNIT21 } from "./ja/unit21.js"; // ぶんぽう・3 — past tense & adjective conjugation
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21];
 
 export { LANGUAGES };
 

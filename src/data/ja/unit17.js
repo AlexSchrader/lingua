@@ -17,7 +17,7 @@ export const UNIT17 = {
       title: "Verb kanji 1",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 行 来 見 出 入 食 飲.",
+      canDo: "Read the verb kanji: 行 来 見 出 入 食 飲 (go, come, see, exit, enter, eat, drink).",
       items: [
         { id: "ja-u17l1-iku", type: "kanji", front: "行", reading: "iku", meaning: "go", example: { jp: "がっこうに行きます。", en: "I go to school." }, accept: ["to go","goes"], hint: "行 = go. You know it as 行きます (いきます). The left side 彳 is a step on a road." },
         { id: "ja-u17l1-kuru", type: "kanji", front: "来", reading: "kuru", meaning: "come", example: { jp: "ともだちが来ます。", en: "A friend comes." }, accept: ["to come","comes"], hint: "来 = come. You know it as 来ます (きます)." },
@@ -35,7 +35,7 @@ export const UNIT17 = {
       title: "Verb kanji 2",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 言 聞 読 書 話 立 休.",
+      canDo: "Read 言 聞 読 書 話 (say, hear, read, write, speak), plus 立 休 (stand, rest).",
       items: [
         { id: "ja-u17l2-iu", type: "kanji", front: "言", reading: "iu", meaning: "say", example: { jp: "なまえを言います。", en: "I say my name." }, accept: ["to say","speak","word"], hint: "言 = say / word. Lines coming out over a mouth 口. You know 言います (いいます)." },
         { id: "ja-u17l2-kiku", type: "kanji", front: "聞", reading: "kiku", meaning: "listen", example: { jp: "おんがくを聞きます。", en: "I listen to music." }, accept: ["hear","to listen","ask"], hint: "聞 = listen / hear. 耳 (ear) inside a gate 門 — an ear at the door. 聞きます = listen." },
@@ -53,7 +53,7 @@ export const UNIT17 = {
       title: "Verb kanji 3",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 買 会 待 知 作 持.",
+      canDo: "Read 買 会 待 知 作 持 (buy, meet, wait, know, make, hold).",
       items: [
         { id: "ja-u17l3-kau", type: "kanji", front: "買", reading: "kau", meaning: "buy", example: { jp: "本を買います。", en: "I buy a book." }, accept: ["to buy","buys"], hint: "買 = buy — 网 (net) over 貝 (money). You know かいます (Unit 9): 買います." },
         { id: "ja-u17l3-au", type: "kanji", front: "会", reading: "au", meaning: "meet", example: { jp: "ともだちに会います。", en: "I meet a friend." }, accept: ["to meet","meets"], hint: "会 = meet (also 'association'). 会います = meet; 会社 = company." },

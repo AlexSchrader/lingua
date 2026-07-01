@@ -17,7 +17,7 @@ export const UNIT14 = {
       title: "People & body kanji 1",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 人 私 父 母 男 女.",
+      canDo: "Read the people kanji: 人 (person), 私 (I), 父 母 (parents), 男 女 (man/woman).",
       items: [
         { id: "ja-u14l1-hito", type: "kanji", front: "人", reading: "hito", meaning: "person", example: { jp: "あの人です。", en: "That's that person." }, accept: ["people"] },
         { id: "ja-u14l1-watashi", type: "kanji", front: "私", reading: "watashi", meaning: "I", example: { jp: "私は学生です。", en: "I am a student." }, accept: ["me","myself"], hint: "私 = I / me (わたし) — 禾 (grain) + 厶 (private): the polite word for oneself." },
@@ -34,7 +34,7 @@ export const UNIT14 = {
       title: "People & body kanji 2",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 子 友 先 生 名.",
+      canDo: "Read 子 (child), 友 (friend), 先 生 (teacher), 名 (name).",
       items: [
         { id: "ja-u14l2-ko", type: "kanji", front: "子", reading: "ko", meaning: "child", example: { jp: "子どもがすきです。", en: "I like children." }, accept: ["kid"], hint: "子 = child — a little figure with outstretched arms. 子ども = child (you know こども)." },
         { id: "ja-u14l2-tomo", type: "kanji", front: "友", reading: "tomo", meaning: "friend", example: { jp: "友だちが来ます。", en: "A friend comes." }, accept: ["friends"], hint: "友 = friend. You know it as 友だち (ともだち). Two hands reaching the same way." },
@@ -50,7 +50,7 @@ export const UNIT14 = {
       title: "People & body kanji 3",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 目 耳 口 手 足.",
+      canDo: "Read the body kanji: 目 耳 口 手 足 (eye, ear, mouth, hand, foot).",
       items: [
         { id: "ja-u14l3-me", type: "kanji", front: "目", reading: "me", meaning: "eye", example: { jp: "目が大きいです。", en: "The eyes are big." }, accept: ["eyes"], hint: "目 = eye — 日 (sun) stood upright, an eye shape. (Not 日 'day'.)" },
         { id: "ja-u14l3-mimi", type: "kanji", front: "耳", reading: "mimi", meaning: "ear", example: { jp: "耳で聞きます。", en: "I hear with my ears." }, accept: ["ears"], hint: "耳 = ear — a pictograph of an ear." },

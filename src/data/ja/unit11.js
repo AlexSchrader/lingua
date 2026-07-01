@@ -17,7 +17,7 @@ export const UNIT11 = {
       title: "Numbers & time kanji 1",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 一 二 三 四 五 六.",
+      canDo: "Read the first six number kanji: 一 二 三 四 五 六.",
       items: [
         { id: "ja-u11l1-ichi", type: "kanji", front: "一", reading: "ichi", meaning: "one", example: { jp: "一、二、三。", en: "One, two, three." }, accept: ["1"] },
         { id: "ja-u11l1-ni", type: "kanji", front: "二", reading: "ni", meaning: "two", example: { jp: "二、三、四。", en: "Two, three, four." }, accept: ["2"] },
@@ -34,7 +34,7 @@ export const UNIT11 = {
       title: "Numbers & time kanji 2",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 七 八 九 十 百 千.",
+      canDo: "Read 七 八 九 十, plus the big units 百 (100) and 千 (1000).",
       items: [
         { id: "ja-u11l2-nana", type: "kanji", front: "七", reading: "nana", meaning: "seven", example: { jp: "七、八、九。", en: "Seven, eight, nine." }, accept: ["7","shichi"] },
         { id: "ja-u11l2-hachi", type: "kanji", front: "八", reading: "hachi", meaning: "eight", example: { jp: "八、九、十。", en: "Eight, nine, ten." }, accept: ["8"] },
@@ -51,7 +51,7 @@ export const UNIT11 = {
       title: "Numbers & time kanji 3",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 万 円 何 時 分 半.",
+      canDo: "Read 万 (10,000) and 円 (yen), and tell time with 何 時 分 半.",
       items: [
         { id: "ja-u11l3-man", type: "kanji", front: "万", reading: "man", meaning: "ten thousand", example: { jp: "一万円です。", en: "It's 10,000 yen." }, accept: ["10000","10,000"], hint: "万 = ten thousand. 一万 = 10,000 — the big round unit in Japanese counting." },
         { id: "ja-u11l3-en", type: "kanji", front: "円", reading: "en", meaning: "yen", example: { jp: "五百円です。", en: "It's 500 yen." }, accept: ["circle","round","japanese yen"], hint: "円 = yen (also 'circle/round'). Japan's money: 百円 = 100 yen." },
@@ -68,7 +68,7 @@ export const UNIT11 = {
       title: "Numbers & time kanji 4",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 午 曜 週 年 今 毎.",
+      canDo: "Read the calendar kanji: 午 (noon), 曜 (day), 週 (week), 年 (year), 今 (now), 毎 (every).",
       items: [
         { id: "ja-u11l4-go2", type: "kanji", front: "午", reading: "go", meaning: "noon", example: { jp: "午前と午後。", en: "a.m. and p.m." }, accept: ["midday"], hint: "午 = noon. It lives in 午前 (a.m., 'before noon') and 午後 (p.m., 'after noon')." },
         { id: "ja-u11l4-yo", type: "kanji", front: "曜", reading: "yō", meaning: "day of the week", example: { jp: "月曜日です。", en: "It's Monday." }, accept: ["weekday"], hint: "曜 carries 日 (day) on the left and only shows up in 曜日 (day of the week): 月曜日 Monday, 日曜日 Sunday." },

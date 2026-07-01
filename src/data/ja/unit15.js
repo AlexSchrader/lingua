@@ -17,7 +17,7 @@ export const UNIT15 = {
       title: "Position & direction kanji 1",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 上 下 中 右 左 前.",
+      canDo: "Read the position kanji: 上 下 中 (up/down/middle), 右 左 (right/left), 前 (front).",
       items: [
         { id: "ja-u15l1-ue", type: "kanji", front: "上", reading: "ue", meaning: "up", example: { jp: "テーブルの上です。", en: "It's on the table." }, accept: ["above","top","on"] },
         { id: "ja-u15l1-shita", type: "kanji", front: "下", reading: "shita", meaning: "down", example: { jp: "木の下です。", en: "It's under the tree." }, accept: ["below","under","bottom"] },
@@ -34,7 +34,7 @@ export const UNIT15 = {
       title: "Position & direction kanji 2",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 後 外 東 西 南 北.",
+      canDo: "Read 後 (back), 外 (outside), and the compass 東 西 南 北.",
       items: [
         { id: "ja-u15l2-ushiro", type: "kanji", front: "後", reading: "ushiro", meaning: "behind", example: { jp: "いえの後です。", en: "It's behind the house." }, accept: ["after","back"], hint: "後 = behind / after (うしろ). 午後 = p.m. ('after noon')." },
         { id: "ja-u15l2-soto", type: "kanji", front: "外", reading: "soto", meaning: "outside", example: { jp: "外はさむいです。", en: "It's cold outside." }, accept: ["outdoors","out"], hint: "外 = outside — 夕 (evening) + 卜. The opposite of 中 (inside)." },

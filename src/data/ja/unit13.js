@@ -17,7 +17,7 @@ export const UNIT13 = {
       title: "Nature & days kanji 1",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 日 月 火 水 木 金 土.",
+      canDo: "Read the seven day / element kanji: 日 月 火 水 木 金 土.",
       items: [
         { id: "ja-u13l1-nichi", type: "kanji", front: "日", reading: "nichi", meaning: "sun", example: { jp: "きょうはいい日です。", en: "Today is a nice day." }, accept: ["day"] },
         { id: "ja-u13l1-getsu", type: "kanji", front: "月", reading: "getsu", meaning: "moon", example: { jp: "月をみます。", en: "I look at the moon." }, accept: ["month"] },
@@ -35,7 +35,7 @@ export const UNIT13 = {
       title: "Nature & days kanji 2",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 山 川 田 雨 電 気.",
+      canDo: "Read the nature kanji: 山 (mountain), 川 (river), 田 (field), 雨 (rain), 電 (electricity), 気 (air/spirit).",
       items: [
         { id: "ja-u13l2-yama", type: "kanji", front: "山", reading: "yama", meaning: "mountain", example: { jp: "山にいきます。", en: "I go to the mountain." }, accept: ["mountains"] },
         { id: "ja-u13l2-kawa", type: "kanji", front: "川", reading: "kawa", meaning: "river", example: { jp: "川にいきます。", en: "I go to the river." }, accept: ["rivers"] },

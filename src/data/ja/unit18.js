@@ -17,7 +17,7 @@ export const UNIT18 = {
       title: "Adjective & place kanji 1",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 大 小 高 安 新 古 多.",
+      canDo: "Read the adjective kanji: 大 小 (big/small), 高 安 (pricey/cheap), 新 古 (new/old), 多 (many).",
       items: [
         { id: "ja-u18l1-dai", type: "kanji", front: "大", reading: "dai", meaning: "big", example: { jp: "大きいです。", en: "It's big." }, accept: ["large"] },
         { id: "ja-u18l1-sho", type: "kanji", front: "小", reading: "shō", meaning: "small", example: { jp: "小さいです。", en: "It's small." }, accept: ["little"] },
@@ -35,7 +35,7 @@ export const UNIT18 = {
       title: "Adjective & place kanji 2",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 少 長 白 学 校 道 駅.",
+      canDo: "Read 少 長 白 (few/long/white), and 学 校 (school), 道 (road), 駅 (station).",
       items: [
         { id: "ja-u18l2-sukunai", type: "kanji", front: "少", reading: "sukunai", meaning: "few", example: { jp: "水が少ないです。", en: "There's little water." }, accept: ["little","a little"], hint: "少 = few / little (すくない) — 小 (small) plus a slash, even less. 少ない." },
         { id: "ja-u18l2-nagai", type: "kanji", front: "長", reading: "nagai", meaning: "long", example: { jp: "長い川です。", en: "It's a long river." }, accept: ["chief"], hint: "長 = long (ながい) — long flowing hair. 長い. Also means 'chief'." },
@@ -53,7 +53,7 @@ export const UNIT18 = {
       title: "Adjective & place kanji 3",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read and recognize the kanji: 店 国 本 間 車 語 元.",
+      canDo: "Read the place & thing kanji: 店 (shop), 国 (country), 本 (book), 間 (interval), 車 (car), 語 (language), 元 (origin).",
       items: [
         { id: "ja-u18l3-mise", type: "kanji", front: "店", reading: "mise", meaning: "shop", example: { jp: "店はどこですか。", en: "Where is the shop?" }, accept: ["store"], hint: "店 = shop / store (みせ, Unit 10) — 广, a roofed building." },
         { id: "ja-u18l3-kuni", type: "kanji", front: "国", reading: "kuni", meaning: "country", example: { jp: "どこの国ですか。", en: "Which country is it?" }, accept: ["nation"], hint: "国 = country — 口 (a border) around 玉 (jewel): a bordered land." },
