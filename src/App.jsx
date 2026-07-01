@@ -11,6 +11,7 @@ import Review from "./screens/Review.jsx";
 import Auth from "./screens/Auth.jsx";
 import Onboarding from "./screens/Onboarding.jsx";
 import SetPassword from "./screens/SetPassword.jsx";
+import Mascot from "./components/Mascot.jsx";
 import { useStore } from "./store/useStore.js";
 import { C, F, setActiveTheme, resolveTheme } from "./theme.js";
 
@@ -27,12 +28,10 @@ const IS_WEBDRIVER = typeof navigator !== "undefined" && !!navigator.webdriver;
 const AUTH_ENABLED =
   !!import.meta.env.VITE_SUPABASE_URL && !!import.meta.env.VITE_SUPABASE_ANON_KEY && !IS_WEBDRIVER;
 
-const SPLASH_KEYFRAMES = "@keyframes lingua-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}";
 function Splash() {
   return (
-    <div style={{ minHeight: "calc(100dvh / var(--app-zoom, 1))", background: C.washi, color: C.inkSoft, fontFamily: F.body, display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <style>{SPLASH_KEYFRAMES}</style>
-      <img src="/mascot/lingua-think.png" alt="Loading" style={{ width: 100, height: "auto", opacity: 0.9, animation: "lingua-bob 1.6s ease-in-out infinite" }} />
+    <div style={{ minHeight: "calc(100dvh / var(--app-zoom, 1))", background: C.washi, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <Mascot context="loading" size={120} />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import BuildCard from "../components/games/BuildCard.jsx";
 import TraceCard from "../components/games/TraceCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import Celebration from "../components/Celebration.jsx";
+import Mascot from "../components/Mascot.jsx";
 import { useStore } from "../store/useStore.js";
 import { getLesson } from "../data/index.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
@@ -112,7 +113,7 @@ export default function Lesson() {
             textAlign: "center",
           }}
         >
-          <div style={{ fontSize: 56 }}>🎉</div>
+          <Mascot context="lessonComplete" size={150} />
           <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>Lesson complete</div>
           <div style={{ color: C.inkSoft, maxWidth: 300 }}>
             {learned > 0
