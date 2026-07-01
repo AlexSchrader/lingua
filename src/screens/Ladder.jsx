@@ -123,20 +123,27 @@ function ActiveLanguage({ lang, items }) {
   const currentStage = stages.find((s) => !statsByStage[s].complete) ?? stages[stages.length - 1];
   const cur = statsByStage[currentStage];
 
-  // "You're here" points at the current lesson within its OWN unit — e.g.
-  // "Lesson 3/5" (that unit's lesson count), not the whole stage. Walk units in
-  // curriculum order; the first with a lesson still holding an unlearned item is
-  // where the learner is.
-  const langUnits = UNITS.filter((u) => u.lang === lang.id).slice().sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
-  let hereLabel = "you're here";
-  for (const u of langUnits) {
-    const uLessons = u.lessons.filter((l) => Array.isArray(l.items));
-    const idx = uLessons.findIndex((l) => l.items.some((def) => (items[def.id]?.rung ?? 0) < 1));
-    if (idx >= 0) {
-      hereLabel = `Lesson ${idx + 1}/${uLessons.length}`;
-      break;
+  // "You're here" shows position within the CURRENT stage: which unit of the
+  // stage's units, and which lesson of the stage's total lessons —
+  // "U:1/7 L:1/36". First lesson (in order) still holding an unlearned item.
+  const hereLabel = (() => {
+    const stageUnits = UNITS.filter((u) => u.lang === lang.id && (u.stage ?? "a1") === currentStage)
+      .slice()
+      .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+    const totalUnits = stageUnits.length;
+    const totalLessons = stageUnits.reduce((n, u) => n + u.lessons.filter((l) => Array.isArray(l.items)).length, 0);
+    let before = 0;
+    for (let ui = 0; ui < stageUnits.length; ui++) {
+      const uLessons = stageUnits[ui].lessons.filter((l) => Array.isArray(l.items));
+      for (let li = 0; li < uLessons.length; li++) {
+        if (uLessons[li].items.some((def) => (items[def.id]?.rung ?? 0) < 1)) {
+          return `U:${ui + 1}/${totalUnits} L:${before + li + 1}/${totalLessons}`;
+        }
+      }
+      before += uLessons.length;
     }
-  }
+    return "you're here";
+  })();
 
   return (
     <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 18, padding: 16 }}>
