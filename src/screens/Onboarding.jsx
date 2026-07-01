@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
 import { C, F } from "../theme.js";
@@ -18,11 +19,22 @@ const REASONS = [
 const hasContent = (id) => UNITS.some((u) => u.lang === id);
 
 export default function Onboarding() {
+  const navigate = useNavigate();
   const username = useStore((s) => s.auth.user?.username);
+  const devMode = useStore((s) => s.devMode);
   const startLanguage = useStore((s) => s.startLanguage);
   const completeOnboarding = useStore((s) => s.completeOnboarding);
 
   const [step, setStep] = useState(0);
+
+  // Dev-only escape hatch: when previewing this flow from the Dev panel, let the
+  // learner bail out without completing it. Restores onboarded (keeps their real
+  // profile answers) and returns to the Dev page.
+  const exitPreview = () => {
+    completeOnboarding({});
+    navigate("/dev");
+  };
+  const linkBtn = { border: "none", background: "transparent", color: C.inkSoft, fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer", padding: 4 };
   const [lang, setLang] = useState(null);
   const [displayName, setDisplayName] = useState(username ?? "");
   const [reason, setReason] = useState(null);
@@ -45,6 +57,12 @@ export default function Onboarding() {
   return (
     <div style={{ minHeight: "100dvh", background: C.washi, color: C.ink, fontFamily: F.body, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24 }}>
       <div style={{ width: "100%", maxWidth: 400, display: "flex", flexDirection: "column", gap: 22 }}>
+        {(step > 0 || devMode) && (
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: -8 }}>
+            {step > 0 ? <button onClick={() => setStep(0)} style={linkBtn}>← Back</button> : <span />}
+            {devMode && <button onClick={exitPreview} style={linkBtn}>Exit preview →</button>}
+          </div>
+        )}
         {step === 0 ? (
           <>
             <div style={{ textAlign: "center" }}>

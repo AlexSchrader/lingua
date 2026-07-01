@@ -5,6 +5,7 @@ import { LANGUAGES, UNITS } from "../data/index.js";
 import { roadmapFor } from "../data/ja/roadmap.js";
 import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
+import GlyphDetail from "../components/GlyphDetail.jsx";
 import { C, F } from "../theme.js";
 
 // Stage sectioning for the Units list. `stage` lives on each unit (and roadmap
@@ -406,13 +407,18 @@ function YoonSection({ langId, items, showRomaji }) {
 }
 
 function KanaChip({ char, reading, item, showRomaji }) {
+  const [open, setOpen] = useState(false);
   const learned = (item?.rung ?? 0) >= 1;
   const pct = masteryPct(item);
   const mastered = isMastered(item);
   const accent = mastered ? C.matcha : C.ai;
   const romaji = showRomaji && reading;
   return (
+    <>
     <div
+      onClick={learned && item ? () => setOpen(true) : undefined}
+      role={learned ? "button" : undefined}
+      aria-label={learned ? `${char} — details` : undefined}
       style={{
         width: "100%",
         borderRadius: 12,
@@ -422,6 +428,7 @@ function KanaChip({ char, reading, item, showRomaji }) {
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
+        cursor: learned ? "pointer" : "default",
       }}
     >
       <div
@@ -463,6 +470,8 @@ function KanaChip({ char, reading, item, showRomaji }) {
         </div>
       )}
     </div>
+    {open && item && <GlyphDetail item={item} onClose={() => setOpen(false)} />}
+    </>
   );
 }
 
