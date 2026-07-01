@@ -5,6 +5,7 @@ import { useStore } from "../store/useStore.js";
 import { UNITS, LANGUAGES } from "../data/index.js";
 import { isReviewable, isMastered } from "../store/mastery.js";
 import { C, F } from "../theme.js";
+import Mascot from "../components/Mascot.jsx";
 import { VERSION } from "../version.js";
 
 // Friendly relative time for the next scheduled review.
@@ -208,12 +209,7 @@ export default function Today() {
           border: `1px solid ${C.line}`,
         }}
       >
-        <img
-          src={`/mascot/lingua-${mascot.pose}.png`}
-          alt=""
-          aria-hidden
-          style={{ width: "clamp(72px, 18vw, 132px)", height: "auto", objectFit: "contain", flexShrink: 0 }}
-        />
+        <Mascot context="greeting" pose={mascot.pose} style={{ width: "clamp(72px, 18vw, 132px)", flexShrink: 0 }} />
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontFamily: F.disp, fontSize: 19, fontWeight: 700, marginBottom: 2 }}>{greeting()}</div>
           <div style={{ fontSize: 14, color: C.ink, lineHeight: 1.35, fontWeight: 600 }}>{mascot.msg}</div>
