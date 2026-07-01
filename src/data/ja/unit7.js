@@ -83,6 +83,8 @@ export const UNIT7 = {
         { id: "ja-u7l4-han",   type: "vocab", front: "はん",   reading: "han",   meaning: "half past", example: { jp: "しちじはんです。", en: "It's half past seven." }, accept: ["half", "thirty (minutes)"] },
         { id: "ja-u7l4-gozen", type: "vocab", front: "ごぜん", reading: "gozen", meaning: "a.m.",   example: { jp: "ごぜんくじです。", en: "It's 9 a.m." }, accept: ["morning", "am"] },
         { id: "ja-u7l4-gogo",  type: "vocab", front: "ごご",   reading: "gogo",  meaning: "p.m.",   example: { jp: "ごごさんじです。", en: "It's 3 p.m." }, accept: ["afternoon", "pm"] },
+        { id: "ja-u7l4-chodo", type: "vocab", front: "ちょうど", reading: "chōdo", meaning: "exactly", example: { jp: "ちょうどさんじです。", en: "It's exactly three o'clock." }, accept: ["just", "precisely"] },
+        { id: "ja-u7l4-byo",   type: "vocab", front: "びょう", reading: "byō", meaning: "second", example: { jp: "じゅうびょうです。", en: "It's ten seconds." }, accept: ["seconds"] },
       ],
     },
     // Lesson 5: days & parts of the day
@@ -101,6 +103,8 @@ export const UNIT7 = {
         { id: "ja-u7l5-asa",    type: "vocab", front: "あさ",   reading: "asa",    meaning: "morning",   example: { jp: "あさ、コーヒーをのみます。", en: "In the morning I drink coffee." }, accept: ["the morning"] },
         { id: "ja-u7l5-hiru",   type: "vocab", front: "ひる",   reading: "hiru",   meaning: "noon",      example: { jp: "ひるにたべます。", en: "I eat at noon." }, accept: ["midday", "daytime", "lunchtime"] },
         { id: "ja-u7l5-ban",    type: "vocab", front: "ばん",   reading: "ban",    meaning: "evening",   example: { jp: "こんばんは。", en: "Good evening." }, accept: ["night"] },
+        { id: "ja-u7l5-konban", type: "vocab", front: "こんばん", reading: "konban", meaning: "tonight", example: { jp: "こんばん、テレビをみます。", en: "Tonight I'll watch TV." }, accept: ["this evening"] },
+        { id: "ja-u7l5-asatte", type: "vocab", front: "あさって", reading: "asatte", meaning: "the day after tomorrow", example: { jp: "あさっては やすみです。", en: "The day after tomorrow is a day off." }, accept: ["day after tomorrow"] },
       ],
     },
   ],
