@@ -12,7 +12,10 @@ if (import.meta.env.PROD && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     const hadController = !!navigator.serviceWorker.controller;
     navigator.serviceWorker
-      .register("/sw.js", { scope: "/" })
+      // updateViaCache:"none" → always fetch sw.js fresh (never from the HTTP
+      // cache) when checking for updates, so a cached SW script can't hide a new
+      // deploy. This was the recurring "I don't see the changes" cause.
+      .register("/sw.js", { scope: "/", updateViaCache: "none" })
       .then((reg) => reg.update())
       .catch(() => {});
     let refreshing = false;
