@@ -27,6 +27,8 @@ export const UNIT12 = {
         { id: "ja-u12l1-kuro",   type: "vocab", front: "くろ",   reading: "kuro",   meaning: "black",  example: { jp: "くろのくつです。",       en: "They're black shoes." }, accept: [] },
         { id: "ja-u12l1-midori", type: "vocab", front: "みどり", reading: "midori", meaning: "green",  example: { jp: "みどりがすきです。",     en: "I like green." },        accept: [] },
         { id: "ja-u12l1-iro",    type: "vocab", front: "いろ",   reading: "iro",    meaning: "color",  example: { jp: "すきないろはなんですか。", en: "What's your favorite color?" }, accept: ["colour"] },
+        { id: "ja-u12l1-murasaki", type: "vocab", front: "むらさき", reading: "murasaki", meaning: "purple", example: { jp: "むらさきがすきです。", en: "I like purple." }, accept: ["violet"] },
+        { id: "ja-u12l1-mizuiro", type: "vocab", front: "みずいろ", reading: "mizuiro", meaning: "light blue", example: { jp: "そらはみずいろです。", en: "The sky is light blue." }, accept: ["sky blue", "pale blue"] },
       ],
     },
     // Lesson 2: more colors + the い-adjective forms
@@ -45,6 +47,8 @@ export const UNIT12 = {
         { id: "ja-u12l2-aoi",    type: "vocab", front: "あおい",   reading: "aoi",    meaning: "blue (is blue)", example: { jp: "そらはあおいです。",   en: "The sky is blue." },    accept: ["blue"] },
         { id: "ja-u12l2-kuroi",  type: "vocab", front: "くろい",   reading: "kuroi",  meaning: "black (is black)", example: { jp: "くろいねこです。",   en: "It's a black cat." },   accept: ["black"] },
         { id: "ja-u12l2-shiroi", type: "vocab", front: "しろい",   reading: "shiroi", meaning: "white (is white)", example: { jp: "しろいくつです。",   en: "They're white shoes." }, accept: ["white"] },
+        { id: "ja-u12l2-kiiroi", type: "vocab", front: "きいろい", reading: "kiiroi", meaning: "yellow (is yellow)", example: { jp: "バナナはきいろいです。", en: "The banana is yellow." }, accept: ["yellow"] },
+        { id: "ja-u12l2-usui", type: "vocab", front: "うすい", reading: "usui", meaning: "pale", example: { jp: "うすいピンクです。", en: "It's a pale pink." }, accept: ["light", "thin", "faint"] },
       ],
     },
     // Lesson 3: weather
@@ -63,6 +67,8 @@ export const UNIT12 = {
         { id: "ja-u12l3-kumori", type: "vocab", front: "くもり", reading: "kumori", meaning: "cloudy",  example: { jp: "きょうはくもりです。",   en: "Today is cloudy." },     accept: ["overcast"] },
         { id: "ja-u12l3-kaze",   type: "vocab", front: "かぜ",   reading: "kaze",   meaning: "wind",    example: { jp: "かぜがあります。",       en: "It's windy." },          accept: ["a breeze"] },
         { id: "ja-u12l3-niji",   type: "vocab", front: "にじ",   reading: "niji",   meaning: "rainbow", example: { jp: "にじがすきです。",       en: "I like rainbows." },     accept: ["rainbows"] },
+        { id: "ja-u12l3-taifu", type: "vocab", front: "たいふう", reading: "taifū", meaning: "typhoon", example: { jp: "たいふうがきます。", en: "A typhoon is coming." }, accept: ["storm"] },
+        { id: "ja-u12l3-kumo", type: "vocab", front: "くも", reading: "kumo", meaning: "cloud", example: { jp: "しろいくもです。", en: "It's a white cloud." }, accept: ["clouds"] },
       ],
     },
     // Lesson 4: temperature (い-adjectives)
@@ -81,6 +87,8 @@ export const UNIT12 = {
         { id: "ja-u12l4-suzushii",  type: "vocab", front: "すずしい",   reading: "suzushii",  meaning: "cool",    example: { jp: "すずしいかぜです。",     en: "It's a cool breeze." },  accept: ["cool (weather)"] },
         { id: "ja-u12l4-tsumetai",  type: "vocab", front: "つめたい",   reading: "tsumetai",  meaning: "cold to the touch", example: { jp: "つめたいみずです。", en: "It's cold water." },     accept: ["cold", "chilly"] },
         { id: "ja-u12l4-nurui",     type: "vocab", front: "ぬるい",     reading: "nurui",     meaning: "lukewarm", example: { jp: "おちゃがぬるいです。",   en: "The tea is lukewarm." }, accept: ["tepid"] },
+        { id: "ja-u12l4-mushiatsui", type: "vocab", front: "むしあつい", reading: "mushiatsui", meaning: "humid", example: { jp: "きょうはむしあついです。", en: "Today is humid." }, accept: ["muggy", "hot and humid"] },
+        { id: "ja-u12l4-sawayaka", type: "vocab", front: "さわやか", reading: "sawayaka", meaning: "refreshing", example: { jp: "さわやかなかぜです。", en: "It's a refreshing breeze." }, accept: ["fresh", "crisp"] },
       ],
     },
     // Lesson 5: the four seasons
@@ -99,6 +107,8 @@ export const UNIT12 = {
         { id: "ja-u12l5-fuyu",   type: "vocab", front: "ふゆ",   reading: "fuyu",   meaning: "winter", example: { jp: "ふゆはさむいです。",     en: "Winter is cold." },      accept: [] },
         { id: "ja-u12l5-kisetsu", type: "vocab", front: "きせつ", reading: "kisetsu", meaning: "season", example: { jp: "すきなきせつはなんですか。", en: "What's your favorite season?" }, accept: ["seasons"] },
         { id: "ja-u12l5-tsuyu",  type: "vocab", front: "つゆ",   reading: "tsuyu",  meaning: "rainy season", example: { jp: "つゆはあめです。",     en: "It rains in the rainy season." }, accept: ["the rainy season"] },
+        { id: "ja-u12l5-sakura", type: "vocab", front: "さくら", reading: "sakura", meaning: "cherry blossom", example: { jp: "はるにさくらをみます。", en: "In spring I see cherry blossoms." }, accept: ["cherry blossoms", "cherry tree"] },
+        { id: "ja-u12l5-hanabi", type: "vocab", front: "はなび", reading: "hanabi", meaning: "fireworks", example: { jp: "なつのはなびです。", en: "They're summer fireworks." }, accept: ["firework"] },
       ],
     },
   ],

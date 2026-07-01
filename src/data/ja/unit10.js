@@ -28,6 +28,8 @@ export const UNIT10 = {
         { id: "ja-u10l1-ginko", type: "vocab", front: "ぎんこう", reading: "ginkō", meaning: "bank", example: { jp: "ぎんこうはどこですか。", en: "Where is the bank?" }, accept: ["the bank"] },
         { id: "ja-u10l1-yubinkyoku", type: "vocab", front: "ゆうびんきょく", reading: "yūbinkyoku", meaning: "post office", example: { jp: "ゆうびんきょくにいきます。", en: "I go to the post office." }, accept: ["the post office"] },
         { id: "ja-u10l1-toshokan", type: "vocab", front: "としょかん", reading: "toshokan", meaning: "library", example: { jp: "としょかんでべんきょうします。", en: "I study at the library." }, accept: ["the library"] },
+        { id: "ja-u10l1-konbini", type: "vocab", front: "コンビニ", reading: "konbini", meaning: "convenience store", example: { jp: "コンビニでかいます。", en: "I buy it at the convenience store." }, accept: ["convenience store", "the konbini"] },
+        { id: "ja-u10l1-kuko", type: "vocab", front: "くうこう", reading: "kūkō", meaning: "airport", example: { jp: "くうこうにいきます。", en: "I go to the airport." }, accept: ["the airport"] },
       ],
     },
     // Lesson 2: more places
@@ -46,6 +48,8 @@ export const UNIT10 = {
         { id: "ja-u10l2-bijutsukan", type: "vocab", front: "びじゅつかん", reading: "bijutsukan", meaning: "art museum", example: { jp: "びじゅつかんにいきます。", en: "I go to the art museum." }, accept: ["art gallery", "the art museum"] },
         { id: "ja-u10l2-otera", type: "vocab", front: "おてら", reading: "otera", meaning: "temple", example: { jp: "おてらはしずかです。", en: "The temple is quiet." }, accept: ["buddhist temple", "the temple"] },
         { id: "ja-u10l2-jinja", type: "vocab", front: "じんじゃ", reading: "jinja", meaning: "shrine", example: { jp: "じんじゃにいきます。", en: "I go to the shrine." }, accept: ["shinto shrine", "the shrine"] },
+        { id: "ja-u10l2-dobutsuen", type: "vocab", front: "どうぶつえん", reading: "dōbutsuen", meaning: "zoo", example: { jp: "どうぶつえんにいきます。", en: "I go to the zoo." }, accept: ["the zoo"] },
+        { id: "ja-u10l2-koban", type: "vocab", front: "こうばん", reading: "kōban", meaning: "police box", example: { jp: "こうばんはどこですか。", en: "Where is the police box?" }, accept: ["police box", "police station"] },
       ],
     },
     // Lesson 3: home
@@ -64,6 +68,8 @@ export const UNIT10 = {
         { id: "ja-u10l3-niwa",  type: "vocab", front: "にわ", reading: "niwa", meaning: "garden", example: { jp: "にわにはながあります。", en: "There are flowers in the garden." }, accept: ["yard", "the garden"] },
         { id: "ja-u10l3-mado",  type: "vocab", front: "まど", reading: "mado", meaning: "window", example: { jp: "まどがあります。", en: "There is a window." }, accept: ["windows"] },
         { id: "ja-u10l3-genkan", type: "vocab", front: "げんかん", reading: "genkan", meaning: "entrance", example: { jp: "げんかんにくつがあります。", en: "There are shoes at the entrance." }, accept: ["doorway", "foyer", "entryway"] },
+        { id: "ja-u10l3-daidokoro", type: "vocab", front: "だいどころ", reading: "daidokoro", meaning: "kitchen", example: { jp: "だいどころでりょうりします。", en: "I cook in the kitchen." }, accept: ["the kitchen"] },
+        { id: "ja-u10l3-toire", type: "vocab", front: "トイレ", reading: "toire", meaning: "toilet", example: { jp: "トイレはどこですか。", en: "Where is the toilet?" }, accept: ["bathroom", "restroom", "the toilet"] },
       ],
     },
     // Lesson 4: position & direction
@@ -82,6 +88,8 @@ export const UNIT10 = {
         { id: "ja-u10l4-shita",  type: "vocab", front: "した", reading: "shita", meaning: "below", example: { jp: "したにあります。", en: "It's below." }, accept: ["under", "down", "underneath", "bottom"] },
         { id: "ja-u10l4-mae",    type: "vocab", front: "まえ", reading: "mae", meaning: "front", example: { jp: "えきのまえです。", en: "It's in front of the station." }, accept: ["in front", "before", "the front"] },
         { id: "ja-u10l4-ushiro", type: "vocab", front: "うしろ", reading: "ushiro", meaning: "behind", example: { jp: "いえのうしろです。", en: "It's behind the house." }, accept: ["back", "rear", "at the back"] },
+        { id: "ja-u10l4-naka", type: "vocab", front: "なか", reading: "naka", meaning: "inside", example: { jp: "かばんのなかにあります。", en: "It's inside the bag." }, accept: ["in", "middle", "within"] },
+        { id: "ja-u10l4-tonari", type: "vocab", front: "となり", reading: "tonari", meaning: "next to", example: { jp: "えきのとなりです。", en: "It's next to the station." }, accept: ["beside", "next door", "neighboring"] },
       ],
     },
     // Lesson 5: describing words
@@ -100,6 +108,8 @@ export const UNIT10 = {
         { id: "ja-u10l5-chiisai", type: "vocab", front: "ちいさい", reading: "chiisai", meaning: "small", example: { jp: "ちいさいみせです。", en: "It's a small shop." }, accept: ["little", "tiny"] },
         { id: "ja-u10l5-atarashii", type: "vocab", front: "あたらしい", reading: "atarashii", meaning: "new", example: { jp: "あたらしいくつです。", en: "They're new shoes." }, accept: ["brand new"] },
         { id: "ja-u10l5-furui",  type: "vocab", front: "ふるい", reading: "furui", meaning: "old", example: { jp: "ふるいおてらです。", en: "It's an old temple." }, accept: ["aged", "old (thing)"] },
+        { id: "ja-u10l5-hiroi", type: "vocab", front: "ひろい", reading: "hiroi", meaning: "spacious", example: { jp: "このへやはひろいです。", en: "This room is spacious." }, accept: ["wide", "roomy", "large"] },
+        { id: "ja-u10l5-kirei", type: "vocab", front: "きれい", reading: "kirei", meaning: "pretty", example: { jp: "まちはきれいです。", en: "The town is pretty." }, accept: ["clean", "beautiful", "tidy"] },
       ],
     },
   ],

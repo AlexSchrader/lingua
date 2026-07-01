@@ -28,6 +28,8 @@ export const UNIT8 = {
         { id: "ja-u8l1-sofu",   type: "vocab", front: "そふ", reading: "sofu", meaning: "my grandfather", example: { jp: "そふはげんきです。", en: "My grandfather is well." }, accept: ["grandfather", "grandpa"] },
         { id: "ja-u8l1-sobo",   type: "vocab", front: "そぼ", reading: "sobo", meaning: "my grandmother", example: { jp: "そぼがすきです。", en: "I love my grandmother." }, accept: ["grandmother", "grandma"] },
         { id: "ja-u8l1-oya",    type: "vocab", front: "おや", reading: "oya", meaning: "parent", example: { jp: "おやとこどもです。", en: "A parent and a child." }, accept: ["a parent", "parents"] },
+        { id: "ja-u8l1-otto", type: "vocab", front: "おっと", reading: "otto", meaning: "my husband", example: { jp: "おっとがすきです。", en: "I love my husband." }, accept: ["husband"], hint: "おっと is YOUR OWN husband (humble). Someone else's husband, politely, is ごしゅじん (Lesson 3)." },
+        { id: "ja-u8l1-tsuma", type: "vocab", front: "つま", reading: "tsuma", meaning: "my wife", example: { jp: "つまはせんせいです。", en: "My wife is a teacher." }, accept: ["wife"] },
       ],
     },
     // Lesson 2: siblings & children
@@ -46,6 +48,8 @@ export const UNIT8 = {
         { id: "ja-u8l2-imouto", type: "vocab", front: "いもうと", reading: "imōto", meaning: "my younger sister", example: { jp: "いもうとがすきです。", en: "I love my little sister." }, accept: ["younger sister", "little sister"] },
         { id: "ja-u8l2-akachan", type: "vocab", front: "あかちゃん", reading: "akachan", meaning: "baby", example: { jp: "あかちゃんがすきです。", en: "I like babies." }, accept: ["a baby", "babies", "infant"] },
         { id: "ja-u8l2-mago",   type: "vocab", front: "まご", reading: "mago", meaning: "grandchild", example: { jp: "これはまごです。", en: "This is my grandchild." }, accept: ["grandchildren"] },
+        { id: "ja-u8l2-musuko", type: "vocab", front: "むすこ", reading: "musuko", meaning: "my son", example: { jp: "むすこはこどもです。", en: "My son is a child." }, accept: ["son"] },
+        { id: "ja-u8l2-musume", type: "vocab", front: "むすめ", reading: "musume", meaning: "my daughter", example: { jp: "むすめがすきです。", en: "I love my daughter." }, accept: ["daughter"] },
       ],
     },
     // Lesson 3: someone else's family (honorific forms)
@@ -64,6 +68,8 @@ export const UNIT8 = {
         { id: "ja-u8l3-oneesan", type: "vocab", front: "おねえさん", reading: "onēsan", meaning: "older sister (someone's)", example: { jp: "おねえさんはおげんきですか。", en: "Is your older sister well?" }, accept: ["older sister", "your older sister"] },
         { id: "ja-u8l3-ojiisan", type: "vocab", front: "おじいさん", reading: "ojiisan", meaning: "old man", example: { jp: "おじいさんはげんきですか。", en: "Is the old man well?" }, accept: ["grandfather", "grandpa", "elderly man"] },
         { id: "ja-u8l3-obaasan", type: "vocab", front: "おばあさん", reading: "obāsan", meaning: "old woman", example: { jp: "おばあさんがすきです。", en: "I like the old lady." }, accept: ["grandmother", "grandma", "elderly woman"] },
+        { id: "ja-u8l3-goshujin", type: "vocab", front: "ごしゅじん", reading: "goshujin", meaning: "husband (someone's)", example: { jp: "ごしゅじんはせんせいですか。", en: "Is your husband a teacher?" }, accept: ["husband", "your husband"], hint: "ごしゅじん is the polite word for SOMEONE ELSE's husband. Your own husband, humbly, is おっと (Lesson 1)." },
+        { id: "ja-u8l3-okusan", type: "vocab", front: "おくさん", reading: "okusan", meaning: "wife (someone's)", example: { jp: "おくさんはおげんきですか。", en: "Is your wife well?" }, accept: ["wife", "your wife"] },
       ],
     },
     // Lesson 4: people
@@ -82,6 +88,8 @@ export const UNIT8 = {
         { id: "ja-u8l4-okyaku", type: "vocab", front: "おきゃくさん", reading: "okyakusan", meaning: "guest", example: { jp: "おきゃくさんです。", en: "It's a guest." }, accept: ["customer", "visitor", "the customer"] },
         { id: "ja-u8l4-minna", type: "vocab", front: "みんな", reading: "minna", meaning: "everyone", example: { jp: "みんなともだちです。", en: "Everyone is a friend." }, accept: ["everybody", "all"] },
         { id: "ja-u8l4-dare",  type: "vocab", front: "だれ", reading: "dare", meaning: "who", example: { jp: "あのひとはだれですか。", en: "Who is that person?" }, accept: ["who?"] },
+        { id: "ja-u8l4-gakusei", type: "vocab", front: "がくせい", reading: "gakusei", meaning: "student", example: { jp: "あのひとはがくせいです。", en: "That person is a student." }, accept: ["a student", "pupil"] },
+        { id: "ja-u8l4-kaishain", type: "vocab", front: "かいしゃいん", reading: "kaishain", meaning: "office worker", example: { jp: "ちちはかいしゃいんです。", en: "My father is an office worker." }, accept: ["company employee", "employee", "salaryman"] },
       ],
     },
     // Lesson 5: you & others (pronouns)
@@ -100,6 +108,8 @@ export const UNIT8 = {
         { id: "ja-u8l5-jibun",  type: "vocab", front: "じぶん", reading: "jibun", meaning: "oneself", example: { jp: "じぶんでします。", en: "I'll do it myself." }, accept: ["myself", "self", "by oneself"] },
         { id: "ja-u8l5-minasan", type: "vocab", front: "みなさん", reading: "minasan", meaning: "everyone (polite)", example: { jp: "みなさん、こんにちは。", en: "Hello, everyone." }, accept: ["everybody", "all of you"] },
         { id: "ja-u8l5-hitori", type: "vocab", front: "ひとり", reading: "hitori", meaning: "one person", example: { jp: "ひとりですか。", en: "Are you alone?" }, accept: ["alone", "by myself", "one (person)"] },
+        { id: "ja-u8l5-watashitachi", type: "vocab", front: "わたしたち", reading: "watashitachi", meaning: "we", example: { jp: "わたしたちはともだちです。", en: "We are friends." }, accept: ["us", "we are"] },
+        { id: "ja-u8l5-futari", type: "vocab", front: "ふたり", reading: "futari", meaning: "two people", example: { jp: "ふたりですか。", en: "Are there two of you?" }, accept: ["two (people)", "a pair", "couple"] },
       ],
     },
   ],
