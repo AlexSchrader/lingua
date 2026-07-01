@@ -455,7 +455,7 @@ function UnitsSection({ langId, items }) {
     let status = "coming";
     if (isDone) status = "done";
     else if (!currentMarked) { status = "current"; currentMarked = true; }
-    return { kind: "unit", stage: u.stage ?? "a1", id: u.id, title: u.title, done, total, status };
+    return { kind: "unit", stage: u.stage ?? "a1", id: u.id, unit: u, done, total, status };
   });
   const roadmapRows = roadmap.map((r, i) => ({
     kind: "coming", stage: r.stage ?? "a1", id: `rm${i}`, title: r.title, theme: r.theme,
@@ -483,7 +483,7 @@ function UnitsSection({ langId, items }) {
               {rows.map((r) => {
                 n += 1;
                 return r.kind === "unit" ? (
-                  <UnitRow key={r.id} n={n} title={r.title} done={r.done} total={r.total} status={r.status} />
+                  <UnitRow key={r.id} n={n} unit={r.unit} items={items} done={r.done} total={r.total} status={r.status} />
                 ) : (
                   <ComingRow key={r.id} n={n} title={r.title} theme={r.theme} />
                 );
@@ -507,26 +507,57 @@ function StageHeader({ label }) {
   );
 }
 
-function UnitRow({ n, title, done, total, status }) {
+function UnitRow({ n, unit, items, done, total, status }) {
+  const [open, setOpen] = useState(false);
   const pct = total ? Math.round((done / total) * 100) : 0;
   const badge = status === "done"
     ? { text: "Done", color: C.matcha }
     : status === "current"
     ? { text: "Current", color: C.ai }
     : { text: "Coming", color: C.locked };
+  const lessons = unit.lessons.filter((l) => Array.isArray(l.items));
+
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 12, padding: 12, borderRadius: 12, background: C.surface, border: `1px solid ${C.line}` }}>
-      <Num n={n} color={badge.color} />
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
-          <span style={{ fontFamily: F.jp, fontWeight: 700, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{title}</span>
-          <span style={{ fontSize: 11, fontWeight: 700, color: badge.color, flexShrink: 0 }}>{badge.text}</span>
+    <div style={{ borderRadius: 12, background: C.surface, border: `1px solid ${C.line}`, overflow: "hidden" }}>
+      {/* Header — tap to expand the lesson list */}
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        style={{ width: "100%", display: "flex", alignItems: "center", gap: 12, padding: 12, background: "transparent", border: "none", cursor: "pointer", textAlign: "left", fontFamily: F.body }}
+      >
+        <Num n={n} color={badge.color} />
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+            <span style={{ fontFamily: F.jp, fontWeight: 700, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{unit.title}</span>
+            <span style={{ fontSize: 11, fontWeight: 700, color: badge.color, flexShrink: 0 }}>{badge.text}</span>
+          </div>
+          <div style={{ height: 6, borderRadius: 999, background: C.lockedBg, overflow: "hidden", marginTop: 6 }}>
+            <div style={{ width: `${pct}%`, height: "100%", background: status === "done" ? C.matcha : C.ai, transition: "width 250ms ease" }} />
+          </div>
+          <div style={{ fontSize: 11, color: C.inkSoft, marginTop: 4 }}>{done}/{total} items · {lessons.length} lessons</div>
         </div>
-        <div style={{ height: 6, borderRadius: 999, background: C.lockedBg, overflow: "hidden", marginTop: 6 }}>
-          <div style={{ width: `${pct}%`, height: "100%", background: status === "done" ? C.matcha : C.ai, transition: "width 250ms ease" }} />
+        <ChevronRight size={18} color={C.inkSoft} style={{ flexShrink: 0, transform: open ? "rotate(90deg)" : "none", transition: "transform 200ms ease" }} />
+      </button>
+
+      {/* Lesson previews */}
+      {open && (
+        <div style={{ borderTop: `1px solid ${C.line}`, display: "flex", flexDirection: "column" }}>
+          {lessons.map((l, i) => {
+            const lt = l.items.length;
+            const ld = l.items.filter((def) => (items[def.id]?.rung ?? 0) >= 1).length;
+            const ldone = lt > 0 && ld === lt;
+            return (
+              <div key={l.id} style={{ padding: "10px 12px 10px 14px", borderTop: i === 0 ? "none" : `1px solid ${C.line}` }}>
+                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }}>
+                  <span style={{ fontSize: 13, fontWeight: 700 }}>Lesson {l.lesson ?? i + 1} · {l.title}</span>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: ldone ? C.matcha : C.inkSoft, flexShrink: 0 }}>{ld}/{lt}</span>
+                </div>
+                {l.canDo && <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 2, lineHeight: 1.35 }}>{l.canDo}</div>}
+              </div>
+            );
+          })}
         </div>
-        <div style={{ fontSize: 11, color: C.inkSoft, marginTop: 4 }}>{done}/{total} items</div>
-      </div>
+      )}
     </div>
   );
 }
