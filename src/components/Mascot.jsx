@@ -55,10 +55,15 @@ export default function Mascot({ context, pose, videoKey, size = 130, className 
     );
   }
 
+  // Use only the ALPHA-CAPABLE formats (WebM VP9 / HEVC .mov). MP4 can't hold
+  // transparency — its baked-in background shows as a white box — so it is NOT
+  // a source here. Until transparent versions exist the clip errors → we fall
+  // back to the (transparent) still; drop `lingua-*.webm` / `.mov` in and it
+  // animates with no background, no code change.
+  const base = preset.clip.replace(/\.\w+$/, "");
   return (
     <video
       key={videoKey}
-      src={preset.clip}
       poster={stillSrc}
       autoPlay
       muted
@@ -69,6 +74,9 @@ export default function Mascot({ context, pose, videoKey, size = 130, className 
       aria-hidden
       className={className}
       style={{ width: size, height: "auto", display: "block", ...style }}
-    />
+    >
+      <source src={`${base}.webm`} type="video/webm" />
+      <source src={`${base}.mov`} type='video/quicktime; codecs="hvc1"' />
+    </video>
   );
 }
