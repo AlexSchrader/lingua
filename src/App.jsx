@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import AppShell from "./components/AppShell.jsx";
 import Today from "./screens/Today.jsx";
@@ -11,7 +11,7 @@ import Review from "./screens/Review.jsx";
 import Auth from "./screens/Auth.jsx";
 import Onboarding from "./screens/Onboarding.jsx";
 import { useStore } from "./store/useStore.js";
-import { C, F } from "./theme.js";
+import { C, F, setActiveTheme, resolveTheme } from "./theme.js";
 
 // Lazy-loaded: the ElevenLabs voice SDK is heavy (~500KiB) and only needed on
 // the Haruki tab, so keep it out of the main bundle until the user opens it.
@@ -34,9 +34,35 @@ function Splash() {
   );
 }
 
+// Track the OS colour-scheme so "system" follows it live.
+function useSystemDark() {
+  const [dark, setDark] = useState(
+    () => typeof window !== "undefined" && window.matchMedia?.("(prefers-color-scheme: dark)").matches
+  );
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const on = () => setDark(mq.matches);
+    mq.addEventListener?.("change", on);
+    return () => mq.removeEventListener?.("change", on);
+  }, []);
+  return dark;
+}
+
 export default function App() {
   const auth = useStore((s) => s.auth);
   const onboarded = useStore((s) => s.profile?.onboarded);
+
+  // Theme: resolve the preference against the OS, set the active palette BEFORE
+  // children render (so they read the right colours this pass), and sync the
+  // page chrome (scrollbars/overscroll, native controls).
+  const themePref = useStore((s) => s.settings?.theme ?? "system");
+  const systemDark = useSystemDark();
+  const effectiveTheme = resolveTheme(themePref, systemDark);
+  setActiveTheme(effectiveTheme);
+  useEffect(() => {
+    document.documentElement.style.colorScheme = effectiveTheme;
+    document.body.style.background = C.washi;
+  }, [effectiveTheme]);
 
   // Auth gate: log in → onboarding → app. Only when this build has Supabase
   // configured; otherwise fall straight through to the app (local-only mode).

@@ -2,6 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
+import { setActiveTheme, resolveTheme, C } from "./theme.js";
+
+// Apply the saved theme BEFORE first render to avoid a light-mode flash. Reads
+// the persisted preference straight from localStorage (the store hasn't rehydrated
+// yet at this point); App keeps it in sync live thereafter.
+try {
+  const pref = JSON.parse(localStorage.getItem("lingua-v1"))?.state?.settings?.theme ?? "system";
+  const systemDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? false;
+  setActiveTheme(resolveTheme(pref, systemDark));
+  document.documentElement.style.colorScheme = resolveTheme(pref, systemDark);
+  document.body.style.background = C.washi;
+} catch {
+  /* first run / no storage — defaults to light */
+}
 
 // Keep the PWA fresh. The default register-only script never checked for new
 // deploys, so a cached build stuck until a manual hard-refresh (the stale

@@ -147,6 +147,34 @@ export default function Settings() {
         )}
       </Section>
 
+      <Section title="Appearance">
+        <div style={{ display: "flex", gap: 8 }}>
+          {[["system", "System"], ["light", "Light"], ["dark", "Dark"]].map(([val, label]) => {
+            const on = (settings?.theme ?? "system") === val;
+            return (
+              <button
+                key={val}
+                onClick={() => setSetting("theme", val)}
+                style={{
+                  flex: 1,
+                  padding: "11px 8px",
+                  borderRadius: 12,
+                  border: `1.5px solid ${on ? C.ai : C.line}`,
+                  background: on ? C.aiSoft : C.surface,
+                  color: on ? C.aiDeep : C.inkSoft,
+                  fontSize: 14,
+                  fontWeight: 700,
+                  fontFamily: F.body,
+                  cursor: "pointer",
+                }}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
+      </Section>
+
       <Section title="Sound">
         <Toggle
           label="Sound effects"
