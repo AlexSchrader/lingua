@@ -64,8 +64,8 @@ This file is updated as part of the PR that completes work. When a task is finis
   - **Kanji consolidated** — the nine thin 10-item kanji units → **6 fuller category units** (U11 numbers&time 24 · U13 nature 13 · U14 people&body 16 · U15 position 12 · U17 verbs 20 · U18 adj&places 21), all 106 kanji preserved, KanjiVG intact, 0 dup ids. Removed U19–21; total units 21→18. **Kanji item ids changed → kanji mastery resets** (approved, safe pre-users). Also delivers the "categorize kanji" ask. *Polish follow-up: auto-generated canDo lines are generic + some examples reference later-unit kanji — for the native pass.*
   - **Grammar STARTED** — **U19 ぶんぽう** (29 items): the copula sentence X は Y です, こそあど demonstratives, は/です/か/じゃないです, の/と/も, question words, connectors. Modeled as function-word vocab (no grammar item type). **This lifts the grammar hold for the copula layer; ⚠️ especially needs the native review.** Next grammar = verbs + を/が/に/で (roadmap "Verbs & more particles").
   - **Grammar CONTINUED — U20 ぶんぽう・2** (27 items): the action sentence — を (object) + verbs, に/が + あります/います, で (place of action), へ/から/まで, invitations/requests (ませんか/ましょう/ください). に taught via examples+hint (front に is already the number "two"; validator NOT weakened). U7 time/day lessons also thickened 6→8.
-  - State: **20 units · 88 lessons · 704 items** (175 kana / 423 vocab / 106 kanji). All gates green (lint 0 err, validate clean, 55 tests, build). **A1/N5 is now content-complete** across scripts + vocab + kanji + core grammar (copula, particles は/の/を/が/に/で/へ, question words, ～ます verbs, invitations). Roadmap now shows only A2 next. *Remaining polish: past tense (でした/ました), い/な-adjective conjugation, kanji canDo lines — plus the native review gate before "done" is claimed.*
-- **Last updated:** 2026-06-30 (A1 build-out: vocab thickening + kanji consolidation + grammar U19; GitHub account appeal in progress)
+  - **Grammar FINISHED — U21 ぶんぽう・3** (25 items): past-tense verbs (ました/ません/ませんでした), past copula (でした/じゃなかったです), い-adjective conjugation (くないです/かったです/くなかったです), な-adjectives (すき/きらい/じょうず/へた + な), たいです/ほしい. Also **polished all 17 consolidated-kanji canDo lines** (generic → meaningful with glosses).
+  - State: **21 units · 93 lessons · 729 items** (175 kana / 448 vocab / 106 kanji). All gates green. **A1/N5 is now GRAMMAR-COMPLETE** — copula, all core particles, question words, ～ます verbs + past/negative, い/な-adjective conjugation, want-forms, invitations. Nothing left in A1 except the **native review** (quality gate, parked for app-done) and the **kanji-example forward-references** (some examples use later-unit kanji — for the native/polish pass). Committed locally; **needs a Vercel deploy to go live.**
 
 ---
 
@@ -80,6 +80,18 @@ Single place for the feature/engine work that's surfaced. Curriculum CC adds her
 - [ ] **Lesson — "card breath" debounce** (PR #41, parked) — short delay before a new card accepts taps; *prevents* the double-tap skip the Previous button *recovers* from. Pair them.
 - [ ] **Lesson/UI — clarify card-vs-item counting.** The session counts cards (3× items), which reads as "0/30" and confused a real user vs the Ladder's item totals. Label it ("card 1 of 30") or show item progress.
 - [ ] **Checkpoints + save points** (engine side of the 2026-06-30 design) — checkpoints = light consolidation *beats* within a unit; save points = mid-lesson resume, **no expiry / no restart** (FSRS owns reinforcement). Curriculum CC owns the beat *content*; engine mechanic is feature CC's.
+
+---
+
+## QA findings (logged by QA CC — a third CC lane: tests + reports, does not build/author)
+
+**Who/what:** QA CC runs the full local gate (`validate:content` → `lint:curriculum` → `test:unit` → `audit` → `build`) plus real-app/manual checks, and files prioritized findings here. QA does **not** author content or build features — it fixes only outright bugs / small-unambiguous defects and routes everything else to the Feature or Curriculum lane. See CLAUDE.md → "Three CC lanes."
+
+**Baseline (2026-06-30):** validate 0 err / 0 warn · lint 0 err / **1 advisory** (`ja-u16l6` 3 word cards, recommend 5–8 — yōon-tail, expected) · audit clean (20 units / 88 lessons / 704 items / 0 dup ids) · **55/55 unit tests** · build green. Tree is healthy.
+
+- [ ] **P1 — `src/components/games/RecallCard.jsx` is uncommitted dead code that violates the no-self-grading principle.** (Feature CC / Alex to decide.) It's untracked, imported nowhere, and **not** a `LIVE_CARD_KINDS` entry (kinds are teach/choice/type:meaning/build/trace — note `dominantMode:"recall"` in units is the *pedagogical mode*, unrelated). Worse, it renders **user-tapped Again/Hard/Good/Easy grade buttons** — the exact self-grading the engine rejects (Phase 0: "app-judged cards, computed FSRS grade from correctness+speed, **no self-grading**"). Its own comment falsely claims it's "Fully wired." **Action:** delete it, or if a manual-recall card is genuinely wanted, spec it as a real engine change (draft PR, add to `LIVE_CARD_KINDS` + coverage fixture) — but reconcile it with the no-self-grading rule first. Not QA's to build.
+- [ ] **P3 — `ja-u16l6` density advisory** (3 word cards vs 5–8). Yōon tail lesson; finite set so may be acceptable. Curriculum CC: either thicken with review items or confirm-and-waive. Non-blocking.
+- Note (not a finding): the working tree also has an unstaged `.gitignore` add (`.vercel`, `.env*` — correct, keeps secrets out) and `unit16.js order 13→16` (a correct sequencing fix). Both look intentional; flagging only so whoever commits knows they're loose in the tree.
 
 ---
 
