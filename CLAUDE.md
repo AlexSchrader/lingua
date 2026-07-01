@@ -4,18 +4,45 @@ Standing context for Claude Code (CC) on this repo. Read this first, every sessi
 
 ---
 
-## Working split — read this first
+## Roles — read this first
 
-**CC owns the work. Alex supervises.**
+**CC owns the work; Alex supervises.** The work splits into three CC lanes so parallel sessions don't collide. **Stay in your lane** — if a task needs another lane's files, say so and hand it off rather than reaching across.
 
-- **CC implements, tests, opens draft PRs, updates the checklist, and stamps completed work.**
-- **Alex reviews diffs, feel-checks the deployed result, decides scope, and merges.**
+| Role | Owns | Files | Merge rights |
+|------|------|-------|--------------|
+| **Alex** | Scope, review, feel-check, final merge | — | **Merges everything.** The gate is always his. |
+| **Feature CC** | App / engine / UX, schema & contract | `src/screens`, `src/store`, `src/components`, `src/data/contract.js`, `src/data/lint.js` | **Draft PR → Alex merges.** |
+| **Curriculum CC** | Content units only | `src/data/ja/*.js` | **May self-merge on full green** (see exception). |
+| **QA CC** | **Tests & reports — builds nothing** | reads all; writes only findings docs | **Never merges; draft PRs only.** |
+
+**What each CC does day to day:**
+
+- **Feature CC** — implements engine/UX/schema work, opens draft PRs, updates the checklist. Engine and schema keep a human gate (they can break everything).
+- **Curriculum CC** — authors and maintains the content units (`src/data/ja/*.js`): writes new units, thickens thin ones (aim ~5–8 word cards/lesson; leave intentionally-finite lessons like "count 1–5" alone), and restructures/consolidates when the shape drifts. Day to day:
+  - Author to `CONTENT.md` + the lint rules. **Every example uses only vocab already introduced**, and reads naturally — write it *as if a native reviews it*.
+  - **Check fronts for collisions before adding** — vocab fronts are globally unique, so a homograph blocks a second use (に = "two" blocks the particle に → teach it through examples + a hint; **never weaken the validator** to force it in).
+  - **Grammar has no item type** — model it as function-word / suffix vocab (は・です・を・ました・くないです…) whose example sentences carry the pattern.
+  - **Kanji** need KanjiVG stroke data (add the glyph to `scripts/fetch-kanjivg.mjs`); **yōon are exempt** (2-glyph, taught by reading, never traced).
+  - **Prefer additive edits** (new item ids) so existing progress isn't reset. Any id-changing move (renumber, consolidate) wipes that item's mastery — flag it and time it for pre-users.
+  - Run the **full gate** (`lint:curriculum` → `validate:content` → `test:unit` → `audit` → `build`) and **self-merge on all-green** (curriculum *only*; see exception). Queue naturalness-heavy content (grammar, examples) for the **batched native review** — the one thing no lint can check.
+  - **Stay out of app/engine/schema files.** Spotted a UI/engine improvement? Log it as a `[ ]` feature item for the Feature CC — hand off, don't reach across.
+- **QA CC** — runs the full local gate (`validate:content` → `lint:curriculum` → `test:unit` → `audit` → `build`) plus real-app/manual checks; hunts bugs, regressions, content defects, ND-friction, architecture drift; hands Alex a **prioritized findings list** in `BUILD-CHECKLIST.md` → "QA findings". **QA writes findings, not fixes** — it may fix only an outright bug or a small-unambiguous defect (the "spot-a-bug" exception below), and files everything else as a `[ ]` item routed to the Feature or Curriculum lane.
 
 Default to thoroughness and self-sufficiency. Don't ask permission for routine work, but **do** check in before anything risky (see "Check in before"). Web-Claude plans, designs, and writes detailed build briefs; CC executes them in-repo. If a brief is ambiguous or you spot a problem, flag it before building — don't silently reinterpret scope.
 
 **Open draft PRs only — never mark ready, never merge.** The merge gate is always Alex's, after CI is green AND a personal feel-check.
 
-**Exception — autonomous curriculum authoring (Alex enabled 2026-06-28, `BUILD-BRIEF-curriculum-lint.md` Part 3):** CC may author AND **self-merge curriculum content units** without per-unit approval, once `lint:curriculum` + `validate:content` + unit tests + Playwright smoke + build are all green. Native-speaker review is batched (per sub-section), not per unit; Claude spot-review is on-request only. Alex playtests merged units in Dev Mode. **Scope limit: curriculum content only.** Schema/contract/engine changes still go through draft PRs and stay Alex's call (unless he explicitly directs otherwise for a specific change).
+**Exception — autonomous curriculum authoring (Alex enabled 2026-06-28, `BUILD-BRIEF-curriculum-lint.md` Part 3):** Curriculum CC may author AND **self-merge curriculum content units** without per-unit approval, once `lint:curriculum` + `validate:content` + unit tests + Playwright smoke + build are all green. Native-speaker review is batched (per sub-section), not per unit; Claude spot-review is on-request only. Alex playtests merged units in Dev Mode. **Scope limit: curriculum content only.** Schema/contract/engine changes still go through draft PRs and stay Alex's call (unless he explicitly directs otherwise for a specific change).
+
+**Docs map — where each thing lives (and who owns it):**
+
+| Doc | Purpose | Primary owner |
+|-----|---------|---------------|
+| `CLAUDE.md` | Standing conventions, roles, guardrails (**this file — read first**) | all CC |
+| `BUILD-CHECKLIST.md` | Single source of truth for project state; **Feature CC backlog** + **QA findings** live here | all CC |
+| `CONTENT.md` | Content schema reference for authoring units | Curriculum CC |
+| `README.md` | Public-facing project overview + how to run/test | Feature CC |
+| `BUILD-BRIEF-*.md` | Design briefs (accounts/sync, curriculum lint, speech grading) | Web-Claude / Alex |
 
 ---
 
