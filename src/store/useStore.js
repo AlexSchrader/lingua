@@ -118,6 +118,10 @@ export const useStore = create(
       setActiveLang: (id) =>
         set((s) => (s.profile.languages.includes(id) ? { profile: { ...s.profile, activeLang: id } } : s)),
 
+      // Dev/testing: re-show the onboarding flow (language pick + profile) without
+      // touching any progress — just flips the flag so the gate runs it again.
+      replayOnboarding: () => set((s) => ({ profile: { ...s.profile, onboarded: false } })),
+
       setSetting: (key, value) =>
         set((s) => ({ settings: { ...s.settings, [key]: value } })),
 

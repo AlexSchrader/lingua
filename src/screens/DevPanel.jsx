@@ -33,6 +33,7 @@ export default function DevPanel() {
   const navigate = useNavigate();
   const devMode = useStore((s) => s.devMode);
   const resetAll = useStore((s) => s.resetAll);
+  const replayOnboarding = useStore((s) => s.replayOnboarding);
   const [confirming, setConfirming] = useState(false);
 
   const diag = useMemo(() => devDiagnostics(), []);
@@ -126,6 +127,18 @@ export default function DevPanel() {
           </Section>
         );
       })}
+
+      <Section title="Preview flows">
+        <button
+          onClick={() => { replayOnboarding(); navigate("/"); }}
+          style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.ai}`, background: C.aiSoft, color: C.aiDeep, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+        >
+          <Play size={18} /> Replay onboarding
+        </button>
+        <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 8, lineHeight: 1.4 }}>
+          Re-runs the language pick + onboarding screens. Safe — doesn't touch your progress; you'll land back in the app when you finish.
+        </div>
+      </Section>
 
       <Section title="Danger zone">
         {!confirming ? (
