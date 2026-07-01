@@ -59,7 +59,7 @@ export default function Auth() {
   return (
     <div
       style={{
-        minHeight: "100dvh",
+        minHeight: "calc(100dvh / var(--app-zoom, 1))",
         background: C.washi,
         color: C.ink,
         fontFamily: F.body,

@@ -55,7 +55,7 @@ export default function Onboarding() {
   }
 
   return (
-    <div style={{ minHeight: "100dvh", background: C.washi, color: C.ink, fontFamily: F.body, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24 }}>
+    <div style={{ minHeight: "calc(100dvh / var(--app-zoom, 1))", background: C.washi, color: C.ink, fontFamily: F.body, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24 }}>
       <div style={{ width: "100%", maxWidth: 400, display: "flex", flexDirection: "column", gap: 22 }}>
         {(step > 0 || devMode) && (
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: -8 }}>

@@ -24,7 +24,7 @@ export default function AppShell() {
   return (
     <div
       style={{
-        height: "100dvh",
+        height: "calc(100dvh / var(--app-zoom, 1))",
         display: "flex",
         flexDirection: "column",
         background: C.washi,

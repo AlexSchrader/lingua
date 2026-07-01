@@ -26,7 +26,7 @@ export default function SetPassword() {
   }
 
   return (
-    <div style={{ minHeight: "100dvh", background: C.washi, color: C.ink, fontFamily: F.body, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24 }}>
+    <div style={{ minHeight: "calc(100dvh / var(--app-zoom, 1))", background: C.washi, color: C.ink, fontFamily: F.body, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24 }}>
       <div style={{ width: "100%", maxWidth: 360, display: "flex", flexDirection: "column", gap: 18 }}>
         <div style={{ textAlign: "center" }}>
           <img src="/mascot/lingua-think.png" alt="" aria-hidden style={{ width: 96, height: "auto", margin: "0 auto 8px" }} />

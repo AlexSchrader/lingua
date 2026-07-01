@@ -30,7 +30,7 @@ const AUTH_ENABLED =
 const SPLASH_KEYFRAMES = "@keyframes lingua-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}";
 function Splash() {
   return (
-    <div style={{ minHeight: "100dvh", background: C.washi, color: C.inkSoft, fontFamily: F.body, display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <div style={{ minHeight: "calc(100dvh / var(--app-zoom, 1))", background: C.washi, color: C.inkSoft, fontFamily: F.body, display: "flex", alignItems: "center", justifyContent: "center" }}>
       <style>{SPLASH_KEYFRAMES}</style>
       <img src="/mascot/lingua-think.png" alt="Loading" style={{ width: 100, height: "auto", opacity: 0.9, animation: "lingua-bob 1.6s ease-in-out infinite" }} />
     </div>
@@ -66,6 +66,16 @@ export default function App() {
     document.documentElement.style.colorScheme = effectiveTheme;
     document.body.style.background = C.washi;
   }, [effectiveTheme]);
+
+  // Text size = a UI scale via `zoom`. The shells key their height off
+  // --app-zoom (calc(100dvh / var(--app-zoom))) so they stay exactly one
+  // viewport tall at any scale — the pinned top-bar/bottom-nav never break.
+  const textSize = useStore((s) => s.settings?.textSize ?? "default");
+  useEffect(() => {
+    const scale = { small: 0.9, default: 1, large: 1.15 }[textSize] ?? 1;
+    document.documentElement.style.setProperty("--app-zoom", String(scale));
+    document.documentElement.style.zoom = String(scale);
+  }, [textSize]);
 
   // Auth gate: log in → onboarding → app. Only when this build has Supabase
   // configured; otherwise fall straight through to the app (local-only mode).

@@ -8,13 +8,17 @@ import { setActiveTheme, resolveTheme, C } from "./theme.js";
 // the persisted preference straight from localStorage (the store hasn't rehydrated
 // yet at this point); App keeps it in sync live thereafter.
 try {
-  const pref = JSON.parse(localStorage.getItem("lingua-v1"))?.state?.settings?.theme ?? "system";
+  const settings = JSON.parse(localStorage.getItem("lingua-v1"))?.state?.settings ?? {};
+  const pref = settings.theme ?? "system";
   const systemDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? false;
   setActiveTheme(resolveTheme(pref, systemDark));
   document.documentElement.style.colorScheme = resolveTheme(pref, systemDark);
   document.body.style.background = C.washi;
+  const scale = { small: 0.9, default: 1, large: 1.15 }[settings.textSize ?? "default"] ?? 1;
+  document.documentElement.style.setProperty("--app-zoom", String(scale));
+  document.documentElement.style.zoom = String(scale);
 } catch {
-  /* first run / no storage — defaults to light */
+  /* first run / no storage — defaults to light, scale 1 */
 }
 
 // Keep the PWA fresh. The default register-only script never checked for new

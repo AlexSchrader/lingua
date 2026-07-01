@@ -173,6 +173,33 @@ export default function Settings() {
             );
           })}
         </div>
+
+        <div style={{ fontSize: 12, fontWeight: 700, color: C.inkSoft, margin: "16px 0 8px" }}>Text size</div>
+        <div style={{ display: "flex", gap: 8 }}>
+          {[["small", "Small"], ["default", "Default"], ["large", "Large"]].map(([val, label]) => {
+            const on = (settings?.textSize ?? "default") === val;
+            return (
+              <button
+                key={val}
+                onClick={() => setSetting("textSize", val)}
+                style={{
+                  flex: 1,
+                  padding: "11px 8px",
+                  borderRadius: 12,
+                  border: `1.5px solid ${on ? C.ai : C.line}`,
+                  background: on ? C.aiSoft : C.surface,
+                  color: on ? C.aiDeep : C.inkSoft,
+                  fontSize: val === "small" ? 12 : val === "large" ? 16 : 14,
+                  fontWeight: 700,
+                  fontFamily: F.body,
+                  cursor: "pointer",
+                }}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
       </Section>
 
       <Section title="Sound">
