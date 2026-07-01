@@ -10,6 +10,7 @@ import Lesson from "./screens/Lesson.jsx";
 import Review from "./screens/Review.jsx";
 import Auth from "./screens/Auth.jsx";
 import Onboarding from "./screens/Onboarding.jsx";
+import SetPassword from "./screens/SetPassword.jsx";
 import { useStore } from "./store/useStore.js";
 import { C, F, setActiveTheme, resolveTheme } from "./theme.js";
 
@@ -26,10 +27,12 @@ const IS_WEBDRIVER = typeof navigator !== "undefined" && !!navigator.webdriver;
 const AUTH_ENABLED =
   !!import.meta.env.VITE_SUPABASE_URL && !!import.meta.env.VITE_SUPABASE_ANON_KEY && !IS_WEBDRIVER;
 
+const SPLASH_KEYFRAMES = "@keyframes lingua-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}";
 function Splash() {
   return (
     <div style={{ minHeight: "100dvh", background: C.washi, color: C.inkSoft, fontFamily: F.body, display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <img src="/mascot/lingua-think.png" alt="Loading" style={{ width: 96, height: "auto", opacity: 0.8 }} />
+      <style>{SPLASH_KEYFRAMES}</style>
+      <img src="/mascot/lingua-think.png" alt="Loading" style={{ width: 100, height: "auto", opacity: 0.9, animation: "lingua-bob 1.6s ease-in-out infinite" }} />
     </div>
   );
 }
@@ -68,6 +71,7 @@ export default function App() {
   // configured; otherwise fall straight through to the app (local-only mode).
   if (AUTH_ENABLED) {
     if (!auth.ready) return <Splash />;
+    if (auth.recovery) return <SetPassword />;
     if (!auth.user) return <Auth />;
     // Wait out the first cloud pull before deciding onboarding, so a returning
     // user's synced `onboarded` lands before we'd flash the onboarding screen.

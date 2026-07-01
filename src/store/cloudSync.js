@@ -165,6 +165,19 @@ async function requestPasswordReset(email) {
   }
 }
 
+// Set a new password (used from the recovery screen after the email link, or a
+// signed-in user changing it). Clears the recovery flag on success.
+async function updatePassword(password) {
+  try {
+    const { error } = await supabase.auth.updateUser({ password });
+    if (error) return { error: error.message };
+    useStore.getState().setAuth({ recovery: false });
+    return { ok: true };
+  } catch (e) {
+    return { error: String(e?.message ?? e) };
+  }
+}
+
 // Call once at startup. When Supabase isn't configured (no env, e.g. CI/local),
 // mark auth ready+unconfigured so the gate falls through to the app.
 export function initCloudSync() {
@@ -179,12 +192,22 @@ export function initCloudSync() {
     signUp,
     signIn,
     requestPasswordReset,
+    updatePassword,
     signOut: () => supabase.auth.signOut(),
   });
 
   // INITIAL_SESSION / SIGNED_IN / TOKEN_REFRESHED all arrive here. The first
   // event (session or not) means auth is resolved → the gate can render.
-  supabase.auth.onAuthStateChange((_event, session) => {
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === "PASSWORD_RECOVERY") {
+      // Landed via the reset-email link: hold the app and show "set new password".
+      useStore.getState().setAuth({
+        ready: true,
+        recovery: true,
+        user: session?.user ? { id: session.user.id, email: session.user.email ?? null } : null,
+      });
+      return;
+    }
     if (session?.user) onSignIn(session.user);
     else onSignOut();
     if (!useStore.getState().auth.ready) useStore.getState().setAuth({ ready: true });

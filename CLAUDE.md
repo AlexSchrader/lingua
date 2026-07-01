@@ -17,7 +17,15 @@ Standing context for Claude Code (CC) on this repo. Read this first, every sessi
 
 **What each CC does day to day:**
 
-- **Feature CC** — implements engine/UX/schema work, opens draft PRs, updates the checklist. Engine and schema keep a human gate (they can break everything).
+- **Feature CC** — builds the app: the learning engine, screens, store, components, card kinds, theme, and the schema/contract. Day to day:
+  - Work in `src/screens`, `src/store`, `src/components`, `src/data/contract.js`, `src/data/lint.js`. Implement features and fix bugs/regressions/ND-friction; wire the daily loop, cards, mastery, sync, auth, onboarding, Ladder/Today/Stats/Settings.
+  - **Keep the engine content-agnostic** — lesson 47 runs the same code as lesson 1; no item- or lesson-specific branching in engine files. Content is pure data the engine reads.
+  - **Schema / contract / `LIVE_CARD_KINDS` changes get their own scoped draft PR** — never bundled into a feature. A new card kind ships only when it's in `LIVE_CARD_KINDS` **and** exercised by the smoke coverage fixture (the forcing function).
+  - **Green gate before shipping**: `validate:content` → `test:unit` → Playwright smoke (**dev *and* `SMOKE_MODE=preview`**) → `build`. Never weaken a test/validator/assertion to force green — fix the real thing or report it.
+  - **Tuning is constants, not structure** — feel issues (too fast/harsh/repetitive) are one-line changes to `LEARN_OPTS` / `TIMING` / mastery constants + a re-run, not a rebuild.
+  - **Proactive every session** — surface ND-friction, learning-science gaps, and quick wins; do the small unambiguous fixes and just mention them, flag the scope-changing ones first.
+  - **Draft PR → Alex merges** (engine/schema keep a human gate — they can break everything). Update `BUILD-CHECKLIST.md` as part of the work. *(While GitHub is suspended, prod ships directly via the Vercel CLI (`vercel deploy --prod`), so prod runs ahead of `main` — reconcile the branch into `main` before any git-triggered deploy once access returns, or prod rolls back.)*
+  - **Stay out of `src/data/ja/*.js` content.** Spotted a curriculum issue? Log it as a `[ ]` item routed to the Curriculum CC — hand off, don't reach across.
 - **Curriculum CC** — authors and maintains the content units (`src/data/ja/*.js`): writes new units, thickens thin ones (aim ~5–8 word cards/lesson; leave intentionally-finite lessons like "count 1–5" alone), and restructures/consolidates when the shape drifts. Day to day:
   - Author to `CONTENT.md` + the lint rules. **Every example uses only vocab already introduced**, and reads naturally — write it *as if a native reviews it*.
   - **Check fronts for collisions before adding** — vocab fronts are globally unique, so a homograph blocks a second use (に = "two" blocks the particle に → teach it through examples + a hint; **never weaken the validator** to force it in).
