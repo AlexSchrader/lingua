@@ -1,49 +1,47 @@
-// Unit 15 — かんじ・ひと ("Kanji: people & school") — A1 / JLPT N5
-// The kanji behind the people the learner met in Unit 8 and the school words from
-// Units 1-9: 父・母・男・女・子 and 学・校・生・先・友 (大学, 学校, 学生, 先生,
-// 友だち). `type: "kanji"` — recognition/recall test the MEANING; the primary N5
-// reading is shown; production traces. Hints link the shape + the known word.
-// Examples chain forward kanji (Unit 11/14) for spaced reinforcement and reuse
-// known kana words. KanjiVG strokes added for all 10. lang/unit/lesson in index.js.
+// Unit 15 — かんじ・ほうこう (Position & direction kanji) — A1 / JLPT N5
+// Consolidated kanji unit (category: position & direction kanji). Kanji regrouped by
+// meaning from the earlier thin units so each unit is a coherent set. type:"kanji" —
+// recognition/recall test the meaning, production traces. KanjiVG strokes by glyph.
+// lang/unit/lesson stamped in index.js.
 export const UNIT15 = {
   id: "ja-u15",
   lang: "ja",
-  title: "かんじ・ひと",
+  title: "かんじ・ほうこう",
   order: 15,
   stage: "a1",
   lessons: [
-    // Lesson 1: family & people — 父 母 男 女 子
     {
       id: "ja-u15l1",
       unit: 15,
       lesson: 1,
-      title: "Family & people",
+      title: "Position & direction kanji 1",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read the people kanji 父 母 男 女 子 — the kanji for ちち, はは, おとこ, おんな, こども.",
+      canDo: "Read and recognize the kanji: 上 下 中 右 左 前.",
       items: [
-        { id: "ja-u15l1-chichi", type: "kanji", front: "父", reading: "chichi", meaning: "father", example: { jp: "父はせんせいです。", en: "My father is a teacher." }, accept: ["dad", "my father"], hint: "父 = father. You know it as ちち (my father, Unit 8)." },
-        { id: "ja-u15l1-haha", type: "kanji", front: "母", reading: "haha", meaning: "mother", example: { jp: "母はげんきです。", en: "My mother is well." }, accept: ["mom", "mum", "my mother"], hint: "母 = mother. You know it as はは (my mother). The two dots are a nursing mother." },
-        { id: "ja-u15l1-otoko", type: "kanji", front: "男", reading: "otoko", meaning: "man", example: { jp: "あの人は男です。", en: "That person is a man." }, accept: ["male"], hint: "男 = man. 田 (rice field) over 力 (power) — strength in the fields. You know おとこ." },
-        { id: "ja-u15l1-onna", type: "kanji", front: "女", reading: "onna", meaning: "woman", example: { jp: "この人は女です。", en: "This person is a woman." }, accept: ["female"], hint: "女 = woman. You know it as おんな." },
-        { id: "ja-u15l1-ko", type: "kanji", front: "子", reading: "ko", meaning: "child", example: { jp: "子どもがすきです。", en: "I like children." }, accept: ["kid"], hint: "子 = child — a little figure with outstretched arms. 子ども = child (you know こども)." },
+        { id: "ja-u15l1-ue", type: "kanji", front: "上", reading: "ue", meaning: "up", example: { jp: "テーブルの上です。", en: "It's on the table." }, accept: ["above","top","on"] },
+        { id: "ja-u15l1-shita", type: "kanji", front: "下", reading: "shita", meaning: "down", example: { jp: "木の下です。", en: "It's under the tree." }, accept: ["below","under","bottom"] },
+        { id: "ja-u15l1-naka", type: "kanji", front: "中", reading: "naka", meaning: "middle", example: { jp: "いえの中です。", en: "It's inside the house." }, accept: ["inside","center"] },
+        { id: "ja-u15l1-migi", type: "kanji", front: "右", reading: "migi", meaning: "right", example: { jp: "みせの右です。", en: "It's to the right of the shop." }, accept: ["right side"], hint: "右 = right. You know it as みぎ (Unit 10)." },
+        { id: "ja-u15l1-hidari", type: "kanji", front: "左", reading: "hidari", meaning: "left", example: { jp: "えきの左です。", en: "It's to the left of the station." }, accept: ["left side"], hint: "左 = left. You know it as ひだり. The bottom differs from 右." },
+        { id: "ja-u15l1-mae", type: "kanji", front: "前", reading: "mae", meaning: "front", example: { jp: "えきの前です。", en: "It's in front of the station." }, accept: ["before","in front"], hint: "前 = front / before (まえ). 午前 = a.m. ('before noon')." },
       ],
     },
-    // Lesson 2: school — 学 校 生 先 友
     {
       id: "ja-u15l2",
       unit: 15,
       lesson: 2,
-      title: "School & friends",
+      title: "Position & direction kanji 2",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read 学 校 生 先 友 — the kanji in 大学, 学校, 学生, 先生, 友だち.",
+      canDo: "Read and recognize the kanji: 後 外 東 西 南 北.",
       items: [
-        { id: "ja-u15l2-gaku", type: "kanji", front: "学", reading: "gaku", meaning: "study", example: { jp: "大学に行きます。", en: "I go to university." }, accept: ["learning", "school (study)"], hint: "学 = study / learning. It's in 大学 (university) and 学校 (school)." },
-        { id: "ja-u15l2-ko", type: "kanji", front: "校", reading: "kō", meaning: "school", example: { jp: "学校に行きます。", en: "I go to school." }, accept: ["the school"], hint: "校 = school — pairs with 学 to make 学校 (school). The 木 radical = the school building." },
-        { id: "ja-u15l2-sei", type: "kanji", front: "生", reading: "sei", meaning: "student", example: { jp: "わたしは学生です。", en: "I'm a student." }, accept: ["life", "born", "raw"], hint: "生 = life / student. In 学生 (student) and 先生 (teacher). Also means 'born' and 'raw'." },
-        { id: "ja-u15l2-sen", type: "kanji", front: "先", reading: "sen", meaning: "ahead", example: { jp: "先生に聞きます。", en: "I ask the teacher." }, accept: ["before", "previous", "earlier"], hint: "先 = ahead / before. 先生 = teacher (one who came 'before' in life). Also 先週 = last week." },
-        { id: "ja-u15l2-tomo", type: "kanji", front: "友", reading: "tomo", meaning: "friend", example: { jp: "友だちが来ます。", en: "A friend comes." }, accept: ["friends"], hint: "友 = friend. You know it as 友だち (ともだち). Two hands reaching the same way." },
+        { id: "ja-u15l2-ushiro", type: "kanji", front: "後", reading: "ushiro", meaning: "behind", example: { jp: "いえの後です。", en: "It's behind the house." }, accept: ["after","back"], hint: "後 = behind / after (うしろ). 午後 = p.m. ('after noon')." },
+        { id: "ja-u15l2-soto", type: "kanji", front: "外", reading: "soto", meaning: "outside", example: { jp: "外はさむいです。", en: "It's cold outside." }, accept: ["outdoors","out"], hint: "外 = outside — 夕 (evening) + 卜. The opposite of 中 (inside)." },
+        { id: "ja-u15l2-higashi", type: "kanji", front: "東", reading: "higashi", meaning: "east", example: { jp: "東に行きます。", en: "I go east." }, accept: [], hint: "東 = east — 日 (sun) behind 木 (tree), sunrise. 東京 (Tokyo) = 'eastern capital'." },
+        { id: "ja-u15l2-nishi", type: "kanji", front: "西", reading: "nishi", meaning: "west", example: { jp: "西の山です。", en: "It's the western mountain." }, accept: [], hint: "西 = west — where the sun sets." },
+        { id: "ja-u15l2-minami", type: "kanji", front: "南", reading: "minami", meaning: "south", example: { jp: "南はあついです。", en: "The south is hot." }, accept: [], hint: "南 = south (the warm direction in Japan)." },
+        { id: "ja-u15l2-kita", type: "kanji", front: "北", reading: "kita", meaning: "north", example: { jp: "北はさむいです。", en: "The north is cold." }, accept: [], hint: "北 = north — two people back-to-back, turned from the cold." },
       ],
     },
   ],

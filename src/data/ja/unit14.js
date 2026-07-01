@@ -1,50 +1,62 @@
-// Unit 14 — かんじ・どうし ("Kanji: verbs") — A1 / JLPT N5
-// The kanji behind the everyday verbs the learner already knows as ～ます forms
-// from Unit 9: 行く・来る・見る・食べる・飲む… Now they meet the kanji. Each
-// `reading` is the dictionary verb (the most recognizable form, ties straight to
-// the known ます-verb); recognition/recall test the MEANING; production traces.
-// Hints lean on the shape / radical + the known verb. Examples write the verb in
-// kanji+okurigana and reuse known nouns. KanjiVG strokes added for all 10.
+// Unit 14 — かんじ・ひと・からだ (People & body kanji) — A1 / JLPT N5
+// Consolidated kanji unit (category: people & body kanji). Kanji regrouped by
+// meaning from the earlier thin units so each unit is a coherent set. type:"kanji" —
+// recognition/recall test the meaning, production traces. KanjiVG strokes by glyph.
 // lang/unit/lesson stamped in index.js.
 export const UNIT14 = {
   id: "ja-u14",
   lang: "ja",
-  title: "かんじ・どうし",
+  title: "かんじ・ひと・からだ",
   order: 14,
   stage: "a1",
   lessons: [
-    // Lesson 1: motion & perception — 行 来 見 出 入
     {
       id: "ja-u14l1",
       unit: 14,
       lesson: 1,
-      title: "Go, come, see",
+      title: "People & body kanji 1",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read the verb kanji 行 来 見 出 入 — the kanji in 行きます, 来ます, 見ます, 出ます, 入ります.",
+      canDo: "Read and recognize the kanji: 人 私 父 母 男 女.",
       items: [
-        { id: "ja-u14l1-iku",  type: "kanji", front: "行", reading: "iku",  meaning: "go", example: { jp: "がっこうに行きます。", en: "I go to school." }, accept: ["to go", "goes"], hint: "行 = go. You know it as 行きます (いきます). The left side 彳 is a step on a road." },
-        { id: "ja-u14l1-kuru", type: "kanji", front: "来", reading: "kuru", meaning: "come", example: { jp: "ともだちが来ます。", en: "A friend comes." }, accept: ["to come", "comes"], hint: "来 = come. You know it as 来ます (きます)." },
-        { id: "ja-u14l1-miru", type: "kanji", front: "見", reading: "miru", meaning: "see", example: { jp: "テレビを見ます。", en: "I watch TV." }, accept: ["look", "watch", "to see"], hint: "見 = see. 目 (eye) on top of 儿 (legs) — eyes that go and look. You know 見ます (みます)." },
-        { id: "ja-u14l1-deru", type: "kanji", front: "出", reading: "deru", meaning: "exit", example: { jp: "いえを出ます。", en: "I leave the house." }, accept: ["go out", "leave", "to exit"], hint: "出 = go out / exit. Like a sprout pushing up out of the ground. 出ます = leave." },
-        { id: "ja-u14l1-hairu", type: "kanji", front: "入", reading: "hairu", meaning: "enter", example: { jp: "へやに入ります。", en: "I enter the room." }, accept: ["go in", "to enter"], hint: "入 = enter / go in. A shape leaning into an opening. 入ります = go in." },
+        { id: "ja-u14l1-hito", type: "kanji", front: "人", reading: "hito", meaning: "person", example: { jp: "あの人です。", en: "That's that person." }, accept: ["people"] },
+        { id: "ja-u14l1-watashi", type: "kanji", front: "私", reading: "watashi", meaning: "I", example: { jp: "私は学生です。", en: "I am a student." }, accept: ["me","myself"], hint: "私 = I / me (わたし) — 禾 (grain) + 厶 (private): the polite word for oneself." },
+        { id: "ja-u14l1-chichi", type: "kanji", front: "父", reading: "chichi", meaning: "father", example: { jp: "父はせんせいです。", en: "My father is a teacher." }, accept: ["dad","my father"], hint: "父 = father. You know it as ちち (my father, Unit 8)." },
+        { id: "ja-u14l1-haha", type: "kanji", front: "母", reading: "haha", meaning: "mother", example: { jp: "母はげんきです。", en: "My mother is well." }, accept: ["mom","mum","my mother"], hint: "母 = mother. You know it as はは (my mother). The two dots are a nursing mother." },
+        { id: "ja-u14l1-otoko", type: "kanji", front: "男", reading: "otoko", meaning: "man", example: { jp: "あの人は男です。", en: "That person is a man." }, accept: ["male"], hint: "男 = man. 田 (rice field) over 力 (power) — strength in the fields. You know おとこ." },
+        { id: "ja-u14l1-onna", type: "kanji", front: "女", reading: "onna", meaning: "woman", example: { jp: "この人は女です。", en: "This person is a woman." }, accept: ["female"], hint: "女 = woman. You know it as おんな." },
       ],
     },
-    // Lesson 2: daily actions — 食 飲 言 聞 読
     {
       id: "ja-u14l2",
       unit: 14,
       lesson: 2,
-      title: "Eat, drink, read",
+      title: "People & body kanji 2",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read the verb kanji 食 飲 言 聞 読 — the kanji in 食べます, 飲みます, 言います, 聞きます, 読みます.",
+      canDo: "Read and recognize the kanji: 子 友 先 生 名.",
       items: [
-        { id: "ja-u14l2-taberu", type: "kanji", front: "食", reading: "taberu", meaning: "eat", example: { jp: "ごはんを食べます。", en: "I eat a meal." }, accept: ["to eat", "eats", "food"], hint: "食 = eat. You know 食べます (たべます). The top is a lid over food." },
-        { id: "ja-u14l2-nomu",  type: "kanji", front: "飲", reading: "nomu", meaning: "drink", example: { jp: "みずを飲みます。", en: "I drink water." }, accept: ["to drink", "drinks"], hint: "飲 = drink. 食 (eat) on the left + 欠 (an open mouth) — you know 飲みます (のみます)." },
-        { id: "ja-u14l2-iu",    type: "kanji", front: "言", reading: "iu", meaning: "say", example: { jp: "なまえを言います。", en: "I say my name." }, accept: ["to say", "speak", "word"], hint: "言 = say / word. Lines coming out over a mouth 口. You know 言います (いいます)." },
-        { id: "ja-u14l2-kiku",  type: "kanji", front: "聞", reading: "kiku", meaning: "listen", example: { jp: "おんがくを聞きます。", en: "I listen to music." }, accept: ["hear", "to listen", "ask"], hint: "聞 = listen / hear. 耳 (ear) inside a gate 門 — an ear at the door. 聞きます = listen." },
-        { id: "ja-u14l2-yomu",  type: "kanji", front: "読", reading: "yomu", meaning: "read", example: { jp: "ほんを読みます。", en: "I read a book." }, accept: ["to read", "reads"], hint: "読 = read. 言 (word) on the left — reading words. You know 読みます (よみます)." },
+        { id: "ja-u14l2-ko", type: "kanji", front: "子", reading: "ko", meaning: "child", example: { jp: "子どもがすきです。", en: "I like children." }, accept: ["kid"], hint: "子 = child — a little figure with outstretched arms. 子ども = child (you know こども)." },
+        { id: "ja-u14l2-tomo", type: "kanji", front: "友", reading: "tomo", meaning: "friend", example: { jp: "友だちが来ます。", en: "A friend comes." }, accept: ["friends"], hint: "友 = friend. You know it as 友だち (ともだち). Two hands reaching the same way." },
+        { id: "ja-u14l2-sen", type: "kanji", front: "先", reading: "sen", meaning: "ahead", example: { jp: "先生に聞きます。", en: "I ask the teacher." }, accept: ["before","previous","earlier"], hint: "先 = ahead / before. 先生 = teacher (one who came 'before' in life). Also 先週 = last week." },
+        { id: "ja-u14l2-sei", type: "kanji", front: "生", reading: "sei", meaning: "student", example: { jp: "わたしは学生です。", en: "I'm a student." }, accept: ["life","born","raw"], hint: "生 = life / student. In 学生 (student) and 先生 (teacher). Also means 'born' and 'raw'." },
+        { id: "ja-u14l2-mei", type: "kanji", front: "名", reading: "mei", meaning: "name", example: { jp: "名前を言います。", en: "I say my name." }, accept: ["famous"], hint: "名 = name — 夕 (evening) + 口 (mouth): calling a name in the dark. 名前 = namae." },
+      ],
+    },
+    {
+      id: "ja-u14l3",
+      unit: 14,
+      lesson: 3,
+      title: "People & body kanji 3",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Read and recognize the kanji: 目 耳 口 手 足.",
+      items: [
+        { id: "ja-u14l3-me", type: "kanji", front: "目", reading: "me", meaning: "eye", example: { jp: "目が大きいです。", en: "The eyes are big." }, accept: ["eyes"], hint: "目 = eye — 日 (sun) stood upright, an eye shape. (Not 日 'day'.)" },
+        { id: "ja-u14l3-mimi", type: "kanji", front: "耳", reading: "mimi", meaning: "ear", example: { jp: "耳で聞きます。", en: "I hear with my ears." }, accept: ["ears"], hint: "耳 = ear — a pictograph of an ear." },
+        { id: "ja-u14l3-kuchi", type: "kanji", front: "口", reading: "kuchi", meaning: "mouth", example: { jp: "口で言います。", en: "I say it with my mouth." }, accept: ["opening"], hint: "口 = mouth — a simple open square. 入口 = entrance." },
+        { id: "ja-u14l3-te", type: "kanji", front: "手", reading: "te", meaning: "hand", example: { jp: "手を見ます。", en: "I look at my hand." }, accept: ["hands"], hint: "手 = hand — fingers and a wrist. 上手 = skillful ('good hand')." },
+        { id: "ja-u14l3-ashi", type: "kanji", front: "足", reading: "ashi", meaning: "foot", example: { jp: "足が長いです。", en: "The legs are long." }, accept: ["leg","feet","enough"], hint: "足 = foot / leg (also 'enough'). 足ります = to be enough." },
       ],
     },
   ],
