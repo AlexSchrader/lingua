@@ -182,7 +182,7 @@ export default function Lesson() {
 
   return (
     <PhaseShell
-      title={`${sandbox ? "🧪 Dev · " : ""}${label} · ${Math.min(learn.pos + 1, total)}/${total}`}
+      title={`${sandbox ? "🧪 Dev · " : ""}${label} · card ${Math.min(learn.pos + 1, total)} of ${total}`}
       progress={progress}
       onClose={() => navigate(home)}
     >

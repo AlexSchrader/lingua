@@ -3,6 +3,7 @@ import { Lock, Check, ChevronRight } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
 import { roadmapFor } from "../data/ja/roadmap.js";
+import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
 import { C, F } from "../theme.js";
 
@@ -306,12 +307,37 @@ function KanjiSection({ langId, items, showRomaji }) {
   if (kanjiDefs.length === 0) return null;
   const learned = kanjiDefs.filter((d) => (items[d.id]?.rung ?? 0) >= 1).length;
   const mastered = kanjiDefs.filter((d) => isMastered(items[d.id])).length;
+
+  // Group by semantic category (kanjiCategories.js) so kanji read in coherent
+  // sets — numbers, time, verbs … — instead of one flat 106-glyph wall.
+  // Uncategorized glyphs fall into a trailing "Other" group so none disappear.
+  const groups = KANJI_CATEGORIES.map((cat) => ({
+    ...cat,
+    defs: kanjiDefs.filter((d) => categoryOf(d.front) === cat.key),
+  })).filter((g) => g.defs.length > 0);
+  const uncategorized = kanjiDefs.filter((d) => categoryOf(d.front) === null);
+  if (uncategorized.length) groups.push({ key: "other", label: "Other", defs: uncategorized });
+
   return (
     <Section title="Kanji" collapsible defaultOpen={false} summary={`${learned}/${kanjiDefs.length} learned${mastered > 0 ? ` · ${mastered} mastered` : ""}`}>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 6 }}>
-        {kanjiDefs.map((d) => (
-          <KanaChip key={d.id} char={d.front} reading={d.reading} item={items[d.id]} showRomaji={showRomaji} />
-        ))}
+      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        {groups.map((g) => {
+          const glearned = g.defs.filter((d) => (items[d.id]?.rung ?? 0) >= 1).length;
+          return (
+            <div key={g.key} style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: 0.6, color: C.ai, textTransform: "uppercase" }}>{g.label}</span>
+                <div style={{ flex: 1, height: 1, background: C.line }} />
+                <span style={{ fontSize: 11, color: C.inkSoft, whiteSpace: "nowrap", flexShrink: 0 }}>{glearned}/{g.defs.length}</span>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 6 }}>
+                {g.defs.map((d) => (
+                  <KanaChip key={d.id} char={d.front} reading={d.reading} item={items[d.id]} showRomaji={showRomaji} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </Section>
   );
