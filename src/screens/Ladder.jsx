@@ -98,6 +98,16 @@ function ActiveLanguage({ lang, items }) {
   const currentStage = stages.find((s) => !statsByStage[s].complete) ?? stages[stages.length - 1];
   const cur = statsByStage[currentStage];
 
+  // Which lesson within the current stage is the learner on? The first playable
+  // lesson (in curriculum order) that still has an unlearned item, numbered
+  // within its stage — so "you're here" reads e.g. "Lesson 1/23".
+  const stageLessons = UNITS.filter((u) => u.lang === lang.id && (u.stage ?? "a1") === currentStage)
+    .slice()
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+    .flatMap((u) => u.lessons.filter((l) => Array.isArray(l.items)));
+  const curLessonIdx = stageLessons.findIndex((l) => l.items.some((def) => (items[def.id]?.rung ?? 0) < 1));
+  const hereLabel = curLessonIdx >= 0 ? `Lesson ${curLessonIdx + 1}/${stageLessons.length}` : "you're here";
+
   return (
     <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 18, padding: 16 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -122,6 +132,7 @@ function ActiveLanguage({ lang, items }) {
               level={STAGE_LABEL[stage] ?? stage}
               done={statsByStage[stage].complete}
               current={stage === currentStage}
+              here={hereLabel}
               first={i === 0}
               last={i === arr.length - 1}
             />
@@ -155,7 +166,7 @@ function ActiveLanguage({ lang, items }) {
   );
 }
 
-function CefrRung({ level, done, current, first, last }) {
+function CefrRung({ level, done, current, here, first, last }) {
   const color = done ? C.matcha : current ? C.ai : C.locked;
   return (
     <div style={{ display: "flex", gap: 12 }}>
@@ -178,7 +189,7 @@ function CefrRung({ level, done, current, first, last }) {
       <div style={{ flex: 1, padding: "8px 0", minWidth: 0, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <span style={{ fontWeight: current ? 700 : 600, fontSize: 15, color: current || done ? C.ink : C.inkSoft }}>
           {level}
-          {current && <span style={{ fontSize: 11, fontWeight: 600, color: C.ai, marginLeft: 8 }}>you're here</span>}
+          {current && <span style={{ fontSize: 11, fontWeight: 600, color: C.ai, marginLeft: 8 }}>{here ?? "you're here"}</span>}
         </span>
         {done && <span style={{ fontSize: 11, fontWeight: 700, color: C.matcha }}>Done</span>}
       </div>
