@@ -9,7 +9,7 @@ import CardBreath from "../components/CardBreath.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable } from "../store/mastery.js";
 import { isTraceable, shouldListen } from "../store/cardRouting.js";
-import { buildSandboxItems, runnerWriters } from "../store/dev.js";
+import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
 
@@ -42,10 +42,15 @@ export default function Review() {
 
   const storeItems = useStore((s) => s.items);
   const dueItems = useStore((s) => s.dueItems);
+  // `?card=<kind>` → the Quick-card launcher (one item seeded to yield that kind);
+  // otherwise `?lesson=&state=` → the per-lesson depth preview.
+  const cardParam = searchParams.get("card");
   const sandboxItems = useMemo(
     () =>
       sandbox
-        ? buildSandboxItems(searchParams.get("lesson"), searchParams.get("state") ?? "mid")
+        ? cardParam
+          ? buildCardPreviewItems(cardParam)
+          : buildSandboxItems(searchParams.get("lesson"), searchParams.get("state") ?? "mid")
         : null,
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [sandbox]

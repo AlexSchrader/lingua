@@ -9,6 +9,7 @@ import { seedItems, UNITS } from "../data/index.js";
 import { getLesson } from "../data/index.js";
 import { KANJIVG } from "../data/kanjivg.js";
 import { newCard } from "./srs.js";
+import { shouldListen, isTraceable } from "./cardRouting.js";
 
 // The unlock code. Intentionally in the bundle — see note above.
 export const DEV_CODE = "L071201";
@@ -71,6 +72,51 @@ export function buildSandboxItems(lessonId, previewState = "fresh") {
     };
   }
   return items;
+}
+
+// --- Quick card preview ------------------------------------------------------
+// "Show me THIS card right now" — pick a canonical item for a card kind and seed
+// it at the rung that produces that card, so one tap lands on it (no lesson to
+// find, no depth to choose). teach is lesson-only → handled by the route.
+function pickForKind(seed, kind) {
+  const items = Object.values(seed);
+  const vocab = items.filter((it) => it.type === "vocab");
+  switch (kind) {
+    case "listen:choice": return { item: vocab.find((it) => shouldListen(it)) ?? vocab[0], rung: 1 };
+    case "choice":        return { item: vocab.find((it) => !shouldListen(it)) ?? vocab[0], rung: 1 };
+    case "type:meaning":  return { item: vocab[0], rung: 2 };
+    case "build":         return { item: vocab[0], rung: 3 };
+    case "trace":         return { item: items.find((it) => isTraceable(it)), rung: 3 };
+    default:              return null;
+  }
+}
+
+// Throwaway items map with exactly one item seeded to yield the given card kind.
+export function buildCardPreviewItems(kind) {
+  const seed = seedItems();
+  const items = {};
+  for (const [id, it] of Object.entries(seed)) items[id] = { ...it, srs: newCard() };
+  const pick = pickForKind(seed, kind);
+  if (!pick?.item) return items;
+  const it = items[pick.item.id];
+  items[pick.item.id] = { ...it, rung: pick.rung, srs: { ...it.srs, stability: 8, due: new Date(Date.now() - 1000) } };
+  return items;
+}
+
+// First playable lesson id — the target for a fresh "teach" quick-launch.
+export function firstLessonId() {
+  for (const u of UNITS) {
+    const l = u.lessons.find((x) => Array.isArray(x.items));
+    if (l) return l.id;
+  }
+  return null;
+}
+
+// Route for a one-tap card preview. teach runs a fresh lesson; the rest run an
+// isolated review seeded (via ?card) to surface exactly that card kind.
+export function cardPreviewRoute(kind) {
+  if (kind === "teach") return `/lesson/${firstLessonId()}?sandbox=1&state=fresh`;
+  return `/review?sandbox=1&card=${encodeURIComponent(kind)}`;
 }
 
 // The isolation contract, made explicit and testable. A runner asks for the

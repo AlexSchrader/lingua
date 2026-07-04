@@ -3,8 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLeft, AlertTriangle, RotateCcw, FlaskConical, Play } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { UNITS } from "../data/index.js";
-import { devDiagnostics, sandboxRoute, PREVIEW_STATES, PREVIEW_LABEL } from "../store/dev.js";
+import { devDiagnostics, sandboxRoute, cardPreviewRoute, PREVIEW_STATES, PREVIEW_LABEL } from "../store/dev.js";
+import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
+
+const CARD_LABEL = { teach: "Teach", choice: "Choice", "listen:choice": "Listen", "type:meaning": "Type", build: "Build", trace: "Trace" };
 
 function Section({ title, children }) {
   return (
@@ -66,6 +69,23 @@ export default function DevPanel() {
           <div style={{ fontSize: 13, color: C.inkSoft }}>Isolated playtest — nothing here touches real progress.</div>
         </div>
       </div>
+
+      <Section title="Quick card — jump straight to any card kind">
+        <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 10 }}>
+          One tap to a single example of each card, isolated — no real progress touched.
+        </div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+          {LIVE_CARD_KINDS.map((kind) => (
+            <button
+              key={kind}
+              onClick={() => navigate(cardPreviewRoute(kind))}
+              style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 14px", borderRadius: 999, border: `1.5px solid ${C.ai}`, background: C.aiSoft, color: C.aiDeep, fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+            >
+              <Play size={13} /> {CARD_LABEL[kind] ?? kind}
+            </button>
+          ))}
+        </div>
+      </Section>
 
       <Section title="Diagnostics — is the new unit wired right?">
         <Stat label="Units registered" value={diag.unitCount} />
