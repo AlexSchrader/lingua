@@ -9,6 +9,7 @@ import { seedItems, UNITS } from "../data/index.js";
 import { getLesson } from "../data/index.js";
 import { KANJIVG } from "../data/kanjivg.js";
 import { newCard } from "./srs.js";
+import { shouldListen, isTraceable } from "./cardRouting.js";
 
 // The unlock code. Intentionally in the bundle — see note above.
 export const DEV_CODE = "L071201";
@@ -17,23 +18,33 @@ export function matchesDevCode(input) {
   return String(input ?? "").trim().toUpperCase() === DEV_CODE;
 }
 
-// Preview states for the layout-state preview: view a lesson as fresh /
-// mid-progress / mastered to check those UI states without grinding to them.
-export const PREVIEW_STATES = ["fresh", "mid", "mastered"];
+// Preview states: launch a lesson's items directly at any rung depth, so EVERY
+// card family is one tap from any lesson — no grinding to build up state. Each
+// maps to the card the review runner shows at that rung:
+//   fresh(0)     → teach flow (first-teach lesson)
+//   recognize(1) → choice / listen:choice   (the rung that was un-previewable)
+//   mid(2)       → type:meaning
+//   produce(3)   → trace (kana/kanji) / build (words)
+//   mastered(5)  → produce cards, fully-filled mastery bars
+export const PREVIEW_STATES = ["fresh", "recognize", "mid", "produce", "mastered"];
 
 export const PREVIEW_LABEL = {
-  fresh: "Fresh",
-  mid: "Mid-progress",
+  fresh: "Fresh · teach",
+  recognize: "Recognize · choice/listen",
+  mid: "Recall · type",
+  produce: "Produce · trace/build",
   mastered: "Mastered",
 };
 
 // Rung + FSRS-stability overrides applied to the target lesson's items for each
 // preview state. `fresh` leaves items at rung 0 (a real first-teach lesson);
-// `mid`/`mastered` lift them into the review track at the matching depth so the
-// review runner surfaces the recall / produce card UIs.
+// the rest lift them into the review track at the matching depth so the review
+// runner surfaces that rung's card UI.
 const PREVIEW_OVERRIDES = {
   fresh: { rung: 0, stability: 0 },
+  recognize: { rung: 1, stability: 4 },
   mid: { rung: 2, stability: 8 },
+  produce: { rung: 3, stability: 20 },
   mastered: { rung: 5, stability: 60 },
 };
 
@@ -61,6 +72,51 @@ export function buildSandboxItems(lessonId, previewState = "fresh") {
     };
   }
   return items;
+}
+
+// --- Quick card preview ------------------------------------------------------
+// "Show me THIS card right now" — pick a canonical item for a card kind and seed
+// it at the rung that produces that card, so one tap lands on it (no lesson to
+// find, no depth to choose). teach is lesson-only → handled by the route.
+function pickForKind(seed, kind) {
+  const items = Object.values(seed);
+  const vocab = items.filter((it) => it.type === "vocab");
+  switch (kind) {
+    case "listen:choice": return { item: vocab.find((it) => shouldListen(it)) ?? vocab[0], rung: 1 };
+    case "choice":        return { item: vocab.find((it) => !shouldListen(it)) ?? vocab[0], rung: 1 };
+    case "type:meaning":  return { item: vocab[0], rung: 2 };
+    case "build":         return { item: vocab[0], rung: 3 };
+    case "trace":         return { item: items.find((it) => isTraceable(it)), rung: 3 };
+    default:              return null;
+  }
+}
+
+// Throwaway items map with exactly one item seeded to yield the given card kind.
+export function buildCardPreviewItems(kind) {
+  const seed = seedItems();
+  const items = {};
+  for (const [id, it] of Object.entries(seed)) items[id] = { ...it, srs: newCard() };
+  const pick = pickForKind(seed, kind);
+  if (!pick?.item) return items;
+  const it = items[pick.item.id];
+  items[pick.item.id] = { ...it, rung: pick.rung, srs: { ...it.srs, stability: 8, due: new Date(Date.now() - 1000) } };
+  return items;
+}
+
+// First playable lesson id — the target for a fresh "teach" quick-launch.
+export function firstLessonId() {
+  for (const u of UNITS) {
+    const l = u.lessons.find((x) => Array.isArray(x.items));
+    if (l) return l.id;
+  }
+  return null;
+}
+
+// Route for a one-tap card preview. teach runs a fresh lesson; the rest run an
+// isolated review seeded (via ?card) to surface exactly that card kind.
+export function cardPreviewRoute(kind) {
+  if (kind === "teach") return `/lesson/${firstLessonId()}?sandbox=1&state=fresh`;
+  return `/review?sandbox=1&card=${encodeURIComponent(kind)}`;
 }
 
 // The isolation contract, made explicit and testable. A runner asks for the

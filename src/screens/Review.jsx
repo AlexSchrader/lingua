@@ -8,8 +8,8 @@ import TraceCard from "../components/games/TraceCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable } from "../store/mastery.js";
-import { isTraceable } from "../store/cardRouting.js";
-import { buildSandboxItems, runnerWriters } from "../store/dev.js";
+import { isTraceable, shouldListen } from "../store/cardRouting.js";
+import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
 
@@ -21,7 +21,9 @@ function assertLiveKind(kindKey) {
 
 function reviewStepFor(item) {
   const rung = item.rung ?? 1;
-  if (rung <= 1) return { kind: "choice" };
+  // Recognition (rung ≤ 1): interleave the eye path (choice) with the ear path
+  // (listen:choice) for items that have a clip — same skill, sound-in vs glyph-in.
+  if (rung <= 1) return shouldListen(item) ? { kind: "listen:choice" } : { kind: "choice" };
   if (rung === 2) return { kind: "type", mode: "meaning" };
   // Single-glyph kana + kanji are produced by stroke tracing; yōon digraphs
   // (きょ, no own stroke) and words are produced by building.
@@ -40,10 +42,15 @@ export default function Review() {
 
   const storeItems = useStore((s) => s.items);
   const dueItems = useStore((s) => s.dueItems);
+  // `?card=<kind>` → the Quick-card launcher (one item seeded to yield that kind);
+  // otherwise `?lesson=&state=` → the per-lesson depth preview.
+  const cardParam = searchParams.get("card");
   const sandboxItems = useMemo(
     () =>
       sandbox
-        ? buildSandboxItems(searchParams.get("lesson"), searchParams.get("state") ?? "mid")
+        ? cardParam
+          ? buildCardPreviewItems(cardParam)
+          : buildSandboxItems(searchParams.get("lesson"), searchParams.get("state") ?? "mid")
         : null,
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [sandbox]
@@ -136,6 +143,8 @@ export default function Review() {
   let card;
   if (step.kind === "choice") {
     card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} />;
+  } else if (step.kind === "listen:choice") {
+    card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} audioFirst />;
   } else if (step.kind === "type") {
     card = <TypeCard item={item} mode={step.mode} onGraded={onGraded} />;
   } else if (step.kind === "trace") {
