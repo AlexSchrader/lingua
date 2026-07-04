@@ -46,7 +46,7 @@ export const UNIT2 = {
         { id: "ja-u2l2-mizu",   type: "vocab", front: "みず",   reading: "mizu",   meaning: "water",    example: { jp: "みずをください。",       en: "Water, please." },         accept: [] },
         { id: "ja-u2l2-mushi",  type: "vocab", front: "むし",   reading: "mushi",  meaning: "bug",      example: { jp: "むしがいます。",         en: "There is a bug." },        accept: ["insect"] },
         { id: "ja-u2l2-megane", type: "vocab", front: "めがね", reading: "megane", meaning: "glasses",  example: { jp: "めがねをかけます。",     en: "I wear glasses." },        accept: ["spectacles", "eyeglasses"] },
-        { id: "ja-u2l2-mono",   type: "vocab", front: "もの",   reading: "mono",   meaning: "thing",    example: { jp: "このものはなんですか？", en: "What is this thing?" },    accept: ["object", "item"] },
+        { id: "ja-u2l2-mono",   type: "vocab", front: "もの",   reading: "mono",   meaning: "thing",    example: { jp: "すきなものはなんですか。", en: "What's your favorite thing?" },    accept: ["object", "item"] },
       ],
     },
     // Lesson 3: や row (3 kana + 6 vocab — ya row has no yi/ye)

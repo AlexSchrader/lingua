@@ -5,14 +5,16 @@
 // (no trace — they have no single stroke). They already turn up in known words
 // (きょう, じゅう, ニュース), so this makes the pattern explicit.
 //
-// NOTE: unit id u16 (its permanent slot, after the kanji units). `order` is
-// temporarily 13 so it validates on this kana/app branch (which doesn't yet carry
-// the local kanji units 13–15); bump order → 16 when those land on main.
+// NOTE: `order: 16` is this unit's permanent slot (after the kanji units). Lesson 6
+// carries only 3 cards (one ゃ/ゅ/ょ triple) — the lint density advisory there is
+// WAIVED on purpose: yōon come in ゃゅょ triples, and 33 kana split cleanly as
+// 6/6/6/6/6/3. Keeping triples intact, the only alternative is a 9-card lesson,
+// which is worse, so the trailing 3-card lesson stays.
 export const UNIT16 = {
   id: "ja-u16",
   lang: "ja",
   title: "ようおん",
-  order: 13,
+  order: 16,
   stage: "pre-a1",
   lessons: [
     // Lesson 1: k + s rows
