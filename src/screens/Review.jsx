@@ -2,13 +2,14 @@ import { useMemo, useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import PhaseShell from "../components/PhaseShell.jsx";
 import ChoiceCard from "../components/games/ChoiceCard.jsx";
+import ClozeCard from "../components/games/ClozeCard.jsx";
 import TypeCard from "../components/games/TypeCard.jsx";
 import BuildCard from "../components/games/BuildCard.jsx";
 import TraceCard from "../components/games/TraceCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable } from "../store/mastery.js";
-import { isTraceable, shouldListen } from "../store/cardRouting.js";
+import { isTraceable, shouldListen, shouldCloze } from "../store/cardRouting.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
@@ -24,7 +25,9 @@ function reviewStepFor(item) {
   // Recognition (rung ≤ 1): interleave the eye path (choice) with the ear path
   // (listen:choice) for items that have a clip — same skill, sound-in vs glyph-in.
   if (rung <= 1) return shouldListen(item) ? { kind: "listen:choice" } : { kind: "choice" };
-  if (rung === 2) return { kind: "type", mode: "meaning" };
+  // Recall (rung 2): interleave isolated recall (type:meaning) with the same word
+  // recalled IN CONTEXT — its own example sentence with the word blanked (cloze).
+  if (rung === 2) return shouldCloze(item) ? { kind: "cloze:choice" } : { kind: "type", mode: "meaning" };
   // Single-glyph kana + kanji are produced by stroke tracing; yōon digraphs
   // (きょ, no own stroke) and words are produced by building.
   return isTraceable(item) ? { kind: "trace" } : { kind: "build" };
@@ -145,6 +148,8 @@ export default function Review() {
     card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} />;
   } else if (step.kind === "listen:choice") {
     card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} audioFirst />;
+  } else if (step.kind === "cloze:choice") {
+    card = <ClozeCard item={item} allItems={items} onGraded={onGraded} />;
   } else if (step.kind === "type") {
     card = <TypeCard item={item} mode={step.mode} onGraded={onGraded} />;
   } else if (step.kind === "trace") {

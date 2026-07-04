@@ -10,6 +10,7 @@ export const LIVE_CARD_KINDS = [
   "choice",
   "listen:choice",
   "type:meaning",
+  "cloze:choice",
   "build",
   "trace",
 ];

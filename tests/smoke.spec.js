@@ -78,6 +78,7 @@ function reviewState() {
 // Fixture that exercises all LIVE_CARD_KINDS in one session:
 //   konnichiwa rung=3 due   → build (review)
 //   hai        rung=1 due   → listen:choice (review — has audio, routes to listen)
+//   sayounara  rung=2 due   → cloze:choice  (review — example holds the front word)
 //   ohayou     rung=0 vocab → teach + choice + type:meaning (lesson)
 //   い          rung=0 kana  → teach + choice + trace:guided (lesson — kana check2 = trace)
 //   all others rung=1 not due → skipped from both queues
@@ -99,6 +100,7 @@ function kindFixtureState() {
     let rung, srs;
     if (it.id === "ja-u1l1-konnichiwa")  { rung = 3; srs = dueCard();   } // due → build review
     else if (it.id === "ja-u1l1-hai")    { rung = 1; srs = dueCard();   } // due rung-1 + has audio → listen:choice (review)
+    else if (it.id === "ja-u1l1-sayounara") { rung = 2; srs = dueCard(); } // due rung-2 + example holds front → cloze:choice (review)
     else if (it.id === "ja-u1l1-ohayou") { rung = 0; srs = freshCard(); } // new vocab → teach + choice + type:meaning
     else if (it.id === "ja-u1l1-i")      { rung = 0; srs = freshCard(); } // new kana  → teach + choice + trace:guided
     else                                  { rung = 1; srs = freshCard(); } // graduated, not due → skipped
@@ -209,12 +211,13 @@ async function playCard(page) {
   }
 
   if (await option.first().isVisible().catch(() => false)) {
-    // A listening card shows a Play button in place of the glyph — same options,
-    // different prompt — so distinguish it from a plain choice for coverage.
+    // choice / listen:choice / cloze:choice all render options — tell them apart
+    // for coverage: cloze has the sentence card, listen has a Play button.
+    const isCloze = await page.getByTestId("cloze-card").isVisible().catch(() => false);
     const isListen = await page.getByRole("button", { name: "Play the sound" }).isVisible().catch(() => false);
     await option.first().click();
     await continueBtn.click({ force: true });
-    return isListen ? "listen:choice" : "choice";
+    return isCloze ? "cloze:choice" : isListen ? "listen:choice" : "choice";
   }
 
   return false;
