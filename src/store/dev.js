@@ -17,23 +17,33 @@ export function matchesDevCode(input) {
   return String(input ?? "").trim().toUpperCase() === DEV_CODE;
 }
 
-// Preview states for the layout-state preview: view a lesson as fresh /
-// mid-progress / mastered to check those UI states without grinding to them.
-export const PREVIEW_STATES = ["fresh", "mid", "mastered"];
+// Preview states: launch a lesson's items directly at any rung depth, so EVERY
+// card family is one tap from any lesson — no grinding to build up state. Each
+// maps to the card the review runner shows at that rung:
+//   fresh(0)     → teach flow (first-teach lesson)
+//   recognize(1) → choice / listen:choice   (the rung that was un-previewable)
+//   mid(2)       → type:meaning
+//   produce(3)   → trace (kana/kanji) / build (words)
+//   mastered(5)  → produce cards, fully-filled mastery bars
+export const PREVIEW_STATES = ["fresh", "recognize", "mid", "produce", "mastered"];
 
 export const PREVIEW_LABEL = {
-  fresh: "Fresh",
-  mid: "Mid-progress",
+  fresh: "Fresh · teach",
+  recognize: "Recognize · choice/listen",
+  mid: "Recall · type",
+  produce: "Produce · trace/build",
   mastered: "Mastered",
 };
 
 // Rung + FSRS-stability overrides applied to the target lesson's items for each
 // preview state. `fresh` leaves items at rung 0 (a real first-teach lesson);
-// `mid`/`mastered` lift them into the review track at the matching depth so the
-// review runner surfaces the recall / produce card UIs.
+// the rest lift them into the review track at the matching depth so the review
+// runner surfaces that rung's card UI.
 const PREVIEW_OVERRIDES = {
   fresh: { rung: 0, stability: 0 },
+  recognize: { rung: 1, stability: 4 },
   mid: { rung: 2, stability: 8 },
+  produce: { rung: 3, stability: 20 },
   mastered: { rung: 5, stability: 60 },
 };
 
