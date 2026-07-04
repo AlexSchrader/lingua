@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
-import { checkMeaning, checkReading, checkProduce } from "../../store/answer.js";
+import { checkMeaning, checkReading, checkProduce, charDiff } from "../../store/answer.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 
 // Typed answer (rung RECALLED → type the meaning; rung PRODUCED → produce the
@@ -10,6 +10,26 @@ import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 // speed. No self-grade buttons.
 //
 // mode: "meaning" | "produce"
+// Near-miss feedback: "so close!" + what you wrote vs the answer, differing
+// characters highlighted. Warm, and it makes a one-character slip a teaching
+// moment instead of a flat wrong.
+function NearMiss({ typed, answer, tokenFont }) {
+  const d = charDiff(typed, answer);
+  const render = (chars, base, hi) =>
+    chars.map((c, i) => (
+      <span key={i} style={{ fontFamily: tokenFont, color: c.diff ? hi : base, fontWeight: c.diff ? 700 : 500 }}>
+        {c.ch}
+      </span>
+    ));
+  return (
+    <div style={{ textAlign: "center", fontSize: 15, lineHeight: 1.5 }}>
+      <div style={{ color: C.shu, fontWeight: 700, marginBottom: 6 }}>{d.close ? "So close!" : "Not quite —"}</div>
+      <div style={{ color: C.inkSoft, fontSize: 14 }}>you wrote {render(d.typed, C.inkSoft, C.shu)}</div>
+      <div style={{ color: C.inkSoft, fontSize: 14, marginTop: 2 }}>answer {render(d.answer, C.ink, C.matcha)}</div>
+    </div>
+  );
+}
+
 export default function TypeCard({ item, mode, onGraded }) {
   const isKana = item.type === "kana";
 
@@ -129,14 +149,20 @@ export default function TypeCard({ item, mode, onGraded }) {
       )}
 
       {feedback && (
-        <div style={{ textAlign: "center", fontSize: 15 }}>
-          <span style={{ color: outcome === "correct" ? C.matcha : C.shu, fontWeight: 700 }}>
-            {outcome === "correct" ? "Correct" : "Answer:"}
-          </span>{" "}
-          {outcome !== "correct" && (
+        outcome === "correct" ? (
+          <div style={{ textAlign: "center", fontSize: 15 }}>
+            <span style={{ color: C.matcha, fontWeight: 700 }}>Correct</span>
+          </div>
+        ) : value.trim() ? (
+          // Softer miss: show what you wrote vs the answer with the differing
+          // characters highlighted, so a one-kana slip reads as "so close".
+          <NearMiss typed={value} answer={spec.answer} tokenFont={spec.jp ? F.body : F.jp} />
+        ) : (
+          <div style={{ textAlign: "center", fontSize: 15 }}>
+            <span style={{ color: C.shu, fontWeight: 700 }}>Answer:</span>{" "}
             <span style={{ fontFamily: spec.jp ? F.body : F.jp }}>{spec.answer}</span>
-          )}
-        </div>
+          </div>
+        )
       )}
 
       {!feedback ? (

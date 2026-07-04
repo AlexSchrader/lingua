@@ -52,3 +52,24 @@ export function checkProduce(input, item) {
   if (raw && raw === item.front) return true;
   return checkReading(input, item);
 }
+
+// Character-level diff between what the learner typed and the answer, aligned by
+// position, for softer "near-miss" feedback (a one-kana slip should read as
+// "almost!" not a flat ✗). Returns each string as [{ ch, diff }] plus `close`
+// (few differing positions → worth a warmer line). PRESENTATION ONLY — never
+// touches grading; the miss still grades `again`.
+export function charDiff(typed, answer) {
+  const a = [...String(typed ?? "")];
+  const b = [...String(answer ?? "")];
+  const n = Math.max(a.length, b.length);
+  const typedChars = [];
+  const answerChars = [];
+  let diffs = 0;
+  for (let i = 0; i < n; i++) {
+    const d = a[i] !== b[i];
+    if (d) diffs += 1;
+    if (i < a.length) typedChars.push({ ch: a[i], diff: d });
+    if (i < b.length) answerChars.push({ ch: b[i], diff: d });
+  }
+  return { typed: typedChars, answer: answerChars, close: diffs > 0 && diffs <= 2 };
+}
