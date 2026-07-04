@@ -8,6 +8,7 @@ import { KANJIVG } from "./kanjivg.js";
 export const LIVE_CARD_KINDS = [
   "teach",
   "choice",
+  "listen:choice",
   "type:meaning",
   "build",
   "trace",

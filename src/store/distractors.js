@@ -17,8 +17,11 @@ const norm = (s) => String(s ?? "").trim().toLowerCase();
 
 // item: the item being tested. allItems: the store's items map (or array).
 // Returns an array of { text, correct } of length 2..count (1 if truly alone).
-export function buildOptions(item, allItems, count = 4) {
-  const field = item.type === "kana" ? "reading" : "meaning";
+export function buildOptions(item, allItems, count = 4, fieldOverride = null) {
+  // Which field the options show: readings for kana, meanings for vocab — unless
+  // overridden (a listening kana card offers glyphs, `front`, since the glyph is
+  // the hidden answer). Distractors are drawn from the same field.
+  const field = fieldOverride ?? (item.type === "kana" ? "reading" : "meaning");
   const correctVal = item[field];
   const list = Array.isArray(allItems) ? allItems : Object.values(allItems || {});
 
