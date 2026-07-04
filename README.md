@@ -13,9 +13,10 @@ anti-burnout design, built with neurodivergent learners in mind.
 
 ## Status
 
+- **A1 is content-complete** — 21 units · 93 lessons · 729 items (kana scripts + yōon, A1 thematic vocab, 106 N5 kanji, and core A1 grammar). Green on all local gates.
 - **Shipped to `main`:** Units 1–10 (kana scripts + A1 thematic vocab).
-- **Built locally, awaiting GitHub resume:** Units 11–21 (kanji stack + yōon) — validated and tested, not yet pushed.
-- **Blocker:** PR #46 (Unit 13) is held by a GitHub account suspension. See [Known issues](#known-issues).
+- **Built locally, awaiting GitHub resume:** Units 11–21 (kanji stack + yōon + grammar) — validated and tested, not yet pushed.
+- **Blockers:** PR #46 (Unit 13) is held by a GitHub account suspension (see [Known issues](#known-issues)); and A1's "N5 verified" claim is gated on a batched native-speaker review of the kanji + grammar examples.
 
 ---
 
@@ -29,14 +30,15 @@ Full running list and detail: **`BUILD-CHECKLIST.md`** — readers shouldn't hav
 
 ## What's built today
 
-**Curriculum — 21 units · 82 lessons · 604 items** (`npm run audit` for the live breakdown):
+**Curriculum — A1 content-complete · 21 units · 93 lessons · 729 items** (`npm run audit` for the live breakdown):
 
 - **Full hiragana** あ–ん (Units 1–3) and **full katakana** including dakuten/handakuten (Units 4–6).
 - **Yōon** — 33 combination kana (きょ・しゃ・ぎょ…), Unit 16.
 - **First A1 thematic vocab** — numbers/time, family, food + ～ます verbs, town/places, colors/weather (Units 7–10, 12).
-- **106 kanji ≈ JLPT N5 complete** — recognition by meaning, production by stroke tracing (Units 11, 13–15, 17–21).
+- **106 kanji ≈ JLPT N5 complete** — recognition by meaning, production by stroke tracing (Units 11, 13–15, 17–18).
+- **Core A1 grammar** — the copula sentence (Xは Yです / か / の / と / も / question words), verbs + particles (を/が/に/で/へ/から/まで), invitations & requests (ませんか/ましょう/ください), and past tense + い/な-adjective conjugation (Units 19–21).
 - Sectioned by CEFR stage (`pre-a1` / `a1` / …) with JLPT tags on the Ladder.
-- **Grammar/particles are the remaining A1 piece and are intentionally gated** behind a batched native-speaker review of the kanji units.
+- **A1 is content-complete across scripts, vocab, kanji, and grammar.** The remaining gate before any "JLPT N5 verified" claim is a **batched native-speaker review** of the kanji + grammar examples (naturalness/register — the one thing no validator can check).
 
 **Engine & app:**
 
@@ -133,8 +135,10 @@ Lesson 47 runs the same code as lesson 1 — no lesson- or item-specific branchi
 
 ### Workflow
 
-- **Curriculum is autonomous.** Claude Code authors units and **self-merges** them once the full gate is green: `lint:curriculum` → `validate:content` → unit tests → smoke → build.
+- **Three lanes.** **Feature CC** (app/engine/UX), **Curriculum CC** (content units), **QA CC** (tests + reports findings). Alex reviews, feel-checks, and merges everything. Full detail in `CLAUDE.md` → "Roles."
+- **Curriculum is autonomous.** Curriculum CC authors units and **self-merges** them once the full gate is green: `lint:curriculum` → `validate:content` → unit tests → smoke → build.
 - **Schema and engine changes stay as draft PRs** for Alex to review before merge — the structural pieces (contract, store, card runner) keep a human gate.
+- **QA never merges** — it runs the full gate + manual checks and files a prioritized findings list in `BUILD-CHECKLIST.md`, routing each fix to the Feature or Curriculum lane.
 - **Why it matters:** content ships fast and stays fresh, while the parts that can break everything still get a deliberate review.
 
 ---
@@ -152,16 +156,20 @@ are the **batched native-speaker review** gate, required before any "JLPT-aligne
 
 ## Docs
 
-- **`BUILD-CHECKLIST.md`** — single source of truth for project state (what's done, what's next).
-- **`CLAUDE.md`** — standing conventions and guardrails for Claude Code on this repo.
+- **`CLAUDE.md`** — standing conventions, **roles**, and guardrails for Claude Code on this repo (**read first**).
+- **`BUILD-CHECKLIST.md`** — single source of truth for project state (what's done, what's next); holds the Feature CC backlog + QA findings.
 - **`CONTENT.md`** — content schema reference for authoring units.
 - **`BUILD-BRIEF-*.md`** — design briefs (accounts/sync, curriculum lint, speech grading).
+
+**Roles** (full detail in `CLAUDE.md`): work runs in three Claude Code lanes — **Feature CC** (app/engine/UX, draft PRs), **Curriculum CC** (content units, self-merges on green), and **QA CC** (tests + reports findings, builds nothing, never merges). Alex reviews, feel-checks, and merges everything.
 
 ---
 
 ## Not yet built
 
-Particles & grammar (gated on native review) · Whisper speech grading (Brief C, the one
-dormant card kind) · Apple sign-in · side languages (es, fr).
+A2 (JLPT N4) curriculum · Whisper speech grading (Brief C, the one dormant card kind) ·
+Apple sign-in · side languages (es, fr).
+
+*(A1 grammar is **authored** — Units 19–21 — pending only the batched native-speaker review, not further building.)*
 
 *(KanjiVG tracing is **live**, not pending — it shipped PR #19 and kanji production reuses it.)*

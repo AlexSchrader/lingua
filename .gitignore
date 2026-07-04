@@ -13,3 +13,5 @@ dist-ssr
 
 # Vite cache
 /.vite/
+.vercel
+.env*

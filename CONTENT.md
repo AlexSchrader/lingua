@@ -1,6 +1,8 @@
 # Content schema reference
 
-Run `npm run validate:content` to check your changes before pushing.
+**Owner: Curriculum CC.** The authoring reference for units in `src/data/ja/*.js`. Roles and lanes are defined in `CLAUDE.md` → "Roles"; project state is in `BUILD-CHECKLIST.md`.
+
+Run `npm run validate:content` **and** `npm run lint:curriculum` to check your changes before pushing.
 Hard-rule violations exit non-zero; warnings are advisory.
 
 ---
