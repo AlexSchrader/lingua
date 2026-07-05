@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogOut, Cloud, CheckCircle2 } from "lucide-react";
+import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogOut, Cloud, CheckCircle2, Mic } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES } from "../data/index.js";
 import { C, F } from "../theme.js";
@@ -233,6 +233,14 @@ export default function Settings() {
           checked={settings?.typeJp ?? false}
           onChange={(v) => setSetting("typeJp", v)}
         />
+        <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 10, lineHeight: 1.4, display: "flex", gap: 8 }}>
+          <Mic size={14} style={{ flexShrink: 0, marginTop: 2 }} />
+          <span>
+            Speaking cards ask permission to use your mic. Each short clip is sent to ElevenLabs to
+            check the pronunciation, then discarded — your audio is never stored. Speaking is bonus
+            practice; skip it and nothing is blocked.
+          </span>
+        </div>
       </Section>
 
       <Section title="Progress">

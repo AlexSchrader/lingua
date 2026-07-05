@@ -7,6 +7,8 @@ import {
   checkMeaning,
   checkProduce,
   looksRomaji,
+  foldKana,
+  gradeSpoken,
 } from "../../src/store/answer.js";
 
 test("macron folding: long-vowel forms converge", () => {
@@ -62,4 +64,26 @@ test("looksRomaji flags Latin-letter input only", () => {
   assert.ok(looksRomaji("neko"));
   assert.ok(!looksRomaji("ねこ"));
   assert.ok(!looksRomaji("猫"));
+});
+
+test("foldKana normalizes katakana / long-vowel / small-tsu / punctuation", () => {
+  assert.equal(foldKana("カッサ。"), "かさ"); // katakana→hiragana, drop っ and 。
+  assert.equal(foldKana("せんせー！"), "せんせ"); // drop ー and ！
+  assert.equal(foldKana(" あ り が と う "), "ありがとう"); // drop spaces
+});
+
+test("gradeSpoken: lenient reading match (speaking is bonus, never harsh)", () => {
+  const kasa = { front: "かさ", reading: "kasa" };
+  assert.equal(gradeSpoken("かさ", kasa), "good");     // exact
+  assert.equal(gradeSpoken("カサ", kasa), "good");     // STT chose katakana → folds
+  assert.equal(gradeSpoken("カッサ。", kasa), "good"); // geminate + punctuation tolerated
+  assert.equal(gradeSpoken("かた", kasa), "hard");     // one-sound slip → benefit of the doubt
+  assert.equal(gradeSpoken("すし", kasa), "again");    // different word
+  assert.equal(gradeSpoken("", kasa), "again");        // nothing heard
+});
+
+test("gradeSpoken: uses optional kana spelling for a kanji-front word", () => {
+  const neko = { front: "猫", kana: "ねこ", reading: "neko" };
+  assert.equal(gradeSpoken("ねこ", neko), "good");
+  assert.equal(gradeSpoken("いぬ", neko), "again");
 });

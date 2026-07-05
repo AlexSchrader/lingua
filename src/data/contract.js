@@ -2,9 +2,8 @@ import { normalizeReading } from "../store/answer.js";
 import { KANJIVG } from "./kanjivg.js";
 
 // The canonical list of card kinds the session runner actively routes.
-// Adding a new card kind means: (1) add it here, (2) wire it in Lesson.jsx,
+// Adding a new card kind means: (1) add it here, (2) wire it in the runner,
 // (3) add a fixture item to the coverage smoke test.
-// Dormant future kinds (trace, speak) are not in this list until their brief lands.
 export const LIVE_CARD_KINDS = [
   "teach",
   "choice",
@@ -14,6 +13,7 @@ export const LIVE_CARD_KINDS = [
   "type:produce",
   "build",
   "trace",
+  "speak",
 ];
 
 // --- internal constants -------------------------------------------------------

@@ -44,6 +44,14 @@ export function shouldTypeReading(item) {
   return item?.type === "vocab" && hash01(item.id) < READING_SHARE;
 }
 
+// --- spoken production (say it aloud) ----------------------------------------
+// The SPEAK card is vocab-only: STT on isolated single kana is unreliable (the
+// Brief-C C.0 de-risk showed 0/3), and a kana's sound is already trained by the
+// listen card. Multi-mora words transcribe well enough for a lenient grade.
+export function shouldSpeak(item) {
+  return item?.type === "vocab";
+}
+
 // A character is "traceable" when it's a single glyph that has KanjiVG stroke
 // data: every base kana and every kanji. Yōon digraphs (きゃ, しゃ…) are two kana
 // and carry no single stroke entry, so they fall back to a typed recall instead

@@ -5,10 +5,11 @@ import ChoiceCard from "../components/games/ChoiceCard.jsx";
 import TypeCard from "../components/games/TypeCard.jsx";
 import BuildCard from "../components/games/BuildCard.jsx";
 import TraceCard from "../components/games/TraceCard.jsx";
+import SpeakCard from "../components/games/SpeakCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable } from "../store/mastery.js";
-import { isTraceable, shouldListen, shouldTypeReading, shouldTypeProduce } from "../store/cardRouting.js";
+import { isTraceable, shouldListen, shouldTypeReading, shouldTypeProduce, shouldSpeak } from "../store/cardRouting.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
@@ -30,8 +31,15 @@ function reviewStepFor(item, opts = {}) {
   // Produce (rung 3): single-glyph kana + kanji are produced by stroke tracing;
   // words are produced by building from tiles OR — when the learner has opted into
   // "type in Japanese" — by TYPING the Japanese from the English. Off → always build.
-  if (isTraceable(item)) return { kind: "trace" };
-  return opts.typeJp && shouldTypeProduce(item) ? { kind: "type", mode: "produce" } : { kind: "build" };
+  if (rung === 3) {
+    if (isTraceable(item)) return { kind: "trace" };
+    return opts.typeJp && shouldTypeProduce(item) ? { kind: "type", mode: "produce" } : { kind: "build" };
+  }
+  // Speak (rung ≥ 4, SPOKEN→MASTERED): vocab words are reviewed by saying them
+  // aloud — a graded spoken pass is what carries a produced word to MASTERED.
+  // Kana/kanji have no reliable isolated-sound grading, so they keep trace/build.
+  if (shouldSpeak(item)) return { kind: "speak" };
+  return isTraceable(item) ? { kind: "trace" } : { kind: "build" };
 }
 
 export default function Review() {
@@ -157,6 +165,8 @@ export default function Review() {
     card = <TypeCard item={item} mode={step.mode} onGraded={onGraded} />;
   } else if (step.kind === "trace") {
     card = <TraceCard item={item} mode="free" onGraded={onGraded} />;
+  } else if (step.kind === "speak") {
+    card = <SpeakCard item={item} onGraded={onGraded} />;
   } else {
     card = <BuildCard item={item} onGraded={onGraded} />;
   }

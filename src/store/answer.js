@@ -83,3 +83,46 @@ export function charDiff(typed, answer) {
   }
   return { typed: typedChars, answer: answerChars, close: diffs > 0 && diffs <= 2 };
 }
+
+// --- Spoken grading (SpeakCard) ---------------------------------------------
+// STT hands back what it *heard*, in kana — but its script choice is arbitrary
+// (かさ can come back カッサ; homophones can surface as kanji). Fold to a stable
+// hiragana form before comparing: katakana→hiragana, drop long-vowel ー, small
+// tsu っ, and punctuation/space. This is the same "recognizably the right sounds"
+// bar the de-risk (Brief C, C.0) showed is the fair one for isolated words.
+export function foldKana(s) {
+  return String(s ?? "")
+    .replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60)) // katakana → hiragana
+    .replace(/[ー。、！？!?.\sっッ]/gu, "");
+}
+
+// Small edit distance (Levenshtein), capped use — for "one-sound slip" leniency.
+function editDistance(a, b) {
+  const m = a.length, n = b.length;
+  if (!m) return n;
+  if (!n) return m;
+  let prev = Array.from({ length: n + 1 }, (_, j) => j);
+  for (let i = 1; i <= m; i++) {
+    const cur = [i];
+    for (let j = 1; j <= n; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + cost);
+    }
+    prev = cur;
+  }
+  return prev[n];
+}
+
+// Grade a spoken attempt against the target word. LENIENT by design — speaking is
+// bonus depth, never a punishing gate: a clean reading match → `good`; a one-sound
+// slip → `hard` (benefit of the doubt, holds the rung); otherwise → `again`.
+// Compares the STT transcript to the item's kana `front` (all current vocab fronts
+// are kana; a kanji-front word would carry an optional `kana` reading, same hook as
+// checkProduce). Pure + deterministic so it unit-tests with no mic/network.
+export function gradeSpoken(transcript, item) {
+  const heard = foldKana(transcript);
+  const target = foldKana(item?.kana ?? item?.front ?? "");
+  if (!heard || !target) return "again";
+  if (heard === target) return "good";
+  return editDistance(heard, target) <= 1 ? "hard" : "again";
+}

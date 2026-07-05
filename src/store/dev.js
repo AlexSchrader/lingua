@@ -9,7 +9,7 @@ import { seedItems, UNITS } from "../data/index.js";
 import { getLesson } from "../data/index.js";
 import { KANJIVG } from "../data/kanjivg.js";
 import { newCard } from "./srs.js";
-import { shouldListen, shouldTypeReading, shouldTypeProduce, isTraceable } from "./cardRouting.js";
+import { shouldListen, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak } from "./cardRouting.js";
 
 // The unlock code. Intentionally in the bundle — see note above.
 export const DEV_CODE = "L071201";
@@ -89,6 +89,7 @@ function pickForKind(seed, kind) {
     case "type:produce":  return { item: vocab.find((it) => shouldTypeProduce(it)) ?? vocab[0], rung: 3 };
     case "build":         return { item: vocab.find((it) => !shouldTypeProduce(it)) ?? vocab[0], rung: 3 };
     case "trace":         return { item: items.find((it) => isTraceable(it)), rung: 3 };
+    case "speak":         return { item: vocab.find((it) => shouldSpeak(it)) ?? vocab[0], rung: 4 };
     default:              return null;
   }
 }
