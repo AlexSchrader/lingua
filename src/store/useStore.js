@@ -78,7 +78,9 @@ export const useStore = create(
       // = auto-play the pronunciation clip when a Teach card appears (the speaker
       // button always plays regardless). Both default on; persisted. Old persisted
       // state without this key keeps these defaults via persist's shallow merge.
-      settings: { sfx: true, autoplayAudio: true, showRomaji: true, theme: "system", textSize: "default" },
+      // typeJp OFF by default: the "type it in Japanese" card needs a Japanese
+      // keyboard/IME enabled on the device, so it's opt-in (Settings → Practice).
+      settings: { sfx: true, autoplayAudio: true, showRomaji: true, theme: "system", textSize: "default", typeJp: false },
       ui: {},
 
       // Cloud sync (Supabase). `lastModified` is persisted and drives the

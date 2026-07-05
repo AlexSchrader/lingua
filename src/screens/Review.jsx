@@ -19,7 +19,7 @@ function assertLiveKind(kindKey) {
   }
 }
 
-function reviewStepFor(item) {
+function reviewStepFor(item, opts = {}) {
   const rung = item.rung ?? 1;
   // Recognition (rung ≤ 1): interleave the eye path (choice) with the ear path
   // (listen:choice) for items that have a clip — same skill, sound-in vs glyph-in.
@@ -28,10 +28,10 @@ function reviewStepFor(item) {
   // rōmaji reading (JP→rōmaji) instead.
   if (rung === 2) return shouldTypeReading(item) ? { kind: "type", mode: "reading" } : { kind: "type", mode: "meaning" };
   // Produce (rung 3): single-glyph kana + kanji are produced by stroke tracing;
-  // words are produced by building from tiles OR — for some vocab — by TYPING the
-  // Japanese from the English (rōmaji or kana accepted). Yōon digraphs → build.
+  // words are produced by building from tiles OR — when the learner has opted into
+  // "type in Japanese" — by TYPING the Japanese from the English. Off → always build.
   if (isTraceable(item)) return { kind: "trace" };
-  return shouldTypeProduce(item) ? { kind: "type", mode: "produce" } : { kind: "build" };
+  return opts.typeJp && shouldTypeProduce(item) ? { kind: "type", mode: "produce" } : { kind: "build" };
 }
 
 export default function Review() {
@@ -46,9 +46,13 @@ export default function Review() {
 
   const storeItems = useStore((s) => s.items);
   const dueItems = useStore((s) => s.dueItems);
+  // "Type in Japanese" is opt-in (needs a JP keyboard). Off → produce cards fall
+  // back to build. The Quick-card dev preview forces it on so it stays testable.
+  const typeJpSetting = useStore((s) => s.settings?.typeJp ?? false);
   // `?card=<kind>` → the Quick-card launcher (one item seeded to yield that kind);
   // otherwise `?lesson=&state=` → the per-lesson depth preview.
   const cardParam = searchParams.get("card");
+  const typeJp = typeJpSetting || cardParam === "type:produce";
   const sandboxItems = useMemo(
     () =>
       sandbox
@@ -74,7 +78,7 @@ export default function Review() {
   const reviewQueue = useMemo(
     () => {
       const source = sandbox ? Object.values(items).filter(isReviewable) : dueItems();
-      return source.map((it) => ({ ...reviewStepFor(it), id: it.id }));
+      return source.map((it) => ({ ...reviewStepFor(it, { typeJp }), id: it.id }));
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []

@@ -116,6 +116,7 @@ function kindFixtureState() {
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },
       daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+      settings: { typeJp: true }, // opt-in produce card on, so type:produce is exercised
       ui: {},
     },
     version: 1,
