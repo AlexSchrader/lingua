@@ -44,20 +44,30 @@ test("checkMeaning honors canonical + accept[]", () => {
   assert.ok(!checkMeaning("", item));
 });
 
-test("checkProduce (Type JP) requires Japanese, rejects romaji", () => {
-  const item = { front: "おはよう", reading: "ohayō", meaning: "good morning" };
-  assert.ok(checkProduce("おはよう", item));       // typed the kana on a JP keyboard
+test("checkProduce: A2+ (or no stage) requires Japanese script, rejects rōmaji", () => {
+  const item = { front: "おはよう", reading: "ohayō", meaning: "good morning", stage: "a2" };
+  assert.ok(checkProduce("おはよう", item));       // kana always counts
   assert.ok(checkProduce("おはよう。", item));     // trailing punctuation tolerated
-  assert.ok(!checkProduce("ohayou", item));         // romaji is NOT production — reading card's job
+  assert.ok(!checkProduce("ohayou", item));         // A2+: rōmaji is not production
   assert.ok(!checkProduce("こんにちは", item));     // wrong word
   assert.ok(!checkProduce("", item));
 });
 
-test("checkProduce accepts an optional kana spelling for a kanji-front word", () => {
-  const item = { front: "猫", kana: "ねこ", reading: "neko", meaning: "cat" };
-  assert.ok(checkProduce("猫", item));   // the kanji front (once learned)
-  assert.ok(checkProduce("ねこ", item)); // kana baseline before kanji is learned
-  assert.ok(!checkProduce("neko", item));
+test("checkProduce: through A1 the rōmaji on-ramp is accepted (no JP keyboard needed)", () => {
+  const item = { front: "ねこ", reading: "neko", meaning: "cat", stage: "a1" };
+  assert.ok(checkProduce("ねこ", item));                        // kana still counts
+  assert.ok(checkProduce("neko", item));                        // rōmaji accepted ≤ A1
+  assert.ok(checkProduce("neko。", item));                      // trailing punctuation tolerated
+  assert.ok(checkProduce("neko", { ...item, stage: "pre-a1" })); // pre-a1 too
+  assert.ok(!checkProduce("inu", item));                        // wrong reading still fails
+  assert.ok(!checkProduce("neko", { ...item, stage: "a2" }));   // but rejected at A2
+});
+
+test("checkProduce accepts an optional kana spelling for a kanji-front word (A2, kana required)", () => {
+  const item = { front: "猫", kana: "ねこ", reading: "neko", meaning: "cat", stage: "a2" };
+  assert.ok(checkProduce("猫", item));    // the kanji front (once learned)
+  assert.ok(checkProduce("ねこ", item));  // kana baseline before kanji is learned
+  assert.ok(!checkProduce("neko", item)); // rōmaji rejected at A2
 });
 
 test("looksRomaji flags Latin-letter input only", () => {

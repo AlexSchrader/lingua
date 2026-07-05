@@ -39,6 +39,7 @@ export function seedItems() {
           lang: unit.lang,
           unit: lesson.unit,
           lesson: lesson.lesson,
+          stage: unit.stage, // CEFR stage, used e.g. by the produce card's rōmaji on-ramp
           meaning: item.meaning ?? null,
           example: item.example ?? null,
           accept: item.accept ?? [], // optional synonyms accepted for typed answers

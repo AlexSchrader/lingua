@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
-import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji } from "../../store/answer.js";
+import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji } from "../../store/answer.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 
@@ -63,7 +63,8 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
       return isKana
         ? { prompt: item.reading, jp: false, ask: "Type the kana",
             check: (v) => v.trim() === item.front, answer: item.front }
-        : { prompt: item.meaning, jp: false, ask: "Type it in Japanese ⌨️ (kana keyboard — not rōmaji)",
+        : { prompt: item.meaning, jp: false,
+            ask: produceAllowsRomaji(item) ? "Type it in Japanese — rōmaji or kana" : "Type it in Japanese ⌨️ (kana — not rōmaji)",
             check: (v) => checkProduce(v, item), answer: item.front };
     }
     if (mode === "reading") {
@@ -115,9 +116,13 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
   };
 
   const feedback = phase === "feedback";
-  // On the Type-JP card, a Latin-letter answer isn't "wrong" so much as the
-  // wrong keyboard — nudge to switch rather than diff romaji against kana.
-  const romajiOnProduce = mode === "produce" && looksRomaji(value);
+  // On a kana-only produce card (A2+), a Latin-letter answer isn't "wrong" so much
+  // as the wrong keyboard — nudge to switch rather than diff romaji against kana.
+  // Where rōmaji is accepted (≤A1 on-ramp) it's a normal answer, so no nudge.
+  const romajiOnProduce = mode === "produce" && !produceAllowsRomaji(item) && looksRomaji(value);
+  // When rōmaji IS accepted and the learner typed rōmaji, a miss is diffed against
+  // the rōmaji reading (not the kana front) so the near-miss reads sensibly.
+  const romajiProduceMiss = mode === "produce" && produceAllowsRomaji(item) && looksRomaji(value);
 
   return (
     <div
@@ -171,7 +176,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
             feedback ? (outcome === "correct" ? C.matcha : C.shu) : retried ? C.shu : C.line
           }`,
           background: C.surface,
-          fontFamily: spec.jp || mode === "produce" ? F.jp : F.body,
+          fontFamily: spec.jp ? F.jp : F.body,
           fontSize: 18,
           outline: "none",
           textAlign: "center",
@@ -201,7 +206,11 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
         ) : value.trim() ? (
           // Softer miss: show what you wrote vs the answer with the differing
           // characters highlighted, so a one-kana slip reads as "so close".
-          <NearMiss typed={value} answer={spec.answer} tokenFont={spec.jp || listen ? F.body : F.jp} />
+          <NearMiss
+            typed={value}
+            answer={romajiProduceMiss ? item.reading : spec.answer}
+            tokenFont={romajiProduceMiss ? F.body : spec.jp || listen ? F.body : F.jp}
+          />
         ) : (
           <div style={{ textAlign: "center", fontSize: 15 }}>
             <span style={{ color: C.shu, fontWeight: 700 }}>Answer:</span>{" "}

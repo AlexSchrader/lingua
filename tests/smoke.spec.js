@@ -121,7 +121,7 @@ function kindFixtureState() {
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },
       daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
-      settings: { typeJp: true }, // opt-in produce card on, so type:produce is exercised
+      settings: {}, // type:produce is default now (rung-3 vocab), no opt-in needed
       ui: {},
     },
     version: 1,

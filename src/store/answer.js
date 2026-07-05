@@ -46,21 +46,37 @@ export function checkMeaning(input, item) {
   return accepted.includes(a);
 }
 
-// Detect a romaji (Latin-letter) answer — used to reject it on the PRODUCE card
-// and nudge the learner to their Japanese keyboard instead of grading it wrong.
+// Detect a romaji (Latin-letter) answer — used on the PRODUCE card to nudge the
+// learner to their Japanese keyboard (only where rōmaji isn't accepted).
 export function looksRomaji(input) {
   return /[A-Za-z]/.test(String(input));
 }
 
-// Producing the Japanese (the PRODUCE card, English→JP): the learner must type
-// the actual Japanese on a Japanese keyboard — romaji is NOT accepted here
-// (that's the reading card's job). Match the canonical front (kana today; kanji
-// once the curriculum carries kanji-front words), or an optional `kana` spelling
-// so a kanji word can still be answered in kana before its kanji are learned.
+// Stages where the produce card is a beginner ON-RAMP: rōmaji is accepted so no
+// Japanese keyboard is required. From A2 up, production means real Japanese script
+// — rōmaji stops counting there (the reading card keeps that job).
+const PRODUCE_ROMAJI_STAGES = new Set(["pre-a1", "a1"]);
+
+// Whether this item's stage still accepts rōmaji on the produce card. A missing
+// stage is treated as strict (kana only) — the safe default.
+export function produceAllowsRomaji(item) {
+  return PRODUCE_ROMAJI_STAGES.has(item?.stage);
+}
+
+// Producing the Japanese (the PRODUCE card, English→JP). Actual Japanese script
+// always counts — the canonical front (kana, or kanji once the curriculum carries
+// kanji-front words), or an optional `kana` spelling so a kanji word can be
+// answered in kana before its kanji are learned. Through A1 the learner may ALSO
+// answer in rōmaji (on-ramp — no Japanese keyboard needed); from A2 up rōmaji is
+// rejected, so production means writing the real script.
 export function checkProduce(input, item) {
   const raw = String(input).trim().replace(/[。、！？.!?\s]+$/u, "");
-  if (!raw || looksRomaji(raw)) return false;
-  return raw === item.front || (item.kana && raw === item.kana);
+  if (!raw) return false;
+  if (raw === item.front || (item.kana && raw === item.kana)) return true;
+  if (produceAllowsRomaji(item) && looksRomaji(raw)) {
+    return normalizeReading(raw) === normalizeReading(item.reading);
+  }
+  return false;
 }
 
 // Character-level diff between what the learner typed and the answer, aligned by
