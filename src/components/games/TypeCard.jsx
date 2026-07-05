@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
-import { checkMeaning, checkReading, checkProduce, charDiff } from "../../store/answer.js";
+import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji } from "../../store/answer.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 
 // Typed answer (rung RECALLED → type the meaning; rung PRODUCED → produce the
@@ -39,7 +39,7 @@ export default function TypeCard({ item, mode, onGraded }) {
       return isKana
         ? { prompt: item.reading, jp: false, ask: "Type the kana",
             check: (v) => v.trim() === item.front, answer: item.front }
-        : { prompt: item.meaning, jp: false, ask: "Write it in Japanese (rōmaji or kana)",
+        : { prompt: item.meaning, jp: false, ask: "Type it in Japanese ⌨️ (kana keyboard — not rōmaji)",
             check: (v) => checkProduce(v, item), answer: item.front };
     }
     if (mode === "reading") {
@@ -91,6 +91,9 @@ export default function TypeCard({ item, mode, onGraded }) {
   };
 
   const feedback = phase === "feedback";
+  // On the Type-JP card, a Latin-letter answer isn't "wrong" so much as the
+  // wrong keyboard — nudge to switch rather than diff romaji against kana.
+  const romajiOnProduce = mode === "produce" && looksRomaji(value);
 
   return (
     <div
@@ -149,7 +152,7 @@ export default function TypeCard({ item, mode, onGraded }) {
 
       {retried && !feedback && (
         <div style={{ fontSize: 13, color: C.shu, fontWeight: 600, textAlign: "center" }}>
-          Not quite — try once more
+          {romajiOnProduce ? "Switch to your Japanese keyboard — type the kana, not rōmaji." : "Not quite — try once more"}
         </div>
       )}
 
@@ -157,6 +160,15 @@ export default function TypeCard({ item, mode, onGraded }) {
         outcome === "correct" ? (
           <div style={{ textAlign: "center", fontSize: 15 }}>
             <span style={{ color: C.matcha, fontWeight: 700 }}>Correct</span>
+          </div>
+        ) : romajiOnProduce ? (
+          // Romaji on Type-JP: don't diff Latin vs kana — show the kana answer
+          // and point back to the keyboard.
+          <div style={{ textAlign: "center", fontSize: 15, lineHeight: 1.5 }}>
+            <div style={{ color: C.shu, fontWeight: 700, marginBottom: 6 }}>Japanese keyboard needed</div>
+            <div style={{ color: C.inkSoft, fontSize: 14 }}>
+              answer <span style={{ fontFamily: F.jp }}>{spec.answer}</span>
+            </div>
           </div>
         ) : value.trim() ? (
           // Softer miss: show what you wrote vs the answer with the differing

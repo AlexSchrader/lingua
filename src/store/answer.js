@@ -46,11 +46,21 @@ export function checkMeaning(input, item) {
   return accepted.includes(a);
 }
 
-// Producing the Japanese: accept the kana itself or its (kana/romaji) reading.
+// Detect a romaji (Latin-letter) answer — used to reject it on the PRODUCE card
+// and nudge the learner to their Japanese keyboard instead of grading it wrong.
+export function looksRomaji(input) {
+  return /[A-Za-z]/.test(String(input));
+}
+
+// Producing the Japanese (the PRODUCE card, English→JP): the learner must type
+// the actual Japanese on a Japanese keyboard — romaji is NOT accepted here
+// (that's the reading card's job). Match the canonical front (kana today; kanji
+// once the curriculum carries kanji-front words), or an optional `kana` spelling
+// so a kanji word can still be answered in kana before its kanji are learned.
 export function checkProduce(input, item) {
-  const raw = String(input).trim();
-  if (raw && raw === item.front) return true;
-  return checkReading(input, item);
+  const raw = String(input).trim().replace(/[。、！？.!?\s]+$/u, "");
+  if (!raw || looksRomaji(raw)) return false;
+  return raw === item.front || (item.kana && raw === item.kana);
 }
 
 // Character-level diff between what the learner typed and the answer, aligned by
