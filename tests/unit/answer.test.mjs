@@ -6,6 +6,7 @@ import {
   checkReading,
   checkMeaning,
   checkProduce,
+  looksRomaji,
 } from "../../src/store/answer.js";
 
 test("macron folding: long-vowel forms converge", () => {
@@ -41,9 +42,24 @@ test("checkMeaning honors canonical + accept[]", () => {
   assert.ok(!checkMeaning("", item));
 });
 
-test("checkProduce accepts the kana or its reading", () => {
+test("checkProduce (Type JP) requires Japanese, rejects romaji", () => {
   const item = { front: "おはよう", reading: "ohayō", meaning: "good morning" };
-  assert.ok(checkProduce("おはよう", item));
-  assert.ok(checkProduce("ohayou", item)); // romaji of the reading
-  assert.ok(!checkProduce("こんにちは", item));
+  assert.ok(checkProduce("おはよう", item));       // typed the kana on a JP keyboard
+  assert.ok(checkProduce("おはよう。", item));     // trailing punctuation tolerated
+  assert.ok(!checkProduce("ohayou", item));         // romaji is NOT production — reading card's job
+  assert.ok(!checkProduce("こんにちは", item));     // wrong word
+  assert.ok(!checkProduce("", item));
+});
+
+test("checkProduce accepts an optional kana spelling for a kanji-front word", () => {
+  const item = { front: "猫", kana: "ねこ", reading: "neko", meaning: "cat" };
+  assert.ok(checkProduce("猫", item));   // the kanji front (once learned)
+  assert.ok(checkProduce("ねこ", item)); // kana baseline before kanji is learned
+  assert.ok(!checkProduce("neko", item));
+});
+
+test("looksRomaji flags Latin-letter input only", () => {
+  assert.ok(looksRomaji("neko"));
+  assert.ok(!looksRomaji("ねこ"));
+  assert.ok(!looksRomaji("猫"));
 });

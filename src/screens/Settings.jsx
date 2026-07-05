@@ -226,6 +226,15 @@ export default function Settings() {
         />
       </Section>
 
+      <Section title="Practice">
+        <Toggle
+          label="Type in Japanese"
+          desc="Adds cards that ask you to write the word in Japanese — you'll need a Japanese keyboard on your device (iPhone: Settings → General → Keyboard → Keyboards → add Japanese, then tap 🌐 to switch). Off by default; typing the meaning and the rōmaji always work without it."
+          checked={settings?.typeJp ?? false}
+          onChange={(v) => setSetting("typeJp", v)}
+        />
+      </Section>
+
       <Section title="Progress">
         {!confirming ? (
           <button

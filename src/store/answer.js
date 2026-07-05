@@ -46,9 +46,40 @@ export function checkMeaning(input, item) {
   return accepted.includes(a);
 }
 
-// Producing the Japanese: accept the kana itself or its (kana/romaji) reading.
+// Detect a romaji (Latin-letter) answer — used to reject it on the PRODUCE card
+// and nudge the learner to their Japanese keyboard instead of grading it wrong.
+export function looksRomaji(input) {
+  return /[A-Za-z]/.test(String(input));
+}
+
+// Producing the Japanese (the PRODUCE card, English→JP): the learner must type
+// the actual Japanese on a Japanese keyboard — romaji is NOT accepted here
+// (that's the reading card's job). Match the canonical front (kana today; kanji
+// once the curriculum carries kanji-front words), or an optional `kana` spelling
+// so a kanji word can still be answered in kana before its kanji are learned.
 export function checkProduce(input, item) {
-  const raw = String(input).trim();
-  if (raw && raw === item.front) return true;
-  return checkReading(input, item);
+  const raw = String(input).trim().replace(/[。、！？.!?\s]+$/u, "");
+  if (!raw || looksRomaji(raw)) return false;
+  return raw === item.front || (item.kana && raw === item.kana);
+}
+
+// Character-level diff between what the learner typed and the answer, aligned by
+// position, for softer "near-miss" feedback (a one-kana slip should read as
+// "almost!" not a flat ✗). Returns each string as [{ ch, diff }] plus `close`
+// (few differing positions → worth a warmer line). PRESENTATION ONLY — never
+// touches grading; the miss still grades `again`.
+export function charDiff(typed, answer) {
+  const a = [...String(typed ?? "")];
+  const b = [...String(answer ?? "")];
+  const n = Math.max(a.length, b.length);
+  const typedChars = [];
+  const answerChars = [];
+  let diffs = 0;
+  for (let i = 0; i < n; i++) {
+    const d = a[i] !== b[i];
+    if (d) diffs += 1;
+    if (i < a.length) typedChars.push({ ch: a[i], diff: d });
+    if (i < b.length) answerChars.push({ ch: b[i], diff: d });
+  }
+  return { typed: typedChars, answer: answerChars, close: diffs > 0 && diffs <= 2 };
 }
