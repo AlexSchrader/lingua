@@ -75,34 +75,39 @@ export function buildSandboxItems(lessonId, previewState = "fresh") {
 }
 
 // --- Quick card preview ------------------------------------------------------
-// "Show me THIS card right now" — pick a canonical item for a card kind and seed
-// it at the rung that produces that card, so one tap lands on it (no lesson to
-// find, no depth to choose). teach is lesson-only → handled by the route.
-function pickForKind(seed, kind) {
-  const items = Object.values(seed);
-  const vocab = items.filter((it) => it.type === "vocab");
+// "Show me THIS card right now" — seed a handful of items at the rung that
+// produces that card, so one tap runs a short session of examples (not a single
+// card — you want a few reps to feel it). teach is lesson-only → via the route.
+export const QUICK_CARD_COUNT = 3; // examples seeded per Quick-card kind
+
+// For a card kind: the rung to seed at + which items yield it.
+function kindSpec(kind) {
   switch (kind) {
-    case "listen:choice": return { item: vocab.find((it) => shouldListen(it)) ?? vocab[0], rung: 1 };
-    case "choice":        return { item: vocab.find((it) => !shouldListen(it)) ?? vocab[0], rung: 1 };
-    case "type:reading":  return { item: vocab.find((it) => shouldTypeReading(it)) ?? vocab[0], rung: 2 };
-    case "type:meaning":  return { item: vocab.find((it) => !shouldTypeReading(it)) ?? vocab[0], rung: 2 };
-    case "type:produce":  return { item: vocab.find((it) => shouldTypeProduce(it)) ?? vocab[0], rung: 3 };
-    case "build":         return { item: vocab.find((it) => !shouldTypeProduce(it)) ?? vocab[0], rung: 3 };
-    case "trace":         return { item: items.find((it) => isTraceable(it)), rung: 3 };
-    case "speak":         return { item: vocab.find((it) => shouldSpeak(it)) ?? vocab[0], rung: 4 };
+    case "listen:choice": return { rung: 1, pick: (it) => it.type === "vocab" && shouldListen(it) };
+    case "choice":        return { rung: 1, pick: (it) => it.type === "vocab" && !shouldListen(it) };
+    case "type:reading":  return { rung: 2, pick: (it) => shouldTypeReading(it) };
+    case "type:meaning":  return { rung: 2, pick: (it) => it.type === "vocab" && !shouldTypeReading(it) };
+    case "type:produce":  return { rung: 3, pick: (it) => shouldTypeProduce(it) };
+    case "build":         return { rung: 3, pick: (it) => it.type === "vocab" && !shouldTypeProduce(it) };
+    case "trace":         return { rung: 3, pick: (it) => isTraceable(it) };
+    case "speak":         return { rung: 4, pick: (it) => shouldSpeak(it) };
     default:              return null;
   }
 }
 
-// Throwaway items map with exactly one item seeded to yield the given card kind.
+// Throwaway items map with a few items seeded to yield the given card kind, so the
+// Quick-card preview runs QUICK_CARD_COUNT examples of it (isolated, no real state).
 export function buildCardPreviewItems(kind) {
   const seed = seedItems();
   const items = {};
   for (const [id, it] of Object.entries(seed)) items[id] = { ...it, srs: newCard() };
-  const pick = pickForKind(seed, kind);
-  if (!pick?.item) return items;
-  const it = items[pick.item.id];
-  items[pick.item.id] = { ...it, rung: pick.rung, srs: { ...it.srs, stability: 8, due: new Date(Date.now() - 1000) } };
+  const spec = kindSpec(kind);
+  if (!spec) return items;
+  const picks = Object.values(seed).filter(spec.pick).slice(0, QUICK_CARD_COUNT);
+  const due = new Date(Date.now() - 1000);
+  for (const p of picks) {
+    items[p.id] = { ...items[p.id], rung: spec.rung, srs: { ...items[p.id].srs, stability: 8, due } };
+  }
   return items;
 }
 
