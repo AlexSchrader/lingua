@@ -1,17 +1,23 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { Mic } from "lucide-react";
+import { Mic, Square, Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { gradeSpoken } from "../../store/answer.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 
-// SpeakCard — the SPOKEN-rung review (vocab only). Push-and-hold the mic to record
-// a short clip; on release it's transcribed by /api/score-speech (ElevenLabs Scribe)
-// and graded LENIENTLY against the target reading (src/store/answer.js gradeSpoken).
+// SpeakCard — the SPOKEN-rung review (vocab only). Duolingo-style flow: the app
+// SAYS the word (plays its clip), then auto-arms the mic; you say it back and TAP
+// to stop. The clip is transcribed by /api/score-speech (ElevenLabs Scribe) and
+// graded LENIENTLY against the reading (src/store/answer.js gradeSpoken), which
+// accepts kana, romaji, or an English-homophone transcript.
 //
 // ND spine: speaking is bonus depth, never a punishing gate. Retries are unlimited
 // and unpenalized (only the grade you Continue with counts); a miss is warm, not a
 // red wall; and if the mic/permission/endpoint isn't available it degrades to an
 // ungraded "say it" prompt that lets the session continue (generous `good`).
+
+// Skip audio/mic auto-drive under Playwright so smoke stays fast + deterministic
+// (the card is driven through window.__speak in CI).
+const IS_WEBDRIVER = typeof navigator !== "undefined" && !!navigator.webdriver;
 
 function pickMime() {
   if (typeof MediaRecorder === "undefined") return "";
@@ -22,7 +28,7 @@ function pickMime() {
 }
 
 export default function SpeakCard({ item, onGraded }) {
-  const [phase, setPhase] = useState("idle"); // idle | recording | scoring | result | fallback
+  const [phase, setPhase] = useState("prompt"); // prompt | recording | scoring | result | fallback
   const [grade, setGrade] = useState(null); // "good" | "hard" | "again"
   const [heard, setHeard] = useState(""); // STT transcript, for feedback
 
@@ -30,16 +36,13 @@ export default function SpeakCard({ item, onGraded }) {
   const recRef = useRef(null);
   const chunksRef = useRef([]);
   const mimeRef = useRef(pickMime());
+  const audioRef = useRef(null);
 
-  useEffect(() => {
-    // Reset when the item changes (card reused across the queue).
-    setPhase("idle");
-    setGrade(null);
-    setHeard("");
-  }, [item.id]);
+  const stopTracks = useCallback(() => {
+    streamRef.current?.getTracks().forEach((t) => t.stop());
+    streamRef.current = null;
+  }, []);
 
-  // Score a transcript → grade → result screen. Shared by the real mic path and
-  // the test hook, so the grade→advance flow is drivable without a mic/network.
   const scoreTranscript = useCallback(
     (transcript) => {
       const g = gradeSpoken(transcript, item);
@@ -52,24 +55,26 @@ export default function SpeakCard({ item, onGraded }) {
     [item]
   );
 
-  const stopTracks = useCallback(() => {
-    streamRef.current?.getTracks().forEach((t) => t.stop());
-    streamRef.current = null;
-  }, []);
+  const scoreClip = useCallback(async () => {
+    stopTracks();
+    const blob = new Blob(chunksRef.current, { type: mimeRef.current || "audio/webm" });
+    if (!blob.size) { setPhase("fallback"); return; }
+    try {
+      const res = await fetch("/api/score-speech", {
+        method: "POST",
+        headers: { "Content-Type": blob.type },
+        body: blob,
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      const { transcript } = await res.json();
+      scoreTranscript(transcript ?? "");
+    } catch {
+      setPhase("fallback"); // endpoint down / offline → never blocks
+    }
+  }, [scoreTranscript, stopTracks]);
 
-  useEffect(() => stopTracks, [stopTracks]);
-
-  // Test hook: let Playwright drive the card without a real mic or the endpoint.
-  useEffect(() => {
-    window.__speak = {
-      pass: () => scoreTranscript(item.front),
-      miss: () => scoreTranscript("ちがう"),
-    };
-    return () => { delete window.__speak; };
-  }, [item, scoreTranscript]);
-
-  const startRecording = async () => {
-    if (phase === "recording" || phase === "scoring") return;
+  // Arm the mic and start recording. Called after the word has finished playing.
+  const armMic = useCallback(async () => {
     if (typeof navigator === "undefined" || !navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === "undefined") {
       setPhase("fallback");
       return;
@@ -85,13 +90,37 @@ export default function SpeakCard({ item, onGraded }) {
       rec.start();
       setPhase("recording");
     } catch {
-      // Permission denied / no device → non-graded fallback, never blocks.
       stopTracks();
-      setPhase("fallback");
+      setPhase("fallback"); // permission denied → non-graded, never blocks
     }
+  }, [scoreClip, stopTracks]);
+
+  // Play the target word, then arm the mic on end (so the mic never records the
+  // clip). No clip / play error / autoplay-blocked → arm immediately.
+  const playThenArm = useCallback(() => {
+    if (IS_WEBDRIVER) { setPhase("prompt"); return; } // CI drives via the hook
+    setPhase("prompt");
+    try {
+      const a = new Audio(`/audio/${item.lang}/${item.id}.mp3`);
+      audioRef.current = a;
+      a.onended = () => armMic();
+      a.onerror = () => armMic();
+      a.play().catch(() => armMic());
+    } catch {
+      armMic();
+    }
+  }, [item, armMic]);
+
+  const replay = () => {
+    audioRef.current?.pause();
+    try {
+      const a = new Audio(`/audio/${item.lang}/${item.id}.mp3`);
+      audioRef.current = a;
+      a.play().catch(() => {});
+    } catch { /* silent */ }
   };
 
-  const stopRecording = () => {
+  const stopAndScore = () => {
     if (phase !== "recording") return;
     setPhase("scoring");
     try {
@@ -101,35 +130,33 @@ export default function SpeakCard({ item, onGraded }) {
     }
   };
 
-  const scoreClip = async () => {
-    stopTracks();
-    const blob = new Blob(chunksRef.current, { type: mimeRef.current || "audio/webm" });
-    if (!blob.size) { setPhase("fallback"); return; }
-    try {
-      const res = await fetch("/api/score-speech", {
-        method: "POST",
-        headers: { "Content-Type": blob.type },
-        body: blob,
-      });
-      if (!res.ok) throw new Error(String(res.status));
-      const { transcript } = await res.json();
-      scoreTranscript(transcript ?? "");
-    } catch {
-      // Endpoint down / offline → ungraded fallback, session never blocks.
-      setPhase("fallback");
-    }
-  };
-
   const retry = () => {
-    setPhase("idle");
     setGrade(null);
     setHeard("");
+    playThenArm();
   };
+
+  // Start the flow on mount / item change; clean up audio + mic on unmount.
+  useEffect(() => {
+    setGrade(null);
+    setHeard("");
+    playThenArm();
+    return () => { audioRef.current?.pause(); stopTracks(); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [item.id]);
+
+  // Test hook: drive the grade→advance path without a real mic or the endpoint.
+  useEffect(() => {
+    window.__speak = {
+      pass: () => scoreTranscript(item.front),
+      miss: () => scoreTranscript("banana"),
+    };
+    return () => { delete window.__speak; };
+  }, [item, scoreTranscript]);
 
   const recording = phase === "recording";
   const scoring = phase === "scoring";
 
-  // --- result copy ---
   const verdict =
     grade === "good" ? { color: C.matcha, line: "Nice — that's it!" }
     : grade === "hard" ? { color: C.ai, line: "Close enough — counts!" }
@@ -142,7 +169,16 @@ export default function SpeakCard({ item, onGraded }) {
       data-answer={item.front}
       style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}
     >
-      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>Say it out loud</div>
+      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600, display: "flex", alignItems: "center", gap: 8 }}>
+        <span>Listen, then say it back</span>
+        <button
+          onClick={replay}
+          aria-label="Play the word again"
+          style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 26, height: 26, borderRadius: 999, border: "none", background: C.aiSoft, color: C.aiDeep, cursor: "pointer" }}
+        >
+          <Volume2 size={15} />
+        </button>
+      </div>
 
       <div
         style={{
@@ -178,12 +214,9 @@ export default function SpeakCard({ item, onGraded }) {
           <>
             <button
               data-testid="record"
-              aria-label="Hold to speak"
-              onPointerDown={startRecording}
-              onPointerUp={stopRecording}
-              onPointerLeave={stopRecording}
-              onContextMenu={(e) => e.preventDefault()}
-              disabled={scoring}
+              aria-label={recording ? "Tap to stop" : "Getting ready"}
+              onClick={stopAndScore}
+              disabled={!recording}
               style={{
                 width: 84,
                 height: 84,
@@ -191,21 +224,22 @@ export default function SpeakCard({ item, onGraded }) {
                 border: "none",
                 background: recording ? C.shu : scoring ? C.locked : C.ai,
                 color: "#fff",
-                cursor: scoring ? "default" : "pointer",
+                cursor: recording ? "pointer" : "default",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 boxShadow: "0 4px 14px rgba(0,0,0,0.15)",
-                touchAction: "none",
-                userSelect: "none",
+                touchAction: "manipulation",
                 transition: "transform 120ms, background 120ms",
-                transform: recording ? "scale(1.08)" : "scale(1)",
+                transform: recording ? "scale(1.06)" : "scale(1)",
+                animation: recording ? "speakPulse 1.1s ease-in-out infinite" : "none",
               }}
             >
-              <Mic size={32} />
+              {recording ? <Square size={26} fill="#fff" /> : <Mic size={32} />}
             </button>
+            <style>{`@keyframes speakPulse{0%,100%{box-shadow:0 0 0 0 rgba(220,80,60,0.45)}50%{box-shadow:0 0 0 12px rgba(220,80,60,0)}}`}</style>
             <div style={{ fontSize: 13, color: recording ? C.shu : C.inkSoft, fontWeight: 600, minHeight: 18 }}>
-              {scoring ? "Listening…" : recording ? "Release to check" : "Hold the mic and say it"}
+              {scoring ? "Checking…" : recording ? "Listening — tap when you're done" : "Getting ready…"}
             </div>
           </>
         )}
@@ -238,7 +272,7 @@ export default function SpeakCard({ item, onGraded }) {
         </button>
       ) : (
         <div style={{ fontSize: 12, color: C.inkSoft, textAlign: "center", minHeight: 20 }}>
-          Hold the mic, say the word, release.
+          Say the word, then tap the mic to check.
         </div>
       )}
     </div>

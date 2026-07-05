@@ -114,15 +114,32 @@ function editDistance(a, b) {
 }
 
 // Grade a spoken attempt against the target word. LENIENT by design — speaking is
-// bonus depth, never a punishing gate: a clean reading match → `good`; a one-sound
-// slip → `hard` (benefit of the doubt, holds the rung); otherwise → `again`.
-// Compares the STT transcript to the item's kana `front` (all current vocab fronts
-// are kana; a kanji-front word would carry an optional `kana` reading, same hook as
-// checkProduce). Pure + deterministic so it unit-tests with no mic/network.
+// bonus depth, never a punishing gate: a clean match → `good`; a small slip →
+// `hard` (benefit of the doubt, holds the rung); otherwise → `again`. Pure +
+// deterministic so it unit-tests with no mic/network.
+//
+// STT is inconsistent about the SCRIPT it returns for a single word: sometimes
+// Japanese (おはよう / カッサ), sometimes romaji, sometimes an English homophone
+// (おはよう → "Ohio"). So we grade on BOTH forms and take the better result — a
+// correctly-said word must not fail just because Scribe spelled it in English.
 export function gradeSpoken(transcript, item) {
-  const heard = foldKana(transcript);
-  const target = foldKana(item?.kana ?? item?.front ?? "");
-  if (!heard || !target) return "again";
-  if (heard === target) return "good";
-  return editDistance(heard, target) <= 1 ? "hard" : "again";
+  const t = String(transcript ?? "").trim();
+  if (!t) return "again";
+
+  // Kana path: Japanese-script transcript vs the folded kana front.
+  const targetKana = foldKana(item?.kana ?? item?.front ?? "");
+  if (targetKana) {
+    const heardKana = foldKana(t);
+    if (heardKana === targetKana) return "good";
+    if (editDistance(heardKana, targetKana) <= 1) return "hard";
+  }
+  // Romaji path: Latin-letter transcript (romaji or English homophone) vs the
+  // romanized reading. Lossier, so allow a slightly larger slip before it fails.
+  if (looksRomaji(t) && item?.reading) {
+    const heardR = normalizeReading(t);
+    const targetR = normalizeReading(item.reading);
+    if (heardR === targetR) return "good";
+    if (editDistance(heardR, targetR) <= 2) return "hard";
+  }
+  return "again";
 }

@@ -82,6 +82,13 @@ test("gradeSpoken: lenient reading match (speaking is bonus, never harsh)", () =
   assert.equal(gradeSpoken("", kasa), "again");        // nothing heard
 });
 
+test("gradeSpoken: accepts romaji + English-homophone transcripts (STT script drift)", () => {
+  const ohayou = { front: "おはよう", reading: "ohayō" };
+  assert.equal(gradeSpoken("ohayou", ohayou), "good"); // clean romaji reading
+  assert.equal(gradeSpoken("Ohio", ohayou), "hard");   // STT heard the English homophone of a correctly-said word
+  assert.equal(gradeSpoken("banana", ohayou), "again"); // genuinely wrong
+});
+
 test("gradeSpoken: uses optional kana spelling for a kanji-front word", () => {
   const neko = { front: "猫", kana: "ねこ", reading: "neko" };
   assert.equal(gradeSpoken("ねこ", neko), "good");
