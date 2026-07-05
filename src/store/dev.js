@@ -9,7 +9,7 @@ import { seedItems, UNITS } from "../data/index.js";
 import { getLesson } from "../data/index.js";
 import { KANJIVG } from "../data/kanjivg.js";
 import { newCard } from "./srs.js";
-import { shouldListen, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak } from "./cardRouting.js";
+import { shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak } from "./cardRouting.js";
 
 // The unlock code. Intentionally in the bundle — see note above.
 export const DEV_CODE = "L071201";
@@ -85,6 +85,7 @@ function kindSpec(kind) {
   switch (kind) {
     case "listen:choice": return { rung: 1, pick: (it) => it.type === "vocab" && shouldListen(it) };
     case "choice":        return { rung: 1, pick: (it) => it.type === "vocab" && !shouldListen(it) };
+    case "listen:type":   return { rung: 2, pick: (it) => shouldListenType(it) };
     case "type:reading":  return { rung: 2, pick: (it) => shouldTypeReading(it) };
     case "type:meaning":  return { rung: 2, pick: (it) => it.type === "vocab" && !shouldTypeReading(it) };
     case "type:produce":  return { rung: 3, pick: (it) => shouldTypeProduce(it) };

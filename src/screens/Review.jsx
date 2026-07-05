@@ -9,7 +9,7 @@ import SpeakCard from "../components/games/SpeakCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable } from "../store/mastery.js";
-import { isTraceable, shouldListen, shouldTypeReading, shouldTypeProduce, shouldSpeak } from "../store/cardRouting.js";
+import { isTraceable, shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak } from "../store/cardRouting.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
@@ -27,7 +27,11 @@ function reviewStepFor(item, opts = {}) {
   if (rung <= 1) return shouldListen(item) ? { kind: "listen:choice" } : { kind: "choice" };
   // Recall (rung 2): recall the meaning (JP→English), or for some vocab type the
   // rōmaji reading (JP→rōmaji) instead.
-  if (rung === 2) return shouldTypeReading(item) ? { kind: "type", mode: "reading" } : { kind: "type", mode: "meaning" };
+  if (rung === 2) {
+    // Recall by ear (dictation) for a distinct audio share, else the visual recall.
+    if (shouldListenType(item)) return { kind: "listen:type" };
+    return shouldTypeReading(item) ? { kind: "type", mode: "reading" } : { kind: "type", mode: "meaning" };
+  }
   // Produce (rung 3): single-glyph kana + kanji are produced by stroke tracing;
   // words are produced by building from tiles OR — when the learner has opted into
   // "type in Japanese" — by TYPING the Japanese from the English. Off → always build.
@@ -161,6 +165,8 @@ export default function Review() {
     card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} />;
   } else if (step.kind === "listen:choice") {
     card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} audioFirst />;
+  } else if (step.kind === "listen:type") {
+    card = <TypeCard item={item} listen onGraded={onGraded} />;
   } else if (step.kind === "type") {
     card = <TypeCard item={item} mode={step.mode} onGraded={onGraded} />;
   } else if (step.kind === "trace") {

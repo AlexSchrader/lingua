@@ -1,8 +1,26 @@
 import { useState, useRef, useEffect } from "react";
+import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
 import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji } from "../../store/answer.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
+import { useItemAudio } from "../../store/itemAudio.js";
+
+// Dictation prompt (listen:type): a Play button in place of the glyph, autoplaying
+// on mount, so the ear — not the eye — drives the answer. Mirrors ChoiceCard's
+// listening prompt. Own component so useItemAudio only autoplays in listen mode.
+function ListenPrompt({ item }) {
+  const { play, active } = useItemAudio(item);
+  return (
+    <button
+      onClick={play}
+      aria-label="Play the sound"
+      style={{ width: 72, height: 72, borderRadius: "50%", border: `2px solid ${C.ai}`, background: active ? C.ai : C.aiSoft, color: active ? "#fff" : C.aiDeep, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "background 150ms" }}
+    >
+      <Volume2 size={30} />
+    </button>
+  );
+}
 
 // Typed answer (rung RECALLED → type the meaning; rung PRODUCED → produce the
 // Japanese). The app judges: one free retry on a miss (caps the grade at
@@ -30,11 +48,17 @@ function NearMiss({ typed, answer, tokenFont }) {
   );
 }
 
-export default function TypeCard({ item, mode, onGraded }) {
+export default function TypeCard({ item, mode, onGraded, listen = false }) {
   const isKana = item.type === "kana";
 
   // Resolve prompt + checker + the canonical answer for this mode/type.
   const spec = (() => {
+    if (listen) {
+      // Dictation: hear the word (glyph hidden), type its reading. Accepts rōmaji
+      // or kana via checkReading — the ear-path twin of type:reading.
+      return { prompt: null, jp: false, ask: "Type what you hear (rōmaji or kana)",
+               check: (v) => checkReading(v, item), answer: item.reading };
+    }
     if (mode === "produce") {
       return isKana
         ? { prompt: item.reading, jp: false, ask: "Type the kana",
@@ -98,7 +122,7 @@ export default function TypeCard({ item, mode, onGraded }) {
   return (
     <div
       data-testid="type-card"
-      data-card-kind={`type:${mode}`}
+      data-card-kind={listen ? "listen:type" : `type:${mode}`}
       data-answer={spec.answer}
       style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}
     >
@@ -116,9 +140,13 @@ export default function TypeCard({ item, mode, onGraded }) {
           textAlign: "center",
         }}
       >
-        <span style={{ fontFamily: spec.jp ? F.jp : F.body, fontSize: spec.jp ? 56 : 28, fontWeight: 500 }}>
-          {spec.prompt}
-        </span>
+        {listen ? (
+          <ListenPrompt item={item} />
+        ) : (
+          <span style={{ fontFamily: spec.jp ? F.jp : F.body, fontSize: spec.jp ? 56 : 28, fontWeight: 500 }}>
+            {spec.prompt}
+          </span>
+        )}
       </div>
 
       <input
@@ -173,7 +201,7 @@ export default function TypeCard({ item, mode, onGraded }) {
         ) : value.trim() ? (
           // Softer miss: show what you wrote vs the answer with the differing
           // characters highlighted, so a one-kana slip reads as "so close".
-          <NearMiss typed={value} answer={spec.answer} tokenFont={spec.jp ? F.body : F.jp} />
+          <NearMiss typed={value} answer={spec.answer} tokenFont={spec.jp || listen ? F.body : F.jp} />
         ) : (
           <div style={{ textAlign: "center", fontSize: 15 }}>
             <span style={{ color: C.shu, fontWeight: 700 }}>Answer:</span>{" "}

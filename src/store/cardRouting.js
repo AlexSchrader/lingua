@@ -44,6 +44,16 @@ export function shouldTypeReading(item) {
   return item?.type === "vocab" && hash01(item.id) < READING_SHARE;
 }
 
+// --- dictation (hear it → type the reading) ----------------------------------
+// listen:type is the ear-path sibling of type:reading. To avoid cannibalizing
+// the visual reading card (which takes the hash < READING_SHARE band), dictation
+// takes a DISTINCT band just above it — so an item is at most one of the two.
+export const LISTEN_TYPE_SHARE = 0.25;
+export function shouldListenType(item) {
+  const h = hash01(item?.id ?? "");
+  return hasAudio(item) && h >= READING_SHARE && h < READING_SHARE + LISTEN_TYPE_SHARE;
+}
+
 // --- spoken production (say it aloud) ----------------------------------------
 // The SPEAK card is vocab-only: STT on isolated single kana is unreliable (the
 // Brief-C C.0 de-risk showed 0/3), and a kana's sound is already trained by the
