@@ -70,6 +70,30 @@ function StatusPill({ icon: Icon, label, value, state }) {
   );
 }
 
+// CEFR stage → display band. "pre-a1" → "Pre-A1", "a1" → "A1", "b1" → "B1".
+function formatStage(stage) {
+  if (!stage) return null;
+  return String(stage)
+    .split("-")
+    .map((seg) => (/\d/.test(seg) ? seg.toUpperCase() : seg.charAt(0).toUpperCase() + seg.slice(1)))
+    .join("-");
+}
+
+// Where a lesson sits, in human terms: its CEFR section, unit number, and its
+// position WITHIN that unit (n/total) — not a global "2/93" that only ever grows
+// scarier. Numbers reset each unit, so the denominator stays small and legible.
+function lessonLocation(lesson, langUnits) {
+  const unit = langUnits.find((u) => u.lessons.some((l) => l.id === lesson.id));
+  if (!unit) return null;
+  const playable = unit.lessons.filter((l) => Array.isArray(l.items));
+  return {
+    section: formatStage(unit.stage),
+    unitNum: unit.order ?? lesson.unit ?? null,
+    lessonInUnit: playable.findIndex((l) => l.id === lesson.id) + 1,
+    unitTotal: playable.length,
+  };
+}
+
 export default function Today() {
   const navigate = useNavigate();
   // Select STABLE refs (raw state + action fns) and derive in useMemo. Zustand
@@ -93,10 +117,13 @@ export default function Today() {
   const due = useMemo(() => dueItemsFn(), [items, dueItemsFn]);
   const reviewsLocked = useMemo(() => reviewsLockedFn(), [items, daily, reviewsLockedFn]);
 
+  // Units for the active language (source for both the flat lesson list and the
+  // per-lesson "section / unit / lesson-in-unit" location shown on the cards).
+  const langUnits = useMemo(() => UNITS.filter((u) => u.lang === activeId), [activeId]);
   // All lessons across all units that have item content (ordered).
   const allPlayableLessons = useMemo(
-    () => UNITS.filter((u) => u.lang === activeId).flatMap((u) => u.lessons.filter((l) => Array.isArray(l.items))),
-    [activeId]
+    () => langUnits.flatMap((u) => u.lessons.filter((l) => Array.isArray(l.items))),
+    [langUnits]
   );
   // Advance to the first lesson that still has rung-0 items — natural progression
   // without a separate unlock system. null when all lessons are complete.
@@ -107,10 +134,6 @@ export default function Today() {
     [allPlayableLessons, items]
   );
 
-  const lessonNum = currentLesson
-    ? allPlayableLessons.indexOf(currentLesson) + 1
-    : allPlayableLessons.length;
-  const totalLessons = allPlayableLessons.length;
   // How many rung-0 items remain in the current lesson (for the time estimate).
   const newItemCount = useMemo(
     () => (currentLesson?.items ?? []).filter((def) => (items[def.id]?.rung ?? 0) < 1).length,
@@ -163,7 +186,9 @@ export default function Today() {
     const idx = allPlayableLessons.indexOf(currentLesson);
     return allPlayableLessons[idx + 1] ?? null;
   }, [currentLesson, allPlayableLessons]);
-  const nextLessonNum = nextLesson ? allPlayableLessons.indexOf(nextLesson) + 1 : null;
+  // Human-readable location (section / unit / lesson-in-unit) for both cards.
+  const curLoc = useMemo(() => (currentLesson ? lessonLocation(currentLesson, langUnits) : null), [currentLesson, langUnits]);
+  const nextLoc = useMemo(() => (nextLesson ? lessonLocation(nextLesson, langUnits) : null), [nextLesson, langUnits]);
 
   // Hiragana progress for the fullness strip.
   const kanaTotal = useMemo(() => Object.values(items).filter((it) => it.lang === activeId && it.type === "kana").length, [items, activeId]);
@@ -259,8 +284,8 @@ export default function Today() {
         />
         <StatusPill
           icon={BookOpen}
-          label="Lesson"
-          value={daily.lessonDone ? "Done" : lessonState === "locked" ? "Locked" : `${lessonNum}/${totalLessons}`}
+          label={curLoc ? `${curLoc.section} · Unit ${curLoc.unitNum}` : "Lesson"}
+          value={daily.lessonDone ? "Done" : lessonState === "locked" ? "Locked" : curLoc ? `Lesson ${curLoc.lessonInUnit}/${curLoc.unitTotal}` : "—"}
           state={lessonState}
         />
       </div>
@@ -319,12 +344,12 @@ export default function Today() {
           current lesson, so this is a genuine peek ahead). */}
       <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 16, padding: 14 }}>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 0.5, color: C.ai, marginBottom: 4 }}>
-          {nextLesson ? "UP NEXT" : "AFTER THIS"}
+          {nextLesson ? (nextLoc ? `UP NEXT · ${nextLoc.section}` : "UP NEXT") : "AFTER THIS"}
         </div>
         {nextLesson ? (
           <>
             <div style={{ fontFamily: F.jp, fontSize: 15, fontWeight: 700 }}>
-              Lesson {nextLessonNum}/{totalLessons} · {nextLesson.title}
+              {nextLoc ? `Unit ${nextLoc.unitNum} · Lesson ${nextLoc.lessonInUnit}/${nextLoc.unitTotal}` : "Lesson"} · {nextLesson.title}
             </div>
             <div style={{ fontSize: 13, color: C.inkSoft, marginTop: 2 }}>
               {nextLesson.canDo ?? "Learn new items"}
