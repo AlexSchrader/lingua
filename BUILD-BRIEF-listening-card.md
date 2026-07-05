@@ -1,6 +1,6 @@
 # Build Brief — Listening Card ("hear it → pick / type it")
 
-**Status:** design doc / not started. Authored by **QA CC** off the Pre-A1/A1 review (2026-07-04); for **Feature CC + Alex** to sharpen before any code. **Lane: Feature CC** (new card kind = engine/schema, draft PR, Alex merges).
+**Status:** ✅ SHIPPED (PR #47, merged 2026-07-04) — `listen:choice` is live (`ChoiceCard audioFirst`, `src/store/cardRouting.js` `shouldListen`, `src/data/audioManifest.js`). Kept as the design record. Authored by **QA CC** off the Pre-A1/A1 review (2026-07-04). **Lane: Feature CC** (new card kind = engine/schema, draft PR, Alex merges).
 **Goal in one line:** the learner *hears* a word/kana clip with the glyph hidden, and proves they recognized it — the first card in the app that trains the **ear**, not the eye.
 
 > This is a **design** doc, not an implementation plan. It exists to settle the forks below. Per the repo rule, read the actual files before building — the ground-truth notes here were verified 2026-07-04 but the repo is the source of truth.
