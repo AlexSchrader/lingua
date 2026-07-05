@@ -9,7 +9,7 @@ import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 // `hard`); a second miss → `again` and reveal. First-try correct is graded by
 // speed. No self-grade buttons.
 //
-// mode: "meaning" | "produce"
+// mode: "meaning" (JP→English) | "reading" (JP→rōmaji) | "produce" (English→JP)
 // Near-miss feedback: "so close!" + what you wrote vs the answer, differing
 // characters highlighted. Warm, and it makes a one-character slip a teaching
 // moment instead of a flat wrong.
@@ -39,8 +39,13 @@ export default function TypeCard({ item, mode, onGraded }) {
       return isKana
         ? { prompt: item.reading, jp: false, ask: "Type the kana",
             check: (v) => v.trim() === item.front, answer: item.front }
-        : { prompt: item.meaning, jp: false, ask: "Write it in Japanese",
+        : { prompt: item.meaning, jp: false, ask: "Write it in Japanese (rōmaji or kana)",
             check: (v) => checkProduce(v, item), answer: item.front };
+    }
+    if (mode === "reading") {
+      // Japanese → rōmaji: type the reading of the word shown.
+      return { prompt: item.front, jp: true, ask: "Type the rōmaji",
+               check: (v) => checkReading(v, item), answer: item.reading };
     }
     // meaning (recall)
     return isKana
@@ -90,7 +95,7 @@ export default function TypeCard({ item, mode, onGraded }) {
   return (
     <div
       data-testid="type-card"
-      data-card-kind={mode === "produce" ? "type:produce" : "type:meaning"}
+      data-card-kind={`type:${mode}`}
       data-answer={spec.answer}
       style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}
     >

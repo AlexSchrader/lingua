@@ -26,6 +26,24 @@ export function shouldListen(item) {
   return hasAudio(item) && hash01(item.id) < LISTEN_SHARE;
 }
 
+// --- typed production (English → Japanese, Japanese → rōmaji) -----------------
+
+export const PRODUCE_SHARE = 0.5; // share of rung-3 vocab that TYPE the word (else build)
+export const READING_SHARE = 0.5; // share of rung-2 vocab that TYPE the rōmaji (else meaning)
+
+// English → Japanese: at rung 3, sometimes type the word (rōmaji `neko` or kana
+// ねこ both accepted) instead of assembling it from tiles. Vocab only — kana/kanji
+// produce by tracing.
+export function shouldTypeProduce(item) {
+  return item?.type === "vocab" && hash01(item.id) < PRODUCE_SHARE;
+}
+
+// Japanese → rōmaji: at rung 2, sometimes type the reading instead of the meaning.
+// Vocab only — a kana's meaning card is already "type the rōmaji".
+export function shouldTypeReading(item) {
+  return item?.type === "vocab" && hash01(item.id) < READING_SHARE;
+}
+
 // A character is "traceable" when it's a single glyph that has KanjiVG stroke
 // data: every base kana and every kanji. Yōon digraphs (きゃ, しゃ…) are two kana
 // and carry no single stroke entry, so they fall back to a typed recall instead

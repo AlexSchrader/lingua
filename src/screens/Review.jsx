@@ -8,7 +8,7 @@ import TraceCard from "../components/games/TraceCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable } from "../store/mastery.js";
-import { isTraceable, shouldListen } from "../store/cardRouting.js";
+import { isTraceable, shouldListen, shouldTypeReading, shouldTypeProduce } from "../store/cardRouting.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
@@ -24,10 +24,14 @@ function reviewStepFor(item) {
   // Recognition (rung ≤ 1): interleave the eye path (choice) with the ear path
   // (listen:choice) for items that have a clip — same skill, sound-in vs glyph-in.
   if (rung <= 1) return shouldListen(item) ? { kind: "listen:choice" } : { kind: "choice" };
-  if (rung === 2) return { kind: "type", mode: "meaning" };
-  // Single-glyph kana + kanji are produced by stroke tracing; yōon digraphs
-  // (きょ, no own stroke) and words are produced by building.
-  return isTraceable(item) ? { kind: "trace" } : { kind: "build" };
+  // Recall (rung 2): recall the meaning (JP→English), or for some vocab type the
+  // rōmaji reading (JP→rōmaji) instead.
+  if (rung === 2) return shouldTypeReading(item) ? { kind: "type", mode: "reading" } : { kind: "type", mode: "meaning" };
+  // Produce (rung 3): single-glyph kana + kanji are produced by stroke tracing;
+  // words are produced by building from tiles OR — for some vocab — by TYPING the
+  // Japanese from the English (rōmaji or kana accepted). Yōon digraphs → build.
+  if (isTraceable(item)) return { kind: "trace" };
+  return shouldTypeProduce(item) ? { kind: "type", mode: "produce" } : { kind: "build" };
 }
 
 export default function Review() {

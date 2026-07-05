@@ -76,7 +76,9 @@ function reviewState() {
 }
 
 // Fixture that exercises all LIVE_CARD_KINDS in one session:
-//   konnichiwa rung=3 due   → build (review)
+//   konnichiwa rung=3 due   → type:produce (review — vocab, hash<share)
+//   arigatō    rung=3 due   → build (review — vocab, hash≥share)
+//   sayounara  rung=2 due   → type:reading (review — vocab, hash<share)
 //   hai        rung=1 due   → listen:choice (review — has audio, routes to listen)
 //   ohayou     rung=0 vocab → teach + choice + type:meaning (lesson)
 //   い          rung=0 kana  → teach + choice + trace:guided (lesson — kana check2 = trace)
@@ -85,6 +87,7 @@ function kindFixtureState() {
   const defs = [
     { id: "ja-u1l1-ohayou",     type: "vocab", front: "おはよう",   reading: "ohayō",      meaning: "good morning", example: { jp: "おはよう！",   en: "Good morning!" }, accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-konnichiwa", type: "vocab", front: "こんにちは", reading: "konnichiwa", meaning: "hello",        example: { jp: "こんにちは！", en: "Hello!" },        accept: [], lang: "ja", unit: 1, lesson: 1 },
+    { id: "ja-u1l2-arigatou",   type: "vocab", front: "ありがとう", reading: "arigatō",    meaning: "thank you",    example: { jp: "ありがとう。", en: "Thank you." },     accept: [], lang: "ja", unit: 1, lesson: 2 },
     { id: "ja-u1l1-sayounara",  type: "vocab", front: "さようなら", reading: "sayōnara",   meaning: "goodbye",      example: { jp: "さようなら。", en: "Goodbye." },       accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-hai",        type: "vocab", front: "はい",       reading: "hai",         meaning: "yes",          example: { jp: "はい。",       en: "Yes." },           accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-iie",        type: "vocab", front: "いいえ",     reading: "iie",         meaning: "no",           example: { jp: "いいえ。",     en: "No." },            accept: [], lang: "ja", unit: 1, lesson: 1 },
@@ -97,9 +100,11 @@ function kindFixtureState() {
   const items = {};
   for (const it of defs) {
     let rung, srs;
-    if (it.id === "ja-u1l1-konnichiwa")  { rung = 3; srs = dueCard();   } // due → build review
+    if (it.id === "ja-u1l1-konnichiwa")  { rung = 3; srs = dueCard();   } // rung-3 vocab, hash<share → type:produce (Eng→JP)
+    else if (it.id === "ja-u1l2-arigatou") { rung = 3; srs = dueCard(); } // rung-3 vocab, hash≥share → build
+    else if (it.id === "ja-u1l1-sayounara") { rung = 2; srs = dueCard(); } // rung-2 vocab, hash<share → type:reading (JP→rōmaji)
     else if (it.id === "ja-u1l1-hai")    { rung = 1; srs = dueCard();   } // due rung-1 + has audio → listen:choice (review)
-    else if (it.id === "ja-u1l1-ohayou") { rung = 0; srs = freshCard(); } // new vocab → teach + choice + type:meaning
+    else if (it.id === "ja-u1l1-ohayou") { rung = 0; srs = freshCard(); } // new vocab → teach + choice + type:meaning (lesson)
     else if (it.id === "ja-u1l1-i")      { rung = 0; srs = freshCard(); } // new kana  → teach + choice + trace:guided
     else                                  { rung = 1; srs = freshCard(); } // graduated, not due → skipped
     items[it.id] = { ...it, rung, srs };

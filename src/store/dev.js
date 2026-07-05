@@ -9,7 +9,7 @@ import { seedItems, UNITS } from "../data/index.js";
 import { getLesson } from "../data/index.js";
 import { KANJIVG } from "../data/kanjivg.js";
 import { newCard } from "./srs.js";
-import { shouldListen, isTraceable } from "./cardRouting.js";
+import { shouldListen, shouldTypeReading, shouldTypeProduce, isTraceable } from "./cardRouting.js";
 
 // The unlock code. Intentionally in the bundle — see note above.
 export const DEV_CODE = "L071201";
@@ -84,8 +84,10 @@ function pickForKind(seed, kind) {
   switch (kind) {
     case "listen:choice": return { item: vocab.find((it) => shouldListen(it)) ?? vocab[0], rung: 1 };
     case "choice":        return { item: vocab.find((it) => !shouldListen(it)) ?? vocab[0], rung: 1 };
-    case "type:meaning":  return { item: vocab[0], rung: 2 };
-    case "build":         return { item: vocab[0], rung: 3 };
+    case "type:reading":  return { item: vocab.find((it) => shouldTypeReading(it)) ?? vocab[0], rung: 2 };
+    case "type:meaning":  return { item: vocab.find((it) => !shouldTypeReading(it)) ?? vocab[0], rung: 2 };
+    case "type:produce":  return { item: vocab.find((it) => shouldTypeProduce(it)) ?? vocab[0], rung: 3 };
+    case "build":         return { item: vocab.find((it) => !shouldTypeProduce(it)) ?? vocab[0], rung: 3 };
     case "trace":         return { item: items.find((it) => isTraceable(it)), rung: 3 };
     default:              return null;
   }
