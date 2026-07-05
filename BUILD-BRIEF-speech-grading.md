@@ -1,9 +1,29 @@
-# Build Brief — Speech Grading (Brief C, Phase 7)
+# Build Brief — Speaking Card / Speech Grading (Brief C, Phase 7)
 
-**Status:** design doc / not started. For Alex + Claude to sharpen before any code.
-**Goal in one line:** the learner says a word out loud, the app *detects* what they said and *grades* it, and a correct spoken answer is the only way an item climbs to the **SPOKEN** rung.
+**This is the speaking-card brief.** ("Speech grading" = the graded engine behind the `speak` card; same feature, one doc — don't create a second.)
+
+**Status:** design doc / not started. **Refreshed 2026-07-05 by Idea CC** against the current repo (ground truth re-verified below). For Alex + Feature CC to sharpen before any code. **Lane: Feature CC** (new card kind + backend + engine path = draft PR, Alex merges).
+**Goal in one line:** the learner says a word out loud, the app *detects* what they said and *grades* it, and a correct spoken answer is the only way an item climbs to the **SPOKEN** rung (rung 4).
 
 > This is a **design** doc, not an implementation plan yet. It exists to settle the forks below. Per the repo rule, exact endpoints / SDK shapes / pricing must be **verified against current vendor docs at implementation time** — don't build from the numbers here, build from the decisions.
+
+---
+
+## Refresh note (2026-07-05, Idea CC) — what changed since this was written
+
+The brief is from 2026-06-27 and its core decisions still stand. What's changed: **the listening card (`listen:choice`) has since shipped**, and it built exactly the sibling infrastructure the speaking card should reuse — so speaking is now cheaper than this brief originally assumed. Re-verified ground truth:
+
+- **`SpeakCard.jsx` is still the visual stub** — `recorded` flag + `onAdvance`, no capture/upload/scoring, still carries `// TODO: real Whisper speech scoring`. Unrouted.
+- **`speak` is still dormant** — not in `LIVE_CARD_KINDS` (`contract.js` line 7 comment names trace+speak as the dormant kinds); its coverage stub is `test.skip` at `tests/smoke.spec.js:329` (was 318). `VALID_DOMINANT_MODE` still lists `"speak"`.
+- **`SPOKEN` is rung 4** (`RUNGS[4]`, `mastery.js`). *(Note: the skipped smoke stub's wording "reaches rung 5" is stale — SPOKEN is index 4; MASTERED is 5. Fix that string when un-skipping.)*
+- **New reuse available from the listening card (`listen:choice`):**
+  - **Audio-first card UX precedent** — `ChoiceCard`'s `ListenPrompt` (a round mic/▶ button, `active` state, gesture-driven) is the visual template for the speaking card's record button, and proves the "browsers block audio before a user gesture" handling.
+  - **`src/store/cardRouting.js`** — the `hasAudio(item)` manifest guard + `LISTEN_SHARE` interleave constant + deterministic `hash01(id)` is the exact pattern for **routing a `speak` card only to eligible items** and a `SPEAK_SHARE` interleave knob (no `Math.random` in routing → coverage fixture stays deterministic).
+  - **`src/store/answer.js` → `checkReading`** — confirmed: accepts kana or folded rōmaji. This is the transcript-matching function the scoring endpoint reuses verbatim (one notion of "correct reading", typed or spoken).
+  - **`CardBreath`** (shipped) — the per-card entrance debounce the record button inherits for free.
+  - **`api/convai-session.js`** — still the serverless template for `/api/score-speech` (ESM handler, key server-side).
+
+Net: the missing middle is still **capture → score → grade**, but the card shell, the routing/eligibility pattern, the grade-matching function, and the backend template all now exist. Everything below stands; read it with those reuses in mind.
 
 ---
 
