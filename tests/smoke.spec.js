@@ -80,7 +80,8 @@ function reviewState() {
 //   arigatō    rung=3 due   → build (review — vocab, hash≥share)
 //   sayounara  rung=2 due   → type:reading (review — vocab, hash<share)
 //   konbanwa   rung=2 due   → listen:type (review — audio, hash in dictation band)
-//   kasa       rung=2 due   → cloze:choice (review — vocab, top hash band, front in example)
+//   kasa       rung=2 due   → particle:choice (review — かさ+を, particle in the cloze band)
+//   shizuka    rung=2 due   → cloze:choice (review — front in example, no particle after)
 //   hai        rung=1 due   → listen:choice (review — has audio, routes to listen)
 //   iie        rung=4 due   → speak (review — SPOKEN rung, vocab)
 //   ohayou     rung=0 vocab → teach + choice + type:meaning (lesson)
@@ -92,7 +93,8 @@ function kindFixtureState() {
     { id: "ja-u1l1-konnichiwa", type: "vocab", front: "こんにちは", reading: "konnichiwa", meaning: "hello",        example: { jp: "こんにちは！", en: "Hello!" },        accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l2-arigatou",   type: "vocab", front: "ありがとう", reading: "arigatō",    meaning: "thank you",    example: { jp: "ありがとう。", en: "Thank you." },     accept: [], lang: "ja", unit: 1, lesson: 2 },
     { id: "ja-u1l2-konbanwa",   type: "vocab", front: "こんばんは", reading: "konbanwa",   meaning: "good evening", example: { jp: "こんばんは。", en: "Good evening." }, accept: [], lang: "ja", unit: 1, lesson: 2 },
-    { id: "ja-u1l2-kasa",       type: "vocab", front: "かさ",       reading: "kasa",        meaning: "umbrella",     example: { jp: "かさ。",       en: "Umbrella." },      accept: [], lang: "ja", unit: 1, lesson: 2 },
+    { id: "ja-u1l2-kasa",       type: "vocab", front: "かさ",       reading: "kasa",        meaning: "umbrella",     example: { jp: "かさをどうぞ。", en: "Please take an umbrella." }, accept: [], lang: "ja", unit: 1, lesson: 2 },
+    { id: "ja-u1l3-shizuka",    type: "vocab", front: "しずか",     reading: "shizuka",     meaning: "quiet",        example: { jp: "ここはしずかです。", en: "It is quiet here." }, accept: [], lang: "ja", unit: 1, lesson: 3 },
     { id: "ja-u1l1-sayounara",  type: "vocab", front: "さようなら", reading: "sayōnara",   meaning: "goodbye",      example: { jp: "さようなら。", en: "Goodbye." },       accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-hai",        type: "vocab", front: "はい",       reading: "hai",         meaning: "yes",          example: { jp: "はい。",       en: "Yes." },           accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-iie",        type: "vocab", front: "いいえ",     reading: "iie",         meaning: "no",           example: { jp: "いいえ。",     en: "No." },            accept: [], lang: "ja", unit: 1, lesson: 1 },
@@ -109,7 +111,8 @@ function kindFixtureState() {
     else if (it.id === "ja-u1l2-arigatou") { rung = 3; srs = dueCard(); } // rung-3 vocab, hash≥share → build
     else if (it.id === "ja-u1l1-sayounara") { rung = 2; srs = dueCard(); } // rung-2 vocab, hash<share → type:reading (JP→rōmaji)
     else if (it.id === "ja-u1l2-konbanwa") { rung = 2; srs = dueCard();  } // rung-2 vocab, audio + hash band → listen:type (dictation)
-    else if (it.id === "ja-u1l2-kasa")   { rung = 2; srs = dueCard();   } // rung-2 vocab, top hash band + front in example → cloze:choice
+    else if (it.id === "ja-u1l2-kasa")   { rung = 2; srs = dueCard();   } // rung-2 vocab, cloze band + particle after front → particle:choice
+    else if (it.id === "ja-u1l3-shizuka") { rung = 2; srs = dueCard();  } // rung-2 vocab, cloze band + no particle after front → cloze:choice
     else if (it.id === "ja-u1l1-hai")    { rung = 1; srs = dueCard();   } // due rung-1 + has audio → listen:choice (review)
     else if (it.id === "ja-u1l1-iie")    { rung = 4; srs = dueCard();   } // rung-4 vocab → speak (SPOKEN review)
     else if (it.id === "ja-u1l1-ohayou") { rung = 0; srs = freshCard(); } // new vocab → teach + choice + type:meaning (lesson)
@@ -233,13 +236,16 @@ async function playCard(page) {
   }
 
   if (await option.first().isVisible().catch(() => false)) {
-    // choice / listen:choice / cloze:choice all render options — tell them apart
-    // for coverage: cloze has the sentence card, listen has a Play button.
-    const isCloze = await page.getByTestId("cloze-card").isVisible().catch(() => false);
+    // choice / listen:choice / cloze:choice / particle:choice all render options —
+    // tell them apart for coverage: the cloze card carries its own data-card-kind
+    // (cloze:choice vs particle:choice); listen has a Play button.
+    const clozeCard = page.getByTestId("cloze-card");
+    const isCloze = await clozeCard.isVisible().catch(() => false);
     const isListen = await page.getByRole("button", { name: "Play the sound" }).isVisible().catch(() => false);
+    const clozeKind = isCloze ? (await clozeCard.getAttribute("data-card-kind").catch(() => null)) ?? "cloze:choice" : null;
     await option.first().click();
     await continueBtn.click({ force: true });
-    return isCloze ? "cloze:choice" : isListen ? "listen:choice" : "choice";
+    return clozeKind ?? (isListen ? "listen:choice" : "choice");
   }
 
   return false;

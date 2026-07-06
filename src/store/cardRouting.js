@@ -94,6 +94,63 @@ export function shouldCloze(item) {
   return canCloze(item) && hash01(item.id) >= 1 - CLOZE_SHARE;
 }
 
+// --- particle cloze (fill the missing particle) ------------------------------
+// The sibling of word-cloze that blanks the PARTICLE instead of the word — the
+// single biggest grammar pain point (は/が/を/に/で…). Shares the cloze band.
+
+// Core single-char particles we blank + offer as options.
+const CORE_PARTICLES = ["は", "が", "を", "に", "へ", "で", "と", "も", "の"];
+
+function shuffleParticles(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// The particle immediately AFTER the target word in its example. Anchoring to the
+// known word boundary (front is guaranteed present) is what makes this safe — it
+// can't mis-blank a particle-looking kana inside a word (は in はな). Excludes the
+// copula です/でした (its で is not the particle で).
+export function particleAfterFront(item) {
+  const jp = item?.example?.jp ?? "";
+  const front = item?.front ?? "";
+  if (!front || !jp.includes(front)) return null;
+  const i = jp.indexOf(front) + front.length;
+  const ch = jp[i];
+  if (!CORE_PARTICLES.includes(ch)) return null;
+  if (ch === "で" && /^で[すし]/.test(jp.slice(i))) return null; // copula です/でした, not particle で
+  return { particle: ch, index: i };
+}
+
+export function canParticleCloze(item) {
+  return item?.type === "vocab" && !!particleAfterFront(item);
+}
+
+// example.jp with the anchored particle replaced by the blank.
+export function blankParticle(item) {
+  const jp = item?.example?.jp ?? "";
+  const found = particleAfterFront(item);
+  if (!found) return jp;
+  return jp.slice(0, found.index) + CLOZE_BLANK + jp.slice(found.index + found.particle.length);
+}
+
+// Options for the particle card: the correct particle + distractor particles.
+export function particleChoices(item, count = 4) {
+  const found = particleAfterFront(item);
+  if (!found) return [];
+  const others = shuffleParticles(CORE_PARTICLES.filter((p) => p !== found.particle)).slice(0, Math.max(1, count - 1));
+  return shuffleParticles([{ text: found.particle, correct: true }, ...others.map((p) => ({ text: p, correct: false }))]);
+}
+
+// Shares the cloze band, checked BEFORE word-cloze so a sentence with a clear
+// particle drills the particle; otherwise it word-clozes. Deterministic.
+export function shouldParticleCloze(item) {
+  return canParticleCloze(item) && hash01(item.id) >= 1 - CLOZE_SHARE;
+}
+
 // --- spoken production (say it aloud) ----------------------------------------
 // The SPEAK card is vocab-only: STT on isolated single kana is unreliable (the
 // Brief-C C.0 de-risk showed 0/3), and a kana's sound is already trained by the
