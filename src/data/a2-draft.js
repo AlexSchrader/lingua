@@ -21,6 +21,9 @@ import { UNIT32 } from "./ja/unit32.js";
 import { UNIT33 } from "./ja/unit33.js";
 import { UNIT34 } from "./ja/unit34.js";
 import { UNIT35 } from "./ja/unit35.js";
+import { UNIT36 } from "./ja/unit36.js";
+import { UNIT37 } from "./ja/unit37.js";
+import { UNIT38 } from "./ja/unit38.js";
 
 // The A2 draft units, in order. Same shape as `UNITS`, so the existing Dev-Mode
 // sandbox launcher runs any of their lessons with zero new card wiring — vocab items
@@ -28,7 +31,7 @@ import { UNIT35 } from "./ja/unit35.js";
 // which already exist.
 export const A2_DRAFT_UNITS = [
   UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33,
-  UNIT34, UNIT35,
+  UNIT34, UNIT35, UNIT36, UNIT37, UNIT38,
 ];
 
 // A curated "lil snippets" set — one representative lesson per unit, for a quick
