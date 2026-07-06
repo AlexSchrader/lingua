@@ -10,7 +10,7 @@ import SpeakCard from "../components/games/SpeakCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable } from "../store/mastery.js";
-import { isTraceable, shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze } from "../store/cardRouting.js";
+import { isTraceable, shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze } from "../store/cardRouting.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
@@ -30,6 +30,9 @@ function reviewStepFor(item) {
   // the word into its own sentence (cloze), recall by ear (dictation), or the
   // visual recall (type the reading, else the meaning).
   if (rung === 2) {
+    // In the cloze band, a sentence with a clear particle drills the PARTICLE
+    // (the grammar pain point); otherwise fill the WORD into its sentence.
+    if (shouldParticleCloze(item)) return { kind: "particle:choice" };
     if (shouldCloze(item)) return { kind: "cloze:choice" };
     if (shouldListenType(item)) return { kind: "listen:type" };
     return shouldTypeReading(item) ? { kind: "type", mode: "reading" } : { kind: "type", mode: "meaning" };
@@ -166,6 +169,8 @@ export default function Review() {
     card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} audioFirst />;
   } else if (step.kind === "cloze:choice") {
     card = <ClozeCard item={item} allItems={items} onGraded={onGraded} />;
+  } else if (step.kind === "particle:choice") {
+    card = <ClozeCard item={item} allItems={items} onGraded={onGraded} particle />;
   } else if (step.kind === "listen:type") {
     card = <TypeCard item={item} listen onGraded={onGraded} />;
   } else if (step.kind === "type") {
