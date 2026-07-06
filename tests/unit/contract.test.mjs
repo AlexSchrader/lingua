@@ -321,7 +321,7 @@ test("accepts a yōon digraph kana (2 glyphs, no stroke entry required)", () => 
 test("LIVE_CARD_KINDS is exactly the current active set", () => {
   assert.deepEqual(
     [...LIVE_CARD_KINDS].sort(),
-    ["build", "choice", "cloze:choice", "listen:choice", "teach", "trace", "type:meaning"],
+    ["build", "choice", "cloze:choice", "listen:choice", "listen:type", "speak", "teach", "trace", "type:meaning", "type:produce", "type:reading"],
     "Update both LIVE_CARD_KINDS in contract.js and this assertion when adding a new card kind"
   );
 });

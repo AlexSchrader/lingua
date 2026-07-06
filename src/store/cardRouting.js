@@ -26,10 +26,39 @@ export function shouldListen(item) {
   return hasAudio(item) && hash01(item.id) < LISTEN_SHARE;
 }
 
-// --- cloze (fill the word into its own sentence) -----------------------------
+// --- typed production (English → Japanese, Japanese → rōmaji) -----------------
 
-// Share of eligible rung-2 reviews that present as a cloze instead of type:meaning.
-export const CLOZE_SHARE = 0.5;
+export const PRODUCE_SHARE = 0.5; // share of rung-3 vocab that TYPE the word (else build)
+export const READING_SHARE = 0.5; // share of rung-2 vocab that TYPE the rōmaji (else meaning)
+
+// English → Japanese: at rung 3, sometimes type the word (rōmaji `neko` or kana
+// ねこ both accepted) instead of assembling it from tiles. Vocab only — kana/kanji
+// produce by tracing.
+export function shouldTypeProduce(item) {
+  return item?.type === "vocab" && hash01(item.id) < PRODUCE_SHARE;
+}
+
+// Japanese → rōmaji: at rung 2, sometimes type the reading instead of the meaning.
+// Vocab only — a kana's meaning card is already "type the rōmaji".
+export function shouldTypeReading(item) {
+  return item?.type === "vocab" && hash01(item.id) < READING_SHARE;
+}
+
+// --- dictation (hear it → type the reading) ----------------------------------
+// listen:type is the ear-path sibling of type:reading. To avoid cannibalizing
+// the visual reading card (which takes the hash < READING_SHARE band), dictation
+// takes a DISTINCT band just above it — so an item is at most one of the two.
+export const LISTEN_TYPE_SHARE = 0.25;
+export function shouldListenType(item) {
+  const h = hash01(item?.id ?? "");
+  return hasAudio(item) && h >= READING_SHARE && h < READING_SHARE + LISTEN_TYPE_SHARE;
+}
+
+// --- cloze (fill the word into its own sentence) -----------------------------
+// Contextual recall at rung 2. Takes the TOP hash band [1 - CLOZE_SHARE, 1) so it
+// never overlaps type:reading (< READING_SHARE) or dictation ([READING_SHARE,
+// READING_SHARE + LISTEN_TYPE_SHARE)) — an item routes to at most one rung-2 variant.
+export const CLOZE_SHARE = 0.25;
 
 // The blank token dropped into the sentence in place of the target word.
 export const CLOZE_BLANK = "＿＿";
@@ -59,10 +88,18 @@ export function blankExample(item) {
   return i < 0 ? jp : jp.slice(0, i) + CLOZE_BLANK + jp.slice(i + front.length);
 }
 
-// Should this rung-2 review present as a cloze? Eligible AND in the interleaved
-// share; else the runner uses type:meaning. Deterministic (no Math.random).
+// Should this rung-2 review present as a cloze? Eligible AND in the top interleave
+// band; else the runner uses another rung-2 card. Deterministic (no Math.random).
 export function shouldCloze(item) {
-  return canCloze(item) && hash01(item.id) < CLOZE_SHARE;
+  return canCloze(item) && hash01(item.id) >= 1 - CLOZE_SHARE;
+}
+
+// --- spoken production (say it aloud) ----------------------------------------
+// The SPEAK card is vocab-only: STT on isolated single kana is unreliable (the
+// Brief-C C.0 de-risk showed 0/3), and a kana's sound is already trained by the
+// listen card. Multi-mora words transcribe well enough for a lenient grade.
+export function shouldSpeak(item) {
+  return item?.type === "vocab";
 }
 
 // A character is "traceable" when it's a single glyph that has KanjiVG stroke

@@ -6,10 +6,11 @@ import ClozeCard from "../components/games/ClozeCard.jsx";
 import TypeCard from "../components/games/TypeCard.jsx";
 import BuildCard from "../components/games/BuildCard.jsx";
 import TraceCard from "../components/games/TraceCard.jsx";
+import SpeakCard from "../components/games/SpeakCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable } from "../store/mastery.js";
-import { isTraceable, shouldListen, shouldCloze } from "../store/cardRouting.js";
+import { isTraceable, shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze } from "../store/cardRouting.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
@@ -25,11 +26,26 @@ function reviewStepFor(item) {
   // Recognition (rung ≤ 1): interleave the eye path (choice) with the ear path
   // (listen:choice) for items that have a clip — same skill, sound-in vs glyph-in.
   if (rung <= 1) return shouldListen(item) ? { kind: "listen:choice" } : { kind: "choice" };
-  // Recall (rung 2): interleave isolated recall (type:meaning) with the same word
-  // recalled IN CONTEXT — its own example sentence with the word blanked (cloze).
-  if (rung === 2) return shouldCloze(item) ? { kind: "cloze:choice" } : { kind: "type", mode: "meaning" };
-  // Single-glyph kana + kanji are produced by stroke tracing; yōon digraphs
-  // (きょ, no own stroke) and words are produced by building.
+  // Recall (rung 2): three interleaved recall paths on distinct hash bands — fill
+  // the word into its own sentence (cloze), recall by ear (dictation), or the
+  // visual recall (type the reading, else the meaning).
+  if (rung === 2) {
+    if (shouldCloze(item)) return { kind: "cloze:choice" };
+    if (shouldListenType(item)) return { kind: "listen:type" };
+    return shouldTypeReading(item) ? { kind: "type", mode: "reading" } : { kind: "type", mode: "meaning" };
+  }
+  // Produce (rung 3): single-glyph kana + kanji are produced by stroke tracing;
+  // words are produced by TYPING the Japanese from the English — rōmaji is accepted
+  // through A1 so no JP keyboard is needed, kana required from A2 (see checkProduce)
+  // — interleaved with building the word from tiles.
+  if (rung === 3) {
+    if (isTraceable(item)) return { kind: "trace" };
+    return shouldTypeProduce(item) ? { kind: "type", mode: "produce" } : { kind: "build" };
+  }
+  // Speak (rung ≥ 4, SPOKEN→MASTERED): vocab words are reviewed by saying them
+  // aloud — a graded spoken pass is what carries a produced word to MASTERED.
+  // Kana/kanji have no reliable isolated-sound grading, so they keep trace/build.
+  if (shouldSpeak(item)) return { kind: "speak" };
   return isTraceable(item) ? { kind: "trace" } : { kind: "build" };
 }
 
@@ -150,10 +166,14 @@ export default function Review() {
     card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} audioFirst />;
   } else if (step.kind === "cloze:choice") {
     card = <ClozeCard item={item} allItems={items} onGraded={onGraded} />;
+  } else if (step.kind === "listen:type") {
+    card = <TypeCard item={item} listen onGraded={onGraded} />;
   } else if (step.kind === "type") {
     card = <TypeCard item={item} mode={step.mode} onGraded={onGraded} />;
   } else if (step.kind === "trace") {
     card = <TraceCard item={item} mode="free" onGraded={onGraded} />;
+  } else if (step.kind === "speak") {
+    card = <SpeakCard item={item} onGraded={onGraded} />;
   } else {
     card = <BuildCard item={item} onGraded={onGraded} />;
   }

@@ -1,26 +1,76 @@
 import { useState, useRef, useEffect } from "react";
+import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
-import { checkMeaning, checkReading, checkProduce } from "../../store/answer.js";
+import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji } from "../../store/answer.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
+import { useItemAudio } from "../../store/itemAudio.js";
+
+// Dictation prompt (listen:type): a Play button in place of the glyph, autoplaying
+// on mount, so the ear — not the eye — drives the answer. Mirrors ChoiceCard's
+// listening prompt. Own component so useItemAudio only autoplays in listen mode.
+function ListenPrompt({ item }) {
+  const { play, active } = useItemAudio(item);
+  return (
+    <button
+      onClick={play}
+      aria-label="Play the sound"
+      style={{ width: 72, height: 72, borderRadius: "50%", border: `2px solid ${C.ai}`, background: active ? C.ai : C.aiSoft, color: active ? "#fff" : C.aiDeep, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "background 150ms" }}
+    >
+      <Volume2 size={30} />
+    </button>
+  );
+}
 
 // Typed answer (rung RECALLED → type the meaning; rung PRODUCED → produce the
 // Japanese). The app judges: one free retry on a miss (caps the grade at
 // `hard`); a second miss → `again` and reveal. First-try correct is graded by
 // speed. No self-grade buttons.
 //
-// mode: "meaning" | "produce"
-export default function TypeCard({ item, mode, onGraded }) {
+// mode: "meaning" (JP→English) | "reading" (JP→rōmaji) | "produce" (English→JP)
+// Near-miss feedback: "so close!" + what you wrote vs the answer, differing
+// characters highlighted. Warm, and it makes a one-character slip a teaching
+// moment instead of a flat wrong.
+function NearMiss({ typed, answer, tokenFont }) {
+  const d = charDiff(typed, answer);
+  const render = (chars, base, hi) =>
+    chars.map((c, i) => (
+      <span key={i} style={{ fontFamily: tokenFont, color: c.diff ? hi : base, fontWeight: c.diff ? 700 : 500 }}>
+        {c.ch}
+      </span>
+    ));
+  return (
+    <div style={{ textAlign: "center", fontSize: 15, lineHeight: 1.5 }}>
+      <div style={{ color: C.shu, fontWeight: 700, marginBottom: 6 }}>{d.close ? "So close!" : "Not quite —"}</div>
+      <div style={{ color: C.inkSoft, fontSize: 14 }}>you wrote {render(d.typed, C.inkSoft, C.shu)}</div>
+      <div style={{ color: C.inkSoft, fontSize: 14, marginTop: 2 }}>answer {render(d.answer, C.ink, C.matcha)}</div>
+    </div>
+  );
+}
+
+export default function TypeCard({ item, mode, onGraded, listen = false }) {
   const isKana = item.type === "kana";
 
   // Resolve prompt + checker + the canonical answer for this mode/type.
   const spec = (() => {
+    if (listen) {
+      // Dictation: hear the word (glyph hidden), type its reading. Accepts rōmaji
+      // or kana via checkReading — the ear-path twin of type:reading.
+      return { prompt: null, jp: false, ask: "Type what you hear (rōmaji or kana)",
+               check: (v) => checkReading(v, item), answer: item.reading };
+    }
     if (mode === "produce") {
       return isKana
         ? { prompt: item.reading, jp: false, ask: "Type the kana",
             check: (v) => v.trim() === item.front, answer: item.front }
-        : { prompt: item.meaning, jp: false, ask: "Write it in Japanese",
+        : { prompt: item.meaning, jp: false,
+            ask: produceAllowsRomaji(item) ? "Type it in Japanese — rōmaji or kana" : "Type it in Japanese ⌨️ (kana — not rōmaji)",
             check: (v) => checkProduce(v, item), answer: item.front };
+    }
+    if (mode === "reading") {
+      // Japanese → rōmaji: type the reading of the word shown.
+      return { prompt: item.front, jp: true, ask: "Type the rōmaji",
+               check: (v) => checkReading(v, item), answer: item.reading };
     }
     // meaning (recall)
     return isKana
@@ -66,11 +116,18 @@ export default function TypeCard({ item, mode, onGraded }) {
   };
 
   const feedback = phase === "feedback";
+  // On a kana-only produce card (A2+), a Latin-letter answer isn't "wrong" so much
+  // as the wrong keyboard — nudge to switch rather than diff romaji against kana.
+  // Where rōmaji is accepted (≤A1 on-ramp) it's a normal answer, so no nudge.
+  const romajiOnProduce = mode === "produce" && !produceAllowsRomaji(item) && looksRomaji(value);
+  // When rōmaji IS accepted and the learner typed rōmaji, a miss is diffed against
+  // the rōmaji reading (not the kana front) so the near-miss reads sensibly.
+  const romajiProduceMiss = mode === "produce" && produceAllowsRomaji(item) && looksRomaji(value);
 
   return (
     <div
       data-testid="type-card"
-      data-card-kind={mode === "produce" ? "type:produce" : "type:meaning"}
+      data-card-kind={listen ? "listen:type" : `type:${mode}`}
       data-answer={spec.answer}
       style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}
     >
@@ -88,9 +145,13 @@ export default function TypeCard({ item, mode, onGraded }) {
           textAlign: "center",
         }}
       >
-        <span style={{ fontFamily: spec.jp ? F.jp : F.body, fontSize: spec.jp ? 56 : 28, fontWeight: 500 }}>
-          {spec.prompt}
-        </span>
+        {listen ? (
+          <ListenPrompt item={item} />
+        ) : (
+          <span style={{ fontFamily: spec.jp ? F.jp : F.body, fontSize: spec.jp ? 56 : 28, fontWeight: 500 }}>
+            {spec.prompt}
+          </span>
+        )}
       </div>
 
       <input
@@ -115,7 +176,7 @@ export default function TypeCard({ item, mode, onGraded }) {
             feedback ? (outcome === "correct" ? C.matcha : C.shu) : retried ? C.shu : C.line
           }`,
           background: C.surface,
-          fontFamily: spec.jp || mode === "produce" ? F.jp : F.body,
+          fontFamily: spec.jp ? F.jp : F.body,
           fontSize: 18,
           outline: "none",
           textAlign: "center",
@@ -124,19 +185,38 @@ export default function TypeCard({ item, mode, onGraded }) {
 
       {retried && !feedback && (
         <div style={{ fontSize: 13, color: C.shu, fontWeight: 600, textAlign: "center" }}>
-          Not quite — try once more
+          {romajiOnProduce ? "Switch to your Japanese keyboard — type the kana, not rōmaji." : "Not quite — try once more"}
         </div>
       )}
 
       {feedback && (
-        <div style={{ textAlign: "center", fontSize: 15 }}>
-          <span style={{ color: outcome === "correct" ? C.matcha : C.shu, fontWeight: 700 }}>
-            {outcome === "correct" ? "Correct" : "Answer:"}
-          </span>{" "}
-          {outcome !== "correct" && (
+        outcome === "correct" ? (
+          <div style={{ textAlign: "center", fontSize: 15 }}>
+            <span style={{ color: C.matcha, fontWeight: 700 }}>Correct</span>
+          </div>
+        ) : romajiOnProduce ? (
+          // Romaji on Type-JP: don't diff Latin vs kana — show the kana answer
+          // and point back to the keyboard.
+          <div style={{ textAlign: "center", fontSize: 15, lineHeight: 1.5 }}>
+            <div style={{ color: C.shu, fontWeight: 700, marginBottom: 6 }}>Japanese keyboard needed</div>
+            <div style={{ color: C.inkSoft, fontSize: 14 }}>
+              answer <span style={{ fontFamily: F.jp }}>{spec.answer}</span>
+            </div>
+          </div>
+        ) : value.trim() ? (
+          // Softer miss: show what you wrote vs the answer with the differing
+          // characters highlighted, so a one-kana slip reads as "so close".
+          <NearMiss
+            typed={value}
+            answer={romajiProduceMiss ? item.reading : spec.answer}
+            tokenFont={romajiProduceMiss ? F.body : spec.jp || listen ? F.body : F.jp}
+          />
+        ) : (
+          <div style={{ textAlign: "center", fontSize: 15 }}>
+            <span style={{ color: C.shu, fontWeight: 700 }}>Answer:</span>{" "}
             <span style={{ fontFamily: spec.jp ? F.body : F.jp }}>{spec.answer}</span>
-          )}
-        </div>
+          </div>
+        )
       )}
 
       {!feedback ? (

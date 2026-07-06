@@ -76,9 +76,13 @@ function reviewState() {
 }
 
 // Fixture that exercises all LIVE_CARD_KINDS in one session:
-//   konnichiwa rung=3 due   → build (review)
+//   konnichiwa rung=3 due   → type:produce (review — vocab, hash<share)
+//   arigatō    rung=3 due   → build (review — vocab, hash≥share)
+//   sayounara  rung=2 due   → type:reading (review — vocab, hash<share)
+//   konbanwa   rung=2 due   → listen:type (review — audio, hash in dictation band)
+//   kasa       rung=2 due   → cloze:choice (review — vocab, top hash band, front in example)
 //   hai        rung=1 due   → listen:choice (review — has audio, routes to listen)
-//   sayounara  rung=2 due   → cloze:choice  (review — example holds the front word)
+//   iie        rung=4 due   → speak (review — SPOKEN rung, vocab)
 //   ohayou     rung=0 vocab → teach + choice + type:meaning (lesson)
 //   い          rung=0 kana  → teach + choice + trace:guided (lesson — kana check2 = trace)
 //   all others rung=1 not due → skipped from both queues
@@ -86,6 +90,9 @@ function kindFixtureState() {
   const defs = [
     { id: "ja-u1l1-ohayou",     type: "vocab", front: "おはよう",   reading: "ohayō",      meaning: "good morning", example: { jp: "おはよう！",   en: "Good morning!" }, accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-konnichiwa", type: "vocab", front: "こんにちは", reading: "konnichiwa", meaning: "hello",        example: { jp: "こんにちは！", en: "Hello!" },        accept: [], lang: "ja", unit: 1, lesson: 1 },
+    { id: "ja-u1l2-arigatou",   type: "vocab", front: "ありがとう", reading: "arigatō",    meaning: "thank you",    example: { jp: "ありがとう。", en: "Thank you." },     accept: [], lang: "ja", unit: 1, lesson: 2 },
+    { id: "ja-u1l2-konbanwa",   type: "vocab", front: "こんばんは", reading: "konbanwa",   meaning: "good evening", example: { jp: "こんばんは。", en: "Good evening." }, accept: [], lang: "ja", unit: 1, lesson: 2 },
+    { id: "ja-u1l2-kasa",       type: "vocab", front: "かさ",       reading: "kasa",        meaning: "umbrella",     example: { jp: "かさ。",       en: "Umbrella." },      accept: [], lang: "ja", unit: 1, lesson: 2 },
     { id: "ja-u1l1-sayounara",  type: "vocab", front: "さようなら", reading: "sayōnara",   meaning: "goodbye",      example: { jp: "さようなら。", en: "Goodbye." },       accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-hai",        type: "vocab", front: "はい",       reading: "hai",         meaning: "yes",          example: { jp: "はい。",       en: "Yes." },           accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-iie",        type: "vocab", front: "いいえ",     reading: "iie",         meaning: "no",           example: { jp: "いいえ。",     en: "No." },            accept: [], lang: "ja", unit: 1, lesson: 1 },
@@ -98,10 +105,14 @@ function kindFixtureState() {
   const items = {};
   for (const it of defs) {
     let rung, srs;
-    if (it.id === "ja-u1l1-konnichiwa")  { rung = 3; srs = dueCard();   } // due → build review
+    if (it.id === "ja-u1l1-konnichiwa")  { rung = 3; srs = dueCard();   } // rung-3 vocab, hash<share → type:produce (Eng→JP)
+    else if (it.id === "ja-u1l2-arigatou") { rung = 3; srs = dueCard(); } // rung-3 vocab, hash≥share → build
+    else if (it.id === "ja-u1l1-sayounara") { rung = 2; srs = dueCard(); } // rung-2 vocab, hash<share → type:reading (JP→rōmaji)
+    else if (it.id === "ja-u1l2-konbanwa") { rung = 2; srs = dueCard();  } // rung-2 vocab, audio + hash band → listen:type (dictation)
+    else if (it.id === "ja-u1l2-kasa")   { rung = 2; srs = dueCard();   } // rung-2 vocab, top hash band + front in example → cloze:choice
     else if (it.id === "ja-u1l1-hai")    { rung = 1; srs = dueCard();   } // due rung-1 + has audio → listen:choice (review)
-    else if (it.id === "ja-u1l1-sayounara") { rung = 2; srs = dueCard(); } // due rung-2 + example holds front → cloze:choice (review)
-    else if (it.id === "ja-u1l1-ohayou") { rung = 0; srs = freshCard(); } // new vocab → teach + choice + type:meaning
+    else if (it.id === "ja-u1l1-iie")    { rung = 4; srs = dueCard();   } // rung-4 vocab → speak (SPOKEN review)
+    else if (it.id === "ja-u1l1-ohayou") { rung = 0; srs = freshCard(); } // new vocab → teach + choice + type:meaning (lesson)
     else if (it.id === "ja-u1l1-i")      { rung = 0; srs = freshCard(); } // new kana  → teach + choice + trace:guided
     else                                  { rung = 1; srs = freshCard(); } // graduated, not due → skipped
     items[it.id] = { ...it, rung, srs };
@@ -113,6 +124,7 @@ function kindFixtureState() {
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },
       daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+      settings: {}, // type:produce is default now (rung-3 vocab), no opt-in needed
       ui: {},
     },
     version: 1,
@@ -127,6 +139,7 @@ async function playCard(page) {
   const teach       = page.getByRole("button", { name: "Got it" });
   const typeCard    = page.getByTestId("type-card");
   const tracePad    = page.getByTestId("trace-pad");
+  const speakCard   = page.getByTestId("speak-card");
   const option      = page.locator('[data-correct="true"]');
   const tile        = page.locator('[data-testid="tile"]');
   const continueBtn = page.getByRole("button", { name: "Continue" });
@@ -136,6 +149,7 @@ async function playCard(page) {
     teach.waitFor({ state: "visible", timeout: 8000 }),
     typeCard.waitFor({ state: "visible", timeout: 8000 }),
     tracePad.waitFor({ state: "visible", timeout: 8000 }),
+    speakCard.waitFor({ state: "visible", timeout: 8000 }),
     option.first().waitFor({ state: "visible", timeout: 8000 }),
     tile.first().waitFor({ state: "visible", timeout: 8000 }),
   ]).catch(() => {});
@@ -145,6 +159,14 @@ async function playCard(page) {
   if (await teach.isVisible().catch(() => false)) {
     await teach.click();
     return "teach";
+  }
+
+  if (await speakCard.isVisible().catch(() => false)) {
+    // No real mic/STT in CI — drive the card via its test hook (feeds a correct
+    // transcript through the real grade path), then commit the grade.
+    await page.evaluate(() => window.__speak?.pass());
+    await page.getByTestId("speak-continue").click({ force: true });
+    return "speak";
   }
 
   if (await tracePad.isVisible().catch(() => false)) {
@@ -321,9 +343,8 @@ test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson se
   expect(errors).toEqual([]);
 });
 
-// Dormant card kinds — wired here once the brief ships so the coverage test
-// knows about them before the runner does.
-test.skip("speak cards appear when a vocab item reaches rung 5", async () => {});
+// speak is now live: the coverage test above drives it via the rung-4 `iie`
+// fixture + playCard's speak hook, so the dormant-stub placeholder is retired.
 
 // Fixture: one kana item at rung 3 (due) → review queue → TraceCard mode="free".
 // No fresh items, so there is no learn phase — the review is the whole session.
