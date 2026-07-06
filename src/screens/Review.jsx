@@ -8,6 +8,7 @@ import BuildCard from "../components/games/BuildCard.jsx";
 import TraceCard from "../components/games/TraceCard.jsx";
 import SpeakCard from "../components/games/SpeakCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
+import Celebration from "../components/Celebration.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable } from "../store/mastery.js";
 import { isTraceable, shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze } from "../store/cardRouting.js";
@@ -132,6 +133,10 @@ export default function Review() {
   if (finished || done) {
     return (
       <PhaseShell title="Reviews" progress={1}>
+        {/* Reviews are the mandatory daily habit (the streak trigger) — they earn
+            the same fanfare + confetti as a lesson. Fires once on mount; the sound
+            respects the SFX toggle and confetti is skipped under reduced-motion. */}
+        <Celebration />
         <div style={{ margin: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 16, textAlign: "center" }}>
           <div style={{ fontSize: 56 }}>✓</div>
           <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>Reviews cleared</div>
