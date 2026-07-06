@@ -36,7 +36,15 @@ const KANJI = "一二三四五六七八九十" + // numbers (Unit 11)
   "書話立休買会待知作持" +              // more verbs (Unit 19)
   "高安新古多少長白気元" +              // adjectives / state (Unit 20)
   "目耳口手足雨電車私語";                // body / nature (Unit 21)
-const kanaChars = (HIRAGANA + DAKUTEN + KATAKANA + KANJI).split("");
+// N4 kanji (A2) — fetched ahead of the A2 kanji units so stroke data is ready to
+// author against. ~193 new glyphs (deduped against the N5 set above). Unused entries
+// are harmless — the contract only requires kanji ITEMS to have strokes, not vice versa.
+const KANJI_N4 =
+  "悪暗医意育員院運泳央屋温化荷界開階寒感漢館岸起期客究急級宮球去橋業曲局銀区苦具君係軽血決研県庫湖" +
+  "向幸港号根祭皿仕死使始指歯詩次事式実写者主守取酒受州拾終習集住重宿所暑助昭消商章勝乗植申身神真深" +
+  "進世整昔全相送想息速族他打対代第題炭短談着注柱丁帳調追定庭笛鉄転都度投豆島湯登等動童農波配倍箱畑" +
+  "発反坂板皮悲美鼻筆氷表秒病品負部服福物平返勉放味命面問役薬由油有遊予羊洋葉陽様落流旅両緑礼列練路和";
+const kanaChars = (HIRAGANA + DAKUTEN + KATAKANA + KANJI + KANJI_N4).split("");
 
 console.log(`Fetching KanjiVG data for ${kanaChars.length} characters: ${kanaChars.join(" ")}\n`);
 
