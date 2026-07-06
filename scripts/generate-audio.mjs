@@ -56,11 +56,18 @@ try { ({ A2_DRAFT_UNITS } = await import("../src/data/a2-draft.js")); } catch { 
 const MODEL_ID = "eleven_v3";
 
 // Flatten every playable item across all units (live + A2 draft), stamping its language.
-const items = [...UNITS, ...A2_DRAFT_UNITS].flatMap((unit) =>
-  unit.lessons
-    .filter((l) => Array.isArray(l.items))
-    .flatMap((l) => l.items.map((it) => ({ ...it, lang: unit.lang })))
-);
+const items = [...UNITS, ...A2_DRAFT_UNITS]
+  .flatMap((unit) =>
+    unit.lessons
+      .filter((l) => Array.isArray(l.items))
+      .flatMap((l) => l.items.map((it) => ({ ...it, lang: unit.lang })))
+  )
+  // Skip kanji for now: this script voices item.front, and a LONE kanji is
+  // mispronounced by TTS — ElevenLabs picks its own reading (使 → "shi") instead of
+  // the taught one (つかう). Same class of bug as は→"wa". Kanji audio needs
+  // reading-based voicing (voice the kana reading, not the glyph); deferred until
+  // then. Kana / vocab fronts are unambiguous and voice correctly.
+  .filter((it) => it.type !== "kanji");
 
 console.log(`Generating audio for ${items.length} items  model: ${MODEL_ID}\n`);
 
