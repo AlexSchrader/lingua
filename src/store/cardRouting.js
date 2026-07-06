@@ -54,6 +54,46 @@ export function shouldListenType(item) {
   return hasAudio(item) && h >= READING_SHARE && h < READING_SHARE + LISTEN_TYPE_SHARE;
 }
 
+// --- cloze (fill the word into its own sentence) -----------------------------
+// Contextual recall at rung 2. Takes the TOP hash band [1 - CLOZE_SHARE, 1) so it
+// never overlaps type:reading (< READING_SHARE) or dictation ([READING_SHARE,
+// READING_SHARE + LISTEN_TYPE_SHARE)) — an item routes to at most one rung-2 variant.
+export const CLOZE_SHARE = 0.25;
+
+// The blank token dropped into the sentence in place of the target word.
+export const CLOZE_BLANK = "＿＿";
+
+// Cloze-eligible only when the target word can actually be located and blanked in
+// its own example: a vocab word (≥2 chars, so a stray 1-kana match inside another
+// word can't mis-blank) that appears verbatim in example.jp. Kanji/kana and
+// conjugated examples where the dictionary front isn't a substring degrade safely
+// to the plain card — same as a silent item never listening.
+export function canCloze(item) {
+  return (
+    !!item &&
+    item.type === "vocab" &&
+    [...(item.front ?? "")].length >= 2 &&
+    !!item.example?.jp &&
+    item.example.jp.includes(item.front)
+  );
+}
+
+// example.jp with the FIRST occurrence of the target word replaced by the blank.
+// Pure string op — never touches state. Returns the sentence unchanged if the
+// front isn't present (guarded by canCloze upstream).
+export function blankExample(item) {
+  const jp = item?.example?.jp ?? "";
+  const front = item?.front ?? "";
+  const i = front ? jp.indexOf(front) : -1;
+  return i < 0 ? jp : jp.slice(0, i) + CLOZE_BLANK + jp.slice(i + front.length);
+}
+
+// Should this rung-2 review present as a cloze? Eligible AND in the top interleave
+// band; else the runner uses another rung-2 card. Deterministic (no Math.random).
+export function shouldCloze(item) {
+  return canCloze(item) && hash01(item.id) >= 1 - CLOZE_SHARE;
+}
+
 // --- spoken production (say it aloud) ----------------------------------------
 // The SPEAK card is vocab-only: STT on isolated single kana is unreliable (the
 // Brief-C C.0 de-risk showed 0/3), and a kana's sound is already trained by the

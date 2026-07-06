@@ -2,6 +2,7 @@ import { useMemo, useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import PhaseShell from "../components/PhaseShell.jsx";
 import ChoiceCard from "../components/games/ChoiceCard.jsx";
+import ClozeCard from "../components/games/ClozeCard.jsx";
 import TypeCard from "../components/games/TypeCard.jsx";
 import BuildCard from "../components/games/BuildCard.jsx";
 import TraceCard from "../components/games/TraceCard.jsx";
@@ -9,7 +10,7 @@ import SpeakCard from "../components/games/SpeakCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable } from "../store/mastery.js";
-import { isTraceable, shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak } from "../store/cardRouting.js";
+import { isTraceable, shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze } from "../store/cardRouting.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
@@ -25,10 +26,11 @@ function reviewStepFor(item) {
   // Recognition (rung ≤ 1): interleave the eye path (choice) with the ear path
   // (listen:choice) for items that have a clip — same skill, sound-in vs glyph-in.
   if (rung <= 1) return shouldListen(item) ? { kind: "listen:choice" } : { kind: "choice" };
-  // Recall (rung 2): recall the meaning (JP→English), or for some vocab type the
-  // rōmaji reading (JP→rōmaji) instead.
+  // Recall (rung 2): three interleaved recall paths on distinct hash bands — fill
+  // the word into its own sentence (cloze), recall by ear (dictation), or the
+  // visual recall (type the reading, else the meaning).
   if (rung === 2) {
-    // Recall by ear (dictation) for a distinct audio share, else the visual recall.
+    if (shouldCloze(item)) return { kind: "cloze:choice" };
     if (shouldListenType(item)) return { kind: "listen:type" };
     return shouldTypeReading(item) ? { kind: "type", mode: "reading" } : { kind: "type", mode: "meaning" };
   }
@@ -162,6 +164,8 @@ export default function Review() {
     card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} />;
   } else if (step.kind === "listen:choice") {
     card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} audioFirst />;
+  } else if (step.kind === "cloze:choice") {
+    card = <ClozeCard item={item} allItems={items} onGraded={onGraded} />;
   } else if (step.kind === "listen:type") {
     card = <TypeCard item={item} listen onGraded={onGraded} />;
   } else if (step.kind === "type") {

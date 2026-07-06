@@ -12,6 +12,7 @@ export const LIVE_CARD_KINDS = [
   "type:meaning",
   "type:reading",
   "type:produce",
+  "cloze:choice",
   "build",
   "trace",
   "speak",
