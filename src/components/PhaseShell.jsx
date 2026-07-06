@@ -1,9 +1,12 @@
+import { ArrowLeft } from "lucide-react";
 import { C, F } from "../theme.js";
 
 // Reusable lesson-phase layout: a pinned top bar (title + progress), a scrolling
 // body, and a pinned footer for the primary action. Mirrors AppShell's column
 // model so lessons feel native on a phone.
-export default function PhaseShell({ title, progress, onClose, children, footer }) {
+// onBack (optional): renders a "previous card" control — a visual step back to
+// recover from an accidental skip. Callers omit it where back isn't meaningful.
+export default function PhaseShell({ title, progress, onClose, onBack, children, footer }) {
   return (
     <div
       style={{
@@ -40,6 +43,24 @@ export default function PhaseShell({ title, progress, onClose, children, footer 
               }}
             >
               ✕
+            </button>
+          )}
+          {onBack && (
+            <button
+              onClick={onBack}
+              aria-label="Previous card"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: "none",
+                background: "transparent",
+                cursor: "pointer",
+                color: C.inkSoft,
+                padding: 0,
+              }}
+            >
+              <ArrowLeft size={20} />
             </button>
           )}
           <div

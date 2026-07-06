@@ -145,6 +145,11 @@ export default function Lesson() {
 
   // --- handlers ---
   const advanceTeach = () => setLearn((st) => answerStep(st, null).state);
+  // Step back one card to recover from an accidental skip (a double-tapped
+  // Continue advances pos twice). VISUAL only: it just re-shows the earlier card —
+  // it never rewinds a grade. answerStep's `!graduated` guard means re-answering a
+  // card that already graduated can't re-fire graduateItem, so SRS/mastery is safe.
+  const back = () => setLearn((st) => ({ ...st, pos: Math.max(0, st.pos - 1) }));
   const onCheck = (grade) => {
     const result = { pass: grade !== "again", clean: grade === "good" || grade === "easy" };
     const { state, graduated } = answerStep(learn, result);
@@ -186,6 +191,7 @@ export default function Lesson() {
       title={`${sandbox ? "🧪 Dev · " : ""}${label} · card ${Math.min(learn.pos + 1, total)} of ${total}`}
       progress={progress}
       onClose={() => navigate(home)}
+      onBack={learn.pos > 0 ? back : undefined}
     >
       {/* Keyed remount per card drives the entrance "breath" (fade + brief
           input guard) so carried taps don't bleed into the next card. */}
