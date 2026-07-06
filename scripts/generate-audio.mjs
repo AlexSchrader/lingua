@@ -47,10 +47,16 @@ if (!API_KEY) {
 const { COMPANIONS } = await import("../server/companions.js");
 const { UNITS } = await import("../src/data/index.js");
 
+// Also voice the A2 draft units (not in UNITS yet) so A2 has full audio parity with
+// A1 — clips are keyed by item id, so this is safe pre-activation. Guarded so the
+// script keeps working after A2 is activated and a2-draft.js is removed.
+let A2_DRAFT_UNITS = [];
+try { ({ A2_DRAFT_UNITS } = await import("../src/data/a2-draft.js")); } catch { /* activated / absent */ }
+
 const MODEL_ID = "eleven_v3";
 
-// Flatten every playable item across all units, stamping its language.
-const items = UNITS.flatMap((unit) =>
+// Flatten every playable item across all units (live + A2 draft), stamping its language.
+const items = [...UNITS, ...A2_DRAFT_UNITS].flatMap((unit) =>
   unit.lessons
     .filter((l) => Array.isArray(l.items))
     .flatMap((l) => l.items.map((it) => ({ ...it, lang: unit.lang })))
