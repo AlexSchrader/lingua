@@ -18,13 +18,14 @@ import { UNIT29 } from "./ja/unit29.js";
 import { UNIT30 } from "./ja/unit30.js";
 import { UNIT31 } from "./ja/unit31.js";
 import { UNIT32 } from "./ja/unit32.js";
+import { UNIT33 } from "./ja/unit33.js";
 
 // The A2 draft units, in order. Same shape as `UNITS`, so the existing Dev-Mode
 // sandbox launcher runs any of their lessons with zero new card wiring — vocab items
 // use teach/choice/type/build, and kanji units (U31+) use the trace card too, all of
 // which already exist.
 export const A2_DRAFT_UNITS = [
-  UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32,
+  UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33,
 ];
 
 // A curated "lil snippets" set — one representative lesson per unit, for a quick
