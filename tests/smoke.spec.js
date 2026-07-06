@@ -305,6 +305,29 @@ test("new words are taught, the loop completes, and it persists", async ({ page 
   expect(errors).toEqual([]);
 });
 
+test("lesson: the Previous button steps back a card (visual, no crash)", async ({ page }) => {
+  test.setTimeout(30_000);
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await page.goto("/");
+  await page.getByTestId("start-session").click();
+
+  // First card: no back control (nothing to step back to).
+  await expect(page.getByText(/card 1 of/)).toBeVisible();
+  await expect(page.getByRole("button", { name: "Previous card" })).toHaveCount(0);
+
+  // Advance one card, then step back — the earlier card re-shows, no error.
+  await playCard(page);
+  await expect(page.getByText(/card 2 of/)).toBeVisible();
+  const back = page.getByRole("button", { name: "Previous card" });
+  await expect(back).toBeVisible();
+  await back.click();
+  await expect(page.getByText(/card 1 of/)).toBeVisible();
+
+  expect(errors).toEqual([]);
+});
+
 test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson sessions", async ({ page }) => {
   test.setTimeout(60_000); // trace:guided animation ~1.3s/stroke in real browsers; IS_WEBDRIVER makes it instant
   const errors = [];
