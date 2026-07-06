@@ -44,7 +44,7 @@ export const UNIT9 = {
       items: [
         { id: "ja-u9l2-hirugohan", type: "vocab", front: "ひるごはん", reading: "hirugohan", meaning: "lunch", example: { jp: "ひるごはんをたべます。", en: "I eat lunch." }, accept: ["midday meal"] },
         { id: "ja-u9l2-bangohan",  type: "vocab", front: "ばんごはん", reading: "bangohan", meaning: "dinner", example: { jp: "ばんごはんはなんですか。", en: "What's for dinner?" }, accept: ["supper", "evening meal"] },
-        { id: "ja-u9l2-ryori", type: "vocab", front: "りょうり", reading: "ryōri", meaning: "cooking", example: { jp: "にほんりょうりがすきです。", en: "I like Japanese food." }, accept: ["dish", "cuisine", "cooked food"] },
+        { id: "ja-u9l2-ryori", type: "vocab", front: "りょうり", reading: "ryōri", meaning: "cooking", example: { jp: "にほんりょうりがすきです。", en: "I like Japanese cuisine." }, accept: ["dish", "cuisine", "cooked food"] },
         { id: "ja-u9l2-aji",   type: "vocab", front: "あじ", reading: "aji", meaning: "flavor", example: { jp: "このあじがすきです。", en: "I like this flavor." }, accept: ["taste", "flavour"] },
         { id: "ja-u9l2-amai",  type: "vocab", front: "あまい", reading: "amai", meaning: "sweet", example: { jp: "これはあまいです。", en: "This is sweet." }, accept: ["sweet-tasting"] },
         { id: "ja-u9l2-karai", type: "vocab", front: "からい", reading: "karai", meaning: "spicy", example: { jp: "カレーはからいです。", en: "Curry is spicy." }, accept: ["hot", "hot (spicy)"] },

@@ -39,7 +39,7 @@ export const UNIT14 = {
         { id: "ja-u14l2-ko", type: "kanji", front: "子", reading: "ko", meaning: "child", example: { jp: "子どもがすきです。", en: "I like children." }, accept: ["kid"], hint: "子 = child — a little figure with outstretched arms. 子ども = child (you know こども)." },
         { id: "ja-u14l2-tomo", type: "kanji", front: "友", reading: "tomo", meaning: "friend", example: { jp: "友だちが来ます。", en: "A friend comes." }, accept: ["friends"], hint: "友 = friend. You know it as 友だち (ともだち). Two hands reaching the same way." },
         { id: "ja-u14l2-sen", type: "kanji", front: "先", reading: "sen", meaning: "ahead", example: { jp: "先生に聞きます。", en: "I ask the teacher." }, accept: ["before","previous","earlier"], hint: "先 = ahead / before. 先生 = teacher (one who came 'before' in life). Also 先週 = last week." },
-        { id: "ja-u14l2-sei", type: "kanji", front: "生", reading: "sei", meaning: "student", example: { jp: "わたしは学生です。", en: "I'm a student." }, accept: ["life","born","raw"], hint: "生 = life / student. In 学生 (student) and 先生 (teacher). Also means 'born' and 'raw'." },
+        { id: "ja-u14l2-sei", type: "kanji", front: "生", reading: "sei", meaning: "life", example: { jp: "わたしは学生です。", en: "I'm a student." }, accept: ["student","born","raw","alive"], hint: "生 = life (also 'born' / 'raw'). It joins other kanji to make 学生 (student) and 先生 (teacher)." },
         { id: "ja-u14l2-mei", type: "kanji", front: "名", reading: "mei", meaning: "name", example: { jp: "名前を言います。", en: "I say my name." }, accept: ["famous"], hint: "名 = name — 夕 (evening) + 口 (mouth): calling a name in the dark. 名前 = namae." },
       ],
     },
