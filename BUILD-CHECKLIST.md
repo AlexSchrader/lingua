@@ -79,7 +79,7 @@ Single place for the feature/engine work that's surfaced. Curriculum CC adds her
 - [ ] **Ladder — per-lesson dropdown preview.** Expand a lesson to show its `canDo` line + item list. Data already lives on each lesson object (`title`/`canDo`/`items`) — pure render.
 - [ ] **Ladder — collapsible stage sub-sections within Units** (pre-A1 / A1 / A2 collapse independently) so the Units tab isn't one long wall.
 - [ ] **Lesson — "Previous" button** (top of runner) to recover from a double-tap Continue skipping a card. Visual back only — must NOT re-grade / corrupt SRS state. (`src/screens/Lesson.jsx`, `learn.pos`.)
-- [ ] **Lesson — "card breath" debounce** (PR #41, parked) — short delay before a new card accepts taps; *prevents* the double-tap skip the Previous button *recovers* from. Pair them.
+- [x] **Lesson — "card breath" debounce** — ✅ DONE 2026-07-04, PR #41 (shipped as `src/components/CardBreath.jsx`, wired into the Lesson + Review card remounts). Short delay before a new card accepts taps; *prevents* the double-tap skip. The **"Previous" button** (item above) is the still-open *recovery* half — pair them.
 - [ ] **Lesson/UI — clarify card-vs-item counting.** The session counts cards (3× items), which reads as "0/30" and confused a real user vs the Ladder's item totals. Label it ("card 1 of 30") or show item progress.
 - [ ] **Checkpoints + save points** (engine side of the 2026-06-30 design) — checkpoints = light consolidation *beats* within a unit; save points = mid-lesson resume, **no expiry / no restart** (FSRS owns reinforcement). Curriculum CC owns the beat *content*; engine mechanic is feature CC's.
 
