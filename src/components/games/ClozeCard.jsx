@@ -4,6 +4,7 @@ import { buildOptions } from "../../store/distractors.js";
 import { deriveGrade } from "../../store/grading.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { blankExample } from "../../store/cardRouting.js";
+import { useItemAudio } from "../../store/itemAudio.js";
 
 // Cloze (rung RECALLED, in context): the target word is blanked out of its own
 // example sentence and you pick the word that belongs — tests comprehension, not
@@ -13,6 +14,8 @@ import { blankExample } from "../../store/cardRouting.js";
 export default function ClozeCard({ item, allItems, onGraded }) {
   const options = useMemo(() => buildOptions(item, allItems, 4, "front"), [item.id]);
   const [picked, setPicked] = useState(null);
+  // Reinforce the word's pronunciation once picked (respects the auto-pronounce setting).
+  const { playIfEnabled } = useItemAudio(item, { autoplay: false });
 
   useEffect(() => setPicked(null), [item.id]);
 
@@ -61,7 +64,7 @@ export default function ClozeCard({ item, allItems, onGraded }) {
               data-testid="option"
               data-correct={String(o.correct)}
               disabled={answered}
-              onClick={() => { if (answered) return; options[i].correct ? sfxCorrect() : sfxWrong(); setPicked(i); }}
+              onClick={() => { if (answered) return; options[i].correct ? sfxCorrect() : sfxWrong(); setPicked(i); playIfEnabled(); }}
               style={{
                 padding: "16px 12px",
                 borderRadius: 12,

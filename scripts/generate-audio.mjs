@@ -80,7 +80,16 @@ for (let i = 0; i < items.length; i++) {
   }
 
   // Bare call: raw text + model only. No language_code, no katakana, no voice_settings.
-  const text = item.front;
+  //
+  // Exception — particle-homograph KANA: sent alone, は and へ are read by the voice
+  // as the PARTICLE (は→"wa", へ→"e"), not the kana's own sound. For the kana item
+  // ONLY, voice the katakana twin (ハ/ヘ), which has no particle meaning, so the
+  // character's true sound ("ha"/"he") comes out. The particle VOCAB items (は=wa in
+  // U19, へ=e in U20) are type "vocab" and keep their front → correct particle sound.
+  // (This is a surgical 2-item fix, not the global kana→katakana conversion the
+  // header warns against — that broke other kana; these two are already wrong.)
+  const KANA_SOUND_FIX = { "は": "ハ", "へ": "ヘ" };
+  const text = item.type === "kana" && KANA_SOUND_FIX[item.front] ? KANA_SOUND_FIX[item.front] : item.front;
 
   try {
     const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {

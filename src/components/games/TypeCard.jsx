@@ -86,6 +86,10 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
   const [phase, setPhase] = useState("input"); // "input" | "feedback"
   const [outcome, setOutcome] = useState(null); // "correct" | "wrong"
   const [grade, setGrade] = useState(null);
+  // Reinforce the word's pronunciation once the answer settles (feedback), whether
+  // right or wrong — so the learner always hears the target. Respects the setting;
+  // autoplay:false so a recall prompt never speaks the answer before they type.
+  const { playIfEnabled } = useItemAudio(item, { autoplay: false });
 
   useEffect(() => {
     shownAt.current = performance.now();
@@ -104,6 +108,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
       setGrade(deriveGrade({ kind: "typed", correct: true, retried, elapsedMs: elapsed, target: spec.answer }));
       setOutcome("correct");
       setPhase("feedback");
+      playIfEnabled();
     } else if (!retried) {
       sfxWrong();
       setRetried(true); // one free retry
@@ -112,6 +117,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
       setGrade("again");
       setOutcome("wrong");
       setPhase("feedback");
+      playIfEnabled();
     }
   };
 

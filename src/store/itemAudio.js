@@ -9,12 +9,16 @@ const IS_WEBDRIVER = typeof navigator !== "undefined" && !!navigator.webdriver;
 // deliberately no Web Speech fallback (that synthesized "robot" voice was scrapped
 // 2026-06-28; better silence than a robot). Items without a generated clip just
 // don't speak until one is generated.
-export function useItemAudio(item) {
+// opts.autoplay (default true): play on mount / item change. Pass { autoplay: false }
+// for cards that must NOT reveal the sound up front (recognition/recall) but still
+// want to play the pronunciation on demand — e.g. as reinforcement once the answer
+// is in (via playIfEnabled).
+export function useItemAudio(item, { autoplay = true } = {}) {
   const [active, setActive] = useState(false);
   const audioRef = useRef(null);
-  // Auto-play on a new card respects the user's preference; the speaker button
-  // (manual play) always plays regardless.
-  const autoplay = useStore((s) => s.settings?.autoplayAudio ?? true);
+  // The "auto-play pronunciation" preference. play() (manual, e.g. the speaker
+  // button) always plays regardless; playIfEnabled() and mount-autoplay respect it.
+  const enabled = useStore((s) => s.settings?.autoplayAudio ?? true);
 
   function stop() {
     if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
@@ -32,9 +36,14 @@ export function useItemAudio(item) {
     a.play().catch(() => { setActive(false); }); // no robot fallback
   }
 
-  // Autoplay on mount / when the item changes — unless the user turned it off.
-  useEffect(() => { if (autoplay) play(); }, [item.id]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Play only when the auto-pronounce preference is on — for automatic moments
+  // like answer reinforcement, so a user who turned pronunciation off stays quiet.
+  function playIfEnabled() { if (enabled) play(); }
+
+  // Autoplay on mount / when the item changes — only if the caller opted in AND
+  // the user's preference is on.
+  useEffect(() => { if (autoplay && enabled) play(); }, [item.id]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => () => stop(), []); // cleanup on unmount
 
-  return { play, active };
+  return { play, playIfEnabled, active };
 }

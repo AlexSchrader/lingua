@@ -17,6 +17,9 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const listening = audioFirst && !revealed;
+  // Reinforce the pronunciation once an answer is in (respects the auto-pronounce
+  // preference). autoplay:false so a plain choice never speaks the answer up front.
+  const { playIfEnabled } = useItemAudio(item, { autoplay: false });
 
   // Listening kana offers GLYPH options (the hidden answer is the glyph); every
   // other case uses the normal field. Rebuild when the mode flips ("Show it").
@@ -81,7 +84,7 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
               data-testid="option"
               data-correct={String(o.correct)}
               disabled={answered}
-              onClick={() => { if (answered) return; options[i].correct ? sfxCorrect() : sfxWrong(); setPicked(i); }}
+              onClick={() => { if (answered) return; options[i].correct ? sfxCorrect() : sfxWrong(); setPicked(i); playIfEnabled(); }}
               style={{
                 padding: "16px 12px",
                 borderRadius: 12,
