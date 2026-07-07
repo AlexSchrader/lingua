@@ -265,6 +265,22 @@ test("can navigate all four tabs", async ({ page }) => {
   }
 });
 
+test("Ladder word bank collects learned words, organized by unit", async ({ page }) => {
+  // reviewState() seeds several rung≥1 vocab (おはよう / こんにちは …).
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(reviewState()));
+  await page.goto("/");
+  await page.getByRole("button", { name: "Ladder", exact: true }).click();
+
+  // The collapsible "Word bank" section is present; expand it.
+  const bank = page.getByRole("button", { name: /Word bank/ });
+  await expect(bank).toBeVisible();
+  await bank.click();
+
+  // A learned word shows, under its unit heading (はじめまして = Unit 1).
+  await expect(page.getByText("こんにちは").first()).toBeVisible();
+  await expect(page.getByText("はじめまして").first()).toBeVisible();
+});
+
 test("settings opens from the header gear, not the bottom nav", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Settings" }).click();
