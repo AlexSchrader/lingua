@@ -22,6 +22,17 @@ test("a genuine reading miss still fails", () => {
   assert.notEqual(normalizeReading("ohayou"), normalizeReading("konnichiwa"));
 });
 
+test("vowel folding is Japanese-only: it stays off for other languages", () => {
+  // Default (and explicit "ja") folds long vowels — Japanese rōmaji behavior.
+  assert.equal(normalizeReading("sensei"), "sense");
+  assert.equal(normalizeReading("sensei", "ja"), "sense");
+  // A Latin-script language must NOT fold vowel sequences, or real words break:
+  // Spanish "leer" (to read) would collapse to "ler", "creer" to "crer".
+  assert.equal(normalizeReading("leer", "es"), "leer");
+  assert.equal(normalizeReading("creer", "es"), "creer");
+  assert.equal(normalizeReading("Idée", "fr"), "idée"); // casefold/trim only, no folding
+});
+
 test("checkReading accepts romaji (folded) or the kana itself", () => {
   const item = { front: "おはよう", reading: "ohayō" };
   assert.ok(checkReading("ohayou", item));
