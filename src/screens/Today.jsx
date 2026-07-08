@@ -203,6 +203,13 @@ export default function Today() {
     const target = currentLesson ?? allPlayableLessons[0] ?? null;
     if (target) navigate(`/lesson/${target.id}`);
   };
+  // "Just a few": start the current lesson capped to a handful of new items — a
+  // low-activation-energy on-ramp for a tired day. The lesson runner reads ?few.
+  const MICRO_SIZE = 3;
+  const startFew = () => {
+    const target = currentLesson ?? allPlayableLessons[0] ?? null;
+    if (target) navigate(`/lesson/${target.id}?few=${MICRO_SIZE}`);
+  };
 
   // Primary CTA: reviews first if due; lesson once reviews are clear.
   let ctaLabel;
@@ -339,6 +346,18 @@ export default function Today() {
           {currentLesson.title} · {currentLesson.canDo ?? "Learn new items"} · ~{estMinutes} min
         </div>
       ) : null}
+
+      {/* Low-energy on-ramp: a handful of new items instead of the full lesson.
+          Only worth offering when the lesson has more than a few new items. */}
+      {(ctaLabel === "Start lesson" || ctaLabel === "Keep learning") && currentLesson && newItemCount > MICRO_SIZE && (
+        <button
+          data-testid="start-few"
+          onClick={startFew}
+          style={{ padding: "12px 18px", borderRadius: 14, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer", marginTop: 2 }}
+        >
+          Low on energy? Just a few ({MICRO_SIZE})
+        </button>
+      )}
 
       {/* Up next — the lesson AFTER the current one (Step 2 already shows the
           current lesson, so this is a genuine peek ahead). */}

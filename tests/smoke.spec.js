@@ -308,6 +308,18 @@ test("zero-reviews-due: review step shows done, CTA goes straight to lesson", as
   await expect(page.getByTestId("start-session")).toHaveText("Start lesson");
 });
 
+test("Today: 'Just a few' starts a capped micro-session", async ({ page }) => {
+  await page.goto("/");
+  const few = page.getByTestId("start-few");
+  await expect(few).toBeVisible();
+  await few.click();
+  // 3 new items → teach×3 + interleaved checks (~9 cards), not the full lesson (~30).
+  const counter = page.getByText(/card 1 of \d+/);
+  await expect(counter).toBeVisible();
+  const total = parseInt((await counter.textContent()).match(/of (\d+)/)[1], 10);
+  expect(total).toBeLessThanOrEqual(9);
+});
+
 test("new words are taught, the loop completes, and it persists", async ({ page }) => {
   test.setTimeout(120_000); // lesson 1 = 5 kana (guided trace, ~2.5s/stroke) + 5 vocab
   const errors = [];
