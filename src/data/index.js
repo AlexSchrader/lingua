@@ -1,4 +1,4 @@
-import { LANGUAGES } from "./ja/languages.js";
+import { LANGUAGES } from "./languages.js";
 import { UNIT1 } from "./ja/unit1.js";
 import { UNIT2 } from "./ja/unit2.js";
 import { UNIT3 } from "./ja/unit3.js";

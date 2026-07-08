@@ -5,17 +5,25 @@ const MACRON = { "ō": "o", "ū": "u", "ā": "a", "ē": "e", "ī": "i" };
 
 // Fold long-vowel length so macron and typed romaji forms converge:
 // ohayō == ohayou == ohayoo, sayōnara == sayounara, sensei == sensē.
-export function normalizeReading(s = "") {
+//
+// This vowel-folding is a JAPANESE rōmaji concern and must NOT run for other
+// languages — it would mangle legitimate vowel sequences (Spanish "leer"/"creer",
+// French "voeen"). So it's gated by `lang`. The default is "ja", so any caller
+// that omits lang (or passes an item with no lang stamped) keeps the original
+// Japanese behavior; a Latin-script language (es/fr) just casefolds + trims.
+export function normalizeReading(s = "", lang = "ja") {
   let out = String(s).trim().toLowerCase().replace(/\s+/g, "");
-  out = out.replace(/[ōūāēī]/g, (c) => MACRON[c] || c);
-  out = out
-    .replace(/ou/g, "o")
-    .replace(/oo/g, "o")
-    .replace(/uu/g, "u")
-    .replace(/ei/g, "e")
-    .replace(/ee/g, "e")
-    .replace(/aa/g, "a")
-    .replace(/ii/g, "i");
+  if (lang === "ja") {
+    out = out.replace(/[ōūāēī]/g, (c) => MACRON[c] || c);
+    out = out
+      .replace(/ou/g, "o")
+      .replace(/oo/g, "o")
+      .replace(/uu/g, "u")
+      .replace(/ei/g, "e")
+      .replace(/ee/g, "e")
+      .replace(/aa/g, "a")
+      .replace(/ii/g, "i");
+  }
   return out;
 }
 
@@ -33,7 +41,7 @@ export function normalizeText(s = "") {
 export function checkReading(input, item) {
   const raw = String(input).trim();
   if (raw && raw === item.front) return true;
-  return normalizeReading(input) === normalizeReading(item.reading);
+  return normalizeReading(input, item?.lang) === normalizeReading(item.reading, item?.lang);
 }
 
 // A meaning answer matches the canonical meaning or any accepted synonym.
@@ -74,7 +82,7 @@ export function checkProduce(input, item) {
   if (!raw) return false;
   if (raw === item.front || (item.kana && raw === item.kana)) return true;
   if (produceAllowsRomaji(item) && looksRomaji(raw)) {
-    return normalizeReading(raw) === normalizeReading(item.reading);
+    return normalizeReading(raw, item?.lang) === normalizeReading(item.reading, item?.lang);
   }
   return false;
 }
@@ -152,8 +160,8 @@ export function gradeSpoken(transcript, item) {
   // Romaji path: Latin-letter transcript (romaji or English homophone) vs the
   // romanized reading. Lossier, so allow a slightly larger slip before it fails.
   if (looksRomaji(t) && item?.reading) {
-    const heardR = normalizeReading(t);
-    const targetR = normalizeReading(item.reading);
+    const heardR = normalizeReading(t, item?.lang);
+    const targetR = normalizeReading(item.reading, item?.lang);
     if (heardR === targetR) return "good";
     if (editDistance(heardR, targetR) <= 2) return "hard";
   }

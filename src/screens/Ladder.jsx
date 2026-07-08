@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Lock, Check, ChevronRight } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
-import { roadmapFor } from "../data/ja/roadmap.js";
+import { roadmapFor } from "../data/roadmap.js";
 import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
 import GlyphDetail from "../components/GlyphDetail.jsx";
