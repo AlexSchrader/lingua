@@ -96,10 +96,16 @@ export default function AppShell() {
        </div>
       </header>
 
-      <main style={{ flex: 1, overflowY: "auto", WebkitOverflowScrolling: "touch" }}>
-        {/* Centered column. Flex so screens that fill the height (e.g. the chat,
-            with a pinned input) work, while scrolling screens still grow. */}
-        <div style={{ maxWidth: MAXW, width: "100%", margin: "0 auto", minHeight: "100%", display: "flex", flexDirection: "column" }}>
+      <main style={{ flex: 1, minHeight: 0, overflow: "hidden" }}>
+        {/* Centered column, and the scroll boundary. A *definite* height (100% of
+            main, itself bounded by the 100dvh shell) is what lets flex-pinned
+            screens work: the chat can give its transcript flex:1/min-height:0 and
+            have it scroll internally while the input stays pinned — the header and
+            bottom nav (siblings of main) never move. Tall scrolling screens just
+            overflow this wrapper and scroll it. If this were minHeight:100% the
+            height would be indefinite and the chat's flex chain would grow the
+            page instead of scrolling the transcript. */}
+        <div style={{ maxWidth: MAXW, width: "100%", margin: "0 auto", height: "100%", overflowY: "auto", WebkitOverflowScrolling: "touch", display: "flex", flexDirection: "column" }}>
           <Outlet />
         </div>
       </main>
