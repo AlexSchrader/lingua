@@ -1,16 +1,13 @@
 import { useEffect, useMemo } from "react";
 import { sfxFanfare } from "../store/sfx.js";
+import { useReduceMotion } from "../store/useReduceMotion.js";
 
 // One-shot lesson-complete celebration: a soft fanfare + a confetti burst.
 // Drop it into the completion screen; it fires once on mount. ND-considerate:
 // the sound respects the SFX preference (gated in sfx.js), and the confetti is
-// skipped entirely under prefers-reduced-motion — finishing should feel good,
-// never overwhelming. Self-contained, no dependency.
+// skipped entirely when the learner reduces motion (Settings toggle or OS
+// prefers-reduced-motion) — finishing should feel good, never overwhelming.
 const COLORS = ["#2A4A7B", "#7BA05B", "#D8632A", "#E8B84B", "#C45B7C"];
-const REDUCED =
-  typeof window !== "undefined" &&
-  window.matchMedia &&
-  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const KEYFRAMES = `
 @keyframes lingua-confetti-fall {
@@ -19,13 +16,14 @@ const KEYFRAMES = `
 }`;
 
 export default function Celebration({ pieces = 70 }) {
+  const reduced = useReduceMotion();
   useEffect(() => {
     sfxFanfare();
   }, []);
 
   const confetti = useMemo(
     () =>
-      REDUCED
+      reduced
         ? []
         : Array.from({ length: pieces }, (_, i) => ({
             left: Math.random() * 100,
@@ -35,10 +33,10 @@ export default function Celebration({ pieces = 70 }) {
             w: 6 + Math.random() * 6,
             drift: (Math.random() - 0.5) * 160,
           })),
-    [pieces]
+    [pieces, reduced]
   );
 
-  if (REDUCED) return null;
+  if (reduced) return null;
 
   return (
     <div aria-hidden style={{ position: "fixed", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 60 }}>

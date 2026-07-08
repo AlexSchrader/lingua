@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useReduceMotion } from "../store/useReduceMotion.js";
 
 // Lingua the mascot — a still image, or an animated clip for specific app
 // moments. Clips live in public/mascot/ (plain URL paths, no import). If a clip
@@ -30,10 +31,6 @@ const CONTEXTS = {
   idle: { still: "base", clip: null, loop: false },
 };
 
-function prefersReducedMotion() {
-  return typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-}
-
 /**
  * <Mascot context="lessonComplete" />
  * <Mascot context="wrongAnswer" onEnded={() => advanceCard()} />
@@ -47,7 +44,7 @@ export default function Mascot({ context, pose, videoKey, size = 130, className 
   const preset = context ? CONTEXTS[context] : null;
   const resolvedStill = pose || preset?.still || "base";
   const stillSrc = STILLS[resolvedStill] ?? STILLS.base;
-  const reduceMotion = prefersReducedMotion();
+  const reduceMotion = useReduceMotion();
 
   if (!preset?.clip || reduceMotion || failed) {
     return (

@@ -302,6 +302,17 @@ test("settings opens from the header gear, not the bottom nav", async ({ page })
   await expect(page.getByRole("button", { name: "Reset all progress" })).toBeVisible();
 });
 
+test("settings: reduce-motion toggle flips and persists", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Settings" }).click();
+  const toggle = page.getByRole("switch", { name: "Reduce motion" });
+  await expect(toggle).toHaveAttribute("aria-checked", "false");
+  await toggle.click();
+  await expect(toggle).toHaveAttribute("aria-checked", "true");
+  const persisted = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua-v1")).state.settings.reduceMotion);
+  expect(persisted).toBe(true);
+});
+
 test("zero-reviews-due: review step shows done, CTA goes straight to lesson", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByText("All clear")).toBeVisible();

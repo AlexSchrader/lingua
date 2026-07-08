@@ -78,7 +78,7 @@ export const useStore = create(
       // = auto-play the pronunciation clip when a Teach card appears (the speaker
       // button always plays regardless). Both default on; persisted. Old persisted
       // state without this key keeps these defaults via persist's shallow merge.
-      settings: { sfx: true, autoplayAudio: true, showRomaji: true, theme: "system", textSize: "default" },
+      settings: { sfx: true, autoplayAudio: true, showRomaji: true, theme: "system", textSize: "default", reduceMotion: false },
       ui: {},
 
       // Cloud sync (Supabase). `lastModified` is persisted and drives the

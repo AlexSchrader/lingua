@@ -224,6 +224,12 @@ export default function Settings() {
           checked={settings?.showRomaji ?? true}
           onChange={(v) => setSetting("showRomaji", v)}
         />
+        <Toggle
+          label="Reduce motion"
+          desc="Freeze the mascot to a still and skip the finish-line confetti. Calmer if animation is distracting. (Your device's reduced-motion setting is always respected too.)"
+          checked={settings?.reduceMotion ?? false}
+          onChange={(v) => setSetting("reduceMotion", v)}
+        />
       </Section>
 
       <Section title="Practice">
