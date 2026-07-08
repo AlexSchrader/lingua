@@ -79,7 +79,11 @@ export default function Lesson() {
   const done = learnStep === null;
 
   useEffect(() => {
-    if (lesson && done && !finished) {
+    // Only complete the lesson when it actually had new items to teach. Opening
+    // an already-finished lesson yields freshIds=[] → empty queue → done=true on
+    // first render; without this guard that would fire completeLesson + the
+    // cascade + a streak roll for zero work. The "Nothing new" screen still shows.
+    if (lesson && done && !finished && freshIds.length > 0) {
       completeLesson(lessonId);
       rollDailyGoal();
       setFinished(true);

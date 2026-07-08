@@ -18,7 +18,14 @@ export function nextRung(item, grade) {
   if (grade === "again") next = cur - 1;
   else if (grade === "hard") next = cur; // hold
   else if (grade === "good" || grade === "easy") next = cur + 1;
-  return Math.max(0, Math.min(MAX_RUNG, next));
+  // A graduated item (already RECOGNIZED) never falls back to NEW on a lapse —
+  // rung 0 means "never studied", and once you've studied something a wrong
+  // answer shouldn't un-know it. It holds at RECOGNIZED and FSRS's relearning
+  // interval resurfaces it soon. Without this floor, failing a freshly-graduated
+  // item's first review dropped it to rung 0, and isReviewable (rung >= 1) then
+  // ejected it from spaced review permanently.
+  const floor = cur >= 1 ? 1 : 0;
+  return Math.max(floor, Math.min(MAX_RUNG, next));
 }
 
 // Gate check: is an item considered "due"-eligible? Items must have at least
