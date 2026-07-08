@@ -89,6 +89,7 @@ export default function Ladder() {
       <KanaSection langId={active.id} items={items} showRomaji={showRomaji} />
       <YoonSection langId={active.id} items={items} showRomaji={showRomaji} />
       <KanjiSection langId={active.id} items={items} showRomaji={showRomaji} />
+      <WordBankSection langId={active.id} items={items} showRomaji={showRomaji} />
       <UnitsSection langId={active.id} items={items} />
 
       {notStarted.length > 0 && (
@@ -375,6 +376,73 @@ function KanjiSection({ langId, items, showRomaji }) {
           );
         })}
       </div>
+    </Section>
+  );
+}
+
+// Word bank: the vocabulary you've learned, organized by unit — the words
+// counterpart to the kana chart. A place to revisit your growing vocabulary. Shows
+// learned words only (rung ≥ 1); units with none yet are hidden, so the bank fills
+// out as you climb rather than spoiling everything ahead.
+function WordRow({ def, item, showRomaji }) {
+  const pct = masteryPct(item);
+  const mastered = isMastered(item);
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 12px", borderRadius: 12, border: `1px solid ${C.line}`, background: C.surface }}>
+      <div style={{ minWidth: 0, flex: 1 }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+          <span style={{ fontFamily: F.jp, fontSize: 18, fontWeight: 600, color: C.ink }}>{def.front}</span>
+          {showRomaji && def.reading && <span style={{ fontFamily: F.mono, fontSize: 12, color: C.inkSoft }}>{def.reading}</span>}
+        </div>
+        {def.meaning && (
+          <div style={{ fontSize: 13, color: C.inkSoft, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{def.meaning}</div>
+        )}
+      </div>
+      <div title={mastered ? "Mastered" : `${Math.round(pct * 100)}%`} style={{ width: 40, height: 5, borderRadius: 999, background: C.lockedBg, overflow: "hidden", flexShrink: 0 }}>
+        <div style={{ width: `${Math.max(6, Math.round(pct * 100))}%`, height: "100%", background: mastered ? C.matcha : C.ai }} />
+      </div>
+    </div>
+  );
+}
+
+function WordBankSection({ langId, items, showRomaji }) {
+  const units = UNITS.filter((u) => u.lang === langId)
+    .map((u) => {
+      const words = u.lessons.filter((l) => Array.isArray(l.items)).flatMap((l) => l.items).filter((d) => d.type === "vocab");
+      return { id: u.id, title: u.title, total: words.length, learned: words.filter((d) => (items[d.id]?.rung ?? 0) >= 1) };
+    })
+    .filter((u) => u.total > 0);
+  const totalWords = units.reduce((n, u) => n + u.total, 0);
+  const learnedTotal = units.reduce((n, u) => n + u.learned.length, 0);
+  if (totalWords === 0) return null;
+
+  return (
+    <Section title="Word bank" collapsible defaultOpen={false} summary={`${learnedTotal}/${totalWords} words`}>
+      {learnedTotal === 0 ? (
+        <div style={{ fontSize: 13, color: C.inkSoft }}>
+          Learn some words and they'll collect here — organized by unit, so you can revisit your growing vocabulary any time.
+        </div>
+      ) : (
+        <>
+          <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 14 }}>
+            The words you've learned so far, by unit. The bar shows how well each is sticking.
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+            {units.filter((u) => u.learned.length > 0).map((u) => (
+              <div key={u.id} style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ fontFamily: F.jp, fontSize: 13, fontWeight: 800, color: C.ai }}>{u.title}</span>
+                  <div style={{ flex: 1, height: 1, background: C.line }} />
+                  <span style={{ fontSize: 11, color: C.inkSoft, whiteSpace: "nowrap", flexShrink: 0 }}>{u.learned.length}/{u.total}</span>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  {u.learned.map((d) => <WordRow key={d.id} def={d} item={items[d.id]} showRomaji={showRomaji} />)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </Section>
   );
 }
