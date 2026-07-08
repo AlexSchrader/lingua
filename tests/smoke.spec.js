@@ -287,6 +287,15 @@ test("Ladder word bank collects learned words, organized by unit", async ({ page
   await expect(page.getByText("はじめまして").first()).toBeVisible();
 });
 
+test("Ladder: a lesson expands to preview its items", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Ladder", exact: true }).click();
+  // Expand the first unit, then its first lesson → the item list appears.
+  await page.getByRole("button", { name: /はじめまして/ }).click();
+  await page.getByRole("button", { name: /Lesson 1 ·/ }).first().click();
+  await expect(page.getByText("おはよう").first()).toBeVisible(); // an item from lesson 1
+});
+
 test("settings opens from the header gear, not the bottom nav", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Settings" }).click();

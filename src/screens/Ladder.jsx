@@ -651,21 +651,55 @@ function UnitRow({ n, unit, items, done, total, status }) {
         <ChevronRight size={18} color={C.inkSoft} style={{ flexShrink: 0, transform: open ? "rotate(90deg)" : "none", transition: "transform 200ms ease" }} />
       </button>
 
-      {/* Lesson previews */}
+      {/* Lesson previews — each expands to its item list */}
       {open && (
         <div style={{ borderTop: `1px solid ${C.line}`, display: "flex", flexDirection: "column" }}>
-          {lessons.map((l, i) => {
-            const lt = l.items.length;
-            const ld = l.items.filter((def) => (items[def.id]?.rung ?? 0) >= 1).length;
-            const ldone = lt > 0 && ld === lt;
+          {lessons.map((l, i) => (
+            <LessonPreview key={l.id} lesson={l} n={i} items={items} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// A lesson row that expands to preview its items — the words/kana it teaches, with
+// the ones you've learned lit. Data already lives on the lesson (title/canDo/items),
+// so this is pure render. Lets a learner see what a lesson covers before diving in.
+function LessonPreview({ lesson, n, items }) {
+  const [open, setOpen] = useState(false);
+  const lt = lesson.items.length;
+  const ld = lesson.items.filter((def) => (items[def.id]?.rung ?? 0) >= 1).length;
+  const ldone = lt > 0 && ld === lt;
+  return (
+    <div style={{ borderTop: n === 0 ? "none" : `1px solid ${C.line}` }}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        style={{ width: "100%", padding: "10px 12px 10px 14px", background: "transparent", border: "none", cursor: "pointer", textAlign: "left", fontFamily: F.body }}
+      >
+        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }}>
+          <span style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, fontWeight: 700 }}>
+            <ChevronRight size={14} color={C.inkSoft} style={{ flexShrink: 0, transform: open ? "rotate(90deg)" : "none", transition: "transform 150ms" }} />
+            Lesson {lesson.lesson ?? n + 1} · {lesson.title}
+          </span>
+          <span style={{ fontSize: 11, fontWeight: 700, color: ldone ? C.matcha : C.inkSoft, flexShrink: 0 }}>{ld}/{lt}</span>
+        </div>
+        {lesson.canDo && <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 2, lineHeight: 1.35, paddingLeft: 20 }}>{lesson.canDo}</div>}
+      </button>
+      {open && (
+        <div style={{ padding: "0 12px 12px 34px", display: "flex", flexWrap: "wrap", gap: 6 }}>
+          {lesson.items.map((def) => {
+            const learned = (items[def.id]?.rung ?? 0) >= 1;
             return (
-              <div key={l.id} style={{ padding: "10px 12px 10px 14px", borderTop: i === 0 ? "none" : `1px solid ${C.line}` }}>
-                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }}>
-                  <span style={{ fontSize: 13, fontWeight: 700 }}>Lesson {l.lesson ?? i + 1} · {l.title}</span>
-                  <span style={{ fontSize: 11, fontWeight: 700, color: ldone ? C.matcha : C.inkSoft, flexShrink: 0 }}>{ld}/{lt}</span>
-                </div>
-                {l.canDo && <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 2, lineHeight: 1.35 }}>{l.canDo}</div>}
-              </div>
+              <span
+                key={def.id}
+                title={def.meaning ?? def.reading ?? undefined}
+                style={{ display: "inline-flex", alignItems: "baseline", gap: 4, padding: "3px 8px", borderRadius: 8, border: `1px solid ${learned ? C.ai : C.line}`, background: learned ? C.aiSoft : C.washi, opacity: learned ? 1 : 0.6 }}
+              >
+                <span style={{ fontFamily: F.jp, fontSize: 14, fontWeight: 600, color: learned ? C.aiDeep : C.inkSoft }}>{def.front}</span>
+                {def.meaning && <span style={{ fontSize: 11, color: C.inkSoft }}>{def.meaning}</span>}
+              </span>
             );
           })}
         </div>
