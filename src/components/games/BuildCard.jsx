@@ -13,29 +13,37 @@ function shuffle(arr) {
 }
 
 // Build card (rung PRODUCED): reconstruct the reading from scrambled syllable
-// tiles. App-judged — assembling the correct reading grades by speed; a wrong
-// final assembly grades `again`.
+// tiles. App-judged — assembling the correct reading grades by speed. Mirrors
+// TypeCard's forgiveness: a wrong assembly gets one gentle free retry before it
+// grades `again`, and tapping the assembled row undoes the last tile.
 export default function BuildCard({ item, onGraded }) {
   const target = (item.reading || item.front).replace(/[ˉ̄]/g, "");
   const tiles = useMemo(() => shuffle(target.split("")), [item.id, target]);
   const shownAt = useRef(performance.now());
   const [picked, setPicked] = useState([]);
+  const [missed, setMissed] = useState(false); // one free retry, like TypeCard
 
   const assembled = picked.map((i) => tiles[i]).join("");
   const correct = assembled === target;
   const full = picked.length === tiles.length;
 
+  // A wrong full assembly gets one free retry (auto-cleared to rebuild) instead of
+  // hard-failing on the first slip — parity with TypeCard. A correct build after a
+  // miss caps at `hard` (no speed bonus); a second wrong assembly → `again`.
   const commit = () => {
-    if (correct) sfxCorrect(); else sfxWrong();
-    const grade = correct
-      ? deriveGrade({
-          kind: "typed",
-          correct: true,
-          elapsedMs: performance.now() - shownAt.current,
-          target,
-        })
-      : "again";
-    onGraded(grade);
+    if (correct) {
+      sfxCorrect();
+      onGraded(
+        deriveGrade({ kind: "typed", correct: true, retried: missed, elapsedMs: performance.now() - shownAt.current, target })
+      );
+    } else if (!missed) {
+      sfxWrong();
+      setMissed(true);
+      setPicked([]);
+    } else {
+      sfxWrong();
+      onGraded("again");
+    }
   };
 
   return (
@@ -55,9 +63,14 @@ export default function BuildCard({ item, onGraded }) {
         {item.meaning && <div style={{ marginTop: 4, color: C.inkSoft }}>{item.meaning}</div>}
       </div>
 
-      <div
+      <button
+        type="button"
+        onClick={() => picked.length && setPicked((p) => p.slice(0, -1))}
+        disabled={picked.length === 0}
+        aria-label="Undo the last tile"
         style={{
           minHeight: 56,
+          width: "100%",
           borderRadius: 12,
           border: `1.5px solid ${full ? (correct ? C.matcha : C.shu) : C.line}`,
           background: C.surface,
@@ -68,10 +81,17 @@ export default function BuildCard({ item, onGraded }) {
           fontSize: 22,
           color: full ? (correct ? C.matcha : C.shu) : C.ink,
           letterSpacing: 2,
+          cursor: picked.length ? "pointer" : "default",
         }}
       >
         {assembled || <span style={{ color: C.locked }}>tap tiles below</span>}
-      </div>
+      </button>
+
+      {missed && !correct && (
+        <div style={{ fontSize: 13, color: C.shu, fontWeight: 600, textAlign: "center" }}>
+          Not quite — give it one more go.
+        </div>
+      )}
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }}>
         {tiles.map((t, i) => {
