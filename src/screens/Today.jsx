@@ -112,10 +112,13 @@ export default function Today() {
   const active = { ...LANGUAGES.find((l) => l.id === activeId), ...(languages[activeId] ?? {}) };
   const dueItemsFn = useStore((s) => s.dueItems);
   const reviewsLockedFn = useStore((s) => s.reviewsLocked);
+  const practicePoolFn = useStore((s) => s.practicePool);
   const devSeedReviews = useStore((s) => s.devSeedReviews);
 
   const due = useMemo(() => dueItemsFn(), [items, dueItemsFn]);
   const reviewsLocked = useMemo(() => reviewsLockedFn(), [items, daily, reviewsLockedFn]);
+  // Learned-item pool for the active language — gates the extra-practice card.
+  const practicePool = useMemo(() => practicePoolFn(), [items, practicePoolFn]);
 
   // Units for the active language (source for both the flat lesson list and the
   // per-lesson "section / unit / lesson-in-unit" location shown on the cards).
@@ -382,6 +385,36 @@ export default function Today() {
           </div>
         )}
       </div>
+
+      {/* Extra practice — optional, no-stakes drilling of your weakest items.
+          Only shown once there's a real pool to draw from (≥ 10 learned). Sizes
+          above what you've learned are disabled, never misleading. Nothing here
+          touches FSRS, mastery, or the streak — see /review?practice. */}
+      {practicePool >= 10 && (
+        <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 16, padding: 14 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 0.5, color: C.ai, marginBottom: 4 }}>EXTRA PRACTICE</div>
+          <div style={{ fontSize: 13, color: C.inkSoft, marginBottom: 10 }}>
+            Drill your least-practiced items. No pressure — this won't change your progress or streak.
+          </div>
+          <div style={{ display: "flex", gap: 8 }}>
+            {[10, 20, 30].map((size) => {
+              const disabled = practicePool < size;
+              return (
+                <button
+                  key={size}
+                  data-testid={`practice-${size}`}
+                  onClick={() => navigate(`/review?practice=${size}`)}
+                  disabled={disabled}
+                  title={disabled ? `Learn ${size} items to unlock this size` : `Practice ${size} items`}
+                  style={{ flex: 1, padding: "12px 0", borderRadius: 12, border: `1.5px solid ${disabled ? C.line : C.ai}`, background: disabled ? C.lockedBg : C.aiSoft, color: disabled ? C.locked : C.aiDeep, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: disabled ? "default" : "pointer" }}
+                >
+                  {size}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Hiragana progress — fills the screen + ties Today to the Ladder. */}
       {kanaTotal > 0 && (

@@ -75,6 +75,36 @@ function reviewState() {
   };
 }
 
+// 12 learned vocab (rung ≥ 1), none due → the extra-practice pool is ≥ 10 (so the
+// Today "EXTRA PRACTICE" card shows and the 10-size is enabled), while nothing is
+// due for daily review. Lets the no-stakes drill be driven entirely in-SPA (so
+// addInitScript never re-seeds mid-run, which a full navigation would trigger).
+function practiceState() {
+  const v = [
+    ["ja-u1l1-ohayou", 2], ["ja-u1l1-konnichiwa", 2], ["ja-u1l1-sayounara", 2],
+    ["ja-u1l1-hai", 1], ["ja-u1l1-iie", 1], ["ja-u1l2-arigatou", 2],
+    ["ja-u1l2-konbanwa", 1], ["ja-u1l2-kasa", 2], ["ja-u1l2-kutsu", 1],
+    ["ja-u1l2-kodomo", 2], ["ja-u1l3-shizuka", 1], ["ja-u1l4-tegami", 2],
+  ];
+  const items = {};
+  // Only id/rung/srs matter — seedOnce overlays the real content for each id.
+  for (const [id, rung] of v) {
+    items[id] = { id, type: "vocab", front: id, reading: "", meaning: "", lang: "ja", unit: 1, lesson: 1, example: null, accept: [], rung, srs: freshCard() };
+  }
+  return {
+    state: {
+      items,
+      languages: LANGUAGES,
+      streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
+      stats: { xpTotal: 0 },
+      daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+      settings: {},
+      ui: {},
+    },
+    version: 1,
+  };
+}
+
 // Fixture that exercises all LIVE_CARD_KINDS in one session:
 //   konnichiwa rung=3 due   → type:produce (review — vocab, hash<share)
 //   arigatō    rung=3 due   → build (review — vocab, hash≥share, no particle)
@@ -610,4 +640,42 @@ test("dev mode: unlock from Settings, panel shows diagnostics, isolated run leav
   await expect(page.getByLabel("Dev Mode code")).toBeVisible();
 
   expect(errors).toEqual([]);
+});
+
+test("extra practice is a no-stakes drill — it never changes saved progress", async ({ page }) => {
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(practiceState()));
+  await page.goto("/");
+  await expect(page.getByTestId("start-session")).toBeVisible(); // wait out seedOnce
+
+  // A projection of everything the drill must NOT move: rungs, XP, streak, daily.
+  // Captured entirely in-SPA (no navigation reload → addInitScript never re-seeds).
+  const projection = () =>
+    page.evaluate(() => {
+      const s = JSON.parse(localStorage.getItem("lingua-v1")).state;
+      const rungs = Object.fromEntries(Object.entries(s.items).map(([id, it]) => [id, it.rung ?? 0]));
+      return JSON.stringify({ rungs, xp: s.stats.xpTotal, streak: s.streak, daily: s.daily });
+    });
+  const before = await projection();
+
+  // Open extra practice from Today (client-side nav, so no re-seed mid-run).
+  await page.getByTestId("practice-10").click();
+  await expect(page.getByText(/Practice ·/).first()).toBeVisible();
+
+  // Play the whole session correctly → the calm (no-confetti) completion screen.
+  for (let i = 0; i < 40; i++) {
+    if ((await playCard(page)) === false) break;
+  }
+  await expect(page.getByText("Nice practice")).toBeVisible();
+
+  // Nothing moved — same progress projection after a full correct run.
+  expect(await projection()).toBe(before);
+});
+
+test("Haruki is locked until the kana foundation (Pre-A1) is complete", async ({ page }) => {
+  // Fresh account: no kana learned → the conversation tab is gated, SDK never mounts.
+  await page.goto("/haruki");
+  await expect(page.getByText("Unlocks after the kana foundation")).toBeVisible();
+  // The escape hatch sends you to your kana progress on the Ladder.
+  await page.getByRole("button", { name: "See your kana progress" }).click();
+  await expect(page).toHaveURL(/\/ladder$/);
 });

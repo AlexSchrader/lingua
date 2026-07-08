@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { seedItems, LANGUAGES, UNITS } from "../data/index.js";
 import { newCard, schedule, isDue } from "./srs.js";
-import { nextRung, isReviewable } from "./mastery.js";
+import { nextRung, isReviewable, masteryPct } from "./mastery.js";
 import { migrateState, PERSIST_VERSION } from "./migrate.js";
 import { matchesDevCode } from "./dev.js";
 
@@ -44,6 +44,26 @@ function itemMetaMap() {
         for (const def of lesson.items)
           _itemMeta[def.id] = { cefr: lesson.cefr, lang: unit.lang };
   return _itemMeta;
+}
+
+// True when the Pre-A1 stage (the kana/writing foundation) is fully learned for a
+// language — every pre-a1 unit item at rung ≥ 1. Stage is unit-level (`u.stage`),
+// so this is the honest "you can read kana now" signal used to unlock Haruki.
+// A language with no pre-a1 units (e.g. the Latin-alphabet side languages) has no
+// foundation to gate, so it returns true — nothing to wait on.
+function preA1Complete(langId, items) {
+  const defs = UNITS.filter((u) => u.lang === langId && (u.stage ?? "a1") === "pre-a1")
+    .flatMap((u) => u.lessons.filter((l) => Array.isArray(l.items)).flatMap((l) => l.items));
+  if (defs.length === 0) return true;
+  return defs.every((def) => (items[def.id]?.rung ?? 0) >= 1);
+}
+
+// Resolve the learner's active language id (the one Today/Ladder focus on),
+// falling back to the first started language, then ja. Kept here so selectors
+// share one definition instead of re-deriving it.
+function activeLangId(profile) {
+  const started = profile?.languages?.length ? profile.languages : ["ja"];
+  return profile?.activeLang && started.includes(profile.activeLang) ? profile.activeLang : started[0];
 }
 
 // True when every item at CEFR ≤ targetLevel for langId is at rung ≥ 1.
@@ -189,6 +209,37 @@ export const useStore = create(
         return Object.values(get().items).filter(
           (it) => isReviewable(it) && it.srs && isDue(it.srs)
         );
+      },
+
+      // Extra practice (no-stakes): the n LEAST-practiced learned items for the
+      // active language — weakest mastery first, ties broken by fewest reps. Only
+      // learned items (rung ≥ 1); fresh items enter through lessons, not practice.
+      // Grading in the practice runner is no-op'd (see Review's runnerWriters), so
+      // this never reschedules FSRS or moves a rung — it's pure retrieval drilling.
+      practiceItems: (n = 20) => {
+        const s = get();
+        const activeId = activeLangId(s.profile);
+        const learned = Object.values(s.items).filter((it) => it.lang === activeId && (it.rung ?? 0) >= 1);
+        return learned
+          .slice()
+          .sort((a, b) => masteryPct(a) - masteryPct(b) || (a.srs?.reps ?? 0) - (b.srs?.reps ?? 0))
+          .slice(0, Math.max(0, n));
+      },
+
+      // How many learned items the active language has — drives whether the Today
+      // practice card shows, and which sizes (10/20/30) are offered.
+      practicePool: () => {
+        const s = get();
+        const activeId = activeLangId(s.profile);
+        return Object.values(s.items).filter((it) => it.lang === activeId && (it.rung ?? 0) >= 1).length;
+      },
+
+      // Is Haruki (conversation practice) unlocked? Gated on finishing the Pre-A1
+      // kana foundation for the active language — talking before you can read kana
+      // isn't useful. Languages without a pre-a1 stage are ungated.
+      speakingUnlocked: () => {
+        const s = get();
+        return preA1Complete(activeLangId(s.profile), s.items);
       },
 
       // Derived: reviews are locked (blocking a new lesson) while there is

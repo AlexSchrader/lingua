@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-import { Mic, MicOff, Phone, PhoneOff, Send } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Mic, MicOff, Phone, PhoneOff, Send, Lock } from "lucide-react";
 import { ConversationProvider, useConversation } from "@elevenlabs/react";
+import { useStore } from "../store/useStore.js";
 import { C, F } from "../theme.js";
 
 // One conversation, two ways in: type OR talk. Both share the same session and
@@ -9,10 +11,46 @@ import { C, F } from "../theme.js";
 // native-JP voice). The API key never reaches here — /api/convai-session mints
 // an expiring signed URL server-side. useConversation needs ConversationProvider.
 export default function Haruki() {
+  // Gate: Haruki unlocks once the Pre-A1 kana foundation is done — talking (or
+  // typing) with him before you can read kana isn't useful. Subscribe to items +
+  // profile so the gate re-evaluates live as progress lands / the active language
+  // changes. When locked we render the locked state and never mount the
+  // conversation provider, so the heavy ElevenLabs SDK / session stays untouched.
+  useStore((s) => s.items);
+  useStore((s) => s.profile);
+  const unlocked = useStore((s) => s.speakingUnlocked)();
+  if (!unlocked) return <HarukiLocked />;
   return (
     <ConversationProvider>
       <HarukiChat />
     </ConversationProvider>
+  );
+}
+
+function HarukiLocked() {
+  const navigate = useNavigate();
+  return (
+    <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0, padding: 16 }}>
+      <div style={{ marginBottom: 12, flexShrink: 0 }}>
+        <div style={{ fontFamily: F.disp, fontSize: 22, fontWeight: 700 }}>Haruki</div>
+        <div style={{ fontSize: 13, color: C.inkSoft }}>Your conversation partner — unlocks soon.</div>
+      </div>
+      <div style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14, textAlign: "center", color: C.inkSoft }}>
+        <img src="/mascot/lingua-wave.png" alt="" aria-hidden style={{ width: "clamp(120px, 32vw, 180px)", height: "auto", objectFit: "contain", opacity: 0.75 }} />
+        <div style={{ display: "flex", alignItems: "center", gap: 8, fontWeight: 700, color: C.ink, fontSize: 16 }}>
+          <Lock size={18} /> Unlocks after the kana foundation
+        </div>
+        <div style={{ fontSize: 14, maxWidth: 300, lineHeight: 1.5 }}>
+          Haruki is your Japanese partner — type or talk. He opens once you've finished Pre-A1 (all the kana), so you can actually read what you're saying.
+        </div>
+        <button
+          onClick={() => navigate("/ladder")}
+          style={{ marginTop: 4, padding: "12px 22px", borderRadius: 12, border: "none", background: C.ai, color: "#fff", fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+        >
+          See your kana progress
+        </button>
+      </div>
+    </div>
   );
 }
 

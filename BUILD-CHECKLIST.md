@@ -28,6 +28,12 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 ## Status at a glance
 
+- **🌿 On branch `claude/haruki-scroll-layout-fix-x5oqtr` (2026-07-08, awaiting Alex feel-check + merge — NOT merged):** a QA-driven batch, all green (validate · 90 unit · Playwright dev+preview · build):
+  1. **Shell scroll lock** — `AppShell` inner wrapper is now a definite-height (`height:100%`) self-scrolling container, not `minHeight:100%`; fixes the Haruki chat dragging the whole screen (transcript scrolls internally, header/nav pinned). Also `#root` now uses `calc(100dvh / var(--app-zoom))` like the shells (raw `100dvh` was ~5% too tall under the default 1.05 text-zoom → the app drifted up under the iOS status bar).
+  2. **Ladder audio** — word-bank vocab rows get a small speaker *next to the word*; kana/kanji chips unchanged (tap already opens the trace view with auto-play + speaker, so a chip speaker was redundant — removed).
+  3. **Extra practice (no-stakes)** — Today "EXTRA PRACTICE" card (10/20/30) → `/review?practice=<n>`; drills the least-practiced learned items via the real review cards but **no-op writers** (never touches FSRS/rung/streak/XP). New store selectors `practiceItems` / `practicePool`; unit-tested.
+  4. **Haruki gated on Pre-A1** — the whole Haruki tab is locked (calm locked screen + a small lock badge on the tab) until the kana foundation is complete, via new `speakingUnlocked()` selector (`preA1Complete`); unit-tested. Locked state never mounts the ElevenLabs SDK.
+  - Follow-up for Alex: the shell scroll change touches every screen — worth a feel-check across all tabs. Merge is yours (held per your call; you hadn't tested the earlier fixes).
 - **Shipped to `main`:** Phase 4 (trace card, 46-kana) + Unit 2 — PRs #19/#20 (2026-06-23). Phase 4.5 session structure (review/lesson split, teach-order, trace polish) — PR #21 merged 2026-06-24. Full hiragana あ-ん is live.
 - **Shipped to `main` (2026-06-25):** Phase 3 real audio (PR #22) · Stats SEEN→NEW (PR #23) · PWA auto-update fix (PR #25, no stale builds after deploy) · **Ladder full-climb view (PR #24)** + bigger adaptive mascot & full-width progress (PR #27) · **Today warm-up/polish (PR #26)** — greeting, stat icons, adaptive mascot banner, fixed Up Next, hiragana strip.
 - **Haruki LIVE (Phase 6.5 shipped, PR #29):** the Haruki tab is a real text+voice tutor — ElevenLabs Conversational Agent (Claude Haiku 4.5 + native-JP voice), serverless signed-URL auth (key server-side), unified chat. Also: desktop centered-column layout (PR #28).

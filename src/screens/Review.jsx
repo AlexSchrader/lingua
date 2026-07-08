@@ -67,8 +67,16 @@ export default function Review() {
   const sandbox = searchParams.get("sandbox") === "1";
   const home = sandbox ? "/dev" : "/";
 
+  // Extra-practice run: /review?practice=<n>. A no-stakes drill over the n
+  // least-practiced learned items — reuses the exact same review cards, but its
+  // writers are no-op'd (see runnerWriters below), so it never reschedules FSRS,
+  // moves a rung, awards XP, or ticks the streak. Pure retrieval practice.
+  const practiceN = parseInt(searchParams.get("practice") || "", 10);
+  const practice = Number.isFinite(practiceN) && practiceN > 0;
+
   const storeItems = useStore((s) => s.items);
   const dueItems = useStore((s) => s.dueItems);
+  const practiceItems = useStore((s) => s.practiceItems);
   // `?card=<kind>` → the Quick-card launcher (one item seeded to yield that kind);
   // otherwise `?lesson=&state=` → the per-lesson depth preview.
   const cardParam = searchParams.get("card");
@@ -89,14 +97,19 @@ export default function Review() {
     completeReviews: useStore((s) => s.completeReviews),
     rollDailyGoal: useStore((s) => s.rollDailyGoal),
   };
-  const { gradeItem, completeReviews, rollDailyGoal } = runnerWriters(sandbox, realWriters);
+  // Practice is no-stakes: swap every writer for a no-op, exactly like sandbox.
+  const { gradeItem, completeReviews, rollDailyGoal } = runnerWriters(sandbox || practice, realWriters);
 
   // Snapshot the queue on mount — grading mutates items but shouldn't reshuffle.
   // In sandbox only the previewed lesson's items are reviewable (everything else
   // is rung 0), so filtering by isReviewable yields exactly that lesson.
   const reviewQueue = useMemo(
     () => {
-      const source = sandbox ? Object.values(items).filter(isReviewable) : dueItems();
+      const source = practice
+        ? practiceItems(practiceN)
+        : sandbox
+        ? Object.values(items).filter(isReviewable)
+        : dueItems();
       return source.map((it) => ({ ...reviewStepFor(it), id: it.id }));
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -114,8 +127,13 @@ export default function Review() {
     // /review with nothing due would fire completeReviews + rollDailyGoal and bump
     // the streak for zero work. The "Nothing due" screen below stays informational.
     if (done && !finished && reviewQueue.length > 0) {
-      completeReviews();
-      rollDailyGoal();
+      // Practice never completes the daily reviews or rolls the streak — it's
+      // extra, off to the side. (Writers are already no-op'd, but keep the daily
+      // bookkeeping out of the practice path explicitly.)
+      if (!practice) {
+        completeReviews();
+        rollDailyGoal();
+      }
       setFinished(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -123,10 +141,10 @@ export default function Review() {
 
   if (reviewQueue.length === 0) {
     return (
-      <PhaseShell title="Reviews" progress={1} onClose={() => navigate(home)}>
+      <PhaseShell title={practice ? "Practice" : "Reviews"} progress={1} onClose={() => navigate(home)}>
         <div style={{ margin: "auto", textAlign: "center", color: C.inkSoft }}>
           <div style={{ fontSize: 40, marginBottom: 12 }}>✓</div>
-          Nothing due right now.
+          {practice ? "Nothing to practice yet — learn a few items first." : "Nothing due right now."}
           <br />
           <button
             onClick={() => navigate(home)}
@@ -143,16 +161,16 @@ export default function Review() {
 
   if (finished || done) {
     return (
-      <PhaseShell title="Reviews" progress={1}>
+      <PhaseShell title={practice ? "Practice" : "Reviews"} progress={1}>
         {/* Reviews are the mandatory daily habit (the streak trigger) — they earn
-            the same fanfare + confetti as a lesson. Fires once on mount; the sound
-            respects the SFX toggle and confetti is skipped under reduced-motion. */}
-        <Celebration />
+            the same fanfare + confetti as a lesson. Practice is extra and no-stakes,
+            so it gets a calm completion instead (no confetti, no streak language). */}
+        {!practice && <Celebration />}
         <div style={{ margin: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 16, textAlign: "center" }}>
           <div style={{ fontSize: 56 }}>✓</div>
-          <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>Reviews cleared</div>
+          <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>{practice ? "Nice practice" : "Reviews cleared"}</div>
           <div style={{ color: C.inkSoft, maxWidth: 300 }}>
-            {reviewQueue.length} item{reviewQueue.length === 1 ? "" : "s"} reviewed.
+            {reviewQueue.length} item{reviewQueue.length === 1 ? "" : "s"} {practice ? "practiced — this didn't change your progress or streak." : "reviewed."}
           </div>
           <button
             data-testid="back-to-today"
@@ -199,7 +217,7 @@ export default function Review() {
   }
 
   return (
-    <PhaseShell title={`${sandbox ? "🧪 Dev · " : ""}Review · ${idx + 1}/${reviewQueue.length}`} progress={progress} onClose={() => navigate(home)}>
+    <PhaseShell title={`${sandbox ? "🧪 Dev · " : ""}${practice ? "Practice" : "Review"} · ${idx + 1}/${reviewQueue.length}`} progress={progress} onClose={() => navigate(home)}>
       {/* Keyed remount per card drives the entrance "breath" (fade + brief
           input guard) so carried taps don't bleed into the next card. */}
       <CardBreath key={`r${idx}`}>{card}</CardBreath>
