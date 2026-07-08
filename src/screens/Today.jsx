@@ -112,6 +112,7 @@ export default function Today() {
   const active = { ...LANGUAGES.find((l) => l.id === activeId), ...(languages[activeId] ?? {}) };
   const dueItemsFn = useStore((s) => s.dueItems);
   const reviewsLockedFn = useStore((s) => s.reviewsLocked);
+  const mistakes = useStore((s) => s.mistakes);
   const devSeedReviews = useStore((s) => s.devSeedReviews);
 
   const due = useMemo(() => dueItemsFn(), [items, dueItemsFn]);
@@ -199,6 +200,8 @@ export default function Today() {
   const kanaPct = kanaTotal ? Math.round((kanaLearned / kanaTotal) * 100) : 0;
 
   const startReview = () => navigate("/review");
+  const startFix = () => navigate("/review?fix=1");
+  const mistakeCount = mistakes?.length ?? 0;
   const startLesson = () => {
     const target = currentLesson ?? allPlayableLessons[0] ?? null;
     if (target) navigate(`/lesson/${target.id}`);
@@ -356,6 +359,17 @@ export default function Today() {
           style={{ padding: "12px 18px", borderRadius: 14, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer", marginTop: 2 }}
         >
           Low on energy? Just a few ({MICRO_SIZE})
+        </button>
+      )}
+
+      {/* Mistake-review: turn diffuse failure into a bounded "fix these N". */}
+      {mistakeCount > 0 && (
+        <button
+          data-testid="start-fix"
+          onClick={startFix}
+          style={{ padding: "12px 18px", borderRadius: 14, border: `1.5px solid ${C.shu}`, background: C.surface, color: C.shu, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}
+        >
+          <RotateCcw size={16} /> Fix your mistakes ({mistakeCount})
         </button>
       )}
 

@@ -62,9 +62,13 @@ export default function Review() {
   // the dev panel's mid-progress / mastered previews. Fully isolated from real state.
   const sandbox = searchParams.get("sandbox") === "1";
   const home = sandbox ? "/dev" : "/";
+  // ?fix=1 → the mistake-review: a targeted pass over recently-missed items
+  // (not the FSRS-due queue), so it doesn't touch the daily-review bookkeeping.
+  const fix = searchParams.get("fix") === "1";
 
   const storeItems = useStore((s) => s.items);
   const dueItems = useStore((s) => s.dueItems);
+  const mistakeIds = useStore((s) => s.mistakes);
   // `?card=<kind>` → the Quick-card launcher (one item seeded to yield that kind);
   // otherwise `?lesson=&state=` → the per-lesson depth preview.
   const cardParam = searchParams.get("card");
@@ -92,7 +96,10 @@ export default function Review() {
   // is rung 0), so filtering by isReviewable yields exactly that lesson.
   const reviewQueue = useMemo(
     () => {
-      const source = sandbox ? Object.values(items).filter(isReviewable) : dueItems();
+      let source;
+      if (sandbox) source = Object.values(items).filter(isReviewable);
+      else if (fix) source = (mistakeIds ?? []).map((mid) => items[mid]).filter((it) => it && isReviewable(it));
+      else source = dueItems();
       return source.map((it) => ({ ...reviewStepFor(it), id: it.id }));
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -106,8 +113,12 @@ export default function Review() {
 
   useEffect(() => {
     if (done && !finished) {
-      completeReviews();
-      rollDailyGoal();
+      // The mistake-review is a bonus targeted session — it never satisfies the
+      // daily review goal, so skip the daily bookkeeping in fix mode.
+      if (!fix) {
+        completeReviews();
+        rollDailyGoal();
+      }
       setFinished(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -115,10 +126,10 @@ export default function Review() {
 
   if (reviewQueue.length === 0) {
     return (
-      <PhaseShell title="Reviews" progress={1} onClose={() => navigate(home)}>
+      <PhaseShell title={fix ? "Fix-up" : "Reviews"} progress={1} onClose={() => navigate(home)}>
         <div style={{ margin: "auto", textAlign: "center", color: C.inkSoft }}>
           <div style={{ fontSize: 40, marginBottom: 12 }}>✓</div>
-          Nothing due right now.
+          {fix ? "No mistakes to fix — nice." : "Nothing due right now."}
           <br />
           <button
             onClick={() => navigate(home)}
@@ -142,9 +153,9 @@ export default function Review() {
         <Celebration />
         <div style={{ margin: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 16, textAlign: "center" }}>
           <div style={{ fontSize: 56 }}>✓</div>
-          <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>Reviews cleared</div>
+          <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>{fix ? "Mistakes cleared" : "Reviews cleared"}</div>
           <div style={{ color: C.inkSoft, maxWidth: 300 }}>
-            {reviewQueue.length} item{reviewQueue.length === 1 ? "" : "s"} reviewed.
+            {reviewQueue.length} item{reviewQueue.length === 1 ? "" : "s"} {fix ? "revisited." : "reviewed."}
           </div>
           <button
             data-testid="back-to-today"
@@ -189,7 +200,7 @@ export default function Review() {
   }
 
   return (
-    <PhaseShell title={`${sandbox ? "🧪 Dev · " : ""}Review · ${idx + 1}/${reviewQueue.length}`} progress={progress} onClose={() => navigate(home)}>
+    <PhaseShell title={`${sandbox ? "🧪 Dev · " : ""}${fix ? "Fix-up" : "Review"} · ${idx + 1}/${reviewQueue.length}`} progress={progress} onClose={() => navigate(home)}>
       {/* Keyed remount per card drives the entrance "breath" (fade + brief
           input guard) so carried taps don't bleed into the next card. */}
       <CardBreath key={`r${idx}`}>{card}</CardBreath>
