@@ -10,39 +10,6 @@ import { AUDIO_IDS } from "../data/audioManifest.js";
 import GlyphDetail from "../components/GlyphDetail.jsx";
 import { C, F } from "../theme.js";
 
-// A tap-to-hear speaker for a learned item, reused by the kana/kanji chips and
-// the word-bank rows. Manual play only (autoplay:false) — the Ladder shows many
-// items at once, so an on-mount autoplay would blast every visible clip. Only
-// render this where a clip actually exists (AUDIO_IDS) and the item is unlocked.
-// `floating` overlays it in a chip's top-right corner; inline is the default.
-function SpeakerButton({ item, floating = false, size = 22 }) {
-  const { play, active } = useItemAudio(item, { autoplay: false });
-  return (
-    <button
-      onClick={(e) => { e.stopPropagation(); play(); }}
-      aria-label={`Play pronunciation of ${item.front}`}
-      style={{
-        ...(floating ? { position: "absolute", top: 4, right: 4, zIndex: 1 } : {}),
-        width: size,
-        height: size,
-        borderRadius: "50%",
-        flexShrink: 0,
-        border: `1px solid ${active ? C.ai : C.line}`,
-        background: active ? C.ai : C.washi,
-        color: active ? "#fff" : C.ai,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        cursor: "pointer",
-        padding: 0,
-        transition: "background 150ms, border-color 150ms",
-      }}
-    >
-      <Volume2 size={Math.round(size * 0.6)} />
-    </button>
-  );
-}
-
 // Stage sectioning for the Units list. `stage` lives on each unit (and roadmap
 // entry); these drive the section headers in climb order. The JLPT tag is shown
 // only for the Japanese track — Latin-alphabet languages get plain CEFR labels
@@ -422,25 +389,43 @@ function KanjiSection({ langId, items, showRomaji }) {
 function WordRow({ def, item, showRomaji }) {
   const pct = masteryPct(item);
   const mastered = isMastered(item);
+  // A small speaker sits right next to the word (kana/kanji don't need one — tapping
+  // their chip already opens the trace view, which auto-plays and has its own
+  // speaker). Only shown when a clip exists for this id; word bank lists learned
+  // words only, so no learned-gate needed here.
+  const hasAudio = item && AUDIO_IDS.has(def.id);
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 12px", borderRadius: 12, border: `1px solid ${C.line}`, background: C.surface }}>
       <div style={{ minWidth: 0, flex: 1 }}>
-        <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <span style={{ fontFamily: F.jp, fontSize: 18, fontWeight: 600, color: C.ink }}>{def.front}</span>
           {showRomaji && def.reading && <span style={{ fontFamily: F.mono, fontSize: 12, color: C.inkSoft }}>{def.reading}</span>}
+          {hasAudio && <WordSpeaker item={item} front={def.front} />}
         </div>
         {def.meaning && (
           <div style={{ fontSize: 13, color: C.inkSoft, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{def.meaning}</div>
         )}
       </div>
-      {/* Word bank only lists learned words, so gate the speaker purely on a
-          clip existing for this id. Use the seeded `item` (not the raw def) —
-          it carries `lang`, which the audio path needs. */}
-      {item && AUDIO_IDS.has(def.id) && <SpeakerButton item={item} size={30} />}
       <div title={mastered ? "Mastered" : `${Math.round(pct * 100)}%`} style={{ width: 40, height: 5, borderRadius: 999, background: C.lockedBg, overflow: "hidden", flexShrink: 0 }}>
         <div style={{ width: `${Math.max(6, Math.round(pct * 100))}%`, height: "100%", background: mastered ? C.matcha : C.ai }} />
       </div>
     </div>
+  );
+}
+
+// Inline pronunciation button, sized to sit beside a word without crowding it.
+// Manual play only (autoplay:false) — the word bank shows many rows at once, so
+// mount-autoplay would fire every clip. `active` tints it while the clip plays.
+function WordSpeaker({ item, front }) {
+  const { play, active } = useItemAudio(item, { autoplay: false });
+  return (
+    <button
+      onClick={play}
+      aria-label={`Play pronunciation of ${front}`}
+      style={{ flexShrink: 0, width: 24, height: 24, borderRadius: "50%", border: "none", background: "transparent", color: active ? C.ai : C.inkSoft, display: "inline-flex", alignItems: "center", justifyContent: "center", cursor: "pointer", padding: 0, transition: "color 150ms" }}
+    >
+      <Volume2 size={15} />
+    </button>
   );
 }
 
@@ -527,8 +512,6 @@ function KanaChip({ char, reading, item, showRomaji }) {
   const mastered = isMastered(item);
   const accent = mastered ? C.matcha : C.ai;
   const romaji = showRomaji && reading;
-  // Speaker only for unlocked glyphs that actually have a generated clip.
-  const hasAudio = learned && item && AUDIO_IDS.has(item.id);
   return (
     <>
     <div
@@ -536,7 +519,6 @@ function KanaChip({ char, reading, item, showRomaji }) {
       role={learned ? "button" : undefined}
       aria-label={learned ? `${char} — details` : undefined}
       style={{
-        position: "relative",
         width: "100%",
         borderRadius: 12,
         border: `1px solid ${learned ? accent : C.line}`,
@@ -548,7 +530,6 @@ function KanaChip({ char, reading, item, showRomaji }) {
         cursor: learned ? "pointer" : "default",
       }}
     >
-      {hasAudio && <SpeakerButton item={item} floating size={22} />}
       <div
         style={{
           // When romaji shows, the glyph sits a little higher so the reading fits;
