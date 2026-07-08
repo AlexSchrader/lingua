@@ -105,7 +105,11 @@ export default function Review() {
   const done = idx >= reviewQueue.length;
 
   useEffect(() => {
-    if (done && !finished) {
+    // Only mark reviews complete when there was real work to do. With an empty
+    // queue `done` is true on first render, so without this guard merely opening
+    // /review with nothing due would fire completeReviews + rollDailyGoal and bump
+    // the streak for zero work. The "Nothing due" screen below stays informational.
+    if (done && !finished && reviewQueue.length > 0) {
       completeReviews();
       rollDailyGoal();
       setFinished(true);
