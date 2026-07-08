@@ -66,9 +66,14 @@ export default function Lesson() {
 
   // Authored order is preserved: kana rows come before vocab in each lesson file,
   // so buildLearnQueue (teaches-first) guarantees kana are introduced before vocab.
+  // "Just a few" micro-session: ?few=N caps how many NEW items this run teaches,
+  // so a tired day can be 3 items instead of a full lesson. The rest stay rung 0
+  // and surface next time — micro-sessions chip away at the lesson.
+  const few = parseInt(searchParams.get("few") ?? "", 10);
   const freshIds = useMemo(() => {
     const lessonItems = (lesson?.items ?? []).map((def) => items[def.id]).filter(Boolean);
-    return lessonItems.filter((it) => (it.rung ?? 0) < 1).map((it) => it.id);
+    const fresh = lessonItems.filter((it) => (it.rung ?? 0) < 1).map((it) => it.id);
+    return Number.isFinite(few) && few > 0 ? fresh.slice(0, few) : fresh;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lessonId]);
 
