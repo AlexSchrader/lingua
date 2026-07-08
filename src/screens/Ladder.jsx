@@ -1,12 +1,47 @@
 import { useState } from "react";
-import { Lock, Check, ChevronRight } from "lucide-react";
+import { Lock, Check, ChevronRight, Volume2 } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
 import { roadmapFor } from "../data/roadmap.js";
 import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
+import { useItemAudio } from "../store/itemAudio.js";
+import { AUDIO_IDS } from "../data/audioManifest.js";
 import GlyphDetail from "../components/GlyphDetail.jsx";
 import { C, F } from "../theme.js";
+
+// A tap-to-hear speaker for a learned item, reused by the kana/kanji chips and
+// the word-bank rows. Manual play only (autoplay:false) — the Ladder shows many
+// items at once, so an on-mount autoplay would blast every visible clip. Only
+// render this where a clip actually exists (AUDIO_IDS) and the item is unlocked.
+// `floating` overlays it in a chip's top-right corner; inline is the default.
+function SpeakerButton({ item, floating = false, size = 22 }) {
+  const { play, active } = useItemAudio(item, { autoplay: false });
+  return (
+    <button
+      onClick={(e) => { e.stopPropagation(); play(); }}
+      aria-label={`Play pronunciation of ${item.front}`}
+      style={{
+        ...(floating ? { position: "absolute", top: 4, right: 4, zIndex: 1 } : {}),
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        flexShrink: 0,
+        border: `1px solid ${active ? C.ai : C.line}`,
+        background: active ? C.ai : C.washi,
+        color: active ? "#fff" : C.ai,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        padding: 0,
+        transition: "background 150ms, border-color 150ms",
+      }}
+    >
+      <Volume2 size={Math.round(size * 0.6)} />
+    </button>
+  );
+}
 
 // Stage sectioning for the Units list. `stage` lives on each unit (and roadmap
 // entry); these drive the section headers in climb order. The JLPT tag is shown
@@ -398,6 +433,10 @@ function WordRow({ def, item, showRomaji }) {
           <div style={{ fontSize: 13, color: C.inkSoft, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{def.meaning}</div>
         )}
       </div>
+      {/* Word bank only lists learned words, so gate the speaker purely on a
+          clip existing for this id. Use the seeded `item` (not the raw def) —
+          it carries `lang`, which the audio path needs. */}
+      {item && AUDIO_IDS.has(def.id) && <SpeakerButton item={item} size={30} />}
       <div title={mastered ? "Mastered" : `${Math.round(pct * 100)}%`} style={{ width: 40, height: 5, borderRadius: 999, background: C.lockedBg, overflow: "hidden", flexShrink: 0 }}>
         <div style={{ width: `${Math.max(6, Math.round(pct * 100))}%`, height: "100%", background: mastered ? C.matcha : C.ai }} />
       </div>
@@ -488,6 +527,8 @@ function KanaChip({ char, reading, item, showRomaji }) {
   const mastered = isMastered(item);
   const accent = mastered ? C.matcha : C.ai;
   const romaji = showRomaji && reading;
+  // Speaker only for unlocked glyphs that actually have a generated clip.
+  const hasAudio = learned && item && AUDIO_IDS.has(item.id);
   return (
     <>
     <div
@@ -495,6 +536,7 @@ function KanaChip({ char, reading, item, showRomaji }) {
       role={learned ? "button" : undefined}
       aria-label={learned ? `${char} — details` : undefined}
       style={{
+        position: "relative",
         width: "100%",
         borderRadius: 12,
         border: `1px solid ${learned ? accent : C.line}`,
@@ -506,6 +548,7 @@ function KanaChip({ char, reading, item, showRomaji }) {
         cursor: learned ? "pointer" : "default",
       }}
     >
+      {hasAudio && <SpeakerButton item={item} floating size={22} />}
       <div
         style={{
           // When romaji shows, the glyph sits a little higher so the reading fits;
