@@ -386,6 +386,45 @@ export const useStore = create(
           return { items, daily: { ...s.daily, reviewsCleared: false } };
         });
       },
+
+      // --- Dev progress seeders (touch REAL state; labelled in the panel; Reset
+      // restores). For eyeballing progress-dependent screens — Word bank, Ladder,
+      // Stats, the mistake-review — without grinding.
+      // Mark the first `n` not-yet-learned items as RECOGNIZED (rung 1).
+      devLearnItems: (n = 20) => {
+        set((s) => {
+          const items = { ...s.items };
+          let c = 0;
+          for (const id of Object.keys(items)) {
+            if (c >= n) break;
+            if ((items[id].rung ?? 0) < 1) { items[id] = { ...items[id], rung: 1 }; c++; }
+          }
+          return { items };
+        });
+      },
+      // Push the first `n` items to MASTERED (rung 5 + stability past MASTERY_FULL_DAYS).
+      devMasterItems: (n = 10) => {
+        set((s) => {
+          const items = { ...s.items };
+          let c = 0;
+          for (const id of Object.keys(items)) {
+            if (c >= n) break;
+            items[id] = { ...items[id], rung: 5, srs: { ...items[id].srs, stability: 60 } };
+            c++;
+          }
+          return { items };
+        });
+      },
+      // Add `n` items to the mistake list (learning them first so they're reviewable).
+      devSeedMistakes: (n = 5) => {
+        set((s) => {
+          const items = { ...s.items };
+          const ids = Object.keys(items).slice(0, n);
+          for (const id of ids) if ((items[id].rung ?? 0) < 1) items[id] = { ...items[id], rung: 1 };
+          const mistakes = [...new Set([...(s.mistakes ?? []), ...ids])].slice(-30);
+          return { items, mistakes };
+        });
+      },
     }),
     {
       name: "lingua-v1",
