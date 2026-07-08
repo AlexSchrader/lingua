@@ -151,6 +151,46 @@ export function shouldParticleCloze(item) {
   return canParticleCloze(item) && hash01(item.id) >= 1 - CLOZE_SHARE;
 }
 
+// --- sentence builder (reassemble the example from tiles) --------------------
+// A production card: rebuild the item's example sentence from word+particle tiles,
+// with a distractor particle so it tests particle CHOICE, not just order. Tokenized
+// SAFELY as [word][particle][rest] — the example must START with the target word,
+// followed by a clean particle (です-guarded via particleAfterFront), then a
+// remainder. That anchors on the known word so we never need a Japanese tokenizer
+// and never mis-split a word. Covers the [N は/が/を … V] beginner sentence shape;
+// a granular multi-clause tokenizer is a future upgrade.
+export const SENTENCE_SHARE = 0.25;
+
+export function sentenceTokens(item) {
+  const jp = String(item?.example?.jp ?? "").replace(/[。！？.!?]+$/u, "");
+  const front = item?.front ?? "";
+  if (!front || !jp.startsWith(front)) return null;
+  const found = particleAfterFront(item);
+  if (!found || found.index !== front.length) return null; // particle must sit right after the leading word
+  const rest = jp.slice(found.index + found.particle.length);
+  if (!rest) return null;
+  return [front, found.particle, rest];
+}
+
+export function canSentence(item) {
+  return item?.type === "vocab" && !!sentenceTokens(item);
+}
+
+// { answer: the ordered tokens, tiles: those tokens + one distractor particle,
+//   shuffled }. The distractor makes particle choice part of the puzzle.
+export function sentenceTiles(item) {
+  const answer = sentenceTokens(item);
+  if (!answer) return null;
+  const distractor = shuffleParticles(CORE_PARTICLES.filter((p) => p !== answer[1]))[0];
+  return { answer, tiles: shuffleParticles([...answer, distractor]) };
+}
+
+// Rung-3 production variant: the top hash band (distinct from type:produce, which
+// takes hash < PRODUCE_SHARE), checked before build for eligible sentences.
+export function shouldSentence(item) {
+  return canSentence(item) && hash01(item.id) >= 1 - SENTENCE_SHARE;
+}
+
 // --- spoken production (say it aloud) ----------------------------------------
 // The SPEAK card is vocab-only: STT on isolated single kana is unreliable (the
 // Brief-C C.0 de-risk showed 0/3), and a kana's sound is already trained by the

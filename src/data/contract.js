@@ -15,6 +15,7 @@ export const LIVE_CARD_KINDS = [
   "cloze:choice",
   "particle:choice",
   "build",
+  "sentence:build",
   "trace",
   "speak",
 ];

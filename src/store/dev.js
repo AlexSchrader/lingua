@@ -9,7 +9,7 @@ import { seedItems, UNITS } from "../data/index.js";
 import { getLesson } from "../data/index.js";
 import { KANJIVG } from "../data/kanjivg.js";
 import { newCard } from "./srs.js";
-import { shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak, shouldCloze, shouldParticleCloze, canParticleCloze } from "./cardRouting.js";
+import { shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak, shouldCloze, shouldParticleCloze, canParticleCloze, shouldSentence } from "./cardRouting.js";
 
 // The unlock code. Intentionally in the bundle — see note above.
 export const DEV_CODE = "L071201";
@@ -91,7 +91,8 @@ function kindSpec(kind) {
     case "type:reading":  return { rung: 2, pick: (it) => shouldTypeReading(it) };
     case "type:meaning":  return { rung: 2, pick: (it) => it.type === "vocab" && !shouldParticleCloze(it) && !shouldCloze(it) && !shouldListenType(it) && !shouldTypeReading(it) };
     case "type:produce":  return { rung: 3, pick: (it) => shouldTypeProduce(it) };
-    case "build":         return { rung: 3, pick: (it) => it.type === "vocab" && !shouldTypeProduce(it) };
+    case "sentence:build": return { rung: 3, pick: (it) => shouldSentence(it) };
+    case "build":         return { rung: 3, pick: (it) => it.type === "vocab" && !shouldTypeProduce(it) && !shouldSentence(it) };
     case "trace":         return { rung: 3, pick: (it) => isTraceable(it) };
     case "speak":         return { rung: 4, pick: (it) => shouldSpeak(it) };
     default:              return null;
