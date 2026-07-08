@@ -128,6 +128,12 @@ Not cards — sensory/feedback polish that sharpens the learning *feel*. Cheap, 
 
 - [ ] **[R14] (Feature CC — brief written) More sound effects — expand the synthesized SFX palette. → `BUILD-BRIEF-sound-effects.md` (Idea CC, 2026-07-05).** Today's 5 sounds cover answer-level events (correct/wrong/tap/lesson-fanfare) but **the learning ladder is silent** — no sound for a rung-up, mastery, unlock, or reviews-cleared — and a *near-miss* (`hard`) sounds identical to a *total miss* (`again`). Adds `sfxAlmost` (pairs with **R2**), `sfxRungUp`, `sfxMastered`, `sfxUnlock`, `sfxReviewsCleared`, all synthesized (no files), on the existing warm timbre, gated by the `sfx` toggle via `safe()`. ⚠️ **Governing rule (in the brief):** a new sound may only be added if it carries *information* (something changed), never purely to *reward* — that's what keeps it off the Duolingo slot-machine line. No FSRS/schema change; rung-up/mastered just need a promotion **hook** to fire from. Brief has the sound table, ND/coherence rules, a haptics-channel companion note, open decisions, and phases. Low effort, high felt-impact.
 
+### Batch 4 — app generalization (2026-07-05)
+
+Un-hardcode the app from Alex's personal setup so it's genuinely for-everyone.
+
+- [ ] **[R15] (Feature CC — brief written; ⚠️ check-in items) Language catalog — data-driven, un-hardcode the ja→es→fr path. → `BUILD-BRIEF-languages-catalog.md` (Idea CC, 2026-07-05).** The Languages panel + Mastery tabs are hardcoded to Alex's plan (`src/data/ja/languages.js`), and advertise es/fr with "Lessons coming soon." rows though only `ja` has content. **Scope Alex chose: neaten + generalize, fully data-driven.** Split *catalog* from *path*; derive `live` vs `planned` from content (`isLive(lang) = UNITS.some(u => u.lang===lang)`) so a language flips live automatically when its units ship — no status flag to maintain. Display: live language expanded (real progress), planned languages collapsed into one dropdown (kills the "coming soon" clutter), mastery tabs show only live + All. ⚠️ **Check-in:** moving `languages.js` out of `ja/`, the content validator's language-shape allowlist (contract change), and proximity to the cascade/gating model. Renders across Stats/Ladder/Today/Onboarding. **Parked follow-up [R-next]:** user-chosen language path ("Up next" picker) — deferred until a 2nd language has content (see memory `project_language_path.md`).
+
 ---
 
 ## QA findings (logged by QA CC — a third CC lane: tests + reports, does not build/author)

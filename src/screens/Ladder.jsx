@@ -573,34 +573,44 @@ function UnitsSection({ langId, items }) {
     kind: "coming", stage: r.stage ?? "a1", id: `rm${i}`, title: r.title, theme: r.theme,
   }));
 
-  // Render one group per stage that actually has rows, in climb order. A global
-  // counter keeps the numbering continuous top-to-bottom across sections.
+  // Render one group per stage that actually has rows, in climb order. Numbering
+  // is assigned continuously top-to-bottom NOW (independent of which stages are
+  // open), so it stays stable as sections collapse/expand.
   const stagesPresent = STAGE_ORDER.filter(
     (s) => unitRows.some((r) => r.stage === s) || roadmapRows.some((r) => r.stage === s)
   );
   let n = 0;
+  const byStage = stagesPresent.map((stage) => ({
+    stage,
+    rows: [
+      ...unitRows.filter((r) => r.stage === stage),
+      ...roadmapRows.filter((r) => r.stage === stage),
+    ].map((r) => ({ ...r, num: (n += 1) })),
+  }));
+
+  const anyCurrent = unitRows.some((r) => r.status === "current");
+  const lastUnitStage = [...byStage].reverse().find((g) => g.rows.some((r) => r.kind === "unit"))?.stage;
   const doneUnits = unitRows.filter((r) => r.status === "done").length;
 
   return (
     <Section title="Units" collapsible defaultOpen summary={`${doneUnits}/${unitRows.length} done`}>
       <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-        {stagesPresent.map((stage) => {
-          const rows = [
-            ...unitRows.filter((r) => r.stage === stage),
-            ...roadmapRows.filter((r) => r.stage === stage),
-          ];
+        {byStage.map(({ stage, rows }) => {
+          const stageUnits = rows.filter((r) => r.kind === "unit");
+          const stageDone = stageUnits.filter((r) => r.status === "done").length;
+          const hasCurrent = stageUnits.some((r) => r.status === "current");
+          // Open only your ACTIVE stage by default (or the last real stage if the
+          // whole track is done) — collapsed stages keep the Units tab from being
+          // one long wall as the curriculum grows.
           return (
-            <div key={stage} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <StageHeader label={stageHeading(langId, stage)} />
-              {rows.map((r) => {
-                n += 1;
-                return r.kind === "unit" ? (
-                  <UnitRow key={r.id} n={n} unit={r.unit} items={items} done={r.done} total={r.total} status={r.status} />
-                ) : (
-                  <ComingRow key={r.id} n={n} title={r.title} theme={r.theme} />
-                );
-              })}
-            </div>
+            <StageGroup
+              key={stage}
+              label={stageHeading(langId, stage)}
+              summary={stageUnits.length ? `${stageDone}/${stageUnits.length}` : "coming"}
+              defaultOpen={hasCurrent || (!anyCurrent && stage === lastUnitStage)}
+              rows={rows}
+              items={items}
+            />
           );
         })}
       </div>
@@ -608,13 +618,28 @@ function UnitsSection({ langId, items }) {
   );
 }
 
-function StageHeader({ label }) {
+function StageGroup({ label, summary, defaultOpen, rows, items }) {
+  const [open, setOpen] = useState(defaultOpen);
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-      <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: 0.6, color: C.ai, textTransform: "uppercase" }}>
-        {label}
-      </span>
-      <div style={{ flex: 1, height: 1, background: C.line }} />
+    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, background: "none", border: "none", padding: 0, cursor: "pointer", textAlign: "left", fontFamily: F.body }}
+      >
+        <ChevronRight size={14} color={C.ai} style={{ flexShrink: 0, transform: open ? "rotate(90deg)" : "none", transition: "transform 150ms" }} />
+        <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: 0.6, color: C.ai, textTransform: "uppercase" }}>{label}</span>
+        <div style={{ flex: 1, height: 1, background: C.line }} />
+        <span style={{ fontSize: 11, fontWeight: 600, color: C.inkSoft, whiteSpace: "nowrap", flexShrink: 0 }}>{summary}</span>
+      </button>
+      {open &&
+        rows.map((r) =>
+          r.kind === "unit" ? (
+            <UnitRow key={r.id} n={r.num} unit={r.unit} items={items} done={r.done} total={r.total} status={r.status} />
+          ) : (
+            <ComingRow key={r.id} n={r.num} title={r.title} theme={r.theme} />
+          )
+        )}
     </div>
   );
 }
@@ -651,21 +676,55 @@ function UnitRow({ n, unit, items, done, total, status }) {
         <ChevronRight size={18} color={C.inkSoft} style={{ flexShrink: 0, transform: open ? "rotate(90deg)" : "none", transition: "transform 200ms ease" }} />
       </button>
 
-      {/* Lesson previews */}
+      {/* Lesson previews — each expands to its item list */}
       {open && (
         <div style={{ borderTop: `1px solid ${C.line}`, display: "flex", flexDirection: "column" }}>
-          {lessons.map((l, i) => {
-            const lt = l.items.length;
-            const ld = l.items.filter((def) => (items[def.id]?.rung ?? 0) >= 1).length;
-            const ldone = lt > 0 && ld === lt;
+          {lessons.map((l, i) => (
+            <LessonPreview key={l.id} lesson={l} n={i} items={items} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// A lesson row that expands to preview its items — the words/kana it teaches, with
+// the ones you've learned lit. Data already lives on the lesson (title/canDo/items),
+// so this is pure render. Lets a learner see what a lesson covers before diving in.
+function LessonPreview({ lesson, n, items }) {
+  const [open, setOpen] = useState(false);
+  const lt = lesson.items.length;
+  const ld = lesson.items.filter((def) => (items[def.id]?.rung ?? 0) >= 1).length;
+  const ldone = lt > 0 && ld === lt;
+  return (
+    <div style={{ borderTop: n === 0 ? "none" : `1px solid ${C.line}` }}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        style={{ width: "100%", padding: "10px 12px 10px 14px", background: "transparent", border: "none", cursor: "pointer", textAlign: "left", fontFamily: F.body }}
+      >
+        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }}>
+          <span style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, fontWeight: 700 }}>
+            <ChevronRight size={14} color={C.inkSoft} style={{ flexShrink: 0, transform: open ? "rotate(90deg)" : "none", transition: "transform 150ms" }} />
+            Lesson {lesson.lesson ?? n + 1} · {lesson.title}
+          </span>
+          <span style={{ fontSize: 11, fontWeight: 700, color: ldone ? C.matcha : C.inkSoft, flexShrink: 0 }}>{ld}/{lt}</span>
+        </div>
+        {lesson.canDo && <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 2, lineHeight: 1.35, paddingLeft: 20 }}>{lesson.canDo}</div>}
+      </button>
+      {open && (
+        <div style={{ padding: "0 12px 12px 34px", display: "flex", flexWrap: "wrap", gap: 6 }}>
+          {lesson.items.map((def) => {
+            const learned = (items[def.id]?.rung ?? 0) >= 1;
             return (
-              <div key={l.id} style={{ padding: "10px 12px 10px 14px", borderTop: i === 0 ? "none" : `1px solid ${C.line}` }}>
-                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }}>
-                  <span style={{ fontSize: 13, fontWeight: 700 }}>Lesson {l.lesson ?? i + 1} · {l.title}</span>
-                  <span style={{ fontSize: 11, fontWeight: 700, color: ldone ? C.matcha : C.inkSoft, flexShrink: 0 }}>{ld}/{lt}</span>
-                </div>
-                {l.canDo && <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 2, lineHeight: 1.35 }}>{l.canDo}</div>}
-              </div>
+              <span
+                key={def.id}
+                title={def.meaning ?? def.reading ?? undefined}
+                style={{ display: "inline-flex", alignItems: "baseline", gap: 4, padding: "3px 8px", borderRadius: 8, border: `1px solid ${learned ? C.ai : C.line}`, background: learned ? C.aiSoft : C.washi, opacity: learned ? 1 : 0.6 }}
+              >
+                <span style={{ fontFamily: F.jp, fontSize: 14, fontWeight: 600, color: learned ? C.aiDeep : C.inkSoft }}>{def.front}</span>
+                {def.meaning && <span style={{ fontSize: 11, color: C.inkSoft }}>{def.meaning}</span>}
+              </span>
             );
           })}
         </div>
