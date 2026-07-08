@@ -332,6 +332,17 @@ test("zero-reviews-due: review step shows done, CTA goes straight to lesson", as
   await expect(page.getByTestId("start-session")).toHaveText("Start lesson");
 });
 
+test("Today: mistake-review offers a targeted 'fix these' session", async ({ page }) => {
+  const state = reviewState();
+  state.state.mistakes = ["ja-u1l1-konnichiwa"]; // a recently-missed item
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(state));
+  await page.goto("/");
+  const fix = page.getByTestId("start-fix");
+  await expect(fix).toHaveText(/Fix your mistakes \(1\)/);
+  await fix.click();
+  await expect(page.getByText(/Fix-up ·/)).toBeVisible(); // the fix session, not the daily review
+});
+
 test("Today: 'Just a few' starts a capped micro-session", async ({ page }) => {
   await page.goto("/");
   const few = page.getByTestId("start-few");
