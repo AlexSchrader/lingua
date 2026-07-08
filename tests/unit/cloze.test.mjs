@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { canCloze, blankExample, shouldCloze, CLOZE_BLANK, CLOZE_SHARE } from "../../src/store/cardRouting.js";
+import { particleAfterFront, canParticleCloze, blankParticle, particleChoices } from "../../src/store/cardRouting.js";
 
 const tamago = {
   id: "ja-u9l1-tamago", type: "vocab", front: "たまご",
@@ -30,4 +31,36 @@ test("shouldCloze is deterministic and a partial share of eligible items", () =>
   // an ineligible item never clozes regardless of hash
   assert.equal(shouldCloze({ id: "k", type: "kana", front: "あ", example: null }), false);
   assert.ok(CLOZE_SHARE > 0 && CLOZE_SHARE < 1);
+});
+
+// --- particle cloze ---------------------------------------------------------
+
+const kasa = { id: "ja-u1l2-kasa", type: "vocab", front: "かさ", example: { jp: "かさをどうぞ。", en: "Please take an umbrella." } };
+const sora = { id: "s", type: "vocab", front: "そら", example: { jp: "そらはあおいです。", en: "The sky is blue." } };
+const shizuka = { id: "z", type: "vocab", front: "しずか", example: { jp: "ここはしずかです。", en: "It is quiet here." } };
+
+test("particleAfterFront anchors on the word boundary and skips the copula です", () => {
+  assert.deepEqual(particleAfterFront(kasa), { particle: "を", index: 2 });   // かさ|を
+  assert.equal(particleAfterFront(sora).particle, "は");                       // そら|は (topic)
+  assert.equal(particleAfterFront(shizuka), null);                            // しずか|です → で is copula, not particle
+  assert.equal(particleAfterFront({ type: "vocab", front: "ねこ", example: { jp: "ねこ。" } }), null); // no particle after
+  assert.equal(particleAfterFront(null), null);
+});
+
+test("canParticleCloze / blankParticle blank exactly the anchored particle", () => {
+  assert.equal(canParticleCloze(kasa), true);
+  assert.equal(canParticleCloze(shizuka), false);
+  assert.equal(blankParticle(kasa), `かさ${CLOZE_BLANK}どうぞ。`);
+  assert.equal(blankParticle(sora), `そら${CLOZE_BLANK}あおいです。`);
+});
+
+test("particleChoices returns the correct particle + distractor particles", () => {
+  const opts = particleChoices(kasa, 4);
+  assert.equal(opts.length, 4);
+  assert.equal(opts.filter((o) => o.correct).length, 1);
+  assert.equal(opts.find((o) => o.correct).text, "を");
+  // every option is a single-kana core particle, all distinct
+  const texts = opts.map((o) => o.text);
+  assert.equal(new Set(texts).size, texts.length);
+  assert.ok(opts.every((o) => "はがをにへでともの".includes(o.text)));
 });
