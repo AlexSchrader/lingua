@@ -182,3 +182,18 @@ export function sandboxRoute(lessonId, previewState) {
   }
   return `/review?sandbox=1&state=${previewState}&lesson=${lessonId}`;
 }
+
+// --- Session launchers (isolated) --------------------------------------------
+// Run each SESSION SHAPE against the throwaway sandbox so the whole flow can be
+// felt without grinding real due items / misses. All isolated — no real state.
+export function reviewSandboxRoute() {
+  return sandboxRoute(firstLessonId(), "mid"); // a mixed review over the first lesson
+}
+export function fixupSandboxRoute() {
+  // The mistake-review UI over the sandbox set (fix=1 → "Fix-up" framing).
+  return `${sandboxRoute(firstLessonId(), "produce")}&fix=1`;
+}
+export function microSandboxRoute() {
+  // "Just a few" — a lesson capped to 3 new items.
+  return `/lesson/${firstLessonId()}?sandbox=1&state=fresh&few=3`;
+}

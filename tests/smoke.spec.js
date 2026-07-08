@@ -598,3 +598,26 @@ test("dev mode: unlock from Settings, panel shows diagnostics, isolated run leav
 
   expect(errors).toEqual([]);
 });
+
+test("dev mode: expanded panel — sessions, moments, progress seeder", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Settings" }).click();
+  await page.getByLabel("Dev Mode code").fill("L071201");
+  await page.getByRole("button", { name: "Unlock" }).click();
+
+  // New sections present.
+  await expect(page.getByRole("button", { name: /Just a few/ })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Play the lesson-complete celebration/ })).toBeVisible();
+
+  // Progress seeder writes REAL state (unlike the rest of the panel).
+  await page.getByRole("button", { name: "Learn 20" }).click();
+  await expect(page.getByText(/Learn 20 —/)).toBeVisible();
+  const learned = await page.evaluate(() =>
+    Object.values(JSON.parse(localStorage.getItem("lingua-v1")).state.items).filter((it) => (it.rung ?? 0) >= 1).length
+  );
+  expect(learned).toBeGreaterThanOrEqual(20);
+
+  // A session launcher opens the Fix-up flow (sandboxed).
+  await page.getByRole("button", { name: "Fix-up", exact: true }).click();
+  await expect(page.getByText(/Fix-up ·/)).toBeVisible();
+});
