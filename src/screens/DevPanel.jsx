@@ -7,7 +7,7 @@ import { devDiagnostics, sandboxRoute, cardPreviewRoute, PREVIEW_STATES, PREVIEW
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
 
-const CARD_LABEL = { teach: "Teach", choice: "Choice", "listen:choice": "Listen", "listen:type": "Dictation", "cloze:choice": "Cloze", "particle:choice": "Particle", "type:meaning": "Type", "type:reading": "Type rōmaji", "type:produce": "Type JP", build: "Build", "sentence:build": "Sentence", trace: "Trace", speak: "Speak" };
+const CARD_LABEL = { teach: "Teach", choice: "Choice", "listen:choice": "Listen", "listen:type": "Dictation", "cloze:choice": "Cloze", "particle:choice": "Particle", "type:meaning": "Type", "type:reading": "Type rōmaji", "type:produce": "Type JP", build: "Build", "sentence:build": "Sentence", conjugate: "Conjugate", trace: "Trace", speak: "Speak" };
 
 function Section({ title, children }) {
   return (

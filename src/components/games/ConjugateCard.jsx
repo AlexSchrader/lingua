@@ -26,6 +26,13 @@ export default function ConjugateCard({ item, onGraded }) {
     inputRef.current?.focus();
   }, [item.id]);
 
+  // Smoke/dev test hook: fill the correct form (no keyboard automation needed).
+  // Mirrors window.__sentence / window.__speak used by the other production cards.
+  useEffect(() => {
+    window.__conjugate = { solve: () => setValue(answer ?? "") };
+    return () => { delete window.__conjugate; };
+  }, [answer]);
+
   const submit = () => {
     if (phase === "feedback" || !answer) return;
     if (strip(value) === strip(answer)) {
@@ -43,7 +50,7 @@ export default function ConjugateCard({ item, onGraded }) {
   const label = CONJ_FORM_LABEL[item.conjForm] ?? item.conjForm;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 18, padding: "8px 4px" }}>
+    <div data-testid="conjugate-card" data-card-kind="conjugate" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 18, padding: "8px 4px" }}>
       <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 700 }}>Conjugate — {label}</div>
       <div style={{ fontFamily: F.disp, fontSize: 40, fontWeight: 700 }}>{item.front}</div>
       <div style={{ fontSize: 15, color: C.ai, fontWeight: 800 }}>→ {label}?</div>

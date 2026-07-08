@@ -147,6 +147,7 @@ async function playCard(page) {
   const tracePad    = page.getByTestId("trace-pad");
   const speakCard   = page.getByTestId("speak-card");
   const sentenceCard = page.getByTestId("sentence-card");
+  const conjugateCard = page.getByTestId("conjugate-card");
   const option      = page.locator('[data-correct="true"]');
   const tile        = page.locator('[data-testid="tile"]');
   const continueBtn = page.getByRole("button", { name: "Continue" });
@@ -157,6 +158,7 @@ async function playCard(page) {
     typeCard.waitFor({ state: "visible", timeout: 8000 }),
     tracePad.waitFor({ state: "visible", timeout: 8000 }),
     speakCard.waitFor({ state: "visible", timeout: 8000 }),
+    conjugateCard.waitFor({ state: "visible", timeout: 8000 }),
     sentenceCard.waitFor({ state: "visible", timeout: 8000 }),
     option.first().waitFor({ state: "visible", timeout: 8000 }),
     tile.first().waitFor({ state: "visible", timeout: 8000 }),
@@ -183,6 +185,16 @@ async function playCard(page) {
     await page.evaluate(() => window.__sentence?.solve());
     await continueBtn.click({ force: true });
     return "sentence:build";
+  }
+
+  if (await conjugateCard.isVisible().catch(() => false)) {
+    // Fill the correct conjugated form via the test hook, submit (Check), then
+    // Continue commits the grade — mirrors the type card's flow.
+    await page.evaluate(() => window.__conjugate?.solve());
+    await page.getByRole("button", { name: "Check" }).evaluate((el) => el.click()).catch(() => {});
+    await continueBtn.waitFor({ state: "visible", timeout: 5000 }).catch(() => {});
+    await continueBtn.evaluate((el) => el.click()).catch(() => {});
+    return "conjugate";
   }
 
   if (await tracePad.isVisible().catch(() => false)) {
@@ -398,6 +410,20 @@ test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson se
   // Session 2: lesson — い + おはよう (both rung=0) → teach/choice/trace/type:meaning.
   await page.getByTestId("start-session").click();
   for (let i = 0; i < 40; i++) {
+    const kind = await playCard(page);
+    if (kind === false) break;
+    if (typeof kind === "string") seenKinds.add(kind);
+    await page.waitForTimeout(50);
+  }
+
+  // Session 3: conjugate — exercised via its dev-preview sandbox. Unlike the other
+  // kinds, conjugation has no A1 curriculum content (it produces plain N4 forms —
+  // て/た/ない — that A1 doesn't teach), so it can't route in a normal A1 session
+  // yet. The card is fully live and routed; the preview seeds a group-tagged verb
+  // with a target form. It goes live in real reviews the moment A2 conjugation
+  // content (conjForm items) is authored.
+  await page.goto("/review?sandbox=1&card=conjugate");
+  for (let i = 0; i < 8; i++) {
     const kind = await playCard(page);
     if (kind === false) break;
     if (typeof kind === "string") seenKinds.add(kind);

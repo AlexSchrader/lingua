@@ -1,4 +1,5 @@
 import { LANGUAGES } from "./ja/languages.js";
+import { VERB_GROUPS } from "./ja/verb-groups.js";
 import { UNIT1 } from "./ja/unit1.js";
 import { UNIT2 } from "./ja/unit2.js";
 import { UNIT3 } from "./ja/unit3.js";
@@ -40,6 +41,10 @@ export function seedItems() {
           unit: lesson.unit,
           lesson: lesson.lesson,
           stage: unit.stage, // CEFR stage, used e.g. by the produce card's rōmaji on-ramp
+          // Verb class for the conjugate engine — stamped from verb-groups.js by the
+          // ～ます front, unless the item already authors its own group. Non-verbs stay
+          // undefined and never route to the conjugate card.
+          group: item.group ?? VERB_GROUPS[item.front],
           meaning: item.meaning ?? null,
           example: item.example ?? null,
           accept: item.accept ?? [], // optional synonyms accepted for typed answers

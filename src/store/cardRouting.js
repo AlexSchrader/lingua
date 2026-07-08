@@ -1,5 +1,6 @@
 import { KANJIVG } from "../data/kanjivg.js";
 import { AUDIO_IDS } from "../data/audioManifest.js";
+import { conjugate } from "./conjugate.js";
 
 // Share of eligible (rung ≤ 1, has-audio) reviews that present as a listening
 // card instead of a plain choice — a tuning knob, not structure. Kept here so
@@ -189,6 +190,21 @@ export function sentenceTiles(item) {
 // takes hash < PRODUCE_SHARE), checked before build for eligible sentences.
 export function shouldSentence(item) {
   return canSentence(item) && hash01(item.id) >= 1 - SENTENCE_SHARE;
+}
+
+// --- conjugation (produce a verb's target form) ------------------------------
+// A conjugate item is a verb tagged with BOTH a group (verb class) and a conjForm
+// (the form to produce). Unlike the hash-interleaved cards, this isn't a random
+// share — a conjForm item's whole purpose IS the conjugation drill, so it always
+// routes to the conjugate card. Guarded on the engine actually producing a form,
+// so a mistagged verb degrades safely to the normal produce cards instead.
+export function shouldConjugate(item) {
+  return (
+    item?.type === "vocab" &&
+    !!item.conjForm &&
+    !!item.group &&
+    conjugate(item.front, item.group, item.conjForm) != null
+  );
 }
 
 // --- spoken production (say it aloud) ----------------------------------------

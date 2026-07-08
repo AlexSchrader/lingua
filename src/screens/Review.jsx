@@ -8,11 +8,12 @@ import BuildCard from "../components/games/BuildCard.jsx";
 import TraceCard from "../components/games/TraceCard.jsx";
 import SpeakCard from "../components/games/SpeakCard.jsx";
 import SentenceCard from "../components/games/SentenceCard.jsx";
+import ConjugateCard from "../components/games/ConjugateCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import Celebration from "../components/Celebration.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable } from "../store/mastery.js";
-import { isTraceable, shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence } from "../store/cardRouting.js";
+import { isTraceable, shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate } from "../store/cardRouting.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
@@ -44,6 +45,8 @@ function reviewStepFor(item) {
   // through A1 so no JP keyboard is needed, kana required from A2 (see checkProduce)
   // — interleaved with building the word from tiles.
   if (rung === 3) {
+    // A tagged verb with a target form is a conjugation drill — always conjugate.
+    if (shouldConjugate(item)) return { kind: "conjugate" };
     if (isTraceable(item)) return { kind: "trace" };
     // Reassemble the whole example sentence (production in context) for a share of
     // eligible vocab; else type the Japanese, else build the word from tiles.
@@ -190,6 +193,8 @@ export default function Review() {
     card = <SpeakCard item={item} onGraded={onGraded} />;
   } else if (step.kind === "sentence:build") {
     card = <SentenceCard item={item} onGraded={onGraded} />;
+  } else if (step.kind === "conjugate") {
+    card = <ConjugateCard item={item} onGraded={onGraded} />;
   } else {
     card = <BuildCard item={item} onGraded={onGraded} />;
   }
