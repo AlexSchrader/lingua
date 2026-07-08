@@ -77,7 +77,8 @@ function reviewState() {
 
 // Fixture that exercises all LIVE_CARD_KINDS in one session:
 //   konnichiwa rung=3 due   → type:produce (review — vocab, hash<share)
-//   arigatō    rung=3 due   → build (review — vocab, hash≥share)
+//   arigatō    rung=3 due   → build (review — vocab, hash≥share, no particle)
+//   tegami     rung=3 due   → sentence:build (review — [word][particle][rest] example)
 //   sayounara  rung=2 due   → type:reading (review — vocab, hash<share)
 //   konbanwa   rung=2 due   → listen:type (review — audio, hash in dictation band)
 //   kasa       rung=2 due   → particle:choice (review — かさ+を, particle in the cloze band)
@@ -92,6 +93,7 @@ function kindFixtureState() {
     { id: "ja-u1l1-ohayou",     type: "vocab", front: "おはよう",   reading: "ohayō",      meaning: "good morning", example: { jp: "おはよう！",   en: "Good morning!" }, accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-konnichiwa", type: "vocab", front: "こんにちは", reading: "konnichiwa", meaning: "hello",        example: { jp: "こんにちは！", en: "Hello!" },        accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l2-arigatou",   type: "vocab", front: "ありがとう", reading: "arigatō",    meaning: "thank you",    example: { jp: "ありがとう。", en: "Thank you." },     accept: [], lang: "ja", unit: 1, lesson: 2 },
+    { id: "ja-u1l4-tegami",     type: "vocab", front: "てがみ",     reading: "tegami",      meaning: "letter",       example: { jp: "てがみをかきます。", en: "I write a letter." }, accept: [], lang: "ja", unit: 1, lesson: 4 },
     { id: "ja-u1l2-konbanwa",   type: "vocab", front: "こんばんは", reading: "konbanwa",   meaning: "good evening", example: { jp: "こんばんは。", en: "Good evening." }, accept: [], lang: "ja", unit: 1, lesson: 2 },
     { id: "ja-u1l2-kasa",       type: "vocab", front: "かさ",       reading: "kasa",        meaning: "umbrella",     example: { jp: "かさをどうぞ。", en: "Please take an umbrella." }, accept: [], lang: "ja", unit: 1, lesson: 2 },
     { id: "ja-u1l3-shizuka",    type: "vocab", front: "しずか",     reading: "shizuka",     meaning: "quiet",        example: { jp: "ここはしずかです。", en: "It is quiet here." }, accept: [], lang: "ja", unit: 1, lesson: 3 },
@@ -108,7 +110,8 @@ function kindFixtureState() {
   for (const it of defs) {
     let rung, srs;
     if (it.id === "ja-u1l1-konnichiwa")  { rung = 3; srs = dueCard();   } // rung-3 vocab, hash<share → type:produce (Eng→JP)
-    else if (it.id === "ja-u1l2-arigatou") { rung = 3; srs = dueCard(); } // rung-3 vocab, hash≥share → build
+    else if (it.id === "ja-u1l2-arigatou") { rung = 3; srs = dueCard(); } // rung-3 vocab, hash≥share, no particle → build
+    else if (it.id === "ja-u1l4-tegami") { rung = 3; srs = dueCard();   } // rung-3 vocab, sentence band + [word][particle][rest] → sentence:build
     else if (it.id === "ja-u1l1-sayounara") { rung = 2; srs = dueCard(); } // rung-2 vocab, hash<share → type:reading (JP→rōmaji)
     else if (it.id === "ja-u1l2-konbanwa") { rung = 2; srs = dueCard();  } // rung-2 vocab, audio + hash band → listen:type (dictation)
     else if (it.id === "ja-u1l2-kasa")   { rung = 2; srs = dueCard();   } // rung-2 vocab, cloze band + particle after front → particle:choice
@@ -143,6 +146,7 @@ async function playCard(page) {
   const typeCard    = page.getByTestId("type-card");
   const tracePad    = page.getByTestId("trace-pad");
   const speakCard   = page.getByTestId("speak-card");
+  const sentenceCard = page.getByTestId("sentence-card");
   const option      = page.locator('[data-correct="true"]');
   const tile        = page.locator('[data-testid="tile"]');
   const continueBtn = page.getByRole("button", { name: "Continue" });
@@ -153,6 +157,7 @@ async function playCard(page) {
     typeCard.waitFor({ state: "visible", timeout: 8000 }),
     tracePad.waitFor({ state: "visible", timeout: 8000 }),
     speakCard.waitFor({ state: "visible", timeout: 8000 }),
+    sentenceCard.waitFor({ state: "visible", timeout: 8000 }),
     option.first().waitFor({ state: "visible", timeout: 8000 }),
     tile.first().waitFor({ state: "visible", timeout: 8000 }),
   ]).catch(() => {});
@@ -170,6 +175,14 @@ async function playCard(page) {
     await page.evaluate(() => window.__speak?.pass());
     await page.getByTestId("speak-continue").click({ force: true });
     return "speak";
+  }
+
+  if (await sentenceCard.isVisible().catch(() => false)) {
+    // No drag-and-drop in CI — the test hook assembles the correct token order,
+    // then Continue commits the grade.
+    await page.evaluate(() => window.__sentence?.solve());
+    await continueBtn.click({ force: true });
+    return "sentence:build";
   }
 
   if (await tracePad.isVisible().catch(() => false)) {

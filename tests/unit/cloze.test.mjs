@@ -2,6 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { canCloze, blankExample, shouldCloze, CLOZE_BLANK, CLOZE_SHARE } from "../../src/store/cardRouting.js";
 import { particleAfterFront, canParticleCloze, blankParticle, particleChoices } from "../../src/store/cardRouting.js";
+import { sentenceTokens, canSentence, sentenceTiles } from "../../src/store/cardRouting.js";
 
 const tamago = {
   id: "ja-u9l1-tamago", type: "vocab", front: "たまご",
@@ -63,4 +64,27 @@ test("particleChoices returns the correct particle + distractor particles", () =
   const texts = opts.map((o) => o.text);
   assert.equal(new Set(texts).size, texts.length);
   assert.ok(opts.every((o) => "はがをにへでともの".includes(o.text)));
+});
+
+// --- sentence builder -------------------------------------------------------
+
+test("sentenceTokens splits [word][particle][rest] only when the word leads", () => {
+  assert.deepEqual(sentenceTokens({ type: "vocab", front: "すし", example: { jp: "すしをたべます。" } }), ["すし", "を", "たべます"]);
+  assert.deepEqual(sentenceTokens({ type: "vocab", front: "そら", example: { jp: "そらはあおいです。" } }), ["そら", "は", "あおいです"]);
+  assert.equal(sentenceTokens({ type: "vocab", front: "しずか", example: { jp: "ここはしずかです。" } }), null); // word not at start
+  assert.equal(sentenceTokens({ type: "vocab", front: "すし", example: { jp: "すしです。" } }), null); // で is the copula, not a particle
+  assert.equal(sentenceTokens({ type: "vocab", front: "かさ", example: { jp: "かさ。" } }), null); // no remainder
+  assert.ok(canSentence({ type: "vocab", front: "すし", example: { jp: "すしをたべます。" } }));
+  assert.ok(!canSentence({ type: "kana", front: "あ", example: null }));
+});
+
+test("sentenceTiles = ordered answer + exactly one distractor particle", () => {
+  const { answer, tiles } = sentenceTiles({ type: "vocab", front: "すし", example: { jp: "すしをたべます。" } });
+  assert.deepEqual(answer, ["すし", "を", "たべます"]);
+  assert.equal(tiles.length, 4);
+  for (const tok of answer) assert.ok(tiles.includes(tok));
+  const extra = [...tiles];
+  for (const tok of answer) extra.splice(extra.indexOf(tok), 1);
+  assert.equal(extra.length, 1);
+  assert.ok("はがをにへでともの".includes(extra[0]) && extra[0] !== "を"); // a particle, not the correct one
 });
