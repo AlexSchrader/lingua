@@ -9,7 +9,7 @@ import Mascot from "../components/Mascot.jsx";
 import Celebration from "../components/Celebration.jsx";
 import { C, F } from "../theme.js";
 
-const CARD_LABEL = { teach: "Teach", choice: "Choice", "listen:choice": "Listen", "listen:type": "Dictation", "cloze:choice": "Cloze", "particle:choice": "Particle", "type:meaning": "Type", "type:reading": "Type rōmaji", "type:produce": "Type JP", build: "Build", "sentence:build": "Sentence", trace: "Trace", speak: "Speak" };
+const CARD_LABEL = { teach: "Teach", choice: "Choice", "listen:choice": "Listen", "listen:type": "Dictation", "cloze:choice": "Cloze", "particle:choice": "Particle", "type:meaning": "Type", "type:reading": "Type rōmaji", "type:produce": "Type JP", build: "Build", "sentence:build": "Sentence", conjugate: "Conjugate", trace: "Trace", speak: "Speak" };
 
 // Mascot reactions worth eyeballing in the Moments gallery.
 const MASCOT_CONTEXTS = ["greeting", "correctAnswer", "wrongAnswer", "lessonComplete", "achievement", "streakReminder", "unitUnlock", "error"];

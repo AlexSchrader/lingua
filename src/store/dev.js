@@ -92,6 +92,7 @@ function kindSpec(kind) {
     case "type:meaning":  return { rung: 2, pick: (it) => it.type === "vocab" && !shouldParticleCloze(it) && !shouldCloze(it) && !shouldListenType(it) && !shouldTypeReading(it) };
     case "type:produce":  return { rung: 3, pick: (it) => shouldTypeProduce(it) };
     case "sentence:build": return { rung: 3, pick: (it) => shouldSentence(it) };
+    case "conjugate":     return { rung: 3, pick: (it) => it.type === "vocab" && !!it.group };
     case "build":         return { rung: 3, pick: (it) => it.type === "vocab" && !shouldTypeProduce(it) && !shouldSentence(it) };
     case "trace":         return { rung: 3, pick: (it) => isTraceable(it) };
     case "speak":         return { rung: 4, pick: (it) => shouldSpeak(it) };
@@ -110,7 +111,14 @@ export function buildCardPreviewItems(kind) {
   const picks = Object.values(seed).filter(spec.pick).slice(0, QUICK_CARD_COUNT);
   const due = new Date(Date.now() - 1000);
   for (const p of picks) {
-    items[p.id] = { ...items[p.id], rung: spec.rung, srs: { ...items[p.id].srs, stability: 8, due } };
+    items[p.id] = {
+      ...items[p.id],
+      rung: spec.rung,
+      srs: { ...items[p.id].srs, stability: 8, due },
+      // The conjugate preview needs a target form; synthesize the て-form on the
+      // group-tagged verb so it routes to the conjugate card in the sandbox.
+      ...(kind === "conjugate" ? { conjForm: "te" } : {}),
+    };
   }
   return items;
 }
