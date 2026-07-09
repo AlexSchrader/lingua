@@ -1,13 +1,18 @@
 import { useMemo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, AlertTriangle, RotateCcw, FlaskConical, Play } from "lucide-react";
+import { ArrowLeft, AlertTriangle, RotateCcw, FlaskConical, Play, Sparkles } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { UNITS } from "../data/index.js";
-import { devDiagnostics, sandboxRoute, cardPreviewRoute, PREVIEW_STATES, PREVIEW_LABEL } from "../store/dev.js";
+import { devDiagnostics, sandboxRoute, cardPreviewRoute, PREVIEW_STATES, PREVIEW_LABEL, reviewSandboxRoute, fixupSandboxRoute, microSandboxRoute } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
+import Mascot from "../components/Mascot.jsx";
+import Celebration from "../components/Celebration.jsx";
 import { C, F } from "../theme.js";
 
 const CARD_LABEL = { teach: "Teach", choice: "Choice", "listen:choice": "Listen", "listen:type": "Dictation", "cloze:choice": "Cloze", "particle:choice": "Particle", "type:meaning": "Type", "type:reading": "Type rōmaji", "type:produce": "Type JP", build: "Build", "sentence:build": "Sentence", trace: "Trace", speak: "Speak" };
+
+// Mascot reactions worth eyeballing in the Moments gallery.
+const MASCOT_CONTEXTS = ["greeting", "correctAnswer", "wrongAnswer", "lessonComplete", "achievement", "streakReminder", "unitUnlock", "error"];
 
 function Section({ title, children }) {
   return (
@@ -37,9 +42,16 @@ export default function DevPanel() {
   const devMode = useStore((s) => s.devMode);
   const resetAll = useStore((s) => s.resetAll);
   const replayOnboarding = useStore((s) => s.replayOnboarding);
+  const devLearnItems = useStore((s) => s.devLearnItems);
+  const devMasterItems = useStore((s) => s.devMasterItems);
+  const devSeedMistakes = useStore((s) => s.devSeedMistakes);
+  const devSeedReviews = useStore((s) => s.devSeedReviews);
   const [confirming, setConfirming] = useState(false);
+  const [celebKey, setCelebKey] = useState(0); // >0 mounts the celebration overlay (bump to replay)
+  const [seeded, setSeeded] = useState(null); // brief confirmation after a progress seed
 
   const diag = useMemo(() => devDiagnostics(), []);
+  const seed = (label, fn) => { fn(); setSeeded(label); };
 
   // Guard: not security, just don't render the panel when locked.
   useEffect(() => {
@@ -85,6 +97,63 @@ export default function DevPanel() {
             </button>
           ))}
         </div>
+      </Section>
+
+      <Section title="Sessions — run a whole session shape (isolated)">
+        <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 10 }}>
+          The daily review, the mistake-review (Fix-up), and a "Just a few" micro-lesson — sandboxed, no real progress touched.
+        </div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+          {[["Review", reviewSandboxRoute()], ["Fix-up", fixupSandboxRoute()], ["Just a few", microSandboxRoute()]].map(([label, route]) => (
+            <button
+              key={label}
+              onClick={() => navigate(route)}
+              style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 14px", borderRadius: 999, border: `1.5px solid ${C.ai}`, background: C.aiSoft, color: C.aiDeep, fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+            >
+              <Play size={13} /> {label}
+            </button>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Moments — mascot reactions + the celebration">
+        <button
+          onClick={() => setCelebKey((k) => k + 1)}
+          style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.ai}`, background: C.aiSoft, color: C.aiDeep, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+        >
+          <Sparkles size={16} /> Play the lesson-complete celebration
+        </button>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10, marginTop: 14 }}>
+          {MASCOT_CONTEXTS.map((ctx) => (
+            <div key={ctx} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+              <Mascot context={ctx} size={56} videoKey={ctx} />
+              <span style={{ fontSize: 10, color: C.inkSoft, textAlign: "center" }}>{ctx}</span>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title="Seed progress — ⚠️ touches REAL progress (Reset restores)">
+        <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 10 }}>
+          Populate the progress-dependent screens (Word bank, Ladder, Stats, Fix-up) without grinding. Unlike the rest of this panel, these write to your real deck.
+        </div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+          {[
+            ["Learn 20", () => devLearnItems(20)],
+            ["Master 10", () => devMasterItems(10)],
+            ["Seed 5 misses", () => devSeedMistakes(5)],
+            ["Make all due", () => devSeedReviews()],
+          ].map(([label, fn]) => (
+            <button
+              key={label}
+              onClick={() => seed(label, fn)}
+              style={{ padding: "10px 14px", borderRadius: 999, border: `1.5px solid ${C.shu}`, background: C.surface, color: C.shu, fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        {seeded && <div style={{ fontSize: 12, color: C.matcha, marginTop: 8 }}>✓ {seeded} — open the Ladder / Stats / Today to see it.</div>}
       </Section>
 
       <Section title="Diagnostics — is the new unit wired right?">
@@ -193,6 +262,9 @@ export default function DevPanel() {
           </div>
         )}
       </Section>
+
+      {/* Celebration overlay (fixed, pointer-events none) — bump celebKey to replay. */}
+      {celebKey > 0 && <Celebration key={celebKey} />}
     </div>
   );
 }

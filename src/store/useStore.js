@@ -31,6 +31,9 @@ function yesterdayISO() {
 
 const XP_BY_GRADE = { again: 2, hard: 5, good: 10, easy: 15 };
 
+// Cap on the "fix these" mistake list — most recent misses, older ones drop off.
+const MISTAKES_CAP = 30;
+
 const CEFR_ORDER = { A1: 0, A2: 1, B1: 2, B2: 3 };
 
 // Lazy cache: itemId → { cefr, lang } — built once from UNITS on first access.
@@ -73,6 +76,9 @@ export const useStore = create(
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },
       daily: { date: null, reviewsCleared: false, lessonDone: false },
+      // "Fix these" — item ids missed (graded `again`) and not yet re-passed, most
+      // recent last. A miss adds; a clean pass clears. Powers the mistake-review.
+      mistakes: [],
       devMode: false,
       // User preferences. `sfx` = synthesized answer chimes/clicks; `autoplayAudio`
       // = auto-play the pronunciation clip when a Teach card appears (the speaker
@@ -214,7 +220,15 @@ export const useStore = create(
           const languages = lang
             ? { ...s.languages, [item.lang]: { ...lang, xp: lang.xp + gain } }
             : s.languages;
-          return { items, stats, languages };
+          // Mistake list: a miss adds the item (moved to the front of "most recent");
+          // a clean pass clears it. `hard` leaves it as-is (still shaky).
+          let mistakes = s.mistakes ?? [];
+          if (grade === "again") {
+            mistakes = [...mistakes.filter((m) => m !== id), id].slice(-MISTAKES_CAP);
+          } else if (grade === "good" || grade === "easy") {
+            if (mistakes.includes(id)) mistakes = mistakes.filter((m) => m !== id);
+          }
+          return { items, stats, languages, mistakes };
         });
       },
 
@@ -372,6 +386,45 @@ export const useStore = create(
           return { items, daily: { ...s.daily, reviewsCleared: false } };
         });
       },
+
+      // --- Dev progress seeders (touch REAL state; labelled in the panel; Reset
+      // restores). For eyeballing progress-dependent screens — Word bank, Ladder,
+      // Stats, the mistake-review — without grinding.
+      // Mark the first `n` not-yet-learned items as RECOGNIZED (rung 1).
+      devLearnItems: (n = 20) => {
+        set((s) => {
+          const items = { ...s.items };
+          let c = 0;
+          for (const id of Object.keys(items)) {
+            if (c >= n) break;
+            if ((items[id].rung ?? 0) < 1) { items[id] = { ...items[id], rung: 1 }; c++; }
+          }
+          return { items };
+        });
+      },
+      // Push the first `n` items to MASTERED (rung 5 + stability past MASTERY_FULL_DAYS).
+      devMasterItems: (n = 10) => {
+        set((s) => {
+          const items = { ...s.items };
+          let c = 0;
+          for (const id of Object.keys(items)) {
+            if (c >= n) break;
+            items[id] = { ...items[id], rung: 5, srs: { ...items[id].srs, stability: 60 } };
+            c++;
+          }
+          return { items };
+        });
+      },
+      // Add `n` items to the mistake list (learning them first so they're reviewable).
+      devSeedMistakes: (n = 5) => {
+        set((s) => {
+          const items = { ...s.items };
+          const ids = Object.keys(items).slice(0, n);
+          for (const id of ids) if ((items[id].rung ?? 0) < 1) items[id] = { ...items[id], rung: 1 };
+          const mistakes = [...new Set([...(s.mistakes ?? []), ...ids])].slice(-30);
+          return { items, mistakes };
+        });
+      },
     }),
     {
       name: "lingua-v1",
@@ -385,6 +438,7 @@ export const useStore = create(
         streak: s.streak,
         stats: s.stats,
         daily: s.daily,
+        mistakes: s.mistakes,
         devMode: s.devMode,
         settings: s.settings,
         profile: s.profile,
