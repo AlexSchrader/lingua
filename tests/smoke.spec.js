@@ -671,3 +671,40 @@ test("dev mode: expanded panel — sessions, moments, progress seeder", async ({
   await page.getByRole("button", { name: "Fix-up", exact: true }).click();
   await expect(page.getByText(/Fix-up ·/)).toBeVisible();
 });
+
+test("dev mode: A2 preview runs draft cards in the sandbox, real state + Ladder untouched", async ({ page }) => {
+  test.setTimeout(120_000); // sampler = ~18 items across the teach flow
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await page.goto("/");
+  await page.getByRole("button", { name: "Settings" }).click();
+  await page.getByLabel("Dev Mode code").fill("L071201");
+  await page.getByRole("button", { name: "Unlock" }).click();
+
+  // The A2 preview section is present and clearly marked as draft/sandbox-only.
+  await expect(page.getByText("A2 preview (draft) — not live, sandbox only")).toBeVisible();
+  const sampler = page.getByRole("button", { name: /Quick sampler/ });
+  await expect(sampler).toBeVisible();
+
+  const before = await page.evaluate(() => localStorage.getItem("lingua-v1"));
+
+  // Run the one-tap A2 sampler end to end.
+  await sampler.click();
+  await expect(page.locator("text=/🧪 Dev ·/")).toBeVisible();
+  for (let i = 0; i < 120; i++) {
+    const kind = await playCard(page);
+    if (kind === false) break;
+    await page.waitForTimeout(20);
+  }
+  await page.getByRole("button", { name: "Back to Dev panel" }).click();
+  await expect(page.getByText("Units registered")).toBeVisible();
+
+  // CRITICAL: a draft-A2 run leaves real state byte-identical — no A2 ids leak in,
+  // no progress/FSRS/streak written.
+  const after = await page.evaluate(() => localStorage.getItem("lingua-v1"));
+  expect(after).toBe(before);
+  expect(after).not.toContain("ja-u22");
+
+  expect(errors).toEqual([]);
+});
