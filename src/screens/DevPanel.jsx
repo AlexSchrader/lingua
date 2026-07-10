@@ -284,7 +284,7 @@ export default function DevPanel() {
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <div style={{ display: "flex", gap: 8, alignItems: "flex-start", color: C.shu, fontSize: 13, fontWeight: 600 }}>
               <AlertTriangle size={18} style={{ flexShrink: 0, marginTop: 1 }} />
-              This wipes your real progress (every item, streak, freezes, XP) back to a fresh
+              This wipes your real progress (every item + your milestones) back to a fresh
               start. Dev Mode stays unlocked. It can't be undone.
             </div>
             <div style={{ display: "flex", gap: 10 }}>

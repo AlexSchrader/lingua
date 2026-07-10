@@ -401,6 +401,9 @@ export const useStore = create(
           streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
           stats: { xpTotal: 0 },
           daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+          mistakes: [],
+          milestonesEarned: [],
+          milestoneToast: null,
           ui: {},
         });
       },

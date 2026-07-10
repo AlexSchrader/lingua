@@ -288,8 +288,8 @@ export default function Settings() {
               }}
             >
               <AlertTriangle size={18} style={{ flexShrink: 0, marginTop: 1 }} />
-              This wipes every item's progress, your streak, freezes, and XP back to a
-              fresh start. It can't be undone.
+              This wipes every item's progress and your milestones back to a fresh
+              start. It can't be undone.
             </div>
             <div style={{ display: "flex", gap: 10 }}>
               <button
