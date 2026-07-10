@@ -14,6 +14,11 @@ const CARD_LABEL = { teach: "Teach", choice: "Choice", "listen:choice": "Listen"
 // Mascot reactions worth eyeballing in the Moments gallery.
 const MASCOT_CONTEXTS = ["greeting", "correctAnswer", "wrongAnswer", "lessonComplete", "achievement", "streakReminder", "unitUnlock", "error"];
 
+// CEFR stages, in climb order — the lesson-preview launchers group units by these
+// so the panel shows a couple of stage tabs instead of one tab per unit.
+const STAGE_ORDER = ["pre-a1", "a1", "a2", "b1", "b2"];
+const STAGE_LABEL = { "pre-a1": "Pre-A1", a1: "A1", a2: "A2", b1: "B1", b2: "B2" };
+
 // Collapsible section — the panel got long, so every block is a tap-to-open
 // accordion (collapsed by default) to kill the scrolling. The title stays visible
 // as the header even when closed. Diagnostics opens by default (it's the primary
@@ -99,6 +104,64 @@ export default function DevPanel() {
           <div style={{ fontSize: 13, color: C.inkSoft }}>Isolated playtest — nothing here touches real progress.</div>
         </div>
       </div>
+
+      {/* Lesson preview — the primary tool, pinned to the top. Grouped by CEFR stage
+          so there are a couple of stage tabs instead of one per unit. */}
+      {STAGE_ORDER.filter((st) => UNITS.some((u) => (u.stage ?? "a1") === st)).map((st) => {
+        const stageUnits = UNITS.filter((u) => (u.stage ?? "a1") === st);
+        return (
+          <Section key={st} title={`${STAGE_LABEL[st] ?? st} lessons · ${stageUnits.length} unit${stageUnits.length === 1 ? "" : "s"}`}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              {stageUnits.map((unit) => {
+                const lessons = unit.lessons.filter((l) => l.items);
+                return (
+                  <div key={unit.id}>
+                    <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 8 }}>
+                      {unit.title} <span style={{ fontFamily: F.mono, color: C.inkSoft, fontWeight: 600, fontSize: 12 }}>· {unit.id}</span>
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                      {lessons.map((lesson) => (
+                        <div key={lesson.id} style={{ border: `1px solid ${C.line}`, borderRadius: 12, padding: 12 }}>
+                          <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 8 }}>
+                            <span style={{ fontSize: 14, fontWeight: 700 }}>{lesson.title}</span>
+                            <span style={{ fontSize: 12, color: C.inkSoft, fontFamily: F.mono }}>
+                              {lesson.cefr} · {lesson.items.length} items
+                            </span>
+                          </div>
+                          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                            {PREVIEW_STATES.map((state) => (
+                              <button
+                                key={state}
+                                onClick={() => navigate(sandboxRoute(lesson.id, state))}
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: 5,
+                                  padding: "8px 12px",
+                                  borderRadius: 10,
+                                  border: `1.5px solid ${state === "fresh" ? C.ai : C.line}`,
+                                  background: state === "fresh" ? C.aiSoft : C.surface,
+                                  color: state === "fresh" ? C.aiDeep : C.inkSoft,
+                                  fontSize: 13,
+                                  fontWeight: 700,
+                                  fontFamily: F.body,
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <Play size={13} /> {PREVIEW_LABEL[state]}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </Section>
+        );
+      })}
 
       <Section title="Quick card — jump straight to any card kind">
         <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 10 }}>
@@ -226,50 +289,6 @@ export default function DevPanel() {
           ))}
         </div>
       </Section>
-
-      {UNITS.map((unit) => {
-        const lessons = unit.lessons.filter((l) => l.items);
-        return (
-          <Section key={unit.id} title={`${unit.title} · ${unit.id} · ${lessons.length} lesson${lessons.length === 1 ? "" : "s"}`}>
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {lessons.map((lesson) => (
-                <div key={lesson.id} style={{ border: `1px solid ${C.line}`, borderRadius: 12, padding: 12 }}>
-                  <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 8 }}>
-                    <span style={{ fontSize: 14, fontWeight: 700 }}>{lesson.title}</span>
-                    <span style={{ fontSize: 12, color: C.inkSoft, fontFamily: F.mono }}>
-                      {lesson.cefr} · {lesson.items.length} items
-                    </span>
-                  </div>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                    {PREVIEW_STATES.map((state) => (
-                      <button
-                        key={state}
-                        onClick={() => navigate(sandboxRoute(lesson.id, state))}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 5,
-                          padding: "8px 12px",
-                          borderRadius: 10,
-                          border: `1.5px solid ${state === "fresh" ? C.ai : C.line}`,
-                          background: state === "fresh" ? C.aiSoft : C.surface,
-                          color: state === "fresh" ? C.aiDeep : C.inkSoft,
-                          fontSize: 13,
-                          fontWeight: 700,
-                          fontFamily: F.body,
-                          cursor: "pointer",
-                        }}
-                      >
-                        <Play size={13} /> {PREVIEW_LABEL[state]}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Section>
-        );
-      })}
 
       <Section title="Preview flows">
         <button

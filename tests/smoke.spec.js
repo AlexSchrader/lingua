@@ -642,8 +642,8 @@ test("dev mode: unlock from Settings, panel shows diagnostics, isolated run leav
   const before = await page.evaluate(() => localStorage.getItem("lingua-v1"));
 
   // Launch a Fresh lesson directly (bypasses ladder gating) and play it through.
-  // The per-unit launcher sections are collapsed accordions now — open the first.
-  await page.getByRole("button", { name: /はじめまして/ }).click();
+  // Lesson launchers are grouped by stage now — open the Pre-A1 group (holds Unit 1).
+  await page.getByRole("button", { name: /Pre-A1 lessons/ }).click();
   await page.getByRole("button", { name: "Fresh" }).first().click();
   await expect(page.locator("text=/🧪 Dev ·/")).toBeVisible();
   for (let i = 0; i < 80; i++) {
