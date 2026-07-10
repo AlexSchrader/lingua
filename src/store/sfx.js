@@ -107,6 +107,28 @@ export function sfxRungUp() {
   });
 }
 
+// Milestone reached — a warm, resolved four-note rise (C5 E5 G5 C6) on a soft sine,
+// a touch grander than the rung-up step but still calm (a capability reached, not a
+// jackpot). Carries information: you can now DO a new thing. Gated by the SFX toggle.
+export function sfxMilestone() {
+  safe((ctx) => {
+    [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const g = ctx.createGain();
+      osc.connect(g);
+      g.connect(ctx.destination);
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      const t = ctx.currentTime + i * 0.11;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(0.19, t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.001, t + 0.42);
+      osc.start(t);
+      osc.stop(t + 0.45);
+    });
+  });
+}
+
 // Gentle descending slide — soft "oops", not a harsh buzzer.
 export function sfxWrong() {
   safe((ctx) => {

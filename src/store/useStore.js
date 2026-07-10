@@ -5,6 +5,7 @@ import { newCard, schedule, isDue } from "./srs.js";
 import { nextRung, isReviewable } from "./mastery.js";
 import { migrateState, PERSIST_VERSION } from "./migrate.js";
 import { matchesDevCode } from "./dev.js";
+import { earnedMilestones, milestoneCatalog } from "../data/milestones.js";
 
 // Seed every item with a fresh FSRS card attached as its srs. Card attachment
 // lives here (not in the data loader) per Brief 2.
@@ -79,6 +80,13 @@ export const useStore = create(
       // "Fix these" — item ids missed (graded `again`) and not yet re-passed, most
       // recent last. A miss adds; a clean pass clears. Powers the mistake-review.
       mistakes: [],
+      // Capability milestones the learner has REACHED — earned-once, never revoked
+      // (forgetting a word later must never take a milestone back). Grows via
+      // reconcileMilestones; persisted so it survives a lapse. See data/milestones.js.
+      milestonesEarned: [],
+      // Transient (never persisted): the most-recent newly-earned milestone, shown
+      // as a one-time toast then cleared.
+      milestoneToast: null,
       devMode: false,
       // User preferences. `sfx` = synthesized answer chimes/clicks; `autoplayAudio`
       // = auto-play the pronunciation clip when a Teach card appears (the speaker
@@ -139,7 +147,7 @@ export const useStore = create(
       // added in a newer app version (absent from an older cloud blob) still
       // exist at rung 0 — a pull never makes a unit disappear. Cloud item ids no
       // longer in the curriculum are simply ignored.
-      hydrateFromCloud: (blob) =>
+      hydrateFromCloud: (blob) => {
         set((s) => {
           const base = Object.keys(s.items).length ? s.items : freshSeed();
           const items = { ...base };
@@ -147,11 +155,14 @@ export const useStore = create(
             if (items[id]) items[id] = it;
           }
           const next = { items, lastModified: Date.now() };
-          for (const k of ["languages", "streak", "stats", "daily", "devMode", "settings", "profile"]) {
+          for (const k of ["languages", "streak", "stats", "daily", "devMode", "settings", "profile", "milestonesEarned"]) {
             if (blob[k] !== undefined) next[k] = blob[k];
           }
           return next;
-        }),
+        });
+        // Backfill silently — a sync must never fire a flood of milestone toasts.
+        get().reconcileMilestones({ toast: false });
+      },
 
       // Reconcile the deck against the current curriculum on every run:
       //  - NEW items (units shipped since last seed) get added at rung 0,
@@ -187,6 +198,9 @@ export const useStore = create(
           }
           return { items, daily, languages, profile };
         });
+        // Backfill the earned-milestone set from existing progress on boot — SILENT,
+        // so a returning learner isn't greeted by a wall of milestone toasts.
+        get().reconcileMilestones({ toast: false });
       },
 
       // Selector: items whose FSRS card is due AND that have climbed at least to
@@ -230,7 +244,28 @@ export const useStore = create(
           }
           return { items, stats, languages, mistakes };
         });
+        get().reconcileMilestones({ toast: true });
       },
+
+      // Reconcile the earned-milestone set against current mastery. Unions any newly
+      // satisfied milestones (earned-once, never revoked). With { toast:true } (a
+      // grade just happened) the newest unlock is surfaced as a one-time toast; on
+      // boot/sync we backfill SILENTLY so existing progress never floods the screen.
+      reconcileMilestones: ({ toast = false } = {}) => {
+        set((s) => {
+          const earned = earnedMilestones(s.items);
+          const prev = new Set(s.milestonesEarned ?? []);
+          const fresh = earned.filter((id) => !prev.has(id));
+          if (fresh.length === 0) return s;
+          const next = { milestonesEarned: [...(s.milestonesEarned ?? []), ...fresh] };
+          if (toast) {
+            const m = milestoneCatalog().find((x) => x.id === fresh[fresh.length - 1]);
+            if (m) next.milestoneToast = { id: m.id, label: m.label };
+          }
+          return next;
+        });
+      },
+      dismissMilestoneToast: () => set({ milestoneToast: null }),
 
       completeReviews: () => {
         set((s) => ({ daily: { ...s.daily, date: todayISO(), reviewsCleared: true } }));
@@ -254,6 +289,7 @@ export const useStore = create(
             : s.languages;
           return { items, stats, languages };
         });
+        get().reconcileMilestones({ toast: true });
       },
 
       // Mark the day's lesson done. Graduation of new items is now per-item via
@@ -365,6 +401,9 @@ export const useStore = create(
           streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
           stats: { xpTotal: 0 },
           daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+          mistakes: [],
+          milestonesEarned: [],
+          milestoneToast: null,
           ui: {},
         });
       },
@@ -401,6 +440,7 @@ export const useStore = create(
           }
           return { items };
         });
+        get().reconcileMilestones({ toast: true });
       },
       // Push the first `n` items to MASTERED (rung 5 + stability past MASTERY_FULL_DAYS).
       devMasterItems: (n = 10) => {
@@ -414,6 +454,7 @@ export const useStore = create(
           }
           return { items };
         });
+        get().reconcileMilestones({ toast: true });
       },
       // Add `n` items to the mistake list (learning them first so they're reviewable).
       devSeedMistakes: (n = 5) => {
@@ -439,6 +480,7 @@ export const useStore = create(
         stats: s.stats,
         daily: s.daily,
         mistakes: s.mistakes,
+        milestonesEarned: s.milestonesEarned,
         devMode: s.devMode,
         settings: s.settings,
         profile: s.profile,

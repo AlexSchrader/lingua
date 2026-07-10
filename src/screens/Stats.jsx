@@ -1,18 +1,18 @@
 import { useMemo, useState } from "react";
-import { Flame, Snowflake, Trophy } from "lucide-react";
+import { Award } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS, isLive } from "../data/index.js";
 import { RUNGS } from "../store/mastery.js";
+import { milestonesFromIds, nextMilestone } from "../data/milestones.js";
 import { C, F } from "../theme.js";
 
 const STAGE_ORDER = ["pre-a1", "a1", "a2", "b1", "b2"];
 const STAGE_LABEL = { "pre-a1": "Pre-A1", a1: "A1", a2: "A2", b1: "B1", b2: "B2" };
 
 export default function Stats() {
-  const streak = useStore((s) => s.streak);
-  const stats = useStore((s) => s.stats);
   const languages = useStore((s) => s.languages);
   const items = useStore((s) => s.items);
+  const milestonesEarned = useStore((s) => s.milestonesEarned);
 
   const itemList = useMemo(() => Object.values(items), [items]);
 
@@ -49,7 +49,6 @@ export default function Stats() {
   const masteryItems = masteryLang === "all" ? itemList : itemList.filter((it) => it.lang === masteryLang);
   const rungCounts = RUNGS.map((_, r) => masteryItems.filter((it) => (it.rung ?? 0) === r).length);
   const learned = masteryItems.filter((it) => (it.rung ?? 0) >= 1).length;
-  const xp = masteryLang === "all" ? stats.xpTotal : languages[masteryLang]?.xp ?? 0;
 
   return (
     <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 16 }}>
@@ -58,12 +57,10 @@ export default function Stats() {
         <div style={{ fontSize: 13, color: C.inkSoft }}>Your climb so far.</div>
       </div>
 
-      {/* Streak + freezes */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
-        <Metric icon={Flame} color={C.shu} value={streak.current} label="Streak" />
-        <Metric icon={Trophy} color={C.matcha} value={streak.longest} label="Longest" />
-        <Metric icon={Snowflake} color={C.ai} value={streak.freezes} label="Freezes" />
-      </div>
+      {/* Milestones — capability you've reached (earned, never revoked) + the single
+          nearest next goal. Honest structural progress, not an engagement score.
+          Pure-derived from mastery state; see src/data/milestones.js. */}
+      <MilestonesSection items={items} earnedIds={milestonesEarned} />
 
       {/* Per-language, per-stage progress — live languages only; planned ones
           collapse into a single expander instead of fake "coming soon" rows. */}
@@ -119,8 +116,7 @@ export default function Stats() {
           )}
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 12 }}>
-          <Tile value={xp} label="Total XP" />
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 12 }}>
           <Tile value={masteryItems.length} label="Items" />
           <Tile value={learned} label="Learned" />
           <Tile value={rungCounts[5]} label="Mastered" />
@@ -175,6 +171,50 @@ function PlannedLanguages({ langs }) {
   );
 }
 
+// Capability milestones — the honest-progress replacement for the scoreboard.
+// Shows every milestone already reached plus the SINGLE nearest next goal as a
+// gentle target (no wall of locked badges to grind). Fully derived from mastery
+// state — no tracking, no persistence here (earned-once lives in the store, later).
+function MilestonesSection({ items, earnedIds }) {
+  // Earned list reads the PERSISTED set (earned-once, never revoked); the next goal
+  // is derived live from current mastery.
+  const earned = useMemo(() => milestonesFromIds(earnedIds), [earnedIds]);
+  const next = useMemo(() => nextMilestone(items), [items]);
+  return (
+    <Section title="Milestones">
+      {earned.length === 0 && !next && (
+        <div style={{ fontSize: 13, color: C.inkSoft }}>Milestones appear here as you reach them.</div>
+      )}
+      {earned.length > 0 && (
+        <div style={{ display: "flex", flexDirection: "column", gap: 9, marginBottom: next ? 14 : 0 }}>
+          {earned.map((e) => (
+            <div key={e.id} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <Award size={16} color={C.matcha} style={{ flexShrink: 0 }} />
+              <span style={{ fontSize: 14, fontWeight: 600 }}>{e.label}</span>
+            </div>
+          ))}
+        </div>
+      )}
+      {next && (
+        <div style={{ background: C.washi, borderRadius: 12, padding: 12 }}>
+          <div style={{ fontSize: 10, color: C.inkSoft, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 6 }}>
+            Next
+          </div>
+          <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 8 }}>{next.label}</div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ flex: 1, height: 6, background: C.lockedBg, borderRadius: 999, overflow: "hidden" }}>
+              <div style={{ width: `${Math.round((next.have / next.need) * 100)}%`, height: "100%", background: C.ai, transition: "width 250ms ease" }} />
+            </div>
+            <span style={{ width: 56, textAlign: "right", fontSize: 12, fontWeight: 700, color: C.inkSoft }}>
+              {next.have}/{next.need}
+            </span>
+          </div>
+        </div>
+      )}
+    </Section>
+  );
+}
+
 function LangChip({ label, on, onClick }) {
   return (
     <button
@@ -194,16 +234,6 @@ function LangChip({ label, on, onClick }) {
     >
       {label}
     </button>
-  );
-}
-
-function Metric({ icon: Icon, color, value, label }) {
-  return (
-    <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 14, padding: 14, textAlign: "center" }}>
-      <Icon size={20} color={color} />
-      <div style={{ fontFamily: F.disp, fontSize: 22, fontWeight: 700, marginTop: 4 }}>{value}</div>
-      <div style={{ fontSize: 11, color: C.inkSoft, fontWeight: 600 }}>{label}</div>
-    </div>
   );
 }
 
