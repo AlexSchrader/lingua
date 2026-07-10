@@ -14,11 +14,23 @@ const CARD_LABEL = { teach: "Teach", choice: "Choice", "listen:choice": "Listen"
 // Mascot reactions worth eyeballing in the Moments gallery.
 const MASCOT_CONTEXTS = ["greeting", "correctAnswer", "wrongAnswer", "lessonComplete", "achievement", "streakReminder", "unitUnlock", "error"];
 
-function Section({ title, children }) {
+// Collapsible section — the panel got long, so every block is a tap-to-open
+// accordion (collapsed by default) to kill the scrolling. The title stays visible
+// as the header even when closed. Diagnostics opens by default (it's the primary
+// readout and small).
+function Section({ title, children, defaultOpen = false }) {
+  const [open, setOpen] = useState(defaultOpen);
   return (
-    <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 18, padding: 16 }}>
-      <div style={{ fontSize: 13, fontWeight: 700, color: C.inkSoft, marginBottom: 12 }}>{title}</div>
-      {children}
+    <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 18, padding: open ? 16 : "12px 16px" }}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", border: "none", background: "transparent", padding: 0, cursor: "pointer", fontSize: 13, fontWeight: 700, color: C.inkSoft, fontFamily: F.body, textAlign: "left" }}
+      >
+        <span style={{ fontSize: 11, color: C.ai, width: 10, flexShrink: 0 }}>{open ? "▾" : "▸"}</span>
+        <span style={{ flex: 1 }}>{title}</span>
+      </button>
+      {open && <div style={{ marginTop: 12 }}>{children}</div>}
     </div>
   );
 }
@@ -162,7 +174,7 @@ export default function DevPanel() {
         {seeded && <div style={{ fontSize: 12, color: C.matcha, marginTop: 8 }}>✓ {seeded} — open the Ladder / Stats / Today to see it.</div>}
       </Section>
 
-      <Section title="Diagnostics — is the new unit wired right?">
+      <Section title="Diagnostics — is the new unit wired right?" defaultOpen>
         <Stat label="Units registered" value={diag.unitCount} />
         <Stat label="Lessons (playable)" value={diag.lessonCount} />
         <Stat label="Items total" value={diag.itemCount} />
