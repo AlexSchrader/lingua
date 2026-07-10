@@ -296,6 +296,14 @@ test("can navigate all four tabs", async ({ page }) => {
   }
 });
 
+test("Stats shows the Milestones section with a gentle next goal", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Stats", exact: true }).click();
+  await expect(page.getByText("Milestones", { exact: true })).toBeVisible();
+  // On a fresh account nothing is earned yet, so the single nearest goal is shown.
+  await expect(page.getByText("Next", { exact: true })).toBeVisible();
+});
+
 test("Ladder word bank collects learned words, organized by unit", async ({ page }) => {
   // reviewState() seeds several rung≥1 vocab (おはよう / こんにちは …).
   await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(reviewState()));

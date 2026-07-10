@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
-import { Flame, Snowflake, Trophy } from "lucide-react";
+import { Flame, Snowflake, Trophy, Award } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS, isLive } from "../data/index.js";
 import { RUNGS } from "../store/mastery.js";
+import { milestoneSummary } from "../data/milestones.js";
 import { C, F } from "../theme.js";
 
 const STAGE_ORDER = ["pre-a1", "a1", "a2", "b1", "b2"];
@@ -57,6 +58,11 @@ export default function Stats() {
         <div style={{ fontFamily: F.disp, fontSize: 22, fontWeight: 700 }}>Stats</div>
         <div style={{ fontSize: 13, color: C.inkSoft }}>Your climb so far.</div>
       </div>
+
+      {/* Milestones — capability you've reached (earned, never revoked) + the single
+          nearest next goal. Honest structural progress, not an engagement score.
+          Pure-derived from mastery state; see src/data/milestones.js. */}
+      <MilestonesSection items={items} />
 
       {/* Streak + freezes */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
@@ -172,6 +178,47 @@ function PlannedLanguages({ langs }) {
         </div>
       )}
     </div>
+  );
+}
+
+// Capability milestones — the honest-progress replacement for the scoreboard.
+// Shows every milestone already reached plus the SINGLE nearest next goal as a
+// gentle target (no wall of locked badges to grind). Fully derived from mastery
+// state — no tracking, no persistence here (earned-once lives in the store, later).
+function MilestonesSection({ items }) {
+  const { earned, next } = useMemo(() => milestoneSummary(items), [items]);
+  return (
+    <Section title="Milestones">
+      {earned.length === 0 && !next && (
+        <div style={{ fontSize: 13, color: C.inkSoft }}>Milestones appear here as you reach them.</div>
+      )}
+      {earned.length > 0 && (
+        <div style={{ display: "flex", flexDirection: "column", gap: 9, marginBottom: next ? 14 : 0 }}>
+          {earned.map((e) => (
+            <div key={e.id} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <Award size={16} color={C.matcha} style={{ flexShrink: 0 }} />
+              <span style={{ fontSize: 14, fontWeight: 600 }}>{e.label}</span>
+            </div>
+          ))}
+        </div>
+      )}
+      {next && (
+        <div style={{ background: C.washi, borderRadius: 12, padding: 12 }}>
+          <div style={{ fontSize: 10, color: C.inkSoft, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 6 }}>
+            Next
+          </div>
+          <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 8 }}>{next.label}</div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ flex: 1, height: 6, background: C.lockedBg, borderRadius: 999, overflow: "hidden" }}>
+              <div style={{ width: `${Math.round((next.have / next.need) * 100)}%`, height: "100%", background: C.ai, transition: "width 250ms ease" }} />
+            </div>
+            <span style={{ width: 56, textAlign: "right", fontSize: 12, fontWeight: 700, color: C.inkSoft }}>
+              {next.have}/{next.need}
+            </span>
+          </div>
+        </div>
+      )}
+    </Section>
   );
 }
 
