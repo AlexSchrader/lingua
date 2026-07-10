@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Flame, Snowflake, Trophy } from "lucide-react";
 import { useStore } from "../store/useStore.js";
-import { LANGUAGES, UNITS } from "../data/index.js";
+import { LANGUAGES, UNITS, isLive } from "../data/index.js";
 import { RUNGS } from "../store/mastery.js";
 import { C, F } from "../theme.js";
 
@@ -35,6 +35,12 @@ export default function Stats() {
     return out;
   }, [items]);
 
+  // Catalog split: only languages with real content are shown expanded / as tabs;
+  // the rest collapse into a "planned" list. Derived from UNITS, so a language
+  // appears automatically the moment its first unit ships.
+  const liveLangs = LANGUAGES.filter((l) => isLive(l.id));
+  const plannedLangs = LANGUAGES.filter((l) => !isLive(l.id));
+
   // Mastery is per-language. Default to the active (first unlocked) language;
   // "all" aggregates every language. Other languages stay out unless chosen.
   const activeLang = LANGUAGES.find((l) => languages[l.id]?.unlocked)?.id ?? LANGUAGES[0].id;
@@ -59,16 +65,17 @@ export default function Stats() {
         <Metric icon={Snowflake} color={C.ai} value={streak.freezes} label="Freezes" />
       </div>
 
-      {/* Per-language, per-stage progress */}
+      {/* Per-language, per-stage progress — live languages only; planned ones
+          collapse into a single expander instead of fake "coming soon" rows. */}
       <Section title="Languages">
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          {LANGUAGES.map((l) => {
+          {liveLangs.map((l) => {
             const lang = languages[l.id] ?? { ...l, level: "pre-A1", unlocked: l.unlocked };
             const stages = langStages[l.id];
             const present = STAGE_ORDER.filter((s) => stages?.[s]?.total > 0);
             return (
               <div key={l.id}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 14, marginBottom: present.length ? 8 : 0 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 14, marginBottom: 8 }}>
                   <span style={{ fontWeight: 700 }}>
                     {lang.flag} {lang.name} {!lang.unlocked && "🔒"}
                   </span>
@@ -76,41 +83,40 @@ export default function Stats() {
                     {lang.level === "pre-A1" ? "Starting out" : lang.level}
                   </span>
                 </div>
-                {present.length === 0 ? (
-                  <div style={{ fontSize: 12, color: C.inkSoft }}>Lessons coming soon.</div>
-                ) : (
-                  <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
-                    {present.map((s) => {
-                      const { total, learned: lrn } = stages[s];
-                      const pct = total ? Math.round((lrn / total) * 100) : 0;
-                      const done = total > 0 && lrn === total;
-                      return (
-                        <div key={s} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12 }}>
-                          <span style={{ width: 52, color: C.inkSoft, fontWeight: 600 }}>{STAGE_LABEL[s]}</span>
-                          <div style={{ flex: 1, height: 6, background: C.lockedBg, borderRadius: 999, overflow: "hidden" }}>
-                            <div style={{ width: `${pct}%`, height: "100%", background: done ? C.matcha : C.ai, transition: "width 250ms ease" }} />
-                          </div>
-                          <span style={{ width: 56, textAlign: "right", fontWeight: 700, color: done ? C.matcha : C.ink }}>
-                            {lrn}/{total}
-                          </span>
+                <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+                  {present.map((s) => {
+                    const { total, learned: lrn } = stages[s];
+                    const pct = total ? Math.round((lrn / total) * 100) : 0;
+                    const done = total > 0 && lrn === total;
+                    return (
+                      <div key={s} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12 }}>
+                        <span style={{ width: 52, color: C.inkSoft, fontWeight: 600 }}>{STAGE_LABEL[s]}</span>
+                        <div style={{ flex: 1, height: 6, background: C.lockedBg, borderRadius: 999, overflow: "hidden" }}>
+                          <div style={{ width: `${pct}%`, height: "100%", background: done ? C.matcha : C.ai, transition: "width 250ms ease" }} />
                         </div>
-                      );
-                    })}
-                  </div>
-                )}
+                        <span style={{ width: 56, textAlign: "right", fontWeight: 700, color: done ? C.matcha : C.ink }}>
+                          {lrn}/{total}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             );
           })}
+          {plannedLangs.length > 0 && <PlannedLanguages langs={plannedLangs} />}
         </div>
       </Section>
 
       {/* Mastery — scoped to one language (or all) */}
       <Section title="Mastery">
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
-          {LANGUAGES.map((l) => (
+          {liveLangs.map((l) => (
             <LangChip key={l.id} label={`${l.flag} ${l.name}`} on={masteryLang === l.id} onClick={() => setMasteryLang(l.id)} />
           ))}
-          <LangChip label="All languages" on={masteryLang === "all"} onClick={() => setMasteryLang("all")} />
+          {liveLangs.length > 1 && (
+            <LangChip label="All languages" on={masteryLang === "all"} onClick={() => setMasteryLang("all")} />
+          )}
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 12 }}>
@@ -137,6 +143,34 @@ export default function Stats() {
           ))}
         </div>
       </Section>
+    </div>
+  );
+}
+
+// Planned (no-content-yet) languages, collapsed behind one expander so the panel
+// isn't cluttered with fake "coming soon" rows. Each flips to a live entry above
+// automatically once its first unit ships (isLive derivation).
+function PlannedLanguages({ langs }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        style={{ display: "flex", alignItems: "center", gap: 6, border: "none", background: "transparent", color: C.inkSoft, fontSize: 12, fontWeight: 700, fontFamily: F.body, cursor: "pointer", padding: 0 }}
+      >
+        <span>{open ? "▾" : "▸"}</span> More languages · {langs.length} planned
+      </button>
+      {open && (
+        <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 10 }}>
+          {langs.map((l) => (
+            <div key={l.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13 }}>
+              <span style={{ color: C.inkSoft }}>{l.flag} {l.name}</span>
+              <span style={{ fontSize: 10, color: C.inkSoft, fontWeight: 700, background: C.lockedBg, padding: "2px 8px", borderRadius: 999, textTransform: "uppercase", letterSpacing: 0.5 }}>Planned</span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
