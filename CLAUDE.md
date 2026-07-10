@@ -103,7 +103,7 @@ Alex is neurodivergent and the app is built specifically with ND learners in min
 **What not to do:**
 
 - Don't pad responses with "great question!" or unnecessary affirmations.
-- Don't suggest adding gamification, streaks, XP bars, or social features — the anti-burnout principle is structural, not motivational. Mechanics over dopamine tricks.
+- Don't suggest adding gamification, streaks, XP bars, or social features — the anti-burnout principle is structural, not motivational. Mechanics over dopamine tricks. **(Clarified 2026-07-10, Alex's call — the line is *capability vs activity*.** ✅ **Capability milestones** — "can read all hiragana," "100 words mastered," "A1 complete" — mark a real skill gained and ARE the mission-aligned progress signal; build these (see `BUILD-BRIEF-milestones.md`). ❌ **Engagement rewards** — streaks, XP, freezes, day-counts, "cards answered" — reward activity/time and are OUT; the existing streak/XP/freezes scoreboard is slated for removal, pitch R17/R18/R30.)
 - Don't redesign things that are working. Suggest; don't rewrite unprompted.
 
 ---

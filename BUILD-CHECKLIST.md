@@ -183,6 +183,12 @@ A whole-app scan. Surfaced one **mission-level tension** (R17/R18/R30 — the da
 - [ ] **[R32] (Feature CC — bug) TraceCard leaks romaji when Show-romaji is OFF.** `TraceCard.jsx:433-436` renders `item.reading` unconditionally — the lone card that ignores the setting (TeachCard/Ladder respect it). A learner hiding the crutch still gets it. Gate on `showRomaji`. [S]
 - [ ] **[R34] (Feature CC) Ladder "you're here" is jargon.** The key "where am I" marker reads `U:1/7 L:1/36` (`Ladder.jsx:141`) — unlabeled abbreviations. Spell it: "Unit 1/7 · Lesson 1/36". [S]
 
+### Batch 6 — motivation model DECIDED (2026-07-10)
+
+**Alex's philosophy call (2026-07-10):** asked "add more achievements?" + "get rid of streak/XP/freezes?", he chose **structural milestones only**. The line is **capability vs activity** — capability milestones (mark real skill gained) are the mission-aligned progress signal and get built; engagement rewards (streak/XP/freezes/day-counts) reward activity and are OUT. Codified in CLAUDE.md's anti-gamification rule the same day. This **confirms R17 / R18 / R30 as GO** (they were pending Alex's call).
+
+- [ ] **[R35] (Feature CC — brief written; ⚠️ persist check-in) Milestones (capability achievements) + retire the engagement scoreboard. → `BUILD-BRIEF-milestones.md` (Idea CC, 2026-07-10).** Two halves: **ADD** capability milestones — "can read all hiragana," "100 words mastered," "A1 complete," "all N5 kanji" — computed *from mastery state* (reuses `isLevelComplete` + `isMastered`; a data-driven milestone catalog + a pure `earnedMilestones(items,units)` selector; earned-once, never revoked; wire the dormant mascot `"achievement"` reaction, `DevPanel.jsx:15`). **REMOVE** the Today stat trio (streak/XP/freezes, `Today.jsx:259-263`) — the positive replacement for R17/R18/R30. Guardrail: milestones reward **capability, never activity** (no points/streaks/decay/FOMO). ⚠️ Removing streak/XP/freeze fields = persist/user-state change → Alex's check-in, migration-safe. Brief has the milestone catalog, phases (M.0 selector+tests first), and DoD.
+
 ---
 
 ## QA findings (logged by QA CC — a third CC lane: tests + reports, does not build/author)
