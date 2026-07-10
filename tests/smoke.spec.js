@@ -296,6 +296,15 @@ test("can navigate all four tabs", async ({ page }) => {
   }
 });
 
+test("Today shows capability signals, not the streak/XP scoreboard", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByText("Learned", { exact: true })).toBeVisible();
+  await expect(page.getByText("Mastered", { exact: true })).toBeVisible();
+  // The retired engagement scoreboard is gone.
+  await expect(page.getByText("Streak", { exact: true })).toHaveCount(0);
+  await expect(page.getByText("Freezes", { exact: true })).toHaveCount(0);
+});
+
 test("Stats shows the Milestones section with a gentle next goal", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Stats", exact: true }).click();

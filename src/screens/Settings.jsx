@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogOut, Cloud, CheckCircle2, Mic } from "lucide-react";
+import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogOut, Cloud, CheckCircle2, Mic, Award } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES } from "../data/index.js";
 import { C, F } from "../theme.js";
@@ -62,8 +62,7 @@ export default function Settings() {
   const navigate = useNavigate();
   const resetAll = useStore((s) => s.resetAll);
   const languages = useStore((s) => s.languages);
-  const streak = useStore((s) => s.streak);
-  const stats = useStore((s) => s.stats);
+  const milestonesEarned = useStore((s) => s.milestonesEarned);
   const devMode = useStore((s) => s.devMode);
   const unlockDevMode = useStore((s) => s.unlockDevMode);
   const disableDevMode = useStore((s) => s.disableDevMode);
@@ -103,9 +102,7 @@ export default function Settings() {
       <Section title="About">
         <Row icon={Info} label="Version" value={VERSION} />
         <Row icon={Globe} label="Learning" value={`${ja.flag} ${ja.name} · ${ja.level}`} />
-        <Row label="Streak" value={`${streak.current} day${streak.current === 1 ? "" : "s"}`} />
-        <Row label="Freezes" value={streak.freezes} />
-        <Row label="Total XP" value={stats.xpTotal} />
+        <Row icon={Award} label="Milestones" value={milestonesEarned?.length ?? 0} />
       </Section>
 
       <Section title="Account">

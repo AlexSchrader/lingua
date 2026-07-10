@@ -133,6 +133,16 @@ export function nextMilestone(items) {
   return best;
 }
 
+// Resolve a persisted set of earned ids to their catalog entries (label + family),
+// in catalog order. Used by the display so "earned once, never revoked" reads from
+// the stored set — a milestone stays shown even if a later lapse would un-derive it.
+export function milestonesFromIds(ids = []) {
+  const set = new Set(ids);
+  return milestoneCatalog()
+    .filter((m) => set.has(m.id))
+    .map((m) => ({ id: m.id, label: m.label, family: m.family }));
+}
+
 // Convenience for the display: earned + next in one pass, each with progress.
 export function milestoneSummary(items) {
   const earnedSet = new Set(earnedMilestones(items));

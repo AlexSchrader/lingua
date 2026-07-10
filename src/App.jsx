@@ -12,6 +12,7 @@ import Auth from "./screens/Auth.jsx";
 import Onboarding from "./screens/Onboarding.jsx";
 import SetPassword from "./screens/SetPassword.jsx";
 import Mascot from "./components/Mascot.jsx";
+import MilestoneToast from "./components/MilestoneToast.jsx";
 import { useStore } from "./store/useStore.js";
 import { C, F, setActiveTheme, resolveTheme } from "./theme.js";
 
@@ -89,7 +90,11 @@ export default function App() {
   }
 
   return (
-    <Routes>
+    <>
+      {/* Global overlay — a milestone can unlock inside Review/Lesson (outside the
+          AppShell), so it lives at the App root to cover every screen. */}
+      <MilestoneToast />
+      <Routes>
       <Route element={<AppShell />}>
         <Route index element={<Today />} />
         <Route path="ladder" element={<Ladder />} />
@@ -101,6 +106,7 @@ export default function App() {
       <Route path="review" element={<Review />} />
       <Route path="lesson/:lessonId" element={<Lesson />} />
       <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+      </Routes>
+    </>
   );
 }

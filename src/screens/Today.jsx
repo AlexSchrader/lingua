@@ -1,9 +1,10 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { BookOpen, RotateCcw, Lock, Check, Flame, Zap, Snowflake } from "lucide-react";
+import { BookOpen, RotateCcw, Lock, Check, Star, Award, ChevronRight } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { UNITS, LANGUAGES } from "../data/index.js";
 import { isReviewable, isMastered } from "../store/mastery.js";
+import { nextMilestone } from "../data/milestones.js";
 import { C, F } from "../theme.js";
 import Mascot from "../components/Mascot.jsx";
 import { VERSION } from "../version.js";
@@ -102,8 +103,7 @@ export default function Today() {
   // mount. Computing here keeps the snapshot stable.
   const items = useStore((s) => s.items);
   const daily = useStore((s) => s.daily);
-  const streak = useStore((s) => s.streak);
-  const stats = useStore((s) => s.stats);
+  const milestonesEarned = useStore((s) => s.milestonesEarned);
   const languages = useStore((s) => s.languages);
   const profile = useStore((s) => s.profile);
   // The active language drives everything on Today (falls back to ja for safety).
@@ -157,6 +157,18 @@ export default function Today() {
   // Daily goal is a FLOOR, not a ceiling: meeting it ticks the streak and shows
   // a marker, but never ends the session or caps how much you can do.
   const goalMet = daily.reviewsCleared && daily.lessonDone;
+
+  // Capability signals for the active language — what you can now DO. These replace
+  // the retired streak/XP/freezes scoreboard (honest structural progress).
+  const learnedCount = useMemo(
+    () => Object.values(items).filter((it) => it.lang === activeId && isReviewable(it)).length,
+    [items, activeId]
+  );
+  const masteredCount = useMemo(
+    () => Object.values(items).filter((it) => it.lang === activeId && isMastered(it)).length,
+    [items, activeId]
+  );
+  const nextMs = useMemo(() => nextMilestone(items), [items]);
 
   // Progress glance + next-review timing (from the data we already track).
   const masteredKana = useMemo(
@@ -255,12 +267,41 @@ export default function Today() {
         </div>
       </div>
 
-      {/* Stats trio — with icons to match the Stats screen. */}
+      {/* Capability signals — what you can now DO. Replaces the streak/XP/freezes
+          scoreboard: honest structural progress, never activity. */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
-        <Stat icon={Flame} color={C.shu} label="Streak" value={streak.current} />
-        <Stat icon={Zap} color={C.ai} label="XP" value={stats.xpTotal} />
-        <Stat icon={Snowflake} color={C.ai} label="Freezes" value={streak.freezes} />
+        <Stat icon={Check} color={C.ai} label="Learned" value={learnedCount} />
+        <Stat icon={Star} color={C.matcha} label="Mastered" value={masteredCount} />
+        <Stat icon={Award} color={C.matcha} label="Milestones" value={milestonesEarned?.length ?? 0} />
       </div>
+
+      {/* The single nearest milestone as a gentle goal (taps through to Stats). */}
+      {nextMs && (
+        <button
+          onClick={() => navigate("/stats")}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            width: "100%",
+            textAlign: "left",
+            background: C.surface,
+            border: `1px solid ${C.line}`,
+            borderRadius: 14,
+            padding: "12px 14px",
+            cursor: "pointer",
+            fontFamily: F.body,
+          }}
+        >
+          <Award size={18} color={C.matcha} style={{ flexShrink: 0 }} />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontSize: 11, color: C.inkSoft, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.4 }}>Next milestone</div>
+            <div style={{ fontSize: 14, fontWeight: 600, color: C.ink }}>{nextMs.label}</div>
+          </div>
+          <span style={{ fontSize: 12, color: C.inkSoft, fontWeight: 700, flexShrink: 0 }}>{nextMs.remaining} to go</span>
+          <ChevronRight size={16} color={C.inkSoft} style={{ flexShrink: 0 }} />
+        </button>
+      )}
 
       {/* Review-debt banner */}
       {reviewsLocked && (

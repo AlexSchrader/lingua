@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import { Flame, Settings } from "lucide-react";
+import { Award, Settings } from "lucide-react";
 import BottomNav from "./BottomNav.jsx";
 import { C, F } from "../theme.js";
 import { useStore } from "../store/useStore.js";
@@ -15,7 +15,7 @@ const MAXW = 600;
 export default function AppShell() {
   const navigate = useNavigate();
   const seedOnce = useStore((s) => s.seedOnce);
-  const streak = useStore((s) => s.streak);
+  const milestonesEarned = useStore((s) => s.milestonesEarned);
 
   useEffect(() => {
     seedOnce();
@@ -54,25 +54,29 @@ export default function AppShell() {
           </span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div
-            aria-label="streak"
+          <button
+            aria-label="Milestones"
+            onClick={() => navigate("/stats")}
             style={{
               display: "flex",
               alignItems: "center",
               gap: 5,
               padding: "5px 11px",
               borderRadius: 999,
+              border: "none",
+              cursor: "pointer",
               background: C.aiSoft,
               color: C.aiDeep,
               fontWeight: 700,
               fontSize: 13,
+              fontFamily: F.body,
             }}
           >
-            <Flame size={15} color={C.shu} fill={streak.current > 0 ? C.shu : "none"} />
-            {streak.current}
-          </div>
-          {/* Settings lives here as a gear (to the right of the streak), not in
-              the bottom nav, which stays the four primary tabs. */}
+            <Award size={15} color={C.matcha} />
+            {milestonesEarned?.length ?? 0}
+          </button>
+          {/* Settings lives here as a gear (to the right of the milestones count),
+              not in the bottom nav, which stays the four primary tabs. */}
           <button
             aria-label="Settings"
             onClick={() => navigate("/settings")}
