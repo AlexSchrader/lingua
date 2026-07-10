@@ -84,6 +84,29 @@ export function sfxFanfare() {
   });
 }
 
+// Rung-up: a bright, quick two-note *step up* (G5 → D6, a rising fifth) that fires
+// when an item climbs a mastery rung mid-review. Distinct from the 3-note "correct"
+// chime — this one carries information (you moved up the ladder), not just "right".
+// Higher and terser so it reads as a step, not a full celebration. Gated by safe().
+export function sfxRungUp() {
+  safe((ctx) => {
+    [783.99, 1174.66].forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const g = ctx.createGain();
+      osc.connect(g);
+      g.connect(ctx.destination);
+      osc.type = "triangle";
+      osc.frequency.value = freq;
+      const t = ctx.currentTime + i * 0.085;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(0.18, t + 0.015);
+      g.gain.exponentialRampToValueAtTime(0.001, t + 0.22);
+      osc.start(t);
+      osc.stop(t + 0.24);
+    });
+  });
+}
+
 // Gentle descending slide — soft "oops", not a harsh buzzer.
 export function sfxWrong() {
   safe((ctx) => {
