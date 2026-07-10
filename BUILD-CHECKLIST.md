@@ -28,6 +28,20 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 ## Status at a glance
 
+> **⟳ Reconciliation (2026-07-10, CC):** the entries below this block are historical and several lag reality — this bullet is the current truth. A full line-by-line re-tick is deferred; trust this summary for "what's done now."
+
+- **CURRENT STATE (2026-07-10):** **A1 is content-complete — 21 live units / 729 items** (A2 units 22–30 exist **preview-only**, not in `UNITS`). **Every card kind is live**, including **speak** (speech-grading shipped, Brief C done) and **conjugate** (wired live; appears in real reviews once A2 `conjForm` content lands). Nothing engine-level blocks A2.
+- **Shipped to `main` (2026-07-07 → 07-10) — pre-A2 reconciliation wave (CC, Alex-approved; full gate green each: validate/lint/unit/build/dev+preview smoke):**
+  - **Engine correctness:** lapsed items no longer permanently ejected from spaced review (`nextRung` floors a graduated item at RECOGNIZED on a lapse) + regression test; no phantom streak/completion for empty review or already-done lesson sessions.
+  - **i18n foundation:** `languages.js`/`roadmap.js` moved out of `data/ja/`; romaji reading-normalization scoped to `lang==='ja'` (es/fr answers no longer mangled); Stats Languages panel now **data-driven** — live vs planned split, fake "Lessons coming soon." rows removed *(pending merge: `feat/languages-catalog-ux`)*.
+  - **Cards / UX:** BuildCard free-retry parity + tap-to-undo; pronunciation plays on answer; は/へ kana voiced correctly (ha/he).
+  - **Features integrated (one FF merge):** mistake-review ("Fix your mistakes") + expanded Dev panel; **A2 dev-preview harness** — 9 draft units browsable in the sandbox, **fully isolated** (a run leaves real state byte-identical; nothing reaches the live Ladder).
+  - **Content polish (A1):** 生 → "life" (was "student"), おじいさん/おばあさん → grandfather/grandmother (someone's), りょうり → "cuisine"; `もの` example fixed.
+- **✅ RESOLVED — GitHub access restored; `main` == prod.** The 2026-06-30 "account auto-suspended / prod ahead of `main` via Vercel CLI" situation is over: PRs #54–66 + the pre-A2 wave merged normally by git. **The RESUMPTION CHECKLIST below is stale — ignore it.**
+- **Gates before activating A2:** (1) **native-speaker review** of the kanji + grammar batch — the one explicit A1 quality gate (rolls up the open kanji-reading / gloss QA findings); (2) run `validate:content` + `lint:curriculum` against the **9 A2 draft units** (they bypass the gate today, being outside `UNITS`) before importing them into `UNITS`.
+
+<!-- ↓ historical entries below — see Reconciliation bullet above for current state ↓ -->
+
 - **Shipped to `main`:** Phase 4 (trace card, 46-kana) + Unit 2 — PRs #19/#20 (2026-06-23). Phase 4.5 session structure (review/lesson split, teach-order, trace polish) — PR #21 merged 2026-06-24. Full hiragana あ-ん is live.
 - **Shipped to `main` (2026-06-25):** Phase 3 real audio (PR #22) · Stats SEEN→NEW (PR #23) · PWA auto-update fix (PR #25, no stale builds after deploy) · **Ladder full-climb view (PR #24)** + bigger adaptive mascot & full-width progress (PR #27) · **Today warm-up/polish (PR #26)** — greeting, stat icons, adaptive mascot banner, fixed Up Next, hiragana strip.
 - **Haruki LIVE (Phase 6.5 shipped, PR #29):** the Haruki tab is a real text+voice tutor — ElevenLabs Conversational Agent (Claude Haiku 4.5 + native-JP voice), serverless signed-URL auth (key server-side), unified chat. Also: desktop centered-column layout (PR #28).
