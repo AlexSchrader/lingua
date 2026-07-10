@@ -147,6 +147,7 @@ async function playCard(page) {
   const tracePad    = page.getByTestId("trace-pad");
   const speakCard   = page.getByTestId("speak-card");
   const sentenceCard = page.getByTestId("sentence-card");
+  const conjugateCard = page.getByTestId("conjugate-card");
   const option      = page.locator('[data-correct="true"]');
   const tile        = page.locator('[data-testid="tile"]');
   const continueBtn = page.getByRole("button", { name: "Continue" });
@@ -157,6 +158,7 @@ async function playCard(page) {
     typeCard.waitFor({ state: "visible", timeout: 8000 }),
     tracePad.waitFor({ state: "visible", timeout: 8000 }),
     speakCard.waitFor({ state: "visible", timeout: 8000 }),
+    conjugateCard.waitFor({ state: "visible", timeout: 8000 }),
     sentenceCard.waitFor({ state: "visible", timeout: 8000 }),
     option.first().waitFor({ state: "visible", timeout: 8000 }),
     tile.first().waitFor({ state: "visible", timeout: 8000 }),
@@ -183,6 +185,16 @@ async function playCard(page) {
     await page.evaluate(() => window.__sentence?.solve());
     await continueBtn.click({ force: true });
     return "sentence:build";
+  }
+
+  if (await conjugateCard.isVisible().catch(() => false)) {
+    // Fill the correct conjugated form via the test hook, submit (Check), then
+    // Continue commits the grade — mirrors the type card's flow.
+    await page.evaluate(() => window.__conjugate?.solve());
+    await page.getByRole("button", { name: "Check" }).evaluate((el) => el.click()).catch(() => {});
+    await continueBtn.waitFor({ state: "visible", timeout: 5000 }).catch(() => {});
+    await continueBtn.evaluate((el) => el.click()).catch(() => {});
+    return "conjugate";
   }
 
   if (await tracePad.isVisible().catch(() => false)) {
@@ -332,6 +344,17 @@ test("zero-reviews-due: review step shows done, CTA goes straight to lesson", as
   await expect(page.getByTestId("start-session")).toHaveText("Start lesson");
 });
 
+test("Today: mistake-review offers a targeted 'fix these' session", async ({ page }) => {
+  const state = reviewState();
+  state.state.mistakes = ["ja-u1l1-konnichiwa"]; // a recently-missed item
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(state));
+  await page.goto("/");
+  const fix = page.getByTestId("start-fix");
+  await expect(fix).toHaveText(/Fix your mistakes \(1\)/);
+  await fix.click();
+  await expect(page.getByText(/Fix-up ·/)).toBeVisible(); // the fix session, not the daily review
+});
+
 test("Today: 'Just a few' starts a capped micro-session", async ({ page }) => {
   await page.goto("/");
   const few = page.getByTestId("start-few");
@@ -421,6 +444,20 @@ test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson se
   // Session 2: lesson — い + おはよう (both rung=0) → teach/choice/trace/type:meaning.
   await page.getByTestId("start-session").click();
   for (let i = 0; i < 40; i++) {
+    const kind = await playCard(page);
+    if (kind === false) break;
+    if (typeof kind === "string") seenKinds.add(kind);
+    await page.waitForTimeout(50);
+  }
+
+  // Session 3: conjugate — exercised via its dev-preview sandbox. Unlike the other
+  // kinds, conjugation has no A1 curriculum content (it produces plain N4 forms —
+  // て/た/ない — that A1 doesn't teach), so it can't route in a normal A1 session
+  // yet. The card is fully live and routed; the preview seeds a group-tagged verb
+  // with a target form. It goes live in real reviews the moment A2 conjugation
+  // content (conjForm items) is authored.
+  await page.goto("/review?sandbox=1&card=conjugate");
+  for (let i = 0; i < 8; i++) {
     const kind = await playCard(page);
     if (kind === false) break;
     if (typeof kind === "string") seenKinds.add(kind);
@@ -608,6 +645,66 @@ test("dev mode: unlock from Settings, panel shows diagnostics, isolated run leav
   await expect(page.getByLabel("Dev Mode code")).toBeVisible();
   await page.reload();
   await expect(page.getByLabel("Dev Mode code")).toBeVisible();
+
+  expect(errors).toEqual([]);
+});
+
+test("dev mode: expanded panel — sessions, moments, progress seeder", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Settings" }).click();
+  await page.getByLabel("Dev Mode code").fill("L071201");
+  await page.getByRole("button", { name: "Unlock" }).click();
+
+  // New sections present.
+  await expect(page.getByRole("button", { name: /Just a few/ })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Play the lesson-complete celebration/ })).toBeVisible();
+
+  // Progress seeder writes REAL state (unlike the rest of the panel).
+  await page.getByRole("button", { name: "Learn 20" }).click();
+  await expect(page.getByText(/Learn 20 —/)).toBeVisible();
+  const learned = await page.evaluate(() =>
+    Object.values(JSON.parse(localStorage.getItem("lingua-v1")).state.items).filter((it) => (it.rung ?? 0) >= 1).length
+  );
+  expect(learned).toBeGreaterThanOrEqual(20);
+
+  // A session launcher opens the Fix-up flow (sandboxed).
+  await page.getByRole("button", { name: "Fix-up", exact: true }).click();
+  await expect(page.getByText(/Fix-up ·/)).toBeVisible();
+});
+
+test("dev mode: A2 preview runs draft cards in the sandbox, real state + Ladder untouched", async ({ page }) => {
+  test.setTimeout(120_000); // sampler = ~18 items across the teach flow
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await page.goto("/");
+  await page.getByRole("button", { name: "Settings" }).click();
+  await page.getByLabel("Dev Mode code").fill("L071201");
+  await page.getByRole("button", { name: "Unlock" }).click();
+
+  // The A2 preview section is present and clearly marked as draft/sandbox-only.
+  await expect(page.getByText("A2 preview (draft) — not live, sandbox only")).toBeVisible();
+  const sampler = page.getByRole("button", { name: /Quick sampler/ });
+  await expect(sampler).toBeVisible();
+
+  const before = await page.evaluate(() => localStorage.getItem("lingua-v1"));
+
+  // Run the one-tap A2 sampler end to end.
+  await sampler.click();
+  await expect(page.locator("text=/🧪 Dev ·/")).toBeVisible();
+  for (let i = 0; i < 120; i++) {
+    const kind = await playCard(page);
+    if (kind === false) break;
+    await page.waitForTimeout(20);
+  }
+  await page.getByRole("button", { name: "Back to Dev panel" }).click();
+  await expect(page.getByText("Units registered")).toBeVisible();
+
+  // CRITICAL: a draft-A2 run leaves real state byte-identical — no A2 ids leak in,
+  // no progress/FSRS/streak written.
+  const after = await page.evaluate(() => localStorage.getItem("lingua-v1"));
+  expect(after).toBe(before);
+  expect(after).not.toContain("ja-u22");
 
   expect(errors).toEqual([]);
 });

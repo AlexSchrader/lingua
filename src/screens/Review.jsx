@@ -8,12 +8,13 @@ import BuildCard from "../components/games/BuildCard.jsx";
 import TraceCard from "../components/games/TraceCard.jsx";
 import SpeakCard from "../components/games/SpeakCard.jsx";
 import SentenceCard from "../components/games/SentenceCard.jsx";
+import ConjugateCard from "../components/games/ConjugateCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import Celebration from "../components/Celebration.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable, nextRung } from "../store/mastery.js";
 import { sfxRungUp } from "../store/sfx.js";
-import { isTraceable, shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence } from "../store/cardRouting.js";
+import { isTraceable, shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate } from "../store/cardRouting.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
@@ -45,6 +46,8 @@ function reviewStepFor(item) {
   // through A1 so no JP keyboard is needed, kana required from A2 (see checkProduce)
   // — interleaved with building the word from tiles.
   if (rung === 3) {
+    // A tagged verb with a target form is a conjugation drill — always conjugate.
+    if (shouldConjugate(item)) return { kind: "conjugate" };
     if (isTraceable(item)) return { kind: "trace" };
     // Reassemble the whole example sentence (production in context) for a share of
     // eligible vocab; else type the Japanese, else build the word from tiles.
@@ -67,9 +70,13 @@ export default function Review() {
   // the dev panel's mid-progress / mastered previews. Fully isolated from real state.
   const sandbox = searchParams.get("sandbox") === "1";
   const home = sandbox ? "/dev" : "/";
+  // ?fix=1 → the mistake-review: a targeted pass over recently-missed items
+  // (not the FSRS-due queue), so it doesn't touch the daily-review bookkeeping.
+  const fix = searchParams.get("fix") === "1";
 
   const storeItems = useStore((s) => s.items);
   const dueItems = useStore((s) => s.dueItems);
+  const mistakeIds = useStore((s) => s.mistakes);
   // `?card=<kind>` → the Quick-card launcher (one item seeded to yield that kind);
   // otherwise `?lesson=&state=` → the per-lesson depth preview.
   const cardParam = searchParams.get("card");
@@ -97,7 +104,10 @@ export default function Review() {
   // is rung 0), so filtering by isReviewable yields exactly that lesson.
   const reviewQueue = useMemo(
     () => {
-      const source = sandbox ? Object.values(items).filter(isReviewable) : dueItems();
+      let source;
+      if (sandbox) source = Object.values(items).filter(isReviewable);
+      else if (fix) source = (mistakeIds ?? []).map((mid) => items[mid]).filter((it) => it && isReviewable(it));
+      else source = dueItems();
       return source.map((it) => ({ ...reviewStepFor(it), id: it.id }));
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -110,13 +120,15 @@ export default function Review() {
   const done = idx >= reviewQueue.length;
 
   useEffect(() => {
-    // Only mark reviews complete when there was real work to do. With an empty
-    // queue `done` is true on first render, so without this guard merely opening
-    // /review with nothing due would fire completeReviews + rollDailyGoal and bump
-    // the streak for zero work. The "Nothing due" screen below stays informational.
-    if (done && !finished && reviewQueue.length > 0) {
-      completeReviews();
-      rollDailyGoal();
+    if (done && !finished) {
+      // Mark the daily review complete only when there was REAL work AND this is
+      // the daily review: an empty queue (opening /review with nothing due) mustn't
+      // bump the streak for zero work, and the mistake-review (fix mode) is a bonus
+      // session that never satisfies the daily goal.
+      if (reviewQueue.length > 0 && !fix) {
+        completeReviews();
+        rollDailyGoal();
+      }
       setFinished(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -124,10 +136,10 @@ export default function Review() {
 
   if (reviewQueue.length === 0) {
     return (
-      <PhaseShell title="Reviews" progress={1} onClose={() => navigate(home)}>
+      <PhaseShell title={fix ? "Fix-up" : "Reviews"} progress={1} onClose={() => navigate(home)}>
         <div style={{ margin: "auto", textAlign: "center", color: C.inkSoft }}>
           <div style={{ fontSize: 40, marginBottom: 12 }}>✓</div>
-          Nothing due right now.
+          {fix ? "No mistakes to fix — nice." : "Nothing due right now."}
           <br />
           <button
             onClick={() => navigate(home)}
@@ -151,9 +163,9 @@ export default function Review() {
         <Celebration />
         <div style={{ margin: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 16, textAlign: "center" }}>
           <div style={{ fontSize: 56 }}>✓</div>
-          <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>Reviews cleared</div>
+          <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>{fix ? "Mistakes cleared" : "Reviews cleared"}</div>
           <div style={{ color: C.inkSoft, maxWidth: 300 }}>
-            {reviewQueue.length} item{reviewQueue.length === 1 ? "" : "s"} reviewed.
+            {reviewQueue.length} item{reviewQueue.length === 1 ? "" : "s"} {fix ? "revisited." : "reviewed."}
           </div>
           <button
             data-testid="back-to-today"
@@ -199,12 +211,14 @@ export default function Review() {
     card = <SpeakCard item={item} onGraded={onGraded} />;
   } else if (step.kind === "sentence:build") {
     card = <SentenceCard item={item} onGraded={onGraded} />;
+  } else if (step.kind === "conjugate") {
+    card = <ConjugateCard item={item} onGraded={onGraded} />;
   } else {
     card = <BuildCard item={item} onGraded={onGraded} />;
   }
 
   return (
-    <PhaseShell title={`${sandbox ? "🧪 Dev · " : ""}Review · ${idx + 1}/${reviewQueue.length}`} progress={progress} onClose={() => navigate(home)}>
+    <PhaseShell title={`${sandbox ? "🧪 Dev · " : ""}${fix ? "Fix-up" : "Review"} · ${idx + 1}/${reviewQueue.length}`} progress={progress} onClose={() => navigate(home)}>
       {/* Keyed remount per card drives the entrance "breath" (fade + brief
           input guard) so carried taps don't bleed into the next card. */}
       <CardBreath key={`r${idx}`}>{card}</CardBreath>

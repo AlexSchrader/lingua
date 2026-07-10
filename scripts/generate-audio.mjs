@@ -47,10 +47,19 @@ if (!API_KEY) {
 const { COMPANIONS } = await import("../server/companions.js");
 const { UNITS } = await import("../src/data/index.js");
 
+// A2 is drafted but not yet in UNITS (Dev-Mode preview only). Include it here so
+// the preview cards have pronunciation. Guarded: once A2 activates and
+// src/data/a2-draft.js is removed, this import fails silently and the script
+// falls back to the live UNITS — no edit needed at activation time.
+let A2_DRAFT_UNITS = [];
+try {
+  ({ A2_DRAFT_UNITS } = await import("../src/data/a2-draft.js"));
+} catch {}
+
 const MODEL_ID = "eleven_v3";
 
-// Flatten every playable item across all units, stamping its language.
-const items = UNITS.flatMap((unit) =>
+// Flatten every playable item across the live units + the A2 draft, stamping lang.
+const items = [...UNITS, ...A2_DRAFT_UNITS].flatMap((unit) =>
   unit.lessons
     .filter((l) => Array.isArray(l.items))
     .flatMap((l) => l.items.map((it) => ({ ...it, lang: unit.lang })))

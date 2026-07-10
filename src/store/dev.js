@@ -10,6 +10,9 @@ import { getLesson } from "../data/index.js";
 import { KANJIVG } from "../data/kanjivg.js";
 import { newCard } from "./srs.js";
 import { shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak, shouldCloze, shouldParticleCloze, canParticleCloze, shouldSentence } from "./cardRouting.js";
+// A2 draft is preview-only. Importing it HERE (a dev-only module) is safe — it
+// never reaches index.js / seedItems / the Ladder, so the live app stays 21 units.
+import { A2_DRAFT_UNITS, A2_SAMPLER_LESSON_IDS } from "../data/a2-draft.js";
 
 // The unlock code. Intentionally in the bundle — see note above.
 export const DEV_CODE = "L071201";
@@ -57,21 +60,86 @@ export function buildSandboxItems(lessonId, previewState = "fresh") {
   const items = {};
   for (const [id, it] of Object.entries(seed)) items[id] = { ...it, srs: newCard() };
 
-  const lesson = getLesson(lessonId);
+  const lesson = getPreviewLesson(lessonId);
   if (!lesson?.items) return items;
 
   const ov = PREVIEW_OVERRIDES[previewState] ?? PREVIEW_OVERRIDES.fresh;
   const duePast = new Date(Date.now() - 1000);
   for (const def of lesson.items) {
-    const it = items[def.id];
-    if (!it) continue;
+    // Live items are already in `seed`; A2 draft (and sampler) items are not —
+    // materialize them here, in the throwaway map only, so they never enter seed.
+    const base = items[def.id] ?? materializeItem(def, lesson);
     items[def.id] = {
-      ...it,
+      ...base,
       rung: ov.rung,
-      srs: { ...it.srs, stability: ov.stability, due: duePast },
+      srs: { ...(base.srs ?? newCard()), stability: ov.stability, due: duePast },
     };
   }
   return items;
+}
+
+// Shape a raw lesson-def item into the seeded item shape (mirrors seedItems in
+// index.js) — used for A2 draft items, which aren't in the live seed.
+function materializeItem(def, lesson) {
+  return {
+    ...def,
+    lang: lesson.lang ?? "ja",
+    unit: lesson.unit,
+    lesson: lesson.lesson,
+    meaning: def.meaning ?? null,
+    example: def.example ?? null,
+    accept: def.accept ?? [],
+    rung: 0,
+    srs: newCard(),
+  };
+}
+
+// --- A2 draft preview --------------------------------------------------------
+// A2 is drafted but NOT activated (not in UNITS, not seeded, not on the Ladder).
+// These helpers let Dev Mode run A2 lessons in the SAME throwaway sandbox as live
+// units so Alex can feel the content before it ships — preview only, zero leakage
+// to the live daily loop.
+export const A2_SAMPLER_ID = "ja-a2-sampler";
+const A2_SAMPLE_PER_LESSON = 2; // items pulled per sampler lesson for the one-tap cross-section
+
+// Draft-side twin of getLesson: find an A2 draft lesson (with items) by id.
+function getDraftLesson(lessonId) {
+  for (const unit of A2_DRAFT_UNITS) {
+    for (const lesson of unit.lessons) {
+      if (lesson.id === lessonId) return { ...lesson, lang: unit.lang };
+    }
+  }
+  return null;
+}
+
+// The synthetic "A2 sampler" lesson — a short cross-section: the first couple of
+// items from each curated sampler lesson, so one tap tastes every A2 theme.
+function a2SamplerLesson() {
+  const items = [];
+  for (const lid of A2_SAMPLER_LESSON_IDS) {
+    const lesson = getDraftLesson(lid);
+    if (lesson?.items) items.push(...lesson.items.slice(0, A2_SAMPLE_PER_LESSON));
+  }
+  return { id: A2_SAMPLER_ID, title: "A2 sampler (draft)", unit: 0, lesson: 0, lang: "ja", cefr: "A2", items };
+}
+
+// Draft-aware lesson lookup for the PREVIEW path only: live units first, then the
+// A2 draft set, plus the synthetic sampler. Live getLesson() stays UNITS-only.
+export function getPreviewLesson(lessonId) {
+  if (lessonId === A2_SAMPLER_ID) return a2SamplerLesson();
+  return getLesson(lessonId) ?? getDraftLesson(lessonId);
+}
+
+// Flat metadata for the Dev-Mode A2 browser (units → lessons). No live leakage.
+export function a2PreviewUnits() {
+  return A2_DRAFT_UNITS.map((u) => ({
+    id: u.id,
+    title: u.title,
+    stage: u.stage ?? "a2",
+    lessons: u.lessons
+      .filter((l) => Array.isArray(l.items))
+      .map((l) => ({ id: l.id, title: l.title, cefr: l.cefr ?? "A2", itemCount: l.items.length })),
+  }));
 }
 
 // --- Quick card preview ------------------------------------------------------
@@ -92,6 +160,7 @@ function kindSpec(kind) {
     case "type:meaning":  return { rung: 2, pick: (it) => it.type === "vocab" && !shouldParticleCloze(it) && !shouldCloze(it) && !shouldListenType(it) && !shouldTypeReading(it) };
     case "type:produce":  return { rung: 3, pick: (it) => shouldTypeProduce(it) };
     case "sentence:build": return { rung: 3, pick: (it) => shouldSentence(it) };
+    case "conjugate":     return { rung: 3, pick: (it) => it.type === "vocab" && !!it.group };
     case "build":         return { rung: 3, pick: (it) => it.type === "vocab" && !shouldTypeProduce(it) && !shouldSentence(it) };
     case "trace":         return { rung: 3, pick: (it) => isTraceable(it) };
     case "speak":         return { rung: 4, pick: (it) => shouldSpeak(it) };
@@ -110,7 +179,14 @@ export function buildCardPreviewItems(kind) {
   const picks = Object.values(seed).filter(spec.pick).slice(0, QUICK_CARD_COUNT);
   const due = new Date(Date.now() - 1000);
   for (const p of picks) {
-    items[p.id] = { ...items[p.id], rung: spec.rung, srs: { ...items[p.id].srs, stability: 8, due } };
+    items[p.id] = {
+      ...items[p.id],
+      rung: spec.rung,
+      srs: { ...items[p.id].srs, stability: 8, due },
+      // The conjugate preview needs a target form; synthesize the て-form on the
+      // group-tagged verb so it routes to the conjugate card in the sandbox.
+      ...(kind === "conjugate" ? { conjForm: "te" } : {}),
+    };
   }
   return items;
 }
@@ -182,4 +258,19 @@ export function sandboxRoute(lessonId, previewState) {
     return `/lesson/${lessonId}?sandbox=1&state=fresh`;
   }
   return `/review?sandbox=1&state=${previewState}&lesson=${lessonId}`;
+}
+
+// --- Session launchers (isolated) --------------------------------------------
+// Run each SESSION SHAPE against the throwaway sandbox so the whole flow can be
+// felt without grinding real due items / misses. All isolated — no real state.
+export function reviewSandboxRoute() {
+  return sandboxRoute(firstLessonId(), "mid"); // a mixed review over the first lesson
+}
+export function fixupSandboxRoute() {
+  // The mistake-review UI over the sandbox set (fix=1 → "Fix-up" framing).
+  return `${sandboxRoute(firstLessonId(), "produce")}&fix=1`;
+}
+export function microSandboxRoute() {
+  // "Just a few" — a lesson capped to 3 new items.
+  return `/lesson/${firstLessonId()}?sandbox=1&state=fresh&few=3`;
 }
