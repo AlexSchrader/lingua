@@ -642,6 +642,8 @@ test("dev mode: unlock from Settings, panel shows diagnostics, isolated run leav
   const before = await page.evaluate(() => localStorage.getItem("lingua-v1"));
 
   // Launch a Fresh lesson directly (bypasses ladder gating) and play it through.
+  // The per-unit launcher sections are collapsed accordions now — open the first.
+  await page.getByRole("button", { name: /はじめまして/ }).click();
   await page.getByRole("button", { name: "Fresh" }).first().click();
   await expect(page.locator("text=/🧪 Dev ·/")).toBeVisible();
   for (let i = 0; i < 80; i++) {
@@ -672,6 +674,11 @@ test("dev mode: expanded panel — sessions, moments, progress seeder", async ({
   await page.getByLabel("Dev Mode code").fill("L071201");
   await page.getByRole("button", { name: "Unlock" }).click();
 
+  // Sections are collapsed accordions now — open the ones this test drives.
+  await page.getByRole("button", { name: /Sessions/ }).click();
+  await page.getByRole("button", { name: /Moments/ }).click();
+  await page.getByRole("button", { name: /Seed progress/ }).click();
+
   // New sections present.
   await expect(page.getByRole("button", { name: /Just a few/ })).toBeVisible();
   await expect(page.getByRole("button", { name: /Play the lesson-complete celebration/ })).toBeVisible();
@@ -701,6 +708,7 @@ test("dev mode: A2 preview runs draft cards in the sandbox, real state + Ladder 
 
   // The A2 preview section is present and clearly marked as draft/sandbox-only.
   await expect(page.getByText("A2 preview (draft) — not live, sandbox only")).toBeVisible();
+  await page.getByRole("button", { name: /A2 preview/ }).click(); // open the collapsed section
   const sampler = page.getByRole("button", { name: /Quick sampler/ });
   await expect(sampler).toBeVisible();
 
