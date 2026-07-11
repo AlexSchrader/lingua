@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { deriveGrade } from "../../store/grading.js";
+import { useStore } from "../../store/useStore.js";
 import { conjugate, CONJ_FORM_LABEL } from "../../store/conjugate.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { C, F } from "../../theme.js";
@@ -11,6 +12,7 @@ import { C, F } from "../../theme.js";
 const strip = (s) => String(s ?? "").trim().replace(/\s+/g, "");
 
 export default function ConjugateCard({ item, onGraded }) {
+  const noSpeed = useStore((s) => s.settings?.noSpeedPressure ?? false);
   const answer = conjugate(item.front, item.group, item.conjForm);
   const [value, setValue] = useState("");
   const [retried, setRetried] = useState(false);
@@ -37,7 +39,7 @@ export default function ConjugateCard({ item, onGraded }) {
     if (phase === "feedback" || !answer) return;
     if (strip(value) === strip(answer)) {
       sfxCorrect();
-      setGrade(deriveGrade({ kind: "typed", correct: true, retried, elapsedMs: performance.now() - shownAt.current, target: answer }));
+      setGrade(deriveGrade({ kind: "typed", correct: true, retried, elapsedMs: performance.now() - shownAt.current, target: answer, noSpeed }));
       setOutcome("correct"); setPhase("feedback");
     } else if (!retried) {
       sfxWrong(); setRetried(true); setValue("");

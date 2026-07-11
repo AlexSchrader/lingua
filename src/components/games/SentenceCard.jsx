@@ -1,6 +1,7 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
+import { useStore } from "../../store/useStore.js";
 import { sfxClick, sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { sentenceTiles } from "../../store/cardRouting.js";
 
@@ -10,6 +11,7 @@ import { sentenceTiles } from "../../store/cardRouting.js";
 // the right assembly grades by speed, a wrong one grades `again` (Reset first to
 // retry without penalty). Tokenized safely upstream (cardRouting.sentenceTiles).
 export default function SentenceCard({ item, onGraded }) {
+  const noSpeed = useStore((s) => s.settings?.noSpeedPressure ?? false);
   const spec = useMemo(() => sentenceTiles(item), [item.id]);
   const shownAt = useRef(performance.now());
   const [picked, setPicked] = useState([]);
@@ -46,7 +48,7 @@ export default function SentenceCard({ item, onGraded }) {
     if (correct) sfxCorrect(); else sfxWrong();
     onGraded(
       correct
-        ? deriveGrade({ kind: "typed", correct: true, elapsedMs: performance.now() - shownAt.current, target: answer.join("") })
+        ? deriveGrade({ kind: "typed", correct: true, elapsedMs: performance.now() - shownAt.current, target: answer.join(""), noSpeed })
         : "again"
     );
   };

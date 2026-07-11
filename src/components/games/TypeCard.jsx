@@ -5,6 +5,7 @@ import { deriveGrade } from "../../store/grading.js";
 import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji } from "../../store/answer.js";
 import { sfxCorrect, sfxWrong, sfxAlmost } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
+import { useStore } from "../../store/useStore.js";
 
 // Dictation prompt (listen:type): a Play button in place of the glyph, autoplaying
 // on mount, so the ear — not the eye — drives the answer. Mirrors ChoiceCard's
@@ -50,6 +51,7 @@ function NearMiss({ typed, answer, tokenFont }) {
 
 export default function TypeCard({ item, mode, onGraded, listen = false }) {
   const isKana = item.type === "kana";
+  const noSpeed = useStore((s) => s.settings?.noSpeedPressure ?? false);
 
   // Resolve prompt + checker + the canonical answer for this mode/type.
   const spec = (() => {
@@ -121,7 +123,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
     if (spec.check(value)) {
       sfxCorrect();
       const elapsed = performance.now() - shownAt.current;
-      setGrade(deriveGrade({ kind: "typed", correct: true, retried, elapsedMs: elapsed, target: spec.answer }));
+      setGrade(deriveGrade({ kind: "typed", correct: true, retried, elapsedMs: elapsed, target: spec.answer, noSpeed }));
       setOutcome("correct");
       setPhase("feedback");
       playIfEnabled();

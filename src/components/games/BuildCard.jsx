@@ -1,6 +1,7 @@
 import { useState, useMemo, useRef } from "react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
+import { useStore } from "../../store/useStore.js";
 import { sfxClick, sfxCorrect, sfxWrong } from "../../store/sfx.js";
 
 function shuffle(arr) {
@@ -17,6 +18,7 @@ function shuffle(arr) {
 // TypeCard's forgiveness: a wrong assembly gets one gentle free retry before it
 // grades `again`, and tapping the assembled row undoes the last tile.
 export default function BuildCard({ item, onGraded }) {
+  const noSpeed = useStore((s) => s.settings?.noSpeedPressure ?? false);
   const target = (item.reading || item.front).replace(/[ˉ̄]/g, "");
   const tiles = useMemo(() => shuffle(target.split("")), [item.id, target]);
   const shownAt = useRef(performance.now());
@@ -34,7 +36,7 @@ export default function BuildCard({ item, onGraded }) {
     if (correct) {
       sfxCorrect();
       onGraded(
-        deriveGrade({ kind: "typed", correct: true, retried: missed, elapsedMs: performance.now() - shownAt.current, target })
+        deriveGrade({ kind: "typed", correct: true, retried: missed, elapsedMs: performance.now() - shownAt.current, target, noSpeed })
       );
     } else if (!missed) {
       sfxWrong();

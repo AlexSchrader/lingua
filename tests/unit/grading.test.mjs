@@ -19,12 +19,22 @@ test("typed: correct after a retry → hard (no speed bonus)", () => {
   assert.equal(g, "hard");
 });
 
-test("typed: first-try speed maps to easy / good / hard", () => {
+test("typed: fast first-try → easy; slower-but-correct → good (never hard for slowness)", () => {
   const target = "hi"; // TIMING.typed = 1500 + 350*2 = 2200ms
   const t = TIMING.typed(target);
   assert.equal(deriveGrade({ kind: "typed", correct: true, elapsedMs: t * 0.5, target }), "easy");
   assert.equal(deriveGrade({ kind: "typed", correct: true, elapsedMs: t, target }), "good");
-  assert.equal(deriveGrade({ kind: "typed", correct: true, elapsedMs: t * 2, target }), "hard");
+  // Being thoughtful is not a struggle — a slow first-try stays "good", not "hard".
+  assert.equal(deriveGrade({ kind: "typed", correct: true, elapsedMs: t * 5, target }), "good");
+});
+
+test("typed: noSpeed ignores timing — correct first try is always good", () => {
+  const target = "hi";
+  const t = TIMING.typed(target);
+  assert.equal(deriveGrade({ kind: "typed", correct: true, elapsedMs: t * 0.1, target, noSpeed: true }), "good");
+  assert.equal(deriveGrade({ kind: "typed", correct: true, elapsedMs: t * 5, target, noSpeed: true }), "good");
+  // a retry is still "hard" (a genuine struggle), speed pressure or not
+  assert.equal(deriveGrade({ kind: "typed", correct: true, retried: true, target, noSpeed: true }), "hard");
 });
 
 test("timing target scales with answer length", () => {

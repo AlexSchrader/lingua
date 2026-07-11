@@ -236,7 +236,13 @@ export default function Settings() {
       </Section>
 
       <Section title="Practice">
-        <div style={{ fontSize: 13, color: C.inkSoft, lineHeight: 1.4 }}>
+        <Toggle
+          label="No speed pressure"
+          desc="Grade answers on whether they're right, not how fast. A correct answer counts the same whether it took you two seconds or twenty — no timing, no rush. (You'll still see items again on their normal schedule.)"
+          checked={settings?.noSpeedPressure ?? false}
+          onChange={(v) => setSetting("noSpeedPressure", v)}
+        />
+        <div style={{ fontSize: 13, color: C.inkSoft, lineHeight: 1.4, marginTop: 12 }}>
           Producing a word asks you to type it in Japanese. Through A1 you can answer in
           rōmaji (no Japanese keyboard needed); from A2 you'll type the kana. Tiles (build)
           and typing the meaning always work too.
