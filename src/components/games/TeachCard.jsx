@@ -11,6 +11,10 @@ export default function TeachCard({ item, onAdvance }) {
   const { play, active } = useItemAudio(item);
   const showRomaji = useStore((s) => s.settings?.showRomaji ?? true);
   const furigana = useStore((s) => s.settings?.furigana ?? true);
+  // Orient a brand-new learner: the very first thing they ever see is a big glyph
+  // + "Got it" with no explanation of the loop. Show a one-time framing line while
+  // nothing is learned yet; it self-hides the moment the first item graduates.
+  const isFirstEver = useStore((s) => !Object.values(s.items).some((it) => (it.rung ?? 0) >= 1));
   const label = item.type === "kana" ? "character" : item.type === "kanji" ? "kanji" : "word";
   // When furigana rubies the reading over a kanji headword, the romaji line below
   // is redundant — drop it so the reading shows once (all-kana words are unaffected).
@@ -91,6 +95,13 @@ export default function TeachCard({ item, onAdvance }) {
           <Volume2 size={20} />
         </button>
       </div>
+
+      {isFirstEver && (
+        <div style={{ fontSize: 12, color: C.inkSoft, textAlign: "center", lineHeight: 1.45, padding: "0 8px" }}>
+          New here? Just get a feel for it — you'll see it again over the next few days.
+          Forgetting one is part of how it sticks.
+        </div>
+      )}
 
       <button
         onClick={() => { sfxClick(); onAdvance(); }}

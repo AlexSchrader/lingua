@@ -86,6 +86,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
   const [phase, setPhase] = useState("input"); // "input" | "feedback"
   const [outcome, setOutcome] = useState(null); // "correct" | "wrong"
   const [grade, setGrade] = useState(null);
+  const [revealed, setRevealed] = useState(false); // "Show answer" escape used
   // Reinforce the word's pronunciation once the answer settles (feedback), whether
   // right or wrong — so the learner always hears the target. Respects the setting;
   // autoplay:false so a recall prompt never speaks the answer before they type.
@@ -98,7 +99,22 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
     setPhase("input");
     setOutcome(null);
     setGrade(null);
+    setRevealed(false);
   }, [item.id, mode]);
+
+  // "Show answer" escape: a stuck learner shouldn't have to submit-wrong twice
+  // (two stings + an `again`) just for not knowing. Reveal the answer and grade
+  // `again` once — same SRS outcome as a genuine miss, none of the shame. ND
+  // learners freeze on recall; this respects the freeze instead of punishing it.
+  const showAnswer = () => {
+    if (phase === "feedback") return;
+    sfxWrong();
+    setRevealed(true);
+    setGrade("again");
+    setOutcome("wrong");
+    setPhase("feedback");
+    playIfEnabled();
+  };
 
   const submit = () => {
     if (phase === "feedback") return;
@@ -196,7 +212,13 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
       )}
 
       {feedback && (
-        outcome === "correct" ? (
+        revealed ? (
+          // Escaped via "Show answer" — no diff/shame, just the answer to learn.
+          <div style={{ textAlign: "center", fontSize: 15 }}>
+            <span style={{ color: C.inkSoft, fontWeight: 700 }}>Answer:</span>{" "}
+            <span style={{ fontFamily: spec.jp ? F.body : F.jp }}>{spec.answer}</span>
+          </div>
+        ) : outcome === "correct" ? (
           <div style={{ textAlign: "center", fontSize: 15 }}>
             <span style={{ color: C.matcha, fontWeight: 700 }}>Correct</span>
           </div>
@@ -226,22 +248,39 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
       )}
 
       {!feedback ? (
-        <button
-          onClick={submit}
-          style={{
-            padding: 16,
-            borderRadius: 14,
-            border: "none",
-            background: C.ai,
-            color: "#fff",
-            fontSize: 16,
-            fontWeight: 700,
-            fontFamily: F.body,
-            cursor: "pointer",
-          }}
-        >
-          Check
-        </button>
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          <button
+            onClick={submit}
+            style={{
+              padding: 16,
+              borderRadius: 14,
+              border: "none",
+              background: C.ai,
+              color: "#fff",
+              fontSize: 16,
+              fontWeight: 700,
+              fontFamily: F.body,
+              cursor: "pointer",
+            }}
+          >
+            Check
+          </button>
+          <button
+            onClick={showAnswer}
+            style={{
+              padding: "6px 12px",
+              border: "none",
+              background: "transparent",
+              color: C.inkSoft,
+              fontSize: 13,
+              fontWeight: 600,
+              fontFamily: F.body,
+              cursor: "pointer",
+            }}
+          >
+            Show answer
+          </button>
+        </div>
       ) : (
         <button
           onClick={() => onGraded(grade)}
