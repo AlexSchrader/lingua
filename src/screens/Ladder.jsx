@@ -125,8 +125,9 @@ function ActiveLanguage({ lang, items }) {
   const cur = statsByStage[currentStage];
 
   // "You're here" shows position within the CURRENT stage: which unit of the
-  // stage's units, and which lesson of the stage's total lessons —
-  // "U:1/7 L:1/36". First lesson (in order) still holding an unlearned item.
+  // stage's units, and which lesson of the stage's total lessons — spelled out
+  // ("Unit 1/7 · Lesson 1/36"), not the old "U:1/7 L:1/36" jargon. First lesson
+  // (in order) still holding an unlearned item.
   const hereLabel = (() => {
     const stageUnits = UNITS.filter((u) => u.lang === lang.id && (u.stage ?? "a1") === currentStage)
       .slice()
@@ -138,7 +139,7 @@ function ActiveLanguage({ lang, items }) {
       const uLessons = stageUnits[ui].lessons.filter((l) => Array.isArray(l.items));
       for (let li = 0; li < uLessons.length; li++) {
         if (uLessons[li].items.some((def) => (items[def.id]?.rung ?? 0) < 1)) {
-          return `U:${ui + 1}/${totalUnits} L:${before + li + 1}/${totalLessons}`;
+          return `Unit ${ui + 1}/${totalUnits} · Lesson ${before + li + 1}/${totalLessons}`;
         }
       }
       before += uLessons.length;
