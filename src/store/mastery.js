@@ -50,9 +50,17 @@ export const MASTERY_FULL_DAYS = 45;
 
 export function masteryPct(item) {
   const stability = Number(item?.srs?.stability) || 0;
-  return Math.max(0, Math.min(1, stability / MASTERY_FULL_DAYS));
+  const raw = Math.max(0, Math.min(1, stability / MASTERY_FULL_DAYS));
+  // FSRS stability grows multiplicatively, so the linear ratio reads ~5–10% and
+  // barely moves for a week+ despite real gains — a discouraging "no progress"
+  // signal on items just worked. A concave (sqrt) map front-loads the visible
+  // movement (early reviews show real progress) while keeping the endpoints fixed:
+  // 0 → 0 and MASTERY_FULL_DAYS → 1, so isMastered's threshold is unchanged.
+  return Math.sqrt(raw);
 }
 
 export function isMastered(item) {
+  // Stability-based, threshold-preserving: sqrt(1) === 1, so this still trips at
+  // exactly MASTERY_FULL_DAYS of stability.
   return masteryPct(item) >= 1;
 }

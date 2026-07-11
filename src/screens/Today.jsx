@@ -21,11 +21,12 @@ function fmtWhen(ts) {
 }
 
 // Time-of-day greeting (name folds in later, once onboarding gives us one).
-function greeting() {
+function greeting(name) {
   const h = new Date().getHours();
-  if (h < 12) return "Good morning";
-  if (h < 18) return "Good afternoon";
-  return "Good evening";
+  const base = h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening";
+  // Onboarding collects a display name — actually use it (it was captured and read
+  // nowhere, so the greeting stayed generic forever). Falls back cleanly when absent.
+  return name ? `${base}, ${name}` : base;
 }
 
 function StatusPill({ icon: Icon, label, value, state }) {
@@ -258,7 +259,7 @@ export default function Today() {
       >
         <Mascot context="greeting" pose={mascot.pose} style={{ width: "clamp(72px, 18vw, 132px)", flexShrink: 0 }} />
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontFamily: F.disp, fontSize: 19, fontWeight: 700, marginBottom: 2 }}>{greeting()}</div>
+          <div style={{ fontFamily: F.disp, fontSize: 19, fontWeight: 700, marginBottom: 2 }}>{greeting(profile.displayName)}</div>
           <div style={{ fontSize: 14, color: C.ink, lineHeight: 1.35, fontWeight: 600 }}>{mascot.msg}</div>
           <div style={{ fontSize: 12, color: C.inkSoft, fontWeight: 600, marginTop: 6 }}>
             {active.flag} {active.name} · {active.level === "pre-A1" ? "Starting out" : active.level} → {active.target} goal
