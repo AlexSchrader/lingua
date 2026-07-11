@@ -56,12 +56,15 @@ const countMastered = (items, defs) => defs.filter((d) => mastered(items, d.id))
 
 // A milestone is defined by a `progress(items) → { have, need }`; it's earned when
 // have ≥ need. `label` is the capability statement shown on unlock; `family` groups
-// the display; `blurb` is the gentle next-goal noun ("words mastered").
+// the display; `blurb` is the gentle next-goal noun ("words mastered"). `image` is a
+// per-milestone badge (public/milestones/<id>.png) — the celebration banner hides it
+// gracefully until the asset exists, so this convention is data-ready, not required.
+const badgeFor = (id) => `/milestones/${id}.png`;
 function threshold({ id, family, label, blurb, need, count }) {
-  return { id, family, label, blurb, progress: (items) => ({ have: count(items), need }) };
+  return { id, family, label, blurb, image: badgeFor(id), progress: (items) => ({ have: count(items), need }) };
 }
 function completeAll({ id, family, label, blurb, defs }) {
-  return { id, family, label, blurb, progress: (items) => ({ have: countRead(items, defs), need: defs.length }) };
+  return { id, family, label, blurb, image: badgeFor(id), progress: (items) => ({ have: countRead(items, defs), need: defs.length }) };
 }
 
 // Build the catalog from the live curriculum. A function (not a bare const) so it
@@ -140,7 +143,7 @@ export function milestonesFromIds(ids = []) {
   const set = new Set(ids);
   return milestoneCatalog()
     .filter((m) => set.has(m.id))
-    .map((m) => ({ id: m.id, label: m.label, family: m.family }));
+    .map((m) => ({ id: m.id, label: m.label, family: m.family, image: m.image }));
 }
 
 // Convenience for the display: earned + next in one pass, each with progress.
@@ -148,6 +151,6 @@ export function milestoneSummary(items) {
   const earnedSet = new Set(earnedMilestones(items));
   const earned = milestoneCatalog()
     .filter((m) => earnedSet.has(m.id))
-    .map((m) => ({ id: m.id, label: m.label, family: m.family }));
+    .map((m) => ({ id: m.id, label: m.label, family: m.family, image: m.image }));
   return { earned, next: nextMilestone(items), total: milestoneCatalog().length };
 }
