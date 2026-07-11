@@ -10,6 +10,7 @@
     "test": "playwright test",
     "test:unit": "node --test tests/unit/*.test.mjs",
     "validate:content": "node scripts/validate-content.mjs",
+    "validate:a2-draft": "node scripts/validate-a2-draft.mjs",
     "lint:curriculum": "node scripts/lint-curriculum.mjs",
     "audit": "node scripts/audit-curriculum.mjs",
     "generate:audio": "node scripts/generate-audio.mjs",
