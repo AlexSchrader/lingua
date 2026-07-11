@@ -10,6 +10,7 @@ const VALID_VERB_GROUPS = ["godan", "ichidan", "irregular"];
 export const LIVE_CARD_KINDS = [
   "teach",
   "choice",
+  "choice:reverse",
   "listen:choice",
   "listen:type",
   "type:meaning",

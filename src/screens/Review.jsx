@@ -14,7 +14,7 @@ import Celebration from "../components/Celebration.jsx";
 import { useStore } from "../store/useStore.js";
 import { isReviewable, nextRung } from "../store/mastery.js";
 import { sfxRungUp } from "../store/sfx.js";
-import { isTraceable, shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate } from "../store/cardRouting.js";
+import { isTraceable, shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate } from "../store/cardRouting.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
@@ -27,9 +27,14 @@ function assertLiveKind(kindKey) {
 
 function reviewStepFor(item) {
   const rung = item.rung ?? 1;
-  // Recognition (rung ≤ 1): interleave the eye path (choice) with the ear path
-  // (listen:choice) for items that have a clip — same skill, sound-in vs glyph-in.
-  if (rung <= 1) return shouldListen(item) ? { kind: "listen:choice" } : { kind: "choice" };
+  // Recognition (rung ≤ 1): interleave three same-skill variants — the ear path
+  // (listen:choice, audio in), the reverse direction (choice:reverse, English in →
+  // pick the Japanese), and the plain eye path (choice, glyph in → pick the meaning).
+  if (rung <= 1) {
+    if (shouldListen(item)) return { kind: "listen:choice" };
+    if (shouldReverseChoice(item)) return { kind: "choice:reverse" };
+    return { kind: "choice" };
+  }
   // Recall (rung 2): three interleaved recall paths on distinct hash bands — fill
   // the word into its own sentence (cloze), recall by ear (dictation), or the
   // visual recall (type the reading, else the meaning).
@@ -195,6 +200,8 @@ export default function Review() {
   let card;
   if (step.kind === "choice") {
     card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} />;
+  } else if (step.kind === "choice:reverse") {
+    card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} reverse />;
   } else if (step.kind === "listen:choice") {
     card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} audioFirst />;
   } else if (step.kind === "cloze:choice") {

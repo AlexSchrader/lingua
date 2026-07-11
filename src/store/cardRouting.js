@@ -27,6 +27,16 @@ export function shouldListen(item) {
   return hasAudio(item) && hash01(item.id) < LISTEN_SHARE;
 }
 
+// Reverse recognition (choice:reverse): show the ENGLISH meaning, pick the correct
+// Japanese glyph from four. Same recognition rung as `choice`, mirrored direction —
+// recall toward production with far less friction than typing. Vocab-only (kana have
+// no English gloss). A salted, independent hash band so it interleaves a share of
+// the non-listen recognition reviews; checked AFTER shouldListen (ear path wins).
+export const REVERSE_SHARE = 0.4;
+export function shouldReverseChoice(item) {
+  return item?.type === "vocab" && !!item.meaning && hash01(item.id + ":rev") < REVERSE_SHARE;
+}
+
 // --- typed production (English → Japanese, Japanese → rōmaji) -----------------
 
 export const PRODUCE_SHARE = 0.5; // share of rung-3 vocab that TYPE the word (else build)
