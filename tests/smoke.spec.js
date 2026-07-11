@@ -188,6 +188,7 @@ function lockedWithNewFixture() {
 // or false once the finish screen ("Back to Today") shows.
 async function playCard(page) {
   const finish      = page.getByRole("button", { name: "Back to Today" });
+  const begin       = page.getByTestId("lesson-begin");
   const teach       = page.getByRole("button", { name: "Got it" });
   const typeCard    = page.getByTestId("type-card");
   const tracePad    = page.getByTestId("trace-pad");
@@ -200,6 +201,7 @@ async function playCard(page) {
 
   await Promise.race([
     finish.waitFor({ state: "visible", timeout: 8000 }),
+    begin.waitFor({ state: "visible", timeout: 8000 }),
     teach.waitFor({ state: "visible", timeout: 8000 }),
     typeCard.waitFor({ state: "visible", timeout: 8000 }),
     tracePad.waitFor({ state: "visible", timeout: 8000 }),
@@ -211,6 +213,12 @@ async function playCard(page) {
   ]).catch(() => {});
 
   if (await finish.isVisible().catch(() => false)) return false;
+
+  // Lesson intro (R27): the "calm breath" before card 1 — tap Begin to start.
+  if (await begin.isVisible().catch(() => false)) {
+    await begin.click();
+    return "intro";
+  }
 
   if (await teach.isVisible().catch(() => false)) {
     await teach.click();
@@ -437,11 +445,24 @@ test("Today: 'Just a few' starts a capped micro-session", async ({ page }) => {
   const few = page.getByTestId("start-few");
   await expect(few).toBeVisible();
   await few.click();
+  await page.getByTestId("lesson-begin").click(); // R27 intro → Begin
   // 3 new items → teach×3 + interleaved checks (~9 cards), not the full lesson (~30).
   const counter = page.getByText(/card 1 of \d+/);
   await expect(counter).toBeVisible();
   const total = parseInt((await counter.textContent()).match(/of (\d+)/)[1], 10);
   expect(total).toBeLessThanOrEqual(9);
+});
+
+test("R27: a lesson opens on a calm intro before card 1", async ({ page }) => {
+  await page.goto("/");
+  await page.getByTestId("start-session").click();
+  // Intro first — a Begin button + item count, no card yet.
+  await expect(page.getByTestId("lesson-begin")).toBeVisible();
+  await expect(page.getByText(/new item/)).toBeVisible();
+  await expect(page.getByText(/card 1 of/)).toHaveCount(0);
+  // Begin → card 1 appears.
+  await page.getByTestId("lesson-begin").click();
+  await expect(page.getByText(/card 1 of/)).toBeVisible();
 });
 
 test("R20: reviews waiting don't hard-block — a few new items stay open", async ({ page }) => {
@@ -488,6 +509,7 @@ test("lesson: the Previous button steps back a card (visual, no crash)", async (
 
   await page.goto("/");
   await page.getByTestId("start-session").click();
+  await page.getByTestId("lesson-begin").click(); // R27 intro → Begin
 
   // First card: no back control (nothing to step back to).
   await expect(page.getByText(/card 1 of/)).toBeVisible();
