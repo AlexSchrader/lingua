@@ -9,7 +9,7 @@ import { seedItems, UNITS } from "../data/index.js";
 import { getLesson } from "../data/index.js";
 import { KANJIVG } from "../data/kanjivg.js";
 import { newCard } from "./srs.js";
-import { shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak, shouldCloze, shouldParticleCloze, canParticleCloze, shouldSentence } from "./cardRouting.js";
+import { shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak, shouldCloze, shouldParticleCloze, canParticleCloze, shouldSentence } from "./cardRouting.js";
 // A2 draft is preview-only. Importing it HERE (a dev-only module) is safe — it
 // never reaches index.js / seedItems / the Ladder, so the live app stays 21 units.
 import { A2_DRAFT_UNITS, A2_SAMPLER_LESSON_IDS } from "../data/a2-draft.js";
@@ -152,7 +152,8 @@ export const QUICK_CARD_COUNT = 3; // examples seeded per Quick-card kind
 function kindSpec(kind) {
   switch (kind) {
     case "listen:choice": return { rung: 1, pick: (it) => it.type === "vocab" && shouldListen(it) };
-    case "choice":        return { rung: 1, pick: (it) => it.type === "vocab" && !shouldListen(it) };
+    case "choice:reverse": return { rung: 1, pick: (it) => it.type === "vocab" && !shouldListen(it) && shouldReverseChoice(it) };
+    case "choice":        return { rung: 1, pick: (it) => it.type === "vocab" && !shouldListen(it) && !shouldReverseChoice(it) };
     case "particle:choice": return { rung: 2, pick: (it) => shouldParticleCloze(it) };
     case "cloze:choice":  return { rung: 2, pick: (it) => shouldCloze(it) && !canParticleCloze(it) };
     case "listen:type":   return { rung: 2, pick: (it) => shouldListenType(it) };

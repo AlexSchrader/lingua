@@ -12,7 +12,7 @@ import { useItemAudio } from "../../store/itemAudio.js";
 // ear-in not eye-in. A "Show it" escape reveals the glyph (deaf / muted / noisy
 // contexts) and turns it back into a normal choice. correct → `good`, wrong →
 // `again`, no retry. No self-grade buttons.
-export default function ChoiceCard({ item, allItems, onGraded, audioFirst = false }) {
+export default function ChoiceCard({ item, allItems, onGraded, audioFirst = false, reverse = false }) {
   const isKana = item.type === "kana";
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
@@ -21,10 +21,11 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
   // preference). autoplay:false so a plain choice never speaks the answer up front.
   const { playIfEnabled } = useItemAudio(item, { autoplay: false });
 
-  // Listening kana offers GLYPH options (the hidden answer is the glyph); every
-  // other case uses the normal field. Rebuild when the mode flips ("Show it").
+  // Options field: reverse recognition and listening-kana both offer GLYPH options
+  // (the answer is the Japanese); every other case uses the normal field (meaning /
+  // reading). Rebuild when the listening mode flips ("Show it").
   const options = useMemo(
-    () => buildOptions(item, allItems, 4, listening && isKana ? "front" : null),
+    () => buildOptions(item, allItems, 4, reverse || (listening && isKana) ? "front" : null),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [item.id, listening]
   );
@@ -36,12 +37,16 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
 
   const answered = picked !== null;
   const grade = answered ? deriveGrade({ kind: "mc", correct: options[picked].correct }) : null;
-  const optionFont = listening && isKana ? F.jp : isKana ? F.mono : F.body;
+  const optionFont = reverse ? F.jp : listening && isKana ? F.jp : isKana ? F.mono : F.body;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>
+    <div
+      data-testid="choice-card"
+      data-card-kind={audioFirst ? "listen:choice" : reverse ? "choice:reverse" : "choice"}
+      style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}
+    >
       <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
-        {listening ? "Which one did you hear?" : isKana ? "Which sound is this?" : "What does this mean?"}
+        {listening ? "Which one did you hear?" : reverse ? "Which is this in Japanese?" : isKana ? "Which sound is this?" : "What does this mean?"}
       </div>
 
       <div
@@ -59,6 +64,8 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
       >
         {listening ? (
           <ListenPrompt item={item} onShowIt={() => { setRevealed(true); setPicked(null); }} />
+        ) : reverse ? (
+          <span style={{ fontSize: 28, fontWeight: 600, textAlign: "center" }}>{item.meaning}</span>
         ) : (
           <span style={{ fontFamily: F.jp, fontSize: 64, fontWeight: 500 }}>{item.front}</span>
         )}

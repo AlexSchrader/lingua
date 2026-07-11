@@ -97,6 +97,7 @@ function kindFixtureState() {
     { id: "ja-u1l2-konbanwa",   type: "vocab", front: "こんばんは", reading: "konbanwa",   meaning: "good evening", example: { jp: "こんばんは。", en: "Good evening." }, accept: [], lang: "ja", unit: 1, lesson: 2 },
     { id: "ja-u1l2-kasa",       type: "vocab", front: "かさ",       reading: "kasa",        meaning: "umbrella",     example: { jp: "かさをどうぞ。", en: "Please take an umbrella." }, accept: [], lang: "ja", unit: 1, lesson: 2 },
     { id: "ja-u1l3-shizuka",    type: "vocab", front: "しずか",     reading: "shizuka",     meaning: "quiet",        example: { jp: "ここはしずかです。", en: "It is quiet here." }, accept: [], lang: "ja", unit: 1, lesson: 3 },
+    { id: "ja-u1l3-sakana",     type: "vocab", front: "さかな",     reading: "sakana",      meaning: "fish",         example: null,                                          accept: [], lang: "ja", unit: 1, lesson: 3 },
     { id: "ja-u1l1-sayounara",  type: "vocab", front: "さようなら", reading: "sayōnara",   meaning: "goodbye",      example: { jp: "さようなら。", en: "Goodbye." },       accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-hai",        type: "vocab", front: "はい",       reading: "hai",         meaning: "yes",          example: { jp: "はい。",       en: "Yes." },           accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-iie",        type: "vocab", front: "いいえ",     reading: "iie",         meaning: "no",           example: { jp: "いいえ。",     en: "No." },            accept: [], lang: "ja", unit: 1, lesson: 1 },
@@ -117,6 +118,7 @@ function kindFixtureState() {
     else if (it.id === "ja-u1l2-kasa")   { rung = 2; srs = dueCard();   } // rung-2 vocab, cloze band + particle after front → particle:choice
     else if (it.id === "ja-u1l3-shizuka") { rung = 2; srs = dueCard();  } // rung-2 vocab, cloze band + no particle after front → cloze:choice
     else if (it.id === "ja-u1l1-hai")    { rung = 1; srs = dueCard();   } // due rung-1 + has audio → listen:choice (review)
+    else if (it.id === "ja-u1l3-sakana") { rung = 1; srs = dueCard();   } // due rung-1 vocab, not-listen (hash≥.5) + reverse band → choice:reverse (review)
     else if (it.id === "ja-u1l1-iie")    { rung = 4; srs = dueCard();   } // rung-4 vocab → speak (SPOKEN review)
     else if (it.id === "ja-u1l1-ohayou") { rung = 0; srs = freshCard(); } // new vocab → teach + choice + type:meaning (lesson)
     else if (it.id === "ja-u1l1-i")      { rung = 0; srs = freshCard(); } // new kana  → teach + choice + trace:guided
@@ -268,9 +270,12 @@ async function playCard(page) {
     const isCloze = await clozeCard.isVisible().catch(() => false);
     const isListen = await page.getByRole("button", { name: "Play the sound" }).isVisible().catch(() => false);
     const clozeKind = isCloze ? (await clozeCard.getAttribute("data-card-kind").catch(() => null)) ?? "cloze:choice" : null;
+    // choice / choice:reverse / listen:choice all render ChoiceCard — it carries its
+    // own data-card-kind so reverse (English→JP) is told apart from the plain card.
+    const choiceKind = !isCloze ? await page.getByTestId("choice-card").getAttribute("data-card-kind").catch(() => null) : null;
     await option.first().click();
     await continueBtn.click({ force: true });
-    return clozeKind ?? (isListen ? "listen:choice" : "choice");
+    return clozeKind ?? choiceKind ?? (isListen ? "listen:choice" : "choice");
   }
 
   return false;
