@@ -22,7 +22,7 @@ const STAGE_RANK = { "pre-a1": 0, a1: 1, a2: 2, b1: 3, b2: 4 };
 // every required key must be present.
 const TYPE_KEYS = {
   kana: { required: ["id", "type", "front", "reading", "meaning", "example"], optional: ["hint"] },
-  vocab: { required: ["id", "type", "front", "reading", "meaning", "example", "accept"], optional: ["hint"] },
+  vocab: { required: ["id", "type", "front", "reading", "meaning", "example", "accept"], optional: ["hint", "group", "conjForm"] },
   // Forward-compatible: a `kanji` item type doesn't exist in the contract yet
   // (validateContent rejects it). When it ships, these rules activate.
   kanji: { required: ["id", "type", "front", "reading", "meaning", "example", "accept"], optional: ["hint"] },
@@ -111,8 +111,10 @@ export function lintCurriculum(units = []) {
           // accept[] present (may be empty)
           if (!Array.isArray(item.accept))
             w(`item ${id}: ${type} should have an accept[] array (may be empty)`);
-          // global word-front uniqueness (kana→word reuse allowed: kana fronts not tracked here)
-          if (typeof item.front === "string") {
+          // global word-front uniqueness (kana→word reuse allowed: kana fronts not tracked here).
+          // Conjugation-drill items (conjForm set) intentionally REUSE a verb's front —
+          // they're the drill, not a second teaching — so they're exempt (mirrors contract.js).
+          if (typeof item.front === "string" && !item.conjForm) {
             if (vocabFronts.has(item.front))
               e(`item ${id}: word front "${item.front}" already taught in ${vocabFronts.get(item.front)}`);
             else vocabFronts.set(item.front, id);
