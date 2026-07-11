@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { seedItems, LANGUAGES, UNITS } from "../data/index.js";
-import { newCard, schedule, isDue } from "./srs.js";
+import { newCard, schedule, isDue, startOfTomorrow } from "./srs.js";
 import { nextRung, isReviewable } from "./mastery.js";
 import { migrateState, PERSIST_VERSION } from "./migrate.js";
 import { matchesDevCode } from "./dev.js";
@@ -99,7 +99,7 @@ export const useStore = create(
       // = auto-play the pronunciation clip when a Teach card appears (the speaker
       // button always plays regardless). Both default on; persisted. Old persisted
       // state without this key keeps these defaults via persist's shallow merge.
-      settings: { sfx: true, autoplayAudio: true, showRomaji: true, furigana: true, theme: "system", textSize: "default", reduceMotion: false },
+      settings: { sfx: true, autoplayAudio: true, showRomaji: true, furigana: true, theme: "system", textSize: "default", reduceMotion: false, noSpeedPressure: false },
       ui: {},
 
       // Cloud sync (Supabase). `lastModified` is persisted and drives the
@@ -286,7 +286,13 @@ export const useStore = create(
         set((s) => {
           const item = s.items[id];
           if (!item || (item.rung ?? 0) >= 1) return s; // already graduated
-          const srs = schedule(item.srs, grade);
+          const scheduled = schedule(item.srs, grade);
+          // First review is never the SAME day — floor to tomorrow so a freshly
+          // learned item is spaced, not massed. Without this a `hard` graduation
+          // (short FSRS interval) could resurface minutes later, defeating spacing
+          // (startOfTomorrow was exported for exactly this but never wired). [R24]
+          const due = new Date(scheduled.due) < startOfTomorrow() ? startOfTomorrow() : scheduled.due;
+          const srs = { ...scheduled, due };
           const gain = XP_BY_GRADE[grade] ?? 0;
           const items = { ...s.items, [id]: { ...item, srs, rung: 1 } };
           const stats = { ...s.stats, xpTotal: s.stats.xpTotal + gain };
