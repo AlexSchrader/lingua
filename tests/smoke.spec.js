@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { LIVE_CARD_KINDS } from "../src/data/contract.js";
+import { seedItems } from "../src/data/index.js";
 
 // ---- helpers ---------------------------------------------------------------
 
@@ -133,6 +134,26 @@ function kindFixtureState() {
       stats: { xpTotal: 0 },
       daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
       settings: {}, // type:produce is default now (rung-3 vocab), no opt-in needed
+      ui: {},
+    },
+    version: 1,
+  };
+}
+
+// 25 real vocab, all rung-1 and due → more than REVIEW_CAP, to prove the cap.
+function cappedReviewFixture() {
+  const seed = seedItems();
+  const vocab = Object.values(seed).filter((it) => it.type === "vocab").slice(0, 25);
+  const items = {};
+  for (const it of vocab) items[it.id] = { ...it, rung: 1, srs: dueCard() };
+  return {
+    state: {
+      items,
+      languages: LANGUAGES,
+      streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
+      stats: { xpTotal: 0 },
+      daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+      settings: {},
       ui: {},
     },
     version: 1,
@@ -308,6 +329,17 @@ test("Today shows capability signals, not the streak/XP scoreboard", async ({ pa
   // The retired engagement scoreboard is gone.
   await expect(page.getByText("Streak", { exact: true })).toHaveCount(0);
   await expect(page.getByText("Freezes", { exact: true })).toHaveCount(0);
+});
+
+test("daily review caps the session at REVIEW_CAP (20 of 25 due)", async ({ page }) => {
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(cappedReviewFixture()));
+  // Today shows the capped, non-scary count (not the full backlog).
+  await page.goto("/");
+  await expect(page.getByText("20 due")).toBeVisible({ timeout: 8000 });
+  // The review session itself is bounded to 20 (header reads .../20, never /25).
+  await page.goto("/review");
+  await expect(page.getByText(/1\s*\/\s*20\b/)).toBeVisible({ timeout: 8000 });
+  await expect(page.getByText(/\/\s*25\b/)).toHaveCount(0);
 });
 
 test("Stats shows the Milestones section with a gentle next goal", async ({ page }) => {

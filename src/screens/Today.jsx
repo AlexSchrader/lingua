@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { BookOpen, RotateCcw, Lock, Check, Star, Award, ChevronRight } from "lucide-react";
-import { useStore } from "../store/useStore.js";
+import { useStore, REVIEW_CAP } from "../store/useStore.js";
 import { UNITS, LANGUAGES } from "../data/index.js";
 import { isReviewable, isMastered } from "../store/mastery.js";
 import { nextMilestone } from "../data/milestones.js";
@@ -118,6 +118,10 @@ export default function Today() {
 
   const due = useMemo(() => dueItemsFn(), [items, dueItemsFn]);
   const reviewsLocked = useMemo(() => reviewsLockedFn(), [items, daily, reviewsLockedFn]);
+  // Show the SESSION size, not the full backlog — a capped, non-scary number (the
+  // Review runner serves at most REVIEW_CAP, oldest-due first; the rest return next
+  // session). Prevents the "47 due" wall on the home screen.
+  const sessionDue = Math.min(due.length, REVIEW_CAP);
 
   // Units for the active language (source for both the flat lesson list and the
   // per-lesson "section / unit / lesson-in-unit" location shown on the cards).
@@ -321,7 +325,7 @@ export default function Today() {
           }}
         >
           <RotateCcw size={18} />
-          {due.length} review{due.length === 1 ? "" : "s"} due — clear them to unlock today's lesson.
+          {sessionDue} review{sessionDue === 1 ? "" : "s"} to do first — today's lesson unlocks right after.
         </div>
       )}
 
@@ -331,7 +335,7 @@ export default function Today() {
         <StatusPill
           icon={RotateCcw}
           label="Reviews"
-          value={daily.reviewsCleared ? "Cleared" : due.length > 0 ? `${due.length} due` : "All clear"}
+          value={daily.reviewsCleared ? "Cleared" : due.length > 0 ? `${sessionDue} due` : "All clear"}
           state={reviewState}
         />
         <StatusPill

@@ -11,7 +11,7 @@ import SentenceCard from "../components/games/SentenceCard.jsx";
 import ConjugateCard from "../components/games/ConjugateCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import Celebration from "../components/Celebration.jsx";
-import { useStore } from "../store/useStore.js";
+import { useStore, REVIEW_CAP } from "../store/useStore.js";
 import { isReviewable, nextRung, MAX_RUNG } from "../store/mastery.js";
 import { sfxRungUp, sfxMastered } from "../store/sfx.js";
 import { isTraceable, shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate } from "../store/cardRouting.js";
@@ -107,17 +107,29 @@ export default function Review() {
   // Snapshot the queue on mount — grading mutates items but shouldn't reshuffle.
   // In sandbox only the previewed lesson's items are reviewable (everything else
   // is rung 0), so filtering by isReviewable yields exactly that lesson.
-  const reviewQueue = useMemo(
+  const { reviewQueue, totalDue } = useMemo(
     () => {
-      let source;
+      let source, total = 0;
       if (sandbox) source = Object.values(items).filter(isReviewable);
       else if (fix) source = (mistakeIds ?? []).map((mid) => items[mid]).filter((it) => it && isReviewable(it));
-      else source = dueItems();
-      return source.map((it) => ({ ...reviewStepFor(it), id: it.id }));
+      else {
+        // Daily review: cap to REVIEW_CAP, OLDEST-due first, so a backlog doesn't
+        // wall up. `total` is the true due count (for the honest "N of M" message);
+        // the rest stay due and return next session.
+        const all = dueItems();
+        total = all.length;
+        source = all
+          .slice()
+          .sort((a, b) => new Date(a.srs?.due ?? 0) - new Date(b.srs?.due ?? 0))
+          .slice(0, REVIEW_CAP);
+      }
+      const queue = source.map((it) => ({ ...reviewStepFor(it), id: it.id }));
+      return { reviewQueue: queue, totalDue: total || queue.length };
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
+  const capped = !sandbox && !fix && totalDue > reviewQueue.length;
 
   const [idx, setIdx] = useState(0);
   const [finished, setFinished] = useState(false);
@@ -169,8 +181,12 @@ export default function Review() {
         <div style={{ margin: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 16, textAlign: "center" }}>
           <div style={{ fontSize: 56 }}>✓</div>
           <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>{fix ? "Mistakes cleared" : "Reviews cleared"}</div>
-          <div style={{ color: C.inkSoft, maxWidth: 300 }}>
-            {reviewQueue.length} item{reviewQueue.length === 1 ? "" : "s"} {fix ? "revisited." : "reviewed."}
+          <div style={{ color: C.inkSoft, maxWidth: 320 }}>
+            {capped ? (
+              <>You reviewed {reviewQueue.length} of {totalDue} due — the rest come back next time. No need to clear them all at once.</>
+            ) : (
+              <>{reviewQueue.length} item{reviewQueue.length === 1 ? "" : "s"} {fix ? "revisited." : "reviewed."}</>
+            )}
           </div>
           <button
             data-testid="back-to-today"

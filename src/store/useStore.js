@@ -35,6 +35,13 @@ const XP_BY_GRADE = { again: 2, hard: 5, good: 10, easy: 15 };
 // Cap on the "fix these" mistake list — most recent misses, older ones drop off.
 const MISTAKES_CAP = 30;
 
+// Anti-burnout bound: the most reviews a single daily session surfaces (oldest-due
+// first). Miss a day or two and 40–60 cards can come due at once — the Anki
+// death-spiral — so we serve REVIEW_CAP and let the rest return next session, no
+// penalty. Shared by the Review runner (the session queue) and Today (the count it
+// shows), so the learner never faces the full wall. A tuning knob, not structure.
+export const REVIEW_CAP = 20;
+
 const CEFR_ORDER = { A1: 0, A2: 1, B1: 2, B2: 3 };
 
 // Lazy cache: itemId → { cefr, lang } — built once from UNITS on first access.
