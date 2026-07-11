@@ -160,6 +160,29 @@ function cappedReviewFixture() {
   };
 }
 
+// Review debt (5 due, from late in the deck) + a first lesson that's still all-new,
+// so the "learn a few" escape has something to offer even while reviews are locked.
+function lockedWithNewFixture() {
+  const seed = seedItems();
+  const items = {};
+  for (const [id, it] of Object.entries(seed)) items[id] = { ...it, rung: 0, srs: freshCard() };
+  for (const it of Object.values(seed).filter((it) => it.type === "vocab").slice(-5)) {
+    items[it.id] = { ...items[it.id], rung: 1, srs: dueCard() };
+  }
+  return {
+    state: {
+      items,
+      languages: LANGUAGES,
+      streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
+      stats: { xpTotal: 0 },
+      daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+      settings: {},
+      ui: {},
+    },
+    version: 1,
+  };
+}
+
 // Plays whichever card is on screen by answering correctly.
 // Returns the card kind ("teach", "choice", "type:meaning", "type:produce", "build"),
 // or false once the finish screen ("Back to Today") shows.
@@ -419,6 +442,15 @@ test("Today: 'Just a few' starts a capped micro-session", async ({ page }) => {
   await expect(counter).toBeVisible();
   const total = parseInt((await counter.textContent()).match(/of (\d+)/)[1], 10);
   expect(total).toBeLessThanOrEqual(9);
+});
+
+test("R20: reviews waiting don't hard-block — a few new items stay open", async ({ page }) => {
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(lockedWithNewFixture()));
+  await page.goto("/");
+  // Reviews are due → they're still the primary CTA...
+  await expect(page.getByTestId("start-session")).toHaveText(/Clear reviews/);
+  // ...but the lock is soft: the "learn a few" escape is offered, not hidden.
+  await expect(page.getByTestId("start-few")).toBeVisible();
 });
 
 test("new words are taught, the loop completes, and it persists", async ({ page }) => {
