@@ -4,6 +4,8 @@ import { C, F } from "../../theme.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { KANJIVG } from "../../data/kanjivg.js";
 import { useItemAudio } from "../../store/itemAudio.js";
+import { useStore } from "../../store/useStore.js";
+import { useReduceMotion } from "../../store/useReduceMotion.js";
 
 const KVG_SIZE = 109; // fixed by KanjiVG spec — not a tuning knob
 const TRACE_MAX = 380; // cap on the trace pad's px size so the glyph stays a readable size, not full-screen
@@ -101,6 +103,12 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
   // Hear the kana (real clip, Web Speech fallback) so the learner knows what
   // they're tracing. The hook auto-plays on mount/item change.
   const { play: playVoice, active: voiceActive } = useItemAudio(item);
+  const showRomaji = useStore((s) => s.settings?.showRomaji ?? true);
+  // Honor reduce-motion (setting or OS) the same way CI does: skip the guided/snap
+  // stroke animations and go straight to the static guide. Stroke order is still
+  // taught by the numbered dots + faded guide, so nothing pedagogical is lost.
+  const reduceMotion = useReduceMotion();
+  const skipAnim = IS_WEBDRIVER || reduceMotion;
 
   // --- canvas helpers ---
 
@@ -197,15 +205,15 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
       }
     };
     const timer = setTimeout(() => {
-      if (IS_WEBDRIVER) {
-        // Skip animation in test environments — go straight to "waiting" phase.
+      if (skipAnim) {
+        // Skip animation in test / reduce-motion — go straight to "waiting" phase.
         redrawConfirmed();
         drawLine(getCtx(), pts, `${C.ai}33`, 10);
         setPhase("waiting");
       } else {
         rafRef.current = requestAnimationFrame(tick);
       }
-    }, IS_WEBDRIVER ? 0 : 350);
+    }, skipAnim ? 0 : 350);
     return () => {
       clearTimeout(timer);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -215,6 +223,8 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
   // --- snap animation ---
 
   function snapAndAdvance(drawnPts, nextDone) {
+    // Reduce-motion / test: skip the morph animation, commit the stroke immediately.
+    if (skipAnim) { finishStroke(nextDone); return; }
     setPhase("snapping");
     const ctx = getCtx();
     if (!ctx) { finishStroke(nextDone); return; }
@@ -430,10 +440,13 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
           >
             <Volume2 size={17} />
           </button>
-          {/* Romaji so the learner knows which kana this is (sound + label). */}
-          <span style={{ fontFamily: F.mono, fontSize: 18, fontWeight: 700, color: C.ai }}>
-            {item.reading}
-          </span>
+          {/* Romaji so the learner knows which kana this is — but respect Show-romaji
+              (this was the one card that leaked it when the crutch was turned off). */}
+          {showRomaji && (
+            <span style={{ fontFamily: F.mono, fontSize: 18, fontWeight: 700, color: C.ai }}>
+              {item.reading}
+            </span>
+          )}
         </div>
         <span style={{ fontSize: 12, color: C.inkSoft }}>{hint}</span>
       </div>
