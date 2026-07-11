@@ -3,7 +3,7 @@ import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
 import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji } from "../../store/answer.js";
-import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
+import { sfxCorrect, sfxWrong, sfxAlmost } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 
 // Dictation prompt (listen:type): a Play button in place of the glyph, autoplaying
@@ -126,7 +126,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
       setPhase("feedback");
       playIfEnabled();
     } else if (!retried) {
-      sfxWrong();
+      sfxAlmost(); // first slip → "almost, try once more" (distinct from a real miss)
       setRetried(true); // one free retry
     } else {
       sfxWrong();
