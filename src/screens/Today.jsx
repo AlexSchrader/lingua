@@ -192,7 +192,7 @@ export default function Today() {
   const mascot = goalMet
     ? { pose: "celebrate", msg: "Nice work today. Come back tomorrow — or keep going if you're in the zone." }
     : reviewsLocked
-    ? { pose: "think", msg: "A few reviews are waiting. Clear them and you're set for the day." }
+    ? { pose: "think", msg: "A few reviews are waiting — no rush. Learn a little or clear them, whichever feels right." }
     : hasNew
     ? { pose: "cheer", msg: "Ready when you are. One lesson at a time — no rush." }
     : { pose: "sleepy", msg: "All caught up. Rest up — your reviews will come back around." };
@@ -308,7 +308,8 @@ export default function Today() {
         </button>
       )}
 
-      {/* Review-debt banner */}
+      {/* Review-debt nudge — a calm reminder, not an alarm. Reviews come first,
+          but they never fully block learning: a few new items stay open (below). */}
       {reviewsLocked && (
         <div
           style={{
@@ -317,15 +318,15 @@ export default function Today() {
             gap: 10,
             padding: 12,
             borderRadius: 12,
-            background: C.shuSoft,
-            border: `1px solid ${C.shu}`,
-            color: C.shu,
+            background: C.aiSoft,
+            border: `1px solid ${C.ai}`,
+            color: C.aiDeep,
             fontSize: 14,
             fontWeight: 600,
           }}
         >
           <RotateCcw size={18} />
-          {sessionDue} review{sessionDue === 1 ? "" : "s"} to do first — today's lesson unlocks right after.
+          {sessionDue} review{sessionDue === 1 ? "" : "s"} waiting — clear them whenever you're ready. You can still learn a few new things first.
         </div>
       )}
 
@@ -341,7 +342,7 @@ export default function Today() {
         <StatusPill
           icon={BookOpen}
           label={curLoc ? `${curLoc.section} · Unit ${curLoc.unitNum}` : "Lesson"}
-          value={daily.lessonDone ? "Done" : lessonState === "locked" ? "Locked" : curLoc ? `Lesson ${curLoc.lessonInUnit}/${curLoc.unitTotal}` : "—"}
+          value={daily.lessonDone ? "Done" : lessonState === "locked" ? "Reviews first" : curLoc ? `Lesson ${curLoc.lessonInUnit}/${curLoc.unitTotal}` : "—"}
           state={lessonState}
         />
       </div>
@@ -397,14 +398,16 @@ export default function Today() {
       ) : null}
 
       {/* Low-energy on-ramp: a handful of new items instead of the full lesson.
-          Only worth offering when the lesson has more than a few new items. */}
-      {(ctaLabel === "Start lesson" || ctaLabel === "Keep learning") && currentLesson && newItemCount > MICRO_SIZE && (
+          Also the soft escape from review-debt — even with reviews waiting you can
+          still learn a few new things (never a hard wall). Only worth offering when
+          the lesson has more than a few new items. */}
+      {(ctaLabel === "Start lesson" || ctaLabel === "Keep learning" || reviewsLocked) && currentLesson && newItemCount > MICRO_SIZE && (
         <button
           data-testid="start-few"
           onClick={startFew}
           style={{ padding: "12px 18px", borderRadius: 14, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer", marginTop: 2 }}
         >
-          Low on energy? Just a few ({MICRO_SIZE})
+          {reviewsLocked ? `Learn a few first (${MICRO_SIZE})` : `Low on energy? Just a few (${MICRO_SIZE})`}
         </button>
       )}
 
