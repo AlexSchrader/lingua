@@ -12,8 +12,8 @@ import ConjugateCard from "../components/games/ConjugateCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import Celebration from "../components/Celebration.jsx";
 import { useStore } from "../store/useStore.js";
-import { isReviewable, nextRung } from "../store/mastery.js";
-import { sfxRungUp } from "../store/sfx.js";
+import { isReviewable, nextRung, MAX_RUNG } from "../store/mastery.js";
+import { sfxRungUp, sfxMastered } from "../store/sfx.js";
 import { isTraceable, shouldListen, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate } from "../store/cardRouting.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
@@ -183,9 +183,11 @@ export default function Review() {
   const item = items[step.id];
   const onGraded = (grade) => {
     // A rung climb is real progress up the ladder — chime for it (the ladder was
-    // silent between the answer sound and the finish fanfare). nextRung is pure, so
-    // this reads the would-be rung without depending on gradeItem's async write.
-    if (nextRung(item, grade) > (item.rung ?? 1)) sfxRungUp();
+    // silent between the answer sound and the finish fanfare). Reaching the TOP rung
+    // (MASTERED) gets its own warmer sound. nextRung is pure, so this reads the
+    // would-be rung without depending on gradeItem's async write.
+    const after = nextRung(item, grade);
+    if (after > (item.rung ?? 1)) (after >= MAX_RUNG ? sfxMastered : sfxRungUp)();
     gradeItem(item.id, grade);
     setIdx((i) => i + 1);
   };
