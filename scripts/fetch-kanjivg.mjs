@@ -48,7 +48,10 @@ const KANJI_N3 =
   "晴曇湿嵐雷霧森林岩泉谷丘犬猫鳥魚虫馬花草竹松種咲" + // weather/nature/animals (Unit 74)
   "顔頭首髪舌喉肩腕胸腹背肌歩走飛座触握涙汗振抱額揺" + // body & movement (Unit 75)
   "交空迎泊訪迷街域郊距離側角端横縦斜沿航輸駐遅越昇" + // travel/places/direction (Unit 76)
-  "太細広狭厚硬柔若老幼賢偉貧富豊貴良険静清汚危鋭鈍";   // adjectives & qualities (Unit 77)
+  "太細広狭厚硬柔若老幼賢偉貧富豊貴良険静清汚危鋭鈍" + // adjectives & qualities (Unit 77)
+  "覚忘考探加許伝断祝願望祈働疲眠困驚怠慌恥怖恐憎恋" + // common verbs (Unit 78)
+  "例因原結課案準備設建造構製質価値類象印益損得差混" + // cause/production/value (Unit 79)
+  "存与求要必個各段席財貯券録記版副略概傾響影及普促";   // high-frequency (Unit 80)
 const kanaChars = (HIRAGANA + DAKUTEN + KATAKANA + KANJI + KANJI_N3).split("");
 
 console.log(`Fetching KanjiVG data for ${kanaChars.length} characters: ${kanaChars.join(" ")}\n`);
