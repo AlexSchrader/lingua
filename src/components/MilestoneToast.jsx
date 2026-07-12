@@ -35,7 +35,6 @@ export default function MilestoneToast() {
     <div
       role="status"
       aria-live="polite"
-      onClick={dismiss}
       style={{
         position: "fixed",
         top: 0,
@@ -45,19 +44,24 @@ export default function MilestoneToast() {
         justifyContent: "center",
         padding: "12px 16px",
         zIndex: 120,
-        pointerEvents: "auto",
-        cursor: "pointer",
+        // Container ignores pointer events so its full-width band never intercepts
+        // taps on the card underneath (a milestone can unlock mid-lesson). Only the
+        // banner itself is clickable (to dismiss).
+        pointerEvents: "none",
         animation: reduce ? undefined : "milestone-drop 320ms ease-out",
       }}
     >
       <style>{"@keyframes milestone-drop { from { transform: translateY(-120%); opacity: 0 } to { transform: translateY(0); opacity: 1 } }"}</style>
       <div
+        onClick={dismiss}
         style={{
           display: "flex",
           alignItems: "center",
           gap: 12,
           maxWidth: 440,
           width: "100%",
+          pointerEvents: "auto",
+          cursor: "pointer",
           background: C.surface,
           border: `1.5px solid ${C.matcha}`,
           borderRadius: 16,

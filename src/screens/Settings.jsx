@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogOut, Cloud, CheckCircle2, Mic, Award, Bell } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES } from "../data/index.js";
-import { triggersSupported, notificationPermission, requestReminderPermission, scheduleDailyReminder, cancelReminders } from "../lib/reminders.js";
+import { triggersSupported, notificationsSupported, notificationPermission, requestReminderPermission, scheduleDailyReminder, cancelReminders } from "../lib/reminders.js";
 import { C, F } from "../theme.js";
 import { VERSION } from "../version.js";
 
@@ -68,7 +68,9 @@ function RemindersSection() {
   const [busy, setBusy] = useState(false);
   const on = !!reminderTime;
   const supported = triggersSupported();
-  const blocked = notificationPermission() === "denied";
+  // "denied" is only truly *blocked* when notifications are supported; reminders.js
+  // also returns "denied" for the unsupported case, which isn't a block.
+  const blocked = notificationsSupported() && notificationPermission() === "denied";
 
   const toggle = async (v) => {
     if (busy) return;

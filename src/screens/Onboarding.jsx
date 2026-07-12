@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
+import { requestReminderPermission, scheduleDailyReminder } from "../lib/reminders.js";
 import { C, F } from "../theme.js";
 
 // First-run onboarding, two calm steps: (1) pick the language to learn — any of
@@ -46,11 +47,19 @@ export default function Onboarding() {
     setStep(1);
   }
 
-  function finish() {
+  async function finish() {
+    const time = reminderTime || null;
+    // If they set a reminder, actually ask + schedule it here — otherwise it was a
+    // dead setting (the time was stored but no permission was ever requested and
+    // nothing scheduled, so it silently never fired). Safe no-op where unsupported.
+    if (time) {
+      const perm = await requestReminderPermission();
+      if (perm === "granted") await scheduleDailyReminder(time);
+    }
     completeOnboarding({
       displayName: displayName.trim() || username || null,
       reason,
-      reminderTime: reminderTime || null,
+      reminderTime: time,
     });
   }
 
