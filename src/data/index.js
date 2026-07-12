@@ -21,8 +21,18 @@ import { UNIT18 } from "./ja/unit18.js";
 import { UNIT19 } from "./ja/unit19.js"; // ぶんぽう — first grammar unit (copula sentence)
 import { UNIT20 } from "./ja/unit20.js"; // ぶんぽう・2 — verbs & particles (を/に/が/で)
 import { UNIT21 } from "./ja/unit21.js"; // ぶんぽう・3 — past tense & adjective conjugation
+// --- A2 (N4) — activated 2026-07-12; ⚠️ pending batched native-speaker review ---
+import { UNIT22 } from "./ja/unit22.js";
+import { UNIT23 } from "./ja/unit23.js";
+import { UNIT24 } from "./ja/unit24.js";
+import { UNIT25 } from "./ja/unit25.js";
+import { UNIT26 } from "./ja/unit26.js";
+import { UNIT27 } from "./ja/unit27.js";
+import { UNIT28 } from "./ja/unit28.js";
+import { UNIT29 } from "./ja/unit29.js";
+import { UNIT30 } from "./ja/unit30.js";
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30];
 
 // A language is "live" once it has authored content; catalog entries with no units
 // yet are "planned". Derived, never stored — a language flips to live automatically
