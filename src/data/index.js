@@ -44,8 +44,19 @@ import { UNIT39 } from "./ja/unit39.js"; // かんじ・ばしょ (places & buil
 import { UNIT40 } from "./ja/unit40.js"; // かんじ・いろ・たべもの (colors & food)
 import { UNIT41 } from "./ja/unit41.js"; // かんじ・ようす (descriptive & state)
 import { UNIT42 } from "./ja/unit42.js"; // かんじ・きのう (function & misc)
+// --- A2 (N4) grammar arc (consolidated) + conjugation drills + vocab thickening ---
+import { UNIT43 } from "./ja/unit43.js"; // ぶんぽう・4 (て-form; giving & receiving)
+import { UNIT44 } from "./ja/unit44.js"; // ぶんぽう・5 (conditionals & ability; comparison; inference & quoting)
+import { UNIT45 } from "./ja/unit45.js"; // どうし・かつよう (conjugation drill → conjugate card)
+import { UNIT46 } from "./ja/unit46.js"; // どうし・うけみ (passive/causative/imperative drill)
+import { UNIT47 } from "./ja/unit47.js"; // いえ・かじ (home & household)
+import { UNIT48 } from "./ja/unit48.js"; // せいかく・きもち (personality & feelings)
+import { UNIT49 } from "./ja/unit49.js"; // しゃかい・せいかつ (society & daily life)
+import { UNIT50 } from "./ja/unit50.js"; // ぎじゅつ・つうしん (technology & communication)
+import { UNIT51 } from "./ja/unit51.js"; // しぜん・かがく (nature & science)
+import { UNIT52 } from "./ja/unit52.js"; // ぶんか・レジャー (culture & leisure)
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52];
 
 // A language is "live" once it has authored content; catalog entries with no units
 // yet are "planned". Derived, never stored — a language flips to live automatically
