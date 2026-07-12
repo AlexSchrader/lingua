@@ -4,6 +4,21 @@ Standing context for Claude Code (CC) on this repo. Read this first, every sessi
 
 ---
 
+## Agent Fleet — how work gets verified (read with Roles)
+
+Lingua uses a **right-sized verification fleet** — the full corporate structure adapted to this project's real lanes. Full spec: **`AGENT-FLEET.md`**; the runnable reviewers live in **`.claude/agents/*.md`**. The one rule: **nothing reaches Alex unverified** — every deliverable passes its **domain gate**, then the **Truth Layer**, then Alex.
+
+- **Alex = CEO** (final decision + the merge). **Main session = COO / lead / specialist** — does or routes the work, and **never self-approves**. **Gates + Truth Layer = subagents** — the mandatory pass-through.
+- **5 gated departments** (the old lanes, mapped): feature → `code-auditor` · curriculum → `content-auditor` · design/UX → `usability-auditor` · data/learning-science → `stats-auditor` · qa → `accuracy-auditor`. ("Idea" is now ideation done by the COO/specialist; marketing/sales/finance/legal/people/ops/support are out of scope for this project — not staffed.)
+- **Truth Layer:** `fact-checker` (verifies claims — every number/citation traced to the repo; unsourced = BLOCK), `truth-agent` (attacks the reasoning; tags claims CERTAIN/LIKELY/GUESS), `meta-auditor` (audits the gates ~1-in-5 — catches rubber-stamping & over-blocking).
+- **Gate contract:** `PASS` / `PASS-WITH-FLAGS` (ship, but list each unverified item) / `BLOCK` (specific, named, reproducible). Gates **BLOCK, never rewrite**; a gate never softens its verdict or approves its own department. **FACT errors → fact-checker, REASONING errors → truth-agent — never merge the roles.** **Max 2 revision loops**, then it goes up as an *unresolved conflict*, never an infinite loop.
+- **Cost discipline:** gates cost ~2–3× tokens — **gate the irreversible / user-facing work** (schema, persist, FSRS/mastery/`LEARN_OPTS`, new card kinds, shipped UI/content), and use light review for trivial reversible edits. Don't run the full fleet on a one-line copy fix.
+- **When the main session finishes a deliverable:** run the matching **gate** agent, then **`fact-checker` + `truth-agent`**, and hand Alex the **Truth-Layer output** (VERDICT / CONFIDENCE / VERIFIED / UNVERIFIED / STEELMAN / BLIND SPOT / DISSENT) alongside the draft PR.
+
+The lane detail below still governs *how the work itself is done*; the Fleet governs *how it's verified before Alex sees it.*
+
+---
+
 ## Roles — read this first
 
 **CC owns the work; Alex supervises.** The work splits into four CC lanes so parallel sessions don't collide. **Stay in your lane** — if a task needs another lane's files, say so and hand it off rather than reaching across.
