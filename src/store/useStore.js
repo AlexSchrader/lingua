@@ -6,6 +6,7 @@ import { nextRung, isReviewable } from "./mastery.js";
 import { migrateState, PERSIST_VERSION } from "./migrate.js";
 import { matchesDevCode } from "./dev.js";
 import { earnedMilestones, milestoneCatalog } from "../data/milestones.js";
+import { CEFR_ORDER, cefrLevelReached, levelRank } from "./levels.js";
 
 // Seed every item with a fresh FSRS card attached as its srs. Card attachment
 // lives here (not in the data loader) per Brief 2.
@@ -42,8 +43,6 @@ const MISTAKES_CAP = 30;
 // shows), so the learner never faces the full wall. A tuning knob, not structure.
 export const REVIEW_CAP = 20;
 
-const CEFR_ORDER = { A1: 0, A2: 1, B1: 2, B2: 3 };
-
 // Lazy cache: itemId → { cefr, lang } — built once from UNITS on first access.
 let _itemMeta = null;
 function itemMetaMap() {
@@ -55,16 +54,6 @@ function itemMetaMap() {
         for (const def of lesson.items)
           _itemMeta[def.id] = { cefr: lesson.cefr, lang: unit.lang };
   return _itemMeta;
-}
-
-// True when every item at CEFR ≤ targetLevel for langId is at rung ≥ 1.
-function isLevelComplete(langId, targetLevel, items) {
-  const maxIdx = CEFR_ORDER[targetLevel] ?? 0;
-  const defs = UNITS.filter((u) => u.lang === langId)
-    .flatMap((u) => u.lessons.filter((l) => l.items && (CEFR_ORDER[l.cefr] ?? 0) <= maxIdx))
-    .flatMap((l) => l.items);
-  if (defs.length === 0) return false;
-  return defs.every((def) => (items[def.id]?.rung ?? 0) >= 1);
 }
 
 // Default language progress state, derived from the static LANGUAGES table.
@@ -368,9 +357,14 @@ export const useStore = create(
           let changed = false;
           for (const langDef of LANGUAGES) {
             const st = newLangs[langDef.id];
-            if (!st || st.level !== "pre-A1") continue;
-            if (isLevelComplete(langDef.id, "A1", s.items)) {
-              newLangs[langDef.id] = { ...st, level: "A1" };
+            if (!st) continue;
+            // Advance to the highest CEFR band the learner has fully completed —
+            // pre-A1 → A1 → A2 → B1 → B2 as content is finished. Promote ONLY (never
+            // demote): shipping new, not-yet-done content mustn't drop a level the
+            // learner already earned.
+            const reached = cefrLevelReached(langDef.id, s.items);
+            if (levelRank(reached) > levelRank(st.level)) {
+              newLangs[langDef.id] = { ...st, level: reached };
               changed = true;
             }
           }
