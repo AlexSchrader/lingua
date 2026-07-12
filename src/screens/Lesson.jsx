@@ -84,6 +84,9 @@ export default function Lesson() {
 
   const [learn, setLearn] = useState(() => initLearn(freshIds));
   const [finished, setFinished] = useState(false);
+  // A one-screen "calm breath" before card 1 — what this lesson is, how much, how
+  // long — so a new learner isn't dropped cold onto a glyph. One tap to Begin.
+  const [started, setStarted] = useState(false);
 
   const learnStep = currentStep(learn);
   const done = learnStep === null;
@@ -151,6 +154,33 @@ export default function Lesson() {
             }}
           >
             {sandbox ? "Back to Dev panel" : "Back to Today"}
+          </button>
+        </div>
+      </PhaseShell>
+    );
+  }
+
+  // Intro screen — the calm breath before card 1. Only when there's new material
+  // (freshIds>0, else `done` already showed the complete screen) and not yet begun.
+  // Skipped in sandbox (dev card previews go straight to the card being previewed).
+  if (!started && !sandbox) {
+    const estMin = Math.max(1, Math.ceil(freshIds.length * 0.75));
+    return (
+      <PhaseShell title={lesson.title} progress={0} onClose={() => navigate(home)}>
+        <div style={{ margin: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 16, textAlign: "center", maxWidth: 340 }}>
+          <Mascot context="greeting" size={110} />
+          <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>{lesson.title}</div>
+          {lesson.canDo && <div style={{ fontSize: 15, color: C.ink, lineHeight: 1.4 }}>{lesson.canDo}</div>}
+          <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
+            {freshIds.length} new item{freshIds.length === 1 ? "" : "s"} · ~{estMin} min · no rush
+          </div>
+          <button
+            data-testid="lesson-begin"
+            autoFocus
+            onClick={() => setStarted(true)}
+            style={{ marginTop: 4, padding: "14px 40px", borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+          >
+            Begin
           </button>
         </div>
       </PhaseShell>
