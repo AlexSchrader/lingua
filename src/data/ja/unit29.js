@@ -50,7 +50,7 @@ export const UNIT29 = {
         { id: "ja-u29l4-motto", type: "vocab", front: "もっと", reading: "motto", meaning: "more", example: { jp: "もっとほしいです。", en: "I want more." }, accept: ["further", "even more"] },
         { id: "ja-u29l4-ichiban", type: "vocab", front: "いちばん", reading: "ichiban", meaning: "most", example: { jp: "なつがいちばんすきです。", en: "I like summer the most." }, accept: ["best", "number one", "the most"], hint: "いちばん before an adjective = the superlative: いちばん すき = like (it) the most / best." },
         { id: "ja-u29l4-tokuni", type: "vocab", front: "とくに", reading: "tokuni", meaning: "especially", example: { jp: "とくにあついです。", en: "It's especially hot." }, accept: ["particularly", "in particular"] },
-        { id: "ja-u29l4-yatto", type: "vocab", front: "やっと", reading: "yatto", meaning: "finally", example: { jp: "やっとつきます。", en: "I finally arrive." }, accept: ["at last", "at length"] },
+        { id: "ja-u29l4-yatto", type: "vocab", front: "やっと", reading: "yatto", meaning: "finally", example: { jp: "やっとつきました。", en: "I finally arrived." }, accept: ["at last", "at length"] },
         { id: "ja-u29l4-hotondo", type: "vocab", front: "ほとんど", reading: "hotondo", meaning: "almost", example: { jp: "ほとんどわかりません。", en: "I understand almost none of it." }, accept: ["nearly", "mostly", "hardly (with neg.)"] },
       ],
     },

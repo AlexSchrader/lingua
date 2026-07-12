@@ -39,7 +39,7 @@ export const UNIT25 = {
       items: [
         { id: "ja-u25l3-oboemasu", type: "vocab", front: "おぼえます", reading: "oboemasu", meaning: "memorize", example: { jp: "なまえをおぼえます。", en: "I memorize the name." }, accept: ["remember", "learn"] },
         { id: "ja-u25l3-wasuremasu", type: "vocab", front: "わすれます", reading: "wasuremasu", meaning: "forget", example: { jp: "かさをわすれます。", en: "I forget my umbrella." }, accept: ["leave behind"] },
-        { id: "ja-u25l3-shirabemasu", type: "vocab", front: "しらべます", reading: "shirabemasu", meaning: "look up", example: { jp: "ちずをしらべます。", en: "I look up the map." }, accept: ["check", "investigate", "research"] },
+        { id: "ja-u25l3-shirabemasu", type: "vocab", front: "しらべます", reading: "shirabemasu", meaning: "look up", example: { jp: "ことばをしらべます。", en: "I look up a word." }, accept: ["check", "investigate", "research"] },
         { id: "ja-u25l3-machigaemasu", type: "vocab", front: "まちがえます", reading: "machigaemasu", meaning: "make a mistake", example: { jp: "みちをまちがえます。", en: "I take the wrong road." }, accept: ["get wrong", "mistake"] },
         { id: "ja-u25l3-setsumeishimasu", type: "vocab", front: "せつめいします", reading: "setsumeishimasu", meaning: "explain", example: { jp: "みちをせつめいします。", en: "I explain the way." }, accept: ["describe", "give an explanation"] },
         { id: "ja-u25l3-shitsumonshimasu", type: "vocab", front: "しつもんします", reading: "shitsumonshimasu", meaning: "ask a question", example: { jp: "せんせいにしつもんします。", en: "I ask the teacher a question." }, accept: ["question", "inquire"] },

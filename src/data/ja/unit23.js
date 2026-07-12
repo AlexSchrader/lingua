@@ -26,7 +26,7 @@ export const UNIT23 = {
       canDo: "Say how you feel: うれしい かなしい さびしい こわい ねむい うるさい.",
       items: [
         { id: "ja-u23l1-ureshii", type: "vocab", front: "うれしい", reading: "ureshii", meaning: "happy", example: { jp: "とてもうれしいです。", en: "I'm very happy." }, accept: ["glad", "delighted"] },
-        { id: "ja-u23l1-kanashii", type: "vocab", front: "かなしい", reading: "kanashii", meaning: "sad", example: { jp: "えいががかなしいです。", en: "The movie is sad." }, accept: ["sorrowful", "unhappy"] },
+        { id: "ja-u23l1-kanashii", type: "vocab", front: "かなしい", reading: "kanashii", meaning: "sad", example: { jp: "かなしいえいがです。", en: "It's a sad movie." }, accept: ["sorrowful", "unhappy"] },
         { id: "ja-u23l1-sabishii", type: "vocab", front: "さびしい", reading: "sabishii", meaning: "lonely", example: { jp: "ひとりでさびしいです。", en: "I'm lonely on my own." }, accept: ["lonesome", "sad (alone)"] },
         { id: "ja-u23l1-kowai", type: "vocab", front: "こわい", reading: "kowai", meaning: "scary", example: { jp: "いぬがこわいです。", en: "Dogs are scary to me." }, accept: ["frightening", "afraid of"] },
         { id: "ja-u23l1-nemui", type: "vocab", front: "ねむい", reading: "nemui", meaning: "sleepy", example: { jp: "あさはねむいです。", en: "I'm sleepy in the morning." }, accept: ["drowsy"] },
