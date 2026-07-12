@@ -51,7 +51,8 @@ const KANJI_N3 =
   "太細広狭厚硬柔若老幼賢偉貧富豊貴良険静清汚危鋭鈍" + // adjectives & qualities (Unit 77)
   "覚忘考探加許伝断祝願望祈働疲眠困驚怠慌恥怖恐憎恋" + // common verbs (Unit 78)
   "例因原結課案準備設建造構製質価値類象印益損得差混" + // cause/production/value (Unit 79)
-  "存与求要必個各段席財貯券録記版副略概傾響影及普促";   // high-frequency (Unit 80)
+  "存与求要必個各段席財貯券録記版副略概傾響影及普促" + // high-frequency (Unit 80)
+  "痛傷患診賞罰争戦敵逃犯盗芸描踊塗積込燃沈浮溶乾沸";   // injury/conflict/arts/change (Unit 81)
 const kanaChars = (HIRAGANA + DAKUTEN + KATAKANA + KANJI + KANJI_N3).split("");
 
 console.log(`Fetching KanjiVG data for ${kanaChars.length} characters: ${kanaChars.join(" ")}\n`);
