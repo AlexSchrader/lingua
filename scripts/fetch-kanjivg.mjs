@@ -35,7 +35,20 @@ const KANJI = "一二三四五六七八九十" + // numbers (Unit 11)
   "東西南北道駅店国本名" +              // compass / places (Unit 18)
   "書話立休買会待知作持" +              // more verbs (Unit 19)
   "高安新古多少長白気元" +              // adjectives / state (Unit 20)
-  "目耳口手足雨電車私語";                // body / nature (Unit 21)
+  "目耳口手足雨電車私語" +               // body / nature (Unit 21)
+  // --- N4 kanji (Units 31–42), 141 new glyphs ---
+  "者自家主親族兄弟姉妹世代" +           // family (U31)
+  "体医病死心力味" +                     // body / health (U32)
+  "発動開通使集送起着運" +               // action verbs 1 (U33)
+  "始終止切転走歩帰住去" +               // action verbs 2 (U34)
+  "問答思意題考教習研究試験" +           // study & thought (U35)
+  "字文漢英図音歌写映注画紙" +           // writing, arts & sound (U36)
+  "売借貸品料計質銀仕業工建勉事員" +     // work & commerce (U37)
+  "春夏秋冬昼夜朝夕花海空風" +           // nature & seasons (U38)
+  "社地場京院界町館屋堂室台野" +         // places & buildings (U39)
+  "赤青黒色明肉飯茶牛魚鳥犬" +           // colors & food (U40)
+  "同正不無有特別物強広早急重楽悪" +     // descriptive (U41)
+  "度用以近方理公洋服旅真";              // function & misc (U42)
 const kanaChars = (HIRAGANA + DAKUTEN + KATAKANA + KANJI).split("");
 
 console.log(`Fetching KanjiVG data for ${kanaChars.length} characters: ${kanaChars.join(" ")}\n`);

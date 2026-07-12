@@ -18,12 +18,21 @@ export const KANJI_CATEGORIES = [
   { key: "numbers",    label: "Numbers",          kanji: [..."一二三四五六七八九十百千万円"] },
   { key: "time",       label: "Time & calendar",  kanji: [..."何時分半午曜週年今毎"] },
   { key: "nature",     label: "Days & nature",    kanji: [..."日月火水木金土山川田雨電気"] },
-  { key: "people",     label: "People & family",  kanji: [..."人私父母男女子友先生名"] },
-  { key: "body",       label: "Body",             kanji: [..."目耳口手足"] },
+  { key: "people",     label: "People & family",  kanji: [..."人私父母男女子友先生名者自家主親族兄弟姉妹世代"] },
+  { key: "body",       label: "Body & health",    kanji: [..."目耳口手足体医病死心力味"] },
   { key: "position",   label: "Position & direction", kanji: [..."上下中右左前後外東西南北"] },
-  { key: "verbs",      label: "Verbs",            kanji: [..."行来見出入食飲言聞読書話立休買会待知作持"] },
+  { key: "verbs",      label: "Verbs",            kanji: [..."行来見出入食飲言聞読書話立休買会待知作持発動開通使集送起着運始終止切転走歩帰住去"] },
   { key: "adjectives", label: "Adjectives",       kanji: [..."大小高安新古多少長白"] },
-  { key: "places",     label: "Places & things",  kanji: [..."学校道駅店国本間車語元"] },
+  { key: "places",     label: "Places & things",  kanji: [..."学校道駅店国本間車語元社地場京院界町館屋堂室台野"] },
+  // --- N4 categories ---
+  { key: "study",      label: "Study & thought",  kanji: [..."問答思意題考教習研究試験"] },
+  { key: "arts",       label: "Writing, arts & sound", kanji: [..."字文漢英図音歌写映注画紙"] },
+  { key: "work",       label: "Work & commerce",  kanji: [..."売借貸品料計質銀仕業工建勉事員"] },
+  { key: "seasons",    label: "Seasons & weather", kanji: [..."春夏秋冬昼夜朝夕花海空風"] },
+  { key: "colors",     label: "Colors",           kanji: [..."赤青黒色明"] },
+  { key: "food",       label: "Food & animals",   kanji: [..."肉飯茶牛魚鳥犬"] },
+  { key: "descriptive", label: "Descriptive & state", kanji: [..."同正不無有特別物強広早急重楽悪"] },
+  { key: "function",   label: "Function & misc",  kanji: [..."度用以近方理公洋服旅真"] },
 ];
 
 // Glyph → category key. Built once from the lists above.

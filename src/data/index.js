@@ -31,8 +31,21 @@ import { UNIT27 } from "./ja/unit27.js";
 import { UNIT28 } from "./ja/unit28.js";
 import { UNIT29 } from "./ja/unit29.js";
 import { UNIT30 } from "./ja/unit30.js";
+// --- A2 (N4) kanji arc — 141 new N4 kanji across 12 themed units ---
+import { UNIT31 } from "./ja/unit31.js"; // かんじ・かぞく (family)
+import { UNIT32 } from "./ja/unit32.js"; // かんじ・からだ (body & health)
+import { UNIT33 } from "./ja/unit33.js"; // かんじ・どうし 1 (action verbs)
+import { UNIT34 } from "./ja/unit34.js"; // かんじ・どうし 2 (motion verbs)
+import { UNIT35 } from "./ja/unit35.js"; // かんじ・べんきょう (study & thought)
+import { UNIT36 } from "./ja/unit36.js"; // かんじ・ことば (writing, arts & sound)
+import { UNIT37 } from "./ja/unit37.js"; // かんじ・しごと (work & commerce)
+import { UNIT38 } from "./ja/unit38.js"; // かんじ・きせつ (seasons & weather)
+import { UNIT39 } from "./ja/unit39.js"; // かんじ・ばしょ (places & buildings)
+import { UNIT40 } from "./ja/unit40.js"; // かんじ・いろ・たべもの (colors & food)
+import { UNIT41 } from "./ja/unit41.js"; // かんじ・ようす (descriptive & state)
+import { UNIT42 } from "./ja/unit42.js"; // かんじ・きのう (function & misc)
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42];
 
 // A language is "live" once it has authored content; catalog entries with no units
 // yet are "planned". Derived, never stored — a language flips to live automatically
