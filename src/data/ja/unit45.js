@@ -1,15 +1,8 @@
-// Unit 45 — ぶんぽう・6 ("Grammar: conditionals & ability") — A2 / JLPT N4
-// The N4 grammar that lets you say "if / when", "be able to", and "decide to":
-// the three big conditionals (～たら / ～ば / ～なら), potential via ことができる,
-// experience/occasion with ことがある, gradual change with ようになる, and
-// decisions with ことにする. Modeled as function-word/suffix vocab whose examples
-// carry the pattern; every example uses only earlier vocab.
-// NOTE: naturalness-critical — flagged for the batch native review.
-// lang/unit/lesson stamped in index.js.
+// Unit 45 — どうし・かつよう (verb conjugation drill → conjugate card) — A2 / JLPT N4
 export const UNIT45 = {
   id: "ja-u45",
   lang: "ja",
-  title: "ぶんぽう・6",
+  title: "どうし・かつよう",
   order: 45,
   stage: "a2",
   lessons: [
@@ -17,18 +10,34 @@ export const UNIT45 = {
       id: "ja-u45l1",
       unit: 45,
       lesson: 1,
-      title: "Conditionals & ability",
+      title: "Verb forms 1",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Say 'if / when' three ways (～たら・～ば・～なら), express ability (ことができる), talk about experience (ことがある) and change (ようになる), and state decisions (ことにする).",
+      canDo: "Conjugate N4 verbs: つたえます おくれます きめます はこびます ひろいます さそいます.",
       items: [
-        { id: "ja-u45l1-tara", type: "vocab", front: "たら", reading: "tara", meaning: "if / when (once ~)", example: { jp: "うちにかえったら、でんわします。", en: "When I get home, I'll call you." }, accept: ["if", "when", "once"], hint: "plain past + ら = たら: かえった → かえったら = if/when I go home. Covers both 'if' and 'when (once X happens)'." },
-        { id: "ja-u45l1-ba", type: "vocab", front: "ば", reading: "ba", meaning: "if (conditional)", example: { jp: "やすければ、かいます。", en: "If it's cheap, I'll buy it." }, accept: ["if"], hint: "い-adj: drop い, add ければ (やすい → やすければ). Verbs change the last sound to the -e row + ば (のむ → のめば). General 'if X, then Y'." },
-        { id: "ja-u45l1-nara", type: "vocab", front: "なら", reading: "nara", meaning: "if it's the case that", example: { jp: "にほんにいくなら、きょうとがいいですよ。", en: "If you're going to Japan, Kyoto is good." }, accept: ["if", "in that case"], hint: "attaches to a noun or plain verb: にほん なら / いく なら. Means 'if that's the case / speaking of that'." },
-        { id: "ja-u45l1-kotogadekiru", type: "vocab", front: "ことができる", reading: "kotogadekiru", meaning: "to be able to", example: { jp: "わたしはにほんごをはなすことができます。", en: "I can speak Japanese." }, accept: ["can", "be able to"], hint: "plain verb + ことができます = 'able to (verb)': はなす → はなすことができます = can speak." },
-        { id: "ja-u45l1-kotogaaru", type: "vocab", front: "ことがある", reading: "kotogaaru", meaning: "there are times when / have (done) before", example: { jp: "すしをたべたことがあります。", en: "I have eaten sushi before." }, accept: ["have done before", "there are times when"], hint: "plain past + ことがあります = past experience: たべた → たべたことがあります = have eaten. (plain present + ことがある = 'there are times when'.)" },
-        { id: "ja-u45l1-yoninaru", type: "vocab", front: "ようになる", reading: "yōninaru", meaning: "to come to (be able to)", example: { jp: "にほんごがはなせるようになりました。", en: "I've become able to speak Japanese." }, accept: ["come to", "become able to"], hint: "plain verb + ようになる = a gradual change: はなせる → はなせるようになりました = came to be able to speak." },
-        { id: "ja-u45l1-kotonisuru", type: "vocab", front: "ことにする", reading: "kotonisuru", meaning: "to decide to", example: { jp: "まいにちべんきょうすることにしました。", en: "I decided to study every day." }, accept: ["decide to", "make a decision to"], hint: "plain verb + ことにします = a decision you make: べんきょうする → べんきょうすることにしました = decided to study." },
+        { id: "ja-u45l1-tsutaemasu", type: "vocab", front: "つたえます", reading: "tsutaemasu", meaning: "to convey", example: { jp: "きもちをつたえます。", en: "I convey my feelings." }, accept: ["to tell","to communicate"], hint: "ichidan; drilled in the て-form", group: "ichidan", conjForm: "te" },
+        { id: "ja-u45l1-okuremasu", type: "vocab", front: "おくれます", reading: "okuremasu", meaning: "to be late", example: { jp: "でんしゃにおくれます。", en: "I am late for the train." }, accept: ["to fall behind","to be delayed"], hint: "ichidan; drilled in the ない-form", group: "ichidan", conjForm: "nai" },
+        { id: "ja-u45l1-kimemasu", type: "vocab", front: "きめます", reading: "kimemasu", meaning: "to decide", example: { jp: "よていをきめます。", en: "I decide the plan." }, accept: ["to choose","to settle on"], hint: "ichidan; drilled in the past た-form", group: "ichidan", conjForm: "ta" },
+        { id: "ja-u45l1-hakobimasu", type: "vocab", front: "はこびます", reading: "hakobimasu", meaning: "to carry", example: { jp: "にもつをはこびます。", en: "I carry the luggage." }, accept: ["to transport","to move"], hint: "godan; drilled in the て-form", group: "godan", conjForm: "te" },
+        { id: "ja-u45l1-hiroimasu", type: "vocab", front: "ひろいます", reading: "hiroimasu", meaning: "to pick up", example: { jp: "ごみをひろいます。", en: "I pick up the trash." }, accept: ["to gather","to find"], hint: "godan; drilled in the past た-form", group: "godan", conjForm: "ta" },
+        { id: "ja-u45l1-sasoimasu", type: "vocab", front: "さそいます", reading: "sasoimasu", meaning: "to invite", example: { jp: "ともだちをさそいます。", en: "I invite a friend." }, accept: ["to ask along","to invite out"], hint: "godan; drilled in the ない-form", group: "godan", conjForm: "nai" },
+      ],
+    },
+    {
+      id: "ja-u45l2",
+      unit: 45,
+      lesson: 2,
+      title: "Verb forms 2",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Conjugate N4 verbs: わたします みがきます すすみます かえます さわります まもります.",
+      items: [
+        { id: "ja-u45l2-watashimasu", type: "vocab", front: "わたします", reading: "watashimasu", meaning: "to hand over", example: { jp: "てがみをわたします。", en: "I hand over the letter." }, accept: ["to give","to pass"], hint: "godan; drilled in the て-form", group: "godan", conjForm: "te" },
+        { id: "ja-u45l2-migakimasu", type: "vocab", front: "みがきます", reading: "migakimasu", meaning: "to polish / brush", example: { jp: "はをみがきます。", en: "I brush my teeth." }, accept: ["to brush","to shine"], hint: "godan; drilled in the potential form", group: "godan", conjForm: "potential" },
+        { id: "ja-u45l2-susumimasu", type: "vocab", front: "すすみます", reading: "susumimasu", meaning: "to proceed", example: { jp: "まえにすすみます。", en: "I proceed forward." }, accept: ["to advance","to go forward"], hint: "godan; drilled in the volitional form", group: "godan", conjForm: "volitional" },
+        { id: "ja-u45l2-kaemasu", type: "vocab", front: "かえます", reading: "kaemasu", meaning: "to change", example: { jp: "よていをかえます。", en: "I change the plan." }, accept: ["to alter","to switch"], hint: "ichidan; drilled in the potential form", group: "ichidan", conjForm: "potential" },
+        { id: "ja-u45l2-sawarimasu", type: "vocab", front: "さわります", reading: "sawarimasu", meaning: "to touch", example: { jp: "えにさわります。", en: "I touch the painting." }, accept: ["to feel","to touch on"], hint: "godan; drilled in the たら-form", group: "godan", conjForm: "tara" },
+        { id: "ja-u45l2-mamorimasu", type: "vocab", front: "まもります", reading: "mamorimasu", meaning: "to protect", example: { jp: "やくそくをまもります。", en: "I keep the promise." }, accept: ["to keep","to defend"], hint: "godan; drilled in the ば-form", group: "godan", conjForm: "ba" },
       ],
     },
   ],

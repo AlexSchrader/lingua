@@ -1,15 +1,8 @@
-// Unit 46 — ぶんぽう・7 ("Grammar: comparison & degree") — A2 / JLPT N4
-// Comparison and degree: より (than) and ほうが (the ~ side is more) for A-vs-B
-// comparisons, すぎる (too much) on a stem, verb-stem + やすい / にくい (easy /
-// hard to do), and paired ～たり～たり (do things like). Modeled as function-word
-// /suffix vocab whose examples carry the pattern; every example uses simple,
-// earlier vocab.
-// NOTE: naturalness-critical — flagged for the batch native review.
-// lang/unit/lesson stamped in index.js.
+// Unit 46 — どうし・うけみ (passive/causative/imperative drill) — A2 / JLPT N4
 export const UNIT46 = {
   id: "ja-u46",
   lang: "ja",
-  title: "ぶんぽう・7",
+  title: "どうし・うけみ",
   order: 46,
   stage: "a2",
   lessons: [
@@ -17,17 +10,34 @@ export const UNIT46 = {
       id: "ja-u46l1",
       unit: 46,
       lesson: 1,
-      title: "Comparison & degree",
+      title: "Passive form (～られる)",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Compare two things (AはBより / Bのほうが), say 'too much' (すぎる), 'easy/hard to do' (やすい・にくい), and list examples (～たり～たり).",
+      canDo: "Form the passive of N4 verbs: しかります ほめます たのみます ぬすみます こわします だまします.",
       items: [
-        { id: "ja-u46l1-yori", type: "vocab", front: "より", reading: "yori", meaning: "than", example: { jp: "でんしゃはバスよりはやいです。", en: "The train is faster than the bus." }, accept: ["more than", "compared to"], hint: "A は B より ~ = 'A is more ~ than B'. B より marks the thing you compare against: バスより = 'than the bus'." },
-        { id: "ja-u46l1-hoga", type: "vocab", front: "ほうが", reading: "hōga", meaning: "more / the ~ side (is more)", example: { jp: "でんしゃのほうがはやいです。", en: "The train is faster (of the two)." }, accept: ["the ~ one is more", "rather"], hint: "B のほうが ~ = 'B is the more ~ one'. Pairs with より: バスより でんしゃのほうが はやい = 'the train is faster than the bus'." },
-        { id: "ja-u46l1-sugiru", type: "vocab", front: "すぎる", reading: "sugiru", meaning: "too much / excessively", example: { jp: "きのう、たべすぎました。", en: "I ate too much yesterday." }, accept: ["too", "excessively"], hint: "Attach to a verb stem or adjective stem for 'too ~': たべ + すぎる = eat too much; たか + すぎる = too expensive." },
-        { id: "ja-u46l1-yasui", type: "vocab", front: "やすい", reading: "yasui", meaning: "easy to (do)", example: { jp: "このほんはわかりやすいです。", en: "This book is easy to understand." }, accept: ["easy to do"], hint: "verb-stem + やすい = 'easy to ~': わかります → わかり + やすい = easy to understand." },
-        { id: "ja-u46l1-nikui", type: "vocab", front: "にくい", reading: "nikui", meaning: "hard to (do)", example: { jp: "このじはよみにくいです。", en: "This handwriting is hard to read." }, accept: ["hard to do", "difficult to do"], hint: "verb-stem + にくい = 'hard to ~': よみます → よみ + にくい = hard to read. Opposite of やすい." },
-        { id: "ja-u46l1-tari", type: "vocab", front: "たり", reading: "tari", meaning: "do things like (~たり~たり)", example: { jp: "にちようびは、ほんをよんだり、テレビをみたりします。", en: "On Sundays I do things like read books and watch TV." }, accept: ["and so on", "things like"], hint: "past-form + り, paired: ～たり～たりします lists a few example activities (not an exhaustive list): よんだり みたり します." },
+        { id: "ja-u46l1-shikarimasu", type: "vocab", front: "しかります", reading: "shikarimasu", meaning: "to scold", example: { jp: "せんせいがせいとをしかります。", en: "The teacher scolds the student." }, accept: ["to tell off","to reprimand"], hint: "godan; drilled in the passive — 'get scolded'", group: "godan", conjForm: "passive" },
+        { id: "ja-u46l1-homemasu", type: "vocab", front: "ほめます", reading: "homemasu", meaning: "to praise", example: { jp: "ぶちょうがぶかをほめます。", en: "The manager praises the staff." }, accept: ["to compliment","to commend"], hint: "ichidan; drilled in the passive — 'get praised'", group: "ichidan", conjForm: "passive" },
+        { id: "ja-u46l1-tanomimasu", type: "vocab", front: "たのみます", reading: "tanomimasu", meaning: "to request", example: { jp: "ともだちにしごとをたのみます。", en: "I ask a friend to do a job." }, accept: ["to ask","to order"], hint: "godan; drilled in the passive — 'be asked'", group: "godan", conjForm: "passive" },
+        { id: "ja-u46l1-nusumimasu", type: "vocab", front: "ぬすみます", reading: "nusumimasu", meaning: "to steal", example: { jp: "どろぼうがおかねをぬすみます。", en: "A thief steals the money." }, accept: ["to rob","to swipe"], hint: "godan; drilled in the passive — 'get stolen'", group: "godan", conjForm: "passive" },
+        { id: "ja-u46l1-kowashimasu", type: "vocab", front: "こわします", reading: "kowashimasu", meaning: "to break", example: { jp: "こどもがおもちゃをこわします。", en: "The child breaks the toy." }, accept: ["to destroy","to smash"], hint: "godan; drilled in the passive — 'get broken'", group: "godan", conjForm: "passive" },
+        { id: "ja-u46l1-damashimasu", type: "vocab", front: "だまします", reading: "damashimasu", meaning: "to trick", example: { jp: "わるいひとがきゃくをだまします。", en: "A bad person tricks the customer." }, accept: ["to deceive","to fool"], hint: "godan; drilled in the passive — 'get tricked'", group: "godan", conjForm: "passive" },
+      ],
+    },
+    {
+      id: "ja-u46l2",
+      unit: 46,
+      lesson: 2,
+      title: "Causative & command",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Form the causative and imperative of N4 verbs: たすけます おこします よびます つかまえます ふみます しらせます.",
+      items: [
+        { id: "ja-u46l2-tasukemasu", type: "vocab", front: "たすけます", reading: "tasukemasu", meaning: "to help", example: { jp: "せんせいがせいとをたすけます。", en: "The teacher helps the student." }, accept: ["to rescue","to save"], hint: "ichidan; drilled in the causative — 'make/let help'", group: "ichidan", conjForm: "causative" },
+        { id: "ja-u46l2-okoshimasu", type: "vocab", front: "おこします", reading: "okoshimasu", meaning: "to wake (someone)", example: { jp: "はははこどもをおこします。", en: "The mother wakes the child." }, accept: ["to wake up","to rouse"], hint: "godan; drilled in the causative — 'make get up'", group: "godan", conjForm: "causative" },
+        { id: "ja-u46l2-yobimasu", type: "vocab", front: "よびます", reading: "yobimasu", meaning: "to call", example: { jp: "てんいんがきゃくをよびます。", en: "The clerk calls the customer." }, accept: ["to summon","to invite"], hint: "godan; drilled in the causative — 'make call'", group: "godan", conjForm: "causative" },
+        { id: "ja-u46l2-tsukamaemasu", type: "vocab", front: "つかまえます", reading: "tsukamaemasu", meaning: "to catch", example: { jp: "けいかんがどろぼうをつかまえます。", en: "The police officer catches the thief." }, accept: ["to capture","to grab"], hint: "ichidan; drilled in the causative — 'make catch'", group: "ichidan", conjForm: "causative" },
+        { id: "ja-u46l2-fumimasu", type: "vocab", front: "ふみます", reading: "fumimasu", meaning: "to step on", example: { jp: "ブレーキをふみます。", en: "I step on the brake." }, accept: ["to tread on","to stamp"], hint: "godan; drilled in the imperative — 'step!'", group: "godan", conjForm: "imperative" },
+        { id: "ja-u46l2-shirasemasu", type: "vocab", front: "しらせます", reading: "shirasemasu", meaning: "to inform", example: { jp: "けっかをみんなにしらせます。", en: "I inform everyone of the result." }, accept: ["to notify","to let know"], hint: "ichidan; drilled in the imperative — 'tell me!'", group: "ichidan", conjForm: "imperative" },
       ],
     },
   ],
