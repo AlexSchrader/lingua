@@ -31,6 +31,21 @@ function yesterdayISO() {
   return d.toISOString().slice(0, 10);
 }
 
+// True when a language has at least one authored unit. A "started" language with
+// no content can't have been legitimately climbed — it's stale seeding.
+const langHasContent = (id) => UNITS.some((u) => u.lang === id);
+
+// Prune a profile's STARTED languages down to those with authored content, and
+// repoint activeLang if it landed on a pruned one. Pure (hasContent injected) so
+// it's unit-testable. Returns the same profile object when nothing changes.
+export function pruneStartedLanguages(profile, hasContent = langHasContent) {
+  if (!profile || !Array.isArray(profile.languages) || !profile.languages.length) return profile;
+  const kept = profile.languages.filter(hasContent);
+  if (kept.length === profile.languages.length) return profile;
+  const activeLang = kept.includes(profile.activeLang) ? profile.activeLang : (kept[0] ?? null);
+  return { ...profile, languages: kept, activeLang };
+}
+
 const XP_BY_GRADE = { again: 2, hard: 5, good: 10, easy: 15 };
 
 // Cap on the "fix these" mistake list — most recent misses, older ones drop off.
@@ -187,10 +202,13 @@ export const useStore = create(
           }
           // Backfill any language progress entries added since last persist.
           const languages = { ...initialLanguages(), ...s.languages };
+          // Migration: prune STARTED languages that have no authored content —
+          // stale seeding from the old auto-cascade (ja→es→fr) that pre-dated
+          // user language choice. (Repoints activeLang if it was pruned.)
+          let profile = pruneStartedLanguages(s.profile, langHasContent);
           // Migration: an existing learner (already onboarded, or with real
           // progress) from before language-selection defaults to Japanese as
           // their started + active language, so nothing they've done resets.
-          let profile = s.profile;
           if (!profile.languages || profile.languages.length === 0) {
             const hasProgress = Object.values(items).some((it) => (it.rung ?? 0) >= 1);
             if (profile.onboarded || hasProgress) {
