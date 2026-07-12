@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Lock, Check, ChevronRight } from "lucide-react";
+import { Lock, Check, ChevronRight, Volume2 } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
 import { roadmapFor } from "../data/roadmap.js";
@@ -389,11 +389,23 @@ function KanjiSection({ langId, items, showRomaji }) {
 // counterpart to the kana chart. A place to revisit your growing vocabulary. Shows
 // learned words only (rung ≥ 1); units with none yet are hidden, so the bank fills
 // out as you climb rather than spoiling everything ahead.
+// Every row is learned (rung ≥ 1), so it's tappable — opens the same GlyphDetail
+// study card the kana chips use (auto-plays the pronunciation, shows reading /
+// meaning / example / mastery). Words have no single-glyph stroke data, so
+// GlyphDetail simply skips the trace animation — vocab get audio, kana get audio +
+// trace. The speaker icon signals the tap-to-hear affordance.
 function WordRow({ def, item, showRomaji }) {
+  const [open, setOpen] = useState(false);
   const pct = masteryPct(item);
   const mastered = isMastered(item);
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 12px", borderRadius: 12, border: `1px solid ${C.line}`, background: C.surface }}>
+    <>
+    <div
+      onClick={() => setOpen(true)}
+      role="button"
+      aria-label={`${def.front} — hear pronunciation and details`}
+      style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 12px", borderRadius: 12, border: `1px solid ${C.line}`, background: C.surface, cursor: "pointer" }}
+    >
       <div style={{ minWidth: 0, flex: 1 }}>
         <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
           <span style={{ fontFamily: F.jp, fontSize: 18, fontWeight: 600, color: C.ink }}>{def.front}</span>
@@ -403,10 +415,13 @@ function WordRow({ def, item, showRomaji }) {
           <div style={{ fontSize: 13, color: C.inkSoft, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{def.meaning}</div>
         )}
       </div>
+      <Volume2 size={16} color={C.inkSoft} aria-hidden="true" style={{ flexShrink: 0 }} />
       <div title={mastered ? "Mastered" : `${Math.round(pct * 100)}%`} style={{ width: 40, height: 5, borderRadius: 999, background: C.lockedBg, overflow: "hidden", flexShrink: 0 }}>
         <div style={{ width: `${Math.max(6, Math.round(pct * 100))}%`, height: "100%", background: mastered ? C.matcha : C.ai }} />
       </div>
     </div>
+    {open && <GlyphDetail item={{ ...def, ...item }} onClose={() => setOpen(false)} />}
+    </>
   );
 }
 
