@@ -270,6 +270,11 @@ export function validateContent(units, languages) {
   const vocabFronts = new Map(); // front → first item id
   for (const { item } of allItems) {
     if (item.type !== "vocab" && item.type !== "kanji") continue;
+    // Conjugation-drill items (conjForm set) intentionally REUSE a verb's front —
+    // のみます drilled in te/nai/potential/… is not a duplicate *teaching* of の む,
+    // it's the drill. Exempt them from single-home uniqueness. (The verb's one true
+    // vocab "home" — the plain vocab item without conjForm — still enforces uniqueness.)
+    if (item.conjForm) continue;
     if (vocabFronts.has(item.front))
       e(
         `item ${item.id}: ${item.type} front "${item.front}" is already taught in item ${vocabFronts.get(item.front)} — ` +
