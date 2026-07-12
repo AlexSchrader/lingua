@@ -22,7 +22,10 @@ const STAGE_RANK = { "pre-a1": 0, a1: 1, a2: 2, b1: 3, b2: 4 };
 // every required key must be present.
 const TYPE_KEYS = {
   kana: { required: ["id", "type", "front", "reading", "meaning", "example"], optional: ["hint"] },
-  vocab: { required: ["id", "type", "front", "reading", "meaning", "example", "accept"], optional: ["hint"] },
+  // group + conjForm are the optional verb-conjugation tags the contract allows
+  // (contract.js ITEM_KEYS) — a group-tagged verb with a conjForm routes to the
+  // conjugate card. Listed here so the lint's key allowlist matches the contract.
+  vocab: { required: ["id", "type", "front", "reading", "meaning", "example", "accept"], optional: ["hint", "group", "conjForm"] },
   // Forward-compatible: a `kanji` item type doesn't exist in the contract yet
   // (validateContent rejects it). When it ships, these rules activate.
   kanji: { required: ["id", "type", "front", "reading", "meaning", "example", "accept"], optional: ["hint"] },

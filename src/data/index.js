@@ -44,8 +44,15 @@ import { UNIT39 } from "./ja/unit39.js"; // かんじ・ばしょ (places & buil
 import { UNIT40 } from "./ja/unit40.js"; // かんじ・いろ・たべもの (colors & food)
 import { UNIT41 } from "./ja/unit41.js"; // かんじ・ようす (descriptive & state)
 import { UNIT42 } from "./ja/unit42.js"; // かんじ・きのう (function & misc)
+// --- A2 (N4) grammar arc — 5 pattern units + 1 conjugation-drill unit ---
+import { UNIT43 } from "./ja/unit43.js"; // ぶんぽう・4 (て-form patterns)
+import { UNIT44 } from "./ja/unit44.js"; // ぶんぽう・5 (giving/receiving & intention)
+import { UNIT45 } from "./ja/unit45.js"; // ぶんぽう・6 (conditionals & ability)
+import { UNIT46 } from "./ja/unit46.js"; // ぶんぽう・7 (comparison & degree)
+import { UNIT47 } from "./ja/unit47.js"; // ぶんぽう・8 (appearance & quoting)
+import { UNIT48 } from "./ja/unit48.js"; // どうし・かつよう (conjugation drill → conjugate card)
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48];
 
 // A language is "live" once it has authored content; catalog entries with no units
 // yet are "planned". Derived, never stored — a language flips to live automatically
