@@ -17,10 +17,14 @@ import { UNIT52 } from "./ja/unit52.js";
 import { UNIT53 } from "./ja/unit53.js";
 import { UNIT54 } from "./ja/unit54.js";
 import { UNIT55 } from "./ja/unit55.js";
+import { UNIT56 } from "./ja/unit56.js";
+import { UNIT57 } from "./ja/unit57.js";
+import { UNIT58 } from "./ja/unit58.js";
+import { UNIT59 } from "./ja/unit59.js";
 
 // B1 vocab units so far (grammar waits on the conjugation-engine extension — see
 // BUILD-BRIEF-conjugation-b1-forms.md; N3 kanji is a deferred later batch).
-export const B1_DRAFT_UNITS = [UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55];
+export const B1_DRAFT_UNITS = [UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59];
 
 // One representative lesson per unit, for a quick cross-section preview.
 export const B1_SAMPLER_LESSON_IDS = [
@@ -35,4 +39,8 @@ export const B1_SAMPLER_LESSON_IDS = [
   "ja-u53l1", // amounts & parts
   "ja-u54l1", // health & condition
   "ja-u55l1", // nature & climate
+  "ja-u56l1", // people & roles
+  "ja-u57l1", // manners & conduct
+  "ja-u58l1", // conversation
+  "ja-u59l1", // the economy
 ];
