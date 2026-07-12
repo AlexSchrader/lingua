@@ -64,8 +64,17 @@ import { UNIT57 } from "./ja/unit57.js"; // がっこう・べんきょう (N5 s
 import { UNIT58 } from "./ja/unit58.js"; // いえ・せいかつ (N5 home & living)
 import { UNIT59 } from "./ja/unit59.js"; // まち・こうつう (N5 town & transport)
 import { UNIT60 } from "./ja/unit60.js"; // ひと・からだ・N5 (N5 people, body & things)
+// --- A1 (N5) vocab thickening — batch 2 ---
+import { UNIT61 } from "./ja/unit61.js"; // しぜん・どうぶつ (N5 nature & animals)
+import { UNIT62 } from "./ja/unit62.js"; // かず・りょう (N5 counters & quantity)
+import { UNIT63 } from "./ja/unit63.js"; // きもち・はんのう (N5 feelings & reactions)
+import { UNIT64 } from "./ja/unit64.js"; // かたち・いち (N5 shapes & position)
+import { UNIT65 } from "./ja/unit65.js"; // おかね・かいもの (N5 money & shopping)
+import { UNIT66 } from "./ja/unit66.js"; // てんき・そと (N5 weather & outdoors)
+import { UNIT67 } from "./ja/unit67.js"; // しゅみ・スポーツ (N5 hobbies & sports)
+import { UNIT68 } from "./ja/unit68.js"; // ふくし・ひょうげん (N5 adverbs & expressions)
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64, UNIT65, UNIT66, UNIT67, UNIT68];
 
 // A language is "live" once it has authored content; catalog entries with no units
 // yet are "planned". Derived, never stored — a language flips to live automatically
