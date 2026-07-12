@@ -23,6 +23,20 @@ const CASES = [
   // irregular
   ["きます", "irregular", { dict: "くる", te: "きて", ta: "きた", nai: "こない", potential: "こられる", volitional: "こよう", ba: "くれば", tara: "きたら" }],
   ["そうじします", "irregular", { dict: "そうじする", te: "そうじして", ta: "そうじした", nai: "そうじしない", potential: "そうじできる" }],
+
+  // --- N4 additions: passive · causative · causative-passive · imperative ---
+  // godan: あ-column stem for passive/causative; bare え-column for imperative
+  ["のみます", "godan", { passive: "のまれる", causative: "のませる", causative_passive: "のませられる", imperative: "のめ" }],
+  ["かきます", "godan", { passive: "かかれる", causative: "かかせる", causative_passive: "かかせられる", imperative: "かけ" }],
+  ["かいます", "godan", { passive: "かわれる", causative: "かわせる", causative_passive: "かわせられる", imperative: "かえ" }], // う-verb: あ-col is わ
+  ["とります", "godan", { passive: "とられる", causative: "とらせる", imperative: "とれ" }],
+  ["いきます", "godan", { passive: "いかれる", causative: "いかせる", imperative: "いけ" }], // 行く exception
+  // ichidan: passive == potential (～られる), causative ～させる, imperative ～ろ
+  ["たべます", "ichidan", { passive: "たべられる", causative: "たべさせる", causative_passive: "たべさせられる", imperative: "たべろ" }],
+  ["みます", "ichidan", { passive: "みられる", causative: "みさせる", imperative: "みろ" }],
+  // irregular
+  ["きます", "irregular", { passive: "こられる", causative: "こさせる", causative_passive: "こさせられる", imperative: "こい" }],
+  ["そうじします", "irregular", { passive: "そうじされる", causative: "そうじさせる", causative_passive: "そうじさせられる", imperative: "そうじしろ" }],
 ];
 
 for (const [masu, group, forms] of CASES) {
@@ -42,4 +56,12 @@ test("every N4 form is produced for a sample of each group", () => {
 test("bad input returns null", () => {
   assert.equal(conjugate("たべる", "ichidan", "te"), null); // not a ます-form
   assert.equal(conjugate("のみます", "godan", "keigo"), null); // unknown form
+});
+
+test("defective verbs return null for forms they can't take", () => {
+  // ある has no agent, so no passive/causative/causative-passive; imperative あれ is valid.
+  assert.equal(conjugate("あります", "godan", "passive"), null);
+  assert.equal(conjugate("あります", "godan", "causative"), null);
+  assert.equal(conjugate("あります", "godan", "causative_passive"), null);
+  assert.equal(conjugate("あります", "godan", "imperative"), "あれ");
 });
