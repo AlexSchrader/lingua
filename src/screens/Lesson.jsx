@@ -10,7 +10,7 @@ import CardBreath from "../components/CardBreath.jsx";
 import Celebration from "../components/Celebration.jsx";
 import Mascot from "../components/Mascot.jsx";
 import { useStore } from "../store/useStore.js";
-import { getLesson } from "../data/index.js";
+import { getLesson, UNITS } from "../data/index.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { initLearn, currentStep, answerStep } from "../store/learnQueue.js";
 import { isTraceable } from "../store/cardRouting.js";
@@ -29,6 +29,19 @@ function assertLiveKind(kindKey) {
 // The recall (check2) card for an item in its learning steps.
 function recallMode() {
   return "meaning";
+}
+
+// If completing `lessonId` finished the LAST lesson of its unit AND a real next
+// unit exists for the same language, return that (now-unlocked) unit — the moment
+// the panda celebrates a unit boundary. Content-agnostic (reads the UNITS shape);
+// skips locked/empty stub units so we never celebrate a placeholder.
+function unitUnlockedBy(lessonId) {
+  const ui = UNITS.findIndex((u) => u.lessons?.some((l) => l.id === lessonId));
+  if (ui < 0) return null;
+  const unit = UNITS[ui];
+  const last = unit.lessons[unit.lessons.length - 1];
+  if (last?.id !== lessonId) return null; // not the unit's final lesson
+  return UNITS.slice(ui + 1).find((u) => u.lang === unit.lang && !u.locked && u.lessons?.length) ?? null;
 }
 
 // Lesson-only session runner: teaches fresh items from the current lesson,
@@ -117,6 +130,10 @@ export default function Lesson() {
 
   if (finished || done) {
     const learned = freshIds.length;
+    // Finishing a unit's last lesson unlocks the next unit — a bigger, meaningful
+    // moment, so the panda plays its "unit unlock" reaction (falls back to the
+    // proud still until the clip exists). Never in a dev-sandbox run.
+    const unlockedUnit = sandbox ? null : unitUnlockedBy(lessonId);
     return (
       <PhaseShell title={lesson.title} progress={1}>
         <Celebration />
@@ -130,10 +147,14 @@ export default function Lesson() {
             textAlign: "center",
           }}
         >
-          <Mascot context="lessonComplete" size={150} />
-          <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>Lesson complete</div>
+          <Mascot context={unlockedUnit ? "unitUnlock" : "lessonComplete"} size={150} />
+          <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>
+            {unlockedUnit ? "Unit complete!" : "Lesson complete"}
+          </div>
           <div style={{ color: C.inkSoft, maxWidth: 300 }}>
-            {learned > 0
+            {unlockedUnit
+              ? "You've finished this unit — a new one is unlocked. New material is waiting whenever you're ready."
+              : learned > 0
               ? `Nice — you learned ${learned} new item${learned === 1 ? "" : "s"}. They'll come back for review in a few days.`
               : "Nothing new in this lesson right now."}
           </div>
