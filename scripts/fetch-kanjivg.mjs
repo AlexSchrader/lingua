@@ -42,7 +42,10 @@ const KANJI_N3 =
   "自然境環星池資源災害石素科技術験果効論識認確報情" + // nature/science/info (Unit 68)
   "健康態状症療筋肉骨臓圧検性格信頼慣精怒喜泣笑悩慢" + // health/body/emotion (Unit 69)
   "職就給料責任努成功失敗績教授卒専門講義訳連絡告招" + // work/education/comm (Unit 70)
-  "現在未将過突変増減続展移量割均合計満比番位極限総";   // time/change/quantity (Unit 71)
+  "現在未将過突変増減続展移量割均合計満比番位極限総" + // time/change/quantity (Unit 71)
+  "米麦粉塩砂卵焼煮蒸冷熱汁甘辛酸香濃薄器飯弁菜材缶" + // food & cooking (Unit 72)
+  "宅壁床窓畳棚掃除洗濯片付押引閉締抜掛布袋傘鏡針綿" + // home & living (Unit 73)
+  "晴曇湿嵐雷霧森林岩泉谷丘犬猫鳥魚虫馬花草竹松種咲";   // weather/nature/animals (Unit 74)
 const kanaChars = (HIRAGANA + DAKUTEN + KATAKANA + KANJI + KANJI_N3).split("");
 
 console.log(`Fetching KanjiVG data for ${kanaChars.length} characters: ${kanaChars.join(" ")}\n`);
