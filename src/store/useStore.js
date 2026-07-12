@@ -144,6 +144,11 @@ export const useStore = create(
       // touching any progress — just flips the flag so the gate runs it again.
       replayOnboarding: () => set((s) => ({ profile: { ...s.profile, onboarded: false } })),
 
+      // Daily-reminder time ("HH:MM", or null = off). Lives on profile (persisted +
+      // synced); the notification scheduling itself is a client-side side effect in
+      // src/lib/reminders.js, wired from Settings + App boot.
+      setReminderTime: (time) => set((s) => ({ profile: { ...s.profile, reminderTime: time || null } })),
+
       setSetting: (key, value) =>
         set((s) => ({ settings: { ...s.settings, [key]: value } })),
 

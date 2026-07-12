@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogOut, Cloud, CheckCircle2, Mic, Award } from "lucide-react";
+import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogOut, Cloud, CheckCircle2, Mic, Award, Bell } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES } from "../data/index.js";
+import { triggersSupported, notificationPermission, requestReminderPermission, scheduleDailyReminder, cancelReminders } from "../lib/reminders.js";
 import { C, F } from "../theme.js";
 import { VERSION } from "../version.js";
 
@@ -55,6 +56,71 @@ function Toggle({ label, desc, checked, onChange }) {
         <span style={{ width: 22, height: 22, borderRadius: "50%", background: "#fff", display: "block" }} />
       </button>
     </div>
+  );
+}
+
+// Daily local reminder. Best-effort + honest: fires while the app is closed only
+// where the browser supports scheduled notifications (Chromium/installed PWA); the
+// note tells the truth elsewhere. Scheduling lives in src/lib/reminders.js.
+function RemindersSection() {
+  const reminderTime = useStore((s) => s.profile?.reminderTime ?? null);
+  const setReminderTime = useStore((s) => s.setReminderTime);
+  const [busy, setBusy] = useState(false);
+  const on = !!reminderTime;
+  const supported = triggersSupported();
+  const blocked = notificationPermission() === "denied";
+
+  const toggle = async (v) => {
+    if (busy) return;
+    setBusy(true);
+    if (!v) {
+      await cancelReminders();
+      setReminderTime(null);
+    } else {
+      const perm = await requestReminderPermission();
+      if (perm === "granted") {
+        const time = reminderTime || "19:00";
+        setReminderTime(time);
+        await scheduleDailyReminder(time);
+      }
+    }
+    setBusy(false);
+  };
+
+  const changeTime = async (time) => {
+    setReminderTime(time);
+    await scheduleDailyReminder(time);
+  };
+
+  return (
+    <Section title="Reminders">
+      <Toggle
+        label="Daily reminder"
+        desc="A gentle nudge to practice, at a time you choose."
+        checked={on}
+        onChange={toggle}
+      />
+      {on && (
+        <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 0" }}>
+          <span style={{ flex: 1, fontSize: 14 }}>Remind me at</span>
+          <input
+            type="time"
+            value={reminderTime}
+            onChange={(e) => changeTime(e.target.value)}
+            style={{ padding: "8px 12px", borderRadius: 10, border: `1.5px solid ${C.line}`, background: C.surface, color: C.ink, fontSize: 15, fontFamily: F.body, outline: "none" }}
+          />
+        </div>
+      )}
+      <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 10, lineHeight: 1.4, display: "flex", gap: 8 }}>
+        <Bell size={14} style={{ flexShrink: 0, marginTop: 2 }} />
+        <span>
+          {supported
+            ? "Reminders fire on this device even when Lingua is closed — best with the app added to your home screen."
+            : "Your browser can't schedule reminders while the app is closed (common on iPhone). Reliable reminders across your devices are coming with account sync."}
+          {blocked && " Notifications are blocked in your browser settings — turn them on there to use reminders."}
+        </span>
+      </div>
+    </Section>
   );
 }
 
@@ -256,6 +322,8 @@ export default function Settings() {
           </span>
         </div>
       </Section>
+
+      <RemindersSection />
 
       <Section title="Progress">
         {!confirming ? (
