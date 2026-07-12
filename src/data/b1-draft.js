@@ -21,10 +21,15 @@ import { UNIT56 } from "./ja/unit56.js";
 import { UNIT57 } from "./ja/unit57.js";
 import { UNIT58 } from "./ja/unit58.js";
 import { UNIT59 } from "./ja/unit59.js";
+import { UNIT60 } from "./ja/unit60.js";
+import { UNIT61 } from "./ja/unit61.js";
+import { UNIT62 } from "./ja/unit62.js";
+import { UNIT63 } from "./ja/unit63.js";
+import { UNIT64 } from "./ja/unit64.js";
 
 // B1 vocab units so far (grammar waits on the conjugation-engine extension — see
 // BUILD-BRIEF-conjugation-b1-forms.md; N3 kanji is a deferred later batch).
-export const B1_DRAFT_UNITS = [UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59];
+export const B1_DRAFT_UNITS = [UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64];
 
 // One representative lesson per unit, for a quick cross-section preview.
 export const B1_SAMPLER_LESSON_IDS = [
@@ -43,4 +48,9 @@ export const B1_SAMPLER_LESSON_IDS = [
   "ja-u57l1", // manners & conduct
   "ja-u58l1", // conversation
   "ja-u59l1", // the economy
+  "ja-u60l1", // study & school
+  "ja-u61l1", // science
+  "ja-u62l1", // getting around
+  "ja-u63l1", // thinking & judging verbs
+  "ja-u64l1", // persisting verbs
 ];
