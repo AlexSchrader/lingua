@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
 import { requestReminderPermission, scheduleDailyReminder } from "../lib/reminders.js";
+import PlannedLanguages from "../components/PlannedLanguages.jsx";
 import { C, F } from "../theme.js";
 
 // First-run onboarding, two calm steps: (1) pick the language to learn — any of
@@ -81,17 +82,14 @@ export default function Onboarding() {
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {/* Available languages first, then the "coming soon" roadmap below.
-                  Coming-soon ones are shown (so learners see what's ahead) but not
-                  selectable — you can only start a language that has content. */}
-              {[...LANGUAGES].sort((a, b) => Number(hasContent(b.id)) - Number(hasContent(a.id))).map((l) => {
+              {/* Only languages WITH content are selectable; the other ~19 fold into
+                  a "coming soon" expander so the picker isn't a wall of 20 options. */}
+              {LANGUAGES.filter((l) => hasContent(l.id)).map((l) => {
                 const on = lang === l.id;
-                const ready = hasContent(l.id);
                 return (
                   <button
                     key={l.id}
-                    disabled={!ready}
-                    onClick={() => ready && setLang(l.id)}
+                    onClick={() => setLang(l.id)}
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -101,8 +99,7 @@ export default function Onboarding() {
                       border: `1.5px solid ${on ? C.ai : C.line}`,
                       background: on ? C.aiSoft : C.surface,
                       color: C.ink,
-                      cursor: ready ? "pointer" : "default",
-                      opacity: ready ? 1 : 0.55,
+                      cursor: "pointer",
                       fontFamily: F.body,
                       textAlign: "left",
                     }}
@@ -110,14 +107,13 @@ export default function Onboarding() {
                     <span style={{ fontSize: 28 }}>{l.flag}</span>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ fontSize: 16, fontWeight: 700, color: on ? C.aiDeep : C.ink }}>{l.name}</div>
-                      <div style={{ fontSize: 12, color: ready ? C.matcha : C.inkSoft, fontWeight: 600, marginTop: 2 }}>
-                        {ready ? "Available now" : "Content coming soon"}
-                      </div>
+                      <div style={{ fontSize: 12, color: C.matcha, fontWeight: 600, marginTop: 2 }}>Available now</div>
                     </div>
                     <span style={{ fontSize: 12, color: C.inkSoft }}>→ {l.target}</span>
                   </button>
                 );
               })}
+              <PlannedLanguages langs={LANGUAGES.filter((l) => !hasContent(l.id))} />
             </div>
 
             <button

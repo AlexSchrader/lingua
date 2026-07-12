@@ -6,6 +6,7 @@ import { roadmapFor } from "../data/roadmap.js";
 import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
 import GlyphDetail from "../components/GlyphDetail.jsx";
+import PlannedLanguages from "../components/PlannedLanguages.jsx";
 import { C, F } from "../theme.js";
 
 // Stage sectioning for the Units list. `stage` lives on each unit (and roadmap
@@ -100,9 +101,12 @@ export default function Ladder() {
               : `Reach A1 in ${active.name} to unlock another language.`}
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            {notStarted.map((l) => (
+            {/* Startable (has-content) languages as rows; the ~19 planned fold into
+                the collapsible "coming soon" list so this isn't a 19-row wall. */}
+            {notStarted.filter((l) => hasContent(l.id)).map((l) => (
               <AddLangRow key={l.id} lang={l} canAdd={canAdd} onStart={() => startLanguage(l.id)} />
             ))}
+            <PlannedLanguages langs={notStarted.filter((l) => !hasContent(l.id))} />
           </div>
         </Section>
       )}
