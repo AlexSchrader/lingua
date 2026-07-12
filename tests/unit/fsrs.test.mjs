@@ -1,6 +1,19 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { newCard, schedule, isDue } from "../../src/store/srs.js";
+import { newCard, schedule, isDue, startOfTomorrow } from "../../src/store/srs.js";
+
+// R24 — first review is floored to next-day so a fresh item isn't massed.
+test("startOfTomorrow: next local midnight, strictly in the future", () => {
+  const t = startOfTomorrow();
+  assert.ok(t.getTime() > Date.now(), "is in the future");
+  assert.equal(t.getHours(), 0);
+  assert.equal(t.getMinutes(), 0);
+  assert.equal(t.getSeconds(), 0);
+  const expected = new Date();
+  expected.setHours(0, 0, 0, 0);
+  expected.setDate(expected.getDate() + 1);
+  assert.equal(t.getTime(), expected.getTime());
+});
 
 test("a fresh card graded 'good' schedules a future due", () => {
   const now = new Date();
