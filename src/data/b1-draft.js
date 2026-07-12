@@ -43,12 +43,15 @@ import { UNIT78 } from "./ja/unit78.js";
 import { UNIT79 } from "./ja/unit79.js";
 import { UNIT80 } from "./ja/unit80.js";
 import { UNIT81 } from "./ja/unit81.js";
+import { UNIT82 } from "./ja/unit82.js";
+import { UNIT83 } from "./ja/unit83.js";
+import { UNIT84 } from "./ja/unit84.js";
 
 // B1 units so far: vocab U45-64 + pattern-grammar U65-66 (function-word vocab) + N3 kanji
 // U67+ (type:"kanji", KanjiVG strokes fetched into kanjivg.js via KANJI_N3). The
 // passive/causative conjugation DRILLS still wait on the engine extension (see
 // BUILD-BRIEF-conjugation-b1-forms.md).
-export const B1_DRAFT_UNITS = [UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64, UNIT65, UNIT66, UNIT67, UNIT68, UNIT69, UNIT70, UNIT71, UNIT72, UNIT73, UNIT74, UNIT75, UNIT76, UNIT77, UNIT78, UNIT79, UNIT80, UNIT81];
+export const B1_DRAFT_UNITS = [UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64, UNIT65, UNIT66, UNIT67, UNIT68, UNIT69, UNIT70, UNIT71, UNIT72, UNIT73, UNIT74, UNIT75, UNIT76, UNIT77, UNIT78, UNIT79, UNIT80, UNIT81, UNIT82, UNIT83, UNIT84];
 
 // One representative lesson per unit, for a quick cross-section preview.
 export const B1_SAMPLER_LESSON_IDS = [
@@ -89,4 +92,7 @@ export const B1_SAMPLER_LESSON_IDS = [
   "ja-u79l1", // kanji: cause/production
   "ja-u80l1", // kanji: high-frequency
   "ja-u81l1", // kanji: injury/conflict/arts
+  "ja-u82l1", // grammar: passive/causative
+  "ja-u83l1", // grammar: focus/relational
+  "ja-u84l1", // grammar: reason/formal-nouns
 ];
