@@ -9,11 +9,15 @@
 //   conjugate("たべます", "ichidan",  "nai")  → "たべない"
 //   conjugate("そうじします", "irregular", "ta") → "そうじした"
 //
-// Forms (the N4 set): dict · nai · ta · te · tara · ba · potential · volitional.
+// Forms (the full N4 set): dict · nai · ta · te · tara · ba · potential · volitional
+//   · passive · causative · causative_passive · imperative.
 // Returns the kana string, or null if the input can't be conjugated.
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const CONJ_FORMS = ["dict", "nai", "ta", "te", "tara", "ba", "potential", "volitional"];
+export const CONJ_FORMS = [
+  "dict", "nai", "ta", "te", "tara", "ba", "potential", "volitional",
+  "passive", "causative", "causative_passive", "imperative",
+];
 
 export const CONJ_FORM_LABEL = {
   dict: "plain (dictionary)",
@@ -24,6 +28,10 @@ export const CONJ_FORM_LABEL = {
   ba: "conditional (～ば)",
   potential: "potential (can ～)",
   volitional: "volitional (let's ～)",
+  passive: "passive (～られる/～される)",
+  causative: "causative (make/let ～)",
+  causative_passive: "causative-passive (be made to ～)",
+  imperative: "imperative (command)",
 };
 
 // Godan: the ます-stem ends in an い-column kana. Map it to the other columns of its
@@ -41,30 +49,42 @@ const GODAN = {
 };
 
 // Irregular verbs — full forms (their vowels shift, so no stem+suffix rule works).
-const SURU = { dict: "する", nai: "しない", ta: "した", te: "して", tara: "したら", ba: "すれば", potential: "できる", volitional: "しよう" };
-const KURU = { dict: "くる", nai: "こない", ta: "きた", te: "きて", tara: "きたら", ba: "くれば", potential: "こられる", volitional: "こよう" };
+const SURU = { dict: "する", nai: "しない", ta: "した", te: "して", tara: "したら", ba: "すれば", potential: "できる", volitional: "しよう", passive: "される", causative: "させる", causative_passive: "させられる", imperative: "しろ" };
+const KURU = { dict: "くる", nai: "こない", ta: "きた", te: "きて", tara: "きたら", ba: "くれば", potential: "こられる", volitional: "こよう", passive: "こられる", causative: "こさせる", causative_passive: "こさせられる", imperative: "こい" };
 // Godan verbs that break the euphonic rule / negative:
-const IKU  = { dict: "いく", nai: "いかない", ta: "いった", te: "いって", tara: "いったら", ba: "いけば", potential: "いける", volitional: "いこう" };
-const ARU  = { dict: "ある", nai: "ない", ta: "あった", te: "あって", tara: "あったら", ba: "あれば", potential: "ありえる", volitional: "あろう" };
+const IKU  = { dict: "いく", nai: "いかない", ta: "いった", te: "いって", tara: "いったら", ba: "いけば", potential: "いける", volitional: "いこう", passive: "いかれる", causative: "いかせる", causative_passive: "いかされる", imperative: "いけ" };
+// ある is defective for the volitional-of-agency forms: no passive/causative/
+// causative-passive (nothing "makes" an inanimate thing exist); imperative あれ is
+// archaic but valid. Missing forms fall through to null.
+const ARU  = { dict: "ある", nai: "ない", ta: "あった", te: "あって", tara: "あったら", ba: "あれば", potential: "ありえる", volitional: "あろう", imperative: "あれ" };
 
 export function conjugate(masu, group, form) {
   if (typeof masu !== "string" || !masu.endsWith("ます") || !CONJ_FORMS.includes(form)) return null;
   const stem = masu.slice(0, -2); // drop ます
 
   if (group === "irregular") {
-    if (masu === "きます") return KURU[form];
-    if (masu.endsWith("します")) return masu.slice(0, -3) + SURU[form]; // そうじ + する-forms
+    if (masu === "きます") return KURU[form] ?? null;
+    if (masu.endsWith("します")) {
+      const s = SURU[form];
+      return s ? masu.slice(0, -3) + s : null; // そうじ + する-forms
+    }
     return null;
   }
 
   if (group === "ichidan") {
-    const suf = { dict: "る", nai: "ない", ta: "た", te: "て", tara: "たら", ba: "れば", potential: "られる", volitional: "よう" };
-    return stem + suf[form];
+    // Note: ichidan potential and passive are identically ～られる (a real
+    // syncretism in Japanese), so both map to the same suffix here.
+    const suf = {
+      dict: "る", nai: "ない", ta: "た", te: "て", tara: "たら", ba: "れば",
+      potential: "られる", volitional: "よう",
+      passive: "られる", causative: "させる", causative_passive: "させられる", imperative: "ろ",
+    };
+    return suf[form] ? stem + suf[form] : null;
   }
 
   if (group === "godan") {
-    if (masu === "いきます") return IKU[form];
-    if (masu === "あります") return ARU[form];
+    if (masu === "いきます") return IKU[form] ?? null;
+    if (masu === "あります") return ARU[form] ?? null;
     const last = stem.slice(-1);
     const g = GODAN[last];
     if (!g) return null;
@@ -78,6 +98,12 @@ export function conjugate(masu, group, form) {
       case "potential": return pre + g.e + "る";
       case "ba": return pre + g.e + "ば";
       case "volitional": return pre + g.o + "う";
+      // あ-column stem carries passive (～れる) and causative (～せる); the
+      // causative-passive stacks them (～せられる). Imperative is the bare え-column.
+      case "passive": return pre + g.a + "れる";
+      case "causative": return pre + g.a + "せる";
+      case "causative_passive": return pre + g.a + "せられる";
+      case "imperative": return pre + g.e;
       default: return null;
     }
   }
