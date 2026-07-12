@@ -51,8 +51,16 @@ import { UNIT45 } from "./ja/unit45.js"; // ぶんぽう・6 (conditionals & abi
 import { UNIT46 } from "./ja/unit46.js"; // ぶんぽう・7 (comparison & degree)
 import { UNIT47 } from "./ja/unit47.js"; // ぶんぽう・8 (appearance & quoting)
 import { UNIT48 } from "./ja/unit48.js"; // どうし・かつよう (conjugation drill → conjugate card)
+// --- A2 (N4) passive/causative drill + vocab thickening ---
+import { UNIT49 } from "./ja/unit49.js"; // どうし・うけみ (passive/causative/imperative drill)
+import { UNIT50 } from "./ja/unit50.js"; // いえ・かじ (home & household)
+import { UNIT51 } from "./ja/unit51.js"; // せいかく・きもち (personality & feelings)
+import { UNIT52 } from "./ja/unit52.js"; // しゃかい・せいかつ (society & daily life)
+import { UNIT53 } from "./ja/unit53.js"; // ぎじゅつ・つうしん (technology & communication)
+import { UNIT54 } from "./ja/unit54.js"; // しぜん・かがく (nature & science)
+import { UNIT55 } from "./ja/unit55.js"; // ぶんか・レジャー (culture & leisure)
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55];
 
 // A language is "live" once it has authored content; catalog entries with no units
 // yet are "planned". Derived, never stored — a language flips to live automatically
