@@ -55,8 +55,17 @@ import { UNIT49 } from "./ja/unit49.js"; // しゃかい・せいかつ (society
 import { UNIT50 } from "./ja/unit50.js"; // ぎじゅつ・つうしん (technology & communication)
 import { UNIT51 } from "./ja/unit51.js"; // しぜん・かがく (nature & science)
 import { UNIT52 } from "./ja/unit52.js"; // ぶんか・レジャー (culture & leisure)
+// --- A1 (N5) vocab thickening toward exam volume — batch 1 ---
+import { UNIT53 } from "./ja/unit53.js"; // どうさ・1 (N5 everyday verbs)
+import { UNIT54 } from "./ja/unit54.js"; // たべもの・りょうり (N5 food & cooking)
+import { UNIT55 } from "./ja/unit55.js"; // けいようし・N5 (N5 adjectives)
+import { UNIT56 } from "./ja/unit56.js"; // じかん・よてい (N5 time & schedule)
+import { UNIT57 } from "./ja/unit57.js"; // がっこう・べんきょう (N5 school & study)
+import { UNIT58 } from "./ja/unit58.js"; // いえ・せいかつ (N5 home & living)
+import { UNIT59 } from "./ja/unit59.js"; // まち・こうつう (N5 town & transport)
+import { UNIT60 } from "./ja/unit60.js"; // ひと・からだ・N5 (N5 people, body & things)
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60];
 
 // A language is "live" once it has authored content; catalog entries with no units
 // yet are "planned". Derived, never stored — a language flips to live automatically
