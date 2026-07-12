@@ -40,7 +40,9 @@ const KANJI = "一二三四五六七八九十" + // numbers (Unit 11)
 const KANJI_N3 =
   "政府治民選挙経済税費産貿社議制権賛保法律判護察罪" + // politics/economy/law (Unit 67)
   "自然境環星池資源災害石素科技術験果効論識認確報情" + // nature/science/info (Unit 68)
-  "健康態状症療筋肉骨臓圧検性格信頼慣精怒喜泣笑悩慢";   // health/body/emotion (Unit 69)
+  "健康態状症療筋肉骨臓圧検性格信頼慣精怒喜泣笑悩慢" + // health/body/emotion (Unit 69)
+  "職就給料責任努成功失敗績教授卒専門講義訳連絡告招" + // work/education/comm (Unit 70)
+  "現在未将過突変増減続展移量割均合計満比番位極限総";   // time/change/quantity (Unit 71)
 const kanaChars = (HIRAGANA + DAKUTEN + KATAKANA + KANJI + KANJI_N3).split("");
 
 console.log(`Fetching KanjiVG data for ${kanaChars.length} characters: ${kanaChars.join(" ")}\n`);
