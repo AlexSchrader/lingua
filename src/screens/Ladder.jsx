@@ -772,7 +772,7 @@ function AddLangRow({ lang, canAdd, onStart }) {
           {lang.target} goal{hasContent(lang.id) ? "" : " · content coming"}
         </div>
       </div>
-      {canAdd && (
+      {canAdd && hasContent(lang.id) && (
         <button
           onClick={onStart}
           style={{ padding: "8px 16px", borderRadius: 999, border: "none", background: C.ai, color: "#fff", fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer", flexShrink: 0 }}
