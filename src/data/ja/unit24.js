@@ -26,7 +26,7 @@ export const UNIT24 = {
       canDo: "Talk about a trip: りょかん みやげ スーツケース パスポート よやく かんこう.",
       items: [
         { id: "ja-u24l2-ryokan", type: "vocab", front: "りょかん", reading: "ryokan", meaning: "inn", example: { jp: "りょかんにとまります。", en: "I stay at an inn." }, accept: ["Japanese inn"] },
-        { id: "ja-u24l2-miyage", type: "vocab", front: "みやげ", reading: "miyage", meaning: "souvenir", example: { jp: "みやげをかいます。", en: "I buy a souvenir." }, accept: ["gift", "present (souvenir)"] },
+        { id: "ja-u24l2-miyage", type: "vocab", front: "みやげ", reading: "miyage", meaning: "souvenir", example: { jp: "おみやげをかいます。", en: "I buy a souvenir." }, accept: ["gift", "present (souvenir)"] },
         { id: "ja-u24l2-sutsukesu", type: "vocab", front: "スーツケース", reading: "sūtsukēsu", meaning: "suitcase", example: { jp: "スーツケースがおもいです。", en: "The suitcase is heavy." }, accept: ["case", "luggage"] },
         { id: "ja-u24l2-pasupoto", type: "vocab", front: "パスポート", reading: "pasupōto", meaning: "passport", example: { jp: "パスポートをさがします。", en: "I look for my passport." }, accept: [] },
         { id: "ja-u24l2-yoyaku", type: "vocab", front: "よやく", reading: "yoyaku", meaning: "reservation", example: { jp: "ホテルをよやくします。", en: "I reserve a hotel." }, accept: ["booking", "reserve"] },

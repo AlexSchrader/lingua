@@ -14,7 +14,7 @@ import { getLesson, UNITS } from "../data/index.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { initLearn, currentStep, answerStep } from "../store/learnQueue.js";
 import { isTraceable } from "../store/cardRouting.js";
-import { buildSandboxItems, runnerWriters, getPreviewLesson } from "../store/dev.js";
+import { buildSandboxItems, runnerWriters } from "../store/dev.js";
 import { C, F } from "../theme.js";
 
 function assertLiveKind(kindKey) {
@@ -75,10 +75,8 @@ export default function Lesson() {
   };
   const { graduateItem, completeLesson, rollDailyGoal } = runnerWriters(sandbox, realWriters);
 
-  // Sandbox may target an A2 draft (or the synthetic sampler) lesson, which isn't
-  // in the live UNITS — use the draft-aware lookup there. Live path stays UNITS-only.
   const lesson = useMemo(
-    () => (sandbox ? getPreviewLesson(lessonId) : getLesson(lessonId)),
+    () => getLesson(lessonId),
     [lessonId, sandbox]
   );
 
