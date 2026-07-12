@@ -72,13 +72,17 @@ export default function Onboarding() {
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {LANGUAGES.map((l) => {
+              {/* Available languages first, then the "coming soon" roadmap below.
+                  Coming-soon ones are shown (so learners see what's ahead) but not
+                  selectable — you can only start a language that has content. */}
+              {[...LANGUAGES].sort((a, b) => Number(hasContent(b.id)) - Number(hasContent(a.id))).map((l) => {
                 const on = lang === l.id;
                 const ready = hasContent(l.id);
                 return (
                   <button
                     key={l.id}
-                    onClick={() => setLang(l.id)}
+                    disabled={!ready}
+                    onClick={() => ready && setLang(l.id)}
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -88,7 +92,8 @@ export default function Onboarding() {
                       border: `1.5px solid ${on ? C.ai : C.line}`,
                       background: on ? C.aiSoft : C.surface,
                       color: C.ink,
-                      cursor: "pointer",
+                      cursor: ready ? "pointer" : "default",
+                      opacity: ready ? 1 : 0.55,
                       fontFamily: F.body,
                       textAlign: "left",
                     }}
