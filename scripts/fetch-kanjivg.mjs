@@ -36,7 +36,10 @@ const KANJI = "一二三四五六七八九十" + // numbers (Unit 11)
   "書話立休買会待知作持" +              // more verbs (Unit 19)
   "高安新古多少長白気元" +              // adjectives / state (Unit 20)
   "目耳口手足雨電車私語";                // body / nature (Unit 21)
-const kanaChars = (HIRAGANA + DAKUTEN + KATAKANA + KANJI).split("");
+// N3 kanji — B1 draft set, grows as B1 kanji units ship (draft-and-park; not in UNITS).
+const KANJI_N3 =
+  "政府治民選挙経済税費産貿社議制権賛保法律判護察罪"; // politics/economy/law (Unit 67)
+const kanaChars = (HIRAGANA + DAKUTEN + KATAKANA + KANJI + KANJI_N3).split("");
 
 console.log(`Fetching KanjiVG data for ${kanaChars.length} characters: ${kanaChars.join(" ")}\n`);
 

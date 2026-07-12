@@ -28,11 +28,13 @@ import { UNIT63 } from "./ja/unit63.js";
 import { UNIT64 } from "./ja/unit64.js";
 import { UNIT65 } from "./ja/unit65.js";
 import { UNIT66 } from "./ja/unit66.js";
+import { UNIT67 } from "./ja/unit67.js";
 
-// B1 units so far: vocab U45-64 + pattern-grammar U65-66 (function-word vocab). The
+// B1 units so far: vocab U45-64 + pattern-grammar U65-66 (function-word vocab) + N3 kanji
+// U67+ (type:"kanji", KanjiVG strokes fetched into kanjivg.js via KANJI_N3). The
 // passive/causative conjugation DRILLS still wait on the engine extension (see
-// BUILD-BRIEF-conjugation-b1-forms.md); N3 kanji is a deferred later batch.
-export const B1_DRAFT_UNITS = [UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64, UNIT65, UNIT66];
+// BUILD-BRIEF-conjugation-b1-forms.md).
+export const B1_DRAFT_UNITS = [UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64, UNIT65, UNIT66, UNIT67];
 
 // One representative lesson per unit, for a quick cross-section preview.
 export const B1_SAMPLER_LESSON_IDS = [
@@ -58,4 +60,5 @@ export const B1_SAMPLER_LESSON_IDS = [
   "ja-u64l1", // persisting verbs
   "ja-u65l1", // grammar: manner & tendency
   "ja-u66l1", // grammar: relation & reason
+  "ja-u67l1", // kanji: government
 ];
