@@ -13,6 +13,8 @@ import { shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading,
 // A2 draft is preview-only. Importing it HERE (a dev-only module) is safe — it
 // never reaches index.js / seedItems / the Ladder, so the live app stays 21 units.
 import { A2_DRAFT_UNITS, A2_SAMPLER_LESSON_IDS } from "../data/a2-draft.js";
+// B1 draft — same preview-only contract as A2 (never in UNITS/seed/Ladder).
+import { B1_DRAFT_UNITS, B1_SAMPLER_LESSON_IDS } from "../data/b1-draft.js";
 
 // The unlock code. Intentionally in the bundle — see note above.
 export const DEV_CODE = "L071201";
@@ -100,11 +102,14 @@ function materializeItem(def, lesson) {
 // units so Alex can feel the content before it ships — preview only, zero leakage
 // to the live daily loop.
 export const A2_SAMPLER_ID = "ja-a2-sampler";
+export const B1_SAMPLER_ID = "ja-b1-sampler";
 const A2_SAMPLE_PER_LESSON = 2; // items pulled per sampler lesson for the one-tap cross-section
 
-// Draft-side twin of getLesson: find an A2 draft lesson (with items) by id.
+// Draft-side twin of getLesson: find a draft lesson (with items) by id across ALL
+// unactivated draft sets (A2 + B1). Both are preview-only; live getLesson stays
+// UNITS-only.
 function getDraftLesson(lessonId) {
-  for (const unit of A2_DRAFT_UNITS) {
+  for (const unit of [...A2_DRAFT_UNITS, ...B1_DRAFT_UNITS]) {
     for (const lesson of unit.lessons) {
       if (lesson.id === lessonId) return { ...lesson, lang: unit.lang };
     }
@@ -112,34 +117,43 @@ function getDraftLesson(lessonId) {
   return null;
 }
 
-// The synthetic "A2 sampler" lesson — a short cross-section: the first couple of
-// items from each curated sampler lesson, so one tap tastes every A2 theme.
-function a2SamplerLesson() {
+// A synthetic "sampler" lesson — a short cross-section: the first couple of items
+// from each curated sampler lesson, so one tap tastes every theme in a draft band.
+function samplerLesson(samplerIds, id, title, cefr) {
   const items = [];
-  for (const lid of A2_SAMPLER_LESSON_IDS) {
+  for (const lid of samplerIds) {
     const lesson = getDraftLesson(lid);
     if (lesson?.items) items.push(...lesson.items.slice(0, A2_SAMPLE_PER_LESSON));
   }
-  return { id: A2_SAMPLER_ID, title: "A2 sampler (draft)", unit: 0, lesson: 0, lang: "ja", cefr: "A2", items };
+  return { id, title, unit: 0, lesson: 0, lang: "ja", cefr, items };
 }
 
 // Draft-aware lesson lookup for the PREVIEW path only: live units first, then the
-// A2 draft set, plus the synthetic sampler. Live getLesson() stays UNITS-only.
+// draft sets (A2 + B1), plus the synthetic samplers. Live getLesson() stays UNITS-only.
 export function getPreviewLesson(lessonId) {
-  if (lessonId === A2_SAMPLER_ID) return a2SamplerLesson();
+  if (lessonId === A2_SAMPLER_ID) return samplerLesson(A2_SAMPLER_LESSON_IDS, A2_SAMPLER_ID, "A2 sampler (draft)", "A2");
+  if (lessonId === B1_SAMPLER_ID) return samplerLesson(B1_SAMPLER_LESSON_IDS, B1_SAMPLER_ID, "B1 sampler (draft)", "B1");
   return getLesson(lessonId) ?? getDraftLesson(lessonId);
 }
 
-// Flat metadata for the Dev-Mode A2 browser (units → lessons). No live leakage.
-export function a2PreviewUnits() {
-  return A2_DRAFT_UNITS.map((u) => ({
+// Flat metadata for a Dev-Mode draft browser (units → lessons). No live leakage.
+function previewUnits(draftUnits, fallbackStage, fallbackCefr) {
+  return draftUnits.map((u) => ({
     id: u.id,
     title: u.title,
-    stage: u.stage ?? "a2",
+    stage: u.stage ?? fallbackStage,
     lessons: u.lessons
       .filter((l) => Array.isArray(l.items))
-      .map((l) => ({ id: l.id, title: l.title, cefr: l.cefr ?? "A2", itemCount: l.items.length })),
+      .map((l) => ({ id: l.id, title: l.title, cefr: l.cefr ?? fallbackCefr, itemCount: l.items.length })),
   }));
+}
+
+export function a2PreviewUnits() {
+  return previewUnits(A2_DRAFT_UNITS, "a2", "A2");
+}
+
+export function b1PreviewUnits() {
+  return previewUnits(B1_DRAFT_UNITS, "b1", "B1");
 }
 
 // --- Quick card preview ------------------------------------------------------

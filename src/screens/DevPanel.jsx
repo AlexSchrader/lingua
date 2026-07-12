@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLeft, AlertTriangle, RotateCcw, FlaskConical, Play, Sparkles } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { UNITS } from "../data/index.js";
-import { devDiagnostics, sandboxRoute, cardPreviewRoute, PREVIEW_STATES, PREVIEW_LABEL, reviewSandboxRoute, fixupSandboxRoute, microSandboxRoute, a2PreviewUnits, A2_SAMPLER_ID } from "../store/dev.js";
+import { devDiagnostics, sandboxRoute, cardPreviewRoute, PREVIEW_STATES, PREVIEW_LABEL, reviewSandboxRoute, fixupSandboxRoute, microSandboxRoute, a2PreviewUnits, A2_SAMPLER_ID, b1PreviewUnits, B1_SAMPLER_ID } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import Mascot from "../components/Mascot.jsx";
 import Celebration from "../components/Celebration.jsx";
@@ -74,6 +74,12 @@ export default function DevPanel() {
   const a2ItemTotal = useMemo(
     () => a2Units.reduce((n, u) => n + u.lessons.reduce((m, l) => m + l.itemCount, 0), 0),
     [a2Units]
+  );
+  // B1 draft units — same preview-only contract as A2.
+  const b1Units = useMemo(() => b1PreviewUnits(), []);
+  const b1ItemTotal = useMemo(
+    () => b1Units.reduce((n, u) => n + u.lessons.reduce((m, l) => m + l.itemCount, 0), 0),
+    [b1Units]
   );
 
   // Guard: not security, just don't render the panel when locked.
@@ -289,6 +295,44 @@ export default function DevPanel() {
           ))}
         </div>
       </Section>
+
+      {b1Units.length > 0 && (
+        <Section title="B1 preview (draft) — not live, sandbox only">
+          <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 10, lineHeight: 1.4 }}>
+            {b1Units.length} drafted B1 unit{b1Units.length === 1 ? "" : "s"} · {b1ItemTotal} items. Playable here in the throwaway
+            sandbox to feel the content before it ships — never touches real progress or the Ladder.
+          </div>
+          <button
+            onClick={() => navigate(sandboxRoute(B1_SAMPLER_ID, "fresh"))}
+            style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.ai}`, background: C.aiSoft, color: C.aiDeep, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+          >
+            <Sparkles size={16} /> Quick sampler — a taste of every B1 theme
+          </button>
+          <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 12 }}>
+            {b1Units.map((unit) => (
+              <div key={unit.id} style={{ border: `1px solid ${C.line}`, borderRadius: 12, padding: 12 }}>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 8 }}>
+                  <span style={{ fontSize: 14, fontWeight: 700, fontFamily: F.jp }}>{unit.title}</span>
+                  <span style={{ fontSize: 12, color: C.inkSoft, fontFamily: F.mono }}>
+                    {unit.stage.toUpperCase()} · {unit.id}
+                  </span>
+                </div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                  {unit.lessons.map((lesson) => (
+                    <button
+                      key={lesson.id}
+                      onClick={() => navigate(sandboxRoute(lesson.id, "fresh"))}
+                      style={{ display: "flex", alignItems: "center", gap: 5, padding: "8px 12px", borderRadius: 10, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+                    >
+                      <Play size={13} /> {lesson.title} · {lesson.itemCount}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
 
       <Section title="Preview flows">
         <button
