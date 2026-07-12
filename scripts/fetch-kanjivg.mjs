@@ -45,7 +45,10 @@ const KANJI_N3 =
   "現在未将過突変増減続展移量割均合計満比番位極限総" + // time/change/quantity (Unit 71)
   "米麦粉塩砂卵焼煮蒸冷熱汁甘辛酸香濃薄器飯弁菜材缶" + // food & cooking (Unit 72)
   "宅壁床窓畳棚掃除洗濯片付押引閉締抜掛布袋傘鏡針綿" + // home & living (Unit 73)
-  "晴曇湿嵐雷霧森林岩泉谷丘犬猫鳥魚虫馬花草竹松種咲";   // weather/nature/animals (Unit 74)
+  "晴曇湿嵐雷霧森林岩泉谷丘犬猫鳥魚虫馬花草竹松種咲" + // weather/nature/animals (Unit 74)
+  "顔頭首髪舌喉肩腕胸腹背肌歩走飛座触握涙汗振抱額揺" + // body & movement (Unit 75)
+  "交空迎泊訪迷街域郊距離側角端横縦斜沿航輸駐遅越昇" + // travel/places/direction (Unit 76)
+  "太細広狭厚硬柔若老幼賢偉貧富豊貴良険静清汚危鋭鈍";   // adjectives & qualities (Unit 77)
 const kanaChars = (HIRAGANA + DAKUTEN + KATAKANA + KANJI + KANJI_N3).split("");
 
 console.log(`Fetching KanjiVG data for ${kanaChars.length} characters: ${kanaChars.join(" ")}\n`);
