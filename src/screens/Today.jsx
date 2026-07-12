@@ -1,9 +1,10 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { BookOpen, RotateCcw, Lock, Check, Flame, Zap, Snowflake } from "lucide-react";
-import { useStore } from "../store/useStore.js";
+import { BookOpen, RotateCcw, Lock, Check, Star, Award, ChevronRight } from "lucide-react";
+import { useStore, REVIEW_CAP } from "../store/useStore.js";
 import { UNITS, LANGUAGES } from "../data/index.js";
 import { isReviewable, isMastered } from "../store/mastery.js";
+import { nextMilestone } from "../data/milestones.js";
 import { C, F } from "../theme.js";
 import Mascot from "../components/Mascot.jsx";
 import { VERSION } from "../version.js";
@@ -20,11 +21,12 @@ function fmtWhen(ts) {
 }
 
 // Time-of-day greeting (name folds in later, once onboarding gives us one).
-function greeting() {
+function greeting(name) {
   const h = new Date().getHours();
-  if (h < 12) return "Good morning";
-  if (h < 18) return "Good afternoon";
-  return "Good evening";
+  const base = h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening";
+  // Onboarding collects a display name — actually use it (it was captured and read
+  // nowhere, so the greeting stayed generic forever). Falls back cleanly when absent.
+  return name ? `${base}, ${name}` : base;
 }
 
 function StatusPill({ icon: Icon, label, value, state }) {
@@ -70,6 +72,30 @@ function StatusPill({ icon: Icon, label, value, state }) {
   );
 }
 
+// CEFR stage → display band. "pre-a1" → "Pre-A1", "a1" → "A1", "b1" → "B1".
+function formatStage(stage) {
+  if (!stage) return null;
+  return String(stage)
+    .split("-")
+    .map((seg) => (/\d/.test(seg) ? seg.toUpperCase() : seg.charAt(0).toUpperCase() + seg.slice(1)))
+    .join("-");
+}
+
+// Where a lesson sits, in human terms: its CEFR section, unit number, and its
+// position WITHIN that unit (n/total) — not a global "2/93" that only ever grows
+// scarier. Numbers reset each unit, so the denominator stays small and legible.
+function lessonLocation(lesson, langUnits) {
+  const unit = langUnits.find((u) => u.lessons.some((l) => l.id === lesson.id));
+  if (!unit) return null;
+  const playable = unit.lessons.filter((l) => Array.isArray(l.items));
+  return {
+    section: formatStage(unit.stage),
+    unitNum: unit.order ?? lesson.unit ?? null,
+    lessonInUnit: playable.findIndex((l) => l.id === lesson.id) + 1,
+    unitTotal: playable.length,
+  };
+}
+
 export default function Today() {
   const navigate = useNavigate();
   // Select STABLE refs (raw state + action fns) and derive in useMemo. Zustand
@@ -78,8 +104,7 @@ export default function Today() {
   // mount. Computing here keeps the snapshot stable.
   const items = useStore((s) => s.items);
   const daily = useStore((s) => s.daily);
-  const streak = useStore((s) => s.streak);
-  const stats = useStore((s) => s.stats);
+  const milestonesEarned = useStore((s) => s.milestonesEarned);
   const languages = useStore((s) => s.languages);
   const profile = useStore((s) => s.profile);
   // The active language drives everything on Today (falls back to ja for safety).
@@ -88,15 +113,23 @@ export default function Today() {
   const active = { ...LANGUAGES.find((l) => l.id === activeId), ...(languages[activeId] ?? {}) };
   const dueItemsFn = useStore((s) => s.dueItems);
   const reviewsLockedFn = useStore((s) => s.reviewsLocked);
+  const mistakes = useStore((s) => s.mistakes);
   const devSeedReviews = useStore((s) => s.devSeedReviews);
 
   const due = useMemo(() => dueItemsFn(), [items, dueItemsFn]);
   const reviewsLocked = useMemo(() => reviewsLockedFn(), [items, daily, reviewsLockedFn]);
+  // Show the SESSION size, not the full backlog — a capped, non-scary number (the
+  // Review runner serves at most REVIEW_CAP, oldest-due first; the rest return next
+  // session). Prevents the "47 due" wall on the home screen.
+  const sessionDue = Math.min(due.length, REVIEW_CAP);
 
+  // Units for the active language (source for both the flat lesson list and the
+  // per-lesson "section / unit / lesson-in-unit" location shown on the cards).
+  const langUnits = useMemo(() => UNITS.filter((u) => u.lang === activeId), [activeId]);
   // All lessons across all units that have item content (ordered).
   const allPlayableLessons = useMemo(
-    () => UNITS.filter((u) => u.lang === activeId).flatMap((u) => u.lessons.filter((l) => Array.isArray(l.items))),
-    [activeId]
+    () => langUnits.flatMap((u) => u.lessons.filter((l) => Array.isArray(l.items))),
+    [langUnits]
   );
   // Advance to the first lesson that still has rung-0 items — natural progression
   // without a separate unlock system. null when all lessons are complete.
@@ -107,10 +140,6 @@ export default function Today() {
     [allPlayableLessons, items]
   );
 
-  const lessonNum = currentLesson
-    ? allPlayableLessons.indexOf(currentLesson) + 1
-    : allPlayableLessons.length;
-  const totalLessons = allPlayableLessons.length;
   // How many rung-0 items remain in the current lesson (for the time estimate).
   const newItemCount = useMemo(
     () => (currentLesson?.items ?? []).filter((def) => (items[def.id]?.rung ?? 0) < 1).length,
@@ -134,6 +163,18 @@ export default function Today() {
   // a marker, but never ends the session or caps how much you can do.
   const goalMet = daily.reviewsCleared && daily.lessonDone;
 
+  // Capability signals for the active language — what you can now DO. These replace
+  // the retired streak/XP/freezes scoreboard (honest structural progress).
+  const learnedCount = useMemo(
+    () => Object.values(items).filter((it) => it.lang === activeId && isReviewable(it)).length,
+    [items, activeId]
+  );
+  const masteredCount = useMemo(
+    () => Object.values(items).filter((it) => it.lang === activeId && isMastered(it)).length,
+    [items, activeId]
+  );
+  const nextMs = useMemo(() => nextMilestone(items), [items]);
+
   // Progress glance + next-review timing (from the data we already track).
   const masteredKana = useMemo(
     () => Object.values(items).filter((it) => it.lang === activeId && it.type === "kana" && isMastered(it)).length,
@@ -151,7 +192,7 @@ export default function Today() {
   const mascot = goalMet
     ? { pose: "celebrate", msg: "Nice work today. Come back tomorrow — or keep going if you're in the zone." }
     : reviewsLocked
-    ? { pose: "think", msg: "A few reviews are waiting. Clear them and you're set for the day." }
+    ? { pose: "think", msg: "A few reviews are waiting — no rush. Learn a little or clear them, whichever feels right." }
     : hasNew
     ? { pose: "cheer", msg: "Ready when you are. One lesson at a time — no rush." }
     : { pose: "sleepy", msg: "All caught up. Rest up — your reviews will come back around." };
@@ -163,7 +204,9 @@ export default function Today() {
     const idx = allPlayableLessons.indexOf(currentLesson);
     return allPlayableLessons[idx + 1] ?? null;
   }, [currentLesson, allPlayableLessons]);
-  const nextLessonNum = nextLesson ? allPlayableLessons.indexOf(nextLesson) + 1 : null;
+  // Human-readable location (section / unit / lesson-in-unit) for both cards.
+  const curLoc = useMemo(() => (currentLesson ? lessonLocation(currentLesson, langUnits) : null), [currentLesson, langUnits]);
+  const nextLoc = useMemo(() => (nextLesson ? lessonLocation(nextLesson, langUnits) : null), [nextLesson, langUnits]);
 
   // Hiragana progress for the fullness strip.
   const kanaTotal = useMemo(() => Object.values(items).filter((it) => it.lang === activeId && it.type === "kana").length, [items, activeId]);
@@ -174,9 +217,18 @@ export default function Today() {
   const kanaPct = kanaTotal ? Math.round((kanaLearned / kanaTotal) * 100) : 0;
 
   const startReview = () => navigate("/review");
+  const startFix = () => navigate("/review?fix=1");
+  const mistakeCount = mistakes?.length ?? 0;
   const startLesson = () => {
     const target = currentLesson ?? allPlayableLessons[0] ?? null;
     if (target) navigate(`/lesson/${target.id}`);
+  };
+  // "Just a few": start the current lesson capped to a handful of new items — a
+  // low-activation-energy on-ramp for a tired day. The lesson runner reads ?few.
+  const MICRO_SIZE = 3;
+  const startFew = () => {
+    const target = currentLesson ?? allPlayableLessons[0] ?? null;
+    if (target) navigate(`/lesson/${target.id}?few=${MICRO_SIZE}`);
   };
 
   // Primary CTA: reviews first if due; lesson once reviews are clear.
@@ -211,7 +263,7 @@ export default function Today() {
       >
         <Mascot context="greeting" pose={mascot.pose} style={{ width: "clamp(72px, 18vw, 132px)", flexShrink: 0 }} />
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontFamily: F.disp, fontSize: 19, fontWeight: 700, marginBottom: 2 }}>{greeting()}</div>
+          <div style={{ fontFamily: F.disp, fontSize: 19, fontWeight: 700, marginBottom: 2 }}>{greeting(profile.displayName)}</div>
           <div style={{ fontSize: 14, color: C.ink, lineHeight: 1.35, fontWeight: 600 }}>{mascot.msg}</div>
           <div style={{ fontSize: 12, color: C.inkSoft, fontWeight: 600, marginTop: 6 }}>
             {active.flag} {active.name} · {active.level === "pre-A1" ? "Starting out" : active.level} → {active.target} goal
@@ -220,14 +272,44 @@ export default function Today() {
         </div>
       </div>
 
-      {/* Stats trio — with icons to match the Stats screen. */}
+      {/* Capability signals — what you can now DO. Replaces the streak/XP/freezes
+          scoreboard: honest structural progress, never activity. */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
-        <Stat icon={Flame} color={C.shu} label="Streak" value={streak.current} />
-        <Stat icon={Zap} color={C.ai} label="XP" value={stats.xpTotal} />
-        <Stat icon={Snowflake} color={C.ai} label="Freezes" value={streak.freezes} />
+        <Stat icon={Check} color={C.ai} label="Learned" value={learnedCount} />
+        <Stat icon={Star} color={C.matcha} label="Mastered" value={masteredCount} />
+        <Stat icon={Award} color={C.matcha} label="Milestones" value={milestonesEarned?.length ?? 0} />
       </div>
 
-      {/* Review-debt banner */}
+      {/* The single nearest milestone as a gentle goal (taps through to Stats). */}
+      {nextMs && (
+        <button
+          onClick={() => navigate("/stats")}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            width: "100%",
+            textAlign: "left",
+            background: C.surface,
+            border: `1px solid ${C.line}`,
+            borderRadius: 14,
+            padding: "12px 14px",
+            cursor: "pointer",
+            fontFamily: F.body,
+          }}
+        >
+          <Award size={18} color={C.matcha} style={{ flexShrink: 0 }} />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontSize: 11, color: C.inkSoft, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.4 }}>Next milestone</div>
+            <div style={{ fontSize: 14, fontWeight: 600, color: C.ink }}>{nextMs.label}</div>
+          </div>
+          <span style={{ fontSize: 12, color: C.inkSoft, fontWeight: 700, flexShrink: 0 }}>{nextMs.remaining} to go</span>
+          <ChevronRight size={16} color={C.inkSoft} style={{ flexShrink: 0 }} />
+        </button>
+      )}
+
+      {/* Review-debt nudge — a calm reminder, not an alarm. Reviews come first,
+          but they never fully block learning: a few new items stay open (below). */}
       {reviewsLocked && (
         <div
           style={{
@@ -236,15 +318,15 @@ export default function Today() {
             gap: 10,
             padding: 12,
             borderRadius: 12,
-            background: C.shuSoft,
-            border: `1px solid ${C.shu}`,
-            color: C.shu,
+            background: C.aiSoft,
+            border: `1px solid ${C.ai}`,
+            color: C.aiDeep,
             fontSize: 14,
             fontWeight: 600,
           }}
         >
           <RotateCcw size={18} />
-          {due.length} review{due.length === 1 ? "" : "s"} due — clear them to unlock today's lesson.
+          {sessionDue} review{sessionDue === 1 ? "" : "s"} waiting — clear them whenever you're ready. You can still learn a few new things first.
         </div>
       )}
 
@@ -254,13 +336,13 @@ export default function Today() {
         <StatusPill
           icon={RotateCcw}
           label="Reviews"
-          value={daily.reviewsCleared ? "Cleared" : due.length > 0 ? `${due.length} due` : "All clear"}
+          value={daily.reviewsCleared ? "Cleared" : due.length > 0 ? `${sessionDue} due` : "All clear"}
           state={reviewState}
         />
         <StatusPill
           icon={BookOpen}
-          label="Lesson"
-          value={daily.lessonDone ? "Done" : lessonState === "locked" ? "Locked" : `${lessonNum}/${totalLessons}`}
+          label={curLoc ? `${curLoc.section} · Unit ${curLoc.unitNum}` : "Lesson"}
+          value={daily.lessonDone ? "Done" : lessonState === "locked" ? "Reviews first" : curLoc ? `Lesson ${curLoc.lessonInUnit}/${curLoc.unitTotal}` : "—"}
           state={lessonState}
         />
       </div>
@@ -315,16 +397,41 @@ export default function Today() {
         </div>
       ) : null}
 
+      {/* Low-energy on-ramp: a handful of new items instead of the full lesson.
+          Also the soft escape from review-debt — even with reviews waiting you can
+          still learn a few new things (never a hard wall). Only worth offering when
+          the lesson has more than a few new items. */}
+      {(ctaLabel === "Start lesson" || ctaLabel === "Keep learning" || reviewsLocked) && currentLesson && newItemCount > MICRO_SIZE && (
+        <button
+          data-testid="start-few"
+          onClick={startFew}
+          style={{ padding: "12px 18px", borderRadius: 14, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer", marginTop: 2 }}
+        >
+          {reviewsLocked ? `Learn a few first (${MICRO_SIZE})` : `Low on energy? Just a few (${MICRO_SIZE})`}
+        </button>
+      )}
+
+      {/* Mistake-review: turn diffuse failure into a bounded "fix these N". */}
+      {mistakeCount > 0 && (
+        <button
+          data-testid="start-fix"
+          onClick={startFix}
+          style={{ padding: "12px 18px", borderRadius: 14, border: `1.5px solid ${C.shu}`, background: C.surface, color: C.shu, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}
+        >
+          <RotateCcw size={16} /> Fix your mistakes ({mistakeCount})
+        </button>
+      )}
+
       {/* Up next — the lesson AFTER the current one (Step 2 already shows the
           current lesson, so this is a genuine peek ahead). */}
       <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 16, padding: 14 }}>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 0.5, color: C.ai, marginBottom: 4 }}>
-          {nextLesson ? "UP NEXT" : "AFTER THIS"}
+          {nextLesson ? (nextLoc ? `UP NEXT · ${nextLoc.section}` : "UP NEXT") : "AFTER THIS"}
         </div>
         {nextLesson ? (
           <>
             <div style={{ fontFamily: F.jp, fontSize: 15, fontWeight: 700 }}>
-              Lesson {nextLessonNum}/{totalLessons} · {nextLesson.title}
+              {nextLoc ? `Unit ${nextLoc.unitNum} · Lesson ${nextLoc.lessonInUnit}/${nextLoc.unitTotal}` : "Lesson"} · {nextLesson.title}
             </div>
             <div style={{ fontSize: 13, color: C.inkSoft, marginTop: 2 }}>
               {nextLesson.canDo ?? "Learn new items"}

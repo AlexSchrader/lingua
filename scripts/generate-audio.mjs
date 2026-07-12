@@ -47,9 +47,9 @@ if (!API_KEY) {
 const { COMPANIONS } = await import("../server/companions.js");
 const { UNITS } = await import("../src/data/index.js");
 
-// Also voice the A2 draft units (not in UNITS yet) so A2 has full audio parity with
-// A1 — clips are keyed by item id, so this is safe pre-activation. Guarded so the
-// script keeps working after A2 is activated and a2-draft.js is removed.
+// Also voice the A2 draft units (not in UNITS yet) so A2 has audio parity with A1 —
+// clips are keyed by item id, so this is safe pre-activation. Guarded so the script
+// keeps working after A2 is activated and a2-draft.js is removed.
 let A2_DRAFT_UNITS = [];
 try { ({ A2_DRAFT_UNITS } = await import("../src/data/a2-draft.js")); } catch { /* activated / absent */ }
 
@@ -62,12 +62,13 @@ const items = [...UNITS, ...A2_DRAFT_UNITS]
       .filter((l) => Array.isArray(l.items))
       .flatMap((l) => l.items.map((it) => ({ ...it, lang: unit.lang })))
   )
-  // Skip kanji for now: this script voices item.front, and a LONE kanji is
-  // mispronounced by TTS — ElevenLabs picks its own reading (使 → "shi") instead of
-  // the taught one (つかう). Same class of bug as は→"wa". Kanji audio needs
-  // reading-based voicing (voice the kana reading, not the glyph); deferred until
-  // then. Kana / vocab fronts are unambiguous and voice correctly.
-  .filter((it) => it.type !== "kanji");
+  // Skip kanji: this script voices item.front, and a LONE kanji is mispronounced by
+  // TTS — ElevenLabs picks its own reading (使 → "shi") instead of the taught one
+  // (つかう). Same class of bug as は→"wa". Kanji audio needs reading-based voicing
+  // (voice the kana reading, not the glyph); deferred until then.
+  // Also skip conjForm drill items — they're produced on the (silent) conjugate card
+  // and their ～ます front just duplicates the base verb's existing clip.
+  .filter((it) => it.type !== "kanji" && !it.conjForm);
 
 console.log(`Generating audio for ${items.length} items  model: ${MODEL_ID}\n`);
 
@@ -93,7 +94,16 @@ for (let i = 0; i < items.length; i++) {
   }
 
   // Bare call: raw text + model only. No language_code, no katakana, no voice_settings.
-  const text = item.front;
+  //
+  // Exception — particle-homograph KANA: sent alone, は and へ are read by the voice
+  // as the PARTICLE (は→"wa", へ→"e"), not the kana's own sound. For the kana item
+  // ONLY, voice the katakana twin (ハ/ヘ), which has no particle meaning, so the
+  // character's true sound ("ha"/"he") comes out. The particle VOCAB items (は=wa in
+  // U19, へ=e in U20) are type "vocab" and keep their front → correct particle sound.
+  // (This is a surgical 2-item fix, not the global kana→katakana conversion the
+  // header warns against — that broke other kana; these two are already wrong.)
+  const KANA_SOUND_FIX = { "は": "ハ", "へ": "ヘ" };
+  const text = item.type === "kana" && KANA_SOUND_FIX[item.front] ? KANA_SOUND_FIX[item.front] : item.front;
 
   try {
     const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {

@@ -1,10 +1,11 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { seedItems, LANGUAGES, UNITS } from "../data/index.js";
-import { newCard, schedule, isDue } from "./srs.js";
+import { newCard, schedule, isDue, startOfTomorrow } from "./srs.js";
 import { nextRung, isReviewable } from "./mastery.js";
 import { migrateState, PERSIST_VERSION } from "./migrate.js";
 import { matchesDevCode } from "./dev.js";
+import { earnedMilestones, milestoneCatalog } from "../data/milestones.js";
 
 // Seed every item with a fresh FSRS card attached as its srs. Card attachment
 // lives here (not in the data loader) per Brief 2.
@@ -30,6 +31,16 @@ function yesterdayISO() {
 }
 
 const XP_BY_GRADE = { again: 2, hard: 5, good: 10, easy: 15 };
+
+// Cap on the "fix these" mistake list — most recent misses, older ones drop off.
+const MISTAKES_CAP = 30;
+
+// Anti-burnout bound: the most reviews a single daily session surfaces (oldest-due
+// first). Miss a day or two and 40–60 cards can come due at once — the Anki
+// death-spiral — so we serve REVIEW_CAP and let the rest return next session, no
+// penalty. Shared by the Review runner (the session queue) and Today (the count it
+// shows), so the learner never faces the full wall. A tuning knob, not structure.
+export const REVIEW_CAP = 20;
 
 const CEFR_ORDER = { A1: 0, A2: 1, B1: 2, B2: 3 };
 
@@ -73,12 +84,22 @@ export const useStore = create(
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },
       daily: { date: null, reviewsCleared: false, lessonDone: false },
+      // "Fix these" — item ids missed (graded `again`) and not yet re-passed, most
+      // recent last. A miss adds; a clean pass clears. Powers the mistake-review.
+      mistakes: [],
+      // Capability milestones the learner has REACHED — earned-once, never revoked
+      // (forgetting a word later must never take a milestone back). Grows via
+      // reconcileMilestones; persisted so it survives a lapse. See data/milestones.js.
+      milestonesEarned: [],
+      // Transient (never persisted): the most-recent newly-earned milestone, shown
+      // as a one-time toast then cleared.
+      milestoneToast: null,
       devMode: false,
       // User preferences. `sfx` = synthesized answer chimes/clicks; `autoplayAudio`
       // = auto-play the pronunciation clip when a Teach card appears (the speaker
       // button always plays regardless). Both default on; persisted. Old persisted
       // state without this key keeps these defaults via persist's shallow merge.
-      settings: { sfx: true, autoplayAudio: true, showRomaji: true, theme: "system", textSize: "default" },
+      settings: { sfx: true, autoplayAudio: true, showRomaji: true, furigana: true, theme: "system", textSize: "default", reduceMotion: false, noSpeedPressure: false },
       ui: {},
 
       // Cloud sync (Supabase). `lastModified` is persisted and drives the
@@ -123,6 +144,11 @@ export const useStore = create(
       // touching any progress — just flips the flag so the gate runs it again.
       replayOnboarding: () => set((s) => ({ profile: { ...s.profile, onboarded: false } })),
 
+      // Daily-reminder time ("HH:MM", or null = off). Lives on profile (persisted +
+      // synced); the notification scheduling itself is a client-side side effect in
+      // src/lib/reminders.js, wired from Settings + App boot.
+      setReminderTime: (time) => set((s) => ({ profile: { ...s.profile, reminderTime: time || null } })),
+
       setSetting: (key, value) =>
         set((s) => ({ settings: { ...s.settings, [key]: value } })),
 
@@ -133,7 +159,7 @@ export const useStore = create(
       // added in a newer app version (absent from an older cloud blob) still
       // exist at rung 0 — a pull never makes a unit disappear. Cloud item ids no
       // longer in the curriculum are simply ignored.
-      hydrateFromCloud: (blob) =>
+      hydrateFromCloud: (blob) => {
         set((s) => {
           const base = Object.keys(s.items).length ? s.items : freshSeed();
           const items = { ...base };
@@ -141,11 +167,14 @@ export const useStore = create(
             if (items[id]) items[id] = it;
           }
           const next = { items, lastModified: Date.now() };
-          for (const k of ["languages", "streak", "stats", "daily", "devMode", "settings", "profile"]) {
+          for (const k of ["languages", "streak", "stats", "daily", "devMode", "settings", "profile", "milestonesEarned"]) {
             if (blob[k] !== undefined) next[k] = blob[k];
           }
           return next;
-        }),
+        });
+        // Backfill silently — a sync must never fire a flood of milestone toasts.
+        get().reconcileMilestones({ toast: false });
+      },
 
       // Reconcile the deck against the current curriculum on every run:
       //  - NEW items (units shipped since last seed) get added at rung 0,
@@ -181,6 +210,9 @@ export const useStore = create(
           }
           return { items, daily, languages, profile };
         });
+        // Backfill the earned-milestone set from existing progress on boot — SILENT,
+        // so a returning learner isn't greeted by a wall of milestone toasts.
+        get().reconcileMilestones({ toast: false });
       },
 
       // Selector: items whose FSRS card is due AND that have climbed at least to
@@ -214,9 +246,38 @@ export const useStore = create(
           const languages = lang
             ? { ...s.languages, [item.lang]: { ...lang, xp: lang.xp + gain } }
             : s.languages;
-          return { items, stats, languages };
+          // Mistake list: a miss adds the item (moved to the front of "most recent");
+          // a clean pass clears it. `hard` leaves it as-is (still shaky).
+          let mistakes = s.mistakes ?? [];
+          if (grade === "again") {
+            mistakes = [...mistakes.filter((m) => m !== id), id].slice(-MISTAKES_CAP);
+          } else if (grade === "good" || grade === "easy") {
+            if (mistakes.includes(id)) mistakes = mistakes.filter((m) => m !== id);
+          }
+          return { items, stats, languages, mistakes };
+        });
+        get().reconcileMilestones({ toast: true });
+      },
+
+      // Reconcile the earned-milestone set against current mastery. Unions any newly
+      // satisfied milestones (earned-once, never revoked). With { toast:true } (a
+      // grade just happened) the newest unlock is surfaced as a one-time toast; on
+      // boot/sync we backfill SILENTLY so existing progress never floods the screen.
+      reconcileMilestones: ({ toast = false } = {}) => {
+        set((s) => {
+          const earned = earnedMilestones(s.items);
+          const prev = new Set(s.milestonesEarned ?? []);
+          const fresh = earned.filter((id) => !prev.has(id));
+          if (fresh.length === 0) return s;
+          const next = { milestonesEarned: [...(s.milestonesEarned ?? []), ...fresh] };
+          if (toast) {
+            const m = milestoneCatalog().find((x) => x.id === fresh[fresh.length - 1]);
+            if (m) next.milestoneToast = { id: m.id, label: m.label };
+          }
+          return next;
         });
       },
+      dismissMilestoneToast: () => set({ milestoneToast: null }),
 
       completeReviews: () => {
         set((s) => ({ daily: { ...s.daily, date: todayISO(), reviewsCleared: true } }));
@@ -230,7 +291,13 @@ export const useStore = create(
         set((s) => {
           const item = s.items[id];
           if (!item || (item.rung ?? 0) >= 1) return s; // already graduated
-          const srs = schedule(item.srs, grade);
+          const scheduled = schedule(item.srs, grade);
+          // First review is never the SAME day — floor to tomorrow so a freshly
+          // learned item is spaced, not massed. Without this a `hard` graduation
+          // (short FSRS interval) could resurface minutes later, defeating spacing
+          // (startOfTomorrow was exported for exactly this but never wired). [R24]
+          const due = new Date(scheduled.due) < startOfTomorrow() ? startOfTomorrow() : scheduled.due;
+          const srs = { ...scheduled, due };
           const gain = XP_BY_GRADE[grade] ?? 0;
           const items = { ...s.items, [id]: { ...item, srs, rung: 1 } };
           const stats = { ...s.stats, xpTotal: s.stats.xpTotal + gain };
@@ -240,6 +307,7 @@ export const useStore = create(
             : s.languages;
           return { items, stats, languages };
         });
+        get().reconcileMilestones({ toast: true });
       },
 
       // Mark the day's lesson done. Graduation of new items is now per-item via
@@ -351,6 +419,9 @@ export const useStore = create(
           streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
           stats: { xpTotal: 0 },
           daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+          mistakes: [],
+          milestonesEarned: [],
+          milestoneToast: null,
           ui: {},
         });
       },
@@ -372,6 +443,47 @@ export const useStore = create(
           return { items, daily: { ...s.daily, reviewsCleared: false } };
         });
       },
+
+      // --- Dev progress seeders (touch REAL state; labelled in the panel; Reset
+      // restores). For eyeballing progress-dependent screens — Word bank, Ladder,
+      // Stats, the mistake-review — without grinding.
+      // Mark the first `n` not-yet-learned items as RECOGNIZED (rung 1).
+      devLearnItems: (n = 20) => {
+        set((s) => {
+          const items = { ...s.items };
+          let c = 0;
+          for (const id of Object.keys(items)) {
+            if (c >= n) break;
+            if ((items[id].rung ?? 0) < 1) { items[id] = { ...items[id], rung: 1 }; c++; }
+          }
+          return { items };
+        });
+        get().reconcileMilestones({ toast: true });
+      },
+      // Push the first `n` items to MASTERED (rung 5 + stability past MASTERY_FULL_DAYS).
+      devMasterItems: (n = 10) => {
+        set((s) => {
+          const items = { ...s.items };
+          let c = 0;
+          for (const id of Object.keys(items)) {
+            if (c >= n) break;
+            items[id] = { ...items[id], rung: 5, srs: { ...items[id].srs, stability: 60 } };
+            c++;
+          }
+          return { items };
+        });
+        get().reconcileMilestones({ toast: true });
+      },
+      // Add `n` items to the mistake list (learning them first so they're reviewable).
+      devSeedMistakes: (n = 5) => {
+        set((s) => {
+          const items = { ...s.items };
+          const ids = Object.keys(items).slice(0, n);
+          for (const id of ids) if ((items[id].rung ?? 0) < 1) items[id] = { ...items[id], rung: 1 };
+          const mistakes = [...new Set([...(s.mistakes ?? []), ...ids])].slice(-30);
+          return { items, mistakes };
+        });
+      },
     }),
     {
       name: "lingua-v1",
@@ -385,6 +497,8 @@ export const useStore = create(
         streak: s.streak,
         stats: s.stats,
         daily: s.daily,
+        mistakes: s.mistakes,
+        milestonesEarned: s.milestonesEarned,
         devMode: s.devMode,
         settings: s.settings,
         profile: s.profile,

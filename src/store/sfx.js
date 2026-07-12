@@ -84,6 +84,51 @@ export function sfxFanfare() {
   });
 }
 
+// Rung-up: a bright, quick two-note *step up* (G5 → D6, a rising fifth) that fires
+// when an item climbs a mastery rung mid-review. Distinct from the 3-note "correct"
+// chime — this one carries information (you moved up the ladder), not just "right".
+// Higher and terser so it reads as a step, not a full celebration. Gated by safe().
+export function sfxRungUp() {
+  safe((ctx) => {
+    [783.99, 1174.66].forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const g = ctx.createGain();
+      osc.connect(g);
+      g.connect(ctx.destination);
+      osc.type = "triangle";
+      osc.frequency.value = freq;
+      const t = ctx.currentTime + i * 0.085;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(0.18, t + 0.015);
+      g.gain.exponentialRampToValueAtTime(0.001, t + 0.22);
+      osc.start(t);
+      osc.stop(t + 0.24);
+    });
+  });
+}
+
+// Milestone reached — a warm, resolved four-note rise (C5 E5 G5 C6) on a soft sine,
+// a touch grander than the rung-up step but still calm (a capability reached, not a
+// jackpot). Carries information: you can now DO a new thing. Gated by the SFX toggle.
+export function sfxMilestone() {
+  safe((ctx) => {
+    [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const g = ctx.createGain();
+      osc.connect(g);
+      g.connect(ctx.destination);
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      const t = ctx.currentTime + i * 0.11;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(0.19, t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.001, t + 0.42);
+      osc.start(t);
+      osc.stop(t + 0.45);
+    });
+  });
+}
+
 // Gentle descending slide — soft "oops", not a harsh buzzer.
 export function sfxWrong() {
   safe((ctx) => {
@@ -99,5 +144,52 @@ export function sfxWrong() {
     g.gain.exponentialRampToValueAtTime(0.001, t + 0.25);
     osc.start(t);
     osc.stop(t + 0.25);
+  });
+}
+
+// Near-miss — the FIRST slip that earns a free retry (not the final miss). Two
+// soft same-pitch taps (A4): neutral and encouraging, deliberately with no up/down
+// valence — "not yet, try once more", NOT the descending "oops" of sfxWrong. This
+// is the sound that made a retry-able slip previously indistinguishable from a real
+// miss; now the ear can tell "almost" from "wrong".
+export function sfxAlmost() {
+  safe((ctx) => {
+    [0, 0.12].forEach((dt) => {
+      const osc = ctx.createOscillator();
+      const g = ctx.createGain();
+      osc.connect(g);
+      g.connect(ctx.destination);
+      osc.type = "sine";
+      osc.frequency.value = 440;
+      const t = ctx.currentTime + dt;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(0.12, t + 0.015);
+      g.gain.exponentialRampToValueAtTime(0.001, t + 0.13);
+      osc.start(t);
+      osc.stop(t + 0.15);
+    });
+  });
+}
+
+// Mastered — an item reached the top rung (MASTERED). A warm major triad bloomed
+// together (C5+E5+G5) with a long gentle release: fuller and more "arrived" than
+// the two-note rung-up step, but still calm (a chord, not a fanfare). The rarest,
+// most-earned per-item event on the ladder. Gated by the SFX toggle.
+export function sfxMastered() {
+  safe((ctx) => {
+    const t = ctx.currentTime;
+    [523.25, 659.25, 783.99].forEach((freq) => {
+      const osc = ctx.createOscillator();
+      const g = ctx.createGain();
+      osc.connect(g);
+      g.connect(ctx.destination);
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(0.14, t + 0.04);
+      g.gain.exponentialRampToValueAtTime(0.001, t + 0.7);
+      osc.start(t);
+      osc.stop(t + 0.75);
+    });
   });
 }

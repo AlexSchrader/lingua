@@ -12,7 +12,9 @@ import Auth from "./screens/Auth.jsx";
 import Onboarding from "./screens/Onboarding.jsx";
 import SetPassword from "./screens/SetPassword.jsx";
 import Mascot from "./components/Mascot.jsx";
+import MilestoneToast from "./components/MilestoneToast.jsx";
 import { useStore } from "./store/useStore.js";
+import { scheduleDailyReminder, notificationPermission } from "./lib/reminders.js";
 import { C, F, setActiveTheme, resolveTheme } from "./theme.js";
 
 // Lazy-loaded: the ElevenLabs voice SDK is heavy (~500KiB) and only needed on
@@ -53,6 +55,14 @@ function useSystemDark() {
 export default function App() {
   const auth = useStore((s) => s.auth);
   const onboarded = useStore((s) => s.profile?.onboarded);
+  const reminderTime = useStore((s) => s.profile?.reminderTime);
+
+  // Roll the daily reminder forward on each app open — the trigger is one-shot, so
+  // rescheduling here keeps a daily reminder alive as long as the app is opened
+  // periodically. No-op unless supported + permitted (see lib/reminders.js).
+  useEffect(() => {
+    if (reminderTime && notificationPermission() === "granted") scheduleDailyReminder(reminderTime);
+  }, [reminderTime]);
 
   // Theme: resolve the preference against the OS, set the active palette BEFORE
   // children render (so they read the right colours this pass), and sync the
@@ -89,7 +99,11 @@ export default function App() {
   }
 
   return (
-    <Routes>
+    <>
+      {/* Global overlay — a milestone can unlock inside Review/Lesson (outside the
+          AppShell), so it lives at the App root to cover every screen. */}
+      <MilestoneToast />
+      <Routes>
       <Route element={<AppShell />}>
         <Route index element={<Today />} />
         <Route path="ladder" element={<Ladder />} />
@@ -101,6 +115,7 @@ export default function App() {
       <Route path="review" element={<Review />} />
       <Route path="lesson/:lessonId" element={<Lesson />} />
       <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+      </Routes>
+    </>
   );
 }

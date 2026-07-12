@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogOut, Cloud, CheckCircle2 } from "lucide-react";
+import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogOut, Cloud, CheckCircle2, Mic, Award, Bell } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES } from "../data/index.js";
+import { triggersSupported, notificationPermission, requestReminderPermission, scheduleDailyReminder, cancelReminders } from "../lib/reminders.js";
 import { C, F } from "../theme.js";
 import { VERSION } from "../version.js";
 
@@ -58,12 +59,76 @@ function Toggle({ label, desc, checked, onChange }) {
   );
 }
 
+// Daily local reminder. Best-effort + honest: fires while the app is closed only
+// where the browser supports scheduled notifications (Chromium/installed PWA); the
+// note tells the truth elsewhere. Scheduling lives in src/lib/reminders.js.
+function RemindersSection() {
+  const reminderTime = useStore((s) => s.profile?.reminderTime ?? null);
+  const setReminderTime = useStore((s) => s.setReminderTime);
+  const [busy, setBusy] = useState(false);
+  const on = !!reminderTime;
+  const supported = triggersSupported();
+  const blocked = notificationPermission() === "denied";
+
+  const toggle = async (v) => {
+    if (busy) return;
+    setBusy(true);
+    if (!v) {
+      await cancelReminders();
+      setReminderTime(null);
+    } else {
+      const perm = await requestReminderPermission();
+      if (perm === "granted") {
+        const time = reminderTime || "19:00";
+        setReminderTime(time);
+        await scheduleDailyReminder(time);
+      }
+    }
+    setBusy(false);
+  };
+
+  const changeTime = async (time) => {
+    setReminderTime(time);
+    await scheduleDailyReminder(time);
+  };
+
+  return (
+    <Section title="Reminders">
+      <Toggle
+        label="Daily reminder"
+        desc="A gentle nudge to practice, at a time you choose."
+        checked={on}
+        onChange={toggle}
+      />
+      {on && (
+        <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 0" }}>
+          <span style={{ flex: 1, fontSize: 14 }}>Remind me at</span>
+          <input
+            type="time"
+            value={reminderTime}
+            onChange={(e) => changeTime(e.target.value)}
+            style={{ padding: "8px 12px", borderRadius: 10, border: `1.5px solid ${C.line}`, background: C.surface, color: C.ink, fontSize: 15, fontFamily: F.body, outline: "none" }}
+          />
+        </div>
+      )}
+      <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 10, lineHeight: 1.4, display: "flex", gap: 8 }}>
+        <Bell size={14} style={{ flexShrink: 0, marginTop: 2 }} />
+        <span>
+          {supported
+            ? "Reminders fire on this device even when Lingua is closed — best with the app added to your home screen."
+            : "Your browser can't schedule reminders while the app is closed (common on iPhone). Reliable reminders across your devices are coming with account sync."}
+          {blocked && " Notifications are blocked in your browser settings — turn them on there to use reminders."}
+        </span>
+      </div>
+    </Section>
+  );
+}
+
 export default function Settings() {
   const navigate = useNavigate();
   const resetAll = useStore((s) => s.resetAll);
   const languages = useStore((s) => s.languages);
-  const streak = useStore((s) => s.streak);
-  const stats = useStore((s) => s.stats);
+  const milestonesEarned = useStore((s) => s.milestonesEarned);
   const devMode = useStore((s) => s.devMode);
   const unlockDevMode = useStore((s) => s.unlockDevMode);
   const disableDevMode = useStore((s) => s.disableDevMode);
@@ -103,9 +168,7 @@ export default function Settings() {
       <Section title="About">
         <Row icon={Info} label="Version" value={VERSION} />
         <Row icon={Globe} label="Learning" value={`${ja.flag} ${ja.name} · ${ja.level}`} />
-        <Row label="Streak" value={`${streak.current} day${streak.current === 1 ? "" : "s"}`} />
-        <Row label="Freezes" value={streak.freezes} />
-        <Row label="Total XP" value={stats.xpTotal} />
+        <Row icon={Award} label="Milestones" value={milestonesEarned?.length ?? 0} />
       </Section>
 
       <Section title="Account">
@@ -224,7 +287,43 @@ export default function Settings() {
           checked={settings?.showRomaji ?? true}
           onChange={(v) => setSetting("showRomaji", v)}
         />
+        <Toggle
+          label="Furigana"
+          desc="Show the reading above kanji on new-word cards, and kana readings inside example sentences where the lesson provides them — so you can read a word before you know its kanji. A scaffold you can switch off as the kanji become familiar."
+          checked={settings?.furigana ?? true}
+          onChange={(v) => setSetting("furigana", v)}
+        />
+        <Toggle
+          label="Reduce motion"
+          desc="Freeze the mascot to a still and skip the finish-line confetti. Calmer if animation is distracting. (Your device's reduced-motion setting is always respected too.)"
+          checked={settings?.reduceMotion ?? false}
+          onChange={(v) => setSetting("reduceMotion", v)}
+        />
       </Section>
+
+      <Section title="Practice">
+        <Toggle
+          label="No speed pressure"
+          desc="Grade answers on whether they're right, not how fast. A correct answer counts the same whether it took you two seconds or twenty — no timing, no rush. (You'll still see items again on their normal schedule.)"
+          checked={settings?.noSpeedPressure ?? false}
+          onChange={(v) => setSetting("noSpeedPressure", v)}
+        />
+        <div style={{ fontSize: 13, color: C.inkSoft, lineHeight: 1.4, marginTop: 12 }}>
+          Producing a word asks you to type it in Japanese. Through A1 you can answer in
+          rōmaji (no Japanese keyboard needed); from A2 you'll type the kana. Tiles (build)
+          and typing the meaning always work too.
+        </div>
+        <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 10, lineHeight: 1.4, display: "flex", gap: 8 }}>
+          <Mic size={14} style={{ flexShrink: 0, marginTop: 2 }} />
+          <span>
+            Speaking cards ask permission to use your mic. Each short clip is sent to ElevenLabs to
+            check the pronunciation, then discarded — your audio is never stored. Speaking is bonus
+            practice; skip it and nothing is blocked.
+          </span>
+        </div>
+      </Section>
+
+      <RemindersSection />
 
       <Section title="Progress">
         {!confirming ? (
@@ -263,8 +362,8 @@ export default function Settings() {
               }}
             >
               <AlertTriangle size={18} style={{ flexShrink: 0, marginTop: 1 }} />
-              This wipes every item's progress, your streak, freezes, and XP back to a
-              fresh start. It can't be undone.
+              This wipes every item's progress and your milestones back to a fresh
+              start. It can't be undone.
             </div>
             <div style={{ display: "flex", gap: 10 }}>
               <button

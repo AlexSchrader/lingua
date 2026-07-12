@@ -18,7 +18,14 @@ export function nextRung(item, grade) {
   if (grade === "again") next = cur - 1;
   else if (grade === "hard") next = cur; // hold
   else if (grade === "good" || grade === "easy") next = cur + 1;
-  return Math.max(0, Math.min(MAX_RUNG, next));
+  // A graduated item (already RECOGNIZED) never falls back to NEW on a lapse —
+  // rung 0 means "never studied", and once you've studied something a wrong
+  // answer shouldn't un-know it. It holds at RECOGNIZED and FSRS's relearning
+  // interval resurfaces it soon. Without this floor, failing a freshly-graduated
+  // item's first review dropped it to rung 0, and isReviewable (rung >= 1) then
+  // ejected it from spaced review permanently.
+  const floor = cur >= 1 ? 1 : 0;
+  return Math.max(floor, Math.min(MAX_RUNG, next));
 }
 
 // Gate check: is an item considered "due"-eligible? Items must have at least
@@ -43,9 +50,17 @@ export const MASTERY_FULL_DAYS = 45;
 
 export function masteryPct(item) {
   const stability = Number(item?.srs?.stability) || 0;
-  return Math.max(0, Math.min(1, stability / MASTERY_FULL_DAYS));
+  const raw = Math.max(0, Math.min(1, stability / MASTERY_FULL_DAYS));
+  // FSRS stability grows multiplicatively, so the linear ratio reads ~5–10% and
+  // barely moves for a week+ despite real gains — a discouraging "no progress"
+  // signal on items just worked. A concave (sqrt) map front-loads the visible
+  // movement (early reviews show real progress) while keeping the endpoints fixed:
+  // 0 → 0 and MASTERY_FULL_DAYS → 1, so isMastered's threshold is unchanged.
+  return Math.sqrt(raw);
 }
 
 export function isMastered(item) {
+  // Stability-based, threshold-preserving: sqrt(1) === 1, so this still trips at
+  // exactly MASTERY_FULL_DAYS of stability.
   return masteryPct(item) >= 1;
 }

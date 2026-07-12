@@ -45,7 +45,7 @@ test("hasMeaningfulProgress: rung>0, streak, or any positive stat counts", () =>
 });
 
 test("extractProgress copies exactly the synced keys, nothing else", () => {
-  const full = { items: 1, languages: 2, streak: 3, stats: 4, daily: 5, devMode: 6, settings: 7, profile: 8, ui: 99, junk: 0 };
+  const full = { items: 1, languages: 2, streak: 3, stats: 4, daily: 5, devMode: 6, settings: 7, profile: 8, milestonesEarned: 9, ui: 99, junk: 0 };
   assert.deepEqual(Object.keys(extractProgress(full)).sort(), [...SYNC_KEYS].sort());
   assert.equal(extractProgress(full).ui, undefined);
 });

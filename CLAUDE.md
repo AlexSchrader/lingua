@@ -6,7 +6,7 @@ Standing context for Claude Code (CC) on this repo. Read this first, every sessi
 
 ## Roles — read this first
 
-**CC owns the work; Alex supervises.** The work splits into three CC lanes so parallel sessions don't collide. **Stay in your lane** — if a task needs another lane's files, say so and hand it off rather than reaching across.
+**CC owns the work; Alex supervises.** The work splits into four CC lanes so parallel sessions don't collide. **Stay in your lane** — if a task needs another lane's files, say so and hand it off rather than reaching across.
 
 | Role | Owns | Files | Merge rights |
 |------|------|-------|--------------|
@@ -14,6 +14,7 @@ Standing context for Claude Code (CC) on this repo. Read this first, every sessi
 | **Feature CC** | App / engine / UX, schema & contract | `src/screens`, `src/store`, `src/components`, `src/data/contract.js`, `src/data/lint.js` | **Draft PR → Alex merges.** |
 | **Curriculum CC** | Content units only | `src/data/ja/*.js` | **May self-merge on full green** (see exception). |
 | **QA CC** | **Tests & reports — builds nothing** | reads all; writes only findings docs | **Never merges; draft PRs only.** |
+| **Idea CC** | **Ideation — feeds the Feature CC backlog; builds nothing** | reads all; writes only idea pitches (`BUILD-CHECKLIST.md`) + `BUILD-BRIEF-*.md` | **Never merges, never builds; proposes only.** |
 
 **What each CC does day to day:**
 
@@ -35,6 +36,7 @@ Standing context for Claude Code (CC) on this repo. Read this first, every sessi
   - Run the **full gate** (`lint:curriculum` → `validate:content` → `test:unit` → `audit` → `build`) and **self-merge on all-green** (curriculum *only*; see exception). Queue naturalness-heavy content (grammar, examples) for the **batched native review** — the one thing no lint can check.
   - **Stay out of app/engine/schema files.** Spotted a UI/engine improvement? Log it as a `[ ]` feature item for the Feature CC — hand off, don't reach across.
 - **QA CC** — runs the full local gate (`validate:content` → `lint:curriculum` → `test:unit` → `audit` → `build`) plus real-app/manual checks; hunts bugs, regressions, content defects, ND-friction, architecture drift; hands Alex a **prioritized findings list** in `BUILD-CHECKLIST.md` → "QA findings". **QA writes findings, not fixes** — it may fix only an outright bug or a small-unambiguous defect (the "spot-a-bug" exception below), and files everything else as a `[ ]` item routed to the Feature or Curriculum lane.
+- **Idea CC** — the ideation lane: **generates the pipeline of feature/UX/learning-science ideas the Feature CC builds from.** Where Feature CC surfaces improvements *in-flight*, Idea CC's whole job is the deeper, unhurried work: scanning the learning-science + ND-UX space, studying what the app does today, and turning that into concrete, ranked, ready-to-build proposals. Brainstorm against the mission (deep understanding over memorization, mechanics over dopamine, ND-first, anti-burnout) — reject gamification/streak/XP/social. **Pitch concretely** (friction + why + one concrete change + lane + impact-per-effort rank) in `BUILD-CHECKLIST.md` → "Idea CC — feature pitches"; expand greenlit ideas into a full `BUILD-BRIEF-*.md`. **Read the repo before pitching** (ground every idea in real file refs). **Builds nothing** — writes only pitches + briefs; a pitch becomes work when a lane picks it up and Alex greenlights it. Route/tag the lane on every pitch.
 
 Default to thoroughness and self-sufficiency. Don't ask permission for routine work, but **do** check in before anything risky (see "Check in before"). Web-Claude plans, designs, and writes detailed build briefs; CC executes them in-repo. If a brief is ambiguous or you spot a problem, flag it before building — don't silently reinterpret scope.
 
@@ -47,7 +49,7 @@ Default to thoroughness and self-sufficiency. Don't ask permission for routine w
 | Doc | Purpose | Primary owner |
 |-----|---------|---------------|
 | `CLAUDE.md` | Standing conventions, roles, guardrails (**this file — read first**) | all CC |
-| `BUILD-CHECKLIST.md` | Single source of truth for project state; **Feature CC backlog** + **QA findings** live here | all CC |
+| `BUILD-CHECKLIST.md` | Single source of truth for project state; **Feature CC backlog** + **QA findings** + **Idea CC pitches** live here | all CC |
 | `CONTENT.md` | Content schema reference for authoring units | Curriculum CC |
 | `README.md` | Public-facing project overview + how to run/test | Feature CC |
 | `BUILD-BRIEF-*.md` | Design briefs (accounts/sync, curriculum lint, speech grading) | Web-Claude / Alex |
@@ -101,7 +103,7 @@ Alex is neurodivergent and the app is built specifically with ND learners in min
 **What not to do:**
 
 - Don't pad responses with "great question!" or unnecessary affirmations.
-- Don't suggest adding gamification, streaks, XP bars, or social features — the anti-burnout principle is structural, not motivational. Mechanics over dopamine tricks.
+- Don't suggest adding gamification, streaks, XP bars, or social features — the anti-burnout principle is structural, not motivational. Mechanics over dopamine tricks. **(Clarified 2026-07-10, Alex's call — the line is *capability vs activity*.** ✅ **Capability milestones** — "can read all hiragana," "100 words mastered," "A1 complete" — mark a real skill gained and ARE the mission-aligned progress signal; build these (see `BUILD-BRIEF-milestones.md`). ❌ **Engagement rewards** — streaks, XP, freezes, day-counts, "cards answered" — reward activity/time and are OUT; the existing streak/XP/freezes scoreboard is slated for removal, pitch R17/R18/R30.)
 - Don't redesign things that are working. Suggest; don't rewrite unprompted.
 
 ---

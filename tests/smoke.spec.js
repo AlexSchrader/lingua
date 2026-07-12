@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { LIVE_CARD_KINDS } from "../src/data/contract.js";
+import { seedItems } from "../src/data/index.js";
 
 // ---- helpers ---------------------------------------------------------------
 
@@ -76,8 +77,15 @@ function reviewState() {
 }
 
 // Fixture that exercises all LIVE_CARD_KINDS in one session:
-//   konnichiwa rung=3 due   → build (review)
+//   konnichiwa rung=3 due   → type:produce (review — vocab, hash<share)
+//   arigatō    rung=3 due   → build (review — vocab, hash≥share, no particle)
+//   tegami     rung=3 due   → sentence:build (review — [word][particle][rest] example)
+//   sayounara  rung=2 due   → type:reading (review — vocab, hash<share)
+//   konbanwa   rung=2 due   → listen:type (review — audio, hash in dictation band)
+//   kasa       rung=2 due   → particle:choice (review — かさ+を, particle in the cloze band)
+//   shizuka    rung=2 due   → cloze:choice (review — front in example, no particle after)
 //   hai        rung=1 due   → listen:choice (review — has audio, routes to listen)
+//   iie        rung=4 due   → speak (review — SPOKEN rung, vocab)
 //   ohayou     rung=0 vocab → teach + choice + type:meaning (lesson)
 //   い          rung=0 kana  → teach + choice + trace:guided (lesson — kana check2 = trace)
 //   all others rung=1 not due → skipped from both queues
@@ -85,6 +93,12 @@ function kindFixtureState() {
   const defs = [
     { id: "ja-u1l1-ohayou",     type: "vocab", front: "おはよう",   reading: "ohayō",      meaning: "good morning", example: { jp: "おはよう！",   en: "Good morning!" }, accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-konnichiwa", type: "vocab", front: "こんにちは", reading: "konnichiwa", meaning: "hello",        example: { jp: "こんにちは！", en: "Hello!" },        accept: [], lang: "ja", unit: 1, lesson: 1 },
+    { id: "ja-u1l2-arigatou",   type: "vocab", front: "ありがとう", reading: "arigatō",    meaning: "thank you",    example: { jp: "ありがとう。", en: "Thank you." },     accept: [], lang: "ja", unit: 1, lesson: 2 },
+    { id: "ja-u1l4-tegami",     type: "vocab", front: "てがみ",     reading: "tegami",      meaning: "letter",       example: { jp: "てがみをかきます。", en: "I write a letter." }, accept: [], lang: "ja", unit: 1, lesson: 4 },
+    { id: "ja-u1l2-konbanwa",   type: "vocab", front: "こんばんは", reading: "konbanwa",   meaning: "good evening", example: { jp: "こんばんは。", en: "Good evening." }, accept: [], lang: "ja", unit: 1, lesson: 2 },
+    { id: "ja-u1l2-kasa",       type: "vocab", front: "かさ",       reading: "kasa",        meaning: "umbrella",     example: { jp: "かさをどうぞ。", en: "Please take an umbrella." }, accept: [], lang: "ja", unit: 1, lesson: 2 },
+    { id: "ja-u1l3-shizuka",    type: "vocab", front: "しずか",     reading: "shizuka",     meaning: "quiet",        example: { jp: "ここはしずかです。", en: "It is quiet here." }, accept: [], lang: "ja", unit: 1, lesson: 3 },
+    { id: "ja-u1l3-sakana",     type: "vocab", front: "さかな",     reading: "sakana",      meaning: "fish",         example: null,                                          accept: [], lang: "ja", unit: 1, lesson: 3 },
     { id: "ja-u1l1-sayounara",  type: "vocab", front: "さようなら", reading: "sayōnara",   meaning: "goodbye",      example: { jp: "さようなら。", en: "Goodbye." },       accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-hai",        type: "vocab", front: "はい",       reading: "hai",         meaning: "yes",          example: { jp: "はい。",       en: "Yes." },           accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-iie",        type: "vocab", front: "いいえ",     reading: "iie",         meaning: "no",           example: { jp: "いいえ。",     en: "No." },            accept: [], lang: "ja", unit: 1, lesson: 1 },
@@ -97,9 +111,17 @@ function kindFixtureState() {
   const items = {};
   for (const it of defs) {
     let rung, srs;
-    if (it.id === "ja-u1l1-konnichiwa")  { rung = 3; srs = dueCard();   } // due → build review
+    if (it.id === "ja-u1l1-konnichiwa")  { rung = 3; srs = dueCard();   } // rung-3 vocab, hash<share → type:produce (Eng→JP)
+    else if (it.id === "ja-u1l2-arigatou") { rung = 3; srs = dueCard(); } // rung-3 vocab, hash≥share, no particle → build
+    else if (it.id === "ja-u1l4-tegami") { rung = 3; srs = dueCard();   } // rung-3 vocab, sentence band + [word][particle][rest] → sentence:build
+    else if (it.id === "ja-u1l1-sayounara") { rung = 2; srs = dueCard(); } // rung-2 vocab, hash<share → type:reading (JP→rōmaji)
+    else if (it.id === "ja-u1l2-konbanwa") { rung = 2; srs = dueCard();  } // rung-2 vocab, audio + hash band → listen:type (dictation)
+    else if (it.id === "ja-u1l2-kasa")   { rung = 2; srs = dueCard();   } // rung-2 vocab, cloze band + particle after front → particle:choice
+    else if (it.id === "ja-u1l3-shizuka") { rung = 2; srs = dueCard();  } // rung-2 vocab, cloze band + no particle after front → cloze:choice
     else if (it.id === "ja-u1l1-hai")    { rung = 1; srs = dueCard();   } // due rung-1 + has audio → listen:choice (review)
-    else if (it.id === "ja-u1l1-ohayou") { rung = 0; srs = freshCard(); } // new vocab → teach + choice + type:meaning
+    else if (it.id === "ja-u1l3-sakana") { rung = 1; srs = dueCard();   } // due rung-1 vocab, not-listen (hash≥.5) + reverse band → choice:reverse (review)
+    else if (it.id === "ja-u1l1-iie")    { rung = 4; srs = dueCard();   } // rung-4 vocab → speak (SPOKEN review)
+    else if (it.id === "ja-u1l1-ohayou") { rung = 0; srs = freshCard(); } // new vocab → teach + choice + type:meaning (lesson)
     else if (it.id === "ja-u1l1-i")      { rung = 0; srs = freshCard(); } // new kana  → teach + choice + trace:guided
     else                                  { rung = 1; srs = freshCard(); } // graduated, not due → skipped
     items[it.id] = { ...it, rung, srs };
@@ -111,6 +133,50 @@ function kindFixtureState() {
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },
       daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+      settings: {}, // type:produce is default now (rung-3 vocab), no opt-in needed
+      ui: {},
+    },
+    version: 1,
+  };
+}
+
+// 25 real vocab, all rung-1 and due → more than REVIEW_CAP, to prove the cap.
+function cappedReviewFixture() {
+  const seed = seedItems();
+  const vocab = Object.values(seed).filter((it) => it.type === "vocab").slice(0, 25);
+  const items = {};
+  for (const it of vocab) items[it.id] = { ...it, rung: 1, srs: dueCard() };
+  return {
+    state: {
+      items,
+      languages: LANGUAGES,
+      streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
+      stats: { xpTotal: 0 },
+      daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+      settings: {},
+      ui: {},
+    },
+    version: 1,
+  };
+}
+
+// Review debt (5 due, from late in the deck) + a first lesson that's still all-new,
+// so the "learn a few" escape has something to offer even while reviews are locked.
+function lockedWithNewFixture() {
+  const seed = seedItems();
+  const items = {};
+  for (const [id, it] of Object.entries(seed)) items[id] = { ...it, rung: 0, srs: freshCard() };
+  for (const it of Object.values(seed).filter((it) => it.type === "vocab").slice(-5)) {
+    items[it.id] = { ...items[it.id], rung: 1, srs: dueCard() };
+  }
+  return {
+    state: {
+      items,
+      languages: LANGUAGES,
+      streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
+      stats: { xpTotal: 0 },
+      daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+      settings: {},
       ui: {},
     },
     version: 1,
@@ -122,27 +188,67 @@ function kindFixtureState() {
 // or false once the finish screen ("Back to Today") shows.
 async function playCard(page) {
   const finish      = page.getByRole("button", { name: "Back to Today" });
+  const begin       = page.getByTestId("lesson-begin");
   const teach       = page.getByRole("button", { name: "Got it" });
   const typeCard    = page.getByTestId("type-card");
   const tracePad    = page.getByTestId("trace-pad");
+  const speakCard   = page.getByTestId("speak-card");
+  const sentenceCard = page.getByTestId("sentence-card");
+  const conjugateCard = page.getByTestId("conjugate-card");
   const option      = page.locator('[data-correct="true"]');
   const tile        = page.locator('[data-testid="tile"]');
   const continueBtn = page.getByRole("button", { name: "Continue" });
 
   await Promise.race([
     finish.waitFor({ state: "visible", timeout: 8000 }),
+    begin.waitFor({ state: "visible", timeout: 8000 }),
     teach.waitFor({ state: "visible", timeout: 8000 }),
     typeCard.waitFor({ state: "visible", timeout: 8000 }),
     tracePad.waitFor({ state: "visible", timeout: 8000 }),
+    speakCard.waitFor({ state: "visible", timeout: 8000 }),
+    conjugateCard.waitFor({ state: "visible", timeout: 8000 }),
+    sentenceCard.waitFor({ state: "visible", timeout: 8000 }),
     option.first().waitFor({ state: "visible", timeout: 8000 }),
     tile.first().waitFor({ state: "visible", timeout: 8000 }),
   ]).catch(() => {});
 
   if (await finish.isVisible().catch(() => false)) return false;
 
+  // Lesson intro (R27): the "calm breath" before card 1 — tap Begin to start.
+  if (await begin.isVisible().catch(() => false)) {
+    await begin.click();
+    return "intro";
+  }
+
   if (await teach.isVisible().catch(() => false)) {
     await teach.click();
     return "teach";
+  }
+
+  if (await speakCard.isVisible().catch(() => false)) {
+    // No real mic/STT in CI — drive the card via its test hook (feeds a correct
+    // transcript through the real grade path), then commit the grade.
+    await page.evaluate(() => window.__speak?.pass());
+    await page.getByTestId("speak-continue").click({ force: true });
+    return "speak";
+  }
+
+  if (await sentenceCard.isVisible().catch(() => false)) {
+    // No drag-and-drop in CI — the test hook assembles the correct token order,
+    // then Continue commits the grade.
+    await page.evaluate(() => window.__sentence?.solve());
+    await continueBtn.click({ force: true });
+    return "sentence:build";
+  }
+
+  if (await conjugateCard.isVisible().catch(() => false)) {
+    // Fill the correct conjugated form via the test hook, submit (Check), then
+    // Continue commits the grade — mirrors the type card's flow.
+    await page.evaluate(() => window.__conjugate?.solve());
+    await page.getByRole("button", { name: "Check" }).evaluate((el) => el.click()).catch(() => {});
+    await continueBtn.waitFor({ state: "visible", timeout: 5000 }).catch(() => {});
+    await continueBtn.evaluate((el) => el.click()).catch(() => {});
+    return "conjugate";
   }
 
   if (await tracePad.isVisible().catch(() => false)) {
@@ -209,12 +315,19 @@ async function playCard(page) {
   }
 
   if (await option.first().isVisible().catch(() => false)) {
-    // A listening card shows a Play button in place of the glyph — same options,
-    // different prompt — so distinguish it from a plain choice for coverage.
+    // choice / listen:choice / cloze:choice / particle:choice all render options —
+    // tell them apart for coverage: the cloze card carries its own data-card-kind
+    // (cloze:choice vs particle:choice); listen has a Play button.
+    const clozeCard = page.getByTestId("cloze-card");
+    const isCloze = await clozeCard.isVisible().catch(() => false);
     const isListen = await page.getByRole("button", { name: "Play the sound" }).isVisible().catch(() => false);
+    const clozeKind = isCloze ? (await clozeCard.getAttribute("data-card-kind").catch(() => null)) ?? "cloze:choice" : null;
+    // choice / choice:reverse / listen:choice all render ChoiceCard — it carries its
+    // own data-card-kind so reverse (English→JP) is told apart from the plain card.
+    const choiceKind = !isCloze ? await page.getByTestId("choice-card").getAttribute("data-card-kind").catch(() => null) : null;
     await option.first().click();
     await continueBtn.click({ force: true });
-    return isListen ? "listen:choice" : "choice";
+    return clozeKind ?? choiceKind ?? (isListen ? "listen:choice" : "choice");
   }
 
   return false;
@@ -240,16 +353,125 @@ test("can navigate all four tabs", async ({ page }) => {
   }
 });
 
+test("Today shows capability signals, not the streak/XP scoreboard", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByText("Learned", { exact: true })).toBeVisible();
+  await expect(page.getByText("Mastered", { exact: true })).toBeVisible();
+  // The retired engagement scoreboard is gone.
+  await expect(page.getByText("Streak", { exact: true })).toHaveCount(0);
+  await expect(page.getByText("Freezes", { exact: true })).toHaveCount(0);
+});
+
+test("daily review caps the session at REVIEW_CAP (20 of 25 due)", async ({ page }) => {
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(cappedReviewFixture()));
+  // Today shows the capped, non-scary count (not the full backlog).
+  await page.goto("/");
+  await expect(page.getByText("20 due")).toBeVisible({ timeout: 8000 });
+  // The review session itself is bounded to 20 (header reads .../20, never /25).
+  await page.goto("/review");
+  await expect(page.getByText(/1\s*\/\s*20\b/)).toBeVisible({ timeout: 8000 });
+  await expect(page.getByText(/\/\s*25\b/)).toHaveCount(0);
+});
+
+test("Stats shows the Milestones section with a gentle next goal", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Stats", exact: true }).click();
+  await expect(page.getByText("Milestones", { exact: true })).toBeVisible();
+  // On a fresh account nothing is earned yet, so the single nearest goal is shown.
+  await expect(page.getByText("Next", { exact: true })).toBeVisible();
+});
+
+test("Ladder word bank collects learned words, organized by unit", async ({ page }) => {
+  // reviewState() seeds several rung≥1 vocab (おはよう / こんにちは …).
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(reviewState()));
+  await page.goto("/");
+  await page.getByRole("button", { name: "Ladder", exact: true }).click();
+
+  // The collapsible "Word bank" section is present; expand it.
+  const bank = page.getByRole("button", { name: /Word bank/ });
+  await expect(bank).toBeVisible();
+  await bank.click();
+
+  // A learned word shows, under its unit heading (はじめまして = Unit 1).
+  await expect(page.getByText("こんにちは").first()).toBeVisible();
+  await expect(page.getByText("はじめまして").first()).toBeVisible();
+});
+
+test("Ladder: a lesson expands to preview its items", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Ladder", exact: true }).click();
+  // Expand the first unit, then its first lesson → the item list appears.
+  await page.getByRole("button", { name: /はじめまして/ }).click();
+  await page.getByRole("button", { name: /Lesson 1 ·/ }).first().click();
+  await expect(page.getByText("おはよう").first()).toBeVisible(); // an item from lesson 1
+});
+
 test("settings opens from the header gear, not the bottom nav", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Settings" }).click();
   await expect(page.getByRole("button", { name: "Reset all progress" })).toBeVisible();
 });
 
+test("settings: reduce-motion toggle flips and persists", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Settings" }).click();
+  const toggle = page.getByRole("switch", { name: "Reduce motion" });
+  await expect(toggle).toHaveAttribute("aria-checked", "false");
+  await toggle.click();
+  await expect(toggle).toHaveAttribute("aria-checked", "true");
+  const persisted = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua-v1")).state.settings.reduceMotion);
+  expect(persisted).toBe(true);
+});
+
 test("zero-reviews-due: review step shows done, CTA goes straight to lesson", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByText("All clear")).toBeVisible();
   await expect(page.getByTestId("start-session")).toHaveText("Start lesson");
+});
+
+test("Today: mistake-review offers a targeted 'fix these' session", async ({ page }) => {
+  const state = reviewState();
+  state.state.mistakes = ["ja-u1l1-konnichiwa"]; // a recently-missed item
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(state));
+  await page.goto("/");
+  const fix = page.getByTestId("start-fix");
+  await expect(fix).toHaveText(/Fix your mistakes \(1\)/);
+  await fix.click();
+  await expect(page.getByText(/Fix-up ·/)).toBeVisible(); // the fix session, not the daily review
+});
+
+test("Today: 'Just a few' starts a capped micro-session", async ({ page }) => {
+  await page.goto("/");
+  const few = page.getByTestId("start-few");
+  await expect(few).toBeVisible();
+  await few.click();
+  await page.getByTestId("lesson-begin").click(); // R27 intro → Begin
+  // 3 new items → teach×3 + interleaved checks (~9 cards), not the full lesson (~30).
+  const counter = page.getByText(/card 1 of \d+/);
+  await expect(counter).toBeVisible();
+  const total = parseInt((await counter.textContent()).match(/of (\d+)/)[1], 10);
+  expect(total).toBeLessThanOrEqual(9);
+});
+
+test("R27: a lesson opens on a calm intro before card 1", async ({ page }) => {
+  await page.goto("/");
+  await page.getByTestId("start-session").click();
+  // Intro first — a Begin button + item count, no card yet.
+  await expect(page.getByTestId("lesson-begin")).toBeVisible();
+  await expect(page.getByText(/new item/)).toBeVisible();
+  await expect(page.getByText(/card 1 of/)).toHaveCount(0);
+  // Begin → card 1 appears.
+  await page.getByTestId("lesson-begin").click();
+  await expect(page.getByText(/card 1 of/)).toBeVisible();
+});
+
+test("R20: reviews waiting don't hard-block — a few new items stay open", async ({ page }) => {
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(lockedWithNewFixture()));
+  await page.goto("/");
+  // Reviews are due → they're still the primary CTA...
+  await expect(page.getByTestId("start-session")).toHaveText(/Clear reviews/);
+  // ...but the lock is soft: the "learn a few" escape is offered, not hidden.
+  await expect(page.getByTestId("start-few")).toBeVisible();
 });
 
 test("new words are taught, the loop completes, and it persists", async ({ page }) => {
@@ -277,6 +499,30 @@ test("new words are taught, the loop completes, and it persists", async ({ page 
 
   await page.reload();
   await expect(page.getByText("Done", { exact: true })).toBeVisible();
+  expect(errors).toEqual([]);
+});
+
+test("lesson: the Previous button steps back a card (visual, no crash)", async ({ page }) => {
+  test.setTimeout(30_000);
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await page.goto("/");
+  await page.getByTestId("start-session").click();
+  await page.getByTestId("lesson-begin").click(); // R27 intro → Begin
+
+  // First card: no back control (nothing to step back to).
+  await expect(page.getByText(/card 1 of/)).toBeVisible();
+  await expect(page.getByRole("button", { name: "Previous card" })).toHaveCount(0);
+
+  // Advance one card, then step back — the earlier card re-shows, no error.
+  await playCard(page);
+  await expect(page.getByText(/card 2 of/)).toBeVisible();
+  const back = page.getByRole("button", { name: "Previous card" });
+  await expect(back).toBeVisible();
+  await back.click();
+  await expect(page.getByText(/card 1 of/)).toBeVisible();
+
   expect(errors).toEqual([]);
 });
 
@@ -312,15 +558,28 @@ test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson se
     await page.waitForTimeout(50);
   }
 
+  // Session 3: conjugate — exercised via its dev-preview sandbox. Unlike the other
+  // kinds, conjugation has no A1 curriculum content (it produces plain N4 forms —
+  // て/た/ない — that A1 doesn't teach), so it can't route in a normal A1 session
+  // yet. The card is fully live and routed; the preview seeds a group-tagged verb
+  // with a target form. It goes live in real reviews the moment A2 conjugation
+  // content (conjForm items) is authored.
+  await page.goto("/review?sandbox=1&card=conjugate");
+  for (let i = 0; i < 8; i++) {
+    const kind = await playCard(page);
+    if (kind === false) break;
+    if (typeof kind === "string") seenKinds.add(kind);
+    await page.waitForTimeout(50);
+  }
+
   for (const k of LIVE_CARD_KINDS) {
     expect(seenKinds, `kind "${k}" not seen (saw: ${[...seenKinds].join(", ")})`).toContain(k);
   }
   expect(errors).toEqual([]);
 });
 
-// Dormant card kinds — wired here once the brief ships so the coverage test
-// knows about them before the runner does.
-test.skip("speak cards appear when a vocab item reaches rung 5", async () => {});
+// speak is now live: the coverage test above drives it via the rung-4 `iie`
+// fixture + playCard's speak hook, so the dormant-stub placeholder is retired.
 
 // Fixture: one kana item at rung 3 (due) → review queue → TraceCard mode="free".
 // No fresh items, so there is no learn phase — the review is the whole session.
@@ -474,6 +733,8 @@ test("dev mode: unlock from Settings, panel shows diagnostics, isolated run leav
   const before = await page.evaluate(() => localStorage.getItem("lingua-v1"));
 
   // Launch a Fresh lesson directly (bypasses ladder gating) and play it through.
+  // Lesson launchers are grouped by stage now — open the Pre-A1 group (holds Unit 1).
+  await page.getByRole("button", { name: /Pre-A1 lessons/ }).click();
   await page.getByRole("button", { name: "Fresh" }).first().click();
   await expect(page.locator("text=/🧪 Dev ·/")).toBeVisible();
   for (let i = 0; i < 80; i++) {
@@ -494,6 +755,72 @@ test("dev mode: unlock from Settings, panel shows diagnostics, isolated run leav
   await expect(page.getByLabel("Dev Mode code")).toBeVisible();
   await page.reload();
   await expect(page.getByLabel("Dev Mode code")).toBeVisible();
+
+  expect(errors).toEqual([]);
+});
+
+test("dev mode: expanded panel — sessions, moments, progress seeder", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Settings" }).click();
+  await page.getByLabel("Dev Mode code").fill("L071201");
+  await page.getByRole("button", { name: "Unlock" }).click();
+
+  // Sections are collapsed accordions now — open the ones this test drives.
+  await page.getByRole("button", { name: /Sessions/ }).click();
+  await page.getByRole("button", { name: /Moments/ }).click();
+  await page.getByRole("button", { name: /Seed progress/ }).click();
+
+  // New sections present.
+  await expect(page.getByRole("button", { name: /Just a few/ })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Play the lesson-complete celebration/ })).toBeVisible();
+
+  // Progress seeder writes REAL state (unlike the rest of the panel).
+  await page.getByRole("button", { name: "Learn 20" }).click();
+  await expect(page.getByText(/Learn 20 —/)).toBeVisible();
+  const learned = await page.evaluate(() =>
+    Object.values(JSON.parse(localStorage.getItem("lingua-v1")).state.items).filter((it) => (it.rung ?? 0) >= 1).length
+  );
+  expect(learned).toBeGreaterThanOrEqual(20);
+
+  // A session launcher opens the Fix-up flow (sandboxed).
+  await page.getByRole("button", { name: "Fix-up", exact: true }).click();
+  await expect(page.getByText(/Fix-up ·/)).toBeVisible();
+});
+
+test("dev mode: A2 preview runs draft cards in the sandbox, real state + Ladder untouched", async ({ page }) => {
+  test.setTimeout(120_000); // sampler = ~18 items across the teach flow
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await page.goto("/");
+  await page.getByRole("button", { name: "Settings" }).click();
+  await page.getByLabel("Dev Mode code").fill("L071201");
+  await page.getByRole("button", { name: "Unlock" }).click();
+
+  // The A2 preview section is present and clearly marked as draft/sandbox-only.
+  await expect(page.getByText("A2 preview (draft) — not live, sandbox only")).toBeVisible();
+  await page.getByRole("button", { name: /A2 preview/ }).click(); // open the collapsed section
+  const sampler = page.getByRole("button", { name: /Quick sampler/ });
+  await expect(sampler).toBeVisible();
+
+  const before = await page.evaluate(() => localStorage.getItem("lingua-v1"));
+
+  // Run the one-tap A2 sampler end to end.
+  await sampler.click();
+  await expect(page.locator("text=/🧪 Dev ·/")).toBeVisible();
+  for (let i = 0; i < 120; i++) {
+    const kind = await playCard(page);
+    if (kind === false) break;
+    await page.waitForTimeout(20);
+  }
+  await page.getByRole("button", { name: "Back to Dev panel" }).click();
+  await expect(page.getByText("Units registered")).toBeVisible();
+
+  // CRITICAL: a draft-A2 run leaves real state byte-identical — no A2 ids leak in,
+  // no progress/FSRS/streak written.
+  const after = await page.evaluate(() => localStorage.getItem("lingua-v1"));
+  expect(after).toBe(before);
+  expect(after).not.toContain("ja-u22");
 
   expect(errors).toEqual([]);
 });

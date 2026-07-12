@@ -1,4 +1,5 @@
-import { LANGUAGES } from "./ja/languages.js";
+import { LANGUAGES } from "./languages.js";
+import { VERB_GROUPS } from "./ja/verb-groups.js";
 import { UNIT1 } from "./ja/unit1.js";
 import { UNIT2 } from "./ja/unit2.js";
 import { UNIT3 } from "./ja/unit3.js";
@@ -23,6 +24,11 @@ import { UNIT21 } from "./ja/unit21.js"; // ぶんぽう・3 — past tense & ad
 
 export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21];
 
+// A language is "live" once it has authored content; catalog entries with no units
+// yet are "planned". Derived, never stored — a language flips to live automatically
+// the moment its first unit ships. Lets the UI show only what's real.
+export const isLive = (langId) => UNITS.some((u) => u.lang === langId);
+
 export { LANGUAGES };
 
 // Flatten every lesson with playable items into a list of seed Items.
@@ -39,6 +45,11 @@ export function seedItems() {
           lang: unit.lang,
           unit: lesson.unit,
           lesson: lesson.lesson,
+          stage: unit.stage, // CEFR stage, used e.g. by the produce card's rōmaji on-ramp
+          // Verb class for the conjugate engine — stamped from verb-groups.js by the
+          // ～ます front, unless the item already authors its own group. Non-verbs stay
+          // undefined and never route to the conjugate card.
+          group: item.group ?? VERB_GROUPS[item.front],
           meaning: item.meaning ?? null,
           example: item.example ?? null,
           accept: item.accept ?? [], // optional synonyms accepted for typed answers

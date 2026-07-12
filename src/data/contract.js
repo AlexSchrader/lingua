@@ -1,17 +1,28 @@
 import { normalizeReading } from "../store/answer.js";
 import { KANJIVG } from "./kanjivg.js";
+import { CONJ_FORMS } from "../store/conjugate.js";
+
+const VALID_VERB_GROUPS = ["godan", "ichidan", "irregular"];
 
 // The canonical list of card kinds the session runner actively routes.
-// Adding a new card kind means: (1) add it here, (2) wire it in Lesson.jsx,
+// Adding a new card kind means: (1) add it here, (2) wire it in the runner,
 // (3) add a fixture item to the coverage smoke test.
-// Dormant future kinds (trace, speak) are not in this list until their brief lands.
 export const LIVE_CARD_KINDS = [
   "teach",
   "choice",
+  "choice:reverse",
   "listen:choice",
+  "listen:type",
   "type:meaning",
+  "type:reading",
+  "type:produce",
+  "cloze:choice",
+  "particle:choice",
   "build",
+  "sentence:build",
+  "conjugate",
   "trace",
+  "speak",
 ];
 
 // --- internal constants -------------------------------------------------------
@@ -25,7 +36,10 @@ const VALID_STAGE = ["pre-a1", "a1", "a2", "b1", "b2"];
 const VALID_DOMINANT_MODE = ["recall", "recognize", "produce", "speak", "trace"];
 const VALID_ITEM_TYPES = ["kana", "vocab", "kanji"];
 const LOCKED_STUB_KEYS = new Set(["id", "title", "locked"]);
-const ITEM_KEYS = new Set(["id", "type", "front", "reading", "meaning", "example", "accept", "hint"]);
+// `group` (verb class) + `conjForm` (target form) are optional tags on verb items
+// that power the conjugate card. group is usually stamped at seed time from
+// verb-groups.js, but is allowed here so A2 drill units may author it explicitly.
+const ITEM_KEYS = new Set(["id", "type", "front", "reading", "meaning", "example", "accept", "hint", "group", "conjForm"]);
 const UNIT_ID_RE = /^[a-z]{2}-u\d+$/;
 const LESSON_ID_RE = /^[a-z]{2}-u\d+l\d+$/;
 const ITEM_ID_RE = /^[a-z]{2}-u\d+l\d+-[a-z0-9]+$/;
@@ -160,6 +174,13 @@ export function validateContent(units, languages) {
 
           if (item.hint !== undefined && (typeof item.hint !== "string" || !item.hint.trim()))
             e(`item ${item.id}: hint must be a non-empty string if present`);
+
+          // Conjugate-card tags (optional). group = verb class; conjForm = the target
+          // form to produce. Both must be from their fixed vocabularies when present.
+          if (item.group !== undefined && !VALID_VERB_GROUPS.includes(item.group))
+            e(`item ${item.id}: group "${item.group}" must be one of ${VALID_VERB_GROUPS.join(", ")}`);
+          if (item.conjForm !== undefined && !CONJ_FORMS.includes(item.conjForm))
+            e(`item ${item.id}: conjForm "${item.conjForm}" is not a valid form (${CONJ_FORMS.join(", ")})`);
 
           if (item.type === "kana") {
             if (item.meaning !== null)

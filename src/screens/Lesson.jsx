@@ -10,11 +10,11 @@ import CardBreath from "../components/CardBreath.jsx";
 import Celebration from "../components/Celebration.jsx";
 import Mascot from "../components/Mascot.jsx";
 import { useStore } from "../store/useStore.js";
-import { getLesson } from "../data/index.js";
+import { getLesson, UNITS } from "../data/index.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { initLearn, currentStep, answerStep } from "../store/learnQueue.js";
 import { isTraceable } from "../store/cardRouting.js";
-import { buildSandboxItems, runnerWriters } from "../store/dev.js";
+import { buildSandboxItems, runnerWriters, getPreviewLesson } from "../store/dev.js";
 import { C, F } from "../theme.js";
 
 function assertLiveKind(kindKey) {
@@ -29,6 +29,19 @@ function assertLiveKind(kindKey) {
 // The recall (check2) card for an item in its learning steps.
 function recallMode() {
   return "meaning";
+}
+
+// If completing `lessonId` finished the LAST lesson of its unit AND a real next
+// unit exists for the same language, return that (now-unlocked) unit — the moment
+// the panda celebrates a unit boundary. Content-agnostic (reads the UNITS shape);
+// skips locked/empty stub units so we never celebrate a placeholder.
+function unitUnlockedBy(lessonId) {
+  const ui = UNITS.findIndex((u) => u.lessons?.some((l) => l.id === lessonId));
+  if (ui < 0) return null;
+  const unit = UNITS[ui];
+  const last = unit.lessons[unit.lessons.length - 1];
+  if (last?.id !== lessonId) return null; // not the unit's final lesson
+  return UNITS.slice(ui + 1).find((u) => u.lang === unit.lang && !u.locked && u.lessons?.length) ?? null;
 }
 
 // Lesson-only session runner: teaches fresh items from the current lesson,
@@ -62,24 +75,41 @@ export default function Lesson() {
   };
   const { graduateItem, completeLesson, rollDailyGoal } = runnerWriters(sandbox, realWriters);
 
-  const lesson = useMemo(() => getLesson(lessonId), [lessonId]);
+  // Sandbox may target an A2 draft (or the synthetic sampler) lesson, which isn't
+  // in the live UNITS — use the draft-aware lookup there. Live path stays UNITS-only.
+  const lesson = useMemo(
+    () => (sandbox ? getPreviewLesson(lessonId) : getLesson(lessonId)),
+    [lessonId, sandbox]
+  );
 
   // Authored order is preserved: kana rows come before vocab in each lesson file,
   // so buildLearnQueue (teaches-first) guarantees kana are introduced before vocab.
+  // "Just a few" micro-session: ?few=N caps how many NEW items this run teaches,
+  // so a tired day can be 3 items instead of a full lesson. The rest stay rung 0
+  // and surface next time — micro-sessions chip away at the lesson.
+  const few = parseInt(searchParams.get("few") ?? "", 10);
   const freshIds = useMemo(() => {
     const lessonItems = (lesson?.items ?? []).map((def) => items[def.id]).filter(Boolean);
-    return lessonItems.filter((it) => (it.rung ?? 0) < 1).map((it) => it.id);
+    const fresh = lessonItems.filter((it) => (it.rung ?? 0) < 1).map((it) => it.id);
+    return Number.isFinite(few) && few > 0 ? fresh.slice(0, few) : fresh;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lessonId]);
 
   const [learn, setLearn] = useState(() => initLearn(freshIds));
   const [finished, setFinished] = useState(false);
+  // A one-screen "calm breath" before card 1 — what this lesson is, how much, how
+  // long — so a new learner isn't dropped cold onto a glyph. One tap to Begin.
+  const [started, setStarted] = useState(false);
 
   const learnStep = currentStep(learn);
   const done = learnStep === null;
 
   useEffect(() => {
-    if (lesson && done && !finished) {
+    // Only complete the lesson when it actually had new items to teach. Opening
+    // an already-finished lesson yields freshIds=[] → empty queue → done=true on
+    // first render; without this guard that would fire completeLesson + the
+    // cascade + a streak roll for zero work. The "Nothing new" screen still shows.
+    if (lesson && done && !finished && freshIds.length > 0) {
       completeLesson(lessonId);
       rollDailyGoal();
       setFinished(true);
@@ -100,6 +130,10 @@ export default function Lesson() {
 
   if (finished || done) {
     const learned = freshIds.length;
+    // Finishing a unit's last lesson unlocks the next unit — a bigger, meaningful
+    // moment, so the panda plays its "unit unlock" reaction (falls back to the
+    // proud still until the clip exists). Never in a dev-sandbox run.
+    const unlockedUnit = sandbox ? null : unitUnlockedBy(lessonId);
     return (
       <PhaseShell title={lesson.title} progress={1}>
         <Celebration />
@@ -113,10 +147,14 @@ export default function Lesson() {
             textAlign: "center",
           }}
         >
-          <Mascot context="lessonComplete" size={150} />
-          <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>Lesson complete</div>
+          <Mascot context={unlockedUnit ? "unitUnlock" : "lessonComplete"} size={150} />
+          <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>
+            {unlockedUnit ? "Unit complete!" : "Lesson complete"}
+          </div>
           <div style={{ color: C.inkSoft, maxWidth: 300 }}>
-            {learned > 0
+            {unlockedUnit
+              ? "You've finished this unit — a new one is unlocked. New material is waiting whenever you're ready."
+              : learned > 0
               ? `Nice — you learned ${learned} new item${learned === 1 ? "" : "s"}. They'll come back for review in a few days.`
               : "Nothing new in this lesson right now."}
           </div>
@@ -143,8 +181,40 @@ export default function Lesson() {
     );
   }
 
+  // Intro screen — the calm breath before card 1. Only when there's new material
+  // (freshIds>0, else `done` already showed the complete screen) and not yet begun.
+  // Skipped in sandbox (dev card previews go straight to the card being previewed).
+  if (!started && !sandbox) {
+    const estMin = Math.max(1, Math.ceil(freshIds.length * 0.75));
+    return (
+      <PhaseShell title={lesson.title} progress={0} onClose={() => navigate(home)}>
+        <div style={{ margin: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 16, textAlign: "center", maxWidth: 340 }}>
+          <Mascot context="greeting" size={110} />
+          <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>{lesson.title}</div>
+          {lesson.canDo && <div style={{ fontSize: 15, color: C.ink, lineHeight: 1.4 }}>{lesson.canDo}</div>}
+          <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
+            {freshIds.length} new item{freshIds.length === 1 ? "" : "s"} · ~{estMin} min · no rush
+          </div>
+          <button
+            data-testid="lesson-begin"
+            autoFocus
+            onClick={() => setStarted(true)}
+            style={{ marginTop: 4, padding: "14px 40px", borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+          >
+            Begin
+          </button>
+        </div>
+      </PhaseShell>
+    );
+  }
+
   // --- handlers ---
   const advanceTeach = () => setLearn((st) => answerStep(st, null).state);
+  // Step back one card to recover from an accidental skip (a double-tapped
+  // Continue advances pos twice). VISUAL only: it just re-shows the earlier card —
+  // it never rewinds a grade. answerStep's `!graduated` guard means re-answering a
+  // card that already graduated can't re-fire graduateItem, so SRS/mastery is safe.
+  const back = () => setLearn((st) => ({ ...st, pos: Math.max(0, st.pos - 1) }));
   const onCheck = (grade) => {
     const result = { pass: grade !== "again", clean: grade === "good" || grade === "easy" };
     const { state, graduated } = answerStep(learn, result);
@@ -186,6 +256,7 @@ export default function Lesson() {
       title={`${sandbox ? "🧪 Dev · " : ""}${label} · card ${Math.min(learn.pos + 1, total)} of ${total}`}
       progress={progress}
       onClose={() => navigate(home)}
+      onBack={learn.pos > 0 ? back : undefined}
     >
       {/* Keyed remount per card drives the entrance "breath" (fade + brief
           input guard) so carried taps don't bleed into the next card. */}

@@ -110,9 +110,14 @@ export const VERB_GROUPS = {
   "うります": "godan",     // 売る
   "もらいます": "godan",   // もらう
   "つつみます": "godan",   // 包む
+  "します": "irregular",   // する — do (base compound verb from U9; engine conjugates it)
 };
 
-// Sanity: 94 verbs — 9 irregular, 29 ichidan, 56 godan.
+// Sanity: 95 verbs — 10 irregular, 29 ichidan, 56 godan.
 // The tricky "looks-ichidan-but-godan" verbs are flagged inline: 帰る, 走る, 太る
 // (and 入る, 知る, 要る elsewhere) — the classic exceptions the conjugation engine
 // must NOT infer from the ending alone; that's exactly why the group is tagged data.
+
+// The group for a verb item's ～ます front, or undefined if it isn't a tagged verb.
+// Kept from main — the seed (src/data/index.js) stamps groups through this helper.
+export const groupFor = (front) => VERB_GROUPS[front];
