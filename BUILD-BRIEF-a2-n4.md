@@ -80,5 +80,5 @@ Grow A2 vocab 216 → ~500 toward N4 volume: additive new-id items (never renumb
 | 2a | Core conjugation drills | ⬜ pending | — |
 | 2b | Grammar-pattern units (~15 points) | ⬜ pending | — |
 | 2c | Passive/causative drills | ⬜ blocked on #101 merge | — |
-| 3 | N4 kanji arc (~166) | ⬜ pending | — |
+| 3 | N4 kanji arc (141 kanji, 12 units U31–U42) | ✅ authored + gated green; 2 reviewers, 3 fixes | this PR |
 | 4 | Vocab thickening (216→~500) | ⬜ pending | — |
