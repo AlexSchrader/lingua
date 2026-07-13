@@ -41,7 +41,7 @@ export const UNIT56 = {
       items: [
         { id: "ja-u56l2-kesa", type: "vocab", front: "けさ", reading: "kesa", meaning: "this morning", example: { jp: "けさパンをたべました。", en: "I ate bread this morning." }, accept: ["this a.m."] },
         { id: "ja-u56l2-yuugata", type: "vocab", front: "ゆうがた", reading: "yūgata", meaning: "evening", example: { jp: "ゆうがたにかえります。", en: "I return in the evening." }, accept: ["early evening", "dusk"] },
-        { id: "ja-u56l2-konshuu", type: "vocab", front: "こんしゅう", reading: "konshū", meaning: "this week", example: { jp: "こんしゅうはいそがしいです。", en: "This week is busy." }, accept: [] },
+        { id: "ja-u56l2-konshuu", type: "vocab", front: "こんしゅう", reading: "konshū", meaning: "this week", example: { jp: "こんしゅうはいそがしいです。", en: "This week is busy." }, accept: ["the current week"] },
         { id: "ja-u56l2-maiasa", type: "vocab", front: "まいあさ", reading: "maiasa", meaning: "every morning", example: { jp: "まいあさコーヒーをのみます。", en: "I drink coffee every morning." }, accept: ["each morning"] },
         { id: "ja-u56l2-maiban", type: "vocab", front: "まいばん", reading: "maiban", meaning: "every night", example: { jp: "まいばんほんをよみます。", en: "I read a book every night." }, accept: ["every evening", "each night"] },
         { id: "ja-u56l2-maitsuki", type: "vocab", front: "まいつき", reading: "maitsuki", meaning: "every month", example: { jp: "まいつきほんをかいます。", en: "I buy a book every month." }, accept: ["monthly", "each month"] },
@@ -57,8 +57,8 @@ export const UNIT56 = {
       dominantMode: "recall",
       canDo: "Talk about years and the past: ことし らいねん おととし むかし さいきん これから.",
       items: [
-        { id: "ja-u56l3-kotoshi", type: "vocab", front: "ことし", reading: "kotoshi", meaning: "this year", example: { jp: "ことしにほんにいきます。", en: "I go to Japan this year." }, accept: [] },
-        { id: "ja-u56l3-rainen", type: "vocab", front: "らいねん", reading: "rainen", meaning: "next year", example: { jp: "らいねんだいがくにいきます。", en: "Next year I go to university." }, accept: [] },
+        { id: "ja-u56l3-kotoshi", type: "vocab", front: "ことし", reading: "kotoshi", meaning: "this year", example: { jp: "ことしにほんにいきます。", en: "I go to Japan this year." }, accept: ["the current year"] },
+        { id: "ja-u56l3-rainen", type: "vocab", front: "らいねん", reading: "rainen", meaning: "next year", example: { jp: "らいねんだいがくにいきます。", en: "Next year I go to university." }, accept: ["the following year"] },
         { id: "ja-u56l3-ototoshi", type: "vocab", front: "おととし", reading: "ototoshi", meaning: "the year before last", example: { jp: "おととしにほんにいきました。", en: "I went to Japan the year before last." }, accept: ["two years ago"] },
         { id: "ja-u56l3-mukashi", type: "vocab", front: "むかし", reading: "mukashi", meaning: "long ago", example: { jp: "むかしはがくせいでした。", en: "Long ago I was a student." }, accept: ["the old days", "the past"] },
         { id: "ja-u56l3-saikin", type: "vocab", front: "さいきん", reading: "saikin", meaning: "recently", example: { jp: "さいきんいそがしいです。", en: "I've been busy recently." }, accept: ["lately", "these days"] },

@@ -82,8 +82,14 @@ import { UNIT73 } from "./ja/unit73.js"; // りょうり・レストラン (N4 f
 import { UNIT74 } from "./ja/unit74.js"; // りょこう・こうつう・N4 (N4 travel & transport)
 import { UNIT75 } from "./ja/unit75.js"; // こうてき・がいねん (N4 abstract concepts)
 import { UNIT76 } from "./ja/unit76.js"; // しぜん・かがく・N4 (N4 nature, science & society)
+// --- A2 (N4) vocab thickening — batch 2 (final) ---
+import { UNIT77 } from "./ja/unit77.js"; // コミュニケーション (N4 communication & language)
+import { UNIT78 } from "./ja/unit78.js"; // ようす・ふくそう (N4 appearance & clothing)
+import { UNIT79 } from "./ja/unit79.js"; // にんげんかんけい (N4 relationships & social)
+import { UNIT80 } from "./ja/unit80.js"; // けいようし・N4 (N4 adjectives)
+import { UNIT81 } from "./ja/unit81.js"; // せいかつ・N4 (N4 daily life & events)
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64, UNIT65, UNIT66, UNIT67, UNIT68, UNIT69, UNIT70, UNIT71, UNIT72, UNIT73, UNIT74, UNIT75, UNIT76];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64, UNIT65, UNIT66, UNIT67, UNIT68, UNIT69, UNIT70, UNIT71, UNIT72, UNIT73, UNIT74, UNIT75, UNIT76, UNIT77, UNIT78, UNIT79, UNIT80, UNIT81];
 
 // A language is "live" once it has authored content; catalog entries with no units
 // yet are "planned". Derived, never stored — a language flips to live automatically
