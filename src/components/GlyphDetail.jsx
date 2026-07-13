@@ -12,6 +12,20 @@ import { C, F } from "../theme.js";
 // system's job). Auto-plays the pronunciation on open (respects the audio setting).
 const STROKE_KEYFRAMES = "@keyframes glyph-stroke{to{stroke-dashoffset:0}}";
 
+// A single kana/kanji shows at 96px; but this view also renders whole words that
+// have no single-glyph stroke data (vocab like さようなら, yōon like きょ). Sizing
+// those at 96 balloons and wraps them — so scale down by character count to keep a
+// word on one clean line inside the ~280px card.
+function glyphFontSize(front) {
+  const n = [...(front ?? "")].length;
+  if (n <= 1) return 96;
+  if (n === 2) return 80;
+  if (n === 3) return 64;
+  if (n === 4) return 54;
+  if (n <= 6) return 44;
+  return 34;
+}
+
 export default function GlyphDetail({ item, onClose }) {
   const strokes = KANJIVG[item.front] ?? [];
   const { play, active } = useItemAudio(item);
@@ -58,7 +72,7 @@ export default function GlyphDetail({ item, onClose }) {
             ))}
           </svg>
         ) : (
-          <div style={{ fontFamily: F.jp, fontSize: 96, fontWeight: 500, lineHeight: 1.2 }}>{item.front}</div>
+          <div style={{ fontFamily: F.jp, fontSize: glyphFontSize(item.front), fontWeight: 500, lineHeight: 1.15, textAlign: "center", maxWidth: "100%", wordBreak: "break-word" }}>{item.front}</div>
         )}
 
         <div style={{ fontFamily: F.mono, fontSize: 22, fontWeight: 700, color: C.ai }}>{item.reading}</div>
