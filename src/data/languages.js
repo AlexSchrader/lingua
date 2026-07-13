@@ -32,7 +32,7 @@ export const LANGUAGES = [
   // flag misrepresents these, so 🌍 stands in until a deliberate label is chosen.
   { id: "sw", name: "Swahili", flag: "🌍", target: "B2", unlock: null, unlocked: false },
   { id: "yo", name: "Yoruba", flag: "🌍", target: "B2", unlock: null, unlocked: false },
-  { id: "ha", name: "Hausa", flag: "🌍", target: "B2", unlock: null, unlocked: false },
+  { id: "tw", name: "Twi", flag: "🌍", target: "B2", unlock: null, unlocked: false },
 
   // Planned · logographic / non-Latin (highest lift — native review a hard gate).
   { id: "zh", name: "Mandarin", flag: "🇨🇳", target: "B2", unlock: null, unlocked: false },
