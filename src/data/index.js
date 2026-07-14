@@ -55,8 +55,60 @@ import { UNIT49 } from "./ja/unit49.js"; // しゃかい・せいかつ (society
 import { UNIT50 } from "./ja/unit50.js"; // ぎじゅつ・つうしん (technology & communication)
 import { UNIT51 } from "./ja/unit51.js"; // しぜん・かがく (nature & science)
 import { UNIT52 } from "./ja/unit52.js"; // ぶんか・レジャー (culture & leisure)
+// --- A1 (N5) vocab thickening toward exam volume — batch 1 ---
+import { UNIT53 } from "./ja/unit53.js"; // どうさ・1 (N5 everyday verbs)
+import { UNIT54 } from "./ja/unit54.js"; // たべもの・りょうり (N5 food & cooking)
+import { UNIT55 } from "./ja/unit55.js"; // けいようし・N5 (N5 adjectives)
+import { UNIT56 } from "./ja/unit56.js"; // じかん・よてい (N5 time & schedule)
+import { UNIT57 } from "./ja/unit57.js"; // がっこう・べんきょう (N5 school & study)
+import { UNIT58 } from "./ja/unit58.js"; // いえ・せいかつ (N5 home & living)
+import { UNIT59 } from "./ja/unit59.js"; // まち・こうつう (N5 town & transport)
+import { UNIT60 } from "./ja/unit60.js"; // ひと・からだ・N5 (N5 people, body & things)
+// --- A1 (N5) vocab thickening — batch 2 ---
+import { UNIT61 } from "./ja/unit61.js"; // しぜん・どうぶつ (N5 nature & animals)
+import { UNIT62 } from "./ja/unit62.js"; // かず・りょう (N5 counters & quantity)
+import { UNIT63 } from "./ja/unit63.js"; // きもち・はんのう (N5 feelings & reactions)
+import { UNIT64 } from "./ja/unit64.js"; // かたち・いち (N5 shapes & position)
+import { UNIT65 } from "./ja/unit65.js"; // おかね・かいもの (N5 money & shopping)
+import { UNIT66 } from "./ja/unit66.js"; // てんき・そと (N5 weather & outdoors)
+import { UNIT67 } from "./ja/unit67.js"; // しゅみ・スポーツ (N5 hobbies & sports)
+import { UNIT68 } from "./ja/unit68.js"; // ふくし・ひょうげん (N5 adverbs & expressions)
+// --- A2 (N4) vocab thickening — batch 1 ---
+import { UNIT69 } from "./ja/unit69.js"; // どうし・N4 (N4 verbs)
+import { UNIT70 } from "./ja/unit70.js"; // かんじょう・こころ (N4 emotions & mind)
+import { UNIT71 } from "./ja/unit71.js"; // しごと・かいしゃ (N4 business & office)
+import { UNIT72 } from "./ja/unit72.js"; // けんこう・びょうき (N4 health & medical)
+import { UNIT73 } from "./ja/unit73.js"; // りょうり・レストラン (N4 food & restaurant)
+import { UNIT74 } from "./ja/unit74.js"; // りょこう・こうつう・N4 (N4 travel & transport)
+import { UNIT75 } from "./ja/unit75.js"; // こうてき・がいねん (N4 abstract concepts)
+import { UNIT76 } from "./ja/unit76.js"; // しぜん・かがく・N4 (N4 nature, science & society)
+// --- A2 (N4) vocab thickening — batch 2 (final) ---
+import { UNIT77 } from "./ja/unit77.js"; // コミュニケーション (N4 communication & language)
+import { UNIT78 } from "./ja/unit78.js"; // ようす・ふくそう (N4 appearance & clothing)
+import { UNIT79 } from "./ja/unit79.js"; // にんげんかんけい (N4 relationships & social)
+import { UNIT80 } from "./ja/unit80.js"; // けいようし・N4 (N4 adjectives)
+import { UNIT81 } from "./ja/unit81.js"; // せいかつ・N4 (N4 daily life & events)
+// --- A1 (N5) coverage-gap fill: core N5 words from the official list not yet taught ---
+import { UNIT82 } from "./ja/unit82.js";
+import { UNIT83 } from "./ja/unit83.js";
+import { UNIT84 } from "./ja/unit84.js";
+import { UNIT85 } from "./ja/unit85.js";
+import { UNIT86 } from "./ja/unit86.js";
+import { UNIT87 } from "./ja/unit87.js";
+// --- A2 (N4) coverage-gap fill: core N4 words from the official list ---
+import { UNIT88 } from "./ja/unit88.js";
+import { UNIT89 } from "./ja/unit89.js";
+import { UNIT90 } from "./ja/unit90.js";
+import { UNIT91 } from "./ja/unit91.js";
+import { UNIT92 } from "./ja/unit92.js";
+import { UNIT93 } from "./ja/unit93.js";
+import { UNIT94 } from "./ja/unit94.js";
+import { UNIT95 } from "./ja/unit95.js";
+import { UNIT96 } from "./ja/unit96.js";
+import { UNIT97 } from "./ja/unit97.js";
+import { UNIT98 } from "./ja/unit98.js";
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64, UNIT65, UNIT66, UNIT67, UNIT68, UNIT69, UNIT70, UNIT71, UNIT72, UNIT73, UNIT74, UNIT75, UNIT76, UNIT77, UNIT78, UNIT79, UNIT80, UNIT81, UNIT82, UNIT83, UNIT84, UNIT85, UNIT86, UNIT87, UNIT88, UNIT89, UNIT90, UNIT91, UNIT92, UNIT93, UNIT94, UNIT95, UNIT96, UNIT97, UNIT98];
 
 // A language is "live" once it has authored content; catalog entries with no units
 // yet are "planned". Derived, never stored — a language flips to live automatically
