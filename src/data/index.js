@@ -55,8 +55,55 @@ import { UNIT49 } from "./ja/unit49.js"; // しゃかい・せいかつ (society
 import { UNIT50 } from "./ja/unit50.js"; // ぎじゅつ・つうしん (technology & communication)
 import { UNIT51 } from "./ja/unit51.js"; // しぜん・かがく (nature & science)
 import { UNIT52 } from "./ja/unit52.js"; // ぶんか・レジャー (culture & leisure)
+// --- N5/N4 vocab thickening + coverage fill (U53–U98) ---
+import { UNIT53 } from "./ja/unit53.js";
+import { UNIT54 } from "./ja/unit54.js";
+import { UNIT55 } from "./ja/unit55.js";
+import { UNIT56 } from "./ja/unit56.js";
+import { UNIT57 } from "./ja/unit57.js";
+import { UNIT58 } from "./ja/unit58.js";
+import { UNIT59 } from "./ja/unit59.js";
+import { UNIT60 } from "./ja/unit60.js";
+import { UNIT61 } from "./ja/unit61.js";
+import { UNIT62 } from "./ja/unit62.js";
+import { UNIT63 } from "./ja/unit63.js";
+import { UNIT64 } from "./ja/unit64.js";
+import { UNIT65 } from "./ja/unit65.js";
+import { UNIT66 } from "./ja/unit66.js";
+import { UNIT67 } from "./ja/unit67.js";
+import { UNIT68 } from "./ja/unit68.js";
+import { UNIT69 } from "./ja/unit69.js";
+import { UNIT70 } from "./ja/unit70.js";
+import { UNIT71 } from "./ja/unit71.js";
+import { UNIT72 } from "./ja/unit72.js";
+import { UNIT73 } from "./ja/unit73.js";
+import { UNIT74 } from "./ja/unit74.js";
+import { UNIT75 } from "./ja/unit75.js";
+import { UNIT76 } from "./ja/unit76.js";
+import { UNIT77 } from "./ja/unit77.js";
+import { UNIT78 } from "./ja/unit78.js";
+import { UNIT79 } from "./ja/unit79.js";
+import { UNIT80 } from "./ja/unit80.js";
+import { UNIT81 } from "./ja/unit81.js";
+import { UNIT82 } from "./ja/unit82.js";
+import { UNIT83 } from "./ja/unit83.js";
+import { UNIT84 } from "./ja/unit84.js";
+import { UNIT85 } from "./ja/unit85.js";
+import { UNIT86 } from "./ja/unit86.js";
+import { UNIT87 } from "./ja/unit87.js";
+import { UNIT88 } from "./ja/unit88.js";
+import { UNIT89 } from "./ja/unit89.js";
+import { UNIT90 } from "./ja/unit90.js";
+import { UNIT91 } from "./ja/unit91.js";
+import { UNIT92 } from "./ja/unit92.js";
+import { UNIT93 } from "./ja/unit93.js";
+import { UNIT94 } from "./ja/unit94.js";
+import { UNIT95 } from "./ja/unit95.js";
+import { UNIT96 } from "./ja/unit96.js";
+import { UNIT97 } from "./ja/unit97.js";
+import { UNIT98 } from "./ja/unit98.js";
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64, UNIT65, UNIT66, UNIT67, UNIT68, UNIT69, UNIT70, UNIT71, UNIT72, UNIT73, UNIT74, UNIT75, UNIT76, UNIT77, UNIT78, UNIT79, UNIT80, UNIT81, UNIT82, UNIT83, UNIT84, UNIT85, UNIT86, UNIT87, UNIT88, UNIT89, UNIT90, UNIT91, UNIT92, UNIT93, UNIT94, UNIT95, UNIT96, UNIT97, UNIT98];
 
 // A language is "live" once it has authored content; catalog entries with no units
 // yet are "planned". Derived, never stored — a language flips to live automatically
