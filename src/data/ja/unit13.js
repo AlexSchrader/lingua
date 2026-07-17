@@ -43,6 +43,7 @@ export const UNIT13 = {
         { id: "ja-u13l2-ame", type: "kanji", front: "雨", reading: "ame", meaning: "rain", example: { jp: "雨がすきです。", en: "I like the rain." }, accept: ["rainy"], hint: "雨 = rain — drops inside a frame (Unit 12's あめ). It tops weather kanji." },
         { id: "ja-u13l2-den", type: "kanji", front: "電", reading: "den", meaning: "electricity", example: { jp: "電車で行きます。", en: "I go by train." }, accept: ["electric"], hint: "電 = electricity — 雨 (rain) over a lightning shape. 電気 = electricity, 電車 = train, 電話 = phone." },
         { id: "ja-u13l2-ki", type: "kanji", front: "気", reading: "ki", meaning: "spirit", example: { jp: "元気ですか。", en: "How are you? (Are you well?)" }, accept: ["energy","feeling","air"], hint: "気 = spirit / feeling / air. In 元気 (well), 天気 (weather), 電気 (electricity)." },
+        { id: "ja-u13l2-ten", type: "kanji", front: "天", reading: "ten", meaning: "heaven", example: { jp: "きょうはいい天気です。", en: "The weather is nice today." }, accept: ["sky","the heavens","heavens"], hint: "天 = heaven / sky (てん) — 一 (the heavens) over 大 (a person, arms wide): the vast sky above. 天気 (てんき) = weather." },
       ],
     },
   ],
