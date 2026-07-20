@@ -2,24 +2,33 @@ import { useState, useRef, useEffect } from "react";
 import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
-import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji } from "../../store/answer.js";
+import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji, meaningVariants } from "../../store/answer.js";
 import { sfxCorrect, sfxWrong, sfxAlmost } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 import { useStore } from "../../store/useStore.js";
 
 // Dictation prompt (listen:type): a Play button in place of the glyph, autoplaying
 // on mount, so the ear — not the eye — drives the answer. Mirrors ChoiceCard's
-// listening prompt. Own component so useItemAudio only autoplays in listen mode.
-function ListenPrompt({ item }) {
+// listening prompt, incl. the "Can't hear it? Show it" escape (reveals the kana and
+// switches to typing rōmaji). Own component so useItemAudio only autoplays here.
+function ListenPrompt({ item, onShowIt }) {
   const { play, active } = useItemAudio(item);
   return (
-    <button
-      onClick={play}
-      aria-label="Play the sound"
-      style={{ width: 72, height: 72, borderRadius: "50%", border: `2px solid ${C.ai}`, background: active ? C.ai : C.aiSoft, color: active ? "#fff" : C.aiDeep, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "background 150ms" }}
-    >
-      <Volume2 size={30} />
-    </button>
+    <>
+      <button
+        onClick={play}
+        aria-label="Play the sound"
+        style={{ width: 72, height: 72, borderRadius: "50%", border: `2px solid ${C.ai}`, background: active ? C.ai : C.aiSoft, color: active ? "#fff" : C.aiDeep, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "background 150ms" }}
+      >
+        <Volume2 size={30} />
+      </button>
+      <button
+        onClick={onShowIt}
+        style={{ marginTop: 12, border: "none", background: "transparent", color: C.inkSoft, fontSize: 12, fontWeight: 700, fontFamily: F.body, cursor: "pointer", textDecoration: "underline" }}
+      >
+        Can't hear it? Show it
+      </button>
+    </>
   );
 }
 
@@ -52,10 +61,18 @@ function NearMiss({ typed, answer, tokenFont }) {
 export default function TypeCard({ item, mode, onGraded, listen = false }) {
   const isKana = item.type === "kana";
   const noSpeed = useStore((s) => s.settings?.noSpeedPressure ?? false);
+  // Dictation "Can't hear it?" escape: reveal the KANA and switch to typing the
+  // rōmaji. Showing the kana isn't the answer (the answer is the rōmaji reading), and
+  // rōmaji is REQUIRED there so copying the shown kana back isn't a freebie.
+  const [dictRevealed, setDictRevealed] = useState(false);
 
   // Resolve prompt + checker + the canonical answer for this mode/type.
   const spec = (() => {
     if (listen) {
+      if (dictRevealed) {
+        return { prompt: item.front, jp: true, ask: "Type the rōmaji (kana shown)",
+                 check: (v) => looksRomaji(v) && checkReading(v, item), answer: item.reading };
+      }
       // Dictation: hear the word (glyph hidden), type its reading. Accepts rōmaji
       // or kana via checkReading — the ear-path twin of type:reading.
       return { prompt: null, jp: false, ask: "Type what you hear (rōmaji or kana)",
@@ -89,10 +106,15 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
   const [outcome, setOutcome] = useState(null); // "correct" | "wrong"
   const [grade, setGrade] = useState(null);
   const [revealed, setRevealed] = useState(false); // "Show answer" escape used
-  // Reinforce the word's pronunciation once the answer settles (feedback), whether
-  // right or wrong — so the learner always hears the target. Respects the setting;
-  // autoplay:false so a recall prompt never speaks the answer before they type.
-  const { playIfEnabled } = useItemAudio(item, { autoplay: false });
+  // Reinforce the word's pronunciation ~1s AFTER the answer settles (feedback),
+  // whether right or wrong — so the learner registers the result, then hears the
+  // target. Respects the setting; autoplay:false so a recall prompt never speaks the
+  // answer before they type; the pending play cancels if they advance first.
+  const { reinforce } = useItemAudio(item, { autoplay: false });
+
+  // Other senses of this word, for the "also means" note after a meaning answer —
+  // e.g. answer "rice" for ごはん → "also means: meal". Meaning mode + vocab only.
+  const isMeaningMode = mode === "meaning" && !isKana;
 
   useEffect(() => {
     shownAt.current = performance.now();
@@ -102,6 +124,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
     setOutcome(null);
     setGrade(null);
     setRevealed(false);
+    setDictRevealed(false);
   }, [item.id, mode]);
 
   // "Show answer" escape: a stuck learner shouldn't have to submit-wrong twice
@@ -115,7 +138,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
     setGrade("again");
     setOutcome("wrong");
     setPhase("feedback");
-    playIfEnabled();
+    reinforce();
   };
 
   const submit = () => {
@@ -126,7 +149,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
       setGrade(deriveGrade({ kind: "typed", correct: true, retried, elapsedMs: elapsed, target: spec.answer, noSpeed }));
       setOutcome("correct");
       setPhase("feedback");
-      playIfEnabled();
+      reinforce();
     } else if (!retried) {
       sfxAlmost(); // first slip → "almost, try once more" (distinct from a real miss)
       setRetried(true); // one free retry
@@ -135,7 +158,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
       setGrade("again");
       setOutcome("wrong");
       setPhase("feedback");
-      playIfEnabled();
+      reinforce();
     }
   };
 
@@ -169,8 +192,8 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
           textAlign: "center",
         }}
       >
-        {listen ? (
-          <ListenPrompt item={item} />
+        {listen && !dictRevealed ? (
+          <ListenPrompt item={item} onShowIt={() => setDictRevealed(true)} />
         ) : (
           <span style={{ fontFamily: spec.jp ? F.jp : F.body, fontSize: spec.jp ? 56 : 28, fontWeight: 500 }}>
             {spec.prompt}
@@ -248,6 +271,17 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
           </div>
         )
       )}
+
+      {/* Multi-sense words: after answering, surface the OTHER meanings so a learner
+          who typed one ("rice") still learns the rest ("also means: meal"). */}
+      {feedback && isMeaningMode && (() => {
+        const others = meaningVariants(item).filter((v) => !checkMeaning(value, { meaning: v }));
+        return others.length ? (
+          <div style={{ textAlign: "center", fontSize: 13, color: C.inkSoft }}>
+            Also means: <span style={{ fontWeight: 600, color: C.ink }}>{others.join(", ")}</span>
+          </div>
+        ) : null;
+      })()}
 
       {!feedback ? (
         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>

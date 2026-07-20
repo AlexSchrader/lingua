@@ -12,6 +12,11 @@ import { useItemAudio } from "../../store/itemAudio.js";
 // Two modes: the default blanks the WORD (options = front + same-type peers); with
 // `particle`, it blanks the PARTICLE (options = は/が/を/に/で…) — the grammar drill.
 // Grades on the shared choice path: correct → good, wrong → again.
+//
+// Particle sound: the topic は is said "wa" and へ is "e" — NOT their kana readings
+// (ha/he), so for those we append the わ / え clip instead of the glyph's own; every
+// other particle reads as its kana, so its own clip is right.
+const PARTICLE_SOUND = { "は": "わ", "へ": "え" };
 export default function ClozeCard({ item, allItems, onGraded, particle = false }) {
   const options = useMemo(
     () => (particle ? particleChoices(item, 4) : buildOptions(item, allItems, 4, "front")),
@@ -19,8 +24,19 @@ export default function ClozeCard({ item, allItems, onGraded, particle = false }
     [item.id, particle]
   );
   const [picked, setPicked] = useState(null);
-  // Reinforce the word's pronunciation once picked (respects the auto-pronounce setting).
-  const { playIfEnabled } = useItemAudio(item, { autoplay: false });
+  // Reinforce ~1s after picking (respects the auto-pronounce setting). On a particle
+  // card the reinforcement chains the WORD then the PARTICLE (かさ → を = "kasa wo").
+  const { reinforce } = useItemAudio(item, { autoplay: false });
+
+  // The kana item id whose clip is the correct particle's SOUND, to append after the
+  // word on a particle card. null if it can't be resolved (then just the word plays).
+  const particleClipId = useMemo(() => {
+    if (!particle) return null;
+    const correct = options.find((o) => o.correct)?.text;
+    if (!correct) return null;
+    const soundChar = PARTICLE_SOUND[correct] ?? correct;
+    return Object.values(allItems || {}).find((it) => it.type === "kana" && it.front === soundChar)?.id ?? null;
+  }, [options, particle, allItems]);
 
   useEffect(() => setPicked(null), [item.id]);
 
@@ -71,7 +87,7 @@ export default function ClozeCard({ item, allItems, onGraded, particle = false }
               data-testid="option"
               data-correct={String(o.correct)}
               disabled={answered}
-              onClick={() => { if (answered) return; options[i].correct ? sfxCorrect() : sfxWrong(); setPicked(i); playIfEnabled(); }}
+              onClick={() => { if (answered) return; options[i].correct ? sfxCorrect() : sfxWrong(); setPicked(i); reinforce({ then: particleClipId ? [particleClipId] : [] }); }}
               style={{
                 padding: "16px 12px",
                 borderRadius: 12,
