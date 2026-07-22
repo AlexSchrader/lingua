@@ -1,8 +1,9 @@
 // Unit 99 — ぶんぽう・B1・1 ("Grammar B1·1") — B1 / JLPT N3 — the first B1 unit.
 // Registered in index.js (new content lands directly in UNITS). N3 grammar modeled
 // the safe word-like way A2's Unit 30 uses: each pattern is a vocab item whose example
-// carries it, kept mostly on noun / な-adjective / です clauses so no new conjugation
-// layer is required. Every front collision-checked against the 98-unit corpus.
+// carries it, kept mostly on noun / な-adjective / です clauses; a few lean on the
+// plain forms already taught in Unit 44 (わかる, いった) — so it depends on U44, not on
+// any new scaffolding. Every front collision-checked against the 98-unit corpus.
 // Naturalness (register, idiomatic fit) is queued for the batch native-speaker review.
 export const UNIT99 = {
   id: "ja-u99", lang: "ja", title: "ぶんぽう・B1・1", order: 99, stage: "b1",
@@ -27,7 +28,7 @@ export const UNIT99 = {
         { id: "ja-u99l2-marude", type: "vocab", front: "まるで", reading: "marude", meaning: "just like / as if", example: { jp: "まるでふゆのようにさむいです。", en: "It's cold, just like winter." }, accept: ["as though", "exactly like"], hint: "まるで … よう/みたい = 'just like…'. まるで sets up the comparison; よう finishes it." },
         { id: "ja-u99l2-mushiro", type: "vocab", front: "むしろ", reading: "mushiro", meaning: "rather / if anything", example: { jp: "きょうよりあしたのほうが、むしろさむいです。", en: "If anything, tomorrow is colder than today." }, accept: ["instead", "sooner"], hint: "むしろ = 'rather / if anything' — picks the second option as truer. Pairs with より (than)." },
         { id: "ja-u99l2-koso", type: "vocab", front: "こそ", reading: "koso", meaning: "for sure / precisely", example: { jp: "こんどこそ、がんばります。", en: "This time for sure, I'll give it my all." }, accept: ["indeed", "the very"], hint: "(noun) + こそ emphasizes it: こんど こそ = 'THIS time (for sure)'. Also こちらこそ = 'likewise'." },
-        { id: "ja-u99l2-sae", type: "vocab", front: "さえ", reading: "sae", meaning: "even", example: { jp: "かんじさえ、すこしよめます。", en: "I can read even a little kanji." }, accept: ["so much as", "only"], hint: "(noun) + さえ = 'even…' — a strong example. Stronger and more surprising than も." },
+        { id: "ja-u99l2-sae", type: "vocab", front: "さえ", reading: "sae", meaning: "even", example: { jp: "せんせいさえ、しりませんでした。", en: "Even the teacher didn't know." }, accept: ["so much as", "not even"], hint: "(noun) + さえ = 'even…' — marks a surprising extreme (even the one you'd least expect). Stronger than も." },
         { id: "ja-u99l2-monoda", type: "vocab", front: "ものだ", reading: "monoda", meaning: "used to (nostalgia)", example: { jp: "むかしは、よくうみへいったものだ。", en: "I used to go to the sea a lot." }, accept: ["would often", "how things were"], hint: "(past verb) ものだ recalls how things used to be: よく…したものだ = 'I used to…'. Warm, reminiscing." },
       ],
     },
