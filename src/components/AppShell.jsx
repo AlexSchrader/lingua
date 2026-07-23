@@ -55,8 +55,8 @@ export default function AppShell() {
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <button
-            aria-label="Milestones"
-            onClick={() => navigate("/stats")}
+            aria-label="Achievements"
+            onClick={() => navigate("/achievements")}
             style={{
               display: "flex",
               alignItems: "center",

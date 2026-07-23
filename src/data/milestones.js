@@ -89,14 +89,19 @@ export function milestoneCatalog() {
   // --- Kanji: read your first, then the whole live set ---
   if (kanji.length) {
     list.push(threshold({ id: "kanji-first", family: "kanji", label: "You learned your first kanji", blurb: "kanji read", need: 1, count: (i) => countRead(i, kanji) }));
-    for (const n of [25, 50]) if (kanji.length >= n)
+    for (const n of [25, 50, 100, 150, 200]) if (kanji.length >= n)
       list.push(threshold({ id: `kanji-${n}`, family: "kanji", label: `You can read ${n} kanji`, blurb: "kanji read", need: n, count: (i) => countRead(i, kanji) }));
     list.push(completeAll({ id: "kanji-all", family: "kanji", label: "You can read every kanji so far", blurb: "kanji read", defs: kanji }));
   }
 
+  // --- Vocab breadth: words you can READ (recognition) — the earlier, faster wins ---
+  list.push(threshold({ id: "read-first", family: "vocab", label: "You learned your first word", blurb: "words learned", need: 1, count: (i) => countRead(i, vocab) }));
+  for (const n of [50, 100, 250, 500, 1000]) if (vocab.length >= n)
+    list.push(threshold({ id: `read-${n}`, family: "vocab", label: `${n} words learned`, blurb: "words learned", need: n, count: (i) => countRead(i, vocab) }));
+
   // --- Vocab depth: words carried all the way to MASTERED (retention, not reps) ---
   list.push(threshold({ id: "vocab-first", family: "vocab", label: "You mastered your first word", blurb: "words mastered", need: 1, count: (i) => countMastered(i, vocab) }));
-  for (const n of [10, 50, 100, 250]) if (vocab.length >= n)
+  for (const n of [10, 50, 100, 250, 500]) if (vocab.length >= n)
     list.push(threshold({ id: `vocab-${n}`, family: "vocab", label: `${n} words mastered`, blurb: "words mastered", need: n, count: (i) => countMastered(i, vocab) }));
 
   // --- Level: a whole CEFR band recognized (cumulative, like the app's own gate) ---
