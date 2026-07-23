@@ -11,7 +11,8 @@ import { chooseSource, extractProgress } from "./sync.js";
 const DEBOUNCE_MS = 1500;
 
 let currentUser = null;
-let lastSerialized = null;
+let lastSerialized = null; // last blob SEEN (change-detection dedupe)
+let uploadedSerialized = null; // last blob CONFIRMED on the server (drives honest "synced")
 let applyingCloud = false; // guards the pull → setState → subscription loop
 let uploadTimer = null;
 
@@ -32,17 +33,29 @@ async function fetchCloud(userId) {
 
 async function uploadNow() {
   if (!currentUser) return;
+  clearTimeout(uploadTimer);
+  uploadTimer = null;
   const blob = blobNow();
-  lastSerialized = JSON.stringify(blob);
-  const { error } = await supabase.from("progress").upsert({
-    user_id: currentUser.id,
-    data: blob,
-    version: PERSIST_VERSION,
-    updated_at: new Date().toISOString(),
-  });
-  useStore.getState().setAuth(
-    error ? { status: "error", error: error.message } : { status: "synced", error: null }
-  );
+  const serialized = JSON.stringify(blob);
+  try {
+    const { error } = await supabase.from("progress").upsert({
+      user_id: currentUser.id,
+      data: blob,
+      version: PERSIST_VERSION,
+      updated_at: new Date().toISOString(),
+    });
+    if (error) throw new Error(error.message);
+    // Mark uploaded ONLY on confirmed success. The old code set this BEFORE the
+    // upsert, so a failed upload was silently treated as done and never retried —
+    // and the badge kept saying "synced". Now the truth follows the server.
+    uploadedSerialized = serialized;
+    lastSerialized = serialized;
+    useStore.getState().setAuth({ status: "synced", error: null });
+  } catch (e) {
+    // Never a false "synced" — surface it, and a retry fires on the next change or
+    // flush. (The old catch(()=>{}) swallowed network failures entirely.)
+    useStore.getState().setAuth({ status: "error", error: String(e?.message ?? e) });
+  }
 }
 
 function scheduleUpload() {
@@ -50,6 +63,19 @@ function scheduleUpload() {
   useStore.getState().setAuth({ status: "syncing" });
   clearTimeout(uploadTimer);
   uploadTimer = setTimeout(() => uploadNow().catch(() => {}), DEBOUNCE_MS);
+}
+
+// Is the current local state actually on the server? Drives whether "synced" is honest.
+function isUploaded() {
+  return uploadedSerialized === JSON.stringify(blobNow());
+}
+
+// Force any pending upload IMMEDIATELY — called when the app backgrounds or closes,
+// so the last batch of learning is never stranded on the 1.5s debounce timer. That
+// gap is exactly what let progress be lost when the app was deleted before it flushed.
+function flushUpload() {
+  if (!currentUser || isUploaded()) return;
+  uploadNow().catch(() => {});
 }
 
 // Fires on every store change; uploads (debounced) when the synced slice really
@@ -89,7 +115,9 @@ async function onSignIn(u) {
       if ((cloud.version ?? 1) < PERSIST_VERSION) blob = migrateState({ ...blob }, cloud.version);
       applyingCloud = true;
       useStore.getState().hydrateFromCloud(blob);
-      lastSerialized = JSON.stringify(blobNow());
+      const pulled = JSON.stringify(blobNow());
+      lastSerialized = pulled;
+      uploadedSerialized = pulled; // pulled state == server state
       applyingCloud = false;
       useStore.getState().setAuth({ status: "synced" });
     } else {
@@ -215,4 +243,15 @@ export function initCloudSync() {
 
   // Upload local changes (debounced) while signed in.
   useStore.subscribe(onStoreChange);
+
+  // Flush any pending upload the moment the app backgrounds or is closed — the
+  // debounce alone strands the last changes if the tab/PWA goes away before it fires
+  // (mobile especially fires visibilitychange→hidden on app-switch/close). This is
+  // the safety net that would have saved the progress lost to a delete-and-reinstall.
+  if (typeof document !== "undefined") {
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") flushUpload();
+    });
+    window.addEventListener("pagehide", flushUpload);
+  }
 }
