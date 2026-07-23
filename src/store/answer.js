@@ -44,14 +44,45 @@ export function checkReading(input, item) {
   return normalizeReading(input, item?.lang) === normalizeReading(item.reading, item?.lang);
 }
 
-// A meaning answer matches the canonical meaning or any accepted synonym.
+// Meaning answers are lenient by design — pickiness here was the #1 typing friction.
+// On top of normalizeText we drop a leading article ("a/an/the"), a leading "to "
+// (verb glosses), and any parenthetical aside, so "a meal" / "to eat" / "well
+// (healthy)" all reduce to their core word.
+function normalizeMeaning(s = "") {
+  return normalizeText(s)
+    .replace(/\(.*?\)/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^(?:a|an|the)\s+/, "")
+    .replace(/^to\s+/, "");
+}
+
+// Every distinct sense a word accepts — the canonical gloss AND accept[], each SPLIT
+// on the separators authors pack multiple senses with ("rice/meal", "well, healthy",
+// "come or go"). So a multi-sense word accepts ANY one of its senses without every
+// split needing a hand-written accept[] entry. Deduped, first-seen order. Powers both
+// the checker and the "also means" note shown after answering.
+export function meaningVariants(item) {
+  const raw = [item?.meaning, ...(item?.accept || [])].filter(Boolean);
+  const out = [];
+  const seen = new Set();
+  for (const gloss of raw) {
+    for (const part of String(gloss).split(/\s*(?:[/,;]|\bor\b)\s*/)) {
+      const v = normalizeMeaning(part);
+      if (v && !seen.has(v)) { seen.add(v); out.push(v); }
+    }
+  }
+  return out;
+}
+
+// A meaning answer matches any single sense (split) OR the whole gloss as written
+// ("rice" / "meal" / "rice/meal" all pass). Lenient — see above.
 export function checkMeaning(input, item) {
-  const a = normalizeText(input);
+  const a = normalizeMeaning(input);
   if (!a) return false;
-  const accepted = [item.meaning, ...(item.accept || [])]
-    .filter(Boolean)
-    .map(normalizeText);
-  return accepted.includes(a);
+  if (meaningVariants(item).includes(a)) return true;
+  const full = [item?.meaning, ...(item?.accept || [])].filter(Boolean).map(normalizeMeaning);
+  return full.includes(a);
 }
 
 // Detect a romaji (Latin-letter) answer — used on the PRODUCE card to nudge the

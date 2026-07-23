@@ -5,6 +5,7 @@ import {
   normalizeText,
   checkReading,
   checkMeaning,
+  meaningVariants,
   checkProduce,
   looksRomaji,
   foldKana,
@@ -53,6 +54,30 @@ test("checkMeaning honors canonical + accept[]", () => {
   assert.ok(checkMeaning("hi", item));
   assert.ok(!checkMeaning("goodbye", item));
   assert.ok(!checkMeaning("", item));
+});
+
+test("checkMeaning: a multi-sense gloss accepts EITHER sense (rice/meal)", () => {
+  const gohan = { meaning: "rice/meal", accept: [] };
+  assert.ok(checkMeaning("rice", gohan), "typed 'rice' should pass");
+  assert.ok(checkMeaning("meal", gohan), "typed 'meal' should pass");
+  assert.ok(checkMeaning("rice/meal", gohan), "the whole gloss still passes");
+  assert.ok(!checkMeaning("bread", gohan));
+  // comma- and "or"-separated senses split too.
+  const kuru = { meaning: "to come, to arrive", accept: [] };
+  assert.ok(checkMeaning("come", kuru), "leading 'to' stripped + comma split");
+  assert.ok(checkMeaning("arrive", kuru));
+  const iku = { meaning: "come or go", accept: [] };
+  assert.ok(checkMeaning("go", iku));
+  // articles + parentheticals are forgiven.
+  const genki = { meaning: "well (healthy)", accept: ["fine"] };
+  assert.ok(checkMeaning("the well", genki) || checkMeaning("well", genki));
+  assert.ok(checkMeaning("a fine", genki) || checkMeaning("fine", genki));
+});
+
+test("meaningVariants: distinct senses, deduped", () => {
+  const v = meaningVariants({ meaning: "rice/meal", accept: ["cooked rice", "meal"] });
+  assert.ok(v.includes("rice") && v.includes("meal") && v.includes("cooked rice"));
+  assert.equal(new Set(v).size, v.length, "no duplicates");
 });
 
 test("checkProduce: A2+ (or no stage) requires Japanese script, rejects rōmaji", () => {

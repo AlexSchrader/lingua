@@ -17,9 +17,9 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const listening = audioFirst && !revealed;
-  // Reinforce the pronunciation once an answer is in (respects the auto-pronounce
+  // Reinforce the pronunciation ~1s after an answer is in (respects the auto-pronounce
   // preference). autoplay:false so a plain choice never speaks the answer up front.
-  const { playIfEnabled } = useItemAudio(item, { autoplay: false });
+  const { reinforce } = useItemAudio(item, { autoplay: false });
 
   // Options field: reverse recognition and listening-kana both offer GLYPH options
   // (the answer is the Japanese); every other case uses the normal field (meaning /
@@ -91,7 +91,7 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
               data-testid="option"
               data-correct={String(o.correct)}
               disabled={answered}
-              onClick={() => { if (answered) return; options[i].correct ? sfxCorrect() : sfxWrong(); setPicked(i); playIfEnabled(); }}
+              onClick={() => { if (answered) return; options[i].correct ? sfxCorrect() : sfxWrong(); setPicked(i); reinforce(); }}
               style={{
                 padding: "16px 12px",
                 borderRadius: 12,
