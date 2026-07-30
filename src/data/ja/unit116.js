@@ -20,7 +20,7 @@ export const UNIT116 = {
         { id: "ja-u116l1-mu2", type: "kanji", front: "夢", reading: "mu", meaning: "dream", example: { jp: "ゆうべいい夢をみました。", en: "I had a good dream last night." }, accept: ["vision"], hint: "夢(ゆめ) = dream." },
         { id: "ja-u116l1-kun", type: "kanji", front: "君", reading: "kun", meaning: "you", example: { jp: "君はほんとうにやさしいね。", en: "You are really kind." }, accept: ["mister"], hint: "君(きみ) = you (casual, to a friend)." },
         { id: "ja-u116l1-hei2", type: "kanji", front: "閉", reading: "hei", meaning: "close", example: { jp: "さむいのでドアを閉めます。", en: "It's cold, so I close the door." }, accept: ["shut"], hint: "閉める(しめる) = to close / shut." },
-        { id: "ja-u116l1-sho9", type: "kanji", front: "緒", reading: "sho", meaning: "together", example: { jp: "いっしょに帰りましょう。", en: "Let's go home together." }, accept: ["cord","beginning"], hint: "一緒(いっしょ)に = together." },
+        { id: "ja-u116l1-sho9", type: "kanji", front: "緒", reading: "sho", meaning: "together", example: { jp: "一緒にかえりましょう。", en: "Let's go home together." }, accept: ["cord","beginning"], hint: "一緒(いっしょ)に = together." },
         { id: "ja-u116l1-setsu2", type: "kanji", front: "折", reading: "setsu", meaning: "fold", example: { jp: "かみをはんぶんに折ります。", en: "I fold the paper in half." }, accept: ["break","bend"], hint: "折る(おる) = to fold / break." },
         { id: "ja-u116l1-so5", type: "kanji", front: "草", reading: "sō", meaning: "grass", example: { jp: "にわの草をとります。", en: "I pull the weeds in the garden." }, accept: ["weeds"], hint: "草(くさ) = grass." },
       ],

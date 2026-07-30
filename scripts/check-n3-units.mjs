@@ -4,11 +4,21 @@
 // sentences. Run after the authoring agents finish, before registering in index.js.
 import { readFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
+import { UNITS } from "../src/data/index.js";
 
 const SP = "/tmp/claude-0/-home-user-lingua/0950ba36-d4c0-5403-92cf-8e520c27b4a5/scratchpad";
 const scaffold = JSON.parse(readFileSync(`${SP}/n3-kanji-scaffold.json`, "utf8"));
 const wantById = new Map();
 for (const u of scaffold) for (const l of u.lessons) for (const it of l.items) wantById.set(it.id, it);
+
+// The set of kanji a learner could read inside an example: everything already in
+// the corpus (N5/N4 + earlier) PLUS every glyph in the N3 arc itself. A kanji in an
+// example outside this set is "foreign" — unreadable, a naturalness flag.
+const taughtKanji = new Set();
+for (const u of UNITS) for (const l of u.lessons ?? []) for (const it of l.items ?? []) if (it.type === "kanji") taughtKanji.add(it.front);
+for (const [, it] of wantById) taughtKanji.add(it.glyph);
+const isKanji = (ch) => /\p{Script=Han}/u.test(ch);
+const foreign = []; // {id, jp, extras}
 
 const problems = [];
 const allExamples = new Map(); // jp → id (dup detection across all units)
@@ -42,6 +52,8 @@ for (const u of scaffold) {
         const dup = allExamples.get(it.example.jp);
         if (dup) problems.push(`${it.id}: duplicate example.jp (also ${dup}) → ${it.example.jp}`);
         else allExamples.set(it.example.jp, it.id);
+        const extras = [...new Set([...it.example.jp].filter((ch) => isKanji(ch) && !taughtKanji.has(ch)))];
+        if (extras.length) foreign.push({ id: it.id, jp: it.example.jp, extras: extras.join("") });
       }
     }
   }
