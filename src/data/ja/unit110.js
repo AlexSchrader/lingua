@@ -1,0 +1,81 @@
+// Unit 110 — かんじ・N3・8 — B1 / JLPT N3
+// Kanji unit. type:"kanji" — recognition/recall of meaning + reading.
+// Each example carries the glyph in a real, correctly-read word; rest in kana.
+// lang/unit/lesson stamped in index.js.
+export const UNIT110 = {
+  id: "ja-u110",
+  lang: "ja",
+  title: "かんじ・N3・8",
+  order: 110,
+  stage: "b1",
+  lessons: [
+    {
+      id: "ja-u110l1",
+      unit: 110,
+      lesson: 1,
+      title: "N3 kanji 8·1",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read six N3 kanji: 負 (lose), 渡 (cross), 失 (lose), 差 (difference), 末 (end), 守 (protect).",
+      items: [
+        { id: "ja-u110l1-fu3", type: "kanji", front: "負", reading: "fu", meaning: "lose", example: { jp: "しあいに負けました。", en: "I lost the game." }, accept: ["be defeated","bear"], hint: "負ける（まける）= to lose. しょうぶ 勝負 = a match." },
+        { id: "ja-u110l1-to5", type: "kanji", front: "渡", reading: "to", meaning: "cross", example: { jp: "はしを渡ります。", en: "I cross the bridge." }, accept: ["cross over","ferry"], hint: "渡る（わたる）= to cross. わたす = to hand over." },
+        { id: "ja-u110l1-shitsu", type: "kanji", front: "失", reading: "shitsu", meaning: "lose", example: { jp: "でんしゃでかぎを失いました。", en: "I lost my key on the train." }, accept: ["fault","miss"], hint: "失う（うしなう）= to lose. しっぱい 失敗 = failure." },
+        { id: "ja-u110l1-sa", type: "kanji", front: "差", reading: "sa", meaning: "difference", example: { jp: "ねだんに差があります。", en: "There is a difference in price." }, accept: ["distinction","margin"], hint: "差（さ）= difference. じさ 時差 = time difference." },
+        { id: "ja-u110l1-matsu", type: "kanji", front: "末", reading: "matsu", meaning: "end", example: { jp: "しゅう末はいえでやすみます。", en: "I rest at home on the weekend." }, accept: ["close","tip"], hint: "しゅうまつ 週末 = weekend. すえ = the very end." },
+        { id: "ja-u110l1-shu4", type: "kanji", front: "守", reading: "shu", meaning: "protect", example: { jp: "やくそくを守ります。", en: "I keep my promise." }, accept: ["defend","guard"], hint: "守る（まもる）= to protect/keep. るす 留守 = absence." },
+      ],
+    },
+    {
+      id: "ja-u110l2",
+      unit: 110,
+      lesson: 2,
+      title: "N3 kanji 8·2",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read six N3 kanji: 若 (young), 種 (seed), 美 (beauty), 命 (life), 福 (fortune), 望 (hope).",
+      items: [
+        { id: "ja-u110l2-jaku", type: "kanji", front: "若", reading: "jaku", meaning: "young", example: { jp: "あのひとはとても若いです。", en: "That person is very young." }, accept: ["youth"], hint: "若い（わかい）= young. じゃくねん 若年 = youth." },
+        { id: "ja-u110l2-shu5", type: "kanji", front: "種", reading: "shu", meaning: "seed", example: { jp: "はなの種をまきます。", en: "I sow flower seeds." }, accept: ["kind","species"], hint: "たね = seed. しゅるい 種類 = kind/type." },
+        { id: "ja-u110l2-bi2", type: "kanji", front: "美", reading: "bi", meaning: "beauty", example: { jp: "この花は美しいです。", en: "This flower is beautiful." }, accept: ["beautiful"], hint: "美しい（うつくしい）= beautiful. びじゅつ 美術 = fine art." },
+        { id: "ja-u110l2-mei", type: "kanji", front: "命", reading: "mei", meaning: "life", example: { jp: "命はたいせつです。", en: "Life is precious." }, accept: ["fate","command"], hint: "いのち = life. せいめい 生命 = life." },
+        { id: "ja-u110l2-fuku", type: "kanji", front: "福", reading: "fuku", meaning: "fortune", example: { jp: "みんなのこう福をねがいます。", en: "I wish for everyone's happiness." }, accept: ["luck","blessing"], hint: "こうふく 幸福 = happiness. 福（ふく）= good fortune." },
+        { id: "ja-u110l2-bo", type: "kanji", front: "望", reading: "bō", meaning: "hope", example: { jp: "せかいのへいわを望みます。", en: "I hope for world peace." }, accept: ["desire","aspire"], hint: "望む（のぞむ）= to hope. きぼう 希望 = hope." },
+      ],
+    },
+    {
+      id: "ja-u110l3",
+      unit: 110,
+      lesson: 3,
+      title: "N3 kanji 8·3",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read six N3 kanji: 非 (non-), 観 (view), 察 (perceive), 段 (step), 横 (side), 深 (deep).",
+      items: [
+        { id: "ja-u110l3-hi2", type: "kanji", front: "非", reading: "hi", meaning: "non-", example: { jp: "きょうは非じょうにたのしいです。", en: "Today is very fun." }, accept: ["un-","not"], hint: "非常に（ひじょうに）= very. 非（ひ）= non-/not." },
+        { id: "ja-u110l3-kan4", type: "kanji", front: "観", reading: "kan", meaning: "view", example: { jp: "あしたまちを観こうします。", en: "Tomorrow I go sightseeing in the town." }, accept: ["outlook","look"], hint: "かんこう 観光 = sightseeing. 観る（みる）= to watch." },
+        { id: "ja-u110l3-satsu", type: "kanji", front: "察", reading: "satsu", meaning: "perceive", example: { jp: "こうえんでとりを観察します。", en: "I observe the birds in the park." }, accept: ["guess","judge"], hint: "けいさつ 警察 = police. かんさつ 観察 = observation." },
+        { id: "ja-u110l3-dan3", type: "kanji", front: "段", reading: "dan", meaning: "step", example: { jp: "かい段をゆっくりのぼります。", en: "I climb the stairs slowly." }, accept: ["grade","stairs"], hint: "かいだん 階段 = stairs. 段（だん）= step/grade." },
+        { id: "ja-u110l3-o", type: "kanji", front: "横", reading: "ō", meaning: "side", example: { jp: "えきの横にあります。", en: "It's beside the station." }, accept: ["horizontal","width"], hint: "よこ = side/beside. おうだん 横断 = crossing." },
+        { id: "ja-u110l3-shin4", type: "kanji", front: "深", reading: "shin", meaning: "deep", example: { jp: "このかわはとても深いです。", en: "This river is very deep." }, accept: ["profound"], hint: "深い（ふかい）= deep. しんや 深夜 = late night." },
+      ],
+    },
+    {
+      id: "ja-u110l4",
+      unit: 110,
+      lesson: 4,
+      title: "N3 kanji 8·4",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read six N3 kanji: 申 (say humbly), 様 (Mr./Ms.), 財 (wealth), 港 (harbor), 識 (knowledge), 呼 (call).",
+      items: [
+        { id: "ja-u110l4-shin5", type: "kanji", front: "申", reading: "shin", meaning: "say humbly", example: { jp: "たなかと申します。", en: "My name is Tanaka." }, accept: ["report","state"], hint: "申す（もうす）= to say (humble). もうしこみ 申込 = application." },
+        { id: "ja-u110l4-yo6", type: "kanji", front: "様", reading: "yō", meaning: "Mr./Ms.", example: { jp: "おきゃく様がきます。", en: "A customer is coming." }, accept: ["way","manner"], hint: "さま = polite suffix (Mr./Ms.). ようす 様子 = appearance." },
+        { id: "ja-u110l4-zai2", type: "kanji", front: "財", reading: "zai", meaning: "wealth", example: { jp: "かれは財さんがおおいです。", en: "He has a lot of wealth." }, accept: ["property","assets"], hint: "ざいさん 財産 = assets. さいふ 財布 = wallet." },
+        { id: "ja-u110l4-ko5", type: "kanji", front: "港", reading: "kō", meaning: "harbor", example: { jp: "ふねが港にはいります。", en: "A ship enters the harbor." }, accept: ["port"], hint: "みなと = harbor. くうこう 空港 = airport." },
+        { id: "ja-u110l4-shiki2", type: "kanji", front: "識", reading: "shiki", meaning: "knowledge", example: { jp: "かれはち識がおおいです。", en: "He has a lot of knowledge." }, accept: ["know","discern"], hint: "ちしき 知識 = knowledge. じょうしき 常識 = common sense." },
+        { id: "ja-u110l4-ko6", type: "kanji", front: "呼", reading: "ko", meaning: "call", example: { jp: "ともだちを呼びます。", en: "I call my friend." }, accept: ["call out","invite"], hint: "呼ぶ（よぶ）= to call. こきゅう 呼吸 = breathing." },
+      ],
+    },
+  ],
+};
