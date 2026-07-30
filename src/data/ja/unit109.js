@@ -1,0 +1,81 @@
+// Unit 109 — かんじ・N3・7 — B1 / JLPT N3
+// Kanji unit. type:"kanji" — recognition/recall of meaning + reading.
+// Each example carries the glyph in a real, correctly-read word; rest in kana.
+// lang/unit/lesson stamped in index.js.
+export const UNIT109 = {
+  id: "ja-u109",
+  lang: "ja",
+  title: "かんじ・N3・7",
+  order: 109,
+  stage: "b1",
+  lessons: [
+    {
+      id: "ja-u109l1",
+      unit: 109,
+      lesson: 1,
+      title: "N3 kanji 7·1",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read six N3 kanji: 育 (raise), 席 (seat), 訪 (visit), 乗 (ride), 残 (remain), 想 (idea).",
+      items: [
+        { id: "ja-u109l1-iku", type: "kanji", front: "育", reading: "iku", meaning: "raise", example: { jp: "こどもを育てます。", en: "I raise a child." }, accept: ["bring up","grow"], hint: "育てる（そだてる）= to raise. きょういく 教育 = education." },
+        { id: "ja-u109l1-seki2", type: "kanji", front: "席", reading: "seki", meaning: "seat", example: { jp: "この席はあいていますか。", en: "Is this seat free?" }, accept: ["place"], hint: "席（せき）= seat. しゅっせき 出席 = attendance." },
+        { id: "ja-u109l1-ho4", type: "kanji", front: "訪", reading: "hō", meaning: "visit", example: { jp: "ともだちを訪ねます。", en: "I visit a friend." }, accept: ["call on"], hint: "訪ねる（たずねる）= to visit. ほうもん 訪問 = a visit." },
+        { id: "ja-u109l1-jo4", type: "kanji", front: "乗", reading: "jō", meaning: "ride", example: { jp: "でんしゃに乗ります。", en: "I get on the train." }, accept: ["board","get on"], hint: "乗る（のる）= to ride. じょうしゃ 乗車 = boarding." },
+        { id: "ja-u109l1-zan", type: "kanji", front: "残", reading: "zan", meaning: "remain", example: { jp: "ごはんが残っています。", en: "There is rice left over." }, accept: ["left over","remainder"], hint: "残る（のこる）= to remain. ざんぎょう 残業 = overtime." },
+        { id: "ja-u109l1-so4", type: "kanji", front: "想", reading: "sō", meaning: "idea", example: { jp: "ふるさとを想います。", en: "I think fondly of my hometown." }, accept: ["concept","thought"], hint: "想う（おもう）= to think of. そうぞう 想像 = imagination." },
+      ],
+    },
+    {
+      id: "ja-u109l2",
+      unit: 109,
+      lesson: 2,
+      title: "N3 kanji 7·2",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read six N3 kanji: 声 (voice), 念 (thought), 助 (help), 労 (labor), 例 (example), 然 (-ly).",
+      items: [
+        { id: "ja-u109l2-sei5", type: "kanji", front: "声", reading: "sei", meaning: "voice", example: { jp: "おおきい声ではなします。", en: "I speak in a loud voice." }, accept: ["sound"], hint: "声（こえ）= voice. おんせい 音声 = audio." },
+        { id: "ja-u109l2-nen", type: "kanji", front: "念", reading: "nen", meaning: "thought", example: { jp: "しあいにまけて残念です。", en: "I lost the match, so it's a shame." }, accept: ["wish","attention"], hint: "ざんねん 残念 = too bad. きねん 記念 = commemoration." },
+        { id: "ja-u109l2-jo5", type: "kanji", front: "助", reading: "jo", meaning: "help", example: { jp: "ともだちを助けます。", en: "I help my friend." }, accept: ["rescue","assist"], hint: "助ける（たすける）= to help. じょしゅ 助手 = assistant." },
+        { id: "ja-u109l2-ro", type: "kanji", front: "労", reading: "rō", meaning: "labor", example: { jp: "こうじょうで労働しています。", en: "I do labor at a factory." }, accept: ["toil","effort"], hint: "ろうどう 労働 = labor. くろう 苦労 = hardship." },
+        { id: "ja-u109l2-rei", type: "kanji", front: "例", reading: "rei", meaning: "example", example: { jp: "この例はわかりやすいです。", en: "This example is easy to understand." }, accept: ["instance","case"], hint: "例（れい）= example. たとえば = for example." },
+        { id: "ja-u109l2-zen2", type: "kanji", front: "然", reading: "zen", meaning: "-ly", example: { jp: "ぜん然だいじょうぶです。", en: "It's totally fine." }, accept: ["so","in that case"], hint: "ぜんぜん 全然 = (not) at all. しぜん 自然 = nature." },
+      ],
+    },
+    {
+      id: "ja-u109l3",
+      unit: 109,
+      lesson: 3,
+      title: "N3 kanji 7·3",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read six N3 kanji: 限 (limit), 追 (chase), 商 (commerce), 葉 (leaf), 伝 (convey), 働 (work).",
+      items: [
+        { id: "ja-u109l3-gen3", type: "kanji", front: "限", reading: "gen", meaning: "limit", example: { jp: "じかんに限りがあります。", en: "There is a time limit." }, accept: ["restrict","bound"], hint: "限る（かぎる）= to limit. せいげん 制限 = restriction." },
+        { id: "ja-u109l3-tsui", type: "kanji", front: "追", reading: "tsui", meaning: "chase", example: { jp: "いぬがねこを追います。", en: "The dog chases the cat." }, accept: ["pursue","follow"], hint: "追う（おう）= to chase. ついか 追加 = addition." },
+        { id: "ja-u109l3-sho5", type: "kanji", front: "商", reading: "shō", meaning: "commerce", example: { jp: "ちちは商ばいをしています。", en: "My father runs a business." }, accept: ["trade","deal"], hint: "しょうばい 商売 = business. しょうひん 商品 = goods." },
+        { id: "ja-u109l3-yo5", type: "kanji", front: "葉", reading: "yō", meaning: "leaf", example: { jp: "きの葉が落ちます。", en: "The leaves fall from the tree." }, accept: ["foliage"], hint: "は = leaf. ことば 言葉 = word/language." },
+        { id: "ja-u109l3-den", type: "kanji", front: "伝", reading: "den", meaning: "convey", example: { jp: "ともだちに伝えます。", en: "I'll tell my friend." }, accept: ["transmit","communicate"], hint: "伝える（つたえる）= to convey. でんごん 伝言 = message." },
+        { id: "ja-u109l3-do", type: "kanji", front: "働", reading: "dō", meaning: "work", example: { jp: "まいにちかいしゃで働きます。", en: "I work at the company every day." }, accept: ["labor"], hint: "働く（はたらく）= to work. ろうどう 労働 = labor." },
+      ],
+    },
+    {
+      id: "ja-u109l4",
+      unit: 109,
+      lesson: 4,
+      title: "N3 kanji 7·4",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read six N3 kanji: 形 (shape), 景 (scenery), 落 (fall), 好 (fond), 退 (retreat), 頭 (head).",
+      items: [
+        { id: "ja-u109l4-kei4", type: "kanji", front: "形", reading: "kei", meaning: "shape", example: { jp: "この形はまるいです。", en: "This shape is round." }, accept: ["form"], hint: "かたち = shape. にんぎょう 人形 = doll." },
+        { id: "ja-u109l4-kei5", type: "kanji", front: "景", reading: "kei", meaning: "scenery", example: { jp: "このふう景はきれいです。", en: "This scenery is beautiful." }, accept: ["view","landscape"], hint: "ふうけい 風景 = scenery. けしき 景色 = view." },
+        { id: "ja-u109l4-raku", type: "kanji", front: "落", reading: "raku", meaning: "fall", example: { jp: "コップが落ちました。", en: "The cup fell." }, accept: ["drop","come down"], hint: "落ちる（おちる）= to fall. らっか 落下 = a drop." },
+        { id: "ja-u109l4-ko4", type: "kanji", front: "好", reading: "kō", meaning: "fond", example: { jp: "わたしはあきが好きです。", en: "I like autumn." }, accept: ["like","pleasing"], hint: "好き（すき）= to like. こうぶつ 好物 = favorite food." },
+        { id: "ja-u109l4-tai2", type: "kanji", front: "退", reading: "tai", meaning: "retreat", example: { jp: "きぶんがわるくて早退します。", en: "I feel sick, so I leave early." }, accept: ["withdraw","retire"], hint: "たいいん 退院 = leaving hospital. そうたい 早退 = leaving early." },
+        { id: "ja-u109l4-to4", type: "kanji", front: "頭", reading: "tō", meaning: "head", example: { jp: "きょうは頭がいたいです。", en: "My head hurts today." }, accept: ["mind"], hint: "あたま = head. せんとう 先頭 = the lead/front." },
+      ],
+    },
+  ],
+};
