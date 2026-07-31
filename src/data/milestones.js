@@ -12,6 +12,7 @@
 // engine reads this catalog generically; adding a milestone is one entry.
 
 import { UNITS } from "./index.js";
+import { langName } from "./languages.js";
 import { isMastered, isReviewable } from "../store/mastery.js";
 
 const CEFR_ORDER = { A1: 0, A2: 1, B1: 2, B2: 3 };
@@ -38,12 +39,12 @@ function curriculumDefs() {
   return out;
 }
 
-// The distinct CEFR bands present in the live curriculum, low→high. A "{band}
-// complete" milestone is generated per band so A2 etc. light up automatically
-// when their units go live — no hardcoded level list.
-function cefrBands() {
+// The distinct CEFR bands present in a def list, low→high. A "{band} complete"
+// milestone is generated per band so A2 etc. light up automatically when their
+// units go live — no hardcoded level list.
+function cefrBands(defs) {
   const seen = new Set();
-  for (const d of curriculumDefs()) if (d.cefr) seen.add(d.cefr);
+  for (const d of defs) if (d.cefr) seen.add(d.cefr);
   return [...seen].sort((a, b) => (CEFR_ORDER[a] ?? 99) - (CEFR_ORDER[b] ?? 99));
 }
 
@@ -104,11 +105,31 @@ export function milestoneCatalog() {
   for (const n of [10, 50, 100, 250, 500]) if (vocab.length >= n)
     list.push(threshold({ id: `vocab-${n}`, family: "vocab", label: `${n} words mastered`, blurb: "words mastered", need: n, count: (i) => countMastered(i, vocab) }));
 
-  // --- Level: a whole CEFR band recognized (cumulative, like the app's own gate) ---
-  for (const band of cefrBands()) {
-    const bandDefs = defs.filter((d) => (CEFR_ORDER[d.cefr] ?? 99) <= (CEFR_ORDER[band] ?? 99));
-    if (bandDefs.length)
-      list.push(completeAll({ id: `level-${band}`, family: "level", label: `${band} complete`, blurb: `${band} items`, defs: bandDefs }));
+  // --- Level: a whole CEFR band recognized (cumulative, like the app's own gate),
+  // PER LANGUAGE — a new language's units shipping must never move an existing
+  // learner's "A1 complete" goalposts (registering fr once inflated ja's A1
+  // denominator 1252→1437 and made the milestone unearnable without French).
+  // The FIRST language (ja) keeps the original un-suffixed ids ("level-A1") so
+  // persisted earned ids survive; every later language gets "level-A1-fr" style
+  // ids. NOTE the deliberate contrast: the vocab read-N/vocab-N counts above stay
+  // cross-language on purpose — "100 words mastered" is an honest capability
+  // count whatever the language — while "level complete" is inherently per-track.
+  const LEGACY_LEVEL_LANG = "ja";
+  for (const lang of [...new Set(defs.map((d) => d.lang))]) {
+    const langDefs = defs.filter((d) => d.lang === lang);
+    for (const band of cefrBands(langDefs)) {
+      const bandDefs = langDefs.filter((d) => (CEFR_ORDER[d.cefr] ?? 99) <= (CEFR_ORDER[band] ?? 99));
+      if (bandDefs.length)
+        list.push(
+          completeAll({
+            id: lang === LEGACY_LEVEL_LANG ? `level-${band}` : `level-${band}-${lang}`,
+            family: "level",
+            label: `${langName(lang)} ${band} complete`,
+            blurb: `${band} items`,
+            defs: bandDefs,
+          })
+        );
+    }
   }
 
   _catalog = list;

@@ -76,7 +76,7 @@ function HarukiChat() {
       // 404 = this language's companion has no conversational agent yet (the
       // agent id in server/companions.js is pending) — say so warmly, not rawly.
       if (res.status === 404)
-        throw new Error(`${name} can't take calls quite yet — his line is still being set up. Check back soon!`);
+        throw new Error(`${name} can't take calls quite yet — the line is still being set up. Check back soon!`);
       const j = await res.json().catch(() => ({}));
       throw new Error(j.error || `Couldn't start the session (${res.status}).`);
     }
