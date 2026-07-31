@@ -12,6 +12,15 @@ export default defineConfig({
       // injected script only calls register() — no update check — which let a
       // cached build stick until a manual hard-refresh.
       injectRegister: false,
+      workbox: {
+        // The curriculum ships as bundled data, so the main JS chunk grew past
+        // workbox's default 2 MiB precache cap once the full N5→N3 corpus landed
+        // (~2.2 MB) — which vite-plugin-pwa treats as a hard BUILD ERROR, breaking
+        // Vercel deploys. Raise the cap to 5 MiB (headroom for B2/N2) so the app
+        // shell still precaches for offline use. (Future optimization: code-split
+        // the content data out of the entry chunk to shrink initial load.)
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+      },
       includeAssets: [
         "logo/favicon-32.png",
         "logo/apple-touch-icon.png",
