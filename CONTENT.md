@@ -126,6 +126,66 @@ rungs. Allowed only in `a1`+ stage units. KanjiVG entry required (add the char t
 
 ---
 
+## Script policy — which languages get a glyph section (and trace)
+
+**The rule: a language gets a glyph section + the `trace` card when its script is NEW to
+the learner. A language written in a script the learner already reads does not.**
+
+Decided 2026-07-31 (Alex), when French raised the question. The unit of decision is the
+**script**, not the language — so this splits the 20 planned languages into two groups,
+not twenty.
+
+### New script → glyph items + trace
+
+Japanese (kana, kanji) today; **Korean** (Hangul), **Russian** (Cyrillic), **Mandarin**
+(hanzi), **Hindi** (Devanagari) when they land. These get the full treatment: a Ladder
+grid showing glyph coverage, `type: "kana"`-style glyph items, and the `trace` card.
+
+Trace earns its place here because **stroke order is a real, rule-governed system** — it
+affects legibility and dictionary lookup, and is taught and enforced natively. Writing
+the glyph by hand *is* the production skill.
+
+⚠️ Three things block a new non-Latin script today, all real work:
+
+1. **Stroke data.** `src/data/kanjivg.js` holds 390 entries — every one Japanese, zero
+   Latin. KanjiVG is a *Japanese* dataset; Hangul, Cyrillic and Devanagari each need
+   their own source.
+2. **Item types.** `VALID_ITEM_TYPES` is `["kana", "vocab", "kanji"]` — Japanese names.
+   Hangul is neither. This needs a generic `glyph` type (or per-script types) → a
+   **contract change, its own scoped PR**.
+3. **`isTraceable`** (`src/store/cardRouting.js`) hardcodes those two Japanese types.
+
+### Latin script → a sounds & accents section, never trace
+
+French, Spanish, German, Italian, Portuguese, Dutch, Polish, Turkish, Indonesian,
+Vietnamese, Norwegian, Swedish, Swahili, Yoruba, Twi.
+
+**Do not build a traceable a–z.** The learner already writes Latin letters, so tracing
+them is busywork — and it is the same defect class as two bugs found on 2026-07-31,
+where `type:reading` displayed `salut` and asked the learner to type `salut`, and `build`
+displayed the word and asked them to assemble its own spelling. Both *routed*; neither
+*taught*. **"Does it route?" is not "does it teach?"** — check every card kind against a
+new language for a prompt that is its own answer.
+
+What IS new to the learner in a Latin-script language is the **sound-to-spelling map**:
+the accented characters (`é è ê ë à â ç î ï ô ù û œ`) and the multi-letter spellings
+(`ou`, `eau`, `ai`, `oi`, `on`, `an`, `in`, `gn`, `ill`), plus silent final consonants and
+liaison. A learner meeting `août` or `s'il vous plaît` has no idea what sound comes out.
+That deserves its own unit and its own Ladder section — built from `teach`,
+`listen:choice`, `listen:type` and `choice`, **not** `trace`. See
+`BUILD-BRIEF-fr-sounds.md`. It has a hard dependency on generated audio.
+
+### The `pre-a1` stage is the script band, not a difficulty band
+
+`pre-a1` exists so Japanese can teach kana *before* A1 proper. **A Latin-script language
+has no `pre-a1` units at all** — and must not be given an empty one as a placeholder.
+An empty stage cannot satisfy `complete` (`total > 0 && done === total`), which pinned
+French learners to a dead Pre-A1 rung forever and printed "Lessons for Pre-A1 coming
+soon." on their own rung from lesson 1 on. A sounds unit belongs at the **start of A1**,
+not in a `pre-a1` band.
+
+---
+
 ## CEFR levels
 
 Valid values (in order): `"A1"` `"A2"` `"B1"` `"B2"`.
