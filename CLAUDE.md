@@ -23,6 +23,13 @@ The lane detail below still governs *how the work itself is done*; the Fleet gov
 
 **CC owns the work; Alex supervises.** The work splits into four CC lanes so parallel sessions don't collide. **Stay in your lane** — if a task needs another lane's files, say so and hand it off rather than reaching across.
 
+**Cross-CC coordination — you cannot message another CC, so the repo is the channel (added 2026-07-31, Alex's call).** Parallel sessions run blind to each other; lanes overlap in practice (a data fix and a layout rework can touch the same screen). Before editing any **shared/cross-lane surface** — a screen another lane also renders (`Ladder.jsx`, `DevPanel.jsx`, `AppShell.jsx`, `Stats.jsx`), `languages.js`/`roadmap.js`, `contract.js`, or anything you know a concurrent session is in — do this:
+1. **Post to the Active work board** (`BUILD-CHECKLIST.md` → "🚧 Active work board"): your branch + the files/area you're about to touch + the cross-lane hazard. **Read it first** — if another CC has claimed an overlapping file, coordinate through the board (narrow your scope, or defer) instead of editing blind.
+2. **Keep collision-prone changes minimal and single-file** where you can (a data-only fix beats editing shared layout), and **say so in the commit** ("touched only X, avoided Y").
+3. **When your work merges, clear your board entry** and add a one-line heads-up for anyone whose files your change affects (what moved, what to re-confirm).
+
+The board is append-only bullets so concurrent edits merge cleanly; it's visibility, not a hard lock — the point is that no cross-lane change is a surprise.
+
 | Role | Owns | Files | Merge rights |
 |------|------|-------|--------------|
 | **Alex** | Scope, review, feel-check, final merge | — | **Merges everything.** The gate is always his. |

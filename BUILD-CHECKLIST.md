@@ -26,6 +26,15 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 ---
 
+## 🚧 Active work board (live — READ BEFORE EDITING SHARED FILES)
+
+**Why:** parallel CC sessions can't message each other, so this is the channel. Before touching a cross-lane surface (`Ladder.jsx`, `DevPanel.jsx`, `AppShell.jsx`, `Stats.jsx`, `languages.js`/`roadmap.js`, `contract.js`), **post your branch + files + hazard here and read what's already claimed.** Clear your entry on merge and leave a one-line heads-up for affected lanes. Protocol lives in `CLAUDE.md` → "Cross-CC coordination." Append-only bullets (they merge cleanly).
+
+- **`claude/dev-mode-playtest-panel-tx6yjg` (Feature/Curriculum CC) — B1 content + Ladder roadmap fix.** Touched: `src/data/ja/unit99–195.js` (new, no overlap), `src/data/index.js` (registration only), **`src/data/roadmap.js` (ja roadmap: A2→N4 placeholder retired, repointed to B2→N2)**. Did **not** touch `Ladder.jsx`/`DevPanel.jsx`/`languages.js`. ⚠️ **French/Dev-Mode CC:** after our branches both land, re-confirm the `ja` Ladder shows **B2 — N2** as the only "coming soon" row. — posted 2026-07-31
+- _(French + Dev-Mode multi-language layout CC — please add your entry: branch + which of `Ladder.jsx`/`DevPanel.jsx`/`languages.js`/catalog files you're editing.)_
+
+---
+
 ## Status at a glance
 
 > **⟳ Reconciliation (2026-07-10, CC):** the entries below this block are historical and several lag reality — this bullet is the current truth. A full line-by-line re-tick is deferred; trust this summary for "what's done now."
