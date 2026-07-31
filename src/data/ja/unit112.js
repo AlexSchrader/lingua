@@ -55,7 +55,7 @@ export const UNIT112 = {
         { id: "ja-u112l3-en2", type: "kanji", front: "園", reading: "en", meaning: "park", example: { jp: "こどもと公園であそびます。", en: "I play with my child at the park." }, accept: ["garden","yard"], hint: "公園（こうえん）= park; 動物園（どうぶつえん）= zoo." },
         { id: "ja-u112l3-gu", type: "kanji", front: "具", reading: "gu", meaning: "tool", example: { jp: "だいくは道具をつかいます。", en: "A carpenter uses tools." }, accept: ["utensil","means"], hint: "道具（どうぐ）= tool; 家具（かぐ）= furniture." },
         { id: "ja-u112l3-ji4", type: "kanji", front: "辞", reading: "ji", meaning: "dictionary", example: { jp: "しらないことばを辞書でしらべます。", en: "I look up unknown words in a dictionary." }, accept: ["resign","word"], hint: "辞書（じしょ）= dictionary; 辞める（やめる）= to quit." },
-        { id: "ja-u112l3-in2", type: "kanji", front: "因", reading: "in", meaning: "cause", example: { jp: "じこの原因をしらべます。", en: "They investigate the cause of the accident." }, accept: ["factor","reason"], hint: "原因（げんいん）= cause." },
+        { id: "ja-u112l3-in2", type: "kanji", front: "因", reading: "in", meaning: "cause", example: { jp: "じこの原因はまだわかりません。", en: "They investigate the cause of the accident." }, accept: ["factor","reason"], hint: "原因（げんいん）= cause." },
         { id: "ja-u112l3-ba", type: "kanji", front: "馬", reading: "ba", meaning: "horse", example: { jp: "しろい馬がはしっています。", en: "A white horse is running." }, accept: [], hint: "馬（うま）= horse; 競馬（けいば）= horse racing." },
       ],
     },
