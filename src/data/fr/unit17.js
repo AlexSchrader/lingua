@@ -5,7 +5,7 @@ export const FR_UNIT17 = {
   id: "fr-u17",
   lang: "fr",
   title: "La maison",
-  order: 17,
+  order: 18,
   stage: "a1",
   lessons: [
     {

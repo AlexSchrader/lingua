@@ -8,7 +8,7 @@ export const FR_UNIT4 = {
   id: "fr-u4",
   lang: "fr",
   title: "Les nombres",
-  order: 4,
+  order: 5,
   stage: "a1",
   lessons: [
     {

@@ -6,7 +6,7 @@ export const FR_UNIT6 = {
   id: "fr-u6",
   lang: "fr",
   title: "La ville",
-  order: 6,
+  order: 7,
   stage: "a1",
   lessons: [
     {

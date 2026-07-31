@@ -11,7 +11,7 @@ export const FR_UNIT22 = {
   id: "fr-u22",
   lang: "fr",
   title: "Les verbes · 2",
-  order: 22,
+  order: 23,
   stage: "a1",
   lessons: [
     {

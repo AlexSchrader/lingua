@@ -6,7 +6,7 @@ export const FR_UNIT25 = {
   id: "fr-u25",
   lang: "fr",
   title: "Le monde",
-  order: 25,
+  order: 26,
   stage: "a1",
   lessons: [
     {

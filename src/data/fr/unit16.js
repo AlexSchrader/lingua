@@ -6,7 +6,7 @@ export const FR_UNIT16 = {
   id: "fr-u16",
   lang: "fr",
   title: "Les vêtements",
-  order: 16,
+  order: 17,
   stage: "a1",
   lessons: [
     {

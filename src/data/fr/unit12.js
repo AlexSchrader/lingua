@@ -8,7 +8,7 @@ export const FR_UNIT12 = {
   id: "fr-u12",
   lang: "fr",
   title: "L'heure",
-  order: 12,
+  order: 13,
   stage: "a1",
   lessons: [
     {

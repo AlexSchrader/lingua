@@ -8,7 +8,7 @@ export const FR_UNIT9 = {
   id: "fr-u9",
   lang: "fr",
   title: "Les verbes",
-  order: 9,
+  order: 10,
   stage: "a1",
   lessons: [
     {

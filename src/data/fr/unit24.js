@@ -5,7 +5,7 @@ export const FR_UNIT24 = {
   id: "fr-u24",
   lang: "fr",
   title: "Les gens",
-  order: 24,
+  order: 25,
   stage: "a1",
   lessons: [
     {

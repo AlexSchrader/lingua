@@ -5,7 +5,7 @@ export const FR_UNIT7 = {
   id: "fr-u7",
   lang: "fr",
   title: "Les jours",
-  order: 7,
+  order: 8,
   stage: "a1",
   lessons: [
     {

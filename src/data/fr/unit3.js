@@ -6,7 +6,7 @@ export const FR_UNIT3 = {
   id: "fr-u3",
   lang: "fr",
   title: "La famille",
-  order: 3,
+  order: 4,
   stage: "a1",
   lessons: [
     {

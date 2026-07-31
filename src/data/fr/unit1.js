@@ -20,7 +20,7 @@ export const FR_UNIT1 = {
   id: "fr-u1",
   lang: "fr",
   title: "Salutations",
-  order: 1,
+  order: 2,
   stage: "a1",
   lessons: [
     {

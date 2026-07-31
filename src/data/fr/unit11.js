@@ -6,7 +6,7 @@ export const FR_UNIT11 = {
   id: "fr-u11",
   lang: "fr",
   title: "Les nombres · 2",
-  order: 11,
+  order: 12,
   stage: "a1",
   lessons: [
     {

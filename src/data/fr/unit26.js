@@ -15,7 +15,7 @@ export const FR_UNIT26 = {
   id: "fr-u26",
   lang: "fr",
   title: "Un peu de grammaire",
-  order: 26,
+  order: 27,
   stage: "a1",
   lessons: [
     {

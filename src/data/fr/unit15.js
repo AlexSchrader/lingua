@@ -5,7 +5,7 @@ export const FR_UNIT15 = {
   id: "fr-u15",
   lang: "fr",
   title: "Le corps",
-  order: 15,
+  order: 16,
   stage: "a1",
   lessons: [
     {

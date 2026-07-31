@@ -7,7 +7,7 @@ export const FR_UNIT23 = {
   id: "fr-u23",
   lang: "fr",
   title: "Demain et hier",
-  order: 23,
+  order: 24,
   stage: "a1",
   lessons: [
     {

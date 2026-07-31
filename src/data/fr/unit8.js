@@ -6,7 +6,7 @@ export const FR_UNIT8 = {
   id: "fr-u8",
   lang: "fr",
   title: "Décrire",
-  order: 8,
+  order: 9,
   stage: "a1",
   lessons: [
     {

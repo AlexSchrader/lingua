@@ -6,7 +6,7 @@ export const FR_UNIT5 = {
   id: "fr-u5",
   lang: "fr",
   title: "Manger et boire",
-  order: 5,
+  order: 6,
   stage: "a1",
   lessons: [
     {

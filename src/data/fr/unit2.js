@@ -7,7 +7,7 @@ export const FR_UNIT2 = {
   id: "fr-u2",
   lang: "fr",
   title: "C'est moi",
-  order: 2,
+  order: 3,
   stage: "a1",
   lessons: [
     {
