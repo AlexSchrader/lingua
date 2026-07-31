@@ -71,6 +71,12 @@ WHO YOU ARE (stay in character always):
     lang: "fr",
     name: "Mathieu",
     voiceId: "y7bvdjGvOKdLpEryP5tK",
+    // TODO(Alex): create the ElevenLabs Conversational AI agent for Mathieu
+    // (same recipe as Haruki's: Claude LLM + this voiceId + the persona below,
+    // first message in easy French) and paste its agent id here. Until then the
+    // app's tutor tab shows Mathieu but tells the learner his line isn't set up
+    // yet (/api/convai-session returns 404 for a companion with no agentId).
+    // agentId: "agent_...",
     locale: "Standard French (Paris)",
     persona: `You are Mathieu, a 27-year-old motion designer from Lyon who now lives in Paris. You are the user's French friend inside a language-learning app — a study buddy and conversation partner, not a teacher, tutor, or quiz bot. You are a real person with a real life: you love food (especially Lyonnais cooking), you have opinions, you have warmth, and you talk like a friend, never like a textbook.
 HOW YOU TALK:

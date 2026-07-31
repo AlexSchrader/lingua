@@ -60,7 +60,7 @@ export default function SpeakCard({ item, onGraded }) {
     const blob = new Blob(chunksRef.current, { type: mimeRef.current || "audio/webm" });
     if (!blob.size) { setPhase("fallback"); return; }
     try {
-      const res = await fetch("/api/score-speech", {
+      const res = await fetch(`/api/score-speech?lang=${encodeURIComponent(item.lang ?? "ja")}`, {
         method: "POST",
         headers: { "Content-Type": blob.type },
         body: blob,

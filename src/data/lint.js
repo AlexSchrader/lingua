@@ -95,7 +95,10 @@ export function lintCurriculum(units = []) {
           if (r !== r.toLowerCase()) e(`item ${id}: reading "${r}" must be lowercase`);
           else if (!READING_CHARSET.test(r))
             e(`item ${id}: reading "${r}" has characters outside [a-z] + macrons (ō ū ā ē ī)`);
-          else if (MACRON_SHOULD_BE.test(r))
+          // The macron long-vowel spelling is a JAPANESE rōmaji style rule — "ou" is a
+          // legitimate letter sequence in Latin-script languages (fr "bonjour", "où"),
+          // so this check is scoped to ja units, never applied cross-language.
+          else if (unit.lang === "ja" && MACRON_SHOULD_BE.test(r))
             e(`item ${id}: reading "${r}" spells a long vowel as ou/oo/uu — use a macron (ō/ū)`);
         }
 

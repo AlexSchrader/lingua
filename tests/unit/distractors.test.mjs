@@ -36,3 +36,22 @@ test("buildOptions still works for a kana with no listed look-alikes", () => {
   assert.equal(opts.length, 4);
   assert.equal(opts.filter((o) => o.correct).length, 1);
 });
+
+test("buildOptions never crosses languages — a French card offers only French options", () => {
+  const items = [
+    { id: "fr1", type: "vocab", front: "bonjour", meaning: "hello",  lang: "fr", unit: 1 },
+    { id: "fr2", type: "vocab", front: "merci",   meaning: "thank you", lang: "fr", unit: 1 },
+    { id: "fr3", type: "vocab", front: "oui",     meaning: "yes",    lang: "fr", unit: 1 },
+    { id: "fr4", type: "vocab", front: "non",     meaning: "no",     lang: "fr", unit: 1 },
+    { id: "ja1", type: "vocab", front: "ねこ",    meaning: "cat",    lang: "ja", unit: 1 },
+    { id: "ja2", type: "vocab", front: "いぬ",    meaning: "dog",    lang: "ja", unit: 1 },
+  ];
+  const opts = buildOptions(items[0], items, 4);
+  const texts = opts.map((o) => o.text);
+  assert.ok(!texts.includes("cat") && !texts.includes("dog"), "no ja distractors on a fr card");
+  assert.equal(opts.length, 4, "fr pool alone fills the card");
+  // And fixtures without a stamped lang keep matching ja items (pre-i18n behavior).
+  const bare = { id: "x", type: "vocab", front: "み", meaning: "see", unit: 1 };
+  const opts2 = buildOptions(bare, items, 4);
+  assert.ok(opts2.map((o) => o.text).some((t) => t === "cat" || t === "dog"));
+});

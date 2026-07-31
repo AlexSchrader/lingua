@@ -22,6 +22,12 @@ export default defineConfig({
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
     ...devices["Pixel 5"],
+    // Opt-in escape hatch for environments with a pre-provisioned Chromium
+    // (e.g. remote/cloud sessions) whose build number doesn't match this
+    // Playwright version. Unset (local + CI), behavior is unchanged.
+    ...(process.env.PW_EXECUTABLE_PATH
+      ? { launchOptions: { executablePath: process.env.PW_EXECUTABLE_PATH } }
+      : {}),
   },
   webServer: {
     command,

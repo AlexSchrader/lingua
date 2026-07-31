@@ -3,6 +3,7 @@ import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
 import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji, meaningVariants } from "../../store/answer.js";
+import { langName } from "../../data/languages.js";
 import { sfxCorrect, sfxWrong, sfxAlmost } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 import { useStore } from "../../store/useStore.js";
@@ -60,6 +61,9 @@ function NearMiss({ typed, answer, tokenFont }) {
 
 export default function TypeCard({ item, mode, onGraded, listen = false }) {
   const isKana = item.type === "kana";
+  // Latin-script languages (es/fr) have no rōmaji/kana split — the word IS its
+  // letters — so the ask-lines drop the Japanese-specific keyboard framing.
+  const latin = (item.lang ?? "ja") !== "ja";
   const noSpeed = useStore((s) => s.settings?.noSpeedPressure ?? false);
   // Dictation "Can't hear it?" escape: reveal the KANA and switch to typing the
   // rōmaji. Showing the kana isn't the answer (the answer is the rōmaji reading), and
@@ -70,12 +74,14 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
   const spec = (() => {
     if (listen) {
       if (dictRevealed) {
-        return { prompt: item.front, jp: true, ask: "Type the rōmaji (kana shown)",
+        return { prompt: item.front, jp: true,
+                 ask: latin ? "Type the word (shown)" : "Type the rōmaji (kana shown)",
                  check: (v) => looksRomaji(v) && checkReading(v, item), answer: item.reading };
       }
       // Dictation: hear the word (glyph hidden), type its reading. Accepts rōmaji
       // or kana via checkReading — the ear-path twin of type:reading.
-      return { prompt: null, jp: false, ask: "Type what you hear (rōmaji or kana)",
+      return { prompt: null, jp: false,
+               ask: latin ? "Type what you hear" : "Type what you hear (rōmaji or kana)",
                check: (v) => checkReading(v, item), answer: item.reading };
     }
     if (mode === "produce") {
@@ -83,12 +89,15 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
         ? { prompt: item.reading, jp: false, ask: "Type the kana",
             check: (v) => v.trim() === item.front, answer: item.front }
         : { prompt: item.meaning, jp: false,
-            ask: produceAllowsRomaji(item) ? "Type it in Japanese — rōmaji or kana" : "Type it in Japanese ⌨️ (kana — not rōmaji)",
+            ask: latin ? `Type it in ${langName(item.lang)} — accents optional`
+              : produceAllowsRomaji(item) ? "Type it in Japanese — rōmaji or kana" : "Type it in Japanese ⌨️ (kana — not rōmaji)",
             check: (v) => checkProduce(v, item), answer: item.front };
     }
     if (mode === "reading") {
-      // Japanese → rōmaji: type the reading of the word shown.
-      return { prompt: item.front, jp: true, ask: "Type the rōmaji",
+      // Japanese → rōmaji: type the reading of the word shown. For a Latin-script
+      // language this is a plain spelling check (accents optional either way).
+      return { prompt: item.front, jp: true,
+               ask: latin ? "Type the word" : "Type the rōmaji",
                check: (v) => checkReading(v, item), answer: item.reading };
     }
     // meaning (recall)
