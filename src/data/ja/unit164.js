@@ -13,7 +13,7 @@ export const UNIT164 = {
         { id: "ja-u164l1-oshie", type: "vocab", front: "教え", reading: "oshie", meaning: "teachings", example: { jp: "せんせいの教えをまもります。", en: "I follow the teacher's teachings." }, accept: ["doctrine", "lesson"] },
         { id: "ja-u164l1-odoroki", type: "vocab", front: "驚き", reading: "odoroki", meaning: "surprise", example: { jp: "それはおおきな驚きでした。", en: "That was a big surprise." }, accept: ["astonishment", "wonder"] },
         { id: "ja-u164l1-oru", type: "vocab", front: "織る", reading: "oru", meaning: "to weave", example: { jp: "ぬのを織ります。", en: "I weave cloth." }, accept: ["to make cloth"] },
-        { id: "ja-u164l1-kaku2", type: "vocab", front: "欠く", reading: "kaku", meaning: "to lack", example: { jp: "このりょうりはあじを欠いています。", en: "This dish lacks flavor." }, accept: ["to crack", "to be missing"], hint: "欠く (かく) = to lack / be missing something. 核 = a nucleus." },
+        { id: "ja-u164l1-kaku2", type: "vocab", front: "欠く", reading: "kaku", meaning: "to lack", example: { jp: "かれはじょうしきを欠いています。", en: "He lacks common sense." }, accept: ["to crack", "to be missing"], hint: "欠く (かく) = to lack an abstract quality (常識・自信を欠く). 核 = a nucleus." },
         { id: "ja-u164l1-kaku3", type: "vocab", front: "核", reading: "kaku", meaning: "nucleus", example: { jp: "これがもんだいの核です。", en: "This is the core of the problem." }, accept: ["kernel", "core"], hint: "核 (かく) = a nucleus / core (also \"nuclear\"). 欠く = to lack." },
       ],
     },

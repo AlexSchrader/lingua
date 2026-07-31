@@ -24,7 +24,7 @@ export const UNIT134 = {
         { id: "ja-u134l2-ihan", type: "vocab", front: "違反", reading: "ihan", meaning: "violation", example: { jp: "スピード違反でつかまりました。", en: "I was caught for a speeding violation." }, accept: ["infringement"] },
         { id: "ja-u134l2-ifuku", type: "vocab", front: "衣服", reading: "ifuku", meaning: "clothes", example: { jp: "あたらしい衣服をかいました。", en: "I bought new clothes." }, accept: ["clothing"] },
         { id: "ja-u134l2-ima", type: "vocab", front: "居間", reading: "ima", meaning: "living room", example: { jp: "かぞくは居間でテレビをみています。", en: "The family is watching TV in the living room." }, accept: ["living room","sitting room"] },
-        { id: "ja-u134l2-imani", type: "vocab", front: "今に", reading: "imani", meaning: "before long", example: { jp: "今にあめがふりそうです。", en: "It looks like it will rain before long." }, accept: ["soon"] },
+        { id: "ja-u134l2-imani", type: "vocab", front: "今に", reading: "imani", meaning: "before long", example: { jp: "今にわかりますよ。", en: "You'll understand before long." }, accept: ["soon"] },
         { id: "ja-u134l2-imanimo", type: "vocab", front: "今にも", reading: "imanimo", meaning: "any moment", example: { jp: "そらがくらくて、今にもあめがふりそうです。", en: "The sky is dark; it looks like it will rain any moment." }, accept: ["soon"] },
       ],
     },

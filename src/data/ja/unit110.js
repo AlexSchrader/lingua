@@ -20,7 +20,7 @@ export const UNIT110 = {
       items: [
         { id: "ja-u110l1-fu3", type: "kanji", front: "負", reading: "fu", meaning: "lose", example: { jp: "しあいに負けました。", en: "I lost the game." }, accept: ["be defeated","bear"], hint: "負ける（まける）= to lose. しょうぶ 勝負 = a match." },
         { id: "ja-u110l1-to5", type: "kanji", front: "渡", reading: "to", meaning: "cross", example: { jp: "はしを渡ります。", en: "I cross the bridge." }, accept: ["cross over","ferry"], hint: "渡る（わたる）= to cross. わたす = to hand over." },
-        { id: "ja-u110l1-shitsu", type: "kanji", front: "失", reading: "shitsu", meaning: "lose", example: { jp: "でんしゃでかぎを失いました。", en: "I lost my key on the train." }, accept: ["fault","miss"], hint: "失う（うしなう）= to lose. しっぱい 失敗 = failure." },
+        { id: "ja-u110l1-shitsu", type: "kanji", front: "失", reading: "shitsu", meaning: "lose", example: { jp: "かれはしごとを失いました。", en: "He lost his job." }, accept: ["fault","miss"], hint: "失う（うしなう）= to lose (something abstract/important: 仕事・信用). Misplacing an object is なくす. しっぱい 失敗 = failure." },
         { id: "ja-u110l1-sa", type: "kanji", front: "差", reading: "sa", meaning: "difference", example: { jp: "ねだんに差があります。", en: "There is a difference in price." }, accept: ["distinction","margin"], hint: "差（さ）= difference. じさ 時差 = time difference." },
         { id: "ja-u110l1-matsu", type: "kanji", front: "末", reading: "matsu", meaning: "end", example: { jp: "週末はいえでやすみます。", en: "I rest at home on the weekend." }, accept: ["close","tip"], hint: "しゅうまつ 週末 = weekend. すえ = the very end." },
         { id: "ja-u110l1-shu4", type: "kanji", front: "守", reading: "shu", meaning: "protect", example: { jp: "やくそくを守ります。", en: "I keep my promise." }, accept: ["defend","guard"], hint: "守る（まもる）= to protect/keep. るす 留守 = absence." },

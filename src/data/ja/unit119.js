@@ -43,12 +43,12 @@ export const UNIT119 = {
     },
     {
       id: "ja-u119l4", unit: 119, lesson: 4, title: "N3 vocab 1·4", cefr: "B1", dominantMode: "recall",
-      canDo: "Use six N3 words: 詩 (poem), 幸せ (happiness), 四角 (square), 直に (immediately), しかも (moreover), 四季 (four seasons).",
+      canDo: "Use six N3 words: 詩 (poem), 幸せ (happiness), 四角 (square), 直に (directly), しかも (moreover), 四季 (four seasons).",
       items: [
         { id: "ja-u119l4-shi2", type: "vocab", front: "詩", reading: "shi", meaning: "poem", example: { jp: "かのじょはうつくしい詩をかきました。", en: "She wrote a beautiful poem." }, accept: ["poetry"] },
         { id: "ja-u119l4-shiawase", type: "vocab", front: "幸せ", reading: "shiawase", meaning: "happiness", example: { jp: "かぞくといっしょで幸せです。", en: "I'm happy being together with my family." }, accept: ["happy"], hint: "幸せ (しあわせ) = happiness; a な-adjective (幸せな)." },
         { id: "ja-u119l4-shikaku", type: "vocab", front: "四角", reading: "shikaku", meaning: "square", example: { jp: "しろい四角をかみにかきました。", en: "I drew a white square on the paper." }, accept: ["rectangle"], hint: "四角 (しかく) = a square shape; 四角い = square (adjective)." },
-        { id: "ja-u119l4-jikani", type: "vocab", front: "直に", reading: "jikani", meaning: "immediately", example: { jp: "なまえをよんだら、直にきてください。", en: "When I call your name, please come at once." }, accept: ["directly", "readily"], hint: "直に (じかに) = immediately / directly." },
+        { id: "ja-u119l4-jikani", type: "vocab", front: "直に", reading: "jikani", meaning: "directly", example: { jp: "先生に直に会いました。", en: "I met the teacher in person." }, accept: ["in person", "firsthand"], hint: "直に (じかに) = directly / in person (直に会う). Not the temporal 'soon' — that's じきに." },
         { id: "ja-u119l4-shikamo", type: "vocab", front: "しかも", reading: "shikamo", meaning: "moreover", example: { jp: "このみせはやすくて、しかもおいしいです。", en: "This shop is cheap and, what's more, tasty." }, accept: ["furthermore", "besides"], hint: "しかも = moreover / on top of that — adds a further point." },
         { id: "ja-u119l4-shiki", type: "vocab", front: "四季", reading: "shiki", meaning: "four seasons", example: { jp: "にほんには四季があります。", en: "Japan has four seasons." }, accept: ["seasons","the four seasons"] },
       ],

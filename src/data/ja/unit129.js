@@ -37,7 +37,7 @@ export const UNIT129 = {
         { id: "ja-u129l3-seki", type: "vocab", front: "咳", reading: "seki", meaning: "cough", example: { jp: "かぜをひいて、咳がでます。", en: "I caught a cold and have a cough." }, accept: [] },
         { id: "ja-u129l3-sekitan", type: "vocab", front: "石炭", reading: "sekitan", meaning: "coal", example: { jp: "むかしは石炭をよくつかいました。", en: "Long ago people often used coal." }, accept: [] },
         { id: "ja-u129l3-sekinin", type: "vocab", front: "責任", reading: "sekinin", meaning: "responsibility", example: { jp: "これはわたしの責任です。", en: "This is my responsibility." }, accept: ["duty"] },
-        { id: "ja-u129l3-sekiyu", type: "vocab", front: "石油", reading: "sekiyu", meaning: "oil", example: { jp: "この車は石油でうごきます。", en: "This car runs on oil." }, accept: ["petroleum", "kerosene"] },
+        { id: "ja-u129l3-sekiyu", type: "vocab", front: "石油", reading: "sekiyu", meaning: "oil", example: { jp: "石油ストーブでへやをあたためます。", en: "I warm the room with a kerosene heater." }, accept: ["petroleum", "kerosene"] },
       ],
     },
     {
