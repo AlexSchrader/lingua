@@ -124,8 +124,19 @@ function ActiveLanguage({ lang, items }) {
   const targetStageIdx = Math.max(0, STAGE_ORDER.indexOf((lang.target ?? "B2").toLowerCase()));
   const stages = STAGE_ORDER.slice(0, targetStageIdx + 1);
   const statsByStage = Object.fromEntries(stages.map((s) => [s, stageStats(lang.id, s, items)]));
-  // Current stage = first one not yet complete (or the goal, if all are done).
-  const currentStage = stages.find((s) => !statsByStage[s].complete) ?? stages[stages.length - 1];
+  // Current stage = first one not yet complete (or the goal, if all are done) —
+  // considering only stages this language HAS content for. A stage with no items
+  // isn't "incomplete", it doesn't apply: a Latin-alphabet language has no pre-a1
+  // script band at all (see contract.js VALID_STAGE). Without the total > 0 filter
+  // such a language pins to that empty stage forever — `complete` is
+  // `total > 0 && done === total`, so an empty stage can never satisfy it — and
+  // the learner's own rung reads "Lessons for Pre-A1 coming soon." from lesson 1
+  // onward, no matter how far they climb.
+  const stagesWithContent = stages.filter((s) => statsByStage[s].total > 0);
+  const currentStage =
+    stagesWithContent.find((s) => !statsByStage[s].complete) ??
+    stagesWithContent[stagesWithContent.length - 1] ??
+    stages[stages.length - 1];
   const cur = statsByStage[currentStage];
 
   // "You're here" shows position within the CURRENT stage: which unit of the

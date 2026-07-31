@@ -39,3 +39,32 @@ test("pruning everything (no content at all) yields an empty list + null active"
   assert.deepEqual(out.languages, []);
   assert.equal(out.activeLang, null, "no kept language → active is null (backfill handles the rest)");
 });
+
+// REGRESSION (truth-agent B2, 2026-07-31): every other test in this file injects a
+// stub predicate where only ja has content, which made them structurally incapable
+// of catching the real bug — so this one uses the REAL production predicate.
+test("a stale auto-cascade save does not silently acquire a newly-shipped language", () => {
+  // Pre-language-choice saves carry the old ja→es→fr cascade seeding. French now
+  // HAS content, so a content-only filter would keep it and hand the learner a
+  // started language they never chose (bypassing canAddLanguage).
+  const stale = { onboarded: true, languages: ["ja", "es", "fr"], activeLang: "ja" };
+  // Mirrors the production call in useStore's rehydrate: the REAL content
+  // predicate (default — fr genuinely has units now) plus the items-derived
+  // progress check. This learner has only ever studied Japanese.
+  const items = { "ja-u1l1-a": { lang: "ja", rung: 3 } };
+  const out = pruneStartedLanguages(stale, undefined, (id) =>
+    Object.values(items).some((it) => it.lang === id && (it.rung ?? 0) >= 1)
+  );
+  assert.deepEqual(out.languages, ["ja"], "only the language actually being learned survives");
+  assert.equal(out.activeLang, "ja");
+});
+
+test("a language with real progress survives the prune even when it isn't active", () => {
+  const profile = { onboarded: true, languages: ["ja", "fr"], activeLang: "ja" };
+  const out = pruneStartedLanguages(
+    profile,
+    () => true,
+    (id) => id === "fr" // fr has touched items
+  );
+  assert.deepEqual(out.languages, ["ja", "fr"]);
+});

@@ -51,8 +51,16 @@ export function shouldTypeProduce(item) {
 
 // Japanese → rōmaji: at rung 2, sometimes type the reading instead of the meaning.
 // Vocab only — a kana's meaning card is already "type the rōmaji".
+//
+// JAPANESE ONLY, and that's the whole point of the card: it tests transliterating
+// a script you can't sound out from its shape (おはよう → ohayō). A Latin-script
+// language has no separate reading — the reading IS the spelling (fr front
+// "bonjour" / reading "bonjour"), so the card degenerates into copying the prompt
+// straight off the screen: all 86 French items that used to route here graded
+// correct by typing back exactly what was displayed. They now fall through to
+// type:meaning, which actually tests recall.
 export function shouldTypeReading(item) {
-  return item?.type === "vocab" && hash01(item.id) < READING_SHARE;
+  return item?.type === "vocab" && (item.lang ?? "ja") === "ja" && hash01(item.id) < READING_SHARE;
 }
 
 // --- dictation (hear it → type the reading) ----------------------------------

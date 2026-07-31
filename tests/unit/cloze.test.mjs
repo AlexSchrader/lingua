@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { canCloze, blankExample, shouldCloze, CLOZE_BLANK, CLOZE_SHARE } from "../../src/store/cardRouting.js";
 import { particleAfterFront, canParticleCloze, blankParticle, particleChoices } from "../../src/store/cardRouting.js";
-import { sentenceTokens, canSentence, sentenceTiles } from "../../src/store/cardRouting.js";
+import { sentenceTokens, canSentence, sentenceTiles, shouldTypeReading } from "../../src/store/cardRouting.js";
 
 const tamago = {
   id: "ja-u9l1-tamago", type: "vocab", front: "たまご",
@@ -158,4 +158,18 @@ test("ja in-context cards are unchanged by the Latin path", () => {
   const kasa = { id: "ja-k", type: "vocab", front: "かさ", example: { jp: "かさをかいます。", en: "" } };
   assert.equal(particleAfterFront(kasa).particle, "を");
   for (const o of particleChoices(kasa, 4)) assert.ok(/[぀-ヿ]/u.test(o.text), "ja options stay kana");
+});
+
+test("type:reading is Japanese-only — it would be a copy task in a Latin script", () => {
+  // ja: front and reading are different scripts, so typing the reading is a real
+  // transliteration test.
+  const ja = { id: "ja-u1l1-ohayou", type: "vocab", front: "おはよう", reading: "ohayō", lang: "ja" };
+  // fr: reading is just the ASCII fold of the front, so the prompt IS the answer.
+  const fr = { id: "fr-u1l1-salut", type: "vocab", front: "salut", reading: "salut", lang: "fr" };
+  assert.equal(shouldTypeReading(fr), false, "a French item must never route type:reading");
+  // Whatever the hash band does for this particular ja id, the language gate must
+  // not be what blocks it — prove the gate is language, not id, by checking a
+  // lang-less fixture behaves like ja.
+  const bare = { id: ja.id, type: "vocab", front: ja.front, reading: ja.reading };
+  assert.equal(shouldTypeReading(bare), shouldTypeReading(ja), "missing lang is treated as ja");
 });

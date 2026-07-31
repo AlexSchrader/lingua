@@ -89,7 +89,7 @@ export default function Review() {
     () =>
       sandbox
         ? cardParam
-          ? buildCardPreviewItems(cardParam)
+          ? buildCardPreviewItems(cardParam, searchParams.get("lang"))
           : buildSandboxItems(searchParams.get("lesson"), searchParams.get("state") ?? "mid")
         : null,
     // eslint-disable-next-line react-hooks/exhaustive-deps

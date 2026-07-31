@@ -8,6 +8,8 @@
 import { seedItems, UNITS } from "../data/index.js";
 import { getLesson } from "../data/index.js";
 import { KANJIVG } from "../data/kanjivg.js";
+import { AUDIO_IDS } from "../data/audioManifest.js";
+import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { newCard } from "./srs.js";
 import { shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak, shouldCloze, shouldParticleCloze, canParticleCloze, shouldSentence } from "./cardRouting.js";
 
@@ -17,6 +19,27 @@ export const DEV_CODE = "L071201";
 export function matchesDevCode(input) {
   return String(input ?? "").trim().toUpperCase() === DEV_CODE;
 }
+
+// --- language scoping --------------------------------------------------------
+// Dev Mode covers EVERY language with content, one at a time. Without scoping the
+// panel mixes them (a 108-unit lesson list), the session launchers always open the
+// first language's lesson, and quick-cards can hand you a Japanese card while
+// you're testing French. Every reader below takes an optional `lang`; omitting it
+// keeps the original whole-corpus behavior for callers that don't care.
+export function devLanguages() {
+  const out = [];
+  for (const u of UNITS) if (u.lang && !out.includes(u.lang)) out.push(u.lang);
+  return out;
+}
+
+// The language the panel should open on: the learner's active one when it has
+// content, else the first language that does.
+export function defaultDevLang(preferred) {
+  const live = devLanguages();
+  return live.includes(preferred) ? preferred : live[0] ?? null;
+}
+
+const inLang = (lang) => (it) => !lang || it.lang === lang;
 
 // Preview states: launch a lesson's items directly at any rung depth, so EVERY
 // card family is one tap from any lesson — no grinding to build up state. Each
@@ -103,13 +126,15 @@ function kindSpec(kind) {
 
 // Throwaway items map with a few items seeded to yield the given card kind, so the
 // Quick-card preview runs QUICK_CARD_COUNT examples of it (isolated, no real state).
-export function buildCardPreviewItems(kind) {
+export function buildCardPreviewItems(kind, lang) {
   const seed = seedItems();
   const items = {};
   for (const [id, it] of Object.entries(seed)) items[id] = { ...it, srs: newCard() };
   const spec = kindSpec(kind);
   if (!spec) return items;
-  const picks = Object.values(seed).filter(spec.pick).slice(0, QUICK_CARD_COUNT);
+  // Scoped to the language under test — previewing a French card must never hand
+  // back a Japanese one just because it sorted first.
+  const picks = Object.values(seed).filter(inLang(lang)).filter(spec.pick).slice(0, QUICK_CARD_COUNT);
   const due = new Date(Date.now() - 1000);
   for (const p of picks) {
     items[p.id] = {
@@ -124,9 +149,11 @@ export function buildCardPreviewItems(kind) {
   return items;
 }
 
-// First playable lesson id — the target for a fresh "teach" quick-launch.
-export function firstLessonId() {
+// First playable lesson id for a language — the target for a fresh "teach"
+// quick-launch and the session launchers. No `lang` → first in the corpus.
+export function firstLessonId(lang) {
   for (const u of UNITS) {
+    if (lang && u.lang !== lang) continue;
     const l = u.lessons.find((x) => Array.isArray(x.items));
     if (l) return l.id;
   }
@@ -134,10 +161,12 @@ export function firstLessonId() {
 }
 
 // Route for a one-tap card preview. teach runs a fresh lesson; the rest run an
-// isolated review seeded (via ?card) to surface exactly that card kind.
-export function cardPreviewRoute(kind) {
-  if (kind === "teach") return `/lesson/${firstLessonId()}?sandbox=1&state=fresh`;
-  return `/review?sandbox=1&card=${encodeURIComponent(kind)}`;
+// isolated review seeded (via ?card) to surface exactly that card kind. `lang`
+// rides along so the sandbox seeds that language's items.
+export function cardPreviewRoute(kind, lang) {
+  if (kind === "teach") return `/lesson/${firstLessonId(lang)}?sandbox=1&state=fresh`;
+  const q = lang ? `&lang=${encodeURIComponent(lang)}` : "";
+  return `/review?sandbox=1&card=${encodeURIComponent(kind)}${q}`;
 }
 
 // The isolation contract, made explicit and testable. A runner asks for the
@@ -155,13 +184,28 @@ export function runnerWriters(sandbox, real) {
 
 // Diagnostics readout — the "is the new unit wired right" check. Pure: reads the
 // static UNITS data + KanjiVG table, no store. Flags any kana missing stroke data.
-export function devDiagnostics() {
-  const items = Object.values(seedItems());
+// Which LIVE_CARD_KINDS actually route for a given item set — the honest "what
+// works in this language yet" readout. Reuses the very same picks the Quick-card
+// launcher uses, so the number and the button can never disagree. A 0 is
+// informative, not a bug: fr shows 0 listening cards until its audio is generated
+// and 0 trace (the Latin alphabet has no strokes to draw).
+function cardKindCoverage(items) {
+  return LIVE_CARD_KINDS.map((kind) => {
+    if (kind === "teach") return { kind, count: items.length }; // everything teaches
+    const spec = kindSpec(kind);
+    return { kind, count: spec ? items.filter(spec.pick).length : 0 };
+  });
+}
+
+export function devDiagnostics(lang) {
+  const items = Object.values(seedItems()).filter(inLang(lang));
   // kana + kanji are both stroke-traced glyphs, so both need KanjiVG entries.
+  // A Latin-script language has none, which is why the panel hides this row
+  // rather than reporting a meaningless 0 / 0.
   const kana = items.filter((it) => it.type === "kana" || it.type === "kanji");
   const kanaMissing = kana.filter((it) => !KANJIVG[it.front]).map((it) => it.front);
 
-  const units = UNITS.map((u) => {
+  const units = UNITS.filter((u) => !lang || u.lang === lang).map((u) => {
     const lessons = u.lessons.filter((l) => l.items);
     return {
       id: u.id,
@@ -172,13 +216,18 @@ export function devDiagnostics() {
     };
   });
 
+  const audioTotal = items.filter((it) => AUDIO_IDS.has(it.id)).length;
+
   return {
-    unitCount: UNITS.length,
+    lang: lang ?? null,
+    unitCount: units.length,
     lessonCount: units.reduce((n, u) => n + u.lessonCount, 0),
     itemCount: items.length,
     kanaTotal: kana.length,
     kanaWithStroke: kana.length - kanaMissing.length,
     kanaMissing,
+    audioTotal,
+    cardKinds: cardKindCoverage(items),
     units,
   };
 }
@@ -196,14 +245,14 @@ export function sandboxRoute(lessonId, previewState) {
 // --- Session launchers (isolated) --------------------------------------------
 // Run each SESSION SHAPE against the throwaway sandbox so the whole flow can be
 // felt without grinding real due items / misses. All isolated — no real state.
-export function reviewSandboxRoute() {
-  return sandboxRoute(firstLessonId(), "mid"); // a mixed review over the first lesson
+export function reviewSandboxRoute(lang) {
+  return sandboxRoute(firstLessonId(lang), "mid"); // a mixed review over the first lesson
 }
-export function fixupSandboxRoute() {
+export function fixupSandboxRoute(lang) {
   // The mistake-review UI over the sandbox set (fix=1 → "Fix-up" framing).
-  return `${sandboxRoute(firstLessonId(), "produce")}&fix=1`;
+  return `${sandboxRoute(firstLessonId(lang), "produce")}&fix=1`;
 }
-export function microSandboxRoute() {
+export function microSandboxRoute(lang) {
   // "Just a few" — a lesson capped to 3 new items.
-  return `/lesson/${firstLessonId()}?sandbox=1&state=fresh&few=3`;
+  return `/lesson/${firstLessonId(lang)}?sandbox=1&state=fresh&few=3`;
 }
