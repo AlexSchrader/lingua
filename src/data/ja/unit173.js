@@ -46,7 +46,7 @@ export const UNIT173 = {
       canDo: "Use six N3 words: 付き合い (friendship), 付合う (to associate with), 次々 (one after another), 付く (to stick), 就く (to take up), 突く (to thrust).",
       items: [
         { id: "ja-u173l4-tsukiai", type: "vocab", front: "付き合い", reading: "tsukiai", meaning: "friendship", example: { jp: "かれとの付き合いはながいです。", en: "My relationship with him is long." }, accept: ["socializing", "association"] },
-        { id: "ja-u173l4-tsukiau", type: "vocab", front: "付合う", reading: "tsukiau", meaning: "to associate with", example: { jp: "かのじょと付合います。", en: "I go out with her." }, accept: ["to go out with", "to keep company with"] },
+        { id: "ja-u173l4-tsukiau", type: "vocab", front: "付き合う", reading: "tsukiau", meaning: "to associate with", example: { jp: "かのじょと付き合います。", en: "I go out with her." }, accept: ["to go out with", "to keep company with"] },
         { id: "ja-u173l4-tsugitsugi", type: "vocab", front: "次々", reading: "tsugitsugi", meaning: "one after another", example: { jp: "きゃくが次々にきます。", en: "Customers come one after another." }, accept: ["in succession", "one by one"] },
         { id: "ja-u173l4-tsuku", type: "vocab", front: "付く", reading: "tsuku", meaning: "to stick", example: { jp: "ふくにどろが付きました。", en: "Mud got on my clothes." }, accept: ["to be attached", "to adhere"], hint: "付く（つく）= to stick; same reading as 就く and 突く." },
         { id: "ja-u173l4-tsuku2", type: "vocab", front: "就く", reading: "tsuku", meaning: "to take up (a post)", example: { jp: "あたらしいしごとに就きます。", en: "I take up a new job." }, accept: ["to take a post", "to assume"], hint: "就く（つく）= to take up a position; same reading as 付く and 突く." },

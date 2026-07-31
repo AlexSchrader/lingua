@@ -46,7 +46,7 @@ export const UNIT131 = {
         { id: "ja-u131l4-araware", type: "vocab", front: "現れ", reading: "araware", meaning: "expression", example: { jp: "なみだはかなしみの現れです。", en: "Tears are a sign of sadness." }, accept: ["indication", "sign"] },
         { id: "ja-u131l4-arawareru", type: "vocab", front: "現れる", reading: "arawareru", meaning: "to appear", example: { jp: "そらにほしが現れました。", en: "Stars appeared in the sky." }, accept: ["to become visible", "to express"] },
         { id: "ja-u131l4-aru", type: "vocab", front: "有る", reading: "aru", meaning: "to exist", example: { jp: "つくえの上に本が有ります。", en: "There is a book on the desk." }, accept: ["to be", "to live"] },
-        { id: "ja-u131l4-aru2", type: "vocab", front: "或", reading: "aru", meaning: "a certain", example: { jp: "或日、ともだちにあいました。", en: "One day, I met a friend." }, accept: ["some"] },
+        { id: "ja-u131l4-aru2", type: "vocab", front: "或る", reading: "aru", meaning: "a certain", example: { jp: "或る日、ともだちにあいました。", en: "One day, I met a friend." }, accept: ["some"] },
       ],
     },
   ],

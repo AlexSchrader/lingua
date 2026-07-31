@@ -45,7 +45,7 @@ export const UNIT174 = {
       id: "ja-u174l4", unit: 174, lesson: 4, title: "N3 vocab 56·4", cefr: "B1", dominantMode: "recall",
       canDo: "Use six N3 words: 釣 (fishing), 連れ (companion), 出会い (meeting), 出合い (encounter), 出会う (to meet by chance), 提案 (proposal).",
       items: [
-        { id: "ja-u174l4-tsuri", type: "vocab", front: "釣", reading: "tsuri", meaning: "fishing", example: { jp: "にちようびに釣にいきます。", en: "I go fishing on Sunday." }, accept: ["angling"] },
+        { id: "ja-u174l4-tsuri", type: "vocab", front: "釣り", reading: "tsuri", meaning: "fishing", example: { jp: "にちようびに釣りにいきます。", en: "I go fishing on Sunday." }, accept: ["angling"] },
         { id: "ja-u174l4-tsure", type: "vocab", front: "連れ", reading: "tsure", meaning: "companion", example: { jp: "ロビーで連れをまちます。", en: "I wait for my companion in the lobby." }, accept: ["company"] },
         { id: "ja-u174l4-deai", type: "vocab", front: "出会い", reading: "deai", meaning: "meeting", example: { jp: "あのひととの出会いはたいせつです。", en: "My meeting with that person is precious." }, accept: ["encounter", "rendezvous"], hint: "出会い（であい）= a meeting of people; same reading as 出合い." },
         { id: "ja-u174l4-deai2", type: "vocab", front: "出合い", reading: "deai", meaning: "encounter", example: { jp: "よい出合いがありました。", en: "I had a good encounter." }, accept: ["meeting"], hint: "出合い（であい）= an encounter (things or paths meeting); same reading as 出会い." },
