@@ -22,7 +22,7 @@ export const UNIT195 = {
       canDo: "Use four N3 words: 弱まる (to weaken), 弱める (to weaken), 枠 (frame), 表示 (display).",
       items: [
         { id: "ja-u195l2-yowamaru", type: "vocab", front: "弱まる", reading: "yowamaru", meaning: "to weaken", example: { jp: "ゆうがたにあめが弱まりました。", en: "The rain weakened in the evening." }, accept: ["to grow weak", "to die down"], hint: "弱まる (よわまる) = to weaken (intransitive — it grows weaker on its own)." },
-        { id: "ja-u195l2-yowameru", type: "vocab", front: "弱める", reading: "yowameru", meaning: "to weaken", example: { jp: "こえを弱めてはなします。", en: "I lower my voice as I speak." }, accept: ["to lower", "to reduce"], hint: "弱める (よわめる) = to weaken (transitive — you make something weaker)." },
+        { id: "ja-u195l2-yowameru", type: "vocab", front: "弱める", reading: "yowameru", meaning: "to weaken", example: { jp: "ガスの火を弱めます。", en: "I turn down the gas flame." }, accept: ["to lower", "to reduce"], hint: "弱める (よわめる) = to weaken (transitive) — 火/力/風 を弱める. Not for 声 (that's 声を落とす)." },
         { id: "ja-u195l2-waku2", type: "vocab", front: "枠", reading: "waku", meaning: "frame", example: { jp: "えをきれいな枠にいれます。", en: "I put the picture in a pretty frame." }, accept: ["framework"], hint: "枠 (わく) = a frame / framework / set limit." },
         { id: "ja-u195l2-hyoji", type: "vocab", front: "表示", reading: "hyōji", meaning: "display", example: { jp: "がめんにじかんが表示されます。", en: "The time is displayed on the screen." }, accept: ["indication"], hint: "表示 (ひょうじ) = display / indication; 表示する = to show / display." },
       ],

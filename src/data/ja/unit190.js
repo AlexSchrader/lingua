@@ -12,7 +12,7 @@ export const UNIT190 = {
         { id: "ja-u190l1-masu", type: "vocab", front: "増す", reading: "masu", meaning: "to increase", example: { jp: "あめでかわのみずが増しました。", en: "The rain increased the river's water." }, accept: ["to gain", "to grow"] },
         { id: "ja-u190l1-mazushii", type: "vocab", front: "貧しい", reading: "mazushii", meaning: "poor", example: { jp: "むかしはとても貧しかったです。", en: "Long ago, we were very poor." }, accept: ["needy"] },
         { id: "ja-u190l1-mazeru", type: "vocab", front: "混ぜる", reading: "mazeru", meaning: "to mix", example: { jp: "たまごをよく混ぜます。", en: "I mix the eggs well." }, accept: ["to stir"], hint: "混ぜる (まぜる) = to blend / stir together; same reading as 交ぜる." },
-        { id: "ja-u190l1-mazeru2", type: "vocab", front: "交ぜる", reading: "mazeru", meaning: "to mix in", example: { jp: "カードをよく交ぜます。", en: "I shuffle the cards well." }, accept: ["to blend in", "to shuffle"], hint: "交ぜる (まぜる) = to intermix / shuffle; same reading as 混ぜる." },
+        { id: "ja-u190l1-mazeru2", type: "vocab", front: "交ぜる", reading: "mazeru", meaning: "to mix in", example: { jp: "しろいいとにあかいいとを交ぜます。", en: "I mix red thread in with the white." }, accept: ["to blend in", "to intersperse"], hint: "交ぜる (まぜる) = mix one kind IN among another; same reading as 混ぜる (blend together)." },
         { id: "ja-u190l1-machi", type: "vocab", front: "街", reading: "machi", meaning: "town", example: { jp: "この街はよるもにぎやかです。", en: "This town is lively at night too." }, accept: ["street", "downtown"], hint: "街 (まち) = town / busy district; same reading as 町." },
         { id: "ja-u190l1-machigai", type: "vocab", front: "間違い", reading: "machigai", meaning: "mistake", example: { jp: "テストの間違いをなおします。", en: "I fix the mistakes on the test." }, accept: ["error"] },
       ],
