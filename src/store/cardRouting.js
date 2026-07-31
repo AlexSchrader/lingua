@@ -331,6 +331,23 @@ export function shouldConjugate(item) {
   );
 }
 
+// --- tile build (assemble the reading from tiles) ----------------------------
+// JAPANESE ONLY, for exactly the same reason as type:reading. BuildCard displays
+// item.front and asks the learner to assemble item.reading from tiles — a real
+// transliteration test when those are different scripts (ねこ shown, n-e-k-o
+// assembled), and pure copying when they're the same string: 85 of 185 French
+// items have reading === front character-for-character ("bonjour"/"bonjour"), and
+// the rest differ only by the accents/spaces/apostrophes normalizeReading strips
+// ("ça va" → "cava"). Latin-script items route to type:produce instead, which
+// asks for the word from its MEANING — production, not transcription.
+//
+// A French-appropriate tile builder (letter tiles spelling the real orthography,
+// prompted by the meaning) is a genuinely good card, but it's a design decision
+// with real edges (accent and space tiles), so it's logged rather than assumed.
+export function canBuildReading(item) {
+  return (item?.lang ?? "ja") === "ja";
+}
+
 // --- spoken production (say it aloud) ----------------------------------------
 // The SPEAK card is vocab-only: STT on isolated single kana is unreliable (the
 // Brief-C C.0 de-risk showed 0/3), and a kana's sound is already trained by the

@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { canCloze, blankExample, shouldCloze, CLOZE_BLANK, CLOZE_SHARE } from "../../src/store/cardRouting.js";
 import { particleAfterFront, canParticleCloze, blankParticle, particleChoices } from "../../src/store/cardRouting.js";
-import { sentenceTokens, canSentence, sentenceTiles, shouldTypeReading } from "../../src/store/cardRouting.js";
+import { sentenceTokens, canSentence, sentenceTiles, shouldTypeReading, canBuildReading } from "../../src/store/cardRouting.js";
 
 const tamago = {
   id: "ja-u9l1-tamago", type: "vocab", front: "たまご",
@@ -172,4 +172,13 @@ test("type:reading is Japanese-only — it would be a copy task in a Latin scrip
   // lang-less fixture behaves like ja.
   const bare = { id: ja.id, type: "vocab", front: ja.front, reading: ja.reading };
   assert.equal(shouldTypeReading(bare), shouldTypeReading(ja), "missing lang is treated as ja");
+});
+
+test("the tile-build card is Japanese-only — it shows the answer in a Latin script", () => {
+  // BuildCard displays item.front and asks you to assemble item.reading. For ja
+  // those are different scripts (a real transliteration test); for fr they're the
+  // same string modulo accents, so the answer is on screen.
+  assert.equal(canBuildReading({ id: "ja-x", type: "vocab", front: "ねこ", reading: "neko", lang: "ja" }), true);
+  assert.equal(canBuildReading({ id: "fr-x", type: "vocab", front: "bonjour", reading: "bonjour", lang: "fr" }), false);
+  assert.equal(canBuildReading({ id: "bare", type: "vocab", front: "ねこ", reading: "neko" }), true, "missing lang → ja");
 });

@@ -5,6 +5,7 @@ import { LANGUAGES, UNITS } from "../data/index.js";
 import { roadmapFor } from "../data/roadmap.js";
 import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
+import { currentStageFor } from "../store/levels.js";
 import GlyphDetail from "../components/GlyphDetail.jsx";
 import PlannedLanguages from "../components/PlannedLanguages.jsx";
 import { C, F } from "../theme.js";
@@ -43,6 +44,7 @@ function stageStats(langId, stage, items) {
 }
 
 const hasContent = (id) => UNITS.some((u) => u.lang === id);
+
 
 export default function Ladder() {
   const languages = useStore((s) => s.languages);
@@ -132,11 +134,7 @@ function ActiveLanguage({ lang, items }) {
   // `total > 0 && done === total`, so an empty stage can never satisfy it — and
   // the learner's own rung reads "Lessons for Pre-A1 coming soon." from lesson 1
   // onward, no matter how far they climb.
-  const stagesWithContent = stages.filter((s) => statsByStage[s].total > 0);
-  const currentStage =
-    stagesWithContent.find((s) => !statsByStage[s].complete) ??
-    stagesWithContent[stagesWithContent.length - 1] ??
-    stages[stages.length - 1];
+  const currentStage = currentStageFor(stages, statsByStage);
   const cur = statsByStage[currentStage];
 
   // "You're here" shows position within the CURRENT stage: which unit of the

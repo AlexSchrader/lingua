@@ -68,3 +68,18 @@ test("a language with real progress survives the prune even when it isn't active
   );
   assert.deepEqual(out.languages, ["ja", "fr"]);
 });
+
+// REGRESSION (code-auditor B2, 2026-07-31): the first attempt at the fix above was
+// DESTRUCTIVE — it required active-or-progress on every boot, so starting French,
+// tapping back to Japanese, and reloading silently deleted French from the profile.
+test("a deliberately-started language with no progress yet is NEVER dropped", () => {
+  const profile = { onboarded: true, languages: ["ja", "fr"], activeLang: "ja" };
+  const items = { "ja-x": { lang: "ja", rung: 3 } }; // fr started, nothing learned
+  const out = pruneStartedLanguages(profile, undefined, (id) =>
+    Object.values(items).some((it) => it.lang === id && (it.rung ?? 0) >= 1)
+  );
+  assert.deepEqual(out.languages, ["ja", "fr"], "French must survive every boot");
+  // seedOnce runs on every mount, so re-running must be stable, not erosive.
+  const again = pruneStartedLanguages(out, undefined, () => false);
+  assert.deepEqual(again.languages, ["ja", "fr"], "repeated boots must not erode the profile");
+});

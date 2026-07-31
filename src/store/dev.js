@@ -11,7 +11,7 @@ import { KANJIVG } from "../data/kanjivg.js";
 import { AUDIO_IDS } from "../data/audioManifest.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { newCard } from "./srs.js";
-import { shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak, shouldCloze, shouldParticleCloze, canParticleCloze, shouldSentence } from "./cardRouting.js";
+import { shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak, shouldCloze, shouldParticleCloze, canParticleCloze, shouldSentence, canBuildReading } from "./cardRouting.js";
 
 // The unlock code. Intentionally in the bundle — see note above.
 export const DEV_CODE = "L071201";
@@ -117,7 +117,7 @@ function kindSpec(kind) {
     case "type:produce":  return { rung: 3, pick: (it) => shouldTypeProduce(it) };
     case "sentence:build": return { rung: 3, pick: (it) => shouldSentence(it) };
     case "conjugate":     return { rung: 3, pick: (it) => it.type === "vocab" && !!it.group };
-    case "build":         return { rung: 3, pick: (it) => it.type === "vocab" && !shouldTypeProduce(it) && !shouldSentence(it) };
+    case "build":         return { rung: 3, pick: (it) => it.type === "vocab" && canBuildReading(it) && !shouldTypeProduce(it) && !shouldSentence(it) };
     case "trace":         return { rung: 3, pick: (it) => isTraceable(it) };
     case "speak":         return { rung: 4, pick: (it) => shouldSpeak(it) };
     default:              return null;
