@@ -1,0 +1,66 @@
+// FR Unit 18 — Les courses ("Shopping") — A1
+// The shops, the quantities you ask for, and the fruit and veg you buy. Builds
+// straight on the money words from Unit 11. Conventions: see fr/unit1.js.
+export const FR_UNIT18 = {
+  id: "fr-u18",
+  lang: "fr",
+  title: "Les courses",
+  order: 18,
+  stage: "a1",
+  lessons: [
+    {
+      id: "fr-u18l1",
+      unit: 18,
+      lesson: 1,
+      title: "The shops",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Name the shops and quantities: le supermarché, la boulangerie, le marché, le kilo, la bouteille.",
+      items: [
+        { id: "fr-u18l1-lescourses", type: "vocab", front: "les courses", reading: "lescourses", meaning: "the shopping", example: { jp: "Le samedi, je fais les courses.", en: "On Saturdays, I do the shopping." }, accept: ["shopping", "errands"], hint: "faire les courses = to do the food shopping. Never \"les shoppings\"." },
+        { id: "fr-u18l1-lesupermarche", type: "vocab", front: "le supermarché", reading: "lesupermarche", meaning: "supermarket", example: { jp: "Le supermarché est ouvert le dimanche.", en: "The supermarket is open on Sundays." }, accept: ["the supermarket"] },
+        { id: "fr-u18l1-laboulangerie", type: "vocab", front: "la boulangerie", reading: "laboulangerie", meaning: "bakery", example: { jp: "J'achète le pain à la boulangerie.", en: "I buy bread at the bakery." }, accept: ["the bakery", "baker's"] },
+        { id: "fr-u18l1-lemarche", type: "vocab", front: "le marché", reading: "lemarche", meaning: "market", example: { jp: "Le marché est ouvert le matin.", en: "The market is open in the morning." }, accept: ["the market"] },
+        { id: "fr-u18l1-lekilo", type: "vocab", front: "le kilo", reading: "lekilo", meaning: "kilo", example: { jp: "Un kilo de pommes, s'il vous plaît.", en: "A kilo of apples, please." }, accept: ["the kilo", "kilogram"], hint: "Quantities take de: un kilo de pommes, une bouteille de vin." },
+        { id: "fr-u18l1-labouteille", type: "vocab", front: "la bouteille", reading: "labouteille", meaning: "bottle", example: { jp: "Une bouteille d'eau, s'il vous plaît.", en: "A bottle of water, please." }, accept: ["the bottle"] },
+        { id: "fr-u18l1-lemorceau", type: "vocab", front: "le morceau", reading: "lemorceau", meaning: "piece", example: { jp: "Un morceau de fromage, s'il vous plaît.", en: "A piece of cheese, please." }, accept: ["the piece", "bit", "slice"] },
+      ],
+    },
+    {
+      id: "fr-u18l2",
+      unit: 18,
+      lesson: 2,
+      title: "Fruit and vegetables",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Name produce: le fruit, le légume, la tomate, la carotte, la salade, la banane, l'orange.",
+      items: [
+        { id: "fr-u18l2-lefruit", type: "vocab", front: "le fruit", reading: "lefruit", meaning: "fruit", example: { jp: "J'aime beaucoup les fruits.", en: "I really like fruit." }, accept: ["the fruit"] },
+        { id: "fr-u18l2-lelegume", type: "vocab", front: "le légume", reading: "lelegume", meaning: "vegetable", example: { jp: "Je mange des légumes tous les jours.", en: "I eat vegetables every day." }, accept: ["the vegetable", "veg"], hint: "tous les jours = every day." },
+        { id: "fr-u18l2-latomate", type: "vocab", front: "la tomate", reading: "latomate", meaning: "tomato", example: { jp: "La tomate est rouge.", en: "The tomato is red." }, accept: ["the tomato"] },
+        { id: "fr-u18l2-lacarotte", type: "vocab", front: "la carotte", reading: "lacarotte", meaning: "carrot", example: { jp: "Un kilo de carottes, s'il vous plaît.", en: "A kilo of carrots, please." }, accept: ["the carrot"] },
+        { id: "fr-u18l2-lasalade", type: "vocab", front: "la salade", reading: "lasalade", meaning: "salad", example: { jp: "Je mange une salade à midi.", en: "I eat a salad at noon." }, accept: ["the salad", "lettuce"] },
+        { id: "fr-u18l2-labanane", type: "vocab", front: "la banane", reading: "labanane", meaning: "banana", example: { jp: "La banane est jaune.", en: "The banana is yellow." }, accept: ["the banana"] },
+        { id: "fr-u18l2-lorange", type: "vocab", front: "l'orange", reading: "lorange", meaning: "orange", example: { jp: "Je bois un jus d'orange le matin.", en: "I drink an orange juice in the morning." }, accept: ["the orange"] },
+      ],
+    },
+    {
+      id: "fr-u18l3",
+      unit: 18,
+      lesson: 3,
+      title: "At the till",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Get through a shop: j'achète, je cherche, je trouve, la liste, le client, tous les jours.",
+      items: [
+        { id: "fr-u18l3-jachete", type: "vocab", front: "j'achète", reading: "jachete", meaning: "I buy", example: { jp: "J'achète du pain à la boulangerie.", en: "I buy bread at the bakery." }, accept: ["i'm buying", "i purchase"] },
+        { id: "fr-u18l3-jecherche", type: "vocab", front: "je cherche", reading: "jecherche", meaning: "I'm looking for", example: { jp: "Je cherche le supermarché.", en: "I'm looking for the supermarket." }, accept: ["i look for", "i search", "i seek"], hint: "No \"for\" needed — je cherche la gare, I'm looking for the station." },
+        { id: "fr-u18l3-jetrouve", type: "vocab", front: "je trouve", reading: "jetrouve", meaning: "I find", example: { jp: "Je ne trouve pas mes clés !", en: "I can't find my keys!" }, accept: ["i'm finding", "i think"], hint: "Also \"I think\" for opinions: je trouve ça joli — I find that pretty." },
+        { id: "fr-u18l3-laliste", type: "vocab", front: "la liste", reading: "laliste", meaning: "list", example: { jp: "Ma liste est dans le sac.", en: "My list is in the bag." }, accept: ["the list"] },
+        { id: "fr-u18l3-leclient", type: "vocab", front: "le client", reading: "leclient", meaning: "customer", example: { jp: "Le client cherche le pain.", en: "The customer is looking for the bread." }, accept: ["the client", "the customer"] },
+        { id: "fr-u18l3-touslesjours", type: "vocab", front: "tous les jours", reading: "touslesjours", meaning: "every day", example: { jp: "Tous les jours, je bois un café.", en: "Every day, I drink a coffee." }, accept: ["daily", "each day"] },
+        { id: "fr-u18l3-lamonnaie", type: "vocab", front: "la monnaie", reading: "lamonnaie", meaning: "change", example: { jp: "Voilà la monnaie, merci !", en: "Here's your change, thank you!" }, accept: ["the change", "currency", "coins"], hint: "The coins you get back. l'argent (Unit 11) is money in general." },
+      ],
+    },
+  ],
+};

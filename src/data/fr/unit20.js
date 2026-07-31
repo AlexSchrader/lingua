@@ -1,0 +1,68 @@
+// FR Unit 20 — À table ("At the table") — A1
+// Meals, the things on the table, and the foods a learner will actually order.
+// Unit 5 covered the café; this is the full meal. Conventions: see fr/unit1.js.
+export const FR_UNIT20 = {
+  id: "fr-u20",
+  lang: "fr",
+  title: "À table",
+  order: 20,
+  stage: "a1",
+  lessons: [
+    {
+      id: "fr-u20l1",
+      unit: 20,
+      lesson: 1,
+      title: "Meals",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Name the meals and the table: le petit-déjeuner, le déjeuner, le dîner, l'assiette, le verre.",
+      items: [
+        { id: "fr-u20l1-lerepas", type: "vocab", front: "le repas", reading: "lerepas", meaning: "meal", example: { jp: "Le repas est sur la table.", en: "The meal is on the table." }, accept: ["the meal"] },
+        { id: "fr-u20l1-lepetitdejeuner", type: "vocab", front: "le petit-déjeuner", reading: "lepetitdejeuner", meaning: "breakfast", example: { jp: "Au petit-déjeuner, je bois un café.", en: "At breakfast, I drink a coffee." }, accept: ["the breakfast"], hint: "Literally \"the little lunch\" — petit + déjeuner." },
+        { id: "fr-u20l1-ledejeuner", type: "vocab", front: "le déjeuner", reading: "ledejeuner", meaning: "lunch", example: { jp: "Le déjeuner est à midi.", en: "Lunch is at noon." }, accept: ["the lunch"] },
+        { id: "fr-u20l1-lediner", type: "vocab", front: "le dîner", reading: "lediner", meaning: "dinner", example: { jp: "Le dîner est à huit heures.", en: "Dinner is at eight o'clock." }, accept: ["the dinner", "supper"] },
+        { id: "fr-u20l1-lassiette", type: "vocab", front: "l'assiette", reading: "lassiette", meaning: "plate", example: { jp: "L'assiette est sur la table.", en: "The plate is on the table." }, accept: ["the plate", "dish"] },
+        { id: "fr-u20l1-leverre", type: "vocab", front: "le verre", reading: "leverre", meaning: "glass", example: { jp: "Un verre d'eau, s'il vous plaît.", en: "A glass of water, please." }, accept: ["the glass"] },
+        { id: "fr-u20l1-lafourchette", type: "vocab", front: "la fourchette", reading: "lafourchette", meaning: "fork", example: { jp: "Je mange avec une fourchette.", en: "I eat with a fork." }, accept: ["the fork"] },
+        { id: "fr-u20l1-lecouteau", type: "vocab", front: "le couteau", reading: "lecouteau", meaning: "knife", example: { jp: "Le couteau est à droite de l'assiette.", en: "The knife is to the right of the plate." }, accept: ["the knife"] },
+      ],
+    },
+    {
+      id: "fr-u20l2",
+      unit: 20,
+      lesson: 2,
+      title: "In the kitchen",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Name kitchen staples: la cuillère, le sel, le poivre, le sucre, le beurre, l'œuf.",
+      items: [
+        { id: "fr-u20l2-lacuillere", type: "vocab", front: "la cuillère", reading: "lacuillere", meaning: "spoon", example: { jp: "Je mange la soupe avec une cuillère.", en: "I eat soup with a spoon." }, accept: ["the spoon"] },
+        { id: "fr-u20l2-lesel", type: "vocab", front: "le sel", reading: "lesel", meaning: "salt", example: { jp: "Le sel est sur la table.", en: "The salt is on the table." }, accept: ["the salt"] },
+        { id: "fr-u20l2-lepoivre", type: "vocab", front: "le poivre", reading: "lepoivre", meaning: "pepper", example: { jp: "Le sel et le poivre, s'il vous plaît.", en: "Salt and pepper, please." }, accept: ["the pepper"] },
+        { id: "fr-u20l2-lesucre", type: "vocab", front: "le sucre", reading: "lesucre", meaning: "sugar", example: { jp: "Un café avec du sucre, s'il vous plaît.", en: "A coffee with sugar, please." }, accept: ["the sugar"] },
+        { id: "fr-u20l2-lebeurre", type: "vocab", front: "le beurre", reading: "lebeurre", meaning: "butter", example: { jp: "Du pain avec du beurre, c'est bon.", en: "Bread with butter is good." }, accept: ["the butter"] },
+        { id: "fr-u20l2-loeuf", type: "vocab", front: "l'œuf", reading: "loeuf", meaning: "egg", example: { jp: "Je mange un œuf au petit-déjeuner.", en: "I eat an egg for breakfast." }, accept: ["the egg"], hint: "œ again — type oeuf and it counts. The plural les œufs drops the f sound entirely." },
+        { id: "fr-u20l2-lasoupe", type: "vocab", front: "la soupe", reading: "lasoupe", meaning: "soup", example: { jp: "En hiver, j'aime la soupe.", en: "In winter, I like soup." }, accept: ["the soup"] },
+      ],
+    },
+    {
+      id: "fr-u20l3",
+      unit: 20,
+      lesson: 3,
+      title: "Ordering a meal",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Order a real meal: la viande, le poisson, le poulet, le riz, les pâtes, le gâteau, l'addition.",
+      items: [
+        { id: "fr-u20l3-laviande", type: "vocab", front: "la viande", reading: "laviande", meaning: "meat", example: { jp: "Je ne mange pas de viande.", en: "I don't eat meat." }, accept: ["the meat"] },
+        { id: "fr-u20l3-lepoisson", type: "vocab", front: "le poisson", reading: "lepoisson", meaning: "fish", example: { jp: "Le poisson est très bon ici.", en: "The fish is very good here." }, accept: ["the fish"] },
+        { id: "fr-u20l3-lepoulet", type: "vocab", front: "le poulet", reading: "lepoulet", meaning: "chicken", example: { jp: "Je voudrais le poulet, s'il vous plaît.", en: "I'd like the chicken, please." }, accept: ["the chicken"] },
+        { id: "fr-u20l3-leriz", type: "vocab", front: "le riz", reading: "leriz", meaning: "rice", example: { jp: "Le poulet avec du riz, s'il vous plaît.", en: "The chicken with rice, please." }, accept: ["the rice"] },
+        { id: "fr-u20l3-lespates", type: "vocab", front: "les pâtes", reading: "lespates", meaning: "pasta", example: { jp: "Les enfants aiment les pâtes.", en: "Children like pasta." }, accept: ["the pasta", "noodles"] },
+        { id: "fr-u20l3-legateau", type: "vocab", front: "le gâteau", reading: "legateau", meaning: "cake", example: { jp: "Le gâteau au chocolat est très bon !", en: "The chocolate cake is very good!" }, accept: ["the cake"], hint: "le chocolat = chocolate — one of the easy ones." },
+        { id: "fr-u20l3-lechocolat", type: "vocab", front: "le chocolat", reading: "lechocolat", meaning: "chocolate", example: { jp: "J'aime beaucoup le chocolat.", en: "I really like chocolate." }, accept: ["the chocolate"] },
+        { id: "fr-u20l3-laddition", type: "vocab", front: "l'addition", reading: "laddition", meaning: "the bill", example: { jp: "L'addition, s'il vous plaît !", en: "The bill, please!" }, accept: ["the check", "bill", "check"], hint: "THE phrase for leaving a restaurant. Not le bill, not le check — l'addition." },
+      ],
+    },
+  ],
+};
