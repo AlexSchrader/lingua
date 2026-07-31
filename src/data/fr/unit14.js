@@ -41,7 +41,7 @@ export const FR_UNIT14 = {
         { id: "fr-u14l2-aout", type: "vocab", front: "août", reading: "aout", meaning: "August", example: { jp: "En août, je vais à la plage.", en: "In August, I go to the beach." }, accept: ["august"], hint: "Two vowels, one sound: \"oot\". In August much of France is away." },
         { id: "fr-u14l2-septembre", type: "vocab", front: "septembre", reading: "septembre", meaning: "September", example: { jp: "En septembre, l'école commence.", en: "In September, school starts." }, accept: ["september"] },
         { id: "fr-u14l2-octobre", type: "vocab", front: "octobre", reading: "octobre", meaning: "October", example: { jp: "En octobre, il fait frais.", en: "In October, it's cool." }, accept: ["october"] },
-        { id: "fr-u14l2-novembre", type: "vocab", front: "novembre", reading: "novembre", meaning: "November", example: { jp: "En novembre, il y a du vent.", en: "In November, it's windy." }, accept: ["november"] },
+        { id: "fr-u14l2-novembre", type: "vocab", front: "novembre", reading: "novembre", meaning: "November", example: { jp: "En novembre, il fait froid.", en: "In November, it's cold." }, accept: ["november"] },
         { id: "fr-u14l2-decembre", type: "vocab", front: "décembre", reading: "decembre", meaning: "December", example: { jp: "En décembre, il neige.", en: "In December, it snows." }, accept: ["december"] },
         { id: "fr-u14l2-lemois", type: "vocab", front: "le mois", reading: "lemois", meaning: "month", example: { jp: "Quel mois ? Avril.", en: "Which month? April." }, accept: ["the month"] },
       ],

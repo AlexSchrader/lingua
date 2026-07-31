@@ -1,7 +1,9 @@
 // FR Unit 12 — L'heure ("Telling time") — A1
 // Clock time, then the frequency words that let a learner describe when things
-// happen, then the first reflexive verbs (je me lève) as chunks — the daily
-// routine that Unit 24 later builds out. Conventions: see fr/unit1.js.
+// happen, then the first reflexive verbs (je me lève / je me couche) as chunks.
+// They are taught as fixed chunks on purpose — the reflexive SYSTEM (me/te/se
+// across every verb) is A2 material, so nothing here promises more than it gives.
+// Conventions: see fr/unit1.js.
 export const FR_UNIT12 = {
   id: "fr-u12",
   lang: "fr",
@@ -42,7 +44,7 @@ export const FR_UNIT12 = {
         { id: "fr-u12l2-jamais", type: "vocab", front: "jamais", reading: "jamais", meaning: "never", example: { jp: "Je ne travaille jamais le dimanche.", en: "I never work on Sunday." }, accept: ["ever"], hint: "Pairs with ne, like ne…pas: je ne travaille jamais." },
         { id: "fr-u12l2-tot", type: "vocab", front: "tôt", reading: "tot", meaning: "early", example: { jp: "Je travaille tôt le matin.", en: "I work early in the morning." }, accept: ["soon"] },
         { id: "fr-u12l2-tard", type: "vocab", front: "tard", reading: "tard", meaning: "late", example: { jp: "Il est tard ! Bonne nuit.", en: "It's late! Good night." }, accept: ["later"] },
-        { id: "fr-u12l2-dabord", type: "vocab", front: "d'abord", reading: "dabord", meaning: "first", example: { jp: "D'abord le café, ensuite le travail !", en: "First the coffee, then the work!" }, accept: ["first of all", "at first"] },
+        { id: "fr-u12l2-dabord", type: "vocab", front: "d'abord", reading: "dabord", meaning: "first", example: { jp: "D'abord le café, ensuite l'école !", en: "First the coffee, then school!" }, accept: ["first of all", "at first"] },
         { id: "fr-u12l2-ensuite", type: "vocab", front: "ensuite", reading: "ensuite", meaning: "then", example: { jp: "Je mange, ensuite je pars.", en: "I eat, then I leave." }, accept: ["next", "after that"] },
       ],
     },
@@ -55,7 +57,7 @@ export const FR_UNIT12 = {
       dominantMode: "recall",
       canDo: "Walk through a day: je me lève, je me couche, je commence, je finis, je pars, j'arrive, je rentre.",
       items: [
-        { id: "fr-u12l3-jemeleve", type: "vocab", front: "je me lève", reading: "jemeleve", meaning: "I get up", example: { jp: "Je me lève tôt le matin.", en: "I get up early in the morning." }, accept: ["i wake up", "i rise"], hint: "The \"me\" is the reflexive — literally \"I lift myself\". Unit 24 does the rest of them." },
+        { id: "fr-u12l3-jemeleve", type: "vocab", front: "je me lève", reading: "jemeleve", meaning: "I get up", example: { jp: "Je me lève tôt le matin.", en: "I get up early in the morning." }, accept: ["i wake up", "i rise"], hint: "The \"me\" points back at you — literally \"I lift myself\". Learn it as one chunk; the full pattern comes later." },
         { id: "fr-u12l3-jemecouche", type: "vocab", front: "je me couche", reading: "jemecouche", meaning: "I go to bed", example: { jp: "Je me couche tard, à minuit.", en: "I go to bed late, at midnight." }, accept: ["i lie down"] },
         { id: "fr-u12l3-jecommence", type: "vocab", front: "je commence", reading: "jecommence", meaning: "I start", example: { jp: "Je commence à neuf heures.", en: "I start at nine o'clock." }, accept: ["i begin", "i'm starting"] },
         { id: "fr-u12l3-jefinis", type: "vocab", front: "je finis", reading: "jefinis", meaning: "I finish", example: { jp: "Je finis tard le vendredi.", en: "I finish late on Friday." }, accept: ["i end", "i'm finishing"] },

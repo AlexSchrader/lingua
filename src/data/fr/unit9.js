@@ -25,7 +25,7 @@ export const FR_UNIT9 = {
         { id: "fr-u9l1-ila", type: "vocab", front: "il a", reading: "ila", meaning: "he has", example: { jp: "Il a une petite maison.", en: "He has a small house." }, accept: ["he's got"] },
         { id: "fr-u9l1-ellea", type: "vocab", front: "elle a", reading: "ellea", meaning: "she has", example: { jp: "Elle a douze ans.", en: "She is twelve years old." }, accept: ["she's got"], hint: "Age uses avoir, not être: elle a douze ans = \"she HAS twelve years\"." },
         { id: "fr-u9l1-faim", type: "vocab", front: "faim", reading: "faim", meaning: "hunger", example: { jp: "J'ai faim !", en: "I'm hungry!" }, accept: ["hungry"], hint: "French HAS hunger: j'ai faim = I'm hungry. Never je suis faim." },
-        { id: "fr-u9l1-soif", type: "vocab", front: "soif", reading: "soif", meaning: "thirst", example: { jp: "Tu as soif ? Il y a de l'eau.", en: "Are you thirsty? There's water." }, accept: ["thirsty"] },
+        { id: "fr-u9l1-soif", type: "vocab", front: "soif", reading: "soif", meaning: "thirst", example: { jp: "Tu as soif ? Voilà l'eau !", en: "Are you thirsty? Here's the water!" }, accept: ["thirsty"] },
       ],
     },
     {

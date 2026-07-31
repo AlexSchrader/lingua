@@ -36,7 +36,7 @@ export const FR_UNIT18 = {
       canDo: "Name produce: le fruit, le légume, la tomate, la carotte, la salade, la banane, l'orange.",
       items: [
         { id: "fr-u18l2-lefruit", type: "vocab", front: "le fruit", reading: "lefruit", meaning: "fruit", example: { jp: "J'aime beaucoup les fruits.", en: "I really like fruit." }, accept: ["the fruit"] },
-        { id: "fr-u18l2-lelegume", type: "vocab", front: "le légume", reading: "lelegume", meaning: "vegetable", example: { jp: "Je mange des légumes tous les jours.", en: "I eat vegetables every day." }, accept: ["the vegetable", "veg"], hint: "tous les jours = every day." },
+        { id: "fr-u18l2-lelegume", type: "vocab", front: "le légume", reading: "lelegume", meaning: "vegetable", example: { jp: "J'aime beaucoup les légumes.", en: "I really like vegetables." }, accept: ["the vegetable", "veg"] },
         { id: "fr-u18l2-latomate", type: "vocab", front: "la tomate", reading: "latomate", meaning: "tomato", example: { jp: "La tomate est rouge.", en: "The tomato is red." }, accept: ["the tomato"] },
         { id: "fr-u18l2-lacarotte", type: "vocab", front: "la carotte", reading: "lacarotte", meaning: "carrot", example: { jp: "Un kilo de carottes, s'il vous plaît.", en: "A kilo of carrots, please." }, accept: ["the carrot"] },
         { id: "fr-u18l2-lasalade", type: "vocab", front: "la salade", reading: "lasalade", meaning: "salad", example: { jp: "Je mange une salade à midi.", en: "I eat a salad at noon." }, accept: ["the salad", "lettuce"] },
@@ -53,7 +53,7 @@ export const FR_UNIT18 = {
       dominantMode: "recall",
       canDo: "Get through a shop: j'achète, je cherche, je trouve, la liste, le client, tous les jours.",
       items: [
-        { id: "fr-u18l3-jachete", type: "vocab", front: "j'achète", reading: "jachete", meaning: "I buy", example: { jp: "J'achète du pain à la boulangerie.", en: "I buy bread at the bakery." }, accept: ["i'm buying", "i purchase"] },
+        { id: "fr-u18l3-jachete", type: "vocab", front: "j'achète", reading: "jachete", meaning: "I buy", example: { jp: "J'achète le pain à la boulangerie.", en: "I buy the bread at the bakery." }, accept: ["i'm buying", "i purchase"] },
         { id: "fr-u18l3-jecherche", type: "vocab", front: "je cherche", reading: "jecherche", meaning: "I'm looking for", example: { jp: "Je cherche le supermarché.", en: "I'm looking for the supermarket." }, accept: ["i look for", "i search", "i seek"], hint: "No \"for\" needed — je cherche la gare, I'm looking for the station." },
         { id: "fr-u18l3-jetrouve", type: "vocab", front: "je trouve", reading: "jetrouve", meaning: "I find", example: { jp: "Je ne trouve pas mes clés !", en: "I can't find my keys!" }, accept: ["i'm finding", "i think"], hint: "Also \"I think\" for opinions: je trouve ça joli — I find that pretty." },
         { id: "fr-u18l3-laliste", type: "vocab", front: "la liste", reading: "laliste", meaning: "list", example: { jp: "Ma liste est dans le sac.", en: "My list is in the bag." }, accept: ["the list"] },
