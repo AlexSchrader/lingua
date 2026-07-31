@@ -18,8 +18,8 @@ export const FR_UNIT10 = {
       dominantMode: "recall",
       canDo: "Manage the conversation: le français, l'anglais — lentement, encore, bien sûr, je ne sais pas.",
       items: [
-        { id: "fr-u10l1-lefrancais", type: "vocab", front: "le français", reading: "lefrancais", meaning: "French", example: { jp: "Je parle un peu le français.", en: "I speak a little French." }, accept: ["french", "the french language"], hint: "The language is lowercase: le français. Capital-F Français is a French person." },
-        { id: "fr-u10l1-langlais", type: "vocab", front: "l'anglais", reading: "langlais", meaning: "English", example: { jp: "Tu parles l'anglais, non ?", en: "You speak English, right?" }, accept: ["english", "the english language"] },
+        { id: "fr-u10l1-lefrancais", type: "vocab", front: "le français", reading: "lefrancais", meaning: "French", example: { jp: "Je parle un peu français.", en: "I speak a little French." }, accept: ["french", "the french language"], hint: "The language is lowercase: le français. Capital-F Français is a French person." },
+        { id: "fr-u10l1-langlais", type: "vocab", front: "l'anglais", reading: "langlais", meaning: "English", example: { jp: "Tu parles anglais, non ?", en: "You speak English, right?" }, accept: ["english", "the english language"] },
         { id: "fr-u10l1-lentement", type: "vocab", front: "lentement", reading: "lentement", meaning: "slowly", example: { jp: "Lentement, s'il vous plaît !", en: "Slowly, please!" }, accept: ["slow"] },
         { id: "fr-u10l1-encore", type: "vocab", front: "encore", reading: "encore", meaning: "again", example: { jp: "Encore, s'il vous plaît — lentement !", en: "Again, please — slowly!" }, accept: ["more", "once more", "still"] },
         { id: "fr-u10l1-biensur", type: "vocab", front: "bien sûr", reading: "biensur", meaning: "of course", example: { jp: "Bien sûr, madame !", en: "Of course, ma'am!" }, accept: ["sure", "certainly"] },

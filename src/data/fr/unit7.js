@@ -17,7 +17,7 @@ export const FR_UNIT7 = {
       dominantMode: "recall",
       canDo: "Name the days: lundi, mardi, mercredi, jeudi, vendredi, samedi.",
       items: [
-        { id: "fr-u7l1-lundi", type: "vocab", front: "lundi", reading: "lundi", meaning: "Monday", example: { jp: "Lundi, je vais à l'école.", en: "On Monday I go to school." }, accept: ["monday"], hint: "Days aren't capitalized in French — and no \"on\": Lundi, je vais… says \"on Monday\" by itself." },
+        { id: "fr-u7l1-lundi", type: "vocab", front: "lundi", reading: "lundi", meaning: "Monday", example: { jp: "Lundi, je vais à l'école.", en: "On Monday I'm going to school." }, accept: ["monday"], hint: "Days aren't capitalized in French — and no \"on\": Lundi, je vais… says \"on Monday\" by itself." },
         { id: "fr-u7l1-mardi", type: "vocab", front: "mardi", reading: "mardi", meaning: "Tuesday", example: { jp: "Mardi, je vais à la gare.", en: "On Tuesday I go to the station." }, accept: ["tuesday"] },
         { id: "fr-u7l1-mercredi", type: "vocab", front: "mercredi", reading: "mercredi", meaning: "Wednesday", example: { jp: "Mercredi, je mange avec Marie.", en: "On Wednesday I eat with Marie." }, accept: ["wednesday"] },
         { id: "fr-u7l1-jeudi", type: "vocab", front: "jeudi", reading: "jeudi", meaning: "Thursday", example: { jp: "Jeudi, je vais au parc.", en: "On Thursday I go to the park." }, accept: ["thursday"] },

@@ -10,6 +10,11 @@
 //     (café, pizza, taxi, Paris); the en gloss always carries the meaning.
 //   - Nouns are taught WITH their article (le/la/l'/les) so gender is learned
 //     as part of the word, never as an afterthought.
+//   - DELIBERATE A1 SIMPLIFICATIONS (known tradeoffs, revisit at A2):
+//     (a) the partitive (du/de la) is out of scope — examples use the definite
+//     article ("Je mange le pain") under the specific-item reading; (b) a few
+//     high-frequency function words (au, ce, ans, peut-être) may appear in an
+//     example glossed by a hint at first use, before any formal teaching.
 // lang/unit/lesson are stamped in index.js.
 export const FR_UNIT1 = {
   id: "fr-u1",
@@ -28,7 +33,7 @@ export const FR_UNIT1 = {
       canDo: "Greet people and part ways: bonjour, salut, bonsoir, au revoir — plus oui, non and merci.",
       items: [
         { id: "fr-u1l1-bonjour", type: "vocab", front: "bonjour", reading: "bonjour", meaning: "hello", example: { jp: "Bonjour, Marie !", en: "Hello, Marie!" }, accept: ["good morning", "good day", "hi"], hint: "Literally \"good day\" — the all-purpose daytime hello." },
-        { id: "fr-u1l1-salut", type: "vocab", front: "salut", reading: "salut", meaning: "hi", example: { jp: "Salut, Paul ! Ça va ?", en: "Hi, Paul! How's it going?" }, accept: ["hey", "hi there", "bye"], hint: "Casual — friends only. It works for both \"hi\" and \"bye\"." },
+        { id: "fr-u1l1-salut", type: "vocab", front: "salut", reading: "salut", meaning: "hi", example: { jp: "Salut, Paul !", en: "Hi, Paul!" }, accept: ["hey", "hi there", "bye"], hint: "Casual — friends only. It works for both \"hi\" and \"bye\"." },
         { id: "fr-u1l1-bonsoir", type: "vocab", front: "bonsoir", reading: "bonsoir", meaning: "good evening", example: { jp: "Bonsoir, Marie.", en: "Good evening, Marie." }, accept: ["evening", "good evening!"] },
         { id: "fr-u1l1-aurevoir", type: "vocab", front: "au revoir", reading: "aurevoir", meaning: "goodbye", example: { jp: "Au revoir, Paul !", en: "Goodbye, Paul!" }, accept: ["bye", "see you"] },
         { id: "fr-u1l1-merci", type: "vocab", front: "merci", reading: "merci", meaning: "thank you", example: { jp: "Merci, Marie !", en: "Thank you, Marie!" }, accept: ["thanks"] },
@@ -45,7 +50,7 @@ export const FR_UNIT1 = {
       dominantMode: "recall",
       canDo: "Ask politely and apologize: s'il vous plaît, pardon, excusez-moi — and address monsieur / madame.",
       items: [
-        { id: "fr-u1l2-silvousplait", type: "vocab", front: "s'il vous plaît", reading: "silvousplait", meaning: "please", example: { jp: "Un café, s'il vous plaît.", en: "A coffee, please." }, accept: ["please (polite)", "if you please"], hint: "Literally \"if it pleases you\" — the polite please. Typing silvousplait works; accents and apostrophes are optional." },
+        { id: "fr-u1l2-silvousplait", type: "vocab", front: "s'il vous plaît", reading: "silvousplait", meaning: "please", example: { jp: "Oui, s'il vous plaît !", en: "Yes, please!" }, accept: ["please (polite)", "if you please"], hint: "Literally \"if it pleases you\" — the polite please. Typing silvousplait works; accents and apostrophes are optional." },
         { id: "fr-u1l2-pardon", type: "vocab", front: "pardon", reading: "pardon", meaning: "sorry", example: { jp: "Pardon, madame !", en: "Sorry, ma'am!" }, accept: ["excuse me", "pardon me", "pardon"] },
         { id: "fr-u1l2-excusezmoi", type: "vocab", front: "excusez-moi", reading: "excusezmoi", meaning: "excuse me", example: { jp: "Excusez-moi, monsieur !", en: "Excuse me, sir!" }, accept: ["sorry", "excuse me (polite)"] },
         { id: "fr-u1l2-monsieur", type: "vocab", front: "monsieur", reading: "monsieur", meaning: "sir", example: { jp: "Bonjour, monsieur.", en: "Hello, sir." }, accept: ["mister", "mr", "gentleman"] },
@@ -68,6 +73,7 @@ export const FR_UNIT1 = {
         { id: "fr-u1l3-et", type: "vocab", front: "et", reading: "et", meaning: "and", example: { jp: "Paul et Marie.", en: "Paul and Marie." }, accept: [] },
         { id: "fr-u1l3-aussi", type: "vocab", front: "aussi", reading: "aussi", meaning: "also", example: { jp: "Moi aussi !", en: "Me too!" }, accept: ["too", "as well"] },
         { id: "fr-u1l3-moi", type: "vocab", front: "moi", reading: "moi", meaning: "me", example: { jp: "Et moi ? Moi aussi !", en: "And me? Me too!" }, accept: ["i", "myself"] },
+        { id: "fr-u1l3-toi", type: "vocab", front: "toi", reading: "toi", meaning: "you", example: { jp: "Ça va bien, merci — et toi ?", en: "I'm fine, thanks — and you?" }, accept: ["you (casual)"], hint: "The stand-alone you, partner of moi: et toi ? = and you? (The you inside sentences, tu, comes as chunks in Unit 2.)" },
       ],
     },
   ],

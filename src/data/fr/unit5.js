@@ -21,7 +21,7 @@ export const FR_UNIT5 = {
         { id: "fr-u5l1-lecafe", type: "vocab", front: "le café", reading: "lecafe", meaning: "coffee", example: { jp: "Le café est très bon !", en: "The coffee is very good!" }, accept: ["the coffee", "cafe", "café"], hint: "Also the place you drink it — un café is both the cup and the corner café." },
         { id: "fr-u5l1-lethe", type: "vocab", front: "le thé", reading: "lethe", meaning: "tea", example: { jp: "Un thé, s'il vous plaît.", en: "A tea, please." }, accept: ["the tea"] },
         { id: "fr-u5l1-leau", type: "vocab", front: "l'eau", reading: "leau", meaning: "water", example: { jp: "L'eau, s'il vous plaît !", en: "Water, please!" }, accept: ["the water"], hint: "Four letters, one sound: \"oh\". French spelling at its boldest." },
-        { id: "fr-u5l1-lelait", type: "vocab", front: "le lait", reading: "lelait", meaning: "milk", example: { jp: "Un café avec le lait ? Non — un café au lait !", en: "A coffee with milk? No — a café au lait!" }, accept: ["the milk"] },
+        { id: "fr-u5l1-lelait", type: "vocab", front: "le lait", reading: "lelait", meaning: "milk", example: { jp: "Le lait, s'il vous plaît !", en: "The milk, please!" }, accept: ["the milk"] },
         { id: "fr-u5l1-bon", type: "vocab", front: "bon", reading: "bon", meaning: "good (masculine)", example: { jp: "Le thé est bon.", en: "The tea is good." }, accept: ["good", "tasty"] },
         { id: "fr-u5l1-bonne", type: "vocab", front: "bonne", reading: "bonne", meaning: "good (feminine)", example: { jp: "L'eau est bonne !", en: "The water is good!" }, accept: ["good", "tasty"], hint: "Adjectives agree with the noun: le café est bon, la pizza est bonne." },
       ],
@@ -35,7 +35,7 @@ export const FR_UNIT5 = {
       dominantMode: "recall",
       canDo: "Say what you eat: je mange le pain, le fromage, la pomme — le croissant, la baguette.",
       items: [
-        { id: "fr-u5l2-jemange", type: "vocab", front: "je mange", reading: "jemange", meaning: "I eat", example: { jp: "Je mange avec Marie.", en: "I'm eating with Marie." }, accept: ["i'm eating", "i am eating"], hint: "French has ONE present tense: je mange = I eat AND I'm eating." },
+        { id: "fr-u5l2-jemange", type: "vocab", front: "je mange", reading: "jemange", meaning: "I eat", example: { jp: "Je mange un croissant.", en: "I'm eating a croissant." }, accept: ["i'm eating", "i am eating"], hint: "French has ONE present tense: je mange = I eat AND I'm eating." },
         { id: "fr-u5l2-lepain", type: "vocab", front: "le pain", reading: "lepain", meaning: "bread", example: { jp: "Je mange le pain.", en: "I'm eating the bread." }, accept: ["the bread"] },
         { id: "fr-u5l2-lefromage", type: "vocab", front: "le fromage", reading: "lefromage", meaning: "cheese", example: { jp: "Le fromage est très bon !", en: "The cheese is very good!" }, accept: ["the cheese"] },
         { id: "fr-u5l2-lapomme", type: "vocab", front: "la pomme", reading: "lapomme", meaning: "apple", example: { jp: "Je mange la pomme.", en: "I'm eating the apple." }, accept: ["the apple"] },
@@ -52,7 +52,7 @@ export const FR_UNIT5 = {
       dominantMode: "recall",
       canDo: "Say what you like and order politely: j'aime, je voudrais — je bois le jus, le vin, avec, sans.",
       items: [
-        { id: "fr-u5l3-jebois", type: "vocab", front: "je bois", reading: "jebois", meaning: "I drink", example: { jp: "Je bois un café le matin.", en: "I drink a coffee in the morning." }, accept: ["i'm drinking", "i am drinking"] },
+        { id: "fr-u5l3-jebois", type: "vocab", front: "je bois", reading: "jebois", meaning: "I drink", example: { jp: "Je bois un café avec Paul.", en: "I'm having a coffee with Paul." }, accept: ["i'm drinking", "i am drinking"] },
         { id: "fr-u5l3-jaime", type: "vocab", front: "j'aime", reading: "jaime", meaning: "I like", example: { jp: "J'aime le fromage !", en: "I like cheese!" }, accept: ["i love", "i like it"], hint: "For things, j'aime = I like. Said to a person, it means I love — aim carefully." },
         { id: "fr-u5l3-jevoudrais", type: "vocab", front: "je voudrais", reading: "jevoudrais", meaning: "I would like", example: { jp: "Je voudrais un thé, s'il vous plaît.", en: "I would like a tea, please." }, accept: ["i'd like", "i want (polite)"], hint: "The magic ordering phrase — polite want. Je voudrais… + anything on the menu." },
         { id: "fr-u5l3-avec", type: "vocab", front: "avec", reading: "avec", meaning: "with", example: { jp: "Le pain avec le fromage, c'est très bon.", en: "Bread with cheese is very good." }, accept: [] },

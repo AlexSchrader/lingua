@@ -38,9 +38,9 @@ export const FR_UNIT3 = {
       items: [
         { id: "fr-u3l2-lhomme", type: "vocab", front: "l'homme", reading: "lhomme", meaning: "man", example: { jp: "L'homme est là.", en: "The man is there." }, accept: ["the man"], hint: "le squishes to l' before a vowel sound: l'homme, l'amie, l'école. The h in homme is silent." },
         { id: "fr-u3l2-lafemme", type: "vocab", front: "la femme", reading: "lafemme", meaning: "woman", example: { jp: "La femme est ici.", en: "The woman is here." }, accept: ["the woman", "wife"], hint: "Pronounced \"fam\", not \"fem\" — and it also means wife." },
-        { id: "fr-u3l2-legarcon", type: "vocab", front: "le garçon", reading: "legarcon", meaning: "boy", example: { jp: "Le garçon est petit.", en: "The boy is small." }, accept: ["the boy"] },
-        { id: "fr-u3l2-lafille", type: "vocab", front: "la fille", reading: "lafille", meaning: "girl", example: { jp: "La fille est grande.", en: "The girl is tall." }, accept: ["the girl", "daughter"], hint: "Also \"daughter\" — la fille de Marie is Marie's daughter." },
-        { id: "fr-u3l2-lenfant", type: "vocab", front: "l'enfant", reading: "lenfant", meaning: "child", example: { jp: "L'enfant est avec la mère.", en: "The child is with the mother." }, accept: ["the child", "kid"] },
+        { id: "fr-u3l2-legarcon", type: "vocab", front: "le garçon", reading: "legarcon", meaning: "boy", example: { jp: "Le garçon est ici.", en: "The boy is here." }, accept: ["the boy"] },
+        { id: "fr-u3l2-lafille", type: "vocab", front: "la fille", reading: "lafille", meaning: "girl", example: { jp: "La fille est là.", en: "The girl is there." }, accept: ["the girl", "daughter"], hint: "Also \"daughter\" — la fille de Marie is Marie's daughter." },
+        { id: "fr-u3l2-lenfant", type: "vocab", front: "l'enfant", reading: "lenfant", meaning: "child", example: { jp: "Voilà l'enfant de Marie !", en: "There's Marie's child!" }, accept: ["the child", "kid"] },
         { id: "fr-u3l2-lami", type: "vocab", front: "l'ami", reading: "lami", meaning: "friend (male)", example: { jp: "Paul est l'ami de Marie.", en: "Paul is Marie's friend." }, accept: ["friend", "the friend"] },
         { id: "fr-u3l2-lamie", type: "vocab", front: "l'amie", reading: "lamie", meaning: "friend (female)", example: { jp: "Marie est l'amie de Paul.", en: "Marie is Paul's friend." }, accept: ["friend", "the friend"], hint: "Same sound as l'ami — the extra e only shows in writing." },
       ],
