@@ -21,7 +21,7 @@ export const UNIT125 = {
       id: "ja-u125l2", unit: 125, lesson: 2, title: "N3 vocab 7·2", cefr: "B1", dominantMode: "recall",
       canDo: "Use six N3 words: 食卓 (dining table), 食品 (foodstuff), 植物 (plant), 食物 (food), 食欲 (appetite), 食料 (food).",
       items: [
-        { id: "ja-u125l2-shokutaku", type: "vocab", front: "食卓", reading: "shokutaku", meaning: "dining table", example: { jp: "食卓にごはんをならべます。", en: "I set out the food on the dining table." }, accept: [] },
+        { id: "ja-u125l2-shokutaku", type: "vocab", front: "食卓", reading: "shokutaku", meaning: "dining table", example: { jp: "食卓にごはんをならべます。", en: "I set out the food on the dining table." }, accept: ["table","dinner table"] },
         { id: "ja-u125l2-shokuhin", type: "vocab", front: "食品", reading: "shokuhin", meaning: "foodstuff", example: { jp: "このみせは食品がやすいです。", en: "This shop's foodstuffs are cheap." }, accept: [] },
         { id: "ja-u125l2-shokubutsu", type: "vocab", front: "植物", reading: "shokubutsu", meaning: "plant", example: { jp: "にわにいろいろな植物があります。", en: "There are various plants in the garden." }, accept: ["vegetation"] },
         { id: "ja-u125l2-shokumotsu", type: "vocab", front: "食物", reading: "shokumotsu", meaning: "food", example: { jp: "からだにいい食物をたべます。", en: "I eat food that is good for the body." }, accept: ["foodstuff"] },

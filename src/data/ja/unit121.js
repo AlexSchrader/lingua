@@ -47,7 +47,7 @@ export const UNIT121 = {
       items: [
         { id: "ja-u121l4-shibafu", type: "vocab", front: "芝生", reading: "shibafu", meaning: "lawn", example: { jp: "こうえんの芝生でおべんとうをたべました。", en: "We ate lunch on the park lawn." }, accept: ["grass"] },
         { id: "ja-u121l4-shiharai", type: "vocab", front: "支払", reading: "shiharai", meaning: "payment", example: { jp: "支払はカードでできます。", en: "Payment can be made by card." }, accept: [] },
-        { id: "ja-u121l4-shiharau", type: "vocab", front: "支払う", reading: "shiharau", meaning: "to pay", example: { jp: "レストランでおかねを支払いました。", en: "I paid the money at the restaurant." }, accept: [] },
+        { id: "ja-u121l4-shiharau", type: "vocab", front: "支払う", reading: "shiharau", meaning: "to pay", example: { jp: "レストランでおかねを支払いました。", en: "I paid the money at the restaurant." }, accept: ["pay","pay for"] },
         { id: "ja-u121l4-shibo", type: "vocab", front: "死亡", reading: "shibō", meaning: "death", example: { jp: "じこで一人が死亡しました。", en: "One person died in the accident." }, accept: ["fatality"] },
         { id: "ja-u121l4-shihon", type: "vocab", front: "資本", reading: "shihon", meaning: "capital", example: { jp: "あたらしい会社には資本がひつようです。", en: "A new company needs capital." }, accept: ["funds"] },
         { id: "ja-u121l4-shimai", type: "vocab", front: "姉妹", reading: "shimai", meaning: "sisters", example: { jp: "わたしには姉妹が二人います。", en: "I have two sisters." }, accept: [] },

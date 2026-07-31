@@ -38,9 +38,15 @@ for (const u of scaffold) {
     if (!Array.isArray(it.accept)) problems.push(`${it.id}: accept not array`);
     if (!it.example?.jp || !it.example?.en) { problems.push(`${it.id}: incomplete example`); continue; }
     if (/[ 　]/.test(it.example.jp)) problems.push(`${it.id}: example has a space → ${it.example.jp}`);
-    // the word should appear — accept either the kanji front or its kana reading form
-    if (!it.example.jp.includes(it.front) && !it.example.jp.includes(want.kana))
-      problems.push(`${it.id}: example lacks the word "${it.front}" (or kana ${want.kana}) → ${it.example.jp}`);
+    // the word should appear — but verbs/adjectives conjugate, so match the STEM:
+    // the front's leading kanji run (揚げる→揚), else the kana reading minus its last
+    // 1–2 mora (いけない→いけ). A whole-front or whole-kana match also counts.
+    const kanjiStem = (it.front.match(/^[一-鿿]+/) || [""])[0];
+    const kanaStem = want.kana.length > 2 ? want.kana.slice(0, -1) : want.kana;
+    const jp = it.example.jp;
+    const found = jp.includes(it.front) || jp.includes(want.kana) ||
+      (kanjiStem && jp.includes(kanjiStem)) || jp.includes(kanaStem);
+    if (!found) problems.push(`${it.id}: example lacks the word "${it.front}" (kana ${want.kana}) → ${jp}`);
     const dup = allExamples.get(it.example.jp);
     if (dup) problems.push(`${it.id}: duplicate example (also ${dup}) → ${it.example.jp}`);
     else allExamples.set(it.example.jp, it.id);

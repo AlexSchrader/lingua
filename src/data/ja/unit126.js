@@ -12,7 +12,7 @@ export const UNIT126 = {
         { id: "ja-u126l1-shiriai", type: "vocab", front: "知合い", reading: "shiriai", meaning: "acquaintance", example: { jp: "かれはわたしの知合いです。", en: "He is my acquaintance." }, accept: [] },
         { id: "ja-u126l1-shirushi", type: "vocab", front: "印", reading: "shirushi", meaning: "mark", example: { jp: "だいじなところに印をつけます。", en: "I put a mark on the important part." }, accept: ["symbol", "evidence"] },
         { id: "ja-u126l1-shiro", type: "vocab", front: "城", reading: "shiro", meaning: "castle", example: { jp: "きのうふるい城を見ました。", en: "Yesterday I saw an old castle." }, accept: [] },
-        { id: "ja-u126l1-shingaku", type: "vocab", front: "進学", reading: "shingaku", meaning: "going on to university", example: { jp: "らいねん大学に進学します。", en: "Next year I will go on to university." }, accept: [] },
+        { id: "ja-u126l1-shingaku", type: "vocab", front: "進学", reading: "shingaku", meaning: "going on to university", example: { jp: "らいねん大学に進学します。", en: "Next year I will go on to university." }, accept: ["advance to higher education","enter school"] },
         { id: "ja-u126l1-shinkei", type: "vocab", front: "神経", reading: "shinkei", meaning: "nerve", example: { jp: "むずかしいしごとで神経をつかいます。", en: "I strain my nerves on difficult work." }, accept: ["sensitivity"] },
         { id: "ja-u126l1-shinken", type: "vocab", front: "真剣", reading: "shinken", meaning: "serious", example: { jp: "かれは真剣なかおをしています。", en: "He has a serious face." }, accept: ["earnest"] },
       ],
@@ -33,12 +33,12 @@ export const UNIT126 = {
       id: "ja-u126l3", unit: 126, lesson: 3, title: "N3 vocab 8·3", cefr: "B1", dominantMode: "recall",
       canDo: "Use six N3 words: 信じる (to believe), 人生 (life), 親戚 (relatives), 新鮮 (fresh), 心臓 (heart), 身体 (the body).",
       items: [
-        { id: "ja-u126l3-shinjiru", type: "vocab", front: "信じる", reading: "shinjiru", meaning: "to believe", example: { jp: "わたしはあなたを信じています。", en: "I believe in you." }, accept: [] },
+        { id: "ja-u126l3-shinjiru", type: "vocab", front: "信じる", reading: "shinjiru", meaning: "to believe", example: { jp: "わたしはあなたを信じています。", en: "I believe in you." }, accept: ["believe","trust"] },
         { id: "ja-u126l3-jinsei", type: "vocab", front: "人生", reading: "jinsei", meaning: "life", example: { jp: "人生はみじかいです。", en: "Life is short." }, accept: [] },
         { id: "ja-u126l3-shinseki", type: "vocab", front: "親戚", reading: "shinseki", meaning: "relatives", example: { jp: "おしょうがつに親戚があつまります。", en: "Relatives gather at New Year." }, accept: [] },
         { id: "ja-u126l3-shinsen", type: "vocab", front: "新鮮", reading: "shinsen", meaning: "fresh", example: { jp: "この魚はとても新鮮です。", en: "This fish is very fresh." }, accept: [] },
         { id: "ja-u126l3-shinzo", type: "vocab", front: "心臓", reading: "shinzō", meaning: "heart", example: { jp: "はしったので心臓がいたいです。", en: "I ran, so my heart hurts." }, accept: [] },
-        { id: "ja-u126l3-shintai", type: "vocab", front: "身体", reading: "shintai", meaning: "the body", example: { jp: "まいにち身体をうごかします。", en: "I move my body every day." }, accept: [] },
+        { id: "ja-u126l3-shintai", type: "vocab", front: "身体", reading: "shintai", meaning: "the body", example: { jp: "まいにち身体をうごかします。", en: "I move my body every day." }, accept: ["body"] },
       ],
     },
     {

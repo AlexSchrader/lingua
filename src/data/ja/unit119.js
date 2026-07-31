@@ -50,7 +50,7 @@ export const UNIT119 = {
         { id: "ja-u119l4-shikaku", type: "vocab", front: "四角", reading: "shikaku", meaning: "square", example: { jp: "しろい四角をかみにかきました。", en: "I drew a white square on the paper." }, accept: ["rectangle"], hint: "四角 (しかく) = a square shape; 四角い = square (adjective)." },
         { id: "ja-u119l4-jikani", type: "vocab", front: "直に", reading: "jikani", meaning: "immediately", example: { jp: "なまえをよんだら、直にきてください。", en: "When I call your name, please come at once." }, accept: ["directly", "readily"], hint: "直に (じかに) = immediately / directly." },
         { id: "ja-u119l4-shikamo", type: "vocab", front: "しかも", reading: "shikamo", meaning: "moreover", example: { jp: "このみせはやすくて、しかもおいしいです。", en: "This shop is cheap and, what's more, tasty." }, accept: ["furthermore", "besides"], hint: "しかも = moreover / on top of that — adds a further point." },
-        { id: "ja-u119l4-shiki", type: "vocab", front: "四季", reading: "shiki", meaning: "four seasons", example: { jp: "にほんには四季があります。", en: "Japan has four seasons." }, accept: [] },
+        { id: "ja-u119l4-shiki", type: "vocab", front: "四季", reading: "shiki", meaning: "four seasons", example: { jp: "にほんには四季があります。", en: "Japan has four seasons." }, accept: ["seasons","the four seasons"] },
       ],
     },
   ],

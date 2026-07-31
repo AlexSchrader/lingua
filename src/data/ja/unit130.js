@@ -9,7 +9,7 @@ export const UNIT130 = {
       canDo: "Use six N3 words: 合図 (signal), 愛する (to love), 相手 (partner), あいにく (unfortunately), 遭う (to encounter), 明かり (light).",
       items: [
         { id: "ja-u130l1-aizu", type: "vocab", front: "合図", reading: "aizu", meaning: "signal", example: { jp: "先生が合図をしました。", en: "The teacher gave a signal." }, accept: ["sign"] },
-        { id: "ja-u130l1-aisuru", type: "vocab", front: "愛する", reading: "aisuru", meaning: "to love", example: { jp: "家族をとても愛しています。", en: "I love my family very much." }, accept: [] },
+        { id: "ja-u130l1-aisuru", type: "vocab", front: "愛する", reading: "aisuru", meaning: "to love", example: { jp: "家族をとても愛しています。", en: "I love my family very much." }, accept: ["love"] },
         { id: "ja-u130l1-aite", type: "vocab", front: "相手", reading: "aite", meaning: "partner", example: { jp: "テニスの相手がいません。", en: "I have no tennis partner." }, accept: ["opponent", "the other person"] },
         { id: "ja-u130l1-ainiku", type: "vocab", front: "あいにく", reading: "ainiku", meaning: "unfortunately", example: { jp: "あいにく今日はいそがしいです。", en: "Unfortunately I'm busy today." }, accept: ["regrettably"] },
         { id: "ja-u130l1-au", type: "vocab", front: "遭う", reading: "au", meaning: "to encounter", example: { jp: "きのう事故に遭いました。", en: "I was in an accident yesterday." }, accept: ["to meet with"], hint: "遭う = to meet with something bad, as in 事故に遭う." },
@@ -46,7 +46,7 @@ export const UNIT130 = {
       items: [
         { id: "ja-u130l4-ataeru", type: "vocab", front: "与える", reading: "ataeru", meaning: "to give", example: { jp: "先生は学生にしゅくだいを与えます。", en: "The teacher gives homework to the students." }, accept: ["to grant"] },
         { id: "ja-u130l4-atatakai", type: "vocab", front: "温かい", reading: "atatakai", meaning: "warm", example: { jp: "温かいスープをのみます。", en: "I drink warm soup." }, accept: [], hint: "温かい for things/food/feelings; 暖かい for weather." },
-        { id: "ja-u130l4-atatamaru", type: "vocab", front: "暖まる", reading: "atatamaru", meaning: "to warm up", example: { jp: "へやがだんだん暖まりました。", en: "The room gradually warmed up." }, accept: [], hint: "暖 = warmth of the air or a room." },
+        { id: "ja-u130l4-atatamaru", type: "vocab", front: "暖まる", reading: "atatamaru", meaning: "to warm up", example: { jp: "へやがだんだん暖まりました。", en: "The room gradually warmed up." }, accept: ["warm up","get warm"], hint: "暖 = warmth of the air or a room." },
         { id: "ja-u130l4-atatamaru2", type: "vocab", front: "温まる", reading: "atatamaru", meaning: "to warm oneself", example: { jp: "おふろで体が温まりました。", en: "My body warmed up in the bath." }, accept: ["to get warm"], hint: "温 = warmth of the body or water." },
         { id: "ja-u130l4-atatameru", type: "vocab", front: "暖める", reading: "atatameru", meaning: "to warm up", example: { jp: "ストーブでへやを暖めます。", en: "I warm the room with the heater." }, accept: ["to heat"], hint: "暖める = to warm a room or the air." },
         { id: "ja-u130l4-atatameru2", type: "vocab", front: "温める", reading: "atatameru", meaning: "to heat", example: { jp: "ひるごはんを温めます。", en: "I heat up my lunch." }, accept: ["to warm"], hint: "温める = to warm food or water." },

@@ -32,7 +32,7 @@ export const UNIT133 = {
       id: "ja-u133l3", unit: 133, lesson: 3, title: "N3 vocab 15·3", cefr: "B1", dominantMode: "recall",
       canDo: "Use six N3 words: 一度に (all at once), 市場 (market), 一家 (family), 一種 (a kind), 一瞬 (a moment), 一生 (a lifetime).",
       items: [
-        { id: "ja-u133l3-ichidoni", type: "vocab", front: "一度に", reading: "ichidoni", meaning: "all at once", example: { jp: "たくさんのしごとを一度にしました。", en: "I did a lot of work all at once." }, accept: [] },
+        { id: "ja-u133l3-ichidoni", type: "vocab", front: "一度に", reading: "ichidoni", meaning: "all at once", example: { jp: "たくさんのしごとを一度にしました。", en: "I did a lot of work all at once." }, accept: ["at once","all together"] },
         { id: "ja-u133l3-ichiba", type: "vocab", front: "市場", reading: "ichiba", meaning: "market", example: { jp: "あさ、市場でさかなをかいました。", en: "In the morning, I bought fish at the market." }, accept: ["bazaar"] },
         { id: "ja-u133l3-ikka", type: "vocab", front: "一家", reading: "ikka", meaning: "family", example: { jp: "となりの一家はみんなげんきです。", en: "The family next door are all healthy." }, accept: ["clan"] },
         { id: "ja-u133l3-isshu", type: "vocab", front: "一種", reading: "isshu", meaning: "a kind", example: { jp: "これは一種のおちゃです。", en: "This is a kind of tea." }, accept: ["a species", "a variety"] },
@@ -48,7 +48,7 @@ export const UNIT133 = {
         { id: "ja-u133l4-ittai", type: "vocab", front: "一体", reading: "ittai", meaning: "what on earth", example: { jp: "一体だれがきたのですか。", en: "Who on earth came?" }, accept: ["body", "one object"] },
         { id: "ja-u133l4-itchi", type: "vocab", front: "一致", reading: "itchi", meaning: "agreement", example: { jp: "みんなのいけんが一致しました。", en: "Everyone's opinions came into agreement." }, accept: ["conformity"] },
         { id: "ja-u133l4-itsudemo", type: "vocab", front: "いつでも", reading: "itsudemo", meaning: "any time", example: { jp: "いつでもあそびにきてください。", en: "Come over any time." }, accept: ["always"] },
-        { id: "ja-u133l4-itsunomanika", type: "vocab", front: "いつのまにか", reading: "itsunomanika", meaning: "before you know it", example: { jp: "いつのまにかそらがくらくなりました。", en: "Before I knew it, the sky got dark." }, accept: [] },
+        { id: "ja-u133l4-itsunomanika", type: "vocab", front: "いつのまにか", reading: "itsunomanika", meaning: "before you know it", example: { jp: "いつのまにかそらがくらくなりました。", en: "Before I knew it, the sky got dark." }, accept: ["before you know it","without noticing"] },
         { id: "ja-u133l4-ippan", type: "vocab", front: "一般", reading: "ippan", meaning: "general", example: { jp: "これは一般のひとがつかうものです。", en: "This is a thing ordinary people use." }, accept: ["average", "ordinary"] },
       ],
     },

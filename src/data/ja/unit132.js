@@ -7,7 +7,7 @@ export const UNIT132 = {
       items: [
         { id: "ja-u132l1-aruiha", type: "vocab", front: "あるいは", reading: "aruiha", meaning: "or", example: { jp: "バスあるいはでんしゃでいきます。", en: "I will go by bus or train." }, accept: ["perhaps"] },
         { id: "ja-u132l1-awa", type: "vocab", front: "泡", reading: "awa", meaning: "bubble", example: { jp: "せっけんの泡がたくさんできました。", en: "Lots of soap bubbles formed." }, accept: ["foam"] },
-        { id: "ja-u132l1-awaseru", type: "vocab", front: "合わせる", reading: "awaseru", meaning: "to combine", example: { jp: "二人でちからを合わせます。", en: "The two of them combine their strength." }, accept: [] },
+        { id: "ja-u132l1-awaseru", type: "vocab", front: "合わせる", reading: "awaseru", meaning: "to combine", example: { jp: "二人でちからを合わせます。", en: "The two of them combine their strength." }, accept: ["combine","put together"] },
         { id: "ja-u132l1-awateru", type: "vocab", front: "慌てる", reading: "awateru", meaning: "to panic", example: { jp: "じかんがなくて慌てました。", en: "I panicked because there was no time." }, accept: ["to become confused"] },
         { id: "ja-u132l1-aware", type: "vocab", front: "哀れ", reading: "aware", meaning: "pitiful", example: { jp: "その小さな犬は哀れです。", en: "That small dog is pitiful." }, accept: ["pity", "pathetic"] },
         { id: "ja-u132l1-an", type: "vocab", front: "案", reading: "an", meaning: "plan", example: { jp: "あたらしい案をかんがえます。", en: "I will think of a new plan." }, accept: ["scheme", "proposal"] },
@@ -29,7 +29,7 @@ export const UNIT132 = {
       id: "ja-u132l3", unit: 132, lesson: 3, title: "N3 vocab 14·3", cefr: "B1", dominantMode: "recall",
       canDo: "Use six N3 words: 委員 (committee member), 意外 (unexpected), 行き (going), 勢い (force), 生き物 (living thing), いけない (must not).",
       items: [
-        { id: "ja-u132l3-iin", type: "vocab", front: "委員", reading: "iin", meaning: "committee member", example: { jp: "かのじょはクラスの委員です。", en: "She is the class committee member." }, accept: [] },
+        { id: "ja-u132l3-iin", type: "vocab", front: "委員", reading: "iin", meaning: "committee member", example: { jp: "かのじょはクラスの委員です。", en: "She is the class committee member." }, accept: ["committee","member"] },
         { id: "ja-u132l3-igai", type: "vocab", front: "意外", reading: "igai", meaning: "unexpected", example: { jp: "意外なはなしをききました。", en: "I heard an unexpected story." }, accept: ["surprising"] },
         { id: "ja-u132l3-iki", type: "vocab", front: "行き", reading: "iki", meaning: "going", example: { jp: "とうきょう行きのでんしゃにのります。", en: "I board the train bound for Tokyo." }, accept: [], hint: "…行き = bound for … (a destination)." },
         { id: "ja-u132l3-ikioi", type: "vocab", front: "勢い", reading: "ikioi", meaning: "force", example: { jp: "かわの水は勢いがつよいです。", en: "The river water has strong force." }, accept: ["vigor", "momentum"] },
