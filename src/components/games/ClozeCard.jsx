@@ -3,7 +3,7 @@ import { C, F } from "../../theme.js";
 import { buildOptions } from "../../store/distractors.js";
 import { deriveGrade } from "../../store/grading.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
-import { blankExample, blankParticle, particleChoices } from "../../store/cardRouting.js";
+import { blankExample, blankParticle, particleChoices, usesFunctionWords } from "../../store/cardRouting.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 
 // Cloze (rung RECALLED, in context): a token is blanked out of the item's own
@@ -43,11 +43,20 @@ export default function ClozeCard({ item, allItems, onGraded, particle = false }
   const answered = picked !== null;
   const grade = answered ? deriveGrade({ kind: "mc", correct: options[picked].correct }) : null;
   const blanked = particle ? blankParticle(item) : blankExample(item);
+  // "Particle" is a Japanese-grammar word; the Latin-script languages drill the
+  // same slot with articles/prepositions, so the prompt says "little word" there.
+  const funcWords = usesFunctionWords(item);
+  // The JP font only applies to Japanese text — French renders in the body face.
+  const tokenFont = (item.lang ?? "ja") === "ja" ? F.jp : F.body;
 
   return (
     <div data-testid="cloze-card" data-card-kind={particle ? "particle:choice" : "cloze:choice"} style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>
       <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
-        {particle ? "Which particle completes the sentence?" : "Which word completes the sentence?"}
+        {particle
+          ? funcWords
+            ? "Which little word completes the sentence?"
+            : "Which particle completes the sentence?"
+          : "Which word completes the sentence?"}
       </div>
 
       <div
@@ -64,7 +73,7 @@ export default function ClozeCard({ item, allItems, onGraded, particle = false }
         }}
       >
         <div style={{ fontSize: 14, color: C.inkSoft }}>{item.example?.en}</div>
-        <div style={{ fontFamily: F.jp, fontSize: 28, fontWeight: 500, lineHeight: 1.5 }}>{blanked}</div>
+        <div style={{ fontFamily: tokenFont, fontSize: 28, fontWeight: 500, lineHeight: 1.5 }}>{blanked}</div>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
@@ -96,7 +105,7 @@ export default function ClozeCard({ item, allItems, onGraded, particle = false }
                 color,
                 fontSize: 18,
                 fontWeight: 600,
-                fontFamily: F.jp,
+                fontFamily: tokenFont,
                 cursor: answered ? "default" : "pointer",
                 minHeight: 56,
               }}

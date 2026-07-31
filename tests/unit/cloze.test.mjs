@@ -88,3 +88,74 @@ test("sentenceTiles = ordered answer + exactly one distractor particle", () => {
   assert.equal(extra.length, 1);
   assert.ok("はがをにへでともの".includes(extra[0]) && extra[0] !== "を"); // a particle, not the correct one
 });
+
+// --- Latin-script (French) in-context cards ---------------------------------
+// Same three cards as ja, different script shape: space-delimited and
+// sentence-capitalized. These lock the behavior that made them route at all.
+
+const bonjour = {
+  id: "fr-u1l1-bonjour", type: "vocab", front: "bonjour", lang: "fr",
+  example: { jp: "Bonjour, Marie !", en: "Hello, Marie!" },
+};
+const lepere = {
+  id: "fr-u3l1-lepere", type: "vocab", front: "le père", lang: "fr",
+  example: { jp: "C'est le père de Marie.", en: "That's Marie's father." },
+};
+const jevais = {
+  id: "fr-u6l2-jevais", type: "vocab", front: "je vais", lang: "fr",
+  example: { jp: "Je vais à la gare", en: "I'm going to the station" },
+};
+
+test("fr cloze: the front matches its own sentence-initial capital", () => {
+  // The bug this guards: `includes("bonjour")` misses "Bonjour, Marie !".
+  assert.equal(canCloze(bonjour), true);
+  assert.equal(blankExample(bonjour), `${CLOZE_BLANK}, Marie !`);
+  // Whole-word only — "un" must not blank inside "aujourd'hui".
+  const un = { id: "fr-x", type: "vocab", front: "un", lang: "fr", example: { jp: "Aujourd'hui, ça va", en: "" } };
+  assert.equal(canCloze(un), false);
+});
+
+test("fr particle cloze: blanks the article/preposition after the word, options are French", () => {
+  assert.equal(canParticleCloze(lepere), true);
+  assert.equal(particleAfterFront(lepere).particle, "de");
+  assert.equal(blankParticle(lepere), `C'est le père ${CLOZE_BLANK} Marie.`);
+  const opts = particleChoices(lepere, 4);
+  assert.equal(opts.length, 4);
+  assert.equal(opts.filter((o) => o.correct).length, 1);
+  assert.equal(opts.find((o) => o.correct).text, "de");
+  // No Japanese particles may ever appear on a French card.
+  for (const o of opts) assert.ok(!/[぀-ヿ]/u.test(o.text), `ja particle leaked: ${o.text}`);
+});
+
+test("fr sentence build: splits on spaces, no punctuation-only tiles, skips multi-turn", () => {
+  assert.equal(canSentence(jevais), true);
+  assert.deepEqual(sentenceTokens(jevais), ["Je", "vais", "à", "la", "gare"]);
+  const spec = sentenceTiles(jevais);
+  assert.equal(spec.tiles.length, spec.answer.length + 1, "one distractor tile");
+  // Every answer token is available among the tiles, and assembling them in order
+  // reproduces the sentence — the exact comparison SentenceCard grades on.
+  const pool = [...spec.tiles];
+  for (const tok of spec.answer) {
+    const i = pool.indexOf(tok);
+    assert.ok(i >= 0, `answer token "${tok}" is missing from the tiles`);
+    pool.splice(i, 1);
+  }
+  assert.equal(pool.length, 1, "exactly one tile is left over: the distractor");
+  assert.ok(!spec.answer.includes(pool[0]), `distractor "${pool[0]}" must not be a correct token`);
+  assert.equal(spec.answer.join(""), sentenceTokens(jevais).join(""));
+  // A two-turn exchange is not one buildable sentence.
+  const derien = { id: "fr-d", type: "vocab", front: "de rien", lang: "fr", example: { jp: "Merci ! — De rien.", en: "" } };
+  assert.equal(canSentence(derien), false);
+  // Too short to be a puzzle.
+  const short = { id: "fr-s", type: "vocab", front: "salut", lang: "fr", example: { jp: "Salut Paul", en: "" } };
+  assert.equal(sentenceTokens(short), null);
+});
+
+test("ja in-context cards are unchanged by the Latin path", () => {
+  // Regression guard: the ja branch must not pick up word-boundary/case rules.
+  assert.equal(canCloze(tamago), true);
+  assert.equal(blankExample(tamago), `${CLOZE_BLANK}をたべます。`);
+  const kasa = { id: "ja-k", type: "vocab", front: "かさ", example: { jp: "かさをかいます。", en: "" } };
+  assert.equal(particleAfterFront(kasa).particle, "を");
+  for (const o of particleChoices(kasa, 4)) assert.ok(/[぀-ヿ]/u.test(o.text), "ja options stay kana");
+});
