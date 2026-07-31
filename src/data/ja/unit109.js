@@ -40,7 +40,7 @@ export const UNIT109 = {
         { id: "ja-u109l2-jo5", type: "kanji", front: "助", reading: "jo", meaning: "help", example: { jp: "ともだちを助けます。", en: "I help my friend." }, accept: ["rescue","assist"], hint: "助ける（たすける）= to help. じょしゅ 助手 = assistant." },
         { id: "ja-u109l2-ro", type: "kanji", front: "労", reading: "rō", meaning: "labor", example: { jp: "こうじょうで労働しています。", en: "I do labor at a factory." }, accept: ["toil","effort"], hint: "ろうどう 労働 = labor. くろう 苦労 = hardship." },
         { id: "ja-u109l2-rei", type: "kanji", front: "例", reading: "rei", meaning: "example", example: { jp: "この例はわかりやすいです。", en: "This example is easy to understand." }, accept: ["instance","case"], hint: "例（れい）= example. たとえば = for example." },
-        { id: "ja-u109l2-zen2", type: "kanji", front: "然", reading: "zen", meaning: "-ly", example: { jp: "ぜん然だいじょうぶです。", en: "It's totally fine." }, accept: ["so","in that case"], hint: "ぜんぜん 全然 = (not) at all. しぜん 自然 = nature." },
+        { id: "ja-u109l2-zen2", type: "kanji", front: "然", reading: "zen", meaning: "-ly", example: { jp: "全然だいじょうぶです。", en: "It's totally fine." }, accept: ["so","in that case"], hint: "ぜんぜん 全然 = (not) at all. しぜん 自然 = nature." },
       ],
     },
     {
@@ -54,7 +54,7 @@ export const UNIT109 = {
       items: [
         { id: "ja-u109l3-gen3", type: "kanji", front: "限", reading: "gen", meaning: "limit", example: { jp: "じかんに限りがあります。", en: "There is a time limit." }, accept: ["restrict","bound"], hint: "限る（かぎる）= to limit. せいげん 制限 = restriction." },
         { id: "ja-u109l3-tsui", type: "kanji", front: "追", reading: "tsui", meaning: "chase", example: { jp: "いぬがねこを追います。", en: "The dog chases the cat." }, accept: ["pursue","follow"], hint: "追う（おう）= to chase. ついか 追加 = addition." },
-        { id: "ja-u109l3-sho5", type: "kanji", front: "商", reading: "shō", meaning: "commerce", example: { jp: "ちちは商ばいをしています。", en: "My father runs a business." }, accept: ["trade","deal"], hint: "しょうばい 商売 = business. しょうひん 商品 = goods." },
+        { id: "ja-u109l3-sho5", type: "kanji", front: "商", reading: "shō", meaning: "commerce", example: { jp: "ちちは商売をしています。", en: "My father runs a business." }, accept: ["trade","deal"], hint: "しょうばい 商売 = business. しょうひん 商品 = goods." },
         { id: "ja-u109l3-yo5", type: "kanji", front: "葉", reading: "yō", meaning: "leaf", example: { jp: "きの葉が落ちます。", en: "The leaves fall from the tree." }, accept: ["foliage"], hint: "は = leaf. ことば 言葉 = word/language." },
         { id: "ja-u109l3-den", type: "kanji", front: "伝", reading: "den", meaning: "convey", example: { jp: "ともだちに伝えます。", en: "I'll tell my friend." }, accept: ["transmit","communicate"], hint: "伝える（つたえる）= to convey. でんごん 伝言 = message." },
         { id: "ja-u109l3-do", type: "kanji", front: "働", reading: "dō", meaning: "work", example: { jp: "まいにちかいしゃで働きます。", en: "I work at the company every day." }, accept: ["labor"], hint: "働く（はたらく）= to work. ろうどう 労働 = labor." },
@@ -70,7 +70,7 @@ export const UNIT109 = {
       canDo: "Read six N3 kanji: 形 (shape), 景 (scenery), 落 (fall), 好 (fond), 退 (retreat), 頭 (head).",
       items: [
         { id: "ja-u109l4-kei4", type: "kanji", front: "形", reading: "kei", meaning: "shape", example: { jp: "この形はまるいです。", en: "This shape is round." }, accept: ["form"], hint: "かたち = shape. にんぎょう 人形 = doll." },
-        { id: "ja-u109l4-kei5", type: "kanji", front: "景", reading: "kei", meaning: "scenery", example: { jp: "このふう景はきれいです。", en: "This scenery is beautiful." }, accept: ["view","landscape"], hint: "ふうけい 風景 = scenery. けしき 景色 = view." },
+        { id: "ja-u109l4-kei5", type: "kanji", front: "景", reading: "kei", meaning: "scenery", example: { jp: "この風景はきれいです。", en: "This scenery is beautiful." }, accept: ["view","landscape"], hint: "ふうけい 風景 = scenery. けしき 景色 = view." },
         { id: "ja-u109l4-raku", type: "kanji", front: "落", reading: "raku", meaning: "fall", example: { jp: "コップが落ちました。", en: "The cup fell." }, accept: ["drop","come down"], hint: "落ちる（おちる）= to fall. らっか 落下 = a drop." },
         { id: "ja-u109l4-ko4", type: "kanji", front: "好", reading: "kō", meaning: "fond", example: { jp: "わたしはあきが好きです。", en: "I like autumn." }, accept: ["like","pleasing"], hint: "好き（すき）= to like. こうぶつ 好物 = favorite food." },
         { id: "ja-u109l4-tai2", type: "kanji", front: "退", reading: "tai", meaning: "retreat", example: { jp: "きぶんがわるくて早退します。", en: "I feel sick, so I leave early." }, accept: ["withdraw","retire"], hint: "たいいん 退院 = leaving hospital. そうたい 早退 = leaving early." },
