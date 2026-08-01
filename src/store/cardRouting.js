@@ -164,9 +164,19 @@ const CORE_PARTICLES = ["は", "が", "を", "に", "へ", "で", "と", "も", 
 // as ja particles, and well-posed for the SAME reason: the card shows example.en,
 // so the gloss fixes which one is meant ("a coffee WITHOUT milk" → sans, not avec;
 // "there's A restaurant" → un, not le). Kept to words the curriculum teaches.
+// PREPOSITIONS ONLY — articles are deliberately excluded, and that's a
+// correctness fix, not a simplification. The card blanks the word AFTER the item
+// and grades the ITEM. A preposition there is governed by the item ("je vais À
+// Paris", "il vient DE Paris") — drilling it is exactly right. An ARTICLE there
+// belongs to the FOLLOWING NOUN, so "je mange ＿ croissant" made whether the verb
+// advances depend on knowing croissant's gender — mis-attributed SRS credit across
+// 15 items. Articles were also the whole source of the gloss-ambiguity problem:
+// "je travaille ＿ matin" / "I work in the morning" wants `le`, while the English
+// "in" points straight at the `à`/`au` options. Gender and article choice deserve
+// their own card, not this one.
 const FUNCTION_WORDS = {
-  fr: ["le", "la", "les", "un", "une", "de", "à", "au", "et", "avec", "sans"],
-  es: ["el", "la", "los", "las", "un", "una", "de", "a", "y", "con", "sin"],
+  fr: ["de", "à", "au", "et", "avec", "sans", "pour", "dans", "sur", "en"],
+  es: ["de", "a", "y", "con", "sin", "en", "para", "por"],
 };
 
 // The closed option-set for this item's language (ja → particles).

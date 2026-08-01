@@ -22,7 +22,11 @@ anti-burnout design, built with neurodivergent learners in mind.
 
 ## Known issues
 
-- **GitHub account suspended** — pushes, PRs, and CI are blocked, which also halts the normal `main` → Vercel deploy. Units 11–21 (including PR #46, Unit 13) are authored, validated, and green locally but can't land on `main` until access returns. The current production build was shipped directly via the Vercel CLI, so **production is ahead of `main`**; once GitHub resumes, the local work must be pushed and reconciled into `main` *before* any git-triggered deploy, or production would roll back.
+- **French is A1-core, not A1-complete.** 27 units / 566 items covering greetings through the passé composé, plus a sounds-and-accents unit that runs first. Real gaps remain against a DELF A1 syllabus: object pronouns, the imperative, `il faut` / `je dois`, comparatives, and the alphabet. The in-app milestone currently reads "French A1 complete" — that label is under review.
+- **French has no audio yet.** `public/audio/fr/` is empty, so the two listening cards don't route for French and teach cards are silent. Run `npm run generate:audio` then `npm run generate:manifest` to light them up.
+- **Mathieu (the French tutor) is wired but untested against the live API.** The ConvAI agent id and voice are configured; the endpoint has only been exercised with a stubbed fetch.
+
+*(Resolved: the June GitHub suspension is over and `main` is the production source of truth again — no CLI-deploy divergence.)*
 
 Full running list and detail: **`BUILD-CHECKLIST.md`** — readers shouldn't have to infer hidden problems.
 
