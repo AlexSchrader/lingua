@@ -2,7 +2,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // These units are NOT in `UNITS` (src/data/index.js), so they are NOT seeded, NOT
 // on the Ladder, and invisible to the live app. This module is imported ONLY by the
-// Dev-Mode A2 preview (see BUILD-BRIEF-a2-devmode-preview.md) so Alex can feel A2
+// Dev-Mode A2 preview (design brief removed as complete) so Alex can feel A2
 // cards in the throwaway sandbox before A2 is activated. When A1 is native-reviewed
 // and A2 is greenlit, the activation step is: import these in index.js and append
 // them to UNITS — then delete this file.

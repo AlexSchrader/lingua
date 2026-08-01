@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Award } from "lucide-react";
+import { Award, ChevronRight } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS, isLive } from "../data/index.js";
 import { RUNGS } from "../store/mastery.js";
@@ -46,6 +46,14 @@ export default function Stats() {
   const activeLang = LANGUAGES.find((l) => languages[l.id]?.unlocked)?.id ?? LANGUAGES[0].id;
   const [masteryLang, setMasteryLang] = useState(activeLang);
 
+  // Collapsed-panel summary for the Languages section: the active language + level
+  // when there's just one live language, else a live-count.
+  const activeLangDef = LANGUAGES.find((l) => l.id === activeLang) ?? liveLangs[0] ?? LANGUAGES[0];
+  const activeLevel = languages[activeLang]?.level ?? "pre-A1";
+  const langSummary = liveLangs.length > 1
+    ? `${liveLangs.length} active`
+    : `${activeLangDef.flag} ${activeLangDef.name} · ${activeLevel === "pre-A1" ? "Starting out" : activeLevel}`;
+
   const masteryItems = masteryLang === "all" ? itemList : itemList.filter((it) => it.lang === masteryLang);
   const rungCounts = RUNGS.map((_, r) => masteryItems.filter((it) => (it.rung ?? 0) === r).length);
   const learned = masteryItems.filter((it) => (it.rung ?? 0) >= 1).length;
@@ -64,7 +72,7 @@ export default function Stats() {
 
       {/* Per-language, per-stage progress — live languages only; planned ones
           collapse into a single expander instead of fake "coming soon" rows. */}
-      <Section title="Languages">
+      <Section title="Languages" collapsible defaultOpen summary={langSummary}>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {liveLangs.map((l) => {
             const lang = languages[l.id] ?? { ...l, level: "pre-A1", unlocked: l.unlocked };
@@ -246,11 +254,29 @@ function Tile({ value, label }) {
   );
 }
 
-function Section({ title, children }) {
+function Section({ title, summary, collapsible = false, defaultOpen = true, children }) {
+  const [open, setOpen] = useState(defaultOpen);
+  const box = { background: C.surface, border: `1px solid ${C.line}`, borderRadius: 18, padding: 16 };
+  if (!collapsible) {
+    return (
+      <div style={box}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: C.inkSoft, marginBottom: 12 }}>{title}</div>
+        {children}
+      </div>
+    );
+  }
   return (
-    <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 18, padding: 16 }}>
-      <div style={{ fontSize: 13, fontWeight: 700, color: C.inkSoft, marginBottom: 12 }}>{title}</div>
-      {children}
+    <div style={box}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, background: "none", border: "none", padding: 0, cursor: "pointer", textAlign: "left", fontFamily: F.body }}
+      >
+        <ChevronRight size={16} color={C.inkSoft} style={{ flexShrink: 0, transform: open ? "rotate(90deg)" : "none", transition: "transform 150ms" }} />
+        <span style={{ fontSize: 13, fontWeight: 700, color: C.inkSoft }}>{title}</span>
+        {summary && <span style={{ marginLeft: "auto", fontSize: 11, fontWeight: 600, color: C.inkSoft, whiteSpace: "nowrap" }}>{summary}</span>}
+      </button>
+      {open && <div style={{ marginTop: 14 }}>{children}</div>}
     </div>
   );
 }
