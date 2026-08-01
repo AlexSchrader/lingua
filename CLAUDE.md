@@ -4,6 +4,21 @@ Standing context for Claude Code (CC) on this repo. Read this first, every sessi
 
 ---
 
+## Agent Fleet — how work gets verified (read with Roles)
+
+Lingua uses a **right-sized verification fleet** — the full corporate structure adapted to this project's real lanes. Full spec: **`AGENT-FLEET.md`**; the runnable reviewers live in **`.claude/agents/*.md`**. The one rule: **nothing reaches Alex unverified** — every deliverable passes its **domain gate**, then the **Truth Layer**, then Alex.
+
+- **Alex = CEO** (final decision + the merge). **Main session = COO / lead / specialist** — does or routes the work, and **never self-approves**. **Gates + Truth Layer = subagents** — the mandatory pass-through.
+- **5 gated departments** (the old lanes, mapped): feature → `code-auditor` · curriculum → `content-auditor` · design/UX → `usability-auditor` · data/learning-science → `stats-auditor` · qa → `accuracy-auditor`. ("Idea" is now ideation done by the COO/specialist; marketing/sales/finance/legal/people/ops/support are out of scope for this project — not staffed.)
+- **Truth Layer:** `fact-checker` (verifies claims — every number/citation traced to the repo; unsourced = BLOCK), `truth-agent` (attacks the reasoning; tags claims CERTAIN/LIKELY/GUESS), `meta-auditor` (audits the gates ~1-in-5 — catches rubber-stamping & over-blocking).
+- **Gate contract:** `PASS` / `PASS-WITH-FLAGS` (ship, but list each unverified item) / `BLOCK` (specific, named, reproducible). Gates **BLOCK, never rewrite**; a gate never softens its verdict or approves its own department. **FACT errors → fact-checker, REASONING errors → truth-agent — never merge the roles.** **Max 2 revision loops**, then it goes up as an *unresolved conflict*, never an infinite loop.
+- **Cost discipline:** gates cost ~2–3× tokens — **gate the irreversible / user-facing work** (schema, persist, FSRS/mastery/`LEARN_OPTS`, new card kinds, shipped UI/content), and use light review for trivial reversible edits. Don't run the full fleet on a one-line copy fix.
+- **When the main session finishes a deliverable:** run the matching **gate** agent, then **`fact-checker` + `truth-agent`**, and hand Alex the **Truth-Layer output** (VERDICT / CONFIDENCE / VERIFIED / UNVERIFIED / STEELMAN / BLIND SPOT / DISSENT) alongside the draft PR.
+
+The lane detail below still governs *how the work itself is done*; the Fleet governs *how it's verified before Alex sees it.*
+
+---
+
 ## Roles — read this first
 
 **CC owns the work; Alex supervises.** The work splits into four CC lanes so parallel sessions don't collide. **Stay in your lane** — if a task needs another lane's files, say so and hand it off rather than reaching across.
@@ -33,7 +48,7 @@ Standing context for Claude Code (CC) on this repo. Read this first, every sessi
   - **Grammar has no item type** — model it as function-word / suffix vocab (は・です・を・ました・くないです…) whose example sentences carry the pattern.
   - **Kanji** need KanjiVG stroke data (add the glyph to `scripts/fetch-kanjivg.mjs`); **yōon are exempt** (2-glyph, taught by reading, never traced).
   - **Prefer additive edits** (new item ids) so existing progress isn't reset. Any id-changing move (renumber, consolidate) wipes that item's mastery — flag it and time it for pre-users.
-  - Run the **full gate** (`lint:curriculum` → `validate:content` → `test:unit` → `audit` → `build`) and **self-merge on all-green** (curriculum *only*; see exception). Queue naturalness-heavy content (grammar, examples) for the **batched native review** — the one thing no lint can check.
+  - Run the **full gate** (`lint:curriculum` → `validate:content` → `test:unit` → `audit` → `build`) and **self-merge on all-green** (curriculum *only*; see exception). For the naturalness no lint can check (grammar, examples), run the **LLM naturalness review** — the `content-auditor` gate / native-speaker-proxy agents — and let **Alex playtest in Dev Mode**. A *human* native-speaker review is a nice-to-have if one is ever available, **not a blocker** (Alex has no native reviewer; 2026-07-12). "Slightly awkward but comprehensible" is a survivable v1 failure mode — flag the genuine errors, don't gate on perfection.
   - **Stay out of app/engine/schema files.** Spotted a UI/engine improvement? Log it as a `[ ]` feature item for the Feature CC — hand off, don't reach across.
 - **QA CC** — runs the full local gate (`validate:content` → `lint:curriculum` → `test:unit` → `audit` → `build`) plus real-app/manual checks; hunts bugs, regressions, content defects, ND-friction, architecture drift; hands Alex a **prioritized findings list** in `BUILD-CHECKLIST.md` → "QA findings". **QA writes findings, not fixes** — it may fix only an outright bug or a small-unambiguous defect (the "spot-a-bug" exception below), and files everything else as a `[ ]` item routed to the Feature or Curriculum lane.
 - **Idea CC** — the ideation lane: **generates the pipeline of feature/UX/learning-science ideas the Feature CC builds from.** Where Feature CC surfaces improvements *in-flight*, Idea CC's whole job is the deeper, unhurried work: scanning the learning-science + ND-UX space, studying what the app does today, and turning that into concrete, ranked, ready-to-build proposals. Brainstorm against the mission (deep understanding over memorization, mechanics over dopamine, ND-first, anti-burnout) — reject gamification/streak/XP/social. **Pitch concretely** (friction + why + one concrete change + lane + impact-per-effort rank) in `BUILD-CHECKLIST.md` → "Idea CC — feature pitches"; expand greenlit ideas into a full `BUILD-BRIEF-*.md`. **Read the repo before pitching** (ground every idea in real file refs). **Builds nothing** — writes only pitches + briefs; a pitch becomes work when a lane picks it up and Alex greenlights it. Route/tag the lane on every pitch.
@@ -42,7 +57,7 @@ Default to thoroughness and self-sufficiency. Don't ask permission for routine w
 
 **Open draft PRs only — never mark ready, never merge.** The merge gate is always Alex's, after CI is green AND a personal feel-check.
 
-**Exception — autonomous curriculum authoring (Alex enabled 2026-06-28, `BUILD-BRIEF-curriculum-lint.md` Part 3):** Curriculum CC may author AND **self-merge curriculum content units** without per-unit approval, once `lint:curriculum` + `validate:content` + unit tests + Playwright smoke + build are all green. Native-speaker review is batched (per sub-section), not per unit; Claude spot-review is on-request only. Alex playtests merged units in Dev Mode. **Scope limit: curriculum content only.** Schema/contract/engine changes still go through draft PRs and stay Alex's call (unless he explicitly directs otherwise for a specific change).
+**Exception — autonomous curriculum authoring (Alex enabled 2026-06-28, `BUILD-BRIEF-curriculum-lint.md` Part 3):** Curriculum CC may author AND **self-merge curriculum content units** without per-unit approval, once `lint:curriculum` + `validate:content` + unit tests + Playwright smoke + build are all green. The naturalness gate is an **LLM naturalness review** (native-speaker-proxy agents / the `content-auditor` gate) plus **Alex's Dev-Mode playtest**; a *human* native review is optional if ever available, not required (2026-07-12). Claude spot-review is on-request. **Scope limit: curriculum content only.** Schema/contract/engine changes still go through draft PRs and stay Alex's call (unless he explicitly directs otherwise for a specific change).
 
 **Docs map — where each thing lives (and who owns it):**
 

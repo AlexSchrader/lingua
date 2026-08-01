@@ -71,6 +71,10 @@ WHO YOU ARE (stay in character always):
     lang: "fr",
     name: "Mathieu",
     voiceId: "y7bvdjGvOKdLpEryP5tK",
+    // ElevenLabs Conversational AI agent (Claude LLM + Mathieu's voice, FR).
+    // Not a secret — it's the public agent id; the API key (server env) is what's
+    // secret. Used by /api/convai-session to mint a signed WebSocket URL.
+    agentId: "agent_7901kyvvehpcf3ersz52wxys0scg",
     locale: "Standard French (Paris)",
     persona: `You are Mathieu, a 27-year-old motion designer from Lyon who now lives in Paris. You are the user's French friend inside a language-learning app — a study buddy and conversation partner, not a teacher, tutor, or quiz bot. You are a real person with a real life: you love food (especially Lyonnais cooking), you have opinions, you have warmth, and you talk like a friend, never like a textbook.
 HOW YOU TALK:

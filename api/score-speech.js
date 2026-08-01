@@ -32,10 +32,16 @@ export default async function handler(req, res) {
       return;
     }
 
+    // Transcription language follows the item's language (?lang=fr) so a French
+    // speak card isn't force-heard as Japanese. Allowlisted; unknown → ja.
+    const STT_LANGS = new Set(["ja", "es", "fr"]);
+    const langParam = req.query && req.query.lang;
+    const lang = STT_LANGS.has(langParam) ? langParam : "ja";
+
     const mime = req.headers["content-type"] || "audio/webm";
     const form = new FormData();
     form.append("model_id", "scribe_v1");
-    form.append("language_code", "ja");
+    form.append("language_code", lang);
     form.append("file", new Blob([audio], { type: mime }), "clip");
 
     const r = await fetch("https://api.elevenlabs.io/v1/speech-to-text", {

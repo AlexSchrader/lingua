@@ -6,6 +6,7 @@ import Ladder from "./screens/Ladder.jsx";
 import Stats from "./screens/Stats.jsx";
 import Settings from "./screens/Settings.jsx";
 import DevPanel from "./screens/DevPanel.jsx";
+import Achievements from "./screens/Achievements.jsx";
 import Lesson from "./screens/Lesson.jsx";
 import Review from "./screens/Review.jsx";
 import Auth from "./screens/Auth.jsx";
@@ -14,6 +15,7 @@ import SetPassword from "./screens/SetPassword.jsx";
 import Mascot from "./components/Mascot.jsx";
 import MilestoneToast from "./components/MilestoneToast.jsx";
 import { useStore } from "./store/useStore.js";
+import { scheduleDailyReminder, notificationPermission } from "./lib/reminders.js";
 import { C, F, setActiveTheme, resolveTheme } from "./theme.js";
 
 // Lazy-loaded: the ElevenLabs voice SDK is heavy (~500KiB) and only needed on
@@ -54,6 +56,14 @@ function useSystemDark() {
 export default function App() {
   const auth = useStore((s) => s.auth);
   const onboarded = useStore((s) => s.profile?.onboarded);
+  const reminderTime = useStore((s) => s.profile?.reminderTime);
+
+  // Roll the daily reminder forward on each app open — the trigger is one-shot, so
+  // rescheduling here keeps a daily reminder alive as long as the app is opened
+  // periodically. No-op unless supported + permitted (see lib/reminders.js).
+  useEffect(() => {
+    if (reminderTime && notificationPermission() === "granted") scheduleDailyReminder(reminderTime);
+  }, [reminderTime]);
 
   // Theme: resolve the preference against the OS, set the active palette BEFORE
   // children render (so they read the right colours this pass), and sync the
@@ -101,6 +111,7 @@ export default function App() {
         <Route path="haruki" element={<Suspense fallback={null}><Haruki /></Suspense>} />
         <Route path="stats" element={<Stats />} />
         <Route path="settings" element={<Settings />} />
+        <Route path="achievements" element={<Achievements />} />
         <Route path="dev" element={<DevPanel />} />
       </Route>
       <Route path="review" element={<Review />} />
