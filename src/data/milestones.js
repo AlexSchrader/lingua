@@ -61,12 +61,24 @@ const countMastered = (items, defs) => defs.filter((d) => mastered(items, d.id))
 // per-milestone badge (public/milestones/<id>.png) — the celebration banner hides it
 // gracefully until the asset exists, so this convention is data-ready, not required.
 const badgeFor = (id) => `/milestones/${id}.png`;
-function threshold({ id, family, label, blurb, need, count }) {
-  return { id, family, label, blurb, image: badgeFor(id), progress: (items) => ({ have: count(items), need }) };
+// `lang` is the language a milestone belongs to, or null for the deliberately
+// cross-language ones (word counts — "100 words mastered" is an honest capability
+// whatever the language). It exists so the DISPLAY can be scoped: a French-only
+// learner should never be shown "You can read all of hiragana" or "You can read 50
+// kanji" greyed out forever. Awarding is never filtered — see the note on
+// milestonesForLangs.
+function threshold({ id, family, label, blurb, need, count, lang = null }) {
+  return { id, family, label, blurb, lang, image: badgeFor(id), progress: (items) => ({ have: count(items), need }) };
 }
-function completeAll({ id, family, label, blurb, defs }) {
-  return { id, family, label, blurb, image: badgeFor(id), progress: (items) => ({ have: countRead(items, defs), need: defs.length }) };
+function completeAll({ id, family, label, blurb, defs, lang = null }) {
+  return { id, family, label, blurb, lang, image: badgeFor(id), progress: (items) => ({ have: countRead(items, defs), need: defs.length }) };
 }
+
+// The single language a def list belongs to, or null if it spans several.
+const langOf = (defs) => {
+  const langs = new Set(defs.map((d) => d.lang));
+  return langs.size === 1 ? [...langs][0] : null;
+};
 
 // Build the catalog from the live curriculum. A function (not a bare const) so it
 // re-derives if UNITS ever changes under test; memoized for the common case.
@@ -83,16 +95,20 @@ export function milestoneCatalog() {
   const list = [];
 
   // --- Script: can you READ the writing system (recognition) ---
-  if (hira.length) list.push(completeAll({ id: "script-hiragana", family: "script", label: "You can read all of hiragana", blurb: "hiragana read", defs: hira }));
-  if (kata.length) list.push(completeAll({ id: "script-katakana", family: "script", label: "You can read all of katakana", blurb: "katakana read", defs: kata }));
-  if (yoon.length) list.push(completeAll({ id: "script-yoon", family: "script", label: "You've got the small combined kana (yōon)", blurb: "yōon read", defs: yoon }));
+  // Script and kanji milestones are inherently per-language — the filters above only
+  // ever match Japanese items today, and a Hangul or Cyrillic language would produce
+  // its own. Tagged from the defs rather than hardcoded "ja" so that stays true.
+  if (hira.length) list.push(completeAll({ id: "script-hiragana", family: "script", label: "You can read all of hiragana", blurb: "hiragana read", defs: hira, lang: langOf(hira) }));
+  if (kata.length) list.push(completeAll({ id: "script-katakana", family: "script", label: "You can read all of katakana", blurb: "katakana read", defs: kata, lang: langOf(kata) }));
+  if (yoon.length) list.push(completeAll({ id: "script-yoon", family: "script", label: "You've got the small combined kana (yōon)", blurb: "yōon read", defs: yoon, lang: langOf(yoon) }));
 
   // --- Kanji: read your first, then the whole live set ---
   if (kanji.length) {
-    list.push(threshold({ id: "kanji-first", family: "kanji", label: "You learned your first kanji", blurb: "kanji read", need: 1, count: (i) => countRead(i, kanji) }));
+    const kanjiLang = langOf(kanji);
+    list.push(threshold({ id: "kanji-first", family: "kanji", label: "You learned your first kanji", blurb: "kanji read", need: 1, count: (i) => countRead(i, kanji), lang: kanjiLang }));
     for (const n of [25, 50, 100, 150, 200]) if (kanji.length >= n)
-      list.push(threshold({ id: `kanji-${n}`, family: "kanji", label: `You can read ${n} kanji`, blurb: "kanji read", need: n, count: (i) => countRead(i, kanji) }));
-    list.push(completeAll({ id: "kanji-all", family: "kanji", label: "You can read every kanji so far", blurb: "kanji read", defs: kanji }));
+      list.push(threshold({ id: `kanji-${n}`, family: "kanji", label: `You can read ${n} kanji`, blurb: "kanji read", need: n, count: (i) => countRead(i, kanji), lang: kanjiLang }));
+    list.push(completeAll({ id: "kanji-all", family: "kanji", label: "You can read every kanji so far", blurb: "kanji read", defs: kanji, lang: kanjiLang }));
   }
 
   // --- Vocab breadth: words you can READ (recognition) — the earlier, faster wins ---
@@ -127,6 +143,7 @@ export function milestoneCatalog() {
             label: `${langName(lang)} ${band} complete`,
             blurb: `${band} items`,
             defs: bandDefs,
+            lang,
           })
         );
     }
@@ -134,6 +151,28 @@ export function milestoneCatalog() {
 
   _catalog = list;
   return list;
+}
+
+// The catalog scoped to the languages a learner has actually STARTED, plus every
+// cross-language milestone (`lang: null`). This is a DISPLAY filter only.
+//
+// Without it the Achievements screen listed the entire catalog, so a French-only
+// learner scrolled past "You can read all of hiragana", "You can read 200 kanji" and
+// "Japanese A2 complete" — permanently locked, for a language they never chose — and
+// the "X of Y unlocked" counter measured them against it. That reads as "this app is
+// really for someone else", which is exactly wrong now that more than one language
+// ships.
+//
+// Awarding (earnedMilestones) is deliberately NOT filtered: a milestone is earned
+// from the items you've actually done, and an earned id must never be revoked
+// because the display scope changed. Passing an empty/missing list means "no scoping"
+// — the whole catalog — so a caller that doesn't know the learner's languages
+// degrades to the old behaviour instead of silently showing nothing.
+export function milestonesForLangs(langs) {
+  const catalog = milestoneCatalog();
+  if (!Array.isArray(langs) || langs.length === 0) return catalog;
+  const set = new Set(langs);
+  return catalog.filter((m) => m.lang === null || set.has(m.lang));
 }
 
 // The set of milestone ids currently satisfied by the given items map. Pure.
@@ -150,9 +189,12 @@ export function earnedMilestones(items) {
 // screen ("3 more words to 100 mastered"). Among the unearned, pick the one CLOSEST
 // to completion by remaining count, so the suggested goal is always the nearest win.
 // Returns { id, label, blurb, have, need, remaining } or null when all are earned.
-export function nextMilestone(items) {
+// `langs` scopes the suggestion to what the learner is actually studying — otherwise
+// the gentle next goal offered to a French learner could be "1 more to your first
+// kanji", which they can never reach.
+export function nextMilestone(items, langs) {
   let best = null;
-  for (const m of milestoneCatalog()) {
+  for (const m of milestonesForLangs(langs)) {
     const { have, need } = m.progress(items);
     if (need <= 0 || have >= need) continue;
     const remaining = need - have;

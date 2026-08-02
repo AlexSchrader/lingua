@@ -832,6 +832,16 @@ function frenchState() {
   };
 }
 
+// A learner studying BOTH languages — the case the Achievements switcher exists for.
+function bilingualState() {
+  const st = frenchState();
+  st.state.profile = { ...st.state.profile, languages: ["ja", "fr"], activeLang: "fr" };
+  return st;
+}
+
+const seedBilingual = (page) =>
+  page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(bilingualState()));
+
 const seedFrench = (page) =>
   page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(frenchState()));
 
@@ -920,4 +930,72 @@ test("French: Dev Mode seeds the French deck, not the Japanese one", async ({ pa
   });
   expect(seeded.fr).toBeGreaterThanOrEqual(20);
   expect(seeded.ja, "seeding from the French panel must not touch the Japanese deck").toBe(0);
+});
+
+test("French: no Japanese-only surfaces — Settings toggles, Achievements, the flag", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await seedFrench(page);
+
+  // Achievements listed the WHOLE milestone catalog, so a French learner met a wall
+  // of permanently-locked hiragana/kanji goals and an "X of Y" counted against them.
+  await page.goto("/achievements");
+  await expect(page.getByText("Achievements", { exact: true })).toBeVisible();
+  const ach = (await page.locator("#root").textContent()) ?? "";
+  for (const phrase of ["hiragana", "katakana", "yōon", "kanji", "Kanji", "Japanese A1", "Japanese A2"])
+    expect(ach, `Achievements offered "${phrase}" to a French learner`).not.toContain(phrase);
+  // ...but the cross-language capability goals are still there — scoping must not
+  // empty the screen, only narrow it.
+  expect(ach).toContain("word");
+
+  // Rōmaji/furigana are scaffolds for an unreadable script; their copy talks about
+  // kana and kanji. A French learner should not be offered them at all.
+  await page.goto("/settings");
+  const set = (await page.locator("#root").textContent()) ?? "";
+  expect(set, "Settings offered the romaji scaffold to a French learner").not.toContain("Show romaji");
+  expect(set, "Settings offered furigana to a French learner").not.toContain("Furigana");
+  // The version watermark's flag follows the language being learned. Asserted on the
+  // watermark itself, not the page — Settings legitimately lists every language with
+  // its own flag, so a page-wide check would be testing the language list instead.
+  const watermark = (await page.getByTestId("version-watermark").textContent()) ?? "";
+  expect(watermark, "the version watermark stamped a Japanese flag on a French learner's screen").not.toContain("🇯🇵");
+  expect(watermark).toContain("🇫🇷");
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+test("Achievements: the language switcher appears only when learning two or more", async ({ page }) => {
+  // A crash here renders an EMPTY #root, which would silently satisfy every
+  // "does not contain hiragana" assertion on this screen — so failures must be loud.
+  // (A stale identifier in a dependency array did exactly that during development.)
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  // One language → no row. A single chip is noise, and the screen is already scoped.
+  await seedFrench(page);
+  await page.goto("/achievements");
+  await expect(page.getByRole("button", { name: "All languages" })).toHaveCount(0);
+  const solo = (await page.locator("#root").textContent()) ?? "";
+  expect(solo).not.toContain("hiragana");
+
+  // Two languages → the switcher shows, defaulting to the ACTIVE one (fr), so the
+  // screen still opens on French rather than dumping both languages' milestones.
+  await seedBilingual(page);
+  await page.goto("/achievements");
+  await expect(page.getByRole("button", { name: /French/ })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Japanese/ })).toBeVisible();
+  await expect(page.getByRole("button", { name: "All languages" })).toBeVisible();
+  expect((await page.locator("#root").textContent()) ?? "").not.toContain("hiragana");
+
+  // Switching to Japanese brings the Japanese milestones in...
+  await page.getByRole("button", { name: /Japanese/ }).click();
+  await expect(page.getByText(/hiragana/)).toBeVisible();
+
+  // ...and "All languages" shows both at once.
+  await page.getByRole("button", { name: "All languages" }).click();
+  const all = (await page.locator("#root").textContent()) ?? "";
+  expect(all).toContain("hiragana");
+  expect(all).toContain("French");
+
+  expect(errors, errors.join("; ")).toEqual([]);
 });

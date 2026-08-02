@@ -5,6 +5,7 @@ import { LANGUAGES, UNITS, isLive } from "../data/index.js";
 import { RUNGS } from "../store/mastery.js";
 import { milestonesFromIds, nextMilestone } from "../data/milestones.js";
 import { C, F } from "../theme.js";
+import LangChip from "../components/LangChip.jsx";
 
 const STAGE_ORDER = ["pre-a1", "a1", "a2", "b1", "b2"];
 const STAGE_LABEL = { "pre-a1": "Pre-A1", a1: "A1", a2: "A2", b1: "B1", b2: "B2" };
@@ -69,7 +70,7 @@ export default function Stats() {
       {/* Milestones — capability you've reached (earned, never revoked) + the single
           nearest next goal. Honest structural progress, not an engagement score.
           Pure-derived from mastery state; see src/data/milestones.js. */}
-      <MilestonesSection items={items} earnedIds={milestonesEarned} />
+      <MilestonesSection items={items} earnedIds={milestonesEarned} startedLangs={profile?.languages} />
 
       {/* Per-language, per-stage progress — live languages only; planned ones
           collapse into a single expander instead of fake "coming soon" rows. */}
@@ -192,11 +193,13 @@ function PlannedLanguages({ langs }) {
 // Shows every milestone already reached plus the SINGLE nearest next goal as a
 // gentle target (no wall of locked badges to grind). Fully derived from mastery
 // state — no tracking, no persistence here (earned-once lives in the store, later).
-function MilestonesSection({ items, earnedIds }) {
+function MilestonesSection({ items, earnedIds, startedLangs }) {
   // Earned list reads the PERSISTED set (earned-once, never revoked); the next goal
   // is derived live from current mastery.
   const earned = useMemo(() => milestonesFromIds(earnedIds), [earnedIds]);
-  const next = useMemo(() => nextMilestone(items), [items]);
+  // Scoped to the started languages, so the gentle next goal offered to a French
+  // learner is never "1 more to your first kanji" — a goal they cannot reach.
+  const next = useMemo(() => nextMilestone(items, startedLangs), [items, startedLangs]);
   return (
     <Section title="Milestones">
       {earned.length === 0 && !next && (
@@ -229,28 +232,6 @@ function MilestonesSection({ items, earnedIds }) {
         </div>
       )}
     </Section>
-  );
-}
-
-function LangChip({ label, on, onClick }) {
-  return (
-    <button
-      onClick={onClick}
-      style={{
-        padding: "7px 12px",
-        borderRadius: 999,
-        border: `1.5px solid ${on ? C.ai : C.line}`,
-        background: on ? C.aiSoft : C.surface,
-        color: on ? C.aiDeep : C.inkSoft,
-        fontSize: 12,
-        fontWeight: 700,
-        fontFamily: F.body,
-        cursor: "pointer",
-        whiteSpace: "nowrap",
-      }}
-    >
-      {label}
-    </button>
   );
 }
 
