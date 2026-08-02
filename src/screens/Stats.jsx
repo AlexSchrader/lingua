@@ -5,6 +5,7 @@ import { LANGUAGES, UNITS, isLive } from "../data/index.js";
 import { RUNGS } from "../store/mastery.js";
 import { milestonesFromIds, nextMilestone } from "../data/milestones.js";
 import { C, F } from "../theme.js";
+import LangChip from "../components/LangChip.jsx";
 
 const STAGE_ORDER = ["pre-a1", "a1", "a2", "b1", "b2"];
 const STAGE_LABEL = { "pre-a1": "Pre-A1", a1: "A1", a2: "A2", b1: "B1", b2: "B2" };
@@ -231,28 +232,6 @@ function MilestonesSection({ items, earnedIds, startedLangs }) {
         </div>
       )}
     </Section>
-  );
-}
-
-function LangChip({ label, on, onClick }) {
-  return (
-    <button
-      onClick={onClick}
-      style={{
-        padding: "7px 12px",
-        borderRadius: 999,
-        border: `1.5px solid ${on ? C.ai : C.line}`,
-        background: on ? C.aiSoft : C.surface,
-        color: on ? C.aiDeep : C.inkSoft,
-        fontSize: 12,
-        fontWeight: 700,
-        fontFamily: F.body,
-        cursor: "pointer",
-        whiteSpace: "nowrap",
-      }}
-    >
-      {label}
-    </button>
   );
 }
 
