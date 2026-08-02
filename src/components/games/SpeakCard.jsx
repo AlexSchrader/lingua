@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Mic, Square, Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { gradeSpoken } from "../../store/answer.js";
+import { readingIsInformative } from "../../store/cardRouting.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 
 // SpeakCard — the SPOKEN-rung review (vocab only). Duolingo-style flow: the app
@@ -195,7 +196,11 @@ export default function SpeakCard({ item, onGraded }) {
         }}
       >
         <div style={{ fontFamily: F.jp, fontSize: 52, fontWeight: 500 }}>{item.front}</div>
-        <div style={{ fontFamily: F.mono, fontSize: 18, color: C.ai }}>{item.reading}</div>
+        {/* Only when the reading tells the learner something the front doesn't —
+            for a Latin front it's the ASCII grading key, not a pronunciation. */}
+        {readingIsInformative(item) && (
+          <div style={{ fontFamily: F.mono, fontSize: 18, color: C.ai }}>{item.reading}</div>
+        )}
 
         {phase === "result" ? (
           <div style={{ textAlign: "center" }}>
