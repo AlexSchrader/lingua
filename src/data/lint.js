@@ -61,12 +61,20 @@ export function lintCurriculum(units = []) {
   const e = (msg) => errors.push(msg);
   const w = (msg) => warnings.push(msg);
 
-  const vocabFronts = new Map(); // front → id  (kanji included; kana→word reuse stays allowed)
-  const introduced = new Set(); // kana/kanji chars introduced so far, in queue order
+  // `${lang} ${front}` → id  (kanji included; kana→word reuse stays allowed).
+  // Scoped per language to match contract.js — "one home per word" is a
+  // within-language rule; es "no" and it "no" are different words.
+  const vocabFronts = new Map();
+  // Kana/kanji chars introduced so far, in queue order — also per language, so a
+  // second own-script language starts from an empty inventory.
+  const introducedByLang = new Map(); // lang → Set(chars)
 
   for (const unit of units) {
     if (!Array.isArray(unit.lessons)) continue;
     const unitStage = unit.stage;
+    const unitLang = unit.lang;
+    if (!introducedByLang.has(unitLang)) introducedByLang.set(unitLang, new Set());
+    const introduced = introducedByLang.get(unitLang);
     const kanaRanksInUnit = []; // [{rank, id}] for gojūon-order check
 
     for (const lesson of unit.lessons) {
@@ -117,11 +125,12 @@ export function lintCurriculum(units = []) {
           // accept[] present (may be empty)
           if (!Array.isArray(item.accept))
             w(`item ${id}: ${type} should have an accept[] array (may be empty)`);
-          // global word-front uniqueness (kana→word reuse allowed: kana fronts not tracked here)
+          // per-language word-front uniqueness (kana→word reuse allowed: kana fronts not tracked here)
           if (typeof item.front === "string") {
-            if (vocabFronts.has(item.front))
-              e(`item ${id}: word front "${item.front}" already taught in ${vocabFronts.get(item.front)}`);
-            else vocabFronts.set(item.front, id);
+            const key = `${unitLang} ${item.front}`;
+            if (vocabFronts.has(key))
+              e(`item ${id}: word front "${item.front}" already taught in ${vocabFronts.get(key)}`);
+            else vocabFronts.set(key, id);
           }
         }
 

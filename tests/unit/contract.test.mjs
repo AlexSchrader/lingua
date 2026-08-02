@@ -274,6 +274,44 @@ test("allows a vocab front that matches an earlier kana item's front (kana → w
   assert.ok(!err, `Did not expect a vocab-front error for kana→word reuse, got: ${err}`);
 });
 
+// ---- front uniqueness is scoped PER LANGUAGE --------------------------------
+// Regression guard for BUILD-BRIEF-language-blueprint.md §3a. Keying the
+// front-uniqueness map on the bare front made the second Latin-script language a
+// hard CI failure — and only when both were validated together, so parallel
+// authoring sessions were each green alone and red on merge.
+
+const latinUnit = (lang, suffix) => ({
+  id: `${lang}-u1`, lang, order: 1, stage: "a1", title: "Basics",
+  lessons: [
+    {
+      id: `${lang}-u1l1`, unit: 1, lesson: 1, title: "L1", dominantMode: "recall",
+      canDo: "Say no, using only taught words.", cefr: "A1",
+      items: [
+        { id: `${lang}-u1l1-${suffix}`, type: "vocab", front: "no", reading: "no", meaning: "no", example: { jp: "No.", en: "No." }, accept: ["nope"] },
+      ],
+    },
+  ],
+});
+
+test("allows the same word front in two DIFFERENT languages (es 'no' + it 'no')", () => {
+  const err = validateContent([latinUnit("es", "a"), latinUnit("it", "b")], LANGUAGES).errors.find(
+    (e) => e.includes("already taught")
+  );
+  assert.ok(!err, `Cross-language fronts must not collide, got: ${err}`);
+});
+
+test("still rejects the same word front twice WITHIN one language", () => {
+  const dup = latinUnit("es", "a");
+  dup.lessons[0].items.push({
+    id: "es-u1l1-b", type: "vocab", front: "no", reading: "no", meaning: "no",
+    example: { jp: "No.", en: "No." }, accept: ["nope"],
+  });
+  const err = validateContent([dup], LANGUAGES).errors.find(
+    (e) => e.includes("es-u1l1-b") && e.includes("already taught")
+  );
+  assert.ok(err, "Within-language duplicate fronts must still be rejected");
+});
+
 test("accepts a kanji item type but requires meaning + stroke data", () => {
   const mk = (over) => ({
     id: "ja-u1", lang: "ja", order: 1, stage: "a1", title: "Kanji",
