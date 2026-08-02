@@ -5,10 +5,12 @@
 // `stage` matches the unit `stage` enum (contract.js) so the Ladder groups these
 // under the same section headers as authored units. (Katakana is fully authored
 // in Units 4-6, so it's no longer a roadmap placeholder.)
-export const ROADMAP = {
-  ja: [
-    { title: "A2 — N4", theme: "More grammar, kanji and vocabulary", cefr: "A2", stage: "a2" },
-  ],
-};
+// Empty on purpose. The one entry that lived here — ja "A2 — N4" — was a placeholder
+// for content that has since shipped (55 authored ja units now sit at stage a2), so
+// the Ladder was drawing a "Coming soon" row directly beneath the finished thing it
+// promised. Per the rule above, an authored unit drops off this list; that never
+// happened when A2 was activated. The mechanism stays for the next language that
+// needs to show a climb before it's written.
+export const ROADMAP = {};
 
 export const roadmapFor = (lang) => ROADMAP[lang] ?? [];

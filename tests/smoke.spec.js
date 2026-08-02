@@ -45,11 +45,16 @@ function freshCard() {
   };
 }
 
-const LANGUAGES = {
-  ja: { id: "ja", name: "Japanese", flag: "🇯🇵", target: "B2", unlock: null, unlocked: true, level: "pre-A1", xp: 0 },
-  es: { id: "es", name: "Spanish", flag: "🇪🇸", target: "A1", unlock: { lang: "ja", level: "A1" }, unlocked: false, level: "pre-A1", xp: 0 },
-  fr: { id: "fr", name: "French", flag: "🇫🇷", target: "A1", unlock: { lang: "es", level: "A1" }, unlocked: false, level: "pre-A1", xp: 0 },
-};
+// Derived from the REAL catalog, never hand-written. This used to be a literal of
+// three languages carrying the retired ja→es→fr `unlock` cascade and `target: "A1"`
+// for es/fr — a snapshot that had drifted from a 20-language, all-B2, order-agnostic
+// catalog. It mattered because `migrate` does `{ ...initialLanguages(), ...s.languages }`,
+// so the PERSISTED fixture wins: every assertion about spine height or target was
+// validating a shape the app no longer draws, and a real catalog regression could not
+// fail CI. Mirrors initialLanguages() in useStore.
+const LANGUAGES = Object.fromEntries(
+  LANG_CATALOG.map((l) => [l.id, { ...l, level: "pre-A1", xp: 0 }])
+);
 
 // 5 vocab already due, at mixed rungs → 3 multiple-choice + 2 typed reviews.
 function reviewState() {
@@ -806,14 +811,6 @@ test("dev mode: expanded panel — sessions, moments, progress seeder", async ({
 // deliberately few and load-bearing: the learner stands on a real rung, a lesson
 // actually completes, and no Japanese leaks onto a French card.
 
-// Built from the REAL catalog, not the `LANGUAGES` literal above. That literal is a
-// stale snapshot — it still carries the retired ja→es→fr unlock chain and `target:
-// "A1"` for French, while the shipped catalog is order-agnostic and targets B2. Since
-// migrate does `{ ...initialLanguages(), ...s.languages }`, a stale persisted entry
-// WINS, so a fixture using it would assert against a spine the app no longer draws.
-const realLanguages = () =>
-  Object.fromEntries(LANG_CATALOG.map((l) => [l.id, { ...l, level: "pre-A1", xp: 0 }]));
-
 // A French learner. `migrate` rebuilds every item from real content and keeps only
 // the persisted rung/srs, so the fixture carries ids and progress — not fronts.
 function frenchState() {
@@ -823,8 +820,8 @@ function frenchState() {
   return {
     state: {
       items,
-      languages: realLanguages(),
-      profile: { onboarded: true, displayName: "Alex", reason: null, reminderTime: null, languages: ["fr"], activeLang: "fr" },
+      languages: LANGUAGES,
+      profile: { onboarded: true, displayName: "Test Learner", reason: null, reminderTime: null, languages: ["fr"], activeLang: "fr" },
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },
       daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
