@@ -13,6 +13,7 @@ export default function Stats() {
   const languages = useStore((s) => s.languages);
   const items = useStore((s) => s.items);
   const milestonesEarned = useStore((s) => s.milestonesEarned);
+  const profile = useStore((s) => s.profile);
 
   const itemList = useMemo(() => Object.values(items), [items]);
 
@@ -60,7 +61,7 @@ export default function Stats() {
       {/* Milestones — capability you've reached (earned, never revoked) + the single
           nearest next goal. Honest structural progress, not an engagement score.
           Pure-derived from mastery state; see src/data/milestones.js. */}
-      <MilestonesSection items={items} earnedIds={milestonesEarned} />
+      <MilestonesSection items={items} earnedIds={milestonesEarned} startedLangs={profile?.languages} />
 
       {/* Per-language, per-stage progress — live languages only; planned ones
           collapse into a single expander instead of fake "coming soon" rows. */}
@@ -175,11 +176,13 @@ function PlannedLanguages({ langs }) {
 // Shows every milestone already reached plus the SINGLE nearest next goal as a
 // gentle target (no wall of locked badges to grind). Fully derived from mastery
 // state — no tracking, no persistence here (earned-once lives in the store, later).
-function MilestonesSection({ items, earnedIds }) {
+function MilestonesSection({ items, earnedIds, startedLangs }) {
   // Earned list reads the PERSISTED set (earned-once, never revoked); the next goal
   // is derived live from current mastery.
   const earned = useMemo(() => milestonesFromIds(earnedIds), [earnedIds]);
-  const next = useMemo(() => nextMilestone(items), [items]);
+  // Scoped to the started languages, so the gentle next goal offered to a French
+  // learner is never "1 more to your first kanji" — a goal they cannot reach.
+  const next = useMemo(() => nextMilestone(items, startedLangs), [items, startedLangs]);
   return (
     <Section title="Milestones">
       {earned.length === 0 && !next && (

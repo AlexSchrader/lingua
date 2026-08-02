@@ -11,9 +11,12 @@ import { C, F } from "../theme.js";
 // name, a why, and an optional reminder. Everything's changeable later; nothing
 // here blocks. Picking a language STARTS it and makes it active; more languages
 // unlock once this one reaches A1 (handled on the Ladder).
+// Emoji stay language-neutral: this screen is shown BEFORE the learner has picked a
+// language (and to learners of all 20). "Heritage / family" used to be 🏮, a Japanese
+// paper lantern, which quietly framed the whole app as a Japanese one.
 const REASONS = [
   { key: "travel", label: "Travel", emoji: "✈️" },
-  { key: "heritage", label: "Heritage / family", emoji: "🏮" },
+  { key: "heritage", label: "Heritage / family", emoji: "👪" },
   { key: "work", label: "Work or study", emoji: "💼" },
   { key: "fun", label: "For the love of it", emoji: "🌱" },
 ];

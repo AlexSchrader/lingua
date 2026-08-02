@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Award, Lock } from "lucide-react";
 import { useStore } from "../store/useStore.js";
-import { milestoneCatalog } from "../data/milestones.js";
+import { milestonesForLangs } from "../data/milestones.js";
 import { C, F } from "../theme.js";
 
 // Display grouping for the milestone `family` tags, in climb order.
@@ -53,15 +53,20 @@ function Row({ label, earned, have, need }) {
   );
 }
 
-// Full achievements view — every milestone in the catalog, earned ones lit and
-// locked ones greyed with their progress. Opened from the header award counter.
+// Full achievements view — every milestone for the languages this learner has
+// started, earned ones lit and locked ones greyed with their progress. Opened from
+// the header award counter.
 export default function Achievements() {
   const navigate = useNavigate();
   const items = useStore((s) => s.items);
   const milestonesEarned = useStore((s) => s.milestonesEarned);
+  const startedLangs = useStore((s) => s.profile?.languages);
 
   const { groups, earnedCount, total } = useMemo(() => {
-    const catalog = milestoneCatalog();
+    // Scoped to the languages this learner has started (see milestonesForLangs).
+    // Showing the whole catalog meant a French learner browsing their achievements
+    // met a wall of permanently-locked hiragana and kanji goals.
+    const catalog = milestonesForLangs(startedLangs);
     const earnedSet = new Set(milestonesEarned ?? []);
     const groups = {};
     for (const m of catalog) {
@@ -69,8 +74,12 @@ export default function Achievements() {
       const fam = FAMILY_ORDER.includes(m.family) ? m.family : "other";
       (groups[fam] ??= []).push({ id: m.id, label: m.label, earned: earnedSet.has(m.id), have, need });
     }
-    return { groups, earnedCount: earnedSet.size, total: catalog.length };
-  }, [items, milestonesEarned]);
+    // Count earned WITHIN scope, so "12 of 40" can't read as 12-of-a-denominator
+    // that includes another language's milestones (or exceed it, for a learner who
+    // earned Japanese badges before adding a second language).
+    const earnedCount = catalog.filter((m) => earnedSet.has(m.id)).length;
+    return { groups, earnedCount, total: catalog.length };
+  }, [items, milestonesEarned, startedLangs]);
 
   const families = [...FAMILY_ORDER, "other"].filter((f) => groups[f]?.length);
 
