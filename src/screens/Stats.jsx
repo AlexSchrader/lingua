@@ -13,6 +13,8 @@ export default function Stats() {
   const languages = useStore((s) => s.languages);
   const items = useStore((s) => s.items);
   const milestonesEarned = useStore((s) => s.milestonesEarned);
+  const profile = useStore((s) => s.profile);
+  const canAddLanguage = useStore((s) => s.canAddLanguage);
 
   const itemList = useMemo(() => Object.values(items), [items]);
 
@@ -41,9 +43,16 @@ export default function Stats() {
   const liveLangs = LANGUAGES.filter((l) => isLive(l.id));
   const plannedLangs = LANGUAGES.filter((l) => !isLive(l.id));
 
-  // Mastery is per-language. Default to the active (first unlocked) language;
-  // "all" aggregates every language. Other languages stay out unless chosen.
-  const activeLang = LANGUAGES.find((l) => languages[l.id]?.unlocked)?.id ?? LANGUAGES[0].id;
+  // Mastery is per-language. Default to the learner's OWN active language; "all"
+  // aggregates every language. This used to read `languages[id].unlocked` and take the
+  // first hit — cascade residue that always resolved to Japanese, and that resolved to
+  // Japanese for EVERYONE once the field was dropped from the catalog. The learner's
+  // active language is the honest answer, with the first language that has content as
+  // the fallback (never a hardcoded LANGUAGES[0]).
+  const activeLang =
+    (profile?.activeLang && liveLangs.some((l) => l.id === profile.activeLang) && profile.activeLang) ||
+    liveLangs[0]?.id ||
+    LANGUAGES[0].id;
   const [masteryLang, setMasteryLang] = useState(activeLang);
 
   const masteryItems = masteryLang === "all" ? itemList : itemList.filter((it) => it.lang === masteryLang);
@@ -67,14 +76,22 @@ export default function Stats() {
       <Section title="Languages">
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {liveLangs.map((l) => {
-            const lang = languages[l.id] ?? { ...l, level: "pre-A1", unlocked: l.unlocked };
+            const lang = languages[l.id] ?? { ...l, level: "pre-A1" };
             const stages = langStages[l.id];
             const present = STAGE_ORDER.filter((s) => stages?.[s]?.total > 0);
+            // The padlock used to key off the catalog's `unlocked` flag — cascade
+            // residue that marked every language but Japanese as locked forever, and
+            // that marked EVERY language locked once the field was dropped. What
+            // actually gates a language now is the earn-A1 rule: a language you
+            // haven't started is locked only while you can't yet add one. Already
+            // studying it, or free to pick it up → no lock.
+            const started = (profile?.languages ?? []).includes(l.id);
+            const locked = !started && !canAddLanguage();
             return (
               <div key={l.id}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 14, marginBottom: 8 }}>
                   <span style={{ fontWeight: 700 }}>
-                    {lang.flag} {lang.name} {!lang.unlocked && "🔒"}
+                    {lang.flag} {lang.name} {locked && "🔒"}
                   </span>
                   <span style={{ color: C.inkSoft, fontSize: 12 }}>
                     {lang.level === "pre-A1" ? "Starting out" : lang.level}
