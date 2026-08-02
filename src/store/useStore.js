@@ -98,6 +98,15 @@ function itemMetaMap() {
   return _itemMeta;
 }
 
+// Item ids restricted to one language, in registration order. `lang: null` means
+// "every language" — the pre-scoping behaviour, kept for callers that don't scope.
+// Items are stamped with `lang` at build time (src/data/index.js), so this needs no
+// id-prefix parsing.
+export function langScopedIds(items, lang = null) {
+  const ids = Object.keys(items);
+  return lang ? ids.filter((id) => items[id]?.lang === lang) : ids;
+}
+
 // Default language progress state, derived from the static LANGUAGES table.
 function initialLanguages() {
   const out = {};
@@ -471,11 +480,11 @@ export const useStore = create(
       // make every item due now across a spread of rungs so a single session
       // shows all the active-recall card types. Kana cap at RECALLED (no awkward
       // typed-kana production); vocab spread up to PRODUCED (Build).
-      devSeedReviews: () => {
+      devSeedReviews: (lang = null) => {
         set((s) => {
           const items = { ...s.items };
           const duePast = new Date(Date.now() - 1000);
-          Object.keys(items).forEach((id, i) => {
+          langScopedIds(items, lang).forEach((id, i) => {
             const it = items[id];
             const maxR = it.type === "kana" ? 2 : 3;
             const rung = 1 + (i % maxR);
@@ -488,12 +497,19 @@ export const useStore = create(
       // --- Dev progress seeders (touch REAL state; labelled in the panel; Reset
       // restores). For eyeballing progress-dependent screens — Word bank, Ladder,
       // Stats, the mistake-review — without grinding.
+      //
+      // Every seeder takes the panel's selected `lang`. Without it they walked
+      // `Object.keys(items)` in registration order — which is ja-first — so
+      // "Learn 20" on the French panel seeded twenty Japanese items. These write
+      // REAL progress, unlike the rest of the panel, so the wrong language here
+      // is wrong deck state, not a wrong preview. `lang: null` keeps the old
+      // all-languages behaviour for any caller that doesn't scope.
       // Mark the first `n` not-yet-learned items as RECOGNIZED (rung 1).
-      devLearnItems: (n = 20) => {
+      devLearnItems: (n = 20, lang = null) => {
         set((s) => {
           const items = { ...s.items };
           let c = 0;
-          for (const id of Object.keys(items)) {
+          for (const id of langScopedIds(items, lang)) {
             if (c >= n) break;
             if ((items[id].rung ?? 0) < 1) { items[id] = { ...items[id], rung: 1 }; c++; }
           }
@@ -502,11 +518,11 @@ export const useStore = create(
         get().reconcileMilestones({ toast: true });
       },
       // Push the first `n` items to MASTERED (rung 5 + stability past MASTERY_FULL_DAYS).
-      devMasterItems: (n = 10) => {
+      devMasterItems: (n = 10, lang = null) => {
         set((s) => {
           const items = { ...s.items };
           let c = 0;
-          for (const id of Object.keys(items)) {
+          for (const id of langScopedIds(items, lang)) {
             if (c >= n) break;
             items[id] = { ...items[id], rung: 5, srs: { ...items[id].srs, stability: 60 } };
             c++;
@@ -516,10 +532,10 @@ export const useStore = create(
         get().reconcileMilestones({ toast: true });
       },
       // Add `n` items to the mistake list (learning them first so they're reviewable).
-      devSeedMistakes: (n = 5) => {
+      devSeedMistakes: (n = 5, lang = null) => {
         set((s) => {
           const items = { ...s.items };
-          const ids = Object.keys(items).slice(0, n);
+          const ids = langScopedIds(items, lang).slice(0, n);
           for (const id of ids) if ((items[id].rung ?? 0) < 1) items[id] = { ...items[id], rung: 1 };
           const mistakes = [...new Set([...(s.mistakes ?? []), ...ids])].slice(-30);
           return { items, mistakes };

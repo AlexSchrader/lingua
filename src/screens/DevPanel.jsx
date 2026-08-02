@@ -265,16 +265,16 @@ export default function DevPanel() {
         </div>
       </Section>
 
-      <Section title="Seed progress — ⚠️ touches REAL progress (Reset restores)">
+      <Section title={`Seed progress — ${langName(lang)}, ⚠️ touches REAL progress (Reset restores)`}>
         <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 10 }}>
-          Populate the progress-dependent screens (Word bank, Ladder, Stats, Fix-up) without grinding. Unlike the rest of this panel, these write to your real deck.
+          Populate the progress-dependent screens (Word bank, Ladder, Stats, Fix-up) without grinding. Unlike the rest of this panel, these write to your real deck — and only to your <strong>{langName(lang)}</strong> deck.
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
           {[
-            ["Learn 20", () => devLearnItems(20)],
-            ["Master 10", () => devMasterItems(10)],
-            ["Seed 5 misses", () => devSeedMistakes(5)],
-            ["Make all due", () => devSeedReviews()],
+            ["Learn 20", () => devLearnItems(20, lang)],
+            ["Master 10", () => devMasterItems(10, lang)],
+            ["Seed 5 misses", () => devSeedMistakes(5, lang)],
+            ["Make all due", () => devSeedReviews(lang)],
           ].map(([label, fn]) => (
             <button
               key={label}

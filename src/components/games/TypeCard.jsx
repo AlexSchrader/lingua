@@ -10,9 +10,10 @@ import { useStore } from "../../store/useStore.js";
 
 // Dictation prompt (listen:type): a Play button in place of the glyph, autoplaying
 // on mount, so the ear — not the eye — drives the answer. Mirrors ChoiceCard's
-// listening prompt, incl. the "Can't hear it? Show it" escape (reveals the kana and
-// switches to typing rōmaji). Own component so useItemAudio only autoplays here.
-function ListenPrompt({ item, onShowIt }) {
+// listening prompt, incl. the "Can't hear it? Show it" escape — which reveals the
+// kana and switches to typing rōmaji for Japanese, and grades `again` for a Latin
+// script (see showDictation). Own component so useItemAudio only autoplays here.
+function ListenPrompt({ item, onShowIt, showEscape = true }) {
   const { play, active } = useItemAudio(item);
   return (
     <>
@@ -23,12 +24,16 @@ function ListenPrompt({ item, onShowIt }) {
       >
         <Volume2 size={30} />
       </button>
-      <button
-        onClick={onShowIt}
-        style={{ marginTop: 12, border: "none", background: "transparent", color: C.inkSoft, fontSize: 12, fontWeight: 700, fontFamily: F.body, cursor: "pointer", textDecoration: "underline" }}
-      >
-        Can't hear it? Show it
-      </button>
+      {/* Hidden once the card is graded — the escape is spent, and a dead link
+          under a settled answer just invites a second click. Replay stays. */}
+      {showEscape && (
+        <button
+          onClick={onShowIt}
+          style={{ marginTop: 12, border: "none", background: "transparent", color: C.inkSoft, fontSize: 12, fontWeight: 700, fontFamily: F.body, cursor: "pointer", textDecoration: "underline" }}
+        >
+          Can't hear it? Show it
+        </button>
+      )}
     </>
   );
 }
@@ -68,6 +73,13 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
   // Dictation "Can't hear it?" escape: reveal the KANA and switch to typing the
   // rōmaji. Showing the kana isn't the answer (the answer is the rōmaji reading), and
   // rōmaji is REQUIRED there so copying the shown kana back isn't a freebie.
+  //
+  // That guard is JAPANESE-ONLY, and it does not survive the script change. For a
+  // Latin-script language the front IS the spelling (`bonjour` → reading `bonjour`),
+  // and `looksRomaji` matches any Latin letter, so it is vacuous — revealing would
+  // print the answer above the box and still grade full credit. Same "shows you the
+  // answer and calls it a test" defect class as the type:reading / build copy-tasks.
+  // So this reveal is ja-only; see showDictation below for what Latin script gets.
   const [dictRevealed, setDictRevealed] = useState(false);
 
   // Resolve prompt + checker + the canonical answer for this mode/type.
@@ -150,6 +162,14 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
     reinforce();
   };
 
+  // Dictation escape, per script. Japanese keeps its reveal: seeing the kana still
+  // leaves a real transliteration to type, so it stays gradeable. A Latin script has
+  // no such gap between what's shown and what's asked, so there the escape degrades
+  // to the ordinary "Show answer" above — you get to see the word, you're graded
+  // `again`. The hatch stays open for a learner who genuinely can't hear it; what
+  // goes away is getting credit for reading it off the screen.
+  const showDictation = () => (latin ? showAnswer() : setDictRevealed(true));
+
   const submit = () => {
     if (phase === "feedback") return;
     if (spec.check(value)) {
@@ -172,6 +192,11 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
   };
 
   const feedback = phase === "feedback";
+  // What "Answer:" prints. On a Latin-script dictation card the graded answer is
+  // `reading`, which is an ASCII fold — "silvousplait" for s'il vous plaît — so it
+  // is the right thing to accept and the wrong thing to teach. Show the real
+  // spelling; `checkReading` takes the front verbatim, so they stay in agreement.
+  const revealAnswer = listen && latin ? item.front : spec.answer;
   // On a kana-only produce card (A2+), a Latin-letter answer isn't "wrong" so much
   // as the wrong keyboard — nudge to switch rather than diff romaji against kana.
   // Where rōmaji is accepted (≤A1 on-ramp) it's a normal answer, so no nudge.
@@ -202,7 +227,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
         }}
       >
         {listen && !dictRevealed ? (
-          <ListenPrompt item={item} onShowIt={() => setDictRevealed(true)} />
+          <ListenPrompt item={item} onShowIt={showDictation} showEscape={!feedback} />
         ) : (
           <span style={{ fontFamily: spec.jp ? F.jp : F.body, fontSize: spec.jp ? 56 : 28, fontWeight: 500 }}>
             {spec.prompt}
@@ -250,7 +275,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
           // Escaped via "Show answer" — no diff/shame, just the answer to learn.
           <div style={{ textAlign: "center", fontSize: 15 }}>
             <span style={{ color: C.inkSoft, fontWeight: 700 }}>Answer:</span>{" "}
-            <span style={{ fontFamily: spec.jp ? F.body : F.jp }}>{spec.answer}</span>
+            <span style={{ fontFamily: spec.jp ? F.body : F.jp }}>{revealAnswer}</span>
           </div>
         ) : outcome === "correct" ? (
           <div style={{ textAlign: "center", fontSize: 15 }}>
@@ -276,7 +301,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
         ) : (
           <div style={{ textAlign: "center", fontSize: 15 }}>
             <span style={{ color: C.shu, fontWeight: 700 }}>Answer:</span>{" "}
-            <span style={{ fontFamily: spec.jp ? F.body : F.jp }}>{spec.answer}</span>
+            <span style={{ fontFamily: spec.jp ? F.body : F.jp }}>{revealAnswer}</span>
           </div>
         )
       )}
