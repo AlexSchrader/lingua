@@ -9,7 +9,22 @@ test("language catalog: 20 languages, all target B2, unique ids", () => {
   assert.ok(LANGUAGES.every((l) => l.id && l.name && l.flag), "each has id/name/flag");
 });
 
-test("only Japanese is pre-unlocked; the rest are planned (unlocked:false, unlock:null)", () => {
-  assert.deepEqual(LANGUAGES.filter((l) => l.unlocked).map((l) => l.id), ["ja"]);
-  assert.ok(LANGUAGES.every((l) => l.unlock === null), "no hardcoded unlock cascade");
+// Was: "only Japanese is pre-unlocked; the rest are planned (unlocked:false,
+// unlock:null)". That test's real intent was the second line — no hardcoded cascade —
+// which it could only express as "the field is null everywhere". The fields are now
+// gone, so the guarantee is unconditional: there is no cascade shape to set.
+test("catalog entries carry no retired cascade fields", () => {
+  for (const l of LANGUAGES) {
+    assert.ok(!("unlock" in l), `${l.id}: unlock is a retired cascade field`);
+    assert.ok(!("unlocked" in l), `${l.id}: unlocked is a retired cascade field`);
+  }
+});
+
+test("a catalog entry is exactly {id, name, flag, target}", () => {
+  // Availability is DERIVED — isLive() from content, canAddLanguage() from the
+  // earn-A1 rule — so a catalog entry must not carry per-language state that could
+  // drift from it, or hardcode which language a learner starts with.
+  for (const l of LANGUAGES) {
+    assert.deepEqual(Object.keys(l).sort(), ["flag", "id", "name", "target"], `${l.id} shape`);
+  }
 });

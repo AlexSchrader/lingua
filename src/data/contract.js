@@ -66,20 +66,13 @@ export function validateContent(units, languages) {
     langIds.add(lang.id);
     if (!VALID_CEFR.includes(lang.target))
       e(`language ${lang.id}: target "${lang.target}" is not a valid CEFR level`);
-    if (typeof lang.unlocked !== "boolean")
-      e(`language ${lang.id}: unlocked must be boolean`);
-  }
-  // Second pass: cross-reference unlock.lang (all ids are now collected).
-  for (const lang of languages) {
-    if (lang.unlock === null) continue;
-    if (!lang.unlock || typeof lang.unlock !== "object") {
-      e(`language ${lang.id}: unlock must be null or { lang, level }`);
-      continue;
-    }
-    if (!langIds.has(lang.unlock.lang))
-      e(`language ${lang.id}: unlock.lang "${lang.unlock.lang}" is not a known language`);
-    if (!VALID_CEFR.includes(lang.unlock.level))
-      e(`language ${lang.id}: unlock.level "${lang.unlock.level}" is not a valid CEFR level`);
+    // A catalog entry is {id, name, flag, target}. The `unlocked` boolean and the
+    // `unlock: {lang, level}` cross-reference that used to be validated here belonged
+    // to the retired ja→es→fr cascade; both were read by nothing, and `unlock` was
+    // null on every language. Dropping the fields removes these checks with them —
+    // this validates a smaller schema, not the same schema more loosely.
+    if ("unlock" in lang || "unlocked" in lang)
+      e(`language ${lang.id}: unlock/unlocked are retired cascade fields — remove them`);
   }
 
   // ---- units + lessons + items ----

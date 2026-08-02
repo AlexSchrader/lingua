@@ -47,19 +47,17 @@ if (!API_KEY) {
 const { COMPANIONS } = await import("../server/companions.js");
 const { UNITS } = await import("../src/data/index.js");
 
-// A2 is drafted but not yet in UNITS (Dev-Mode preview only). Include it here so
-// the preview cards have pronunciation. Guarded: once A2 activates and
-// src/data/a2-draft.js is removed, this import fails silently and the script
-// falls back to the live UNITS — no edit needed at activation time.
-let A2_DRAFT_UNITS = [];
-try {
-  ({ A2_DRAFT_UNITS } = await import("../src/data/a2-draft.js"));
-} catch {}
+// This used to also pull in src/data/a2-draft.js, so Dev-Mode preview cards for the
+// then-unauthored A2 units had pronunciation. That import was written to fail
+// silently "once A2 activates and a2-draft.js is removed — no edit needed at
+// activation time". A2 has activated (55 ja units at stage a2, all in UNITS) and the
+// draft file is gone, so the try/catch was permanently catching a file that will
+// never exist again. UNITS is now the whole story.
 
 const MODEL_ID = "eleven_v3";
 
-// Flatten every playable item across the live units + the A2 draft, stamping lang.
-const items = [...UNITS, ...A2_DRAFT_UNITS].flatMap((unit) =>
+// Flatten every playable item across the live units, stamping lang.
+const items = UNITS.flatMap((unit) =>
   unit.lessons
     .filter((l) => Array.isArray(l.items))
     .flatMap((l) => l.items.map((it) => ({ ...it, lang: unit.lang })))
