@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { LIVE_CARD_KINDS } from "../src/data/contract.js";
 import { seedItems } from "../src/data/index.js";
+import { LANGUAGES as LANG_CATALOG } from "../src/data/languages.js";
 
 // ---- helpers ---------------------------------------------------------------
 
@@ -797,3 +798,129 @@ test("dev mode: expanded panel — sessions, moments, progress seeder", async ({
   await expect(page.getByText(/Fix-up ·/)).toBeVisible();
 });
 
+
+// ---- French ----------------------------------------------------------------
+// Until now this suite was 100% Japanese, so no French regression could fail CI —
+// which is how a dead Pre-A1 rung, two degenerate card kinds and a Dev-Mode seeder
+// that wrote Japanese progress from the French panel all shipped green. These are
+// deliberately few and load-bearing: the learner stands on a real rung, a lesson
+// actually completes, and no Japanese leaks onto a French card.
+
+// Built from the REAL catalog, not the `LANGUAGES` literal above. That literal is a
+// stale snapshot — it still carries the retired ja→es→fr unlock chain and `target:
+// "A1"` for French, while the shipped catalog is order-agnostic and targets B2. Since
+// migrate does `{ ...initialLanguages(), ...s.languages }`, a stale persisted entry
+// WINS, so a fixture using it would assert against a spine the app no longer draws.
+const realLanguages = () =>
+  Object.fromEntries(LANG_CATALOG.map((l) => [l.id, { ...l, level: "pre-A1", xp: 0 }]));
+
+// A French learner. `migrate` rebuilds every item from real content and keeps only
+// the persisted rung/srs, so the fixture carries ids and progress — not fronts.
+function frenchState() {
+  const seed = seedItems();
+  const items = {};
+  for (const [id, it] of Object.entries(seed)) items[id] = { ...it, rung: 0, srs: freshCard() };
+  return {
+    state: {
+      items,
+      languages: realLanguages(),
+      profile: { onboarded: true, displayName: "Alex", reason: null, reminderTime: null, languages: ["fr"], activeLang: "fr" },
+      streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
+      stats: { xpTotal: 0 },
+      daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+      settings: {},
+      ui: {},
+    },
+    version: 1,
+  };
+}
+
+const seedFrench = (page) =>
+  page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(frenchState()));
+
+// Kana + kanji. A French card rendering any of these means Japanese leaked in.
+const JA_SCRIPT = /[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/u;
+
+test("French: the Ladder stands on a real rung, never a dead Pre-A1", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await seedFrench(page);
+  await page.goto("/");
+  await page.getByRole("button", { name: "Ladder", exact: true }).click();
+
+  // `pre-a1` is the SCRIPT band. A Latin-script language has none, so a Pre-A1 rung
+  // could never turn green — it pinned French learners to a permanent-failure rung
+  // from lesson 1. Neither the spine nor the progress line may mention it.
+  await expect(page.getByText("Lessons for Pre-A1 coming soon.")).toHaveCount(0);
+  await expect(page.getByText("Pre-A1", { exact: true })).toHaveCount(0);
+
+  // ...and the learner gets a real current stage with real progress, not an empty one.
+  await expect(page.getByText(/A1.*progress/)).toBeVisible();
+  // B1/B2 are unauthored but deliberately still drawn — empty rungs ABOVE the
+  // current one are the goal, and dropping them would hide the climb.
+  await expect(page.getByText("B2", { exact: true }).first()).toBeVisible();
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+test("French: a lesson completes, and no Japanese leaks onto a French card", async ({ page }) => {
+  test.setTimeout(120_000);
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await seedFrench(page);
+  await page.goto("/");
+
+  // The tutor follows the active language — Mathieu, not Haruki.
+  await expect(page.getByRole("button", { name: "Mathieu", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Haruki", exact: true })).toHaveCount(0);
+
+  await page.getByTestId("start-session").click();
+
+  for (let i = 0; i < 80; i++) {
+    // Checked on every card rather than once at the end, so a single leaking card
+    // kind can't hide behind a clean finish screen. Read off #root — it's always
+    // attached (no implicit wait) and it covers card kinds that carry no testid,
+    // like TeachCard, which is exactly where a hardcoded Japanese label would sit.
+    const text = (await page.locator("#root").textContent({ timeout: 2000 }).catch(() => "")) ?? "";
+    expect(text, `Japanese script on a French card (card ${i}): ${text.slice(0, 300)}`).not.toMatch(JA_SCRIPT);
+    if (!(await playCard(page))) break;
+    await page.waitForTimeout(20);
+  }
+
+  await page.getByRole("button", { name: "Back to Today" }).click();
+  await expect(page.getByText("Done", { exact: true })).toBeVisible();
+
+  // A French item actually advanced and got scheduled — the session graded, not just rendered.
+  const state = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua-v1")).state);
+  const advanced = Object.values(state.items).filter((it) => it.lang === "fr" && (it.rung ?? 0) >= 1);
+  expect(advanced.length, "at least one French item graduated").toBeGreaterThan(0);
+  expect(new Date(advanced[0].srs.due).getTime()).toBeGreaterThan(Date.now());
+  // ...and nothing Japanese was touched.
+  const jaTouched = Object.values(state.items).filter((it) => it.lang === "ja" && (it.rung ?? 0) >= 1);
+  expect(jaTouched.length, "the French session must not advance Japanese items").toBe(0);
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+test("French: Dev Mode seeds the French deck, not the Japanese one", async ({ page }) => {
+  await seedFrench(page);
+  await page.goto("/");
+  await page.getByRole("button", { name: "Settings" }).click();
+  await page.getByLabel("Dev Mode code").fill("L071201");
+  await page.getByRole("button", { name: "Unlock" }).click();
+  await page.getByRole("button", { name: /Seed progress/ }).click();
+
+  // The regression: the seeders walked Object.keys(items) and took the first n.
+  // Registration is ja-first, so "Learn 20" on the FRENCH panel wrote real progress
+  // against twenty Japanese items. These write to the real deck, so it was wrong
+  // state, not a wrong preview.
+  await page.getByRole("button", { name: "Learn 20" }).click();
+  await expect(page.getByText(/Learn 20 —/)).toBeVisible();
+
+  const seeded = await page.evaluate(() => {
+    const items = JSON.parse(localStorage.getItem("lingua-v1")).state.items;
+    const learned = Object.values(items).filter((it) => (it.rung ?? 0) >= 1);
+    return { fr: learned.filter((it) => it.lang === "fr").length, ja: learned.filter((it) => it.lang === "ja").length };
+  });
+  expect(seeded.fr).toBeGreaterThanOrEqual(20);
+  expect(seeded.ja, "seeding from the French panel must not touch the Japanese deck").toBe(0);
+});

@@ -174,9 +174,19 @@ const CORE_PARTICLES = ["は", "が", "を", "に", "へ", "で", "と", "も", 
 // "je travaille ＿ matin" / "I work in the morning" wants `le`, while the English
 // "in" points straight at the `à`/`au` options. Gender and article choice deserve
 // their own card, not this one.
+//
+// COORDINATING CONJUNCTIONS are excluded for the same reason, one step further in.
+// `et` / `y` ("and") join two things and are governed by NEITHER of them, so they
+// fail the "is it owned by the item?" test exactly as articles did: "Le métro est
+// bleu ＿＿ blanc" graded the adjective `bleu` on picking "and" out of a list of
+// prepositions — no fact about bleu is tested, and the gloss gives it away. That hit
+// 4 items (fr-u7l3-lejour, fr-u8l1-bleu, fr-u13l1-ilneige, fr-u13l3-sec), which now
+// fall through to a card that tests something. The invariant for this set is simple
+// and worth keeping: every member must be a preposition GOVERNED by the word before
+// the blank. `tests/unit/fr-cards.test.mjs` locks it against the real corpus.
 const FUNCTION_WORDS = {
-  fr: ["de", "à", "au", "et", "avec", "sans", "pour", "dans", "sur", "en"],
-  es: ["de", "a", "y", "con", "sin", "en", "para", "por"],
+  fr: ["de", "à", "au", "avec", "sans", "pour", "dans", "sur", "en"],
+  es: ["de", "a", "con", "sin", "en", "para", "por"],
 };
 
 // The closed option-set for this item's language (ja → particles).
