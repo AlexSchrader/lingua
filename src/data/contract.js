@@ -211,7 +211,7 @@ export function validateContent(units, languages) {
               e(`item ${item.id}: kanji "${item.front}" has no stroke data in KANJIVG — add it to src/data/kanjivg.js`);
           }
 
-          allItems.push({ item, lessonCefr: lesson.cefr ?? null });
+          allItems.push({ item, lessonCefr: lesson.cefr ?? null, lang: unit.lang });
         }
       }
 
@@ -239,19 +239,23 @@ export function validateContent(units, languages) {
     });
   }
 
-  // Kana accumulation invariant: each kana character introduced at most once
-  // across the entire corpus (no re-teaching the same hiragana in a later lesson).
-  const kanaFronts = new Map(); // character → first item id
-  for (const { item } of allItems) {
+  // Kana accumulation invariant: each script character introduced at most once
+  // within a language (no re-teaching the same hiragana in a later lesson).
+  // Scoped per language for the same reason as vocabFronts above — the next
+  // own-script language (Hangul, Cyrillic) teaches its alphabet through the same
+  // item type, and its glyph inventory is its own.
+  const kanaFronts = new Map(); // `${lang} ${character}` → first item id
+  for (const { item, lang } of allItems) {
     // Only single-glyph kana are "introduced once"; yōon digraphs (きょ…) reuse
     // already-introduced kana, so they're exempt from the no-repeat invariant.
     if (item.type !== "kana" || [...item.front].length > 1) continue;
     for (const ch of item.front) {
-      if (kanaFronts.has(ch))
+      const key = `${lang} ${ch}`;
+      if (kanaFronts.has(key))
         e(
-          `item ${item.id}: kana character "${ch}" already introduced in item ${kanaFronts.get(ch)}`
+          `item ${item.id}: kana character "${ch}" already introduced in item ${kanaFronts.get(key)}`
         );
-      else kanaFronts.set(ch, item.id);
+      else kanaFronts.set(key, item.id);
     }
   }
 
@@ -260,15 +264,25 @@ export function validateContent(units, languages) {
   // word front MAY coincide with a kana item's front (e.g. the number-word に / ご
   // is the same single character as the kana — that kana→word reuse is
   // intentional), so this checks vocab/kanji against vocab/kanji, never kana.
-  const vocabFronts = new Map(); // front → first item id
-  for (const { item } of allItems) {
+  //
+  // SCOPED PER LANGUAGE. "One home per word" is a within-language claim: Spanish
+  // "no" and Italian "no" are unrelated words that happen to be spelled alike, and
+  // so are most of the Romance function-word and cognate overlap (taxi, hotel,
+  // animal…). Keying this map on the bare front made the FIRST two Latin-script
+  // languages in the repo a hard CI failure — and one that only appears when the
+  // two are validated together, so parallel authoring sessions would each be green
+  // alone and red on merge. The rule never fired before only because ja and fr use
+  // different scripts. See BUILD-BRIEF-language-blueprint.md §3a.
+  const vocabFronts = new Map(); // `${lang} ${front}` → first item id
+  for (const { item, lang } of allItems) {
     if (item.type !== "vocab" && item.type !== "kanji") continue;
-    if (vocabFronts.has(item.front))
+    const key = `${lang} ${item.front}`;
+    if (vocabFronts.has(key))
       e(
-        `item ${item.id}: ${item.type} front "${item.front}" is already taught in item ${vocabFronts.get(item.front)} — ` +
-          `a word should have a single home (dedupe the duplicate)`
+        `item ${item.id}: ${item.type} front "${item.front}" is already taught in item ${vocabFronts.get(key)} — ` +
+          `a word should have a single home within a language (dedupe the duplicate)`
       );
-    else vocabFronts.set(item.front, item.id);
+    else vocabFronts.set(key, item.id);
   }
 
   // Warning: multi-word vocab with no accept[] synonyms. A typed-meaning check

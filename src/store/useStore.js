@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { seedItems, LANGUAGES, UNITS } from "../data/index.js";
+import { seedItems, LANGUAGES, UNITS, isLive } from "../data/index.js";
 import { newCard, schedule, isDue, startOfTomorrow } from "./srs.js";
 import { nextRung, isReviewable } from "./mastery.js";
 import { migrateState, PERSIST_VERSION } from "./migrate.js";
@@ -33,7 +33,12 @@ function yesterdayISO() {
 
 // True when a language has at least one authored unit. A "started" language with
 // no content can't have been legitimately climbed — it's stale seeding.
-const langHasContent = (id) => UNITS.some((u) => u.lang === id);
+// PLAYABLE content, not merely "a unit exists" — scaffolded languages carry the
+// whole band template as locked stubs while a crew authors them, and a stub-only
+// language must stay invisible to this migration (its "no content" signature is
+// what identifies a stale pre-language-choice save). Shared with the UI's isLive
+// so the picker and the migration can never disagree about what's real.
+const langHasContent = isLive;
 
 // Prune a profile's STARTED languages down to the ones actually being learned,
 // and repoint activeLang if it landed on a pruned one. Pure (both predicates
