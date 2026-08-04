@@ -1,4 +1,4 @@
-// French units — the per-language barrel. Adding a unit touches THIS file and
+// FR units — the per-language barrel. Adding a unit touches THIS file and
 // nothing else; src/data/index.js imports one line per language, so parallel
 // authoring sessions never edit a shared file. See
 // BUILD-BRIEF-language-blueprint.md §3b. Generated shape — keep it mechanical.
@@ -28,9 +28,38 @@ import { FR_UNIT23 } from "./unit23.js";
 import { FR_UNIT24 } from "./unit24.js";
 import { FR_UNIT25 } from "./unit25.js";
 import { FR_UNIT26 } from "./unit26.js";
-// fr-u27 = "Les sons" — id 27 but ORDER 1: it runs first (see the file header).
 import { FR_UNIT27 } from "./unit27.js";
+import { FR_UNIT28 } from "./unit28.js";
+import { FR_UNIT29 } from "./unit29.js";
+import { FR_UNIT30 } from "./unit30.js";
+import { FR_UNIT31 } from "./unit31.js";
+import { FR_UNIT32 } from "./unit32.js";
+import { FR_UNIT33 } from "./unit33.js";
+import { FR_UNIT34 } from "./unit34.js";
+import { FR_UNIT35 } from "./unit35.js";
+import { FR_UNIT36 } from "./unit36.js";
+import { FR_UNIT37 } from "./unit37.js";
+import { FR_UNIT38 } from "./unit38.js";
+import { FR_UNIT39 } from "./unit39.js";
+import { FR_UNIT40 } from "./unit40.js";
+import { FR_UNIT41 } from "./unit41.js";
+import { FR_UNIT42 } from "./unit42.js";
+import { FR_UNIT43 } from "./unit43.js";
+import { FR_UNIT44 } from "./unit44.js";
+import { FR_UNIT45 } from "./unit45.js";
+import { FR_UNIT46 } from "./unit46.js";
+import { FR_UNIT47 } from "./unit47.js";
+import { FR_UNIT48 } from "./unit48.js";
+import { FR_UNIT49 } from "./unit49.js";
+import { FR_UNIT50 } from "./unit50.js";
+import { FR_UNIT51 } from "./unit51.js";
+import { FR_UNIT52 } from "./unit52.js";
+import { FR_UNIT53 } from "./unit53.js";
+import { FR_UNIT54 } from "./unit54.js";
+import { FR_UNIT55 } from "./unit55.js";
+import { FR_UNIT56 } from "./unit56.js";
+import { FR_UNIT57 } from "./unit57.js";
 
 export const FR_UNITS = [
-  FR_UNIT1, FR_UNIT2, FR_UNIT3, FR_UNIT4, FR_UNIT5, FR_UNIT6, FR_UNIT7, FR_UNIT8, FR_UNIT9, FR_UNIT10, FR_UNIT11, FR_UNIT12, FR_UNIT13, FR_UNIT14, FR_UNIT15, FR_UNIT16, FR_UNIT17, FR_UNIT18, FR_UNIT19, FR_UNIT20, FR_UNIT21, FR_UNIT22, FR_UNIT23, FR_UNIT24, FR_UNIT25, FR_UNIT26, FR_UNIT27,
+  FR_UNIT1, FR_UNIT2, FR_UNIT3, FR_UNIT4, FR_UNIT5, FR_UNIT6, FR_UNIT7, FR_UNIT8, FR_UNIT9, FR_UNIT10, FR_UNIT11, FR_UNIT12, FR_UNIT13, FR_UNIT14, FR_UNIT15, FR_UNIT16, FR_UNIT17, FR_UNIT18, FR_UNIT19, FR_UNIT20, FR_UNIT21, FR_UNIT22, FR_UNIT23, FR_UNIT24, FR_UNIT25, FR_UNIT26, FR_UNIT27, FR_UNIT28, FR_UNIT29, FR_UNIT30, FR_UNIT31, FR_UNIT32, FR_UNIT33, FR_UNIT34, FR_UNIT35, FR_UNIT36, FR_UNIT37, FR_UNIT38, FR_UNIT39, FR_UNIT40, FR_UNIT41, FR_UNIT42, FR_UNIT43, FR_UNIT44, FR_UNIT45, FR_UNIT46, FR_UNIT47, FR_UNIT48, FR_UNIT49, FR_UNIT50, FR_UNIT51, FR_UNIT52, FR_UNIT53, FR_UNIT54, FR_UNIT55, FR_UNIT56, FR_UNIT57,
 ];
