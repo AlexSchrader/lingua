@@ -1,18 +1,83 @@
-// FR Unit 50 — Vocabulary 4 (A2) (slot: coverage-a2-4) — A2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// FR Unit 50 — Combien exactement ("How much exactly") — A2
+// Strand D, coverage unit 4 of 11 (block 3). Slot: coverage-a2-4 (generic
+// "Vocabulary 4 (A2)"); given a real theme so the four lessons cohere — the slot
+// NUMBER is kept, only the name deviates. See unit48.js for the block-3 rules.
+// Quantity, approximation, measurement and the size adjectives that go with them —
+// the cross-cutting maths of everyday speech, not a topical domain.
 export const FR_UNIT50 = {
   id: "fr-u50",
   lang: "fr",
-  title: "Vocabulary 4 (A2)",
+  title: "Combien exactement",
   order: 50,
   stage: "a2",
   lessons: [
-    { id: "fr-u50l1", title: "Lesson 1", locked: true },
-    { id: "fr-u50l2", title: "Lesson 2", locked: true },
-    { id: "fr-u50l3", title: "Lesson 3", locked: true },
-    { id: "fr-u50l4", title: "Lesson 4", locked: true },
+    {
+      id: "fr-u50l1",
+      unit: 50,
+      lesson: 1,
+      title: "Some, several, none",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Say how many without counting: a few, several, each, others, most of them — or none at all.",
+      items: [
+        { id: "fr-u50l1-quelques", type: "vocab", front: "quelques", reading: "quelques", meaning: "a few", example: { jp: "J'ai quelques questions.", en: "I have a few questions." }, accept: ["some", "a couple of", "several"], hint: "Always plural, always before the noun: quelques jours, quelques amis." },
+        { id: "fr-u50l1-plusieurs", type: "vocab", front: "plusieurs", reading: "plusieurs", meaning: "several", example: { jp: "Il y a plusieurs magasins.", en: "There are several shops." }, accept: ["a number of", "many", "quite a few"] },
+        { id: "fr-u50l1-chaque", type: "vocab", front: "chaque", reading: "chaque", meaning: "each", example: { jp: "Je marche chaque jour.", en: "I walk each day." }, accept: ["every"], hint: "chaque takes a SINGULAR noun: chaque jour, never chaque jours." },
+        { id: "fr-u50l1-dautres", type: "vocab", front: "d'autres", reading: "dautres", meaning: "other ones", example: { jp: "Il y a d'autres livres ici.", en: "There are other books here." }, accept: ["others", "other", "some others"] },
+        { id: "fr-u50l1-laplupart", type: "vocab", front: "la plupart", reading: "laplupart", meaning: "most", example: { jp: "La plupart des clients sont contents.", en: "Most of the customers are happy." }, accept: ["most of them", "the majority", "most of"], hint: "Followed by des: la plupart des clients." },
+        { id: "fr-u50l1-aucun", type: "vocab", front: "aucun", reading: "aucun", meaning: "not a single one", example: { jp: "Je n'ai aucun livre.", en: "I don't have a single book." }, accept: ["none", "not any", "no"], hint: "A negative word like rien and personne — it keeps the ne and drops the pas: je n'ai aucun livre." },
+      ],
+    },
+    {
+      id: "fr-u50l2",
+      unit: 50,
+      lesson: 2,
+      title: "Almost and about",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Give a number you're not sure of — about, almost, at least, roughly — or insist that it's exact.",
+      items: [
+        { id: "fr-u50l2-environ", type: "vocab", front: "environ", reading: "environ", meaning: "about", example: { jp: "J'ai environ vingt euros.", en: "I have about twenty euros." }, accept: ["around", "roughly", "approximately"] },
+        { id: "fr-u50l2-presque", type: "vocab", front: "presque", reading: "presque", meaning: "almost", example: { jp: "Il est presque midi.", en: "It's almost noon." }, accept: ["nearly", "just about"] },
+        { id: "fr-u50l2-aumoins", type: "vocab", front: "au moins", reading: "aumoins", meaning: "at least", example: { jp: "Il y a au moins dix livres.", en: "There are at least ten books." }, accept: ["at the very least", "minimum"] },
+        { id: "fr-u50l2-apeupres", type: "vocab", front: "à peu près", reading: "apeupres", meaning: "roughly", example: { jp: "Il fait à peu près vingt degrés.", en: "It's roughly twenty degrees." }, accept: ["about", "approximately", "more or less"] },
+        { id: "fr-u50l2-exactement", type: "vocab", front: "exactement", reading: "exactement", meaning: "exactly", example: { jp: "C'est exactement ça.", en: "That's exactly it." }, accept: ["precisely", "just so"] },
+        { id: "fr-u50l2-toutafait", type: "vocab", front: "tout à fait", reading: "toutafait", meaning: "completely", example: { jp: "C'est tout à fait vrai.", en: "That's completely true." }, accept: ["absolutely", "quite", "entirely"], hint: "On its own, « tout à fait » is a strong yes — the French \"absolutely\"." },
+      ],
+    },
+    {
+      id: "fr-u50l3",
+      unit: 50,
+      lesson: 3,
+      title: "Measuring and weighing",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Measure and weigh things, and ask about a weight, a height, a width or a number.",
+      items: [
+        { id: "fr-u50l3-mesurer", type: "vocab", front: "mesurer", reading: "mesurer", meaning: "to measure", example: { jp: "Je vais mesurer la table.", en: "I'm going to measure the table." }, accept: ["measure", "be tall"], hint: "Also how you give a person's height: je mesure un mètre quatre-vingts." },
+        { id: "fr-u50l3-peser", type: "vocab", front: "peser", reading: "peser", meaning: "to weigh", example: { jp: "Je veux peser les tomates.", en: "I want to weigh the tomatoes." }, accept: ["weigh"] },
+        { id: "fr-u50l3-lepoids", type: "vocab", front: "le poids", reading: "lepoids", meaning: "weight", example: { jp: "Le poids est important.", en: "The weight is important." }, accept: ["the weight"], hint: "The d and the s are both silent — it sounds like « pwa »." },
+        { id: "fr-u50l3-lahauteur", type: "vocab", front: "la hauteur", reading: "lahauteur", meaning: "height", example: { jp: "Quelle est la hauteur ?", en: "What is the height?" }, accept: ["the height"] },
+        { id: "fr-u50l3-lalargeur", type: "vocab", front: "la largeur", reading: "lalargeur", meaning: "width", example: { jp: "Je vais mesurer la largeur.", en: "I'm going to measure the width." }, accept: ["the width", "breadth"] },
+        { id: "fr-u50l3-lenombre", type: "vocab", front: "le nombre", reading: "lenombre", meaning: "number", example: { jp: "Le nombre est trop grand.", en: "The number is too big." }, accept: ["the number", "quantity", "amount"], hint: "le nombre is how many there are; le numéro is the label on a door or a phone." },
+      ],
+    },
+    {
+      id: "fr-u50l4",
+      unit: 50,
+      lesson: 4,
+      title: "Heavy or light",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Describe an object by its weight and its size: heavy, light, full, empty, wide, narrow.",
+      items: [
+        { id: "fr-u50l4-lourd", type: "vocab", front: "lourd", reading: "lourd", meaning: "heavy", example: { jp: "Mon sac est très lourd.", en: "My bag is very heavy." }, accept: ["weighty"] },
+        { id: "fr-u50l4-leger", type: "vocab", front: "léger", reading: "leger", meaning: "light", example: { jp: "Ce manteau est léger.", en: "This coat is light." }, accept: ["lightweight", "not heavy"], hint: "Light in WEIGHT only — the light you switch on is la lampe." },
+        { id: "fr-u50l4-plein", type: "vocab", front: "plein", reading: "plein", meaning: "full", example: { jp: "Le verre est plein.", en: "The glass is full." }, accept: ["filled"] },
+        { id: "fr-u50l4-vide", type: "vocab", front: "vide", reading: "vide", meaning: "empty", example: { jp: "La bouteille est vide.", en: "The bottle is empty." }, accept: ["blank"] },
+        { id: "fr-u50l4-large", type: "vocab", front: "large", reading: "large", meaning: "wide", example: { jp: "La rue est large.", en: "The street is wide." }, accept: ["broad"], hint: "False friend: large means WIDE, not \"large\". Big is grand." },
+        { id: "fr-u50l4-etroit", type: "vocab", front: "étroit", reading: "etroit", meaning: "narrow", example: { jp: "L'escalier est étroit.", en: "The staircase is narrow." }, accept: ["tight", "cramped"] },
+      ],
+    },
   ],
 };
