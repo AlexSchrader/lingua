@@ -28,8 +28,24 @@
 // la mano · el médico · ¿qué?/¿cómo?/¿dónde? (inside the block-1 greeting and
 // self-introduction chunks). Proper names and transparent cognates (el taxi, el
 // hospital, la música, el problema, la foto, México, Madrid) are free.
-// If a merge shows blocks 1–2 skipped one of these, swap the example word — the
-// item itself never depends on it.
+// TWO FAILURE MODES AT MERGE, and they cost very differently:
+//   (a) blocks 1–2 SKIPPED an assumed word → swap the example word. Cheap; the item
+//       never depends on it. "muy" is the largest exposure (used in 16 examples,
+//       taught nowhere in this block).
+//   (b) blocks 1–2 also TEACH one of this block's 218 fronts → NOT an example swap.
+//       contract.js keys front-uniqueness on `${lang} ${front}` and errors, so
+//       validate:content goes hard red on the merged tree, and §4's ownership rule
+//       (lower unit number wins) means block 3 always loses. The merge seat deletes
+//       the card and re-authors to keep the lesson inside the 5–8 band. Most exposed:
+//       unit 20 lessons 1–3 (connectors, amounts, question words) and the function
+//       words of units 12–14, where "non-overlapping domains" is no defence.
+// A scope checker for (a) was written and run over all 218 examples (it found four
+// real forward references); it is not committed because §4 keeps an authoring seat
+// inside src/data/<lang>/. Rebuilding it is ~20 lines: fold accents, stem the
+// infinitive/plural/gender endings off every taught front, map the irregular verb
+// forms by hand, then walk each example word against the fronts available at or
+// before its unit. Once blocks 1–2 exist, drop the assumed list entirely and run
+// it strict.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const ES_UNIT12 = {
   id: "es-u12",
