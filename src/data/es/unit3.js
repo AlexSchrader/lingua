@@ -66,7 +66,7 @@ export const ES_UNIT3 = {
         { id: "es-u3l3-trabajo", type: "vocab", front: "trabajo", reading: "trabajo", meaning: "I work", example: { jp: "Trabajo en el museo.", en: "I work at the museum." }, accept: ["i am working", "my job", "work"], hint: "Also the noun: el trabajo is the job. And that j is the throaty one — tra-BA-ho." },
         { id: "es-u3l3-en", type: "vocab", front: "en", reading: "en", meaning: "in", example: { jp: "Vivo en México.", en: "I live in Mexico." }, accept: ["on", "at", "into"], hint: "One little word covering in, on and at. Spanish does not split them the way English does." },
         { id: "es-u3l3-tambien", type: "vocab", front: "también", reading: "tambien", meaning: "also", example: { jp: "Hablo inglés también.", en: "I speak English too." }, accept: ["too", "as well", "likewise"], hint: "Fits at either end: también hablo español, or hablo español también." },
-        { id: "es-u3l3-unpoco", type: "vocab", front: "un poco", reading: "unpoco", meaning: "a little", example: { jp: "Hablo español un poco.", en: "I speak a little Spanish." }, accept: ["a bit", "a little bit", "slightly"], hint: "The great softener. Add de to attach it to a noun: un poco de café." },
+        { id: "es-u3l3-unpoco", type: "vocab", front: "un poco", reading: "unpoco", meaning: "a little", example: { jp: "Hablo un poco de español.", en: "I speak a little Spanish." }, accept: ["a bit", "a little bit", "slightly"], hint: "The great softener. Add de to attach it to a noun: un poco de café." },
       ],
     },
     // Lesson 4: the same questions, aimed back
@@ -83,7 +83,7 @@ export const ES_UNIT3 = {
         { id: "es-u3l4-vives", type: "vocab", front: "vives", reading: "vives", meaning: "you live", example: { jp: "¿Dónde vives?", en: "Where do you live?" }, accept: ["do you live", "you are living"], hint: "Same swap: vivo / vives. The -es ending belongs to verbs whose infinitive ends in -er or -ir." },
         { id: "es-u3l4-trabajas", type: "vocab", front: "trabajas", reading: "trabajas", meaning: "you work", example: { jp: "¿Dónde trabajas?", en: "Where do you work?" }, accept: ["do you work", "you are working"], hint: "trabajo / trabajas. Notice there is no \"do\" anywhere in the Spanish question." },
         { id: "es-u3l4-elamigo", type: "vocab", front: "el amigo", reading: "elamigo", meaning: "friend (male)", example: { jp: "Mi amigo es de México.", en: "My friend is from Mexico." }, accept: ["the friend", "buddy", "male friend"], hint: "g before o is the hard g of \"go\": a-MEE-go." },
-        { id: "es-u3l4-laamiga", type: "vocab", front: "la amiga", reading: "laamiga", meaning: "friend (female)", example: { jp: "Mi amiga es de España.", en: "My friend is from Spain." }, accept: ["the friend", "female friend", "girlfriend"], hint: "Same word, feminine ending. Spanish marks your friend's gender whether you meant to or not." },
+        { id: "es-u3l4-laamiga", type: "vocab", front: "la amiga", reading: "laamiga", meaning: "friend (female)", example: { jp: "Mi amiga es de España.", en: "My friend is from Spain." }, accept: ["the friend", "female friend"], hint: "Same word, feminine ending. Spanish marks your friend's gender whether you meant to or not." },
         { id: "es-u3l4-mi", type: "vocab", front: "mi", reading: "mi", meaning: "my", example: { jp: "Mi amigo es muy elegante.", en: "My friend is very elegant." }, accept: ["mine"], hint: "No accent — mi is \"my\", mí with an accent is \"me\". For more than one thing it becomes mis." },
       ],
     },

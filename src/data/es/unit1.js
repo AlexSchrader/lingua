@@ -11,14 +11,25 @@
 //   - `front` is real orthography (accents, ñ, spaces); `reading` is its ASCII
 //     fold (the contract requires [a-z]+) — normalizeReading() strips diacritics
 //     via NFD and drops spaces, so "el año" folds to "elano" and a learner may
-//     type either form. The fold is never displayed (readingIsInformative()).
+//     type either form.
+//     ⚠️ MERGE-SEAT PRECONDITION: the fold is an answer key, never a
+//     pronunciation guide, and it must not be DISPLAYED. On this branch's base it
+//     still is — TeachCard renders item.reading gated only on the global
+//     `showRomaji` setting, so a Spanish Teach card prints "lacasa" under
+//     "la casa". The fix (`readingIsInformative()` in cardRouting.js, commit
+//     db5e45c / merge dc70134) is NOT an ancestor of `content/es-scaffold`.
+//     Spanish must not ship on a base without it. Feature lane — logged in
+//     BUILD-CHECKLIST.md, deliberately not fixed from a content branch.
 //   - `example.jp` holds the SPANISH sentence (the field name is historical —
 //     "jp" = target language); `example.en` the English gloss.
 //   - Nouns are taught WITH their article (el/la) so gender is learned as part of
 //     the word, never as an afterthought. Plurals get los/las.
 //   - Examples stay inside vocab taught at or before this unit, plus proper names
-//     and transparent cognates (moderno, elegante, famoso, enorme, fantástico,
-//     tranquilo, histórico, importante, rápido, perfecto, humano, América).
+//     (Ana, España, México, América) and transparent cognates: moderno, elegante,
+//     famoso, enorme, romántico, fantástico, tranquilo, histórico, importante,
+//     rápido, perfecto, humano, favorito, persona. Inflected forms of those
+//     cognates count as the same word (moderna, fantástica, tranquila,
+//     personas), as do regular plurals of any taught noun (sillas, hermanos).
 //   - DELIBERATE A1 SIMPLIFICATIONS (revisit at A2): (a) only the present tense,
 //     and verbs are taught as person-marked chunks (soy, hablo, tengo) rather
 //     than infinitives — the infinitive belongs with the grammar units; (b) ser
@@ -65,7 +76,7 @@ export const ES_UNIT1 = {
       items: [
         { id: "es-u1l2-lahora", type: "vocab", front: "la hora", reading: "lahora", meaning: "hour", example: { jp: "¡Es la hora!", en: "It's time!" }, accept: ["the hour", "time", "o'clock"], hint: "The h is silent, so it sounds exactly like ora: OH-ra." },
         { id: "es-u1l2-hay", type: "vocab", front: "hay", reading: "hay", meaning: "there is", example: { jp: "Hay gente.", en: "There are people." }, accept: ["there are", "there's"], hint: "One word for both \"there is\" and \"there are\". Silent h again — it sounds like the English word \"eye\"." },
-        { id: "es-u1l2-elhombre", type: "vocab", front: "el hombre", reading: "elhombre", meaning: "man", example: { jp: "El hombre es famoso.", en: "The man is famous." }, accept: ["the man", "guy"], hint: "OM-bre. Spanish h is a letter you write and never say — the only one." },
+        { id: "es-u1l2-elhombre", type: "vocab", front: "el hombre", reading: "elhombre", meaning: "man", example: { jp: "El hombre es famoso.", en: "The man is famous." }, accept: ["the man", "guy"], hint: "OM-bre. Spanish h is the only letter that is always silent — you write it and never say it." },
         { id: "es-u1l2-lamujer", type: "vocab", front: "la mujer", reading: "lamujer", meaning: "woman", example: { jp: "La mujer es elegante.", en: "The woman is elegant." }, accept: ["the woman", "lady", "wife"], hint: "That j is a rasp at the back of the mouth, like clearing your throat: moo-HER." },
         { id: "es-u1l2-elojo", type: "vocab", front: "el ojo", reading: "elojo", meaning: "eye", example: { jp: "El ojo humano es perfecto.", en: "The human eye is perfect." }, accept: ["the eye"], hint: "OH-ho, with the same rasp. On its own, ¡Ojo! means \"watch out!\"" },
         { id: "es-u1l2-lagente", type: "vocab", front: "la gente", reading: "lagente", meaning: "people", example: { jp: "La gente de México es fantástica.", en: "The people of Mexico are fantastic." }, accept: ["people", "the people", "folk"], hint: "g before e or i takes that same throaty sound: HEN-te. Before a, o, u it is the hard g of \"go\"." },
@@ -99,12 +110,12 @@ export const ES_UNIT1 = {
       dominantMode: "recall",
       canDo: "Read the consonants that shift with the next letter — hard c and qu, soft c and z — and hear the rolled rr that separates perro from pero.",
       items: [
-        { id: "es-u1l4-elcoche", type: "vocab", front: "el coche", reading: "elcoche", meaning: "car", example: { jp: "El coche de Ana es rápido.", en: "Ana's car is fast." }, accept: ["the car", "automobile"], hint: "c before a, o, u is a hard k: KO-che. And ch is a single sound, the ch of \"church\"." },
+        { id: "es-u1l4-elcoche", type: "vocab", front: "el coche", reading: "elcoche", meaning: "car", example: { jp: "El coche de Ana es rápido.", en: "Ana's car is fast." }, accept: ["the car", "automobile"], hint: "c before a, o, u is a hard k: KO-che. And ch is a single sound, the ch of \"church\". Spain says coche; much of Latin America says carro or auto." },
         { id: "es-u1l4-elcielo", type: "vocab", front: "el cielo", reading: "elcielo", meaning: "sky", example: { jp: "El cielo de la mañana es tranquilo.", en: "The morning sky is calm." }, accept: ["the sky", "heaven"], hint: "But c before e or i goes soft: SYE-lo in Latin America, THYE-lo in most of Spain." },
         { id: "es-u1l4-ellapiz", type: "vocab", front: "el lápiz", reading: "ellapiz", meaning: "pencil", example: { jp: "El lápiz es de Ana.", en: "The pencil is Ana's." }, accept: ["the pencil"], hint: "z is that same soft sound. The accent tells you where to hit: LÁ-piz. With no accent, stress lands on the last syllable — or the second-to-last if the word ends in a vowel, n or s." },
         { id: "es-u1l4-que", type: "vocab", front: "qué", reading: "que", meaning: "what", example: { jp: "¿Qué es?", en: "What is it?" }, accept: ["which"], hint: "qu is a plain k — the u is silent: KE. Questions open with an upside-down ¿ so you know from the first character that a question is coming." },
         { id: "es-u1l4-elperro", type: "vocab", front: "el perro", reading: "elperro", meaning: "dog", example: { jp: "El perro de Ana es enorme.", en: "Ana's dog is enormous." }, accept: ["the dog"], hint: "rr is the rolled r — trill the tip of your tongue. Worth practising: it is the one sound that changes the word." },
-        { id: "es-u1l4-pero", type: "vocab", front: "pero", reading: "pero", meaning: "but", example: { jp: "El libro es famoso, pero el museo es enorme.", en: "The book is famous, but the museum is enormous." }, accept: ["however", "though"], hint: "One r, one light tap: PE-ro. The classic trap — perro is a dog, pero is \"but\"." },
+        { id: "es-u1l4-pero", type: "vocab", front: "pero", reading: "pero", meaning: "but", example: { jp: "El museo es enorme, pero es tranquilo.", en: "The museum is enormous, but it's quiet." }, accept: ["however", "though"], hint: "One r, one light tap: PE-ro. The classic trap — perro is a dog, pero is \"but\"." },
       ],
     },
   ],
