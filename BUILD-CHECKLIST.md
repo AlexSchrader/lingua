@@ -147,10 +147,21 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 ---
 
+## Language crew board (in-flight blocks — see `RUNBOOK-new-language.md` §0)
+
+One row per in-flight authoring block. The authoring seat claims its row and updates the status (`authoring` → `gating` → `handed back`); the **merge seat** clears the language's rows once the language lands.
+
+| Language | Block | Status | Branch | Worktree |
+|---|---|---|---|---|
+| Spanish | 2 (units 7–11, rest of Strand B) | handed back | `content/es-a1-block2` | `C:\dev\lingua-es2` |
+
+---
+
 ## Feature CC backlog (logged by curriculum CC — app/engine lane, not mine to build)
 
 Single place for the feature/engine work that's surfaced. Curriculum CC adds here; **feature CC builds.** Detail/rationale for each is in the status block above and the linked briefs.
 
+- [!] **`pruneStartedLanguages` stale-save detector dies when the last cascade language ships — BLOCKS SPANISH SHIPPING.** Surfaced 2026-08-04 by the es block-2 authoring seat: the moment `src/data/es/` has one playable lesson, `isLive("es")` flips true and `tests/unit/prune-languages.test.mjs:46` ("a stale auto-cascade save does not silently acquire a newly-shipped language") **fails** — 188/189 pass, this one red. Not a content defect and **not a test to weaken**: the test is doing its job. The cause is structural. [useStore.js:66](src/store/useStore.js#L66) infers "this save still carries the old ja→es→fr cascade seeding" from `profile.languages.some((id) => !hasContent(id))` — i.e. the signature of a stale save is *that one of its languages has no content*. That signature evaporates once ja, es and fr are all live: `stale` is then permanently `false`, the strict filter never engages, and a pre-language-choice save keeps `es` + `fr` as **started languages the learner never chose**, bypassing `canAddLanguage`. This is exactly the regression the 2026-07-31 truth-agent fix was written to prevent; shipping French only postponed it one language. Needs a staleness signal that doesn't depend on a content-less language existing (e.g. a persist-version stamp, or recording deliberate `startLanguage` calls) — engine + persisted-state change, so it wants its own scoped PR and Alex's call. **Every Spanish block will hit this identically, and so will merge day.**
 - [ ] **Ladder — group the Kanji section by category.** Use `src/data/ja/kanjiCategories.js` (`KANJI_CATEGORIES` + `categoryOf`); render one labeled sub-group per category (same pattern as the kana gojūon sub-sections) instead of the flat 106-glyph grid. No content/schema change.
 - [ ] **Ladder — per-lesson dropdown preview.** Expand a lesson to show its `canDo` line + item list. Data already lives on each lesson object (`title`/`canDo`/`items`) — pure render.
 - [ ] **Ladder — collapsible stage sub-sections within Units** (pre-A1 / A1 / A2 collapse independently) so the Units tab isn't one long wall.
