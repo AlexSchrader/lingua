@@ -161,6 +161,12 @@ This file is updated as part of the PR that completes work. When a task is finis
 | Spanish 🇪🇸 | 1 | ready — awaiting kickoff | `content/es-a1-block1` | `C:\dev\lingua-es1` | Units 1–6 (sounds + greetings/self/family/numbers/food) |
 | Spanish 🇪🇸 | 2 | ready — awaiting kickoff | `content/es-a1-block2` | `C:\dev\lingua-es2` | Units 7–11 (places/days/describing/verbs/body) |
 | Spanish 🇪🇸 | 3 | ready — awaiting kickoff | `content/es-a1-block3` | `C:\dev\lingua-es3` | Units 12–20 (3 grammar + 6 coverage). Draws on blocks 1–2 vocab — expect example revisions after merge. |
+| French 🇫🇷 **A2** | — | **scaffolded** | `content/fr-a2-scaffold` | (main checkout) | Shared base, commit `9e84b2a`. fr-u28–u57, all stage `a2`, 155 units validate green. A1 (u1–27) already authored. |
+| French 🇫🇷 A2 | 1 | ready — awaiting kickoff | `content/fr-a2-block1` | `C:\dev\lingua-fr1` | Units 28–37 (thematic: activities → home) |
+| French 🇫🇷 A2 | 2 | ready — awaiting kickoff | `content/fr-a2-block2` | `C:\dev\lingua-fr2` | Units 38–47 (thematic: personality → culture, + grammar 4/5) |
+| French 🇫🇷 A2 | 3 | ready — awaiting kickoff | `content/fr-a2-block3` | `C:\dev\lingua-fr3` | Units 48–57 (conjugation drills + 11 coverage). Draws on blocks 1–2 vocab. |
+
+⚠ **French has no audio at all** — `public/audio/fr/` doesn't exist, 0/566 for A1 and A2 will add ~700 more. Authoring isn't blocked, but French ships without listening cards until the paid `generate:audio` run happens (see the Alex item in the backlog).
 
 **Standing limits:** authoring seats run fully parallel; **merge seats run one at a time across all languages** (they touch `src/data/index.js`, the audio manifest, and this file). Target ~2 languages in flight, staggered — the real ceiling is Alex's Dev-Mode playtest, not CC throughput.
 
