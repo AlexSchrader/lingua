@@ -161,6 +161,7 @@ This file is updated as part of the PR that completes work. When a task is finis
 | Spanish 🇪🇸 | 1 | ready — awaiting kickoff | `content/es-a1-block1` | `C:\dev\lingua-es1` | Units 1–6 (sounds + greetings/self/family/numbers/food) |
 | Spanish 🇪🇸 | 2 | ready — awaiting kickoff | `content/es-a1-block2` | `C:\dev\lingua-es2` | Units 7–11 (places/days/describing/verbs/body) |
 | Spanish 🇪🇸 | 3 | ready — awaiting kickoff | `content/es-a1-block3` | `C:\dev\lingua-es3` | Units 12–20 (3 grammar + 6 coverage). Draws on blocks 1–2 vocab — expect example revisions after merge. |
+| French 🇫🇷 A2 | 3 | **authoring** | `content/fr-a2-block3` | `C:\dev\lingua-fr3` | Units 48–57 = slots `coverage-a2-2` … `coverage-a2-11` (10 units, Strand D). ⚠ The kickoff note said "conjugation drills + 11 coverage", which contradicts the range — the scaffold puts conj-1/2 at u45/u46 and coverage-1 at u47, all inside block 2's 38–47. **Range wins** (blocks must never overlap). Examples drawn from **A1 only** (u1–u27): blocks 1–2 are locked stubs at authoring time, so nothing forward-references them. |
 
 **Standing limits:** authoring seats run fully parallel; **merge seats run one at a time across all languages** (they touch `src/data/index.js`, the audio manifest, and this file). Target ~2 languages in flight, staggered — the real ceiling is Alex's Dev-Mode playtest, not CC throughput.
 
