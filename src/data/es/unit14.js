@@ -46,7 +46,7 @@ export const ES_UNIT14 = {
         { id: "es-u14l2-comio", type: "vocab", front: "comió", reading: "comio", meaning: "he ate", example: { jp: "Ella comió en el parque.", en: "She ate in the park." }, accept: ["she ate"], hint: "-er and -ir verbs take -ió: comió, escribió, vivió." },
         { id: "es-u14l2-escribio", type: "vocab", front: "escribió", reading: "escribio", meaning: "he wrote", example: { jp: "Él escribió a Pablo ayer.", en: "He wrote to Pablo yesterday." }, accept: ["she wrote"] },
         { id: "es-u14l2-fue", type: "vocab", front: "fue", reading: "fue", meaning: "he went", example: { jp: "Ella fue a la ciudad el lunes.", en: "She went to the city on Monday." }, accept: ["she went", "he was", "it was"], hint: "Like fui, it doubles as \"was\": fue muy bueno = it was very good." },
-        { id: "es-u14l2-estuvo", type: "vocab", front: "estuvo", reading: "estuvo", meaning: "he was (somewhere)", example: { jp: "Pablo estuvo en casa toda la mañana.", en: "Pablo was at home all morning." }, accept: ["she was", "it was"], hint: "The past of está — where somebody was, not what they are." },
+        { id: "es-u14l2-estuvo", type: "vocab", front: "estuvo", reading: "estuvo", meaning: "he was (somewhere)", example: { jp: "Pablo estuvo en casa ayer.", en: "Pablo was at home yesterday." }, accept: ["she was", "it was"], hint: "The past of está — where somebody was, not what they are." },
       ],
     },
     {

@@ -19,10 +19,10 @@ export const ES_UNIT17 = {
       dominantMode: "recall",
       canDo: "Say how you get around: voy en coche, en tren, en autobús, en bicicleta.",
       items: [
-        { id: "es-u17l1-elcoche", type: "vocab", front: "el coche", reading: "elcoche", meaning: "the car", example: { jp: "Voy en coche a Madrid.", en: "I'm driving to Madrid." }, accept: ["car", "automobile"], hint: "In Spain el coche; in most of Latin America el carro or el auto. All three are understood everywhere." },
+        { id: "es-u17l1-elcoche", type: "vocab", front: "el coche", reading: "elcoche", meaning: "the car", example: { jp: "Voy a Madrid en coche.", en: "I'm going to Madrid by car." }, accept: ["car", "automobile"], hint: "In Spain el coche; in most of Latin America el carro or el auto. All three are understood everywhere." },
         { id: "es-u17l1-eltren", type: "vocab", front: "el tren", reading: "eltren", meaning: "the train", example: { jp: "El tren va a Barcelona.", en: "The train goes to Barcelona." }, accept: ["train"] },
         { id: "es-u17l1-elavion", type: "vocab", front: "el avión", reading: "elavion", meaning: "the plane", example: { jp: "El avión es muy rápido.", en: "The plane is very fast." }, accept: ["aeroplane", "airplane", "plane"] },
-        { id: "es-u17l1-elautobus", type: "vocab", front: "el autobús", reading: "elautobus", meaning: "the bus", example: { jp: "Voy en autobús a la escuela.", en: "I take the bus to school." }, accept: ["bus", "coach"] },
+        { id: "es-u17l1-elautobus", type: "vocab", front: "el autobús", reading: "elautobus", meaning: "the bus", example: { jp: "Voy a la escuela en autobús.", en: "I go to school by bus." }, accept: ["bus", "coach"] },
         { id: "es-u17l1-labicicleta", type: "vocab", front: "la bicicleta", reading: "labicicleta", meaning: "the bicycle", example: { jp: "María va en bicicleta.", en: "María goes by bike." }, accept: ["bike", "bicycle", "cycle"], hint: "Shortened to la bici in everyday speech, exactly like English \"bike\"." },
         { id: "es-u17l1-lamoto", type: "vocab", front: "la moto", reading: "lamoto", meaning: "the motorbike", example: { jp: "La moto es de Pablo.", en: "The motorbike is Pablo's." }, accept: ["motorcycle", "motorbike", "scooter"], hint: "Feminine despite the -o, like la foto — it's short for la motocicleta." },
       ],

@@ -3,6 +3,12 @@
 // Japanese particles is its preposition set, so Lesson 3 is the particle lesson.
 // Verbs are headworded in the INFINITIVE (the dictionary form), exactly as ja
 // headwords the ～ます form, and the conjugated forms live in the examples + hints.
+//
+// DELIBERATE SHAPE DEVIATION: Lesson 3 carries 8 cards, not 6, so the unit is 26
+// rather than the blueprint's 24. al and del are not extra vocabulary — they are a
+// and de fused with the article, and Spanish never writes them apart, so splitting
+// the pair across units would teach half a rule. 8 is inside the 5–8 band the lint
+// enforces; every other lesson in this block is 6.
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
 export const ES_UNIT13 = {
   id: "es-u13",
@@ -23,7 +29,7 @@ export const ES_UNIT13 = {
         { id: "es-u13l1-hablar", type: "vocab", front: "hablar", reading: "hablar", meaning: "to speak", example: { jp: "Yo hablo español.", en: "I speak Spanish." }, accept: ["speak", "talk", "to talk"], hint: "Most Spanish verbs end in -ar. Swap the -ar for the ending you need: yo hablo, tú hablas, él habla, nosotros hablamos." },
         { id: "es-u13l1-trabajar", type: "vocab", front: "trabajar", reading: "trabajar", meaning: "to work", example: { jp: "María trabaja en la escuela.", en: "María works at the school." }, accept: ["work", "works"] },
         { id: "es-u13l1-estudiar", type: "vocab", front: "estudiar", reading: "estudiar", meaning: "to study", example: { jp: "Estudio español en casa.", en: "I study Spanish at home." }, accept: ["study", "studies"] },
-        { id: "es-u13l1-escuchar", type: "vocab", front: "escuchar", reading: "escuchar", meaning: "to listen", example: { jp: "Escucho música por la mañana.", en: "I listen to music in the morning." }, accept: ["listen", "listen to", "hear"] },
+        { id: "es-u13l1-escuchar", type: "vocab", front: "escuchar", reading: "escuchar", meaning: "to listen", example: { jp: "Escucho música en casa.", en: "I listen to music at home." }, accept: ["listen", "listen to", "hear"] },
         { id: "es-u13l1-comprar", type: "vocab", front: "comprar", reading: "comprar", meaning: "to buy", example: { jp: "Compro pan en la tienda.", en: "I buy bread at the shop." }, accept: ["buy", "buys", "purchase"] },
         { id: "es-u13l1-necesitar", type: "vocab", front: "necesitar", reading: "necesitar", meaning: "to need", example: { jp: "Necesito agua.", en: "I need water." }, accept: ["need", "needs"] },
       ],
@@ -35,7 +41,7 @@ export const ES_UNIT13 = {
       title: "Verbos en -er y -ir",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Use the other two verb families: vivo en Madrid, escribo a María, aprendo español.",
+      canDo: "Use the other two verb families: vivo en Madrid, aprendo español, la tienda abre hoy.",
       items: [
         { id: "es-u13l2-vivir", type: "vocab", front: "vivir", reading: "vivir", meaning: "to live", example: { jp: "Vivo en Madrid.", en: "I live in Madrid." }, accept: ["live", "lives"], hint: "-ir verbs: yo vivo, tú vives, él vive, nosotros vivimos. Almost the same endings as -er." },
         { id: "es-u13l2-leer", type: "vocab", front: "leer", reading: "leer", meaning: "to read", example: { jp: "María lee mucho.", en: "María reads a lot." }, accept: ["read", "reads"] },

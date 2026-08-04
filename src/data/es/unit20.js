@@ -43,14 +43,14 @@ export const ES_UNIT20 = {
       title: "Más o menos",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say how much: quiero más café, hay demasiado trabajo, sólo tengo cinco euros.",
+      canDo: "Say how much: quiero más café, hay demasiado trabajo, solo tengo cinco euros.",
       items: [
         { id: "es-u20l2-mas", type: "vocab", front: "más", reading: "mas", meaning: "more", example: { jp: "Quiero más café, por favor.", en: "I'd like more coffee, please." }, accept: ["most", "extra", "more"], hint: "It also builds comparisons: más grande que = bigger than." },
         { id: "es-u20l2-menos", type: "vocab", front: "menos", reading: "menos", meaning: "less", example: { jp: "Hoy trabajo menos.", en: "Today I'm working less." }, accept: ["fewer", "least", "less"] },
-        { id: "es-u20l2-muy", type: "vocab", front: "muy", reading: "muy", meaning: "very", example: { jp: "El examen es muy difícil.", en: "The exam is very hard." }, accept: ["really", "very"], hint: "muy goes with a describing word (muy grande); mucho goes with a noun or a verb (mucho pan, trabajo mucho). Never \"muy mucho\"." },
+        { id: "es-u20l2-nada", type: "vocab", front: "nada", reading: "nada", meaning: "nothing", example: { jp: "No tengo nada en el bolso.", en: "I have nothing in my bag." }, accept: ["anything", "at all", "nothing"], hint: "Spanish doubles the negative and it is correct: no tengo nada, literally \"I don't have nothing\". Dropping the no is the mistake, not keeping it." },
         { id: "es-u20l2-demasiado", type: "vocab", front: "demasiado", reading: "demasiado", meaning: "too much", example: { jp: "Hay demasiado trabajo hoy.", en: "There's too much work today." }, accept: ["too", "too many", "too much"] },
         { id: "es-u20l2-bastante", type: "vocab", front: "bastante", reading: "bastante", meaning: "quite", example: { jp: "El piso es bastante grande.", en: "The flat is quite big." }, accept: ["fairly", "enough", "rather"] },
-        { id: "es-u20l2-solo", type: "vocab", front: "sólo", reading: "solo", meaning: "only", example: { jp: "Sólo tengo cinco euros.", en: "I only have five euros." }, accept: ["just", "merely", "only"], hint: "You'll see it written both sólo and solo — the accent is optional these days." },
+        { id: "es-u20l2-solo", type: "vocab", front: "solo", reading: "solo", meaning: "only", example: { jp: "Solo tengo cinco euros.", en: "I only have five euros." }, accept: ["just", "merely", "only"], hint: "Written without an accent since the 2010 spelling reform. Older books print sólo when it means \"only\"; both are still read the same way." },
       ],
     },
     {
@@ -79,7 +79,7 @@ export const ES_UNIT20 = {
       dominantMode: "recall",
       canDo: "Talk about something in general terms when you don't have the exact word: la cosa, la vez, el lugar, la gente.",
       items: [
-        { id: "es-u20l4-lacosa", type: "vocab", front: "la cosa", reading: "lacosa", meaning: "the thing", example: { jp: "Tengo muchas cosas en la maleta.", en: "I have a lot of things in my suitcase." }, accept: ["object", "stuff", "thing"], hint: "The word to reach for when you don't know the word: \"esa cosa\", that thing." },
+        { id: "es-u20l4-lacosa", type: "vocab", front: "la cosa", reading: "lacosa", meaning: "the thing", example: { jp: "Tengo muchas cosas en la maleta.", en: "I have a lot of things in my suitcase." }, accept: ["object", "stuff", "thing"], hint: "The word to reach for when you don't know the word: \"esta cosa\", this thing." },
         { id: "es-u20l4-lavez", type: "vocab", front: "la vez", reading: "lavez", meaning: "the time (occasion)", example: { jp: "Voy dos veces por semana.", en: "I go twice a week." }, accept: ["occasion", "instance", "time"], hint: "la vez counts occasions; la hora tells the clock. dos veces = twice, not \"two hours\"." },
         { id: "es-u20l4-ellugar", type: "vocab", front: "el lugar", reading: "ellugar", meaning: "the place", example: { jp: "Es un lugar muy bonito.", en: "It's a very pretty place." }, accept: ["spot", "location", "place"] },
         { id: "es-u20l4-lagente", type: "vocab", front: "la gente", reading: "lagente", meaning: "the people", example: { jp: "Hay mucha gente en la calle.", en: "There are a lot of people on the street." }, accept: ["folk", "everyone", "people"], hint: "Singular in Spanish even though it's plural in English: la gente ES muy buena." },
