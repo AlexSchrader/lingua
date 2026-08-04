@@ -159,7 +159,7 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 | Language | Block | Status | Branch | Worktree | Notes / unresolved |
 |---|---|---|---|---|---|
-| Spanish 🇪🇸 | 3 | **authoring** | `content/es-a1-block3` | `C:\dev\lingua-es3` | Units 12–20 (3 grammar + 6 coverage). Blocks 1–2 had authored nothing when this seat started, so every example rests on an assumed block 1–2 vocabulary listed in each unit header — expect revisions at merge. |
+| Spanish 🇪🇸 | 3 | **handed back** | `content/es-a1-block3` | `C:\dev\lingua-es3` | Units 12–20, 218 cards. content-auditor PASS-WITH-FLAGS. ⚠️ **`test:unit` is RED** on one engine defect this block surfaces — see the `[!]` item in the Feature CC backlog; the Spanish merge is gated on that fix, not on more authoring. Blocks 1–2 had authored nothing when this seat ran, so every example rests on the assumed block 1–2 vocabulary listed in `es/unit12.js`'s header — expect example revisions at merge, and re-run `validate:content` on the *integrated* branch to catch cross-block front collisions. |
 
 ---
 
