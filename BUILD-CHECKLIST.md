@@ -161,6 +161,7 @@ This file is updated as part of the PR that completes work. When a task is finis
 | Spanish 🇪🇸 | 1 | ready — awaiting kickoff | `content/es-a1-block1` | `C:\dev\lingua-es1` | Units 1–6 (sounds + greetings/self/family/numbers/food) |
 | Spanish 🇪🇸 | 2 | ready — awaiting kickoff | `content/es-a1-block2` | `C:\dev\lingua-es2` | Units 7–11 (places/days/describing/verbs/body) |
 | Spanish 🇪🇸 | 3 | ready — awaiting kickoff | `content/es-a1-block3` | `C:\dev\lingua-es3` | Units 12–20 (3 grammar + 6 coverage). Draws on blocks 1–2 vocab — expect example revisions after merge. |
+| French 🇫🇷 A2 | 2 | **handed back** | `content/fr-a2-block2` | `C:\dev\lingua-fr2` | Units 38–47, 40 lessons, 240 cards. Gate green (audit is ja-only — see backlog). Merge-time watch: `car` / `c'est pourquoi` (u43l3) may collide with block 1's Unit 36 connectors; `la terre` (u41l1) with Unit 33 nature. Lower slot wins. |
 
 **Standing limits:** authoring seats run fully parallel; **merge seats run one at a time across all languages** (they touch `src/data/index.js`, the audio manifest, and this file). Target ~2 languages in flight, staggered — the real ceiling is Alex's Dev-Mode playtest, not CC throughput.
 
@@ -177,6 +178,7 @@ Single place for the feature/engine work that's surfaced. Curriculum CC adds her
 - [ ] **Lesson — "Previous" button** (top of runner) to recover from a double-tap Continue skipping a card. Visual back only — must NOT re-grade / corrupt SRS state. (`src/screens/Lesson.jsx`, `learn.pos`.)
 - [x] **Lesson — "card breath" debounce** — ✅ DONE 2026-07-04, PR #41 (shipped as `src/components/CardBreath.jsx`, wired into the Lesson + Review card remounts). Short delay before a new card accepts taps; *prevents* the double-tap skip. The **"Previous" button** (item above) is the still-open *recovery* half — pair them.
 - [ ] **Lesson/UI — clarify card-vs-item counting.** The session counts cards (3× items), which reads as "0/30" and confused a real user vs the Ladder's item totals. Label it ("card 1 of 30") or show item progress.
+- [ ] **`npm run audit` is hardcoded to Japanese — it silently audits nothing for any other language.** [scripts/audit-curriculum.mjs:8](scripts/audit-curriculum.mjs#L8) resolves its unit directory as `src/data/ja`, full stop. `audit` is one of the five commands `RUNBOOK-new-language.md` §5 tells every language crew to run as its gate, so **every French, Spanish and future-language block "passes an audit" that never read a single one of its files** (TOTALS printed 2,375 items / 0 rows matching `fr-u` while 240 new French cards sat on disk). Found by the French A2 block-2 seat, 2026-08-04. Fix: take the language from a CLI arg or walk every `src/data/<lang>/`. Until then the runbook's gate is four commands, not five, for non-ja crews.
 - [ ] **Checkpoints + save points** (engine side of the 2026-06-30 design) — checkpoints = light consolidation *beats* within a unit; save points = mid-lesson resume, **no expiry / no restart** (FSRS owns reinforcement). Curriculum CC owns the beat *content*; engine mechanic is feature CC's.
 
 ---

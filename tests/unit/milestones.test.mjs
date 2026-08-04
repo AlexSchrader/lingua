@@ -123,7 +123,16 @@ test("level milestones are per-language — a new language never moves another's
   assert.equal(jaA1.progress({}).need, countBand("ja", "A1"), "ja A1 counts only ja items");
   const frA1 = levels.find((m) => m.id === "level-A1-fr");
   assert.ok(frA1, "French gets its own suffixed level id");
-  assert.equal(frA1.progress({}).need, frDefs.length);
+  // BAND-scoped, not language-scoped: a level milestone's denominator is the
+  // items at or below its band (milestones.js `bandDefs`). This used to read
+  // `frDefs.length`, which was only accidentally right while French was A1-only
+  // — the first French A2 unit to land made a correct engine fail a green test.
+  assert.equal(frA1.progress({}).need, countBand("fr", "A1"), "fr A1 counts only fr A1-band items");
+  // …and the cumulative band above it, which appears on its own once A2 ships,
+  // counts every fr item at or below A2. This is the assertion that keeps the
+  // A1 denominator honest as later bands are authored.
+  const frA2 = levels.find((m) => m.id === "level-A2-fr");
+  if (frA2) assert.equal(frA2.progress({}).need, countBand("fr", "A1") + countBand("fr", "A2"));
   // Recognizing every ja A1 item earns ja's A1 WITHOUT touching French.
   const m = {};
   for (const d of Object.values(SEED)) {
