@@ -147,6 +147,22 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 ---
 
+## Language crew board (in-flight authoring — one row per block)
+
+**What this is:** the at-a-glance status of every language block currently being authored, so Alex can see the whole production line without opening sessions. Procedure lives in `RUNBOOK-new-language.md`; the pathway itself in `BUILD-BRIEF-language-blueprint.md`.
+
+**Who writes here:** each authoring seat sets its own row to `authoring` at §2 and `handed back` at §6. The **merge seat** clears the language's rows once merged. Alex only reads.
+
+*Status values:* `authoring` → `gating` → `handed back` → `merged` (then the row is deleted).
+
+> ⚠️ **Note for the merge seat:** this section did not exist on `content/es-scaffold` (it shipped in `2bcc42a`, which is *not* an ancestor of the scaffold branch), so each authoring seat has to add it. Expect an add/add conflict here on merge — keep one copy of the section and all three rows.
+
+| Language | Block | Status | Branch | Worktree | Notes / unresolved |
+|---|---|---|---|---|---|
+| Spanish 🇪🇸 | 3 | **authoring** | `content/es-a1-block3` | `C:\dev\lingua-es3` | Units 12–20 (3 grammar + 6 coverage). Blocks 1–2 had authored nothing when this seat started, so every example rests on an assumed block 1–2 vocabulary listed in each unit header — expect revisions at merge. |
+
+---
+
 ## Feature CC backlog (logged by curriculum CC — app/engine lane, not mine to build)
 
 Single place for the feature/engine work that's surfaced. Curriculum CC adds here; **feature CC builds.** Detail/rationale for each is in the status block above and the linked briefs.
