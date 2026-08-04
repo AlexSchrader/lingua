@@ -1,7 +1,31 @@
 // ES Unit 1 — Sounds and spelling (slot: sounds) — A1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
+// ─────────────────────────────────────────────────────────────────────────────
+// First contact with Spanish. Latin-script languages collapse Strand A to ONE
+// unit (BUILD-BRIEF-language-blueprint.md §1): not letter drills, but the
+// sound-to-spelling map an English reader gets wrong — the five constant vowels,
+// silent h, throaty j/g, ñ, ll/y, soft c/z vs hard c/qu, and the rolled rr.
+// Every rule is taught THROUGH a real word the learner keeps, never through a
+// bare letter.
+//
+// AUTHORING CONVENTIONS FOR SPANISH (all es units):
+//   - `front` is real orthography (accents, ñ, spaces); `reading` is its ASCII
+//     fold (the contract requires [a-z]+) — normalizeReading() strips diacritics
+//     via NFD and drops spaces, so "el año" folds to "elano" and a learner may
+//     type either form. The fold is never displayed (readingIsInformative()).
+//   - `example.jp` holds the SPANISH sentence (the field name is historical —
+//     "jp" = target language); `example.en` the English gloss.
+//   - Nouns are taught WITH their article (el/la) so gender is learned as part of
+//     the word, never as an afterthought. Plurals get los/las.
+//   - Examples stay inside vocab taught at or before this unit, plus proper names
+//     and transparent cognates (moderno, elegante, famoso, enorme, fantástico,
+//     tranquilo, histórico, importante, rápido, perfecto, humano, América).
+//   - DELIBERATE A1 SIMPLIFICATIONS (revisit at A2): (a) only the present tense,
+//     and verbs are taught as person-marked chunks (soy, hablo, tengo) rather
+//     than infinitives — the infinitive belongs with the grammar units; (b) ser
+//     vs estar is not opened here: this block teaches ser (es/soy/eres/son) and
+//     leaves estar to the grammar block, so "está" never appears in an example;
+//     (c) `por` + time of day ("por la mañana") is deferred to the grammar block,
+//     so Unit 5 uses "de noche" and plain adverbs instead.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const ES_UNIT1 = {
   id: "es-u1",
@@ -10,9 +34,78 @@ export const ES_UNIT1 = {
   order: 1,
   stage: "a1",
   lessons: [
-    { id: "es-u1l1", title: "Lesson 1", locked: true },
-    { id: "es-u1l2", title: "Lesson 2", locked: true },
-    { id: "es-u1l3", title: "Lesson 3", locked: true },
-    { id: "es-u1l4", title: "Lesson 4", locked: true },
+    // Lesson 1: the five vowels — the single biggest win in Spanish pronunciation
+    {
+      id: "es-u1l1",
+      unit: 1,
+      lesson: 1,
+      title: "Five vowels, five sounds",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Read the five Spanish vowels exactly as they are written — a, e, i, o, u never change — and say what something is: la casa es moderna.",
+      items: [
+        { id: "es-u1l1-lacasa", type: "vocab", front: "la casa", reading: "lacasa", meaning: "house", example: { jp: "La casa es moderna.", en: "The house is modern." }, accept: ["the house", "home"], hint: "Spanish a is always the open \"ah\" of father — CA-sa, never the a of cat." },
+        { id: "es-u1l1-lamesa", type: "vocab", front: "la mesa", reading: "lamesa", meaning: "table", example: { jp: "La mesa es elegante.", en: "The table is elegant." }, accept: ["the table", "desk"], hint: "e is always the short \"eh\" of bed — ME-sa, never may-sa." },
+        { id: "es-u1l1-ellibro", type: "vocab", front: "el libro", reading: "ellibro", meaning: "book", example: { jp: "El libro es famoso.", en: "The book is famous." }, accept: ["the book"], hint: "i is always \"ee\" and o stays a clean \"oh\" right to the end: LEE-bro, never LEE-bruh." },
+        { id: "es-u1l1-laluna", type: "vocab", front: "la luna", reading: "laluna", meaning: "moon", example: { jp: "¡La luna es romántica!", en: "The moon is romantic!" }, accept: ["the moon"], hint: "u is always \"oo\" — LOO-na." },
+        { id: "es-u1l1-elmuseo", type: "vocab", front: "el museo", reading: "elmuseo", meaning: "museum", example: { jp: "El museo es enorme.", en: "The museum is enormous." }, accept: ["the museum"], hint: "Three vowels in a row, every one of them said: mu-SE-o. Spanish never swallows a vowel the way English does." },
+        { id: "es-u1l1-es", type: "vocab", front: "es", reading: "es", meaning: "is", example: { jp: "Ana es fantástica.", en: "Ana is fantastic." }, accept: ["it is", "he is", "she is", "it's"], hint: "The link word: X es Y. Watch the adjective change ending to match — fantástico for a man, fantástica for a woman." },
+        { id: "es-u1l1-de", type: "vocab", front: "de", reading: "de", meaning: "of", example: { jp: "La casa de Ana es enorme.", en: "Ana's house is enormous." }, accept: ["from", "belonging to"], hint: "Spanish has no apostrophe-s. \"Ana's house\" is la casa de Ana — the house OF Ana." },
+      ],
+    },
+    // Lesson 2: the letters that lie — silent h, throaty j and g
+    {
+      id: "es-u1l2",
+      unit: 1,
+      lesson: 2,
+      title: "Silent h, throaty j",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Read the two letters that mislead an English reader: h is never pronounced, and j (plus g before e or i) is a rasp at the back of the throat.",
+      items: [
+        { id: "es-u1l2-lahora", type: "vocab", front: "la hora", reading: "lahora", meaning: "hour", example: { jp: "¡Es la hora!", en: "It's time!" }, accept: ["the hour", "time", "o'clock"], hint: "The h is silent, so it sounds exactly like ora: OH-ra." },
+        { id: "es-u1l2-hay", type: "vocab", front: "hay", reading: "hay", meaning: "there is", example: { jp: "Hay gente.", en: "There are people." }, accept: ["there are", "there's"], hint: "One word for both \"there is\" and \"there are\". Silent h again — it sounds like the English word \"eye\"." },
+        { id: "es-u1l2-elhombre", type: "vocab", front: "el hombre", reading: "elhombre", meaning: "man", example: { jp: "El hombre es famoso.", en: "The man is famous." }, accept: ["the man", "guy"], hint: "OM-bre. Spanish h is a letter you write and never say — the only one." },
+        { id: "es-u1l2-lamujer", type: "vocab", front: "la mujer", reading: "lamujer", meaning: "woman", example: { jp: "La mujer es elegante.", en: "The woman is elegant." }, accept: ["the woman", "lady", "wife"], hint: "That j is a rasp at the back of the mouth, like clearing your throat: moo-HER." },
+        { id: "es-u1l2-elojo", type: "vocab", front: "el ojo", reading: "elojo", meaning: "eye", example: { jp: "El ojo humano es perfecto.", en: "The human eye is perfect." }, accept: ["the eye"], hint: "OH-ho, with the same rasp. On its own, ¡Ojo! means \"watch out!\"" },
+        { id: "es-u1l2-lagente", type: "vocab", front: "la gente", reading: "lagente", meaning: "people", example: { jp: "La gente de México es fantástica.", en: "The people of Mexico are fantastic." }, accept: ["people", "the people", "folk"], hint: "g before e or i takes that same throaty sound: HEN-te. Before a, o, u it is the hard g of \"go\"." },
+      ],
+    },
+    // Lesson 3: the three letters English does not have
+    {
+      id: "es-u1l3",
+      unit: 1,
+      lesson: 3,
+      title: "ñ, ll and y",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Read the three letters English does not have: ñ, the double ll, and y — the last two built on the same y sound.",
+      items: [
+        { id: "es-u1l3-elano", type: "vocab", front: "el año", reading: "elano", meaning: "year", example: { jp: "El año 2000 es histórico.", en: "The year 2000 is historic." }, accept: ["the year"], hint: "ñ is n with a y glued on: A-nyo. The tilde is not decoration — año is a year, ano is not." },
+        { id: "es-u1l3-lamanana", type: "vocab", front: "la mañana", reading: "lamanana", meaning: "morning", example: { jp: "La mañana es tranquila.", en: "The morning is calm." }, accept: ["tomorrow", "the morning"], hint: "ma-NYA-na. With la it is the morning; on its own, mañana means tomorrow." },
+        { id: "es-u1l3-elsenor", type: "vocab", front: "el señor", reading: "elsenor", meaning: "sir", example: { jp: "El señor es elegante.", en: "The gentleman is elegant." }, accept: ["mister", "mr", "gentleman", "the gentleman"], hint: "se-NYOR — Mr. or sir. Abbreviated Sr. in writing." },
+        { id: "es-u1l3-lallave", type: "vocab", front: "la llave", reading: "lallave", meaning: "key", example: { jp: "Es la llave de la casa.", en: "It's the house key." }, accept: ["the key"], hint: "ll is one letter's worth of sound, the y of \"yes\": YA-ve." },
+        { id: "es-u1l3-lasilla", type: "vocab", front: "la silla", reading: "lasilla", meaning: "chair", example: { jp: "La silla es elegante.", en: "The chair is elegant." }, accept: ["the chair", "seat"], hint: "SEE-ya. The same ll, this time in the middle of the word." },
+        { id: "es-u1l3-y", type: "vocab", front: "y", reading: "y", meaning: "and", example: { jp: "La casa y el museo.", en: "The house and the museum." }, accept: ["plus"], hint: "One letter, one word. Alone it is just the vowel i — \"ee\". Before a vowel it turns into the ll sound: yo (I)." },
+      ],
+    },
+    // Lesson 4: the consonants that shift — c, z, qu, and the two r's
+    {
+      id: "es-u1l4",
+      unit: 1,
+      lesson: 4,
+      title: "Hard c, soft c, and the rolled rr",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Read the consonants that shift with the next letter — hard c and qu, soft c and z — and hear the rolled rr that separates perro from pero.",
+      items: [
+        { id: "es-u1l4-elcoche", type: "vocab", front: "el coche", reading: "elcoche", meaning: "car", example: { jp: "El coche de Ana es rápido.", en: "Ana's car is fast." }, accept: ["the car", "automobile"], hint: "c before a, o, u is a hard k: KO-che. And ch is a single sound, the ch of \"church\"." },
+        { id: "es-u1l4-elcielo", type: "vocab", front: "el cielo", reading: "elcielo", meaning: "sky", example: { jp: "El cielo de la mañana es tranquilo.", en: "The morning sky is calm." }, accept: ["the sky", "heaven"], hint: "But c before e or i goes soft: SYE-lo in Latin America, THYE-lo in most of Spain." },
+        { id: "es-u1l4-ellapiz", type: "vocab", front: "el lápiz", reading: "ellapiz", meaning: "pencil", example: { jp: "El lápiz es de Ana.", en: "The pencil is Ana's." }, accept: ["the pencil"], hint: "z is that same soft sound. The accent tells you where to hit: LÁ-piz. With no accent, stress lands on the last syllable — or the second-to-last if the word ends in a vowel, n or s." },
+        { id: "es-u1l4-que", type: "vocab", front: "qué", reading: "que", meaning: "what", example: { jp: "¿Qué es?", en: "What is it?" }, accept: ["which"], hint: "qu is a plain k — the u is silent: KE. Questions open with an upside-down ¿ so you know from the first character that a question is coming." },
+        { id: "es-u1l4-elperro", type: "vocab", front: "el perro", reading: "elperro", meaning: "dog", example: { jp: "El perro de Ana es enorme.", en: "Ana's dog is enormous." }, accept: ["the dog"], hint: "rr is the rolled r — trill the tip of your tongue. Worth practising: it is the one sound that changes the word." },
+        { id: "es-u1l4-pero", type: "vocab", front: "pero", reading: "pero", meaning: "but", example: { jp: "El libro es famoso, pero el museo es enorme.", en: "The book is famous, but the museum is enormous." }, accept: ["however", "though"], hint: "One r, one light tap: PE-ro. The classic trap — perro is a dog, pero is \"but\"." },
+      ],
+    },
   ],
 };

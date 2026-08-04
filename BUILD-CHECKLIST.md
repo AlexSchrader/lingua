@@ -147,6 +147,20 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 ---
 
+## Language crew board (in-flight language production — one row per block)
+
+The one place to see the production line without opening sessions. Authoring seats claim a row at `RUNBOOK-new-language.md` §2 and update it to `gating` at §5 and `handed back` at §6; the merge seat clears a language's rows when it lands.
+
+⚠️ **This section did not exist on `content/es-scaffold`** — the scaffold branch was cut from a base that predates the docs commit (`2bcc42a`), so `RUNBOOK-new-language.md` and `BUILD-BRIEF-language-blueprint.md` are **not present in any es worktree**. Created here by block 1; blocks 2–3 will create it too and the merge seat should expect a three-way conflict on exactly this section. Real fix is upstream: cut future scaffold branches from a base that already contains the runbook.
+
+| Language | Block | Status | Branch | Worktree |
+|---|---|---|---|---|
+| 🇪🇸 Spanish | 1 — sounds + topics (u1–u6) | **handed back** 2026-08-04 · 145 cards · gate 4/5 (see the prune blocker below) | `content/es-a1-block1` | `C:\dev\lingua-es1` |
+| 🇪🇸 Spanish | 2 — rest of Strand B (u7–u11) | *(not claimed)* | `content/es-a1-block2` | `C:\dev\lingua-es2` |
+| 🇪🇸 Spanish | 3 — grammar + coverage (u12–u20) | *(not claimed)* | `content/es-a1-block3` | `C:\dev\lingua-es3` |
+
+---
+
 ## Feature CC backlog (logged by curriculum CC — app/engine lane, not mine to build)
 
 Single place for the feature/engine work that's surfaced. Curriculum CC adds here; **feature CC builds.** Detail/rationale for each is in the status block above and the linked briefs.
@@ -158,6 +172,7 @@ Single place for the feature/engine work that's surfaced. Curriculum CC adds her
 - [x] **Lesson — "card breath" debounce** — ✅ DONE 2026-07-04, PR #41 (shipped as `src/components/CardBreath.jsx`, wired into the Lesson + Review card remounts). Short delay before a new card accepts taps; *prevents* the double-tap skip. The **"Previous" button** (item above) is the still-open *recovery* half — pair them.
 - [ ] **Lesson/UI — clarify card-vs-item counting.** The session counts cards (3× items), which reads as "0/30" and confused a real user vs the Ladder's item totals. Label it ("card 1 of 30") or show item progress.
 - [ ] **Checkpoints + save points** (engine side of the 2026-06-30 design) — checkpoints = light consolidation *beats* within a unit; save points = mid-lesson resume, **no expiry / no restart** (FSRS owns reinforcement). Curriculum CC owns the beat *content*; engine mechanic is feature CC's.
+- [!] **🔴 SHIP-BLOCKER — the stale-save detector loses its signature the moment Spanish ships, and `prune-languages.test.mjs` goes red.** Found 2026-08-04 by the Spanish crew, block 1 (`content/es-a1-block1`); **logged, not fixed — engine file, wrong lane** (RUNBOOK §7). `pruneStartedLanguages` ([useStore.js:66](src/store/useStore.js#L66)) decides a save is stale by `profile.languages.some((id) => !hasContent(id))` — i.e. "a content-less entry PROVES this is the old ja→es→fr cascade seeding". That held only while **es** was the last unshipped cascade language. With es authored, all three of ja/es/fr return `isLive === true`, so `stale` is `false`, the strict branch never runs, and **nothing is pruned**. Reproduced directly against the real predicate: `pruneStartedLanguages({onboarded:true, languages:["ja","es","fr"], activeLang:"ja"}, undefined, jaOnlyProgress)` → `["ja","es","fr"]` (was `["ja"]`). Live consequence: every pre-language-choice save silently acquires **Spanish and French** as *started* languages, bypassing `canAddLanguage`, and both appear as tabs in the Ladder switcher for a learner who never chose them — the exact defect fixed on 2026-07-31 (truth-agent B2), returning by the same decay it was warned about in the comment at [useStore.js:59-65](src/store/useStore.js#L59-L65). **`tests/unit/prune-languages.test.mjs:46` now fails** (`actual ['ja','es','fr']`, `expected ['ja']`) — 188/189 pass. **The test is correct and must NOT be weakened**; the heuristic is what's wrong. Suggested fix (Feature CC's call): stop inferring staleness from content and record it explicitly — a persist-version bump or a `languagesChosen: true` flag written by `startLanguage`, so "the learner picked this" is stored rather than guessed. This blocks es blocks 2–3 and the merge seat identically — **fix once, in the Feature lane, not three times in content branches.**
 
 ---
 
