@@ -9,9 +9,10 @@
 //   - Nouns are taught WITH their article (el/la) so gender is learned as part
 //     of the word, never as an afterthought.
 //   - Examples stay inside taught vocab + proper names (Madrid, Barcelona,
-//     Sevilla, Carlos, María) + transparent cognates (taxi, café, clase,
-//     festival, concierto, examen, importante, moderno, famoso, tranquilo);
-//     the en gloss always carries the meaning.
+//     Sevilla, Carlos, María) + transparent cognates and naturalized English
+//     borrowings (taxi, café, clase, fiesta, festival, concierto, examen,
+//     importante, moderno, famoso, tranquilo); the en gloss always carries the
+//     meaning. That list is closed — anything outside it has to be taught first.
 //   - DELIBERATE A1 SIMPLIFICATIONS (known tradeoffs, revisit at A2):
 //     (a) block 2 owns no verbs — Strand C (units 12-14) teaches them. Examples
 //     are built from the four patterns a learner can already parse: "X es Y",
@@ -40,7 +41,7 @@ export const ES_UNIT7 = {
       dominantMode: "recall",
       canDo: "Name the parts of a town — la ciudad, el pueblo, el centro, la plaza, el parque, la calle — and say what is where.",
       items: [
-        { id: "es-u7l1-ciudad", type: "vocab", front: "la ciudad", reading: "laciudad", meaning: "city", example: { jp: "Barcelona es una ciudad de España.", en: "Barcelona is a city in Spain." }, accept: ["the city", "town"], hint: "Feminine: la ciudad. The -dad ending is Spanish's -ty (ciudad / city, universidad / university), and every -dad word is feminine." },
+        { id: "es-u7l1-ciudad", type: "vocab", front: "la ciudad", reading: "laciudad", meaning: "city", example: { jp: "Barcelona es una ciudad de España.", en: "Barcelona is a city in Spain." }, accept: ["the city"], hint: "Feminine: la ciudad. The -dad ending is Spanish's -ty (ciudad / city, universidad / university), and every -dad word is feminine." },
         { id: "es-u7l1-pueblo", type: "vocab", front: "el pueblo", reading: "elpueblo", meaning: "town", example: { jp: "No es una ciudad, es un pueblo.", en: "It isn't a city, it's a town." }, accept: ["village", "small town", "the town"], hint: "El pueblo also means \"the people\" — a pueblo is a place small enough to be one." },
         { id: "es-u7l1-centro", type: "vocab", front: "el centro", reading: "elcentro", meaning: "centre", example: { jp: "El centro de la ciudad es muy moderno.", en: "The city centre is very modern." }, accept: ["center", "downtown", "the centre", "city centre"], hint: "El centro is where the shops and the plaza are — the downtown." },
         { id: "es-u7l1-plaza", type: "vocab", front: "la plaza", reading: "laplaza", meaning: "square", example: { jp: "Hay una plaza en el centro.", en: "There's a square in the centre." }, accept: ["town square", "the square", "plaza"], hint: "The open square every Spanish town is built around. English borrowed the word unchanged." },
@@ -61,7 +62,7 @@ export const ES_UNIT7 = {
         { id: "es-u7l2-mercado", type: "vocab", front: "el mercado", reading: "elmercado", meaning: "market", example: { jp: "El mercado está en el centro.", en: "The market is in the centre." }, accept: ["the market", "marketplace"] },
         { id: "es-u7l2-supermercado", type: "vocab", front: "el supermercado", reading: "elsupermercado", meaning: "supermarket", example: { jp: "Hay un supermercado en la calle Mayor.", en: "There's a supermarket on Calle Mayor." }, accept: ["the supermarket", "grocery store"], hint: "súper + mercado — the big version of the word you just learned." },
         { id: "es-u7l2-farmacia", type: "vocab", front: "la farmacia", reading: "lafarmacia", meaning: "pharmacy", example: { jp: "La farmacia está en la plaza.", en: "The pharmacy is in the square." }, accept: ["chemist", "drugstore", "the pharmacy"], hint: "Look for the green cross — that's a farmacia in every Spanish-speaking country." },
-        { id: "es-u7l2-banco", type: "vocab", front: "el banco", reading: "elbanco", meaning: "bank", example: { jp: "Hay un banco en el centro.", en: "There's a bank in the centre." }, accept: ["the bank"], hint: "El banco is both the bank and the park bench — context decides which one." },
+        { id: "es-u7l2-banco", type: "vocab", front: "el banco", reading: "elbanco", meaning: "bank", example: { jp: "Hay un banco en el centro.", en: "There's a bank in the centre." }, accept: ["the bank", "bench", "park bench"], hint: "El banco is both the bank and the park bench — context decides which one." },
         { id: "es-u7l2-libreria", type: "vocab", front: "la librería", reading: "lalibreria", meaning: "bookshop", example: { jp: "La librería está en la calle Mayor.", en: "The bookshop is on Calle Mayor." }, accept: ["bookstore", "the bookshop", "book shop"], hint: "False friend: a librería SELLS books. A library is la biblioteca — next lesson." },
       ],
     },
@@ -78,7 +79,7 @@ export const ES_UNIT7 = {
         { id: "es-u7l3-universidad", type: "vocab", front: "la universidad", reading: "launiversidad", meaning: "university", example: { jp: "La universidad está en el centro de la ciudad.", en: "The university is in the city centre." }, accept: ["college", "the university"], hint: "Another -dad word, so another feminine one: la universidad." },
         { id: "es-u7l3-biblioteca", type: "vocab", front: "la biblioteca", reading: "labiblioteca", meaning: "library", example: { jp: "Hay una biblioteca en la universidad.", en: "There's a library at the university." }, accept: ["the library"], hint: "The pair to keep straight: biblioteca = library (you borrow), librería = bookshop (you buy)." },
         { id: "es-u7l3-museo", type: "vocab", front: "el museo", reading: "elmuseo", meaning: "museum", example: { jp: "El museo de la ciudad es muy famoso.", en: "The city museum is very famous." }, accept: ["the museum"] },
-        { id: "es-u7l3-iglesia", type: "vocab", front: "la iglesia", reading: "laiglesia", meaning: "church", example: { jp: "La iglesia está en la plaza.", en: "The church is in the square." }, accept: ["the church"], hint: "Same root as \"ecclesiastical\". The g is a soft h sound: i-GLE-sia." },
+        { id: "es-u7l3-iglesia", type: "vocab", front: "la iglesia", reading: "laiglesia", meaning: "church", example: { jp: "La iglesia está en la plaza.", en: "The church is in the square." }, accept: ["the church"], hint: "Same root as \"ecclesiastical\". The g is hard here, like in \"glue\" — Spanish g only turns throaty before e or i: i-GLE-sia." },
         { id: "es-u7l3-hotel", type: "vocab", front: "el hotel", reading: "elhotel", meaning: "hotel", example: { jp: "Hay un hotel en la calle Mayor.", en: "There's a hotel on Calle Mayor." }, accept: ["the hotel"], hint: "Spelled like English, said without the h — the Spanish h is always silent: o-TEL." },
       ],
     },

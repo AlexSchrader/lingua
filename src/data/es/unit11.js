@@ -8,6 +8,11 @@
 // teaches labels, not language.
 // Lessons 1-2 stay verb-free — body parts are described with the colors and
 // adjectives from units 8 and 10, which is also why this unit sits after them.
+// DECLARED BLOCK-1 DEPENDENCIES (slot 5 numbers, slot 6 food & drink): the
+// examples for el cuerpo, el dedo and la pierna use agua, cinco and dos. All
+// three sit inside any A1 numbers or food unit and all come from units 5-6,
+// which precede this one, so the vocab-order rule holds — but block 1 is not
+// authored yet, so the merge seat should confirm rather than assume.
 export const ES_UNIT11 = {
   id: "es-u11",
   lang: "es",
@@ -25,7 +30,7 @@ export const ES_UNIT11 = {
       canDo: "Name what's on your head: el pelo, la cabeza, la cara, el ojo, la nariz, la boca.",
       items: [
         { id: "es-u11l1-pelo", type: "vocab", front: "el pelo", reading: "elpelo", meaning: "hair", example: { jp: "El pelo de María es negro.", en: "María's hair is black." }, accept: ["the hair"], hint: "Singular in Spanish — el pelo is all of it at once, not \"hairs\"." },
-        { id: "es-u11l1-cabeza", type: "vocab", front: "la cabeza", reading: "lacabeza", meaning: "head", example: { jp: "El pelo está en la cabeza.", en: "The hair is on the head." }, accept: ["the head"], hint: "Same root as \"captain\" and \"capital\" — all of them are about the head of something." },
+        { id: "es-u11l1-cabeza", type: "vocab", front: "la cabeza", reading: "lacabeza", meaning: "head", example: { jp: "En la cabeza hay mucho pelo.", en: "There's a lot of hair on the head." }, accept: ["the head"], hint: "Same root as \"captain\" and \"capital\" — all of them are about the head of something." },
         { id: "es-u11l1-cara", type: "vocab", front: "la cara", reading: "lacara", meaning: "face", example: { jp: "La cara de Carlos está limpia.", en: "Carlos's face is clean." }, accept: ["the face"], hint: "Don't mix it up with caro, expensive — one letter apart." },
         { id: "es-u11l1-ojo", type: "vocab", front: "el ojo", reading: "elojo", meaning: "eye", example: { jp: "Los ojos de María son azules.", en: "María's eyes are blue." }, accept: ["the eye", "eyes"], hint: "You have two: el ojo → los ojos. ¡Ojo! on its own means \"watch out!\"" },
         { id: "es-u11l1-nariz", type: "vocab", front: "la nariz", reading: "lanariz", meaning: "nose", example: { jp: "La nariz está en la cara.", en: "The nose is on the face." }, accept: ["the nose"], hint: "Same root as \"nasal\"." },
@@ -39,14 +44,14 @@ export const ES_UNIT11 = {
       title: "The rest of the body",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name the body from the shoulders down: el cuerpo, el brazo, la mano, el dedo, la pierna, el pie.",
+      canDo: "Name the body and its limbs: el cuerpo, el brazo, la mano, el dedo, la pierna, el pie.",
       items: [
         { id: "es-u11l2-cuerpo", type: "vocab", front: "el cuerpo", reading: "elcuerpo", meaning: "body", example: { jp: "En el cuerpo hay mucha agua.", en: "There's a lot of water in the body." }, accept: ["the body"], hint: "Same root as \"corporal\" and \"corpse\"." },
         { id: "es-u11l2-brazo", type: "vocab", front: "el brazo", reading: "elbrazo", meaning: "arm", example: { jp: "El brazo es largo.", en: "The arm is long." }, accept: ["the arm"], hint: "English \"embrace\" comes from the same root — what you do with los brazos." },
-        { id: "es-u11l2-mano", type: "vocab", front: "la mano", reading: "lamano", meaning: "hand", example: { jp: "La mano está en el brazo.", en: "The hand is on the arm." }, accept: ["the hand"], hint: "Ends in -o but it's feminine: la mano, las manos. One of the few exceptions worth memorising." },
+        { id: "es-u11l2-mano", type: "vocab", front: "la mano", reading: "lamano", meaning: "hand", example: { jp: "En el brazo hay una mano.", en: "There's a hand on the arm." }, accept: ["the hand"], hint: "Ends in -o but it's feminine: la mano, las manos. One of the few exceptions worth memorising." },
         { id: "es-u11l2-dedo", type: "vocab", front: "el dedo", reading: "eldedo", meaning: "finger", example: { jp: "En la mano hay cinco dedos.", en: "There are five fingers on the hand." }, accept: ["the finger", "toe", "digit"], hint: "Spanish uses one word for both ends — a toe is un dedo del pie, a \"finger of the foot\"." },
         { id: "es-u11l2-pierna", type: "vocab", front: "la pierna", reading: "lapierna", meaning: "leg", example: { jp: "En el cuerpo hay dos piernas.", en: "There are two legs on the body." }, accept: ["the leg"] },
-        { id: "es-u11l2-pie", type: "vocab", front: "el pie", reading: "elpie", meaning: "foot", example: { jp: "El pie está en la pierna.", en: "The foot is on the leg." }, accept: ["the foot"], hint: "Same root as \"pedal\" and \"pedestrian\". A pie means \"on foot\"." },
+        { id: "es-u11l2-pie", type: "vocab", front: "el pie", reading: "elpie", meaning: "foot", example: { jp: "En la pierna hay un pie.", en: "There's a foot on the leg." }, accept: ["the foot"], hint: "Same root as \"pedal\" and \"pedestrian\". A pie means \"on foot\"." },
       ],
     },
     {
@@ -58,12 +63,12 @@ export const ES_UNIT11 = {
       dominantMode: "recall",
       canDo: "Say what hurts and where to go about it: me duele, la espalda, enfermo, el hospital, el médico, la medicina.",
       items: [
-        { id: "es-u11l3-meduele", type: "vocab", front: "me duele", reading: "meduele", meaning: "it hurts", example: { jp: "Me duele la cabeza.", en: "My head hurts." }, accept: ["my ... hurts", "it aches", "i have a pain"], hint: "Literally \"it pains me\", so the body part is the subject: me duele la cabeza. Two of them and it becomes me duelen: me duelen los pies." },
+        { id: "es-u11l3-meduele", type: "vocab", front: "me duele", reading: "meduele", meaning: "it hurts", example: { jp: "Me duele la cabeza.", en: "My head hurts." }, accept: ["it aches", "i have a pain", "hurts", "my head hurts"], hint: "Literally \"it pains me\", so the body part is the subject: me duele la cabeza. Two of them and it becomes me duelen: me duelen los pies." },
         { id: "es-u11l3-espalda", type: "vocab", front: "la espalda", reading: "laespalda", meaning: "back", example: { jp: "Me duele la espalda.", en: "My back hurts." }, accept: ["the back", "upper back"], hint: "The back of a body only — the back of a room is el fondo." },
         { id: "es-u11l3-enfermo", type: "vocab", front: "enfermo", reading: "enfermo", meaning: "sick", example: { jp: "Carlos está enfermo hoy.", en: "Carlos is sick today." }, accept: ["ill", "unwell"], hint: "Always with estar — está enfermo means ill right now, which is the point." },
         { id: "es-u11l3-hospital", type: "vocab", front: "el hospital", reading: "elhospital", meaning: "hospital", example: { jp: "Hay un hospital en el centro de la ciudad.", en: "There's a hospital in the city centre." }, accept: ["the hospital"], hint: "Silent h again: os-pi-TAL, with the stress on the end." },
         { id: "es-u11l3-medico", type: "vocab", front: "el médico", reading: "elmedico", meaning: "doctor", example: { jp: "El médico está en el hospital.", en: "The doctor is at the hospital." }, accept: ["the doctor", "physician", "gp"], hint: "La médica for a woman. El doctor / la doctora works too." },
-        { id: "es-u11l3-medicina", type: "vocab", front: "la medicina", reading: "lamedicina", meaning: "medicine", example: { jp: "Hay medicina en la farmacia.", en: "There's medicine at the pharmacy." }, accept: ["the medicine", "medication", "drug"] },
+        { id: "es-u11l3-medicina", type: "vocab", front: "la medicina", reading: "lamedicina", meaning: "medicine", example: { jp: "La medicina está en la farmacia.", en: "The medicine is at the pharmacy." }, accept: ["the medicine", "medication", "drug"] },
       ],
     },
     {
