@@ -44,7 +44,7 @@ export const ES_UNIT8 = {
         { id: "es-u8l2-gris", type: "vocab", front: "gris", reading: "gris", meaning: "grey", example: { jp: "El coche gris está en la calle.", en: "The grey car is in the street." }, accept: ["gray", "grey colour", "gray color"] },
         { id: "es-u8l2-marron", type: "vocab", front: "marrón", reading: "marron", meaning: "brown", example: { jp: "El banco marrón está en el parque.", en: "The brown bench is in the park." }, accept: ["brown colour", "brown color"], hint: "Double r, and the stress on the end: ma-RRÓN. Remember el banco is a bench as well as a bank." },
         { id: "es-u8l2-naranja", type: "vocab", front: "naranja", reading: "naranja", meaning: "orange", example: { jp: "La tienda naranja está en la calle Mayor.", en: "The orange shop is on Calle Mayor." }, accept: ["orange colour", "orange color"], hint: "It's the fruit and the colour, exactly like English — and as a colour it never changes: un coche naranja, una tienda naranja." },
-        { id: "es-u8l2-rosa", type: "vocab", front: "rosa", reading: "rosa", meaning: "pink", example: { jp: "El hotel rosa está en la plaza.", en: "The pink hotel is in the square." }, accept: ["pink colour", "pink color", "rose"], hint: "The flower gives the colour its name, and like naranja it never changes form." },
+        { id: "es-u8l2-rosa", type: "vocab", front: "rosa", reading: "rosa", meaning: "pink", example: { jp: "El hotel rosa está en la plaza.", en: "The pink hotel is in the square." }, accept: ["pink colour", "pink color"], hint: "The flower gives the colour its name, and like naranja it never changes form." },
         { id: "es-u8l2-morado", type: "vocab", front: "morado", reading: "morado", meaning: "purple", example: { jp: "El tren morado está en la estación.", en: "The purple train is at the station." }, accept: ["violet", "purple colour", "purple color"] },
       ],
     },
@@ -57,7 +57,7 @@ export const ES_UNIT8 = {
       dominantMode: "recall",
       canDo: "Name what's overhead: el cielo, el sol, la nube, la lluvia, el viento.",
       items: [
-        { id: "es-u8l3-cielo", type: "vocab", front: "el cielo", reading: "elcielo", meaning: "sky", example: { jp: "El cielo está azul.", en: "The sky is blue." }, accept: ["the sky", "heaven"], hint: "Also \"heaven\" — same word, same root as \"celestial\"." },
+        { id: "es-u8l3-cielo", type: "vocab", front: "el cielo", reading: "elcielo", meaning: "sky", example: { jp: "El cielo está azul.", en: "The sky is blue." }, accept: ["the sky"], hint: "Also \"heaven\" — same word, same root as \"celestial\"." },
         { id: "es-u8l3-sol", type: "vocab", front: "el sol", reading: "elsol", meaning: "sun", example: { jp: "El sol está en el cielo.", en: "The sun is in the sky." }, accept: ["the sun", "sunshine"], hint: "Spanish uses it for sunshine too: hace sol = it's sunny." },
         { id: "es-u8l3-nube", type: "vocab", front: "la nube", reading: "lanube", meaning: "cloud", example: { jp: "Hay una nube blanca en el cielo.", en: "There's a white cloud in the sky." }, accept: ["the cloud"], hint: "The root of \"nebula\" — and of nublado, cloudy, in the next lesson." },
         { id: "es-u8l3-lluvia", type: "vocab", front: "la lluvia", reading: "lalluvia", meaning: "rain", example: { jp: "Hay lluvia en Madrid.", en: "There's rain in Madrid." }, accept: ["the rain", "rainfall"], hint: "Double l again: YU-via." },
@@ -73,7 +73,7 @@ export const ES_UNIT8 = {
       dominantMode: "recall",
       canDo: "Ask and answer what it's like out: el tiempo, hace calor, hace frío, hace sol, está nublado, llueve, la nieve.",
       items: [
-        { id: "es-u8l4-tiempo", type: "vocab", front: "el tiempo", reading: "eltiempo", meaning: "weather", example: { jp: "¿Qué tiempo hace?", en: "What's the weather like?" }, accept: ["the weather", "time"], hint: "El tiempo means both the weather and time. ¿Qué tiempo hace? is the standard \"what's it like out?\" — and the three cards after this one are how you answer it." },
+        { id: "es-u8l4-tiempo", type: "vocab", front: "el tiempo", reading: "eltiempo", meaning: "weather", example: { jp: "¿Qué tiempo hace?", en: "What's the weather like?" }, accept: ["the weather"], hint: "El tiempo means both the weather and time — this unit wants the weather. ¿Qué tiempo hace? is the standard \"what's it like out?\" — and the three cards after this one are how you answer it." },
         { id: "es-u8l4-hacecalor", type: "vocab", front: "hace calor", reading: "hacecalor", meaning: "it's hot", example: { jp: "En Sevilla hace calor.", en: "It's hot in Seville." }, accept: ["it is hot", "hot weather", "the weather is hot"], hint: "Spanish \"makes\" weather: hace calor, hace frío, hace sol. Learn the whole phrase, not the verb." },
         { id: "es-u8l4-hacefrio", type: "vocab", front: "hace frío", reading: "hacefrio", meaning: "it's cold", example: { jp: "Hace frío en el pueblo.", en: "It's cold in the town." }, accept: ["it is cold", "cold weather", "the weather is cold"] },
         { id: "es-u8l4-hacesol", type: "vocab", front: "hace sol", reading: "hacesol", meaning: "it's sunny", example: { jp: "Hace sol en la plaza.", en: "It's sunny in the square." }, accept: ["it is sunny", "sunny", "the sun is out"], hint: "Built straight from el sol — Spanish says the weather \"makes sun\"." },

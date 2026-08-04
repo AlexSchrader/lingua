@@ -9,19 +9,32 @@
 //   - Nouns are taught WITH their article (el/la) so gender is learned as part
 //     of the word, never as an afterthought.
 //   - Examples stay inside taught vocab + proper names (Madrid, Barcelona,
-//     Sevilla, Carlos, María) + transparent cognates and naturalized English
-//     borrowings (taxi, café, clase, fiesta, festival, concierto, examen,
-//     importante, moderno, famoso, tranquilo); the en gloss always carries the
-//     meaning. That list is closed — anything outside it has to be taught first.
+//     Sevilla, Carlos, María, and Calle Mayor) + transparent cognates and
+//     naturalized English borrowings (taxi, café, clase, fiesta, festival,
+//     concierto, examen, importante, moderno, famoso, tranquilo); the en gloss
+//     always carries the meaning. That list is closed — anything outside it has
+//     to be taught first, or declared as a block-1 dependency in a unit header
+//     (units 9 and 11 each declare theirs).
 //   - DELIBERATE A1 SIMPLIFICATIONS (known tradeoffs, revisit at A2):
-//     (a) block 2 owns no verbs — Strand C (units 12-14) teaches them. Examples
-//     are built from the four patterns a learner can already parse: "X es Y",
-//     "X está en Y", "hay un/una X", "el X es ADJ". That is deliberate, not
-//     thin — it is exactly the sentence frame the grammar units formalize later.
-//     (b) a small closed set of high-frequency function words (el/la/los/las,
-//     un/una, es/son, está/están, hay, y, no, en, de, a, al, muy, qué, dónde)
-//     appears in examples before any formal teaching, glossed by the en line —
-//     the same allowance fr/unit1.js documents.
+//     (a) block 2 TEACHES no conjugation. It does teach ten verb-containing
+//     fixed phrases as single lexical items — hace calor / hace frío / hace sol
+//     / está nublado / llueve in unit 8 lesson 4, and me duele / tengo frío /
+//     tengo calor / tengo hambre / tengo sed in unit 11 lessons 3-4. Those are
+//     phrases you memorize whole, which is how A1 actually meets them; the verbs
+//     themselves (hacer, tener, doler, llover, estar) stay Strand C's to teach.
+//     (b) beyond those, examples are built from four frames a learner can parse
+//     from the en gloss — "X es Y", "X está en Y", "hay un/una X", "el X es ADJ"
+//     — which means the copulas and the existential (es/son, está/están, hay)
+//     appear untaught in most of the 121 examples, alongside a closed set of
+//     function words (el/la/los/las, un/una, y, no, en, de, a, al, muy, qué).
+//     ⚠️ BE HONEST ABOUT THIS: fr/unit1.js grants a narrower allowance — four
+//     words, each glossed by a hint at first use — and this widens it to ~18
+//     including the verbs that carry every sentence. The runbook itself only
+//     exempts proper names and transparent cognates. It is widened because the
+//     band template puts ALL grammar at units 12-14, after all ten thematic
+//     units, which makes an example sentence in units 2-11 of any Latin-script
+//     language impossible to write without an untaught verb. That is a hole in
+//     the standard, not a local choice — escalated to Alex in the hand-back.
 //   - Unit titles stay in English, as the scaffold set them: the shared base all
 //     three blocks branched from, and a Spanish title is unreadable on day one.
 // lang/unit/lesson are stamped in src/data/index.js.
@@ -62,7 +75,7 @@ export const ES_UNIT7 = {
         { id: "es-u7l2-mercado", type: "vocab", front: "el mercado", reading: "elmercado", meaning: "market", example: { jp: "El mercado está en el centro.", en: "The market is in the centre." }, accept: ["the market", "marketplace"] },
         { id: "es-u7l2-supermercado", type: "vocab", front: "el supermercado", reading: "elsupermercado", meaning: "supermarket", example: { jp: "Hay un supermercado en la calle Mayor.", en: "There's a supermarket on Calle Mayor." }, accept: ["the supermarket", "grocery store"], hint: "súper + mercado — the big version of the word you just learned." },
         { id: "es-u7l2-farmacia", type: "vocab", front: "la farmacia", reading: "lafarmacia", meaning: "pharmacy", example: { jp: "La farmacia está en la plaza.", en: "The pharmacy is in the square." }, accept: ["chemist", "drugstore", "the pharmacy"], hint: "Look for the green cross — that's a farmacia in every Spanish-speaking country." },
-        { id: "es-u7l2-banco", type: "vocab", front: "el banco", reading: "elbanco", meaning: "bank", example: { jp: "Hay un banco en el centro.", en: "There's a bank in the centre." }, accept: ["the bank", "bench", "park bench"], hint: "El banco is both the bank and the park bench — context decides which one." },
+        { id: "es-u7l2-banco", type: "vocab", front: "el banco", reading: "elbanco", meaning: "bank", example: { jp: "Hay un banco en el centro.", en: "There's a bank in the centre." }, accept: ["the bank"], hint: "El banco is both the bank and the park bench — context decides which one." },
         { id: "es-u7l2-libreria", type: "vocab", front: "la librería", reading: "lalibreria", meaning: "bookshop", example: { jp: "La librería está en la calle Mayor.", en: "The bookshop is on Calle Mayor." }, accept: ["bookstore", "the bookshop", "book shop"], hint: "False friend: a librería SELLS books. A library is la biblioteca — next lesson." },
       ],
     },

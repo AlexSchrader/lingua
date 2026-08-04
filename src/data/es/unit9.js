@@ -11,6 +11,14 @@
 // TWO EXAMPLES LEAN ON BLOCK 1's numbers unit (slot 5): siete and doce. Both sit
 // well inside any A1 numbers unit, and unit 5 comes before unit 9, so the
 // vocab-order rule holds. Flagged in the hand-back.
+// ⚠️ OWNERSHIP RISK — LESSON 4, FOR THE MERGE SEAT. el día, la semana, el mes,
+// el año, hoy and mañana are calendar words, which is why they sit here, but
+// slot 5 is titled "Numbers and time" and a beginner time unit is exactly where
+// they usually live. If block 1 teaches any of the six, "lower slot number wins"
+// makes THESE the duplicates to delete, not block 1's — and unlike the siete /
+// doce dependency above (which would fail silently), a collision here is a hard
+// lint error at merge. Block 1 was unauthored when this was written, so the call
+// could not be checked. Delete from here, never from block 1.
 export const ES_UNIT9 = {
   id: "es-u9",
   lang: "es",
@@ -84,7 +92,7 @@ export const ES_UNIT9 = {
         { id: "es-u9l4-mes", type: "vocab", front: "el mes", reading: "elmes", meaning: "month", example: { jp: "Agosto es un mes de calor.", en: "August is a hot month." }, accept: ["the month"], hint: "Same root as \"menstrual\" and as English \"month\" — all of them measure la luna's cycle." },
         { id: "es-u9l4-ano", type: "vocab", front: "el año", reading: "elano", meaning: "year", example: { jp: "En un año hay doce meses.", en: "There are twelve months in a year." }, accept: ["the year"], hint: "The ñ is essential here — año is a year, ano is not. Say the ny of \"canyon\": A-nyo." },
         { id: "es-u9l4-hoy", type: "vocab", front: "hoy", reading: "hoy", meaning: "today", example: { jp: "Hoy es lunes.", en: "Today is Monday." }, accept: ["this day"], hint: "The whole question and answer: ¿Qué día es hoy? — Hoy es martes." },
-        { id: "es-u9l4-manana", type: "vocab", front: "mañana", reading: "manana", meaning: "tomorrow", example: { jp: "Mañana es martes.", en: "Tomorrow is Tuesday." }, accept: ["the next day", "morning"], hint: "Two jobs: on its own, mañana is tomorrow. With an article, la mañana is the morning." },
+        { id: "es-u9l4-manana", type: "vocab", front: "mañana", reading: "manana", meaning: "tomorrow", example: { jp: "Mañana es martes.", en: "Tomorrow is Tuesday." }, accept: ["the next day"], hint: "Two jobs: on its own, mañana is tomorrow. With an article, la mañana is the morning — this card wants the bare word, so: tomorrow." },
       ],
     },
   ],

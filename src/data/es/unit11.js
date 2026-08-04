@@ -1,11 +1,14 @@
 // ES Unit 11 — Body and health (slot: body-health) — A1
 // Block 2, last unit. Conventions: see the header of src/data/es/unit7.js.
-// THE ONE PLACE THIS BLOCK TEACHES VERB-SHAPED WORDS. Lessons 3 and 4 teach
-// me duele / tengo frío / tengo calor / tengo hambre / tengo sed as fixed
-// phrases, not as conjugation. That is the runbook's "grammar has no item type"
-// rule applied honestly: the pattern lives in the example sentences, and unit 13
-// still owns doler and tener as verbs. A body unit that can't say "my head hurts"
-// teaches labels, not language.
+// Lessons 3 and 4 teach me duele / tengo frío / tengo calor / tengo hambre /
+// tengo sed as fixed phrases, not as conjugation — the runbook's "grammar has no
+// item type" rule applied honestly: the pattern lives in the example sentences,
+// and the verbs themselves (doler, tener) stay Strand C's to teach. A body unit
+// that can't say "my head hurts" teaches labels, not language.
+// This is the SECOND of the block's two phrase lessons, not the only one — unit 8
+// lesson 4 does the same with hace calor / hace frío / hace sol / está nublado /
+// llueve. Ten verb-containing phrases across the block; see unit7.js's header,
+// which is authoritative and states the full picture.
 // Lessons 1-2 stay verb-free — body parts are described with the colors and
 // adjectives from units 8 and 10, which is also why this unit sits after them.
 // DECLARED BLOCK-1 DEPENDENCIES (slot 5 numbers, slot 6 food & drink): the
@@ -49,7 +52,7 @@ export const ES_UNIT11 = {
         { id: "es-u11l2-cuerpo", type: "vocab", front: "el cuerpo", reading: "elcuerpo", meaning: "body", example: { jp: "En el cuerpo hay mucha agua.", en: "There's a lot of water in the body." }, accept: ["the body"], hint: "Same root as \"corporal\" and \"corpse\"." },
         { id: "es-u11l2-brazo", type: "vocab", front: "el brazo", reading: "elbrazo", meaning: "arm", example: { jp: "El brazo es largo.", en: "The arm is long." }, accept: ["the arm"], hint: "English \"embrace\" comes from the same root — what you do with los brazos." },
         { id: "es-u11l2-mano", type: "vocab", front: "la mano", reading: "lamano", meaning: "hand", example: { jp: "En el brazo hay una mano.", en: "There's a hand on the arm." }, accept: ["the hand"], hint: "Ends in -o but it's feminine: la mano, las manos. One of the few exceptions worth memorising." },
-        { id: "es-u11l2-dedo", type: "vocab", front: "el dedo", reading: "eldedo", meaning: "finger", example: { jp: "En la mano hay cinco dedos.", en: "There are five fingers on the hand." }, accept: ["the finger", "toe", "digit"], hint: "Spanish uses one word for both ends — a toe is un dedo del pie, a \"finger of the foot\"." },
+        { id: "es-u11l2-dedo", type: "vocab", front: "el dedo", reading: "eldedo", meaning: "finger", example: { jp: "En la mano hay cinco dedos.", en: "There are five fingers on the hand." }, accept: ["the finger"], hint: "Spanish uses one word for both ends — a toe is un dedo del pie, a \"finger of the foot\"." },
         { id: "es-u11l2-pierna", type: "vocab", front: "la pierna", reading: "lapierna", meaning: "leg", example: { jp: "En el cuerpo hay dos piernas.", en: "There are two legs on the body." }, accept: ["the leg"] },
         { id: "es-u11l2-pie", type: "vocab", front: "el pie", reading: "elpie", meaning: "foot", example: { jp: "En la pierna hay un pie.", en: "There's a foot on the leg." }, accept: ["the foot"], hint: "Same root as \"pedal\" and \"pedestrian\". A pie means \"on foot\"." },
       ],
@@ -63,7 +66,7 @@ export const ES_UNIT11 = {
       dominantMode: "recall",
       canDo: "Say what hurts and where to go about it: me duele, la espalda, enfermo, el hospital, el médico, la medicina.",
       items: [
-        { id: "es-u11l3-meduele", type: "vocab", front: "me duele", reading: "meduele", meaning: "it hurts", example: { jp: "Me duele la cabeza.", en: "My head hurts." }, accept: ["it aches", "i have a pain", "hurts", "my head hurts"], hint: "Literally \"it pains me\", so the body part is the subject: me duele la cabeza. Two of them and it becomes me duelen: me duelen los pies." },
+        { id: "es-u11l3-meduele", type: "vocab", front: "me duele", reading: "meduele", meaning: "it hurts", example: { jp: "Me duele la cabeza.", en: "My head hurts." }, accept: ["it aches", "i have a pain", "hurts", "it hurts me"], hint: "Literally \"it pains me\", so the body part is the subject: me duele la cabeza. Two of them and it becomes me duelen: me duelen los pies." },
         { id: "es-u11l3-espalda", type: "vocab", front: "la espalda", reading: "laespalda", meaning: "back", example: { jp: "Me duele la espalda.", en: "My back hurts." }, accept: ["the back", "upper back"], hint: "The back of a body only — the back of a room is el fondo." },
         { id: "es-u11l3-enfermo", type: "vocab", front: "enfermo", reading: "enfermo", meaning: "sick", example: { jp: "Carlos está enfermo hoy.", en: "Carlos is sick today." }, accept: ["ill", "unwell"], hint: "Always with estar — está enfermo means ill right now, which is the point." },
         { id: "es-u11l3-hospital", type: "vocab", front: "el hospital", reading: "elhospital", meaning: "hospital", example: { jp: "Hay un hospital en el centro de la ciudad.", en: "There's a hospital in the city centre." }, accept: ["the hospital"], hint: "Silent h again: os-pi-TAL, with the stress on the end." },
