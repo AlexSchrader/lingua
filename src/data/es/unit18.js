@@ -1,18 +1,82 @@
-// ES Unit 18 — Vocabulary 4 (slot: coverage-4) — A1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// ES Unit 18 — El trabajo y los estudios ("Work and study") — A1 COVERAGE (slot: coverage-4)
+// Strand D, unit 4 of 6. The two places an adult learner spends the day, plus the
+// words a learner needs to talk about LEARNING itself (la palabra, la pregunta,
+// la respuesta, el error) — the vocabulary of the classroom they're sitting in.
+// Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
 export const ES_UNIT18 = {
   id: "es-u18",
   lang: "es",
-  title: "Vocabulary 4",
+  title: "El trabajo y los estudios",
   order: 18,
   stage: "a1",
   lessons: [
-    { id: "es-u18l1", title: "Lesson 1", locked: true },
-    { id: "es-u18l2", title: "Lesson 2", locked: true },
-    { id: "es-u18l3", title: "Lesson 3", locked: true },
-    { id: "es-u18l4", title: "Lesson 4", locked: true },
+    {
+      id: "es-u18l1",
+      unit: 18,
+      lesson: 1,
+      title: "El trabajo",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Talk about your job: trabajo en una oficina, mi jefe está en la reunión, el sueldo es bueno.",
+      items: [
+        { id: "es-u18l1-eltrabajo", type: "vocab", front: "el trabajo", reading: "eltrabajo", meaning: "the work", example: { jp: "Mi trabajo está en la ciudad.", en: "My work is in the city." }, accept: ["job", "the job", "work"], hint: "Both the activity and the place: voy al trabajo = I'm going to work." },
+        { id: "es-u18l1-laoficina", type: "vocab", front: "la oficina", reading: "laoficina", meaning: "the office", example: { jp: "Trabajo en una oficina pequeña.", en: "I work in a small office." }, accept: ["office"] },
+        { id: "es-u18l1-eljefe", type: "vocab", front: "el jefe", reading: "eljefe", meaning: "the boss", example: { jp: "El jefe está en la oficina.", en: "The boss is in the office." }, accept: ["manager", "chief", "boss"], hint: "A woman in charge is la jefa — this one does change ending for gender." },
+        { id: "es-u18l1-lareunion", type: "vocab", front: "la reunión", reading: "lareunion", meaning: "the meeting", example: { jp: "Hay una reunión hoy.", en: "There's a meeting today." }, accept: ["meeting", "gathering"] },
+        { id: "es-u18l1-elsueldo", type: "vocab", front: "el sueldo", reading: "elsueldo", meaning: "the salary", example: { jp: "El sueldo no es muy bueno.", en: "The salary isn't very good." }, accept: ["pay", "wage", "salary"] },
+        { id: "es-u18l1-laempresa", type: "vocab", front: "la empresa", reading: "laempresa", meaning: "the company", example: { jp: "La empresa es nueva.", en: "The company is new." }, accept: ["firm", "business", "company"] },
+      ],
+    },
+    {
+      id: "es-u18l2",
+      unit: 18,
+      lesson: 2,
+      title: "En clase",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Talk about a class you're in: el libro, el cuaderno, el bolígrafo, el profesor, el examen.",
+      items: [
+        { id: "es-u18l2-ellibro", type: "vocab", front: "el libro", reading: "ellibro", meaning: "the book", example: { jp: "Leo un libro en el tren.", en: "I read a book on the train." }, accept: ["book"] },
+        { id: "es-u18l2-elcuaderno", type: "vocab", front: "el cuaderno", reading: "elcuaderno", meaning: "the notebook", example: { jp: "Escribo en el cuaderno.", en: "I write in the notebook." }, accept: ["exercise book", "notepad", "notebook"] },
+        { id: "es-u18l2-elboligrafo", type: "vocab", front: "el bolígrafo", reading: "elboligrafo", meaning: "the pen", example: { jp: "Necesito un bolígrafo.", en: "I need a pen." }, accept: ["biro", "ballpoint", "pen"], hint: "Everyone shortens it to el boli in speech." },
+        { id: "es-u18l2-laclase", type: "vocab", front: "la clase", reading: "laclase", meaning: "the class", example: { jp: "La clase de español es muy buena.", en: "The Spanish class is very good." }, accept: ["lesson", "classroom", "class"] },
+        { id: "es-u18l2-elprofesor", type: "vocab", front: "el profesor", reading: "elprofesor", meaning: "the teacher", example: { jp: "El profesor habla español.", en: "The teacher speaks Spanish." }, accept: ["lecturer", "professor", "teacher"], hint: "A woman teaching is la profesora — and in class everyone just says profe." },
+        { id: "es-u18l2-elexamen", type: "vocab", front: "el examen", reading: "elexamen", meaning: "the exam", example: { jp: "El examen es difícil.", en: "The exam is hard." }, accept: ["exam", "test"] },
+      ],
+    },
+    {
+      id: "es-u18l3",
+      unit: 18,
+      lesson: 3,
+      title: "Palabras de estudio",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Talk about learning itself: tengo una pregunta, la respuesta es no, hay un error.",
+      items: [
+        { id: "es-u18l3-lapalabra", type: "vocab", front: "la palabra", reading: "lapalabra", meaning: "the word", example: { jp: "Esta palabra es nueva.", en: "This word is new." }, accept: ["term", "word"] },
+        { id: "es-u18l3-lapregunta", type: "vocab", front: "la pregunta", reading: "lapregunta", meaning: "the question", example: { jp: "Tengo una pregunta.", en: "I have a question." }, accept: ["query", "question"], hint: "You HAVE a question in Spanish, and you MAKE one: tengo una pregunta, hago una pregunta." },
+        { id: "es-u18l3-larespuesta", type: "vocab", front: "la respuesta", reading: "larespuesta", meaning: "the answer", example: { jp: "La respuesta es no.", en: "The answer is no." }, accept: ["reply", "response", "answer"] },
+        { id: "es-u18l3-elejemplo", type: "vocab", front: "el ejemplo", reading: "elejemplo", meaning: "the example", example: { jp: "El profesor escribe un ejemplo.", en: "The teacher writes an example." }, accept: ["instance", "example"] },
+        { id: "es-u18l3-laleccion", type: "vocab", front: "la lección", reading: "laleccion", meaning: "the lesson", example: { jp: "La lección de hoy es fácil.", en: "Today's lesson is easy." }, accept: ["unit", "lesson"] },
+        { id: "es-u18l3-elerror", type: "vocab", front: "el error", reading: "elerror", meaning: "the mistake", example: { jp: "Hay un error en mi cuaderno.", en: "There's a mistake in my notebook." }, accept: ["error", "mistake"] },
+      ],
+    },
+    {
+      id: "es-u18l4",
+      unit: 18,
+      lesson: 4,
+      title: "Verbos de clase",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Say what happens in a lesson: el profesor enseña, yo contesto, la clase empieza y termina.",
+      items: [
+        { id: "es-u18l4-ensenar", type: "vocab", front: "enseñar", reading: "ensenar", meaning: "to teach", example: { jp: "El profesor enseña español.", en: "The teacher teaches Spanish." }, accept: ["teach", "show", "teaches"], hint: "ñ is its own letter, sounding like the ny in \"canyon\": enseñar = \"en-se-nyar\". Typing ensenar works too." },
+        { id: "es-u18l4-contestar", type: "vocab", front: "contestar", reading: "contestar", meaning: "to answer", example: { jp: "Contesto la pregunta.", en: "I answer the question." }, accept: ["answer", "reply", "respond"] },
+        { id: "es-u18l4-empezar", type: "vocab", front: "empezar", reading: "empezar", meaning: "to start", example: { jp: "La clase empieza a las nueve.", en: "The class starts at nine." }, accept: ["begin", "start", "commence"], hint: "The e turns into ie when it's stressed: empezar, but empiezo, empiezas, empieza." },
+        { id: "es-u18l4-terminar", type: "vocab", front: "terminar", reading: "terminar", meaning: "to finish", example: { jp: "Termino el trabajo por la tarde.", en: "I finish work in the afternoon." }, accept: ["end", "finish", "complete"] },
+        { id: "es-u18l4-ayudar", type: "vocab", front: "ayudar", reading: "ayudar", meaning: "to help", example: { jp: "María ayuda a Pablo con el examen.", en: "María helps Pablo with the exam." }, accept: ["help", "assist", "helps"], hint: "ayudar A a person, as always with people: ayudo a mi hermano." },
+        { id: "es-u18l4-usar", type: "vocab", front: "usar", reading: "usar", meaning: "to use", example: { jp: "Uso un bolígrafo negro.", en: "I use a black pen." }, accept: ["use", "uses", "wear"] },
+      ],
+    },
   ],
 };
