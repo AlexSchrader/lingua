@@ -155,7 +155,7 @@ The one place to see the production line without opening sessions. Authoring sea
 
 | Language | Block | Status | Branch | Worktree |
 |---|---|---|---|---|
-| 🇪🇸 Spanish | 1 — sounds + topics (u1–u6) | **handed back** 2026-08-04 · 145 cards · **gate: 2 checks actually read this content and passed** (`lint:curriculum`, `validate:content`) · **1 red** (`test:unit` 188/189) · **1 no-op for es** (`audit` is ja-only) · **1 compile-only** (`build`) · plus a scripted browser pass on a `db5e45c` base — see both 🔴 entries below | `content/es-a1-block1` | `C:\dev\lingua-es1` |
+| 🇪🇸 Spanish | 1 — sounds + topics (u1–u6) | **handed back** 2026-08-05 · 145 cards · content-auditor rev 2 = PASS (both rev-2 blockers fixed) · **gate: 2 checks actually read this content and passed** (`lint:curriculum`, `validate:content`) · **1 red** (`test:unit` 188/189) · **1 no-op for es** (`audit` is ja-only) · **1 compile-only** (`build`) · plus a scripted browser pass on a `db5e45c` base — see both 🔴 entries below | `content/es-a1-block1` | `C:\dev\lingua-es1` |
 | 🇪🇸 Spanish | 2 — rest of Strand B (u7–u11) | *(not claimed)* | `content/es-a1-block2` | `C:\dev\lingua-es2` |
 | 🇪🇸 Spanish | 3 — grammar + coverage (u12–u20) | *(not claimed)* | `content/es-a1-block3` | `C:\dev\lingua-es3` |
 

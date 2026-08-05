@@ -82,8 +82,16 @@ function run({ accentBlind }) {
 
   const licensed = (w, order) => {
     if (FREE.has(w)) return true;
-    // A cognate is declared by lemma; its inflections count (moderno → moderna).
-    for (const f of FREE) if (f.length > 3 && w.length >= f.length - 1 && norm(w).slice(0, f.length - 1) === f.slice(0, f.length - 1)) return true;
+    // A cognate is declared by lemma; its regular inflections count (moderno →
+    // moderna/modernos/modernas). This is a real inflection test, NOT a prefix
+    // match: an earlier version compared leading substrings, so `España`
+    // licensed `espantoso` and `moderno` licensed anything starting `modern`.
+    // Flagged by the content-auditor as a false-negative risk at scale.
+    for (const f of FREE) {
+      const stem = f.replace(/[oaei]s?$/, "");
+      if (stem.length < 4) continue;
+      if (/^(o|a|os|as|es|s)?$/.test(w.slice(stem.length)) && w.startsWith(stem)) return true;
+    }
     const direct = taught.get(w);
     if (direct !== undefined && direct <= order) return true;
     // Regular plural, but ONLY of something taught as a noun.

@@ -33,9 +33,16 @@
 //   FREE: Ana, España, México, América | moderno, elegante, famoso, enorme, romántico, fantástico, tranquilo, histórico, importante, rápido, perfecto, humano, favorito, persona | 2000
 //   - DELIBERATE A1 SIMPLIFICATIONS (revisit at A2): (a) only the present tense,
 //     and verbs are taught as person-marked chunks (soy, hablo, tengo) rather
-//     than infinitives — the infinitive belongs with the grammar units; (b) ser
-//     vs estar is not opened here: this block teaches ser (es/soy/eres/son) and
-//     leaves estar to the grammar block, so "está" never appears in an example;
+//     than infinitives — the infinitive belongs with the grammar units; (b) the
+//     ser/estar contrast is not OPENED here: ser is the only copula taught and
+//     analysed (es/soy/eres/son), and the grammar block owns the actual contrast.
+//     estar is present but unanalysed — `cómo estás` is taught in u2l3 as a fixed
+//     greeting chunk, so its 2sg form appears in that lesson's examples and canDo,
+//     and `está` appears once inside a hint showing the polite variant (¿cómo está
+//     usted?). No hint anywhere misclaims a form of estar as ser, and no
+//     estar-obligatory adjective (contento, cansado, enfermo, abierto…) appears in
+//     any of the 145 examples — every copular adjective used sits in ser's
+//     territory. BLOCK 2/3: do not read this as "estar is untouched";
 //     (c) `por` + time of day ("por la mañana") is deferred to the grammar block,
 //     so Unit 5 uses "de noche" and plain adverbs instead.
 // lang/unit/lesson are stamped in src/data/index.js.
