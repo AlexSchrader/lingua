@@ -8,7 +8,7 @@
 export const ES_UNIT2 = {
   id: "es-u2",
   lang: "es",
-  title: "Greetings",
+  title: "Los saludos",
   order: 2,
   stage: "a1",
   lessons: [

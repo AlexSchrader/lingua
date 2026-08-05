@@ -8,7 +8,7 @@
 export const ES_UNIT6 = {
   id: "es-u6",
   lang: "es",
-  title: "Food and drink",
+  title: "La comida",
   order: 6,
   stage: "a1",
   lessons: [

@@ -49,7 +49,7 @@
 export const ES_UNIT1 = {
   id: "es-u1",
   lang: "es",
-  title: "Sounds and spelling",
+  title: "Los sonidos",
   order: 1,
   stage: "a1",
   lessons: [
