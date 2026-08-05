@@ -19,7 +19,7 @@
 export const FR_UNIT38 = {
   id: "fr-u38",
   lang: "fr",
-  title: "Personality and character",
+  title: "Le caractère",
   order: 38,
   stage: "a2",
   lessons: [
@@ -84,9 +84,9 @@ export const FR_UNIT38 = {
       canDo: "Talk about the people around you: je m'entends bien avec mon voisin, c'est une personne agréable.",
       items: [
         { id: "fr-u38l4-jementendsbienavec", type: "vocab", front: "je m'entends bien avec", reading: "jementendsbienavec", meaning: "I get along well with", example: { jp: "Je m'entends bien avec mes parents.", en: "I get along well with my parents." }, accept: ["i get on well with", "i get along with", "i get on with"], hint: "Literally \"I hear myself well with\" — the everyday way to say you get on with someone." },
-        { id: "fr-u38l4-levoisin", type: "vocab", front: "le voisin", reading: "levoisin", meaning: "the neighbour", example: { jp: "Mon voisin est très gentil.", en: "My neighbour is very nice." }, accept: ["neighbour", "neighbor", "the neighbor"], hint: "La voisine for a woman." },
+        { id: "fr-u38l4-lerespect", type: "vocab", front: "le respect", reading: "lerespect", meaning: "respect", example: { jp: "Le respect est important dans une famille.", en: "Respect is important in a family." }, accept: ["the respect", "regard"], hint: "Goes with la confiance below — the two things a good relationship runs on." },
         { id: "fr-u38l4-lapersonne", type: "vocab", front: "la personne", reading: "lapersonne", meaning: "the person", example: { jp: "Il y a trois personnes dans le magasin.", en: "There are three people in the shop." }, accept: ["person", "individual", "the person"], hint: "Careful: la personne = a person, but personne on its own (Unit 21) means nobody." },
-        { id: "fr-u38l4-agreable", type: "vocab", front: "agréable", reading: "agreable", meaning: "pleasant", example: { jp: "Ma nouvelle voisine est très agréable.", en: "My new neighbour is very pleasant." }, accept: ["nice", "enjoyable", "likeable"] },
+        { id: "fr-u38l4-agreable", type: "vocab", front: "agréable", reading: "agreable", meaning: "pleasant", example: { jp: "Cette personne est très agréable.", en: "This person is very pleasant." }, accept: ["nice", "enjoyable", "likeable"] },
         { id: "fr-u38l4-penible", type: "vocab", front: "pénible", reading: "penible", meaning: "tiresome", example: { jp: "Ce garçon est très pénible.", en: "That boy is very tiresome." }, accept: ["annoying", "a pain", "difficult", "hard going"], hint: "Said of a person, pénible is the polite-ish way to call them a pain." },
         { id: "fr-u38l4-laconfiance", type: "vocab", front: "la confiance", reading: "laconfiance", meaning: "trust", example: { jp: "J'ai confiance en toi.", en: "I trust you." }, accept: ["confidence", "faith", "the trust"], hint: "avoir confiance EN quelqu'un = to trust someone. The noun does the work English does with a verb." },
       ],

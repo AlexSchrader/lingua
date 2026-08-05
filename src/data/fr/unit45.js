@@ -14,7 +14,7 @@
 export const FR_UNIT45 = {
   id: "fr-u45",
   lang: "fr",
-  title: "Conjugation drill 1",
+  title: "Les verbes · 3",
   order: 45,
   stage: "a2",
   lessons: [

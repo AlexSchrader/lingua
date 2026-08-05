@@ -6,11 +6,17 @@
 // takes the SCIENCE reading of the slot: what's above us, how things are found
 // out, what we are doing to the planet, and what things are made of. La nature
 // itself is left unclaimed for Unit 33.
+//
+// POST-MERGE (2026-08-05): the boundary held, but not perfectly — block 1's
+// Unit 33 also claimed la terre and la lune, which this unit had drafted as
+// astronomy. Lower slot wins, so Lesson 1 gave them up and became "the sky and
+// space", swapping in le télescope and la fusée. Both words remain available to
+// examples here; only the teaching slot moved.
 // Conventions: see fr/unit1.js. Examples use A1 vocab plus Units 38–40.
 export const FR_UNIT41 = {
   id: "fr-u41",
   lang: "fr",
-  title: "Nature and science",
+  title: "Les sciences",
   order: 41,
   stage: "a2",
   lessons: [
@@ -18,17 +24,17 @@ export const FR_UNIT41 = {
       id: "fr-u41l1",
       unit: 41,
       lesson: 1,
-      title: "The earth and the sky",
+      title: "The sky and space",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Talk about what's over your head: la Terre, une planète, la lune, les étoiles, l'espace.",
+      canDo: "Talk about what's over your head: une planète, les étoiles, l'espace, l'univers, un télescope.",
       items: [
-        { id: "fr-u41l1-laterre", type: "vocab", front: "la terre", reading: "laterre", meaning: "the earth", example: { jp: "Il y a beaucoup d'eau sur la Terre.", en: "There's a lot of water on Earth." }, accept: ["earth", "ground", "soil", "land"], hint: "la terre with a small t is the ground under your feet; la Terre with a capital is the planet." },
-        { id: "fr-u41l1-laplanete", type: "vocab", front: "la planète", reading: "laplanete", meaning: "the planet", example: { jp: "La Terre est une planète.", en: "The Earth is a planet." }, accept: ["planet", "world", "the planet"] },
-        { id: "fr-u41l1-lalune", type: "vocab", front: "la lune", reading: "lalune", meaning: "the moon", example: { jp: "Ce soir, la lune est très belle.", en: "Tonight the moon is very beautiful." }, accept: ["moon", "the moon"], hint: "belle is the feminine of beau (Unit 8) — un beau jour, une belle lune. This pair is irregular; most adjectives just add -e." },
+        { id: "fr-u41l1-laplanete", type: "vocab", front: "la planète", reading: "laplanete", meaning: "the planet", example: { jp: "Il y a huit planètes.", en: "There are eight planets." }, accept: ["planet", "world", "the planet"] },
         { id: "fr-u41l1-letoile", type: "vocab", front: "l'étoile", reading: "letoile", meaning: "the star", example: { jp: "Il y a beaucoup d'étoiles dans le ciel.", en: "There are a lot of stars in the sky." }, accept: ["star", "the star"] },
         { id: "fr-u41l1-lespace", type: "vocab", front: "l'espace", reading: "lespace", meaning: "space", example: { jp: "Il fait très froid dans l'espace.", en: "It's very cold in space." }, accept: ["space", "room", "outer space"], hint: "Also room in the everyday sense: il n'y a pas assez d'espace." },
         { id: "fr-u41l1-lunivers", type: "vocab", front: "l'univers", reading: "lunivers", meaning: "the universe", example: { jp: "L'univers est très grand.", en: "The universe is very big." }, accept: ["universe", "cosmos", "the universe"] },
+        { id: "fr-u41l1-letelescope", type: "vocab", front: "le télescope", reading: "letelescope", meaning: "the telescope", example: { jp: "Je regarde les étoiles avec un télescope.", en: "I look at the stars with a telescope." }, accept: ["telescope", "the telescope"] },
+        { id: "fr-u41l1-lafusee", type: "vocab", front: "la fusée", reading: "lafusee", meaning: "the rocket", example: { jp: "La fusée part dans l'espace.", en: "The rocket leaves for space." }, accept: ["rocket", "the rocket", "spacecraft"] },
       ],
     },
     {
@@ -44,7 +50,7 @@ export const FR_UNIT41 = {
         { id: "fr-u41l2-larecherche", type: "vocab", front: "la recherche", reading: "larecherche", meaning: "research", example: { jp: "Ce professeur fait de la recherche.", en: "This professor does research." }, accept: ["the research", "search", "study"], hint: "Straight from chercher (Unit 18). Also a search: une recherche sur internet." },
         { id: "fr-u41l2-lexperience", type: "vocab", front: "l'expérience", reading: "lexperience", meaning: "the experiment", example: { jp: "C'est une expérience importante.", en: "It's an important experiment." }, accept: ["experiment", "experience", "the experience"], hint: "Two meanings in one word: an experiment, and experience in the life sense." },
         { id: "fr-u41l2-leresultat", type: "vocab", front: "le résultat", reading: "leresultat", meaning: "the result", example: { jp: "Le résultat n'est pas bon.", en: "The result isn't good." }, accept: ["result", "outcome", "score"] },
-        { id: "fr-u41l2-ladecouverte", type: "vocab", front: "la découverte", reading: "ladecouverte", meaning: "the discovery", example: { jp: "C'est une belle découverte.", en: "It's a fine discovery." }, accept: ["discovery", "find", "the discovery"] },
+        { id: "fr-u41l2-ladecouverte", type: "vocab", front: "la découverte", reading: "ladecouverte", meaning: "the discovery", example: { jp: "C'est une belle découverte.", en: "It's a fine discovery." }, accept: ["discovery", "find", "the discovery"], hint: "belle is the feminine of beau (Unit 8) — un beau jour, une belle découverte. That pair is irregular; most adjectives just add -e." },
         { id: "fr-u41l2-lescientifique", type: "vocab", front: "le scientifique", reading: "lescientifique", meaning: "the scientist", example: { jp: "Ce scientifique travaille à Paris.", en: "This scientist works in Paris." }, accept: ["scientist", "researcher", "the scientist"], hint: "The same word is the adjective: une méthode scientifique." },
       ],
     },

@@ -8,7 +8,7 @@
 export const FR_UNIT39 = {
   id: "fr-u39",
   lang: "fr",
-  title: "Society and daily life",
+  title: "La vie en société",
   order: 39,
   stage: "a2",
   lessons: [
@@ -36,11 +36,11 @@ export const FR_UNIT39 = {
       title: "Where people live",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Say where someone lives beyond the street address: un quartier agréable, un petit village, à la campagne.",
+      canDo: "Say where someone lives beyond the street address: un quartier agréable, un petit village, en banlieue.",
       items: [
         { id: "fr-u39l2-lequartier", type: "vocab", front: "le quartier", reading: "lequartier", meaning: "the neighbourhood", example: { jp: "J'habite dans un quartier très agréable.", en: "I live in a very pleasant neighbourhood." }, accept: ["neighborhood", "district", "area", "the neighborhood"] },
         { id: "fr-u39l2-levillage", type: "vocab", front: "le village", reading: "levillage", meaning: "the village", example: { jp: "Mes parents habitent dans un petit village.", en: "My parents live in a small village." }, accept: ["village", "the village"] },
-        { id: "fr-u39l2-lacampagne", type: "vocab", front: "la campagne", reading: "lacampagne", meaning: "the countryside", example: { jp: "Le week-end, je vais à la campagne.", en: "At the weekend I go to the countryside." }, accept: ["countryside", "the country", "country"], hint: "à la campagne = out in the country — the opposite of en ville." },
+        { id: "fr-u39l2-labanlieue", type: "vocab", front: "la banlieue", reading: "labanlieue", meaning: "the suburbs", example: { jp: "Ma sœur habite en banlieue.", en: "My sister lives in the suburbs." }, accept: ["suburb", "the suburbs", "outskirts"], hint: "en banlieue, no article — the ring of towns around a city." },
         { id: "fr-u39l2-lecentreville", type: "vocab", front: "le centre-ville", reading: "lecentreville", meaning: "the town centre", example: { jp: "La gare est au centre-ville.", en: "The station is in the town centre." }, accept: ["town center", "city centre", "city center", "downtown"] },
         { id: "fr-u39l2-lhabitant", type: "vocab", front: "l'habitant", reading: "lhabitant", meaning: "the inhabitant", example: { jp: "Ce village a cent habitants.", en: "This village has a hundred inhabitants." }, accept: ["inhabitant", "resident", "the resident"], hint: "Straight from habiter (Unit 9) — someone who lives there." },
         { id: "fr-u39l2-lapopulation", type: "vocab", front: "la population", reading: "lapopulation", meaning: "the population", example: { jp: "La population de Paris est très importante.", en: "The population of Paris is very large." }, accept: ["population", "the people"] },

@@ -14,7 +14,7 @@
 export const FR_UNIT47 = {
   id: "fr-u47",
   lang: "fr",
-  title: "Vocabulary 1 (A2)",
+  title: "Les petits mots",
   order: 47,
   stage: "a2",
   lessons: [
@@ -66,7 +66,7 @@ export const FR_UNIT47 = {
         { id: "fr-u47l3-ledebut", type: "vocab", front: "le début", reading: "ledebut", meaning: "the beginning", example: { jp: "Au début, c'était difficile.", en: "At the beginning it was difficult." }, accept: ["start", "the start", "beginning"], hint: "au début = at first — one of the most useful two-word phrases in French." },
         { id: "fr-u47l3-lafin", type: "vocab", front: "la fin", reading: "lafin", meaning: "the end", example: { jp: "À la fin de la semaine, je pars.", en: "At the end of the week, I leave." }, accept: ["end", "ending", "the ending"], hint: "Careful: la fin (the end) and la faim (hunger, Unit 9) sound exactly alike." },
         { id: "fr-u47l3-lecote", type: "vocab", front: "le côté", reading: "lecote", meaning: "the side", example: { jp: "Ma chambre est de ce côté.", en: "My room is on this side." }, accept: ["side", "way", "the side"], hint: "à côté de = next to — literally \"at the side of\"." },
-        { id: "fr-u47l3-laplace", type: "vocab", front: "la place", reading: "laplace", meaning: "the space", example: { jp: "Il n'y a pas de place dans la voiture.", en: "There's no space in the car." }, accept: ["room", "seat", "square", "the place"], hint: "Three jobs: room/space, a seat, and a town square — la place du marché." },
+        { id: "fr-u47l3-lefait", type: "vocab", front: "le fait", reading: "lefait", meaning: "the fact", example: { jp: "Ce fait est très important.", en: "This fact is very important." }, accept: ["fact", "the fact"], hint: "en fait (Unit 36) is \"in fact\" — same little word doing the same job." },
       ],
     },
     {
@@ -81,7 +81,7 @@ export const FR_UNIT47 = {
         { id: "fr-u47l4-possible", type: "vocab", front: "possible", reading: "possible", meaning: "possible", example: { jp: "Ce n'est pas possible aujourd'hui.", en: "That's not possible today." }, accept: ["feasible", "doable"] },
         { id: "fr-u47l4-impossible", type: "vocab", front: "impossible", reading: "impossible", meaning: "impossible", example: { jp: "C'est impossible pour moi.", en: "That's impossible for me." }, accept: ["not possible", "undoable"] },
         { id: "fr-u47l4-utile", type: "vocab", front: "utile", reading: "utile", meaning: "useful", example: { jp: "Ce site est très utile.", en: "This website is very useful." }, accept: ["helpful", "handy", "of use"] },
-        { id: "fr-u47l4-necessaire", type: "vocab", front: "nécessaire", reading: "necessaire", meaning: "necessary", example: { jp: "Il n'est pas nécessaire de payer.", en: "It isn't necessary to pay." }, accept: ["needed", "required", "essential"], hint: "Pairs with il faut (Unit 44): il est nécessaire de partir says the same thing as il faut partir." },
+        { id: "fr-u47l4-necessaire", type: "vocab", front: "nécessaire", reading: "necessaire", meaning: "necessary", example: { jp: "Il n'est pas nécessaire de payer.", en: "It isn't necessary to pay." }, accept: ["needed", "required", "essential"], hint: "Pairs with il faut (Unit 36): il est nécessaire de partir says the same thing as il faut partir." },
         { id: "fr-u47l4-simple", type: "vocab", front: "simple", reading: "simple", meaning: "simple", example: { jp: "La règle est très simple.", en: "The rule is very simple." }, accept: ["easy", "straightforward", "plain"] },
         { id: "fr-u47l4-sur", type: "vocab", front: "sûr", reading: "sur", meaning: "sure", example: { jp: "Tu es sûr ?", en: "Are you sure?" }, accept: ["certain", "safe", "positive"], hint: "Watch the hat: sûr (sure/safe) vs sur (on, Unit 17). It's the sûr inside bien sûr (Unit 10) — \"well, sure\"." },
       ],

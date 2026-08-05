@@ -9,7 +9,7 @@
 export const FR_UNIT42 = {
   id: "fr-u42",
   lang: "fr",
-  title: "Culture and leisure",
+  title: "La culture et les loisirs",
   order: 42,
   stage: "a2",
   lessons: [
@@ -20,14 +20,14 @@ export const FR_UNIT42 = {
       title: "Going out",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Plan an evening out: le musée, le théâtre, le cinéma, un concert, une exposition.",
+      canDo: "Plan an evening out: le théâtre, un concert, un spectacle, une exposition, un festival.",
       items: [
-        { id: "fr-u42l1-lemusee", type: "vocab", front: "le musée", reading: "lemusee", meaning: "the museum", example: { jp: "Le musée est ouvert le dimanche.", en: "The museum is open on Sundays." }, accept: ["museum", "gallery", "the museum"] },
         { id: "fr-u42l1-letheatre", type: "vocab", front: "le théâtre", reading: "letheatre", meaning: "the theatre", example: { jp: "Nous allons au théâtre ce soir.", en: "We're going to the theatre this evening." }, accept: ["theater", "the theatre", "playhouse"] },
-        { id: "fr-u42l1-lecinema", type: "vocab", front: "le cinéma", reading: "lecinema", meaning: "the cinema", example: { jp: "Il y a un nouveau cinéma près de la gare.", en: "There's a new cinema near the station." }, accept: ["movie theater", "movies", "the cinema"], hint: "Shortened to le ciné in speech. On va au ciné ?" },
         { id: "fr-u42l1-leconcert", type: "vocab", front: "le concert", reading: "leconcert", meaning: "the concert", example: { jp: "Le concert commence à neuf heures.", en: "The concert starts at nine." }, accept: ["concert", "gig", "the concert"] },
         { id: "fr-u42l1-lespectacle", type: "vocab", front: "le spectacle", reading: "lespectacle", meaning: "the show", example: { jp: "Le spectacle est très beau.", en: "The show is beautiful." }, accept: ["show", "performance", "the show"] },
-        { id: "fr-u42l1-lexposition", type: "vocab", front: "l'exposition", reading: "lexposition", meaning: "the exhibition", example: { jp: "Il y a une exposition au musée.", en: "There's an exhibition at the museum." }, accept: ["exhibition", "exhibit", "show", "display"], hint: "Everyone says une expo." },
+        { id: "fr-u42l1-lexposition", type: "vocab", front: "l'exposition", reading: "lexposition", meaning: "the exhibition", example: { jp: "Il y a une exposition en ville.", en: "There's an exhibition in town." }, accept: ["exhibition", "exhibit", "show", "display"], hint: "Everyone says une expo." },
+        { id: "fr-u42l1-lefestival", type: "vocab", front: "le festival", reading: "lefestival", meaning: "the festival", example: { jp: "Le festival commence en juillet.", en: "The festival starts in July." }, accept: ["festival", "the festival"] },
+        { id: "fr-u42l1-lasortie", type: "vocab", front: "la sortie", reading: "lasortie", meaning: "the outing", example: { jp: "Ce soir, nous avons une sortie au théâtre.", en: "This evening we have an outing to the theatre." }, accept: ["outing", "trip", "the outing", "the exit"], hint: "Also the way out — la sortie is what's written over the exit door." },
       ],
     },
     {

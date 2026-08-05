@@ -13,7 +13,7 @@
 export const FR_UNIT44 = {
   id: "fr-u44",
   lang: "fr",
-  title: "Grammar 5 — conditionals, ability, comparison",
+  title: "Un peu de grammaire · 3",
   order: 44,
   stage: "a2",
   lessons: [
@@ -41,14 +41,14 @@ export const FR_UNIT44 = {
       title: "Have to, need to, manage to",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Say what's necessary and what you manage: il faut partir, je dois travailler, j'ai besoin d'un stylo.",
+      canDo: "Say what's necessary and what you manage: je dois partir, il vaut mieux attendre, je suis capable de le faire.",
       items: [
-        { id: "fr-u44l2-ilfaut", type: "vocab", front: "il faut", reading: "ilfaut", meaning: "you have to", example: { jp: "Il faut arriver à huit heures.", en: "You have to arrive at eight." }, accept: ["it is necessary", "one must", "we must", "you must"], hint: "Impersonal — always il faut, never \"je faut\". Then the plain verb: il faut partir." },
-        { id: "fr-u44l2-jedois", type: "vocab", front: "je dois", reading: "jedois", meaning: "I must", example: { jp: "Je dois partir maintenant.", en: "I must leave now." }, accept: ["i need to", "i've got to"] },
+        { id: "fr-u44l2-jedois", type: "vocab", front: "je dois", reading: "jedois", meaning: "I must", example: { jp: "Je dois partir maintenant.", en: "I must leave now." }, accept: ["i need to", "i've got to"], hint: "The personal version of il faut (Unit 36): il faut partir says it in general, je dois partir says it about me." },
         { id: "fr-u44l2-ilnefautpas", type: "vocab", front: "il ne faut pas", reading: "ilnefautpas", meaning: "you mustn't", example: { jp: "Il ne faut pas arriver tard.", en: "You mustn't arrive late." }, accept: ["one must not", "you must not", "don't"], hint: "Careful: il ne faut pas = you MUSTN'T. It never means \"you don't have to\"." },
-        { id: "fr-u44l2-jaibesoinde", type: "vocab", front: "j'ai besoin de", reading: "jaibesoinde", meaning: "I need", example: { jp: "J'ai besoin d'un stylo.", en: "I need a pen." }, accept: ["i require", "i have need of", "i need"], hint: "French has no verb \"to need\" — it's avoir besoin DE, literally to have need of." },
+        { id: "fr-u44l2-ilvautmieux", type: "vocab", front: "il vaut mieux", reading: "ilvautmieux", meaning: "it's better to", example: { jp: "Il vaut mieux partir tôt.", en: "It's better to leave early." }, accept: ["better to", "you'd better", "it is best to"], hint: "Advice rather than obligation — softer than il faut, and the commonest way a French speaker suggests something." },
         { id: "fr-u44l2-jereussisa", type: "vocab", front: "je réussis à", reading: "jereussisa", meaning: "I manage to", example: { jp: "Je réussis à comprendre le film.", en: "I manage to understand the film." }, accept: ["i succeed in", "i'm able to", "i manage"], hint: "réussir À + verb. Without the à it means to pass: je réussis mon examen." },
         { id: "fr-u44l2-jesuisobligede", type: "vocab", front: "je suis obligé de", reading: "jesuisobligede", meaning: "I have to", example: { jp: "Je suis obligé de travailler ce week-end.", en: "I have to work this weekend." }, accept: ["i'm obliged to", "i am forced to", "i'm forced to"], hint: "Stronger than je dois — it says someone else decided." },
+        { id: "fr-u44l2-jesuiscapablede", type: "vocab", front: "je suis capable de", reading: "jesuiscapablede", meaning: "I'm able to", example: { jp: "Je suis capable de lire ce livre.", en: "I'm able to read this book." }, accept: ["i am capable of", "i can", "i'm capable of"], hint: "About ability, not permission — je peux (Unit 9) covers both, this one only the first." },
       ],
     },
     {
@@ -59,12 +59,14 @@ export const FR_UNIT44 = {
       cefr: "A2",
       dominantMode: "recall",
       canDo: "Compare two things: plus grand que, moins cher que, aussi grande que moi — and get meilleur vs mieux right.",
+      // mieux itself is taught by block 1's Unit 29; this lesson teaches the
+      // adjective meilleur against it and hints the contrast.
       items: [
         { id: "fr-u44l3-plusque", type: "vocab", front: "plus … que", reading: "plusque", meaning: "more … than", example: { jp: "Paris est plus grand que ma ville.", en: "Paris is bigger than my town." }, accept: ["more than", "bigger than", "-er than"], hint: "One pattern for every adjective: plus grand que, plus cher que. French has no \"-er\" ending." },
         { id: "fr-u44l3-moinsque", type: "vocab", front: "moins … que", reading: "moinsque", meaning: "less … than", example: { jp: "Le train est moins cher que l'avion.", en: "The train is less expensive than the plane." }, accept: ["not as as", "fewer than", "less than"] },
         { id: "fr-u44l3-aussique", type: "vocab", front: "aussi … que", reading: "aussique", meaning: "as … as", example: { jp: "Ma sœur est aussi grande que moi.", en: "My sister is as tall as me." }, accept: ["just as as", "equally", "as as"] },
-        { id: "fr-u44l3-meilleur", type: "vocab", front: "meilleur", reading: "meilleur", meaning: "better (adjective)", example: { jp: "Ce restaurant est meilleur que le café.", en: "This restaurant is better than the café." }, accept: ["better"], hint: "meilleur describes a NOUN (un meilleur pain); mieux describes a VERB (je parle mieux). French keeps them apart — English uses \"better\" for both." },
-        { id: "fr-u44l3-mieux", type: "vocab", front: "mieux", reading: "mieux", meaning: "better (adverb)", example: { jp: "Aujourd'hui, je vais mieux.", en: "Today I'm feeling better." }, accept: ["better", "best"], hint: "je vais mieux = I'm feeling better. This is the one you'll say most often." },
+        { id: "fr-u44l3-meilleur", type: "vocab", front: "meilleur", reading: "meilleur", meaning: "better (adjective)", example: { jp: "Ce restaurant est meilleur que le café.", en: "This restaurant is better than the café." }, accept: ["better"], hint: "meilleur describes a NOUN (un meilleur pain); mieux (Unit 29) describes a VERB (je parle mieux). French keeps them apart — English uses \"better\" for both." },
+        { id: "fr-u44l3-aussibienque", type: "vocab", front: "aussi bien que", reading: "aussibienque", meaning: "as well as", example: { jp: "Elle parle français aussi bien que moi.", en: "She speaks French as well as I do." }, accept: ["just as well as", "as well", "equally well"], hint: "The verb-flavoured twin of aussi … que: that one compares adjectives, this one compares how well something is done." },
         { id: "fr-u44l3-lememe", type: "vocab", front: "le même", reading: "lememe", meaning: "the same", example: { jp: "Nous avons le même professeur.", en: "We have the same teacher." }, accept: ["same", "the same one"], hint: "It agrees like an adjective: la même, les mêmes." },
       ],
     },

@@ -8,7 +8,7 @@
 export const FR_UNIT40 = {
   id: "fr-u40",
   lang: "fr",
-  title: "Technology and communication",
+  title: "La technologie",
   order: 40,
   stage: "a2",
   lessons: [
@@ -36,14 +36,14 @@ export const FR_UNIT40 = {
       title: "Online",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Get yourself online in French: sur internet, un site, le réseau, mon mot de passe, mon compte.",
+      canDo: "Get yourself online in French: sur internet, un site, le réseau, mon mot de passe, mon profil.",
       items: [
         { id: "fr-u40l2-internet", type: "vocab", front: "internet", reading: "internet", meaning: "the internet", example: { jp: "Je cherche le prix sur internet.", en: "I'm looking up the price on the internet." }, accept: ["internet", "the net", "the web"], hint: "No article: sur internet, never \"sur l'internet\"." },
         { id: "fr-u40l2-lesite", type: "vocab", front: "le site", reading: "lesite", meaning: "the website", example: { jp: "Le site de la gare donne les heures des trains.", en: "The station website gives the train times." }, accept: ["site", "website", "web site"] },
         { id: "fr-u40l2-lereseau", type: "vocab", front: "le réseau", reading: "lereseau", meaning: "the network", example: { jp: "Il n'y a pas de réseau ici.", en: "There's no signal here." }, accept: ["network", "signal", "the network"], hint: "Also the social kind: les réseaux sociaux." },
         { id: "fr-u40l2-lemotdepasse", type: "vocab", front: "le mot de passe", reading: "lemotdepasse", meaning: "the password", example: { jp: "Mon mot de passe est trop facile.", en: "My password is too easy." }, accept: ["password", "the password"], hint: "Literally \"word of passing\" — three words, one idea." },
         { id: "fr-u40l2-lapplication", type: "vocab", front: "l'application", reading: "lapplication", meaning: "the app", example: { jp: "Cette application est gratuite.", en: "This app is free." }, accept: ["app", "application", "the app"], hint: "Everyone shortens it to une appli." },
-        { id: "fr-u40l2-lecompte", type: "vocab", front: "le compte", reading: "lecompte", meaning: "the account", example: { jp: "J'ai un compte sur ce site.", en: "I have an account on this site." }, accept: ["account", "the account"] },
+        { id: "fr-u40l2-leprofil", type: "vocab", front: "le profil", reading: "leprofil", meaning: "the profile", example: { jp: "J'ai un profil sur ce site.", en: "I have a profile on this site." }, accept: ["profile", "the profile"] },
       ],
     },
     {

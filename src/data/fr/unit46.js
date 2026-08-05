@@ -13,7 +13,7 @@
 export const FR_UNIT46 = {
   id: "fr-u46",
   lang: "fr",
-  title: "Conjugation drill 2",
+  title: "Les verbes · 4",
   order: 46,
   stage: "a2",
   lessons: [
