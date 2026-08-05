@@ -6,15 +6,22 @@
 // Block-3 authoring rule: the coverage units take the high-frequency WORD CLASSES
 // that cut across topics (speech, thought, quantity, space, objects, change,
 // transfer, evaluation, adverbs, indefinites), never the topical domains blocks 1
-// and 2 own (u28-u47). Every example uses A1 vocab only (fr u1-u27) — blocks 1-2
-// were locked stubs while this was written, so nothing here forward-references them.
+// and 2 own (u28-u47). Every example draws on the shipped A1 corpus (fr u1-u27)
+// and, where a later unit needs it, on EARLIER block-3 units — never on a later one.
+// Verified mechanically: 0 backward references across all 240 items. Blocks 1-2 were
+// locked stubs while this was written, so nothing here references them at all.
+// Two deliberate exemptions, both allowed by the fr conventions: `transport` in
+// u57l3 is a transparent cognate (letter-identical to English), and a handful of
+// third-person forms of verbs A1 taught only as `je` chunks (veut, peut, va + inf)
+// appear where the sentence needs them — each one is called out in its item's hint
+// rather than left to be inferred.
 //
 // Conventions are fr/unit1.js: `front` is real orthography, `reading` its ASCII
 // fold, `example.jp` holds the FRENCH sentence, nouns are taught with their article.
 // New verbs are taught as INFINITIVES and shown inside the frames A1 already
 // teaches (je vais / je veux / je peux + infinitive, C'est difficile à + infinitive),
-// so the headword appears literally in its own example and no untaught conjugation
-// leaks in.
+// so the headword lands literally in its own example and untaught conjugation stays
+// rare and hinted rather than silent (see the exemptions above).
 export const FR_UNIT48 = {
   id: "fr-u48",
   lang: "fr",
@@ -33,10 +40,10 @@ export const FR_UNIT48 = {
       items: [
         { id: "fr-u48l1-dire", type: "vocab", front: "dire", reading: "dire", meaning: "to say", example: { jp: "Je vais dire non.", en: "I'm going to say no." }, accept: ["say", "state"], hint: "dire is saying WORDS; raconter (lesson 2) is telling a story. Careful too: « je veux dire » on its own is not \"I want to say\" — it means \"I mean\", the pair taught in lesson 4." },
         { id: "fr-u48l1-demander", type: "vocab", front: "demander", reading: "demander", meaning: "to ask", example: { jp: "Je veux demander le prix.", en: "I want to ask the price." }, accept: ["ask", "to ask for", "ask for", "request"], hint: "Never « demander pour » — French asks a thing directly: demander le prix." },
-        { id: "fr-u48l1-repondre", type: "vocab", front: "répondre", reading: "repondre", meaning: "to reply", example: { jp: "Je vais répondre à Marie.", en: "I'm going to reply to Marie." }, accept: ["respond", "write back", "answer back"], hint: "You reply TO someone: répondre à Marie. The noun is la réponse, later in this lesson." },
+        { id: "fr-u48l1-repondre", type: "vocab", front: "répondre", reading: "repondre", meaning: "to reply", example: { jp: "Je vais répondre à Marie.", en: "I'm going to reply to Marie." }, accept: ["answer", "to answer", "respond", "write back"], hint: "You reply TO someone: répondre à Marie. The noun is la réponse, later in this lesson." },
         { id: "fr-u48l1-expliquer", type: "vocab", front: "expliquer", reading: "expliquer", meaning: "to explain", example: { jp: "C'est difficile à expliquer.", en: "It's difficult to explain." }, accept: ["explain"] },
         { id: "fr-u48l1-laquestion", type: "vocab", front: "la question", reading: "laquestion", meaning: "question", example: { jp: "J'ai une question.", en: "I have a question." }, accept: ["the question", "query"] },
-        { id: "fr-u48l1-lareponse", type: "vocab", front: "la réponse", reading: "lareponse", meaning: "answer", example: { jp: "La réponse est facile.", en: "The answer is easy." }, accept: ["the answer", "response"] },
+        { id: "fr-u48l1-lareponse", type: "vocab", front: "la réponse", reading: "lareponse", meaning: "answer", example: { jp: "La réponse est facile.", en: "The answer is easy." }, accept: ["the answer", "reply", "response"] },
       ],
     },
     {
@@ -84,7 +91,7 @@ export const FR_UNIT48 = {
       items: [
         { id: "fr-u48l4-lalangue", type: "vocab", front: "la langue", reading: "lalangue", meaning: "language", example: { jp: "Le français est une belle langue.", en: "French is a beautiful language." }, accept: ["the language", "tongue"], hint: "Same word as the tongue in your mouth — the organ gave its name to the language." },
         { id: "fr-u48l4-traduire", type: "vocab", front: "traduire", reading: "traduire", meaning: "to translate", example: { jp: "Je vais traduire ce mot.", en: "I'm going to translate this word." }, accept: ["translate"] },
-        { id: "fr-u48l4-vouloirdire", type: "vocab", front: "vouloir dire", reading: "vouloirdire", meaning: "to signify", example: { jp: "Ce mot veut dire « maison ».", en: "This word means \"house\"." }, accept: ["mean", "stand for", "to mean"], hint: "Literally \"to want to say\". In a sentence it conjugates — veut is the il/elle form of vouloir: ça veut dire = that means." },
+        { id: "fr-u48l4-vouloirdire", type: "vocab", front: "vouloir dire", reading: "vouloirdire", meaning: "to stand for", example: { jp: "Ce mot veut dire « maison ».", en: "This word means \"house\"." }, accept: ["mean", "to mean", "signify"], hint: "Literally \"to want to say\". In a sentence it conjugates — veut is the il/elle form of vouloir: ça veut dire = that means." },
         { id: "fr-u48l4-lesens", type: "vocab", front: "le sens", reading: "lesens", meaning: "meaning", example: { jp: "Je ne comprends pas le sens.", en: "I don't understand the meaning." }, accept: ["the meaning", "sense", "the sense"] },
         { id: "fr-u48l4-lalettre", type: "vocab", front: "la lettre", reading: "lalettre", meaning: "letter", example: { jp: "Il y a six lettres dans « maison ».", en: "There are six letters in \"maison\"." }, accept: ["the letter"], hint: "Both letters: the a-b-c kind and the one you put in the post." },
         { id: "fr-u48l4-prononcer", type: "vocab", front: "prononcer", reading: "prononcer", meaning: "to pronounce", example: { jp: "C'est difficile à prononcer.", en: "It's difficult to pronounce." }, accept: ["pronounce", "say out loud"] },

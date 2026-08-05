@@ -134,7 +134,10 @@ test("level milestones are per-language — a new language never moves another's
     assert.equal(frA2.progress({}).need, countBand("fr", "A1") + countBand("fr", "A2"));
     assert.ok(frA2.progress({}).need > frA1.progress({}).need, "A2 is a strictly bigger bar than A1");
   }
-  assert.equal(frDefs.length, countBand("fr", "A1") + countBand("fr", "A2"));
+  // Deliberately NOT asserting frDefs.length === A1 + A2: that just swaps the old
+  // "French has one band" hardcode for "French has exactly two", and would fail the
+  // day fr B1 lands or any fr lesson ships without a `cefr`. The band-level
+  // assertions above are the real invariant.
   // Recognizing every ja A1 item earns ja's A1 WITHOUT touching French.
   const m = {};
   for (const d of Object.values(SEED)) {
