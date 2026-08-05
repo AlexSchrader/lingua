@@ -10,7 +10,7 @@
 export const ES_UNIT8 = {
   id: "es-u8",
   lang: "es",
-  title: "Colors and weather",
+  title: "Los colores y el tiempo",
   order: 8,
   stage: "a1",
   lessons: [

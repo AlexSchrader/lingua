@@ -11,7 +11,7 @@
 export const ES_UNIT10 = {
   id: "es-u10",
   lang: "es",
-  title: "Describing things",
+  title: "Describir",
   order: 10,
   stage: "a1",
   lessons: [

@@ -41,7 +41,7 @@
 export const ES_UNIT7 = {
   id: "es-u7",
   lang: "es",
-  title: "Town and places",
+  title: "La ciudad",
   order: 7,
   stage: "a1",
   lessons: [
