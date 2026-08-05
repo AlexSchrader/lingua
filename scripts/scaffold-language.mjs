@@ -80,22 +80,77 @@ const DRILL_A2 = [
 const COVERAGE_UNITS_A2 = 11;
 const CHARACTER_UNITS_A2 = 12; // own-script only
 
+// --- the B1 band template ----------------------------------------------------
+// Same three strands plus a fourth that only exists from B1 up: REGISTER. At A1/A2
+// one neutral register is survivable; at B1 the same sentence said to a friend, a
+// stranger and a boss is three sentences, and picking wrong marks a speaker as
+// foreign more than vocabulary does. Modelled like grammar — function-word/suffix
+// vocab whose examples carry the contrast. Topics turn abstract here (opinion,
+// cause, comparison, hedging) and examples grow to 2+ clauses joined by the
+// connective being taught. See BUILD-BRIEF-language-blueprint.md §1.
+const THEMATIC_B1 = [
+  ["opinion", "Opinion and agreement"],
+  ["cause-effect", "Cause and consequence"],
+  ["comparison", "Comparison and degree"],
+  ["hedging", "Hedging and uncertainty"],
+  ["news-society", "News and society"],
+  ["work-process", "Work and process"],
+  ["emotion-fine", "Emotion, finer shades"],
+  ["abstract-ideas", "Abstract ideas"],
+  ["describing-change", "Change over time"],
+  ["problems", "Problems and solutions"],
+  ["rules-permission", "Rules, permission, obligation"],
+  ["plans-intentions", "Plans and intentions"],
+  ["experience", "Experience and memory"],
+  ["media", "Media and entertainment"],
+  ["environment", "Environment and place"],
+  ["money-economy", "Money and the economy"],
+  ["health-wellbeing", "Health and wellbeing"],
+  ["relationships", "Relationships and society"],
+];
+const GRAMMAR_B1 = [
+  ["grammar-6", "Grammar 6 — linked and subordinate clauses"],
+  ["grammar-7", "Grammar 7 — passive, causative, indirect"],
+  ["grammar-8", "Grammar 8 — nuance, evidentiality, nominalization"],
+];
+const REGISTER_B1 = [
+  ["register-1", "Register 1 — polite vs plain"],
+  ["register-2", "Register 2 — softening and formality"],
+];
+const COVERAGE_UNITS_B1 = 14;
+const CHARACTER_UNITS_B1 = 20; // own-script only
+
 function plan({ ownScript, band, startOrder = 0 }) {
   const units = [];
   const push = (slot, title, stage) =>
     units.push({ order: startOrder + units.length + 1, slot, title, stage });
 
-  if (band === "a2") {
+  if (band === "a2" || band === "b1") {
+    const B1 = band === "b1";
+    const thematic = B1 ? THEMATIC_B1 : THEMATIC_A2;
+    const grammar = B1 ? GRAMMAR_B1 : GRAMMAR_A2;
+    // A2 drills conjugation; B1 introduces the register strand instead — by B1 the
+    // conjugation machinery is drilled and what's unpractised is choosing between
+    // polite and plain for a given listener.
+    const tail = B1 ? REGISTER_B1 : DRILL_A2;
+    const chars = B1 ? CHARACTER_UNITS_B1 : CHARACTER_UNITS_A2;
+    const coverage = B1 ? COVERAGE_UNITS_B1 : COVERAGE_UNITS_A2;
+    const tag = band.toUpperCase();
+
     let characters = 0;
-    THEMATIC_A2.forEach(([slot, title], i) => {
-      push(slot, title, "a2");
-      if (ownScript && i % 1 === 0 && characters < CHARACTER_UNITS_A2)
-        push(`characters-a2-${++characters}`, `Characters ${characters} (A2)`, "a2");
+    thematic.forEach(([slot, title], i) => {
+      push(slot, title, band);
+      // Character units interleave through the thematic strand rather than sitting
+      // in a block at the end — ja's pattern, so a glyph is met near the words that
+      // use it. B1 needs ~20 across 18 topics, so more than one may land per gap.
+      const want = Math.round(((i + 1) / thematic.length) * chars);
+      while (ownScript && characters < want && characters < chars)
+        push(`characters-${band}-${++characters}`, `Characters ${characters} (${tag})`, band);
     });
-    GRAMMAR_A2.forEach(([slot, title]) => push(slot, title, "a2"));
-    DRILL_A2.forEach(([slot, title]) => push(slot, title, "a2"));
-    for (let i = 1; i <= COVERAGE_UNITS_A2; i++)
-      push(`coverage-a2-${i}`, `Vocabulary ${i} (A2)`, "a2");
+    grammar.forEach(([slot, title]) => push(slot, title, band));
+    tail.forEach(([slot, title]) => push(slot, title, band));
+    for (let i = 1; i <= coverage; i++)
+      push(`coverage-${band}-${i}`, `Vocabulary ${i} (${tag})`, band);
     return units;
   }
 
@@ -132,7 +187,7 @@ const unitFile = (lang, LANG, u) => `// ${LANG} Unit ${u.unitNo} — ${u.title} 
 // 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
 // vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
 // lang/unit/lesson are stamped in src/data/index.js.
-export const ${LANG}_UNIT${u.unitNo} = {
+export const ${u.name} = {
   id: "${lang}-u${u.unitNo}",
   lang: "${lang}",
   title: "${u.title}",
@@ -150,7 +205,7 @@ const barrelFile = (LANG, names) => `// ${LANG} units — the per-language barre
 // nothing else; src/data/index.js imports one line per language, so parallel
 // authoring sessions never edit a shared file. See
 // BUILD-BRIEF-language-blueprint.md §3b. Generated shape — keep it mechanical.
-${names.map((n) => `import { ${n} } from "./unit${n.split("_UNIT")[1]}.js";`).join("\n")}
+${names.map((n) => `import { ${n} } from "./unit${n.match(/\d+$/)[0]}.js";`).join("\n")}
 
 export const ${LANG}_UNITS = [
   ${names.join(", ")},
@@ -188,14 +243,14 @@ const bandIdx = args.indexOf("--band");
 const band = bandIdx >= 0 ? args[bandIdx + 1] : "a1";
 
 const USAGE =
-  "Usage: npm run scaffold:lang -- <lang-code> [--script] [--band a1|a2]\n" +
-  "  --band a2 EXTENDS an existing language with the A2 band (units appended).";
+  "Usage: npm run scaffold:lang -- <lang-code> [--script] [--band a1|a2|b1]\n" +
+  "  --band a2|b1 EXTENDS an existing language with that band (units appended).";
 
 if (!lang) {
   console.error(USAGE);
   process.exit(1);
 }
-if (band !== "a1" && band !== "a2") {
+if (!["a1", "a2", "b1"].includes(band)) {
   console.error(`Unknown band "${band}".\n${USAGE}`);
   process.exit(1);
 }
@@ -238,24 +293,33 @@ if (band === "a2" && !exists) {
 let startOrder = 0;
 let startUnitNo = 0;
 let existingNames = [];
+// Export naming is NOT uniform across the repo and must never be assumed: Japanese
+// predates the per-language prefix and exports `UNIT1`, while French exports
+// `FR_UNIT1`. Constructing `${LANG}_UNIT${n}` produced a barrel importing JA_UNIT1
+// from a file that exports UNIT1 — a module-resolution error that took out the app
+// and 10 unit tests. So the existing names are READ from the current barrel, and
+// new units follow whatever convention that barrel already uses.
+let prefix = `${LANG}_`;
 if (exists) {
-  const mod = await import(
-    pathToFileURL(path.join(dir, "index.js")).href
+  const barrel = fs.readFileSync(path.join(dir, "index.js"), "utf8");
+  existingNames = [...barrel.matchAll(/import \{ (\w+) \} from "\.\/unit(\d+)\.js"/g)].map(
+    (m) => m[1]
   );
+  if (existingNames.length && !existingNames[0].startsWith(`${LANG}_`)) prefix = "";
+
+  const mod = await import(pathToFileURL(path.join(dir, "index.js")).href);
   const prior = mod[`${LANG}_UNITS`] ?? [];
   startOrder = prior.reduce((m, u) => Math.max(m, u.order ?? 0), 0);
   startUnitNo = prior.reduce(
     (m, u) => Math.max(m, Number(String(u.id).split("-u")[1]) || 0),
     0
   );
-  existingNames = prior.map(
-    (u) => `${LANG}_UNIT${Number(String(u.id).split("-u")[1])}`
-  );
 }
 
 const units = plan({ ownScript, band, startOrder }).map((u, i) => ({
   ...u,
   unitNo: startUnitNo + i + 1,
+  name: `${prefix}UNIT${startUnitNo + i + 1}`,
 }));
 
 fs.mkdirSync(dir, { recursive: true });
@@ -263,7 +327,7 @@ for (const u of units)
   fs.writeFileSync(path.join(dir, `unit${u.unitNo}.js`), unitFile(lang, LANG, u));
 fs.writeFileSync(
   path.join(dir, "index.js"),
-  barrelFile(LANG, [...existingNames, ...units.map((u) => `${LANG}_UNIT${u.unitNo}`)])
+  barrelFile(LANG, [...existingNames, ...units.map((u) => u.name)])
 );
 const wired = wireIndex(lang, LANG);
 
