@@ -132,7 +132,8 @@ test("level milestones are per-language — a new language never moves another's
   // counts every fr item at or below A2. This is the assertion that keeps the
   // A1 denominator honest as later bands are authored.
   const frA2 = levels.find((m) => m.id === "level-A2-fr");
-  if (frA2) assert.equal(frA2.progress({}).need, countBand("fr", "A1") + countBand("fr", "A2"));
+  assert.ok(frA2, "French A2 content is live, so its level milestone must be generated");
+  assert.equal(frA2.progress({}).need, countBand("fr", "A1") + countBand("fr", "A2"));
   // Recognizing every ja A1 item earns ja's A1 WITHOUT touching French.
   const m = {};
   for (const d of Object.values(SEED)) {

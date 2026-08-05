@@ -38,7 +38,7 @@ export const FR_UNIT40 = {
       dominantMode: "recall",
       canDo: "Get yourself online in French: sur internet, un site, le réseau, mon mot de passe, mon compte.",
       items: [
-        { id: "fr-u40l2-internet", type: "vocab", front: "internet", reading: "internet", meaning: "the internet", example: { jp: "Je cherche le prix sur internet.", en: "I'm looking up the price on the internet." }, accept: ["internet", "the net", "online"], hint: "No article: sur internet, never \"sur l'internet\"." },
+        { id: "fr-u40l2-internet", type: "vocab", front: "internet", reading: "internet", meaning: "the internet", example: { jp: "Je cherche le prix sur internet.", en: "I'm looking up the price on the internet." }, accept: ["internet", "the net", "the web"], hint: "No article: sur internet, never \"sur l'internet\"." },
         { id: "fr-u40l2-lesite", type: "vocab", front: "le site", reading: "lesite", meaning: "the website", example: { jp: "Le site de la gare donne les heures des trains.", en: "The station website gives the train times." }, accept: ["site", "website", "web site"] },
         { id: "fr-u40l2-lereseau", type: "vocab", front: "le réseau", reading: "lereseau", meaning: "the network", example: { jp: "Il n'y a pas de réseau ici.", en: "There's no signal here." }, accept: ["network", "signal", "the network"], hint: "Also the social kind: les réseaux sociaux." },
         { id: "fr-u40l2-lemotdepasse", type: "vocab", front: "le mot de passe", reading: "lemotdepasse", meaning: "the password", example: { jp: "Mon mot de passe est trop facile.", en: "My password is too easy." }, accept: ["password", "the password"], hint: "Literally \"word of passing\" — three words, one idea." },
