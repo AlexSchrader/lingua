@@ -29,7 +29,7 @@ export const FR_UNIT37 = {
         { id: "fr-u37l1-legarage", type: "vocab", front: "le garage", reading: "legarage", meaning: "garage", example: { jp: "La voiture est dans le garage.", en: "The car is in the garage." }, accept: ["the garage"] },
         { id: "fr-u37l1-lebalcon", type: "vocab", front: "le balcon", reading: "lebalcon", meaning: "balcony", example: { jp: "Sur le balcon, il y a des fleurs.", en: "There are flowers on the balcony." }, accept: ["the balcony"] },
         { id: "fr-u37l1-letoit", type: "vocab", front: "le toit", reading: "letoit", meaning: "roof", example: { jp: "Le toit est rouge.", en: "The roof is red." }, accept: ["the roof", "rooftop"] },
-        { id: "fr-u37l1-lesol", type: "vocab", front: "le sol", reading: "lesol", meaning: "floor (the surface)", example: { jp: "Le sol est propre.", en: "The floor is clean." }, accept: ["the floor", "floor surface", "floor"], hint: "le sol is the surface you walk on; l'étage is which storey you're on." },
+        { id: "fr-u37l1-lesol", type: "vocab", front: "le sol", reading: "lesol", meaning: "floor surface", example: { jp: "Le sol est propre.", en: "The floor is clean." }, accept: ["the floor", "floor", "the ground underfoot"], hint: "le sol is the surface you walk on; l'étage is which storey you're on." },
       ],
     },
     {
