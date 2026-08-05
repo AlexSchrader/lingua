@@ -37,14 +37,19 @@
 // ── EXPECTED OUTPUT TODAY (so nobody thinks the tool is broken) ─────────────────
 // `node scripts/check-teach-before-use.mjs fr 28 37` → 0, and exits 0.
 // `node scripts/check-teach-before-use.mjs fr` → 82, and exits 1. Those 82 are all
-// in the A1 corpus (u1-u27) and PRE-DATE this tool. Roughly two thirds are the
-// sounds unit fr-u27, which carries `order: 1` but was authored last and quotes
-// later vocabulary on purpose to illustrate a spelling (é in café) — a deliberate
-// documented inversion, not a defect. The remainder splits into free cognates and
-// proper names outside this file's FREE list (pizza, taxi, Anne, Lyon) and a
-// genuine tail of ~8 untaught verb forms, logged for the Curriculum lane in
-// BUILD-CHECKLIST.md. Run it over YOUR range, not the whole language, until that
-// tail is cleared.
+// in the A1 corpus (u1-u27) and PRE-DATE this tool. The largest single source is
+// the sounds unit fr-u27 at **32 of the 82** — it carries `order: 1` but was
+// authored last, and quotes later vocabulary on purpose to illustrate a spelling
+// (é in café), a deliberate documented inversion rather than a defect. That is a
+// plurality, NOT a majority: the other 50 are spread across 19 units, so do not
+// read a non-zero whole-language run as "it's all just u27." Those 50 are free
+// cognates and proper names outside this file's FREE list (pizza, taxi, Anne,
+// Lyon) plus a genuine tail of ~8 untaught verb forms, logged for the Curriculum
+// lane in BUILD-CHECKLIST.md. Run it over YOUR range, not the whole language,
+// until that tail is cleared.
+// (An earlier revision of this comment said "roughly two thirds are fr-u27". That
+// was wrong — 39%, not ~66% — and it is exactly the direction of error that makes
+// pre-existing debt look more concentrated and more benign than it is.)
 import { UNITS } from "../src/data/index.js";
 
 const [, , langArg, fromArg, toArg] = process.argv;

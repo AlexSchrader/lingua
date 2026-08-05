@@ -26,7 +26,7 @@ export const FR_UNIT34 = {
       dominantMode: "recall",
       canDo: "Say which shop you're going to: the bookshop, the butcher's, the cake shop, the shopping centre — and find the right aisle.",
       items: [
-        { id: "fr-u34l1-laboutique", type: "vocab", front: "la boutique", reading: "laboutique", meaning: "shop", example: { jp: "C'est une petite boutique.", en: "It's a small shop." }, accept: ["boutique", "a small shop"], hint: "le magasin is any shop; une boutique is a small one." },
+        { id: "fr-u34l1-laboutique", type: "vocab", front: "la boutique", reading: "laboutique", meaning: "small shop", example: { jp: "C'est une petite boutique.", en: "It's a small shop." }, accept: ["boutique", "shop"], hint: "le magasin is any shop; une boutique is a small one." },
         { id: "fr-u34l1-lalibrairie", type: "vocab", front: "la librairie", reading: "lalibrairie", meaning: "bookshop", example: { jp: "J'achète un livre à la librairie.", en: "I'm buying a book at the bookshop." }, accept: ["bookstore", "the bookshop"], hint: "A false friend: a library is la bibliothèque. La librairie sells books." },
         { id: "fr-u34l1-laboucherie", type: "vocab", front: "la boucherie", reading: "laboucherie", meaning: "butcher's", example: { jp: "À la boucherie, j'achète de la viande.", en: "At the butcher's I buy meat." }, accept: ["butcher shop", "the butchers"] },
         { id: "fr-u34l1-lapatisserie", type: "vocab", front: "la pâtisserie", reading: "lapatisserie", meaning: "cake shop", example: { jp: "Le gâteau de la pâtisserie est très bon.", en: "The cake from the cake shop is very good." }, accept: ["pastry shop", "the patisserie"] },
