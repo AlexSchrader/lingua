@@ -15,9 +15,18 @@ import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const dataDir = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data");
-const requested = process.argv.slice(2).filter((a) => /^[a-z]{2}$/.test(a));
-const langs = (requested.length
-  ? requested
+// Anything passed on the command line is a FILTER, and a filter that silently
+// doesn't apply is the same reassuring-green failure this rewrite exists to kill:
+// `npm run audit -- spanish` must not quietly audit everything while printing a
+// confident language list. So bad arguments are a hard error, not a shrug.
+const args = process.argv.slice(2);
+const bad = args.filter((a) => !/^[a-z]{2}$/.test(a));
+if (bad.length) {
+  console.error(`audit: not a 2-letter language code: ${bad.join(", ")} — expected e.g. "es", "ja"`);
+  process.exit(2);
+}
+const langs = (args.length
+  ? args
   : readdirSync(dataDir).filter((d) => /^[a-z]{2}$/.test(d) && statSync(join(dataDir, d)).isDirectory())
 ).filter((l) => {
   if (existsSync(join(dataDir, l))) return true;
@@ -83,7 +92,25 @@ console.table(perLang);
 console.log("TOTALS:", tot, "| unique item ids:", allIds.size);
 console.log("DUPLICATE IDS:", dups.length ? dups : "none");
 console.log("ISSUES:", issues.length ? issues : "none");
+// A language that was listed as audited but contributed nothing is the exact
+// no-op this rewrite exists to kill, so it has to fail per-language — not only
+// when EVERY language is empty. `mkdir src/data/de && npm run audit` used to
+// print "LANGUAGES AUDITED: de, fr, ja" and exit 0 with no `de` row at all.
+const empty = langs.filter((l) => !perLang[l]);
+if (empty.length) {
+  console.error(`audit: audited nothing for: ${empty.join(", ")} — no unit files, or none with items.`);
+  process.exitCode = 1;
+}
 if (!files.length) {
   console.error("audit: no unit files found — nothing was actually checked.");
+  process.exitCode = 1;
+}
+// RUNBOOK §5 lists this as a gate, and a gate that prints its findings and then
+// exits 0 cannot fail anything — a crew reads "green" and moves on. Findings now
+// set the exit code. (Two halves of the same defect: the script used to be a
+// no-op for non-ja languages AND unable to fail. The rewrite closed the first;
+// this closes the second.)
+if (dups.length || issues.length) {
+  console.error(`audit: FAILED — ${dups.length} duplicate id(s), ${issues.length} issue(s).`);
   process.exitCode = 1;
 }

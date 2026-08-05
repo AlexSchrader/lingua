@@ -54,10 +54,31 @@ const langHasContent = isLive;
 // is dropped and must be re-added (one tap, and canAddLanguage still allows it) —
 // much cheaper than silently starting a language the learner never chose.
 // The exact triple the retired ja→es→fr auto-cascade wrote into every profile
-// before language selection existed. Order matters: this is a fingerprint for one
-// specific historical shape, deliberately NOT a set-membership test, so a learner
-// who genuinely started these three is only matched if their list is identical to
-// the seeding — and even then, the filter below keeps whichever they actually use.
+// before language selection existed. Matched in order, as one specific historical
+// shape rather than as a set.
+//
+// ⚠️ This is NOT a collision-free signature and must not be described as one. A
+// learner who genuinely started all three — in that order, which is the order the
+// retired unlock chain encouraged — produces an identical array. For a save
+// written BEFORE `languagesChosen` existed the two are indistinguishable, because
+// the distinguishing fact was never recorded. So there is a real, bounded cost:
+//
+//   pre-flag save + exactly ["ja","es","fr"] + a language deliberately started
+//   but sitting at zero rung≥1 progress and not currently active
+//     → that language is dropped, and must be re-added (one tap; canAddLanguage
+//       still allows it).
+//
+// That is the same shape as the regression the code-auditor blocked on
+// 2026-07-31, knowingly re-accepted for one narrow input class, and pinned by a
+// test below so it stays a decision rather than a surprise. The trade is against
+// the opposite failure — silently ACQUIRING two unchosen languages, which
+// bypasses canAddLanguage, puts them in the Ladder switcher, and merges them into
+// one capped review queue. Losing a re-addable empty language is the cheaper
+// error, but it is an error, not a construction-level guarantee.
+//
+// The exposed population only shrinks: everything that adds a language stamps the
+// flag, and the branch below stamps it on the way out, so any given save is
+// classified at most once, ever.
 const LEGACY_CASCADE = ["ja", "es", "fr"];
 const isLegacyCascadeSeeding = (langs) =>
   Array.isArray(langs) &&
@@ -85,25 +106,38 @@ export function pruneStartedLanguages(profile, hasContent = langHasContent, hasP
   //      the add-a-language flow both route through it). Any profile that has
   //      ever been through the picker carries it and is taken at face value.
   //   2. For saves written before that flag existed: the exact shape the retired
-  //      ja→es→fr cascade seeded. That triple, in that order, IS the bug's
-  //      fingerprint. Anything else pre-flag is treated as a deliberate choice
-  //      and left alone, which is what keeps this non-destructive.
-  // Neither mark depends on which languages have content, so this cannot decay
-  // again as the remaining 17 languages ship.
-  const stale =
-    profile.languagesChosen !== true && isLegacyCascadeSeeding(profile.languages);
+  //      ja→es→fr cascade seeded — see the caveat on LEGACY_CASCADE above, which
+  //      is where the residual risk lives. Anything else pre-flag is taken at
+  //      face value.
+  // Neither mark consults content, so the STALENESS TEST cannot decay again as
+  // the remaining languages ship. (Note the narrower claim: the `kept` filter
+  // below still consults `hasContent` — see the early return.)
 
-  // Only a stale profile gets the strict treatment. Otherwise stay STRICTLY
-  // NON-DESTRUCTIVE and drop nothing that has content — this runs on every boot
-  // (seedOnce), so a language deliberately started but not yet studied must
-  // survive. Requiring progress here deleted exactly that: start French, tap back
-  // to Japanese, reload, and French was silently gone.
+  // A recorded choice is final. Two consequences, both deliberate:
+  //   - the legacy fingerprint is never consulted for a profile that has been
+  //     through the picker, so its collision risk applies only to pre-flag saves
+  //     and drains away over time;
+  //   - a started language is never dropped because its CONTENT went away.
+  //     `hasContent` is `isLive`, so a band pulled back to stubs — a crew
+  //     reworking it, a release held — would otherwise silently delete itself out
+  //     of every profile that had started it. That is a live risk right now: the
+  //     Spanish tree is red combined, and holding `es` back is one plausible
+  //     response. Content is evidence about the corpus, never about intent.
+  if (profile.languagesChosen === true) return profile;
+
+  const stale = isLegacyCascadeSeeding(profile.languages);
   const kept = profile.languages.filter(
     (id) => hasContent(id) && (!stale || id === profile.activeLang || hasProgress(id))
   );
-  if (kept.length === profile.languages.length) return profile;
+  // Nothing to decide and nothing to drop — hand back the same object. This runs
+  // on every boot (seedOnce), so identity matters.
+  if (!stale && kept.length === profile.languages.length) return profile;
   const activeLang = kept.includes(profile.activeLang) ? profile.activeLang : (kept[0] ?? null);
-  return { ...profile, languages: kept, activeLang };
+  // Record the verdict, so a pre-flag save is classified exactly ONCE. Without
+  // this the fingerprint re-fires on every boot and a learner who re-adds a
+  // language it took would lose it again on the next reload — which is precisely
+  // how the 2026-07-31 regression became erosive rather than one-off.
+  return { ...profile, languages: kept, activeLang, languagesChosen: true };
 }
 
 const XP_BY_GRADE = { again: 2, hard: 5, good: 10, easy: 15 };
@@ -247,6 +281,15 @@ export const useStore = create(
           const next = { items, lastModified: Date.now() };
           for (const k of ["languages", "streak", "stats", "daily", "devMode", "settings", "profile", "milestonesEarned"]) {
             if (blob[k] !== undefined) next[k] = blob[k];
+          }
+          // `profile` is replaced wholesale, so a blob written by an older build
+          // (or an un-updated tab on another device) carries no `languagesChosen`
+          // and would re-expose this profile to the legacy-cascade fingerprint on
+          // the next boot. The flag is monotonic — a choice, once made, cannot be
+          // un-made — so carry it across a pull rather than letting an old blob
+          // erase it. Without this, sync is a path back into the bug.
+          if (next.profile && s.profile?.languagesChosen === true && next.profile.languagesChosen !== true) {
+            next.profile = { ...next.profile, languagesChosen: true };
           }
           return next;
         });

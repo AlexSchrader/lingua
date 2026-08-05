@@ -97,6 +97,22 @@ test("a deliberately-started language with no progress yet is NEVER dropped", ()
 // catch the next decay. These three pin the behaviour in the world the catalog is
 // heading for, where EVERY language is live. They must still pass when all 20 have
 // content; if one starts failing, the derivation has crept back in.
+//
+// PROVENANCE, stated honestly: only the FIRST of these actually fails against the
+// old implementation. The other two pass on both, because they guard against the
+// new logic being over-aggressive rather than against the old logic being wrong —
+// which is a real job, but not the same claim. (An earlier commit message said
+// "verified failing on the old logic" of all three; that was over-stated, caught
+// by the code-auditor, and is corrected here. Mutation-testing the committed
+// implementation does pin all three axes: forcing `stale = false` fails two,
+// removing the flag check fails one, and swapping the ordered shape for
+// set-membership fails two.)
+//
+// Also note that the very first test in this file — "prunes started languages with
+// no authored content" — no longer tests what its name says: its assertion is now
+// satisfied by the `hasContent` filter alone and it survives `stale = false`. It is
+// kept because the behaviour it asserts is still required, but it is no longer
+// coverage for the crust prune.
 test("the cascade prune still fires when EVERY language has content", () => {
   const stale = { onboarded: true, languages: ["ja", "es", "fr"], activeLang: "ja" };
   const out = pruneStartedLanguages(stale, () => true, (id) => id === "ja");
@@ -111,6 +127,35 @@ test("an explicitly recorded choice outranks the legacy-cascade fingerprint", ()
   const out = pruneStartedLanguages(chosen, () => true, () => false);
   assert.deepEqual(out.languages, ["ja", "es", "fr"], "a recorded choice is never second-guessed");
   assert.equal(out, chosen, "and since nothing changed, the same object comes back");
+});
+
+// THE ACCEPTED LOSS — pinned deliberately, not incidentally. The fingerprint
+// cannot distinguish the retired seeding from a learner who genuinely started the
+// same three languages in the same order, because for a pre-flag save the
+// distinguishing fact was never written down. This test states the cost out loud:
+// a deliberately-started, untouched, non-active language IS dropped in that one
+// case. If someone later finds a real discriminator, this test should fail — and
+// that failure is the signal to delete it, not to weaken it.
+test("ACCEPTED LOSS: a pre-flag cascade-shaped profile drops an untouched language", () => {
+  const genuine = { onboarded: true, languages: ["ja", "es", "fr"], activeLang: "ja" };
+  const out = pruneStartedLanguages(genuine, () => true, (id) => id === "ja");
+  assert.deepEqual(out.languages, ["ja"], "es/fr are dropped even if they were genuinely chosen");
+  // The cost is bounded by being paid at most ONCE: the verdict is recorded, so a
+  // learner who re-adds Spanish keeps it through every later boot.
+  assert.equal(out.languagesChosen, true, "the verdict is recorded so this never re-fires");
+  const readded = { ...out, languages: ["ja", "es"], activeLang: "ja" };
+  const after = pruneStartedLanguages(readded, () => true, (id) => id === "ja");
+  assert.deepEqual(after.languages, ["ja", "es"], "a re-added language survives every later boot");
+});
+
+// A started language must not vanish because its CONTENT was pulled — which is a
+// live scenario, not a hypothetical: the combined Spanish tree is red, and holding
+// `es` back while word ownership is settled would flip isLive('es') to false.
+test("a recorded choice survives its language's content being withdrawn", () => {
+  const chosen = { onboarded: true, languages: ["ja", "es"], activeLang: "es", languagesChosen: true };
+  const out = pruneStartedLanguages(chosen, (id) => id === "ja", () => true);
+  assert.deepEqual(out.languages, ["ja", "es"], "content going away is not evidence about intent");
+  assert.equal(out.activeLang, "es");
 });
 
 test("only the cascade's exact shape is treated as stale, never a lookalike", () => {
