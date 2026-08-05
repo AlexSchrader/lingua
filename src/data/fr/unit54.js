@@ -43,7 +43,7 @@ export const FR_UNIT54 = {
         { id: "fr-u54l2-partager", type: "vocab", front: "partager", reading: "partager", meaning: "to share", example: { jp: "Je vais partager le gâteau.", en: "I'm going to share the cake." }, accept: ["share", "split", "divide"] },
         { id: "fr-u54l2-echanger", type: "vocab", front: "échanger", reading: "echanger", meaning: "to exchange", example: { jp: "Je veux échanger ma veste.", en: "I want to exchange my jacket." }, accept: ["swap", "trade", "exchange"] },
         { id: "fr-u54l2-apporter", type: "vocab", front: "apporter", reading: "apporter", meaning: "to bring", example: { jp: "Je vais apporter du pain.", en: "I'm going to bring some bread." }, accept: ["bring", "bring along", "bring over"] },
-        { id: "fr-u54l2-emporter", type: "vocab", front: "emporter", reading: "emporter", meaning: "to take away", example: { jp: "Je vais emporter mon manteau.", en: "I'm going to take my coat away with me." }, accept: ["take", "carry off", "take with you"], hint: "apporter brings it HERE, emporter takes it AWAY. On a café sign, « à emporter » means takeaway." },
+        { id: "fr-u54l2-emporter", type: "vocab", front: "emporter", reading: "emporter", meaning: "to take away", example: { jp: "Je vais emporter mon manteau.", en: "I'm going to take my coat with me." }, accept: ["carry off", "take with you", "take along"], hint: "apporter brings it HERE, emporter takes it AWAY. On a café sign, « à emporter » means takeaway." },
       ],
     },
     {
@@ -56,7 +56,7 @@ export const FR_UNIT54 = {
       canDo: "Say what your hands are doing: hold, put down, pick up, throw away, catch, let go.",
       items: [
         { id: "fr-u54l3-tenir", type: "vocab", front: "tenir", reading: "tenir", meaning: "to hold", example: { jp: "Je peux tenir ton sac.", en: "I can hold your bag." }, accept: ["hold", "keep hold of", "hold on to"] },
-        { id: "fr-u54l3-poser", type: "vocab", front: "poser", reading: "poser", meaning: "to put down", example: { jp: "Je vais poser le verre ici.", en: "I'm going to put the glass down here." }, accept: ["set down", "place", "put"], hint: "Also how you ask a question: poser une question." },
+        { id: "fr-u54l3-poser", type: "vocab", front: "poser", reading: "poser", meaning: "to put down", example: { jp: "Je vais poser le verre ici.", en: "I'm going to put the glass down here." }, accept: ["set down", "put", "lay down"], hint: "Also how you ask a question: poser une question — French \"poses\" a question rather than asking it." },
         { id: "fr-u54l3-ramasser", type: "vocab", front: "ramasser", reading: "ramasser", meaning: "to pick up", example: { jp: "Je vais ramasser le papier.", en: "I'm going to pick up the paper." }, accept: ["pick up", "gather", "collect"] },
         { id: "fr-u54l3-jeter", type: "vocab", front: "jeter", reading: "jeter", meaning: "to throw away", example: { jp: "Je vais jeter la bouteille.", en: "I'm going to throw the bottle away." }, accept: ["throw", "throw out", "chuck", "bin"] },
         { id: "fr-u54l3-attraper", type: "vocab", front: "attraper", reading: "attraper", meaning: "to catch", example: { jp: "Je peux attraper le bus.", en: "I can catch the bus." }, accept: ["catch", "grab", "get"] },

@@ -22,9 +22,9 @@ export const FR_UNIT52 = {
       canDo: "Talk about an object when you don't know its name: a thing, an object, a box, a piece, a hole, a tool.",
       items: [
         { id: "fr-u52l1-lachose", type: "vocab", front: "la chose", reading: "lachose", meaning: "thing", example: { jp: "C'est une chose importante.", en: "It's an important thing." }, accept: ["the thing", "matter"] },
-        { id: "fr-u52l1-lobjet", type: "vocab", front: "l'objet", reading: "lobjet", meaning: "object", example: { jp: "Cet objet est vieux.", en: "This object is old." }, accept: ["the object", "item", "thing"] },
+        { id: "fr-u52l1-lobjet", type: "vocab", front: "l'objet", reading: "lobjet", meaning: "object", example: { jp: "Cet objet est vieux.", en: "This object is old." }, accept: ["the object", "item", "article"], hint: "Masculine (cet objet). un objet is physical and solid; une chose can be anything, including an idea." },
         { id: "fr-u52l1-laboite", type: "vocab", front: "la boîte", reading: "laboite", meaning: "box", example: { jp: "Il y a du chocolat dans la boîte.", en: "There's chocolate in the box." }, accept: ["the box", "tin", "can"] },
-        { id: "fr-u52l1-lebout", type: "vocab", front: "le bout", reading: "lebout", meaning: "piece", example: { jp: "Je vais manger un bout de pain.", en: "I'm going to eat a piece of bread." }, accept: ["bit", "the piece", "end", "tip"], hint: "Two senses: a bit of something (un bout de pain) and the far end (le bout de la rue)." },
+        { id: "fr-u52l1-lebout", type: "vocab", front: "le bout", reading: "lebout", meaning: "bit", example: { jp: "Je vais manger un bout de pain.", en: "I'm going to eat a bit of bread." }, accept: ["piece", "the bit", "tip", "far end"], hint: "Two senses: a bit of something (un bout de pain) and the far end (le bout de la rue). Very close to le morceau, which you already know." },
         { id: "fr-u52l1-letrou", type: "vocab", front: "le trou", reading: "letrou", meaning: "hole", example: { jp: "Il y a un trou dans ma chaussette.", en: "There's a hole in my sock." }, accept: ["the hole", "gap"] },
         { id: "fr-u52l1-loutil", type: "vocab", front: "l'outil", reading: "loutil", meaning: "tool", example: { jp: "Cet outil est lourd.", en: "This tool is heavy." }, accept: ["the tool", "implement"], hint: "The final l is silent: it sounds like « ou-ti »." },
       ],
@@ -59,8 +59,8 @@ export const FR_UNIT52 = {
         { id: "fr-u52l3-lepoint", type: "vocab", front: "le point", reading: "lepoint", meaning: "dot", example: { jp: "Il y a un point noir sur le mur.", en: "There's a black dot on the wall." }, accept: ["the point", "spot", "full stop", "period"] },
         { id: "fr-u52l3-laforme", type: "vocab", front: "la forme", reading: "laforme", meaning: "shape", example: { jp: "J'aime la forme de cette table.", en: "I like the shape of this table." }, accept: ["the shape", "form"] },
         { id: "fr-u52l3-rond", type: "vocab", front: "rond", reading: "rond", meaning: "round", example: { jp: "Ce fromage est rond.", en: "This cheese is round." }, accept: ["circular"] },
-        { id: "fr-u52l3-plat", type: "vocab", front: "plat", reading: "plat", meaning: "flat", example: { jp: "Le pays est très plat.", en: "The country is very flat." }, accept: ["level", "even"] },
-        { id: "fr-u52l3-epais", type: "vocab", front: "épais", reading: "epais", meaning: "thick", example: { jp: "Ce livre est épais.", en: "This book is thick." }, accept: ["dense", "fat"] },
+        { id: "fr-u52l3-plat", type: "vocab", front: "plat", reading: "plat", meaning: "level", example: { jp: "Le pays est très plat.", en: "The country is very flat." }, accept: ["flat", "even", "smooth"], hint: "The adjective for a flat SURFACE. A flat you live in is un appartement — a different word entirely." },
+        { id: "fr-u52l3-epais", type: "vocab", front: "épais", reading: "epais", meaning: "thick", example: { jp: "Ce livre est épais.", en: "This book is thick." }, accept: ["dense", "chunky"], hint: "Of a thing, not a person — a heavy-set person is gros, never épais." },
       ],
     },
     {

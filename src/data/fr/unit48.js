@@ -31,12 +31,12 @@ export const FR_UNIT48 = {
       dominantMode: "recall",
       canDo: "Say, ask, answer and explain — and name the question and the answer you are talking about.",
       items: [
-        { id: "fr-u48l1-dire", type: "vocab", front: "dire", reading: "dire", meaning: "to say", example: { jp: "Je vais dire non.", en: "I'm going to say no." }, accept: ["say", "to tell", "tell"], hint: "Careful: « je veux dire » on its own is not \"I want to say\" — it means \"I mean\". That fixed pair is taught in lesson 4." },
+        { id: "fr-u48l1-dire", type: "vocab", front: "dire", reading: "dire", meaning: "to say", example: { jp: "Je vais dire non.", en: "I'm going to say no." }, accept: ["say", "state"], hint: "dire is saying WORDS; raconter (lesson 2) is telling a story. Careful too: « je veux dire » on its own is not \"I want to say\" — it means \"I mean\", the pair taught in lesson 4." },
         { id: "fr-u48l1-demander", type: "vocab", front: "demander", reading: "demander", meaning: "to ask", example: { jp: "Je veux demander le prix.", en: "I want to ask the price." }, accept: ["ask", "to ask for", "ask for", "request"], hint: "Never « demander pour » — French asks a thing directly: demander le prix." },
-        { id: "fr-u48l1-repondre", type: "vocab", front: "répondre", reading: "repondre", meaning: "to answer", example: { jp: "Je vais répondre à Marie.", en: "I'm going to answer Marie." }, accept: ["answer", "to reply", "reply", "respond"], hint: "You answer TO someone: répondre à Marie." },
+        { id: "fr-u48l1-repondre", type: "vocab", front: "répondre", reading: "repondre", meaning: "to reply", example: { jp: "Je vais répondre à Marie.", en: "I'm going to reply to Marie." }, accept: ["respond", "write back", "answer back"], hint: "You reply TO someone: répondre à Marie. The noun is la réponse, later in this lesson." },
         { id: "fr-u48l1-expliquer", type: "vocab", front: "expliquer", reading: "expliquer", meaning: "to explain", example: { jp: "C'est difficile à expliquer.", en: "It's difficult to explain." }, accept: ["explain"] },
         { id: "fr-u48l1-laquestion", type: "vocab", front: "la question", reading: "laquestion", meaning: "question", example: { jp: "J'ai une question.", en: "I have a question." }, accept: ["the question", "query"] },
-        { id: "fr-u48l1-lareponse", type: "vocab", front: "la réponse", reading: "lareponse", meaning: "answer", example: { jp: "La réponse est facile.", en: "The answer is easy." }, accept: ["the answer", "reply", "the reply", "response"] },
+        { id: "fr-u48l1-lareponse", type: "vocab", front: "la réponse", reading: "lareponse", meaning: "answer", example: { jp: "La réponse est facile.", en: "The answer is easy." }, accept: ["the answer", "response"] },
       ],
     },
     {
@@ -48,7 +48,7 @@ export const FR_UNIT48 = {
       dominantMode: "recall",
       canDo: "Keep a conversation going: tell someone about something, call them, repeat, and add a word.",
       items: [
-        { id: "fr-u48l2-raconter", type: "vocab", front: "raconter", reading: "raconter", meaning: "to tell", example: { jp: "Je vais raconter mon voyage.", en: "I'm going to tell about my trip." }, accept: ["tell", "to recount", "recount", "tell about"], hint: "raconter is telling a story or an event; dire is saying words. You raconte a trip, you dis « non »." },
+        { id: "fr-u48l2-raconter", type: "vocab", front: "raconter", reading: "raconter", meaning: "to tell", example: { jp: "Je vais raconter mon voyage.", en: "I'm going to tell you about my trip." }, accept: ["recount", "to recount", "tell about", "narrate"], hint: "raconter is telling a story or an event; dire is saying words. You raconte a trip, you dis « non »." },
         { id: "fr-u48l2-appeler", type: "vocab", front: "appeler", reading: "appeler", meaning: "to call", example: { jp: "Je vais appeler le médecin.", en: "I'm going to call the doctor." }, accept: ["call", "to phone", "phone", "call up"] },
         { id: "fr-u48l2-repeter", type: "vocab", front: "répéter", reading: "repeter", meaning: "to repeat", example: { jp: "Je peux répéter lentement.", en: "I can repeat slowly." }, accept: ["repeat", "say again"] },
         { id: "fr-u48l2-ajouter", type: "vocab", front: "ajouter", reading: "ajouter", meaning: "to add", example: { jp: "Je veux ajouter du sucre.", en: "I want to add some sugar." }, accept: ["add", "to put in"] },
@@ -84,9 +84,9 @@ export const FR_UNIT48 = {
       items: [
         { id: "fr-u48l4-lalangue", type: "vocab", front: "la langue", reading: "lalangue", meaning: "language", example: { jp: "Le français est une belle langue.", en: "French is a beautiful language." }, accept: ["the language", "tongue"], hint: "Same word as the tongue in your mouth — the organ gave its name to the language." },
         { id: "fr-u48l4-traduire", type: "vocab", front: "traduire", reading: "traduire", meaning: "to translate", example: { jp: "Je vais traduire ce mot.", en: "I'm going to translate this word." }, accept: ["translate"] },
-        { id: "fr-u48l4-vouloirdire", type: "vocab", front: "vouloir dire", reading: "vouloirdire", meaning: "to mean", example: { jp: "Ce mot veut dire « maison ».", en: "This word means \"house\"." }, accept: ["mean", "to signify", "signify"], hint: "Literally \"to want to say\". In a sentence it conjugates: ça veut dire = that means." },
+        { id: "fr-u48l4-vouloirdire", type: "vocab", front: "vouloir dire", reading: "vouloirdire", meaning: "to signify", example: { jp: "Ce mot veut dire « maison ».", en: "This word means \"house\"." }, accept: ["mean", "stand for", "to mean"], hint: "Literally \"to want to say\". In a sentence it conjugates — veut is the il/elle form of vouloir: ça veut dire = that means." },
         { id: "fr-u48l4-lesens", type: "vocab", front: "le sens", reading: "lesens", meaning: "meaning", example: { jp: "Je ne comprends pas le sens.", en: "I don't understand the meaning." }, accept: ["the meaning", "sense", "the sense"] },
-        { id: "fr-u48l4-lalettre", type: "vocab", front: "la lettre", reading: "lalettre", meaning: "letter", example: { jp: "Il y a six lettres dans ce mot.", en: "There are six letters in this word." }, accept: ["the letter"], hint: "Both letters: the a-b-c kind and the one you put in the post." },
+        { id: "fr-u48l4-lalettre", type: "vocab", front: "la lettre", reading: "lalettre", meaning: "letter", example: { jp: "Il y a six lettres dans « maison ».", en: "There are six letters in \"maison\"." }, accept: ["the letter"], hint: "Both letters: the a-b-c kind and the one you put in the post." },
         { id: "fr-u48l4-prononcer", type: "vocab", front: "prononcer", reading: "prononcer", meaning: "to pronounce", example: { jp: "C'est difficile à prononcer.", en: "It's difficult to pronounce." }, accept: ["pronounce", "say out loud"] },
       ],
     },
