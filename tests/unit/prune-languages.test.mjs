@@ -83,3 +83,41 @@ test("a deliberately-started language with no progress yet is NEVER dropped", ()
   const again = pruneStartedLanguages(out, undefined, () => false);
   assert.deepEqual(again.languages, ["ja", "fr"], "repeated boots must not erode the profile");
 });
+
+// ─────────────────────────────────────────────────────────────────────────────
+// REGRESSION (Spanish block 1, 2026-08-05). The staleness test used to be DERIVED
+// from content — "a language with no units can't have been chosen, so a
+// content-less entry proves this save is stale." That heuristic had a fuse on it:
+// it only worked while SOME cascade language was still unauthored. French shipping
+// burned half of it; Spanish shipping burned the rest, and the prune silently
+// stopped running for the exact profile it exists to catch.
+//
+// Every test above this line either injects a predicate where only ja has content,
+// or leans on the real corpus as it happens to stand today — so none of them can
+// catch the next decay. These three pin the behaviour in the world the catalog is
+// heading for, where EVERY language is live. They must still pass when all 20 have
+// content; if one starts failing, the derivation has crept back in.
+test("the cascade prune still fires when EVERY language has content", () => {
+  const stale = { onboarded: true, languages: ["ja", "es", "fr"], activeLang: "ja" };
+  const out = pruneStartedLanguages(stale, () => true, (id) => id === "ja");
+  assert.deepEqual(out.languages, ["ja"], "es/fr were never chosen — having content must not save them");
+  assert.equal(out.activeLang, "ja");
+});
+
+test("an explicitly recorded choice outranks the legacy-cascade fingerprint", () => {
+  // startLanguage stamps languagesChosen, so a learner who really did pick all
+  // three keeps all three — even with zero progress and the cascade's exact shape.
+  const chosen = { onboarded: true, languages: ["ja", "es", "fr"], activeLang: "ja", languagesChosen: true };
+  const out = pruneStartedLanguages(chosen, () => true, () => false);
+  assert.deepEqual(out.languages, ["ja", "es", "fr"], "a recorded choice is never second-guessed");
+  assert.equal(out, chosen, "and since nothing changed, the same object comes back");
+});
+
+test("only the cascade's exact shape is treated as stale, never a lookalike", () => {
+  // Non-destructive by construction: a pre-flag profile that isn't the retired
+  // seeding is taken at face value, even with no progress recorded anywhere.
+  for (const languages of [["ja", "fr", "es"], ["ja", "es"], ["es", "fr"], ["ja", "es", "fr", "de"]]) {
+    const out = pruneStartedLanguages({ languages, activeLang: languages[0] }, () => true, () => false);
+    assert.deepEqual(out.languages, languages, `${languages.join(",")} is not the cascade and must survive`);
+  }
+});

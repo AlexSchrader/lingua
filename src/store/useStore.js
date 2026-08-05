@@ -53,17 +53,45 @@ const langHasContent = isLive;
 // show real progress. Trade-off: a language deliberately added but never touched
 // is dropped and must be re-added (one tap, and canAddLanguage still allows it) —
 // much cheaper than silently starting a language the learner never chose.
+// The exact triple the retired ja→es→fr auto-cascade wrote into every profile
+// before language selection existed. Order matters: this is a fingerprint for one
+// specific historical shape, deliberately NOT a set-membership test, so a learner
+// who genuinely started these three is only matched if their list is identical to
+// the seeding — and even then, the filter below keeps whichever they actually use.
+const LEGACY_CASCADE = ["ja", "es", "fr"];
+const isLegacyCascadeSeeding = (langs) =>
+  Array.isArray(langs) &&
+  langs.length === LEGACY_CASCADE.length &&
+  LEGACY_CASCADE.every((id, i) => langs[i] === id);
+
 export function pruneStartedLanguages(profile, hasContent = langHasContent, hasProgress = () => true) {
   if (!profile || !Array.isArray(profile.languages) || !profile.languages.length) return profile;
 
-  // A content-less entry PROVES this profile still carries the old cascade
-  // seeding: startLanguage is gated on hasContent, so a language with no units
-  // could never have been chosen deliberately. That signature is what separates a
-  // stale save from a real one — and it's why "has content" alone can't be the
-  // test. It worked only while es/fr had no content; the moment one ships (French,
-  // 2026-07-31) a content-only filter keeps it and the learner silently gains a
-  // language they never picked.
-  const stale = profile.languages.some((id) => !hasContent(id));
+  // Is this profile the retired auto-cascade seeding rather than a real choice?
+  //
+  // This used to be inferred from CONTENT — "a language with no units could never
+  // have been chosen deliberately, so a content-less entry proves the save is
+  // stale." That heuristic had a fuse on it: it could only work while some
+  // cascade language was still unauthored. French shipping (2026-07-31) burned
+  // half of it, and Spanish shipping (2026-08-04) burned the rest — with ja, es
+  // and fr all live, `some(id => !hasContent(id))` is false for the very profile
+  // it exists to catch, nothing is pruned, and the learner silently gains TWO
+  // started languages they never picked. Found by the es block-1 crew when
+  // authoring Spanish turned prune-languages.test.mjs red.
+  //
+  // So the signal is no longer derived, it is RECORDED. Two independent marks,
+  // either of which settles it without consulting content:
+  //   1. `languagesChosen` — stamped by startLanguage (the onboarding pick and
+  //      the add-a-language flow both route through it). Any profile that has
+  //      ever been through the picker carries it and is taken at face value.
+  //   2. For saves written before that flag existed: the exact shape the retired
+  //      ja→es→fr cascade seeded. That triple, in that order, IS the bug's
+  //      fingerprint. Anything else pre-flag is treated as a deliberate choice
+  //      and left alone, which is what keeps this non-destructive.
+  // Neither mark depends on which languages have content, so this cannot decay
+  // again as the remaining 17 languages ship.
+  const stale =
+    profile.languagesChosen !== true && isLegacyCascadeSeeding(profile.languages);
 
   // Only a stale profile gets the strict treatment. Otherwise stay STRICTLY
   // NON-DESTRUCTIVE and drop nothing that has content — this runs on every boot
@@ -178,7 +206,12 @@ export const useStore = create(
           const languages = s.profile.languages.includes(id)
             ? s.profile.languages
             : [...s.profile.languages, id];
-          return { profile: { ...s.profile, languages, activeLang: id } };
+          // Record that this list is a real choice, so pruneStartedLanguages
+          // never has to infer it. Everything that adds a language routes through
+          // here (the onboarding pick and the add-a-language flow), so from this
+          // point on the legacy-cascade fingerprint is only ever consulted for
+          // saves written before this flag existed.
+          return { profile: { ...s.profile, languages, activeLang: id, languagesChosen: true } };
         }),
 
       // Switch focus among languages already started.

@@ -1,22 +1,50 @@
 // Curriculum data audit — counts items per unit (by type), checks lesson
 // numbering + global id uniqueness, and totals. Reads whatever unitN.js files are
 // on disk (independent of index.js), so it reports the real data, not claims.
-import { readdirSync } from "node:fs";
+//
+//   npm run audit          → every authored language
+//   npm run audit -- es    → just Spanish
+//
+// This used to hardcode `src/data/ja`, which made it a NO-OP for any other
+// language while still printing a reassuring "ISSUES: none". RUNBOOK §5 lists it
+// as one of five gates, so a Spanish or French block could report "audit ✅" on a
+// run that never opened one of its files. Caught on the es block-1 hand-back,
+// 2026-08-05.
+import { readdirSync, existsSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
-const dir = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data", "ja");
-const files = readdirSync(dir)
-  .filter((f) => /^unit\d+\.js$/.test(f))
-  .sort((a, b) => parseInt(a.match(/\d+/)[0], 10) - parseInt(b.match(/\d+/)[0], 10));
+const dataDir = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data");
+const requested = process.argv.slice(2).filter((a) => /^[a-z]{2}$/.test(a));
+const langs = (requested.length
+  ? requested
+  : readdirSync(dataDir).filter((d) => /^[a-z]{2}$/.test(d) && statSync(join(dataDir, d)).isDirectory())
+).filter((l) => {
+  if (existsSync(join(dataDir, l))) return true;
+  console.error(`audit: no such language directory: src/data/${l}`);
+  process.exitCode = 1;
+  return false;
+});
+
+// [{ lang, dir, file }] across every language, so id-uniqueness is still checked
+// GLOBALLY (an id collision between two languages is exactly the kind of thing a
+// per-language audit would miss).
+const files = langs.flatMap((lang) => {
+  const dir = join(dataDir, lang);
+  return readdirSync(dir)
+    .filter((f) => /^unit\d+\.js$/.test(f))
+    .sort((a, b) => parseInt(a.match(/\d+/)[0], 10) - parseInt(b.match(/\d+/)[0], 10))
+    .map((f) => ({ lang, dir, file: f }));
+});
 
 const allIds = new Map();
 const dups = [];
 const issues = [];
 const rows = [];
 const tot = { lessons: 0, items: 0, kana: 0, vocab: 0, kanji: 0 };
+const perLang = {};
 
-for (const f of files) {
+for (const { lang, dir, file: f } of files) {
   const mod = await import(pathToFileURL(join(dir, f)).href);
   const u = Object.values(mod)[0];
   const by = { kana: 0, vocab: 0, kanji: 0 };
@@ -31,8 +59,8 @@ for (const f of files) {
     for (const it of l.items) {
       items++;
       by[it.type] = (by[it.type] || 0) + 1;
-      if (allIds.has(it.id)) dups.push(`${it.id} (in ${f} AND ${allIds.get(it.id)})`);
-      else allIds.set(it.id, f);
+      if (allIds.has(it.id)) dups.push(`${it.id} (in ${lang}/${f} AND ${allIds.get(it.id)})`);
+      else allIds.set(it.id, `${lang}/${f}`);
       if (!it.reading) issues.push(`${it.id}: missing reading`);
     }
   }
@@ -40,11 +68,22 @@ for (const f of files) {
   const sorted = [...lessonNums].sort((a, b) => a - b);
   sorted.forEach((n, i) => { if (n !== i + 1) issues.push(`${u.id}: lesson numbers not 1..N (${sorted.join(",")})`); });
 
-  rows.push({ file: f, id: u.id, order: u.order, stage: u.stage, lessons, items, kana: by.kana, vocab: by.vocab, kanji: by.kanji, title: u.title });
+  rows.push({ lang, file: f, id: u.id, order: u.order, stage: u.stage, lessons, items, kana: by.kana, vocab: by.vocab, kanji: by.kanji, title: u.title });
+  perLang[lang] ??= { units: 0, lessons: 0, items: 0 };
+  perLang[lang].units++; perLang[lang].lessons += lessons; perLang[lang].items += items;
   tot.lessons += lessons; tot.items += items; tot.kana += by.kana; tot.vocab += by.vocab; tot.kanji += by.kanji;
 }
 
 console.table(rows);
+// Per-language totals first: the single number a crew actually wants, and the one
+// that makes a no-op run obvious (a language with 0 units can no longer hide
+// behind a green "ISSUES: none").
+console.log("LANGUAGES AUDITED:", langs.join(", ") || "(none)");
+console.table(perLang);
 console.log("TOTALS:", tot, "| unique item ids:", allIds.size);
 console.log("DUPLICATE IDS:", dups.length ? dups : "none");
 console.log("ISSUES:", issues.length ? issues : "none");
+if (!files.length) {
+  console.error("audit: no unit files found — nothing was actually checked.");
+  process.exitCode = 1;
+}
