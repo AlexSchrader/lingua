@@ -24,12 +24,13 @@
 //     "jp" = target language); `example.en` the English gloss.
 //   - Nouns are taught WITH their article (el/la) so gender is learned as part of
 //     the word, never as an afterthought. Plurals get los/las.
-//   - Examples stay inside vocab taught at or before this unit, plus proper names
-//     (Ana, España, México, América) and transparent cognates: moderno, elegante,
-//     famoso, enorme, romántico, fantástico, tranquilo, histórico, importante,
-//     rápido, perfecto, humano, favorito, persona. Inflected forms of those
-//     cognates count as the same word (moderna, fantástica, tranquila,
-//     personas), as do regular plurals of any taught noun (sillas, hermanos).
+//   - Examples stay inside vocab taught at or before this unit, plus the free
+//     list declared below. Inflected forms of a listed cognate count as the same
+//     word (moderno → moderna), as do regular plurals of any taught NOUN
+//     (la silla → sillas). Machine-checked by `node scripts/check-lang-scope.mjs
+//     es`, which parses the FREE line directly — so this declaration is the
+//     single source of truth and the checker can never allow more than it lists.
+//   FREE: Ana, España, México, América | moderno, elegante, famoso, enorme, romántico, fantástico, tranquilo, histórico, importante, rápido, perfecto, humano, favorito, persona | 2000
 //   - DELIBERATE A1 SIMPLIFICATIONS (revisit at A2): (a) only the present tense,
 //     and verbs are taught as person-marked chunks (soy, hablo, tengo) rather
 //     than infinitives — the infinitive belongs with the grammar units; (b) ser
