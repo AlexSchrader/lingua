@@ -43,7 +43,7 @@ export const FR_UNIT39 = {
         { id: "fr-u39l2-lacampagne", type: "vocab", front: "la campagne", reading: "lacampagne", meaning: "the countryside", example: { jp: "Le week-end, je vais à la campagne.", en: "At the weekend I go to the countryside." }, accept: ["countryside", "the country", "country"], hint: "à la campagne = out in the country — the opposite of en ville." },
         { id: "fr-u39l2-lecentreville", type: "vocab", front: "le centre-ville", reading: "lecentreville", meaning: "the town centre", example: { jp: "La gare est au centre-ville.", en: "The station is in the town centre." }, accept: ["town center", "city centre", "city center", "downtown"] },
         { id: "fr-u39l2-lhabitant", type: "vocab", front: "l'habitant", reading: "lhabitant", meaning: "the inhabitant", example: { jp: "Ce village a cent habitants.", en: "This village has a hundred inhabitants." }, accept: ["inhabitant", "resident", "the resident"], hint: "Straight from habiter (Unit 9) — someone who lives there." },
-        { id: "fr-u39l2-lapopulation", type: "vocab", front: "la population", reading: "lapopulation", meaning: "the population", example: { jp: "La population de Paris est très grande.", en: "The population of Paris is very large." }, accept: ["population", "the people"] },
+        { id: "fr-u39l2-lapopulation", type: "vocab", front: "la population", reading: "lapopulation", meaning: "the population", example: { jp: "La population de Paris est très importante.", en: "The population of Paris is very large." }, accept: ["population", "the people"] },
       ],
     },
     {
