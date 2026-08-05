@@ -123,17 +123,23 @@ test("level milestones are per-language — a new language never moves another's
   assert.equal(jaA1.progress({}).need, countBand("ja", "A1"), "ja A1 counts only ja items");
   const frA1 = levels.find((m) => m.id === "level-A1-fr");
   assert.ok(frA1, "French gets its own suffixed level id");
-  // BAND-scoped, not language-scoped: a level milestone's denominator is the
-  // items at or below its band (milestones.js `bandDefs`). This used to read
-  // `frDefs.length`, which was only accidentally right while French was A1-only
-  // — the first French A2 unit to land made a correct engine fail a green test.
+  // Band-scoped, exactly like the ja assertion above. This used to compare against
+  // frDefs.length (EVERY fr item), which was only ever equal by accident: French
+  // had nothing but A1. The moment French A2 landed the two diverged (566 vs 806)
+  // and this line failed on correct engine behaviour. Counting the A1 band says
+  // what the test actually means and survives every later band.
   assert.equal(frA1.progress({}).need, countBand("fr", "A1"), "fr A1 counts only fr A1-band items");
-  // …and the cumulative band above it, which appears on its own once A2 ships,
-  // counts every fr item at or below A2. This is the assertion that keeps the
-  // A1 denominator honest as later bands are authored.
+  // …and the band ABOVE it, so this file keeps the property the old line had by
+  // accident: it fires the moment a language grows a band. A level milestone is
+  // cumulative (ja's level-A2 counts A1+A2), so French's must be too — otherwise
+  // "French A2 complete" is reachable while French A1 is not.
   const frA2 = levels.find((m) => m.id === "level-A2-fr");
-  assert.ok(frA2, "French A2 content is live, so its level milestone must be generated");
-  assert.equal(frA2.progress({}).need, countBand("fr", "A1") + countBand("fr", "A2"));
+  assert.ok(frA2, "French A2 has its own suffixed level id");
+  assert.equal(
+    frA2.progress({}).need,
+    countBand("fr", "A1") + countBand("fr", "A2"),
+    "fr A2 is cumulative over fr A1+A2, and counts no other language"
+  );
   // Recognizing every ja A1 item earns ja's A1 WITHOUT touching French.
   const m = {};
   for (const d of Object.values(SEED)) {
