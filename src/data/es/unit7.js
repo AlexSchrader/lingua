@@ -117,11 +117,11 @@ export const ES_UNIT7 = {
       canDo: "Say how you travel and where you catch it: la estación, el tren, el autobús, la parada, el metro, el aeropuerto.",
       items: [
         { id: "es-u7l4-estacion", type: "vocab", front: "la estación", reading: "laestacion", meaning: "station", example: { jp: "La estación está en el centro.", en: "The station is in the centre." }, accept: ["the station", "train station"], hint: "Also means \"season\" — las cuatro estaciones are the four seasons of the year." },
-        { id: "es-u7l4-tren", type: "vocab", front: "el tren", reading: "eltren", meaning: "train", example: { jp: "Hay un tren a Madrid.", en: "There's a train to Madrid." }, accept: ["the train"] },
+        { id: "es-u7l4-tren", type: "vocab", front: "el tren", reading: "eltren", meaning: "train", example: { jp: "El tren está en la estación.", en: "The train is at the station." }, accept: ["the train"] },
         { id: "es-u7l4-autobus", type: "vocab", front: "el autobús", reading: "elautobus", meaning: "bus", example: { jp: "El autobús está en la plaza.", en: "The bus is in the square." }, accept: ["the bus", "coach"], hint: "The stress lands on the last syllable, and that is what the accent marks: au-to-BÚS." },
         { id: "es-u7l4-parada", type: "vocab", front: "la parada", reading: "laparada", meaning: "stop", example: { jp: "Hay una parada de autobús en la calle Mayor.", en: "There's a bus stop on Calle Mayor." }, accept: ["bus stop", "the stop"], hint: "From parar, to stop — a parada is where the bus stops for a moment." },
         { id: "es-u7l4-metro", type: "vocab", front: "el metro", reading: "elmetro", meaning: "underground", example: { jp: "Hay una parada de metro en el centro.", en: "There's an underground stop in the centre." }, accept: ["subway", "metro", "the underground", "tube"], hint: "Madrid and Barcelona both have one. El metro is also a metre of length — context decides." },
-        { id: "es-u7l4-aeropuerto", type: "vocab", front: "el aeropuerto", reading: "elaeropuerto", meaning: "airport", example: { jp: "Hay un tren al aeropuerto.", en: "There's a train to the airport." }, accept: ["the airport"], hint: "aero + puerto — an air port. And al is just a + el squeezed together." },
+        { id: "es-u7l4-aeropuerto", type: "vocab", front: "el aeropuerto", reading: "elaeropuerto", meaning: "airport", example: { jp: "Hay un autobús en el aeropuerto.", en: "There's a bus at the airport." }, accept: ["the airport"], hint: "aero + puerto — an air port, built from two words you can already see." },
       ],
     },
   ],
