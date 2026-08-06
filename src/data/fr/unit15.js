@@ -24,7 +24,7 @@ export const FR_UNIT15 = {
         { id: "fr-u15l1-labouche", type: "vocab", front: "la bouche", reading: "labouche", meaning: "mouth", example: { jp: "Je mange avec la bouche, bien sûr !", en: "I eat with my mouth, of course!" }, accept: ["the mouth"] },
         { id: "fr-u15l1-loreille", type: "vocab", front: "l'oreille", reading: "loreille", meaning: "ear", example: { jp: "J'ai mal à l'oreille.", en: "My ear hurts." }, accept: ["the ear", "ears"] },
         { id: "fr-u15l1-lescheveux", type: "vocab", front: "les cheveux", reading: "lescheveux", meaning: "hair", example: { jp: "Marie a les cheveux noirs.", en: "Marie has black hair." }, accept: ["the hair"], hint: "Always plural in French — les cheveux, never \"le cheveu\" for a whole head of it." },
-        { id: "fr-u15l1-ladent", type: "vocab", front: "la dent", reading: "ladent", meaning: "tooth", example: { jp: "J'ai mal aux dents.", en: "My teeth hurt." }, accept: ["the tooth", "teeth"] },
+        { id: "fr-u15l1-ladent", type: "vocab", front: "la dent", reading: "ladent", meaning: "tooth", example: { jp: "J'ai mal aux dents.", en: "My teeth hurt." }, accept: ["the tooth", "teeth"], hint: "aux = à + les squashed together. « J'ai mal aux dents » is the fixed way to say your teeth hurt — and it's always plural." },
       ],
     },
     {
