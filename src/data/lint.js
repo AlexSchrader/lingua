@@ -112,9 +112,16 @@ export function lintCurriculum(units = []) {
   const e = (msg) => errors.push(msg);
   const w = (msg) => warnings.push(msg);
 
-  // `${lang} ${front}` → id  (kanji included; kana→word reuse stays allowed).
+  // lang + NUL + front → id  (kanji included; kana→word reuse stays allowed).
   // Scoped per language to match contract.js — "one home per word" is a
   // within-language rule; es "no" and it "no" are different words.
+  //
+  // The separator is the same NUL escape contract.js uses. It used to be a literal
+  // space here while contract.js used NUL, so the two implementations of one rule
+  // disagreed on the key despite the comment above claiming they matched. Harmless
+  // in practice — language ids are fixed two-letter codes with no spaces, so no
+  // real pair could collide — but the divergence is the kind that only becomes a
+  // bug once an id shape changes, and it cost nothing to remove.
   const vocabFronts = new Map();
   // Kana/kanji chars introduced so far, in queue order — also per language, so a
   // second own-script language starts from an empty inventory.
@@ -187,7 +194,7 @@ export function lintCurriculum(units = []) {
             w(`item ${id}: ${type} should have an accept[] array (may be empty)`);
           // per-language word-front uniqueness (kana→word reuse allowed: kana fronts not tracked here)
           if (typeof item.front === "string") {
-            const key = `${unitLang} ${item.front}`;
+            const key = `${unitLang}\u0000${item.front}`;
             if (vocabFronts.has(key))
               e(`item ${id}: word front "${item.front}" already taught in ${vocabFronts.get(key)}`);
             else vocabFronts.set(key, id);
