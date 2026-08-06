@@ -1,18 +1,62 @@
-// JA Unit 115 — Characters 9 (B1) (slot: characters-b1-9) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// Unit 115 — かんじ・かず (Number and quantity kanji) — B1 / JLPT N3
+// Strand A. Glyphs for counting and measuring — the ones on a form, a receipt and a
+// timetable. Pairs with the thematic comparison unit at slot 103.
+// 3 lessons x 6/5/5 = 16 glyphs. lang/unit/lesson are stamped in src/data/index.js.
 export const UNIT115 = {
   id: "ja-u115",
   lang: "ja",
-  title: "Characters 9 (B1)",
+  title: "かんじ・かず",
   order: 115,
   stage: "b1",
   lessons: [
-    { id: "ja-u115l1", title: "Lesson 1", locked: true },
-    { id: "ja-u115l2", title: "Lesson 2", locked: true },
-    { id: "ja-u115l3", title: "Lesson 3", locked: true },
-    { id: "ja-u115l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u115l1",
+      unit: 115,
+      lesson: 1,
+      title: "Counting things",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read the kanji of counting: 数 (number), 量 (quantity), 単 (single), 倍 (double), 第 (ordinal), 等 (equal).",
+      items: [
+        { id: "ja-u115l1-kazu", type: "kanji", front: "数", reading: "kazu", meaning: "number", example: { jp: "この 町の 子どもの 数は 毎年 少なく なって、学校も へりました。", en: "The number of children in this town falls every year, and schools have closed too." }, accept: ["count", "figures", "several"], hint: "数 = how many. 数学 = mathematics, 人数 = the number of people." },
+        { id: "ja-u115l1-ryo", type: "kanji", front: "量", reading: "ryō", meaning: "quantity", example: { jp: "この 店は ねだんの わりに 量が 多いので、いつも こんで います。", en: "For the price the portions are large, so it's always crowded." }, accept: ["amount", "volume", "to measure"], hint: "量 = how much of something there is — mass, not count. 数 counts; 量 measures." },
+        { id: "ja-u115l1-tan", type: "kanji", front: "単", reading: "tan", meaning: "single", example: { jp: "新しい 単語を 五つ おぼえて から、寝ました。", en: "I learned five new words, then went to bed." }, accept: ["simple", "unit", "mere"], hint: "単 = one on its own. 単語 = a vocabulary word, 単に = merely, 簡単 = simple." },
+        { id: "ja-u115l1-bai", type: "kanji", front: "倍", reading: "bai", meaning: "double", example: { jp: "今年の 雨は 去年の 二倍で、川の 水が ふえました。", en: "There was twice as much rain as last year, and the river rose." }, accept: ["times", "-fold", "twice"], hint: "倍 = a multiple — 二倍 = twice, 三倍 = three times. 亻 (person) on the left." },
+        { id: "ja-u115l1-dai", type: "kanji", front: "第", reading: "dai", meaning: "number (ordinal)", example: { jp: "この 本の 第一章は みじかいので、すぐ 読めます。", en: "Chapter one of this book is short, so you can read it quickly." }, accept: ["ordinal prefix", "rank"], hint: "第 = the marker that turns a number into an ordinal: 第一 = the first, 第二 = the second." },
+        { id: "ja-u115l1-to", type: "kanji", front: "等", reading: "tō", meaning: "equal", example: { jp: "みんなに 同じ 品を 平等に くばりましたから、だれも こまりませんでした。", en: "The same items went out equally to everyone, so nobody lost out." }, accept: ["and so on", "class", "grade"], hint: "等 = of the same rank — 竹 (bamboo) on top. 平等 = equality; after a list it means 'et cetera'." },
+      ],
+    },
+    {
+      id: "ja-u115l2",
+      unit: 115,
+      lesson: 2,
+      title: "Full, empty, finished",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read the kanji of totals and limits: 均 (average), 総 (overall), 満 (full), 未 (not yet), 末 (end).",
+      items: [
+        { id: "ja-u115l2-kin", type: "kanji", front: "均", reading: "kin", meaning: "even", example: { jp: "この クラスの 点の 平均は 高いですが、私は 低かったです。", en: "The class average is high, but mine was low." }, accept: ["average", "level", "uniform"], hint: "均 = evened out — 土 (earth) on the left, ground made level. You meet it inside 平均." },
+        { id: "ja-u115l2-so", type: "kanji", front: "総", reading: "sō", meaning: "overall", example: { jp: "今月の 総計を 見て から、来月の 計画を 考えます。", en: "I'll look at this month's total, then plan next month." }, accept: ["total", "general", "all"], hint: "総 = the whole lot added up — 糸 (thread) on the left, everything gathered into one bundle." },
+        { id: "ja-u115l2-man", type: "kanji", front: "満", reading: "man", meaning: "full", example: { jp: "電車が 満員で、次のを 待つ ことに しました。", en: "The train was full, so I decided to wait for the next one." }, accept: ["to fill", "satisfaction"], hint: "満 = filled up — 氵 (water) at the left, a vessel brimming. 満員 = full up (of people), 満足 = satisfaction." },
+        { id: "ja-u115l2-mi", type: "kanji", front: "未", reading: "mi", meaning: "not yet", example: { jp: "その 仕事は 未だ 終わって いませんが、来週 出せます。", en: "That work isn't finished yet, but I can hand it in next week." }, accept: ["un-", "incomplete", "future"], hint: "未 = not yet — a tree 木 whose top branch hasn't grown out. 未来 = the future, what hasn't come." },
+        { id: "ja-u115l2-matsu", type: "kanji", front: "末", reading: "matsu", meaning: "end", example: { jp: "週末は 家で ゆっくり 休みたいので、よていを 入れません。", en: "I want to rest quietly at home at the weekend, so I don't make plans." }, accept: ["close", "tip", "the last part"], hint: "末 = the far end — the same tree 木, but the long stroke marks the tip. 週末 = weekend, 月末 = month end." },
+      ],
+    },
+    {
+      id: "ja-u115l3",
+      unit: 115,
+      lesson: 3,
+      title: "Parts and small units",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read the kanji of portions and small measures: 余 (surplus), 両 (both), 割 (to divide), 秒 (second), 寸 (a little).",
+      items: [
+        { id: "ja-u115l3-amari", type: "kanji", front: "余", reading: "amari", meaning: "surplus", example: { jp: "お金に 余りが 出たので、本を 一さつ 買いました。", en: "I had money left over, so I bought a book." }, accept: ["remainder", "extra", "to be left over"], hint: "余 = what is left after enough — 余る = to be left over, 余分 = extra." },
+        { id: "ja-u115l3-ryo", type: "kanji", front: "両", reading: "ryō", meaning: "both", example: { jp: "両親は 二人とも 元気で、毎日 歩いて います。", en: "Both my parents are well, and they walk every day." }, accept: ["the two", "pair"], hint: "両 = the two of a natural pair. 両親 = both parents, 両手 = both hands, 両方 = both sides." },
+        { id: "ja-u115l3-wari", type: "kanji", front: "割", reading: "wari", meaning: "to divide", example: { jp: "この 店では 学生は 一割 安く なりますから、いつも ここで 買います。", en: "Students get ten percent off at this shop, so I always buy here." }, accept: ["proportion", "ten percent", "to split"], hint: "割 = split into parts — 刂 (knife) on the right. 一割 = one tenth, so 三割引き is 30% off." },
+        { id: "ja-u115l3-byo", type: "kanji", front: "秒", reading: "byō", meaning: "second", example: { jp: "あと 三十秒で 電車が 出ますから、いそいで ください。", en: "The train leaves in thirty seconds, so please hurry." }, accept: ["a second (time)"], hint: "秒 = a second — 禾 (grain) + 少 (few): the smallest grain of time. 分 is a minute, 秒 a second." },
+        { id: "ja-u115l3-sun", type: "kanji", front: "寸", reading: "sun", meaning: "a little", example: { jp: "少し 時間を 借りて、寸前まで 練習しました。", en: "I borrowed a bit of time and practised right up to the last moment." }, accept: ["tiny amount", "old unit of length"], hint: "寸 = an old unit about 3cm, so by extension 'a tiny bit'. 寸前 = just before, at the last moment." },
+      ],
+    },
   ],
 };
