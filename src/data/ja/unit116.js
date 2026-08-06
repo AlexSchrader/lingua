@@ -3,8 +3,8 @@
 // (u56, u75). This unit is what a learner needs to narrate a *trend*: the nouns for
 // rising and falling (ぞうか, げんしょう, けいこう), the verbs that go with them, the
 // time positions a report uses (かこ, げんざい, とうじ), and the adverbs that pace a
-// change out (じょじょに, しだいに, やがて). Every example is two clauses, per the B1
-// spec — a trend needs a before and an after to be a trend at all.
+// change out (じょじょに, しだいに, やがて). Examples are two clauses wherever the word
+// allows it, per the B1 spec — a trend needs a before and an after to be a trend.
 export const UNIT116 = {
   id: "ja-u116",
   lang: "ja",
@@ -72,10 +72,10 @@ export const UNIT116 = {
       dominantMode: "recall",
       canDo: "Pace a change out: じょじょに しだいに やがて ついに すでに もはや.",
       items: [
-        { id: "ja-u116l4-jojoni", type: "vocab", front: "じょじょに", reading: "jojoni", meaning: "gradually", example: { jp: "くすりをのんでから、じょじょに よくなってきました。", en: "After taking the medicine, I've gradually been getting better." }, accept: ["little by little", "slowly", "step by step"], hint: "徐々に = slowly and steadily. Often paired with ～てくる / ～ていく to show the change is still running." },
-        { id: "ja-u116l4-shidaini", type: "vocab", front: "しだいに", reading: "shidaini", meaning: "by degrees", example: { jp: "空がしだいに暗くなって、星が見えはじめました。", en: "The sky darkened by degrees, and the stars began to appear." }, accept: ["gradually", "progressively"], hint: "次第に is the more literary じょじょに. You'll meet it in novels and forecasts more than in conversation." },
+        { id: "ja-u116l4-jojoni", type: "vocab", front: "じょじょに", reading: "jojoni", meaning: "gradually", example: { jp: "くすりをのんでから、じょじょによくなってきました。", en: "After taking the medicine, I've gradually been getting better." }, accept: ["little by little", "slowly", "step by step"], hint: "徐々に = slowly and steadily. Often paired with ～てくる / ～ていく to show the change is still running." },
+        { id: "ja-u116l4-shidaini", type: "vocab", front: "しだいに", reading: "shidaini", meaning: "by degrees", example: { jp: "空がしだいに暗くなって、ほしが見えはじめました。", en: "The sky darkened by degrees, and the stars began to appear." }, accept: ["gradually", "progressively"], hint: "次第に is the more literary じょじょに. You'll meet it in novels and forecasts more than in conversation." },
         { id: "ja-u116l4-yagate", type: "vocab", front: "やがて", reading: "yagate", meaning: "before long", example: { jp: "雨はつよかったですが、やがて止んで空が明るくなりました。", en: "The rain was heavy, but before long it stopped and the sky brightened." }, accept: ["eventually", "soon", "in time"], hint: "やがて = after some unspecified while. Softer than すぐに (right away) and more literary than そのうち." },
-        { id: "ja-u116l4-tsuini", type: "vocab", front: "ついに", reading: "tsuini", meaning: "finally", example: { jp: "三年かかりましたが、ついにしけんに合かくしました。", en: "It took three years, but I finally passed the exam." }, accept: ["at last", "in the end", "ultimately"], hint: "ついに marks the end of a long wait — good or bad. With a negative it means 'never in the end': ついに来ませんでした." },
+        { id: "ja-u116l4-tsuini", type: "vocab", front: "ついに", reading: "tsuini", meaning: "finally", example: { jp: "三年かかりましたが、ついにしけんにごうかくしました。", en: "It took three years, but I finally passed the exam." }, accept: ["at last", "in the end", "ultimately"], hint: "ついに marks the end of a long wait — good or bad. With a negative it means 'never in the end': ついに来ませんでした." },
         { id: "ja-u116l4-sudeni", type: "vocab", front: "すでに", reading: "sudeni", meaning: "already", example: { jp: "行ったときには、すでに店はしまっていました。", en: "By the time I went, the shop had already closed." }, accept: ["by then", "previously"], hint: "既に is the written もう. In speech もう is far more natural; すでに belongs in reports and formal speech." },
         { id: "ja-u116l4-mohaya", type: "vocab", front: "もはや", reading: "mohaya", meaning: "no longer", example: { jp: "もはや前のやりかたではうまくいきません。", en: "The old way of doing things no longer works." }, accept: ["already", "by now", "any more"], hint: "もはや marks a point of no return — things have moved past it. Usually with a negative, and always a little dramatic." },
       ],
