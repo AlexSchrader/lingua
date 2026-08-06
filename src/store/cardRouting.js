@@ -84,6 +84,30 @@ export function shouldListenType(item) {
 const isLatin = (item) => (item?.lang ?? "ja") !== "ja";
 const isLetter = (ch) => !!ch && /\p{L}/u.test(ch);
 
+// Is this item's `reading` worth SHOWING the learner?
+//
+// The field does double duty. For a script the learner can't decode yet it's a
+// pronunciation crutch ("neko" under ねこ). For a Latin-script language it's the
+// ASCII key typed answers are graded against — fr authors `s'il vous plaît` with
+// reading `silvousplait` so the checker can fold what the learner types. Showing
+// the second kind presents a typing key as if it were pronunciation: French was
+// rendering "silvousplait" under "s'il vous plaît", and "cava" under "Ça va".
+//
+// Settings already gets this right one level up — it hides the Show-romaji toggle
+// for a learner with no glyph items (Settings.jsx `hasGlyphScript`), which is
+// exactly why this stayed invisible: a French learner can't reach the switch, so
+// the `showRomaji: true` default just leaks. This is the same rule applied per
+// ITEM rather than per profile, so it stays correct for someone studying a glyph
+// language and a Latin one at the same time.
+//
+// Keyed on the front's SCRIPT, not a lang allowlist, so Hangul / Cyrillic /
+// Devanagari show their reading the day they ship with no edit here.
+const LATIN_FRONT = /^[\p{Script=Latin}\p{M}\p{P}\p{S}\p{Zs}\p{N}]+$/u;
+export function readingIsInformative(item) {
+  const front = item?.front ?? "";
+  return !!front && !LATIN_FRONT.test(front);
+}
+
 // Locate `needle` in `hay` as a WHOLE WORD, case-insensitively — the Latin-script
 // counterpart of ja's plain indexOf. Case folding is what lets a front match its
 // own sentence-initial form; the letter-boundary check is what stops "un" from
