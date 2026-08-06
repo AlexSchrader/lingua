@@ -187,10 +187,14 @@ Runs once, when all three blocks are green. **One session does this, never three
 
 1. `git merge` each block branch **in block order** (1 → 2 → 3). Conflicts should be near-zero: authoring seats only ever touch `src/data/<lang>/`.
 2. Re-run the **full gate** on the combined result. A block can be green alone and red combined — that's the whole reason this seat exists. Fix in the merged tree.
-3. Run audio **once**: `npm run generate:audio` then `npm run generate:manifest`. **Never in parallel with another language's merge** — one shared manifest.
-4. Update `BUILD-CHECKLIST.md` per its marking protocol, and clear the language's rows off the crew board.
-5. Hand Alex the §6 block for the whole language, plus one line: which unit to open first in Dev Mode.
-6. `git worktree remove` the three authoring worktrees.
+3. **Duplicate fronts are the expected red, and they are YOURS to resolve — do not escalate them.** Two blocks independently teaching the same word is the normal outcome of parallel authoring, not a failure or a decision for Alex. The Spanish pilot produced 33 across 21 lessons; every one resolved mechanically. Work it in this order:
+   - **Ownership: lower unit `order` wins, always.** No exceptions and no negotiation — that is what makes this resolvable by one seat with no cross-session coordination. Delete the item from the **higher**-order unit; the word stays available to that unit's example sentences, which is all it needed.
+   - **A sounds/script unit owning ordinary words is correct, not a bug.** ja Unit 1 is 25 kana *and* 29 real words; a Latin sounds unit works the same way. Don't "fix" it by reassigning the word to the thematic unit that feels more natural — that reopens the tie the rule exists to close.
+   - **Then repair the holes deletion leaves.** Every lesson that drops below **5 cards** needs backfilling to 5–6 with genuinely new words that are in scope at that unit. In the pilot, 10 of 21 lessons fell under the floor and two fell to 3 — so budget this as real authoring, not cleanup. Re-run the gate after backfilling; the vocab-scope lint will catch a backfill word used before it is taught.
+4. Run audio **once**: `npm run generate:audio` then `npm run generate:manifest`. **Never in parallel with another language's merge** — one shared manifest.
+5. Update `BUILD-CHECKLIST.md` per its marking protocol, and clear the language's rows off the crew board.
+6. Hand Alex the §6 block for the whole language, plus one line: which unit to open first in Dev Mode.
+7. `git worktree remove` the three authoring worktrees.
 
 Then stop. Alex playtests and merges to `main`.
 
