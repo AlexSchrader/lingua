@@ -4,6 +4,7 @@ import { sfxClick } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 import { useStore } from "../../store/useStore.js";
 import Furigana from "../Furigana.jsx";
+import { readingIsInformative } from "../../store/cardRouting.js";
 
 const HAS_KANJI = /[一-龯々]/;
 
@@ -19,6 +20,9 @@ export default function TeachCard({ item, onAdvance }) {
   // When furigana rubies the reading over a kanji headword, the romaji line below
   // is redundant — drop it so the reading shows once (all-kana words are unaffected).
   const rubied = furigana && HAS_KANJI.test(item.front ?? "");
+  // …and for a Latin-script front the `reading` is the ASCII typing key, not a
+  // pronunciation guide — showing it printed "silvousplait" under "s'il vous plaît".
+  const showsReading = showRomaji && !rubied && readingIsInformative(item);
   return (
     <div style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>
       <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
@@ -45,7 +49,7 @@ export default function TeachCard({ item, onAdvance }) {
           reading={item.reading}
           style={{ fontFamily: F.jp, fontSize: 72, fontWeight: 500, lineHeight: 1 }}
         />
-        {showRomaji && !rubied && (
+        {showsReading && (
           <div style={{ fontFamily: F.mono, fontSize: 20, color: C.ai, fontWeight: 600 }}>
             {item.reading}
           </div>

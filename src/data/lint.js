@@ -55,15 +55,73 @@ const isKana = (ch) => {
 const READING_CHARSET = /^[a-zāēīōū]+$/;
 const MACRON_SHOULD_BE = /(ou|oo|uu)/; // these long vowels should be ō/ū
 
+// --- scaffold working titles -------------------------------------------------
+// `npm run scaffold:lang` stamps an ENGLISH working title on every stub unit; the
+// authoring seat is meant to replace it with a real target-language title (see
+// RUNBOOK-new-language.md §4). Nothing checked that it happened, and the rule was
+// documented only inside the scaffold script — a file no authoring seat opens — so
+// three of the first nine blocks handed back 21 authored units still carrying
+// "Greetings", "Grammar 4 — compound and linked clauses", "Vocabulary 1 (A2)".
+// They validated green and would have rendered English titles on the Ladder of a
+// Spanish and a French course.
+//
+// A LOCKED STUB keeps its working title legitimately — that is what it is for — so
+// this fires only once a unit is authored (any unlocked lesson carrying items).
+// Kept in sync with scripts/scaffold-language.mjs by tests/unit/scaffold.test.mjs,
+// which reads that file and fails if a template title is missing here.
+export const SCAFFOLD_TITLES = new Set([
+  // A1
+  "Sounds and spelling", "Greetings", "Introducing yourself", "Family",
+  "Numbers and time", "Food and drink", "Town and places", "Colors and weather",
+  "Days and months", "Describing things", "Body and health",
+  "Grammar 1 — basic sentence", "Grammar 2 — verbs and particles",
+  "Grammar 3 — past tense and agreement",
+  // A2
+  "Activities and routine", "Feelings and states", "Travel and transport",
+  "Work and school", "Health and the body", "Nature and animals",
+  "Shopping and money", "Time and adverbs", "Connecting words", "Home and household",
+  "Personality and character", "Society and daily life",
+  "Technology and communication", "Nature and science", "Culture and leisure",
+  "Grammar 4 — compound and linked clauses",
+  "Grammar 5 — conditionals, ability, comparison",
+  "Conjugation drill 1", "Conjugation drill 2",
+  // B1
+  "Opinion and agreement", "Cause and consequence", "Comparison and degree",
+  "Hedging and uncertainty", "News and society", "Work and process",
+  "Emotion, finer shades", "Abstract ideas", "Change over time",
+  "Problems and solutions", "Rules, permission, obligation", "Plans and intentions",
+  "Experience and memory", "Media and entertainment", "Environment and place",
+  "Money and the economy", "Health and wellbeing", "Relationships and society",
+  "Grammar 6 — linked and subordinate clauses",
+  "Grammar 7 — passive, causative, indirect",
+  "Grammar 8 — nuance, evidentiality, nominalization",
+  "Register 1 — polite vs plain", "Register 2 — softening and formality",
+]);
+// The formulaic ones the scaffold builds by counter rather than from a list.
+const SCAFFOLD_TITLE_PATTERNS = [
+  /^Vocabulary \d+( \((?:A2|B1)\))?$/,
+  /^Characters \d+( \((?:A2|B1)\))?$/,
+  /^Script \d+$/,
+];
+const isScaffoldTitle = (t) =>
+  SCAFFOLD_TITLES.has(t) || SCAFFOLD_TITLE_PATTERNS.some((re) => re.test(t));
+
 export function lintCurriculum(units = []) {
   const errors = [];
   const warnings = [];
   const e = (msg) => errors.push(msg);
   const w = (msg) => warnings.push(msg);
 
-  // `${lang} ${front}` → id  (kanji included; kana→word reuse stays allowed).
+  // lang + NUL + front → id  (kanji included; kana→word reuse stays allowed).
   // Scoped per language to match contract.js — "one home per word" is a
   // within-language rule; es "no" and it "no" are different words.
+  //
+  // The separator is the same NUL escape contract.js uses. It used to be a literal
+  // space here while contract.js used NUL, so the two implementations of one rule
+  // disagreed on the key despite the comment above claiming they matched. Harmless
+  // in practice — language ids are fixed two-letter codes with no spaces, so no
+  // real pair could collide — but the divergence is the kind that only becomes a
+  // bug once an id shape changes, and it cost nothing to remove.
   const vocabFronts = new Map();
   // Kana/kanji chars introduced so far, in queue order — also per language, so a
   // second own-script language starts from an empty inventory.
@@ -76,6 +134,15 @@ export function lintCurriculum(units = []) {
     if (!introducedByLang.has(unitLang)) introducedByLang.set(unitLang, new Set());
     const introduced = introducedByLang.get(unitLang);
     const kanaRanksInUnit = []; // [{rank, id}] for gojūon-order check
+
+    // Authored unit still wearing its scaffold working title — it would render in
+    // English on the Ladder of a non-English course. Stubs are exempt (see above).
+    const authored = unit.lessons.some((l) => !l.locked && l.items?.length);
+    if (authored && typeof unit.title === "string" && isScaffoldTitle(unit.title.trim()))
+      e(
+        `unit ${unit.id}: title "${unit.title}" is still the scaffold's English working title — ` +
+          `rewrite it in ${unitLang} (RUNBOOK-new-language.md §4)`
+      );
 
     for (const lesson of unit.lessons) {
       if (lesson.locked || !Array.isArray(lesson.items)) continue;
@@ -127,7 +194,7 @@ export function lintCurriculum(units = []) {
             w(`item ${id}: ${type} should have an accept[] array (may be empty)`);
           // per-language word-front uniqueness (kana→word reuse allowed: kana fronts not tracked here)
           if (typeof item.front === "string") {
-            const key = `${unitLang} ${item.front}`;
+            const key = `${unitLang}\u0000${item.front}`;
             if (vocabFronts.has(key))
               e(`item ${id}: word front "${item.front}" already taught in ${vocabFronts.get(key)}`);
             else vocabFronts.set(key, id);
