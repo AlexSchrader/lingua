@@ -27,7 +27,8 @@ ja doesn't teach a flat list of topics. It runs **three strands in parallel with
 | **Pre-A1** | own-script: 6–7 units · Latin: **1 unit** (sounds/orthography) | — | — | — |
 | **A1** | own-script: ~6 character units, interleaved every 2 vocab units · Latin: none (folded into B) | ~10 topic units | 3 units (sentence → verbs/particles → past & agreement) | ~6 units to the A1 frequency target |
 | **A2** | own-script: ~12 character units · Latin: none | ~15 topic units | 2 grammar + 2 conjugation-drill units | ~11 units to the A2 target |
-| **B1/B2** | same shape, deeper | | | *not built yet, even in ja — spec when ja gets there* |
+| **B1** | own-script: ~20 character units · Latin: none | ~18 topic units | 3 grammar + 2 register units | ~14 units to the B1 target |
+| **B2** | own-script: ~20 character units · Latin: none | ~18 topic units | 3 grammar + 2 register units | ~16 units to the B2 target |
 
 **A Latin-script language is the same template with Strand A collapsed to one unit.** That's the entire difference, and it's why a Latin language is ~20 A1 units where ja is ~36. Nothing else about the structure changes.
 
@@ -44,6 +45,39 @@ ja's early units (u1–u10) run 5 lessons × ~10 cards = 47–55 cards. **Do not
 - **Grammar is never its own item type** — it's function-word/suffix vocab whose examples carry the pattern.
 - Nouns are taught **with** their article/gender marker where the language has one.
 - `accept[]` on every vocab item; any multi-word meaning needs synonyms.
+
+### B1 and B2 — what changes above A2
+
+Spec'd 2026-08-05, when Japanese reached the band. The three strands and the
+4 × 6 = 24-card unit do **not** change. Four things do:
+
+1. **A new strand: register.** A1/A2 teach one neutral register and get away with it.
+   At B1 the same sentence said to a friend, a stranger, and a boss is three different
+   sentences, and choosing wrong is the mistake that marks a speaker as foreign far more
+   than vocabulary does. Two units per band carry it explicitly (ja: 丁寧語 vs 普通体, then
+   敬語 basics at B2), modelled the same way grammar is — function-word/suffix vocab whose
+   examples carry the contrast. **This is the strand most likely to be skipped and most
+   worth keeping.**
+2. **Topics get abstract.** A2's domains are concrete and picturable (home, travel, food).
+   B1/B2's are not: opinion and argument, cause and consequence, comparison and hedging,
+   news and society, work and process, emotion at finer resolution. The `canDo` shifts
+   from *"order a meal"* to *"disagree with a proposal without giving offence."*
+3. **Examples get longer, and that is the point.** A1 examples are one clause. B1/B2
+   examples must be two or more, joined by the connective being taught — the sentence is
+   the lesson, not decoration around a word.
+4. **Coverage grows and matters more.** B1/B2 is where a language stops being a phrasebook
+   and starts being usable, and that's mostly a frequency-count problem: ~14 units at B1,
+   ~16 at B2, versus 6 at A1.
+
+**Kanji (own-script languages only):** B1 ≈ N3 (~330 new glyphs), B2 ≈ N2 (~370 more), so
+the character strand roughly doubles per band — ~20 units each at 12–15 glyphs per unit.
+**Stroke data is fetched for the whole band before authoring starts** (`scripts/fetch-kanjivg.mjs`),
+never per-unit by a crew: the documented "add the glyph, re-run" path is a shared-file edit,
+which is exactly the three-way conflict the per-language barrel exists to prevent.
+
+**Scale, stated honestly:** B1 is ~37 units for a Latin language and ~57 for Japanese —
+comparable to everything built so far, per band. Two bands is not one sprint. Run B1 to
+completion and playtest it before scaffolding B2.
 
 ### One thing NOT to copy from ja
 
