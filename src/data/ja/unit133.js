@@ -42,7 +42,7 @@ export const UNIT133 = {
         { id: "ja-u133l2-kayui", type: "vocab", front: "かゆい", reading: "kayui", meaning: "itchy", example: { jp: "せなかがかゆいですが、じぶんではとどきません。", en: "My back is itchy, but I can't reach it myself." }, accept: ["itching", "scratchy"] },
         { id: "ja-u133l2-hiro", type: "vocab", front: "ひろう", reading: "hirō", meaning: "fatigue", example: { jp: "ひろうがたまっていたので、いちにちねていました。", en: "Fatigue had built up, so I stayed in bed for a day." }, accept: ["exhaustion", "tiredness", "weariness"] },
         { id: "ja-u133l2-fumin", type: "vocab", front: "ふみん", reading: "fumin", meaning: "sleeplessness", example: { jp: "しごとのことでふみんがつづいたので、びょういんへいきました。", en: "Sleeplessness continued because of work, so I went to the hospital." }, accept: ["insomnia", "not sleeping"] },
-        { id: "ja-u133l2-kanja", type: "vocab", front: "かんじゃ", reading: "kanja", meaning: "patient", example: { jp: "かんじゃがおおいので、ごぜんちゅうはまてません。", en: "There are many patients, so you can't be seen during the morning." }, accept: ["the patient", "patients"] },
+        { id: "ja-u133l2-kanja", type: "vocab", front: "かんじゃ", reading: "kanja", meaning: "patient", example: { jp: "かんじゃがおおいので、ごぜんちゅうはとてもいそがしいです。", en: "There are many patients, so the mornings are very busy." }, accept: ["the patient", "patients"] },
         { id: "ja-u133l2-shindan", type: "vocab", front: "しんだん", reading: "shindan", meaning: "diagnosis", example: { jp: "しんだんのけっかはよかったですが、おさけはとめられました。", en: "The result of the diagnosis was good, but I was told to stop drinking." }, accept: ["medical assessment", "check-up finding"] },
       ],
     },
@@ -73,7 +73,7 @@ export const UNIT133 = {
       canDo: "Talk about stress and the habits you use against it: ストレス せいしん リラックス えいよう たいそう ダイエット.",
       items: [
         { id: "ja-u133l4-sutoresu", type: "vocab", front: "ストレス", reading: "sutoresu", meaning: "stress", example: { jp: "しごとのストレスがつよいので、よるはおんがくをききます。", en: "Work stress is heavy, so I listen to music in the evening." }, accept: ["pressure", "strain"] },
-        { id: "ja-u133l4-seishin", type: "vocab", front: "せいしん", reading: "seishin", meaning: "the mind", example: { jp: "からだだけでなく、せいしんのけんこうもたいせつです。", en: "Not only the body — mental health is important too." }, accept: ["spirit", "mental (health)", "psyche"] },
+        { id: "ja-u133l4-seishin", type: "vocab", front: "せいしん", reading: "seishin", meaning: "the mind", example: { jp: "からだのけんこうはきにしていましたが、せいしんのけんこうはわすれていました。", en: "I'd been minding my physical health, but I'd forgotten my mental health." }, accept: ["spirit", "mental (health)", "psyche"] },
         { id: "ja-u133l4-rirakkusu", type: "vocab", front: "リラックス", reading: "rirakkusu", meaning: "relaxing", example: { jp: "おふろにはいるとリラックスできるので、まいばんはいります。", en: "I can relax when I get in the bath, so I get in every night." }, accept: ["relax", "unwinding"] },
         { id: "ja-u133l4-eiyo", type: "vocab", front: "えいよう", reading: "eiyō", meaning: "nutrition", example: { jp: "やさいはえいようがおおいので、まいにちたべています。", en: "Vegetables have a lot of nutrition, so I eat them every day." }, accept: ["nutrients", "nourishment", "food value"] },
         { id: "ja-u133l4-taiso", type: "vocab", front: "たいそう", reading: "taisō", meaning: "exercises", example: { jp: "あさのたいそうはみじかいですが、いちにちがらくになります。", en: "The morning exercises are short, but they make the day easier." }, accept: ["calisthenics", "gymnastics", "a work-out"] },

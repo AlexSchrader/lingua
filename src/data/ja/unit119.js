@@ -19,6 +19,12 @@
 // 80 candidates turned out to be words the corpus already teaches in kana, which
 // a front-uniqueness check alone would never have caught.
 //
+// READING FIELD — on-yomi is the headword where a lesson is built on a sound family
+// (「The そう・ぞう series」 here, 「The ひ set」 and 「The ふく set」 in u128): the whole
+// point of those lessons is that four glyphs share one sound, and a kun-yomi headword
+// hides it. Elsewhere the reading follows whichever form the example actually shows,
+// which is the shipped convention in u31-u42.
+//
 // Examples in kanji here, unlike this block's vocab units: they use the target
 // glyph plus glyphs already taught, which is what the shipped kanji units u31-u42
 // do and the only way a kanji example can do its job.
@@ -57,7 +63,7 @@ export const UNIT119 = {
       canDo: "Read four kanji that all sound そう or ぞう and tell them apart by meaning: 総 想 像 増.",
       items: [
         { id: "ja-u119l2-soutotal", type: "kanji", front: "総", reading: "sō", meaning: "total", example: { jp: "総時間は五時間ですが、休みも入っています。", en: "The total time is five hours, but that includes breaks." }, accept: ["overall", "general", "gross"], hint: "総 = everything gathered — 糸 (thread) drawing it all into one bundle. Sounds そう, like 想. 総合 = overall." },
-        { id: "ja-u119l2-souomoi", type: "kanji", front: "想", reading: "sō", meaning: "a thought", example: { jp: "子どものころの理想は、今も同じです。", en: "The ideal I had as a child is still the same today." }, accept: ["idea", "conception", "notion"], hint: "想 = 相 (look at) + 心 (heart) — what your heart looks at. Same sound as 総, but this one has a 心 in it." },
+        { id: "ja-u119l2-souomoi", type: "kanji", front: "想", reading: "sō", meaning: "a thought", example: { jp: "子どものころの理想は今も同じですが、道はまだ長いです。", en: "The ideal I had as a child is still the same today, but the road is still long." }, accept: ["idea", "conception", "notion"], hint: "想 = 相 (look at) + 心 (heart) — what your heart looks at. Same sound as 総, but this one has a 心 in it." },
         { id: "ja-u119l2-zouzou", type: "kanji", front: "像", reading: "zō", meaning: "figure", example: { jp: "こうえんの前に大きな像が立っていますが、名前は分かりません。", en: "There's a large statue standing in front of the park, but I don't know its name." }, accept: ["statue", "image", "likeness"], hint: "像 = 人 (person) + 象 — a person-shape made of something. 想像 = imagination: a thought you can see." },
         { id: "ja-u119l2-zoufueru", type: "kanji", front: "増", reading: "zō", meaning: "increase", example: { jp: "店が増えたので、町がにぎやかになりました。", en: "The shops increased, so the town got lively." }, accept: ["grow", "add to", "rise"], hint: "増 = 土 (earth) piled up higher and higher. Sounds ぞう like 像, but this one is about amount, not shape." },
         { id: "ja-u119l2-gazo", type: "vocab", front: "画像", reading: "gazō", meaning: "an image", example: { jp: "画像は小さいですが、字は読めます。", en: "The image is small, but the writing is readable." }, accept: ["picture", "graphic", "still"] },
@@ -77,7 +83,7 @@ export const UNIT119 = {
         { id: "ja-u119l3-gawa", type: "kanji", front: "側", reading: "gawa", meaning: "side", example: { jp: "駅の右側に店がありますが、左側には何もありません。", en: "There are shops on the right side of the station, but nothing on the left." }, accept: ["the side", "flank"], hint: "側 = 人 (person) standing beside — the side you're on. 右側 = the right-hand side." },
         { id: "ja-u119l3-sokurule", type: "kanji", front: "則", reading: "soku", meaning: "rule", example: { jp: "校則は多いですが、みんな気にしていません。", en: "There are a lot of school rules, but nobody minds them." }, accept: ["regulation", "principle", "law"], hint: "則 = a rule carved beside 刂 (a blade) — cut in stone. 校則 = school rules, 原則 = a general principle." },
         { id: "ja-u119l3-sokuhakaru", type: "kanji", front: "測", reading: "soku", meaning: "measure", example: { jp: "時間を測ったら、思ったより早かったです。", en: "When I measured the time, it was faster than I thought." }, accept: ["gauge", "take a measurement", "survey"], hint: "測 = 氵 (water) + 則 (rule) — laying a rule against water to read the depth. Same そく sound as 則, and the same right half." },
-        { id: "ja-u119l3-migigawa", type: "vocab", front: "右側", reading: "migigawa", meaning: "the right-hand side", example: { jp: "右側を歩いてください、左側は車が通ります。", en: "Please walk on the right-hand side; cars pass on the left." }, accept: ["right side", "on the right"] },
+        { id: "ja-u119l3-migigawa", type: "vocab", front: "右側", reading: "migigawa", meaning: "the right-hand side", example: { jp: "左側は車が通るので、右側を歩いてください。", en: "Cars pass on the left, so please walk on the right-hand side." }, accept: ["right side", "on the right"] },
         { id: "ja-u119l3-mokuzo", type: "vocab", front: "木造", reading: "mokuzō", meaning: "wooden-built", example: { jp: "木造の家はあたたかいですが、音がよく聞こえます。", en: "A wooden-built house is warm, but you hear sounds through it." }, accept: ["made of wood", "timber construction"] },
       ],
     },

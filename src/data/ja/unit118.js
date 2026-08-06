@@ -1,4 +1,4 @@
-// JA Unit 118 — もんだいとかいけつ (Problems and solutions) — B1 / JLPT N3
+// JA Unit 118 — もんだい・かいけつ (Problems and solutions) — B1 / JLPT N3
 // ─────────────────────────────────────────────────────────────────────────────
 // Block-2 house rules, applied to every unit in this block (118-136):
 //   • Verbs are headworded in the ～ます form. The corpus is 208 ます-fronts to 11
@@ -49,7 +49,7 @@ export const UNIT118 = {
       items: [
         { id: "ja-u118l2-shinkoku", type: "vocab", front: "しんこく", reading: "shinkoku", meaning: "serious", example: { jp: "びょうきはしんこくでしたが、いまはとてもげんきです。", en: "The illness was serious, but he is very well now." }, accept: ["grave", "severe"] },
         { id: "ja-u118l2-songai", type: "vocab", front: "そんがい", reading: "songai", meaning: "damage", example: { jp: "たいふうでそんがいがおおきくて、みせはやすみました。", en: "The typhoon damage was big, so the shop closed." }, accept: ["loss", "harm", "losses"] },
-        { id: "ja-u118l2-eikyo", type: "vocab", front: "えいきょう", reading: "eikyō", meaning: "effect", example: { jp: "あめのえいきょうで、でんしゃがとまりました。", en: "Because of the effect of the rain, the trains stopped." }, accept: ["influence", "impact"] },
+        { id: "ja-u118l2-eikyo", type: "vocab", front: "えいきょう", reading: "eikyō", meaning: "effect", example: { jp: "あめのえいきょうででんしゃはとまりましたが、バスはうごいていました。", en: "The trains stopped from the effect of the rain, but the buses were running." }, accept: ["influence", "impact"] },
         { id: "ja-u118l2-tashikamemasu", type: "vocab", front: "たしかめます", reading: "tashikamemasu", meaning: "make sure of", example: { jp: "じかんをたしかめてから、えきへいきました。", en: "I made sure of the time, and then went to the station." }, accept: ["to check", "verify", "confirm"] },
         { id: "ja-u118l2-utagaimasu", type: "vocab", front: "うたがいます", reading: "utagaimasu", meaning: "doubt", example: { jp: "さいしょはうたがいましたが、はなしはほんとうでした。", en: "At first I doubted it, but the story was true." }, accept: ["to suspect", "be sceptical", "question"] },
         { id: "ja-u118l2-kinishimasu", type: "vocab", front: "きにします", reading: "kinishimasu", meaning: "worry about", example: { jp: "みんなのいけんをきにしていたら、なにもきめられません。", en: "If you worry about everyone's opinions, you can't decide anything." }, accept: ["to mind", "care about", "let it bother you"] },
@@ -83,8 +83,8 @@ export const UNIT118 = {
       items: [
         { id: "ja-u118l4-kaiketsu", type: "vocab", front: "かいけつ", reading: "kaiketsu", meaning: "solution", example: { jp: "もんだいはかいけつしましたが、じかんがとてもかかりました。", en: "The problem was solved, but it took a lot of time." }, accept: ["resolution", "settlement", "solving"] },
         { id: "ja-u118l4-kaizen", type: "vocab", front: "かいぜん", reading: "kaizen", meaning: "improvement", example: { jp: "みせのたいおうがかいぜんされたので、おきゃくさんがおおくなりました。", en: "The shop's handling was improved, so there are more customers." }, accept: ["betterment", "improving"] },
-        { id: "ja-u118l4-taisaku", type: "vocab", front: "たいさく", reading: "taisaku", meaning: "countermeasure", example: { jp: "かぜのたいさくとして、まいにちてをあらっています。", en: "As a countermeasure against colds, I wash my hands every day." }, accept: ["measure", "precaution", "steps against"] },
-        { id: "ja-u118l4-yobo", type: "vocab", front: "よぼう", reading: "yobō", meaning: "prevention", example: { jp: "びょうきのよぼうには、まいにちのうんどうがたいせつです。", en: "For the prevention of illness, daily exercise is important." }, accept: ["precaution", "preventing"] },
+        { id: "ja-u118l4-taisaku", type: "vocab", front: "たいさく", reading: "taisaku", meaning: "countermeasure", example: { jp: "かぜのたいさくとしててをあらっていますが、それでもひきます。", en: "I wash my hands as a countermeasure against colds, but I still catch them." }, accept: ["measure", "precaution", "steps against"] },
+        { id: "ja-u118l4-yobo", type: "vocab", front: "よぼう", reading: "yobō", meaning: "prevention", example: { jp: "びょうきのよぼうにはうんどうがたいせつですが、つづけるのがむずかしいです。", en: "Exercise matters for preventing illness, but keeping it up is the difficult part." }, accept: ["precaution", "preventing"] },
         { id: "ja-u118l4-tasukarimasu", type: "vocab", front: "たすかります", reading: "tasukarimasu", meaning: "be a big help", example: { jp: "てつだってくれて、ほんとうにたすかりました。", en: "You helped me out — it was a real help." }, accept: ["to be saved", "be a relief", "be grateful for"] },
         { id: "ja-u118l4-kekkyoku", type: "vocab", front: "けっきょく", reading: "kekkyoku", meaning: "in the end", example: { jp: "みんなでたくさんはなしましたが、けっきょくなにもきめませんでした。", en: "We all talked a lot, but in the end we decided nothing." }, accept: ["after all", "ultimately", "finally"] },
       ],
