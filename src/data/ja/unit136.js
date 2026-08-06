@@ -1,18 +1,81 @@
-// JA Unit 136 — Characters 20 (B1) (slot: characters-b1-20) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// JA Unit 136 — かんじ・N3・20 (N3 kanji, set 20) — B1 / JLPT N3
+// Glyph ownership and card shape are documented in unit119.js: slice 20 — the last
+// of the 20-way split, which closes the untaught N3 pool exactly. 4 lessons x
+// (4 kanji + 2 compound).
 export const UNIT136 = {
   id: "ja-u136",
   lang: "ja",
-  title: "Characters 20 (B1)",
+  title: "かんじ・N3・20",
   order: 136,
   stage: "b1",
   lessons: [
-    { id: "ja-u136l1", title: "Lesson 1", locked: true },
-    { id: "ja-u136l2", title: "Lesson 2", locked: true },
-    { id: "ja-u136l3", title: "Lesson 3", locked: true },
-    { id: "ja-u136l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u136l1",
+      unit: 136,
+      lesson: 1,
+      title: "Flowing, staying, both",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 流 (flow), 留 (stay), 両 (both), 良 (good), and the words 両手 and 留学.",
+      items: [
+        { id: "ja-u136l1-nagareru", type: "kanji", front: "流", reading: "ryū", meaning: "flow", example: { jp: "川が早く流れていますが、水はきれいです。", en: "The river is flowing fast, but the water is clean." }, accept: ["stream", "current", "wash away"], hint: "流 = 氵 (water) going where it will. 流れます = to flow, 流行 = a trend: what is flowing through everyone." },
+        { id: "ja-u136l1-tomeru", type: "kanji", front: "留", reading: "ryū", meaning: "stay on", example: { jp: "外国に留学しましたが、一年で帰りました。", en: "I studied abroad, but I came home after a year." }, accept: ["remain", "detain", "keep in place"], hint: "留 = something held in one place rather than moving on. 留学 = staying abroad to study, 留守 = being out." },
+        { id: "ja-u136l1-ryo", type: "kanji", front: "両", reading: "ryō", meaning: "both", example: { jp: "両親は元気ですが、あまり会えません。", en: "Both my parents are well, but I don't get to see them much." }, accept: ["the two", "pair", "double"], hint: "両 = a scale with an equal weight hanging on each side. 両親 = both parents, 両手 = both hands." },
+        { id: "ja-u136l1-yoi", type: "kanji", front: "良", reading: "ryō", meaning: "good", example: { jp: "良い天気でしたので、山まで歩きました。", en: "The weather was good, so I walked as far as the mountain." }, accept: ["fine", "favourable", "well"], hint: "良い = the written form of いい. 良心 = conscience, 良ひん = a quality item. Same りょう sound as 両." },
+        { id: "ja-u136l1-ryote", type: "vocab", front: "両手", reading: "ryōte", meaning: "both hands", example: { jp: "両手がふさがっていたので、ドアを開けられませんでした。", en: "Both my hands were full, so I couldn't open the door." }, accept: ["one's hands", "with both hands"] },
+        { id: "ja-u136l1-ryugaku", type: "vocab", front: "留学", reading: "ryūgaku", meaning: "studying abroad", example: { jp: "留学はお金がかかりますが、ことばが早く上手になります。", en: "Studying abroad costs money, but your language improves quickly." }, accept: ["study overseas", "a year abroad"] },
+      ],
+    },
+    {
+      id: "ja-u136l2",
+      unit: 136,
+      lesson: 2,
+      title: "Quantity, ground, green",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 量 (quantity), 領 (territory), 緑 (green), 林 (woods), and the words 大量 and 山林.",
+      items: [
+        { id: "ja-u136l2-ryoquant", type: "kanji", front: "量", reading: "ryō", meaning: "quantity", example: { jp: "量は多いですが、味はふつうです。", en: "The quantity is large, but the taste is ordinary." }, accept: ["amount", "volume", "measure"], hint: "量 = weighing out how much there is. 量 = amount, 大量 = a large amount, 重量 = weight." },
+        { id: "ja-u136l2-ryoterritory", type: "kanji", front: "領", reading: "ryō", meaning: "territory", example: { jp: "この島は国の領ですが、人は住んでいません。", en: "This island is national territory, but nobody lives there." }, accept: ["domain", "jurisdiction", "possession"], hint: "領 = 令 (command) + 頁 (head) — the ground someone's word runs over. 大使領 → 大使館 is the building; 領土 = territory." },
+        { id: "ja-u136l2-midori", type: "kanji", front: "緑", reading: "midori", meaning: "green", example: { jp: "山の緑がきれいでしたが、写真ではよく見えません。", en: "The green of the mountain was beautiful, but it doesn't show well in a photo." }, accept: ["verdure", "the colour green"], hint: "緑 = 糸 (thread) dyed with plant colour. Note Japanese calls a green traffic light 青 (blue), not 緑." },
+        { id: "ja-u136l2-hayashi", type: "kanji", front: "林", reading: "hayashi", meaning: "woods", example: { jp: "林の中は音が少ないので、よく歩きに行きます。", en: "There is little noise in the woods, so I often go walking there." }, accept: ["grove", "a wood", "copse"], hint: "林 = two 木 side by side — a wood. Three of them (森) is a forest: bigger again." },
+        { id: "ja-u136l2-tairyo", type: "vocab", front: "大量", reading: "tairyō", meaning: "a large amount", example: { jp: "大量に作りましたが、あまり売れませんでした。", en: "We made a large amount, but it didn't sell well." }, accept: ["mass", "bulk", "in quantity"] },
+        { id: "ja-u136l2-sanrin", type: "vocab", front: "山林", reading: "sanrin", meaning: "mountain forest", example: { jp: "山林は広いですが、道はほとんどありません。", en: "The mountain forest is vast, but there are almost no paths." }, accept: ["woodland", "forested hills"] },
+      ],
+    },
+    {
+      id: "ja-u136l3",
+      unit: 136,
+      lesson: 3,
+      title: "Thanks, rows, practice",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 礼 (courtesy), 列 (row), 練 (train), 路 (road), and the words 道路 and 行列.",
+      items: [
+        { id: "ja-u136l3-rei", type: "kanji", front: "礼", reading: "rei", meaning: "courtesy", example: { jp: "お礼を言ってから、店を出ました。", en: "I said my thanks, and then left the shop." }, accept: ["thanks", "a bow", "politeness"], hint: "礼 = the bow you make at a shrine 示. お礼 = thanks, 失礼 = rudeness: a lapse of it." },
+        { id: "ja-u136l3-retsu", type: "kanji", front: "列", reading: "retsu", meaning: "row", example: { jp: "長い列に並びましたが、思ったより早く入れました。", en: "I queued in a long row, but I got in sooner than I expected." }, accept: ["line", "queue", "column"], hint: "列 = things set out one after another. 行列 = a queue, 列車 = a train: carriages in a row." },
+        { id: "ja-u136l3-neru", type: "kanji", front: "練", reading: "ren", meaning: "train", example: { jp: "毎日練習していますが、まだ上手になりません。", en: "I practise every day, but I'm still not good." }, accept: ["practise", "knead", "refine"], hint: "練 = 糸 (thread) worked over and over until it is smooth. 練習 = practice." },
+        { id: "ja-u136l3-ji", type: "kanji", front: "路", reading: "ro", meaning: "road", example: { jp: "道路が広くなったので、車が早く走ります。", en: "The road got wider, so cars go fast." }, accept: ["route", "way", "path"], hint: "路 = 足 (foot) + 各 — where feet go. 道路 = a road, 線路 = a railway line." },
+        { id: "ja-u136l3-doro", type: "vocab", front: "道路", reading: "dōro", meaning: "road", example: { jp: "道路はこんでいましたが、時間には着きました。", en: "The road was congested, but I arrived on time." }, accept: ["highway", "the roads", "street"] },
+        { id: "ja-u136l3-gyoretsu", type: "vocab", front: "行列", reading: "gyōretsu", meaning: "a queue", example: { jp: "行列ができていましたが、三十分で入れました。", en: "A queue had formed, but I got in within thirty minutes." }, accept: ["line of people", "procession", "queueing"] },
+      ],
+    },
+    {
+      id: "ja-u136l4",
+      unit: 136,
+      lesson: 4,
+      title: "Age, labour, harmony",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 老 (aged), 労 (labour), 録 (record), 和 (harmony), and the words 老人 and 録音.",
+      items: [
+        { id: "ja-u136l4-oiru", type: "kanji", front: "老", reading: "rō", meaning: "aged", example: { jp: "老人が多い町ですが、みんな元気です。", en: "It's a town with many elderly people, but they're all in good health." }, accept: ["old", "grow old", "elderly"], hint: "老 = a bent figure leaning on a stick. 老人 = an elderly person, 老後 = one's later years." },
+        { id: "ja-u136l4-ro", type: "kanji", front: "労", reading: "rō", meaning: "labour", example: { jp: "労力がかかりましたが、いい品ができました。", en: "It took a lot of labour, but a good product came out of it." }, accept: ["toil", "effort", "trouble"], hint: "労 = 力 (strength) spent under a heavy roof. 労力 = effort, 苦労 = hardship. Same ろう as 老." },
+        { id: "ja-u136l4-roku", type: "kanji", front: "録", reading: "roku", meaning: "record", example: { jp: "話を録音しましたが、後で聞くと分かりにくいです。", en: "I recorded the talk, but it's hard to follow when I listen later." }, accept: ["make a record of", "log", "register"], hint: "録 = 金 (metal) — words cut into metal so they last. 記録 = a record, 録音 = an audio recording." },
+        { id: "ja-u136l4-wa", type: "kanji", front: "和", reading: "wa", meaning: "harmony", example: { jp: "和の食べ物は体にいいですが、作るのは難しいです。", en: "Japanese food is good for you, but it's difficult to make." }, accept: ["Japanese-style", "peace", "sum"], hint: "和 = 禾 (grain) + 口 (mouth) — everyone fed, nobody quarrelling. 平和 = peace; as a prefix, 和 = Japanese-style." },
+        { id: "ja-u136l4-rojin", type: "vocab", front: "老人", reading: "rōjin", meaning: "an elderly person", example: { jp: "老人にせきをゆずりましたが、いらないと言われました。", en: "I offered my seat to an elderly person, but they said they didn't need it." }, accept: ["old person", "senior"] },
+        { id: "ja-u136l4-rokuon", type: "vocab", front: "録音", reading: "rokuon", meaning: "audio recording", example: { jp: "録音を聞きなおしましたが、自分のこえはへんに聞こえます。", en: "I listened back to the recording, but my own voice sounds odd to me." }, accept: ["a recording", "recording sound"] },
+      ],
+    },
   ],
 };

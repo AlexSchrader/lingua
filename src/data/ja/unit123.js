@@ -1,18 +1,80 @@
-// JA Unit 123 — Characters 13 (B1) (slot: characters-b1-13) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// JA Unit 123 — かんじ・N3・13 (N3 kanji, set 13) — B1 / JLPT N3
+// Glyph ownership and card shape are documented in unit119.js: slice 13 of the
+// 20-way split of the untaught N3 pool, 4 lessons x (4 kanji + 2 compound).
 export const UNIT123 = {
   id: "ja-u123",
   lang: "ja",
-  title: "Characters 13 (B1)",
+  title: "かんじ・N3・13",
   order: 123,
   stage: "b1",
   lessons: [
-    { id: "ja-u123l1", title: "Lesson 1", locked: true },
-    { id: "ja-u123l2", title: "Lesson 2", locked: true },
-    { id: "ja-u123l3", title: "Lesson 3", locked: true },
-    { id: "ja-u123l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u123l1",
+      unit: 123,
+      lesson: 1,
+      title: "Posts and pages",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 築 (build), 柱 (pillar), 丁 (block), 帳 (ledger), and the words 建築 and 手帳.",
+      items: [
+        { id: "ja-u123l1-chiku", type: "kanji", front: "築", reading: "chiku", meaning: "build", example: { jp: "新しい家を建築中ですが、来年おわります。", en: "A new house is under construction, but it finishes next year." }, accept: ["construct", "erect", "put up"], hint: "築 = 竹 (bamboo) + 工 (work) + 木 — raising a structure out of timber. 建築 = architecture, building." },
+        { id: "ja-u123l1-hashira", type: "kanji", front: "柱", reading: "hashira", meaning: "pillar", example: { jp: "この柱は古いですが、まだ強いです。", en: "This pillar is old, but it's still strong." }, accept: ["post", "column", "support"], hint: "柱 = 木 (wood) + 主 (master) — the master timber the whole house rests on." },
+        { id: "ja-u123l1-cho", type: "kanji", front: "丁", reading: "chō", meaning: "town block", example: { jp: "三丁目に住んでいますが、駅までは歩けます。", en: "I live in the third block, but I can walk to the station." }, accept: ["ward", "block number", "counter for tools"], hint: "丁 = the shape of a nail seen from the side. In addresses, 一丁目 二丁目 number the blocks of a district." },
+        { id: "ja-u123l1-chonoto", type: "kanji", front: "帳", reading: "chō", meaning: "book of records", example: { jp: "手帳に書いてから、会社へ行きます。", en: "I write it in my notebook, and then go to the office." }, accept: ["notebook", "ledger", "register"], hint: "帳 = 巾 (cloth) + 長 (long) — a long roll of cloth to write on. 手帳 = a pocket diary. Same ちょう as 丁." },
+        { id: "ja-u123l1-kenchiku", type: "vocab", front: "建築", reading: "kenchiku", meaning: "architecture", example: { jp: "古い建築がすきですが、住むのは新しい家がいいです。", en: "I like old architecture, but I'd rather live in a new house." }, accept: ["building", "construction"] },
+        { id: "ja-u123l1-techo", type: "vocab", front: "手帳", reading: "techō", meaning: "pocket notebook", example: { jp: "手帳は古いですが、字が読めるので使っています。", en: "The notebook is old, but I use it because the writing is still readable." }, accept: ["diary", "planner", "notebook"] },
+      ],
+    },
+    {
+      id: "ja-u123l2",
+      unit: 123,
+      lesson: 2,
+      title: "Pulling, fixing, chasing",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 張 (stretch), 直 (direct), 追 (chase), 痛 (pain), and the words 直前 and 主張.",
+      items: [
+        { id: "ja-u123l2-haru", type: "kanji", front: "張", reading: "haru", meaning: "stretch", example: { jp: "気を張っていましたが、家に帰って安心しました。", en: "I'd been keeping myself tense, but I relaxed once I got home." }, accept: ["stretch out", "put up", "strain"], hint: "張 = 弓 (bow) + 長 (long) — a bowstring pulled long and tight. 出張 = a business trip: stretching out to somewhere." },
+        { id: "ja-u123l2-naosu", type: "kanji", front: "直", reading: "choku", meaning: "direct", example: { jp: "時計を直してから、また使っています。", en: "I fixed the clock, and I've been using it again since." }, accept: ["straight", "fix", "immediate"], hint: "直 = 目 (eye) looking straight along a line — no bends. 直します = to fix, 正直 = honest: straight-dealing." },
+        { id: "ja-u123l2-ou", type: "kanji", front: "追", reading: "tsui", meaning: "chase", example: { jp: "犬を追いかけましたが、すぐ見えなくなりました。", en: "I chased the dog, but it soon went out of sight." }, accept: ["pursue", "follow", "run after"], hint: "追 = 辶 (go) after someone who is ahead of you. 追加 = adding on: chasing something with more." },
+        { id: "ja-u123l2-itai", type: "kanji", front: "痛", reading: "tsū", meaning: "pain", example: { jp: "足が痛いので、今日は歩きません。", en: "My leg hurts, so I'm not walking today." }, accept: ["hurt", "ache", "sore"], hint: "痛 = 疒 (the sickness roof) over 甬 — something wrong inside. 痛い = it hurts." },
+        { id: "ja-u123l2-chokuzen", type: "vocab", front: "直前", reading: "chokuzen", meaning: "just before", example: { jp: "試験の直前はこわいですが、始まると気にならなくなります。", en: "Just before an exam is frightening, but once it starts you stop minding." }, accept: ["right before", "on the eve of", "immediately prior"] },
+        { id: "ja-u123l2-shucho", type: "vocab", front: "主張", reading: "shuchō", meaning: "assertion", example: { jp: "かれの主張は分かりますが、私は同じ考えではありません。", en: "I understand his assertion, but I don't think the same way." }, accept: ["claim", "insistence", "one's argument"] },
+      ],
+    },
+    {
+      id: "ja-u123l3",
+      unit: 123,
+      lesson: 3,
+      title: "Low, stopped, suitable",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 低 (low), 停 (halt), 底 (bottom), 適 (suitable), and the words 低下 and 停電.",
+      items: [
+        { id: "ja-u123l3-hikui", type: "kanji", front: "低", reading: "tei", meaning: "low", example: { jp: "こえが低いので、後ろの人には聞こえません。", en: "His voice is low, so the people at the back can't hear." }, accept: ["short", "beneath", "down"], hint: "低 = 人 (person) crouched down near the ground. 低い = low; the opposite of 高い." },
+        { id: "ja-u123l3-tei", type: "kanji", front: "停", reading: "tei", meaning: "come to a halt", example: { jp: "電気が停まったので、外に出ました。", en: "The power came to a halt, so I went outside." }, accept: ["stop", "suspend", "park"], hint: "停 = 人 (person) + 亭 (a roadside hut) — where a traveller stops. バス停 = a bus stop. Same てい as 低." },
+        { id: "ja-u123l3-soko", type: "kanji", front: "底", reading: "soko", meaning: "bottom", example: { jp: "川の底が見えるほど、水がきれいです。", en: "The water is so clean you can see the bottom of the river." }, accept: ["base", "the floor of", "sole"], hint: "底 = 广 (a roof) over 氐 (low) — the lowest part, under everything. Related in shape to 低." },
+        { id: "ja-u123l3-teki", type: "kanji", front: "適", reading: "teki", meaning: "suitable", example: { jp: "このほうほうが適していますが、時間がかかります。", en: "This method is suitable, but it takes time." }, accept: ["fitting", "appropriate", "apt"], hint: "適 = 辶 (go) to just the right place. 適当 can mean both 'appropriate' and, in speech, 'slapdash' — tone decides." },
+        { id: "ja-u123l3-teika", type: "vocab", front: "低下", reading: "teika", meaning: "a decline", example: { jp: "力の低下は分かっていますが、まだはたらけます。", en: "I know my strength has declined, but I can still work." }, accept: ["drop", "fall", "deterioration"] },
+        { id: "ja-u123l3-teiden", type: "vocab", front: "停電", reading: "teiden", meaning: "power cut", example: { jp: "停電になりましたが、すぐ電気がつきました。", en: "There was a power cut, but the lights came back on right away." }, accept: ["blackout", "power outage"] },
+      ],
+    },
+    {
+      id: "ja-u123l4",
+      unit: 123,
+      lesson: 4,
+      title: "Points, passing on, effort",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 点 (point), 伝 (pass on), 徒 (on foot), 努 (strive), and the words 地点 and 徒歩.",
+      items: [
+        { id: "ja-u123l4-ten", type: "kanji", front: "点", reading: "ten", meaning: "point", example: { jp: "点が少なかったので、もう一度試験をうけます。", en: "My points were low, so I'm taking the exam again." }, accept: ["dot", "mark", "score"], hint: "点 = a small mark made with 灬 (fire dots). 点数 = a score, 中心点 = the centre point." },
+        { id: "ja-u123l4-tsutaeru", type: "kanji", front: "伝", reading: "den", meaning: "pass on", example: { jp: "話を伝えましたが、答えはまだありません。", en: "I passed the message on, but there's still no answer." }, accept: ["convey", "transmit", "tell"], hint: "伝 = 人 (person) handing something along to the next person. 伝えます = to tell, 手伝います = to lend a hand." },
+        { id: "ja-u123l4-to", type: "kanji", front: "徒", reading: "to", meaning: "on foot", example: { jp: "駅まで徒歩十分ですが、朝は道がこみます。", en: "It's ten minutes on foot to the station, but the road is crowded in the morning." }, accept: ["pupil", "walking", "follower"], hint: "徒 = 彳 (a crossroads) + 走 (run) — going by your own legs. 徒歩 = on foot, 生徒 = a pupil." },
+        { id: "ja-u123l4-do", type: "kanji", front: "努", reading: "do", meaning: "strive", example: { jp: "毎日努力していますが、まだ上手になりません。", en: "I strive at it every day, but I'm still not good." }, accept: ["make an effort", "endeavour", "try hard"], hint: "努 = 力 (strength) put in under pressure. 努力 = effort — the everyday word for hard work." },
+        { id: "ja-u123l4-chiten", type: "vocab", front: "地点", reading: "chiten", meaning: "a point on the map", example: { jp: "この地点までは車で行けますが、その先は歩きます。", en: "You can drive as far as this point, but beyond that you walk." }, accept: ["spot", "location", "site"] },
+        { id: "ja-u123l4-toho", type: "vocab", front: "徒歩", reading: "toho", meaning: "on foot", example: { jp: "徒歩でも行けますが、雨の日はバスにします。", en: "You can go on foot too, but on rainy days I take the bus." }, accept: ["walking", "by foot"] },
+      ],
+    },
   ],
 };

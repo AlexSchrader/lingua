@@ -1,18 +1,80 @@
-// JA Unit 127 — Characters 15 (B1) (slot: characters-b1-15) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// JA Unit 127 — かんじ・N3・15 (N3 kanji, set 15) — B1 / JLPT N3
+// Glyph ownership and card shape are documented in unit119.js: slice 15 of the
+// 20-way split of the untaught N3 pool, 4 lessons x (4 kanji + 2 compound).
 export const UNIT127 = {
   id: "ja-u127",
   lang: "ja",
-  title: "Characters 15 (B1)",
+  title: "かんじ・N3・15",
   order: 127,
   stage: "b1",
   lessons: [
-    { id: "ja-u127l1", title: "Lesson 1", locked: true },
-    { id: "ja-u127l2", title: "Lesson 2", locked: true },
-    { id: "ja-u127l3", title: "Lesson 3", locked: true },
-    { id: "ja-u127l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u127l1",
+      unit: 127,
+      lesson: 1,
+      title: "Heat and what is on your mind",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 熱 (heat), 念 (thought), 燃 (burn), 悩 (be troubled), and the words 熱中 and 燃料.",
+      items: [
+        { id: "ja-u127l1-netsu", type: "kanji", front: "熱", reading: "netsu", meaning: "heat", example: { jp: "お茶がまだ熱いので、少し待ってから飲みます。", en: "The tea is still hot, so I'll wait a little before drinking it." }, accept: ["fever", "hot", "passion"], hint: "熱 = 灬 (fire) underneath. 熱い = hot to the touch, 熱 = a fever, 熱心 = wholehearted." },
+        { id: "ja-u127l1-nen", type: "kanji", front: "念", reading: "nen", meaning: "a held thought", example: { jp: "念のためもう一度かくにんしましたが、まちがいはありませんでした。", en: "I checked once more just in case, but there was no mistake." }, accept: ["mind", "attention", "sense"], hint: "念 = 今 (now) + 心 (heart) — what is in your heart right now. 念のため = just in case, 記念 = commemoration." },
+        { id: "ja-u127l1-moeru", type: "kanji", front: "燃", reading: "nen", meaning: "burn", example: { jp: "紙はよく燃えますが、水にはすぐよわくなります。", en: "Paper burns well, but it goes weak in water at once." }, accept: ["catch fire", "be alight", "blaze"], hint: "燃 = 火 (fire) + 然 — actually on fire. 燃料 = fuel. Same ねん sound as 念." },
+        { id: "ja-u127l1-nayamu", type: "kanji", front: "悩", reading: "nō", meaning: "be troubled", example: { jp: "長い間悩みましたが、けっきょく答えは出ませんでした。", en: "I agonized over it for a long time, but in the end no answer came." }, accept: ["agonize", "worry", "distress"], hint: "悩 = 忄 (heart) + a head full of tangles — a mind going round in circles. 悩みます = to agonize over." },
+        { id: "ja-u127l1-netchu", type: "vocab", front: "熱中", reading: "netchū", meaning: "being absorbed in", example: { jp: "ゲームに熱中していましたが、外はもうくらくなっていました。", en: "I was absorbed in the game, but it had already got dark outside." }, accept: ["engrossed", "enthusiasm for", "being into it"] },
+        { id: "ja-u127l1-nenryo", type: "vocab", front: "燃料", reading: "nenryō", meaning: "fuel", example: { jp: "燃料が高くなったので、車をあまり使いません。", en: "Fuel has got expensive, so I don't use the car much." }, accept: ["gas", "petrol", "combustible"] },
+      ],
+    },
+    {
+      id: "ja-u127l2",
+      unit: 127,
+      lesson: 2,
+      title: "Ability, faction, defeat",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 能 (ability), 派 (faction), 破 (tear), 敗 (defeat), and the words 能力 and 本能.",
+      items: [
+        { id: "ja-u127l2-no", type: "kanji", front: "能", reading: "nō", meaning: "ability", example: { jp: "かれには外国語の能力がありますが、話したがりません。", en: "He has ability in foreign languages, but he doesn't like to speak them." }, accept: ["capacity", "talent", "can do"], hint: "能 = what a creature is able to do. 可能 = possible, 能力 = ability. Same のう as 悩." },
+        { id: "ja-u127l2-ha", type: "kanji", front: "派", reading: "ha", meaning: "faction", example: { jp: "会社の中に二つの派がありますが、仕事は同じです。", en: "There are two factions inside the company, but the work is the same." }, accept: ["group", "school of thought", "send"], hint: "派 = 氵 (water) branching into streams — a group that split off. 立派 = splendid, 派手 = flashy." },
+        { id: "ja-u127l2-yaburu", type: "kanji", front: "破", reading: "ha", meaning: "tear", example: { jp: "紙を破ってしまいましたが、字はまだ読めます。", en: "I tore the paper, but the writing is still readable." }, accept: ["rip", "break", "destroy"], hint: "破 = 石 (stone) + 皮 (skin) — a stone splitting a surface. 破ります = to tear, or to break a promise." },
+        { id: "ja-u127l2-hai", type: "kanji", front: "敗", reading: "hai", meaning: "defeat", example: { jp: "一度敗れましたが、つぎのしあいにはかちたいです。", en: "We were beaten once, but I want to win the next match." }, accept: ["lose", "be beaten", "failure"], hint: "敗 = 貝 (a shell, money) being struck — losing what you had. 失敗 = a failure." },
+        { id: "ja-u127l2-noryoku", type: "vocab", front: "能力", reading: "nōryoku", meaning: "ability", example: { jp: "能力はありますが、じしんがないのでもったいないです。", en: "She has the ability, but she has no confidence, which is a waste." }, accept: ["capability", "competence", "aptitude"] },
+        { id: "ja-u127l2-honno", type: "vocab", front: "本能", reading: "honnō", meaning: "instinct", example: { jp: "動物の本能はつよいですが、人は考えてから動きます。", en: "Animal instinct is strong, but humans move after thinking." }, accept: ["natural instinct", "gut feeling"] },
+      ],
+    },
+    {
+      id: "ja-u127l3",
+      unit: 127,
+      lesson: 3,
+      title: "Counting and delivering",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 杯 (cupful), 配 (distribute), 倍 (times over), 箱 (box), and the words 二倍 and 配送.",
+      items: [
+        { id: "ja-u127l3-hai", type: "kanji", front: "杯", reading: "hai", meaning: "cupful", example: { jp: "お茶を二杯飲みましたが、まだのどがかわいています。", en: "I drank two cups of tea, but I'm still thirsty." }, accept: ["glass of", "counter for drinks", "a cup"], hint: "杯 = 木 (wood) + 不 — a wooden drinking cup. It counts drinks: 一杯, 二杯, 三杯." },
+        { id: "ja-u127l3-kubaru", type: "kanji", front: "配", reading: "hai", meaning: "distribute", example: { jp: "紙を配ってから、話を始めました。", en: "I handed out the sheets, and then began the talk." }, accept: ["hand out", "deliver", "arrange"], hint: "配 = 酉 (a jar) + 己 — sharing out what is in the jar. 心配 = worry, 配送 = delivery." },
+        { id: "ja-u127l3-bai", type: "kanji", front: "倍", reading: "bai", meaning: "times over", example: { jp: "人が二倍になったので、店を広くしました。", en: "The number of people doubled, so we made the shop bigger." }, accept: ["double", "-fold", "multiply"], hint: "倍 = 人 (person) + 咅 — one lot laid on top of another. 二倍 = twice, 三倍 = three times." },
+        { id: "ja-u127l3-hako", type: "kanji", front: "箱", reading: "hako", meaning: "box", example: { jp: "箱は大きいですが、中はほとんど空です。", en: "The box is big, but it's almost empty inside." }, accept: ["case", "carton", "a box"], hint: "箱 = 竹 (bamboo) woven into a container. ゴミ箱 = a bin, 本箱 = a bookcase." },
+        { id: "ja-u127l3-nibai", type: "vocab", front: "二倍", reading: "nibai", meaning: "twice as much", example: { jp: "ねだんは二倍になりましたが、味は同じです。", en: "The price has doubled, but the taste is the same." }, accept: ["double", "twofold", "twice"] },
+        { id: "ja-u127l3-haiso", type: "vocab", front: "配送", reading: "haisō", meaning: "delivery", example: { jp: "配送は早かったですが、箱がこわれていました。", en: "The delivery was fast, but the box was damaged." }, accept: ["shipping", "distribution", "dispatch"] },
+      ],
+    },
+    {
+      id: "ja-u127l4",
+      unit: 127,
+      lesson: 4,
+      title: "Fields, opposites, judgement",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 畑 (field), 反 (opposite), 判 (judge), 板 (board), and the words 反発 and 花畑.",
+      items: [
+        { id: "ja-u127l4-hatake", type: "kanji", front: "畑", reading: "hatake", meaning: "field", example: { jp: "畑で作ったやさいは安くありませんが、味がちがいます。", en: "Vegetables grown in the field aren't cheap, but they taste different." }, accept: ["cultivated field", "vegetable plot", "farm"], hint: "畑 = 火 (fire) + 田 (paddy) — a dry field cleared by burning, as opposed to a wet rice paddy 田." },
+        { id: "ja-u127l4-han", type: "kanji", front: "反", reading: "han", meaning: "opposite", example: { jp: "みんな反対しましたが、社長は考えをかえませんでした。", en: "Everyone opposed it, but the president didn't change his mind." }, accept: ["against", "anti-", "reverse"], hint: "反 = a hand turning something back the other way. 反対 = opposition, 反発 = pushing back." },
+        { id: "ja-u127l4-ban", type: "kanji", front: "判", reading: "han", meaning: "judge", example: { jp: "先生は正しいと判断しましたが、私はまだ考えています。", en: "The teacher judged it correct, but I am still thinking about it." }, accept: ["decide", "seal", "verdict"], hint: "判 = 半 (half) + 刂 (blade) — cutting a thing in two to decide which side is right. 判こ = a name seal." },
+        { id: "ja-u127l4-ita", type: "kanji", front: "板", reading: "ita", meaning: "board", example: { jp: "先生が板に字を書きましたが、後ろからは見えませんでした。", en: "The teacher wrote on the board, but we couldn't see from the back." }, accept: ["plank", "sheet", "plate"], hint: "板 = 木 (wood) + 反 — timber cut flat. 黒板 = a blackboard. Note the 反 on the right gives the sound." },
+        { id: "ja-u127l4-hanpatsu", type: "vocab", front: "反発", reading: "hanpatsu", meaning: "pushing back", example: { jp: "新しいきそくに反発がありましたが、けっきょく通りました。", en: "There was pushback against the new rule, but it went through in the end." }, accept: ["opposition", "resistance", "a backlash"] },
+        { id: "ja-u127l4-hanabatake", type: "vocab", front: "花畑", reading: "hanabatake", meaning: "flower field", example: { jp: "花畑はきれいでしたが、人が多くて写真がとれませんでした。", en: "The flower field was beautiful, but there were too many people to take a photo." }, accept: ["field of flowers", "flower garden"] },
+      ],
+    },
   ],
 };

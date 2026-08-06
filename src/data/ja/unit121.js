@@ -1,18 +1,80 @@
-// JA Unit 121 — Characters 12 (B1) (slot: characters-b1-12) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// JA Unit 121 — かんじ・N3・12 (N3 kanji, set 12) — B1 / JLPT N3
+// Glyph ownership and card shape are documented in unit119.js: slice 12 of the
+// 20-way split of the untaught N3 pool, 4 lessons x (4 kanji + 2 compound).
 export const UNIT121 = {
   id: "ja-u121",
   lang: "ja",
-  title: "Characters 12 (B1)",
+  title: "かんじ・N3・12",
   order: 121,
   stage: "b1",
   lessons: [
-    { id: "ja-u121l1", title: "Lesson 1", locked: true },
-    { id: "ja-u121l2", title: "Lesson 2", locked: true },
-    { id: "ja-u121l3", title: "Lesson 3", locked: true },
-    { id: "ja-u121l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u121l1",
+      unit: 121,
+      lesson: 1,
+      title: "Facing the other person",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 尊 (revere), 他 (other), 打 (strike), 対 (facing), and the words 対話 and 他国.",
+      items: [
+        { id: "ja-u121l1-son", type: "kanji", front: "尊", reading: "son", meaning: "revere", example: { jp: "人を尊ぶ気持ちは、どこの国でも同じです。", en: "The feeling of revering people is the same in any country." }, accept: ["respect", "hold in esteem", "honour"], hint: "尊 = something lifted up and held high with both hands. 尊敬 = respect for a person." },
+        { id: "ja-u121l1-ta", type: "kanji", front: "他", reading: "ta", meaning: "other", example: { jp: "他の店にも行きましたが、ここがいちばん安かったです。", en: "I went to other shops too, but this one was the cheapest." }, accept: ["another", "else", "the rest"], hint: "他 = 人 (person) + 也 — a person who is not this one. 他人 = someone else, その他 = and others." },
+        { id: "ja-u121l1-utsu", type: "kanji", front: "打", reading: "utsu", meaning: "strike", example: { jp: "メールを打ってから、電話をかけました。", en: "I typed the email, and then made the call." }, accept: ["hit", "type", "beat"], hint: "打 = 扌 (hand) + 丁 (nail) — a hand driving a nail. Used for hitting, and for typing on a keyboard." },
+        { id: "ja-u121l1-taimuki", type: "kanji", front: "対", reading: "tai", meaning: "facing", example: { jp: "先生と一対一で話しましたが、答えは同じでした。", en: "I spoke with the teacher one-to-one, but the answer was the same." }, accept: ["opposite", "versus", "toward"], hint: "対 = two things set opposite each other. 反対 = the opposite, 対話 = a dialogue between two sides." },
+        { id: "ja-u121l1-taiwa", type: "vocab", front: "対話", reading: "taiwa", meaning: "dialogue", example: { jp: "対話をつづけていますが、まだ答えは出ていません。", en: "The dialogue is continuing, but no answer has come out yet." }, accept: ["talks", "conversation", "discussion"] },
+        { id: "ja-u121l1-takoku", type: "vocab", front: "他国", reading: "takoku", meaning: "another country", example: { jp: "他国の話を聞くと、自分の国のこともよく分かります。", en: "When you hear about another country, you understand your own better too." }, accept: ["a foreign country", "other countries"] },
+      ],
+    },
+    {
+      id: "ja-u121l2",
+      unit: 121,
+      lesson: 2,
+      title: "Ranks and reaching",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 退 (withdraw), 隊 (squad), 第 (ordinal), 達 (reach), and the words 第一 and 達人.",
+      items: [
+        { id: "ja-u121l2-taishirizoku", type: "kanji", front: "退", reading: "tai", meaning: "withdraw", example: { jp: "病気で会を退きましたが、今はまた元気です。", en: "I withdrew from the group because of illness, but I'm well again now." }, accept: ["retreat", "step back", "leave"], hint: "退 = 辶 (go) + 艮 — going back the way you came. 退院 = leaving hospital." },
+        { id: "ja-u121l2-taigun", type: "kanji", front: "隊", reading: "tai", meaning: "squad", example: { jp: "山に行った隊は無事でしたが、道はきびしかったです。", en: "The party that went into the mountains was safe, but the route was harsh." }, accept: ["unit", "corps", "party"], hint: "隊 = a line of people moving together down a slope 阝. Same たい sound as 対 and 退." },
+        { id: "ja-u121l2-dai", type: "kanji", front: "第", reading: "dai", meaning: "number (ordinal)", example: { jp: "第一のもくてきはあんぜんですが、早さも大切です。", en: "The number-one aim is safety, but speed matters too." }, accept: ["ordinal marker", "-th", "rank"], hint: "第 = the marker that turns a number into an order: 第一 = the first, 第三 = the third. Not a word on its own." },
+        { id: "ja-u121l2-tatsu", type: "kanji", front: "達", reading: "tatsu", meaning: "reach", example: { jp: "上まで達しませんでしたが、いい思い出になりました。", en: "We didn't reach the top, but it became a good memory." }, accept: ["attain", "arrive at", "master"], hint: "達 = 辶 (go) all the way to the end. 上達 = getting good at something, 友達 = friends — people you've reached." },
+        { id: "ja-u121l2-daiichi", type: "vocab", front: "第一", reading: "daiichi", meaning: "first", example: { jp: "第一に休むことが大切ですが、なかなかできません。", en: "First of all, resting is important, but it isn't easy to do." }, accept: ["number one", "foremost", "above all"] },
+        { id: "ja-u121l2-tatsujin", type: "vocab", front: "達人", reading: "tatsujin", meaning: "a master", example: { jp: "父は魚を切る達人ですが、りょうりはしません。", en: "My father is a master at cutting fish, but he doesn't cook." }, accept: ["expert", "adept", "someone who has mastered it"] },
+      ],
+    },
+    {
+      id: "ja-u121l3",
+      unit: 121,
+      lesson: 3,
+      title: "One and many",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 単 (single), 担 (shoulder), 探 (search), 団 (group), and the words 団体 and 団地.",
+      items: [
+        { id: "ja-u121l3-tan", type: "kanji", front: "単", reading: "tan", meaning: "single", example: { jp: "単語を三百おぼえましたが、話すのはまだ下手です。", en: "I've learned three hundred single words, but I'm still poor at speaking." }, accept: ["simple", "sole", "unit"], hint: "単 = just one, nothing added. 単語 = a single word, 簡単 = simple: few parts." },
+        { id: "ja-u121l3-ninau", type: "kanji", front: "担", reading: "tan", meaning: "shoulder", example: { jp: "重い品を担いで、山を上りました。", en: "I shouldered the heavy goods and climbed the mountain." }, accept: ["bear", "carry", "take on"], hint: "担 = 扌 (hand) taking a load onto the shoulder. 担当 = the person who carries a job. Same たん sound as 単." },
+        { id: "ja-u121l3-sagasu", type: "kanji", front: "探", reading: "tan", meaning: "search", example: { jp: "一日中探しましたが、見つかりませんでした。", en: "I searched all day, but I didn't find it." }, accept: ["look for", "hunt", "explore"], hint: "探 = 扌 (hand) reaching down into a deep hole to feel around. 探します = to look for." },
+        { id: "ja-u121l3-dan", type: "kanji", front: "団", reading: "dan", meaning: "group", example: { jp: "大きな団が来たので、店はいそがしくなりました。", en: "A large group came, so the shop got busy." }, accept: ["body", "association", "troupe"], hint: "団 = 囗 (an enclosure) with people gathered inside it. 団体 = an organized body, 集団 = a collective." },
+        { id: "ja-u121l3-dantai", type: "vocab", front: "団体", reading: "dantai", meaning: "organized group", example: { jp: "団体で行くと安いですが、じゆうな時間は少ないです。", en: "Going as an organized group is cheap, but there's little free time." }, accept: ["organization", "party", "body"] },
+        { id: "ja-u121l3-danchi", type: "vocab", front: "団地", reading: "danchi", meaning: "housing estate", example: { jp: "団地は駅からとおいですが、へやが広いです。", en: "The housing estate is far from the station, but the rooms are large." }, accept: ["apartment complex", "housing block"] },
+      ],
+    },
+    {
+      id: "ja-u121l4",
+      unit: 121,
+      lesson: 4,
+      title: "Cutting off and putting down",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 断 (sever), 値 (value), 置 (place), 遅 (late), and the words 中断 and 置物.",
+      items: [
+        { id: "ja-u121l4-kotowaru", type: "kanji", front: "断", reading: "dan", meaning: "sever", example: { jp: "話を断ってから、店を出ました。", en: "I cut the conversation off, and then left the shop." }, accept: ["cut off", "refuse", "decide"], hint: "断 = 斤 (an axe) cutting threads clean through. 断ります = to turn down, 中断 = breaking off midway." },
+        { id: "ja-u121l4-ne", type: "kanji", front: "値", reading: "ne", meaning: "value", example: { jp: "この本は古いですが、まだ高い値がつきます。", en: "This book is old, but it still fetches a high value." }, accept: ["price", "worth", "figure"], hint: "値 = 人 (person) + 直 — what a person judges something to be worth straight out. 値だん = the price." },
+        { id: "ja-u121l4-oku", type: "kanji", front: "置", reading: "oku", meaning: "place", example: { jp: "本を上に置いてから、水を飲みました。", en: "I placed the book on top, and then drank some water." }, accept: ["put", "set down", "leave"], hint: "置 = setting something down where the eye 目 can find it again. 物置 = the place things are put." },
+        { id: "ja-u121l4-osoi", type: "kanji", front: "遅", reading: "chi", meaning: "late", example: { jp: "電車が遅れたので、会には出られませんでした。", en: "The train was late, so I couldn't make the meeting." }, accept: ["slow", "delayed", "behind"], hint: "遅 = 辶 (go) dragging along slowly. 遅い = late or slow; 遅れます = to be delayed." },
+        { id: "ja-u121l4-chudan", type: "vocab", front: "中断", reading: "chūdan", meaning: "breaking off", example: { jp: "雨で中断しましたが、二時間後にまた始まりました。", en: "It was broken off because of rain, but it started again two hours later." }, accept: ["suspension", "interruption", "a stoppage"] },
+        { id: "ja-u121l4-okimono", type: "vocab", front: "置物", reading: "okimono", meaning: "an ornament", example: { jp: "この置物は古いですが、家族の思い出です。", en: "This ornament is old, but it is a family memory." }, accept: ["decorative object", "figurine", "knick-knack"] },
+      ],
+    },
   ],
 };

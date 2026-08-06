@@ -1,18 +1,80 @@
-// JA Unit 125 — Characters 14 (B1) (slot: characters-b1-14) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// JA Unit 125 — かんじ・N3・14 (N3 kanji, set 14) — B1 / JLPT N3
+// Glyph ownership and card shape are documented in unit119.js: slice 14 of the
+// 20-way split of the untaught N3 pool, 4 lessons x (4 kanji + 2 compound).
 export const UNIT125 = {
   id: "ja-u125",
   lang: "ja",
-  title: "Characters 14 (B1)",
+  title: "かんじ・N3・14",
   order: 125,
   stage: "b1",
   lessons: [
-    { id: "ja-u125l1", title: "Lesson 1", locked: true },
-    { id: "ja-u125l2", title: "Lesson 2", locked: true },
-    { id: "ja-u125l3", title: "Lesson 3", locked: true },
-    { id: "ja-u125l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u125l1",
+      unit: 125,
+      lesson: 1,
+      title: "Crossing over",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 渡 (cross), 怒 (get angry), 党 (party), 島 (island), and the words 半島 and 島国.",
+      items: [
+        { id: "ja-u125l1-wataru", type: "kanji", front: "渡", reading: "wataru", meaning: "cross", example: { jp: "はしを渡ってから、右に行きます。", en: "Cross the bridge, and then go right." }, accept: ["go across", "pass over", "hand over"], hint: "渡 = 氵 (water) + 度 — going over water. 渡します = to hand over; you pass a thing across to someone." },
+        { id: "ja-u125l1-okoru", type: "kanji", front: "怒", reading: "do", meaning: "get angry", example: { jp: "父は怒りましたが、すぐわらいました。", en: "My father got angry, but he was laughing again straight away." }, accept: ["anger", "rage", "be cross"], hint: "怒 = 心 (heart) under 奴 — the heart pressed until it boils over. 怒ります = to get angry." },
+        { id: "ja-u125l1-to", type: "kanji", front: "党", reading: "tō", meaning: "political party", example: { jp: "新しい党ができましたが、名前はまだおぼえていません。", en: "A new party has been formed, but I haven't learned its name yet." }, accept: ["faction", "party"], hint: "党 = a group sheltering under one roof with one aim. 政党 = a political party." },
+        { id: "ja-u125l1-shima", type: "kanji", front: "島", reading: "shima", meaning: "island", example: { jp: "小さな島に住んでいますが、店は思ったより多いです。", en: "I live on a small island, but there are more shops than I expected." }, accept: ["isle", "an island"], hint: "島 = 鳥 (bird) over 山 (mountain) — a mountain in the sea where birds rest. 半島 = a peninsula: half an island." },
+        { id: "ja-u125l1-hanto", type: "vocab", front: "半島", reading: "hantō", meaning: "peninsula", example: { jp: "半島の先まで行きましたが、風が強くて休めませんでした。", en: "We went to the tip of the peninsula, but the wind was too strong to rest." }, accept: ["a peninsula", "headland"] },
+        { id: "ja-u125l1-shimaguni", type: "vocab", front: "島国", reading: "shimaguni", meaning: "island country", example: { jp: "島国に住んでいるので、魚の店がとても多いです。", en: "We live in an island country, so there are a great many fish shops." }, accept: ["island nation", "an island country"] },
+      ],
+    },
+    {
+      id: "ja-u125l2",
+      unit: 125,
+      lesson: 2,
+      title: "Throwing and gathering",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 投 (throw), 湯 (hot water), 統 (unify), 等 (equal), and the words 湯気 and 投手.",
+      items: [
+        { id: "ja-u125l2-nageru", type: "kanji", front: "投", reading: "tō", meaning: "throw", example: { jp: "ボールを高く投げたら、木に入ってしまいました。", en: "I threw the ball high, and it ended up in a tree." }, accept: ["pitch", "toss", "cast"], hint: "投 = 扌 (hand) + 殳 — a hand launching something. 投手 = a pitcher, 投書 = a letter thrown in to a paper." },
+        { id: "ja-u125l2-yu", type: "kanji", front: "湯", reading: "yu", meaning: "hot water", example: { jp: "お湯をわかしてから、お茶を入れます。", en: "I boil the hot water, and then make the tea." }, accept: ["boiling water", "a bath"], hint: "湯 = 氵 (water) + 昜 (sun rising) — water with heat in it. 水 is cold water; 湯 is always hot." },
+        { id: "ja-u125l2-toitsu", type: "kanji", front: "統", reading: "tō", meaning: "unify", example: { jp: "国を統一した人ですが、名前を知らない人も多いです。", en: "He is the man who unified the country, but many people don't know his name." }, accept: ["bring together", "control", "rule"], hint: "統 = 糸 (thread) drawing separate strands into one line. 統一 = unification, 伝統 = tradition: an unbroken thread." },
+        { id: "ja-u125l2-toequal", type: "kanji", front: "等", reading: "tō", meaning: "equal", example: { jp: "三等になりましたが、家族はよろこんでくれました。", en: "I came third, but my family was pleased for me." }, accept: ["grade", "class", "et cetera"], hint: "等 = 竹 (bamboo) strips cut to the same length. 平等 = equality; after a noun it means 'and so on'." },
+        { id: "ja-u125l2-yuge", type: "vocab", front: "湯気", reading: "yuge", meaning: "steam", example: { jp: "湯気で窓が白くなりましたが、すぐ元にもどりました。", en: "The window went white with steam, but it soon went back to normal." }, accept: ["vapour", "steam rising"] },
+        { id: "ja-u125l2-toshu", type: "vocab", front: "投手", reading: "tōshu", meaning: "pitcher", example: { jp: "投手はまだわかいですが、みんなが注目しています。", en: "The pitcher is still young, but everyone is watching him." }, accept: ["bowler", "the pitcher"] },
+      ],
+    },
+    {
+      id: "ja-u125l3",
+      unit: 125,
+      lesson: 3,
+      title: "Arriving, gaining, poisoning",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 到 (arrive), 童 (child), 得 (gain), 毒 (poison), and the words 中毒 and 童話.",
+      items: [
+        { id: "ja-u125l3-toarrive", type: "kanji", front: "到", reading: "tō", meaning: "arrive", example: { jp: "駅に到着した時、雨がふっていました。", en: "When we arrived at the station, it was raining." }, accept: ["reach", "get to"], hint: "到 = 至 (reach the end) + 刂 — arriving all the way, not partway. 到着 = arrival." },
+        { id: "ja-u125l3-do", type: "kanji", front: "童", reading: "dō", meaning: "child", example: { jp: "童話は子どものものですが、大人が読んでも楽しいです。", en: "Children's stories are for children, but they're enjoyable for adults too." }, accept: ["youngster", "juvenile"], hint: "童 = the written word for a child, used in compounds where 子 would be too plain. 童話 = a fairy tale." },
+        { id: "ja-u125l3-eru", type: "kanji", front: "得", reading: "toku", meaning: "gain", example: { jp: "本から多くのことを得ましたが、分からないこともまだあります。", en: "I gained a lot from the book, but there are still things I don't understand." }, accept: ["obtain", "profit", "acquire"], hint: "得 = 彳 (go) + a hand taking a shell (money) — going out and coming back with something. お得 = a good deal." },
+        { id: "ja-u125l3-doku", type: "kanji", front: "毒", reading: "doku", meaning: "poison", example: { jp: "この花には毒がありますが、色はとてもきれいです。", en: "This flower has poison in it, but the colour is very beautiful." }, accept: ["toxin", "venom", "harm"], hint: "毒 = something growing 生 that must not be eaten 母. 中毒 = poisoning, and also addiction." },
+        { id: "ja-u125l3-chudoku", type: "vocab", front: "中毒", reading: "chūdoku", meaning: "poisoning", example: { jp: "食中毒になりましたが、二日で元気になりました。", en: "I got food poisoning, but I was well again in two days." }, accept: ["intoxication", "addiction", "food poisoning"] },
+        { id: "ja-u125l3-dowa", type: "vocab", front: "童話", reading: "dōwa", meaning: "fairy tale", example: { jp: "この童話は古いですが、今の子どももすきです。", en: "This fairy tale is old, but children today like it too." }, accept: ["children's story", "folk tale"] },
+      ],
+    },
+    {
+      id: "ja-u125l4",
+      unit: 125,
+      lesson: 4,
+      title: "Alone and in charge",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 独 (alone), 届 (reach), 難 (difficult), 任 (entrust), and the words 独立 and 主任.",
+      items: [
+        { id: "ja-u125l4-doku", type: "kanji", front: "独", reading: "doku", meaning: "alone", example: { jp: "独りで行きましたが、こわくはありませんでした。", en: "I went alone, but I wasn't frightened." }, accept: ["single", "by oneself", "sole"], hint: "独 = 犭 (a beast) that hunts on its own. 独立 = independence: standing alone." },
+        { id: "ja-u125l4-todoku", type: "kanji", front: "届", reading: "todoku", meaning: "reach", example: { jp: "手紙が届きましたが、まだ読んでいません。", en: "The letter reached me, but I haven't read it yet." }, accept: ["arrive", "be delivered", "get through"], hint: "届 = 尸 (a body) + 由 — something that goes all the way to where a person is. 届けます = to deliver." },
+        { id: "ja-u125l4-muzukashii", type: "kanji", front: "難", reading: "nan", meaning: "difficult", example: { jp: "試験は難しかったですが、答えはぜんぶ書けました。", en: "The exam was difficult, but I managed to write all the answers." }, accept: ["hard", "trouble", "disaster"], hint: "難 = 隹 (a bird) that cannot get away — trouble. 難しい = difficult, 困難 = hardship." },
+        { id: "ja-u125l4-nin", type: "kanji", front: "任", reading: "nin", meaning: "entrust", example: { jp: "主任になったので、仕事がふえました。", en: "I became the section head, so my work increased." }, accept: ["duty", "appoint", "leave to"], hint: "任 = 人 (person) carrying a load on a pole — a job placed on someone. 任せます = to leave it to someone." },
+        { id: "ja-u125l4-dokuritsu", type: "vocab", front: "独立", reading: "dokuritsu", meaning: "independence", example: { jp: "独立してから店を始めましたが、休みはなくなりました。", en: "I started the shop after going independent, but my days off disappeared." }, accept: ["standing alone", "going independent", "self-reliance"] },
+        { id: "ja-u125l4-shunin", type: "vocab", front: "主任", reading: "shunin", meaning: "section head", example: { jp: "主任にそうだんしましたが、答えは同じでした。", en: "I consulted the section head, but the answer was the same." }, accept: ["chief", "person in charge", "supervisor"] },
+      ],
+    },
   ],
 };

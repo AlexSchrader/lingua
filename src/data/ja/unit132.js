@@ -1,18 +1,80 @@
-// JA Unit 132 — Characters 18 (B1) (slot: characters-b1-18) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// JA Unit 132 — かんじ・N3・18 (N3 kanji, set 18) — B1 / JLPT N3
+// Glyph ownership and card shape are documented in unit119.js: slice 18 of the
+// 20-way split of the untaught N3 pool, 4 lessons x (4 kanji + 2 compound).
 export const UNIT132 = {
   id: "ja-u132",
   lang: "ja",
-  title: "Characters 18 (B1)",
+  title: "かんじ・N3・18",
   order: 132,
   stage: "b1",
   lessons: [
-    { id: "ja-u132l1", title: "Lesson 1", locked: true },
-    { id: "ja-u132l2", title: "Lesson 2", locked: true },
-    { id: "ja-u132l3", title: "Lesson 3", locked: true },
-    { id: "ja-u132l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u132l1",
+      unit: 132,
+      lesson: 1,
+      title: "Ends, fullness, not yet",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 末 (end), 満 (full), 未 (not yet), 民 (the people), and the words 年末 and 民間.",
+      items: [
+        { id: "ja-u132l1-sue", type: "kanji", front: "末", reading: "matsu", meaning: "the end", example: { jp: "年の末はいそがしいですが、休みも長いです。", en: "The end of the year is busy, but the break is long too." }, accept: ["close", "tip", "final part"], hint: "末 = 木 (tree) with the top stroke long — the far tip of the branch. 週末 = the weekend, 年末 = the year's end." },
+        { id: "ja-u132l1-michiru", type: "kanji", front: "満", reading: "man", meaning: "full", example: { jp: "電車は満員でしたが、十分で着きました。", en: "The train was packed full, but I arrived in ten minutes." }, accept: ["fill", "complete", "satisfied"], hint: "満 = 氵 (water) filled right to the brim. 満員 = full up (of people), 満足 = satisfaction." },
+        { id: "ja-u132l1-mi", type: "kanji", front: "未", reading: "mi", meaning: "not yet", example: { jp: "未知の道を歩くのは楽しいですが、少しこわいです。", en: "Walking an unknown road is fun, but a little frightening." }, accept: ["un-", "as yet", "still to come"], hint: "未 = 木 with the TOP stroke short — the branch that hasn't grown out yet. Compare 末, where it's long. 未来 = the future." },
+        { id: "ja-u132l1-tami", type: "kanji", front: "民", reading: "min", meaning: "the people", example: { jp: "民の考えを聞かない会社は、長く続きません。", en: "A company that doesn't listen to what people think doesn't last long." }, accept: ["citizens", "folk", "populace"], hint: "民 = the ordinary people of a place, as opposed to those who rule it. 国民 = a nation's people, 民間 = the private sector." },
+        { id: "ja-u132l1-nenmatsu", type: "vocab", front: "年末", reading: "nenmatsu", meaning: "the end of the year", example: { jp: "年末は家族と休みますが、年始は仕事です。", en: "I rest with family at the end of the year, but I work at the new year." }, accept: ["year end", "December"] },
+        { id: "ja-u132l1-minkan", type: "vocab", front: "民間", reading: "minkan", meaning: "the private sector", example: { jp: "民間の会社に入りましたが、休みは前より少ないです。", en: "I joined a private-sector company, but I have fewer days off than before." }, accept: ["private", "non-government", "civilian"] },
+      ],
+    },
+    {
+      id: "ja-u132l2",
+      unit: 132,
+      lesson: 2,
+      title: "Duty, dreams, life",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 務 (duty), 夢 (dream), 命 (life), 迷 (get lost), and the words 生命 and 迷子.",
+      items: [
+        { id: "ja-u132l2-mu", type: "kanji", front: "務", reading: "mu", meaning: "duty", example: { jp: "会社の事務は多いですが、しずかにできます。", en: "There's a lot of office work at the company, but I can do it quietly." }, accept: ["service", "office work", "obligation"], hint: "務 = 力 (effort) applied to what you are supposed to do. 事務 = clerical work, 公務員 = a public servant." },
+        { id: "ja-u132l2-yume", type: "kanji", front: "夢", reading: "yume", meaning: "dream", example: { jp: "大きな夢がありますが、今は小さいことから始めます。", en: "I have a big dream, but for now I'm starting with small things." }, accept: ["a dream", "aspiration", "vision"], hint: "夢 = what you see at night under 夕 (evening). Used for sleeping dreams and for ambitions, exactly like English." },
+        { id: "ja-u132l2-inochi", type: "kanji", front: "命", reading: "inochi", meaning: "life", example: { jp: "命は一つしかないので、大切にします。", en: "You only have one life, so I look after it." }, accept: ["a life", "fate", "command"], hint: "命 = an order handed down from above — the span you are given. 生命 = life, 命じます = to order someone." },
+        { id: "ja-u132l2-mayou", type: "kanji", front: "迷", reading: "mei", meaning: "get lost", example: { jp: "道に迷いましたが、店の人が教えてくれました。", en: "I got lost, but someone at a shop showed me the way." }, accept: ["stray", "be undecided", "waver"], hint: "迷 = 辶 (go) + 米 (grains scattered every way) — going in all directions at once. 迷います = to get lost, or to be unable to decide." },
+        { id: "ja-u132l2-seimei", type: "vocab", front: "生命", reading: "seimei", meaning: "life", example: { jp: "生命はどこにでもありますが、まだ分からないことが多いです。", en: "Life is everywhere, but there is still a lot we don't know." }, accept: ["living things", "vitality", "existence"] },
+        { id: "ja-u132l2-maigo", type: "vocab", front: "迷子", reading: "maigo", meaning: "a lost child", example: { jp: "店で迷子になりましたが、すぐ見つかりました。", en: "A child got lost in the shop, but they were found straight away." }, accept: ["lost person", "someone who's got lost"] },
+      ],
+    },
+    {
+      id: "ja-u132l3",
+      unit: 132,
+      lesson: 3,
+      title: "Sounding, surfaces, going back",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 鳴 (sound), 綿 (cotton), 面 (face/surface), 戻 (go back), and the words 表面 and 面会.",
+      items: [
+        { id: "ja-u132l3-naru", type: "kanji", front: "鳴", reading: "mei", meaning: "sound", example: { jp: "電話が鳴りましたが、外にいて出られませんでした。", en: "The phone rang, but I was outside and couldn't answer." }, accept: ["ring", "cry (of an animal)", "chime"], hint: "鳴 = 口 (mouth) + 鳥 (bird) — a bird calling. Used for anything that sounds: bells, phones, animals." },
+        { id: "ja-u132l3-wata", type: "kanji", front: "綿", reading: "men", meaning: "cotton", example: { jp: "綿のシャツは楽ですが、すぐしわになります。", en: "A cotton shirt is comfortable, but it creases quickly." }, accept: ["wadding", "cotton wool"], hint: "綿 = 糸 (thread) + 帛 — the softest thread there is. 木綿 = cotton cloth." },
+        { id: "ja-u132l3-men", type: "kanji", front: "面", reading: "men", meaning: "face", example: { jp: "本の面白いところを話しましたが、みんな知っていました。", en: "I talked about the interesting parts of the book, but everyone knew them." }, accept: ["surface", "aspect", "mask"], hint: "面 = the flat outward side of a thing. 表面 = the surface, 面白い = interesting: literally 'the face brightens'." },
+        { id: "ja-u132l3-modoru", type: "kanji", front: "戻", reading: "modoru", meaning: "go back", example: { jp: "家に戻ってから、電話をかけます。", en: "I'll go back home, and then make the call." }, accept: ["return", "revert", "come back"], hint: "戻 = 戸 (a door) + 大 — turning back through the door you came in by. 戻ります = to go back to where you were." },
+        { id: "ja-u132l3-hyomen", type: "vocab", front: "表面", reading: "hyōmen", meaning: "the surface", example: { jp: "表面はきれいですが、中は古くなっています。", en: "The surface is clean, but the inside has got old." }, accept: ["outward appearance", "the face of it", "outside"] },
+        { id: "ja-u132l3-menkai", type: "vocab", front: "面会", reading: "menkai", meaning: "a visit in person", example: { jp: "面会は三時までですが、家族なら長くいられます。", en: "Visiting is until three o'clock, but family can stay longer." }, accept: ["meeting someone", "an interview", "seeing a patient"] },
+      ],
+    },
+    {
+      id: "ja-u132l4",
+      unit: 132,
+      lesson: 4,
+      title: "Roles, medicine, oil",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 約 (approximately), 役 (role), 薬 (medicine), 油 (oil), and the words 役目 and 薬品.",
+      items: [
+        { id: "ja-u132l4-yaku", type: "kanji", front: "約", reading: "yaku", meaning: "approximately", example: { jp: "約十分で着きますが、朝は道がこみます。", en: "It takes about ten minutes, but the roads are crowded in the morning." }, accept: ["about", "promise", "agreement"], hint: "約 = 糸 (thread) tied into a knot — a thing pinned down. 約束 = a promise; before a number it means 'about'." },
+        { id: "ja-u132l4-yakurole", type: "kanji", front: "役", reading: "yaku", meaning: "role", example: { jp: "大切な役を持っていますが、名前はふつうです。", en: "He has an important role, but his title is ordinary." }, accept: ["part", "duty", "office"], hint: "役 = the job assigned to you. 役目 = one's role, 役に立つ = to be useful. Same やく as 約, different job." },
+        { id: "ja-u132l4-kusuri", type: "kanji", front: "薬", reading: "kusuri", meaning: "medicine", example: { jp: "薬を飲んでから、よく休みました。", en: "I took the medicine, and then rested properly." }, accept: ["drug", "remedy", "a medicine"], hint: "薬 = 艹 (plant) over 楽 (ease) — the plant that makes you comfortable again. 薬品 = a chemical or drug." },
+        { id: "ja-u132l4-abura", type: "kanji", front: "油", reading: "abura", meaning: "oil", example: { jp: "油を使わない料理は体にいいですが、味がうすいです。", en: "Cooking without oil is good for you, but the taste is thin." }, accept: ["fat", "petroleum", "grease"], hint: "油 = 氵 (liquid) + 由 — the liquid that comes out of something. 石油 = petroleum." },
+        { id: "ja-u132l4-yakume", type: "vocab", front: "役目", reading: "yakume", meaning: "one's role", example: { jp: "私の役目はおわりましたが、まだ心配です。", en: "My role is over, but I'm still worried." }, accept: ["duty", "the part you play", "function"] },
+        { id: "ja-u132l4-yakuhin", type: "vocab", front: "薬品", reading: "yakuhin", meaning: "chemicals", example: { jp: "薬品を使うので、まどを開けてはたらきます。", en: "We use chemicals, so we work with the window open." }, accept: ["medicines", "drugs", "chemical agents"] },
+      ],
+    },
   ],
 };

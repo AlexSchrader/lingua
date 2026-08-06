@@ -1,18 +1,80 @@
-// JA Unit 128 — Characters 16 (B1) (slot: characters-b1-16) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// JA Unit 128 — かんじ・N3・16 (N3 kanji, set 16) — B1 / JLPT N3
+// Glyph ownership and card shape are documented in unit119.js: slice 16 of the
+// 20-way split of the untaught N3 pool, 4 lessons x (4 kanji + 2 compound).
 export const UNIT128 = {
   id: "ja-u128",
   lang: "ja",
-  title: "Characters 16 (B1)",
+  title: "かんじ・N3・16",
   order: 128,
   stage: "b1",
   lessons: [
-    { id: "ja-u128l1", title: "Lesson 1", locked: true },
-    { id: "ja-u128l2", title: "Lesson 2", locked: true },
-    { id: "ja-u128l3", title: "Lesson 3", locked: true },
-    { id: "ja-u128l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u128l1",
+      unit: 128,
+      lesson: 1,
+      title: "The ひ set",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read four kanji that all sound ひ and separate them by meaning: 悲 比 非 飛.",
+      items: [
+        { id: "ja-u128l1-kanashii", type: "kanji", front: "悲", reading: "hi", meaning: "sad", example: { jp: "その話は悲しいですが、ほんとうのことです。", en: "That story is sad, but it's true." }, accept: ["sorrow", "grief", "unhappy"], hint: "悲 = 心 (heart) under 非 (not) — a heart that has lost something. 悲しい = sad." },
+        { id: "ja-u128l1-kuraberu", type: "kanji", front: "比", reading: "hi", meaning: "compare", example: { jp: "兄と比べられるのは、あまり楽しくありません。", en: "Being compared with my older brother isn't much fun." }, accept: ["contrast", "ratio", "liken"], hint: "比 = two people standing side by side to be measured against each other. 比べます = to compare." },
+        { id: "ja-u128l1-hinon", type: "kanji", front: "非", reading: "hi", meaning: "non-", example: { jp: "非公開の会でしたが、話は外に出ました。", en: "It was a closed meeting, but the story got out." }, accept: ["not", "un-", "wrong"], hint: "非 = two wings turned away from each other — the negative prefix. 非公開 = not open, 非常 = out of the ordinary." },
+        { id: "ja-u128l1-tobu", type: "kanji", front: "飛", reading: "hi", meaning: "fly", example: { jp: "鳥が空高く飛んでいますが、風は強くありません。", en: "A bird is flying high in the sky, but the wind isn't strong." }, accept: ["leap", "take off", "soar"], hint: "飛 = wings spread and beating. 飛びます = to fly or jump; 飛行 = flight. The only one of the four ひ that is a verb." },
+        { id: "ja-u128l1-hiko", type: "vocab", front: "飛行", reading: "hikō", meaning: "flight", example: { jp: "飛行の時間は長いですが、よく休めます。", en: "The flight time is long, but you can rest well." }, accept: ["flying", "aviation"] },
+        { id: "ja-u128l1-taihi", type: "vocab", front: "対比", reading: "taihi", meaning: "contrast", example: { jp: "二つを対比すると、ちがいがよく分かります。", en: "When you set the two in contrast, the difference is clear." }, accept: ["comparison", "juxtaposition"] },
+      ],
+    },
+    {
+      id: "ja-u128l2",
+      unit: 128,
+      lesson: 2,
+      title: "Cost, readiness, certainty",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 費 (expense), 備 (prepare), 必 (without fail), 表 (surface), and the words 食費 and 代表.",
+      items: [
+        { id: "ja-u128l2-hiyo", type: "kanji", front: "費", reading: "hi", meaning: "expense", example: { jp: "毎月の費用は多いですが、しかたがありません。", en: "The monthly expenses are high, but it can't be helped." }, accept: ["cost", "spend", "outlay"], hint: "費 = 貝 (money) being used up. 食費 = food costs, 学費 = tuition. Same ひ as 非 and 飛." },
+        { id: "ja-u128l2-sonaeru", type: "kanji", front: "備", reading: "bi", meaning: "prepare", example: { jp: "早めに備えていたので、雨でもこまりませんでした。", en: "I'd prepared early, so I wasn't stuck even in the rain." }, accept: ["equip", "provide for", "get ready"], hint: "備 = 人 (person) with everything laid in beforehand. 準備 = preparation, 備えます = to be ready for." },
+        { id: "ja-u128l2-kanarazu", type: "kanji", front: "必", reading: "hitsu", meaning: "without fail", example: { jp: "必ず来ますと言いましたが、まだ来ていません。", en: "He said he would come without fail, but he hasn't yet." }, accept: ["certain", "must", "essential"], hint: "必 = 心 (heart) with a line struck through it — a decision that cannot bend. 必ず = definitely." },
+        { id: "ja-u128l2-hyo", type: "kanji", front: "表", reading: "hyō", meaning: "surface", example: { jp: "時間の表を作りましたが、だれも見ませんでした。", en: "I made a timetable, but nobody looked at it." }, accept: ["table", "chart", "express"], hint: "表 = the outward face of something — the side that shows. 表 = a table/chart, 発表 = announcing, 表面 = the surface." },
+        { id: "ja-u128l2-shokuhi", type: "vocab", front: "食費", reading: "shokuhi", meaning: "food costs", example: { jp: "食費をへらしましたが、あまり体によくありません。", en: "I cut the food costs, but it isn't very good for my health." }, accept: ["grocery bill", "cost of food"] },
+        { id: "ja-u128l2-daihyo", type: "vocab", front: "代表", reading: "daihyō", meaning: "representative", example: { jp: "学校の代表になりましたが、じしんはありません。", en: "I became the school's representative, but I have no confidence." }, accept: ["delegate", "standing for", "the rep"] },
+      ],
+    },
+    {
+      id: "ja-u128l3",
+      unit: 128,
+      lesson: 3,
+      title: "Judgement, seconds, parts",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 評 (criticism), 秒 (second), 負 (bear/lose), 部 (section), and the words 一秒 and 部分.",
+      items: [
+        { id: "ja-u128l3-hyoban", type: "kanji", front: "評", reading: "hyō", meaning: "criticism", example: { jp: "先生の評は高かったですが、私はまだ足りないと思います。", en: "The teacher's assessment was high, but I still think it isn't enough." }, accept: ["review", "appraisal", "comment"], hint: "評 = 言 (words) + 平 (level) — weighing something up in words. 評判 = reputation. Same ひょう as 表." },
+        { id: "ja-u128l3-byo", type: "kanji", front: "秒", reading: "byō", meaning: "second", example: { jp: "三十秒待ってから、もう一度おしてください。", en: "Wait thirty seconds, and then press it again." }, accept: ["seconds", "a second"], hint: "秒 = 禾 (grain) + 少 (a little) — the smallest grain of time. 分 is a minute, 秒 is a second." },
+        { id: "ja-u128l3-makeru", type: "kanji", front: "負", reading: "fu", meaning: "bear", example: { jp: "重い品を持ったので、足に負担がかかりました。", en: "I carried heavy goods, so it put a burden on my legs." }, accept: ["lose", "carry", "owe"], hint: "負 = a person bent over 貝 (money) — carrying a load. 負けます = to lose, 負担 = a burden." },
+        { id: "ja-u128l3-bu", type: "kanji", front: "部", reading: "bu", meaning: "section", example: { jp: "この部の人は少ないですが、仕事は早いです。", en: "There are few people in this section, but the work is fast." }, accept: ["department", "part", "club"], hint: "部 = one division of a larger body. 部分 = a part, 部屋 = a room: a divided-off space." },
+        { id: "ja-u128l3-ichibyo", type: "vocab", front: "一秒", reading: "ichibyō", meaning: "one second", example: { jp: "一秒も休まず走ったので、とてもつかれました。", en: "I ran without resting for a single second, so I got very tired." }, accept: ["a second", "one second flat"] },
+        { id: "ja-u128l3-bubun", type: "vocab", front: "部分", reading: "bubun", meaning: "a part", example: { jp: "この部分だけ直せば、あとはいいと思います。", en: "If you just fix this part, I think the rest is fine." }, accept: ["portion", "section", "the bit"] },
+      ],
+    },
+    {
+      id: "ja-u128l4",
+      unit: 128,
+      lesson: 4,
+      title: "The ふく set, and paying",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 副 (vice-), 復 (return to), 複 (multiple), 払 (pay), and the words 副業 and 前払.",
+      items: [
+        { id: "ja-u128l4-fukusub", type: "kanji", front: "副", reading: "fuku", meaning: "vice-", example: { jp: "副社長が来たので、みんな急にしずかになりました。", en: "The vice-president came, so everyone suddenly went quiet." }, accept: ["deputy", "secondary", "side"], hint: "副 = the second one beside the main one. 副社長 = vice-president, 副業 = a side job." },
+        { id: "ja-u128l4-fukuagain", type: "kanji", front: "復", reading: "fuku", meaning: "return to", example: { jp: "毎日習ったことを復習していますが、なかなかおぼえられません。", en: "I review what I learned every day, but it's hard to remember." }, accept: ["repeat", "restore", "go back over"], hint: "復 = 彳 (go) back over the same path. 復習 = revision, 回復 = recovery. Same ふく as 副." },
+        { id: "ja-u128l4-fukumulti", type: "kanji", front: "複", reading: "fuku", meaning: "multiple", example: { jp: "名前が重複していましたが、すぐ直しました。", en: "The names were duplicated, but I fixed it right away." }, accept: ["duplicate", "compound", "double"], hint: "複 = 衤 (cloth) layered over itself. 複数 = more than one, 重複 = a duplication. Third ふく — this one means 'more than one copy'." },
+        { id: "ja-u128l4-harau", type: "kanji", front: "払", reading: "harau", meaning: "pay", example: { jp: "お金を払ってから、店を出ました。", en: "I paid the money, and then left the shop." }, accept: ["settle", "brush off", "clear away"], hint: "払 = 扌 (hand) sweeping something away — handing money over, or brushing dust off." },
+        { id: "ja-u128l4-fukugyo", type: "vocab", front: "副業", reading: "fukugyō", meaning: "side job", example: { jp: "副業を始めましたが、思ったよりいそがしいです。", en: "I started a side job, but it's busier than I expected." }, accept: ["second job", "sideline", "moonlighting"] },
+        { id: "ja-u128l4-maebarai", type: "vocab", front: "前払", reading: "maebarai", meaning: "payment in advance", example: { jp: "前払でしたが、品はまだ来ていません。", en: "It was paid in advance, but the goods still haven't come." }, accept: ["prepayment", "paying up front"] },
+      ],
+    },
   ],
 };
