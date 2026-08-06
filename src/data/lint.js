@@ -106,6 +106,166 @@ const SCAFFOLD_TITLE_PATTERNS = [
 const isScaffoldTitle = (t) =>
   SCAFFOLD_TITLES.has(t) || SCAFFOLD_TITLE_PATTERNS.some((re) => re.test(t));
 
+// --- example vocabulary scope -------------------------------------------------
+// RUNBOOK §4 calls this "the rule most likely to bite you in block 2 or 3":
+// every example sentence may use only vocab introduced at or before its unit.
+// Nothing enforced it — `example` appeared in this file only as a required field
+// name — so across every card of every language it was honour-system, which is
+// precisely the rule parallel block authoring depends on.
+//
+// WARNINGS, not errors, and deliberately so. Measured against shipped French A1,
+// a naive exact-match check flags 32.9% of examples; nearly all of that is
+// morphology (grande/grand, heures/heure), proper names, cognates and elision,
+// not defects. With the exemptions below it settles at ~5% on French and ~2% on
+// Spanish block 1, and those remaining flags are mostly real. That is a good
+// review list and a bad gate — a 5% false-positive error would train seats to
+// work around it, so it advises and the seat judges.
+const STEM = 4;
+const ELIDED = { j: "je", n: "ne", l: "le", d: "de", qu: "que", c: "ce", s: "se", m: "me", t: "te" };
+const foldAccents = (s) => (s || "").normalize("NFD").replace(/\p{M}+/gu, "");
+const lower = (s) => (s || "").toLowerCase().replace(/[’']/g, "'");
+
+// Word pieces. Apostrophes split: "d'eau" is de + eau, two separately-taught
+// items, and the clitic maps back to its full form so it matches the taught front.
+function wordPieces(s) {
+  const out = [];
+  for (const chunk of lower(s).split(/[^\p{L}'-]+/u).filter(Boolean)) {
+    const parts = chunk.split("'");
+    parts.forEach((p, i) => {
+      if (p) out.push(i < parts.length - 1 ? ELIDED[p] ?? p : p);
+    });
+  }
+  return out;
+}
+const sharesPrefix = (a, b, n) => {
+  const f = foldAccents(a), g = foldAccents(b);
+  let i = 0;
+  while (i < f.length && i < g.length && f[i] === g[i]) i++;
+  return i >= n;
+};
+// Latin-script only. Japanese has no word boundaries, so tokenising an example
+// yields one giant "word" and every sentence would flag. A real ja check needs a
+// morphological analyser; until then this stays silent there rather than lying.
+const isLatinLang = (units) => {
+  const fronts = units.flatMap((u) => (u.lessons ?? []).flatMap((l) => (l.items ?? []).map((i) => i.front)));
+  if (!fronts.length) return false;
+  const latin = fronts.filter((f) => /^[\p{Script=Latin}\P{L}]+$/u.test(f || "")).length;
+  return latin / fronts.length > 0.5;
+};
+
+export function exampleScopeWarnings(units) {
+  const out = [];
+  const byLang = new Map();
+  for (const u of units) {
+    if (!byLang.has(u.lang)) byLang.set(u.lang, []);
+    byLang.get(u.lang).push(u);
+  }
+
+  for (const [lang, all] of byLang) {
+    if (!isLatinLang(all)) continue;
+    const ordered = [...all].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+
+    // Proper names are free (RUNBOOK §4). Two independent signals, because either
+    // alone has a hole:
+    //   1. Capitalised somewhere other than sentence-initially — position tells us
+    //      what casing alone cannot.
+    //   2. Capitalised in the item's own ENGLISH gloss. A name is a name in both
+    //      languages, but an ordinary French word never shows up capitalised in
+    //      its English translation. This is what catches a name used ONLY at the
+    //      start of a sentence, which signal 1 can never see: "Paul est le frère
+    //      de Marie." / "Paul is Marie's brother."
+    const proper = new Set();
+    for (const u of ordered)
+      for (const l of u.lessons ?? [])
+        for (const it of l.items ?? []) {
+          const raw = (it.example?.jp ?? "").split(/[^\p{L}'’-]+/u).filter(Boolean);
+          raw.forEach((w, i) => {
+            if (i !== 0 && /^\p{Lu}/u.test(w)) wordPieces(w).forEach((p) => proper.add(p));
+          });
+          const enCaps = (it.example?.en ?? "").split(/[^\p{L}'’-]+/u).filter((w) => /^\p{Lu}/u.test(w));
+          for (const w of enCaps) {
+            const p = lower(w);
+            // Only if it also occurs in the target sentence — otherwise an
+            // English sentence-initial "The" would whitelist "the".
+            if (wordPieces(it.example?.jp ?? "").includes(p)) proper.add(p);
+          }
+        }
+
+    const introduced = new Set();
+    const stems = new Map();
+    // Index on 3 chars, not on STEM. Indexing on 4 silently excluded every taught
+    // word shorter than four letters, so "ami" never entered the table and its
+    // own plural "amis" was reported as untaught vocabulary. Short words are most
+    // of a beginner unit, so that hole covered exactly the wrong words.
+    const KEY = 3;
+    const add = (t) => {
+      introduced.add(t);
+      if (t.length >= KEY) {
+        const k = t.slice(0, KEY);
+        if (!stems.has(k)) stems.set(k, []);
+        stems.get(k).push(t);
+      }
+    };
+    // One is a prefix of the other, and they differ by at most 3 characters.
+    // The length bound is what keeps this from excusing anything: without it
+    // "par" would vouch for "parlons". Suffixal inflection (plural -s, feminine
+    // -e, -ons/-ez) is short by nature; a longer gap is a different word.
+    const isInflection = (t) => {
+      if (t.length < KEY) return false;
+      for (const c of stems.get(t.slice(0, KEY)) ?? []) {
+        const [short, long] = t.length <= c.length ? [t, c] : [c, t];
+        if (long.startsWith(short) && long.length - short.length <= 3) return true;
+      }
+      return false;
+    };
+
+    let stubFrom = null;
+    for (const u of ordered) {
+      const items = (u.lessons ?? []).filter((l) => !l.locked && l.items).flatMap((l) => l.items);
+      // A unit may use its own new words, so introduce the whole unit first.
+      for (const it of items) for (const t of wordPieces(it.front)) add(t);
+
+      // Behind an unauthored stub the vocabulary debt is unknowable: the words a
+      // later unit legitimately depends on are simply not in the tree yet. On a
+      // mid-flight block branch that is the normal state — block 3 measured 89.9%
+      // "unknown" purely because blocks 1-2 were still stubs. Skip, don't shout.
+      if (stubFrom === null && !items.length) stubFrom = u.order ?? 0;
+      if (stubFrom !== null && (u.order ?? 0) > stubFrom) continue;
+
+      // The sounds/script unit teaches pronunciation THROUGH real words by design
+      // (RUNBOOK §4), so its examples legitimately run ahead of the queue.
+      if (/sons|sonidos|sounds|script/i.test(u.title ?? "")) continue;
+
+      for (const it of items) {
+        const ex = it.example?.jp;
+        if (!ex) continue;
+        const en = `${it.meaning ?? ""} ${(it.accept ?? []).join(" ")} ${it.example?.en ?? ""}`;
+        const enWords = lower(en).split(/[^\p{L}]+/u).filter(Boolean);
+        const unknown = [
+          ...new Set(
+            wordPieces(ex).filter(
+              (t) =>
+                !introduced.has(t) &&
+                !proper.has(t) &&
+                !isInflection(t) &&
+                // Transparent cognate: shares a stem with its own English gloss
+                // (enorme/enormous, importante/important). Accent-folded.
+                !(t.length >= STEM && enWords.some((w) => sharesPrefix(t, w, STEM)))
+            )
+          ),
+        ];
+        if (unknown.length)
+          out.push(
+            `item ${it.id}: example "${ex}" uses ${unknown.map((w) => `"${w}"`).join(", ")} ` +
+              `before ${unknown.length > 1 ? "they are" : "it is"} taught in ${lang} ` +
+              `(RUNBOOK §4 — verify; morphology and cognates can false-positive)`
+          );
+      }
+    }
+  }
+  return out;
+}
+
 export function lintCurriculum(units = []) {
   const errors = [];
   const warnings = [];
@@ -243,6 +403,10 @@ export function lintCurriculum(units = []) {
       }
     }
   }
+
+  // Cross-unit check: runs over the whole corpus in Ladder order, so it lives
+  // outside the per-unit loop above.
+  warnings.push(...exampleScopeWarnings(units));
 
   return { errors, warnings };
 }
