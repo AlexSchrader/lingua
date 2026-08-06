@@ -1,18 +1,81 @@
-// JA Unit 106 — Characters 4 (B1) (slot: characters-b1-4) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// Unit 106 — かんじ・しごととルール (Work, office & rule kanji) — B1 / JLPT N3
+// 12 new N3 glyphs + 12 companion words. These are the glyphs that write the public,
+// procedural side of life — offices, permissions, prohibitions and decisions — so the
+// companion words are the ones on signs, forms and notices a learner meets daily.
 export const UNIT106 = {
   id: "ja-u106",
   lang: "ja",
-  title: "Characters 4 (B1)",
+  title: "かんじ・しごととルール",
   order: 106,
   stage: "b1",
   lessons: [
-    { id: "ja-u106l1", title: "Lesson 1", locked: true },
-    { id: "ja-u106l2", title: "Lesson 2", locked: true },
-    { id: "ja-u106l3", title: "Lesson 3", locked: true },
-    { id: "ja-u106l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u106l1",
+      unit: 106,
+      lesson: 1,
+      title: "Office kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read the office kanji: 勤 官 管 局 給 経 (serve, official, control, bureau, supply, pass through).",
+      items: [
+        { id: "ja-u106l1-tsutome", type: "kanji", front: "勤", reading: "tsutome", meaning: "serve", example: { jp: "父は同じ会社に三十年勤めています。", en: "My father has worked at the same company for thirty years." }, accept: ["to work at", "duty", "employment"], hint: "勤 = serve in a job. 力 (strength) on the right. 勤めます = to be employed *somewhere*; 働きます = to work in general." },
+        { id: "ja-u106l1-kan", type: "kanji", front: "官", reading: "kan", meaning: "official", example: { jp: "けい官に道を聞いたら、ていねいに教えてくれました。", en: "When I asked a police officer for directions, they told me politely." }, accept: ["government official", "public servant"], hint: "官 = a person holding public office. 警官 (police officer), 外交官 (diplomat), 官庁 (a government agency)." },
+        { id: "ja-u106l1-kuda", type: "kanji", front: "管", reading: "kan", meaning: "control", example: { jp: "この店は父が管理していますが、来年からは私がします。", en: "My father manages this shop, but from next year I will." }, accept: ["pipe", "to manage", "administer"], hint: "管 = a pipe, and by extension the running of something through channels. 竹 (bamboo) on top — bamboo makes pipes. 管理 = kanri." },
+        { id: "ja-u106l1-kyoku", type: "kanji", front: "局", reading: "kyoku", meaning: "bureau", example: { jp: "ゆうびん局は駅のとなりにあるので、すぐ行けます。", en: "The post office is next to the station, so I can get there right away." }, accept: ["office", "station", "department"], hint: "局 = a branch office of something bigger. 郵便局 (post office), 放送局 (broadcasting station), 薬局 (pharmacy)." },
+        { id: "ja-u106l1-kyu", type: "kanji", front: "給", reading: "kyū", meaning: "supply", example: { jp: "この会社は給りょうは高くありませんが、休みが多いです。", en: "This company's salary isn't high, but there are a lot of days off." }, accept: ["to provide", "pay", "grant"], hint: "給 = supply. 糸 (thread) + 合 (fit). 給料 (salary), 支給 (payment of an allowance), 給水 (water supply)." },
+        { id: "ja-u106l1-kei", type: "kanji", front: "経", reading: "kei", meaning: "pass through", example: { jp: "三年経ってから、やっとしごとになれました。", en: "Only after three years passed did I finally get used to the job." }, accept: ["to elapse", "manage", "experience"], hint: "経 = pass through. You already know it in 経験 (experience — what you've passed through) and 経済 (economy)." },
+      ],
+    },
+    {
+      id: "ja-u106l2",
+      unit: 106,
+      lesson: 2,
+      title: "Words with those kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Use the office kanji in real words: きんむ かんちょう かんり とうきょく しきゅう けいえい.",
+      items: [
+        { id: "ja-u106l2-kinmu", type: "vocab", front: "きんむ", reading: "kinmu", meaning: "work duty", example: { jp: "きんむ時間が長いので、しゅうまつはゆっくり休みます。", en: "My working hours are long, so I rest properly at the weekend." }, accept: ["service", "working hours", "employment"], hint: "勤務 = 勤 (serve) + 務 (duty). きんむさき = your place of work — the word every form asks for." },
+        { id: "ja-u106l2-kancho", type: "vocab", front: "かんちょう", reading: "kanchō", meaning: "government office", example: { jp: "かんちょうはへいじつしか開いていないので、休みを取りました。", en: "Government offices are only open on weekdays, so I took a day off." }, accept: ["government agency", "ministry"], hint: "官庁 = 官 (official) + 庁 (agency). The general word for the state's offices, as opposed to a やくしょ (city hall)." },
+        { id: "ja-u106l2-kanri", type: "vocab", front: "かんり", reading: "kanri", meaning: "management", example: { jp: "けんこうのかんりは自分でするしかありません。", en: "Managing your own health is something only you can do." }, accept: ["administration", "control", "to manage"], hint: "管理 = keeping something running properly — a building, data, your health. かんりにん = the caretaker of a block of flats." },
+        { id: "ja-u106l2-tokyoku", type: "vocab", front: "とうきょく", reading: "tōkyoku", meaning: "the authorities", example: { jp: "とうきょくのはっぴょうをまってから、けっていします。", en: "We'll decide after waiting for the authorities' announcement." }, accept: ["officials", "the office in charge"], hint: "当局 = 当 (the one concerned) + 局 (bureau). The news word for 'the authorities', without naming which." },
+        { id: "ja-u106l2-shikyu", type: "vocab", front: "しきゅう", reading: "shikyū", meaning: "payment", example: { jp: "こうつうひのしきゅうがあるので、電車だいはかかりません。", en: "Travel expenses are paid, so the train fare doesn't cost me anything." }, accept: ["allowance", "provision", "to be provided"], hint: "支給 = 支 (pay out) + 給 (supply). Used for what an employer provides — money, a uniform, a laptop." },
+        { id: "ja-u106l2-keiei", type: "vocab", front: "けいえい", reading: "keiei", meaning: "management", example: { jp: "小さい店のけいえいはたいへんですが、じゆうです。", en: "Running a small shop is hard, but it's free." }, accept: ["running a business", "to manage", "administration"], hint: "経営 = running a *business*. かんり keeps something in order; けいえい decides where it goes." },
+      ],
+    },
+    {
+      id: "ja-u106l3",
+      unit: 106,
+      lesson: 3,
+      title: "Rule kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read the rule kanji: 議 権 許 禁 決 件 (discuss, right, permit, forbid, decide, matter).",
+      items: [
+        { id: "ja-u106l3-gi", type: "kanji", front: "議", reading: "gi", meaning: "discuss", example: { jp: "あたらしいきそくについて、長く議ろんしました。", en: "We discussed the new rules at length." }, accept: ["deliberate", "debate", "council"], hint: "議 = formal discussion. 言 (words) + 義 (justice): words weighed for what's right. 会議, 議論, 議会." },
+        { id: "ja-u106l3-ken", type: "kanji", front: "権", reading: "ken", meaning: "right", example: { jp: "だれにでも休む権りがあります。", en: "Everyone has the right to rest." }, accept: ["authority", "power", "entitlement"], hint: "権 = a right or entitlement. 権利 (a right), 人権 (human rights), 権力 (political power)." },
+        { id: "ja-u106l3-yurushi", type: "kanji", front: "許", reading: "yurushi", meaning: "permit", example: { jp: "母が許してくれたので、一人で旅行に行けます。", en: "My mother gave permission, so I can travel alone." }, accept: ["to allow", "forgive", "permission"], hint: "許します does double duty: 'allow' and 'forgive'. 許可 (kyoka) is the formal permission on a document." },
+        { id: "ja-u106l3-kin", type: "kanji", front: "禁", reading: "kin", meaning: "forbid", example: { jp: "ここは禁えんなので、そとで吸ってください。", en: "Smoking is prohibited here, so please smoke outside." }, accept: ["prohibit", "ban"], hint: "禁 = forbidden. 林 (woods) over 示 (altar): a sacred grove you may not enter. 禁止 is on signs everywhere." },
+        { id: "ja-u106l3-ketsu", type: "kanji", front: "決", reading: "ketsu", meaning: "decide", example: { jp: "行くかどうか、あしたまでに決めます。", en: "I'll decide by tomorrow whether or not to go." }, accept: ["to determine", "settle", "resolve"], hint: "決 = decide. 氵 (water) breaking through a bank — the moment it's settled. 決めます (I decide), 決まります (it is decided)." },
+        { id: "ja-u106l3-kudan", type: "kanji", front: "件", reading: "ken", meaning: "matter", example: { jp: "その件については、あとでれんらくします。", en: "Regarding that matter, I'll contact you later." }, accept: ["case", "item", "affair"], hint: "件 = a countable matter or case. その件 = 'that matter' — indispensable in work email. Also the counter: 三件のメール." },
+      ],
+    },
+    {
+      id: "ja-u106l4",
+      unit: 106,
+      lesson: 4,
+      title: "More words with those kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Use the rule kanji in real words: ぎかい けんり きょか きんし けってい ようけん.",
+      items: [
+        { id: "ja-u106l4-gikai", type: "vocab", front: "ぎかい", reading: "gikai", meaning: "assembly", example: { jp: "ぎかいであたらしいほうりつがきまったと、ニュースで言っていました。", en: "The news said a new law was decided in the assembly." }, accept: ["parliament", "council", "legislature"], hint: "議会 = 議 (discuss) + 会 (meeting). Japan's national one is 国会; a city's is 市議会." },
+        { id: "ja-u106l4-kenri", type: "vocab", front: "けんり", reading: "kenri", meaning: "a right", example: { jp: "けんりだけでなく、ぎむもあることをわすれてはいけません。", en: "You mustn't forget that there are duties as well as rights." }, accept: ["entitlement", "claim"], hint: "権利 ⇄ 義務 (けんり ⇄ ぎむ) is a fixed pair in Japanese, exactly as 'rights and duties' is in English." },
+        { id: "ja-u106l4-kyoka", type: "vocab", front: "きょか", reading: "kyoka", meaning: "permission", example: { jp: "しゃしんをとるには、きょかがひつようです。", en: "You need permission to take photographs." }, accept: ["approval", "authorization", "licence"], hint: "許可 = the official yes. きょかをとる = to get permission; むきょか = without permission (a word on many signs)." },
+        { id: "ja-u106l4-kinshi", type: "vocab", front: "きんし", reading: "kinshi", meaning: "prohibition", example: { jp: "この道はじてんしゃきんしなので、おして歩きます。", en: "Bicycles are prohibited on this street, so I push mine and walk." }, accept: ["ban", "forbidden", "not allowed"], hint: "禁止 = 禁 (forbid) + 止 (stop). You will read it on signs far more often than you'll say it: 立入禁止, 駐車禁止." },
+        { id: "ja-u106l4-kettei", type: "vocab", front: "けってい", reading: "kettei", meaning: "decision", example: { jp: "けっていがおそくなってしまい、もうしわけありません。", en: "I'm sorry that the decision has been delayed." }, accept: ["to decide", "determination", "resolution"], hint: "決定 = the settled decision. けっていします is formal; in speech you'd usually just say 決めます." },
+        { id: "ja-u106l4-yoken", type: "vocab", front: "ようけん", reading: "yōken", meaning: "business to discuss", example: { jp: "ようけんだけつたえて、すぐに電話を切りました。", en: "I conveyed only what I needed to and hung up straight away." }, accept: ["matter", "the point", "requirement"], hint: "用件 = 用 (use) + 件 (matter): the thing you actually rang about. ごようけんは？ = 'How can I help you?'" },
+      ],
+    },
   ],
 };

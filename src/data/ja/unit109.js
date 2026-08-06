@@ -1,18 +1,81 @@
-// JA Unit 109 — Characters 6 (B1) (slot: characters-b1-6) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// Unit 109 — かんじ・そだてる (Growing & making kanji) — B1 / JLPT N3
+// 12 new N3 glyphs + 12 companion words. Two character units run back to back here
+// (u108, u109) because the scaffold's slot map interleaves them that way; the
+// companion lessons keep each one from being a run of bare glyphs.
 export const UNIT109 = {
   id: "ja-u109",
   lang: "ja",
-  title: "Characters 6 (B1)",
+  title: "かんじ・そだてる",
   order: 109,
   stage: "b1",
   lessons: [
-    { id: "ja-u109l1", title: "Lesson 1", locked: true },
-    { id: "ja-u109l2", title: "Lesson 2", locked: true },
-    { id: "ja-u109l3", title: "Lesson 3", locked: true },
-    { id: "ja-u109l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u109l1",
+      unit: 109,
+      lesson: 1,
+      title: "Growing kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read the growing kanji: 産 育 種 飼 枝 根 (produce, raise, seed, keep animals, branch, root).",
+      items: [
+        { id: "ja-u109l1-san", type: "kanji", front: "産", reading: "san", meaning: "produce", example: { jp: "この地方は米の産ちとして知られています。", en: "This region is known as a rice-producing area." }, accept: ["to give birth", "product", "output"], hint: "産 = bring forth. 生産 (production), 産地 (place of origin), お産 (childbirth) — making, in every sense." },
+        { id: "ja-u109l1-iku", type: "kanji", front: "育", reading: "iku", meaning: "raise", example: { jp: "この町で育ったので、どの道もよく知っています。", en: "I grew up in this town, so I know every street well." }, accept: ["to bring up", "grow up", "nurture"], hint: "育 = raise. 育てます = to bring up (transitive); 育ちます = to grow up. 教育 (education) is teaching + raising." },
+        { id: "ja-u109l1-shu", type: "kanji", front: "種", reading: "shu", meaning: "seed", example: { jp: "はるに種をまいたら、なつには花が咲きました。", en: "I sowed seeds in spring, and by summer the flowers had bloomed." }, accept: ["kind", "type", "species"], hint: "種 = seed, and from that 'kind'. 禾 (grain) on the left. 種類 (types), 人種 (ethnicity), この種の = 'this kind of'." },
+        { id: "ja-u109l1-kai", type: "kanji", front: "飼", reading: "kai", meaning: "keep animals", example: { jp: "小さいころから犬を飼っていて、いまも三びきいます。", en: "I've kept dogs since I was small, and I still have three." }, accept: ["to raise", "keep a pet", "feed"], hint: "飼 = keep an animal. 食 (food) on the left — you keep it by feeding it. 飼います is used only for animals, never people." },
+        { id: "ja-u109l1-eda", type: "kanji", front: "枝", reading: "eda", meaning: "branch", example: { jp: "台風で木の枝がおれて、道におちていました。", en: "The typhoon broke the tree's branches, and they'd fallen on the road." }, accept: ["twig", "bough"], hint: "枝 = branch. 木 (tree) + 支 (prop up) — the 支 you met in u102. A branch is what a tree props out." },
+        { id: "ja-u109l1-ne", type: "kanji", front: "根", reading: "ne", meaning: "root", example: { jp: "この木は根がふかいので、風でもたおれません。", en: "This tree's roots are deep, so it doesn't fall over even in wind." }, accept: ["base", "origin"], hint: "根 = root, literal and figurative. 根本 (fundamental), 根気 (perseverance — 'root energy'), 屋根 (roof)." },
+      ],
+    },
+    {
+      id: "ja-u109l2",
+      unit: 109,
+      lesson: 2,
+      title: "Words with those kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Use the growing kanji in real words: せいさん さんち さんぎょう いくじ しいく こんぽん.",
+      items: [
+        { id: "ja-u109l2-seisan", type: "vocab", front: "せいさん", reading: "seisan", meaning: "production", example: { jp: "せいさんがふえたので、ねだんは少し下がりました。", en: "Production increased, so prices fell a little." }, accept: ["manufacturing", "output", "to produce"], hint: "生産 = 生 (life) + 産 (produce). Its opposite is しょうひ (consumption) — the pair you'll meet in any economics article." },
+        { id: "ja-u109l2-sanchi", type: "vocab", front: "さんち", reading: "sanchi", meaning: "place of origin", example: { jp: "やさいのさんちが書いてあると、安心して買えます。", en: "When the vegetables' place of origin is written on them, I can buy with confidence." }, accept: ["production area", "source", "provenance"], hint: "産地 = 産 (produce) + 地 (land). Printed on every食品 label in a Japanese supermarket — worth being able to read." },
+        { id: "ja-u109l2-ikuji", type: "vocab", front: "いくじ", reading: "ikuji", meaning: "childcare", example: { jp: "いくじはたいへんですが、まいにちあたらしいはっけんがあります。", en: "Childcare is hard work, but there's a new discovery every day." }, accept: ["raising children", "parenting"], hint: "育児 = 育 (raise) + 児 (child). いくじきゅうか = parental leave, a word much discussed in Japan." },
+        { id: "ja-u109l2-shiiku", type: "vocab", front: "しいく", reading: "shiiku", meaning: "animal keeping", example: { jp: "どうぶつ園でしいくのしごとをしている友だちがいます。", en: "I have a friend who works keeping animals at the zoo." }, accept: ["breeding", "rearing", "husbandry"], hint: "飼育 = 飼 (keep) + 育 (raise). The professional word — a zoo keeper is a しいくいん." },
+        { id: "ja-u109l2-konpon", type: "vocab", front: "こんぽん", reading: "konpon", meaning: "the root of it", example: { jp: "こんぽんのげんいんをなおさないと、また同じことがおきます。", en: "Unless we fix the root cause, the same thing will happen again." }, accept: ["fundamental", "basis", "core"], hint: "根本 = 根 (root) + 本 (origin). こんぽんてきに = fundamentally. Both halves mean 'root' — the doubling makes it emphatic." },
+        { id: "ja-u109l2-sangyo", type: "vocab", front: "さんぎょう", reading: "sangyō", meaning: "industry", example: { jp: "この町のさんぎょうは、むかしから木とかみです。", en: "This town's industries have long been timber and paper." }, accept: ["sector", "trade"], hint: "産業 = 産 (produce) + 業 (business). じばさんぎょう = a local industry — the phrase every regional news item uses." },
+      ],
+    },
+    {
+      id: "ja-u109l3",
+      unit: 109,
+      lesson: 3,
+      title: "Making kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read the making kanji: 材 果 煙 酒 化 活 (material, fruit, smoke, alcohol, change, active).",
+      items: [
+        { id: "ja-u109l3-zai", type: "kanji", front: "材", reading: "zai", meaning: "material", example: { jp: "この家は木の材だけでつくられています。", en: "This house is built only from wooden materials." }, accept: ["timber", "stuff", "talent"], hint: "材 = raw material. 木 (tree) + 才 (talent). 材料 (materials), 教材 (teaching materials), 人材 (human talent)." },
+        { id: "ja-u109l3-ka", type: "kanji", front: "果", reading: "ka", meaning: "fruit", example: { jp: "長くつづけた練習の果てに、ゆうしょうしました。", en: "At the end of long, sustained practice, we won." }, accept: ["result", "outcome", "to carry out"], hint: "果 = fruit, and so 'the thing that comes of it'. You already know 結果 (result). 果物 (fruit) keeps the literal sense." },
+        { id: "ja-u109l3-kemuri", type: "kanji", front: "煙", reading: "kemuri", meaning: "smoke", example: { jp: "となりの家から煙が出ていたので、すぐにつうほうしました。", en: "Smoke was coming from the house next door, so I called the authorities at once." }, accept: ["fumes", "to smoke"], hint: "煙 = smoke. 火 (fire) on the left. 禁煙 (no smoking) is on every door in Japan; たばこを吸う is the verb for smoking." },
+        { id: "ja-u109l3-sake", type: "kanji", front: "酒", reading: "sake", meaning: "alcohol", example: { jp: "お酒はのめませんが、その店の食べものは大すきです。", en: "I can't drink alcohol, but I love that restaurant's food." }, accept: ["sake", "liquor", "drink"], hint: "酒 = alcohol in general, not just sake. 氵 (water) + 酉 (a wine jar). 日本酒 is what English calls 'sake'." },
+        { id: "ja-u109l3-ka2", type: "kanji", front: "化", reading: "ka", meaning: "change into", example: { jp: "この町は十年で大きく変化しました。", en: "This town changed greatly in ten years." }, accept: ["transform", "-ization"], hint: "化 = turning into. As a suffix it is English '-ization': 国際化 (internationalization), 高れい化 (ageing of society)." },
+        { id: "ja-u109l3-katsu", type: "kanji", front: "活", reading: "katsu", meaning: "active", example: { jp: "この会は活どうが多くて、まいしゅう何かあります。", en: "This club has a lot of activities — there's something every week." }, accept: ["lively", "life", "activity"], hint: "活 = alive and moving. 氵 (water) + 舌 (tongue). 生活 (daily life), 活動 (activity), 活発 (lively)." },
+      ],
+    },
+    {
+      id: "ja-u109l4",
+      unit: 109,
+      lesson: 4,
+      title: "More words with those kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Use the making kanji in real words: きょうざい せいか きんえん にほんしゅ しょうか かっぱつ.",
+      items: [
+        { id: "ja-u109l4-kyozai", type: "vocab", front: "きょうざい", reading: "kyōzai", meaning: "teaching materials", example: { jp: "いいきょうざいが見つかったので、勉強が楽しくなりました。", en: "I found good study materials, so studying became enjoyable." }, accept: ["study materials", "textbook", "resources"], hint: "教材 = 教 (teach) + 材 (material). Covers books, videos, worksheets — anything you learn from." },
+        { id: "ja-u109l4-seika", type: "vocab", front: "せいか", reading: "seika", meaning: "results achieved", example: { jp: "まいにちれんしゅうしたせいかが、やっと出てきました。", en: "The results of practising every day are finally showing." }, accept: ["outcome", "achievement", "fruits"], hint: "成果 = 成 (become) + 果 (fruit): the fruit of effort. けっか is any result; せいか is a result you earned." },
+        { id: "ja-u109l4-kinen", type: "vocab", front: "きんえん", reading: "kinen", meaning: "no smoking", example: { jp: "この店はぜんぶきんえんなので、空気がきれいです。", en: "This restaurant is entirely non-smoking, so the air is clean." }, accept: ["smoking ban", "to quit smoking"], hint: "禁煙 = 禁 (forbid — u106) + 煙 (smoke). It also means 'to give up smoking': きんえんしています." },
+        { id: "ja-u109l4-nihonshu", type: "vocab", front: "にほんしゅ", reading: "nihonshu", meaning: "sake", example: { jp: "つめたいにほんしゅもおいしいですが、冬はあたたかいほうがすきです。", en: "Cold sake is good too, but in winter I prefer it warm." }, accept: ["rice wine", "Japanese sake"], hint: "日本酒 is what Japanese people call what English calls 'sake'. Saying さけ in Japan means alcohol in general." },
+        { id: "ja-u109l4-shoka", type: "vocab", front: "しょうか", reading: "shōka", meaning: "digestion", example: { jp: "はやく食べると、しょうかによくないそうです。", en: "They say eating quickly is bad for digestion." }, accept: ["to digest", "assimilation"], hint: "消化 = 消 (disappear) + 化 (change into). Also figurative: しごとをしょうかする = to work through a backlog." },
+        { id: "ja-u109l4-kappatsu", type: "vocab", front: "かっぱつ", reading: "kappatsu", meaning: "lively", example: { jp: "かのじょはかっぱつで、だれとでもすぐ話せます。", en: "She's outgoing and can talk to anyone straight away." }, accept: ["active", "energetic", "outgoing"], hint: "活発 = 活 (active) + 発 (emit). Used of people, discussions and markets — anything with energy moving through it." },
+      ],
+    },
   ],
 };

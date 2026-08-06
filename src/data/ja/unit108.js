@@ -1,18 +1,80 @@
-// JA Unit 108 — Characters 5 (B1) (slot: characters-b1-5) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// Unit 108 — かんじ・ばしょ (Place & position kanji) — B1 / JLPT N3
+// 12 new N3 glyphs + 12 companion words. These glyphs write places, so the companion
+// words are the ones that appear on maps, signs and address forms.
 export const UNIT108 = {
   id: "ja-u108",
   lang: "ja",
-  title: "Characters 5 (B1)",
+  title: "かんじ・ばしょ",
   order: 108,
   stage: "b1",
   lessons: [
-    { id: "ja-u108l1", title: "Lesson 1", locked: true },
-    { id: "ja-u108l2", title: "Lesson 2", locked: true },
-    { id: "ja-u108l3", title: "Lesson 3", locked: true },
-    { id: "ja-u108l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u108l1",
+      unit: 108,
+      lesson: 1,
+      title: "Place kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read the place kanji: 園 橋 港 湖 庫 戸 (garden, bridge, harbour, lake, storehouse, door).",
+      items: [
+        { id: "ja-u108l1-en", type: "kanji", front: "園", reading: "en", meaning: "garden", example: { jp: "こうえんの花が咲いたので、たくさんの人が来ています。", en: "The park's flowers have bloomed, so a lot of people are coming." }, accept: ["park", "grounds"], hint: "園 = an enclosed garden — note the box around it. 公園 (park), 動物園 (zoo), 幼稚園 (kindergarten)." },
+        { id: "ja-u108l1-hashi", type: "kanji", front: "橋", reading: "hashi", meaning: "bridge", example: { jp: "この橋をわたると、すぐ駅が見えます。", en: "Once you cross this bridge, you'll see the station right away." }, accept: ["span"], hint: "橋 = bridge. 木 (wood) on the left — bridges were wooden. Careful: はし is also 箸 (chopsticks) and 端 (edge); the pitch differs." },
+        { id: "ja-u108l1-minato", type: "kanji", front: "港", reading: "minato", meaning: "harbour", example: { jp: "港には大きなふねがたくさんとまっています。", en: "Many large ships are moored at the harbour." }, accept: ["port"], hint: "港 = harbour. 氵 (water) on the left, as in every water kanji. 空港 (airport) is literally 'sky harbour'." },
+        { id: "ja-u108l1-mizuumi", type: "kanji", front: "湖", reading: "mizuumi", meaning: "lake", example: { jp: "湖の水はとてもきれいで、山がうつって見えました。", en: "The lake's water was very clear, and the mountain was reflected in it." }, accept: ["loch"], hint: "湖 = lake. 氵 (water) + 古 (old) + 月: water that has sat a long time. Japan's most famous is 琵琶湖." },
+        { id: "ja-u108l1-ko", type: "kanji", front: "庫", reading: "ko", meaning: "storehouse", example: { jp: "つかわないものは、そう庫に入れてあります。", en: "Things we don't use are kept in the storehouse." }, accept: ["warehouse", "depot"], hint: "庫 = a store. 广 (roof) over 車 (vehicle) — originally a shed for carts. 冷蔵庫 (fridge), 倉庫 (warehouse), 車庫 (garage)." },
+        { id: "ja-u108l1-to", type: "kanji", front: "戸", reading: "to", meaning: "door", example: { jp: "風がつよいので、戸をしめておきました。", en: "The wind is strong, so I closed the door." }, accept: ["sliding door", "household"], hint: "戸 = a door — the old sliding kind. It also counts households: 十戸 = ten households. 戸だな = a cupboard." },
+      ],
+    },
+    {
+      id: "ja-u108l2",
+      unit: 108,
+      lesson: 2,
+      title: "Words with those kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Use the place kanji in real words: ゆうえんち きょうりょう みなとまち そうこ とだな しょくぶつえん.",
+      items: [
+        { id: "ja-u108l2-yuenchi", type: "vocab", front: "ゆうえんち", reading: "yūenchi", meaning: "amusement park", example: { jp: "ゆうえんちはこんでいましたが、子どもたちは大よろこびでした。", en: "The amusement park was crowded, but the children were delighted." }, accept: ["theme park", "funfair"], hint: "遊園地 = 遊 (play) + 園 (garden) + 地 (ground). A 公園 is a public park; a ゆうえんち charges for rides." },
+        { id: "ja-u108l2-kyoryo", type: "vocab", front: "きょうりょう", reading: "kyōryō", meaning: "bridge structure", example: { jp: "古いきょうりょうなので、来年つくりなおすそうです。", en: "It's an old bridge, so they say it'll be rebuilt next year." }, accept: ["bridge", "span"], hint: "橋梁 is the engineer's word for a bridge; はし is what you'd say to a friend. Useful when reading about public works." },
+        { id: "ja-u108l2-minatomachi", type: "vocab", front: "みなとまち", reading: "minatomachi", meaning: "port town", example: { jp: "みなとまちで生まれたので、うみの音がなつかしいです。", en: "I was born in a port town, so the sound of the sea makes me nostalgic." }, accept: ["harbour town", "seaport"], hint: "港町 = 港 (harbour) + 町 (town). Japanese builds place-words this way freely: 城下町, 温泉町." },
+        { id: "ja-u108l2-soko", type: "vocab", front: "そうこ", reading: "sōko", meaning: "warehouse", example: { jp: "そうこがいっぱいなので、あたらしいものが入りません。", en: "The warehouse is full, so new items won't fit." }, accept: ["storehouse", "storage"], hint: "倉庫 = 倉 (granary) + 庫 (store). Both halves mean 'store' — Japanese often doubles a meaning to make a solid noun." },
+        { id: "ja-u108l2-todana", type: "vocab", front: "とだな", reading: "todana", meaning: "cupboard", example: { jp: "おさらはとだなの上のほうに入っています。", en: "The plates are in the upper part of the cupboard." }, accept: ["cabinet", "shelf unit"], hint: "戸棚 = 戸 (door) + 棚 (shelf): shelves with doors on. 本だな (bookshelf) has no doors, so no 戸." },
+        { id: "ja-u108l2-shokubutsuen", type: "vocab", front: "しょくぶつえん", reading: "shokubutsuen", meaning: "botanical garden", example: { jp: "しょくぶつえんは町の中にありますが、とてもしずかです。", en: "The botanical garden is in the middle of town, but it's very quiet." }, accept: ["plant garden"], hint: "植物園 = 植物 (plants) + 園. The ～園 suffix names any enclosed collection: 動物園, 遊園地, 農園." },
+      ],
+    },
+    {
+      id: "ja-u108l3",
+      unit: 108,
+      lesson: 3,
+      title: "Position kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read the position kanji: 宿 所 州 周 居 向 (lodging, place, province, circumference, reside, face toward).",
+      items: [
+        { id: "ja-u108l3-yado", type: "kanji", front: "宿", reading: "yado", meaning: "lodging", example: { jp: "山の中の宿にとまったら、星がとてもきれいでした。", en: "When we stayed at an inn in the mountains, the stars were beautiful." }, accept: ["inn", "to stay"], hint: "宿 = a place to stay the night. 宿題 (homework — 'the task you take home'), 民宿 (a family-run inn)." },
+        { id: "ja-u108l3-tokoro", type: "kanji", front: "所", reading: "tokoro", meaning: "place", example: { jp: "しずかな所でゆっくり本を読みたいです。", en: "I want to read a book slowly somewhere quiet." }, accept: ["spot", "location"], hint: "所 = place. In compounds it reads しょ / じょ: 住所 (address), 役所 (public office), 場所 (place)." },
+        { id: "ja-u108l3-shu", type: "kanji", front: "州", reading: "shū", meaning: "province", example: { jp: "アメリカにはたくさんの州があって、ほうりつもちがいます。", en: "America has many states, and the laws differ between them." }, accept: ["state", "region", "continent"], hint: "州 = a large region. Three strokes like river banks. It names US states, and continents: 欧州 (Europe), 豪州 (Australia)." },
+        { id: "ja-u108l3-shu2", type: "kanji", front: "周", reading: "shū", meaning: "circumference", example: { jp: "こうえんの周りを二回走ってから、家に帰りました。", en: "I ran twice around the park and then went home." }, accept: ["around", "surroundings", "lap"], hint: "周 = going round. 周り (mawari) = the area around; 一周 = one lap. Read しゅう in compounds, まわり alone." },
+        { id: "ja-u108l3-i", type: "kanji", front: "居", reading: "i", meaning: "reside", example: { jp: "いま家に居ますから、いつでも来てください。", en: "I'm at home now, so come any time." }, accept: ["to be present", "dwell", "stay"], hint: "居 = be somewhere. The kanji behind います when it means 'to be at a place'. 居間 (living room), 住居 (residence)." },
+        { id: "ja-u108l3-muki", type: "kanji", front: "向", reading: "muki", meaning: "face toward", example: { jp: "つくえを窓の方に向けたら、へやがあかるくなりました。", en: "When I turned the desk toward the window, the room felt brighter." }, accept: ["direction", "to turn toward", "suited to"], hint: "向 = facing. 向きます (to face), 向こう (over there), 子ども向け (aimed at children) — that last one is everywhere." },
+      ],
+    },
+    {
+      id: "ja-u108l4",
+      unit: 108,
+      lesson: 4,
+      title: "More words with those kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Use the position kanji in real words: みんしゅく けんきゅうじょ しゅうい しゅうへん じゅうきょ むかい.",
+      items: [
+        { id: "ja-u108l4-minshuku", type: "vocab", front: "みんしゅく", reading: "minshuku", meaning: "family-run inn", example: { jp: "ホテルより安いので、いつもみんしゅくにとまります。", en: "It's cheaper than a hotel, so I always stay at a family-run inn." }, accept: ["guesthouse", "bed and breakfast"], hint: "民宿 = 民 (people) + 宿 (lodging). A family's home taking guests — cheaper and warmer than a りょかん." },
+        { id: "ja-u108l4-kenkyujo", type: "vocab", front: "けんきゅうじょ", reading: "kenkyūjo", meaning: "research institute", example: { jp: "あにはけんきゅうじょではたらいていて、まいにちおそく帰ります。", en: "My older brother works at a research institute and comes home late every day." }, accept: ["laboratory", "institute"], hint: "研究所 = 研究 (research) + 所 (place). The 所 suffix names a workplace: 事務所 (office), 発電所 (power station)." },
+        { id: "ja-u108l4-shui", type: "vocab", front: "しゅうい", reading: "shūi", meaning: "surroundings", example: { jp: "しゅういがしずかなので、よく休めます。", en: "The surroundings are quiet, so I can rest well." }, accept: ["the area around", "vicinity", "circumference"], hint: "周囲 = 周 (around) + 囲 (enclose). Also used of people: しゅういの人 = those around you." },
+        { id: "ja-u108l4-shuhen", type: "vocab", front: "しゅうへん", reading: "shūhen", meaning: "the area around", example: { jp: "駅のしゅうへんには店が多くて、こまりません。", en: "There are plenty of shops around the station, so I don't struggle." }, accept: ["vicinity", "outskirts", "nearby"], hint: "周辺 = 周 (around) + 辺 (edge). しゅうい is the immediate ring; しゅうへん is the wider neighbourhood." },
+        { id: "ja-u108l4-jukyo", type: "vocab", front: "じゅうきょ", reading: "jūkyo", meaning: "residence", example: { jp: "じゅうきょがきまってから、しごとをさがし始めました。", en: "Once my residence was settled, I started looking for work." }, accept: ["dwelling", "housing", "home"], hint: "住居 = 住 (live) + 居 (reside). The formal word on forms; in speech you'd say 家 or すまい." },
+        { id: "ja-u108l4-mukai", type: "vocab", front: "むかい", reading: "mukai", meaning: "opposite side", example: { jp: "駅のむかいにあるきっさ店で、いつもコーヒーをのみます。", en: "I always drink coffee at the café opposite the station." }, accept: ["across from", "facing", "the other side"], hint: "向かい = directly across from. ～のむかいに = 'opposite ～'. Its neighbour むこう means 'over there', a vaguer distance." },
+      ],
+    },
   ],
 };
