@@ -6,19 +6,20 @@
 // Days and months are lowercase in Spanish; that is not a typo.
 // Days are taught WITH el, because el lunes is both "Monday" and "on Monday" —
 // the article is where the meaning lives.
-// DEFERRED to block 3 (Strand D coverage): ayer, el fin de semana, and the
-// seasons. Ayer belongs next to unit 14's past tense, not here.
+// DEFERRED to block 3 (Strand D coverage): ayer and the seasons. Ayer belongs
+// next to unit 14's past tense, not here.
 // TWO EXAMPLES LEAN ON BLOCK 1's numbers unit (slot 5): siete and doce. Both sit
 // well inside any A1 numbers unit, and unit 5 comes before unit 9, so the
 // vocab-order rule holds. Flagged in the hand-back.
-// ⚠️ OWNERSHIP RISK — LESSON 4, FOR THE MERGE SEAT. el día, la semana, el mes,
-// el año, hoy and mañana are calendar words, which is why they sit here, but
-// slot 5 is titled "Numbers and time" and a beginner time unit is exactly where
-// they usually live. If block 1 teaches any of the six, "lower slot number wins"
-// makes THESE the duplicates to delete, not block 1's — and unlike the siete /
-// doce dependency above (which would fail silently), a collision here is a hard
-// lint error at merge. Block 1 was unauthored when this was written, so the call
-// could not be checked. Delete from here, never from block 1.
+// OWNERSHIP — LESSON 4, RESOLVED 2026-08-05. The risk flagged here was real:
+// block 1 teaches el día and hoy in its slot-5 time unit, and el año in its
+// slot-1 sounds unit. Lower slot wins, so all three were removed from this
+// lesson and replaced with el fin de semana, el calendario and la fecha, which
+// block 1 does not teach. Verified against content/es-a1-block1 at 567a4a3, not
+// assumed. la semana, el mes and mañana were checked and are clear — block 1
+// teaches la mañana (the morning), a different front from bare mañana.
+// Examples here still use día / días / hoy freely: block 1 teaches them at units
+// 1 and 5, both before this one, so the vocab-order rule is satisfied.
 export const ES_UNIT9 = {
   id: "es-u9",
   lang: "es",
@@ -82,16 +83,16 @@ export const ES_UNIT9 = {
       id: "es-u9l4",
       unit: 9,
       lesson: 4,
-      title: "Today and tomorrow",
+      title: "The calendar",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Place things on the calendar: el día, la semana, el mes, el año — and say whether they're hoy or mañana.",
+      canDo: "Place things on the calendar: la semana, el fin de semana, el mes, el calendario, la fecha — and say what happens mañana.",
       items: [
-        { id: "es-u9l4-dia", type: "vocab", front: "el día", reading: "eldia", meaning: "day", example: { jp: "El domingo es un día tranquilo.", en: "Sunday is a quiet day." }, accept: ["the day"], hint: "Ends in -a but it's masculine: el día, not la día — straight from Latin dies. It shares that oddity with el problema, though that one really is Greek." },
         { id: "es-u9l4-semana", type: "vocab", front: "la semana", reading: "lasemana", meaning: "week", example: { jp: "En una semana hay siete días.", en: "There are seven days in a week." }, accept: ["the week"], hint: "From septimana, \"seven\" — the number is hiding inside the word." },
+        { id: "es-u9l4-findesemana", type: "vocab", front: "el fin de semana", reading: "elfindesemana", meaning: "weekend", example: { jp: "El fin de semana hay mercado en la plaza.", en: "At the weekend there's a market in the square." }, accept: ["the weekend", "week end"], hint: "Literally \"end of week\". The plural pluralises the front, not the back: los fines de semana." },
         { id: "es-u9l4-mes", type: "vocab", front: "el mes", reading: "elmes", meaning: "month", example: { jp: "Agosto es un mes de calor.", en: "August is a hot month." }, accept: ["the month"], hint: "Same root as \"menstrual\" and as English \"month\" — all of them measure la luna's cycle." },
-        { id: "es-u9l4-ano", type: "vocab", front: "el año", reading: "elano", meaning: "year", example: { jp: "En un año hay doce meses.", en: "There are twelve months in a year." }, accept: ["the year"], hint: "The ñ is essential here — año is a year, ano is not. Say the ny of \"canyon\": A-nyo." },
-        { id: "es-u9l4-hoy", type: "vocab", front: "hoy", reading: "hoy", meaning: "today", example: { jp: "Hoy es lunes.", en: "Today is Monday." }, accept: ["this day"], hint: "The whole question and answer: ¿Qué día es hoy? — Hoy es martes." },
+        { id: "es-u9l4-calendario", type: "vocab", front: "el calendario", reading: "elcalendario", meaning: "calendar", example: { jp: "En el calendario hay doce meses.", en: "There are twelve months in the calendar." }, accept: ["the calendar"], hint: "Where every day and month name you've just learned lives." },
+        { id: "es-u9l4-fecha", type: "vocab", front: "la fecha", reading: "lafecha", meaning: "date", example: { jp: "La fecha del concierto es el jueves.", en: "The date of the concert is Thursday." }, accept: ["the date", "calendar date"], hint: "The calendar date, never the fruit and never a romantic date — ¿Qué fecha es? asks what the date is." },
         { id: "es-u9l4-manana", type: "vocab", front: "mañana", reading: "manana", meaning: "tomorrow", example: { jp: "Mañana es martes.", en: "Tomorrow is Tuesday." }, accept: ["the next day"], hint: "Two jobs: on its own, mañana is tomorrow. With an article, la mañana is the morning — this card wants the bare word, so: tomorrow." },
       ],
     },

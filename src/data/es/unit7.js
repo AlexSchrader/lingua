@@ -27,16 +27,27 @@
 //     — which means the copulas and the existential (es/son, está/están, hay)
 //     appear untaught in most of the 121 examples, alongside a closed set of
 //     function words (el/la/los/las, un/una, y, no, en, de, a, al, muy, qué).
-//     ⚠️ BE HONEST ABOUT THIS: fr/unit1.js grants a narrower allowance — four
-//     words, each glossed by a hint at first use — and this widens it to ~18
-//     including the verbs that carry every sentence. The runbook itself only
-//     exempts proper names and transparent cognates. It is widened because the
-//     band template puts ALL grammar at units 12-14, after all ten thematic
-//     units, which makes an example sentence in units 2-11 of any Latin-script
-//     language impossible to write without an untaught verb. That is a hole in
-//     the standard, not a local choice — escalated to Alex in the hand-back.
-//   - Unit titles stay in English, as the scaffold set them: the shared base all
-//     three blocks branched from, and a Spanish title is unreadable on day one.
+//     ⚠️ MEASURED AGAINST THE OTHER BLOCKS, 2026-08-05 — most of that allowance
+//     turned out to be covered, and this is the honest accounting. Block 1's
+//     sounds unit teaches es, son, hay, y, no, en, de, un, una, muy, qué as real
+//     cards at units 1-6, all BEFORE this block, so those are not forward
+//     references at all. What genuinely remains untaught until unit 12 is the
+//     definite articles (el/la/los/las), estar (está/están) and a/al. Roughly a
+//     third of the examples here lean on one of those.
+//     That residue is a hole in the STANDARD, not a local shortcut: the band
+//     template puts all grammar at units 12-14, after all ten thematic units, so
+//     no example sentence in units 2-11 of any Latin-script language can avoid
+//     an untaught article or copula. Escalated to Alex; fr will hit it too.
+//     NOTE for the merge seat: `lint:curriculum`'s example-scope check only
+//     warns when a word is taught LATER in the same language, so these surface
+//     as warnings on the COMBINED tree and are silent on this branch alone.
+//   - UNIT titles are in Spanish (La ciudad, Los colores y el tiempo…), matching
+//     how ja and fr name theirs; LESSON titles and canDo lines stay in English,
+//     since those are what a beginner reads to know what a lesson is for. This
+//     block first shipped with English unit titles copied from the scaffold —
+//     Alex overrode that in 24fabd0, and Spanish is the right call. ⚠️ BLOCKS 1
+//     AND 3: the scaffold's English titles are still on units 1-6 and 12-20, so
+//     the Ladder reads mixed until you rename yours too. Match this convention.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const ES_UNIT7 = {
   id: "es-u7",
@@ -86,12 +97,12 @@ export const ES_UNIT7 = {
       title: "Public buildings",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name the buildings a town is made of: la escuela, la universidad, la biblioteca, el museo, la iglesia, el hotel.",
+      canDo: "Name the buildings a town is made of: la escuela, la universidad, la biblioteca, el cine, la iglesia, el hotel.",
       items: [
         { id: "es-u7l3-escuela", type: "vocab", front: "la escuela", reading: "laescuela", meaning: "school", example: { jp: "Hay una escuela en el pueblo.", en: "There's a school in the town." }, accept: ["the school"], hint: "Spanish never starts a word with s + consonant, so it adds an e: escuela, España, estación." },
         { id: "es-u7l3-universidad", type: "vocab", front: "la universidad", reading: "launiversidad", meaning: "university", example: { jp: "La universidad está en el centro de la ciudad.", en: "The university is in the city centre." }, accept: ["college", "the university"], hint: "Another -dad word, so another feminine one: la universidad." },
         { id: "es-u7l3-biblioteca", type: "vocab", front: "la biblioteca", reading: "labiblioteca", meaning: "library", example: { jp: "Hay una biblioteca en la universidad.", en: "There's a library at the university." }, accept: ["the library"], hint: "The pair to keep straight: biblioteca = library (you borrow), librería = bookshop (you buy)." },
-        { id: "es-u7l3-museo", type: "vocab", front: "el museo", reading: "elmuseo", meaning: "museum", example: { jp: "El museo de la ciudad es muy famoso.", en: "The city museum is very famous." }, accept: ["the museum"] },
+        { id: "es-u7l3-cine", type: "vocab", front: "el cine", reading: "elcine", meaning: "cinema", example: { jp: "Hay un cine en el centro.", en: "There's a cinema in the centre." }, accept: ["the cinema", "movie theater", "movies", "movie theatre"], hint: "Ir al cine is to go to the movies. Short for cinematógrafo — the c before i is an s sound: SI-ne." },
         { id: "es-u7l3-iglesia", type: "vocab", front: "la iglesia", reading: "laiglesia", meaning: "church", example: { jp: "La iglesia está en la plaza.", en: "The church is in the square." }, accept: ["the church"], hint: "Same root as \"ecclesiastical\". The g is hard here, like in \"glue\" — Spanish g only turns throaty before e or i: i-GLE-sia." },
         { id: "es-u7l3-hotel", type: "vocab", front: "el hotel", reading: "elhotel", meaning: "hotel", example: { jp: "Hay un hotel en la calle Mayor.", en: "There's a hotel on Calle Mayor." }, accept: ["the hotel"], hint: "Spelled like English, said without the h — the Spanish h is always silent: o-TEL." },
       ],
@@ -103,13 +114,13 @@ export const ES_UNIT7 = {
       title: "Getting around",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say how you travel and where you catch it: la estación, el tren, el autobús, la parada, el coche, el aeropuerto.",
+      canDo: "Say how you travel and where you catch it: la estación, el tren, el autobús, la parada, el metro, el aeropuerto.",
       items: [
         { id: "es-u7l4-estacion", type: "vocab", front: "la estación", reading: "laestacion", meaning: "station", example: { jp: "La estación está en el centro.", en: "The station is in the centre." }, accept: ["the station", "train station"], hint: "Also means \"season\" — las cuatro estaciones are the four seasons of the year." },
         { id: "es-u7l4-tren", type: "vocab", front: "el tren", reading: "eltren", meaning: "train", example: { jp: "Hay un tren a Madrid.", en: "There's a train to Madrid." }, accept: ["the train"] },
         { id: "es-u7l4-autobus", type: "vocab", front: "el autobús", reading: "elautobus", meaning: "bus", example: { jp: "El autobús está en la plaza.", en: "The bus is in the square." }, accept: ["the bus", "coach"], hint: "The stress lands on the last syllable, and that is what the accent marks: au-to-BÚS." },
         { id: "es-u7l4-parada", type: "vocab", front: "la parada", reading: "laparada", meaning: "stop", example: { jp: "Hay una parada de autobús en la calle Mayor.", en: "There's a bus stop on Calle Mayor." }, accept: ["bus stop", "the stop"], hint: "From parar, to stop — a parada is where the bus stops for a moment." },
-        { id: "es-u7l4-coche", type: "vocab", front: "el coche", reading: "elcoche", meaning: "car", example: { jp: "El coche está en la calle.", en: "The car is in the street." }, accept: ["the car", "automobile"], hint: "In Spain el coche; in most of Latin America you'll hear el carro or el auto." },
+        { id: "es-u7l4-metro", type: "vocab", front: "el metro", reading: "elmetro", meaning: "underground", example: { jp: "Hay una parada de metro en el centro.", en: "There's an underground stop in the centre." }, accept: ["subway", "metro", "the underground", "tube"], hint: "Madrid and Barcelona both have one. El metro is also a metre of length — context decides." },
         { id: "es-u7l4-aeropuerto", type: "vocab", front: "el aeropuerto", reading: "elaeropuerto", meaning: "airport", example: { jp: "Hay un tren al aeropuerto.", en: "There's a train to the airport." }, accept: ["the airport"], hint: "aero + puerto — an air port. And al is just a + el squeezed together." },
       ],
     },
