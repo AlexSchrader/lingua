@@ -66,7 +66,7 @@ export const FR_UNIT47 = {
         { id: "fr-u47l3-ledebut", type: "vocab", front: "le début", reading: "ledebut", meaning: "the beginning", example: { jp: "Au début, c'était difficile.", en: "At the beginning it was difficult." }, accept: ["start", "the start", "beginning"], hint: "au début = at first — one of the most useful two-word phrases in French." },
         { id: "fr-u47l3-lafin", type: "vocab", front: "la fin", reading: "lafin", meaning: "the end", example: { jp: "À la fin de la semaine, je pars.", en: "At the end of the week, I leave." }, accept: ["end", "ending", "the ending"], hint: "Careful: la fin (the end) and la faim (hunger, Unit 9) sound exactly alike." },
         { id: "fr-u47l3-lecote", type: "vocab", front: "le côté", reading: "lecote", meaning: "the side", example: { jp: "Ma chambre est de ce côté.", en: "My room is on this side." }, accept: ["side", "way", "the side"], hint: "à côté de = next to — literally \"at the side of\"." },
-        { id: "fr-u47l3-lefait", type: "vocab", front: "le fait", reading: "lefait", meaning: "the fact", example: { jp: "Ce fait est très important.", en: "This fact is very important." }, accept: ["fact", "the fact"], hint: "en fait (Unit 36) is \"in fact\" — same little word doing the same job." },
+        { id: "fr-u47l3-lefait", type: "vocab", front: "le fait", reading: "lefait", meaning: "the fact", example: { jp: "Ce n'est pas une idée, c'est un fait.", en: "It's not an idea, it's a fact." }, accept: ["fact", "the fact"], hint: "en fait (Unit 36) is \"in fact\" — same little word doing the same job." },
       ],
     },
     {

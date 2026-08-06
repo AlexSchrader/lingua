@@ -29,12 +29,12 @@ export const FR_UNIT41 = {
       dominantMode: "recall",
       canDo: "Talk about what's over your head: une planète, les étoiles, l'espace, l'univers, un télescope.",
       items: [
-        { id: "fr-u41l1-laplanete", type: "vocab", front: "la planète", reading: "laplanete", meaning: "the planet", example: { jp: "Il y a huit planètes.", en: "There are eight planets." }, accept: ["planet", "world", "the planet"] },
+        { id: "fr-u41l1-laplanete", type: "vocab", front: "la planète", reading: "laplanete", meaning: "the planet", example: { jp: "Cette planète est très loin.", en: "This planet is very far away." }, accept: ["planet", "world", "the planet"] },
         { id: "fr-u41l1-letoile", type: "vocab", front: "l'étoile", reading: "letoile", meaning: "the star", example: { jp: "Il y a beaucoup d'étoiles dans le ciel.", en: "There are a lot of stars in the sky." }, accept: ["star", "the star"] },
         { id: "fr-u41l1-lespace", type: "vocab", front: "l'espace", reading: "lespace", meaning: "space", example: { jp: "Il fait très froid dans l'espace.", en: "It's very cold in space." }, accept: ["space", "room", "outer space"], hint: "Also room in the everyday sense: il n'y a pas assez d'espace." },
         { id: "fr-u41l1-lunivers", type: "vocab", front: "l'univers", reading: "lunivers", meaning: "the universe", example: { jp: "L'univers est très grand.", en: "The universe is very big." }, accept: ["universe", "cosmos", "the universe"] },
         { id: "fr-u41l1-letelescope", type: "vocab", front: "le télescope", reading: "letelescope", meaning: "the telescope", example: { jp: "Je regarde les étoiles avec un télescope.", en: "I look at the stars with a telescope." }, accept: ["telescope", "the telescope"] },
-        { id: "fr-u41l1-lafusee", type: "vocab", front: "la fusée", reading: "lafusee", meaning: "the rocket", example: { jp: "La fusée part dans l'espace.", en: "The rocket leaves for space." }, accept: ["rocket", "the rocket", "spacecraft"] },
+        { id: "fr-u41l1-lafusee", type: "vocab", front: "la fusée", reading: "lafusee", meaning: "the rocket", example: { jp: "La fusée part dans l'espace.", en: "The rocket goes off into space." }, accept: ["rocket", "the rocket", "spacecraft"] },
       ],
     },
     {

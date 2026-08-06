@@ -20,14 +20,14 @@ export const FR_UNIT42 = {
       title: "Going out",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Plan an evening out: le théâtre, un concert, un spectacle, une exposition, un festival.",
+      canDo: "Plan an evening out and say how it went: le théâtre, un concert, un spectacle, une exposition, un festival.",
       items: [
         { id: "fr-u42l1-letheatre", type: "vocab", front: "le théâtre", reading: "letheatre", meaning: "the theatre", example: { jp: "Nous allons au théâtre ce soir.", en: "We're going to the theatre this evening." }, accept: ["theater", "the theatre", "playhouse"] },
         { id: "fr-u42l1-leconcert", type: "vocab", front: "le concert", reading: "leconcert", meaning: "the concert", example: { jp: "Le concert commence à neuf heures.", en: "The concert starts at nine." }, accept: ["concert", "gig", "the concert"] },
         { id: "fr-u42l1-lespectacle", type: "vocab", front: "le spectacle", reading: "lespectacle", meaning: "the show", example: { jp: "Le spectacle est très beau.", en: "The show is beautiful." }, accept: ["show", "performance", "the show"] },
         { id: "fr-u42l1-lexposition", type: "vocab", front: "l'exposition", reading: "lexposition", meaning: "the exhibition", example: { jp: "Il y a une exposition en ville.", en: "There's an exhibition in town." }, accept: ["exhibition", "exhibit", "show", "display"], hint: "Everyone says une expo." },
         { id: "fr-u42l1-lefestival", type: "vocab", front: "le festival", reading: "lefestival", meaning: "the festival", example: { jp: "Le festival commence en juillet.", en: "The festival starts in July." }, accept: ["festival", "the festival"] },
-        { id: "fr-u42l1-lasortie", type: "vocab", front: "la sortie", reading: "lasortie", meaning: "the outing", example: { jp: "Ce soir, nous avons une sortie au théâtre.", en: "This evening we have an outing to the theatre." }, accept: ["outing", "trip", "the outing", "the exit"], hint: "Also the way out — la sortie is what's written over the exit door." },
+        { id: "fr-u42l1-lepublic", type: "vocab", front: "le public", reading: "lepublic", meaning: "the audience", example: { jp: "Le public écoute le concert.", en: "The audience listens to the concert." }, accept: ["audience", "the public", "crowd"], hint: "The people watching — at a concert, a play, a match. The adjective public exists too, but this is the noun." },
       ],
     },
     {
