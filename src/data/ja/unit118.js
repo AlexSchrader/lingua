@@ -1,10 +1,18 @@
 // JA Unit 118 — もんだい・かいけつ (Problems and solutions) — B1 / JLPT N3
 // ─────────────────────────────────────────────────────────────────────────────
 // Block-2 house rules, applied to every unit in this block (118-136):
-//   • Verbs are headworded in the ～ます form. The corpus is 208 ます-fronts to 11
-//     plain ones, and the form matters beyond style: front-uniqueness only catches
-//     an accidental re-teach when the new front is spelled the way the old one is.
-//     Headwording こまる when こまります already ships would have slipped through.
+//   • Verbs are headworded in the PLAIN form. This reverses the first draft, which
+//     used ～ます on a corpus-wide count of 208 ます to 11 plain. That count was real
+//     and the conclusion was still wrong: the neighbours are what matter, and both
+//     of them are plain — the newest shipped units (u88-u98) and, decisively, block
+//     1 of this same band (84 plain-shaped fronts to 1 ます). The draft's own second
+//     reason — that front-uniqueness only catches a re-teach when the new front is
+//     spelled like the old one — is symmetric between the forms, so it argued for
+//     matching the neighbours, not for ます. Headwording in ます against a plain-form
+//     neighbour manufactured EIGHT invisible re-teaches of words block 1 already
+//     teaches (たしかめる うたがう ふせぐ みとめる ことわる すすめる ふりかえる へる):
+//     no validator compares たしかめます to たしかめる. Switching to plain turned all
+//     eight into ordinary duplicate-front errors, which is how they were found.
 //   • Examples are kana, polite register. 2200 shipped ja examples are 11.5% kanji
 //     and that 11.5% is entirely the kanji units — vocab units are kana, and this
 //     block keeps that split. Polite ます/です throughout gives block 3's register
@@ -28,10 +36,10 @@ export const UNIT118 = {
       title: "When something goes wrong",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Say that something has gone wrong and how much it is bothering you: トラブル なやみます ミス まちがい めんどう くじょう.",
+      canDo: "Say that something has gone wrong and how much it is bothering you: トラブル なやむ ミス まちがい めんどう くじょう.",
       items: [
         { id: "ja-u118l1-toraburu", type: "vocab", front: "トラブル", reading: "toraburu", meaning: "trouble", example: { jp: "かいしゃでトラブルがあったので、かえるのがおそくなりました。", en: "There was trouble at work, so I got home late." }, accept: ["problem", "issue"] },
-        { id: "ja-u118l1-nayamimasu", type: "vocab", front: "なやみます", reading: "nayamimasu", meaning: "agonize over", example: { jp: "しごとのことでなやんでいますが、まだだれにもそうだんしていません。", en: "I've been agonizing over work, but I haven't talked to anyone about it yet." }, accept: ["to worry over", "be torn", "struggle with"] },
+        { id: "ja-u118l1-nayamu", type: "vocab", front: "なやむ", reading: "nayamu", meaning: "agonize over", example: { jp: "しごとのことでなやんでいますが、まだだれにもそうだんしていません。", en: "I've been agonizing over work, but I haven't talked to anyone about it yet." }, accept: ["to worry over", "be torn", "struggle with"] },
         { id: "ja-u118l1-misu", type: "vocab", front: "ミス", reading: "misu", meaning: "slip-up", example: { jp: "ちいさなミスでしたが、けっかはとてもたいへんでした。", en: "It was a small slip-up, but the consequences were serious." }, accept: ["mistake", "error"] },
         { id: "ja-u118l1-machigai", type: "vocab", front: "まちがい", reading: "machigai", meaning: "mistake", example: { jp: "じゅうしょにまちがいがあって、にもつがかえってきました。", en: "There was a mistake in the address, so the parcel came back." }, accept: ["error", "mix-up"] },
         { id: "ja-u118l1-mendo", type: "vocab", front: "めんどう", reading: "mendō", meaning: "a hassle", example: { jp: "そうじはめんどうですが、しないとへやがきたなくなります。", en: "Cleaning is a hassle, but if I don't do it the room gets dirty." }, accept: ["troublesome", "bothersome", "a pain"] },
@@ -45,14 +53,14 @@ export const UNIT118 = {
       title: "Sizing it up",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Judge how serious a problem is and what it has affected: しんこく そんがい えいきょう たしかめます うたがいます きにします.",
+      canDo: "Judge how serious a problem is and what is actually wrong with it: しんこく そんがい けっかん やっかい くろう きにする.",
       items: [
         { id: "ja-u118l2-shinkoku", type: "vocab", front: "しんこく", reading: "shinkoku", meaning: "serious", example: { jp: "びょうきはしんこくでしたが、いまはとてもげんきです。", en: "The illness was serious, but he is very well now." }, accept: ["grave", "severe"] },
         { id: "ja-u118l2-songai", type: "vocab", front: "そんがい", reading: "songai", meaning: "damage", example: { jp: "たいふうでそんがいがおおきくて、みせはやすみました。", en: "The typhoon damage was big, so the shop closed." }, accept: ["loss", "harm", "losses"] },
-        { id: "ja-u118l2-eikyo", type: "vocab", front: "えいきょう", reading: "eikyō", meaning: "effect", example: { jp: "あめのえいきょうででんしゃはとまりましたが、バスはうごいていました。", en: "The trains stopped from the effect of the rain, but the buses were running." }, accept: ["influence", "impact"] },
-        { id: "ja-u118l2-tashikamemasu", type: "vocab", front: "たしかめます", reading: "tashikamemasu", meaning: "make sure of", example: { jp: "じかんをたしかめてから、えきへいきました。", en: "I made sure of the time, and then went to the station." }, accept: ["to check", "verify", "confirm"] },
-        { id: "ja-u118l2-utagaimasu", type: "vocab", front: "うたがいます", reading: "utagaimasu", meaning: "doubt", example: { jp: "さいしょはうたがいましたが、はなしはほんとうでした。", en: "At first I doubted it, but the story was true." }, accept: ["to suspect", "be sceptical", "question"] },
-        { id: "ja-u118l2-kinishimasu", type: "vocab", front: "きにします", reading: "kinishimasu", meaning: "worry about", example: { jp: "みんなのいけんをきにしていたら、なにもきめられません。", en: "If you worry about everyone's opinions, you can't decide anything." }, accept: ["to mind", "care about", "let it bother you"] },
+        { id: "ja-u118l2-kekkan", type: "vocab", front: "けっかん", reading: "kekkan", meaning: "a defect", example: { jp: "くるまにけっかんがみつかったので、みせにもどしました。", en: "A defect was found in the car, so I took it back to the shop." }, accept: ["fault", "flaw", "shortcoming"] },
+        { id: "ja-u118l2-yakkai", type: "vocab", front: "やっかい", reading: "yakkai", meaning: "troublesome", example: { jp: "やっかいなしごとですが、だれかがしなければなりません。", en: "It's a troublesome job, but someone has to do it." }, accept: ["a nuisance", "awkward", "burdensome"] },
+        { id: "ja-u118l2-kuro", type: "vocab", front: "くろう", reading: "kurō", meaning: "hardship", example: { jp: "はじめはくろうしましたが、いまはなれました。", en: "I had a hard time at first, but I'm used to it now." }, accept: ["trouble", "toil", "having a hard time"] },
+        { id: "ja-u118l2-kinisuru", type: "vocab", front: "きにする", reading: "kinisuru", meaning: "worry about", example: { jp: "みんなのいけんをきにしていたら、なにもきめられません。", en: "If you worry about everyone's opinions, you can't decide anything." }, accept: ["to mind", "care about", "let it bother you"] },
       ],
     },
     {
@@ -62,14 +70,14 @@ export const UNIT118 = {
       title: "Dealing with it",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Describe how a problem is being handled, step by step: たいおう しょり てつづき かくにん ていあん ふせぎます.",
+      canDo: "Describe how a problem is being handled, step by step: たいしょ しょり てつづき てま ていあん そち.",
       items: [
-        { id: "ja-u118l3-taio", type: "vocab", front: "たいおう", reading: "taiō", meaning: "handling", example: { jp: "みせのたいおうがよかったので、またいきたいです。", en: "The shop's handling of it was good, so I want to go again." }, accept: ["response", "service", "dealing with"] },
+        { id: "ja-u118l3-taisho", type: "vocab", front: "たいしょ", reading: "taisho", meaning: "dealing with it", example: { jp: "はやくたいしょしたので、おおきなもんだいになりませんでした。", en: "We dealt with it quickly, so it didn't become a big problem." }, accept: ["handling", "coping with", "taking action on"] },
         { id: "ja-u118l3-shori", type: "vocab", front: "しょり", reading: "shori", meaning: "processing", example: { jp: "メールのしょりがおわってから、ひるごはんをたべます。", en: "I'll eat lunch after the processing of the emails is finished." }, accept: ["dealing with", "handling", "disposal"] },
         { id: "ja-u118l3-tetsuzuki", type: "vocab", front: "てつづき", reading: "tetsuzuki", meaning: "paperwork", example: { jp: "ぎんこうのてつづきがおわったので、あんしんしました。", en: "The bank paperwork is finished, so I felt relieved." }, accept: ["procedure", "formalities", "process"] },
-        { id: "ja-u118l3-kakunin", type: "vocab", front: "かくにん", reading: "kakunin", meaning: "confirmation", example: { jp: "よやくをかくにんしてから、いえをでました。", en: "I confirmed the reservation, and then left the house." }, accept: ["checking", "verification"] },
+        { id: "ja-u118l3-tema", type: "vocab", front: "てま", reading: "tema", meaning: "time and effort", example: { jp: "てまはかかりますが、じぶんでつくるほうがやすいです。", en: "It takes time and effort, but making it yourself is cheaper." }, accept: ["trouble", "labour", "the work involved"] },
         { id: "ja-u118l3-teian", type: "vocab", front: "ていあん", reading: "teian", meaning: "proposal", example: { jp: "ともだちがえいがをていあんしたので、いっしょにみにいきました。", en: "A friend proposed a film, so we went to see it together." }, accept: ["suggestion", "proposing"] },
-        { id: "ja-u118l3-fusegimasu", type: "vocab", front: "ふせぎます", reading: "fusegimasu", meaning: "prevent", example: { jp: "てをあらえば、びょうきをふせぐことができます。", en: "If you wash your hands, you can prevent illness." }, accept: ["to protect against", "guard against", "stop"] },
+        { id: "ja-u118l3-sochi", type: "vocab", front: "そち", reading: "sochi", meaning: "a measure taken", example: { jp: "みせはすぐにそちをとりましたが、おきゃくさんはおこっていました。", en: "The shop took measures at once, but the customer was angry." }, accept: ["steps", "action taken", "provision"] },
       ],
     },
     {
@@ -79,14 +87,14 @@ export const UNIT118 = {
       title: "Getting to a solution",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Say how a problem was resolved and what will stop it happening again: かいけつ かいぜん たいさく よぼう たすかります けっきょく.",
+      canDo: "Say how a problem was resolved and what will stop it happening again: かいけつ かいしょう しゅうり よぼう たすかる なんとか.",
       items: [
         { id: "ja-u118l4-kaiketsu", type: "vocab", front: "かいけつ", reading: "kaiketsu", meaning: "solution", example: { jp: "もんだいはかいけつしましたが、じかんがとてもかかりました。", en: "The problem was solved, but it took a lot of time." }, accept: ["resolution", "settlement", "solving"] },
-        { id: "ja-u118l4-kaizen", type: "vocab", front: "かいぜん", reading: "kaizen", meaning: "improvement", example: { jp: "みせのたいおうがかいぜんされたので、おきゃくさんがおおくなりました。", en: "The shop's handling was improved, so there are more customers." }, accept: ["betterment", "improving"] },
-        { id: "ja-u118l4-taisaku", type: "vocab", front: "たいさく", reading: "taisaku", meaning: "countermeasure", example: { jp: "かぜのたいさくとしててをあらっていますが、それでもひきます。", en: "I wash my hands as a countermeasure against colds, but I still catch them." }, accept: ["measure", "precaution", "steps against"] },
+        { id: "ja-u118l4-kaisho", type: "vocab", front: "かいしょう", reading: "kaishō", meaning: "clearing up", example: { jp: "みずぶそくはかいしょうしましたが、まだあんしんできません。", en: "The water shortage has been cleared up, but we still can't relax." }, accept: ["resolution", "dissolving", "doing away with"] },
+        { id: "ja-u118l4-shuri", type: "vocab", front: "しゅうり", reading: "shūri", meaning: "repair", example: { jp: "しゅうりにだしましたが、あたらしいのをかうほうがやすいそうです。", en: "I sent it for repair, but apparently buying a new one is cheaper." }, accept: ["fixing", "mending", "a repair"] },
         { id: "ja-u118l4-yobo", type: "vocab", front: "よぼう", reading: "yobō", meaning: "prevention", example: { jp: "びょうきのよぼうにはうんどうがたいせつですが、つづけるのがむずかしいです。", en: "Exercise matters for preventing illness, but keeping it up is the difficult part." }, accept: ["precaution", "preventing"] },
-        { id: "ja-u118l4-tasukarimasu", type: "vocab", front: "たすかります", reading: "tasukarimasu", meaning: "be a big help", example: { jp: "てつだってくれて、ほんとうにたすかりました。", en: "You helped me out — it was a real help." }, accept: ["to be saved", "be a relief", "be grateful for"] },
-        { id: "ja-u118l4-kekkyoku", type: "vocab", front: "けっきょく", reading: "kekkyoku", meaning: "in the end", example: { jp: "みんなでたくさんはなしましたが、けっきょくなにもきめませんでした。", en: "We all talked a lot, but in the end we decided nothing." }, accept: ["after all", "ultimately", "finally"] },
+        { id: "ja-u118l4-tasukaru", type: "vocab", front: "たすかる", reading: "tasukaru", meaning: "be a big help", example: { jp: "てつだってくれて、ほんとうにたすかりました。", en: "You helped me out — it was a real help." }, accept: ["to be saved", "be a relief", "be grateful for"] },
+        { id: "ja-u118l4-nantoka", type: "vocab", front: "なんとか", reading: "nantoka", meaning: "somehow", example: { jp: "じかんはありませんでしたが、なんとかまにあいました。", en: "There wasn't much time, but somehow I made it." }, accept: ["one way or another", "manage to", "just about"] },
       ],
     },
   ],

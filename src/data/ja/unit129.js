@@ -1,5 +1,5 @@
 // JA Unit 129 — しぜん・かんきょう (Environment and place) — B1 / JLPT N3
-// Block-2 house rules are documented in unit118.js.
+// Block-2 house rules are documented in unit118.js (plain-form verb headwords).
 //
 // The scaffold slot is "Environment and place", which is two things; the unit takes
 // both rather than picking one, and orders them so they connect: the land you have
@@ -35,13 +35,13 @@ export const UNIT129 = {
       title: "What is going wrong",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Talk about pollution, warming and waste, and what is shrinking: おせん おんだんか はいき はかい へります リサイクル.",
+      canDo: "Talk about pollution, warming, waste and what is given off: おせん おんだんか はいき はかい はいしゅつ リサイクル.",
       items: [
         { id: "ja-u129l2-osen", type: "vocab", front: "おせん", reading: "osen", meaning: "pollution", example: { jp: "かわのおせんがひどかったので、さかながいなくなりました。", en: "The pollution in the river was bad, so the fish disappeared." }, accept: ["contamination", "polluting"] },
         { id: "ja-u129l2-ondanka", type: "vocab", front: "おんだんか", reading: "ondanka", meaning: "global warming", example: { jp: "おんだんかがすすんでいるので、ふゆもあまりさむくありません。", en: "Global warming is advancing, so the winters aren't very cold either." }, accept: ["warming", "climate warming"] },
         { id: "ja-u129l2-haiki", type: "vocab", front: "はいき", reading: "haiki", meaning: "disposal", example: { jp: "ふるいパソコンのはいきはめんどうですが、すてかたはきまっています。", en: "Disposing of an old computer is a hassle, but how to throw it out is set." }, accept: ["scrapping", "discarding", "waste disposal"] },
         { id: "ja-u129l2-hakai", type: "vocab", front: "はかい", reading: "hakai", meaning: "destruction", example: { jp: "しぜんのはかいはすぐですが、なおすにはひゃくねんかかります。", en: "Destroying nature is quick, but repairing it takes a hundred years." }, accept: ["ruining", "wrecking", "damage"] },
-        { id: "ja-u129l2-herimasu", type: "vocab", front: "へります", reading: "herimasu", meaning: "decrease", example: { jp: "むらのひとがへっているので、がっこうがしまりました。", en: "The village's people are decreasing, so the school closed." }, accept: ["to go down", "diminish", "shrink"] },
+                { id: "ja-u129l2-haishutsu", type: "vocab", front: "はいしゅつ", reading: "haishutsu", meaning: "emissions", example: { jp: "くるまのはいしゅつをへらすために、じてんしゃでかよっています。", en: "To cut vehicle emissions, I commute by bicycle." }, accept: ["giving off", "discharge", "putting out"] },
         { id: "ja-u129l2-risaikuru", type: "vocab", front: "リサイクル", reading: "risaikuru", meaning: "recycling", example: { jp: "リサイクルをすれば、ごみがすくなくなります。", en: "If you recycle, there is less rubbish." }, accept: ["recycle", "reusing"] },
       ],
     },
@@ -52,10 +52,10 @@ export const UNIT129 = {
       title: "Protecting it",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Talk about protecting land and people, including in a disaster: ほご そだちます のうぎょう さいがい ぼうさい ひなん.",
+      canDo: "Talk about protecting land and people, including in a disaster: ほご そだつ のうぎょう さいがい ぼうさい ひなん.",
       items: [
         { id: "ja-u129l3-hogo", type: "vocab", front: "ほご", reading: "hogo", meaning: "protection", example: { jp: "とりのほごがはじまったので、かずがふえてきました。", en: "Protection of the birds started, so their numbers have been rising." }, accept: ["conservation", "safeguarding", "preservation"] },
-        { id: "ja-u129l3-sodachimasu", type: "vocab", front: "そだちます", reading: "sodachimasu", meaning: "grow up", example: { jp: "このやさいはみずがすくなくてもそだちますが、さむさによわいです。", en: "This vegetable grows even with little water, but it's weak against cold." }, accept: ["to be raised", "grow", "be brought up"] },
+        { id: "ja-u129l3-sodatsu", type: "vocab", front: "そだつ", reading: "sodatsu", meaning: "grow up", example: { jp: "このやさいはみずがすくなくてもそだちますが、さむさによわいです。", en: "This vegetable grows even with little water, but it's weak against cold." }, accept: ["to be raised", "grow", "be brought up"] },
         { id: "ja-u129l3-nogyo", type: "vocab", front: "のうぎょう", reading: "nōgyō", meaning: "agriculture", example: { jp: "このちほうののうぎょうはゆうめいですが、わかいひとがすくないです。", en: "This region's agriculture is famous, but there are few young people." }, accept: ["farming", "the farming industry"] },
         { id: "ja-u129l3-saigai", type: "vocab", front: "さいがい", reading: "saigai", meaning: "disaster", example: { jp: "さいがいのあとはみずがたりないので、はやくじゅんびします。", en: "After a disaster there isn't enough water, so we prepare early." }, accept: ["calamity", "natural disaster"] },
         { id: "ja-u129l3-bosai", type: "vocab", front: "ぼうさい", reading: "bōsai", meaning: "disaster preparedness", example: { jp: "ぼうさいのれんしゅうはめんどうですが、いちねんにいちどはします。", en: "Disaster drills are a hassle, but we do one once a year." }, accept: ["disaster prevention", "emergency preparedness"] },

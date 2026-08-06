@@ -1,5 +1,5 @@
 // JA Unit 126 — メディア・ごらく (Media and entertainment) — B1 / JLPT N3
-// Block-2 house rules are documented in unit118.js.
+// Block-2 house rules are documented in unit118.js (plain-form verb headwords).
 //
 // Split by medium rather than by word class — screen, print, live, then the words
 // for something being popular — so that each lesson is a situation the learner can
@@ -35,9 +35,9 @@ export const UNIT126 = {
       title: "In print",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Talk about what you read and who makes it: きじ どくしゃ しゅっぱん へんしゅう とくしゅう こうこく.",
+      canDo: "Talk about what you read and who makes it: れんさい どくしゃ しゅっぱん へんしゅう とくしゅう こうこく.",
       items: [
-        { id: "ja-u126l2-kiji", type: "vocab", front: "きじ", reading: "kiji", meaning: "article", example: { jp: "このきじはみじかいですが、たいせつなことがかいてあります。", en: "This article is short, but it says something important." }, accept: ["news article", "piece", "write-up"] },
+                { id: "ja-u126l2-rensai", type: "vocab", front: "れんさい", reading: "rensai", meaning: "a serial", example: { jp: "このれんさいはながいですが、まいしゅうたのしみにしています。", en: "This serial is long, but I look forward to it every week." }, accept: ["serialization", "running series", "instalments"] },
         { id: "ja-u126l2-dokusha", type: "vocab", front: "どくしゃ", reading: "dokusha", meaning: "reader", example: { jp: "どくしゃからてがみがきたので、へんじをかきました。", en: "A letter came from a reader, so I wrote a reply." }, accept: ["readership", "the readers"] },
         { id: "ja-u126l2-shuppan", type: "vocab", front: "しゅっぱん", reading: "shuppan", meaning: "publication", example: { jp: "ほんのしゅっぱんはらいげつですが、よやくはもうできます。", en: "The book's publication is next month, but you can already order it." }, accept: ["publishing", "bringing out"] },
         { id: "ja-u126l2-henshu", type: "vocab", front: "へんしゅう", reading: "henshū", meaning: "editing", example: { jp: "へんしゅうにじかんがかかったので、はつばいがおくれました。", en: "The editing took time, so the release was late." }, accept: ["compiling", "editorial work"] },
@@ -69,10 +69,10 @@ export const UNIT126 = {
       title: "What everyone is talking about",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Say what is popular and give your impression of it: りゅうこう はやります ちゅうもく ひょうばん かんそう ほうそう.",
+      canDo: "Say what is popular and give your impression of it: りゅうこう はやる ちゅうもく ひょうばん かんそう ほうそう.",
       items: [
         { id: "ja-u126l4-ryuko", type: "vocab", front: "りゅうこう", reading: "ryūkō", meaning: "trend", example: { jp: "ことしのりゅうこうはしりませんが、このいろはすきです。", en: "I don't know this year's trend, but I like this colour." }, accept: ["fashion", "vogue", "what's in"] },
-        { id: "ja-u126l4-hayarimasu", type: "vocab", front: "はやります", reading: "hayarimasu", meaning: "become popular", example: { jp: "このうたはきゅうにはやりましたが、すぐわすれられました。", en: "This song became popular suddenly, but it was soon forgotten." }, accept: ["to catch on", "be in fashion", "take off"] },
+        { id: "ja-u126l4-hayaru", type: "vocab", front: "はやる", reading: "hayaru", meaning: "become popular", example: { jp: "このうたはきゅうにはやりましたが、すぐわすれられました。", en: "This song became popular suddenly, but it was soon forgotten." }, accept: ["to catch on", "be in fashion", "take off"] },
         { id: "ja-u126l4-chumoku", type: "vocab", front: "ちゅうもく", reading: "chūmoku", meaning: "attention", example: { jp: "わかいかんとくがちゅうもくされていますが、ほんにんはしずかです。", en: "The young director is getting attention, but he himself is quiet about it." }, accept: ["notice", "focus", "being watched"] },
         { id: "ja-u126l4-hyoban", type: "vocab", front: "ひょうばん", reading: "hyōban", meaning: "reputation", example: { jp: "ひょうばんはよかったですが、わたしにはむずかしすぎました。", en: "The reputation was good, but it was too difficult for me." }, accept: ["word of mouth", "how it's rated", "public opinion"] },
         { id: "ja-u126l4-kanso", type: "vocab", front: "かんそう", reading: "kansō", meaning: "impressions", example: { jp: "えいがのかんそうをききましたが、みんなちがっていました。", en: "I asked for their impressions of the film, but everyone's were different." }, accept: ["one's thoughts", "reaction", "review"] },
