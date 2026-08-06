@@ -183,6 +183,8 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 ## Feature CC backlog (logged by curriculum CC — app/engine lane, not mine to build)
 
+- [ ] **(Feature CC) `lint:curriculum`'s long-vowel rule false-positives on a mora boundary.** Surfaced by the ja B1 block-1 seat, 2026-08-05. The reading `mizuumi` (みずうみ, 湖 "lake") is rejected with *"spells a long vowel as ou/oo/uu — use a macron"*, but that `uu` is not a long vowel: the word is みず + うみ (water + sea), two morae across a compound seam. `mizūmi` would be **wrong**, so there is no correct spelling the current rule accepts. The block worked around it per RUNBOOK §7 by giving 湖 its on-reading (`ko`) instead — a legitimate reading, but the workaround, not the fix. Same class of seam exists for かうんた…-style compounds and for any 〜ぬうし / 〜すうじ boundary; the rule needs a compound-boundary exemption (or a per-item opt-out), **not** loosening — the macron rule catches real defects. `src/data/lint.js`, Feature lane. **Do not weaken the check to close this.**
+
 Single place for the feature/engine work that's surfaced. Curriculum CC adds here; **feature CC builds.** Detail/rationale for each is in the status block above and the linked briefs.
 
 - [x] **(Feature CC) The three blockers the Spanish crew hit — ✓ DONE 2026-08-05, branch `fix/language-crew-blockers` (draft — Alex merges).** All surfaced by the es block-1 hand-back, all outside the Curriculum lane, fixed together because they share one cause: *engine behaviour derived from which languages happen to have content.*

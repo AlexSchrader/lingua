@@ -1,18 +1,80 @@
-// JA Unit 113 — Characters 8 (B1) (slot: characters-b1-8) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// Unit 113 — かんじ・かたち (Form, sign & performance kanji) — B1 / JLPT N3
+// 12 new N3 glyphs + 12 companion words. This set is the visual/expressive corner of
+// N3 — what something looks like, how it is signposted, and what gets performed.
 export const UNIT113 = {
   id: "ja-u113",
   lang: "ja",
-  title: "Characters 8 (B1)",
+  title: "かんじ・かたち",
   order: 113,
   stage: "b1",
   lessons: [
-    { id: "ja-u113l1", title: "Lesson 1", locked: true },
-    { id: "ja-u113l2", title: "Lesson 2", locked: true },
-    { id: "ja-u113l3", title: "Lesson 3", locked: true },
-    { id: "ja-u113l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u113l1",
+      unit: 113,
+      lesson: 1,
+      title: "Performance kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read the performance kanji: 演 曲 祭 景 横 型 (perform, tune, festival, scenery, side, mould).",
+      items: [
+        { id: "ja-u113l1-en", type: "kanji", front: "演", reading: "en", meaning: "perform", example: { jp: "かのじょはその役を上手に演じました。", en: "She played that role well." }, accept: ["to act", "play a part", "performance"], hint: "演 = perform in front of people. 氵 (water) on the left. 演技 (acting), 演奏 (musical performance), 講演 (a lecture)." },
+        { id: "ja-u113l1-kyoku", type: "kanji", front: "曲", reading: "kyoku", meaning: "tune", example: { jp: "この曲を聞くと、こうこうのころを思い出します。", en: "When I hear this tune, I remember my high-school days." }, accept: ["melody", "song", "to bend"], hint: "曲 = a piece of music, and also 'to bend' (曲がります). The shape itself looks like something bent." },
+        { id: "ja-u113l1-matsuri", type: "kanji", front: "祭", reading: "matsuri", meaning: "festival", example: { jp: "なつの祭りには、町じゅうの人があつまります。", en: "At the summer festival, people from all over town gather." }, accept: ["celebration", "to celebrate"], hint: "祭 = festival. 示 (altar) at the bottom — originally a religious rite. 文化祭 (school culture festival), 祭日 (a public holiday)." },
+        { id: "ja-u113l1-keshiki", type: "kanji", front: "景", reading: "kei", meaning: "scenery", example: { jp: "山の上から見た景色は、わすれられません。", en: "The view from the top of the mountain is unforgettable." }, accept: ["view", "scene", "landscape"], hint: "景 = a scene. 日 (sun) over 京 (capital). 景色 (けしき, scenery), 風景 (landscape), 景気 (the economy — 'the look of things')." },
+        { id: "ja-u113l1-yoko", type: "kanji", front: "横", reading: "yoko", meaning: "side", example: { jp: "駅の横にあたらしいパン屋ができました。", en: "A new bakery has opened beside the station." }, accept: ["beside", "horizontal", "width"], hint: "横 = the horizontal / sideways direction, as against たて (vertical). 横断 (crossing), 横書き (writing left-to-right)." },
+        { id: "ja-u113l1-kata", type: "kanji", front: "型", reading: "kata", meaning: "mould", example: { jp: "あたらしい型のけいたいは、前のより軽いです。", en: "The new model of phone is lighter than the previous one." }, accept: ["model", "type", "pattern"], hint: "型 = the mould something is cast from, so 'model' or 'type'. 土 (earth) at the bottom — a clay mould. けっえき型 = blood type." },
+      ],
+    },
+    {
+      id: "ja-u113l2",
+      unit: 113,
+      lesson: 2,
+      title: "Words with those kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Use the performance kanji in real words: えんぎ さっきょく さいじつ けいき おうだん もけい.",
+      items: [
+        { id: "ja-u113l2-engi", type: "vocab", front: "えんぎ", reading: "engi", meaning: "acting", example: { jp: "えんぎがしぜんで、本とうの家ぞくのように見えました。", en: "The acting was natural — they looked like a real family." }, accept: ["performance", "a role", "to act"], hint: "演技 = 演 (perform) + 技 (skill). An actor's craft. えんぎがうまい = a good actor." },
+        { id: "ja-u113l2-sakkyoku", type: "vocab", front: "さっきょく", reading: "sakkyoku", meaning: "composing music", example: { jp: "さっきょくは十六さいのときに始めて、いまもつづけています。", en: "I started composing at sixteen and I'm still doing it." }, accept: ["composition", "to compose"], hint: "作曲 = 作 (make) + 曲 (tune). さっきょくか = a composer. Writing the words instead is さくし." },
+        { id: "ja-u113l2-saijitsu", type: "vocab", front: "さいじつ", reading: "saijitsu", meaning: "public holiday", example: { jp: "さいじつなので、どこもこんでいます。", en: "It's a public holiday, so everywhere is crowded." }, accept: ["national holiday", "feast day"], hint: "祭日 = 祭 (festival) + 日 (day). Often heard as しゅくさいじつ — the set phrase for 'public holidays' on opening-hours signs." },
+        { id: "ja-u113l2-keiki", type: "vocab", front: "けいき", reading: "keiki", meaning: "economic conditions", example: { jp: "けいきがよくなったので、しごとがふえました。", en: "The economy improved, so there's more work." }, accept: ["business climate", "the economy"], hint: "景気 = 景 (the look of things) + 気 (mood). けいきがいい / わるい — how the economy *feels*, not its statistics (that's けいざい)." },
+        { id: "ja-u113l2-odan", type: "vocab", front: "おうだん", reading: "ōdan", meaning: "crossing", example: { jp: "おうだんほどうをわたるときも、車に気をつけてください。", en: "Even when crossing at the crosswalk, please watch for cars." }, accept: ["to cross", "traverse"], hint: "横断 = 横 (sideways) + 断 (cut). おうだんほどう = a pedestrian crossing — the sign on every Japanese street." },
+        { id: "ja-u113l2-mokei", type: "vocab", front: "もけい", reading: "mokei", meaning: "model", example: { jp: "父はふねのもけいをつくるのがしゅみです。", en: "My father's hobby is building ship models." }, accept: ["scale model", "mock-up"], hint: "模型 = 模 (imitate) + 型 (mould). A physical scale model — a plastic kit, an architect's mock-up." },
+      ],
+    },
+    {
+      id: "ja-u113l3",
+      unit: 113,
+      lesson: 3,
+      title: "Sign & likeness kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read the sign kanji: 示 似 簡 雑 号 王 (show, resemble, simple, miscellaneous, number, king).",
+      items: [
+        { id: "ja-u113l3-shimeshi", type: "kanji", front: "示", reading: "shimeshi", meaning: "show", example: { jp: "グラフでけっかを示すと、わかりやすくなります。", en: "Showing the results in a graph makes them easier to understand." }, accept: ["to indicate", "demonstrate", "point out"], hint: "示 = point something out. 示します = to indicate. 表示 (display), 指示 (instructions). It sits inside 祭 too." },
+        { id: "ja-u113l3-ni", type: "kanji", front: "似", reading: "ni", meaning: "resemble", example: { jp: "あにと私はこえが似ているので、電話でまちがえられます。", en: "My brother and I have similar voices, so we get mixed up on the phone." }, accept: ["to look like", "be similar"], hint: "似 = resemble. 亻 (person) on the left. 似ています = 'looks like' — note it's the ～ています form, not 似ます." },
+        { id: "ja-u113l3-kan", type: "kanji", front: "簡", reading: "kan", meaning: "simple", example: { jp: "せつめいが簡たんだったので、すぐにできました。", en: "The explanation was simple, so I could do it right away." }, accept: ["brief", "concise"], hint: "簡 = simple. 竹 (bamboo) on top — old letters were written on bamboo strips, so it also means 'letter'. 簡単, 簡潔." },
+        { id: "ja-u113l3-zatsu", type: "kanji", front: "雑", reading: "zatsu", meaning: "miscellaneous", example: { jp: "しごとが雑になっていたので、もう一どやりなおしました。", en: "My work had got sloppy, so I did it again." }, accept: ["rough", "sloppy", "mixed"], hint: "雑 = mixed together, and from that 'rough'. 雑誌 (magazine — mixed writings), 複雑 (complicated), 雑音 (noise)." },
+        { id: "ja-u113l3-go", type: "kanji", front: "号", reading: "gō", meaning: "number", example: { jp: "へやの号すうをわすれてしまい、フロントで聞きました。", en: "I forgot my room number, so I asked at the front desk." }, accept: ["sign", "issue", "designation"], hint: "号 = an identifying number or sign. 番号 (number), 信号 (traffic light), 記号 (symbol). Also numbers magazine issues." },
+        { id: "ja-u113l3-o", type: "kanji", front: "王", reading: "ō", meaning: "king", example: { jp: "その国の王は、国みんにとても人気があります。", en: "That country's king is very popular with the people." }, accept: ["monarch", "ruler"], hint: "王 = king — three levels (heaven, earth, people) joined by one line. Note it is 玉 (jewel) without the dot." },
+      ],
+    },
+    {
+      id: "ja-u113l4",
+      unit: 113,
+      lesson: 4,
+      title: "More words with those kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Use the sign kanji in real words: ひょうじ るいじ かんけつ ざつおん きごう おうさま.",
+      items: [
+        { id: "ja-u113l4-hyoji", type: "vocab", front: "ひょうじ", reading: "hyōji", meaning: "display", example: { jp: "画めんのひょうじが小さいので、字が読めません。", en: "The display on the screen is small, so I can't read the letters." }, accept: ["indication", "labelling", "to show"], hint: "表示 = 表 (surface) + 示 (show). Both a screen display and the labelling on a product — せいぶんひょうじ (ingredients label)." },
+        { id: "ja-u113l4-ruiji", type: "vocab", front: "るいじ", reading: "ruiji", meaning: "similarity", example: { jp: "二つのデザインはるいじしていて、見分けにくいです。", en: "The two designs are similar and hard to tell apart." }, accept: ["resemblance", "analogous", "alike"], hint: "類似 = 類 (kind) + 似 (resemble). More formal than 似ています — used in legal and technical writing: るいじひん (a lookalike product)." },
+        { id: "ja-u113l4-kanketsu", type: "vocab", front: "かんけつ", reading: "kanketsu", meaning: "concise", example: { jp: "かんけつにまとめてくれたので、すぐにりかいできました。", en: "They summed it up concisely, so I understood right away." }, accept: ["brief", "to the point", "succinct"], hint: "簡潔 = 簡 (simple) + 潔 (clean). かんけつに = 'briefly, please' — the polite way to ask someone to get to the point." },
+        { id: "ja-u113l4-zatsuon", type: "vocab", front: "ざつおん", reading: "zatsuon", meaning: "noise", example: { jp: "ざつおんが大きくて、あい手のこえが聞こえませんでした。", en: "The noise was loud, so I couldn't hear the other person's voice." }, accept: ["background noise", "static", "interference"], hint: "雑音 = 雑 (mixed) + 音 (sound): unwanted sound. Everyday loudness is そうおん; static on a line is ざつおん." },
+        { id: "ja-u113l4-kigo", type: "vocab", front: "きごう", reading: "kigō", meaning: "symbol", example: { jp: "地図のきごうがわかれば、道にまよいません。", en: "If you understand the map's symbols, you won't get lost." }, accept: ["sign", "mark", "notation"], hint: "記号 = 記 (record — u104) + 号 (sign). Map symbols, maths symbols, musical notation — all きごう." },
+        { id: "ja-u113l4-osama", type: "vocab", front: "おうさま", reading: "ōsama", meaning: "the king", example: { jp: "子どものころ、おうさまが出てくる話が大すきでした。", en: "As a child I loved stories with a king in them." }, accept: ["king", "his majesty"], hint: "王様 = 王 (king) + 様 (the honorific). Japanese adds 様 to royalty and to customers alike — おきゃくさま." },
+      ],
+    },
   ],
 };
