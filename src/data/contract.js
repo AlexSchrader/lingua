@@ -273,10 +273,19 @@ export function validateContent(units, languages) {
   // two are validated together, so parallel authoring sessions would each be green
   // alone and red on merge. The rule never fired before only because ja and fr use
   // different scripts. See BUILD-BRIEF-language-blueprint.md §3a.
-  const vocabFronts = new Map(); // `${lang} ${front}` → first item id
+  //
+  // NUL is the separator because it cannot occur in a language code or a front, so
+  // no pair of real values can collide on the joined key. It is written as the
+  // six-character ESCAPE, never as a literal NUL byte: a raw NUL makes grep and
+  // ripgrep classify this file as binary, and their default is to report "binary
+  // file matches" while printing NOTHING. Searching the schema for something like
+  // LIVE_CARD_KINDS then returns zero hits — a silent false negative in the one
+  // file most worth searching. The escape has the same runtime value and keeps the
+  // file text. Do not "simplify" it back to a literal.
+  const vocabFronts = new Map(); // `${lang}\u0000${front}` → first item id
   for (const { item, lang } of allItems) {
     if (item.type !== "vocab" && item.type !== "kanji") continue;
-    const key = `${lang} ${item.front}`;
+    const key = `${lang}\u0000${item.front}`;
     if (vocabFronts.has(key))
       e(
         `item ${item.id}: ${item.type} front "${item.front}" is already taught in item ${vocabFronts.get(key)} — ` +
