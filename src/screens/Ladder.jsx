@@ -5,6 +5,7 @@ import { LANGUAGES, UNITS } from "../data/index.js";
 import { roadmapFor } from "../data/roadmap.js";
 import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
+import { readingIsInformative } from "../store/cardRouting.js";
 import { currentStageFor } from "../store/levels.js";
 import GlyphDetail from "../components/GlyphDetail.jsx";
 import PlannedLanguages from "../components/PlannedLanguages.jsx";
@@ -430,7 +431,15 @@ function WordRow({ def, item, showRomaji }) {
       <div style={{ minWidth: 0, flex: 1 }}>
         <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
           <span style={{ fontFamily: F.jp, fontSize: 18, fontWeight: 600, color: C.ink }}>{def.front}</span>
-          {showRomaji && def.reading && <span style={{ fontFamily: F.mono, fontSize: 12, color: C.inkSoft }}>{def.reading}</span>}
+          {/* Same rule as the cards (db5e45c): for a Latin-script front the
+              `reading` is only its ASCII fold — "lacasa" under "la casa" — which
+              is a typing answer key, not a pronunciation guide. db5e45c fixed
+              Teach/Speak/Trace but never touched the Ladder, so the word bank kept
+              leaking it for every French and Spanish word. Caught by the
+              fact-checker on the es block-1 hand-back, 2026-08-05. */}
+          {showRomaji && def.reading && readingIsInformative(def) && (
+            <span style={{ fontFamily: F.mono, fontSize: 12, color: C.inkSoft }}>{def.reading}</span>
+          )}
         </div>
         {def.meaning && (
           <div style={{ fontSize: 13, color: C.inkSoft, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{def.meaning}</div>
