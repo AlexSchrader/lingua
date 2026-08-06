@@ -1,18 +1,81 @@
-// JA Unit 104 — Characters 3 (B1) (slot: characters-b1-3) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// Unit 104 — かんじ・ちしき (Knowing & record kanji) — B1 / JLPT N3
+// 12 new N3 glyphs + 12 companion words. Lesson 3 deliberately puts 史 師 士 資 next
+// to each other: they are all read し, and meeting them together is the point — at
+// B1 the learner has to start telling homophone kanji apart by meaning, not sound.
 export const UNIT104 = {
   id: "ja-u104",
   lang: "ja",
-  title: "Characters 3 (B1)",
+  title: "かんじ・ちしき",
   order: 104,
   stage: "b1",
   lessons: [
-    { id: "ja-u104l1", title: "Lesson 1", locked: true },
-    { id: "ja-u104l2", title: "Lesson 2", locked: true },
-    { id: "ja-u104l3", title: "Lesson 3", locked: true },
-    { id: "ja-u104l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u104l1",
+      unit: 104,
+      lesson: 1,
+      title: "Knowing kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read the knowing kanji: 覚 識 解 察 記 規 (remember, discern, unravel, perceive, record, standard).",
+      items: [
+        { id: "ja-u104l1-oboe", type: "kanji", front: "覚", reading: "oboe", meaning: "remember", example: { jp: "この漢字は前に習いましたが、もう覚えていません。", en: "I learned this kanji before, but I don't remember it any more." }, accept: ["to memorize", "learn", "awareness"], hint: "覚 = remember. 覚えます = to commit to memory; 目が覚める = to wake up — both are the mind coming into focus." },
+        { id: "ja-u104l1-shiki", type: "kanji", front: "識", reading: "shiki", meaning: "discern", example: { jp: "せんもんの知識があれば、この問題も解けます。", en: "If you have specialist knowledge, you can solve this problem too." }, accept: ["knowledge", "recognize", "discernment"], hint: "識 = telling things apart. Almost never alone — it lives in 知識 (knowledge), 意識 (consciousness), 常識 (common sense)." },
+        { id: "ja-u104l1-toki", type: "kanji", front: "解", reading: "toki", meaning: "unravel", example: { jp: "むずかしい問題でしたが、時間をかけて解きました。", en: "It was a hard problem, but I took my time and solved it." }, accept: ["to solve", "untie", "understand"], hint: "解 = untie. 角 (horn) + 刀 (knife) + 牛 (cow): taking something apart to see how it works. 理解, 解決, 解答." },
+        { id: "ja-u104l1-satsu", type: "kanji", front: "察", reading: "satsu", meaning: "perceive", example: { jp: "顔を見て、何かあったと察しました。", en: "I saw her face and sensed that something had happened." }, accept: ["to guess", "sense", "surmise"], hint: "察 = read the situation. 察します = to pick up on something unsaid — a very Japanese verb. Also in 警察 (police)." },
+        { id: "ja-u104l1-ki", type: "kanji", front: "記", reading: "ki", meaning: "record", example: { jp: "会ぎの内ようをノートに記しておきました。", en: "I wrote down the content of the meeting in my notebook." }, accept: ["to write down", "note", "account"], hint: "記 = 言 (words) + 己 (self): putting it down in your own words. 日記 (diary), 記者 (reporter), 記号 (symbol)." },
+        { id: "ja-u104l1-kikaku", type: "kanji", front: "規", reading: "ki", meaning: "standard", example: { jp: "会社の規そくがかわったので、みんなにしらせました。", en: "The company rules changed, so I informed everyone." }, accept: ["rule", "regulation", "norm"], hint: "規 = the measuring standard. 規則 (rules), 規模 (scale). Note it is read き, exactly like 記 — the meaning is what tells them apart." },
+      ],
+    },
+    {
+      id: "ja-u104l2",
+      unit: 104,
+      lesson: 2,
+      title: "Words with those kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Use the knowing kanji in real words: きおく にんしき かいけつ かんさつ きぼ じかく.",
+      items: [
+        { id: "ja-u104l2-kioku", type: "vocab", front: "きおく", reading: "kioku", meaning: "memory", example: { jp: "子どものころのきおくは、もうほとんどのこっていません。", en: "Hardly any memories of my childhood remain now." }, accept: ["recollection", "remembrance"], hint: "記憶 = the stored memory itself. 覚えます is the act of memorising; きおく is what you end up holding." },
+        { id: "ja-u104l2-ninshiki", type: "vocab", front: "にんしき", reading: "ninshiki", meaning: "recognition", example: { jp: "問題のにんしきが人によってちがうので、話が進みません。", en: "People understand the problem differently, so the discussion isn't progressing." }, accept: ["understanding", "awareness", "perception"], hint: "認識 = 認 (acknowledge) + 識 (discern): how you grasp a situation. Common in work Japanese: にんしきがあまい (a naive read)." },
+        { id: "ja-u104l2-kaiketsu", type: "vocab", front: "かいけつ", reading: "kaiketsu", meaning: "solution", example: { jp: "話し合いでかいけつできたので、だれもいやなおもいをしませんでした。", en: "We solved it by talking, so nobody had to feel bad." }, accept: ["resolution", "to solve", "settlement"], hint: "解決 = 解 (untie) + 決 (decide). かいけつします = to resolve. For a maths answer you'd use 解答 instead." },
+        { id: "ja-u104l2-kansatsu", type: "vocab", front: "かんさつ", reading: "kansatsu", meaning: "observation", example: { jp: "毎日そらをかんさつしていたら、天気がよそうできるようになりました。", en: "After observing the sky every day, I became able to predict the weather." }, accept: ["to observe", "watching", "study"], hint: "観察 = watching carefully to learn something — science, nature, people. Plain 見ます is just looking." },
+        { id: "ja-u104l2-kibo", type: "vocab", front: "きぼ", reading: "kibo", meaning: "scale", example: { jp: "きぼは小さいですが、しごとの内ようはおもしろいです。", en: "The scale is small, but the content of the work is interesting." }, accept: ["size", "scope", "magnitude"], hint: "規模 = 規 (standard) + 模 (model): how big the whole thing is. 大きなきぼ = large-scale. Not used for physical objects." },
+        { id: "ja-u104l2-jikaku", type: "vocab", front: "じかく", reading: "jikaku", meaning: "self-awareness", example: { jp: "リーダーとしてのじかくが出てから、はなしかたもかわりました。", en: "Once he became aware of himself as a leader, even the way he spoke changed." }, accept: ["awareness", "consciousness of"], hint: "自覚 = 自 (self) + 覚 (aware). じかくがある = knowing what you are and what that requires of you." },
+      ],
+    },
+    {
+      id: "ja-u104l3",
+      unit: 104,
+      lesson: 3,
+      title: "Record & expert kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read the record & expert kanji: 史 志 師 士 資 実 (history, will, master, expert, resources, reality).",
+      items: [
+        { id: "ja-u104l3-shi", type: "kanji", front: "史", reading: "shi", meaning: "history", example: { jp: "この町の史を調べたら、二百年前からあることがわかりました。", en: "When I looked into this town's history, I found it has existed for two hundred years." }, accept: ["chronicle", "record of the past"], hint: "史 = written history. Almost always in 歴史 (rekishi). One of four し kanji in this lesson — meaning is your only guide." },
+        { id: "ja-u104l3-kokorozashi", type: "kanji", front: "志", reading: "kokorozashi", meaning: "ambition", example: { jp: "父は志を持って、一人でこの会社をつくりました。", en: "My father had ambition and built this company on his own." }, accept: ["will", "aspiration", "intention"], hint: "志 = 士 (scholar) over 心 (heart): the heart pointing somewhere. The only one of the four with a kun reading." },
+        { id: "ja-u104l3-shisho", type: "kanji", front: "師", reading: "shi", meaning: "master", example: { jp: "いい師に習えたので、上手になるのが早かったです。", en: "I was able to learn from a good teacher, so I improved quickly." }, accept: ["teacher", "expert", "mentor"], hint: "師 = the one who teaches a craft. 教師 (teacher), 医師 (doctor), 美容師 (hairdresser) — the professional suffix." },
+        { id: "ja-u104l3-shisamurai", type: "kanji", front: "士", reading: "shi", meaning: "expert", example: { jp: "べんご士になるためには、むずかしいしけんを受けます。", en: "To become a lawyer you have to take a difficult exam." }, accept: ["qualified person", "gentleman", "samurai"], hint: "士 = a certified professional. 弁護士 (lawyer), 会計士 (accountant). Where 師 teaches a craft, 士 holds a licence." },
+        { id: "ja-u104l3-shishigen", type: "kanji", front: "資", reading: "shi", meaning: "resources", example: { jp: "この国は資げんが少ないので、ぎじゅつを大切にしています。", en: "This country has few resources, so it values technology." }, accept: ["capital", "funds", "assets"], hint: "資 = what you have to work with. 資料 (materials), 資本 (capital), 資格 (a qualification — the resources you carry)." },
+        { id: "ja-u104l3-jitsu", type: "kanji", front: "実", reading: "jitsu", meaning: "reality", example: { jp: "実は、その話をもう聞いていました。", en: "Actually, I'd already heard that story." }, accept: ["truth", "fruit", "actual"], hint: "実 = what is actually so. 実は = 'actually / to tell the truth', the phrase that opens a confession. It also means the fruit of a plant." },
+      ],
+    },
+    {
+      id: "ja-u104l4",
+      unit: 104,
+      lesson: 4,
+      title: "More words with those kanji",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Use the record & expert kanji in real words: れきし しぼう きょうし べんごし しげん じつげん.",
+      items: [
+        { id: "ja-u104l4-sekaishi", type: "vocab", front: "せかいし", reading: "sekaishi", meaning: "world history", example: { jp: "せかいしを勉強してから、いまのニュースもよくわかるようになりました。", en: "After studying world history, current news started making much more sense to me." }, accept: ["global history"], hint: "世界史 = 世界 (world) + 史 (history). Japanese schools split the subject in two: せかいし and にほんし." },
+        { id: "ja-u104l4-shibo", type: "vocab", front: "しぼう", reading: "shibō", meaning: "aspiration", example: { jp: "しぼうの大学に入れたので、まいにちが楽しいです。", en: "I got into the university I hoped for, so every day is enjoyable." }, accept: ["desire", "choice", "wish to be"], hint: "志望 = 志 (ambition) + 望 (hope). しぼうこう = the school you're aiming for. Standard on any application form." },
+        { id: "ja-u104l4-kyoshi", type: "vocab", front: "きょうし", reading: "kyōshi", meaning: "teacher", example: { jp: "きょうしになって十年たちますが、まだまいにち勉強しています。", en: "It's been ten years since I became a teacher, and I still study every day." }, accept: ["instructor", "educator"], hint: "教師 is the *profession*; 先生 is what you *call* someone. You never call your teacher きょうし to their face." },
+        { id: "ja-u104l4-bengoshi", type: "vocab", front: "べんごし", reading: "bengoshi", meaning: "lawyer", example: { jp: "こまったときは、べんごしにそうだんしたほうがいいですよ。", en: "When you're in trouble, it's better to consult a lawyer." }, accept: ["attorney", "solicitor"], hint: "弁護士 = 弁護 (defend) + 士 (licensed professional). The 士 ending marks a qualification you sat an exam for." },
+        { id: "ja-u104l4-shihon", type: "vocab", front: "しほん", reading: "shihon", meaning: "capital", example: { jp: "しほんが少なかったので、小さい店から始めました。", en: "We had little capital, so we started from a small shop." }, accept: ["funds", "investment money"], hint: "資本 = 資 (assets) + 本 (base): the money a business stands on. しほんしゅぎ = capitalism." },
+        { id: "ja-u104l4-jitsugen", type: "vocab", front: "じつげん", reading: "jitsugen", meaning: "realization", example: { jp: "小さいころのゆめがじつげんして、ほんとうにうれしいです。", en: "My childhood dream has come true, and I'm truly happy." }, accept: ["to come true", "to achieve", "fulfilment"], hint: "実現 = 実 (actual) + 現 (appear): making a plan or a dream actually appear. ゆめをじつげんする." },
+      ],
+    },
   ],
 };

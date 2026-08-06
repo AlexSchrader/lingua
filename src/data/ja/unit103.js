@@ -1,18 +1,82 @@
-// JA Unit 103 — Comparison and degree (slot: comparison) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// Unit 103 — ひかく・ていど ("Comparison and degree") — B1 / JLPT N3
+// A1/A2 teach ～より, ～のほうが and いちばん (u44). B1 is where a learner stops
+// comparing two nouns and starts grading *how much*: the nouns for comparison itself
+// (ひかく, ていど), the adverbs that tune a claim up or down (いっそう, やや, さらに),
+// and the verbs of exceeding and falling short (こえます, まさります, おとります).
 export const UNIT103 = {
   id: "ja-u103",
   lang: "ja",
-  title: "Comparison and degree",
+  title: "ひかく・ていど",
   order: 103,
   stage: "b1",
   lessons: [
-    { id: "ja-u103l1", title: "Lesson 1", locked: true },
-    { id: "ja-u103l2", title: "Lesson 2", locked: true },
-    { id: "ja-u103l3", title: "Lesson 3", locked: true },
-    { id: "ja-u103l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u103l1",
+      unit: 103,
+      lesson: 1,
+      title: "Comparing things",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about a comparison itself: ひかく ていど どうよう べつべつ きんとう そうたい.",
+      items: [
+        { id: "ja-u103l1-hikaku", type: "vocab", front: "ひかく", reading: "hikaku", meaning: "comparison", example: { jp: "二つの店をひかくしてから、安いほうを買いました。", en: "I compared the two shops and then bought from the cheaper one." }, accept: ["to compare", "contrast"], hint: "比較 = 比 (compare) + 較 (contrast). ひかくします = to compare; ひかくてき = comparatively." },
+        { id: "ja-u103l1-teido", type: "vocab", front: "ていど", reading: "teido", meaning: "extent", example: { jp: "けががどのていどか、まだお医者さんに聞いていません。", en: "I haven't asked the doctor yet how bad the injury is." }, accept: ["degree", "level", "about"], hint: "程度 = how far something goes. どのていど = 'to what extent'. After a number it means 'about': 三十分ていど." },
+        { id: "ja-u103l1-doyo", type: "vocab", front: "どうよう", reading: "dōyō", meaning: "the same", example: { jp: "ことしもきょねんとどうように、あついなつになりそうです。", en: "This year, the same as last year, looks like being a hot summer." }, accept: ["similar", "likewise", "in the same way"], hint: "同様 = 同 (same) + 様 (manner). ～とどうように = 'in the same way as ～'. More formal than おなじ." },
+        { id: "ja-u103l1-betsubetsu", type: "vocab", front: "べつべつ", reading: "betsubetsu", meaning: "separately", example: { jp: "お会けいはべつべつでおねがいします。", en: "We'd like to pay separately, please." }, accept: ["separate", "individually", "apart"], hint: "別々 = separate. べつべつでおねがいします is the exact phrase for splitting the bill at a restaurant." },
+        { id: "ja-u103l1-kinto", type: "vocab", front: "きんとう", reading: "kintō", meaning: "equal", example: { jp: "しごとをきんとうに分けたので、だれもふまんを言いませんでした。", en: "We divided the work equally, so nobody complained." }, accept: ["even", "equally", "fair"], hint: "均等 = 均 (level) + 等 (equal). きんとうに分ける = to split evenly. Used for shares and workloads." },
+        { id: "ja-u103l1-sotai", type: "vocab", front: "そうたい", reading: "sōtai", meaning: "relative", example: { jp: "このねだんはそうたいてきに安いですが、私にはまだ高いです。", en: "This price is relatively cheap, but for me it's still expensive." }, accept: ["relatively", "comparative"], hint: "相対 = 相 (mutual) + 対 (facing). そうたいてき = relative; its opposite is ぜったい (absolute), which you already know." },
+      ],
+    },
+    {
+      id: "ja-u103l2",
+      unit: 103,
+      lesson: 2,
+      title: "Turning it up",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Say that something goes further still: さらに いっそう そうとう きわめて はるかに いよいよ.",
+      items: [
+        { id: "ja-u103l2-sarani", type: "vocab", front: "さらに", reading: "sarani", meaning: "further", example: { jp: "せつめいを聞いて、さらに知りたくなりました。", en: "After hearing the explanation, I wanted to know even more." }, accept: ["even more", "moreover", "in addition"], hint: "更に adds another step on top of what's already true. In writing it also just means 'furthermore'." },
+        { id: "ja-u103l2-isso", type: "vocab", front: "いっそう", reading: "issō", meaning: "even more", example: { jp: "雨がふってから、いっそうさむくなりました。", en: "After it started raining, it got even colder." }, accept: ["all the more", "increasingly", "further"], hint: "一層 = one more layer. Slightly literary — common in speeches and written Japanese: いっそうのごしえんを (your continued support)." },
+        { id: "ja-u103l2-soto", type: "vocab", front: "そうとう", reading: "sōtō", meaning: "considerably", example: { jp: "この本はそうとうむずかしいですが、読むかちがあります。", en: "This book is considerably difficult, but it's worth reading." }, accept: ["quite", "fairly", "substantial"], hint: "相当 = quite a lot — stronger than ちょっと, weaker than とても, and slightly more grown-up than both." },
+        { id: "ja-u103l2-kiwamete", type: "vocab", front: "きわめて", reading: "kiwamete", meaning: "extremely", example: { jp: "そのじょうけんはきわめてきびしくて、だれもさんかしませんでした。", en: "Those conditions were extremely harsh, so nobody took part." }, accept: ["exceedingly", "highly", "very"], hint: "極めて is the written 'extremely'. You'll meet it in news and reports; in speech it sounds stiff." },
+        { id: "ja-u103l2-harukani", type: "vocab", front: "はるかに", reading: "harukani", meaning: "by far", example: { jp: "あたらしいパソコンは前のよりはるかに早いです。", en: "The new computer is far faster than the previous one." }, accept: ["far", "much more", "vastly"], hint: "はるかに always sits with a comparison: ～よりはるかに～. It means the gap is big, not just present." },
+        { id: "ja-u103l2-iyoiyo", type: "vocab", front: "いよいよ", reading: "iyoiyo", meaning: "at last", example: { jp: "じゅんびがおわって、いよいよあしたしゅっぱつします。", en: "The preparations are done, and at last we set off tomorrow." }, accept: ["finally", "more and more", "at long last"], hint: "いよいよ = the moment has finally come. It also means 'more and more' with a weather or trend: いよいよさむくなる." },
+      ],
+    },
+    {
+      id: "ja-u103l3",
+      unit: 103,
+      lesson: 3,
+      title: "Turning it down",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Soften or limit a claim: やや ひかくてき せいぜい わずか たいして いくらか.",
+      items: [
+        { id: "ja-u103l3-yaya", type: "vocab", front: "やや", reading: "yaya", meaning: "slightly", example: { jp: "ことしのなつはやや短くて、すぐに秋になりました。", en: "This summer was slightly short, and autumn arrived quickly." }, accept: ["a little", "somewhat", "rather"], hint: "やや is the written 少し. Weather forecasts and reports use it constantly: ややくもり." },
+        { id: "ja-u103l3-hikakuteki", type: "vocab", front: "ひかくてき", reading: "hikakuteki", meaning: "comparatively", example: { jp: "この町はひかくてきしずかなので、勉強しやすいです。", en: "This town is comparatively quiet, so it's easy to study here." }, accept: ["relatively", "fairly"], hint: "比較的 = ひかく + 的 (the '-ic / -ive' suffix). ～的 turns nouns into adjectives everywhere in Japanese: 一般的, 具体的." },
+        { id: "ja-u103l3-seizei", type: "vocab", front: "せいぜい", reading: "seizei", meaning: "at most", example: { jp: "ここから駅まで、せいぜい十分しかかかりません。", en: "From here to the station takes at most ten minutes." }, accept: ["at best", "no more than"], hint: "せいぜい caps a number and quietly says 'and that's not much'. Compare with 少なくとも (at least)." },
+        { id: "ja-u103l3-wazuka", type: "vocab", front: "わずか", reading: "wazuka", meaning: "only a little", example: { jp: "のこり時間はわずかでしたが、さいごまであきらめませんでした。", en: "There was only a little time left, but we didn't give up until the end." }, accept: ["slight", "a mere", "barely"], hint: "僅か emphasises how small the amount is: わずか三日 = 'a mere three days'. Stronger feeling than 少し." },
+        { id: "ja-u103l3-taishite", type: "vocab", front: "たいして", reading: "taishite", meaning: "not particularly", example: { jp: "この本はたいしてむずかしくないので、すぐ読めますよ。", en: "This book isn't particularly difficult, so you'll read it quickly." }, accept: ["not much", "not very"], hint: "たいして only appears with a negative: たいして～ない = 'not all that ～'. On its own it is ungrammatical." },
+        { id: "ja-u103l3-ikuraka", type: "vocab", front: "いくらか", reading: "ikuraka", meaning: "somewhat", example: { jp: "くすりをのんだので、いくらか楽になりました。", en: "I took the medicine, so I feel somewhat better." }, accept: ["some", "a certain amount", "a bit"], hint: "いくらか = some unspecified amount. Softer and vaguer than 少し — useful when you don't want to commit to a number." },
+      ],
+    },
+    {
+      id: "ja-u103l4",
+      unit: 103,
+      lesson: 4,
+      title: "Exceeding and falling short",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Say something goes beyond or falls short: こえます まさります おとります たっします およびます のぞきます.",
+      items: [
+        { id: "ja-u103l4-koemasu", type: "vocab", front: "こえます", reading: "koemasu", meaning: "exceed", example: { jp: "きおんが三十どをこえたので、そとに出ないことにしました。", en: "The temperature went over thirty degrees, so I decided not to go outside." }, accept: ["to go over", "surpass", "cross"], hint: "越えます / 超えます — for crossing a mountain and for going over a number. The second kanji is the one used for figures." },
+        { id: "ja-u103l4-masarimasu", type: "vocab", front: "まさります", reading: "masarimasu", meaning: "be superior", example: { jp: "ねだんは高いですが、しつではこちらがまさっています。", en: "The price is higher, but in quality this one is superior." }, accept: ["to surpass", "excel", "be better"], hint: "勝ります = come out ahead. ～にまさる = better than ～. Its natural partner is おとります." },
+        { id: "ja-u103l4-otorimasu", type: "vocab", front: "おとります", reading: "otorimasu", meaning: "be inferior", example: { jp: "この店のコーヒーはねだんは安いですが、あじはおとりません。", en: "This shop's coffee is cheap, but the taste isn't inferior at all." }, accept: ["to be worse", "fall behind", "be lesser"], hint: "劣ります = fall short. The common shape is ～におとらない ('no worse than ～'), which is praise, not criticism." },
+        { id: "ja-u103l4-tasshimasu", type: "vocab", front: "たっします", reading: "tasshimasu", meaning: "reach", example: { jp: "さんかしゃが百人にたっしたので、もうしこみをしめきりました。", en: "The number of participants reached a hundred, so we closed applications." }, accept: ["to attain", "amount to", "arrive at"], hint: "達します = reach a level or a figure — a target, a temperature, a headcount. For places you still use つきます." },
+        { id: "ja-u103l4-oyobimasu", type: "vocab", front: "およびます", reading: "oyobimasu", meaning: "extend to", example: { jp: "台風のえいきょうは、となりの町にもおよびました。", en: "The typhoon's effects extended to the neighbouring town as well." }, accept: ["to reach", "come to", "match"], hint: "及びます = reach as far as. Also in ～にはおよばない = 'is no match for' — and 'there's no need to', a very polite refusal." },
+        { id: "ja-u103l4-nozokimasu", type: "vocab", front: "のぞきます", reading: "nozokimasu", meaning: "exclude", example: { jp: "日よう日をのぞいて、まいにち店は開いています。", en: "Excluding Sundays, the shop is open every day." }, accept: ["to leave out", "except", "remove"], hint: "除きます = take out of the set. ～をのぞいて = 'except for ～' — the phrase on every opening-hours sign." },
+      ],
+    },
   ],
 };
