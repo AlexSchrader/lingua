@@ -18,7 +18,7 @@ export const FR_UNIT50 = {
       title: "Some, several, none",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Say how many without counting: a few, several, each, others, most of them — or none at all.",
+      canDo: "Say how many without counting: a few, several, half, others, most of them — or none at all.",
       items: [
         { id: "fr-u50l1-quelques", type: "vocab", front: "quelques", reading: "quelques", meaning: "a few", example: { jp: "J'ai quelques questions.", en: "I have a few questions." }, accept: ["a couple of", "a handful of"], hint: "Always plural, always before the noun: quelques jours, quelques amis. More than plusieurs? No — quelques is the smaller of the two." },
         { id: "fr-u50l1-plusieurs", type: "vocab", front: "plusieurs", reading: "plusieurs", meaning: "several", example: { jp: "Il y a plusieurs magasins.", en: "There are several shops." }, accept: ["a number of", "many", "quite a few"] },
@@ -35,7 +35,7 @@ export const FR_UNIT50 = {
       title: "Almost and about",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Give a number you're not sure of — about, almost, at least, roughly — or insist that it's exact.",
+      canDo: "Give a number you're not sure of — about, almost, at most, roughly — or insist that it's exact.",
       items: [
         { id: "fr-u50l2-environ", type: "vocab", front: "environ", reading: "environ", meaning: "about", example: { jp: "J'ai environ vingt euros.", en: "I have about twenty euros." }, accept: ["approximately", "thereabouts"], hint: "Sits right before the number it softens: environ vingt euros. à peu près is interchangeable here, and is the one that also works before an adjective (à peu près prêt)." },
         { id: "fr-u50l2-quasiment", type: "vocab", front: "quasiment", reading: "quasiment", meaning: "almost", example: { jp: "Il est quasiment midi.", en: "It's almost noon." }, accept: ["nearly", "just about", "practically"] },

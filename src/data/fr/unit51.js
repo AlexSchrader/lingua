@@ -19,11 +19,11 @@ export const FR_UNIT51 = {
       title: "Behind, under, between",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Place one thing relative to another: behind it, under it, between two things, against it, beside it or opposite it.",
+      canDo: "Place one thing relative to another: behind it, among several, between two, against it, beside it or opposite it.",
       items: [
         { id: "fr-u51l1-derriere", type: "vocab", front: "derrière", reading: "derriere", meaning: "behind", example: { jp: "Le jardin est derrière la maison.", en: "The garden is behind the house." }, accept: ["at the back of", "in back of"], hint: "The opposite of devant, which you already know." },
-        { id: "fr-u51l1-parmi", type: "vocab", front: "parmi", reading: "parmi", meaning: "among", example: { jp: "Il y a un livre parmi les papiers.", en: "There's a book among the papers." }, accept: ["amongst", "in the middle of", "amid"], hint: "parmi needs a group of several things; entre is for exactly two." },
-        { id: "fr-u51l1-entre", type: "vocab", front: "entre", reading: "entre", meaning: "between", example: { jp: "La gare est entre l'école et le parc.", en: "The station is between the school and the park." }, accept: ["in between", "in the middle of two"] },
+        { id: "fr-u51l1-parmi", type: "vocab", front: "parmi", reading: "parmi", meaning: "among", example: { jp: "Il y a un livre parmi les papiers.", en: "There's a book among the papers." }, accept: ["amongst", "in the middle of", "amid"], hint: "parmi picks one out of a whole group; entre is most often between two." },
+        { id: "fr-u51l1-entre", type: "vocab", front: "entre", reading: "entre", meaning: "between", example: { jp: "La gare est entre l'école et le parc.", en: "The station is between the school and the park." }, accept: ["in between", "in the middle"] },
         { id: "fr-u51l1-contre", type: "vocab", front: "contre", reading: "contre", meaning: "against", example: { jp: "Le vélo est contre le mur.", en: "The bike is against the wall." }, accept: ["up against", "leaning on"], hint: "contre means TOUCHING it. Merely nearby is à côté de, later in this lesson." },
         { id: "fr-u51l1-acotede", type: "vocab", front: "à côté de", reading: "acotede", meaning: "next to", example: { jp: "L'hôtel est à côté de la gare.", en: "The hotel is next to the station." }, accept: ["beside", "alongside", "by"] },
         { id: "fr-u51l1-enfacede", type: "vocab", front: "en face de", reading: "enfacede", meaning: "opposite", example: { jp: "Ma chambre est en face de la mer.", en: "My bedroom is opposite the sea." }, accept: ["across from", "facing"], hint: "Not \"in front of\" — that's devant. en face de means it's on the OTHER side, looking back at you." },
@@ -53,7 +53,7 @@ export const FR_UNIT51 = {
       title: "Everywhere and nowhere",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Talk about place without naming it: everywhere, elsewhere, somewhere, nowhere, around — and how far you go.",
+      canDo: "Talk about place without naming it: anywhere at all, elsewhere, somewhere, nowhere, around — or just over there.",
       items: [
         { id: "fr-u51l3-nimporteou", type: "vocab", front: "n'importe où", reading: "nimporteou", meaning: "anywhere at all", example: { jp: "Je vais n'importe où.", en: "I'll go anywhere at all." }, accept: ["anywhere", "wherever", "any place"], hint: "The place member of the n'importe family — n'importe qui, n'importe quoi, n'importe où." },
         { id: "fr-u51l3-ailleurs", type: "vocab", front: "ailleurs", reading: "ailleurs", meaning: "elsewhere", example: { jp: "Je vais ailleurs.", en: "I'm going elsewhere." }, accept: ["somewhere else", "another place"] },
@@ -70,7 +70,7 @@ export const FR_UNIT51 = {
       title: "The corner and the middle",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Name the part of a space you mean: the corner, the middle, the edge, the spot, the room left, the centre.",
+      canDo: "Name the part of a space you mean: the corner, the middle, the edge, the spot, the far end, the centre.",
       items: [
         { id: "fr-u51l4-lecoin", type: "vocab", front: "le coin", reading: "lecoin", meaning: "corner", example: { jp: "La lampe est dans le coin.", en: "The lamp is in the corner." }, accept: ["the corner", "nook"] },
         { id: "fr-u51l4-lemilieu", type: "vocab", front: "le milieu", reading: "lemilieu", meaning: "middle", example: { jp: "La lampe est au milieu de la table.", en: "The lamp is in the middle of the table." }, accept: ["the middle", "midpoint"], hint: "au milieu de = in the middle of. That au is just à + le squeezed together. le milieu is a POSITION; le centre is the place itself (le centre de la ville)." },
