@@ -123,21 +123,23 @@ test("level milestones are per-language — a new language never moves another's
   assert.equal(jaA1.progress({}).need, countBand("ja", "A1"), "ja A1 counts only ja items");
   const frA1 = levels.find((m) => m.id === "level-A1-fr");
   assert.ok(frA1, "French gets its own suffixed level id");
-  // A BAND denominator, not a whole-language one. This used to read
-  // `frDefs.length`, which was only ever right because French had a single band —
-  // the first French A2 unit to ship broke it. Count the band, exactly as the ja
-  // assertion above does, so it survives every later band.
-  assert.equal(frA1.progress({}).need, countBand("fr", "A1"), "fr A1 counts only fr A1 items");
-  // Bands are cumulative: A2 = A1 + A2 items, and it is its own suffixed id.
+  // Band-scoped, exactly like the ja assertion above. This used to compare against
+  // frDefs.length (EVERY fr item), which was only ever equal by accident: French
+  // had nothing but A1. The moment French A2 landed the two diverged (566 vs 806)
+  // and this line failed on correct engine behaviour. Counting the A1 band says
+  // what the test actually means and survives every later band.
+  assert.equal(frA1.progress({}).need, countBand("fr", "A1"), "fr A1 counts only fr A1-band items");
+  // …and the band ABOVE it, so this file keeps the property the old line had by
+  // accident: it fires the moment a language grows a band. A level milestone is
+  // cumulative (ja's level-A2 counts A1+A2), so French's must be too — otherwise
+  // "French A2 complete" is reachable while French A1 is not.
   const frA2 = levels.find((m) => m.id === "level-A2-fr");
-  if (frA2) {
-    assert.equal(frA2.progress({}).need, countBand("fr", "A1") + countBand("fr", "A2"));
-    assert.ok(frA2.progress({}).need > frA1.progress({}).need, "A2 is a strictly bigger bar than A1");
-  }
-  // Deliberately NOT asserting frDefs.length === A1 + A2: that just swaps the old
-  // "French has one band" hardcode for "French has exactly two", and would fail the
-  // day fr B1 lands or any fr lesson ships without a `cefr`. The band-level
-  // assertions above are the real invariant.
+  assert.ok(frA2, "French A2 has its own suffixed level id");
+  assert.equal(
+    frA2.progress({}).need,
+    countBand("fr", "A1") + countBand("fr", "A2"),
+    "fr A2 is cumulative over fr A1+A2, and counts no other language"
+  );
   // Recognizing every ja A1 item earns ja's A1 WITHOUT touching French.
   const m = {};
   for (const d of Object.values(SEED)) {

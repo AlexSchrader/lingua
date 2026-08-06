@@ -89,7 +89,7 @@ export const FR_UNIT48 = {
       dominantMode: "recall",
       canDo: "Talk about language itself: name a language, say what a word means, translate it and pronounce it.",
       items: [
-        { id: "fr-u48l4-lalangue", type: "vocab", front: "la langue", reading: "lalangue", meaning: "language", example: { jp: "Le français est une belle langue.", en: "French is a beautiful language." }, accept: ["the language", "tongue"], hint: "Same word as the tongue in your mouth — the organ gave its name to the language." },
+        { id: "fr-u48l4-lalangue", type: "vocab", front: "la langue", reading: "lalangue", meaning: "language", example: { jp: "La langue française est difficile.", en: "The French language is difficult." }, accept: ["the language", "tongue"], hint: "Same word as the tongue in your mouth — the organ gave its name to the language." },
         { id: "fr-u48l4-traduire", type: "vocab", front: "traduire", reading: "traduire", meaning: "to translate", example: { jp: "Je vais traduire ce mot.", en: "I'm going to translate this word." }, accept: ["translate"] },
         { id: "fr-u48l4-vouloirdire", type: "vocab", front: "vouloir dire", reading: "vouloirdire", meaning: "to stand for", example: { jp: "Ce mot veut dire « maison ».", en: "This word means \"house\"." }, accept: ["mean", "to mean", "signify"], hint: "Literally \"to want to say\". In a sentence it conjugates — veut is the il/elle form of vouloir: ça veut dire = that means." },
         { id: "fr-u48l4-lesens", type: "vocab", front: "le sens", reading: "lesens", meaning: "meaning", example: { jp: "Je ne comprends pas le sens.", en: "I don't understand the meaning." }, accept: ["the meaning", "sense", "the sense"] },
