@@ -59,7 +59,7 @@ export const FR_UNIT47 = {
       title: "Words that fit anywhere",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Reach for the all-purpose nouns: beaucoup de choses, au début, à la fin, il n'y a pas de place.",
+      canDo: "Reach for the all-purpose nouns: beaucoup de choses, au début, à la fin, de ce côté.",
       items: [
         { id: "fr-u47l3-lachose", type: "vocab", front: "la chose", reading: "lachose", meaning: "the thing", example: { jp: "J'ai beaucoup de choses à faire.", en: "I have a lot of things to do." }, accept: ["thing", "stuff", "the thing"], hint: "quelque chose = something — literally \"some thing\"." },
         { id: "fr-u47l3-lapartie", type: "vocab", front: "la partie", reading: "lapartie", meaning: "the part", example: { jp: "Cette partie du film est longue.", en: "This part of the film is long." }, accept: ["part", "portion", "section"], hint: "longue is the feminine of long (Unit 16) — the u keeps the g hard." },
@@ -81,7 +81,7 @@ export const FR_UNIT47 = {
         { id: "fr-u47l4-possible", type: "vocab", front: "possible", reading: "possible", meaning: "possible", example: { jp: "Ce n'est pas possible aujourd'hui.", en: "That's not possible today." }, accept: ["feasible", "doable"] },
         { id: "fr-u47l4-impossible", type: "vocab", front: "impossible", reading: "impossible", meaning: "impossible", example: { jp: "C'est impossible pour moi.", en: "That's impossible for me." }, accept: ["not possible", "undoable"] },
         { id: "fr-u47l4-utile", type: "vocab", front: "utile", reading: "utile", meaning: "useful", example: { jp: "Ce site est très utile.", en: "This website is very useful." }, accept: ["helpful", "handy", "of use"] },
-        { id: "fr-u47l4-necessaire", type: "vocab", front: "nécessaire", reading: "necessaire", meaning: "necessary", example: { jp: "Il n'est pas nécessaire de payer.", en: "It isn't necessary to pay." }, accept: ["needed", "required", "essential"], hint: "Pairs with il faut (Unit 36): il est nécessaire de partir says the same thing as il faut partir." },
+        { id: "fr-u47l4-necessaire", type: "vocab", front: "nécessaire", reading: "necessaire", meaning: "necessary", example: { jp: "Il n'est pas nécessaire de partir.", en: "It isn't necessary to leave." }, accept: ["needed", "required", "essential"], hint: "Pairs with il faut (Unit 36): il est nécessaire de partir says the same thing as il faut partir." },
         { id: "fr-u47l4-simple", type: "vocab", front: "simple", reading: "simple", meaning: "simple", example: { jp: "La règle est très simple.", en: "The rule is very simple." }, accept: ["easy", "straightforward", "plain"] },
         { id: "fr-u47l4-sur", type: "vocab", front: "sûr", reading: "sur", meaning: "sure", example: { jp: "Tu es sûr ?", en: "Are you sure?" }, accept: ["certain", "safe", "positive"], hint: "Watch the hat: sûr (sure/safe) vs sur (on, Unit 17). It's the sûr inside bien sûr (Unit 10) — \"well, sure\"." },
       ],
