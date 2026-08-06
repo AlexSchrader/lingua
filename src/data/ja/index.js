@@ -1,4 +1,4 @@
-// Japanese units — the per-language barrel. Adding a unit touches THIS file and
+// JA units — the per-language barrel. Adding a unit touches THIS file and
 // nothing else; src/data/index.js imports one line per language, so parallel
 // authoring sessions never edit a shared file. See
 // BUILD-BRIEF-language-blueprint.md §3b. Generated shape — keep it mechanical.
@@ -17,13 +17,12 @@ import { UNIT12 } from "./unit12.js";
 import { UNIT13 } from "./unit13.js";
 import { UNIT14 } from "./unit14.js";
 import { UNIT15 } from "./unit15.js";
-import { UNIT16 } from "./unit16.js"; // yōon (pre-a1 kana digraphs)
+import { UNIT16 } from "./unit16.js";
 import { UNIT17 } from "./unit17.js";
 import { UNIT18 } from "./unit18.js";
-import { UNIT19 } from "./unit19.js"; // ぶんぽう — first grammar unit (copula sentence)
-import { UNIT20 } from "./unit20.js"; // ぶんぽう・2 — verbs & particles (を/に/が/で)
-import { UNIT21 } from "./unit21.js"; // ぶんぽう・3 — past tense & adjective conjugation
-// --- A2 (N4) — activated 2026-07-12; ⚠️ pending batched native-speaker review ---
+import { UNIT19 } from "./unit19.js";
+import { UNIT20 } from "./unit20.js";
+import { UNIT21 } from "./unit21.js";
 import { UNIT22 } from "./unit22.js";
 import { UNIT23 } from "./unit23.js";
 import { UNIT24 } from "./unit24.js";
@@ -33,31 +32,28 @@ import { UNIT27 } from "./unit27.js";
 import { UNIT28 } from "./unit28.js";
 import { UNIT29 } from "./unit29.js";
 import { UNIT30 } from "./unit30.js";
-// --- A2 (N4) kanji arc — 141 new N4 kanji across 12 themed units ---
-import { UNIT31 } from "./unit31.js"; // かんじ・かぞく (family)
-import { UNIT32 } from "./unit32.js"; // かんじ・からだ (body & health)
-import { UNIT33 } from "./unit33.js"; // かんじ・どうし 1 (action verbs)
-import { UNIT34 } from "./unit34.js"; // かんじ・どうし 2 (motion verbs)
-import { UNIT35 } from "./unit35.js"; // かんじ・べんきょう (study & thought)
-import { UNIT36 } from "./unit36.js"; // かんじ・ことば (writing, arts & sound)
-import { UNIT37 } from "./unit37.js"; // かんじ・しごと (work & commerce)
-import { UNIT38 } from "./unit38.js"; // かんじ・きせつ (seasons & weather)
-import { UNIT39 } from "./unit39.js"; // かんじ・ばしょ (places & buildings)
-import { UNIT40 } from "./unit40.js"; // かんじ・いろ・たべもの (colors & food)
-import { UNIT41 } from "./unit41.js"; // かんじ・ようす (descriptive & state)
-import { UNIT42 } from "./unit42.js"; // かんじ・きのう (function & misc)
-// --- A2 (N4) grammar arc (consolidated) + conjugation drills + vocab thickening ---
-import { UNIT43 } from "./unit43.js"; // ぶんぽう・4 (て-form; giving & receiving)
-import { UNIT44 } from "./unit44.js"; // ぶんぽう・5 (conditionals & ability; comparison; inference & quoting)
-import { UNIT45 } from "./unit45.js"; // どうし・かつよう (conjugation drill → conjugate card)
-import { UNIT46 } from "./unit46.js"; // どうし・うけみ (passive/causative/imperative drill)
-import { UNIT47 } from "./unit47.js"; // いえ・かじ (home & household)
-import { UNIT48 } from "./unit48.js"; // せいかく・きもち (personality & feelings)
-import { UNIT49 } from "./unit49.js"; // しゃかい・せいかつ (society & daily life)
-import { UNIT50 } from "./unit50.js"; // ぎじゅつ・つうしん (technology & communication)
-import { UNIT51 } from "./unit51.js"; // しぜん・かがく (nature & science)
-import { UNIT52 } from "./unit52.js"; // ぶんか・レジャー (culture & leisure)
-// --- N5/N4 vocab thickening + coverage fill (U53–U98) ---
+import { UNIT31 } from "./unit31.js";
+import { UNIT32 } from "./unit32.js";
+import { UNIT33 } from "./unit33.js";
+import { UNIT34 } from "./unit34.js";
+import { UNIT35 } from "./unit35.js";
+import { UNIT36 } from "./unit36.js";
+import { UNIT37 } from "./unit37.js";
+import { UNIT38 } from "./unit38.js";
+import { UNIT39 } from "./unit39.js";
+import { UNIT40 } from "./unit40.js";
+import { UNIT41 } from "./unit41.js";
+import { UNIT42 } from "./unit42.js";
+import { UNIT43 } from "./unit43.js";
+import { UNIT44 } from "./unit44.js";
+import { UNIT45 } from "./unit45.js";
+import { UNIT46 } from "./unit46.js";
+import { UNIT47 } from "./unit47.js";
+import { UNIT48 } from "./unit48.js";
+import { UNIT49 } from "./unit49.js";
+import { UNIT50 } from "./unit50.js";
+import { UNIT51 } from "./unit51.js";
+import { UNIT52 } from "./unit52.js";
 import { UNIT53 } from "./unit53.js";
 import { UNIT54 } from "./unit54.js";
 import { UNIT55 } from "./unit55.js";
@@ -104,7 +100,64 @@ import { UNIT95 } from "./unit95.js";
 import { UNIT96 } from "./unit96.js";
 import { UNIT97 } from "./unit97.js";
 import { UNIT98 } from "./unit98.js";
+import { UNIT99 } from "./unit99.js";
+import { UNIT100 } from "./unit100.js";
+import { UNIT101 } from "./unit101.js";
+import { UNIT102 } from "./unit102.js";
+import { UNIT103 } from "./unit103.js";
+import { UNIT104 } from "./unit104.js";
+import { UNIT105 } from "./unit105.js";
+import { UNIT106 } from "./unit106.js";
+import { UNIT107 } from "./unit107.js";
+import { UNIT108 } from "./unit108.js";
+import { UNIT109 } from "./unit109.js";
+import { UNIT110 } from "./unit110.js";
+import { UNIT111 } from "./unit111.js";
+import { UNIT112 } from "./unit112.js";
+import { UNIT113 } from "./unit113.js";
+import { UNIT114 } from "./unit114.js";
+import { UNIT115 } from "./unit115.js";
+import { UNIT116 } from "./unit116.js";
+import { UNIT117 } from "./unit117.js";
+import { UNIT118 } from "./unit118.js";
+import { UNIT119 } from "./unit119.js";
+import { UNIT120 } from "./unit120.js";
+import { UNIT121 } from "./unit121.js";
+import { UNIT122 } from "./unit122.js";
+import { UNIT123 } from "./unit123.js";
+import { UNIT124 } from "./unit124.js";
+import { UNIT125 } from "./unit125.js";
+import { UNIT126 } from "./unit126.js";
+import { UNIT127 } from "./unit127.js";
+import { UNIT128 } from "./unit128.js";
+import { UNIT129 } from "./unit129.js";
+import { UNIT130 } from "./unit130.js";
+import { UNIT131 } from "./unit131.js";
+import { UNIT132 } from "./unit132.js";
+import { UNIT133 } from "./unit133.js";
+import { UNIT134 } from "./unit134.js";
+import { UNIT135 } from "./unit135.js";
+import { UNIT136 } from "./unit136.js";
+import { UNIT137 } from "./unit137.js";
+import { UNIT138 } from "./unit138.js";
+import { UNIT139 } from "./unit139.js";
+import { UNIT140 } from "./unit140.js";
+import { UNIT141 } from "./unit141.js";
+import { UNIT142 } from "./unit142.js";
+import { UNIT143 } from "./unit143.js";
+import { UNIT144 } from "./unit144.js";
+import { UNIT145 } from "./unit145.js";
+import { UNIT146 } from "./unit146.js";
+import { UNIT147 } from "./unit147.js";
+import { UNIT148 } from "./unit148.js";
+import { UNIT149 } from "./unit149.js";
+import { UNIT150 } from "./unit150.js";
+import { UNIT151 } from "./unit151.js";
+import { UNIT152 } from "./unit152.js";
+import { UNIT153 } from "./unit153.js";
+import { UNIT154 } from "./unit154.js";
+import { UNIT155 } from "./unit155.js";
 
 export const JA_UNITS = [
-  UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64, UNIT65, UNIT66, UNIT67, UNIT68, UNIT69, UNIT70, UNIT71, UNIT72, UNIT73, UNIT74, UNIT75, UNIT76, UNIT77, UNIT78, UNIT79, UNIT80, UNIT81, UNIT82, UNIT83, UNIT84, UNIT85, UNIT86, UNIT87, UNIT88, UNIT89, UNIT90, UNIT91, UNIT92, UNIT93, UNIT94, UNIT95, UNIT96, UNIT97, UNIT98,
+  UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64, UNIT65, UNIT66, UNIT67, UNIT68, UNIT69, UNIT70, UNIT71, UNIT72, UNIT73, UNIT74, UNIT75, UNIT76, UNIT77, UNIT78, UNIT79, UNIT80, UNIT81, UNIT82, UNIT83, UNIT84, UNIT85, UNIT86, UNIT87, UNIT88, UNIT89, UNIT90, UNIT91, UNIT92, UNIT93, UNIT94, UNIT95, UNIT96, UNIT97, UNIT98, UNIT99, UNIT100, UNIT101, UNIT102, UNIT103, UNIT104, UNIT105, UNIT106, UNIT107, UNIT108, UNIT109, UNIT110, UNIT111, UNIT112, UNIT113, UNIT114, UNIT115, UNIT116, UNIT117, UNIT118, UNIT119, UNIT120, UNIT121, UNIT122, UNIT123, UNIT124, UNIT125, UNIT126, UNIT127, UNIT128, UNIT129, UNIT130, UNIT131, UNIT132, UNIT133, UNIT134, UNIT135, UNIT136, UNIT137, UNIT138, UNIT139, UNIT140, UNIT141, UNIT142, UNIT143, UNIT144, UNIT145, UNIT146, UNIT147, UNIT148, UNIT149, UNIT150, UNIT151, UNIT152, UNIT153, UNIT154, UNIT155,
 ];

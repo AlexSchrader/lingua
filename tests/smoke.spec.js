@@ -544,6 +544,14 @@ test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson se
   await page.goto("/");
 
   const seenKinds = new Set();
+  // Coverage is the whole point of this test, so once every LIVE_CARD_KIND has been
+  // seen there is nothing left to learn from playing more cards. Without this the
+  // sessions run to their full card budget regardless, and the test measured ~48s
+  // against its 60s cap — it passed alone and timed out under parallel workers,
+  // failing the suite on an unloaded machine too (reproduced on the pre-merge base,
+  // so this is long-standing, not a regression). NOTE: no assertion is relaxed —
+  // every kind must still be seen, this only stops replaying cards after that.
+  const covered = () => LIVE_CARD_KINDS.every((k) => seenKinds.has(k));
 
   // Session 1: reviews — konnichiwa (rung=3 due) → build card.
   await page.getByTestId("start-session").click();
@@ -551,6 +559,7 @@ test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson se
     const kind = await playCard(page);
     if (kind === false) break;
     if (typeof kind === "string") seenKinds.add(kind);
+    if (covered()) break;
     await page.waitForTimeout(50);
   }
   await page.getByRole("button", { name: "Back to Today" }).click();
@@ -561,6 +570,7 @@ test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson se
     const kind = await playCard(page);
     if (kind === false) break;
     if (typeof kind === "string") seenKinds.add(kind);
+    if (covered()) break;
     await page.waitForTimeout(50);
   }
 
@@ -575,6 +585,7 @@ test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson se
     const kind = await playCard(page);
     if (kind === false) break;
     if (typeof kind === "string") seenKinds.add(kind);
+    if (covered()) break;
     await page.waitForTimeout(50);
   }
 
