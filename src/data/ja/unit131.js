@@ -70,7 +70,7 @@ export const UNIT131 = {
       title: "The wider economy",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Talk about investing, and and say how the economy is doing: とうし かぶ こうざ しゅうし けいき まずしい.",
+      canDo: "Talk about investing, and say how the economy is doing: とうし かぶ こうざ しゅうし けいき まずしい.",
       items: [
         { id: "ja-u131l4-toshi", type: "vocab", front: "とうし", reading: "tōshi", meaning: "investment", example: { jp: "とうしはあぶないといわれますが、べんきょうすればこわくありません。", en: "People say investment is risky, but it isn't frightening if you study it." }, accept: ["investing", "putting money in"] },
         { id: "ja-u131l4-kabu", type: "vocab", front: "かぶ", reading: "kabu", meaning: "shares", example: { jp: "かぶがさがったので、みんなしずかになりました。", en: "Share prices fell, so everyone went quiet." }, accept: ["stock", "equities", "a share"] },
