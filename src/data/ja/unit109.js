@@ -33,14 +33,14 @@ export const UNIT109 = {
       title: "Words with those kanji",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Use the growing kanji in real words: せいさん さんち さんぎょう いくじ しいく こんぽん.",
+      canDo: "Use the growing kanji in real words: せいさん さんち のうさんぶつ いくじ しいく こんぽん.",
       items: [
         { id: "ja-u109l2-seisan", type: "vocab", front: "せいさん", reading: "seisan", meaning: "production", example: { jp: "せいさんがふえたので、ねだんは少し下がりました。", en: "Production increased, so prices fell a little." }, accept: ["manufacturing", "output", "to produce"], hint: "生産 = 生 (life) + 産 (produce). Its opposite is しょうひ (consumption) — the pair you'll meet in any economics article." },
         { id: "ja-u109l2-sanchi", type: "vocab", front: "さんち", reading: "sanchi", meaning: "place of origin", example: { jp: "やさいのさんちが書いてあると、安心して買えます。", en: "When the vegetables' place of origin is written on them, I can buy with confidence." }, accept: ["production area", "source", "provenance"], hint: "産地 = 産 (produce) + 地 (land). Printed on every食品 label in a Japanese supermarket — worth being able to read." },
         { id: "ja-u109l2-ikuji", type: "vocab", front: "いくじ", reading: "ikuji", meaning: "childcare", example: { jp: "いくじはたいへんですが、まいにちあたらしいはっけんがあります。", en: "Childcare is hard work, but there's a new discovery every day." }, accept: ["raising children", "parenting"], hint: "育児 = 育 (raise) + 児 (child). いくじきゅうか = parental leave, a word much discussed in Japan." },
         { id: "ja-u109l2-shiiku", type: "vocab", front: "しいく", reading: "shiiku", meaning: "animal keeping", example: { jp: "どうぶつ園でしいくのしごとをしている友だちがいます。", en: "I have a friend who works keeping animals at the zoo." }, accept: ["breeding", "rearing", "husbandry"], hint: "飼育 = 飼 (keep) + 育 (raise). The professional word — a zoo keeper is a しいくいん." },
         { id: "ja-u109l2-konpon", type: "vocab", front: "こんぽん", reading: "konpon", meaning: "the root of it", example: { jp: "こんぽんのげんいんをなおさないと、また同じことがおきます。", en: "Unless we fix the root cause, the same thing will happen again." }, accept: ["fundamental", "basis", "core"], hint: "根本 = 根 (root) + 本 (origin). こんぽんてきに = fundamentally. Both halves mean 'root' — the doubling makes it emphatic." },
-        { id: "ja-u109l2-sangyo", type: "vocab", front: "さんぎょう", reading: "sangyō", meaning: "industry", example: { jp: "この町のさんぎょうは、むかしから木とかみです。", en: "This town's industries have long been timber and paper." }, accept: ["sector", "trade"], hint: "産業 = 産 (produce) + 業 (business). じばさんぎょう = a local industry — the phrase every regional news item uses." },
+        { id: "ja-u109l2-nosanbutsu", type: "vocab", front: "のうさんぶつ", reading: "nōsanbutsu", meaning: "farm produce", example: { jp: "ちかくでとれたのうさんぶつは、新せんで安いです。", en: "Farm produce grown nearby is fresh and cheap." }, accept: ["agricultural products", "crops"], hint: "農産物 = 農 (farming) + 産 (produce) + 物 (thing). The ～物 ending names a class of goods: 食べ物, 買い物, 荷物." },
       ],
     },
     {
