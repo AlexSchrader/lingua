@@ -73,17 +73,20 @@ npm run validate:content && npm run lint:curriculum && npm run test:unit
 
 Then confirm **all three** prerequisites from `BUILD-BRIEF-language-blueprint.md` §3 are present in **your** branch's history. They shipped on `feat/language-prereqs`; if your base predates that merge you must not author on it.
 
-1. **Word-front uniqueness is scoped per-language.** In `src/data/contract.js` and `src/data/lint.js`, the front-uniqueness `Map` key **must** include the language (`` `${lang} ${front}` ``). If either still keys on bare `item.front`, **STOP**.
+1. **Word-front uniqueness is scoped per-language.** In `src/data/contract.js` and `src/data/lint.js`, the front-uniqueness `Map` key **must** include the language — the key is built from the language and the front joined by a separator. **What matters is that the language is in the key at all**; the separator itself is an implementation detail and you should not check for a specific one. If either file still keys on bare `item.front`, **STOP**.
 2. **Per-language barrels exist** — `src/data/ja/index.js` and `src/data/fr/index.js` export `JA_UNITS` / `FR_UNITS`, and the root `src/data/index.js` imports one line per language rather than one per unit.
 3. **`npm run scaffold:lang` exists** in `package.json`.
 
 Fast check — all three at once:
 
 ```bash
-grep -q '${lang} ${front}' src/data/contract.js && grep -q '${unitLang} ${item.front}' src/data/lint.js \
+grep -qE '\$\{lang\}.{0,12}\$\{(item\.)?front\}' src/data/contract.js \
+  && grep -qE '\$\{unitLang\}.{0,12}\$\{item\.front\}' src/data/lint.js \
   && test -f src/data/ja/index.js && grep -q 'scaffold:lang' package.json \
   && echo PREREQS OK || echo PREREQS MISSING — STOP
 ```
+
+*(The check matches the language variable next to the front variable, deliberately **without** pinning the separator between them. It used to grep for the exact key string, which made it a tripwire on an implementation detail rather than on the property that matters: changing the separator from a literal NUL byte to its unicode-escape form — same runtime value, no behaviour change at all — turned this into `PREREQS MISSING` and would have hard-stopped every crew on a green tree.)*
 
 **If any is missing, stop and tell Alex exactly which one, then do nothing else.** Authoring into the old global-front rule produces a block that is green alone and fails CI the moment it merges with another Latin-script language — you won't see it, and neither will the other two sessions. This is not a "flag it and proceed" situation; the point of the runbook is that a block passing locally also passes on merge.
 
@@ -187,10 +190,14 @@ Runs once, when all three blocks are green. **One session does this, never three
 
 1. `git merge` each block branch **in block order** (1 → 2 → 3). Conflicts should be near-zero: authoring seats only ever touch `src/data/<lang>/`.
 2. Re-run the **full gate** on the combined result. A block can be green alone and red combined — that's the whole reason this seat exists. Fix in the merged tree.
-3. Run audio **once**: `npm run generate:audio` then `npm run generate:manifest`. **Never in parallel with another language's merge** — one shared manifest.
-4. Update `BUILD-CHECKLIST.md` per its marking protocol, and clear the language's rows off the crew board.
-5. Hand Alex the §6 block for the whole language, plus one line: which unit to open first in Dev Mode.
-6. `git worktree remove` the three authoring worktrees.
+3. **Duplicate fronts are the expected red, and they are YOURS to resolve — do not escalate them.** Two blocks independently teaching the same word is the normal outcome of parallel authoring, not a failure or a decision for Alex. The Spanish pilot produced 33 across 21 lessons; every one resolved mechanically. Work it in this order:
+   - **Ownership: lower unit `order` wins, always.** No exceptions and no negotiation — that is what makes this resolvable by one seat with no cross-session coordination. Delete the item from the **higher**-order unit; the word stays available to that unit's example sentences, which is all it needed.
+   - **A sounds/script unit owning ordinary words is correct, not a bug.** ja Unit 1 is 25 kana *and* 29 real words; a Latin sounds unit works the same way. Don't "fix" it by reassigning the word to the thematic unit that feels more natural — that reopens the tie the rule exists to close.
+   - **Then repair the holes deletion leaves.** Every lesson that drops below **5 cards** needs backfilling to 5–6 with genuinely new words that are in scope at that unit. In the pilot, 10 of 21 lessons fell under the floor and two fell to 3 — so budget this as real authoring, not cleanup. Re-run the gate after backfilling; the vocab-scope lint will catch a backfill word used before it is taught.
+4. Run audio **once**: `npm run generate:audio` then `npm run generate:manifest`. **Never in parallel with another language's merge** — one shared manifest.
+5. Update `BUILD-CHECKLIST.md` per its marking protocol, and clear the language's rows off the crew board.
+6. Hand Alex the §6 block for the whole language, plus one line: which unit to open first in Dev Mode.
+7. `git worktree remove` the three authoring worktrees.
 
 Then stop. Alex playtests and merges to `main`.
 
