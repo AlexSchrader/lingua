@@ -77,7 +77,7 @@ export const UNIT101 = {
         { id: "ja-u101l4-shimesu", type: "vocab", front: "しめす", reading: "shimesu", meaning: "to indicate", example: { jp: "この ちずは えきまでの みちを しめして います。", en: "This map indicates the route to the station." }, accept: ["to show", "to point out", "to demonstrate"] },
         { id: "ja-u101l4-itaru", type: "vocab", front: "いたる", reading: "itaru", meaning: "to reach", example: { jp: "ながい かいぎの あと、みんなが なっとくする けっかに いたりました。", en: "After a long meeting, we reached a result everyone accepted." }, accept: ["to arrive at", "to lead to", "to culminate in"] },
         { id: "ja-u101l4-hanno", type: "vocab", front: "はんのう", reading: "hannō", meaning: "reaction", example: { jp: "その ニュースを きいた ひとたちの はんのうは とても つよかったです。", en: "The reaction of the people who heard that news was very strong." }, accept: ["response", "reception"] },
-        { id: "ja-u101l4-niyotte", type: "vocab", front: "によって", reading: "niyotte", meaning: "depending on", example: { jp: "ひとによって かんがえかたが ちがいますから、よく はなす ことが たいせつです。", en: "Ways of thinking differ depending on the person, so talking it through matters." }, accept: ["by", "according to", "through"], hint: "Two jobs: ひとによって = varies by person; かぜによって = caused by. The noun in front tells you which." },
+        { id: "ja-u101l4-niyotte", type: "vocab", front: "によって", reading: "niyotte", meaning: "depending on", example: { jp: "ひとによって かんがえかたが ちがいますから、よく はなす ことが たいせつです。", en: "Ways of thinking differ depending on the person, so talking it through matters." }, accept: ["by", "according to", "through"], hint: "Two jobs: ひとによって = varies by person; じこによって = caused by an accident. The noun in front tells you which." },
       ],
     },
   ],

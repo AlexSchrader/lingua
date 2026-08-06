@@ -2,8 +2,9 @@
 // Strand B. The vocabulary of a news story and the society it reports on: how news
 // is made (きじ／ほうどう／しゅざい), who it is about (こくみん／せだい／そしき), what goes
 // wrong (はんざい／しつぎょう／じたい), and how it is argued about (よろん／ちょうさ／かだい).
-// しゃかい, せいじ, せんきょ, ほうりつ, ぜいきん, けいざい, じけん and きしゃ are taught below
-// B1 and appear here in examples only. lang/unit/lesson are stamped in src/data/index.js.
+// しゃかい, せいじ, せんきょ, ほうりつ, ぜいきん, けいざい and じけん are taught below B1 and
+// appear here in examples only. NOTE: the taught きしゃ (u96) is 汽車 "steam train", NOT
+// 記者 "reporter" — so this unit says しんぶんの ひと instead. lang/unit/lesson are stamped in src/data/index.js.
 export const UNIT107 = {
   id: "ja-u107",
   lang: "ja",
@@ -21,10 +22,10 @@ export const UNIT107 = {
       canDo: "Talk about a news story and where it came from: きじ ほうどう とりあげる みだし しゅざい マスコミ.",
       items: [
         { id: "ja-u107l1-kiji", type: "vocab", front: "きじ", reading: "kiji", meaning: "article", example: { jp: "けさの しんぶんの きじを よんでから、かいしゃに いきました。", en: "I read this morning's newspaper article, then went to the office." }, accept: ["news story", "piece", "report"] },
-        { id: "ja-u107l1-hodo", type: "vocab", front: "ほうどう", reading: "hōdō", meaning: "news coverage", example: { jp: "テレビは その じけんを ながい じかん ほうどうして います。", en: "Television has been covering that incident for a long time." }, accept: ["reporting", "media coverage", "to report"] },
+        { id: "ja-u107l1-hodo", type: "vocab", front: "ほうどう", reading: "hōdō", meaning: "news coverage", example: { jp: "テレビは その じけんを ながい じかん ほうどうして いて、まちの ひとも しんぱいして います。", en: "Television has covered that incident at length, and people in town are worried too." }, accept: ["reporting", "media coverage", "to report"] },
         { id: "ja-u107l1-toriageru", type: "vocab", front: "とりあげる", reading: "toriageru", meaning: "to take up (a topic)", example: { jp: "しんぶんは わかい ひとの しごとの もんだいを とりあげて、くわしく せつめいしました。", en: "The paper took up the problem of young people's jobs and explained it in detail." }, accept: ["to cover", "to feature", "to bring up"] },
         { id: "ja-u107l1-midashi", type: "vocab", front: "みだし", reading: "midashi", meaning: "headline", example: { jp: "いそがしいので みだしだけ よんで、きじは あとで よみます。", en: "I'm busy, so I read only the headlines and save the articles for later." }, accept: ["heading", "title"] },
-        { id: "ja-u107l1-shuzai", type: "vocab", front: "しゅざい", reading: "shuzai", meaning: "news gathering", example: { jp: "きしゃが まちに きて、みせの ひとに しゅざいを して いました。", en: "A reporter came to town and was gathering material from the shopkeepers." }, accept: ["reporting", "interviewing", "research for a story"] },
+        { id: "ja-u107l1-shuzai", type: "vocab", front: "しゅざい", reading: "shuzai", meaning: "news gathering", example: { jp: "しんぶんの ひとが まちに きて、みせの ひとに しゅざいを して いました。", en: "Someone from the newspaper came to town and gathered material from the shopkeepers." }, accept: ["reporting", "interviewing", "research for a story"] },
         { id: "ja-u107l1-masukomi", type: "vocab", front: "マスコミ", reading: "masukomi", meaning: "the media", example: { jp: "マスコミが つたえる ことが、いつも ただしいとは かぎりません。", en: "What the media reports isn't always correct." }, accept: ["mass media", "the press"], hint: "マスコミ is clipped from \"mass communication\" — Japanese shortens loanwords to four morae wherever it can." },
       ],
     },
@@ -59,7 +60,7 @@ export const UNIT107 = {
         { id: "ja-u107l3-shitsugyo", type: "vocab", front: "しつぎょう", reading: "shitsugyō", meaning: "unemployment", example: { jp: "しつぎょうする ひとが ふえて、まちの みせも こまって います。", en: "More people are unemployed, and the town's shops are struggling too." }, accept: ["losing one's job", "joblessness"] },
         { id: "ja-u107l3-jitai", type: "vocab", front: "じたい", reading: "jitai", meaning: "situation", example: { jp: "あめが つよく なって、たいへんな じたいに なりました。", en: "The rain got heavier and it turned into a serious situation." }, accept: ["state of affairs", "circumstances"], hint: "じたい is a situation that has gone somewhere bad — news language. A neutral situation is じょうきょう." },
         { id: "ja-u107l3-taio", type: "vocab", front: "たいおう", reading: "taiō", meaning: "response", example: { jp: "みせの ひとの たいおうが はやくて、もんだいは すぐに おわりました。", en: "The shop staff's response was quick, and the problem ended right away." }, accept: ["handling", "dealing with", "to respond"] },
-        { id: "ja-u107l3-fusegu", type: "vocab", front: "ふせぐ", reading: "fusegu", meaning: "to prevent", example: { jp: "びょうきを ふせぐ ために、まいにち てを あらいます。", en: "To prevent illness, I wash my hands every day." }, accept: ["to protect against", "to stop", "to guard"] },
+        { id: "ja-u107l3-fusegu", type: "vocab", front: "ふせぐ", reading: "fusegu", meaning: "to prevent", example: { jp: "かぜを ふせぐ ために、まいばん はやく ねる ことに しました。", en: "To fend off a cold, I decided to go to bed early every night." }, accept: ["to protect against", "to stop", "to guard"] },
       ],
     },
     {
