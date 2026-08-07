@@ -6,7 +6,8 @@
 // Two kinds of card here, and the hint says which is which:
 //   • the MISSING HALF of a pair A1/A2 already started — ふやします (ふえる is u92),
 //     のこします (のこる u92), もどします (もどる u97), とめます (とまる u22),
-//     かたづきます (かたづける u80), かわかします (かわく u92), やぶります (やぶれる u77)
+//     かたづきます (かたづける u22), かわかします (かわく u92), やぶります (やぶれる u69),
+//     ひらきます (あける u9)
 //   • BOTH halves of a pair the corpus doesn't have at all — そろう/そろえる,
 //     ちぢむ/ちぢめる, こぼれる/こぼす, ころがる/ころがす, とける/とかす,
 //     はずれる/はずす, ぬける/ぬく
