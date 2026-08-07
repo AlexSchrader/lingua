@@ -3,8 +3,8 @@
 // taught the A2 evidentials (でしょう・はず・らしい・ようです・みたいです・かもしれません),
 // so this unit takes what is left and is genuinely N3: how you got the information
 // (ということです / とのことです), how sure you are (にちがいありません / とはかぎりません),
-// turning a clause into a noun (ということ / ことにします / ようになります), and the focus
-// particles that change what a sentence is ABOUT without changing what it says.
+// turning a clause into a noun (ということ / ことになります / わけにはいきません), and the
+// focus particles that change what a sentence is ABOUT without changing what it says.
 // Every example is two clauses, per the B1 spec. Fronts were re-checked at LEXEME level
 // after the content gate found that an exact-string check had let ことにします / ようになります
 // / ことがあります through against u44's ことにする / ようになる / ことがある.
@@ -65,7 +65,7 @@ export const UNIT139 = {
         { id: "ja-u139l3-kotowanai", type: "vocab", front: "ことはない", reading: "kotowanai", meaning: "there's no need to", example: { jp: "じかんはまだあるので、いそぐことはないですよ。", en: "There's still time, so there's no need to hurry." }, accept: ["no call for", "you don't have to", "never mind about"], hint: "Reassurance, not permission: しなくてもいい says you may skip it, ことはない says it was never required. Plain verb + ことはない." },
         { id: "ja-u139l3-kotoninarimasu", type: "vocab", front: "ことになります", reading: "kotoninarimasu", meaning: "it has been decided that", example: { jp: "らいげつから、おおさかではたらくことになりました。", en: "It's been decided that I'll be working in Osaka from next month." }, accept: ["it turns out that", "it works out that", "be arranged that"], hint: "The decision arrives from outside — a company, a rule, circumstances. Japanese prefers this even when you did choose, because it sounds less self-important." },
         { id: "ja-u139l3-yonishimasu", type: "vocab", front: "ようにします", reading: "yōnishimasu", meaning: "make a point of doing", example: { jp: "けんこうのために、まいあさあるくようにしています。", en: "For my health, I make a point of walking every morning." }, accept: ["try to do regularly", "see to it that", "make an effort to"], hint: "An ongoing effort, not a single decision. ようにしています (continuous) is far commoner than ようにします." },
-        { id: "ja-u139l3-yotoshimasu", type: "vocab", front: "ようとします", reading: "yōtoshimasu", meaning: "try to; be about to", example: { jp: "いえをでようとしたとき、でんわがなりました。", en: "Just as I was about to leave the house, the phone rang." }, accept: ["attempt to", "be on the point of", "make an effort to"], hint: "Volitional + とします. てみます is 'do it and see'; ようとします is straining at it — and often failing, which is why it so often reports an interruption." },
+        { id: "ja-u139l3-yotoshimasu", type: "vocab", front: "ようとします", reading: "yōtoshimasu", meaning: "try to; be about to", example: { jp: "いえをでようとしたとき、でんわがなりました。", en: "Just as I was about to leave the house, the phone rang." }, accept: ["attempt to", "be on the point of", "make an effort to"], hint: "Volitional + とします. てみる (u43) is 'do it and see'; ようとします is straining at it — and often failing, which is why it so often reports an interruption." },
         { id: "ja-u139l3-wakeniwaikimasen", type: "vocab", front: "わけにはいきません", reading: "wakeniwaikimasen", meaning: "I can't (allow myself to)", example: { jp: "やくそくしたので、いかないわけにはいきません。", en: "I promised, so I can't very well not go." }, accept: ["can't just", "it wouldn't do to", "I'm not free to"], hint: "Not 'unable' but 'not allowed to by circumstances' — duty, promises, other people watching. できません is about ability; わけにはいきません is about obligation." },
       ],
     },

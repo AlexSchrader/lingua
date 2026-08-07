@@ -19,7 +19,7 @@ export const UNIT144 = {
       title: "What people are like",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Describe someone's character, kindly or not: かしこい, たくましい, たのもしい, なさけない, ずうずうしい.",
+      canDo: "Describe someone's character, kindly or not: かしこい, たくましい, たのもしい, そそっかしい, なさけない, ずうずうしい.",
       items: [
         { id: "ja-u144l1-kashikoi", type: "vocab", front: "かしこい", reading: "kashikoi", meaning: "clever, wise", example: { jp: "このいぬはとてもかしこくて、なんでもおぼえます。", en: "This dog is very clever and learns anything." }, accept: ["smart", "bright", "sensible"], hint: "かしこい is practical good sense — it fits animals and children as easily as adults. あたまがいい is about ability; かしこい is about judgement." },
         { id: "ja-u144l1-takumashii", type: "vocab", front: "たくましい", reading: "takumashii", meaning: "sturdy, tough-minded", example: { jp: "ひとりでせいかつして、かれはたくましくなりました。", en: "Living alone has made him tougher." }, accept: ["robust", "resilient", "strapping"], hint: "Physical strength and strength of character at once. Always admiring — you cannot use it as an insult." },

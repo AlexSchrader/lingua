@@ -20,7 +20,7 @@ export const UNIT146 = {
       title: "How much — the middle of the scale",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Grade a statement instead of stating it flat: そうとう, やや, たいして, ろくに, おおいに.",
+      canDo: "Grade a statement instead of stating it flat: そうとう, やや, たいして, ろくに, おおいに, すこしも.",
       items: [
         { id: "ja-u146l1-soto", type: "vocab", front: "そうとう", reading: "sōtō", meaning: "considerably, quite", example: { jp: "そうとうつかれていたので、すぐにねてしまいました。", en: "I was pretty worn out, so I fell asleep straight away." }, accept: ["fairly", "a good deal", "substantially"], hint: "Stronger than かなり and more objective — it sounds like a measured estimate rather than an impression." },
         { id: "ja-u146l1-yaya", type: "vocab", front: "やや", reading: "yaya", meaning: "slightly, somewhat", example: { jp: "ことしのなつは、きょねんよりややあついです。", en: "This summer is slightly hotter than last year." }, accept: ["a little", "marginally", "a shade"], hint: "The written すこし, common in weather reports and data. In conversation ちょっと does the same job." },
