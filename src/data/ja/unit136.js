@@ -1,4 +1,4 @@
-// JA Unit 136 — かんじ・N3・20 (N3 kanji, set 20) — B1 / JLPT N3
+// JA Unit 136 — かんじ・れいぎ (N3 kanji — courtesy and order) — B1 / JLPT N3
 // Glyph ownership and card shape are documented in unit119.js: the last slice of
 // the pool that remains once block 1's authored 160 glyphs are subtracted. With
 // this unit every N3 glyph in the band is taught exactly once across the two
@@ -7,7 +7,7 @@
 export const UNIT136 = {
   id: "ja-u136",
   lang: "ja",
-  title: "かんじ・N3・20",
+  title: "かんじ・れいぎ",
   order: 136,
   stage: "b1",
   lessons: [

@@ -1,10 +1,10 @@
-// JA Unit 127 — かんじ・N3・15 (N3 kanji, set 15) — B1 / JLPT N3
+// JA Unit 127 — かんじ・きせつ (N3 kanji — seasons and occasions) — B1 / JLPT N3
 // Glyph ownership and card shape are documented in unit119.js: slice 15 of the
 // pool that remains once block 1's authored 160 glyphs are subtracted.
 export const UNIT127 = {
   id: "ja-u127",
   lang: "ja",
-  title: "かんじ・N3・15",
+  title: "かんじ・きせつ",
   order: 127,
   stage: "b1",
   lessons: [

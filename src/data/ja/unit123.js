@@ -1,4 +1,4 @@
-// JA Unit 123 — かんじ・N3・13 (N3 kanji, set 13) — B1 / JLPT N3
+// JA Unit 123 — かんじ・かたち (N3 kanji — shape and materials) — B1 / JLPT N3
 // Glyph ownership and card shape are documented in unit119.js: slice 13 of the
 // pool that remains once block 1's authored 160 glyphs are subtracted.
 //
@@ -8,7 +8,7 @@
 export const UNIT123 = {
   id: "ja-u123",
   lang: "ja",
-  title: "かんじ・N3・13",
+  title: "かんじ・かたち",
   order: 123,
   stage: "b1",
   lessons: [

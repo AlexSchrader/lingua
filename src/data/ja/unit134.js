@@ -1,10 +1,10 @@
-// JA Unit 134 — かんじ・N3・19 (N3 kanji, set 19) — B1 / JLPT N3
+// JA Unit 134 — かんじ・やくわり (N3 kanji — roles and paying) — B1 / JLPT N3
 // Glyph ownership and card shape are documented in unit119.js: slice 19 of the
 // pool that remains once block 1's authored 160 glyphs are subtracted.
 export const UNIT134 = {
   id: "ja-u134",
   lang: "ja",
-  title: "かんじ・N3・19",
+  title: "かんじ・やくわり",
   order: 134,
   stage: "b1",
   lessons: [

@@ -1,10 +1,10 @@
-// JA Unit 132 — かんじ・N3・18 (N3 kanji, set 18) — B1 / JLPT N3
+// JA Unit 132 — かんじ・ちから (N3 kanji — ability and comparison) — B1 / JLPT N3
 // Glyph ownership and card shape are documented in unit119.js: slice 18 of the
 // pool that remains once block 1's authored 160 glyphs are subtracted.
 export const UNIT132 = {
   id: "ja-u132",
   lang: "ja",
-  title: "かんじ・N3・18",
+  title: "かんじ・ちから",
   order: 132,
   stage: "b1",
   lessons: [

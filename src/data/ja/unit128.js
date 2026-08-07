@@ -1,4 +1,4 @@
-// JA Unit 128 — かんじ・N3・16 (N3 kanji, set 16) — B1 / JLPT N3
+// JA Unit 128 — かんじ・つくる (N3 kanji — making and measuring) — B1 / JLPT N3
 // Glyph ownership and card shape are documented in unit119.js: slice 16 of the
 // pool that remains once block 1's authored 160 glyphs are subtracted.
 //
@@ -9,7 +9,7 @@
 export const UNIT128 = {
   id: "ja-u128",
   lang: "ja",
-  title: "かんじ・N3・16",
+  title: "かんじ・つくる",
   order: 128,
   stage: "b1",
   lessons: [

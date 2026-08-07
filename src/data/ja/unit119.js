@@ -1,4 +1,4 @@
-// JA Unit 119 — かんじ・N3・11 (N3 kanji, set 11) — B1 / JLPT N3
+// JA Unit 119 — かんじ・ちがい (N3 kanji — rank and difference) — B1 / JLPT N3
 // ─────────────────────────────────────────────────────────────────────────────
 // GLYPH OWNERSHIP — re-derived against block 1's authored content, not against a
 // rule of my own. The first draft split the untaught N3 pool (320 glyphs, exactly
@@ -50,7 +50,7 @@
 export const UNIT119 = {
   id: "ja-u119",
   lang: "ja",
-  title: "かんじ・N3・11",
+  title: "かんじ・ちがい",
   order: 119,
   stage: "b1",
   lessons: [

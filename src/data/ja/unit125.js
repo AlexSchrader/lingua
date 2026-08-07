@@ -1,11 +1,11 @@
-// JA Unit 125 — かんじ・N3・14 (N3 kanji, set 14) — B1 / JLPT N3
+// JA Unit 125 — かんじ・ひと (N3 kanji — people and professions) — B1 / JLPT N3
 // Glyph ownership and card shape are documented in unit119.js: slice 14 of the
 // pool that remains once block 1's authored 160 glyphs are subtracted.
 // 警 came here from u123 so that it sits beside 察 — see u123's header.
 export const UNIT125 = {
   id: "ja-u125",
   lang: "ja",
-  title: "かんじ・N3・14",
+  title: "かんじ・ひと",
   order: 125,
   stage: "b1",
   lessons: [
