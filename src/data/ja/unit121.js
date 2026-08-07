@@ -37,14 +37,14 @@ export const UNIT121 = {
       title: "Complete, managed, connected",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Read 完 (complete), 管 (pipe), 簡 (simple), 関 (relate), and the words 関東 and 完走.",
+      canDo: "Read 完 (complete), 管 (pipe), 簡 (simple), 関 (relate), and the words 関東 and 関わり.",
       items: [
-        { id: "ja-u121l2-kan", type: "kanji", front: "完", reading: "kan", meaning: "complete", example: { jp: "しごとは完りょうしましたが、まだ見せていません。", en: "The job is complete, but I haven't shown it to anyone yet." }, accept: ["finish", "perfect", "conclude"], hint: "完 = 宀 (a roof) finished off over 元 — the building is done. 完走 = running the whole way." },
+        { id: "ja-u121l2-kan", type: "kanji", front: "完", reading: "kan", meaning: "complete", example: { jp: "しごとは完りょうしましたが、まだ見せていません。", en: "The job is complete, but I haven't shown it to anyone yet." }, accept: ["finish", "perfect", "conclude"], hint: "完 = 宀 (a roof) finished off over 元 — the building is done. 完りょう = completion." },
         { id: "ja-u121l2-kuda", type: "kanji", front: "管", reading: "kan", meaning: "pipe", example: { jp: "水の管が古いので、来月かえます。", en: "The water pipe is old, so we're replacing it next month." }, accept: ["tube", "manage", "control"], hint: "管 = 竹 (bamboo) hollowed out. It also means to have charge of something — a pipe carries what passes through it." },
         { id: "ja-u121l2-kantan", type: "kanji", front: "簡", reading: "kan", meaning: "simple", example: { jp: "せつめいは簡たんでしたが、じっさいはむずかしかったです。", en: "The explanation was simple, but in practice it was hard." }, accept: ["brief", "concise", "plain"], hint: "簡 = 竹 (bamboo) writing strips with only a little on them. 簡単 = simple. Same かん as 完 and 管." },
         { id: "ja-u121l2-kankei", type: "kanji", front: "関", reading: "kan", meaning: "relate", example: { jp: "その話に関して、意見はありません。", en: "Regarding that matter, I have no opinion." }, accept: ["concern", "connection", "barrier"], hint: "関 = 門 (a gate) — originally the checkpoint between provinces, hence what connects one thing to another. 関東 = the Kantō region." },
         { id: "ja-u121l2-kanto", type: "vocab", front: "関東", reading: "kantō", meaning: "the Kanto region", example: { jp: "関東に住んでいますが、生まれは西です。", en: "I live in the Kantō region, but I was born in the west." }, accept: ["Kanto", "eastern Japan"] },
-        { id: "ja-u121l2-kanso", type: "vocab", front: "完走", reading: "kansō", meaning: "running the whole way", example: { jp: "完走はできましたが、足がとてもいたいです。", en: "I finished the whole course, but my legs really hurt." }, accept: ["finishing the course", "going the distance"] },
+        { id: "ja-u121l2-kakawari", type: "vocab", front: "関わり", reading: "kakawari", meaning: "involvement", example: { jp: "その仕事との関わりは長いですが、まだ分からないことがあります。", en: "My involvement with that work goes back a long way, but there are still things I don't know." }, accept: ["connection", "having to do with", "a tie"] },
       ],
     },
     {
