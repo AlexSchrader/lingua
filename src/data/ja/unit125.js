@@ -33,11 +33,11 @@ export const UNIT125 = {
       title: "Scattering, remaining, resolve",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Read 散 (scatter), 残 (remain), 士 (a professional), 志 (intent), and the words 力士 and 残金.",
+      canDo: "Read 散 (scatter), 残 (remain), 士 (a qualified professional), 志 (intent), and the words 力士 and 残金.",
       items: [
         { id: "ja-u125l2-chiru", type: "kanji", front: "散", reading: "chiru", meaning: "scatter", example: { jp: "花が散りましたが、来年もまたさきます。", en: "The blossom scattered, but it will bloom again next year." }, accept: ["disperse", "fall (of blossom)", "spread out"], hint: "散 = things knocked apart. 散ります = to scatter, 散歩 = a stroll: wandering with no fixed line." },
         { id: "ja-u125l2-nokoru", type: "kanji", front: "残", reading: "nokoru", meaning: "remain", example: { jp: "ごはんが残りましたが、あしたたべます。", en: "Some rice was left over, but I'll eat it tomorrow." }, accept: ["be left over", "stay behind", "regret"], hint: "残 = what is left when the rest has gone. 残念 = a shame, 残暑 = the lingering heat of late summer." },
-        { id: "ja-u125l2-shi", type: "kanji", front: "士", reading: "shi", meaning: "a qualified man", example: { jp: "力士は体が大きいですが、うごきは速いです。", en: "Sumo wrestlers are big, but they move fast." }, accept: ["gentleman", "professional", "warrior"], hint: "士 = the old word for a man of standing or training. It ends job words: 力士 = a sumo wrestler." },
+        { id: "ja-u125l2-shi", type: "kanji", front: "士", reading: "shi", meaning: "a qualified professional", example: { jp: "力士は体が大きいですが、うごきは速いです。", en: "Sumo wrestlers are big, but they move fast." }, accept: ["gentleman", "professional", "warrior"], hint: "士 = the old word for a man of standing or training. It ends job words: 力士 = a sumo wrestler." },
         { id: "ja-u125l2-kokorozashi", type: "kanji", front: "志", reading: "kokorozashi", meaning: "intent", example: { jp: "志は高いですが、力がまだ足りません。", en: "His aims are high, but he hasn't the ability yet." }, accept: ["ambition", "will", "aspiration"], hint: "志 = 士 + 心 (heart) — what the heart is set on. Its on-yomi is し, like 士, and it contains it." },
         { id: "ja-u125l2-rikishi", type: "vocab", front: "力士", reading: "rikishi", meaning: "sumo wrestler", example: { jp: "力士の食事は多いですが、休みもきちんととります。", en: "A sumo wrestler eats a lot, but they take proper rest too." }, accept: ["wrestler", "a rikishi"] },
         { id: "ja-u125l2-zankin", type: "vocab", front: "残金", reading: "zankin", meaning: "the balance left", example: { jp: "残金をたしかめてから、買うかどうかきめます。", en: "I'll check the balance left, and then decide whether to buy it." }, accept: ["remaining money", "what is left in the account"] },
