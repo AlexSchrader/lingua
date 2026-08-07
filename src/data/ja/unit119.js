@@ -1,33 +1,35 @@
 // JA Unit 119 — かんじ・N3・11 (N3 kanji, set 11) — B1 / JLPT N3
 // ─────────────────────────────────────────────────────────────────────────────
-// Kanji-unit shape for this block, and where the glyphs come from.
+// GLYPH OWNERSHIP — re-derived against block 1's authored content, not against a
+// rule of my own. The first draft split the untaught N3 pool (320 glyphs, exactly
+// 20 slices of 16) in the list order of scripts/fetch-kanjivg.mjs and asserted
+// block 1 would land on the same split with no coordination. It did not, and could
+// not have: the rule fixed the SIZE of a slice but never its ORDERING BASIS, and
+// block 1 sliced the same pool semantically (emotion, work, politics, buildings)
+// while this block sliced it phonetically. Both are defensible readings of a file
+// that explicitly calls itself "a SUPERSET to draw from, not a syllabus"
+// (fetch-kanjivg.mjs:60). 86 of 160 glyphs collided.
 //
-// GLYPH OWNERSHIP — derived, not negotiated. The N3 superset in
-// scripts/fetch-kanjivg.mjs is 334 glyphs; 14 of them are already taught in the
-// N4 units, leaving exactly 320 untaught, which is exactly 20 slices of 16 for
-// the band's 20 character units. Unit "Characters k" takes slice k in list order,
-// so block 2 owns slices 11-20 and no seat has to message another to find out
-// what is left. If block 1 derives the same rule it lands on the same split; if
-// it doesn't, lower unit order wins at merge and this unit gives way.
+// So ownership is no longer derived at all — it is READ. Block 1 has authored, so
+// its 160 glyphs are simply subtracted and the remainder is what block 2 teaches:
+//   pool(320) − block1(160) = 160 = 10 units × 16
+// It lands exactly, and every N3 glyph in the band is now taught once by somebody,
+// which the colliding split did not achieve — it left 100 glyphs taught by nobody,
+// and no validator anywhere reports that.
 //
-// CARD SHAPE — 4 lessons x (4 kanji + 2 compound) = 24, the blueprint's number.
-// 16 glyphs cannot fill 24 kanji cards, and padding with unrelated vocab would
-// waste the slot; compounds built from the four glyphs just taught are the
-// natural filler, and they are where N3 kanji actually get used. Compound fronts
-// are written in kanji (vocab fronts are exempt from teach-front scope) and every
-// one was checked against the corpus BY READING, not by front — 30 of the first
-// 80 candidates turned out to be words the corpus already teaches in kana, which
-// a front-uniqueness check alone would never have caught.
+// The lesson worth keeping: RUNBOOK §4's "never coordinate with the other sessions"
+// forbids MESSAGING, not READING. A sibling worktree is committed content at a path
+// printed on the crew board, and CLAUDE.md's "the repo is the source of truth, not
+// memory" applies to it exactly as it applies to this one.
 //
-// READING FIELD — on-yomi is the headword where a lesson is built on a sound family
-// (「The そう・ぞう series」 here, 「The ひ set」 and 「The ふく set」 in u128): the whole
-// point of those lessons is that four glyphs share one sound, and a kun-yomi headword
-// hides it. Elsewhere the reading follows whichever form the example actually shows,
-// which is the shipped convention in u31-u42.
+// CARD SHAPE — 4 lessons × (4 kanji + 2 compound) = 24. Compounds are built from
+// the four glyphs just taught, and every one is checked against the corpus AND
+// block 1 BY READING, not by front: 14 of the first 80 candidates here were words
+// that already ship (教育 管理 機会 事件 警察 判断 …) written in kanji instead of
+// kana, which front-uniqueness cannot see.
 //
-// Examples in kanji here, unlike this block's vocab units: they use the target
-// glyph plus glyphs already taught, which is what the shipped kanji units u31-u42
-// do and the only way a kanji example can do its job.
+// Examples are kanji here, unlike this block's vocab units — target glyph plus
+// glyphs already taught, as in the shipped kanji units u31–u42.
 // ─────────────────────────────────────────────────────────────────────────────
 export const UNIT119 = {
   id: "ja-u119",
@@ -40,68 +42,68 @@ export const UNIT119 = {
       id: "ja-u119l1",
       unit: 119,
       lesson: 1,
-      title: "Groups and sides",
+      title: "Rank and difference",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Read 組 (group), 相 (mutual), 争 (conflict), 窓 (window), and the words 窓口 and 二人組.",
+      canDo: "Read 暗 (dark), 位 (rank), 偉 (great), 違 (differ), and the words 地位 and 暗記.",
       items: [
-        { id: "ja-u119l1-kumi", type: "kanji", front: "組", reading: "kumi", meaning: "group", example: { jp: "同じ組になったので、すぐ友だちになりました。", en: "We ended up in the same class group, so we became friends right away." }, accept: ["class", "set", "team"], hint: "組 = things bound into one set — 糸 (thread) tying them together. 二人組 = a pair, 組み立て = assembling." },
-        { id: "ja-u119l1-ai", type: "kanji", front: "相", reading: "ai", meaning: "mutual", example: { jp: "相手の話を聞いてから、答えます。", en: "I listen to the other person first, and then answer." }, accept: ["each other", "the other party", "partner"], hint: "相 = 木 (tree) + 目 (eye) — two things looking at each other. 相手 = the other party, 相談 = talking it over." },
-        { id: "ja-u119l1-arasoi", type: "kanji", front: "争", reading: "arasoi", meaning: "conflict", example: { jp: "小さな争いでしたが、二人はもう話しません。", en: "It was a small conflict, but the two of them no longer speak." }, accept: ["dispute", "struggle", "war"], hint: "争 = two hands pulling at the same thing. 戦争 = war, 競争 = competition." },
-        { id: "ja-u119l1-mado", type: "kanji", front: "窓", reading: "mado", meaning: "window", example: { jp: "窓を開けると、風が入ってきます。", en: "When you open the window, the wind comes in." }, accept: ["a window"], hint: "窓 = an opening in a wall — 穴 (hole) above 心. 窓口 = a service window / counter." },
-        { id: "ja-u119l1-madoguchi", type: "vocab", front: "窓口", reading: "madoguchi", meaning: "service counter", example: { jp: "窓口はこんでいましたが、十分でおわりました。", en: "The counter was crowded, but it was over in ten minutes." }, accept: ["ticket window", "front desk", "the window"] },
-        { id: "ja-u119l1-futarigumi", type: "vocab", front: "二人組", reading: "futarigumi", meaning: "a pair", example: { jp: "二人組で来ましたが、話すのは一人だけでした。", en: "They came as a pair, but only one of them did the talking." }, accept: ["duo", "the two of them", "a twosome"] },
+        { id: "ja-u119l1-kurai", type: "kanji", front: "暗", reading: "an", meaning: "dark", example: { jp: "へやが暗かったので、電気をつけました。", en: "The room was dark, so I turned on the light." }, accept: ["dim", "gloomy", "unlit"], hint: "暗 = 日 (sun) + 音 — the hour when you go by sound because you cannot see. 暗い = dark, 暗記 = learning by heart." },
+        { id: "ja-u119l1-kuraiposition", type: "kanji", front: "位", reading: "i", meaning: "rank", example: { jp: "三位になりましたが、本人はよろこんでいません。", en: "He came third, but he himself isn't pleased." }, accept: ["place", "position", "grade"], hint: "位 = 人 (person) standing 立 in their appointed spot. 一位 = first place, 地位 = one's standing." },
+        { id: "ja-u119l1-erai", type: "kanji", front: "偉", reading: "i", meaning: "great", example: { jp: "偉い人が来ましたが、話はみじかかったです。", en: "An important person came, but the talk was short." }, accept: ["eminent", "admirable", "important"], hint: "偉 = 人 (person) + 韋 — someone who stands out from the rest. 偉い also praises a child for behaving well." },
+        { id: "ja-u119l1-chigau", type: "kanji", front: "違", reading: "i", meaning: "differ", example: { jp: "考えは違いますが、はなしあいはできます。", en: "Our ideas differ, but we can still talk it through." }, accept: ["be different", "be wrong", "vary"], hint: "違 = 辶 (go) a different way from everyone else. 違います = that's not right; 間違い = a mistake. Same い as 位 and 偉." },
+        { id: "ja-u119l1-chii", type: "vocab", front: "地位", reading: "chii", meaning: "standing", example: { jp: "地位は高いですが、じゆうな時間はありません。", en: "His standing is high, but he has no free time." }, accept: ["position", "status", "rank"] },
+        { id: "ja-u119l1-anki", type: "vocab", front: "暗記", reading: "anki", meaning: "learning by heart", example: { jp: "暗記はできましたが、意味は分かっていません。", en: "I learned it by heart, but I don't understand the meaning." }, accept: ["memorization", "rote learning", "by rote"] },
       ],
     },
     {
       id: "ja-u119l2",
       unit: 119,
       lesson: 2,
-      title: "The そう・ぞう series",
+      title: "Causes and performance",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Read four kanji that all sound そう or ぞう and tell them apart by meaning: 総 想 像 増.",
+      canDo: "Read 育 (raise), 因 (cause), 演 (perform), 煙 (smoke), and the words 体育 and 演出.",
       items: [
-        { id: "ja-u119l2-soutotal", type: "kanji", front: "総", reading: "sō", meaning: "total", example: { jp: "総時間は五時間ですが、休みも入っています。", en: "The total time is five hours, but that includes breaks." }, accept: ["overall", "general", "gross"], hint: "総 = everything gathered — 糸 (thread) drawing it all into one bundle. Sounds そう, like 想. 総合 = overall." },
-        { id: "ja-u119l2-souomoi", type: "kanji", front: "想", reading: "sō", meaning: "a thought", example: { jp: "子どものころの理想は今も同じですが、道はまだ長いです。", en: "The ideal I had as a child is still the same today, but the road is still long." }, accept: ["idea", "conception", "notion"], hint: "想 = 相 (look at) + 心 (heart) — what your heart looks at. Same sound as 総, but this one has a 心 in it." },
-        { id: "ja-u119l2-zouzou", type: "kanji", front: "像", reading: "zō", meaning: "figure", example: { jp: "こうえんの前に大きな像が立っていますが、名前は分かりません。", en: "There's a large statue standing in front of the park, but I don't know its name." }, accept: ["statue", "image", "likeness"], hint: "像 = 人 (person) + 象 — a person-shape made of something. 想像 = imagination: a thought you can see." },
-        { id: "ja-u119l2-zoufueru", type: "kanji", front: "増", reading: "zō", meaning: "increase", example: { jp: "店が増えたので、町がにぎやかになりました。", en: "The shops increased, so the town got lively." }, accept: ["grow", "add to", "rise"], hint: "増 = 土 (earth) piled up higher and higher. Sounds ぞう like 像, but this one is about amount, not shape." },
-        { id: "ja-u119l2-gazo", type: "vocab", front: "画像", reading: "gazō", meaning: "an image", example: { jp: "画像は小さいですが、字は読めます。", en: "The image is small, but the writing is readable." }, accept: ["picture", "graphic", "still"] },
-        { id: "ja-u119l2-riso", type: "vocab", front: "理想", reading: "risō", meaning: "ideal", example: { jp: "理想は高いですが、まず今できることをします。", en: "My ideals are lofty, but first I do what I can now." }, accept: ["the ideal", "one's ideal", "aspiration"] },
+        { id: "ja-u119l2-sodateru", type: "kanji", front: "育", reading: "iku", meaning: "raise", example: { jp: "子どもを育てるのは大変ですが、たのしいこともおおいです。", en: "Raising children is hard, but there is a lot to enjoy too." }, accept: ["bring up", "grow", "nurture"], hint: "育 = a child shown head-down, being brought into the world and fed 月. 体育 = physical education." },
+        { id: "ja-u119l2-in", type: "kanji", front: "因", reading: "in", meaning: "cause", example: { jp: "つかれが因で、しごとをやすみました。", en: "Tiredness was the cause, so I took time off work." }, accept: ["reason", "factor", "origin"], hint: "因 = 囗 (an enclosure) round 大 — what a thing is contained by, hence what it comes from. 原因 = the cause." },
+        { id: "ja-u119l2-en", type: "kanji", front: "演", reading: "en", meaning: "perform", example: { jp: "むすめが学校で演じましたが、私は行けませんでした。", en: "My daughter performed at school, but I couldn't go." }, accept: ["act", "play a part", "stage"], hint: "演 = 氵 (water) + 寅 — something that flows out in front of people. 演出 = staging, 出演 = appearing in." },
+        { id: "ja-u119l2-kemuri", type: "kanji", front: "煙", reading: "en", meaning: "smoke", example: { jp: "台所から煙が出ましたが、火事ではありませんでした。", en: "Smoke came from the kitchen, but it wasn't a fire." }, accept: ["fumes", "smoking"], hint: "煙 = 火 (fire) + 垔 — what rises off a fire. 禁煙 = no smoking. Same えん sound as 演." },
+        { id: "ja-u119l2-taiiku", type: "vocab", front: "体育", reading: "taiiku", meaning: "physical education", example: { jp: "体育はきらいでしたが、いまは毎日あるいています。", en: "I hated PE, but now I walk every day." }, accept: ["PE", "gym class", "sport at school"] },
+        { id: "ja-u119l2-enshutsu", type: "vocab", front: "演出", reading: "enshutsu", meaning: "staging", example: { jp: "演出はりっぱでしたが、話は分かりにくかったです。", en: "The staging was splendid, but the story was hard to follow." }, accept: ["direction", "production", "how it is presented"] },
       ],
     },
     {
       id: "ja-u119l3",
       unit: 119,
       lesson: 3,
-      title: "Making and measuring",
+      title: "Sideways, kings, outcomes",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Read 造 (construct), 側 (side), 則 (rule), 測 (measure), and the words 右側 and 木造.",
+      canDo: "Read 横 (sideways), 王 (king), 果 (outcome), 解 (undo), and the words 王国 and 王子.",
       items: [
-        { id: "ja-u119l3-zoutsukuru", type: "kanji", front: "造", reading: "zō", meaning: "construct", example: { jp: "この家は木造ですが、火には強いそうです。", en: "This house is wooden construction, but apparently it's strong against fire." }, accept: ["build", "manufacture", "make"], hint: "造 = 辶 (go) + 告 — building something up step by step. 木造 = wooden-built, 造船 = shipbuilding." },
-        { id: "ja-u119l3-gawa", type: "kanji", front: "側", reading: "gawa", meaning: "side", example: { jp: "駅の右側に店がありますが、左側には何もありません。", en: "There are shops on the right side of the station, but nothing on the left." }, accept: ["the side", "flank"], hint: "側 = 人 (person) standing beside — the side you're on. 右側 = the right-hand side." },
-        { id: "ja-u119l3-sokurule", type: "kanji", front: "則", reading: "soku", meaning: "rule", example: { jp: "校則は多いですが、みんな気にしていません。", en: "There are a lot of school rules, but nobody minds them." }, accept: ["regulation", "principle", "law"], hint: "則 = a rule carved beside 刂 (a blade) — cut in stone. 校則 = school rules, 原則 = a general principle." },
-        { id: "ja-u119l3-sokuhakaru", type: "kanji", front: "測", reading: "soku", meaning: "measure", example: { jp: "時間を測ったら、思ったより早かったです。", en: "When I measured the time, it was faster than I thought." }, accept: ["gauge", "take a measurement", "survey"], hint: "測 = 氵 (water) + 則 (rule) — laying a rule against water to read the depth. Same そく sound as 則, and the same right half." },
-        { id: "ja-u119l3-migigawa", type: "vocab", front: "右側", reading: "migigawa", meaning: "the right-hand side", example: { jp: "左側は車が通るので、右側を歩いてください。", en: "Cars pass on the left, so please walk on the right-hand side." }, accept: ["right side", "on the right"] },
-        { id: "ja-u119l3-mokuzo", type: "vocab", front: "木造", reading: "mokuzō", meaning: "wooden-built", example: { jp: "木造の家はあたたかいですが、音がよく聞こえます。", en: "A wooden-built house is warm, but you hear sounds through it." }, accept: ["made of wood", "timber construction"] },
+        { id: "ja-u119l3-yoko", type: "kanji", front: "横", reading: "yoko", meaning: "sideways", example: { jp: "駅の横に店がありますが、日曜は休みです。", en: "There's a shop beside the station, but it's closed on Sundays." }, accept: ["beside", "horizontal", "the side"], hint: "横 = 木 (wood) laid across. 横 is the side, or the horizontal — the opposite of lengthways." },
+        { id: "ja-u119l3-o", type: "kanji", front: "王", reading: "ō", meaning: "king", example: { jp: "その国に王はいますが、力はあまりありません。", en: "That country has a king, but he doesn't have much power." }, accept: ["monarch", "ruler"], hint: "王 = three levels — heaven, earth, people — joined by one line down the middle: the one who links them." },
+        { id: "ja-u119l3-ka", type: "kanji", front: "果", reading: "ka", meaning: "outcome", example: { jp: "力を出しましたが、いい果は出ませんでした。", en: "I gave it everything, but no good outcome came of it." }, accept: ["fruit", "result", "bear fruit"], hint: "果 = fruit 田 hanging on a tree 木 — what the growing finally produces. 果物 = fruit, 結果 = a result." },
+        { id: "ja-u119l3-toku", type: "kanji", front: "解", reading: "kai", meaning: "undo", example: { jp: "問題を解いてから、答えをたしかめました。", en: "I worked the problem out, and then checked the answer." }, accept: ["solve", "untie", "explain"], hint: "解 = 角 (horn) + 刀 (blade) + 牛 (ox) — taking a thing apart to see how it works. 解けます = to come undone, or to be solved." },
+        { id: "ja-u119l3-okoku", type: "vocab", front: "王国", reading: "ōkoku", meaning: "kingdom", example: { jp: "むかしは王国でしたが、いまは名前がかわりました。", en: "It used to be a kingdom, but the name has changed now." }, accept: ["a kingdom", "realm"] },
+        { id: "ja-u119l3-oji", type: "vocab", front: "王子", reading: "ōji", meaning: "prince", example: { jp: "王子の話は有名ですが、ほんとうかどうか分かりません。", en: "The story about the prince is famous, but nobody knows if it's true." }, accept: ["a prince", "the king's son"] },
       ],
     },
     {
       id: "ja-u119l4",
       unit: 119,
       lesson: 4,
-      title: "Speed and continuing",
+      title: "Turning, ease, certainty",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Read 束 (bundle), 速 (fast), 続 (continue), 存 (exist), and the words 速度 and 高速.",
+      canDo: "Read 回 (turn), 快 (pleasant), 格 (status), 確 (certain), and the words 一回 and 明確.",
       items: [
-        { id: "ja-u119l4-taba", type: "kanji", front: "束", reading: "taba", meaning: "bundle", example: { jp: "花を一束買って、母に送りました。", en: "I bought a bundle of flowers and sent them to my mother." }, accept: ["bunch", "sheaf", "a bundle"], hint: "束 = 木 (wood) with a band tied round the middle. 花束 = a bouquet, 約束 = a promise: words tied together." },
-        { id: "ja-u119l4-hayai", type: "kanji", front: "速", reading: "hayai", meaning: "fast", example: { jp: "この電車は速いですが、朝は人が多いです。", en: "This train is fast, but there are a lot of people in the morning." }, accept: ["quick", "rapid", "speedy"], hint: "速 = 辶 (go) + 束 (bundle) — going in one tight bundle, no wandering. Note 早い is early in TIME; 速い is fast in SPEED." },
-        { id: "ja-u119l4-tsuzuku", type: "kanji", front: "続", reading: "tsuzuku", meaning: "continue", example: { jp: "雨が続いているので、山には行きません。", en: "The rain is continuing, so I won't go to the mountains." }, accept: ["go on", "carry on", "last"], hint: "続 = 糸 (thread) running on and on without breaking. 続けます = keep doing, 連続 = a run of something." },
-        { id: "ja-u119l4-son", type: "kanji", front: "存", reading: "son", meaning: "exist", example: { jp: "先生のお名前はよく存じていますが、会ったことはありません。", en: "I know the teacher's name well, but I've never met them." }, accept: ["be", "know (humble)", "there is"], hint: "存 = something that is there and stays there. ご存じ = you know (polite), 存在 = existence." },
-        { id: "ja-u119l4-sokudo", type: "vocab", front: "速度", reading: "sokudo", meaning: "speed", example: { jp: "速度をおとせばあんぜんですが、時間がかかります。", en: "If you drop your speed it's safe, but it takes time." }, accept: ["pace", "velocity", "rate"] },
-        { id: "ja-u119l4-kosoku", type: "vocab", front: "高速", reading: "kōsoku", meaning: "high speed", example: { jp: "高速で行けば早いですが、お金がかかります。", en: "It's quick if you take the expressway, but it costs money." }, accept: ["expressway", "motorway", "fast"] },
+        { id: "ja-u119l4-mawaru", type: "kanji", front: "回", reading: "kai", meaning: "turn", example: { jp: "回るいすは楽ですが、しごとにはつかえません。", en: "A swivel chair is comfortable, but it's no good for work." }, accept: ["revolve", "times (counter)", "go round"], hint: "回 = one square turning inside another. It also counts occasions: 一回, 二回 = once, twice." },
+        { id: "ja-u119l4-kokoroyoi", type: "kanji", front: "快", reading: "kai", meaning: "pleasant", example: { jp: "快い風がふいてきたので、まどを開けました。", en: "A pleasant breeze came up, so I opened the window." }, accept: ["comfortable", "agreeable", "refreshing"], hint: "快 = 忄 (heart) + 夬 — the heart clearing. 快い = pleasant, 全快 = a full recovery. Same かい as 回 and 解." },
+        { id: "ja-u119l4-kaku", type: "kanji", front: "格", reading: "kaku", meaning: "status", example: { jp: "この店は格が上ですが、ねだんも高いです。", en: "This shop is a class above, but the prices are high too." }, accept: ["rank", "standard", "character"], hint: "格 = 木 (wood) + 各 — the frame a thing is measured against. 性格 = personality, 合格 = passing an exam." },
+        { id: "ja-u119l4-tashika", type: "kanji", front: "確", reading: "kaku", meaning: "certain", example: { jp: "確かめてから答えましたが、まちがっていました。", en: "I made sure before answering, but I was wrong." }, accept: ["sure", "reliable", "definite"], hint: "確 = 石 (stone) — as solid as rock. 確かに = certainly, 明確 = clear-cut. Same かく as 格." },
+        { id: "ja-u119l4-ikkai", type: "vocab", front: "一回", reading: "ikkai", meaning: "once", example: { jp: "一回だけ行きましたが、道をおぼえていません。", en: "I went just once, but I don't remember the way." }, accept: ["one time", "a single time"] },
+        { id: "ja-u119l4-meikaku", type: "vocab", front: "明確", reading: "meikaku", meaning: "clear-cut", example: { jp: "明確な答えはありませんでしたが、やることは分かりました。", en: "There was no clear-cut answer, but I understood the direction." }, accept: ["definite", "explicit", "unambiguous"] },
       ],
     },
   ],
