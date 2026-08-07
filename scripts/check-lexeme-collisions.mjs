@@ -1,16 +1,20 @@
-// Lexeme-level collision check for ja fronts.
+// Lexeme-level collision check for ja fronts — an AUTHORING AID, not a gate.
 //
-// The contract's front-uniqueness rule compares EXACT strings, so ておきます (block 3) and
-// ておく (u43) both validate — while being the same word with two mastery tracks and no new
-// learning. The content-auditor found 36 of these. This generates the plausible surface
-// variants of a candidate front (ます⇄辞書形, noun⇄noun+する/します) and reports any that
-// the corpus already owns.
+// `validateContent` enforces front-uniqueness on the EXACT string, so ておきます and ておく
+// (u43) both pass while being one word with two mastery tracks and no new learning for the
+// learner. A ja B1 crew shipped 36 cards in that state with a fully green validator; the
+// content gate caught them. Run this BEFORE authoring a front, not after.
 //
-// Usage: node lexeme.mjs [--max ORDER] word1 word2 ...
-import { JA_UNITS } from "file:///C:/dev/lingua-jab1-3/src/data/ja/index.js";
+//   node scripts/check-lexeme-collisions.mjs ておきます いらっしゃいます けんさく
+//   node scripts/check-lexeme-collisions.mjs --max 136 <fronts…>   # only units at/below 136
+//
+// It over-generates on short fronts (はずします "to remove" matches the unrelated noun はず),
+// so read every hit rather than trusting the count. Not wired into `npm run lint:curriculum`
+// on purpose: too many false positives to fail a build on, exactly like the fr vocab-scope
+// check in RUNBOOK §4.
+import { JA_UNITS } from "../src/data/ja/index.js";
 
 const I2U = { い: "う", き: "く", ぎ: "ぐ", し: "す", ち: "つ", に: "ぬ", ひ: "ふ", び: "ぶ", み: "む", り: "る" };
-const E_ROW = "えけげせぜてでねへべぺめれ";
 
 function variants(f) {
   const v = new Set([f]);
