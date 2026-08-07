@@ -11,10 +11,20 @@
 // Lessons 3 and 4 were REWRITTEN after the content gate: the first draft taught
 // いらっしゃいます・おっしゃいます・なさいます・いたします and eight more, every one of which is
 // already owned in dictionary form by u88–u97 (いらっしゃる, おっしゃる, なさる, いたす…).
-// A1/A2 taught the 敬語 VERBS as vocabulary; what was actually missing at B1 is the set
-// phrases those verbs live inside — the Japanese you hear across a counter and say to a
-// manager, which no amount of verb knowledge assembles on its own. That is a better unit
-// than the duplicate one, so the gate finding improved it rather than just costing 12 cards.
+// A1/A2 taught the 敬語 VERBS as vocabulary; what was missing at B1 is the set phrases
+// those verbs live inside — the Japanese you hear across a counter and say to a manager,
+// which no amount of verb knowledge assembles on its own.
+//
+// Two honest caveats, because the first draft of this comment claimed the gate finding had
+// "improved" the unit, which was measuring against the one baseline it could beat:
+//   • The replacement was FORCED. Whether it beats a correct first draft is untested —
+//     that draft was never written.
+//   • It costs blueprint compliance. B1 examples are supposed to carry two or more clauses;
+//     a set phrase IS the whole utterance, so several examples here are single-clause.
+//     That is a real trade, not an oversight.
+// The rule being applied — a lexicalized set phrase is a distinct item even when its parts
+// are owned (いらっしゃいませ vs いらっしゃる) — is stated here because the same reasoning left
+// unstated is what produced the 36 duplicates in the first place.
 export const UNIT141 = {
   id: "ja-u141",
   lang: "ja",
