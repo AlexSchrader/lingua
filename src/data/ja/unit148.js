@@ -1,7 +1,7 @@
 // JA Unit 148 — ごい・N3・7 (がっこうとしけん — school and exams) — B1 / JLPT N3
 // Strand D, coverage 7 of 14. A1 taught せんせい, がっこう, しゅくだい and stopped. Anyone
 // actually studying in Japanese — or reading about someone who is — needs the machinery
-// around that: enrolling, credits, marks, attendance, deadlines. It is also the domain a
+// around that: courses, fees, marks, attendance, deadlines. It is also the domain a
 // B1 learner is most likely to be living inside, which is why it earns a coverage slot
 // over a more picturable topic.
 export const UNIT148 = {
@@ -15,12 +15,12 @@ export const UNIT148 = {
       id: "ja-u148l1",
       unit: 148,
       lesson: 1,
-      title: "Enrolling and courses",
+      title: "Courses and costs",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Talk about starting at a school and what you're studying: にゅうがく, せんこう, ゼミ, こうざ, しんがっき.",
+      canDo: "Talk about what you're studying and what it costs: せんこう, ゼミ, こうざ, ひっしゅう, がくひ, しんがっき.",
       items: [
-        { id: "ja-u148l1-nyugaku", type: "vocab", front: "にゅうがく", reading: "nyūgaku", meaning: "entering a school", example: { jp: "らいげつだいがくににゅうがくするので、いまじゅんびしています。", en: "I'm starting university next month, so I'm getting ready now." }, accept: ["enrolment", "admission", "starting school"], hint: "The mirror of そつぎょう. Both take します: にゅうがくします, そつぎょうします." },
+        { id: "ja-u148l1-hisshu", type: "vocab", front: "ひっしゅう", reading: "hisshū", meaning: "compulsory (subject)", example: { jp: "このこうざはひっしゅうなので、がくせいはみんなうけます。", en: "This course is compulsory, so all the students take it." }, accept: ["required subject", "mandatory", "core course"], hint: "ひつ (must) + しゅう (study). Its opposite せんたく (optional) works the same way — ひっしゅうかもく and せんたくかもく on every timetable." },
         { id: "ja-u148l1-senko", type: "vocab", front: "せんこう", reading: "senkō", meaning: "one's major, specialism", example: { jp: "だいがくでのせんこうはなんですか。わたしはれきしです。", en: "What's your major at university? Mine is history." }, accept: ["field of study", "specialization", "subject"], hint: "The standard question when meeting a student: ごせんこうは？ Also a verb — にほんごをせんこうしています." },
         { id: "ja-u148l1-zemi", type: "vocab", front: "ゼミ", reading: "zemi", meaning: "seminar class", example: { jp: "きんようびのゼミでは、じぶんのけんきゅうをはっぴょうします。", en: "In Friday's seminar we present our own research." }, accept: ["seminar", "study group", "tutorial"], hint: "Short for ゼミナール, from German. A small discussion class run by one professor — a fixture of Japanese university life." },
         { id: "ja-u148l1-koza", type: "vocab", front: "こうざ", reading: "kōza", meaning: "course (of lectures)", example: { jp: "むりょうのこうざがあるので、もうしこんでみます。", en: "There's a free course, so I'll try applying for it." }, accept: ["class series", "lecture course", "programme"], hint: "A course you sign up for, at a university or a community centre. Also 'bank account' — こうざをひらく — from a different word entirely." },
@@ -52,12 +52,12 @@ export const UNIT148 = {
       title: "Day to day at school",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Handle attendance and assignments: しゅっせき, けっせき, たんにん, がくねん, かだい, ていしゅつ.",
+      canDo: "Handle attendance and assignments: けっせき, そうたい, たんにん, がくねん, かだい, ていしゅつ.",
       items: [
-        { id: "ja-u148l3-shusseki", type: "vocab", front: "しゅっせき", reading: "shusseki", meaning: "attendance", example: { jp: "しゅっせきがたりないと、ごうかくできません。", en: "If your attendance is short, you can't pass." }, accept: ["being present", "to attend", "turnout"], hint: "Used for classes, meetings and weddings alike. しゅっせきをとる = to take the register." },
-        { id: "ja-u148l3-kesseki", type: "vocab", front: "けっせき", reading: "kesseki", meaning: "absence", example: { jp: "ねつがあったので、きのうはけっせきしました。", en: "I had a fever, so I was absent yesterday." }, accept: ["being absent", "non-attendance", "to miss (class)"], hint: "The opposite of しゅっせき. けつ～ means 'lacking' — the same element is in けってん (a flaw)." },
+        { id: "ja-u148l3-sotai", type: "vocab", front: "そうたい", reading: "sōtai", meaning: "leaving early", example: { jp: "よていがあるので、きょうはそうたいします。", en: "I have something on, so I'm leaving early today." }, accept: ["early departure", "to leave early", "going home early"], hint: "The third member of the set with ちこく (arriving late) and けっせき (not coming at all). School and workplace both use all three." },
+        { id: "ja-u148l3-kesseki", type: "vocab", front: "けっせき", reading: "kesseki", meaning: "absence", example: { jp: "ねつがあったので、きのうはけっせきしました。", en: "I had a fever, so I was absent yesterday." }, accept: ["being absent", "non-attendance", "to miss (class)"], hint: "けつ～ means 'lacking' — the same element is in けってん (a flaw). Its opposite しゅっせき (attendance) you already have from u90." },
         { id: "ja-u148l3-tannin", type: "vocab", front: "たんにん", reading: "tannin", meaning: "class teacher, teacher in charge", example: { jp: "こまったことがあれば、たんにんのせんせいにそうだんしてください。", en: "If anything's wrong, talk to your class teacher." }, accept: ["homeroom teacher", "form tutor", "person in charge"], hint: "The one teacher responsible for your class as a group — a bigger role in Japan than in most countries." },
-        { id: "ja-u148l3-gakunen", type: "vocab", front: "がくねん", reading: "gakunen", meaning: "school year, year group", example: { jp: "がくねんがあがると、じゅぎょうがむずかしくなります。", en: "As you move up a year, the classes get harder." }, accept: ["grade", "year (of study)", "academic year"], hint: "Both the year of study you're in and the cohort you're in it with — 同じがくねん means 'in my year'." },
+        { id: "ja-u148l3-gakunen", type: "vocab", front: "がくねん", reading: "gakunen", meaning: "school year, year group", example: { jp: "がくねんがあがると、じゅぎょうがむずかしくなります。", en: "As you move up a year, the classes get harder." }, accept: ["grade", "year (of study)", "academic year"], hint: "Both the year of study you're in and the cohort you're in it with — おなじがくねん means 'in my year'." },
         { id: "ja-u148l3-kadai", type: "vocab", front: "かだい", reading: "kadai", meaning: "assignment; issue to address", example: { jp: "なつやすみのかだいが、まだおわっていません。", en: "I still haven't finished the summer holiday assignment." }, accept: ["task", "set work", "challenge"], hint: "Homework with a topic attached, and — at work — an issue that needs solving: こんごのかだい." },
         { id: "ja-u148l3-teishutsu", type: "vocab", front: "ていしゅつ", reading: "teishutsu", meaning: "submission, handing in", example: { jp: "レポートのていしゅつは、きんようびまでです。", en: "The report has to be handed in by Friday." }, accept: ["to submit", "to hand in", "filing"], hint: "Formal handing-over of a document — homework, applications, forms. だします is the everyday verb for the same act." },
       ],

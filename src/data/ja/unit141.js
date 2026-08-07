@@ -1,14 +1,20 @@
 // JA Unit 141 — けいご (register 2: softening and formality) — B1 / JLPT N3
 // Strand E (register), unit 2 of 2. u140 went DOWN from ですます into plain speech;
 // this unit goes UP. Three layers, in the order a learner actually needs them:
-//   1. softened requests  — the everyday politeness that stops です／ます sounding brusque
-//   2. hedging            — saying something without asserting it flat
-//   3. 尊敬語 and 謙譲語  — raising the other person, lowering yourself
+//   1. softened requests — the everyday politeness that stops です／ます sounding brusque
+//   2. hedging           — saying something without asserting it flat
+//   3. 敬語 IN USE     — the fixed phrases that carry it
 // The blueprint's reason for the strand is the point of the unit: "the same sentence said
 // to a friend, a stranger, and a boss is three different sentences, and choosing wrong is
 // the mistake that marks a speaker as foreign far more than vocabulary does."
-// Each example pairs the formal form with the plain one it replaces, so the contrast is
-// the lesson rather than a list of irregular verbs to memorize.
+//
+// Lessons 3 and 4 were REWRITTEN after the content gate: the first draft taught
+// いらっしゃいます・おっしゃいます・なさいます・いたします and eight more, every one of which is
+// already owned in dictionary form by u88–u97 (いらっしゃる, おっしゃる, なさる, いたす…).
+// A1/A2 taught the 敬語 VERBS as vocabulary; what was actually missing at B1 is the set
+// phrases those verbs live inside — the Japanese you hear across a counter and say to a
+// manager, which no amount of verb knowledge assembles on its own. That is a better unit
+// than the duplicate one, so the gate finding improved it rather than just costing 12 cards.
 export const UNIT141 = {
   id: "ja-u141",
   lang: "ja",
@@ -52,40 +58,40 @@ export const UNIT141 = {
         { id: "ja-u141l2-dekireba", type: "vocab", front: "できれば", reading: "dekireba", meaning: "if possible", example: { jp: "できれば、あしたまでにへんじをいただきたいです。", en: "If possible, I'd like a reply by tomorrow." }, accept: ["preferably", "if you can", "ideally"], hint: "Marks a wish as negotiable. Attach it to any request that has a deadline and the deadline stops sounding like an order." },
       ],
     },
-    // Lesson 3: 尊敬語 — raising the other person
+    // Lesson 3: the keigo you HEAR
     {
       id: "ja-u141l3",
       unit: 141,
       lesson: 3,
-      title: "そんけいご — raising the other person",
+      title: "The keigo you hear across a counter",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Use respectful verbs for what the other person does: いらっしゃいます, おっしゃいます, めしあがります, なさいます.",
+      canDo: "Understand what staff are saying to you: いらっしゃいませ, かしこまりました, おまちください, おまたせしました.",
       items: [
-        { id: "ja-u141l3-irasshaimasu", type: "vocab", front: "いらっしゃいます", reading: "irasshaimasu", meaning: "to be / go / come (respectful)", example: { jp: "せんせいはいま、けんきゅうしつにいらっしゃいます。", en: "The professor is in his office right now." }, accept: ["is (respectful)", "goes (respectful)", "comes (respectful)"], hint: "One verb replacing three — います, いきます and きます all become いらっしゃいます. Only ever for the OTHER person; never about yourself." },
-        { id: "ja-u141l3-osshaimasu", type: "vocab", front: "おっしゃいます", reading: "osshaimasu", meaning: "to say (respectful)", example: { jp: "ぶちょうがおっしゃったことを、メモしておきました。", en: "I made a note of what the department head said." }, accept: ["says (respectful)", "states", "tells"], hint: "The respectful いいます. なんとおっしゃいますか is the polite 'what is your name?' — literally 'how do you say it?'." },
-        { id: "ja-u141l3-meshiagarimasu", type: "vocab", front: "めしあがります", reading: "meshiagarimasu", meaning: "to eat / drink (respectful)", example: { jp: "つめたいうちに、どうぞめしあがってください。", en: "Please eat it while it's still cold." }, accept: ["eats (respectful)", "drinks (respectful)", "has (a meal)"], hint: "Covers both たべます and のみます. Saying it about your own eating is the classic overcorrection — for yourself, いただきます." },
-        { id: "ja-u141l3-goranninarimasu", type: "vocab", front: "ごらんになります", reading: "goranninarimasu", meaning: "to look at (respectful)", example: { jp: "しりょうはもうごらんになりましたか。", en: "Have you already had a look at the documents?" }, accept: ["sees (respectful)", "watches (respectful)", "views"], hint: "The respectful みます. It follows the regular お／ご + noun + になります pattern, which also gives you おかきになります, およみになります." },
-        { id: "ja-u141l3-nasaimasu", type: "vocab", front: "なさいます", reading: "nasaimasu", meaning: "to do (respectful)", example: { jp: "しゅうまつは、なにをなさいますか。", en: "What will you be doing this weekend?" }, accept: ["does (respectful)", "performs", "carries out"], hint: "The respectful します, so every ～します verb has a respectful twin: べんきょうなさいます, よやくなさいます." },
-        { id: "ja-u141l3-gozonjidesu", type: "vocab", front: "ごぞんじです", reading: "gozonjidesu", meaning: "to know (respectful)", example: { jp: "このみせをごぞんじですか。とてもゆうめいです。", en: "Do you know this shop? It's very famous." }, accept: ["knows (respectful)", "is aware of", "is acquainted with"], hint: "The respectful しっています. Its humble partner is ぞんじております — the two look alike and mean opposite directions of respect." },
+        { id: "ja-u141l3-irasshaimase", type: "vocab", front: "いらっしゃいませ", reading: "irasshaimase", meaning: "welcome (said to a customer)", example: { jp: "みせにはいると、いらっしゃいませといわれました。", en: "When I went into the shop, they said welcome." }, accept: ["welcome", "come on in", "greeting to a customer"], hint: "The imperative of いらっしゃる (u89), and the first Japanese most visitors hear. It wants no reply — a nod is enough." },
+        { id: "ja-u141l3-kashikomarimashita", type: "vocab", front: "かしこまりました", reading: "kashikomarimashita", meaning: "certainly (staff to customer)", example: { jp: "コーヒーをたのむと、てんいんはかしこまりましたといいました。", en: "When I ordered a coffee, the server said certainly." }, accept: ["understood", "very good", "right away"], hint: "The most deferential 'understood'. Staff say it to you; you never say it back. Its workplace equivalent is しょうちしました." },
+        { id: "ja-u141l3-omachikudasai", type: "vocab", front: "おまちください", reading: "omachikudasai", meaning: "please wait (respectful)", example: { jp: "こちらでおまちくださいといわれたので、いすにすわりました。", en: "I was asked to wait here, so I sat down." }, accept: ["kindly wait", "one moment please", "hold please"], hint: "The productive respectful frame: お + verb stem + ください. Learn the FRAME and おすわりください, おもちください, おかけください come free." },
+        { id: "ja-u141l3-okakekudasai", type: "vocab", front: "おかけください", reading: "okakekudasai", meaning: "please have a seat", example: { jp: "こちらにおかけくださいといわれて、いすにすわりました。", en: "I was invited to take a seat, and sat down." }, accept: ["do sit down", "take a seat", "please be seated"], hint: "Same お…ください frame as おまちください. かける here is 'sit', not 'hang' or 'phone' — context does all the work." },
+        { id: "ja-u141l3-omataseshimashita", type: "vocab", front: "おまたせしました", reading: "omataseshimashita", meaning: "sorry to have kept you waiting", example: { jp: "おまたせしましたといって、てんいんがりょうりをもってきました。", en: "Saying sorry for the wait, the server brought the food." }, accept: ["thanks for waiting", "sorry for the wait", "kept you waiting"], hint: "The mirror frame: お + stem + します is HUMBLE, lowering the speaker. おまちください raises you; おまたせしました lowers them." },
+        { id: "ja-u141l3-uketamawarimasu", type: "vocab", front: "うけたまわります", reading: "uketamawarimasu", meaning: "we take (orders); I hear (humble)", example: { jp: "ごちゅうもんはこちらでうけたまわります。", en: "We take orders over here." }, accept: ["humbly receive", "I am told", "we accept"], hint: "The humble うける and きく at once. Almost purely a service and telephone word — recognise it, and you will rarely need to say it." },
       ],
     },
-    // Lesson 4: 謙譲語 — lowering yourself
+    // Lesson 4: the keigo you SAY
     {
       id: "ja-u141l4",
       unit: 141,
       lesson: 4,
-      title: "けんじょうご — lowering yourself",
+      title: "The keigo you say to a superior",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Use humble verbs for your own actions: いたします, もうします, まいります, うかがいます.",
+      canDo: "Open and close a formal exchange properly: おせわになります, おねがいいたします, しつれいいたします, しょうちしました.",
       items: [
-        { id: "ja-u141l4-itashimasu", type: "vocab", front: "いたします", reading: "itashimasu", meaning: "to do (humble)", example: { jp: "そのしごとは、わたしがいたします。", en: "I'll take care of that job myself." }, accept: ["do (humble)", "shall do", "will handle"], hint: "The humble します — used only about yourself. どういたしまして, the 'you're welcome' you learned in week one, is this verb." },
-        { id: "ja-u141l4-moshimasu", type: "vocab", front: "もうします", reading: "mōshimasu", meaning: "to say / be called (humble)", example: { jp: "はじめまして、たなかともうします。", en: "Nice to meet you — my name is Tanaka." }, accept: ["am called", "say (humble)", "my name is"], hint: "The humble いいます. ～ともうします is the standard business self-introduction; ～です is fine socially but sounds casual at work." },
-        { id: "ja-u141l4-mairimasu", type: "vocab", front: "まいります", reading: "mairimasu", meaning: "to go / come (humble)", example: { jp: "3じまでには、そちらへまいります。", en: "I'll be there by three." }, accept: ["go (humble)", "come (humble)", "will be there"], hint: "The humble いきます and きます. Station announcements use it about the train — でんしゃがまいります — which is why it sounds familiar before you ever study it." },
-        { id: "ja-u141l4-haikenshimasu", type: "vocab", front: "はいけんします", reading: "haikenshimasu", meaning: "to look at (humble)", example: { jp: "おてがみをはいけんしました。ありがとうございます。", en: "I have read your letter. Thank you." }, accept: ["see (humble)", "have a look at", "examine (humble)"], hint: "The humble みます, and only for things belonging to someone you're honouring. Its respectful partner is ごらんになります." },
-        { id: "ja-u141l4-ukagaimasu", type: "vocab", front: "うかがいます", reading: "ukagaimasu", meaning: "to visit / to ask (humble)", example: { jp: "あした、おたくへうかがってもよろしいでしょうか。", en: "Would it be all right if I visited your home tomorrow?" }, accept: ["visit (humble)", "ask (humble)", "call on"], hint: "Two humble verbs in one shape — 'visit' (いきます) and 'ask' (ききます). ちょっとうかがいますが is how you stop a stranger for directions." },
-        { id: "ja-u141l4-moshiagemasu", type: "vocab", front: "もうしあげます", reading: "mōshiagemasu", meaning: "to say (most humble)", example: { jp: "こころよりおれいをもうしあげます。", en: "I offer you my sincere thanks." }, accept: ["humbly say", "respectfully state", "offer (words)"], hint: "One step below もうします — reserved for set phrases of thanks and apology in speeches and letters. Recognise it; you rarely need to produce it." },
+        { id: "ja-u141l4-osewaninarimasu", type: "vocab", front: "おせわになります", reading: "osewaninarimasu", meaning: "thank you for your support (set opener)", example: { jp: "いつもおせわになっております。たなかともうします。", en: "Thank you for your continued support. My name is Tanaka." }, accept: ["thank you for your help", "I'm indebted to you", "much obliged"], hint: "The opening line of virtually every business email and phone call in Japan. It thanks nobody for anything specific — it just opens the door." },
+        { id: "ja-u141l4-onegaiitashimasu", type: "vocab", front: "おねがいいたします", reading: "onegaiitashimasu", meaning: "I ask this of you (humble)", example: { jp: "ごかくにんのうえ、おねがいいたします。", en: "I'd be grateful if you would check it and proceed." }, accept: ["please", "if you would be so kind", "I request"], hint: "The humble おねがいします, built on the いたす of u90. It ends most requests and most emails — the polite full stop." },
+        { id: "ja-u141l4-shitsureiitashimasu", type: "vocab", front: "しつれいいたします", reading: "shitsureiitashimasu", meaning: "excuse me (entering or leaving)", example: { jp: "しつれいいたしますといって、へやをでました。", en: "Saying excuse me, I left the room." }, accept: ["pardon me", "if you'll excuse me", "I'll take my leave"], hint: "Said on the way IN and on the way OUT of a superior's room, and to end a phone call. The formal しつれいします." },
+        { id: "ja-u141l4-shochishimashita", type: "vocab", front: "しょうちしました", reading: "shōchishimashita", meaning: "understood, will do", example: { jp: "しょうちしました。すぐにやっておきます。", en: "Understood. I'll get it done right away." }, accept: ["certainly", "noted", "I'll see to it"], hint: "What YOU say when a superior asks for something. わかりました is fine among equals; しょうちしました accepts the task properly." },
+        { id: "ja-u141l4-zonjiteorimasu", type: "vocab", front: "ぞんじております", reading: "zonjiteorimasu", meaning: "I know (humble)", example: { jp: "そのけんなら、ぞんじております。", en: "I'm aware of that matter." }, accept: ["I am aware", "humbly know", "I do know"], hint: "The humble しっています. Its respectful partner ごぞんじ (u95) is for the other person's knowing — same root, opposite direction." },
+        { id: "ja-u141l4-chodaishimasu", type: "vocab", front: "ちょうだいします", reading: "chōdaishimasu", meaning: "I gratefully receive (humble)", example: { jp: "それでは、ありがたくちょうだいします。", en: "In that case, I'll gratefully accept it." }, accept: ["I'll take it", "humbly accept", "receive gratefully"], hint: "A step above いただきます for accepting a gift or a document. おなまえをちょうだいできますか is a very formal 'may I have your name?'." },
       ],
     },
   ],

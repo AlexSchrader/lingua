@@ -5,9 +5,10 @@
 // carry two clauses with a relationship between them.
 // Modeled as function-word vocab; the pattern lives in the example, and every example
 // here is deliberately TWO clauses (blueprint §1 "B1 and B2", point 3).
-// Fronts checked against the whole ja corpus before authoring — none re-teach an
-// existing word. Examples use A1/A2 vocabulary only, so this unit does not depend on
-// blocks 1–2 landing first.
+// Examples use A1/A2 vocabulary only, so this unit does not depend on blocks 1–2 landing
+// first. Fronts were checked against the corpus, but as exact strings — a check that misses
+// ます⇄辞書形 pairs, and did so in four sibling units. This unit came through clean; the
+// re-check that proved it is lexeme-aware.
 export const UNIT137 = {
   id: "ja-u137",
   lang: "ja",
@@ -47,7 +48,7 @@ export const UNIT137 = {
         { id: "ja-u137l2-sorenanoni", type: "vocab", front: "それなのに", reading: "sorenanoni", meaning: "and yet", example: { jp: "たくさんべんきょうしました。それなのに、テストはだめでした。", en: "I studied a lot. And yet the test went badly." }, accept: ["even so", "despite that", "nevertheless"], hint: "それなのに = そ (that) + のに (even though). Use it when the second sentence is unfair or surprising given the first." },
         { id: "ja-u137l2-kawarini", type: "vocab", front: "かわりに", reading: "kawarini", meaning: "instead of", example: { jp: "きょうはでんしゃのかわりに、じてんしゃでいきます。", en: "Today I'll go by bicycle instead of by train." }, accept: ["in place of", "in return", "rather than"], hint: "Noun + の + かわりに, or plain verb + かわりに. It also means 'in return': てつだうかわりに、ばんごはんをおごって." },
         { id: "ja-u137l2-ippode", type: "vocab", front: "いっぽうで", reading: "ippōde", meaning: "on the other hand", example: { jp: "このみせはやすいです。いっぽうで、あまりきれいではありません。", en: "This shop is cheap. On the other hand, it isn't very clean." }, accept: ["meanwhile", "while", "at the same time"], hint: "いっぽうで sets two true things side by side without picking one. Useful the moment you start giving opinions with two sides." },
-        { id: "ja-u137l2-mushiro", type: "vocab", front: "むしろ", reading: "mushiro", meaning: "rather", example: { jp: "この本はむずかしくないです。むしろ、やさしすぎます。", en: "This book isn't difficult. Rather, it's too easy." }, accept: ["if anything", "on the contrary", "sooner"], hint: "むしろ corrects the picture: not just 'no', but 'no — the opposite'. Almost always follows a negative sentence." },
+        { id: "ja-u137l2-mushiro", type: "vocab", front: "むしろ", reading: "mushiro", meaning: "rather", example: { jp: "このほんはむずかしくないです。むしろ、やさしすぎます。", en: "This book isn't difficult. Rather, it's too easy." }, accept: ["if anything", "on the contrary", "sooner"], hint: "むしろ corrects the picture: not just 'no', but 'no — the opposite'. Almost always follows a negative sentence." },
         { id: "ja-u137l2-tadashi", type: "vocab", front: "ただし", reading: "tadashi", meaning: "however (proviso)", example: { jp: "だれでもつかえます。ただし、こどもはおかねがいりません。", en: "Anyone can use it. However, children don't need to pay." }, accept: ["provided that", "with the proviso", "but note"], hint: "ただし adds the small print — an exception or condition to what you just said. Signs and rules use it constantly." },
       ],
     },
@@ -65,7 +66,7 @@ export const UNIT137 = {
         { id: "ja-u137l3-uchini", type: "vocab", front: "うちに", reading: "uchini", meaning: "while (before it changes)", example: { jp: "あたたかいうちに、たべてください。", en: "Please eat it while it's still warm." }, accept: ["before it becomes", "while still", "in the meantime"], hint: "うちに carries urgency — do it BEFORE the state ends. あいだに is neutral timing; うちに says the window is closing." },
         { id: "ja-u137l3-totan", type: "vocab", front: "とたん", reading: "totan", meaning: "the moment that", example: { jp: "いえをでたとたん、あめがふりはじめました。", en: "The moment I left the house, it started to rain." }, accept: ["as soon as", "just as", "no sooner than"], hint: "Past plain verb + とたん. The second thing is always a surprise, and always already happened — never use it for plans." },
         { id: "ja-u137l3-tabini", type: "vocab", front: "たびに", reading: "tabini", meaning: "every time", example: { jp: "このうたをきくたびに、こどものころをおもいだします。", en: "Every time I hear this song, I remember my childhood." }, accept: ["each time", "whenever", "on every occasion"], hint: "Dictionary-form verb or noun + の + たびに. It says the pairing is reliable: A happens, B always follows." },
-        { id: "ja-u137l3-tsuideni", type: "vocab", front: "ついでに", reading: "tsuideni", meaning: "while you're at it", example: { jp: "かいものにいくついでに、てがみをだしてきます。", en: "While I'm out shopping, I'll post the letter too." }, accept: ["on the way", "at the same time", "since you're going"], hint: "ついでに = the second errand is free because you were doing the first anyway. Very common in favours: ついでにこれもおねがい。" },
+        { id: "ja-u137l3-tsuideni", type: "vocab", front: "ついでに", reading: "tsuideni", meaning: "while you're at it", example: { jp: "かいものにいくついでに、てがみもだします。", en: "While I'm out shopping, I'll post the letter too." }, accept: ["on the way", "at the same time", "since you're going"], hint: "ついでに = the second errand is free because you were doing the first anyway. Very common in favours: ついでにこれもおねがい。" },
         { id: "ja-u137l3-saichu", type: "vocab", front: "さいちゅう", reading: "saichū", meaning: "in the middle of", example: { jp: "しょくじのさいちゅうに、でんわがなりました。", en: "The phone rang right in the middle of dinner." }, accept: ["in the midst of", "right when", "at the height of"], hint: "さいちゅう is あいだに with the interruption built in — the second event always cuts across the first. Noun + の or verb + ている + さいちゅうに." },
       ],
     },

@@ -5,7 +5,9 @@
 // (ということです / とのことです), how sure you are (にちがいありません / とはかぎりません),
 // turning a clause into a noun (ということ / ことにします / ようになります), and the focus
 // particles that change what a sentence is ABOUT without changing what it says.
-// Every example is two clauses, per the B1 spec. Fronts checked against the whole corpus.
+// Every example is two clauses, per the B1 spec. Fronts were re-checked at LEXEME level
+// after the content gate found that an exact-string check had let ことにします / ようになります
+// / ことがあります through against u44's ことにする / ようになる / ことがある.
 export const UNIT139 = {
   id: "ja-u139",
   lang: "ja",
@@ -54,17 +56,17 @@ export const UNIT139 = {
       id: "ja-u139l3",
       unit: 139,
       lesson: 3,
-      title: "こと and よう: decisions and changes",
+      title: "こと and よう: obligation and intention",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Say what you've decided (ことにします), what was decided for you (ことになります), and what you've come to be able to do (ようになります).",
+      canDo: "Say what was decided for you (ことになります), what you make a point of doing (ようにします), and what you can't get out of (わけにはいきません).",
       items: [
         { id: "ja-u139l3-toiukoto", type: "vocab", front: "ということ", reading: "toiukoto", meaning: "the fact that", example: { jp: "かれがくるということを、みんなにつたえてください。", en: "Please tell everyone the fact that he's coming." }, accept: ["that (nominalizer)", "the idea that", "meaning that"], hint: "Wraps a whole sentence up into a noun you can then mark with を or は. つまり、～ということです = 'in other words, it means that…'." },
-        { id: "ja-u139l3-kotonishimasu", type: "vocab", front: "ことにします", reading: "kotonishimasu", meaning: "decide to", example: { jp: "からだによくないので、たばこをやめることにしました。", en: "It's bad for my health, so I've decided to quit smoking." }, accept: ["make it a rule to", "resolve to", "settle on"], hint: "YOUR decision — the に is the giveaway that you did the choosing. Contrast ことになります, where someone else did." },
+        { id: "ja-u139l3-kotowanai", type: "vocab", front: "ことはない", reading: "kotowanai", meaning: "there's no need to", example: { jp: "じかんはまだあるので、いそぐことはないですよ。", en: "There's still time, so there's no need to hurry." }, accept: ["no call for", "you don't have to", "never mind about"], hint: "Reassurance, not permission: しなくてもいい says you may skip it, ことはない says it was never required. Plain verb + ことはない." },
         { id: "ja-u139l3-kotoninarimasu", type: "vocab", front: "ことになります", reading: "kotoninarimasu", meaning: "it has been decided that", example: { jp: "らいげつから、おおさかではたらくことになりました。", en: "It's been decided that I'll be working in Osaka from next month." }, accept: ["it turns out that", "it works out that", "be arranged that"], hint: "The decision arrives from outside — a company, a rule, circumstances. Japanese prefers this even when you did choose, because it sounds less self-important." },
         { id: "ja-u139l3-yonishimasu", type: "vocab", front: "ようにします", reading: "yōnishimasu", meaning: "make a point of doing", example: { jp: "けんこうのために、まいあさあるくようにしています。", en: "For my health, I make a point of walking every morning." }, accept: ["try to do regularly", "see to it that", "make an effort to"], hint: "An ongoing effort, not a single decision. ようにしています (continuous) is far commoner than ようにします." },
-        { id: "ja-u139l3-yoninarimasu", type: "vocab", front: "ようになります", reading: "yōninarimasu", meaning: "come to be able to", example: { jp: "まいにちれんしゅうしたので、かんじがよめるようになりました。", en: "I practised every day, so I've come to be able to read kanji." }, accept: ["reach the point where", "start to be able", "gradually become"], hint: "The sentence every learner needs: a change that happened over time. Takes the potential form (よめる, はなせる) for abilities." },
-        { id: "ja-u139l3-kotogaarimasu", type: "vocab", front: "ことがあります", reading: "kotogaarimasu", meaning: "have done before; sometimes happens", example: { jp: "にほんにすんでいたので、ふじさんにのぼったことがあります。", en: "I lived in Japan, so I've climbed Mount Fuji before." }, accept: ["have the experience of", "there are times when", "occasionally"], hint: "With a PAST verb it means experience ('have ever done'); with a DICTIONARY verb it means 'sometimes happens'. The tense carries the whole difference." },
+        { id: "ja-u139l3-yotoshimasu", type: "vocab", front: "ようとします", reading: "yōtoshimasu", meaning: "try to; be about to", example: { jp: "いえをでようとしたとき、でんわがなりました。", en: "Just as I was about to leave the house, the phone rang." }, accept: ["attempt to", "be on the point of", "make an effort to"], hint: "Volitional + とします. てみます is 'do it and see'; ようとします is straining at it — and often failing, which is why it so often reports an interruption." },
+        { id: "ja-u139l3-wakeniwaikimasen", type: "vocab", front: "わけにはいきません", reading: "wakeniwaikimasen", meaning: "I can't (allow myself to)", example: { jp: "やくそくしたので、いかないわけにはいきません。", en: "I promised, so I can't very well not go." }, accept: ["can't just", "it wouldn't do to", "I'm not free to"], hint: "Not 'unable' but 'not allowed to by circumstances' — duty, promises, other people watching. できません is about ability; わけにはいきません is about obligation." },
       ],
     },
     // Lesson 4: focus particles
@@ -78,7 +80,7 @@ export const UNIT139 = {
       canDo: "Change what a sentence emphasizes without changing the facts: しか, こそ, なんて, どころか.",
       items: [
         { id: "ja-u139l4-shika", type: "vocab", front: "しか", reading: "shika", meaning: "only (with negative)", example: { jp: "さいふに100えんしかないので、なにもかえません。", en: "I've only got 100 yen in my wallet, so I can't buy anything." }, accept: ["nothing but", "just", "merely"], hint: "しか always takes a negative verb, and it sounds disappointed. だけ is neutral: 100えんだけあります (fine) vs 100えんしかありません (not enough)." },
-        { id: "ja-u139l4-koso", type: "vocab", front: "こそ", reading: "koso", meaning: "precisely, it is ~ that", example: { jp: "ことしこそ、にほんごのしけんにごうかくしたいです。", en: "This year for sure, I want to pass the Japanese exam." }, accept: ["exactly", "for sure this time", "the very"], hint: "こそ puts a spotlight on the word before it. こちらこそ ('no, thank YOU') is the phrase you'll use first and most." },
+        { id: "ja-u139l4-koso", type: "vocab", front: "こそ", reading: "koso", meaning: "precisely, it is ~ that", example: { jp: "ことしこそ、まいにちにほんごをべんきょうします。", en: "This year for sure, I'm going to study Japanese every day." }, accept: ["exactly", "for sure this time", "the very"], hint: "こそ puts a spotlight on the word before it. こちらこそ ('no, thank YOU') is the phrase you'll use first and most." },
         { id: "ja-u139l4-nante", type: "vocab", front: "なんて", reading: "nante", meaning: "things like; how (dismissive)", example: { jp: "そんなことをいうなんて、しんじられません。", en: "I can't believe he'd say something like that." }, accept: ["such as", "the likes of", "of all things"], hint: "なんて carries an attitude — surprise, or a little contempt. わたしなんて… is how a speaker plays themselves down." },
         { id: "ja-u139l4-dokoroka", type: "vocab", front: "どころか", reading: "dokoroka", meaning: "far from it", example: { jp: "あのみせはやすいどころか、とてもたかかったです。", en: "Far from being cheap, that shop was very expensive." }, accept: ["let alone", "on the contrary", "not only not"], hint: "どころか rejects the first idea and replaces it with a stronger opposite. Stronger than むしろ, which merely corrects." },
         { id: "ja-u139l4-zutsu", type: "vocab", front: "ずつ", reading: "zutsu", meaning: "each, at a time", example: { jp: "いそがなくていいので、すこしずつおぼえてください。", en: "There's no need to hurry, so learn it little by little." }, accept: ["apiece", "per person", "bit by bit"], hint: "Number or amount + ずつ. すこしずつ ('little by little') and ひとつずつ ('one each') are the two you will actually say." },
