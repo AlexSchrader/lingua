@@ -64,8 +64,10 @@ const badgeFor = (id) => `/milestones/${id}.png`;
 function threshold({ id, family, label, blurb, need, count }) {
   return { id, family, label, blurb, image: badgeFor(id), progress: (items) => ({ have: count(items), need }) };
 }
-function completeAll({ id, family, label, blurb, defs }) {
-  return { id, family, label, blurb, image: badgeFor(id), progress: (items) => ({ have: countRead(items, defs), need: defs.length }) };
+// `lang` (optional) scopes a milestone to one track. Cross-language milestones —
+// the word counts — leave it undefined and are always visible. See milestonesFor().
+function completeAll({ id, family, label, blurb, defs, lang }) {
+  return { id, family, label, blurb, lang, image: badgeFor(id), progress: (items) => ({ have: countRead(items, defs), need: defs.length }) };
 }
 
 // Build the catalog from the live curriculum. A function (not a bare const) so it
@@ -127,6 +129,7 @@ export function milestoneCatalog() {
             label: `${langName(lang)} ${band} complete`,
             blurb: `${band} items`,
             defs: bandDefs,
+            lang,
           })
         );
     }
@@ -134,6 +137,17 @@ export function milestoneCatalog() {
 
   _catalog = list;
   return list;
+}
+
+// The catalog as a given learner should SEE it: cross-language milestones plus the
+// per-language ones for tracks they've actually started. Without this, shipping
+// French moved a Japanese-only learner's "earned of total" denominator and showed
+// them a locked "French A1 complete" badge for a language they never opted into —
+// the same goalpost-moving bug the per-language ids above fixed, one layer out.
+// Pure; `langs` is the profile's started-language list.
+export function milestonesFor(langs = []) {
+  const started = new Set(langs);
+  return milestoneCatalog().filter((m) => !m.lang || started.has(m.lang));
 }
 
 // The set of milestone ids currently satisfied by the given items map. Pure.

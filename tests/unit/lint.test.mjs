@@ -109,3 +109,73 @@ test("flags a word front taught twice", () => {
   const { errors } = lintCurriculum([u]);
   assert.ok(errors.find((e) => e.includes("already taught")), `got:\n${errors.join("\n")}`);
 });
+
+// --- teach-before-use for multi-word chunks -------------------------------------
+// Regression cover for the defect class that got French BLOCKED twice: example
+// sentences using vocabulary the learner has not met yet. Before this rule, the
+// lint's teach-before-use tracking was kana/kanji-glyph only, so a Latin-script
+// language had no such check at all.
+
+// Two French-shaped lessons: the chunk under test is taught in lesson 2.
+function frUnits({ earlyExample, earlyHint, chunkStage = "a1" } = {}) {
+  const item = (n, front, example, hint) => ({
+    id: `fr-u1l1-w${n}`, type: "vocab", front, reading: front.replace(/[^a-z]/g, ""),
+    meaning: `m${n}`, example, accept: [], ...(hint ? { hint } : {}),
+  });
+  const filler = (lesson, n) => ({
+    id: `fr-u1l${lesson}-f${n}`, type: "vocab", front: `filler${lesson}${n}`,
+    reading: `filler${lesson}${n}`, meaning: `f${n}`,
+    example: { jp: `Filler${lesson}${n}.`, en: "Filler." }, accept: [],
+  });
+  return [{
+    id: "fr-u1", lang: "fr", order: 1, stage: chunkStage, title: "T",
+    lessons: [
+      {
+        id: "fr-u1l1", unit: 1, lesson: 1, title: "L1", dominantMode: "recall", canDo: "c", cefr: "A1",
+        items: [item(1, "le pain", earlyExample, earlyHint), ...[2, 3, 4, 5].map((n) => filler(1, n))],
+      },
+      {
+        id: "fr-u1l2", unit: 1, lesson: 2, title: "L2", dominantMode: "recall", canDo: "c", cefr: "A1",
+        items: [
+          { id: "fr-u1l2-chunk", type: "vocab", front: "j'ai mal", reading: "jaimal", meaning: "it hurts",
+            example: { jp: "J'ai mal.", en: "It hurts." }, accept: [] },
+          ...[2, 3, 4, 5].map((n) => filler(2, n)),
+        ],
+      },
+    ],
+  }];
+}
+
+const chunkErrors = (units) =>
+  lintCurriculum(units).errors.filter((e) => e.includes("is not taught until"));
+
+test("lint flags a multi-word chunk used before the lesson that teaches it", () => {
+  const errors = chunkErrors(frUnits({ earlyExample: { jp: "J'ai mal au pain.", en: "x" } }));
+  assert.equal(errors.length, 1);
+  assert.match(errors[0], /fr-u1l1-w1/);
+  assert.match(errors[0], /j'ai mal/);
+  assert.match(errors[0], /fr-u1l2/);
+});
+
+test("a hint glossing the chunk is the documented escape hatch", () => {
+  const errors = chunkErrors(
+    frUnits({ earlyExample: { jp: "J'ai mal au pain.", en: "x" }, earlyHint: "mal = pain, ache." })
+  );
+  assert.deepEqual(errors, []);
+});
+
+test("pre-a1 units are exempt — their examples are script specimens", () => {
+  const errors = chunkErrors(
+    frUnits({ earlyExample: { jp: "J'ai mal au pain.", en: "x" }, chunkStage: "pre-a1" })
+  );
+  assert.deepEqual(errors, []);
+});
+
+test("an example that does not use the later chunk is clean", () => {
+  const errors = chunkErrors(frUnits({ earlyExample: { jp: "Le pain est bon.", en: "x" } }));
+  assert.deepEqual(errors, []);
+});
+
+test("the shipped curriculum is free of chunk teach-before-use errors", () => {
+  assert.deepEqual(chunkErrors(UNITS), []);
+});

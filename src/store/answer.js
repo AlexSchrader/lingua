@@ -113,6 +113,18 @@ const PRODUCE_ROMAJI_STAGES = new Set(["pre-a1", "a1"]);
 // stage is treated as strict (kana only) — the safe default. Latin-script
 // languages (es/fr) always accept it: typing the word IS production there — the
 // kana-keyboard ramp is a Japanese-script concern, not a stage concern.
+//
+// ⚠️ KNOWN AND DELIBERATE for French: because normalizeReading strips combining
+// marks for non-ja, this makes production accent-BLIND at every stage — "tres"
+// grades correct for "très", "la mere" for "la mère", "c" for "ç". That is an ND
+// call, not an oversight: most learners type on a keyboard with no é key, and
+// failing them on a diacritic they cannot produce is exactly the harsh-feedback
+// friction this app exists to avoid. The consequence to remember is that NO card
+// currently tests accent choice — the sounds unit (fr-u27) teaches é/è/ê and ç
+// through meaning and choice cards, and its distinctions are never graded on
+// production. Documented in CONTENT.md, "Script policy". If accents should be
+// graded later, the lever is a stage gate here, not a change to normalizeReading
+// (which the checkReading path also depends on).
 export function produceAllowsRomaji(item) {
   if (item?.lang && item.lang !== "ja") return true;
   return PRODUCE_ROMAJI_STAGES.has(item?.stage);

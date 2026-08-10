@@ -19,7 +19,7 @@ export const FR_UNIT19 = {
       canDo: "Name transport: la voiture, le bus, le train, l'avion, le vélo, le bateau, le taxi.",
       items: [
         { id: "fr-u19l1-lavoiture", type: "vocab", front: "la voiture", reading: "lavoiture", meaning: "car", example: { jp: "Ma voiture est devant la maison.", en: "My car is in front of the house." }, accept: ["the car"] },
-        { id: "fr-u19l1-lebus", type: "vocab", front: "le bus", reading: "lebus", meaning: "bus", example: { jp: "Je prends le bus tous les jours.", en: "I take the bus every day." }, accept: ["the bus"] },
+        { id: "fr-u19l1-lebus", type: "vocab", front: "le bus", reading: "lebus", meaning: "bus", example: { jp: "Le bus est devant la gare.", en: "The bus is in front of the station." }, accept: ["the bus"] },
         { id: "fr-u19l1-letrain", type: "vocab", front: "le train", reading: "letrain", meaning: "train", example: { jp: "Le train arrive à la gare à midi.", en: "The train arrives at the station at noon." }, accept: ["the train"] },
         { id: "fr-u19l1-lavion", type: "vocab", front: "l'avion", reading: "lavion", meaning: "plane", example: { jp: "L'avion est très rapide.", en: "The plane is very fast." }, accept: ["the plane", "aeroplane", "airplane", "aircraft"] },
         { id: "fr-u19l1-levelo", type: "vocab", front: "le vélo", reading: "levelo", meaning: "bicycle", example: { jp: "Je vais à l'école à vélo.", en: "I go to school by bike." }, accept: ["the bike", "bicycle", "cycle"], hint: "à vélo, à pied — but en voiture, en train. Small vehicles take à, ones you sit inside take en." },

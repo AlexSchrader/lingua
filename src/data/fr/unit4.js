@@ -57,7 +57,7 @@ export const FR_UNIT4 = {
         { id: "fr-u4l3-combien", type: "vocab", front: "combien", reading: "combien", meaning: "how many", example: { jp: "C'est combien ?", en: "How much is it?" }, accept: ["how much"], hint: "C'est combien ? is THE price question — four syllables that buy everything." },
         { id: "fr-u4l3-beaucoup", type: "vocab", front: "beaucoup", reading: "beaucoup", meaning: "a lot", example: { jp: "Merci beaucoup !", en: "Thank you very much!" }, accept: ["much", "many", "very much"] },
         { id: "fr-u4l3-unpeu", type: "vocab", front: "un peu", reading: "unpeu", meaning: "a little", example: { jp: "Un peu, s'il vous plaît.", en: "A little, please." }, accept: ["a bit", "a little bit"] },
-        { id: "fr-u4l3-plus", type: "vocab", front: "plus", reading: "plus", meaning: "more", example: { jp: "Plus de café, s'il vous plaît.", en: "More coffee, please." }, accept: [] },
+        { id: "fr-u4l3-plus", type: "vocab", front: "plus", reading: "plus", meaning: "more", example: { jp: "Un peu plus, s'il vous plaît.", en: "A little more, please." }, accept: [] },
         { id: "fr-u4l3-moins", type: "vocab", front: "moins", reading: "moins", meaning: "less", example: { jp: "Moins, merci — ça va !", en: "Less, thanks — that's fine!" }, accept: ["fewer", "minus"] },
       ],
     },

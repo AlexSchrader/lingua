@@ -21,7 +21,7 @@ export const FR_UNIT8 = {
         { id: "fr-u8l1-rouge", type: "vocab", front: "rouge", reading: "rouge", meaning: "red", example: { jp: "Le vin est rouge.", en: "The wine is red." }, accept: [] },
         { id: "fr-u8l1-bleu", type: "vocab", front: "bleu", reading: "bleu", meaning: "blue", example: { jp: "Le métro est bleu et blanc.", en: "The metro is blue and white." }, accept: [] },
         { id: "fr-u8l1-vert", type: "vocab", front: "vert", reading: "vert", meaning: "green", example: { jp: "Le parc est très vert.", en: "The park is very green." }, accept: [] },
-        { id: "fr-u8l1-jaune", type: "vocab", front: "jaune", reading: "jaune", meaning: "yellow", example: { jp: "Le taxi est jaune.", en: "The taxi is yellow." }, accept: [] },
+        { id: "fr-u8l1-jaune", type: "vocab", front: "jaune", reading: "jaune", meaning: "yellow", example: { jp: "La maison est jaune.", en: "The house is yellow." }, accept: [] },
         { id: "fr-u8l1-noir", type: "vocab", front: "noir", reading: "noir", meaning: "black", example: { jp: "Un café noir, s'il vous plaît.", en: "A black coffee, please." }, accept: [] },
         { id: "fr-u8l1-blanc", type: "vocab", front: "blanc", reading: "blanc", meaning: "white", example: { jp: "Le lait est blanc.", en: "Milk is white." }, accept: [], hint: "Colors sit AFTER the noun in French: un café noir, un vin blanc." },
       ],

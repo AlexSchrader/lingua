@@ -42,10 +42,10 @@ export const FR_UNIT12 = {
         { id: "fr-u12l2-souvent", type: "vocab", front: "souvent", reading: "souvent", meaning: "often", example: { jp: "Je vais souvent au parc.", en: "I often go to the park." }, accept: ["frequently"] },
         { id: "fr-u12l2-parfois", type: "vocab", front: "parfois", reading: "parfois", meaning: "sometimes", example: { jp: "Parfois, je travaille le samedi.", en: "Sometimes I work on Saturday." }, accept: ["at times", "occasionally"] },
         { id: "fr-u12l2-jamais", type: "vocab", front: "jamais", reading: "jamais", meaning: "never", example: { jp: "Je ne travaille jamais le dimanche.", en: "I never work on Sunday." }, accept: ["ever"], hint: "Pairs with ne, like ne…pas: je ne travaille jamais." },
-        { id: "fr-u12l2-tot", type: "vocab", front: "tôt", reading: "tot", meaning: "early", example: { jp: "Je travaille tôt le matin.", en: "I work early in the morning." }, accept: ["soon"] },
-        { id: "fr-u12l2-tard", type: "vocab", front: "tard", reading: "tard", meaning: "late", example: { jp: "Il est tard ! Bonne nuit.", en: "It's late! Good night." }, accept: ["later"] },
+        { id: "fr-u12l2-tot", type: "vocab", front: "tôt", reading: "tot", meaning: "early", example: { jp: "Je travaille tôt le matin.", en: "I work early in the morning." }, accept: [] },
+        { id: "fr-u12l2-tard", type: "vocab", front: "tard", reading: "tard", meaning: "late", example: { jp: "Il est tard ! Bonne nuit.", en: "It's late! Good night." }, accept: [] },
         { id: "fr-u12l2-dabord", type: "vocab", front: "d'abord", reading: "dabord", meaning: "first", example: { jp: "D'abord le café, ensuite l'école !", en: "First the coffee, then school!" }, accept: ["first of all", "at first"] },
-        { id: "fr-u12l2-ensuite", type: "vocab", front: "ensuite", reading: "ensuite", meaning: "then", example: { jp: "Je mange, ensuite je pars.", en: "I eat, then I leave." }, accept: ["next", "after that"] },
+        { id: "fr-u12l2-ensuite", type: "vocab", front: "ensuite", reading: "ensuite", meaning: "then", example: { jp: "Je mange, ensuite je travaille.", en: "I eat, then I work." }, accept: ["next", "after that"] },
       ],
     },
     {

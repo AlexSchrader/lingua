@@ -18,7 +18,7 @@ export const FR_UNIT24 = {
       canDo: "Say what people do: le travail, le professeur, l'étudiant, le serveur, le dentiste, le boulanger, le cuisinier.",
       items: [
         { id: "fr-u24l1-letravail", type: "vocab", front: "le travail", reading: "letravail", meaning: "work", example: { jp: "Le travail commence à neuf heures.", en: "Work starts at nine." }, accept: ["the work", "job"] },
-        { id: "fr-u24l1-leprofesseur", type: "vocab", front: "le professeur", reading: "leprofesseur", meaning: "teacher", example: { jp: "Mon professeur est très gentil.", en: "My teacher is very kind." }, accept: ["the teacher", "professor", "prof"] },
+        { id: "fr-u24l1-leprofesseur", type: "vocab", front: "le professeur", reading: "leprofesseur", meaning: "teacher", example: { jp: "Mon professeur est très content aujourd'hui.", en: "My teacher is very happy today." }, accept: ["the teacher", "professor", "prof"] },
         { id: "fr-u24l1-letudiant", type: "vocab", front: "l'étudiant", reading: "letudiant", meaning: "student", example: { jp: "L'étudiant travaille à la maison.", en: "The student works at home." }, accept: ["the student"] },
         { id: "fr-u24l1-leserveur", type: "vocab", front: "le serveur", reading: "leserveur", meaning: "waiter", example: { jp: "Le serveur apporte l'addition.", en: "The waiter brings the bill." }, accept: ["the waiter", "server"], hint: "apporte = brings — from apporter." },
         { id: "fr-u24l1-ledentiste", type: "vocab", front: "le dentiste", reading: "ledentiste", meaning: "dentist", example: { jp: "J'ai mal aux dents : je vais chez le dentiste.", en: "My teeth hurt: I'm going to the dentist." }, accept: ["the dentist"] },

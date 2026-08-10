@@ -1,12 +1,14 @@
 // FR Unit 27 (file/id) — Les sons ("The sounds of French") — A1, and it runs FIRST.
 //
-// ⚠️ id number ≠ order, deliberately. The unit id is fr-u27 because it was authored
-// last, but `order: 1` puts it at the START of the French climb — the sound-to-spelling
-// map has to come before the 545 words that use it. The contract validates unit ORDER
-// for contiguity and only cross-checks the id number against `lesson.unit`; the two are
-// independent (contract.js:103-118, 237-247). Taking that route instead of renumbering
-// fr-u1…u26 means NO item id changes and therefore no mastery wipe — ids are the mastery
-// key, so renumbering would have been free only until French ships, and irreversible after.
+// ⚠️ id number ≠ position, deliberately. The unit id is fr-u27 because it was authored
+// last; it runs first because it is placed FIRST IN THE `UNITS` ARRAY in src/data/index.js.
+// That array position is what Today.jsx actually sequences by — `order: 1` alone does NOT
+// move a unit (it is a display field, read only by the Ladder and the unit label), and an
+// earlier revision of this file shipped claiming "it runs first" while the array still ran
+// it 27th of 27. Keep the array position and `order` in step; tests/unit/unit-order.test.mjs
+// fails if they diverge. Going this route instead of renumbering fr-u1…u26 means NO item id
+// changes and therefore no mastery wipe — ids are the mastery key, so renumbering would have
+// been free only until French ships, and irreversible after.
 //
 // WHY THIS UNIT EXISTS: French's day-one barrier isn't script — the learner already reads
 // Latin letters — it's that those letters lie. `août` is two syllables and neither is
@@ -44,7 +46,7 @@ export const FR_UNIT27 = {
         { id: "fr-u27l1-ecirconflexe", type: "vocab", front: "ê", reading: "e", meaning: "ê — 'eh', and a missing s", example: { jp: "la fenêtre", en: "the window — \"fuh-NET-ruh\"" }, accept: ["e circumflex", "circumflex e"], hint: "The little hat usually marks a letter that fell out of the word centuries ago — often an s. hôtel was hostel, forêt was forest." },
         { id: "fr-u27l1-cedille", type: "vocab", front: "ç", reading: "c", meaning: "ç — c said as 's'", example: { jp: "ça va", en: "how's it going — \"sa va\"" }, accept: ["c cedilla", "cedilla", "s sound"], hint: "c is hard before a/o/u (café = kaf). The cedilla forces it soft: ça = \"sa\", not \"ka\"." },
         { id: "fr-u27l1-ocirconflexe", type: "vocab", front: "ô", reading: "o", meaning: "ô — a long 'oh'", example: { jp: "l'hôtel", en: "the hotel — \"oh-TEL\"" }, accept: ["o circumflex", "circumflex o"] },
-        { id: "fr-u27l1-ucirconflexe", type: "vocab", front: "û", reading: "u", meaning: "û — the tight 'u'", example: { jp: "bien sûr", en: "of course — \"bee-an SOOR\"" }, accept: ["u circumflex", "circumflex u"], hint: "French u has no English twin: round your lips for \"oo\" and say \"ee\" instead." },
+        { id: "fr-u27l1-ucirconflexe", type: "vocab", front: "û", reading: "u", meaning: "û — the tight 'u'", example: { jp: "bien sûr", en: "of course — \"bee-an SOOR\"" }, accept: ["u circumflex", "circumflex u"], hint: "French u has no English twin: round your lips for \"oo\" and say \"ee\" instead. (bien sûr = of course — you meet it properly in Unit 10.)" },
         { id: "fr-u27l1-oe", type: "vocab", front: "œ", reading: "oe", meaning: "œ — o and e fused", example: { jp: "la sœur", en: "the sister — \"surr\"" }, accept: ["oe", "o e ligature", "ligature"], hint: "One letter, not two. You can always type it as oe — sœur / soeur are both accepted here." },
       ],
     },
@@ -79,7 +81,7 @@ export const FR_UNIT27 = {
         { id: "fr-u27l3-hmuet", type: "vocab", front: "le h muet", reading: "lehmuet", meaning: "the silent h", example: { jp: "l'homme, l'heure, l'hôtel", en: "the man, the hour, the hotel — no h sound at all" }, accept: ["silent h", "mute h"], hint: "French has no h sound. That's why le becomes l' in front of it: l'homme, not \"le homme\"." },
         { id: "fr-u27l3-emuet", type: "vocab", front: "le e muet", reading: "leemuet", meaning: "the silent e", example: { jp: "la table", en: "the table — \"tabl\", not \"tab-luh\"" }, accept: ["silent e", "mute e"], hint: "A final e with no accent is usually silent — which is exactly why é needs its accent to be heard." },
         { id: "fr-u27l3-elision", type: "vocab", front: "l'élision", reading: "lelision", meaning: "elision", example: { jp: "je + ai = j'ai", en: "I have — the e is dropped and replaced by an apostrophe" }, accept: ["the elision"], hint: "You've done this forty times already: j'ai, c'est, l'eau, s'il, d'accord. French refuses to let two vowels collide." },
-        { id: "fr-u27l3-liaison", type: "vocab", front: "la liaison", reading: "laliaison", meaning: "liaison", example: { jp: "vous avez", en: "you have — said \"voo-za-vay\", the silent s wakes up" }, accept: ["the liaison", "linking"], hint: "A silent final consonant comes back to life before a vowel: les amis = \"lay-za-mee\", nous avons = \"noo-za-von\"." },
+        { id: "fr-u27l3-liaison", type: "vocab", front: "la liaison", reading: "laliaison", meaning: "liaison", example: { jp: "vous avez", en: "you have — said \"voo-za-vay\", the silent s wakes up" }, accept: ["the liaison", "linking"], hint: "A silent final consonant comes back to life before a vowel: les amis = \"lay-za-mee\", nous avons = \"noo-za-von\". (vous avez = you have — Unit 22.)" },
         { id: "fr-u27l3-accentaigu", type: "vocab", front: "l'accent aigu", reading: "laccentaigu", meaning: "the acute accent", example: { jp: "é dans café", en: "é as in café — the one that rises to the right" }, accept: ["acute accent", "acute"] },
         { id: "fr-u27l3-accentgrave", type: "vocab", front: "l'accent grave", reading: "laccentgrave", meaning: "the grave accent", example: { jp: "è dans très", en: "è as in très — the one that falls to the right" }, accept: ["grave accent", "grave"], hint: "It also separates look-alikes: a/à, ou/où, la/là. Same letters, different words." },
       ],

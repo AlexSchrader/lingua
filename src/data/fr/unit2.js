@@ -21,10 +21,10 @@ export const FR_UNIT2 = {
       items: [
         { id: "fr-u2l1-un", type: "vocab", front: "un", reading: "un", meaning: "a (masculine)", example: { jp: "Un café, s'il vous plaît.", en: "A coffee, please." }, accept: ["a", "an", "one"], hint: "Every French noun is masculine or feminine. un = \"a\" for masculine nouns — and it's also the number one." },
         { id: "fr-u2l1-une", type: "vocab", front: "une", reading: "une", meaning: "a (feminine)", example: { jp: "Une pizza, s'il vous plaît.", en: "A pizza, please." }, accept: ["a", "an", "one"] },
-        { id: "fr-u2l1-le", type: "vocab", front: "le", reading: "le", meaning: "the (masculine)", example: { jp: "Le café, s'il vous plaît.", en: "The coffee, please." }, accept: ["the"] },
+        { id: "fr-u2l1-le", type: "vocab", front: "le", reading: "le", meaning: "the (masculine)", example: { jp: "Le café, s'il vous plaît.", en: "The coffee, please." }, accept: ["the"], hint: "le goes with masculine nouns. (café = coffee — you order one properly in Unit 5.)" },
         { id: "fr-u2l1-la", type: "vocab", front: "la", reading: "la", meaning: "the (feminine)", example: { jp: "La pizza, s'il vous plaît !", en: "The pizza, please!" }, accept: ["the"] },
         { id: "fr-u2l1-ici", type: "vocab", front: "ici", reading: "ici", meaning: "here", example: { jp: "Ici, s'il vous plaît.", en: "Here, please." }, accept: ["over here"] },
-        { id: "fr-u2l1-la2", type: "vocab", front: "là", reading: "la", meaning: "there", example: { jp: "Le taxi ? Là !", en: "The taxi? There!" }, accept: ["over there"], hint: "là (with the accent) = there. la (no accent) = the. Same letters, different words." },
+        { id: "fr-u2l1-la2", type: "vocab", front: "là", reading: "la", meaning: "there", example: { jp: "Le monsieur est là !", en: "The gentleman is there!" }, accept: ["over there"], hint: "là (with the accent) = there. la (no accent) = the. Same letters, different words." },
       ],
     },
     {

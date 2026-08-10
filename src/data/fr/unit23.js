@@ -20,7 +20,7 @@ export const FR_UNIT23 = {
       canDo: "Talk about the future with aller + verb: je vais manger, je vais partir, on va voir.",
       items: [
         { id: "fr-u23l1-jevaismanger", type: "vocab", front: "je vais manger", reading: "jevaismanger", meaning: "I'm going to eat", example: { jp: "Ce soir, je vais manger au restaurant.", en: "Tonight, I'm going to eat at the restaurant." }, accept: ["i will eat", "i'll eat"], hint: "The near future is exactly like English: je vais + the plain verb. manger, partir, voir — the dictionary form." },
-        { id: "fr-u23l1-manger", type: "vocab", front: "manger", reading: "manger", meaning: "to eat", example: { jp: "J'aime manger avec mes amis.", en: "I like eating with my friends." }, accept: ["eating"], hint: "The infinitive — the form in the dictionary. je mange is \"I eat\"; manger is just \"to eat\"." },
+        { id: "fr-u23l1-manger", type: "vocab", front: "manger", reading: "manger", meaning: "to eat", example: { jp: "J'aime manger avec mon ami.", en: "I like eating with my friend." }, accept: ["eating"], hint: "The infinitive — the form in the dictionary. je mange is \"I eat\"; manger is just \"to eat\"." },
         { id: "fr-u23l1-partir", type: "vocab", front: "partir", reading: "partir", meaning: "to leave", example: { jp: "Je vais partir à huit heures.", en: "I'm going to leave at eight." }, accept: ["leaving", "to go"] },
         { id: "fr-u23l1-voir", type: "vocab", front: "voir", reading: "voir", meaning: "to see", example: { jp: "On va voir un film ce soir.", en: "We're going to see a film tonight." }, accept: ["seeing"], hint: "le film = the film — one of the free ones." },
         { id: "fr-u23l1-faire", type: "vocab", front: "faire", reading: "faire", meaning: "to do", example: { jp: "Qu'est-ce que tu vas faire demain ?", en: "What are you going to do tomorrow?" }, accept: ["doing", "to make", "making"] },
@@ -61,7 +61,7 @@ export const FR_UNIT23 = {
         { id: "fr-u23l3-jesuisreste", type: "vocab", front: "je suis resté", reading: "jesuisreste", meaning: "I stayed", example: { jp: "Il a plu, donc je suis resté à la maison.", en: "It rained, so I stayed home." }, accept: ["i have stayed", "i've stayed", "i remained"], hint: "donc = so, therefore. il a plu = it rained." },
         { id: "fr-u23l3-donc", type: "vocab", front: "donc", reading: "donc", meaning: "so", example: { jp: "Il fait froid, donc je mets un manteau.", en: "It's cold, so I'm putting on a coat." }, accept: ["therefore", "thus"] },
         { id: "fr-u23l3-deja", type: "vocab", front: "déjà", reading: "deja", meaning: "already", example: { jp: "J'ai déjà mangé, merci.", en: "I've already eaten, thank you." }, accept: ["yet", "before"], hint: "Sits between the two halves: j'ai déjà mangé, je n'ai pas encore mangé." },
-        { id: "fr-u23l3-lasemainederniere", type: "vocab", front: "la semaine dernière", reading: "lasemainederniere", meaning: "last week", example: { jp: "La semaine dernière, j'ai travaillé beaucoup.", en: "Last week, I worked a lot." }, accept: ["the last week", "previous week"], hint: "dernier/dernière = last. And prochain = next: la semaine prochaine." },
+        { id: "fr-u23l3-lasemainederniere", type: "vocab", front: "la semaine dernière", reading: "lasemainederniere", meaning: "last week", example: { jp: "La semaine dernière, j'ai beaucoup travaillé.", en: "Last week, I worked a lot." }, accept: ["the last week", "previous week"], hint: "dernier/dernière = last. And prochain = next: la semaine prochaine." },
       ],
     },
   ],

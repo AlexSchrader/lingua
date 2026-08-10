@@ -40,9 +40,19 @@ UNIT[]
 | id       | string   | ✓        | pattern `^[a-z]{2}-u\d+$` — e.g. `"ja-u1"` |
 | lang     | string   | ✓        | must match a known language id |
 | title    | string   | ✓        | shown in the unit list |
-| order    | integer  | ✓        | 1-indexed, contiguous per language (no gaps) |
+| order    | integer  | ✓        | 1-indexed, contiguous per language (no gaps). **Display only** — see the warning below. |
 | stage    | string   | ✓        | CEFR section the unit lives under: `"pre-a1"` `"a1"` `"a2"` `"b1"` `"b2"`. Drives the Ladder's stage grouping. `pre-a1` = the scripts band (kana); Latin-alphabet languages won't have any. |
 | lessons  | LESSON[] | ✓        | at least one entry |
+
+> ⚠️ **`order` does not sequence lessons.** The daily loop serves the next unfinished
+> lesson by walking `UNITS.filter(u => u.lang === id).flatMap(u => u.lessons)` in
+> `src/screens/Today.jsx` — i.e. by **position in the `UNITS` array** in `src/data/index.js`.
+> `order` is read only by the Ladder (sorting, and the "Unit n/m" label). Setting `order: 1`
+> on a unit left at the end of the array ships a unit that *displays* as first and *runs*
+> last, and the two progress surfaces then disagree permanently. **Move the unit in the
+> array literal AND set `order` to match.** `tests/unit/unit-order.test.mjs` fails if they
+> diverge; `validateContent` only checks that `order` is contiguous, which is not the same
+> thing and will pass either way.
 
 ---
 
@@ -175,6 +185,29 @@ That deserves its own unit and its own Ladder section — built from `teach`,
 `listen:choice`, `listen:type` and `choice`, **not** `trace`. See
 `BUILD-BRIEF-fr-sounds.md`. It has a hard dependency on generated audio.
 
+#### ⚠️ Accents are taught but never graded on production
+
+`produceAllowsRomaji` returns `true` for every non-`ja` language, and `normalizeReading`
+strips combining marks for those languages — so on the produce card `tres` grades correct
+for `très`, `la mere` for `la mère`, and `c` for `ç`. **This leniency is deliberate** (most
+learners have no `é` key, and failing them on a diacritic they cannot type is exactly the
+harsh feedback the app avoids), but it has a consequence worth stating plainly: **no card
+currently tests accent CHOICE.** A sounds unit teaches é/è/ê and ç through `teach`,
+`choice` and the listen cards; nothing asks the learner to produce the right one. Do not
+describe a Latin-script language as having card-kind "parity" with Japanese on that basis
+— it routes the same kinds, it does not grade the same skill. The lever, if this should
+change, is a stage gate in `produceAllowsRomaji`, never a change to `normalizeReading`
+(the `checkReading` path depends on it too).
+
+#### A sounds unit's examples are specimens, not sentences
+
+Ordinary A1 lessons may only use vocabulary already taught — the curriculum lint enforces
+this for multi-word chunks (`chunkTaughtBeforeUse` in `src/data/lint.js`). A sounds unit
+is the one exception: it runs first, so *nothing* is taught yet, and its examples are
+single words chosen to demonstrate a sound (`café`, `la sœur`, `août`), not sentences to
+be understood. Gloss any multi-word specimen in a `hint` so the learner is never shown a
+phrase cold.
+
 ### The `pre-a1` stage is the script band, not a difficulty band
 
 `pre-a1` exists so Japanese can teach kana *before* A1 proper. **A Latin-script language
@@ -264,6 +297,11 @@ mechanical rule passed.
   dakuten g/z/d/b/p after the base set).
 - **Teach-front scope** — a kana/kanji *teach* front may only use glyphs already introduced (its
   own single new glyph excepted). Vocab and example words are exempt (the reading carries them).
+- **Teach-before-use (multi-word chunks)** — an example sentence may not contain a
+  multi-word front (`j'ai mal`, `je prends`) that a later lesson teaches. Escape hatches, in
+  preference order: reword the example, move the chunk earlier, or gloss it in a `hint`.
+  Chunks whose every word is already taught separately are fine (`de la` = de + la), as are
+  `pre-a1` units (script specimens). Single words are not checked — substring noise.
 - **Density** — ~5–8 word cards (vocab/kanji) per lesson (warning outside that band; **error at 0**).
 - **Kanji rules (live — the `kanji` type shipped)** — stroke data required, fronts globally unique
   (with vocab), allowed only in `a1`+ stages.

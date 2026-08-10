@@ -168,5 +168,73 @@ export function lintCurriculum(units = []) {
     }
   }
 
+  chunkTaughtBeforeUse(units, e);
+
   return { errors, warnings };
+}
+
+// --- teach-before-use for multi-word chunks -------------------------------------
+//
+// The gap this closes: the `introduced` set above tracks kana/kanji GLYPHS, so for
+// a Latin-script language the lint had no teach-before-use rule at all. French A1
+// shipped ten example sentences using vocabulary the learner had not met yet
+// (j'ai mal appeared eight times before its own card) and every gate was green —
+// the defect was only ever caught by human/LLM review, twice.
+//
+// Scope is deliberately narrow, because a naive "every word must be taught" check
+// drowns in substrings ("vous" inside "s'il vous plaît", "sur" inside "bien sûr"):
+//   • only MULTI-WORD fronts — the verb chunks and fixed expressions that actually
+//     confuse a beginner when they appear cold;
+//   • skipped if every word of the chunk is already taught separately ("de la" is
+//     just de + la, and reads fine);
+//   • skipped if any word of it is glossed in a hint in the same lesson — the
+//     documented authoring escape hatch, and the fix an author should reach for;
+//   • skipped for `pre-a1` units, whose examples are script/pronunciation
+//     SPECIMENS rather than sentences (see CONTENT.md, "Script policy").
+//
+// Lesson order is the UNITS array order, which is what Today.jsx actually serves
+// (see tests/unit/unit-order.test.mjs) — not the `order` display field.
+function chunkTaughtBeforeUse(units, e) {
+  const norm = (s) =>
+    String(s ?? "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+  const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  for (const lang of [...new Set(units.map((u) => u.lang))]) {
+    const seq = [];
+    for (const u of units.filter((x) => x.lang === lang))
+      for (const l of u.lessons ?? []) if (Array.isArray(l.items)) seq.push({ u, l });
+
+    const taughtAt = new Map(); // front → first lesson index that teaches it
+    seq.forEach(({ l }, i) =>
+      l.items.forEach((it) => { if (!taughtAt.has(it.front)) taughtAt.set(it.front, i); })
+    );
+
+    seq.forEach(({ u, l }, i) => {
+      if (u.stage === "pre-a1") return;
+      const glossed = norm(l.items.map((it) => it.hint || "").join(" "));
+      const knownWords = [...taughtAt]
+        .filter(([, at]) => at <= i)
+        .flatMap(([front]) => norm(front).split(/[ ']/));
+
+      for (const it of l.items) {
+        const ex = norm(it.example?.jp);
+        if (!ex) continue;
+        for (const [front, at] of taughtAt) {
+          if (at <= i || front === it.front || !front.includes(" ")) continue;
+          const f = norm(front);
+          if (norm(it.front).includes(f)) continue;
+          if (l.items.some((x) => norm(x.front).includes(f))) continue;
+          const words = f.split(" ");
+          if (words.some((word) => glossed.includes(word))) continue;
+          if (words.every((word) => knownWords.includes(word))) continue;
+          if (new RegExp(`(^|[^a-z0-9'])${esc(f)}($|[^a-z0-9'])`).test(ex))
+            e(
+              `item ${it.id}: example uses "${front}", which is not taught until ${
+                seq[at].l.id
+              }. Move the chunk earlier, reword the example, or gloss it in a hint.`
+            );
+        }
+      }
+    });
+  }
 }

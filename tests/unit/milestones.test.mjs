@@ -7,6 +7,7 @@ import {
   earnedMilestones,
   nextMilestone,
   milestoneSummary,
+  milestonesFor,
 } from "../../src/data/milestones.js";
 
 const SEED = seedItems();
@@ -131,4 +132,32 @@ test("level milestones are per-language — a new language never moves another's
   // only the A1-band ja items matter for level-A1; ranging all ja is a superset
   assert.ok(earnedMilestones(m).includes("level-A1"), "ja A1 earned with zero French progress");
   assert.ok(!earnedMilestones(m).includes("level-A1-fr"));
+});
+
+// Regression: shipping French must not move a Japanese-only learner's denominator
+// or show them a locked badge for a track they never opted into.
+test("milestonesFor scopes level milestones to started languages", () => {
+  const jaOnly = milestonesFor(["ja"]);
+  const both = milestonesFor(["ja", "fr"]);
+  const ids = (list) => list.map((m) => m.id);
+
+  assert.ok(ids(jaOnly).includes("level-A1"), "ja learner keeps their own level milestones");
+  assert.ok(!ids(jaOnly).includes("level-A1-fr"), "ja-only learner sees no French badge");
+  assert.ok(ids(both).includes("level-A1-fr"), "a French learner does see it");
+
+  // Cross-language capability counts are visible to everyone, by design.
+  for (const id of ["read-first", "vocab-first", "read-100"]) {
+    assert.ok(ids(jaOnly).includes(id), `${id} is cross-language and stays visible`);
+  }
+
+  // The denominator a ja-only learner sees is unchanged by French existing.
+  const frLevels = milestoneCatalog().filter((m) => m.lang === "fr");
+  assert.ok(frLevels.length > 0, "French level milestones exist in the full catalog");
+  assert.equal(both.length, jaOnly.length + frLevels.length);
+});
+
+test("milestonesFor([]) still shows the cross-language milestones only", () => {
+  const none = milestonesFor([]);
+  assert.ok(none.length > 0);
+  assert.ok(none.every((m) => !m.lang), "no per-language milestone leaks through");
 });

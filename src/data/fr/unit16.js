@@ -57,7 +57,7 @@ export const FR_UNIT16 = {
       items: [
         { id: "fr-u16l3-lataille", type: "vocab", front: "la taille", reading: "lataille", meaning: "size", example: { jp: "Quelle taille ? Petite, s'il vous plaît.", en: "What size? Small, please." }, accept: ["the size", "waist"] },
         { id: "fr-u16l3-lacouleur", type: "vocab", front: "la couleur", reading: "lacouleur", meaning: "colour", example: { jp: "Quelle couleur ? Rouge ou vert ?", en: "What colour? Red or green?" }, accept: ["the color", "the colour"], hint: "ou = or (no accent). où with the accent is where — Unit 2." },
-        { id: "fr-u16l3-court", type: "vocab", front: "court", reading: "court", meaning: "short", example: { jp: "En décembre, le jour est court.", en: "In December, the day is short." }, accept: ["brief"] },
+        { id: "fr-u16l3-court", type: "vocab", front: "court", reading: "court", meaning: "short", example: { jp: "En décembre, les jours sont courts.", en: "In December, the days are short." }, accept: ["brief"] },
         { id: "fr-u16l3-long", type: "vocab", front: "long", reading: "long", meaning: "long", example: { jp: "L'hiver est long ici.", en: "Winter is long here." }, accept: [] },
         { id: "fr-u16l3-propre", type: "vocab", front: "propre", reading: "propre", meaning: "clean", example: { jp: "Ma chemise est propre.", en: "My shirt is clean." }, accept: ["tidy"] },
         { id: "fr-u16l3-sale", type: "vocab", front: "sale", reading: "sale", meaning: "dirty", example: { jp: "Mon pantalon est sale !", en: "My trousers are dirty!" }, accept: ["filthy", "unclean"], hint: "Nothing to do with a shop sale — that's les soldes." },
