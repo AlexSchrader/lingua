@@ -22,7 +22,7 @@ XP. An anti-burnout design, built with neurodivergent learners in mind.
 
 - **Japanese** — A1/N5 complete (scripts, yōon, thematic vocab, 106 N5 kanji, full core grammar) and the A2/N4 arc authored on top.
 - **French** — A1 *core*: greetings through the passé composé, a sounds-and-accents unit that runs first, and a grammar unit covering the partitive, possessives and demonstratives. Not yet A1 exam-complete (see [Known issues](#known-issues)).
-- **All 15 card kinds are live** for Japanese. French routes 9 of 15 today — 11 once its audio is generated; `trace` is N/A for a Latin script and `conjugate` needs a contract change (see `CONTENT.md` → Script policy).
+- **All 15 card kinds are live** for Japanese. French routes 9 of 15 today — 11 once its audio is generated; `trace` is N/A for a Latin script, and `conjugate` needs a French conjugation engine (not just a schema tweak — `src/store/conjugate.js` is a Japanese rule engine end to end). Note that "routes" is not "tests the same skill": French production is accent-blind by design, so no card grades é vs è (see `CONTENT.md` → Script policy).
 - **Remaining quality gate for Japanese:** a batched native-speaker review of the kanji + grammar examples before any "JLPT N5 verified" claim.
 
 ---
@@ -84,7 +84,7 @@ All 15 are live and routed. The rung an item sits on picks the card.
 | `particle:choice` | fill the missing particle / preposition | ✅ |
 | `build` | assemble the reading from tiles | ja only — same reason as `type:reading` |
 | `sentence:build` | reassemble the example sentence from tiles | ✅ |
-| `conjugate` | produce a verb's target form | ja only — needs a contract change for French |
+| `conjugate` | produce a verb's target form | ja only — French needs its own conjugation engine **and** a contract change |
 | `trace` | KanjiVG touch-to-trace | N/A — nothing to trace in a Latin script |
 | `speak` | say it aloud, graded by STT | ✅ |
 
@@ -196,8 +196,12 @@ are the **batched native-speaker review** gate, required before any "JLPT-aligne
 ## Not yet built
 
 **French audio** (generation run pending) · **Spanish** (Nacho's persona is written; no units yet) ·
-the remaining 18 planned languages · Apple sign-in · a French `conjugate` card (needs a
-contract change — `VALID_VERB_GROUPS` are Japanese verb classes).
+the remaining 18 planned languages · Apple sign-in · a French `conjugate` card. That last one
+is a bigger job than it sounds: `src/store/conjugate.js` is a Japanese rule engine (ます-stem,
+godan/ichidan, kana output), so French needs a **new conjugator** as well as a contract change
+(`VALID_VERB_GROUPS` and `CONJ_FORMS` are Japanese verb classes and forms) and a verb-drill unit
+carrying infinitives — today's French units teach verbs as je/tu chunks, which is right for A1
+but carries no infinitive to conjugate from.
 
 *(Speech grading, the A2/N4 curriculum, and KanjiVG tracing are all **live** — an older
 version of this file listed them as pending.)*
