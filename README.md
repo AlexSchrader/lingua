@@ -13,15 +13,15 @@ XP. An anti-burnout design, built with neurodivergent learners in mind.
 
 ## Status
 
-**Two live languages · 128 units · 3,005 items.** `npm run audit` for the live breakdown.
+**Two live languages · 129 units · 3,030 items.** `npm run audit` for the live breakdown.
 
 | | units | lessons | items | stages | audio |
 |---|---|---|---|---|---|
 | 🇯🇵 **Japanese** | 98 | 369 | 2,375 (175 kana · 248 kanji · 1,952 vocab) | pre-A1 → A2 | 2,372 / 2,375 |
-| 🇫🇷 **French** | 30 | 90 | 630 (all vocab) | A1 | 0 / 630 |
+| 🇫🇷 **French** | 31 | 94 | 655 (all vocab) | A1 | 0 / 655 |
 
 - **Japanese** — A1/N5 complete (scripts, yōon, thematic vocab, 106 N5 kanji, full core grammar) and the A2/N4 arc authored on top.
-- **French** — A1 complete: greetings through the passé composé, a sounds-and-accents unit that runs first, and four grammar units covering the partitive, possessives and demonstratives (u26), the full present-tense paradigms (u28), obligation and the imperative (u29), and comparatives, quantities and time sequence (u30). The zero-coverage gaps against a DELF A1 syllabus were closed in units 28–30; object pronouns remain, and those are A2.
+- **French** — A1 complete: greetings through the passé composé, a sounds-and-accents unit that runs first, and five grammar units covering the partitive, possessives and demonstratives (u26), the present-tense paradigms (u28), obligation and the imperative (u29), comparatives, quantities and time sequence (u30), and the modals plus third-person past (u31). The zero-coverage gaps against a DELF A1 syllabus were closed in units 28–31; object pronouns remain, and those are A2.
 - **All 15 card kinds are live** for Japanese. French routes 9 of 15 today — 11 once its audio is generated; `trace` is N/A for a Latin script, and `conjugate` needs a French conjugation engine (not just a schema tweak — `src/store/conjugate.js` is a Japanese rule engine end to end). Note that "routes" is not "tests the same skill": French production is accent-blind by design, so no card grades é vs è (see `CONTENT.md` → Script policy).
 - **Remaining quality gate for Japanese:** a batched native-speaker review of the kanji + grammar examples before any "JLPT N5 verified" claim.
 
@@ -29,7 +29,7 @@ XP. An anti-burnout design, built with neurodivergent learners in mind.
 
 ## Known issues
 
-- **French A1 has one acknowledged omission: object pronouns** (`me`, `te`, `lui`, `leur`, `y`, `en`). Judged A2 rather than A1 and deliberately deferred — say so if you disagree. Everything else that probed at zero coverage (the imperative, `il faut` / `devoir`, comparatives, quantity + `de`, time sequence, and the ragged verb paradigms) was closed in units 28–30. Note this is a coverage claim measured against a syllabus, **not** a claim that the app has been validated against a real DELF A1 paper.
+- **French A1 has one acknowledged omission: object pronouns** (`me`, `te`, `lui`, `leur`, `y`, `en`). Judged A2 rather than A1 and deliberately deferred — say so if you disagree. Everything else that probed at zero coverage (the imperative, `il faut` / `devoir`, comparatives, quantity + `de`, time sequence, the ragged verb paradigms, and — caught by the content gate, not by my probe — `vouloir`/`pouvoir`/`savoir` and the passé composé being stuck in the first person) was closed in units 28–31. Note this is a coverage claim measured against a syllabus, **not** a claim that the app has been validated against a real DELF A1 paper.
 - **French has no audio yet.** `public/audio/fr/` is empty, so the two listening cards don't route for French and teach cards are silent. Run `npm run generate:audio` then `npm run generate:manifest` to light them up. This also leaves the sounds unit — which runs first — teaching pronunciation through written respellings alone, and stalls its 21 items at rung 4 (`speak` can't grade an isolated `gn` or `ill`).
 - **Mathieu (the French tutor) is wired but untested against the live API.** The ConvAI agent id and voice are configured; the endpoint has only been exercised with a stubbed fetch.
 
