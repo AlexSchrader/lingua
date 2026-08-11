@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Award, Lock } from "lucide-react";
 import { useStore } from "../store/useStore.js";
-import { milestoneCatalog } from "../data/milestones.js";
+import { milestonesFor } from "../data/milestones.js";
 import { C, F } from "../theme.js";
 
 // Display grouping for the milestone `family` tags, in climb order.
@@ -59,9 +59,10 @@ export default function Achievements() {
   const navigate = useNavigate();
   const items = useStore((s) => s.items);
   const milestonesEarned = useStore((s) => s.milestonesEarned);
+  const startedLangs = useStore((s) => s.profile?.languages);
 
   const { groups, earnedCount, total } = useMemo(() => {
-    const catalog = milestoneCatalog();
+    const catalog = milestonesFor(startedLangs ?? []);
     const earnedSet = new Set(milestonesEarned ?? []);
     const groups = {};
     for (const m of catalog) {
@@ -69,8 +70,12 @@ export default function Achievements() {
       const fam = FAMILY_ORDER.includes(m.family) ? m.family : "other";
       (groups[fam] ??= []).push({ id: m.id, label: m.label, earned: earnedSet.has(m.id), have, need });
     }
-    return { groups, earnedCount: earnedSet.size, total: catalog.length };
-  }, [items, milestonesEarned]);
+    // Count earned WITHIN the visible catalog, not the raw persisted set — otherwise
+    // "x of y" can read 26 of 25 for a learner who earned a badge in a track that is
+    // no longer in their profile.
+    const earnedCount = catalog.filter((m) => earnedSet.has(m.id)).length;
+    return { groups, earnedCount, total: catalog.length };
+  }, [items, milestonesEarned, startedLangs]);
 
   const families = [...FAMILY_ORDER, "other"].filter((f) => groups[f]?.length);
 

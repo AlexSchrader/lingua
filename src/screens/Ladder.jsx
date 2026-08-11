@@ -5,6 +5,7 @@ import { LANGUAGES, UNITS } from "../data/index.js";
 import { roadmapFor } from "../data/roadmap.js";
 import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
+import { currentStageFor } from "../store/levels.js";
 import GlyphDetail from "../components/GlyphDetail.jsx";
 import PlannedLanguages from "../components/PlannedLanguages.jsx";
 import { C, F } from "../theme.js";
@@ -43,6 +44,7 @@ function stageStats(langId, stage, items) {
 }
 
 const hasContent = (id) => UNITS.some((u) => u.lang === id);
+
 
 export default function Ladder() {
   const languages = useStore((s) => s.languages);
@@ -124,8 +126,22 @@ function ActiveLanguage({ lang, items }) {
   const targetStageIdx = Math.max(0, STAGE_ORDER.indexOf((lang.target ?? "B2").toLowerCase()));
   const stages = STAGE_ORDER.slice(0, targetStageIdx + 1);
   const statsByStage = Object.fromEntries(stages.map((s) => [s, stageStats(lang.id, s, items)]));
-  // Current stage = first one not yet complete (or the goal, if all are done).
-  const currentStage = stages.find((s) => !statsByStage[s].complete) ?? stages[stages.length - 1];
+  // Current stage = first one not yet complete (or the goal, if all are done) —
+  // considering only stages this language HAS content for. A stage with no items
+  // isn't "incomplete", it doesn't apply: a Latin-alphabet language has no pre-a1
+  // script band at all (see contract.js VALID_STAGE). Without the total > 0 filter
+  // such a language pins to that empty stage forever — `complete` is
+  // `total > 0 && done === total`, so an empty stage can never satisfy it — and
+  // the learner's own rung reads "Lessons for Pre-A1 coming soon." from lesson 1
+  // onward, no matter how far they climb.
+  const currentStage = currentStageFor(stages, statsByStage);
+  // Drop only the empty stages BELOW the first one with content. An empty rung
+  // beneath the learner can never turn green and reads as permanent failure —
+  // that's the Pre-A1 rung a Latin-script language would otherwise carry forever.
+  // Empty rungs ABOVE are kept on purpose: they're the goal, and the spine's whole
+  // job is showing the whole climb (ja keeps B1/B2 as targets it hasn't authored yet).
+  const firstWithContent = stages.findIndex((st) => statsByStage[st].total > 0);
+  const spineStages = firstWithContent > 0 ? stages.slice(firstWithContent) : stages;
   const cur = statsByStage[currentStage];
 
   // "You're here" shows position within the CURRENT stage: which unit of the
@@ -169,7 +185,12 @@ function ActiveLanguage({ lang, items }) {
           current-level progress bar lives full-width BELOW, under the mascot. */}
       <div style={{ marginTop: 14, display: "flex", gap: 10, alignItems: "stretch" }}>
         <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          {[...stages].reverse().map((stage, i, arr) => (
+          {/* Only rungs this language HAS content for. A Latin-script language has
+              no pre-a1 script band (CONTENT.md → Script policy), and drawing a rung
+              that can never turn green — even at 100% of A1 — reads as permanent
+              failure. Falls back to `stages` if nothing has content yet, so the
+              spine is never empty. */}
+          {[...spineStages].reverse().map((stage, i, arr) => (
             <CefrRung
               key={stage}
               level={STAGE_LABEL[stage] ?? stage}

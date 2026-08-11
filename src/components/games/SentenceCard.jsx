@@ -21,6 +21,8 @@ export default function SentenceCard({ item, onGraded }) {
     shownAt.current = performance.now();
   }, [item.id]);
 
+  // JP font for Japanese only; French tiles render in the body face.
+  const tokenFont = (item.lang ?? "ja") === "ja" ? F.jp : F.body;
   const answer = spec?.answer ?? [];
   const tiles = spec?.tiles ?? [];
   const assembled = picked.map((i) => tiles[i]);
@@ -74,7 +76,7 @@ export default function SentenceCard({ item, onGraded }) {
           justifyContent: "center",
           gap: 6,
           padding: "8px 10px",
-          fontFamily: F.jp,
+          fontFamily: tokenFont,
           fontSize: 20,
           color: full ? (correct ? C.matcha : C.shu) : C.ink,
         }}
@@ -97,7 +99,7 @@ export default function SentenceCard({ item, onGraded }) {
                 border: `1.5px solid ${C.ai}`,
                 background: used ? C.lockedBg : C.aiSoft,
                 color: used ? C.locked : C.aiDeep,
-                fontFamily: F.jp,
+                fontFamily: tokenFont,
                 fontSize: 18,
                 fontWeight: 700,
                 cursor: used ? "default" : "pointer",

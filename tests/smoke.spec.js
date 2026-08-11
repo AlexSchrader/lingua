@@ -727,7 +727,17 @@ test("dev mode: unlock from Settings, panel shows diagnostics, isolated run leav
 
   // Lands on the dev panel with the diagnostics readout (reads from UNITS data).
   await expect(page.getByText("Units registered")).toBeVisible();
-  await expect(page.getByText("Kana with stroke data")).toBeVisible();
+  await expect(page.getByText("Glyphs with stroke data")).toBeVisible();
+
+  // Dev Mode is per-language: switching to French must re-scope the whole panel.
+  // The stroke-data row is a glyph-script concern and has to DISAPPEAR for a
+  // Latin-script language rather than report a meaningless 0 / 0.
+  await page.getByRole("button", { name: "French" }).click();
+  await expect(page.getByText("Diagnostics — French")).toBeVisible();
+  await expect(page.getByText("Glyphs with stroke data")).toHaveCount(0);
+  await expect(page.getByText("Card kinds reachable")).toBeVisible();
+  await page.getByRole("button", { name: "Japanese" }).click();
+  await expect(page.getByText("Glyphs with stroke data")).toBeVisible();
 
   // Snapshot the persisted store (devMode already unlocked) before an isolated run.
   const before = await page.evaluate(() => localStorage.getItem("lingua-v1"));

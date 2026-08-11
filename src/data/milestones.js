@@ -12,6 +12,7 @@
 // engine reads this catalog generically; adding a milestone is one entry.
 
 import { UNITS } from "./index.js";
+import { langName } from "./languages.js";
 import { isMastered, isReviewable } from "../store/mastery.js";
 
 const CEFR_ORDER = { A1: 0, A2: 1, B1: 2, B2: 3 };
@@ -38,12 +39,12 @@ function curriculumDefs() {
   return out;
 }
 
-// The distinct CEFR bands present in the live curriculum, low→high. A "{band}
-// complete" milestone is generated per band so A2 etc. light up automatically
-// when their units go live — no hardcoded level list.
-function cefrBands() {
+// The distinct CEFR bands present in a def list, low→high. A "{band} complete"
+// milestone is generated per band so A2 etc. light up automatically when their
+// units go live — no hardcoded level list.
+function cefrBands(defs) {
   const seen = new Set();
-  for (const d of curriculumDefs()) if (d.cefr) seen.add(d.cefr);
+  for (const d of defs) if (d.cefr) seen.add(d.cefr);
   return [...seen].sort((a, b) => (CEFR_ORDER[a] ?? 99) - (CEFR_ORDER[b] ?? 99));
 }
 
@@ -63,8 +64,10 @@ const badgeFor = (id) => `/milestones/${id}.png`;
 function threshold({ id, family, label, blurb, need, count }) {
   return { id, family, label, blurb, image: badgeFor(id), progress: (items) => ({ have: count(items), need }) };
 }
-function completeAll({ id, family, label, blurb, defs }) {
-  return { id, family, label, blurb, image: badgeFor(id), progress: (items) => ({ have: countRead(items, defs), need: defs.length }) };
+// `lang` (optional) scopes a milestone to one track. Cross-language milestones —
+// the word counts — leave it undefined and are always visible. See milestonesFor().
+function completeAll({ id, family, label, blurb, defs, lang }) {
+  return { id, family, label, blurb, lang, image: badgeFor(id), progress: (items) => ({ have: countRead(items, defs), need: defs.length }) };
 }
 
 // Build the catalog from the live curriculum. A function (not a bare const) so it
@@ -104,15 +107,47 @@ export function milestoneCatalog() {
   for (const n of [10, 50, 100, 250, 500]) if (vocab.length >= n)
     list.push(threshold({ id: `vocab-${n}`, family: "vocab", label: `${n} words mastered`, blurb: "words mastered", need: n, count: (i) => countMastered(i, vocab) }));
 
-  // --- Level: a whole CEFR band recognized (cumulative, like the app's own gate) ---
-  for (const band of cefrBands()) {
-    const bandDefs = defs.filter((d) => (CEFR_ORDER[d.cefr] ?? 99) <= (CEFR_ORDER[band] ?? 99));
-    if (bandDefs.length)
-      list.push(completeAll({ id: `level-${band}`, family: "level", label: `${band} complete`, blurb: `${band} items`, defs: bandDefs }));
+  // --- Level: a whole CEFR band recognized (cumulative, like the app's own gate),
+  // PER LANGUAGE — a new language's units shipping must never move an existing
+  // learner's "A1 complete" goalposts (registering fr once inflated ja's A1
+  // denominator 1252→1437 and made the milestone unearnable without French).
+  // The FIRST language (ja) keeps the original un-suffixed ids ("level-A1") so
+  // persisted earned ids survive; every later language gets "level-A1-fr" style
+  // ids. NOTE the deliberate contrast: the vocab read-N/vocab-N counts above stay
+  // cross-language on purpose — "100 words mastered" is an honest capability
+  // count whatever the language — while "level complete" is inherently per-track.
+  const LEGACY_LEVEL_LANG = "ja";
+  for (const lang of [...new Set(defs.map((d) => d.lang))]) {
+    const langDefs = defs.filter((d) => d.lang === lang);
+    for (const band of cefrBands(langDefs)) {
+      const bandDefs = langDefs.filter((d) => (CEFR_ORDER[d.cefr] ?? 99) <= (CEFR_ORDER[band] ?? 99));
+      if (bandDefs.length)
+        list.push(
+          completeAll({
+            id: lang === LEGACY_LEVEL_LANG ? `level-${band}` : `level-${band}-${lang}`,
+            family: "level",
+            label: `${langName(lang)} ${band} complete`,
+            blurb: `${band} items`,
+            defs: bandDefs,
+            lang,
+          })
+        );
+    }
   }
 
   _catalog = list;
   return list;
+}
+
+// The catalog as a given learner should SEE it: cross-language milestones plus the
+// per-language ones for tracks they've actually started. Without this, shipping
+// French moved a Japanese-only learner's "earned of total" denominator and showed
+// them a locked "French A1 complete" badge for a language they never opted into —
+// the same goalpost-moving bug the per-language ids above fixed, one layer out.
+// Pure; `langs` is the profile's started-language list.
+export function milestonesFor(langs = []) {
+  const started = new Set(langs);
+  return milestoneCatalog().filter((m) => !m.lang || started.has(m.lang));
 }
 
 // The set of milestone ids currently satisfied by the given items map. Pure.

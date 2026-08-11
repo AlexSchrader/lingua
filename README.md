@@ -4,25 +4,36 @@ A Japanese-first, phone-first PWA for learning languages through deep understand
 rather than memorization. The daily loop is tight: **clear reviews → lesson → prove it**,
 scheduled by FSRS spaced repetition and judged by the app (no self-grading).
 
-Built around the **Polyglot Ladder**: one gated track where Japanese is the deep climb
-(goal B2) and side languages (es, fr) unlock at A1 of their predecessor. Motivation comes
-from mechanics and structure — text-first, no character art, no streaks or XP. An
-anti-burnout design, built with neurodivergent learners in mind.
+Built around the **Polyglot Ladder**: every language targets B2, and you earn the right to
+start another by reaching A1 in one you've already begun — there's no fixed order between
+them. Motivation comes from mechanics and structure: capability milestones, not streaks or
+XP. An anti-burnout design, built with neurodivergent learners in mind.
 
 ---
 
 ## Status
 
-- **A1 is content-complete** — 21 units · 93 lessons · 729 items (kana scripts + yōon, A1 thematic vocab, 106 N5 kanji, and core A1 grammar). Green on all local gates.
-- **Shipped to `main`:** Units 1–10 (kana scripts + A1 thematic vocab).
-- **Built locally, awaiting GitHub resume:** Units 11–21 (kanji stack + yōon + grammar) — validated and tested, not yet pushed.
-- **Blockers:** PR #46 (Unit 13) is held by a GitHub account suspension (see [Known issues](#known-issues)); and A1's "N5 verified" claim is gated on a batched native-speaker review of the kanji + grammar examples.
+**Two live languages · 129 units · 3,030 items.** `npm run audit` for the live breakdown.
+
+| | units | lessons | items | stages | audio |
+|---|---|---|---|---|---|
+| 🇯🇵 **Japanese** | 98 | 369 | 2,375 (175 kana · 248 kanji · 1,952 vocab) | pre-A1 → A2 | 2,372 / 2,375 |
+| 🇫🇷 **French** | 31 | 94 | 655 (all vocab) | A1 | 0 / 655 |
+
+- **Japanese** — A1/N5 complete (scripts, yōon, thematic vocab, 106 N5 kanji, full core grammar) and the A2/N4 arc authored on top.
+- **French** — A1 complete: greetings through the passé composé, a sounds-and-accents unit that runs first, and five grammar units covering the partitive, possessives and demonstratives (u26), the present-tense paradigms (u28), obligation and the imperative (u29), comparatives, quantities and time sequence (u30), and the modals plus third-person past (u31). The zero-coverage gaps against a DELF A1 syllabus were closed in units 28–31; object pronouns remain, and those are A2.
+- **All 15 card kinds are live** for Japanese. French routes 9 of 15 today — 11 once its audio is generated; `trace` is N/A for a Latin script, and `conjugate` needs a French conjugation engine (not just a schema tweak — `src/store/conjugate.js` is a Japanese rule engine end to end). Note that "routes" is not "tests the same skill": French production is accent-blind by design, so no card grades é vs è (see `CONTENT.md` → Script policy).
+- **Remaining quality gate for Japanese:** a batched native-speaker review of the kanji + grammar examples before any "JLPT N5 verified" claim.
 
 ---
 
 ## Known issues
 
-- **GitHub account suspended** — pushes, PRs, and CI are blocked, which also halts the normal `main` → Vercel deploy. Units 11–21 (including PR #46, Unit 13) are authored, validated, and green locally but can't land on `main` until access returns. The current production build was shipped directly via the Vercel CLI, so **production is ahead of `main`**; once GitHub resumes, the local work must be pushed and reconciled into `main` *before* any git-triggered deploy, or production would roll back.
+- **French A1 has one acknowledged omission: object pronouns** (`me`, `te`, `lui`, `leur`, `y`, `en`). Judged A2 rather than A1 and deliberately deferred — say so if you disagree. Everything else that probed at zero coverage (the imperative, `il faut` / `devoir`, comparatives, quantity + `de`, time sequence, the ragged verb paradigms, and — caught by the content gate, not by my probe — `vouloir`/`pouvoir`/`savoir` and the passé composé being stuck in the first person) was closed in units 28–31. Note this is a coverage claim measured against a syllabus, **not** a claim that the app has been validated against a real DELF A1 paper.
+- **French has no audio yet.** `public/audio/fr/` is empty, so the two listening cards don't route for French and teach cards are silent. Run `npm run generate:audio` then `npm run generate:manifest` to light them up. This also leaves the sounds unit — which runs first — teaching pronunciation through written respellings alone, and stalls its 21 items at rung 4 (`speak` can't grade an isolated `gn` or `ill`).
+- **Mathieu (the French tutor) is wired but untested against the live API.** The ConvAI agent id and voice are configured; the endpoint has only been exercised with a stubbed fetch.
+
+*(Resolved: the June GitHub suspension is over and `main` is the production source of truth again — no CLI-deploy divergence.)*
 
 Full running list and detail: **`BUILD-CHECKLIST.md`** — readers shouldn't have to infer hidden problems.
 
@@ -30,15 +41,19 @@ Full running list and detail: **`BUILD-CHECKLIST.md`** — readers shouldn't hav
 
 ## What's built today
 
-**Curriculum — A1 content-complete · 21 units · 93 lessons · 729 items** (`npm run audit` for the live breakdown):
+**Japanese** (`src/data/ja/`):
 
-- **Full hiragana** あ–ん (Units 1–3) and **full katakana** including dakuten/handakuten (Units 4–6).
-- **Yōon** — 33 combination kana (きょ・しゃ・ぎょ…), Unit 16.
-- **First A1 thematic vocab** — numbers/time, family, food + ～ます verbs, town/places, colors/weather (Units 7–10, 12).
-- **106 kanji ≈ JLPT N5 complete** — recognition by meaning, production by stroke tracing (Units 11, 13–15, 17–18).
-- **Core A1 grammar** — the copula sentence (Xは Yです / か / の / と / も / question words), verbs + particles (を/が/に/で/へ/から/まで), invitations & requests (ませんか/ましょう/ください), and past tense + い/な-adjective conjugation (Units 19–21).
-- Sectioned by CEFR stage (`pre-a1` / `a1` / …) with JLPT tags on the Ladder.
-- **A1 is content-complete across scripts, vocab, kanji, and grammar.** The remaining gate before any "JLPT N5 verified" claim is a **batched native-speaker review** of the kanji + grammar examples (naturalness/register — the one thing no validator can check).
+- **Full hiragana and katakana** including dakuten/handakuten, plus the 33 **yōon** digraphs.
+- **248 kanji** — recognition by meaning, production by stroke tracing (KanjiVG).
+- **A1/N5 grammar complete** — the copula sentence, all core particles, ～ます verbs with past/negative, い/な-adjective conjugation, invitations and requests.
+- **A2/N4 arc authored** on top: て-form, conditionals, comparison, passive/causative, plus conjugation drill units that feed the `conjugate` card.
+
+**French** (`src/data/fr/`):
+
+- **Les sons runs first** — the sound-to-spelling map (accents, `eau`/`oi`/`gn`/`ill`, silent finals, liaison, elision). Latin-script languages get this instead of a script-tracing band; see `CONTENT.md` → **Script policy**.
+- **A1 core** — greetings, identity, family, numbers to 1000, food and café, town and directions, time, calendar, weather, body, clothes, home, shopping, transport, meals, jobs, opinions, countries, animals.
+- **Grammar** — negation (`ne … pas/rien/personne/plus/jamais`), the three question forms, être/avoir/aller across every person, the near future, the passé composé with both auxiliaries, and the partitive/possessives/demonstratives.
+- Nouns are taught **with their article** so gender is part of the word.
 
 **Engine & app:**
 
@@ -53,15 +68,25 @@ Full running list and detail: **`BUILD-CHECKLIST.md`** — readers shouldn't hav
 
 **Card kinds** (`LIVE_CARD_KINDS` in `src/data/contract.js`):
 
-| kind | description | status |
-|------|-------------|--------|
-| `teach` | presentation card, no testing | live |
-| `choice` | 4-option multiple choice | live |
-| `type:meaning` | type the English meaning | live |
-| `type:produce` | type the rōmaji / kana | built, not routed (production is via `trace` / `build`) |
-| `build` | assemble the reading from tiles | live |
-| `trace` | KanjiVG touch-to-trace — every kana and kanji | live |
-| `speak` | Whisper speech recognition | dormant (Brief C) |
+All 15 are live and routed. The rung an item sits on picks the card.
+
+| kind | description | French? |
+|------|-------------|---------|
+| `teach` | presentation card, no testing | ✅ |
+| `choice` | 4-option multiple choice | ✅ |
+| `choice:reverse` | English in → pick the target language | ✅ |
+| `listen:choice` | hear it → pick it | needs audio |
+| `listen:type` | dictation — hear it, type it | needs audio |
+| `type:meaning` | type the English meaning | ✅ |
+| `type:reading` | type the reading of the glyph shown | ja only — the reading *is* the spelling in a Latin script |
+| `type:produce` | produce the word from its meaning | ✅ |
+| `cloze:choice` | fill the word into its own example sentence | ✅ |
+| `particle:choice` | fill the missing particle / preposition | ✅ |
+| `build` | assemble the reading from tiles | ja only — same reason as `type:reading` |
+| `sentence:build` | reassemble the example sentence from tiles | ✅ |
+| `conjugate` | produce a verb's target form | ja only — French needs its own conjugation engine **and** a contract change |
+| `trace` | KanjiVG touch-to-trace | N/A — nothing to trace in a Latin script |
+| `speak` | say it aloud, graded by STT | ✅ |
 
 ---
 
@@ -128,25 +153,28 @@ Lesson 47 runs the same code as lesson 1 — no lesson- or item-specific branchi
 - `src/data/contract.js` — `LIVE_CARD_KINDS` + `validateContent()` (hard rules + warnings; item key allowlist).
 - `src/data/lint.js` — `lintCurriculum()` authoring gate (mechanical rules, layered on the contract).
 - `src/data/index.js` — imports all units, seeds/reconciles items into the store.
-- `src/data/ja/*.js` — the units; `languages.js` holds the cascade (`target`/`unlock`/`unlocked`).
+- `src/data/ja/*.js` and `src/data/fr/*.js` — the units. `src/data/languages.js` is the language catalog (live vs planned is *derived* from which languages have units, never stored).
+- `src/store/cardRouting.js` — which card kind an item gets, and the script-shape guards that keep a card from degenerating into copying its own prompt.
 - `src/screens/` — Today, Ladder, Haruki, Stats, Lesson (session runner).
-- `src/components/games/` — TeachCard, ChoiceCard, TypeCard, BuildCard (Trace/Speak dormant).
-- `server/companions.js` — companion config, server-side only (voice ids ok, keys are env secrets).
+- `src/components/games/` — one component per card kind (Teach, Choice, Type, Build, Cloze, Sentence, Conjugate, Trace, Speak).
+- `server/companions.js` — per-language tutor config, **server-side only** (personas and voice ids live here; the client gets names only, via `src/data/companions.js`).
 
 ### Workflow
 
-- **Three lanes.** **Feature CC** (app/engine/UX), **Curriculum CC** (content units), **QA CC** (tests + reports findings). Alex reviews, feel-checks, and merges everything. Full detail in `CLAUDE.md` → "Roles."
+- **Four lanes.** **Feature CC** (app/engine/UX), **Curriculum CC** (content units), **QA CC** (tests + findings), **Idea CC** (ranked proposals, builds nothing). Alex reviews, feel-checks, and merges everything. Full detail in `CLAUDE.md` → "Roles."
+- **Nothing reaches Alex unverified.** Every deliverable passes its **domain gate** (`code-auditor`, `content-auditor`, `usability-auditor`, `stats-auditor`, `accuracy-auditor`) and then the **Truth Layer** — `fact-checker` (every number traced to the repo) and `truth-agent` (attacks the reasoning). Gates **BLOCK, never rewrite**, and never approve their own department. Spec: `AGENT-FLEET.md`; runnable agents in `.claude/agents/`.
 - **Curriculum is autonomous.** Curriculum CC authors units and **self-merges** them once the full gate is green: `lint:curriculum` → `validate:content` → unit tests → smoke → build.
-- **Schema and engine changes stay as draft PRs** for Alex to review before merge — the structural pieces (contract, store, card runner) keep a human gate.
-- **QA never merges** — it runs the full gate + manual checks and files a prioritized findings list in `BUILD-CHECKLIST.md`, routing each fix to the Feature or Curriculum lane.
-- **Why it matters:** content ships fast and stays fresh, while the parts that can break everything still get a deliberate review.
+- **Schema and engine changes stay as draft PRs** — the structural pieces (contract, store, card runner) keep a human gate.
+- **Why it matters:** content ships fast and stays fresh, while the parts that can break everything get a deliberate review. In practice the gates earn it — they've caught mis-attributed SRS credit, a milestone that silently un-earned itself, and cards that routed without teaching anything.
 
 ---
 
 ## Content
 
-Content lives in `src/data/ja/`. Each unit file exports an object matching the schema in
-**`CONTENT.md`**. Run `npm run validate:content` **and** `npm run lint:curriculum` after any
+Content lives in `src/data/<lang>/` — `ja/` and `fr/` today. Each unit file exports an object
+matching the schema in **`CONTENT.md`**, which also documents the **script policy**: which
+languages get a glyph section and the `trace` card (those whose script is new to the learner)
+versus a sounds-and-accents unit (every Latin-script language). Run `npm run validate:content` **and** `npm run lint:curriculum` after any
 content change — together they enforce id patterns, CEFR/stage fields, kana-no-duplicates,
 reading normalizability, the item key allowlist, gojūon order, romaji style, card density,
 and the kanji rules. Neither can read *meaning* — particle choice, register, and naturalness
@@ -161,15 +189,19 @@ are the **batched native-speaker review** gate, required before any "JLPT-aligne
 - **`CONTENT.md`** — content schema reference for authoring units.
 - **`BUILD-BRIEF-*.md`** — design briefs (accounts/sync, curriculum lint, speech grading).
 
-**Roles** (full detail in `CLAUDE.md`): work runs in three Claude Code lanes — **Feature CC** (app/engine/UX, draft PRs), **Curriculum CC** (content units, self-merges on green), and **QA CC** (tests + reports findings, builds nothing, never merges). Alex reviews, feel-checks, and merges everything.
+**Roles** (full detail in `CLAUDE.md`): work runs in four Claude Code lanes — **Feature CC** (app/engine/UX, draft PRs), **Curriculum CC** (content units, self-merges on green), **QA CC** (tests + findings, never merges), and **Idea CC** (proposals only). Alex reviews, feel-checks, and merges everything.
 
 ---
 
 ## Not yet built
 
-A2 (JLPT N4) curriculum · Whisper speech grading (Brief C, the one dormant card kind) ·
-Apple sign-in · side languages (es, fr).
+**French audio** (generation run pending) · **Spanish** (Nacho's persona is written; no units yet) ·
+the remaining 18 planned languages · Apple sign-in · a French `conjugate` card. That last one
+is a bigger job than it sounds: `src/store/conjugate.js` is a Japanese rule engine (ます-stem,
+godan/ichidan, kana output), so French needs a **new conjugator** as well as a contract change
+(`VALID_VERB_GROUPS` and `CONJ_FORMS` are Japanese verb classes and forms) and a verb-drill unit
+carrying infinitives — today's French units teach verbs as je/tu chunks, which is right for A1
+but carries no infinitive to conjugate from.
 
-*(A1 grammar is **authored** — Units 19–21 — pending only the batched native-speaker review, not further building.)*
-
-*(KanjiVG tracing is **live**, not pending — it shipped PR #19 and kanji production reuses it.)*
+*(Speech grading, the A2/N4 curriculum, and KanjiVG tracing are all **live** — an older
+version of this file listed them as pending.)*

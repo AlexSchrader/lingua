@@ -45,3 +45,23 @@ export function cefrLevelReached(langId, items) {
 export function levelRank(level) {
   return CEFR_ORDER[level] ?? -1;
 }
+
+// The stage the learner is standing on: the first one they haven't finished,
+// considering ONLY stages this language actually has content for. Pure + exported
+// so the empty-stage rule is unit-testable — it was a real bug, not a hypothetical.
+//
+// A stage with no items isn't "incomplete", it doesn't apply: `complete` is
+// `total > 0 && done === total`, which an empty stage can never satisfy, so
+// without the filter a Latin-script language (no pre-a1 script band at all, see
+// contract.js VALID_STAGE) pins to that empty stage forever — and the learner's
+// own rung reads "Lessons for Pre-A1 coming soon." from lesson 1 onward no matter
+// how far they climb. Falls back to the last stage with content, then to the last
+// stage, so it can never return undefined.
+export function currentStageFor(stages, statsByStage) {
+  const withContent = stages.filter((s) => (statsByStage[s]?.total ?? 0) > 0);
+  return (
+    withContent.find((s) => !statsByStage[s].complete) ??
+    withContent[withContent.length - 1] ??
+    stages[stages.length - 1]
+  );
+}

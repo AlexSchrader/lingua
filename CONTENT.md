@@ -40,9 +40,19 @@ UNIT[]
 | id       | string   | ✓        | pattern `^[a-z]{2}-u\d+$` — e.g. `"ja-u1"` |
 | lang     | string   | ✓        | must match a known language id |
 | title    | string   | ✓        | shown in the unit list |
-| order    | integer  | ✓        | 1-indexed, contiguous per language (no gaps) |
+| order    | integer  | ✓        | 1-indexed, contiguous per language (no gaps). **Display only** — see the warning below. |
 | stage    | string   | ✓        | CEFR section the unit lives under: `"pre-a1"` `"a1"` `"a2"` `"b1"` `"b2"`. Drives the Ladder's stage grouping. `pre-a1` = the scripts band (kana); Latin-alphabet languages won't have any. |
 | lessons  | LESSON[] | ✓        | at least one entry |
+
+> ⚠️ **`order` does not sequence lessons.** The daily loop serves the next unfinished
+> lesson by walking `UNITS.filter(u => u.lang === id).flatMap(u => u.lessons)` in
+> `src/screens/Today.jsx` — i.e. by **position in the `UNITS` array** in `src/data/index.js`.
+> `order` is read only by the Ladder (sorting, and the "Unit n/m" label). Setting `order: 1`
+> on a unit left at the end of the array ships a unit that *displays* as first and *runs*
+> last, and the two progress surfaces then disagree permanently. **Move the unit in the
+> array literal AND set `order` to match.** `tests/unit/unit-order.test.mjs` fails if they
+> diverge; `validateContent` only checks that `order` is contiguous, which is not the same
+> thing and will pass either way.
 
 ---
 
@@ -126,6 +136,89 @@ rungs. Allowed only in `a1`+ stage units. KanjiVG entry required (add the char t
 
 ---
 
+## Script policy — which languages get a glyph section (and trace)
+
+**The rule: a language gets a glyph section + the `trace` card when its script is NEW to
+the learner. A language written in a script the learner already reads does not.**
+
+Decided 2026-07-31 (Alex), when French raised the question. The unit of decision is the
+**script**, not the language — so this splits the 20 planned languages into two groups,
+not twenty.
+
+### New script → glyph items + trace
+
+Japanese (kana, kanji) today; **Korean** (Hangul), **Russian** (Cyrillic), **Mandarin**
+(hanzi), **Hindi** (Devanagari) when they land. These get the full treatment: a Ladder
+grid showing glyph coverage, `type: "kana"`-style glyph items, and the `trace` card.
+
+Trace earns its place here because **stroke order is a real, rule-governed system** — it
+affects legibility and dictionary lookup, and is taught and enforced natively. Writing
+the glyph by hand *is* the production skill.
+
+⚠️ Three things block a new non-Latin script today, all real work:
+
+1. **Stroke data.** `src/data/kanjivg.js` holds 390 entries — every one Japanese, zero
+   Latin. KanjiVG is a *Japanese* dataset; Hangul, Cyrillic and Devanagari each need
+   their own source.
+2. **Item types.** `VALID_ITEM_TYPES` is `["kana", "vocab", "kanji"]` — Japanese names.
+   Hangul is neither. This needs a generic `glyph` type (or per-script types) → a
+   **contract change, its own scoped PR**.
+3. **`isTraceable`** (`src/store/cardRouting.js`) hardcodes those two Japanese types.
+
+### Latin script → a sounds & accents section, never trace
+
+French, Spanish, German, Italian, Portuguese, Dutch, Polish, Turkish, Indonesian,
+Vietnamese, Norwegian, Swedish, Swahili, Yoruba, Twi.
+
+**Do not build a traceable a–z.** The learner already writes Latin letters, so tracing
+them is busywork — and it is the same defect class as two bugs found on 2026-07-31,
+where `type:reading` displayed `salut` and asked the learner to type `salut`, and `build`
+displayed the word and asked them to assemble its own spelling. Both *routed*; neither
+*taught*. **"Does it route?" is not "does it teach?"** — check every card kind against a
+new language for a prompt that is its own answer.
+
+What IS new to the learner in a Latin-script language is the **sound-to-spelling map**:
+the accented characters (`é è ê ë à â ç î ï ô ù û œ`) and the multi-letter spellings
+(`ou`, `eau`, `ai`, `oi`, `on`, `an`, `in`, `gn`, `ill`), plus silent final consonants and
+liaison. A learner meeting `août` or `s'il vous plaît` has no idea what sound comes out.
+That deserves its own unit and its own Ladder section — built from `teach`,
+`listen:choice`, `listen:type` and `choice`, **not** `trace`. See
+`BUILD-BRIEF-fr-sounds.md`. It has a hard dependency on generated audio.
+
+#### ⚠️ Accents are taught but never graded on production
+
+`produceAllowsRomaji` returns `true` for every non-`ja` language, and `normalizeReading`
+strips combining marks for those languages — so on the produce card `tres` grades correct
+for `très`, `la mere` for `la mère`, and `c` for `ç`. **This leniency is deliberate** (most
+learners have no `é` key, and failing them on a diacritic they cannot type is exactly the
+harsh feedback the app avoids), but it has a consequence worth stating plainly: **no card
+currently tests accent CHOICE.** A sounds unit teaches é/è/ê and ç through `teach`,
+`choice` and the listen cards; nothing asks the learner to produce the right one. Do not
+describe a Latin-script language as having card-kind "parity" with Japanese on that basis
+— it routes the same kinds, it does not grade the same skill. The lever, if this should
+change, is a stage gate in `produceAllowsRomaji`, never a change to `normalizeReading`
+(the `checkReading` path depends on it too).
+
+#### A sounds unit's examples are specimens, not sentences
+
+Ordinary A1 lessons may only use vocabulary already taught — the curriculum lint enforces
+this for multi-word chunks (`chunkTaughtBeforeUse` in `src/data/lint.js`). A sounds unit
+is the one exception: it runs first, so *nothing* is taught yet, and its examples are
+single words chosen to demonstrate a sound (`café`, `la sœur`, `août`), not sentences to
+be understood. Gloss any multi-word specimen in a `hint` so the learner is never shown a
+phrase cold.
+
+### The `pre-a1` stage is the script band, not a difficulty band
+
+`pre-a1` exists so Japanese can teach kana *before* A1 proper. **A Latin-script language
+has no `pre-a1` units at all** — and must not be given an empty one as a placeholder.
+An empty stage cannot satisfy `complete` (`total > 0 && done === total`), which pinned
+French learners to a dead Pre-A1 rung forever and printed "Lessons for Pre-A1 coming
+soon." on their own rung from lesson 1 on. A sounds unit belongs at the **start of A1**,
+not in a `pre-a1` band.
+
+---
+
 ## CEFR levels
 
 Valid values (in order): `"A1"` `"A2"` `"B1"` `"B2"`.
@@ -204,6 +297,11 @@ mechanical rule passed.
   dakuten g/z/d/b/p after the base set).
 - **Teach-front scope** — a kana/kanji *teach* front may only use glyphs already introduced (its
   own single new glyph excepted). Vocab and example words are exempt (the reading carries them).
+- **Teach-before-use (multi-word chunks)** — an example sentence may not contain a
+  multi-word front (`j'ai mal`, `je prends`) that a later lesson teaches. Escape hatches, in
+  preference order: reword the example, move the chunk earlier, or gloss it in a `hint`.
+  Chunks whose every word is already taught separately are fine (`de la` = de + la), as are
+  `pre-a1` units (script specimens). Single words are not checked — substring noise.
 - **Density** — ~5–8 word cards (vocab/kanji) per lesson (warning outside that band; **error at 0**).
 - **Kanji rules (live — the `kanji` type shipped)** — stroke data required, fronts globally unique
   (with vocab), allowed only in `a1`+ stages.

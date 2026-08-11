@@ -1,0 +1,68 @@
+// FR Unit 24 — Les gens ("People") — A1
+// Describing people: jobs, personality, and the opinion words that let a learner
+// say what they think of someone. Conventions: see fr/unit1.js.
+export const FR_UNIT24 = {
+  id: "fr-u24",
+  lang: "fr",
+  title: "Les gens",
+  order: 25,
+  stage: "a1",
+  lessons: [
+    {
+      id: "fr-u24l1",
+      unit: 24,
+      lesson: 1,
+      title: "Jobs",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Say what people do: le travail, le professeur, l'étudiant, le serveur, le dentiste, le boulanger, le cuisinier.",
+      items: [
+        { id: "fr-u24l1-letravail", type: "vocab", front: "le travail", reading: "letravail", meaning: "work", example: { jp: "Le travail commence à neuf heures.", en: "Work starts at nine." }, accept: ["the work", "job"] },
+        { id: "fr-u24l1-leprofesseur", type: "vocab", front: "le professeur", reading: "leprofesseur", meaning: "teacher", example: { jp: "Mon professeur est très content aujourd'hui.", en: "My teacher is very happy today." }, accept: ["the teacher", "professor", "prof"] },
+        { id: "fr-u24l1-letudiant", type: "vocab", front: "l'étudiant", reading: "letudiant", meaning: "student", example: { jp: "L'étudiant travaille à la maison.", en: "The student works at home." }, accept: ["the student"] },
+        { id: "fr-u24l1-leserveur", type: "vocab", front: "le serveur", reading: "leserveur", meaning: "waiter", example: { jp: "Le serveur apporte l'addition.", en: "The waiter brings the bill." }, accept: ["the waiter", "server"], hint: "apporte = brings — from apporter." },
+        { id: "fr-u24l1-ledentiste", type: "vocab", front: "le dentiste", reading: "ledentiste", meaning: "dentist", example: { jp: "J'ai mal aux dents : je vais chez le dentiste.", en: "My teeth hurt: I'm going to the dentist." }, accept: ["the dentist"] },
+        { id: "fr-u24l1-leboulanger", type: "vocab", front: "le boulanger", reading: "leboulanger", meaning: "baker", example: { jp: "Le boulanger travaille très tôt.", en: "The baker works very early." }, accept: ["the baker"], hint: "le boulanger works at la boulangerie (Unit 18) — the -erie ending is the shop." },
+        { id: "fr-u24l1-lecuisinier", type: "vocab", front: "le cuisinier", reading: "lecuisinier", meaning: "cook", example: { jp: "Le cuisinier est dans la cuisine.", en: "The cook is in the kitchen." }, accept: ["the cook", "chef"] },
+      ],
+    },
+    {
+      id: "fr-u24l2",
+      unit: 24,
+      lesson: 2,
+      title: "What they're like",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Describe people: gentil, sympa, drôle, timide, sérieux, intelligent, méchant.",
+      items: [
+        { id: "fr-u24l2-gentil", type: "vocab", front: "gentil", reading: "gentil", meaning: "kind", example: { jp: "Mon frère est très gentil.", en: "My brother is very kind." }, accept: ["nice", "sweet"] },
+        { id: "fr-u24l2-sympa", type: "vocab", front: "sympa", reading: "sympa", meaning: "nice", example: { jp: "Tes amis sont sympa !", en: "Your friends are nice!" }, accept: ["friendly", "cool", "likeable"], hint: "Short for sympathique — nobody says the long version. tes = your (plural)." },
+        { id: "fr-u24l2-drole", type: "vocab", front: "drôle", reading: "drole", meaning: "funny", example: { jp: "Le film est très drôle.", en: "The film is very funny." }, accept: ["amusing", "strange"] },
+        { id: "fr-u24l2-timide", type: "vocab", front: "timide", reading: "timide", meaning: "shy", example: { jp: "L'enfant est un peu timide.", en: "The child is a little shy." }, accept: ["timid"] },
+        { id: "fr-u24l2-serieux", type: "vocab", front: "sérieux", reading: "serieux", meaning: "serious", example: { jp: "Mon professeur est sérieux mais sympa.", en: "My teacher is serious but nice." }, accept: ["earnest"] },
+        { id: "fr-u24l2-intelligent", type: "vocab", front: "intelligent", reading: "intelligent", meaning: "clever", example: { jp: "Ma sœur est très intelligente.", en: "My sister is very clever." }, accept: ["smart", "intelligent"] },
+        { id: "fr-u24l2-mechant", type: "vocab", front: "méchant", reading: "mechant", meaning: "mean", example: { jp: "Le chien n'est pas méchant.", en: "The dog isn't mean." }, accept: ["nasty", "naughty", "wicked"], hint: "le chien = the dog — Unit 25 has the rest of the animals." },
+        { id: "fr-u24l2-fort", type: "vocab", front: "fort", reading: "fort", meaning: "strong", example: { jp: "Mon père est très fort.", en: "My father is very strong." }, accept: ["loud", "good at"] },
+      ],
+    },
+    {
+      id: "fr-u24l3",
+      unit: 24,
+      lesson: 3,
+      title: "What I think",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Give an opinion: je pense, je crois, à mon avis, peut-être, vrai, faux.",
+      items: [
+        { id: "fr-u24l3-jepense", type: "vocab", front: "je pense", reading: "jepense", meaning: "I think", example: { jp: "Je pense que c'est une bonne idée.", en: "I think it's a good idea." }, accept: ["i'm thinking", "i believe"], hint: "que = that — je pense que… French keeps the que where English drops it." },
+        { id: "fr-u24l3-jecrois", type: "vocab", front: "je crois", reading: "jecrois", meaning: "I believe", example: { jp: "Je crois que oui.", en: "I think so." }, accept: ["i think", "i reckon"], hint: "Je crois que oui / Je crois que non = I think so / I don't think so." },
+        { id: "fr-u24l3-que", type: "vocab", front: "que", reading: "que", meaning: "that", example: { jp: "Je pense que tu as raison.", en: "I think that you're right." }, accept: ["which", "whom"], hint: "avoir raison = to be right. Literally \"to have reason\"." },
+        { id: "fr-u24l3-amonavis", type: "vocab", front: "à mon avis", reading: "amonavis", meaning: "in my opinion", example: { jp: "À mon avis, c'est trop cher.", en: "In my opinion, it's too expensive." }, accept: ["i think", "the way i see it"] },
+        { id: "fr-u24l3-peutetre", type: "vocab", front: "peut-être", reading: "peutetre", meaning: "maybe", example: { jp: "Peut-être demain, je ne sais pas.", en: "Maybe tomorrow, I don't know." }, accept: ["perhaps", "possibly"] },
+        { id: "fr-u24l3-lidee", type: "vocab", front: "l'idée", reading: "lidee", meaning: "idea", example: { jp: "C'est une bonne idée !", en: "That's a good idea!" }, accept: ["the idea"] },
+        { id: "fr-u24l3-vrai", type: "vocab", front: "vrai", reading: "vrai", meaning: "true", example: { jp: "C'est vrai ? Je ne crois pas !", en: "Is that true? I don't believe it!" }, accept: ["real", "right"] },
+        { id: "fr-u24l3-faux", type: "vocab", front: "faux", reading: "faux", meaning: "false", example: { jp: "Non, c'est faux.", en: "No, that's false." }, accept: ["wrong", "untrue"] },
+      ],
+    },
+  ],
+};

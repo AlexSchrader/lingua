@@ -35,12 +35,39 @@ function yesterdayISO() {
 // no content can't have been legitimately climbed — it's stale seeding.
 const langHasContent = (id) => UNITS.some((u) => u.lang === id);
 
-// Prune a profile's STARTED languages down to those with authored content, and
-// repoint activeLang if it landed on a pruned one. Pure (hasContent injected) so
-// it's unit-testable. Returns the same profile object when nothing changes.
-export function pruneStartedLanguages(profile, hasContent = langHasContent) {
+// Prune a profile's STARTED languages down to the ones actually being learned,
+// and repoint activeLang if it landed on a pruned one. Pure (both predicates
+// injected) so it's unit-testable. Returns the same profile when nothing changes.
+//
+// "Has content" alone is NOT sufficient, and relying on it was a latent bug: this
+// migration exists to strip stale seeding from the old auto-cascade (ja→es→fr)
+// that pre-dated user language choice, and it worked only because es/fr had no
+// content. The moment a cascade language ships content (French, 2026-07-31) it
+// survives the prune, so an old save silently gains it as a STARTED language —
+// bypassing canAddLanguage entirely. So a language must also be the active one or
+// show real progress. Trade-off: a language deliberately added but never touched
+// is dropped and must be re-added (one tap, and canAddLanguage still allows it) —
+// much cheaper than silently starting a language the learner never chose.
+export function pruneStartedLanguages(profile, hasContent = langHasContent, hasProgress = () => true) {
   if (!profile || !Array.isArray(profile.languages) || !profile.languages.length) return profile;
-  const kept = profile.languages.filter(hasContent);
+
+  // A content-less entry PROVES this profile still carries the old cascade
+  // seeding: startLanguage is gated on hasContent, so a language with no units
+  // could never have been chosen deliberately. That signature is what separates a
+  // stale save from a real one — and it's why "has content" alone can't be the
+  // test. It worked only while es/fr had no content; the moment one ships (French,
+  // 2026-07-31) a content-only filter keeps it and the learner silently gains a
+  // language they never picked.
+  const stale = profile.languages.some((id) => !hasContent(id));
+
+  // Only a stale profile gets the strict treatment. Otherwise stay STRICTLY
+  // NON-DESTRUCTIVE and drop nothing that has content — this runs on every boot
+  // (seedOnce), so a language deliberately started but not yet studied must
+  // survive. Requiring progress here deleted exactly that: start French, tap back
+  // to Japanese, reload, and French was silently gone.
+  const kept = profile.languages.filter(
+    (id) => hasContent(id) && (!stale || id === profile.activeLang || hasProgress(id))
+  );
   if (kept.length === profile.languages.length) return profile;
   const activeLang = kept.includes(profile.activeLang) ? profile.activeLang : (kept[0] ?? null);
   return { ...profile, languages: kept, activeLang };
@@ -205,7 +232,9 @@ export const useStore = create(
           // Migration: prune STARTED languages that have no authored content —
           // stale seeding from the old auto-cascade (ja→es→fr) that pre-dated
           // user language choice. (Repoints activeLang if it was pruned.)
-          let profile = pruneStartedLanguages(s.profile, langHasContent);
+          let profile = pruneStartedLanguages(s.profile, langHasContent, (id) =>
+            Object.values(items).some((it) => it.lang === id && (it.rung ?? 0) >= 1)
+          );
           // Migration: an existing learner (already onboarded, or with real
           // progress) from before language-selection defaults to Japanese as
           // their started + active language, so nothing they've done resets.

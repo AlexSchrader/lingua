@@ -2,12 +2,17 @@ import { useState, useRef, useEffect } from "react";
 import { Mic, MicOff, Phone, PhoneOff, Send } from "lucide-react";
 import { ConversationProvider, useConversation } from "@elevenlabs/react";
 import { C, F } from "../theme.js";
+import { useStore } from "../store/useStore.js";
+import { companionName } from "../data/companions.js";
+import { langName } from "../data/languages.js";
 
 // One conversation, two ways in: type OR talk. Both share the same session and
 // transcript — you can call mid-text or drop back to typing, and it's the same
-// chat. Powered by the ElevenLabs Conversational AI agent (Claude + Haruki's
-// native-JP voice). The API key never reaches here — /api/convai-session mints
-// an expiring signed URL server-side. useConversation needs ConversationProvider.
+// chat. Powered by an ElevenLabs Conversational AI agent (Claude + the
+// companion's native voice) — WHICH companion follows the active language
+// (ja Haruki · fr Mathieu · es Nacho; see server/companions.js). The API key
+// never reaches here — /api/convai-session mints an expiring signed URL
+// server-side. useConversation needs ConversationProvider.
 export default function Haruki() {
   return (
     <ConversationProvider>
@@ -17,6 +22,8 @@ export default function Haruki() {
 }
 
 function HarukiChat() {
+  const lang = useStore((s) => s.profile?.activeLang) ?? "ja";
+  const name = companionName(lang);
   const [messages, setMessages] = useState([]);
   const [draft, setDraft] = useState("");
   const [voiceOn, setVoiceOn] = useState(false);
@@ -64,8 +71,12 @@ function HarukiChat() {
 
   async function ensureSession() {
     if (live) return true;
-    const res = await fetch("/api/convai-session?lang=ja");
+    const res = await fetch(`/api/convai-session?lang=${encodeURIComponent(lang)}`);
     if (!res.ok) {
+      // 404 = this language's companion has no conversational agent yet (the
+      // agent id in server/companions.js is pending) — say so warmly, not rawly.
+      if (res.status === 404)
+        throw new Error(`${name} can't take calls quite yet — the line is still being set up. Check back soon!`);
       const j = await res.json().catch(() => ({}));
       throw new Error(j.error || `Couldn't start the session (${res.status}).`);
     }
@@ -84,7 +95,7 @@ function HarukiChat() {
       if (ready) convo.sendUserMessage(text);
       else pendingText.current = text; // sent once connected
     } catch (e) {
-      setErr(e?.message || "Couldn't reach Haruki.");
+      setErr(e?.message || `Couldn't reach ${name}.`);
     }
   }
 
@@ -110,7 +121,7 @@ function HarukiChat() {
   return (
     <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0, padding: 16 }}>
       <div style={{ marginBottom: 12, flexShrink: 0 }}>
-        <div style={{ fontFamily: F.disp, fontSize: 22, fontWeight: 700 }}>Haruki</div>
+        <div style={{ fontFamily: F.disp, fontSize: 22, fontWeight: 700 }}>{name}</div>
         <div style={{ fontSize: 13, color: C.inkSoft }}>Type or talk — it's all one conversation.</div>
       </div>
 
@@ -119,7 +130,7 @@ function HarukiChat() {
         {empty ? (
           <div style={{ margin: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 10, textAlign: "center", color: C.inkSoft }}>
             <img src="/mascot/lingua-wave.png" alt="" aria-hidden style={{ width: "clamp(120px, 32vw, 180px)", height: "auto", objectFit: "contain" }} />
-            <div style={{ fontSize: 14, maxWidth: 260 }}>Say something in Japanese — type it below, or tap the phone to talk.</div>
+            <div style={{ fontSize: 14, maxWidth: 260 }}>Say something in {langName(lang)} — type it below, or tap the phone to talk.</div>
           </div>
         ) : (
           messages.map((m, i) => (
@@ -164,7 +175,7 @@ function HarukiChat() {
         >
           <span style={{ width: 10, height: 10, borderRadius: "50%", background: convo.isSpeaking ? C.shu : C.matcha, flexShrink: 0 }} />
           <span style={{ flex: 1, fontSize: 13, fontWeight: 600, color: C.ai }}>
-            {connecting ? "Connecting…" : convo.isSpeaking ? "Haruki is speaking…" : "Listening — go ahead"}
+            {connecting ? "Connecting…" : convo.isSpeaking ? `${name} is speaking…` : "Listening — go ahead"}
           </span>
           <button
             onClick={() => convo.setMuted(!convo.isMuted)}
@@ -199,7 +210,7 @@ function HarukiChat() {
         ) : (
           <button
             onClick={voiceOn ? endCall : startCall}
-            aria-label={voiceOn ? "End call" : "Call Haruki"}
+            aria-label={voiceOn ? "End call" : `Call ${name}`}
             style={{ width: 46, height: 46, borderRadius: "50%", border: "none", background: voiceOn ? C.shu : C.ai, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0 }}
           >
             {voiceOn ? <PhoneOff size={20} /> : <Phone size={20} />}

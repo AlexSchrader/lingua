@@ -58,8 +58,16 @@ export function buildOptions(item, allItems, count = 4, fieldOverride = null) {
   const correctVal = item[field];
   const list = Array.isArray(allItems) ? allItems : Object.values(allItems || {});
 
+  // Same LANGUAGE only — with multiple live languages in the store, a French
+  // card must never offer Japanese options (or vice versa). Items without a
+  // stamped lang (unit-test fixtures, pre-i18n saves) group together as "ja".
   const sameType = list.filter(
-    (it) => it && it.id !== item.id && it.type === item.type && it[field] != null
+    (it) =>
+      it &&
+      it.id !== item.id &&
+      it.type === item.type &&
+      it[field] != null &&
+      (it.lang ?? "ja") === (item.lang ?? "ja")
   );
   // Prefer same-unit distractors, then pad from other units.
   const sameUnit = sameType.filter((it) => it.unit === item.unit);

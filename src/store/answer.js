@@ -10,7 +10,13 @@ const MACRON = { "ō": "o", "ū": "u", "ā": "a", "ē": "e", "ī": "i" };
 // languages — it would mangle legitimate vowel sequences (Spanish "leer"/"creer",
 // French "voeen"). So it's gated by `lang`. The default is "ja", so any caller
 // that omits lang (or passes an item with no lang stamped) keeps the original
-// Japanese behavior; a Latin-script language (es/fr) just casefolds + trims.
+// Japanese behavior.
+//
+// Latin-script languages (es/fr) fold the OTHER way: authored readings are plain
+// [a-z] (the contract requires it), but learners type the real orthography —
+// "Ça va", "s'il vous plaît", "sœur". So diacritics are stripped (NFD), ligatures
+// expanded (œ→oe, æ→ae), and apostrophes/hyphens dropped, so the typed French
+// converges on the ASCII reading ("cava", "silvousplait", "soeur").
 export function normalizeReading(s = "", lang = "ja") {
   let out = String(s).trim().toLowerCase().replace(/\s+/g, "");
   if (lang === "ja") {
@@ -23,6 +29,13 @@ export function normalizeReading(s = "", lang = "ja") {
       .replace(/ee/g, "e")
       .replace(/aa/g, "a")
       .replace(/ii/g, "i");
+  } else {
+    out = out
+      .replace(/œ/g, "oe")
+      .replace(/æ/g, "ae")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/['’ʼ\-]/g, "");
   }
   return out;
 }
@@ -97,8 +110,23 @@ export function looksRomaji(input) {
 const PRODUCE_ROMAJI_STAGES = new Set(["pre-a1", "a1"]);
 
 // Whether this item's stage still accepts rōmaji on the produce card. A missing
-// stage is treated as strict (kana only) — the safe default.
+// stage is treated as strict (kana only) — the safe default. Latin-script
+// languages (es/fr) always accept it: typing the word IS production there — the
+// kana-keyboard ramp is a Japanese-script concern, not a stage concern.
+//
+// ⚠️ KNOWN AND DELIBERATE for French: because normalizeReading strips combining
+// marks for non-ja, this makes production accent-BLIND at every stage — "tres"
+// grades correct for "très", "la mere" for "la mère", "c" for "ç". That is an ND
+// call, not an oversight: most learners type on a keyboard with no é key, and
+// failing them on a diacritic they cannot produce is exactly the harsh-feedback
+// friction this app exists to avoid. The consequence to remember is that NO card
+// currently tests accent choice — the sounds unit (fr-u27) teaches é/è/ê and ç
+// through meaning and choice cards, and its distinctions are never graded on
+// production. Documented in CONTENT.md, "Script policy". If accents should be
+// graded later, the lever is a stage gate here, not a change to normalizeReading
+// (which the checkReading path also depends on).
 export function produceAllowsRomaji(item) {
+  if (item?.lang && item.lang !== "ja") return true;
   return PRODUCE_ROMAJI_STAGES.has(item?.stage);
 }
 

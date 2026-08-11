@@ -102,8 +102,46 @@ import { UNIT95 } from "./ja/unit95.js";
 import { UNIT96 } from "./ja/unit96.js";
 import { UNIT97 } from "./ja/unit97.js";
 import { UNIT98 } from "./ja/unit98.js";
+// --- French A1 (fr-u1 … fr-u10) — first non-ja language; Latin script, no
+// pre-a1 band. Authoring conventions are documented in fr/unit1.js. ---
+import { FR_UNIT1 } from "./fr/unit1.js";
+import { FR_UNIT2 } from "./fr/unit2.js";
+import { FR_UNIT3 } from "./fr/unit3.js";
+import { FR_UNIT4 } from "./fr/unit4.js";
+import { FR_UNIT5 } from "./fr/unit5.js";
+import { FR_UNIT6 } from "./fr/unit6.js";
+import { FR_UNIT7 } from "./fr/unit7.js";
+import { FR_UNIT8 } from "./fr/unit8.js";
+import { FR_UNIT9 } from "./fr/unit9.js";
+import { FR_UNIT10 } from "./fr/unit10.js";
+import { FR_UNIT11 } from "./fr/unit11.js";
+import { FR_UNIT12 } from "./fr/unit12.js";
+import { FR_UNIT13 } from "./fr/unit13.js";
+import { FR_UNIT14 } from "./fr/unit14.js";
+import { FR_UNIT15 } from "./fr/unit15.js";
+import { FR_UNIT16 } from "./fr/unit16.js";
+import { FR_UNIT17 } from "./fr/unit17.js";
+import { FR_UNIT18 } from "./fr/unit18.js";
+import { FR_UNIT19 } from "./fr/unit19.js";
+import { FR_UNIT20 } from "./fr/unit20.js";
+import { FR_UNIT21 } from "./fr/unit21.js";
+import { FR_UNIT22 } from "./fr/unit22.js";
+import { FR_UNIT23 } from "./fr/unit23.js";
+import { FR_UNIT24 } from "./fr/unit24.js";
+import { FR_UNIT25 } from "./fr/unit25.js";
+import { FR_UNIT26 } from "./fr/unit26.js";
+// fr-u27 = "Les sons" — id 27 but ORDER 1. NOTE: `unit.order` is a DISPLAY field.
+// Today.jsx sequences lessons by this array's position (UNITS.filter(...).flatMap),
+// so a unit runs first only if it is placed first HERE. Ladder sorts by `order`.
+// Keep the two agreeing or the "You're here" rung and the daily loop diverge.
+// Guarded by tests/unit/unit-order.test.mjs.
+import { FR_UNIT27 } from "./fr/unit27.js";
+import { FR_UNIT28 } from "./fr/unit28.js";
+import { FR_UNIT29 } from "./fr/unit29.js";
+import { FR_UNIT30 } from "./fr/unit30.js";
+import { FR_UNIT31 } from "./fr/unit31.js";
 
-export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64, UNIT65, UNIT66, UNIT67, UNIT68, UNIT69, UNIT70, UNIT71, UNIT72, UNIT73, UNIT74, UNIT75, UNIT76, UNIT77, UNIT78, UNIT79, UNIT80, UNIT81, UNIT82, UNIT83, UNIT84, UNIT85, UNIT86, UNIT87, UNIT88, UNIT89, UNIT90, UNIT91, UNIT92, UNIT93, UNIT94, UNIT95, UNIT96, UNIT97, UNIT98];
+export const UNITS = [UNIT1, UNIT2, UNIT3, UNIT4, UNIT5, UNIT6, UNIT7, UNIT8, UNIT9, UNIT10, UNIT11, UNIT12, UNIT13, UNIT14, UNIT15, UNIT16, UNIT17, UNIT18, UNIT19, UNIT20, UNIT21, UNIT22, UNIT23, UNIT24, UNIT25, UNIT26, UNIT27, UNIT28, UNIT29, UNIT30, UNIT31, UNIT32, UNIT33, UNIT34, UNIT35, UNIT36, UNIT37, UNIT38, UNIT39, UNIT40, UNIT41, UNIT42, UNIT43, UNIT44, UNIT45, UNIT46, UNIT47, UNIT48, UNIT49, UNIT50, UNIT51, UNIT52, UNIT53, UNIT54, UNIT55, UNIT56, UNIT57, UNIT58, UNIT59, UNIT60, UNIT61, UNIT62, UNIT63, UNIT64, UNIT65, UNIT66, UNIT67, UNIT68, UNIT69, UNIT70, UNIT71, UNIT72, UNIT73, UNIT74, UNIT75, UNIT76, UNIT77, UNIT78, UNIT79, UNIT80, UNIT81, UNIT82, UNIT83, UNIT84, UNIT85, UNIT86, UNIT87, UNIT88, UNIT89, UNIT90, UNIT91, UNIT92, UNIT93, UNIT94, UNIT95, UNIT96, UNIT97, UNIT98, FR_UNIT27, FR_UNIT1, FR_UNIT2, FR_UNIT3, FR_UNIT4, FR_UNIT5, FR_UNIT6, FR_UNIT7, FR_UNIT8, FR_UNIT9, FR_UNIT10, FR_UNIT11, FR_UNIT12, FR_UNIT13, FR_UNIT14, FR_UNIT15, FR_UNIT16, FR_UNIT17, FR_UNIT18, FR_UNIT19, FR_UNIT20, FR_UNIT21, FR_UNIT22, FR_UNIT23, FR_UNIT24, FR_UNIT25, FR_UNIT26, FR_UNIT28, FR_UNIT29, FR_UNIT30, FR_UNIT31];
 
 // A language is "live" once it has authored content; catalog entries with no units
 // yet are "planned". Derived, never stored — a language flips to live automatically

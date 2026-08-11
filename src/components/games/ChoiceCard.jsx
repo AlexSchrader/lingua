@@ -5,6 +5,7 @@ import { buildOptions } from "../../store/distractors.js";
 import { deriveGrade } from "../../store/grading.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
+import { langName } from "../../data/languages.js";
 
 // Multiple choice (rung RECOGNIZED). Normally the glyph is shown and you pick the
 // reading (kana) / meaning (vocab). In `audioFirst` mode — the listening card —
@@ -46,7 +47,7 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
       style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}
     >
       <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
-        {listening ? "Which one did you hear?" : reverse ? "Which is this in Japanese?" : isKana ? "Which sound is this?" : "What does this mean?"}
+        {listening ? "Which one did you hear?" : reverse ? `Which is this in ${langName(item.lang)}?` : isKana ? "Which sound is this?" : "What does this mean?"}
       </div>
 
       <div

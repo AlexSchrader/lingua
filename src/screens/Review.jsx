@@ -14,7 +14,7 @@ import Celebration from "../components/Celebration.jsx";
 import { useStore, REVIEW_CAP } from "../store/useStore.js";
 import { isReviewable, nextRung, MAX_RUNG } from "../store/mastery.js";
 import { sfxRungUp, sfxMastered } from "../store/sfx.js";
-import { isTraceable, shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate } from "../store/cardRouting.js";
+import { isTraceable, shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate, canBuildReading } from "../store/cardRouting.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
@@ -57,7 +57,12 @@ function reviewStepFor(item) {
     // Reassemble the whole example sentence (production in context) for a share of
     // eligible vocab; else type the Japanese, else build the word from tiles.
     if (shouldSentence(item)) return { kind: "sentence:build" };
-    return shouldTypeProduce(item) ? { kind: "type", mode: "produce" } : { kind: "build" };
+    // The tile-build card is a transliteration test, so it only applies where the
+    // reading is a different script from the front (see canBuildReading) — a
+    // Latin-script item produces by typing the word from its meaning instead.
+    return shouldTypeProduce(item) || !canBuildReading(item)
+      ? { kind: "type", mode: "produce" }
+      : { kind: "build" };
   }
   // Speak (rung ≥ 4, SPOKEN→MASTERED): vocab words are reviewed by saying them
   // aloud — a graded spoken pass is what carries a produced word to MASTERED.
@@ -89,7 +94,7 @@ export default function Review() {
     () =>
       sandbox
         ? cardParam
-          ? buildCardPreviewItems(cardParam)
+          ? buildCardPreviewItems(cardParam, searchParams.get("lang"))
           : buildSandboxItems(searchParams.get("lesson"), searchParams.get("state") ?? "mid")
         : null,
     // eslint-disable-next-line react-hooks/exhaustive-deps

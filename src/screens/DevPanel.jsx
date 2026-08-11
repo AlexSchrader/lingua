@@ -2,14 +2,27 @@ import { useMemo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, AlertTriangle, RotateCcw, FlaskConical, Play, Sparkles } from "lucide-react";
 import { useStore } from "../store/useStore.js";
-import { UNITS } from "../data/index.js";
-import { devDiagnostics, sandboxRoute, cardPreviewRoute, PREVIEW_STATES, PREVIEW_LABEL, reviewSandboxRoute, fixupSandboxRoute, microSandboxRoute } from "../store/dev.js";
+import { UNITS, LANGUAGES } from "../data/index.js";
+import { devDiagnostics, sandboxRoute, cardPreviewRoute, PREVIEW_STATES, PREVIEW_LABEL, reviewSandboxRoute, fixupSandboxRoute, microSandboxRoute, devLanguages, defaultDevLang } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
+import { langName } from "../data/languages.js";
 import Mascot from "../components/Mascot.jsx";
 import Celebration from "../components/Celebration.jsx";
 import { C, F } from "../theme.js";
 
+// Card labels. Two of them name a Japanese concept ("rōmaji", "JP"), so they're
+// resolved per language rather than baked in — a French panel reads "Type
+// spelling" / "Type French".
 const CARD_LABEL = { teach: "Teach", choice: "Choice", "choice:reverse": "Reverse", "listen:choice": "Listen", "listen:type": "Dictation", "cloze:choice": "Cloze", "particle:choice": "Particle", "type:meaning": "Type", "type:reading": "Type rōmaji", "type:produce": "Type JP", build: "Build", "sentence:build": "Sentence", conjugate: "Conjugate", trace: "Trace", speak: "Speak" };
+
+function cardLabel(kind, lang) {
+  if (lang && lang !== "ja") {
+    if (kind === "type:reading") return "Type spelling";
+    if (kind === "type:produce") return `Type ${langName(lang)}`;
+    if (kind === "particle:choice") return "Little word";
+  }
+  return CARD_LABEL[kind] ?? kind;
+}
 
 // Mascot reactions worth eyeballing in the Moments gallery.
 const MASCOT_CONTEXTS = ["greeting", "correctAnswer", "wrongAnswer", "lessonComplete", "achievement", "streakReminder", "unitUnlock", "error"];
@@ -67,7 +80,15 @@ export default function DevPanel() {
   const [celebKey, setCelebKey] = useState(0); // >0 mounts the celebration overlay (bump to replay)
   const [seeded, setSeeded] = useState(null); // brief confirmation after a progress seed
 
-  const diag = useMemo(() => devDiagnostics(), []);
+  // Everything in the panel is scoped to ONE language at a time — the lesson list,
+  // the quick cards, the session launchers and the diagnostics all follow this.
+  // Opens on the learner's active language when it has content.
+  const activeLang = useStore((s) => s.profile?.activeLang);
+  const langs = useMemo(() => devLanguages(), []);
+  const [lang, setLang] = useState(() => defaultDevLang(activeLang));
+
+  const diag = useMemo(() => devDiagnostics(lang), [lang]);
+  const langUnits = useMemo(() => UNITS.filter((u) => u.lang === lang), [lang]);
   const seed = (label, fn) => { fn(); setSeeded(label); };
 
   // Guard: not security, just don't render the panel when locked.
@@ -99,10 +120,38 @@ export default function DevPanel() {
         </div>
       </div>
 
+      {/* Language switcher — every section below is scoped to the pick. Only shown
+          when more than one language actually has content. */}
+      {langs.length > 1 && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+          {langs.map((id) => {
+            const meta = LANGUAGES.find((l) => l.id === id);
+            const on = id === lang;
+            return (
+              <button
+                key={id}
+                onClick={() => setLang(id)}
+                aria-pressed={on}
+                style={{
+                  display: "flex", alignItems: "center", gap: 6,
+                  padding: "9px 14px", borderRadius: 999,
+                  border: `1.5px solid ${on ? C.ai : C.line}`,
+                  background: on ? C.aiSoft : C.surface,
+                  color: on ? C.aiDeep : C.inkSoft,
+                  fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer",
+                }}
+              >
+                <span>{meta?.flag ?? "🏳️"}</span> {meta?.name ?? id}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
       {/* Lesson preview — the primary tool, pinned to the top. Grouped by CEFR stage
           so there are a couple of stage tabs instead of one per unit. */}
-      {STAGE_ORDER.filter((st) => UNITS.some((u) => (u.stage ?? "a1") === st)).map((st) => {
-        const stageUnits = UNITS.filter((u) => (u.stage ?? "a1") === st);
+      {STAGE_ORDER.filter((st) => langUnits.some((u) => (u.stage ?? "a1") === st)).map((st) => {
+        const stageUnits = langUnits.filter((u) => (u.stage ?? "a1") === st);
         return (
           <Section key={st} title={`${STAGE_LABEL[st] ?? st} lessons · ${stageUnits.length} unit${stageUnits.length === 1 ? "" : "s"}`}>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -162,15 +211,23 @@ export default function DevPanel() {
           One tap to a single example of each card, isolated — no real progress touched.
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-          {LIVE_CARD_KINDS.map((kind) => (
-            <button
-              key={kind}
-              onClick={() => navigate(cardPreviewRoute(kind))}
-              style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 14px", borderRadius: 999, border: `1.5px solid ${C.ai}`, background: C.aiSoft, color: C.aiDeep, fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
-            >
-              <Play size={13} /> {CARD_LABEL[kind] ?? kind}
-            </button>
-          ))}
+          {LIVE_CARD_KINDS.map((kind) => {
+            // A kind with no items in this language can't be previewed — show it
+            // greyed and disabled rather than launching an empty session.
+            const n = diag.cardKinds.find((c) => c.kind === kind)?.count ?? 0;
+            const dark = n === 0;
+            return (
+              <button
+                key={kind}
+                disabled={dark}
+                title={dark ? `No ${lang} items route to ${kind} yet` : `${n} ${lang} item(s) route here`}
+                onClick={() => navigate(cardPreviewRoute(kind, lang))}
+                style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 14px", borderRadius: 999, border: `1.5px solid ${dark ? C.line : C.ai}`, background: dark ? C.lockedBg : C.aiSoft, color: dark ? C.locked : C.aiDeep, fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: dark ? "default" : "pointer" }}
+              >
+                <Play size={13} /> {cardLabel(kind, lang)}
+              </button>
+            );
+          })}
         </div>
       </Section>
 
@@ -179,7 +236,7 @@ export default function DevPanel() {
           The daily review, the mistake-review (Fix-up), and a "Just a few" micro-lesson — sandboxed, no real progress touched.
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-          {[["Review", reviewSandboxRoute()], ["Fix-up", fixupSandboxRoute()], ["Just a few", microSandboxRoute()]].map(([label, route]) => (
+          {[["Review", reviewSandboxRoute(lang)], ["Fix-up", fixupSandboxRoute(lang)], ["Just a few", microSandboxRoute(lang)]].map(([label, route]) => (
             <button
               key={label}
               onClick={() => navigate(route)}
@@ -231,21 +288,52 @@ export default function DevPanel() {
         {seeded && <div style={{ fontSize: 12, color: C.matcha, marginTop: 8 }}>✓ {seeded} — open the Ladder / Stats / Today to see it.</div>}
       </Section>
 
-      <Section title="Diagnostics — is the new unit wired right?" defaultOpen>
+      <Section title={`Diagnostics — ${langName(lang)}`} defaultOpen>
         <Stat label="Units registered" value={diag.unitCount} />
         <Stat label="Lessons (playable)" value={diag.lessonCount} />
         <Stat label="Items total" value={diag.itemCount} />
-        <Stat label="Kana with stroke data" value={`${diag.kanaWithStroke} / ${diag.kanaTotal}`} />
-        {diag.kanaMissing.length > 0 ? (
-          <div style={{ display: "flex", gap: 8, alignItems: "flex-start", color: C.shu, fontSize: 13, fontWeight: 600, marginTop: 6 }}>
-            <AlertTriangle size={16} style={{ flexShrink: 0, marginTop: 1 }} />
-            Missing KanjiVG stroke data: {diag.kanaMissing.join("  ")}
-          </div>
-        ) : (
-          <div style={{ fontSize: 13, color: C.inkSoft, marginTop: 6 }}>
-            ✓ Every kana has stroke data.
-          </div>
+        <Stat label="Items with audio" value={`${diag.audioTotal} / ${diag.itemCount}`} warn={diag.audioTotal === 0} />
+        {/* Stroke data is a glyph-script concern — a Latin-alphabet language has
+            nothing to trace, so the row is hidden rather than reporting 0 / 0. */}
+        {diag.kanaTotal > 0 && (
+          <>
+            <Stat label="Glyphs with stroke data" value={`${diag.kanaWithStroke} / ${diag.kanaTotal}`} />
+            {diag.kanaMissing.length > 0 ? (
+              <div style={{ display: "flex", gap: 8, alignItems: "flex-start", color: C.shu, fontSize: 13, fontWeight: 600, marginTop: 6 }}>
+                <AlertTriangle size={16} style={{ flexShrink: 0, marginTop: 1 }} />
+                Missing KanjiVG stroke data: {diag.kanaMissing.join("  ")}
+              </div>
+            ) : (
+              <div style={{ fontSize: 13, color: C.inkSoft, marginTop: 6 }}>
+                ✓ Every kana has stroke data.
+              </div>
+            )}
+          </>
         )}
+
+        {/* Which card kinds this language can actually reach — the same picks the
+            Quick-card buttons use, so the count and the button never disagree. */}
+        <div style={{ marginTop: 14 }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: C.inkSoft, marginBottom: 6 }}>
+            Card kinds reachable · {diag.cardKinds.filter((c) => c.count > 0).length} / {diag.cardKinds.length}
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+            {diag.cardKinds.map(({ kind, count }) => (
+              <span
+                key={kind}
+                title={`${count} item(s)`}
+                style={{
+                  padding: "4px 9px", borderRadius: 999, fontSize: 11, fontWeight: 700, fontFamily: F.mono,
+                  border: `1px solid ${count ? C.matcha : C.line}`,
+                  background: count ? C.surface : C.lockedBg,
+                  color: count ? C.matcha : C.locked,
+                }}
+              >
+                {cardLabel(kind, lang)} {count || "—"}
+              </span>
+            ))}
+          </div>
+        </div>
       </Section>
 
       <Section title="Preview flows">

@@ -1,12 +1,13 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { seedItems } from "../../src/data/index.js";
+import { seedItems, UNITS } from "../../src/data/index.js";
 import { MASTERY_FULL_DAYS } from "../../src/store/mastery.js";
 import {
   milestoneCatalog,
   earnedMilestones,
   nextMilestone,
   milestoneSummary,
+  milestonesFor,
 } from "../../src/data/milestones.js";
 
 const SEED = seedItems();
@@ -99,4 +100,64 @@ test("milestoneSummary shape: earned list + next + total", () => {
   assert.equal(s.earned.length, 0);
   assert.ok(s.next && typeof s.next.label === "string");
   assert.equal(s.total, milestoneCatalog().length);
+});
+
+test("level milestones are per-language — a new language never moves another's goalposts", () => {
+  const levels = milestoneCatalog().filter((m) => m.family === "level");
+  // ja keeps its ORIGINAL un-suffixed ids (persisted earned ids must survive),
+  // and its A1 denominator counts only ja items.
+  const jaA1 = levels.find((m) => m.id === "level-A1");
+  assert.ok(jaA1, "legacy level-A1 id exists");
+  assert.equal(jaA1.label, "Japanese A1 complete");
+  // fr items must NOT be in ja's denominator. cefr lives on the LESSON (seedItems
+  // stamps stage, not cefr), so count from UNITS directly.
+  const countBand = (lang, band) => {
+    let n = 0;
+    for (const u of UNITS)
+      if (u.lang === lang)
+        for (const l of u.lessons) if (Array.isArray(l.items) && l.cefr === band) n += l.items.length;
+    return n;
+  };
+  const frDefs = Object.values(SEED).filter((d) => d.lang === "fr");
+  assert.ok(frDefs.length > 0, "fr content is live");
+  assert.equal(jaA1.progress({}).need, countBand("ja", "A1"), "ja A1 counts only ja items");
+  const frA1 = levels.find((m) => m.id === "level-A1-fr");
+  assert.ok(frA1, "French gets its own suffixed level id");
+  assert.equal(frA1.progress({}).need, frDefs.length);
+  // Recognizing every ja A1 item earns ja's A1 WITHOUT touching French.
+  const m = {};
+  for (const d of Object.values(SEED)) {
+    if (d.lang === "ja") m[d.id] = { ...d, rung: 1 };
+  }
+  // only the A1-band ja items matter for level-A1; ranging all ja is a superset
+  assert.ok(earnedMilestones(m).includes("level-A1"), "ja A1 earned with zero French progress");
+  assert.ok(!earnedMilestones(m).includes("level-A1-fr"));
+});
+
+// Regression: shipping French must not move a Japanese-only learner's denominator
+// or show them a locked badge for a track they never opted into.
+test("milestonesFor scopes level milestones to started languages", () => {
+  const jaOnly = milestonesFor(["ja"]);
+  const both = milestonesFor(["ja", "fr"]);
+  const ids = (list) => list.map((m) => m.id);
+
+  assert.ok(ids(jaOnly).includes("level-A1"), "ja learner keeps their own level milestones");
+  assert.ok(!ids(jaOnly).includes("level-A1-fr"), "ja-only learner sees no French badge");
+  assert.ok(ids(both).includes("level-A1-fr"), "a French learner does see it");
+
+  // Cross-language capability counts are visible to everyone, by design.
+  for (const id of ["read-first", "vocab-first", "read-100"]) {
+    assert.ok(ids(jaOnly).includes(id), `${id} is cross-language and stays visible`);
+  }
+
+  // The denominator a ja-only learner sees is unchanged by French existing.
+  const frLevels = milestoneCatalog().filter((m) => m.lang === "fr");
+  assert.ok(frLevels.length > 0, "French level milestones exist in the full catalog");
+  assert.equal(both.length, jaOnly.length + frLevels.length);
+});
+
+test("milestonesFor([]) still shows the cross-language milestones only", () => {
+  const none = milestonesFor([]);
+  assert.ok(none.length > 0);
+  assert.ok(none.every((m) => !m.lang), "no per-language milestone leaks through");
 });

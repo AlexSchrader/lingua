@@ -6,6 +6,11 @@
 // CEFR (all target B2 per LANGUAGES.md). Add a language = one entry here; it shows
 // as "planned / coming soon" until its first unit ships (isLive is derived from
 // UNITS, never stored), then flips live automatically. See LANGUAGES.md.
+// Display name for a language id — for card copy that must not hardcode
+// "Japanese" now that more than one language can be live ("Type it in French").
+export const langName = (id) =>
+  LANGUAGES.find((l) => l.id === id)?.name ?? "Japanese";
+
 export const LANGUAGES = [
   // Live — has content today.
   { id: "ja", name: "Japanese", flag: "🇯🇵", target: "B2", unlock: null, unlocked: true },
