@@ -175,3 +175,25 @@ test("gradeSpoken: uses optional kana spelling for a kanji-front word", () => {
   assert.equal(gradeSpoken("ねこ", neko), "good");
   assert.equal(gradeSpoken("いぬ", neko), "again");
 });
+
+// --- dictation "Can't hear it? Show it" escape ----------------------------------
+// The kana path reveals the FRONT and still demands the reading, which is only safe
+// because the shown script and the typed script differ. These assertions lock that
+// premise, because it silently stops holding for a Latin-script language — where
+// revealing the front hands over the answer (TypeCard.jsx reveals the MEANING there
+// instead). If either of these flips, the reveal logic needs revisiting.
+test("dictation reveal: the kana front is NOT a typeable answer (ja guard holds)", () => {
+  const ja = { front: "ねこ", reading: "neko", lang: "ja", meaning: "cat" };
+  // rōmaji is required, and the kana front isn't rōmaji — so copying it back fails.
+  assert.equal(looksRomaji(ja.front), false);
+});
+
+test("dictation reveal: a Latin front IS a typeable answer — so it must not be shown", () => {
+  const fr = { front: "le café", reading: "lecafe", lang: "fr", meaning: "coffee" };
+  assert.equal(looksRomaji(fr.front), true, "the rōmaji guard is vacuous for Latin script");
+  assert.equal(checkReading(fr.front, fr), true, "typing the front verbatim would grade correct");
+  // The meaning, which is what the Latin path reveals instead, is not an answer.
+  assert.equal(checkReading(fr.meaning, fr), false);
+  // The learner still has to produce the French, accents optional.
+  assert.equal(checkReading("le cafe", fr), true);
+});

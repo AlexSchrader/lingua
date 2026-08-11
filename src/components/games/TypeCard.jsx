@@ -68,15 +68,29 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
   // Dictation "Can't hear it?" escape: reveal the KANA and switch to typing the
   // rōmaji. Showing the kana isn't the answer (the answer is the rōmaji reading), and
   // rōmaji is REQUIRED there so copying the shown kana back isn't a freebie.
+  //
+  // ⚠️ That guarantee is Japanese-specific — it rests on the shown script and the
+  // typed script being DIFFERENT. For a Latin-script language the front and the
+  // reading are the same letters (`le café` → `lecafe`, which normalizeReading folds
+  // to an exact match) and `looksRomaji` is vacuously true, so revealing the front
+  // would hand over the answer outright — the ask line literally read "Type the word
+  // (shown)". So Latin languages reveal the MEANING instead: the learner still has to
+  // produce the word, which is the same bargain the kana path offers — an unblock,
+  // not a freebie. Kept as an escape rather than removed because a learner who
+  // genuinely can't hear the clip must never be stuck on a card.
   const [dictRevealed, setDictRevealed] = useState(false);
 
   // Resolve prompt + checker + the canonical answer for this mode/type.
   const spec = (() => {
     if (listen) {
       if (dictRevealed) {
-        return { prompt: item.front, jp: true,
-                 ask: latin ? "Type the word (shown)" : "Type the rōmaji (kana shown)",
-                 check: (v) => looksRomaji(v) && checkReading(v, item), answer: item.reading };
+        return latin
+          ? { prompt: item.meaning, jp: false,
+              ask: `Type it in ${langName(item.lang)} — accents optional`,
+              check: (v) => checkReading(v, item), answer: item.front }
+          : { prompt: item.front, jp: true,
+              ask: "Type the rōmaji (kana shown)",
+              check: (v) => looksRomaji(v) && checkReading(v, item), answer: item.reading };
       }
       // Dictation: hear the word (glyph hidden), type its reading. Accepts rōmaji
       // or kana via checkReading — the ear-path twin of type:reading.
