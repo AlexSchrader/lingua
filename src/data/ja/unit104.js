@@ -40,7 +40,7 @@ export const UNIT104 = {
         { id: "ja-u104l2-shi", type: "kanji", front: "資", reading: "shi", meaning: "resources", example: { jp: "会議の 資料を 作って、みんなに 送りました。", en: "I made the materials for the meeting and sent them to everyone." }, accept: ["capital", "materials", "funds"], hint: "資 = what you put in — 貝 (shell = money) at the bottom, as in most money kanji. 資料 = materials, 資本 = capital." },
         { id: "ja-u104l2-hi", type: "kanji", front: "費", reading: "hi", meaning: "expense", example: { jp: "今月は 食費が 高く なって、少し こまって います。", en: "Food costs went up this month, and I'm a bit stuck." }, accept: ["cost", "to spend", "spending"], hint: "費 = money going out — 貝 (money) at the bottom. 食費 = food costs, 交通費 = travel expenses." },
         { id: "ja-u104l2-zei", type: "kanji", front: "税", reading: "zei", meaning: "tax", example: { jp: "この 品物の ねだんには 税金が 入って います。", en: "The price of this item includes tax." }, accept: ["duty", "levy"], hint: "税 = tax — 禾 (grain) on the left, from when tax was paid in rice." },
-        { id: "ja-u104l2-kyuryo", type: "vocab", front: "給料", reading: "kyūryō", meaning: "salary", example: { jp: "今月の 給料が 出たので、少し 買い物を しました。", en: "This month's salary came in, so I did a little shopping." }, accept: ["pay", "wages"] },
+        { id: "ja-u104l2-kyuryo", type: "vocab", front: "給料", reading: "kyūryō", meaning: "salary", example: { jp: "給料は 毎月 二十五日に 出ますから、その 日に 買い物を します。", en: "My salary comes on the 25th each month, so I shop that day." }, accept: ["pay", "wages"] },
         { id: "ja-u104l2-gakuhi", type: "vocab", front: "学費", reading: "gakuhi", meaning: "school fees", example: { jp: "学費が 高いので、アルバイトを して います。", en: "School fees are high, so I have a part-time job." }, accept: ["tuition", "cost of study"] },
       ],
     },

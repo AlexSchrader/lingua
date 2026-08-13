@@ -23,8 +23,8 @@ export const UNIT108 = {
         { id: "ja-u108l1-ke", type: "kanji", front: "化", reading: "ka", meaning: "to change into", example: { jp: "その 国の 文化を 知ると、ことばの 意味も よく 分かります。", en: "Once you know a country's culture, the meaning of its words becomes clear too." }, accept: ["transformation", "-ise", "to become"], hint: "化 = turn into. 変化 = change, 文化 = culture — what a people has turned into." },
         { id: "ja-u108l1-jitsu", type: "kanji", front: "実", reading: "jitsu", meaning: "real", example: { jp: "その 話は 実は 少し ちがいましたが、みんな 信じて いました。", en: "That story was actually a bit different, but everyone believed it." }, accept: ["truth", "fruit", "actual"], hint: "実 = the real thing — also 'fruit', what a plant actually produces. 実は = actually, 実力 = real ability." },
         { id: "ja-u108l1-on", type: "kanji", front: "温", reading: "on", meaning: "warm", example: { jp: "今日の 気温は ひくいですが、風が ないので さむくないです。", en: "The temperature is low today, but there's no wind, so it isn't cold." }, accept: ["temperature", "mild", "to warm"], hint: "温 = warmth — 氵 (water) on the left. 気温 = air temperature, 温泉 = hot spring." },
-        { id: "ja-u108l1-kagaku", type: "vocab", front: "科学", reading: "kagaku", meaning: "science", example: { jp: "科学の 本を 借りて、やすみの 日に 読みました。", en: "I borrowed a science book and read it on my day off." }, accept: ["the sciences"] },
-        { id: "ja-u108l1-bunka", type: "vocab", front: "文化", reading: "bunka", meaning: "culture", example: { jp: "その 国の 文化を 知ると、ことばの 意味も よく 分かります。", en: "Once you know a country's culture, the meaning of its words becomes clear too." }, accept: ["civilisation", "the arts"], hint: "文 (writing) + 化 (become) — what a people has turned into. 文化祭 = a school culture festival." },
+        { id: "ja-u108l1-kagaku", type: "vocab", front: "科学", reading: "kagaku", meaning: "science", example: { jp: "科学の 力で、びょうきが ずいぶん 少なく なりました。", en: "Thanks to science, illness has become far less common." }, accept: ["the sciences"] },
+        { id: "ja-u108l1-bunka", type: "vocab", front: "文化", reading: "bunka", meaning: "culture", example: { jp: "その 国には 古い 文化が のこって いて、まいとし まつりが あります。", en: "That country has an old culture still alive, with a festival every year." }, accept: ["civilisation", "the arts"], hint: "文 (writing) + 化 (become) — what a people has turned into. 文化祭 = a school culture festival." },
       ],
     },
     {
@@ -41,7 +41,7 @@ export const UNIT108 = {
         { id: "ja-u108l2-ko", type: "kanji", front: "湖", reading: "ko", meaning: "lake", example: { jp: "山の 上の 湖は 青くて、とても きれいでした。", en: "The lake up the mountain was blue and very beautiful." }, accept: ["a lake"], hint: "湖 = lake — 氵 (water) + 古 (old) + 月. Big still water, as against 海 (sea) and 川 (river)." },
         { id: "ja-u108l2-shima", type: "kanji", front: "島", reading: "shima", meaning: "island", example: { jp: "その 島には ふねで 行きますが、冬は 風が とても 強いです。", en: "You get to that island by boat, but the wind is very strong in winter." }, accept: ["isle"], hint: "島 = island — 鳥 (bird) shortened, sitting on 山 (mountain): a peak birds rest on out at sea." },
         { id: "ja-u108l2-nesshin", type: "vocab", front: "熱心", reading: "nesshin", meaning: "enthusiastic", example: { jp: "先生は 熱心に 教えて くれました。", en: "The teacher taught us with real enthusiasm." }, accept: ["eager", "keen", "devoted"], hint: "熱 (heat) + 心 (heart) — a hot heart. Nothing to do with temperature." },
-        { id: "ja-u108l2-hanto", type: "vocab", front: "半島", reading: "hantō", meaning: "peninsula", example: { jp: "この 半島は 海に 出て いて、風が 強いです。", en: "This peninsula juts into the sea, so the wind is strong." }, accept: ["a peninsula"] },
+        { id: "ja-u108l2-hanto", type: "vocab", front: "半島", reading: "hantō", meaning: "peninsula", example: { jp: "この 半島は 海に つき出て いて、風が 強いです。", en: "This peninsula juts into the sea, so the wind is strong." }, accept: ["a peninsula"] },
       ],
     },
     {
@@ -74,7 +74,7 @@ export const UNIT108 = {
         { id: "ja-u108l4-men", type: "kanji", front: "綿", reading: "men", meaning: "cotton", example: { jp: "夏は 綿の シャツが 気持ち いいので、よく きて います。", en: "A cotton shirt feels good in summer, so I wear one often." }, accept: ["cotton cloth", "wadding"], hint: "綿 = cotton — 糸 (thread) on the left, the radical that marks thread, cloth and string words." },
         { id: "ja-u108l4-abura", type: "kanji", front: "油", reading: "abura", meaning: "oil", example: { jp: "この 料理には 油を 少しだけ 使いますから、体に いいです。", en: "This dish uses only a little oil, so it's good for you." }, accept: ["fat", "petroleum"], hint: "油 = oil — 氵 (water) + 由. 石油 = petroleum, しょう油 = soy sauce." },
         { id: "ja-u108l4-kona", type: "kanji", front: "粉", reading: "kona", meaning: "powder", example: { jp: "こむぎの 粉と 水を まぜて、パンを 作りました。", en: "I mixed wheat flour and water and made bread." }, accept: ["flour", "dust"], hint: "粉 = powder — 米 (rice) + 分 (divide): grain broken down small. 小麦粉 = wheat flour." },
-        { id: "ja-u108l4-momen", type: "vocab", front: "木綿", reading: "momen", meaning: "cotton", example: { jp: "夏は 木綿の シャツが 気持ち いいです。", en: "A cotton shirt feels good in summer." }, accept: ["cotton cloth"] },
+        { id: "ja-u108l4-momen", type: "vocab", front: "木綿", reading: "momen", meaning: "cotton cloth", example: { jp: "夏は 木綿の シャツが 気持ち いいです。", en: "A cotton shirt feels good in summer." }, accept: ["cotton cloth"] },
         { id: "ja-u108l4-namatamago", type: "vocab", front: "生卵", reading: "namatamago", meaning: "raw egg", example: { jp: "ごはんに 生卵を かけて 食べます。", en: "I crack a raw egg over the rice and eat it." }, accept: ["uncooked egg"] },
       ],
     },
