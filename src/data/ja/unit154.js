@@ -19,14 +19,14 @@ export const UNIT154 = {
       title: "In the kitchen",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Name the equipment you cook with: フライパン, ほうちょう, まないた, おたま, しょっき, ゆげ.",
+      canDo: "Name the equipment you cook with: フライパン, ほうちょう, まないた, おたま, しょっき, あわ.",
       items: [
         { id: "ja-u154l1-furaipan", type: "vocab", front: "フライパン", reading: "furaipan", meaning: "frying pan", example: { jp: "フライパンをあたためてから、たまごをやきます。", en: "I heat the frying pan and then cook the egg." }, accept: ["skillet", "pan"], hint: "From English 'fry pan'. なべ is a deep pot; フライパン is the flat one." },
         { id: "ja-u154l1-hocho", type: "vocab", front: "ほうちょう", reading: "hōchō", meaning: "kitchen knife", example: { jp: "ほうちょうがよくきれるので、やさいがきりやすいです。", en: "The knife is sharp, so the vegetables are easy to cut." }, accept: ["cook's knife", "chef's knife"], hint: "Only a kitchen knife — a pocket knife is ナイフ. よくきれる (cuts well) is the standard compliment for one." },
         { id: "ja-u154l1-manaita", type: "vocab", front: "まないた", reading: "manaita", meaning: "chopping board", example: { jp: "まないたはにくとやさいでわけたほうがいいです。", en: "It's better to separate the boards for meat and vegetables." }, accept: ["cutting board", "carving board"], hint: "まないたのうえのこい ('a carp on the chopping board') means being completely at someone's mercy." },
         { id: "ja-u154l1-otama", type: "vocab", front: "おたま", reading: "otama", meaning: "ladle", example: { jp: "おたまでスープをよそって、みんなにくばりました。", en: "I ladled the soup out and handed it round to everyone." }, accept: ["soup ladle", "serving spoon"], hint: "Short for おたまじゃくし, which also means 'tadpole' — the shape is the joke, and the word is genuinely used both ways." },
         { id: "ja-u154l1-shokki", type: "vocab", front: "しょっき", reading: "shokki", meaning: "tableware, dishes", example: { jp: "しょっきをあらうのは、いつもわたしのしごとです。", en: "Washing the dishes is always my job." }, accept: ["crockery", "plates and bowls", "dinnerware"], hint: "しょく (eat) + き (vessel) — all the plates, bowls and cups as a set. さら is one plate; しょっき is the whole lot." },
-        { id: "ja-u154l1-yuge", type: "vocab", front: "ゆげ", reading: "yuge", meaning: "steam", example: { jp: "なべからゆげがでてきたので、ひをよわくしました。", en: "Steam started coming off the pot, so I turned the heat down." }, accept: ["vapour", "rising steam"], hint: "ゆ (hot water) + け (vapour), voiced. Visible steam specifically — the wisp you can see, not water vapour in general." },
+        { id: "ja-u154l1-awa", type: "vocab", front: "あわ", reading: "awa", meaning: "bubbles", example: { jp: "おゆが わいて、あわが たくさん 出て きました。", en: "The water boiled and a lot of bubbles came up." }, accept: ["foam", "froth", "suds"] },
       ],
     },
     {

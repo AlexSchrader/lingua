@@ -35,9 +35,9 @@ export const UNIT148 = {
       title: "Exams and results",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Talk about sitting an exam and how it went: じゅけん, さいてん, てんすう, せいせき, ごうかく, ふごうかく.",
+      canDo: "Talk about sitting an exam and how it went: にゅうし, さいてん, てんすう, せいせき, ごうかく, ふごうかく.",
       items: [
-        { id: "ja-u148l2-juken", type: "vocab", front: "じゅけん", reading: "juken", meaning: "sitting an exam", example: { jp: "ことしにほんごのしけんをじゅけんするつもりです。", en: "I intend to sit the Japanese exam this year." }, accept: ["taking an examination", "entrance exam", "to sit (an exam)"], hint: "The act of taking it, not the exam itself (しけん). じゅけんせい — an exam candidate — is a whole life stage in Japan." },
+        { id: "ja-u148l2-nyushi", type: "vocab", front: "にゅうし", reading: "nyūshi", meaning: "entrance exam", example: { jp: "だいがくの にゅうしは 二月に あります。", en: "The university entrance exams are in February." }, accept: ["admission test", "entrance examination"], hint: "にゅうし is 入学試験 shortened. It is the specific exam you sit to get in, not any exam." },
         { id: "ja-u148l2-saiten", type: "vocab", front: "さいてん", reading: "saiten", meaning: "marking, grading", example: { jp: "さいてんがおわるまで、けっかはわかりません。", en: "We won't know the results until the marking is finished." }, accept: ["scoring", "correction", "to mark"], hint: "てん (points) is inside it — literally 'taking points'. The teacher さいてんします; the student waits." },
         { id: "ja-u148l2-tensu", type: "vocab", front: "てんすう", reading: "tensū", meaning: "score, marks", example: { jp: "てんすうはよくなかったですが、ごうかくはしました。", en: "My score wasn't good, but I did pass." }, accept: ["points", "mark", "grade (number)"], hint: "The number itself. せいせき is the overall record; てんすう is what you got on the day." },
         { id: "ja-u148l2-seiseki", type: "vocab", front: "せいせき", reading: "seiseki", meaning: "academic record, results", example: { jp: "まいにちふくしゅうしたら、せいせきがあがりました。", en: "I reviewed every day and my grades went up." }, accept: ["grades", "performance", "results"], hint: "Your standing over a term or a year, and also used for sports results: しあいのせいせき." },
