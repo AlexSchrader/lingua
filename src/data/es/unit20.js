@@ -2,7 +2,7 @@
 // Strand D, unit 6 of 6 — the closer. Not a topic: the high-frequency machinery a
 // learner needs to stop speaking in single clauses. Connectors, the amount words,
 // the question words, and the six abstract nouns that let you talk about anything
-// at all (la cosa, la vez, el lugar, la gente, el mundo, la parte).
+// at all (la cosa, la vez, el lugar, la parte, la vida).
 //
 // ⚠️ OWNERSHIP NOTE ON LESSON 3. The question words are shared ground: block 1's
 // greetings/self units almost certainly teach ¿qué?, ¿cómo? and ¿dónde? INSIDE
@@ -26,13 +26,12 @@ export const ES_UNIT20 = {
       title: "Unir las frases",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Join two ideas into one sentence: quiero un café, pero no tengo dinero; no trabajo porque estoy en Madrid.",
+      canDo: "Join two ideas into one sentence: no trabajo porque estoy en Madrid; voy al parque aunque llueve.",
       items: [
-        { id: "es-u20l1-pero", type: "vocab", front: "pero", reading: "pero", meaning: "but", example: { jp: "Quiero un café, pero no tengo dinero.", en: "I want a coffee, but I have no money." }, accept: ["however", "though", "but"] },
+        { id: "es-u20l1-aunque", type: "vocab", front: "aunque", reading: "aunque", meaning: "although", example: { jp: "Voy al parque aunque llueve.", en: "I'm going to the park although it's raining." }, accept: ["even though", "even if", "though"], hint: "pero puts the two ideas side by side (quiero café, pero no tengo dinero); aunque tucks one inside the other and concedes it." },
         { id: "es-u20l1-porque", type: "vocab", front: "porque", reading: "porque", meaning: "because", example: { jp: "No trabajo hoy porque estoy en Madrid.", en: "I'm not working today because I'm in Madrid." }, accept: ["since", "as", "because"], hint: "One word, no accent: porque = because. Two words with an accent, ¿por qué?, is the question (Lesson 3)." },
         { id: "es-u20l1-cuando", type: "vocab", front: "cuando", reading: "cuando", meaning: "when (joining two ideas)", example: { jp: "Cuando llueve, voy en autobús.", en: "When it rains, I take the bus." }, accept: ["whenever", "when"], hint: "No accent when it joins two ideas; with an accent, ¿cuándo?, it asks the question (Lesson 3)." },
         { id: "es-u20l1-si", type: "vocab", front: "si", reading: "si", meaning: "if", example: { jp: "Voy al parque si hace sol.", en: "I'll go to the park if it's sunny." }, accept: ["whether", "if"], hint: "si without an accent = if. sí with one = yes. The accent is the only difference, and it matters." },
-        { id: "es-u20l1-tambien", type: "vocab", front: "también", reading: "tambien", meaning: "also", example: { jp: "Yo también quiero café.", en: "I want coffee too." }, accept: ["too", "as well", "also"], hint: "For agreeing with a NEGATIVE you need tampoco instead: — No tengo dinero. — Yo tampoco." },
         { id: "es-u20l1-entonces", type: "vocab", front: "entonces", reading: "entonces", meaning: "then", example: { jp: "¿No hay pan? Entonces compro pan.", en: "There's no bread? Then I'll buy some." }, accept: ["so", "in that case", "then"] },
       ],
     },
@@ -40,13 +39,12 @@ export const ES_UNIT20 = {
       id: "es-u20l2",
       unit: 20,
       lesson: 2,
-      title: "Más o menos",
+      title: "Más o nada",
       cefr: "A1",
       dominantMode: "recall",
       canDo: "Say how much: quiero más café, hay demasiado trabajo, solo tengo cinco euros.",
       items: [
         { id: "es-u20l2-mas", type: "vocab", front: "más", reading: "mas", meaning: "more", example: { jp: "Quiero más café, por favor.", en: "I'd like more coffee, please." }, accept: ["most", "extra", "more"], hint: "It also builds comparisons: más grande que = bigger than." },
-        { id: "es-u20l2-menos", type: "vocab", front: "menos", reading: "menos", meaning: "less", example: { jp: "Hoy trabajo menos.", en: "Today I'm working less." }, accept: ["fewer", "least", "less"] },
         { id: "es-u20l2-nada", type: "vocab", front: "nada", reading: "nada", meaning: "nothing", example: { jp: "No tengo nada en el bolso.", en: "I have nothing in my bag." }, accept: ["anything", "at all", "nothing"], hint: "Spanish doubles the negative and it is correct: no tengo nada, literally \"I don't have nothing\". Dropping the no is the mistake, not keeping it." },
         { id: "es-u20l2-demasiado", type: "vocab", front: "demasiado", reading: "demasiado", meaning: "too much", example: { jp: "Hay demasiado trabajo hoy.", en: "There's too much work today." }, accept: ["too", "too many", "too much"] },
         { id: "es-u20l2-bastante", type: "vocab", front: "bastante", reading: "bastante", meaning: "quite", example: { jp: "El piso es bastante grande.", en: "The flat is quite big." }, accept: ["fairly", "enough", "rather"] },
@@ -77,14 +75,13 @@ export const ES_UNIT20 = {
       title: "Cosas y personas",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Talk about something in general terms when you don't have the exact word: la cosa, la vez, el lugar, la gente.",
+      canDo: "Talk about something in general terms when you don't have the exact word: la cosa, la vez, el lugar, la vida.",
       items: [
         { id: "es-u20l4-lacosa", type: "vocab", front: "la cosa", reading: "lacosa", meaning: "the thing", example: { jp: "Tengo muchas cosas en la maleta.", en: "I have a lot of things in my suitcase." }, accept: ["object", "stuff", "thing"], hint: "The word to reach for when you don't know the word: \"esta cosa\", this thing." },
         { id: "es-u20l4-lavez", type: "vocab", front: "la vez", reading: "lavez", meaning: "the time (occasion)", example: { jp: "Voy dos veces por semana.", en: "I go twice a week." }, accept: ["occasion", "instance", "time"], hint: "la vez counts occasions; la hora tells the clock. dos veces = twice, not \"two hours\"." },
         { id: "es-u20l4-ellugar", type: "vocab", front: "el lugar", reading: "ellugar", meaning: "the place", example: { jp: "Es un lugar muy bonito.", en: "It's a very pretty place." }, accept: ["spot", "location", "place"] },
-        { id: "es-u20l4-lagente", type: "vocab", front: "la gente", reading: "lagente", meaning: "the people", example: { jp: "Hay mucha gente en la calle.", en: "There are a lot of people on the street." }, accept: ["folk", "everyone", "people"], hint: "Singular in Spanish even though it's plural in English: la gente ES muy buena." },
-        { id: "es-u20l4-elmundo", type: "vocab", front: "el mundo", reading: "elmundo", meaning: "the world", example: { jp: "Quiero viajar por el mundo.", en: "I want to travel around the world." }, accept: ["earth", "world"], hint: "todo el mundo literally means \"all the world\" but is used for \"everybody\"." },
         { id: "es-u20l4-laparte", type: "vocab", front: "la parte", reading: "laparte", meaning: "the part", example: { jp: "Esta parte de la ciudad es nueva.", en: "This part of the city is new." }, accept: ["section", "piece", "part"] },
+        { id: "es-u20l4-lavida", type: "vocab", front: "la vida", reading: "lavida", meaning: "the life", example: { jp: "La vida en la ciudad es cara.", en: "Life in the city is expensive." }, accept: ["living", "life"], hint: "Spanish keeps the article where English drops it: LA vida es corta = life is short." },
       ],
     },
   ],

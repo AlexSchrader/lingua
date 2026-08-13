@@ -53,9 +53,8 @@ export const ES_UNIT19 = {
       title: "¿Con qué frecuencia?",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say how often you do something: siempre, casi siempre, a veces, nunca.",
+      canDo: "Say how often you do something: casi siempre, a veces, nunca, otra vez.",
       items: [
-        { id: "es-u19l3-siempre", type: "vocab", front: "siempre", reading: "siempre", meaning: "always", example: { jp: "Siempre desayuno en casa.", en: "I always have breakfast at home." }, accept: ["every time", "all the time", "always"] },
         { id: "es-u19l3-nunca", type: "vocab", front: "nunca", reading: "nunca", meaning: "never", example: { jp: "Nunca como carne.", en: "I never eat meat." }, accept: ["not ever", "never"], hint: "Put it before the verb and you need nothing else: nunca como carne. Put it after and Spanish doubles up: no como carne nunca." },
         { id: "es-u19l3-aveces", type: "vocab", front: "a veces", reading: "aveces", meaning: "sometimes", example: { jp: "A veces voy en bicicleta.", en: "Sometimes I go by bike." }, accept: ["now and then", "occasionally", "sometimes"] },
         { id: "es-u19l3-casi", type: "vocab", front: "casi", reading: "casi", meaning: "almost", example: { jp: "Casi siempre trabajo en la oficina.", en: "I almost always work in the office." }, accept: ["nearly", "almost"] },

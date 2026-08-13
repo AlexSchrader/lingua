@@ -35,9 +35,8 @@ export const ES_UNIT15 = {
       title: "Los muebles",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say what furniture is in a room: hay una silla y una cama en el dormitorio.",
+      canDo: "Say what furniture is in a room: hay una cama y un armario en el dormitorio.",
       items: [
-        { id: "es-u15l2-lasilla", type: "vocab", front: "la silla", reading: "lasilla", meaning: "the chair", example: { jp: "Hay seis sillas en la cocina.", en: "There are six chairs in the kitchen." }, accept: ["chair", "seat"] },
         { id: "es-u15l2-lacama", type: "vocab", front: "la cama", reading: "lacama", meaning: "the bed", example: { jp: "La cama está en el dormitorio.", en: "The bed is in the bedroom." }, accept: ["bed"] },
         { id: "es-u15l2-elsofa", type: "vocab", front: "el sofá", reading: "elsofa", meaning: "the sofa", example: { jp: "El sofá del salón es nuevo.", en: "The living room sofa is new." }, accept: ["sofa", "couch", "settee"] },
         { id: "es-u15l2-elarmario", type: "vocab", front: "el armario", reading: "elarmario", meaning: "the wardrobe", example: { jp: "El armario está en el dormitorio.", en: "The wardrobe is in the bedroom." }, accept: ["wardrobe", "closet", "cupboard"] },
@@ -52,9 +51,8 @@ export const ES_UNIT15 = {
       title: "Cosas de casa",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name the everyday objects you look for around the house: la llave, el reloj, la bolsa, el papel.",
+      canDo: "Name the everyday objects you look for around the house: el reloj, la caja, la bolsa, el papel.",
       items: [
-        { id: "es-u15l3-lallave", type: "vocab", front: "la llave", reading: "lallave", meaning: "the key", example: { jp: "No tengo la llave de la casa.", en: "I don't have the house key." }, accept: ["key"], hint: "ll sounds like the y in \"yes\" across most of the Spanish-speaking world: la llave = \"ya-veh\"." },
         { id: "es-u15l3-elreloj", type: "vocab", front: "el reloj", reading: "elreloj", meaning: "the clock", example: { jp: "El reloj del salón es muy viejo.", en: "The living room clock is very old." }, accept: ["watch", "clock", "wristwatch"], hint: "One word for both a clock on the wall and a watch on your wrist." },
         { id: "es-u15l3-lacaja", type: "vocab", front: "la caja", reading: "lacaja", meaning: "the box", example: { jp: "La caja está en la cocina.", en: "The box is in the kitchen." }, accept: ["box", "case"] },
         { id: "es-u15l3-labolsa", type: "vocab", front: "la bolsa", reading: "labolsa", meaning: "the bag", example: { jp: "Compro una bolsa en la tienda.", en: "I buy a bag at the shop." }, accept: ["bag", "carrier bag"] },
