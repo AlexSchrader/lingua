@@ -24,7 +24,7 @@ export const UNIT106 = {
         { id: "ja-u106l1-to", type: "kanji", front: "党", reading: "tō", meaning: "party", example: { jp: "その 政党は わかい 人の 意見を よく 聞いて います。", en: "That political party listens closely to young people's views." }, accept: ["faction", "political party"], hint: "党 = an organised group — almost always a political one. 政党 = political party." },
         { id: "ja-u106l1-kan", type: "kanji", front: "官", reading: "kan", meaning: "official", example: { jp: "父は 長い 間 事務官として つとめて、去年 やめました。", en: "My father served for years as an administrative official, and retired last year." }, accept: ["officer", "government service"], hint: "官 = holding public office. 事務官 = administrative official, 警官 = police officer, 外交官 = diplomat." },
         { id: "ja-u106l1-kenryoku", type: "vocab", front: "権力", reading: "kenryoku", meaning: "power", example: { jp: "権力が 一人に 集まるのは、あぶないです。", en: "It's dangerous for power to gather in one person." }, accept: ["authority", "control"], hint: "権 (right) + 力 (strength) — the power to make others act." },
-        { id: "ja-u106l1-seito", type: "vocab", front: "政党", reading: "seitō", meaning: "political party", example: { jp: "あたらしい 政党が できて、しんぶんが 大きく 書きました。", en: "A new political party formed, and the papers gave it a big write-up." }, accept: ["party"] },
+        { id: "ja-u106l1-seito", type: "vocab", front: "政党", reading: "seitō", meaning: "political party", example: { jp: "あたらしい 政党が できて、新聞に 大きく 出ました。", en: "A new political party formed, and it made a big splash in the papers." }, accept: ["party"] },
       ],
     },
     {
