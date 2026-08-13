@@ -76,7 +76,7 @@ export const UNIT100 = {
         { id: "ja-u100l4-sei", type: "kanji", front: "精", reading: "sei", meaning: "spirit", example: { jp: "毎日 元気で いるには、精神も 体も 大切です。", en: "To stay well day to day, both mind and body matter." }, accept: ["energy", "refined", "vitality"], hint: "精 = refined energy. 精神 = the mind/spirit, 精一杯 = with everything you have." },
         { id: "ja-u100l4-inochi", type: "kanji", front: "命", reading: "inochi", meaning: "life", example: { jp: "命は 一つ しか ありませんから、体を 大切に して ください。", en: "You only have one life, so please take care of your body." }, accept: ["a life", "fate", "command"], hint: "命 = life. Also 'command' — 命令. The same character carries what you are given and what you are told." },
         { id: "ja-u100l4-shinwa", type: "vocab", front: "神話", reading: "shinwa", meaning: "myth", example: { jp: "この 国には 古い 神話が たくさん のこって いて、子どもも よく 知って います。", en: "This country has many old myths still alive, and children know them well." }, accept: ["legend", "mythology"] },
-        { id: "ja-u100l4-seimei", type: "vocab", front: "生命", reading: "seimei", meaning: "life (biological)", example: { jp: "海の 中には まだ 知らない 生命が たくさん います。", en: "There is still much unknown life in the sea." }, accept: ["a life", "living things"], hint: "生命 is life as a thing that exists; 命 alone is the life you were given." },
+        { id: "ja-u100l4-seimei", type: "vocab", front: "生命", reading: "seimei", meaning: "life (biological)", example: { jp: "海の 中に どんな 生命が あるか、まだ よく 分かって いません。", en: "We still don't really know what life exists in the sea." }, accept: ["a life", "living things"], hint: "生命 is life as a thing that exists; 命 alone is the life you were given." },
       ],
     },
   ],

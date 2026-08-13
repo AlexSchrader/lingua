@@ -21,10 +21,10 @@ export const UNIT113 = {
       items: [
         { id: "ja-u113l1-hashi", type: "kanji", front: "橋", reading: "hashi", meaning: "bridge", example: { jp: "川の 橋を 渡ると、すぐ 右に 駅が あります。", en: "Once you cross the river bridge, the station is right there on the right." }, accept: ["a bridge"], hint: "橋 = bridge — 木 (wood) on the left, the material old bridges were built from." },
         { id: "ja-u113l1-minato", type: "kanji", front: "港", reading: "minato", meaning: "harbour", example: { jp: "港に 大きな ふねが 着いて、人が たくさん おりました。", en: "A big ship arrived at the harbour and a lot of people got off." }, accept: ["port"], hint: "港 = harbour — 氵 (water) again. 空港 = airport, literally the air-harbour." },
-        { id: "ja-u113l1-ko", type: "kanji", front: "庫", reading: "ko", meaning: "storehouse", example: { jp: "車庫に 車を 入れて から、家に 入りました。", en: "This flat has no garage, so I park the car outside." }, accept: ["warehouse", "vault"], hint: "庫 = a place to keep things — 車 (vehicle) under a 广 roof. 車庫 = garage, 冷蔵庫 = fridge, 金庫 = a safe." },
+        { id: "ja-u113l1-ko", type: "kanji", front: "庫", reading: "ko", meaning: "storehouse", example: { jp: "車庫に 車を 入れて から、家に 入りました。", en: "I put the car in the garage, then went into the house." }, accept: ["warehouse", "vault"], hint: "庫 = a place to keep things — 車 (vehicle) under a 广 roof. 車庫 = garage, 冷蔵庫 = fridge, 金庫 = a safe." },
         { id: "ja-u113l1-kyoku", type: "kanji", front: "局", reading: "kyoku", meaning: "bureau", example: { jp: "駅の となりに テレビ局が あって、よく 人が 立って います。", en: "There's a TV station next to the station, and people often stand around outside." }, accept: ["office", "station (broadcasting)", "department"], hint: "局 = an office of a larger body. 郵便局 = post office, 薬局 = pharmacy, テレビ局 = TV station." },
         { id: "ja-u113l1-kuko", type: "vocab", front: "空港", reading: "kūkō", meaning: "airport", example: { jp: "空港まで バスで 一時間 かかります。", en: "It takes an hour to the airport by bus." }, accept: ["air terminal"], hint: "空 (sky) + 港 (harbour) — the harbour for the sky." },
-        { id: "ja-u113l1-shako", type: "vocab", front: "車庫", reading: "shako", meaning: "garage", example: { jp: "この アパートには 車庫が ありませんから、車は 外に とめて います。", en: "I put the car in the garage, then went inside." }, accept: ["car shed", "depot"] },
+        { id: "ja-u113l1-shako", type: "vocab", front: "車庫", reading: "shako", meaning: "garage", example: { jp: "この アパートには 車庫が ありませんから、車は 外に とめて います。", en: "This flat has no garage, so I park the car outside." }, accept: ["car shed", "depot"] },
       ],
     },
     {
