@@ -62,7 +62,7 @@ export const FR_UNIT21 = {
         { id: "fr-u21l3-quiestce", type: "vocab", front: "qui est-ce", reading: "quiestce", meaning: "who is it", example: { jp: "Qui est-ce ? — C'est Marie !", en: "Who is it? — It's Marie!" }, accept: ["who is that", "who's that", "who's it"] },
         { id: "fr-u21l3-combiende", type: "vocab", front: "combien de", reading: "combiende", meaning: "how many", example: { jp: "Combien de frères ? Deux.", en: "How many brothers? Two." }, accept: ["how much"], hint: "combien (Unit 4) asks the price; combien de + a noun counts things." },
         { id: "fr-u21l3-si", type: "vocab", front: "si", reading: "si", meaning: "yes (after a negative)", example: { jp: "Tu ne travailles pas ? — Si !", en: "You're not working? — Yes I am!" }, accept: ["yes"], hint: "French has a SECOND yes. Contradicting a negative question takes si, never oui — a real gap in English." },
-        { id: "fr-u21l3-alors", type: "vocab", front: "alors", reading: "alors", meaning: "so", example: { jp: "Il pleut ? Alors je reste ici.", en: "It's raining? Then I'll stay here." }, accept: ["then", "well"] },
+        { id: "fr-u21l3-alors", type: "vocab", front: "alors", reading: "alors", meaning: "so", example: { jp: "Il pleut ? Alors je vais à la maison.", en: "It's raining? Then I'm going home." }, accept: ["then", "well"] },
       ],
     },
   ],

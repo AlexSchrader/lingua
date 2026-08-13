@@ -61,7 +61,7 @@ export const FR_UNIT25 = {
         { id: "fr-u25l3-lordinateur", type: "vocab", front: "l'ordinateur", reading: "lordinateur", meaning: "computer", example: { jp: "Je travaille avec un ordinateur.", en: "I work with a computer." }, accept: ["the computer", "pc"] },
         { id: "fr-u25l3-lepapier", type: "vocab", front: "le papier", reading: "lepapier", meaning: "paper", example: { jp: "Le papier est sur la table.", en: "The paper is on the table." }, accept: ["the paper"] },
         { id: "fr-u25l3-lestylo", type: "vocab", front: "le stylo", reading: "lestylo", meaning: "pen", example: { jp: "J'écris avec un stylo.", en: "I write with a pen." }, accept: ["the pen"], hint: "j'écris = I write, from écrire." },
-        { id: "fr-u25l3-jecris", type: "vocab", front: "j'écris", reading: "jecris", meaning: "I write", example: { jp: "J'écris la liste des courses.", en: "I'm writing the shopping list." }, accept: ["i'm writing"] },
+        { id: "fr-u25l3-jecris", type: "vocab", front: "j'écris", reading: "jecris", meaning: "I write", example: { jp: "J'écris une liste.", en: "I'm writing a list." }, accept: ["i'm writing"] },
         { id: "fr-u25l3-lamusique", type: "vocab", front: "la musique", reading: "lamusique", meaning: "music", example: { jp: "J'aime beaucoup la musique.", en: "I really like music." }, accept: ["the music"] },
       ],
     },

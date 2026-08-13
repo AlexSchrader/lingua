@@ -61,7 +61,7 @@ export const FR_UNIT19 = {
         { id: "fr-u19l3-jedescends", type: "vocab", front: "je descends", reading: "jedescends", meaning: "I get off", example: { jp: "Je descends à la gare.", en: "I get off at the station." }, accept: ["i go down", "i get out"] },
         { id: "fr-u19l3-jeconduis", type: "vocab", front: "je conduis", reading: "jeconduis", meaning: "I drive", example: { jp: "Je conduis la voiture de mon père.", en: "I drive my father's car." }, accept: ["i'm driving"] },
         { id: "fr-u19l3-jemarche", type: "vocab", front: "je marche", reading: "jemarche", meaning: "I walk", example: { jp: "Je marche tous les jours.", en: "I walk every day." }, accept: ["i'm walking"] },
-        { id: "fr-u19l3-vite", type: "vocab", front: "vite", reading: "vite", meaning: "quickly", example: { jp: "Vite ! Le train part !", en: "Quick! The train is leaving!" }, accept: ["fast", "quick", "hurry"] },
+        { id: "fr-u19l3-vite", type: "vocab", front: "vite", reading: "vite", meaning: "quickly", example: { jp: "Vite ! Le train est là !", en: "Quick! The train is here!" }, accept: ["fast", "quick", "hurry"] },
         { id: "fr-u19l3-lent", type: "vocab", front: "lent", reading: "lent", meaning: "slow", example: { jp: "Le bus est lent aujourd'hui.", en: "The bus is slow today." }, accept: ["slowly"] },
       ],
     },

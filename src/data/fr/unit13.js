@@ -26,7 +26,7 @@ export const FR_UNIT13 = {
         { id: "fr-u13l1-ilneige", type: "vocab", front: "il neige", reading: "ilneige", meaning: "it is snowing", example: { jp: "Il neige et il fait très froid.", en: "It's snowing and it's very cold." }, accept: ["it snows", "it's snowing"] },
         { id: "fr-u13l1-laneige", type: "vocab", front: "la neige", reading: "laneige", meaning: "snow", example: { jp: "La neige est blanche.", en: "The snow is white." }, accept: ["the snow"] },
         { id: "fr-u13l1-levent", type: "vocab", front: "le vent", reading: "levent", meaning: "wind", example: { jp: "Le vent est froid aujourd'hui.", en: "The wind is cold today." }, accept: ["the wind"] },
-        { id: "fr-u13l1-lenuage", type: "vocab", front: "le nuage", reading: "lenuage", meaning: "cloud", example: { jp: "Le nuage est blanc et gris.", en: "The cloud is white and grey." }, accept: ["the cloud"] },
+        { id: "fr-u13l1-lenuage", type: "vocab", front: "le nuage", reading: "lenuage", meaning: "cloud", example: { jp: "Le nuage est blanc.", en: "The cloud is white." }, accept: ["the cloud"] },
       ],
     },
     {
@@ -57,7 +57,7 @@ export const FR_UNIT13 = {
       canDo: "Describe conditions: frais, doux, humide, sec, la température, le degré, l'orage.",
       items: [
         { id: "fr-u13l3-frais", type: "vocab", front: "frais", reading: "frais", meaning: "cool", example: { jp: "Ce matin, il fait frais.", en: "This morning, it's cool." }, accept: ["fresh", "chilly"], hint: "Also \"fresh\" for food — le pain frais is fresh bread." },
-        { id: "fr-u13l3-doux", type: "vocab", front: "doux", reading: "doux", meaning: "mild", example: { jp: "Il fait doux, c'est agréable.", en: "It's mild, it's pleasant." }, accept: ["soft", "gentle", "sweet"] },
+        { id: "fr-u13l3-doux", type: "vocab", front: "doux", reading: "doux", meaning: "mild", example: { jp: "Il fait doux aujourd'hui.", en: "It's mild today." }, accept: ["soft", "gentle", "sweet"] },
         { id: "fr-u13l3-humide", type: "vocab", front: "humide", reading: "humide", meaning: "damp", example: { jp: "Après la pluie, c'est humide.", en: "After the rain, it's damp." }, accept: ["humid", "wet", "moist"], hint: "après = after — a small word worth keeping." },
         { id: "fr-u13l3-sec", type: "vocab", front: "sec", reading: "sec", meaning: "dry", example: { jp: "Le vent est sec et froid.", en: "The wind is dry and cold." }, accept: ["dried"] },
         { id: "fr-u13l3-latemperature", type: "vocab", front: "la température", reading: "latemperature", meaning: "temperature", example: { jp: "Quelle est la température aujourd'hui ?", en: "What's the temperature today?" }, accept: ["the temperature"] },

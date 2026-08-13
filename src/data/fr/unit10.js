@@ -23,7 +23,7 @@ export const FR_UNIT10 = {
         { id: "fr-u10l1-lentement", type: "vocab", front: "lentement", reading: "lentement", meaning: "slowly", example: { jp: "Lentement, s'il vous plaît !", en: "Slowly, please!" }, accept: ["slow"] },
         { id: "fr-u10l1-encore", type: "vocab", front: "encore", reading: "encore", meaning: "again", example: { jp: "Encore, s'il vous plaît — lentement !", en: "Again, please — slowly!" }, accept: ["more", "once more", "still"] },
         { id: "fr-u10l1-biensur", type: "vocab", front: "bien sûr", reading: "biensur", meaning: "of course", example: { jp: "Bien sûr, madame !", en: "Of course, ma'am!" }, accept: ["sure", "certainly"] },
-        { id: "fr-u10l1-jenesaispas", type: "vocab", front: "je ne sais pas", reading: "jenesaispas", meaning: "I don't know", example: { jp: "Je ne sais pas… peut-être !", en: "I don't know… maybe!" }, accept: ["i do not know", "no idea", "dunno"], hint: "peut-être = maybe. Spoken fast this whole phrase shrinks to \"chais pas\" — you'll hear it everywhere." },
+        { id: "fr-u10l1-jenesaispas", type: "vocab", front: "je ne sais pas", reading: "jenesaispas", meaning: "I don't know", example: { jp: "Pourquoi ? Je ne sais pas.", en: "Why? I don't know." }, accept: ["i do not know", "no idea", "dunno"], hint: "Spoken fast this whole phrase shrinks to \"chais pas\" — you'll hear it everywhere." },
       ],
     },
     {
