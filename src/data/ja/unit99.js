@@ -2,12 +2,16 @@
 // Strand B, first B1 thematic unit. Opinion language: stating a view, agreeing and
 // declining, backing a claim up, and softening a disagreement.
 // B1 examples are two clauses joined by the item being taught (blueprint §1).
-// NOTE: おもいます is taught here. It is absent from the whole ja corpus below this unit
-// (only the kanji 言 carries "say"), and 「～と おもいます」 is the sentence frame every
-// other item in this unit needs — so the opinion unit is its correct home. The polite
-// form is the front because the dictionary form おもう reads "omou", which the lint
-// rejects as an unmacronned long vowel; the ます form is also how 見ます/します/聞きます
-// are already carried in the corpus.
+// NOTE: おもいます is taught here as a VOCAB item. An earlier draft of this header claimed
+// nothing below u99 carries "think" — that was FALSE and is corrected here: src/data/ja/
+// unit35.js:23 teaches the kanji 思 ("thought", example そう思います。) and its hint even
+// glosses 思います. What is genuinely absent below u99 is the typable WORD: 思 is a glyph
+// card testing a meaning, and 「～と おもいます」 is the sentence frame every other item in
+// this unit needs. Flagged for the merge seat as a near-duplicate the front-uniqueness
+// check cannot see (思 vs おもいます are different strings).
+// The polite form is the front because the dictionary form おもう reads "omou", which
+// src/data/lint.js:56 rejects as an unmacronned long vowel — a false positive for every
+// う-verb (omou, sasou, kayou), logged in BUILD-CHECKLIST → Feature CC backlog.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const UNIT99 = {
   id: "ja-u99",
