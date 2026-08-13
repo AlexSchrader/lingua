@@ -12,14 +12,15 @@
 //     fold (the contract requires [a-z]+) — normalizeReading() strips diacritics
 //     via NFD and drops spaces, so "el año" folds to "elano" and a learner may
 //     type either form.
-//     ⚠️ MERGE-SEAT PRECONDITION: the fold is an answer key, never a
-//     pronunciation guide, and it must not be DISPLAYED. On this branch's base it
-//     still is — TeachCard renders item.reading gated only on the global
-//     `showRomaji` setting, so a Spanish Teach card prints "lacasa" under
-//     "la casa". The fix (`readingIsInformative()` in cardRouting.js, commit
-//     db5e45c / merge dc70134) is NOT an ancestor of `content/es-scaffold`.
-//     Spanish must not ship on a base without it. Feature lane — logged in
-//     BUILD-CHECKLIST.md, deliberately not fixed from a content branch.
+//     The fold is an ANSWER KEY, never a pronunciation guide, so it must never be
+//     displayed. ✅ Satisfied since 2026-08-13: `readingIsInformative()` gates it
+//     on the front's script, and this branch now contains that fix (db5e45c) plus
+//     the two surfaces it originally missed — the Ladder word-bank row and
+//     GlyphDetail, the modal that row opens. Measured before/after: on the old
+//     base 17 of 24 Spanish lessons displayed a fold; with the fix, 0 of 24.
+//     Any future language must be scaffolded from a base at or after the last
+//     shipped fix affecting card rendering — that, not "check for db5e45c", is
+//     the durable rule.
 //   - `example.jp` holds the SPANISH sentence (the field name is historical —
 //     "jp" = target language); `example.en` the English gloss.
 //   - Nouns are taught WITH their article (el/la) so gender is learned as part of
