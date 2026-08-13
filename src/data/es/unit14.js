@@ -58,12 +58,12 @@ export const ES_UNIT14 = {
       dominantMode: "recall",
       canDo: "Say whose something is: mi casa, tu hermano, su madre — and their plurals mis, tus, sus.",
       items: [
-        { id: "es-u14l3-mi", type: "vocab", front: "mi", reading: "mi", meaning: "my", example: { jp: "Mi madre está en casa.", en: "My mother is at home." }, accept: ["mine"], hint: "mi never changes for gender — mi padre AND mi madre. Only the plural changes: mis." },
         { id: "es-u14l3-tu", type: "vocab", front: "tu", reading: "tu", meaning: "your", example: { jp: "¿Dónde está tu hermano?", en: "Where's your brother?" }, accept: ["yours"], hint: "tu without an accent = your. tú with one = you (Unit 12). The accent is doing all the work." },
         { id: "es-u14l3-su", type: "vocab", front: "su", reading: "su", meaning: "his", example: { jp: "Su casa es muy grande.", en: "His house is very big." }, accept: ["her", "their", "your (polite)"], hint: "su is the busiest word here: his, her, their, and polite your — all one word. The sentence around it decides." },
-        { id: "es-u14l3-mis", type: "vocab", front: "mis", reading: "mis", meaning: "my (with more than one)", example: { jp: "Mis amigos son muy buenos.", en: "My friends are very good." }, accept: ["my"], hint: "The possessive agrees with the THING, not the owner: mi amigo -> mis amigos." },
         { id: "es-u14l3-tus", type: "vocab", front: "tus", reading: "tus", meaning: "your (with more than one)", example: { jp: "¿Y tus hermanos?", en: "And your brothers?" }, accept: ["your"] },
         { id: "es-u14l3-sus", type: "vocab", front: "sus", reading: "sus", meaning: "his / her (with more than one)", example: { jp: "Sus hijos están en la escuela.", en: "Her children are at school." }, accept: ["their", "her", "his"] },
+        { id: "es-u14l3-nuestro", type: "vocab", front: "nuestro", reading: "nuestro", meaning: "our", example: { jp: "Nuestro coche es viejo.", en: "Our car is old." }, accept: ["ours"] },
+        { id: "es-u14l3-nuestra", type: "vocab", front: "nuestra", reading: "nuestra", meaning: "our", example: { jp: "Nuestra casa está en la ciudad.", en: "Our house is in the city." }, accept: ["ours"] },
       ],
     },
     {

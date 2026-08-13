@@ -57,11 +57,12 @@ export const ES_UNIT8 = {
       dominantMode: "recall",
       canDo: "Name what's overhead: el cielo, el sol, la nube, la lluvia, el viento.",
       items: [
-        { id: "es-u8l3-cielo", type: "vocab", front: "el cielo", reading: "elcielo", meaning: "sky", example: { jp: "El cielo está azul.", en: "The sky is blue." }, accept: ["the sky"], hint: "Also \"heaven\" — same word, same root as \"celestial\"." },
         { id: "es-u8l3-sol", type: "vocab", front: "el sol", reading: "elsol", meaning: "sun", example: { jp: "El sol está en el cielo.", en: "The sun is in the sky." }, accept: ["the sun", "sunshine"], hint: "Spanish uses it for sunshine too: hace sol = it's sunny." },
         { id: "es-u8l3-nube", type: "vocab", front: "la nube", reading: "lanube", meaning: "cloud", example: { jp: "Hay una nube blanca en el cielo.", en: "There's a white cloud in the sky." }, accept: ["the cloud"], hint: "The root of \"nebula\" — and of nublado, cloudy, in the next lesson." },
         { id: "es-u8l3-lluvia", type: "vocab", front: "la lluvia", reading: "lalluvia", meaning: "rain", example: { jp: "Hay lluvia en Madrid.", en: "There's rain in Madrid." }, accept: ["the rain", "rainfall"], hint: "Double l again: YU-via." },
         { id: "es-u8l3-viento", type: "vocab", front: "el viento", reading: "elviento", meaning: "wind", example: { jp: "En el pueblo hay viento.", en: "It's windy in the town." }, accept: ["the wind"], hint: "Same root as \"ventilate\"." },
+        { id: "es-u8l3-estrella", type: "vocab", front: "la estrella", reading: "laestrella", meaning: "star", example: { jp: "La estrella es muy pequeña.", en: "The star is very small." }, accept: ["a star"] },
+        { id: "es-u8l3-aire", type: "vocab", front: "el aire", reading: "elaire", meaning: "air", example: { jp: "Hace viento y el aire es frío.", en: "It's windy and the air is cold." }, accept: ["the air"] },
       ],
     },
     {

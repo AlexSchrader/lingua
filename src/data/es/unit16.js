@@ -56,7 +56,6 @@ export const ES_UNIT16 = {
         { id: "es-u16l3-elprecio", type: "vocab", front: "el precio", reading: "elprecio", meaning: "the price", example: { jp: "El precio es muy bueno.", en: "The price is very good." }, accept: ["price", "cost"] },
         { id: "es-u16l3-latarjeta", type: "vocab", front: "la tarjeta", reading: "latarjeta", meaning: "the card", example: { jp: "Mi tarjeta está en el bolso.", en: "My card is in my handbag." }, accept: ["bank card", "credit card", "card"] },
         { id: "es-u16l3-eleuro", type: "vocab", front: "el euro", reading: "eleuro", meaning: "the euro", example: { jp: "Tengo diez euros.", en: "I have ten euros." }, accept: ["euro"] },
-        { id: "es-u16l3-lacuenta", type: "vocab", front: "la cuenta", reading: "lacuenta", meaning: "the bill", example: { jp: "La cuenta, por favor.", en: "The bill, please." }, accept: ["check", "account", "bill"], hint: "\"La cuenta, por favor\" is how you ask for the bill in any Spanish restaurant." },
         { id: "es-u16l3-elcambio", type: "vocab", front: "el cambio", reading: "elcambio", meaning: "the change", example: { jp: "¿Tiene cambio de diez euros?", en: "Do you have change for ten euros?" }, accept: ["change", "small change"] },
       ],
     },

@@ -36,7 +36,6 @@ export const ES_UNIT18 = {
       dominantMode: "recall",
       canDo: "Talk about a class you're in: el libro, el cuaderno, el bolígrafo, el profesor, el examen.",
       items: [
-        { id: "es-u18l2-ellibro", type: "vocab", front: "el libro", reading: "ellibro", meaning: "the book", example: { jp: "Leo un libro en el tren.", en: "I read a book on the train." }, accept: ["book"] },
         { id: "es-u18l2-elcuaderno", type: "vocab", front: "el cuaderno", reading: "elcuaderno", meaning: "the notebook", example: { jp: "Escribo en el cuaderno.", en: "I write in the notebook." }, accept: ["exercise book", "notepad", "notebook"] },
         { id: "es-u18l2-elboligrafo", type: "vocab", front: "el bolígrafo", reading: "elboligrafo", meaning: "the pen", example: { jp: "Necesito un bolígrafo.", en: "I need a pen." }, accept: ["biro", "ballpoint", "pen"], hint: "In Spain everyone shortens it to el boli. Much of Latin America uses a different word altogether — el lapicero, la pluma, la birome." },
         { id: "es-u18l2-laclase", type: "vocab", front: "la clase", reading: "laclase", meaning: "the class", example: { jp: "La clase de español es muy buena.", en: "The Spanish class is very good." }, accept: ["lesson", "classroom", "class"] },

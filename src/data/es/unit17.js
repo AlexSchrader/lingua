@@ -19,12 +19,12 @@ export const ES_UNIT17 = {
       dominantMode: "recall",
       canDo: "Say how you get around: voy en coche, en tren, en autobús, en bicicleta.",
       items: [
-        { id: "es-u17l1-elcoche", type: "vocab", front: "el coche", reading: "elcoche", meaning: "the car", example: { jp: "Voy a Madrid en coche.", en: "I'm going to Madrid by car." }, accept: ["car", "automobile"], hint: "In Spain el coche; in most of Latin America el carro or el auto. All three are understood everywhere." },
-        { id: "es-u17l1-eltren", type: "vocab", front: "el tren", reading: "eltren", meaning: "the train", example: { jp: "El tren va a Barcelona.", en: "The train goes to Barcelona." }, accept: ["train"] },
         { id: "es-u17l1-elavion", type: "vocab", front: "el avión", reading: "elavion", meaning: "the plane", example: { jp: "El avión es muy rápido.", en: "The plane is very fast." }, accept: ["aeroplane", "airplane", "plane"] },
-        { id: "es-u17l1-elautobus", type: "vocab", front: "el autobús", reading: "elautobus", meaning: "the bus", example: { jp: "Voy a la escuela en autobús.", en: "I go to school by bus." }, accept: ["bus", "coach"] },
         { id: "es-u17l1-labicicleta", type: "vocab", front: "la bicicleta", reading: "labicicleta", meaning: "the bicycle", example: { jp: "María va en bicicleta.", en: "María goes by bike." }, accept: ["bike", "bicycle", "cycle"], hint: "Shortened to la bici in everyday speech, exactly like English \"bike\"." },
         { id: "es-u17l1-lamoto", type: "vocab", front: "la moto", reading: "lamoto", meaning: "the motorbike", example: { jp: "La moto es de Pablo.", en: "The motorbike is Pablo's." }, accept: ["motorcycle", "motorbike", "scooter"], hint: "Feminine despite the -o, like la foto — it's short for la motocicleta." },
+        { id: "es-u17l1-taxi", type: "vocab", front: "el taxi", reading: "eltaxi", meaning: "taxi", example: { jp: "Voy en taxi a la ciudad.", en: "I go to the city by taxi." }, accept: ["the taxi","cab"] },
+        { id: "es-u17l1-barco", type: "vocab", front: "el barco", reading: "elbarco", meaning: "boat", example: { jp: "El barco es muy grande.", en: "The boat is very big." }, accept: ["the boat","ship"] },
+        { id: "es-u17l1-metro", type: "vocab", front: "el metro", reading: "elmetro", meaning: "subway", example: { jp: "Voy en metro cada día.", en: "I go by subway every day." }, accept: ["the subway","metro","underground"] },
       ],
     },
     {
@@ -55,7 +55,6 @@ export const ES_UNIT17 = {
       items: [
         { id: "es-u17l3-lacarretera", type: "vocab", front: "la carretera", reading: "lacarretera", meaning: "the road", example: { jp: "La carretera a Madrid es larga.", en: "The road to Madrid is long." }, accept: ["highway", "main road", "road"], hint: "la carretera runs between towns; la calle (Unit 7) is inside one." },
         { id: "es-u17l3-elcamino", type: "vocab", front: "el camino", reading: "elcamino", meaning: "the way", example: { jp: "Es un camino muy largo.", en: "It's a very long way." }, accept: ["path", "route", "way"] },
-        { id: "es-u17l3-laparada", type: "vocab", front: "la parada", reading: "laparada", meaning: "the stop", example: { jp: "La parada del autobús está en la esquina.", en: "The bus stop is on the corner." }, accept: ["bus stop", "stop"] },
         { id: "es-u17l3-laesquina", type: "vocab", front: "la esquina", reading: "laesquina", meaning: "the corner", example: { jp: "La tienda está en la esquina.", en: "The shop is on the corner." }, accept: ["street corner", "corner"] },
         { id: "es-u17l3-elpuente", type: "vocab", front: "el puente", reading: "elpuente", meaning: "the bridge", example: { jp: "El puente es muy largo.", en: "The bridge is very long." }, accept: ["bridge"] },
         { id: "es-u17l3-elsemaforo", type: "vocab", front: "el semáforo", reading: "elsemaforo", meaning: "the traffic light", example: { jp: "El semáforo está en rojo.", en: "The traffic light is red." }, accept: ["traffic lights", "stoplight", "traffic light"], hint: "\"Está en rojo\" — the light IS at red right now, so it takes está, not es." },
