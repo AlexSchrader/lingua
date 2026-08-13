@@ -112,6 +112,17 @@ copy C:\Users\acssc\OneDrive\Programming-Projects\lingua\.env.local .
 - `.env.local` is gitignored, so it must be copied by hand or the build ships with Supabase and ElevenLabs silently off.
 - Use a distinct dev port (`npm run dev -- --port 517<block>`) so parallel sessions don't collide.
 
+**Check the board BEFORE you claim it. If your block already has a row, STOP.**
+Someone is already authoring it. Do not rename yourself "block 1b", do not start a
+parallel take, do not author "just the units they haven't reached" — post one line
+to Alex saying the block is taken, and stop. This is not a judgement call and §7's
+"finish under an assumption" rule does not apply, because the cost is not yours to
+absorb: a second seat did exactly this on Japanese B1 and re-authored all 19 units
+of block 1 from scratch. Both takes were complete, both passed lint, both hit
+6.0 cards/lesson — and one of them had to be thrown away. Whole-block duplicate
+work is the single most expensive mistake available to a seat, and it is invisible
+until merge day.
+
 **Then claim your row on the board.** Add a line to `BUILD-CHECKLIST.md` → "Language crew board" with your language, block, `authoring`, branch, and worktree path — committed on **your** branch. That's how Alex sees the production line without opening sessions. Update it to `gating` at §5 and `handed back` at §6.
 
 ---
