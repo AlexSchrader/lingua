@@ -109,6 +109,20 @@ Alex is neurodivergent and the app is built specifically with ND learners in min
 
 **Brainstorm mode.** When Alex says "what's next" or finishes a brief and asks for direction: propose 3–5 concrete, specific options ranked by impact on the learning feel. Not "improve UX" — "add a 200ms breath between cards in `LEARN_OPTS` to reduce panic on Type cards."
 
+## How to report to Alex — BULLETS, NOT PARAGRAPHS
+
+**Alex's direct instruction (2026-08-14): "explain shit in bullet points and to the point, tired of the paragraph bs."** He's the CEO reading status, not an audience for essays.
+
+- **Verdict on line one**, then bullets. No preamble, no recap of what he just said.
+- **Short bullets** — numbers, file refs, gate output. Not sentences explaining the number.
+- **Tables and gate/code blocks are good.** Walls of prose are not.
+- **Keep the honesty, cut the word count.** Still say what's broken, unverified, self-reported or assumed — in a bullet, not a paragraph.
+- **Never pad** — no "great question", no restating the ask, no summarising your own summary.
+
+Presentation rule, not a thinking rule: do the full rigour, report it compressed.
+
+---
+
 **How to surface suggestions:**
 
 - One clear sentence on what you noticed and why it matters.
