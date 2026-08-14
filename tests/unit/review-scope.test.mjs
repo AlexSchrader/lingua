@@ -167,6 +167,44 @@ test("the daily goal is met by a lesson when NO language owes reviews", () => {
   });
 });
 
+// truth-agent + code-auditor BLOCKER (2026-08-14), found independently by both.
+// Scoping the pill to the active language fixed the bilingual lie ("Cleared" over 40
+// overdue French cards) and broke the MONOLINGUAL case — today's only real learner.
+// Japanese-only, 60 due, clears the capped 20: the closure signal must survive. It
+// takes a per-language record to tell "capped today" from "never opened", which is
+// what daily.clearedLangs is for.
+test("a capped backlog still reads as done for the language that was reviewed", () => {
+  withStore({ ja: 60 }, { languages: ["ja"], activeLang: "ja" }, () => {
+    useStore.getState().completeReviews(); // the day's session, in Japanese
+    const s = useStore.getState();
+    assert.equal(s.languageCleared("ja"), true, "Japanese was reviewed today");
+    assert.ok(s.dueItems("ja").length > REVIEW_CAP, "and is still deep in backlog");
+    // Today renders the pill from languageCleared, not from the raw due count, so a
+    // learner who did today's work is not shown the pile the cap exists to hide.
+    assert.deepEqual(s.daily.clearedLangs, ["ja"]);
+  });
+});
+
+test("clearing one language does NOT mark another as cleared", () => {
+  withStore({ ja: 30, fr: 40 }, { languages: ["ja", "fr"], activeLang: "ja" }, () => {
+    useStore.getState().completeReviews();
+    const s = useStore.getState();
+    assert.equal(s.languageCleared("ja"), true);
+    assert.equal(s.languageCleared("fr"), false, "French was never reviewed…");
+    assert.equal(s.reviewsLocked("fr"), false, "…but is still unlocked — one duty a day");
+    assert.equal(s.dueItems("fr").length, 40, "and its queue is intact and reachable");
+  });
+});
+
+test("clearedLangs is absent-safe on an older save and resets with the day", () => {
+  withStore({ ja: 10 }, { languages: ["ja"], activeLang: "ja" }, () => {
+    useStore.setState((s) => ({ daily: { ...s.daily, clearedLangs: undefined } }));
+    assert.equal(useStore.getState().languageCleared("ja"), false, "no field → not cleared, no crash");
+    useStore.getState().completeReviews();
+    assert.deepEqual(useStore.getState().daily.clearedLangs, ["ja"]);
+  });
+});
+
 test("a language with nothing due is never locked, cleared or not", () => {
   withStore({ ja: 5 }, { languages: ["ja", "fr"], activeLang: "fr" }, (s) => {
     assert.equal(s.dueItems("fr").length, 0);

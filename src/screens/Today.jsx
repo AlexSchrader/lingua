@@ -128,6 +128,10 @@ export default function Today() {
     () => reviewsLockedFn(activeId),
     [items, daily, activeId, reviewsLockedFn]
   );
+  // Was THIS language reviewed today? Not the same question as `daily.reviewsCleared`
+  // (was the day's duty met anywhere) — the closure signals below need to tell a
+  // language capped today apart from one another language's session merely unlocked.
+  const langCleared = (daily.clearedLangs ?? []).includes(activeId);
   // Show the SESSION size, not the full backlog — a capped, non-scary number (the
   // Review runner serves at most REVIEW_CAP, oldest-due first; the rest return next
   // session). Prevents the "47 due" wall on the home screen.
@@ -164,9 +168,13 @@ export default function Today() {
   const devMode = import.meta.env.DEV || new URLSearchParams(location.search).has("dev");
 
   // No reviews to clear when the queue is empty — treat as already done.
-  // "done" means THIS language has nothing waiting. The global daily flag alone
-  // would paint the pill green for a language still carrying real debt.
-  const reviewState = due.length === 0 ? "done" : "active";
+  // "done" means this language is settled for today — either nothing is due, or its
+  // own session was completed and the cap is holding the rest back on purpose. The
+  // GLOBAL flag alone was wrong in both directions: it painted the pill green over a
+  // language with real untouched debt, and (once the pill was scoped) it painted a
+  // capped Japanese backlog red, which is the "47 due" wall REVIEW_CAP exists to
+  // hide. It takes both facts to tell those two apart.
+  const reviewState = due.length === 0 || langCleared ? "done" : "active";
   const lessonState = daily.lessonDone ? "done" : reviewsLocked ? "locked" : "active";
 
   // Is there still new material to learn? (any lesson has rung-0 items.)
@@ -265,6 +273,14 @@ export default function Today() {
   } else if (hasNew) {
     ctaLabel = daily.lessonDone ? "Keep learning" : "Start lesson";
     ctaAction = startLesson;
+  } else if (due.length > 0) {
+    // No new lessons left in this language and the day's duty is already met, but
+    // cards are still due here. "All caught up" would be a flat lie printed directly
+    // above a live "Review … anyway" button, so offer the review as the primary
+    // action instead. Only reachable once a learner exhausts a language's authored
+    // content, which French and Spanish learners will do long before Japanese does.
+    ctaLabel = "Review anyway";
+    ctaAction = startReview;
   } else {
     ctaLabel = "All caught up";
     ctaDisabled = true;
@@ -360,11 +376,12 @@ export default function Today() {
         <StatusPill
           icon={RotateCcw}
           label="Reviews"
-          // "Cleared" is about THIS language, not about the day. The daily flag is
-          // global, so reporting it directly told a French learner "Cleared" while
-          // 40 French cards sat overdue. Real debt in the active language is always
-          // shown, whatever the day's duty says.
-          value={due.length > 0 ? `${sessionDue} due` : daily.reviewsCleared ? "Cleared" : "All clear"}
+          // "Cleared" means THIS language was reviewed today — not that some other
+          // language's session met the daily duty. A capped backlog still reads
+          // "Cleared" (you did today's work; the rest is deliberately held back),
+          // while a language you haven't touched shows its real count however many
+          // other languages you cleared.
+          value={langCleared ? "Cleared" : due.length > 0 ? `${sessionDue} due` : "All clear"}
           state={reviewState}
         />
         <StatusPill
@@ -447,7 +464,7 @@ export default function Today() {
           until tomorrow — the per-language cap would starve exactly the language it
           was meant to protect. Offered, never demanded: it is a quiet secondary
           action, and nothing is locked behind it. */}
-      {daily.reviewsCleared && due.length > 0 && (
+      {daily.reviewsCleared && !langCleared && due.length > 0 && (
         <button
           data-testid="start-review-optional"
           onClick={startReview}

@@ -157,21 +157,34 @@ const MISTAKES_CAP = 30;
 //
 //   - What you are SHOWN is per-language. dueItems() is scoped to the active
 //     language, so a Japanese learner never sees French cards, and each language's
-//     queue is bounded by REVIEW_CAP on its own. No language starves behind another,
-//     and no screen ever shows a 60-card pile.
+//     queue is bounded by REVIEW_CAP on its own, so no language competes with another
+//     for slots and no screen shows a 60-card pile.
 //   - What you OWE is global and once-a-day. `daily.reviewsCleared` is a single flag
 //     for the whole profile: finish a review session in ANY language and the day's
 //     review duty is met, so lessons unlock in EVERY language.
+//   - WHICH language you reviewed is recorded separately (`daily.clearedLangs`), so
+//     the UI can tell "capped today, come back tomorrow" apart from "never opened".
+//     Without that third fact the closure signal is wrong for one of the two.
 //
 // That split is the anti-burnout guarantee under N languages. The wall is the
 // OBLIGATION, not the availability — capping per language without this would give a
 // three-language learner three separate 20-card duties before they could take any
 // lesson, which is precisely the death-spiral REVIEW_CAP exists to prevent. Here,
 // adding a language never adds a required card: it adds an optional queue you may
-// visit. The accepted trade-off is that a learner who always clears Japanese first
-// can leave French due indefinitely; FSRS handles overdue items, the French queue
-// stays one tap away on /review, and nothing is lost but time. Forcing that review
-// would mean forcing a second wall, and that is the worse failure.
+// visit.
+//
+// THE ACCEPTED COST, stated at full strength rather than its mildest form: a learner
+// who always reviews Japanese can leave French due indefinitely — and, because the
+// duty is global and any non-empty session discharges it, a learner with one French
+// card due can clear that and unlock Japanese lessons over a 40-card Japanese
+// backlog. Forcing either review would mean forcing a second wall, which is the
+// worse failure, so this is deliberate. But do NOT describe it as "nothing is lost
+// but time": a deck left long enough comes back at low retrievability, grades
+// `again`, and `nextRung` drops a rung per lapse, so mastery genuinely decays. The
+// honest claim is that the app never coerces the fix and never hides the debt — the
+// queue is always reachable from Today for the active language, and two taps away
+// (Ladder → switch) for any other. Cross-language debt is NOT surfaced anywhere yet;
+// that gap is logged in BUILD-CHECKLIST.md, not solved here.
 export const REVIEW_CAP = 20;
 
 // Lazy cache: itemId → { cefr, lang } — built once from UNITS on first access.
@@ -224,7 +237,7 @@ export const useStore = create(
       languages: initialLanguages(),
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },
-      daily: { date: null, reviewsCleared: false, lessonDone: false },
+      daily: { date: null, reviewsCleared: false, lessonDone: false, clearedLangs: [] },
       // "Fix these" — item ids missed (graded `again`) and not yet re-passed, most
       // recent last. A miss adds; a clean pass clears. Powers the mistake-review.
       mistakes: [],
@@ -349,7 +362,7 @@ export const useStore = create(
           }
           let daily = s.daily;
           if (daily.date !== todayISO()) {
-            daily = { date: todayISO(), reviewsCleared: false, lessonDone: false };
+            daily = { date: todayISO(), reviewsCleared: false, lessonDone: false, clearedLangs: [] };
           }
           // Backfill any language progress entries added since last persist.
           const languages = { ...initialLanguages(), ...s.languages };
@@ -408,6 +421,17 @@ export const useStore = create(
         return get().dueItems(lang).length > 0 && !daily.reviewsCleared;
       },
 
+      // Did THIS language have a review session today? Distinct from
+      // `daily.reviewsCleared`, which answers "was the day's duty met anywhere".
+      // Screens use this for closure signals ("Cleared", and whether to offer the
+      // queue again): a language capped today has been honoured and must go quiet,
+      // while a language merely unlocked by another language's session has not.
+      languageCleared: (lang = undefined) => {
+        const { daily, profile } = get();
+        const scope = lang === undefined ? activeLangId(profile) : lang;
+        return (daily.clearedLangs ?? []).includes(scope);
+      },
+
       // Grade a single item: reschedule via SRS, advance/hold/drop its rung,
       // and award XP. Persisted.
       gradeItem: (id, grade) => {
@@ -457,8 +481,32 @@ export const useStore = create(
       },
       dismissMilestoneToast: () => set({ milestoneToast: null }),
 
-      completeReviews: () => {
-        set((s) => ({ daily: { ...s.daily, date: todayISO(), reviewsCleared: true } }));
+      // A review session finished. Two records, because one boolean cannot answer
+      // both questions the UI asks:
+      //   - `reviewsCleared` (global) — the day's review DUTY is met, so lessons
+      //     unlock in every language. One session a day, one wall. See REVIEW_CAP.
+      //   - `clearedLangs` (per-language) — WHICH language was reviewed today, so a
+      //     screen can tell "you capped this language today, come back tomorrow"
+      //     apart from "you have never opened this language". Those are opposite
+      //     situations and the global flag alone showed them identically: a
+      //     Japanese-only learner who cleared 20 of a 60-card backlog was told
+      //     "20 due" with an invitation back, which is precisely the wall the cap
+      //     exists to hide.
+      // `clearedLangs` is reset with the rest of `daily` on a date change and reads
+      // as absent (falsy) on older saves — additive, so no persist bump.
+      completeReviews: (lang = undefined) => {
+        const scope = lang === undefined ? activeLangId(get().profile) : lang;
+        set((s) => {
+          const prev = s.daily.clearedLangs ?? [];
+          return {
+            daily: {
+              ...s.daily,
+              date: todayISO(),
+              reviewsCleared: true,
+              clearedLangs: scope && !prev.includes(scope) ? [...prev, scope] : prev,
+            },
+          };
+        });
       },
 
       // Graduate a freshly-learned item out of the in-session learning steps into
@@ -608,7 +656,7 @@ export const useStore = create(
           languages: initialLanguages(),
           streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
           stats: { xpTotal: 0 },
-          daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+          daily: { date: todayISO(), reviewsCleared: false, lessonDone: false, clearedLangs: [] },
           mistakes: [],
           milestonesEarned: [],
           milestoneToast: null,

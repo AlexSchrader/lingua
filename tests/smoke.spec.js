@@ -926,9 +926,50 @@ test("a language keeps a reachable review path after the day's duty is met", asy
   // ...but the queue is genuinely reachable, and the pill tells the truth about it.
   const optional = page.getByTestId("start-review-optional");
   await expect(optional).toBeVisible();
+  // Positive twin for the negative assertion below: prove the pill says the true
+  // thing, not merely that it doesn't say "Cleared" (which would also pass if the
+  // pill vanished or were renamed).
+  await expect(page.getByText("20 due")).toBeVisible();
   await expect(page.getByText("Cleared")).toHaveCount(0);
   await optional.click();
   await expect(page).toHaveURL(/\/review/);
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+// The MONOLINGUAL case, which the first cut of the language scoping regressed —
+// caught by both gates, not by the green suite. A Japanese-only learner (today's
+// only real user) with a 60-card backlog who does their capped 20 must still get
+// closure: "Cleared", no invitation back. Showing "20 due" plus a button here is
+// exactly the wall REVIEW_CAP exists to hide, and the number wouldn't move for days.
+test("a capped backlog still says Cleared for the language just reviewed", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  const seed = seedItems();
+  const items = {};
+  for (const [id, it] of Object.entries(seed)) items[id] = { ...it, rung: 0, srs: freshCard() };
+  const jaVocab = Object.values(seed).filter((it) => it.type === "vocab" && it.lang === "ja");
+  for (const it of jaVocab.slice(0, 60)) items[it.id] = { ...items[it.id], rung: 1, srs: dueCard() };
+  await page.addInitScript(
+    (json) => localStorage.setItem("lingua-v1", json),
+    JSON.stringify({
+      state: {
+        items,
+        languages: LANGUAGES,
+        profile: { onboarded: true, displayName: "T", reason: null, reminderTime: null, languages: ["ja"], activeLang: "ja" },
+        streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
+        stats: { xpTotal: 0 },
+        // Today's session already happened, in Japanese.
+        daily: { date: todayISO(), reviewsCleared: true, lessonDone: false, clearedLangs: ["ja"] },
+        settings: {}, ui: {},
+      },
+      version: 1,
+    })
+  );
+  await page.goto("/");
+
+  await expect(page.getByText("Cleared")).toBeVisible();
+  await expect(page.getByText("20 due")).toHaveCount(0);
+  await expect(page.getByTestId("start-review-optional")).toHaveCount(0);
   expect(errors, errors.join("; ")).toEqual([]);
 });
 
