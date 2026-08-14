@@ -39,7 +39,15 @@
 //     run reported two of them, clase and examen, as violations. Each of those
 //     units should add its own FREE line; the line below is block 1's own words
 //     plus the proper names the whole language shares.
-//   FREE: Ana, María, Pablo, Carlos, España, México, América, Madrid, Barcelona, Sevilla, Mayor | moderno, elegante, famoso, enorme, romántico, fantástico, tranquilo, histórico, importante, rápido, perfecto, humano, favorito, persona | 2000
+//   FREE: Ana, María, Pablo, Carlos, España, México, América, Madrid, Barcelona, Sevilla, Mayor | moderno, moderna, elegante, famoso, enorme, romántico, romántica, fantástico, fantástica, tranquilo, tranquila, histórico, importante, rápido, perfecto, humano, favorito, persona, personas, taxi, música, problema, clase, examen, fiesta, festival, concierto | 2000
+//     Extended 2026-08-13 (merge prep). Two additions, both mechanical, no content
+//     changed: (a) the FEMININE and plural forms of adjectives already declared
+//     free — the checker compares whole tokens and cannot fold moderno→moderna, so
+//     "La casa es moderna" was reported against a word this line already allowed;
+//     (b) the naturalized borrowings blocks 2 and 3 use, which until now were named
+//     only in PROSE in es/unit7.js (this file's own WARNING above predicted the
+//     result: clase and examen were reported as violations). The checker reads
+//     FREE from unit1.js ONLY, so a per-unit line would not have been read.
 //   - DELIBERATE A1 SIMPLIFICATIONS (revisit at A2): (a) only the present tense,
 //     and verbs are taught as person-marked chunks (soy, hablo, tengo) rather
 //     than infinitives — the infinitive belongs with the grammar units; (b) the
