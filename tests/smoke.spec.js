@@ -1025,3 +1025,55 @@ test("Achievements: the language switcher appears only when learning two or more
 
   expect(errors, errors.join("; ")).toEqual([]);
 });
+
+// PREVIEW MODE — the app on a throwaway profile. Its one safety property is that
+// the real deck is never written, so that is what this asserts: enter preview, do
+// something that writes progress, and the real profile must be byte-identical.
+// Isolation is the persist KEY, not a flag writers honour — a flag only has to be
+// forgotten once to put preview progress on a deck someone actually studies.
+//
+// The fixture is deliberately STATIC (no Date.now()): addInitScript re-runs on every
+// reload, so a time-derived profile differs between loads and the comparison would
+// fail on its own churn rather than on a real write.
+const STATIC_REAL_PROFILE = JSON.stringify({
+  state: {
+    items: {},
+    languages: LANGUAGES,
+    profile: { onboarded: true, displayName: "Real", reason: null, reminderTime: null, languages: ["fr"], activeLang: "fr" },
+    streak: { current: 3, longest: 3, freezes: 2, lastActive: "2026-01-01" },
+    stats: { xpTotal: 999 },
+    daily: { date: "2026-01-01", reviewsCleared: false, lessonDone: false },
+    settings: {}, ui: {},
+  },
+  version: 1,
+});
+
+test("Preview Mode: the app runs, and the real profile is untouched", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await page.addInitScript((json) => {
+    localStorage.setItem("lingua-v1", json);
+    localStorage.setItem("lingua-preview", JSON.stringify({ state: {}, version: 1 }));
+    localStorage.setItem("lingua-preview-on", "1");
+  }, STATIC_REAL_PROFILE);
+
+  await page.goto("/");
+
+  // It is the real app — banner and the actual home screen, not a panel of links.
+  await expect(page.getByTestId("preview-banner")).toBeVisible();
+  await expect(page.getByTestId("start-session")).toBeVisible();
+
+  // Write progress, then prove where it went.
+  await page.getByTestId("start-session").click();
+  await page.waitForTimeout(800);
+
+  const real = await page.evaluate(() => localStorage.getItem("lingua-v1"));
+  expect(real, "Preview Mode wrote to the REAL profile").toBe(STATIC_REAL_PROFILE);
+
+  const preview = await page.evaluate(() => localStorage.getItem("lingua-preview"));
+  expect(preview, "preview deck should exist").toBeTruthy();
+  expect(preview, "the preview deck should be the one that moved").not.toBe(STATIC_REAL_PROFILE);
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});
