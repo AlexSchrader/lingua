@@ -40,7 +40,7 @@ export const FR_UNIT86 = {
       canDo: "Handle a difficult exchange: interrupt, answer back, complain, admit something, deny it — or apologize properly.",
       items: [
         { id: "fr-u86l2-interrompre", type: "vocab", front: "interrompre", reading: "interrompre", meaning: "to interrupt", example: { jp: "Il ne faut pas interrompre les autres.", en: "You mustn't interrupt other people." }, accept: ["cut in", "break in", "cut off"] },
-        { id: "fr-u86l2-repliquer", type: "vocab", front: "répliquer", reading: "repliquer", meaning: "to answer back", example: { jp: "Il répond toujours et il aime répliquer.", en: "He always answers and he likes to answer back." }, accept: ["retort", "shoot back", "come back at"] },
+        { id: "fr-u86l2-repliquer", type: "vocab", front: "répliquer", reading: "repliquer", meaning: "to answer back", example: { jp: "Il aime répliquer à son frère.", en: "He likes to answer his brother back." }, accept: ["retort", "shoot back", "come back at"] },
         { id: "fr-u86l2-seplaindre", type: "vocab", front: "se plaindre", reading: "seplaindre", meaning: "to complain", example: { jp: "Les clients se plaignent du bruit.", en: "The customers complain about the noise." }, accept: ["moan", "grumble", "gripe"], hint: "You complain OF something: se plaindre de + the thing." },
         { id: "fr-u86l2-avouer", type: "vocab", front: "avouer", reading: "avouer", meaning: "to admit", example: { jp: "Je dois avouer que j'ai oublié.", en: "I have to admit that I forgot." }, accept: ["confess", "own up", "acknowledge"] },
         { id: "fr-u86l2-nier", type: "vocab", front: "nier", reading: "nier", meaning: "to deny", example: { jp: "Il continue à nier.", en: "He carries on denying it." }, accept: ["refute", "disclaim"] },
@@ -61,7 +61,7 @@ export const FR_UNIT86 = {
         { id: "fr-u86l3-menacer", type: "vocab", front: "menacer", reading: "menacer", meaning: "to threaten", example: { jp: "Personne n'a le droit de menacer les autres.", en: "Nobody has the right to threaten other people." }, accept: ["make threats"] },
         { id: "fr-u86l3-promettre", type: "vocab", front: "promettre", reading: "promettre", meaning: "to promise", example: { jp: "Je peux promettre une réponse demain.", en: "I can promise an answer tomorrow." }, accept: ["give one's word", "pledge"] },
         { id: "fr-u86l3-jurer", type: "vocab", front: "jurer", reading: "jurer", meaning: "to swear", example: { jp: "Je jure que c'est vrai.", en: "I swear that it's true." }, accept: ["vow", "swear to"], hint: "Swearing an oath. Swearing as in bad language is « dire des gros mots »." },
-        { id: "fr-u86l3-supplier", type: "vocab", front: "supplier", reading: "supplier", meaning: "to beg", example: { jp: "Il ne faut pas supplier pour ça.", en: "You mustn't beg for that." }, accept: ["plead", "implore", "beseech"] },
+        { id: "fr-u86l3-supplier", type: "vocab", front: "supplier", reading: "supplier", meaning: "to beg", example: { jp: "Il ne faut pas le supplier.", en: "You mustn't beg him." }, accept: ["plead", "implore", "beseech"] },
       ],
     },
     {

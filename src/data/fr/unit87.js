@@ -25,7 +25,7 @@ export const FR_UNIT87 = {
         { id: "fr-u87l1-mou", type: "vocab", front: "mou", reading: "mou", meaning: "soft", example: { jp: "Ce fromage est trop mou.", en: "This cheese is too soft." }, accept: ["squishy", "limp", "floppy"], hint: "Soft as in giving way under your finger. Its feminine is irregular: molle." },
         { id: "fr-u87l1-dur", type: "vocab", front: "dur", reading: "dur", meaning: "hard", example: { jp: "Le pain est dur ce matin.", en: "The bread is hard this morning." }, accept: ["tough", "firm", "not soft"], hint: "Also \"hard\" of a task: un exercice dur." },
         { id: "fr-u87l1-souple", type: "vocab", front: "souple", reading: "souple", meaning: "flexible", example: { jp: "Ce plastique est souple.", en: "This plastic is flexible." }, accept: ["supple", "bendy", "pliable"] },
-        { id: "fr-u87l1-raide", type: "vocab", front: "raide", meaning: "stiff", reading: "raide", example: { jp: "Ce fil de fer est raide.", en: "This iron wire is stiff." }, accept: ["rigid", "straight", "steep"], hint: "Also of hair (cheveux raides = straight hair) and of a hill (une côte raide = a steep climb)." },
+        { id: "fr-u87l1-raide", type: "vocab", front: "raide", meaning: "stiff", reading: "raide", example: { jp: "Ce papier est raide.", en: "This paper is stiff." }, accept: ["rigid", "straight", "steep"], hint: "Also of hair (cheveux raides = straight hair) and of a hill (une côte raide = a steep climb)." },
       ],
     },
     {
@@ -37,7 +37,7 @@ export const FR_UNIT87 = {
       dominantMode: "recall",
       canDo: "Describe how a surface catches the light: shiny, dull, see-through, opaque, dark-coloured or striped.",
       items: [
-        { id: "fr-u87l2-brillant", type: "vocab", front: "brillant", reading: "brillant", meaning: "shiny", example: { jp: "Sa montre est brillante.", en: "Their watch is shiny." }, accept: ["glossy", "sparkling", "bright"], hint: "From briller. Also of a person: un élève brillant is a brilliant pupil." },
+        { id: "fr-u87l2-brillant", type: "vocab", front: "brillant", reading: "brillant", meaning: "shiny", example: { jp: "Le métal est brillant.", en: "The metal is shiny." }, accept: ["glossy", "sparkling", "bright"], hint: "From briller. Also of a person: un élève brillant is a brilliant pupil." },
         { id: "fr-u87l2-terne", type: "vocab", front: "terne", reading: "terne", meaning: "dull", example: { jp: "Cette couleur est un peu terne.", en: "This colour is a little dull." }, accept: ["drab", "lacklustre", "faded"] },
         { id: "fr-u87l2-transparent", type: "vocab", front: "transparent", reading: "transparent", meaning: "see-through", example: { jp: "La bouteille est transparente.", en: "The bottle is see-through." }, accept: ["transparent", "clear"] },
         { id: "fr-u87l2-opaque", type: "vocab", front: "opaque", reading: "opaque", meaning: "not see-through", example: { jp: "Cette fenêtre est opaque.", en: "This window is not see-through." }, accept: ["opaque", "solid"] },
@@ -71,7 +71,7 @@ export const FR_UNIT87 = {
       dominantMode: "recall",
       canDo: "Talk about an object's look in the abstract: its appearance, its surface, its pattern, its outline, its thickness — and the dust on it.",
       items: [
-        { id: "fr-u87l4-laspect", type: "vocab", front: "l'aspect", reading: "laspect", meaning: "appearance", example: { jp: "Je n'aime pas l'aspect de ce plat.", en: "I don't like the appearance of this dish." }, accept: ["the appearance", "look", "aspect"], hint: "Masculine — un aspect. The p is silent." },
+        { id: "fr-u87l4-laspect", type: "vocab", front: "l'aspect", reading: "laspect", meaning: "appearance", example: { jp: "Je n'aime pas l'aspect de cette soupe.", en: "I don't like the appearance of this soup." }, accept: ["the appearance", "look", "aspect"], hint: "Masculine — un aspect. Said /aspɛ/: the p IS sounded, the final -ct is not." },
         { id: "fr-u87l4-lasurface", type: "vocab", front: "la surface", reading: "lasurface", meaning: "surface", example: { jp: "La surface de l'eau est calme.", en: "The surface of the water is calm." }, accept: ["the surface", "area"] },
         { id: "fr-u87l4-lemotif", type: "vocab", front: "le motif", reading: "lemotif", meaning: "pattern", example: { jp: "J'aime le motif de cette robe.", en: "I like the pattern on this dress." }, accept: ["the pattern", "design", "motif"] },
         { id: "fr-u87l4-lecontour", type: "vocab", front: "le contour", reading: "lecontour", meaning: "outline", example: { jp: "On voit le contour de la montagne.", en: "You can see the outline of the mountain." }, accept: ["the outline", "edge", "shape"] },

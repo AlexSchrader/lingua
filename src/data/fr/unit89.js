@@ -57,7 +57,7 @@ export const FR_UNIT89 = {
         { id: "fr-u89l3-ledanger", type: "vocab", front: "le danger", reading: "ledanger", meaning: "danger", example: { jp: "Il n'y a pas de danger ici.", en: "There's no danger here." }, accept: ["the danger", "peril"] },
         { id: "fr-u89l3-prudent", type: "vocab", front: "prudent", reading: "prudent", meaning: "careful", example: { jp: "Mon frère est prudent sur la route.", en: "My brother is careful on the road." }, accept: ["cautious", "prudent", "safe"] },
         { id: "fr-u89l3-imprudent", type: "vocab", front: "imprudent", reading: "imprudent", meaning: "reckless", example: { jp: "C'était imprudent de partir seul.", en: "It was reckless to leave alone." }, accept: ["careless", "unwise", "rash"] },
-        { id: "fr-u89l3-laprecaution", type: "vocab", front: "la précaution", reading: "laprecaution", meaning: "precaution", example: { jp: "Je prends mes précautions.", en: "I'm taking precautions." }, accept: ["the precaution", "safeguard"] },
+        { id: "fr-u89l3-laprecaution", type: "vocab", front: "la précaution", reading: "laprecaution", meaning: "safeguard", example: { jp: "Je prends mes précautions.", en: "I'm taking precautions." }, accept: ["precaution", "the precaution"] },
         { id: "fr-u89l3-semefier", type: "vocab", front: "se méfier", reading: "semefier", meaning: "to be wary", example: { jp: "Il faut se méfier de ce site.", en: "You should be wary of this website." }, accept: ["distrust", "watch out for", "be suspicious"], hint: "You are wary OF something: se méfier de." },
         { id: "fr-u89l3-faireattention", type: "vocab", front: "faire attention", reading: "faireattention", meaning: "to pay attention", example: { jp: "Il faut faire attention sur la route.", en: "You have to pay attention on the road." }, accept: ["watch out", "be careful", "mind"] },
       ],
@@ -71,7 +71,7 @@ export const FR_UNIT89 = {
       dominantMode: "recall",
       canDo: "Frame an event that broke the pattern: suddenly, abruptly, luckily, at worst, except — and in spite of something.",
       items: [
-        { id: "fr-u89l4-soudain", type: "vocab", front: "soudain", reading: "soudain", meaning: "all of a sudden", example: { jp: "Soudain, la lumière s'éteint.", en: "Suddenly, the light goes out." }, accept: ["suddenly", "sudden", "out of nowhere"] },
+        { id: "fr-u89l4-soudain", type: "vocab", front: "soudain", reading: "soudain", meaning: "all of a sudden", example: { jp: "Soudain, tout devient sombre.", en: "Suddenly, everything goes dark." }, accept: ["suddenly", "sudden", "out of nowhere"] },
         { id: "fr-u89l4-brusquement", type: "vocab", front: "brusquement", reading: "brusquement", meaning: "abruptly", example: { jp: "La voiture s'arrête brusquement.", en: "The car stops abruptly." }, accept: ["sharply", "roughly", "all at once"] },
         { id: "fr-u89l4-parchance", type: "vocab", front: "par chance", reading: "parchance", meaning: "as luck would have it", example: { jp: "Par chance, le magasin était ouvert.", en: "Luckily, the shop was open." }, accept: ["luckily", "fortunately", "by good fortune"] },
         { id: "fr-u89l4-aupire", type: "vocab", front: "au pire", reading: "aupire", meaning: "at worst", example: { jp: "Au pire, on prend le bus.", en: "At worst, we take the bus." }, accept: ["worst case", "if the worst comes to the worst"] },

@@ -21,7 +21,7 @@ export const FR_UNIT85 = {
       items: [
         { id: "fr-u85l1-apercevoir", type: "vocab", front: "apercevoir", reading: "apercevoir", meaning: "to catch sight of", example: { jp: "Je viens d'apercevoir le train.", en: "I've just caught sight of the train." }, accept: ["glimpse", "spot", "make out"], hint: "voir is simply to see; apercevoir is to catch a brief glimpse of." },
         { id: "fr-u85l1-observer", type: "vocab", front: "observer", reading: "observer", meaning: "to watch closely", example: { jp: "J'aime observer les oiseaux.", en: "I like watching birds closely." }, accept: ["observe", "study", "watch"] },
-        { id: "fr-u85l1-fixer", type: "vocab", front: "fixer", reading: "fixer", meaning: "to stare at", example: { jp: "Il ne faut pas fixer les autres.", en: "You mustn't stare at other people." }, accept: ["gaze at", "stare", "fix on"], hint: "Also \"to set\": fixer une date, fixer un prix." },
+        { id: "fr-u85l1-fixer", type: "vocab", front: "fixer", reading: "fixer", meaning: "to stare at", example: { jp: "Il ne faut pas fixer son voisin.", en: "You mustn't stare at your neighbour." }, accept: ["gaze at", "stare", "fix on"], hint: "Also \"to set\": fixer une date, fixer un prix." },
         { id: "fr-u85l1-distinguer", type: "vocab", front: "distinguer", reading: "distinguer", meaning: "to tell apart", example: { jp: "Je ne peux pas distinguer les deux couleurs.", en: "I can't tell the two colours apart." }, accept: ["distinguish", "make out", "tell the difference"] },
         { id: "fr-u85l1-lombre", type: "vocab", front: "l'ombre", reading: "lombre", meaning: "shade", example: { jp: "Je préfère rester à l'ombre.", en: "I prefer to stay in the shade." }, accept: ["shadow", "the shade"], hint: "Feminine — une ombre. Covers both the shade you sit in and the shadow you cast." },
         { id: "fr-u85l1-briller", type: "vocab", front: "briller", reading: "briller", meaning: "to shine", example: { jp: "Le soleil brille aujourd'hui.", en: "The sun is shining today." }, accept: ["gleam", "sparkle", "shine out"] },
@@ -41,7 +41,7 @@ export const FR_UNIT85 = {
         { id: "fr-u85l2-eclairer", type: "vocab", front: "éclairer", reading: "eclairer", meaning: "to light up", example: { jp: "Cette lampe éclaire bien la pièce.", en: "This lamp lights the room well." }, accept: ["illuminate", "brighten", "shine on"] },
         { id: "fr-u85l2-lumineux", type: "vocab", front: "lumineux", reading: "lumineux", meaning: "bright", example: { jp: "L'appartement est très lumineux.", en: "The flat is very bright." }, accept: ["light", "well-lit", "luminous"], hint: "Of a room or a place full of daylight — the estate-agent word for a flat with big windows." },
         { id: "fr-u85l2-sombre", type: "vocab", front: "sombre", reading: "sombre", meaning: "dark", example: { jp: "Le couloir est un peu sombre.", en: "The corridor is a little dark." }, accept: ["gloomy", "dim", "dingy"] },
-        { id: "fr-u85l2-pale", type: "vocab", front: "pâle", reading: "pale", meaning: "washed out", example: { jp: "Tu es pâle, tu es malade ?", en: "You're pale, are you ill?" }, accept: ["pale", "pallid", "light"], hint: "The circumflex is the ghost of a lost s — English kept it in \"pallid\"." },
+        { id: "fr-u85l2-pale", type: "vocab", front: "pâle", reading: "pale", meaning: "washed out", example: { jp: "Tu es pâle, tu es malade ?", en: "You're pale, are you ill?" }, accept: ["pale", "pallid", "light"], hint: "Of a face, or of a colour: un bleu pâle. The â is long and open." },
       ],
     },
     {
@@ -51,7 +51,7 @@ export const FR_UNIT85 = {
       title: "Sound and silence",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Talk about what you can hear: an echo, silence, a sound that carries — and call a noise deaf-making or shrill.",
+      canDo: "Talk about what you can hear: an echo, silence, a voice you recognize — a sound that carries, and whether someone is deaf or a noise is shrill.",
       items: [
         { id: "fr-u85l3-lecho", type: "vocab", front: "l'écho", reading: "lecho", meaning: "echo", example: { jp: "Il y a de l'écho dans cette pièce.", en: "There's an echo in this room." }, accept: ["the echo"], hint: "Masculine — un écho. The ch says /k/, as in English." },
         { id: "fr-u85l3-lesilence", type: "vocab", front: "le silence", reading: "lesilence", meaning: "silence", example: { jp: "J'aime le silence du matin.", en: "I like the silence of the morning." }, accept: ["the silence", "quiet"] },
