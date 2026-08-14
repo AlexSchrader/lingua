@@ -29,9 +29,17 @@
 //     list declared below. Inflected forms of a listed cognate count as the same
 //     word (moderno → moderna), as do regular plurals of any taught NOUN
 //     (la silla → sillas). Machine-checked by `node scripts/check-lang-scope.mjs
-//     es`, which parses the FREE line directly — so this declaration is the
-//     single source of truth and the checker can never allow more than it lists.
-//   FREE: Ana, España, México, América | moderno, elegante, famoso, enorme, romántico, fantástico, tranquilo, histórico, importante, rápido, perfecto, humano, favorito, persona | 2000
+//     es`, which parses the FREE lines directly — so these declarations are the
+//     single source of truth and the checker can never allow more than they list.
+//     ANY unit may add its own `// FREE:` line and the checker reads them all, so
+//     a block declares what IT relies on instead of editing block 1's file.
+//     WARNING: blocks 2 and 3 currently declare nothing machine-readable —
+//     es/unit7.js names its naturalized borrowings (taxi, cafe, clase, fiesta,
+//     festival, concierto, examen) in PROSE only, which is exactly why a checker
+//     run reported two of them, clase and examen, as violations. Each of those
+//     units should add its own FREE line; the line below is block 1's own words
+//     plus the proper names the whole language shares.
+//   FREE: Ana, María, Pablo, Carlos, España, México, América, Madrid, Barcelona, Sevilla, Mayor | moderno, elegante, famoso, enorme, romántico, fantástico, tranquilo, histórico, importante, rápido, perfecto, humano, favorito, persona | 2000
 //   - DELIBERATE A1 SIMPLIFICATIONS (revisit at A2): (a) only the present tense,
 //     and verbs are taught as person-marked chunks (soy, hablo, tengo) rather
 //     than infinitives — the infinitive belongs with the grammar units; (b) the
