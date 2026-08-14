@@ -151,14 +151,26 @@ export const CLOZE_BLANK = "＿＿";
 // word can't mis-blank) that appears verbatim in example.jp. Kanji/kana and
 // conjugated examples where the dictionary front isn't a substring degrade safely
 // to the plain card — same as a silent item never listening.
+// Punctuation and whitespace are present in every sentence, so they can never be
+// the surviving context that makes a cloze answerable.
+const CLOZE_CONTEXT_NOISE = /[¿?¡!.,—–…"“”'‘’:;()[\]«»。、！？\s]/g;
+
 export function canCloze(item) {
-  return (
-    !!item &&
-    item.type === "vocab" &&
-    [...(item.front ?? "")].length >= 2 &&
-    !!item.example?.jp &&
-    !!findFrontInExample(item)
-  );
+  if (
+    !item ||
+    item.type !== "vocab" ||
+    [...(item.front ?? "")].length < 2 ||
+    !item.example?.jp ||
+    !findFrontInExample(item)
+  ) return false;
+  // …and the blank has to leave something to reason FROM. Where the front IS the
+  // whole sentence, blanking it yields "¿＿＿?" — every content word gone, only
+  // the English gloss left. That grades fine, so nothing looks broken; it has
+  // just stopped being a cloze and become a reverse-recognition card in disguise.
+  // Real case, caught by tests/unit/latin-cards.test.mjs the moment Spanish
+  // merged: es-u3l1-comotellamas, front "cómo te llamas", example
+  // "¿Cómo te llamas?" — the entire sentence is the target word.
+  return blankExample(item).replace(CLOZE_BLANK, " ").replace(CLOZE_CONTEXT_NOISE, "").length > 0;
 }
 
 // example.jp with the FIRST occurrence of the target word replaced by the blank.
