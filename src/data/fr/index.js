@@ -59,7 +59,44 @@ import { FR_UNIT54 } from "./unit54.js";
 import { FR_UNIT55 } from "./unit55.js";
 import { FR_UNIT56 } from "./unit56.js";
 import { FR_UNIT57 } from "./unit57.js";
+import { FR_UNIT58 } from "./unit58.js";
+import { FR_UNIT59 } from "./unit59.js";
+import { FR_UNIT60 } from "./unit60.js";
+import { FR_UNIT61 } from "./unit61.js";
+import { FR_UNIT62 } from "./unit62.js";
+import { FR_UNIT63 } from "./unit63.js";
+import { FR_UNIT64 } from "./unit64.js";
+import { FR_UNIT65 } from "./unit65.js";
+import { FR_UNIT66 } from "./unit66.js";
+import { FR_UNIT67 } from "./unit67.js";
+import { FR_UNIT68 } from "./unit68.js";
+import { FR_UNIT69 } from "./unit69.js";
+import { FR_UNIT70 } from "./unit70.js";
+import { FR_UNIT71 } from "./unit71.js";
+import { FR_UNIT72 } from "./unit72.js";
+import { FR_UNIT73 } from "./unit73.js";
+import { FR_UNIT74 } from "./unit74.js";
+import { FR_UNIT75 } from "./unit75.js";
+import { FR_UNIT76 } from "./unit76.js";
+import { FR_UNIT77 } from "./unit77.js";
+import { FR_UNIT78 } from "./unit78.js";
+import { FR_UNIT79 } from "./unit79.js";
+import { FR_UNIT80 } from "./unit80.js";
+import { FR_UNIT81 } from "./unit81.js";
+import { FR_UNIT82 } from "./unit82.js";
+import { FR_UNIT83 } from "./unit83.js";
+import { FR_UNIT84 } from "./unit84.js";
+import { FR_UNIT85 } from "./unit85.js";
+import { FR_UNIT86 } from "./unit86.js";
+import { FR_UNIT87 } from "./unit87.js";
+import { FR_UNIT88 } from "./unit88.js";
+import { FR_UNIT89 } from "./unit89.js";
+import { FR_UNIT90 } from "./unit90.js";
+import { FR_UNIT91 } from "./unit91.js";
+import { FR_UNIT92 } from "./unit92.js";
+import { FR_UNIT93 } from "./unit93.js";
+import { FR_UNIT94 } from "./unit94.js";
 
 export const FR_UNITS = [
-  FR_UNIT1, FR_UNIT2, FR_UNIT3, FR_UNIT4, FR_UNIT5, FR_UNIT6, FR_UNIT7, FR_UNIT8, FR_UNIT9, FR_UNIT10, FR_UNIT11, FR_UNIT12, FR_UNIT13, FR_UNIT14, FR_UNIT15, FR_UNIT16, FR_UNIT17, FR_UNIT18, FR_UNIT19, FR_UNIT20, FR_UNIT21, FR_UNIT22, FR_UNIT23, FR_UNIT24, FR_UNIT25, FR_UNIT26, FR_UNIT27, FR_UNIT28, FR_UNIT29, FR_UNIT30, FR_UNIT31, FR_UNIT32, FR_UNIT33, FR_UNIT34, FR_UNIT35, FR_UNIT36, FR_UNIT37, FR_UNIT38, FR_UNIT39, FR_UNIT40, FR_UNIT41, FR_UNIT42, FR_UNIT43, FR_UNIT44, FR_UNIT45, FR_UNIT46, FR_UNIT47, FR_UNIT48, FR_UNIT49, FR_UNIT50, FR_UNIT51, FR_UNIT52, FR_UNIT53, FR_UNIT54, FR_UNIT55, FR_UNIT56, FR_UNIT57,
+  FR_UNIT1, FR_UNIT2, FR_UNIT3, FR_UNIT4, FR_UNIT5, FR_UNIT6, FR_UNIT7, FR_UNIT8, FR_UNIT9, FR_UNIT10, FR_UNIT11, FR_UNIT12, FR_UNIT13, FR_UNIT14, FR_UNIT15, FR_UNIT16, FR_UNIT17, FR_UNIT18, FR_UNIT19, FR_UNIT20, FR_UNIT21, FR_UNIT22, FR_UNIT23, FR_UNIT24, FR_UNIT25, FR_UNIT26, FR_UNIT27, FR_UNIT28, FR_UNIT29, FR_UNIT30, FR_UNIT31, FR_UNIT32, FR_UNIT33, FR_UNIT34, FR_UNIT35, FR_UNIT36, FR_UNIT37, FR_UNIT38, FR_UNIT39, FR_UNIT40, FR_UNIT41, FR_UNIT42, FR_UNIT43, FR_UNIT44, FR_UNIT45, FR_UNIT46, FR_UNIT47, FR_UNIT48, FR_UNIT49, FR_UNIT50, FR_UNIT51, FR_UNIT52, FR_UNIT53, FR_UNIT54, FR_UNIT55, FR_UNIT56, FR_UNIT57, FR_UNIT58, FR_UNIT59, FR_UNIT60, FR_UNIT61, FR_UNIT62, FR_UNIT63, FR_UNIT64, FR_UNIT65, FR_UNIT66, FR_UNIT67, FR_UNIT68, FR_UNIT69, FR_UNIT70, FR_UNIT71, FR_UNIT72, FR_UNIT73, FR_UNIT74, FR_UNIT75, FR_UNIT76, FR_UNIT77, FR_UNIT78, FR_UNIT79, FR_UNIT80, FR_UNIT81, FR_UNIT82, FR_UNIT83, FR_UNIT84, FR_UNIT85, FR_UNIT86, FR_UNIT87, FR_UNIT88, FR_UNIT89, FR_UNIT90, FR_UNIT91, FR_UNIT92, FR_UNIT93, FR_UNIT94,
 ];

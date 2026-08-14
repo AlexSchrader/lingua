@@ -187,6 +187,10 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 | Language | Block | Status | Branch | Worktree | Notes / unresolved |
 |---|---|---|---|---|---|
+| French 🇫🇷 **B1** | — | **scaffolded** | `content/fr-b1-scaffold` | (main checkout) | Shared base off `main`. fr-u58–u94, 37 units, all stage `b1`, 249 units validate green. A1+A2 (u1–57) already merged. Latin script ⇒ no character units. |
+| French 🇫🇷 B1 | 1 | ready — awaiting kickoff | `content/fr-b1-block1` | `C:devlingua-frb1-1` | Units 58–70 (13 units — thematic, first half) |
+| French 🇫🇷 B1 | 2 | ready — awaiting kickoff | `content/fr-b1-block2` | `C:devlingua-frb1-2` | Units 71–83 (13 units — rest of thematic + grammar/register) |
+| French 🇫🇷 B1 | 3 | ready — awaiting kickoff | `content/fr-b1-block3` | `C:devlingua-frb1-3` | Units 84–94 (11 units — coverage). Draws on blocks 1–2 vocab. |
 | Spanish 🇪🇸 | — | **scaffolded** | `content/es-scaffold` | `C:\dev\lingua-prereq` | Shared base, commit `e7a88af`. 20 locked-stub units, 145 total validate green. All three blocks branch from here. |
 | Spanish 🇪🇸 | 1 | **handed back** | `content/es-a1-block1` | `C:\dev\lingua-es1` | Units 1–6, 145 cards. content-auditor PASS at rev 2; fact-checker + truth-agent applied. Owns the function words its sounds unit needed — see the merge-day entry below. |
 | Spanish 🇪🇸 | 2 | **handed back** | `content/es-a1-block2` | `C:\dev\lingua-es2` | Units 7–11, 121 cards. **7 fronts collide with block 1** (`el museo`, `el coche`, `el cielo`, `el año`, `el ojo`, `el día`, `hoy`) — true duplicates, lower-slot-wins applies. |
