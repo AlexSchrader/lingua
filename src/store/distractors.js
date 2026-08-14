@@ -4,6 +4,8 @@
 // crashes — if there aren't enough distractors it simply returns fewer options
 // (down to 2, or 1 in the degenerate case of a lone item).
 
+import { normalizeText } from "./answer.js";
+
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -85,11 +87,55 @@ export function buildOptions(item, allItems, count = 4, fieldOverride = null) {
     }
   }
 
+  // NO OPTION MAY BE A CORRECT ANSWER EXCEPT THE CORRECT ONE.
+  //
+  // De-duplicating on the DISPLAYED field is not enough on the REVERSE card,
+  // where the prompt is item.meaning and the options are fronts. A peer with a
+  // different front whose own accept[] contains the prompt string passes the
+  // display-level check and is offered as "wrong" — while being a right answer.
+  // Grading is a plain identity flag that never consults accept[], so the learner
+  // is marked wrong for knowing more. Measured, not theorised: 25 same-unit
+  // French pairs, firing in 8-15% of builds (prompt "personality" offering
+  // le caractère beside la personnalité).
+  //
+  // The test is deliberately NARROW: is the prompt, as displayed, one of the
+  // senses this candidate claims? Comparing whole sense-sets instead would delete
+  // the corpus's best distractors — un "a (masculine)" and une "a (feminine)"
+  // share the sense "a", but the displayed parenthetical is exactly what makes
+  // that card answerable, and the pair is the gender contrast French most needs
+  // to drill. So the comparison PRESERVES parentheticals, where the grader's
+  // normalizeMeaning() strips them. Same reason le/la and il est/elle est survive.
+  const senseKey = (s) =>
+    normalizeText(String(s ?? ""))
+      .replace(/\s+/g, " ")
+      .trim()
+      .replace(/^(?:a|an|the)\s+/, "")
+      .replace(/^to\s+/, "");
+  // Senses a candidate claims: its gloss plus accept[], split the way the typed
+  // grader splits them ("rice/meal" → rice, meal).
+  const claimedSenses = (cand) => {
+    const out = new Set();
+    for (const gloss of [cand?.meaning, ...(cand?.accept || [])].filter(Boolean))
+      for (const part of String(gloss).split(/\s*(?:[/,;]|\bor\b)\s*/)) {
+        const k = senseKey(part);
+        if (k) out.add(k);
+      }
+    return out;
+  };
+  // Only meaningful when the options are NOT the meanings — i.e. the prompt is
+  // the meaning (reverse card, listening card). On a forward card the prompt is
+  // the front, and no peer can share it (fronts are unique per language).
+  const promptIsMeaning = field !== "meaning";
+  const promptSense = promptIsMeaning ? senseKey(item.meaning) : null;
+  const alsoCorrect = (cand) =>
+    !!promptSense && claimedSenses(cand).has(promptSense);
+
   const seen = new Set([norm(correctVal)]);
   const distractors = [];
   for (const it of pool) {
     const v = it[field];
     if (seen.has(norm(v))) continue;
+    if (alsoCorrect(it)) continue;
     seen.add(norm(v));
     distractors.push(v);
     if (distractors.length >= count - 1) break;
