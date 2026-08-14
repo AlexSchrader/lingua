@@ -178,6 +178,8 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 | Language | Block | Status | Branch | Worktree | Notes / unresolved |
 |---|---|---|---|---|---|
+| Japanese 🇯🇵 **B2** | — | **scaffolded** | `content/ja-b2-scaffold` | (branch only) | Shared base, commit `fd41f0b`. ja-u156–u208, all stage b2, 53 locked stubs, 235 units validate green. **14 character units, not the blueprint's 20** — sized to the 224 glyphs that have stroke data. N2 fetch done up front (`934` KanjiVG entries), so no seat touches that shared file. |
+| Japanese 🇯🇵 B2 | 1 | **authoring** | `content/ja-b2-block1` | `C:\dev\lingua-jab2-1` | Units 156–173 — 10 thematic (argument → ethics) + **8 character units**. **Glyph budget claimed: the FIRST 128 of the 224-glyph pool** (圧 … 策). Block 2 gets the remaining 96 for its 6 character units; 128 + 96 = 224 exactly, so there is no slack and no third claimant. |
 | Spanish 🇪🇸 | — | **scaffolded** | `content/es-scaffold` | `C:\dev\lingua-prereq` | Shared base, commit `e7a88af`. 20 locked-stub units, 145 total validate green. All three blocks branch from here. |
 | Spanish 🇪🇸 | 1 | **handed back** | `content/es-a1-block1` | `C:\dev\lingua-es1` | Units 1–6, 145 cards. content-auditor PASS at rev 2; fact-checker + truth-agent applied. Owns the function words its sounds unit needed — see the merge-day entry below. |
 | Spanish 🇪🇸 | 2 | **handed back** | `content/es-a1-block2` | `C:\dev\lingua-es2` | Units 7–11, 121 cards. **7 fronts collide with block 1** (`el museo`, `el coche`, `el cielo`, `el año`, `el ojo`, `el día`, `hoy`) — true duplicates, lower-slot-wins applies. |
