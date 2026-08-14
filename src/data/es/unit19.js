@@ -60,6 +60,7 @@ export const ES_UNIT19 = {
         { id: "es-u19l3-casi", type: "vocab", front: "casi", reading: "casi", meaning: "almost", example: { jp: "Casi siempre trabajo en la oficina.", en: "I almost always work in the office." }, accept: ["nearly", "almost"] },
         { id: "es-u19l3-otravez", type: "vocab", front: "otra vez", reading: "otravez", meaning: "again", example: { jp: "Escribo la palabra otra vez.", en: "I write the word again." }, accept: ["one more time", "once more", "again"], hint: "Literally \"another time\" — otra from Unit 14." },
         { id: "es-u19l3-ya", type: "vocab", front: "ya", reading: "ya", meaning: "already", example: { jp: "Ya terminé el examen.", en: "I've already finished the exam." }, accept: ["now", "yet", "already"], hint: "Tiny and everywhere. With a past verb it means already; on its own, \"¡Ya!\" means \"right now!\"." },
+        { id: "es-u19l3-todoslosdias", type: "vocab", front: "todos los días", reading: "todoslosdias", meaning: "every day", example: { jp: "Trabajo todos los días.", en: "I work every day." }, accept: ["daily", "each day"], hint: "Literally \"all the days\". The one in this lesson that means the MOST often — the far end from nunca." },
       ],
     },
     {

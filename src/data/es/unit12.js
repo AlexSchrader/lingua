@@ -68,6 +68,7 @@ export const ES_UNIT12 = {
         { id: "es-u12l1-este", type: "vocab", front: "este", reading: "este", meaning: "this (with a masculine word)", example: { jp: "Este pan es muy bueno.", en: "This bread is very good." }, accept: ["this"], hint: "este goes in front of a masculine noun, esta in front of a feminine one: este pan, esta casa." },
         { id: "es-u12l1-esta", type: "vocab", front: "esta", reading: "esta", meaning: "this (with a feminine word)", example: { jp: "Esta casa es pequeña.", en: "This house is small." }, accept: ["this"], hint: "esta goes in front of a feminine noun: esta casa, esta semana. Careful: está with an accent is a different word (Lesson 4)." },
         { id: "es-u12l1-ese", type: "vocab", front: "ese", reading: "ese", meaning: "that (with a masculine word)", example: { jp: "Ese café es muy bueno.", en: "That coffee is very good." }, accept: ["that"], hint: "The whole set in one line: este/esta for what's near you, ese/esa for what's further off — and esto/eso when you can't name the thing at all." },
+        { id: "es-u12l1-esa", type: "vocab", front: "esa", reading: "esa", meaning: "that (with a feminine word)", example: { jp: "Esa tienda es nueva.", en: "That shop is new." }, accept: ["that"], hint: "The feminine partner of ese, and the last piece of the set: ese pan, esa tienda." },
       ],
     },
     {
@@ -84,6 +85,7 @@ export const ES_UNIT12 = {
         { id: "es-u12l2-los", type: "vocab", front: "los", reading: "los", meaning: "the (masculine plural)", example: { jp: "Los amigos son buenos.", en: "The friends are good." }, accept: ["the"], hint: "Plural: el -> los, la -> las. The noun takes an -s too: el amigo -> los amigos." },
         { id: "es-u12l2-las", type: "vocab", front: "las", reading: "las", meaning: "the (feminine plural)", example: { jp: "Las manos son pequeñas.", en: "The hands are small." }, accept: ["the"] },
         { id: "es-u12l2-unos", type: "vocab", front: "unos", reading: "unos", meaning: "some (masculine)", example: { jp: "Hay unos amigos en el parque.", en: "There are some friends in the park." }, accept: ["a few", "some"], hint: "un has a plural: un amigo -> unos amigos, una casa -> unas casas. English often drops it (\"there are friends\"), Spanish keeps it." },
+        { id: "es-u12l2-unas", type: "vocab", front: "unas", reading: "unas", meaning: "some (feminine)", example: { jp: "Hay unas casas en la calle.", en: "There are some houses in the street." }, accept: ["a few", "some"], hint: "The feminine of unos, exactly as las is the feminine of los." },
       ],
     },
     {
@@ -100,6 +102,7 @@ export const ES_UNIT12 = {
         { id: "es-u12l3-nosotros", type: "vocab", front: "nosotros", reading: "nosotros", meaning: "we", example: { jp: "Nosotros somos amigos.", en: "We're friends." }, accept: ["us"], hint: "somos = \"we are\" — the nosotros form of the verb in Lesson 1. A group of women is nosotras." },
         { id: "es-u12l3-ellos", type: "vocab", front: "ellos", reading: "ellos", meaning: "they", example: { jp: "Ellos son buenos amigos.", en: "They're good friends." }, accept: ["them"] },
         { id: "es-u12l3-ellas", type: "vocab", front: "ellas", reading: "ellas", meaning: "they (all women)", example: { jp: "Ellas son mis hermanas.", en: "They're my sisters." }, accept: ["them", "they"], hint: "Spanish splits \"they\": ellas only when every one of them is female, ellos for a group of men OR any mixed group. One man in the room and it's ellos." },
+        { id: "es-u12l3-nosotras", type: "vocab", front: "nosotras", reading: "nosotras", meaning: "we (all women)", example: { jp: "Nosotras somos hermanas.", en: "We're sisters." }, accept: ["us"], hint: "Same split as ellos/ellas, one person closer: nosotras only when the whole group is female, nosotros otherwise." },
       ],
     },
     {
@@ -116,6 +119,7 @@ export const ES_UNIT12 = {
         { id: "es-u12l4-estoy", type: "vocab", front: "estoy", reading: "estoy", meaning: "I am (here / like this)", example: { jp: "Estoy en casa.", en: "I'm at home." }, accept: ["i am", "i'm"], hint: "Spanish has TWO verbs for \"to be\". soy/es/son say what something IS; estoy/estás/está say where it is or how it is right now." },
         { id: "es-u12l4-esta", type: "vocab", front: "está", reading: "esta", meaning: "is (in a place / in a state)", example: { jp: "La escuela está en la ciudad.", en: "The school is in the city." }, accept: ["he is", "she is", "it is"], hint: "está with an accent = is located / is feeling. esta without one = \"this\" (Lesson 1)." },
         { id: "es-u12l4-estan", type: "vocab", front: "están", reading: "estan", meaning: "are (in a place / in a state)", example: { jp: "Los médicos están en el hospital.", en: "The doctors are at the hospital." }, accept: ["they are"] },
+        { id: "es-u12l4-estar", type: "vocab", front: "estar", reading: "estar", meaning: "to be (in a place)", example: { jp: "Es bueno estar en casa.", en: "It's good to be at home." }, accept: ["be", "to be"], hint: "The name of the verb all five forms above belong to. A dictionary lists estar; a sentence uses estoy, estás, está, estamos, están." },
       ],
     },
   ],

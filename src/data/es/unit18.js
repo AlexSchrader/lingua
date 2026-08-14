@@ -41,6 +41,7 @@ export const ES_UNIT18 = {
         { id: "es-u18l2-laclase", type: "vocab", front: "la clase", reading: "laclase", meaning: "the class", example: { jp: "La clase de español es muy buena.", en: "The Spanish class is very good." }, accept: ["lesson", "classroom", "class"] },
         { id: "es-u18l2-elprofesor", type: "vocab", front: "el profesor", reading: "elprofesor", meaning: "the teacher", example: { jp: "El profesor habla español.", en: "The teacher speaks Spanish." }, accept: ["lecturer", "professor", "teacher"], hint: "A woman teaching is la profesora — and in class everyone just says profe." },
         { id: "es-u18l2-elexamen", type: "vocab", front: "el examen", reading: "elexamen", meaning: "the exam", example: { jp: "El examen es difícil.", en: "The exam is hard." }, accept: ["exam", "test"] },
+        { id: "es-u18l2-elestudiante", type: "vocab", front: "el estudiante", reading: "elestudiante", meaning: "the student", example: { jp: "El estudiante escribe en el cuaderno.", en: "The student writes in the notebook." }, accept: ["student", "pupil"], hint: "One word for both: el estudiante, la estudiante — only the article changes. Contrast el profesor / la profesora above, which changes the word itself." },
       ],
     },
     {

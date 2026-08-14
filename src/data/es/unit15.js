@@ -42,6 +42,7 @@ export const ES_UNIT15 = {
         { id: "es-u15l2-elarmario", type: "vocab", front: "el armario", reading: "elarmario", meaning: "the wardrobe", example: { jp: "El armario está en el dormitorio.", en: "The wardrobe is in the bedroom." }, accept: ["wardrobe", "closet", "cupboard"] },
         { id: "es-u15l2-lalampara", type: "vocab", front: "la lámpara", reading: "lalampara", meaning: "the lamp", example: { jp: "Hay una lámpara en el salón.", en: "There's a lamp in the living room." }, accept: ["lamp", "light"] },
         { id: "es-u15l2-elespejo", type: "vocab", front: "el espejo", reading: "elespejo", meaning: "the mirror", example: { jp: "Hay un espejo en el baño.", en: "There's a mirror in the bathroom." }, accept: ["mirror"] },
+        { id: "es-u15l2-elcuadro", type: "vocab", front: "el cuadro", reading: "elcuadro", meaning: "the picture", example: { jp: "Hay un cuadro en el salón.", en: "There's a picture in the living room." }, accept: ["painting", "the picture", "frame"], hint: "A framed picture on a wall — from cuadro, \"square\". A photo is una foto." },
       ],
     },
     {
@@ -58,6 +59,7 @@ export const ES_UNIT15 = {
         { id: "es-u15l3-labolsa", type: "vocab", front: "la bolsa", reading: "labolsa", meaning: "the bag", example: { jp: "Compro una bolsa en la tienda.", en: "I buy a bag at the shop." }, accept: ["bag", "carrier bag"] },
         { id: "es-u15l3-elpapel", type: "vocab", front: "el papel", reading: "elpapel", meaning: "the paper", example: { jp: "Necesito papel para escribir.", en: "I need paper to write on." }, accept: ["paper", "sheet of paper"] },
         { id: "es-u15l3-lafoto", type: "vocab", front: "la foto", reading: "lafoto", meaning: "the photo", example: { jp: "Hay una foto de María en el salón.", en: "There's a photo of María in the living room." }, accept: ["photo", "picture", "photograph"], hint: "Feminine even though it ends in -o — it's short for la fotografía." },
+        { id: "es-u15l3-elmovil", type: "vocab", front: "el móvil", reading: "elmovil", meaning: "the mobile phone", example: { jp: "Mi móvil está en la mesa.", en: "My mobile is on the table." }, accept: ["mobile", "phone", "cell phone", "cellphone"], hint: "In Spain el móvil; across most of Latin America el celular. Both are just the adjective — \"the mobile (one)\"." },
       ],
     },
     {

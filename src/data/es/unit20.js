@@ -33,6 +33,7 @@ export const ES_UNIT20 = {
         { id: "es-u20l1-cuando", type: "vocab", front: "cuando", reading: "cuando", meaning: "when (joining two ideas)", example: { jp: "Cuando llueve, voy en autobús.", en: "When it rains, I take the bus." }, accept: ["whenever", "when"], hint: "No accent when it joins two ideas; with an accent, ¿cuándo?, it asks the question (Lesson 3)." },
         { id: "es-u20l1-si", type: "vocab", front: "si", reading: "si", meaning: "if", example: { jp: "Voy al parque si hace sol.", en: "I'll go to the park if it's sunny." }, accept: ["whether", "if"], hint: "si without an accent = if. sí with one = yes. The accent is the only difference, and it matters." },
         { id: "es-u20l1-entonces", type: "vocab", front: "entonces", reading: "entonces", meaning: "then", example: { jp: "¿No hay pan? Entonces compro pan.", en: "There's no bread? Then I'll buy some." }, accept: ["so", "in that case", "then"] },
+        { id: "es-u20l1-o", type: "vocab", front: "o", reading: "o", meaning: "or", example: { jp: "¿Café o té?", en: "Coffee or tea?" }, accept: ["either"], hint: "The partner of y. Before a word starting with o- or ho- it becomes u, to keep the two sounds apart: siete u ocho." },
       ],
     },
     {
@@ -49,6 +50,7 @@ export const ES_UNIT20 = {
         { id: "es-u20l2-demasiado", type: "vocab", front: "demasiado", reading: "demasiado", meaning: "too much", example: { jp: "Hay demasiado trabajo hoy.", en: "There's too much work today." }, accept: ["too", "too many", "too much"] },
         { id: "es-u20l2-bastante", type: "vocab", front: "bastante", reading: "bastante", meaning: "quite", example: { jp: "El piso es bastante grande.", en: "The flat is quite big." }, accept: ["fairly", "enough", "rather"] },
         { id: "es-u20l2-solo", type: "vocab", front: "solo", reading: "solo", meaning: "only", example: { jp: "Solo tengo cinco euros.", en: "I only have five euros." }, accept: ["just", "merely", "only"], hint: "Written without an accent since the 2010 spelling reform. Older books print sólo when it means \"only\"; both are still read the same way." },
+        { id: "es-u20l2-algo", type: "vocab", front: "algo", reading: "algo", meaning: "something", example: { jp: "Hay algo en la bolsa.", en: "There's something in the bag." }, accept: ["anything", "a bit"], hint: "The opposite number to nada in this lesson: algo is something, nada is nothing." },
       ],
     },
     {
@@ -82,6 +84,7 @@ export const ES_UNIT20 = {
         { id: "es-u20l4-ellugar", type: "vocab", front: "el lugar", reading: "ellugar", meaning: "the place", example: { jp: "Es un lugar muy bonito.", en: "It's a very pretty place." }, accept: ["spot", "location", "place"] },
         { id: "es-u20l4-laparte", type: "vocab", front: "la parte", reading: "laparte", meaning: "the part", example: { jp: "Esta parte de la ciudad es nueva.", en: "This part of the city is new." }, accept: ["section", "piece", "part"] },
         { id: "es-u20l4-lavida", type: "vocab", front: "la vida", reading: "lavida", meaning: "the life", example: { jp: "La vida en la ciudad es cara.", en: "Life in the city is expensive." }, accept: ["living", "life"], hint: "Spanish keeps the article where English drops it: LA vida es corta = life is short." },
+        { id: "es-u20l4-elproblema", type: "vocab", front: "el problema", reading: "elproblema", meaning: "the problem", example: { jp: "No hay problema.", en: "No problem." }, accept: ["problem", "issue", "trouble"], hint: "Masculine despite the -a — one of the Greek -ma words (el problema, el tema, el sistema). \"No hay problema\" is the everyday reassurance." },
       ],
     },
   ],

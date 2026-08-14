@@ -63,6 +63,7 @@ export const ES_UNIT14 = {
         { id: "es-u14l3-tus", type: "vocab", front: "tus", reading: "tus", meaning: "your (with more than one)", example: { jp: "¿Y tus hermanos?", en: "And your brothers?" }, accept: ["your"], hint: "The possessive agrees with the THING owned, not the owner: tu hermano -> tus hermanos." },
         { id: "es-u14l3-nuestro", type: "vocab", front: "nuestro", reading: "nuestro", meaning: "our (masculine)", example: { jp: "Nuestro coche es pequeño.", en: "Our car is small." }, accept: ["ours", "our"], hint: "The one possessive that DOES change for gender: nuestro piso, nuestra casa, nuestros amigos, nuestras manos. mi, tu and su never do." },
         { id: "es-u14l3-sus", type: "vocab", front: "sus", reading: "sus", meaning: "his / her (with more than one)", example: { jp: "Sus hijos están en la escuela.", en: "Her children are at school." }, accept: ["their", "her", "his"] },
+        { id: "es-u14l3-nuestra", type: "vocab", front: "nuestra", reading: "nuestra", meaning: "our (feminine)", example: { jp: "Nuestra casa está en el pueblo.", en: "Our house is in the town." }, accept: ["ours", "our"], hint: "The other half of nuestro, and the proof of the rule above: nuestro coche, nuestra casa." },
       ],
     },
     {

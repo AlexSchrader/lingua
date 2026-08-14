@@ -57,6 +57,7 @@ export const ES_UNIT16 = {
         { id: "es-u16l3-latarjeta", type: "vocab", front: "la tarjeta", reading: "latarjeta", meaning: "the card", example: { jp: "Mi tarjeta está en el bolso.", en: "My card is in my handbag." }, accept: ["bank card", "credit card", "card"] },
         { id: "es-u16l3-eleuro", type: "vocab", front: "el euro", reading: "eleuro", meaning: "the euro", example: { jp: "Tengo diez euros.", en: "I have ten euros." }, accept: ["euro"] },
         { id: "es-u16l3-elcambio", type: "vocab", front: "el cambio", reading: "elcambio", meaning: "the change", example: { jp: "¿Tiene cambio de diez euros?", en: "Do you have change for ten euros?" }, accept: ["change", "small change"] },
+        { id: "es-u16l3-lamoneda", type: "vocab", front: "la moneda", reading: "lamoneda", meaning: "the coin", example: { jp: "Tengo una moneda de dos euros.", en: "I have a two-euro coin." }, accept: ["coin", "currency"], hint: "Both the coin in your hand and the currency itself: el euro es la moneda de España." },
       ],
     },
     {

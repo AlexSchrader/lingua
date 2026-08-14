@@ -24,6 +24,7 @@ export const ES_UNIT17 = {
         { id: "es-u17l1-elcamion", type: "vocab", front: "el camión", reading: "elcamion", meaning: "the lorry", example: { jp: "El camión es muy grande.", en: "The lorry is very big." }, accept: ["camion", "truck", "lorry"], hint: "A truck in Spain — but in Mexico el camión is the everyday word for a bus, so listen to where you are." },
         { id: "es-u17l1-labicicleta", type: "vocab", front: "la bicicleta", reading: "labicicleta", meaning: "the bicycle", example: { jp: "María va en bicicleta.", en: "María goes by bike." }, accept: ["bike", "bicycle", "cycle"], hint: "Shortened to la bici in everyday speech, exactly like English \"bike\"." },
         { id: "es-u17l1-lamoto", type: "vocab", front: "la moto", reading: "lamoto", meaning: "the motorbike", example: { jp: "La moto es de Pablo.", en: "The motorbike is Pablo's." }, accept: ["motorcycle", "motorbike", "scooter"], hint: "Feminine despite the -o, like la foto — it's short for la motocicleta." },
+        { id: "es-u17l1-eltaxi", type: "vocab", front: "el taxi", reading: "eltaxi", meaning: "the taxi", example: { jp: "Voy al aeropuerto en taxi.", en: "I'm going to the airport by taxi." }, accept: ["taxi", "cab"], hint: "The same word almost everywhere. Note the pattern in this lesson: en taxi, en barco, en bicicleta — en, never a preposition like English \"by\"." },
       ],
     },
     {
@@ -57,6 +58,7 @@ export const ES_UNIT17 = {
         { id: "es-u17l3-laesquina", type: "vocab", front: "la esquina", reading: "laesquina", meaning: "the corner", example: { jp: "La tienda está en la esquina.", en: "The shop is on the corner." }, accept: ["street corner", "corner"] },
         { id: "es-u17l3-elpuente", type: "vocab", front: "el puente", reading: "elpuente", meaning: "the bridge", example: { jp: "El puente es muy largo.", en: "The bridge is very long." }, accept: ["bridge"] },
         { id: "es-u17l3-elsemaforo", type: "vocab", front: "el semáforo", reading: "elsemaforo", meaning: "the traffic light", example: { jp: "El semáforo está en rojo.", en: "The traffic light is red." }, accept: ["traffic lights", "stoplight", "traffic light"], hint: "\"Está en rojo\" — the light IS at red right now, so it takes está, not es." },
+        { id: "es-u17l3-laacera", type: "vocab", front: "la acera", reading: "laacera", meaning: "the pavement", example: { jp: "La acera de la calle Mayor es muy larga.", en: "The pavement on Calle Mayor is very long." }, accept: ["sidewalk", "the pavement", "footpath"], hint: "La acera in Spain; la vereda or la banqueta in much of Latin America." },
       ],
     },
     {
