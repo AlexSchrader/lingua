@@ -1,18 +1,80 @@
-// JA Unit 127 — Characters 15 (B1) (slot: characters-b1-15) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// JA Unit 127 — かんじ・きせつ (N3 kanji — seasons and occasions) — B1 / JLPT N3
+// Glyph ownership and card shape are documented in unit119.js: slice 15 of the
+// pool that remains once block 1's authored 160 glyphs are subtracted.
 export const UNIT127 = {
   id: "ja-u127",
   lang: "ja",
-  title: "Characters 15 (B1)",
+  title: "かんじ・きせつ",
   order: 127,
   stage: "b1",
   lessons: [
-    { id: "ja-u127l1", title: "Lesson 1", locked: true },
-    { id: "ja-u127l2", title: "Lesson 2", locked: true },
-    { id: "ja-u127l3", title: "Lesson 3", locked: true },
-    { id: "ja-u127l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u127l1",
+      unit: 127,
+      lesson: 1,
+      title: "Receiving and going round",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 受 (receive), 周 (circumference), 就 (take up a post), 州 (province), and the words 受験 and 一周.",
+      items: [
+        { id: "ja-u127l1-ukeru", type: "kanji", front: "受", reading: "ukeru", meaning: "receive", example: { jp: "試験を受けてから、まいにちゆうびんを見ています。", en: "Since I sat the exam, I've been checking the post every day." }, accept: ["take (an exam)", "accept", "undergo"], hint: "受 = one hand passing down to another. 受けます = to receive, or to sit an exam. 受験 = taking entrance exams." },
+        { id: "ja-u127l1-mawari", type: "kanji", front: "周", reading: "mawari", meaning: "circumference", example: { jp: "こうえんの周りを一周したら、二十分かかりました。", en: "Going once round the park took me twenty minutes." }, accept: ["around", "lap", "circuit"], hint: "周 = going all the way round the outside of a thing. 周り = the surroundings; 一周 = one lap." },
+        { id: "ja-u127l1-tsuku", type: "kanji", front: "就", reading: "tsuku", meaning: "take up a post", example: { jp: "しごとに就いてから、あさが早くなりました。", en: "Since taking up the job, my mornings start early." }, accept: ["get a job", "assume", "settle into"], hint: "就 = settling into the place set aside for you. 就職 = getting a job. Its on-yomi is しゅう, like 周." },
+        { id: "ja-u127l1-shu", type: "kanji", front: "州", reading: "shū", meaning: "province", example: { jp: "その州は広いのに、人は多くありません。", en: "That state is large, but it doesn't have many people." }, accept: ["state", "region", "county"], hint: "州 = a river with sandbanks in it — land marked off by water. Used for American states and Australian states." },
+        { id: "ja-u127l1-juken", type: "vocab", front: "受験", reading: "juken", meaning: "sitting an exam", example: { jp: "受験がたいへんだったので、おわった日はよくねました。", en: "The entrance exams were hard, so I slept well the day they ended." }, accept: ["taking an examination", "exam season"] },
+        { id: "ja-u127l1-isshu", type: "vocab", front: "一周", reading: "isshū", meaning: "one lap", example: { jp: "一周だけ走って、あとは歩きました。", en: "I ran just one lap, and walked the rest." }, accept: ["once round", "a circuit"] },
+      ],
+    },
+    {
+      id: "ja-u127l2",
+      unit: 127,
+      lesson: 2,
+      title: "Picking up, lodging, heat",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 拾 (pick up), 宿 (lodge), 祝 (celebrate), 暑 (hot), and the words 祝日 and 宿屋.",
+      items: [
+        { id: "ja-u127l2-hirou", type: "kanji", front: "拾", reading: "hiroi", meaning: "pick up", example: { jp: "道でさいふを拾ったので、こうばんに出しました。", en: "I picked up a wallet in the street, so I handed it in at the police box." }, accept: ["gather", "find", "take up"], hint: "拾 = 扌 (hand) + 合 — a hand closing on something on the ground. The opposite of 捨てます (throw away)." },
+        { id: "ja-u127l2-yado", type: "kanji", front: "宿", reading: "yado", meaning: "lodge", example: { jp: "山の宿はふるくても、ごはんがとてもよかったです。", en: "Old as the mountain lodge was, the food was very good." }, accept: ["inn", "stay the night", "lodging"], hint: "宿 = 宀 (a roof) with people 人 under it for the night. 宿題 = homework: the task that lodges with you." },
+        { id: "ja-u127l2-iwau", type: "kanji", front: "祝", reading: "iwau", meaning: "celebrate", example: { jp: "みんなで祝ってから、しゃしんをおくりました。", en: "We all celebrated, and then sent the photos." }, accept: ["congratulate", "mark an occasion"], hint: "祝 = 示 (an altar) + 兄 — words spoken over an offering. 祝日 = a public holiday. Its on-yomi is しゅく, like 宿." },
+        { id: "ja-u127l2-atsui", type: "kanji", front: "暑", reading: "atsui", meaning: "hot (weather)", example: { jp: "今年の夏は暑いので、まいばんまどを開けてねます。", en: "This summer is hot, so I sleep with the window open every night." }, accept: ["sweltering", "the heat"], hint: "暑 = 日 (sun) beating down. 暑い is hot WEATHER; 熱い is hot to the touch." },
+        { id: "ja-u127l2-shukujitsu", type: "vocab", front: "祝日", reading: "shukujitsu", meaning: "public holiday", example: { jp: "祝日にでかけたら、どこも人がいっぱいでした。", en: "I went out on the public holiday, and everywhere was packed." }, accept: ["national holiday", "a bank holiday"] },
+        { id: "ja-u127l2-yadoya", type: "vocab", front: "宿屋", reading: "yadoya", meaning: "an inn", example: { jp: "小さな宿屋なので、家に帰ったような気もちになります。", en: "It's a small inn, so it feels like coming home." }, accept: ["guesthouse", "lodging house"] },
+      ],
+    },
+    {
+      id: "ja-u127l3",
+      unit: 127,
+      lesson: 3,
+      title: "Winning, boarding, conditions",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 勝 (win), 乗 (board), 条 (article/clause), 状 (state), and the words 勝手 and 乗車.",
+      items: [
+        { id: "ja-u127l3-katsu", type: "kanji", front: "勝", reading: "katsu", meaning: "win", example: { jp: "しあいに勝って、みんなで手をたたきました。", en: "We won the match, and everyone clapped." }, accept: ["be victorious", "beat", "excel"], hint: "勝 = 力 (strength) coming out on top. 勝手 = doing as one likes — literally 'the winning hand'." },
+        { id: "ja-u127l3-noru", type: "kanji", front: "乗", reading: "noru", meaning: "board", example: { jp: "電車に乗ったら、はんたいの方でした。", en: "I got on the train, only to find it going the wrong way." }, accept: ["ride", "get on", "take (transport)"], hint: "乗 = a figure up on a tree — climbing on top of something. 乗車 = boarding a vehicle." },
+        { id: "ja-u127l3-jo", type: "kanji", front: "条", reading: "jō", meaning: "clause", example: { jp: "第一条を読んでも、意味が分かりませんでした。", en: "Even reading the first article, I couldn't make out what it meant." }, accept: ["article", "line", "stripe"], hint: "条 = one line or strip of something. It numbers the articles of a rule or a law: 第一条." },
+        { id: "ja-u127l3-jotai", type: "kanji", front: "状", reading: "jō", meaning: "state", example: { jp: "車の状たいがよくないので、来月かえます。", en: "The car isn't in good condition, so I'm replacing it next month." }, accept: ["condition", "letter", "form"], hint: "状 = how a thing stands. 状たい = condition. Its on-yomi is じょう, like 乗 and 条." },
+        { id: "ja-u127l3-katte", type: "vocab", front: "勝手", reading: "katte", meaning: "doing as one pleases", example: { jp: "勝手に決めたのに、だれもおこりませんでした。", en: "I decided it on my own say-so, but nobody was angry." }, accept: ["selfish", "one's own way", "without asking"] },
+        { id: "ja-u127l3-josha", type: "vocab", front: "乗車", reading: "jōsha", meaning: "boarding", example: { jp: "乗車のとき人が多かったので、すわれませんでした。", en: "There were a lot of people when I boarded, so I couldn't sit down." }, accept: ["getting on", "riding"] },
+      ],
+    },
+    {
+      id: "ja-u127l4",
+      unit: 127,
+      lesson: 4,
+      title: "Planting, depth, becoming",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 植 (plant), 深 (deep), 成 (become), 晴 (clear up), and the words 晴天 and 深夜.",
+      items: [
+        { id: "ja-u127l4-ueru", type: "kanji", front: "植", reading: "ueru", meaning: "plant", example: { jp: "にわに木を植えてから、鳥がよく来るようになりました。", en: "Since I planted a tree in the garden, birds come often." }, accept: ["put in the ground", "grow", "set out"], hint: "植 = 木 (tree) + 直 (upright) — standing a plant up in the earth. 植物 = a plant." },
+        { id: "ja-u127l4-fukai", type: "kanji", front: "深", reading: "fukai", meaning: "deep", example: { jp: "この川は深いので、子どもは入れません。", en: "This river is deep, so children can't go in." }, accept: ["profound", "thick", "far in"], hint: "深 = 氵 (water) reaching a long way down. 深夜 = the small hours: deep in the night." },
+        { id: "ja-u127l4-naru", type: "kanji", front: "成", reading: "naru", meaning: "become", example: { jp: "大人に成っても、気持ちは子どものままです。", en: "Even now I'm an adult, inside I'm still a child." }, accept: ["be formed", "achieve", "consist of"], hint: "成 = a thing brought to completion. 成ります is the written form of なります; 成長 = growth." },
+        { id: "ja-u127l4-hareru", type: "kanji", front: "晴", reading: "hareru", meaning: "clear up", example: { jp: "朝は雨でしたので、しゃしんは昼から晴れてからとりました。", en: "It rained in the morning, so I took the photos after it cleared at midday." }, accept: ["be fine", "sunny", "clear"], hint: "晴 = 日 (sun) + 青 (blue) — sun in a blue sky. 晴天 = fine weather. Its on-yomi is せい, like 成." },
+        { id: "ja-u127l4-seiten", type: "vocab", front: "晴天", reading: "seiten", meaning: "fine weather", example: { jp: "晴天がつづいているので、たんぼの水がたりません。", en: "The fine weather is continuing, so there isn't enough water in the fields." }, accept: ["clear skies", "a fine day"] },
+        { id: "ja-u127l4-shinya", type: "vocab", front: "深夜", reading: "shinya", meaning: "the small hours", example: { jp: "深夜まで起きていたので、あさはとてもねむかったです。", en: "I stayed up into the small hours, so I was very sleepy in the morning." }, accept: ["late at night", "the dead of night", "after midnight"] },
+      ],
+    },
   ],
 };

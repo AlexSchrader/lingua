@@ -1,18 +1,80 @@
-// JA Unit 130 — Characters 17 (B1) (slot: characters-b1-17) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// JA Unit 130 — かんじ・すすめる (N3 kanji — carrying work forward) — B1 / JLPT N3
+// Glyph ownership and card shape are documented in unit119.js: slice 17 of the
+// pool that remains once block 1's authored 160 glyphs are subtracted.
 export const UNIT130 = {
   id: "ja-u130",
   lang: "ja",
-  title: "Characters 17 (B1)",
+  title: "かんじ・すすめる",
   order: 130,
   stage: "b1",
   lessons: [
-    { id: "ja-u130l1", title: "Lesson 1", locked: true },
-    { id: "ja-u130l2", title: "Lesson 2", locked: true },
-    { id: "ja-u130l3", title: "Lesson 3", locked: true },
-    { id: "ja-u130l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u130l1",
+      unit: 130,
+      lesson: 1,
+      title: "Reaching, carrying, searching",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 達 (reach), 担 (shoulder), 探 (search), 団 (group), and the words 達人 and 団地.",
+      items: [
+        { id: "ja-u130l1-tatsu", type: "kanji", front: "達", reading: "tassuru", meaning: "reach", example: { jp: "上まで達しなくても、いい思い出になりました。", en: "Even without reaching the top, it became a good memory." }, accept: ["attain", "arrive at", "master"], hint: "達 = 辶 (go) all the way to the end. 友達 = friends — people you have reached." },
+        { id: "ja-u130l1-ninau", type: "kanji", front: "担", reading: "ninau", meaning: "shoulder", example: { jp: "重い品を担いで、山を上りました。", en: "I shouldered the heavy goods and climbed the mountain." }, accept: ["bear", "carry", "take on"], hint: "担 = 扌 (hand) taking a load onto the shoulder. 負担 = a burden you carry." },
+        { id: "ja-u130l1-sagasu", type: "kanji", front: "探", reading: "sagasu", meaning: "search", example: { jp: "一日中探しても、見つかりませんでした。", en: "Even searching all day, I didn't find it." }, accept: ["look for", "hunt", "explore"], hint: "探 = 扌 (hand) reaching down into a deep hole to feel around. Its on-yomi is たん, like 担." },
+        { id: "ja-u130l1-dan", type: "kanji", front: "団", reading: "dan", meaning: "group", example: { jp: "大きな団体が来たので、店はいそがしくなりました。", en: "A large group came, so the shop got busy." }, accept: ["body", "association", "troupe"], hint: "団 = 囗 (an enclosure) with people gathered inside it. 団体 = an organized body, 団地 = a housing estate." },
+        { id: "ja-u130l1-tatsujin", type: "vocab", front: "達人", reading: "tatsujin", meaning: "a master", example: { jp: "父は魚を切る達人なので、正月はいつも父の出ばんです。", en: "My father is a master at cutting fish, so New Year is always his turn." }, accept: ["expert", "adept", "someone who has mastered it"] },
+        { id: "ja-u130l1-danchi", type: "vocab", front: "団地", reading: "danchi", meaning: "housing estate", example: { jp: "団地は駅からとおいので、みんな自転車を使います。", en: "The estate is far from the station, so everyone uses a bicycle." }, accept: ["apartment complex", "housing block"] },
+      ],
+    },
+    {
+      id: "ja-u130l2",
+      unit: 130,
+      lesson: 2,
+      title: "Cutting off, placing, building",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 断 (sever), 置 (place), 築 (build), 丁 (town block), and the words 中断 and 建築.",
+      items: [
+        { id: "ja-u130l2-kotowaru", type: "kanji", front: "断", reading: "kotowaru", meaning: "sever", example: { jp: "しごとを断ってから、すこし後かいしました。", en: "I turned the job down, and afterwards regretted it a little." }, accept: ["cut off", "refuse", "decide"], hint: "断 = 斤 (an axe) cutting threads clean through. 断ります = to turn down, 中断 = breaking off midway." },
+        { id: "ja-u130l2-oku", type: "kanji", front: "置", reading: "oku", meaning: "place", example: { jp: "本を上に置いてから、水を飲みました。", en: "I placed the book on top, and then drank some water." }, accept: ["put", "set down", "leave"], hint: "置 = setting something down where the eye 目 can find it again. 置物 = an ornament: a thing that is simply placed." },
+        { id: "ja-u130l2-chiku", type: "kanji", front: "築", reading: "chiku", meaning: "build", example: { jp: "新しい家を建築中なので、いまはアパートに住んでいます。", en: "A new house is under construction, so we're living in a flat for now." }, accept: ["construct", "erect", "put up"], hint: "築 = 竹 (bamboo) + 工 (work) + 木 — raising a structure out of timber. 建築 = architecture." },
+        { id: "ja-u130l2-cho", type: "kanji", front: "丁", reading: "chō", meaning: "town block", example: { jp: "三丁目に住んでいて、駅までは歩いて行けます。", en: "I live in the third block, and I can walk to the station." }, accept: ["ward", "block number", "counter for tools"], hint: "丁 = the shape of a nail seen from the side. In addresses, 一丁目 二丁目 number the blocks of a district." },
+        { id: "ja-u130l2-chudan", type: "vocab", front: "中断", reading: "chūdan", meaning: "breaking off", example: { jp: "雨で中断したので、二時間後にまた始めました。", en: "It was broken off by rain, so we started again two hours later." }, accept: ["suspension", "interruption", "a stoppage"] },
+        { id: "ja-u130l2-kenchiku", type: "vocab", front: "建築", reading: "kenchiku", meaning: "architecture", example: { jp: "古い建築がすきなので、休みの日はよく町を歩きます。", en: "I like old architecture, so on my days off I often walk round the town." }, accept: ["building", "construction"] },
+      ],
+    },
+    {
+      id: "ja-u130l3",
+      unit: 130,
+      lesson: 3,
+      title: "Ledgers, stretching, low",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 帳 (book of records), 張 (stretch), 低 (low), 適 (suitable), and the words 手帳 and 低下.",
+      items: [
+        { id: "ja-u130l3-chonoto", type: "kanji", front: "帳", reading: "chō", meaning: "book of records", example: { jp: "手帳に書いてから、会社へ行きます。", en: "I write it in my notebook, and then go to the office." }, accept: ["notebook", "ledger", "register"], hint: "帳 = 巾 (cloth) + 長 (long) — a long roll of cloth to write on. Its on-yomi is ちょう, like 丁." },
+        { id: "ja-u130l3-haru", type: "kanji", front: "張", reading: "haru", meaning: "stretch", example: { jp: "気を張っていたので、家に帰ってどっとつかれが出ました。", en: "I'd been keeping myself tense, so the tiredness hit me when I got home." }, accept: ["stretch out", "put up", "strain"], hint: "張 = 弓 (bow) + 長 (long) — a bowstring pulled long and tight. 出張 = a business trip." },
+        { id: "ja-u130l3-hikui", type: "kanji", front: "低", reading: "hikui", meaning: "low", example: { jp: "こえが低いので、後ろの人には聞こえません。", en: "His voice is low, so the people at the back can't hear." }, accept: ["short", "beneath", "down"], hint: "低 = 人 (person) crouched down near the ground. 低い = low; the opposite of 高い." },
+        { id: "ja-u130l3-teki", type: "kanji", front: "適", reading: "teki", meaning: "suitable", example: { jp: "このほうほうが適しているので、みんなにすすめています。", en: "This method is the right one, so I recommend it to everyone." }, accept: ["fitting", "appropriate", "apt"], hint: "適 = 辶 (go) to just the right place. 適当 can mean both 'appropriate' and, in speech, 'slapdash' — tone decides." },
+        { id: "ja-u130l3-techo", type: "vocab", front: "手帳", reading: "techō", meaning: "pocket notebook", example: { jp: "手帳は古くても、字が読めるので使っています。", en: "Old as the notebook is, the writing is readable, so I keep using it." }, accept: ["diary", "planner", "notebook"] },
+        { id: "ja-u130l3-teika", type: "vocab", front: "低下", reading: "teika", meaning: "a decline", example: { jp: "力の低下が分かってきたので、むりはしないことにしました。", en: "I've come to feel my strength declining, so I've decided not to overdo it." }, accept: ["drop", "fall", "deterioration"] },
+      ],
+    },
+    {
+      id: "ja-u130l4",
+      unit: 130,
+      lesson: 4,
+      title: "Points, walking, effort",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 点 (point), 徒 (on foot), 努 (strive), 湯 (hot water), and the words 地点 and 湯気.",
+      items: [
+        { id: "ja-u130l4-ten", type: "kanji", front: "点", reading: "ten", meaning: "point", example: { jp: "点が少なかったので、もう一度試験をうけます。", en: "My points were low, so I'm taking the exam again." }, accept: ["dot", "mark", "score"], hint: "点 = a small mark made with 灬 (fire dots). 地点 = a point on the map, 点数 = a score." },
+        { id: "ja-u130l4-to", type: "kanji", front: "徒", reading: "to", meaning: "on foot", example: { jp: "駅まで徒歩十分なので、朝はゆっくりできます。", en: "It's ten minutes on foot to the station, so mornings are unhurried." }, accept: ["pupil", "walking", "follower"], hint: "徒 = 彳 (a crossroads) + 走 (run) — going by your own legs. 徒歩 = on foot, 生徒 = a pupil." },
+        { id: "ja-u130l4-do", type: "kanji", front: "努", reading: "do", meaning: "strive", example: { jp: "毎日努力していれば、いつか上手になると思います。", en: "If I keep striving every day, I think I'll get good in time." }, accept: ["make an effort", "endeavour", "try hard"], hint: "努 = 力 (strength) put in under pressure. 努力 = effort — the everyday word for hard work." },
+        { id: "ja-u130l4-yu", type: "kanji", front: "湯", reading: "yu", meaning: "hot water", example: { jp: "お湯をわかしてから、お茶を入れます。", en: "I boil the water, and then make the tea." }, accept: ["boiling water", "a bath"], hint: "湯 = 氵 (water) + 昜 (sun rising) — water with heat in it. 水 is cold water; 湯 is always hot." },
+        { id: "ja-u130l4-chiten", type: "vocab", front: "地点", reading: "chiten", meaning: "a point on the map", example: { jp: "この地点で車をとめて、その先は歩きます。", en: "You leave the car at this point, and walk on from there." }, accept: ["spot", "location", "site"] },
+        { id: "ja-u130l4-yuge", type: "vocab", front: "湯気", reading: "yuge", meaning: "steam", example: { jp: "湯気でまどが白くなって、外が見えなくなりました。", en: "The window went white with steam, and I couldn't see outside." }, accept: ["vapour", "steam rising"] },
+      ],
+    },
   ],
 };

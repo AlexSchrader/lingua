@@ -1,18 +1,80 @@
-// JA Unit 132 — Characters 18 (B1) (slot: characters-b1-18) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// JA Unit 132 — かんじ・ちから (N3 kanji — ability and comparison) — B1 / JLPT N3
+// Glyph ownership and card shape are documented in unit119.js: slice 18 of the
+// pool that remains once block 1's authored 160 glyphs are subtracted.
 export const UNIT132 = {
   id: "ja-u132",
   lang: "ja",
-  title: "Characters 18 (B1)",
+  title: "かんじ・ちから",
   order: 132,
   stage: "b1",
   lessons: [
-    { id: "ja-u132l1", title: "Lesson 1", locked: true },
-    { id: "ja-u132l2", title: "Lesson 2", locked: true },
-    { id: "ja-u132l3", title: "Lesson 3", locked: true },
-    { id: "ja-u132l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u132l1",
+      unit: 132,
+      lesson: 1,
+      title: "Unifying, children, gaining",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 統 (unify), 童 (child), 得 (gain), 独 (alone), and the words 童話 and 独立.",
+      items: [
+        { id: "ja-u132l1-toitsu", type: "kanji", front: "統", reading: "tō", meaning: "unify", example: { jp: "国を統一した人なので、教科書にも出てきます。", en: "He unified the country, so he appears in the textbooks too." }, accept: ["bring together", "control", "rule"], hint: "統 = 糸 (thread) drawing separate strands into one line. 統一 = unification, 伝統 = tradition: an unbroken thread." },
+        { id: "ja-u132l1-do", type: "kanji", front: "童", reading: "dō", meaning: "child", example: { jp: "童話は子どものものでも、大人が読んで楽しめます。", en: "Children's stories may be for children, yet adults enjoy them too." }, accept: ["youngster", "juvenile"], hint: "童 = the written word for a child, used in compounds where 子 would be too plain. 童話 = a fairy tale." },
+        { id: "ja-u132l1-eru", type: "kanji", front: "得", reading: "eru", meaning: "gain", example: { jp: "本から多くのことを得て、考え方がかわりました。", en: "I gained a lot from the book, and my way of thinking changed." }, accept: ["obtain", "profit", "acquire"], hint: "得 = 彳 (go) + a hand taking a shell (money) — going out and coming back with something. お得 = a good deal." },
+        { id: "ja-u132l1-doku", type: "kanji", front: "独", reading: "hitori", meaning: "alone", example: { jp: "独りで行っても、こわくはありませんでした。", en: "Even going alone, I wasn't frightened." }, accept: ["single", "by oneself", "sole"], hint: "独 = 犭 (a beast) that hunts on its own. 独立 = independence: standing alone." },
+        { id: "ja-u132l1-dowa", type: "vocab", front: "童話", reading: "dōwa", meaning: "fairy tale", example: { jp: "この童話は古いのに、今の子どももすきです。", en: "This fairy tale is old, but children today like it too." }, accept: ["children's story", "folk tale"] },
+        { id: "ja-u132l1-dokuritsu", type: "vocab", front: "独立", reading: "dokuritsu", meaning: "independence", example: { jp: "独立してから店を始めたので、休みはなくなりました。", en: "I started the shop after going independent, so my days off disappeared." }, accept: ["standing alone", "going independent", "self-reliance"] },
+      ],
+    },
+    {
+      id: "ja-u132l2",
+      unit: 132,
+      lesson: 2,
+      title: "Duty, ability, factions",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 任 (entrust), 能 (ability), 派 (faction), 破 (tear), and the words 主任 and 後任.",
+      items: [
+        { id: "ja-u132l2-nin", type: "kanji", front: "任", reading: "nin", meaning: "entrust", example: { jp: "主任になったので、仕事がふえました。", en: "I became the section head, so my work increased." }, accept: ["duty", "appoint", "leave to"], hint: "任 = 人 (person) carrying a load on a pole — a job placed on someone. 任せます = to leave it to someone." },
+        { id: "ja-u132l2-no", type: "kanji", front: "能", reading: "nō", meaning: "ability", example: { jp: "かれには外国語の能力があるので、会社でよくたのまれます。", en: "He has ability in foreign languages, so the company often calls on him." }, accept: ["capacity", "talent", "can do"], hint: "能 = what a creature is able to do. 可能 = possible, 能力 = ability (taught in kana earlier in this band)." },
+        { id: "ja-u132l2-ha", type: "kanji", front: "派", reading: "ha", meaning: "faction", example: { jp: "会社の中に二つの派ができて、かいぎがふえました。", en: "Two factions formed inside the company, and there are more meetings now." }, accept: ["group", "school of thought", "send"], hint: "派 = 氵 (water) branching into streams — a group that split off. 立派 = splendid, 派手 = flashy." },
+        { id: "ja-u132l2-yaburu", type: "kanji", front: "破", reading: "yaburu", meaning: "tear", example: { jp: "紙を破ってしまったので、もう一度書きました。", en: "I tore the paper, so I wrote it out again." }, accept: ["rip", "break", "destroy"], hint: "破 = 石 (stone) + 皮 (skin) — a stone splitting a surface. 破ります = to tear, or to break a promise. Its on-yomi is は, like 派." },
+        { id: "ja-u132l2-shunin", type: "vocab", front: "主任", reading: "shunin", meaning: "section head", example: { jp: "主任にそうだんしてから、はたらき方をかえました。", en: "I consulted the section head, and then changed how I work." }, accept: ["chief", "person in charge", "supervisor"] },
+        { id: "ja-u132l2-konin", type: "vocab", front: "後任", reading: "kōnin", meaning: "a successor", example: { jp: "後任がまだきまらないので、二人分はたらいています。", en: "No successor has been decided, so I'm doing the work of two." }, accept: ["replacement", "the person who takes over"] },
+      ],
+    },
+    {
+      id: "ja-u132l3",
+      unit: 132,
+      lesson: 3,
+      title: "Defeat, cups, delivery",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 敗 (defeat), 杯 (cupful), 配 (distribute), 判 (judge), and the words 配送 and 配達.",
+      items: [
+        { id: "ja-u132l3-hai", type: "kanji", front: "敗", reading: "yabureru", meaning: "defeat", example: { jp: "一度敗れてから、れんしゅうの時間をふやしました。", en: "After we were beaten once, we increased our practice time." }, accept: ["lose", "be beaten", "failure"], hint: "敗 = 貝 (a shell, money) being struck — losing what you had. 失敗 = a failure." },
+        { id: "ja-u132l3-sakazuki", type: "kanji", front: "杯", reading: "hai", meaning: "cupful", example: { jp: "お茶を二杯飲んだら、体があたたかくなりました。", en: "I drank two cups of tea, and my body warmed up." }, accept: ["glass of", "counter for drinks", "a cup"], hint: "杯 = 木 (wood) + 不 — a wooden drinking cup. It counts drinks: 一杯, 二杯, 三杯. Its on-yomi is はい, like 敗." },
+        { id: "ja-u132l3-kubaru", type: "kanji", front: "配", reading: "kubaru", meaning: "distribute", example: { jp: "紙を配ってから、話を始めました。", en: "I handed out the sheets, and then began the talk." }, accept: ["hand out", "deliver", "arrange"], hint: "配 = 酉 (a jar) + 己 — sharing out what is in the jar. 心配 = worry, 配達 = delivery." },
+        { id: "ja-u132l3-ban", type: "kanji", front: "判", reading: "han", meaning: "judge", example: { jp: "先生が正しいと判断したので、そのまま出しました。", en: "The teacher judged it correct, so I handed it in as it was." }, accept: ["decide", "seal", "verdict"], hint: "判 = 半 (half) + 刂 (blade) — cutting a thing in two to decide which side is right. 判こ = a name seal." },
+        { id: "ja-u132l3-haiso", type: "vocab", front: "配送", reading: "haisō", meaning: "delivery", example: { jp: "配送は早かったのに、はこがこわれていました。", en: "The delivery was fast, but the box was damaged." }, accept: ["shipping", "distribution", "dispatch"] },
+        { id: "ja-u132l3-haitatsu", type: "vocab", front: "配達", reading: "haitatsu", meaning: "delivering to the door", example: { jp: "配達が夕方だったので、家にだれもいませんでした。", en: "The delivery came in the evening, so there was nobody home." }, accept: ["a delivery round", "bringing it round"] },
+      ],
+    },
+    {
+      id: "ja-u132l4",
+      unit: 132,
+      lesson: 4,
+      title: "The ひ set",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read four kanji that all sound ひ and separate them by meaning: 比 非 飛 必.",
+      items: [
+        { id: "ja-u132l4-kuraberu", type: "kanji", front: "比", reading: "kuraberu", meaning: "compare", example: { jp: "兄と比べられるのは楽しくないので、あまり気にしないことにしました。", en: "Being compared with my older brother isn't fun, so I've decided not to mind." }, accept: ["contrast", "ratio", "liken"], hint: "比 = two people standing side by side to be measured against each other. 対比 = a contrast." },
+        { id: "ja-u132l4-hinon", type: "kanji", front: "非", reading: "hi", meaning: "non-", example: { jp: "非公開の会だったのに、話は外に出ました。", en: "It was a closed meeting, but the story got out." }, accept: ["not", "un-", "wrong"], hint: "非 = two wings turned away from each other — the negative prefix. 非公開 = not open to the public." },
+        { id: "ja-u132l4-tobu", type: "kanji", front: "飛", reading: "tobu", meaning: "fly", example: { jp: "鳥が空高く飛んでいて、しばらく見ていました。", en: "A bird was flying high in the sky, and I watched it for a while." }, accept: ["leap", "take off", "soar"], hint: "飛 = wings spread and beating. 飛びます = to fly or jump; 飛行 = flight. The only one of the four ひ that is a verb." },
+        { id: "ja-u132l4-kanarazu", type: "kanji", front: "必", reading: "kanarazu", meaning: "without fail", example: { jp: "必ず来ますと言ったのに、まだ来ていません。", en: "He said he would come without fail, but he hasn't yet." }, accept: ["certain", "must", "essential"], hint: "必 = 心 (heart) with a line struck through it — a decision that cannot bend. 必ず = definitely." },
+        { id: "ja-u132l4-hiko", type: "vocab", front: "飛行", reading: "hikō", meaning: "flight", example: { jp: "飛行の時間が長いので、本を三さつ持って行きます。", en: "The flight is long, so I take three books with me." }, accept: ["flying", "aviation"] },
+        { id: "ja-u132l4-taihi", type: "vocab", front: "対比", reading: "taihi", meaning: "contrast", example: { jp: "二つを対比すると、ちがいがよく分かります。", en: "When you set the two in contrast, the difference is clear." }, accept: ["comparison", "juxtaposition"] },
+      ],
+    },
   ],
 };
