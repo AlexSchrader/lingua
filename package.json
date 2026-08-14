@@ -12,6 +12,7 @@
     "validate:content": "node scripts/validate-content.mjs",
     "lint:curriculum": "node scripts/lint-curriculum.mjs",
     "audit": "node scripts/audit-curriculum.mjs",
+    "check:lexemes": "node scripts/check-lexeme-collisions.mjs",
     "generate:audio": "node scripts/generate-audio.mjs",
     "generate:manifest": "node scripts/generate-audio-manifest.mjs",
     "scaffold:lang": "node scripts/scaffold-language.mjs"
