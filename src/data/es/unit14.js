@@ -24,7 +24,10 @@ export const ES_UNIT14 = {
       dominantMode: "recall",
       canDo: "Say what you did yesterday: ayer hablé con Pablo, comí en casa, fui a la escuela.",
       items: [
-        { id: "es-u14l1-ayer", type: "vocab", front: "ayer", reading: "ayer", meaning: "yesterday", example: { jp: "Ayer fue lunes.", en: "Yesterday was Monday." }, accept: ["the day before"], hint: "The word this whole unit hangs on: put ayer in a sentence and the verb has to go past. It's the other end of hoy and mañana from Unit 9." },
+        // `ayer` is taught HERE because this unit is its earliest user — seven of the
+        // unit's examples lean on it and no earlier block claimed it, so under the
+        // runbook's ownership rule the earliest user has to be the teacher.
+        { id: "es-u14l1-ayer", type: "vocab", front: "ayer", reading: "ayer", meaning: "yesterday", example: { jp: "Ayer comí en casa.", en: "Yesterday I ate at home." }, accept: ["the day before"], hint: "The word that switches a sentence into the past: hoy hablo, ayer hablé. Spanish usually puts it right at the front." },
         { id: "es-u14l1-hable", type: "vocab", front: "hablé", reading: "hable", meaning: "I spoke", example: { jp: "Ayer hablé con Pablo.", en: "Yesterday I spoke with Pablo." }, accept: ["i talked", "i did speak"], hint: "The past \"I\" of an -ar verb is a stressed -é on the end: hablar -> hablé, trabajar -> trabajé, comprar -> compré." },
         { id: "es-u14l1-trabaje", type: "vocab", front: "trabajé", reading: "trabaje", meaning: "I worked", example: { jp: "Trabajé en la tienda.", en: "I worked at the shop." }, accept: ["i did work"] },
         { id: "es-u14l1-comi", type: "vocab", front: "comí", reading: "comi", meaning: "I ate", example: { jp: "Comí pan en casa.", en: "I ate bread at home." }, accept: ["i did eat"], hint: "-er and -ir verbs take -í instead: comer -> comí, escribir -> escribí, vivir -> viví." },

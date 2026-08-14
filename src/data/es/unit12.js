@@ -46,6 +46,15 @@
 // forms by hand, then walk each example word against the fronts available at or
 // before its unit. Once blocks 1–2 exist, drop the assumed list entirely and run
 // it strict.
+//
+// WHY `está` / `están` ARE TAUGHT HERE BUT USED EARLIER. Units 7 and 11 write
+// "El parque está en la ciudad" long before this unit systematises the estar
+// paradigm, so `node scripts/check-lang-scope.mjs es` reports 11 teach-before-use
+// hits against them. That is the convention working, not a defect: the merge-day
+// re-triage settled that a function word belongs to the unit that TEACHES it, not
+// the one that first uses it — the same rule under which block 1 ceded ITS function
+// words to these grammar units. The checker cannot express "systematised later", so
+// those 11 stay reported. Leave them; do not move estar back into unit 7.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const ES_UNIT12 = {
   id: "es-u12",
