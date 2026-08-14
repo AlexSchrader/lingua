@@ -3,6 +3,11 @@
 // furniture you navigate by, and six movement verbs. Buildings in a town
 // (la estación, el hospital, el hotel) are block 2's unit 7 and are only used here.
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
+//   FREE: María, Pablo, Madrid, México | rápido
+//   (Only proper names and transparent cognates, per the checker's contract.
+//   Conjugated forms of a verb this block teaches — voy, puedo, cuesta — are
+//   deliberately NOT listed: they are the headword convention, and declaring
+//   them free would hide a genuinely untaught form later.)
 export const ES_UNIT17 = {
   id: "es-u17",
   lang: "es",

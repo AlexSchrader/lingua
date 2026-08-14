@@ -8,6 +8,11 @@
 // preterite/imperfect contrast is worse than teaching one tense properly. Only
 // yo and él/ella forms are taught, which is what an A1 learner actually produces.
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
+//   FREE: María, Pablo | problema
+//   (Only proper names and transparent cognates, per the checker's contract.
+//   Conjugated forms of a verb this block teaches — voy, puedo, cuesta — are
+//   deliberately NOT listed: they are the headword convention, and declaring
+//   them free would hide a genuinely untaught form later.)
 export const ES_UNIT14 = {
   id: "es-u14",
   lang: "es",

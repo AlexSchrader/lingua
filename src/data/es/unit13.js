@@ -10,6 +10,11 @@
 // the pair across units would teach half a rule. 8 is inside the 5–8 band the lint
 // enforces; every other lesson in this block is 6.
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
+//   FREE: María, Madrid | música
+//   (Only proper names and transparent cognates, per the checker's contract.
+//   Conjugated forms of a verb this block teaches — voy, puedo, cuesta — are
+//   deliberately NOT listed: they are the headword convention, and declaring
+//   them free would hide a genuinely untaught form later.)
 export const ES_UNIT13 = {
   id: "es-u13",
   lang: "es",
