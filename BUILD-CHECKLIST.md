@@ -187,6 +187,31 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 | Language | Block | Status | Branch | Worktree | Notes / unresolved |
 |---|---|---|---|---|---|
+> ⚠️ **ALL THREE fr B1 SEATS READ THIS FIRST — the B1 slot titles are already taught by French A2.**
+> Found by block 1 at §3, 2026-08-14, before authoring. French A2 did not stop at the 15-unit template — it ran to **57 units**, and `u38–u57` are twenty units of exactly the abstract/grammar/coverage material the B1 template names. Measured, not guessed: **46/46 probe words for 8 of block 1's 13 slots are already live in A2.**
+>
+> | B1 slot | already in A2 |
+> |---|---|
+> | opinion | à mon avis · je pense · je crois · je suis d'accord · selon · plutôt que |
+> | cause-effect | à cause de · grâce à · car · en raison de · du coup · si bien que · la raison |
+> | comparison | plus/moins/aussi … que · meilleur · le plus · le pire · autant de |
+> | hedging | peut-être · sans doute · probablement · sûrement · apparemment · sembler · douter · hésiter |
+> | news-society | le journal · les informations · la nouvelle · l'article · l'événement · la société |
+> | problems | le problème · la solution |
+> | rules-permission | interdit · autorisé · obligatoire · je dois · il faut · je suis obligé de |
+> | experience | se souvenir · la mémoire · oublier · retenir |
+>
+> **Why it matters:** vocab-front uniqueness is a HARD validator error, not a warning. Author to the slot title naively and the block fails `validate:content` outright — and it fails *late*, at merge, exactly as blueprint §2 rule 4 warns.
+>
+> **The fix is not to change slots** (RUNBOOK §7: keep the slot number). It is to author **one level above the title**, which is what B1 means anyway (blueprint §49: "the `canDo` shifts from *order a meal* to *disagree with a proposal without giving offence*"). Concretely:
+> - **opinion →** concession and rebuttal: *néanmoins · en revanche · certes · admettre · soutenir · contester · l'argument · convaincre*
+> - **cause-effect →** *entraîner · provoquer · résulter de · par conséquent · étant donné que · dans la mesure où*
+> - **comparison →** *davantage · d'autant plus · par rapport à · contrairement à · l'écart · nettement*
+> - **hedging →** modal nuance incl. the subjunctive trigger: *il se peut que · avoir tendance à · il semblerait · quant à*
+> - **rules →** *avoir le droit de · être censé · exiger · imposer · une contrainte*
+>
+> **Check every front against the live 1,287 before writing it.** Dump the inventory with a node one-liner over `UNITS`; do not trust the slot title.
+
 | French 🇫🇷 **B1** | — | **scaffolded** | `content/fr-b1-scaffold` | (main checkout) | Shared base off `main`. fr-u58–u94, 37 units, all stage `b1`, 249 units validate green. A1+A2 (u1–57) already merged. Latin script ⇒ no character units. |
 | French 🇫🇷 B1 | 1 | **authoring** | `content/fr-b1-block1` | `C:devlingua-frb1-1` | Units 58–70 (13 units, 312 items target). Base `content/fr-b1-scaffold` @ `03b419d`. |
 | French 🇫🇷 B1 | 2 | ready — awaiting kickoff | `content/fr-b1-block2` | `C:devlingua-frb1-2` | Units 71–83 (13 units — rest of thematic + grammar/register) |
