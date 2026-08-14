@@ -3,8 +3,14 @@
  * Generate MP3 pronunciation clips for every item across all units.
  *
  * Usage:
- *   npm run generate:audio          # generate any missing clips
- *   npm run generate:audio -- --force   # regenerate everything
+ *   npm run generate:audio               # generate any missing clips, every language
+ *   npm run generate:audio -- --lang=fr  # ONE language only
+ *   npm run generate:audio -- --force    # regenerate everything (COSTS MONEY)
+ *
+ * --lang exists because this is a PAID API and the corpus is now multi-language:
+ * a bare run walks all 3662 items, and "it only generates what's missing" is a
+ * property of what happens to be on disk, not a guarantee you can state before
+ * spending. Scope the run and the scope is a fact.
  *
  * Reads ELEVENLABS_API_KEY from .env.local or the environment.
  * Writes to: public/audio/{lang}/{item.id}.mp3
@@ -57,13 +63,29 @@ const { UNITS } = await import("../src/data/index.js");
 const MODEL_ID = "eleven_v3";
 
 // Flatten every playable item across the live units, stamping lang.
+const LANG = (process.argv.find((a) => a.startsWith("--lang=")) || "").split("=")[1] || null;
+
 const items = UNITS.flatMap((unit) =>
   unit.lessons
     .filter((l) => Array.isArray(l.items))
     .flatMap((l) => l.items.map((it) => ({ ...it, lang: unit.lang })))
-);
+).filter((it) => !LANG || it.lang === LANG);
 
-console.log(`Generating audio for ${items.length} items  model: ${MODEL_ID}\n`);
+if (LANG && !items.length) {
+  console.error(`--lang=${LANG} matched no items. Nothing to do.`);
+  process.exit(1);
+}
+
+// Say what this run will actually cost BEFORE making a single paid call.
+const missing = items.filter(
+  (it) => FORCE || !existsSync(join(ROOT, "public", "audio", it.lang, `${it.id}.mp3`))
+);
+console.log(
+  `Scope: ${LANG ? `lang=${LANG}` : "ALL languages"}  model: ${MODEL_ID}\n` +
+    `  ${items.length} item(s) in scope\n` +
+    `  ${missing.length} to generate${FORCE ? " (--force: regenerating everything in scope)" : ""}\n` +
+    `  ${items.length - missing.length} already on disk, skipped\n`
+);
 
 let done = 0, skipped = 0, errors = 0;
 
