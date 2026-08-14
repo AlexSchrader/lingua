@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { LIVE_CARD_KINDS } from "../src/data/contract.js";
 import { seedItems } from "../src/data/index.js";
+import { shouldSentence, shouldTypeProduce } from "../src/store/cardRouting.js";
 import { LANGUAGES as LANG_CATALOG } from "../src/data/languages.js";
 
 // ---- helpers ---------------------------------------------------------------
@@ -1007,6 +1008,114 @@ test("Achievements: the language switcher appears only when learning two or more
   const all = (await page.locator("#root").textContent()) ?? "";
   expect(all).toContain("hiragana");
   expect(all).toContain("French");
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+// ---- Spanish ----------------------------------------------------------------
+// The same gap French had, one language later: every fixture item above is stamped
+// lang:"ja", so before this block no Spanish routing was covered by CI at all and no
+// Spanish card kind beyond `teach` had ever been rendered in a browser. The routing
+// SPLIT is asserted cheaply in tests/unit/es-cards.test.mjs; what needs a browser is
+// that the cards actually render and that a prompt is never its own answer.
+
+// Rung 3 is the produce band (Review.jsx reviewStepFor), so seeding there is what
+// reaches type:produce and sentence:build. The queue is made deterministic by
+// marking ONLY items known to route to those two kinds as due — REVIEW_CAP serves
+// 20, and oldest-due-first over 467 items would otherwise be a lottery.
+function spanishState() {
+  const seed = seedItems();
+  const esProduce = [];
+  const esSentence = [];
+  for (const it of Object.values(seed)) {
+    if (it.lang !== "es") continue;
+    const at3 = { ...it, rung: 3 };
+    if (shouldSentence(at3)) esSentence.push(it.id);
+    else if (shouldTypeProduce(at3)) esProduce.push(it.id);
+  }
+  const due = new Set([...esSentence.slice(0, 6), ...esProduce.slice(0, 6)]);
+
+  const items = {};
+  for (const [id, it] of Object.entries(seed)) {
+    items[id] = due.has(id)
+      ? { ...it, rung: 3, srs: dueCard() }
+      : { ...it, rung: 0, srs: freshCard() };
+  }
+  return {
+    state: {
+      items,
+      languages: LANGUAGES,
+      profile: { onboarded: true, displayName: "Test Learner", reason: null, reminderTime: null, languages: ["es"], activeLang: "es" },
+      streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
+      stats: { xpTotal: 0 },
+      daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
+      settings: {},
+      ui: {},
+    },
+    version: 1,
+  };
+}
+
+const seedSpanish = (page) =>
+  page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(spanishState()));
+
+const fold = (s) => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
+
+test("Spanish: a produce session renders real cards and no prompt is its own answer", async ({ page }) => {
+  test.setTimeout(120_000);
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await seedSpanish(page);
+  await page.goto("/");
+
+  await page.getByTestId("start-session").click();
+
+  const kinds = new Set();
+  for (let i = 0; i < 80; i++) {
+    const root = (await page.locator("#root").textContent({ timeout: 2000 }).catch(() => "")) ?? "";
+    expect(root, `Japanese script on a Spanish card (card ${i}): ${root.slice(0, 300)}`).not.toMatch(JA_SCRIPT);
+
+    const kindEl = page.locator("[data-card-kind]").first();
+    if (await kindEl.isVisible().catch(() => false)) {
+      kinds.add(await kindEl.getAttribute("data-card-kind"));
+    }
+
+    // THE CHECK. TypeCard publishes the string it grades against; the prompt must
+    // not contain it. This is the defect class that shipped twice in French —
+    // type:reading displayed `salut` and asked for `salut`, and build displayed the
+    // word and asked the learner to assemble its own spelling. Both ROUTED fine.
+    const typeCard = page.getByTestId("type-card");
+    if (await typeCard.isVisible().catch(() => false)) {
+      const answer = (await typeCard.getAttribute("data-answer")) ?? "";
+      const shown = (await typeCard.locator("span").first().textContent().catch(() => "")) ?? "";
+      expect(fold(shown), `a ${await typeCard.getAttribute("data-card-kind")} card showed its own answer "${answer}"`).not.toContain(fold(answer));
+    }
+
+    // Same rule for the tile builder: no word of the answer may appear in the gloss.
+    const sentenceCard = page.getByTestId("sentence-card");
+    if (await sentenceCard.isVisible().catch(() => false)) {
+      const tiles = await sentenceCard.locator('[data-testid="tile"]').allTextContents();
+      const gloss = (await sentenceCard.locator("span").first().textContent().catch(() => "")) ?? "";
+      for (const t of tiles) {
+        if (fold(t).length < 3) continue; // el/la/de carry no information
+        expect(fold(gloss), `sentence:build gloss "${gloss}" leaks the answer tile "${t}"`).not.toContain(fold(t));
+      }
+    }
+
+    if (!(await playCard(page))) break;
+    await page.waitForTimeout(20);
+  }
+
+  // Both target kinds actually rendered — "it routed" is not "it drew".
+  expect([...kinds], `card kinds seen: ${[...kinds].join(", ")}`).toContain("type:produce");
+  expect([...kinds], `card kinds seen: ${[...kinds].join(", ")}`).toContain("sentence:build");
+
+  // The session graded, not just rendered: a Spanish item moved and was rescheduled.
+  const state = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua-v1")).state);
+  const advanced = Object.values(state.items).filter((it) => it.lang === "es" && (it.rung ?? 0) >= 3);
+  expect(advanced.length, "at least one Spanish item was reviewed").toBeGreaterThan(0);
+  const jaTouched = Object.values(state.items).filter((it) => it.lang === "ja" && (it.rung ?? 0) >= 1);
+  expect(jaTouched.length, "a Spanish session must not advance Japanese items").toBe(0);
 
   expect(errors, errors.join("; ")).toEqual([]);
 });

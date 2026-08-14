@@ -213,6 +213,32 @@ const FUNCTION_WORDS = {
   es: ["de", "a", "con", "sin", "en", "para", "por"],
 };
 
+// The SAME invariant, enforced from the other side. Narrowing the word set above
+// stopped `et`/`y` being blanked, but it cannot stop a governed-LOOKING preposition
+// being blanked after a word that doesn't govern it. A NOUN doesn't: in
+// "El perro ＿＿ Ana es enorme" the keyed `de` is the genitive linker joining two
+// nouns — every noun takes it — so the card moves `el perro`'s rung on a fact about
+// `de`, and nothing about `el perro` is tested. Identical shape to the `et` defect,
+// and it was live in FRENCH (5 routed cards, e.g. fr-u3l1-lepere "Le père ＿＿
+// Marie") as well as Spanish, which is why this is fixed here and not in content.
+//
+// Detection rides the authoring convention instead of a word list: a Latin-script
+// noun is taught WITH its definite article (fr/unit1.js, es/unit12.js), so a
+// definite-article-led front IS the noun case. INdefinite fronts are deliberately
+// NOT excluded — "un poco de" / "un peu de" are quantifier collocations where the
+// preposition genuinely is governed by the front.
+const DETERMINER_LED = {
+  fr: /^(?:(?:le|la|les)\s+|l['’])/i,
+  es: /^(?:el|la|los|las)\s+/i,
+};
+
+// True when the item's front is a noun phrase, so a preposition following it
+// belongs to the sentence rather than to the item.
+function frontIsNounPhrase(item) {
+  const re = DETERMINER_LED[item?.lang];
+  return !!re && re.test(String(item?.front ?? ""));
+}
+
 // The closed option-set for this item's language (ja → particles).
 function particleSetFor(item) {
   return isLatin(item) ? FUNCTION_WORDS[item?.lang] ?? [] : CORE_PARTICLES;
@@ -247,6 +273,8 @@ export function particleAfterFront(item) {
   // Anchoring on the known front is what keeps this safe — we never guess where a
   // word starts, so "de" can't be blanked out of the middle of "demain".
   if (isLatin(item)) {
+    // A noun front doesn't govern what follows it — see DETERMINER_LED above.
+    if (frontIsNounPhrase(item)) return null;
     const m = jp.slice(i).match(/^\s+([^\s]+)/);
     if (!m) return null;
     const word = m[1].replace(/[.,!?;:…]+$/u, ""); // trailing punctuation isn't part of it
@@ -322,7 +350,16 @@ export function sentenceTokens(item) {
     // multi-turn exchange ("Merci ! — De rien."), not one buildable sentence —
     // skip it rather than shipping a nonsense puzzle.
     if (/[.!?…—–]/u.test(jp)) return null;
-    const toks = jp.split(/\s+/).filter(Boolean);
+    // A comma RIDES on the tile it follows ("Hier," / "café,"), and a tile carrying
+    // one can only go in a single slot — so the puzzle partly solves itself. Strip
+    // it instead of rejecting the sentence: grading compares the tile SEQUENCE
+    // against `answer` (SentenceCard.jsx), both of which come from here, and nothing
+    // ever rebuilds the punctuated original — so stripping is invisible downstream
+    // and keeps 123 French and 16 Spanish sentences that would otherwise be dropped.
+    const toks = jp
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((t) => t.replace(/[,;:]+$/u, ""));
     if (toks.length < 3 || toks.length > 8) return null;
     if (toks.some((t) => !/\p{L}/u.test(t))) return null; // no punctuation-only tiles
     return toks;

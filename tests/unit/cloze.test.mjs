@@ -115,14 +115,31 @@ test("fr cloze: the front matches its own sentence-initial capital", () => {
   assert.equal(canCloze(un), false);
 });
 
-test("fr particle cloze: blanks the article/preposition after the word, options are French", () => {
-  assert.equal(canParticleCloze(lepere), true);
-  assert.equal(particleAfterFront(lepere).particle, "de");
-  assert.equal(blankParticle(lepere), `C'est le père ${CLOZE_BLANK} Marie.`);
-  const opts = particleChoices(lepere, 4);
+// ⚠️ THIS ASSERTION WAS DELIBERATELY FLIPPED (2026-08-13). It used to require that
+// `le père` DID particle-cloze — "C'est le père ＿＿ Marie." keyed `de` — which is
+// the behaviour the Spanish port showed to be a defect, not a feature. A noun does
+// not govern the preposition after it: `de` there is the genitive linker joining two
+// nouns, so the card graded `le père` on a fact about `de` and tested nothing about
+// `le père`. It is the same shape as the `et` defect this file already guards, one
+// step further out, and it was live in French (5 routed cards) as well as Spanish.
+// The old expectation is kept in the comment on purpose: this is a behaviour change,
+// not a test relaxed to go green.
+test("fr particle cloze: a NOUN front is refused — it doesn't govern what follows", () => {
+  assert.equal(canParticleCloze(lepere), false, "le père is a noun phrase; `de` after it belongs to the sentence");
+  assert.equal(particleAfterFront(lepere), null);
+  assert.equal(blankParticle(lepere), "C'est le père de Marie.", "no blank, so the sentence comes back untouched");
+  assert.deepEqual(particleChoices(lepere, 4), []);
+});
+
+test("fr particle cloze: a VERB front still blanks its governed preposition, options are French", () => {
+  // `aller à` is genuinely governed by the verb, so this is the case the card is for.
+  assert.equal(canParticleCloze(jevais), true);
+  assert.equal(particleAfterFront(jevais).particle, "à");
+  assert.equal(blankParticle(jevais), `Je vais ${CLOZE_BLANK} la gare`);
+  const opts = particleChoices(jevais, 4);
   assert.equal(opts.length, 4);
   assert.equal(opts.filter((o) => o.correct).length, 1);
-  assert.equal(opts.find((o) => o.correct).text, "de");
+  assert.equal(opts.find((o) => o.correct).text, "à");
   // No Japanese particles may ever appear on a French card.
   for (const o of opts) assert.ok(!/[぀-ヿ]/u.test(o.text), `ja particle leaked: ${o.text}`);
 });

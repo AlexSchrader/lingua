@@ -1,14 +1,22 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const MODE = process.env.SMOKE_MODE || "dev";
-const PORT = MODE === "preview" ? 4173 : 5173;
+// SMOKE_PORT exists because `reuseExistingServer` (below) became a silent
+// correctness hazard once the repo grew git worktrees. A dev server still running
+// in ANOTHER worktree — or in the main checkout — already owns 5173, so Playwright
+// attaches to THAT tree and the suite passes while testing code you didn't write.
+// It cost a real debugging session on 2026-08-13: the new Spanish smoke test booted
+// with 0 Spanish items because the server holding 5173 belonged to the main
+// checkout, which has no Spanish content merged. Run a worktree's suite on its own
+// port:  SMOKE_PORT=5183 npx playwright test
+const PORT = Number(process.env.SMOKE_PORT) || (MODE === "preview" ? 4173 : 5173);
 // Preview mode must rebuild first — `vite preview` only serves the existing
 // dist/, so without a build it would smoke-test a stale bundle (the exact
 // blank-on-prod trap this suite exists to catch).
 const command =
   MODE === "preview"
-    ? "npm run build && npm run preview -- --port 4173"
-    : "npm run dev -- --port 5173";
+    ? `npm run build && npm run preview -- --port ${PORT}`
+    : `npm run dev -- --port ${PORT}`;
 
 export default defineConfig({
   testDir: "./tests",
@@ -42,7 +50,10 @@ export default defineConfig({
     url: `http://localhost:${PORT}`,
     // Never reuse a running server in preview mode — a stale one would skip the
     // rebuild and serve an old bundle.
-    reuseExistingServer: MODE === "preview" ? false : !process.env.CI,
+    // Reuse is what makes a worktree run silently test the wrong tree, so asking
+    // for an explicit SMOKE_PORT opts out of it: you get YOUR server or a loud
+    // "port already in use", never a quiet pass against someone else's checkout.
+    reuseExistingServer: MODE === "preview" || process.env.SMOKE_PORT ? false : !process.env.CI,
     timeout: 120000,
   },
 });
