@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Lock, Check, ChevronRight, Volume2 } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
@@ -54,7 +55,24 @@ export default function Ladder() {
   const profile = useStore((s) => s.profile);
   const startLanguage = useStore((s) => s.startLanguage);
   const setActiveLang = useStore((s) => s.setActiveLang);
-  const canAdd = useStore((s) => s.canAddLanguage)();
+  const realCanAdd = useStore((s) => s.canAddLanguage)();
+
+  // Dev-only preview of the add-a-language flow (?preview=addlang, launched from
+  // the Dev panel). "Add a language" is gated on reaching A1, so until a learner
+  // gets there the unlocked state is unreachable — which meant French shipped
+  // having only ever been seen as a FIRST pick, never as the addition it will
+  // actually be for a Japanese learner. This renders that state.
+  //
+  // READ-ONLY BY CONSTRUCTION. It flips the display gate only; Start becomes a
+  // no-op, so the preview cannot write to the profile. That matters because
+  // startLanguage() touches REAL progress and is not sandboxed — the panel's
+  // promise is "nothing here touches real progress", and a preview that could
+  // silently add a language would break exactly the isolation contract Dev Mode
+  // sells. Gated on devMode too, so a query string alone does nothing.
+  const [searchParams] = useSearchParams();
+  const devMode = useStore((s) => s.devMode);
+  const previewAddLang = devMode && searchParams.get("preview") === "addlang";
+  const canAdd = realCanAdd || previewAddLang;
 
   const langData = (id) => ({ ...LANGUAGES.find((l) => l.id === id), ...(languages[id] ?? {}) });
   // Started = the languages the learner chose (falls back to ja for safety).
@@ -98,6 +116,16 @@ export default function Ladder() {
 
       {notStarted.length > 0 && (
         <Section title="Add a language">
+          {previewAddLang && (
+            <div
+              data-testid="addlang-preview-banner"
+              style={{ fontSize: 12, color: C.aiDeep, background: C.aiSoft, border: `1px solid ${C.ai}`, borderRadius: 10, padding: "8px 10px", marginBottom: 12, lineHeight: 1.4 }}
+            >
+              🧪 <strong>Dev preview</strong> — this is the unlocked state a learner
+              sees after reaching A1. <strong>Start does nothing here</strong>; it
+              would touch real progress, so it's disabled in preview.
+            </div>
+          )}
           <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 12 }}>
             {canAdd
               ? "You've reached A1 — start another whenever you like. One at a time."
@@ -107,7 +135,13 @@ export default function Ladder() {
             {/* Startable (has-content) languages as rows; the ~19 planned fold into
                 the collapsible "coming soon" list so this isn't a 19-row wall. */}
             {notStarted.filter((l) => hasContent(l.id)).map((l) => (
-              <AddLangRow key={l.id} lang={l} canAdd={canAdd} onStart={() => startLanguage(l.id)} />
+              <AddLangRow
+                key={l.id}
+                lang={l}
+                canAdd={canAdd}
+                preview={previewAddLang}
+                onStart={previewAddLang ? undefined : () => startLanguage(l.id)}
+              />
             ))}
             <PlannedLanguages langs={notStarted.filter((l) => !hasContent(l.id))} />
           </div>
@@ -808,7 +842,7 @@ function Num({ n, color }) {
 
 // --- Other languages --------------------------------------------------------
 
-function AddLangRow({ lang, canAdd, onStart }) {
+function AddLangRow({ lang, canAdd, onStart, preview = false }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 12, padding: 12, borderRadius: 12, background: canAdd ? C.surface : C.lockedBg, border: `1px ${canAdd ? "solid" : "dashed"} ${C.line}`, opacity: canAdd ? 1 : 0.85 }}>
       <div style={{ fontSize: 26 }}>{lang.flag}</div>
@@ -824,7 +858,9 @@ function AddLangRow({ lang, canAdd, onStart }) {
       {canAdd && hasContent(lang.id) && (
         <button
           onClick={onStart}
-          style={{ padding: "8px 16px", borderRadius: 999, border: "none", background: C.ai, color: "#fff", fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer", flexShrink: 0 }}
+          disabled={preview}
+          title={preview ? "Disabled in preview — starting a language writes to real progress" : undefined}
+          style={{ padding: "8px 16px", borderRadius: 999, border: "none", background: C.ai, color: "#fff", fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: preview ? "not-allowed" : "pointer", flexShrink: 0, opacity: preview ? 0.5 : 1 }}
         >
           Start
         </button>
