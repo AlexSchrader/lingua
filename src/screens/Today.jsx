@@ -116,8 +116,14 @@ export default function Today() {
   const mistakes = useStore((s) => s.mistakes);
   const devSeedReviews = useStore((s) => s.devSeedReviews);
 
-  const due = useMemo(() => dueItemsFn(), [items, dueItemsFn]);
-  const reviewsLocked = useMemo(() => reviewsLockedFn(), [items, daily, reviewsLockedFn]);
+  // Both are scoped to the active language inside the store, so `activeId` is a real
+  // dependency — without it, switching language would keep showing the previous
+  // language's due count and lock state until some other input happened to change.
+  const due = useMemo(() => dueItemsFn(activeId), [items, activeId, dueItemsFn]);
+  const reviewsLocked = useMemo(
+    () => reviewsLockedFn(activeId),
+    [items, daily, activeId, reviewsLockedFn]
+  );
   // Show the SESSION size, not the full backlog — a capped, non-scary number (the
   // Review runner serves at most REVIEW_CAP, oldest-due first; the rest return next
   // session). Prevents the "47 due" wall on the home screen.
@@ -223,7 +229,10 @@ export default function Today() {
 
   const startReview = () => navigate("/review");
   const startFix = () => navigate("/review?fix=1");
-  const mistakeCount = mistakes?.length ?? 0;
+  // Scoped like everything else on this screen: the mistake list is stored for the
+  // whole profile, but "Fix your mistakes (N)" sits under one language's card and
+  // must count only that language's misses.
+  const mistakeCount = (mistakes ?? []).filter((id) => items[id]?.lang === activeId).length;
   const startLesson = () => {
     const target = currentLesson ?? allPlayableLessons[0] ?? null;
     if (target) navigate(`/lesson/${target.id}`);

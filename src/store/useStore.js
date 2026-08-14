@@ -151,6 +151,27 @@ const MISTAKES_CAP = 30;
 // death-spiral — so we serve REVIEW_CAP and let the rest return next session, no
 // penalty. Shared by the Review runner (the session queue) and Today (the count it
 // shows), so the learner never faces the full wall. A tuning knob, not structure.
+//
+// THE CAP IS PER-LANGUAGE; THE DAILY OBLIGATION IS NOT. (2026-08-14.) Those are two
+// different jobs REVIEW_CAP used to do at once, and multi-language forces them apart:
+//
+//   - What you are SHOWN is per-language. dueItems() is scoped to the active
+//     language, so a Japanese learner never sees French cards, and each language's
+//     queue is bounded by REVIEW_CAP on its own. No language starves behind another,
+//     and no screen ever shows a 60-card pile.
+//   - What you OWE is global and once-a-day. `daily.reviewsCleared` is a single flag
+//     for the whole profile: finish a review session in ANY language and the day's
+//     review duty is met, so lessons unlock in EVERY language.
+//
+// That split is the anti-burnout guarantee under N languages. The wall is the
+// OBLIGATION, not the availability — capping per language without this would give a
+// three-language learner three separate 20-card duties before they could take any
+// lesson, which is precisely the death-spiral REVIEW_CAP exists to prevent. Here,
+// adding a language never adds a required card: it adds an optional queue you may
+// visit. The accepted trade-off is that a learner who always clears Japanese first
+// can leave French due indefinitely; FSRS handles overdue items, the French queue
+// stays one tap away on /review, and nothing is lost but time. Forcing that review
+// would mean forcing a second wall, and that is the worse failure.
 export const REVIEW_CAP = 20;
 
 // Lazy cache: itemId → { cefr, lang } — built once from UNITS on first access.
@@ -173,6 +194,18 @@ function itemMetaMap() {
 export function langScopedIds(items, lang = null) {
   const ids = Object.keys(items);
   return lang ? ids.filter((id) => items[id]?.lang === lang) : ids;
+}
+
+// The language everything on Today/Review is scoped to. `activeLang` can point at a
+// language the learner is no longer started in (pruned save, cleared profile), so it
+// is only honoured when it's actually in the started list — same fallback Today.jsx
+// applies, exported so the store and the screens can never disagree about which
+// language the learner is in. Falls back to the first started language, then "ja".
+export function activeLangId(profile) {
+  const started = profile?.languages?.length ? profile.languages : ["ja"];
+  return profile?.activeLang && started.includes(profile.activeLang)
+    ? profile.activeLang
+    : started[0];
 }
 
 // Default language progress state, derived from the static LANGUAGES table.
@@ -344,17 +377,35 @@ export const useStore = create(
 
       // Selector: items whose FSRS card is due AND that have climbed at least to
       // RECOGNIZED. Fresh items (rung 0) are not "due" — they enter via a lesson.
-      dueItems: () => {
+      //
+      // SCOPED TO ONE LANGUAGE. Default is the active language: a learner studying
+      // Japanese must never be served French cards, and before this was scoped every
+      // language's debt landed in one shared queue under one shared cap, so two
+      // languages blocked lessons in both and starved each other for slots. Pass an
+      // explicit `lang` to ask about another language, or `null` for every language
+      // (what cross-language callers like stats want) — `null` is the old behaviour
+      // and has to be asked for, so a new caller can't get it by forgetting.
+      dueItems: (lang = undefined) => {
+        const scope = lang === undefined ? activeLangId(get().profile) : lang;
         return Object.values(get().items).filter(
-          (it) => isReviewable(it) && it.srs && isDue(it.srs)
+          (it) =>
+            (scope === null || it.lang === scope) &&
+            isReviewable(it) &&
+            it.srs &&
+            isDue(it.srs)
         );
       },
 
-      // Derived: reviews are locked (blocking a new lesson) while there is
-      // review debt that hasn't been cleared today.
-      reviewsLocked: () => {
+      // Derived: reviews are locked (blocking a new lesson) while THIS language has
+      // review debt and the day's review duty hasn't been met.
+      //
+      // The debt is per-language; the duty is not. `reviewsCleared` is one flag for
+      // the whole profile, so finishing a session in any language unlocks lessons in
+      // all of them — see the REVIEW_CAP note for why the obligation stays global
+      // even though the queue doesn't.
+      reviewsLocked: (lang = undefined) => {
         const { daily } = get();
-        return get().dueItems().length > 0 && !daily.reviewsCleared;
+        return get().dueItems(lang).length > 0 && !daily.reviewsCleared;
       },
 
       // Grade a single item: reschedule via SRS, advance/hold/drop its rung,
