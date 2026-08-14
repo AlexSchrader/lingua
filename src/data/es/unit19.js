@@ -5,6 +5,11 @@
 // (levantarse), with the me/te/se pattern taught in the hints and shown in every
 // example — the same "grammar rides in the examples" modelling as the Strand C units.
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
+//   FREE: María
+//   (Only proper names and transparent cognates, per the checker's contract.
+//   Conjugated forms of a verb this block teaches — voy, puedo, cuesta — are
+//   deliberately NOT listed: they are the headword convention, and declaring
+//   them free would hide a genuinely untaught form later.)
 export const ES_UNIT19 = {
   id: "es-u19",
   lang: "es",

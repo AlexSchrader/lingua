@@ -2,7 +2,24 @@
 // Strand D, unit 4 of 6. The two places an adult learner spends the day, plus the
 // words a learner needs to talk about LEARNING itself (la palabra, la pregunta,
 // la respuesta, el error) — the vocabulary of the classroom they're sitting in.
+//
+// `la clase` AND `el examen` ARE FREE BORROWINGS, NOT CARDS (decided 2026-08-13).
+// They were both declared free AND taught here, which is incoherent — a word is one
+// or the other. Resolved in favour of FREE, on three grounds: block 2 USES them
+// first (es-u9l1, es-u9l3, es-u10l3), so under lower-unit-order-wins the teacher
+// would have to be block 2 and never this unit; es/unit7.js already declares them
+// in its header as naturalized borrowings, which is the assumption block 2 authored
+// against; and they are transparent to an English speaker, so two of A1's ~480 card
+// slots bought nothing. The slots now teach `la pizarra` and `los deberes`, which
+// are genuinely opaque. The one thing the cards did carry — that gender is NOT
+// predictable from English (la clase, el examen) — is kept on the `el estudiante`
+// hint rather than lost.
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
+//   FREE: María, Pablo | clase, examen
+//   (Only proper names and transparent cognates, per the checker's contract.
+//   Conjugated forms of a verb this block teaches — voy, puedo, cuesta — are
+//   deliberately NOT listed: they are the headword convention, and declaring
+//   them free would hide a genuinely untaught form later.)
 export const ES_UNIT18 = {
   id: "es-u18",
   lang: "es",
@@ -34,14 +51,14 @@ export const ES_UNIT18 = {
       title: "En clase",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Talk about a class you're in: el cuaderno, el bolígrafo, el profesor, el examen.",
+      canDo: "Talk about a class you're in: el cuaderno, el bolígrafo, la pizarra, los deberes, el profesor, el estudiante.",
       items: [
         { id: "es-u18l2-elcuaderno", type: "vocab", front: "el cuaderno", reading: "elcuaderno", meaning: "the notebook", example: { jp: "Escribo en el cuaderno.", en: "I write in the notebook." }, accept: ["exercise book", "notepad", "notebook"] },
         { id: "es-u18l2-elboligrafo", type: "vocab", front: "el bolígrafo", reading: "elboligrafo", meaning: "the pen", example: { jp: "Necesito un bolígrafo.", en: "I need a pen." }, accept: ["biro", "ballpoint", "pen"], hint: "In Spain everyone shortens it to el boli. Much of Latin America uses a different word altogether — el lapicero, la pluma, la birome." },
-        { id: "es-u18l2-laclase", type: "vocab", front: "la clase", reading: "laclase", meaning: "the class", example: { jp: "La clase de español es muy buena.", en: "The Spanish class is very good." }, accept: ["lesson", "classroom", "class"] },
+        { id: "es-u18l2-lapizarra", type: "vocab", front: "la pizarra", reading: "lapizarra", meaning: "the board", example: { jp: "El profesor escribe en la pizarra.", en: "The teacher writes on the board." }, accept: ["blackboard", "whiteboard", "chalkboard"] },
         { id: "es-u18l2-elprofesor", type: "vocab", front: "el profesor", reading: "elprofesor", meaning: "the teacher", example: { jp: "El profesor habla español.", en: "The teacher speaks Spanish." }, accept: ["lecturer", "professor", "teacher"], hint: "A woman teaching is la profesora — and in class everyone just says profe." },
-        { id: "es-u18l2-elexamen", type: "vocab", front: "el examen", reading: "elexamen", meaning: "the exam", example: { jp: "El examen es difícil.", en: "The exam is hard." }, accept: ["exam", "test"] },
-        { id: "es-u18l2-elestudiante", type: "vocab", front: "el estudiante", reading: "elestudiante", meaning: "the student", example: { jp: "El estudiante escribe en el cuaderno.", en: "The student writes in the notebook." }, accept: ["student", "pupil"], hint: "One word for both: el estudiante, la estudiante — only the article changes. Contrast el profesor / la profesora above, which changes the word itself." },
+        { id: "es-u18l2-losdeberes", type: "vocab", front: "los deberes", reading: "losdeberes", meaning: "the homework", example: { jp: "Hago los deberes en casa.", en: "I do my homework at home." }, accept: ["homework", "assignments", "schoolwork"], hint: "Always plural in Spanish, always singular in English: los deberes SON difíciles. And you HACER them — hago los deberes, never \"tomo\"." },
+        { id: "es-u18l2-elestudiante", type: "vocab", front: "el estudiante", reading: "elestudiante", meaning: "the student", example: { jp: "El estudiante escribe en el cuaderno.", en: "The student writes in the notebook." }, accept: ["student", "pupil"], hint: "One word for both: el estudiante, la estudiante — only the article changes. Contrast el profesor / la profesora above, which changes the word itself. Gender is never guessable from English, so learn it with the word: LA clase, EL examen, LA pizarra." },
       ],
     },
     {

@@ -2,6 +2,11 @@
 // Strand D, unit 2 of 6. Clothes, then the money words, then the six verbs a shop
 // transaction actually needs. Colours are block 2's (unit 8) and are only used here.
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
+//   FREE: María
+//   (Only proper names and transparent cognates, per the checker's contract.
+//   Conjugated forms of a verb this block teaches — voy, puedo, cuesta — are
+//   deliberately NOT listed: they are the headword convention, and declaring
+//   them free would hide a genuinely untaught form later.)
 export const ES_UNIT16 = {
   id: "es-u16",
   lang: "es",

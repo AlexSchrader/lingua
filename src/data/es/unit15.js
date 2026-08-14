@@ -4,6 +4,11 @@
 // strand (units 2–11) does NOT hold: the home, clothes and money, travel, work and
 // study, the daily routine, and the high-frequency closers.
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
+//   FREE: María, Madrid
+//   (Only proper names and transparent cognates, per the checker's contract.
+//   Conjugated forms of a verb this block teaches — voy, puedo, cuesta — are
+//   deliberately NOT listed: they are the headword convention, and declaring
+//   them free would hide a genuinely untaught form later.)
 export const ES_UNIT15 = {
   id: "es-u15",
   lang: "es",

@@ -12,6 +12,11 @@
 // the earlier unit wins and this lesson backfills from ¿qué?, ¿cómo?, ¿dónde?,
 // ¿cuántos?, ¿de quién? and ¿cuál de?
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
+//   FREE: María, Madrid
+//   (Only proper names and transparent cognates, per the checker's contract.
+//   Conjugated forms of a verb this block teaches — voy, puedo, cuesta — are
+//   deliberately NOT listed: they are the headword convention, and declaring
+//   them free would hide a genuinely untaught form later.)
 export const ES_UNIT20 = {
   id: "es-u20",
   lang: "es",
