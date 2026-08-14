@@ -52,14 +52,14 @@ export const FR_UNIT90 = {
       title: "Clearing up",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Deal with a cluttered space: call it cluttered, free it up, clear it out, sweep it — name a smudge, and call a result clear-cut.",
+      canDo: "Deal with a cluttered space: call it cluttered, free it up, clear it out, sweep it — name the trail it left, and call a result clear-cut.",
       items: [
         { id: "fr-u90l3-encombre", type: "vocab", front: "encombré", reading: "encombre", meaning: "cluttered", example: { jp: "Le couloir est encombré.", en: "The corridor is cluttered." }, accept: ["crowded", "blocked", "congested"] },
         { id: "fr-u90l3-degager", type: "vocab", front: "dégager", reading: "degager", meaning: "to free up", example: { jp: "Il faut dégager le couloir.", en: "You have to clear the corridor." }, accept: ["clear", "unblock", "open up"] },
         { id: "fr-u90l3-debarrasser", type: "vocab", front: "débarrasser", reading: "debarrasser", meaning: "to clear away", example: { jp: "Je débarrasse la table après le repas.", en: "I clear the table after the meal." }, accept: ["clear off", "get rid of", "tidy away"] },
         { id: "fr-u90l3-balayer", type: "vocab", front: "balayer", reading: "balayer", meaning: "to sweep", example: { jp: "Je balaie la cuisine tous les jours.", en: "I sweep the kitchen every day." }, accept: ["sweep up", "brush"] },
         { id: "fr-u90l3-net", type: "vocab", front: "net", reading: "net", meaning: "clear-cut", example: { jp: "Sa réponse est nette.", en: "Their answer is clear-cut." }, accept: ["clean", "neat", "spotless", "distinct"], hint: "The t IS pronounced: « nète ». Its dominant sense is sharp and distinct; the \"clean\" sense survives mainly in fixed phrases like propre et net." },
-        { id: "fr-u90l3-latrace", type: "vocab", front: "la trace", reading: "latrace", meaning: "smudge", example: { jp: "Il y a des traces sur le verre.", en: "There are marks on the glass." }, accept: ["mark", "trace", "trail"] },
+        { id: "fr-u90l3-latrace", type: "vocab", front: "la trace", reading: "latrace", meaning: "trail", example: { jp: "Il y a des traces sur le verre.", en: "There are marks on the glass." }, accept: ["mark", "trace", "smudge"] },
       ],
     },
     {

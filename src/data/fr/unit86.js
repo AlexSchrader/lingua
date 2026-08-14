@@ -61,7 +61,7 @@ export const FR_UNIT86 = {
         { id: "fr-u86l3-menacer", type: "vocab", front: "menacer", reading: "menacer", meaning: "to threaten", example: { jp: "Personne n'a le droit de menacer les autres.", en: "Nobody has the right to threaten other people." }, accept: ["make threats"] },
         { id: "fr-u86l3-promettre", type: "vocab", front: "promettre", reading: "promettre", meaning: "to promise", example: { jp: "Je peux promettre une réponse demain.", en: "I can promise an answer tomorrow." }, accept: ["give one's word", "pledge"] },
         { id: "fr-u86l3-jurer", type: "vocab", front: "jurer", reading: "jurer", meaning: "to swear", example: { jp: "Je jure que c'est vrai.", en: "I swear that it's true." }, accept: ["vow", "swear to"], hint: "Swearing an oath. Swearing as in bad language is « dire des gros mots »." },
-        { id: "fr-u86l3-supplier", type: "vocab", front: "supplier", reading: "supplier", meaning: "to beg", example: { jp: "Il ne faut pas le supplier.", en: "You mustn't beg him." }, accept: ["plead", "implore", "beseech"] },
+        { id: "fr-u86l3-supplier", type: "vocab", front: "supplier", reading: "supplier", meaning: "to beg", example: { jp: "Il ne faut pas le supplier.", en: "You mustn't plead with him." }, accept: ["plead", "implore", "beseech"] },
       ],
     },
     {

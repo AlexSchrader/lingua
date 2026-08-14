@@ -13,6 +13,15 @@
 // It is the slice a generic coverage author reaches for LAST, which is exactly why
 // it is still empty at B1 and why it is the safest thing for the last block to own.
 //
+// HONEST LABEL: this block is "the concrete slice A2 skipped", NOT "B1 frequency".
+// By CEFR reference lists it spans A2 to B2 rather than sitting at B1 — roughly a
+// quarter is A2-band (s'asseoir, sauter, toucher, la poche, la recette, salé) and a
+// slice is B2-ish (bafouiller, la manie, la lueur, rugueux, pétrir, entasser,
+// à force de). That follows from French A2 running to 57 units and taking the
+// abstract middle: what it left behind is spread across the bands, not centred on
+// B1. `stage` is a queue position, not a CEFR claim — recorded here so nobody reads
+// "B1" off this block as a proficiency statement.
+//
 // Every front was checked against the live 1,287-item fr corpus BEFORE writing
 // (not after), per the board warning. Examples use A1+A2 (orders 1-57) plus
 // earlier block-3 units; blocks 1-2 were locked stubs while this was written, so

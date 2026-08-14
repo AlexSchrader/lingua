@@ -21,7 +21,7 @@ export const FR_UNIT93 = {
       canDo: "Judge how someone is dressed: fashion, a style, an outfit — call it elegant, in fashion or out of date.",
       items: [
         { id: "fr-u93l1-lamode", type: "vocab", front: "la mode", reading: "lamode", meaning: "fashion", example: { jp: "La mode change tous les ans.", en: "Fashion changes every year." }, accept: ["the fashion", "trend"], hint: "Feminine here. Careful: le mode (masculine) means a method or a setting." },
-        { id: "fr-u93l1-lestyle", type: "vocab", front: "le style", reading: "lestyle", meaning: "look", example: { jp: "J'aime beaucoup son style.", en: "I really like their style." }, accept: ["style", "the style"] },
+        { id: "fr-u93l1-lestyle", type: "vocab", front: "le style", reading: "lestyle", meaning: "look", example: { jp: "J'aime beaucoup son style.", en: "I really like their look." }, accept: ["style", "the style"] },
         { id: "fr-u93l1-latenue", type: "vocab", front: "la tenue", reading: "latenue", meaning: "outfit", example: { jp: "Ta tenue est parfaite pour la fête.", en: "Your outfit is perfect for the party." }, accept: ["the outfit", "dress", "get-up"] },
         { id: "fr-u93l1-elegant", type: "vocab", front: "élégant", reading: "elegant", meaning: "smart", example: { jp: "Il est toujours très élégant.", en: "He's always very elegant." }, accept: ["elegant", "stylish", "chic"] },
         { id: "fr-u93l1-alamode", type: "vocab", front: "à la mode", reading: "alamode", meaning: "in fashion", example: { jp: "Ce manteau est très à la mode.", en: "This coat is very much in fashion." }, accept: ["fashionable", "trendy", "in style"] },
