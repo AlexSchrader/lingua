@@ -1,18 +1,82 @@
-// JA Unit 111 — Characters 7 (B1) (slot: characters-b1-7) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
+// Unit 111 — かんじ・からだ (Body, health and safety kanji) — B1 / JLPT N3
+// Strand A. The glyphs on a pharmacy shelf and a warning sign: illness and its cures,
+// protecting and rescuing, and the words for danger.
+// 4 lessons x (4 glyphs + 2 compound words) = 24 cards, the band-standard shape.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const UNIT111 = {
   id: "ja-u111",
   lang: "ja",
-  title: "Characters 7 (B1)",
+  title: "かんじ・からだ",
   order: 111,
   stage: "b1",
   lessons: [
-    { id: "ja-u111l1", title: "Lesson 1", locked: true },
-    { id: "ja-u111l2", title: "Lesson 2", locked: true },
-    { id: "ja-u111l3", title: "Lesson 3", locked: true },
-    { id: "ja-u111l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u111l1",
+      unit: 111,
+      lesson: 1,
+      title: "Being unwell",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 痛 (pain), 薬 (medicine), 寝 (to sleep), 吸 (to breathe in), and the words 薬品 and 目薬.",
+      items: [
+        { id: "ja-u111l1-itai", type: "kanji", front: "痛", reading: "itai", meaning: "pain", example: { jp: "あたまが 痛いので、今日は 早く 寝ます。", en: "My head hurts, so I'll go to bed early today." }, accept: ["painful", "to hurt", "ache"], hint: "痛 = pain — the 疒 sickness radical wraps the left and top, and marks 病 too." },
+        { id: "ja-u111l1-kusuri", type: "kanji", front: "薬", reading: "kusuri", meaning: "medicine", example: { jp: "医者に もらった 薬を 飲んで から、少し 楽に なりました。", en: "I took the medicine the doctor gave me, and felt somewhat better." }, accept: ["drug", "remedy", "pharmaceutical"], hint: "薬 = medicine — 艹 (grass) over 楽 (ease): the plant that makes you comfortable. 薬局 = pharmacy." },
+        { id: "ja-u111l1-neru", type: "kanji", front: "寝", reading: "neru", meaning: "to sleep", example: { jp: "きのうは 一時に 寝たので、朝 起きられませんでした。", en: "I went to bed at one last night, so I couldn't get up in the morning." }, accept: ["to lie down", "to go to bed"], hint: "寝る = to lie down and sleep; ねむい is the sleepy feeling. The 宀 roof on top puts you indoors." },
+        { id: "ja-u111l1-kyu", type: "kanji", front: "吸", reading: "kyū", meaning: "to breathe in", example: { jp: "外に 出て 大きく いきを 吸うと、気分が よく なります。", en: "If you go outside and take a deep breath, you feel better." }, accept: ["to suck", "to inhale", "absorb"], hint: "吸 = draw in — 口 (mouth) on the left. 吸う also covers smoking: たばこを 吸う." },
+        { id: "ja-u111l1-yakuhin", type: "vocab", front: "薬品", reading: "yakuhin", meaning: "chemicals", example: { jp: "その 薬品は 子どもの 手が とどかない ところに おいて ください。", en: "Please keep those chemicals out of children's reach." }, accept: ["chemical", "chemical products", "reagents"] },
+        { id: "ja-u111l1-megusuri", type: "vocab", front: "目薬", reading: "megusuri", meaning: "eye drops", example: { jp: "目が 赤いので、目薬を さして います。", en: "My eyes are red, so I'm using eye drops." }, accept: ["eye medicine"] },
+      ],
+    },
+    {
+      id: "ja-u111l2",
+      unit: 111,
+      lesson: 2,
+      title: "Helping and guarding",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 舌 (tongue), 助 (to help), 救 (to rescue), 守 (to protect), and the words 助手 and 助言.",
+      items: [
+        { id: "ja-u111l2-shita", type: "kanji", front: "舌", reading: "shita", meaning: "tongue", example: { jp: "熱い お茶を 飲んで、舌が 痛く なりました。", en: "I drank hot tea and my tongue started to hurt." }, accept: ["the tongue"], hint: "舌 = tongue — 千 over 口 (mouth): something long sticking out of a mouth." },
+        { id: "ja-u111l2-tasukeru", type: "kanji", front: "助", reading: "tasukeru", meaning: "to help", example: { jp: "こまって いる 人を 助けて、いっしょに 駅まで 行きました。", en: "I helped someone who was in trouble, and we walked to the station together." }, accept: ["to rescue", "to assist", "aid"], hint: "助 = help — 力 (strength) on the right, lent to someone else. 助手 = an assistant." },
+        { id: "ja-u111l2-kyu", type: "kanji", front: "救", reading: "kyū", meaning: "to rescue", example: { jp: "じこの あと、救急車が すぐに 来て、みんなを 助けました。", en: "After the accident an ambulance came straight away and helped everyone." }, accept: ["to save", "relief", "salvation"], hint: "救急車 = ambulance — literally the rescue-urgent car. 救う and 助ける overlap; 救う is the bigger, life-saving one." },
+        { id: "ja-u111l2-mamoru", type: "kanji", front: "守", reading: "mamoru", meaning: "to protect", example: { jp: "やくそくを 守る 人は、みんなが 信じます。", en: "Everyone trusts a person who keeps their promises." }, accept: ["to keep", "to guard", "to obey"], hint: "守る covers both guarding a person and keeping a rule or promise — the same verb does both jobs." },
+        { id: "ja-u111l2-joshu", type: "vocab", front: "助手", reading: "joshu", meaning: "assistant", example: { jp: "先生の 助手として、一年 はたらきました。", en: "I worked for a year as the teacher's assistant." }, accept: ["helper", "aide"], hint: "助 (help) + 手 (hand) — the helping hand." },
+        { id: "ja-u111l2-jogen", type: "vocab", front: "助言", reading: "jogen", meaning: "advice", example: { jp: "先生の 助言を 聞いて、やり方を 変えました。", en: "I listened to the teacher's advice and changed my approach." }, accept: ["counsel", "a word of advice", "to advise"], hint: "助 (help) + 言 (word) — a helping word. Softer than 意見." },
+      ],
+    },
+    {
+      id: "ja-u111l3",
+      unit: 111,
+      lesson: 3,
+      title: "Preparing for trouble",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 備 (to prepare), 防 (to defend), 険 (steep), 難 (difficult), and the words 防火 and 備品.",
+      items: [
+        { id: "ja-u111l3-sonaeru", type: "kanji", front: "備", reading: "sonaeru", meaning: "to prepare", example: { jp: "じしんに 備えて、水と 食べ物を 家に おいて います。", en: "In case of an earthquake, I keep water and food at home." }, accept: ["to provide for", "equipment", "to furnish"], hint: "備 = have ready in advance. 準備 = preparation, 設備 = facilities." },
+        { id: "ja-u111l3-bo", type: "kanji", front: "防", reading: "bō", meaning: "to defend", example: { jp: "病気を 防ぐ ために、毎日 手を あらいます。", en: "To prevent illness, I wash my hands every day." }, accept: ["to prevent", "to guard against"], hint: "防 = keep something out — the 阝 wall on the left. 消防車 = fire engine, 予防 = prevention." },
+        { id: "ja-u111l3-ken", type: "kanji", front: "険", reading: "ken", meaning: "steep", example: { jp: "この 道は 危険ですから、夜は 通らないで ください。", en: "This road is dangerous, so please don't use it at night." }, accept: ["danger", "harsh", "risk"], hint: "険 = a risky steepness. 危険 = danger, 保険 = insurance — cover against the steep bits." },
+        { id: "ja-u111l3-nan", type: "kanji", front: "難", reading: "nan", meaning: "difficult", example: { jp: "この 問題は 難しいですが、時間を かければ できます。", en: "This problem is difficult, but you can do it if you take the time." }, accept: ["hardship", "trouble", "hard"], hint: "難 = hard going. 難しい = difficult, 困難 = hardship, 有難う = thank you (this is rare and hard to come by)." },
+        { id: "ja-u111l3-boka", type: "vocab", front: "防火", reading: "bōka", meaning: "fire prevention", example: { jp: "この ドアは 防火の ために いつも しめて おきます。", en: "This door is kept shut for fire prevention." }, accept: ["fireproofing", "fire safety"] },
+        { id: "ja-u111l3-bihin", type: "vocab", front: "備品", reading: "bihin", meaning: "fixtures", example: { jp: "教室の 備品は 大切に 使って ください。", en: "Please treat the classroom fixtures with care." }, accept: ["equipment", "furnishings", "supplies"], hint: "備 (have ready) + 品 (article) — the articles a room keeps ready." },
+      ],
+    },
+    {
+      id: "ja-u111l4",
+      unit: 111,
+      lesson: 4,
+      title: "Harm, age, and putting it out",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 毒 (poison), 老 (old age), 若 (young), 消 (to extinguish), and the words 老人 and 消防車.",
+      items: [
+        { id: "ja-u111l4-doku", type: "kanji", front: "毒", reading: "doku", meaning: "poison", example: { jp: "その くさには 毒が ありますから、ぜったいに 食べないで ください。", en: "That plant has poison in it, so never eat it." }, accept: ["toxin", "harm", "venom"], hint: "毒 = poison. 気の毒 = feeling sorry for someone — poison for the heart." },
+        { id: "ja-u111l4-ro", type: "kanji", front: "老", reading: "rō", meaning: "old age", example: { jp: "老人が 多い 町ですから、病院も たくさん あります。", en: "It's a town with many elderly people, so there are plenty of hospitals too." }, accept: ["elderly", "to age"], hint: "老 = grown old — a bent figure with a stick. 老人 = an elderly person; its pair is 若者, a young person." },
+        { id: "ja-u111l4-wakai", type: "kanji", front: "若", reading: "wakai", meaning: "young", example: { jp: "若い ころは よく 山に のぼりましたが、今は 歩くだけです。", en: "When I was young I often climbed mountains, but now I only walk." }, accept: ["youthful", "youth"], hint: "若 = young — 艹 (grass) on top, new growth. 若者 = young people." },
+        { id: "ja-u111l4-kesu", type: "kanji", front: "消", reading: "kesu", meaning: "to extinguish", example: { jp: "へやを 出る ときは、電気を 消して ください。", en: "When you leave the room, please turn off the light." }, accept: ["to turn off", "to erase", "to disappear"], hint: "消 = put out — 氵 (water) on the left, water on a fire. 消える = it goes out, 消す = you put it out." },
+        { id: "ja-u111l4-rojin", type: "vocab", front: "老人", reading: "rōjin", meaning: "an elderly person", example: { jp: "この 町は 老人が 多くて、病院も たくさん あります。", en: "This town has many elderly people, and plenty of hospitals too." }, accept: ["senior", "old person"] },
+        { id: "ja-u111l4-shobosha", type: "vocab", front: "消防車", reading: "shōbōsha", meaning: "fire engine", example: { jp: "消防車が 来て、火は すぐに 消えました。", en: "A fire engine came and the fire went out at once." }, accept: ["fire truck"], hint: "消 (put out) + 防 (defend) + 車 (vehicle) — three glyphs of this unit in one word." },
+      ],
+    },
   ],
 };

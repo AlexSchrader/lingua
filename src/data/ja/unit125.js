@@ -1,18 +1,81 @@
-// JA Unit 125 — Characters 14 (B1) (slot: characters-b1-14) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// JA Unit 125 — かんじ・ひと (N3 kanji — people and professions) — B1 / JLPT N3
+// Glyph ownership and card shape are documented in unit119.js: slice 14 of the
+// pool that remains once block 1's authored 160 glyphs are subtracted.
+// 警 came here from u123 so that it sits beside 察 — see u123's header.
 export const UNIT125 = {
   id: "ja-u125",
   lang: "ja",
-  title: "Characters 14 (B1)",
+  title: "かんじ・ひと",
   order: 125,
   stage: "b1",
   lessons: [
-    { id: "ja-u125l1", title: "Lesson 1", locked: true },
-    { id: "ja-u125l2", title: "Lesson 2", locked: true },
-    { id: "ja-u125l3", title: "Lesson 3", locked: true },
-    { id: "ja-u125l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u125l1",
+      unit: 125,
+      lesson: 1,
+      title: "Watching and warning",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 察 (perceive), 殺 (kill), 雑 (miscellaneous), 警 (warn), and the words 雑音 and 殺人.",
+      items: [
+        { id: "ja-u125l1-satsu", type: "kanji", front: "察", reading: "satsu", meaning: "perceive", example: { jp: "かおを見て察したので、なにも聞きませんでした。", en: "I gathered it from their face, so I didn't ask anything." }, accept: ["guess", "surmise", "sense"], hint: "察 = 宀 (a roof) + 祭 — reading what is going on without being told. 警察 = the police." },
+        { id: "ja-u125l1-korosu", type: "kanji", front: "殺", reading: "satsu", meaning: "kill", example: { jp: "その本は殺人の話なので、よるは読みたくありません。", en: "That book is about a killing, so I don't want to read it at night." }, accept: ["slay", "murder", "deaden"], hint: "殺 = 殳 (a weapon) striking. 殺人 = homicide; 殺します is also used of killing time or muffling a sound." },
+        { id: "ja-u125l1-zatsu", type: "kanji", front: "雑", reading: "zatsu", meaning: "miscellaneous", example: { jp: "雑な作りでも、使うには十分です。", en: "Roughly made though it is, it's good enough to use." }, accept: ["rough", "assorted", "coarse"], hint: "雑 = a mix of things thrown in together. 雑音 = noise, 雑な = slapdash." },
+        { id: "ja-u125l1-kei", type: "kanji", front: "警", reading: "kei", meaning: "warn", example: { jp: "警察が来たので、みんな外に出てきました。", en: "The police came, so everyone came outside." }, accept: ["guard", "alert", "police"], hint: "警 = 言 (words) + 敬 — words that put you on your guard. It appears mostly in 警察." },
+        { id: "ja-u125l1-zatsuon", type: "vocab", front: "雑音", reading: "zatsuon", meaning: "background noise", example: { jp: "雑音が多かったので、話がよく聞こえませんでした。", en: "There was a lot of background noise, so I couldn't hear well." }, accept: ["static", "interference", "din"] },
+        { id: "ja-u125l1-satsujin", type: "vocab", front: "殺人", reading: "satsujin", meaning: "homicide", example: { jp: "殺人のニュースがこわくて、よるねられませんでした。", en: "The news of the killing frightened me, and I couldn't sleep." }, accept: ["murder", "a killing"] },
+      ],
+    },
+    {
+      id: "ja-u125l2",
+      unit: 125,
+      lesson: 2,
+      title: "Scattering, remaining, resolve",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 散 (scatter), 残 (remain), 士 (a qualified professional), 志 (intent), and the words 力士 and 残金.",
+      items: [
+        { id: "ja-u125l2-chiru", type: "kanji", front: "散", reading: "chiru", meaning: "scatter", example: { jp: "花が散ってから、はが青くなりました。", en: "After the blossom scattered, the leaves turned green." }, accept: ["disperse", "fall (of blossom)", "spread out"], hint: "散 = things knocked apart. 散ります = to scatter, 散歩 = a stroll: wandering with no fixed line." },
+        { id: "ja-u125l2-nokoru", type: "kanji", front: "残", reading: "nokoru", meaning: "remain", example: { jp: "ごはんが残ったので、あしたのひるにたべます。", en: "Some rice was left over, so I'll have it for lunch tomorrow." }, accept: ["be left over", "stay behind", "regret"], hint: "残 = what is left when the rest has gone. 残念 = a shame, 残暑 = the lingering heat of late summer." },
+        { id: "ja-u125l2-shi", type: "kanji", front: "士", reading: "shi", meaning: "a qualified professional", example: { jp: "力士は体が大きいのに、うごきはとても速いです。", en: "Sumo wrestlers are big, but they move fast." }, accept: ["gentleman", "professional", "warrior"], hint: "士 = the old word for a man of standing or training. It ends job words: 力士 = a sumo wrestler." },
+        { id: "ja-u125l2-kokorozashi", type: "kanji", front: "志", reading: "kokorozashi", meaning: "intent", example: { jp: "志を高く持って、まいにちれんしゅうしています。", en: "I keep my sights high and practise every day." }, accept: ["ambition", "will", "aspiration"], hint: "志 = 士 + 心 (heart) — what the heart is set on. Its on-yomi is し, like 士, and it contains it." },
+        { id: "ja-u125l2-rikishi", type: "vocab", front: "力士", reading: "rikishi", meaning: "sumo wrestler", example: { jp: "力士は食事が多いので、休みもきちんととります。", en: "Sumo wrestlers eat a great deal, so they take proper rest as well." }, accept: ["wrestler", "a rikishi"] },
+        { id: "ja-u125l2-zankin", type: "vocab", front: "残金", reading: "zankin", meaning: "the balance left", example: { jp: "残金をたしかめてから、買うかどうかきめます。", en: "I'll check the balance left, and then decide whether to buy it." }, accept: ["remaining money", "what is left in the account"] },
+      ],
+    },
+    {
+      id: "ja-u125l3",
+      unit: 125,
+      lesson: 3,
+      title: "Branches, teachers, likeness",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 枝 (branch), 師 (master), 飼 (keep an animal), 似 (resemble), and the words 教師 and 飼育.",
+      items: [
+        { id: "ja-u125l3-eda", type: "kanji", front: "枝", reading: "eda", meaning: "branch", example: { jp: "枝が長くなったので、少し切りました。", en: "The branches had grown long, so I cut them back a little." }, accept: ["bough", "twig", "limb"], hint: "枝 = 木 (tree) + 支 (support) — the arm the tree holds out." },
+        { id: "ja-u125l3-shi", type: "kanji", front: "師", reading: "shi", meaning: "master", example: { jp: "教師になってから、教わることのほうが多くなりました。", en: "Since becoming a teacher, I've found there's more to learn than to teach." }, accept: ["teacher", "expert", "mentor"], hint: "師 = one who leads others in a craft. 教師 = a schoolteacher, 医師 = a doctor." },
+        { id: "ja-u125l3-kau", type: "kanji", front: "飼", reading: "kau", meaning: "keep an animal", example: { jp: "犬を飼いはじめてから、まいあさ早く起きています。", en: "Since I started keeping a dog, I get up early every morning." }, accept: ["raise", "look after (an animal)", "feed"], hint: "飼 = 食 (food) + 司 — giving an animal its food. 飼育 = rearing. Its on-yomi is し, like 師." },
+        { id: "ja-u125l3-niru", type: "kanji", front: "似", reading: "ni", meaning: "resemble", example: { jp: "父に似ているので、店の人によくまちがえられます。", en: "I look like my father, so the shop staff often mix us up." }, accept: ["be like", "look like", "take after"], hint: "似 = 人 (person) + 以 — one person cast in another's shape. 似ています = looks like." },
+        { id: "ja-u125l3-kyoshi", type: "vocab", front: "教師", reading: "kyōshi", meaning: "teacher", example: { jp: "教師の仕事が長くなって、子どものかわり方がよく分かります。", en: "I've taught for a long time, so I can see clearly how children change." }, accept: ["schoolteacher", "instructor"] },
+        { id: "ja-u125l3-shiiku", type: "vocab", front: "飼育", reading: "shiiku", meaning: "rearing animals", example: { jp: "飼育はたいへんでも、毎日会えるのがうれしいです。", en: "Hard as the animals are to look after, seeing them daily is a pleasure." }, accept: ["keeping animals", "husbandry", "breeding"] },
+      ],
+    },
+    {
+      id: "ja-u125l4",
+      unit: 125,
+      lesson: 4,
+      title: "Losing, taking, kinds",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 失 (lose), 取 (take), 種 (kind), 酒 (alcohol), and the words 日本酒 and 種目.",
+      items: [
+        { id: "ja-u125l4-ushinau", type: "kanji", front: "失", reading: "ushinau", meaning: "lose", example: { jp: "かぎを失って、しばらく外で待ちました。", en: "I lost my keys and waited outside for a while." }, accept: ["be deprived of", "miss", "fail"], hint: "失 = a hand letting something drop. 失礼 = rudeness: losing courtesy." },
+        { id: "ja-u125l4-toru", type: "kanji", front: "取", reading: "toru", meaning: "take", example: { jp: "電話を取ったら、まちがい電話でした。", en: "I picked up the phone, and it was a wrong number." }, accept: ["pick up", "obtain", "grasp"], hint: "取 = 耳 (ear) + 又 (hand) — taking hold of something. 取ります covers taking, picking up and obtaining." },
+        { id: "ja-u125l4-tane", type: "kanji", front: "種", reading: "shu", meaning: "kind", example: { jp: "この種の花は強いので、はじめての人にもそだてられます。", en: "This kind of flower is hardy, so even a beginner can grow it." }, accept: ["sort", "seed", "species"], hint: "種 = 禾 (grain) + 重 — the seed a crop comes from, hence a kind or type. 種目 = an event or category." },
+        { id: "ja-u125l4-sake", type: "kanji", front: "酒", reading: "sake", meaning: "alcohol", example: { jp: "酒はよわいので、少しだけ飲みます。", en: "I can't take much alcohol, so I drink only a little." }, accept: ["sake", "drink", "liquor"], hint: "酒 = 氵 (liquid) + 酉 (a jar) — what is kept in the jar. お酒 = alcohol generally; 日本酒 = sake specifically." },
+        { id: "ja-u125l4-nihonshu", type: "vocab", front: "日本酒", reading: "nihonshu", meaning: "sake", example: { jp: "日本酒はつめたくても飲めますし、あたためてもおいしいです。", en: "Sake is good cold, and it's good warmed as well." }, accept: ["rice wine", "Japanese sake"] },
+        { id: "ja-u125l4-shumoku", type: "vocab", front: "種目", reading: "shumoku", meaning: "event", example: { jp: "この種目は人気があるので、はじめる子どもがふえました。", en: "This event is popular, so more children are taking it up." }, accept: ["category", "discipline", "item on a programme"] },
+      ],
+    },
   ],
 };

@@ -1,18 +1,80 @@
-// JA Unit 134 — Characters 19 (B1) (slot: characters-b1-19) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// JA Unit 134 — かんじ・やくわり (N3 kanji — roles and paying) — B1 / JLPT N3
+// Glyph ownership and card shape are documented in unit119.js: slice 19 of the
+// pool that remains once block 1's authored 160 glyphs are subtracted.
 export const UNIT134 = {
   id: "ja-u134",
   lang: "ja",
-  title: "Characters 19 (B1)",
+  title: "かんじ・やくわり",
   order: 134,
   stage: "b1",
   lessons: [
-    { id: "ja-u134l1", title: "Lesson 1", locked: true },
-    { id: "ja-u134l2", title: "Lesson 2", locked: true },
-    { id: "ja-u134l3", title: "Lesson 3", locked: true },
-    { id: "ja-u134l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u134l1",
+      unit: 134,
+      lesson: 1,
+      title: "The ふく set, and bearing a load",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 負 (lose), 副 (vice-), 復 (return to), 複 (multiple), and the words 副業 and 負担.",
+      items: [
+        { id: "ja-u134l1-makeru", type: "kanji", front: "負", reading: "makeru", meaning: "lose", example: { jp: "しあいに負けて、はじめてじぶんの力を知りました。", en: "Losing the match was the first time I saw where I really stood." }, accept: ["lose", "carry", "owe"], hint: "負 = a person bent over 貝 (money) — carrying a load. 負けます = to lose, 負担 = a burden." },
+        { id: "ja-u134l1-fukusub", type: "kanji", front: "副", reading: "fuku", meaning: "vice-", example: { jp: "副社長が来たので、みんな急にしずかになりました。", en: "The vice-president came, so everyone suddenly went quiet." }, accept: ["deputy", "secondary", "side"], hint: "副 = the second one beside the main one. 副社長 = vice-president, 副業 = a side job." },
+        { id: "ja-u134l1-fukuagain", type: "kanji", front: "復", reading: "fuku", meaning: "return to", example: { jp: "毎日習ったことを復習していれば、いつかおぼえられます。", en: "If you review what you learned every day, in time it sticks." }, accept: ["repeat", "restore", "go back over"], hint: "復 = 彳 (go) back over the same path. 回復 = recovery. Its on-yomi is ふく, like 副." },
+        { id: "ja-u134l1-fukumulti", type: "kanji", front: "複", reading: "fuku", meaning: "multiple", example: { jp: "名前が重複していたので、すぐ直しました。", en: "The names were duplicated, so I fixed it right away." }, accept: ["duplicate", "compound", "double"], hint: "複 = 衤 (cloth) layered over itself. 重複 = a duplication. Third ふく — this one means 'more than one copy'." },
+        { id: "ja-u134l1-fukugyo", type: "vocab", front: "副業", reading: "fukugyō", meaning: "side job", example: { jp: "副業を始めてから、ねる時間がへりました。", en: "Since starting a side job, I sleep less." }, accept: ["second job", "sideline", "moonlighting"] },
+        { id: "ja-u134l1-futan", type: "vocab", front: "負担", reading: "futan", meaning: "a burden", example: { jp: "お金の負担が大きいので、家族が助けてくれています。", en: "The financial burden is heavy, so my family has been helping." }, accept: ["load", "strain", "what one has to carry"] },
+      ],
+    },
+    {
+      id: "ja-u134l2",
+      unit: 134,
+      lesson: 2,
+      title: "Paying, faith, shutting",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 払 (pay), 仏 (Buddha), 閉 (close), 並 (line up), and the words 前払い and 仏教.",
+      items: [
+        { id: "ja-u134l2-harau", type: "kanji", front: "払", reading: "harau", meaning: "pay", example: { jp: "お金を払ってから、店を出ました。", en: "I paid the money, and then left the shop." }, accept: ["settle", "brush off", "clear away"], hint: "払 = 扌 (hand) sweeping something away — handing money over, or brushing dust off." },
+        { id: "ja-u134l2-hotoke", type: "kanji", front: "仏", reading: "butsu", meaning: "Buddha", example: { jp: "仏教の話を聞いてから、古い本を読みはじめました。", en: "After the talk on Buddhism, I started reading the old books." }, accept: ["Buddhist", "the Buddha", "image of Buddha"], hint: "仏 = 人 (person) + 厶 — the figure people gather before. 仏教 = Buddhism." },
+        { id: "ja-u134l2-shimeru", type: "kanji", front: "閉", reading: "shimaru", meaning: "close", example: { jp: "店は八時に閉まるので、いつも走って行きます。", en: "The shop closes at eight, so I always run there." }, accept: ["shut", "shut down", "closed"], hint: "閉 = 門 (a gate) with a bar across it. The opposite of 開." },
+        { id: "ja-u134l2-narabu", type: "kanji", front: "並", reading: "narabu", meaning: "line up", example: { jp: "人が長く並んでいたので、私はやめておきました。", en: "People were lined up a long way, so I gave it a miss." }, accept: ["stand in a row", "queue", "ordinary"], hint: "並 = two things standing side by side at the same height. 並びます = to queue, 並木 = a row of roadside trees." },
+        { id: "ja-u134l2-maebarai", type: "vocab", front: "前払い", reading: "maebarai", meaning: "payment in advance", example: { jp: "前払いだったのに、品はまだ来ていません。", en: "It was paid in advance, but the goods still haven't come." }, accept: ["prepayment", "paying up front"] },
+        { id: "ja-u134l2-bukkyo", type: "vocab", front: "仏教", reading: "bukkyō", meaning: "Buddhism", example: { jp: "仏教の話は難しくても、聞くのはすきです。", en: "Difficult though talks on Buddhism are, I like listening to them." }, accept: ["Buddhist teaching", "the Buddhist religion"] },
+      ],
+    },
+    {
+      id: "ja-u134l3",
+      unit: 134,
+      lesson: 3,
+      title: "Nearby, plenty, force",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 辺 (vicinity), 便 (service), 豊 (abundant), 暴 (violent), and the words 豊作 and 暴力.",
+      items: [
+        { id: "ja-u134l3-atari", type: "kanji", front: "辺", reading: "hen", meaning: "vicinity", example: { jp: "この辺には店が少ないので、まとめて買っておきます。", en: "There aren't many shops around here, so I buy in bulk." }, accept: ["around here", "area", "edge"], hint: "辺 = 辶 (go) + 刀 — as far around as you'd walk. この辺 = around here, 海辺 = the seaside." },
+        { id: "ja-u134l3-bin", type: "kanji", front: "便", reading: "bin", meaning: "service", example: { jp: "毎日の便は一度だけなので、おくれるとこまります。", en: "There's only one service a day, so a delay is a real problem." }, accept: ["post", "flight", "convenience"], hint: "便 = 人 (person) + 更 — what makes life go smoothly. 便利 = convenient; 便 alone = a mail or flight service." },
+        { id: "ja-u134l3-yutaka", type: "kanji", front: "豊", reading: "yutaka", meaning: "abundant", example: { jp: "土地が豊かなので、米がよくできます。", en: "The land is abundant, so rice grows well." }, accept: ["rich", "plentiful", "fertile"], hint: "豊 = a vessel heaped high with grain. 豊か = rich or plentiful, 豊作 = a good harvest." },
+        { id: "ja-u134l3-abareru", type: "kanji", front: "暴", reading: "bō", meaning: "violent", example: { jp: "暴力は何も生まないので、まずはなしあうことにしています。", en: "Violence produces nothing, so we make a point of talking first." }, accept: ["rough", "outburst", "reveal"], hint: "暴 = the sun beating down without mercy. 暴力 = violence, 暴風 = a violent wind." },
+        { id: "ja-u134l3-hosaku", type: "vocab", front: "豊作", reading: "hōsaku", meaning: "a good harvest", example: { jp: "今年は豊作だったので、ねだんは安くなりました。", en: "This year was a good harvest, so the prices came down." }, accept: ["bumper crop", "rich harvest"] },
+        { id: "ja-u134l3-boryoku", type: "vocab", front: "暴力", reading: "bōryoku", meaning: "violence", example: { jp: "暴力はゆるされないのに、なくなりません。", en: "Violence isn't permitted, and yet it doesn't go away." }, accept: ["force", "brutality", "physical force"] },
+      ],
+    },
+    {
+      id: "ja-u134l4",
+      unit: 134,
+      lesson: 4,
+      title: "Getting lost, sounding, roles",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Read 迷 (get lost), 鳴 (sound), 面 (face), 役 (role), and the words 迷子 and 役目.",
+      items: [
+        { id: "ja-u134l4-mayou", type: "kanji", front: "迷", reading: "mayoi", meaning: "get lost", example: { jp: "道に迷ったので、店の人に聞きました。", en: "I got lost, so I asked someone at a shop." }, accept: ["stray", "be undecided", "waver"], hint: "迷 = 辶 (go) + 米 (grains scattered every way) — going in all directions at once. Also: unable to decide." },
+        { id: "ja-u134l4-naru", type: "kanji", front: "鳴", reading: "naru", meaning: "sound", example: { jp: "電話が鳴ったのに、外にいて出られませんでした。", en: "The phone rang, but I was outside and couldn't answer." }, accept: ["ring", "cry (of an animal)", "chime"], hint: "鳴 = 口 (mouth) + 鳥 (bird) — a bird calling. Used for anything that sounds: bells, phones, animals. Its on-yomi is めい, like 迷." },
+        { id: "ja-u134l4-men", type: "kanji", front: "面", reading: "men", meaning: "face", example: { jp: "この面から見ると、答えはちがいます。", en: "Looked at from this side, the answer is different." }, accept: ["surface", "aspect", "mask"], hint: "面 = the flat outward side of a thing. 面白い = interesting: literally 'the face brightens'." },
+        { id: "ja-u134l4-yakurole", type: "kanji", front: "役", reading: "yaku", meaning: "role", example: { jp: "大切な役をもらったので、まいばんれんしゅうしています。", en: "I was given an important role, so I practise every night." }, accept: ["part", "duty", "office"], hint: "役 = the job assigned to you. 役目 = one's role, 役に立つ = to be useful." },
+        { id: "ja-u134l4-maigo", type: "vocab", front: "迷子", reading: "maigo", meaning: "a lost child", example: { jp: "店で迷子になったので、みんなでさがしました。", en: "A child got lost in the shop, so we all searched." }, accept: ["lost person", "someone who's got lost"] },
+        { id: "ja-u134l4-yakume", type: "vocab", front: "役目", reading: "yakume", meaning: "one's role", example: { jp: "私の役目がおわって、やっとゆっくりねむれました。", en: "My role is over, and at last I could sleep properly." }, accept: ["duty", "the part you play", "function"] },
+      ],
+    },
   ],
 };
