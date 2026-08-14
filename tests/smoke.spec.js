@@ -1010,3 +1010,58 @@ test("Achievements: the language switcher appears only when learning two or more
 
   expect(errors, errors.join("; ")).toEqual([]);
 });
+
+// --- Dev Mode: previewing the add-a-language flow -------------------------------
+
+// Seed BEFORE any app script runs — writing localStorage after page load races
+// zustand's own persist and gets clobbered (learned the hard way).
+const seed = (page, devMode) =>
+  page.addInitScript(
+    (json) => localStorage.setItem("lingua-v1", json),
+    JSON.stringify({
+      state: {
+        devMode,
+        profile: { onboarded: true, languages: ["ja"], activeLang: "ja", languagesChosen: true },
+      },
+      version: 0,
+    })
+  );
+
+test("dev preview: add-a-language renders unlocked, and Start cannot write", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await seed(page, true);
+
+  // Baseline: a pre-A1 learner sees the LOCKED copy.
+  await page.goto("/ladder");
+  expect((await page.locator("#root").textContent()) ?? "").toContain("to unlock another language");
+
+  // Preview: the unlocked state, with French offered as a SECOND language.
+  await page.goto("/ladder?preview=addlang");
+  await expect(page.getByTestId("addlang-preview-banner")).toBeVisible();
+  const prev = (await page.locator("#root").textContent()) ?? "";
+  expect(prev).toContain("You've reached A1");
+  expect(prev).toContain("French");
+
+  // The isolation contract: Start is inert and real progress is untouched.
+  const before = await page.evaluate(() => localStorage.getItem("lingua-v1"));
+  const start = page.getByRole("button", { name: "Start" }).first();
+  await expect(start).toBeDisabled();
+  await start.click({ force: true }).catch(() => {});
+  expect(
+    await page.evaluate(() => localStorage.getItem("lingua-v1")),
+    "the preview wrote to real progress"
+  ).toBe(before);
+  expect(
+    await page.evaluate(() => JSON.parse(localStorage.getItem("lingua-v1")).state.profile.languages)
+  ).toEqual(["ja"]);
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+test("the preview is dev-gated — the query string alone does nothing", async ({ page }) => {
+  await seed(page, false);
+  await page.goto("/ladder?preview=addlang");
+  await expect(page.getByTestId("addlang-preview-banner")).toHaveCount(0);
+  expect((await page.locator("#root").textContent()) ?? "").toContain("to unlock another language");
+});

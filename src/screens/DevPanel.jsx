@@ -346,6 +346,23 @@ export default function DevPanel() {
         <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 8, lineHeight: 1.4 }}>
           Re-runs the language pick + onboarding screens. Safe — doesn't touch your progress; you'll land back in the app when you finish.
         </div>
+
+        {/* The Ladder's "Add a language" section is gated on reaching A1, so its
+            unlocked state is unreachable until then — which is why French shipped
+            having only ever been seen as a FIRST pick, never as the addition it
+            will usually be. This previews that state. Start is disabled inside the
+            preview (it writes to real progress), keeping the panel's promise. */}
+        <button
+          onClick={() => navigate("/ladder?preview=addlang")}
+          style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.ai}`, background: C.aiSoft, color: C.aiDeep, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer", marginTop: 12 }}
+        >
+          <Play size={18} /> Preview “Add a language”
+        </button>
+        <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 8, lineHeight: 1.4 }}>
+          Shows the Ladder's add-a-language rows unlocked, as they look once you've
+          reached A1 — the only way to see {langName(lang)} offered as a second
+          language rather than a first pick. Read-only: Start is disabled.
+        </div>
       </Section>
 
       <Section title="Danger zone">
