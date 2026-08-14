@@ -74,12 +74,36 @@ const KANJI_N3 =
   "満未民務夢無命迷鳴綿面戻約役薬油輸予余預容様養欲頼落乱卵利陸律略" +
   "流留両良量領緑林礼列練路老労録和";
 
+// N2, for the B2 band. Added 2026-08-14, immediately after B1 shipped and left the
+// pool at EXACTLY ZERO untaught glyphs: all 568 kanji entries were consumed, 320 of
+// them by B1's character strand. A B2 crew starting today could not teach a single
+// new glyph, and the first seat to notice would be the one editing this shared file
+// mid-flight — precisely the failure the paragraph above exists to prevent.
+// Overlap with N3 is deliberate and free: the Set below dedupes, and stating the
+// real N2 list beats hand-pruning it and getting the difference wrong.
+const KANJI_N2 =
+  "圧移囲委胃衣印栄永営液益演往応恩仮価河可賀解快格確額刊幹慣眼基寄" +
+  "規喜技逆久旧居巨許境均禁句訓群経潔件券検限個故護効厚耕構講鉱混査" +
+  "再妻採災際在罪財雑酸賛士支枝師志資飼似示識質舎謝授修述術準序招承" +
+  "証条状常情織職制勢性政精製税責績接設絶祖素総像増造則測属率損退貸" +
+  "態団断築張提程敵適統銅導徳独燃破判版比肥非俵評貧婦布富武復複仏編" +
+  "弁保墓報豊防貿暴脈夢綿輸余預容略留領歴" +
+  // second tranche — the rest of the common jōyō set a B2 band draws on. The
+  // first tranche alone yielded only 103 genuinely-new glyphs after deduping
+  // against N5/N4/N3, which supports ~6 character units, not the 20 the band
+  // template calls for.
+  "沿延縁汚奥憶加荷課貨芽介灰械皆絵較刻骨困砂座済裁策冊姿詞誌磁射捨" +
+  "尺樹宗衆従縦縮熟純処署諸除将傷城蒸針仁垂推盛聖誠宣専泉洗染銭善奏" +
+  "創装層操蔵臓宅誕暖宙忠著庁頂潮賃展糖乳認納脳拝背肺俳班晩否批秘腹" +
+  "奮陛片補暮宝訪亡忘棒枚幕密盟模訳郵優幼翌覧裏臨朗論";
+
 // Defensive filter: only kana and CJK ideographs are fetchable KanjiVG glyphs.
 // A stray Latin letter or lookalike in the lists above would otherwise become its
-// own doomed request and a confusing per-character ERROR line.
+// own doomed request and a confusing per-character ERROR line. This is load-bearing
+// for the N2 list, which was typed by hand and is expected to carry a stray or two.
 const IS_GLYPH = /[぀-ヿ一-鿿]/;
 const kanaChars = [
-  ...new Set((HIRAGANA + DAKUTEN + KATAKANA + KANJI + KANJI_N3).split("")),
+  ...new Set((HIRAGANA + DAKUTEN + KATAKANA + KANJI + KANJI_N3 + KANJI_N2).split("")),
 ].filter((c) => IS_GLYPH.test(c));
 
 console.log(`Fetching KanjiVG data for ${kanaChars.length} characters: ${kanaChars.join(" ")}\n`);
