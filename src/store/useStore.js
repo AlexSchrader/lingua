@@ -500,7 +500,14 @@ export const useStore = create(
       // due today and the lesson was done (new learner, early days).
       rollDailyGoal: () => {
         const { daily } = get();
-        const nothingDue = get().dueItems().length === 0;
+        // EXPLICITLY CROSS-LANGUAGE. The daily goal is the obligation half of the
+        // review design, and the obligation is global (see REVIEW_CAP) — so "was
+        // there nothing to review today?" has to ask about the whole profile, not
+        // just the language open right now. Scoping this to the active language
+        // would hand out the streak for a French lesson while 30 Japanese cards sat
+        // overdue. `null` is the deliberate opt-in to every language; it is the one
+        // caller in the store that wants the unscoped answer.
+        const nothingDue = get().dueItems(null).length === 0;
         const met = daily.reviewsCleared || (nothingDue && daily.lessonDone);
         if (!met) return false;
         get().bumpStreak();

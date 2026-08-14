@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { BookOpen, RotateCcw, Lock, Check, Star, Award, ChevronRight } from "lucide-react";
-import { useStore, REVIEW_CAP } from "../store/useStore.js";
+import { useStore, REVIEW_CAP, activeLangId } from "../store/useStore.js";
 import { UNITS, LANGUAGES } from "../data/index.js";
 import { isReviewable, isMastered } from "../store/mastery.js";
 import { nextMilestone } from "../data/milestones.js";
@@ -109,7 +109,11 @@ export default function Today() {
   const profile = useStore((s) => s.profile);
   // The active language drives everything on Today (falls back to ja for safety).
   const startedLangs = profile.languages?.length ? profile.languages : ["ja"];
-  const activeId = profile.activeLang && startedLangs.includes(profile.activeLang) ? profile.activeLang : startedLangs[0];
+  // Same helper the store scopes dueItems/reviewsLocked with — this used to be an
+  // inline copy of the identical fallback, which is exactly the drift the shared
+  // export exists to prevent (the screen and the store must never disagree about
+  // which language the learner is in).
+  const activeId = activeLangId(profile);
   const active = { ...LANGUAGES.find((l) => l.id === activeId), ...(languages[activeId] ?? {}) };
   const dueItemsFn = useStore((s) => s.dueItems);
   const reviewsLockedFn = useStore((s) => s.reviewsLocked);
@@ -160,7 +164,9 @@ export default function Today() {
   const devMode = import.meta.env.DEV || new URLSearchParams(location.search).has("dev");
 
   // No reviews to clear when the queue is empty — treat as already done.
-  const reviewState = daily.reviewsCleared || due.length === 0 ? "done" : "active";
+  // "done" means THIS language has nothing waiting. The global daily flag alone
+  // would paint the pill green for a language still carrying real debt.
+  const reviewState = due.length === 0 ? "done" : "active";
   const lessonState = daily.lessonDone ? "done" : reviewsLocked ? "locked" : "active";
 
   // Is there still new material to learn? (any lesson has rung-0 items.)
@@ -231,8 +237,12 @@ export default function Today() {
   const startFix = () => navigate("/review?fix=1");
   // Scoped like everything else on this screen: the mistake list is stored for the
   // whole profile, but "Fix your mistakes (N)" sits under one language's card and
-  // must count only that language's misses.
-  const mistakeCount = (mistakes ?? []).filter((id) => items[id]?.lang === activeId).length;
+  // must count only that language's misses. `isReviewable` matches the filter the
+  // mistake runner itself applies (Review.jsx) — without it the button could offer
+  // "Fix your mistakes (3)" and then open straight onto "No mistakes to fix".
+  const mistakeCount = (mistakes ?? []).filter(
+    (id) => items[id]?.lang === activeId && isReviewable(items[id])
+  ).length;
   const startLesson = () => {
     const target = currentLesson ?? allPlayableLessons[0] ?? null;
     if (target) navigate(`/lesson/${target.id}`);
@@ -350,7 +360,11 @@ export default function Today() {
         <StatusPill
           icon={RotateCcw}
           label="Reviews"
-          value={daily.reviewsCleared ? "Cleared" : due.length > 0 ? `${sessionDue} due` : "All clear"}
+          // "Cleared" is about THIS language, not about the day. The daily flag is
+          // global, so reporting it directly told a French learner "Cleared" while
+          // 40 French cards sat overdue. Real debt in the active language is always
+          // shown, whatever the day's duty says.
+          value={due.length > 0 ? `${sessionDue} due` : daily.reviewsCleared ? "Cleared" : "All clear"}
           state={reviewState}
         />
         <StatusPill
@@ -422,6 +436,24 @@ export default function Today() {
           style={{ padding: "12px 18px", borderRadius: 14, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer", marginTop: 2 }}
         >
           {reviewsLocked ? `Learn a few first (${MICRO_SIZE})` : `Low on energy? Just a few (${MICRO_SIZE})`}
+        </button>
+      )}
+
+      {/* Optional review, once the day's duty is already met elsewhere. The daily
+          obligation is global (clear reviews in ANY language and lessons unlock in
+          all of them), which means a second language can sit on real debt with the
+          primary CTA showing "Start lesson". Today is the only non-dev route to
+          /review, so without this button that queue would be genuinely unreachable
+          until tomorrow — the per-language cap would starve exactly the language it
+          was meant to protect. Offered, never demanded: it is a quiet secondary
+          action, and nothing is locked behind it. */}
+      {daily.reviewsCleared && due.length > 0 && (
+        <button
+          data-testid="start-review-optional"
+          onClick={startReview}
+          style={{ padding: "12px 18px", borderRadius: 14, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}
+        >
+          <RotateCcw size={16} /> Review {active.name} anyway ({sessionDue})
         </button>
       )}
 

@@ -146,6 +146,27 @@ test("clearing reviews in one language satisfies the day for every language", ()
   });
 });
 
+// code-auditor BLOCKER 2 (2026-08-14): scoping dueItems() flipped rollDailyGoal to
+// per-language by accident — the one call in the store that must stay global. It
+// would have handed out the streak for a French lesson while 30 Japanese cards sat
+// overdue, silently contradicting the "obligation is global" half of the design.
+test("the daily goal asks about EVERY language, not just the active one", () => {
+  withStore({ ja: 30 }, { languages: ["ja", "fr"], activeLang: "fr" }, () => {
+    useStore.setState((s) => ({ daily: { ...s.daily, lessonDone: true, reviewsCleared: false } }));
+    const before = useStore.getState().streak.current;
+    const met = useStore.getState().rollDailyGoal();
+    assert.equal(met, false, "a French lesson must NOT satisfy the day while Japanese is in debt");
+    assert.equal(useStore.getState().streak.current, before, "and the streak must not tick");
+  });
+});
+
+test("the daily goal is met by a lesson when NO language owes reviews", () => {
+  withStore({}, { languages: ["ja", "fr"], activeLang: "fr" }, () => {
+    useStore.setState((s) => ({ daily: { ...s.daily, lessonDone: true, reviewsCleared: false } }));
+    assert.equal(useStore.getState().rollDailyGoal(), true);
+  });
+});
+
 test("a language with nothing due is never locked, cleared or not", () => {
   withStore({ ja: 5 }, { languages: ["ja", "fr"], activeLang: "fr" }, (s) => {
     assert.equal(s.dueItems("fr").length, 0);

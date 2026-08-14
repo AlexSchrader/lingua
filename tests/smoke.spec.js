@@ -901,6 +901,37 @@ test("review debt in the other language doesn't block this one's lesson", async 
   expect(errors, errors.join("; ")).toEqual([]);
 });
 
+// code-auditor BLOCKER 1 (2026-08-14): the daily obligation is global, so once ANY
+// language's reviews are cleared the primary CTA stops offering reviews everywhere.
+// Today is the only non-dev route to /review, so a second language's real debt was
+// unreachable until the next day — and the pill cheerfully said "Cleared" over it.
+// The per-language cap would then starve the very language it exists to protect.
+test("a language keeps a reachable review path after the day's duty is met", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  const st = debtInOtherLanguageState();
+  // The learner is in FRENCH and French itself is overdue; the day's duty was
+  // already met (in Japanese), so the global flag is set.
+  const seed = seedItems();
+  const frVocab = Object.values(seed).filter((it) => it.type === "vocab" && it.lang === "fr");
+  for (const it of frVocab.slice(0, 40)) {
+    st.state.items[it.id] = { ...st.state.items[it.id], rung: 1, srs: dueCard() };
+  }
+  st.state.daily = { ...st.state.daily, reviewsCleared: true };
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(st));
+  await page.goto("/");
+
+  // Not demanded — the primary CTA is free for the lesson...
+  await expect(page.getByTestId("start-session")).not.toHaveText(/Clear reviews/);
+  // ...but the queue is genuinely reachable, and the pill tells the truth about it.
+  const optional = page.getByTestId("start-review-optional");
+  await expect(optional).toBeVisible();
+  await expect(page.getByText("Cleared")).toHaveCount(0);
+  await optional.click();
+  await expect(page).toHaveURL(/\/review/);
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
 test("French: the Ladder stands on a real rung, never a dead Pre-A1", async ({ page }) => {
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
