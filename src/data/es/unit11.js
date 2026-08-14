@@ -37,7 +37,7 @@ export const ES_UNIT11 = {
         { id: "es-u11l1-cara", type: "vocab", front: "la cara", reading: "lacara", meaning: "face", example: { jp: "La cara de Carlos está limpia.", en: "Carlos's face is clean." }, accept: ["the face"], hint: "Don't mix it up with caro, expensive — one letter apart." },
         { id: "es-u11l1-oreja", type: "vocab", front: "la oreja", reading: "laoreja", meaning: "ear", example: { jp: "En la cabeza hay dos orejas.", en: "There are two ears on the head." }, accept: ["the ear"], hint: "La oreja is the ear you can see; el oído is the hearing inside it." },
         { id: "es-u11l1-nariz", type: "vocab", front: "la nariz", reading: "lanariz", meaning: "nose", example: { jp: "La nariz está en la cara.", en: "The nose is on the face." }, accept: ["the nose"], hint: "Same root as \"nasal\"." },
-        { id: "es-u11l1-boca", type: "vocab", front: "la boca", reading: "laboca", meaning: "mouth", example: { jp: "La nariz y la boca están en la cara.", en: "The nose and the mouth are on the face." }, accept: ["the mouth"], hint: "Also the mouth of a river or a street — la boca del metro is the subway entrance." },
+        { id: "es-u11l1-boca", type: "vocab", front: "la boca", reading: "laboca", meaning: "mouth", example: { jp: "En la cara hay una nariz y una boca.", en: "There's a nose and a mouth on the face." }, accept: ["the mouth"], hint: "Also the mouth of a river or a street — la boca del metro is the subway entrance." },
       ],
     },
     {
