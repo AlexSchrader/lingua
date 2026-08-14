@@ -972,6 +972,21 @@ test("French: no Japanese-only surfaces — Settings toggles, Achievements, the 
   expect(watermark, "the version watermark stamped a Japanese flag on a French learner's screen").not.toContain("🇯🇵");
   expect(watermark).toContain("🇫🇷");
 
+  // The TODAY screen carries its own watermark and its own next-milestone line.
+  // Both leaked Japanese to a French learner while the Settings copies above were
+  // already fixed and pinned — the fix had been applied surface by surface from
+  // memory rather than from a list. Asserted here so the pair cannot drift again.
+  await page.goto("/");
+  const todayMark = (await page.getByTestId("version-watermark").textContent()) ?? "";
+  expect(todayMark, "Today's watermark stamped a Japanese flag on a French learner").not.toContain("🇯🇵");
+  expect(todayMark).toContain("🇫🇷");
+
+  // "NEXT MILESTONE — You learned your first kanji · 1 to go" on a French profile:
+  // unreachable, and a plain statement that the app is really for someone else.
+  const today = (await page.locator("#root").textContent()) ?? "";
+  for (const phrase of ["kanji", "Kanji", "hiragana", "katakana"])
+    expect(today, `Today offered "${phrase}" to a French learner`).not.toContain(phrase);
+
   expect(errors, errors.join("; ")).toEqual([]);
 });
 
