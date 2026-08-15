@@ -173,7 +173,12 @@ export default function Today() {
     () => Object.values(items).filter((it) => it.lang === activeId && isMastered(it)).length,
     [items, activeId]
   );
-  const nextMs = useMemo(() => nextMilestone(items), [items]);
+  // Scoped to the languages this learner has actually started. Without the second
+  // argument milestonesForLangs returns the WHOLE catalog, so a French-only learner
+  // was told their next milestone was "You learned your first kanji · 1 to go" —
+  // unreachable, and a plain statement that the app is really for someone else.
+  // The filter already existed; this call site just never passed it.
+  const nextMs = useMemo(() => nextMilestone(items, startedLangs), [items, startedLangs]);
 
   // Progress glance + next-review timing (from the data we already track).
   const masteredKana = useMemo(
@@ -483,8 +488,12 @@ export default function Today() {
         </button>
       )}
 
-      {/* Version watermark */}
+      {/* Version watermark. There are TWO of these — this one and Settings' — and
+          only Settings' was flagged correctly and pinned by a test, so this one went
+          on stamping 🇯🇵 on a French learner's home screen. Both carry the testid now
+          so neither can drift alone. */}
       <div
+        data-testid="version-watermark"
         style={{
           marginTop: "auto",
           textAlign: "right",
@@ -494,7 +503,7 @@ export default function Today() {
           opacity: 0.6,
         }}
       >
-        🇯🇵 {VERSION}
+        {LANGUAGES.find((l) => l.id === activeId)?.flag ?? "🇯🇵"} {VERSION}
       </div>
     </div>
   );

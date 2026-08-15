@@ -7,6 +7,7 @@ import { migrateState, PERSIST_VERSION } from "./migrate.js";
 import { matchesDevCode } from "./dev.js";
 import { earnedMilestones, milestoneCatalog } from "../data/milestones.js";
 import { CEFR_ORDER, cefrLevelReached, levelRank } from "./levels.js";
+import { persistKey } from "./preview.js";
 
 // Seed every item with a fresh FSRS card attached as its srs. Card attachment
 // lives here (not in the data loader) per Brief 2.
@@ -624,7 +625,11 @@ export const useStore = create(
       },
     }),
     {
-      name: "lingua-v1",
+      // Bound ONCE, here, at store creation — which is exactly what makes Preview
+      // Mode safe. Isolation by storage key rather than by a flag every writer has
+      // to remember means no action can leak preview progress into the real deck.
+      // See src/store/preview.js.
+      name: persistKey(),
       version: PERSIST_VERSION,
       // One-time, on rehydrate: replace any pre-FSRS srs with a fresh card,
       // preserving rung and all other progress (don't crash old v0.1 state).
