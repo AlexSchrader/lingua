@@ -1,18 +1,80 @@
-// JA Unit 182 — Characters 12 (B2) (slot: characters-b2-12) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// Unit 182 — かんじ・からだと うつりかわり (N2 kanji, set 12) — B2 / JLPT N2
+// Glyph budget, card shape and the compound-by-reading rule are documented in
+// unit175.js. Slice 12: 宙忠著庁頂潮賃展糖乳認納脳拝背肺.
 export const UNIT182 = {
   id: "ja-u182",
   lang: "ja",
-  title: "Characters 12 (B2)",
+  title: "かんじ・からだと うつりかわり",
   order: 182,
   stage: "b2",
   lessons: [
-    { id: "ja-u182l1", title: "Lesson 1", locked: true },
-    { id: "ja-u182l2", title: "Lesson 2", locked: true },
-    { id: "ja-u182l3", title: "Lesson 3", locked: true },
-    { id: "ja-u182l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u182l1",
+      unit: 182,
+      lesson: 1,
+      title: "Space, loyalty, authorship",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 宙 (space), 忠 (loyal), 著 (author), 庁 (agency), and the words 著者 and 著書.",
+      items: [
+        { id: "ja-u182l1-chu", type: "kanji", front: "宙", reading: "chū", meaning: "mid-air", example: { jp: "紙が 宙に 上がって、そのまま 風に 流されました。", en: "The paper rose into the air and was carried off by the wind." }, accept: ["space", "the void", "aloft"], hint: "宙 = 宀 (roof) + 由 — the open reach above. 宇宙 = the universe: all of that space." },
+        { id: "ja-u182l1-chugi", type: "kanji", front: "忠", reading: "chū", meaning: "loyal", example: { jp: "その 犬は 死ぬまで 忠実だったと 言われて います。", en: "That dog is said to have been faithful to the end." }, accept: ["faithful", "devoted", "true to"], hint: "忠 = 中 (centre) + 心 (heart) — a heart that stays at the centre. Its on-yomi is ちゅう, like 宙." },
+        { id: "ja-u182l1-arawasu", type: "kanji", front: "著", reading: "cho", meaning: "write (a book)", example: { jp: "その 先生が 著した 本は、今も 読まれて います。", en: "The book that teacher wrote is still read today." }, accept: ["author", "marked", "notable"], hint: "著 also means 'marked' — 著しい = striking. Same glyph, two lives: writing something down and standing out." },
+        { id: "ja-u182l1-cho", type: "kanji", front: "庁", reading: "chō", meaning: "a government agency", example: { jp: "その 話は 庁の 人から 聞きました。", en: "I heard that from someone at the agency." }, accept: ["bureau", "government office"], hint: "庁 = 广 (a building) — the official building. It ends agency names the way 省 ends ministry names." },
+        { id: "ja-u182l1-chosha", type: "vocab", front: "著者", reading: "chosha", meaning: "the author", example: { jp: "著者に 会ってから、その 本の 見え方が 変わりました。", en: "After meeting the author, the book looked different to me." }, accept: ["the writer", "who wrote it"] },
+        { id: "ja-u182l1-chosho", type: "vocab", front: "著書", reading: "chosho", meaning: "a published book", example: { jp: "著書が 十さつを こえて、はじめて 力が ぬけました。", en: "Only after ten published books did I finally relax." }, accept: ["one's writings", "a work one has written"] },
+      ],
+    },
+    {
+      id: "ja-u182l2",
+      unit: 182,
+      lesson: 2,
+      title: "Summits, tides, rent",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 頂 (summit), 潮 (tide), 賃 (fare), 展 (unfold), and the words 頂上 and 進展.",
+      items: [
+        { id: "ja-u182l2-itadaki", type: "kanji", front: "頂", reading: "chō", meaning: "the summit", example: { jp: "山の 頂上まで、あと 一時間 かかります。", en: "It's another hour to the mountain's summit." }, accept: ["peak", "receive (humble)", "the top"], hint: "頂 = 丁 + 頁 (head) — the very top of the head. 頂きます at a meal is the same word: receiving something held above you." },
+        { id: "ja-u182l2-shio", type: "kanji", front: "潮", reading: "shio", meaning: "the tide", example: { jp: "潮が 引いてから、みんなで 海に 出ました。", en: "Once the tide went out, we all headed onto the shore." }, accept: ["current", "the drift of things"], hint: "潮 = 氵 (water) + 朝 (morning) — the morning tide. 風潮 = the drift of an age." },
+        { id: "ja-u182l2-chin", type: "kanji", front: "賃", reading: "chin", meaning: "a fee paid", example: { jp: "電車賃が 上がって、月の お金が 足りません。", en: "Train fares went up and the month's money doesn't stretch." }, accept: ["fare", "wages", "rent"], hint: "賃 = 任 + 貝 (money) — money paid for a job or a use. 家賃 = rent, 賃金 = wages." },
+        { id: "ja-u182l2-ten", type: "kanji", front: "展", reading: "ten", meaning: "unfold", example: { jp: "話は 思わぬ 方に 展かれて いきました。", en: "The story unfolded in an unexpected direction." }, accept: ["spread out", "exhibit", "develop"], hint: "展 = 尸 over 展 — cloth opened out. 進展 = a matter opening further; 展じ会 = an exhibition." },
+        { id: "ja-u182l2-chojo", type: "vocab", front: "頂上", reading: "chōjō", meaning: "the very top", example: { jp: "頂上からの けしきの ために、四時間 歩きました。", en: "I walked four hours for the view from the top." }, accept: ["summit", "the peak"] },
+        { id: "ja-u182l2-shinten", type: "vocab", front: "進展", reading: "shinten", meaning: "progress made", example: { jp: "半年 待ちましたが、進展は ありませんでした。", en: "We waited half a year, but there was no progress." }, accept: ["development", "things moving on"] },
+      ],
+    },
+    {
+      id: "ja-u182l3",
+      unit: 182,
+      lesson: 3,
+      title: "Sugar, milk, accepting",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 糖 (sugar), 乳 (milk), 認 (acknowledge), 納 (deliver up), and the words 糖分 and 母乳.",
+      items: [
+        { id: "ja-u182l3-to", type: "kanji", front: "糖", reading: "tō", meaning: "sugar", example: { jp: "糖分を へらしてから、体が かるく なりました。", en: "Since cutting sugar I feel lighter." }, accept: ["sweetener", "saccharide"], hint: "糖 = 米 (grain) + 唐 — sweetness drawn out of grain. 砂糖 = table sugar." },
+        { id: "ja-u182l3-chichi", type: "kanji", front: "乳", reading: "nyū", meaning: "milk", example: { jp: "牛の 乳から、いろいろな ものが 作られます。", en: "Many things are made from cow's milk." }, accept: ["dairy", "breast"], hint: "乳 = a hand over a child — feeding. 牛乳 = cow's milk; 乳 alone is the substance itself." },
+        { id: "ja-u182l3-mitomeru", type: "kanji", front: "認", reading: "mitomeru", meaning: "acknowledge", example: { jp: "まちがいを 認めるのは、思ったより むずかしいです。", en: "Acknowledging a mistake is harder than you'd think." }, accept: ["recognise", "admit", "approve"], hint: "認 = 言 (words) + 忍 — saying what you have been holding in. 認める covers both 'I admit it' and 'it is approved'." },
+        { id: "ja-u182l3-osameru", type: "kanji", front: "納", reading: "nō", meaning: "hand over", example: { jp: "品を 納める 日が、一週間 早く なりました。", en: "The delivery date was brought forward by a week." }, accept: ["deliver", "pay in", "put away"], hint: "納 = 糸 + 内 — putting something inside where it belongs. 納品 = delivery, 納める also covers paying tax." },
+        { id: "ja-u182l3-tobun", type: "vocab", front: "糖分", reading: "tōbun", meaning: "sugar content", example: { jp: "この 飲み物は 糖分が 高いので、一日 一本に して います。", en: "This drink is high in sugar, so I limit myself to one a day." }, accept: ["how much sugar", "sugars"] },
+        { id: "ja-u182l3-bonyu", type: "vocab", front: "母乳", reading: "bonyū", meaning: "breast milk", example: { jp: "母乳で 育てるか どうかは、家ていで 決める ことです。", en: "Whether to raise a child on breast milk is for the family to decide." }, accept: ["mother's milk"] },
+      ],
+    },
+    {
+      id: "ja-u182l4",
+      unit: 182,
+      lesson: 4,
+      title: "Brain, back, lungs",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 脳 (brain), 拝 (worship), 背 (back), 肺 (lung), and the words 背後 and 大脳.",
+      items: [
+        { id: "ja-u182l4-no", type: "kanji", front: "脳", reading: "nō", meaning: "the brain", example: { jp: "よく ねると、脳の はたらきが 上がります。", en: "Sleep well and the brain works better." }, accept: ["mind", "cerebrum"], hint: "脳 = 月 (flesh) + 巛 + 囟 — the organ under the skull. 首脳 = the heads of a country: its brains." },
+        { id: "ja-u182l4-ogamu", type: "kanji", front: "拝", reading: "hai", meaning: "pay respects", example: { jp: "毎年 一度、この 山を 拝みに 来ます。", en: "Once a year I come to pay my respects to this mountain." }, accept: ["worship", "bow to", "see (humble)"], hint: "拝 = two hands brought together. In letters, 拝 marks the humble form: 拝見する = to look, humbly." },
+        { id: "ja-u182l4-se", type: "kanji", front: "背", reading: "se", meaning: "the back", example: { jp: "背が 高い ので、後ろの 席に すわって います。", en: "I'm tall, so I sit at the back." }, accept: ["height", "behind one", "turn one's back"], hint: "背 = 北 (two backs turned) + 月 (flesh). Also height — 背が 高い — because it is the whole length of the back." },
+        { id: "ja-u182l4-hai", type: "kanji", front: "肺", reading: "hai", meaning: "a lung", example: { jp: "たばこを やめてから、肺の ちょうしが よく なりました。", en: "Since giving up cigarettes my lungs have improved." }, accept: ["lungs", "pulmonary"], hint: "肺 = 月 (flesh) + market — the organ that takes air in and out all day. Its on-yomi はい is the same as 拝." },
+        { id: "ja-u182l4-haigo", type: "vocab", front: "背後", reading: "haigo", meaning: "behind the scenes", example: { jp: "その 決まりの 背後には、長い 話が あります。", en: "Behind that decision lies a long story." }, accept: ["at one's back", "the background to it"] },
+        { id: "ja-u182l4-daino", type: "vocab", front: "大脳", reading: "dainō", meaning: "the cerebrum", example: { jp: "大脳の はたらきは、まだ 分からない ことが 多いです。", en: "There is still a great deal unknown about how the cerebrum works." }, accept: ["the main part of the brain"] },
+      ],
+    },
   ],
 };
