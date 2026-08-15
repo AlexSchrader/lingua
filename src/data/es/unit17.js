@@ -22,14 +22,14 @@ export const ES_UNIT17 = {
       title: "El transporte",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Round out how you travel, beyond the car and the bus: en avión, en barco, en bicicleta, en moto — and what a camión is.",
+      canDo: "Round out how you travel, beyond the car and the bus: en avión, en barco, en bicicleta, en moto — and what a camión and a furgoneta are.",
       items: [
         { id: "es-u17l1-elavion", type: "vocab", front: "el avión", reading: "elavion", meaning: "the plane", example: { jp: "El avión es muy rápido.", en: "The plane is very fast." }, accept: ["aeroplane", "airplane", "plane"] },
         { id: "es-u17l1-elbarco", type: "vocab", front: "el barco", reading: "elbarco", meaning: "the boat", example: { jp: "Voy a México en barco.", en: "I'm going to Mexico by boat." }, accept: ["ship", "ferry", "boat"], hint: "Anything that floats, from a rowing boat to a liner. Note the pattern for every vehicle: en barco, en avión, en coche — en, never con." },
         { id: "es-u17l1-elcamion", type: "vocab", front: "el camión", reading: "elcamion", meaning: "the lorry", example: { jp: "El camión es muy grande.", en: "The lorry is very big." }, accept: ["camion", "truck", "lorry"], hint: "A truck in Spain — but in Mexico el camión is the everyday word for a bus, so listen to where you are." },
         { id: "es-u17l1-labicicleta", type: "vocab", front: "la bicicleta", reading: "labicicleta", meaning: "the bicycle", example: { jp: "María va en bicicleta.", en: "María goes by bike." }, accept: ["bike", "bicycle", "cycle"], hint: "Shortened to la bici in everyday speech, exactly like English \"bike\"." },
         { id: "es-u17l1-lamoto", type: "vocab", front: "la moto", reading: "lamoto", meaning: "the motorbike", example: { jp: "La moto es de Pablo.", en: "The motorbike is Pablo's." }, accept: ["motorcycle", "motorbike", "scooter"], hint: "Feminine despite the -o, like la foto — it's short for la motocicleta." },
-        { id: "es-u17l1-eltaxi", type: "vocab", front: "el taxi", reading: "eltaxi", meaning: "the taxi", example: { jp: "Voy al aeropuerto en taxi.", en: "I'm going to the airport by taxi." }, accept: ["taxi", "cab"], hint: "The same word almost everywhere. Note the pattern in this lesson: en taxi, en barco, en bicicleta — en, never a preposition like English \"by\"." },
+        { id: "es-u17l1-lafurgoneta", type: "vocab", front: "la furgoneta", reading: "lafurgoneta", meaning: "the van", example: { jp: "La furgoneta es de Pablo.", en: "The van is Pablo's." }, accept: ["van", "minivan", "small truck"], hint: "Between a coche and a camión in size — what a delivery or a small business drives. Note the pattern in this lesson: en furgoneta, en barco, en bicicleta — en, never English \"by\"." },
       ],
     },
     {

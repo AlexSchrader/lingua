@@ -69,6 +69,15 @@ if (!FREE_RAW.length) {
   console.error(`no "// FREE:" declaration in any src/data/${lang}/unit*.js — add one before running this.`);
   process.exit(2);
 }
+// The header above promises that "units that declare nothing are listed at the end
+// so the gap is visible instead of silently inflating the count". That listing was
+// collected but never printed, which is precisely how "only unit1.js declares" went
+// unnoticed long enough to score whole blocks in the hundreds. Printed now.
+// Advisory, not a problem: a unit whose examples lean on no name or cognate has
+// nothing to declare, and es-u12 is a real example of that.
+const silent = unitFiles
+  .filter((f) => !declaring.includes(f))
+  .sort((a, b) => parseInt(a.match(/\d+/)[0], 10) - parseInt(b.match(/\d+/)[0], 10));
 
 const foldAccents = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
 const clean = (s) => s.toLowerCase().replace(/['’]/g, "");
@@ -160,6 +169,11 @@ for (const u of authored)
     }
   }
 for (const p of problems) console.log("  ✗ " + p);
+
+console.log(
+  `\n  FREE declared by ${declaring.length}/${unitFiles.length} unit file(s)` +
+    (silent.length ? `; no declaration in: ${silent.join(", ")}` : "")
+);
 
 const total = seenKey.size + problems.length;
 console.log(
