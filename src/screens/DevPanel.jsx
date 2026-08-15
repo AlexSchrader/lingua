@@ -4,7 +4,7 @@ import { ArrowLeft, AlertTriangle, RotateCcw, FlaskConical, Play, Sparkles } fro
 import { useStore } from "../store/useStore.js";
 import { UNITS, LANGUAGES } from "../data/index.js";
 import { devDiagnostics, sandboxRoute, cardPreviewRoute, PREVIEW_STATES, PREVIEW_LABEL, reviewSandboxRoute, fixupSandboxRoute, microSandboxRoute, devLanguages, defaultDevLang } from "../store/dev.js";
-import { LIVE_CARD_KINDS } from "../data/contract.js";
+import { LIVE_CARD_KINDS } from "../data/cardKinds.js";
 import { langName } from "../data/languages.js";
 import Mascot from "../components/Mascot.jsx";
 import Celebration from "../components/Celebration.jsx";

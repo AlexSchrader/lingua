@@ -4,26 +4,10 @@ import { CONJ_FORMS } from "../store/conjugate.js";
 
 const VALID_VERB_GROUPS = ["godan", "ichidan", "irregular"];
 
-// The canonical list of card kinds the session runner actively routes.
-// Adding a new card kind means: (1) add it here, (2) wire it in the runner,
-// (3) add a fixture item to the coverage smoke test.
-export const LIVE_CARD_KINDS = [
-  "teach",
-  "choice",
-  "choice:reverse",
-  "listen:choice",
-  "listen:type",
-  "type:meaning",
-  "type:reading",
-  "type:produce",
-  "cloze:choice",
-  "particle:choice",
-  "build",
-  "sentence:build",
-  "conjugate",
-  "trace",
-  "speak",
-];
+// LIVE_CARD_KINDS now lives in ./cardKinds.js so app code can import it without
+// dragging this validator — and the 508 KB KanjiVG map it needs — into the entry
+// chunk. Re-exported here so every existing importer keeps working.
+export { LIVE_CARD_KINDS } from "./cardKinds.js";
 
 // --- internal constants -------------------------------------------------------
 

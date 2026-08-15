@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
-import { KANJIVG } from "../../data/kanjivg.js";
+import { useGlyphStrokes } from "../../data/useGlyphStrokes.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 import { useStore } from "../../store/useStore.js";
 import { useReduceMotion } from "../../store/useReduceMotion.js";
@@ -85,7 +85,10 @@ function drawLine(ctx, pts, color, width) {
 
 // mode: "guided" → animated guide then trace; "free" → draw from memory with snap
 export default function TraceCard({ item, mode = "guided", onGraded }) {
-  const strokes = KANJIVG[item.front] ?? [];
+  // Stroke paths are fetched on demand — see data/useGlyphStrokes.js. Empty on the
+  // first render, which every effect below already tolerates (it is the same shape
+  // as a glyph with no stroke data, which isTraceable already filters out).
+  const strokes = useGlyphStrokes(item.front);
   const canvasRef = useRef(null);
   const rafRef = useRef(null);
   const drawing = useRef(false);
@@ -152,7 +155,15 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
     return () => window.removeEventListener("resize", setupCanvas);
   }, []);
 
-  // Reset everything when item changes.
+  // Reset everything when the item changes — AND when the strokes arrive.
+  // `strokes` is now fetched on demand (data/useGlyphStrokes.js), so the first
+  // render of a card gets [] and the real paths land a moment later. Keyed on
+  // item.id alone this effect never re-ran, strokePts stayed empty for the whole
+  // card, and every scored stroke read undefined: the trace smoke test failed with
+  // "Cannot read properties of undefined (reading '0')". Depending on `strokes`
+  // makes the sampling follow the data. Re-running on the same item is harmless —
+  // it re-samples identical paths and resets a card the learner has not drawn on
+  // yet, because the strokes resolve before the first stroke can be completed.
   useEffect(() => {
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
     strokePts.current = strokes.map((d) => samplePath(d, TRACE_OPTS.resampleN));
@@ -164,7 +175,8 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
     currentPts.current = [];
     drawing.current = false;
     setTimeout(() => redrawConfirmed([]), 0);
-  }, [item.id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [item.id, strokes]);
 
   // Guided animation: play the stroke, then hand off to user.
   useEffect(() => {
@@ -326,6 +338,13 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
 
     const s = getScale();
     const expected = scale(strokePts.current[strokeIdx] ?? [], s);
+    // Nothing to score against: the stroke paths are fetched on demand and have
+    // not landed yet (or this glyph has none). Ignore the stroke rather than
+    // grading it — strokeScore indexes expected[0] and threw
+    // "Cannot read properties of undefined" when a stroke was drawn in that gap.
+    // A dropped stroke in the first moments is the right failure: the learner
+    // sees no guide yet either.
+    if (expected.length < 2) return;
     const canvasW = canvasRef.current?.getBoundingClientRect().width ?? 280;
 
     if (mode === "guided") {

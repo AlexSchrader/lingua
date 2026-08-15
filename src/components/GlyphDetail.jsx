@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { X, Volume2 } from "lucide-react";
-import { KANJIVG } from "../data/kanjivg.js";
+import { useGlyphStrokes } from "../data/useGlyphStrokes.js";
 import { useItemAudio } from "../store/itemAudio.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
 import { readingIsInformative } from "../store/cardRouting.js";
@@ -28,7 +28,7 @@ function glyphFontSize(front) {
 }
 
 export default function GlyphDetail({ item, onClose }) {
-  const strokes = KANJIVG[item.front] ?? [];
+  const strokes = useGlyphStrokes(item.front);
   const { play, active } = useItemAudio(item);
   const mastered = isMastered(item);
 

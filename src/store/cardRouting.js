@@ -1,4 +1,4 @@
-import { KANJIVG } from "../data/kanjivg.js";
+import { KANJIVG_CHARS } from "../data/kanjivgKeys.js";
 import { AUDIO_IDS } from "../data/audioManifest.js";
 import { conjugate } from "./conjugate.js";
 
@@ -409,6 +409,6 @@ export function isTraceable(item) {
   return (
     (item.type === "kana" || item.type === "kanji") &&
     [...item.front].length === 1 &&
-    !!KANJIVG[item.front]
+    KANJIVG_CHARS.has(item.front)
   );
 }

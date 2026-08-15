@@ -7,9 +7,9 @@
 
 import { seedItems, UNITS } from "../data/index.js";
 import { getLesson } from "../data/index.js";
-import { KANJIVG } from "../data/kanjivg.js";
+import { KANJIVG_CHARS } from "../data/kanjivgKeys.js";
 import { AUDIO_IDS } from "../data/audioManifest.js";
-import { LIVE_CARD_KINDS } from "../data/contract.js";
+import { LIVE_CARD_KINDS } from "../data/cardKinds.js";
 import { newCard } from "./srs.js";
 import { shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak, shouldCloze, shouldParticleCloze, canParticleCloze, shouldSentence, canBuildReading } from "./cardRouting.js";
 
@@ -203,7 +203,7 @@ export function devDiagnostics(lang) {
   // A Latin-script language has none, which is why the panel hides this row
   // rather than reporting a meaningless 0 / 0.
   const kana = items.filter((it) => it.type === "kana" || it.type === "kanji");
-  const kanaMissing = kana.filter((it) => !KANJIVG[it.front]).map((it) => it.front);
+  const kanaMissing = kana.filter((it) => !KANJIVG_CHARS.has(it.front)).map((it) => it.front);
 
   const units = UNITS.filter((u) => !lang || u.lang === lang).map((u) => {
     const lessons = u.lessons.filter((l) => l.items);

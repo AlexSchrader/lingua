@@ -16,7 +16,7 @@ import { isReviewable, nextRung, MAX_RUNG } from "../store/mastery.js";
 import { sfxRungUp, sfxMastered } from "../store/sfx.js";
 import { isTraceable, shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate, canBuildReading } from "../store/cardRouting.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
-import { LIVE_CARD_KINDS } from "../data/contract.js";
+import { LIVE_CARD_KINDS } from "../data/cardKinds.js";
 import { C, F } from "../theme.js";
 
 function assertLiveKind(kindKey) {

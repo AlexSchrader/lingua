@@ -11,7 +11,7 @@ import Celebration from "../components/Celebration.jsx";
 import Mascot from "../components/Mascot.jsx";
 import { useStore } from "../store/useStore.js";
 import { getLesson, UNITS } from "../data/index.js";
-import { LIVE_CARD_KINDS } from "../data/contract.js";
+import { LIVE_CARD_KINDS } from "../data/cardKinds.js";
 import { initLearn, currentStep, answerStep } from "../store/learnQueue.js";
 import { isTraceable } from "../store/cardRouting.js";
 import { buildSandboxItems, runnerWriters } from "../store/dev.js";
