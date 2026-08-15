@@ -187,6 +187,8 @@ This file is updated as part of the PR that completes work. When a task is finis
 | French 🇫🇷 A2 | 1 | **handed back** | `content/fr-a2-block1` | `C:\dev\lingua-fr1` | Units 28–37, 240 cards (thematic: activities → home). Head `a67dd6d`, unresolved list worked down to 2. |
 | French 🇫🇷 A2 | 2 | **handed back** | `content/fr-a2-block2` | `C:\dev\lingua-fr2` | Units 38–47, 240 cards — thematic personality → culture, grammar 4/5, **both conjugation drills, and coverage 1**. Head `174d2fd`, self-verified merge-ready against blocks 1 and 3. |
 | French 🇫🇷 A2 | 3 | **handed back** | `content/fr-a2-block3` | `C:\dev\lingua-fr3` | Units 48–57, 240 cards — **coverage 2–11 only**. Head `fb8ccf8`, 4 cross-lane findings logged. Draws on blocks 1–2 vocab. |
+| Japanese 🇯🇵 **B2** | — | **scaffolded** | `content/ja-b2-scaffold` | (branch only) | Shared base, commit `fd41f0b`. 53 locked-stub units, ja-u156–u208. N2 stroke data already on the trunk (934 glyphs with stroke data, 568 taught, **224 untaught** — the whole B2 character budget). |
+| Japanese 🇯🇵 B2 | 2 | **authoring** | `content/ja-b2-block2` | `C:\dev\lingua-jab2-2` | Units 174–191, 432 cards: 8 thematic + 6 character + Grammar 9/10/11 + Register 3 (敬語). **Glyph budget is read, not negotiated** — the 224 untaught-with-stroke-data glyphs in `KANJI_N2` list order; block 1 takes indices 0–127 (ending exactly at 策), block 2 takes 128–223 = 96 = 6 × 16. Verified in-tree, not assumed. |
 
 
 
