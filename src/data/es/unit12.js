@@ -47,14 +47,20 @@
 // before its unit. Once blocks 1–2 exist, drop the assumed list entirely and run
 // it strict.
 //
-// WHY `está` / `están` ARE TAUGHT HERE BUT USED EARLIER. Units 7 and 11 write
-// "El parque está en la ciudad" long before this unit systematises the estar
-// paradigm, so `node scripts/check-lang-scope.mjs es` reports 11 teach-before-use
-// hits against them. That is the convention working, not a defect: the merge-day
-// re-triage settled that a function word belongs to the unit that TEACHES it, not
-// the one that first uses it — the same rule under which block 1 ceded ITS function
-// words to these grammar units. The checker cannot express "systematised later", so
-// those 11 stay reported. Leave them; do not move estar back into unit 7.
+// `está` / `están` ARE TAUGHT HERE, AND UNITS 7-11 NO LONGER LEAN ON THEM.
+// This unit keeps the whole estar paradigm — that decision stands, and block 2
+// accepted it rather than asking for a card out of this lesson. What changed
+// (2026-08-14) is the other side: block 2 rewrote its locatives onto `hay`, which
+// unit 1 teaches, so "El parque está en el centro" is now "Hay un parque en el
+// centro". The 11 teach-before-use hits this note used to describe are gone, and
+// the checker reports 0 for está/están.
+// TWELVE USES REMAIN IN UNITS 8-11 AND ARE CORRECT — `está limpio`, `está
+// cansado`, `está cerca` and the like, where `hay` cannot carry a state and `ser`
+// would be wrong. Those stay teach-before-use until this unit, deliberately, and
+// the checker cannot see them at all: it splits multi-word fronts, so unit 8's
+// `está nublado` licenses the bare copula from unit 8 onward. Do not "fix" them by
+// converting to `hay` or `ser`; if the residue ever has to go, the honest move is
+// teaching `está` earlier, which is this block's call to make.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const ES_UNIT12 = {
   id: "es-u12",
