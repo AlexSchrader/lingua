@@ -25,7 +25,7 @@ export const FR_UNIT87 = {
         { id: "fr-u87l1-mou", type: "vocab", front: "mou", reading: "mou", meaning: "soft", example: { jp: "Ce fromage est trop mou.", en: "This cheese is too soft." }, accept: ["squishy", "limp", "floppy"], hint: "Soft as in giving way under your finger. Its feminine is irregular: molle." },
         { id: "fr-u87l1-dur", type: "vocab", front: "dur", reading: "dur", meaning: "hard", example: { jp: "Le pain est dur ce matin.", en: "The bread is hard this morning." }, accept: ["tough", "firm", "not soft"], hint: "Also \"hard\" of a task: un exercice dur." },
         { id: "fr-u87l1-souple", type: "vocab", front: "souple", reading: "souple", meaning: "flexible", example: { jp: "Ce plastique est souple.", en: "This plastic is flexible." }, accept: ["supple", "bendy", "pliable"] },
-        { id: "fr-u87l1-raide", type: "vocab", front: "raide", meaning: "stiff", reading: "raide", example: { jp: "Ce papier est raide.", en: "This paper is stiff." }, accept: ["rigid", "straight", "steep"], hint: "Also of hair (cheveux raides = straight hair) and of a hill (une côte raide = a steep climb)." },
+        { id: "fr-u87l1-raide", type: "vocab", front: "raide", meaning: "stiff", reading: "raide", example: { jp: "J'ai les jambes raides ce matin.", en: "My legs are stiff this morning." }, accept: ["rigid", "straight", "steep"], hint: "Also of hair (cheveux raides = straight hair) and of a hill (une côte raide = a steep climb)." },
       ],
     },
     {

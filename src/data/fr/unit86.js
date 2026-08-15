@@ -22,7 +22,7 @@ export const FR_UNIT86 = {
       dominantMode: "recall",
       canDo: "Say HOW someone spoke: shouted, yelled, murmured, whispered, chattered — or said nothing at all.",
       items: [
-        { id: "fr-u86l1-crier", type: "vocab", front: "crier", reading: "crier", meaning: "to shout", example: { jp: "Il ne faut pas crier dans la classe.", en: "You mustn't shout in class." }, accept: ["yell", "call out", "shout out"] },
+        { id: "fr-u86l1-crier", type: "vocab", front: "crier", reading: "crier", meaning: "to shout", example: { jp: "Il ne faut pas crier en classe.", en: "You mustn't shout in class." }, accept: ["yell", "call out", "shout out"] },
         { id: "fr-u86l1-hurler", type: "vocab", front: "hurler", reading: "hurler", meaning: "to scream", example: { jp: "Quelqu'un commence à hurler.", en: "Someone starts to scream." }, accept: ["howl", "shriek", "roar"], hint: "Much stronger than crier — a scream, or a wolf howling. The h is aspirate, so it stays « le hurlement », never l'h." },
         { id: "fr-u86l1-murmurer", type: "vocab", front: "murmurer", reading: "murmurer", meaning: "to murmur", example: { jp: "Elle murmure quelque chose à son ami.", en: "She murmurs something to her friend." }, accept: ["mutter", "mumble"] },
         { id: "fr-u86l1-chuchoter", type: "vocab", front: "chuchoter", reading: "chuchoter", meaning: "to whisper", example: { jp: "Les élèves chuchotent au fond de la classe.", en: "The pupils whisper at the back of the class." }, accept: ["speak softly", "whisper to"] },
@@ -77,7 +77,7 @@ export const FR_UNIT86 = {
         { id: "fr-u86l4-avoixbasse", type: "vocab", front: "à voix basse", reading: "avoixbasse", meaning: "in a low voice", example: { jp: "Ils parlent à voix basse.", en: "They're speaking in a low voice." }, accept: ["quietly", "under one's breath", "softly"], hint: "Its opposite is à voix haute — out loud." },
         { id: "fr-u86l4-lediscours", type: "vocab", front: "le discours", reading: "lediscours", meaning: "speech", example: { jp: "Le discours du président était long.", en: "The president's speech was long." }, accept: ["the speech", "address", "talk"] },
         { id: "fr-u86l4-sexprimer", type: "vocab", front: "s'exprimer", reading: "sexprimer", meaning: "to express oneself", example: { jp: "Il s'exprime très bien en français.", en: "He expresses himself very well in French." }, accept: ["speak", "put it", "get one's meaning across"] },
-        { id: "fr-u86l4-laremarque", type: "vocab", front: "la remarque", reading: "laremarque", meaning: "remark", example: { jp: "Sa remarque n'était pas gentille.", en: "Their remark wasn't kind." }, accept: ["the remark", "comment", "observation"] },
+        { id: "fr-u86l4-laremarque", type: "vocab", front: "la remarque", reading: "laremarque", meaning: "remark", example: { jp: "Sa remarque n'était pas gentille.", en: "Their remark wasn't kind." }, accept: ["the remark", "comment", "observation"], hint: "The noun behind remarquer, which you already know." },
         { id: "fr-u86l4-bafouiller", type: "vocab", front: "bafouiller", reading: "bafouiller", meaning: "to stammer", example: { jp: "Je bafouille quand je suis stressé.", en: "I stammer when I'm stressed." }, accept: ["stumble over words", "splutter", "mumble"] },
       ],
     },

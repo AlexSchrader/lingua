@@ -26,7 +26,7 @@ export const FR_UNIT91 = {
         { id: "fr-u91l1-obeir", type: "vocab", front: "obéir", reading: "obeir", meaning: "to obey", example: { jp: "Le chien obéit à mon frère.", en: "The dog obeys my brother." }, accept: ["do as told", "comply"], hint: "You obey TO someone in French: obéir à quelqu'un." },
         { id: "fr-u91l1-desobeir", type: "vocab", front: "désobéir", reading: "desobeir", meaning: "to disobey", example: { jp: "Il désobéit souvent à ses parents.", en: "He often disobeys his parents." }, accept: ["defy", "not do as told"] },
         { id: "fr-u91l1-ceder", type: "vocab", front: "céder", reading: "ceder", meaning: "to give in", example: { jp: "Je ne veux pas céder cette fois.", en: "I don't want to give in this time." }, accept: ["yield", "back down", "give way"] },
-        { id: "fr-u91l1-renoncer", type: "vocab", front: "renoncer", reading: "renoncer", meaning: "to renounce", example: { jp: "Il a renoncé à ce voyage.", en: "He gave up on that trip." }, accept: ["give up on", "drop", "forgo"], hint: "You give up ON something: renoncer à. Note it's giving up a plan, not quitting an activity — that's arrêter." },
+        { id: "fr-u91l1-renoncer", type: "vocab", front: "renoncer", reading: "renoncer", meaning: "to give up on", example: { jp: "Il a renoncé à ce voyage.", en: "He gave up on that trip." }, accept: ["give up", "renounce", "drop", "forgo"], hint: "You give up ON something: renoncer à. Note it's giving up a plan, not quitting an activity — that's arrêter." },
       ],
     },
     {
@@ -55,7 +55,7 @@ export const FR_UNIT91 = {
       dominantMode: "recall",
       canDo: "Name the pattern in how someone acts: their conduct, their attitude, a gesture, a habit, a reflex, a quirk.",
       items: [
-        { id: "fr-u91l3-laconduite", type: "vocab", front: "la conduite", reading: "laconduite", meaning: "conduct", example: { jp: "Sa conduite en classe est parfaite.", en: "Their conduct in class is perfect." }, accept: ["behaviour", "the conduct"], hint: "Also driving — from conduire. « Une leçon de conduite » is a driving lesson." },
+        { id: "fr-u91l3-laconduite", type: "vocab", front: "la conduite", reading: "laconduite", meaning: "conduct", example: { jp: "Sa conduite en classe est parfaite.", en: "Their conduct in class is perfect." }, accept: ["behaviour", "the conduct"], hint: "Also driving — the noun behind the je conduis you already know. « Une leçon de conduite » is a driving lesson." },
         { id: "fr-u91l3-lattitude", type: "vocab", front: "l'attitude", reading: "lattitude", meaning: "attitude", example: { jp: "Je n'aime pas son attitude.", en: "I don't like their attitude." }, accept: ["the attitude", "stance"] },
         { id: "fr-u91l3-legeste", type: "vocab", front: "le geste", reading: "legeste", meaning: "gesture", example: { jp: "C'est un geste très gentil.", en: "That's a very kind gesture." }, accept: ["the gesture", "movement", "act"] },
         { id: "fr-u91l3-lhabitude", type: "vocab", front: "l'habitude", reading: "lhabitude", meaning: "habit", example: { jp: "J'ai l'habitude de me lever tôt.", en: "I'm in the habit of getting up early." }, accept: ["the habit", "custom", "routine"], hint: "The noun behind d'habitude, which you already know." },
@@ -74,7 +74,7 @@ export const FR_UNIT91 = {
       items: [
         { id: "fr-u91l4-gronder", type: "vocab", front: "gronder", reading: "gronder", meaning: "to tell off", example: { jp: "Sa mère va le gronder.", en: "His mother is going to tell him off." }, accept: ["scold", "give a telling-off", "rebuke"] },
         { id: "fr-u91l4-punir", type: "vocab", front: "punir", reading: "punir", meaning: "to punish", example: { jp: "Le professeur ne veut pas punir la classe.", en: "The teacher doesn't want to punish the class." }, accept: ["penalize", "discipline"] },
-        { id: "fr-u91l4-recompenser", type: "vocab", front: "récompenser", reading: "recompenser", meaning: "to reward", example: { jp: "Il faut récompenser les élèves.", en: "The pupils should be rewarded." }, accept: ["give a reward"] },
+        { id: "fr-u91l4-recompenser", type: "vocab", front: "récompenser", reading: "recompenser", meaning: "to reward", example: { jp: "Il faut récompenser les élèves.", en: "You have to reward the pupils." }, accept: ["give a reward"] },
         { id: "fr-u91l4-feliciter", type: "vocab", front: "féliciter", reading: "feliciter", meaning: "to congratulate", example: { jp: "Je veux féliciter mon collègue.", en: "I want to congratulate my colleague." }, accept: ["praise", "compliment"], hint: "« Félicitations ! » is the word on every congratulations card." },
         { id: "fr-u91l4-encourager", type: "vocab", front: "encourager", reading: "encourager", meaning: "to encourage", example: { jp: "Mes parents m'encouragent beaucoup.", en: "My parents encourage me a lot." }, accept: ["cheer on", "spur on", "support"] },
         { id: "fr-u91l4-decourager", type: "vocab", front: "décourager", reading: "decourager", meaning: "to discourage", example: { jp: "Ce résultat peut décourager les élèves.", en: "This result can discourage the pupils." }, accept: ["put off", "dishearten", "demoralize"] },
