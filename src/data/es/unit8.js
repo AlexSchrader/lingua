@@ -23,12 +23,12 @@ export const ES_UNIT8 = {
       dominantMode: "recall",
       canDo: "Name the six basic colors — rojo, azul, verde, amarillo, negro, blanco — and use one to pick out a thing.",
       items: [
-        { id: "es-u8l1-rojo", type: "vocab", front: "rojo", reading: "rojo", meaning: "red", example: { jp: "El coche rojo está en la calle.", en: "The red car is in the street." }, accept: ["red colour", "red color"], hint: "Colors come AFTER the noun in Spanish: el coche rojo, never el rojo coche." },
-        { id: "es-u8l1-azul", type: "vocab", front: "azul", reading: "azul", meaning: "blue", example: { jp: "El autobús azul está en la parada.", en: "The blue bus is at the stop." }, accept: ["blue colour", "blue color"], hint: "Ends in -l, not -o, so it doesn't change for gender: el coche azul, la calle azul." },
+        { id: "es-u8l1-rojo", type: "vocab", front: "rojo", reading: "rojo", meaning: "red", example: { jp: "Hay un coche rojo en la calle.", en: "There's a red car in the street." }, accept: ["red colour", "red color"], hint: "Colors come AFTER the noun in Spanish: el coche rojo, never el rojo coche." },
+        { id: "es-u8l1-azul", type: "vocab", front: "azul", reading: "azul", meaning: "blue", example: { jp: "Hay un autobús azul en la parada.", en: "There's a blue bus at the stop." }, accept: ["blue colour", "blue color"], hint: "Ends in -l, not -o, so it doesn't change for gender: el coche azul, la calle azul." },
         { id: "es-u8l1-verde", type: "vocab", front: "verde", reading: "verde", meaning: "green", example: { jp: "El parque es muy verde.", en: "The park is very green." }, accept: ["green colour", "green color"], hint: "Same root as \"verdant\". Ends in -e, so it also never changes for gender." },
         { id: "es-u8l1-amarillo", type: "vocab", front: "amarillo", reading: "amarillo", meaning: "yellow", example: { jp: "Hay un taxi amarillo en la plaza.", en: "There's a yellow taxi in the square." }, accept: ["yellow colour", "yellow color"], hint: "The double l again sounds like y: a-ma-RI-yo." },
         { id: "es-u8l1-negro", type: "vocab", front: "negro", reading: "negro", meaning: "black", example: { jp: "El café es negro.", en: "The coffee is black." }, accept: ["black colour", "black color"] },
-        { id: "es-u8l1-blanco", type: "vocab", front: "blanco", reading: "blanco", meaning: "white", example: { jp: "El museo blanco está en el centro.", en: "The white museum is in the centre." }, accept: ["white colour", "white color"], hint: "An -o color agrees with what it describes: el museo blanco, la iglesia blanca." },
+        { id: "es-u8l1-blanco", type: "vocab", front: "blanco", reading: "blanco", meaning: "white", example: { jp: "En el centro hay un museo blanco.", en: "There's a white museum in the centre." }, accept: ["white colour", "white color"], hint: "An -o color agrees with what it describes: el museo blanco, la iglesia blanca." },
       ],
     },
     {
@@ -41,11 +41,11 @@ export const ES_UNIT8 = {
       canDo: "Ask what colour something is and answer with gris, marrón, naranja, rosa or morado.",
       items: [
         { id: "es-u8l2-color", type: "vocab", front: "el color", reading: "elcolor", meaning: "colour", example: { jp: "¿De qué color es el autobús?", en: "What colour is the bus?" }, accept: ["color", "the colour", "the color"], hint: "The question is literally \"of what colour is it?\" — ¿De qué color es…?" },
-        { id: "es-u8l2-gris", type: "vocab", front: "gris", reading: "gris", meaning: "grey", example: { jp: "El coche gris está en la calle.", en: "The grey car is in the street." }, accept: ["gray", "grey colour", "gray color"] },
-        { id: "es-u8l2-marron", type: "vocab", front: "marrón", reading: "marron", meaning: "brown", example: { jp: "El banco marrón está en el parque.", en: "The brown bench is in the park." }, accept: ["brown colour", "brown color"], hint: "Double r, and the stress on the end: ma-RRÓN. Remember el banco is a bench as well as a bank." },
-        { id: "es-u8l2-naranja", type: "vocab", front: "naranja", reading: "naranja", meaning: "orange", example: { jp: "La tienda naranja está en la calle Mayor.", en: "The orange shop is on Calle Mayor." }, accept: ["orange colour", "orange color"], hint: "It's the fruit and the colour, exactly like English — and as a colour it never changes: un coche naranja, una tienda naranja." },
-        { id: "es-u8l2-rosa", type: "vocab", front: "rosa", reading: "rosa", meaning: "pink", example: { jp: "El hotel rosa está en la plaza.", en: "The pink hotel is in the square." }, accept: ["pink colour", "pink color"], hint: "The flower gives the colour its name, and like naranja it never changes form." },
-        { id: "es-u8l2-morado", type: "vocab", front: "morado", reading: "morado", meaning: "purple", example: { jp: "El tren morado está en la estación.", en: "The purple train is at the station." }, accept: ["violet", "purple colour", "purple color"] },
+        { id: "es-u8l2-gris", type: "vocab", front: "gris", reading: "gris", meaning: "grey", example: { jp: "Hay un coche gris en la calle.", en: "There's a grey car in the street." }, accept: ["gray", "grey colour", "gray color"] },
+        { id: "es-u8l2-marron", type: "vocab", front: "marrón", reading: "marron", meaning: "brown", example: { jp: "En el parque hay un banco marrón.", en: "There's a brown bench in the park." }, accept: ["brown colour", "brown color"], hint: "Double r, and the stress on the end: ma-RRÓN. Remember el banco is a bench as well as a bank." },
+        { id: "es-u8l2-naranja", type: "vocab", front: "naranja", reading: "naranja", meaning: "orange", example: { jp: "En la calle Mayor hay una tienda naranja.", en: "There's an orange shop on Calle Mayor." }, accept: ["orange colour", "orange color"], hint: "It's the fruit and the colour, exactly like English — and as a colour it never changes: un coche naranja, una tienda naranja." },
+        { id: "es-u8l2-rosa", type: "vocab", front: "rosa", reading: "rosa", meaning: "pink", example: { jp: "Hay un hotel rosa en la plaza.", en: "There's a pink hotel in the square." }, accept: ["pink colour", "pink color"], hint: "The flower gives the colour its name, and like naranja it never changes form." },
+        { id: "es-u8l2-morado", type: "vocab", front: "morado", reading: "morado", meaning: "purple", example: { jp: "En la estación hay un tren morado.", en: "There's a purple train at the station." }, accept: ["violet", "purple colour", "purple color"] },
       ],
     },
     {
@@ -57,7 +57,7 @@ export const ES_UNIT8 = {
       dominantMode: "recall",
       canDo: "Name what's overhead: el sol, la nube, la lluvia, el viento, la tormenta.",
       items: [
-        { id: "es-u8l3-sol", type: "vocab", front: "el sol", reading: "elsol", meaning: "sun", example: { jp: "El sol está en el cielo.", en: "The sun is in the sky." }, accept: ["the sun", "sunshine"], hint: "Spanish uses it for sunshine too: hace sol = it's sunny." },
+        { id: "es-u8l3-sol", type: "vocab", front: "el sol", reading: "elsol", meaning: "sun", example: { jp: "Hoy hay sol.", en: "It's sunny today." }, accept: ["the sun", "sunshine"], hint: "Spanish uses it for sunshine too: hace sol = it's sunny." },
         { id: "es-u8l3-nube", type: "vocab", front: "la nube", reading: "lanube", meaning: "cloud", example: { jp: "Hay una nube blanca en el cielo.", en: "There's a white cloud in the sky." }, accept: ["the cloud"], hint: "The root of \"nebula\" — and of nublado, cloudy, in the next lesson." },
         { id: "es-u8l3-lluvia", type: "vocab", front: "la lluvia", reading: "lalluvia", meaning: "rain", example: { jp: "Hay lluvia en Madrid.", en: "There's rain in Madrid." }, accept: ["the rain", "rainfall"], hint: "Double l again: YU-via." },
         { id: "es-u8l3-viento", type: "vocab", front: "el viento", reading: "elviento", meaning: "wind", example: { jp: "En el pueblo hay viento.", en: "It's windy in the town." }, accept: ["the wind"], hint: "Same root as \"ventilate\"." },
