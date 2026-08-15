@@ -69,7 +69,7 @@ export const UNIT167 = {
       title: "Life and change",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Talk about inheritance, change and impact: いでん しんか かんきょうふか えいきょうりょく ぶんかい じゅんかん.",
+      canDo: "Talk about inheritance, change and impact: いでん しんか かんきょうふか えいきょうりょく ぶんかいせい しげんじゅんかん.",
       items: [
         { id: "ja-u167l4-iden", type: "vocab", front: "いでん", reading: "iden", meaning: "heredity", example: { jp: "目の 色は いでんで 決まる ことが 多いです。", en: "Eye colour is largely determined by heredity." }, accept: ["genetics", "inherited"] },
         { id: "ja-u167l4-shinka", type: "vocab", front: "しんか", reading: "shinka", meaning: "evolution", example: { jp: "しんかは 長い 時間を かけて 少しずつ 進みます。", en: "Evolution proceeds little by little over a long time." }, accept: ["to evolve", "development over time"] },
