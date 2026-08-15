@@ -17,10 +17,10 @@ export const UNIT202 = {
       title: "不 and 無: not, and without",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Negate a noun two ways: ふきそく, ふあんてい, ふじゅうぶん, むいみ, むかんしん, むせきにん.",
+      canDo: "Negate a noun two ways: ふきそく, ふとくてい, ふじゅうぶん, むいみ, むかんしん, むせきにん.",
       items: [
         { id: "ja-u202l1-fukisoku", type: "vocab", front: "ふきそく", reading: "fukisoku", meaning: "irregular", example: { jp: "しごとの 時間が ふきそくで、体に よく ありません。", en: "My working hours are irregular, which isn't good for my health." }, accept: ["erratic", "unsystematic"], hint: "不 says the quality is absent or wrong; 無 says the thing itself is not there. ふきそく = not regular; むいみ = without meaning." },
-        { id: "ja-u202l1-fuantei", type: "vocab", front: "ふあんてい", reading: "fuantei", meaning: "unstable", example: { jp: "この つくえは ふあんていで、ゆれます。", en: "This desk is unstable and wobbles." }, accept: ["shaky", "precarious"] },
+                { id: "ja-u202l1-futokutei", type: "vocab", front: "ふとくてい", reading: "futokutei", meaning: "unspecified, not identified", example: { jp: "ふとくていの 多くの 人が 見る ページです。", en: "It is a page seen by a large, unspecified number of people." }, accept: ["unspecified", "non-specific"] },
         { id: "ja-u202l1-fujubun", type: "vocab", front: "ふじゅうぶん", reading: "fujūbun", meaning: "insufficient", example: { jp: "しらべ方が ふじゅうぶんだったと 思います。", en: "I think the investigation was insufficient." }, accept: ["inadequate", "not enough"] },
         { id: "ja-u202l1-muimi", type: "vocab", front: "むいみ", reading: "muimi", meaning: "meaningless, pointless", example: { jp: "だれも 読まないなら、書いても むいみです。", en: "If nobody reads it, writing it is pointless." }, accept: ["futile", "senseless"] },
         { id: "ja-u202l1-mukanshin", type: "vocab", front: "むかんしん", reading: "mukanshin", meaning: "indifferent, uninterested", example: { jp: "その 問題に むかんしんな 人が 多いです。", en: "A lot of people are indifferent to that problem." }, accept: ["apathetic", "unconcerned"] },

@@ -34,14 +34,14 @@ export const UNIT204 = {
       title: "～りつ: the rate at which",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Read a percentage in words: ごうかくりつ, せいこうりつ, こうりつ, しちょうりつ, しつぎょうりつ, かくりつ.",
+      canDo: "Read a percentage in words: ごうかくりつ, せいこうりつ, しゅっせきりつ, りようりつ, しつぎょうりつ, ぞうかりつ.",
       items: [
         { id: "ja-u204l2-gokakuritsu", type: "vocab", front: "ごうかくりつ", reading: "gōkakuritsu", meaning: "pass rate", example: { jp: "この しけんの ごうかくりつは 高く ありません。", en: "The pass rate for this exam isn't high." }, accept: ["success rate (exam)", "proportion who pass"], hint: "～りつ is a proportion out of a whole, and it attaches to whatever is being counted." },
         { id: "ja-u204l2-seikoritsu", type: "vocab", front: "せいこうりつ", reading: "seikōritsu", meaning: "success rate", example: { jp: "新しい やり方の せいこうりつを しらべました。", en: "We looked into the success rate of the new method." }, accept: ["rate of success", "hit rate"] },
-        { id: "ja-u204l2-koritsu", type: "vocab", front: "こうりつ", reading: "kōritsu", meaning: "efficiency", example: { jp: "こうりつよく はたらく やり方を 考えて います。", en: "I'm thinking about how to work efficiently." }, accept: ["productivity (ratio)", "efficient use"], hint: "こうりつよく — 'efficiently' — is the form you will use most, and it takes よく rather than に." },
-        { id: "ja-u204l2-shichoritsu", type: "vocab", front: "しちょうりつ", reading: "shichōritsu", meaning: "viewing figures, ratings", example: { jp: "その ばんぐみは しちょうりつが よかったそうです。", en: "I hear that programme had good ratings." }, accept: ["audience share", "TV ratings"] },
+                { id: "ja-u204l2-shussekiritsu", type: "vocab", front: "しゅっせきりつ", reading: "shussekiritsu", meaning: "attendance rate", example: { jp: "この クラスは しゅっせきりつが 高いです。", en: "This class has a high attendance rate." }, accept: ["turnout rate", "proportion attending"], hint: "～りつ is a proportion out of a whole, and it attaches to whatever is being counted." },
+                { id: "ja-u204l2-riyoritsu", type: "vocab", front: "りようりつ", reading: "riyōritsu", meaning: "usage rate", example: { jp: "この バスは りようりつが 下がって います。", en: "Usage of this bus service is falling." }, accept: ["take-up", "rate of use"] },
         { id: "ja-u204l2-shitsugyoritsu", type: "vocab", front: "しつぎょうりつ", reading: "shitsugyōritsu", meaning: "unemployment rate", example: { jp: "しつぎょうりつが 少し 下がりました。", en: "The unemployment rate has fallen slightly." }, accept: ["jobless rate"] },
-        { id: "ja-u204l2-kakuritsu", type: "vocab", front: "かくりつ", reading: "kakuritsu", meaning: "probability", example: { jp: "同じ ことが 起こる かくりつは 低いです。", en: "The probability of the same thing happening is low." }, accept: ["likelihood", "chance (statistical)"], hint: "The mathematical one. きけんせい (u203) is a felt risk; かくりつ is a number." },
+                { id: "ja-u204l2-zokaritsu", type: "vocab", front: "ぞうかりつ", reading: "zōkaritsu", meaning: "rate of increase", example: { jp: "今年の ぞうかりつは 5パーセントでした。", en: "The rate of increase this year was five per cent." }, accept: ["growth rate", "how fast it is rising"] },
       ],
     },
     {
