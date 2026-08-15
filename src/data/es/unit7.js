@@ -28,17 +28,27 @@
 //     tengo calor / tengo hambre / tengo sed in unit 11 lessons 3-4. Those are
 //     phrases you memorize whole, which is how A1 actually meets them; the verbs
 //     themselves (hacer, tener, doler, llover, estar) stay Strand C's to teach.
-//     (a2) THIS UNIT USES `hay`, NOT `está`, FOR LOCATION — deliberately, since
-//     2026-08-14. Ten examples here used to read "El parque está en el centro",
-//     but no card teaches `está` until unit 12 lesson 4, five units later, and
+//     (a2) BLOCK 2 USES `hay`, NOT `está`, FOR LOCATION — deliberately, since
+//     2026-08-14, across units 7-11. Twenty-three examples used to read "El parque
+//     está en el centro", but no card teaches `está` until unit 12 lesson 4, and
 //     unit 8's `está nublado` is a fixed weather chunk that teaches the phrase
 //     rather than the copula. `hay` is taught in unit 1, so "Hay un parque en el
 //     centro" says the same thing out of pieces the learner already owns. Block 3
 //     was asked first and declined to move `estar` earlier — its unit 12 is a
 //     coherent paradigm and pulling one card out of it costs more than rewriting
-//     ten sentences here — so the seam is closed from this side. Both "Hay un X
-//     en Y" and "En Y hay un X" appear; the second is at least as common in
-//     speech, and alternating them keeps the drill from reading as a template.
+//     sentences here — so the seam is closed from this side. Both "Hay un X en Y"
+//     and "En Y hay un X" appear; the second is at least as common in speech, and
+//     alternating them keeps the drill from reading as a template.
+//     ⚠️ TWELVE USES OF `está` DELIBERATELY REMAIN, and they are not an oversight
+//     or a leftover — they are the ones where `hay` would be WRONG SPANISH. `hay`
+//     asserts existence; it cannot carry a state. "El parque está limpio", "Carlos
+//     está cansado", "está enfermo", "está cerca/lejos/allí", "la ciudad está
+//     tranquila" all need estar, and swapping in `ser` would be a real error (a
+//     gate already blocked this file once for writing "el parque es amarillo").
+//     So the seam is NARROWED to the construction that genuinely requires the
+//     verb, not closed. Closing it fully means teaching `está` before unit 12,
+//     which is block 3's call and currently declined. Do not "finish the job" by
+//     converting these twelve — that trades a scope warning for bad Spanish.
 //     from the en gloss — "X es Y", "X está en Y", "hay un/una X", "el X es ADJ"
 //     — which means the copulas and the existential (es/son, está/están, hay)
 //     appear untaught in most of the 121 examples, alongside a closed set of
