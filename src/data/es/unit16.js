@@ -2,6 +2,11 @@
 // Strand D, unit 2 of 6. Clothes, then the money words, then the six verbs a shop
 // transaction actually needs. Colours are block 2's (unit 8) and are only used here.
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
+//   FREE: María
+//   (Only proper names and transparent cognates, per the checker's contract.
+//   Conjugated forms of a verb this block teaches — voy, puedo, cuesta — are
+//   deliberately NOT listed: they are the headword convention, and declaring
+//   them free would hide a genuinely untaught form later.)
 export const ES_UNIT16 = {
   id: "es-u16",
   lang: "es",
@@ -50,13 +55,14 @@ export const ES_UNIT16 = {
       title: "El dinero",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Handle money in a shop: el dinero, el precio, la tarjeta, la cuenta, el cambio.",
+      canDo: "Handle money in a shop: el dinero, el precio, la tarjeta, el cambio.",
       items: [
         { id: "es-u16l3-eldinero", type: "vocab", front: "el dinero", reading: "eldinero", meaning: "the money", example: { jp: "No tengo dinero hoy.", en: "I have no money today." }, accept: ["money", "cash"] },
         { id: "es-u16l3-elprecio", type: "vocab", front: "el precio", reading: "elprecio", meaning: "the price", example: { jp: "El precio es muy bueno.", en: "The price is very good." }, accept: ["price", "cost"] },
         { id: "es-u16l3-latarjeta", type: "vocab", front: "la tarjeta", reading: "latarjeta", meaning: "the card", example: { jp: "Mi tarjeta está en el bolso.", en: "My card is in my handbag." }, accept: ["bank card", "credit card", "card"] },
         { id: "es-u16l3-eleuro", type: "vocab", front: "el euro", reading: "eleuro", meaning: "the euro", example: { jp: "Tengo diez euros.", en: "I have ten euros." }, accept: ["euro"] },
         { id: "es-u16l3-elcambio", type: "vocab", front: "el cambio", reading: "elcambio", meaning: "the change", example: { jp: "¿Tiene cambio de diez euros?", en: "Do you have change for ten euros?" }, accept: ["change", "small change"] },
+        { id: "es-u16l3-lamoneda", type: "vocab", front: "la moneda", reading: "lamoneda", meaning: "the coin", example: { jp: "Tengo una moneda de dos euros.", en: "I have a two-euro coin." }, accept: ["coin", "currency"], hint: "Both the coin in your hand and the currency itself: el euro es la moneda de España." },
       ],
     },
     {
@@ -69,7 +75,7 @@ export const ES_UNIT16 = {
       canDo: "Get through a shop: buscar what you want, probar it, ask what it cuesta, and pagar.",
       items: [
         { id: "es-u16l4-pagar", type: "vocab", front: "pagar", reading: "pagar", meaning: "to pay", example: { jp: "Pago con tarjeta.", en: "I'll pay by card." }, accept: ["pay", "pays"], hint: "pagar con tarjeta = pay BY card. Spanish uses con where English uses \"by\" here." },
-        { id: "es-u16l4-costar", type: "vocab", front: "costar", reading: "costar", meaning: "to cost", example: { jp: "El vestido cuesta veinte euros.", en: "The dress costs twenty euros." }, accept: ["cost", "costs"], hint: "You almost only ever meet it in two forms: cuesta for one thing, cuestan for several." },
+        { id: "es-u16l4-costar", type: "vocab", front: "costar", reading: "costar", meaning: "to cost", example: { jp: "El vestido cuesta doce euros.", en: "The dress costs twelve euros." }, accept: ["cost", "costs"], hint: "You almost only ever meet it in two forms: cuesta for one thing, cuestan for several." },
         { id: "es-u16l4-vender", type: "vocab", front: "vender", reading: "vender", meaning: "to sell", example: { jp: "La tienda vende ropa.", en: "The shop sells clothes." }, accept: ["sell", "sells"] },
         { id: "es-u16l4-llevar", type: "vocab", front: "llevar", reading: "llevar", meaning: "to wear", example: { jp: "María lleva un vestido rojo.", en: "María is wearing a red dress." }, accept: ["carry", "take", "to carry"], hint: "One verb for wear AND carry — both are \"having it on you\": llevo una chaqueta, llevo el bolso." },
         { id: "es-u16l4-buscar", type: "vocab", front: "buscar", reading: "buscar", meaning: "to look for", example: { jp: "Busco unos zapatos negros.", en: "I'm looking for some black shoes." }, accept: ["search", "look for", "search for"], hint: "No preposition after it: busco un vestido, never \"busco para un vestido\"." },

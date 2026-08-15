@@ -8,6 +8,11 @@
 // preterite/imperfect contrast is worse than teaching one tense properly. Only
 // yo and él/ella forms are taught, which is what an A1 learner actually produces.
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
+//   FREE: María, Pablo | problema
+//   (Only proper names and transparent cognates, per the checker's contract.
+//   Conjugated forms of a verb this block teaches — voy, puedo, cuesta — are
+//   deliberately NOT listed: they are the headword convention, and declaring
+//   them free would hide a genuinely untaught form later.)
 export const ES_UNIT14 = {
   id: "es-u14",
   lang: "es",
@@ -24,6 +29,10 @@ export const ES_UNIT14 = {
       dominantMode: "recall",
       canDo: "Say what you did yesterday: ayer hablé con Pablo, comí en casa, fui a la escuela.",
       items: [
+        // `ayer` is taught HERE because this unit is its earliest user — seven of the
+        // unit's examples lean on it and no earlier block claimed it, so under the
+        // runbook's ownership rule the earliest user has to be the teacher.
+        { id: "es-u14l1-ayer", type: "vocab", front: "ayer", reading: "ayer", meaning: "yesterday", example: { jp: "Ayer comí en casa.", en: "Yesterday I ate at home." }, accept: ["the day before"], hint: "The word that switches a sentence into the past: hoy hablo, ayer hablé. Spanish usually puts it right at the front." },
         { id: "es-u14l1-hable", type: "vocab", front: "hablé", reading: "hable", meaning: "I spoke", example: { jp: "Ayer hablé con Pablo.", en: "Yesterday I spoke with Pablo." }, accept: ["i talked", "i did speak"], hint: "The past \"I\" of an -ar verb is a stressed -é on the end: hablar -> hablé, trabajar -> trabajé, comprar -> compré." },
         { id: "es-u14l1-trabaje", type: "vocab", front: "trabajé", reading: "trabaje", meaning: "I worked", example: { jp: "Trabajé en la tienda.", en: "I worked at the shop." }, accept: ["i did work"] },
         { id: "es-u14l1-comi", type: "vocab", front: "comí", reading: "comi", meaning: "I ate", example: { jp: "Comí pan en casa.", en: "I ate bread at home." }, accept: ["i did eat"], hint: "-er and -ir verbs take -í instead: comer -> comí, escribir -> escribí, vivir -> viví." },
@@ -53,17 +62,17 @@ export const ES_UNIT14 = {
       id: "es-u14l3",
       unit: 14,
       lesson: 3,
-      title: "Mi, tu, su",
+      title: "Tu, su, nuestro",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say whose something is: mi casa, tu hermano, su madre — and their plurals mis, tus, sus.",
+      canDo: "Say whose something is beyond your own: tu hermano, su madre, nuestra casa — and the plurals tus, sus.",
       items: [
         { id: "es-u14l3-tu", type: "vocab", front: "tu", reading: "tu", meaning: "your", example: { jp: "¿Dónde está tu hermano?", en: "Where's your brother?" }, accept: ["yours"], hint: "tu without an accent = your. tú with one = you (Unit 12). The accent is doing all the work." },
         { id: "es-u14l3-su", type: "vocab", front: "su", reading: "su", meaning: "his", example: { jp: "Su casa es muy grande.", en: "His house is very big." }, accept: ["her", "their", "your (polite)"], hint: "su is the busiest word here: his, her, their, and polite your — all one word. The sentence around it decides." },
-        { id: "es-u14l3-tus", type: "vocab", front: "tus", reading: "tus", meaning: "your (with more than one)", example: { jp: "¿Y tus hermanos?", en: "And your brothers?" }, accept: ["your"] },
+        { id: "es-u14l3-tus", type: "vocab", front: "tus", reading: "tus", meaning: "your (with more than one)", example: { jp: "¿Y tus hermanos?", en: "And your brothers?" }, accept: ["your"], hint: "The possessive agrees with the THING owned, not the owner: tu hermano -> tus hermanos." },
+        { id: "es-u14l3-nuestro", type: "vocab", front: "nuestro", reading: "nuestro", meaning: "our (masculine)", example: { jp: "Nuestro coche es pequeño.", en: "Our car is small." }, accept: ["ours", "our"], hint: "The one possessive that DOES change for gender: nuestro piso, nuestra casa, nuestros amigos, nuestras manos. mi, tu and su never do." },
         { id: "es-u14l3-sus", type: "vocab", front: "sus", reading: "sus", meaning: "his / her (with more than one)", example: { jp: "Sus hijos están en la escuela.", en: "Her children are at school." }, accept: ["their", "her", "his"] },
-        { id: "es-u14l3-nuestro", type: "vocab", front: "nuestro", reading: "nuestro", meaning: "our", example: { jp: "Nuestro coche es viejo.", en: "Our car is old." }, accept: ["ours"] },
-        { id: "es-u14l3-nuestra", type: "vocab", front: "nuestra", reading: "nuestra", meaning: "our", example: { jp: "Nuestra casa está en la ciudad.", en: "Our house is in the city." }, accept: ["ours"] },
+        { id: "es-u14l3-nuestra", type: "vocab", front: "nuestra", reading: "nuestra", meaning: "our (feminine)", example: { jp: "Nuestra casa está en el pueblo.", en: "Our house is in the town." }, accept: ["ours", "our"], hint: "The other half of nuestro, and the proof of the rule above: nuestro coche, nuestra casa." },
       ],
     },
     {

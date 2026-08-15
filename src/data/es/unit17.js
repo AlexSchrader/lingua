@@ -3,6 +3,11 @@
 // furniture you navigate by, and six movement verbs. Buildings in a town
 // (la estación, el hospital, el hotel) are block 2's unit 7 and are only used here.
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
+//   FREE: María, Pablo, Madrid, México | rápido
+//   (Only proper names and transparent cognates, per the checker's contract.
+//   Conjugated forms of a verb this block teaches — voy, puedo, cuesta — are
+//   deliberately NOT listed: they are the headword convention, and declaring
+//   them free would hide a genuinely untaught form later.)
 export const ES_UNIT17 = {
   id: "es-u17",
   lang: "es",
@@ -17,14 +22,14 @@ export const ES_UNIT17 = {
       title: "El transporte",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say how you get around: voy en coche, en tren, en autobús, en bicicleta.",
+      canDo: "Round out how you travel, beyond the car and the bus: en avión, en barco, en bicicleta, en moto — and what a camión is.",
       items: [
         { id: "es-u17l1-elavion", type: "vocab", front: "el avión", reading: "elavion", meaning: "the plane", example: { jp: "El avión es muy rápido.", en: "The plane is very fast." }, accept: ["aeroplane", "airplane", "plane"] },
+        { id: "es-u17l1-elbarco", type: "vocab", front: "el barco", reading: "elbarco", meaning: "the boat", example: { jp: "Voy a México en barco.", en: "I'm going to Mexico by boat." }, accept: ["ship", "ferry", "boat"], hint: "Anything that floats, from a rowing boat to a liner. Note the pattern for every vehicle: en barco, en avión, en coche — en, never con." },
+        { id: "es-u17l1-elcamion", type: "vocab", front: "el camión", reading: "elcamion", meaning: "the lorry", example: { jp: "El camión es muy grande.", en: "The lorry is very big." }, accept: ["camion", "truck", "lorry"], hint: "A truck in Spain — but in Mexico el camión is the everyday word for a bus, so listen to where you are." },
         { id: "es-u17l1-labicicleta", type: "vocab", front: "la bicicleta", reading: "labicicleta", meaning: "the bicycle", example: { jp: "María va en bicicleta.", en: "María goes by bike." }, accept: ["bike", "bicycle", "cycle"], hint: "Shortened to la bici in everyday speech, exactly like English \"bike\"." },
         { id: "es-u17l1-lamoto", type: "vocab", front: "la moto", reading: "lamoto", meaning: "the motorbike", example: { jp: "La moto es de Pablo.", en: "The motorbike is Pablo's." }, accept: ["motorcycle", "motorbike", "scooter"], hint: "Feminine despite the -o, like la foto — it's short for la motocicleta." },
-        { id: "es-u17l1-taxi", type: "vocab", front: "el taxi", reading: "eltaxi", meaning: "taxi", example: { jp: "Voy en taxi a la ciudad.", en: "I go to the city by taxi." }, accept: ["the taxi","cab"] },
-        { id: "es-u17l1-barco", type: "vocab", front: "el barco", reading: "elbarco", meaning: "boat", example: { jp: "El barco es muy grande.", en: "The boat is very big." }, accept: ["the boat","ship"] },
-        { id: "es-u17l1-metro", type: "vocab", front: "el metro", reading: "elmetro", meaning: "subway", example: { jp: "Voy en metro cada día.", en: "I go by subway every day." }, accept: ["the subway","metro","underground"] },
+        { id: "es-u17l1-eltaxi", type: "vocab", front: "el taxi", reading: "eltaxi", meaning: "the taxi", example: { jp: "Voy al aeropuerto en taxi.", en: "I'm going to the airport by taxi." }, accept: ["taxi", "cab"], hint: "The same word almost everywhere. Note the pattern in this lesson: en taxi, en barco, en bicicleta — en, never a preposition like English \"by\"." },
       ],
     },
     {
@@ -51,13 +56,14 @@ export const ES_UNIT17 = {
       title: "Por la calle",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say where something is on a street: la parada está en la esquina, el semáforo está en el puente.",
+      canDo: "Say where something is on a street: la tienda está en la esquina, el semáforo está en el puente.",
       items: [
         { id: "es-u17l3-lacarretera", type: "vocab", front: "la carretera", reading: "lacarretera", meaning: "the road", example: { jp: "La carretera a Madrid es larga.", en: "The road to Madrid is long." }, accept: ["highway", "main road", "road"], hint: "la carretera runs between towns; la calle (Unit 7) is inside one." },
         { id: "es-u17l3-elcamino", type: "vocab", front: "el camino", reading: "elcamino", meaning: "the way", example: { jp: "Es un camino muy largo.", en: "It's a very long way." }, accept: ["path", "route", "way"] },
         { id: "es-u17l3-laesquina", type: "vocab", front: "la esquina", reading: "laesquina", meaning: "the corner", example: { jp: "La tienda está en la esquina.", en: "The shop is on the corner." }, accept: ["street corner", "corner"] },
         { id: "es-u17l3-elpuente", type: "vocab", front: "el puente", reading: "elpuente", meaning: "the bridge", example: { jp: "El puente es muy largo.", en: "The bridge is very long." }, accept: ["bridge"] },
         { id: "es-u17l3-elsemaforo", type: "vocab", front: "el semáforo", reading: "elsemaforo", meaning: "the traffic light", example: { jp: "El semáforo está en rojo.", en: "The traffic light is red." }, accept: ["traffic lights", "stoplight", "traffic light"], hint: "\"Está en rojo\" — the light IS at red right now, so it takes está, not es." },
+        { id: "es-u17l3-laacera", type: "vocab", front: "la acera", reading: "laacera", meaning: "the pavement", example: { jp: "La acera de la calle Mayor es muy larga.", en: "The pavement on Calle Mayor is very long." }, accept: ["sidewalk", "the pavement", "footpath"], hint: "La acera in Spain; la vereda or la banqueta in much of Latin America." },
       ],
     },
     {

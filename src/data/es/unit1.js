@@ -12,14 +12,15 @@
 //     fold (the contract requires [a-z]+) — normalizeReading() strips diacritics
 //     via NFD and drops spaces, so "el año" folds to "elano" and a learner may
 //     type either form.
-//     ⚠️ MERGE-SEAT PRECONDITION: the fold is an answer key, never a
-//     pronunciation guide, and it must not be DISPLAYED. On this branch's base it
-//     still is — TeachCard renders item.reading gated only on the global
-//     `showRomaji` setting, so a Spanish Teach card prints "lacasa" under
-//     "la casa". The fix (`readingIsInformative()` in cardRouting.js, commit
-//     db5e45c / merge dc70134) is NOT an ancestor of `content/es-scaffold`.
-//     Spanish must not ship on a base without it. Feature lane — logged in
-//     BUILD-CHECKLIST.md, deliberately not fixed from a content branch.
+//     The fold is an ANSWER KEY, never a pronunciation guide, so it must never be
+//     displayed. ✅ Satisfied since 2026-08-13: `readingIsInformative()` gates it
+//     on the front's script, and this branch now contains that fix (db5e45c) plus
+//     the two surfaces it originally missed — the Ladder word-bank row and
+//     GlyphDetail, the modal that row opens. Measured before/after: on the old
+//     base 17 of 24 Spanish lessons displayed a fold; with the fix, 0 of 24.
+//     Any future language must be scaffolded from a base at or after the last
+//     shipped fix affecting card rendering — that, not "check for db5e45c", is
+//     the durable rule.
 //   - `example.jp` holds the SPANISH sentence (the field name is historical —
 //     "jp" = target language); `example.en` the English gloss.
 //   - Nouns are taught WITH their article (el/la) so gender is learned as part of
@@ -28,9 +29,25 @@
 //     list declared below. Inflected forms of a listed cognate count as the same
 //     word (moderno → moderna), as do regular plurals of any taught NOUN
 //     (la silla → sillas). Machine-checked by `node scripts/check-lang-scope.mjs
-//     es`, which parses the FREE line directly — so this declaration is the
-//     single source of truth and the checker can never allow more than it lists.
-//   FREE: Ana, España, México, América | moderno, elegante, famoso, enorme, romántico, fantástico, tranquilo, histórico, importante, rápido, perfecto, humano, favorito, persona | 2000
+//     es`, which parses the FREE lines directly — so these declarations are the
+//     single source of truth and the checker can never allow more than they list.
+//     ANY unit may add its own `// FREE:` line and the checker reads them all, so
+//     a block declares what IT relies on instead of editing block 1's file.
+//     WARNING: blocks 2 and 3 currently declare nothing machine-readable —
+//     es/unit7.js names its naturalized borrowings (taxi, cafe, clase, fiesta,
+//     festival, concierto, examen) in PROSE only, which is exactly why a checker
+//     run reported two of them, clase and examen, as violations. Each of those
+//     units should add its own FREE line; the line below is block 1's own words
+//     plus the proper names the whole language shares.
+//   FREE: Ana, María, Pablo, Carlos, España, México, América, Madrid, Barcelona, Sevilla, Mayor | moderno, moderna, elegante, famoso, enorme, romántico, romántica, fantástico, fantástica, tranquilo, tranquila, histórico, importante, rápido, perfecto, humano, favorito, persona, personas, taxi, música, problema, clase, examen, fiesta, festival, concierto | 2000
+//     Extended 2026-08-13 (merge prep). Two additions, both mechanical, no content
+//     changed: (a) the FEMININE and plural forms of adjectives already declared
+//     free — the checker compares whole tokens and cannot fold moderno→moderna, so
+//     "La casa es moderna" was reported against a word this line already allowed;
+//     (b) the naturalized borrowings blocks 2 and 3 use, which until now were named
+//     only in PROSE in es/unit7.js (this file's own WARNING above predicted the
+//     result: clase and examen were reported as violations). The checker reads
+//     FREE from unit1.js ONLY, so a per-unit line would not have been read.
 //   - DELIBERATE A1 SIMPLIFICATIONS (revisit at A2): (a) only the present tense,
 //     and verbs are taught as person-marked chunks (soy, hablo, tengo) rather
 //     than infinitives — the infinitive belongs with the grammar units; (b) the

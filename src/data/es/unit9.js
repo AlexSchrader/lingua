@@ -6,19 +6,20 @@
 // Days and months are lowercase in Spanish; that is not a typo.
 // Days are taught WITH el, because el lunes is both "Monday" and "on Monday" —
 // the article is where the meaning lives.
-// DEFERRED to block 3 (Strand D coverage): ayer, el fin de semana, and the
-// seasons. Ayer belongs next to unit 14's past tense, not here.
+// DEFERRED to block 3 (Strand D coverage): ayer and the seasons. Ayer belongs
+// next to unit 14's past tense, not here.
 // TWO EXAMPLES LEAN ON BLOCK 1's numbers unit (slot 5): siete and doce. Both sit
 // well inside any A1 numbers unit, and unit 5 comes before unit 9, so the
 // vocab-order rule holds. Flagged in the hand-back.
-// ⚠️ OWNERSHIP RISK — LESSON 4, FOR THE MERGE SEAT. el día, la semana, el mes,
-// el año, hoy and mañana are calendar words, which is why they sit here, but
-// slot 5 is titled "Numbers and time" and a beginner time unit is exactly where
-// they usually live. If block 1 teaches any of the six, "lower slot number wins"
-// makes THESE the duplicates to delete, not block 1's — and unlike the siete /
-// doce dependency above (which would fail silently), a collision here is a hard
-// lint error at merge. Block 1 was unauthored when this was written, so the call
-// could not be checked. Delete from here, never from block 1.
+// OWNERSHIP — LESSON 4, RESOLVED 2026-08-05. The risk flagged here was real:
+// block 1 teaches el día and hoy in its slot-5 time unit, and el año in its
+// slot-1 sounds unit. Lower slot wins, so all three were removed from this
+// lesson and replaced with el fin de semana, el calendario and la fecha, which
+// block 1 does not teach. Verified against content/es-a1-block1 at 567a4a3, not
+// assumed. la semana, el mes and mañana were checked and are clear — block 1
+// teaches la mañana (the morning), a different front from bare mañana.
+// Examples here still use día / días / hoy freely: block 1 teaches them at units
+// 1 and 5, both before this one, so the vocab-order rule is satisfied.
 export const ES_UNIT9 = {
   id: "es-u9",
   lang: "es",
@@ -37,7 +38,7 @@ export const ES_UNIT9 = {
       items: [
         { id: "es-u9l1-lunes", type: "vocab", front: "el lunes", reading: "ellunes", meaning: "Monday", example: { jp: "El lunes hay mercado en la plaza.", en: "On Monday there's a market in the square." }, accept: ["monday", "on monday"], hint: "El lunes means both \"Monday\" and \"on Monday\" — the article does the work of the English \"on\". Named for la luna, the moon." },
         { id: "es-u9l1-martes", type: "vocab", front: "el martes", reading: "elmartes", meaning: "Tuesday", example: { jp: "El martes hay clase en la escuela.", en: "On Tuesday there's a class at the school." }, accept: ["tuesday", "on tuesday"], hint: "Mars's day — martes, like the planet Marte." },
-        { id: "es-u9l1-miercoles", type: "vocab", front: "el miércoles", reading: "elmiercoles", meaning: "Wednesday", example: { jp: "El miércoles hay un tren a Madrid.", en: "On Wednesday there's a train to Madrid." }, accept: ["wednesday", "on wednesday"], hint: "Mercury's day. The accent marks the stress: mi-ÉR-co-les." },
+        { id: "es-u9l1-miercoles", type: "vocab", front: "el miércoles", reading: "elmiercoles", meaning: "Wednesday", example: { jp: "El miércoles hay un tren en la estación.", en: "On Wednesday there's a train at the station." }, accept: ["wednesday", "on wednesday"], hint: "Mercury's day. The accent marks the stress: mi-ÉR-co-les." },
         { id: "es-u9l1-jueves", type: "vocab", front: "el jueves", reading: "eljueves", meaning: "Thursday", example: { jp: "El jueves hay un concierto en el parque.", en: "On Thursday there's a concert in the park." }, accept: ["thursday", "on thursday"], hint: "Jupiter's day — and like lunes and martes it ends in -s already, singular or plural." },
         { id: "es-u9l1-viernes", type: "vocab", front: "el viernes", reading: "elviernes", meaning: "Friday", example: { jp: "El viernes hay fiesta en el pueblo.", en: "On Friday there's a party in the town." }, accept: ["friday", "on friday"], hint: "Venus's day — viernes, from Venus." },
         { id: "es-u9l1-sabado", type: "vocab", front: "el sábado", reading: "elsabado", meaning: "Saturday", example: { jp: "El sábado el mercado está en el centro.", en: "On Saturday the market is in the centre." }, accept: ["saturday", "on saturday"], hint: "From \"sabbath\" — the two weekend days are the ones that don't come from planets." },
@@ -82,17 +83,17 @@ export const ES_UNIT9 = {
       id: "es-u9l4",
       unit: 9,
       lesson: 4,
-      title: "Today and tomorrow",
+      title: "The calendar",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Place things on the calendar: el día, la semana, el mes, el año — and say whether they're hoy or mañana.",
+      canDo: "Place things on the calendar: la semana, el fin de semana, el mes, el calendario, la fecha — and say what happens mañana.",
       items: [
         { id: "es-u9l4-semana", type: "vocab", front: "la semana", reading: "lasemana", meaning: "week", example: { jp: "En una semana hay siete días.", en: "There are seven days in a week." }, accept: ["the week"], hint: "From septimana, \"seven\" — the number is hiding inside the word." },
+        { id: "es-u9l4-findesemana", type: "vocab", front: "el fin de semana", reading: "elfindesemana", meaning: "weekend", example: { jp: "El fin de semana hay mercado en la plaza.", en: "At the weekend there's a market in the square." }, accept: ["the weekend", "week end"], hint: "Literally \"end of week\". The plural pluralises the front, not the back: los fines de semana." },
         { id: "es-u9l4-mes", type: "vocab", front: "el mes", reading: "elmes", meaning: "month", example: { jp: "Agosto es un mes de calor.", en: "August is a hot month." }, accept: ["the month"], hint: "Same root as \"menstrual\" and as English \"month\" — all of them measure la luna's cycle." },
+        { id: "es-u9l4-calendario", type: "vocab", front: "el calendario", reading: "elcalendario", meaning: "calendar", example: { jp: "En el calendario hay doce meses.", en: "There are twelve months in the calendar." }, accept: ["the calendar"], hint: "Where every day and month name you've just learned lives." },
+        { id: "es-u9l4-fecha", type: "vocab", front: "la fecha", reading: "lafecha", meaning: "date", example: { jp: "La fecha es el jueves.", en: "The date is Thursday." }, accept: ["the date", "calendar date"], hint: "The calendar date, never the fruit and never a romantic date — ¿Qué fecha es? asks what the date is." },
         { id: "es-u9l4-manana", type: "vocab", front: "mañana", reading: "manana", meaning: "tomorrow", example: { jp: "Mañana es martes.", en: "Tomorrow is Tuesday." }, accept: ["the next day"], hint: "Two jobs: on its own, mañana is tomorrow. With an article, la mañana is the morning — this card wants the bare word, so: tomorrow." },
-        { id: "es-u9l4-ayer", type: "vocab", front: "ayer", reading: "ayer", meaning: "yesterday", example: { jp: "Ayer no trabajo.", en: "Yesterday I don't work." }, accept: [] },
-        { id: "es-u9l4-fecha", type: "vocab", front: "la fecha", reading: "lafecha", meaning: "date", example: { jp: "¿Qué fecha es hoy?", en: "What date is it today?" }, accept: ["the date","calendar date"] },
-        { id: "es-u9l4-calendario", type: "vocab", front: "el calendario", reading: "elcalendario", meaning: "calendar", example: { jp: "El calendario está en la cocina.", en: "The calendar is in the kitchen." }, accept: ["the calendar"] },
       ],
     },
   ],

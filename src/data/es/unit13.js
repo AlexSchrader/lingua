@@ -10,6 +10,11 @@
 // the pair across units would teach half a rule. 8 is inside the 5–8 band the lint
 // enforces; every other lesson in this block is 6.
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
+//   FREE: María, Madrid | música
+//   (Only proper names and transparent cognates, per the checker's contract.
+//   Conjugated forms of a verb this block teaches — voy, puedo, cuesta — are
+//   deliberately NOT listed: they are the headword convention, and declaring
+//   them free would hide a genuinely untaught form later.)
 export const ES_UNIT13 = {
   id: "es-u13",
   lang: "es",
@@ -58,7 +63,7 @@ export const ES_UNIT13 = {
       title: "Preposiciones",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Link words with the little words that carry the meaning: a, de, con, sin, para, por — and the two that squash together, al and del.",
+      canDo: "Link words with the little words that carry the meaning: sin, para, por — and the two that squash together, al and del.",
       items: [
         { id: "es-u13l3-a", type: "vocab", front: "a", reading: "a", meaning: "to", example: { jp: "Escribo a María.", en: "I'm writing to María." }, accept: ["at"], hint: "a marks the direction or the target — and it also goes before a PERSON who receives the action: escribo a María." },
         { id: "es-u13l3-al", type: "vocab", front: "al", reading: "al", meaning: "to the", example: { jp: "Escucho al médico.", en: "I listen to the doctor." }, accept: ["to the (masculine)"], hint: "a + el is never written out — the two always squash into al. But a + la stays a la." },

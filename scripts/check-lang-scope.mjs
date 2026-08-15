@@ -20,7 +20,7 @@
 //      Plural stripping is now restricted to tokens whose stem was taught as a
 //      NOUN — i.e. whose front carries an article — which is what the rule
 //      actually intends.
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -39,18 +39,36 @@ if (!Array.isArray(UNITS)) {
   process.exit(2);
 }
 
-// The free list is READ FROM the language's unit1.js header, not hardcoded, so a
-// checker run can never silently allow more than the content declares. The header
-// must contain a line of the form:
-//   //   FREE: Ana, España, México, América | moderno, elegante, … | 2000
+// The free list is READ FROM the content, never hardcoded, so a run can never
+// allow more than the content declares. A unit declares its own with a line:
+//   //   FREE: Ana, España, México | moderno, elegante, … | 2000
 // (proper names | cognate lemmas | literal tokens such as numerals)
-const header = readFileSync(join(root, "src", "data", lang, "unit1.js"), "utf8");
-const freeLine = header.match(/^\/\/\s*FREE:\s*(.+)$/m);
-if (!freeLine) {
-  console.error(`src/data/${lang}/unit1.js has no "// FREE:" declaration — add one before running this.`);
+//
+// ⚠️ This used to read ONLY unit1.js, which was a real defect with a badly
+// misleading signature: unit1 belongs to block 1, so the tool scored block 1's
+// units at 0 and every other block's in the hundreds. That reads as a quality
+// difference between crews and is nothing of the sort — it is just whose file the
+// declaration happened to sit in. Blocks 2 and 3 HAD declared their free words,
+// in prose no machine could see (es/unit7.js names "naturalized English
+// borrowings — taxi, café, clase, fiesta, festival, concierto, examen"), and I
+// then reported two of those, `clase` and `examen`, as real violations. Every
+// unit may now declare; units that declare nothing are listed at the end so the
+// gap is visible instead of silently inflating the count. Caught by the
+// truth-agent, 2026-08-13.
+const langDir = join(root, "src", "data", lang);
+const unitFiles = readdirSync(langDir).filter((f) => /^unit\d+\.js$/.test(f));
+const FREE_RAW = [];
+const declaring = [];
+for (const f of unitFiles) {
+  const m = readFileSync(join(langDir, f), "utf8").match(/^\/\/\s*FREE:\s*(.+)$/m);
+  if (!m) continue;
+  declaring.push(f);
+  FREE_RAW.push(...m[1].split(/[|,]/).map((s) => s.trim()).filter(Boolean));
+}
+if (!FREE_RAW.length) {
+  console.error(`no "// FREE:" declaration in any src/data/${lang}/unit*.js — add one before running this.`);
   process.exit(2);
 }
-const FREE_RAW = freeLine[1].split(/[|,]/).map((s) => s.trim()).filter(Boolean);
 
 const foldAccents = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
 const clean = (s) => s.toLowerCase().replace(/['’]/g, "");
@@ -109,7 +127,11 @@ function run({ accentBlind }) {
         if (!jp) continue;
         examples++;
         for (const w of tokens(norm(jp)))
-          if (!licensed(w, u.order)) bad.push(`${it.id} (u${u.order}): "${w}" not taught at or before unit ${u.order} — «${jp}»`);
+          if (!licensed(w, u.order))
+            // Key on the ACCENT-FOLDED word so the two passes agree on identity.
+            // Keying on the raw string double-counted every accented token
+            // (está/esta, maría/maria) and inflated the total by 36.
+            bad.push({ key: `${it.id}|${foldAccents(w)}`, line: `${it.id} (u${u.order}): "${w}" not taught at or before unit ${u.order} — «${jp}»` });
       }
   return { bad, examples };
 }
@@ -118,7 +140,9 @@ const blind = run({ accentBlind: true });
 const strict = run({ accentBlind: false });
 const cards = authored.reduce((n, u) => n + u.lessons.reduce((m, l) => m + (l.items?.length ?? 0), 0), 0);
 
-for (const line of new Set([...blind.bad, ...strict.bad])) console.log("  ✗ " + line);
+const seenKey = new Map();
+for (const b of [...blind.bad, ...strict.bad]) if (!seenKey.has(b.key)) seenKey.set(b.key, b.line);
+for (const line of seenKey.values()) console.log("  ✗ " + line);
 
 // Structural checks the contract already enforces, re-asserted here so one command
 // answers "is this block sound" for an author mid-write.
@@ -137,9 +161,9 @@ for (const u of authored)
   }
 for (const p of problems) console.log("  ✗ " + p);
 
-const total = new Set([...blind.bad, ...strict.bad]).size + problems.length;
+const total = seenKey.size + problems.length;
 console.log(
   `\n${lang}: ${authored.length} authored unit(s), ${cards} cards, ${strict.examples} examples — ` +
-    `${total} problem(s) [accent-blind pass: ${blind.bad.length}, accent-preserving pass: ${strict.bad.length}]`
+    `${total} problem(s) [${seenKey.size} distinct scope hit(s); passes: blind ${blind.bad.length}, strict ${strict.bad.length}]`
 );
 process.exit(total ? 1 : 0);

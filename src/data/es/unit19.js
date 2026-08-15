@@ -5,6 +5,11 @@
 // (levantarse), with the me/te/se pattern taught in the hints and shown in every
 // example — the same "grammar rides in the examples" modelling as the Strand C units.
 // Conventions and the assumed block 1–2 vocabulary: see es/unit12.js.
+//   FREE: María
+//   (Only proper names and transparent cognates, per the checker's contract.
+//   Conjugated forms of a verb this block teaches — voy, puedo, cuesta — are
+//   deliberately NOT listed: they are the headword convention, and declaring
+//   them free would hide a genuinely untaught form later.)
 export const ES_UNIT19 = {
   id: "es-u19",
   lang: "es",
@@ -53,13 +58,14 @@ export const ES_UNIT19 = {
       title: "¿Con qué frecuencia?",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say how often you do something: siempre, casi siempre, a veces, nunca.",
+      canDo: "Say how often you do something: casi siempre, a veces, nunca, otra vez.",
       items: [
         { id: "es-u19l3-nunca", type: "vocab", front: "nunca", reading: "nunca", meaning: "never", example: { jp: "Nunca como carne.", en: "I never eat meat." }, accept: ["not ever", "never"], hint: "Put it before the verb and you need nothing else: nunca como carne. Put it after and Spanish doubles up: no como carne nunca." },
         { id: "es-u19l3-aveces", type: "vocab", front: "a veces", reading: "aveces", meaning: "sometimes", example: { jp: "A veces voy en bicicleta.", en: "Sometimes I go by bike." }, accept: ["now and then", "occasionally", "sometimes"] },
         { id: "es-u19l3-casi", type: "vocab", front: "casi", reading: "casi", meaning: "almost", example: { jp: "Casi siempre trabajo en la oficina.", en: "I almost always work in the office." }, accept: ["nearly", "almost"] },
         { id: "es-u19l3-otravez", type: "vocab", front: "otra vez", reading: "otravez", meaning: "again", example: { jp: "Escribo la palabra otra vez.", en: "I write the word again." }, accept: ["one more time", "once more", "again"], hint: "Literally \"another time\" — otra from Unit 14." },
         { id: "es-u19l3-ya", type: "vocab", front: "ya", reading: "ya", meaning: "already", example: { jp: "Ya terminé el examen.", en: "I've already finished the exam." }, accept: ["now", "yet", "already"], hint: "Tiny and everywhere. With a past verb it means already; on its own, \"¡Ya!\" means \"right now!\"." },
+        { id: "es-u19l3-todoslosdias", type: "vocab", front: "todos los días", reading: "todoslosdias", meaning: "every day", example: { jp: "Trabajo todos los días.", en: "I work every day." }, accept: ["daily", "each day"], hint: "Literally \"all the days\". The one in this lesson that means the MOST often — the far end from nunca." },
       ],
     },
     {
