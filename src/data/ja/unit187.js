@@ -1,18 +1,81 @@
-// JA Unit 187 — Characters 14 (B2) (slot: characters-b2-14) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// Unit 187 — かんじ・うらと おもて (N2 kanji, set 14) — B2 / JLPT N2
+// Glyph budget, card shape and the compound-by-reading rule: see unit175.js.
+// Slice 14 — the last of block 2's six, which closes the 96-glyph budget exactly:
+// 棒枚幕密盟模訳郵優幼翌覧裏臨朗論.
 export const UNIT187 = {
   id: "ja-u187",
   lang: "ja",
-  title: "Characters 14 (B2)",
+  title: "かんじ・うらと おもて",
   order: 187,
   stage: "b2",
   lessons: [
-    { id: "ja-u187l1", title: "Lesson 1", locked: true },
-    { id: "ja-u187l2", title: "Lesson 2", locked: true },
-    { id: "ja-u187l3", title: "Lesson 3", locked: true },
-    { id: "ja-u187l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u187l1",
+      unit: 187,
+      lesson: 1,
+      title: "Sticks, sheets, curtains",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 棒 (pole), 枚 (sheet), 幕 (curtain), 密 (dense), and the words 相棒 and 一枚.",
+      items: [
+        { id: "ja-u187l1-bo", type: "kanji", front: "棒", reading: "bō", meaning: "a pole", example: { jp: "長い 棒で、高い ところの 実を 落としました。", en: "With a long pole I knocked down the fruit up high." }, accept: ["stick", "bar", "rod"], hint: "棒 = 木 (wood) + 奉 — a length of wood held up. 相棒 = the person carrying the other end of it: a partner." },
+        { id: "ja-u187l1-mai", type: "kanji", front: "枚", reading: "mai", meaning: "counter for flat things", example: { jp: "紙を 五枚 出して、みんなに 配りました。", en: "I took out five sheets of paper and handed them round." }, accept: ["sheet", "flat object counter"], hint: "枚 counts anything flat and thin — paper, plates, shirts, tickets. 冊 is for bound things; 枚 is for loose ones." },
+        { id: "ja-u187l1-maku", type: "kanji", front: "幕", reading: "maku", meaning: "a curtain", example: { jp: "幕が 開いた とたん、みんな しずかに なりました。", en: "The moment the curtain went up, everyone went quiet." }, accept: ["act of a play", "the drapes"], hint: "幕 = 莫 over 巾 (cloth). It is both the physical curtain and an act: 一幕目 = act one." },
+        { id: "ja-u187l1-mitsu", type: "kanji", front: "密", reading: "mitsu", meaning: "dense; close", example: { jp: "人が 密に 集まって いて、前に 進めません。", en: "People are packed in close and I can't get forward." }, accept: ["secret", "thick", "intimate"], hint: "密 = 宀 + 必 + 山 — packed tight under a roof. Hence both 'dense' and 'kept close': 秘密." },
+        { id: "ja-u187l1-aibo", type: "vocab", front: "相棒", reading: "aibō", meaning: "one's partner", example: { jp: "十年 同じ 相棒と 仕事を して います。", en: "I've worked with the same partner for ten years." }, accept: ["sidekick", "the other half of a pair"] },
+        { id: "ja-u187l1-ichimai", type: "vocab", front: "一枚", reading: "ichimai", meaning: "one sheet", example: { jp: "紙が 一枚 足りなくて、書き直しました。", en: "I was one sheet short and rewrote it." }, accept: ["a single sheet", "one flat item"] },
+      ],
+    },
+    {
+      id: "ja-u187l2",
+      unit: 187,
+      lesson: 2,
+      title: "Alliance, models, translation",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 盟 (alliance), 模 (pattern), 訳 (translate), 郵 (post), and the words 同盟 and 直訳.",
+      items: [
+        { id: "ja-u187l2-mei", type: "kanji", front: "盟", reading: "mei", meaning: "a sworn alliance", example: { jp: "二つの 国は 長い 間 かたい 盟を たもって いました。", en: "The two countries held to a firm alliance for a long time." }, accept: ["pact", "league", "compact"], hint: "盟 = 明 over 皿 — an oath sworn over a dish of blood. Always a formal, sworn tie." },
+        { id: "ja-u187l2-mo", type: "kanji", front: "模", reading: "mo", meaning: "a pattern", example: { jp: "この 服の 模様は、百年 前から 変わって いません。", en: "This garment's pattern hasn't changed in a hundred years." }, accept: ["model", "imitate", "design"], hint: "模 = 木 + 莫 — a wooden form to copy from. 模様 = pattern; 規模 = the scale a thing is built to." },
+        { id: "ja-u187l2-yaku", type: "kanji", front: "訳", reading: "yaku", meaning: "translate", example: { jp: "この 一文を 訳すのに、半日 かかりました。", en: "It took me half a day to translate this one sentence." }, accept: ["a translation", "the reason", "rendering"], hint: "訳 = 言 (words) + 尺 (measure) — words measured against words. As わけ it also means 'the reason': 訳が ある." },
+        { id: "ja-u187l2-yu", type: "kanji", front: "郵", reading: "yū", meaning: "post", example: { jp: "その 手紙は 郵送で 送りました。", en: "I sent that letter by post." }, accept: ["mail", "postal"], hint: "郵 = 垂 + 阝 — the relay station at the edge of a district. It survives almost only in 郵便 and 郵送." },
+        { id: "ja-u187l2-domei", type: "vocab", front: "同盟", reading: "dōmei", meaning: "an alliance", example: { jp: "同盟を つくっても、考え方が 同じに なる わけでは ありません。", en: "Forming an alliance doesn't make two sides think alike." }, accept: ["a league", "allied relationship"] },
+        { id: "ja-u187l2-chokuyaku", type: "vocab", front: "直訳", reading: "chokuyaku", meaning: "a literal translation", example: { jp: "直訳すると 意味が おかしく なる ことが あります。", en: "A literal translation sometimes makes the meaning odd." }, accept: ["word-for-word rendering"] },
+      ],
+    },
+    {
+      id: "ja-u187l3",
+      unit: 187,
+      lesson: 3,
+      title: "Excellence, youth, the next day",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 優 (superior), 幼 (young), 翌 (the following), 覧 (view), and the words 優先 and 翌日.",
+      items: [
+        { id: "ja-u187l3-yu", type: "kanji", front: "優", reading: "yū", meaning: "superior; gentle", example: { jp: "その 人は 力も ありますが、何より 優しいです。", en: "That person is capable, but above all kind." }, accept: ["excellent", "kind", "an actor"], hint: "優 = 人 + 憂 (concern) — one who feels for others. Hence both 'kind' (優しい) and 'outstanding' (優先, 優れる)." },
+        { id: "ja-u187l3-osanai", type: "kanji", front: "幼", reading: "osanai", meaning: "very young", example: { jp: "幼い ころの ことは、あまり おぼえて いません。", en: "I don't remember much from when I was very young." }, accept: ["infant", "childish", "tender in years"], hint: "幼 = 幺 (small) + 力 — small strength. 幼い is younger than 若い: a child, not a youth." },
+        { id: "ja-u187l3-yoku", type: "kanji", front: "翌", reading: "yoku", meaning: "the following", example: { jp: "翌朝、雪は すっかり 消えて いました。", en: "By the following morning the snow had gone entirely." }, accept: ["next (day, year)", "ensuing"], hint: "翌 = 羽 (wings) + 立 — the day that follows on. Only ever prefixes a time word: 翌日, 翌年, 翌朝." },
+        { id: "ja-u187l3-ran", type: "kanji", front: "覧", reading: "ran", meaning: "look over", example: { jp: "一覧に して みると、多さが よく 分かります。", en: "Set out as a list, the sheer number is clear." }, accept: ["survey", "a view", "inspect"], hint: "覧 = 監 + 見 — looking over the whole of something at once. ご覧ください is its polite everyday face." },
+        { id: "ja-u187l3-yusen", type: "vocab", front: "優先", reading: "yūsen", meaning: "giving priority", example: { jp: "安全を 優先した ので、その 日は 中止に しました。", en: "We gave priority to safety, so it was called off that day." }, accept: ["precedence", "putting first"] },
+        { id: "ja-u187l3-yokujitsu", type: "vocab", front: "翌日", reading: "yokujitsu", meaning: "the next day", example: { jp: "翌日に なっても、答えは 来ませんでした。", en: "Even by the next day, no answer had come." }, accept: ["the following day"] },
+      ],
+    },
+    {
+      id: "ja-u187l4",
+      unit: 187,
+      lesson: 4,
+      title: "The reverse side",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 裏 (reverse), 臨 (face; attend), 朗 (bright), 論 (argue), and the words 裏口 and 朗読.",
+      items: [
+        { id: "ja-u187l4-ura", type: "kanji", front: "裏", reading: "ura", meaning: "the reverse side", example: { jp: "紙の 裏にも 書いて あるので、見て ください。", en: "There's writing on the back of the sheet too — please look." }, accept: ["the back", "behind the scenes", "underside"], hint: "裏 = 衣 (clothing) around 里 — the inside of a garment. 表 and 裏 are the pair for any two-sided thing." },
+        { id: "ja-u187l4-nozomu", type: "kanji", front: "臨", reading: "rin", meaning: "face; be present at", example: { jp: "その 会に 臨む 前に、よく しらべて おきました。", en: "Before facing that meeting I looked into it thoroughly." }, accept: ["attend", "confront", "look out on"], hint: "臨 = 臥 + 品 — bending over to look down at. 臨時 = for the occasion only: standing in front of the moment." },
+        { id: "ja-u187l4-ro", type: "kanji", front: "朗", reading: "rō", meaning: "clear and bright", example: { jp: "朗らかな こえが、部屋の 外まで 聞こえました。", en: "A cheerful voice carried out of the room." }, accept: ["cheerful", "sonorous", "clear-voiced"], hint: "朗 = 良 + 月 — a good moon: clear light. Of a voice or a temper, never of weather." },
+        { id: "ja-u187l4-ron", type: "kanji", front: "論", reading: "ron", meaning: "argue a case", example: { jp: "その 点に ついては、まだ 論が 分かれて います。", en: "On that point the argument is still divided." }, accept: ["discourse", "a thesis", "debate"], hint: "論 = 言 (words) + 侖 (order) — words put in order. 論じる is to argue in the reasoned sense, not to quarrel." },
+        { id: "ja-u187l4-uraguchi", type: "vocab", front: "裏口", reading: "uraguchi", meaning: "the back door", example: { jp: "裏口から 入ったので、だれにも 会いませんでした。", en: "I came in by the back door, so I met nobody." }, accept: ["rear entrance", "the back way in"] },
+        { id: "ja-u187l4-rodoku", type: "vocab", front: "朗読", reading: "rōdoku", meaning: "reading aloud", example: { jp: "朗読を 聞いて、はじめて その 文の よさが 分かりました。", en: "Hearing it read aloud, I understood for the first time how good the writing was." }, accept: ["recitation", "reading out"] },
+      ],
+    },
   ],
 };
