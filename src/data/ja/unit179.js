@@ -19,14 +19,14 @@ export const UNIT179 = {
       title: "How the system works",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Describe the earth as a system with things moving through it: せいたいけい じゅんかん たんそ おんしつ すいしつ ちくせき.",
+      canDo: "Describe the earth as a system with things moving through it: せいたいけい りゅうしゅつ たんそ おんしつ すいしつ きしょう.",
       items: [
         { id: "ja-u179l1-seitaikei", type: "vocab", front: "せいたいけい", reading: "seitaikei", meaning: "an ecosystem", example: { jp: "小さな 生きものが 一つ いなく なるだけで、せいたいけいは 大きく 変わります。", en: "Just one small creature disappearing changes the ecosystem greatly." }, accept: ["ecological system", "the web of life"] },
-        { id: "ja-u179l1-junkan", type: "vocab", front: "じゅんかん", reading: "junkan", meaning: "a cycle", example: { jp: "水の じゅんかんを 知ると、雨の 意味が 変わって 見えます。", en: "Once you know the water cycle, rain starts to mean something different." }, accept: ["circulation", "going round", "a loop"] },
+        { id: "ja-u179l1-ryushutsu", type: "vocab", front: "りゅうしゅつ", reading: "ryūshutsu", meaning: "flowing out", example: { jp: "土の りゅうしゅつを 止めるために、木を 植えました。", en: "Trees were planted to stop the soil flowing away." }, accept: ["runoff", "leaking out", "outflow"] },
         { id: "ja-u179l1-tanso", type: "vocab", front: "たんそ", reading: "tanso", meaning: "carbon", example: { jp: "たんその 量を へらすには、まず 電気の 作り方を 変えます。", en: "To cut carbon you start by changing how electricity is made." }, accept: ["carbon dioxide (in compounds)", "C"] },
         { id: "ja-u179l1-onshitsu", type: "vocab", front: "おんしつ", reading: "onshitsu", meaning: "a greenhouse", example: { jp: "冬でも おんしつの 中は あたたかくて、花が さいて います。", en: "Even in winter it's warm inside the greenhouse and the flowers are out." }, accept: ["hothouse", "glasshouse"], hint: "The everyday sense is the glass building; おんしつこうか (greenhouse effect) is where it turns into climate vocabulary." },
         { id: "ja-u179l1-suishitsu", type: "vocab", front: "すいしつ", reading: "suishitsu", meaning: "water quality", example: { jp: "川の すいしつが よく なって、魚が もどって きました。", en: "The river's water quality improved and the fish came back." }, accept: ["how clean the water is", "quality of water"] },
-        { id: "ja-u179l1-chikuseki", type: "vocab", front: "ちくせき", reading: "chikuseki", meaning: "accumulation", example: { jp: "少しずつの ごみが ちくせきして、大きな 山に なりました。", en: "Rubbish built up little by little into a large mound." }, accept: ["build-up", "piling up", "stored amount"] },
+        { id: "ja-u179l1-kisho", type: "vocab", front: "きしょう", reading: "kishō", meaning: "weather conditions", example: { jp: "きしょうの 記ろくが 百年 分 のこって います。", en: "A hundred years of weather records survive." }, accept: ["meteorological data", "the climate readings"] },
       ],
     },
     {
