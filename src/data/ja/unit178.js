@@ -1,18 +1,80 @@
-// JA Unit 178 — Characters 10 (B2) (slot: characters-b2-10) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// Unit 178 — かんじ・しごとと まこと (N2 kanji, set 10) — B2 / JLPT N2
+// Glyph budget, card shape and the compound-by-reading rule are all documented in
+// unit175.js. Slice 10 of the 20-way split: 処署諸除将傷城蒸針仁垂推盛聖誠宣.
 export const UNIT178 = {
   id: "ja-u178",
   lang: "ja",
-  title: "Characters 10 (B2)",
+  title: "かんじ・しごとと まこと",
   order: 178,
   stage: "b2",
   lessons: [
-    { id: "ja-u178l1", title: "Lesson 1", locked: true },
-    { id: "ja-u178l2", title: "Lesson 2", locked: true },
-    { id: "ja-u178l3", title: "Lesson 3", locked: true },
-    { id: "ja-u178l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u178l1",
+      unit: 178,
+      lesson: 1,
+      title: "Handling and removing",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 処 (deal with), 署 (office), 諸 (various), 除 (remove), and the words 処分 and 部署.",
+      items: [
+        { id: "ja-u178l1-sho", type: "kanji", front: "処", reading: "sho", meaning: "deal with", example: { jp: "古い 品を どう 処分するか、まだ 決めて いません。", en: "I haven't decided how to dispose of the old goods." }, accept: ["dispose of", "handle", "a place"], hint: "処 = the spot where a thing is dealt with. 処分 = disposing of it, 対処 = handling a situation." },
+        { id: "ja-u178l1-shooffice", type: "kanji", front: "署", reading: "sho", meaning: "a public office", example: { jp: "この 書るいは 署の まどぐちに 出して ください。", en: "Please hand these papers in at the office window." }, accept: ["station", "bureau", "to sign"], hint: "署 = 罒 + 者 — the place where officials are stationed. Its on-yomi is しょ, like 処." },
+        { id: "ja-u178l1-shovarious", type: "kanji", front: "諸", reading: "sho", meaning: "various", example: { jp: "諸国の 考え方を 集めて、一つに まとめました。", en: "We gathered the views of various countries into one." }, accept: ["several", "the many", "all the"], hint: "諸 = 言 + 者 — the several parties. It only ever prefixes: 諸国, 諸問題." },
+        { id: "ja-u178l1-nozoku", type: "kanji", front: "除", reading: "nozoku", meaning: "remove", example: { jp: "むだな ところを 除いたら、話が みじかく なりました。", en: "Once the padding was removed, the talk got shorter." }, accept: ["take out", "exclude", "get rid of"], hint: "除 = 阝 + 余 — clearing what is left over. 二人を 除いて = excluding two people." },
+        { id: "ja-u178l1-shobun", type: "vocab", front: "処分", reading: "shobun", meaning: "disposal", example: { jp: "古い 車の 処分に、思ったより お金が かかりました。", en: "Disposing of the old car cost more than I expected." }, accept: ["getting rid of", "a penalty", "dealing with"] },
+        { id: "ja-u178l1-busho", type: "vocab", front: "部署", reading: "busho", meaning: "one's post", example: { jp: "部署が 変わって、話す 人も すっかり 変わりました。", en: "My post changed, and so did everyone I speak to." }, accept: ["section", "station", "assigned position"] },
+      ],
+    },
+    {
+      id: "ja-u178l2",
+      unit: 178,
+      lesson: 2,
+      title: "Wounds, walls, steam",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 将 (commander), 傷 (wound), 城 (castle), 蒸 (steam), and the words 傷口 and 水蒸気.",
+      items: [
+        { id: "ja-u178l2-shogeneral", type: "kanji", front: "将", reading: "shō", meaning: "a commander", example: { jp: "その 将は 下の 者を よく 見て いたと 言われて います。", en: "That commander is said to have looked after those under him well." }, accept: ["general", "leader", "about to"], hint: "将 = the one who leads from the front. 将来 = what is about to come — the same 将, pointing at time." },
+        { id: "ja-u178l2-kizu", type: "kanji", front: "傷", reading: "kizu", meaning: "a wound", example: { jp: "小さな 傷でしたが、なおるまで 時間が かかりました。", en: "It was a small wound, but it took time to heal." }, accept: ["injury", "scratch", "damage"], hint: "傷 = 人 + 昜 — harm done to a person. It covers cuts on skin and marks on furniture alike." },
+        { id: "ja-u178l2-shiro", type: "kanji", front: "城", reading: "shiro", meaning: "a castle", example: { jp: "城の かべは、四百年 前の ままです。", en: "The castle wall is as it was four hundred years ago." }, accept: ["fortress", "stronghold"], hint: "城 = 土 (earth) + 成 — earth raised into defence. 城下町 = the town that grew below one." },
+        { id: "ja-u178l2-musu", type: "kanji", front: "蒸", reading: "musu", meaning: "steam", example: { jp: "野さいを 蒸すと、あまさが よく 出ます。", en: "Steaming vegetables brings out their sweetness." }, accept: ["steam something", "sultry", "evaporate"], hint: "蒸 = 艹 over 灬 (fire) — plants over heat. 蒸し暑い = the heavy, steamed heat of a Japanese summer." },
+        { id: "ja-u178l2-kizuguchi", type: "vocab", front: "傷口", reading: "kizuguchi", meaning: "the open wound", example: { jp: "傷口を あらってから、しろい 紙で おさえました。", en: "I washed the wound and pressed white paper over it." }, accept: ["the cut itself", "a sore point"] },
+        { id: "ja-u178l2-suijoki", type: "vocab", front: "水蒸気", reading: "suijōki", meaning: "water vapour", example: { jp: "まどが 白く なるのは、水蒸気の せいです。", en: "The window goes white because of water vapour." }, accept: ["steam", "vapour in the air"] },
+      ],
+    },
+    {
+      id: "ja-u178l3",
+      unit: 178,
+      lesson: 3,
+      title: "Needles, kindness, inference",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 針 (needle), 仁 (humaneness), 垂 (hang down), 推 (infer), and the words 秒針 and 推理.",
+      items: [
+        { id: "ja-u178l3-hari", type: "kanji", front: "針", reading: "hari", meaning: "a needle", example: { jp: "細い 針が 見つからなくて、しばらく さがしました。", en: "I couldn't find the thin needle and searched a while." }, accept: ["pin", "hand of a clock", "stylus"], hint: "針 = 金 (metal) + 十 — a thin metal point. It is also the hand of a clock: 秒針." },
+        { id: "ja-u178l3-jin", type: "kanji", front: "仁", reading: "jin", meaning: "humaneness", example: { jp: "むかしの 本には、仁が いちばん 大切だと 書いて あります。", en: "The old books say humaneness matters most of all." }, accept: ["benevolence", "human-heartedness"], hint: "仁 = 人 + 二 — what passes between one person and another. The oldest of the Confucian virtues." },
+        { id: "ja-u178l3-tareru", type: "kanji", front: "垂", reading: "tareru", meaning: "hang down", example: { jp: "重い 実が 垂れて、えだが 曲がって います。", en: "The heavy fruit hangs down and bends the branch." }, accept: ["dangle", "drip", "let fall"], hint: "垂 = something falling straight from above. 垂直 = perpendicular: hanging exactly down." },
+        { id: "ja-u178l3-sui", type: "kanji", front: "推", reading: "sui", meaning: "infer", example: { jp: "少ない 数から 全体を 推すのは、あぶない やり方です。", en: "Inferring the whole from a few figures is a risky method." }, accept: ["deduce", "推す: recommend", "surmise"], hint: "推 = 扌 (hand) + 隹 — pushing a line of thought forward. 推理 = working it out; 推す also means to nominate." },
+        { id: "ja-u178l3-byoshin", type: "vocab", front: "秒針", reading: "byōshin", meaning: "the second hand", example: { jp: "秒針の 音だけが、部屋に ひびいて いました。", en: "Only the sound of the second hand carried through the room." }, accept: ["seconds hand of a clock"] },
+        { id: "ja-u178l3-suiri", type: "vocab", front: "推理", reading: "suiri", meaning: "deduction", example: { jp: "その 推理は みごとでしたが、答えは ちがいました。", en: "The deduction was elegant, but the answer was wrong." }, accept: ["reasoning it out", "detective work"] },
+      ],
+    },
+    {
+      id: "ja-u178l4",
+      unit: 178,
+      lesson: 4,
+      title: "Fullness, holiness, sincerity",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 盛 (flourish), 聖 (holy), 誠 (sincerity), 宣 (proclaim), and the words 聖書 and 宣言.",
+      items: [
+        { id: "ja-u178l4-sakan", type: "kanji", front: "盛", reading: "sakan", meaning: "flourishing", example: { jp: "この 町は 昼より 夜の ほうが 盛んです。", en: "This town is livelier at night than by day." }, accept: ["thriving", "vigorous", "heap up"], hint: "盛 = 成 over 皿 (a dish) — piled high. 盛る = to heap food; 盛ん = a place or trade doing well." },
+        { id: "ja-u178l4-sei", type: "kanji", front: "聖", reading: "sei", meaning: "holy", example: { jp: "この 山は 聖なる 場所として 守られて います。", en: "This mountain is protected as a holy place." }, accept: ["sacred", "saint", "revered"], hint: "聖 = 耳 (ear) + 口 (mouth) + 王 — one who hears and speaks for what is above." },
+        { id: "ja-u178l4-makoto", type: "kanji", front: "誠", reading: "sei", meaning: "sincerity", example: { jp: "誠意を もって 話せば、たいてい 通じます。", en: "If you speak with sincerity, it usually gets through." }, accept: ["good faith", "truthfulness"], hint: "誠 = 言 (words) + 成 — words that become true. Its on-yomi is せい, like 聖." },
+        { id: "ja-u178l4-sen", type: "kanji", front: "宣", reading: "sen", meaning: "proclaim", example: { jp: "会社は 来年 やめると 宣言しました。", en: "The company declared it would close next year." }, accept: ["declare", "announce publicly"], hint: "宣 = 宀 (roof) over 亘 — speaking out from under the official roof. Always public and formal." },
+        { id: "ja-u178l4-seisho", type: "vocab", front: "聖書", reading: "seisho", meaning: "the Bible", example: { jp: "聖書を 読んだ ことは ありませんが、話は 少し 知って います。", en: "I've never read the Bible, though I know some of the stories." }, accept: ["scripture", "holy book"] },
+        { id: "ja-u178l4-sengen", type: "vocab", front: "宣言", reading: "sengen", meaning: "a declaration", example: { jp: "宣言だけでは 何も 変わらないと、みんな 思って います。", en: "Everyone thinks a declaration alone changes nothing." }, accept: ["proclamation", "announcing formally"] },
+      ],
+    },
   ],
 };
