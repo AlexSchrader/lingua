@@ -36,7 +36,7 @@ export const ES_UNIT11 = {
         { id: "es-u11l1-cabeza", type: "vocab", front: "la cabeza", reading: "lacabeza", meaning: "head", example: { jp: "En la cabeza hay mucho pelo.", en: "There's a lot of hair on the head." }, accept: ["the head"], hint: "Same root as \"captain\" and \"capital\" — all of them are about the head of something." },
         { id: "es-u11l1-cara", type: "vocab", front: "la cara", reading: "lacara", meaning: "face", example: { jp: "La cara de Carlos está limpia.", en: "Carlos's face is clean." }, accept: ["the face"], hint: "Don't mix it up with caro, expensive — one letter apart." },
         { id: "es-u11l1-oreja", type: "vocab", front: "la oreja", reading: "laoreja", meaning: "ear", example: { jp: "En la cabeza hay dos orejas.", en: "There are two ears on the head." }, accept: ["the ear"], hint: "La oreja is the ear you can see; el oído is the hearing inside it." },
-        { id: "es-u11l1-nariz", type: "vocab", front: "la nariz", reading: "lanariz", meaning: "nose", example: { jp: "La nariz de Carlos es pequeña.", en: "Carlos's nose is small." }, accept: ["the nose"], hint: "Same root as \"nasal\"." },
+        { id: "es-u11l1-nariz", type: "vocab", front: "la nariz", reading: "lanariz", meaning: "nose", example: { jp: "La nariz de Carlos es grande.", en: "Carlos's nose is big." }, accept: ["the nose"], hint: "Same root as \"nasal\"." },
         { id: "es-u11l1-boca", type: "vocab", front: "la boca", reading: "laboca", meaning: "mouth", example: { jp: "En la cara hay una nariz y una boca.", en: "There's a nose and a mouth on the face." }, accept: ["the mouth"], hint: "Also the mouth of a river or a street — la boca del metro is the subway entrance." },
       ],
     },
