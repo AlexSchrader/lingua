@@ -45,7 +45,7 @@ export const ES_UNIT32 = {
         { id: "es-u32l2-libre", type: "vocab", front: "libre", reading: "libre", meaning: "free", example: { jp: "Soy libre de hacer lo que quiero.", en: "I'm free to do what I want." }, accept: ["available", "at liberty"], hint: "Free as in not tied down — not free of charge (that's gratis). A table with no one at it is also libre." },
         { id: "es-u32l2-lalibertad", type: "vocab", front: "la libertad", reading: "lalibertad", meaning: "freedom", example: { jp: "La libertad es muy importante.", en: "Freedom is very important." }, accept: ["the freedom", "liberty"], hint: "The noun from libre. The New York statue is la Estatua de la Libertad." },
         { id: "es-u32l2-lapolitica", type: "vocab", front: "la política", reading: "lapolitica", meaning: "politics", example: { jp: "No me gusta hablar de política.", en: "I don't like talking about politics." }, accept: ["the politics", "policy"], hint: "Both \"politics\" and \"a policy\" — and, with an -o, el político is a politician." },
-        { id: "es-u32l2-votar", type: "vocab", front: "votar", reading: "votar", meaning: "to vote", example: { jp: "Mis padres siempre votan en la ciudad.", en: "My parents always vote in the city." }, accept: ["to cast a vote"], hint: "The noun is el voto. A near-twin of the English word, easy to keep." },
+        { id: "es-u32l2-votar", type: "vocab", front: "votar", reading: "votar", meaning: "to vote", example: { jp: "Mis padres siempre votan.", en: "My parents always vote." }, accept: ["to cast a vote"], hint: "The noun is el voto. A near-twin of the English word, easy to keep." },
       ],
     },
     {

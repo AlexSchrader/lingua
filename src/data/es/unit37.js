@@ -32,7 +32,7 @@ export const ES_UNIT37 = {
         { id: "es-u37l1-seria", type: "vocab", front: "sería", reading: "seria", meaning: "it would be", example: { jp: "Sería muy bueno para todos.", en: "It would be very good for everyone." }, accept: ["that would be", "it'd be", "this would be"], hint: "The conditional of ser. Sería genial — that'd be great." },
         { id: "es-u37l1-deberia", type: "vocab", front: "debería", reading: "deberia", meaning: "I should", example: { jp: "Debería trabajar más hoy.", en: "I should work more today." }, accept: ["i ought to", "i'd better", "he should"], hint: "The gentle \"should\" — debería descansar lands softer than an order. From deber (this unit, lesson 2)." },
         { id: "es-u37l1-tendriaque", type: "vocab", front: "tendría que", reading: "tendriaque", meaning: "I would have to", example: { jp: "Tendría que estudiar más.", en: "I would have to study more." }, accept: ["i'd have to", "he would have to"], hint: "The conditional of tener que — what you'd have to do, in theory rather than now." },
-        { id: "es-u37l1-haria", type: "vocab", front: "haría", reading: "haria", meaning: "I would do", example: { jp: "¿Qué harías en mi lugar?", en: "What would you do in my place?" }, accept: ["i'd make", "i would make", "he would do"], hint: "From hacer (A1). ¿Qué harías tú? — What would you do?" },
+        { id: "es-u37l1-haria", type: "vocab", front: "haría", reading: "haria", meaning: "I would do", example: { jp: "Yo haría lo mismo en tu lugar.", en: "I would do the same in your place." }, accept: ["i'd make", "i would make", "he would do"], hint: "From hacer (A1). ¿Qué harías tú? — What would you do?" },
       ],
     },
     {
