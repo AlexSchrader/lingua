@@ -47,7 +47,7 @@ export const FR_UNIT94 = {
         { id: "fr-u94l2-avraidire", type: "vocab", front: "à vrai dire", reading: "avraidire", meaning: "to be honest", example: { jp: "À vrai dire, je n'aime pas ça.", en: "To be honest, I don't like it." }, accept: ["truth be told", "actually", "to tell the truth"] },
         { id: "fr-u94l2-entoutcas", type: "vocab", front: "en tout cas", reading: "entoutcas", meaning: "in any case", example: { jp: "En tout cas, je serai là.", en: "In any case, I'll be there." }, accept: ["at any rate", "either way"] },
         { id: "fr-u94l2-detoutefacon", type: "vocab", front: "de toute façon", reading: "detoutefacon", meaning: "anyway", example: { jp: "De toute façon, c'est trop tard.", en: "Anyway, it's too late." }, accept: ["regardless", "whatever happens"] },
-        { id: "fr-u94l2-apretout", type: "vocab", front: "après tout", reading: "apretout", meaning: "after all", example: { jp: "Après tout, ce n'est pas grave.", en: "After all, it's not serious." }, accept: ["when all's said and done", "at the end of the day"] },
+        { id: "fr-u94l2-apretout", type: "vocab", front: "après tout", reading: "aprestout", meaning: "after all", example: { jp: "Après tout, ce n'est pas grave.", en: "After all, it's not serious." }, accept: ["when all's said and done", "at the end of the day"] },
       ],
     },
     {
