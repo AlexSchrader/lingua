@@ -8,8 +8,9 @@
 // say your brother is kind or your boss is patient. This unit is the vocabulary
 // of character: the good traits, the difficult ones, the nouns that name a
 // personality, and the verbs for how people get on. Every trait is an adjective,
-// so every example turns on ser (A1 u16) — es simpático, son generosos — which
-// is exactly the copula this vocabulary exists to make useful.
+// so most examples turn on ser (A1 u16) — es simpático, son generosos — with
+// estar where the trait is a passing state (está orgullosa); together they are
+// exactly the copulas this vocabulary exists to make useful.
 // Examples use A1 vocab plus this unit; block 1 (u21–30) words are used where
 // already introduced (contento, feliz, tranquilo from u22).
 // lang/unit/lesson are stamped in src/data/index.js.

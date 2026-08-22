@@ -11,8 +11,11 @@
 // some linkers collide at merge; lower slot wins, and any ceded word stays usable
 // in the examples here. Fronts A1 already owns (que's cousins qué/porque/aunque,
 // cuando, si) are NOT re-taught — their clause uses show up in examples instead.
-// Examples stay in the indicative on purpose: the subjunctive triggers (para que,
-// a menos que) are left out so A2 examples use only verb forms the learner has met.
+// Examples stay in the indicative on purpose: subjunctive-obligating subordinators
+// (para que, a menos que) are left out, and the temporal linkers here are shown in
+// habitual/past frames that legitimately take the indicative — so A2 examples use
+// only verb forms the learner has met. (hasta que + a FUTURE event would take the
+// subjunctive; its example is deliberately past — esperé… llegaste.)
 // lang/unit/lesson are stamped in src/data/index.js.
 export const ES_UNIT36 = {
   id: "es-u36",
