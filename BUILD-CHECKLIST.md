@@ -172,7 +172,7 @@ Found by sweeping every word used 3+ times in a Spanish example but never taught
 
 | Spanish 🇪🇸 **A2** | — | **scaffolded** | `content/es-a2-scaffold` | `C:\dev\lingua-esa2-1` | Shared base, commit `3132902`. es-u21–u50 (30 units), all stage `a2`, on top of merged A1 (u1–20). A2 layout mirrors fr A2: thematic 21–35, grammar 36–37, conjugation 38–39, coverage 40–50. |
 | Spanish 🇪🇸 A2 | 1 | **authoring** | `content/es-a2-block1` | `C:\dev\lingua-esa2-b1` | Units 21–30 (thematic: activities → home). u21–23 authored so far (observed on branch). |
-| Spanish 🇪🇸 A2 | 2 | **authoring** | `content/es-a2-block2` | `C:\dev\lingua-esa2-b2` | Units 31–40, 240 cards — thematic personality → culture (31–35), grammar 4/5 (36–37), both conjugation drills (38–39), and coverage 1 (40). Draws on A1 + block 1 vocab. |
+| Spanish 🇪🇸 A2 | 2 | **gating** | `content/es-a2-block2` | `C:\dev\lingua-esa2-b2` | Units 31–40, 240 cards — thematic personality → culture (31–35), grammar 4/5 (36–37), both conjugation drills (38–39), and coverage 1 (40). Gate green (validate/lint/217 tests/audit/build). 0 dup fronts vs A1 and vs block1's authored u21–23. Draws on A1 + block 1 vocab. |
 
 | Japanese 🇯🇵 **B1** | — | **scaffolded** | `content/ja-b1-scaffold` | (branch only) | Shared base, commit `364992f`. ja-u99–u155, all stage `b1`, 182 units validate green. N3 stroke data already on the trunk. |
 | Japanese 🇯🇵 B1 | 1 | ready — awaiting kickoff | `content/ja-b1-block1` | `C:\dev\lingua-jab1-1` | Units 99–117 (opinion → problems, + N3 kanji interleaved) |
