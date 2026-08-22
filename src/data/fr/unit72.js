@@ -28,7 +28,7 @@ export const FR_UNIT72 = {
         { id: "fr-u72l1-leterritoire", type: "vocab", front: "le territoire", reading: "leterritoire", meaning: "the territory", example: { jp: "Ce territoire est très grand, mais peu de personnes y habitent.", en: "This territory is very big, but few people live there." }, accept: ["territory", "the area", "land"] },
         { id: "fr-u72l1-laregion", type: "vocab", front: "la région", reading: "laregion", meaning: "the region", example: { jp: "Chaque région a sa cuisine, si bien qu'on mange différemment selon l'endroit.", en: "Each region has its own cooking, so people eat differently depending on the place." }, accept: ["region", "the area", "district"] },
         { id: "fr-u72l1-rural", type: "vocab", front: "rural", reading: "rural", meaning: "rural", example: { jp: "Il vient d'un milieu rural, tandis que sa femme a grandi en ville.", en: "He comes from a rural background, whereas his wife grew up in the city." }, accept: ["country", "countryside", "rustic"], hint: "Plural is ruraux, not \"rurals\" — like most -al adjectives." },
-        { id: "fr-u72l1-urbain", type: "vocab", front: "urbain", reading: "urbain", meaning: "urban", example: { jp: "Le bus et le métro sont gratuits le week-end dans cette ville.", en: "The bus and the underground are free at weekends in this city." }, accept: ["city", "town", "of the city"] },
+        { id: "fr-u72l1-urbain", type: "vocab", front: "urbain", reading: "urbain", meaning: "urban", example: { jp: "Il préfère le milieu urbain, tandis que sa sœur aime la campagne.", en: "He prefers the urban environment, whereas his sister loves the countryside." }, accept: ["city", "town", "of the city"] },
       ],
     },
     {
