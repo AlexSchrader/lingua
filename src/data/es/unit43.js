@@ -1,7 +1,7 @@
 // ES Unit 43 — Adjetivos · 2 ("Adjectives 2") — A2 COVERAGE (slot: coverage-a2-4)
 // Physical-state adjectives: full/empty, hard/soft, the shapes and textures of
 // things. These pair naturally with estar (a changeable state) rather than ser.
-// Conventions and BLOCK-3 SCOPE: see es/unit40.js. FREE: María, Pablo, Ana, Madrid.
+// Conventions and BLOCK-3 SCOPE: see es/unit13.js. FREE: María, Pablo, Ana, Madrid.
 export const ES_UNIT43 = {
   id: "es-u43",
   lang: "es",
@@ -13,12 +13,12 @@ export const ES_UNIT43 = {
       id: "es-u43l1",
       unit: 43,
       lesson: 1,
-      title: "Lleno, vacío, roto",
+      title: "Vacío, abierto, cómodo",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Describe the state of things: el vaso está lleno, la casa está vacía, la tienda está abierta, el reloj está roto.",
+      canDo: "Describe the state of things: la casa está vacía, la tienda está abierta, el reloj está roto, el sofá es cómodo.",
       items: [
-        { id: "es-u43l1-lleno", type: "vocab", front: "lleno", reading: "lleno", meaning: "full", example: { jp: "El vaso está lleno de agua.", en: "The glass is full of water." }, accept: ["filled"], hint: "lleno de = full of. Estoy lleno = I'm full (after eating). Note the double ll." },
+        { id: "es-u43l1-comodo", type: "vocab", front: "cómodo", reading: "comodo", meaning: "comfortable", example: { jp: "El sofá es muy cómodo.", en: "The sofa is very comfortable." }, accept: ["comfy", "convenient"], hint: "Comfortable, or convenient. The opposite is incómodo. Ponte cómodo = make yourself comfortable." },
         { id: "es-u43l1-vacio", type: "vocab", front: "vacío", reading: "vacio", meaning: "empty", example: { jp: "La casa está vacía.", en: "The house is empty." }, accept: ["vacant"], hint: "The opposite of lleno. The accent falls on the í: vacío, vacía." },
         { id: "es-u43l1-abierto", type: "vocab", front: "abierto", reading: "abierto", meaning: "open", example: { jp: "La tienda está abierta.", en: "The shop is open." }, accept: ["opened"], hint: "The irregular past participle of abrir (u13): abierto, not \"abrido\". La puerta está abierta." },
         { id: "es-u43l1-cerrado", type: "vocab", front: "cerrado", reading: "cerrado", meaning: "closed / shut", example: { jp: "El banco está cerrado hoy.", en: "The bank is closed today." }, accept: ["shut", "locked"], hint: "The opposite of abierto. From cerrar (to close). El domingo todo está cerrado." },
@@ -30,13 +30,13 @@ export const ES_UNIT43 = {
       id: "es-u43l2",
       unit: 43,
       lesson: 2,
-      title: "Fuerte, duro, pesado",
+      title: "Duro, blando, firme",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Describe strength and weight: café fuerte, pan duro, sofá blando, bolso pesado.",
+      canDo: "Describe texture and steadiness: café flojo, pan duro, sofá blando, mesa firme.",
       items: [
-        { id: "es-u43l2-fuerte", type: "vocab", front: "fuerte", reading: "fuerte", meaning: "strong", example: { jp: "El café está muy fuerte.", en: "The coffee is very strong." }, accept: ["intense", "loud"], hint: "Ends in -e, no -o/-a change. Strong of a person, a coffee, or a sound (loud): habla más fuerte = speak up." },
-        { id: "es-u43l2-debil", type: "vocab", front: "débil", reading: "debil", meaning: "weak", example: { jp: "Me siento débil hoy.", en: "I feel weak today." }, accept: ["faint", "feeble"], hint: "The opposite of fuerte. Consonant ending, plural débiles, accent on the é." },
+        { id: "es-u43l2-flojo", type: "vocab", front: "flojo", reading: "flojo", meaning: "weak / loose", example: { jp: "El café está muy flojo.", en: "The coffee is very weak." }, accept: ["loose", "slack", "lazy"], hint: "Weak (a weak coffee, a lazy person) or loose (a loose screw). The opposite of firme." },
+        { id: "es-u43l2-firme", type: "vocab", front: "firme", reading: "firme", meaning: "firm / steady", example: { jp: "La mesa no está firme.", en: "The table isn't steady." }, accept: ["steady", "solid", "stable"], hint: "Ends in -e. Firm and steady. Tierra firme = solid ground. The opposite of flojo." },
         { id: "es-u43l2-duro", type: "vocab", front: "duro", reading: "duro", meaning: "hard / tough", example: { jp: "Esta carne está muy dura.", en: "This meat is very tough." }, accept: ["firm", "difficult"], hint: "Hard to the touch, or a hard/tough situation: un día duro = a rough day." },
         { id: "es-u43l2-blando", type: "vocab", front: "blando", reading: "blando", meaning: "soft", example: { jp: "El sofá es muy blando.", en: "The sofa is very soft." }, accept: ["tender", "squishy"], hint: "Soft to the touch, the opposite of duro. For soft-to-the-hand or smooth, see suave (u43)." },
         { id: "es-u43l2-pesado", type: "vocab", front: "pesado", reading: "pesado", meaning: "heavy", example: { jp: "El bolso es muy pesado.", en: "The bag is very heavy." }, accept: ["weighty", "tiresome"], hint: "Heavy in weight — or of a person, tiresome/annoying: ¡qué pesado! = what a pain!" },

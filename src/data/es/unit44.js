@@ -1,11 +1,11 @@
-// ES Unit 44 — Verbos de acción · 3 ("Action verbs 3") — A2 COVERAGE (slot: coverage-a2-5)
+// ES Unit 44 — Verbos de acción · 2 ("Action verbs 2") — A2 COVERAGE (slot: coverage-a2-5)
 // Verbs of the mind, of relationships, and of making/doing. Headworded in the
 // infinitive; forms in examples and hints. Conventions and BLOCK-3 SCOPE: see
-// es/unit40.js. FREE: María, Pablo, Ana, Madrid.
+// es/unit13.js. FREE: María, Pablo, Ana, Madrid.
 export const ES_UNIT44 = {
   id: "es-u44",
   lang: "es",
-  title: "Verbos de acción · 3",
+  title: "Verbos de acción · 2",
   order: 44,
   stage: "a2",
   lessons: [
@@ -64,13 +64,13 @@ export const ES_UNIT44 = {
       id: "es-u44l4",
       unit: 44,
       lesson: 4,
-      title: "Disfrutar, elegir, permitir",
+      title: "Colaborar, elegir, permitir",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Talk about enjoying and choosing: aprovechar el día, disfrutar de la música, elegir un color, permitir algo.",
+      canDo: "Talk about joining in and choosing: aprovechar el día, colaborar con amigos, elegir un color, permitir algo.",
       items: [
         { id: "es-u44l4-aprovechar", type: "vocab", front: "aprovechar", reading: "aprovechar", meaning: "to make the most of", example: { jp: "Voy a aprovechar el día libre.", en: "I'm going to make the most of my day off." }, accept: ["to take advantage of", "to use well"], hint: "To use an opportunity well. ¡Que aproveche! is what Spaniards say before eating = enjoy your meal." },
-        { id: "es-u44l4-disfrutar", type: "vocab", front: "disfrutar", reading: "disfrutar", meaning: "to enjoy", example: { jp: "Disfruto mucho de la música.", en: "I really enjoy music." }, accept: ["to have a good time"], hint: "disfrutar de algo = to enjoy something. A fuller word than the everyday me gusta." },
+        { id: "es-u44l4-colaborar", type: "vocab", front: "colaborar", reading: "colaborar", meaning: "to collaborate / help out", example: { jp: "Me gusta colaborar con mis amigos.", en: "I like to work together with my friends." }, accept: ["to cooperate", "to help", "to work together", "to contribute"], hint: "colaborar con = to work together with. From the same root as \"collaborate\"." },
         { id: "es-u44l4-participar", type: "vocab", front: "participar", reading: "participar", meaning: "to take part", example: { jp: "Todos quieren participar.", en: "Everyone wants to take part." }, accept: ["to participate", "to join in"], hint: "participar en algo = to take part in something. Regular -ar." },
         { id: "es-u44l4-organizar", type: "vocab", front: "organizar", reading: "organizar", meaning: "to organize", example: { jp: "Tengo que organizar mi trabajo.", en: "I have to organize my work." }, accept: ["to arrange", "to set up"], hint: "Regular -ar. Reflexive organizarse = to get organized." },
         { id: "es-u44l4-elegir", type: "vocab", front: "elegir", reading: "elegir", meaning: "to choose", example: { jp: "Es difícil elegir un color.", en: "It's hard to choose a colour." }, accept: ["to pick", "to select", "to elect"], hint: "elijo, eliges, elige (e→i, and g→j before o). A close friend of escoger." },

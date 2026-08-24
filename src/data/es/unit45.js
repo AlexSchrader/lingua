@@ -2,7 +2,7 @@
 // The connective vocabulary of any real conversation: idea, reason, way, situation,
 // result. These are what A2 examples are ABOUT once the sentences grow past one
 // clause. Nouns are headworded with their article so gender is learned with the word
-// (es/unit12.js). Conventions and BLOCK-3 SCOPE: see es/unit40.js. FREE: María, Pablo.
+// (es/unit12.js). Conventions and BLOCK-3 SCOPE: see es/unit13.js. FREE: María, Pablo.
 export const ES_UNIT45 = {
   id: "es-u45",
   lang: "es",
@@ -14,17 +14,17 @@ export const ES_UNIT45 = {
       id: "es-u45l1",
       unit: 45,
       lesson: 1,
-      title: "La idea, la verdad, la opinión",
+      title: "La verdad, la opinión, la causa",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Talk about thoughts and truth: una buena idea, la razón, decir la verdad, en mi opinión.",
+      canDo: "Talk about meaning and truth: el sentido de algo, decir la verdad, en mi opinión, la causa del problema.",
       items: [
-        { id: "es-u45l1-laidea", type: "vocab", front: "la idea", reading: "laidea", meaning: "the idea", example: { jp: "Tengo una buena idea.", en: "I have a good idea." }, accept: ["idea", "thought", "plan"], hint: "¡Buena idea! = good idea! Ni idea = no idea at all." },
-        { id: "es-u45l1-larazon", type: "vocab", front: "la razón", reading: "larazon", meaning: "the reason", example: { jp: "No entiendo la razón.", en: "I don't understand the reason." }, accept: ["reason", "cause"], hint: "Also \"the right\": tener razón = to be right, tienes razón = you're right. Por esta razón = for this reason." },
+        { id: "es-u45l1-elsentido", type: "vocab", front: "el sentido", reading: "elsentido", meaning: "the meaning / sense", example: { jp: "No entiendo el sentido de esta frase.", en: "I don't understand the meaning of this sentence." }, accept: ["meaning", "sense", "direction"], hint: "The meaning or sense of something; also a bodily sense or a direction. No tiene sentido = it makes no sense." },
+        { id: "es-u45l1-lacausa", type: "vocab", front: "la causa", reading: "lacausa", meaning: "the cause", example: { jp: "No entiendo la causa del problema.", en: "I don't understand the cause of the problem." }, accept: ["cause", "reason"], hint: "The cause behind something. A causa de = because of." },
         { id: "es-u45l1-laverdad", type: "vocab", front: "la verdad", reading: "laverdad", meaning: "the truth", example: { jp: "Dime la verdad.", en: "Tell me the truth." }, accept: ["truth", "really"], hint: "¿De verdad? = Really? La verdad es que… = the truth is… Related to verdadero (u42)." },
         { id: "es-u45l1-lamentira", type: "vocab", front: "la mentira", reading: "lamentira", meaning: "the lie", example: { jp: "Eso es una mentira.", en: "That's a lie." }, accept: ["lie", "falsehood"], hint: "The opposite of la verdad. Decir mentiras = to tell lies." },
         { id: "es-u45l1-laopinion", type: "vocab", front: "la opinión", reading: "laopinion", meaning: "the opinion", example: { jp: "En mi opinión, es un buen libro.", en: "In my opinion, it's a good book." }, accept: ["opinion", "view"], hint: "En mi opinión = in my opinion — a very common way to open a sentence. Plural opiniones." },
-        { id: "es-u45l1-elpensamiento", type: "vocab", front: "el pensamiento", reading: "elpensamiento", meaning: "the thought", example: { jp: "Es solo un pensamiento.", en: "It's just a thought." }, accept: ["thought", "thinking"], hint: "From pensar (u36). A single thought, or thinking in general." },
+        { id: "es-u45l1-elpensamiento", type: "vocab", front: "el pensamiento", reading: "elpensamiento", meaning: "the thought", example: { jp: "Es solo un pensamiento.", en: "It's just a thought." }, accept: ["thought", "thinking"], hint: "From pensar (to think). A single thought, or thinking in general." },
       ],
     },
     {
@@ -48,15 +48,15 @@ export const ES_UNIT45 = {
       id: "es-u45l3",
       unit: 45,
       lesson: 3,
-      title: "La situación, el caso, el tema",
+      title: "La situación, el caso, el aspecto",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Frame a topic: una situación difícil, en ese caso, el hecho es que, un tema importante.",
+      canDo: "Frame a topic: una situación difícil, en ese caso, el hecho es que, un aspecto importante.",
       items: [
         { id: "es-u45l3-lasituacion", type: "vocab", front: "la situación", reading: "lasituacion", meaning: "the situation", example: { jp: "La situación es difícil.", en: "The situation is difficult." }, accept: ["situation", "position"], hint: "Plural situaciones. A common way to describe how things stand." },
         { id: "es-u45l3-elcaso", type: "vocab", front: "el caso", reading: "elcaso", meaning: "the case", example: { jp: "En ese caso, no voy.", en: "In that case, I'm not going." }, accept: ["case", "instance"], hint: "En ese caso = in that case. En todo caso = in any case. No hacer caso = to ignore." },
         { id: "es-u45l3-elhecho", type: "vocab", front: "el hecho", reading: "elhecho", meaning: "the fact", example: { jp: "El hecho es que no tengo dinero.", en: "The fact is I have no money." }, accept: ["fact", "deed"], hint: "El hecho de que… = the fact that… De hecho = in fact. It's also the past participle of hacer, \"done\"." },
-        { id: "es-u45l3-eltema", type: "vocab", front: "el tema", reading: "eltema", meaning: "the topic / subject", example: { jp: "Es un tema importante.", en: "It's an important topic." }, accept: ["topic", "subject", "theme", "issue"], hint: "Masculine despite the -a ending (like el problema, el día): un tema. Cambiar de tema = to change the subject." },
+        { id: "es-u45l3-elaspecto", type: "vocab", front: "el aspecto", reading: "elaspecto", meaning: "the aspect / appearance", example: { jp: "Es un aspecto importante del problema.", en: "It's an important aspect of the problem." }, accept: ["aspect", "appearance", "look", "side"], hint: "An aspect of a matter, or someone's appearance: tiene buen aspecto = he looks well." },
         { id: "es-u45l3-elasunto", type: "vocab", front: "el asunto", reading: "elasunto", meaning: "the matter / affair", example: { jp: "Es un asunto importante.", en: "It's an important matter." }, accept: ["matter", "affair", "business"], hint: "A matter to be dealt with. No es asunto tuyo = it's none of your business." },
         { id: "es-u45l3-elpunto", type: "vocab", front: "el punto", reading: "elpunto", meaning: "the point", example: { jp: "Ese es el punto.", en: "That's the point." }, accept: ["point", "dot", "period"], hint: "The point of an argument, a dot, or a full stop. Punto de vista = point of view. En punto = on the dot (las tres en punto)." },
       ],

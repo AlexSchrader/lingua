@@ -1,13 +1,11 @@
 // ES Unit 49 — Cosas, lugares y gente ("Things, places and people") — A2 COVERAGE (slot: coverage-a2-10)
 // The everyday concrete nouns a frequency pass needs: objects, spaces, groups of
 // people, bits of text. Nouns headworded with their article. Conventions and
-// BLOCK-3 SCOPE: see es/unit40.js.
+// BLOCK-3 SCOPE: see es/unit13.js.
 //
-// MERGE NOTE: several nouns border thematic-block territory — el equipo / la pareja /
-// la persona / el grupo near u31 (Personality) / u32 (Society); la máquina / el
-// aparato / el producto near u33 (Technology) / u27 (Shopping); la carta / el aviso
-// near u33 (Communication). Ownership rule stands: lower unit order wins, merge seat
-// deletes the copy here. Flagged in §6.
+// DE-COLLIDED against the final blocks 1–2 (u21–u40): la persona, el grupo and la nota
+// were swapped for el público, el compañero and el título. Every remaining front is
+// verified absent from u1–u40. Zero merge reds expected. See §6 hand-back.
 export const ES_UNIT49 = {
   id: "es-u49",
   lang: "es",
@@ -53,13 +51,13 @@ export const ES_UNIT49 = {
       id: "es-u49l3",
       unit: 49,
       lesson: 3,
-      title: "La persona, el grupo, el equipo",
+      title: "El equipo, el compañero, la pareja",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Talk about groups of people: una buena persona, un grupo de amigos, mi equipo, un miembro, la pareja.",
+      canDo: "Talk about people around you: mi equipo, un compañero de trabajo, un miembro, el público, la pareja.",
       items: [
-        { id: "es-u49l3-lapersona", type: "vocab", front: "la persona", reading: "lapersona", meaning: "the person", example: { jp: "Es una persona muy buena.", en: "She's a very good person." }, accept: ["person", "individual"], hint: "Always feminine, even for a man: Juan es una buena persona. Plural las personas = people." },
-        { id: "es-u49l3-elgrupo", type: "vocab", front: "el grupo", reading: "elgrupo", meaning: "the group", example: { jp: "Somos un grupo de amigos.", en: "We're a group of friends." }, accept: ["group", "band"], hint: "A group of people or things — also a music band. En grupo = as a group." },
+        { id: "es-u49l3-elpublico", type: "vocab", front: "el público", reading: "elpublico", meaning: "the public / audience", example: { jp: "Hay mucho público en el cine.", en: "There's a big audience at the cinema." }, accept: ["public", "audience", "crowd"], hint: "The audience at a show, or the general public. En público = in public." },
+        { id: "es-u49l3-elcompanero", type: "vocab", front: "el compañero", reading: "elcompanero", meaning: "the companion / colleague", example: { jp: "Es mi compañero de trabajo.", en: "He's my colleague at work." }, accept: ["colleague", "classmate", "companion", "partner"], hint: "compañero de trabajo = colleague; compañero de clase = classmate. Feminine compañera." },
         { id: "es-u49l3-elequipo", type: "vocab", front: "el equipo", reading: "elequipo", meaning: "the team / equipment", example: { jp: "Mi equipo es el mejor.", en: "My team is the best." }, accept: ["team", "equipment", "kit"], hint: "A team of people, or a set of equipment/kit. Trabajar en equipo = to work as a team." },
         { id: "es-u49l3-elmiembro", type: "vocab", front: "el miembro", reading: "elmiembro", meaning: "the member", example: { jp: "Es un miembro de la familia.", en: "He's a member of the family." }, accept: ["member"], hint: "A member of a group, team, or family. The word stays el for men and women." },
         { id: "es-u49l3-ellider", type: "vocab", front: "el líder", reading: "ellider", meaning: "the leader", example: { jp: "Ella es la líder del grupo.", en: "She's the leader of the group." }, accept: ["leader", "head"], hint: "La líder for a woman. Plural los líderes. Borrowed from English \"leader\", spelled the Spanish way." },
@@ -78,7 +76,7 @@ export const ES_UNIT49 = {
         { id: "es-u49l4-lafrase", type: "vocab", front: "la frase", reading: "lafrase", meaning: "the sentence / phrase", example: { jp: "No entiendo esta frase.", en: "I don't understand this sentence." }, accept: ["sentence", "phrase"], hint: "A whole sentence or a set phrase. Made of words (palabras, u18)." },
         { id: "es-u49l4-lacarta", type: "vocab", front: "la carta", reading: "lacarta", meaning: "the letter / menu", example: { jp: "Escribo una carta a mi amiga.", en: "I'm writing a letter to my friend." }, accept: ["letter", "menu", "card"], hint: "Two everyday meanings: a letter you write, AND the menu in a restaurant (la carta). Also a playing card." },
         { id: "es-u49l4-lalista", type: "vocab", front: "la lista", reading: "lalista", meaning: "the list", example: { jp: "Hago una lista de cosas.", en: "I make a list of things." }, accept: ["list"], hint: "Hacer una lista = to make a list. La lista de la compra = the shopping list." },
-        { id: "es-u49l4-lanota", type: "vocab", front: "la nota", reading: "lanota", meaning: "the note / mark", example: { jp: "Escribo una nota para María.", en: "I write a note for María." }, accept: ["note", "mark", "grade"], hint: "A short written note, or a school mark/grade: una buena nota. Tomar nota = to take note." },
+        { id: "es-u49l4-eltitulo", type: "vocab", front: "el título", reading: "eltitulo", meaning: "the title", example: { jp: "El título del libro es largo.", en: "The book's title is long." }, accept: ["title", "heading", "degree"], hint: "The title of a book or film, a heading, or a qualification (a university degree)." },
         { id: "es-u49l4-elaviso", type: "vocab", front: "el aviso", reading: "elaviso", meaning: "the notice / warning", example: { jp: "Hay un aviso en la puerta.", en: "There's a notice on the door." }, accept: ["notice", "warning", "heads-up"], hint: "A notice or a heads-up. Sin previo aviso = without warning." },
         { id: "es-u49l4-elcartel", type: "vocab", front: "el cartel", reading: "elcartel", meaning: "the poster / sign", example: { jp: "El cartel está en la calle.", en: "The sign is in the street." }, accept: ["poster", "sign", "placard"], hint: "A poster on a wall or a sign in the street — bigger and more public than un aviso." },
       ],
