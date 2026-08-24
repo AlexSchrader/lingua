@@ -213,7 +213,7 @@ This file is updated as part of the PR that completes work. When a task is finis
 > **Check every front against the live 1,287 before writing it.** Dump the inventory with a node one-liner over `UNITS`; do not trust the slot title.
 
 | French 🇫🇷 **B1** | — | **scaffolded** | `content/fr-b1-scaffold` | (main checkout) | Shared base off `main`. fr-u58–u94, 37 units, all stage `b1`, 249 units validate green. A1+A2 (u1–57) already merged. Latin script ⇒ no character units. |
-| French 🇫🇷 B1 | 1 | **authoring** | `content/fr-b1-block1` | `C:devlingua-frb1-1` | Units 58–70 (13 units, 312 items target). Base `content/fr-b1-scaffold` @ `03b419d`. |
+| French 🇫🇷 B1 | 1 | **gating** | `content/fr-b1-block1` | `C:\dev\lingua-frb1-1` | Units 58–70 authored: **13 units · 52 lessons · 312 items**, all one level above the A2 slot titles (argument/analysis/abstract register). Gate green on the branch: lint 0 errors (78 advisory warnings, all taught-verb morphology) · validate 0 errors · 219 unit tests · audit no issues / no duplicate ids (fr now 1,599 items) · build ✓. content-auditor + truth layer running. |
 | French 🇫🇷 B1 | 2 | ready — awaiting kickoff | `content/fr-b1-block2` | `C:devlingua-frb1-2` | Units 71–83 (13 units — rest of thematic + grammar/register) |
 | French 🇫🇷 B1 | 3 | ready — awaiting kickoff | `content/fr-b1-block3` | `C:devlingua-frb1-3` | Units 84–94 (11 units — coverage). Draws on blocks 1–2 vocab. |
 | Spanish 🇪🇸 | — | **scaffolded** | `content/es-scaffold` | `C:\dev\lingua-prereq` | Shared base, commit `e7a88af`. 20 locked-stub units, 145 total validate green. All three blocks branch from here. |
