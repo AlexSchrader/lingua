@@ -4,7 +4,7 @@
 // obliger, renoncer. So this unit is the register above: permission and rights
 // (avoir le droit de, être censé, tolérer, facultatif), obligation (exiger,
 // imposer, la contrainte, la condition), the rules themselves (le règlement, la
-// norme, respecter, enfreindre) and enforcement (appliquer, contrôler, la
+// norme, se conformer, enfreindre) and enforcement (appliquer, contrôler, la
 // sanction, l'amende). Fronts checked against the live 1,287 and the sibling
 // B1 blocks. Conventions: fr/unit1.js.
 export const FR_UNIT68 = {
@@ -55,12 +55,12 @@ export const FR_UNIT68 = {
       title: "The rules themselves",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Talk about rules and standards: le règlement, la norme, respecter, enfreindre.",
+      canDo: "Talk about rules and standards: le règlement, la norme, se conformer, enfreindre.",
       items: [
         { id: "fr-u68l3-lereglement", type: "vocab", front: "le règlement", reading: "lereglement", meaning: "the regulations", example: { jp: "Il faut lire le règlement avant de commencer.", en: "You have to read the rules before starting." }, accept: ["the regulations", "the rules", "the rulebook"], hint: "The rules/regulations of a place — le règlement intérieur. From régler." },
         { id: "fr-u68l3-lanorme", type: "vocab", front: "la norme", reading: "lanorme", meaning: "the norm", example: { jp: "Aujourd'hui, avoir un téléphone est la norme.", en: "Nowadays, having a phone is the norm." }, accept: ["norm", "the standard"], hint: "A norm or standard — les normes de sécurité. être dans la norme = to be standard." },
-        { id: "fr-u68l3-respecter", type: "vocab", front: "respecter", reading: "respecter", meaning: "to obey", example: { jp: "Tout le monde doit respecter la loi.", en: "Everyone has to obey the law." }, accept: ["to obey", "to respect", "to follow", "to abide by"], hint: "To respect, or to obey/follow — respecter la loi, respecter une règle." },
-        { id: "fr-u68l3-enfreindre", type: "vocab", front: "enfreindre", reading: "enfreindre", meaning: "to break", example: { jp: "Personne n'a le droit d'enfreindre la loi.", en: "Nobody has the right to break the law." }, accept: ["to break", "to infringe", "to violate"], hint: "To break / infringe a rule or law — the opposite of respecter." },
+        { id: "fr-u68l3-seconformer", type: "vocab", front: "se conformer", reading: "seconformer", meaning: "to comply", example: { jp: "Chacun doit se conformer au règlement de l'école.", en: "Everyone must comply with the school rules." }, accept: ["to comply", "to abide by", "to conform", "to follow"], hint: "se conformer à = to comply with / abide by. From conforme, in line with." },
+        { id: "fr-u68l3-enfreindre", type: "vocab", front: "enfreindre", reading: "enfreindre", meaning: "to break", example: { jp: "Personne n'a le droit d'enfreindre la loi.", en: "Nobody has the right to break the law." }, accept: ["to break", "to infringe", "to violate"], hint: "To break / infringe a rule or law — the opposite of obeying it." },
         { id: "fr-u68l3-laconsigne", type: "vocab", front: "la consigne", reading: "laconsigne", meaning: "the instruction", example: { jp: "Lis bien les consignes avant l'examen.", en: "Read the instructions carefully before the exam." }, accept: ["instruction", "the directions", "the orders"], hint: "An instruction or directive — suivre les consignes. Also left-luggage: la consigne." },
         { id: "fr-u68l3-lecritere", type: "vocab", front: "le critère", reading: "lecritere", meaning: "the criterion", example: { jp: "Le prix n'est pas mon seul critère de choix.", en: "Price isn't my only criterion for choosing." }, accept: ["criterion", "the standard", "the factor"], hint: "A criterion — les critères de sélection. Plural: les critères." },
       ],
