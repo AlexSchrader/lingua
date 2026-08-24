@@ -57,13 +57,22 @@ const { UNITS } = await import("../src/data/index.js");
 const MODEL_ID = "eleven_v3";
 
 // Flatten every playable item across the live units, stamping lang.
+// Optional language filter: `npm run generate:audio -- --lang es` restricts the run
+// to one language (additive — with no flag, every language's missing clips are done,
+// the original behaviour). Added so a partial-worktree run can be scoped to the
+// language being worked on instead of firing every unaudioed language at once.
+const langIdx = process.argv.indexOf("--lang");
+const LANG_FILTER = langIdx !== -1 && process.argv[langIdx + 1] ? process.argv[langIdx + 1].toLowerCase() : null;
+
 const items = UNITS.flatMap((unit) =>
   unit.lessons
     .filter((l) => Array.isArray(l.items))
     .flatMap((l) => l.items.map((it) => ({ ...it, lang: unit.lang })))
-);
+).filter((it) => !LANG_FILTER || it.lang === LANG_FILTER);
 
-console.log(`Generating audio for ${items.length} items  model: ${MODEL_ID}\n`);
+console.log(
+  `Generating audio for ${items.length} items${LANG_FILTER ? ` (lang: ${LANG_FILTER})` : ""}  model: ${MODEL_ID}\n`
+);
 
 let done = 0, skipped = 0, errors = 0;
 
