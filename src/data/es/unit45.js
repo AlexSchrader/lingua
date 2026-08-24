@@ -1,18 +1,82 @@
-// ES Unit 45 — Vocabulary 6 (A2) (slot: coverage-a2-6) — A2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// ES Unit 45 — Nombres abstractos · 1 ("Abstract nouns 1") — A2 COVERAGE (slot: coverage-a2-6)
+// The connective vocabulary of any real conversation: idea, reason, way, situation,
+// result. These are what A2 examples are ABOUT once the sentences grow past one
+// clause. Nouns are headworded with their article so gender is learned with the word
+// (es/unit12.js). Conventions and BLOCK-3 SCOPE: see es/unit40.js. FREE: María, Pablo.
 export const ES_UNIT45 = {
   id: "es-u45",
   lang: "es",
-  title: "Vocabulary 6 (A2)",
+  title: "Nombres abstractos · 1",
   order: 45,
   stage: "a2",
   lessons: [
-    { id: "es-u45l1", title: "Lesson 1", locked: true },
-    { id: "es-u45l2", title: "Lesson 2", locked: true },
-    { id: "es-u45l3", title: "Lesson 3", locked: true },
-    { id: "es-u45l4", title: "Lesson 4", locked: true },
+    {
+      id: "es-u45l1",
+      unit: 45,
+      lesson: 1,
+      title: "La idea, la verdad, la opinión",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Talk about thoughts and truth: una buena idea, la razón, decir la verdad, en mi opinión.",
+      items: [
+        { id: "es-u45l1-laidea", type: "vocab", front: "la idea", reading: "laidea", meaning: "the idea", example: { jp: "Tengo una buena idea.", en: "I have a good idea." }, accept: ["idea", "thought", "plan"], hint: "¡Buena idea! = good idea! Ni idea = no idea at all." },
+        { id: "es-u45l1-larazon", type: "vocab", front: "la razón", reading: "larazon", meaning: "the reason", example: { jp: "No entiendo la razón.", en: "I don't understand the reason." }, accept: ["reason", "cause"], hint: "Also \"the right\": tener razón = to be right, tienes razón = you're right. Por esta razón = for this reason." },
+        { id: "es-u45l1-laverdad", type: "vocab", front: "la verdad", reading: "laverdad", meaning: "the truth", example: { jp: "Dime la verdad.", en: "Tell me the truth." }, accept: ["truth", "really"], hint: "¿De verdad? = Really? La verdad es que… = the truth is… Related to verdadero (u42)." },
+        { id: "es-u45l1-lamentira", type: "vocab", front: "la mentira", reading: "lamentira", meaning: "the lie", example: { jp: "Eso es una mentira.", en: "That's a lie." }, accept: ["lie", "falsehood"], hint: "The opposite of la verdad. Decir mentiras = to tell lies." },
+        { id: "es-u45l1-laopinion", type: "vocab", front: "la opinión", reading: "laopinion", meaning: "the opinion", example: { jp: "En mi opinión, es un buen libro.", en: "In my opinion, it's a good book." }, accept: ["opinion", "view"], hint: "En mi opinión = in my opinion — a very common way to open a sentence. Plural opiniones." },
+        { id: "es-u45l1-elpensamiento", type: "vocab", front: "el pensamiento", reading: "elpensamiento", meaning: "the thought", example: { jp: "Es solo un pensamiento.", en: "It's just a thought." }, accept: ["thought", "thinking"], hint: "From pensar (u36). A single thought, or thinking in general." },
+      ],
+    },
+    {
+      id: "es-u45l2",
+      unit: 45,
+      lesson: 2,
+      title: "La manera, el tipo, la forma",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Talk about ways and kinds: la manera de hablar, un modo fácil, este tipo de cosa, un pequeño detalle.",
+      items: [
+        { id: "es-u45l2-lamanera", type: "vocab", front: "la manera", reading: "lamanera", meaning: "the way / manner", example: { jp: "No me gusta su manera de hablar.", en: "I don't like his way of speaking." }, accept: ["way", "manner"], hint: "la manera de + a plain verb = the way of doing. De todas maneras = anyway." },
+        { id: "es-u45l2-elmodo", type: "vocab", front: "el modo", reading: "elmodo", meaning: "the way / mode", example: { jp: "Hay un modo fácil de hacerlo.", en: "There's an easy way to do it." }, accept: ["way", "manner", "means"], hint: "A close friend of la manera. De este modo = in this way. De todos modos = anyway." },
+        { id: "es-u45l2-laforma", type: "vocab", front: "la forma", reading: "laforma", meaning: "the shape / form / way", example: { jp: "Me gusta la forma de la mesa.", en: "I like the shape of the table." }, accept: ["shape", "form", "way"], hint: "Both the physical shape AND, like manera, a way of doing: la forma de vivir. De alguna forma = somehow." },
+        { id: "es-u45l2-eltipo", type: "vocab", front: "el tipo", reading: "eltipo", meaning: "the type / kind", example: { jp: "¿Qué tipo de música te gusta?", en: "What kind of music do you like?" }, accept: ["type", "kind", "sort", "guy"], hint: "tipo de = kind of. In casual speech un tipo also means \"a guy\"." },
+        { id: "es-u45l2-eldetalle", type: "vocab", front: "el detalle", reading: "eldetalle", meaning: "the detail", example: { jp: "Es un pequeño detalle.", en: "It's a small detail." }, accept: ["detail", "point", "small gift"], hint: "A small point or detail. Con detalle = in detail. Tener un detalle con alguien = to do something thoughtful for someone." },
+        { id: "es-u45l2-elestilo", type: "vocab", front: "el estilo", reading: "elestilo", meaning: "the style", example: { jp: "Me gusta tu estilo.", en: "I like your style." }, accept: ["style", "manner"], hint: "Style, of clothes, art, or writing. Algo por el estilo = something like that." },
+      ],
+    },
+    {
+      id: "es-u45l3",
+      unit: 45,
+      lesson: 3,
+      title: "La situación, el caso, el tema",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Frame a topic: una situación difícil, en ese caso, el hecho es que, un tema importante.",
+      items: [
+        { id: "es-u45l3-lasituacion", type: "vocab", front: "la situación", reading: "lasituacion", meaning: "the situation", example: { jp: "La situación es difícil.", en: "The situation is difficult." }, accept: ["situation", "position"], hint: "Plural situaciones. A common way to describe how things stand." },
+        { id: "es-u45l3-elcaso", type: "vocab", front: "el caso", reading: "elcaso", meaning: "the case", example: { jp: "En ese caso, no voy.", en: "In that case, I'm not going." }, accept: ["case", "instance"], hint: "En ese caso = in that case. En todo caso = in any case. No hacer caso = to ignore." },
+        { id: "es-u45l3-elhecho", type: "vocab", front: "el hecho", reading: "elhecho", meaning: "the fact", example: { jp: "El hecho es que no tengo dinero.", en: "The fact is I have no money." }, accept: ["fact", "deed"], hint: "El hecho de que… = the fact that… De hecho = in fact. It's also the past participle of hacer, \"done\"." },
+        { id: "es-u45l3-eltema", type: "vocab", front: "el tema", reading: "eltema", meaning: "the topic / subject", example: { jp: "Es un tema importante.", en: "It's an important topic." }, accept: ["topic", "subject", "theme", "issue"], hint: "Masculine despite the -a ending (like el problema, el día): un tema. Cambiar de tema = to change the subject." },
+        { id: "es-u45l3-elasunto", type: "vocab", front: "el asunto", reading: "elasunto", meaning: "the matter / affair", example: { jp: "Es un asunto importante.", en: "It's an important matter." }, accept: ["matter", "affair", "business"], hint: "A matter to be dealt with. No es asunto tuyo = it's none of your business." },
+        { id: "es-u45l3-elpunto", type: "vocab", front: "el punto", reading: "elpunto", meaning: "the point", example: { jp: "Ese es el punto.", en: "That's the point." }, accept: ["point", "dot", "period"], hint: "The point of an argument, a dot, or a full stop. Punto de vista = point of view. En punto = on the dot (las tres en punto)." },
+      ],
+    },
+    {
+      id: "es-u45l4",
+      unit: 45,
+      lesson: 4,
+      title: "La solución, el resultado, la ventaja",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Talk about outcomes: una solución fácil, el resultado, la diferencia, la ventaja y la desventaja.",
+      items: [
+        { id: "es-u45l4-lasolucion", type: "vocab", front: "la solución", reading: "lasolucion", meaning: "the solution", example: { jp: "No hay solución fácil.", en: "There's no easy solution." }, accept: ["solution", "answer"], hint: "From the problem (u12) to the solución. Plural soluciones." },
+        { id: "es-u45l4-elresultado", type: "vocab", front: "el resultado", reading: "elresultado", meaning: "the result", example: { jp: "El resultado es bueno.", en: "The result is good." }, accept: ["result", "outcome", "score"], hint: "The outcome of something, or a score in a match. From resultar (u50)." },
+        { id: "es-u45l4-ladiferencia", type: "vocab", front: "la diferencia", reading: "ladiferencia", meaning: "the difference", example: { jp: "No hay mucha diferencia.", en: "There isn't much difference." }, accept: ["difference", "gap"], hint: "A diferencia de = unlike / in contrast to. Related to diferente (different)." },
+        { id: "es-u45l4-laventaja", type: "vocab", front: "la ventaja", reading: "laventaja", meaning: "the advantage", example: { jp: "Tiene una gran ventaja.", en: "It has a big advantage." }, accept: ["advantage", "benefit", "edge"], hint: "The upside of something. Llevar ventaja = to be ahead." },
+        { id: "es-u45l4-ladesventaja", type: "vocab", front: "la desventaja", reading: "ladesventaja", meaning: "the disadvantage", example: { jp: "Todo tiene una desventaja.", en: "Everything has a disadvantage." }, accept: ["disadvantage", "drawback"], hint: "ventaja with des- on the front — the same negative prefix as in desventaja/disadvantage." },
+        { id: "es-u45l4-elobjetivo", type: "vocab", front: "el objetivo", reading: "elobjetivo", meaning: "the aim / goal", example: { jp: "Mi objetivo es aprender español.", en: "My goal is to learn Spanish." }, accept: ["goal", "aim", "objective", "target"], hint: "What you're aiming at. Mi objetivo es + a plain verb, or + a noun." },
+      ],
+    },
   ],
 };
