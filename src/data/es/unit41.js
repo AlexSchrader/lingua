@@ -34,9 +34,9 @@ export const ES_UNIT41 = {
       title: "Lograr, evitar, repetir",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Talk about getting things done: lograr un objetivo, evitar un problema, quitar algo, añadir agua, repetir la pregunta.",
+      canDo: "Talk about getting things done: lograr más, evitar un problema, quitar algo, añadir agua, repetir la pregunta.",
       items: [
-        { id: "es-u41l2-lograr", type: "vocab", front: "lograr", reading: "lograr", meaning: "to achieve / manage to", example: { jp: "Quiero lograr mi objetivo.", en: "I want to achieve my goal." }, accept: ["to achieve", "to manage", "to attain", "to succeed in"], hint: "lograr + a noun = to achieve; lograr + a plain verb = to manage to. Logré hacerlo = I managed to do it." },
+        { id: "es-u41l2-lograr", type: "vocab", front: "lograr", reading: "lograr", meaning: "to achieve / manage to", example: { jp: "Quiero lograr más en el trabajo.", en: "I want to achieve more at work." }, accept: ["to achieve", "to manage", "to attain", "to succeed in"], hint: "lograr + a noun = to achieve; lograr + a plain verb = to manage to. Logré hacerlo = I managed to do it." },
         { id: "es-u41l2-evitar", type: "vocab", front: "evitar", reading: "evitar", meaning: "to avoid", example: { jp: "Quiero evitar un problema.", en: "I want to avoid a problem." }, accept: ["to prevent", "to keep from", "to steer clear of"], hint: "evitar + a noun or a plain verb: evito hablar de eso = I avoid talking about that." },
         { id: "es-u41l2-quitar", type: "vocab", front: "quitar", reading: "quitar", meaning: "to remove / take away", example: { jp: "¿Puedes quitar esto de la mesa?", en: "Can you take this off the table?" }, accept: ["to take away", "to take off", "to clear"], hint: "To take something away or off. Reflexive quitarse = to take off clothes: me quito el abrigo." },
         { id: "es-u41l2-anadir", type: "vocab", front: "añadir", reading: "anadir", meaning: "to add", example: { jp: "Añado un poco de agua.", en: "I add a little water." }, accept: ["to put in", "to include"], hint: "To add something. Regular -ir. ¿Algo que añadir? = anything to add?" },
