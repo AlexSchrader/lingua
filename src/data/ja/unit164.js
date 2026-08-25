@@ -24,7 +24,7 @@ export const UNIT164 = {
         { id: "ja-u164l1-67fb", type: "kanji", front: "査", reading: "sa", meaning: "to investigate", example: { jp: "工場では せいひんを 一つずつ 検査します。", en: "At the factory they inspect the products one by one." }, accept: ["to inspect", "to survey"], hint: "査 rarely stands alone — it lives in 検査 (inspection), 調査 (a survey), 審査 (screening)." },
         { id: "ja-u164l1-518d", type: "kanji", front: "再", reading: "sai", meaning: "again", example: { jp: "かれとは 十年後に 再び 会いました。", en: "I met him again ten years later." }, accept: ["once more", "re-"], hint: "再び (futatabi) = once more. As a prefix it means 're-': 再開 = reopening, 再利用 = reuse." },
         { id: "ja-u164l1-59bb", type: "kanji", front: "妻", reading: "tsuma", meaning: "wife", example: { jp: "妻と いっしょに 買いものに 行きました。", en: "I went shopping together with my wife." }, accept: ["one's own wife"], hint: "妻 is your OWN wife; 奥さん is someone else's. The reading tsuma is the everyday word." },
-        { id: "ja-u164l1-konzatsu", type: "vocab", front: "混雑", reading: "konzatsu", meaning: "congestion", example: { jp: "れんきゅうは どの 駅も 大きな 混雑です。", en: "Over the long weekend every station is badly congested." }, accept: ["crowding", "a crush"] },
+        { id: "ja-u164l1-konzatsu", type: "vocab", front: "混雑", reading: "konzatsu", meaning: "congestion", example: { jp: "れんきゅうは どの 駅も ひどい 混雑です。", en: "Over the long weekend every station is badly congested." }, accept: ["crowding", "a crush"] },
         { id: "ja-u164l1-kensa", type: "vocab", front: "検査", reading: "kensa", meaning: "an inspection", example: { jp: "びょういんで 体の 検査を 受けました。", en: "I had a physical examination at the hospital." }, accept: ["a checkup", "a test"] },
       ],
     },

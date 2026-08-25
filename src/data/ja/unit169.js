@@ -75,7 +75,7 @@ export const UNIT169 = {
         { id: "ja-u169l4-5a66", type: "kanji", front: "婦", reading: "fu", meaning: "married woman", example: { jp: "母は 長い 間、主婦として はたらいて きました。", en: "My mother has long worked as a housewife." }, accept: ["woman", "wife", "lady"], hint: "婦 = an adult woman. 主婦 = a housewife, 夫婦 = a married couple, 婦人 = a lady." },
         { id: "ja-u169l4-5e03", type: "kanji", front: "布", reading: "fu", meaning: "cloth", example: { jp: "この 布で 子どもの ふくを 作ります。", en: "I'll make children's clothes from this cloth." }, accept: ["fabric", "textile"], hint: "布 (nuno) = cloth. 財布 = a wallet (a fold of cloth for money), 毛布 = a blanket." },
         { id: "ja-u169l4-5bcc", type: "kanji", front: "富", reading: "fu", meaning: "wealth", example: { jp: "この 国は うつくしい 自然に 富んで います。", en: "This country is rich in beautiful nature." }, accept: ["riches", "to be rich in"], hint: "富む (tomu) = to be rich in something. 富 (tomi) = wealth, 豊富 = abundant, 富士山 = Mt. Fuji." },
-        { id: "ja-u169l4-shufu", type: "vocab", front: "主婦", reading: "shufu", meaning: "a housewife", example: { jp: "さいきんは 男性の 主婦も ふえて います。", en: "Recently the number of male homemakers is also increasing." }, accept: ["homemaker"] },
+        { id: "ja-u169l4-shufu", type: "vocab", front: "主婦", reading: "shufu", meaning: "a housewife", example: { jp: "けっこんして から、母は しばらく 主婦を して いました。", en: "After getting married, my mother was a housewife for a while." }, accept: ["homemaker"] },
         { id: "ja-u169l4-hofu", type: "vocab", front: "豊富", reading: "hōfu", meaning: "abundant", example: { jp: "この 図書館は 本の しゅるいが 豊富です。", en: "This library has an abundant variety of books." }, accept: ["plentiful", "rich"] },
       ],
     },
