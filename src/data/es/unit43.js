@@ -1,0 +1,81 @@
+// ES Unit 43 — Adjetivos · 2 ("Adjectives 2") — A2 COVERAGE (slot: coverage-a2-4)
+// Physical-state adjectives: full/empty, hard/soft, the shapes and textures of
+// things. These pair naturally with estar (a changeable state) rather than ser.
+// Conventions and BLOCK-3 SCOPE: see es/unit13.js. FREE: María, Pablo, Ana, Madrid.
+export const ES_UNIT43 = {
+  id: "es-u43",
+  lang: "es",
+  title: "Adjetivos · 2",
+  order: 43,
+  stage: "a2",
+  lessons: [
+    {
+      id: "es-u43l1",
+      unit: 43,
+      lesson: 1,
+      title: "Vacío, abierto, cómodo",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Describe the state of things: la casa está vacía, la tienda está abierta, el reloj está roto, el sofá es cómodo.",
+      items: [
+        { id: "es-u43l1-comodo", type: "vocab", front: "cómodo", reading: "comodo", meaning: "comfortable", example: { jp: "El sofá es muy cómodo.", en: "The sofa is very comfortable." }, accept: ["comfy", "convenient"], hint: "Comfortable, or convenient. The opposite is incómodo. Ponte cómodo = make yourself comfortable." },
+        { id: "es-u43l1-vacio", type: "vocab", front: "vacío", reading: "vacio", meaning: "empty", example: { jp: "La casa está vacía.", en: "The house is empty." }, accept: ["vacant"], hint: "The opposite of lleno. The accent falls on the í: vacío, vacía." },
+        { id: "es-u43l1-abierto", type: "vocab", front: "abierto", reading: "abierto", meaning: "open", example: { jp: "La tienda está abierta.", en: "The shop is open." }, accept: ["opened"], hint: "The irregular past participle of abrir (u13): abierto, not \"abrido\". La puerta está abierta." },
+        { id: "es-u43l1-cerrado", type: "vocab", front: "cerrado", reading: "cerrado", meaning: "closed / shut", example: { jp: "El banco está cerrado hoy.", en: "The bank is closed today." }, accept: ["shut", "locked"], hint: "The opposite of abierto. From cerrar (to close). El domingo todo está cerrado." },
+        { id: "es-u43l1-roto", type: "vocab", front: "roto", reading: "roto", meaning: "broken", example: { jp: "El reloj está roto.", en: "The clock is broken." }, accept: ["out of order", "torn"], hint: "The irregular past participle of romper (u41): roto, not \"rompido\". Está roto = it's broken / it doesn't work." },
+        { id: "es-u43l1-entero", type: "vocab", front: "entero", reading: "entero", meaning: "whole / entire", example: { jp: "Comí un pan entero.", en: "I ate a whole loaf." }, accept: ["complete", "all"], hint: "The whole of something: el día entero = the entire day. A friend of todo (u14)." },
+      ],
+    },
+    {
+      id: "es-u43l2",
+      unit: 43,
+      lesson: 2,
+      title: "Duro, blando, firme",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Describe texture and steadiness: café flojo, pan duro, sofá blando, mesa firme.",
+      items: [
+        { id: "es-u43l2-flojo", type: "vocab", front: "flojo", reading: "flojo", meaning: "weak / loose", example: { jp: "El café está muy flojo.", en: "The coffee is very weak." }, accept: ["loose", "slack", "lazy"], hint: "Weak (a weak coffee, a lazy person) or loose (a loose screw). The opposite of firme." },
+        { id: "es-u43l2-firme", type: "vocab", front: "firme", reading: "firme", meaning: "firm / steady", example: { jp: "La mesa no está firme.", en: "The table isn't steady." }, accept: ["steady", "solid", "stable"], hint: "Ends in -e. Firm and steady. Tierra firme = solid ground. The opposite of flojo." },
+        { id: "es-u43l2-duro", type: "vocab", front: "duro", reading: "duro", meaning: "hard / tough", example: { jp: "Esta carne está muy dura.", en: "This meat is very tough." }, accept: ["firm", "difficult"], hint: "Hard to the touch, or a hard/tough situation: un día duro = a rough day." },
+        { id: "es-u43l2-blando", type: "vocab", front: "blando", reading: "blando", meaning: "soft", example: { jp: "El sofá es muy blando.", en: "The sofa is very soft." }, accept: ["tender", "squishy"], hint: "Soft to the touch, the opposite of duro. For soft-to-the-hand or smooth, see suave (u43)." },
+        { id: "es-u43l2-pesado", type: "vocab", front: "pesado", reading: "pesado", meaning: "heavy", example: { jp: "El bolso es muy pesado.", en: "The bag is very heavy." }, accept: ["weighty", "tiresome"], hint: "Heavy in weight — or of a person, tiresome/annoying: ¡qué pesado! = what a pain!" },
+        { id: "es-u43l2-ligero", type: "vocab", front: "ligero", reading: "ligero", meaning: "light (in weight)", example: { jp: "Quiero una comida ligera.", en: "I want a light meal." }, accept: ["lightweight", "slight"], hint: "Light in WEIGHT, the opposite of pesado — not light in colour (that's claro, u42) or brightness." },
+      ],
+    },
+    {
+      id: "es-u43l3",
+      unit: 43,
+      lesson: 3,
+      title: "Ancho, estrecho, redondo",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Describe shape and size: calle ancha, camino estrecho, agua profunda, mesa redonda.",
+      items: [
+        { id: "es-u43l3-ancho", type: "vocab", front: "ancho", reading: "ancho", meaning: "wide", example: { jp: "La calle es muy ancha.", en: "The street is very wide." }, accept: ["broad"], hint: "Wide across. The noun is el ancho = the width." },
+        { id: "es-u43l3-estrecho", type: "vocab", front: "estrecho", reading: "estrecho", meaning: "narrow", example: { jp: "El camino es muy estrecho.", en: "The path is very narrow." }, accept: ["tight", "close"], hint: "The opposite of ancho. Also \"close\" of a relationship: una amistad estrecha." },
+        { id: "es-u43l3-profundo", type: "vocab", front: "profundo", reading: "profundo", meaning: "deep", example: { jp: "El agua es muy profunda aquí.", en: "The water is very deep here." }, accept: ["profound"], hint: "Deep down, or deep/profound of a thought: un sueño profundo = a deep sleep." },
+        { id: "es-u43l3-plano", type: "vocab", front: "plano", reading: "plano", meaning: "flat", example: { jp: "Necesito un lugar plano para la mesa.", en: "I need a flat spot for the table." }, accept: ["level", "even"], hint: "Flat and level. As a noun, el plano = a map/plan of a place." },
+        { id: "es-u43l3-redondo", type: "vocab", front: "redondo", reading: "redondo", meaning: "round", example: { jp: "La mesa es redonda.", en: "The table is round." }, accept: ["circular"], hint: "Round like a circle or ball. Un número redondo = a round number." },
+        { id: "es-u43l3-cuadrado", type: "vocab", front: "cuadrado", reading: "cuadrado", meaning: "square", example: { jp: "La ventana es cuadrada.", en: "The window is square." }, accept: ["squared"], hint: "Square-shaped. Related to el cuadro (u15, \"picture/frame\")." },
+      ],
+    },
+    {
+      id: "es-u43l4",
+      unit: 43,
+      lesson: 4,
+      title: "Oscuro, seco, mojado",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Describe light and moisture: cielo oscuro, sol brillante, ropa suave, suelo mojado.",
+      items: [
+        { id: "es-u43l4-oscuro", type: "vocab", front: "oscuro", reading: "oscuro", meaning: "dark", example: { jp: "El cielo está oscuro.", en: "The sky is dark." }, accept: ["gloomy", "deep (colour)"], hint: "The opposite of claro (u42): dark of a room, a night, or a colour: azul oscuro = dark blue." },
+        { id: "es-u43l4-brillante", type: "vocab", front: "brillante", reading: "brillante", meaning: "bright / shiny", example: { jp: "El sol es muy brillante hoy.", en: "The sun is very bright today." }, accept: ["shining", "brilliant"], hint: "Ends in -e. Shiny or brilliant, of light or of an idea: una idea brillante." },
+        { id: "es-u43l4-suave", type: "vocab", front: "suave", reading: "suave", meaning: "soft / smooth", example: { jp: "Esta ropa es muy suave.", en: "These clothes are very soft." }, accept: ["gentle", "mild", "smooth"], hint: "Soft/smooth to the hand, or gentle: una voz suave = a soft voice. Ends in -e." },
+        { id: "es-u43l4-seco", type: "vocab", front: "seco", reading: "seco", meaning: "dry", example: { jp: "La ropa ya está seca.", en: "The clothes are dry now." }, accept: ["dried"], hint: "Dry — of clothes, weather, or wine (vino seco). The verb is secar = to dry." },
+        { id: "es-u43l4-mojado", type: "vocab", front: "mojado", reading: "mojado", meaning: "wet", example: { jp: "El suelo está mojado.", en: "The floor is wet." }, accept: ["damp", "soaked"], hint: "The opposite of seco. After rain: la calle está mojada." },
+        { id: "es-u43l4-tibio", type: "vocab", front: "tibio", reading: "tibio", meaning: "lukewarm", example: { jp: "El café está tibio.", en: "The coffee is lukewarm." }, accept: ["tepid", "warm"], hint: "Between caliente (hot) and frío (cold) — neither one nor the other." },
+      ],
+    },
+  ],
+};
