@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Award, Settings } from "lucide-react";
 import BottomNav from "./BottomNav.jsx";
 import { C, F } from "../theme.js";
+import { isPreview, exitPreview } from "../store/preview.js";
 import { useStore } from "../store/useStore.js";
 
 // Max content width — on phones the app fills the screen; on wider/desktop it
@@ -32,10 +33,40 @@ export default function AppShell() {
         fontFamily: F.body,
       }}
     >
+      {/* Preview Mode must be impossible to mistake for the real profile — the whole
+          point is that it looks exactly like the app, which is also the whole risk.
+          Persistent, top of every screen, one tap out. */}
+      {isPreview() && (
+        <div
+          data-testid="preview-banner"
+          style={{
+            flexShrink: 0,
+            background: C.ai,
+            color: "#fff",
+            fontSize: 12,
+            fontWeight: 700,
+            padding: "6px 16px",
+            paddingTop: "calc(6px + env(safe-area-inset-top))",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 12,
+          }}
+        >
+          <span>PREVIEW — progress is not saved to your profile</span>
+          <button
+            onClick={exitPreview}
+            style={{ border: "1px solid rgba(255,255,255,.6)", background: "transparent", color: "#fff", borderRadius: 999, padding: "2px 10px", fontSize: 11, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+          >
+            Exit
+          </button>
+        </div>
+      )}
+
       <header
         style={{
           flexShrink: 0,
-          paddingTop: "env(safe-area-inset-top)",
+          paddingTop: isPreview() ? 0 : "env(safe-area-inset-top)",
           background: C.surface,
           borderBottom: `1px solid ${C.line}`,
         }}
