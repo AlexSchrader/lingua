@@ -20,12 +20,12 @@ export const FR_UNIT89 = {
       dominantMode: "recall",
       canDo: "Talk about how things might turn out: chance, luck, a risk — take one, dare, or avoid it.",
       items: [
-        { id: "fr-u89l1-lehasard", type: "vocab", front: "le hasard", reading: "lehasard", meaning: "chance", example: { jp: "C'est le hasard qui a décidé.", en: "It was chance that decided." }, accept: ["the chance", "randomness", "coincidence"], hint: "Aspirate h, so it stays le hasard — never l'hasard." },
-        { id: "fr-u89l1-lachance", type: "vocab", front: "la chance", reading: "lachance", meaning: "luck", example: { jp: "J'ai eu de la chance.", en: "I was lucky." }, accept: ["the luck", "good fortune"], hint: "« avoir de la chance » is how French says to be lucky — you HAVE luck, you aren't lucky." },
         { id: "fr-u89l1-lerisque", type: "vocab", front: "le risque", reading: "lerisque", meaning: "risk", example: { jp: "Il n'y a aucun risque.", en: "There's no risk at all." }, accept: ["the risk", "hazard"] },
         { id: "fr-u89l1-risquer", type: "vocab", front: "risquer", reading: "risquer", meaning: "to put at risk", example: { jp: "Je ne veux pas risquer mon travail.", en: "I don't want to risk my job." }, accept: ["risk", "chance it", "endanger"] },
-        { id: "fr-u89l1-oser", type: "vocab", front: "oser", reading: "oser", meaning: "to dare", example: { jp: "Je n'ose pas lui parler.", en: "I don't dare speak to them." }, accept: ["have the nerve", "venture"] },
-        { id: "fr-u89l1-eviter", type: "vocab", front: "éviter", reading: "eviter", meaning: "to avoid", example: { jp: "Il vaut mieux éviter le centre-ville.", en: "It's better to avoid the town centre." }, accept: ["steer clear of", "dodge", "prevent"] },
+        { id: "fr-u89l1-lepari", type: "vocab", front: "le pari", reading: "lepari", meaning: "the bet", example: { jp: "C'est un pari risqué.", en: "It's a risky bet." }, accept: ["the bet", "the wager", "the gamble"], hint: "faire un pari = to make a bet. Also a gamble, in the figurative sense." },
+        { id: "fr-u89l1-parier", type: "vocab", front: "parier", reading: "parier", meaning: "to bet", example: { jp: "Je parie qu'il va pleuvoir.", en: "I bet it's going to rain." }, accept: ["to bet", "to wager", "to gamble"], hint: "parier sur = to bet on. « Je te parie que… » = I bet you that…" },
+        { id: "fr-u89l1-tenter", type: "vocab", front: "tenter", reading: "tenter", meaning: "to attempt", example: { jp: "Il faut tenter sa chance.", en: "You have to try your luck." }, accept: ["to attempt", "to try", "to tempt"], hint: "tenter sa chance = to try one's luck. Also to tempt: ça me tente." },
+        { id: "fr-u89l1-ledestin", type: "vocab", front: "le destin", reading: "ledestin", meaning: "fate", example: { jp: "Personne ne connaît son destin.", en: "Nobody knows their fate." }, accept: ["fate", "destiny", "the fate"], hint: "Fate, destiny — le destin. Le sort is a close synonym." },
       ],
     },
     {

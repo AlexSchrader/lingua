@@ -57,10 +57,10 @@ export const FR_UNIT91 = {
       items: [
         { id: "fr-u91l3-laconduite", type: "vocab", front: "la conduite", reading: "laconduite", meaning: "conduct", example: { jp: "Sa conduite en classe est parfaite.", en: "Their conduct in class is perfect." }, accept: ["behaviour", "the conduct"], hint: "Also driving — the noun behind the je conduis you already know. « Une leçon de conduite » is a driving lesson." },
         { id: "fr-u91l3-lattitude", type: "vocab", front: "l'attitude", reading: "lattitude", meaning: "attitude", example: { jp: "Je n'aime pas son attitude.", en: "I don't like their attitude." }, accept: ["the attitude", "stance"] },
-        { id: "fr-u91l3-legeste", type: "vocab", front: "le geste", reading: "legeste", meaning: "gesture", example: { jp: "C'est un geste très gentil.", en: "That's a very kind gesture." }, accept: ["the gesture", "movement", "act"] },
-        { id: "fr-u91l3-lhabitude", type: "vocab", front: "l'habitude", reading: "lhabitude", meaning: "habit", example: { jp: "J'ai l'habitude de me lever tôt.", en: "I'm in the habit of getting up early." }, accept: ["the habit", "custom", "routine"], hint: "The noun behind d'habitude, which you already know." },
         { id: "fr-u91l3-lereflexe", type: "vocab", front: "le réflexe", reading: "lereflexe", meaning: "reflex", example: { jp: "C'est devenu un réflexe.", en: "It's become a reflex." }, accept: ["the reflex", "automatic reaction"] },
         { id: "fr-u91l3-lamanie", type: "vocab", front: "la manie", reading: "lamanie", meaning: "quirk", example: { jp: "Il a la manie de tout ranger.", en: "He has this quirk of tidying everything." }, accept: ["odd habit", "obsession", "the mania"] },
+        { id: "fr-u91l3-laroutine", type: "vocab", front: "la routine", reading: "laroutine", meaning: "routine", example: { jp: "Il n'aime pas la routine de tous les jours.", en: "He doesn't like the everyday routine." }, accept: ["routine", "the routine", "the daily grind"], hint: "Everyday routine — la routine quotidienne. Sometimes negative: sortir de la routine." },
+        { id: "fr-u91l3-letemperament", type: "vocab", front: "le tempérament", reading: "letemperament", meaning: "temperament", example: { jp: "Elle a un tempérament calme.", en: "She has a calm temperament." }, accept: ["temperament", "the temperament", "the nature"], hint: "Someone's basic nature — un tempérament calme. Close to le caractère." },
       ],
     },
     {

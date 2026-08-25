@@ -71,7 +71,6 @@ export const FR_UNIT87 = {
       dominantMode: "recall",
       canDo: "Talk about an object's look in the abstract: its appearance, its surface, its pattern, its outline, its thickness — and the dust on it.",
       items: [
-        { id: "fr-u87l4-laspect", type: "vocab", front: "l'aspect", reading: "laspect", meaning: "appearance", example: { jp: "Je n'aime pas l'aspect de cette soupe.", en: "I don't like the appearance of this soup." }, accept: ["the appearance", "look", "aspect"], hint: "Masculine — un aspect. Said /aspɛ/: the p IS sounded, the final -ct is not." },
         { id: "fr-u87l4-lasurface", type: "vocab", front: "la surface", reading: "lasurface", meaning: "surface", example: { jp: "La surface de l'eau est calme.", en: "The surface of the water is calm." }, accept: ["the surface", "area"] },
         { id: "fr-u87l4-lemotif", type: "vocab", front: "le motif", reading: "lemotif", meaning: "pattern", example: { jp: "J'aime le motif de cette robe.", en: "I like the pattern on this dress." }, accept: ["the pattern", "design", "motif"] },
         { id: "fr-u87l4-lecontour", type: "vocab", front: "le contour", reading: "lecontour", meaning: "outline", example: { jp: "On voit le contour de la montagne.", en: "You can see the outline of the mountain." }, accept: ["the outline", "edge", "shape"] },

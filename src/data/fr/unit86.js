@@ -43,7 +43,6 @@ export const FR_UNIT86 = {
         { id: "fr-u86l2-repliquer", type: "vocab", front: "répliquer", reading: "repliquer", meaning: "to answer back", example: { jp: "Il aime répliquer à son frère.", en: "He likes to answer his brother back." }, accept: ["retort", "shoot back", "come back at"] },
         { id: "fr-u86l2-seplaindre", type: "vocab", front: "se plaindre", reading: "seplaindre", meaning: "to complain", example: { jp: "Les clients se plaignent du bruit.", en: "The customers complain about the noise." }, accept: ["moan", "grumble", "gripe"], hint: "You complain OF something: se plaindre de + the thing." },
         { id: "fr-u86l2-avouer", type: "vocab", front: "avouer", reading: "avouer", meaning: "to admit", example: { jp: "Je dois avouer que j'ai oublié.", en: "I have to admit that I forgot." }, accept: ["confess", "own up", "acknowledge"] },
-        { id: "fr-u86l2-nier", type: "vocab", front: "nier", reading: "nier", meaning: "to deny", example: { jp: "Il continue à nier.", en: "He carries on denying it." }, accept: ["refute", "disclaim"] },
         { id: "fr-u86l2-lexcuse", type: "vocab", front: "l'excuse", reading: "lexcuse", meaning: "excuse", example: { jp: "Ce n'est pas une bonne excuse.", en: "That's not a good excuse." }, accept: ["the excuse", "apology"], hint: "Feminine. In the plural it's the apology itself: présenter ses excuses = to apologize." },
       ],
     },
@@ -56,12 +55,12 @@ export const FR_UNIT86 = {
       dominantMode: "recall",
       canDo: "Commit or caution: warn someone in advance, warn them off, threaten, promise, swear — or beg.",
       items: [
-        { id: "fr-u86l3-prevenir", type: "vocab", front: "prévenir", reading: "prevenir", meaning: "to let know", example: { jp: "Je vais prévenir mes parents.", en: "I'm going to let my parents know." }, accept: ["tell in advance", "notify", "give a heads-up"], hint: "prévenir is the friendly heads-up; avertir is the serious warning." },
         { id: "fr-u86l3-avertir", type: "vocab", front: "avertir", reading: "avertir", meaning: "to warn", example: { jp: "Le médecin va l'avertir du danger.", en: "The doctor is going to warn them of the danger." }, accept: ["caution", "alert"] },
-        { id: "fr-u86l3-menacer", type: "vocab", front: "menacer", reading: "menacer", meaning: "to threaten", example: { jp: "Personne n'a le droit de menacer les autres.", en: "Nobody has the right to threaten other people." }, accept: ["make threats"] },
         { id: "fr-u86l3-promettre", type: "vocab", front: "promettre", reading: "promettre", meaning: "to promise", example: { jp: "Je peux promettre une réponse demain.", en: "I can promise an answer tomorrow." }, accept: ["give one's word", "pledge"] },
         { id: "fr-u86l3-jurer", type: "vocab", front: "jurer", reading: "jurer", meaning: "to swear", example: { jp: "Je jure que c'est vrai.", en: "I swear that it's true." }, accept: ["vow", "swear to"], hint: "Swearing an oath. Swearing as in bad language is « dire des gros mots »." },
         { id: "fr-u86l3-supplier", type: "vocab", front: "supplier", reading: "supplier", meaning: "to beg", example: { jp: "Il ne faut pas le supplier.", en: "You mustn't plead with him." }, accept: ["plead", "implore", "beseech"] },
+        { id: "fr-u86l3-garantir", type: "vocab", front: "garantir", reading: "garantir", meaning: "to guarantee", example: { jp: "Je ne peux rien garantir.", en: "I can't guarantee anything." }, accept: ["to guarantee", "to assure", "to ensure"], hint: "To guarantee — garantir un résultat. The noun is la garantie." },
+        { id: "fr-u86l3-annoncer", type: "vocab", front: "annoncer", reading: "annoncer", meaning: "to announce", example: { jp: "Elle va annoncer une bonne nouvelle ce soir.", en: "She's going to announce good news this evening." }, accept: ["to announce", "to declare", "to break the news"], hint: "To announce — annoncer une nouvelle. The noun is l'annonce." },
       ],
     },
     {
