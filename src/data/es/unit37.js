@@ -44,12 +44,11 @@ export const ES_UNIT37 = {
       dominantMode: "recall",
       canDo: "Say what's necessary and what you manage — tener que, hay que, deber, conseguir, intentar, dejar de.",
       items: [
-        { id: "es-u37l2-tenerque", type: "vocab", front: "tener que", reading: "tenerque", meaning: "to have to", example: { jp: "Tengo que trabajar mañana.", en: "I have to work tomorrow." }, accept: ["to must", "have got to", "must"], hint: "tener que + verb = have to — the strongest obligation word. Tengo que ir, I have to go." },
-        { id: "es-u37l2-hayque", type: "vocab", front: "hay que", reading: "hayque", meaning: "one must", example: { jp: "Hay que estudiar para el examen.", en: "One must study for the exam." }, accept: ["you have to", "it's necessary to", "one has to"], hint: "Impersonal — no subject: hay que trabajar, one has to work. A general rule, not about you in particular." },
-        { id: "es-u37l2-deber", type: "vocab", front: "deber", reading: "deber", meaning: "must", example: { jp: "Debo llamar a mi madre.", en: "I must call my mother." }, accept: ["to have to", "ought to", "should"], hint: "An obligation you feel inside — debo = I must/should. Softer than tener que. Its conditional debería (lesson 1) is gentler still." },
         { id: "es-u37l2-conseguir", type: "vocab", front: "conseguir", reading: "conseguir", meaning: "to manage to", example: { jp: "Consigo terminar el trabajo.", en: "I manage to finish the work." }, accept: ["to get", "to achieve", "to manage"], hint: "conseguir + verb = manage to. On its own, to get or obtain: consigo un billete." },
         { id: "es-u37l2-intentar", type: "vocab", front: "intentar", reading: "intentar", meaning: "to try", example: { jp: "Intento hablar español todos los días.", en: "I try to speak Spanish every day." }, accept: ["to attempt", "to try to"], hint: "intentar + verb = try to. A twin of tratar de (u32)." },
         { id: "es-u37l2-dejarde", type: "vocab", front: "dejar de", reading: "dejarde", meaning: "to stop (doing)", example: { jp: "Dejo de trabajar a las seis.", en: "I stop working at six." }, accept: ["to give up", "to quit"], hint: "dejar de + verb = stop doing. dejar (A1) alone is to leave behind; add de and it means to quit." },
+        { id: "es-u37l2-hacefalta", type: "vocab", front: "hace falta", reading: "hacefalta", meaning: "it's necessary", example: { jp: "Hace falta estudiar más.", en: "You need to study more." }, accept: ["you need to", "it takes"], hint: "Impersonal, like hay que: hace falta + an infinitive. With a noun it means \"is needed\": hace falta pan." },
+        { id: "es-u37l2-necesario", type: "vocab", front: "necesario", reading: "necesario", meaning: "necessary", example: { jp: "Es necesario dormir bien.", en: "It's necessary to sleep well." }, accept: ["needed", "required"], hint: "es necesario + an infinitive. From necesitar (A1). Feminine necesaria." },
       ],
     },
     {

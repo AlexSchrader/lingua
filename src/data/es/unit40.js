@@ -23,12 +23,12 @@ export const ES_UNIT40 = {
       dominantMode: "recall",
       canDo: "Say what you think and know — pensar, creer, saber, conocer, la idea, la razón.",
       items: [
-        { id: "es-u40l1-pensar", type: "vocab", front: "pensar", reading: "pensar", meaning: "to think", example: { jp: "Pienso mucho en mi familia.", en: "I think about my family a lot." }, accept: ["to think about", "to plan"], hint: "pensar en = to think about. The e becomes ie in the present: pienso, piensas, piensa." },
-        { id: "es-u40l1-creer", type: "vocab", front: "creer", reading: "creer", meaning: "to believe", example: { jp: "Creo que es una buena idea.", en: "I think it's a good idea." }, accept: ["to think", "to reckon"], hint: "Creo que… = I think that… — the everyday \"I think\". No creo = I don't think so." },
         { id: "es-u40l1-saber", type: "vocab", front: "saber", reading: "saber", meaning: "to know (a fact)", example: { jp: "No sé dónde está.", en: "I don't know where he is." }, accept: ["to know how to", "to know"], hint: "saber a fact or how to do something (sé nadar). conocer (next) is to know a person or place. The yo form is irregular: sé." },
         { id: "es-u40l1-conocer", type: "vocab", front: "conocer", reading: "conocer", meaning: "to know (a person)", example: { jp: "Conozco a tu hermano.", en: "I know your brother." }, accept: ["to meet", "to be familiar with"], hint: "To know a person or place — and to meet for the first time. Conozco Madrid. The yo form: conozco." },
         { id: "es-u40l1-laidea", type: "vocab", front: "la idea", reading: "laidea", meaning: "idea", example: { jp: "Tengo una buena idea.", en: "I have a good idea." }, accept: ["the idea"], hint: "A straight cognate. ¡Buena idea! — good idea!" },
         { id: "es-u40l1-larazon", type: "vocab", front: "la razón", reading: "larazon", meaning: "reason", example: { jp: "Tienes razón.", en: "You're right." }, accept: ["the reason", "right"], hint: "Tener razón = to be right (literally \"to have reason\"). Also the reason why: la razón por la que…" },
+        { id: "es-u40l1-darsecuenta", type: "vocab", front: "darse cuenta", reading: "darsecuenta", meaning: "to realize", example: { jp: "Me doy cuenta de mi error.", en: "I realize my mistake." }, accept: ["to notice", "to become aware"], hint: "darse cuenta DE something: me doy cuenta de que… Uses dar (A1) reflexively — the moment of noticing, not knowing (saber)." },
+        { id: "es-u40l1-lamente", type: "vocab", front: "la mente", reading: "lamente", meaning: "mind", example: { jp: "Tengo la mente tranquila hoy.", en: "My mind is calm today." }, accept: ["the mind"], hint: "The mind as the seat of thought. Tener algo en mente — to have something in mind." },
       ],
     },
     {
@@ -45,7 +45,6 @@ export const ES_UNIT40 = {
         { id: "es-u40l2-recordar", type: "vocab", front: "recordar", reading: "recordar", meaning: "to remember", example: { jp: "No recuerdo su nombre.", en: "I don't remember his name." }, accept: ["to recall", "to remind"], hint: "The o becomes ue: recuerdo. Recuérdame = remind me." },
         { id: "es-u40l2-mostrar", type: "vocab", front: "mostrar", reading: "mostrar", meaning: "to show", example: { jp: "Te muestro las fotos.", en: "I'll show you the photos." }, accept: ["to display", "to point out"], hint: "o → ue again: muestro. Close to enseñar (A1), which also means to show." },
         { id: "es-u40l2-traer", type: "vocab", front: "traer", reading: "traer", meaning: "to bring", example: { jp: "¿Puedes traer el pan?", en: "Can you bring the bread?" }, accept: ["to bring along", "to carry"], hint: "The opposite of llevar (A1, to take): traer brings it here, llevar takes it there. Irregular yo: traigo." },
-        { id: "es-u40l2-ganar", type: "vocab", front: "ganar", reading: "ganar", meaning: "to earn", example: { jp: "Quiero ganar más dinero.", en: "I want to earn more money." }, accept: ["to win", "to gain"], hint: "To earn money and to win a game — the same verb. Ganar dinero, ganar el partido." },
       ],
     },
     {
@@ -57,12 +56,12 @@ export const ES_UNIT40 = {
       dominantMode: "recall",
       canDo: "Say when and how — temprano, pronto, despacio, quizás, tal vez, de repente.",
       items: [
-        { id: "es-u40l3-temprano", type: "vocab", front: "temprano", reading: "temprano", meaning: "early", example: { jp: "Salgo de casa muy temprano.", en: "I leave home very early." }, accept: ["early on"], hint: "The opposite of tarde (A1). Temprano por la mañana — early in the morning." },
         { id: "es-u40l3-pronto", type: "vocab", front: "pronto", reading: "pronto", meaning: "soon", example: { jp: "Vuelvo pronto.", en: "I'll be back soon." }, accept: ["quickly", "early"], hint: "¡Hasta pronto! — see you soon! Lo más pronto posible — as soon as possible." },
-        { id: "es-u40l3-despacio", type: "vocab", front: "despacio", reading: "despacio", meaning: "slowly", example: { jp: "Habla despacio, por favor.", en: "Speak slowly, please." }, accept: ["slow", "gently"], hint: "The opposite of rápido. Más despacio, por favor — slower, please." },
         { id: "es-u40l3-quizas", type: "vocab", front: "quizás", reading: "quizas", meaning: "maybe", example: { jp: "Quizás llueve mañana.", en: "Maybe it'll rain tomorrow." }, accept: ["perhaps", "possibly"], hint: "Also written quizá, no s. A guess about what might be." },
         { id: "es-u40l3-talvez", type: "vocab", front: "tal vez", reading: "talvez", meaning: "perhaps", example: { jp: "Tal vez viene más tarde.", en: "Perhaps he'll come later." }, accept: ["maybe", "possibly"], hint: "The same idea as quizás — literally \"such a time\", i.e. maybe." },
-        { id: "es-u40l3-derepente", type: "vocab", front: "de repente", reading: "derepente", meaning: "suddenly", example: { jp: "De repente, todo cambia.", en: "Suddenly, everything changes." }, accept: ["all of a sudden", "out of nowhere"], hint: "A sudden change — de repente, with no warning." },
+        { id: "es-u40l3-devezencuando", type: "vocab", front: "de vez en cuando", reading: "devezencuando", meaning: "from time to time", example: { jp: "De vez en cuando voy al cine.", en: "From time to time I go to the cinema." }, accept: ["now and then", "occasionally"], hint: "Built on la vez (A1), the occasion: literally \"from time to time\". A step rarer than a menudo (u28)." },
+        { id: "es-u40l3-pocoapoco", type: "vocab", front: "poco a poco", reading: "pocoapoco", meaning: "little by little", example: { jp: "Aprendo español poco a poco.", en: "I'm learning Spanish little by little." }, accept: ["gradually", "bit by bit"], hint: "From poco (A1). The gentlest way to describe progress — and the honest one." },
+        { id: "es-u40l3-casisiempre", type: "vocab", front: "casi siempre", reading: "casisiempre", meaning: "almost always", example: { jp: "Casi siempre desayuno en casa.", en: "I almost always have breakfast at home." }, accept: ["nearly always", "usually"], hint: "casi (A1) + siempre (A1): almost always. Its mirror is casi nunca, almost never." },
       ],
     },
     {

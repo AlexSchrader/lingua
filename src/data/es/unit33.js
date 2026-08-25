@@ -74,7 +74,6 @@ export const ES_UNIT33 = {
       dominantMode: "recall",
       canDo: "Do things with a device — funcionar, conectar, guardar, borrar, descargar, la señal.",
       items: [
-        { id: "es-u33l4-funcionar", type: "vocab", front: "funcionar", reading: "funcionar", meaning: "to work (of a machine)", example: { jp: "Mi teléfono no funciona bien.", en: "My phone doesn't work well." }, accept: ["to function", "to run", "to operate"], hint: "For machines, never people — a phone funciona, a person trabaja. No funciona = it's broken." },
         { id: "es-u33l4-conectar", type: "vocab", front: "conectar", reading: "conectar", meaning: "to connect", example: { jp: "No puedo conectar el ordenador a la red.", en: "I can't connect the computer to the network." }, accept: ["to link", "to plug in"], hint: "Reflexive it means to log on: me conecto a internet." },
         { id: "es-u33l4-guardar", type: "vocab", front: "guardar", reading: "guardar", meaning: "to save", example: { jp: "Guardo las fotos en el móvil.", en: "I save the photos on my phone." }, accept: ["to keep", "to store", "to put away"], hint: "To save a file, and to keep anything safe — guardar un secreto, to keep a secret." },
         { id: "es-u33l4-borrar", type: "vocab", front: "borrar", reading: "borrar", meaning: "to delete", example: { jp: "Voy a borrar este mensaje.", en: "I'm going to delete this message." }, accept: ["to erase", "to rub out"], hint: "The opposite of guardar for files. Also to rub something out with una goma." },
