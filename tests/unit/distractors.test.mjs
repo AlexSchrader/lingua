@@ -68,7 +68,7 @@ const senseKey = (s) =>
     .replace(/\s+/g, " ").trim().replace(/^(?:a|an|the)\s+/, "").replace(/^to\s+/, "");
 const claimedSenses = (c) =>
   new Set([c?.meaning, ...(c?.accept || [])].filter(Boolean)
-    .flatMap((g) => String(g).split(/\s*(?:[/,;]|or)\s*/))
+    .flatMap((g) => String(g).split(/\s*(?:[/,;]|\bor\b)\s*/))
     .map(senseKey).filter(Boolean));
 
 test("reverse choice never offers an option that also claims the prompt sense", () => {
@@ -87,6 +87,49 @@ test("reverse choice never offers an option that also claims the prompt sense", 
       }
   }
   assert.deepEqual(offenders.slice(0, 5), [], offenders.length + " ambiguous option(s)");
+});
+
+// --- the FORWARD card must never offer a second right answer either ------------
+// On the forward choice card the prompt is item.front and the options are the
+// meanings, so a peer whose displayed meaning is a sense THIS item's accept[]
+// claims is a correct answer shown as a distractor — the typed grader on the next
+// card would accept it, but the choice card marks it wrong. (fr B1 block 3 open
+// item: 9 same-unit clashes, 247/52,800 builds before this guard.)
+
+test("forward choice never offers a meaning the prompt item's accept[] claims", () => {
+  const all = Object.values(seedItems());
+  const byMeaning = new Map();
+  for (const i of all) if (i.type === "vocab" && i.meaning != null)
+    byMeaning.set(i.lang + "|" + i.id + "|" + i.meaning, i);
+  const byId = Object.fromEntries(all.map((i) => [i.id, i]));
+  let offenders = [];
+  for (const it of all.filter((i) => i.type === "vocab")) {
+    const its = claimedSenses(it);
+    if (!its.size) continue;
+    for (let r = 0; r < 3; r++)
+      for (const o of buildOptions(it, all, 4)) {
+        if (o.correct) continue;
+        // the option text is a peer's meaning; if any of its displayed senses is
+        // one the PROMPT item claims, the typed grader would accept it → offender.
+        const shown = new Set(String(o.text).split(/\s*(?:[/,;]|\bor\b)\s*/).map(senseKey).filter(Boolean));
+        if ([...shown].some((s) => its.has(s)))
+          offenders.push(it.id + ' ("' + it.meaning + '") offered "' + o.text + '"');
+      }
+  }
+  assert.deepEqual(offenders.slice(0, 5), [], offenders.length + " also-correct forward option(s)");
+});
+
+test("...and forward gender contrasts SURVIVE too (un/une, le/la as meaning options)", () => {
+  const all = Object.values(seedItems());
+  const byId = Object.fromEntries(all.map((i) => [i.id, i]));
+  for (const [id, peerId] of [["fr-u2l1-un", "fr-u2l1-une"], ["fr-u2l1-le", "fr-u2l1-la"]]) {
+    const item = byId[id], peer = byId[peerId];
+    if (!item || !peer) continue;
+    let seen = 0;
+    for (let r = 0; r < 60; r++)
+      if (buildOptions(item, all, 4).some((o) => o.text === peer.meaning && !o.correct)) seen++;
+    assert.ok(seen > 0, id + ': lost "' + peer.meaning + '" as a forward distractor — over-filtering');
+  }
 });
 
 test("...but the gender contrasts SURVIVE — they are the point of the card", () => {
