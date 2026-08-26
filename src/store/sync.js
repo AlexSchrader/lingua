@@ -36,7 +36,11 @@ export function hasMeaningfulProgress(blob = {}) {
   for (const id in items) {
     if ((items[id]?.rung ?? 0) > 0) return true;
   }
-  if ((blob.streak?.count ?? blob.streak ?? 0) > 0) return true;
+  // The store's streak shape is { current, longest, ... }. This used to read
+  // `blob.streak?.count` — a field that never existed — so a streak alone never
+  // counted as progress and the guard was weaker than it looked. Kept `count` as a
+  // fallback only for paranoia; `current` is the real field.
+  if ((blob.streak?.current ?? blob.streak?.count ?? 0) > 0) return true;
   const stats = blob.stats ?? {};
   for (const k in stats) {
     if (Number(stats[k]) > 0) return true;
@@ -46,9 +50,19 @@ export function hasMeaningfulProgress(blob = {}) {
 
 // The core decision. `local` / `cloud` are { updatedAt:number|null, blob:object|null }.
 // `cloud` is null when no row exists yet. Returns "push" | "pull".
+//
+// The ONE invariant that matters: real progress is never overwritten by an empty
+// state, in EITHER direction, no matter the timestamps. Timestamps only break ties
+// between two states that both have progress (or are both empty). A "newer" empty
+// blob — e.g. one an earlier torn/hot-reloaded session pushed up — must never win
+// over a device that actually has the learner's data. (That asymmetry is exactly
+// how a real profile got wiped; see fix/sync-never-overwrite-real-progress.)
 export function chooseSource(local, cloud) {
   if (!cloud || cloud.blob == null) return "push"; // first login: migrate up
-  if (!hasMeaningfulProgress(local?.blob)) return "pull"; // fresh device safety
+  const localHas = hasMeaningfulProgress(local?.blob);
+  const cloudHas = hasMeaningfulProgress(cloud?.blob);
+  if (!localHas && cloudHas) return "pull"; // fresh/empty device must not overwrite real cloud
+  if (localHas && !cloudHas) return "push"; // real device must not be overwritten by empty cloud
   const localAt = Number(local?.updatedAt) || 0;
   const cloudAt = Number(cloud?.updatedAt) || 0;
   return cloudAt > localAt ? "pull" : "push";
