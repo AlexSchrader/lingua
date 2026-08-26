@@ -266,7 +266,12 @@ export const useStore = create(
       // unconfigured), so the auth gate can render without a flash. The auth
       // actions are no-ops until cloudSync.initCloudSync wires the real Supabase
       // calls in — keeping the SDK out of the main bundle and the store module.
-      auth: { configured: false, ready: false, user: null, status: "idle", error: null, recovery: false },
+      // `initialSyncDone` flips true once the FIRST post-sign-in cloud pull resolves.
+      // The onboarding gate waits on THIS, not on `status: "syncing"` — because a
+      // debounced upload (e.g. the one that fires the instant onboarding writes a
+      // synced slice) also sets status "syncing", and gating onboarding on that
+      // unmounts the flow mid-step. See App.jsx's onboarding gate.
+      auth: { configured: false, ready: false, user: null, status: "idle", error: null, recovery: false, initialSyncDone: false },
       signUp: async () => ({ error: "Auth isn't configured." }),
       signIn: async () => ({ error: "Auth isn't configured." }),
       requestPasswordReset: async () => ({ error: "Auth isn't configured." }),

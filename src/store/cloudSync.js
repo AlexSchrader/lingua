@@ -97,6 +97,12 @@ async function onSignIn(u) {
     }
   } catch (e) {
     useStore.getState().setAuth({ status: "error", error: String(e?.message ?? e) });
+  } finally {
+    // The initial post-sign-in pull is now resolved (pulled, pushed, or errored).
+    // Release the onboarding gate: a returning user's `onboarded` has landed, and
+    // any later "syncing" is just a debounced upload — which must NOT splash-unmount
+    // the onboarding flow (that was the "Continue does nothing" trap). See App.jsx.
+    useStore.getState().setAuth({ initialSyncDone: true });
   }
 }
 
@@ -127,8 +133,10 @@ async function pullFromCloud() {
 function onSignOut() {
   currentUser = null;
   clearTimeout(uploadTimer);
-  // Local progress stays as the offline cache; next sign-in re-syncs it.
-  useStore.getState().setAuth({ user: null, status: "idle", error: null });
+  // Local progress stays as the offline cache; next sign-in re-syncs it. Reset
+  // initialSyncDone so the next sign-in waits out ITS first pull before the
+  // onboarding gate decides anything.
+  useStore.getState().setAuth({ user: null, status: "idle", error: null, initialSyncDone: false });
 }
 
 // --- auth actions (username + email + password) ------------------------------
