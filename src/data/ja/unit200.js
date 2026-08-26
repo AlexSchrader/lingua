@@ -1,18 +1,81 @@
-// JA Unit 200 — Vocabulary 8 (B2) (slot: coverage-b2-8) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// Unit 200 — ぎたいご・2 (mimetic words: how a thing is done) — B2 / JLPT N2
+// Strand D, coverage 8 of 16. The manner half of the mimetic set: pace, persistence, voices
+// and eyes. Japanese marks HOW an action is carried out with these far more often than with
+// adverbs of the ゆっくり type, so a learner without them reads as flat even when correct.
 export const UNIT200 = {
   id: "ja-u200",
   lang: "ja",
-  title: "Vocabulary 8 (B2)",
+  title: "ぎたいご・2",
   order: 200,
   stage: "b2",
   lessons: [
-    { id: "ja-u200l1", title: "Lesson 1", locked: true },
-    { id: "ja-u200l2", title: "Lesson 2", locked: true },
-    { id: "ja-u200l3", title: "Lesson 3", locked: true },
-    { id: "ja-u200l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u200l1",
+      unit: 200,
+      lesson: 1,
+      title: "Pace: brisk, sluggish, dragging",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say how fast and how willingly something is done: てきぱき, きびきび, のろのろ, だらだら, ぐずぐず, ずるずる.",
+      items: [
+        { id: "ja-u200l1-tekipaki", type: "vocab", front: "てきぱき", reading: "tekipaki", meaning: "briskly and efficiently", example: { jp: "その 人は しごとを てきぱき かたづけます。", en: "She gets through her work briskly and efficiently." }, accept: ["promptly", "snappily", "with dispatch"], hint: "The highest everyday praise for how someone works: quick AND no wasted motion. はやい alone is only speed." },
+        { id: "ja-u200l1-kibikibi", type: "vocab", front: "きびきび", reading: "kibikibi", meaning: "crisply, with energy", example: { jp: "みんな きびきび 動いて いて、気持ちが いいです。", en: "Everyone is moving crisply and it's a pleasure to watch." }, accept: ["smartly", "sprightly", "vigorously"], hint: "About bearing rather than output — the movements themselves look sharp. てきぱき is about getting things done." },
+        { id: "ja-u200l1-noronoro", type: "vocab", front: "のろのろ", reading: "noronoro", meaning: "at a crawl", example: { jp: "道が こんで いて、車が のろのろ 進んで います。", en: "The road is congested and the cars are crawling along." }, accept: ["sluggishly", "dawdling", "at a snail's pace"], hint: "Always a complaint. のろのろうんてん is the term for slow driving that holds everyone up." },
+        { id: "ja-u200l1-daradara", type: "vocab", front: "だらだら", reading: "daradara", meaning: "dragging on listlessly", example: { jp: "だらだら 話して いたら、二時間 たって いました。", en: "We talked on aimlessly and two hours had gone." }, accept: ["idly", "endlessly", "without focus"], hint: "のろのろ is slow; だらだら is slow AND shapeless — a meeting, an afternoon, a slope." },
+        { id: "ja-u200l1-guzuguzu", type: "vocab", front: "ぐずぐず", reading: "guzuguzu", meaning: "dithering, putting it off", example: { jp: "ぐずぐずして いると、まにあいませんよ。", en: "If you keep dithering we won't make it." }, accept: ["dawdling", "hesitating", "stalling"], hint: "Delay caused by not deciding. ぐずぐずしないで is the standard push to get someone moving." },
+        { id: "ja-u200l1-zuruzuru", type: "vocab", front: "ずるずる", reading: "zuruzuru", meaning: "dragging on and on", example: { jp: "けつろんが 出ないまま、ずるずる 三か月が すぎました。", en: "With no conclusion reached, three months dragged by." }, accept: ["slipping (a deadline)", "letting it slide", "on and on"], hint: "The sound of dragging something along the floor, used for a decision that never gets made. Also slurping noodles." },
+      ],
+    },
+    {
+      id: "ja-u200l2",
+      unit: 200,
+      lesson: 2,
+      title: "Steady effort and just in time",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe progress: こつこつ, ちゃくちゃく, めきめき, すらすら, ぐんぐん, ぎりぎり.",
+      items: [
+        { id: "ja-u200l2-kotsukotsu", type: "vocab", front: "こつこつ", reading: "kotsukotsu", meaning: "steadily, little by little", example: { jp: "毎日 こつこつ 続けた ことが 力に なりました。", en: "Keeping at it a little every day became real strength." }, accept: ["diligently", "plugging away", "bit by bit"], hint: "Unglamorous persistence, and warmly admired. こつこつ やる is the most encouraging advice in the language." },
+        { id: "ja-u200l2-chakuchaku", type: "vocab", front: "ちゃくちゃく", reading: "chakuchaku", meaning: "steadily (to plan)", example: { jp: "じゅんびは ちゃくちゃくと 進んで います。", en: "Preparations are proceeding steadily." }, accept: ["on schedule", "surely", "step by step"], hint: "Formal and reassuring — a report word. こつこつ is a person's effort; ちゃくちゃく is a project's progress." },
+        { id: "ja-u200l2-mekimeki", type: "vocab", front: "めきめき", reading: "mekimeki", meaning: "visibly improving", example: { jp: "この 数か月で、日本語が めきめき じょうずに なりました。", en: "Over these few months your Japanese has come on remarkably." }, accept: ["by leaps and bounds", "noticeably better"], hint: "Only ever about improvement, and always noticed from outside. It is a compliment you receive, not one you make about yourself." },
+        { id: "ja-u200l2-surasura", type: "vocab", front: "すらすら", reading: "surasura", meaning: "smoothly, without stumbling", example: { jp: "むずかしい 文も すらすら 読めるように なりました。", en: "I've got to where I can read difficult sentences smoothly." }, accept: ["fluently", "without a hitch", "effortlessly"], hint: "Reading, writing, answering — anything that could have snagged and did not." },
+        { id: "ja-u200l2-gungun", type: "vocab", front: "ぐんぐん", reading: "gungun", meaning: "rapidly, by visible amounts", example: { jp: "気温が ぐんぐん 上がって います。", en: "The temperature is climbing rapidly." }, accept: ["fast and steadily", "surging", "shooting up"], hint: "Faster than じわじわ and just as unstoppable — growth, heat, a runner pulling ahead." },
+        { id: "ja-u200l2-girigiri", type: "vocab", front: "ぎりぎり", reading: "girigiri", meaning: "with nothing to spare", example: { jp: "ぎりぎりで 電車に まにあいました。", en: "I made the train with nothing to spare." }, accept: ["only just", "at the last moment", "cutting it fine"], hint: "Time, money or space — whatever it is, there was none left over. ぎりぎりセーフ is the everyday phrase." },
+      ],
+    },
+    {
+      id: "ja-u200l3",
+      unit: 200,
+      lesson: 3,
+      title: "Voices in a room",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe how people are talking: ひそひそ, ざわざわ, がやがや, ぶつぶつ, ぺこぺこ, はきはき.",
+      items: [
+        { id: "ja-u200l3-hisohiso", type: "vocab", front: "ひそひそ", reading: "hisohiso", meaning: "in whispers", example: { jp: "うしろの せきで ひそひそ 話す 音が しました。", en: "There were whispering voices in the seats behind." }, accept: ["furtively (talking)", "in hushed tones"], hint: "Quiet AND secretive. Merely quiet talking is 小さい こえ; ひそひそ implies you are not meant to hear it." },
+        { id: "ja-u200l3-zawazawa", type: "vocab", front: "ざわざわ", reading: "zawazawa", meaning: "abuzz, restless murmur", example: { jp: "その ニュースで 会場が ざわざわしました。", en: "The news set the hall buzzing." }, accept: ["a stir", "murmuring", "unsettled noise"], hint: "The sound of a crowd reacting, and also of leaves in wind. It carries unease — a happy crowd is がやがや." },
+        { id: "ja-u200l3-gayagaya", type: "vocab", front: "がやがや", reading: "gayagaya", meaning: "noisily chattering", example: { jp: "子どもたちが がやがや 話して います。", en: "The children are chattering noisily." }, accept: ["hubbub", "clamour", "loud chatter"], hint: "Cheerful noise from many mouths — a classroom before the teacher arrives." },
+        { id: "ja-u200l3-butsubutsu", type: "vocab", front: "ぶつぶつ", reading: "butsubutsu", meaning: "muttering, grumbling", example: { jp: "ぶつぶつ 言わないで、はっきり 言って ください。", en: "Don't mutter — say it clearly." }, accept: ["grumbling", "under one's breath"], hint: "Complaint too quiet to be answered, which is what makes it irritating." },
+        { id: "ja-u200l3-pekopeko", type: "vocab", front: "ぺこぺこ", reading: "pekopeko", meaning: "bowing obsequiously; starving", example: { jp: "おなかが ぺこぺこで、何でも 食べられます。", en: "I'm starving — I could eat anything." }, accept: ["famished", "grovelling", "bowing and scraping"], hint: "Two senses from one shape: an empty belly, and bowing over and over. Both are things that repeatedly fold." },
+        { id: "ja-u200l3-hakihaki", type: "vocab", front: "はきはき", reading: "hakihaki", meaning: "speaking clearly and briskly", example: { jp: "しつもんに はきはき 答えて、よい いんしょうでした。", en: "She answered the questions clearly and it made a good impression." }, accept: ["crisply (speaking)", "articulate", "forthright"], hint: "The spoken twin of きびきび, and exactly what an interview panel is listening for." },
+      ],
+    },
+    {
+      id: "ja-u200l4",
+      unit: 200,
+      lesson: 4,
+      title: "Eyes, and moving without settling",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe looking and scattered motion: じろじろ, ちらちら, にやにや, こそこそ, ばたばた, ぱらぱら.",
+      items: [
+        { id: "ja-u200l4-jirojiro", type: "vocab", front: "じろじろ", reading: "jirojiro", meaning: "staring rudely", example: { jp: "人の かおを じろじろ 見るのは しつれいです。", en: "Staring at someone's face is rude." }, accept: ["ogling", "looking someone up and down"], hint: "Always impolite. きょろきょろ (u199) is looking around; じろじろ is looking AT a person too long." },
+        { id: "ja-u200l4-chirachira", type: "vocab", front: "ちらちら", reading: "chirachira", meaning: "glancing repeatedly; fluttering", example: { jp: "時計を ちらちら 見ながら 話して いました。", en: "He kept glancing at the clock while talking." }, accept: ["flickering", "in glimpses", "sneaking looks"], hint: "Short repeated looks — the giveaway that someone wants to leave. Also snow falling lightly." },
+        { id: "ja-u200l4-niyaniya", type: "vocab", front: "にやにや", reading: "niyaniya", meaning: "smirking", example: { jp: "何か いい ことが あったのか、にやにやして います。", en: "Something good must have happened — he's smirking away." }, accept: ["grinning to oneself", "smirking"], hint: "にこにこ (u112) is an open friendly smile; にやにや is the one that suggests the person knows something." },
+        { id: "ja-u200l4-kosokoso", type: "vocab", front: "こそこそ", reading: "kosokoso", meaning: "sneakily, furtively", example: { jp: "こそこそしないで、みんなの 前で 話しましょう。", en: "Don't be sneaky about it — let's talk in front of everyone." }, accept: ["on the sly", "surreptitiously"], hint: "Behaviour, not just sound. ひそひそ is whispering; こそこそ is the whole act of hiding what you are doing." },
+        { id: "ja-u200l4-batabata", type: "vocab", front: "ばたばた", reading: "batabata", meaning: "in a flap, hectically", example: { jp: "朝から ばたばたして、昼ごはんを わすれました。", en: "It's been hectic since morning and I forgot lunch." }, accept: ["frantic", "rushing about", "chaotic"], hint: "Busy AND disorganised — the sound of things being knocked over. いそがしい is neutral; ばたばた admits it is a mess." },
+        { id: "ja-u200l4-parapara", type: "vocab", front: "ぱらぱら", reading: "parapara", meaning: "sparsely; flipping through", example: { jp: "本を ぱらぱら めくって、だいたいの ないようを 見ました。", en: "I flipped through the book and got the gist." }, accept: ["scattered", "a light sprinkling", "leafing through"], hint: "Few and spread out — light rain, a thin crowd — and by extension the flipping of pages." },
+      ],
+    },
   ],
 };
