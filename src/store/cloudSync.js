@@ -100,6 +100,30 @@ async function onSignIn(u) {
   }
 }
 
+// Active pull: fetch the cloud blob and apply it IF it's strictly newer than the
+// local copy (another device saved more recently). Guarded by the same
+// last-write-wins timestamp check as sign-in, and by `applyingCloud` so it never
+// fights its own subscription. Best-effort — a failed pull is silently ignored.
+async function pullFromCloud() {
+  if (!currentUser || applyingCloud) return;
+  try {
+    const cloud = await fetchCloud(currentUser.id);
+    if (!cloud || cloud.blob == null) return;
+    const localAt = Number(useStore.getState().lastModified) || 0;
+    const cloudAt = Number(cloud.updatedAt) || 0;
+    if (cloudAt <= localAt) return; // local is same-or-newer — nothing to pull
+    let blob = cloud.blob;
+    if ((cloud.version ?? 1) < PERSIST_VERSION) blob = migrateState({ ...blob }, cloud.version);
+    applyingCloud = true;
+    useStore.getState().hydrateFromCloud(blob);
+    lastSerialized = JSON.stringify(blobNow());
+    applyingCloud = false;
+    useStore.getState().setAuth({ status: "synced" });
+  } catch {
+    /* offline / transient — try again on the next focus */
+  }
+}
+
 function onSignOut() {
   currentUser = null;
   clearTimeout(uploadTimer);
@@ -215,4 +239,19 @@ export function initCloudSync() {
 
   // Upload local changes (debounced) while signed in.
   useStore.subscribe(onStoreChange);
+
+  // Active pull: when the app returns to the foreground, check for newer progress
+  // from another device and apply it. Throttled so a burst of focus/visibility
+  // events can't hammer the API. This is what makes sync feel live across devices
+  // — without it, a second device only pulls on sign-in or a token refresh.
+  let lastPull = 0;
+  const maybePull = () => {
+    if (!currentUser || document.visibilityState === "hidden") return;
+    const now = Date.now();
+    if (now - lastPull < 10000) return; // at most once per 10s
+    lastPull = now;
+    pullFromCloud();
+  };
+  document.addEventListener("visibilitychange", maybePull);
+  window.addEventListener("focus", maybePull);
 }
