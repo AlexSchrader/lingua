@@ -6,7 +6,7 @@
 // higher education & credentials (l'enseignement supérieur, un cursus, un diplôme,
 // une bourse d'études, la scolarité, un doctorat), how research works (un chercheur,
 // un laboratoire, une thèse de doctorat, une revue scientifique, la vulgarisation,
-// une méthode), knowledge & pedagogy (la pédagogie, le savoir, le savoir-faire,
+// un protocole), knowledge & pedagogy (la pédagogie, le savoir, le savoir-faire,
 // l'apprentissage, la maîtrise, un colloque), and merit & inequality in education
 // (le mérite, la méritocratie, la sélection, le décrochage scolaire, l'échec
 // scolaire, les acquis).
@@ -50,7 +50,7 @@ export const FR_UNIT110 = {
         { id: "fr-u110l2-thesedoctorat", type: "vocab", front: "une thèse de doctorat", reading: "unethesededoctorat", meaning: "a doctoral thesis, PhD dissertation", example: { jp: "Sa thèse de doctorat a duré six années, mais elle a enfin démontré son idée.", en: "Her doctoral thesis took six years, but she finally proved her idea." }, accept: ["a doctoral thesis", "a PhD thesis", "a doctoral dissertation"], hint: "The long written work for a doctorate. 'La thèse' alone = a thesis/claim in an argument; here the academic document." },
         { id: "fr-u110l2-revuescientifique", type: "vocab", front: "une revue scientifique", reading: "unerevuescientifique", meaning: "a scientific journal", example: { jp: "Les scientifiques présentent leurs résultats dans une revue scientifique, et d'autres vérifient ensuite ce travail.", en: "Scientists present their results in a scientific journal, and others then check the work." }, accept: ["a scientific journal", "a research journal", "an academic journal"], hint: "A peer-reviewed publication, not a magazine. 'Une revue' here = a journal, not a review." },
         { id: "fr-u110l2-vulgarisation", type: "vocab", front: "la vulgarisation", reading: "lavulgarisation", meaning: "popularization (of science/knowledge)", example: { jp: "La vulgarisation explique la science au public, sans jamais changer la vérité des résultats.", en: "Popularization explains science to the public, without ever changing the truth of the results." }, accept: ["popularization", "popularisation", "making science accessible"], hint: "Making expert knowledge clear for non-specialists. La vulgarisation scientifique — not pejorative in French." },
-        { id: "fr-u110l2-methode", type: "vocab", front: "une méthode", reading: "unemethode", meaning: "a method (esp. scientific method)", example: { jp: "Une bonne méthode permet aux scientifiques de vérifier une expérience, et ainsi de croire ses résultats.", en: "A good method lets scientists check an experiment, and so trust its results." }, accept: ["a method", "a methodology", "an approach"], hint: "La méthode scientifique — the rigorous, repeatable procedure, not just 'a way of doing something'." },
+        { id: "fr-u110l2-protocole", type: "vocab", front: "un protocole", reading: "unprotocole", meaning: "a protocol", example: { jp: "Les chercheurs suivent un protocole précis, de sorte que l'expérience peut être vérifiée par d'autres.", en: "The researchers follow a precise protocol, so that the experiment can be checked by others." }, accept: ["a protocol", "a procedure", "a set of steps", "a set of rules"], hint: "The fixed set of steps an experiment or procedure follows; also diplomatic protocol. Distinct from la méthode (Unit 78)." },
       ],
     },
     {
