@@ -9,7 +9,7 @@ import React from "react";
 export default class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { error: null };
+    this.state = { error: null, info: null };
   }
 
   static getDerivedStateFromError(error) {
@@ -17,8 +17,11 @@ export default class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
-    // Never swallow silently — surface for debugging.
+    // Never swallow silently — surface for debugging, and keep the component
+    // stack so the on-screen details can name the failing component (there's no
+    // dev console on a phone).
     console.error("App crashed:", error, info);
+    this.setState({ info });
   }
 
   async reset() {
@@ -73,6 +76,29 @@ export default class ErrorBoundary extends React.Component {
         <button style={btn} onClick={() => this.reset()}>
           Reset and reload
         </button>
+        <pre
+          style={{
+            marginTop: 8,
+            maxWidth: "92vw",
+            maxHeight: 220,
+            overflow: "auto",
+            textAlign: "left",
+            fontSize: 11,
+            lineHeight: 1.4,
+            whiteSpace: "pre-wrap",
+            wordBreak: "break-word",
+            color: "#8a2b2b",
+            background: "#f3e9e0",
+            border: "1px solid #e0cfc0",
+            borderRadius: 8,
+            padding: "10px 12px",
+          }}
+        >
+          {String(this.state.error?.stack || this.state.error?.message || this.state.error)}
+          {this.state.info?.componentStack
+             ? "\n--- component stack ---" + this.state.info.componentStack
+            : ""}
+        </pre>
       </div>
     );
   }
