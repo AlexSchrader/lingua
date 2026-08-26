@@ -1,0 +1,81 @@
+// ES Unit 47 — La cantidad y la medida ("Quantity and measure") — A2 COVERAGE (slot: coverage-a2-8)
+// The words for how much and how many: amounts, units of measure, and the indefinite
+// words (algún, ningún, alguien, nadie) that A1's algo/nada couldn't reach. Nouns
+// headworded with their article. Conventions and BLOCK-3 SCOPE: see es/unit13.js.
+export const ES_UNIT47 = {
+  id: "es-u47",
+  lang: "es",
+  title: "La cantidad y la medida",
+  order: 47,
+  stage: "a2",
+  lessons: [
+    {
+      id: "es-u47l1",
+      unit: 47,
+      lesson: 1,
+      title: "La cantidad, la mitad, el par",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Talk about amounts: una gran cantidad, el total, la mitad del pan, un par de zapatos.",
+      items: [
+        { id: "es-u47l1-lacantidad", type: "vocab", front: "la cantidad", reading: "lacantidad", meaning: "the quantity / amount", example: { jp: "Hay una gran cantidad de gente.", en: "There's a large number of people." }, accept: ["quantity", "amount"], hint: "Una cantidad de = an amount of. ¡Qué cantidad! = what a lot!" },
+        { id: "es-u47l1-eltotal", type: "vocab", front: "el total", reading: "eltotal", meaning: "the total", example: { jp: "El total es diez euros.", en: "The total is ten euros." }, accept: ["total", "sum", "whole"], hint: "En total = in total / altogether. Also an adjective: el precio total." },
+        { id: "es-u47l1-lamitad", type: "vocab", front: "la mitad", reading: "lamitad", meaning: "the half", example: { jp: "Comí la mitad del pan.", en: "I ate half the loaf." }, accept: ["half", "middle"], hint: "La mitad de = half of. A mitad de precio = at half price." },
+        { id: "es-u47l1-elresto", type: "vocab", front: "el resto", reading: "elresto", meaning: "the rest", example: { jp: "El resto es para mañana.", en: "The rest is for tomorrow." }, accept: ["rest", "remainder", "the others"], hint: "El resto de = the rest of what's left. Lo hago el resto de la semana = I do it the rest of the week." },
+        { id: "es-u47l1-elpar", type: "vocab", front: "el par", reading: "elpar", meaning: "the pair / couple", example: { jp: "Necesito un par de zapatos.", en: "I need a pair of shoes." }, accept: ["pair", "couple", "a few"], hint: "Un par de = a pair of, or loosely \"a couple of\": un par de días." },
+        { id: "es-u47l1-ladocena", type: "vocab", front: "la docena", reading: "ladocena", meaning: "the dozen", example: { jp: "Compro una docena de manzanas.", en: "I'm buying a dozen apples." }, accept: ["dozen"], hint: "Una docena de = a dozen. Media docena = half a dozen. From doce (u5, \"twelve\")." },
+      ],
+    },
+    {
+      id: "es-u47l2",
+      unit: 47,
+      lesson: 2,
+      title: "El grado, el peso, el tamaño",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Talk about measure and size: un trozo de pan, el tamaño, diez grados, el peso.",
+      items: [
+        { id: "es-u47l2-eltrozo", type: "vocab", front: "el trozo", reading: "eltrozo", meaning: "the piece / bit", example: { jp: "Quiero un trozo de pan.", en: "I want a piece of bread." }, accept: ["piece", "bit", "chunk"], hint: "Un trozo de = a piece of. A close friend of un pedazo." },
+        { id: "es-u47l2-eltamano", type: "vocab", front: "el tamaño", reading: "eltamano", meaning: "the size", example: { jp: "¿Qué tamaño necesitas?", en: "What size do you need?" }, accept: ["size"], hint: "The size of something. ¿De qué tamaño? = what size? Del mismo tamaño = the same size." },
+        { id: "es-u47l2-elgramo", type: "vocab", front: "el gramo", reading: "elgramo", meaning: "the gram", example: { jp: "Es solo un gramo.", en: "It's only a gram." }, accept: ["gram", "gramme"], hint: "A thousand gramos make a kilo. Cien gramos de queso = a hundred grams of cheese." },
+        { id: "es-u47l2-elkilometro", type: "vocab", front: "el kilómetro", reading: "elkilometro", meaning: "the kilometre", example: { jp: "La ciudad está a diez kilómetros.", en: "The city is ten kilometres away." }, accept: ["kilometre", "kilometer"], hint: "A + a number + kilómetros = so many km away. The accent is on the ó." },
+        { id: "es-u47l2-elgrado", type: "vocab", front: "el grado", reading: "elgrado", meaning: "the degree", example: { jp: "Hoy hace diez grados.", en: "It's ten degrees today." }, accept: ["degree"], hint: "Degrees of temperature: hace treinta grados = it's thirty degrees. Also a degree/level in general." },
+        { id: "es-u47l2-elpeso", type: "vocab", front: "el peso", reading: "elpeso", meaning: "the weight", example: { jp: "¿Cuál es el peso de la maleta?", en: "What's the weight of the suitcase?" }, accept: ["weight"], hint: "The noun from pesar (to weigh). It's also the currency of several Latin American countries." },
+      ],
+    },
+    {
+      id: "es-u47l3",
+      unit: 47,
+      lesson: 3,
+      title: "Algún, ningún, varios",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Point vaguely: algún libro, ningún problema, varios amigos, tal cosa, ambos hermanos.",
+      items: [
+        { id: "es-u47l3-algun", type: "vocab", front: "algún", reading: "algun", meaning: "some / any", example: { jp: "¿Tienes algún libro?", en: "Do you have any book(s)?" }, accept: ["some", "any"], hint: "Before a masculine noun: algún día. The full form alguno stands alone: ¿alguno? The feminine is alguna." },
+        { id: "es-u47l3-ningun", type: "vocab", front: "ningún", reading: "ningun", meaning: "no / not any", example: { jp: "No tengo ningún problema.", en: "I don't have any problem." }, accept: ["not any", "no", "none"], hint: "The negative of algún, and it needs the no: no… ningún. Feminine ninguna. Spanish doubles the negative and it's correct." },
+        { id: "es-u47l3-varios", type: "vocab", front: "varios", reading: "varios", meaning: "several", example: { jp: "Tengo varios amigos en Madrid.", en: "I have several friends in Madrid." }, accept: ["several", "various", "a few"], hint: "Always plural: varios (m), varias (f). More than a couple, fewer than many." },
+        { id: "es-u47l3-tal", type: "vocab", front: "tal", reading: "tal", meaning: "such", example: { jp: "No hay tal problema.", en: "There's no such problem." }, accept: ["such", "such a"], hint: "tal + noun = such a: tal cosa = such a thing. ¿Qué tal? (u2) uses it. Tal vez = perhaps." },
+        { id: "es-u47l3-ambos", type: "vocab", front: "ambos", reading: "ambos", meaning: "both", example: { jp: "Ambos hermanos viven aquí.", en: "Both brothers live here." }, accept: ["both", "the two"], hint: "A cleaner \"both\" than los dos: ambos (m), ambas (f). No article: ambos hermanos, not \"los ambos\"." },
+        { id: "es-u47l3-cualquier", type: "vocab", front: "cualquier", reading: "cualquier", meaning: "any (at all)", example: { jp: "Cualquier día es bueno.", en: "Any day is fine." }, accept: ["any", "whichever"], hint: "Any one, it doesn't matter which: cualquier día, cualquier cosa. Same form for masculine and feminine before the noun." },
+      ],
+    },
+    {
+      id: "es-u47l4",
+      unit: 47,
+      lesson: 4,
+      title: "Alguno, ninguno, cada uno",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Point at people and quantities: alguno de ellos, no quiero ninguno, cualquiera, los demás, todo el mundo.",
+      items: [
+        { id: "es-u47l4-alguno", type: "vocab", front: "alguno", reading: "alguno", meaning: "some / one (of them)", example: { jp: "Alguno de ellos es médico.", en: "One of them is a doctor." }, accept: ["some", "one of them", "any"], hint: "The stand-alone form of algún: ¿tienes alguno? = do you have any? Feminine alguna." },
+        { id: "es-u47l4-ninguno", type: "vocab", front: "ninguno", reading: "ninguno", meaning: "none / not one", example: { jp: "No quiero ninguno.", en: "I don't want any." }, accept: ["none", "not one", "neither"], hint: "The stand-alone form of ningún, needs the no: no… ninguno. Ninguno de los dos = neither of the two." },
+        { id: "es-u47l4-cualquiera", type: "vocab", front: "cualquiera", reading: "cualquiera", meaning: "anyone / any one", example: { jp: "Cualquiera puede hacerlo.", en: "Anyone can do it." }, accept: ["anyone", "either one", "whichever"], hint: "The stand-alone form of cualquier: cualquiera = any one at all. Cualquiera de los dos = either of the two." },
+        { id: "es-u47l4-losdemas", type: "vocab", front: "los demás", reading: "losdemas", meaning: "the others / the rest", example: { jp: "Los demás ya están aquí.", en: "The others are already here." }, accept: ["the others", "the rest", "everyone else"], hint: "Los demás (people), lo demás (things) = everyone/everything else. A useful pair with el resto (u47)." },
+        { id: "es-u47l4-todoelmundo", type: "vocab", front: "todo el mundo", reading: "todoelmundo", meaning: "everyone / everybody", example: { jp: "Todo el mundo está aquí.", en: "Everybody is here." }, accept: ["everyone", "everybody"], hint: "Literally \"all the world\" = everybody. Takes a singular verb: todo el mundo está… Very common in speech." },
+        { id: "es-u47l4-cadauno", type: "vocab", front: "cada uno", reading: "cadauno", meaning: "each one", example: { jp: "Cada uno tiene su lugar.", en: "Each one has its place." }, accept: ["each one", "everyone", "apiece"], hint: "From cada (each) + uno. Cada uno (m) / cada una (f) = each one. Cada uno a lo suyo = to each their own." },
+      ],
+    },
+  ],
+};
