@@ -187,6 +187,7 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 | Language | Block | Status | Branch | Worktree | Notes / unresolved |
 |---|---|---|---|---|---|
+| French 🇫🇷 **B2** | 3 | **handed back** | `content/fr-b2-block3` | `C:\dev\lingua-frb2-3` | Units 121–133, **312 cards** (13 coverage units, each generic "Vocabulary N (B2)" slot given a real theme and authored ONE LEVEL ABOVE per Alex: justice, character, emotions, thought/process verbs, qualities, landscape, arts, speech verbs, time adverbials, materials, connectors, locutions). Head `a5c0a04b`. Gate: validate/lint/audit/build ✅; content-auditor BLOCK → all content findings fixed (naturalness clean). Fronts checked vs 2,168 A1+A2+B1 + sibling B2; scope-lint skipped on-branch (blocks 1–2 stubs) → **expect example revision at merge**. ⚠️ **`test:unit` red from an INHERITED scaffold-base defect** (`scaffold-language.mjs` emits B2 slot titles not synced to `SCAFFOLD_TITLES` in `src/data/lint.js`; fails on the base with my content stashed) — Feature-lane, blocks every B2 block, NOT mine to fix (§4). |
 > ⚠️ **ALL THREE fr B1 SEATS READ THIS FIRST — the B1 slot titles are already taught by French A2.**
 > Found by block 1 at §3, 2026-08-14, before authoring. French A2 did not stop at the 15-unit template — it ran to **57 units**, and `u38–u57` are twenty units of exactly the abstract/grammar/coverage material the B1 template names. Measured, not guessed: **46/46 probe words for 8 of block 1's 13 slots are already live in A2.**
 >
