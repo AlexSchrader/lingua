@@ -69,10 +69,9 @@ export const UNIT176 = {
       title: "Difference and standing",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Talk about difference as something a society handles well or badly: たようせい きょうせい しゅたい そんざい ゆうえつかん れっとうかん.",
+      canDo: "Talk about difference as something a society handles well or badly: たようせい しゅたい そんざい ゆうえつかん れっとうかん.",
       items: [
         { id: "ja-u176l4-tayosei", type: "vocab", front: "たようせい", reading: "tayōsei", meaning: "diversity", example: { jp: "たようせいは 数を そろえる ことでは ないと 思います。", en: "I don't think diversity is a matter of making the numbers add up." }, accept: ["variety", "plurality", "being diverse"] },
-        { id: "ja-u176l4-kyosei", type: "vocab", front: "きょうせい", reading: "kyōsei", meaning: "living alongside each other", example: { jp: "ちがう 考えの 人との きょうせいは 時間が かかります。", en: "Living alongside people who think differently takes time." }, accept: ["coexistence", "symbiosis", "sharing a life"] },
         { id: "ja-u176l4-shutai", type: "vocab", front: "しゅたい", reading: "shutai", meaning: "the acting party", example: { jp: "この 計画の しゅたいは 国では なく 住民です。", en: "The party carrying out this plan is the residents, not the state." }, accept: ["the agent", "the one acting", "main body"] },
         { id: "ja-u176l4-sonzai", type: "vocab", front: "そんざい", reading: "sonzai", meaning: "presence", example: { jp: "小さな 店ですが、町には 大きな そんざいです。", en: "It's a small shop, but a large presence in the town." }, accept: ["existence", "being there", "a figure"] },
         { id: "ja-u176l4-yuetsukan", type: "vocab", front: "ゆうえつかん", reading: "yūetsukan", meaning: "a sense of superiority", example: { jp: "ゆうえつかんを 見せる 人とは、長く つきあえません。", en: "I can't stay close to someone who shows a sense of superiority." }, accept: ["feeling superior", "condescension"] },
