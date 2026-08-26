@@ -231,7 +231,14 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
       clearTimeout(timer);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [phase, strokeIdx]);
+    // `strokes` must be here: the paths load on demand (data/useGlyphStrokes.js),
+    // so the FIRST trace card of a session renders with strokes=[] and this effect
+    // bails at the strokeIdx>=length guard above. When the data arrives the reset
+    // effect re-sets phase="animating"/strokeIdx=0 — both already those values, so
+    // without `strokes` in the deps this effect never re-fires and the card is
+    // stuck on "Stroke 1 — watch" forever. `strokes` is a stable per-glyph
+    // reference once loaded, so it only re-runs on load-resolve or item change.
+  }, [phase, strokeIdx, strokes]);
 
   // --- snap animation ---
 

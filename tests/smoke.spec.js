@@ -606,6 +606,58 @@ test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson se
 // speak is now live: the coverage test above drives it via the rung-4 `iie`
 // fixture + playCard's speak hook, so the dormant-stub placeholder is retired.
 
+// Regression (perf/split-kanjivg): the FIRST guided trace card of a session must
+// hand off from "watch" (animating) to "now trace it" (waiting). KanjiVG stroke
+// data now loads on demand (data/useGlyphStrokes.js dynamic-imports kanjivg.js),
+// so that first card renders with strokes=[] — and the guided-animation effect
+// once had deps [phase, strokeIdx] that OMITTED `strokes`, so when the data
+// landed the effect never re-fired and the card froze on "Stroke 1 — watch"
+// forever (a real learner could not proceed). A fresh page = empty module cache
+// = exactly that first-card condition. This asserts the phase transition directly
+// and fails FAST (~8s) with a named cause, instead of the 120s loop timeout the
+// coverage/lesson tests hit downstream. Runs in preview too — that build fetches
+// the real lazy chunk over HTTP, the most faithful test of the async timing.
+test("regression: first guided trace card advances past 'watch' after async strokes load", async ({ page }) => {
+  test.setTimeout(30_000);
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  // No fixture: fresh state starts lesson 1 (kana at rung 0 → teach + choice +
+  // trace:guided), the same setup that froze. Fresh page ⇒ kanjivg not yet loaded.
+  await page.goto("/");
+  await page.getByTestId("start-session").click();
+
+  // Advance through intro/teach/choice until the guided trace pad appears — but do
+  // NOT submit strokes (submitting is exactly what the freeze blocked). Stop there.
+  // Choice cards gate on a Continue after selecting (no auto-advance), so mirror
+  // playCard: click the correct option, then Continue — otherwise the answered card
+  // sits with its options disabled and never moves on.
+  const tracePad = page.getByTestId("trace-pad");
+  const begin = page.getByTestId("lesson-begin");
+  const teach = page.getByRole("button", { name: "Got it" });
+  const option = page.locator('[data-correct="true"]');
+  const continueBtn = page.getByRole("button", { name: "Continue" });
+  for (let i = 0; i < 40; i++) {
+    if (await tracePad.isVisible().catch(() => false)) break;
+    if (await begin.isVisible().catch(() => false)) { await begin.click(); continue; }
+    if (await teach.isVisible().catch(() => false)) { await teach.click(); continue; }
+    if (await option.first().isVisible().catch(() => false)) {
+      await option.first().click().catch(() => {});
+      await continueBtn.click({ force: true }).catch(() => {});
+      continue;
+    }
+    await page.waitForTimeout(100);
+  }
+  await expect(tracePad).toBeVisible();
+
+  // THE ASSERTION: the card leaves the "watch" phase for "now trace it". Under
+  // WebDriver skipAnim jumps straight there — but ONLY if the effect re-fires once
+  // strokes arrive, which is precisely the fix. With the bug it stays on "watch"
+  // and this times out fast rather than hanging a downstream loop for 120s.
+  await expect(page.locator("text=/now trace it/")).toBeVisible({ timeout: 8000 });
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
 // Fixture: one kana item at rung 3 (due) → review queue → TraceCard mode="free".
 // No fresh items, so there is no learn phase — the review is the whole session.
 function traceFreeFixtureState() {
