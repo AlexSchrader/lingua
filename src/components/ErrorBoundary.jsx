@@ -76,6 +76,20 @@ export default class ErrorBoundary extends React.Component {
         <button style={btn} onClick={() => this.reset()}>
           Reset and reload
         </button>
+        {/* Safari's error.stack does NOT include the message, so print it
+            explicitly and first — it's the line that names the actual failure. */}
+        <div
+          style={{
+            marginTop: 10,
+            maxWidth: "92vw",
+            fontSize: 14,
+            fontWeight: 700,
+            color: "#8a2b2b",
+            wordBreak: "break-word",
+          }}
+        >
+          {String(this.state.error?.name || "Error")}: {String(this.state.error?.message || this.state.error)}
+        </div>
         <pre
           style={{
             marginTop: 8,
