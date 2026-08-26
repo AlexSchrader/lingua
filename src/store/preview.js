@@ -69,6 +69,44 @@ export function buildPreviewState({ langs, catalog, version }) {
   };
 }
 
+// A BRAND-NEW-USER preview: an empty, not-onboarded deck, so the real first-run
+// flow runs on the throwaway key — onboarding, the language pick, then lesson 1 —
+// exactly as a fresh install would. Unlike buildPreviewState (which opens every
+// gate to B2 so you can roam), this starts with NOTHING earned, to feel day one.
+//
+// Faithful to a real fresh boot: `languages` mirrors the store's initialLanguages()
+// (every catalog language at pre-A1), profile is not onboarded and has no language
+// chosen (languagesChosen is left ABSENT, not false — that's the real new-user
+// shape). devMode stays true so the onboarding screen shows its "Exit preview"
+// escape. items is empty; the store's seedOnce fills the deck at rung 0 on boot.
+export function buildFreshPreviewState({ catalog, version }) {
+  const languages = {};
+  for (const l of catalog) languages[l.id] = { ...l, level: "pre-A1", xp: 0 };
+  return {
+    state: {
+      items: {},
+      languages,
+      profile: {
+        onboarded: false,
+        displayName: null,
+        reason: null,
+        reminderTime: null,
+        languages: [],
+        activeLang: null,
+      },
+      streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
+      stats: { xpTotal: 0 },
+      daily: { date: null, reviewsCleared: false, lessonDone: false },
+      mistakes: [],
+      milestonesEarned: [],
+      devMode: true,
+      settings: {},
+      lastModified: 0,
+    },
+    version,
+  };
+}
+
 // Enter/exit both reload, because the persist key is bound at store creation.
 // exitPreview DELETES the preview deck: it is scratch by definition, and leaving
 // it around invites "wait, did I study this or preview it?".

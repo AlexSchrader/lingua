@@ -4,7 +4,7 @@ import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogO
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, isLive } from "../data/index.js";
 import { langName } from "../data/languages.js";
-import { enterPreview, buildPreviewState } from "../store/preview.js";
+import { enterPreview, buildPreviewState, buildFreshPreviewState } from "../store/preview.js";
 import { PERSIST_VERSION } from "../store/migrate.js";
 import { triggersSupported, notificationsSupported, notificationPermission, requestReminderPermission, scheduleDailyReminder, cancelReminders } from "../lib/reminders.js";
 import { C, F } from "../theme.js";
@@ -457,10 +457,35 @@ export default function Settings() {
               <span style={{ flex: 1, textAlign: "left" }}>Open dev panel</span>
               <ChevronRight size={18} />
             </button>
-            {/* The panel previews one screen at a time; this previews the APP. Real
-                navigation, every language started and every band open, on a separate
-                localStorage key — so it answers "what does French feel like to move
-                around in" without putting a single card on your real deck. */}
+            {/* The panel previews one screen at a time; this previews the APP. Pick a
+                language and you drop into the REAL app AS a learner of that one — Today,
+                Ladder, lessons, Stats, every screen, real navigation — on a separate
+                localStorage key, so nothing touches the deck you actually study on. Each
+                language starts alone at B2 so every band/screen is reachable without
+                grinding. "All languages" starts every live one (active on the first) to
+                feel the multi-language switcher. */}
+            <div style={{ fontSize: 12, fontWeight: 700, color: C.inkSoft, textTransform: "uppercase", letterSpacing: 0.4, padding: "2px 2px 0" }}>
+              Preview the app (throwaway profile)
+            </div>
+            {LANGUAGES.filter((l) => isLive(l.id)).map((l) => (
+              <button
+                key={l.id}
+                onClick={() =>
+                  enterPreview(
+                    buildPreviewState({
+                      langs: [l.id],
+                      catalog: LANGUAGES,
+                      version: PERSIST_VERSION,
+                    })
+                  )
+                }
+                style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.line}`, background: C.surface, color: C.ink, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+              >
+                <span style={{ fontSize: 18 }}>{l.flag}</span>
+                <span style={{ flex: 1, textAlign: "left" }}>Preview the {l.name} app</span>
+                <ChevronRight size={18} />
+              </button>
+            ))}
             <button
               onClick={() =>
                 enterPreview(
@@ -471,10 +496,28 @@ export default function Settings() {
                   })
                 )
               }
-              style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.line}`, background: C.surface, color: C.ink, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+              style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
             >
               <Eye size={18} />
-              <span style={{ flex: 1, textAlign: "left" }}>Preview the app (throwaway profile)</span>
+              <span style={{ flex: 1, textAlign: "left" }}>Preview all languages</span>
+              <ChevronRight size={18} />
+            </button>
+            {/* The brand-new-user flow: empty, not onboarded, so preview drops into
+                onboarding → language pick → lesson 1, exactly like a fresh install.
+                The others start unlocked; this one starts you at day zero. */}
+            <button
+              onClick={() =>
+                enterPreview(
+                  buildFreshPreviewState({
+                    catalog: LANGUAGES,
+                    version: PERSIST_VERSION,
+                  })
+                )
+              }
+              style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+            >
+              <Eye size={18} />
+              <span style={{ flex: 1, textAlign: "left" }}>Preview as a new user (onboarding → lesson 1)</span>
               <ChevronRight size={18} />
             </button>
             <button
