@@ -69,6 +69,8 @@ const LANG_HUE = {
   tw: 40,   // Twi — Ghana gold
   zh: 4,    // Mandarin — red
   hi: 30,   // Hindi — saffron
+  en: 214,  // English — classic blue (US/UK share it)
+  ht: 224,  // Haitian Creole — Haiti royal blue
 };
 
 // [saturation, lightness] per accent token per mode — read off the original ja

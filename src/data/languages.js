@@ -36,6 +36,10 @@ export const LANGUAGES = [
   { id: "tr", name: "Turkish", flag: "🇹🇷", target: "B2" },
   { id: "id", name: "Indonesian", flag: "🇮🇩", target: "B2" },
   { id: "vi", name: "Vietnamese", flag: "🇻🇳", target: "B2" },
+  // English carries BOTH flags on purpose (Alex's call) — American + British, since
+  // the one track covers both. Haitian Creole uses the Haiti flag.
+  { id: "en", name: "English", flag: "🇺🇸🇬🇧", target: "B2" },
+  { id: "ht", name: "Haitian Creole", flag: "🇭🇹", target: "B2" },
 
   // Planned · own script (medium lift — a real script-teaching build).
   { id: "ko", name: "Korean", flag: "🇰🇷", target: "B2" },

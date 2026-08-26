@@ -4,10 +4,10 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { LANGUAGES } from "../../src/data/languages.js";
 
-test("language catalog: 20 languages, all target B2, unique ids", () => {
-  assert.equal(LANGUAGES.length, 20);
+test("language catalog: 22 languages, all target B2, unique ids", () => {
+  assert.equal(LANGUAGES.length, 22);
   assert.ok(LANGUAGES.every((l) => l.target === "B2"), "every language targets B2");
-  assert.equal(new Set(LANGUAGES.map((l) => l.id)).size, 20, "ids are unique");
+  assert.equal(new Set(LANGUAGES.map((l) => l.id)).size, 22, "ids are unique");
   assert.ok(LANGUAGES.every((l) => l.id && l.name && l.flag), "each has id/name/flag");
 });
 
