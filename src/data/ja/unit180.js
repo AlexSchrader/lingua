@@ -1,18 +1,80 @@
-// JA Unit 180 — Characters 11 (B2) (slot: characters-b2-11) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// Unit 180 — かんじ・くらしと つくる (N2 kanji, set 11) — B2 / JLPT N2
+// Glyph budget, card shape and the compound-by-reading rule are documented in
+// unit175.js. Slice 11: 専泉洗染銭善奏創装層操蔵臓宅誕暖.
 export const UNIT180 = {
   id: "ja-u180",
   lang: "ja",
-  title: "Characters 11 (B2)",
+  title: "かんじ・くらしと つくる",
   order: 180,
   stage: "b2",
   lessons: [
-    { id: "ja-u180l1", title: "Lesson 1", locked: true },
-    { id: "ja-u180l2", title: "Lesson 2", locked: true },
-    { id: "ja-u180l3", title: "Lesson 3", locked: true },
-    { id: "ja-u180l4", title: "Lesson 4", locked: true },
+    {
+      id: "ja-u180l1",
+      unit: 180,
+      lesson: 1,
+      title: "Springs and washing",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 専 (exclusive), 泉 (spring), 洗 (wash), 染 (dye), and the words 専用 and 洗面.",
+      items: [
+        { id: "ja-u180l1-sen", type: "kanji", front: "専", reading: "sen", meaning: "exclusively", example: { jp: "この 道は 自転車専用です。", en: "This path is for bicycles only." }, accept: ["solely", "specialised", "one's own field"], hint: "専 = holding one thing in both hands and nothing else. 専門 = the one field you hold." },
+        { id: "ja-u180l1-izumi", type: "kanji", front: "泉", reading: "izumi", meaning: "a spring", example: { jp: "山の 中の 泉は、夏でも つめたいです。", en: "The spring up the mountain is cold even in summer." }, accept: ["fountainhead", "source of water"], hint: "泉 = 白 over 水 — clear water coming up out of the ground." },
+        { id: "ja-u180l1-arau", type: "kanji", front: "洗", reading: "arau", meaning: "wash", example: { jp: "手を 洗ってから、食事を 始めます。", en: "We wash our hands and then start the meal." }, accept: ["rinse", "clean with water"], hint: "洗 = 氵 (water) + 先 — water taken to something first. 洗面 = washing the face." },
+        { id: "ja-u180l1-someru", type: "kanji", front: "染", reading: "someru", meaning: "dye", example: { jp: "赤く 染めた 紙を、まどに はりました。", en: "I stuck paper dyed red on the window." }, accept: ["stain", "colour", "be infected"], hint: "染 = 氵 + 九 + 木 — plant matter and water, nine times over. Also the 染 of 感染, being coloured by an illness." },
+        { id: "ja-u180l1-senyo", type: "vocab", front: "専用", reading: "senyō", meaning: "for exclusive use", example: { jp: "ここは 社員専用なので、外の 人は 入れません。", en: "This is for staff only, so outsiders can't come in." }, accept: ["dedicated to", "private use", "reserved for"] },
+        { id: "ja-u180l1-senmen", type: "vocab", front: "洗面", reading: "senmen", meaning: "washing one's face", example: { jp: "朝の 洗面の あいだに、その 日の ことを 考えます。", en: "While washing in the morning I think through the day." }, accept: ["morning wash", "washroom (in compounds)"] },
+      ],
+    },
+    {
+      id: "ja-u180l2",
+      unit: 180,
+      lesson: 2,
+      title: "Coins, good, making",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 銭 (coin), 善 (good), 奏 (play music), 創 (originate), and the words 銭湯 and 創作.",
+      items: [
+        { id: "ja-u180l2-zeni", type: "kanji", front: "銭", reading: "zeni", meaning: "small coin", example: { jp: "むかしの 銭が 土の 中から 出て きました。", en: "Old coins came up out of the ground." }, accept: ["cash", "coppers", "money (old word)"], hint: "銭 = 金 (metal) + 戔 — the small metal money. 銭湯 = the public bath you paid a few coins for." },
+        { id: "ja-u180l2-zen", type: "kanji", front: "善", reading: "zen", meaning: "good", example: { jp: "何が 善で 何が 悪かは、時代で 変わります。", en: "What counts as good and what as bad changes with the age." }, accept: ["virtue", "the right thing"], hint: "善 and 悪 are the pair. 善 is moral goodness, not 「いい」— a well-made chair is いい, never 善." },
+        { id: "ja-u180l2-kanaderu", type: "kanji", front: "奏", reading: "sō", meaning: "play music", example: { jp: "五人で 一しょに 奏する ことに なりました。", en: "It was decided the five of us would play together." }, accept: ["perform on an instrument", "render"], hint: "奏 = hands lifted in offering — music played up to someone. 演奏 = a performance." },
+        { id: "ja-u180l2-so", type: "kanji", front: "創", reading: "sō", meaning: "originate", example: { jp: "この 店を 創った 人は、もう いません。", en: "The person who founded this shop is no longer here." }, accept: ["found", "create", "begin something new"], hint: "創 = 倉 + 刂 — cutting something out that was not there. Its on-yomi is そう, like 奏." },
+        { id: "ja-u180l2-sento", type: "vocab", front: "銭湯", reading: "sentō", meaning: "a public bath", example: { jp: "近くの 銭湯が しまって、みんな こまって います。", en: "The local public bath closed and everyone is at a loss." }, accept: ["bathhouse", "sento"] },
+        { id: "ja-u180l2-sosaku", type: "vocab", front: "創作", reading: "sōsaku", meaning: "original creation", example: { jp: "その 話は 創作ですが、元に なった 人が います。", en: "That story is an original creation, but there was a real person behind it." }, accept: ["a work of one's own", "composing", "invention"] },
+      ],
+    },
+    {
+      id: "ja-u180l3",
+      unit: 180,
+      lesson: 3,
+      title: "Dressing, layers, handling",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 装 (attire), 層 (layer), 操 (manipulate), 蔵 (storehouse), and the words 服装 and 地層.",
+      items: [
+        { id: "ja-u180l3-so", type: "kanji", front: "装", reading: "sō", meaning: "attire", example: { jp: "その 会は 服装が じゆうだと 書いて ありました。", en: "The invitation said dress was free at that gathering." }, accept: ["outfit", "equip", "fit out"], hint: "装 = 壮 over 衣 (clothing) — putting oneself in order. Also 装置, a device fitted to something." },
+        { id: "ja-u180l3-solayer", type: "kanji", front: "層", reading: "sō", meaning: "a layer", example: { jp: "この 山は 三つの 層で できて います。", en: "This mountain is made of three layers." }, accept: ["stratum", "a band of people", "storey"], hint: "層 = 尸 over 曾 — one thing piled on the last. Also a slice of society: 若い層." },
+        { id: "ja-u180l3-ayatsuru", type: "kanji", front: "操", reading: "ayatsuru", meaning: "work by hand", example: { jp: "人ぎょうを 操る 人は、後ろに かくれて います。", en: "The person working the puppet stays hidden behind." }, accept: ["manipulate", "operate", "pull the strings"], hint: "操 = 扌 (hand) + 喿 — fingers on the strings. 体操 = drill: the body worked deliberately." },
+        { id: "ja-u180l3-kura", type: "kanji", front: "蔵", reading: "kura", meaning: "a storehouse", example: { jp: "古い 蔵の 中には、まだ 何か のこって います。", en: "Something still remains inside the old storehouse." }, accept: ["warehouse", "to store", "cellar"], hint: "蔵 = 艹 over 臧 — what is kept covered. 所蔵 = held in a collection." },
+        { id: "ja-u180l3-fukuso", type: "vocab", front: "服装", reading: "fukusō", meaning: "what one is wearing", example: { jp: "服装で 人を 決めるのは、あまり よく ありません。", en: "Judging people by their dress is not a good habit." }, accept: ["dress", "attire", "get-up"] },
+        { id: "ja-u180l3-chiso", type: "vocab", front: "地層", reading: "chisō", meaning: "geological strata", example: { jp: "地層を 見れば、その 土地の 古い 話が 分かります。", en: "Look at the strata and you learn the land's old history." }, accept: ["rock layers", "the ground's layers"] },
+      ],
+    },
+    {
+      id: "ja-u180l4",
+      unit: 180,
+      lesson: 4,
+      title: "Organs, home, warmth",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Read 臓 (internal organ), 宅 (residence), 誕 (birth), 暖 (warm), and the words 自宅 and 暖流.",
+      items: [
+        { id: "ja-u180l4-zo", type: "kanji", front: "臓", reading: "zō", meaning: "an internal organ", example: { jp: "体の 中の 臓きの しらべは、年に 一度 受けて います。", en: "I have the organs inside me checked once a year." }, accept: ["viscera", "bodily organ"], hint: "臓 = 月 (flesh) + 蔵 (storehouse) — the body's storerooms. Same 蔵 you just learned, with a flesh radical." },
+        { id: "ja-u180l4-taku", type: "kanji", front: "宅", reading: "taku", meaning: "residence", example: { jp: "自宅から 会社まで、歩いて 二十分です。", en: "It's twenty minutes on foot from home to the office." }, accept: ["one's house", "home (formal)"], hint: "宅 = 宀 (roof) + 乇. お宅 is also a polite 'your house' — and, in slang, someone who never leaves it." },
+        { id: "ja-u180l4-tan", type: "kanji", front: "誕", reading: "tan", meaning: "birth", example: { jp: "その 会社の 誕生は、百年 前です。", en: "That company came into being a hundred years ago." }, accept: ["being born", "coming into existence"], hint: "誕 = 言 + 延 — the word that announces a birth. 誕生日 is the only place most learners meet it." },
+        { id: "ja-u180l4-atatakai", type: "kanji", front: "暖", reading: "atatakai", meaning: "warm (of air)", example: { jp: "今年の 冬は 暖かくて、雪が 少ないです。", en: "This winter is mild and there is little snow." }, accept: ["mild", "warmth"], hint: "暖 is warm AIR — a room, a winter. 温 is warm WATER or a warm thing you touch. The radical tells you: 日 for air, 氵 for liquid." },
+        { id: "ja-u180l4-jitaku", type: "vocab", front: "自宅", reading: "jitaku", meaning: "one's own home", example: { jp: "自宅で 仕事を する 日が、少しずつ ふえました。", en: "Days working from my own home have gradually increased." }, accept: ["home", "one's residence"] },
+        { id: "ja-u180l4-danryu", type: "vocab", front: "暖流", reading: "danryū", meaning: "a warm current", example: { jp: "暖流の おかげで、この 島は 冬でも あたたかいです。", en: "Thanks to the warm current, this island is mild even in winter." }, accept: ["warm sea current"] },
+      ],
+    },
   ],
 };
