@@ -6,7 +6,7 @@
 import { supabase, isCloudConfigured } from "../lib/supabase.js";
 import { useStore } from "./useStore.js";
 import { PERSIST_VERSION, migrateState } from "./migrate.js";
-import { chooseSource, extractProgress } from "./sync.js";
+import { chooseSource, extractProgress, hasMeaningfulProgress } from "./sync.js";
 
 const DEBOUNCE_MS = 1500;
 
@@ -14,6 +14,12 @@ let currentUser = null;
 let lastSerialized = null;
 let applyingCloud = false; // guards the pull → setState → subscription loop
 let uploadTimer = null;
+// Whether the cloud row is known to hold real progress. Seeded from the fetch at
+// sign-in and kept current on every push/pull. It's the safety interlock that stops
+// a transient EMPTY local (a hot-reload reset, a mid-boot fresh seed, a torn tab)
+// from being uploaded over a real profile — chooseSource only runs at sign-in, so
+// the debounced upload path needs its own guard. See uploadNow / pullFromCloud.
+let cloudHasProgress = false;
 
 function blobNow() {
   return extractProgress(useStore.getState());
@@ -33,6 +39,17 @@ async function fetchCloud(userId) {
 async function uploadNow() {
   if (!currentUser) return;
   const blob = blobNow();
+  // SAFETY INTERLOCK: never overwrite a cloud that holds real progress with an
+  // empty/torn local state. This path fires debounced on ANY store change — a
+  // hot-reload reset, a fresh seed before the sign-in pull lands, a cleared tab —
+  // and chooseSource only guards sign-in, so without this a transient empty local
+  // silently WIPES the learner's cloud save (which is exactly what happened once).
+  // A genuinely new user (cloud empty → cloudHasProgress false) still pushes fine.
+  if (!hasMeaningfulProgress(blob) && cloudHasProgress) {
+    console.warn("[sync] refused to upload an empty profile over a cloud with real progress");
+    useStore.getState().setAuth({ status: "synced", error: null });
+    return;
+  }
   lastSerialized = JSON.stringify(blob);
   const { error } = await supabase.from("progress").upsert({
     user_id: currentUser.id,
@@ -40,6 +57,7 @@ async function uploadNow() {
     version: PERSIST_VERSION,
     updated_at: new Date().toISOString(),
   });
+  if (!error) cloudHasProgress = hasMeaningfulProgress(blob);
   useStore.getState().setAuth(
     error ? { status: "error", error: error.message } : { status: "synced", error: null }
   );
@@ -82,6 +100,9 @@ async function onSignIn(u) {
   }
   try {
     const cloud = await fetchCloud(u.id);
+    // Seed the safety interlock from the real cloud state BEFORE any local write can
+    // fire an upload — this is what protects a real cloud from a torn local.
+    cloudHasProgress = hasMeaningfulProgress(cloud?.blob);
     const local = { updatedAt: useStore.getState().lastModified ?? 0, blob: blobNow() };
     const decision = chooseSource(local, cloud);
     if (decision === "pull" && cloud) {
@@ -91,6 +112,7 @@ async function onSignIn(u) {
       useStore.getState().hydrateFromCloud(blob);
       lastSerialized = JSON.stringify(blobNow());
       applyingCloud = false;
+      cloudHasProgress = hasMeaningfulProgress(blob);
       useStore.getState().setAuth({ status: "synced" });
     } else {
       await uploadNow(); // push — also creates the row on first sign-in
@@ -118,12 +140,21 @@ async function pullFromCloud() {
     const localAt = Number(useStore.getState().lastModified) || 0;
     const cloudAt = Number(cloud.updatedAt) || 0;
     if (cloudAt <= localAt) return; // local is same-or-newer — nothing to pull
+    // SAFETY INTERLOCK: never pull an empty cloud over a local that has real
+    // progress, even when the cloud row is newer (an empty profile pushed from a
+    // torn session carries a fresh timestamp). Protects this device from a remote
+    // wipe — the mirror of the uploadNow guard.
+    if (!hasMeaningfulProgress(cloud.blob) && hasMeaningfulProgress(blobNow())) {
+      console.warn("[sync] refused to pull an empty cloud over local real progress");
+      return;
+    }
     let blob = cloud.blob;
     if ((cloud.version ?? 1) < PERSIST_VERSION) blob = migrateState({ ...blob }, cloud.version);
     applyingCloud = true;
     useStore.getState().hydrateFromCloud(blob);
     lastSerialized = JSON.stringify(blobNow());
     applyingCloud = false;
+    cloudHasProgress = hasMeaningfulProgress(blob);
     useStore.getState().setAuth({ status: "synced" });
   } catch {
     /* offline / transient — try again on the next focus */
@@ -133,6 +164,7 @@ async function pullFromCloud() {
 function onSignOut() {
   currentUser = null;
   clearTimeout(uploadTimer);
+  cloudHasProgress = false; // re-seeded from the fetch on the next sign-in
   // Local progress stays as the offline cache; next sign-in re-syncs it. Reset
   // initialSyncDone so the next sign-in waits out ITS first pull before the
   // onboarding gate decides anything.
