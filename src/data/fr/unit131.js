@@ -1,5 +1,5 @@
 // FR Unit 131 — Matières et objets ("Materials and stuff") — B2
-// Strand D, coverage unit 11 of 13 (block 3, units 121-133). Generic slot
+// Strand D, the fourteenth B2 vocabulary slot (block 3, units 121-133). Generic slot
 // "Vocabulary 14 (B2)"; given a real theme — DEVIATION FROM THE SLOT NAME ONLY.
 //
 // ONE LEVEL ABOVE THE SLOT: A2+B1 teach the common materials (le bois, le fer, le
