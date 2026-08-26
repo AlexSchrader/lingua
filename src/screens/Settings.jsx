@@ -459,33 +459,42 @@ export default function Settings() {
             </button>
             {/* The panel previews one screen at a time; this previews the APP. Pick a
                 language and you drop into the REAL app AS a learner of that one — Today,
-                Ladder, lessons, Stats, every screen, real navigation — on a separate
-                localStorage key, so nothing touches the deck you actually study on. Each
-                language starts alone at B2 so every band/screen is reachable without
-                grinding. "All languages" starts every live one (active on the first) to
-                feel the multi-language switcher. */}
+                Ladder, lessons, Stats, every screen, real navigation, and its own accent
+                theme — on a separate localStorage key, so nothing touches the deck you
+                actually study on. EVERY catalog language is here so you can feel each
+                one's look; live ones start at B2 with real content, planned ones show the
+                themed shell ("no content yet"). "All languages" starts every live one
+                (active on the first) to feel the multi-language switcher. */}
             <div style={{ fontSize: 12, fontWeight: 700, color: C.inkSoft, textTransform: "uppercase", letterSpacing: 0.4, padding: "2px 2px 0" }}>
               Preview the app (throwaway profile)
             </div>
-            {LANGUAGES.filter((l) => isLive(l.id)).map((l) => (
-              <button
-                key={l.id}
-                onClick={() =>
-                  enterPreview(
-                    buildPreviewState({
-                      langs: [l.id],
-                      catalog: LANGUAGES,
-                      version: PERSIST_VERSION,
-                    })
-                  )
-                }
-                style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.line}`, background: C.surface, color: C.ink, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
-              >
-                <span style={{ fontSize: 18 }}>{l.flag}</span>
-                <span style={{ flex: 1, textAlign: "left" }}>Preview the {l.name} app</span>
-                <ChevronRight size={18} />
-              </button>
-            ))}
+            {[...LANGUAGES]
+              .sort((a, b) => (isLive(b.id) ? 1 : 0) - (isLive(a.id) ? 1 : 0))
+              .map((l) => {
+                const live = isLive(l.id);
+                return (
+                  <button
+                    key={l.id}
+                    onClick={() =>
+                      enterPreview(
+                        buildPreviewState({
+                          langs: [l.id],
+                          catalog: LANGUAGES,
+                          version: PERSIST_VERSION,
+                        })
+                      )
+                    }
+                    style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.line}`, background: C.surface, color: live ? C.ink : C.inkSoft, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+                  >
+                    <span style={{ fontSize: 18 }}>{l.flag}</span>
+                    <span style={{ flex: 1, textAlign: "left" }}>
+                      Preview the {l.name} app
+                      {!live && <span style={{ color: C.inkSoft, fontWeight: 600 }}> · no content yet</span>}
+                    </span>
+                    <ChevronRight size={18} />
+                  </button>
+                );
+              })}
             <button
               onClick={() =>
                 enterPreview(

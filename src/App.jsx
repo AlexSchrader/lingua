@@ -16,7 +16,7 @@ import Mascot from "./components/Mascot.jsx";
 import MilestoneToast from "./components/MilestoneToast.jsx";
 import { useStore } from "./store/useStore.js";
 import { scheduleDailyReminder, notificationPermission } from "./lib/reminders.js";
-import { C, F, setActiveTheme, resolveTheme } from "./theme.js";
+import { C, F, setActiveTheme, setActiveLang, resolveTheme } from "./theme.js";
 
 // Lazy-loaded: the ElevenLabs voice SDK is heavy (~500KiB) and only needed on
 // the Haruki tab, so keep it out of the main bundle until the user opens it.
@@ -72,6 +72,10 @@ export default function App() {
   const systemDark = useSystemDark();
   const effectiveTheme = resolveTheme(themePref, systemDark);
   setActiveTheme(effectiveTheme);
+  // The accent colour follows the language you're studying (see theme.js). Set it
+  // in the same pass as the palette so children read the right accent this render.
+  const activeLang = useStore((s) => s.profile?.activeLang);
+  setActiveLang(activeLang);
   useEffect(() => {
     document.documentElement.style.colorScheme = effectiveTheme;
     document.body.style.background = C.washi;

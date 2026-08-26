@@ -38,11 +38,85 @@ const PALETTES = {
   },
 };
 
+// --- Per-language accent -----------------------------------------------------
+// The app has ONE accent identity (the `ai` blue + its deep/soft variants). We
+// shift ONLY that accent per active language, leaving every neutral (washi paper,
+// ink, lines, locked, plus the semantic shu/matcha) shared — so readability and the
+// paper aesthetic stay constant and only the "colour of the app" changes.
+//
+// Each language is one hue; the accent is DERIVED at saturation/lightness targets
+// calibrated to the original Japanese palette, so ja reproduces its exact colours
+// and every other hue gets the same muted, tasteful feel (no per-hue hand-tuning to
+// drift). A language with no hue here — and ja itself — falls through to the base
+// palette unchanged, so this can never alter the established Japanese look.
+const LANG_HUE = {
+  es: 8,    // Spain — warm terracotta red
+  fr: 226,  // France — royal blue
+  de: 44,   // Germany — gold
+  it: 150,  // Italy — green
+  pt: 168,  // Portugal — teal-green
+  no: 348,  // Norway — rose red
+  sv: 205,  // Sweden — sky blue
+  nl: 26,   // Netherlands — orange
+  pl: 342,  // Poland — crimson
+  tr: 358,  // Türkiye — red
+  id: 12,   // Indonesia — red
+  vi: 48,   // Vietnam — gold
+  ko: 190,  // Korea — teal
+  ru: 234,  // Russia — blue
+  sw: 128,  // Swahili — green
+  yo: 96,   // Yoruba — olive green
+  tw: 40,   // Twi — Ghana gold
+  zh: 4,    // Mandarin — red
+  hi: 30,   // Hindi — saffron
+};
+
+// [saturation, lightness] per accent token per mode — read off the original ja
+// palette so hue 217 here reproduces the existing #2A4A7B / #1E3559 / #E5EAF2 etc.
+const ACCENT_SL = {
+  light: { ai: [49, 33], aiDeep: [48, 23], aiSoft: [33, 92] },
+  dark: { ai: [53, 57], aiDeep: [60, 75], aiSoft: [35, 21] },
+};
+const ACCENT_KEYS = new Set(["ai", "aiDeep", "aiSoft"]);
+
+// HSL → #rrggbb (concrete hex, so canvas/SVG/alpha-string usages keep working).
+function hslHex(h, s, l) {
+  s /= 100;
+  l /= 100;
+  const k = (n) => (n + h / 30) % 12;
+  const a = s * Math.min(l, 1 - l);
+  const f = (n) => {
+    const c = l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1));
+    return Math.round(255 * c).toString(16).padStart(2, "0");
+  };
+  return `#${f(0)}${f(8)}${f(4)}`;
+}
+
+// The three accent tokens for a language + mode, or null to use the base palette
+// (ja and any unlisted language → unchanged).
+function accentFor(lang, mode) {
+  const h = LANG_HUE[lang];
+  if (!h) return null;
+  const sl = ACCENT_SL[mode];
+  return {
+    ai: hslHex(h, sl.ai[0], sl.ai[1]),
+    aiDeep: hslHex(h, sl.aiDeep[0], sl.aiDeep[1]),
+    aiSoft: hslHex(h, sl.aiSoft[0], sl.aiSoft[1]),
+  };
+}
+
 let _theme = "light";
+let _lang = null;
 
 // Set the active palette. Safe to call in render (idempotent module write).
 export function setActiveTheme(name) {
   if (PALETTES[name]) _theme = name;
+}
+
+// Set the active language, which recolours the accent. null / unlisted / ja keeps
+// the base palette. Safe to call in render.
+export function setActiveLang(lang) {
+  _lang = lang || null;
 }
 
 // Resolve a preference (light|dark|system) + the OS dark flag to a palette name.
@@ -54,7 +128,16 @@ export function resolveTheme(pref, systemDark) {
 
 export const C = {};
 for (const key of Object.keys(PALETTES.light)) {
-  Object.defineProperty(C, key, { enumerable: true, get: () => PALETTES[_theme][key] });
+  Object.defineProperty(C, key, {
+    enumerable: true,
+    get: () => {
+      if (ACCENT_KEYS.has(key)) {
+        const a = accentFor(_lang, _theme);
+        if (a) return a[key];
+      }
+      return PALETTES[_theme][key];
+    },
+  });
 }
 
 export const F = {
