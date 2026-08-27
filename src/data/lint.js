@@ -96,6 +96,18 @@ export const SCAFFOLD_TITLES = new Set([
   "Grammar 7 — passive, causative, indirect",
   "Grammar 8 — nuance, evidentiality, nominalization",
   "Register 1 — polite vs plain", "Register 2 — softening and formality",
+  // B2
+  "Argument and persuasion", "Evidence and sources", "Systems and abstraction",
+  "Nuance and degree", "Politics and law", "Business and negotiation",
+  "Science and technology", "History and culture", "Arts and criticism",
+  "Ethics and responsibility", "Risk and uncertainty", "Identity and society",
+  "Career and organisations", "Environment and the global", "Health systems and care",
+  "Education and research", "Media and narrative", "Emotion, subtle and mixed",
+  "Grammar 9 — conditional nuance and counterfactuals",
+  "Grammar 10 — formal written structures",
+  "Grammar 11 — discourse, cohesion, hedged claims",
+  "Register 3 — 敬語: humble and honorific",
+  "Register 4 — written, public and institutional voice",
 ]);
 // The formulaic ones the scaffold builds by counter rather than from a list.
 const SCAFFOLD_TITLE_PATTERNS = [
