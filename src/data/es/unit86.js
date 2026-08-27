@@ -1,18 +1,80 @@
-// ES Unit 86 — Vocabulary 13 (B1) (slot: coverage-b1-13) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// ES Unit 86 — Conceptos y procesos ("Concepts and processes") — B1 COVERAGE (slot: coverage-b1-13)
+// The abstract "thinking" vocabulary B1 argument needs: process, cause, concept,
+// progress. Conventions + BLOCK-3 SCOPE: see es/unit77.js.
 export const ES_UNIT86 = {
   id: "es-u86",
   lang: "es",
-  title: "Vocabulary 13 (B1)",
+  title: "Conceptos y procesos",
   order: 86,
   stage: "b1",
   lessons: [
-    { id: "es-u86l1", title: "Lesson 1", locked: true },
-    { id: "es-u86l2", title: "Lesson 2", locked: true },
-    { id: "es-u86l3", title: "Lesson 3", locked: true },
-    { id: "es-u86l4", title: "Lesson 4", locked: true },
+    {
+      id: "es-u86l1",
+      unit: 86,
+      lesson: 1,
+      title: "El proceso, el método, la fase",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about how things work: process, system, method, technique, phase and structure.",
+      items: [
+        { id: "es-u86l1-elproceso", type: "vocab", front: "el proceso", reading: "elproceso", meaning: "the process", example: { jp: "Es un proceso largo y difícil.", en: "It's a long and difficult process." }, accept: ["process", "procedure"], hint: "A series of steps. El proceso de aprender = the process of learning." },
+        { id: "es-u86l1-elsistema", type: "vocab", front: "el sistema", reading: "elsistema", meaning: "the system", example: { jp: "El sistema es muy complejo.", en: "The system is very complex." }, accept: ["system"], hint: "Masculine despite the -a (like el problema): un sistema. Plural sistemas." },
+        { id: "es-u86l1-elmetodo", type: "vocab", front: "el método", reading: "elmetodo", meaning: "the method", example: { jp: "Usa un método nuevo.", en: "He uses a new method." }, accept: ["method", "way"], hint: "A way of doing something. Accent on the é. Metódico = methodical." },
+        { id: "es-u86l1-latecnica", type: "vocab", front: "la técnica", reading: "latecnica", meaning: "the technique", example: { jp: "Aprende una nueva técnica.", en: "She's learning a new technique." }, accept: ["technique", "skill"], hint: "A specific way of doing something well. Técnico = technical / a technician." },
+        { id: "es-u86l1-lafase", type: "vocab", front: "la fase", reading: "lafase", meaning: "the phase / stage", example: { jp: "Es una fase difícil.", en: "It's a difficult phase." }, accept: ["phase", "stage"], hint: "Ends in -e. A stage in a process. A close friend of la etapa." },
+        { id: "es-u86l1-laestructura", type: "vocab", front: "la estructura", reading: "laestructura", meaning: "the structure", example: { jp: "Tiene una estructura simple.", en: "It has a simple structure." }, accept: ["structure", "framework"], hint: "How the parts are arranged. Estructural = structural." },
+      ],
+    },
+    {
+      id: "es-u86l2",
+      unit: 86,
+      lesson: 2,
+      title: "El efecto, el motivo, el factor",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about cause and effect: effect, consequence, motive, purpose, function and factor.",
+      items: [
+        { id: "es-u86l2-elefecto", type: "vocab", front: "el efecto", reading: "elefecto", meaning: "the effect", example: { jp: "Tiene un buen efecto.", en: "It has a good effect." }, accept: ["effect", "impact"], hint: "The result of a cause. En efecto = indeed. Efectos secundarios = side effects." },
+        { id: "es-u86l2-laconsecuencia", type: "vocab", front: "la consecuencia", reading: "laconsecuencia", meaning: "the consequence", example: { jp: "Hay que pensar en las consecuencias.", en: "You have to think about the consequences." }, accept: ["consequence", "result"], hint: "What follows from an action. A consecuencia de = as a result of." },
+        { id: "es-u86l2-elmotivo", type: "vocab", front: "el motivo", reading: "elmotivo", meaning: "the reason / motive", example: { jp: "No entiendo el motivo.", en: "I don't understand the reason." }, accept: ["reason", "motive", "cause"], hint: "The reason behind an action. Con motivo de = on the occasion of." },
+        { id: "es-u86l2-elproposito", type: "vocab", front: "el propósito", reading: "elproposito", meaning: "the purpose / aim", example: { jp: "¿Cuál es el propósito de esto?", en: "What's the purpose of this?" }, accept: ["purpose", "aim", "intention"], hint: "The aim behind something. A propósito = on purpose / by the way." },
+        { id: "es-u86l2-lafuncion", type: "vocab", front: "la función", reading: "lafuncion", meaning: "the function / role", example: { jp: "Cada parte tiene su función.", en: "Each part has its function." }, accept: ["function", "role", "show"], hint: "A role or job. Also a performance/show: la función de teatro. Plural funciones." },
+        { id: "es-u86l2-elfactor", type: "vocab", front: "el factor", reading: "elfactor", meaning: "the factor", example: { jp: "El dinero es un factor importante.", en: "Money is an important factor." }, accept: ["factor", "element"], hint: "One thing that affects a result. Un factor clave = a key factor." },
+      ],
+    },
+    {
+      id: "es-u86l3",
+      unit: 86,
+      lesson: 3,
+      title: "El concepto, la teoría, la base",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about ideas: concept, theory, principle, base, foundation and criterion.",
+      items: [
+        { id: "es-u86l3-elconcepto", type: "vocab", front: "el concepto", reading: "elconcepto", meaning: "the concept", example: { jp: "Es un concepto difícil.", en: "It's a difficult concept." }, accept: ["concept", "idea", "notion"], hint: "An abstract idea. Tener un buen concepto de = to think well of." },
+        { id: "es-u86l3-lateoria", type: "vocab", front: "la teoría", reading: "lateoria", meaning: "the theory", example: { jp: "Es solo una teoría.", en: "It's only a theory." }, accept: ["theory"], hint: "Accent on the í. En teoría = in theory (as opposed to in practice)." },
+        { id: "es-u86l3-elprincipio", type: "vocab", front: "el principio", reading: "elprincipio", meaning: "the principle / beginning", example: { jp: "Es un buen principio.", en: "It's a good principle." }, accept: ["principle", "beginning", "start"], hint: "A rule you live by, OR a beginning: al principio = at the beginning. En principio = in principle." },
+        { id: "es-u86l3-labase", type: "vocab", front: "la base", reading: "labase", meaning: "the base / basis", example: { jp: "Es la base de todo.", en: "It's the basis of everything." }, accept: ["base", "basis", "foundation"], hint: "Ends in -e. A base de = based on / by means of. Datos de base = baseline data." },
+        { id: "es-u86l3-elfundamento", type: "vocab", front: "el fundamento", reading: "elfundamento", meaning: "the foundation / grounds", example: { jp: "No tiene fundamento.", en: "It has no basis." }, accept: ["basis", "grounds", "foundation"], hint: "The solid grounds for a claim. Sin fundamento = groundless." },
+        { id: "es-u86l3-elcriterio", type: "vocab", front: "el criterio", reading: "elcriterio", meaning: "the judgement / criterion", example: { jp: "Tiene buen criterio.", en: "She has good judgement." }, accept: ["judgement", "criterion", "standard"], hint: "Good sense in deciding, or a standard for judging. Plural criterios." },
+      ],
+    },
+    {
+      id: "es-u86l4",
+      unit: 86,
+      lesson: 4,
+      title: "El desarrollo, el avance, la mejora",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about progress: development, progress, improvement, advance, evolution and element.",
+      items: [
+        { id: "es-u86l4-eldesarrollo", type: "vocab", front: "el desarrollo", reading: "eldesarrollo", meaning: "the development", example: { jp: "El desarrollo es importante.", en: "Development is important." }, accept: ["development", "growth"], hint: "From desarrollar (u78). El desarrollo económico = economic development." },
+        { id: "es-u86l4-elprogreso", type: "vocab", front: "el progreso", reading: "elprogreso", meaning: "the progress", example: { jp: "Hay mucho progreso.", en: "There's a lot of progress." }, accept: ["progress", "advancement"], hint: "Moving forward. Hacer progresos = to make progress." },
+        { id: "es-u86l4-lamejora", type: "vocab", front: "la mejora", reading: "lamejora", meaning: "the improvement", example: { jp: "Es una gran mejora.", en: "It's a big improvement." }, accept: ["improvement", "upgrade"], hint: "From mejorar. A change for the better. A close friend of la mejoría (of health)." },
+        { id: "es-u86l4-elavance", type: "vocab", front: "el avance", reading: "elavance", meaning: "the advance / breakthrough", example: { jp: "Es un gran avance.", en: "It's a great advance." }, accept: ["advance", "breakthrough", "progress"], hint: "Ends in -e. From avanzar (to advance). Los avances de la ciencia = advances in science." },
+        { id: "es-u86l4-laevolucion", type: "vocab", front: "la evolución", reading: "laevolucion", meaning: "the evolution", example: { jp: "La evolución fue rápida.", en: "The evolution was fast." }, accept: ["evolution", "development"], hint: "Gradual change over time. From evolucionar. Plural evoluciones." },
+        { id: "es-u86l4-elelemento", type: "vocab", front: "el elemento", reading: "elelemento", meaning: "the element", example: { jp: "Es un elemento importante.", en: "It's an important element." }, accept: ["element", "component", "part"], hint: "One part of a whole. Los elementos = the elements (weather, or basics)." },
+      ],
+    },
   ],
 };
