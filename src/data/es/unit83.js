@@ -1,18 +1,80 @@
-// ES Unit 83 — Vocabulary 10 (B1) (slot: coverage-b1-10) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// ES Unit 83 — Sociedad y política ("Society and politics") — B1 COVERAGE (slot: coverage-b1-10)
+// B1 nouns for society, the state and the law — the vocabulary of news and debate.
+// Conventions + BLOCK-3 SCOPE: see es/unit77.js.
 export const ES_UNIT83 = {
   id: "es-u83",
   lang: "es",
-  title: "Vocabulary 10 (B1)",
+  title: "Sociedad y política",
   order: 83,
   stage: "b1",
   lessons: [
-    { id: "es-u83l1", title: "Lesson 1", locked: true },
-    { id: "es-u83l2", title: "Lesson 2", locked: true },
-    { id: "es-u83l3", title: "Lesson 3", locked: true },
-    { id: "es-u83l4", title: "Lesson 4", locked: true },
+    {
+      id: "es-u83l1",
+      unit: 83,
+      lesson: 1,
+      title: "La población, la justicia, la economía",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about society: population, rule, justice, economy, democracy and authority.",
+      items: [
+        { id: "es-u83l1-lapoblacion", type: "vocab", front: "la población", reading: "lapoblacion", meaning: "the population", example: { jp: "La población de la ciudad crece mucho.", en: "The city's population is growing a lot." }, accept: ["population", "the people"], hint: "The people of a place. From el pueblo. Plural poblaciones." },
+        { id: "es-u83l1-lanorma", type: "vocab", front: "la norma", reading: "lanorma", meaning: "the rule / norm", example: { jp: "Es una norma importante.", en: "It's an important rule." }, accept: ["rule", "standard", "norm"], hint: "A rule everyone follows. Por norma general = as a general rule. A close friend of la regla." },
+        { id: "es-u83l1-lajusticia", type: "vocab", front: "la justicia", reading: "lajusticia", meaning: "the justice", example: { jp: "Todos quieren justicia.", en: "Everyone wants justice." }, accept: ["justice", "fairness"], hint: "From justo (fair). Also the justice system: la justicia = the courts." },
+        { id: "es-u83l1-laeconomia", type: "vocab", front: "la economía", reading: "laeconomia", meaning: "the economy", example: { jp: "La economía del país va mal.", en: "The country's economy is doing badly." }, accept: ["economy", "economics"], hint: "Accent on the í. Also personal finances: mi economía = my finances." },
+        { id: "es-u83l1-lademocracia", type: "vocab", front: "la democracia", reading: "lademocracia", meaning: "the democracy", example: { jp: "La democracia es muy importante.", en: "Democracy is very important." }, accept: ["democracy"], hint: "Government by the people. Democrático = democratic." },
+        { id: "es-u83l1-laautoridad", type: "vocab", front: "la autoridad", reading: "laautoridad", meaning: "the authority", example: { jp: "Hay que respetar la autoridad.", en: "You must respect authority." }, accept: ["authority", "the authorities"], hint: "Power over others, or the officials themselves: las autoridades = the authorities." },
+      ],
+    },
+    {
+      id: "es-u83l2",
+      unit: 83,
+      lesson: 2,
+      title: "La guerra, la paz, el acuerdo",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about conflict and agreement: war, peace, power, agreement, conflict and crisis.",
+      items: [
+        { id: "es-u83l2-laguerra", type: "vocab", front: "la guerra", reading: "laguerra", meaning: "the war", example: { jp: "La guerra causó mucho dolor.", en: "The war caused a lot of pain." }, accept: ["war"], hint: "The opposite of la paz. Guerra civil = civil war." },
+        { id: "es-u83l2-lapaz", type: "vocab", front: "la paz", reading: "lapaz", meaning: "the peace", example: { jp: "Todos queremos vivir en paz.", en: "We all want to live in peace." }, accept: ["peace", "quiet"], hint: "Plural paces. Déjame en paz = leave me alone / in peace." },
+        { id: "es-u83l2-elpoder", type: "vocab", front: "el poder", reading: "elpoder", meaning: "the power", example: { jp: "El poder cambia a la gente.", en: "Power changes people." }, accept: ["power", "might"], hint: "The noun from the verb poder (u13). Estar en el poder = to be in power." },
+        { id: "es-u83l2-elacuerdo", type: "vocab", front: "el acuerdo", reading: "elacuerdo", meaning: "the agreement", example: { jp: "Llegamos a un acuerdo.", en: "We reached an agreement." }, accept: ["agreement", "deal"], hint: "Estar de acuerdo = to agree. Llegar a un acuerdo = to reach a deal. ¡De acuerdo! = OK!" },
+        { id: "es-u83l2-elconflicto", type: "vocab", front: "el conflicto", reading: "elconflicto", meaning: "the conflict", example: { jp: "Quieren resolver el conflicto.", en: "They want to resolve the conflict." }, accept: ["conflict", "dispute", "clash"], hint: "A serious disagreement. From the same root as \"conflict\"." },
+        { id: "es-u83l2-lacrisis", type: "vocab", front: "la crisis", reading: "lacrisis", meaning: "the crisis", example: { jp: "El país está en crisis.", en: "The country is in crisis." }, accept: ["crisis"], hint: "Same in singular and plural: la crisis, las crisis. Crisis económica = economic crisis." },
+      ],
+    },
+    {
+      id: "es-u83l3",
+      unit: 83,
+      lesson: 3,
+      title: "El partido, el voto, la huelga",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about politics: party, vote, strike, union, corruption and protest.",
+      items: [
+        { id: "es-u83l3-elpartido", type: "vocab", front: "el partido", reading: "elpartido", meaning: "the party / match", example: { jp: "Hay muchos partidos en el país.", en: "There are many parties in the country." }, accept: ["political party", "match", "game"], hint: "A political party AND a sports match: el partido de fútbol." },
+        { id: "es-u83l3-elvoto", type: "vocab", front: "el voto", reading: "elvoto", meaning: "the vote", example: { jp: "Cada voto es importante.", en: "Every vote is important." }, accept: ["vote", "ballot"], hint: "The verb is votar. El derecho al voto = the right to vote." },
+        { id: "es-u83l3-lahuelga", type: "vocab", front: "la huelga", reading: "lahuelga", meaning: "the strike", example: { jp: "Hay una huelga hoy.", en: "There's a strike today." }, accept: ["strike", "walkout"], hint: "Estar en huelga = to be on strike. The h is silent." },
+        { id: "es-u83l3-elsindicato", type: "vocab", front: "el sindicato", reading: "elsindicato", meaning: "the (trade) union", example: { jp: "El sindicato es muy fuerte.", en: "The union is very strong." }, accept: ["union", "trade union", "labor union"], hint: "The organization that defends workers. Different from a company." },
+        { id: "es-u83l3-lacorrupcion", type: "vocab", front: "la corrupción", reading: "lacorrupcion", meaning: "the corruption", example: { jp: "La corrupción es un gran problema.", en: "Corruption is a big problem." }, accept: ["corruption"], hint: "Dishonest use of power. Corrupto = corrupt." },
+        { id: "es-u83l3-lamanifestacion", type: "vocab", front: "la manifestación", reading: "lamanifestacion", meaning: "the demonstration / protest", example: { jp: "Hay una manifestación en la calle.", en: "There's a protest in the street." }, accept: ["demonstration", "protest", "rally"], hint: "A public protest. Also \"a show/sign\" of something. Plural manifestaciones." },
+      ],
+    },
+    {
+      id: "es-u83l4",
+      unit: 83,
+      lesson: 4,
+      title: "El delito, la víctima, el juez",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about crime and law: offence, victim, witness, judge, crime and prison.",
+      items: [
+        { id: "es-u83l4-eldelito", type: "vocab", front: "el delito", reading: "eldelito", meaning: "the offence / crime", example: { jp: "No es un gran delito.", en: "It's not a big crime." }, accept: ["crime", "offence"], hint: "A punishable act. Cometer un delito = to commit an offence. A crimen is usually more serious." },
+        { id: "es-u83l4-lavictima", type: "vocab", front: "la víctima", reading: "lavictima", meaning: "the victim", example: { jp: "Ayudan a las víctimas.", en: "They help the victims." }, accept: ["victim", "casualty"], hint: "Always feminine, even for a man: él fue la víctima. Accent on the í." },
+        { id: "es-u83l4-eltestigo", type: "vocab", front: "el testigo", reading: "eltestigo", meaning: "the witness", example: { jp: "Es el único testigo.", en: "He's the only witness." }, accept: ["witness", "bystander"], hint: "Someone who sees an event. Ser testigo de = to witness something." },
+        { id: "es-u83l4-eljuez", type: "vocab", front: "el juez", reading: "eljuez", meaning: "the judge", example: { jp: "El juez decide el caso.", en: "The judge decides the case." }, accept: ["judge"], hint: "Plural jueces. Feminine la jueza or la juez. From juzgar (to judge)." },
+        { id: "es-u83l4-elcrimen", type: "vocab", front: "el crimen", reading: "elcrimen", meaning: "the crime", example: { jp: "Es un crimen terrible.", en: "It's a terrible crime." }, accept: ["crime", "murder"], hint: "A serious crime, often a violent one. Plural crímenes (accent moves)." },
+        { id: "es-u83l4-lacarcel", type: "vocab", front: "la cárcel", reading: "lacarcel", meaning: "the prison / jail", example: { jp: "Está en la cárcel.", en: "He's in prison." }, accept: ["prison", "jail"], hint: "Accent on the á. Ir a la cárcel = to go to prison. A close friend of la prisión." },
+      ],
+    },
   ],
 };

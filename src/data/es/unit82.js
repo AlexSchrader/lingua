@@ -1,18 +1,81 @@
-// ES Unit 82 — Vocabulary 9 (B1) (slot: coverage-b1-9) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// ES Unit 82 — Emociones y ánimo ("Emotions and mood") — B1 COVERAGE (slot: coverage-b1-9)
+// B1 abstract nouns for feeling and inner state, finer than A2's basic set.
+// Conventions + BLOCK-3 SCOPE: see es/unit77.js. Verbs used in examples (controlar,
+// expresar, sentir, respetar…) are taught in this block at or before this unit, or A1/A2.
 export const ES_UNIT82 = {
   id: "es-u82",
   lang: "es",
-  title: "Vocabulary 9 (B1)",
+  title: "Emociones y ánimo",
   order: 82,
   stage: "b1",
   lessons: [
-    { id: "es-u82l1", title: "Lesson 1", locked: true },
-    { id: "es-u82l2", title: "Lesson 2", locked: true },
-    { id: "es-u82l3", title: "Lesson 3", locked: true },
-    { id: "es-u82l4", title: "Lesson 4", locked: true },
+    {
+      id: "es-u82l1",
+      unit: 82,
+      lesson: 1,
+      title: "La emoción, el temor, la rabia",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Name feelings: emotion, feeling, passion, fear, sadness and anger.",
+      items: [
+        { id: "es-u82l1-laemocion", type: "vocab", front: "la emoción", reading: "laemocion", meaning: "the emotion / excitement", example: { jp: "Es difícil controlar la emoción.", en: "It's hard to control the emotion." }, accept: ["emotion", "excitement", "feeling"], hint: "A strong feeling, or excitement: ¡qué emoción! = how exciting! Plural emociones." },
+        { id: "es-u82l1-elsentimiento", type: "vocab", front: "el sentimiento", reading: "elsentimiento", meaning: "the feeling", example: { jp: "No puede expresar sus sentimientos.", en: "He can't express his feelings." }, accept: ["feeling", "sentiment"], hint: "From sentir. A feeling held over time, deeper than a passing emoción." },
+        { id: "es-u82l1-lapasion", type: "vocab", front: "la pasión", reading: "lapasion", meaning: "the passion", example: { jp: "Siente pasión por la música.", en: "She feels passion for music." }, accept: ["passion"], hint: "A strong, driving feeling. Con pasión = passionately. Plural pasiones." },
+        { id: "es-u82l1-eltemor", type: "vocab", front: "el temor", reading: "eltemor", meaning: "the fear / dread", example: { jp: "Habla sin ningún temor.", en: "He speaks without any fear." }, accept: ["fear", "dread", "concern"], hint: "A more formal, quieter word than el miedo. Temor a / de algo." },
+        { id: "es-u82l1-latristeza", type: "vocab", front: "la tristeza", reading: "latristeza", meaning: "the sadness", example: { jp: "Siento una gran tristeza.", en: "I feel a great sadness." }, accept: ["sadness", "sorrow"], hint: "From triste (sad). The opposite of la alegría." },
+        { id: "es-u82l1-larabia", type: "vocab", front: "la rabia", reading: "larabia", meaning: "the rage / anger", example: { jp: "Me da mucha rabia esperar.", en: "Waiting makes me really angry." }, accept: ["anger", "fury"], hint: "Dar rabia = to make angry: me da rabia = it makes me mad. Also the disease rabies." },
+      ],
+    },
+    {
+      id: "es-u82l2",
+      unit: 82,
+      lesson: 2,
+      title: "La vergüenza, el orgullo, la ilusión",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Name social feelings: shame, jealousy, anguish, pride, envy and hope.",
+      items: [
+        { id: "es-u82l2-laverguenza", type: "vocab", front: "la vergüenza", reading: "laverguenza", meaning: "the shame / embarrassment", example: { jp: "Me da vergüenza hablar en público.", en: "I'm embarrassed to speak in public." }, accept: ["embarrassment", "shame"], hint: "Dar vergüenza = to embarrass: me da vergüenza. Note the ü (the u is pronounced)." },
+        { id: "es-u82l2-loscelos", type: "vocab", front: "los celos", reading: "loscelos", meaning: "the jealousy", example: { jp: "Los celos son un problema.", en: "Jealousy is a problem." }, accept: ["jealousy", "envy"], hint: "Always plural: tener celos = to be jealous. Celoso = jealous." },
+        { id: "es-u82l2-laangustia", type: "vocab", front: "la angustia", reading: "laangustia", meaning: "the anguish / distress", example: { jp: "Siente angustia por la situación.", en: "She feels distress about the situation." }, accept: ["distress", "anxiety", "anguish"], hint: "Deep worry or dread. Stronger than preocupación." },
+        { id: "es-u82l2-elorgullo", type: "vocab", front: "el orgullo", reading: "elorgullo", meaning: "the pride", example: { jp: "Habla con orgullo de su familia.", en: "He speaks with pride about his family." }, accept: ["pride"], hint: "Pride — the good kind or the arrogant kind. Orgulloso = proud." },
+        { id: "es-u82l2-laenvidia", type: "vocab", front: "la envidia", reading: "laenvidia", meaning: "the envy", example: { jp: "No siento envidia de nadie.", en: "I don't envy anyone." }, accept: ["envy", "jealousy"], hint: "From envidiar (u79). Dar envidia = to make envious. ¡Qué envidia! = I'm so jealous!" },
+        { id: "es-u82l2-lailusion", type: "vocab", front: "la ilusión", reading: "lailusion", meaning: "the hope / excitement", example: { jp: "Tiene mucha ilusión por el viaje.", en: "She's really excited about the trip." }, accept: ["excitement", "hope", "dream"], hint: "FALSE FRIEND: usually happy anticipation, not \"illusion\". Hacer ilusión = to look forward to." },
+      ],
+    },
+    {
+      id: "es-u82l3",
+      unit: 82,
+      lesson: 3,
+      title: "La calma, la actitud, la voluntad",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Name states of mind: calm, enthusiasm, attitude, will, memory and logic.",
+      items: [
+        { id: "es-u82l3-lacalma", type: "vocab", front: "la calma", reading: "lacalma", meaning: "the calm", example: { jp: "Necesito un poco de calma.", en: "I need a little calm." }, accept: ["calmness", "quiet"], hint: "¡Calma! = Calm down! Con calma = calmly, without rushing." },
+        { id: "es-u82l3-elentusiasmo", type: "vocab", front: "el entusiasmo", reading: "elentusiasmo", meaning: "the enthusiasm", example: { jp: "Trabaja con mucho entusiasmo.", en: "She works with a lot of enthusiasm." }, accept: ["eagerness", "keenness"], hint: "Con entusiasmo = enthusiastically. Entusiasmado = excited." },
+        { id: "es-u82l3-laactitud", type: "vocab", front: "la actitud", reading: "laactitud", meaning: "the attitude", example: { jp: "Tiene buena actitud en el trabajo.", en: "He has a good attitude at work." }, accept: ["attitude", "outlook"], hint: "How you approach something. Buena / mala actitud = good / bad attitude." },
+        { id: "es-u82l3-lavoluntad", type: "vocab", front: "la voluntad", reading: "lavoluntad", meaning: "the will", example: { jp: "Tiene mucha voluntad de aprender.", en: "He has a strong will to learn." }, accept: ["willpower", "wish"], hint: "The will to do something. Buena voluntad = goodwill. Fuerza de voluntad = willpower." },
+        { id: "es-u82l3-lamemoria", type: "vocab", front: "la memoria", reading: "lamemoria", meaning: "the memory", example: { jp: "Tengo buena memoria para los nombres.", en: "I have a good memory for names." }, accept: ["memory"], hint: "The faculty of memory (el recuerdo is a single memory). De memoria = by heart." },
+        { id: "es-u82l3-lalogica", type: "vocab", front: "la lógica", reading: "lalogica", meaning: "the logic", example: { jp: "No entiendo la lógica de esto.", en: "I don't understand the logic of this." }, accept: ["reasoning", "sense"], hint: "From lógico (u81). The reasoning behind something." },
+      ],
+    },
+    {
+      id: "es-u82l4",
+      unit: 82,
+      lesson: 4,
+      title: "La sensación, el instinto, el alma",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Name inner experience: sensation, gesture, soul, instinct, intuition and state.",
+      items: [
+        { id: "es-u82l4-lasensacion", type: "vocab", front: "la sensación", reading: "lasensacion", meaning: "the feeling / sensation", example: { jp: "Tengo una buena sensación.", en: "I have a good feeling." }, accept: ["sensation", "feeling", "impression"], hint: "A physical sensation or a gut feeling. Tengo la sensación de que… = I have a feeling that…" },
+        { id: "es-u82l4-elgesto", type: "vocab", front: "el gesto", reading: "elgesto", meaning: "the gesture / expression", example: { jp: "Hizo un gesto con la mano.", en: "He made a gesture with his hand." }, accept: ["gesture", "facial expression"], hint: "A movement of the hand or face. Un buen gesto = a kind gesture." },
+        { id: "es-u82l4-elalma", type: "vocab", front: "el alma", reading: "elalma", meaning: "the soul", example: { jp: "Lo siento en el alma.", en: "I'm truly sorry (I feel it in my soul)." }, accept: ["soul", "spirit"], hint: "Feminine, but takes el for the stressed a (like el agua): el alma, plural las almas." },
+        { id: "es-u82l4-elinstinto", type: "vocab", front: "el instinto", reading: "elinstinto", meaning: "the instinct", example: { jp: "Confía en su instinto.", en: "She trusts her instinct." }, accept: ["instinct", "gut"], hint: "A natural, unlearned reaction. Por instinto = by instinct." },
+        { id: "es-u82l4-laintuicion", type: "vocab", front: "la intuición", reading: "laintuicion", meaning: "the intuition", example: { jp: "Su intuición nunca falla.", en: "Her intuition never fails." }, accept: ["intuition", "hunch"], hint: "Knowing something without reasoning it out. A close friend of el instinto." },
+        { id: "es-u82l4-elestado", type: "vocab", front: "el estado", reading: "elestado", meaning: "the state / condition", example: { jp: "El estado del coche es malo.", en: "The car's condition is bad." }, accept: ["state", "condition", "the State"], hint: "The condition of something. Estado de ánimo = state of mind. El Estado = the State (government)." },
+      ],
+    },
   ],
 };

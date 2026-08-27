@@ -1,18 +1,79 @@
-// ES Unit 84 — Vocabulary 11 (B1) (slot: coverage-b1-11) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// ES Unit 84 — Trabajo y economía ("Work and economy") — B1 COVERAGE (slot: coverage-b1-11)
+// B1 nouns for employment, money and business. Conventions + BLOCK-3 SCOPE: see es/unit77.js.
 export const ES_UNIT84 = {
   id: "es-u84",
   lang: "es",
-  title: "Vocabulary 11 (B1)",
+  title: "Trabajo y economía",
   order: 84,
   stage: "b1",
   lessons: [
-    { id: "es-u84l1", title: "Lesson 1", locked: true },
-    { id: "es-u84l2", title: "Lesson 2", locked: true },
-    { id: "es-u84l3", title: "Lesson 3", locked: true },
-    { id: "es-u84l4", title: "Lesson 4", locked: true },
+    {
+      id: "es-u84l1",
+      unit: 84,
+      lesson: 1,
+      title: "El empleo, el salario, la deuda",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about money matters: job, salary, debt, loan, savings and tax.",
+      items: [
+        { id: "es-u84l1-elempleo", type: "vocab", front: "el empleo", reading: "elempleo", meaning: "the job / employment", example: { jp: "Busca un nuevo empleo.", en: "She's looking for a new job." }, accept: ["job", "employment", "work"], hint: "A more formal el trabajo. El empleado = the employee. Estar sin empleo = to be unemployed." },
+        { id: "es-u84l1-elsalario", type: "vocab", front: "el salario", reading: "elsalario", meaning: "the salary / wage", example: { jp: "El salario es muy bajo.", en: "The salary is very low." }, accept: ["wage", "pay"], hint: "A close friend of el sueldo. Salario mínimo = minimum wage." },
+        { id: "es-u84l1-ladeuda", type: "vocab", front: "la deuda", reading: "ladeuda", meaning: "the debt", example: { jp: "Tiene una gran deuda.", en: "He has a big debt." }, accept: ["debt"], hint: "Money owed. Tener deudas = to be in debt. From deber (to owe)." },
+        { id: "es-u84l1-elprestamo", type: "vocab", front: "el préstamo", reading: "elprestamo", meaning: "the loan", example: { jp: "Necesita un préstamo del banco.", en: "He needs a loan from the bank." }, accept: ["loan"], hint: "From prestar (to lend). Pedir un préstamo = to take out a loan." },
+        { id: "es-u84l1-elahorro", type: "vocab", front: "el ahorro", reading: "elahorro", meaning: "the saving(s)", example: { jp: "El ahorro es importante.", en: "Saving is important." }, accept: ["saving", "savings"], hint: "From ahorrar. Los ahorros = one's savings." },
+        { id: "es-u84l1-elimpuesto", type: "vocab", front: "el impuesto", reading: "elimpuesto", meaning: "the tax", example: { jp: "Hay que pagar el impuesto.", en: "You have to pay the tax." }, accept: ["tax", "duty"], hint: "Money paid to the State. Los impuestos = taxes." },
+      ],
+    },
+    {
+      id: "es-u84l2",
+      unit: 84,
+      lesson: 2,
+      title: "La factura, la inversión, la ganancia",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about business money: bill, budget, investment, profit, gain and trade.",
+      items: [
+        { id: "es-u84l2-lafactura", type: "vocab", front: "la factura", reading: "lafactura", meaning: "the bill / invoice", example: { jp: "Tengo que pagar la factura.", en: "I have to pay the bill." }, accept: ["invoice", "bill"], hint: "A formal bill for goods or services. La cuenta is the everyday restaurant bill." },
+        { id: "es-u84l2-elpresupuesto", type: "vocab", front: "el presupuesto", reading: "elpresupuesto", meaning: "the budget", example: { jp: "No tengo mucho presupuesto.", en: "I don't have much of a budget." }, accept: ["budget", "estimate"], hint: "The money set aside, or a price estimate: pedir un presupuesto = to ask for a quote." },
+        { id: "es-u84l2-lainversion", type: "vocab", front: "la inversión", reading: "lainversion", meaning: "the investment", example: { jp: "Es una buena inversión.", en: "It's a good investment." }, accept: ["investment"], hint: "From invertir (to invest). Plural inversiones." },
+        { id: "es-u84l2-elbeneficio", type: "vocab", front: "el beneficio", reading: "elbeneficio", meaning: "the profit / benefit", example: { jp: "La empresa tiene muchos beneficios.", en: "The company makes a lot of profit." }, accept: ["profit", "benefit", "gain"], hint: "Both financial profit and a general benefit/advantage." },
+        { id: "es-u84l2-laganancia", type: "vocab", front: "la ganancia", reading: "laganancia", meaning: "the gain / earnings", example: { jp: "La ganancia fue pequeña.", en: "The gain was small." }, accept: ["earnings", "profit", "winnings"], hint: "From ganar. The opposite is la pérdida (loss)." },
+        { id: "es-u84l2-elcomercio", type: "vocab", front: "el comercio", reading: "elcomercio", meaning: "the trade / business", example: { jp: "El comercio va bien este año.", en: "Trade is going well this year." }, accept: ["commerce", "trade", "shop"], hint: "Buying and selling in general, or a single shop. Comercial = commercial." },
+      ],
+    },
+    {
+      id: "es-u84l3",
+      unit: 84,
+      lesson: 3,
+      title: "La industria, el cargo, el plazo",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about the workplace: industry, workshop, post, working day, report and deadline.",
+      items: [
+        { id: "es-u84l3-laindustria", type: "vocab", front: "la industria", reading: "laindustria", meaning: "the industry", example: { jp: "La industria da mucho trabajo.", en: "Industry provides a lot of jobs." }, accept: ["industry"], hint: "Industrial = industrial. La industria del turismo = the tourism industry." },
+        { id: "es-u84l3-eltaller", type: "vocab", front: "el taller", reading: "eltaller", meaning: "the workshop / garage", example: { jp: "Llevo el coche al taller.", en: "I'm taking the car to the garage." }, accept: ["workshop", "garage", "studio"], hint: "Where things are made or repaired. Also a class/workshop: un taller de arte." },
+        { id: "es-u84l3-elcargo", type: "vocab", front: "el cargo", reading: "elcargo", meaning: "the post / position", example: { jp: "Tiene un cargo importante.", en: "She has an important position." }, accept: ["position", "post", "charge"], hint: "A job position. Estar a cargo de = to be in charge of." },
+        { id: "es-u84l3-lajornada", type: "vocab", front: "la jornada", reading: "lajornada", meaning: "the working day", example: { jp: "La jornada de trabajo es larga.", en: "The working day is long." }, accept: ["working day", "day"], hint: "A day's work. Jornada completa / media jornada = full-time / part-time." },
+        { id: "es-u84l3-elinforme", type: "vocab", front: "el informe", reading: "elinforme", meaning: "the report", example: { jp: "Tengo que escribir un informe.", en: "I have to write a report." }, accept: ["report", "briefing"], hint: "A written report. From informar (to inform)." },
+        { id: "es-u84l3-elplazo", type: "vocab", front: "el plazo", reading: "elplazo", meaning: "the deadline / term", example: { jp: "El plazo termina mañana.", en: "The deadline ends tomorrow." }, accept: ["deadline", "term", "period"], hint: "A time limit. A corto / largo plazo = in the short / long term." },
+      ],
+    },
+    {
+      id: "es-u84l4",
+      unit: 84,
+      lesson: 4,
+      title: "El logro, el ascenso, el rendimiento",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about work outcomes: achievement, promotion, dismissal, sector, payslip and performance.",
+      items: [
+        { id: "es-u84l4-ellogro", type: "vocab", front: "el logro", reading: "ellogro", meaning: "the achievement", example: { jp: "Es un gran logro.", en: "It's a great achievement." }, accept: ["achievement", "accomplishment"], hint: "From lograr (u77). Something you managed to achieve." },
+        { id: "es-u84l4-elascenso", type: "vocab", front: "el ascenso", reading: "elascenso", meaning: "the promotion", example: { jp: "Espera un ascenso en el trabajo.", en: "He's hoping for a promotion at work." }, accept: ["promotion", "rise", "climb"], hint: "Moving up at work. From ascender (to go up). The opposite is el descenso." },
+        { id: "es-u84l4-eldespido", type: "vocab", front: "el despido", reading: "eldespido", meaning: "the dismissal / layoff", example: { jp: "Tiene miedo al despido.", en: "He's afraid of being laid off." }, accept: ["dismissal", "layoff", "firing"], hint: "Being let go from a job. From despedir (to dismiss / to say goodbye)." },
+        { id: "es-u84l4-elsector", type: "vocab", front: "el sector", reading: "elsector", meaning: "the sector", example: { jp: "Trabaja en otro sector.", en: "She works in another sector." }, accept: ["sector", "area", "field"], hint: "A part of the economy or an area of activity: el sector público, el sector del turismo." },
+        { id: "es-u84l4-lanomina", type: "vocab", front: "la nómina", reading: "lanomina", meaning: "the payslip / payroll", example: { jp: "La nómina llega cada mes.", en: "The payslip arrives every month." }, accept: ["payslip", "payroll", "wage"], hint: "The monthly pay record. Estar en nómina = to be on the payroll. Accent on the ó." },
+        { id: "es-u84l4-elrendimiento", type: "vocab", front: "el rendimiento", reading: "elrendimiento", meaning: "the performance / output", example: { jp: "Su rendimiento en el trabajo es bueno.", en: "His performance at work is good." }, accept: ["performance", "output", "yield"], hint: "How well someone or something performs. From rendir (to yield / perform)." },
+      ],
+    },
   ],
 };
