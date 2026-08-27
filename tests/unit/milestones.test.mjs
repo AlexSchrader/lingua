@@ -214,3 +214,31 @@ test("awarding is NOT scoped — earned ids come from what you actually did", ()
   const earned = earnedMilestones(m);
   assert.ok(earned.includes("script-hiragana"), "kana read → hiragana milestone earned regardless of display scope");
 });
+
+// REGRESSION (2026-08-13): Today.jsx called nextMilestone(items) with no langs.
+// milestonesForLangs returns the WHOLE catalog when langs is absent, so a
+// French-only learner's Today screen read "NEXT MILESTONE — You learned your first
+// kanji · 1 to go": unreachable, and a plain statement that the app is really for
+// someone else. The filter was already correct and already tested; what was
+// untested was whether nextMilestone actually APPLIES it. Caught by looking at
+// the French build, not by the suite.
+test("nextMilestone respects the language scope it is given", () => {
+  const fresh = freshMap();
+
+  const frNext = nextMilestone(fresh, ["fr"]);
+  assert.ok(frNext, "a French learner still has a next goal");
+  const frIds = new Set(milestonesForLangs(["fr"]).map((m) => m.id));
+  assert.ok(
+    frIds.has(frNext.id),
+    `nextMilestone returned "${frNext.id}", which is not in the French scope`
+  );
+  assert.ok(
+    !/^(kanji|script)-/.test(frNext.id),
+    `French learner must never be pointed at a Japanese script goal, got "${frNext.id}"`
+  );
+
+  // And a Japanese learner still gets the script/kanji ladder.
+  const jaIds = new Set(milestonesForLangs(["ja"]).map((m) => m.id));
+  const jaNext = nextMilestone(fresh, ["ja"]);
+  assert.ok(jaIds.has(jaNext.id), "Japanese scope still resolves to a Japanese-visible goal");
+});

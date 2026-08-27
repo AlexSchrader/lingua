@@ -11,7 +11,7 @@ import SentenceCard from "../components/games/SentenceCard.jsx";
 import ConjugateCard from "../components/games/ConjugateCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import Celebration from "../components/Celebration.jsx";
-import { useStore, REVIEW_CAP } from "../store/useStore.js";
+import { useStore, REVIEW_CAP, activeLangId } from "../store/useStore.js";
 import { isReviewable, nextRung, MAX_RUNG } from "../store/mastery.js";
 import { sfxRungUp, sfxMastered } from "../store/sfx.js";
 import { isTraceable, shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate, canBuildReading } from "../store/cardRouting.js";
@@ -87,6 +87,11 @@ export default function Review() {
   const storeItems = useStore((s) => s.items);
   const dueItems = useStore((s) => s.dueItems);
   const mistakeIds = useStore((s) => s.mistakes);
+  const profile = useStore((s) => s.profile);
+  // The mistake list is profile-wide; the mistake REVIEW is not. Without this a
+  // Japanese learner's "fix these" served French cards — the same defect the daily
+  // queue had, one screen over. dueItems() scopes itself in the store.
+  const activeId = activeLangId(profile);
   // `?card=<kind>` → the Quick-card launcher (one item seeded to yield that kind);
   // otherwise `?lesson=&state=` → the per-lesson depth preview.
   const cardParam = searchParams.get("card");
@@ -116,7 +121,10 @@ export default function Review() {
     () => {
       let source, total = 0;
       if (sandbox) source = Object.values(items).filter(isReviewable);
-      else if (fix) source = (mistakeIds ?? []).map((mid) => items[mid]).filter((it) => it && isReviewable(it));
+      else if (fix)
+        source = (mistakeIds ?? [])
+          .map((mid) => items[mid])
+          .filter((it) => it && it.lang === activeId && isReviewable(it));
       else {
         // Daily review: cap to REVIEW_CAP, OLDEST-due first, so a backlog doesn't
         // wall up. `total` is the true due count (for the honest "N of M" message);

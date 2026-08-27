@@ -168,11 +168,19 @@ function cappedReviewFixture() {
 
 // Review debt (5 due, from late in the deck) + a first lesson that's still all-new,
 // so the "learn a few" escape has something to offer even while reviews are locked.
+//
+// THE DEBT MUST BE IN THE LEARNER'S OWN LANGUAGE. This fixture used to take the last
+// 5 vocab in the whole seed, which is ordered ja-then-fr — so it made five FRENCH
+// items due, set no profile (falling back to Japanese), and then asserted that the
+// Japanese learner was review-locked. It passed only because the daily queue wasn't
+// language-scoped: it was pinning the exact bug fixed on 2026-08-14. Scoped to ja so
+// it tests the soft lock rather than the leak.
 function lockedWithNewFixture() {
   const seed = seedItems();
   const items = {};
   for (const [id, it] of Object.entries(seed)) items[id] = { ...it, rung: 0, srs: freshCard() };
-  for (const it of Object.values(seed).filter((it) => it.type === "vocab").slice(-5)) {
+  const jaVocab = Object.values(seed).filter((it) => it.type === "vocab" && it.lang === "ja");
+  for (const it of jaVocab.slice(-5)) {
     items[it.id] = { ...items[it.id], rung: 1, srs: dueCard() };
   }
   return {
@@ -853,11 +861,117 @@ function bilingualState() {
 const seedBilingual = (page) =>
   page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(bilingualState()));
 
+// A bilingual learner whose debt sits ENTIRELY in the language they're not studying:
+// 30 Japanese items overdue, nothing due in French, active language French.
+function debtInOtherLanguageState() {
+  const st = bilingualState();
+  st.state.profile = { ...st.state.profile, languages: ["ja", "fr"], activeLang: "fr" };
+  const seed = seedItems();
+  const jaVocab = Object.values(seed).filter((it) => it.type === "vocab" && it.lang === "ja");
+  for (const it of jaVocab.slice(0, 30)) {
+    st.state.items[it.id] = { ...st.state.items[it.id], rung: 1, srs: dueCard() };
+  }
+  return st;
+}
+
 const seedFrench = (page) =>
   page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(frenchState()));
 
 // Kana + kanji. A French card rendering any of these means Japanese leaked in.
 const JA_SCRIPT = /[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/u;
+
+// THE REPORTED BUG, end to end in the real app: the daily queue wasn't scoped, so a
+// bilingual learner had both languages merged into one capped queue that blocked
+// lessons in both. Here all 30 overdue cards are Japanese and the learner is in
+// French — French must be completely unaffected.
+test("review debt in the other language doesn't block this one's lesson", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await page.addInitScript(
+    (json) => localStorage.setItem("lingua-v1", json),
+    JSON.stringify(debtInOtherLanguageState())
+  );
+  await page.goto("/");
+
+  // The French learner owes nothing, so the lesson CTA is live — not "Clear reviews".
+  await expect(page.getByTestId("start-session")).not.toHaveText(/Clear reviews/);
+  // And the Japanese backlog is nowhere on a French Today screen.
+  await expect(page.getByText(/30 (reviews|cards)/)).toHaveCount(0);
+  await expect(page.locator("main")).not.toHaveText(JA_SCRIPT);
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+// code-auditor BLOCKER 1 (2026-08-14): the daily obligation is global, so once ANY
+// language's reviews are cleared the primary CTA stops offering reviews everywhere.
+// Today is the only non-dev route to /review, so a second language's real debt was
+// unreachable until the next day — and the pill cheerfully said "Cleared" over it.
+// The per-language cap would then starve the very language it exists to protect.
+test("a language keeps a reachable review path after the day's duty is met", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  const st = debtInOtherLanguageState();
+  // The learner is in FRENCH and French itself is overdue; the day's duty was
+  // already met (in Japanese), so the global flag is set.
+  const seed = seedItems();
+  const frVocab = Object.values(seed).filter((it) => it.type === "vocab" && it.lang === "fr");
+  for (const it of frVocab.slice(0, 40)) {
+    st.state.items[it.id] = { ...st.state.items[it.id], rung: 1, srs: dueCard() };
+  }
+  st.state.daily = { ...st.state.daily, reviewsCleared: true };
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(st));
+  await page.goto("/");
+
+  // Not demanded — the primary CTA is free for the lesson...
+  await expect(page.getByTestId("start-session")).not.toHaveText(/Clear reviews/);
+  // ...but the queue is genuinely reachable, and the pill tells the truth about it.
+  const optional = page.getByTestId("start-review-optional");
+  await expect(optional).toBeVisible();
+  // Positive twin for the negative assertion below: prove the pill says the true
+  // thing, not merely that it doesn't say "Cleared" (which would also pass if the
+  // pill vanished or were renamed).
+  await expect(page.getByText("20 due")).toBeVisible();
+  await expect(page.getByText("Cleared")).toHaveCount(0);
+  await optional.click();
+  await expect(page).toHaveURL(/\/review/);
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+// The MONOLINGUAL case, which the first cut of the language scoping regressed —
+// caught by both gates, not by the green suite. A Japanese-only learner (today's
+// only real user) with a 60-card backlog who does their capped 20 must still get
+// closure: "Cleared", no invitation back. Showing "20 due" plus a button here is
+// exactly the wall REVIEW_CAP exists to hide, and the number wouldn't move for days.
+test("a capped backlog still says Cleared for the language just reviewed", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  const seed = seedItems();
+  const items = {};
+  for (const [id, it] of Object.entries(seed)) items[id] = { ...it, rung: 0, srs: freshCard() };
+  const jaVocab = Object.values(seed).filter((it) => it.type === "vocab" && it.lang === "ja");
+  for (const it of jaVocab.slice(0, 60)) items[it.id] = { ...items[it.id], rung: 1, srs: dueCard() };
+  await page.addInitScript(
+    (json) => localStorage.setItem("lingua-v1", json),
+    JSON.stringify({
+      state: {
+        items,
+        languages: LANGUAGES,
+        profile: { onboarded: true, displayName: "T", reason: null, reminderTime: null, languages: ["ja"], activeLang: "ja" },
+        streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
+        stats: { xpTotal: 0 },
+        // Today's session already happened, in Japanese.
+        daily: { date: todayISO(), reviewsCleared: true, lessonDone: false, clearedLangs: ["ja"] },
+        settings: {}, ui: {},
+      },
+      version: 1,
+    })
+  );
+  await page.goto("/");
+
+  await expect(page.getByText("Cleared")).toBeVisible();
+  await expect(page.getByText("20 due")).toHaveCount(0);
+  await expect(page.getByTestId("start-review-optional")).toHaveCount(0);
+  expect(errors, errors.join("; ")).toEqual([]);
+});
 
 test("French: the Ladder stands on a real rung, never a dead Pre-A1", async ({ page }) => {
   const errors = [];
@@ -972,6 +1086,30 @@ test("French: no Japanese-only surfaces — Settings toggles, Achievements, the 
   expect(watermark, "the version watermark stamped a Japanese flag on a French learner's screen").not.toContain("🇯🇵");
   expect(watermark).toContain("🇫🇷");
 
+  // Settings' About panel read `languages.ja` — a hardcoded lookup from when
+  // Japanese was the only language — so it told a French learner they were
+  // "Learning: 🇯🇵 Japanese". And the Practice paragraph explained the Japanese
+  // typing path (rōmaji through A1, kana from A2) to someone who has neither.
+  // Both found by a QA sweep of the rendered screens, not by the suite.
+  expect(set, "Settings told a French learner they are learning Japanese").not.toContain("🇯🇵 Japanese");
+  expect(set).toContain("🇫🇷 French");
+  expect(set, "Settings explained the rōmaji typing path to a French learner").not.toContain("rōmaji");
+
+  // The TODAY screen carries its own watermark and its own next-milestone line.
+  // Both leaked Japanese to a French learner while the Settings copies above were
+  // already fixed and pinned — the fix had been applied surface by surface from
+  // memory rather than from a list. Asserted here so the pair cannot drift again.
+  await page.goto("/");
+  const todayMark = (await page.getByTestId("version-watermark").textContent()) ?? "";
+  expect(todayMark, "Today's watermark stamped a Japanese flag on a French learner").not.toContain("🇯🇵");
+  expect(todayMark).toContain("🇫🇷");
+
+  // "NEXT MILESTONE — You learned your first kanji · 1 to go" on a French profile:
+  // unreachable, and a plain statement that the app is really for someone else.
+  const today = (await page.locator("#root").textContent()) ?? "";
+  for (const phrase of ["kanji", "Kanji", "hiragana", "katakana"])
+    expect(today, `Today offered "${phrase}" to a French learner`).not.toContain(phrase);
+
   expect(errors, errors.join("; ")).toEqual([]);
 });
 
@@ -1064,4 +1202,55 @@ test("the preview is dev-gated — the query string alone does nothing", async (
   await page.goto("/ladder?preview=addlang");
   await expect(page.getByTestId("addlang-preview-banner")).toHaveCount(0);
   expect((await page.locator("#root").textContent()) ?? "").toContain("to unlock another language");
+});
+// PREVIEW MODE — the app on a throwaway profile. Its one safety property is that
+// the real deck is never written, so that is what this asserts: enter preview, do
+// something that writes progress, and the real profile must be byte-identical.
+// Isolation is the persist KEY, not a flag writers honour — a flag only has to be
+// forgotten once to put preview progress on a deck someone actually studies.
+//
+// The fixture is deliberately STATIC (no Date.now()): addInitScript re-runs on every
+// reload, so a time-derived profile differs between loads and the comparison would
+// fail on its own churn rather than on a real write.
+const STATIC_REAL_PROFILE = JSON.stringify({
+  state: {
+    items: {},
+    languages: LANGUAGES,
+    profile: { onboarded: true, displayName: "Real", reason: null, reminderTime: null, languages: ["fr"], activeLang: "fr" },
+    streak: { current: 3, longest: 3, freezes: 2, lastActive: "2026-01-01" },
+    stats: { xpTotal: 999 },
+    daily: { date: "2026-01-01", reviewsCleared: false, lessonDone: false },
+    settings: {}, ui: {},
+  },
+  version: 1,
+});
+
+test("Preview Mode: the app runs, and the real profile is untouched", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await page.addInitScript((json) => {
+    localStorage.setItem("lingua-v1", json);
+    localStorage.setItem("lingua-preview", JSON.stringify({ state: {}, version: 1 }));
+    localStorage.setItem("lingua-preview-on", "1");
+  }, STATIC_REAL_PROFILE);
+
+  await page.goto("/");
+
+  // It is the real app — banner and the actual home screen, not a panel of links.
+  await expect(page.getByTestId("preview-banner")).toBeVisible();
+  await expect(page.getByTestId("start-session")).toBeVisible();
+
+  // Write progress, then prove where it went.
+  await page.getByTestId("start-session").click();
+  await page.waitForTimeout(800);
+
+  const real = await page.evaluate(() => localStorage.getItem("lingua-v1"));
+  expect(real, "Preview Mode wrote to the REAL profile").toBe(STATIC_REAL_PROFILE);
+
+  const preview = await page.evaluate(() => localStorage.getItem("lingua-preview"));
+  expect(preview, "preview deck should exist").toBeTruthy();
+  expect(preview, "the preview deck should be the one that moved").not.toBe(STATIC_REAL_PROFILE);
+
+  expect(errors, errors.join("; ")).toEqual([]);
 });

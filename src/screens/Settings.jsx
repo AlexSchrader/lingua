@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogOut, Cloud, CheckCircle2, Mic, Award, Bell } from "lucide-react";
+import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogOut, Cloud, CheckCircle2, Mic, Award, Bell, Eye } from "lucide-react";
 import { useStore } from "../store/useStore.js";
-import { LANGUAGES } from "../data/index.js";
+import { LANGUAGES, isLive } from "../data/index.js";
+import { langName } from "../data/languages.js";
+import { enterPreview, buildPreviewState } from "../store/preview.js";
+import { PERSIST_VERSION } from "../store/migrate.js";
 import { triggersSupported, notificationsSupported, notificationPermission, requestReminderPermission, scheduleDailyReminder, cancelReminders } from "../lib/reminders.js";
 import { C, F } from "../theme.js";
 import { VERSION } from "../version.js";
@@ -153,7 +156,12 @@ export default function Settings() {
   const [code, setCode] = useState("");
   const [codeError, setCodeError] = useState(false);
 
-  const ja = languages.ja ?? LANGUAGES[0];
+  // The language this learner is ACTUALLY studying. This was `languages.ja ??
+  // LANGUAGES[0]` — a hardcoded Japanese lookup left from when Japanese was the
+  // only language — so a French learner's About panel read "Learning: 🇯🇵 Japanese ·
+  // pre-A1". Falls back to the catalog head only when there is no active language
+  // at all (pre-onboarding), which is the one case where any answer is arbitrary.
+  const learning = languages[activeLang] ?? languages.ja ?? LANGUAGES[0];
 
   const doReset = () => {
     resetAll();
@@ -180,7 +188,7 @@ export default function Settings() {
 
       <Section title="About">
         <Row icon={Info} label="Version" value={VERSION} />
-        <Row icon={Globe} label="Learning" value={`${ja.flag} ${ja.name} · ${ja.level}`} />
+        <Row icon={Globe} label="Learning" value={`${learning.flag} ${learning.name} · ${learning.level}`} />
         <Row icon={Award} label="Milestones" value={milestonesEarned?.length ?? 0} />
       </Section>
 
@@ -325,10 +333,26 @@ export default function Settings() {
           checked={settings?.noSpeedPressure ?? false}
           onChange={(v) => setSetting("noSpeedPressure", v)}
         />
+        {/* This paragraph described the JAPANESE typing path — rōmaji through A1, kana
+            from A2 — to every learner, including French ones who have no kana and no
+            rōmaji. Same class as the romaji/furigana toggles above, which were already
+            gated on hasGlyphScript; this copy just never got the same treatment. The
+            Latin-script version states the rule that actually applies there: accents
+            are optional, because the answer checker folds them (store/answer.js). */}
         <div style={{ fontSize: 13, color: C.inkSoft, lineHeight: 1.4, marginTop: 12 }}>
-          Producing a word asks you to type it in Japanese. Through A1 you can answer in
-          rōmaji (no Japanese keyboard needed); from A2 you'll type the kana. Tiles (build)
-          and typing the meaning always work too.
+          {hasGlyphScript ? (
+            <>
+              Producing a word asks you to type it in {langName(activeLang)}. Through A1 you can
+              answer in rōmaji (no {langName(activeLang)} keyboard needed); from A2 you'll type the
+              kana. Tiles (build) and typing the meaning always work too.
+            </>
+          ) : (
+            <>
+              Producing a word asks you to type it in {langName(activeLang)}. Accents and
+              apostrophes are optional — <em>sil vous plait</em> is accepted for{" "}
+              <em>s'il vous plaît</em>. Tiles (build) and typing the meaning always work too.
+            </>
+          )}
         </div>
         <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 10, lineHeight: 1.4, display: "flex", gap: 8 }}>
           <Mic size={14} style={{ flexShrink: 0, marginTop: 2 }} />
@@ -431,6 +455,26 @@ export default function Settings() {
             >
               <FlaskConical size={18} />
               <span style={{ flex: 1, textAlign: "left" }}>Open dev panel</span>
+              <ChevronRight size={18} />
+            </button>
+            {/* The panel previews one screen at a time; this previews the APP. Real
+                navigation, every language started and every band open, on a separate
+                localStorage key — so it answers "what does French feel like to move
+                around in" without putting a single card on your real deck. */}
+            <button
+              onClick={() =>
+                enterPreview(
+                  buildPreviewState({
+                    langs: LANGUAGES.filter((l) => isLive(l.id)).map((l) => l.id),
+                    catalog: LANGUAGES,
+                    version: PERSIST_VERSION,
+                  })
+                )
+              }
+              style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.line}`, background: C.surface, color: C.ink, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+            >
+              <Eye size={18} />
+              <span style={{ flex: 1, textAlign: "left" }}>Preview the app (throwaway profile)</span>
               <ChevronRight size={18} />
             </button>
             <button

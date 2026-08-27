@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { BookOpen, RotateCcw, Lock, Check, Star, Award, ChevronRight } from "lucide-react";
-import { useStore, REVIEW_CAP } from "../store/useStore.js";
+import { useStore, REVIEW_CAP, activeLangId } from "../store/useStore.js";
 import { UNITS, LANGUAGES } from "../data/index.js";
 import { isReviewable, isMastered } from "../store/mastery.js";
 import { nextMilestone } from "../data/milestones.js";
@@ -109,15 +109,29 @@ export default function Today() {
   const profile = useStore((s) => s.profile);
   // The active language drives everything on Today (falls back to ja for safety).
   const startedLangs = profile.languages?.length ? profile.languages : ["ja"];
-  const activeId = profile.activeLang && startedLangs.includes(profile.activeLang) ? profile.activeLang : startedLangs[0];
+  // Same helper the store scopes dueItems/reviewsLocked with — this used to be an
+  // inline copy of the identical fallback, which is exactly the drift the shared
+  // export exists to prevent (the screen and the store must never disagree about
+  // which language the learner is in).
+  const activeId = activeLangId(profile);
   const active = { ...LANGUAGES.find((l) => l.id === activeId), ...(languages[activeId] ?? {}) };
   const dueItemsFn = useStore((s) => s.dueItems);
   const reviewsLockedFn = useStore((s) => s.reviewsLocked);
   const mistakes = useStore((s) => s.mistakes);
   const devSeedReviews = useStore((s) => s.devSeedReviews);
 
-  const due = useMemo(() => dueItemsFn(), [items, dueItemsFn]);
-  const reviewsLocked = useMemo(() => reviewsLockedFn(), [items, daily, reviewsLockedFn]);
+  // Both are scoped to the active language inside the store, so `activeId` is a real
+  // dependency — without it, switching language would keep showing the previous
+  // language's due count and lock state until some other input happened to change.
+  const due = useMemo(() => dueItemsFn(activeId), [items, activeId, dueItemsFn]);
+  const reviewsLocked = useMemo(
+    () => reviewsLockedFn(activeId),
+    [items, daily, activeId, reviewsLockedFn]
+  );
+  // Was THIS language reviewed today? Not the same question as `daily.reviewsCleared`
+  // (was the day's duty met anywhere) — the closure signals below need to tell a
+  // language capped today apart from one another language's session merely unlocked.
+  const langCleared = (daily.clearedLangs ?? []).includes(activeId);
   // Show the SESSION size, not the full backlog — a capped, non-scary number (the
   // Review runner serves at most REVIEW_CAP, oldest-due first; the rest return next
   // session). Prevents the "47 due" wall on the home screen.
@@ -154,7 +168,13 @@ export default function Today() {
   const devMode = import.meta.env.DEV || new URLSearchParams(location.search).has("dev");
 
   // No reviews to clear when the queue is empty — treat as already done.
-  const reviewState = daily.reviewsCleared || due.length === 0 ? "done" : "active";
+  // "done" means this language is settled for today — either nothing is due, or its
+  // own session was completed and the cap is holding the rest back on purpose. The
+  // GLOBAL flag alone was wrong in both directions: it painted the pill green over a
+  // language with real untouched debt, and (once the pill was scoped) it painted a
+  // capped Japanese backlog red, which is the "47 due" wall REVIEW_CAP exists to
+  // hide. It takes both facts to tell those two apart.
+  const reviewState = due.length === 0 || langCleared ? "done" : "active";
   const lessonState = daily.lessonDone ? "done" : reviewsLocked ? "locked" : "active";
 
   // Is there still new material to learn? (any lesson has rung-0 items.)
@@ -173,7 +193,12 @@ export default function Today() {
     () => Object.values(items).filter((it) => it.lang === activeId && isMastered(it)).length,
     [items, activeId]
   );
-  const nextMs = useMemo(() => nextMilestone(items), [items]);
+  // Scoped to the languages this learner has actually started. Without the second
+  // argument milestonesForLangs returns the WHOLE catalog, so a French-only learner
+  // was told their next milestone was "You learned your first kanji · 1 to go" —
+  // unreachable, and a plain statement that the app is really for someone else.
+  // The filter already existed; this call site just never passed it.
+  const nextMs = useMemo(() => nextMilestone(items, startedLangs), [items, startedLangs]);
 
   // Progress glance + next-review timing (from the data we already track).
   const masteredKana = useMemo(
@@ -218,7 +243,14 @@ export default function Today() {
 
   const startReview = () => navigate("/review");
   const startFix = () => navigate("/review?fix=1");
-  const mistakeCount = mistakes?.length ?? 0;
+  // Scoped like everything else on this screen: the mistake list is stored for the
+  // whole profile, but "Fix your mistakes (N)" sits under one language's card and
+  // must count only that language's misses. `isReviewable` matches the filter the
+  // mistake runner itself applies (Review.jsx) — without it the button could offer
+  // "Fix your mistakes (3)" and then open straight onto "No mistakes to fix".
+  const mistakeCount = (mistakes ?? []).filter(
+    (id) => items[id]?.lang === activeId && isReviewable(items[id])
+  ).length;
   const startLesson = () => {
     const target = currentLesson ?? allPlayableLessons[0] ?? null;
     if (target) navigate(`/lesson/${target.id}`);
@@ -241,6 +273,14 @@ export default function Today() {
   } else if (hasNew) {
     ctaLabel = daily.lessonDone ? "Keep learning" : "Start lesson";
     ctaAction = startLesson;
+  } else if (due.length > 0) {
+    // No new lessons left in this language and the day's duty is already met, but
+    // cards are still due here. "All caught up" would be a flat lie printed directly
+    // above a live "Review … anyway" button, so offer the review as the primary
+    // action instead. Only reachable once a learner exhausts a language's authored
+    // content, which French and Spanish learners will do long before Japanese does.
+    ctaLabel = "Review anyway";
+    ctaAction = startReview;
   } else {
     ctaLabel = "All caught up";
     ctaDisabled = true;
@@ -336,7 +376,12 @@ export default function Today() {
         <StatusPill
           icon={RotateCcw}
           label="Reviews"
-          value={daily.reviewsCleared ? "Cleared" : due.length > 0 ? `${sessionDue} due` : "All clear"}
+          // "Cleared" means THIS language was reviewed today — not that some other
+          // language's session met the daily duty. A capped backlog still reads
+          // "Cleared" (you did today's work; the rest is deliberately held back),
+          // while a language you haven't touched shows its real count however many
+          // other languages you cleared.
+          value={langCleared ? "Cleared" : due.length > 0 ? `${sessionDue} due` : "All clear"}
           state={reviewState}
         />
         <StatusPill
@@ -408,6 +453,24 @@ export default function Today() {
           style={{ padding: "12px 18px", borderRadius: 14, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer", marginTop: 2 }}
         >
           {reviewsLocked ? `Learn a few first (${MICRO_SIZE})` : `Low on energy? Just a few (${MICRO_SIZE})`}
+        </button>
+      )}
+
+      {/* Optional review, once the day's duty is already met elsewhere. The daily
+          obligation is global (clear reviews in ANY language and lessons unlock in
+          all of them), which means a second language can sit on real debt with the
+          primary CTA showing "Start lesson". Today is the only non-dev route to
+          /review, so without this button that queue would be genuinely unreachable
+          until tomorrow — the per-language cap would starve exactly the language it
+          was meant to protect. Offered, never demanded: it is a quiet secondary
+          action, and nothing is locked behind it. */}
+      {daily.reviewsCleared && !langCleared && due.length > 0 && (
+        <button
+          data-testid="start-review-optional"
+          onClick={startReview}
+          style={{ padding: "12px 18px", borderRadius: 14, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}
+        >
+          <RotateCcw size={16} /> Review {active.name} anyway ({sessionDue})
         </button>
       )}
 
@@ -483,8 +546,12 @@ export default function Today() {
         </button>
       )}
 
-      {/* Version watermark */}
+      {/* Version watermark. There are TWO of these — this one and Settings' — and
+          only Settings' was flagged correctly and pinned by a test, so this one went
+          on stamping 🇯🇵 on a French learner's home screen. Both carry the testid now
+          so neither can drift alone. */}
       <div
+        data-testid="version-watermark"
         style={{
           marginTop: "auto",
           textAlign: "right",
@@ -494,7 +561,7 @@ export default function Today() {
           opacity: 0.6,
         }}
       >
-        🇯🇵 {VERSION}
+        {LANGUAGES.find((l) => l.id === activeId)?.flag ?? "🇯🇵"} {VERSION}
       </div>
     </div>
   );
