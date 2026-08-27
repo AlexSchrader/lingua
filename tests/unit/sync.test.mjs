@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { chooseSource, hasMeaningfulProgress, extractProgress, SYNC_KEYS } from "../../src/store/sync.js";
+import { chooseSource, hasMeaningfulProgress, extractProgress, slimItems, SYNC_KEYS } from "../../src/store/sync.js";
 
 const withProgress = { items: { "ja-u1l1-a": { rung: 2 } } };
 const empty = { items: { "ja-u1l1-a": { rung: 0 } }, streak: { count: 0 }, stats: {} };
@@ -64,6 +64,28 @@ test("both empty → timestamp decides, and neither can lose real data", () => {
   // Two empty states: harmless either way, so last-write-wins is fine.
   assert.equal(chooseSource({ updatedAt: 1, blob: empty }, { updatedAt: 2, blob: empty }), "pull");
   assert.equal(chooseSource({ updatedAt: 2, blob: empty }, { updatedAt: 1, blob: empty }), "push");
+});
+
+test("slimItems keeps only touched items, as a {rung, srs} overlay", () => {
+  const srs = { due: "2026-01-01", reps: 3, state: 2 };
+  const items = {
+    "a": { rung: 2, srs, front: "あ", meaning: "a", example: {}, lang: "ja" }, // touched
+    "b": { rung: 0, srs: { reps: 0 }, front: "い", meaning: "i" }, // untouched
+    "c": { rung: 1, srs: { reps: 1 } }, // touched
+  };
+  const slim = slimItems(items);
+  assert.deepEqual(Object.keys(slim).sort(), ["a", "c"], "only rung>0 items survive");
+  // Content fields are dropped — only the mutable progress overlay remains.
+  assert.deepEqual(slim.a, { rung: 2, srs });
+  assert.equal(slim.a.front, undefined);
+});
+
+test("extractProgress slims items so the cloud blob can't bloat", () => {
+  const state = { items: { x: { rung: 3, srs: { reps: 5 }, front: "big content" }, y: { rung: 0 } }, streak: { current: 1 } };
+  const out = extractProgress(state);
+  assert.deepEqual(Object.keys(out.items), ["x"], "untouched items are not uploaded");
+  assert.equal(out.items.x.front, undefined, "content is not uploaded");
+  assert.deepEqual(out.items.x, { rung: 3, srs: { reps: 5 } });
 });
 
 test("extractProgress copies exactly the synced keys, nothing else", () => {
