@@ -1,5 +1,5 @@
 // FR Unit 132 — Les connecteurs du français soutenu ("Connectors of formal French") — B2
-// Strand D, coverage unit 12 of 13 (block 3, units 121-133). Generic slot
+// Strand D, the fifteenth B2 vocabulary slot (block 3, units 121-133). Generic slot
 // "Vocabulary 15 (B2)"; given a real theme — DEVIATION FROM THE SLOT NAME ONLY.
 //
 // ONE LEVEL ABOVE THE SLOT: B1 units 58/59 already teach the everyday connectors
