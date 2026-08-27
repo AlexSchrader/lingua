@@ -57,7 +57,7 @@ export default function SentenceCard({ item, onGraded }) {
 
   return (
     <div data-testid="sentence-card" data-card-kind="sentence:build" style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>
-      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>Build the sentence</div>
+      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600, textAlign: "center" }}>Build the sentence</div>
 
       <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 20, padding: 20, textAlign: "center" }}>
         <div style={{ fontSize: 15, color: C.ink }}>{item.example?.en}</div>

@@ -46,7 +46,7 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
       data-card-kind={audioFirst ? "listen:choice" : reverse ? "choice:reverse" : "choice"}
       style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}
     >
-      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
+      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600, textAlign: "center" }}>
         {listening ? "Which one did you hear?" : reverse ? `Which is this in ${langName(item.lang)}?` : isKana ? "Which sound is this?" : "What does this mean?"}
       </div>
 

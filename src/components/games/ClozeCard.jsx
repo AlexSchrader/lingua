@@ -51,7 +51,7 @@ export default function ClozeCard({ item, allItems, onGraded, particle = false }
 
   return (
     <div data-testid="cloze-card" data-card-kind={particle ? "particle:choice" : "cloze:choice"} style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>
-      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
+      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600, textAlign: "center" }}>
         {particle
           ? funcWords
             ? "Which little word completes the sentence?"

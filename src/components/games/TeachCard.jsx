@@ -25,7 +25,7 @@ export default function TeachCard({ item, onAdvance }) {
   const showsReading = showRomaji && !rubied && readingIsInformative(item);
   return (
     <div style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>
-      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
+      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600, textAlign: "center" }}>
         New {label}
       </div>
 
