@@ -93,9 +93,12 @@ export default function App() {
     if (!auth.ready) return <Splash />;
     if (auth.recovery) return <SetPassword />;
     if (!auth.user) return <Auth />;
-    // Wait out the first cloud pull before deciding onboarding, so a returning
-    // user's synced `onboarded` lands before we'd flash the onboarding screen.
-    if (!onboarded && auth.status === "syncing") return <Splash />;
+    // Wait out ONLY the first cloud pull before deciding onboarding, so a returning
+    // user's synced `onboarded` lands before we'd flash the onboarding screen. Gate
+    // on `initialSyncDone`, NOT on `status === "syncing"`: onboarding writes a synced
+    // slice (startLanguage) which fires a debounced upload → status "syncing" → this
+    // used to splash-unmount the onboarding flow mid-step, so Continue appeared dead.
+    if (!onboarded && !auth.initialSyncDone) return <Splash />;
     if (!onboarded) return <Onboarding />;
   }
 

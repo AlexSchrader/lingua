@@ -8,6 +8,7 @@ import { matchesDevCode } from "./dev.js";
 import { earnedMilestones, milestoneCatalog } from "../data/milestones.js";
 import { CEFR_ORDER, cefrLevelReached, levelRank } from "./levels.js";
 import { persistKey } from "./preview.js";
+import { slimItems } from "./sync.js";
 
 // Seed every item with a fresh FSRS card attached as its srs. Card attachment
 // lives here (not in the data loader) per Brief 2.
@@ -15,6 +16,23 @@ function freshSeed() {
   const seed = seedItems();
   const out = {};
   for (const [id, it] of Object.entries(seed)) out[id] = { ...it, srs: newCard() };
+  return out;
+}
+
+// Rebuild the FULL item deck (content from the current curriculum) from a persisted
+// or cloud PROGRESS OVERLAY — the slim `{ id: { rung, srs } }` map that slimItems()
+// writes. Untouched items come straight from the fresh seed. This is the read-side
+// mirror of slimItems: storage holds only progress, the store always holds the full
+// deck, so nothing downstream sees a slimmed item. Tolerates a legacy FULL-item
+// overlay too (old blobs carried every field) — it just reads rung/srs and takes the
+// latest content from the seed, exactly like seedOnce does.
+export function reconstructItems(overlay = {}) {
+  const seed = freshSeed();
+  const out = {};
+  for (const [id, fresh] of Object.entries(seed)) {
+    const p = overlay?.[id];
+    out[id] = p ? { ...fresh, rung: p.rung ?? 0, srs: p.srs ?? fresh.srs } : fresh;
+  }
   return out;
 }
 
@@ -266,7 +284,12 @@ export const useStore = create(
       // unconfigured), so the auth gate can render without a flash. The auth
       // actions are no-ops until cloudSync.initCloudSync wires the real Supabase
       // calls in — keeping the SDK out of the main bundle and the store module.
-      auth: { configured: false, ready: false, user: null, status: "idle", error: null, recovery: false },
+      // `initialSyncDone` flips true once the FIRST post-sign-in cloud pull resolves.
+      // The onboarding gate waits on THIS, not on `status: "syncing"` — because a
+      // debounced upload (e.g. the one that fires the instant onboarding writes a
+      // synced slice) also sets status "syncing", and gating onboarding on that
+      // unmounts the flow mid-step. See App.jsx's onboarding gate.
+      auth: { configured: false, ready: false, user: null, status: "idle", error: null, recovery: false, initialSyncDone: false },
       signUp: async () => ({ error: "Auth isn't configured." }),
       signIn: async () => ({ error: "Auth isn't configured." }),
       requestPasswordReset: async () => ({ error: "Auth isn't configured." }),
@@ -322,8 +345,12 @@ export const useStore = create(
         set((s) => {
           const base = Object.keys(s.items).length ? s.items : freshSeed();
           const items = { ...base };
+          // The cloud blob carries only the progress overlay ({ rung, srs }); apply
+          // it onto the content-bearing base rather than replacing the item, so the
+          // learner keeps the latest curriculum content. Backward-compatible with a
+          // legacy full-item blob (rung/srs are still read; extra fields ignored).
           for (const [id, it] of Object.entries(blob.items ?? {})) {
-            if (items[id]) items[id] = it;
+            if (items[id]) items[id] = { ...items[id], rung: it.rung ?? items[id].rung, srs: it.srs ?? items[id].srs };
           }
           const next = { items, lastModified: Date.now() };
           for (const k of ["languages", "streak", "stats", "daily", "devMode", "settings", "profile", "milestonesEarned"]) {
@@ -740,8 +767,21 @@ export const useStore = create(
       // One-time, on rehydrate: replace any pre-FSRS srs with a fresh card,
       // preserving rung and all other progress (don't crash old v0.1 state).
       migrate: migrateState,
+      // On rehydrate, rebuild the full item deck from the slim progress overlay we
+      // persist (see partialize). Runs on EVERY load (unlike migrate), so the store
+      // holds full items from the very first render — nothing ever sees a slimmed
+      // item. Mirrors Zustand's default shallow merge, then overrides items.
+      merge: (persisted, current) => {
+        const p = persisted ?? {};
+        return { ...current, ...p, items: reconstructItems(p.items) };
+      },
       partialize: (s) => ({
-        items: s.items,
+        // ONLY the progress overlay (rung + srs of touched items) is written — not
+        // the full 5,500+-item deck with all its content. That deck was ~MBs and
+        // overran mobile Safari's ~5MB localStorage quota, crashing on boot
+        // (QuotaExceededError in seedOnce). reconstructItems (via `merge`) rebuilds
+        // the full deck from the curriculum seed on load.
+        items: slimItems(s.items),
         languages: s.languages,
         streak: s.streak,
         stats: s.stats,
