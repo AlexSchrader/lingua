@@ -21,10 +21,30 @@
 // in useStore.js — keep the two in lockstep when either changes.
 export const SYNC_KEYS = ["items", "languages", "streak", "stats", "daily", "devMode", "settings", "profile", "milestonesEarned"];
 
-// Pull just the synced slice out of a full store snapshot.
+// Slim the item map down to a PROGRESS OVERLAY: only the mutable fields (rung +
+// FSRS srs) of items the learner has actually touched (rung > 0). Everything else
+// — the front/reading/meaning/example content, and the thousands of untouched
+// rung-0 items — is reconstructed from the curriculum seed on load, so it never
+// needs to travel to storage or the cloud. This is what keeps the persisted blob
+// (and the Supabase row) a few KB instead of multiple MB; the full deck of 5,500+
+// items was blowing past mobile Safari's ~5MB localStorage quota (a crash on boot).
+export function slimItems(items = {}) {
+  const out = {};
+  for (const id in items) {
+    const it = items[id];
+    if ((it?.rung ?? 0) > 0) out[id] = { rung: it.rung, srs: it.srs };
+  }
+  return out;
+}
+
+// Pull just the synced slice out of a full store snapshot. Items are slimmed to the
+// progress overlay so the cloud blob stays tiny and can't drift into the localStorage
+// quota problem either. hasMeaningfulProgress still works (it keys on rung > 0, which
+// is exactly what survives the slim).
 export function extractProgress(state = {}) {
   const out = {};
   for (const k of SYNC_KEYS) if (state[k] !== undefined) out[k] = state[k];
+  if (out.items) out.items = slimItems(out.items);
   return out;
 }
 
