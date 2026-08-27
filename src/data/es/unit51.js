@@ -10,7 +10,7 @@
 //   1. Examples get longer — one clause becomes two, joined by the connectors A2
 //      taught (pero, aunque, sin embargo, así que, porque). That length is the
 //      point; it's where opinion becomes argument.
-//   2. Register still waits — these examples stay in the INDICATIVE. Spanish
+//   2. Register still waits — these examples avoid the subjunctive (they use the indicative and the A2 conditional). Spanish
 //      argument leans hard on the subjunctive (dudo que SEA, no creo que TENGA),
 //      but that mood is taught in this block's grammar units (u69–71), so B1
 //      block-1 examples are built to need only the indicative the learner owns.
@@ -92,7 +92,7 @@ export const ES_UNIT51 = {
         { id: "es-u51l4-laobjecion", type: "vocab", front: "la objeción", reading: "laobjecion", meaning: "objection", example: { jp: "Su objeción fue el precio, nada más.", en: "His objection was the price, nothing else." }, accept: ["the complaint", "protest"], hint: "A reason against. Poner una objeción = to raise an objection." },
         { id: "es-u51l4-afavor", type: "vocab", front: "a favor", reading: "afavor", meaning: "in favour", example: { jp: "La mayoría está a favor del cambio, aunque algunos dudan.", en: "Most are in favour of the change, though some have doubts." }, accept: ["for", "in support"], hint: "estar a favor de = to be for something. From el favor (A1). Its opposite is the next card." },
         { id: "es-u51l4-encontra", type: "vocab", front: "en contra", reading: "encontra", meaning: "against", example: { jp: "Estoy en contra de esa idea por muchas razones.", en: "I'm against that idea for many reasons." }, accept: ["opposed", "counter"], hint: "estar en contra de = to be against. From contra, against — the mirror of a favor." },
-        { id: "es-u51l4-ponerenduda", type: "vocab", front: "poner en duda", reading: "ponerenduda", meaning: "to call into question", example: { jp: "Nadie pone en duda que trabaja mucho, solo cómo lo hace.", en: "Nobody questions that he works hard, only how he does it." }, accept: ["to question", "to doubt"], hint: "poner (A2) + en duda (from la duda). To cast doubt on something — stronger than just dudar." },
+        { id: "es-u51l4-ponerenduda", type: "vocab", front: "poner en duda", reading: "ponerenduda", meaning: "to call into question", example: { jp: "Nadie pone en duda que trabaja mucho, solo cómo trabaja.", en: "Nobody questions that he works hard, only how he works." }, accept: ["to question", "to doubt"], hint: "poner (A2) + en duda (from la duda). To cast doubt on something — stronger than just dudar." },
       ],
     },
   ],

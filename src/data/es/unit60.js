@@ -4,7 +4,7 @@
 // riesgo, arreglar, evitar, el éxito, el fracaso. B1 fills in the space between:
 // the kinds of problem, the ways of solving one, what it means for something to
 // break or fail, and the vocabulary of facing difficulty and not giving up.
-// Every A2 problem word is used and re-taught nowhere; examples stay indicative.
+// Every A2 problem word is used and re-taught nowhere; examples avoid the subjunctive (indicative + A2 conditional; subjunctive waits for u69-71).
 // lang/unit/lesson are stamped in src/data/index.js.
 export const ES_UNIT60 = {
   id: "es-u60",
@@ -43,7 +43,7 @@ export const ES_UNIT60 = {
         { id: "es-u60l2-solucionar", type: "vocab", front: "solucionar", reading: "solucionar", meaning: "to fix", example: { jp: "Este cambio va a solucionar muchas cosas.", en: "This change is going to fix a lot of things." }, accept: ["to solve", "to sort out"], hint: "From la solución (A2). Near resolver; solucionar is a touch more everyday." },
         { id: "es-u60l2-aclarar", type: "vocab", front: "aclarar", reading: "aclarar", meaning: "to clarify", example: { jp: "Quiero aclarar una cosa antes de seguir.", en: "I want to clarify one thing before continuing." }, accept: ["to clear up", "to explain"], hint: "To make clear. From claro (A2). Also to rinse, or for the sky to clear up." },
         { id: "es-u60l2-elremedio", type: "vocab", front: "el remedio", reading: "elremedio", meaning: "remedy", example: { jp: "No hay más remedio que esperar.", en: "There's no choice but to wait." }, accept: ["the cure", "solution"], hint: "A cure or fix. No hay remedio = there's nothing to be done; no tener más remedio que = to have no choice but." },
-        { id: "es-u60l2-afrontar", type: "vocab", front: "afrontar", reading: "afrontar", meaning: "to face up to", example: { jp: "Hay que afrontar el problema, no evitarlo.", en: "You have to face the problem, not avoid it." }, accept: ["to confront", "to deal with"], hint: "To meet a problem head-on. From frente, the front. evitar is A2 — the two are opposites here." },
+        { id: "es-u60l2-afrontar", type: "vocab", front: "afrontar", reading: "afrontar", meaning: "to face up to", example: { jp: "Hay que afrontar el problema, no evitar la dificultad.", en: "You have to face the problem, not avoid the difficulty." }, accept: ["to confront", "to deal with"], hint: "To meet a problem head-on. From frente, the front. evitar is A2 — the two are opposites here." },
         { id: "es-u60l2-sencillo", type: "vocab", front: "sencillo", reading: "sencillo", meaning: "simple", example: { jp: "La solución es más sencilla de lo que piensas.", en: "The solution is simpler than you think." }, accept: ["easy", "straightforward"], hint: "Near fácil (A1), but sencillo means \"uncomplicated\" — the opposite of complicado (l1)." },
       ],
     },
@@ -74,11 +74,11 @@ export const ES_UNIT60 = {
       canDo: "Talk about getting through difficulty — enfrentarse, rendirse, insistir, la paciencia, salir adelante, el intento.",
       items: [
         { id: "es-u60l4-enfrentarse", type: "vocab", front: "enfrentarse", reading: "enfrentarse", meaning: "to confront", example: { jp: "Tuvo que enfrentarse a muchos problemas solo.", en: "He had to face many problems alone." }, accept: ["to face", "to stand up to"], hint: "enfrentarse A algo/alguien. From frente. Near afrontar (l2), but enfrentarse can also mean to clash with someone." },
-        { id: "es-u60l4-rendirse", type: "vocab", front: "rendirse", reading: "rendirse", meaning: "to give up", example: { jp: "No te rindas, ya casi lo tienes.", en: "Don't give up, you've almost got it." }, accept: ["to surrender", "to quit"], hint: "¡No te rindas! = Don't give up! The e becomes i: me rindo. Also to surrender in a fight." },
-        { id: "es-u60l4-insistir", type: "vocab", front: "insistir", reading: "insistir", meaning: "to insist", example: { jp: "Insiste en hacerlo a su manera.", en: "He insists on doing it his own way." }, accept: ["to persist", "to keep on"], hint: "insistir EN algo. To keep pushing for something. a su manera = in his own way." },
+        { id: "es-u60l4-rendirse", type: "vocab", front: "rendirse", reading: "rendirse", meaning: "to give up", example: { jp: "Nunca se rinde, aunque todo va mal.", en: "He never gives up, even when everything is going wrong." }, accept: ["to surrender", "to quit"], hint: "¡No te rindas! = Don't give up! The e becomes i: me rindo. Also to surrender in a fight." },
+        { id: "es-u60l4-insistir", type: "vocab", front: "insistir", reading: "insistir", meaning: "to insist", example: { jp: "Insiste en hacer las cosas a su manera.", en: "He insists on doing things his own way." }, accept: ["to persist", "to keep on"], hint: "insistir EN algo. To keep pushing for something. a su manera = in his own way." },
         { id: "es-u60l4-lapaciencia", type: "vocab", front: "la paciencia", reading: "lapaciencia", meaning: "patience", example: { jp: "Con paciencia se resuelve casi todo.", en: "With patience almost anything gets solved." }, accept: ["the forbearance"], hint: "From paciente (A2). Tener paciencia = to be patient; perder la paciencia = to lose it." },
         { id: "es-u60l4-saliradelante", type: "vocab", front: "salir adelante", reading: "saliradelante", meaning: "to get by", example: { jp: "La familia salió adelante a pesar de todo.", en: "The family pulled through in spite of everything." }, accept: ["to pull through", "to make it"], hint: "salir (A1) + adelante (forward). To overcome hard times. a pesar de is u29." },
-        { id: "es-u60l4-elintento", type: "vocab", front: "el intento", reading: "elintento", meaning: "attempt", example: { jp: "Lo logró después de dos intentos.", en: "He managed it after two attempts." }, accept: ["the try", "effort"], hint: "From intentar (A2). Un intento más = one more try; en el primer intento = on the first try." },
+        { id: "es-u60l4-elintento", type: "vocab", front: "el intento", reading: "elintento", meaning: "attempt", example: { jp: "Aprobó después de dos intentos.", en: "He passed after two attempts." }, accept: ["the try", "effort"], hint: "From intentar (A2). Un intento más = one more try; en el primer intento = on the first try." },
       ],
     },
   ],

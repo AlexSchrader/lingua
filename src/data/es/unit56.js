@@ -5,7 +5,7 @@
 // how work actually RUNS: planning and managing a process, meeting deadlines,
 // getting results, and the roles and career moves around it. This is the
 // vocabulary of a real job, not just its furniture. Every A2 work word is used
-// and re-taught nowhere; examples stay indicative.
+// and re-taught nowhere; examples avoid the subjunctive (indicative + A2 conditional; subjunctive waits for u69-71).
 // lang/unit/lesson are stamped in src/data/index.js.
 export const ES_UNIT56 = {
   id: "es-u56",

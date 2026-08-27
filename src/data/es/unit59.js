@@ -4,7 +4,7 @@
 // crecer. B1 adds the vocabulary of change as a PROCESS over time: transforming
 // and evolving, rising and falling, old versus new, and the pace and steadiness
 // of it all. This pairs naturally with cause/consequence (u52). Every A2 change
-// verb is used and re-taught nowhere; examples stay indicative and lean on the
+// verb is used and re-taught nowhere; examples avoid the subjunctive and lean on the
 // A2 time words (antes, después, ya, cada vez más).
 // lang/unit/lesson are stamped in src/data/index.js.
 export const ES_UNIT59 = {

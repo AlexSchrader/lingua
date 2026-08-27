@@ -6,7 +6,7 @@
 // themselves, and the politics and protest that move a society. This is also the
 // first unit whose examples read like real sentences off a news page — longer,
 // with a clause of context. Every A2 society word is used and re-taught nowhere;
-// examples stay indicative.
+// examples avoid the subjunctive (indicative + A2 conditional; subjunctive waits for u69-71).
 // lang/unit/lesson are stamped in src/data/index.js.
 export const ES_UNIT55 = {
   id: "es-u55",

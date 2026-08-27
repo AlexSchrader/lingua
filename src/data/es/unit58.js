@@ -4,7 +4,7 @@
 // talking about ideas themselves, not just concrete things. A2 could name a
 // table; B1 names a concept, a theory, a value, a belief. These words are the
 // tools the opinion and argument units (u51-52) actually run on. Examples get
-// abstract but stay indicative, and lean on the concrete A2 vocabulary to stay
+// abstract but avoid the subjunctive, and lean on the concrete A2 vocabulary to stay
 // grounded. Nothing A2 taught (el sentido, el pensamiento, la mente, la verdad)
 // is re-taught; it's all used in examples.
 // lang/unit/lesson are stamped in src/data/index.js.
@@ -78,7 +78,7 @@ export const ES_UNIT58 = {
         { id: "es-u58l4-razonar", type: "vocab", front: "razonar", reading: "razonar", meaning: "to reason", example: { jp: "Hay que razonar bien antes de decidir.", en: "You have to reason well before deciding." }, accept: ["to think through"], hint: "From la razón (A2). To think logically through a problem." },
         { id: "es-u58l4-reflexionar", type: "vocab", front: "reflexionar", reading: "reflexionar", meaning: "to reflect", example: { jp: "Necesito reflexionar sobre lo que me dijiste.", en: "I need to reflect on what you told me." }, accept: ["to ponder", "to think over"], hint: "reflexionar SOBRE algo. To think something over deeply — slower and deeper than pensar." },
         { id: "es-u58l4-lareflexion", type: "vocab", front: "la reflexión", reading: "lareflexion", meaning: "reflection", example: { jp: "Después de una larga reflexión, cambió de idea.", en: "After a long reflection, he changed his mind." }, accept: ["the thought", "consideration"], hint: "The noun from reflexionar — careful thought. Also a reflection in a mirror (el reflejo is more common for that)." },
-        { id: "es-u58l4-laconciencia", type: "vocab", front: "la conciencia", reading: "laconciencia", meaning: "conscience", example: { jp: "Lo hizo con la conciencia tranquila.", en: "He did it with a clear conscience." }, accept: ["the awareness", "consciousness"], hint: "Both conscience (right/wrong) and awareness. Tener conciencia de algo = to be aware of something." },
+        { id: "es-u58l4-laconciencia", type: "vocab", front: "la conciencia", reading: "laconciencia", meaning: "conscience", example: { jp: "Hizo el trabajo con la conciencia tranquila.", en: "He did the work with a clear conscience." }, accept: ["the awareness", "consciousness"], hint: "Both conscience (right/wrong) and awareness. Tener conciencia de algo = to be aware of something." },
         { id: "es-u58l4-plantear", type: "vocab", front: "plantear", reading: "plantear", meaning: "to raise", example: { jp: "Quiero plantear una duda sobre el plan.", en: "I want to raise a doubt about the plan." }, accept: ["to pose", "to bring up"], hint: "To put forward a question, a problem, an idea. Plantearse algo = to consider/wonder about something." },
         { id: "es-u58l4-elenfoque", type: "vocab", front: "el enfoque", reading: "elenfoque", meaning: "approach", example: { jp: "Necesitamos un enfoque distinto para este problema.", en: "We need a different approach to this problem." }, accept: ["the angle", "focus"], hint: "A way of looking at a problem. From enfocar, to focus. Near la postura (u51) but about method, not opinion." },
       ],

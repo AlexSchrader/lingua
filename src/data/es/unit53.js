@@ -5,7 +5,7 @@
 // the verbs (comparar, distinguir, destacar), the finer relations (superior,
 // inferior, el doble, escaso, abundante), and a set of degree adverbs that grade
 // a claim precisely instead of reaching for muy again. Examples build on the A2
-// comparatives and stay indicative.
+// comparatives and avoid the subjunctive.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const ES_UNIT53 = {
   id: "es-u53",

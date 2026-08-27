@@ -6,7 +6,7 @@
 // of reacting to things (sorprender, asustar, decepcionar), the vocabulary of
 // stress and calm, and the words for a mood. Reactions here are built with me/se
 // (the free A2 clitics) — me sorprende, me da pena — so no new pronoun is needed.
-// Examples stay indicative. Every A2 feeling word is used and re-taught nowhere.
+// Examples avoid the subjunctive (indicative + the A2 conditional only; the subjunctive waits for the block-2 grammar units). Every A2 feeling word is used and re-taught nowhere.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const ES_UNIT57 = {
   id: "es-u57",
@@ -26,7 +26,7 @@ export const ES_UNIT57 = {
       items: [
         { id: "es-u57l1-laemocion", type: "vocab", front: "la emoción", reading: "laemocion", meaning: "emotion", example: { jp: "No pudo hablar por la emoción del momento.", en: "He couldn't speak because of the emotion of the moment." }, accept: ["the excitement", "thrill"], hint: "A strong feeling — and also excitement: ¡qué emoción! = how exciting! From this comes the whole unit." },
         { id: "es-u57l1-emocionar", type: "vocab", front: "emocionar", reading: "emocionar", meaning: "to move", example: { jp: "La película me emocionó mucho al final.", en: "The film moved me a lot at the end." }, accept: ["to thrill", "to touch"], hint: "Works like gustar: la película ME emociona. Emocionarse = to get emotional." },
-        { id: "es-u57l1-conmover", type: "vocab", front: "conmover", reading: "conmover", meaning: "to move deeply", example: { jp: "Su historia nos conmovió a todos.", en: "His story moved us all deeply." }, accept: ["to touch", "to stir"], hint: "Stronger than emocionar — to move someone to tears. The o becomes ue: conmueve." },
+        { id: "es-u57l1-conmover", type: "vocab", front: "conmover", reading: "conmover", meaning: "to move deeply", example: { jp: "Su historia me conmovió mucho.", en: "His story moved me a lot." }, accept: ["to touch", "to stir"], hint: "Stronger than emocionar — to move someone to tears. The o becomes ue: conmueve." },
         { id: "es-u57l1-elorgullo", type: "vocab", front: "el orgullo", reading: "elorgullo", meaning: "pride", example: { jp: "Habla de sus hijos con mucho orgullo.", en: "She talks about her children with great pride." }, accept: ["the self-esteem"], hint: "The noun behind orgulloso (A2). Good pride, or the stubborn kind — por orgullo, no lo admite." },
         { id: "es-u57l1-laverguenza", type: "vocab", front: "la vergüenza", reading: "laverguenza", meaning: "embarrassment", example: { jp: "Me da vergüenza hablar en público.", en: "I'm embarrassed to speak in public." }, accept: ["the shame", "shyness"], hint: "dar vergüenza = to embarrass (like dar miedo). ¡Qué vergüenza! = How embarrassing!" },
         { id: "es-u57l1-lailusion", type: "vocab", front: "la ilusión", reading: "lailusion", meaning: "excitement", example: { jp: "Los niños esperan el verano con mucha ilusión.", en: "The children look forward to the summer with great excitement." }, accept: ["the hope", "eagerness"], hint: "A false friend: la ilusión = eager excitement/hope, NOT usually \"illusion\". Me hace ilusión = I'm excited about it." },
@@ -46,7 +46,7 @@ export const ES_UNIT57 = {
         { id: "es-u57l2-decepcionar", type: "vocab", front: "decepcionar", reading: "decepcionar", meaning: "to disappoint", example: { jp: "La película me decepcionó bastante.", en: "The film disappointed me quite a bit." }, accept: ["to let down"], hint: "A false friend: decepcionar = to disappoint, NOT \"to deceive\" (that's engañar). Me decepciona = it disappoints me." },
         { id: "es-u57l2-ladecepcion", type: "vocab", front: "la decepción", reading: "ladecepcion", meaning: "disappointment", example: { jp: "El resultado fue una gran decepción para todos.", en: "The result was a big disappointment for everyone." }, accept: ["the letdown"], hint: "The noun from decepcionar. Llevarse una decepción = to be disappointed." },
         { id: "es-u57l2-molestar", type: "vocab", front: "molestar", reading: "molestar", meaning: "to bother", example: { jp: "Me molesta mucho el ruido de los coches.", en: "The noise of the cars bothers me a lot." }, accept: ["to annoy", "to disturb"], hint: "Works like gustar: me molesta. ¿Te molesta si abro la ventana? = Do you mind if…?" },
-        { id: "es-u57l2-animar", type: "vocab", front: "animar", reading: "animar", meaning: "to cheer up", example: { jp: "Sus amigos siempre lo animan cuando está triste.", en: "His friends always cheer him up when he's sad." }, accept: ["to encourage", "to liven up"], hint: "From el ánimo (A2). To lift someone's spirits, or to encourage them to do something: animar a alguien a…" },
+        { id: "es-u57l2-animar", type: "vocab", front: "animar", reading: "animar", meaning: "to cheer up", example: { jp: "Sus amigos animan a Pablo cuando está triste.", en: "His friends cheer Pablo up when he's sad." }, accept: ["to encourage", "to liven up"], hint: "From el ánimo (A2). To lift someone's spirits, or to encourage them to do something: animar a alguien a…" },
       ],
     },
     {

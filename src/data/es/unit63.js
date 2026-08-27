@@ -4,7 +4,7 @@
 // forget (recordar, olvidar, el recuerdo) and to live (vivir, la experiencia).
 // B1 adds the machinery of memory (la memoria, acordarse, memorizar), the stages
 // of a life, the vocabulary of looking back (nostalgia, añorar, la vivencia), and
-// what leaves a mark on us. Examples stay indicative and past-tense-simple,
+// what leaves a mark on us. Examples avoid the subjunctive and past-tense-simple,
 // leaning on the A2 preterite the learner owns. Every A2 memory/life word is used
 // and re-taught nowhere.
 // lang/unit/lesson are stamped in src/data/index.js.
@@ -79,7 +79,7 @@ export const ES_UNIT63 = {
         { id: "es-u63l4-sonar", type: "vocab", front: "soñar", reading: "sonar", meaning: "to dream", example: { jp: "De niño soñaba con ser futbolista.", en: "As a child he dreamed of being a footballer." }, accept: ["to daydream"], hint: "soñar CON algo = to dream of/about. The o becomes ue: sueño. From el sueño (A2, dream/sleep). de niño = as a child." },
         { id: "es-u63l4-lahuella", type: "vocab", front: "la huella", reading: "lahuella", meaning: "mark", example: { jp: "Aquel profesor dejó una huella en todos nosotros.", en: "That teacher left a mark on all of us." }, accept: ["the trace", "footprint"], hint: "dejar huella = to leave a lasting mark. Also a footprint or fingerprint (la huella dactilar). aquel is l3." },
         { id: "es-u63l4-marcar", type: "vocab", front: "marcar", reading: "marcar", meaning: "to mark", example: { jp: "Ese día marcó el resto de su vida.", en: "That day marked the rest of his life." }, accept: ["to shape", "to leave a mark on"], hint: "For an event to shape someone deeply. From la marca. Also to dial a number: marcar el teléfono." },
-        { id: "es-u63l4-inolvidable", type: "vocab", front: "inolvidable", reading: "inolvidable", meaning: "unforgettable", example: { jp: "Fue un viaje inolvidable, nunca lo voy a olvidar.", en: "It was an unforgettable trip, I'll never forget it." }, accept: ["memorable"], hint: "in- (un-) + olvidar (A1) + -able: that can't be forgotten. The good kind of memory." },
+        { id: "es-u63l4-inolvidable", type: "vocab", front: "inolvidable", reading: "inolvidable", meaning: "unforgettable", example: { jp: "Fue un viaje inolvidable; nunca voy a olvidar ese día.", en: "It was an unforgettable trip; I'll never forget that day." }, accept: ["memorable"], hint: "in- (un-) + olvidar (A1) + -able: that can't be forgotten. The good kind of memory." },
         { id: "es-u63l4-elhabito", type: "vocab", front: "el hábito", reading: "elhabito", meaning: "habit", example: { jp: "Leer antes de dormir es un buen hábito.", en: "Reading before sleeping is a good habit." }, accept: ["the routine"], hint: "A regular habit — more neutral than la costumbre (A2). Coger el hábito de = to get into the habit of." },
       ],
     },

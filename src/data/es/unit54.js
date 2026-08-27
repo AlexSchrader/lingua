@@ -5,7 +5,7 @@
 // grading how likely something is, guessing out loud, and being deliberately
 // vague. This is a register move as much as a vocabulary one — a B1 speaker
 // rarely states things flat, and the words here are how you avoid it.
-// Examples stay INDICATIVE: Spanish hedging pulls hard toward the subjunctive
+// Examples avoid the SUBJUNCTIVE: Spanish hedging pulls hard toward the subjunctive
 // (es probable que SEA, dudo que VENGA), but that mood is taught in u69-71, so
 // every example here is framed to need only the indicative — "es muy probable"
 // with no clause, "lo más probable es un retraso" with a noun.
