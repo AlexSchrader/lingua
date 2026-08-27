@@ -1,0 +1,82 @@
+// Unit 206 — ふくし・N2 (adverbs and connectives of written Japanese) — B2 / JLPT N2
+// Strand D, coverage 14 of 16. B1's u146 and u147 took the spoken adverbs. What is left,
+// and what a learner meets the moment they open a newspaper or a contract, is the written
+// layer: あえて, もはや, とりわけ, and the formal connectives すなわち, および, もしくは that
+// hold long sentences together. Lesson 4 in particular is the joinery of written Japanese.
+export const UNIT206 = {
+  id: "ja-u206",
+  lang: "ja",
+  title: "ふくし・N2",
+  order: 206,
+  stage: "b2",
+  lessons: [
+    {
+      id: "ja-u206l1",
+      unit: 206,
+      lesson: 1,
+      title: "Deliberately, and exactly so",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Mark a choice as deliberate or a description as exact: ことさら, ひとえに, いかにも, まさしく, あたかも, おのずと.",
+      items: [
+                { id: "ja-u206l1-kotosara", type: "vocab", front: "ことさら", reading: "kotosara", meaning: "pointedly, more than needed", example: { jp: "ことさら 大きな こえで 言う ひつようは ありません。", en: "There is no need to say it that loudly on purpose." }, accept: ["deliberately", "particularly"], hint: "Doing something more than the situation calls for, usually to make a point of it." },
+                { id: "ja-u206l1-hitoeni", type: "vocab", front: "ひとえに", reading: "hitoeni", meaning: "entirely (thanks to)", example: { jp: "うまく いったのは、ひとえに みなさんの おかげです。", en: "That it went well is entirely thanks to all of you." }, accept: ["solely", "wholly due to"], hint: "Assigns the whole cause to one source, and in practice nearly always gives someone else the credit." },
+        { id: "ja-u206l1-ikanimo", type: "vocab", front: "いかにも", reading: "ikanimo", meaning: "just like you'd expect, every inch", example: { jp: "いかにも 春らしい 天気ですね。", en: "It's exactly the sort of weather you expect in spring." }, accept: ["typically", "every bit the", "for all the world like"], hint: "Says the thing fits its type perfectly, and can be admiring or mocking depending on what is being typed." },
+        { id: "ja-u206l1-masashiku", type: "vocab", front: "まさしく", reading: "masashiku", meaning: "precisely, without doubt", example: { jp: "それは まさしく 私が さがして いた 本です。", en: "That is precisely the book I was looking for." }, accept: ["exactly", "assuredly"], hint: "The written まさに. Both confirm an identification; まさしく is the one you read." },
+        { id: "ja-u206l1-atakamo", type: "vocab", front: "あたかも", reading: "atakamo", meaning: "as if, just as though", example: { jp: "あたかも 自分が 見たかのように 話しました。", en: "He spoke as though he had seen it himself." }, accept: ["as it were", "for all the world as if"], hint: "The literary まるで, and it wants かのように at the end. You will read it far more often than you say it." },
+        { id: "ja-u206l1-onozuto", type: "vocab", front: "おのずと", reading: "onozuto", meaning: "of its own accord, naturally", example: { jp: "つづけて いれば、こたえは おのずと 見えて きます。", en: "If you keep at it, the answer becomes clear of its own accord." }, accept: ["naturally", "in due course, by itself"], hint: "The result arrives without being forced. しぜんに is the everyday word; おのずと carries a hint of inevitability." },
+      ],
+    },
+    {
+      id: "ja-u206l2",
+      unit: 206,
+      lesson: 2,
+      title: "Already, still, and all the more",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Place something on a timeline or a scale: もはや, いまだ, たちまち, めっきり, いちだんと, なにより.",
+      items: [
+        { id: "ja-u206l2-mohaya", type: "vocab", front: "もはや", reading: "mohaya", meaning: "by now, no longer", example: { jp: "もはや むかしの 町では ありません。", en: "It is no longer the town it once was." }, accept: ["already (now)", "at this point"], hint: "The written もう, and it usually carries regret — the moment for something has passed." },
+        { id: "ja-u206l2-imada", type: "vocab", front: "いまだ", reading: "imada", meaning: "still (not), to this day", example: { jp: "その げんいんは いまだ 分かって いません。", en: "The cause is still not understood to this day." }, accept: ["as yet", "even now"], hint: "The mirror of もはや: もはや says it has passed, いまだ says it has not yet arrived. Usually with a negative." },
+        { id: "ja-u206l2-tachimachi", type: "vocab", front: "たちまち", reading: "tachimachi", meaning: "in no time at all", example: { jp: "その 本は たちまち 売り切れました。", en: "The book sold out in no time." }, accept: ["instantly", "in a flash"], hint: "Faster than すぐに and more surprised by it — things vanish, spread or change たちまち." },
+        { id: "ja-u206l2-mekkiri", type: "vocab", front: "めっきり", reading: "mekkiri", meaning: "markedly (of a change)", example: { jp: "さいきん、めっきり すずしく なりました。", en: "It's turned markedly cooler lately." }, accept: ["noticeably", "distinctly (changed)"], hint: "Only for change you notice between one time and another — weather, health, custom. Never for a steady state." },
+        { id: "ja-u206l2-ichidanto", type: "vocab", front: "いちだんと", reading: "ichidanto", meaning: "a notch more than before", example: { jp: "いちだんと じょうずに なりましたね。", en: "You've got noticeably better." }, accept: ["even more", "a further step"], hint: "だん is a step, so the change is one rung up from an already high place. It is usually a compliment." },
+                { id: "ja-u206l2-naniyori", type: "vocab", front: "なにより", reading: "naniyori", meaning: "more than anything, best of all", example: { jp: "元気に なって、なによりです。", en: "You have got well, and that is the best thing of all." }, accept: ["above all", "nothing better"], hint: "なによりです on its own is the standard reply to good news." },
+      ],
+    },
+    {
+      id: "ja-u206l3",
+      unit: 206,
+      lesson: 3,
+      title: "No doubt, given the circumstances",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Soften or qualify a written statement: さぞ, なにぶん, あくまでも, しきりに, まして, やむをえず.",
+      items: [
+        { id: "ja-u206l3-sazo", type: "vocab", front: "さぞ", reading: "sazo", meaning: "surely, I imagine (of someone else's feeling)", example: { jp: "さぞ おつかれでしょう。", en: "You must be very tired." }, accept: ["no doubt", "I can imagine"], hint: "Only for imagining what SOMEONE ELSE feels, and it wants でしょう at the end. It is a sympathy word." },
+        { id: "ja-u206l3-nanibun", type: "vocab", front: "なにぶん", reading: "nanibun", meaning: "what with (the circumstances being)", example: { jp: "なにぶん はじめてなので、よろしく お願いします。", en: "As it's my first time, I'd appreciate your help." }, accept: ["being that", "given that"], hint: "Excuses something in advance by pointing at a circumstance. Extremely common in polite self-introduction." },
+        { id: "ja-u206l3-akumademo", type: "vocab", front: "あくまでも", reading: "akumademo", meaning: "strictly, only as", example: { jp: "あくまでも 私の 考えですが、と 前置きしました。", en: "He prefaced it by saying it was strictly his own view." }, accept: ["purely", "no more than"], hint: "The emphatic あくまで (B1 u146). It fences a claim so it cannot be taken for more than it is." },
+        { id: "ja-u206l3-shikirini", type: "vocab", front: "しきりに", reading: "shikirini", meaning: "repeatedly, insistently", example: { jp: "しきりに 時計を 見て いました。", en: "He kept glancing at the clock." }, accept: ["persistently", "again and again"], hint: "Repetition that shows something — impatience, worry, eagerness. The repetition is a signal, not just a count." },
+                { id: "ja-u206l3-mashite", type: "vocab", front: "まして", reading: "mashite", meaning: "let alone, still more so", example: { jp: "おとなでも むずかしいのに、まして 子どもには むりです。", en: "It is hard even for adults, let alone impossible for children." }, accept: ["much less", "all the more"], hint: "Takes a case already granted and points at a stronger one. It needs the first clause to lean on." },
+        { id: "ja-u206l3-yamuoezu", type: "vocab", front: "やむをえず", reading: "yamuoezu", meaning: "unavoidably, having no choice", example: { jp: "雨の ため、やむをえず 中止しました。", en: "Owing to rain, it was unavoidably called off." }, accept: ["perforce", "with no alternative"], hint: "The formal しかたなく (B1 u146), and the standard wording on a cancellation notice — it places the blame on circumstance." },
+      ],
+    },
+    {
+      id: "ja-u206l4",
+      unit: 206,
+      lesson: 4,
+      title: "The joinery of written Japanese",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Join clauses the way a document does: すなわち, よって, および, ならびに, もしくは, ひいては.",
+      items: [
+        { id: "ja-u206l4-sunawachi", type: "vocab", front: "すなわち", reading: "sunawachi", meaning: "that is to say, namely", example: { jp: "けっかは 一つ、すなわち やりなおしです。", en: "There is one outcome, namely doing it again." }, accept: ["in other words", "i.e."], hint: "The written つまり. It restates the same thing more precisely, rather than summarising it." },
+        { id: "ja-u206l4-yotte", type: "vocab", front: "よって", reading: "yotte", meaning: "therefore (formal)", example: { jp: "きそくに あいません。よって、みとめられません。", en: "It does not meet the rules. Therefore it cannot be approved." }, accept: ["hence", "accordingly"], hint: "The したがって of B1's u137, one degree more formal. Judgments, notices and proofs end with it." },
+        { id: "ja-u206l4-oyobi", type: "vocab", front: "および", reading: "oyobi", meaning: "and (in a list, formal)", example: { jp: "名前 および 住所を お書き ください。", en: "Please write your name and address." }, accept: ["as well as", "plus (formal)"], hint: "The written と for joining nouns. Forms use it constantly, and it never joins verbs or clauses." },
+        { id: "ja-u206l4-narabini", type: "vocab", front: "ならびに", reading: "narabini", meaning: "and also (joining groups)", example: { jp: "本人 ならびに ご家ぞくの 方も 入れます。", en: "The person themselves and their family may also enter." }, accept: ["together with", "as well as (groups)"], hint: "Ranks above および: when a document needs two levels of 'and', および joins within a group and ならびに joins the groups." },
+        { id: "ja-u206l4-moshikuwa", type: "vocab", front: "もしくは", reading: "moshikuwa", meaning: "or (formal)", example: { jp: "電話 もしくは メールで お知らせします。", en: "We will inform you by telephone or email." }, accept: ["alternatively", "or else (formal)"], hint: "The written または. Same relationship to it that ならびに has to および — the formal register of a very ordinary word." },
+        { id: "ja-u206l4-hiiteha", type: "vocab", front: "ひいては", reading: "hiiteha", meaning: "and by extension", example: { jp: "自分の ため、ひいては みんなの ためです。", en: "It's for your own sake, and by extension for everyone's." }, accept: ["ultimately", "and consequently"], hint: "Widens the scope of what you just said one step outward. It is the move a persuasive paragraph ends on." },
+      ],
+    },
+  ],
+};

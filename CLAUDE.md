@@ -130,6 +130,18 @@ Presentation rule, not a thinking rule: do the full rigour, report it compressed
 - Keep it short — flag, don't lecture. Alex will redirect if he disagrees.
 - If the fix is small (< 5 min) and unambiguously right, just do it and mention it. If it's scope-changing, ask first.
 
+### How to talk to Alex (applies to every reply, not just summaries)
+
+**Answer in bullets, not paragraphs.** Added 2026-08-15 at Alex's explicit request.
+
+- **Lead with the answer or the verdict**, then bullets of evidence underneath it.
+- **One idea per bullet**; bold the load-bearing number or name so it survives a skim.
+- **Tables for anything comparative** — gate results, per-block status, counts.
+- **Prose only where a bullet genuinely cannot carry it**: a real trade-off, or a correction that needs a sentence of reasoning.
+- **If a reply is getting long, a decision is being narrated instead of made.** Make it and say so in one line.
+
+This is the same principle the app is built on. `CLAUDE.md` tells CC to design walls of text *out* of the UX for ND learners — producing them in chat contradicts the project's own spine.
+
 **What not to do:**
 
 - Don't pad responses with "great question!" or unnecessary affirmations.

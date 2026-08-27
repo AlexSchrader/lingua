@@ -1,0 +1,82 @@
+// Unit 201 — ぎたいご・3 (mimetic words: things, weather and build) — B2 / JLPT N2
+// Strand D, coverage 9 of 16. The last mimetic unit: how surfaces feel, how the air feels,
+// and how a body or a finish looks. These are the words a learner needs to describe the
+// physical world at all — Japanese has very few plain adjectives for texture, and reaches
+// for a mimetic where English would use "slippery", "crumbly" or "muggy".
+export const UNIT201 = {
+  id: "ja-u201",
+  lang: "ja",
+  title: "ぎたいご・3",
+  order: 201,
+  stage: "b2",
+  lessons: [
+    {
+      id: "ja-u201l1",
+      unit: 201,
+      lesson: 1,
+      title: "How a surface feels",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe texture by touch: つるつる, ざらざら, ぬるぬる, べたべた, さらさら, ふわふわ.",
+      items: [
+        { id: "ja-u201l1-tsurutsuru", type: "vocab", front: "つるつる", reading: "tsurutsuru", meaning: "smooth and slippery", example: { jp: "雨の 日は いしの 道が つるつるして あぶないです。", en: "On rainy days the stone path is slippery and dangerous." }, accept: ["slippery", "glossy"], hint: "Smooth enough to slide on. Also the sound of slurping noodles." },
+        { id: "ja-u201l1-zarazara", type: "vocab", front: "ざらざら", reading: "zarazara", meaning: "rough, gritty", example: { jp: "風で すなが 入って、ゆかが ざらざらして います。", en: "Sand blew in and the floor is gritty." }, accept: ["gritty", "coarse"], hint: "The direct opposite of つるつる — grains under the hand." },
+        { id: "ja-u201l1-nurunuru", type: "vocab", front: "ぬるぬる", reading: "nurunuru", meaning: "slimy", example: { jp: "この 魚は ぬるぬるして、持ちにくいです。", en: "This fish is slimy and hard to hold." }, accept: ["slippery-wet", "slick"], hint: "Slippery because of something wet on it, where つるつる is slippery in itself." },
+        { id: "ja-u201l1-betabeta", type: "vocab", front: "べたべた", reading: "betabeta", meaning: "sticky", example: { jp: "手が べたべたするので、あらって きます。", en: "My hands are sticky, so I'll go and wash them." }, accept: ["tacky", "gooey"], hint: "Also used of a person who is clingy with someone else." },
+        { id: "ja-u201l1-sarasara", type: "vocab", front: "さらさら", reading: "sarasara", meaning: "dry and smooth, free-flowing", example: { jp: "この 紙は さらさらして、書きやすいです。", en: "This paper is smooth and dry, and easy to write on." }, accept: ["silky", "flowing (dry)"], hint: "Dry smoothness — hair, sand, a stream. The opposite of べたべた rather than of ざらざら." },
+        { id: "ja-u201l1-fuwafuwa", type: "vocab", front: "ふわふわ", reading: "fuwafuwa", meaning: "soft and fluffy", example: { jp: "この パンは ふわふわで おいしいです。", en: "This bread is lovely and fluffy." }, accept: ["fluffy", "light and soft"], hint: "Light as well as soft — bread, a cloud, a cushion. A person ふわふわして いる is not grounded." },
+      ],
+    },
+    {
+      id: "ja-u201l2",
+      unit: 201,
+      lesson: 2,
+      title: "Hard, soft, and what it does in the mouth",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe firmness and food texture: ごつごつ, でこぼこ, かちかち, もちもち, ぱさぱさ, しっとり.",
+      items: [
+        { id: "ja-u201l2-gotsugotsu", type: "vocab", front: "ごつごつ", reading: "gotsugotsu", meaning: "rugged, knobbly", example: { jp: "ごつごつした いわの 上を 歩きました。", en: "We walked over rugged stones." }, accept: ["craggy", "bony"], hint: "Big irregular lumps — rocks, or a working man's hands." },
+        { id: "ja-u201l2-dekoboko", type: "vocab", front: "でこぼこ", reading: "dekoboko", meaning: "uneven, bumpy", example: { jp: "この 道は でこぼこで、走りにくいです。", en: "This road is bumpy and hard to run on." }, accept: ["rough (surface)", "full of dips"], hint: "でこ (convex) + ぼこ (concave) — up and down together. Also used of an uneven distribution." },
+        { id: "ja-u201l2-kachikachi", type: "vocab", front: "かちかち", reading: "kachikachi", meaning: "rock hard", example: { jp: "パンが かちかちに なって しまいました。", en: "The bread has gone rock hard." }, accept: ["hard as a rock", "frozen solid"], hint: "Hard because it dried or froze. A person かちかち is stiff with nerves." },
+        { id: "ja-u201l2-mochimochi", type: "vocab", front: "もちもち", reading: "mochimochi", meaning: "springy, chewy (pleasantly)", example: { jp: "この パンは もちもちして います。", en: "This bread has a lovely springy texture." }, accept: ["chewy", "bouncy (texture)"], hint: "From もち, the pounded rice cake. It is always praise, and food writing runs on it." },
+        { id: "ja-u201l2-pasapasa", type: "vocab", front: "ぱさぱさ", reading: "pasapasa", meaning: "dry and crumbly", example: { jp: "きのうの ごはんは ぱさぱさに なりました。", en: "Yesterday's rice has gone dry and crumbly." }, accept: ["dried out", "crumbly"], hint: "The complaint version of dry — bread, rice, hair. さらさら is dry and pleasant; ぱさぱさ is dry and wrong." },
+        { id: "ja-u201l2-shittori", type: "vocab", front: "しっとり", reading: "shittori", meaning: "moist, softly damp", example: { jp: "この ケーキは しっとりして います。", en: "This cake is nice and moist." }, accept: ["moist", "supple"], hint: "The opposite of ぱさぱさ, and equally always positive — cake, skin, or a calm atmosphere." },
+      ],
+    },
+    {
+      id: "ja-u201l3",
+      unit: 201,
+      lesson: 3,
+      title: "What the air is doing",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe weather and damp: じめじめ, むしむし, ぽかぽか, ひんやり, からから, どろどろ.",
+      items: [
+        { id: "ja-u201l3-jimejime", type: "vocab", front: "じめじめ", reading: "jimejime", meaning: "damp and clammy", example: { jp: "つゆの 時期は じめじめして、いやです。", en: "The rainy season is damp and clammy, and I don't like it." }, accept: ["humid and unpleasant", "muggy-damp"], hint: "Damp you can feel on everything. Also a gloomy personality — じめじめした 話." },
+        { id: "ja-u201l3-mushimushi", type: "vocab", front: "むしむし", reading: "mushimushi", meaning: "hot and humid, stifling", example: { jp: "今日は むしむしして、風が ほしいです。", en: "It's stifling today — I want a breeze." }, accept: ["muggy", "sultry"], hint: "じめじめ is damp; むしむし is damp AND hot, the specific misery of a Japanese August." },
+        { id: "ja-u201l3-pokapoka", type: "vocab", front: "ぽかぽか", reading: "pokapoka", meaning: "pleasantly warm", example: { jp: "春の 日は ぽかぽかして、ねむく なります。", en: "Spring days are pleasantly warm and make you sleepy." }, accept: ["cosily warm", "toasty"], hint: "Gentle warmth from outside or from inside the body. Always comfortable." },
+        { id: "ja-u201l3-hinyari", type: "vocab", front: "ひんやり", reading: "hinyari", meaning: "coolly, refreshingly cold", example: { jp: "林の 中は ひんやりして いました。", en: "It was cool inside the forest." }, accept: ["chilly (pleasantly)", "cool to the touch"], hint: "Cool in a way you welcome — a shaded room, a stone floor. さむい is a complaint; ひんやり usually is not." },
+        { id: "ja-u201l3-karakara", type: "vocab", front: "からから", reading: "karakara", meaning: "bone dry; parched", example: { jp: "のどが からからで、水が のみたいです。", en: "My throat is parched and I want water." }, accept: ["dried out", "arid"], hint: "Completely without moisture — a throat, weather, an empty tank." },
+        { id: "ja-u201l3-dorodoro", type: "vocab", front: "どろどろ", reading: "dorodoro", meaning: "thick and muddy, gloopy", example: { jp: "雨で 道が どろどろに なりました。", en: "The rain turned the road to mud." }, accept: ["muddy", "sludgy"], hint: "From どろ, mud. Also used of a relationship or a story that has become messy and unpleasant." },
+      ],
+    },
+    {
+      id: "ja-u201l4",
+      unit: 201,
+      lesson: 4,
+      title: "Build and finish",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe how something or someone is put together: がっしり, ほっそり, ずっしり, すっきり, こんがり, ぴかぴか.",
+      items: [
+        { id: "ja-u201l4-gasshiri", type: "vocab", front: "がっしり", reading: "gasshiri", meaning: "solidly built", example: { jp: "がっしりした つくえなので、長く 使えます。", en: "It's a solidly built desk, so it will last." }, accept: ["sturdy", "well built"], hint: "Bodies and furniture alike — built to take weight." },
+        { id: "ja-u201l4-hossori", type: "vocab", front: "ほっそり", reading: "hossori", meaning: "slender", example: { jp: "ほっそりした 手で、ピアノを ひいて います。", en: "She plays the piano with slender hands." }, accept: ["slim", "willowy"], hint: "Slim and elegant with it — a compliment, where やせて いる is merely a fact." },
+        { id: "ja-u201l4-zusshiri", type: "vocab", front: "ずっしり", reading: "zusshiri", meaning: "heavy in the hand", example: { jp: "小さいのに、持つと ずっしり 重いです。", en: "It's small, but it feels heavy when you pick it up." }, accept: ["weighty", "solid-feeling"], hint: "Heavier than it looks — which is why it usually implies quality." },
+        { id: "ja-u201l4-sukkiri", type: "vocab", front: "すっきり", reading: "sukkiri", meaning: "clear, uncluttered, refreshed", example: { jp: "へやを かたづけたら、気持ちが すっきりしました。", en: "I tidied the room and felt clear-headed." }, accept: ["refreshed", "neat and clear"], hint: "Rooms, writing, and heads. It is the resolution of u199's もやもや — the haze has gone." },
+        { id: "ja-u201l4-kongari", type: "vocab", front: "こんがり", reading: "kongari", meaning: "golden brown (well toasted)", example: { jp: "パンが こんがり やけました。", en: "The bread has toasted to a golden brown." }, accept: ["nicely browned", "toasted golden"], hint: "Only ever about cooking colour, and only when it came out right." },
+        { id: "ja-u201l4-pikapika", type: "vocab", front: "ぴかぴか", reading: "pikapika", meaning: "shining, brand new", example: { jp: "くつを みがいたら、ぴかぴかに なりました。", en: "I polished my shoes and they came up gleaming." }, accept: ["gleaming", "sparkling new"], hint: "Shine from cleaning or from newness — ぴかぴかの 一年生 is a brand-new first-year pupil." },
+      ],
+    },
+  ],
+};

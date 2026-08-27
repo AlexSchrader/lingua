@@ -15,3 +15,7 @@ dist-ssr
 /.vite/
 .vercel
 .env*
+
+# throwaway authoring-seat tooling
+scratch-*.mjs
+scratch-*.py

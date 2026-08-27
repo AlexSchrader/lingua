@@ -1,0 +1,81 @@
+// Unit 207 — ごい・N2・1 (set adverbial expressions) — B2 / JLPT N2
+// Strand D, coverage 15 of 16. Fixed adverbial phrases that behave as single words. None of
+// them belongs to a topic, all of them are frequent, and most are invisible to a learner
+// because they look like grammar they have already met — いざ, たかが, これといって.
+export const UNIT207 = {
+  id: "ja-u207",
+  lang: "ja",
+  title: "ごい・N2・1",
+  order: 207,
+  stage: "b2",
+  lessons: [
+    {
+      id: "ja-u207l1",
+      unit: 207,
+      lesson: 1,
+      title: "At the crucial moment",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Mark a turning point or a near miss: いざ, おもいきや, あわや, いっそのこと, どのみち, なんとしても.",
+      items: [
+        { id: "ja-u207l1-iza", type: "vocab", front: "いざ", reading: "iza", meaning: "when it really comes to it", example: { jp: "いざと いう ときの ために、お金を のこして います。", en: "I keep some money aside for when it really matters." }, accept: ["at the critical moment", "when push comes to shove"], hint: "いざという とき — 'if it ever comes to that' — is the phrase you will meet, and it is how Japanese talks about emergencies and savings." },
+        { id: "ja-u207l1-omoikiya", type: "vocab", front: "おもいきや", reading: "omoikiya", meaning: "and yet, contrary to expectation", example: { jp: "終わったと おもいきや、まだ 半分でした。", en: "Just when I thought it was over, it was only half done." }, accept: ["but in fact", "who would have thought"], hint: "Always ～と おもいきや, and the second half always overturns the first. Slightly literary and very useful in storytelling." },
+        { id: "ja-u207l1-awaya", type: "vocab", front: "あわや", reading: "awaya", meaning: "very nearly (something bad)", example: { jp: "あわや じこに なる ところでした。", en: "It very nearly became an accident." }, accept: ["on the verge of", "within an inch of"], hint: "Only for disasters that did NOT happen, and it wants ところだった. News reports use it constantly." },
+        { id: "ja-u207l1-issonokoto", type: "vocab", front: "いっそのこと", reading: "issonokoto", meaning: "might as well just", example: { jp: "なおすより、いっそのこと 新しく 買います。", en: "Rather than mend it, I might as well just buy a new one." }, accept: ["may as well", "rather than that, just"], hint: "The fuller いっそ (B1 u146). It proposes the more drastic option because the moderate one is more trouble." },
+        { id: "ja-u207l1-donomichi", type: "vocab", front: "どのみち", reading: "donomichi", meaning: "either way, whichever it is", example: { jp: "どのみち 明日には 分かります。", en: "Either way we'll know tomorrow." }, accept: ["in any case", "whichever way"], hint: "Whichever road you take, the outcome is the same. どうせ is resigned; どのみち is merely practical." },
+        { id: "ja-u207l1-nantoshitemo", type: "vocab", front: "なんとしても", reading: "nantoshitemo", meaning: "whatever it takes", example: { jp: "なんとしても 今日じゅうに 終わらせます。", en: "I'll finish it today whatever it takes." }, accept: ["at all costs", "come what may"], hint: "Determination rather than possibility. なんとか (B1 u118) is 'somehow manage'; なんとしても is refusing to fail." },
+      ],
+    },
+    {
+      id: "ja-u207l2",
+      unit: 207,
+      lesson: 2,
+      title: "Nothing in particular, for the time being",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Downplay or postpone: これといって, とりたてて, さしあたり, ゆくゆく, さしずめ, おりしも.",
+      items: [
+        { id: "ja-u207l2-koretoitte", type: "vocab", front: "これといって", reading: "koretoitte", meaning: "nothing in particular", example: { jp: "これといって 用は ありません。", en: "I've nothing in particular to ask about." }, accept: ["nothing especially", "no specific"], hint: "Negative-only. The politest way to say your visit or call has no agenda." },
+        { id: "ja-u207l2-toritatete", type: "vocab", front: "とりたてて", reading: "toritatete", meaning: "nothing worth mentioning", example: { jp: "とりたてて 言うほどの ことでは ありません。", en: "It's nothing worth making a point of." }, accept: ["not especially", "nothing to speak of"], hint: "Near-twin of これといって, and the two are often used together. Both refuse to single anything out." },
+        { id: "ja-u207l2-sashiatari", type: "vocab", front: "さしあたり", reading: "sashiatari", meaning: "for the present, for now", example: { jp: "さしあたり これで 進めましょう。", en: "For now, let's go ahead with this." }, accept: ["for the time being", "in the immediate term"], hint: "The written とりあえず (B1 u146) — a decision meant to be revisited." },
+        { id: "ja-u207l2-yukuyuku", type: "vocab", front: "ゆくゆく", reading: "yukuyuku", meaning: "in the long run, eventually", example: { jp: "ゆくゆくは 自分の 店を 持ちたいです。", en: "In the long run I'd like my own shop." }, accept: ["down the line", "some day"], hint: "The counterweight to さしあたり. Announces an ambition with no date attached, which is exactly why it is safe to say aloud." },
+        { id: "ja-u207l2-sashizume", type: "vocab", front: "さしずめ", reading: "sashizume", meaning: "you might call it, in effect", example: { jp: "この 町は、さしずめ 日本の 台所です。", en: "This town is, in effect, Japan's kitchen." }, accept: ["so to speak", "to put it another way"], hint: "Offers a rough label rather than a precise one. Close to いわば, and equally comfortable being approximate." },
+        { id: "ja-u207l2-orishimo", type: "vocab", front: "おりしも", reading: "orishimo", meaning: "just at that very moment", example: { jp: "おりしも 雨が ふりはじめました。", en: "Just at that moment it began to rain." }, accept: ["just then", "as it happened"], hint: "Literary and used in narration. おり means an occasion — the same おり as おりかえす." },
+      ],
+    },
+    {
+      id: "ja-u207l3",
+      unit: 207,
+      lesson: 3,
+      title: "Now and then, more or less, thoroughly",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Qualify how often or how completely: ときおり, ややもすると, まがりなりにも, たかが, くまなく, つとめて.",
+      items: [
+        { id: "ja-u207l3-tokiori", type: "vocab", front: "ときおり", reading: "tokiori", meaning: "now and then", example: { jp: "ときおり むかしの ことを 思い出します。", en: "Now and then I remember the old days." }, accept: ["occasionally", "from time to time"], hint: "The written ときどき. Same frequency, more considered tone." },
+        { id: "ja-u207l3-yayamosuruto", type: "vocab", front: "ややもすると", reading: "yayamosuruto", meaning: "there is a tendency to", example: { jp: "いそがしいと、ややもすると れんらくを わすれます。", en: "When busy, one is apt to forget to get in touch." }, accept: ["apt to", "liable to", "all too easily"], hint: "Names a habitual failing without accusing anyone in particular — a very Japanese way of raising a problem." },
+        { id: "ja-u207l3-magarinarinimo", type: "vocab", front: "まがりなりにも", reading: "magarinarinimo", meaning: "however imperfectly, after a fashion", example: { jp: "まがりなりにも さいごまで つづけました。", en: "Imperfect as it was, I kept it up to the end." }, accept: ["for all its faults", "in some fashion"], hint: "Concedes the quality was poor while insisting the thing was done. Usually said about yourself." },
+        { id: "ja-u207l3-takaga", type: "vocab", front: "たかが", reading: "takaga", meaning: "it's only, mere", example: { jp: "たかが 一点ですが、大きい 一点でした。", en: "It was only one point, but it was a big one." }, accept: ["merely", "no more than"], hint: "Belittles the thing, often in order to overturn it in the second half: たかが…されど…" },
+        { id: "ja-u207l3-kumanaku", type: "vocab", front: "くまなく", reading: "kumanaku", meaning: "leaving nowhere unsearched", example: { jp: "へやを くまなく さがしましたが、ありません。", en: "I searched every corner of the room, but it's not there." }, accept: ["thoroughly", "every corner", "exhaustively"], hint: "くま is a shadowed corner — くまなく means no corner was left in shadow." },
+        { id: "ja-u207l3-tsutomete", type: "vocab", front: "つとめて", reading: "tsutomete", meaning: "making a point of, as far as possible", example: { jp: "つとめて 明るく 話すように して います。", en: "I make a point of speaking cheerfully." }, accept: ["deliberately (with effort)", "doing one's best to"], hint: "Effort applied to your own manner, not to a task. It admits the thing does not come naturally." },
+      ],
+    },
+    {
+      id: "ja-u207l4",
+      unit: 207,
+      lesson: 4,
+      title: "Carefully, wholeheartedly, unhurriedly",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe the spirit an action is done in: よくよく, ひたむき, おもむろに, ゆうゆう, こころよく, ひとまわり.",
+      items: [
+        { id: "ja-u207l4-yokuyoku", type: "vocab", front: "よくよく", reading: "yokuyoku", meaning: "very carefully; only when it's serious", example: { jp: "よくよく 考えてから、へんじを します。", en: "I'll think it over very carefully and then reply." }, accept: ["thoroughly", "really (considering)"], hint: "Two senses that meet: doing something with great care, and doing it only because matters had got serious — よくよくの ことです." },
+        { id: "ja-u207l4-hitamuki", type: "vocab", front: "ひたむき", reading: "hitamuki", meaning: "single-minded, wholehearted", example: { jp: "ひたむきに 練習する すがたに 心を うたれました。", en: "I was moved by the sight of her practising so wholeheartedly." }, accept: ["earnest", "devoted", "with nothing held back"], hint: "Always admiring, and always about effort rather than results. B1's ひたすら is the adverb of amount; ひたむき is the quality of spirit." },
+        { id: "ja-u207l4-omomuroni", type: "vocab", front: "おもむろに", reading: "omomuroni", meaning: "slowly and deliberately", example: { jp: "おもむろに 立ち上がって、話しはじめました。", en: "He rose unhurriedly and began to speak." }, accept: ["deliberately (unhurried)", "without haste"], hint: "A famous trap: it means SLOWLY, not suddenly, and many native speakers get it wrong too. The deliberateness is the point." },
+        { id: "ja-u207l4-yuyu", type: "vocab", front: "ゆうゆう", reading: "yūyū", meaning: "with time to spare, calmly", example: { jp: "はやく 出たので、ゆうゆう まにあいました。", en: "I left early and made it with time to spare." }, accept: ["comfortably", "at one's leisure"], hint: "The opposite of ぎりぎり (u200): not just in time, but with room left over and no hurry about it." },
+        { id: "ja-u207l4-kokoroyoku", type: "vocab", front: "こころよく", reading: "kokoroyoku", meaning: "willingly, with good grace", example: { jp: "お願いすると、こころよく ひきうけて くれました。", en: "When I asked, he took it on with good grace." }, accept: ["gladly", "without hesitation"], hint: "The manner of agreeing, not the agreement. It is what makes a favour feel like a gift rather than a debt." },
+        { id: "ja-u207l4-hitomawari", type: "vocab", front: "ひとまわり", reading: "hitomawari", meaning: "one size, one round", example: { jp: "この かばんは ひとまわり 大きいです。", en: "This bag is one size bigger." }, accept: ["a size (bigger/smaller)", "one lap", "a full circuit"], hint: "A single step around a scale or a circuit — one size up, one lap of the park, or twelve years of the zodiac." },
+      ],
+    },
+  ],
+};

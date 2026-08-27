@@ -1,0 +1,82 @@
+// Unit 199 — ぎたいご・1 (mimetic words: mind and body) — B2 / JLPT N2
+// Strand D, coverage 7 of 16. 擬態語 are the last thing learners acquire and the first thing
+// natives reach for: there is no ordinary verb for もやもや, and そわそわ says in four syllables
+// what English needs a clause for. A1/A2 taught the cheerful handful (わくわく, どきどき,
+// いらいら); everything past that is uncovered, and no thematic slot will ever headline it.
+export const UNIT199 = {
+  id: "ja-u199",
+  lang: "ja",
+  title: "ぎたいご・1",
+  order: 199,
+  stage: "b2",
+  lessons: [
+    {
+      id: "ja-u199l1",
+      unit: 199,
+      lesson: 1,
+      title: "Unsettled",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Name an uneasy feeling precisely: もやもや, しどろもどろ, くよくよ, はらはら, ひやひや, やきもき.",
+      items: [
+        { id: "ja-u199l1-moyamoya", type: "vocab", front: "もやもや", reading: "moyamoya", meaning: "vaguely unsettled, unresolved", example: { jp: "話は 終わりましたが、気持ちが もやもやして います。", en: "The conversation ended, but I still feel unsettled about it." }, accept: ["murky (feeling)", "not cleared up", "hazy"], hint: "From もや, a haze. The feeling has no clear object — which is exactly why no plain adjective replaces it." },
+                { id: "ja-u199l1-shidoromodoro", type: "vocab", front: "しどろもどろ", reading: "shidoromodoro", meaning: "tongue-tied, incoherent", example: { jp: "急に 聞かれて、しどろもどろに なりました。", en: "I was asked out of nowhere and went completely tongue-tied." }, accept: ["floundering", "stammering", "all over the place"], hint: "Speech falling apart under pressure — the answer comes out in the wrong order. Only ever about talking." },
+        { id: "ja-u199l1-kuyokuyo", type: "vocab", front: "くよくよ", reading: "kuyokuyo", meaning: "to fret over, to dwell on", example: { jp: "すんだ ことを くよくよしても しかたが ありません。", en: "There's no use fretting over what's done." }, accept: ["to brood", "to mope", "to worry needlessly"], hint: "Worrying about something already finished. くよくよするな is the standard thing to say to a friend." },
+        { id: "ja-u199l1-harahara", type: "vocab", front: "はらはら", reading: "harahara", meaning: "on tenterhooks (watching)", example: { jp: "見て いる ほうが はらはらしました。", en: "It was more nerve-racking to watch than to do." }, accept: ["nail-biting", "anxious for someone", "tense"], hint: "You are the SPECTATOR. どきどき is your own heart; はらはら is fear for someone else." },
+        { id: "ja-u199l1-hiyahiya", type: "vocab", front: "ひやひや", reading: "hiyahiya", meaning: "in a cold sweat, narrowly escaping", example: { jp: "まにあうか どうか、ひやひやしました。", en: "I was in a cold sweat about whether we'd make it." }, accept: ["nervous (about a close call)", "sweating it"], hint: "From ひやい, cold — the chill of a near miss. It looks back at danger that has just passed." },
+                        { id: "ja-u199l1-yakimoki", type: "vocab", front: "やきもき", reading: "yakimoki", meaning: "fretting, anxious about how it will go", example: { jp: "れんらくが 来ないので、やきもきして いました。", en: "No word came, so I was fretting." }, accept: ["worrying impatiently", "on edge"], hint: "Impatience and worry together, usually about something out of your hands. うずうず and おどおど belong in this unit too but cannot be taught: their readings would contain uu and oo, which the roman-spelling rule forbids." },
+      ],
+    },
+    {
+      id: "ja-u199l2",
+      unit: 199,
+      lesson: 2,
+      title: "Slowly, and all at once",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say how strongly or gradually something landed: じわじわ, ひしひし, つくづく, まざまざ, まごまご, うっとり.",
+      items: [
+        { id: "ja-u199l2-jiwajiwa", type: "vocab", front: "じわじわ", reading: "jiwajiwa", meaning: "gradually, by degrees", example: { jp: "この 店の 人気は じわじわ 広がって います。", en: "This shop's popularity is spreading gradually." }, accept: ["little by little", "steadily", "creeping"], hint: "Slow but unstoppable — a stain, a price rise, a reputation. だんだん is neutral; じわじわ has pressure behind it." },
+        { id: "ja-u199l2-hishihishi", type: "vocab", front: "ひしひし", reading: "hishihishi", meaning: "keenly, acutely (felt)", example: { jp: "みんなの 気持ちが ひしひしと 伝わって きました。", en: "I could feel everyone's feelings keenly." }, accept: ["deeply felt", "pressing in on one"], hint: "Almost always with 感じる or 伝わる, and almost always と. The feeling presses in from outside." },
+        { id: "ja-u199l2-tsukuzuku", type: "vocab", front: "つくづく", reading: "tsukuzuku", meaning: "really, on reflection", example: { jp: "つくづく いい 友だちを 持ったと 思います。", en: "I really do think I've been lucky in my friends." }, accept: ["thoroughly", "keenly (on thinking)", "truly"], hint: "A realisation arrived at by thinking it over, not by being struck. It sits in front of 思う far more than anything else." },
+        { id: "ja-u199l2-mazamaza", type: "vocab", front: "まざまざ", reading: "mazamaza", meaning: "vividly (before one's eyes)", example: { jp: "あの 日の ことを、今も まざまざと 思い出します。", en: "I still remember that day vividly." }, accept: ["as if it were there", "in sharp detail"], hint: "For memory and imagination — the thing is as clear as if present. Takes と like ひしひし." },
+        { id: "ja-u199l2-magomago", type: "vocab", front: "まごまご", reading: "magomago", meaning: "flustered, not knowing what to do", example: { jp: "はじめての 場所で まごまごして しまいました。", en: "I got flustered in a place I'd never been." }, accept: ["at a loss", "dithering", "confused"], hint: "Visible confusion in the moment — standing in the wrong queue, hunting for the ticket. Not deep worry, just lost." },
+                { id: "ja-u199l2-uttori", type: "vocab", front: "うっとり", reading: "uttori", meaning: "entranced, spellbound", example: { jp: "きれいな 音楽に うっとりしました。", en: "The beautiful music left me spellbound." }, accept: ["enraptured", "lost in admiration"], hint: "Absorbed by something beautiful, with the face to match. おどおど belongs here too but its reading would contain oo." },
+      ],
+    },
+    {
+      id: "ja-u199l3",
+      unit: 199,
+      lesson: 3,
+      title: "Unsteady on your feet",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe wobbling, wandering and looking about: びくびく, ふらふら, くらくら, よろよろ, うろたえる, きょろきょろ.",
+      items: [
+        { id: "ja-u199l3-bikubiku", type: "vocab", front: "びくびく", reading: "bikubiku", meaning: "flinching, scared", example: { jp: "犬が こわくて、びくびくして います。", en: "He's afraid of dogs and keeps flinching." }, accept: ["jumpy", "in fear", "cowering"], hint: "The body's fear response. おどおど is social; びくびく is closer to physical startle." },
+        { id: "ja-u199l3-furafura", type: "vocab", front: "ふらふら", reading: "furafura", meaning: "unsteady, wobbly", example: { jp: "ねつが あって、歩くと ふらふらします。", en: "I have a fever and I'm unsteady when I walk." }, accept: ["dizzy", "reeling", "aimless"], hint: "Also 'aimlessly': ふらふらと 出かける is going out with no plan at all." },
+        { id: "ja-u199l3-kurakura", type: "vocab", front: "くらくら", reading: "kurakura", meaning: "dizzy, head spinning", example: { jp: "急に 立ったので、あたまが くらくらしました。", en: "I stood up suddenly and my head spun." }, accept: ["giddy", "light-headed"], hint: "Specifically the head, where ふらふら is the whole body." },
+        { id: "ja-u199l3-yoroyoro", type: "vocab", front: "よろよろ", reading: "yoroyoro", meaning: "staggering", example: { jp: "重い にもつを 持って、よろよろ 歩いて います。", en: "He's staggering along with heavy luggage." }, accept: ["tottering", "about to fall"], hint: "Visibly about to go over — from weight, age or exhaustion." },
+                { id: "ja-u199l3-mago", type: "vocab", front: "うろたえる", reading: "urotaeru", meaning: "to lose one's head, to panic", example: { jp: "急な しつもんに うろたえて しまいました。", en: "I lost my head at the sudden question." }, accept: ["to be flustered", "to panic"], hint: "The verb behind うろうろ, which cannot be a card here because its reading would contain ou." },
+        { id: "ja-u199l3-kyorokyoro", type: "vocab", front: "きょろきょろ", reading: "kyorokyoro", meaning: "looking around restlessly", example: { jp: "きょろきょろしないで、前を 見て 歩きましょう。", en: "Stop looking around and walk facing forward." }, accept: ["glancing about", "gawking"], hint: "Only the eyes and head. It marks you instantly as a tourist, which is why parents say it to children." },
+      ],
+    },
+    {
+      id: "ja-u199l4",
+      unit: 199,
+      lesson: 4,
+      title: "Pain and running out",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say what kind of pain or exhaustion it is: ずきずき, がんがん, ちくちく, ひりひり, ぐったり, ぼろぼろ.",
+      items: [
+        { id: "ja-u199l4-zukizuki", type: "vocab", front: "ずきずき", reading: "zukizuki", meaning: "throbbing pain", example: { jp: "はが ずきずきして、ねむれませんでした。", en: "My tooth was throbbing and I couldn't sleep." }, accept: ["pounding (pain)", "pulsing ache"], hint: "Japanese distinguishes pains by their rhythm, and a doctor will ask you which one — so these four are practical vocabulary, not colour." },
+        { id: "ja-u199l4-gangan", type: "vocab", front: "がんがん", reading: "gangan", meaning: "splitting (headache); loudly", example: { jp: "あたまが がんがんして、音が つらいです。", en: "I have a splitting headache and noise is painful." }, accept: ["banging", "pounding", "blaring"], hint: "Also used of volume, and of going at something hard: がんがん やる." },
+        { id: "ja-u199l4-chikuchiku", type: "vocab", front: "ちくちく", reading: "chikuchiku", meaning: "prickling", example: { jp: "この セーターは ちくちくして、きられません。", en: "This sweater prickles and I can't wear it." }, accept: ["itchy-scratchy", "pricking"], hint: "Small sharp points — wool, stubble, or words meant to needle someone." },
+        { id: "ja-u199l4-hirihiri", type: "vocab", front: "ひりひり", reading: "hirihiri", meaning: "stinging, smarting", example: { jp: "日に やけて、せなかが ひりひりします。", en: "I got sunburnt and my back is stinging." }, accept: ["burning (skin)", "raw", "smarting"], hint: "Surface burn — sun, chilli, a graze. ずきずき is deep and rhythmic; ひりひり is shallow and constant." },
+        { id: "ja-u199l4-guttari", type: "vocab", front: "ぐったり", reading: "guttari", meaning: "limp with exhaustion", example: { jp: "一日 歩いて、ぐったりして しまいました。", en: "I walked all day and I'm completely wiped out." }, accept: ["worn out", "flat out", "drained"], hint: "The body has gone slack. Compare u193's つかれきる, which is the same state said with a verb." },
+        { id: "ja-u199l4-boroboro", type: "vocab", front: "ぼろぼろ", reading: "boroboro", meaning: "falling apart, in tatters", example: { jp: "何年も 使ったので、この かばんは ぼろぼろです。", en: "I've used this bag for years and it's falling apart." }, accept: ["worn out (thing)", "battered", "in pieces"], hint: "Things and people both — a bag, a plan, or someone after a bad week." },
+      ],
+    },
+  ],
+};
