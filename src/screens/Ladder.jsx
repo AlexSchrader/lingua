@@ -56,6 +56,10 @@ export default function Ladder() {
   const startLanguage = useStore((s) => s.startLanguage);
   const setActiveLang = useStore((s) => s.setActiveLang);
   const realCanAdd = useStore((s) => s.canAddLanguage)();
+  // What the learner must complete to unlock the next language ({ level, met }).
+  // The gate is A1 for a 2nd language, A2 for a 3rd+ — so the copy can't hardcode
+  // "A1" any more.
+  const unlockReq = useStore((s) => s.languageUnlockRequirement)();
 
   // Dev-only preview of the add-a-language flow (?preview=addlang, launched from
   // the Dev panel). "Add a language" is gated on reaching A1, so until a learner
@@ -128,8 +132,8 @@ export default function Ladder() {
           )}
           <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 12 }}>
             {canAdd
-              ? "You've reached A1 — start another whenever you like. One at a time."
-              : `Reach A1 in ${active.name} to unlock another language.`}
+              ? "Start another whenever you like — one at a time."
+              : `Complete ${unlockReq.level ?? "A1"} in one of your languages to unlock another.`}
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {/* Startable (has-content) languages as rows; the ~19 planned fold into
