@@ -1,18 +1,80 @@
-// ES Unit 81 — Vocabulary 8 (B1) (slot: coverage-b1-8) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// ES Unit 81 — Cualidad y evaluación ("Quality and judgement") — B1 COVERAGE (slot: coverage-b1-8)
+// B1 evaluation adjectives: excellent/terrible, right/wrong, complex/simple,
+// effective/essential. Conventions + BLOCK-3 SCOPE: see es/unit77.js.
 export const ES_UNIT81 = {
   id: "es-u81",
   lang: "es",
-  title: "Vocabulary 8 (B1)",
+  title: "Cualidad y evaluación",
   order: 81,
   stage: "b1",
   lessons: [
-    { id: "es-u81l1", title: "Lesson 1", locked: true },
-    { id: "es-u81l2", title: "Lesson 2", locked: true },
-    { id: "es-u81l3", title: "Lesson 3", locked: true },
-    { id: "es-u81l4", title: "Lesson 4", locked: true },
+    {
+      id: "es-u81l1",
+      unit: 81,
+      lesson: 1,
+      title: "Excelente, magnífico, terrible",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "React strongly: excellent, superb, magnificent, terrible, horrible and dreadful.",
+      items: [
+        { id: "es-u81l1-excelente", type: "vocab", front: "excelente", reading: "excelente", meaning: "excellent", example: { jp: "La comida está excelente.", en: "The food is excellent." }, accept: ["superb", "great", "first-rate"], hint: "Ends in -e. A step above muy bueno." },
+        { id: "es-u81l1-estupendo", type: "vocab", front: "estupendo", reading: "estupendo", meaning: "great / wonderful", example: { jp: "Es una idea estupenda.", en: "It's a wonderful idea." }, accept: ["fantastic", "terrific", "brilliant"], hint: "Everyday enthusiastic praise: ¡estupendo! = great! A close friend of fenomenal." },
+        { id: "es-u81l1-magnifico", type: "vocab", front: "magnífico", reading: "magnifico", meaning: "magnificent", example: { jp: "Hace un tiempo magnífico.", en: "The weather is magnificent." }, accept: ["splendid", "wonderful"], hint: "Grand and impressive. Accent on the í." },
+        { id: "es-u81l1-terrible", type: "vocab", front: "terrible", reading: "terrible", meaning: "terrible", example: { jp: "Fue un día terrible.", en: "It was a terrible day." }, accept: ["dreadful", "awful"], hint: "Ends in -e. A strong bad, of an event or situation." },
+        { id: "es-u81l1-horrible", type: "vocab", front: "horrible", reading: "horrible", meaning: "horrible", example: { jp: "El tiempo está horrible hoy.", en: "The weather is horrible today." }, accept: ["awful", "hideous", "dreadful"], hint: "Ends in -e. The h is silent. A close friend of terrible." },
+        { id: "es-u81l1-espantoso", type: "vocab", front: "espantoso", reading: "espantoso", meaning: "dreadful / frightful", example: { jp: "Fue un error espantoso.", en: "It was a dreadful mistake." }, accept: ["horrific", "appalling"], hint: "From espantar (to frighten). Even stronger than horrible." },
+      ],
+    },
+    {
+      id: "es-u81l2",
+      unit: 81,
+      lesson: 2,
+      title: "Apropiado, preciso, absurdo",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Judge fit and accuracy: appropriate, wrong, precise, doubtful, notable and absurd.",
+      items: [
+        { id: "es-u81l2-apropiado", type: "vocab", front: "apropiado", reading: "apropiado", meaning: "appropriate", example: { jp: "No es la ropa apropiada.", en: "It's not the appropriate clothing." }, accept: ["suitable", "fitting", "right"], hint: "A close friend of adecuado. Apropiado para = suitable for." },
+        { id: "es-u81l2-erroneo", type: "vocab", front: "erróneo", reading: "erroneo", meaning: "wrong / mistaken", example: { jp: "Es una idea errónea.", en: "It's a mistaken idea." }, accept: ["incorrect", "erroneous"], hint: "From el error. More formal than the plain incorrecto or falso." },
+        { id: "es-u81l2-preciso", type: "vocab", front: "preciso", reading: "preciso", meaning: "precise / exact", example: { jp: "Es una respuesta precisa.", en: "It's a precise answer." }, accept: ["accurate", "exact", "necessary"], hint: "Exact and clear. Also \"necessary\": es preciso hacerlo = it's necessary to do it." },
+        { id: "es-u81l2-dudoso", type: "vocab", front: "dudoso", reading: "dudoso", meaning: "doubtful / dubious", example: { jp: "Es un caso dudoso.", en: "It's a doubtful case." }, accept: ["uncertain", "questionable"], hint: "From dudar. Uncertain, or a bit suspect: un origen dudoso." },
+        { id: "es-u81l2-notable", type: "vocab", front: "notable", reading: "notable", meaning: "notable / remarkable", example: { jp: "Hay una diferencia notable.", en: "There's a notable difference." }, accept: ["significant", "marked", "striking"], hint: "Ends in -e. From notar. Worth noticing — a notable improvement, a notable difference." },
+        { id: "es-u81l2-absurdo", type: "vocab", front: "absurdo", reading: "absurdo", meaning: "absurd", example: { jp: "Es una idea absurda.", en: "It's an absurd idea." }, accept: ["ridiculous", "silly", "nonsensical"], hint: "Makes no sense. Es absurdo que… = it's ridiculous that…" },
+      ],
+    },
+    {
+      id: "es-u81l3",
+      unit: 81,
+      lesson: 3,
+      title: "Complejo, sencillo, ambiguo",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Judge difficulty and clarity: complex, complicated, simple, confusing, ambiguous and logical.",
+      items: [
+        { id: "es-u81l3-complejo", type: "vocab", front: "complejo", reading: "complejo", meaning: "complex", example: { jp: "Es un problema complejo.", en: "It's a complex problem." }, accept: ["intricate", "involved"], hint: "Made of many parts. As a noun, un complejo = a complex (of buildings, or psychological)." },
+        { id: "es-u81l3-complicado", type: "vocab", front: "complicado", reading: "complicado", meaning: "complicated", example: { jp: "La situación es complicada.", en: "The situation is complicated." }, accept: ["difficult", "tricky"], hint: "Complex AND hard to deal with. From complicar. The everyday word for \"tricky\"." },
+        { id: "es-u81l3-sencillo", type: "vocab", front: "sencillo", reading: "sencillo", meaning: "simple / straightforward", example: { jp: "Es una idea sencilla.", en: "It's a simple idea." }, accept: ["easy", "plain", "uncomplicated"], hint: "A close friend of simple and fácil. Also \"plain/modest\" of a person." },
+        { id: "es-u81l3-confuso", type: "vocab", front: "confuso", reading: "confuso", meaning: "confusing / confused", example: { jp: "Estoy un poco confuso.", en: "I'm a little confused." }, accept: ["unclear", "muddled"], hint: "Both a confusing thing and a confused person. From confundir." },
+        { id: "es-u81l3-ambiguo", type: "vocab", front: "ambiguo", reading: "ambiguo", meaning: "ambiguous", example: { jp: "Es una respuesta ambigua.", en: "It's an ambiguous answer." }, accept: ["unclear", "vague"], hint: "Open to more than one reading. The opposite of preciso." },
+        { id: "es-u81l3-logico", type: "vocab", front: "lógico", reading: "logico", meaning: "logical", example: { jp: "No es muy lógico.", en: "It's not very logical." }, accept: ["reasonable", "sensible"], hint: "From la lógica. Es lógico que… = it makes sense that… Accent on the ó." },
+      ],
+    },
+    {
+      id: "es-u81l4",
+      unit: 81,
+      lesson: 4,
+      title: "Eficaz, esencial, fundamental",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Judge worth and need: effective, valuable, practical, essential, fundamental and indispensable.",
+      items: [
+        { id: "es-u81l4-eficaz", type: "vocab", front: "eficaz", reading: "eficaz", meaning: "effective", example: { jp: "Es una solución eficaz.", en: "It's an effective solution." }, accept: ["efficient", "successful"], hint: "Plural eficaces. Gets the result. A close friend of efectivo." },
+        { id: "es-u81l4-valioso", type: "vocab", front: "valioso", reading: "valioso", meaning: "valuable", example: { jp: "Es un objeto muy valioso.", en: "It's a very valuable object." }, accept: ["precious", "worthwhile"], hint: "From el valor / valer. Worth a lot, in money or importance." },
+        { id: "es-u81l4-practico", type: "vocab", front: "práctico", reading: "practico", meaning: "practical", example: { jp: "Es una idea práctica.", en: "It's a practical idea." }, accept: ["handy", "useful"], hint: "Useful in practice. La práctica = practice. Accent on the á." },
+        { id: "es-u81l4-esencial", type: "vocab", front: "esencial", reading: "esencial", meaning: "essential", example: { jp: "El agua es esencial para la vida.", en: "Water is essential for life." }, accept: ["vital", "basic", "key"], hint: "Absolutely necessary. Lo esencial = the essential thing." },
+        { id: "es-u81l4-fundamental", type: "vocab", front: "fundamental", reading: "fundamental", meaning: "fundamental / key", example: { jp: "Es un punto fundamental.", en: "It's a fundamental point." }, accept: ["crucial", "essential", "basic"], hint: "At the foundation of something. From el fundamento." },
+        { id: "es-u81l4-imprescindible", type: "vocab", front: "imprescindible", reading: "imprescindible", meaning: "indispensable", example: { jp: "Es un paso imprescindible.", en: "It's an indispensable step." }, accept: ["essential", "a must", "vital"], hint: "Ends in -e. So necessary you can't do without it — even stronger than esencial." },
+      ],
+    },
   ],
 };
