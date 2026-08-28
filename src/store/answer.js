@@ -40,11 +40,16 @@ export function normalizeReading(s = "", lang = "ja") {
   return out;
 }
 
-// Meanings: lowercase, trim, collapse spaces, strip trailing punctuation.
+// Meanings: lowercase, trim, collapse spaces, strip trailing punctuation. Unify
+// apostrophe/quote variants to a straight ASCII ' first — phone keyboards insert a
+// curly ’ (U+2019) by default, so "you’re welcome" must match the stored
+// "you're welcome" instead of being marked "so close". (normalizeReading already
+// drops apostrophes for the reading side; this is the meaning side's version.)
 export function normalizeText(s = "") {
   return String(s)
     .trim()
     .toLowerCase()
+    .replace(/[‘’ʼʹ′`´]/g, "'")
     .replace(/\s+/g, " ")
     .replace(/[.!?。、！？]+$/u, "");
 }

@@ -1,18 +1,85 @@
-// FR Unit 100 — Business and negotiation (slot: business) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// FR Unit 100 — Le monde des affaires (slot: business and negotiation) — B2
+// B1 taught the workplace (u63: la carrière, le poste, embaucher, diriger, gérer,
+// le contrat, la compétence). B2 goes up to commerce and deal-making: negotiating
+// (négocier, l'offre, la contrepartie, un compromis), the market (la concurrence,
+// la demande, la clientèle, rentable), finance (le chiffre d'affaires, la marge,
+// le capital, le déficit) and corporate moves (fusionner, l'actionnaire, la
+// filiale, la faillite). Fronts checked against the 2,168 live fr fronts (le
+// marché, investir, le bénéfice, la dette avoided). Conventions: fr/unit1.js.
 export const FR_UNIT100 = {
   id: "fr-u100",
   lang: "fr",
-  title: "Business and negotiation",
+  title: "Le monde des affaires",
   order: 100,
   stage: "b2",
   lessons: [
-    { id: "fr-u100l1", title: "Lesson 1", locked: true },
-    { id: "fr-u100l2", title: "Lesson 2", locked: true },
-    { id: "fr-u100l3", title: "Lesson 3", locked: true },
-    { id: "fr-u100l4", title: "Lesson 4", locked: true },
+    {
+      id: "fr-u100l1",
+      unit: 100,
+      lesson: 1,
+      title: "Doing a deal",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about striking a deal: négocier, une offre, une contrepartie, un compromis.",
+      items: [
+        { id: "fr-u100l1-negocier", type: "vocab", front: "négocier", reading: "negocier", meaning: "to negotiate", example: { jp: "Ils négocient encore le prix du contrat.", en: "They're still negotiating the price of the contract." }, accept: ["to negotiate", "to bargain"], hint: "To negotiate / bargain — négocier un prix, un contrat. The noun is la négociation." },
+        { id: "fr-u100l1-loffre", type: "vocab", front: "l'offre", reading: "loffre", meaning: "the offer", example: { jp: "Ils ont fait une offre intéressante.", en: "They made an interesting offer." }, accept: ["offer", "the bid", "the supply"], hint: "An offer or bid — faire une offre. Also 'supply': l'offre et la demande." },
+        { id: "fr-u100l1-lacontrepartie", type: "vocab", front: "la contrepartie", reading: "lacontrepartie", meaning: "the return", example: { jp: "Il accepte de partir, mais il demande une contrepartie.", en: "He agrees to leave, but he's asking for something in return." }, accept: ["the return", "the compensation", "the trade-off"], hint: "What you get in exchange — en contrepartie de = in return for." },
+        { id: "fr-u100l1-uncompromis", type: "vocab", front: "un compromis", reading: "uncompromis", meaning: "a compromise", example: { jp: "Les deux parties ont fini par trouver un compromis.", en: "The two sides eventually found a compromise." }, accept: ["a compromise", "the middle ground"], hint: "A middle ground where each side gives a little — trouver un compromis." },
+        { id: "fr-u100l1-conclure", type: "vocab", front: "conclure", reading: "conclure", meaning: "to close (a deal)", example: { jp: "Les deux entreprises ont conclu un accord.", en: "The two companies closed a deal." }, accept: ["to close a deal", "to conclude", "to strike"], hint: "To finalise / close — conclure un accord, un marché. Also to conclude a talk." },
+        { id: "fr-u100l1-lepartenaire", type: "vocab", front: "le partenaire", reading: "lepartenaire", meaning: "the partner", example: { jp: "Cette entreprise cherche un nouveau partenaire.", en: "This company is looking for a new partner." }, accept: ["partner", "the associate"], hint: "A business or dance partner — un partenaire commercial. The tie is un partenariat." },
+      ],
+    },
+    {
+      id: "fr-u100l2",
+      unit: 100,
+      lesson: 2,
+      title: "The market",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about supply and rivals: la concurrence, la demande, la clientèle, rentable.",
+      items: [
+        { id: "fr-u100l2-laconcurrence", type: "vocab", front: "la concurrence", reading: "laconcurrence", meaning: "competition", example: { jp: "La concurrence entre ces entreprises est très forte.", en: "The competition between these companies is very strong." }, accept: ["competition", "the rivals"], hint: "Competition, or the competitors as a group — from concurrent, a rival." },
+        { id: "fr-u100l2-lademande", type: "vocab", front: "la demande", reading: "lademande", meaning: "the demand", example: { jp: "La demande pour ce produit augmente chaque année.", en: "Demand for this product rises every year." }, accept: ["demand", "the request"], hint: "Demand (economics), or a request — l'offre et la demande. From demander." },
+        { id: "fr-u100l2-laclientele", type: "vocab", front: "la clientèle", reading: "laclientele", meaning: "the customers", example: { jp: "Ce magasin a beaucoup de clientèle le samedi.", en: "This shop has a lot of customers on Saturdays." }, accept: ["the customers", "the clientele", "the customer base"], hint: "The body of customers — une clientèle fidèle. From client." },
+        { id: "fr-u100l2-lefournisseur", type: "vocab", front: "le fournisseur", reading: "lefournisseur", meaning: "the supplier", example: { jp: "Ils ont changé de fournisseur cette année.", en: "They changed suppliers this year." }, accept: ["supplier", "the provider", "the vendor"], hint: "The one who supplies goods — from fournir, to supply." },
+        { id: "fr-u100l2-rentable", type: "vocab", front: "rentable", reading: "rentable", meaning: "profitable", example: { jp: "Ce projet n'est pas encore rentable.", en: "This project isn't profitable yet." }, accept: ["profitable", "worthwhile"], hint: "Making money / worth it — une entreprise rentable. From la rente / rendre." },
+        { id: "fr-u100l2-lucratif", type: "vocab", front: "lucratif", reading: "lucratif", meaning: "lucrative", example: { jp: "Ce marché est devenu très lucratif.", en: "This market has become very lucrative." }, accept: ["lucrative", "money-making"], hint: "Very profitable — un secteur lucratif. à but non lucratif = non-profit." },
+      ],
+    },
+    {
+      id: "fr-u100l3",
+      unit: 100,
+      lesson: 3,
+      title: "The money side",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about a firm's finances: le chiffre d'affaires, la marge, le capital, le déficit.",
+      items: [
+        { id: "fr-u100l3-lechiffredaffaires", type: "vocab", front: "le chiffre d'affaires", reading: "lechiffredaffaires", meaning: "the turnover", example: { jp: "Le chiffre d'affaires de l'entreprise augmente.", en: "The company's turnover is rising." }, accept: ["turnover", "the revenue", "the sales"], hint: "Total sales over a period — not the same as le bénéfice (profit)." },
+        { id: "fr-u100l3-lamarge", type: "vocab", front: "la marge", reading: "lamarge", meaning: "the margin", example: { jp: "Leur marge reste très petite cette année.", en: "Their margin stays very small this year." }, accept: ["margin", "the profit margin", "the leeway"], hint: "Profit margin, or room to move — une marge d'erreur. Also the margin of a page." },
+        { id: "fr-u100l3-lecapital", type: "vocab", front: "le capital", reading: "lecapital", meaning: "the capital", example: { jp: "Ce projet demande beaucoup de capital.", en: "This project requires a lot of capital." }, accept: ["capital", "the funds"], hint: "The money invested in a business — le capital de départ. Different from la capitale (city)." },
+        { id: "fr-u100l3-ledeficit", type: "vocab", front: "le déficit", reading: "ledeficit", meaning: "the deficit", example: { jp: "Cette année, le budget est en déficit.", en: "This year, the budget is in deficit." }, accept: ["deficit", "the shortfall"], hint: "Spending more than you take in — être en déficit. The opposite is l'excédent." },
+        { id: "fr-u100l3-lerachat", type: "vocab", front: "le rachat", reading: "lerachat", meaning: "the buyout", example: { jp: "Le rachat de l'entreprise a coûté très cher.", en: "The buyout of the company cost a great deal." }, accept: ["buyout", "the takeover", "the buyback"], hint: "Buying out a company — le rachat d'une société. From racheter." },
+        { id: "fr-u100l3-lexpansion", type: "vocab", front: "l'expansion", reading: "lexpansion", meaning: "the expansion", example: { jp: "Cette entreprise est en pleine expansion.", en: "This company is expanding fast." }, accept: ["expansion", "the growth"], hint: "Rapid growth — en pleine expansion. From étendre / expandre." },
+      ],
+    },
+    {
+      id: "fr-u100l4",
+      unit: 100,
+      lesson: 4,
+      title: "The company itself",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about corporate moves: fusionner, un actionnaire, une filiale, la faillite.",
+      items: [
+        { id: "fr-u100l4-fusionner", type: "vocab", front: "fusionner", reading: "fusionner", meaning: "to merge", example: { jp: "Les deux entreprises ont fusionné l'année dernière.", en: "The two companies merged last year." }, accept: ["to merge"], hint: "To merge into one — deux banques qui fusionnent. The noun is la fusion." },
+        { id: "fr-u100l4-lactionnaire", type: "vocab", front: "l'actionnaire", reading: "lactionnaire", meaning: "the shareholder", example: { jp: "Les actionnaires attendent plus de bénéfices.", en: "The shareholders expect more profits." }, accept: ["shareholder", "the stockholder"], hint: "Someone who owns shares (des actions) in a company." },
+        { id: "fr-u100l4-lafiliale", type: "vocab", front: "la filiale", reading: "lafiliale", meaning: "the subsidiary", example: { jp: "L'entreprise a ouvert une filiale à l'étranger.", en: "The company opened a subsidiary abroad." }, accept: ["subsidiary", "the branch company"], hint: "A company owned by a bigger one — une filiale à l'étranger. Not une succursale (a branch office)." },
+        { id: "fr-u100l4-lesiege", type: "vocab", front: "le siège", reading: "lesiege", meaning: "the head office", example: { jp: "Le siège de l'entreprise est à Paris.", en: "The company's head office is in Paris." }, accept: ["head office", "the headquarters", "the seat"], hint: "le siège social = the registered head office. Also a seat, or a siege." },
+        { id: "fr-u100l4-lafaillite", type: "vocab", front: "la faillite", reading: "lafaillite", meaning: "the bankruptcy", example: { jp: "Cette entreprise a fait faillite l'année dernière.", en: "This company went bankrupt last year." }, accept: ["bankruptcy", "the collapse"], hint: "Going bust — faire faillite. From faillir, to fail." },
+        { id: "fr-u100l4-lessor", type: "vocab", front: "l'essor", reading: "lessor", meaning: "the boom", example: { jp: "Ce marché est en plein essor depuis deux ans.", en: "This market has been booming for two years." }, accept: ["boom", "the rapid growth", "the surge"], hint: "A rapid rise / boom — en plein essor. From prendre son essor, to take flight." },
+      ],
+    },
   ],
 };

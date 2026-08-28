@@ -47,4 +47,22 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        // Split the big static data out of the entry chunk so no single file trips
+        // workbox's precache size limit. Per the note on maximumFileSizeToCacheInBytes
+        // above ("when B2 lands, split content by language/stage instead of raising
+        // this further"), B2 has landed, so we split here rather than bump the limit.
+        // These remain STATIC imports — separate files, still loaded eagerly on boot —
+        // so there is no async/runtime behaviour change, only finer file granularity.
+        manualChunks(id) {
+          if (id.includes("/src/data/kanjivg")) return "kanjivg";
+          if (id.includes("/src/data/ja/")) return "content-ja";
+          if (id.includes("/src/data/fr/")) return "content-fr";
+          if (id.includes("/src/data/es/")) return "content-es";
+        },
+      },
+    },
+  },
 });

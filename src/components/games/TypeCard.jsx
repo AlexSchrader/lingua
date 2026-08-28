@@ -212,7 +212,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
       data-answer={spec.answer}
       style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}
     >
-      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>{spec.ask}</div>
+      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600, textAlign: "center" }}>{spec.ask}</div>
 
       <div
         style={{

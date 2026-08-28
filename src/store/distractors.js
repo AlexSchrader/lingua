@@ -122,13 +122,36 @@ export function buildOptions(item, allItems, count = 4, fieldOverride = null) {
       }
     return out;
   };
-  // Only meaningful when the options are NOT the meanings — i.e. the prompt is
-  // the meaning (reverse card, listening card). On a forward card the prompt is
-  // the front, and no peer can share it (fronts are unique per language).
+  // REVERSE / listening card (options are fronts, prompt is item.meaning): a
+  // front is also-correct if the CANDIDATE item would be graded right for the
+  // prompt meaning — its accept[] claims that sense.
+  //
+  // FORWARD card (options ARE the meanings, prompt is item.front): the front is
+  // unique, but the OPTIONS are meanings, and a peer's displayed meaning can be a
+  // sense THIS item already claims via its own accept[]. Grading is an identity
+  // flag, so picking that peer is marked wrong — while the typed grader on the
+  // very next card would accept it: the same "punished for knowing more" harm the
+  // reverse card was fixed for. So on the forward card, drop any option whose
+  // displayed sense the prompt item itself claims. Same parenthetical-preserving
+  // senseKey both directions, so un "a (masculine)" / une "a (feminine)" and
+  // le/la survive as distractors (their displayed senses differ).
   const promptIsMeaning = field !== "meaning";
   const promptSense = promptIsMeaning ? senseKey(item.meaning) : null;
-  const alsoCorrect = (cand) =>
-    !!promptSense && claimedSenses(cand).has(promptSense);
+  const itemSenses = promptIsMeaning ? null : claimedSenses(item);
+  // Senses the DISPLAYED option value maps to, split the way the grader splits.
+  const shownSenses = (cand) => {
+    const out = new Set();
+    for (const part of String(cand?.[field] ?? "").split(/\s*(?:[/,;]|\bor\b)\s*/)) {
+      const k = senseKey(part);
+      if (k) out.add(k);
+    }
+    return out;
+  };
+  const alsoCorrect = (cand) => {
+    if (promptIsMeaning) return !!promptSense && claimedSenses(cand).has(promptSense);
+    for (const s of shownSenses(cand)) if (itemSenses.has(s)) return true;
+    return false;
+  };
 
   const seen = new Set([norm(correctVal)]);
   const distractors = [];

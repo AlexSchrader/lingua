@@ -83,6 +83,20 @@ test("normalizeText trims, lowercases, strips trailing punctuation", () => {
   assert.equal(normalizeText("hello"), "hello");
 });
 
+test("normalizeText folds curly/smart apostrophes to a straight ASCII '", () => {
+  // Phone keyboards insert U+2019 by default — it must not fail an otherwise-correct answer.
+  assert.equal(normalizeText("you’re welcome"), "you're welcome");
+  assert.equal(normalizeText("you’re welcome"), normalizeText("you're welcome"));
+  assert.equal(normalizeText("it’s nothing"), "it's nothing");
+});
+
+test("checkMeaning accepts a smart-apostrophe answer (de rien playtest bug)", () => {
+  const item = { meaning: "you're welcome", accept: ["it's nothing", "no problem"] };
+  assert.ok(checkMeaning("you’re welcome", item), "curly apostrophe must match the straight-quote answer");
+  assert.ok(checkMeaning("it’s nothing", item), "curly apostrophe must match an accept[] entry");
+  assert.ok(checkMeaning("you're welcome", item));
+});
+
 test("checkMeaning honors canonical + accept[]", () => {
   const item = { meaning: "hello", accept: ["hi"] };
   assert.ok(checkMeaning(" Hello ", item));

@@ -50,7 +50,7 @@ export default function BuildCard({ item, onGraded }) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>
-      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>Build the reading</div>
+      <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600, textAlign: "center" }}>Build the reading</div>
 
       <div
         style={{
