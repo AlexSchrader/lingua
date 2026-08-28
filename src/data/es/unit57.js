@@ -29,7 +29,6 @@ export const ES_UNIT57 = {
         { id: "es-u57l1-conmover", type: "vocab", front: "conmover", reading: "conmover", meaning: "to move deeply", example: { jp: "Su historia me conmovió mucho.", en: "His story moved me a lot." }, accept: ["to touch", "to stir"], hint: "Stronger than emocionar — to move someone to tears. The o becomes ue: conmueve." },
         { id: "es-u57l1-elorgullo", type: "vocab", front: "el orgullo", reading: "elorgullo", meaning: "pride", example: { jp: "Habla de sus hijos con mucho orgullo.", en: "She talks about her children with great pride." }, accept: ["the self-esteem"], hint: "The noun behind orgulloso (A2). Good pride, or the stubborn kind — por orgullo, no lo admite." },
         { id: "es-u57l1-laverguenza", type: "vocab", front: "la vergüenza", reading: "laverguenza", meaning: "embarrassment", example: { jp: "Me da vergüenza hablar en público.", en: "I'm embarrassed to speak in public." }, accept: ["the shame", "shyness"], hint: "dar vergüenza = to embarrass (like dar miedo). ¡Qué vergüenza! = How embarrassing!" },
-        { id: "es-u57l1-lailusion", type: "vocab", front: "la ilusión", reading: "lailusion", meaning: "excitement", example: { jp: "Los niños esperan el verano con mucha ilusión.", en: "The children look forward to the summer with great excitement." }, accept: ["the hope", "eagerness"], hint: "A false friend: la ilusión = eager excitement/hope, NOT usually \"illusion\". Me hace ilusión = I'm excited about it." },
       ],
     },
     {
@@ -46,7 +45,6 @@ export const ES_UNIT57 = {
         { id: "es-u57l2-decepcionar", type: "vocab", front: "decepcionar", reading: "decepcionar", meaning: "to disappoint", example: { jp: "La película me decepcionó bastante.", en: "The film disappointed me quite a bit." }, accept: ["to let down"], hint: "A false friend: decepcionar = to disappoint, NOT \"to deceive\" (that's engañar). Me decepciona = it disappoints me." },
         { id: "es-u57l2-ladecepcion", type: "vocab", front: "la decepción", reading: "ladecepcion", meaning: "disappointment", example: { jp: "El resultado fue una gran decepción para todos.", en: "The result was a big disappointment for everyone." }, accept: ["the letdown"], hint: "The noun from decepcionar. Llevarse una decepción = to be disappointed." },
         { id: "es-u57l2-molestar", type: "vocab", front: "molestar", reading: "molestar", meaning: "to bother", example: { jp: "Me molesta mucho el ruido de los coches.", en: "The noise of the cars bothers me a lot." }, accept: ["to annoy", "to disturb"], hint: "Works like gustar: me molesta. ¿Te molesta si abro la ventana? = Do you mind if…?" },
-        { id: "es-u57l2-animar", type: "vocab", front: "animar", reading: "animar", meaning: "to cheer up", example: { jp: "Sus amigos animan a Pablo cuando está triste.", en: "His friends cheer Pablo up when he's sad." }, accept: ["to encourage", "to liven up"], hint: "From el ánimo (A2). To lift someone's spirits, or to encourage them to do something: animar a alguien a…" },
       ],
     },
     {
@@ -58,12 +56,9 @@ export const ES_UNIT57 = {
       dominantMode: "recall",
       canDo: "Talk about pressure and relief — el estrés, agobiar, los nervios, relajarse, aguantar, soportar.",
       items: [
-        { id: "es-u57l3-elestres", type: "vocab", front: "el estrés", reading: "elestres", meaning: "stress", example: { jp: "El estrés del trabajo no me deja dormir.", en: "Work stress doesn't let me sleep." }, accept: ["the strain"], hint: "A direct loan from English. Estar estresado = to be stressed." },
         { id: "es-u57l3-agobiar", type: "vocab", front: "agobiar", reading: "agobiar", meaning: "to overwhelm", example: { jp: "Me agobia tener tantas cosas que hacer.", en: "Having so many things to do overwhelms me." }, accept: ["to stress out", "to weigh down"], hint: "Works like gustar: me agobia. Estar agobiado = to feel overwhelmed. Very common in Spain." },
         { id: "es-u57l3-losnervios", type: "vocab", front: "los nervios", reading: "losnervios", meaning: "nerves", example: { jp: "Antes del examen siempre tengo nervios.", en: "Before the exam I always have nerves." }, accept: ["the jitters"], hint: "tener nervios = to feel nervous; the noun behind nervioso (A2). Me pone nervioso = it makes me nervous." },
-        { id: "es-u57l3-relajarse", type: "vocab", front: "relajarse", reading: "relajarse", meaning: "to relax", example: { jp: "Los fines de semana me relajo en casa con música.", en: "On weekends I relax at home with music." }, accept: ["to unwind", "to chill"], hint: "The opposite of agobiarse. ¡Relájate! = Relax! Estar relajado = to be relaxed." },
         { id: "es-u57l3-aguantar", type: "vocab", front: "aguantar", reading: "aguantar", meaning: "to put up with", example: { jp: "No aguanto más este calor tan fuerte.", en: "I can't stand this strong heat any more." }, accept: ["to bear", "to hold"], hint: "To endure or bear. No aguanto más = I can't take it any more. Also to physically hold: aguanta esto." },
-        { id: "es-u57l3-soportar", type: "vocab", front: "soportar", reading: "soportar", meaning: "to stand", example: { jp: "No soporto esperar tanto tiempo sin noticias.", en: "I can't stand waiting so long without news." }, accept: ["to bear", "to tolerate"], hint: "Near aguantar. A false friend: soportar = to put up with, NOT \"to support\" (that's apoyar)." },
       ],
     },
     {

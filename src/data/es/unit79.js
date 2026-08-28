@@ -21,7 +21,6 @@ export const ES_UNIT79 = {
         { id: "es-u79l1-unir", type: "vocab", front: "unir", reading: "unir", meaning: "to join / unite", example: { jp: "El amor une a las personas.", en: "Love unites people." }, accept: ["to bring together", "to connect"], hint: "To bring things or people together. Reflexive unirse a = to join a group." },
         { id: "es-u79l1-separar", type: "vocab", front: "separar", reading: "separar", meaning: "to separate", example: { jp: "Es mejor separar las cosas.", en: "It's better to separate things." }, accept: ["to split", "to divide", "to keep apart"], hint: "The opposite of unir. Reflexive separarse = to split up (a couple)." },
         { id: "es-u79l1-incluir", type: "vocab", front: "incluir", reading: "incluir", meaning: "to include", example: { jp: "El precio incluye todo.", en: "The price includes everything." }, accept: ["to contain", "to take in"], hint: "incluyo, incluyes (y before the ending). The opposite is excluir. Incluido = included." },
-        { id: "es-u79l1-pertenecer", type: "vocab", front: "pertenecer", reading: "pertenecer", meaning: "to belong", example: { jp: "Este libro pertenece a María.", en: "This book belongs to María." }, accept: ["to be part of", "to be a member of"], hint: "pertenezco, perteneces (yo adds z). Pertenecer a = to belong to a person or group." },
         { id: "es-u79l1-relacionar", type: "vocab", front: "relacionar", reading: "relacionar", meaning: "to relate / connect", example: { jp: "Es difícil relacionar las dos ideas.", en: "It's hard to connect the two ideas." }, accept: ["to link", "to associate"], hint: "From la relación. Reflexive relacionarse con = to mix/socialize with people." },
       ],
     },
@@ -51,12 +50,10 @@ export const ES_UNIT79 = {
       dominantMode: "recall",
       canDo: "Talk about feelings toward others: respect, admire, envy, hate, forgive and bother.",
       items: [
-        { id: "es-u79l3-respetar", type: "vocab", front: "respetar", reading: "respetar", meaning: "to respect", example: { jp: "Hay que respetar a los mayores.", en: "You must respect your elders." }, accept: ["to look up to", "to honour"], hint: "From el respeto. To respect a person or a rule." },
         { id: "es-u79l3-admirar", type: "vocab", front: "admirar", reading: "admirar", meaning: "to admire", example: { jp: "Admiro mucho a mi padre.", en: "I admire my father a lot." }, accept: ["to look up to", "to think highly of"], hint: "To look up to someone. The noun is la admiración." },
         { id: "es-u79l3-envidiar", type: "vocab", front: "envidiar", reading: "envidiar", meaning: "to envy", example: { jp: "No hay que envidiar a nadie.", en: "You shouldn't envy anyone." }, accept: ["to be jealous of"], hint: "From la envidia. To want what someone else has." },
         { id: "es-u79l3-odiar", type: "vocab", front: "odiar", reading: "odiar", meaning: "to hate", example: { jp: "Odio esperar tanto.", en: "I hate waiting so long." }, accept: ["to loathe", "to detest"], hint: "The strong opposite of querer/amar. From el odio." },
         { id: "es-u79l3-perdonar", type: "vocab", front: "perdonar", reading: "perdonar", meaning: "to forgive", example: { jp: "Debes perdonar a tu amigo.", en: "You should forgive your friend." }, accept: ["to excuse", "to pardon"], hint: "From perdón (u2). Perdona / perdone = sorry, excuse me." },
-        { id: "es-u79l3-molestar", type: "vocab", front: "molestar", reading: "molestar", meaning: "to bother / annoy", example: { jp: "Me molesta esperar tanto.", en: "It bothers me to wait so long." }, accept: ["to disturb", "to trouble"], hint: "Works like gustar: me molesta = it bothers me. ¿Te molesta si…? = do you mind if…?" },
       ],
     },
     {
@@ -73,7 +70,6 @@ export const ES_UNIT79 = {
         { id: "es-u79l4-obligar", type: "vocab", front: "obligar", reading: "obligar", meaning: "to force / make", example: { jp: "No me puedes obligar a ir.", en: "You can't make me go." }, accept: ["to compel", "to oblige"], hint: "Obligar a alguien a + a verb. From la obligación. Stronger than pedir." },
         { id: "es-u79l4-prohibir", type: "vocab", front: "prohibir", reading: "prohibir", meaning: "to forbid / ban", example: { jp: "Mis padres me prohíben salir tarde.", en: "My parents forbid me from going out late." }, accept: ["to ban", "to not allow"], hint: "prohíbo, prohíbes (accent on the í). The opposite of permitir. Prohibido = forbidden." },
         { id: "es-u79l4-amenazar", type: "vocab", front: "amenazar", reading: "amenazar", meaning: "to threaten", example: { jp: "No me gusta amenazar a nadie.", en: "I don't like threatening anyone." }, accept: ["to menace"], hint: "From la amenaza. Amenazar con + a verb = to threaten to do something." },
-        { id: "es-u79l4-rechazar", type: "vocab", front: "rechazar", reading: "rechazar", meaning: "to reject / turn down", example: { jp: "Es difícil rechazar una buena idea.", en: "It's hard to reject a good idea." }, accept: ["to refuse", "to turn down", "to push away"], hint: "The opposite of aceptar. To turn down an offer, or push something away." },
       ],
     },
   ],

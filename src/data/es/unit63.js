@@ -24,7 +24,6 @@ export const ES_UNIT63 = {
       dominantMode: "recall",
       canDo: "Talk about memory itself — la memoria, acordarse, memorizar, olvidarse, familiar, evocar.",
       items: [
-        { id: "es-u63l1-lamemoria", type: "vocab", front: "la memoria", reading: "lamemoria", meaning: "memory", example: { jp: "Mi abuela tiene muy buena memoria para las fechas.", en: "My grandmother has a very good memory for dates." }, accept: ["the recall"], hint: "The faculty of memory (not a single memory — that's el recuerdo, A2). De memoria = by heart: aprender de memoria." },
         { id: "es-u63l1-acordarse", type: "vocab", front: "acordarse", reading: "acordarse", meaning: "to remember", example: { jp: "No me acuerdo de su nombre, lo siento.", en: "I don't remember his name, sorry." }, accept: ["to recall"], hint: "acordarse DE algo. The o becomes ue: me acuerdo. The same as recordar (A2), but always reflexive and with de." },
         { id: "es-u63l1-memorizar", type: "vocab", front: "memorizar", reading: "memorizar", meaning: "to memorize", example: { jp: "Tuve que memorizar toda la lista de palabras.", en: "I had to memorize the whole list of words." }, accept: ["to learn by heart"], hint: "From la memoria. To commit to memory on purpose. la lista is A2." },
         { id: "es-u63l1-olvidarse", type: "vocab", front: "olvidarse", reading: "olvidarse", meaning: "to forget", example: { jp: "Se me olvidó por completo la reunión de ayer.", en: "I completely forgot yesterday's meeting." }, accept: ["to slip one's mind"], hint: "se me olvidó = it slipped my mind (the blame-free form). Reflexive of olvidar (A1). por completo is u53." },
@@ -46,7 +45,6 @@ export const ES_UNIT63 = {
         { id: "es-u63l2-lavejez", type: "vocab", front: "la vejez", reading: "lavejez", meaning: "old age", example: { jp: "Quiere pasar la vejez cerca del mar.", en: "She wants to spend her old age near the sea." }, accept: ["the later years"], hint: "The last stage of life. From viejo (A1). The opposite end from la infancia." },
         { id: "es-u63l2-madurar", type: "vocab", front: "madurar", reading: "madurar", meaning: "to mature", example: { jp: "Ha madurado mucho desde que se fue de casa.", en: "He's matured a lot since he left home." }, accept: ["to grow up", "to ripen"], hint: "To grow up in character — and for fruit to ripen. From maduro, ripe/mature." },
         { id: "es-u63l2-eladulto", type: "vocab", front: "el adulto", reading: "eladulto", meaning: "adult", example: { jp: "De adulto, apenas ve a sus amigos del colegio.", en: "As an adult, he barely sees his school friends." }, accept: ["the grown-up"], hint: "De adulto = as an adult. As an adjective: la vida adulta. apenas is A2, el colegio (school) is common." },
-        { id: "es-u63l2-lageneracion", type: "vocab", front: "la generación", reading: "lageneracion", meaning: "generation", example: { jp: "Cada generación vive de una manera distinta.", en: "Each generation lives in a different way." }, accept: ["the age group"], hint: "All the people born around the same time. La generación de mis padres = my parents' generation." },
       ],
     },
     {
@@ -75,12 +73,10 @@ export const ES_UNIT63 = {
       dominantMode: "recall",
       canDo: "Say what stays with you — acostumbrarse, soñar, la huella, marcar, inolvidable, el hábito.",
       items: [
-        { id: "es-u63l4-acostumbrarse", type: "vocab", front: "acostumbrarse", reading: "acostumbrarse", meaning: "to get used to", example: { jp: "Poco a poco me acostumbré a la vida en la ciudad.", en: "Little by little I got used to life in the city." }, accept: ["to adapt", "to grow accustomed"], hint: "acostumbrarse A algo. From la costumbre (A2). poco a poco is u40." },
         { id: "es-u63l4-sonar", type: "vocab", front: "soñar", reading: "sonar", meaning: "to dream", example: { jp: "De niño soñaba con ser futbolista.", en: "As a child he dreamed of being a footballer." }, accept: ["to daydream"], hint: "soñar CON algo = to dream of/about. The o becomes ue: sueño. From el sueño (A2, dream/sleep). de niño = as a child." },
         { id: "es-u63l4-lahuella", type: "vocab", front: "la huella", reading: "lahuella", meaning: "mark", example: { jp: "Aquel profesor dejó una huella en todos nosotros.", en: "That teacher left a mark on all of us." }, accept: ["the trace", "footprint"], hint: "dejar huella = to leave a lasting mark. Also a footprint or fingerprint (la huella dactilar). aquel is l3." },
         { id: "es-u63l4-marcar", type: "vocab", front: "marcar", reading: "marcar", meaning: "to mark", example: { jp: "Ese día marcó el resto de su vida.", en: "That day marked the rest of his life." }, accept: ["to shape", "to leave a mark on"], hint: "For an event to shape someone deeply. From la marca. Also to dial a number: marcar el teléfono." },
         { id: "es-u63l4-inolvidable", type: "vocab", front: "inolvidable", reading: "inolvidable", meaning: "unforgettable", example: { jp: "Fue un viaje inolvidable; nunca voy a olvidar ese día.", en: "It was an unforgettable trip; I'll never forget that day." }, accept: ["memorable"], hint: "in- (un-) + olvidar (A1) + -able: that can't be forgotten. The good kind of memory." },
-        { id: "es-u63l4-elhabito", type: "vocab", front: "el hábito", reading: "elhabito", meaning: "habit", example: { jp: "Leer antes de dormir es un buen hábito.", en: "Reading before sleeping is a good habit." }, accept: ["the routine"], hint: "A regular habit — more neutral than la costumbre (A2). Coger el hábito de = to get into the habit of." },
       ],
     },
   ],

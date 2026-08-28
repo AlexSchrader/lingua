@@ -53,9 +53,7 @@ export const ES_UNIT80 = {
       items: [
         { id: "es-u80l3-inteligente", type: "vocab", front: "inteligente", reading: "inteligente", meaning: "intelligent", example: { jp: "Es una mujer muy inteligente.", en: "She's a very intelligent woman." }, accept: ["clever", "smart", "bright"], hint: "Ends in -e. From la inteligencia. A close friend of listo (clever)." },
         { id: "es-u80l3-sabio", type: "vocab", front: "sabio", reading: "sabio", meaning: "wise", example: { jp: "Mi abuelo es muy sabio.", en: "My grandfather is very wise." }, accept: ["learned", "sage"], hint: "Wise from experience, more than just clever. From saber. Un sabio = a wise person / scholar." },
-        { id: "es-u80l3-habil", type: "vocab", front: "hábil", reading: "habil", meaning: "skilful", example: { jp: "Es muy hábil con las manos.", en: "He's very skilful with his hands." }, accept: ["skilled", "clever", "handy"], hint: "Consonant ending, plural hábiles. Good at doing something. From la habilidad." },
         { id: "es-u80l3-tonto", type: "vocab", front: "tonto", reading: "tonto", meaning: "silly / foolish", example: { jp: "A veces soy un poco tonto.", en: "Sometimes I'm a bit silly." }, accept: ["stupid", "daft", "foolish"], hint: "The opposite of listo/inteligente. Hacer el tonto = to fool around." },
-        { id: "es-u80l3-torpe", type: "vocab", front: "torpe", reading: "torpe", meaning: "clumsy", example: { jp: "Soy muy torpe con las manos.", en: "I'm very clumsy with my hands." }, accept: ["awkward", "slow"], hint: "Ends in -e. Clumsy in movement, or slow to understand." },
         { id: "es-u80l3-astuto", type: "vocab", front: "astuto", reading: "astuto", meaning: "cunning / shrewd", example: { jp: "Es un hombre astuto.", en: "He's a cunning man." }, accept: ["crafty", "sly", "clever"], hint: "Clever in a sharp, self-serving way. A fox is the classic example." },
       ],
     },

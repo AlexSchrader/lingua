@@ -17,11 +17,9 @@ export const ES_UNIT86 = {
       dominantMode: "recall",
       canDo: "Talk about how things work: process, system, method, technique, phase and structure.",
       items: [
-        { id: "es-u86l1-elproceso", type: "vocab", front: "el proceso", reading: "elproceso", meaning: "the process", example: { jp: "Es un proceso largo y difícil.", en: "It's a long and difficult process." }, accept: ["process", "procedure"], hint: "A series of steps. El proceso de aprender = the process of learning." },
         { id: "es-u86l1-elsistema", type: "vocab", front: "el sistema", reading: "elsistema", meaning: "the system", example: { jp: "El sistema es muy complejo.", en: "The system is very complex." }, accept: ["system"], hint: "Masculine despite the -a (like el problema): un sistema. Plural sistemas." },
         { id: "es-u86l1-elmetodo", type: "vocab", front: "el método", reading: "elmetodo", meaning: "the method", example: { jp: "Usa un método nuevo.", en: "He uses a new method." }, accept: ["method", "way"], hint: "A way of doing something. Accent on the é. Metódico = methodical." },
         { id: "es-u86l1-latecnica", type: "vocab", front: "la técnica", reading: "latecnica", meaning: "the technique", example: { jp: "Aprende una nueva técnica.", en: "She's learning a new technique." }, accept: ["technique", "skill"], hint: "A specific way of doing something well. Técnico = technical / a technician." },
-        { id: "es-u86l1-lafase", type: "vocab", front: "la fase", reading: "lafase", meaning: "the phase / stage", example: { jp: "Es una fase difícil.", en: "It's a difficult phase." }, accept: ["phase", "stage"], hint: "Ends in -e. A stage in a process. A close friend of la etapa." },
         { id: "es-u86l1-laestructura", type: "vocab", front: "la estructura", reading: "laestructura", meaning: "the structure", example: { jp: "Tiene una estructura simple.", en: "It has a simple structure." }, accept: ["structure", "framework"], hint: "How the parts are arranged. Estructural = structural." },
       ],
     },
@@ -34,12 +32,8 @@ export const ES_UNIT86 = {
       dominantMode: "recall",
       canDo: "Talk about cause and effect: effect, consequence, motive, purpose, function and factor.",
       items: [
-        { id: "es-u86l2-elefecto", type: "vocab", front: "el efecto", reading: "elefecto", meaning: "the effect", example: { jp: "Tiene un buen efecto.", en: "It has a good effect." }, accept: ["effect", "impact"], hint: "The result of a cause. En efecto = indeed. Efectos secundarios = side effects." },
         { id: "es-u86l2-laconsecuencia", type: "vocab", front: "la consecuencia", reading: "laconsecuencia", meaning: "the consequence", example: { jp: "Hay que pensar en las consecuencias.", en: "You have to think about the consequences." }, accept: ["consequence", "result"], hint: "What follows from an action. A consecuencia de = as a result of." },
-        { id: "es-u86l2-elmotivo", type: "vocab", front: "el motivo", reading: "elmotivo", meaning: "the reason / motive", example: { jp: "No entiendo el motivo.", en: "I don't understand the reason." }, accept: ["reason", "motive", "cause"], hint: "The reason behind an action. Con motivo de = on the occasion of." },
-        { id: "es-u86l2-elproposito", type: "vocab", front: "el propósito", reading: "elproposito", meaning: "the purpose / aim", example: { jp: "¿Cuál es el propósito de esto?", en: "What's the purpose of this?" }, accept: ["purpose", "aim", "intention"], hint: "The aim behind something. A propósito = on purpose / by the way." },
         { id: "es-u86l2-lafuncion", type: "vocab", front: "la función", reading: "lafuncion", meaning: "the function / role", example: { jp: "Cada parte tiene su función.", en: "Each part has its function." }, accept: ["function", "role", "show"], hint: "A role or job. Also a performance/show: la función de teatro. Plural funciones." },
-        { id: "es-u86l2-elfactor", type: "vocab", front: "el factor", reading: "elfactor", meaning: "the factor", example: { jp: "El dinero es un factor importante.", en: "Money is an important factor." }, accept: ["factor", "element"], hint: "One thing that affects a result. Un factor clave = a key factor." },
       ],
     },
     {
@@ -72,7 +66,6 @@ export const ES_UNIT86 = {
         { id: "es-u86l4-elprogreso", type: "vocab", front: "el progreso", reading: "elprogreso", meaning: "the progress", example: { jp: "Hay mucho progreso.", en: "There's a lot of progress." }, accept: ["progress", "advancement"], hint: "Moving forward. Hacer progresos = to make progress." },
         { id: "es-u86l4-lamejora", type: "vocab", front: "la mejora", reading: "lamejora", meaning: "the improvement", example: { jp: "Es una gran mejora.", en: "It's a big improvement." }, accept: ["improvement", "upgrade"], hint: "From mejorar. A change for the better. A close friend of la mejoría (of health)." },
         { id: "es-u86l4-elavance", type: "vocab", front: "el avance", reading: "elavance", meaning: "the advance / breakthrough", example: { jp: "Es un gran avance.", en: "It's a great advance." }, accept: ["advance", "breakthrough", "progress"], hint: "Ends in -e. From avanzar (to advance). Los avances de la ciencia = advances in science." },
-        { id: "es-u86l4-laevolucion", type: "vocab", front: "la evolución", reading: "laevolucion", meaning: "the evolution", example: { jp: "La evolución fue rápida.", en: "The evolution was fast." }, accept: ["evolution", "development"], hint: "Gradual change over time. From evolucionar. Plural evoluciones." },
         { id: "es-u86l4-elelemento", type: "vocab", front: "el elemento", reading: "elelemento", meaning: "the element", example: { jp: "Es un elemento importante.", en: "It's an important element." }, accept: ["element", "component", "part"], hint: "One part of a whole. Los elementos = the elements (weather, or basics)." },
       ],
     },
