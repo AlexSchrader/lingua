@@ -157,11 +157,13 @@ export default function Settings() {
   const [codeError, setCodeError] = useState(false);
 
   // The language this learner is ACTUALLY studying. This was `languages.ja ??
-  // LANGUAGES[0]` — a hardcoded Japanese lookup left from when Japanese was the
-  // only language — so a French learner's About panel read "Learning: 🇯🇵 Japanese ·
-  // pre-A1". Falls back to the catalog head only when there is no active language
-  // at all (pre-onboarding), which is the one case where any answer is arbitrary.
-  const learning = languages[activeLang] ?? languages.ja ?? LANGUAGES[0];
+  // LANGUAGES[0]` — a hardcoded Japanese lookup left from when Japanese was the only
+  // language — so a French learner's About panel read "Learning: 🇯🇵 Japanese · pre-A1".
+  // The `languages.ja` leg is gone too: it fired whenever activeLang had no progress
+  // row yet, which is a brand-new learner in ANY language, and answered "Japanese".
+  // The remaining fallback is the catalog head, used only pre-onboarding when there
+  // is genuinely no answer.
+  const learning = languages[activeLang] ?? LANGUAGES.find((l) => l.id === activeLang) ?? LANGUAGES[0];
 
   const doReset = () => {
     resetAll();
@@ -460,23 +462,48 @@ export default function Settings() {
             {/* The panel previews one screen at a time; this previews the APP. Real
                 navigation, every language started and every band open, on a separate
                 localStorage key — so it answers "what does French feel like to move
-                around in" without putting a single card on your real deck. */}
-            <button
-              onClick={() =>
-                enterPreview(
-                  buildPreviewState({
-                    langs: LANGUAGES.filter((l) => isLive(l.id)).map((l) => l.id),
-                    catalog: LANGUAGES,
-                    version: PERSIST_VERSION,
-                  })
-                )
-              }
-              style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.line}`, background: C.surface, color: C.ink, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
-            >
-              <Eye size={18} />
-              <span style={{ flex: 1, textAlign: "left" }}>Preview the app (throwaway profile)</span>
-              <ChevronRight size={18} />
-            </button>
+                around in" without putting a single card on your real deck.
+
+                ONE BUTTON PER LIVE LANGUAGE. This used to be a single button that
+                passed no active language, so the deck opened on `langs[0]` — catalog
+                order, i.e. French, every time regardless of what you meant to look
+                at. The Ladder switcher could move you, but it renders one screen in
+                and only when >1 language is started, so the honest description of
+                the old behaviour was "preview always opens French". The language is
+                the entire point of the trip, so it belongs in the choice. Every
+                language is still started in the preview deck, so the Ladder pills
+                keep working normally once you are inside. */}
+            <div style={{ padding: 14, borderRadius: 12, border: `1.5px solid ${C.line}`, background: C.surface }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+                <Eye size={18} />
+                <span style={{ flex: 1, textAlign: "left", fontSize: 15, fontWeight: 700, fontFamily: F.body, color: C.ink }}>
+                  Preview the app (throwaway profile)
+                </span>
+              </div>
+              <div style={{ fontSize: 13, color: C.inkSoft, marginBottom: 10 }}>
+                Opens the real app on a scratch deck. Pick the language to start in.
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                {LANGUAGES.filter((l) => isLive(l.id)).map((l) => (
+                  <button
+                    key={l.id}
+                    onClick={() =>
+                      enterPreview(
+                        buildPreviewState({
+                          langs: LANGUAGES.filter((x) => isLive(x.id)).map((x) => x.id),
+                          catalog: LANGUAGES,
+                          version: PERSIST_VERSION,
+                          activeLang: l.id,
+                        })
+                      )
+                    }
+                    style={{ padding: "7px 12px", borderRadius: 999, border: `1.5px solid ${C.line}`, background: C.surface, color: C.ink, fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer", whiteSpace: "nowrap" }}
+                  >
+                    {l.flag} {l.name}
+                  </button>
+                ))}
+              </div>
+            </div>
             <button
               onClick={disableDevMode}
               style={{ width: "100%", padding: 12, borderRadius: 12, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
