@@ -21,6 +21,7 @@ export const ES_UNIT84 = {
         { id: "es-u84l1-ladeuda", type: "vocab", front: "la deuda", reading: "ladeuda", meaning: "the debt", example: { jp: "Tiene una gran deuda.", en: "He has a big debt." }, accept: ["debt"], hint: "Money owed. Tener deudas = to be in debt. From deber (to owe)." },
         { id: "es-u84l1-elahorro", type: "vocab", front: "el ahorro", reading: "elahorro", meaning: "the saving(s)", example: { jp: "El ahorro es importante.", en: "Saving is important." }, accept: ["saving", "savings"], hint: "From ahorrar. Los ahorros = one's savings." },
         { id: "es-u84l1-elimpuesto", type: "vocab", front: "el impuesto", reading: "elimpuesto", meaning: "the tax", example: { jp: "Hay que pagar el impuesto.", en: "You have to pay the tax." }, accept: ["tax", "duty"], hint: "Money paid to the State. Los impuestos = taxes." },
+        { id: "es-u84l1-lapension", type: "vocab", front: "la pensión", reading: "lapension", meaning: "the pension", example: { jp: "Vive de una pensión pequeña desde hace años.", en: "He has lived on a small pension for years." }, accept: ["the pension", "the retirement pay", "the guest house"], hint: "It is also a cheap guest house — the sentence tells you which one you are in." },
       ],
     },
     {
@@ -37,6 +38,7 @@ export const ES_UNIT84 = {
         { id: "es-u84l2-elbeneficio", type: "vocab", front: "el beneficio", reading: "elbeneficio", meaning: "the profit / benefit", example: { jp: "La empresa tiene muchos beneficios.", en: "The company makes a lot of profit." }, accept: ["profit", "benefit", "gain"], hint: "Both financial profit and a general benefit/advantage." },
         { id: "es-u84l2-laganancia", type: "vocab", front: "la ganancia", reading: "laganancia", meaning: "the gain / earnings", example: { jp: "La ganancia fue pequeña.", en: "The gain was small." }, accept: ["earnings", "profit", "winnings"], hint: "From ganar. The opposite is la pérdida (loss)." },
         { id: "es-u84l2-elcomercio", type: "vocab", front: "el comercio", reading: "elcomercio", meaning: "the trade / business", example: { jp: "El comercio va bien este año.", en: "Trade is going well this year." }, accept: ["commerce", "trade", "shop"], hint: "Buying and selling in general, or a single shop. Comercial = commercial." },
+        { id: "es-u84l2-laperdida", type: "vocab", front: "la pérdida", reading: "laperdida", meaning: "the loss", example: { jp: "La empresa tuvo pérdidas durante todo el año.", en: "The company made losses all year." }, accept: ["the loss", "the losses"], hint: "The opposite of la ganancia, two cards up. For money it is nearly always plural." },
       ],
     },
     {
@@ -52,6 +54,8 @@ export const ES_UNIT84 = {
         { id: "es-u84l3-eltaller", type: "vocab", front: "el taller", reading: "eltaller", meaning: "the workshop / garage", example: { jp: "Llevo el coche al taller.", en: "I'm taking the car to the garage." }, accept: ["workshop", "garage", "studio"], hint: "Where things are made or repaired. Also a class/workshop: un taller de arte." },
         { id: "es-u84l3-elcargo", type: "vocab", front: "el cargo", reading: "elcargo", meaning: "the post / position", example: { jp: "Tiene un cargo importante.", en: "She has an important position." }, accept: ["position", "post", "charge"], hint: "A job position. Estar a cargo de = to be in charge of." },
         { id: "es-u84l3-elinforme", type: "vocab", front: "el informe", reading: "elinforme", meaning: "the report", example: { jp: "Tengo que escribir un informe.", en: "I have to write a report." }, accept: ["report", "briefing"], hint: "A written report. From informar (to inform)." },
+        { id: "es-u84l3-elpuesto", type: "vocab", front: "el puesto", reading: "elpuesto", meaning: "the post / position", example: { jp: "Consiguió un puesto muy bueno en esa empresa.", en: "She got a very good position at that company." }, accept: ["the post", "the position", "the job"], hint: "The slot you occupy: un puesto de trabajo, un puesto fijo. In a market it is a stall." },
+        { id: "es-u84l3-lasede", type: "vocab", front: "la sede", reading: "lasede", meaning: "the headquarters", example: { jp: "La sede de la empresa está en Madrid.", en: "The company's headquarters is in Madrid." }, accept: ["the headquarters", "the head office", "the seat"], hint: "The main building of a company, a party or an organization." },
       ],
     },
     {
@@ -68,6 +72,7 @@ export const ES_UNIT84 = {
         { id: "es-u84l4-eldespido", type: "vocab", front: "el despido", reading: "eldespido", meaning: "the dismissal / layoff", example: { jp: "Tiene miedo al despido.", en: "He's afraid of being laid off." }, accept: ["dismissal", "layoff", "firing"], hint: "Being let go from a job. From despedir (to dismiss / to say goodbye)." },
         { id: "es-u84l4-elsector", type: "vocab", front: "el sector", reading: "elsector", meaning: "the sector", example: { jp: "Trabaja en otro sector.", en: "She works in another sector." }, accept: ["sector", "area", "field"], hint: "A part of the economy or an area of activity: el sector público, el sector del turismo." },
         { id: "es-u84l4-elrendimiento", type: "vocab", front: "el rendimiento", reading: "elrendimiento", meaning: "the performance / output", example: { jp: "Su rendimiento en el trabajo es bueno.", en: "His performance at work is good." }, accept: ["performance", "output", "yield"], hint: "How well someone or something performs. From rendir (to yield / perform)." },
+        { id: "es-u84l4-laproductividad", type: "vocab", front: "la productividad", reading: "laproductividad", meaning: "productivity", example: { jp: "La productividad subió después del cambio de horario.", en: "Productivity rose after the change of hours." }, accept: ["productivity", "output"], hint: "Measured rather than felt: la productividad por hora. The adjective is productivo." },
       ],
     },
   ],

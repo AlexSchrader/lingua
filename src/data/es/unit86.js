@@ -21,6 +21,8 @@ export const ES_UNIT86 = {
         { id: "es-u86l1-elmetodo", type: "vocab", front: "el método", reading: "elmetodo", meaning: "the method", example: { jp: "Usa un método nuevo.", en: "He uses a new method." }, accept: ["method", "way"], hint: "A way of doing something. Accent on the é. Metódico = methodical." },
         { id: "es-u86l1-latecnica", type: "vocab", front: "la técnica", reading: "latecnica", meaning: "the technique", example: { jp: "Aprende una nueva técnica.", en: "She's learning a new technique." }, accept: ["technique", "skill"], hint: "A specific way of doing something well. Técnico = technical / a technician." },
         { id: "es-u86l1-laestructura", type: "vocab", front: "la estructura", reading: "laestructura", meaning: "the structure", example: { jp: "Tiene una estructura simple.", en: "It has a simple structure." }, accept: ["structure", "framework"], hint: "How the parts are arranged. Estructural = structural." },
+        { id: "es-u86l1-elmecanismo", type: "vocab", front: "el mecanismo", reading: "elmecanismo", meaning: "the mechanism", example: { jp: "No entiendo bien el mecanismo de este sistema.", en: "I don't quite understand the mechanism of this system." }, accept: ["the mechanism", "the workings"], hint: "Physical or abstract: el mecanismo de una puerta, el mecanismo de un mercado." },
+        { id: "es-u86l1-elmodelo", type: "vocab", front: "el modelo", reading: "elmodelo", meaning: "the model", example: { jp: "Ese país es un modelo para el resto de Europa.", en: "That country is a model for the rest of Europe." }, accept: ["the model", "the pattern", "the example"], hint: "Both the thing copied and the thing that stands for others: un modelo económico." },
       ],
     },
     {
@@ -34,6 +36,10 @@ export const ES_UNIT86 = {
       items: [
         { id: "es-u86l2-laconsecuencia", type: "vocab", front: "la consecuencia", reading: "laconsecuencia", meaning: "the consequence", example: { jp: "Hay que pensar en las consecuencias.", en: "You have to think about the consequences." }, accept: ["consequence", "result"], hint: "What follows from an action. A consecuencia de = as a result of." },
         { id: "es-u86l2-lafuncion", type: "vocab", front: "la función", reading: "lafuncion", meaning: "the function / role", example: { jp: "Cada parte tiene su función.", en: "Each part has its function." }, accept: ["function", "role", "show"], hint: "A role or job. Also a performance/show: la función de teatro. Plural funciones." },
+        { id: "es-u86l2-lafinalidad", type: "vocab", front: "la finalidad", reading: "lafinalidad", meaning: "the purpose / aim", example: { jp: "La finalidad del proyecto es ayudar a las familias.", en: "The purpose of the project is to help families." }, accept: ["the purpose", "the aim", "the goal"], hint: "Formal, and always of a plan or an object: ¿con qué finalidad?" },
+        { id: "es-u86l2-eldesenlace", type: "vocab", front: "el desenlace", reading: "eldesenlace", meaning: "the outcome / ending", example: { jp: "El desenlace del caso sorprendió a todo el país.", en: "The outcome of the case surprised the whole country." }, accept: ["the outcome", "the ending", "the resolution"], hint: "How something finally ends — also the standard word for the ending of a story." },
+        { id: "es-u86l2-lautilidad", type: "vocab", front: "la utilidad", reading: "lautilidad", meaning: "the usefulness / use", example: { jp: "No veo la utilidad de este cambio.", en: "I don't see the use of this change." }, accept: ["the usefulness", "the use", "the point"], hint: "From útil. ¿Qué utilidad tiene? = what is it actually good for?" },
+        { id: "es-u86l2-elporque", type: "vocab", front: "el porqué", reading: "elporque", meaning: "the reason why", example: { jp: "Nadie explicó el porqué de la decisión.", en: "Nobody explained the reason for the decision." }, accept: ["the reason", "the reason why", "the cause"], hint: "One word with an accent as a NOUN: el porqué. Two words for the question: ¿por qué?" },
       ],
     },
     {
@@ -67,6 +73,7 @@ export const ES_UNIT86 = {
         { id: "es-u86l4-lamejora", type: "vocab", front: "la mejora", reading: "lamejora", meaning: "the improvement", example: { jp: "Es una gran mejora.", en: "It's a big improvement." }, accept: ["improvement", "upgrade"], hint: "From mejorar. A change for the better. A close friend of la mejoría (of health)." },
         { id: "es-u86l4-elavance", type: "vocab", front: "el avance", reading: "elavance", meaning: "the advance / breakthrough", example: { jp: "Es un gran avance.", en: "It's a great advance." }, accept: ["advance", "breakthrough", "progress"], hint: "Ends in -e. From avanzar (to advance). Los avances de la ciencia = advances in science." },
         { id: "es-u86l4-elelemento", type: "vocab", front: "el elemento", reading: "elelemento", meaning: "the element", example: { jp: "Es un elemento importante.", en: "It's an important element." }, accept: ["element", "component", "part"], hint: "One part of a whole. Los elementos = the elements (weather, or basics)." },
+        { id: "es-u86l4-lainnovacion", type: "vocab", front: "la innovación", reading: "lainnovacion", meaning: "innovation", example: { jp: "La innovación es un factor clave para esta empresa.", en: "Innovation is a key factor for this company." }, accept: ["innovation", "the innovation"], hint: "From innovar. Most often heard as la innovación tecnológica." },
       ],
     },
   ],

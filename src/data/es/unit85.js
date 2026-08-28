@@ -39,6 +39,7 @@ export const ES_UNIT85 = {
         { id: "es-u85l2-lainyeccion", type: "vocab", front: "la inyección", reading: "lainyeccion", meaning: "the injection / shot", example: { jp: "El médico pone una inyección.", en: "The doctor gives an injection." }, accept: ["injection", "shot", "jab"], hint: "Poner una inyección = to give an injection. From inyectar. Plural inyecciones." },
         { id: "es-u85l2-ladosis", type: "vocab", front: "la dosis", reading: "ladosis", meaning: "the dose", example: { jp: "Es una dosis pequeña.", en: "It's a small dose." }, accept: ["dose", "dosage"], hint: "Same in singular and plural: la dosis, las dosis." },
         { id: "es-u85l2-lacura", type: "vocab", front: "la cura", reading: "lacura", meaning: "the cure", example: { jp: "No hay cura para todo.", en: "There's no cure for everything." }, accept: ["cure", "remedy"], hint: "From curar (to cure). No tiene cura = there's no cure for it." },
+        { id: "es-u85l2-lacirugia", type: "vocab", front: "la cirugía", reading: "lacirugia", meaning: "surgery", example: { jp: "La cirugía duró más de cuatro horas.", en: "The surgery lasted more than four hours." }, accept: ["surgery", "the operation"], hint: "Both the field and the procedure. El cirujano is the surgeon." },
       ],
     },
     {
@@ -71,6 +72,8 @@ export const ES_UNIT85 = {
         { id: "es-u85l4-elmareo", type: "vocab", front: "el mareo", reading: "elmareo", meaning: "the dizziness", example: { jp: "Siente un mareo.", en: "He feels dizzy." }, accept: ["dizziness", "sickness", "nausea"], hint: "From marearse (to feel dizzy / seasick). Tener mareos = to feel dizzy." },
         { id: "es-u85l4-larespiracion", type: "vocab", front: "la respiración", reading: "larespiracion", meaning: "the breathing", example: { jp: "Tiene buena respiración.", en: "She has good breathing." }, accept: ["breathing", "breath"], hint: "From respirar (to breathe). Respiración profunda = deep breathing." },
         { id: "es-u85l4-ladigestion", type: "vocab", front: "la digestión", reading: "ladigestion", meaning: "the digestion", example: { jp: "Tiene mala digestión.", en: "He has bad digestion." }, accept: ["digestion"], hint: "From digerir (to digest). Hacer la digestión = to let one's food go down." },
+        { id: "es-u85l4-elmalestar", type: "vocab", front: "el malestar", reading: "elmalestar", meaning: "discomfort / feeling unwell", example: { jp: "Tengo un malestar general desde ayer por la tarde.", en: "I've had a general feeling of being unwell since yesterday afternoon." }, accept: ["discomfort", "feeling unwell", "malaise"], hint: "Mal + estar: no named illness, just not right. Also social — el malestar de la población." },
+        { id: "es-u85l4-ladolencia", type: "vocab", front: "la dolencia", reading: "ladolencia", meaning: "the ailment / complaint", example: { jp: "Tiene una dolencia pequeña desde hace años.", en: "He has had a minor ailment for years." }, accept: ["the ailment", "the complaint", "the condition"], hint: "From doler. Vaguer and more formal than la enfermedad." },
       ],
     },
   ],
