@@ -14,20 +14,22 @@ with neurodivergent learners in mind.
 
 ## Status
 
-**Two languages live · 125 units · 450 lessons · 2,941 items.** Run `npm run audit` for the
+**Three languages live · 428 units · 1,454 lessons · 8,949 items.** Run `npm run audit` for the
 live breakdown — the numbers below are derived from it, not maintained by hand.
 
 | Language | Units | Lessons | Items | Bands authored |
 |---|---|---|---|---|
-| 🇯🇵 Japanese | 98 | 369 | 2,375 | Pre-A1 · A1 · A2 |
-| 🇫🇷 French | 27 | 81 | 566 | A1 |
+| 🇯🇵 Japanese | 208 | 809 | 5,012 | Pre-A1 · A1 · A2 · B1 · B2 |
+| 🇫🇷 French | 133 | 401 | 2,480 | A1 · A2 · B1 · B2 |
+| 🇪🇸 Spanish | 87 | 244 | 1,457 | A1 · A2 · B1 |
 
-- **Japanese A1 and A2 are content-complete** — kana scripts + yōon, thematic vocab, the
-  N5 kanji set, core grammar, and the A2/N4 build-out.
-- **French is A1-core, not A1-complete** — see [Known issues](#known-issues).
-- The remaining gate before any "JLPT N5 verified" claim is a **batched native-speaker
-  review** of the kanji + grammar examples (naturalness/register — the one thing no
-  validator can check).
+- **Japanese runs Pre-A1 → B2** — kana scripts + yōon, thematic vocab, 792 kanji (N5 into
+  N3), core + intermediate grammar.
+- **French runs A1 → B2; Spanish runs A1 → B1.**
+- **The upper bands (B1/B2) and the newest Spanish/French content are freshly authored and
+  not yet naturalness-reviewed or voiced** — they validate and lint clean, but the batched
+  native-speaker / LLM naturalness pass and the audio run are the open gates. See
+  [Known issues](#known-issues).
 
 ---
 

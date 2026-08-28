@@ -35,12 +35,21 @@ function recallMode() {
 // unit exists for the same language, return that (now-unlocked) unit — the moment
 // the panda celebrates a unit boundary. Content-agnostic (reads the UNITS shape);
 // skips locked/empty stub units so we never celebrate a placeholder.
-function unitUnlockedBy(lessonId) {
+function unitUnlockedBy(lessonId, items) {
   const ui = UNITS.findIndex((u) => u.lessons?.some((l) => l.id === lessonId));
   if (ui < 0) return null;
   const unit = UNITS[ui];
   const last = unit.lessons[unit.lessons.length - 1];
   if (last?.id !== lessonId) return null; // not the unit's final lesson
+  // Only a genuinely COMPLETE unit unlocks the next one — every item across the
+  // unit must be learned (rung >= 1). Without this, a "?few" micro-session that
+  // leaves items behind, or simply re-opening the finished last lesson, would
+  // falsely celebrate "Unit complete!". (Skipped in sandbox, where items is null.)
+  if (items) {
+    const unitItemIds = unit.lessons.flatMap((l) => (l.items ?? []).map((d) => d.id));
+    const allLearned = unitItemIds.every((id) => (items[id]?.rung ?? 0) >= 1);
+    if (!allLearned) return null;
+  }
   return UNITS.slice(ui + 1).find((u) => u.lang === unit.lang && !u.locked && u.lessons?.length) ?? null;
 }
 
@@ -131,7 +140,7 @@ export default function Lesson() {
     // Finishing a unit's last lesson unlocks the next unit — a bigger, meaningful
     // moment, so the panda plays its "unit unlock" reaction (falls back to the
     // proud still until the clip exists). Never in a dev-sandbox run.
-    const unlockedUnit = sandbox ? null : unitUnlockedBy(lessonId);
+    const unlockedUnit = sandbox ? null : unitUnlockedBy(lessonId, items);
     return (
       <PhaseShell title={lesson.title} progress={1}>
         <Celebration />

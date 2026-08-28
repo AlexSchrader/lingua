@@ -370,7 +370,12 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
   }, [phase]);
 
   function handleContinue() {
-    const grade = misses === 0 ? "good" : misses <= TRACE_OPTS.retryLimit ? "hard" : "again";
+    // A completed glyph was traced (every stroke eventually landed), so it can't
+    // grade "again": misses is cumulative across ALL strokes, so a multi-stroke
+    // kanji fumbled once on three different strokes but drawn correctly would
+    // otherwise drop a rung despite a perfect finish. Retries mean "hard" (hold),
+    // never failure.
+    const grade = misses === 0 ? "good" : "hard";
     onGraded?.(grade);
   }
 
