@@ -1,18 +1,86 @@
-// FR Unit 111 — Media and narrative (slot: media-narrative) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// FR Unit 111 — Les médias et le récit (slot: media-narrative) — B2
+// B1 (u71 "Les médias") taught media at intermediate level: le journal, l'information,
+// une chaîne, le romancier, un article, la presse, le reportage, l'enquête, le spectateur,
+// la source, la une, la publicité, le public. This B2 unit goes ONE LEVEL ABOVE: the media
+// as an INSTITUTION and the CRAFT OF FRAMING/NARRATIVE — la ligne éditoriale, la rédaction,
+// la couverture médiatique, le cadrage, le récit, un parti pris, la désinformation,
+// le sensationnalisme, la propagande, l'emballement, le complotisme, la censure, etc.
+// Source/proof vocabulary is owned by block1 u96 ("Les preuves et les sources") and is NOT
+// re-taught here. Every front checked against the 2,168 live fr fronts + block1 (u95–u96).
 export const FR_UNIT111 = {
   id: "fr-u111",
   lang: "fr",
-  title: "Media and narrative",
+  title: "Les médias et le récit",
   order: 111,
   stage: "b2",
   lessons: [
-    { id: "fr-u111l1", title: "Lesson 1", locked: true },
-    { id: "fr-u111l2", title: "Lesson 2", locked: true },
-    { id: "fr-u111l3", title: "Lesson 3", locked: true },
-    { id: "fr-u111l4", title: "Lesson 4", locked: true },
+    {
+      id: "fr-u111l1",
+      unit: 111,
+      lesson: 1,
+      title: "The press as institution",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about how the press works as an institution — its editorial stance, newsroom, and named voices.",
+      items: [
+        { id: "fr-u111l1-ligneeditoriale", type: "vocab", front: "la ligne éditoriale", reading: "laligneeditoriale", meaning: "editorial line", example: { jp: "Chaque journal choisit sa ligne éditoriale, si bien que le même événement devient une nouvelle très différente selon la source.", en: "Every paper chooses its editorial line, so that the same event becomes a very different news story depending on the source." }, accept: ["editorial line", "editorial stance", "the editorial line", "editorial policy"], hint: "The stance a paper takes on what it covers and how. Collocation: suivre une ligne éditoriale. From la ligne (Unit 52)." },
+        { id: "fr-u111l1-redaction", type: "vocab", front: "la rédaction", reading: "laredaction", meaning: "the newsroom / editorial staff", example: { jp: "Toute la rédaction a suivi ce scandale, si bien que le journal en a fait sa une pendant toute la semaine.", en: "The whole newsroom followed this scandal, so the paper made it its front page for the entire week." }, accept: ["newsroom", "the newsroom", "editorial staff", "the editorial staff", "editorial team"], hint: "The team that writes a paper (or the newsroom itself) — not the act of writing. Feminine (-tion)." },
+        { id: "fr-u111l1-editorialiste", type: "vocab", front: "un éditorialiste", reading: "uneditorialiste", meaning: "an editorial / op-ed writer", example: { jp: "Un éditorialiste ne présente pas seulement les faits : il juge l'événement et influence ainsi le public.", en: "An editorial writer doesn't just present the facts: he judges the event and so influences the public." }, accept: ["editorialist", "op-ed writer", "editorial writer", "leader writer"], hint: "Writes opinion in the paper's name (the editorial / op-ed). Epicene: un/une éditorialiste." },
+        { id: "fr-u111l1-chroniqueur", type: "vocab", front: "le chroniqueur", reading: "lechroniqueur", meaning: "columnist / commentator", example: { jp: "Ce chroniqueur juge l'événement chaque semaine à la radio, tandis que le journal choisit plutôt de raconter les faits.", en: "This columnist passes judgement on the event every week on the radio, whereas the paper prefers to report the facts." }, accept: ["columnist", "commentator", "the columnist", "opinion columnist"], hint: "Gives a personal, often witty take rather than the raw news. From la chronique (Unit 74); the person is masc. chroniqueur, fem. chroniqueuse." },
+        { id: "fr-u111l1-pluralisme", type: "vocab", front: "le pluralisme", reading: "lepluralisme", meaning: "(media) pluralism", example: { jp: "Grâce au pluralisme, le public suit plusieurs journaux à la fois, plutôt que de croire une seule voix.", en: "Thanks to pluralism, the public follows several papers at once, rather than believing a single voice." }, accept: ["pluralism", "media pluralism", "the pluralism"], hint: "A diversity of independent voices in the press — a democratic safeguard. Masculine (-isme)." },
+        { id: "fr-u111l1-porteparole", type: "vocab", front: "un porte-parole", reading: "unporteparole", meaning: "a spokesperson", example: { jp: "Le porte-parole du gouvernement a présenté la nouvelle officielle, cependant la presse a vite douté de ses paroles.", en: "The government spokesperson presented the official news, yet the press soon doubted his words." }, accept: ["spokesperson", "spokesman", "spokeswoman", "the spokesperson", "mouthpiece"], hint: "The official voice of a body — le porte-parole du gouvernement. Invariable, always masculine." },
+      ],
+    },
+    {
+      id: "fr-u111l2",
+      unit: 111,
+      lesson: 2,
+      title: "Coverage & framing",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe how a news story is covered, framed, angled, and shaped into a narrative.",
+      items: [
+        { id: "fr-u111l2-couverture", type: "vocab", front: "la couverture médiatique", reading: "lacouverturemediatique", meaning: "media coverage", example: { jp: "La couverture médiatique de cette crise a duré des semaines, si bien que le public a fini par oublier les autres nouvelles.", en: "The media coverage of this crisis lasted weeks, so that the public eventually forgot the other news." }, accept: ["media coverage", "press coverage", "the media coverage", "news coverage"], hint: "How much, and how, a story is treated across outlets. Médiatique = of the media." },
+        { id: "fr-u111l2-cadrage", type: "vocab", front: "le cadrage", reading: "lecadrage", meaning: "framing", example: { jp: "Le cadrage d'une nouvelle compte souvent plus que les faits, parce que le titre choisi influence déjà le public.", en: "The framing of a news story often matters more than the facts, because the chosen headline already influences the public." }, accept: ["framing", "the framing", "framing of the story"], hint: "How a story is 'framed' — what's put in the picture and what's left out. From le cadre (Unit 78), here in its media sense." },
+        { id: "fr-u111l2-angle", type: "vocab", front: "un angle", reading: "unangle", meaning: "an angle (of a story)", example: { jp: "Ce journal présente le scandale sous un angle nouveau, tandis que les autres répètent la même histoire.", en: "This paper presents the scandal from a new angle, whereas the others repeat the same story." }, accept: ["angle", "the angle", "angle of the story", "take", "slant"], hint: "The chosen take on a story — traiter un sujet sous un angle différent. Masculine: un angle." },
+        { id: "fr-u111l2-narration", type: "vocab", front: "la narration", reading: "lanarration", meaning: "the narration, the telling", example: { jp: "La narration d'un même événement change selon le journal, parce que chacun raconte les faits à sa façon.", en: "The narration of the same event changes depending on the paper, because each one tells the facts its own way." }, accept: ["narration", "the narration", "the telling", "the way it is told", "narrative"], hint: "From raconter/narrer: the act and manner of telling events — how the story is built, not the bare facts. Feminine." },
+        { id: "fr-u111l2-miseenscene", type: "vocab", front: "la mise en scène", reading: "lamiseenscene", meaning: "staging / dramatization", example: { jp: "Ce discours du ministre était surtout une mise en scène, si bien que la presse a vite jugé qu'il n'annonçait rien de nouveau.", en: "The minister's speech was above all stage-management, so the press soon judged that he was announcing nothing new." }, accept: ["staging", "dramatization", "the staging", "stage-managing", "dramatisation", "stagecraft"], hint: "Dramatized staging for effect rather than real substance. From la scène (Unit 42); fixed expression, feminine." },
+        { id: "fr-u111l2-partipris", type: "vocab", front: "un parti pris", reading: "unpartipris", meaning: "bias / preconceived stance", example: { jp: "Le parti pris de ce journal est évident, parce qu'il ne présente jamais l'autre point de vue.", en: "This paper's bias is obvious, because it never presents the other point of view." }, accept: ["bias", "a bias", "preconceived stance", "prejudice", "parti pris", "slant"], hint: "A built-in slant — taking sides before the facts. From le parti (Unit 62); fixed phrase, always masculine and invariable." },
+      ],
+    },
+    {
+      id: "fr-u111l3",
+      unit: 111,
+      lesson: 3,
+      title: "Distortion & spin",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Name the ways coverage can distort — disinformation, sensationalism, conflation, and spin.",
+      items: [
+        { id: "fr-u111l3-desinformation", type: "vocab", front: "la désinformation", reading: "ladesinformation", meaning: "disinformation", example: { jp: "La désinformation gagne vite les réseaux, de sorte que beaucoup de citoyens croient des nouvelles fausses.", en: "Disinformation quickly spreads across the networks, so that many citizens believe false news." }, accept: ["disinformation", "the disinformation", "misinformation"], hint: "Deliberately false information spread to mislead — stronger than une simple erreur. Feminine." },
+        { id: "fr-u111l3-sensationnalisme", type: "vocab", front: "le sensationnalisme", reading: "lesensationnalisme", meaning: "sensationalism", example: { jp: "Le sensationnalisme de cette chaîne transforme chaque petit fait en scandale, si bien que le public finit par ne plus rien croire.", en: "This channel's sensationalism turns every little fact into a scandal, so the public ends up believing nothing at all." }, accept: ["sensationalism", "the sensationalism"], hint: "Playing up the shocking to grab attention. Masculine (-isme)." },
+        { id: "fr-u111l3-amalgame", type: "vocab", front: "un amalgame", reading: "unamalgame", meaning: "conflation (lumping together)", example: { jp: "Ce discours fait un amalgame entre l'étranger et le danger, si bien que la peur augmente dans le pays.", en: "This speech conflates the foreigner with danger, so that fear grows in the country." }, accept: ["conflation", "a conflation", "lumping together", "false equivalence", "confusion"], hint: "Lumping unlike things together as if equivalent — faire un amalgame entre X et Y. Masculine: un amalgame." },
+        { id: "fr-u111l3-raccourci", type: "vocab", front: "le raccourci", reading: "leraccourci", meaning: "oversimplification / shortcut", example: { jp: "Réduire cette crise à une seule idée est un raccourci facile qui oublie une réalité bien plus complexe.", en: "Reducing this crisis to a single idea is an easy shortcut that ignores a far more complex reality." }, accept: ["oversimplification", "shortcut", "a shortcut", "the shortcut", "simplistic shortcut", "rhetorical shortcut"], hint: "An over-simplified shortcut that skips the nuance — c'est un raccourci. Masculine." },
+        { id: "fr-u111l3-propagande", type: "vocab", front: "la propagande", reading: "lapropagande", meaning: "propaganda", example: { jp: "Pendant une guerre, chaque gouvernement fait sa propre propagande, de sorte que le peuple ne croie qu'une seule histoire.", en: "During a war, every government makes its own propaganda, so that the people believe only one story." }, accept: ["propaganda", "the propaganda"], hint: "Organized messaging to shape opinion, especially by a power. Feminine." },
+        { id: "fr-u111l3-orienter", type: "vocab", front: "orienter", reading: "orienter", meaning: "to slant / steer", example: { jp: "En choisissant ses titres, un journal oriente déjà le public, sans même présenter un seul fait faux.", en: "Just by choosing its headlines, a paper already slants the public, without even presenting a single false fact." }, accept: ["to slant", "slant", "to steer", "steer", "to spin", "to angle", "to influence", "to shape"], hint: "To slant coverage without stating anything strictly false — orienter l'information. A regular -er verb." },
+      ],
+    },
+    {
+      id: "fr-u111l4",
+      unit: 111,
+      lesson: 4,
+      title: "Rumour, frenzy & control",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Discuss rumour, media frenzy, leaks, conspiracy thinking, and censorship.",
+      items: [
+        { id: "fr-u111l4-rumeur", type: "vocab", front: "la rumeur", reading: "larumeur", meaning: "rumour", example: { jp: "Chaque réseau partage la même rumeur, si bien qu'elle devient vite une nouvelle que tout le monde croit.", en: "Every network shares the same rumour, so that it quickly becomes a piece of news everyone believes." }, accept: ["rumor", "rumour", "the rumor", "the rumour"], hint: "An unverified claim that spreads — une rumeur court. Feminine." },
+        { id: "fr-u111l4-emballement", type: "vocab", front: "un emballement", reading: "unemballement", meaning: "a (media) frenzy", example: { jp: "Une seule photo a provoqué un grand emballement de la presse, si bien que chaque chaîne en a fait sa une.", en: "A single photo triggered a huge media frenzy, so that every channel made it its front page." }, accept: ["frenzy", "media frenzy", "a frenzy", "hype", "excitement", "runaway reaction"], hint: "A runaway media reaction, everyone piling on at once — l'emballement médiatique. Masculine: un emballement." },
+        { id: "fr-u111l4-fuite", type: "vocab", front: "une fuite", reading: "unefuite", meaning: "a leak", example: { jp: "Une fuite a permis à la presse de connaître la vérité, si bien que le gouvernement a fini par reconnaître les faits.", en: "A leak let the press learn the truth, so that the government eventually acknowledged the facts." }, accept: ["leak", "a leak", "the leak", "leak of information"], hint: "Leaked confidential information — une fuite dans la presse. Feminine (also literally a 'leak' of water)." },
+        { id: "fr-u111l4-complotisme", type: "vocab", front: "le complotisme", reading: "lecomplotisme", meaning: "conspiracy thinking", example: { jp: "Le complotisme grandit quand le public perd confiance dans la presse, si bien que chacun croit à sa propre théorie.", en: "Conspiracy thinking grows when the public loses trust in the press, so that everyone believes their own theory." }, accept: ["conspiracy thinking", "conspiracism", "conspiracy theories", "conspiracy mindset"], hint: "The habit of explaining events by hidden plots. Masculine (-isme); the base 'complot' (plot) isn't taught separately." },
+        { id: "fr-u111l4-censure", type: "vocab", front: "la censure", reading: "lacensure", meaning: "censorship", example: { jp: "Dans ce pays, la censure empêche la presse de parler des manifestations, si bien que le public ne connaît qu'une seule histoire.", en: "In this country, censorship stops the press from talking about the protests, so the public knows only one story." }, accept: ["censorship", "the censorship"], hint: "Official suppression of what may be published. Feminine; the verb is censurer." },
+        { id: "fr-u111l4-surenchere", type: "vocab", front: "la surenchère", reading: "lasurenchere", meaning: "escalation / one-upmanship", example: { jp: "Pour garder le public, chaque chaîne propose un titre plus fort que l'autre, si bien que cette surenchère fait vite oublier les faits.", en: "To keep the public, each channel offers a headline louder than the last, so that this one-upmanship quickly makes people forget the facts." }, accept: ["escalation", "one-upmanship", "the escalation", "outbidding", "upping the ante"], hint: "Each outlet outdoing the last with louder claims — la surenchère. Feminine." },
+      ],
+    },
   ],
 };
