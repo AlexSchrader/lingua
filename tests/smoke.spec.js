@@ -1022,8 +1022,13 @@ test("French: a lesson completes, and no Japanese leaks onto a French card", asy
   await expect(page.getByText("Done", { exact: true })).toBeVisible();
 
   // A French item actually advanced and got scheduled — the session graded, not just rendered.
+  // NB: the persisted overlay stores progress only and does NOT carry `lang` (it's
+  // re-derived from UNITS on boot to keep localStorage small — the quota-crash fix),
+  // so identify language by the item id prefix, which is the stable identity.
   const state = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua-v1")).state);
-  const advanced = Object.values(state.items).filter((it) => it.lang === "fr" && (it.rung ?? 0) >= 1);
+  const advanced = Object.entries(state.items)
+    .filter(([id, it]) => id.startsWith("fr-") && (it.rung ?? 0) >= 1)
+    .map(([, it]) => it);
   expect(advanced.length, "at least one French item graduated").toBeGreaterThan(0);
   expect(new Date(advanced[0].srs.due).getTime()).toBeGreaterThan(Date.now());
   // ...and nothing Japanese was touched.
@@ -1049,9 +1054,14 @@ test("French: Dev Mode seeds the French deck, not the Japanese one", async ({ pa
   await expect(page.getByText(/Learn 20 —/)).toBeVisible();
 
   const seeded = await page.evaluate(() => {
+    // Persisted overlay carries no `lang` (re-derived from UNITS on boot), so key
+    // language off the item id prefix — the stable identity.
     const items = JSON.parse(localStorage.getItem("lingua-v1")).state.items;
-    const learned = Object.values(items).filter((it) => (it.rung ?? 0) >= 1);
-    return { fr: learned.filter((it) => it.lang === "fr").length, ja: learned.filter((it) => it.lang === "ja").length };
+    const learned = Object.entries(items).filter(([, it]) => (it.rung ?? 0) >= 1);
+    return {
+      fr: learned.filter(([id]) => id.startsWith("fr-")).length,
+      ja: learned.filter(([id]) => id.startsWith("ja-")).length,
+    };
   });
   expect(seeded.fr).toBeGreaterThanOrEqual(20);
   expect(seeded.ja, "seeding from the French panel must not touch the Japanese deck").toBe(0);
