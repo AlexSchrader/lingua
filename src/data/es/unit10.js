@@ -47,6 +47,7 @@ export const ES_UNIT10 = {
         { id: "es-u10l2-feo", type: "vocab", front: "feo", reading: "feo", meaning: "ugly", example: { jp: "El aeropuerto es feo.", en: "The airport is ugly." }, accept: ["unattractive", "unpleasant"] },
         { id: "es-u10l2-nuevo", type: "vocab", front: "nuevo", reading: "nuevo", meaning: "new", example: { jp: "Hay un supermercado nuevo en la calle.", en: "There's a new supermarket in the street." }, accept: ["brand new"], hint: "Same root as \"novel\" and \"innovate\"." },
         { id: "es-u10l2-viejo", type: "vocab", front: "viejo", reading: "viejo", meaning: "old", example: { jp: "La iglesia es muy vieja.", en: "The church is very old." }, accept: ["ancient", "aged"], hint: "Vieja here, not viejo — la iglesia is feminine, so the adjective follows it." },
+        { id: "es-u10l2-joven", type: "vocab", front: "joven", reading: "joven", meaning: "young", example: { jp: "Mi hermano es joven, pero mi padre es viejo.", en: "My brother is young, but my father is old." }, accept: ["young"], hint: "The pair for viejo, the card before it. Same form for both genders — un chico joven, una chica joven — and the plural is jóvenes." },
       ],
     },
     {

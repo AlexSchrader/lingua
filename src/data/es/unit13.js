@@ -71,6 +71,7 @@ export const ES_UNIT13 = {
         { id: "es-u13l3-sin", type: "vocab", front: "sin", reading: "sin", meaning: "without", example: { jp: "Un café sin leche, por favor.", en: "A coffee without milk, please." }, accept: ["with no"] },
         { id: "es-u13l3-para", type: "vocab", front: "para", reading: "para", meaning: "for", example: { jp: "El pan es para María.", en: "The bread is for María." }, accept: ["in order to", "to"], hint: "para = who or what something is FOR, or the goal: para María, para aprender." },
         { id: "es-u13l3-por", type: "vocab", front: "por", reading: "por", meaning: "for (in exchange for)", example: { jp: "Gracias por el café.", en: "Thanks for the coffee." }, accept: ["by", "through", "because of"], hint: "The hardest pair in A1: por looks BACK at a cause or an exchange (gracias por el café), para looks FORWARD to a purpose (para María)." },
+        { id: "es-u13l3-entre", type: "vocab", front: "entre", reading: "entre", meaning: "between / among", example: { jp: "Mi casa está entre el mercado y la escuela.", en: "My house is between the market and the school." }, accept: ["between", "among", "amongst"], hint: "Two things (entre A y B) or a group (entre amigos). Unlike English it takes yo and tú, not mí and ti: entre tú y yo." },
       ],
     },
     {
@@ -88,6 +89,7 @@ export const ES_UNIT13 = {
         { id: "es-u13l4-querer", type: "vocab", front: "querer", reading: "querer", meaning: "to want", example: { jp: "Quiero un café, por favor.", en: "I'd like a coffee, please." }, accept: ["want", "wants", "to love"], hint: "quiero, quieres, quiere. quiero + a noun = I want it; quiero + a plain verb = I want to do it: quiero comer." },
         { id: "es-u13l4-poder", type: "vocab", front: "poder", reading: "poder", meaning: "to be able to", example: { jp: "No puedo trabajar hoy.", en: "I can't work today." }, accept: ["can", "may", "to be able"], hint: "puedo, puedes, puede — always followed by another verb in its plain form: puedo comer, puedes hablar." },
         { id: "es-u13l4-ver", type: "vocab", front: "ver", reading: "ver", meaning: "to see", example: { jp: "Veo a María en la calle.", en: "I see María on the street." }, accept: ["see", "sees", "to watch"], hint: "veo, ves, ve. Note the a before a person: veo a María, never veo María." },
+        { id: "es-u13l4-venir", type: "vocab", front: "venir", reading: "venir", meaning: "to come", example: { jp: "¿Vienes a mi casa esta tarde?", en: "Are you coming to my house this afternoon?" }, accept: ["to come", "to come along", "to come over"], hint: "Irregular like tener in this lesson: vengo, vienes, viene, venimos, vienen. Ir goes away from you; venir comes toward you." },
       ],
     },
   ],
