@@ -191,8 +191,11 @@ Gate: lint ✅ validate ✅ unit ✅ audit ✅ build ✅
 content-auditor: <verdict> · truth layer: <verdict>
 Branch: content/<lang>-a1-block<n> (worktree C:\dev\lingua-<lang><n>)
 Playtest: Dev Mode → <lang> → unit <first slot>
+Audio: <"n/a — authoring seat" for a block; for the MERGE seat: "⚠️ N new items silent — needs Alex's paid generate:audio + generate:manifest">
 Unresolved: <list, or "none">
 ```
+
+The `Audio:` line is **n/a for an authoring block** (you don't touch audio). The **merge seat must fill it** with the new band's item count and the paid-run flag — see §6 "Merge day" step 4. A band that reaches Alex's playtest silent, with no line saying so, reads as a bug rather than a pending paid step.
 
 Then **stop.** Do not merge. Update your row on the crew board (§0) to `handed back`.
 
@@ -207,9 +210,12 @@ Runs once, when all three blocks are green. **One session does this, never three
    - **A sounds/script unit owning ordinary words is correct, not a bug.** ja Unit 1 is 25 kana *and* 29 real words; a Latin sounds unit works the same way. Don't "fix" it by reassigning the word to the thematic unit that feels more natural — that reopens the tie the rule exists to close.
    - **The validator only finds the EXACT-STRING duplicates. Run `npm run check:lexemes` too.** `validateContent` keys on the literal `front`, so `ておきます` and `ておく` are two clean cards and one word — a red gate is not the full list. The ja B1 block-3 seat shipped **36** of these past a fully green validator; the content gate found them, and half a register unit had to be re-authored. `npm run check:lexemes -- <fronts…>` probes the inflectional relatives (ます⇄辞書形, noun⇄する/します, X⇄です). It over-generates on short fronts, so read every hit — but a duplicate it names is a duplicate the validator will never show you. See §4 "Compare LEXEMES, not strings".
    - **Then repair the holes deletion leaves.** Every lesson that drops below **5 cards** needs backfilling to 5–6 with genuinely new words that are in scope at that unit. In the pilot, 10 of 21 lessons fell under the floor and two fell to 3 — so budget this as real authoring, not cleanup. Re-run the gate after backfilling; the vocab-scope lint will catch a backfill word used before it is taught.
-4. Run audio **once**: `npm run generate:audio` then `npm run generate:manifest`. **Never in parallel with another language's merge** — one shared manifest.
+4. **Audio for the new band — a PER-BAND paid step, and it is Alex's, not yours.** Every band you merge (A2, B1, …) ships **silent** until it is voiced — the teach card plays nothing and `listen:choice` / `listen:type` don't route for the new items, because both are gated on the manifest. Two halves:
+   - **The merge seat runs `npm run generate:manifest` only.** It derives the manifest from whatever clips already exist on disk — cheap, no network, no key. **Run it once, never in parallel with another language's merge** (one shared manifest file). This does NOT create audio; it only registers the audio that exists.
+   - **The paid `npm run generate:audio` run is Alex's call.** It hits ElevenLabs (costs money) and needs `ELEVENLABS_API_KEY`, which is **not in the CC container** — so a CC merge seat physically cannot and must not run it. Voice keys off `item.lang` automatically (Haruki/Mathieu/Ignacio already in `server/companions.js`), so no code change is needed — just the run, then `generate:manifest` again afterward.
+   - **So the merge seat's job is to FLAG it, not do it:** count the new band's items and put the exact figure in the §6 handback (step 6) as an explicit "⚠️ needs a paid audio run: N new items silent until `generate:audio` + `generate:manifest`." Do not let a band reach Alex's playtest with this unstated — a silent band feels broken in a way that reads as a bug, not a pending step.
 5. Update `BUILD-CHECKLIST.md` per its marking protocol, and clear the language's rows off the crew board.
-6. Hand Alex the §6 block for the whole language, plus one line: which unit to open first in Dev Mode.
+6. Hand Alex the §6 block for the whole language, plus: (a) which unit to open first in Dev Mode, and (b) **the audio flag from step 4** — "N new items need a paid `generate:audio` run; they're silent until then."
 7. `git worktree remove` the three authoring worktrees.
 
 Then stop. Alex playtests and merges to `main`.

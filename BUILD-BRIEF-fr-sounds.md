@@ -1,7 +1,7 @@
 # Build brief — French sounds & accents ("Les sons")
 
 **Lane:** Curriculum CC (content) + small Feature CC assist (Ladder section).
-**Status:** greenlit by Alex 2026-07-31; **blocked on French audio generation.**
+**Status:** ✅ SHIPPED (unit `fr-u27`, `order: 1`, 3 lessons / 21 items). French audio has since been generated (100% coverage, 2026-08-22), so the audio dependency below is **satisfied** — `listen:choice` / `listen:type` route for this unit.
 **Policy it implements:** `CONTENT.md` → "Script policy — which languages get a glyph section (and trace)".
 
 ---
@@ -26,16 +26,13 @@ learners can read immediately — and be wrong immediately.
   Tracing them would be busywork and the same "routes but doesn't teach" defect class as
   the `type:reading` and `build` copy-tasks found on 2026-07-31.
 
-## Hard dependency: audio
+## Hard dependency: audio — ✅ SATISFIED (2026-08-22)
 
-`AUDIO_IDS` currently holds **0 French ids**. A pronunciation unit without audio is close
-to useless — it would teach a sound-spelling map in silence. **Do not author this before
-`npm run generate:audio` has run for French** (Mathieu's voice, `voiceId` already in
-`server/companions.js`) and `npm run generate:manifest` has been regenerated.
-
-Once audio exists, `listen:choice` and `listen:type` start routing for French
-automatically — they're gated only on `hasAudio` — which is precisely the card set this
-unit needs.
+*(Historical: this section originally blocked authoring on the paid audio run.)* French
+audio has since shipped at **100% coverage** (Mathieu's voice), so `AUDIO_IDS` now holds
+every French id and `listen:choice` / `listen:type` route for this unit automatically —
+they're gated only on `hasAudio`, which is precisely the card set this pronunciation unit
+needs. No dependency remains.
 
 ## Content scope
 

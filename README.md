@@ -14,27 +14,30 @@ with neurodivergent learners in mind.
 
 ## Status
 
-**Two languages live · 125 units · 450 lessons · 2,941 items.** Run `npm run audit` for the
+**Three languages live · 232 units · 878 lessons · 5,513 items.** Run `npm run audit` for the
 live breakdown — the numbers below are derived from it, not maintained by hand.
 
 | Language | Units | Lessons | Items | Bands authored |
 |---|---|---|---|---|
-| 🇯🇵 Japanese | 98 | 369 | 2,375 | Pre-A1 · A1 · A2 |
-| 🇫🇷 French | 27 | 81 | 566 | A1 |
+| 🇯🇵 Japanese | 155 | 597 | 3,743 | Pre-A1 · A1 · A2 · B1 |
+| 🇫🇷 French | 57 | 201 | 1,287 | A1 · A2 |
+| 🇪🇸 Spanish | 20 | 80 | 483 | A1 |
 
-- **Japanese A1 and A2 are content-complete** — kana scripts + yōon, thematic vocab, the
-  N5 kanji set, core grammar, and the A2/N4 build-out.
-- **French is A1-core, not A1-complete** — see [Known issues](#known-issues).
-- The remaining gate before any "JLPT N5 verified" claim is a **batched native-speaker
-  review** of the kanji + grammar examples (naturalness/register — the one thing no
+- **Japanese A1 and A2 are content-complete and B1/N3 is being built** — kana scripts +
+  yōon, thematic vocab, 568 kanji (N5 through into N3), core grammar, the A2/N4 band, and
+  an in-progress B1/N3 build-out.
+- **French has A1 and A2 authored**; **Spanish has A1.** See [Known issues](#known-issues).
+- **Every item in all three languages is voiced** — 5,513 audio clips on disk, one per item,
+  in each language's tutor voice (`npm run audit` / the manifest confirm 100% coverage).
+- The remaining gate before any "JLPT/DELF verified" claim is a **batched native-speaker
+  review** of the grammar + kanji examples (naturalness/register — the one thing no
   validator can check).
 
 ---
 
 ## Known issues
 
-- **French is A1-core, not A1-complete.** 27 units / 566 items covering greetings through the passé composé, plus a sounds-and-accents unit that runs first. Real gaps remain against a DELF A1 syllabus: object pronouns, the imperative, `il faut` / `je dois`, comparatives, and the alphabet. The in-app milestone currently reads "French A1 complete" — that label is under review.
-- **French has no audio yet.** `public/audio/fr/` is empty, so the two listening cards don't route for French and teach cards are silent. Run `npm run generate:audio` then `npm run generate:manifest` to light them up.
+- **French and Spanish naturalness are unreviewed.** French (A1 + A2) and Spanish (A1) validate and lint clean, but the batched native-speaker / LLM naturalness pass hasn't run — particle/preposition choice and register are the open gate. A handful of specific French card defects (a non-idiom drill, two gloss-ambiguous particle cards) are tracked in `BUILD-CHECKLIST.md`.
 - **Mathieu (the French tutor) is wired but untested against the live API.** The ConvAI agent id and voice are configured; the endpoint has only been exercised with a stubbed fetch.
 
 Full running list and detail: **`BUILD-CHECKLIST.md`** — readers shouldn't have to infer hidden problems.
@@ -43,29 +46,33 @@ Full running list and detail: **`BUILD-CHECKLIST.md`** — readers shouldn't hav
 
 ## What's built today
 
-**Japanese curriculum — Pre-A1 through A2 · 98 units · 369 lessons · 2,375 items** (`npm run audit` for the live breakdown):
+**Japanese curriculum — Pre-A1 through B1 · 155 units · 597 lessons · 3,743 items** (`npm run audit` for the live breakdown):
 
 - **Full hiragana** あ–ん (Units 1–3) and **full katakana** including dakuten/handakuten (Units 4–6).
 - **Yōon** — 33 combination kana (きょ・しゃ・ぎょ…), Unit 16.
 - **First A1 thematic vocab** — numbers/time, family, food + ～ます verbs, town/places, colors/weather (Units 7–10, 12).
-- **106 kanji ≈ JLPT N5 complete** — recognition by meaning, production by stroke tracing (Units 11, 13–15, 17–18).
-- **Core A1 grammar** — the copula sentence (Xは Yです / か / の / と / も / question words), verbs + particles (を/が/に/で/へ/から/まで), invitations & requests (ませんか/ましょう/ください), and past tense + い/な-adjective conjugation (Units 19–21).
-- **A2 / N4** — the second band, shipped: more grammar, kanji and vocabulary.
+- **568 kanji — JLPT N5 complete and climbing into N3** — recognition by meaning, production by stroke tracing.
+- **Core A1 grammar** — the copula sentence (Xは Yです / か / の / と / も / question words), verbs + particles (を/が/に/で/へ/から/まで), invitations & requests (ませんか/ましょう/ください), and past tense + い/な-adjective conjugation.
+- **A2 / N4 (55 units)** — the second band, content-complete: more grammar, kanji and vocabulary.
+- **B1 / N3 (57 units, in progress)** — N3 kanji, vocabulary, and grammar.
 - Sectioned by CEFR stage (`pre-a1` / `a1` / …) with JLPT tags on the Ladder.
 
-**French curriculum — A1 · 27 units · 81 lessons · 566 items.** Greetings through the
-passé composé, plus a **sounds-and-accents unit that runs first** — French learners can
-read the letters on day one and be wrong on day one, so the sound-to-spelling map is
-taught before the vocabulary that uses it. Latin-script languages get that instead of a
-glyph-tracing band; `pre-a1` is the *script* band, not a difficulty band.
+**French curriculum — A1 · A2 · 57 units · 201 lessons · 1,287 items.** Greetings through
+the passé composé and into A2, plus a **sounds-and-accents unit that runs first** — French
+learners can read the letters on day one and be wrong on day one, so the sound-to-spelling
+map is taught before the vocabulary that uses it. Latin-script languages get that instead
+of a glyph-tracing band; `pre-a1` is the *script* band, not a difficulty band.
+
+**Spanish curriculum — A1 · 20 units · 80 lessons · 483 items.** The A1 band, in Ignacio's
+voice, with the same sounds-and-accents on-ramp as French.
 
 **Engine & app:**
 
 - **FSRS spaced repetition** (`ts-fsrs`) — app-judged recall, FSRS grade derived from correctness + response speed.
 - **Mastery rungs** per item; card kind is chosen by rung (teach → choice → type → build, with characters traced stroke-by-stroke).
 - **Accounts + cross-device sync** — Supabase auth (Google sign-in), per-user progress with row-level security, last-write-wins with fresh-device safety.
-- **A tutor per language** — an in-app text + voice companion (ElevenLabs conversational agent on Claude Haiku 4.5, native voice, serverless signed-URL auth so the key stays server-side). Haruki for Japanese, Mathieu for French; the tab and bottom-nav label follow the language you're studying.
-- **Real audio** — ElevenLabs clips per item in the tutor's voice, played from the teach card. Japanese is fully voiced; French is not generated yet.
+- **A tutor per language** — an in-app text + voice companion (ElevenLabs conversational agent on Claude Haiku 4.5, native voice, serverless signed-URL auth so the key stays server-side). Haruki for Japanese, Mathieu for French, Ignacio for Spanish; the tab and bottom-nav label follow the language you're studying.
+- **Real audio** — ElevenLabs clips per item in each tutor's voice, played from the teach card. **All three languages are fully voiced** — 5,513 clips, one per item (Japanese, French, and Spanish at 100% coverage).
 - **Ladder** — full-climb view, collapsible sections (writing system / yōon / kanji / units), optional romaji under each glyph.
 - **Settings** — SFX toggle, auto-play pronunciation, reduce-motion, and (for languages written in a script new to the learner) romaji + furigana scaffolds. Plus a hidden **Dev Mode** (unlocked with a code in Settings) that launches any unit or lesson — bypassing the normal review/unlock gating — in a throwaway sandbox run that never touches real progress, FSRS state, or the streak.
 - **PWA** — installable, offline precache, `autoUpdate` (no stale builds after deploy).
@@ -166,7 +173,7 @@ Lesson 47 runs the same code as lesson 1 — no lesson- or item-specific branchi
 - `src/data/contract.js` — `LIVE_CARD_KINDS` + `validateContent()` (hard rules + warnings; item key allowlist).
 - `src/data/lint.js` — `lintCurriculum()` authoring gate (mechanical rules, layered on the contract).
 - `src/data/index.js` — imports all units, seeds/reconciles items into the store.
-- `src/data/ja/*.js` — the units; `languages.js` holds the cascade (`target`/`unlock`/`unlocked`).
+- `src/data/{ja,fr,es}/*.js` — the units; `languages.js` holds the order-agnostic catalog (`{id, name, flag, target}`).
 - `src/screens/` — Today, Ladder, Haruki, Stats, Lesson (session runner).
 - `src/components/games/` — one component per card kind: Teach, Choice, Type, Build, Cloze, Sentence, Conjugate, Trace, Speak.
 - `server/companions.js` — companion config, server-side only (voice ids ok, keys are env secrets).
@@ -183,7 +190,7 @@ Lesson 47 runs the same code as lesson 1 — no lesson- or item-specific branchi
 
 ## Content
 
-Content lives in `src/data/ja/`. Each unit file exports an object matching the schema in
+Content lives in `src/data/<lang>/` (`ja`, `fr`, `es`). Each unit file exports an object matching the schema in
 **`CONTENT.md`**. Run `npm run validate:content` **and** `npm run lint:curriculum` after any
 content change — together they enforce id patterns, CEFR/stage fields, kana-no-duplicates,
 reading normalizability, the item key allowlist, gojūon order, romaji style, card density,
@@ -205,7 +212,8 @@ are the **batched native-speaker review** gate, required before any "JLPT-aligne
 
 ## Not yet built
 
-Japanese B1/B2 · French A1 completion (object pronouns, the imperative, `il faut` /
-`je dois`, comparatives) and French audio · Spanish and the other 17 catalogued languages ·
-Apple sign-in · a French `conjugate` card (needs a French conjugator and a contract change,
-since the verb-group and form enums are currently Japanese-only).
+Japanese B1 completion → B2 · French B1/B2 · Spanish A2 and up · the other 17 catalogued
+languages · Apple sign-in · a French/Spanish `conjugate` card (needs a Latin-script
+conjugator and a contract change, since the verb-group and form enums are currently
+Japanese-only) · a language-scoped daily review queue (multi-language learners currently
+share one merged queue).

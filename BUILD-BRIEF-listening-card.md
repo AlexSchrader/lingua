@@ -11,7 +11,7 @@
 
 Every card the app ships today (`teach`, `choice`, `type:meaning`, `build`, `trace`) **shows the character**. The learner's ear is never tested — they can pass all of A1 without once mapping a *sound* to a meaning. For a spoken language that's a real gap, and it's the natural complement to the (dormant) `speak` card: `speak` = say it, `listen` = hear it.
 
-**It just got unblocked.** As of 2026-07-04 **every item (729/729) has an audio clip** (`public/audio/ja/{id}.mp3`). A listening card was impossible while 79% of items were silent; now it's cheap.
+**It just got unblocked.** As of 2026-07-04 **every item (729/729) has an audio clip** (`public/audio/ja/{id}.mp3`). A listening card was impossible while 79% of items were silent; now it's cheap. *(Update 2026-08-22: coverage has since grown to all three live languages — ja 3,743 · fr 1,287 · es 483 = 5,513 clips at 100%, so the listening cards route for French and Spanish too, not just Japanese.)*
 
 ## The one decision that keeps this simple: it's a *variant*, not a new rung
 
