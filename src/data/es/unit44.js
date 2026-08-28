@@ -1,0 +1,81 @@
+// ES Unit 44 — Verbos de acción · 2 ("Action verbs 2") — A2 COVERAGE (slot: coverage-a2-5)
+// Verbs of the mind, of relationships, and of making/doing. Headworded in the
+// infinitive; forms in examples and hints. Conventions and BLOCK-3 SCOPE: see
+// es/unit13.js. FREE: María, Pablo, Ana, Madrid.
+export const ES_UNIT44 = {
+  id: "es-u44",
+  lang: "es",
+  title: "Verbos de acción · 2",
+  order: 44,
+  stage: "a2",
+  lessons: [
+    {
+      id: "es-u44l1",
+      unit: 44,
+      lesson: 1,
+      title: "Entender, decidir, preferir",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Talk about the mind: entender una palabra, decidir hoy, imaginar algo, preferir el café.",
+      items: [
+        { id: "es-u44l1-entender", type: "vocab", front: "entender", reading: "entender", meaning: "to understand", example: { jp: "No entiendo esta palabra.", en: "I don't understand this word." }, accept: ["to get", "to comprehend"], hint: "entiendo, entiendes, entiende (e→ie). ¿Entiendes? = Do you get it? A close friend of comprender." },
+        { id: "es-u44l1-decidir", type: "vocab", front: "decidir", reading: "decidir", meaning: "to decide", example: { jp: "Tengo que decidir hoy.", en: "I have to decide today." }, accept: ["to make up one's mind"], hint: "Regular -ir. The noun is la decisión (u46). Decidirse = to make up one's mind." },
+        { id: "es-u44l1-dudar", type: "vocab", front: "dudar", reading: "dudar", meaning: "to doubt", example: { jp: "Dudo de la respuesta.", en: "I doubt the answer." }, accept: ["to hesitate", "to be unsure"], hint: "The noun is la duda (a doubt). Sin dudar = without hesitating." },
+        { id: "es-u44l1-imaginar", type: "vocab", front: "imaginar", reading: "imaginar", meaning: "to imagine", example: { jp: "Imagino que estás cansado.", en: "I imagine you're tired." }, accept: ["to guess", "to picture"], hint: "imaginar que… = to imagine/suppose that… ¡Imagínate! = Just imagine!" },
+        { id: "es-u44l1-suponer", type: "vocab", front: "suponer", reading: "suponer", meaning: "to suppose", example: { jp: "Supongo que sí.", en: "I suppose so." }, accept: ["to assume", "to guess"], hint: "supongo, supones, supone (built on poner, u19). Supongo que sí / que no = I suppose so / not." },
+        { id: "es-u44l1-preferir", type: "vocab", front: "preferir", reading: "preferir", meaning: "to prefer", example: { jp: "Prefiero el café sin leche.", en: "I prefer coffee without milk." }, accept: ["to like better"], hint: "prefiero, prefieres, prefiere (e→ie). Prefiero + a noun, or prefiero + a plain verb: prefiero comer en casa." },
+      ],
+    },
+    {
+      id: "es-u44l2",
+      unit: 44,
+      lesson: 2,
+      title: "Presentar, invitar, visitar",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Handle people: presentar a un amigo, invitar a un café, visitar a los abuelos, saludar a alguien.",
+      items: [
+        { id: "es-u44l2-presentar", type: "vocab", front: "presentar", reading: "presentar", meaning: "to introduce / present", example: { jp: "Te presento a mi amigo.", en: "Let me introduce you to my friend." }, accept: ["to introduce"], hint: "Te presento a… is how you introduce someone. Reflexive presentarse = to introduce yourself (see u3)." },
+        { id: "es-u44l2-invitar", type: "vocab", front: "invitar", reading: "invitar", meaning: "to invite / treat", example: { jp: "Te invito a un café.", en: "I'll treat you to a coffee." }, accept: ["to treat", "to ask (someone) out"], hint: "Also \"to treat/pay\": te invito = it's on me. Invitar a + a plain verb or a noun." },
+        { id: "es-u44l2-visitar", type: "vocab", front: "visitar", reading: "visitar", meaning: "to visit", example: { jp: "Voy a visitar a mis abuelos.", en: "I'm going to visit my grandparents." }, accept: ["to go and see"], hint: "Visiting a person or a place. Note the a before a person: visitar a María." },
+        { id: "es-u44l2-acompanar", type: "vocab", front: "acompañar", reading: "acompanar", meaning: "to go with / accompany", example: { jp: "¿Me acompañas a la tienda?", en: "Will you come with me to the shop?" }, accept: ["to come with", "to keep company"], hint: "acompañar a alguien = to go with someone. Te acompaño = I'll come with you." },
+        { id: "es-u44l2-saludar", type: "vocab", front: "saludar", reading: "saludar", meaning: "to greet / say hello", example: { jp: "Saludo a María en la calle.", en: "I say hello to María in the street." }, accept: ["to say hi", "to wave to"], hint: "The verb behind los saludos (u2). Salúdalo de mi parte = say hi to him for me." },
+        { id: "es-u44l2-despedirse", type: "vocab", front: "despedirse", reading: "despedirse", meaning: "to say goodbye", example: { jp: "Me despido de mis amigos.", en: "I say goodbye to my friends." }, accept: ["to take one's leave"], hint: "me despido, te despides (e→i, reflexive). Despedirse de alguien = to say bye to someone." },
+      ],
+    },
+    {
+      id: "es-u44l3",
+      unit: 44,
+      lesson: 3,
+      title: "Crear, construir, preparar",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Talk about making things: crear algo, construir una casa, arreglar el coche, preparar la comida.",
+      items: [
+        { id: "es-u44l3-crear", type: "vocab", front: "crear", reading: "crear", meaning: "to create", example: { jp: "Quiero crear algo nuevo.", en: "I want to create something new." }, accept: ["to make", "to set up"], hint: "To bring something into being. Regular -ar. Not to be confused with creer (u36, \"to believe\")." },
+        { id: "es-u44l3-construir", type: "vocab", front: "construir", reading: "construir", meaning: "to build", example: { jp: "Van a construir una casa nueva.", en: "They're going to build a new house." }, accept: ["to construct"], hint: "construyo, construyes, construye — a y appears before the ending. Same pattern as other -uir verbs." },
+        { id: "es-u44l3-formar", type: "vocab", front: "formar", reading: "formar", meaning: "to form / make up", example: { jp: "Quiero formar una familia.", en: "I want to start a family." }, accept: ["to shape", "to train"], hint: "formar parte de = to be part of. Formar una familia = to start a family." },
+        { id: "es-u44l3-producir", type: "vocab", front: "producir", reading: "producir", meaning: "to produce", example: { jp: "Esta empresa produce coches.", en: "This company produces cars." }, accept: ["to make", "to generate"], hint: "produzco, produces, produce — the yo form adds a z (like conocer, u40). The noun is el producto (u49)." },
+        { id: "es-u44l3-arreglar", type: "vocab", front: "arreglar", reading: "arreglar", meaning: "to fix / sort out", example: { jp: "Tengo que arreglar el coche.", en: "I have to fix the car." }, accept: ["to repair", "to tidy", "to arrange"], hint: "Fix, repair, or sort out a problem. Reflexive arreglarse = to get ready / do oneself up." },
+        { id: "es-u44l3-preparar", type: "vocab", front: "preparar", reading: "preparar", meaning: "to prepare", example: { jp: "Preparo la comida en la cocina.", en: "I prepare the food in the kitchen." }, accept: ["to get ready", "to make"], hint: "Regular -ar. Reflexive prepararse = to get oneself ready: me preparo para salir." },
+      ],
+    },
+    {
+      id: "es-u44l4",
+      unit: 44,
+      lesson: 4,
+      title: "Colaborar, elegir, permitir",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Talk about joining in and choosing: aprovechar el día, colaborar con amigos, elegir un color, permitir algo.",
+      items: [
+        { id: "es-u44l4-aprovechar", type: "vocab", front: "aprovechar", reading: "aprovechar", meaning: "to make the most of", example: { jp: "Voy a aprovechar el día libre.", en: "I'm going to make the most of my day off." }, accept: ["to take advantage of", "to use well"], hint: "To use an opportunity well. ¡Que aproveche! is what Spaniards say before eating = enjoy your meal." },
+        { id: "es-u44l4-colaborar", type: "vocab", front: "colaborar", reading: "colaborar", meaning: "to collaborate / help out", example: { jp: "Me gusta colaborar con mis amigos.", en: "I like to work together with my friends." }, accept: ["to cooperate", "to help", "to work together", "to contribute"], hint: "colaborar con = to work together with. From the same root as \"collaborate\"." },
+        { id: "es-u44l4-participar", type: "vocab", front: "participar", reading: "participar", meaning: "to take part", example: { jp: "Todos quieren participar.", en: "Everyone wants to take part." }, accept: ["to participate", "to join in"], hint: "participar en algo = to take part in something. Regular -ar." },
+        { id: "es-u44l4-organizar", type: "vocab", front: "organizar", reading: "organizar", meaning: "to organize", example: { jp: "Tengo que organizar mi trabajo.", en: "I have to organize my work." }, accept: ["to arrange", "to set up"], hint: "Regular -ar. Reflexive organizarse = to get organized." },
+        { id: "es-u44l4-elegir", type: "vocab", front: "elegir", reading: "elegir", meaning: "to choose", example: { jp: "Es difícil elegir un color.", en: "It's hard to choose a colour." }, accept: ["to pick", "to select", "to elect"], hint: "elijo, eliges, elige (e→i, and g→j before o). A close friend of escoger." },
+        { id: "es-u44l4-permitir", type: "vocab", front: "permitir", reading: "permitir", meaning: "to allow", example: { jp: "Mis padres no me permiten salir.", en: "My parents don't let me go out." }, accept: ["to let", "to permit"], hint: "permitir a alguien + a plain verb = to let someone do. ¿Me permite? = May I? (very polite)." },
+      ],
+    },
+  ],
+};

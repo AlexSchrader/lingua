@@ -1,0 +1,85 @@
+// FR Unit 61 — Le doute et l'incertitude (slot: hedging and uncertainty) — B1
+// SCOPE BOUNDARY: A2 already teaches the everyday hedges (peut-être, sans doute,
+// probablement, sûrement, apparemment, sembler, douter, hésiter). This unit is
+// the register above: precise likelihood adverbs (vraisemblablement, forcément),
+// impersonal framing (il se peut que + subjunctive, en principe, en théorie),
+// verbs of conjecture (estimer, présumer, soupçonner) and the abstract nouns of
+// not-knowing (l'incertitude, l'hypothèse, le flou). Fronts checked against the
+// live 1,287 A1+A2 fronts and the sibling B1 blocks. Conventions: fr/unit1.js.
+export const FR_UNIT61 = {
+  id: "fr-u61",
+  lang: "fr",
+  title: "Le doute et l'incertitude",
+  order: 61,
+  stage: "b1",
+  lessons: [
+    {
+      id: "fr-u61l1",
+      unit: 61,
+      lesson: 1,
+      title: "How likely",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Say how likely something is, precisely: vraisemblablement, forcément, visiblement.",
+      items: [
+        { id: "fr-u61l1-vraisemblablement", type: "vocab", front: "vraisemblablement", reading: "vraisemblablement", meaning: "in all likelihood", example: { jp: "Il ne répond pas ; vraisemblablement, il est déjà parti.", en: "He's not answering; in all likelihood, he's already left." }, accept: ["in all likelihood", "probably", "most likely"], hint: "The formal 'probably' — literally 'seemingly-true-ly'." },
+        { id: "fr-u61l1-eventuellement", type: "vocab", front: "éventuellement", reading: "eventuellement", meaning: "possibly", example: { jp: "Je passerai éventuellement demain, si j'ai le temps.", en: "I'll possibly drop by tomorrow, if I have time." }, accept: ["possibly", "if need be", "perhaps"], hint: "False friend! Not 'eventually' — it means 'possibly / if need be'." },
+        { id: "fr-u61l1-apriori", type: "vocab", front: "a priori", reading: "apriori", meaning: "in principle", example: { jp: "A priori, l'idée est bonne, mais il faut y penser.", en: "On the face of it, the idea is good, but it needs some thought first." }, accept: ["in principle", "at first sight", "on the face of it"], hint: "At first sight, before checking. The opposite is après vérification." },
+        { id: "fr-u61l1-forcement", type: "vocab", front: "forcément", reading: "forcement", meaning: "necessarily", example: { jp: "Ce n'est pas forcément vrai, même si tout le monde le dit.", en: "It's not necessarily true, even if everyone says so." }, accept: ["necessarily", "inevitably", "of course"], hint: "pas forcément = not necessarily. From force — 'as if forced to be so'." },
+        { id: "fr-u61l1-visiblement", type: "vocab", front: "visiblement", reading: "visiblement", meaning: "visibly", example: { jp: "Elle est visiblement fatiguée après cette longue journée.", en: "She's visibly tired after this long day." }, accept: ["visibly", "clearly", "evidently"], hint: "'Clearly', from what you can see. Il est visiblement content." },
+        { id: "fr-u61l1-manifestement", type: "vocab", front: "manifestement", reading: "manifestement", meaning: "obviously", example: { jp: "Manifestement, il n'a pas compris la question.", en: "Obviously, he didn't understand the question." }, accept: ["obviously", "clearly", "plainly"], hint: "'Obviously' — when the evidence is plain. A stronger visiblement." },
+      ],
+    },
+    {
+      id: "fr-u61l2",
+      unit: 61,
+      lesson: 2,
+      title: "Hedging a statement",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Soften or frame a claim: il se peut que, avoir tendance à, quant à, en principe.",
+      items: [
+        { id: "fr-u61l2-ilsepeutque", type: "vocab", front: "il se peut que", reading: "ilsepeutque", meaning: "it may be that", example: { jp: "Il se peut qu'il pleuve ce soir, alors reste à la maison.", en: "It might rain this evening, so stay home." }, accept: ["it may be that", "it's possible that", "maybe"], hint: "Takes the subjunctive: il se peut qu'il vienne. = it's possible that." },
+        { id: "fr-u61l2-avoirtendancea", type: "vocab", front: "avoir tendance à", reading: "avoirtendancea", meaning: "to tend to", example: { jp: "J'ai tendance à oublier les noms très vite.", en: "I tend to forget names very fast." }, accept: ["to tend to", "to be inclined to", "to have a tendency to"], hint: "avoir tendance à faire = to tend to do. A habit or a leaning." },
+        { id: "fr-u61l2-avoirlimpression", type: "vocab", front: "avoir l'impression", reading: "avoirlimpression", meaning: "to have the feeling", example: { jp: "J'ai l'impression de le connaître, mais je ne sais plus d'où.", en: "I have the feeling I know him, but I can't remember from where." }, accept: ["to have the feeling", "to get the impression", "to feel like"], hint: "avoir l'impression que = to get the feeling that, often mistaken." },
+        { id: "fr-u61l2-quanta", type: "vocab", front: "quant à", reading: "quanta", meaning: "as for", example: { jp: "Quant à moi, je préfère rester à la maison ce soir.", en: "As for me, I'd rather stay home this evening." }, accept: ["as for", "regarding", "when it comes to"], hint: "'As for…' — introduces a new person or topic: quant à lui, quant à ce problème." },
+        { id: "fr-u61l2-enprincipe", type: "vocab", front: "en principe", reading: "enprincipe", meaning: "in principle", example: { jp: "En principe, le magasin ouvre à neuf heures.", en: "In principle, the shop opens at nine o'clock." }, accept: ["in principle", "normally", "supposedly"], hint: "'In principle / normally' — how it should be, unless something changes." },
+        { id: "fr-u61l2-entheorie", type: "vocab", front: "en théorie", reading: "entheorie", meaning: "in theory", example: { jp: "En théorie, c'est simple ; dans la vie, c'est plus difficile.", en: "In theory, it's simple; in real life, it's harder." }, accept: ["in theory", "on paper"], hint: "'In theory' — the theory-versus-real-life contrast." },
+      ],
+    },
+    {
+      id: "fr-u61l3",
+      unit: 61,
+      lesson: 3,
+      title: "Supposing and guessing",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Say what you reckon or suspect: estimer, soupçonner, deviner, envisager.",
+      items: [
+        { id: "fr-u61l3-estimer", type: "vocab", front: "estimer", reading: "estimer", meaning: "to reckon", example: { jp: "J'estime qu'il faut au moins deux heures pour finir.", en: "I reckon it needs at least two hours to finish." }, accept: ["to reckon", "to estimate", "to consider", "to value"], hint: "To judge a value or hold a view: j'estime que… Also to respect someone." },
+        { id: "fr-u61l3-soupconner", type: "vocab", front: "soupçonner", reading: "soupconner", meaning: "to suspect", example: { jp: "La police soupçonne un homme de la ville.", en: "The police suspect a man from the town." }, accept: ["to suspect"], hint: "soupçonner quelqu'un de = to suspect someone of. The noun is le soupçon." },
+        { id: "fr-u61l3-deviner", type: "vocab", front: "deviner", reading: "deviner", meaning: "to guess", example: { jp: "Devine qui j'ai vu au marché ce matin !", en: "Guess who I saw at the market this morning!" }, accept: ["to guess", "to work out"], hint: "To guess. Devine quoi ! = guess what! A riddle is une devinette." },
+        { id: "fr-u61l3-presumer", type: "vocab", front: "présumer", reading: "presumer", meaning: "to presume", example: { jp: "On présume qu'il est innocent jusqu'à preuve du contraire.", en: "He is presumed innocent until proven otherwise." }, accept: ["to presume", "to assume"], hint: "To assume before proof — présumer innocent. More formal than penser." },
+        { id: "fr-u61l3-envisager", type: "vocab", front: "envisager", reading: "envisager", meaning: "to consider", example: { jp: "Nous envisageons de partir à l'étranger l'été prochain.", en: "We're considering going abroad next summer." }, accept: ["to consider", "to contemplate", "to think about"], hint: "To consider a possibility seriously: envisager de faire. From le visage — to 'face' an option." },
+        { id: "fr-u61l3-paraitre", type: "vocab", front: "paraître", reading: "paraitre", meaning: "to seem", example: { jp: "Elle paraît plus jeune que son âge.", en: "She seems younger than her age." }, accept: ["to seem", "to appear", "to look"], hint: "To seem/appear. il paraît que = apparently. A cousin of apparaître." },
+      ],
+    },
+    {
+      id: "fr-u61l4",
+      unit: 61,
+      lesson: 4,
+      title: "The unknown",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Name uncertainty itself: l'incertitude, une hypothèse, une nuance, le flou.",
+      items: [
+        { id: "fr-u61l4-lincertitude", type: "vocab", front: "l'incertitude", reading: "lincertitude", meaning: "uncertainty", example: { jp: "Cette incertitude dure depuis des semaines.", en: "This uncertainty has lasted for weeks." }, accept: ["uncertainty", "the doubt"], hint: "The state of not knowing — from incertain. The opposite is la certitude." },
+        { id: "fr-u61l4-lhypothese", type: "vocab", front: "l'hypothèse", reading: "lhypothese", meaning: "the hypothesis", example: { jp: "Selon cette hypothèse, le climat va beaucoup changer.", en: "According to this hypothesis, the climate is going to change a lot." }, accept: ["hypothesis", "the theory", "the assumption"], hint: "A possible explanation, not yet proven. faire une hypothèse." },
+        { id: "fr-u61l4-lanuance", type: "vocab", front: "la nuance", reading: "lanuance", meaning: "the nuance", example: { jp: "Il y a une petite nuance entre ces deux mots.", en: "There's a slight nuance between these two words." }, accept: ["nuance", "the shade", "the subtlety"], hint: "A subtle difference — of meaning, or of colour. sans nuance = black and white." },
+        { id: "fr-u61l4-lepressentiment", type: "vocab", front: "le pressentiment", reading: "lepressentiment", meaning: "the premonition", example: { jp: "J'ai le pressentiment que ça va mal finir.", en: "I have a feeling it's going to end badly." }, accept: ["premonition", "the feeling", "the hunch"], hint: "A gut feeling about the future — from pressentir, to sense beforehand." },
+        { id: "fr-u61l4-lemystere", type: "vocab", front: "le mystère", reading: "lemystere", meaning: "the mystery", example: { jp: "Personne ne comprend : c'est un vrai mystère.", en: "Nobody understands: it's a real mystery." }, accept: ["mystery", "the puzzle"], hint: "Something unexplained. A cognate, but mind the accent: mystère." },
+        { id: "fr-u61l4-leflou", type: "vocab", front: "le flou", reading: "leflou", meaning: "the vagueness", example: { jp: "Sa réponse reste dans le flou, on ne comprend rien.", en: "His answer stays vague; you can't understand a thing." }, accept: ["vagueness", "the blur", "the haze"], hint: "Vagueness or blur — flou is also an adjective: une photo floue. rester dans le flou = to stay vague." },
+      ],
+    },
+  ],
+};
