@@ -39,6 +39,7 @@ export const ES_UNIT81 = {
         { id: "es-u81l2-preciso", type: "vocab", front: "preciso", reading: "preciso", meaning: "precise / exact", example: { jp: "Es una respuesta precisa.", en: "It's a precise answer." }, accept: ["accurate", "exact", "necessary"], hint: "Exact and clear. Also \"necessary\": es preciso hacerlo = it's necessary to do it." },
         { id: "es-u81l2-notable", type: "vocab", front: "notable", reading: "notable", meaning: "notable / remarkable", example: { jp: "Hay una diferencia notable.", en: "There's a notable difference." }, accept: ["significant", "marked", "striking"], hint: "Ends in -e. From notar. Worth noticing — a notable improvement, a notable difference." },
         { id: "es-u81l2-absurdo", type: "vocab", front: "absurdo", reading: "absurdo", meaning: "absurd", example: { jp: "Es una idea absurda.", en: "It's an absurd idea." }, accept: ["ridiculous", "silly", "nonsensical"], hint: "Makes no sense. Es absurdo que… = it's ridiculous that…" },
+        { id: "es-u81l2-acertado", type: "vocab", front: "acertado", reading: "acertado", meaning: "apt / well-judged", example: { jp: "Fue una decisión muy acertada para todos.", en: "It was a very well-judged decision for everyone." }, accept: ["apt", "right", "well-judged"], hint: "From acertar, to get it right. The exact opposite of erróneo, the card before." },
       ],
     },
     {
@@ -53,6 +54,9 @@ export const ES_UNIT81 = {
         { id: "es-u81l3-complejo", type: "vocab", front: "complejo", reading: "complejo", meaning: "complex", example: { jp: "Es un problema complejo.", en: "It's a complex problem." }, accept: ["intricate", "involved"], hint: "Made of many parts. As a noun, un complejo = a complex (of buildings, or psychological)." },
         { id: "es-u81l3-confuso", type: "vocab", front: "confuso", reading: "confuso", meaning: "confusing / confused", example: { jp: "Estoy un poco confuso.", en: "I'm a little confused." }, accept: ["unclear", "muddled"], hint: "Both a confusing thing and a confused person. From confundir." },
         { id: "es-u81l3-ambiguo", type: "vocab", front: "ambiguo", reading: "ambiguo", meaning: "ambiguous", example: { jp: "Es una respuesta ambigua.", en: "It's an ambiguous answer." }, accept: ["unclear", "vague"], hint: "Open to more than one reading. The opposite of preciso." },
+        { id: "es-u81l3-enrevesado", type: "vocab", front: "enrevesado", reading: "enrevesado", meaning: "convoluted", example: { jp: "El texto es tan enrevesado que nadie lo entiende.", en: "The text is so convoluted that nobody understands it." }, accept: ["convoluted", "tangled", "confusing"], hint: "Stronger than complicado: not merely hard, but twisted round on itself." },
+        { id: "es-u81l3-comprensible", type: "vocab", front: "comprensible", reading: "comprensible", meaning: "understandable", example: { jp: "Su reacción es totalmente comprensible.", en: "His reaction is completely understandable." }, accept: ["understandable", "comprehensible", "reasonable"], hint: "Two senses at once: easy to understand, and easy to forgive." },
+        { id: "es-u81l3-impreciso", type: "vocab", front: "impreciso", reading: "impreciso", meaning: "vague / imprecise", example: { jp: "La respuesta fue demasiado imprecisa para decidir nada.", en: "The answer was too vague to decide anything." }, accept: ["imprecise", "vague", "unclear"], hint: "The opposite of preciso, in the lesson before this one." },
       ],
     },
     {
@@ -68,6 +72,8 @@ export const ES_UNIT81 = {
         { id: "es-u81l4-practico", type: "vocab", front: "práctico", reading: "practico", meaning: "practical", example: { jp: "Es una idea práctica.", en: "It's a practical idea." }, accept: ["handy", "useful"], hint: "Useful in practice. La práctica = practice. Accent on the á." },
         { id: "es-u81l4-esencial", type: "vocab", front: "esencial", reading: "esencial", meaning: "essential", example: { jp: "El agua es esencial para la vida.", en: "Water is essential for life." }, accept: ["vital", "basic", "key"], hint: "Absolutely necessary. Lo esencial = the essential thing." },
         { id: "es-u81l4-fundamental", type: "vocab", front: "fundamental", reading: "fundamental", meaning: "fundamental / key", example: { jp: "Es un punto fundamental.", en: "It's a fundamental point." }, accept: ["crucial", "essential", "basic"], hint: "At the foundation of something. From el fundamento." },
+        { id: "es-u81l4-clave", type: "vocab", front: "clave", reading: "clave", meaning: "key / crucial", example: { jp: "La confianza es un factor clave en este equipo.", en: "Trust is a key factor in this team." }, accept: ["key", "crucial", "central"], hint: "Invariable after the noun: un factor clave, unos datos clave. On its own, la clave is the key or code." },
+        { id: "es-u81l4-decisivo", type: "vocab", front: "decisivo", reading: "decisivo", meaning: "decisive / deciding", example: { jp: "Su ayuda fue decisiva para el resultado final.", en: "Her help was decisive for the final result." }, accept: ["decisive", "deciding", "crucial"], hint: "The thing that tipped it: un momento decisivo, un voto decisivo." },
       ],
     },
   ],
