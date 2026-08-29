@@ -18,12 +18,12 @@ export const ES_UNIT82 = {
       dominantMode: "recall",
       canDo: "Name feelings: emotion, feeling, passion, fear, sadness and anger.",
       items: [
-        { id: "es-u82l1-laemocion", type: "vocab", front: "la emoción", reading: "laemocion", meaning: "the emotion / excitement", example: { jp: "Es difícil controlar la emoción.", en: "It's hard to control the emotion." }, accept: ["emotion", "excitement", "feeling"], hint: "A strong feeling, or excitement: ¡qué emoción! = how exciting! Plural emociones." },
         { id: "es-u82l1-elsentimiento", type: "vocab", front: "el sentimiento", reading: "elsentimiento", meaning: "the feeling", example: { jp: "No puede expresar sus sentimientos.", en: "He can't express his feelings." }, accept: ["feeling", "sentiment"], hint: "From sentir. A feeling held over time, deeper than a passing emoción." },
         { id: "es-u82l1-lapasion", type: "vocab", front: "la pasión", reading: "lapasion", meaning: "the passion", example: { jp: "Siente pasión por la música.", en: "She feels passion for music." }, accept: ["passion"], hint: "A strong, driving feeling. Con pasión = passionately. Plural pasiones." },
         { id: "es-u82l1-eltemor", type: "vocab", front: "el temor", reading: "eltemor", meaning: "the fear / dread", example: { jp: "Habla sin ningún temor.", en: "He speaks without any fear." }, accept: ["fear", "dread", "concern"], hint: "A more formal, quieter word than el miedo. Temor a / de algo." },
         { id: "es-u82l1-latristeza", type: "vocab", front: "la tristeza", reading: "latristeza", meaning: "the sadness", example: { jp: "Siento una gran tristeza.", en: "I feel a great sadness." }, accept: ["sadness", "sorrow"], hint: "From triste (sad). The opposite of la alegría." },
         { id: "es-u82l1-larabia", type: "vocab", front: "la rabia", reading: "larabia", meaning: "the rage / anger", example: { jp: "Me da mucha rabia esperar.", en: "Waiting makes me really angry." }, accept: ["anger", "fury"], hint: "Dar rabia = to make angry: me da rabia = it makes me mad. Also the disease rabies." },
+        { id: "es-u82l1-laira", type: "vocab", front: "la ira", reading: "laira", meaning: "rage / wrath", example: { jp: "No pudo controlar la ira en ese momento.", en: "He couldn't control his rage at that moment." }, accept: ["rage", "wrath", "anger"], hint: "Colder and more literary than la rabia, the card before it." },
       ],
     },
     {
@@ -35,12 +35,12 @@ export const ES_UNIT82 = {
       dominantMode: "recall",
       canDo: "Name social feelings: shame, jealousy, anguish, pride, envy and hope.",
       items: [
-        { id: "es-u82l2-laverguenza", type: "vocab", front: "la vergüenza", reading: "laverguenza", meaning: "the shame / embarrassment", example: { jp: "Me da vergüenza hablar en público.", en: "I'm embarrassed to speak in public." }, accept: ["embarrassment", "shame"], hint: "Dar vergüenza = to embarrass: me da vergüenza. Note the ü (the u is pronounced)." },
         { id: "es-u82l2-loscelos", type: "vocab", front: "los celos", reading: "loscelos", meaning: "the jealousy", example: { jp: "Los celos son un problema.", en: "Jealousy is a problem." }, accept: ["jealousy", "envy"], hint: "Always plural: tener celos = to be jealous. Celoso = jealous." },
         { id: "es-u82l2-laangustia", type: "vocab", front: "la angustia", reading: "laangustia", meaning: "the anguish / distress", example: { jp: "Siente angustia por la situación.", en: "She feels distress about the situation." }, accept: ["distress", "anxiety", "anguish"], hint: "Deep worry or dread. Stronger than preocupación." },
-        { id: "es-u82l2-elorgullo", type: "vocab", front: "el orgullo", reading: "elorgullo", meaning: "the pride", example: { jp: "Habla con orgullo de su familia.", en: "He speaks with pride about his family." }, accept: ["pride"], hint: "Pride — the good kind or the arrogant kind. Orgulloso = proud." },
         { id: "es-u82l2-laenvidia", type: "vocab", front: "la envidia", reading: "laenvidia", meaning: "the envy", example: { jp: "No siento envidia de nadie.", en: "I don't envy anyone." }, accept: ["envy", "jealousy"], hint: "From envidiar (u79). Dar envidia = to make envious. ¡Qué envidia! = I'm so jealous!" },
         { id: "es-u82l2-lailusion", type: "vocab", front: "la ilusión", reading: "lailusion", meaning: "the hope / excitement", example: { jp: "Tiene mucha ilusión por el viaje.", en: "She's really excited about the trip." }, accept: ["excitement", "hope", "dream"], hint: "FALSE FRIEND: usually happy anticipation, not \"illusion\". Hacer ilusión = to look forward to." },
+        { id: "es-u82l2-elremordimiento", type: "vocab", front: "el remordimiento", reading: "elremordimiento", meaning: "remorse", example: { jp: "Tuvo remordimiento después de mentir a su madre.", en: "He felt remorse after lying to his mother." }, accept: ["remorse", "guilt", "regret"], hint: "The feeling that comes back afterwards. Usually plural with tener: tener remordimientos." },
+        { id: "es-u82l2-laadmiracion", type: "vocab", front: "la admiración", reading: "laadmiracion", meaning: "admiration", example: { jp: "Habla de su profesora con verdadera admiración.", en: "She speaks about her teacher with real admiration." }, accept: ["admiration", "respect"], hint: "From admirar. The opposite pole from la envidia, the card before it." },
       ],
     },
     {
@@ -57,7 +57,7 @@ export const ES_UNIT82 = {
         { id: "es-u82l3-laactitud", type: "vocab", front: "la actitud", reading: "laactitud", meaning: "the attitude", example: { jp: "Tiene buena actitud en el trabajo.", en: "He has a good attitude at work." }, accept: ["attitude", "outlook"], hint: "How you approach something. Buena / mala actitud = good / bad attitude." },
         { id: "es-u82l3-lavoluntad", type: "vocab", front: "la voluntad", reading: "lavoluntad", meaning: "the will", example: { jp: "Tiene mucha voluntad de aprender.", en: "He has a strong will to learn." }, accept: ["willpower", "wish"], hint: "The will to do something. Buena voluntad = goodwill. Fuerza de voluntad = willpower." },
         { id: "es-u82l3-lamemoria", type: "vocab", front: "la memoria", reading: "lamemoria", meaning: "the memory", example: { jp: "Tengo buena memoria para los nombres.", en: "I have a good memory for names." }, accept: ["memory"], hint: "The faculty of memory (el recuerdo is a single memory). De memoria = by heart." },
-        { id: "es-u82l3-lalogica", type: "vocab", front: "la lógica", reading: "lalogica", meaning: "the logic", example: { jp: "No entiendo la lógica de esto.", en: "I don't understand the logic of this." }, accept: ["reasoning", "sense"], hint: "From lógico (u81). The reasoning behind something." },
+        { id: "es-u82l3-ladeterminacion", type: "vocab", front: "la determinación", reading: "ladeterminacion", meaning: "determination", example: { jp: "Actuó con una determinación que sorprendió a todos.", en: "He acted with a determination that surprised everyone." }, accept: ["determination", "resolve"], hint: "Next to la voluntad, the card before: la voluntad is wanting it, la determinación is having decided." },
       ],
     },
     {

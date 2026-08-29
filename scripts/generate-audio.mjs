@@ -138,8 +138,30 @@ for (let i = 0; i < items.length; i++) {
       continue;
     }
 
-    writeFileSync(out, Buffer.from(await res.arrayBuffer()));
-    console.log(`  gen    ${tag}  "${text}"`);
+    // A 200 is NOT proof of audio. ElevenLabs can answer 200 with an EMPTY body
+    // (reproduced deliberately: the text "a." returns 200 and 0 bytes). The old
+    // code wrote that straight to disk and counted it in `done`, so a paid run
+    // reported "0 errors" while leaving a silent card in prod - which is exactly
+    // how fr-u6l2-a.mp3 (the French "a" with accent) shipped as 0 bytes uncaught.
+    // Empty bodies are transient, so retry once, then fail LOUDLY rather than
+    // write a file that merely looks generated.
+    let buf = Buffer.from(await res.arrayBuffer());
+    if (buf.length === 0) {
+      await new Promise((r) => setTimeout(r, 1000));
+      const retry = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
+        method: "POST",
+        headers: { "xi-api-key": API_KEY, "Content-Type": "application/json", Accept: "audio/mpeg" },
+        body: JSON.stringify({ text, model_id: MODEL_ID }),
+      });
+      buf = retry.ok ? Buffer.from(await retry.arrayBuffer()) : Buffer.alloc(0);
+    }
+    if (buf.length === 0) {
+      console.error(`  ERROR  ${tag}: empty audio body (200 but 0 bytes) - NOT written`);
+      errors++;
+      continue;
+    }
+    writeFileSync(out, buf);
+    console.log(`  gen    ${tag}  "${text}"  ${buf.length}b`);
     done++;
   } catch (err) {
     console.error(`  ERROR  ${tag}: ${err.message}`);

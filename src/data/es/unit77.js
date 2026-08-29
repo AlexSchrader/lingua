@@ -42,12 +42,12 @@ export const ES_UNIT77 = {
       dominantMode: "recall",
       canDo: "Advise and suggest: propose an idea, recommend, warn, and let someone know.",
       items: [
-        { id: "es-u77l2-sugerir", type: "vocab", front: "sugerir", reading: "sugerir", meaning: "to suggest", example: { jp: "Sugiero otra solución al problema.", en: "I suggest another solution to the problem." }, accept: ["to propose", "to hint"], hint: "sugiero, sugieres (e→ie). Softer than proponer — you offer an idea without pushing it." },
-        { id: "es-u77l2-proponer", type: "vocab", front: "proponer", reading: "proponer", meaning: "to propose", example: { jp: "Propongo cambiar de plan.", en: "I propose we change the plan." }, accept: ["to suggest", "to put forward"], hint: "propongo, propones (built on poner). Firmer than sugerir. Proponerse = to set out to do something." },
         { id: "es-u77l2-recomendar", type: "vocab", front: "recomendar", reading: "recomendar", meaning: "to recommend", example: { jp: "Te recomiendo este libro.", en: "I recommend this book to you." }, accept: ["to advise", "to suggest"], hint: "recomiendo, recomiendas (e→ie). Te recomiendo que… + a verb, or te recomiendo + a noun." },
         { id: "es-u77l2-aconsejar", type: "vocab", front: "aconsejar", reading: "aconsejar", meaning: "to advise", example: { jp: "Mi madre siempre me aconseja bien.", en: "My mother always advises me well." }, accept: ["to give advice", "to counsel"], hint: "From el consejo (advice). Te aconsejo que… = I advise you to…" },
         { id: "es-u77l2-advertir", type: "vocab", front: "advertir", reading: "advertir", meaning: "to warn", example: { jp: "Te advierto que no es fácil.", en: "I warn you it's not easy." }, accept: ["to caution", "to notice"], hint: "advierto, adviertes (e→ie). To warn of a risk. Also \"to notice\": advertí un cambio = I noticed a change." },
         { id: "es-u77l2-avisar", type: "vocab", front: "avisar", reading: "avisar", meaning: "to let know / notify", example: { jp: "Avísame si hay un problema.", en: "Let me know if there's a problem." }, accept: ["to notify", "to alert", "to warn"], hint: "From el aviso. Avisar a alguien = to let someone know. Softer than advertir." },
+        { id: "es-u77l2-orientar", type: "vocab", front: "orientar", reading: "orientar", meaning: "to guide / advise", example: { jp: "El profesor nos orientó sobre qué estudiar el año que viene.", en: "The teacher advised us on what to study next year." }, accept: ["to guide", "to advise", "to point in the right direction"], hint: "orientar a alguien SOBRE algo. Reflexive orientarse = to get your bearings." },
+        { id: "es-u77l2-alertar", type: "vocab", front: "alertar", reading: "alertar", meaning: "to alert / warn", example: { jp: "Alertaron a los vecinos del peligro esa misma noche.", en: "They alerted the neighbours to the danger that same night." }, accept: ["to alert", "to warn", "to notify"], hint: "alertar A alguien DE algo. More official and more urgent than avisar, the card before." },
       ],
     },
     {
@@ -76,12 +76,12 @@ export const ES_UNIT77 = {
       dominantMode: "recall",
       canDo: "Make commitments: promise, thank, demand, beg, confess and swear.",
       items: [
-        { id: "es-u77l4-prometer", type: "vocab", front: "prometer", reading: "prometer", meaning: "to promise", example: { jp: "Te prometo que voy a cambiar.", en: "I promise you I'm going to change." }, accept: ["to give one's word"], hint: "A regular -er verb. La promesa is the noun. Prometer que + a clause." },
         { id: "es-u77l4-agradecer", type: "vocab", front: "agradecer", reading: "agradecer", meaning: "to thank / be grateful", example: { jp: "Quiero agradecer todo tu apoyo.", en: "I want to thank you for all your support." }, accept: ["to be thankful for", "to appreciate"], hint: "agradezco, agradeces (yo adds z). From gracias. Te lo agradezco = I appreciate it." },
         { id: "es-u77l4-exigir", type: "vocab", front: "exigir", reading: "exigir", meaning: "to demand", example: { jp: "El jefe exige mucho trabajo.", en: "The boss demands a lot of work." }, accept: ["to require", "to insist on"], hint: "exijo, exiges (g→j before o). Stronger than pedir — you require, not just ask." },
         { id: "es-u77l4-rogar", type: "vocab", front: "rogar", reading: "rogar", meaning: "to beg / plead", example: { jp: "Te ruego perdón por todo.", en: "I beg your pardon for everything." }, accept: ["to plead", "to pray", "to request"], hint: "ruego, ruegas (o→ue). Very polite/formal: se ruega silencio = silence is requested." },
         { id: "es-u77l4-confesar", type: "vocab", front: "confesar", reading: "confesar", meaning: "to confess", example: { jp: "Debo confesar la verdad.", en: "I must confess the truth." }, accept: ["to admit", "to own up"], hint: "confieso, confiesas (e→ie). To own up to something. Te confieso que… = I must admit…" },
         { id: "es-u77l4-jurar", type: "vocab", front: "jurar", reading: "jurar", meaning: "to swear", example: { jp: "Te juro que es cierto.", en: "I swear it's true." }, accept: ["to vow", "to promise"], hint: "To swear an oath or promise sincerely: te lo juro = I swear it." },
+        { id: "es-u77l4-garantizar", type: "vocab", front: "garantizar", reading: "garantizar", meaning: "to guarantee", example: { jp: "Te garantizo que el trabajo estará listo el lunes.", en: "I guarantee you the work will be ready on Monday." }, accept: ["to guarantee", "to assure", "to ensure"], hint: "garantizar que + indicative, because you are stating it as certain. La garantía is the noun." },
       ],
     },
   ],
