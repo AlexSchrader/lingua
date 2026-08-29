@@ -1,7 +1,7 @@
 # ES — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- es`.
-Snapshot 2026-08-29: **2084 words** across **87 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-08-29: **2094 words** across **87 authored unit(s)**, **39 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -15,11 +15,56 @@ Snapshot 2026-08-29: **2084 words** across **87 authored unit(s)**, **0 slot(s) 
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
 
+## Slots still stubs — not yours unless you were assigned them
+
+| slot | unit | title |
+|---|---|---|
+| 88 | `es-u88` | Rhetoric and persuasion |
+| 89 | `es-u89` | Evidence and sources |
+| 90 | `es-u90` | Systems and abstraction |
+| 91 | `es-u91` | Nuance and degree |
+| 92 | `es-u92` | Law and the state |
+| 93 | `es-u93` | Business and enterprise |
+| 94 | `es-u94` | Science and technology |
+| 95 | `es-u95` | History and heritage |
+| 96 | `es-u96` | Art criticism |
+| 97 | `es-u97` | Ethics and responsibility |
+| 98 | `es-u98` | Risk and uncertainty |
+| 99 | `es-u99` | Identity and society |
+| 100 | `es-u100` | Careers and organizations |
+| 101 | `es-u101` | Environmental governance |
+| 102 | `es-u102` | Health systems and care |
+| 103 | `es-u103` | Education and research |
+| 104 | `es-u104` | Media and narrative |
+| 105 | `es-u105` | Mixed and ambivalent feelings |
+| 106 | `es-u106` | Condition and hypothesis |
+| 107 | `es-u107` | Formal written structures |
+| 108 | `es-u108` | Discourse: cohesion and hedging |
+| 109 | `es-u109` | Deference and formal address |
+| 110 | `es-u110` | The institutional voice |
+| 111 | `es-u111` | Verbs of analysis and stance |
+| 112 | `es-u112` | Adjectives of appraisal |
+| 113 | `es-u113` | Abstract nouns: process and degree |
+| 114 | `es-u114` | Crime, justice and procedure |
+| 115 | `es-u115` | Character and temperament |
+| 116 | `es-u116` | Intense emotion |
+| 117 | `es-u117` | Thinking and understanding |
+| 118 | `es-u118` | Strengthening, weakening, transforming |
+| 119 | `es-u119` | The qualities of good work |
+| 120 | `es-u120` | Landscape and terrain |
+| 121 | `es-u121` | Literature and the arts of making |
+| 122 | `es-u122` | Revealing, reporting and reproaching |
+| 123 | `es-u123` | Time and pace |
+| 124 | `es-u124` | Materials and objects |
+| 125 | `es-u125` | Connectors of formal Spanish |
+| 126 | `es-u126` | Set phrases of the high register |
+
 ## Index — every taught word, alphabetical
 
 `word` — slot · meaning
 
 - `a` — u13 · to
+- `a causa de` — u36 · because of
 - `a decir verdad` — u87 · to tell the truth
 - `a diferencia de` — u53 · unlike
 - `a favor` — u51 · in favour
@@ -450,6 +495,7 @@ Snapshot 2026-08-29: **2084 words** across **87 authored unit(s)**, **0 slot(s) 
 - `el banco` — u7 · bank
 - `el baño` — u15 · the bathroom
 - `el barco` — u17 · the boat
+- `el barrio` — u32 · the neighbourhood
 - `el bebé` — u4 · baby
 - `el beneficio` — u84 · the profit / benefit
 - `el bienestar` — u67 · wellbeing
@@ -471,6 +517,7 @@ Snapshot 2026-08-29: **2084 words** across **87 authored unit(s)**, **0 slot(s) 
 - `el camión` — u17 · the lorry
 - `el campo` — u26 · countryside
 - `el canal` — u64 · the channel
+- `el capítulo` — u35 · the chapter
 - `el carácter` — u31 · character
 - `el cargo` — u84 · the post / position
 - `el cariño` — u68 · affection
@@ -1077,6 +1124,7 @@ Snapshot 2026-08-29: **2084 words** across **87 authored unit(s)**, **0 slot(s) 
 - `inquieto` — u80 · restless / uneasy
 - `inseguro` — u80 · insecure / unsure
 - `insistir` — u77 · to insist
+- `instalar` — u33 · to install
 - `inteligente` — u80 · intelligent
 - `intentar` — u37 · to try
 - `intuir` — u54 · to sense / have a hunch
@@ -1372,6 +1420,7 @@ Snapshot 2026-08-29: **2084 words** across **87 authored unit(s)**, **0 slot(s) 
 - `la nube` — u8 · cloud
 - `la objeción` — u51 · objection
 - `la obligación` — u61 · obligation
+- `la obra` — u35 · the work / the play
 - `la oferta` — u27 · offer
 - `la oficina` — u18 · the office
 - `la operación` — u85 · the operation / surgery
@@ -1814,6 +1863,7 @@ Snapshot 2026-08-29: **2084 words** across **87 authored unit(s)**, **0 slot(s) 
 - `qué tal` — u2 · how's it going
 - `qué va` — u72 · no way
 - `quedamos` — u72 · shall we meet up?
+- `quedar` — u40 · to arrange to meet / to be left
 - `quedarse` — u21 · to stay
 - `quedo a la espera` — u72 · I look forward to hearing
 - `quejarse` — u77 · to complain
@@ -1887,6 +1937,7 @@ Snapshot 2026-08-29: **2084 words** across **87 authored unit(s)**, **0 slot(s) 
 - `saludar` — u44 · to greet / say hello
 - `salvaje` — u34 · wild
 - `salvar` — u34 · to save (rescue)
+- `salvo` — u36 · except / apart from
 - `sano` — u25 · healthy
 - `se cree que` — u70 · it is believed that
 - `se dice` — u70 · people say
@@ -1913,6 +1964,7 @@ Snapshot 2026-08-29: **2084 words** across **87 authored unit(s)**, **0 slot(s) 
 - `separar` — u79 · to separate
 - `separarse` — u68 · to separate
 - `septiembre` — u9 · September
+- `ser capaz de` — u37 · to be able to / capable of
 - `ser conocido` — u70 · to be known
 - `será` — u38 · he will be
 - `será un placer` — u73 · it'll be a pleasure
@@ -1975,11 +2027,13 @@ Snapshot 2026-08-29: **2084 words** across **87 authored unit(s)**, **0 slot(s) 
 - `sus` — u14 · his / her (with more than one)
 - `suspender` — u24 · to fail
 - `tal` — u47 · such
+- `tal como` — u36 · just as / exactly as
 - `tal vez` — u40 · perhaps
 - `también` — u3 · also
 - `tampoco` — u29 · neither
 - `tan` — u22 · so
 - `tan como` — u37 · as ... as
+- `tan pronto como` — u36 · as soon as
 - `tanto como` — u37 · as much as
 - `tanto que` — u36 · so much that
 - `tardar` — u28 · to take (time)
@@ -2168,23 +2222,23 @@ Snapshot 2026-08-29: **2084 words** across **87 authored unit(s)**, **0 slot(s) 
 
 **u31 · El carácter** (24) — `amable`, `simpático`, `generoso`, `trabajador`, `paciente`, `honesto`, `tímido`, `serio`, `perezoso`, `antipático`, `egoísta`, `orgulloso`, `la persona`, `el carácter`, `la personalidad`, `parecer`, `la cualidad`, `el defecto`, `agradable`, `raro`, `llevarse bien`, `caer bien`, `confiar`, `sonreír`
 
-**u32 · La sociedad** (23) — `la sociedad`, `la comunidad`, `el gobierno`, `público`, `el ciudadano`, `la ley`, `el derecho`, `libre`, `la libertad`, `la política`, `votar`, `la noticia`, `el periódico`, `la revista`, `el tema`, `informar`, `ocurrir`, `normal`, `la mayoría`, `soler`, `tratar de`, `depender`, `sobre`
+**u32 · La sociedad** (24) — `la sociedad`, `la comunidad`, `el gobierno`, `público`, `el ciudadano`, `el barrio`, `la ley`, `el derecho`, `libre`, `la libertad`, `la política`, `votar`, `la noticia`, `el periódico`, `la revista`, `el tema`, `informar`, `ocurrir`, `normal`, `la mayoría`, `soler`, `tratar de`, `depender`, `sobre`
 
-**u33 · La tecnología** (23) — `el ordenador`, `la pantalla`, `el teléfono`, `el botón`, `la batería`, `el archivo`, `la red`, `la página`, `el correo`, `la contraseña`, `el usuario`, `navegar`, `el mensaje`, `enviar`, `la llamada`, `el número`, `en línea`, `contactar`, `conectar`, `guardar`, `borrar`, `descargar`, `la señal`
+**u33 · La tecnología** (24) — `el ordenador`, `la pantalla`, `el teléfono`, `el botón`, `la batería`, `el archivo`, `la red`, `la página`, `el correo`, `la contraseña`, `el usuario`, `navegar`, `el mensaje`, `enviar`, `la llamada`, `el número`, `en línea`, `contactar`, `conectar`, `guardar`, `borrar`, `descargar`, `la señal`, `instalar`
 
 **u34 · La naturaleza y la ciencia** (24) — `el planeta`, `la Tierra`, `el aire`, `el universo`, `la costa`, `el desierto`, `el experimento`, `descubrir`, `el descubrimiento`, `la energía`, `la fuerza`, `el laboratorio`, `la contaminación`, `reciclar`, `salvar`, `el humo`, `peligroso`, `el plástico`, `morir`, `la especie`, `natural`, `salvaje`, `nacer`, `la raíz`
 
-**u35 · La cultura y el ocio** (22) — `la cultura`, `la música`, `la película`, `la canción`, `el grupo`, `el concierto`, `la fiesta`, `la entrada`, `bailar`, `cantar`, `tocar`, `la novela`, `el autor`, `el personaje`, `contar`, `el cuento`, `el ocio`, `el pasatiempo`, `el juego`, `divertirse`, `disfrutar`, `la afición`
+**u35 · La cultura y el ocio** (24) — `la cultura`, `la música`, `la película`, `la canción`, `el grupo`, `la obra`, `el concierto`, `la fiesta`, `la entrada`, `bailar`, `cantar`, `tocar`, `la novela`, `el autor`, `el personaje`, `contar`, `el cuento`, `el capítulo`, `el ocio`, `el pasatiempo`, `el juego`, `divertirse`, `disfrutar`, `la afición`
 
-**u36 · Un poco de gramática · 2** (20) — `el que`, `cuyo`, `quienes`, `adonde`, `según`, `hasta que`, `desde que`, `cada vez que`, `una vez que`, `nada más`, `de modo que`, `por lo que`, `dado que`, `puesto que`, `debido a`, `el cual`, `lo cual`, `tanto que`, `en cambio`, `aun así`
+**u36 · Un poco de gramática · 2** (24) — `el que`, `cuyo`, `quienes`, `adonde`, `según`, `tal como`, `hasta que`, `desde que`, `cada vez que`, `una vez que`, `nada más`, `tan pronto como`, `de modo que`, `por lo que`, `dado que`, `puesto que`, `debido a`, `a causa de`, `el cual`, `lo cual`, `tanto que`, `en cambio`, `aun así`, `salvo`
 
-**u37 · Un poco de gramática · 3** (23) — `me gustaría`, `podría`, `sería`, `debería`, `tendría que`, `haría`, `conseguir`, `intentar`, `dejar de`, `hace falta`, `necesario`, `más que`, `menos que`, `tan como`, `mejor`, `peor`, `igual que`, `el más`, `el menos`, `el mejor`, `el peor`, `tanto como`, `cada vez más`
+**u37 · Un poco de gramática · 3** (24) — `me gustaría`, `podría`, `sería`, `debería`, `tendría que`, `haría`, `conseguir`, `intentar`, `dejar de`, `hace falta`, `necesario`, `ser capaz de`, `más que`, `menos que`, `tan como`, `mejor`, `peor`, `igual que`, `el más`, `el menos`, `el mejor`, `el peor`, `tanto como`, `cada vez más`
 
 **u38 · Los verbos · 2** (24) — `seré`, `será`, `seremos`, `tendré`, `tendrá`, `habrá`, `haré`, `podré`, `saldré`, `pondré`, `vendré`, `diré`, `hablaré`, `comeré`, `viviré`, `trabajaré`, `aprenderé`, `escribiré`, `serás`, `hablaremos`, `tendrán`, `serán`, `vendrá`, `veremos`
 
 **u39 · Los verbos · 3** (24) — `era`, `había`, `estaba`, `tenía`, `eras`, `éramos`, `hablaba`, `comía`, `vivía`, `trabajaba`, `estudiaba`, `iba`, `quería`, `podía`, `sabía`, `hacía`, `veía`, `decía`, `hablamos`, `comemos`, `viven`, `hacemos`, `vamos`, `tienen`
 
-**u40 · Palabras esenciales · 1** (23) — `saber`, `conocer`, `la idea`, `la razón`, `darse cuenta`, `la mente`, `pasar`, `cambiar`, `recordar`, `mostrar`, `traer`, `pronto`, `quizás`, `tal vez`, `de vez en cuando`, `poco a poco`, `casi siempre`, `cada`, `alguien`, `nadie`, `juntos`, `claro`, `cierto`
+**u40 · Palabras esenciales · 1** (24) — `saber`, `conocer`, `la idea`, `la razón`, `darse cuenta`, `la mente`, `pasar`, `cambiar`, `recordar`, `mostrar`, `traer`, `quedar`, `pronto`, `quizás`, `tal vez`, `de vez en cuando`, `poco a poco`, `casi siempre`, `cada`, `alguien`, `nadie`, `juntos`, `claro`, `cierto`
 
 **u41 · Verbos de acción · 1** (24) — `sacar`, `recoger`, `meter`, `tirar`, `romper`, `mover`, `lograr`, `evitar`, `quitar`, `añadir`, `repetir`, `cobrar`, `conducir`, `saltar`, `caer`, `andar`, `empujar`, `escapar`, `acabar`, `continuar`, `aumentar`, `faltar`, `sobrar`, `ocupar`
 
