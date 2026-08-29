@@ -7,7 +7,8 @@
 // Rejected as already taught: a menos que, con tal de que, a no ser que, en caso de que,
 // aun cuando, por mucho que (u69), salvo (u36), por si acaso (u29), la excepción,
 // el requisito (u61), descartar (u74), el desenlace (u86). Rejected as the same lexeme:
-// condicionar (~u61 la condición).
+// condicionar (~u61 la condición), figurarse (~figurar, which u110 teaches later in this
+// block — dropped here in the hand lexeme sweep and replaced by eventual).
 export const ES_UNIT106 = {
   id: "es-u106",
   lang: "es",
@@ -56,14 +57,14 @@ export const ES_UNIT106 = {
       title: "Suposiciones",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Open a supposition and name its parts: let's say that, assuming that, the hypothesis, the premise, the assumed case.",
+      canDo: "Open a supposition and name its parts: let's say that, assuming that, the hypothesis, the premise, and the case that may or may not arise.",
       items: [
         { id: "es-u106l3-suponiendoque", type: "vocab", front: "suponiendo que", reading: "suponiendoque", meaning: "assuming that", example: { jp: "Suponiendo que sea cierto, ¿qué hacemos ahora?", en: "Assuming that is true, what do we do now?" }, accept: ["assuming that", "supposing that", "if we assume that"], hint: "Takes the subjunctive. It grants something for the sake of argument without agreeing to it — from suponer." },
         { id: "es-u106l3-pongamosque", type: "vocab", front: "pongamos que", reading: "pongamosque", meaning: "let's say that", example: { jp: "Pongamos que ganamos: ¿cambiaría algo?", en: "Let's say we win: would anything change?" }, accept: ["let's say that", "let's suppose that", "say that", "suppose"], hint: "The spoken way into a hypothesis, from poner. Digamos que does the same work with a shade more hedging." },
         { id: "es-u106l3-hipotesis", type: "vocab", front: "la hipótesis", reading: "lahipotesis", meaning: "hypothesis", example: { jp: "La hipótesis más simple es también la mejor.", en: "The simplest hypothesis is also the best one." }, accept: ["hypothesis", "theory", "conjecture"], hint: "Same form singular and plural — una hipótesis, dos hipótesis. A claim put up to be tested, not a guess." },
         { id: "es-u106l3-premisa", type: "vocab", front: "la premisa", reading: "lapremisa", meaning: "premise", example: { jp: "Todo el informe parte de una premisa falsa.", en: "The whole report starts from a false premise." }, accept: ["premise", "assumption", "starting point"], hint: "What an argument takes as given before it starts. If the premisa is wrong, everything built on it falls, however good the reasoning." },
         { id: "es-u106l3-supuesto", type: "vocab", front: "el supuesto", reading: "elsupuesto", meaning: "assumed case / assumption", example: { jp: "En el supuesto de una crisis, el plan cambia.", en: "In the event of a crisis, the plan changes." }, accept: ["assumption", "case", "scenario", "supposed case"], hint: "En el supuesto de que is the formal in the event that. As an adjective, supuesto means alleged: el supuesto autor." },
-        { id: "es-u106l3-figurarse", type: "vocab", front: "figurarse", reading: "figurarse", meaning: "to imagine / assume", example: { jp: "Me figuro que ya lo sabías.", en: "I imagine you already knew." }, accept: ["to imagine", "to assume", "to suppose", "imagine"], hint: "Reflexive and conversational: me figuro que. It softens a claim by marking it as your own guess." },
+        { id: "es-u106l3-eventual", type: "vocab", front: "eventual", reading: "eventual", meaning: "possible / contingent", example: { jp: "El plan habla de un eventual cambio de fecha.", en: "The plan speaks of a possible change of date." }, accept: ["possible", "contingent", "potential", "temporary"], hint: "A false friend: eventual means possible, never eventual. Un trabajo eventual is a temporary job — the sense is always something that may or may not happen." },
       ],
     },
     {

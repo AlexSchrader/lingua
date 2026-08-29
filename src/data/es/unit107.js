@@ -8,7 +8,9 @@
 // de) were held back for it rather than taught here.
 // Rejected as already taught: el cual, cuyo, quienes (u36), resulta que (u70),
 // el hecho de que (u69). Rejected as the same lexeme: una vez (~u20 la vez), obrar
-// (~u35 la obra), constar (~u59 constante), conviene (~u75 conveniente).
+// (~u35 la obra), constar (~u59 constante), conviene (~u75 conveniente), and — caught in
+// the hand lexeme sweep, after validate:content had passed it — el mismo, which is u14's
+// mismo with an article in front. Replaced by el consabido.
 export const ES_UNIT107 = {
   id: "es-u107",
   lang: "es",
@@ -40,11 +42,11 @@ export const ES_UNIT107 = {
       title: "Referencia atrás y estilo nominal",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Refer back to something already named without repeating it: the said, the aforementioned, the same, this, by means of.",
+      canDo: "Refer back to something already named without repeating it: the said, the aforementioned, the usual, this, by means of.",
       items: [
         { id: "es-u107l2-dicho", type: "vocab", front: "dicho", reading: "dicho", meaning: "the said / aforementioned", example: { jp: "Dicho informe llegó una semana tarde.", en: "The said report arrived a week late." }, accept: ["the said", "aforementioned", "that", "the aforesaid"], hint: "Placed before the noun and with no article: dicho informe, dicha norma. It replaces a repeated name in formal prose." },
         { id: "es-u107l2-susodicho", type: "vocab", front: "el susodicho", reading: "elsusodicho", meaning: "the aforementioned (person)", example: { jp: "El susodicho no dijo nada en la reunión.", en: "The aforementioned person said nothing at the meeting." }, accept: ["the aforementioned", "the aforesaid", "the said person"], hint: "Used of people, and now nearly always with a touch of irony outside legal writing. Dicho covers things without that flavour." },
-        { id: "es-u107l2-elmismo", type: "vocab", front: "el mismo", reading: "elmismo", meaning: "the same (referring back)", example: { jp: "Pedimos el informe y leímos el mismo esa tarde.", en: "We asked for the report and read it that afternoon." }, accept: ["the same", "it", "the latter", "the same one"], hint: "As a stand-in for a noun just mentioned. Careful: this use is common in administrative Spanish and widely criticised as heavy — lo is usually better." },
+        { id: "es-u107l2-consabido", type: "vocab", front: "el consabido", reading: "elconsabido", meaning: "the usual / the well-known", example: { jp: "Llegó con el consabido informe de siempre.", en: "He turned up with the same old report as ever." }, accept: ["the usual", "the well-known", "the same old", "the familiar"], hint: "Points back at something the reader is assumed to know already, usually with a touch of weariness: el consabido problema. A lexicalised adjective, not a form of saber." },
         { id: "es-u107l2-sendos", type: "vocab", front: "sendos", reading: "sendos", meaning: "one each", example: { jp: "Los dos partidos presentaron sendos planes.", en: "The two parties each presented a plan of their own." }, accept: ["one each", "each of them a", "respective", "their respective"], hint: "Not two, and not both: sendos means one apiece. Sendas cartas = a letter each. It is often misused by natives, which is why writing it correctly reads as careful." },
         { id: "es-u107l2-ello", type: "vocab", front: "ello", reading: "ello", meaning: "this / that (neuter pronoun)", example: { jp: "Nadie dijo nada, y ello creó más problemas.", en: "Nobody said anything, and this created more problems." }, accept: ["this", "that", "it"], hint: "Refers to a whole idea rather than a noun, so it has no gender. Por ello = for that reason; todo ello = all of this." },
         { id: "es-u107l2-mediante", type: "vocab", front: "mediante", reading: "mediante", meaning: "by means of / through", example: { jp: "El cambio se hizo mediante una norma nueva.", en: "The change was made by means of a new rule." }, accept: ["by means of", "through", "via", "by way of"], hint: "A preposition, so no que and no article after it. It lets a formal sentence name a method without a verb: mediante el pago de una cantidad." },

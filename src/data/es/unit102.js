@@ -5,7 +5,8 @@
 // Symptoms, treatment and the clinic visit stay with u67/u85 and appear here only as
 // already-taught example vocabulary. Rejected as already taught: la epidemia (u67),
 // la vacuna, la dosis (u85); rejected as the same lexeme: la vacunación (~u85 la vacuna),
-// la prevención (~u67 prevenir), la prestación (~u27 prestar).
+// la prevención (~u67 prevenir), la prestación (~u27 prestar), la dependencia (~u32
+// depender — dropped in the hand lexeme sweep and replaced by la bioética).
 export const ES_UNIT102 = {
   id: "es-u102",
   lang: "es",
@@ -68,14 +69,14 @@ export const ES_UNIT102 = {
       id: "es-u102l4",
       unit: 102,
       lesson: 4,
-      title: "Cuidados, dependencia y consentimiento",
+      title: "Cuidados, bioética y consentimiento",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Talk about care work and the ethics around it: carers, dependency, ageing, consent and confidentiality.",
+      canDo: "Talk about care work and the ethics around it: carers, bioethics, ageing, consent and confidentiality.",
       items: [
         { id: "es-u102l4-cuidador", type: "vocab", front: "el cuidador", reading: "elcuidador", meaning: "carer / caregiver", example: { jp: "El cuidador pasa muchas horas con la misma persona.", en: "The carer spends many hours with the same person." }, accept: ["carer", "caregiver", "caretaker"], hint: "La cuidadora in the feminine, which is who it usually is — the gendered shape of care work is part of what this unit is about." },
         { id: "es-u102l4-cuidados", type: "vocab", front: "los cuidados", reading: "loscuidados", meaning: "care (the work of caring)", example: { jp: "Los cuidados en casa son más baratos que un hospital.", en: "Care at home is cheaper than a hospital." }, accept: ["care", "caring", "nursing care"], hint: "Plural for the activity as a whole. Los cuidados paliativos = palliative care; the singular el cuidado means carefulness." },
-        { id: "es-u102l4-dependencia", type: "vocab", front: "la dependencia", reading: "ladependencia", meaning: "dependency (needing care)", example: { jp: "La dependencia aumenta con los años.", en: "Dependency increases with the years." }, accept: ["dependency", "dependence", "reliance"], hint: "From depender (u32). In health policy it is a legal status: una persona en situación de dependencia has a right to support." },
+        { id: "es-u102l4-bioetica", type: "vocab", front: "la bioética", reading: "labioetica", meaning: "bioethics", example: { jp: "La bioética estudia lo que se puede y no se puede hacer.", en: "Bioethics studies what may and may not be done." }, accept: ["bioethics", "medical ethics"], hint: "The field that decides where medicine has to stop. It is where el consentimiento and la confidencialidad, the next two cards, come from." },
         { id: "es-u102l4-envejecimiento", type: "vocab", front: "el envejecimiento", reading: "elenvejecimiento", meaning: "ageing (of a population)", example: { jp: "El envejecimiento de la población cambia el gasto público.", en: "The ageing of the population changes public spending." }, accept: ["ageing", "aging", "population ageing"], hint: "The process, applied to a whole society rather than a face. Related to la vejez (u63), which is the state, not the process." },
         { id: "es-u102l4-consentimiento", type: "vocab", front: "el consentimiento", reading: "elconsentimiento", meaning: "consent", example: { jp: "Sin el consentimiento de la persona no se puede hacer nada.", en: "Without the person's consent nothing can be done." }, accept: ["consent", "permission"], hint: "The bioethics word: el consentimiento informado is the signed agreement after the risks were explained." },
         { id: "es-u102l4-confidencialidad", type: "vocab", front: "la confidencialidad", reading: "laconfidencialidad", meaning: "confidentiality", example: { jp: "La confidencialidad protege lo que dice cada persona.", en: "Confidentiality protects what each person says." }, accept: ["confidentiality", "privacy"], hint: "The duty not to repeat what you learned professionally. Wider than un secreto: it binds the institution, not just the individual." },

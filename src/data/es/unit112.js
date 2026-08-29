@@ -7,7 +7,9 @@
 // judges how much a piece of evidence or an effect should count.
 // Rejected as already taught: evidente (u42), dudoso (u75), decisivo (u81). Rejected as
 // the same lexeme: manifiesto (~u51 manifestar), determinante (~u82 la determinación),
-// dañino (~u60 el daño).
+// dañino (~u60 el daño), and — dropped in the hand lexeme sweep — cuestionable (~u58
+// cuestionar) and discutible (~u77 discutir), both fully transparent -able derivations of
+// a taught verb. Replaced by fehaciente and tendencioso.
 export const ES_UNIT112 = {
   id: "es-u112",
   lang: "es",
@@ -53,15 +55,15 @@ export const ES_UNIT112 = {
       id: "es-u112l3",
       unit: 112,
       lesson: 3,
-      title: "Creíble, discutible, de peso",
+      title: "Creíble, probado, de peso",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Say whether a claim is believable or open to challenge, and whether it matters much or hardly at all.",
+      canDo: "Say whether a claim is believable, properly documented or quietly slanted, and whether it matters much or hardly at all.",
       items: [
         { id: "es-u112l3-plausible", type: "vocab", front: "plausible", reading: "plausible", meaning: "plausible", example: { jp: "Es una hipótesis plausible, aunque nadie la haya probado.", en: "It is a plausible hypothesis, though nobody has proved it." }, accept: ["plausible", "credible", "reasonable"], hint: "Worth taking seriously, whether or not it is true. Same form for both genders." },
         { id: "es-u112l3-verosimil", type: "vocab", front: "verosímil", reading: "verosimil", meaning: "believable / credible", example: { jp: "Su historia de los hechos no es verosímil.", en: "His account of events is not believable." }, accept: ["believable", "credible", "convincing", "likely"], hint: "Literally truth-seeming, from verdad + símil. Plausible judges an argument; verosímil judges a story — which is why fiction uses it." },
-        { id: "es-u112l3-cuestionable", type: "vocab", front: "cuestionable", reading: "cuestionable", meaning: "questionable", example: { jp: "El modo de conseguir los datos es cuestionable.", en: "The way the data was obtained is questionable." }, accept: ["questionable", "open to question", "dubious"], hint: "Something you could reasonably object to. It hints at a fault without naming one, which is what makes it useful and slightly unfair." },
-        { id: "es-u112l3-discutible", type: "vocab", front: "discutible", reading: "discutible", meaning: "debatable / arguable", example: { jp: "Que sea la mejor idea es muy discutible.", en: "That it is the best idea is very debatable." }, accept: ["debatable", "arguable", "open to debate", "contestable"], hint: "Milder than cuestionable: it says there is another side, not that something is wrong. Es discutible is a polite way to disagree." },
+        { id: "es-u112l3-fehaciente", type: "vocab", front: "fehaciente", reading: "fehaciente", meaning: "incontrovertible / documented", example: { jp: "No hay ninguna prueba fehaciente de eso.", en: "There is no incontrovertible proof of that." }, accept: ["incontrovertible", "documented", "reliable", "conclusive"], hint: "Good enough to stand officially: from fe, faith, plus hacer — it makes belief. Notificar de forma fehaciente means in a way that can be proved later." },
+        { id: "es-u112l3-tendencioso", type: "vocab", front: "tendencioso", reading: "tendencioso", meaning: "tendentious / slanted", example: { jp: "El informe es tendencioso desde la primera parte.", en: "The report is slanted from the very first section." }, accept: ["tendentious", "slanted", "biased", "loaded"], hint: "Written to push you somewhere while looking neutral. Una pregunta tendenciosa is a loaded question: the sesgo (u104) is deliberate." },
         { id: "es-u112l3-sustancial", type: "vocab", front: "sustancial", reading: "sustancial", meaning: "substantial / material", example: { jp: "Hubo un cambio sustancial en la normativa.", en: "There was a substantial change in the regulations." }, accept: ["substantial", "material", "significant", "considerable"], hint: "Big enough to change the substance of the thing. In legal writing, un cambio sustancial is one that alters what was agreed." },
         { id: "es-u112l3-marginal", type: "vocab", front: "marginal", reading: "marginal", meaning: "marginal / minor", example: { jp: "El efecto fue marginal y nadie lo notó.", en: "The effect was marginal and nobody noticed it." }, accept: ["marginal", "minor", "negligible", "slight"], hint: "At the edge of mattering. It also describes people pushed to the edge of society, which is the sense in social policy writing." },
       ],

@@ -36,7 +36,7 @@ export const ES_UNIT108 = {
       id: "es-u108l2",
       unit: 108,
       lesson: 2,
-      title: "Matizar y atenuar",
+      title: "Precisar y atenuar",
       cefr: "B2",
       dominantMode: "recall",
       canDo: "Soften or narrow a claim you have just made, without taking it back.",

@@ -7,7 +7,8 @@
 // Rejected as already taught: el grado (u47), la tesis (u51), la asignatura (u24),
 // la investigación (u64), la revisión (u67), el rendimiento (u84). Rejected as the same
 // lexeme: el profesorado (~u18 el profesor), cursar (~u24 el curso), titularse (~u49 el
-// título), el aprendizaje (~u13 aprender), graduarse (~u47 el grado).
+// título), el aprendizaje (~u13 aprender), graduarse (~u47 el grado), la excelencia
+// (~u81 excelente — dropped in the hand lexeme sweep and replaced by el mérito).
 export const ES_UNIT103 = {
   id: "es-u103",
   lang: "es",
@@ -73,11 +74,11 @@ export const ES_UNIT103 = {
       title: "Honestidad y mérito",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Discuss academic honesty and standing: plagiarism, accreditation, excellence, dropping out, and the top posts.",
+      canDo: "Discuss academic honesty and standing: plagiarism, accreditation, merit, dropping out, and the top posts.",
       items: [
         { id: "es-u103l4-plagio", type: "vocab", front: "el plagio", reading: "elplagio", meaning: "plagiarism", example: { jp: "El plagio puede terminar con una carrera.", en: "Plagiarism can end a career." }, accept: ["plagiarism", "copying"], hint: "Presenting someone else's words as your own. The verb is plagiar; the accusation is serious enough to be actionable." },
         { id: "es-u103l4-acreditacion", type: "vocab", front: "la acreditación", reading: "laacreditacion", meaning: "accreditation", example: { jp: "La acreditación permite abrir una nueva carrera.", en: "Accreditation allows a new degree course to open." }, accept: ["accreditation", "certification", "official recognition"], hint: "Official recognition that a course, a centre or a person meets the standard. Also what a researcher needs before a permanent post." },
-        { id: "es-u103l4-excelencia", type: "vocab", front: "la excelencia", reading: "laexcelencia", meaning: "excellence", example: { jp: "Todas las universidades hablan de excelencia.", en: "Every university talks about excellence." }, accept: ["excellence"], hint: "The word institutions use about themselves when applying for money. Un centro de excelencia is a funding category, not a compliment." },
+        { id: "es-u103l4-merito", type: "vocab", front: "el mérito", reading: "elmerito", meaning: "merit", example: { jp: "La beca se da por mérito, no por dinero.", en: "The grant is awarded on merit, not on money." }, accept: ["merit", "worth", "credit"], hint: "What you earned, as against what you were given. Hacer méritos = to work at building a case for yourself, usually in front of the right people." },
         { id: "es-u103l4-abandono", type: "vocab", front: "el abandono", reading: "elabandono", meaning: "dropping out / abandonment", example: { jp: "El abandono es más alto en el primer curso.", en: "Dropping out is highest in the first year." }, accept: ["dropping out", "drop-out", "abandonment", "attrition"], hint: "El abandono escolar is the standard phrase for students leaving education early — one of the numbers a system is judged on." },
         { id: "es-u103l4-catedra", type: "vocab", front: "la cátedra", reading: "lacatedra", meaning: "professorial chair", example: { jp: "Consiguió una cátedra después de muchos años.", en: "He got a chair after many years." }, accept: ["chair", "professorship", "professorial chair"], hint: "The most senior academic post; the holder is un catedrático. Sentar cátedra means to lay down the law on a subject." },
         { id: "es-u103l4-rector", type: "vocab", front: "el rector", reading: "elrector", meaning: "vice-chancellor / university head", example: { jp: "El rector presentó el plan para los próximos años.", en: "The vice-chancellor presented the plan for the coming years." }, accept: ["vice-chancellor", "rector", "university head", "president"], hint: "The elected head of a whole university. La rectora in the feminine; el rectorado is the office and the building." },

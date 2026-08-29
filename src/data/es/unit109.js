@@ -7,7 +7,10 @@
 // Rejected as already taught: estimado, atentamente, tutear (u72), lamentar (u73),
 // rogar, agradecer (u77), humilde (u80), informar (u32), el respeto (u46). Rejected as
 // the same lexeme: distinguido (~u53 distinguir), dirigirse (~u78 dirigir), permitirse
-// (~u44 permitir), disculpar (~u73 disculparse), el trato (~u50 tratar).
+// (~u44 permitir), disculpar (~u73 disculparse), el trato (~u50 tratar), el remitente
+// (~remitirse, which u108 teaches earlier in this block — dropped in the hand lexeme
+// sweep and replaced by la cortesía, framed as las fórmulas de cortesía, not u73's
+// everyday politeness).
 export const ES_UNIT109 = {
   id: "es-u109",
   lang: "es",
@@ -39,10 +42,10 @@ export const ES_UNIT109 = {
       title: "Abrir y cerrar un escrito",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Write the frame of a formal letter: who sent it, who it is for, what is enclosed, and how it signs off.",
+      canDo: "Write the frame of a formal letter: who it is for, what is enclosed, how receipt is acknowledged, and how it signs off.",
       items: [
         { id: "es-u109l2-cordialmente", type: "vocab", front: "cordialmente", reading: "cordialmente", meaning: "cordially / kind regards", example: { jp: "Le saluda cordialmente.", en: "Kind regards." }, accept: ["cordially", "kind regards", "yours sincerely", "warm regards"], hint: "Warmer than atentamente (u72) and safe with someone you have dealt with before. Un cordial saludo does the same job as a noun." },
-        { id: "es-u109l2-remitente", type: "vocab", front: "el remitente", reading: "elremitente", meaning: "sender", example: { jp: "La carta no dice quién es el remitente.", en: "The letter does not say who the sender is." }, accept: ["sender", "the sender"], hint: "The name in the top corner of the envelope. From remitir, to send on — the same root as remitirse in u108." },
+        { id: "es-u109l2-cortesia", type: "vocab", front: "la cortesía", reading: "lacortesia", meaning: "courtesy (as a formula)", example: { jp: "La carta acaba con las palabras de cortesía de siempre.", en: "The letter ends with the usual words of courtesy." }, accept: ["courtesy", "politeness", "civility"], hint: "Las fórmulas de cortesía are the fixed opening and closing lines this lesson teaches. Por cortesía = as a courtesy, done because the form requires it rather than because you meant it." },
         { id: "es-u109l2-destinatario", type: "vocab", front: "el destinatario", reading: "eldestinatario", meaning: "addressee / recipient", example: { jp: "El destinatario de la carta ya no vive aquí.", en: "The letter's addressee no longer lives here." }, accept: ["addressee", "recipient", "the addressee"], hint: "The person a text is aimed at, on an envelope or in an argument. From el destino." },
         { id: "es-u109l2-adjuntar", type: "vocab", front: "adjuntar", reading: "adjuntar", meaning: "to enclose / attach", example: { jp: "Le adjunto el informe que pidió.", en: "I enclose the report you asked for." }, accept: ["to enclose", "to attach", "enclose", "attach"], hint: "Le adjunto is the fixed opening of a covering letter, and now of an email with a file. Adjunto on its own is the attachment." },
         { id: "es-u109l2-acusarrecibo", type: "vocab", front: "acusar recibo", reading: "acusarrecibo", meaning: "to acknowledge receipt", example: { jp: "Acuso recibo de su carta del martes.", en: "I acknowledge receipt of your letter of Tuesday." }, accept: ["to acknowledge receipt", "to confirm receipt", "acknowledge receipt"], hint: "A fixed phrase where acusar has nothing to do with accusing — it means to register something formally. Always followed by de." },
