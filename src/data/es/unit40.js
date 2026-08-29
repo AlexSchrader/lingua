@@ -45,6 +45,7 @@ export const ES_UNIT40 = {
         { id: "es-u40l2-recordar", type: "vocab", front: "recordar", reading: "recordar", meaning: "to remember", example: { jp: "No recuerdo su nombre.", en: "I don't remember his name." }, accept: ["to recall", "to remind"], hint: "The o becomes ue: recuerdo. Recuérdame = remind me." },
         { id: "es-u40l2-mostrar", type: "vocab", front: "mostrar", reading: "mostrar", meaning: "to show", example: { jp: "Te muestro las fotos.", en: "I'll show you the photos." }, accept: ["to display", "to point out"], hint: "o → ue again: muestro. Close to enseñar (A1), which also means to show." },
         { id: "es-u40l2-traer", type: "vocab", front: "traer", reading: "traer", meaning: "to bring", example: { jp: "¿Puedes traer el pan?", en: "Can you bring the bread?" }, accept: ["to bring along", "to carry"], hint: "The opposite of llevar (A1, to take): traer brings it here, llevar takes it there. Irregular yo: traigo." },
+        { id: "es-u40l2-quedar", type: "vocab", front: "quedar", reading: "quedar", meaning: "to arrange to meet / to be left", example: { jp: "Quedamos el sábado por la tarde.", en: "We're meeting on Saturday afternoon." }, accept: ["to arrange to meet", "to meet up", "to be left"], hint: "Two everyday senses: quedar CON alguien = to arrange to meet, and quedar = to be left over (queda poco tiempo)." },
       ],
     },
     {

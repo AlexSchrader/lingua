@@ -25,6 +25,7 @@ export const FR_UNIT82 = {
         { id: "fr-u82l1-leniveau", type: "vocab", front: "le niveau", reading: "leniveau", meaning: "the level", example: { jp: "Son niveau de français a beaucoup augmenté depuis qu'elle habite ici.", en: "Her level of French has risen a lot since she's been living here." }, accept: ["level", "the standard", "grade"], hint: "au niveau de = at the level of, and in speech, loosely, \"as far as … goes\"." },
         { id: "fr-u82l1-lensemble", type: "vocab", front: "l'ensemble", reading: "lensemble", meaning: "the whole", example: { jp: "L'ensemble du travail doit être fini avant vendredi.", en: "The whole job has to be finished before Friday." }, accept: ["whole", "the set", "overall"], hint: "You met dans l'ensemble (Unit 78) — this is the noun inside it." },
         { id: "fr-u82l1-legenre", type: "vocab", front: "le genre", reading: "legenre", meaning: "the kind", example: { jp: "Ce genre de problème arrive souvent, il ne faut pas s'inquiéter.", en: "This kind of problem happens often, there's no need to worry." }, accept: ["kind", "sort", "type", "genre"], hint: "ce genre de + noun. Also grammatical gender, and film genre." },
+        { id: "fr-u82l1-letaux", type: "vocab", front: "le taux", reading: "letaux", meaning: "the rate", example: { jp: "Le taux de chômage a baissé cette année.", en: "The unemployment rate fell this year." }, accept: ["the rate", "the level", "the percentage"], hint: "The number a level is measured by: le taux de chômage, le taux d'intérêt. Silent x." },
       ],
     },
     {

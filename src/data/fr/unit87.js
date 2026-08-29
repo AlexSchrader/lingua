@@ -76,6 +76,7 @@ export const FR_UNIT87 = {
         { id: "fr-u87l4-lecontour", type: "vocab", front: "le contour", reading: "lecontour", meaning: "outline", example: { jp: "On voit le contour de la montagne.", en: "You can see the outline of the mountain." }, accept: ["the outline", "edge", "shape"] },
         { id: "fr-u87l4-lepaisseur", type: "vocab", front: "l'épaisseur", reading: "lepaisseur", meaning: "thickness", example: { jp: "Quelle est l'épaisseur du mur ?", en: "What's the thickness of the wall?" }, accept: ["the thickness", "depth"], hint: "Feminine, from épais — the pattern that also gives la largeur from large." },
         { id: "fr-u87l4-lapoussiere", type: "vocab", front: "la poussière", reading: "lapoussiere", meaning: "dust", example: { jp: "Il y a de la poussière sur l'étagère.", en: "There's dust on the shelf." }, accept: ["the dust"] },
+        { id: "fr-u87l4-lapparence", type: "vocab", front: "l'apparence", reading: "lapparence", meaning: "the appearance", example: { jp: "Son apparence a beaucoup changé cette année.", en: "His appearance has changed a lot this year." }, accept: ["the appearance", "the look", "the outward look"], hint: "Feminine. En apparence = on the face of it; les apparences sont trompeuses = looks deceive." },
       ],
     },
   ],
