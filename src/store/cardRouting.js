@@ -67,10 +67,32 @@ export function shouldTypeReading(item) {
 // listen:type is the ear-path sibling of type:reading. To avoid cannibalizing
 // the visual reading card (which takes the hash < READING_SHARE band), dictation
 // takes a DISTINCT band just above it — so an item is at most one of the two.
+//
+// THE BANDS WERE CALIBRATED FOR THE JAPANESE CARD SET, and that is the bug this
+// ceiling fixes (2026-08-30). One unsalted hash01(id) is carved into bands:
+//     < 0.50        listen:choice · type:produce · type:reading
+//     [0.50, 0.75)  listen:type
+//     >= 0.75       cloze · sentence:build · particle:choice
+// The top quartile is fine in Japanese because trace, build and conjugate stand
+// behind it. **Latin script has none of those** — and type:reading is ja-only by
+// design (a Spanish front and its reading differ only by accents, so the card would
+// display its own answer). So for fr/es the top quartile has NO card of its own: a
+// quarter of every Latin corpus falls through to the generic meaning card, and the
+// three cards that could have claimed it are all content-dependent. Measured on this
+// branch: 219 of 3,123 es items and 172 of 3,111 fr sit there, versus 12 of 5,012 ja.
+//
+// So the ceiling is PER LANGUAGE: the shares have to add to 1.0 for the card set the
+// language actually has, not for Japanese's. Latin dictation runs to the top of the
+// range. This is additive, not a reshuffle — at rung 2 particle and cloze are both
+// tested BEFORE dictation, so every item that already earns a content card keeps it,
+// and nothing below READING_SHARE moves at all. What changes is only the item that
+// was falling through to type:meaning, which is the definition of the uncovered band.
 export const LISTEN_TYPE_SHARE = 0.25;
 export function shouldListenType(item) {
+  if (!hasAudio(item)) return false;
   const h = hash01(item?.id ?? "");
-  return hasAudio(item) && h >= READING_SHARE && h < READING_SHARE + LISTEN_TYPE_SHARE;
+  const ceiling = isLatin(item) ? 1 : READING_SHARE + LISTEN_TYPE_SHARE;
+  return h >= READING_SHARE && h < ceiling;
 }
 
 // --- language shape ----------------------------------------------------------

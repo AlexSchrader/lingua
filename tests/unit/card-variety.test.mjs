@@ -77,7 +77,20 @@ function kindsFor(item) {
 }
 
 // Ceilings = the counts measured when this test was written. Ratchet down only.
-const SINGLE_KIND_CEILING = { ja: 12, fr: 172, es: 134 };
+//
+// 2026-08-30, fix/latin-card-variety: es and fr are now PINNED AT ZERO. The cause was
+// structural, not content — the hash bands were calibrated for the Japanese card set,
+// so the top quartile (>= 0.75) had no card of its own in a Latin language, where
+// trace/build/conjugate do not exist and type:reading is ja-only by design. Dictation
+// now runs to the top of the range for Latin (cardRouting.shouldListenType), which is
+// additive: particle and cloze are still tested first, so only the items that were
+// falling through to the generic meaning card moved. es 219 -> 0, fr 172 -> 0.
+//
+// ja stays at 12 and is deliberately NOT fixed here. Those are yōon kana (ja-u16l1-*),
+// 0.2% of the Japanese corpus against Spanish's 7%, and closing them means deciding
+// what a two-glyph kana should do in the top quartile — a kana question, not the Latin
+// band question this branch answers. Ratchet it when someone answers that one.
+const SINGLE_KIND_CEILING = { ja: 12, fr: 0, es: 0 };
 
 for (const [lang, ceiling] of Object.entries(SINGLE_KIND_CEILING)) {
   test(`${lang}: items with only ONE card kind must not increase (target 0)`, () => {
