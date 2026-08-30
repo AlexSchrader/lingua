@@ -40,12 +40,7 @@ export function persistKey() {
 //
 // `languages` levels are set to B2 purely to open the gates — this deck is never
 // read as an achievement, and it is never synced (cloud sync reads the real key).
-//
-// `activeLang` picks which language the preview OPENS in. It defaulted to langs[0],
-// which is CATALOG order (fr, ja, es) — so every preview started in French whatever
-// you actually meant to inspect, and the only way to move was the Ladder switcher,
-// which is one screen deep and easy to miss. Callers now name the language.
-export function buildPreviewState({ langs, catalog, version, activeLang }) {
+export function buildPreviewState({ langs, catalog, version }) {
   const languages = {};
   for (const l of catalog) languages[l.id] = { ...l, level: "B2", xp: 0 };
   return {
@@ -59,7 +54,7 @@ export function buildPreviewState({ langs, catalog, version, activeLang }) {
         reason: null,
         reminderTime: null,
         languages: [...langs],
-        activeLang: activeLang ?? langs[0] ?? null,
+        activeLang: langs[0] ?? null,
       },
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },

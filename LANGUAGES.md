@@ -1,20 +1,30 @@
 # Lingua — Language Roadmap
 
-**Every language targets B2.** Only **Japanese is live** (has content) today; all others are **planned**. Adding a language is one catalog entry once the catalog is data-driven — see `BUILD-BRIEF-languages-catalog.md` (pitch R15).
+**Every language targets B2.** **Three are live** — Japanese, French and Spanish, all complete through their bands and fully voiced. The other 17 are **planned**.
+
+| Live | Units | Items | Bands | Audio |
+|------|-------|-------|-------|-------|
+| Japanese 🇯🇵 | 208 | 5,012 | pre-A1 → **B2** | 100% (Haruki) |
+| French 🇫🇷 | 133 | 3,104 | A1 → **B2** | 100% (Mathieu) |
+| Spanish 🇪🇸 | 87 | 2,084 | A1 → **B1** | 100% (Ignacio) |
+
+Spanish B2 is the one remaining band in a live language. See `BUILD-CHECKLIST.md` for what is in flight. Adding a language is one catalog entry once the catalog is data-driven — see `BUILD-BRIEF-languages-catalog.md` (pitch R15).
 
 Tiers below are Alex's planning groups (from the original conversation). The **honest build-lift** is noted separately — a couple of languages sit in a tier by history, not by difficulty.
 
-**Total: 20 languages · all target B2 · 1 live (Japanese), 19 planned.**
+**Total: 20 languages · all target B2 · 3 live (Japanese, French, Spanish), 17 planned.**
 
 ---
+
+> **Picking the next one.** Two engine facts should drive it, not tier order. (1) `conjugate` is Japanese-only — `src/data/contract.js` hardcodes `VALID_VERB_GROUPS = ["godan","ichidan","irregular"]`, so every Latin-script language’s conjugation-drill slot silently degrades to plain vocab. German is the worst pick until that is fixed, because cases and separable verbs are exactly what it cannot drill. (2) Portuguese and Italian reuse the most from Spanish — same script, same scaffold shape, strong TTS, no script build. Korean and Russian each need a real script-teaching build, like kana was.
 
 ## Tier 1 — original plan · Latin script (prioritized first)
 Same actual lift as Tier 4; first only because it was the original plan.
 
 | Lang | Flag | Script | Target | Lift | Status |
 |------|------|--------|--------|------|--------|
-| Spanish | 🇪🇸 | Latin | B2 | low | planned |
-| French | 🇫🇷 | Latin | B2 | low | planned — **Alex's intended next** (France 2028) |
+| Spanish | 🇪🇸 | Latin | B2 | low | ✅ **LIVE** — A1→B1, 87 units, 2,084 items, fully voiced; B2 not started |
+| French | 🇫🇷 | Latin | B2 | low | ✅ **LIVE** — A1→B2, 133 units, 3,104 items, fully voiced |
 | German | 🇩🇪 | Latin | B2 | low | planned |
 | Italian | 🇮🇹 | Latin | B2 | low | planned |
 | Portuguese | 🇵🇹 | Latin | B2 | low | planned |
