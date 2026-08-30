@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Mic, MicOff, Phone, PhoneOff, Send } from "lucide-react";
 import { ConversationProvider, useConversation } from "@elevenlabs/react";
 import { C, F } from "../theme.js";
-import { useStore } from "../store/useStore.js";
+import { useStore, activeLangId } from "../store/useStore.js";
 import { companionName } from "../data/companions.js";
 import { langName } from "../data/languages.js";
 
@@ -22,7 +22,7 @@ export default function Haruki() {
 }
 
 function HarukiChat() {
-  const lang = useStore((s) => s.profile?.activeLang) ?? "ja";
+  const lang = activeLangId(useStore((s) => s.profile));
   const name = companionName(lang);
   const [messages, setMessages] = useState([]);
   const [draft, setDraft] = useState("");
@@ -126,7 +126,7 @@ function HarukiChat() {
       </div>
 
       {/* Transcript (or warm empty state) — scrolls; input stays pinned below. */}
-      <div style={{ flex: 1, minHeight: 0, overflowY: "auto", display: "flex", flexDirection: "column", gap: 10, padding: "4px 0" }}>
+      <div style={{ flex: 1, minHeight: 0, overflowY: "auto", overscrollBehavior: "contain", WebkitOverflowScrolling: "touch", display: "flex", flexDirection: "column", gap: 10, padding: "4px 0" }}>
         {empty ? (
           <div style={{ margin: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 10, textAlign: "center", color: C.inkSoft }}>
             <img src="/mascot/lingua-wave.png" alt="" aria-hidden style={{ width: "clamp(120px, 32vw, 180px)", height: "auto", objectFit: "contain" }} />
