@@ -3,6 +3,12 @@
 // 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
 // vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
 // lang/unit/lesson are stamped in src/data/index.js.
+//
+// EUROPEAN PORTUGUESE (pt-PT), not Brazilian. Settled by the companion voice:
+// Tiago is from Lisbon. This is a corpus decision, not an accent one — it sets
+// the vocabulary (comboio not trem, pequeno-almoço not café da manhã), the
+// second person (tu, and você as the polite form), and the spelling. Every unit
+// in this language follows it. If a card would be wrong in Portugal, it is wrong.
 export const PT_UNIT1 = {
   id: "pt-u1",
   lang: "pt",
