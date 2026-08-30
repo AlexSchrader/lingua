@@ -109,3 +109,44 @@ export function conjugate(masu, group, form) {
   }
   return null;
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// LANGUAGE DISPATCH — everything above this line is Japanese.
+//
+// `conjugate()` above stays exactly what it was (its callers and its 17 tests are
+// unchanged); these wrappers pick an engine by language. A Latin verb's drill is
+// tense × person, not ja's form set, so the valid `conjForm` values, the valid
+// `group` values and the card's label all differ per language — hence three
+// lookups rather than three constants. See conjugate-latin.js.
+// ─────────────────────────────────────────────────────────────────────────────
+import {
+  conjugateLatin,
+  latinFormLabel,
+  LATIN_FORMS,
+  LATIN_VERB_GROUPS,
+  LATIN_LANGS,
+} from "./conjugate-latin.js";
+
+const JA_VERB_GROUPS = ["godan", "ichidan", "irregular"];
+
+// Which conjForm values a language's content may author.
+export const conjFormsFor = (lang) =>
+  LATIN_LANGS.includes(lang) ? LATIN_FORMS : CONJ_FORMS;
+
+// Which verb `group` values a language's content may author. Japanese REQUIRES the
+// tag (the ending doesn't decide the class); the Latin engines derive it and treat
+// the tag as documentation.
+export const verbGroupsFor = (lang) =>
+  LATIN_VERB_GROUPS[lang] ?? JA_VERB_GROUPS;
+
+// The prompt the conjugate card prints — "て-form" for ja, "futuro · ellos" for es.
+export const formLabelFor = (lang, form) =>
+  LATIN_LANGS.includes(lang) ? latinFormLabel(lang, form) : (CONJ_FORM_LABEL[form] ?? form);
+
+// The one entry point the card and the router call. Returns null when the form
+// cannot be produced, which the router reads as "don't route this item here".
+export function conjugateIn(lang, front, group, form) {
+  return LATIN_LANGS.includes(lang)
+    ? conjugateLatin(lang, front, group, form)
+    : conjugate(front, group, form);
+}
