@@ -4,10 +4,10 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { LANGUAGES } from "../../src/data/languages.js";
 
-test("language catalog: 20 languages, all target B2, unique ids", () => {
-  assert.equal(LANGUAGES.length, 20);
+test("language catalog: 23 languages, all target B2, unique ids", () => {
+  assert.equal(LANGUAGES.length, 23);
   assert.ok(LANGUAGES.every((l) => l.target === "B2"), "every language targets B2");
-  assert.equal(new Set(LANGUAGES.map((l) => l.id)).size, 20, "ids are unique");
+  assert.equal(new Set(LANGUAGES.map((l) => l.id)).size, 23, "ids are unique");
   assert.ok(LANGUAGES.every((l) => l.id && l.name && l.flag), "each has id/name/flag");
 });
 
@@ -15,6 +15,15 @@ test("language catalog: 20 languages, all target B2, unique ids", () => {
 // unlock:null)". That test's real intent was the second line — no hardcoded cascade —
 // which it could only express as "the field is null everywhere". The fields are now
 // gone, so the guarantee is unconditional: there is no cascade shape to set.
+// The catalog must express no preference: no starter language, no featured set, no
+// "the ones we happen to have authored" at the top. Alphabetical by name is the one
+// order that carries no endorsement, and it is asserted so a future edit that drops a
+// language back on top has to argue with a test instead of slipping through review.
+test("catalog is flat — alphabetical by name, no language privileged by position", () => {
+  const names = LANGUAGES.map((l) => l.name);
+  assert.deepEqual(names, [...names].sort((a, b) => a.localeCompare(b, "en")));
+});
+
 test("catalog entries carry no retired cascade fields", () => {
   for (const l of LANGUAGES) {
     assert.ok(!("unlock" in l), `${l.id}: unlock is a retired cascade field`);

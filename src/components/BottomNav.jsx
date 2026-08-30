@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { Home, ListTree, MessageCircle, BarChart3 } from "lucide-react";
 import { C, F } from "../theme.js";
-import { useStore } from "../store/useStore.js";
+import { useStore, activeLangId } from "../store/useStore.js";
 import { companionName } from "../data/companions.js";
 
 const MAXW = 600; // keep tabs aligned with the centered content column (see AppShell)
@@ -11,7 +11,9 @@ export default function BottomNav() {
   const { pathname } = useLocation();
   // The tutor tab is named after the ACTIVE language's companion (ja Haruki,
   // fr Mathieu, …) — each language's tutor is a different person.
-  const activeLang = useStore((s) => s.profile?.activeLang) ?? "ja";
+  // Resolved, not defaulted: `?? "ja"` named the tab after Japanese's companion for
+  // any learner whose activeLang had not been written yet.
+  const activeLang = activeLangId(useStore((s) => s.profile));
   const TABS = [
     { label: "Today", path: "/", icon: Home },
     { label: "Ladder", path: "/ladder", icon: ListTree },

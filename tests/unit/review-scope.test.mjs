@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { useStore, REVIEW_CAP, activeLangId } from "../../src/store/useStore.js";
-import { seedItems } from "../../src/data/index.js";
+import { useStore, REVIEW_CAP, activeLangId, firstLiveLang } from "../../src/store/useStore.js";
+import { seedItems, LANGUAGES, isLive } from "../../src/data/index.js";
 
 // Language scoping of the daily review queue (2026-08-14).
 //
@@ -222,8 +222,21 @@ test("activeLangId honours activeLang only when it is actually started", () => {
     "ja",
     "an activeLang that was pruned falls back to the first started language"
   );
-  assert.equal(activeLangId({ languages: [], activeLang: null }), "ja", "empty profile → ja");
-  assert.equal(activeLangId(undefined), "ja", "missing profile → ja, never a crash");
+  // An unresolvable profile falls back to the first language WITH CONTENT, derived
+  // from the catalog — never to a hardcoded id. This used to return "ja" flat, which
+  // quietly made every such learner a Japanese learner (the kanji-milestone bug).
+  const live = firstLiveLang();
+  assert.ok(live, "some language must be live for this fallback to mean anything");
+  assert.equal(activeLangId({ languages: [], activeLang: null }), live, "empty profile → first live language");
+  assert.equal(activeLangId(undefined), live, "missing profile → first live language, never a crash");
+});
+
+test("no language id is hardcoded into the fallback", () => {
+  // The guarantee is structural, not "it happens to return fr today": whatever the
+  // catalog says is live first, that is what an unresolvable profile gets.
+  const live = firstLiveLang();
+  assert.ok(LANGUAGES.some((l) => l.id === live), "fallback is a real catalog entry");
+  assert.ok(isLive(live), "fallback language actually has content");
 });
 
 test("a stale activeLang cannot silently empty the review queue", () => {

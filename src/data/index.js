@@ -38,6 +38,23 @@ export const isLive = (langId) => hasPlayableContent(UNITS, langId);
 
 export { LANGUAGES };
 
+// A language's units in CLIMB order — `order`, never file/barrel order. The two
+// genuinely disagree: French deliberately gives `fr-u27` ("Les sons") `order: 1`
+// so the sounds unit opens the climb, which shifts the `order` of all 27 fr A1
+// units one above their id number. Any surface that walks a language by barrel
+// position therefore SERVES lessons in file order while LABELLING them from
+// `order` — Today did exactly that, opening French on "Salutations" printed as
+// "Unit 2" and queueing unit 1 behind 26 others. Sorting lives here, once, so the
+// screens can't drift apart again.
+export const orderedUnits = (langId) =>
+  UNITS.filter((u) => u.lang === langId)
+    .slice()
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+
+// Every playable (non-stub) lesson of a language, in climb order.
+export const playableLessons = (langId) =>
+  orderedUnits(langId).flatMap((u) => u.lessons.filter((l) => Array.isArray(l.items)));
+
 // Flatten every lesson with playable items into a list of seed Items.
 // `lang`, `unit`, and `lesson` are stamped onto each item here in code so the
 // seed data files stay terse (no hand-repeating per item).
