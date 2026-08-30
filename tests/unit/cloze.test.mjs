@@ -37,14 +37,14 @@ test("shouldCloze is deterministic and a partial share of eligible items", () =>
 // --- particle cloze ---------------------------------------------------------
 
 const kasa = { id: "ja-u1l2-kasa", type: "vocab", front: "かさ", example: { jp: "かさをどうぞ。", en: "Please take an umbrella." } };
-const sora = { id: "s", type: "vocab", front: "そら", example: { jp: "そらはあおいです。", en: "The sky is blue." } };
-const shizuka = { id: "z", type: "vocab", front: "しずか", example: { jp: "ここはしずかです。", en: "It is quiet here." } };
+const sora = { id: "s", type: "vocab", lang: "ja", front: "そら", example: { jp: "そらはあおいです。", en: "The sky is blue." } };
+const shizuka = { id: "z", type: "vocab", lang: "ja", front: "しずか", example: { jp: "ここはしずかです。", en: "It is quiet here." } };
 
 test("particleAfterFront anchors on the word boundary and skips the copula です", () => {
   assert.deepEqual(particleAfterFront(kasa), { particle: "を", index: 2 });   // かさ|を
   assert.equal(particleAfterFront(sora).particle, "は");                       // そら|は (topic)
   assert.equal(particleAfterFront(shizuka), null);                            // しずか|です → で is copula, not particle
-  assert.equal(particleAfterFront({ type: "vocab", front: "ねこ", example: { jp: "ねこ。" } }), null); // no particle after
+  assert.equal(particleAfterFront({ type: "vocab", lang: "ja", front: "ねこ", example: { jp: "ねこ。" } }), null); // no particle after
   assert.equal(particleAfterFront(null), null);
 });
 
@@ -69,17 +69,17 @@ test("particleChoices returns the correct particle + distractor particles", () =
 // --- sentence builder -------------------------------------------------------
 
 test("sentenceTokens splits [word][particle][rest] only when the word leads", () => {
-  assert.deepEqual(sentenceTokens({ type: "vocab", front: "すし", example: { jp: "すしをたべます。" } }), ["すし", "を", "たべます"]);
-  assert.deepEqual(sentenceTokens({ type: "vocab", front: "そら", example: { jp: "そらはあおいです。" } }), ["そら", "は", "あおいです"]);
-  assert.equal(sentenceTokens({ type: "vocab", front: "しずか", example: { jp: "ここはしずかです。" } }), null); // word not at start
-  assert.equal(sentenceTokens({ type: "vocab", front: "すし", example: { jp: "すしです。" } }), null); // で is the copula, not a particle
-  assert.equal(sentenceTokens({ type: "vocab", front: "かさ", example: { jp: "かさ。" } }), null); // no remainder
-  assert.ok(canSentence({ type: "vocab", front: "すし", example: { jp: "すしをたべます。" } }));
-  assert.ok(!canSentence({ type: "kana", front: "あ", example: null }));
+  assert.deepEqual(sentenceTokens({ type: "vocab", lang: "ja", front: "すし", example: { jp: "すしをたべます。" } }), ["すし", "を", "たべます"]);
+  assert.deepEqual(sentenceTokens({ type: "vocab", lang: "ja", front: "そら", example: { jp: "そらはあおいです。" } }), ["そら", "は", "あおいです"]);
+  assert.equal(sentenceTokens({ type: "vocab", lang: "ja", front: "しずか", example: { jp: "ここはしずかです。" } }), null); // word not at start
+  assert.equal(sentenceTokens({ type: "vocab", lang: "ja", front: "すし", example: { jp: "すしです。" } }), null); // で is the copula, not a particle
+  assert.equal(sentenceTokens({ type: "vocab", lang: "ja", front: "かさ", example: { jp: "かさ。" } }), null); // no remainder
+  assert.ok(canSentence({ type: "vocab", lang: "ja", front: "すし", example: { jp: "すしをたべます。" } }));
+  assert.ok(!canSentence({ type: "kana", lang: "ja", front: "あ", example: null }));
 });
 
 test("sentenceTiles = ordered answer + exactly one distractor particle", () => {
-  const { answer, tiles } = sentenceTiles({ type: "vocab", front: "すし", example: { jp: "すしをたべます。" } });
+  const { answer, tiles } = sentenceTiles({ type: "vocab", lang: "ja", front: "すし", example: { jp: "すしをたべます。" } });
   assert.deepEqual(answer, ["すし", "を", "たべます"]);
   assert.equal(tiles.length, 4);
   for (const tok of answer) assert.ok(tiles.includes(tok));
@@ -155,7 +155,7 @@ test("ja in-context cards are unchanged by the Latin path", () => {
   // Regression guard: the ja branch must not pick up word-boundary/case rules.
   assert.equal(canCloze(tamago), true);
   assert.equal(blankExample(tamago), `${CLOZE_BLANK}をたべます。`);
-  const kasa = { id: "ja-k", type: "vocab", front: "かさ", example: { jp: "かさをかいます。", en: "" } };
+  const kasa = { id: "ja-k", type: "vocab", lang: "ja", front: "かさ", example: { jp: "かさをかいます。", en: "" } };
   assert.equal(particleAfterFront(kasa).particle, "を");
   for (const o of particleChoices(kasa, 4)) assert.ok(/[぀-ヿ]/u.test(o.text), "ja options stay kana");
 });
@@ -180,5 +180,9 @@ test("the tile-build card is Japanese-only — it shows the answer in a Latin sc
   // same string modulo accents, so the answer is on screen.
   assert.equal(canBuildReading({ id: "ja-x", type: "vocab", front: "ねこ", reading: "neko", lang: "ja" }), true);
   assert.equal(canBuildReading({ id: "fr-x", type: "vocab", front: "bonjour", reading: "bonjour", lang: "fr" }), false);
-  assert.equal(canBuildReading({ id: "bare", type: "vocab", front: "ねこ", reading: "neko" }), true, "missing lang → ja");
+  // An item with NO lang and no language-bearing id is unknown, not Japanese. Real
+  // pre-i18n saves are not affected: their ids are "ja-u1l1-…", so itemLang() reads
+  // the language straight out of the id (asserted directly below).
+  assert.equal(canBuildReading({ id: "bare", type: "vocab", front: "ねこ", reading: "neko" }), false, "unknown lang is not assumed Japanese");
+  assert.equal(canBuildReading({ id: "ja-u1l1-neko", type: "vocab", front: "ねこ", reading: "neko" }), true, "a pre-i18n save resolves ja from its own id");
 });

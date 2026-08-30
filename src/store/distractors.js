@@ -4,6 +4,7 @@
 // crashes — if there aren't enough distractors it simply returns fewer options
 // (down to 2, or 1 in the degenerate case of a lone item).
 
+import { itemLang } from "./itemLang.js";
 import { normalizeText } from "./answer.js";
 
 function shuffle(arr) {
@@ -61,15 +62,16 @@ export function buildOptions(item, allItems, count = 4, fieldOverride = null) {
   const list = Array.isArray(allItems) ? allItems : Object.values(allItems || {});
 
   // Same LANGUAGE only — with multiple live languages in the store, a French
-  // card must never offer Japanese options (or vice versa). Items without a
-  // stamped lang (unit-test fixtures, pre-i18n saves) group together as "ja".
+  // card must never offer Japanese options (or vice versa). This is a GROUPING key,
+  // not a language decision: items with no stamped lang (unit-test fixtures, pre-i18n
+  // saves) group with each other under null rather than being filed as Japanese.
   const sameType = list.filter(
     (it) =>
       it &&
       it.id !== item.id &&
       it.type === item.type &&
       it[field] != null &&
-      (it.lang ?? "ja") === (item.lang ?? "ja")
+      itemLang(it) === itemLang(item)
   );
   // Prefer same-unit distractors, then pad from other units.
   const sameUnit = sameType.filter((it) => it.unit === item.unit);

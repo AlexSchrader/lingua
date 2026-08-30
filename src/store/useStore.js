@@ -227,16 +227,26 @@ export function langScopedIds(items, lang = null) {
   return lang ? ids.filter((id) => items[id]?.lang === lang) : ids;
 }
 
+// The first language that actually has content, in catalog order. Derived, never a
+// literal — the catalog is flat and alphabetical, so "first" carries no endorsement.
+export const firstLiveLang = () => LANGUAGES.find((l) => isLive(l.id))?.id ?? LANGUAGES[0]?.id ?? null;
+
 // The language everything on Today/Review is scoped to. `activeLang` can point at a
 // language the learner is no longer started in (pruned save, cleared profile), so it
-// is only honoured when it's actually in the started list — same fallback Today.jsx
-// applies, exported so the store and the screens can never disagree about which
-// language the learner is in. Falls back to the first started language, then "ja".
+// is only honoured when it's actually in the started list — same fallback the screens
+// apply, exported so the store and the screens can never disagree about which language
+// the learner is in. Falls back to the first STARTED language, then to the first live
+// one.
+//
+// It used to fall back to the literal "ja". With 23 catalog entries and no starter
+// language that was not a safety net but a silent reassignment: every profile the
+// function could not resolve became a Japanese learner, which is how a French learner
+// was offered kanji milestones. A hardcoded id can only ever be right for one
+// learner — derive it.
 export function activeLangId(profile) {
-  const started = profile?.languages?.length ? profile.languages : ["ja"];
-  return profile?.activeLang && started.includes(profile.activeLang)
-    ? profile.activeLang
-    : started[0];
+  const started = profile?.languages?.length ? profile.languages : [];
+  if (profile?.activeLang && started.includes(profile.activeLang)) return profile.activeLang;
+  return started[0] ?? firstLiveLang();
 }
 
 // Default language progress state, derived from the static LANGUAGES table.
@@ -280,6 +290,17 @@ export const useStore = create(
       // cloudSync.initCloudSync wires the real Supabase calls in — that keeps the
       // SDK out of the main bundle and out of the store module.
       lastModified: 0,
+      // Receipt for a DELIBERATE wipe: the moment the learner tapped "Reset
+      // everything". Synced, because the sync guards (sync.js) cannot otherwise
+      // tell an intentional empty state from a torn one — and used to resolve that
+      // in the cloud's favour, which silently undid every reset. 0 = never reset.
+      resetAt: 0,
+      // Sync confirmation, both ephemeral (never persisted, never synced):
+      //   pendingSyncLabel — a big change is in flight and the learner is owed an
+      //                      answer about it ("Progress reset", "Lesson complete").
+      //   syncNotice       — the answer to show: { text, tone: "ok" | "warn" }.
+      pendingSyncLabel: null,
+      syncNotice: null,
       // `ready` flips true once Supabase resolves the initial session (or when
       // unconfigured), so the auth gate can render without a flash. The auth
       // actions are no-ops until cloudSync.initCloudSync wires the real Supabase
@@ -337,13 +358,48 @@ export const useStore = create(
       setAuth: (partial) => set((s) => ({ auth: { ...s.auth, ...partial } })),
       bumpModified: () => set({ lastModified: Date.now() }),
 
+      // "This change is big enough that the learner should be told when it is
+      // actually safe." Call it from the action itself, not the screen, so every
+      // route into the change is covered. With no cloud account there is nothing to
+      // wait for, so answer immediately and honestly rather than promising a sync
+      // that will never happen.
+      markImportantChange: (label) => {
+        const { auth } = get();
+        if (!auth?.user) {
+          set({ pendingSyncLabel: null, syncNotice: { text: `${label} — saved on this device`, tone: "ok", at: Date.now() } });
+          return;
+        }
+        set({ pendingSyncLabel: label, syncNotice: null });
+      },
+
+      // Called by the sync layer when an upload settles. Only speaks if a big
+      // change was actually waiting on it — a routine debounced upload stays silent.
+      resolveSyncNotice: (ok, detail) => {
+        const label = get().pendingSyncLabel;
+        if (!label) return;
+        set({
+          pendingSyncLabel: ok ? null : label, // a failure stays pending: the retry can still succeed
+          syncNotice: ok
+            ? { text: `${label} — saved to your account`, tone: "ok", at: Date.now() }
+            : { text: detail ? `${label} — not saved yet (${detail})` : `${label} — not saved yet, still trying`, tone: "warn", at: Date.now() },
+        });
+      },
+
+      dismissSyncNotice: () => set({ syncNotice: null }),
+
       // Apply a cloud progress blob. MERGES over the current item set so items
       // added in a newer app version (absent from an older cloud blob) still
       // exist at rung 0 — a pull never makes a unit disappear. Cloud item ids no
       // longer in the curriculum are simply ignored.
       hydrateFromCloud: (blob) => {
         set((s) => {
-          const base = Object.keys(s.items).length ? s.items : freshSeed();
+          // A blob carrying a RESET newer than anything local is a wipe, not an
+          // overlay: start from a fresh seed so the reset actually propagates. The
+          // normal path merges onto the existing deck (keeping current curriculum
+          // content), which would otherwise leave every touched item's rung in place
+          // and quietly ignore the reset another device performed.
+          const wiped = (Number(blob?.resetAt) || 0) > (Number(s.resetAt) || 0);
+          const base = wiped ? freshSeed() : (Object.keys(s.items).length ? s.items : freshSeed());
           const items = { ...base };
           // The cloud blob carries only the progress overlay ({ rung, srs }); apply
           // it onto the content-bearing base rather than replacing the item, so the
@@ -352,7 +408,7 @@ export const useStore = create(
           for (const [id, it] of Object.entries(blob.items ?? {})) {
             if (items[id]) items[id] = { ...items[id], rung: it.rung ?? items[id].rung, srs: it.srs ?? items[id].srs };
           }
-          const next = { items, lastModified: Date.now() };
+          const next = { items, lastModified: Date.now(), resetAt: Number(blob?.resetAt) || s.resetAt || 0 };
           for (const k of ["languages", "streak", "stats", "daily", "devMode", "settings", "profile", "milestonesEarned"]) {
             if (blob[k] !== undefined) next[k] = blob[k];
           }
@@ -399,13 +455,25 @@ export const useStore = create(
           let profile = pruneStartedLanguages(s.profile, langHasContent, (id) =>
             Object.values(items).some((it) => it.lang === id && (it.rung ?? 0) >= 1)
           );
-          // Migration: an existing learner (already onboarded, or with real
-          // progress) from before language-selection defaults to Japanese as
-          // their started + active language, so nothing they've done resets.
+          // Migration: a learner from before language-selection existed has no
+          // started list. Their language is DERIVED from where their progress
+          // actually is — this used to assign ["ja"] flat, which was true only
+          // because Japanese was the only language that had shipped. Falls back to
+          // the first live language when there is no progress to read.
           if (!profile.languages || profile.languages.length === 0) {
-            const hasProgress = Object.values(items).some((it) => (it.rung ?? 0) >= 1);
-            if (profile.onboarded || hasProgress) {
-              profile = { ...profile, languages: ["ja"], activeLang: "ja" };
+            const progressed = [
+              ...new Set(
+                Object.values(items)
+                  .filter((it) => (it.rung ?? 0) >= 1)
+                  .map((it) => it.lang)
+              ),
+            ].filter(Boolean);
+            if (profile.onboarded || progressed.length) {
+              // A save with real progress in several languages keeps all of them —
+              // canAddLanguage governs ADDING one, and silently deleting work the
+              // learner already did would be the worse error.
+              const langs = progressed.length ? progressed : [firstLiveLang()].filter(Boolean);
+              if (langs.length) profile = { ...profile, languages: langs, activeLang: langs[0] };
             }
           }
           return { items, daily, languages, profile };
@@ -534,6 +602,7 @@ export const useStore = create(
             },
           };
         });
+        get().markImportantChange("Reviews cleared");
       },
 
       // Graduate a freshly-learned item out of the in-session learning steps into
@@ -568,6 +637,7 @@ export const useStore = create(
       completeLesson: () => {
         set((s) => ({ daily: { ...s.daily, date: todayISO(), lessonDone: true } }));
         get().checkCascade();
+        get().markImportantChange("Lesson complete");
       },
 
       // Daily goal: reviews are mandatory; lesson is optional bonus.
@@ -678,7 +748,12 @@ export const useStore = create(
 
       // Dev/testing helper: wipe all persisted progress back to seed.
       resetAll: () => {
+        // resetAt + lastModified are what make this survive a reopen. Without the
+        // receipt the sync guards read the wiped device as a fresh/torn one and pull
+        // the old progress straight back down (see sync.js isDeliberateReset).
         set({
+          resetAt: Date.now(),
+          lastModified: Date.now(),
           items: freshSeed(),
           languages: initialLanguages(),
           streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
@@ -689,6 +764,7 @@ export const useStore = create(
           milestoneToast: null,
           ui: {},
         });
+        get().markImportantChange("Progress reset");
       },
 
       // Dev-only playtest helper (wired behind import.meta.env.DEV in the UI):
@@ -792,6 +868,7 @@ export const useStore = create(
         settings: s.settings,
         profile: s.profile,
         lastModified: s.lastModified,
+        resetAt: s.resetAt,
         // ui + auth (and the signIn*/signOut fns) are transient; not persisted.
       }),
     }

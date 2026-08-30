@@ -19,7 +19,7 @@
 
 // The persisted slice that travels to/from the cloud. Must mirror `partialize`
 // in useStore.js — keep the two in lockstep when either changes.
-export const SYNC_KEYS = ["items", "languages", "streak", "stats", "daily", "devMode", "settings", "profile", "milestonesEarned"];
+export const SYNC_KEYS = ["items", "languages", "streak", "stats", "daily", "devMode", "settings", "profile", "milestonesEarned", "resetAt"];
 
 // Slim the item map down to a PROGRESS OVERLAY: only the mutable fields (rung +
 // FSRS srs) of items the learner has actually touched (rung > 0). Everything else
@@ -77,10 +77,29 @@ export function hasMeaningfulProgress(blob = {}) {
 // blob — e.g. one an earlier torn/hot-reloaded session pushed up — must never win
 // over a device that actually has the learner's data. (That asymmetry is exactly
 // how a real profile got wiped; see fix/sync-never-overwrite-real-progress.)
+// Was this empty local state RESET ON PURPOSE, after the cloud row was written?
+// That is the one case where an empty local legitimately beats a cloud that holds
+// progress — and it is what separates "the learner tapped Reset everything" from
+// the torn/fresh/hot-reloaded empty state the guards above exist to reject.
+//
+// The `>` against the cloud's own timestamp is what keeps this safe: a STALE reset
+// (one from before the cloud was last written) loses, so an old receipt sitting in
+// a persisted blob can never resurrect itself and wipe newer work. Only a reset
+// that happened after the last cloud write wins.
+export function isDeliberateReset(local, cloud) {
+  const resetAt = Number(local?.blob?.resetAt) || 0;
+  return resetAt > 0 && resetAt > (Number(cloud?.updatedAt) || 0);
+}
+
 export function chooseSource(local, cloud) {
   if (!cloud || cloud.blob == null) return "push"; // first login: migrate up
   const localHas = hasMeaningfulProgress(local?.blob);
   const cloudHas = hasMeaningfulProgress(cloud?.blob);
+  // An intentional reset is a real edit that happens to be empty. Without this the
+  // rule below sends it straight back down: reset, reopen, progress returns — and
+  // no amount of waiting helps, because the reset was never the newer state as far
+  // as these guards could tell.
+  if (!localHas && cloudHas && isDeliberateReset(local, cloud)) return "push";
   if (!localHas && cloudHas) return "pull"; // fresh/empty device must not overwrite real cloud
   if (localHas && !cloudHas) return "push"; // real device must not be overwritten by empty cloud
   const localAt = Number(local?.updatedAt) || 0;

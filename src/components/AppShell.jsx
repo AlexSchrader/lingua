@@ -131,7 +131,9 @@ export default function AppShell() {
        </div>
       </header>
 
-      <main style={{ flex: 1, overflowY: "auto", WebkitOverflowScrolling: "touch" }}>
+      {/* The one scroller. overscrollBehavior "contain" keeps its bounce to itself
+          so hitting the top or bottom of the list never chains out to the page. */}
+      <main style={{ flex: 1, minHeight: 0, overflowY: "auto", overscrollBehavior: "contain", WebkitOverflowScrolling: "touch" }}>
         {/* Centered column. Flex so screens that fill the height (e.g. the chat,
             with a pinned input) work, while scrolling screens still grow. */}
         <div style={{ maxWidth: MAXW, width: "100%", margin: "0 auto", minHeight: "100%", display: "flex", flexDirection: "column" }}>

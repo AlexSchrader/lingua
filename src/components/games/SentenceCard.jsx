@@ -4,6 +4,7 @@ import { deriveGrade } from "../../store/grading.js";
 import { useStore } from "../../store/useStore.js";
 import { sfxClick, sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { sentenceTiles } from "../../store/cardRouting.js";
+import { isJapaneseItem } from "../../store/itemLang.js";
 
 // Sentence builder (rung PRODUCED, in context): rebuild the item's example from
 // word+particle tiles, shown the English gloss as the target. One distractor
@@ -22,7 +23,7 @@ export default function SentenceCard({ item, onGraded }) {
   }, [item.id]);
 
   // JP font for Japanese only; French tiles render in the body face.
-  const tokenFont = (item.lang ?? "ja") === "ja" ? F.jp : F.body;
+  const tokenFont = isJapaneseItem(item) ? F.jp : F.body;
   const answer = spec?.answer ?? [];
   const tiles = spec?.tiles ?? [];
   const assembled = picked.map((i) => tiles[i]);
