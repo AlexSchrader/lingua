@@ -44,6 +44,18 @@ export default function Stats() {
   const liveLangs = LANGUAGES.filter((l) => isLive(l.id));
   const plannedLangs = LANGUAGES.filter((l) => !isLive(l.id));
 
+  // Show only the learner's OWN languages by default — a Japanese-only learner
+  // shouldn't scroll past Spanish/French they never started (that read as "this app
+  // is catered to someone else"). A "My / All languages" toggle reveals the whole
+  // live catalog when they want it. The toggle only appears when there's actually
+  // something to reveal (a live language they haven't started).
+  const started = profile?.languages ?? [];
+  const myLangs = liveLangs.filter((l) => started.includes(l.id));
+  const [scope, setScope] = useState("mine");
+  const showAll = scope === "all" || myLangs.length === 0; // fresh profile → show all
+  const shownLangs = showAll ? liveLangs : myLangs;
+  const canToggleScope = myLangs.length > 0 && liveLangs.length > myLangs.length;
+
   // Mastery is per-language. Default to the learner's OWN active language; "all"
   // aggregates every language. This used to read `languages[id].unlocked` and take the
   // first hit — cascade residue that always resolved to Japanese, and that resolved to
@@ -56,15 +68,30 @@ export default function Stats() {
     LANGUAGES[0].id;
   const [masteryLang, setMasteryLang] = useState(activeLang);
 
-  const masteryItems = masteryLang === "all" ? itemList : itemList.filter((it) => it.lang === masteryLang);
+  // "All languages" aggregates only the languages currently in scope (your own,
+  // unless you've flipped to All) — never phantom items from a language you never
+  // started.
+  const scopeLangIds = shownLangs.map((l) => l.id);
+  const masteryItems =
+    masteryLang === "all"
+      ? itemList.filter((it) => scopeLangIds.includes(it.lang))
+      : itemList.filter((it) => it.lang === masteryLang);
   const rungCounts = RUNGS.map((_, r) => masteryItems.filter((it) => (it.rung ?? 0) === r).length);
   const learned = masteryItems.filter((it) => (it.rung ?? 0) >= 1).length;
 
   return (
     <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 16 }}>
-      <div>
-        <div style={{ fontFamily: F.disp, fontSize: 22, fontWeight: 700 }}>Stats</div>
-        <div style={{ fontSize: 13, color: C.inkSoft }}>Your climb so far.</div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 12, flexWrap: "wrap" }}>
+        <div>
+          <div style={{ fontFamily: F.disp, fontSize: 22, fontWeight: 700 }}>Stats</div>
+          <div style={{ fontSize: 13, color: C.inkSoft }}>Your climb so far.</div>
+        </div>
+        {canToggleScope && (
+          <div style={{ display: "flex", gap: 6 }}>
+            <LangChip label="My languages" on={scope === "mine"} onClick={() => setScope("mine")} />
+            <LangChip label="All" on={scope === "all"} onClick={() => setScope("all")} />
+          </div>
+        )}
       </div>
 
       {/* Milestones — capability you've reached (earned, never revoked) + the single
@@ -76,7 +103,7 @@ export default function Stats() {
           collapse into a single expander instead of fake "coming soon" rows. */}
       <Section title="Languages">
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          {liveLangs.map((l) => {
+          {shownLangs.map((l) => {
             const lang = languages[l.id] ?? { ...l, level: "pre-A1" };
             const stages = langStages[l.id];
             const present = STAGE_ORDER.filter((s) => stages?.[s]?.total > 0);
@@ -119,17 +146,17 @@ export default function Stats() {
               </div>
             );
           })}
-          {plannedLangs.length > 0 && <PlannedLanguages langs={plannedLangs} />}
+          {showAll && plannedLangs.length > 0 && <PlannedLanguages langs={plannedLangs} />}
         </div>
       </Section>
 
       {/* Mastery — scoped to one language (or all) */}
       <Section title="Mastery">
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
-          {liveLangs.map((l) => (
+          {shownLangs.map((l) => (
             <LangChip key={l.id} label={`${l.flag} ${l.name}`} on={masteryLang === l.id} onClick={() => setMasteryLang(l.id)} />
           ))}
-          {liveLangs.length > 1 && (
+          {shownLangs.length > 1 && (
             <LangChip label="All languages" on={masteryLang === "all"} onClick={() => setMasteryLang("all")} />
           )}
         </div>

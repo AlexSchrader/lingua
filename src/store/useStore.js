@@ -6,7 +6,7 @@ import { nextRung, isReviewable } from "./mastery.js";
 import { migrateState, PERSIST_VERSION } from "./migrate.js";
 import { matchesDevCode } from "./dev.js";
 import { earnedMilestones, milestoneCatalog } from "../data/milestones.js";
-import { CEFR_ORDER, cefrLevelReached, levelRank } from "./levels.js";
+import { CEFR_ORDER, cefrLevelReached, levelRank, isLevelComplete } from "./levels.js";
 import { persistKey } from "./preview.js";
 import { slimItems } from "./sync.js";
 
@@ -34,6 +34,20 @@ export function reconstructItems(overlay = {}) {
     out[id] = p ? { ...fresh, rung: p.rung ?? 0, srs: p.srs ?? fresh.srs } : fresh;
   }
   return out;
+}
+
+// Pure core of the add-a-language progression gate — depth before breadth.
+// `started` = the learner's started language ids; `isComplete(id, level)` answers
+// "has this language completed that CEFR band?" (injected so this is unit-testable
+// with no store or curriculum). Returns { level, met }:
+//   • 0 started → { level: null, met: true }  (the first pick is always allowed)
+//   • 1 started → requires A1 complete in it   (A1 unlocks the 2nd language)
+//   • 2+ started → requires A2 mastered in ANY (A2 unlocks the 3rd and beyond)
+export function languageGate(started, isComplete) {
+  const langs = Array.isArray(started) ? started : [];
+  if (langs.length === 0) return { level: null, met: true };
+  const level = langs.length === 1 ? "A1" : "A2";
+  return { level, met: langs.some((id) => isComplete(id, level)) };
 }
 
 // ISO date string (YYYY-MM-DD) in local time, used for streak/daily bookkeeping.
@@ -645,12 +659,22 @@ export const useStore = create(
 
       // Can the learner start another language yet? True once any language they've
       // already started has reached at least A1 (the "lock till A1" rule).
-      canAddLanguage: () => {
-        const { profile, languages } = get();
-        return (profile.languages ?? []).some(
-          (id) => (CEFR_ORDER[languages[id]?.level] ?? -1) >= CEFR_ORDER.A1
-        );
-      },
+      // Progression gate — depth before breadth (Alex, 2026-08-27):
+      //   • no language started yet   → allowed (the first pick)
+      //   • exactly one started       → allowed once that language completes A1
+      //   • two or more started       → allowed once ANY started language masters A2
+      // Reads ground truth from item rungs via isLevelComplete (not the persisted
+      // `.level`, which only advances when the cascade happens to run), so the gate
+      // can never lag behind real progress. `languageUnlockRequirement` exposes the
+      // same decision as { level, met } for the locked-language UI labels.
+      canAddLanguage: () =>
+        languageGate(get().profile.languages, (id, lvl) => isLevelComplete(id, lvl, get().items)).met,
+
+      // What the learner must complete (in one of their started languages) to unlock
+      // the NEXT language, and whether it's met. { level: null } = no requirement
+      // (no language yet). Drives the lock copy on the language picker.
+      languageUnlockRequirement: () =>
+        languageGate(get().profile.languages, (id, lvl) => isLevelComplete(id, lvl, get().items)),
 
       // Selector: items the learner has touched for `lang`, scoped to CEFR ≤
       // maxLevel and rung ≤ maxRung. Used by Haruki to know what the learner

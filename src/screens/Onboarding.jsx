@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
 import { requestReminderPermission, scheduleDailyReminder } from "../lib/reminders.js";
-import PlannedLanguages from "../components/PlannedLanguages.jsx";
 import { C, F } from "../theme.js";
 
 // First-run onboarding, two calm steps: (1) pick the language to learn — any of
@@ -84,39 +83,54 @@ export default function Onboarding() {
               <div style={{ fontSize: 13, color: C.inkSoft, marginTop: 4 }}>Pick the one to start with. You'll unlock the next once you reach A1.</div>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {/* Only languages WITH content are selectable; the other ~19 fold into
-                  a "coming soon" expander so the picker isn't a wall of 20 options. */}
-              {LANGUAGES.filter((l) => hasContent(l.id)).map((l) => {
-                const on = lang === l.id;
-                return (
-                  <button
-                    key={l.id}
-                    onClick={() => setLang(l.id)}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 12,
-                      padding: "14px 16px",
-                      borderRadius: 14,
-                      border: `1.5px solid ${on ? C.ai : C.line}`,
-                      background: on ? C.aiSoft : C.surface,
-                      color: C.ink,
-                      cursor: "pointer",
-                      fontFamily: F.body,
-                      textAlign: "left",
-                    }}
-                  >
-                    <span style={{ fontSize: 28 }}>{l.flag}</span>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontSize: 16, fontWeight: 700, color: on ? C.aiDeep : C.ink }}>{l.name}</div>
-                      <div style={{ fontSize: 12, color: C.matcha, fontWeight: 600, marginTop: 2 }}>Available now</div>
-                    </div>
-                    <span style={{ fontSize: 12, color: C.inkSoft }}>→ {l.target}</span>
-                  </button>
-                );
-              })}
-              <PlannedLanguages langs={LANGUAGES.filter((l) => !hasContent(l.id))} />
+            {/* One scrollable list of EVERY language (Alex's call — no collapse/expand).
+                Content languages are pickable; the rest show a lock + "Coming soon"
+                and aren't selectable yet. Available ones sort to the top so the first
+                pick is right there. */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 10, maxHeight: "46vh", overflowY: "auto", padding: "2px 2px", margin: "0 -2px" }}>
+              {[...LANGUAGES]
+                .sort((a, b) => (hasContent(b.id) ? 1 : 0) - (hasContent(a.id) ? 1 : 0))
+                .map((l) => {
+                  const available = hasContent(l.id);
+                  const on = lang === l.id;
+                  return (
+                    <button
+                      key={l.id}
+                      onClick={() => available && setLang(l.id)}
+                      disabled={!available}
+                      aria-disabled={!available}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 12,
+                        padding: "14px 16px",
+                        borderRadius: 14,
+                        border: `1.5px solid ${on ? C.ai : C.line}`,
+                        background: on ? C.aiSoft : C.surface,
+                        color: C.ink,
+                        cursor: available ? "pointer" : "default",
+                        opacity: available ? 1 : 0.55,
+                        fontFamily: F.body,
+                        textAlign: "left",
+                        width: "100%",
+                        flexShrink: 0,
+                      }}
+                    >
+                      <span style={{ fontSize: 28, filter: available ? "none" : "grayscale(0.5)" }}>{l.flag}</span>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ fontSize: 16, fontWeight: 700, color: on ? C.aiDeep : C.ink }}>{l.name}</div>
+                        <div style={{ fontSize: 12, fontWeight: 600, marginTop: 2, color: available ? C.matcha : C.inkSoft }}>
+                          {available ? "Available now" : "Coming soon"}
+                        </div>
+                      </div>
+                      {available ? (
+                        <span style={{ fontSize: 12, color: C.inkSoft }}>→ {l.target}</span>
+                      ) : (
+                        <span style={{ fontSize: 14 }} aria-hidden>🔒</span>
+                      )}
+                    </button>
+                  );
+                })}
             </div>
 
             <button
