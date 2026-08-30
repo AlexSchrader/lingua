@@ -8,11 +8,12 @@ import { VERB_GROUPS } from "./ja/verb-groups.js";
 import { JA_UNITS } from "./ja/index.js";
 import { FR_UNITS } from "./fr/index.js";
 import { ES_UNITS } from "./es/index.js";
+import { DE_UNITS } from "./de/index.js";
 
 // Order is ja-then-fr, matching the previous hand-maintained array. Nothing reads
 // array position (the Ladder sorts on each unit's own `order`), but keeping it
 // stable keeps diffs and fixtures honest.
-export const UNITS = [...JA_UNITS, ...FR_UNITS, ...ES_UNITS];
+export const UNITS = [...JA_UNITS, ...FR_UNITS, ...ES_UNITS, ...DE_UNITS];
 
 // A language is "live" once it has PLAYABLE authored content; catalog entries with
 // no units yet — or with nothing but scaffold stubs — are "planned". Derived, never
