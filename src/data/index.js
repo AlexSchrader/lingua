@@ -10,11 +10,12 @@ import { FR_UNITS } from "./fr/index.js";
 import { ES_UNITS } from "./es/index.js";
 import { DE_UNITS } from "./de/index.js";
 import { NO_UNITS } from "./no/index.js";
+import { PT_UNITS } from "./pt/index.js";
 
 // Order is ja-then-fr, matching the previous hand-maintained array. Nothing reads
 // array position (the Ladder sorts on each unit's own `order`), but keeping it
 // stable keeps diffs and fixtures honest.
-export const UNITS = [...JA_UNITS, ...FR_UNITS, ...ES_UNITS, ...DE_UNITS, ...NO_UNITS];
+export const UNITS = [...JA_UNITS, ...FR_UNITS, ...ES_UNITS, ...DE_UNITS, ...NO_UNITS, ...PT_UNITS];
 
 // A language is "live" once it has PLAYABLE authored content; catalog entries with
 // no units yet — or with nothing but scaffold stubs — are "planned". Derived, never
