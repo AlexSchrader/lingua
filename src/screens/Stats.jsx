@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Award } from "lucide-react";
-import { useStore } from "../store/useStore.js";
-import { LANGUAGES, UNITS, isLive } from "../data/index.js";
+import { useStore, activeLangId } from "../store/useStore.js";
+import { LANGUAGES, UNITS } from "../data/index.js";
 import { RUNGS } from "../store/mastery.js";
 import { milestonesFromIds, nextMilestone } from "../data/milestones.js";
 import { C, F } from "../theme.js";
@@ -38,22 +38,24 @@ export default function Stats() {
     return out;
   }, [items]);
 
-  // Catalog split: only languages with real content are shown expanded / as tabs;
-  // the rest collapse into a "planned" list. Derived from UNITS, so a language
-  // appears automatically the moment its first unit ships.
-  const liveLangs = LANGUAGES.filter((l) => isLive(l.id));
-  const plannedLangs = LANGUAGES.filter((l) => !isLive(l.id));
+  // Stats reports on THIS learner, so the Languages section lists the languages they
+  // have actually started — not every language that happens to have content. Listing
+  // all live languages meant a French learner's own stats screen showed Japanese and
+  // Spanish progress bars at 0/5012 and 0/1457: someone else's catalog, rendered as
+  // their own report card. Everything else in the app still discovers languages from
+  // content (isLive) — that is a catalog question; this is not.
+  const startedIds = profile?.languages ?? [];
+  const startedLangs = LANGUAGES.filter((l) => startedIds.includes(l.id));
+  // Not-yet-started languages stay visible as a single collapsed "planned" list, so
+  // the picker is still discoverable without pretending the learner is studying them.
+  const otherLangs = LANGUAGES.filter((l) => !startedIds.includes(l.id));
 
   // Mastery is per-language. Default to the learner's OWN active language; "all"
-  // aggregates every language. This used to read `languages[id].unlocked` and take the
-  // first hit — cascade residue that always resolved to Japanese, and that resolved to
-  // Japanese for EVERYONE once the field was dropped from the catalog. The learner's
-  // active language is the honest answer, with the first language that has content as
-  // the fallback (never a hardcoded LANGUAGES[0]).
-  const activeLang =
-    (profile?.activeLang && liveLangs.some((l) => l.id === profile.activeLang) && profile.activeLang) ||
-    liveLangs[0]?.id ||
-    LANGUAGES[0].id;
+  // aggregates every language they study. This used to read `languages[id].unlocked`
+  // and take the first hit — cascade residue that always resolved to Japanese — and
+  // then resolved against the LIVE catalog, which is still not this learner. The
+  // store's shared resolver is the one answer every screen agrees on.
+  const activeLang = activeLangId(profile);
   const [masteryLang, setMasteryLang] = useState(activeLang);
 
   const masteryItems = masteryLang === "all" ? itemList : itemList.filter((it) => it.lang === masteryLang);
@@ -70,16 +72,32 @@ export default function Stats() {
       {/* Milestones — capability you've reached (earned, never revoked) + the single
           nearest next goal. Honest structural progress, not an engagement score.
           Pure-derived from mastery state; see src/data/milestones.js. */}
-      <MilestonesSection items={items} earnedIds={milestonesEarned} startedLangs={profile?.languages} />
+      {/* An empty/missing language list means "no scoping" in milestonesForLangs —
+          the WHOLE catalog, i.e. Japanese kanji goals on a French profile. Fall back
+          to the learner's own active language rather than degrading to everything. */}
+      <MilestonesSection
+        items={items}
+        earnedIds={milestonesEarned}
+        startedLangs={profile?.languages?.length ? profile.languages : [activeLang]}
+      />
 
-      {/* Per-language, per-stage progress — live languages only; planned ones
-          collapse into a single expander instead of fake "coming soon" rows. */}
+      {/* Per-language, per-stage progress — the learner's OWN started languages;
+          everything else collapses into one "planned" expander. */}
       <Section title="Languages">
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          {liveLangs.map((l) => {
+          {startedLangs.length === 0 && (
+            <div style={{ fontSize: 13, color: C.inkSoft }}>
+              Pick a language to start and your progress shows up here.
+            </div>
+          )}
+          {startedLangs.map((l) => {
             const lang = languages[l.id] ?? { ...l, level: "pre-A1" };
             const stages = langStages[l.id];
             const present = STAGE_ORDER.filter((s) => stages?.[s]?.total > 0);
+            // Before A1 there is no CEFR level to print. "Starting out" was a label
+            // with no information in it; the count of items learned is the same fact,
+            // stated honestly, and it moves.
+            const learnedInLang = present.reduce((n, s) => n + (stages[s]?.learned ?? 0), 0);
             // The padlock used to key off the catalog's `unlocked` flag — cascade
             // residue that marked every language but Japanese as locked forever, and
             // that marked EVERY language locked once the field was dropped. What
@@ -95,7 +113,7 @@ export default function Stats() {
                     {lang.flag} {lang.name} {locked && "🔒"}
                   </span>
                   <span style={{ color: C.inkSoft, fontSize: 12 }}>
-                    {lang.level === "pre-A1" ? "Starting out" : lang.level}
+                    {lang.level === "pre-A1" ? `${learnedInLang} item${learnedInLang === 1 ? "" : "s"}` : lang.level}
                   </span>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
@@ -119,17 +137,17 @@ export default function Stats() {
               </div>
             );
           })}
-          {plannedLangs.length > 0 && <PlannedLanguages langs={plannedLangs} />}
+          {otherLangs.length > 0 && <PlannedLanguages langs={otherLangs} />}
         </div>
       </Section>
 
       {/* Mastery — scoped to one language (or all) */}
       <Section title="Mastery">
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
-          {liveLangs.map((l) => (
+          {startedLangs.map((l) => (
             <LangChip key={l.id} label={`${l.flag} ${l.name}`} on={masteryLang === l.id} onClick={() => setMasteryLang(l.id)} />
           ))}
-          {liveLangs.length > 1 && (
+          {startedLangs.length > 1 && (
             <LangChip label="All languages" on={masteryLang === "all"} onClick={() => setMasteryLang("all")} />
           )}
         </div>

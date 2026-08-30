@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Lock, Check, ChevronRight, Volume2 } from "lucide-react";
-import { useStore } from "../store/useStore.js";
+import { useStore, activeLangId } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
 import { roadmapFor } from "../data/roadmap.js";
 import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
@@ -75,9 +75,12 @@ export default function Ladder() {
   const canAdd = realCanAdd || previewAddLang;
 
   const langData = (id) => ({ ...LANGUAGES.find((l) => l.id === id), ...(languages[id] ?? {}) });
-  // Started = the languages the learner chose (falls back to ja for safety).
-  const started = profile.languages?.length ? profile.languages : ["ja"];
-  const activeId = profile.activeLang && started.includes(profile.activeLang) ? profile.activeLang : started[0];
+  // Started = the languages the learner actually chose. No fallback list: an empty
+  // one means "has started nothing", and inventing ["ja"] there put a language the
+  // learner never picked into the switcher. Which one is active is resolved by the
+  // store's shared helper so this screen cannot disagree with Today or the queue.
+  const started = profile.languages ?? [];
+  const activeId = activeLangId(profile);
   const active = langData(activeId);
   const notStarted = LANGUAGES.filter((l) => !started.includes(l.id));
 
@@ -154,6 +157,9 @@ export default function Ladder() {
 // --- Active language: CEFR ladder (the spine) -------------------------------
 
 function ActiveLanguage({ lang, items }) {
+  // Before A1 there is no CEFR level worth printing, and "Starting out" said nothing
+  // a learner can act on. The honest number is what they have actually learned.
+  const learnedItems = Object.values(items).filter((it) => it.lang === lang.id && (it.rung ?? 0) >= 1).length;
   // The spine is the CEFR stages up to the goal, INCLUDING Pre-A1 — the kana
   // foundation is a real stage you climb before A1, not A1 itself. Stages are
   // unit-level, so "you're here" is derived from actual progress (the first
@@ -209,7 +215,7 @@ function ActiveLanguage({ lang, items }) {
         <div style={{ flex: 1 }}>
           <div style={{ fontFamily: F.disp, fontSize: 18, fontWeight: 700 }}>{lang.name}</div>
           <div style={{ fontSize: 12, color: C.inkSoft }}>
-            {lang.level === "pre-A1" ? "Starting out" : lang.level} → {lang.target} goal
+            {lang.level === "pre-A1" ? `${learnedItems} item${learnedItems === 1 ? "" : "s"}` : lang.level} → {lang.target} goal
           </div>
         </div>
       </div>
@@ -731,11 +737,16 @@ function StageGroup({ label, summary, defaultOpen, rows, items }) {
 function UnitRow({ n, unit, items, done, total, status }) {
   const [open, setOpen] = useState(false);
   const pct = total ? Math.round((done / total) * 100) : 0;
+  // Only the two states a learner can act on get a label. There is no third state
+  // worth announcing: every unit in this list is authored and open — nothing gates
+  // a later one, they all expand and start — so a "Coming" badge read as if the
+  // content hadn't been written yet, on units you can tap right now. The muted
+  // number colour still carries "not started".
   const badge = status === "done"
     ? { text: "Done", color: C.matcha }
     : status === "current"
     ? { text: "Current", color: C.ai }
-    : { text: "Coming", color: C.locked };
+    : { text: null, color: C.locked };
   const lessons = unit.lessons.filter((l) => Array.isArray(l.items));
 
   return (
@@ -750,7 +761,9 @@ function UnitRow({ n, unit, items, done, total, status }) {
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
             <span style={{ fontFamily: F.jp, fontWeight: 700, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{unit.title}</span>
-            <span style={{ fontSize: 11, fontWeight: 700, color: badge.color, flexShrink: 0 }}>{badge.text}</span>
+            {badge.text && (
+              <span style={{ fontSize: 11, fontWeight: 700, color: badge.color, flexShrink: 0 }}>{badge.text}</span>
+            )}
           </div>
           <div style={{ height: 6, borderRadius: 999, background: C.lockedBg, overflow: "hidden", marginTop: 6 }}>
             <div style={{ width: `${pct}%`, height: "100%", background: status === "done" ? C.matcha : C.ai, transition: "width 250ms ease" }} />

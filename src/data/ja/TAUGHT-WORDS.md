@@ -1,0 +1,5452 @@
+# JA — words already taught
+
+**Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- ja`.
+Snapshot 2026-08-28: **5012 words** across **208 authored unit(s)**, **0 slot(s) still stubs**.
+
+## How to use this (RUNBOOK §4)
+
+- **Before you write an example**, check the words in it against the index below. A word that is here is free to use; a word that is not is either yours to teach or someone else's — see the ownership rule.
+- **Before you commit to a `front`**, check it here. If it is already taught, **the lower slot number owns it** — you use it in examples, you do not re-teach it. Check inflectional relatives too, not just the exact string (infinitive vs conjugated form, noun vs noun+verb): front-uniqueness passes on exact strings and will happily let you teach the same lexeme twice.
+- **Grep it, don't read it.** It is long on purpose — one line per word is what makes the lookup exact.
+
+### What this list cannot tell you
+
+- **It does not contain the words your sibling blocks are writing right now.** They do not exist yet, in this tree or any other. If you need a word a *later* slot will plainly own (a grammar unit's tense, a themed unit's domain), assume it is theirs and teach around it.
+- **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
+- **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
+
+## Index — every taught word, alphabetical
+
+`word` — slot · meaning
+
+- `あ` — u1
+- `ア` — u4
+- `あいかわらず` — u147 · as always, same as ever
+- `あいさつ` — u77 · greeting
+- `あいさつします` — u77 · greet
+- `あいじょう` — u70 · affection
+- `アイス` — u4 · ice cream
+- `あいだ` — u30 · during
+- `あいだに` — u137 · while (during)
+- `あいて` — u77 · the other person
+- `あいにく` — u191 · unfortunately, as it happens
+- `あいまい` — u105 · vague
+- `あいまいさ` — u156 · vagueness
+- `あいます` — u9 · meet
+- `アイロン` — u5 · iron
+- `あえて` — u161 · deliberately (against the grain)
+- `あお` — u12 · blue
+- `あおい` — u12 · blue (is blue)
+- `あおぞら` — u66 · blue sky
+- `あか` — u12 · red
+- `あかい` — u12 · red (is red)
+- `アカウント` — u149 · account (online)
+- `あかちゃん` — u8 · baby
+- `あがる` — u97 · go up
+- `あかるい` — u48 · cheerful
+- `あかんぼう` — u91 · baby
+- `あき` — u12 · autumn
+- `あきます` — u69 · to open
+- `あきや` — u153 · empty, unoccupied house
+- `あきらか` — u145 · clear, evident
+- `あきらめる` — u122 · give up
+- `アクセサリー` — u97 · accessory
+- `あくせんくとう` — u198 · a hard, uphill struggle
+- `アクセント` — u151 · pitch accent
+- `あくまで` — u146 · strictly, to the very end
+- `あくまでも` — u206 · strictly, only as
+- `あけます` — u20 · open
+- `あげます` — u28 · give
+- `あげる` — u43 · to give (to someone else)
+- `あご` — u60 · jaw
+- `あこがれ` — u112 · longing
+- `あさ` — u7 · morning
+- `あさい` — u80 · shallow
+- `あさごはん` — u9 · breakfast
+- `あさって` — u7 · the day after tomorrow
+- `あざやか` — u145 · vivid, brilliant
+- `あし` — u60 · leg
+- `あじ` — u9 · flavor
+- `アジア` — u96 · Asia
+- `あしがでる` — u196 · to go over budget
+- `あしがぼうになる` — u196 · to be worn out from walking
+- `あした` — u7 · tomorrow
+- `あじつけ` — u154 · seasoning (the act)
+- `あじみ` — u73 · tasting
+- `あしをあらう` — u196 · to leave (a bad line of work) for good
+- `あしをはこぶ` — u196 · to make the trip, to go in person
+- `あしをひっぱる` — u196 · to hold (the team) back
+- `あす` — u97 · tomorrow
+- `あせり` — u186 · a rushed anxiety
+- `あせる` — u112 · to feel rushed
+- `あそこ` — u82 · over there
+- `あそび` — u93 · play
+- `あそびます` — u20 · play
+- `あたえます` — u155 · to give (formal), to grant
+- `あたえる` — u101 · to give
+- `あたかも` — u206 · as if, just as though
+- `あたたかい` — u12 · warm
+- `あたためます` — u73 · warm up
+- `あたま` — u26 · head
+- `あたまがあがらない` — u197 · to be unable to face (from obligation)
+- `あたまがかたい` — u197 · inflexible, set in one's ways
+- `あたまがさがる` — u197 · to feel deep respect
+- `あたまにくる` — u197 · to get angry, to be infuriated
+- `あたまをかかえる` — u197 · to be at one's wits' end
+- `あたまをひやす` — u197 · to cool off, to calm down
+- `あたらしい` — u10 · new
+- `あちら` — u82 · that way
+- `あつい` — u12 · hot
+- `あっさり` — u154 · light, clean (flavour)
+- `あっち` — u64 · over that way
+- `アップデート` — u149 · update (software)
+- `あつまります` — u69 · to gather
+- `あつめます` — u22 · collect
+- `あと` — u82 · later
+- `あとで` — u30 · after
+- `アナウンサー` — u91 · announcer
+- `アナウンス` — u77 · announcement
+- `あなた` — u8 · you
+- `あに` — u8 · my older brother
+- `アニメ` — u126 · animation
+- `あね` — u8 · my older sister
+- `あの` — u19 · that ~ (over there)
+- `アパート` — u59 · apartment
+- `あひる` — u61 · duck
+- `あびる` — u82 · to take (a shower)
+- `あぶない` — u23 · dangerous
+- `あぶら` — u54 · oil
+- `アフリカ` — u89 · Africa
+- `あまい` — u9 · sweet
+- `あまり` — u20 · not much
+- `あめ` — u12 · rain
+- `アメリカ` — u4 · America
+- `あやしい` — u144 · suspicious, dubious
+- `あやふや` — u124 · hazy and uncertain
+- `あやまる` — u94 · to apologize
+- `あらい` — u144 · rough, coarse
+- `あらいます` — u22 · wash
+- `あらし` — u66 · storm
+- `あらわします` — u155 · to express, to represent
+- `あり` — u61 · ant
+- `ありがたい` — u112 · grateful for
+- `ありがとう` — u1 · thank you
+- `あります` — u20 · there is
+- `あるいは` — u139 · or possibly
+- `あるきます` — u22 · walk
+- `あるきまわる` — u195 · to walk about, to wander around
+- `アルコール` — u98 · alcohol
+- `アルバイト` — u89 · part-time job
+- `あれ` — u19 · that (over there)
+- `あわ` — u154 · bubbles
+- `あわただしい` — u144 · hectic, rushed
+- `あわてる` — u112 · to panic
+- `あわや` — u207 · very nearly (something bad)
+- `あんがい` — u105 · unexpectedly
+- `あんき` — u148 · memorization, learning by heart
+- `あんしん` — u48 · relief
+- `あんぜん` — u23 · safe
+- `あんぜんせい` — u174 · how safe something is
+- `あんてい` — u158 · stability
+- `あんど` — u186 · relief once it is over
+- `あんな` — u94 · that kind of
+- `あんない` — u74 · guidance
+- `い` — u1
+- `イ` — u4
+- `いい` — u82 · good
+- `いいえ` — u1 · no
+- `いいかえる` — u156 · to rephrase
+- `いいかける` — u194 · to start to say (and stop)
+- `いいきる` — u193 · to state flatly, to assert
+- `いいだす` — u194 · to bring up, to be the one to say it
+- `いいなおします` — u143 · to rephrase
+- `いいわけ` — u120 · an excuse
+- `いえ` — u10 · house
+- `いか` — u61 · squid
+- `いがい` — u94 · other than
+- `いかが` — u82 · how about
+- `いがく` — u88 · medicine (study)
+- `いかにも` — u206 · just like you'd expect, every inch
+- `いかれる` — u191 · to go (honorific, light)
+- `いぎ` — u114 · significance
+- `いきどおり` — u186 · indignation
+- `いきなり` — u147 · abruptly, out of nowhere
+- `いきぬく` — u193 · to survive, to live through
+- `いきます` — u9 · go
+- `いくつ` — u62 · how many
+- `いくつも` — u205 · any number of, many
+- `いくども` — u205 · over and over
+- `いくら` — u62 · how much
+- `いくらでも` — u90 · as much as you want
+- `いけ` — u27 · pond
+- `いけばな` — u67 · flower arranging
+- `いけん` — u75 · opinion
+- `いご` — u116 · from then on
+- `いこう` — u192 · from ~ onwards
+- `いざ` — u207 · when it really comes to it
+- `いし` — u27 · stone
+- `いじ` — u160 · maintenance
+- `いしき` — u176 · awareness
+- `いじめる` — u96 · to bully
+- `いしゃ` — u26 · doctor
+- `いじょう` — u95 · more than
+- `いしんでんしん` — u198 · understanding without words
+- `いす` — u57 · chair
+- `いずれ` — u122 · sooner or later
+- `いせき` — u168 · ruins
+- `いぜん` — u116 · previously
+- `いそがしい` — u21 · busy
+- `いそぎます` — u22 · hurry
+- `いぞん` — u160 · dependence
+- `いたい` — u26 · painful
+- `いたす` — u90 · to do (humble)
+- `いただきます` — u68 · let's eat
+- `いたみ` — u133 · pain
+- `いためます` — u73 · stir-fry
+- `イタリア` — u4 · Italy
+- `いたる` — u101 · to reach
+- `いち` — u7 · one
+- `いちおう` — u105 · for now
+- `いちご` — u54 · strawberry
+- `いちごいちえ` — u198 · this meeting will never come again
+- `いちじるしい` — u161 · marked
+- `いちだんと` — u206 · a notch more than before
+- `いちど` — u91 · once
+- `いちにち` — u82 · one day
+- `いちばん` — u29 · most
+- `いちぶ` — u103 · a part
+- `いちぶしじゅう` — u198 · the whole story from start to finish
+- `いつ` — u19 · when
+- `いつか` — u68 · someday
+- `いっきいちゆう` — u198 · swinging between hope and despair
+- `いっけん` — u147 · at first glance
+- `いっさい` — u205 · (not) at all; entirely
+- `いっしょ` — u82 · together
+- `いっしょうけんめい` — u89 · with all one's might
+- `いっせきにちょう` — u198 · killing two birds with one stone
+- `いっそ` — u146 · might as well, rather
+- `いっそう` — u103 · even more
+- `いっそのこと` — u207 · might as well just
+- `いつつ` — u82 · five (things)
+- `いってきます` — u68 · I'm off
+- `いってらっしゃい` — u68 · take care
+- `いつのまにか` — u116 · before you know it
+- `いっぱい` — u68 · a lot
+- `いっぱんてき` — u203 · general, common
+- `いっぱんに` — u99 · generally
+- `いっぽう` — u137 · meanwhile
+- `いっぽうで` — u99 · on the other hand
+- `いつも` — u29 · always
+- `いでん` — u167 · heredity
+- `いと` — u98 · thread
+- `いとなむ` — u208 · to run (a business), to lead (a life)
+- `いどむ` — u208 · to take on, to challenge
+- `いない` — u92 · within
+- `いなか` — u59 · countryside
+- `いぬ` — u1 · dog
+- `いのち` — u76 · life
+- `いのる` — u89 · to pray
+- `いはん` — u120 · violation
+- `いま` — u7 · now
+- `いまいち` — u161 · not quite there
+- `いまさら` — u124 · after all this time
+- `います` — u20 · there is (living)
+- `いまだ` — u206 · still (not), to this day
+- `いみ` — u57 · meaning
+- `いもうと` — u8 · my younger sister
+- `いや` — u82 · unpleasant
+- `いやがる` — u112 · to be unwilling
+- `いやくひん` — u181 · pharmaceuticals
+- `イヤホン` — u5 · earphones
+- `いよいよ` — u122 · at last
+- `いらい` — u177 · a formal request
+- `いらいら` — u63 · irritated
+- `いらっしゃいませ` — u141 · welcome (said to a customer)
+- `いらっしゃる` — u89 · to come (honorific)
+- `いりぐち` — u82 · entrance
+- `いります` — u53 · need
+- `いりょう` — u181 · medical care
+- `いりょうひ` — u181 · medical costs
+- `いれる` — u82 · to put in
+- `いろ` — u12 · color
+- `いろいろ` — u82 · various
+- `いわかん` — u203 · a sense that something is off
+- `いわば` — u151 · so to speak, as it were
+- `いわゆる` — u190 · so-called; what is called
+- `いわれます` — u138 · is said, gets told
+- `いんしょう` — u70 · impression
+- `インターネット` — u50 · internet
+- `インタビュー` — u77 · interview
+- `イントネーション` — u151 · intonation (of a sentence)
+- `インフルエンザ` — u72 · flu
+- `いんぺい` — u172 · a cover-up
+- `う` — u1
+- `ウ` — u4
+- `ウール` — u4 · wool
+- `うえ` — u10 · above
+- `うえで` — u189 · after doing; in the course of
+- `うえる` — u97 · plant
+- `うかがう` — u88 · to visit (humble)
+- `うけたまわります` — u141 · we take (orders); I hear (humble)
+- `うけつぐ` — u170 · to take over from
+- `うけつけ` — u74 · reception desk
+- `うけつけます` — u143 · to accept (an application)
+- `うけとります` — u143 · to receive, to accept
+- `うける` — u90 · take (an exam)
+- `うごきます` — u27 · move
+- `うさぎ` — u61 · rabbit
+- `うし` — u27 · cow
+- `うしないます` — u155 · to lose (something abstract)
+- `うしろ` — u10 · behind
+- `うしろめたい` — u186 · guilty about something hidden
+- `うすい` — u12 · pale
+- `うそ` — u63 · a lie
+- `うた` — u67 · song
+- `うたいます` — u22 · sing
+- `うたがう` — u105 · to doubt
+- `うち` — u10 · home
+- `うちあわせ` — u110 · briefing
+- `うちに` — u137 · while (before it changes)
+- `うちゅう` — u51 · space
+- `うつ` — u94 · to hit
+- `うっかり` — u124 · carelessly
+- `うつくしい` — u80 · beautiful
+- `うつす` — u93 · to copy
+- `うっとり` — u199 · entranced, spellbound
+- `うつります` — u69 · to move
+- `うつる` — u116 · to move
+- `うで` — u60 · arm
+- `うでがなる` — u197 · to be itching to show what one can do
+- `うどん` — u54 · udon
+- `うながす` — u208 · to prompt, to urge
+- `うま` — u27 · horse
+- `うまい` — u80 · good (at)
+- `うまれる` — u82 · to be born
+- `うみ` — u27 · sea
+- `うら` — u93 · back
+- `うらづけ` — u156 · corroboration
+- `うらやましい` — u70 · envious
+- `うりあげ` — u165 · sales takings
+- `うりきれる` — u193 · to sell out
+- `うりば` — u88 · sales counter
+- `うります` — u28 · sell
+- `うるさい` — u23 · noisy
+- `うれしい` — u23 · happy
+- `うろたえる` — u199 · to lose one's head, to panic
+- `うわぎ` — u78 · jacket
+- `うわさ` — u77 · rumor
+- `うん` — u89 · yeah
+- `うんざり` — u112 · fed up
+- `うんちん` — u74 · fare
+- `うんてん` — u74 · driving
+- `うんてんしゅ` — u88 · driver
+- `うんどう` — u2 · exercise
+- `うんどうする` — u88 · to exercise
+- `うんよう` — u160 · operation (in practice)
+- `え` — u1
+- `エ` — u4
+- `エアコン` — u4 · air conditioner
+- `えいが` — u9 · movie
+- `えいがかん` — u10 · cinema
+- `えいきょう` — u101 · influence
+- `えいきょうりょく` — u167 · influence (power to affect)
+- `えいご` — u3 · English
+- `えいせい` — u181 · public hygiene
+- `えいぞう` — u184 · footage
+- `えいよう` — u133 · nutrition
+- `えき` — u10 · station
+- `エスカレーター` — u89 · escalator
+- `えだ` — u61 · branch
+- `エネルギー` — u51 · energy
+- `えび` — u3 · shrimp
+- `エプロン` — u78 · apron
+- `えらい` — u144 · admirable; high-ranking
+- `えらびぬく` — u193 · to select with great care
+- `えらびます` — u28 · choose
+- `エレベーター` — u82 · elevator
+- `えん` — u7 · yen
+- `えんき` — u122 · postponement
+- `えんしゅつ` — u170 · staging
+- `えんそう` — u52 · performance
+- `えんぴつ` — u3 · pencil
+- `えんりょ` — u81 · reserve
+- `お` — u1
+- `オ` — u4
+- `オートバイ` — u88 · motorcycle
+- `オーバー` — u92 · overcoat
+- `おいかけます` — u143 · to chase after
+- `おいしい` — u9 · delicious
+- `おいつく` — u195 · to catch up with
+- `おいでになる` — u94 · to come (honorific)
+- `おいわい` — u92 · celebration
+- `おうえん` — u52 · cheering
+- `おうだんほどう` — u152 · pedestrian crossing
+- `おうふく` — u74 · round trip
+- `おうよう` — u160 · applied use
+- `おうようかがく` — u167 · applied science
+- `おおい` — u55 · many
+- `おおいに` — u146 · greatly, very much
+- `おおきい` — u10 · big
+- `おおきな` — u82 · big
+- `おおさじ` — u154 · tablespoon (measure)
+- `おおざっぱ` — u158 · rough-and-ready
+- `おおぜい` — u62 · many people
+- `おおはば` — u205 · by a wide margin, substantially
+- `おおまか` — u161 · broadly
+- `おおむね` — u205 · broadly, on the whole
+- `おか` — u61 · hill
+- `おかあさん` — u8 · mother (someone's)
+- `おかえりなさい` — u68 · welcome home
+- `おかきになる` — u191 · to write (honorific)
+- `おかげ` — u98 · thanks to
+- `おかけください` — u141 · please have a seat
+- `おかげさまで` — u137 · thanks to you
+- `おかげで` — u101 · thanks to
+- `おかし` — u9 · sweets
+- `おかしい` — u80 · funny
+- `おかず` — u73 · side dish
+- `おかね` — u28 · money
+- `おかねもち` — u65 · rich person
+- `おかまいなく` — u191 · please don't trouble yourself
+- `おかわり` — u73 · refill
+- `おき` — u96 · at intervals of
+- `おきます` — u9 · wake up
+- `おきゃくさん` — u8 · guest
+- `おく` — u64 · the back
+- `おくさん` — u8 · wife (someone's)
+- `おくじょう` — u89 · rooftop
+- `おくゆき` — u150 · depth (front to back)
+- `おくります` — u22 · send
+- `おくりもの` — u89 · gift
+- `おくれぎみ` — u204 · running a little behind
+- `おくれます` — u45 · to be late
+- `おこさん` — u95 · (someone's) child
+- `おこしになる` — u191 · to come / go (honorific)
+- `おこします` — u46 · to wake (someone)
+- `おこたえします` — u191 · to answer / respond (humble)
+- `おこたる` — u208 · to neglect (a duty)
+- `おこなう` — u90 · hold
+- `おこる` — u88 · to get angry
+- `おさけ` — u54 · sake
+- `おさななじみ` — u79 · childhood friend
+- `おさら` — u82 · plate
+- `おしい` — u186 · a shame to lose
+- `おじいさん` — u8 · grandfather (someone's)
+- `おしいれ` — u47 · closet
+- `おしえます` — u22 · teach
+- `おしかえす` — u195 · to push back
+- `おじさん` — u82 · uncle
+- `おしとおす` — u193 · to push (an opinion) through
+- `おしぼり` — u73 · wet towel
+- `おします` — u53 · push
+- `おしゃれ` — u78 · stylish
+- `おじょうさん` — u91 · young lady
+- `おしり` — u60 · bottom
+- `おすすめ` — u65 · recommendation
+- `おせわになります` — u141 · thank you for your support (set opener)
+- `おせん` — u129 · pollution
+- `おそい` — u55 · slow
+- `おそいかかる` — u194 · to pounce on, to descend upon
+- `おそらく` — u105 · probably
+- `おそれ` — u174 · the risk that
+- `おそれいりますが` — u141 · excuse me, but…
+- `おそろしい` — u144 · dreadful, frightening
+- `おたく` — u88 · your house (polite)
+- `おたま` — u154 · ladle
+- `おだやか` — u145 · calm, mild
+- `おちこむ` — u112 · to feel down
+- `おちつく` — u112 · to calm down
+- `おちゃ` — u9 · tea
+- `おちる` — u89 · to fall
+- `おつかいになる` — u191 · to use (honorific)
+- `おっしゃる` — u96 · to say (honorific)
+- `おつたえする` — u191 · to convey / pass on (humble)
+- `おって` — u192 · in due course, later
+- `おっと` — u8 · my husband
+- `おつり` — u28 · change
+- `おてあらい` — u82 · restroom
+- `おてら` — u10 · temple
+- `おと` — u93 · sound
+- `おとうさん` — u8 · father (someone's)
+- `おとうと` — u8 · my younger brother
+- `おとこ` — u8 · man
+- `おとこのこ` — u82 · boy
+- `おとす` — u96 · to drop
+- `おととい` — u21 · the day before yesterday
+- `おとどけする` — u191 · to deliver (humble)
+- `おととし` — u56 · the year before last
+- `おとな` — u8 · adult
+- `おとなしい` — u48 · quiet
+- `おどり` — u93 · dance
+- `おどります` — u22 · dance
+- `おとる` — u103 · to be inferior
+- `おとろえる` — u116 · to weaken
+- `おどろきます` — u69 · to be surprised
+- `おなか` — u26 · stomach
+- `おなじ` — u55 · same
+- `おなじく` — u103 · likewise
+- `おにいさん` — u8 · older brother (someone's)
+- `おにぎり` — u9 · rice ball
+- `おねえさん` — u8 · older sister (someone's)
+- `おねがいいたします` — u141 · I ask this of you (humble)
+- `おねがいします` — u20 · please
+- `おのずと` — u206 · of its own accord, naturally
+- `おばあさん` — u8 · grandmother (someone's)
+- `おばさん` — u82 · aunt
+- `おはよう` — u1 · good morning
+- `おびる` — u208 · to take on (a quality or colour)
+- `おふろ` — u83 · bath
+- `おべんとう` — u83 · bento
+- `おぼえます` — u25 · memorize
+- `おまけに` — u190 · on top of that, what's more
+- `おまたせしました` — u141 · sorry to have kept you waiting
+- `おまちください` — u141 · please wait (respectful)
+- `おまつり` — u91 · festival
+- `おまわりさん` — u83 · police officer
+- `おみまい` — u96 · get-well visit
+- `おみやげ` — u52 · souvenir
+- `おむかえする` — u191 · to go to meet / receive (humble)
+- `おめでとう` — u68 · congratulations
+- `おめにかかる` — u191 · to meet (humble)
+- `おめにかける` — u191 · to show (humble)
+- `おもい` — u23 · heavy
+- `おもいかえす` — u195 · to think back on; to think better of
+- `おもいきや` — u207 · and yet, contrary to expectation
+- `おもいこみ` — u124 · a fixed belief
+- `おもいこむ` — u194 · to be convinced (wrongly)
+- `おもいだす` — u92 · remember
+- `おもいつきます` — u143 · to hit upon (an idea)
+- `おもいつく` — u124 · hit on an idea
+- `おもいで` — u52 · memory
+- `おもいます` — u99 · to think
+- `おもいやり` — u135 · consideration for others
+- `おもしろい` — u55 · interesting
+- `おもちする` — u191 · to carry / bring (humble)
+- `おもちゃ` — u93 · toy
+- `おもて` — u88 · front
+- `おもに` — u155 · mainly, for the most part
+- `おもむろに` — u207 · slowly and deliberately
+- `おもわず` — u124 · in spite of oneself
+- `おや` — u8 · parent
+- `おやすみになる` — u191 · to sleep / to rest (honorific)
+- `およぎます` — u22 · swim
+- `およそ` — u146 · approximately
+- `および` — u206 · and (in a list, formal)
+- `おりかえす` — u195 · to turn back; to call back
+- `おりがみ` — u67 · origami
+- `おりしも` — u207 · just at that very moment
+- `おります` — u24 · get off
+- `おれい` — u91 · thanks
+- `おれます` — u69 · to snap
+- `オレンジ` — u4 · orange
+- `おわたしする` — u191 · to hand over (humble)
+- `おわり` — u91 · end
+- `おわります` — u53 · finish
+- `おんがく` — u9 · music
+- `おんこちしん` — u198 · learning something new from the old
+- `おんしつ` — u179 · a greenhouse
+- `おんせん` — u52 · hot spring
+- `おんだんか` — u129 · global warming
+- `おんど` — u51 · temperature
+- `おんな` — u8 · woman
+- `おんなのこ` — u82 · girl
+- `か` — u1
+- `か` — u19 · (question marker)
+- `カ` — u4
+- `が` — u3
+- `が` — u20 · (subject marker)
+- `ガ` — u6
+- `カーテン` — u47 · curtain
+- `カート` — u65 · cart
+- `カード` — u28 · card
+- `かい` — u62 · floor (counter)
+- `かいがい` — u74 · overseas
+- `かいがん` — u92 · coast
+- `かいぎ` — u25 · meeting
+- `かいぎしつ` — u90 · meeting room
+- `かいけい` — u73 · bill
+- `かいけつ` — u118 · solution
+- `かいご` — u181 · long-term care
+- `がいこう` — u163 · diplomacy
+- `がいこく` — u83 · foreign country
+- `がいこくじん` — u83 · foreigner
+- `かいさい` — u192 · holding (an event)
+- `かいさつ` — u152 · ticket gate
+- `かいしゃ` — u25 · company
+- `かいしゃいん` — u8 · office worker
+- `かいしゃく` — u168 · interpretation
+- `かいしょう` — u118 · clearing up
+- `かいじょう` — u95 · venue
+- `がいしょく` — u73 · eating out
+- `かいせい` — u163 · amendment
+- `かいぜん` — u110 · improvement
+- `かいそう` — u124 · reminiscing
+- `かいだん` — u47 · stairs
+- `かいちゅうでんとう` — u153 · torch, flashlight
+- `ガイド` — u74 · tour guide
+- `ガイドブック` — u152 · guidebook
+- `がいねん` — u114 · concept
+- `かいはつ` — u129 · development
+- `がいぶ` — u170 · the outside
+- `かいふく` — u133 · recovery
+- `かいます` — u9 · buy
+- `かいもの` — u9 · shopping
+- `がいらいご` — u151 · loanword
+- `かいわ` — u50 · conversation
+- `かえします` — u53 · give back
+- `かえって` — u151 · on the contrary, if anything
+- `かえます` — u45 · to change
+- `かえり` — u95 · way home
+- `かえります` — u9 · return
+- `かえる` — u61 · frog
+- `かお` — u26 · face
+- `かおいろ` — u197 · complexion; the look on someone's face
+- `かかく` — u131 · price
+- `かがく` — u51 · science
+- `かがくはんのう` — u167 · a chemical reaction
+- `かがみ` — u58 · mirror
+- `かかります` — u53 · take (time)
+- `かぎ` — u3 · key
+- `かきあげる` — u193 · to write up, to finish writing
+- `かきね` — u153 · hedge, fence
+- `かきます` — u9 · write
+- `かぎり` — u101 · as far as
+- `かぐ` — u3 · furniture
+- `がくい` — u183 · an academic degree
+- `かくう` — u184 · made up
+- `かくご` — u174 · being prepared for the worst
+- `かくさ` — u135 · a gap between groups
+- `かくさん` — u184 · spreading widely
+- `かくじつ` — u105 · certain
+- `がくしゅう` — u124 · study
+- `がくじゅつ` — u183 · scholarly
+- `がくせい` — u8 · student
+- `がくせつ` — u183 · a scholarly theory
+- `かくにん` — u110 · confirmation
+- `がくねん` — u148 · school year, year group
+- `がくひ` — u148 · tuition fees
+- `がくぶ` — u89 · department
+- `かくりつ` — u174 · probability
+- `がくれき` — u148 · educational background
+- `かげ` — u27 · shadow
+- `がけ` — u66 · cliff
+- `かけい` — u131 · household finances
+- `かけざん` — u150 · multiplication
+- `かけだす` — u194 · to break into a run
+- `かげつ` — u62 · counter for months
+- `かけます` — u50 · make (a call)
+- `かけまわる` — u195 · to run around
+- `かげん` — u161 · the right adjustment
+- `かこ` — u124 · the past
+- `かご` — u65 · basket
+- `かさ` — u1 · umbrella
+- `かさなる` — u116 · to overlap
+- `かざります` — u47 · decorate
+- `かざん` — u51 · volcano
+- `かじ` — u76 · fire (blaze)
+- `かしこい` — u144 · clever, wise
+- `かしこまりました` — u141 · certainly (staff to customer)
+- `かします` — u28 · lend
+- `かしゅ` — u126 · singer
+- `かしょう` — u202 · too few, insufficient in number
+- `かじょう` — u202 · excessive
+- `かず` — u7 · number
+- `ガス` — u89 · gas
+- `かすか` — u161 · faint
+- `かぜ` — u12 · wind
+- `かせき` — u51 · fossil
+- `かせつ` — u160 · a hypothesis
+- `かぞく` — u3 · family
+- `ガソリン` — u74 · gasoline
+- `ガソリンスタンド` — u98 · gas station
+- `かた` — u26 · shoulder
+- `かたい` — u23 · hard
+- `かだい` — u107 · issue
+- `かたかな` — u83 · katakana
+- `カタカナ` — u57 · katakana
+- `かたち` — u64 · shape
+- `かたづきます` — u142 · to get tidy, to be settled
+- `かたづけます` — u22 · tidy up
+- `かたのにがおりる` — u197 · to have a weight lifted
+- `かたみち` — u74 · one-way trip
+- `かたよる` — u158 · to be biased
+- `かたりて` — u184 · the narrator
+- `かち` — u155 · value, worth
+- `かちかち` — u201 · rock hard
+- `かちかん` — u135 · values
+- `かちょう` — u71 · section chief
+- `かつ` — u97 · win
+- `がっかい` — u183 · an academic conference
+- `がっかり` — u48 · disappointed
+- `かっこいい` — u78 · cool
+- `かっこう` — u96 · appearance
+- `がっこう` — u3 · school
+- `がっしり` — u201 · solidly built
+- `かったです` — u21 · was (adj)
+- `かって` — u145 · selfish, as one pleases
+- `かつて` — u116 · once
+- `かつどう` — u155 · activity, campaign
+- `カップ` — u83 · cup
+- `かてい` — u83 · household
+- `がでんいんすい` — u198 · arranging things to suit yourself
+- `かど` — u24 · corner
+- `かな` — u140 · I wonder
+- `かない` — u98 · (my) wife
+- `かなしい` — u23 · sad
+- `かなづち` — u149 · hammer
+- `かならず` — u29 · without fail
+- `かならずしも` — u99 · not necessarily
+- `かなり` — u63 · considerably
+- `かに` — u61 · crab
+- `かねない` — u190 · could well (something bad)
+- `かねます` — u191 · cannot (bring oneself to); unable to
+- `かねもち` — u95 · rich person
+- `かのう` — u80 · possible
+- `かのうせい` — u105 · possibility
+- `かのじょ` — u8 · she
+- `かばん` — u3 · bag
+- `かはんすう` — u205 · a majority (over half)
+- `かびん` — u58 · vase
+- `かぶ` — u131 · shares
+- `カフェ` — u59 · cafe
+- `かぶります` — u53 · put on (head)
+- `かふんしょう` — u72 · hay fever
+- `かべ` — u47 · wall
+- `かまう` — u96 · to mind
+- `かまわない` — u120 · don't mind
+- `かみ` — u26 · hair
+- `かみなり` — u27 · thunder
+- `かむ` — u90 · to chew
+- `ガム` — u6 · gum
+- `かめ` — u61 · turtle
+- `カメラ` — u4 · camera
+- `がめん` — u50 · screen
+- `かもしれない` — u105 · might be
+- `かもしれません` — u30 · maybe
+- `がやがや` — u200 · noisily chattering
+- `かゆい` — u133 · itchy
+- `かよいます` — u25 · commute
+- `かようび` — u56 · Tuesday
+- `から` — u20 · from
+- `からい` — u9 · spicy
+- `カラオケ` — u67 · karaoke
+- `からから` — u201 · bone dry; parched
+- `からこそ` — u190 · it is precisely because
+- `ガラス` — u51 · glass
+- `からだ` — u3 · body
+- `からて` — u67 · karate
+- `からといって` — u188 · just because … (doesn't mean)
+- `かりに` — u101 · supposing
+- `かります` — u28 · borrow
+- `かるい` — u23 · light
+- `かれ` — u8 · he
+- `カレー` — u4 · curry
+- `かれら` — u93 · they
+- `カレンダー` — u58 · calendar
+- `かろう` — u202 · overwork
+- `かわ` — u27 · river
+- `かわいい` — u78 · cute
+- `かわかします` — u142 · to dry (something)
+- `かわく` — u92 · get dry
+- `かわり` — u97 · substitute
+- `かわりに` — u101 · instead
+- `かわります` — u69 · to change
+- `かんがえ` — u75 · idea
+- `かんがえかた` — u99 · way of thinking
+- `かんがえこむ` — u194 · to brood, to sink into thought
+- `かんがえなおします` — u143 · to reconsider
+- `かんがえぬく` — u193 · to think through exhaustively
+- `がんがん` — u199 · splitting (headache); loudly
+- `かんきせん` — u153 · ventilation fan
+- `かんきゃく` — u126 · audience
+- `かんきょう` — u49 · environment
+- `かんきょうふか` — u167 · environmental load
+- `かんけい` — u75 · relationship
+- `かんけいしゃ` — u192 · authorised personnel, those concerned
+- `かんご` — u181 · nursing
+- `がんこ` — u48 · stubborn
+- `かんこう` — u24 · sightseeing
+- `かんこく` — u163 · a recommendation
+- `かんごし` — u72 · nurse
+- `かんごふ` — u98 · nurse
+- `かんじ` — u57 · kanji
+- `かんじゃ` — u133 · patient
+- `かんしゅう` — u176 · an established custom
+- `かんしょう` — u170 · appreciation
+- `かんじょう` — u70 · emotion
+- `かんしん` — u70 · admiration
+- `かんせん` — u181 · infection
+- `かんそう` — u126 · impressions
+- `かんそうき` — u153 · dryer
+- `かんそく` — u158 · observation
+- `かんそくき` — u167 · an observation instrument
+- `かんたん` — u55 · simple
+- `かんちがい` — u124 · getting it wrong
+- `かんてい` — u168 · expert appraisal
+- `かんてん` — u114 · viewpoint
+- `かんどう` — u70 · being moved
+- `かんとく` — u126 · director
+- `かんぱい` — u2 · cheers!
+- `がんばります` — u25 · do one's best
+- `かんびょう` — u133 · nursing someone
+- `かんぺき` — u80 · perfect
+- `かんようく` — u151 · idiom, set phrase
+- `かんり` — u110 · management
+- `かんりしょく` — u177 · a management post
+- `かんわ` — u179 · easing
+- `き` — u1
+- `キ` — u4
+- `ぎ` — u3
+- `ギ` — u6
+- `キーボード` — u149 · keyboard
+- `きいろ` — u12 · yellow
+- `きいろい` — u12 · yellow (is yellow)
+- `ぎいん` — u163 · an assembly member
+- `きえます` — u50 · go off
+- `きおく` — u124 · memory
+- `きおくりょく` — u204 · memory (the faculty)
+- `ぎおんご` — u151 · sound-imitating word
+- `きかい` — u50 · machine
+- `きかいか` — u203 · mechanisation
+- `きがえます` — u78 · change clothes
+- `きがおけない` — u197 · easy to be with, requiring no formality
+- `きがかり` — u186 · a nagging worry
+- `きがきく` — u197 · to be thoughtful, to notice what's needed
+- `きかく` — u71 · plan
+- `きがすすまない` — u197 · to be reluctant
+- `きがする` — u105 · to have a feeling
+- `きがちる` — u197 · to be distracted
+- `きがつく` — u124 · notice
+- `きがながい` — u197 · patient, easy-going about time
+- `きかん` — u81 · period
+- `きき` — u174 · a crisis
+- `ききかえす` — u195 · to ask back, to ask again
+- `ききます` — u9 · listen
+- `きぎょう` — u131 · enterprise
+- `きけん` — u76 · danger
+- `きげん` — u81 · deadline
+- `きけんせい` — u174 · the degree of danger
+- `きこう` — u129 · climate
+- `きこえる` — u88 · to be audible
+- `きざみます` — u154 · to chop finely
+- `きじ` — u107 · article
+- `きしかいせい` — u198 · turning a hopeless situation around
+- `ぎしき` — u168 · a ceremony
+- `きしゃ` — u96 · train (steam)
+- `ぎじゅつ` — u76 · technology
+- `ぎじゅつしゃ` — u167 · an engineer
+- `きじゅん` — u114 · standard
+- `きしょう` — u179 · weather conditions
+- `きず` — u72 · wound
+- `きせい` — u163 · regulation
+- `きせつ` — u12 · season
+- `きそく` — u49 · rule
+- `きぞく` — u176 · belonging
+- `ギター` — u6 · guitar
+- `きたい` — u70 · expectation
+- `きたいかん` — u203 · a sense of expectation
+- `きたない` — u55 · dirty
+- `きちょう` — u145 · precious, valuable
+- `きちんと` — u147 · neatly, properly
+- `きつい` — u144 · tight; tough
+- `きっかけ` — u101 · the thing that started it
+- `きっさてん` — u10 · café
+- `きって` — u1 · stamp
+- `きっと` — u29 · surely
+- `きっぷ` — u3 · ticket
+- `きにいる` — u112 · to take a liking to
+- `きにする` — u118 · worry about
+- `きになる` — u112 · to be on one's mind
+- `きにゅう` — u192 · filling in (a form)
+- `きぬ` — u89 · silk
+- `きねん` — u124 · commemoration
+- `きのう` — u7 · yesterday
+- `きはん` — u176 · a norm
+- `きばん` — u160 · the base
+- `きびきび` — u200 · crisply, with energy
+- `きびしい` — u48 · strict
+- `きぶん` — u48 · mood
+- `きぼ` — u129 · scale
+- `きぼう` — u70 · hope
+- `きほんてき` — u203 · basic, fundamental
+- `きます` — u9 · come
+- `きまずい` — u186 · awkward between people
+- `きまり` — u120 · rule
+- `きまる` — u90 · to be decided
+- `きみ` — u96 · you (informal)
+- `ぎむ` — u120 · obligation
+- `ぎむかん` — u172 · sense of duty
+- `きめます` — u45 · to decide
+- `きもがすわる` — u197 · to have nerve, to be unshakeable
+- `きもち` — u70 · feeling
+- `きもの` — u78 · kimono
+- `ぎもん` — u99 · doubt
+- `きゃ` — u16
+- `ぎゃ` — u16
+- `きゃく` — u91 · guest
+- `ぎゃくてん` — u168 · a reversal
+- `きゃくほん` — u184 · a script
+- `きゃっかん` — u114 · objectivity
+- `きゃっかんてき` — u203 · objective
+- `ぎゃっきょう` — u170 · adversity
+- `キャベツ` — u54 · cabbage
+- `キャンプ` — u52 · camping
+- `きゅ` — u16
+- `ぎゅ` — u16
+- `きゅう` — u7 · nine
+- `きゅうか` — u71 · leave
+- `きゅうきゅう` — u181 · emergency care
+- `きゅうきゅうしゃ` — u72 · ambulance
+- `きゅうけい` — u177 · a break
+- `きゅうげき` — u161 · abrupt
+- `きゅうこう` — u74 · express train
+- `きゅうしょく` — u148 · school lunch
+- `きゅうじん` — u71 · job opening
+- `きゅうせい` — u181 · acute
+- `きゅうに` — u68 · suddenly
+- `ぎゅうにく` — u83 · beef
+- `ぎゅうにゅう` — u54 · milk
+- `きゅうよう` — u133 · rest
+- `きゅうり` — u54 · cucumber
+- `きゅうりょう` — u49 · salary
+- `きょ` — u16
+- `ぎょ` — u16
+- `きょう` — u7 · today
+- `きよう` — u145 · skilful with one's hands
+- `きょうい` — u179 · a threat
+- `きょういく` — u94 · education
+- `きょうかい` — u59 · church
+- `きょうかしょ` — u57 · textbook
+- `きょうかん` — u135 · empathy
+- `ぎょうぎ` — u120 · behaviour
+- `きょうきゅう` — u165 · supply
+- `ぎょうじ` — u52 · event
+- `きょうしつ` — u25 · classroom
+- `きょうじゅ` — u183 · a professor
+- `きょうしゅく` — u186 · feeling one has imposed
+- `きょうせい` — u172 · living together
+- `ぎょうせい` — u163 · administration
+- `きょうそう` — u98 · competition
+- `きょうだい` — u83 · siblings
+- `きょうちょう` — u156 · emphasis
+- `きょうつう` — u114 · in common
+- `きょうふ` — u186 · fear
+- `きょうみ` — u70 · interest
+- `ぎょうむ` — u177 · operational work
+- `きょうゆう` — u168 · holding in common
+- `きょうりょく` — u110 · cooperation
+- `きょか` — u110 · permission
+- `きょねん` — u21 · last year
+- `きょひ` — u120 · refusal
+- `きょり` — u129 · distance
+- `きょりかん` — u203 · a sense of distance (between people)
+- `きょろきょろ` — u199 · looking around restlessly
+- `きらい` — u21 · dislike
+- `きらいがある` — u190 · tends to (an unwelcome tendency)
+- `きらく` — u145 · relaxed, free of worry
+- `きり` — u66 · fog
+- `きりあげる` — u193 · to wrap up, to call it a day
+- `ぎりぎり` — u200 · with nothing to spare
+- `きります` — u53 · cut
+- `きれい` — u10 · pretty
+- `キロ` — u62 · kilo
+- `きろく` — u75 · record
+- `キログラム` — u83 · kilogram
+- `キロメートル` — u83 · kilometer
+- `ぎろん` — u135 · debate
+- `きわめて` — u161 · extremely
+- `きわめる` — u208 · to master; to take to the limit
+- `きをつかう` — u197 · to be considerate; to be on one's guard
+- `きんこう` — u158 · equilibrium
+- `ぎんこう` — u10 · bank
+- `きんし` — u120 · ban
+- `きんじょ` — u49 · neighborhood
+- `きんぞく` — u177 · years of service
+- `きんだい` — u168 · the modern era
+- `きんだいか` — u203 · modernisation
+- `きんちょう` — u48 · nervousness
+- `きんちょうかん` — u203 · a sense of tension
+- `きんにく` — u133 · muscle
+- `ぎんみ` — u183 · close scrutiny
+- `きんようび` — u56 · Friday
+- `く` — u1
+- `ク` — u4
+- `ぐ` — u3
+- `グ` — u6
+- `クーポン` — u65 · coupon
+- `ぐあい` — u72 · condition
+- `くうき` — u51 · air
+- `くうこう` — u10 · airport
+- `ぐうぜん` — u81 · coincidence
+- `くさ` — u61 · grass
+- `くし` — u60 · comb
+- `くしゃみ` — u72 · sneeze
+- `くじょう` — u118 · complaint
+- `ぐずぐず` — u200 · dithering, putting it off
+- `くすり` — u2 · medicine
+- `くすりや` — u59 · drugstore
+- `くせ` — u81 · habit
+- `くせに` — u141 · even though (critical)
+- `ぐたいてき` — u114 · concrete
+- `ぐたいれい` — u156 · a concrete example
+- `ください` — u20 · please give me
+- `くださる` — u95 · give (honorific)
+- `くだもの` — u3 · fruit
+- `くだらない` — u144 · worthless, silly
+- `くち` — u60 · mouth
+- `くちがかたい` — u196 · able to keep a secret
+- `くちにあう` — u196 · to suit one's taste
+- `くちをはさむ` — u196 · to cut in, to interrupt
+- `くつ` — u1 · shoes
+- `くつがえす` — u208 · to overturn (a decision or belief)
+- `くつした` — u28 · socks
+- `ぐっすり` — u147 · soundly (asleep)
+- `ぐったり` — u199 · limp with exhaustion
+- `くとうてん` — u151 · punctuation (、and 。)
+- `くない` — u140 · is not (plain, い-adj)
+- `くないです` — u21 · is not (adj)
+- `くなかった` — u140 · wasn't (plain, い-adj)
+- `くなかったです` — u21 · wasn't (adj)
+- `くび` — u60 · neck
+- `くべつ` — u114 · distinction
+- `くま` — u27 · bear
+- `くまなく` — u207 · leaving nowhere unsearched
+- `くみたてます` — u143 · to assemble, to put together
+- `くも` — u12 · cloud
+- `くもり` — u12 · cloudy
+- `くもる` — u83 · become cloudy
+- `くやしい` — u48 · frustrating
+- `くよくよ` — u199 · to fret over, to dwell on
+- `くらい` — u55 · dark
+- `くらくら` — u199 · dizzy, head spinning
+- `クラス` — u4 · class
+- `グラス` — u6 · glass
+- `くらべます` — u65 · compare
+- `グラム` — u62 · gram
+- `クリーム` — u5 · cream
+- `くりかえす` — u116 · to repeat
+- `くるしい` — u70 · distressing
+- `くるま` — u2 · car
+- `クレヨン` — u5 · crayon
+- `くれる` — u43 · to give (to me/us)
+- `くろ` — u12 · black
+- `くろい` — u12 · black (is black)
+- `くろう` — u118 · hardship
+- `くわえて` — u190 · in addition, moreover
+- `くわしい` — u80 · detailed
+- `ぐんぐん` — u200 · rapidly, by visible amounts
+- `け` — u1
+- `ケ` — u4
+- `げ` — u3
+- `ゲ` — u6
+- `ケーキ` — u4 · cake
+- `ケータイ` — u4 · cell phone
+- `ゲーム` — u6 · game
+- `けいえい` — u131 · management
+- `けいか` — u116 · passage (of time)
+- `けいかく` — u75 · plan
+- `けいかくします` — u25 · plan
+- `けいかくじょう` — u204 · in terms of the plan, on paper
+- `けいかん` — u83 · police officer
+- `けいき` — u131 · business conditions
+- `けいけん` — u52 · experience
+- `けいけんしゃ` — u124 · someone with experience
+- `けいご` — u77 · polite language
+- `けいこう` — u155 · tendency, trend
+- `けいさい` — u183 · being carried in a journal
+- `けいざい` — u49 · economy
+- `けいさつ` — u49 · police
+- `けいさつかん` — u155 · police officer
+- `けいしき` — u114 · form
+- `げいじゅつ` — u170 · art
+- `けいしょう` — u168 · handing down
+- `けいぞくせい` — u203 · sustainability, staying power
+- `けいたい` — u50 · mobile phone
+- `げいのう` — u126 · the entertainment world
+- `けいひ` — u131 · business expenses
+- `けいべつ` — u186 · contempt
+- `けいやく` — u71 · contract
+- `けいやくしょ` — u165 · a written contract
+- `けいれき` — u177 · background
+- `けが` — u26 · injury
+- `げか` — u181 · surgery (department)
+- `けさ` — u56 · this morning
+- `けしき` — u52 · scenery
+- `けしゴム` — u57 · eraser
+- `けします` — u20 · turn off
+- `げしゅく` — u92 · lodging
+- `けしょう` — u78 · makeup
+- `けた` — u150 · digit, order of magnitude
+- `けち` — u48 · stingy
+- `けつあつ` — u133 · blood pressure
+- `けっか` — u75 · result
+- `けっかん` — u118 · a defect
+- `げっきゅう` — u71 · monthly salary
+- `けっきょく` — u101 · in the end
+- `けっこう` — u63 · fairly
+- `けっこん` — u83 · marriage
+- `けっこんします` — u53 · get married
+- `けっさん` — u165 · closing the accounts
+- `けっして` — u91 · never
+- `けっせき` — u148 · absence
+- `けってい` — u122 · decision
+- `けつまつ` — u184 · the ending
+- `げつようび` — u56 · Monday
+- `けつれつ` — u165 · a breakdown
+- `けつろん` — u114 · conclusion
+- `けど` — u30 · but
+- `けねん` — u174 · a standing concern
+- `けむり` — u27 · smoke
+- `けれど` — u97 · but, however
+- `けれども` — u97 · but, however
+- `けわしい` — u144 · steep; grim (expression)
+- `げんいん` — u92 · cause
+- `けんか` — u79 · quarrel
+- `げんかん` — u10 · entrance
+- `げんき` — u3 · well/healthy
+- `けんきゅう` — u51 · research
+- `けんきゅうしつ` — u97 · laboratory
+- `げんきん` — u65 · cash
+- `けんこう` — u72 · health
+- `けんさ` — u72 · examination
+- `げんざい` — u116 · at present
+- `げんさく` — u184 · the original work
+- `けんさくします` — u50 · search (online)
+- `げんし` — u167 · an atom
+- `けんしゅう` — u110 · training
+- `けんしょう` — u158 · verification
+- `げんしょう` — u116 · decrease
+- `けんしん` — u181 · a health screening
+- `けんせつ` — u129 · construction
+- `げんそく` — u120 · general rule
+- `げんだい` — u168 · the present age
+- `げんてい` — u192 · limited (edition, period)
+- `げんてん` — u158 · the original text
+- `けんとう` — u122 · consideration
+- `けんとうちゅう` — u204 · under consideration
+- `げんに` — u151 · in fact, actually
+- `けんびきょう` — u167 · a microscope
+- `けんぶつ` — u74 · sightseeing
+- `けんぽう` — u163 · a constitution
+- `げんみつ` — u158 · strict
+- `けんり` — u107 · right
+- `こ` — u1
+- `コ` — u4
+- `ご` — u3
+- `ご` — u7 · five
+- `ゴ` — u6
+- `コート` — u28 · coat
+- `コーヒー` — u4 · coffee
+- `こいびと` — u79 · partner
+- `コイン` — u5 · coin
+- `ごうい` — u165 · agreement
+- `こうえき` — u172 · the public good
+- `こうえん` — u10 · park
+- `こうか` — u75 · effect
+- `こうかい` — u70 · regret
+- `こうがい` — u88 · suburbs
+- `こうがく` — u167 · engineering
+- `ごうかく` — u148 · passing (an exam)
+- `ごうかくりつ` — u204 · pass rate
+- `こうかてき` — u155 · effective
+- `こうかんします` — u65 · exchange
+- `こうぎ` — u94 · lecture
+- `こうきょう` — u49 · public
+- `こうぎょう` — u97 · industry
+- `ごうけい` — u150 · total, sum
+- `こうけん` — u170 · a contribution
+- `こうけんど` — u172 · degree of contribution
+- `こうこう` — u94 · high school
+- `こうこうせい` — u94 · high school student
+- `こうこく` — u126 · advertisement
+- `こうざ` — u131 · bank account
+- `こうさい` — u79 · dating
+- `こうさつ` — u183 · considered discussion
+- `こうさてん` — u24 · intersection
+- `こうしょう` — u165 · negotiation
+- `こうじょう` — u59 · factory
+- `こうずい` — u76 · flood
+- `こうせい` — u184 · structure
+- `こうせいてき` — u170 · well-composed
+- `こうそう` — u122 · a grand plan
+- `こうぞう` — u160 · structure
+- `こうちゃ` — u83 · black tea
+- `こうちょう` — u93 · principal
+- `こうつう` — u49 · traffic
+- `こうど` — u150 · altitude, height above ground
+- `こうどう` — u94 · action
+- `こうとうがっこう` — u94 · senior high school
+- `こうにん` — u163 · official recognition
+- `こうはい` — u79 · junior
+- `こうばん` — u10 · police box
+- `こうひょう` — u184 · a warm reception
+- `こうふ` — u192 · issuance (by an authority)
+- `こうふん` — u70 · excitement
+- `こうへい` — u145 · fair, impartial
+- `こうへいさ` — u172 · fairness
+- `こうむいん` — u49 · civil servant
+- `こうりつ` — u160 · efficiency
+- `こうりゅう` — u135 · exchange between people
+- `こうれいしゃ` — u135 · elderly people
+- `こえ` — u26 · voice
+- `こおり` — u51 · ice
+- `ごかい` — u135 · misunderstanding
+- `こきゅう` — u133 · breathing
+- `ごくいちぶ` — u205 · only a tiny fraction
+- `こくさい` — u74 · international
+- `こくさいか` — u203 · internationalisation
+- `こくせき` — u176 · nationality
+- `こくない` — u74 · domestic
+- `こくばん` — u25 · blackboard
+- `こくみん` — u107 · the public
+- `ごくわずか` — u161 · the merest fraction
+- `こげます` — u154 · to burn, to get scorched
+- `ここ` — u83 · here
+- `ごご` — u7 · p.m.
+- `ここのか` — u83 · the ninth
+- `ここのつ` — u83 · nine
+- `こころ` — u70 · heart
+- `こころづよい` — u186 · reassuring to have
+- `こころぼそい` — u186 · uneasy without support
+- `こころよく` — u207 · willingly, with good grace
+- `こころをこめる` — u197 · to put one's heart into
+- `ごさ` — u158 · margin of error
+- `ございます` — u88 · to be (polite)
+- `こさじ` — u154 · teaspoon (measure)
+- `こし` — u60 · lower back
+- `こしがひくい` — u197 · modest, unassuming (despite status)
+- `ごしゅじん` — u8 · husband (someone's)
+- `こしょう` — u50 · breakdown
+- `こじん` — u135 · the individual
+- `こせい` — u176 · individuality
+- `こぜに` — u65 · small change
+- `ごぜん` — u7 · a.m.
+- `こそ` — u139 · precisely, it is ~ that
+- `こそこそ` — u200 · sneakily, furtively
+- `ごぞんじ` — u95 · knowing (honorific)
+- `こだい` — u168 · antiquity
+- `こたえ` — u57 · answer
+- `こたえます` — u22 · answer
+- `こだわり` — u168 · an insistence on detail
+- `ごちそう` — u93 · feast
+- `ごちそうさま` — u68 · thanks for the meal
+- `こちら` — u83 · this way
+- `こっかい` — u163 · the national assembly
+- `こつこつ` — u200 · steadily, little by little
+- `ごつごつ` — u201 · rugged, knobbly
+- `こっそり` — u147 · secretly, on the quiet
+- `こっち` — u64 · this way
+- `こってり` — u154 · rich, heavy (flavour)
+- `コップ` — u58 · cup
+- `こてん` — u170 · a classic
+- `ことがある` — u44 · there are times when / have (done) before
+- `ことができる` — u44 · to be able to
+- `ことごとく` — u205 · every last one
+- `ことさら` — u206 · pointedly, more than needed
+- `ことし` — u56 · this year
+- `ことなる` — u103 · to differ
+- `ことにする` — u44 · to decide to
+- `ことになります` — u139 · it has been decided that
+- `ことば` — u57 · word
+- `ことはない` — u139 · there's no need to
+- `こども` — u1 · child
+- `こどもむき` — u204 · aimed at children
+- `ことり` — u91 · small bird
+- `ことわざ` — u151 · proverb
+- `ことわる` — u99 · to decline
+- `この` — u19 · this ~
+- `このあいだ` — u96 · the other day
+- `このごろ` — u56 · these days
+- `このように` — u190 · in this way; as shown here
+- `ごはん` — u3 · rice/meal
+- `コピー` — u83 · copy
+- `こぼします` — u142 · to spill (something)
+- `こぼれます` — u142 · to spill (by itself)
+- `こまかい` — u80 · fine
+- `こまりきる` — u193 · to be at one's wits' end
+- `こまります` — u53 · be troubled
+- `ごみ` — u47 · trash
+- `ごみぶくろ` — u153 · rubbish bag
+- `こみます` — u69 · to be crowded
+- `こめ` — u54 · rice (uncooked)
+- `コメント` — u77 · comment
+- `こよう` — u177 · employment
+- `ごらんになる` — u93 · to see (honorific)
+- `ごりょうしょう` — u192 · your understanding (in advance)
+- `ゴルフ` — u6 · golf
+- `これ` — u19 · this
+- `これから` — u56 · from now on
+- `これといって` — u207 · nothing in particular
+- `ころがします` — u142 · to roll (something)
+- `ころがります` — u142 · to roll (by itself)
+- `こわい` — u23 · scary
+- `こわします` — u46 · to break
+- `こわれます` — u50 · break
+- `こんがり` — u201 · golden brown (well toasted)
+- `こんきょ` — u99 · grounds
+- `こんきょない` — u170 · groundless
+- `こんげつ` — u29 · this month
+- `コンサート` — u52 · concert
+- `こんしゅう` — u56 · this week
+- `コンセント` — u149 · power outlet, socket
+- `こんだて` — u154 · menu, meal plan
+- `こんちゅう` — u76 · insect
+- `こんど` — u89 · next time
+- `こんな` — u83 · this kind of
+- `こんなん` — u145 · difficult (formal)
+- `こんにちは` — u1 · hello
+- `こんばん` — u7 · tonight
+- `こんばんは` — u1 · good evening
+- `コンビニ` — u10 · convenience store
+- `コンピュータ` — u97 · computer
+- `コンピューター` — u97 · computer
+- `こんや` — u92 · tonight
+- `さ` — u1
+- `サ` — u4
+- `ざ` — u3
+- `ザ` — u6
+- `さい` — u62 · years old
+- `さいあく` — u174 · the worst case
+- `さいがい` — u129 · disaster
+- `さいかくにん` — u202 · double-checking
+- `さいきん` — u56 · recently
+- `さいげん` — u158 · reproduction
+- `さいけんとう` — u202 · reconsideration, review
+- `さいご` — u56 · the end
+- `ざいこ` — u165 · stock on hand
+- `さいこう` — u103 · the best
+- `さいしゅっぱつ` — u202 · a fresh start
+- `さいしょ` — u56 · the beginning
+- `さいしょう` — u150 · minimum, smallest
+- `ざいしょく` — u177 · being in post
+- `さいせい` — u179 · renewal
+- `サイダー` — u6 · soda
+- `さいだい` — u150 · maximum, largest
+- `さいたく` — u183 · being accepted
+- `ざいたく` — u177 · working from home
+- `さいちゅう` — u137 · in the middle of
+- `さいてい` — u103 · the worst
+- `さいてき` — u161 · optimal
+- `さいてん` — u148 · marking, grading
+- `サイト` — u50 · website
+- `さいばん` — u163 · a trial
+- `さいふ` — u28 · wallet
+- `さいぼう` — u167 · a cell
+- `さいゆうしゅう` — u205 · the very best, top prize
+- `さいよう` — u177 · hiring
+- `さいりよう` — u202 · reuse
+- `さいわい` — u155 · fortunately
+- `サイン` — u5 · signature
+- `さえ` — u101 · if only
+- `さえすれば` — u188 · if you only just do X
+- `さか` — u66 · slope
+- `さがします` — u22 · look for
+- `さがしまわる` — u195 · to search high and low
+- `さかな` — u1 · fish
+- `さかなや` — u59 · fish shop
+- `さがる` — u96 · go down
+- `さかん` — u90 · popular
+- `さき` — u83 · ahead
+- `さきます` — u27 · bloom
+- `さぎょう` — u110 · task
+- `さくげん` — u179 · a cut in amount
+- `さくご` — u158 · an error
+- `さくじつ` — u192 · yesterday (formal)
+- `さくしゃ` — u151 · author, creator
+- `さくじょ` — u149 · deletion
+- `さくせい` — u192 · drawing up, preparing (a document)
+- `さくひん` — u126 · a work
+- `さくぶん` — u25 · essay
+- `さくら` — u12 · cherry blossom
+- `さげる` — u97 · lower
+- `ささえあう` — u195 · to support each other
+- `ささえます` — u155 · to support, to hold up
+- `ささえる` — u135 · support
+- `さしあげる` — u93 · to give (humble)
+- `さしあたり` — u207 · for the present, for now
+- `さしずめ` — u207 · you might call it, in effect
+- `さす` — u83 · put up (an umbrella)
+- `さすが` — u68 · impressive
+- `ざせき` — u152 · seat (assigned)
+- `させていただきます` — u141 · I will (humbly) do
+- `させてください` — u138 · please let me
+- `させます` — u138 · make/let (someone) do
+- `させられます` — u138 · be made to do
+- `さぞ` — u206 · surely, I imagine (of someone else's feeling)
+- `さそいだす` — u194 · to draw (someone) out
+- `さそいます` — u45 · to invite
+- `さつ` — u62 · counter for books
+- `さつえい` — u184 · filming
+- `サッカー` — u67 · soccer
+- `さっき` — u21 · a moment ago
+- `ざっし` — u3 · magazine
+- `さっそく` — u122 · right away
+- `さとう` — u54 · sugar
+- `さとる` — u208 · to realise, to come to see
+- `さばく` — u51 · desert
+- `さびしい` — u23 · lonely
+- `ざぶとん` — u58 · floor cushion
+- `さべつ` — u135 · discrimination
+- `さま` — u95 · Mr./Ms. (honorific)
+- `さむい` — u12 · cold
+- `さむけ` — u72 · chills
+- `さめます` — u69 · to cool down
+- `さようなら` — u1 · goodbye
+- `さら` — u47 · plate
+- `さらいげつ` — u91 · the month after next
+- `さらいしゅう` — u94 · week after next
+- `さらいねん` — u84 · the year after next
+- `さらさら` — u201 · dry and smooth, free-flowing
+- `ざらざら` — u201 · rough, gritty
+- `サラダ` — u4 · salad
+- `さらに` — u103 · further
+- `さる` — u27 · monkey
+- `ざるをえない` — u190 · have no choice but to
+- `さわぎます` — u69 · to make noise
+- `ざわざわ` — u200 · abuzz, restless murmur
+- `さわやか` — u12 · refreshing
+- `さわります` — u45 · to touch
+- `さん` — u7 · three
+- `さんか` — u110 · to take part
+- `さんかく` — u64 · triangle
+- `さんぎょう` — u95 · industry
+- `ざんぎょう` — u25 · overtime
+- `さんしょう` — u183 · consulting a source
+- `さんせい` — u99 · to agree
+- `ざんだか` — u165 · the balance
+- `サンダル` — u60 · sandals
+- `サンドイッチ` — u6 · sandwich
+- `ざんねん` — u48 · too bad
+- `さんぽ` — u3 · a walk
+- `し` — u1
+- `し` — u30 · and (what's more)
+- `シ` — u4
+- `じ` — u3
+- `じ` — u7 · o'clock
+- `ジ` — u6
+- `シート` — u4 · seat
+- `ジーンズ` — u6 · jeans
+- `しあい` — u52 · match
+- `しあげる` — u193 · to finish off, to put the last touch to
+- `しあわせ` — u70 · happiness
+- `しいて` — u161 · if pressed
+- `しえん` — u107 · support
+- `しお` — u54 · salt
+- `しか` — u139 · only (with negative)
+- `しかく` — u64 · square
+- `しかし` — u30 · however
+- `じがじさん` — u198 · blowing one's own trumpet
+- `しかた` — u97 · way, method
+- `しかたない` — u120 · it can't be helped
+- `しかたなく` — u146 · reluctantly, having no choice
+- `しがみつく` — u195 · to cling on to
+- `しかも` — u139 · and what's more
+- `しかります` — u46 · to scold
+- `じかん` — u9 · time
+- `しき` — u90 · ceremony
+- `しきち` — u153 · plot of land, site
+- `じきゅう` — u71 · hourly wage
+- `しきりに` — u206 · repeatedly, insistently
+- `しくみ` — u114 · how it works
+- `しけん` — u25 · exam
+- `しげん` — u51 · resources
+- `じけん` — u76 · incident
+- `しげんじゅんかん` — u167 · resource cycling
+- `じこ` — u74 · accident
+- `しこうさくご` — u198 · trial and error
+- `じごうじとく` — u198 · you brought it on yourself
+- `じこくひょう` — u152 · timetable
+- `じこせきにん` — u172 · personal responsibility
+- `しごと` — u9 · work
+- `しこむ` — u194 · to train up; to prepare in advance
+- `しさん` — u174 · a rough estimate
+- `しじ` — u110 · instruction
+- `じじつ` — u75 · fact
+- `じしょ` — u57 · dictionary
+- `しじょう` — u165 · a market
+- `じしん` — u51 · earthquake
+- `しずか` — u1 · quiet
+- `しずみこむ` — u194 · to sink into gloom
+- `しせつ` — u129 · facility
+- `しぜん` — u51 · nature
+- `じぜん` — u192 · in advance, prior
+- `しそう` — u168 · a body of thought
+- `じぞく` — u179 · keeping something going
+- `じそんしん` — u176 · self-respect
+- `した` — u10 · below
+- `じたい` — u107 · situation
+- `じだい` — u90 · era
+- `しだいです` — u190 · such is the situation (formal)
+- `しだいに` — u116 · gradually
+- `したがう` — u120 · follow
+- `したがって` — u101 · therefore
+- `したぎ` — u60 · underwear
+- `したく` — u81 · getting ready
+- `したごしらえ` — u154 · prep work (before cooking)
+- `したしい` — u80 · close
+- `したしむ` — u124 · grow fond of
+- `したをまく` — u197 · to be lost in admiration
+- `しち` — u84 · seven
+- `じちたい` — u155 · local government
+- `しちょうしゃ` — u126 · viewers
+- `しちょうりつ` — u184 · viewing figures
+- `しつ` — u114 · quality
+- `しっかり` — u63 · firmly
+- `しつぎょう` — u107 · unemployment
+- `しつぎょうりつ` — u204 · unemployment rate
+- `じっけん` — u51 · experiment
+- `じつげん` — u122 · realization
+- `じっけんしつ` — u167 · a laboratory
+- `しつこい` — u48 · persistent
+- `じっこう` — u122 · carrying out
+- `じっさいに` — u99 · in reality
+- `じっし` — u192 · implementation, carrying out
+- `じっしょう` — u183 · showing by evidence
+- `じっせん` — u183 · putting into practice
+- `しっと` — u186 · jealousy
+- `しつど` — u150 · humidity
+- `じっと` — u147 · motionlessly, fixedly
+- `しっとり` — u201 · moist, softly damp
+- `じつは` — u63 · actually
+- `しっぱい` — u81 · failure
+- `しっぴつ` — u183 · writing up
+- `しつぼう` — u112 · disappointment
+- `しつもん` — u57 · question
+- `しつもんします` — u25 · ask a question
+- `じつようせい` — u203 · practicality
+- `じつりょく` — u204 · real ability
+- `しつれい` — u89 · excuse me
+- `じつれい` — u156 · an actual case
+- `しつれいいたします` — u141 · excuse me (entering or leaving)
+- `していせき` — u74 · reserved seat
+- `じてん` — u92 · dictionary
+- `じてんしゃ` — u24 · bicycle
+- `しどう` — u183 · guidance
+- `じどうか` — u167 · automation
+- `じどうしゃ` — u84 · car
+- `しどろもどろ` — u199 · tongue-tied, incoherent
+- `しなもの` — u28 · goods
+- `しにかける` — u194 · to be on the point of dying
+- `しぬ` — u84 · die
+- `しばしば` — u146 · often (written)
+- `しはつ` — u152 · first train of the day
+- `しばふ` — u66 · lawn
+- `しはらい` — u165 · payment
+- `しはらいます` — u65 · pay
+- `しばらく` — u68 · for a while
+- `じびき` — u84 · dictionary
+- `しひょう` — u158 · an indicator
+- `しぶい` — u154 · astringent; understatedly stylish
+- `じぶん` — u8 · oneself
+- `しへい` — u65 · paper money
+- `しほう` — u163 · the judiciary
+- `しま` — u27 · island
+- `しまいます` — u47 · put away
+- `しまう` — u90 · put away
+- `じまく` — u126 · subtitles
+- `します` — u9 · do
+- `しまる` — u84 · close
+- `じみ` — u78 · plain
+- `しみじみ` — u112 · deeply
+- `しみん` — u49 · citizen
+- `ジム` — u59 · gym
+- `じむしょ` — u91 · office
+- `しめきり` — u81 · closing date
+- `しめします` — u155 · to show, to indicate
+- `じめじめ` — u201 · damp and clammy
+- `しめす` — u101 · to indicate
+- `しめます` — u20 · close
+- `しめんそか` — u198 · surrounded by enemies, no allies left
+- `じもと` — u135 · one's local area
+- `しゃ` — u16
+- `じゃ` — u16
+- `じゃあ` — u19 · well then
+- `しゃかい` — u49 · society
+- `しゃかいじん` — u79 · working adult
+- `しゃかいてき` — u176 · social (in nature)
+- `じゃがいも` — u54 · potato
+- `しゃざい` — u172 · a formal apology
+- `しゃしん` — u60 · photo
+- `しゃちょう` — u25 · company president
+- `シャツ` — u28 · shirt
+- `じゃっかん` — u161 · somewhat
+- `しゃっきん` — u131 · debt
+- `じゃない` — u140 · isn't (plain)
+- `じゃないです` — u19 · is not
+- `じゃなかった` — u140 · wasn't (plain)
+- `じゃなかったです` — u21 · wasn't
+- `じゃま` — u94 · hindrance
+- `ジャム` — u92 · jam
+- `シャワー` — u84 · shower
+- `じゃん` — u140 · right? (casual)
+- `シャンプー` — u58 · shampoo
+- `しゅ` — u16
+- `じゅ` — u16
+- `ジュース` — u6 · juice
+- `じゅう` — u7 · ten
+- `じゆう` — u49 · freedom
+- `じゅういち` — u7 · eleven
+- `しゅうかつ` — u177 · job-hunting season
+- `しゅうかん` — u62 · counter for weeks
+- `しゅうきょう` — u168 · religion
+- `しゅうし` — u131 · income and outgoings
+- `じゅうしょ` — u91 · address
+- `しゅうしょく` — u71 · getting a job
+- `しゅうせい` — u110 · revision
+- `じゆうせき` — u74 · unreserved seat
+- `しゅうぞく` — u176 · a folk custom
+- `じゅうたい` — u74 · traffic jam
+- `しゅうだん` — u135 · a group
+- `じゅうたん` — u58 · carpet
+- `しゅうちゅうりょく` — u204 · powers of concentration
+- `しゅうでん` — u152 · last train of the night
+- `じゅうでん` — u50 · charging
+- `じゆうど` — u204 · degree of freedom, flexibility
+- `じゅうどう` — u67 · judo
+- `しゅうとく` — u124 · acquiring a skill
+- `しゅうにゅう` — u71 · income
+- `じゅうにんといろ` — u198 · everyone is different
+- `しゅうのう` — u153 · storage, putting things away
+- `じゅうぶん` — u62 · enough
+- `しゅうへん` — u129 · surrounding area
+- `しゅうまつ` — u29 · weekend
+- `じゅうみん` — u135 · residents
+- `じゅうよう` — u80 · important
+- `しゅうり` — u118 · repair
+- `しゅうりょう` — u183 · completing a course
+- `じゅうりょう` — u150 · weight
+- `じゅうりょく` — u167 · gravity
+- `しゅかん` — u114 · subjectivity
+- `しゅかんてき` — u203 · subjective
+- `じゅぎょう` — u25 · class
+- `じゅく` — u148 · cram school
+- `しゅくだい` — u9 · homework
+- `しゅくはく` — u74 · overnight stay
+- `しゅけん` — u163 · sovereignty
+- `しゅざい` — u107 · news gathering
+- `しゅし` — u156 · the purport
+- `しゅじゅつ` — u72 · surgery
+- `じゅしん` — u181 · seeing a doctor
+- `しゅじんこう` — u184 · the protagonist
+- `しゅたい` — u176 · the acting party
+- `しゅだい` — u151 · theme, subject
+- `しゅたいせい` — u203 · acting on one's own initiative
+- `しゅだん` — u155 · means, method
+- `しゅちょう` — u99 · to insist
+- `しゅつえん` — u126 · appearing in
+- `しゅっきん` — u71 · going to work
+- `しゅっし` — u165 · putting up capital
+- `しゅっしん` — u176 · where one is from
+- `しゅっせきする` — u90 · to attend
+- `しゅっせきりつ` — u204 · attendance rate
+- `しゅっちょう` — u25 · business trip
+- `しゅってん` — u156 · source
+- `しゅっぱつ` — u52 · departure
+- `しゅっぱん` — u126 · publication
+- `しゅっぴ` — u131 · outgoings
+- `しゅほう` — u170 · technique
+- `しゅみ` — u52 · hobby
+- `じゅみょう` — u181 · lifespan
+- `じゅよう` — u179 · demand
+- `しゅりゅう` — u170 · the mainstream
+- `しゅるい` — u75 · kind
+- `しゅん` — u154 · the season (for a food)
+- `じゅんい` — u205 · ranking, placing
+- `じゅんかん` — u160 · a cycle
+- `じゅんちょう` — u122 · going smoothly
+- `じゅんばん` — u81 · turn
+- `じゅんび` — u81 · preparation
+- `しょ` — u16
+- `じょ` — u16
+- `じょうい` — u205 · the upper ranks, high placing
+- `しょうかい` — u79 · introduction
+- `しょうかき` — u153 · fire extinguisher
+- `しょうがくきん` — u148 · scholarship
+- `しょうがつ` — u89 · New Year
+- `しょうがっこう` — u91 · elementary school
+- `しょうがない` — u68 · it can't be helped
+- `じょうぎ` — u148 · ruler
+- `しょうきゅう` — u177 · a pay rise
+- `しょうきょくてき` — u155 · passive, half-hearted
+- `じょうけん` — u75 · condition
+- `しょうこ` — u156 · evidence
+- `じょうし` — u71 · boss
+- `しょうじき` — u48 · honest
+- `じょうしき` — u120 · common sense
+- `しょうじょう` — u72 · symptoms
+- `しょうしん` — u110 · promotion
+- `じょうず` — u21 · good at
+- `しょうすう` — u103 · a small number
+- `しょうせつ` — u90 · novel
+- `しょうたい` — u79 · invitation
+- `じょうたい` — u75 · condition
+- `じょうたつ` — u124 · improvement in a skill
+- `じょうだん` — u77 · joke
+- `しょうちしました` — u141 · understood, will do
+- `しょうちする` — u95 · to agree
+- `しょうひ` — u131 · consumption
+- `しょうひん` — u65 · goods
+- `じょうぶ` — u63 · healthy
+- `じょうほ` — u165 · a concession
+- `じょうほう` — u50 · information
+- `しょうぼうし` — u155 · firefighter
+- `しょうぼうしょ` — u49 · fire station
+- `しょうみきげん` — u154 · best-before date
+- `しょうめい` — u183 · proof
+- `しょうもう` — u179 · consumption (using up)
+- `じょうやく` — u163 · a treaty
+- `しょうゆ` — u54 · soy sauce
+- `しょうらい` — u56 · future
+- `しょがいこく` — u202 · the various countries
+- `しょくじ` — u73 · meal
+- `しょくどう` — u84 · cafeteria
+- `しょくば` — u110 · workplace
+- `しょくぶつ` — u76 · plant
+- `しょくむ` — u177 · the duties of a post
+- `しょくよく` — u154 · appetite
+- `しょくりょうひん` — u92 · groceries
+- `しょくれき` — u177 · work history
+- `じょせい` — u94 · woman
+- `しょせん` — u151 · when all is said and done
+- `しょぞく` — u176 · the body one belongs to
+- `しょち` — u181 · a medical procedure
+- `しょっき` — u154 · tableware, dishes
+- `しょっちゅう` — u146 · constantly, all the time
+- `しょっぱい` — u55 · salty
+- `しょどう` — u67 · calligraphy
+- `しょほう` — u133 · prescription
+- `しょもんだい` — u202 · the various problems
+- `しょり` — u118 · processing
+- `しょるい` — u71 · documents
+- `しらせます` — u46 · to inform
+- `しらべなおします` — u143 · to look up again, to re-check
+- `しらべます` — u25 · look up
+- `しられます` — u138 · becomes known
+- `しりあい` — u135 · acquaintance
+- `しりあう` — u195 · to get to know each other
+- `じりつ` — u172 · autonomy
+- `しります` — u53 · know
+- `しりょう` — u71 · materials
+- `しりょうかん` — u168 · an archive
+- `しろ` — u2 · white
+- `しろい` — u12 · white (is white)
+- `じろじろ` — u200 · staring rudely
+- `しわ` — u78 · wrinkle
+- `じわじわ` — u199 · gradually, by degrees
+- `しんか` — u167 · evolution
+- `じんかく` — u176 · a person's character
+- `しんがっき` — u148 · new term, new semester
+- `しんかんせん` — u24 · bullet train
+- `しんぎ` — u170 · whether it is true
+- `しんぎじゅつ` — u167 · new technology
+- `しんけん` — u112 · serious
+- `じんけん` — u135 · human rights
+- `しんこう` — u168 · religious belief
+- `しんごう` — u24 · traffic light
+- `じんこう` — u49 · population
+- `しんこく` — u118 · serious
+- `しんさ` — u183 · formal review
+- `じんざい` — u177 · talented staff
+- `しんさつ` — u72 · medical examination
+- `じんじ` — u177 · personnel matters
+- `しんしつ` — u153 · bedroom
+- `じんじゃ` — u10 · shrine
+- `しんじる` — u105 · to believe
+- `しんせい` — u192 · application (to an authority)
+- `しんせき` — u79 · relative
+- `しんせつ` — u23 · kind
+- `しんせん` — u73 · fresh
+- `しんそう` — u184 · the true state of things
+- `しんぞう` — u133 · heart (organ)
+- `しんだん` — u133 · diagnosis
+- `しんど` — u150 · seismic intensity
+- `じんどう` — u172 · humanity (as a principle)
+- `しんぱい` — u3 · worry
+- `しんぱいする` — u88 · to worry
+- `しんぴょうせい` — u156 · credibility
+- `しんぶん` — u50 · newspaper
+- `しんぶんしゃ` — u97 · newspaper company
+- `しんぽ` — u75 · progress
+- `しんゆう` — u79 · best friend
+- `しんらい` — u79 · trust
+- `しんらいせい` — u203 · reliability
+- `しんらいど` — u204 · degree of trust
+- `しんりん` — u76 · forest
+- `じんるい` — u76 · humankind
+- `しんろ` — u148 · future course, career path
+- `す` — u1
+- `ス` — u4
+- `ず` — u3
+- `ズ` — u6
+- `スーツ` — u78 · suit
+- `スーツケース` — u24 · suitcase
+- `スーパー` — u6 · supermarket
+- `スープ` — u4 · soup
+- `すいい` — u158 · how it has moved
+- `すいえい` — u67 · swimming
+- `すいか` — u54 · watermelon
+- `すいこむ` — u194 · to suck in, to absorb
+- `すいしつ` — u179 · water quality
+- `スイッチ` — u149 · switch
+- `すいどう` — u91 · tap water
+- `ずいぶん` — u94 · considerably
+- `すいみん` — u133 · sleep
+- `すいようび` — u56 · Wednesday
+- `すいろん` — u183 · reasoning to a conclusion
+- `すうかい` — u205 · several times
+- `すうがく` — u57 · math
+- `すうじ` — u3 · number
+- `ずうずうしい` — u144 · shameless, brazen
+- `すうち` — u158 · a numerical value
+- `すうにち` — u205 · a few days
+- `すうねん` — u205 · several years
+- `すうめい` — u205 · several people
+- `スカート` — u60 · skirt
+- `すがた` — u78 · figure
+- `すき` — u21 · like
+- `スキー` — u67 · skiing
+- `ずきずき` — u199 · throbbing pain
+- `すぎる` — u44 · too much / excessively
+- `すく` — u96 · become empty
+- `すぐ` — u29 · soon
+- `すくない` — u55 · few
+- `すぐに` — u84 · immediately
+- `スクリーン` — u92 · screen
+- `スケート` — u67 · skating
+- `すごい` — u55 · amazing
+- `すこし` — u21 · a little
+- `すこしも` — u146 · not at all
+- `すし` — u1 · sushi
+- `すずしい` — u12 · cool
+- `すすみます` — u45 · to proceed
+- `すすめる` — u110 · to move forward
+- `スタイル` — u78 · figure
+- `すたれる` — u168 · to fall out of use
+- `ずつ` — u139 · each, at a time
+- `すっかり` — u63 · completely
+- `すっきり` — u201 · clear, uncluttered, refreshed
+- `ずっしり` — u201 · heavy in the hand
+- `すっと` — u88 · smoothly
+- `ずっと` — u68 · the whole time
+- `すっぱい` — u54 · sour
+- `ステーキ` — u73 · steak
+- `すてき` — u80 · lovely
+- `すてます` — u22 · throw away
+- `ステレオ` — u88 · stereo
+- `ストーブ` — u84 · heater
+- `ストレス` — u133 · stress
+- `すな` — u51 · sand
+- `すなお` — u48 · obedient
+- `すなわち` — u206 · that is to say, namely
+- `ずにすんだ` — u188 · got away without having to X
+- `すばらしい` — u80 · wonderful
+- `スピーチ` — u77 · speech
+- `スプーン` — u58 · spoon
+- `すべて` — u62 · all
+- `すべります` — u69 · to slip
+- `スポーツ` — u4 · sports
+- `ズボン` — u28 · trousers
+- `すみ` — u64 · corner
+- `すみます` — u20 · live
+- `すみません` — u1 · excuse me
+- `すみませんが` — u141 · sorry, but…
+- `すみやか` — u145 · prompt, without delay
+- `すらすら` — u200 · smoothly, without stumbling
+- `すり` — u98 · pickpocket
+- `スリッパ` — u60 · slippers
+- `ずるい` — u144 · unfair, sly
+- `ずるずる` — u200 · dragging on and on
+- `すると` — u89 · and then
+- `するどい` — u144 · sharp, keen
+- `すれちがいます` — u143 · to pass each other
+- `すわります` — u53 · sit
+- `すんぽう` — u150 · measurements, dimensions
+- `せ` — u1
+- `セ` — u4
+- `ぜ` — u3
+- `ゼ` — u6
+- `セーター` — u4 · sweater
+- `セール` — u28 · sale
+- `ぜい` — u65 · tax
+- `せいいき` — u168 · sacred ground
+- `せいか` — u137 · perhaps because
+- `せいかく` — u70 · personality
+- `せいかつ` — u75 · daily life
+- `せいきゅう` — u131 · billing
+- `せいぎょ` — u160 · control
+- `ぜいきん` — u49 · tax
+- `せいけつ` — u133 · hygienic
+- `せいけん` — u163 · a government (in power)
+- `せいげん` — u120 · limit
+- `せいこう` — u81 · success
+- `せいこうりつ` — u204 · success rate
+- `せいさく` — u163 · policy
+- `せいさんき` — u152 · fare adjustment machine
+- `せいさんする` — u94 · to produce
+- `せいじ` — u49 · politics
+- `せいしつ` — u114 · nature
+- `せいじゅく` — u124 · maturing
+- `せいしん` — u133 · the mind
+- `せいぜい` — u146 · at most, at best
+- `ぜいせい` — u165 · the tax system
+- `せいせき` — u148 · academic record, results
+- `せいたいけい` — u179 · an ecosystem
+- `ぜいたく` — u145 · luxurious, extravagant
+- `せいちょう` — u116 · growth
+- `せいで` — u101 · because of (blame)
+- `せいと` — u25 · pupil
+- `せいど` — u120 · system
+- `せいのう` — u149 · performance, capability
+- `せいふ` — u76 · government
+- `せいぶつ` — u76 · living thing
+- `せいべつ` — u176 · sex or gender
+- `せいやく` — u160 · a constraint
+- `せいよう` — u90 · the West
+- `せいり` — u81 · sorting
+- `せかい` — u51 · world
+- `せき` — u59 · seat
+- `せきにん` — u110 · responsibility
+- `せきにんかん` — u203 · a sense of responsibility
+- `せきむ` — u177 · an obligation of office
+- `せけん` — u176 · what people will say
+- `せだい` — u107 · generation
+- `せっかく` — u147 · after going to the trouble
+- `せっきょくせい` — u203 · proactiveness
+- `せっきょくてき` — u155 · proactive, forward
+- `せっけん` — u58 · soap
+- `せつじつ` — u186 · keenly felt and urgent
+- `せつぞく` — u149 · connection (network)
+- `ぜったい` — u68 · absolutely
+- `ぜったいに` — u139 · absolutely
+- `せっとく` — u156 · persuasion
+- `せっとくりょく` — u156 · persuasive force
+- `せつとくりょく` — u204 · persuasiveness
+- `せつめい` — u77 · explanation
+- `せつめいします` — u25 · explain
+- `せつめいせきにん` — u172 · accountability
+- `ぜつめつ` — u179 · extinction
+- `せつやく` — u131 · saving
+- `せなか` — u26 · back
+- `ぜひ` — u29 · by all means
+- `せびろ` — u84 · suit
+- `せまい` — u55 · narrow
+- `せます` — u138 · make/let (godan verbs)
+- `ゼミ` — u148 · seminar class
+- `せめて` — u146 · at least (if nothing else)
+- `せめる` — u172 · to blame
+- `ぜろ` — u7 · zero
+- `ゼロ` — u6 · zero
+- `せわ` — u79 · care
+- `せん` — u7 · thousand
+- `ぜんえい` — u170 · avant-garde
+- `せんきょ` — u49 · election
+- `せんげつ` — u29 · last month
+- `せんこう` — u148 · one's major, specialism
+- `せんざい` — u153 · detergent
+- `せんさばんべつ` — u198 · endlessly varied
+- `せんしゅう` — u21 · last week
+- `せんせい` — u1 · teacher
+- `ぜんぜん` — u29 · not at all
+- `せんそう` — u76 · war
+- `ぜんたい` — u103 · the whole
+- `ぜんたいてき` — u205 · overall, taken as a whole
+- `せんたくき` — u47 · washing machine
+- `せんたくします` — u22 · do laundry
+- `ぜんてい` — u174 · premise
+- `せんぱい` — u3 · senior (in school/work)
+- `ぜんぶ` — u3 · all/everything
+- `せんぷうき` — u58 · electric fan
+- `せんもん` — u94 · specialty
+- `せんもんい` — u181 · a specialist doctor
+- `せんもんか` — u203 · specialisation
+- `せんろ` — u59 · train track
+- `そ` — u1
+- `ソ` — u4
+- `ぞ` — u3
+- `ゾ` — u6
+- `そう` — u30 · seems (looks)
+- `ぞう` — u27 · elephant
+- `ぞうか` — u150 · increase
+- `ぞうかりつ` — u204 · rate of increase
+- `ぞうきん` — u153 · cleaning cloth
+- `そうこ` — u153 · storeroom, warehouse
+- `そうご` — u160 · mutual
+- `そうごふじょ` — u172 · mutual aid
+- `そうさ` — u149 · operation, handling
+- `そうじ` — u84 · cleaning
+- `そうじき` — u47 · vacuum cleaner
+- `そうじします` — u22 · clean
+- `そうして` — u84 · and then
+- `そうぞう` — u114 · imagination
+- `そうぞうりょく` — u204 · imagination (as a faculty)
+- `そうたい` — u148 · leaving early
+- `そうだん` — u71 · consultation
+- `そうち` — u149 · device, apparatus
+- `そうてい` — u174 · the case assumed
+- `そうです` — u19 · that's right
+- `そうとう` — u103 · considerably
+- `そくど` — u150 · speed
+- `そくほう` — u184 · a breaking bulletin
+- `そこ` — u84 · there
+- `そこそこ` — u161 · reasonably
+- `そこで` — u101 · and so
+- `そこなう` — u208 · to damage, to impair
+- `そしき` — u107 · organisation
+- `そして` — u19 · and then
+- `そそっかしい` — u144 · careless, scatterbrained
+- `そだつ` — u129 · grow up
+- `そだてあげる` — u193 · to raise (to adulthood), to bring on
+- `そだてます` — u27 · raise
+- `そち` — u118 · a measure taken
+- `そちら` — u84 · that way
+- `そつぎょう` — u94 · graduation
+- `そっち` — u64 · that way
+- `そっと` — u147 · gently, softly
+- `そと` — u66 · outside
+- `そなえ` — u174 · provision made in advance
+- `その` — u19 · that ~
+- `そのかわり` — u137 · in exchange
+- `そのけっか` — u137 · as a result
+- `そのため` — u30 · therefore
+- `そのために` — u101 · for that reason
+- `そのとおり` — u99 · exactly so
+- `そば` — u54 · soba
+- `そふ` — u8 · my grandfather
+- `ソファ` — u4 · sofa
+- `ソフト` — u98 · software
+- `そぼ` — u8 · my grandmother
+- `そぼく` — u145 · simple, unaffected
+- `そよかぜ` — u66 · breeze
+- `そら` — u1 · sky
+- `それ` — u19 · that
+- `それから` — u19 · after that
+- `それで` — u30 · and so
+- `それでは` — u84 · well then
+- `それでも` — u30 · even so
+- `それとも` — u141 · or
+- `それなのに` — u137 · and yet
+- `それなら` — u101 · in that case
+- `それに` — u30 · besides
+- `それにしても` — u190 · even so; all the same
+- `そればかりか` — u190 · not only that, but even
+- `それほど` — u95 · (not) that much
+- `それゆえ` — u190 · therefore, hence
+- `そろいます` — u142 · to be all present, to match
+- `そろえます` — u142 · to gather, to make complete
+- `そろそろ` — u68 · about time
+- `そわそわ` — u112 · restlessly
+- `そんがい` — u118 · damage
+- `そんけい` — u79 · respect
+- `そんげん` — u172 · dignity
+- `そんざい` — u176 · presence
+- `そんしつ` — u174 · a financial loss
+- `ぞんじております` — u141 · I know (humble)
+- `そんちょう` — u135 · respect
+- `そんな` — u91 · that kind of
+- `そんなに` — u68 · (not) that much
+- `た` — u1
+- `た` — u140 · did (plain past)
+- `タ` — u4
+- `だ` — u3
+- `だ` — u140 · is (plain)
+- `ダ` — u6
+- `だい` — u62 · counter for machines
+- `たいいん` — u72 · leaving hospital
+- `ダイエット` — u133 · dieting
+- `たいおう` — u107 · response
+- `たいおん` — u72 · body temperature
+- `だいがく` — u3 · university
+- `だいがくせい` — u88 · university student
+- `たいき` — u129 · the atmosphere
+- `たいきばんせい` — u198 · great talent takes long to mature
+- `たいきゅう` — u167 · durability
+- `たいぐう` — u177 · how staff are treated
+- `たいくつ` — u48 · boring
+- `たいけい` — u160 · a system
+- `たいけん` — u124 · first-hand experience
+- `たいこ` — u52 · drum
+- `だいこん` — u54 · daikon radish
+- `たいさく` — u107 · countermeasure
+- `だいじ` — u63 · important
+- `たいしかん` — u84 · embassy
+- `たいして` — u103 · in contrast to
+- `たいじゅう` — u133 · body weight
+- `たいしょ` — u118 · dealing with it
+- `たいしょう` — u183 · the subject studied
+- `だいじょうぶ` — u23 · okay
+- `たいしょく` — u71 · leaving a job
+- `だいじん` — u163 · a minister
+- `だいすき` — u21 · love
+- `たいせき` — u150 · volume (3D)
+- `たいせつ` — u23 · important
+- `たいそう` — u133 · exercises
+- `だいたい` — u29 · roughly
+- `たいちょう` — u72 · physical condition
+- `たいてい` — u29 · usually
+- `たいです` — u21 · want to~
+- `たいど` — u70 · attitude
+- `だいどころ` — u10 · kitchen
+- `たいはん` — u103 · most of
+- `ダイビング` — u67 · diving
+- `タイプ` — u98 · type
+- `だいぶ` — u63 · a lot
+- `たいふう` — u12 · typhoon
+- `だいぶぶん` — u205 · most of, the greater part
+- `たいへん` — u63 · tough
+- `タイヤ` — u5 · tire
+- `たいよう` — u27 · sun
+- `たいようこう` — u179 · solar power
+- `たいら` — u145 · flat, level
+- `たいりく` — u51 · continent
+- `たいりょく` — u133 · stamina
+- `たえぬく` — u193 · to endure to the end
+- `タオル` — u58 · towel
+- `たおれます` — u26 · collapse
+- `たかが` — u207 · it's only, mere
+- `たかだか` — u161 · at most
+- `だから` — u19 · so
+- `たき` — u66 · waterfall
+- `だきょう` — u165 · a compromise
+- `たくさん` — u62 · a lot
+- `タクシー` — u4 · taxi
+- `たくましい` — u144 · sturdy, tough-minded
+- `だけ` — u62 · only
+- `だけでなく` — u137 · not only
+- `だけど` — u30 · but
+- `だけに` — u189 · precisely because; all the more since
+- `たこ` — u61 · octopus
+- `たしか` — u63 · if I recall
+- `たしかに` — u99 · certainly
+- `たしかめる` — u105 · to check
+- `たしざん` — u150 · addition
+- `たしょう` — u161 · to some extent
+- `たす` — u93 · to add
+- `だす` — u85 · take out
+- `たすう` — u103 · a large number
+- `たすかる` — u118 · be a big help
+- `たすけあう` — u195 · to help one another
+- `たすけます` — u46 · to help
+- `たずさわる` — u208 · to be engaged in (a field)
+- `たずねる` — u95 · to visit
+- `ただいま` — u68 · I'm home
+- `ただし` — u137 · however (proviso)
+- `ただしい` — u80 · correct
+- `たたみ` — u90 · tatami mat
+- `たたみます` — u47 · fold
+- `たち` — u84 · plural suffix
+- `たちどまります` — u143 · to stop still, to halt
+- `たちば` — u114 · position
+- `たちます` — u53 · stand
+- `たちまち` — u206 · in no time at all
+- `たっきゅう` — u67 · table tennis
+- `たっせい` — u110 · achievement
+- `だった` — u140 · was (plain)
+- `たっぷり` — u146 · plenty of, amply
+- `たて` — u64 · vertical
+- `だて` — u90 · -storied (building)
+- `たてがき` — u151 · vertical writing
+- `たてまえ` — u135 · the official line
+- `たてもの` — u84 · building
+- `だとう` — u174 · reasonable
+- `たとえ` — u101 · even if
+- `たとえば` — u94 · for example
+- `たところで` — u188 · even if you do X (it's no use)
+- `たどりつく` — u195 · to finally reach (after difficulty)
+- `たな` — u47 · shelf
+- `たに` — u51 · valley
+- `たにん` — u79 · stranger
+- `たね` — u61 · seed
+- `たのしい` — u1 · fun
+- `たのしみ` — u98 · looking forward to
+- `たのしむ` — u93 · to enjoy
+- `たのみます` — u46 · to request
+- `たのもしい` — u144 · reliable, dependable
+- `たばこ` — u84 · cigarette
+- `たびたび` — u146 · repeatedly, again and again
+- `たびに` — u137 · every time
+- `たぶん` — u29 · probably
+- `たぶんか` — u170 · multicultural
+- `たべかける` — u194 · to start eating (and leave it)
+- `たべます` — u9 · eat
+- `たべもの` — u3 · food
+- `たまご` — u9 · egg
+- `だまします` — u46 · to trick
+- `たまたま` — u147 · as it happened, by chance
+- `たまに` — u29 · occasionally
+- `たまねぎ` — u54 · onion
+- `だまりこむ` — u194 · to fall silent (and stay so)
+- `たまる` — u116 · to accumulate
+- `たまわる` — u191 · to receive / be granted (humble)
+- `ため` — u44 · for the sake of / because of
+- `だめ` — u63 · no good
+- `ためす` — u124 · try out
+- `ためます` — u65 · save up
+- `たようせい` — u176 · diversity
+- `たら` — u44 · if / when (once ~)
+- `たらさいご` — u188 · once X happens, that's the end of it
+- `だらしない` — u144 · sloppy, unkempt
+- `だらだら` — u200 · dragging on listlessly
+- `たり` — u44 · do things like (~たり~たり)
+- `たります` — u69 · to be enough
+- `だれ` — u8 · who
+- `だれか` — u85 · someone
+- `だれの` — u19 · whose
+- `だろう` — u43 · probably / I bet
+- `たんい` — u158 · unit (of measure)
+- `たんか` — u165 · unit price
+- `だんかい` — u122 · stage
+- `だんかいてき` — u203 · step by step, phased
+- `たんご` — u57 · vocabulary word
+- `たんじゅん` — u160 · simple
+- `たんじゅんか` — u203 · simplification
+- `たんじょうび` — u84 · birthday
+- `たんす` — u47 · chest of drawers
+- `ダンス` — u6 · dance
+- `だんせい` — u92 · man
+- `たんそ` — u179 · carbon
+- `だんたい` — u155 · group, organisation
+- `だんだん` — u63 · gradually
+- `だんてい` — u156 · a firm conclusion
+- `たんとう` — u110 · being in charge
+- `たんとうしゃ` — u192 · the person in charge
+- `たんとうちょくにゅう` — u198 · getting straight to the point
+- `だんどり` — u122 · the arrangements
+- `たんにん` — u148 · class teacher, teacher in charge
+- `だんぼう` — u96 · heating
+- `だんらく` — u151 · paragraph
+- `ち` — u1
+- `チ` — u4
+- `ぢ` — u3
+- `ヂ` — u6
+- `チーズ` — u6 · cheese
+- `ちいき` — u49 · area
+- `ちいさい` — u10 · small
+- `ちいさな` — u84 · small
+- `チェックする` — u93 · to check
+- `ちかい` — u10 · near
+- `ちがい` — u75 · difference
+- `ちがいない` — u105 · must be
+- `ちがいます` — u19 · that's wrong
+- `ちかく` — u64 · nearby
+- `ちかてつ` — u24 · subway
+- `ちかみち` — u152 · shortcut
+- `ちから` — u26 · strength
+- `ちきゅう` — u51 · earth
+- `ちくせき` — u160 · accumulation
+- `ちくちく` — u199 · prickling
+- `ちけい` — u129 · terrain
+- `チケット` — u4 · ticket
+- `ちこく` — u81 · being late
+- `ちこくします` — u25 · be late
+- `ちしき` — u51 · knowledge
+- `ちじん` — u79 · acquaintance
+- `ちず` — u3 · map
+- `ちち` — u8 · my father
+- `ちぢみます` — u142 · to shrink
+- `ちぢめます` — u142 · to shorten
+- `ちつじょ` — u160 · order
+- `ちっとも` — u89 · (not) at all
+- `ちなみに` — u147 · incidentally, by the way
+- `ちほう` — u129 · region
+- `ちゃ` — u16
+- `ちゃいろ` — u12 · brown
+- `ちゃう` — u140 · end up doing (contracted てしまう)
+- `ちゃくちゃく` — u200 · steadily (to plan)
+- `ちゃくりく` — u152 · landing
+- `ちゃわん` — u58 · rice bowl
+- `ちゃんと` — u147 · properly, without cutting corners
+- `ちゅ` — u16
+- `ちゅうい` — u75 · caution
+- `ちゅうがっこう` — u89 · junior high school
+- `ちゅうし` — u81 · cancellation
+- `ちゅうしゃ` — u72 · injection
+- `ちゅうしゃじょう` — u59 · parking lot
+- `ちゅうしゅつ` — u158 · extraction
+- `ちゅうしょう` — u114 · abstraction
+- `ちゅうしょうてき` — u155 · abstract, vague
+- `ちゅうせい` — u168 · the middle ages
+- `ちゅうもく` — u126 · attention
+- `ちゅうもくど` — u204 · level of attention it attracts
+- `ちゅうもんします` — u65 · order
+- `ちょ` — u16
+- `チョーク` — u57 · chalk
+- `ちょう` — u61 · butterfly
+- `ちょうか` — u202 · exceeding (a limit)
+- `ちょうさ` — u107 · survey
+- `ちょうし` — u81 · condition
+- `ちょうせい` — u110 · adjustment
+- `ちょうだいします` — u141 · I gratefully receive (humble)
+- `ちょうど` — u7 · exactly
+- `ちょきん` — u49 · savings
+- `ちょさく` — u183 · a written work
+- `ちょっけい` — u150 · diameter
+- `ちょっと` — u1 · a little
+- `ちらし` — u65 · flyer
+- `ちらちら` — u200 · glancing repeatedly; fluttering
+- `ちり` — u90 · geography
+- `ちりょう` — u72 · treatment
+- `つ` — u1
+- `ツ` — u4
+- `づ` — u3
+- `ヅ` — u6
+- `ツアー` — u4 · tour
+- `つい` — u147 · in spite of oneself
+- `ついたち` — u85 · first of the month
+- `ついて` — u97 · about, concerning
+- `ついでに` — u137 · while you're at it
+- `ついに` — u101 · finally
+- `つういん` — u181 · attending as an outpatient
+- `つうきん` — u74 · commuting to work
+- `つうしん` — u149 · communication, data transmission
+- `つうち` — u149 · notification, notice
+- `つうやく` — u77 · interpreter
+- `つうろがわ` — u152 · aisle side
+- `つかいきる` — u193 · to use up completely
+- `つかいます` — u20 · use
+- `つかまえます` — u46 · to catch
+- `つかれぎみ` — u204 · a bit tired, tending toward tired
+- `つかれきる` — u193 · to be worn out completely
+- `つかれます` — u26 · get tired
+- `つかわれます` — u138 · is used
+- `つき` — u1 · moon
+- `つぎ` — u24 · next
+- `つきあいます` — u143 · to associate with; to go out with
+- `つきあう` — u135 · keep company with
+- `つきます` — u24 · arrive
+- `つくえ` — u57 · desk
+- `つくづく` — u199 · really, on reflection
+- `つぐない` — u172 · making amends
+- `つぐなう` — u208 · to make amends, to compensate
+- `つくりあげる` — u193 · to build up, to create (through effort)
+- `つくります` — u20 · make
+- `っけ` — u140 · what was it again?
+- `つけます` — u20 · turn on
+- `つごう` — u81 · convenience
+- `つたえ` — u168 · a handed-down account
+- `つたえます` — u45 · to convey
+- `つち` — u51 · soil
+- `つづきます` — u69 · to continue
+- `つづける` — u94 · to continue
+- `つつみます` — u28 · wrap
+- `って` — u140 · said that; as for
+- `つとめて` — u207 · making a point of, as far as possible
+- `つとめる` — u85 · work
+- `つながります` — u50 · connect
+- `つながる` — u101 · to lead to
+- `つなみ` — u76 · tsunami
+- `つねに` — u146 · always, at all times
+- `つのる` — u208 · to grow stronger; to recruit
+- `っぱなし` — u138 · left as it is (undone)
+- `つぼみ` — u66 · bud
+- `つま` — u8 · my wife
+- `つまらない` — u55 · boring
+- `つまり` — u30 · in other words
+- `つまるところ` — u190 · in the end; when all is said
+- `つめ` — u26 · nail
+- `つめこむ` — u194 · to cram in
+- `つめたい` — u12 · cold to the touch
+- `つもり` — u43 · intend to
+- `つゆ` — u12 · rainy season
+- `つよい` — u23 · strong
+- `つらい` — u70 · painful
+- `つらぬく` — u208 · to carry through, to hold to
+- `つり` — u52 · fishing
+- `つりあい` — u158 · balance
+- `つる` — u93 · to fish
+- `つるつる` — u201 · smooth and slippery
+- `つれる` — u92 · take (someone) along
+- `て` — u1
+- `テ` — u4
+- `で` — u3
+- `で` — u20 · (at / in)
+- `デ` — u6
+- `データ` — u50 · data
+- `デート` — u6 · date
+- `テープ` — u84 · tape
+- `テーブル` — u6 · table
+- `テープレコーダー` — u84 · tape recorder
+- `であい` — u79 · encounter
+- `てあげます` — u138 · do (something) for someone
+- `てあります` — u138 · has been done (and stays that way)
+- `である` — u140 · is (written/formal)
+- `であれ` — u188 · whatever / whoever it may be
+- `ていあん` — u118 · proposal
+- `ていきけん` — u152 · commuter pass
+- `ていきます` — u138 · go on doing; do and leave
+- `ていきょう` — u192 · provision, supplying
+- `ていしゅつ` — u110 · submission
+- `ていしょく` — u73 · set meal
+- `ていせい` — u184 · a correction
+- `ていただきます` — u138 · get someone to do (humble)
+- `ていただけませんか` — u141 · could you please…?
+- `ていたら` — u188 · if X had been the case
+- `ティッシュ` — u58 · tissue
+- `ていど` — u103 · extent
+- `ていなかったら` — u188 · if X had not been the case
+- `ていねい` — u23 · polite
+- `ています` — u43 · is ~ing (ongoing / state)
+- `ておく` — u43 · do in advance
+- `ております` — u191 · to be doing (humble ～ている)
+- `てがあく` — u196 · to be free, to have a moment
+- `でかけます` — u24 · go out
+- `てがたりない` — u196 · to be short-handed
+- `てがみ` — u1 · letter
+- `てから` — u43 · after doing
+- `てからでないと` — u188 · not until after X
+- `てがる` — u145 · easy to do, hassle-free
+- `てきおう` — u179 · adapting to it
+- `てきかく` — u158 · accurate
+- `テキスト` — u88 · textbook
+- `てきど` — u161 · a moderate amount
+- `てきとう` — u80 · suitable
+- `てきぱき` — u200 · briskly and efficiently
+- `てきます` — u138 · come to be; go and come back
+- `できます` — u53 · can
+- `てきよう` — u160 · application (of a rule)
+- `できるだけ` — u89 · as much as possible
+- `できれば` — u141 · if possible
+- `てくださいます` — u138 · does for me (respectful)
+- `でぐち` — u3 · exit
+- `てくれます` — u138 · does (something) for me
+- `でございます` — u191 · to be (humble/formal copula)
+- `でこぼこ` — u201 · uneven, bumpy
+- `デザート` — u73 · dessert
+- `でした` — u21 · was
+- `てしまう` — u43 · do completely / (regrettably)
+- `てじゅん` — u110 · procedure
+- `でしょう` — u30 · probably
+- `です` — u19 · to be
+- `てすうりょう` — u131 · handling fee
+- `テスト` — u4 · test
+- `てつ` — u51 · iron
+- `てつだいます` — u22 · help
+- `てつづき` — u118 · paperwork
+- `でどころ` — u184 · where it came from
+- `てにいれる` — u196 · to obtain, to get hold of
+- `テニス` — u4 · tennis
+- `てにもつ` — u152 · hand luggage
+- `デパート` — u6 · department store
+- `てはいけません` — u43 · must not
+- `てばかり` — u138 · does nothing but
+- `てはじめて` — u188 · only upon doing X (did I…)
+- `ではない` — u140 · is not (written/formal)
+- `てぶくろ` — u28 · gloves
+- `てほしい` — u138 · want someone else to do
+- `てま` — u118 · time and effort
+- `てまえ` — u64 · this side
+- `でます` — u53 · leave
+- `てみる` — u43 · try doing
+- `ても` — u137 · even if
+- `でも` — u19 · but
+- `てもいいです` — u43 · may / it's OK to
+- `てもらいます` — u138 · get someone to do
+- `てもらえますか` — u141 · could you…?
+- `てやります` — u138 · do (something) for someone below you
+- `てら` — u95 · temple
+- `てる` — u140 · ~ing (contracted ている)
+- `てれくさい` — u186 · embarrassing in a shy way
+- `テレビ` — u4 · TV
+- `てれる` — u112 · to feel shy
+- `てをかす` — u196 · to lend a hand
+- `てをぬく` — u196 · to cut corners
+- `てをやく` — u196 · to be at a loss with, to have trouble handling
+- `てん` — u64 · dot
+- `てんいん` — u65 · shop clerk
+- `てんかい` — u184 · how it unfolds
+- `てんき` — u12 · weather
+- `でんき` — u3 · electricity/light
+- `でんきゅう` — u153 · light bulb
+- `てんきょ` — u183 · the source relied on
+- `てんきよほう` — u95 · weather forecast
+- `でんげん` — u50 · power (switch)
+- `でんごん` — u77 · message
+- `てんじ` — u192 · display, exhibition
+- `でんし` — u167 · electron / electronic
+- `でんしゃ` — u24 · train
+- `てんじょう` — u47 · ceiling
+- `てんしょく` — u71 · changing jobs
+- `てんすう` — u148 · score, marks
+- `でんち` — u58 · battery
+- `てんてき` — u181 · an intravenous drip
+- `でんとう` — u52 · tradition
+- `でんとうてき` — u203 · traditional
+- `てんぷら` — u3 · tempura
+- `でんぽう` — u98 · telegram
+- `てんらんかい` — u52 · exhibition
+- `でんわ` — u2 · phone
+- `でんわします` — u77 · call
+- `と` — u1
+- `と` — u19 · and
+- `ト` — u4
+- `ど` — u3
+- `ド` — u6
+- `ドア` — u6 · door
+- `とあって` — u189 · given that (a special situation)
+- `とあれば` — u188 · if it's for the sake of
+- `という` — u44 · called / named / that says
+- `ということ` — u139 · the fact that
+- `ということです` — u139 · I hear that
+- `ということは` — u99 · which means
+- `というのも` — u190 · the reason being; this is because
+- `というより` — u99 · rather than
+- `というわけです` — u190 · and that's how it is / so that's why
+- `トイレ` — u10 · toilet
+- `どう` — u19 · how
+- `どうかん` — u99 · the same opinion
+- `とうき` — u165 · speculation
+- `どうぐ` — u76 · tool
+- `とうけい` — u107 · statistics
+- `とうこう` — u183 · submitting for publication
+- `とうごう` — u160 · integration
+- `とうし` — u131 · investment
+- `とうじ` — u116 · at that time
+- `とうじしゃ` — u172 · the person directly involved
+- `とうじつ` — u192 · the day itself, on the day
+- `どうして` — u19 · why
+- `とうじょう` — u152 · boarding
+- `どうせ` — u147 · anyway, in any case (resigned)
+- `とうぜん` — u120 · naturally
+- `どうぞ` — u20 · here you are
+- `とうそう` — u163 · a struggle
+- `とうちゃく` — u52 · arrival
+- `どうちょう` — u176 · falling in with others
+- `とうつう` — u181 · pain (clinical)
+- `とうてい` — u205 · (cannot) possibly
+- `とうとう` — u68 · finally
+- `どうとく` — u172 · morals
+- `どうにか` — u146 · somehow, just about
+- `とうひょう` — u107 · voting
+- `とうひょうけん` — u163 · the right to vote
+- `どうぶつ` — u61 · animal
+- `どうぶつえん` — u10 · zoo
+- `とうめいせい` — u172 · transparency
+- `とうめん` — u122 · for the time being
+- `どうも` — u85 · thanks
+- `どうやら` — u105 · apparently
+- `どうりょう` — u71 · colleague
+- `とうろくします` — u50 · register
+- `とうろん` — u156 · a debate
+- `とお` — u85 · ten
+- `とおい` — u10 · far
+- `とおか` — u85 · the tenth
+- `とおく` — u64 · far away
+- `とおまわり` — u152 · detour, the long way round
+- `とおり` — u59 · street
+- `とおりかかる` — u194 · to happen to pass by
+- `とおります` — u53 · pass through
+- `とか` — u139 · things like ~ and ~
+- `とかい` — u59 · city
+- `とかします` — u142 · to melt (something)
+- `とかんがえられる` — u190 · it is thought that
+- `とき` — u30 · when
+- `ときおり` — u207 · now and then
+- `ときどき` — u29 · sometimes
+- `どきどき` — u63 · nervous
+- `とく` — u140 · do in advance (contracted ておく)
+- `とくい` — u80 · good at
+- `どくじせい` — u203 · originality, distinctiveness
+- `どくしゃ` — u126 · reader
+- `とくしゅう` — u126 · special feature
+- `どくしょ` — u67 · reading
+- `どくそう` — u170 · originality
+- `とくちょう` — u75 · characteristic
+- `どくとく` — u170 · distinctive
+- `とくに` — u29 · especially
+- `とくべつ` — u80 · special
+- `とけい` — u1 · clock
+- `とけます` — u142 · to melt, to dissolve
+- `どこ` — u19 · where
+- `とこや` — u88 · barbershop
+- `ところ` — u85 · place
+- `ところが` — u137 · however
+- `どころか` — u139 · far from it
+- `ところだった` — u188 · was about to / nearly did
+- `ところで` — u30 · by the way
+- `とざん` — u52 · mountain climbing
+- `とし` — u85 · year
+- `としたら` — u137 · supposing that
+- `としては` — u139 · as (in the role of)
+- `としても` — u188 · even supposing that
+- `としょかん` — u10 · library
+- `とすると` — u188 · if that's so, then
+- `とすれば` — u188 · if we suppose that
+- `とたん` — u137 · the moment that
+- `とち` — u129 · land
+- `とちゅう` — u98 · on the way
+- `どちら` — u85 · which
+- `どちらかというと` — u99 · if anything
+- `とっきゅう` — u74 · limited express
+- `とっきょ` — u167 · a patent
+- `とっくに` — u146 · long ago, already
+- `とっさに` — u147 · on the spur of the moment
+- `どっち` — u64 · which way
+- `とても` — u21 · very
+- `とどきます` — u24 · arrive (be delivered)
+- `とどけで` — u192 · notification, formal filing
+- `とどける` — u92 · deliver
+- `とともに` — u189 · together with; as well as
+- `どなた` — u85 · who
+- `となり` — u10 · next to
+- `となると` — u188 · when it comes to; that being so
+- `とにかく` — u151 · anyway, in any case
+- `どの` — u19 · which ~
+- `どのくらい` — u62 · how much
+- `とのことです` — u139 · I am told that
+- `どのみち` — u207 · either way, whichever it is
+- `とはいえ` — u99 · that said
+- `とはかぎらない` — u105 · isn't necessarily
+- `とはかぎりません` — u139 · not necessarily
+- `とびこむ` — u194 · to jump in, to dive in
+- `とびだします` — u143 · to rush out, to dart out
+- `とびます` — u27 · fly
+- `とびまわる` — u195 · to fly about; to dash about busily
+- `とほ` — u152 · on foot
+- `トマト` — u4 · tomato
+- `とまどい` — u112 · bewilderment
+- `とまります` — u22 · stay
+- `とみられる` — u190 · is seen as, is regarded as
+- `とめます` — u142 · to stop (something)
+- `ともいえる` — u190 · you could even say that
+- `ともかく` — u146 · in any case, setting that aside
+- `ともだち` — u1 · friend
+- `ともなう` — u208 · to accompany, to come with
+- `どようび` — u3 · Saturday
+- `とら` — u61 · tiger
+- `ドライバー` — u149 · screwdriver; driver
+- `トラック` — u24 · truck
+- `トラブル` — u118 · trouble
+- `ドラマ` — u126 · TV drama
+- `ドラム` — u67 · drums
+- `とり` — u27 · bird
+- `とりあえず` — u105 · first of all
+- `とりあげる` — u107 · to take up (a topic)
+- `とりいれます` — u143 · to adopt, to bring in
+- `とりかえる` — u97 · exchange
+- `とりくみます` — u143 · to tackle, to work on
+- `とりくむ` — u122 · tackle
+- `とりけします` — u143 · to cancel, to retract
+- `とりけす` — u122 · cancel
+- `とりだします` — u143 · to take out, to pull out
+- `とりたてて` — u207 · nothing worth mentioning
+- `とりにく` — u85 · chicken
+- `とりひき` — u131 · a business deal
+- `とります` — u22 · take
+- `どりょく` — u81 · effort
+- `とりわけ` — u161 · above all
+- `どれ` — u19 · which
+- `どろどろ` — u201 · thick and muddy, gloopy
+- `どろぼう` — u89 · thief
+- `とんでもない` — u144 · outrageous; not at all
+- `どんどん` — u91 · rapidly
+- `どんな` — u85 · what kind of
+- `どんぶり` — u73 · rice bowl
+- `とんぼ` — u61 · dragonfly
+- `な` — u1
+- `な` — u21 · (links な-adj to noun)
+- `ナ` — u4
+- `ない` — u85 · there isn't
+- `ないか` — u181 · internal medicine
+- `ないかぎり` — u188 · as long as X isn't (so); unless
+- `ないかく` — u163 · the cabinet
+- `ないことには` — u188 · unless X, nothing (can happen)
+- `ないと` — u137 · if you don't (you'd better)
+- `ナイフ` — u4 · knife
+- `ないぶこくはつ` — u172 · whistle-blowing
+- `ないよう` — u75 · content
+- `なお` — u139 · furthermore
+- `なおさら` — u161 · all the more
+- `なおします` — u22 · fix
+- `なおります` — u26 · recover
+- `なか` — u10 · inside
+- `ながい` — u55 · long
+- `ながします` — u47 · rinse
+- `なかった` — u140 · didn't (plain past negative)
+- `なかなおり` — u79 · reconciliation
+- `なかなか` — u63 · quite
+- `ながねん` — u116 · for many years
+- `なかま` — u79 · companion
+- `ながら` — u30 · while (doing)
+- `ながれ` — u155 · flow, the way things are going
+- `ながれだす` — u194 · to start flowing, to begin to play
+- `ながれます` — u27 · flow
+- `なきます` — u26 · cry
+- `なきゃ` — u140 · have to (contracted なければ)
+- `なくす` — u85 · to lose
+- `なくなります` — u69 · to run out
+- `なくなる` — u116 · to disappear
+- `なげる` — u90 · to throw
+- `なければなりません` — u120 · have to
+- `なごやか` — u145 · friendly, harmonious (atmosphere)
+- `なごり` — u186 · traces left behind
+- `なさけない` — u112 · pathetic
+- `なさる` — u91 · do (honorific)
+- `なし` — u54 · pear
+- `なしとげる` — u193 · to accomplish (something large)
+- `なじみ` — u124 · something familiar
+- `なぜ` — u85 · why
+- `なぜなら` — u99 · because
+- `なつ` — u12 · summer
+- `なつかしい` — u70 · nostalgic
+- `なっとく` — u99 · to be convinced
+- `なつやすみ` — u57 · summer vacation
+- `など` — u62 · etc.
+- `なな` — u7 · seven
+- `ななつ` — u85 · seven
+- `ななめ` — u64 · diagonal
+- `なに` — u19 · what
+- `なにげなく` — u147 · casually, without meaning anything by it
+- `なにしろ` — u151 · after all, the thing is
+- `なにぶん` — u206 · what with (the circumstances being)
+- `なにより` — u206 · more than anything, best of all
+- `なのか` — u85 · the seventh
+- `なべ` — u47 · pot
+- `なまえ` — u1 · name
+- `なみ` — u61 · wave
+- `なみだ` — u70 · tears
+- `なやみ` — u48 · worry
+- `なやむ` — u118 · agonize over
+- `なら` — u44 · if it's the case that
+- `ならいます` — u20 · learn
+- `ならびに` — u206 · and also (joining groups)
+- `ならびます` — u22 · line up
+- `ならべます` — u28 · arrange
+- `なります` — u53 · become
+- `なりゆき` — u122 · how things turn out
+- `なるべく` — u90 · as much as possible
+- `なるほど` — u63 · I see
+- `なれます` — u69 · to get used to
+- `なん` — u85 · what
+- `なんいど` — u204 · level of difficulty
+- `なんじ` — u1 · what time
+- `なんて` — u139 · things like; how (dismissive)
+- `なんとか` — u118 · somehow
+- `なんとしても` — u207 · whatever it takes
+- `なんとなく` — u105 · somehow
+- `なんとも` — u105 · can't say either way
+- `なんども` — u205 · many times
+- `なんの` — u19 · what kind of
+- `なんようび` — u56 · what day of the week
+- `なんら` — u205 · (not) in any way
+- `に` — u1
+- `に` — u7 · two
+- `ニ` — u4
+- `にあいます` — u78 · suit
+- `にあたって` — u189 · on the occasion of; when about to
+- `にあって` — u189 · in (a special situation)
+- `におい` — u91 · smell
+- `において` — u189 · in, at (formal setting)
+- `における` — u189 · in, at (before a noun)
+- `にがい` — u9 · bitter
+- `にがて` — u80 · poor at
+- `にかんして` — u189 · regarding, concerning
+- `にぎやか` — u23 · lively
+- `にく` — u9 · meat
+- `にくい` — u44 · hard to (do)
+- `にげだします` — u143 · to run away, to bolt
+- `にげます` — u69 · to escape
+- `にげまわる` — u195 · to run about trying to escape
+- `にこにこ` — u112 · smiling
+- `にさいして` — u189 · at the time of, on the occasion of
+- `にさきだって` — u189 · prior to, ahead of
+- `にじ` — u12 · rainbow
+- `にしては` — u137 · for a
+- `にしても` — u188 · even granting that; even so
+- `にじゅう` — u7 · twenty
+- `にすぎない` — u190 · is no more than, merely
+- `にそくさんもん` — u198 · dirt cheap, worth almost nothing
+- `にたいして` — u189 · toward; in contrast to
+- `にちがいありません` — u139 · must be, no doubt
+- `にちようび` — u56 · Sunday
+- `にっき` — u95 · diary
+- `につき` — u189 · owing to; per; regarding
+- `にってい` — u81 · schedule
+- `にとって` — u139 · for (from the standpoint of)
+- `にともなって` — u189 · accompanying; as X changes
+- `になう` — u208 · to shoulder, to bear (a role)
+- `にぶい` — u144 · dull, slow to notice
+- `にほん` — u1 · Japan
+- `にます` — u73 · simmer
+- `にもかかわらず` — u190 · in spite of, nevertheless
+- `にもつ` — u74 · luggage
+- `にもとづいて` — u189 · based on, grounded in
+- `にゃ` — u16
+- `にやにや` — u200 · smirking
+- `にゅ` — u16
+- `ニュース` — u4 · news
+- `にゅういん` — u72 · hospitalization
+- `にゅうがくする` — u93 · to enter school
+- `にゅうし` — u148 · entrance exam
+- `にゅうりょく` — u149 · input, entering data
+- `にょ` — u16
+- `によって` — u101 · depending on
+- `によると` — u137 · according to
+- `にる` — u103 · to resemble
+- `にわ` — u10 · garden
+- `にわたって` — u189 · over the span of; across
+- `にわとり` — u61 · chicken
+- `にん` — u62 · counter for people
+- `にんか` — u120 · official approval
+- `にんき` — u65 · popularity
+- `にんぎょう` — u90 · doll
+- `にんじん` — u54 · carrot
+- `にんむ` — u177 · a duty assigned
+- `ぬ` — u1
+- `ヌ` — u4
+- `ぬきます` — u142 · to pull out, to leave out
+- `ぬぎます` — u53 · take off
+- `ぬけます` — u142 · to come out, to fall out
+- `ぬすみます` — u46 · to steal
+- `ぬる` — u92 · paint
+- `ぬるい` — u12 · lukewarm
+- `ぬるぬる` — u201 · slimy
+- `ぬれます` — u69 · to get wet
+- `ね` — u1
+- `ね` — u140 · isn't it? (seeking agreement)
+- `ネ` — u4
+- `ネクタイ` — u4 · necktie
+- `ねこ` — u1 · cat
+- `ねじ` — u149 · screw
+- `ねずみ` — u61 · mouse
+- `ねだん` — u28 · price
+- `ねつ` — u26 · fever
+- `ねっしん` — u48 · eager
+- `ねつぞう` — u184 · fabrication
+- `ねぼう` — u91 · oversleeping
+- `ねます` — u9 · sleep
+- `ねむい` — u23 · sleepy
+- `ねむりこむ` — u194 · to fall fast asleep
+- `ねむる` — u97 · sleep
+- `ねんしゅう` — u177 · annual income
+- `ねんりょう` — u179 · fuel
+- `の` — u1
+- `の` — u19 · of
+- `ノ` — u4
+- `ノート` — u4 · notebook
+- `のうき` — u165 · delivery date
+- `のうぎょう` — u129 · agriculture
+- `のうど` — u150 · concentration (of a substance)
+- `のうりつ` — u110 · efficiency
+- `のうりょく` — u110 · ability
+- `のこぎり` — u149 · saw
+- `のこします` — u142 · to leave (something) behind
+- `のこる` — u92 · remain
+- `ので` — u30 · because
+- `のではないでしょうか` — u141 · isn't it perhaps that…?
+- `のど` — u26 · throat
+- `のに` — u30 · even though
+- `のばす` — u122 · extend
+- `のはら` — u66 · meadow
+- `のびる` — u116 · to stretch
+- `のべる` — u99 · to state
+- `のぼります` — u22 · climb
+- `のみ` — u137 · only
+- `のみならず` — u190 · not merely … but
+- `のみほうだい` — u73 · all-you-can-drink
+- `のみます` — u9 · drink
+- `のみもの` — u1 · drink
+- `のり` — u57 · glue
+- `のりかえ` — u24 · transfer
+- `のりかえる` — u97 · transfer
+- `のります` — u20 · ride
+- `のりもの` — u92 · vehicle
+- `のろのろ` — u200 · at a crawl
+- `のんき` — u145 · easy-going, carefree
+- `のんびり` — u63 · relaxed
+- `は` — u2
+- `は` — u19 · (topic marker)
+- `ハ` — u5
+- `ば` — u3
+- `ば` — u44 · if (conditional)
+- `バ` — u6
+- `ぱ` — u3
+- `パ` — u6
+- `バーゲン` — u65 · bargain sale
+- `パーティー` — u85 · party
+- `パート` — u90 · part-time work
+- `ばあい` — u81 · case
+- `はい` — u1 · yes
+- `ばい` — u91 · double
+- `バイオリン` — u67 · violin
+- `はいき` — u129 · disposal
+- `ハイキング` — u67 · hiking
+- `バイク` — u59 · motorcycle
+- `はいけい` — u101 · background
+- `はいけんする` — u96 · to see (humble)
+- `はいざら` — u85 · ashtray
+- `はいしゃ` — u72 · dentist
+- `はいしゃくする` — u191 · to borrow (humble)
+- `はいしゅつ` — u129 · emissions
+- `はいしん` — u126 · streaming
+- `はいぞく` — u177 · being assigned to a post
+- `はいちょうする` — u191 · to listen (humble)
+- `はいとう` — u165 · a dividend
+- `はいどくする` — u191 · to read (humble)
+- `ばいばい` — u131 · buying and selling
+- `はいゆう` — u126 · actor
+- `はいります` — u53 · enter
+- `はいりょ` — u179 · consideration given
+- `はいりょぎむ` — u172 · a duty of care
+- `はかい` — u129 · destruction
+- `はがき` — u60 · postcard
+- `はかせ` — u183 · a doctorate
+- `ばかり` — u92 · only
+- `ばかりでなく` — u190 · not only … (but also)
+- `はきけ` — u72 · nausea
+- `はきはき` — u200 · speaking clearly and briskly
+- `はきます` — u47 · sweep
+- `はくぶつかん` — u52 · museum
+- `バケツ` — u58 · bucket
+- `はげましあう` — u195 · to encourage one another
+- `はけん` — u177 · being sent on assignment
+- `はこ` — u58 · box
+- `はこびます` — u45 · to carry
+- `ぱさぱさ` — u201 · dry and crumbly
+- `はさみ` — u57 · scissors
+- `はし` — u2 · chopsticks
+- `はじまる` — u85 · begin
+- `はじめ` — u85 · beginning
+- `はじめて` — u85 · for the first time
+- `はじめます` — u53 · begin
+- `パジャマ` — u60 · pajamas
+- `ばしょ` — u59 · place
+- `はしら` — u153 · pillar, post
+- `はしります` — u22 · run
+- `はず` — u30 · should be
+- `バス` — u6 · bus
+- `はずがありません` — u139 · can't possibly be
+- `はずかしい` — u48 · embarrassed
+- `バスケット` — u67 · basketball
+- `はずします` — u142 · to take off, to remove
+- `バスてい` — u59 · bus stop
+- `パスポート` — u24 · passport
+- `はずれます` — u142 · to come off, to miss
+- `パスワード` — u149 · password
+- `パソコン` — u50 · computer
+- `バター` — u86 · butter
+- `はたけ` — u66 · field
+- `はたち` — u86 · twenty years old
+- `ばたばた` — u200 · in a flap, hectically
+- `はたらきます` — u20 · work
+- `はち` — u7 · eight
+- `ばつ` — u120 · penalty
+- `はつおん` — u57 · pronunciation
+- `はつか` — u86 · the twentieth
+- `はっきり` — u68 · clearly
+- `はっけん` — u76 · discovery
+- `ばっそく` — u163 · a penalty clause
+- `はってん` — u116 · development
+- `はつでん` — u179 · generating power
+- `はっぱ` — u61 · leaf
+- `はつばいずみ` — u204 · already released, on sale
+- `はっぴょう` — u77 · presentation
+- `はつめい` — u76 · invention
+- `はで` — u78 · flashy
+- `はな` — u2 · flower
+- `はながたかい` — u197 · proud (of someone or something)
+- `はなし` — u57 · talk
+- `はなしあいます` — u77 · discuss
+- `はなしかけます` — u77 · speak to
+- `はなします` — u9 · speak
+- `バナナ` — u4 · banana
+- `はなび` — u12 · fireworks
+- `はなみ` — u98 · flower viewing
+- `はなみず` — u72 · runny nose
+- `はなや` — u59 · flower shop
+- `はは` — u8 · my mother
+- `はば` — u150 · width
+- `パパ` — u91 · dad
+- `はばむ` — u208 · to block, to stand in the way of
+- `はブラシ` — u58 · toothbrush
+- `はまべ` — u66 · beach
+- `ハム` — u5 · ham
+- `ばめん` — u184 · a scene
+- `はもとより` — u190 · to say nothing of; let alone
+- `はやい` — u55 · fast
+- `はやし` — u51 · woods
+- `はやる` — u126 · become popular
+- `ばよかった` — u188 · should have / wish I had
+- `はらいます` — u28 · pay
+- `はらがたつ` — u112 · to get angry
+- `ばらつき` — u158 · spread
+- `はらはら` — u199 · on tenterhooks (watching)
+- `ばらばら` — u147 · scattered; in pieces
+- `ぱらぱら` — u200 · sparsely; flipping through
+- `はらをきめる` — u197 · to make up one's mind (for good)
+- `はらをわる` — u197 · to talk frankly, to open up
+- `はる` — u12 · spring
+- `はれ` — u12 · sunny
+- `バレーボール` — u67 · volleyball
+- `はれる` — u86 · clear up
+- `はん` — u7 · half past
+- `ばん` — u7 · evening
+- `パン` — u6 · bread
+- `はんい` — u114 · range
+- `ハンガー` — u6 · hanger
+- `ハンカチ` — u58 · handkerchief
+- `ばんぐみ` — u50 · (TV) program
+- `はんけい` — u150 · radius
+- `ばんごう` — u86 · number
+- `ばんごはん` — u9 · dinner
+- `はんざい` — u107 · crime
+- `ハンサム` — u78 · handsome
+- `はんしんはんぎ` — u198 · half believing, half doubting
+- `ばんぜん` — u174 · leaving nothing to chance
+- `パンダ` — u61 · panda
+- `はんたい` — u64 · opposite
+- `はんだん` — u75 · judgment
+- `はんだんりょく` — u204 · judgement (the ability)
+- `バンド` — u67 · band
+- `はんのう` — u101 · reaction
+- `はんのうそくど` — u167 · reaction speed
+- `ハンバーグ` — u73 · hamburg steak
+- `はんばい` — u131 · sale
+- `はんぶん` — u62 · half
+- `はんめん` — u189 · on the other hand; while
+- `パンや` — u59 · bakery
+- `はんろん` — u156 · counter-argument
+- `ひ` — u2
+- `ヒ` — u5
+- `び` — u3
+- `ビ` — u6
+- `ぴ` — u3
+- `ピ` — u6
+- `ヒーター` — u5 · heater
+- `ビール` — u6 · beer
+- `ピアノ` — u6 · piano
+- `ひいては` — u206 · and by extension
+- `ひえます` — u69 · to get cold
+- `ひがい` — u76 · damage
+- `ひがいしゃ` — u155 · victim
+- `ひかく` — u103 · comparison
+- `ひかくてき` — u161 · relatively
+- `ひかげ` — u66 · shade
+- `ぴかぴか` — u201 · shining, brand new
+- `ひかり` — u27 · light
+- `ひかる` — u90 · shine
+- `ひき` — u62 · counter for small animals
+- `ひきうけます` — u143 · to take on, to undertake
+- `ひきうける` — u110 · to take on
+- `ひきおこす` — u101 · to bring about
+- `ひきかえす` — u195 · to turn back, to retrace
+- `ひきざん` — u150 · subtraction
+- `ひきだし` — u47 · drawer
+- `ひきつける` — u195 · to attract, to draw in
+- `ひきます` — u53 · pull
+- `ひきよう` — u156 · a quotation
+- `ひくい` — u55 · low
+- `びくびく` — u199 · flinching, scared
+- `ひげ` — u26 · beard
+- `ひげんじつてき` — u202 · unrealistic
+- `ひこうかい` — u202 · closed to the public, private
+- `ひこうき` — u24 · airplane
+- `ひこうしき` — u202 · unofficial
+- `ひこうじょう` — u91 · airport
+- `ひざ` — u60 · knee
+- `ピザ` — u6 · pizza
+- `ひざし` — u66 · sunlight
+- `ひさしぶり` — u96 · after a long time
+- `ひしひし` — u199 · keenly, acutely (felt)
+- `びじゅつ` — u52 · art
+- `びじゅつかん` — u10 · art museum
+- `ひしょ` — u71 · secretary
+- `ひじょうに` — u88 · extremely
+- `びじん` — u78 · beautiful woman
+- `ひそひそ` — u200 · in whispers
+- `ひたい` — u78 · forehead
+- `ひたすら` — u146 · single-mindedly, nothing but
+- `ひたむき` — u207 · single-minded, wholehearted
+- `ひだり` — u10 · left
+- `びっくり` — u48 · surprised
+- `ひっこし` — u153 · moving house
+- `ひっこす` — u93 · to move house
+- `ひっしゅう` — u148 · compulsory (subject)
+- `ぴったり` — u147 · exactly; a perfect fit
+- `ひつどく` — u192 · required reading
+- `ひつよう` — u80 · necessary
+- `ひてい` — u156 · denial
+- `ひていてき` — u174 · negative (in stance)
+- `びてき` — u170 · aesthetic
+- `ひと` — u2 · person
+- `ひどい` — u55 · terrible
+- `ひとえに` — u206 · entirely (thanks to)
+- `ひとくちに` — u205 · to put it in a word (but…)
+- `ひとけた` — u205 · single figures
+- `ひとしい` — u103 · equal
+- `ひとつ` — u86 · one
+- `ひとつき` — u86 · one month
+- `ひとつまみ` — u154 · a pinch (of)
+- `ひとまず` — u122 · for the moment
+- `ひとまわり` — u207 · one size, one round
+- `ひとり` — u8 · one person
+- `ひなた` — u66 · sunny spot
+- `ひなん` — u129 · evacuation
+- `ひなんぐち` — u153 · emergency exit
+- `ひので` — u66 · sunrise
+- `ひはん` — u156 · criticism
+- `ひま` — u55 · free
+- `ひみつ` — u77 · secret
+- `びみょう` — u145 · subtle; iffy
+- `ひゃ` — u16
+- `びゃ` — u16
+- `ぴゃ` — u16
+- `ひゃく` — u7 · hundred
+- `ひやします` — u73 · chill
+- `ひやひや` — u199 · in a cold sweat, narrowly escaping
+- `ひゅ` — u16
+- `びゅ` — u16
+- `ぴゅ` — u16
+- `ひょ` — u16
+- `びょ` — u16
+- `ぴょ` — u16
+- `ひよう` — u131 · cost
+- `びょう` — u7 · second
+- `びょういん` — u10 · hospital
+- `ひょうか` — u110 · evaluation
+- `びょうき` — u26 · illness
+- `ひょうげん` — u151 · expression, way of putting it
+- `ひょうげんりょく` — u170 · expressive power
+- `ひょうさつ` — u153 · nameplate by the door
+- `びょうしつ` — u181 · a hospital room
+- `びょうしゃ` — u184 · depiction
+- `びょうどう` — u135 · equality
+- `ひょうばん` — u126 · reputation
+- `びょうれき` — u181 · medical history
+- `ひょうろん` — u151 · criticism, review
+- `ひよこ` — u61 · chick
+- `ひょっとすると` — u105 · possibly
+- `ひらがな` — u57 · hiragana
+- `ひらきます` — u142 · to open
+- `ひりつ` — u150 · ratio, proportion
+- `ひりひり` — u199 · stinging, smarting
+- `ひる` — u7 · noon
+- `ビル` — u6 · building
+- `ひるごはん` — u9 · lunch
+- `ひるま` — u93 · daytime
+- `ひるやすみ` — u94 · lunch break
+- `ひろい` — u10 · spacious
+- `ひろいます` — u45 · to pick up
+- `ひろう` — u133 · fatigue
+- `ひろば` — u59 · square
+- `ピンク` — u12 · pink
+- `ひんやり` — u201 · coolly, refreshingly cold
+- `ふ` — u2
+- `フ` — u5
+- `ぶ` — u3
+- `ブ` — u6
+- `ぷ` — u3
+- `プ` — u6
+- `プール` — u6 · pool
+- `ファイル` — u149 · file
+- `ファックス` — u95 · fax
+- `ふあん` — u48 · anxious
+- `ふあんてい` — u158 · unstable
+- `ふいに` — u147 · abruptly, without warning
+- `フィルム` — u86 · film
+- `ふうしゅう` — u168 · a custom
+- `ふうとう` — u86 · envelope
+- `ふうふ` — u79 · married couple
+- `ふうりょく` — u179 · wind power
+- `ふえ` — u67 · flute
+- `ふえる` — u92 · increase
+- `フォーク` — u5 · fork
+- `ぶか` — u71 · subordinate
+- `ふかい` — u80 · deep
+- `ふかくじつ` — u174 · uncertain
+- `ぶかつ` — u148 · school club activity
+- `ふきそく` — u202 · irregular
+- `ふきだす` — u194 · to burst out laughing; to gush out
+- `ふきます` — u27 · blow
+- `ぶきよう` — u145 · clumsy with one's hands
+- `ふきん` — u129 · nearby
+- `ふく` — u28 · clothes
+- `ふくざつ` — u80 · complex
+- `ふくし` — u107 · welfare
+- `ふくしゅう` — u81 · review
+- `ふくせん` — u184 · a plant laid earlier
+- `ふくり` — u165 · employee benefits
+- `ふくろ` — u28 · bag
+- `ふげんじっこう` — u198 · acting without talking about it
+- `ふごうかく` — u148 · failing (an exam)
+- `ふこうへい` — u145 · unfair
+- `ふさい` — u165 · liabilities
+- `ふしぎ` — u70 · mysterious
+- `ふしぜん` — u145 · unnatural, forced
+- `ふじゅうぶん` — u202 · insufficient
+- `ふせい` — u172 · misconduct
+- `ふせぐ` — u107 · to prevent
+- `ぶた` — u3 · pig
+- `ぶたい` — u126 · stage
+- `ふたけた` — u205 · double figures
+- `ふたつ` — u86 · two
+- `ぶたにく` — u86 · pork
+- `ふたり` — u8 · two people
+- `ふだん` — u146 · usually, normally
+- `ぶちょう` — u71 · department manager
+- `ふつう` — u96 · usually
+- `ふつか` — u86 · the second
+- `ぶっか` — u49 · prices
+- `ふっこう` — u168 · revival
+- `ぶっしつ` — u167 · a substance
+- `ぶつぶつ` — u200 · muttering, grumbling
+- `ふでばこ` — u148 · pencil case
+- `ふと` — u124 · suddenly (of a thought)
+- `ふとい` — u55 · thick
+- `ぶどう` — u54 · grapes
+- `ふとくてい` — u202 · unspecified, not identified
+- `ふとります` — u26 · gain weight
+- `ふとん` — u47 · futon
+- `ふね` — u2 · boat
+- `ぶひん` — u149 · part, component
+- `ぶぶん` — u160 · a part
+- `ふべん` — u23 · inconvenient
+- `ふまん` — u70 · dissatisfaction
+- `ふみきり` — u59 · railroad crossing
+- `ふみこむ` — u194 · to step into; to go further than expected
+- `ふみます` — u46 · to step on
+- `ふみん` — u133 · sleeplessness
+- `ぶもん` — u177 · a division
+- `ふやします` — u142 · to increase (something)
+- `ふゆ` — u12 · winter
+- `ふゆかい` — u145 · unpleasant, disagreeable
+- `フライパン` — u154 · frying pan
+- `ブラウス` — u78 · blouse
+- `ふらふら` — u199 · unsteady, wobbly
+- `ふり` — u156 · disadvantageous
+- `ふりかえる` — u116 · to look back
+- `ふりがな` — u151 · reading glosses above kanji
+- `ふります` — u53 · fall (rain)
+- `ふりむきます` — u143 · to turn around, to look back
+- `ふるい` — u10 · old
+- `プレゼント` — u95 · present
+- `フロント` — u152 · hotel reception desk
+- `ふわふわ` — u201 · soft and fluffy
+- `ふん` — u7 · minute
+- `ぶんか` — u76 · culture
+- `ぶんかい` — u160 · breaking down
+- `ぶんかいせい` — u167 · biodegradability
+- `ぶんがく` — u96 · literature
+- `ぶんかけん` — u170 · a cultural sphere
+- `ぶんけん` — u158 · the literature
+- `ぶんし` — u167 · a molecule
+- `ぶんしょう` — u86 · writing
+- `ぶんせき` — u114 · analysis
+- `ぶんたい` — u184 · writing style
+- `ぶんの` — u150 · (reads a fraction)
+- `ぶんぱい` — u165 · distribution
+- `ふんべつ` — u186 · measured judgement
+- `ぶんべつ` — u179 · sorting (waste)
+- `ぶんぽう` — u57 · grammar
+- `ぶんめい` — u76 · civilization
+- `ぶんりょう` — u154 · quantity, amount (in a recipe)
+- `ぶんるい` — u114 · classification
+- `へ` — u2
+- `へ` — u20 · (toward)
+- `ヘ` — u5
+- `べ` — u3
+- `ベ` — u6
+- `ぺ` — u3
+- `ペ` — u6
+- `ページ` — u86 · page
+- `へいきん` — u103 · average
+- `へいきんてん` — u205 · average score
+- `へいてん` — u192 · closing (of a shop)
+- `へいわ` — u76 · peace
+- `べきだった` — u188 · ought to have (by principle)
+- `ぺこぺこ` — u200 · bowing obsequiously; starving
+- `へた` — u21 · bad at
+- `へだてる` — u208 · to separate, to set apart
+- `べたべた` — u201 · sticky
+- `ベッド` — u6 · bed
+- `ペット` — u86 · pet
+- `べつに` — u147 · not particularly
+- `へび` — u61 · snake
+- `へや` — u10 · room
+- `へらします` — u142 · to reduce (something)
+- `ぺらぺら` — u147 · fluently
+- `ベランダ` — u153 · balcony
+- `へります` — u142 · to decrease (by itself)
+- `へる` — u103 · to decrease
+- `ベル` — u91 · bell
+- `ベルト` — u60 · belt
+- `ヘルメット` — u5 · helmet
+- `へん` — u23 · strange
+- `ペン` — u6 · pen
+- `へんか` — u75 · change
+- `へんかん` — u149 · conversion (kana to kanji)
+- `べんきょう` — u9 · study
+- `へんけん` — u135 · prejudice
+- `へんこう` — u122 · change
+- `へんじ` — u50 · reply
+- `へんしゅう` — u126 · editing
+- `へんどう` — u158 · fluctuation
+- `べんとう` — u3 · boxed lunch
+- `へんぴんします` — u65 · return an item
+- `べんり` — u23 · convenient
+- `ほ` — u2
+- `ホ` — u5
+- `ぼ` — u3
+- `ボ` — u6
+- `ぽ` — u3
+- `ポ` — u6
+- `ボーナス` — u71 · bonus
+- `ホーム` — u5 · platform
+- `ホームステイ` — u74 · homestay
+- `ボールペン` — u86 · ballpoint pen
+- `ポイント` — u65 · reward points
+- `ほうあん` — u163 · a bill
+- `ぼうえき` — u93 · trade
+- `ほうが` — u44 · more / the ~ side (is more)
+- `ぼうがい` — u170 · obstruction
+- `ほうき` — u58 · broom
+- `ほうげん` — u77 · dialect
+- `ほうこう` — u64 · direction
+- `ほうこく` — u71 · report
+- `ぼうさい` — u129 · disaster preparedness
+- `ぼうし` — u3 · hat
+- `ほうしん` — u107 · policy
+- `ほうそうする` — u95 · to broadcast
+- `ほうそく` — u160 · a law (of nature)
+- `ぼうだい` — u158 · vast
+- `ほうちょう` — u154 · kitchen knife
+- `ほうどう` — u107 · news coverage
+- `ぼうとう` — u184 · the opening part
+- `ほうほう` — u75 · method
+- `ほうりつ` — u49 · law
+- `ほか` — u86 · other
+- `ぽかぽか` — u201 · pleasantly warm
+- `ほがらか` — u145 · cheerful, sunny
+- `ぼく` — u88 · I (male)
+- `ほくろ` — u78 · mole
+- `ポケット` — u86 · pocket
+- `ほけん` — u49 · insurance
+- `ほご` — u129 · protection
+- `ほこらしい` — u186 · proud on someone's behalf
+- `ほこり` — u112 · pride
+- `ほし` — u27 · star
+- `ほしい` — u21 · want
+- `ほしぞら` — u66 · starry sky
+- `ほします` — u47 · hang out to dry
+- `ポスト` — u6 · mailbox
+- `ほぜん` — u179 · conservation
+- `ほそい` — u55 · thin
+- `ほぞん` — u149 · saving, preservation
+- `ボタン` — u6 · button
+- `ほっそり` — u201 · slender
+- `ポット` — u58 · thermos
+- `ほっとする` — u112 · to feel relieved
+- `ホテル` — u5 · hotel
+- `ほど` — u97 · about, extent
+- `ほどうきょう` — u152 · pedestrian bridge
+- `ほどこす` — u208 · to apply, to administer
+- `ほどほど` — u161 · in moderation
+- `ほとんど` — u29 · almost
+- `ほね` — u60 · bone
+- `ほほ` — u60 · cheek
+- `ほぼ` — u105 · almost
+- `ほめます` — u46 · to praise
+- `ボランティア` — u135 · volunteering
+- `ぼろぼろ` — u199 · falling apart, in tatters
+- `ほん` — u2 · book
+- `ほんしつ` — u114 · essence
+- `ほんじつ` — u192 · today (formal)
+- `ほんだな` — u47 · bookshelf
+- `ほんとう` — u2 · really
+- `ほんね` — u135 · what someone really thinks
+- `ほんや` — u59 · bookstore
+- `ほんやく` — u77 · translation
+- `ぼんやり` — u124 · vaguely
+- `ま` — u2
+- `マ` — u5
+- `まあまあ` — u63 · so-so
+- `まい` — u62 · counter for flat things
+- `まいあさ` — u56 · every morning
+- `マイク` — u5 · microphone
+- `まいげつ` — u86 · every month
+- `まいしゅう` — u29 · every week
+- `まいつき` — u56 · every month
+- `まいとし` — u86 · every year
+- `まいにち` — u9 · every day
+- `まいねん` — u86 · every year
+- `まいばん` — u56 · every night
+- `まいる` — u97 · go/come (humble)
+- `マウス` — u149 · mouse (computer)
+- `まえ` — u10 · front
+- `まえに` — u30 · before
+- `まかせます` — u138 · to entrust
+- `まかせる` — u120 · leave it to
+- `まかなう` — u208 · to cover (a cost), to provide for
+- `まがりかど` — u152 · corner (in a road)
+- `まがりなりにも` — u207 · however imperfectly, after a fashion
+- `まがります` — u24 · turn
+- `まきこむ` — u194 · to drag (someone) into
+- `まくら` — u58 · pillow
+- `まける` — u95 · to lose
+- `まご` — u8 · grandchild
+- `まごまご` — u199 · flustered, not knowing what to do
+- `まさか` — u68 · no way
+- `まさしく` — u206 · precisely, without doubt
+- `まさに` — u105 · exactly
+- `まざまざ` — u199 · vividly (before one's eyes)
+- `まさる` — u103 · to surpass
+- `ました` — u21 · (did)
+- `まして` — u206 · let alone, still more so
+- `まじめ` — u23 · serious
+- `ましょう` — u20 · let's~
+- `まず` — u94 · first of all
+- `まずい` — u55 · bad-tasting
+- `マスク` — u5 · mask
+- `マスコミ` — u107 · the media
+- `まずしい` — u131 · poor
+- `ますでしょうか` — u191 · would you perhaps…? (very polite)
+- `ますます` — u68 · more and more
+- `まずまず` — u161 · not bad
+- `まぜます` — u73 · mix
+- `ません` — u21 · (don't)
+- `ませんか` — u20 · won't you~?
+- `ませんでした` — u21 · (didn't)
+- `また` — u68 · again
+- `まだ` — u29 · still
+- `または` — u92 · or
+- `まち` — u2 · town
+- `まちあわせます` — u143 · to meet up (by arrangement)
+- `まちがい` — u118 · mistake
+- `まちがいなく` — u105 · without a doubt
+- `まちがえます` — u25 · make a mistake
+- `まちます` — u53 · wait
+- `まつ` — u66 · pine tree
+- `まつげ` — u78 · eyelash
+- `まっすぐ` — u64 · straight
+- `まったく` — u146 · completely; (not) at all
+- `マッチ` — u86 · match
+- `まつり` — u52 · festival
+- `まで` — u20 · until
+- `までに` — u30 · by (a time)
+- `まど` — u10 · window
+- `まどがわ` — u152 · window side
+- `まとめあげる` — u193 · to pull together into a finished whole
+- `マナー` — u120 · manners
+- `まないた` — u154 · chopping board
+- `まにあいます` — u25 · be in time
+- `まにあわせます` — u143 · to make do; to get it done in time
+- `まぬがれる` — u208 · to escape, to avoid (something bad)
+- `まねく` — u101 · to invite (a result)
+- `まぶしい` — u144 · dazzling, too bright
+- `マフラー` — u60 · scarf
+- `まま` — u95 · as it is
+- `まめ` — u145 · diligent about small things
+- `まもなく` — u116 · shortly
+- `まもりとおす` — u193 · to keep (a rule or secret) throughout
+- `まもりぬく` — u193 · to protect to the last
+- `まもります` — u45 · to protect
+- `まゆげ` — u78 · eyebrow
+- `マラソン` — u67 · marathon
+- `まる` — u64 · circle
+- `まるい` — u55 · round
+- `まるで` — u147 · just like; (not) at all
+- `まわす` — u96 · to turn
+- `まわり` — u64 · surroundings
+- `まわります` — u69 · to go around
+- `まん` — u7 · ten thousand
+- `まんが` — u88 · comic
+- `まんがいち` — u174 · in the unlikely event
+- `まんげつ` — u66 · full moon
+- `まんせい` — u181 · chronic
+- `まんぞく` — u48 · satisfaction
+- `まんぞくかん` — u203 · a feeling of satisfaction
+- `まんぞくど` — u204 · satisfaction level
+- `まんなか` — u64 · center
+- `まんねんひつ` — u86 · fountain pen
+- `み` — u2
+- `ミ` — u5
+- `みえる` — u94 · to be visible
+- `みおぼえ` — u124 · recognizing a face
+- `みかいけつ` — u202 · unresolved
+- `みかえす` — u195 · to look back at; to prove (someone) wrong
+- `みがきます` — u45 · to polish / brush
+- `みかん` — u54 · mandarin orange
+- `みかんせい` — u202 · unfinished
+- `みき` — u66 · trunk
+- `みぎ` — u10 · right
+- `みきわめ` — u174 · judging it for certain
+- `みけいけん` — u202 · inexperienced
+- `みこみ` — u105 · prospect
+- `みじかい` — u55 · short
+- `みじめ` — u186 · wretched
+- `ミス` — u118 · slip-up
+- `みず` — u2 · water
+- `みずいろ` — u12 · light blue
+- `みせ` — u10 · shop
+- `みせる` — u86 · to show
+- `みそ` — u54 · miso
+- `みそしる` — u9 · miso soup
+- `みたい` — u30 · like
+- `みたいです` — u44 · looks like / seems (casual)
+- `みだし` — u107 · headline
+- `みたす` — u208 · to fill; to satisfy (a condition)
+- `みため` — u78 · appearance
+- `みち` — u24 · road
+- `みっか` — u87 · three days
+- `みつかります` — u69 · to be found
+- `みつけだす` — u194 · to track down, to find at last
+- `みつけます` — u53 · find
+- `みっつ` — u87 · three
+- `みっともない` — u144 · unseemly, embarrassing
+- `みつめあう` — u195 · to look into each other's eyes
+- `みつもり` — u122 · an estimate
+- `みてい` — u202 · not yet decided
+- `みとおし` — u122 · outlook
+- `みとおす` — u193 · to see through, to foresee
+- `みとめる` — u99 · to admit
+- `みどり` — u12 · green
+- `みな` — u93 · everyone
+- `みなおします` — u143 · to review; to think better of
+- `みなおす` — u116 · to review
+- `みなさん` — u8 · everyone (polite)
+- `みなと` — u59 · harbor
+- `みにつく` — u196 · to become part of you (a skill)
+- `みね` — u66 · peak
+- `みます` — u9 · see
+- `みまわる` — u195 · to patrol, to make the rounds
+- `みみ` — u60 · ear
+- `みみがいたい` — u196 · to hit close to home (painfully true)
+- `みみにする` — u196 · to happen to hear
+- `みみをかす` — u196 · to lend an ear, to listen to
+- `みゃ` — u16
+- `みやげ` — u24 · souvenir
+- `みゅ` — u16
+- `みょ` — u16
+- `みらい` — u76 · future
+- `ミルク` — u5 · milk
+- `みれん` — u186 · lingering attachment
+- `みんしゅく` — u152 · family-run guesthouse
+- `みんぞく` — u176 · an ethnic group
+- `みんな` — u8 · everyone
+- `む` — u2
+- `ム` — u5
+- `むいか` — u87 · six days
+- `むいしき` — u176 · unconsciously
+- `むいみ` — u202 · meaningless, pointless
+- `むかう` — u96 · to head toward
+- `むかえます` — u24 · pick up
+- `むかし` — u56 · long ago
+- `むがむちゅう` — u198 · so absorbed you forget yourself
+- `むかんけい` — u202 · unrelated, nothing to do with it
+- `むかんしん` — u202 · indifferent, uninterested
+- `むき` — u64 · facing
+- `むこう` — u64 · over there
+- `むし` — u2 · bug
+- `むしあつい` — u12 · humid
+- `むします` — u73 · steam
+- `むしむし` — u201 · hot and humid, stifling
+- `むしろ` — u99 · rather
+- `むずかしい` — u21 · difficult
+- `むすこ` — u8 · my son
+- `むすびつく` — u195 · to be connected to, to lead to
+- `むすめ` — u8 · my daughter
+- `むせきにん` — u202 · irresponsible
+- `むだ` — u80 · wasteful
+- `むちゅう` — u70 · absorbed
+- `むっつ` — u87 · six
+- `むなしい` — u186 · empty of meaning
+- `むね` — u60 · chest
+- `むねがいたむ` — u197 · to feel a pang of grief
+- `むねがいっぱい` — u197 · overcome with emotion
+- `むやみに` — u146 · recklessly, without thinking
+- `むら` — u59 · village
+- `むらさき` — u12 · purple
+- `むり` — u63 · impossible
+- `むりょう` — u65 · free of charge
+- `め` — u2
+- `メ` — u5
+- `メートル` — u62 · meter
+- `メール` — u50 · email
+- `めいかく` — u156 · clear-cut
+- `めいし` — u25 · business card
+- `めいしょ` — u74 · famous place
+- `めいだい` — u183 · a proposition
+- `めいわく` — u120 · nuisance
+- `めがない` — u196 · to have a weakness for
+- `めがね` — u2 · glasses
+- `めがまわる` — u196 · to be dizzy; to be rushed off one's feet
+- `めからうろこ` — u196 · a sudden revelation
+- `めきめき` — u200 · visibly improving
+- `めざす` — u122 · aim for
+- `めしあがる` — u95 · eat/drink (honorific)
+- `めずらしい` — u80 · rare
+- `めだつ` — u161 · to stand out
+- `めっきり` — u206 · markedly (of a change)
+- `メッセージ` — u50 · message
+- `めったに` — u146 · rarely, hardly ever
+- `メディア` — u184 · the media
+- `めど` — u122 · a prospect of finishing
+- `めにつく` — u196 · to catch the eye, to stand out
+- `メニュー` — u5 · menu
+- `めまい` — u72 · dizziness
+- `メモ` — u5 · memo
+- `めやす` — u155 · rough guide, yardstick
+- `メロン` — u5 · melon
+- `めをつける` — u196 · to have one's eye on
+- `めをとおす` — u196 · to look over, to skim through
+- `めんえき` — u181 · immunity
+- `めんきょ` — u120 · licence
+- `めんせき` — u150 · area (surface)
+- `めんせつ` — u71 · job interview
+- `めんどう` — u118 · a hassle
+- `めんどうくさい` — u144 · too much trouble
+- `も` — u2
+- `も` — u19 · also
+- `モ` — u5
+- `もう` — u29 · already
+- `もうしあげる` — u90 · to say (humble)
+- `もうしこみます` — u143 · to apply for
+- `もうしわけない` — u112 · terribly sorry
+- `もうす` — u93 · to say (humble)
+- `もうすぐ` — u68 · soon
+- `もえます` — u69 · to burn
+- `もくてき` — u75 · purpose
+- `もくひょう` — u75 · goal
+- `もくようび` — u56 · Thursday
+- `もけい` — u160 · a model
+- `もし` — u88 · if
+- `もしかしたら` — u139 · possibly, maybe
+- `もしくは` — u206 · or (formal)
+- `もしもし` — u87 · hello (on the phone)
+- `もしよろしければ` — u141 · if you don't mind
+- `もちこむ` — u194 · to bring in (to a place)
+- `もちます` — u53 · hold
+- `もちもち` — u201 · springy, chewy (pleasantly)
+- `もちろん` — u63 · of course
+- `もったいない` — u80 · wasteful
+- `もっと` — u29 · more
+- `もっとも` — u96 · most
+- `もっぱら` — u146 · mainly, exclusively
+- `もどかしい` — u186 · frustrating to watch
+- `もどします` — u142 · to put back
+- `もとめます` — u155 · to seek, to ask for
+- `もどる` — u97 · return
+- `もの` — u2 · thing
+- `ものがたり` — u168 · a narrative
+- `ものさし` — u58 · ruler
+- `ものすごい` — u144 · tremendous, terrific
+- `ものたりない` — u144 · not quite enough
+- `ものなら` — u188 · if you could (but you probably can't)
+- `ものの` — u137 · although
+- `ものほし` — u153 · drying rack, washing line
+- `ものを` — u188 · if only …, but (instead)
+- `もはや` — u206 · by now, no longer
+- `もほう` — u170 · imitation
+- `もめん` — u98 · cotton
+- `もも` — u54 · peach
+- `もやもや` — u199 · vaguely unsettled, unresolved
+- `もよおす` — u208 · to hold (an event)
+- `もらいます` — u28 · receive
+- `もらう` — u43 · to receive
+- `もり` — u27 · forest
+- `もりつけ` — u154 · plating, presentation
+- `もります` — u73 · dish up
+- `もん` — u140 · because (excusing)
+- `もんだい` — u57 · problem
+- `や` — u2
+- `ヤ` — u5
+- `やおや` — u59 · greengrocer
+- `やがて` — u116 · in time
+- `やかん` — u58 · kettle
+- `やきつける` — u195 · to burn into (the memory)
+- `やきます` — u73 · grill
+- `やきもき` — u199 · fretting, anxious about how it will go
+- `やきゅう` — u67 · baseball
+- `やく` — u62 · approximately
+- `やくしょ` — u49 · government office
+- `やくそく` — u79 · promise
+- `やくそくします` — u77 · promise
+- `やくにたつ` — u97 · be useful
+- `やくわり` — u79 · role
+- `やける` — u96 · be baked/grilled
+- `やさい` — u9 · vegetables
+- `やさしい` — u55 · easy
+- `やしなう` — u208 · to support (a family); to cultivate (a habit)
+- `やすい` — u44 · easy to (do)
+- `やすみ` — u2 · holiday / rest
+- `やすみます` — u20 · rest
+- `やせます` — u26 · lose weight
+- `やたい` — u52 · food stall
+- `やたら` — u161 · excessively
+- `やたらに` — u146 · excessively, at random
+- `やちん` — u153 · rent
+- `やっかい` — u118 · troublesome
+- `やっきょく` — u72 · pharmacy
+- `やっつ` — u87 · eight
+- `やっと` — u29 · finally
+- `やっぱり` — u63 · as expected
+- `やね` — u153 · roof
+- `やねうら` — u153 · attic, loft
+- `やはり` — u88 · as expected
+- `やぶります` — u142 · to tear; to break (a rule)
+- `やぶれます` — u69 · to tear
+- `やま` — u2 · mountain
+- `やむ` — u88 · to stop (rain)
+- `やむをえず` — u206 · unavoidably, having no choice
+- `やめます` — u25 · quit
+- `やや` — u103 · slightly
+- `ややこしい` — u161 · fiddly
+- `ややもすると` — u207 · there is a tendency to
+- `やりとおす` — u193 · to keep doing without a break
+- `やりとげる` — u193 · to get it done, to see it through
+- `やりなおします` — u143 · to do over again
+- `やりぬく` — u193 · to see through to the end
+- `やる` — u87 · do
+- `やるき` — u112 · motivation
+- `やわらかい` — u23 · soft
+- `ゆ` — u2
+- `ユ` — u5
+- `ゆううつ` — u186 · low and heavy
+- `ゆうえつかん` — u176 · a sense of superiority
+- `ゆうがた` — u56 · evening
+- `ゆうき` — u48 · courage
+- `ゆうげんじっこう` — u198 · doing what you said you'd do
+- `ゆうこう` — u163 · valid
+- `ゆうし` — u165 · financing
+- `ゆうじゅうふだん` — u198 · chronically indecisive
+- `ゆうはん` — u87 · dinner
+- `ゆうひ` — u66 · setting sun
+- `ゆうびんきょく` — u10 · post office
+- `ゆうべ` — u21 · last night
+- `ゆうめい` — u23 · famous
+- `ゆうゆう` — u207 · with time to spare, calmly
+- `ゆうり` — u156 · advantageous
+- `ゆえに` — u137 · hence
+- `ゆか` — u47 · floor
+- `ゆかい` — u70 · cheerful
+- `ゆかた` — u52 · yukata
+- `ゆき` — u2 · snow
+- `ゆく` — u82 · to go
+- `ゆくゆく` — u207 · in the long run, eventually
+- `ゆしゅつする` — u98 · export
+- `ゆずりあう` — u195 · to give way to each other
+- `ゆずる` — u156 · to concede
+- `ゆだねる` — u208 · to entrust entirely
+- `ゆだん` — u174 · letting your guard down
+- `ゆっくり` — u63 · slowly
+- `ゆっくりと` — u87 · slowly
+- `ゆでます` — u73 · boil
+- `ユニフォーム` — u5 · uniform
+- `ゆにゅう` — u94 · import
+- `ゆび` — u26 · finger
+- `ゆびわ` — u60 · ring
+- `ゆめ` — u2 · dream
+- `ゆらい` — u168 · origin
+- `ゆらぎ` — u158 · a slight wavering
+- `ゆるい` — u144 · loose, lax
+- `ゆるし` — u172 · forgiveness
+- `ゆるします` — u138 · to permit, to forgive
+- `ゆるす` — u120 · allow
+- `ゆるやか` — u145 · gentle (slope), gradual
+- `ゆれる` — u89 · to sway
+- `よ` — u2
+- `よ` — u140 · I'm telling you (new information)
+- `ヨ` — u5
+- `よい` — u82 · good
+- `よいん` — u170 · the lingering impression
+- `よう` — u140 · let's (plain)
+- `ようい` — u92 · preparation
+- `ようか` — u87 · the eighth (of the month)
+- `ようが` — u188 · no matter how / whatever
+- `ようきゅう` — u155 · demand, formal request
+- `ようご` — u170 · a defence (of something)
+- `ようし` — u151 · summary, gist
+- `ようじ` — u81 · errand
+- `ようじん` — u174 · taking care
+- `ようす` — u75 · situation
+- `ようするに` — u99 · in short
+- `ようそ` — u114 · element
+- `ようだ` — u105 · it seems
+- `ようです` — u44 · seems / appears that
+- `ようてん` — u156 · the main point
+- `ようとします` — u139 · try to; be about to
+- `ようなきがします` — u141 · I get the feeling that
+- `ように` — u137 · so that
+- `ようにします` — u139 · make a point of doing
+- `ようになる` — u44 · to come to (be able to)
+- `ようは` — u190 · the point is; in short
+- `ようふく` — u60 · clothes
+- `ようやく` — u116 · at last
+- `よく` — u20 · often
+- `よくせい` — u179 · holding something down
+- `よくよく` — u207 · very carefully; only when it's serious
+- `よこ` — u64 · side
+- `よこがき` — u151 · horizontal writing
+- `よごれます` — u69 · to get dirty
+- `よさん` — u131 · budget
+- `よしゅう` — u81 · lesson preparation
+- `よそいます` — u154 · to dish up, to serve out
+- `よそう` — u105 · expectation
+- `よそく` — u174 · a forecast
+- `よそもの` — u168 · an outsider
+- `よぞら` — u66 · night sky
+- `よち` — u174 · room for
+- `よっか` — u87 · the fourth (of the month)
+- `よっつ` — u87 · four
+- `よって` — u206 · therefore (formal)
+- `ヨット` — u5 · yacht
+- `よてい` — u56 · plan
+- `よとう` — u163 · the ruling party
+- `よね` — u140 · …right? (checking)
+- `よばれます` — u138 · is called (named)
+- `よびます` — u46 · to call
+- `よぼう` — u118 · prevention
+- `よまれる` — u191 · to read (honorific, light)
+- `よみかた` — u77 · reading
+- `よみきる` — u193 · to read all the way through
+- `よみます` — u9 · read
+- `よやく` — u24 · reservation
+- `より` — u44 · than
+- `よりかかる` — u194 · to lean against; to rely on
+- `よる` — u2 · night
+- `よると` — u95 · according to
+- `よろこぶ` — u93 · to be glad
+- `よろしい` — u93 · good
+- `よろしく` — u2 · nice to meet you
+- `よろよろ` — u199 · staggering
+- `よろん` — u107 · public opinion
+- `よわい` — u23 · weak
+- `よん` — u7 · four
+- `ら` — u2
+- `ラ` — u5
+- `ラーメン` — u54 · ramen
+- `ライオン` — u61 · lion
+- `らいげつ` — u29 · next month
+- `らいしゅう` — u29 · next week
+- `ライス` — u5 · rice
+- `らいねん` — u56 · next year
+- `らく` — u2 · comfortable
+- `ラグビー` — u67 · rugby
+- `らしい` — u30 · seems
+- `らしいです` — u44 · apparently / I hear that
+- `ラジオ` — u87 · radio
+- `ラジオカセ` — u87 · radio cassette player
+- `られます` — u138 · (passive) is done to
+- `らんぼう` — u48 · rough
+- `り` — u2
+- `リ` — u5
+- `りえき` — u131 · profit
+- `りか` — u57 · science
+- `りかい` — u114 · understanding
+- `りがい` — u172 · interests at stake
+- `りこん` — u79 · divorce
+- `リサイクル` — u129 · recycling
+- `りじゅん` — u165 · profit
+- `りしょく` — u177 · leaving a job
+- `リスク` — u174 · risk
+- `リスト` — u5 · list
+- `リゾート` — u6 · resort
+- `りっぱ` — u80 · splendid
+- `りっぽう` — u163 · legislation
+- `リポート` — u89 · report
+- `りゃ` — u16
+- `りゃく` — u151 · abbreviation
+- `りゅ` — u16
+- `りゆう` — u75 · reason
+- `りゅうがくせい` — u87 · foreign student
+- `りゅうこう` — u126 · trend
+- `りゅうしゅつ` — u179 · flowing out
+- `りょ` — u16
+- `りよう` — u90 · use
+- `りょうがえ` — u152 · currency exchange
+- `りょうきん` — u49 · fee
+- `りようしゃ` — u192 · user, patron
+- `りょうしん` — u8 · my parents
+- `りょうほう` — u62 · both
+- `りょうり` — u9 · cooking
+- `りようりつ` — u204 · usage rate
+- `りょかん` — u24 · inn
+- `りょこうします` — u22 · travel
+- `りょひ` — u74 · travel expenses
+- `リラックス` — u133 · relaxing
+- `りりく` — u152 · takeoff
+- `りれきしょ` — u71 · resume
+- `りろん` — u160 · theory
+- `りんきおうへん` — u198 · adapting flexibly to the situation
+- `りんぎょう` — u179 · forestry
+- `りんご` — u2 · apple
+- `りんじ` — u192 · temporary, special (unscheduled)
+- `りんしょう` — u181 · clinical practice
+- `りんり` — u172 · ethics
+- `る` — u2
+- `ル` — u5
+- `ルール` — u5 · rule
+- `るす` — u81 · being out
+- `れ` — u2
+- `レ` — u5
+- `れい` — u87 · zero
+- `れいがい` — u192 · exception
+- `れいぎ` — u120 · courtesy
+- `れいせい` — u112 · calm
+- `れいぞうこ` — u47 · refrigerator
+- `れいぼう` — u93 · air conditioning
+- `れきし` — u76 · history
+- `レコード` — u87 · record
+- `レジ` — u28 · register
+- `レシート` — u65 · receipt
+- `レシピ` — u154 · recipe
+- `レストラン` — u5 · restaurant
+- `れっとうかん` — u176 · a sense of inferiority
+- `レポート` — u89 · report
+- `れます` — u138 · is done to (passive, godan verbs)
+- `レモン` — u5 · lemon
+- `れんあい` — u79 · romance
+- `れんきゅう` — u81 · consecutive holidays
+- `れんさい` — u126 · a serial
+- `レンジ` — u58 · microwave
+- `れんしゅう` — u57 · practice
+- `れんらく` — u50 · contact
+- `れんらくします` — u77 · contact
+- `ろ` — u2
+- `ロ` — u5
+- `ローン` — u131 · loan
+- `ろうか` — u47 · hallway
+- `ろうそく` — u153 · candle
+- `ろく` — u7 · six
+- `ログイン` — u149 · login
+- `ろくに` — u146 · hardly (at all)
+- `ロッカー` — u152 · coin locker
+- `ロボット` — u76 · robot
+- `ろんてん` — u156 · point at issue
+- `ろんぶん` — u151 · paper, thesis
+- `ろんり` — u114 · logic
+- `わ` — u2
+- `ワ` — u5
+- `ワープロ` — u92 · word processor
+- `ワイシャツ` — u5 · dress shirt
+- `ワイン` — u5 · wine
+- `わかい` — u55 · young
+- `わかします` — u73 · boil water
+- `わがまま` — u48 · selfish
+- `わかもの` — u135 · young people
+- `わかります` — u9 · understand
+- `わかれ` — u79 · parting
+- `わかれる` — u97 · part
+- `わきます` — u69 · to boil
+- `わく` — u160 · a frame
+- `わくわく` — u63 · excited
+- `わけ` — u95 · reason
+- `わけではありません` — u141 · it's not that…
+- `わけにはいきません` — u139 · I can't (allow myself to)
+- `わざと` — u147 · on purpose, deliberately
+- `わざわざ` — u147 · to go out of one's way
+- `わずか` — u103 · only a little
+- `わすれます` — u25 · forget
+- `わすれもの` — u95 · forgotten item
+- `わだい` — u77 · topic
+- `わたくし` — u87 · I (formal)
+- `わたし` — u2 · I / me
+- `わたしたち` — u8 · we
+- `わたします` — u45 · to hand over
+- `わたります` — u22 · cross
+- `ワッフル` — u5 · waffle
+- `わびしい` — u186 · bleakly lonely
+- `わらう` — u96 · laugh
+- `わりあい` — u96 · proportion
+- `わりざん` — u150 · division
+- `わりと` — u68 · relatively
+- `わりに` — u103 · for (considering)
+- `わりびき` — u65 · discount
+- `わるい` — u26 · bad
+- `われます` — u69 · to break
+- `われわれ` — u176 · we (formal)
+- `ワンピース` — u78 · dress
+- `を` — u2
+- `を` — u20 · (object marker)
+- `ヲ` — u5
+- `をきっかけに` — u189 · prompted by; taking X as the trigger
+- `をつうじて` — u189 · through; throughout
+- `をとおして` — u189 · through (an intermediary, an experience)
+- `をふまえて` — u189 · taking X into account
+- `をへて` — u189 · after passing through (stages)
+- `をめぐって` — u189 · over (a disputed matter)
+- `をもとに` — u189 · using X as the basis/material
+- `ん` — u2
+- `ン` — u5
+- `んだ` — u140 · you see, the thing is
+- `一` — u11 · one
+- `一冊` — u175 · one volume
+- `一割` — u115 · ten percent
+- `一周` — u127 · one lap
+- `一回` — u119 · once
+- `一枚` — u187 · one sheet
+- `丁` — u130 · town block
+- `七` — u11 · seven
+- `万` — u11 · ten thousand
+- `三` — u11 · three
+- `上` — u15 · up
+- `下` — u15 · down
+- `不` — u41 · un- (prefix)
+- `世` — u31 · world
+- `両` — u115 · both
+- `両親` — u115 · both parents
+- `並` — u134 · line up
+- `中` — u15 · middle
+- `中断` — u130 · breaking off
+- `主` — u31 · main
+- `主任` — u132 · section head
+- `主婦` — u169 · a housewife
+- `久` — u159 · long time
+- `乗` — u127 · board
+- `乗車` — u127 · boarding
+- `九` — u11 · nine
+- `乱` — u136 · disorder
+- `乳` — u182 · milk
+- `予` — u117 · beforehand
+- `予約` — u117 · a reservation
+- `争` — u106 · dispute
+- `事` — u37 · matter
+- `事故` — u162 · an accident
+- `二` — u11 · two
+- `二人組` — u128 · a pair
+- `五` — u11 · five
+- `亡` — u185 · pass away
+- `京` — u39 · capital
+- `人` — u14 · person
+- `仁` — u178 · humaneness
+- `今` — u11 · now
+- `介` — u173 · to mediate
+- `仏` — u134 · Buddha
+- `仏教` — u134 · Buddhism
+- `仕` — u37 · serve
+- `他` — u128 · other
+- `他国` — u128 · another country
+- `代` — u31 · generation
+- `以` — u42 · from/than
+- `仮` — u157 · temporary
+- `件` — u123 · matter
+- `任` — u132 · entrust
+- `休` — u17 · rest
+- `会` — u17 · meet
+- `伝` — u102 · to convey
+- `伝言` — u102 · message
+- `似` — u125 · resemble
+- `位` — u119 · rank
+- `低` — u130 · low
+- `低下` — u130 · a decline
+- `住` — u34 · live
+- `住居` — u113 · dwelling
+- `体` — u32 · body
+- `体育` — u119 · physical education
+- `何` — u11 · what
+- `余` — u115 · surplus
+- `余分` — u115 · extra
+- `作` — u17 · make
+- `作曲` — u121 · composing
+- `使` — u33 · to use
+- `供` — u106 · companion
+- `供給` — u106 · supply
+- `価` — u159 · value
+- `便` — u134 · service
+- `保` — u171 · to keep
+- `保護` — u171 · protection
+- `信` — u100 · trust
+- `信念` — u100 · conviction
+- `信用` — u100 · credibility
+- `信頼` — u102 · trust
+- `修` — u164 · to mend
+- `修理` — u164 · repair
+- `俳` — u185 · short verse
+- `俵` — u169 · straw bag
+- `個` — u162 · individual
+- `個人` — u162 · an individual
+- `倍` — u115 · double
+- `借` — u37 · borrow
+- `値` — u104 · price
+- `偉` — u119 · great
+- `停` — u117 · to halt
+- `側` — u113 · side
+- `備` — u111 · to prepare
+- `備品` — u111 · fixtures
+- `傷` — u178 · a wound
+- `傷口` — u178 · the open wound
+- `像` — u128 · figure
+- `優` — u187 · superior; gentle
+- `優先` — u187 · giving priority
+- `元` — u18 · origin
+- `兄` — u31 · older brother
+- `先` — u14 · ahead
+- `党` — u106 · party
+- `入` — u17 · enter
+- `全` — u106 · all
+- `八` — u11 · eight
+- `公` — u42 · public
+- `公共` — u106 · public
+- `六` — u11 · six
+- `共` — u106 · together
+- `円` — u11 · yen
+- `冊` — u175 · counter for books
+- `再` — u164 · again
+- `写` — u36 · copy
+- `冬` — u38 · winter
+- `処` — u178 · deal with
+- `処分` — u178 · disposal
+- `出` — u17 · exit
+- `出席` — u113 · attendance
+- `分` — u11 · minute
+- `切` — u34 · cut
+- `刊` — u159 · publication
+- `列` — u136 · row
+- `初` — u117 · first
+- `初期` — u117 · the early stage
+- `判` — u132 · judge
+- `別` — u41 · separate
+- `利` — u136 · advantage
+- `到` — u117 · to arrive
+- `到着` — u117 · arrival
+- `制` — u166 · system
+- `制度` — u166 · a system
+- `券` — u162 · ticket
+- `刻` — u173 · to carve
+- `則` — u128 · rule
+- `前` — u15 · front
+- `前払い` — u134 · payment in advance
+- `副` — u134 · vice-
+- `副業` — u134 · side job
+- `割` — u115 · to divide
+- `創` — u180 · originate
+- `創作` — u180 · original creation
+- `力` — u32 · power
+- `力士` — u125 · sumo wrestler
+- `加` — u171 · to add
+- `助` — u111 · to help
+- `助手` — u111 · assistant
+- `助言` — u111 · advice
+- `努` — u130 · strive
+- `労` — u104 · labour
+- `労力` — u104 · effort
+- `効` — u162 · effect
+- `効果` — u162 · an effect
+- `勉` — u37 · effort
+- `動` — u33 · move
+- `動機` — u121 · motive
+- `務` — u104 · duty
+- `勝` — u127 · win
+- `勝手` — u127 · doing as one pleases
+- `募` — u104 · to recruit
+- `勢` — u166 · momentum
+- `勤` — u104 · to serve
+- `勤務` — u104 · service (at a job)
+- `化` — u108 · to change into
+- `北` — u15 · north
+- `医` — u32 · doctor
+- `十` — u11 · ten
+- `千` — u11 · thousand
+- `午` — u11 · noon
+- `半` — u11 · half
+- `半島` — u108 · peninsula
+- `南` — u15 · south
+- `単` — u115 · single
+- `単語` — u115 · a word
+- `印` — u157 · a mark
+- `卵` — u108 · egg
+- `厚` — u162 · thick
+- `去` — u34 · leave
+- `参` — u123 · go (humble)
+- `参考` — u123 · reference
+- `友` — u14 · friend
+- `反` — u106 · to oppose
+- `反射` — u175 · reflection
+- `収` — u104 · to take in
+- `取` — u125 · take
+- `受` — u127 · receive
+- `受験` — u127 · sitting an exam
+- `口` — u14 · mouth
+- `古` — u18 · old
+- `句` — u162 · phrase
+- `可` — u159 · possible
+- `台` — u39 · stand
+- `史` — u102 · history
+- `右` — u15 · right
+- `右側` — u113 · the right side
+- `号` — u123 · number
+- `同` — u41 · same
+- `同情` — u100 · sympathy
+- `同盟` — u187 · an alliance
+- `名` — u14 · name
+- `向` — u123 · face towards
+- `否` — u185 · no; deny
+- `吸` — u111 · to breathe in
+- `周` — u127 · circumference
+- `味` — u32 · taste
+- `命` — u100 · life
+- `和` — u106 · harmony
+- `品` — u37 · goods
+- `員` — u37 · member
+- `商` — u104 · commerce
+- `商品` — u104 · goods
+- `問` — u35 · question
+- `善` — u180 · good
+- `喜` — u100 · joy
+- `営` — u157 · to run (a business)
+- `営業` — u157 · trading (being open)
+- `四` — u11 · four
+- `回` — u119 · turn
+- `因` — u119 · cause
+- `団` — u130 · group
+- `団地` — u130 · housing estate
+- `困` — u173 · to be troubled
+- `困難` — u173 · difficulty
+- `囲` — u157 · to surround
+- `図` — u36 · diagram
+- `国` — u18 · country
+- `国境` — u159 · a national border
+- `国産` — u104 · domestically produced
+- `国際` — u164 · international
+- `園` — u113 · garden
+- `土` — u13 · soil
+- `圧` — u157 · pressure
+- `在` — u164 · to exist
+- `地` — u39 · ground
+- `地位` — u119 · standing
+- `地層` — u180 · geological strata
+- `地点` — u130 · a point on the map
+- `均` — u115 · even
+- `均等` — u115 · evenly divided
+- `垂` — u178 · hang down
+- `型` — u123 · type
+- `城` — u178 · a castle
+- `基` — u159 · foundation
+- `基地` — u159 · a base
+- `堂` — u39 · hall
+- `報` — u102 · report
+- `場` — u39 · place
+- `境` — u159 · boundary
+- `墓` — u171 · grave
+- `増` — u109 · to increase
+- `士` — u125 · a qualified professional
+- `売` — u37 · sell
+- `変` — u109 · to change
+- `夏` — u38 · summer
+- `夕` — u38 · evening
+- `外` — u15 · outside
+- `多` — u18 · many
+- `夜` — u38 · night
+- `夢` — u100 · dream
+- `夢中` — u100 · absorbed in
+- `大` — u18 · big
+- `大脳` — u182 · the cerebrum
+- `大衆` — u175 · the general public
+- `大陸` — u108 · continent
+- `大雪` — u128 · heavy snow
+- `天` — u13 · heaven
+- `失` — u125 · lose
+- `奏` — u180 · play music
+- `奥` — u171 · the interior
+- `奮` — u185 · rouse oneself
+- `奮起` — u185 · rousing oneself
+- `女` — u14 · woman
+- `妹` — u31 · younger sister
+- `妻` — u164 · wife
+- `姉` — u31 · older sister
+- `始` — u34 · begin
+- `委` — u157 · to entrust
+- `姿` — u175 · figure
+- `婦` — u169 · married woman
+- `子` — u14 · child
+- `字` — u36 · character
+- `存` — u117 · to exist
+- `学` — u18 · study
+- `学期` — u117 · school term
+- `学費` — u104 · school fees
+- `宅` — u180 · residence
+- `守` — u111 · to protect
+- `安` — u18 · cheap
+- `安全` — u106 · safety
+- `完` — u121 · complete
+- `宗` — u175 · a religious school
+- `宗教` — u175 · religion
+- `官` — u106 · official
+- `宙` — u182 · mid-air
+- `宝` — u185 · treasure
+- `宝物` — u185 · a treasured thing
+- `実` — u108 · real
+- `客` — u121 · guest
+- `宣` — u178 · proclaim
+- `宣言` — u178 · a declaration
+- `室` — u39 · room
+- `家` — u31 · house
+- `容` — u136 · contain
+- `宿` — u127 · lodge
+- `宿屋` — u127 · an inn
+- `寄` — u159 · to draw near
+- `密` — u187 · dense; close
+- `富` — u169 · wealth
+- `寒` — u121 · cold
+- `寝` — u111 · to sleep
+- `察` — u125 · perceive
+- `寸` — u115 · a little
+- `対` — u128 · facing
+- `対比` — u132 · contrast
+- `対話` — u128 · dialogue
+- `専` — u180 · exclusively
+- `専用` — u180 · for exclusive use
+- `将` — u178 · a commander
+- `射` — u175 · shoot out
+- `尊` — u100 · respect
+- `導` — u169 · to guide
+- `導入` — u169 · introduction
+- `小` — u18 · small
+- `少` — u18 · few
+- `就` — u127 · take up a post
+- `尺` — u175 · a measure
+- `尺度` — u175 · a yardstick
+- `局` — u113 · bureau
+- `居` — u113 · to reside
+- `届` — u109 · to reach
+- `屋` — u39 · shop
+- `展` — u182 · unfold
+- `属` — u166 · to belong
+- `層` — u180 · a layer
+- `山` — u13 · mountain
+- `山奥` — u171 · deep in the mountains
+- `山脈` — u171 · a mountain range
+- `島` — u108 · island
+- `川` — u13 · river
+- `州` — u127 · province
+- `工` — u37 · craft
+- `左` — u15 · left
+- `巨` — u159 · huge
+- `布` — u169 · cloth
+- `師` — u125 · master
+- `席` — u113 · seat
+- `帰` — u34 · return
+- `帳` — u130 · book of records
+- `常` — u117 · usual
+- `幕` — u187 · a curtain
+- `平` — u106 · flat
+- `平和` — u106 · peace
+- `年` — u11 · year
+- `年賀` — u159 · New Year greeting
+- `幸` — u123 · fortune
+- `幸運` — u123 · good fortune
+- `幹` — u159 · trunk
+- `幹部` — u159 · the leadership
+- `幼` — u187 · very young
+- `幾` — u121 · how many
+- `庁` — u182 · a government agency
+- `広` — u41 · wide
+- `序` — u166 · order
+- `底` — u113 · bottom
+- `店` — u18 · shop
+- `度` — u42 · time/occurrence
+- `座` — u173 · to sit
+- `庫` — u113 · storehouse
+- `延` — u171 · to postpone
+- `延期` — u171 · postponement
+- `建` — u37 · build
+- `建築` — u130 · architecture
+- `建設` — u166 · construction
+- `弁` — u171 · dialect
+- `引` — u109 · to pull
+- `引用` — u109 · a quotation
+- `弟` — u31 · younger brother
+- `張` — u130 · stretch
+- `強` — u41 · strong
+- `役` — u134 · role
+- `役目` — u134 · one's role
+- `往` — u157 · going out
+- `往復` — u157 · a round trip
+- `待` — u17 · wait
+- `律` — u106 · law
+- `後` — u15 · behind
+- `後任` — u132 · a successor
+- `徒` — u130 · on foot
+- `従` — u175 · follow
+- `得` — u132 · gain
+- `復` — u134 · return to
+- `徳` — u169 · virtue
+- `心` — u32 · heart
+- `必` — u132 · without fail
+- `志` — u125 · intent
+- `忘` — u185 · forget
+- `応` — u157 · to respond
+- `忠` — u182 · loyal
+- `快` — u119 · pleasant
+- `念` — u100 · thought
+- `怒` — u100 · anger
+- `思` — u35 · thought
+- `急` — u41 · hurry
+- `性` — u166 · nature
+- `恩` — u157 · a debt of gratitude
+- `恩人` — u157 · a benefactor
+- `悩` — u100 · worry
+- `悪` — u41 · bad
+- `悪夢` — u100 · nightmare
+- `悲` — u100 · sadness
+- `情` — u100 · feeling
+- `想` — u100 · to imagine
+- `意` — u35 · meaning
+- `愛` — u100 · love
+- `愛情` — u100 · affection
+- `態` — u169 · condition
+- `態度` — u169 · attitude
+- `慣` — u159 · to get used to
+- `憶` — u171 · recollection
+- `成` — u127 · become
+- `成績` — u166 · grades
+- `戦` — u106 · war
+- `戸` — u113 · door
+- `戻` — u109 · to go back
+- `所` — u113 · place
+- `手` — u14 · hand
+- `手帳` — u130 · pocket notebook
+- `打` — u128 · strike
+- `払` — u134 · pay
+- `批` — u185 · pass judgement on
+- `承` — u166 · to consent
+- `技` — u159 · skill
+- `技術` — u166 · technology
+- `投` — u109 · to throw
+- `投手` — u109 · pitcher
+- `押` — u109 · to push
+- `担` — u130 · shoulder
+- `招` — u166 · to invite
+- `招待` — u166 · an invitation
+- `拝` — u182 · pay respects
+- `拾` — u127 · pick up
+- `持` — u17 · hold
+- `捨` — u175 · throw away
+- `授` — u164 · to grant
+- `授業` — u164 · a class
+- `掛` — u121 · hang
+- `採` — u164 · to adopt
+- `採用` — u164 · adoption
+- `探` — u130 · search
+- `接` — u128 · come into contact
+- `接近` — u128 · drawing near
+- `推` — u178 · infer
+- `推理` — u178 · deduction
+- `提` — u169 · to submit
+- `提出` — u169 · submission
+- `損` — u169 · loss
+- `操` — u180 · work by hand
+- `支` — u104 · to pay out
+- `支店` — u104 · branch shop
+- `政` — u106 · politics
+- `政党` — u106 · political party
+- `故` — u162 · a mishap
+- `救` — u111 · to rescue
+- `敗` — u132 · defeat
+- `教` — u35 · teach
+- `教師` — u125 · teacher
+- `教養` — u136 · cultivation
+- `散` — u125 · scatter
+- `数` — u115 · number
+- `数字` — u115 · a numeral
+- `敵` — u169 · enemy
+- `文` — u36 · sentence
+- `文化` — u108 · culture
+- `文句` — u162 · a complaint
+- `文章` — u102 · a piece of writing
+- `料` — u37 · fee
+- `断` — u130 · sever
+- `新` — u18 · new
+- `方` — u42 · way/direction
+- `旅` — u42 · travel
+- `族` — u31 · family
+- `日` — u13 · sun
+- `日常` — u117 · everyday life
+- `日本酒` — u125 · sake
+- `旧` — u159 · former
+- `早` — u41 · early
+- `昇` — u117 · to rise
+- `明` — u40 · bright
+- `明確` — u119 · clear-cut
+- `映` — u36 · project
+- `春` — u38 · spring
+- `昨` — u117 · yesterday
+- `昼` — u38 · noon
+- `時` — u11 · o'clock
+- `時刻` — u173 · the time
+- `晩` — u185 · evening
+- `晩年` — u185 · one's later years
+- `景` — u123 · scenery
+- `晴` — u127 · clear up
+- `晴天` — u127 · fine weather
+- `暑` — u127 · hot (weather)
+- `暖` — u180 · warm (of air)
+- `暖流` — u180 · a warm current
+- `暗` — u119 · dark
+- `暗記` — u119 · learning by heart
+- `暮` — u185 · live one's days
+- `暴` — u134 · violent
+- `暴力` — u134 · violence
+- `曜` — u11 · day of the week
+- `曲` — u121 · tune
+- `書` — u17 · write
+- `月` — u13 · moon
+- `有` — u41 · exist
+- `有利` — u136 · advantageous
+- `有益` — u157 · beneficial
+- `服` — u42 · clothes
+- `服装` — u180 · what one is wearing
+- `朗` — u187 · clear and bright
+- `朗読` — u187 · reading aloud
+- `朝` — u38 · morning
+- `期` — u117 · period
+- `期限` — u162 · deadline
+- `木` — u13 · tree
+- `木綿` — u108 · cotton cloth
+- `木造` — u128 · wooden-built
+- `未` — u115 · not yet
+- `末` — u115 · end
+- `本` — u18 · book
+- `材` — u123 · material
+- `材料` — u123 · ingredients
+- `束` — u117 · bundle
+- `条` — u127 · clause
+- `来` — u17 · come
+- `杯` — u132 · cupful
+- `東` — u15 · east
+- `板` — u113 · board
+- `林` — u108 · woods
+- `枚` — u187 · counter for flat things
+- `果` — u119 · outcome
+- `枝` — u125 · branch
+- `染` — u180 · dye
+- `柱` — u113 · pillar
+- `査` — u164 · to investigate
+- `栄` — u157 · to flourish
+- `校` — u18 · school
+- `校舎` — u164 · a school building
+- `根` — u123 · root
+- `格` — u119 · status
+- `械` — u173 · device
+- `棒` — u187 · a pole
+- `植` — u127 · plant
+- `検` — u162 · to examine
+- `検査` — u164 · an inspection
+- `業` — u37 · business
+- `楽` — u41 · fun
+- `構` — u162 · structure
+- `構成` — u162 · composition
+- `様` — u136 · Mr / Ms (formal)
+- `模` — u187 · a pattern
+- `権` — u106 · right
+- `権力` — u106 · power
+- `横` — u119 · sideways
+- `樹` — u175 · a standing tree
+- `橋` — u113 · bridge
+- `機` — u121 · opportunity
+- `機械` — u173 · a machine
+- `欠` — u123 · lack
+- `欲` — u100 · desire
+- `歌` — u36 · song
+- `歌詞` — u175 · lyrics
+- `止` — u34 · stop
+- `正` — u41 · correct
+- `正直` — u117 · honest
+- `武` — u171 · military
+- `武力` — u171 · military force
+- `歩` — u34 · walk
+- `歴` — u171 · history
+- `歴史` — u171 · history
+- `死` — u32 · death
+- `残` — u125 · remain
+- `残金` — u125 · the balance left
+- `殺` — u125 · kill
+- `殺人` — u125 · homicide
+- `母` — u14 · mother
+- `母乳` — u182 · breast milk
+- `毎` — u11 · every
+- `毒` — u111 · poison
+- `比` — u132 · compare
+- `比較` — u173 · comparison
+- `民` — u106 · the people
+- `民間` — u106 · private sector
+- `気` — u13 · spirit
+- `気圧` — u157 · air pressure
+- `水` — u13 · water
+- `水蒸気` — u178 · water vapour
+- `永` — u157 · eternal
+- `永久` — u159 · permanent
+- `求` — u121 · seek
+- `求職` — u121 · job-hunting
+- `汚` — u171 · dirty
+- `決` — u123 · decide
+- `決心` — u123 · resolve
+- `河` — u159 · a large river
+- `河口` — u159 · a river mouth
+- `油` — u108 · oil
+- `沿` — u171 · to run along
+- `泉` — u180 · a spring
+- `泣` — u100 · to cry
+- `注` — u36 · pour
+- `洋` — u42 · Western/ocean
+- `洗` — u180 · wash
+- `洗面` — u180 · washing one's face
+- `活` — u121 · lively
+- `活動` — u121 · activity
+- `派` — u132 · faction
+- `流` — u109 · to flow
+- `海` — u38 · sea
+- `海底` — u113 · the seabed
+- `消` — u111 · to extinguish
+- `消防車` — u111 · fire engine
+- `液` — u157 · liquid
+- `深` — u127 · deep
+- `深夜` — u127 · the small hours
+- `混` — u164 · to mix
+- `混雑` — u164 · congestion
+- `済` — u173 · to settle
+- `渡` — u109 · to hand over
+- `渡り鳥` — u109 · migratory bird
+- `温` — u108 · warm
+- `測` — u128 · measure
+- `港` — u113 · harbour
+- `湖` — u108 · lake
+- `湯` — u130 · hot water
+- `湯気` — u130 · steam
+- `満` — u115 · full
+- `満員` — u115 · full up
+- `準` — u166 · standard
+- `演` — u119 · perform
+- `演出` — u119 · staging
+- `漢` — u36 · Han
+- `潔` — u162 · pure
+- `潮` — u182 · the tide
+- `火` — u13 · fire
+- `灰` — u173 · ash
+- `灰色` — u173 · grey
+- `災` — u164 · disaster
+- `点` — u130 · point
+- `無` — u41 · nothing
+- `然` — u128 · in that way
+- `煙` — u119 · smoke
+- `蒸` — u178 · steam
+- `熟` — u175 · ripen
+- `熱` — u108 · heat
+- `熱心` — u108 · enthusiastic
+- `燃` — u108 · to burn
+- `父` — u14 · father
+- `片` — u185 · one of a pair
+- `片方` — u185 · one of the two
+- `版` — u169 · edition
+- `牛` — u40 · cow
+- `物` — u41 · thing
+- `特` — u41 · special
+- `犬` — u40 · dog
+- `状` — u127 · state
+- `独` — u132 · alone
+- `独立` — u132 · independence
+- `率` — u169 · rate
+- `王` — u119 · king
+- `王国` — u119 · kingdom
+- `王子` — u119 · prince
+- `班` — u185 · a small team
+- `班長` — u185 · the team leader
+- `現` — u123 · present
+- `現代` — u123 · the present age
+- `理` — u42 · reason/logic
+- `生` — u14 · life
+- `生卵` — u108 · raw egg
+- `生命` — u100 · life (biological)
+- `産` — u104 · to produce
+- `用` — u42 · use/business
+- `用件` — u123 · the business at hand
+- `田` — u13 · rice field
+- `申` — u102 · to say (humbly)
+- `男` — u14 · man
+- `町` — u39 · town
+- `画` — u36 · picture
+- `画像` — u128 · an image
+- `界` — u39 · world
+- `畑` — u108 · field
+- `留` — u136 · stay on
+- `留学` — u136 · studying abroad
+- `略` — u136 · abbreviate
+- `病` — u32 · illness
+- `痛` — u111 · pain
+- `発` — u33 · departure
+- `発表` — u102 · announcement
+- `白` — u18 · white
+- `百` — u11 · hundred
+- `皆` — u173 · everyone
+- `益` — u157 · benefit
+- `盛` — u178 · flourishing
+- `盟` — u187 · a sworn alliance
+- `目` — u14 · eye
+- `目印` — u157 · a landmark
+- `目薬` — u111 · eye drops
+- `直` — u117 · direct
+- `直訳` — u187 · a literal translation
+- `相` — u128 · mutual
+- `相棒` — u187 · one's partner
+- `真` — u42 · true/real
+- `眼` — u159 · the eye
+- `着` — u33 · to wear
+- `知` — u17 · know
+- `知識` — u102 · body of knowledge
+- `砂` — u173 · sand
+- `研` — u35 · sharpen
+- `破` — u132 · tear
+- `磁` — u175 · magnetic
+- `確` — u119 · certain
+- `示` — u102 · to indicate
+- `礼` — u136 · courtesy
+- `社` — u39 · company
+- `祖` — u166 · ancestor
+- `祖父` — u166 · grandfather
+- `祝` — u127 · celebrate
+- `祝日` — u127 · public holiday
+- `神` — u100 · god
+- `神話` — u100 · myth
+- `祭` — u123 · festival
+- `祭日` — u123 · a public holiday
+- `禁` — u121 · forbid
+- `私` — u14 · I
+- `秋` — u38 · autumn
+- `科` — u108 · branch of study
+- `科学` — u108 · science
+- `秒` — u115 · second
+- `秒針` — u178 · the second hand
+- `秘` — u185 · keep hidden
+- `移` — u157 · to shift
+- `移動` — u157 · movement
+- `程` — u169 · extent
+- `程度` — u169 · degree
+- `税` — u104 · tax
+- `種` — u125 · kind
+- `種目` — u125 · event
+- `積` — u121 · pile up
+- `究` — u35 · investigate
+- `空` — u38 · sky
+- `空港` — u113 · airport
+- `空腹` — u185 · an empty stomach
+- `窓` — u113 · window
+- `立` — u17 · stand
+- `童` — u132 · child
+- `童話` — u132 · fairy tale
+- `第` — u115 · number (ordinal)
+- `第一` — u115 · the first
+- `等` — u115 · equal
+- `答` — u35 · answer
+- `策` — u173 · policy
+- `管` — u121 · pipe
+- `箱` — u113 · box
+- `築` — u130 · build
+- `簡` — u121 · simple
+- `米` — u108 · rice
+- `米国` — u108 · the United States
+- `粉` — u108 · powder
+- `精` — u100 · spirit
+- `糖` — u182 · sugar
+- `糖分` — u182 · sugar content
+- `約` — u117 · promise
+- `納` — u182 · hand over
+- `純` — u175 · unmixed
+- `純白` — u175 · pure white
+- `紙` — u36 · paper
+- `素` — u166 · element
+- `細` — u123 · fine
+- `終` — u34 · end
+- `組` — u128 · group
+- `経` — u123 · pass through
+- `経済` — u173 · economy
+- `給` — u104 · to supply
+- `給料` — u104 · salary
+- `統` — u132 · unify
+- `絵` — u173 · picture
+- `絶` — u128 · sever
+- `続` — u117 · to continue
+- `綿` — u108 · cotton
+- `総` — u115 · overall
+- `緑` — u136 · green
+- `緑茶` — u136 · green tea
+- `編` — u171 · to knit
+- `練` — u136 · train
+- `縁` — u171 · a bond
+- `縦` — u175 · lengthwise
+- `縮` — u175 · shrink
+- `縮小` — u175 · scaling down
+- `績` — u166 · results
+- `織` — u166 · to weave
+- `罪` — u164 · crime
+- `置` — u130 · place
+- `署` — u178 · a public office
+- `群` — u162 · crowd
+- `翌` — u187 · the following
+- `翌日` — u187 · the next day
+- `習` — u35 · learn
+- `老` — u111 · old age
+- `老人` — u111 · an elderly person
+- `考` — u35 · consider
+- `者` — u31 · person
+- `耕` — u162 · to till
+- `耳` — u14 · ear
+- `聖` — u178 · holy
+- `聖書` — u178 · the Bible
+- `聞` — u17 · listen
+- `職` — u104 · occupation
+- `肉` — u40 · meat
+- `肥` — u169 · fertile
+- `肥料` — u169 · fertiliser
+- `育` — u119 · raise
+- `肺` — u182 · a lung
+- `胃` — u157 · stomach
+- `背` — u182 · the back
+- `背後` — u182 · behind the scenes
+- `能` — u132 · ability
+- `脈` — u171 · vein
+- `脳` — u182 · the brain
+- `腹` — u185 · the belly
+- `臓` — u180 · an internal organ
+- `臨` — u187 · face; be present at
+- `自` — u31 · self
+- `自宅` — u180 · one's own home
+- `舌` — u111 · tongue
+- `舎` — u164 · quarters
+- `良` — u136 · good
+- `色` — u40 · color
+- `花` — u38 · flower
+- `花束` — u117 · bouquet
+- `芽` — u173 · sprout
+- `若` — u111 · young
+- `英` — u36 · English
+- `茶` — u40 · tea
+- `荷` — u171 · load
+- `荷物` — u171 · luggage
+- `著` — u182 · write (a book)
+- `著書` — u182 · a published book
+- `著者` — u182 · the author
+- `落` — u109 · to fall
+- `落下` — u109 · a fall
+- `蔵` — u180 · a storehouse
+- `薬` — u111 · medicine
+- `薬品` — u111 · chemicals
+- `衆` — u175 · the many
+- `行` — u17 · go
+- `行列` — u136 · a queue
+- `術` — u166 · technique
+- `衣` — u157 · clothing
+- `衣服` — u157 · clothing
+- `表` — u102 · to express
+- `裁` — u173 · to judge
+- `裁判` — u173 · a trial
+- `装` — u180 · attire
+- `裏` — u187 · the reverse side
+- `裏口` — u187 · the back door
+- `補` — u185 · make up a shortfall
+- `製` — u128 · manufacture
+- `製品` — u128 · a manufactured product
+- `複` — u134 · multiple
+- `西` — u15 · west
+- `見` — u17 · see
+- `規` — u128 · standard
+- `覚` — u121 · remember
+- `覚書` — u121 · a memo
+- `覧` — u187 · look over
+- `親` — u31 · parent
+- `解` — u119 · undo
+- `言` — u17 · say
+- `計` — u37 · plan
+- `訓` — u162 · instruction
+- `訓練` — u162 · training
+- `記` — u102 · to write down
+- `記憶` — u171 · memory
+- `記録` — u102 · record
+- `訪` — u185 · pay a visit
+- `訪問` — u185 · a formal visit
+- `設` — u166 · to establish
+- `許` — u102 · to permit
+- `訳` — u187 · translate
+- `証` — u166 · proof
+- `証明` — u166 · proof
+- `評` — u102 · to review
+- `詞` — u175 · words (of a song)
+- `試` — u35 · try
+- `話` — u17 · speak
+- `誠` — u178 · sincerity
+- `誌` — u175 · a periodical
+- `認` — u182 · acknowledge
+- `誕` — u180 · birth
+- `語` — u18 · language
+- `説` — u102 · to explain
+- `説明` — u102 · explanation
+- `読` — u17 · read
+- `課` — u171 · section
+- `論` — u187 · argue a case
+- `諸` — u178 · various
+- `講` — u162 · lecture
+- `謝` — u164 · to apologise
+- `識` — u102 · knowledge
+- `警` — u125 · warn
+- `議` — u102 · to discuss
+- `護` — u162 · to protect
+- `豊` — u134 · abundant
+- `豊作` — u134 · a good harvest
+- `豊富` — u169 · abundant
+- `負` — u134 · lose
+- `負担` — u134 · a burden
+- `財` — u164 · wealth
+- `財産` — u164 · property
+- `貧` — u169 · poor
+- `貨` — u173 · goods
+- `貨物` — u173 · freight
+- `責` — u166 · responsibility
+- `責任` — u166 · responsibility
+- `貴` — u121 · precious
+- `貴重` — u121 · precious
+- `買` — u17 · buy
+- `貸` — u37 · lend
+- `費` — u104 · expense
+- `貿` — u104 · trade
+- `賀` — u159 · congratulation
+- `賃` — u182 · a fee paid
+- `資` — u104 · resources
+- `賛` — u106 · to approve
+- `質` — u37 · quality
+- `赤` — u40 · red
+- `走` — u34 · run
+- `起` — u33 · to get up
+- `越` — u109 · to cross over
+- `足` — u14 · foot
+- `路` — u136 · road
+- `車` — u18 · car
+- `車庫` — u113 · garage
+- `転` — u34 · roll
+- `較` — u173 · to compare
+- `輸` — u136 · transport
+- `輸送` — u136 · transport
+- `辺` — u134 · vicinity
+- `迎` — u123 · welcome
+- `近` — u42 · near
+- `返` — u109 · to give back
+- `返信` — u109 · a reply
+- `述` — u164 · to state
+- `迷` — u134 · get lost
+- `迷子` — u134 · a lost child
+- `追` — u109 · to chase
+- `退` — u109 · to retreat
+- `退院` — u109 · leaving hospital
+- `送` — u33 · to send
+- `逆` — u159 · the reverse
+- `逆流` — u159 · flowing backwards
+- `通` — u33 · pass through
+- `通過` — u109 · passing through
+- `速` — u117 · fast
+- `造` — u128 · construct
+- `週` — u11 · week
+- `進` — u109 · to advance
+- `進展` — u182 · progress made
+- `進行` — u109 · progress
+- `遅` — u117 · late
+- `運` — u33 · to carry
+- `過` — u109 · to pass
+- `道` — u18 · road
+- `道徳` — u169 · morality
+- `道路` — u136 · road
+- `達` — u130 · reach
+- `達人` — u130 · a master
+- `違` — u119 · differ
+- `適` — u130 · suitable
+- `選` — u106 · to choose
+- `選手` — u106 · player
+- `部` — u113 · section
+- `部署` — u178 · one's post
+- `郵` — u187 · post
+- `配` — u132 · distribute
+- `配送` — u132 · delivery
+- `配達` — u132 · delivering to the door
+- `酒` — u125 · alcohol
+- `酸` — u164 · acid
+- `重` — u41 · heavy
+- `野` — u39 · field
+- `量` — u115 · quantity
+- `金` — u13 · gold
+- `金額` — u104 · sum of money
+- `針` — u178 · a needle
+- `鉱` — u162 · ore
+- `鉱山` — u162 · a mine
+- `銀` — u37 · silver
+- `銀河` — u159 · the galaxy
+- `銅` — u169 · copper
+- `銭` — u180 · small coin
+- `銭湯` — u180 · a public bath
+- `録` — u102 · to record
+- `長` — u18 · long
+- `閉` — u134 · close
+- `開` — u33 · to open
+- `間` — u18 · interval
+- `関` — u121 · relate
+- `関わり` — u121 · involvement
+- `関東` — u121 · the Kanto region
+- `防` — u111 · to defend
+- `防火` — u111 · fire prevention
+- `限` — u162 · limit
+- `陛` — u185 · the imperial steps
+- `陛下` — u185 · His or Her Majesty
+- `院` — u39 · institution
+- `除` — u178 · remove
+- `陸` — u108 · land
+- `険` — u111 · steep
+- `隊` — u128 · squad
+- `際` — u164 · occasion
+- `集` — u33 · to gather
+- `雑` — u125 · miscellaneous
+- `雑音` — u125 · background noise
+- `難` — u111 · difficult
+- `雨` — u13 · rain
+- `雪` — u128 · snow
+- `電` — u13 · electricity
+- `電柱` — u113 · utility pole
+- `青` — u40 · blue
+- `非` — u132 · non-
+- `面` — u134 · face
+- `音` — u36 · sound
+- `章` — u102 · chapter
+- `頂` — u182 · the summit
+- `頂上` — u182 · the very top
+- `順` — u117 · order
+- `預` — u136 · deposit
+- `預金` — u136 · savings
+- `領` — u136 · territory
+- `頼` — u102 · to rely on
+- `題` — u35 · topic
+- `額` — u104 · amount
+- `願` — u102 · wish
+- `願書` — u102 · application form
+- `風` — u38 · wind
+- `風景` — u123 · scenery
+- `飛` — u132 · fly
+- `飛行` — u132 · flight
+- `食` — u17 · eat
+- `飯` — u40 · cooked rice
+- `飲` — u17 · drink
+- `飼` — u125 · keep an animal
+- `飼育` — u125 · rearing animals
+- `養` — u136 · nourish
+- `館` — u39 · hall
+- `駅` — u18 · station
+- `験` — u35 · test
+- `骨` — u173 · bone
+- `高` — u18 · tall
+- `高速` — u117 · high speed
+- `魚` — u40 · fish
+- `鳥` — u40 · bird
+- `鳴` — u134 · sound
+- `黒` — u40 · black
+- `黒板` — u113 · blackboard
+
+## By unit — what each slot teaches
+
+**u1 · はじめまして** (54) — `あ`, `い`, `う`, `え`, `お`, `おはよう`, `こんにちは`, `さようなら`, `はい`, `いいえ`, `か`, `き`, `く`, `け`, `こ`, `こんばんは`, `ありがとう`, `かさ`, `くつ`, `こども`, `きって`, `さ`, `し`, `す`, `せ`, `そ`, `すみません`, `さかな`, `すし`, `そら`, `せんせい`, `しずか`, `た`, `ち`, `つ`, `て`, `と`, `ともだち`, `てがみ`, `つき`, `たのしい`, `とけい`, `ちょっと`, `な`, `に`, `ぬ`, `ね`, `の`, `ねこ`, `いぬ`, `にほん`, `なまえ`, `のみもの`, `なんじ`
+
+**u2 · よろしく** (47) — `は`, `ひ`, `ふ`, `へ`, `ほ`, `はな`, `ひと`, `はし`, `ふね`, `ほん`, `ま`, `み`, `む`, `め`, `も`, `まち`, `みず`, `むし`, `めがね`, `もの`, `や`, `ゆ`, `よ`, `やま`, `ゆき`, `よる`, `やすみ`, `ゆめ`, `よろしく`, `ら`, `り`, `る`, `れ`, `ろ`, `りんご`, `らく`, `くるま`, `くすり`, `しろ`, `わ`, `を`, `ん`, `わたし`, `かんぱい`, `うんどう`, `ほんとう`, `でんわ`
+
+**u3 · まいにち** (54) — `が`, `ぎ`, `ぐ`, `げ`, `ご`, `がっこう`, `えいご`, `かぎ`, `ごはん`, `げんき`, `かぐ`, `ざ`, `じ`, `ず`, `ぜ`, `ぞ`, `ざっし`, `ぜんぶ`, `かぞく`, `ちず`, `すうじ`, `だ`, `ぢ`, `づ`, `で`, `ど`, `だいがく`, `でぐち`, `どようび`, `くだもの`, `からだ`, `でんき`, `ば`, `び`, `ぶ`, `べ`, `ぼ`, `かばん`, `たべもの`, `ぶた`, `べんとう`, `ぼうし`, `えび`, `ぱ`, `ぴ`, `ぷ`, `ぺ`, `ぽ`, `えんぴつ`, `さんぽ`, `きっぷ`, `てんぷら`, `しんぱい`, `せんぱい`
+
+**u4 · カタカナ** (55) — `ア`, `イ`, `ウ`, `エ`, `オ`, `アメリカ`, `イタリア`, `ウール`, `エアコン`, `オレンジ`, `アイス`, `カ`, `キ`, `ク`, `ケ`, `コ`, `コーヒー`, `ケーキ`, `カメラ`, `クラス`, `ケータイ`, `カレー`, `サ`, `シ`, `ス`, `セ`, `ソ`, `スープ`, `セーター`, `サラダ`, `ソファ`, `スポーツ`, `シート`, `タ`, `チ`, `ツ`, `テ`, `ト`, `テレビ`, `トマト`, `タクシー`, `テスト`, `チケット`, `ツアー`, `ナ`, `ニ`, `ヌ`, `ネ`, `ノ`, `ノート`, `テニス`, `ネクタイ`, `ナイフ`, `バナナ`, `ニュース`
+
+**u5 · カタカナ 2** (50) — `ハ`, `ヒ`, `フ`, `ヘ`, `ホ`, `ホテル`, `ハム`, `フォーク`, `ヒーター`, `ホーム`, `ヘルメット`, `マ`, `ミ`, `ム`, `メ`, `モ`, `メニュー`, `ミルク`, `マスク`, `メモ`, `クリーム`, `マイク`, `ヤ`, `ユ`, `ヨ`, `タイヤ`, `ヨット`, `ユニフォーム`, `クレヨン`, `イヤホン`, `ラ`, `リ`, `ル`, `レ`, `ロ`, `ライス`, `レモン`, `メロン`, `ルール`, `リスト`, `レストラン`, `ワ`, `ヲ`, `ン`, `ワイン`, `ワイシャツ`, `ワッフル`, `アイロン`, `サイン`, `コイン`
+
+**u6 · カタカナ゛゜** (55) — `ガ`, `ギ`, `グ`, `ゲ`, `ゴ`, `ガム`, `ギター`, `グラス`, `ゲーム`, `ゴルフ`, `ハンガー`, `ザ`, `ジ`, `ズ`, `ゼ`, `ゾ`, `ピザ`, `ジュース`, `チーズ`, `ゼロ`, `リゾート`, `ジーンズ`, `ダ`, `ヂ`, `ヅ`, `デ`, `ド`, `ダンス`, `サイダー`, `デパート`, `デート`, `ドア`, `サンドイッチ`, `バ`, `ビ`, `ブ`, `ベ`, `ボ`, `バス`, `ビール`, `テーブル`, `ベッド`, `ボタン`, `ビル`, `パ`, `ピ`, `プ`, `ペ`, `ポ`, `パン`, `ピアノ`, `プール`, `ペン`, `ポスト`, `スーパー`
+
+**u7 · かず・じかん** (34) — `いち`, `に`, `さん`, `よん`, `ご`, `ぜろ`, `ろく`, `なな`, `はち`, `きゅう`, `じゅう`, `かず`, `じゅういち`, `にじゅう`, `ひゃく`, `せん`, `まん`, `えん`, `じ`, `ふん`, `いま`, `はん`, `ごぜん`, `ごご`, `ちょうど`, `びょう`, `きょう`, `あした`, `きのう`, `あさ`, `ひる`, `ばん`, `こんばん`, `あさって`
+
+**u8 · かぞく** (40) — `ちち`, `はは`, `りょうしん`, `そふ`, `そぼ`, `おや`, `おっと`, `つま`, `あに`, `あね`, `おとうと`, `いもうと`, `あかちゃん`, `まご`, `むすこ`, `むすめ`, `おとうさん`, `おかあさん`, `おにいさん`, `おねえさん`, `おじいさん`, `おばあさん`, `ごしゅじん`, `おくさん`, `おとこ`, `おんな`, `おとな`, `おきゃくさん`, `みんな`, `だれ`, `がくせい`, `かいしゃいん`, `かれ`, `かのじょ`, `あなた`, `じぶん`, `みなさん`, `ひとり`, `わたしたち`, `ふたり`
+
+**u9 · たべもの・まいにち** (40) — `たまご`, `やさい`, `にく`, `おちゃ`, `おかし`, `あさごはん`, `おにぎり`, `みそしる`, `ひるごはん`, `ばんごはん`, `りょうり`, `あじ`, `あまい`, `からい`, `おいしい`, `にがい`, `おきます`, `ねます`, `たべます`, `のみます`, `みます`, `します`, `よみます`, `かきます`, `いきます`, `きます`, `かえります`, `かいます`, `はなします`, `ききます`, `あいます`, `わかります`, `しごと`, `まいにち`, `じかん`, `べんきょう`, `かいもの`, `おんがく`, `えいが`, `しゅくだい`
+
+**u10 · まち・ばしょ** (40) — `えき`, `みせ`, `びょういん`, `ぎんこう`, `ゆうびんきょく`, `としょかん`, `コンビニ`, `くうこう`, `こうえん`, `えいがかん`, `きっさてん`, `びじゅつかん`, `おてら`, `じんじゃ`, `どうぶつえん`, `こうばん`, `いえ`, `うち`, `へや`, `にわ`, `まど`, `げんかん`, `だいどころ`, `トイレ`, `みぎ`, `ひだり`, `うえ`, `した`, `まえ`, `うしろ`, `なか`, `となり`, `ちかい`, `とおい`, `おおきい`, `ちいさい`, `あたらしい`, `ふるい`, `ひろい`, `きれい`
+
+**u11 · かんじ・かず・じかん** (24) — `一`, `二`, `三`, `四`, `五`, `六`, `七`, `八`, `九`, `十`, `百`, `千`, `万`, `円`, `何`, `時`, `分`, `半`, `午`, `曜`, `週`, `年`, `今`, `毎`
+
+**u12 · いろ・てんき** (40) — `あか`, `あお`, `きいろ`, `くろ`, `みどり`, `いろ`, `むらさき`, `みずいろ`, `ちゃいろ`, `ピンク`, `あかい`, `あおい`, `くろい`, `しろい`, `きいろい`, `うすい`, `てんき`, `はれ`, `あめ`, `くもり`, `かぜ`, `にじ`, `たいふう`, `くも`, `あつい`, `さむい`, `あたたかい`, `すずしい`, `つめたい`, `ぬるい`, `むしあつい`, `さわやか`, `はる`, `なつ`, `あき`, `ふゆ`, `きせつ`, `つゆ`, `さくら`, `はなび`
+
+**u13 · かんじ・しぜん** (14) — `日`, `月`, `火`, `水`, `木`, `金`, `土`, `山`, `川`, `田`, `雨`, `電`, `気`, `天`
+
+**u14 · かんじ・ひと・からだ** (16) — `人`, `私`, `父`, `母`, `男`, `女`, `子`, `友`, `先`, `生`, `名`, `目`, `耳`, `口`, `手`, `足`
+
+**u15 · かんじ・ほうこう** (12) — `上`, `下`, `中`, `右`, `左`, `前`, `後`, `外`, `東`, `西`, `南`, `北`
+
+**u16 · ようおん** (33) — `きゃ`, `きゅ`, `きょ`, `しゃ`, `しゅ`, `しょ`, `ちゃ`, `ちゅ`, `ちょ`, `にゃ`, `にゅ`, `にょ`, `ひゃ`, `ひゅ`, `ひょ`, `みゃ`, `みゅ`, `みょ`, `りゃ`, `りゅ`, `りょ`, `ぎゃ`, `ぎゅ`, `ぎょ`, `じゃ`, `じゅ`, `じょ`, `びゃ`, `びゅ`, `びょ`, `ぴゃ`, `ぴゅ`, `ぴょ`
+
+**u17 · かんじ・どうし** (20) — `行`, `来`, `見`, `出`, `入`, `食`, `飲`, `言`, `聞`, `読`, `書`, `話`, `立`, `休`, `買`, `会`, `待`, `知`, `作`, `持`
+
+**u18 · かんじ・けいようし・ばしょ** (21) — `大`, `小`, `高`, `安`, `新`, `古`, `多`, `少`, `長`, `白`, `学`, `校`, `道`, `駅`, `店`, `国`, `本`, `間`, `車`, `語`, `元`
+
+**u19 · ぶんぽう** (29) — `これ`, `それ`, `あれ`, `どれ`, `この`, `その`, `あの`, `どの`, `は`, `です`, `か`, `じゃないです`, `そうです`, `ちがいます`, `の`, `と`, `も`, `だれの`, `なんの`, `なに`, `どこ`, `いつ`, `どう`, `どうして`, `でも`, `そして`, `それから`, `だから`, `じゃあ`
+
+**u20 · ぶんぽう・2** (27) — `を`, `つくります`, `つかいます`, `あけます`, `しめます`, `けします`, `つけます`, `が`, `あります`, `います`, `のります`, `すみます`, `で`, `はたらきます`, `あそびます`, `やすみます`, `ならいます`, `へ`, `から`, `まで`, `よく`, `あまり`, `ませんか`, `ましょう`, `ください`, `おねがいします`, `どうぞ`
+
+**u21 · ぶんぽう・3** (25) — `ました`, `ません`, `ませんでした`, `せんしゅう`, `きょねん`, `でした`, `じゃなかったです`, `さっき`, `おととい`, `ゆうべ`, `くないです`, `かったです`, `くなかったです`, `いそがしい`, `むずかしい`, `すき`, `きらい`, `じょうず`, `へた`, `な`, `たいです`, `ほしい`, `だいすき`, `とても`, `すこし`
+
+**u22 · かつどう** (24) — `あるきます`, `はしります`, `およぎます`, `のぼります`, `わたります`, `とまります`, `そうじします`, `せんたくします`, `あらいます`, `かたづけます`, `すてます`, `なおします`, `おくります`, `こたえます`, `てつだいます`, `さがします`, `おしえます`, `ならびます`, `うたいます`, `おどります`, `りょこうします`, `とります`, `あつめます`, `いそぎます`
+
+**u23 · きもち・ようす** (24) — `うれしい`, `かなしい`, `さびしい`, `こわい`, `ねむい`, `うるさい`, `しんせつ`, `まじめ`, `ゆうめい`, `にぎやか`, `ていねい`, `へん`, `つよい`, `よわい`, `かたい`, `やわらかい`, `おもい`, `かるい`, `べんり`, `ふべん`, `あんぜん`, `あぶない`, `たいせつ`, `だいじょうぶ`
+
+**u24 · のりもの・たび** (24) — `でんしゃ`, `ちかてつ`, `しんかんせん`, `ひこうき`, `じてんしゃ`, `トラック`, `りょかん`, `みやげ`, `スーツケース`, `パスポート`, `よやく`, `かんこう`, `みち`, `こうさてん`, `しんごう`, `かど`, `つぎ`, `のりかえ`, `おります`, `つきます`, `でかけます`, `むかえます`, `とどきます`, `まがります`
+
+**u25 · しごと・がっこう** (24) — `かいしゃ`, `かいぎ`, `しゃちょう`, `めいし`, `しゅっちょう`, `ざんぎょう`, `じゅぎょう`, `しけん`, `せいと`, `きょうしつ`, `こくばん`, `さくぶん`, `おぼえます`, `わすれます`, `しらべます`, `まちがえます`, `せつめいします`, `しつもんします`, `かよいます`, `やめます`, `まにあいます`, `ちこくします`, `がんばります`, `けいかくします`
+
+**u26 · からだ・けんこう** (24) — `あたま`, `かお`, `のど`, `かた`, `せなか`, `おなか`, `びょうき`, `ねつ`, `いたい`, `わるい`, `けが`, `いしゃ`, `つかれます`, `なおります`, `たおれます`, `ふとります`, `やせます`, `なきます`, `かみ`, `ゆび`, `つめ`, `こえ`, `ちから`, `ひげ`
+
+**u27 · しぜん・どうぶつ** (24) — `とり`, `うま`, `うし`, `さる`, `ぞう`, `くま`, `うみ`, `かわ`, `もり`, `しま`, `いけ`, `いし`, `ほし`, `たいよう`, `かみなり`, `ひかり`, `かげ`, `けむり`, `さきます`, `ながれます`, `ふきます`, `そだてます`, `うごきます`, `とびます`
+
+**u28 · かいもの** (24) — `ねだん`, `おつり`, `レジ`, `ふくろ`, `しなもの`, `セール`, `ふく`, `シャツ`, `ズボン`, `くつした`, `コート`, `てぶくろ`, `おかね`, `さいふ`, `カード`, `はらいます`, `かります`, `かします`, `えらびます`, `うります`, `もらいます`, `あげます`, `ならべます`, `つつみます`
+
+**u29 · じかん・ふくし** (24) — `らいしゅう`, `せんげつ`, `らいげつ`, `こんげつ`, `しゅうまつ`, `まいしゅう`, `いつも`, `ときどき`, `たいてい`, `たまに`, `ぜんぜん`, `かならず`, `もう`, `まだ`, `たぶん`, `きっと`, `ぜひ`, `だいたい`, `すぐ`, `もっと`, `いちばん`, `とくに`, `やっと`, `ほとんど`
+
+**u30 · つなぎことば** (24) — `ので`, `し`, `それで`, `それに`, `つまり`, `そのため`, `けど`, `のに`, `しかし`, `それでも`, `ところで`, `だけど`, `とき`, `まえに`, `あとで`, `あいだ`, `までに`, `ながら`, `でしょう`, `かもしれません`, `はず`, `そう`, `みたい`, `らしい`
+
+**u31 · かんじ・かぞく** (12) — `者`, `自`, `家`, `主`, `親`, `族`, `兄`, `弟`, `姉`, `妹`, `世`, `代`
+
+**u32 · かんじ・からだ** (7) — `体`, `医`, `病`, `死`, `心`, `力`, `味`
+
+**u33 · かんじ・どうし 1** (10) — `発`, `動`, `開`, `通`, `使`, `集`, `送`, `起`, `着`, `運`
+
+**u34 · かんじ・どうし 2** (10) — `始`, `終`, `止`, `切`, `転`, `走`, `歩`, `帰`, `住`, `去`
+
+**u35 · かんじ・べんきょう** (12) — `問`, `答`, `思`, `意`, `題`, `考`, `教`, `習`, `研`, `究`, `試`, `験`
+
+**u36 · かんじ・ことば** (12) — `字`, `文`, `漢`, `英`, `図`, `音`, `歌`, `写`, `映`, `注`, `画`, `紙`
+
+**u37 · かんじ・しごと** (15) — `売`, `借`, `貸`, `品`, `料`, `計`, `質`, `銀`, `仕`, `業`, `工`, `建`, `勉`, `事`, `員`
+
+**u38 · かんじ・きせつ** (12) — `春`, `夏`, `秋`, `冬`, `昼`, `夜`, `朝`, `夕`, `花`, `海`, `空`, `風`
+
+**u39 · かんじ・ばしょ** (13) — `社`, `地`, `場`, `京`, `院`, `界`, `町`, `館`, `屋`, `堂`, `室`, `台`, `野`
+
+**u40 · かんじ・いろ・たべもの** (12) — `赤`, `青`, `黒`, `色`, `明`, `肉`, `飯`, `茶`, `牛`, `魚`, `鳥`, `犬`
+
+**u41 · かんじ・ようす** (15) — `同`, `正`, `不`, `無`, `有`, `特`, `別`, `物`, `強`, `広`, `早`, `急`, `重`, `楽`, `悪`
+
+**u42 · かんじ・きのう** (11) — `度`, `用`, `以`, `近`, `方`, `理`, `公`, `洋`, `服`, `旅`, `真`
+
+**u43 · ぶんぽう・4** (12) — `ています`, `てから`, `てもいいです`, `てはいけません`, `てみる`, `ておく`, `てしまう`, `あげる`, `くれる`, `もらう`, `つもり`, `だろう`
+
+**u44 · ぶんぽう・5** (18) — `たら`, `ば`, `なら`, `ことができる`, `ことがある`, `ようになる`, `ことにする`, `より`, `ほうが`, `すぎる`, `やすい`, `にくい`, `たり`, `ようです`, `みたいです`, `らしいです`, `という`, `ため`
+
+**u45 · どうし・かつよう** (12) — `つたえます`, `おくれます`, `きめます`, `はこびます`, `ひろいます`, `さそいます`, `わたします`, `みがきます`, `すすみます`, `かえます`, `さわります`, `まもります`
+
+**u46 · どうし・うけみ** (12) — `しかります`, `ほめます`, `たのみます`, `ぬすみます`, `こわします`, `だまします`, `たすけます`, `おこします`, `よびます`, `つかまえます`, `ふみます`, `しらせます`
+
+**u47 · いえ・かじ** (24) — `ゆか`, `かべ`, `てんじょう`, `かいだん`, `ろうか`, `おしいれ`, `たんす`, `ひきだし`, `ほんだな`, `たな`, `カーテン`, `ふとん`, `そうじき`, `せんたくき`, `れいぞうこ`, `なべ`, `さら`, `ごみ`, `はきます`, `しまいます`, `ほします`, `たたみます`, `ながします`, `かざります`
+
+**u48 · せいかく・きもち** (24) — `すなお`, `ねっしん`, `しょうじき`, `ゆうき`, `あかるい`, `おとなしい`, `きびしい`, `わがまま`, `がんこ`, `けち`, `らんぼう`, `しつこい`, `なやみ`, `あんしん`, `きんちょう`, `はずかしい`, `ふあん`, `くやしい`, `ざんねん`, `びっくり`, `がっかり`, `まんぞく`, `きぶん`, `たいくつ`
+
+**u49 · しゃかい・せいかつ** (24) — `やくしょ`, `こうきょう`, `こうむいん`, `ほけん`, `けいさつ`, `しょうぼうしょ`, `ぜいきん`, `きゅうりょう`, `けいざい`, `ちょきん`, `ぶっか`, `りょうきん`, `きそく`, `ほうりつ`, `せいじ`, `しゃかい`, `じゆう`, `せんきょ`, `しみん`, `じんこう`, `ちいき`, `きんじょ`, `こうつう`, `かんきょう`
+
+**u50 · ぎじゅつ・つうしん** (24) — `けいたい`, `がめん`, `でんげん`, `じゅうでん`, `きかい`, `パソコン`, `インターネット`, `データ`, `サイト`, `つながります`, `けんさくします`, `とうろくします`, `れんらく`, `メッセージ`, `へんじ`, `かけます`, `メール`, `かいわ`, `じょうほう`, `しんぶん`, `ばんぐみ`, `こしょう`, `こわれます`, `きえます`
+
+**u51 · しぜん・かがく** (24) — `しぜん`, `かざん`, `たいりく`, `さばく`, `はやし`, `たに`, `ちきゅう`, `くうき`, `おんど`, `じしん`, `せかい`, `うちゅう`, `かせき`, `すな`, `つち`, `こおり`, `ガラス`, `てつ`, `じっけん`, `ちしき`, `けんきゅう`, `しげん`, `かがく`, `エネルギー`
+
+**u52 · ぶんか・レジャー** (24) — `まつり`, `やたい`, `ゆかた`, `でんとう`, `ぎょうじ`, `たいこ`, `しゅみ`, `てんらんかい`, `えんそう`, `びじゅつ`, `はくぶつかん`, `コンサート`, `しあい`, `おうえん`, `けしき`, `キャンプ`, `つり`, `とざん`, `けいけん`, `おもいで`, `おんせん`, `おみやげ`, `とうちゃく`, `しゅっぱつ`
+
+**u53 · どうさ・1** (24) — `たちます`, `すわります`, `はいります`, `でます`, `もちます`, `おします`, `ひきます`, `きります`, `ぬぎます`, `かぶります`, `かえします`, `とおります`, `はじめます`, `おわります`, `なります`, `できます`, `まちます`, `しります`, `いります`, `かかります`, `ふります`, `こまります`, `みつけます`, `けっこんします`
+
+**u54 · たべもの・りょうり** (24) — `たまねぎ`, `にんじん`, `じゃがいも`, `キャベツ`, `きゅうり`, `だいこん`, `いちご`, `みかん`, `ぶどう`, `もも`, `なし`, `すいか`, `こめ`, `さとう`, `しお`, `しょうゆ`, `みそ`, `あぶら`, `うどん`, `そば`, `ラーメン`, `ぎゅうにゅう`, `おさけ`, `すっぱい`
+
+**u55 · けいようし・N5** (24) — `ながい`, `みじかい`, `ふとい`, `ほそい`, `せまい`, `ひくい`, `くらい`, `きたない`, `わかい`, `おおい`, `すくない`, `まるい`, `はやい`, `おそい`, `すごい`, `やさしい`, `かんたん`, `ひま`, `おもしろい`, `つまらない`, `まずい`, `しょっぱい`, `ひどい`, `おなじ`
+
+**u56 · じかん・よてい** (24) — `にちようび`, `げつようび`, `かようび`, `すいようび`, `もくようび`, `きんようび`, `けさ`, `ゆうがた`, `こんしゅう`, `まいあさ`, `まいばん`, `まいつき`, `ことし`, `らいねん`, `おととし`, `むかし`, `さいきん`, `これから`, `しょうらい`, `よてい`, `なんようび`, `さいしょ`, `さいご`, `このごろ`
+
+**u57 · がっこう・べんきょう** (24) — `けしゴム`, `きょうかしょ`, `じしょ`, `つくえ`, `いす`, `チョーク`, `もんだい`, `こたえ`, `いみ`, `たんご`, `ことば`, `れんしゅう`, `かんじ`, `ひらがな`, `カタカナ`, `すうがく`, `りか`, `ぶんぽう`, `なつやすみ`, `はなし`, `はさみ`, `のり`, `しつもん`, `はつおん`
+
+**u58 · いえ・せいかつ** (24) — `ざぶとん`, `じゅうたん`, `はこ`, `かびん`, `かがみ`, `カレンダー`, `せっけん`, `タオル`, `はブラシ`, `シャンプー`, `ハンカチ`, `ティッシュ`, `コップ`, `スプーン`, `ちゃわん`, `やかん`, `ポット`, `レンジ`, `ものさし`, `ほうき`, `バケツ`, `でんち`, `せんぷうき`, `まくら`
+
+**u59 · まち・こうつう** (24) — `ほんや`, `はなや`, `パンや`, `やおや`, `くすりや`, `さかなや`, `アパート`, `こうじょう`, `カフェ`, `きょうかい`, `ジム`, `ちゅうしゃじょう`, `バイク`, `せき`, `バスてい`, `みなと`, `せんろ`, `ふみきり`, `とおり`, `ばしょ`, `むら`, `とかい`, `いなか`, `ひろば`
+
+**u60 · ひと・からだ・N5** (24) — `みみ`, `くち`, `あし`, `うで`, `くび`, `むね`, `ひざ`, `こし`, `ほね`, `あご`, `ほほ`, `おしり`, `スカート`, `ベルト`, `マフラー`, `ゆびわ`, `くし`, `しゃしん`, `サンダル`, `スリッパ`, `したぎ`, `パジャマ`, `はがき`, `ようふく`
+
+**u61 · しぜん・どうぶつ** (24) — `どうぶつ`, `うさぎ`, `ねずみ`, `とら`, `ライオン`, `パンダ`, `にわとり`, `あひる`, `ひよこ`, `ちょう`, `とんぼ`, `あり`, `へび`, `かえる`, `かめ`, `いか`, `たこ`, `かに`, `くさ`, `はっぱ`, `たね`, `えだ`, `おか`, `なみ`
+
+**u62 · かず・りょう** (24) — `まい`, `さつ`, `ひき`, `だい`, `かい`, `にん`, `さい`, `かげつ`, `しゅうかん`, `キロ`, `メートル`, `グラム`, `はんぶん`, `すべて`, `りょうほう`, `たくさん`, `じゅうぶん`, `だけ`, `など`, `いくつ`, `いくら`, `どのくらい`, `おおぜい`, `やく`
+
+**u63 · きもち・はんのう** (24) — `もちろん`, `なるほど`, `やっぱり`, `だめ`, `むり`, `うそ`, `たいへん`, `けっこう`, `なかなか`, `かなり`, `だいぶ`, `まあまあ`, `わくわく`, `どきどき`, `いらいら`, `のんびり`, `じょうぶ`, `だいじ`, `じつは`, `たしか`, `しっかり`, `ゆっくり`, `だんだん`, `すっかり`
+
+**u64 · かたち・いち** (24) — `まる`, `しかく`, `さんかく`, `かたち`, `てん`, `まっすぐ`, `むこう`, `すみ`, `よこ`, `まわり`, `ちかく`, `とおく`, `こっち`, `そっち`, `あっち`, `どっち`, `むき`, `ほうこう`, `まんなか`, `はんたい`, `てまえ`, `おく`, `たて`, `ななめ`
+
+**u65 · おかね・かいもの** (24) — `げんきん`, `しへい`, `こぜに`, `ぜい`, `むりょう`, `おかねもち`, `バーゲン`, `わりびき`, `クーポン`, `ポイント`, `おすすめ`, `にんき`, `てんいん`, `レシート`, `ちらし`, `かご`, `カート`, `しょうひん`, `しはらいます`, `ちゅうもんします`, `こうかんします`, `へんぴんします`, `ためます`, `くらべます`
+
+**u66 · てんき・そと** (24) — `あおぞら`, `よぞら`, `ほしぞら`, `ひので`, `ゆうひ`, `まんげつ`, `きり`, `あらし`, `そよかぜ`, `ひざし`, `ひなた`, `ひかげ`, `みね`, `さか`, `たき`, `はまべ`, `のはら`, `がけ`, `みき`, `つぼみ`, `しばふ`, `まつ`, `はたけ`, `そと`
+
+**u67 · しゅみ・スポーツ** (24) — `サッカー`, `やきゅう`, `バスケット`, `バレーボール`, `たっきゅう`, `ラグビー`, `すいえい`, `マラソン`, `スキー`, `スケート`, `じゅうどう`, `からて`, `うた`, `カラオケ`, `バイオリン`, `ドラム`, `ふえ`, `バンド`, `どくしょ`, `しょどう`, `おりがみ`, `いけばな`, `ハイキング`, `ダイビング`
+
+**u68 · ふくし・ひょうげん** (24) — `きゅうに`, `はっきり`, `ますます`, `とうとう`, `わりと`, `そんなに`, `ずっと`, `また`, `いつか`, `もうすぐ`, `そろそろ`, `しばらく`, `ぜったい`, `さすが`, `しょうがない`, `まさか`, `いっぱい`, `おめでとう`, `いってきます`, `いってらっしゃい`, `ただいま`, `おかえりなさい`, `いただきます`, `ごちそうさま`
+
+**u69 · どうし・N4** (24) — `あつまります`, `うつります`, `かわります`, `つづきます`, `まわります`, `すべります`, `にげます`, `さわぎます`, `われます`, `おれます`, `やぶれます`, `よごれます`, `みつかります`, `なくなります`, `たります`, `こみます`, `あきます`, `ぬれます`, `おどろきます`, `なれます`, `ひえます`, `さめます`, `わきます`, `もえます`
+
+**u70 · かんじょう・こころ** (24) — `かんじょう`, `きもち`, `なみだ`, `こうふん`, `かんどう`, `しあわせ`, `きぼう`, `きたい`, `こうかい`, `きょうみ`, `あいじょう`, `こころ`, `いんしょう`, `せいかく`, `たいど`, `むちゅう`, `ふまん`, `かんしん`, `なつかしい`, `うらやましい`, `つらい`, `くるしい`, `ふしぎ`, `ゆかい`
+
+**u71 · しごと・かいしゃ** (24) — `ぶちょう`, `かちょう`, `じょうし`, `ぶか`, `どうりょう`, `ひしょ`, `しょるい`, `しりょう`, `ほうこく`, `そうだん`, `けいやく`, `きかく`, `しゅうしょく`, `てんしょく`, `たいしょく`, `めんせつ`, `りれきしょ`, `きゅうじん`, `げっきゅう`, `じきゅう`, `しゅうにゅう`, `ボーナス`, `きゅうか`, `しゅっきん`
+
+**u72 · けんこう・びょうき** (24) — `しょうじょう`, `くしゃみ`, `はなみず`, `めまい`, `はきけ`, `さむけ`, `けんこう`, `たいちょう`, `ぐあい`, `インフルエンザ`, `かふんしょう`, `きず`, `ちゅうしゃ`, `しゅじゅつ`, `ちりょう`, `しんさつ`, `けんさ`, `たいおん`, `にゅういん`, `たいいん`, `きゅうきゅうしゃ`, `かんごし`, `はいしゃ`, `やっきょく`
+
+**u73 · りょうり・レストラン** (24) — `ゆでます`, `いためます`, `やきます`, `むします`, `にます`, `まぜます`, `わかします`, `あたためます`, `ひやします`, `もります`, `あじみ`, `しんせん`, `ていしょく`, `おしぼり`, `かいけい`, `のみほうだい`, `おかわり`, `がいしょく`, `デザート`, `ステーキ`, `ハンバーグ`, `どんぶり`, `おかず`, `しょくじ`
+
+**u74 · りょこう・こうつう・N4** (24) — `かたみち`, `おうふく`, `していせき`, `じゆうせき`, `きゅうこう`, `とっきゅう`, `うんてん`, `じゅうたい`, `うんちん`, `ガソリン`, `じこ`, `つうきん`, `かいがい`, `こくない`, `こくさい`, `にもつ`, `あんない`, `けんぶつ`, `しゅくはく`, `うけつけ`, `めいしょ`, `ガイド`, `りょひ`, `ホームステイ`
+
+**u75 · こうてき・がいねん** (24) — `けっか`, `りゆう`, `もくてき`, `もくひょう`, `こうか`, `じじつ`, `ほうほう`, `けいかく`, `じょうけん`, `ないよう`, `きろく`, `しんぽ`, `かんがえ`, `はんだん`, `いけん`, `とくちょう`, `ようす`, `ちゅうい`, `かんけい`, `ちがい`, `しゅるい`, `じょうたい`, `へんか`, `せいかつ`
+
+**u76 · しぜん・かがく・N4** (24) — `はつめい`, `はっけん`, `ぎじゅつ`, `どうぐ`, `ぶんめい`, `ロボット`, `せいぶつ`, `しょくぶつ`, `こんちゅう`, `いのち`, `じんるい`, `しんりん`, `つなみ`, `こうずい`, `かじ`, `ひがい`, `じけん`, `きけん`, `せんそう`, `へいわ`, `れきし`, `ぶんか`, `みらい`, `せいふ`
+
+**u77 · コミュニケーション** (24) — `あいさつ`, `うわさ`, `じょうだん`, `ひみつ`, `わだい`, `あいて`, `ほうげん`, `つうやく`, `ほんやく`, `せつめい`, `けいご`, `よみかた`, `スピーチ`, `はっぴょう`, `でんごん`, `アナウンス`, `インタビュー`, `コメント`, `やくそくします`, `あいさつします`, `でんわします`, `れんらくします`, `はなしあいます`, `はなしかけます`
+
+**u78 · ようす・ふくそう** (24) — `すがた`, `みため`, `スタイル`, `かっこいい`, `ハンサム`, `びじん`, `けしょう`, `しわ`, `まゆげ`, `まつげ`, `ひたい`, `ほくろ`, `スーツ`, `きもの`, `うわぎ`, `ワンピース`, `ブラウス`, `エプロン`, `きがえます`, `にあいます`, `おしゃれ`, `じみ`, `はで`, `かわいい`
+
+**u79 · にんげんかんけい** (24) — `こいびと`, `ふうふ`, `ちじん`, `こうはい`, `なかま`, `しんゆう`, `しゃかいじん`, `やくわり`, `しんせき`, `そんけい`, `おさななじみ`, `たにん`, `れんあい`, `しょうかい`, `やくそく`, `しょうたい`, `けんか`, `なかなおり`, `せわ`, `こうさい`, `であい`, `わかれ`, `しんらい`, `りこん`
+
+**u80 · けいようし・N4** (24) — `ふかい`, `あさい`, `こまかい`, `めずらしい`, `ただしい`, `くわしい`, `うつくしい`, `すばらしい`, `おかしい`, `うまい`, `もったいない`, `したしい`, `ふくざつ`, `かんぺき`, `りっぱ`, `てきとう`, `じゅうよう`, `とくべつ`, `ひつよう`, `かのう`, `むだ`, `とくい`, `にがて`, `すてき`
+
+**u81 · せいかつ・N4** (24) — `ちこく`, `じゅんび`, `したく`, `ようじ`, `つごう`, `ちゅうし`, `きかん`, `きげん`, `しめきり`, `にってい`, `れんきゅう`, `るす`, `くせ`, `ちょうし`, `ぐうぜん`, `ばあい`, `じゅんばん`, `せいり`, `しっぱい`, `せいこう`, `えんりょ`, `どりょく`, `よしゅう`, `ふくしゅう`
+
+**u82 · ごい・N5・1** (24) — `あそこ`, `あちら`, `あと`, `あびる`, `いい`, `よい`, `いかが`, `ゆく`, `いちにち`, `いっしょ`, `いつつ`, `いや`, `いりぐち`, `いれる`, `いろいろ`, `うまれる`, `エレベーター`, `おおきな`, `おさら`, `おじさん`, `おてあらい`, `おとこのこ`, `おんなのこ`, `おばさん`
+
+**u83 · ごい・N5・2** (24) — `おまわりさん`, `きょうだい`, `がいこく`, `がいこくじん`, `かてい`, `かたかな`, `キログラム`, `カップ`, `おふろ`, `おべんとう`, `ぎゅうにく`, `キロメートル`, `くもる`, `けいかん`, `けっこん`, `こうちゃ`, `ここ`, `ここのか`, `ここのつ`, `こちら`, `コピー`, `こんな`, `さき`, `さす`
+
+**u84 · ごい・N5・3** (24) — `さらいねん`, `しち`, `じどうしゃ`, `しぬ`, `じびき`, `しまる`, `シャワー`, `しょくどう`, `すぐに`, `ストーブ`, `せびろ`, `そうじ`, `そうして`, `そこ`, `そちら`, `それでは`, `たいしかん`, `たてもの`, `テープ`, `テープレコーダー`, `たばこ`, `たんじょうび`, `ちいさな`, `たち`
+
+**u85 · ごい・N5・4** (24) — `だれか`, `ついたち`, `だす`, `つとめる`, `とお`, `とおか`, `ななつ`, `なのか`, `とし`, `なん`, `なぜ`, `どちら`, `どなた`, `どんな`, `どうも`, `ところ`, `とりにく`, `ない`, `なくす`, `パーティー`, `はいざら`, `はじまる`, `はじめ`, `はじめて`
+
+**u86 · ごい・N5・5** (24) — `バター`, `はたち`, `はつか`, `はれる`, `ばんごう`, `ひとつ`, `ひとつき`, `フィルム`, `ふうとう`, `ふたつ`, `ぶたにく`, `ふつか`, `ぶんしょう`, `ページ`, `ペット`, `ボールペン`, `ほか`, `ポケット`, `まいげつ`, `まいねん`, `まいとし`, `マッチ`, `まんねんひつ`, `みせる`
+
+**u87 · ごい・N5・6** (18) — `みっか`, `みっつ`, `むいか`, `むっつ`, `もしもし`, `やっつ`, `やる`, `ゆうはん`, `ゆっくりと`, `ようか`, `よっか`, `よっつ`, `ラジオ`, `ラジオカセ`, `りゅうがくせい`, `れい`, `レコード`, `わたくし`
+
+**u88 · ごい・N4・1** (24) — `すっと`, `やはり`, `もし`, `ひじょうに`, `ぼく`, `ございます`, `まんが`, `ステレオ`, `テキスト`, `オートバイ`, `おもて`, `いがく`, `とこや`, `だいがくせい`, `うんてんしゅ`, `おたく`, `こうがい`, `うかがう`, `きこえる`, `おこる`, `やむ`, `うんどうする`, `しんぱいする`, `うりば`
+
+**u89 · ごい・N4・2** (24) — `おくじょう`, `がくぶ`, `ちゅうがっこう`, `エスカレーター`, `アフリカ`, `おくりもの`, `きぬ`, `ガス`, `どろぼう`, `レポート`, `リポート`, `いらっしゃる`, `ゆれる`, `おちる`, `いのる`, `しつれい`, `すると`, `しょうがつ`, `こんど`, `うん`, `いっしょうけんめい`, `ちっとも`, `できるだけ`, `アルバイト`
+
+**u90 · ごい・N4・3** (24) — `パート`, `いたす`, `もうしあげる`, `しゅっせきする`, `りよう`, `しょうせつ`, `せいよう`, `じだい`, `しき`, `たたみ`, `にんぎょう`, `かいぎしつ`, `だて`, `ちり`, `さかん`, `かむ`, `きまる`, `なげる`, `なるべく`, `いくらでも`, `うける`, `おこなう`, `ひかる`, `しまう`
+
+**u91 · ごい・N4・4** (24) — `なさる`, `ねぼう`, `じゅうしょ`, `ひこうじょう`, `じむしょ`, `しょうがっこう`, `すいどう`, `おまつり`, `パパ`, `きゃく`, `おれい`, `おわり`, `におい`, `ベル`, `そんな`, `けっして`, `どんどん`, `さらいげつ`, `ばい`, `いちど`, `あかんぼう`, `おじょうさん`, `アナウンサー`, `ことり`
+
+**u92 · ごい・N4・5** (24) — `つれる`, `おいわい`, `のりもの`, `かいがん`, `スクリーン`, `オーバー`, `とどける`, `のこる`, `しょくりょうひん`, `じてん`, `ぬる`, `かわく`, `ふえる`, `または`, `ばかり`, `いない`, `げんいん`, `ようい`, `おもいだす`, `げしゅく`, `ジャム`, `こんや`, `ワープロ`, `だんせい`
+
+**u93 · ごい・N4・6** (24) — `もうす`, `ごらんになる`, `よろしい`, `みな`, `こうちょう`, `かれら`, `たのしむ`, `よろこぶ`, `ひっこす`, `うつす`, `たす`, `さしあげる`, `ぼうえき`, `チェックする`, `ごちそう`, `おどり`, `れいぼう`, `にゅうがくする`, `おもちゃ`, `おと`, `あそび`, `ひるま`, `うら`, `つる`
+
+**u94 · ごい・N4・7** (24) — `うつ`, `あやまる`, `つづける`, `みえる`, `おいでになる`, `せいさんする`, `きょういく`, `こうどう`, `じゃま`, `ゆにゅう`, `じょせい`, `あんな`, `たとえば`, `ずいぶん`, `まず`, `いがい`, `さらいしゅう`, `こうこう`, `こうこうせい`, `こうとうがっこう`, `せんもん`, `こうぎ`, `そつぎょう`, `ひるやすみ`
+
+**u95 · ごい・N4・8** (24) — `にっき`, `わすれもの`, `かえり`, `プレゼント`, `たずねる`, `てんきよほう`, `ほうそうする`, `ファックス`, `しょうちする`, `よると`, `まける`, `さんぎょう`, `かねもち`, `いじょう`, `それほど`, `わけ`, `まま`, `くださる`, `めしあがる`, `ごぞんじ`, `さま`, `おこさん`, `てら`, `かいじょう`
+
+**u96 · ごい・N4・9** (24) — `ぶんがく`, `アジア`, `きしゃ`, `おみまい`, `だんぼう`, `わらう`, `さがる`, `すく`, `やける`, `きみ`, `わりあい`, `ふつう`, `もっとも`, `ひさしぶり`, `おき`, `このあいだ`, `かまう`, `おとす`, `いじめる`, `まわす`, `むかう`, `はいけんする`, `おっしゃる`, `かっこう`
+
+**u97 · ごい・N4・10** (24) — `しかた`, `ほど`, `かわり`, `ついて`, `しんぶんしゃ`, `こうぎょう`, `けんきゅうしつ`, `アクセサリー`, `あす`, `けれど`, `けれども`, `コンピュータ`, `コンピューター`, `もどる`, `まいる`, `あがる`, `さげる`, `のりかえる`, `わかれる`, `うえる`, `かつ`, `とりかえる`, `ねむる`, `やくにたつ`
+
+**u98 · ごい・N4・11** (16) — `ゆしゅつする`, `かんごふ`, `ガソリンスタンド`, `はなみ`, `きょうそう`, `とちゅう`, `いと`, `もめん`, `おかげ`, `タイプ`, `すり`, `アルコール`, `ソフト`, `たのしみ`, `でんぽう`, `かない`
+
+**u99 · いけん・さんせい** (24) — `おもいます`, `かんがえかた`, `しゅちょう`, `のべる`, `たしかに`, `そのとおり`, `さんせい`, `どうかん`, `なっとく`, `みとめる`, `ことわる`, `ぎもん`, `こんきょ`, `ようするに`, `じっさいに`, `いっぱんに`, `なぜなら`, `ということは`, `むしろ`, `どちらかというと`, `というより`, `かならずしも`, `とはいえ`, `いっぽうで`
+
+**u100 · かんじ・こころ** (24) — `愛`, `喜`, `悲`, `怒`, `愛情`, `同情`, `泣`, `悩`, `念`, `想`, `夢中`, `悪夢`, `情`, `夢`, `信`, `尊`, `信用`, `信念`, `欲`, `神`, `精`, `命`, `神話`, `生命`
+
+**u101 · げんいん・けっか** (24) — `せいで`, `おかげで`, `きっかけ`, `はいけい`, `ひきおこす`, `つながる`, `えいきょう`, `けっきょく`, `ついに`, `したがって`, `そこで`, `そのために`, `かぎり`, `それなら`, `たとえ`, `かりに`, `さえ`, `かわりに`, `あたえる`, `まねく`, `しめす`, `いたる`, `はんのう`, `によって`
+
+**u102 · かんじ・ことば** (24) — `説`, `記`, `議`, `評`, `説明`, `発表`, `表`, `示`, `識`, `伝`, `知識`, `伝言`, `報`, `録`, `章`, `史`, `記録`, `文章`, `申`, `許`, `願`, `頼`, `信頼`, `願書`
+
+**u103 · ひかく・ていど** (24) — `ひかく`, `にる`, `ことなる`, `おなじく`, `たいして`, `わりに`, `ていど`, `いっそう`, `やや`, `さらに`, `わずか`, `そうとう`, `さいこう`, `さいてい`, `まさる`, `おとる`, `ひとしい`, `へいきん`, `へる`, `たいはん`, `ぜんたい`, `いちぶ`, `たすう`, `しょうすう`
+
+**u104 · かんじ・しごと** (24) — `職`, `勤`, `務`, `労`, `勤務`, `労力`, `給`, `資`, `費`, `税`, `給料`, `学費`, `貿`, `商`, `産`, `収`, `商品`, `国産`, `支`, `値`, `額`, `募`, `支店`, `金額`
+
+**u105 · すいそく・たしかさ** (24) — `かもしれない`, `ようだ`, `ちがいない`, `おそらく`, `どうやら`, `ひょっとすると`, `あいまい`, `なんとなく`, `いちおう`, `とりあえず`, `きがする`, `みこみ`, `かのうせい`, `うたがう`, `よそう`, `しんじる`, `たしかめる`, `かくじつ`, `まちがいなく`, `ほぼ`, `とはかぎらない`, `なんとも`, `まさに`, `あんがい`
+
+**u106 · かんじ・しゃかい** (24) — `政`, `権`, `党`, `官`, `権力`, `政党`, `民`, `律`, `選`, `戦`, `民間`, `選手`, `争`, `平`, `和`, `全`, `平和`, `安全`, `共`, `供`, `賛`, `反`, `公共`, `供給`
+
+**u107 · ニュース・しゃかい** (24) — `きじ`, `ほうどう`, `とりあげる`, `みだし`, `しゅざい`, `マスコミ`, `こくみん`, `せだい`, `そしき`, `けんり`, `ふくし`, `とうひょう`, `はんざい`, `たいさく`, `しつぎょう`, `じたい`, `たいおう`, `ふせぐ`, `よろん`, `ちょうさ`, `とうけい`, `ほうしん`, `かだい`, `しえん`
+
+**u108 · かんじ・しぜん** (24) — `科`, `化`, `実`, `温`, `科学`, `文化`, `熱`, `燃`, `湖`, `島`, `熱心`, `半島`, `陸`, `林`, `畑`, `米`, `大陸`, `米国`, `卵`, `綿`, `油`, `粉`, `木綿`, `生卵`
+
+**u109 · かんじ・うごき** (24) — `変`, `増`, `進`, `退`, `進行`, `退院`, `越`, `過`, `流`, `落`, `通過`, `落下`, `届`, `戻`, `返`, `渡`, `返信`, `渡り鳥`, `追`, `押`, `引`, `投`, `引用`, `投手`
+
+**u110 · しごと・てじゅん** (24) — `てじゅん`, `さぎょう`, `しじ`, `かくにん`, `すすめる`, `たんとう`, `うちあわせ`, `ていしゅつ`, `しゅうせい`, `きょか`, `さんか`, `ちょうせい`, `きょうりょく`, `せきにん`, `ひきうける`, `かいぜん`, `のうりつ`, `たっせい`, `かんり`, `ひょうか`, `しょうしん`, `けんしゅう`, `のうりょく`, `しょくば`
+
+**u111 · かんじ・からだ** (24) — `痛`, `薬`, `寝`, `吸`, `薬品`, `目薬`, `舌`, `助`, `救`, `守`, `助手`, `助言`, `備`, `防`, `険`, `難`, `防火`, `備品`, `毒`, `老`, `若`, `消`, `老人`, `消防車`
+
+**u112 · きもち・くわしく** (24) — `ほっとする`, `おちつく`, `あせる`, `あわてる`, `そわそわ`, `きになる`, `うんざり`, `しつぼう`, `おちこむ`, `なさけない`, `とまどい`, `いやがる`, `ありがたい`, `あこがれ`, `ほこり`, `にこにこ`, `きにいる`, `しみじみ`, `もうしわけない`, `はらがたつ`, `てれる`, `しんけん`, `れいせい`, `やるき`
+
+**u113 · かんじ・まち** (24) — `橋`, `港`, `庫`, `局`, `空港`, `車庫`, `園`, `席`, `窓`, `柱`, `出席`, `電柱`, `板`, `箱`, `戸`, `底`, `黒板`, `海底`, `側`, `部`, `所`, `居`, `右側`, `住居`
+
+**u114 · かんがえ・ちゅうしょう** (24) — `がいねん`, `ほんしつ`, `ちゅうしょう`, `ぐたいてき`, `いぎ`, `ようそ`, `かんてん`, `たちば`, `しゅかん`, `きゃっかん`, `きじゅん`, `はんい`, `ろんり`, `けつろん`, `ぶんせき`, `りかい`, `そうぞう`, `しくみ`, `せいしつ`, `けいしき`, `しつ`, `ぶんるい`, `くべつ`, `きょうつう`
+
+**u115 · かんじ・かず** (24) — `数`, `量`, `単`, `倍`, `数字`, `単語`, `第`, `等`, `均`, `総`, `均等`, `第一`, `満`, `未`, `末`, `余`, `満員`, `余分`, `両`, `割`, `秒`, `寸`, `両親`, `一割`
+
+**u116 · へんか・じかん** (24) — `はってん`, `せいちょう`, `げんしょう`, `のびる`, `かさなる`, `たまる`, `しだいに`, `ようやく`, `いつのまにか`, `まもなく`, `やがて`, `おとろえる`, `いぜん`, `いご`, `かつて`, `げんざい`, `とうじ`, `ながねん`, `ふりかえる`, `みなおす`, `くりかえす`, `なくなる`, `うつる`, `けいか`
+
+**u117 · かんじ・じかん** (24) — `期`, `昨`, `初`, `順`, `学期`, `初期`, `続`, `常`, `速`, `遅`, `日常`, `高速`, `直`, `停`, `到`, `昇`, `正直`, `到着`, `束`, `予`, `約`, `存`, `予約`, `花束`
+
+**u118 · もんだい・かいけつ** (24) — `トラブル`, `なやむ`, `ミス`, `まちがい`, `めんどう`, `くじょう`, `しんこく`, `そんがい`, `けっかん`, `やっかい`, `くろう`, `きにする`, `たいしょ`, `しょり`, `てつづき`, `てま`, `ていあん`, `そち`, `かいけつ`, `かいしょう`, `しゅうり`, `よぼう`, `たすかる`, `なんとか`
+
+**u119 · かんじ・ちがい** (24) — `暗`, `位`, `偉`, `違`, `地位`, `暗記`, `育`, `因`, `演`, `煙`, `体育`, `演出`, `横`, `王`, `果`, `解`, `王国`, `王子`, `回`, `快`, `格`, `確`, `一回`, `明確`
+
+**u120 · きまり・マナー** (24) — `きまり`, `せいど`, `げんそく`, `じょうしき`, `いはん`, `ばつ`, `にんか`, `ゆるす`, `きょひ`, `かまわない`, `せいげん`, `きんし`, `ぎむ`, `なければなりません`, `とうぜん`, `したがう`, `まかせる`, `しかたない`, `マナー`, `れいぎ`, `ぎょうぎ`, `めいわく`, `いいわけ`, `めんきょ`
+
+**u121 · かんじ・くらし** (24) — `覚`, `掛`, `活`, `寒`, `活動`, `覚書`, `完`, `管`, `簡`, `関`, `関東`, `関わり`, `幾`, `機`, `積`, `貴`, `貴重`, `動機`, `客`, `求`, `曲`, `禁`, `作曲`, `求職`
+
+**u122 · よてい・もくひょう** (24) — `みとおし`, `なりゆき`, `とうめん`, `いずれ`, `みつもり`, `ひとまず`, `けってい`, `けんとう`, `へんこう`, `とりけす`, `えんき`, `のばす`, `じっこう`, `だんどり`, `だんかい`, `こうそう`, `とりくむ`, `さっそく`, `めざす`, `めど`, `じつげん`, `あきらめる`, `いよいよ`, `じゅんちょう`
+
+**u123 · かんじ・かたち** (24) — `型`, `景`, `経`, `参`, `風景`, `参考`, `迎`, `欠`, `決`, `件`, `決心`, `用件`, `現`, `向`, `幸`, `号`, `現代`, `幸運`, `根`, `祭`, `細`, `材`, `祭日`, `材料`
+
+**u124 · けいけん・きおく** (24) — `かこ`, `かいそう`, `いまさら`, `みおぼえ`, `なじみ`, `きねん`, `きおく`, `たいけん`, `けいけんしゃ`, `ぼんやり`, `あやふや`, `うっかり`, `きがつく`, `おもいつく`, `おもいこみ`, `かんちがい`, `ふと`, `おもわず`, `じょうたつ`, `がくしゅう`, `しゅうとく`, `せいじゅく`, `したしむ`, `ためす`
+
+**u125 · かんじ・ひと** (24) — `察`, `殺`, `雑`, `警`, `雑音`, `殺人`, `散`, `残`, `士`, `志`, `力士`, `残金`, `枝`, `師`, `飼`, `似`, `教師`, `飼育`, `失`, `取`, `種`, `酒`, `日本酒`, `種目`
+
+**u126 · メディア・ごらく** (24) — `ドラマ`, `アニメ`, `はいゆう`, `かんとく`, `しゅつえん`, `じまく`, `れんさい`, `どくしゃ`, `しゅっぱん`, `へんしゅう`, `とくしゅう`, `こうこく`, `ぶたい`, `かんきゃく`, `かしゅ`, `げいのう`, `さくひん`, `はいしん`, `りゅうこう`, `はやる`, `ちゅうもく`, `ひょうばん`, `かんそう`, `しちょうしゃ`
+
+**u127 · かんじ・きせつ** (24) — `受`, `周`, `就`, `州`, `受験`, `一周`, `拾`, `宿`, `祝`, `暑`, `祝日`, `宿屋`, `勝`, `乗`, `条`, `状`, `勝手`, `乗車`, `植`, `深`, `成`, `晴`, `晴天`, `深夜`
+
+**u128 · かんじ・つくる** (24) — `製`, `規`, `接`, `絶`, `製品`, `接近`, `雪`, `然`, `組`, `相`, `大雪`, `二人組`, `像`, `造`, `則`, `測`, `画像`, `木造`, `他`, `打`, `対`, `隊`, `他国`, `対話`
+
+**u129 · しぜん・かんきょう** (24) — `ちけい`, `とち`, `きこう`, `たいき`, `ちほう`, `きょり`, `おせん`, `おんだんか`, `はいき`, `はかい`, `はいしゅつ`, `リサイクル`, `ほご`, `そだつ`, `のうぎょう`, `さいがい`, `ぼうさい`, `ひなん`, `かいはつ`, `けんせつ`, `しせつ`, `しゅうへん`, `ふきん`, `きぼ`
+
+**u130 · かんじ・すすめる** (24) — `達`, `担`, `探`, `団`, `達人`, `団地`, `断`, `置`, `築`, `丁`, `中断`, `建築`, `帳`, `張`, `低`, `適`, `手帳`, `低下`, `点`, `徒`, `努`, `湯`, `地点`, `湯気`
+
+**u131 · おかね・けいざい** (24) — `かけい`, `しゅっぴ`, `よさん`, `せつやく`, `しゃっきん`, `ローン`, `せいきゅう`, `てすうりょう`, `ひよう`, `かかく`, `ばいばい`, `はんばい`, `きぎょう`, `けいえい`, `りえき`, `とりひき`, `しょうひ`, `けいひ`, `とうし`, `かぶ`, `こうざ`, `しゅうし`, `けいき`, `まずしい`
+
+**u132 · かんじ・ちから** (24) — `統`, `童`, `得`, `独`, `童話`, `独立`, `任`, `能`, `派`, `破`, `主任`, `後任`, `敗`, `杯`, `配`, `判`, `配送`, `配達`, `比`, `非`, `飛`, `必`, `飛行`, `対比`
+
+**u133 · けんこう・からだ** (24) — `たいりょく`, `きんにく`, `しんぞう`, `こきゅう`, `けつあつ`, `たいじゅう`, `いたみ`, `かゆい`, `ひろう`, `ふみん`, `かんじゃ`, `しんだん`, `しょほう`, `かいふく`, `きゅうよう`, `すいみん`, `かんびょう`, `せいけつ`, `ストレス`, `せいしん`, `リラックス`, `えいよう`, `たいそう`, `ダイエット`
+
+**u134 · かんじ・やくわり** (24) — `負`, `副`, `復`, `複`, `副業`, `負担`, `払`, `仏`, `閉`, `並`, `前払い`, `仏教`, `辺`, `便`, `豊`, `暴`, `豊作`, `暴力`, `迷`, `鳴`, `面`, `役`, `迷子`, `役目`
+
+**u135 · かんけい・しゃかい** (24) — `つきあう`, `しりあい`, `ささえる`, `おもいやり`, `きょうかん`, `そんちょう`, `ごかい`, `ぎろん`, `ほんね`, `かちかん`, `たてまえ`, `へんけん`, `じゅうみん`, `じもと`, `しゅうだん`, `こじん`, `ボランティア`, `こうりゅう`, `かくさ`, `わかもの`, `こうれいしゃ`, `びょうどう`, `さべつ`, `じんけん`
+
+**u136 · かんじ・れいぎ** (24) — `輸`, `預`, `容`, `様`, `預金`, `輸送`, `養`, `乱`, `利`, `略`, `教養`, `有利`, `留`, `良`, `領`, `緑`, `留学`, `緑茶`, `礼`, `列`, `練`, `路`, `道路`, `行列`
+
+**u137 · ぶんぽう・6** (24) — `せいか`, `ゆえに`, `おかげさまで`, `によると`, `そのかわり`, `そのけっか`, `ものの`, `ところが`, `いっぽう`, `ても`, `それなのに`, `ただし`, `あいだに`, `うちに`, `とたん`, `たびに`, `ついでに`, `さいちゅう`, `のみ`, `にしては`, `ないと`, `ように`, `としたら`, `だけでなく`
+
+**u138 · ぶんぽう・7** (24) — `られます`, `れます`, `いわれます`, `よばれます`, `しられます`, `つかわれます`, `させます`, `せます`, `させられます`, `させてください`, `まかせます`, `ゆるします`, `てあげます`, `てくれます`, `てもらいます`, `ていただきます`, `てくださいます`, `てやります`, `てあります`, `てほしい`, `てばかり`, `っぱなし`, `ていきます`, `てきます`
+
+**u139 · ぶんぽう・8** (24) — `にとって`, `ということです`, `とのことです`, `にちがいありません`, `はずがありません`, `とはかぎりません`, `あるいは`, `としては`, `しかも`, `なお`, `もしかしたら`, `ぜったいに`, `ということ`, `ことはない`, `ことになります`, `ようにします`, `ようとします`, `わけにはいきません`, `しか`, `こそ`, `なんて`, `どころか`, `ずつ`, `とか`
+
+**u140 · ぶんたい** (24) — `だ`, `だった`, `じゃない`, `じゃなかった`, `である`, `ではない`, `た`, `なかった`, `くない`, `くなかった`, `よう`, `んだ`, `てる`, `とく`, `ちゃう`, `なきゃ`, `じゃん`, `って`, `ね`, `よ`, `よね`, `かな`, `っけ`, `もん`
+
+**u141 · けいご** (24) — `ていただけませんか`, `てもらえますか`, `もしよろしければ`, `おそれいりますが`, `すみませんが`, `させていただきます`, `くせに`, `それとも`, `のではないでしょうか`, `ようなきがします`, `わけではありません`, `できれば`, `いらっしゃいませ`, `かしこまりました`, `おまちください`, `おかけください`, `おまたせしました`, `うけたまわります`, `おせわになります`, `おねがいいたします`, `しつれいいたします`, `しょうちしました`, `ぞんじております`, `ちょうだいします`
+
+**u142 · ごい・N3・1** (24) — `ひらきます`, `とめます`, `もどします`, `かたづきます`, `そろいます`, `そろえます`, `ふやします`, `へります`, `へらします`, `ちぢみます`, `ちぢめます`, `のこします`, `こぼれます`, `こぼします`, `ころがります`, `ころがします`, `とけます`, `とかします`, `やぶります`, `はずれます`, `はずします`, `ぬけます`, `ぬきます`, `かわかします`
+
+**u143 · ごい・N3・2** (24) — `とりくみます`, `とりけします`, `とりだします`, `とりいれます`, `うけとります`, `うけつけます`, `もうしこみます`, `まちあわせます`, `つきあいます`, `ひきうけます`, `くみたてます`, `まにあわせます`, `しらべなおします`, `おもいつきます`, `やりなおします`, `かんがえなおします`, `みなおします`, `いいなおします`, `とびだします`, `にげだします`, `ふりむきます`, `たちどまります`, `すれちがいます`, `おいかけます`
+
+**u144 · ごい・N3・3** (24) — `かしこい`, `たくましい`, `たのもしい`, `だらしない`, `そそっかしい`, `ずうずうしい`, `するどい`, `にぶい`, `あらい`, `まぶしい`, `あやしい`, `くだらない`, `あわただしい`, `みっともない`, `ものたりない`, `おそろしい`, `けわしい`, `めんどうくさい`, `きつい`, `ゆるい`, `えらい`, `ずるい`, `とんでもない`, `ものすごい`
+
+**u145 · ごい・N3・4** (24) — `きよう`, `ぶきよう`, `のんき`, `まめ`, `かって`, `ほがらか`, `おだやか`, `なごやか`, `あざやか`, `ゆるやか`, `すみやか`, `たいら`, `こうへい`, `ふこうへい`, `ふしぜん`, `あきらか`, `こんなん`, `きちょう`, `てがる`, `きらく`, `ぜいたく`, `そぼく`, `びみょう`, `ふゆかい`
+
+**u146 · ごい・N3・5** (24) — `もっぱら`, `やたらに`, `むやみに`, `ろくに`, `おおいに`, `すこしも`, `めったに`, `しょっちゅう`, `つねに`, `ふだん`, `たびたび`, `しばしば`, `せめて`, `およそ`, `たっぷり`, `せいぜい`, `まったく`, `ひたすら`, `しかたなく`, `どうにか`, `いっそ`, `ともかく`, `あくまで`, `とっくに`
+
+**u147 · ごい・N3・6** (24) — `きちんと`, `ちゃんと`, `そっと`, `じっと`, `こっそり`, `ぐっすり`, `まるで`, `ばらばら`, `ぴったり`, `ぺらぺら`, `あいかわらず`, `いっけん`, `ふいに`, `つい`, `とっさに`, `いきなり`, `なにげなく`, `たまたま`, `せっかく`, `わざわざ`, `わざと`, `どうせ`, `べつに`, `ちなみに`
+
+**u148 · ごい・N3・7** (24) — `ひっしゅう`, `せんこう`, `ゼミ`, `じゅく`, `がくひ`, `しんがっき`, `にゅうし`, `さいてん`, `てんすう`, `せいせき`, `ごうかく`, `ふごうかく`, `そうたい`, `けっせき`, `たんにん`, `がくねん`, `ぶかつ`, `きゅうしょく`, `あんき`, `じょうぎ`, `ふでばこ`, `しょうがくきん`, `しんろ`, `がくれき`
+
+**u149 · ごい・N3・8** (24) — `そうち`, `ぶひん`, `せいのう`, `そうさ`, `アップデート`, `つうち`, `キーボード`, `マウス`, `にゅうりょく`, `へんかん`, `ファイル`, `さくじょ`, `アカウント`, `ログイン`, `パスワード`, `せつぞく`, `つうしん`, `ほぞん`, `ねじ`, `かなづち`, `のこぎり`, `ドライバー`, `スイッチ`, `コンセント`
+
+**u150 · ごい・N3・9** (24) — `めんせき`, `たいせき`, `じゅうりょう`, `はば`, `おくゆき`, `すんぽう`, `ごうけい`, `はんけい`, `ひりつ`, `さいだい`, `さいしょう`, `ちょっけい`, `ぞうか`, `ぶんの`, `たしざん`, `ひきざん`, `かけざん`, `わりざん`, `そくど`, `こうど`, `しつど`, `のうど`, `しんど`, `けた`
+
+**u151 · ごい・N3・10** (24) — `アクセント`, `イントネーション`, `ふりがな`, `くとうてん`, `たてがき`, `よこがき`, `ことわざ`, `かんようく`, `ぎおんご`, `がいらいご`, `りゃく`, `ひょうげん`, `だんらく`, `ろんぶん`, `ようし`, `しゅだい`, `さくしゃ`, `ひょうろん`, `げんに`, `しょせん`, `かえって`, `とにかく`, `いわば`, `なにしろ`
+
+**u152 · ごい・N3・11** (24) — `かいさつ`, `しはつ`, `しゅうでん`, `ていきけん`, `せいさんき`, `じこくひょう`, `ざせき`, `まどがわ`, `つうろがわ`, `とうじょう`, `りりく`, `ちゃくりく`, `とほ`, `ちかみち`, `とおまわり`, `まがりかど`, `おうだんほどう`, `ほどうきょう`, `みんしゅく`, `フロント`, `てにもつ`, `ロッカー`, `りょうがえ`, `ガイドブック`
+
+**u153 · ごい・N3・12** (24) — `やちん`, `ひっこし`, `しきち`, `あきや`, `ひょうさつ`, `そうこ`, `しんしつ`, `ベランダ`, `はしら`, `やね`, `やねうら`, `かきね`, `ぞうきん`, `せんざい`, `ものほし`, `かんそうき`, `ごみぶくろ`, `しゅうのう`, `でんきゅう`, `ろうそく`, `かいちゅうでんとう`, `しょうかき`, `ひなんぐち`, `かんきせん`
+
+**u154 · ごい・N3・13** (24) — `フライパン`, `ほうちょう`, `まないた`, `おたま`, `しょっき`, `あわ`, `レシピ`, `こんだて`, `ぶんりょう`, `おおさじ`, `こさじ`, `ひとつまみ`, `きざみます`, `こげます`, `よそいます`, `したごしらえ`, `もりつけ`, `あじつけ`, `しぶい`, `こってり`, `あっさり`, `しゅん`, `しょうみきげん`, `しょくよく`
+
+**u155 · ごい・N3・14** (24) — `かつどう`, `しゅだん`, `けいこう`, `ようきゅう`, `めやす`, `かち`, `じちたい`, `だんたい`, `ながれ`, `しめします`, `あらわします`, `ささえます`, `ひがいしゃ`, `けいさつかん`, `しょうぼうし`, `もとめます`, `あたえます`, `うしないます`, `せっきょくてき`, `しょうきょくてき`, `こうかてき`, `ちゅうしょうてき`, `おもに`, `さいわい`
+
+**u156 · ろんぎ・せっとく** (24) — `ろんてん`, `ようてん`, `しゅし`, `だんてい`, `きょうちょう`, `めいかく`, `はんろん`, `ひてい`, `ひはん`, `ゆずる`, `とうろん`, `あいまいさ`, `しょうこ`, `うらづけ`, `ひきよう`, `しゅってん`, `しんぴょうせい`, `じつれい`, `せっとく`, `せっとくりょく`, `いいかえる`, `ぐたいれい`, `ゆうり`, `ふり`
+
+**u157 · かんじ・くらしと しごと** (24) — `圧`, `移`, `囲`, `委`, `気圧`, `移動`, `胃`, `衣`, `印`, `栄`, `衣服`, `目印`, `永`, `営`, `液`, `益`, `営業`, `有益`, `往`, `応`, `恩`, `仮`, `往復`, `恩人`
+
+**u158 · しりょう・けんしょう** (24) — `すうち`, `しひょう`, `ごさ`, `ばらつき`, `すいい`, `たんい`, `ぶんけん`, `げんてん`, `ちゅうしゅつ`, `ぼうだい`, `かんそく`, `さいげん`, `けんしょう`, `てきかく`, `げんみつ`, `さくご`, `かたよる`, `おおざっぱ`, `へんどう`, `あんてい`, `ふあんてい`, `ゆらぎ`, `つりあい`, `きんこう`
+
+**u159 · かんじ・ねだんと ぎじゅつ** (24) — `価`, `河`, `可`, `賀`, `河口`, `銀河`, `刊`, `幹`, `慣`, `眼`, `年賀`, `幹部`, `基`, `寄`, `技`, `逆`, `基地`, `逆流`, `久`, `旧`, `巨`, `境`, `永久`, `国境`
+
+**u160 · しくみ・たいけい** (24) — `たいけい`, `こうぞう`, `ぶぶん`, `わく`, `ちつじょ`, `もけい`, `そうご`, `いぞん`, `せいやく`, `とうごう`, `ぶんかい`, `きばん`, `ほうそく`, `りろん`, `かせつ`, `てきよう`, `おうよう`, `たんじゅん`, `せいぎょ`, `うんよう`, `いじ`, `ちくせき`, `じゅんかん`, `こうりつ`
+
+**u161 · ニュアンス・ていど** (24) — `きわめて`, `ひかくてき`, `いちじるしい`, `きゅうげき`, `じゃっかん`, `たしょう`, `かすか`, `ごくわずか`, `ほどほど`, `てきど`, `かげん`, `たかだか`, `めだつ`, `ややこしい`, `おおまか`, `そこそこ`, `まずまず`, `いまいち`, `とりわけ`, `なおさら`, `あえて`, `しいて`, `やたら`, `さいてき`
+
+**u162 · かんじ・きまりと しくみ** (24) — `句`, `訓`, `群`, `潔`, `訓練`, `文句`, `券`, `検`, `限`, `個`, `期限`, `個人`, `故`, `護`, `効`, `厚`, `事故`, `効果`, `耕`, `構`, `講`, `鉱`, `構成`, `鉱山`
+
+**u163 · せいじ・ほう** (24) — `せいさく`, `こっかい`, `ぎいん`, `だいじん`, `ぎょうせい`, `りっぽう`, `けんぽう`, `さいばん`, `しほう`, `ばっそく`, `ゆうこう`, `かいせい`, `ほうあん`, `きせい`, `かんこく`, `こうにん`, `とうそう`, `とうひょうけん`, `じょうやく`, `がいこう`, `しゅけん`, `せいけん`, `ないかく`, `よとう`
+
+**u164 · かんじ・くらしと しゃかい** (24) — `混`, `査`, `再`, `妻`, `混雑`, `検査`, `採`, `災`, `際`, `在`, `採用`, `国際`, `罪`, `財`, `酸`, `舎`, `財産`, `校舎`, `謝`, `授`, `修`, `述`, `授業`, `修理`
+
+**u165 · しょうばい・こうしょう** (24) — `しじょう`, `たんか`, `のうき`, `しはらい`, `けいやくしょ`, `ざんだか`, `こうしょう`, `だきょう`, `じょうほ`, `ごうい`, `けつれつ`, `ゆうし`, `りじゅん`, `うりあげ`, `ざいこ`, `きょうきゅう`, `ぶんぱい`, `けっさん`, `しゅっし`, `ふさい`, `とうき`, `はいとう`, `ぜいせい`, `ふくり`
+
+**u166 · かんじ・わざと しくみ** (24) — `術`, `準`, `序`, `招`, `技術`, `招待`, `承`, `証`, `織`, `制`, `証明`, `制度`, `勢`, `性`, `責`, `績`, `責任`, `成績`, `設`, `祖`, `素`, `属`, `建設`, `祖父`
+
+**u167 · かがく・ぎじゅつ** (24) — `ぶっしつ`, `げんし`, `ぶんし`, `さいぼう`, `でんし`, `じゅうりょく`, `じっけんしつ`, `けんびきょう`, `かんそくき`, `かがくはんのう`, `はんのうそくど`, `ぎじゅつしゃ`, `しんぎじゅつ`, `とっきょ`, `じどうか`, `たいきゅう`, `こうがく`, `おうようかがく`, `いでん`, `しんか`, `かんきょうふか`, `えいきょうりょく`, `ぶんかいせい`, `しげんじゅんかん`
+
+**u168 · れきし・ぶんか** (24) — `こだい`, `ちゅうせい`, `きんだい`, `げんだい`, `いせき`, `ゆらい`, `けいしょう`, `ふうしゅう`, `ふっこう`, `こだわり`, `きょうゆう`, `すたれる`, `しそう`, `しゅうきょう`, `しんこう`, `ぎしき`, `せいいき`, `よそもの`, `しりょうかん`, `かんてい`, `つたえ`, `ぎゃくてん`, `かいしゃく`, `ものがたり`
+
+**u169 · かんじ・ていどと くらし** (24) — `率`, `損`, `態`, `提`, `態度`, `提出`, `程`, `敵`, `銅`, `導`, `程度`, `導入`, `徳`, `版`, `肥`, `俵`, `道徳`, `肥料`, `貧`, `婦`, `布`, `富`, `主婦`, `豊富`
+
+**u170 · げいじゅつ・ひひょう** (24) — `げいじゅつ`, `びてき`, `かんしょう`, `ひょうげんりょく`, `よいん`, `こてん`, `しゅほう`, `こうせいてき`, `えんしゅつ`, `どくそう`, `もほう`, `ぜんえい`, `ようご`, `しんぎ`, `こんきょない`, `ぎゃっきょう`, `ぼうがい`, `こうけん`, `ぶんかけん`, `たぶんか`, `がいぶ`, `しゅりゅう`, `うけつぐ`, `どくとく`
+
+**u171 · かんじ・れきしと つながり** (24) — `武`, `編`, `弁`, `保`, `保護`, `武力`, `墓`, `脈`, `歴`, `沿`, `山脈`, `歴史`, `延`, `縁`, `汚`, `奥`, `延期`, `山奥`, `憶`, `加`, `荷`, `課`, `記憶`, `荷物`
+
+**u172 · りんり・せきにん** (24) — `りんり`, `どうとく`, `そんげん`, `じりつ`, `ぎむかん`, `こうへいさ`, `いんぺい`, `とうめいせい`, `ないぶこくはつ`, `せつめいせきにん`, `りがい`, `ふせい`, `せめる`, `しゃざい`, `つぐない`, `ゆるし`, `こうけんど`, `とうじしゃ`, `じんどう`, `はいりょぎむ`, `そうごふじょ`, `きょうせい`, `こうえき`, `じこせきにん`
+
+**u173 · かんじ・ものと しゃかい** (24) — `貨`, `芽`, `介`, `灰`, `貨物`, `灰色`, `械`, `皆`, `絵`, `較`, `機械`, `比較`, `刻`, `骨`, `困`, `砂`, `時刻`, `困難`, `座`, `済`, `裁`, `策`, `経済`, `裁判`
+
+**u174 · リスク・ふかくじつ** (24) — `リスク`, `かくりつ`, `きけんせい`, `しさん`, `よそく`, `ぜんてい`, `ふかくじつ`, `そうてい`, `よち`, `みきわめ`, `だとう`, `ひていてき`, `けねん`, `おそれ`, `かくご`, `ゆだん`, `ようじん`, `さいあく`, `そなえ`, `きき`, `まんがいち`, `そんしつ`, `ばんぜん`, `あんぜんせい`
+
+**u175 · かんじ・ことばと かたち** (24) — `冊`, `姿`, `詞`, `誌`, `一冊`, `歌詞`, `磁`, `射`, `捨`, `尺`, `反射`, `尺度`, `樹`, `宗`, `衆`, `従`, `宗教`, `大衆`, `縦`, `縮`, `熟`, `純`, `縮小`, `純白`
+
+**u176 · アイデンティティ・しゃかい** (23) — `しゅっしん`, `こくせき`, `みんぞく`, `きぞく`, `しょぞく`, `せいべつ`, `じんかく`, `こせい`, `じそんしん`, `いしき`, `むいしき`, `われわれ`, `きはん`, `かんしゅう`, `しゅうぞく`, `どうちょう`, `せけん`, `しゃかいてき`, `たようせい`, `しゅたい`, `そんざい`, `ゆうえつかん`, `れっとうかん`
+
+**u177 · しごと・そしき** (24) — `しゅうかつ`, `さいよう`, `こよう`, `はいぞく`, `しょくれき`, `けいれき`, `じんじ`, `ぶもん`, `かんりしょく`, `にんむ`, `しょくむ`, `せきむ`, `ざいたく`, `はけん`, `きゅうけい`, `ぎょうむ`, `いらい`, `たいぐう`, `きんぞく`, `ざいしょく`, `しょうきゅう`, `ねんしゅう`, `りしょく`, `じんざい`
+
+**u178 · かんじ・しごとと まこと** (24) — `処`, `署`, `諸`, `除`, `処分`, `部署`, `将`, `傷`, `城`, `蒸`, `傷口`, `水蒸気`, `針`, `仁`, `垂`, `推`, `秒針`, `推理`, `盛`, `聖`, `誠`, `宣`, `聖書`, `宣言`
+
+**u179 · かんきょう・ちきゅう** (24) — `せいたいけい`, `りゅうしゅつ`, `たんそ`, `おんしつ`, `すいしつ`, `きしょう`, `ぜつめつ`, `きょうい`, `しょうもう`, `りんぎょう`, `ほぜん`, `はいりょ`, `はつでん`, `たいようこう`, `ふうりょく`, `ねんりょう`, `じゅよう`, `さいせい`, `じぞく`, `さくげん`, `よくせい`, `かんわ`, `てきおう`, `ぶんべつ`
+
+**u180 · かんじ・くらしと つくる** (24) — `専`, `泉`, `洗`, `染`, `専用`, `洗面`, `銭`, `善`, `奏`, `創`, `銭湯`, `創作`, `装`, `層`, `操`, `蔵`, `服装`, `地層`, `臓`, `宅`, `誕`, `暖`, `自宅`, `暖流`
+
+**u181 · いりょう・かいご** (24) — `いりょう`, `かんご`, `かいご`, `きゅうきゅう`, `びょうしつ`, `せんもんい`, `けんしん`, `じゅしん`, `つういん`, `しょち`, `ないか`, `げか`, `まんせい`, `きゅうせい`, `かんせん`, `めんえき`, `とうつう`, `びょうれき`, `いりょうひ`, `じゅみょう`, `えいせい`, `いやくひん`, `てんてき`, `りんしょう`
+
+**u182 · かんじ・からだと うつりかわり** (24) — `宙`, `忠`, `著`, `庁`, `著者`, `著書`, `頂`, `潮`, `賃`, `展`, `頂上`, `進展`, `糖`, `乳`, `認`, `納`, `糖分`, `母乳`, `脳`, `拝`, `背`, `肺`, `背後`, `大脳`
+
+**u183 · きょういく・けんきゅう** (24) — `しどう`, `きょうじゅ`, `がくい`, `はかせ`, `しゅうりょう`, `じっせん`, `すいろん`, `がくせつ`, `めいだい`, `こうさつ`, `じっしょう`, `しょうめい`, `たいしょう`, `さんしょう`, `てんきょ`, `ちょさく`, `とうこう`, `がくじゅつ`, `しんさ`, `ぎんみ`, `がっかい`, `けいさい`, `さいたく`, `しっぴつ`
+
+**u184 · メディア・ものがたり** (24) — `きゃくほん`, `こうせい`, `てんかい`, `けつまつ`, `ばめん`, `ふくせん`, `しゅじんこう`, `かたりて`, `ぶんたい`, `びょうしゃ`, `げんさく`, `メディア`, `さつえい`, `えいぞう`, `しちょうりつ`, `こうひょう`, `かくう`, `しんそう`, `かくさん`, `そくほう`, `ていせい`, `でどころ`, `ねつぞう`, `ぼうとう`
+
+**u185 · かんじ・ひとと たから** (24) — `俳`, `班`, `晩`, `否`, `班長`, `晩年`, `批`, `秘`, `腹`, `奮`, `空腹`, `奮起`, `陛`, `片`, `補`, `暮`, `陛下`, `片方`, `宝`, `訪`, `亡`, `忘`, `宝物`, `訪問`
+
+**u186 · きもち・こまやか** (24) — `きがかり`, `もどかしい`, `あせり`, `きまずい`, `てれくさい`, `きょうしゅく`, `ゆううつ`, `むなしい`, `わびしい`, `こころぼそい`, `みじめ`, `うしろめたい`, `しっと`, `いきどおり`, `けいべつ`, `ほこらしい`, `こころづよい`, `せつじつ`, `みれん`, `なごり`, `おしい`, `あんど`, `きょうふ`, `ふんべつ`
+
+**u187 · かんじ・うらと おもて** (24) — `棒`, `枚`, `幕`, `密`, `相棒`, `一枚`, `盟`, `模`, `訳`, `郵`, `同盟`, `直訳`, `優`, `幼`, `翌`, `覧`, `優先`, `翌日`, `裏`, `臨`, `朗`, `論`, `裏口`, `朗読`
+
+**u188 · ぶんぽう・9** (24) — `とすれば`, `とすると`, `となると`, `とあれば`, `ものなら`, `たらさいご`, `ていたら`, `ていなかったら`, `ところだった`, `ものを`, `ばよかった`, `べきだった`, `さえすれば`, `ないことには`, `てからでないと`, `ないかぎり`, `てはじめて`, `ずにすんだ`, `からといって`, `たところで`, `にしても`, `としても`, `ようが`, `であれ`
+
+**u189 · ぶんぽう・10** (24) — `において`, `における`, `にわたって`, `をつうじて`, `をとおして`, `にあたって`, `にたいして`, `にかんして`, `をめぐって`, `にもとづいて`, `をもとに`, `にともなって`, `にさいして`, `にさきだって`, `をへて`, `をふまえて`, `をきっかけに`, `とともに`, `だけに`, `うえで`, `はんめん`, `につき`, `にあって`, `とあって`
+
+**u190 · ぶんぽう・11** (24) — `それゆえ`, `からこそ`, `というのも`, `というわけです`, `しだいです`, `このように`, `ばかりでなく`, `のみならず`, `はもとより`, `くわえて`, `おまけに`, `そればかりか`, `にもかかわらず`, `それにしても`, `ようは`, `つまるところ`, `いわゆる`, `ともいえる`, `にすぎない`, `ざるをえない`, `かねない`, `きらいがある`, `とみられる`, `とかんがえられる`
+
+**u191 · けいご・2** (24) — `おかきになる`, `おつかいになる`, `おこしになる`, `おやすみになる`, `いかれる`, `よまれる`, `おもちする`, `おわたしする`, `おつたえする`, `おむかえする`, `おとどけする`, `おこたえします`, `おめにかかる`, `おめにかける`, `はいしゃくする`, `はいどくする`, `はいちょうする`, `たまわる`, `でございます`, `ております`, `かねます`, `ますでしょうか`, `あいにく`, `おかまいなく`
+
+**u192 · こうようぶん・けいじ** (24) — `げんてい`, `てんじ`, `りんじ`, `へいてん`, `いこう`, `ごりょうしょう`, `しんせい`, `きにゅう`, `とどけで`, `さくせい`, `こうふ`, `ひつどく`, `たんとうしゃ`, `かんけいしゃ`, `りようしゃ`, `ほんじつ`, `さくじつ`, `とうじつ`, `れいがい`, `じっし`, `かいさい`, `ていきょう`, `じぜん`, `おって`
+
+**u193 · ふくごうどうし・1** (24) — `つかいきる`, `いいきる`, `よみきる`, `うりきれる`, `つかれきる`, `こまりきる`, `やりぬく`, `かんがえぬく`, `たえぬく`, `いきぬく`, `えらびぬく`, `まもりぬく`, `おしとおす`, `やりとおす`, `まもりとおす`, `みとおす`, `なしとげる`, `やりとげる`, `しあげる`, `つくりあげる`, `かきあげる`, `きりあげる`, `まとめあげる`, `そだてあげる`
+
+**u194 · ふくごうどうし・2** (24) — `もちこむ`, `しこむ`, `ふみこむ`, `とびこむ`, `つめこむ`, `まきこむ`, `かんがえこむ`, `だまりこむ`, `ねむりこむ`, `すいこむ`, `おもいこむ`, `しずみこむ`, `いいだす`, `さそいだす`, `みつけだす`, `ふきだす`, `かけだす`, `ながれだす`, `いいかける`, `たべかける`, `しにかける`, `とおりかかる`, `よりかかる`, `おそいかかる`
+
+**u195 · ふくごうどうし・3** (24) — `はげましあう`, `しりあう`, `たすけあう`, `ゆずりあう`, `みつめあう`, `ささえあう`, `おいつく`, `たどりつく`, `しがみつく`, `むすびつく`, `やきつける`, `ひきつける`, `あるきまわる`, `さがしまわる`, `にげまわる`, `かけまわる`, `みまわる`, `とびまわる`, `おりかえす`, `ひきかえす`, `おもいかえす`, `ききかえす`, `みかえす`, `おしかえす`
+
+**u196 · かんようく・1** (24) — `てをかす`, `てがあく`, `てをやく`, `てにいれる`, `てをぬく`, `てがたりない`, `めがない`, `めをとおす`, `めをつける`, `めにつく`, `めがまわる`, `めからうろこ`, `みみがいたい`, `みみにする`, `みみをかす`, `くちがかたい`, `くちをはさむ`, `くちにあう`, `あしがでる`, `あしをはこぶ`, `あしをあらう`, `あしをひっぱる`, `あしがぼうになる`, `みにつく`
+
+**u197 · かんようく・2** (24) — `きがおけない`, `きがきく`, `きをつかう`, `きがちる`, `きがすすまない`, `きがながい`, `あたまがあがらない`, `あたまがさがる`, `あたまにくる`, `あたまをかかえる`, `あたまをひやす`, `あたまがかたい`, `こころをこめる`, `むねがいたむ`, `むねがいっぱい`, `きもがすわる`, `はらをわる`, `はらをきめる`, `はながたかい`, `こしがひくい`, `かたのにがおりる`, `うでがなる`, `したをまく`, `かおいろ`
+
+**u198 · よじじゅくご** (24) — `いっせきにちょう`, `しこうさくご`, `じごうじとく`, `りんきおうへん`, `ゆうげんじっこう`, `ふげんじっこう`, `じゅうにんといろ`, `いしんでんしん`, `いちごいちえ`, `ゆうじゅうふだん`, `じがじさん`, `たんとうちょくにゅう`, `しめんそか`, `あくせんくとう`, `きしかいせい`, `むがむちゅう`, `いちぶしじゅう`, `たいきばんせい`, `にそくさんもん`, `せんさばんべつ`, `おんこちしん`, `がでんいんすい`, `はんしんはんぎ`, `いっきいちゆう`
+
+**u199 · ぎたいご・1** (24) — `もやもや`, `しどろもどろ`, `くよくよ`, `はらはら`, `ひやひや`, `やきもき`, `じわじわ`, `ひしひし`, `つくづく`, `まざまざ`, `まごまご`, `うっとり`, `びくびく`, `ふらふら`, `くらくら`, `よろよろ`, `うろたえる`, `きょろきょろ`, `ずきずき`, `がんがん`, `ちくちく`, `ひりひり`, `ぐったり`, `ぼろぼろ`
+
+**u200 · ぎたいご・2** (24) — `てきぱき`, `きびきび`, `のろのろ`, `だらだら`, `ぐずぐず`, `ずるずる`, `こつこつ`, `ちゃくちゃく`, `めきめき`, `すらすら`, `ぐんぐん`, `ぎりぎり`, `ひそひそ`, `ざわざわ`, `がやがや`, `ぶつぶつ`, `ぺこぺこ`, `はきはき`, `じろじろ`, `ちらちら`, `にやにや`, `こそこそ`, `ばたばた`, `ぱらぱら`
+
+**u201 · ぎたいご・3** (24) — `つるつる`, `ざらざら`, `ぬるぬる`, `べたべた`, `さらさら`, `ふわふわ`, `ごつごつ`, `でこぼこ`, `かちかち`, `もちもち`, `ぱさぱさ`, `しっとり`, `じめじめ`, `むしむし`, `ぽかぽか`, `ひんやり`, `からから`, `どろどろ`, `がっしり`, `ほっそり`, `ずっしり`, `すっきり`, `こんがり`, `ぴかぴか`
+
+**u202 · せっとうご** (24) — `ふきそく`, `ふとくてい`, `ふじゅうぶん`, `むいみ`, `むかんしん`, `むせきにん`, `みかいけつ`, `みてい`, `みけいけん`, `みかんせい`, `ひこうしき`, `ひこうかい`, `さいかくにん`, `さいけんとう`, `さいりよう`, `さいしゅっぱつ`, `かじょう`, `ちょうか`, `しょもんだい`, `しょがいこく`, `かろう`, `かしょう`, `むかんけい`, `ひげんじつてき`
+
+**u203 · せつびご・1** (23) — `どくじせい`, `けいぞくせい`, `じつようせい`, `しんらいせい`, `しゅたいせい`, `せっきょくせい`, `きかいか`, `こくさいか`, `たんじゅんか`, `せんもんか`, `きんだいか`, `きほんてき`, `いっぱんてき`, `でんとうてき`, `しゅかんてき`, `きゃっかんてき`, `だんかいてき`, `きんちょうかん`, `せきにんかん`, `まんぞくかん`, `いわかん`, `きたいかん`, `きょりかん`
+
+**u204 · せつびご・2** (23) — `しゅうちゅうりょく`, `そうぞうりょく`, `きおくりょく`, `はんだんりょく`, `じつりょく`, `せつとくりょく`, `ごうかくりつ`, `せいこうりつ`, `しゅっせきりつ`, `りようりつ`, `しつぎょうりつ`, `ぞうかりつ`, `しんらいど`, `まんぞくど`, `なんいど`, `ちゅうもくど`, `じゆうど`, `けいかくじょう`, `けんとうちゅう`, `つかれぎみ`, `おくれぎみ`, `こどもむき`, `はつばいずみ`
+
+**u205 · すうりょうひょうげん** (24) — `すうめい`, `すうねん`, `すうかい`, `ひとけた`, `ふたけた`, `すうにち`, `おおはば`, `だいぶぶん`, `ぜんたいてき`, `ごくいちぶ`, `かはんすう`, `へいきんてん`, `さいゆうしゅう`, `じょうい`, `じゅんい`, `いくつも`, `いくども`, `なんども`, `いっさい`, `ことごとく`, `おおむね`, `ひとくちに`, `なんら`, `とうてい`
+
+**u206 · ふくし・N2** (24) — `ことさら`, `ひとえに`, `いかにも`, `まさしく`, `あたかも`, `おのずと`, `もはや`, `いまだ`, `たちまち`, `めっきり`, `いちだんと`, `なにより`, `さぞ`, `なにぶん`, `あくまでも`, `しきりに`, `まして`, `やむをえず`, `すなわち`, `よって`, `および`, `ならびに`, `もしくは`, `ひいては`
+
+**u207 · ごい・N2・1** (24) — `いざ`, `おもいきや`, `あわや`, `いっそのこと`, `どのみち`, `なんとしても`, `これといって`, `とりたてて`, `さしあたり`, `ゆくゆく`, `さしずめ`, `おりしも`, `ときおり`, `ややもすると`, `まがりなりにも`, `たかが`, `くまなく`, `つとめて`, `よくよく`, `ひたむき`, `おもむろに`, `ゆうゆう`, `こころよく`, `ひとまわり`
+
+**u208 · ごい・N2・2** (24) — `うながす`, `はばむ`, `つらぬく`, `いどむ`, `おこたる`, `つのる`, `いとなむ`, `まかなう`, `ほどこす`, `みたす`, `になう`, `ゆだねる`, `そこなう`, `つぐなう`, `まぬがれる`, `へだてる`, `くつがえす`, `ともなう`, `さとる`, `きわめる`, `おびる`, `やしなう`, `たずさわる`, `もよおす`
+

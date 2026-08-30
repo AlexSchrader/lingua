@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { deriveGrade } from "../../store/grading.js";
 import { useStore } from "../../store/useStore.js";
-import { conjugate, CONJ_FORM_LABEL } from "../../store/conjugate.js";
+import { conjugateIn, formLabelFor } from "../../store/conjugate.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { C, F } from "../../theme.js";
 
@@ -13,7 +13,7 @@ const strip = (s) => String(s ?? "").trim().replace(/\s+/g, "");
 
 export default function ConjugateCard({ item, onGraded }) {
   const noSpeed = useStore((s) => s.settings?.noSpeedPressure ?? false);
-  const answer = conjugate(item.front, item.group, item.conjForm);
+  const answer = conjugateIn(item.lang ?? "ja", item.front, item.group, item.conjForm);
   const [value, setValue] = useState("");
   const [retried, setRetried] = useState(false);
   const [phase, setPhase] = useState("input"); // "input" | "feedback"
@@ -49,7 +49,7 @@ export default function ConjugateCard({ item, onGraded }) {
   };
 
   const feedback = phase === "feedback";
-  const label = CONJ_FORM_LABEL[item.conjForm] ?? item.conjForm;
+  const label = formLabelFor(item.lang ?? "ja", item.conjForm);
 
   return (
     <div data-testid="conjugate-card" data-card-kind="conjugate" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 18, padding: "8px 4px" }}>

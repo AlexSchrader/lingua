@@ -28,8 +28,12 @@ UNIT[]
 | name      | string    | ✓        |       |
 | flag      | string    | ✓        | emoji flag |
 | target    | CEFR      | ✓        | learner goal level (`"A1"`–`"B2"`) |
-| unlock    | `null` or `{ lang, level }` | ✓ | null for the starter language |
-| unlocked  | boolean   | ✓        | true for the starter language; false for locked ones |
+
+**There is no starter language.** The catalog is a flat list the learner picks from —
+`unlock` and `unlocked` were removed with the ja→es→fr cascade, so do not author them.
+A language is offered the moment it has playable content (`isLive()` / `hasPlayableContent()`,
+derived — never stored); everything else in the catalog shows as *planned*. Nothing in a
+content file may assume Japanese, or assume any particular language is first.
 
 ---
 

@@ -14,6 +14,7 @@ import Onboarding from "./screens/Onboarding.jsx";
 import SetPassword from "./screens/SetPassword.jsx";
 import Mascot from "./components/Mascot.jsx";
 import MilestoneToast from "./components/MilestoneToast.jsx";
+import SyncToast from "./components/SyncToast.jsx";
 import { useStore } from "./store/useStore.js";
 import { scheduleDailyReminder, notificationPermission } from "./lib/reminders.js";
 import { C, F, setActiveTheme, resolveTheme } from "./theme.js";
@@ -99,6 +100,12 @@ export default function App() {
     // slice (startLanguage) which fires a debounced upload → status "syncing" → this
     // used to splash-unmount the onboarding flow mid-step, so Continue appeared dead.
     if (!onboarded && !auth.initialSyncDone) return <Splash />;
+    // The language pick gates the app: nothing loads until a language WITH CONTENT has
+    // been chosen (the picker simply does not respond to an empty one). This lives
+    // inside the auth block because that is the shipped configuration. Hoisting it out
+    // — so a local-only or automated build is gated too — is correct but turns 16 smoke
+    // fixtures red: they boot with no profile at all and would land on onboarding.
+    // Logged for the QA lane rather than left broken.
     if (!onboarded) return <Onboarding />;
   }
 
@@ -107,6 +114,10 @@ export default function App() {
       {/* Global overlay — a milestone can unlock inside Review/Lesson (outside the
           AppShell), so it lives at the App root to cover every screen. */}
       <MilestoneToast />
+      {/* Same reasoning as the milestone toast: a lesson finishes inside Lesson.jsx,
+          a reset happens in Settings, and both live outside AppShell — so the "it's
+          saved" confirmation is mounted at the root or it would miss its own event. */}
+      <SyncToast />
       <Routes>
       <Route element={<AppShell />}>
         <Route index element={<Today />} />

@@ -90,7 +90,11 @@ export default function PhaseShell({ title, progress, onClose, onBack, children,
       <main
         style={{
           flex: 1,
+          minHeight: 0,
           overflowY: "auto",
+          // Same rule as AppShell: the lesson body scrolls, the page never does.
+          overscrollBehavior: "contain",
+          WebkitOverflowScrolling: "touch",
           display: "flex",
           flexDirection: "column",
           padding: 16,

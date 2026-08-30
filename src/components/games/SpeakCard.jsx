@@ -3,6 +3,7 @@ import { Mic, Square, Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { gradeSpoken } from "../../store/answer.js";
 import { readingIsInformative } from "../../store/cardRouting.js";
+import { itemLang } from "../../store/itemLang.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 
 // SpeakCard — the SPOKEN-rung review (vocab only). Duolingo-style flow: the app
@@ -61,7 +62,7 @@ export default function SpeakCard({ item, onGraded }) {
     const blob = new Blob(chunksRef.current, { type: mimeRef.current || "audio/webm" });
     if (!blob.size) { setPhase("fallback"); return; }
     try {
-      const res = await fetch(`/api/score-speech?lang=${encodeURIComponent(item.lang ?? "ja")}`, {
+      const res = await fetch(`/api/score-speech?lang=${encodeURIComponent(itemLang(item) ?? "")}`, {
         method: "POST",
         headers: { "Content-Type": blob.type },
         body: blob,

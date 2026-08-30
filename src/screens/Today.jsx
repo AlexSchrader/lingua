@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { BookOpen, RotateCcw, Lock, Check, Star, Award, ChevronRight } from "lucide-react";
 import { useStore, REVIEW_CAP, activeLangId } from "../store/useStore.js";
-import { UNITS, LANGUAGES } from "../data/index.js";
+import { LANGUAGES, orderedUnits } from "../data/index.js";
 import { isReviewable, isMastered } from "../store/mastery.js";
 import { nextMilestone } from "../data/milestones.js";
 import { C, F } from "../theme.js";
@@ -107,8 +107,6 @@ export default function Today() {
   const milestonesEarned = useStore((s) => s.milestonesEarned);
   const languages = useStore((s) => s.languages);
   const profile = useStore((s) => s.profile);
-  // The active language drives everything on Today (falls back to ja for safety).
-  const startedLangs = profile.languages?.length ? profile.languages : ["ja"];
   // Same helper the store scopes dueItems/reviewsLocked with — this used to be an
   // inline copy of the identical fallback, which is exactly the drift the shared
   // export exists to prevent (the screen and the store must never disagree about
@@ -139,7 +137,10 @@ export default function Today() {
 
   // Units for the active language (source for both the flat lesson list and the
   // per-lesson "section / unit / lesson-in-unit" location shown on the cards).
-  const langUnits = useMemo(() => UNITS.filter((u) => u.lang === activeId), [activeId]);
+  // CLIMB order, not barrel order — see orderedUnits() in src/data/index.js. Reading
+  // UNITS directly here served French from file position, so "Les sons" (order 1) sat
+  // 26 units down the queue while unit 1's lessons were labelled "Unit 2".
+  const langUnits = useMemo(() => orderedUnits(activeId), [activeId]);
   // All lessons across all units that have item content (ordered).
   const allPlayableLessons = useMemo(
     () => langUnits.flatMap((u) => u.lessons.filter((l) => Array.isArray(l.items))),
@@ -193,12 +194,15 @@ export default function Today() {
     () => Object.values(items).filter((it) => it.lang === activeId && isMastered(it)).length,
     [items, activeId]
   );
-  // Scoped to the languages this learner has actually started. Without the second
-  // argument milestonesForLangs returns the WHOLE catalog, so a French-only learner
-  // was told their next milestone was "You learned your first kanji · 1 to go" —
-  // unreachable, and a plain statement that the app is really for someone else.
-  // The filter already existed; this call site just never passed it.
-  const nextMs = useMemo(() => nextMilestone(items, startedLangs), [items, startedLangs]);
+  // Scoped to the language THIS SCREEN is showing. Today is an active-language
+  // screen — learned, mastered and the kana strip are all activeId-scoped — so the
+  // gentle next goal must be too. It used to read profile.languages with a hardcoded
+  // ["ja"] fallback, so a French learner whose profile carried ja (or carried no
+  // language list at all) was offered "You learned your first kanji · 1 to go" under
+  // a French header. Cross-language milestones (lang: null, e.g. "100 words mastered")
+  // still come through — milestonesForLangs keeps those. Stats keeps the wider
+  // started-languages scope for the full earned list.
+  const nextMs = useMemo(() => nextMilestone(items, [activeId]), [items, activeId]);
 
   // Progress glance + next-review timing (from the data we already track).
   const masteredKana = useMemo(
@@ -306,7 +310,7 @@ export default function Today() {
           <div style={{ fontFamily: F.disp, fontSize: 19, fontWeight: 700, marginBottom: 2 }}>{greeting(profile.displayName)}</div>
           <div style={{ fontSize: 14, color: C.ink, lineHeight: 1.35, fontWeight: 600 }}>{mascot.msg}</div>
           <div style={{ fontSize: 12, color: C.inkSoft, fontWeight: 600, marginTop: 6 }}>
-            {active.flag} {active.name} · {active.level === "pre-A1" ? "Starting out" : active.level} → {active.target} goal
+            {active.flag} {active.name} · {active.level === "pre-A1" ? `${learnedCount} item${learnedCount === 1 ? "" : "s"}` : active.level} → {active.target} goal
             {nextReviewAt ? ` · next review ${fmtWhen(nextReviewAt)}` : ""}
           </div>
         </div>

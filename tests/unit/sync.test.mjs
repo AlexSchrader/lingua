@@ -89,7 +89,61 @@ test("extractProgress slims items so the cloud blob can't bloat", () => {
 });
 
 test("extractProgress copies exactly the synced keys, nothing else", () => {
-  const full = { items: 1, languages: 2, streak: 3, stats: 4, daily: 5, devMode: 6, settings: 7, profile: 8, milestonesEarned: 9, ui: 99, junk: 0 };
+  const full = { items: 1, languages: 2, streak: 3, stats: 4, daily: 5, devMode: 6, settings: 7, profile: 8, milestonesEarned: 9, resetAt: 10, ui: 99, junk: 0 };
   assert.deepEqual(Object.keys(extractProgress(full)).sort(), [...SYNC_KEYS].sort());
   assert.equal(extractProgress(full).ui, undefined);
+});
+
+// ── Deliberate reset ─────────────────────────────────────────────────────────
+// The bug these pin: "Reset all progress", close the app, reopen — and the old
+// progress is back. Nothing was slow; the reset was UNSYNCABLE. An emptied device
+// is indistinguishable from a fresh or torn one by shape alone, so both guards
+// (chooseSource here, the upload interlock in cloudSync) sent it back down. The
+// receipt — a `resetAt` stamped when the learner taps the button — is what makes
+// intent legible, and comparing it against the CLOUD's own timestamp is what keeps
+// a stale receipt from ever resurrecting itself into a wipe.
+const resetAtEmpty = (t) => ({ ...empty, resetAt: t });
+
+test("a reset performed AFTER the last cloud write wins → push the wipe up", () => {
+  assert.equal(
+    chooseSource({ updatedAt: 500, blob: resetAtEmpty(500) }, { updatedAt: 100, blob: withProgress }),
+    "push"
+  );
+});
+
+test("a STALE reset never wipes the cloud → pull", () => {
+  // Reset at t=50, but the cloud has been written since (t=100): that cloud row is
+  // progress made after the reset, so it is the newer truth. This is the case that
+  // keeps an old receipt in a restored blob from eating real work.
+  assert.equal(
+    chooseSource({ updatedAt: 500, blob: resetAtEmpty(50) }, { updatedAt: 100, blob: withProgress }),
+    "pull"
+  );
+});
+
+test("no receipt at all still pulls — the original guard is untouched", () => {
+  assert.equal(
+    chooseSource({ updatedAt: 999, blob: { ...empty, resetAt: 0 } }, { updatedAt: 1, blob: withProgress }),
+    "pull"
+  );
+  assert.equal(
+    chooseSource({ updatedAt: 999, blob: empty }, { updatedAt: 1, blob: withProgress }),
+    "pull"
+  );
+});
+
+test("isDeliberateReset is exactly 'newer than the cloud row', nothing looser", async () => {
+  const { isDeliberateReset } = await import("../../src/store/sync.js");
+  assert.equal(isDeliberateReset({ blob: { resetAt: 200 } }, { updatedAt: 100 }), true);
+  assert.equal(isDeliberateReset({ blob: { resetAt: 100 } }, { updatedAt: 100 }), false); // ties lose
+  assert.equal(isDeliberateReset({ blob: { resetAt: 0 } }, { updatedAt: 0 }), false);
+  assert.equal(isDeliberateReset({ blob: {} }, { updatedAt: 0 }), false);
+  assert.equal(isDeliberateReset({}, {}), false);
+});
+
+test("the reset receipt travels with the synced slice", () => {
+  // If resetAt isn't in SYNC_KEYS it never reaches the cloud, and the fix silently
+  // degrades to "works on this device until the next sign-in".
+  assert.ok(SYNC_KEYS.includes("resetAt"));
+  assert.equal(extractProgress({ resetAt: 7, items: {} }).resetAt, 7);
 });

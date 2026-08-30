@@ -8,16 +8,18 @@ const MACRON = { "ō": "o", "ū": "u", "ā": "a", "ē": "e", "ī": "i" };
 //
 // This vowel-folding is a JAPANESE rōmaji concern and must NOT run for other
 // languages — it would mangle legitimate vowel sequences (Spanish "leer"/"creer",
-// French "voeen"). So it's gated by `lang`. The default is "ja", so any caller
-// that omits lang (or passes an item with no lang stamped) keeps the original
-// Japanese behavior.
+// French "voeen"). So it's gated by `lang`, and the default is NO language: a caller
+// that omits it gets the universal folding only. The default used to be "ja", which
+// meant "I forgot to pass the language" and "this is Japanese" were the same call —
+// and the content validator, which omits it, was silently folding every language's
+// readings by Japanese vowel rules.
 //
 // Latin-script languages (es/fr) fold the OTHER way: authored readings are plain
 // [a-z] (the contract requires it), but learners type the real orthography —
 // "Ça va", "s'il vous plaît", "sœur". So diacritics are stripped (NFD), ligatures
 // expanded (œ→oe, æ→ae), and apostrophes/hyphens dropped, so the typed French
 // converges on the ASCII reading ("cava", "silvousplait", "soeur").
-export function normalizeReading(s = "", lang = "ja") {
+export function normalizeReading(s = "", lang = null) {
   let out = String(s).trim().toLowerCase().replace(/\s+/g, "");
   if (lang === "ja") {
     out = out.replace(/[ōūāēī]/g, (c) => MACRON[c] || c);
