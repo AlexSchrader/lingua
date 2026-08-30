@@ -18,6 +18,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { LANGUAGES } from "../src/data/languages.js";
+import { writeTaughtWords } from "./generate-taught-words.mjs";
 
 const DATA = path.join(process.cwd(), "src", "data");
 const LESSONS_PER_UNIT = 4; // the mature ja shape: 4 lessons x 6 cards = 24 cards
@@ -452,11 +453,27 @@ console.log(
 console.log(`  src/data/${lang}/unit${first}.js … unit${last}.js  (locked stubs)`);
 console.log(`  src/data/${lang}/index.js  (barrel${exists ? ", regenerated" : ""})`);
 console.log(wired ? "  src/data/index.js wired" : "  src/data/index.js already wired");
-console.log("\nBlocks (RUNBOOK-new-language.md §0):");
+
+// The taught-words list, written HERE — on the scaffold branch, before any crew
+// branches off it — so every worktree inherits it. Generated after the stubs so it
+// also lists the slots that are still stubs (the ones other blocks own), and given
+// the block split so a crew can tell which slots a LATER block will want.
+// RUNBOOK §0/§3/§4. check-lang-scope.mjs cannot answer this on a crew branch: it
+// skips every unit behind a stub, so it only sees straight at merge, which is after
+// the damage. Regenerate after each merge: npm run taught:words -- <lang>
 const per = Math.ceil(units.length / 3);
+const blocks = [];
 for (let b = 0; b < 3; b++) {
   const lo = units[b * per];
   const hi = units[Math.min((b + 1) * per, units.length) - 1];
-  if (lo) console.log(`  block ${b + 1}: units ${lo.unitNo}-${hi.unitNo}`);
+  if (lo) blocks.push({ block: b + 1, from: lo.unitNo, to: hi.unitNo });
 }
+const taught = await writeTaughtWords(lang, process.cwd(), { blocks });
+console.log(
+  `  src/data/${lang}/TAUGHT-WORDS.md  (${taught.words.length} words already taught, ` +
+    `${taught.stubs.length} slot(s) still stubs)`
+);
+console.log("\nBlocks (RUNBOOK-new-language.md §0):");
+for (const b of blocks) console.log(`  block ${b.block}: units ${b.from}-${b.to}`);
 console.log("\nNext: npm run validate:content   (should be green immediately)");
+console.log("Then COMMIT the scaffold — TAUGHT-WORDS.md included — before any crew branches off it.");
