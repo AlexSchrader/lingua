@@ -68,10 +68,59 @@ export function shouldTypeReading(item) {
 // listen:type is the ear-path sibling of type:reading. To avoid cannibalizing
 // the visual reading card (which takes the hash < READING_SHARE band), dictation
 // takes a DISTINCT band just above it — so an item is at most one of the two.
-export const LISTEN_TYPE_SHARE = 0.25;
+//
+// THE BANDS WERE CALIBRATED FOR THE JAPANESE CARD SET, and that is the bug this
+// ceiling fixes (2026-08-30). One unsalted hash01(id) is carved into bands:
+//     < 0.50        listen:choice · type:produce · type:reading
+//     [0.50, 0.75)  listen:type
+//     >= 0.75       cloze · sentence:build · particle:choice
+// The top quartile is fine in Japanese because trace, build and conjugate stand
+// behind it. **Latin script has none of those** — and type:reading is ja-only by
+// design (a Spanish front and its reading differ only by accents, so the card would
+// display its own answer). So for fr/es the top quartile has NO card of its own: a
+// quarter of every Latin corpus falls through to the generic meaning card, and the
+// three cards that could have claimed it are all content-dependent. Measured on this
+// branch: 219 of 3,123 es items and 172 of 3,111 fr sit there, versus 12 of 5,012 ja.
+//
+// THE 0.75 CEILING WAS RESERVING A BAND THAT NOBODY NEEDED RESERVED. It existed to
+// leave the top quartile to cloze · sentence:build · particle:choice — but those are
+// PRIORITY-ORDERED ahead of dictation at rung 2 and gated on the item's own content,
+// so an item that can cloze gets cloze whether or not dictation also covers its hash.
+// Reserving the band therefore bought nothing, and cost everything that could not use
+// it: an item whose example supports no content card fell through to the generic
+// meaning card, and its audio clip was never played once in its life.
+//
+// So dictation simply runs to the top of the range, in EVERY language. It stays
+// disjoint from type:reading (which owns [0, READING_SHARE)), it takes nothing from
+// the content cards, and nothing below READING_SHARE moves — the only item that
+// changes is the one that was falling through, which is the definition of an
+// uncovered band. Latin felt this hardest because it has no trace/build/conjugate
+// behind the quartile and type:reading is ja-only by design, but Japanese was paying
+// the same toll on every item whose example could not carry a cloze.
 export function shouldListenType(item) {
+  if (!hasAudio(item)) return false;
   const h = hash01(item?.id ?? "");
-  return hasAudio(item) && h >= READING_SHARE && h < READING_SHARE + LISTEN_TYPE_SHARE;
+  return h >= READING_SHARE;
+}
+
+// ...and the last hole the band fix cannot reach on its own. Dictation now covers the
+// whole upper range, but at rung 2 a content card is correctly tested FIRST — so an
+// item above the listen:choice band that earns a cloze or a particle blank still never
+// has its clip played, at any rung, in its entire life. It is then asked to SAY the
+// word at rung 4, graded, having never once heard the app pronounce it.
+//
+// Produce-before-perceive is the defect; rung 1 is the only place to fix it without
+// taking the content card away. It costs the reverse-recognition variant for exactly
+// these items (695 across the three languages, 1:1) — a same-rung, same-skill swap:
+// choice:reverse shows English and asks for the word, listen:choice plays the word and
+// asks for the meaning. The written form is still met at rungs 2 and 3; the audio has
+// no substitute anywhere else. That is why the ear wins the tie.
+export function earCrowdedOut(item) {
+  return (
+    hasAudio(item) &&
+    !shouldListen(item) &&
+    (shouldParticleCloze(item) || shouldCloze(item))
+  );
 }
 
 // --- language shape ----------------------------------------------------------
@@ -140,9 +189,14 @@ export function findFrontInExample(item) {
 }
 
 // --- cloze (fill the word into its own sentence) -----------------------------
-// Contextual recall at rung 2. Takes the TOP hash band [1 - CLOZE_SHARE, 1) so it
-// never overlaps type:reading (< READING_SHARE) or dictation ([READING_SHARE,
-// READING_SHARE + LISTEN_TYPE_SHARE)) — an item routes to at most one rung-2 variant.
+// Contextual recall at rung 2. Takes the TOP hash band [1 - CLOZE_SHARE, 1).
+//
+// It NOW OVERLAPS dictation, which runs to the top of the range — and that is fine,
+// because what actually makes an item route to one rung-2 card is the PRIORITY ORDER
+// in reviewStepFor (particle → cloze → dictation → type), not a hash partition. The
+// old comment here claimed disjoint bands guaranteed it; relying on that is what left
+// the top quartile with no fallback when an item could not cloze. Cloze is still
+// tested first, so nothing it used to claim has moved.
 export const CLOZE_SHARE = 0.25;
 
 // The blank token dropped into the sentence in place of the target word.

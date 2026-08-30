@@ -39,6 +39,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { UNITS } from "../../src/data/index.js";
 import * as R from "../../src/store/cardRouting.js";
+import { reviewStepFor } from "../../src/store/reviewStep.js";
 
 const GATES = {
   "listen:choice": R.shouldListen,
@@ -77,7 +78,16 @@ function kindsFor(item) {
 }
 
 // Ceilings = the counts measured when this test was written. Ratchet down only.
-const SINGLE_KIND_CEILING = { ja: 12, fr: 172, es: 134 };
+//
+// 2026-08-30, fix/latin-card-variety: ALL THREE ARE NOW ZERO. The cause was structural,
+// not content. The hash bands were calibrated for the Japanese card set, and the 0.75
+// ceiling on dictation was reserving the top quartile for cloze · sentence:build ·
+// particle:choice — cards that are PRIORITY-ORDERED ahead of dictation at rung 2 and
+// gated on the item's own content anyway. So the reservation protected nothing and cost
+// everything that could not use it. Dictation now runs to the top of the range in every
+// language; cloze and particle card counts are byte-identical before and after.
+// es 219 -> 0, fr 172 -> 0, and ja's 12 yōon kana fell out with them.
+const SINGLE_KIND_CEILING = { ja: 0, fr: 0, es: 0 };
 
 for (const [lang, ceiling] of Object.entries(SINGLE_KIND_CEILING)) {
   test(`${lang}: items with only ONE card kind must not increase (target 0)`, () => {
@@ -86,6 +96,38 @@ for (const [lang, ceiling] of Object.entries(SINGLE_KIND_CEILING)) {
       stuck.length <= ceiling,
       `${lang}: ${stuck.length} items route to a single card kind (ceiling ${ceiling}). ` +
         `First few: ${stuck.slice(0, 5).map((i) => i.id).join(", ")}`
+    );
+  });
+}
+
+// THE PROPERTY THAT ACTUALLY CAUGHT THIS, and the one worth guarding from here.
+//
+// Read the gate functions and you learn which cards an item MAY route to. Read the
+// runner and you learn which one it DOES. They are not the same question: three
+// branches in reviewStepFor have no gate behind them at all, and two cards can both
+// pass their gate while priority order means only one is ever shown. An item can
+// therefore satisfy shouldListenType for its whole life and never once be heard,
+// because a cloze wins ahead of it every time — which is exactly what was happening,
+// and no gate-based assertion could see it.
+//
+// So this one runs the real dispatcher across every rung an item will ever hold. Zero
+// is the standard, not a ceiling: the corpus is fully voiced, and rung 4 grades the
+// learner SAYING the word aloud. Being asked to produce a word the app has never once
+// pronounced is a defect, not a tuning preference.
+const stepKind = (s) => (s.mode ? `${s.kind}:${s.mode}` : s.kind);
+const EAR = new Set(["listen:choice", "listen:type"]);
+const lifetimeKinds = (item) =>
+  [...new Set([1, 2, 3, 4].map((rung) => stepKind(reviewStepFor({ ...item, rung }))))];
+
+for (const lang of Object.keys(SINGLE_KIND_CEILING)) {
+  test(`${lang}: no item with audio goes its whole life without being heard`, () => {
+    const deaf = itemsFor(lang).filter(
+      (i) => R.hasAudio(i) && !lifetimeKinds(i).some((k) => EAR.has(k))
+    );
+    assert.deepEqual(
+      deaf.slice(0, 5).map((i) => i.id),
+      [],
+      `${lang}: ${deaf.length} items own a clip that no card ever plays`
     );
   });
 }
