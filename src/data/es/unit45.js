@@ -78,5 +78,22 @@ export const ES_UNIT45 = {
         { id: "es-u45l4-elobjetivo", type: "vocab", front: "el objetivo", reading: "elobjetivo", meaning: "the aim / goal", example: { jp: "Mi objetivo es aprender español.", en: "My goal is to learn Spanish." }, accept: ["goal", "aim", "objective", "target"], hint: "What you're aiming at. Mi objetivo es + a plain verb, or + a noun." },
       ],
     },
+    {
+      id: "es-u45l5",
+      unit: 45,
+      lesson: 5,
+      title: "El consejo, la conducta, la muerte",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Name some everyday abstractions: a piece of advice, someone's behaviour, death, silence, a victory, and the way something is going.",
+      items: [
+        { id: "es-u45l5-elconsejo", type: "vocab", front: "el consejo", reading: "elconsejo", meaning: "the piece of advice", example: { jp: "Me dio un consejo muy útil.", en: "He gave me a very useful piece of advice." }, accept: ["the advice", "the piece of advice", "the council"], hint: "Countable, unlike English advice: un consejo, dos consejos. Aconsejar (u77) is the verb; el consejo is also a governing council." },
+        { id: "es-u45l5-laconducta", type: "vocab", front: "la conducta", reading: "laconducta", meaning: "the behaviour / conduct", example: { jp: "Su conducta en clase ha cambiado mucho.", en: "His behaviour in class has changed a lot." }, accept: ["the behaviour", "the conduct"], hint: "Of a person's actions judged by others. El comportamiento is its close neighbour; conducta is the word a school or a court uses." },
+        { id: "es-u45l5-lamuerte", type: "vocab", front: "la muerte", reading: "lamuerte", meaning: "death", example: { jp: "Después de la muerte de su padre se mudó.", en: "After his father's death he moved away." }, accept: ["death", "the death"], hint: "Morir (u34) is the verb, muerto the participle. Feminine despite ending in -e." },
+        { id: "es-u45l5-elsilencio", type: "vocab", front: "el silencio", reading: "elsilencio", meaning: "silence", example: { jp: "Escuchó la noticia en silencio.", en: "He listened to the news in silence." }, accept: ["silence", "the silence", "the quiet"], hint: "En silencio = in silence, quietly. Guardar silencio = to keep quiet." },
+        { id: "es-u45l5-lavictoria", type: "vocab", front: "la victoria", reading: "lavictoria", meaning: "the victory / win", example: { jp: "Fue una victoria clara desde el principio.", en: "It was a clear victory from the start." }, accept: ["the victory", "the win"], hint: "In sport and in politics. Its opposite is la derrota." },
+        { id: "es-u45l5-lamarcha", type: "vocab", front: "la marcha", reading: "lamarcha", meaning: "the pace / the departure", example: { jp: "El proyecto va a buena marcha.", en: "The project is going along at a good pace." }, accept: ["the pace", "the progress", "the march"], hint: "How something is going, plus a march and a departure. Poner en marcha = to set going, which is where you meet it most." },
+      ],
+    },
   ],
 };

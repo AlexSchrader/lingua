@@ -47,6 +47,7 @@ export const FR_UNIT94 = {
         { id: "fr-u94l2-entoutcas", type: "vocab", front: "en tout cas", reading: "entoutcas", meaning: "in any case", example: { jp: "En tout cas, je serai là.", en: "In any case, I'll be there." }, accept: ["at any rate", "either way"] },
         { id: "fr-u94l2-detoutefacon", type: "vocab", front: "de toute façon", reading: "detoutefacon", meaning: "anyway", example: { jp: "De toute façon, c'est trop tard.", en: "Anyway, it's too late." }, accept: ["regardless", "whatever happens"] },
         { id: "fr-u94l2-apretout", type: "vocab", front: "après tout", reading: "aprestout", meaning: "after all", example: { jp: "Après tout, ce n'est pas grave.", en: "After all, it's not serious." }, accept: ["when all's said and done", "at the end of the day"] },
+        { id: "fr-u94l2-alalimite", type: "vocab", front: "à la limite", reading: "alalimite", meaning: "at a push / if need be", example: { jp: "À la limite, je peux le faire demain.", en: "At a push, I can do it tomorrow." }, accept: ["at a push", "if need be", "if it comes to it"], hint: "Offers a fallback you are not thrilled about. Not 'at the limit' — that is à la limite de." },
       ],
     },
     {

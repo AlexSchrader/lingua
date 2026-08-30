@@ -28,6 +28,7 @@ export const ES_UNIT32 = {
         { id: "es-u32l1-elgobierno", type: "vocab", front: "el gobierno", reading: "elgobierno", meaning: "government", example: { jp: "El gobierno abre una escuela nueva.", en: "The government is opening a new school." }, accept: ["the government"], hint: "From gobernar, to govern. The b is soft — \"go-BYER-no\"." },
         { id: "es-u32l1-publico", type: "vocab", front: "público", reading: "publico", meaning: "public", example: { jp: "El autobús público es barato aquí.", en: "The public bus is cheap here." }, accept: ["state", "open to all"], hint: "The opposite is privado. El público is also \"the audience\"." },
         { id: "es-u32l1-elciudadano", type: "vocab", front: "el ciudadano", reading: "elciudadano", meaning: "citizen", example: { jp: "Todo ciudadano tiene los mismos derechos.", en: "Every citizen has the same rights." }, accept: ["the citizen", "national"], hint: "The person of a ciudad — a city-dweller became the word for a citizen of the whole country." },
+        { id: "es-u32l1-elbarrio", type: "vocab", front: "el barrio", reading: "elbarrio", meaning: "the neighbourhood", example: { jp: "Mi barrio es pequeño pero tiene de todo.", en: "My neighbourhood is small but it has everything." }, accept: ["the neighbourhood", "the district", "the area"], hint: "The part of a city you live in — smaller than la ciudad, bigger than la calle. Un barrio tranquilo." },
       ],
     },
     {

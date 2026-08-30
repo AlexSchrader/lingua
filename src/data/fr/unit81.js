@@ -29,6 +29,7 @@ export const FR_UNIT81 = {
         { id: "fr-u81l1-definir", type: "vocab", front: "définir", reading: "definir", meaning: "to define", example: { jp: "Il est difficile de définir cette notion en une phrase.", en: "It's difficult to define this notion in one sentence." }, accept: ["to set out", "to specify"] },
         { id: "fr-u81l1-prouver", type: "vocab", front: "prouver", reading: "prouver", meaning: "to prove", example: { jp: "Rien ne prouve qu'il ait raison, et rien ne prouve qu'il ait tort.", en: "Nothing proves he's right, and nothing proves he's wrong." }, accept: ["to demonstrate", "to show"] },
         { id: "fr-u81l1-signifier", type: "vocab", front: "signifier", reading: "signifier", meaning: "to mean", example: { jp: "Ce mot signifie autre chose dans ce domaine, ce qui explique le problème.", en: "This word means something else in this field, which explains the problem." }, accept: ["to signify", "to denote"], hint: "The written word for it — in speech people say vouloir dire." },
+        { id: "fr-u81l1-nuancer", type: "vocab", front: "nuancer", reading: "nuancer", meaning: "to qualify / add nuance to", example: { jp: "Il faudrait nuancer un peu cette idée.", en: "That idea would need to be qualified a little." }, accept: ["to qualify", "to add nuance to", "to temper"], hint: "To soften a claim without dropping it: nuancer un propos. From une nuance." },
       ],
     },
     {

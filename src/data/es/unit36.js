@@ -38,6 +38,7 @@ export const ES_UNIT36 = {
         { id: "es-u36l1-quienes", type: "vocab", front: "quienes", reading: "quienes", meaning: "who (plural)", example: { jp: "Son los amigos con quienes vivo.", en: "They're the friends I live with." }, accept: ["whom (plural)", "the ones who"], hint: "The plural of the relative quien (u29): una persona a quien…, but dos personas a quienes…" },
         { id: "es-u36l1-adonde", type: "vocab", front: "adonde", reading: "adonde", meaning: "where (to)", example: { jp: "Es el pueblo adonde voy en verano.", en: "It's the village where I go in summer." }, accept: ["to where", "where to"], hint: "For a place you move TO — unaccented adonde joins clauses; accented adónde (A1) asks the question. Same split as que/qué." },
         { id: "es-u36l1-segun", type: "vocab", front: "según", reading: "segun", meaning: "according to", example: { jp: "Según María, la tienda está cerrada.", en: "According to María, the shop is closed." }, accept: ["as per", "depending on"], hint: "según + a person or source: según el mapa, según el médico. On its own it means \"it depends\"." },
+        { id: "es-u36l1-talcomo", type: "vocab", front: "tal como", reading: "talcomo", meaning: "just as / exactly as", example: { jp: "Lo hice tal como me dijiste.", en: "I did it exactly as you told me." }, accept: ["just as", "exactly as", "the way that"], hint: "Joins two clauses by matching them: tal como te dije, tal como está. More exact than como on its own." },
       ],
     },
     {
@@ -54,6 +55,7 @@ export const ES_UNIT36 = {
         { id: "es-u36l2-cadavezque", type: "vocab", front: "cada vez que", reading: "cadavezque", meaning: "every time", example: { jp: "Cada vez que llueve, no salgo.", en: "Every time it rains, I don't go out." }, accept: ["whenever", "each time"], hint: "cada vez que = every single time. La vez (A1) is the one occasion; this makes it a rule." },
         { id: "es-u36l2-unavezque", type: "vocab", front: "una vez que", reading: "unavezque", meaning: "once", example: { jp: "Una vez que termino, descanso.", en: "Once I finish, I rest." }, accept: ["once that", "after"], hint: "Marks the point after which something else happens — once I finish, I rest." },
         { id: "es-u36l2-nadamas", type: "vocab", front: "nada más", reading: "nadamas", meaning: "as soon as", example: { jp: "Nada más llegar a casa, descanso.", en: "As soon as I get home, I rest." }, accept: ["right after", "the moment"], hint: "nada más + an infinitive = the instant that happens: nada más comer, right after eating. (Literally \"nothing more\".)" },
+        { id: "es-u36l2-tanprontocomo", type: "vocab", front: "tan pronto como", reading: "tanprontocomo", meaning: "as soon as", example: { jp: "Te llamo tan pronto como llegue a casa.", en: "I'll call you as soon as I get home." }, accept: ["as soon as", "the moment that"], hint: "A time clause: for something still to happen it takes the subjunctive — tan pronto como llegue. Same job as en cuanto." },
       ],
     },
     {
@@ -70,6 +72,7 @@ export const ES_UNIT36 = {
         { id: "es-u36l3-dadoque", type: "vocab", front: "dado que", reading: "dadoque", meaning: "given that", example: { jp: "Dado que es tarde, vuelvo a casa.", en: "Given that it's late, I'm going home." }, accept: ["seeing that", "since"], hint: "A slightly formal \"given that\" — dado = given. Common at the start of a sentence." },
         { id: "es-u36l3-puestoque", type: "vocab", front: "puesto que", reading: "puestoque", meaning: "since", example: { jp: "Puesto que no tengo dinero, no compro nada.", en: "Since I have no money, I'm not buying anything." }, accept: ["as", "seeing as", "given that"], hint: "Another formal \"since\", the twin of ya que — you'll see puesto que mostly in writing." },
         { id: "es-u36l3-debidoa", type: "vocab", front: "debido a", reading: "debidoa", meaning: "due to", example: { jp: "Llego tarde debido a la lluvia.", en: "I'm arriving late due to the rain." }, accept: ["owing to", "because of"], hint: "debido a + a noun (a cause): debido al tráfico. For a whole clause, add que: debido a que llueve." },
+        { id: "es-u36l3-acausade", type: "vocab", front: "a causa de", reading: "acausade", meaning: "because of", example: { jp: "No salimos a causa de la lluvia.", en: "We didn't go out because of the rain." }, accept: ["because of", "owing to", "due to"], hint: "Followed by a noun, never a clause: a causa de la lluvia, but porque llueve. Nearly always a bad cause." },
       ],
     },
     {
@@ -86,6 +89,23 @@ export const ES_UNIT36 = {
         { id: "es-u36l4-tantoque", type: "vocab", front: "tanto que", reading: "tantoque", meaning: "so much that", example: { jp: "Trabaja tanto que está siempre cansado.", en: "He works so much that he's always tired." }, accept: ["so much so that", "to the point that"], hint: "tanto … que shows a result caused by an amount: come tanto que… — he eats so much that…" },
         { id: "es-u36l4-encambio", type: "vocab", front: "en cambio", reading: "encambio", meaning: "on the other hand", example: { jp: "Yo como carne; él, en cambio, come pescado.", en: "I eat meat; he, on the other hand, eats fish." }, accept: ["by contrast", "whereas"], hint: "Draws a contrast between two people or ideas. From el cambio (A1) — a change of direction in the argument." },
         { id: "es-u36l4-aunasi", type: "vocab", front: "aun así", reading: "aunasi", meaning: "even so", example: { jp: "Llueve; aun así, salgo a correr.", en: "It's raining; even so, I'm going out to run." }, accept: ["still", "nevertheless"], hint: "Concedes the point and carries on anyway. aun (no accent) = even; aún (with accent) = still — two different words." },
+        { id: "es-u36l4-salvo", type: "vocab", front: "salvo", reading: "salvo", meaning: "except / apart from", example: { jp: "Vinieron todos salvo mi hermano.", en: "Everyone came except my brother." }, accept: ["except", "apart from", "other than"], hint: "Interchangeable with excepto: todos salvo uno. Salvo que + subjunctive = unless." },
+      ],
+    },
+    {
+      id: "es-u36l5",
+      unit: 36,
+      lesson: 5,
+      title: "El pretérito perfecto",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Say what has happened today or recently — he hablado, has comido, hemos llegado — using the full haber paradigm with a past participle.",
+      items: [
+        { id: "es-u36l5-he", type: "vocab", front: "he", reading: "he", meaning: "I have (done)", example: { jp: "Hoy he hablado con mi madre.", en: "Today I've spoken with my mother." }, accept: ["I have", "I've"], hint: "The auxiliary, never alone: he + participio. Not the same as tengo — Spanish does not say tengo hablado." },
+        { id: "es-u36l5-has", type: "vocab", front: "has", reading: "has", meaning: "you have (done)", example: { jp: "¿Has comido ya?", en: "Have you eaten yet?" }, accept: ["you have", "you've"], hint: "With ya and todavía no this tense does the work English does with 'yet'." },
+        { id: "es-u36l5-ha", type: "vocab", front: "ha", reading: "ha", meaning: "he/she has (done)", example: { jp: "Mi hermano ha llegado esta mañana.", en: "My brother arrived this morning." }, accept: ["he has", "she has", "it has"], hint: "Same form for él, ella and usted. Distinct from hay, which is there is / there are." },
+        { id: "es-u36l5-hemos", type: "vocab", front: "hemos", reading: "hemos", meaning: "we have (done)", example: { jp: "Este año hemos viajado mucho.", en: "This year we've travelled a lot." }, accept: ["we have", "we've"], hint: "Used for anything inside a period still going on — hoy, esta semana, este año." },
+        { id: "es-u36l5-han", type: "vocab", front: "han", reading: "han", meaning: "they have (done)", example: { jp: "Mis padres han vivido siempre aquí.", en: "My parents have always lived here." }, accept: ["they have", "they've"], hint: "For ellos, ellas and ustedes. The participle never changes with it: han vivido, not han vividos." },
       ],
     },
   ],

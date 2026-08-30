@@ -82,5 +82,21 @@ export const ES_UNIT8 = {
         { id: "es-u8l4-nieve", type: "vocab", front: "la nieve", reading: "lanieve", meaning: "snow", example: { jp: "Hay nieve en el pueblo.", en: "There's snow in the town." }, accept: ["the snow"], hint: "And nieva means it's snowing — the same pair as lluvia / llueve." },
       ],
     },
+    {
+      id: "es-u8l5",
+      unit: 8,
+      lesson: 5,
+      title: "Las estaciones",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Name the seasons and say what the weather does in each one, and talk about something that happens once a year.",
+      items: [
+        { id: "es-u8l5-laprimavera", type: "vocab", front: "la primavera", reading: "laprimavera", meaning: "spring", example: { jp: "En primavera llueve.", en: "In spring it rains." }, accept: ["spring", "the spring"], hint: "No article after en: en primavera, en verano. La primavera also names a spring-like burst of anything." },
+        { id: "es-u8l5-elotono", type: "vocab", front: "el otoño", reading: "elotono", meaning: "autumn / fall", example: { jp: "En otoño hace viento.", en: "In autumn it's windy." }, accept: ["autumn", "fall", "the autumn"], hint: "The ñ matters: otoño, not otono. Otoñal is the adjective." },
+        { id: "es-u8l5-elinvierno", type: "vocab", front: "el invierno", reading: "elinvierno", meaning: "winter", example: { jp: "En invierno hace frío y hay nieve.", en: "In winter it's cold and there's snow." }, accept: ["winter", "the winter"], hint: "Invernal is the adjective. Note the -ie- that verano and otoño do not have." },
+        { id: "es-u8l5-latemporada", type: "vocab", front: "la temporada", reading: "latemporada", meaning: "the season / the period", example: { jp: "Es la temporada de la lluvia.", en: "It's the rainy season." }, accept: ["the season", "the period", "the run"], hint: "Not a season of the year — that is la estación. Una temporada is a stretch of time for an activity: la temporada de fútbol." },
+        { id: "es-u8l5-anual", type: "vocab", front: "anual", reading: "anual", meaning: "annual / yearly", example: { jp: "Es una fiesta anual.", en: "It's an annual festival." }, accept: ["annual", "yearly", "once a year"], hint: "From el año. Anualmente is the adverb." },
+      ],
+    },
   ],
 };

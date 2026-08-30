@@ -44,6 +44,7 @@ export const FR_UNIT86 = {
         { id: "fr-u86l2-seplaindre", type: "vocab", front: "se plaindre", reading: "seplaindre", meaning: "to complain", example: { jp: "Les clients se plaignent du bruit.", en: "The customers complain about the noise." }, accept: ["moan", "grumble", "gripe"], hint: "You complain OF something: se plaindre de + the thing." },
         { id: "fr-u86l2-avouer", type: "vocab", front: "avouer", reading: "avouer", meaning: "to admit", example: { jp: "Je dois avouer que j'ai oublié.", en: "I have to admit that I forgot." }, accept: ["confess", "own up", "acknowledge"] },
         { id: "fr-u86l2-lexcuse", type: "vocab", front: "l'excuse", reading: "lexcuse", meaning: "excuse", example: { jp: "Ce n'est pas une bonne excuse.", en: "That's not a good excuse." }, accept: ["the excuse", "apology"], hint: "Feminine. In the plural it's the apology itself: présenter ses excuses = to apologize." },
+        { id: "fr-u86l2-sejustifier", type: "vocab", front: "se justifier", reading: "sejustifier", meaning: "to justify oneself", example: { jp: "Il a essayé de se justifier devant tout le monde.", en: "He tried to justify himself in front of everyone." }, accept: ["to justify oneself", "to explain oneself", "to defend oneself"], hint: "Reflexive: se justifier auprès de quelqu'un. Justifier on its own justifies a thing, not a person." },
       ],
     },
     {

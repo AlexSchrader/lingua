@@ -79,6 +79,7 @@ export const ES_UNIT33 = {
         { id: "es-u33l4-borrar", type: "vocab", front: "borrar", reading: "borrar", meaning: "to delete", example: { jp: "Voy a borrar este mensaje.", en: "I'm going to delete this message." }, accept: ["to erase", "to rub out"], hint: "The opposite of guardar for files. Also to rub something out with una goma." },
         { id: "es-u33l4-descargar", type: "vocab", front: "descargar", reading: "descargar", meaning: "to download", example: { jp: "Descargo la aplicación en el teléfono.", en: "I download the app onto the phone." }, accept: ["to unload"], hint: "des- + cargar (to load): to un-load onto your device. The opposite, subir, is to upload." },
         { id: "es-u33l4-lasenal", type: "vocab", front: "la señal", reading: "lasenal", meaning: "signal", example: { jp: "No hay señal en el tren.", en: "There's no signal on the train." }, accept: ["the signal", "sign"], hint: "Phone signal, and any sign or signal. Sin señal = no reception." },
+        { id: "es-u33l4-instalar", type: "vocab", front: "instalar", reading: "instalar", meaning: "to install", example: { jp: "Voy a instalar esto en el ordenador nuevo.", en: "I'm going to install this on the new computer." }, accept: ["to install", "to set up", "to put in"], hint: "Software or equipment alike: instalar un programa, instalar una lámpara. La instalación is the noun." },
       ],
     },
   ],
