@@ -92,5 +92,21 @@ export const ES_UNIT36 = {
         { id: "es-u36l4-salvo", type: "vocab", front: "salvo", reading: "salvo", meaning: "except / apart from", example: { jp: "Vinieron todos salvo mi hermano.", en: "Everyone came except my brother." }, accept: ["except", "apart from", "other than"], hint: "Interchangeable with excepto: todos salvo uno. Salvo que + subjunctive = unless." },
       ],
     },
+    {
+      id: "es-u36l5",
+      unit: 36,
+      lesson: 5,
+      title: "El pretérito perfecto",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Say what has happened today or recently — he hablado, has comido, hemos llegado — using the full haber paradigm with a past participle.",
+      items: [
+        { id: "es-u36l5-he", type: "vocab", front: "he", reading: "he", meaning: "I have (done)", example: { jp: "Hoy he hablado con mi madre.", en: "Today I've spoken with my mother." }, accept: ["I have", "I've"], hint: "The auxiliary, never alone: he + participio. Not the same as tengo — Spanish does not say tengo hablado." },
+        { id: "es-u36l5-has", type: "vocab", front: "has", reading: "has", meaning: "you have (done)", example: { jp: "¿Has comido ya?", en: "Have you eaten yet?" }, accept: ["you have", "you've"], hint: "With ya and todavía no this tense does the work English does with 'yet'." },
+        { id: "es-u36l5-ha", type: "vocab", front: "ha", reading: "ha", meaning: "he/she has (done)", example: { jp: "Mi hermano ha llegado esta mañana.", en: "My brother arrived this morning." }, accept: ["he has", "she has", "it has"], hint: "Same form for él, ella and usted. Distinct from hay, which is there is / there are." },
+        { id: "es-u36l5-hemos", type: "vocab", front: "hemos", reading: "hemos", meaning: "we have (done)", example: { jp: "Este año hemos viajado mucho.", en: "This year we've travelled a lot." }, accept: ["we have", "we've"], hint: "Used for anything inside a period still going on — hoy, esta semana, este año." },
+        { id: "es-u36l5-han", type: "vocab", front: "han", reading: "han", meaning: "they have (done)", example: { jp: "Mis padres han vivido siempre aquí.", en: "My parents have always lived here." }, accept: ["they have", "they've"], hint: "For ellos, ellas and ustedes. The participle never changes with it: han vivido, not han vividos." },
+      ],
+    },
   ],
 };
