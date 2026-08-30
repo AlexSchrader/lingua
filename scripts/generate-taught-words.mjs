@@ -169,10 +169,28 @@ export function render(lang, { authored, stubs, words, blocks = [] }) {
   return L.join("\n") + "\n";
 }
 
-export async function writeTaughtWords(lang, root = process.cwd(), { blocks = [] } = {}) {
+// The block split a crew is about to be handed: the slots still unauthored, cut in
+// three. `scaffold:lang` passes the split it just computed; run standalone, we derive
+// the same thing from the stubs — which is the right rule either way, because what a
+// crew is assigned is the work that is LEFT, not the whole corpus. Without this, a
+// language scaffolded before this tool existed (de, no, pt) gets a list with no block
+// map, which is the half a crew most needs on day one.
+function blocksFromStubs(stubs, parts = 3) {
+  if (!stubs.length) return [];
+  const slots = stubs.map((u) => u.order ?? 0).sort((a, b) => a - b);
+  const per = Math.ceil(slots.length / parts);
+  const out = [];
+  for (let b = 0; b < parts; b++) {
+    const chunk = slots.slice(b * per, (b + 1) * per);
+    if (chunk.length) out.push({ block: b + 1, from: chunk[0], to: chunk[chunk.length - 1] });
+  }
+  return out;
+}
+
+export async function writeTaughtWords(lang, root = process.cwd(), { blocks } = {}) {
   const data = await collect(lang, root);
   const file = path.join(root, "src", "data", lang, OUT);
-  fs.writeFileSync(file, render(lang, { ...data, blocks }));
+  fs.writeFileSync(file, render(lang, { ...data, blocks: blocks ?? blocksFromStubs(data.stubs) }));
   return { file, ...data };
 }
 
