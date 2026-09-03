@@ -49,6 +49,21 @@ test("Latin-script normalization: accents, ligatures, apostrophes fold to the AS
   assert.equal(normalizeReading("ca va", "fr"), "cava");
 });
 
+test("German ß folds to ss, so both spellings of a word match one reading", () => {
+  // ß is a BASE LETTER, not a diacritic: NFD leaves it standing, so without an
+  // explicit rule it survives normalization and the contract rejects the reading as
+  // non-latin. Authored de readings are written with ss (diestrasse), and a learner
+  // may type either spelling — Straße or Strasse — and match.
+  assert.equal(normalizeReading("die Straße", "de"), "diestrasse");
+  assert.equal(normalizeReading("die Strasse", "de"), "diestrasse");
+  assert.equal(normalizeReading("groß", "de"), "gross");
+  assert.equal(normalizeReading("heißen", "de"), "heissen");
+  assert.equal(normalizeReading("der Großvater", "de"), "dergrossvater");
+  // Umlauts keep folding on their own, and are optional for the learner.
+  assert.equal(normalizeReading("die Tür", "de"), "dietur");
+  assert.equal(normalizeReading("die Tur", "de"), "dietur");
+});
+
 test("checkReading (fr): real orthography, ASCII, or the exact front all pass", () => {
   const item = { front: "ça va", reading: "cava", lang: "fr" };
   assert.ok(checkReading("ça va", item));
