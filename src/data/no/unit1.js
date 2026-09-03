@@ -172,16 +172,31 @@
 //    further out: those frames were verified against the TOKENISER and never
 //    against the TAUGHT CORPUS, so they looked correct by the only test that had
 //    been run. CHECK A FRAME AGAINST BOTH.
-//    The four frames that are safe as the corpus stands (336 fronts, blocks 1+2),
-//    each measured REACHABLE, with the slot that owns the frame word:
-//        viktig å      (u1l4)   "Det er viktig å lære norsk."   6 tiles
-//        å like å      (u3l4)   "Jeg liker å lage mat."        5 tiles
-//        å begynne å   (u5l4)   "Vi begynner å spise nå."      5 tiles
-//        noe å         (u10l1)  "Jeg har noe å si."           5 tiles
+//    The four frames that are safe as the corpus stands (336 fronts, blocks 1+2).
+//    TWO SLOTS PER ROW, and they are not the same number — FRAME is where the
+//    frame word is taught, SENTENCE is the earliest unit the whole illustration
+//    is in scope, which is set by its OTHER words:
+//        frame           FRAME   SENTENCE  illustration                     tiles
+//        viktig å        u1l4    u1l4      "Det er viktig å lære norsk."      6
+//        å like å        u3l4    u6l3      "Jeg liker å lage kake."          5
+//        å begynne å     u5l4    u6l2      "Vi begynner å spise nå."        5
+//        noe å           u10l1   u12l3     "Jeg har noe å si."              5
+//    ⚠️ SO DO NOT COPY AN ILLUSTRATION VERBATIM INTO AN EARLIER UNIT. Having the
+//    frame available does not make the sample sentence available — `å si` is
+//    u12l3, so "Jeg har noe å si" is out of scope anywhere before it even though
+//    the `noe å` frame opens at u10l1. Take the SHAPE, write your own words.
+//    (The like-frame row previously read "Jeg liker å lage mat" — and `mat` is a
+//    front NOWHERE in the corpus, so the sentence illustrating a safe frame was
+//    itself a §6 violation. Third instance of the same class, caught by block 2,
+//    and it happened inside the paragraph that says CHECK A FRAME AGAINST BOTH.
+//    That is the argument for the habit, not against it: the list keeps going
+//    stale, the check does not.)
 //    Want prøve or pleie? Teach the frame verb first — that is allowed, it just
-//    has to be a card before it is an example. And note the modals ARE all taught
-//    (å kunne / å ville / å skulle / å måtte, u13) — they are fine in examples,
-//    they simply never restore reachability, because Norwegian drops the å.
+//    has to be a card before it is an example. And the modals are fine to USE in
+//    examples — block 2 teaches SIX, all at u13l2: å kunne, å ville, å skulle,
+//    å måtte, å burde, å få. They simply never restore reachability, because
+//    Norwegian drops the å after them. "Do not chase modals for the router" is
+//    not "do not use modals".
 //    BUT REACHABILITY IS NOT THE GOAL AND DO NOT REWRITE GOOD SENTENCES FOR IT.
 //    The present tense is what an A1 learner actually produces and is the entire
 //    payoff of §2, the card is hash-gated to a 25% share, and block 2 measured the
