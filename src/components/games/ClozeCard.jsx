@@ -27,7 +27,7 @@ export default function ClozeCard({ item, allItems, onGraded, particle = false }
   const [picked, setPicked] = useState(null);
   // Reinforce ~1s after picking (respects the auto-pronounce setting). On a particle
   // card the reinforcement chains the WORD then the PARTICLE (かさ → を = "kasa wo").
-  const { reinforce } = useItemAudio(item, { autoplay: false });
+  const { reinforce, settled } = useItemAudio(item, { autoplay: false });
 
   // The kana item id whose clip is the correct particle's SOUND, to append after the
   // word on a particle card. null if it can't be resolved (then just the word plays).
@@ -117,8 +117,13 @@ export default function ClozeCard({ item, allItems, onGraded, particle = false }
         })}
       </div>
 
+      {/* Continue is not enabled until the word has actually been heard: the
+          reinforcement clip plays ~1s after the answer, and dismissing the card
+          used to outrun it. `settled` is true whenever nothing will play (audio
+          off, no clip, WebDriver), so it can never strand the learner. */}
       {answered && (
         <button
+          disabled={!settled}
           onClick={() => onGraded(grade)}
           style={{ padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
         >

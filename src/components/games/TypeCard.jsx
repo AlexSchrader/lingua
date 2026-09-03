@@ -132,7 +132,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
   // whether right or wrong — so the learner registers the result, then hears the
   // target. Respects the setting; autoplay:false so a recall prompt never speaks the
   // answer before they type; the pending play cancels if they advance first.
-  const { reinforce } = useItemAudio(item, { autoplay: false });
+  const { reinforce, settled } = useItemAudio(item, { autoplay: false });
 
   // Other senses of this word, for the "also means" note after a meaning answer —
   // e.g. answer "rice" for ごはん → "also means: meal". Meaning mode + vocab only.
@@ -354,6 +354,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
         </div>
       ) : (
         <button
+          disabled={!settled}
           onClick={() => onGraded(grade)}
           style={{
             padding: 16,

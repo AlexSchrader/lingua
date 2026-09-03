@@ -19,6 +19,15 @@ const clipUrl = (lang, id) => `/audio/${lang}/${id}.mp3`;
 // want to play on demand — via play() (manual) or reinforce() (delayed, post-answer).
 export function useItemAudio(item, { autoplay = true } = {}) {
   const [active, setActive] = useState(false);
+  // Has the post-answer reinforcement finished? Cards gate their Continue button on
+  // this, so the learner HEARS the word before the card can be dismissed — answering
+  // and moving on used to outrun the audio entirely.
+  //
+  // Defaults TRUE and only ever goes false while a reinforcement is actually pending,
+  // so every path that plays nothing — audio off, no clip, WebDriver, a card that
+  // never reinforces — leaves Continue enabled immediately. Nothing can be blocked by
+  // a sound that was never going to play.
+  const [settled, setSettled] = useState(true);
   const audioRef = useRef(null);
   const timerRef = useRef(null);
   // The "auto-play pronunciation" preference. play() (manual, e.g. the speaker
@@ -29,6 +38,9 @@ export function useItemAudio(item, { autoplay = true } = {}) {
     if (timerRef.current) { clearTimeout(timerRef.current); timerRef.current = null; }
     if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
     setActive(false);
+    // Never strand the gate closed: a stopped clip is a finished clip as far as
+    // Continue is concerned (unmount, item change, or a second reinforce).
+    setSettled(true);
   }
 
   // Play a sequence of clip URLs back-to-back (each starts when the prior ends) — so
@@ -37,9 +49,13 @@ export function useItemAudio(item, { autoplay = true } = {}) {
   function playUrls(urls) {
     if (IS_WEBDRIVER || !urls.length) return;
     stop();
+    // stop() reopens the gate; we are about to play, so close it again. Ordering
+    // matters: without this the gate opened the instant playback STARTED, which
+    // is the opposite of waiting for it to finish.
+    setSettled(false);
     let i = 0;
     const next = () => {
-      if (i >= urls.length) { setActive(false); audioRef.current = null; return; }
+      if (i >= urls.length) { setActive(false); setSettled(true); audioRef.current = null; return; }
       const a = new Audio(urls[i++]);
       audioRef.current = a;
       a.onplay = () => setActive(true);
@@ -58,7 +74,9 @@ export function useItemAudio(item, { autoplay = true } = {}) {
   // whose sound to append). Respects the setting; the pending play is cancelled by
   // stop() on unmount / next item, so it never bleeds onto the next card.
   function reinforce({ delay = REINFORCE_DELAY_MS, then = [] } = {}) {
+    // Nothing will play, so nothing to wait for — leave the gate open.
     if (!enabled || IS_WEBDRIVER) return;
+    setSettled(false);
     if (timerRef.current) clearTimeout(timerRef.current);
     const urls = [clipUrl(item.lang, item.id), ...then.map((id) => clipUrl(item.lang, id))];
     timerRef.current = setTimeout(() => { timerRef.current = null; playUrls(urls); }, delay);
@@ -69,5 +87,5 @@ export function useItemAudio(item, { autoplay = true } = {}) {
   useEffect(() => { if (autoplay && enabled) play(); }, [item.id]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => () => stop(), []); // cleanup on unmount
 
-  return { play, playIfEnabled, reinforce, active };
+  return { play, playIfEnabled, reinforce, active, settled };
 }

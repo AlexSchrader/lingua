@@ -20,7 +20,7 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
   const listening = audioFirst && !revealed;
   // Reinforce the pronunciation ~1s after an answer is in (respects the auto-pronounce
   // preference). autoplay:false so a plain choice never speaks the answer up front.
-  const { reinforce } = useItemAudio(item, { autoplay: false });
+  const { reinforce, settled } = useItemAudio(item, { autoplay: false });
 
   // Options field: reverse recognition and listening-kana both offer GLYPH options
   // (the answer is the Japanese); every other case uses the normal field (meaning /
@@ -112,8 +112,13 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
         })}
       </div>
 
+      {/* Continue is not enabled until the word has actually been heard: the
+          reinforcement clip plays ~1s after the answer, and dismissing the card
+          used to outrun it. `settled` is true whenever nothing will play (audio
+          off, no clip, WebDriver), so it can never strand the learner. */}
       {answered && (
         <button
+          disabled={!settled}
           onClick={() => onGraded(grade)}
           style={{ padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
         >
