@@ -22,7 +22,7 @@ export const FR_UNIT7 = {
         { id: "fr-u7l1-mercredi", type: "vocab", front: "mercredi", reading: "mercredi", meaning: "Wednesday", example: { jp: "Mercredi, je mange avec Marie.", en: "On Wednesday I eat with Marie." }, drill: { jp: "Mercredi je mange avec Marie", en: "Wednesday I eat with Marie" }, accept: ["wednesday"] },
         { id: "fr-u7l1-jeudi", type: "vocab", front: "jeudi", reading: "jeudi", meaning: "Thursday", example: { jp: "Jeudi, je vais au parc.", en: "On Thursday I go to the park." }, drill: { jp: "Jeudi je vais au parc", en: "Thursday I go to the park" }, accept: ["thursday"] },
         { id: "fr-u7l1-vendredi", type: "vocab", front: "vendredi", reading: "vendredi", meaning: "Friday", example: { jp: "Vendredi, je bois un café avec Paul.", en: "On Friday I have a coffee with Paul." }, drill: { jp: "Vendredi je bois un café", en: "Friday I drink a coffee" }, accept: ["friday"] },
-        { id: "fr-u7l1-samedi", type: "vocab", front: "samedi", reading: "samedi", meaning: "Saturday", example: { jp: "Samedi ! Je vais à la ville !", en: "Saturday! I'm going into town!" }, drill: { jp: "Samedi je vais à la ville", en: "Saturday I go into town" }, accept: ["saturday"] },
+        { id: "fr-u7l1-samedi", type: "vocab", front: "samedi", reading: "samedi", meaning: "Saturday", example: { jp: "Samedi ! Je vais en ville !", en: "Saturday! I'm going into town!" }, drill: { jp: "Samedi je vais en ville", en: "Saturday I go into town" }, accept: ["saturday"] },
       ],
     },
     {
@@ -56,7 +56,7 @@ export const FR_UNIT7 = {
         { id: "fr-u7l3-lematin", type: "vocab", front: "le matin", reading: "lematin", meaning: "morning", example: { jp: "Le matin, je bois un café.", en: "In the morning I drink a coffee." }, drill: { jp: "Le matin je bois un café", en: "In the morning I drink a coffee" }, accept: ["the morning"] },
         { id: "fr-u7l3-lesoir", type: "vocab", front: "le soir", reading: "lesoir", meaning: "evening", example: { jp: "Le soir, je mange avec ma famille.", en: "In the evening I eat with my family." }, drill: { jp: "Le soir je mange avec ma famille", en: "In the evening I eat with my family" }, accept: ["the evening"] },
         { id: "fr-u7l3-maintenant", type: "vocab", front: "maintenant", reading: "maintenant", meaning: "now", example: { jp: "Je vais à la gare maintenant.", en: "I'm going to the station now." }, drill: { jp: "Je vais à la gare maintenant", en: "I'm going to the station now" }, accept: ["right now"] },
-        { id: "fr-u7l3-quand", type: "vocab", front: "quand", reading: "quand", meaning: "when", example: { jp: "Quand ? Maintenant ?", en: "When? Now?" }, drill: { jp: "Quand est le train", en: "When is the train" }, accept: [] },
+        { id: "fr-u7l3-quand", type: "vocab", front: "quand", reading: "quand", meaning: "when", example: { jp: "Quand ? Maintenant ?", en: "When? Now?" }, drill: { jp: "C'est quand le week-end", en: "When is the weekend" }, accept: [] },
         { id: "fr-u7l3-lheure", type: "vocab", front: "l'heure", reading: "lheure", meaning: "hour", example: { jp: "Excusez-moi, l'heure, s'il vous plaît ?", en: "Excuse me, the time, please?" }, drill: { jp: "L'heure s'il vous plaît", en: "The time please" }, accept: ["the hour", "time", "the time"], hint: "The h is silent, so le squishes: l'heure. Asking the time politely = l'heure, s'il vous plaît ?" },
       ],
     },
