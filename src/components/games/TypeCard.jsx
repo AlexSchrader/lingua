@@ -4,6 +4,7 @@ import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
 import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji, meaningVariants } from "../../store/answer.js";
 import { langName } from "../../data/languages.js";
+import { isJapaneseItem } from "../../store/itemLang.js";
 import { sfxCorrect, sfxWrong, sfxAlmost } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 import { useStore } from "../../store/useStore.js";
@@ -68,7 +69,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
   const isKana = item.type === "kana";
   // Latin-script languages (es/fr) have no rōmaji/kana split — the word IS its
   // letters — so the ask-lines drop the Japanese-specific keyboard framing.
-  const latin = (item.lang ?? "ja") !== "ja";
+  const latin = !isJapaneseItem(item);
   const noSpeed = useStore((s) => s.settings?.noSpeedPressure ?? false);
   // Dictation "Can't hear it?" escape: reveal the KANA and switch to typing the
   // rōmaji. Showing the kana isn't the answer (the answer is the rōmaji reading), and

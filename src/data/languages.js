@@ -1,15 +1,18 @@
-// The language catalog — order-agnostic. There is NO prescribed path between
-// languages: a learner starts any one WITH CONTENT, and once a started language
-// reaches A1 they may add another, in any order — the "one at a time, earn the
-// next" rule lives in canAddLanguage (useStore), not in a hardcoded cascade.
-// `target` is the goal CEFR (all target B2 per LANGUAGES.md). Add a language = one
-// entry here; it shows as "planned / coming soon" until its first unit ships (isLive
-// is derived from UNITS, never stored), then flips live automatically. See LANGUAGES.md.
+// The language catalog — FLAT and order-agnostic. There is no starter language, no
+// tier, and no "featured" set: entries are listed alphabetically by name so the file
+// itself expresses no preference. Which languages a learner can pick is DERIVED —
+// `isLive()` (does it have playable content?) plus `canAddLanguage()` (the earn-A1
+// rule) — never encoded here. Ordering used to put the authored languages (ja, es,
+// fr) at the top, which read as a recommended path and was really just a record of
+// which crews had shipped; a learner has no reason to care. `target` is the goal CEFR
+// (all B2 per LANGUAGES.md). Adding a language = one entry; it shows as "planned"
+// until its first unit ships, then flips live automatically.
 
-// Display name for a language id — for card copy that must not hardcode
-// "Japanese" now that more than one language can be live ("Type it in French").
+// Display name for a language id. Falls back to the id itself — NEVER to a language
+// name. A missing entry is a bug in the catalog, and printing "Japanese" for an
+// unknown id hid exactly that while telling the learner something false.
 export const langName = (id) =>
-  LANGUAGES.find((l) => l.id === id)?.name ?? "Japanese";
+  LANGUAGES.find((l) => l.id === id)?.name ?? id ?? "";
 
 // An entry is {id, name, flag, target} and nothing else — enforced by contract.js
 // and tests/unit/languages.test.mjs. Entries used to also carry `unlock: {lang,
@@ -19,35 +22,36 @@ export const langName = (id) =>
 // starting language, when what actually decides availability is `isLive` (derived
 // from content) plus `canAddLanguage` (the earn-A1 rule). Removed rather than left at
 // null, so there is no dead cascade shape for the next language to be modelled on.
+//
+// FLAGS: the convention is the language's origin country where one is uncontested
+// (Portuguese 🇵🇹 not 🇧🇷, Spanish 🇪🇸 not 🇲🇽, English 🇬🇧). Pan-regional languages take
+// 🌍 rather than misrepresent themselves with one country's flag — a display choice
+// to revisit deliberately, never a fact about the language.
 export const LANGUAGES = [
-  // Live — has content today.
-  { id: "ja", name: "Japanese", flag: "🇯🇵", target: "B2" },
-
-  // Planned · Latin script (lowest lift — no script-teaching build).
-  { id: "es", name: "Spanish", flag: "🇪🇸", target: "B2" },
+  { id: "nl", name: "Dutch", flag: "🇳🇱", target: "B2" },
+  { id: "en", name: "English", flag: "🇬🇧", target: "B2" },
   { id: "fr", name: "French", flag: "🇫🇷", target: "B2" },
   { id: "de", name: "German", flag: "🇩🇪", target: "B2" },
-  { id: "it", name: "Italian", flag: "🇮🇹", target: "B2" },
-  { id: "pt", name: "Portuguese", flag: "🇵🇹", target: "B2" },
-  { id: "no", name: "Norwegian", flag: "🇳🇴", target: "B2" },
-  { id: "sv", name: "Swedish", flag: "🇸🇪", target: "B2" },
-  { id: "nl", name: "Dutch", flag: "🇳🇱", target: "B2" },
-  { id: "pl", name: "Polish", flag: "🇵🇱", target: "B2" },
-  { id: "tr", name: "Turkish", flag: "🇹🇷", target: "B2" },
-  { id: "id", name: "Indonesian", flag: "🇮🇩", target: "B2" },
-  { id: "vi", name: "Vietnamese", flag: "🇻🇳", target: "B2" },
-
-  // Planned · own script (medium lift — a real script-teaching build).
-  { id: "ko", name: "Korean", flag: "🇰🇷", target: "B2" },
-  { id: "ru", name: "Russian", flag: "🇷🇺", target: "B2" },
-
-  // Planned · pan-regional (Latin script). Flag is a placeholder — a single country
-  // flag misrepresents these, so 🌍 stands in until a deliberate label is chosen.
-  { id: "sw", name: "Swahili", flag: "🌍", target: "B2" },
-  { id: "yo", name: "Yoruba", flag: "🌍", target: "B2" },
-  { id: "tw", name: "Twi", flag: "🌍", target: "B2" },
-
-  // Planned · logographic / non-Latin (highest lift — native review a hard gate).
-  { id: "zh", name: "Mandarin", flag: "🇨🇳", target: "B2" },
+  // The only creole with an ISO 639-1 code, which the 2-char id convention requires
+  // (CONTENT.md → Language). Jamaican Patois (jam), Louisiana Creole (lou) and
+  // Mauritian (mfe) would each need that rule waived first.
+  { id: "ht", name: "Haitian Creole", flag: "🇭🇹", target: "B2" },
+  { id: "ha", name: "Hausa", flag: "🌍", target: "B2" },
   { id: "hi", name: "Hindi", flag: "🇮🇳", target: "B2" },
+  { id: "id", name: "Indonesian", flag: "🇮🇩", target: "B2" },
+  { id: "it", name: "Italian", flag: "🇮🇹", target: "B2" },
+  { id: "ja", name: "Japanese", flag: "🇯🇵", target: "B2" },
+  { id: "ko", name: "Korean", flag: "🇰🇷", target: "B2" },
+  { id: "zh", name: "Mandarin", flag: "🇨🇳", target: "B2" },
+  { id: "no", name: "Norwegian", flag: "🇳🇴", target: "B2" },
+  { id: "pl", name: "Polish", flag: "🇵🇱", target: "B2" },
+  { id: "pt", name: "Portuguese", flag: "🇵🇹", target: "B2" },
+  { id: "ru", name: "Russian", flag: "🇷🇺", target: "B2" },
+  { id: "es", name: "Spanish", flag: "🇪🇸", target: "B2" },
+  { id: "sw", name: "Swahili", flag: "🌍", target: "B2" },
+  { id: "sv", name: "Swedish", flag: "🇸🇪", target: "B2" },
+  { id: "tr", name: "Turkish", flag: "🇹🇷", target: "B2" },
+  { id: "tw", name: "Twi", flag: "🌍", target: "B2" },
+  { id: "vi", name: "Vietnamese", flag: "🇻🇳", target: "B2" },
+  { id: "yo", name: "Yoruba", flag: "🌍", target: "B2" },
 ];

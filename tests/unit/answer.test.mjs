@@ -13,20 +13,22 @@ import {
 } from "../../src/store/answer.js";
 
 test("macron folding: long-vowel forms converge", () => {
-  assert.equal(normalizeReading("ohayō"), normalizeReading("ohayou"));
-  assert.equal(normalizeReading("ohayō"), normalizeReading("ohayoo"));
-  assert.equal(normalizeReading("sayōnara"), normalizeReading("sayounara"));
-  assert.equal(normalizeReading("sensei"), normalizeReading("sensē"));
+  assert.equal(normalizeReading("ohayō", "ja"), normalizeReading("ohayou", "ja"));
+  assert.equal(normalizeReading("ohayō", "ja"), normalizeReading("ohayoo", "ja"));
+  assert.equal(normalizeReading("sayōnara", "ja"), normalizeReading("sayounara", "ja"));
+  assert.equal(normalizeReading("sensei", "ja"), normalizeReading("sensē", "ja"));
 });
 
 test("a genuine reading miss still fails", () => {
-  assert.notEqual(normalizeReading("ohayou"), normalizeReading("konnichiwa"));
+  assert.notEqual(normalizeReading("ohayou", "ja"), normalizeReading("konnichiwa", "ja"));
 });
 
 test("vowel folding is Japanese-only: it stays off for other languages", () => {
-  // Default (and explicit "ja") folds long vowels — Japanese rōmaji behavior.
-  assert.equal(normalizeReading("sensei"), "sense");
+  // Explicit "ja" folds long vowels — Japanese rōmaji behavior. Omitting the language
+  // no longer means Japanese: it means "no language-specific folding", so a caller that
+  // forgets cannot silently apply one language's rules to another's reading.
   assert.equal(normalizeReading("sensei", "ja"), "sense");
+  assert.equal(normalizeReading("sensei"), "sensei", "no language → no Japanese folding");
   // A Latin-script language must NOT fold vowel sequences, or real words break:
   // Spanish "leer" (to read) would collapse to "ler", "creer" to "crer".
   assert.equal(normalizeReading("leer", "es"), "leer");
@@ -70,7 +72,7 @@ test("checkProduce (fr): typed letters always count — the kana on-ramp is ja-o
 });
 
 test("checkReading accepts romaji (folded) or the kana itself", () => {
-  const item = { front: "おはよう", reading: "ohayō" };
+  const item = { lang: "ja", front: "おはよう", reading: "ohayō" };
   assert.ok(checkReading("ohayou", item));
   assert.ok(checkReading("OHAYŌ", item));
   assert.ok(checkReading("おはよう", item)); // typed the kana
@@ -178,7 +180,7 @@ test("gradeSpoken: lenient reading match (speaking is bonus, never harsh)", () =
 });
 
 test("gradeSpoken: accepts romaji + English-homophone transcripts (STT script drift)", () => {
-  const ohayou = { front: "おはよう", reading: "ohayō" };
+  const ohayou = { lang: "ja", front: "おはよう", reading: "ohayō" };
   assert.equal(gradeSpoken("ohayou", ohayou), "good"); // clean romaji reading
   assert.equal(gradeSpoken("Ohio", ohayou), "hard");   // STT heard the English homophone of a correctly-said word
   assert.equal(gradeSpoken("banana", ohayou), "again"); // genuinely wrong

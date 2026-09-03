@@ -4,6 +4,7 @@ import { buildOptions } from "../../store/distractors.js";
 import { deriveGrade } from "../../store/grading.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { blankExample, blankParticle, particleChoices, usesFunctionWords } from "../../store/cardRouting.js";
+import { isJapaneseItem } from "../../store/itemLang.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 
 // Cloze (rung RECALLED, in context): a token is blanked out of the item's own
@@ -47,7 +48,7 @@ export default function ClozeCard({ item, allItems, onGraded, particle = false }
   // same slot with articles/prepositions, so the prompt says "little word" there.
   const funcWords = usesFunctionWords(item);
   // The JP font only applies to Japanese text — French renders in the body face.
-  const tokenFont = (item.lang ?? "ja") === "ja" ? F.jp : F.body;
+  const tokenFont = isJapaneseItem(item) ? F.jp : F.body;
 
   return (
     <div data-testid="cloze-card" data-card-kind={particle ? "particle:choice" : "cloze:choice"} style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>

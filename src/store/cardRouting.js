@@ -1,6 +1,7 @@
 import { KANJIVG } from "../data/kanjivg.js";
 import { AUDIO_IDS } from "../data/audioManifest.js";
-import { conjugate } from "./conjugate.js";
+import { conjugateIn } from "./conjugate.js";
+import { isJapaneseItem } from "./itemLang.js";
 
 // Share of eligible (rung ≤ 1, has-audio) reviews that present as a listening
 // card instead of a plain choice — a tuning knob, not structure. Kept here so
@@ -60,7 +61,7 @@ export function shouldTypeProduce(item) {
 // correct by typing back exactly what was displayed. They now fall through to
 // type:meaning, which actually tests recall.
 export function shouldTypeReading(item) {
-  return item?.type === "vocab" && (item.lang ?? "ja") === "ja" && hash01(item.id) < READING_SHARE;
+  return item?.type === "vocab" && isJapaneseItem(item) && hash01(item.id) < READING_SHARE;
 }
 
 // --- dictation (hear it → type the reading) ----------------------------------
@@ -80,8 +81,9 @@ export function shouldListenType(item) {
 // a plain `includes(front)` misses "Bonjour" for front "bonjour", and tokenizing
 // is trivially reliable (split on spaces) instead of needing a tokenizer. So the
 // guards branch on script shape rather than leaving these cards dark for every
-// non-Japanese language. Missing `lang` → "ja" (pre-i18n fixtures/saves).
-const isLatin = (item) => (item?.lang ?? "ja") !== "ja";
+// non-Japanese language. The language is resolved by itemLang() — from the stamp, or
+// from the item id for a pre-i18n save — never defaulted.
+const isLatin = (item) => !isJapaneseItem(item);
 const isLetter = (ch) => !!ch && /\p{L}/u.test(ch);
 
 // Is this item's `reading` worth SHOWING the learner?
@@ -208,8 +210,35 @@ const CORE_PARTICLES = ["は", "が", "を", "に", "へ", "で", "と", "も", 
 // fall through to a card that tests something. The invariant for this set is simple
 // and worth keeping: every member must be a preposition GOVERNED by the word before
 // the blank. `tests/unit/fr-cards.test.mjs` locks it against the real corpus.
+//
+// WIDENING THIS LIST IS A CORPUS QUESTION, NOT A DICTIONARY ONE (2026-08-29).
+// Ten French candidates were checked against every real example that would newly
+// route. Three earned their place; the rest are adverbial — they attach to the
+// clause, not to the item, so blanking one grades the learner on a fact about a
+// word that was never tested:
+//   ADDED    entre (22 items: "la comparaison ＿＿ les deux villes", "l'écart ＿＿",
+//                   "le fossé ＿＿" — relational nouns whose complement IS entre)
+//            par   (2: "ému ＿＿ ce beau moment", "abîmé ＿＿ la pluie" — the
+//                   passive agent, governed by the participle)
+//            contre (1: "se prémunir ＿＿ ce genre de danger")
+//   REJECTED depuis ("la poésie depuis son enfance" — temporal, belongs to the verb)
+//            pendant ("la crête pendant plusieurs kilomètres" — duration, ditto)
+//            malgré ("robuste malgré son âge" — concessive, attaches to the clause)
+//            chez ("provisoirement chez un ami" — governed by loger, not the adverb)
+//            vers · sous · selon — zero occurrences after any front; nothing to judge
+// One known imperfect instance ships with `entre`: fr-u119l1-flagrant, "Le contraste
+// est flagrant ＿＿ ses paroles et ses actes" — there entre is governed by contraste,
+// not by the adjective. It sits below the 0.75 routing band so it cannot surface as a
+// card today; logged for Curriculum as an example rewrite, not patched in the engine.
+//
+// SPANISH IS DELIBERATELY UNCHANGED. All eleven proposed additions (hasta, desde,
+// entre, sobre, hacia, según, contra, durante, tras, ante, bajo) occur ZERO times
+// after a front in the current es corpus, so widening buys nothing measurable and
+// there would be no evidence to judge governance by — the one thing this list needs.
+// The es enforcement test now exists (tests/unit/es-cards.test.mjs), so the widening
+// can be redone with evidence once es A2 lands.
 const FUNCTION_WORDS = {
-  fr: ["de", "à", "au", "avec", "sans", "pour", "dans", "sur", "en"],
+  fr: ["de", "à", "au", "avec", "sans", "pour", "dans", "sur", "en", "entre", "par", "contre"],
   es: ["de", "a", "con", "sin", "en", "para", "por"],
 };
 
@@ -366,12 +395,18 @@ export function shouldSentence(item) {
 // share — a conjForm item's whole purpose IS the conjugation drill, so it always
 // routes to the conjugate card. Guarded on the engine actually producing a form,
 // so a mistagged verb degrades safely to the normal produce cards instead.
+// `group` is REQUIRED for Japanese and optional elsewhere: ja cannot infer the verb
+// class from the ending (帰る looks ichidan, is godan), while a Latin infinitive
+// ending IS the class, so conjugate-latin.js derives it. Demanding the tag off ja
+// would leave the card dark until every verb was re-tagged, for no safety gained --
+// the final guard is the same either way: the engine actually produced a form.
 export function shouldConjugate(item) {
+  const lang = item?.lang ?? "ja";
   return (
     item?.type === "vocab" &&
     !!item.conjForm &&
-    !!item.group &&
-    conjugate(item.front, item.group, item.conjForm) != null
+    (lang !== "ja" || !!item.group) &&
+    conjugateIn(lang, item.front, item.group, item.conjForm) != null
   );
 }
 
@@ -389,7 +424,7 @@ export function shouldConjugate(item) {
 // prompted by the meaning) is a genuinely good card, but it's a design decision
 // with real edges (accent and space tiles), so it's logged rather than assumed.
 export function canBuildReading(item) {
-  return (item?.lang ?? "ja") === "ja";
+  return isJapaneseItem(item);
 }
 
 // --- spoken production (say it aloud) ----------------------------------------

@@ -20,6 +20,12 @@ let uploadTimer = null;
 // from being uploaded over a real profile — chooseSource only runs at sign-in, so
 // the debounced upload path needs its own guard. See uploadNow / pullFromCloud.
 let cloudHasProgress = false;
+// The reset receipt this session has already accounted for. Seeded at sign-in from
+// whatever the device already carried, so only a reset performed AFTER that — a
+// live "Reset everything" tap — can unlock the empty-upload guard below. A stale
+// receipt sitting in a restored blob is therefore inert, which is what keeps the
+// guard as strong as it was against torn/fresh states.
+let seenResetAt = 0;
 
 function blobNow() {
   return extractProgress(useStore.getState());
@@ -45,9 +51,17 @@ async function uploadNow() {
   // and chooseSource only guards sign-in, so without this a transient empty local
   // silently WIPES the learner's cloud save (which is exactly what happened once).
   // A genuinely new user (cloud empty → cloudHasProgress false) still pushes fine.
-  if (!hasMeaningfulProgress(blob) && cloudHasProgress) {
+  // ...UNLESS the learner emptied it on purpose. A reset is a real edit that
+  // happens to be empty, and refusing it is why "Reset everything" never survived a
+  // reopen: the wipe stayed on the device, and the next sign-in pulled the old
+  // profile back down. One-shot by construction — the receipt must be NEWER than
+  // the one this session started with, so only a live reset opens the gate.
+  const resetAt = Number(blob?.resetAt) || 0;
+  const deliberate = resetAt > seenResetAt;
+  if (!hasMeaningfulProgress(blob) && cloudHasProgress && !deliberate) {
     console.warn("[sync] refused to upload an empty profile over a cloud with real progress");
     useStore.getState().setAuth({ status: "synced", error: null });
+    useStore.getState().resolveSyncNotice(false, "protected save");
     return;
   }
   lastSerialized = JSON.stringify(blob);
@@ -57,10 +71,15 @@ async function uploadNow() {
     version: PERSIST_VERSION,
     updated_at: new Date().toISOString(),
   });
-  if (!error) cloudHasProgress = hasMeaningfulProgress(blob);
+  if (!error) {
+    cloudHasProgress = hasMeaningfulProgress(blob);
+    seenResetAt = Math.max(seenResetAt, resetAt); // receipt spent
+  }
   useStore.getState().setAuth(
     error ? { status: "error", error: error.message } : { status: "synced", error: null }
   );
+  // Tell the learner, but only if they were owed an answer (markImportantChange).
+  useStore.getState().resolveSyncNotice(!error, error?.message);
 }
 
 function scheduleUpload() {
@@ -103,6 +122,9 @@ async function onSignIn(u) {
     // Seed the safety interlock from the real cloud state BEFORE any local write can
     // fire an upload — this is what protects a real cloud from a torn local.
     cloudHasProgress = hasMeaningfulProgress(cloud?.blob);
+    // Anything the device already carried is history as far as the upload guard is
+    // concerned; only a reset performed from here on counts as live intent.
+    seenResetAt = Number(useStore.getState().resetAt) || 0;
     const local = { updatedAt: useStore.getState().lastModified ?? 0, blob: blobNow() };
     const decision = chooseSource(local, cloud);
     if (decision === "pull" && cloud) {
@@ -144,7 +166,12 @@ async function pullFromCloud() {
     // progress, even when the cloud row is newer (an empty profile pushed from a
     // torn session carries a fresh timestamp). Protects this device from a remote
     // wipe — the mirror of the uploadNow guard.
-    if (!hasMeaningfulProgress(cloud.blob) && hasMeaningfulProgress(blobNow())) {
+    // ...unless that empty cloud is another device's deliberate reset, newer than
+    // anything this device has done. Same asymmetry as the upload guard, same test:
+    // an explicit, timestamped receipt beats a merely-empty state, and nothing else does.
+    const remoteReset = Number(cloud.blob?.resetAt) || 0;
+    const deliberateRemote = remoteReset > (Number(useStore.getState().resetAt) || 0) && remoteReset > localAt;
+    if (!hasMeaningfulProgress(cloud.blob) && hasMeaningfulProgress(blobNow()) && !deliberateRemote) {
       console.warn("[sync] refused to pull an empty cloud over local real progress");
       return;
     }
@@ -165,6 +192,7 @@ function onSignOut() {
   currentUser = null;
   clearTimeout(uploadTimer);
   cloudHasProgress = false; // re-seeded from the fetch on the next sign-in
+  seenResetAt = 0; // re-seeded on the next sign-in, from that device's own receipt
   // Local progress stays as the offline cache; next sign-in re-syncs it. Reset
   // initialSyncDone so the next sign-in waits out ITS first pull before the
   // onboarding gate decides anything.

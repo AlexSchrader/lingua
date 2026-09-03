@@ -51,8 +51,8 @@ test("buildOptions never crosses languages — a French card offers only French 
   const texts = opts.map((o) => o.text);
   assert.ok(!texts.includes("cat") && !texts.includes("dog"), "no ja distractors on a fr card");
   assert.equal(opts.length, 4, "fr pool alone fills the card");
-  // And fixtures without a stamped lang keep matching ja items (pre-i18n behavior).
-  const bare = { id: "x", type: "vocab", front: "み", meaning: "see", unit: 1 };
+  // A pre-i18n save carries no `lang` but its ids do — so it still groups with ja.
+  const bare = { id: "ja-u1l1-mi", type: "vocab", front: "み", meaning: "see", unit: 1 };
   const opts2 = buildOptions(bare, items, 4);
   assert.ok(opts2.map((o) => o.text).some((t) => t === "cat" || t === "dog"));
 });

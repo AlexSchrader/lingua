@@ -28,6 +28,23 @@ function dueCard() {
   };
 }
 
+// PERSISTED SHAPE -- what the app itself writes, and what these fixtures must write.
+// `partialize` (useStore.js) stores a SLIM PROGRESS OVERLAY: `{ id: { rung, srs } }`
+// for TOUCHED items only. Item content is never persisted; `reconstructItems` rebuilds
+// the full deck from the curriculum seed on load and reads only rung/srs back.
+//
+// So a fixture lists the items it actually cares about, and nothing else:
+//   - an untouched item needs no entry -- it comes back from the seed at rung 0;
+//   - rung 0 is never reviewable (`isReviewable`, mastery.js), so "seed the whole
+//     corpus at rung 0" and "seed nothing" are the same fixture, and the queues
+//     behave identically either way.
+// These fixtures used to write every item in the corpus WITH its full content -- a
+// legacy shape the app stopped writing when the overlay landed (it overran mobile
+// Safari's ~5MB quota, the same bug, on real devices). Once ja+fr+es were all
+// authored, 6,394 full items passed that quota here too: `setItem` threw and took
+// 9 tests with it. Keep fixtures slim -- and if one needs to be big, it is testing
+// the wrong thing.
+
 // A card that was scheduled in the past with a far-future due date (not due).
 // Rung-1+ items with this card won't appear in the review queue.
 function freshCard() {
@@ -57,6 +74,20 @@ const LANGUAGES = Object.fromEntries(
 );
 
 // 5 vocab already due, at mixed rungs → 3 multiple-choice + 2 typed reviews.
+// A learner who has started Japanese, and nothing else. Tests that assert Japanese
+// UI (unit names, the companion's tab) must say so: with 23 catalog entries and no
+// starter language, an app given no profile at all resolves to the first language
+// that HAS content, which is a catalog fact and not this test's intent.
+function japaneseLearner() {
+  return {
+    state: {
+      languages: LANGUAGES,
+      profile: { onboarded: true, displayName: "Test Learner", reason: null, reminderTime: null, languages: ["ja"], activeLang: "ja", languagesChosen: true },
+    },
+    version: 1,
+  };
+}
+
 function reviewState() {
   const v = [
     ["ja-u1l1-ohayou",     "おはよう",   "ohayō",      "good morning", 1],
@@ -73,6 +104,7 @@ function reviewState() {
     state: {
       items,
       languages: LANGUAGES,
+      profile: { onboarded: true, displayName: "Test Learner", reason: null, reminderTime: null, languages: ["ja"], activeLang: "ja", languagesChosen: true },
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },
       daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
@@ -136,6 +168,7 @@ function kindFixtureState() {
     state: {
       items,
       languages: LANGUAGES,
+      profile: { onboarded: true, displayName: "Test Learner", reason: null, reminderTime: null, languages: ["ja"], activeLang: "ja", languagesChosen: true },
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },
       daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
@@ -151,11 +184,12 @@ function cappedReviewFixture() {
   const seed = seedItems();
   const vocab = Object.values(seed).filter((it) => it.type === "vocab").slice(0, 25);
   const items = {};
-  for (const it of vocab) items[it.id] = { ...it, rung: 1, srs: dueCard() };
+  for (const it of vocab) items[it.id] = { rung: 1, srs: dueCard() };
   return {
     state: {
       items,
       languages: LANGUAGES,
+      profile: { onboarded: true, displayName: "Test Learner", reason: null, reminderTime: null, languages: ["ja"], activeLang: "ja", languagesChosen: true },
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },
       daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
@@ -177,16 +211,16 @@ function cappedReviewFixture() {
 // it tests the soft lock rather than the leak.
 function lockedWithNewFixture() {
   const seed = seedItems();
-  const items = {};
-  for (const [id, it] of Object.entries(seed)) items[id] = { ...it, rung: 0, srs: freshCard() };
   const jaVocab = Object.values(seed).filter((it) => it.type === "vocab" && it.lang === "ja");
-  for (const it of jaVocab.slice(-5)) {
-    items[it.id] = { ...items[it.id], rung: 1, srs: dueCard() };
-  }
+  // Only the debt is listed; every other item comes back new (rung 0) from the seed,
+  // which is exactly the "first lesson is still all-new" half of this fixture.
+  const items = {};
+  for (const it of jaVocab.slice(-5)) items[it.id] = { rung: 1, srs: dueCard() };
   return {
     state: {
       items,
       languages: LANGUAGES,
+      profile: { onboarded: true, displayName: "Test Learner", reason: null, reminderTime: null, languages: ["ja"], activeLang: "ja", languagesChosen: true },
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },
       daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
@@ -360,6 +394,7 @@ test("app mounts, no blank screen, no page errors", async ({ page }) => {
 });
 
 test("can navigate all four tabs", async ({ page }) => {
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(japaneseLearner()));
   await page.goto("/");
   for (const tab of ["Today", "Ladder", "Haruki", "Stats"]) {
     await page.getByRole("button", { name: tab, exact: true }).click();
@@ -412,6 +447,7 @@ test("Ladder word bank collects learned words, organized by unit", async ({ page
 });
 
 test("Ladder: a lesson expands to preview its items", async ({ page }) => {
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(japaneseLearner()));
   await page.goto("/");
   await page.getByRole("button", { name: "Ladder", exact: true }).click();
   // Expand the first unit, then its first lesson → the item list appears.
@@ -493,6 +529,7 @@ test("new words are taught, the loop completes, and it persists", async ({ page 
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
 
+  await page.addInitScript((json) => { if (!localStorage.getItem("lingua-v1")) localStorage.setItem("lingua-v1", json); }, JSON.stringify(japaneseLearner()));
   await page.goto("/");
   await page.getByTestId("start-session").click();
 
@@ -603,6 +640,79 @@ test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson se
   expect(errors).toEqual([]);
 });
 
+// The conjugate card used to be Japanese-only in three separate places -- the
+// engine (kana morphology), the contract's form vocabulary, and the router's
+// "must carry a group" guard -- so a French verb had nowhere to put an honest tag
+// and fr/es taught each conjugated form as its own vocab chunk instead. This drives
+// the real card in the real app for a LATIN language: the prompt is in French, the
+// engine produces the form, and grading accepts it.
+test("French: the conjugate card runs on a Latin-script verb", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await page.goto("/review?sandbox=1&card=conjugate&lang=fr");
+  const card = page.getByTestId("conjugate-card");
+  await card.waitFor({ state: "visible", timeout: 10000 });
+
+  // The prompt is tense x person in French -- not a ja form name, and not a raw id.
+  await expect(card).toContainText(/présent|futur|imparfait/);
+  await expect(card).not.toContainText(/godan|ichidan/);
+
+  await page.evaluate(() => window.__conjugate?.solve());
+  await page.getByRole("button", { name: /check/i }).click();
+  await expect(page.getByText("Correct!")).toBeVisible();
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+// "I reset my progress, closed the app, reopened it -- and it was all back."
+// The cloud half of that (the reset receipt beating a stale cloud row) is unit-tested
+// in tests/unit/sync.test.mjs, because a signed-in round trip needs a real Supabase.
+// What this covers is the half a browser can prove: the reset survives a reload, and
+// the learner is actually TOLD it saved rather than having to guess.
+test("Reset everything survives a reload, and says so", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  // Seed ONCE: addInitScript runs before EVERY navigation, reload included, so the
+  // unguarded form would re-inject the progress this test just deleted and "prove"
+  // the bug that isn't there.
+  await page.addInitScript(
+    (json) => { if (!localStorage.getItem("lingua-v1")) localStorage.setItem("lingua-v1", json); },
+    JSON.stringify(reviewState())
+  );
+
+  const touched = () =>
+    page.evaluate(() => {
+      const items = JSON.parse(localStorage.getItem("lingua-v1") ?? "{}")?.state?.items ?? {};
+      return Object.values(items).filter((it) => (it?.rung ?? 0) > 0).length;
+    });
+
+  await page.goto("/");
+  // Progress is really there to begin with -- otherwise this test proves nothing.
+  expect(await touched()).toBeGreaterThan(0);
+
+  await page.goto("/settings");
+  await page.getByRole("button", { name: "Reset all progress" }).click();
+  await page.getByRole("button", { name: "Reset everything" }).click();
+
+  // Signed out (no cloud in the smoke env) the honest answer is "this device" --
+  // never "saved to your account", which would be a lie about where it lives.
+  const toast = page.getByTestId("sync-toast");
+  await expect(toast).toBeVisible();
+  await expect(toast).toContainText(/saved on this device/i);
+  await expect(toast).not.toContainText(/your account/i);
+
+  // The receipt is stamped and persisted -- this is what the sync guards read.
+  const resetAt = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua-v1")).state.resetAt);
+  expect(resetAt).toBeGreaterThan(0);
+
+  // The actual complaint: reopen, and it must still be reset.
+  await page.reload();
+  expect(await touched(), "progress came back after a reload").toBe(0);
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
 // speak is now live: the coverage test above drives it via the rung-4 `iie`
 // fixture + playCard's speak hook, so the dormant-stub placeholder is retired.
 
@@ -619,6 +729,7 @@ function traceFreeFixtureState() {
         },
       },
       languages: LANGUAGES,
+      profile: { onboarded: true, displayName: "Test Learner", reason: null, reminderTime: null, languages: ["ja"], activeLang: "ja", languagesChosen: true },
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },
       daily: { date: todayISO(), reviewsCleared: false, lessonDone: false },
@@ -833,9 +944,8 @@ test("dev mode: expanded panel — sessions, moments, progress seeder", async ({
 // A French learner. `migrate` rebuilds every item from real content and keeps only
 // the persisted rung/srs, so the fixture carries ids and progress — not fronts.
 function frenchState() {
-  const seed = seedItems();
+  // No progress at all: every item comes back from the seed at rung 0.
   const items = {};
-  for (const [id, it] of Object.entries(seed)) items[id] = { ...it, rung: 0, srs: freshCard() };
   return {
     state: {
       items,
@@ -869,7 +979,7 @@ function debtInOtherLanguageState() {
   const seed = seedItems();
   const jaVocab = Object.values(seed).filter((it) => it.type === "vocab" && it.lang === "ja");
   for (const it of jaVocab.slice(0, 30)) {
-    st.state.items[it.id] = { ...st.state.items[it.id], rung: 1, srs: dueCard() };
+    st.state.items[it.id] = { rung: 1, srs: dueCard() };
   }
   return st;
 }
@@ -915,7 +1025,7 @@ test("a language keeps a reachable review path after the day's duty is met", asy
   const seed = seedItems();
   const frVocab = Object.values(seed).filter((it) => it.type === "vocab" && it.lang === "fr");
   for (const it of frVocab.slice(0, 40)) {
-    st.state.items[it.id] = { ...st.state.items[it.id], rung: 1, srs: dueCard() };
+    st.state.items[it.id] = { rung: 1, srs: dueCard() };
   }
   st.state.daily = { ...st.state.daily, reviewsCleared: true };
   await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(st));
@@ -945,10 +1055,9 @@ test("a capped backlog still says Cleared for the language just reviewed", async
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
   const seed = seedItems();
-  const items = {};
-  for (const [id, it] of Object.entries(seed)) items[id] = { ...it, rung: 0, srs: freshCard() };
   const jaVocab = Object.values(seed).filter((it) => it.type === "vocab" && it.lang === "ja");
-  for (const it of jaVocab.slice(0, 60)) items[it.id] = { ...items[it.id], rung: 1, srs: dueCard() };
+  const items = {};
+  for (const it of jaVocab.slice(0, 60)) items[it.id] = { rung: 1, srs: dueCard() };
   await page.addInitScript(
     (json) => localStorage.setItem("lingua-v1", json),
     JSON.stringify({

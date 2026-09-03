@@ -20,8 +20,19 @@
     />
     <style>
       * { box-sizing: border-box; }
-      html, body { margin: 0; padding: 0; height: 100%; overscroll-behavior: none; }
-      #root { height: 100dvh; }
+      /* The document itself NEVER scrolls. The app is a fixed shell -- pinned top
+         bar + pinned bottom nav -- and the only scroller is <main> inside
+         AppShell/PhaseShell. overflow:hidden here is what keeps a swipe from
+         dragging the whole shell, bars included; overscroll-behavior kills the
+         rubber-band on top of that. */
+      html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; overscroll-behavior: none; }
+      /* Must divide by --app-zoom exactly like the shells do (AppShell.jsx,
+         PhaseShell.jsx). Text size is applied as `zoom` on <html>, which scales
+         every length -- so a plain 100dvh here lays out one viewport tall and then
+         renders --app-zoom times taller than the screen (5% at default, 20% at
+         large). That leftover was real scrollable overflow on the document, which
+         is exactly the drag: the header and bottom nav went with it. */
+      #root { height: calc(100dvh / var(--app-zoom, 1)); }
       body { -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
       button { font-family: inherit; }
     </style>

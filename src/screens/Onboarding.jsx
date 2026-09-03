@@ -3,11 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
 import { requestReminderPermission, scheduleDailyReminder } from "../lib/reminders.js";
-import PlannedLanguages from "../components/PlannedLanguages.jsx";
 import { C, F } from "../theme.js";
 
-// First-run onboarding, two calm steps: (1) pick the language to learn — any of
-// them, even ones without lessons yet (they show "coming soon") — then (2) a
+// First-run onboarding, two calm steps: (1) pick the language to learn, then (2) a
 // name, a why, and an optional reminder. Everything's changeable later; nothing
 // here blocks. Picking a language STARTS it and makes it active; more languages
 // unlock once this one reaches A1 (handled on the Ladder).
@@ -21,7 +19,20 @@ const REASONS = [
   { key: "fun", label: "For the love of it", emoji: "🌱" },
 ];
 
-const hasContent = (id) => UNITS.some((u) => u.lang === id);
+// How many cards a language actually has, counting only PLAYABLE lessons — a
+// scaffolded language is all locked stubs and must count 0, not "20 units".
+const itemCount = (id) =>
+  UNITS.filter((u) => u.lang === id).reduce(
+    (n, u) => n + u.lessons.reduce((m, l) => m + (Array.isArray(l.items) ? l.items.length : 0), 0),
+    0
+  );
+
+// Every catalog entry is offered, all styled the same — the picker does not rank or
+// pre-judge languages, and there is no "coming soon" shelf to be filed onto. The card
+// count is the one honest signal, and a language with none simply does not respond to
+// a tap: nothing is selected, so nothing loads. Better a button that does nothing than
+// an app that boots into an empty language and looks broken.
+const CATALOG = LANGUAGES.map((l) => ({ ...l, cards: itemCount(l.id) }));
 
 export default function Onboarding() {
   const navigate = useNavigate();
@@ -68,7 +79,7 @@ export default function Onboarding() {
   }
 
   return (
-    <div style={{ minHeight: "calc(100dvh / var(--app-zoom, 1))", background: C.washi, color: C.ink, fontFamily: F.body, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24 }}>
+    <div style={{ minHeight: "calc(100dvh / var(--app-zoom, 1))", background: C.washi, color: C.ink, fontFamily: F.body, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24, overflowY: "auto" }}>
       <div style={{ width: "100%", maxWidth: 400, display: "flex", flexDirection: "column", gap: 22 }}>
         {(step > 0 || devMode) && (
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: -8 }}>
@@ -84,15 +95,16 @@ export default function Onboarding() {
               <div style={{ fontSize: 13, color: C.inkSoft, marginTop: 4 }}>Pick the one to start with. You'll unlock the next once you reach A1.</div>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {/* Only languages WITH content are selectable; the other ~19 fold into
-                  a "coming soon" expander so the picker isn't a wall of 20 options. */}
-              {LANGUAGES.filter((l) => hasContent(l.id)).map((l) => {
+            {/* 23 languages do not fit a phone screen, and the Continue button must
+                never be the thing that scrolls out of reach. The list scrolls inside
+                its own box; the action stays put. */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 10, maxHeight: "52vh", overflowY: "auto", padding: 2, margin: -2 }}>
+              {CATALOG.map((l) => {
                 const on = lang === l.id;
                 return (
                   <button
                     key={l.id}
-                    onClick={() => setLang(l.id)}
+                    onClick={() => l.cards > 0 && setLang(l.id)}
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -110,13 +122,14 @@ export default function Onboarding() {
                     <span style={{ fontSize: 28 }}>{l.flag}</span>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ fontSize: 16, fontWeight: 700, color: on ? C.aiDeep : C.ink }}>{l.name}</div>
-                      <div style={{ fontSize: 12, color: C.matcha, fontWeight: 600, marginTop: 2 }}>Available now</div>
+                      <div style={{ fontSize: 12, color: C.inkSoft, fontWeight: 600, marginTop: 2 }}>
+                        {l.cards.toLocaleString()} card{l.cards === 1 ? "" : "s"}
+                      </div>
                     </div>
                     <span style={{ fontSize: 12, color: C.inkSoft }}>→ {l.target}</span>
                   </button>
                 );
               })}
-              <PlannedLanguages langs={LANGUAGES.filter((l) => !hasContent(l.id))} />
             </div>
 
             <button

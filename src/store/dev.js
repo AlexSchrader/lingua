@@ -11,6 +11,7 @@ import { KANJIVG } from "../data/kanjivg.js";
 import { AUDIO_IDS } from "../data/audioManifest.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { newCard } from "./srs.js";
+import { conjugateIn } from "./conjugate.js";
 import { shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak, shouldCloze, shouldParticleCloze, canParticleCloze, shouldSentence, canBuildReading } from "./cardRouting.js";
 
 // The unlock code. Intentionally in the bundle — see note above.
@@ -116,6 +117,9 @@ function kindSpec(kind) {
     case "type:meaning":  return { rung: 2, pick: (it) => it.type === "vocab" && !shouldParticleCloze(it) && !shouldCloze(it) && !shouldListenType(it) && !shouldTypeReading(it) };
     case "type:produce":  return { rung: 3, pick: (it) => shouldTypeProduce(it) };
     case "sentence:build": return { rung: 3, pick: (it) => shouldSentence(it) };
+    // conjugate is language-shaped and handled in buildCardPreviewItems: ja picks a
+    // group-tagged verb, a Latin language picks a conjForm-tagged one (or falls back
+    // to a canonical verb, so the preview works before that content is authored).
     case "conjugate":     return { rung: 3, pick: (it) => it.type === "vocab" && !!it.group };
     case "build":         return { rung: 3, pick: (it) => it.type === "vocab" && canBuildReading(it) && !shouldTypeProduce(it) && !shouldSentence(it) };
     case "trace":         return { rung: 3, pick: (it) => isTraceable(it) };
@@ -126,12 +130,60 @@ function kindSpec(kind) {
 
 // Throwaway items map with a few items seeded to yield the given card kind, so the
 // Quick-card preview runs QUICK_CARD_COUNT examples of it (isolated, no real state).
+// Verbs the conjugate preview falls back to for a Latin language, with a form each.
+// Only used when the language has no conjForm-tagged content yet: a preview that
+// mined verb-looking fronts out of the corpus would happily conjugate `premier` and
+// `cahier`, and a demo that prints a wrong form is worse than no demo. These are
+// covered by tests/unit/conjugate-latin.test.mjs, so the preview can't drift from
+// the engine. Delete a row once that language's drill units carry real tags.
+const PREVIEW_VERBS = {
+  es: [["hablar", "pres-1s"], ["tener", "fut-3p"], ["ser", "imperf-1p"]],
+  fr: [["parler", "pres-1s"], ["être", "fut-1s"], ["finir", "imperf-1p"]],
+};
+
+// Synthetic, throwaway conjugate items — sandbox only, where every store writer is
+// a no-op (runnerWriters), so nothing here can reach a real profile.
+function previewConjugateItems(lang) {
+  const now = new Date(Date.now() - 1000);
+  const out = {};
+  for (const [front, conjForm] of PREVIEW_VERBS[lang] ?? []) {
+    if (conjugateIn(lang, front, null, conjForm) == null) continue; // never demo a form the engine can't make
+    const id = `preview-${lang}-${front}-${conjForm}`;
+    out[id] = {
+      id, type: "vocab", lang, front, conjForm,
+      reading: front.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(),
+      meaning: front, example: null, accept: [],
+      rung: 3, srs: { ...newCard(), stability: 8, due: now },
+    };
+  }
+  return out;
+}
+
 export function buildCardPreviewItems(kind, lang) {
   const seed = seedItems();
   const items = {};
   for (const [id, it] of Object.entries(seed)) items[id] = { ...it, srs: newCard() };
   const spec = kindSpec(kind);
   if (!spec) return items;
+
+  // A Latin language's conjugate drill is tense x person on an infinitive, so the
+  // ja pick (a `group`-tagged ます-verb) finds nothing there. Prefer real tagged
+  // content the moment it exists; fall back to the canonical verbs above so the
+  // card is previewable today.
+  if (kind === "conjugate" && lang && lang !== "ja") {
+    const tagged = Object.values(seed)
+      .filter(inLang(lang))
+      .filter((it) => !!it.conjForm && conjugateIn(lang, it.front, it.group, it.conjForm) != null)
+      .slice(0, QUICK_CARD_COUNT);
+    if (tagged.length) {
+      const due = new Date(Date.now() - 1000);
+      for (const p of tagged) {
+        items[p.id] = { ...items[p.id], rung: 3, srs: { ...items[p.id].srs, stability: 8, due } };
+      }
+      return items;
+    }
+    return { ...items, ...previewConjugateItems(lang) };
+  }
   // Scoped to the language under test — previewing a French card must never hand
   // back a Japanese one just because it sorted first.
   const picks = Object.values(seed).filter(inLang(lang)).filter(spec.pick).slice(0, QUICK_CARD_COUNT);

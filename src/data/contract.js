@@ -1,8 +1,6 @@
 import { normalizeReading } from "../store/answer.js";
 import { KANJIVG } from "./kanjivg.js";
-import { CONJ_FORMS } from "../store/conjugate.js";
-
-const VALID_VERB_GROUPS = ["godan", "ichidan", "irregular"];
+import { conjFormsFor, verbGroupsFor } from "../store/conjugate.js";
 
 // The canonical list of card kinds the session runner actively routes.
 // Adding a new card kind means: (1) add it here, (2) wire it in the runner,
@@ -160,7 +158,7 @@ export function validateContent(units, languages) {
           if (!item.reading || typeof item.reading !== "string" || !item.reading.trim())
             e(`item ${item.id}: reading is empty`);
           else {
-            const norm = normalizeReading(item.reading);
+            const norm = normalizeReading(item.reading, unit.lang);
             if (!/^[a-z]+$/.test(norm))
               e(`item ${item.id}: reading "${item.reading}" normalizes to "${norm}" which contains non-latin characters`);
           }
@@ -169,11 +167,15 @@ export function validateContent(units, languages) {
             e(`item ${item.id}: hint must be a non-empty string if present`);
 
           // Conjugate-card tags (optional). group = verb class; conjForm = the target
-          // form to produce. Both must be from their fixed vocabularies when present.
-          if (item.group !== undefined && !VALID_VERB_GROUPS.includes(item.group))
-            e(`item ${item.id}: group "${item.group}" must be one of ${VALID_VERB_GROUPS.join(", ")}`);
-          if (item.conjForm !== undefined && !CONJ_FORMS.includes(item.conjForm))
-            e(`item ${item.id}: conjForm "${item.conjForm}" is not a valid form (${CONJ_FORMS.join(", ")})`);
+          // form to produce. Both vocabularies are PER LANGUAGE: ja drills a form set
+          // (te/nai/potential), a Latin language drills tense x person (fut-1s), and a
+          // ja form on a French verb is as wrong as a misspelling. See conjugate.js.
+          const groups = verbGroupsFor(unit.lang);
+          const forms = conjFormsFor(unit.lang);
+          if (item.group !== undefined && !groups.includes(item.group))
+            e(`item ${item.id}: group "${item.group}" must be one of ${groups.join(", ")} for ${unit.lang}`);
+          if (item.conjForm !== undefined && !forms.includes(item.conjForm))
+            e(`item ${item.id}: conjForm "${item.conjForm}" is not a valid ${unit.lang} form (${forms.join(", ")})`);
 
           if (item.type === "kana") {
             if (item.meaning !== null)

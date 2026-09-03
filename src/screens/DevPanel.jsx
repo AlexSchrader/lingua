@@ -10,17 +10,23 @@ import Mascot from "../components/Mascot.jsx";
 import Celebration from "../components/Celebration.jsx";
 import { C, F } from "../theme.js";
 
-// Card labels. Two of them name a Japanese concept ("rōmaji", "JP"), so they're
-// resolved per language rather than baked in — a French panel reads "Type
-// spelling" / "Type French".
-const CARD_LABEL = { teach: "Teach", choice: "Choice", "choice:reverse": "Reverse", "listen:choice": "Listen", "listen:type": "Dictation", "cloze:choice": "Cloze", "particle:choice": "Particle", "type:meaning": "Type", "type:reading": "Type rōmaji", "type:produce": "Type JP", build: "Build", "sentence:build": "Sentence", conjugate: "Conjugate", trace: "Trace", speak: "Speak" };
+// Card labels. The defaults are language-neutral; the Japanese-specific wording
+// ("rōmaji", "particle") is the OVERRIDE. It used to be the other way round — the
+// baked-in labels were Japanese and every other language was the exception — which
+// is the same shape as every other hardcoded-ja bug in this codebase: correct for
+// one language, quietly wrong for the other twenty-two.
+const CARD_LABEL = { teach: "Teach", choice: "Choice", "choice:reverse": "Reverse", "listen:choice": "Listen", "listen:type": "Dictation", "cloze:choice": "Cloze", "particle:choice": "Little word", "type:meaning": "Type", "type:reading": "Type spelling", "type:produce": "Type target", build: "Build", "sentence:build": "Sentence", conjugate: "Conjugate", trace: "Trace", speak: "Speak" };
+
+// Japanese names these concepts with its own words, and a Japanese panel should use
+// them. Add a map here for any future language that needs the same courtesy.
+const CARD_LABEL_BY_LANG = {
+  ja: { "type:reading": "Type rōmaji", "particle:choice": "Particle" },
+};
 
 function cardLabel(kind, lang) {
-  if (lang && lang !== "ja") {
-    if (kind === "type:reading") return "Type spelling";
-    if (kind === "type:produce") return `Type ${langName(lang)}`;
-    if (kind === "particle:choice") return "Little word";
-  }
+  const override = CARD_LABEL_BY_LANG[lang]?.[kind];
+  if (override) return override;
+  if (kind === "type:produce" && lang) return `Type ${langName(lang)}`;
   return CARD_LABEL[kind] ?? kind;
 }
 
