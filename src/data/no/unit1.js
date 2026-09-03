@@ -57,7 +57,9 @@
 //    and fails the contract. Verified, not theoretical. Write those readings by
 //    hand, ø→o:  et brød → "etbrod",  å kjøpe → "akjope",  ei søster → "eisoster",
 //    en sjø → "ensjo",  høyre → "hoyre". The learner is not penalised: checkReading
-//    accepts the raw front verbatim, so typing "brød" passes as well as "brod".
+//    accepts the raw front VERBATIM — the whole front, so "et brød" passes as
+//    well as "etbrod". A bare "brød" does not; the raw branch compares against the
+//    entire front string, article included, exactly as it does for "et brod".
 //    The fold is an ANSWER KEY, never a pronunciation guide, and is never
 //    displayed — readingIsInformative() gates display on the front's script and
 //    every Norwegian front is Latin.
@@ -94,11 +96,14 @@
 //
 // 8. DELIBERATE A1 SIMPLIFICATIONS (revisit at A2):
 //    (a) present tense only; the past (-te/-et) belongs to the grammar block.
-//    (b) adjective agreement is not OPENED here — every copular adjective in
-//        block 1 sits with a masculine/feminine singular subject or is used
-//        adverbially, so no card teaches the -t neuter or -e plural form. The
-//        one neuter-subject adjective sentence in the block is avoided rather
-//        than glossed. Block 3's agreement unit owns the contrast.
+//    (b) adjective agreement is never something the learner must DERIVE. Neuter
+//        subjects do appear ("Et eple er billig.", "Det er viktig å lære norsk.",
+//        "Det er sent nå.") and so does an attributive neuter ("et hyggelig sted")
+//        — but every one of them is either an -ig adjective, which is invariant in
+//        the neuter, or is already given in its -t form as the card's own front
+//        (`sent`). No card asks the learner to build a -t or -e ending. Block 3's
+//        agreement unit owns the actual contrast, and inherits a corpus where
+//        nothing has pre-empted it.
 //    (c) prepositions arrive where they are first needed, not all at once:
 //        `i` in u3 (bo i Oslo), `fra` in u3, `til` and `på` in u7 (directions).
 //        Units 1–6 are written to need no other preposition.
@@ -143,7 +148,7 @@ export const NO_UNIT1 = {
         { id: "no-u1l2-hvor", type: "vocab", front: "hvor", reading: "hvor", meaning: "where", example: { jp: "Hvor er Erling?", en: "Where is Erling?" }, accept: ["where?", "how"], hint: "VOR — silent h again. With an adjective it means \"how\": hvor gammel, how old." },
         { id: "no-u1l2-god", type: "vocab", front: "god", reading: "god", meaning: "good", example: { jp: "Det er en god kafé.", en: "That is a good café." }, accept: ["nice", "fine"], hint: "The d is silent and the o is a long oo: GOO. A final d is silent in most short words — god, med, ved." },
         { id: "no-u1l2-og", type: "vocab", front: "og", reading: "og", meaning: "and", example: { jp: "Erling og jeg lærer norsk.", en: "Erling and I are learning Norwegian." }, accept: ["plus", "as well as"], hint: "The g is silent — it sounds exactly like å. Two letters, one of them decorative." },
-        { id: "no-u1l2-jeg", type: "vocab", front: "jeg", reading: "jeg", meaning: "I", example: { jp: "Jeg lærer norsk.", en: "I am learning Norwegian." }, accept: ["i", "me"], hint: "Said YAY — the j is a y sound and the g is silent. Norwegian j is always the y of \"yes\", never the j of \"jam\"." },
+        { id: "no-u1l2-jeg", type: "vocab", front: "jeg", reading: "jeg", meaning: "I", example: { jp: "Jeg lærer norsk.", en: "I am learning Norwegian." }, accept: [], hint: "Said YAY — the j is a y sound and the g is silent. Norwegian j is always the y of \"yes\", never the j of \"jam\"." },
       ],
     },
     // Lesson 3: the hush sounds — kj, skj, sj.
