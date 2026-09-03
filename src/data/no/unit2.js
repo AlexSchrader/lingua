@@ -63,7 +63,7 @@ export const NO_UNIT2 = {
       title: "Yes, no, please, sorry",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say yes and no, ask for something politely, and apologise — and open a sentence with kanskje, which pushes the verb in front of the subject.",
+      canDo: "Say yes and no, ask for something politely, and apologise — and open a sentence with kanskje, which normally sends the verb ahead of the subject.",
       items: [
         { id: "no-u2l3-ja", type: "vocab", front: "ja", reading: "ja", meaning: "yes", example: { jp: "Ja, jeg er norsk.", en: "Yes, I am Norwegian." }, accept: ["yeah", "yep", "yes!"], hint: "YAH — j is always a y. To contradict a negative question there is a special yes, jo: \"Er du ikke norsk?\" \"Jo!\"" },
         { id: "no-u2l3-nei", type: "vocab", front: "nei", reading: "nei", meaning: "no", example: { jp: "Nei, jeg kjenner ikke Erling.", en: "No, I do not know Erling." }, accept: ["nope", "no!"], hint: "The ei spelling is the diphthong of \"day\": NAY. Same vowel as hei — and as the -eg of jeg and meg." },

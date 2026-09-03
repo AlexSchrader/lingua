@@ -49,7 +49,7 @@ export const NO_UNIT4 = {
       title: "More of the family",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name the rest of the household — sønn, datter, mann, kvinne, bestefar, bestemor — and hear all three genders at once.",
+      canDo: "Name the rest of the household — sønn, datter, mann, kvinne, bestefar, bestemor — and hear the masculine/feminine contrast six times over.",
       items: [
         { id: "no-u4l2-enson", type: "vocab", front: "en sønn", reading: "ensonn", meaning: "son", example: { jp: "De har en sønn og ei datter.", en: "They have a son and a daughter." }, accept: ["a son", "boy"], hint: "SURN. Masculine: definite sønnen, plural sønner." },
         { id: "no-u4l2-eidatter", type: "vocab", front: "ei datter", reading: "eidatter", meaning: "daughter", example: { jp: "Jeg har ei datter i Oslo.", en: "I have a daughter in Oslo." }, accept: ["a daughter", "girl"], hint: "Feminine: definite dattera. Plural døtre — irregular, like brødre and søstre." },

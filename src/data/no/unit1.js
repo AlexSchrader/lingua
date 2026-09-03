@@ -177,7 +177,7 @@ export const NO_UNIT1 = {
       title: "Silent g in -ig, and -eg said \"ay\"",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read the -ig ending every Norwegian adjective ends in, say me and you, and describe someone: Erling er veldig hyggelig.",
+      canDo: "Read the -ig ending that so many Norwegian adjectives take, say me and you, and describe someone: Erling er veldig hyggelig.",
       items: [
         { id: "no-u1l4-hyggelig", type: "vocab", front: "hyggelig", reading: "hyggelig", meaning: "nice", example: { jp: "Erling er hyggelig.", en: "Erling is nice." }, accept: ["pleasant", "friendly", "cosy", "lovely"], hint: "The g of -ig is silent: HUEG-ge-li. The single most Norwegian compliment there is — warm, easy, good company." },
         { id: "no-u1l4-viktig", type: "vocab", front: "viktig", reading: "viktig", meaning: "important", example: { jp: "Det er viktig å lære norsk.", en: "It is important to learn Norwegian." }, accept: ["significant", "of importance"], hint: "VIK-ti — silent g again. Note how å lære keeps its å here: after an adjective, the infinitive marker stays." },
