@@ -106,8 +106,9 @@ test("a real localized title passes", () => {
 test("the real corpus still reports its authored languages as live", () => {
   assert.equal(isLive("ja"), true, "Japanese has authored content");
   assert.equal(isLive("fr"), true, "French has authored content");
+  assert.equal(isLive("de"), true, "German has authored content (A1 block 1, u1-u7)");
   const authored = new Set(UNITS.map((u) => u.lang));
-  for (const lang of ["de", "it", "pt", "ko"])
+  for (const lang of ["it", "pt", "ko"])
     assert.equal(isLive(lang), false, `${lang} has no units yet`);
-  assert.ok(authored.has("ja") && authored.has("fr"));
+  assert.ok(authored.has("ja") && authored.has("fr") && authored.has("de"));
 });
