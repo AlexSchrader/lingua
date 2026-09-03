@@ -193,6 +193,7 @@ Found by sweeping every word used 3+ times in a Spanish example but never taught
 | Japanese 🇯🇵 B1 | 1 | ready — awaiting kickoff | `content/ja-b1-block1` | `C:\dev\lingua-jab1-1` | Units 99–117 (opinion → problems, + N3 kanji interleaved) |
 | Japanese 🇯🇵 B1 | 2 | ready — awaiting kickoff | `content/ja-b1-block2` | `C:\dev\lingua-jab1-2` | Units 118–136 (rules → relationships, + N3 kanji) |
 | Japanese 🇯🇵 B1 | 3 | ready — awaiting kickoff | `content/ja-b1-block3` | `C:\dev\lingua-jab1-3` | Units 137–155 (3 grammar + 2 register + 14 coverage) |
+| Norwegian 🇳🇴 A1 | 2 | **authoring** | `content/no-a1-block2` | `C:\dev\lingua-no2` | Units 8–14 — Farger og vær, Dager og måneder, describing things, body/health, Grammar 1–3. Branched off `main`; block 1 (u1–7) is green on `content/no-a1-block1`, block 3 owns u15–20. |
 
 ⚠️ **Expect the Spanish merge-day finding below to hit French too.** fr A2 blocks draw on fr A1 vocabulary exactly the way the es A1 blocks drew on each other, so the same duplicate-front collision is likely on a combined fr merge. Nobody has dry-merged the three French branches yet — **do that before booking a merge seat**, not during one. *(The "awaiting kickoff" rows above were stale for the whole of French A2 and were corrected 2026-08-05 against the branches themselves. The trap is worth naming: a row that says "awaiting kickoff" while the branch is finished is worse than no row, because it is the line Alex reads. Spanish rows corrected the same day by the block-1 seat.)*
 
