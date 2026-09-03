@@ -34,6 +34,15 @@
 //    definite form PREDICTABLE (ei → -a, en → -en, et → -et), which is the whole
 //    reason gender is taught at all. The definite form goes in the `hint`, never
 //    in a second card — boka and en bok are one word with one mastery track.
+//    ⚠️ TELL THE LEARNER THE OTHER FORM EXISTS. Marking `ei` makes PRODUCTION
+//    predictable and says nothing about RECOGNITION: a learner drilled only on
+//    `boka`/`klokka` meets `boken`/`klokken` in any newspaper with no hook for it,
+//    and moderate Bokmål uses the en- form heavily. Block 1 says so on `ei øy`
+//    (the first feminine the learner ever sees) and again on `ei klokke` (where
+//    `klokken` is unavoidable in print). BLOCKS 2 AND 3: put the same one-clause
+//    note on the first feminine noun in each of your units. It costs a clause and
+//    it is the difference between a learner who can read Norwegian and one who can
+//    only read this course.
 //    TWO documented exceptions, both because the indefinite singular does not
 //    exist for the word:
 //      (a) PLURAL-ONLY nouns are taught bare — `penger` (money), and for later
@@ -41,7 +50,17 @@
 //      (b) MASS nouns are taught bare — `vann`, `melk`. "et vann" is a lake, not
 //          a glass of water; writing an indefinite article on a mass noun is an
 //          error, not a convention. Gender named in the hint (vannet, melka).
-//    Anything countable takes en/ei/et. No third option.
+//    ⚠️ THE REAL TEST IS NOT COUNTABILITY — an earlier version of this said
+//    "anything countable takes en/ei/et, no third option", and that is false.
+//    The predicate is: IS THE INDEFINITE SINGULAR IDIOMATIC FOR THE SENSE YOU ARE
+//    TEACHING? That is a judgement, and block 1 already made two of them silently:
+//    `et brød` is mass AND countable, and was taught as the countable loaf; `vann`
+//    went the other way on the same kind of call. Blocks 2 and 3 will hit this
+//    constantly — `en øl` and `en kaffe` ARE the ordinary café usage even though
+//    both are mass, while `vær`, `snø`, `regn`, `hår`, `blod`, `tid`, `arbeid`,
+//    `musikk` are not, and `briller`, `bukser`, `sokker` join `penger` as
+//    plural-only. Decide by the sense you are teaching, say which sense in the
+//    hint, and do not expect the rule to decide for you.
 //
 // 2. VERBS ARE HEADWORDED IN THE INFINITIVE, WITH ITS MARKER: `å snakke`.
 //    The parallel to rule 1 — the noun carries its gender marker, the verb
@@ -51,26 +70,66 @@
 //    the whole present tense. The -r form appears in examples, never as a card.
 //
 // 3. `reading` IS THE ASCII ANSWER KEY, AND ø MUST BE FOLDED BY HAND.
-//    The contract requires [a-z]+ and normalizeReading() folds via NFD, so å→a
-//    and æ→ae happen automatically ("å være" → "avaere", "et språk" → "etsprak").
+//    The contract requires [a-z]+. normalizeReading() folds å→a via NFD and
+//    æ→ae via an EXPLICIT replace at answer.js:47 (not NFD — æ has no
+//    decomposition either; it is special-cased, and ø is the case nobody added).
+//    So "å være" → "avaere" and "et språk" → "etsprak" for free.
 //    **ø HAS NO DECOMPOSITION AND DOES NOT FOLD** — "brød" normalizes to "brød"
 //    and fails the contract. Verified, not theoretical. Write those readings by
 //    hand, ø→o:  et brød → "etbrod",  å kjøpe → "akjope",  ei søster → "eisoster",
 //    en sjø → "ensjo",  høyre → "hoyre". The learner is not penalised: checkReading
 //    accepts the raw front VERBATIM — the whole front, so "et brød" passes as
 //    well as "etbrod". A bare "brød" does not; the raw branch compares against the
-//    entire front string, article included, exactly as it does for "et brod".
+//    entire front string, article included.
+//
+//    ⚠️ AND THAT IS NOT GOOD ENOUGH — READ THIS BEFORE YOU AUTHOR A ø CARD.
+//    An earlier version of this header claimed "the learner is not penalised".
+//    That was wrong, and it was wrong in the way that matters. MEASURED against
+//    the real checkReading, for the 12 ø cards in this block:
+//        "et brød"  PASS      "Et brød"  FAIL   ← a sentence-initial capital
+//        "etbrod"   PASS      "etbrød"   FAIL   ← the same word, no space
+//        "et brod"  PASS  ← the MISSPELLING passes while the correct spelling
+//                            with a capital does not.
+//    The control cards behave properly: "Å VÆRE", "åvære" and "Å være" all pass,
+//    because for them the normalize branch is alive. For a ø card that branch is
+//    DEAD — normalizeReading("etbrød") is "etbrød", which never equals "etbrod" —
+//    so only the exact literal string survives, and case/space tolerance is lost
+//    on precisely the cards that need it most.
+//    THE FIX IS ONE LINE OF ENGINE, NOT A CONTENT CONVENTION: add ø→o beside the
+//    æ→ae replace in `normalizeReading` (src/store/answer.js:47). Verified safe —
+//    ø appears in ZERO es/fr readings, so the blast radius is Norwegian only, and
+//    there is precedent: that same function had ligature folding ADDED for French.
+//    Filed in BUILD-CHECKLIST.md → Feature CC backlog. It is out of the curriculum
+//    lane (RUNBOOK §7), so block 1 logged it rather than fixing it.
+//    BLOCKS 2 AND 3: this is a DEPENDENCY, not a footnote. ø is far denser in your
+//    slots than in mine — rød, grønn, søndag, å høre, å spørre, et øye, et øre,
+//    først. Keep hand-folding ø→o so the corpus stays consistent and the engine
+//    fix is a no-op when it lands — but CHASE THE TICKET, because every ø card
+//    authored before it lands carries this defect.
 //    The fold is an ANSWER KEY, never a pronunciation guide, and is never
 //    displayed — readingIsInformative() gates display on the front's script and
 //    every Norwegian front is Latin.
 //
 // 4. NORWEGIAN IS V2 — THE VERB IS SECOND IN A MAIN CLAUSE, ALWAYS.
-//    Not a grammar-unit topic; it is the shape of every sentence, so it is
-//    modelled in examples from Unit 2 onward rather than saved up. Whenever
-//    anything other than the subject opens the clause, the subject moves behind
-//    the verb:  "I dag går jeg på skolen", never "I dag jeg går".
-//    Also modelled: `ikke` after the finite verb ("Jeg er ikke norsk"), and
-//    yes/no questions by inversion ("Kjenner du Erling?").
+//    It is the shape of every sentence, not a topic to save up, so it is MODELLED
+//    in examples from Unit 2 onward. Whenever anything other than the subject
+//    opens the clause, the subject moves behind the verb: "I dag går jeg på
+//    skolen", never "I dag jeg går". Also modelled: `ikke` after the finite verb
+//    ("Jeg er ikke norsk"), and yes/no questions by inversion ("Kjenner du
+//    Erling?").
+//    ⚠️ BUT MODELLING IS NOT TEACHING, AND BLOCK 1 DID NOT DELIVER ENOUGH OF IT.
+//    An earlier version of this paragraph told later blocks that V2 is "not a
+//    grammar-unit topic". That was wrong on both counts. It was addressed to the
+//    seat that owns u12 "Grammar 1 — basic sentence" (BLOCK 2, not 3), and the
+//    exposure it assumed is not there. Counted honestly in this block's 168
+//    examples: 19 of the V2 instances are QUESTIONS, which an English speaker
+//    already inverts and learns nothing new from; of the fronted-XP declaratives
+//    — the pattern English does NOT have and learners actually get wrong — there
+//    are four, two are `Her ...` which English also licenses, and one is
+//    `Kanskje er Erling norsk`, whose own hint concedes the other order is equally
+//    correct. That leaves ONE clean demonstration: "Snart ser vi Erling."
+//    So: u12 SHOULD state the V2 rule explicitly. Block 1 gives you a corpus the
+//    learner has seen the pattern in, not a corpus that has taught it.
 //
 // 5. `example.jp` holds the NORWEGIAN sentence — the key is literally "jp" (the
 //    field name is historical: "jp" = target language); `example.en` the English
@@ -93,6 +152,18 @@
 //    not a re-teach of the adjective — and the same licence covers `vær så snill`
 //    and `ha det`. This is the ONLY place a taught word may reappear inside
 //    another front. Blocks 2 and 3: do not extend it to ordinary compounds.
+//    ⚠️ WITH ONE PRE-AUTHORISED EXCEPTION, ENUMERATED HERE BECAUSE BLOCK 1 IS THE
+//    ONLY SEAT THAT CAN GRANT IT. The time adverbials `i dag`, `i morgen`,
+//    `i går` and `i kveld` are frozen formulas under this same licence, and block
+//    2 may teach them at u9 (days and months) as whole fronts. Block 1 deferred
+//    them but did NOT resolve them, which would have exported an unresolvable
+//    problem across a block boundary: `i morgen` contains `morgen`, which §7
+//    froze inside `god morgen` WITHOUT ever teaching it as a word; `i dag`
+//    contains `dag`, which IS taught (u5l3) but as `en dag`, so the compound
+//    carries a taught noun stripped of the article §1 requires; and `i går`
+//    collides with `går`, the present of `å gå` (u1l1). All four are single
+//    lexical items in the learner's mouth and none is a re-teach. This list is
+//    CLOSED — four fronts, no others.
 //
 // 8. DELIBERATE A1 SIMPLIFICATIONS (revisit at A2):
 //    (a) present tense only; the past (-te/-et) belongs to the grammar block.
@@ -102,8 +173,12 @@
 //        — but every one of them is either an -ig adjective, which is invariant in
 //        the neuter, or is already given in its -t form as the card's own front
 //        (`sent`). No card asks the learner to build a -t or -e ending. Block 3's
-//        agreement unit owns the actual contrast, and inherits a corpus where
-//        nothing has pre-empted it.
+//        agreement unit — u14, which is BLOCK 2, not block 3 — owns the actual
+//        contrast. One thing HAS pre-empted it, and block 2 should know before it
+//        writes u14: no-u6l3-asmake's hint already states the adverbial rule
+//        outright ("Note godt, not god — after smaker the adjective is working as
+//        an adverb and takes -t"). That is licensed as an inflection under §6, so
+//        it is not a scope violation, but it is not nothing either.
 //    (c) prepositions arrive where they are first needed, not all at once:
 //        `i` in u3 (bo i Oslo), `fra` in u3, `til` and `på` in u7 (directions).
 //        Units 1–6 are written to need no other preposition.
@@ -129,7 +204,7 @@ export const NO_UNIT1 = {
         { id: "no-u1l1-alaere", type: "vocab", front: "å lære", reading: "alaere", meaning: "to learn", example: { jp: "Erling lærer norsk.", en: "Erling is learning Norwegian." }, accept: ["learn", "to teach", "to study"], hint: "The å in front is the infinitive marker — Norwegian's \"to\". Every verb card carries it, so you meet å on every single verb you learn." },
         { id: "no-u1l1-norsk", type: "vocab", front: "norsk", reading: "norsk", meaning: "Norwegian", example: { jp: "Norsk er et språk.", en: "Norwegian is a language." }, accept: ["the norwegian language", "in norwegian"], hint: "One word for the language and the adjective. Languages are lowercase in Norwegian — norsk, never Norsk." },
         { id: "no-u1l1-etsprak", type: "vocab", front: "et språk", reading: "etsprak", meaning: "language", example: { jp: "Erling lærer et språk.", en: "Erling is learning a language." }, accept: ["a language", "speech"], hint: "å is a rounded \"aw\", like the vowel in \"more\" — sprawk. It is a letter in its own right and sorts LAST in the alphabet, after æ and ø." },
-        { id: "no-u1l1-eioy", type: "vocab", front: "ei øy", reading: "eioy", meaning: "island", example: { jp: "Er Norge ei øy?", en: "Is Norway an island?" }, accept: ["an island", "isle"], hint: "ø is the \"er\" of \"her\" said with rounded lips. ei marks a feminine noun; the definite is øya — the island. Note the question: no helper word, just verb first." },
+        { id: "no-u1l1-eioy", type: "vocab", front: "ei øy", reading: "eioy", meaning: "island", example: { jp: "Er Norge ei øy?", en: "Is Norway an island?" }, accept: ["an island", "isle"], hint: "ø is the \"er\" of \"her\" said with rounded lips. ei marks a FEMININE noun and the definite is øya. You will also meet these written en øy / øyen — Bokmål allows both, and plenty of print uses the en form. This course always writes ei, because ei tells you the definite ends in -a and en does not tell you anything." },
         { id: "no-u1l1-aga", type: "vocab", front: "å gå", reading: "aga", meaning: "to go", example: { jp: "Erling går.", en: "Erling is leaving." }, accept: ["go", "to walk", "walk", "to leave"], hint: "Two å's, both long: aw-GAW. It covers walking and leaving on foot — and it is the verb inside hvordan går det, \"how's it going\"." },
       ],
     },

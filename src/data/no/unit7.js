@@ -60,7 +60,7 @@ export const NO_UNIT7 = {
       dominantMode: "recall",
       canDo: "Name the places a Norwegian town is made of — skole, kirke, sykehus, gate, torg, kino — and say you work at one or are going to one.",
       items: [
-        { id: "no-u7l2-enskole", type: "vocab", front: "en skole", reading: "enskole", meaning: "school", example: { jp: "Jeg jobber på en skole.", en: "I work at a school." }, accept: ["a school"], hint: "SKOO-le — sk before o is a hard sk, not the sh of skje. Masculine: definite skolen. Institutions take på, not i: på skolen." },
+        { id: "no-u7l2-enskole", type: "vocab", front: "en skole", reading: "enskole", meaning: "school", example: { jp: "Jeg jobber på en skole.", en: "I work at a school." }, accept: ["a school"], hint: "SKOO-le — sk before o is a hard sk, not the sh of skje. Masculine: definite skolen. Institutions take på where English says at or in: på skolen, på sykehuset, på jobb. Buildings and streets still take i — i butikken, i ei gate." },
         { id: "no-u7l2-eikirke", type: "vocab", front: "ei kirke", reading: "eikirke", meaning: "church", example: { jp: "Vi går til ei kirke.", en: "We are walking to a church." }, accept: ["a church", "chapel"], hint: "HYIR-ke — k before i is the thin kj sound from unit 1. Feminine: definite kirka." },
         { id: "no-u7l2-etsykehus", type: "vocab", front: "et sykehus", reading: "etsykehus", meaning: "hospital", example: { jp: "Han jobber på et sykehus.", en: "He works at a hospital." }, accept: ["a hospital", "infirmary"], hint: "syke (sick) plus hus (house) — a sick-house. Norwegian builds long nouns by welding short ones together, and this is the pattern to expect everywhere." },
         { id: "no-u7l2-eigate", type: "vocab", front: "ei gate", reading: "eigate", meaning: "street", example: { jp: "Vi bor i ei gate i Oslo.", en: "We live on a street in Oslo." }, accept: ["a street", "road"], hint: "GAH-te, hard g. Feminine: definite gata. Karl Johans gate is Oslo's main street — gate, not \"gaten\", in the name." },
@@ -75,7 +75,7 @@ export const NO_UNIT7 = {
       title: "Asking the way",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Give and follow directions — til høyre, til venstre — say whether somewhere is near, and get yourself there by car or by train.",
+      canDo: "Give and follow directions — til høyre, til venstre — say whether somewhere is near, and get yourself there by car.",
       items: [
         { id: "no-u7l3-hoyre", type: "vocab", front: "høyre", reading: "hoyre", meaning: "right", example: { jp: "Ei kirke er til høyre.", en: "A church is on the right." }, accept: ["right side", "to the right", "the right"], hint: "HOY-re, the øy diphthong from ei øy — and another hand-folded reading, hoyre. The full phrase is til høyre, \"to the right\"." },
         { id: "no-u7l3-venstre", type: "vocab", front: "venstre", reading: "venstre", meaning: "left", example: { jp: "En kino er til venstre.", en: "A cinema is on the left." }, accept: ["left side", "to the left", "the left"], hint: "VEN-stre. Same shape: til venstre. Both words are also the names of two Norwegian political parties, which confuses everyone." },
