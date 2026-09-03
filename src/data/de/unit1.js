@@ -20,11 +20,14 @@
 //     die Großmutter, die Großeltern). CONSEQUENCE FOR THE LEARNER, and it is a
 //     real one: a learner who types the correct ß spelling is marked wrong,
 //     because their input normalizes to "straße" and the key says "strasse".
-//     "Strasse" is a legitimate German spelling (standard in Switzerland, and the
-//     normal substitute wherever ß is unavailable), so the card is answerable —
-//     but the fix belongs in the engine, not in content. Logged for Feature CC:
-//     add `.replace(/ß/g, "ss")` to normalizeReading's non-ja branch, one line,
-//     exactly parallel to the œ/æ rules already there.
+//     ✅ FIXED 2026-09-03, with Alex's authorization: normalizeReading now maps
+//     ß→ss alongside œ→oe and æ→ae, so "Straße" and "Strasse" both normalize to
+//     "strasse" and a learner may type either. The hand-written ss readings below
+//     stay correct and are still REQUIRED — the contract rejects a stored reading
+//     containing ß, so keep writing them with ss. Regression-locked by
+//     tests/unit/answer.test.mjs. scripts/check-lang-scope.mjs was fixed in the
+//     same commit to compare through normalizeReading instead of its own NFD-only
+//     fold, which had been demanding the exact reading validate:content rejects.
 //   - `example.jp` holds the GERMAN sentence (the field name is historical —
 //     "jp" = target language); `example.en` the English gloss.
 //   - NOUNS ARE TAUGHT WITH THEIR ARTICLE (der/die/das) and CAPITALIZED, as
