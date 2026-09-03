@@ -65,10 +65,13 @@
 //     (a) `é` is taught here as the copula link word, a chunk, not as an analysed
 //         form of ser; the ser/estar contrast is NOT opened in block 1 and belongs
 //         to u12 Grammar 1. `estou bem` (u2l3) is likewise a fixed answer chunk.
-//     (b) the feminine `uma` and the masculine `um` are ONE card (`um`, u1l2) with
-//         the feminine in its hint, so the gender pair is taught without spending
-//         a second card on the same lexeme. `uma` therefore appears in examples
-//         from u1 on.
+//     (b) REVERSED AT MERGE. `um` and `uma` were originally one card, with the
+//         feminine carried in the hint, to avoid spending two cards on one lexeme.
+//         That held at 168 cards and did not hold at 480: across the finished band
+//         `uma` is used in 11 examples and was the highest-frequency word the
+//         corpus never taught. It is now its own card (u1l2), which is also the
+//         honest shape — choosing a gender for "a" is a decision the learner makes
+//         on every noun. u1l2 therefore carries 7 cards, inside the 5-8 band.
 //     (c) contractions (do/da/no/na/ao/à = de/em/a + article) are used in examples
 //         from u1 and glossed in hints at first use; they are not carded in block
 //         1 — u12 Grammar 1 owns them.
@@ -116,6 +119,7 @@ export const PT_UNIT1 = {
         { id: "pt-u1l2-amae", type: "vocab", front: "a mãe", reading: "amae", meaning: "mother", example: { jp: "A mãe de Ana é fantástica.", en: "Ana's mother is fantastic." }, accept: ["mum", "mom", "the mother"], hint: "ãe is a nasal \"eye\": mãy. Compare mão (hand) — one letter apart and completely different words, so the tilde is not decoration." },
         { id: "pt-u1l2-sim", type: "vocab", front: "sim", reading: "sim", meaning: "yes", example: { jp: "Sim, é o livro de Ana.", en: "Yes, it's Ana's book." }, accept: ["yeah", "yep"], hint: "A final m does not close your lips — it just nasalises the vowel before it. \"seeng\", but stop before the g." },
         { id: "pt-u1l2-um", type: "vocab", front: "um", reading: "um", meaning: "a", example: { jp: "É um livro.", en: "It's a book." }, accept: ["an", "one", "a/an"], hint: "Nasal again: \"oong\" without the g. It means both \"a\" and \"one\". With a feminine noun it becomes UMA — um livro, uma casa — so you will meet uma from here on." },
+        { id: "pt-u1l2-uma", type: "vocab", front: "uma", reading: "uma", meaning: "a (feminine)", example: { jp: "É uma casa enorme.", en: "It's an enormous house." }, accept: ["a", "an", "one", "a/an (feminine)"], hint: "The feminine of um, and just as nasal: OO-ma. Which one you use is decided by the NOUN, not by you — um livro, uma casa. Portuguese makes you choose a gender every time you say \"a\", which is why every noun in this course is taught with its article attached." },
       ],
     },
     // Lesson 3: the three spellings English has no equivalent for.
