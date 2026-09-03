@@ -9,21 +9,30 @@
 // Chosen against the taught corpus, not from a template: block 1 owns sounds,
 // greetings, self, family/home, numbers/time, food/drink and town (u1–u7); block 2
 // owns colours/weather, days/months, describing, body/health and all three grammar
-// units (u8–u14). Clothes, the house interior, the general-purpose verb core,
+// units (u8–u14). Clothes, the house interior, everyday life and the feelings,
 // school/work, free time and travel are what is left, and they are what an A1
-// learner still cannot say.
+// learner still cannot say. (u17 was first drafted as a general-purpose VERB
+// unit and re-authored when block 2 turned out to own that ground — unit17.js's
+// header carries the whole story, and it is the one other seats should read.)
 //
 // Conventions are declared in no/unit1.js and bind every unit. Bokmål, not
 // Nynorsk. What this unit does under them:
 //
-// ONE DOCUMENTED DEVIATION — `ei bukse`, NOT `bukser`. unit1.js §1 lists `bukser`
+// ONE JUDGEMENT §1 EXPLICITLY DELEGATES — `ei bukse`, NOT `bukser`. unit1.js §1 lists `bukser`
 // alongside `briller` and `sokker` as plural-only, the way `penger` is. That is
 // right for briller and for sokker-as-a-pair, and wrong for bukse: unlike English
 // "trousers", Norwegian has an ordinary singular that means one pair — "Jeg kjøpte
-// ei ny bukse", definite buksa. §1's own predicate settles it, and it outranks its
-// own illustration: the test is whether the indefinite singular is idiomatic FOR
-// THE SENSE BEING TAUGHT, and for the garment it plainly is. So `ei bukse` is
-// taught as a normal feminine count noun and the hint names the pair sense.
+// ei ny bukse", definite buksa. §1 hands this call to the authoring seat in as
+// many words: "Decide by the sense you are teaching, say which sense in the hint,
+// and do not expect the rule to decide for you." The test is whether the
+// indefinite singular is idiomatic FOR THE SENSE BEING TAUGHT, and for the
+// garment it plainly is. Note too that §7 shows block 1 marking a list CLOSED
+// when it means one ("four fronts, no others"); §1's list carries no such marker.
+// So `ei bukse` is a normal feminine count noun and the hint names the pair
+// sense. This is the rule being APPLIED, not overridden — MERGE SEAT, do not
+// revert it. The tidy-up is one line in unit1.js and is routed through
+// BUILD-CHECKLIST.md, because §6 never opens another block's unit header and a
+// note here alone would reach nobody.
 // `sokker` IS taught bare (l2), because the sense being taught is the pair.
 //
 // MASS NOUN, taught bare under §1(b): `ull` (l4). Gender in the hint (ulla).
@@ -41,6 +50,29 @@
 // fronted-XP declarative — the pattern English does NOT have — and its hint says
 // so outright. unit1.js §4 counted only ONE clean instance in all of block 1, so
 // this block plants one in every unit rather than relying on questions.
+//
+// ⚠ WHAT WAS AND WAS NOT VERIFIED ON THIS BRANCH — read this before trusting any
+// "scope is clean" claim in these six headers.
+//   • Blocks 1 AND 2 were both read directly off their branches
+//     (`git show content/no-a1-block<n>:src/data/no/unitN.js`) and every block-3
+//     front was checked against all 336 of their fronts, exact and stem-level.
+//     That check found 16 collisions, all resolved — see unit17.js's header,
+//     which is where the story is written down.
+//   • It could NOT be done with the tooling. `npm run taught -- no` reads LIVE
+//     content and u8–u14 are 0-item stubs here, so it reports only block 1. The
+//     vocab-scope lint skips units behind unauthored stubs by design (RUNBOOK
+//     §4: "it can only do its real work at merge"). `npm run check:lexemes` is
+//     Japanese-only. All three are GREEN with real collisions present.
+//   • The per-lesson forward-reference check is a script this seat wrote for this
+//     block. It is self-graded and is not a repo artifact, so nobody else can
+//     re-run it. Treat its result as corroboration, not verification.
+//   • Block 2 may still change before merge, and block 3 now has TWO exposures to
+//     it, both deliberate. (a) The 16 resolved collisions. (b) Eight examples in
+//     u18–u20 use seven block-2 verbs — å gjøre, å hjelpe, å høre, å ligge,
+//     å sitte, å sove, å stå — which is legitimate (u11 and u13 both precede u18)
+//     and is what a coverage pass SHOULD do, but it does mean those eight cards
+//     go out of scope if block 2 drops one of those verbs. Re-run the comparison
+//     at merge rather than trusting this note.
 //
 // LESSON ORDER IS DELIBERATE. l3's verbs (å prøve, å passe, å velge) come before
 // l4 needs them, and every l4 example draws only on l1–l3 plus block 1. This has

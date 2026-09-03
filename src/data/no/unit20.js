@@ -6,7 +6,7 @@
 // WHAT BLOCK 1 ALREADY OWNS HERE. Unit 7 taught the vehicles (en bil, et tog, en
 // buss, en båt), å reise, å kjøre, til and på. This unit does not touch any of
 // them; it takes what unit 7 stopped short of — the airport, the ticket and the
-// passport, finding your way, the holiday itself, and the verbs of setting off
+// passport, finding your way, the cabin you go to, and the verbs of setting off
 // and arriving. That split is why a "travel" unit at slot 20 is not a second
 // helping of slot 7.
 //
@@ -35,11 +35,18 @@
 // learner to notice it.
 //
 // TIME ADVERBIALS: this unit uses `snart` and `nå` (both block 1) rather than
-// `i dag` / `i morgen`, which unit1.js §7 pre-authorised to BLOCK 2 at u9. Those
-// four are legitimately in scope here by unit order, but block 2's units do not
-// exist in this tree, so every example in block 3 is built from block 1's vocab
-// plus block 3's own. That is a deliberate choice about what can be verified
-// before merge, not a claim that block 2's words are unavailable.
+// `i dag` / `i morgen`, which unit1.js §7 pre-authorised to block 2 at u9 and
+// which block 2 duly teaches there. Every example in block 3 is built from block
+// 1's vocab plus block 3's own, with one deliberate exception: eight examples
+// across u18–u20 use seven block-2 verbs (å gjøre, å hjelpe, å høre, å ligge,
+// å sitte, å sove, å stå). That is in scope — u11 and u13 both precede these
+// units — and it is what a coverage pass should do. In this unit it is
+// "Vi sover i et telt i skogen" (l3). Listed in unit15.js's header so the merge
+// seat knows exactly which cards depend on block 2 staying as it is.
+//
+// `en ferie` WAS TAUGHT HERE AND HAS BEEN REMOVED: block 2 teaches it at u9l4,
+// and RUNBOOK §4 gives the word to the lower slot. `å låne` took the card. The
+// word itself stays available to these examples; only the teaching moved.
 //
 // LESSON ORDER: l1's å pakke and en koffert are packed before l3 goes on
 // holiday with them. Checked by eye — check-lang-scope.mjs resolves scope per
@@ -94,17 +101,17 @@ export const NO_UNIT20 = {
       id: "no-u20l3",
       unit: 20,
       lesson: 3,
-      title: "Ferie",
+      title: "På hytta",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Talk about a holiday — a cabin, a tent, a guest, a present — and say you are visiting somebody.",
+      canDo: "Talk about time off — a cabin, a tent, a guest, a present — and say you are visiting somebody or borrowing a place to stay.",
       items: [
-        { id: "no-u20l3-enferie", type: "vocab", front: "en ferie", reading: "enferie", meaning: "holiday", example: { jp: "Vi reiser til Norge i ferien.", en: "We travel to Norway in the holidays." }, accept: ["a vacation", "vacation", "holiday", "break", "a break"], hint: "FEH-ri-e. Masculine: definite ferien, plural ferier. Note i ferien for \"on holiday\" — Norwegian uses i where English insists on \"on\"." },
         { id: "no-u20l3-eihytte", type: "vocab", front: "ei hytte", reading: "eihytte", meaning: "cabin", example: { jp: "Familien min har ei hytte på fjellet.", en: "My family has a cabin in the mountains." }, accept: ["a cabin", "cottage", "hut", "chalet", "a cottage"], hint: "HUET-te. Feminine: definite hytta, plural hytter. Possibly the most Norwegian noun there is: a cabin på fjellet or ved sjøen, and på hytta is where a large part of the country goes at every single holiday." },
         { id: "no-u20l3-ettelt", type: "vocab", front: "et telt", reading: "ettelt", meaning: "tent", example: { jp: "Vi sover i et telt i skogen.", en: "We sleep in a tent in the forest." }, accept: ["a tent"], hint: "TELT. Neuter: definite teltet, plural telt, unchanged. Allemannsretten — the right to roam — lets you pitch one almost anywhere in Norway, as long as you keep 150 metres from the nearest house." },
         { id: "no-u20l3-engjest", type: "vocab", front: "en gjest", reading: "engjest", meaning: "guest", example: { jp: "En gjest kommer til middag.", en: "A guest is coming for dinner." }, accept: ["a guest", "visitor", "a visitor"], hint: "YEST — gj is a silent g plus a y sound, the same trick as in å gjøre. Masculine: definite gjesten, plural gjester." },
         { id: "no-u20l3-engave", type: "vocab", front: "en gave", reading: "engave", meaning: "present", example: { jp: "Jeg gir Kari en gave.", en: "I give Kari a present." }, accept: ["a gift", "gift", "present", "a present"], hint: "GAH-ve, hard g. Masculine: definite gaven, plural gaver. Straight from å gi in unit 1 — the thing that gets given." },
         { id: "no-u20l3-abesoke", type: "vocab", front: "å besøke", reading: "abesoke", meaning: "to visit", example: { jp: "Vi besøker en venn i Bergen.", en: "We are visiting a friend in Bergen." }, accept: ["visit", "to call on", "call on", "to go and see", "go and see"], hint: "be-SUR-ke, present besøker, hand-folded to abesoke. Et besøk is a visit, and Norwegians say på besøk: jeg er på besøk hos Kari, I am visiting Kari." },
+        { id: "no-u20l3-alane", type: "vocab", front: "å låne", reading: "alane", meaning: "to borrow", example: { jp: "Vi låner ei hytte i Norge.", en: "We are borrowing a cabin in Norway." }, accept: ["borrow", "to lend", "lend", "to loan", "loan"], hint: "LAW-ne, present låner — the å folds to a on its own. ONE verb where English needs two: jeg låner ei bok is I BORROW a book, and jeg låner deg ei bok is I LEND you one. The direction comes from the sentence, never from the verb. Paying for it is å leie, to rent." },
       ],
     },
     // Lesson 4: setting off, and the small acts of keeping in touch that a

@@ -1,133 +1,146 @@
-// NO Unit 17 — Hva folk gjør ("What people do") — A1
+// NO Unit 17 — Hverdag og følelser ("Everyday life and feelings") — A1
 // ─────────────────────────────────────────────────────────────────────────────
 // Slot scaffolded as "Vocabulary 3"; retitled and rethemed per CLAUDE.md → "No
 // front language" and the block-3 plan in unit15.js.
 //
-// THIS UNIT IS 24 VERBS AND NOTHING ELSE, AND THAT IS THE POINT. Blocks 1 and 2
-// teach verbs where a theme happens to need one — å spise in the food unit, å
-// kjøre in the town unit. What the corpus then lacks is the general-purpose
-// core: the verbs that belong to no theme because they belong to all of them.
-// Counted against block 1's 168 fronts, Norwegian A1 was missing å gjøre, å ta,
-// å si, å vite, å tro, å høre, å spørre and å svare — eight of the twenty most
-// frequent verbs in the language. A coverage unit is where those get taught, so
-// this one takes them in four semantic families rather than scattering them as
-// filler across the thematic units.
+// ⚠ THIS UNIT WAS RE-AUTHORED. Its first draft was 24 general-purpose verbs on
+// the premise that the corpus lacked a verb core. THAT PREMISE WAS FALSE, and
+// how it was found matters, because it is the failure mode RUNBOOK §4 calls the
+// most expensive one available to a seat.
+//   • This seat was briefed that block 2 (u8–u14) "will NOT exist in your tree
+//     while you author", and `npm run taught -- no` agreed: it reads the LIVE
+//     content, u8–u14 are 0-item stubs on this branch, so it reported only block
+//     1's 168 words. Both statements were true, and together they were
+//     thoroughly misleading.
+//   • Block 2 was in fact fully authored on `content/no-a1-block2`, readable the
+//     whole time with `git show content/no-a1-block2:src/data/no/unitN.js`. Its
+//     u11 (Kropp og helse), u12 (Setning og ordstilling) and u13 (Verb og
+//     partikler) teach the general-purpose verb core outright.
+//   • Result: 15 of this unit's 24 fronts collided with block 2 — å gjøre, å ta,
+//     å bli, å trenge, å hjelpe, å sove, å sitte, å stå, å ligge, å si, å høre,
+//     å spørre, å svare, å tro, å vite. Front-uniqueness is a HARD error in
+//     src/data/contract.js, and RUNBOOK §4 gives every one of them to the lower
+//     slot. This unit would not have survived merge day.
+//   • Nothing local could have caught it. validate:content, lint:curriculum and
+//     audit were all GREEN with the collisions present, because the colliding
+//     cards are not in this tree. THE ONLY CHECK THAT WORKS IS READING THE OTHER
+//     BLOCK'S BRANCH. Later seats: do that first, whatever your brief says. The
+//     repo is the source of truth (CLAUDE.md), and a branch you were told is
+//     empty is still a branch you can `git show`.
+//
+// WHAT THE UNIT IS NOW. The nine cards that survived are the ones block 2 did
+// not want — the morning routine, and the private verbs of thinking, remembering
+// and hoping. Around them this unit takes what a full read of all 336 block-1
+// and block-2 fronts shows is genuinely unclaimed: THE FEELINGS. Block 2's u10
+// (Store og små ting) is dimension and quality — stor, liten, fin, stygg, ny,
+// ren — and its u11 is the body and illness — syk, frisk, vond, trøtt. Nothing
+// anywhere in A1 teaches glad, trist, sint or redd, and a learner who cannot say
+// how somebody feels cannot hold an A1 conversation.
 //
 // Conventions are declared in no/unit1.js and bind every unit. Bokmål, not
 // Nynorsk.
 //
-// NO NOUNS MEANS NO GENDER, so this is the ONE unit in block 3 with no
-// en-/ei-recognition note — there is no feminine noun to hang it on. unit1.js
-// asks for the note on the first feminine of each unit; this unit has none, and
-// the requirement resumes at u18l1 with `ei bok`, which is the best possible
-// card for it (boka / boken is the case every learner meets first).
+// NO FEMININE NOUN HERE EITHER — the only two nouns are `en vane` and `en
+// avtale`, both masculine — so this remains the one block-3 unit with no
+// en-/ei-recognition note. The requirement resumes at u18l1 with `ei bok`.
 //
-// ⚠ THE PRESENT TENSE IS NOT ALWAYS INFINITIVE + -r. unit1.js §2 says one taught
-// form is the whole present tense, and that is true for twenty of these
-// twenty-four. FOUR ARE NOT, and each one says so on its own card rather than
-// letting the learner derive a wrong form:
-//     å gjøre  → gjør   (not "gjører" — the whole -e drops)
-//     å spørre → spør   (not "spørrer" — the whole -re drops)
-//     å vite   → vet    (irregular outright)
-//     å si     → sier   (gains a syllable the infinitive does not hint at)
-// This is a correction to nothing — §2's rule is stated as a rule and holds for
-// the regular classes — but a unit made entirely of verbs is where the exceptions
-// become visible, so they are named here instead of being met in the wild.
+// ø: NONE. This is the only unit in block 3 with no hand-folded reading.
 //
-// ø IS HAND-FOLDED, ø→o (unit1.js §3): å gjøre → "agjore", å høre → "ahore",
-// å spørre → "asporre". å folds on its own: å stå → "asta", å våkne → "avakne".
+// V2 is modelled at "Nå hviler jeg i stua." (l1), and l2 and l3 carry the two
+// inversion questions ("Er du redd?", "Husker du navnet?"), whose hints state
+// outright that Norwegian has NO do-support. English speakers reliably try to
+// build "Gjør du huske?", which is exactly the error worth pre-empting.
 //
-// V2 is modelled twice here — "Nå hviler jeg i stua." (l1) fronts an adverb and
-// pushes the subject behind the verb, and "Husker du navnet?" (l4) is the
-// inversion question, whose hint states outright that Norwegian has NO do-support.
-// That second point is worth a card's hint: English speakers reliably try to
-// build "Gjør du huske?" out of å gjøre the moment they learn it, which is
-// exactly why å gjøre and the question pattern are taught in the same unit.
+// ADJECTIVE AGREEMENT IS NOT DERIVED HERE (unit1.js §8b). The four feelings
+// adjectives appear only in the singular after er, which is the bare form given
+// on the card. No example asks the learner to build a -t or -e ending; u14
+// (block 2's Fortid og adjektiv) owns that contrast.
 //
-// LESSON ORDER: l1 takes the two workhorses (å gjøre, å ta) plus the four verbs
-// the later lessons lean on, so nothing looks forward. Checked by eye —
-// check-lang-scope.mjs resolves scope per UNIT, never per LESSON (unit7.js).
+// LESSON ORDER: l1's å bruke and l2's adjectives are in place before anything
+// leans on them, and no example anywhere reaches forward. Checked by eye AND by
+// a per-lesson script — check-lang-scope.mjs resolves scope per UNIT, never per
+// LESSON (unit7.js), so this class is invisible to every gate.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const NO_UNIT17 = {
   id: "no-u17",
   lang: "no",
-  title: "Hva folk gjør",
+  title: "Hverdag og følelser",
   order: 17,
   stage: "a1",
   lessons: [
-    // Lesson 1: the general-purpose verbs, first because everything after
-    // this uses them.
+    // Lesson 1: the shape of a morning, plus the two everyday words the rest of
+    // the unit leans on (en vane, å bruke).
     {
       id: "no-u17l1",
       unit: 17,
       lesson: 1,
-      title: "Å gjøre og å ta",
+      title: "Om morgenen",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Ask what somebody is doing, say what you take, need or become, and offer to help or to rest.",
+      canDo: "Describe an ordinary morning — waking, showering, polishing your shoes — and talk about a habit and about what you use or spend.",
       items: [
-        { id: "no-u17l1-agjore", type: "vocab", front: "å gjøre", reading: "agjore", meaning: "to do", example: { jp: "Hva gjør du i Oslo?", en: "What are you doing in Oslo?" }, accept: ["do", "to make", "make", "to carry out"], hint: "YUR-re — gj is a silent g plus a y sound, and the reading is hand-folded to agjore. ⚠ The present is gjør, not \"gjører\": the -e drops. And it is only the do of \"what are you doing\" — Norwegian never uses it to prop up a question the way English does." },
-        { id: "no-u17l1-ata", type: "vocab", front: "å ta", reading: "ata", meaning: "to take", example: { jp: "Jeg tar bussen til skolen.", en: "I take the bus to school." }, accept: ["take", "to grab", "grab", "to catch", "catch"], hint: "TAH, present tar. You take a bus, a picture or a shower — ta bussen, ta et bilde. Ta det med ro is the Norwegian for \"take it easy\"." },
-        { id: "no-u17l1-abli", type: "vocab", front: "å bli", reading: "abli", meaning: "to become", example: { jp: "Erling blir lærer.", en: "Erling is becoming a teacher." }, accept: ["become", "to stay", "stay", "to remain", "remain", "get"], hint: "BLEE, present blir. Two jobs in one verb: to become (han blir lærer) and to stay (jeg blir her). Note lærer with no article after blir — a profession takes none in Norwegian." },
-        { id: "no-u17l1-atrenge", type: "vocab", front: "å trenge", reading: "atrenge", meaning: "to need", example: { jp: "Jeg trenger ei jakke.", en: "I need a jacket." }, accept: ["need", "to require", "require"], hint: "TRENG-e, present trenger. Nearly always with an object: jeg trenger penger. For \"need TO DO something\" Norwegians reach for må instead — jeg må gå." },
-        { id: "no-u17l1-ahjelpe", type: "vocab", front: "å hjelpe", reading: "ahjelpe", meaning: "to help", example: { jp: "Kari hjelper meg i butikken.", en: "Kari is helping me in the shop." }, accept: ["help", "to assist", "assist", "to aid", "aid"], hint: "YEL-pe — hj- is a silent h, the same trick as the hv- of hva and hvor, so it opens on a plain y. Present hjelper. Hjelp! on its own is the shout." },
-        { id: "no-u17l1-ahvile", type: "vocab", front: "å hvile", reading: "ahvile", meaning: "to rest", example: { jp: "Nå hviler jeg i stua.", en: "Now I am resting in the living room." }, accept: ["rest", "to relax", "relax", "to take a rest", "take a rest"], hint: "VEE-le — hv- again, that silent h. Present hviler. And note the order: with nå in front, hviler comes second and jeg falls in behind it. That is Norwegian's V2 rule, not a stylistic choice." },
+        { id: "no-u17l1-avakne", type: "vocab", front: "å våkne", reading: "avakne", meaning: "to wake up", example: { jp: "Jeg våkner tidlig.", en: "I wake up early." }, accept: ["wake", "wake up", "to wake", "to awaken", "awaken"], hint: "VAWK-ne, present våkner. This is waking by yourself; waking somebody ELSE is å vekke. The å folds to a on its own, so this reading needed no hand-work." },
+        { id: "no-u17l1-adusje", type: "vocab", front: "å dusje", reading: "adusje", meaning: "to shower", example: { jp: "Erling dusjer på badet.", en: "Erling is showering in the bathroom." }, accept: ["shower", "to take a shower", "take a shower", "have a shower"], hint: "DUE-she, present dusjer — sj is the broad sh of sjø and skjorte. En dusj is the shower itself." },
+        { id: "no-u17l1-apusse", type: "vocab", front: "å pusse", reading: "apusse", meaning: "to brush", example: { jp: "Jeg pusser skoene.", en: "I am polishing the shoes." }, accept: ["brush", "to polish", "polish", "to shine", "clean"], hint: "PUS-se, present pusser. To brush or polish something until it shines — å pusse tenner is to brush your teeth, å pusse sko is to polish shoes. Not å vaske from unit 15, which is washing something clean." },
+        { id: "no-u17l1-ahvile", type: "vocab", front: "å hvile", reading: "ahvile", meaning: "to rest", example: { jp: "Nå hviler jeg i stua.", en: "Now I am resting in the living room." }, accept: ["rest", "to relax", "relax", "to take a rest", "take a rest"], hint: "VEE-le — hv- is a silent h, the same trick as in hva and hvor. Present hviler. And note the order: with nå in front, hviler comes second and jeg falls in behind it. That is Norwegian's V2 rule, not a stylistic choice." },
+        { id: "no-u17l1-envane", type: "vocab", front: "en vane", reading: "envane", meaning: "habit", example: { jp: "Erling har en god vane.", en: "Erling has a good habit." }, accept: ["a habit", "custom", "routine", "practice"], hint: "VAH-ne. Masculine: definite vanen, plural vaner. Å ha for vane is to be in the habit of something. Vanlig, \"ordinary\", is built straight on it — the ordinary is what happens by habit." },
+        { id: "no-u17l1-abruke", type: "vocab", front: "å bruke", reading: "abruke", meaning: "to use", example: { jp: "Kari bruker mye penger.", en: "Kari spends a lot of money." }, accept: ["use", "to spend", "spend", "to wear", "wear"], hint: "BRUE-ke, present bruker. One verb doing three English jobs: to use a thing, to spend money (bruke penger), and to wear glasses or a clothing size (bruke briller)." },
       ],
     },
-    // Lesson 2: the body through the day — waking, washing, and the three
-    // posture verbs Norwegian uses where English just says "is".
+    // Lesson 2: the feelings. Nothing in block 1 or block 2 teaches these — u10
+    // is dimension and quality, u11 is illness.
     {
       id: "no-u17l2",
       unit: 17,
       lesson: 2,
-      title: "Å våkne og å sove",
+      title: "Følelser",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Describe an ordinary day — waking, sleeping, showering — and say whether something is sitting, standing or lying somewhere.",
+      canDo: "Say how somebody feels — glad, trist, sint, redd — ask whether they are afraid, and say that they are laughing or smiling.",
       items: [
-        { id: "no-u17l2-avakne", type: "vocab", front: "å våkne", reading: "avakne", meaning: "to wake up", example: { jp: "Jeg våkner tidlig.", en: "I wake up early." }, accept: ["wake", "wake up", "to wake", "to awaken", "awaken"], hint: "VAWK-ne, present våkner. This is waking by yourself; waking somebody ELSE is å vekke. The å folds to a on its own, so the reading needed no hand-work." },
-        { id: "no-u17l2-asove", type: "vocab", front: "å sove", reading: "asove", meaning: "to sleep", example: { jp: "Barnet sover i senga.", en: "The child is sleeping in the bed." }, accept: ["sleep", "to be asleep", "be asleep"], hint: "SOH-ve, present sover. Sov godt is the Norwegian good-night. A bedroom is et soverom — sove welded onto rom." },
-        { id: "no-u17l2-adusje", type: "vocab", front: "å dusje", reading: "adusje", meaning: "to shower", example: { jp: "Erling dusjer på badet.", en: "Erling is showering in the bathroom." }, accept: ["shower", "to take a shower", "take a shower", "have a shower"], hint: "DUE-she, present dusjer — sj is the broad sh of sjø and skjorte. En dusj is the shower itself." },
-        { id: "no-u17l2-asitte", type: "vocab", front: "å sitte", reading: "asitte", meaning: "to sit", example: { jp: "Jeg sitter på en stol.", en: "I am sitting on a chair." }, accept: ["sit", "to be sitting", "be sitting", "to be seated", "be seated"], hint: "SIT-te, present sitter. Sitting as a STATE, not the act of sitting down. Norwegian keeps sitte, stå and ligge carefully apart and uses them where English would just say \"is\" — and all three slot straight into the Det ... frame from unit 16: Det sitter, Det står, Det ligger." },
-        { id: "no-u17l2-asta", type: "vocab", front: "å stå", reading: "asta", meaning: "to stand", example: { jp: "Det står ei lampe på bordet.", en: "There is a lamp standing on the table." }, accept: ["stand", "to be standing", "be standing", "to stand up", "stand up"], hint: "STAW, present står. Used for upright objects as readily as for people — en kopp står på bordet. Å stå opp is to get out of bed." },
-        { id: "no-u17l2-aligge", type: "vocab", front: "å ligge", reading: "aligge", meaning: "to lie", example: { jp: "Det ligger et håndkle på gulvet.", en: "There is a towel lying on the floor." }, accept: ["lie", "to lie down", "lie down", "to be lying", "be lying", "to be situated"], hint: "LIG-ge, present ligger. For flat things — and for places: Oslo ligger i Norge, where English says Oslo \"is\" in Norway. Getting this trio right is one of the fastest ways to stop sounding translated." },
+        { id: "no-u17l2-glad", type: "vocab", front: "glad", reading: "glad", meaning: "happy", example: { jp: "Kari er veldig glad.", en: "Kari is very happy." }, accept: ["glad", "pleased", "cheerful", "fond"], hint: "GLAH — the d is silent, like god and sted. Glad i noen means fond of somebody, and it is what Norwegians actually say to the people they love; å elske from unit 4 is kept for something much stronger." },
+        { id: "no-u17l2-trist", type: "vocab", front: "trist", reading: "trist", meaning: "sad", example: { jp: "Barnet er trist.", en: "The child is sad." }, accept: ["unhappy", "sorrowful", "gloomy", "miserable"], hint: "TRIST. The everyday word for sad, about a person or about a place. Lei seg is the other one you will hear, and it sits closer to \"upset\"." },
+        { id: "no-u17l2-sint", type: "vocab", front: "sint", reading: "sint", meaning: "angry", example: { jp: "Erling er sint på meg.", en: "Erling is angry with me." }, accept: ["cross", "mad", "furious", "annoyed"], hint: "SINT. Note the preposition: å være sint PÅ noen — angry \"on\" somebody, where English says \"with\". Getting på right is more than half the phrase." },
+        { id: "no-u17l2-redd", type: "vocab", front: "redd", reading: "redd", meaning: "afraid", example: { jp: "Er du redd?", en: "Are you afraid?" }, accept: ["scared", "frightened", "fearful"], hint: "REDD, with the d sounded — unlike the silent d of glad and god. Å være redd for noe is to be afraid of something. And note the question: the verb comes first, because there is no do-support anywhere in Norwegian." },
+        { id: "no-u17l2-ale", type: "vocab", front: "å le", reading: "ale", meaning: "to laugh", example: { jp: "Vi ler sammen.", en: "We are laughing together." }, accept: ["laugh", "to laugh at", "chuckle"], hint: "LEH, present ler — one of the shortest verbs in the language, and its present is just the infinitive plus -r. Å le av noe is to laugh AT something." },
+        { id: "no-u17l2-asmile", type: "vocab", front: "å smile", reading: "asmile", meaning: "to smile", example: { jp: "Kari smiler til meg.", en: "Kari is smiling at me." }, accept: ["smile", "to grin", "grin"], hint: "SMEE-le, present smiler. Et smil is a smile. Norwegians smile at strangers far less than the British do, which is exactly why it carries more weight when they do." },
       ],
     },
-    // Lesson 3: speech. Note å spørre's irregular present, flagged on the card.
+    // Lesson 3: the private verbs — the three ways Norwegian splits English
+    // "think", plus remembering, forgetting and hoping.
     {
       id: "no-u17l3",
       unit: 17,
       lesson: 3,
-      title: "Å si og å høre",
+      title: "Å tenke og å huske",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say what somebody said, tell someone you cannot hear them, ask a question, answer it, and phone a friend.",
+      canDo: "Say what you are thinking about, what you remember or forget, what you hope, and give an opinion with synes and mene.",
       items: [
-        { id: "no-u17l3-asi", type: "vocab", front: "å si", reading: "asi", meaning: "to say", example: { jp: "Hva sier du?", en: "What are you saying?" }, accept: ["say", "to tell", "tell", "to utter"], hint: "SEE — but ⚠ the present is sier, SEE-er, with a syllable the infinitive gives no warning of. One of the four verbs in this unit whose present is not simply the infinitive plus -r." },
-        { id: "no-u17l3-ahore", type: "vocab", front: "å høre", reading: "ahore", meaning: "to hear", example: { jp: "Jeg hører ikke hva du sier.", en: "I cannot hear what you are saying." }, accept: ["hear", "to listen", "listen", "to listen to"], hint: "HUR-re, present hører, hand-folded to ahore. Plain å høre is hearing; å høre PÅ is listening on purpose — jeg hører på Kari." },
-        { id: "no-u17l3-asporre", type: "vocab", front: "å spørre", reading: "asporre", meaning: "to ask", example: { jp: "Erling spør hvor kirka er.", en: "Erling is asking where the church is." }, accept: ["ask", "to ask a question", "ask a question", "to enquire", "enquire", "inquire"], hint: "SPUR-re, hand-folded to asporre. ⚠ The present is spør, not \"spørrer\" — the whole -re drops. This is asking a QUESTION; asking FOR something is å be." },
-        { id: "no-u17l3-asvare", type: "vocab", front: "å svare", reading: "asvare", meaning: "to answer", example: { jp: "Anna svarer ikke.", en: "Anna is not answering." }, accept: ["answer", "to reply", "reply", "to respond", "respond"], hint: "SVAH-re, present svarer — regular, unlike the verb it belongs with. Et svar is an answer, and you answer something with på: å svare på et spørsmål." },
-        { id: "no-u17l3-aringe", type: "vocab", front: "å ringe", reading: "aringe", meaning: "to call", example: { jp: "Jeg ringer til Kari.", en: "I am calling Kari." }, accept: ["call", "to phone", "phone", "to ring", "ring", "to telephone"], hint: "RING-e, present ringer. On the telephone, and it takes til: ringe til noen. It is also what a bell does — klokka ringer." },
-        { id: "no-u17l3-afortelle", type: "vocab", front: "å fortelle", reading: "afortelle", meaning: "to tell", example: { jp: "Kari forteller meg hva hun gjør.", en: "Kari is telling me what she does." }, accept: ["tell", "to narrate", "narrate", "to recount", "recount", "to relate"], hint: "for-TEL-le, present forteller. To tell a story or relate something, where å si is just to utter words. Built from for plus telle, to count. English \"tell\" made the same journey from counting to recounting — and a bank \"teller\" is the OLDER counting sense, kept alive." },
+        { id: "no-u17l3-atenke", type: "vocab", front: "å tenke", reading: "atenke", meaning: "to think", example: { jp: "Jeg tenker på Norge.", en: "I am thinking about Norway." }, accept: ["think", "to think about", "think about", "to reflect", "reflect"], hint: "TENG-ke, present tenker. This is the mental WORK of thinking — å tenke på, to think about something. It is NOT the \"I think\" of an opinion; that is synes, two cards down." },
+        { id: "no-u17l3-ahuske", type: "vocab", front: "å huske", reading: "ahuske", meaning: "to remember", example: { jp: "Husker du navnet?", en: "Do you remember the name?" }, accept: ["remember", "to recall", "recall", "to memorise", "memorize"], hint: "HUES-ke, present husker. Look at the question: Norwegian makes a yes/no question by putting the verb FIRST — Husker du. There is no do-support in the language at all, so \"Gjør du huske?\" is not a sentence." },
+        { id: "no-u17l3-aglemme", type: "vocab", front: "å glemme", reading: "aglemme", meaning: "to forget", example: { jp: "Erling glemmer nøkkelen i bilen.", en: "Erling leaves the key in the car." }, accept: ["forget", "to leave behind", "leave behind"], hint: "GLEM-me, hard g, present glemmer. Also for leaving something behind by accident, which is what the example does. The opposite of å huske, and worth learning as a pair with it." },
+        { id: "no-u17l3-asynes", type: "vocab", front: "å synes", reading: "asynes", meaning: "to think", example: { jp: "Jeg synes norsk er hyggelig.", en: "I think Norwegian is nice." }, accept: ["to find", "find", "to be of the opinion", "feel", "reckon"], hint: "SUE-nes, present synes — the -s belongs to the verb and never drops. This is your PERSONAL opinion, the \"I think\" of taste: jeg synes filmen er god. Norwegian splits English think three ways — synes for an opinion, tenke for the mental work, and tro for a belief about the facts." },
+        { id: "no-u17l3-ahape", type: "vocab", front: "å håpe", reading: "ahape", meaning: "to hope", example: { jp: "Jeg håper Kari kommer.", en: "I hope Kari is coming." }, accept: ["hope", "to hope for", "hope for"], hint: "HAW-pe, present håper — the å folds to a on its own. Et håp is a hope. Jeg håper det is \"I hope so\"." },
+        { id: "no-u17l3-amene", type: "vocab", front: "å mene", reading: "amene", meaning: "to mean", example: { jp: "Hva mener du?", en: "What do you mean?" }, accept: ["to be of the opinion", "to hold", "to reckon", "to intend"], hint: "MEH-ne, present mener. Two jobs: what somebody MEANS by what they said (hva mener du?), and holding a considered opinion — which is the shade separating it from synes, a matter of taste. En mening is both a meaning and an opinion." },
       ],
     },
-    // Lesson 4: the mind. å vente sits here because its second sense is "to
-    // expect", which is a mental state, not an activity.
+    // Lesson 4: arranging to meet, and the small courtesies around it.
     {
       id: "no-u17l4",
       unit: 17,
       lesson: 4,
-      title: "Å tenke og å huske",
+      title: "Avtaler",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say what you think, believe, know, remember or forget — and ask a yes/no question by putting the verb first.",
+      canDo: "Make and keep an arrangement — phone somebody, greet them, promise something, and say what you are waiting for.",
       items: [
-        { id: "no-u17l4-atenke", type: "vocab", front: "å tenke", reading: "atenke", meaning: "to think", example: { jp: "Jeg tenker på Norge.", en: "I am thinking about Norway." }, accept: ["think", "to think about", "think about", "to reflect", "reflect"], hint: "TENG-ke, present tenker. This is the mental WORK of thinking — å tenke på, to think about something. For an opinion, Norwegians reach for tro instead." },
-        { id: "no-u17l4-atro", type: "vocab", front: "å tro", reading: "atro", meaning: "to believe", example: { jp: "Jeg tror han er norsk.", en: "I believe he is Norwegian." }, accept: ["believe", "to think", "think", "to suppose", "suppose", "to reckon"], hint: "TROO, present tror. This is the everyday English \"I think\" — jeg tror det, I think so. Use tro for an opinion and tenke for the thinking itself; getting them the wrong way round is the commonest slip English speakers make here." },
-        { id: "no-u17l4-avite", type: "vocab", front: "å vite", reading: "avite", meaning: "to know", example: { jp: "Jeg vet ikke hvor Erling er.", en: "I do not know where Erling is." }, accept: ["know", "to know a fact", "know a fact", "to be aware", "be aware"], hint: "VEE-te — but ⚠ the present is vet, irregular outright. And Norwegian splits English \"know\" in two: å vite is knowing a FACT, å kjenne from unit 1 is knowing a PERSON. Jeg vet det, but jeg kjenner Erling." },
-        { id: "no-u17l4-ahuske", type: "vocab", front: "å huske", reading: "ahuske", meaning: "to remember", example: { jp: "Husker du navnet?", en: "Do you remember the name?" }, accept: ["remember", "to recall", "recall", "to memorise", "memorize"], hint: "HUES-ke, present husker. Look at the question: Norwegian makes a yes/no question by putting the verb FIRST — Husker du. There is no do-support anywhere in the language, so \"Gjør du huske?\" is not a sentence." },
-        { id: "no-u17l4-aglemme", type: "vocab", front: "å glemme", reading: "aglemme", meaning: "to forget", example: { jp: "Erling glemmer nøkkelen i bilen.", en: "Erling leaves the key in the car." }, accept: ["forget", "to leave behind", "leave behind"], hint: "GLEM-me, hard g, present glemmer. Also for leaving something behind by accident: jeg glemmer veska. The opposite of å huske, and the two are worth learning as a pair." },
-        { id: "no-u17l4-avente", type: "vocab", front: "å vente", reading: "avente", meaning: "to wait", example: { jp: "Vi venter på bussen.", en: "We are waiting for the bus." }, accept: ["wait", "to wait for", "wait for", "to expect", "expect"], hint: "VEN-te, present venter. You wait på something, not \"for\" it. It sits with the thinking verbs because its other sense is to expect — jeg venter et barn, I am expecting a child." },
+        { id: "no-u17l4-aringe", type: "vocab", front: "å ringe", reading: "aringe", meaning: "to call", example: { jp: "Jeg ringer til Kari.", en: "I am calling Kari." }, accept: ["call", "to phone", "phone", "to ring", "ring", "to telephone"], hint: "RING-e, present ringer. On the telephone, and it takes til: ringe til noen. It is also what a bell does — klokka ringer." },
+        { id: "no-u17l4-ahilse", type: "vocab", front: "å hilse", reading: "ahilse", meaning: "to greet", example: { jp: "Jeg hilser på en venn.", en: "I greet a friend." }, accept: ["greet", "to say hello", "say hello", "to send regards", "to shake hands"], hint: "HIL-se, present hilser. Å hilse PÅ noen is to greet somebody or to be introduced to them. The phrase you will actually need is Hils Kari fra meg — say hello to Kari from me." },
+        { id: "no-u17l4-enavtale", type: "vocab", front: "en avtale", reading: "enavtale", meaning: "appointment", example: { jp: "Jeg har en avtale nå.", en: "I have an appointment now." }, accept: ["an appointment", "agreement", "an agreement", "arrangement", "a deal"], hint: "AV-tah-le. Masculine: definite avtalen, plural avtaler. An appointment with a person, a loose arrangement, or a signed agreement — one word covers all three. Å avtale is the verb." },
+        { id: "no-u17l4-alove", type: "vocab", front: "å love", reading: "alove", meaning: "to promise", example: { jp: "Erling lover å komme.", en: "Erling promises to come." }, accept: ["promise", "to give one's word", "to vow", "vow"], hint: "LOH-ve, present lover. Note å komme keeping its å after the verb — an infinitive stays marked, exactly as it does after viktig in unit 1. Et løfte is the noun, a promise." },
+        { id: "no-u17l4-afortelle", type: "vocab", front: "å fortelle", reading: "afortelle", meaning: "to tell", example: { jp: "Kari forteller meg hva hun heter.", en: "Kari is telling me what she is called." }, accept: ["tell", "to narrate", "narrate", "to recount", "recount", "to relate"], hint: "for-TEL-le, present forteller. To tell a story or relate something, and it takes a person: fortelle noen noe. Built from for plus telle, to count. English \"tell\" made the same journey from counting to recounting — and a bank \"teller\" is the OLDER counting sense, kept alive." },
+        { id: "no-u17l4-avente", type: "vocab", front: "å vente", reading: "avente", meaning: "to wait", example: { jp: "Vi venter på bussen.", en: "We are waiting for the bus." }, accept: ["wait", "to wait for", "wait for", "to expect", "expect"], hint: "VEN-te, present venter. You wait PÅ something, not \"for\" it. The same verb also means to expect — jeg venter et barn, I am expecting a child — which is why it closes a lesson about arrangements." },
       ],
     },
   ],
