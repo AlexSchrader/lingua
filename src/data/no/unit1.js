@@ -163,11 +163,25 @@
 //    is to write "Jeg kan å lære norsk", which DOES tokenise — and is not
 //    Norwegian. A seat chasing reachability through modals writes either dead
 //    cards or ungrammatical ones. Caught by the block 2 seat; block 1 had it wrong.
-//    ONLY THE Å-TAKING FRAMES WORK, and all three are measured REACHABLE:
-//        adjective + å      "Det er viktig å lære norsk."      6 tiles
-//        aspectual verb + å "Vi begynner å spise nå."          5 tiles
-//        noun + å           "Jeg har noe å si."                5 tiles
-//        (å also survives after like/prøve/pleie: "Jeg liker å lage mat.")
+//    ONLY THE Å-TAKING FRAMES WORK — and a frame is only usable if ITS OWN VERB
+//    IS TAUGHT AT OR BEFORE YOUR UNIT. An earlier version of this list named
+//    prøve and pleie; **neither is a front anywhere in the corpus**, so a seat
+//    using them would have got a reachable card, a grammatical sentence, and an
+//    UNTAUGHT VERB in an example — a §6 violation that lint reports only as an
+//    advisory warning. Caught by the block 2 seat. It is the modal trap one turn
+//    further out: those frames were verified against the TOKENISER and never
+//    against the TAUGHT CORPUS, so they looked correct by the only test that had
+//    been run. CHECK A FRAME AGAINST BOTH.
+//    The four frames that are safe as the corpus stands (336 fronts, blocks 1+2),
+//    each measured REACHABLE, with the slot that owns the frame word:
+//        viktig å      (u1l4)   "Det er viktig å lære norsk."   6 tiles
+//        å like å      (u3l4)   "Jeg liker å lage mat."        5 tiles
+//        å begynne å   (u5l4)   "Vi begynner å spise nå."      5 tiles
+//        noe å         (u10l1)  "Jeg har noe å si."           5 tiles
+//    Want prøve or pleie? Teach the frame verb first — that is allowed, it just
+//    has to be a card before it is an example. And note the modals ARE all taught
+//    (å kunne / å ville / å skulle / å måtte, u13) — they are fine in examples,
+//    they simply never restore reachability, because Norwegian drops the å.
 //    BUT REACHABILITY IS NOT THE GOAL AND DO NOT REWRITE GOOD SENTENCES FOR IT.
 //    The present tense is what an A1 learner actually produces and is the entire
 //    payoff of §2, the card is hash-gated to a 25% share, and block 2 measured the
