@@ -72,6 +72,24 @@ test("fr: -ir verbs that refuse the -iss- infix are tabled, not regularised", ()
 });
 
 // ── Refusing to guess ────────────────────────────────────────────────────────
+test("a mistagged NOUN never conjugates - the future rule used to accept anything", () => {
+  // The regular future is the whole infinitive plus an ending, so before this guard
+  // any string conjugated: "chien" @ fut-1s produced "chienai", and shouldConjugate
+  // reads a non-null as "this is a drill" - which would have shown an unanswerable
+  // card on a mistag. Curriculum is about to tag ~96 items by hand, so this matters.
+  for (const [lang, word] of [["fr", "chien"], ["fr", "maison"], ["es", "perro"], ["es", "casa"]]) {
+    for (const form of ["fut-1s", "fut-3p", "pres-1s", "imperf-2s"]) {
+      assert.equal(conjugateIn(lang, word, null, form), null, `${lang} ${word} ${form}`);
+    }
+  }
+  // ...while every real verb shape still conjugates in the future.
+  assert.equal(conjugateIn("fr", "parler", null, "fut-1s"), "parlerai");
+  assert.equal(conjugateIn("fr", "vendre", null, "fut-1s"), "vendrai");
+  assert.equal(conjugateIn("fr", "\u00eatre", null, "fut-1s"), "serai");
+  assert.equal(conjugateIn("es", "hablar", null, "fut-1s"), "hablar\u00e9");
+  assert.equal(conjugateIn("es", "tener", null, "fut-3p"), "tendr\u00e1n");
+});
+
 test("returns null rather than inventing a form", () => {
   assert.equal(conjugateIn("es", "hablar", null, "pres-4s"), null); // no such person
   assert.equal(conjugateIn("es", "hablar", null, "subj-1s"), null); // tense not implemented

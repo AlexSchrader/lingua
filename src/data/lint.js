@@ -1,4 +1,5 @@
 import { KANJIVG } from "./kanjivg.js";
+import { frontKey } from "./contract.js";
 
 // Curriculum lint — the mechanical authoring rules CC used to check by hand, now
 // an automated gate (BUILD-BRIEF-curriculum-lint.md, Part 1). This is a LAYER ON
@@ -387,11 +388,19 @@ export function lintCurriculum(units = []) {
           // accept[] present (may be empty)
           if (!Array.isArray(item.accept))
             w(`item ${id}: ${type} should have an accept[] array (may be empty)`);
-          // per-language word-front uniqueness (kana→word reuse allowed: kana fronts not tracked here)
+          // per-language word-front uniqueness (kana→word reuse allowed: kana fronts not tracked here).
+          // Keyed by frontKey() — the SAME function validateContent uses, imported rather
+          // than re-derived, so the two gates cannot drift into disagreeing about what a
+          // duplicate is. A conjForm-tagged item keys on lang+front+form, so one verb may
+          // appear once per target form; everything else keys on lang+front exactly as before.
           if (typeof item.front === "string") {
-            const key = `${unitLang}\u0000${item.front}`;
+            const key = frontKey(unitLang, item);
             if (vocabFronts.has(key))
-              e(`item ${id}: word front "${item.front}" already taught in ${vocabFronts.get(key)}`);
+              e(
+                `item ${id}: word front "${item.front}"` +
+                  (item.conjForm ? ` @ ${item.conjForm}` : "") +
+                  ` already taught in ${vocabFronts.get(key)}`
+              );
             else vocabFronts.set(key, id);
           }
         }

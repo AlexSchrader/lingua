@@ -27,6 +27,20 @@ function assertLiveKind(kindKey) {
 
 function reviewStepFor(item) {
   const rung = item.rung ?? 1;
+  // A conjugation drill is the whole item. cardRouting has always SAID this — "a
+  // conjForm item's whole purpose IS the conjugation drill, so it always routes to
+  // the conjugate card" — but the check sat at rung 3 only, so the same item drew
+  // `choice` at rung 1, `type:meaning` at rung 2 and `speak` at rung 4.
+  //
+  // Those are unanswerable for a tagged item. The front is the INFINITIVE (that is
+  // what the engine conjugates from), so the six persons of one tense are six items
+  // that all read "être": six identical prompts with six different expected answers.
+  // Only the form tag tells them apart, and only the conjugate card shows it.
+  //
+  // Guarded on shouldConjugate, which already requires the engine to actually produce
+  // a form — so a mistagged verb still degrades to the normal cards rather than
+  // showing a drill nobody can answer.
+  if (rung >= 1 && shouldConjugate(item)) return { kind: "conjugate" };
   // Recognition (rung ≤ 1): interleave three same-skill variants — the ear path
   // (listen:choice, audio in), the reverse direction (choice:reverse, English in →
   // pick the Japanese), and the plain eye path (choice, glyph in → pick the meaning).

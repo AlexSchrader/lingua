@@ -56,6 +56,24 @@ const ITEM_ID_RE = /^[a-z]{2}-u\d+l\d+-[a-z0-9]+$/;
 // errors[] → hard rule violations; the script / CI step exits non-zero.
 // warnings[] → style issues that don't block but should be resolved before the
 //   content ships to learners (e.g. too few distractors for choice card).
+// A CONJUGATION DRILL IS THE ONE PLACE ONE WORD LEGITIMATELY HAS SEVERAL HOMES.
+// "etre @ fut-1s" and "etre @ imperf-1s" are two cards teaching two different things,
+// and the learner produces a different answer for each — so the key includes the
+// target form when the item carries one. An item with NO conjForm keys exactly as
+// before, because that check is what stops three parallel crews teaching one word
+// twice, and it has already caught 159 cards of duplication in Spanish B1. Two cards
+// with the same front AND the same form are still a hard error — that is a real
+// duplicate, not a paradigm.
+//
+// Japanese never exposed this: ja/unit45's 24 conjForm items have 24 distinct fronts,
+// one form per verb. es/fr draw ~22 infinitives across 96 drill cards, so 4 in 9
+// collide with a sibling — which is why those units still teach each conjugated form
+// as its own vocab chunk, the exact thing the conjugate card was built to replace.
+export function frontKey(lang, item) {
+  const base = lang + "\u0000" + item.front;
+  return item?.conjForm ? base + "\u0000" + item.conjForm : base;
+}
+
 export function validateContent(units, languages) {
   const errors = [];
   const warnings = [];
@@ -301,13 +319,15 @@ export function validateContent(units, languages) {
   // LIVE_CARD_KINDS then returns zero hits — a silent false negative in the one
   // file most worth searching. The escape has the same runtime value and keeps the
   // file text. Do not "simplify" it back to a literal.
-  const vocabFronts = new Map(); // `${lang}\u0000${front}` → first item id
+  const vocabFronts = new Map(); // frontKey() → first item id
   for (const { item, lang } of allItems) {
     if (item.type !== "vocab" && item.type !== "kanji") continue;
-    const key = `${lang}\u0000${item.front}`;
+    const key = frontKey(lang, item);
     if (vocabFronts.has(key))
       e(
-        `item ${item.id}: ${item.type} front "${item.front}" is already taught in item ${vocabFronts.get(key)} — ` +
+        `item ${item.id}: ${item.type} front "${item.front}"` +
+          (item.conjForm ? ` @ ${item.conjForm}` : "") +
+          ` is already taught in item ${vocabFronts.get(key)} — ` +
           `a word should have a single home within a language (dedupe the duplicate)`
       );
     else vocabFronts.set(key, item.id);
