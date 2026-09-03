@@ -105,6 +105,7 @@ gojūon grid). They count toward a lesson's card-density.
 | meaning | string            | ✓        | English gloss; non-empty |
 | example | `{ jp, en }`      | ✓        | one sentence in each language |
 | accept  | string[] (opt)    |          | alternate accepted meanings for typed answers |
+| drill   | `{ jp, en }` (opt) |         | **short practice sentence** — see below. 3–8 tokens, no internal punctuation, must contain the `front` |
 | hint    | string (opt)      |          | memory hook shown on TeachCard; must be non-empty if present |
 
 ---
@@ -127,6 +128,46 @@ rungs. Allowed only in `a1`+ stage units. KanjiVG entry required (add the char t
 | example | `{ jp, en }`      | ✓        | one sentence in each language |
 | accept  | string[] (opt)    |          | alternate accepted meanings |
 | hint    | string (opt)      |          | memory hook; non-empty if present |
+
+---
+
+## `drill` — the short practice sentence (and why `example` is not enough)
+
+**`example` teaches. `drill` is what the engine can take apart.** They are different jobs
+and one sentence cannot do both.
+
+`example` should be as rich as the level deserves — at B1/B2 that means long, subordinate,
+idiomatic:
+
+> *"La concertation entre les pays avance lentement, mais elle seule permet d'éviter une crise ouverte."*
+
+That sentence is doing real teaching work and must not be shortened. But two cards need to
+manipulate the sentence mechanically, and they both fail on it:
+
+- **`cloze:choice`** blanks the target word out of its sentence — needs the `front` present.
+- **`sentence:build`** rebuilds the sentence from tiles — needs **3–8 whitespace tokens and no
+  sentence-internal punctuation**, or there are too many tiles to be a question rather than a chore.
+
+Measured against the shipped corpus, that is why those two cards reach only **36–63%** of items:
+not a routing bug, just how the examples happened to be written. `drill` fixes it without
+touching a single `example`.
+
+**The rules (lint reports each one, so you find out while authoring):**
+
+| rule | why |
+|---|---|
+| 3–8 whitespace tokens | fewer is not a sentence; more is a tile-sorting chore. Not checked for `ja` — Japanese is written without spaces |
+| no `, ; : ! ? …` and no mid-sentence `.` | `sentence:build` rejects punctuation-only tiles |
+| must contain the item's `front` | or `cloze:choice` has nothing to blank. Matched accent- and case-insensitively, so `"BONJOUR mon ami"` satisfies front `bonjour` |
+| same `{ jp, en }` shape as `example` | the `jp` key is historical — it holds the target language, whatever it is |
+
+**Optional, and staying optional.** An item with no `drill` behaves exactly as today: cloze and
+sentence:build route only if its `example` happens to qualify. Add drills as you touch units;
+nothing breaks in the gap.
+
+**Use vocab already taught at or before this unit** — the same teach-before-use rule as `example`
+(RUNBOOK §4). A drill is a *simplification* of the example's idea, not a new sentence with new
+words in it.
 
 ---
 

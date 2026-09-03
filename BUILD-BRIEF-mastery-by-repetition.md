@@ -46,25 +46,63 @@ So 15 passes **cannot** come from the review queue. That is the whole reason the
 
 Required passes = 15 × the item's **eligible** card kinds. Eligible is per item, not a fixed list — kana cannot `speak`, Latin-script has no `trace`, only tagged verbs `conjugate`.
 
-| lang | items | avg eligible kinds | passes to master (avg) | days at 4/day |
-|---|---|---|---|---|
-| ja | 5,012 | 6.5 (4–9) | **97** (60–135) | **25** (15–34) |
-| fr | 3,111 | 5.2 (4–8) | **78** (60–120) | **20** (15–30) |
-| es | 3,123 | 5.1 (4–8) | **77** (60–120) | **20** (15–30) |
+Measured three ways, because the definition of "eligible" changes the answer by 60%:
 
-So `bonjour` — 5 kinds — is **~75 correct passes, ~19 days** of drilling it every day. That is the intended feel: mastery is something you go and *do* to a word, not a state words drift into.
+| eligibility rule | ja | fr | es |
+|---|---|---|---|
+| by hash (today's gates) | 6.5 kinds → 97 passes → 25 days | 5.2 → 78 → 20 days | 5.1 → 77 → 20 days |
+| **by well-posedness (§4.6)** | **9.0 → 135 → 34 days** | **8.1 → 122 → 31 days** | **8.0 → 120 → 30 days** |
+| well-posedness + universal drills + `build`/`type:reading` counterparts | ~10 → ~150 → ~38 days | ~10 → ~150 → ~38 days | ~10 → ~150 → ~38 days |
+
+So `bonjour` is **~120 correct passes, ~31 days** of daily drilling today, heading to ~150 / ~38
+days once drills and the two Latin counterparts land. That is the honest price of "every card
+type actually means every card type".
+
+That is the intended feel: mastery is something you go and **do** to a word, not a state words drift into.
 
 **Corpus-wide mastery is not the goal and is not reachable** (10,200 items × ~85 passes ≈ 870,000 answers). Mastery is per word, pursued deliberately. The Ladder already shows it per item. Say this out loud in the UI copy so nobody reads a 3%-mastered corpus as failure.
 
 ---
 
+## 3b. Card types are UNIVERSAL and adapt per language (Alex, 2026-09-03)
+
+*"Card types are supposed to be universal and adjust per language… really all words should
+have sentences, all cards if possible."* Correct, and of the 15 live kinds only **one** is
+genuinely script-bound. Eligibility below is by **well-posedness**, not hash (§4.6).
+
+| card | universal? | what adapts, or what is missing |
+|---|---|---|
+| `choice` · `choice:reverse` · `type:meaning` · `listen:choice` · `listen:type` · `speak` | ✅ already | — |
+| `cloze:choice` | ✅ | needs the front inside the sentence → **`drill` makes it universal** |
+| `sentence:build` | ✅ | needs 3–8 clean tokens → **`drill` makes it universal** |
+| `particle:choice` | ✅ in principle | ja particles / Latin prepositions. Starved at **9%** for Latin: examples rarely place a preposition right after the front. A drill can be written to |
+| `conjugate` | ✅ now (Latin engine shipped) | **0% until Curriculum tags verbs** with `group` + `conjForm` |
+| `build` | ❌ ja-only — **fixable, net-new** | the concept is "assemble from pieces". ja assembles kana→rōmaji; Latin has no script change, so it needs **letter tiles**. A new card, not a gate change |
+| `type:reading` | ❌ ja-only — fixable | a Latin front and its reading differ only by accents, so the card would display its own answer. The Latin counterpart is *type it **with** the accents* from an unaccented prompt — a real es/fr skill |
+| `trace` | ❌ ja-only, **and it should stay that way** | `CONTENT.md` script policy: do not build a traceable a–z. Tracing kana/kanji is the production skill; tracing "b" is busywork |
+
+**End state: 12 of 15 universal**, `trace` deliberately ja-only, `build` and `type:reading`
+gaining Latin counterparts as separate work.
+
+### When `speak` is introduced — today, and after
+
+**Today: rung 4, identically in all three languages.** `shouldSpeak` is one line
+(`item.type === "vocab"`) and the runner shows it at rung ≥ 4 — the **5th correct answer on
+that word**, whether it is u1 or u126. No unit gate, no CEFR gate, no setting, no per-language
+difference. Kana and kanji never speak.
+
+**After: speak is a required type from the start**, so it is met early and often rather than
+at the end of a word's life. If speak must be *earned* rather than available immediately, that
+is a separate gate and needs stating — it is not there now.
+
 ## 4. The engineering constraints, in priority order
 
 1. **Practice must not write `srs`.** It increments mastery counters and nothing else. A practice answer never reschedules, never changes `due`, never changes FSRS `stability`. Otherwise drilling a word 4×/day collapses its interval and the retention model with it.
 2. **Cards must rotate within a stage.** `reviewStepFor(item, rung)` is deterministic today — same item, same rung, same card, forever. That is why lifetime variety averages ~4 kinds: exactly one per rung. **Without rotation, "15 of each type" is unreachable by construction** — the item would only ever show one type per stage. Rotation is a prerequisite, not a nice-to-have.
-3. **Required set is relative to eligible kinds.** A fixed list makes half the corpus unmasterable — the exact defect class cleared in `fix/latin-card-variety` (items that could not reach a card kind at all). Eligibility must be computed from the same gates the runner uses.
-4. **The daily review still owns `rung` and `srs`.** Rung stays the qualitative stage and keeps driving which card family is appropriate; mastery becomes the quantitative axis beside it. They are different questions and should stay different fields.
-5. **Only correct answers count.** A wrong answer in practice does not decrement mastery and does not touch rung — practice is safe to attempt. (Wrong answers in the *scheduled review* keep their existing rung/FSRS consequences.)
+3. **Required set is relative to eligible kinds.** A fixed list makes half the corpus unmasterable — the exact defect class cleared in `fix/latin-card-variety` (items that could not reach a card kind at all).
+4. **Eligibility is WELL-POSEDNESS, never the hash.** Two different questions share one gate today: *can this card be a fair question for this word* (`canCloze`, `canSentence`, `hasAudio`, `canBuildReading` — a content question) and *should it show today* (`shouldCloze` et al — a hash share, for interleaving variety). If the requirement set uses the hash, **a coin flip on the item id decides whether mastering a word includes spelling it**: `type:produce` covers only 50% of fr items by hash, and 100% by well-posedness. Mastery requirements use `can*`; the daily review keeps using `should*` for variety. This is the single change that makes Alex's "all cards" ask real.
+5. **The daily review still owns `rung` and `srs`.** Rung stays the qualitative stage and keeps driving which card family is appropriate; mastery becomes the quantitative axis beside it. They are different questions and should stay different fields.
+6. **Only correct answers count.** A wrong answer in practice does not decrement mastery and does not touch rung — practice is safe to attempt. (Wrong answers in the *scheduled review* keep their existing rung/FSRS consequences.)
 
 ---
 

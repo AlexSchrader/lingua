@@ -25,10 +25,10 @@ const TYPE_KEYS = {
   // group + conjForm are the optional verb-conjugation tags the contract allows
   // (contract.js ITEM_KEYS) — a group-tagged verb with a conjForm routes to the
   // conjugate card. Listed here so the lint's key allowlist matches the contract.
-  vocab: { required: ["id", "type", "front", "reading", "meaning", "example", "accept"], optional: ["hint", "group", "conjForm"] },
+  vocab: { required: ["id", "type", "front", "reading", "meaning", "example", "accept"], optional: ["hint", "group", "conjForm", "drill"] },
   // Forward-compatible: a `kanji` item type doesn't exist in the contract yet
   // (validateContent rejects it). When it ships, these rules activate.
-  kanji: { required: ["id", "type", "front", "reading", "meaning", "example", "accept"], optional: ["hint"] },
+  kanji: { required: ["id", "type", "front", "reading", "meaning", "example", "accept"], optional: ["hint", "drill"] },
 };
 
 // Gojūon order as CHARACTERS (not readings — ぢ/づ share readings with じ/ず, so a
@@ -361,6 +361,29 @@ export function lintCurriculum(units = []) {
         if (type === "vocab" || type === "kanji" || comboKana) vocabCount++;
 
         if (type === "vocab" || type === "kanji") {
+          // --- drill sentence (optional field, but strict when present) ---------
+          // A drill only earns its place if the engine can take it apart. cloze needs
+          // the item's own front inside the sentence; sentence:build needs 3-8
+          // whitespace tokens and no sentence-internal punctuation to tile cleanly.
+          // A drill that fails these is silently useless — it validates, ships, and
+          // buys the learner nothing — so it is reported here, at authoring time.
+          if (item.drill && typeof item.drill.jp === "string") {
+            const jp = item.drill.jp.trim();
+            const isJa = /^ja-/.test(String(id));
+            // Japanese is written without spaces, so token count is not measurable
+            // the same way; the front-presence rule still applies to both.
+            if (!isJa) {
+              const tokens = jp.split(/\s+/).filter(Boolean);
+              if (tokens.length < 3 || tokens.length > 8)
+                w(`item ${id}: drill "${jp}" is ${tokens.length} tokens — needs 3-8 to tile into sentence:build`);
+            }
+            if (/[,;:!?…]|\.\s/.test(jp))
+              w(`item ${id}: drill "${jp}" has sentence-internal punctuation — sentence:build rejects it`);
+            const fold = (s) => String(s).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            if (typeof item.front === "string" && !fold(jp).includes(fold(item.front)))
+              w(`item ${id}: drill "${jp}" does not contain the front "${item.front}" — cloze cannot blank it`);
+          }
+
           // accept[] present (may be empty)
           if (!Array.isArray(item.accept))
             w(`item ${id}: ${type} should have an accept[] array (may be empty)`);
