@@ -67,12 +67,14 @@
 //     block. It is self-graded and is not a repo artifact, so nobody else can
 //     re-run it. Treat its result as corroboration, not verification.
 //   • Block 2 may still change before merge, and block 3 now has TWO exposures to
-//     it, both deliberate. (a) The 16 resolved collisions. (b) Eight examples in
-//     u18–u20 use seven block-2 verbs — å gjøre, å hjelpe, å høre, å ligge,
-//     å sitte, å sove, å stå — which is legitimate (u11 and u13 both precede u18)
-//     and is what a coverage pass SHOULD do, but it does mean those eight cards
-//     go out of scope if block 2 drops one of those verbs. Re-run the comparison
-//     at merge rather than trusting this note.
+//     it, both deliberate. (a) The 16 resolved collisions. (b) NINE examples in
+//     u17–u20 lean on eight block-2 words — the verbs å gjøre, å hjelpe, å høre,
+//     å ligge, å sitte, å sove, å stå, and the noun `ei tann` (u17l1's "Jeg
+//     pusser tennene"). All are legitimate — u11 and u13 both precede u17 — and
+//     leaning on the block below is what a coverage pass SHOULD do. But those
+//     nine cards go out of scope if block 2 drops one of those words, and NOTHING
+//     LOCAL CHECKS THEM: the vocab-scope lint skips units behind 0-item stubs, so
+//     the merged run is the only gate for that set. Re-run it at merge.
 //
 // LESSON ORDER IS DELIBERATE. l3's verbs (å prøve, å passe, å velge) come before
 // l4 needs them, and every l4 example draws only on l1–l3 plus block 1. This has

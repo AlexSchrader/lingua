@@ -54,7 +54,11 @@
 // ADJECTIVE AGREEMENT IS NOT DERIVED HERE (unit1.js §8b). The four feelings
 // adjectives appear only in the singular after er, which is the bare form given
 // on the card. No example asks the learner to build a -t or -e ending; u14
-// (block 2's Fortid og adjektiv) owns that contrast.
+// (block 2's Fortid og adjektiv) owns that contrast. ONE example has a NEUTER
+// subject — "Barnet er trist" — and it is safe for a reason worth writing down:
+// `trist` already ends in -t and is invariant in the neuter, so no ending is
+// derived. A later seat swapping that subject onto `glad` or `redd` WOULD force
+// a -t and break §8b. Leave it, or change the adjective too.
 //
 // LESSON ORDER: l1's å bruke and l2's adjectives are in place before anything
 // leans on them, and no example anywhere reaches forward. Checked by eye AND by
@@ -81,9 +85,9 @@ export const NO_UNIT17 = {
       items: [
         { id: "no-u17l1-avakne", type: "vocab", front: "å våkne", reading: "avakne", meaning: "to wake up", example: { jp: "Jeg våkner tidlig.", en: "I wake up early." }, accept: ["wake", "wake up", "to wake", "to awaken", "awaken"], hint: "VAWK-ne, present våkner. This is waking by yourself; waking somebody ELSE is å vekke. The å folds to a on its own, so this reading needed no hand-work." },
         { id: "no-u17l1-adusje", type: "vocab", front: "å dusje", reading: "adusje", meaning: "to shower", example: { jp: "Erling dusjer på badet.", en: "Erling is showering in the bathroom." }, accept: ["shower", "to take a shower", "take a shower", "have a shower"], hint: "DUE-she, present dusjer — sj is the broad sh of sjø and skjorte. En dusj is the shower itself." },
-        { id: "no-u17l1-apusse", type: "vocab", front: "å pusse", reading: "apusse", meaning: "to brush", example: { jp: "Jeg pusser skoene.", en: "I am polishing the shoes." }, accept: ["brush", "to polish", "polish", "to shine", "clean"], hint: "PUS-se, present pusser. To brush or polish something until it shines — å pusse tenner is to brush your teeth, å pusse sko is to polish shoes. Not å vaske from unit 15, which is washing something clean." },
+        { id: "no-u17l1-apusse", type: "vocab", front: "å pusse", reading: "apusse", meaning: "to brush", example: { jp: "Jeg pusser tennene.", en: "I am brushing my teeth." }, accept: ["brush", "to polish", "polish", "to shine", "clean"], hint: "PUS-se, present pusser. To brush or polish something until it shines — å pusse tenner is the one you will say every day, å pusse sko is to polish shoes. Note tennene, \"the teeth\": Norwegian uses the definite where English says \"my\". Not å vaske from unit 15, which is washing something clean." },
         { id: "no-u17l1-ahvile", type: "vocab", front: "å hvile", reading: "ahvile", meaning: "to rest", example: { jp: "Nå hviler jeg i stua.", en: "Now I am resting in the living room." }, accept: ["rest", "to relax", "relax", "to take a rest", "take a rest"], hint: "VEE-le — hv- is a silent h, the same trick as in hva and hvor. Present hviler. And note the order: with nå in front, hviler comes second and jeg falls in behind it. That is Norwegian's V2 rule, not a stylistic choice." },
-        { id: "no-u17l1-envane", type: "vocab", front: "en vane", reading: "envane", meaning: "habit", example: { jp: "Erling har en god vane.", en: "Erling has a good habit." }, accept: ["a habit", "custom", "routine", "practice"], hint: "VAH-ne. Masculine: definite vanen, plural vaner. Å ha for vane is to be in the habit of something. Vanlig, \"ordinary\", is built straight on it — the ordinary is what happens by habit." },
+        { id: "no-u17l1-envane", type: "vocab", front: "en vane", reading: "envane", meaning: "habit", example: { jp: "Det er en god vane.", en: "That is a good habit." }, accept: ["a habit", "custom", "routine", "practice"], hint: "VAH-ne. Masculine: definite vanen, plural vaner. Å ha for vane is to be in the habit of something. Vanlig, \"ordinary\", is built straight on it — the ordinary is what happens by habit." },
         { id: "no-u17l1-abruke", type: "vocab", front: "å bruke", reading: "abruke", meaning: "to use", example: { jp: "Kari bruker mye penger.", en: "Kari spends a lot of money." }, accept: ["use", "to spend", "spend", "to wear", "wear"], hint: "BRUE-ke, present bruker. One verb doing three English jobs: to use a thing, to spend money (bruke penger), and to wear glasses or a clothing size (bruke briller)." },
       ],
     },
@@ -120,7 +124,7 @@ export const NO_UNIT17 = {
         { id: "no-u17l3-atenke", type: "vocab", front: "å tenke", reading: "atenke", meaning: "to think", example: { jp: "Jeg tenker på Norge.", en: "I am thinking about Norway." }, accept: ["think", "to think about", "think about", "to reflect", "reflect"], hint: "TENG-ke, present tenker. This is the mental WORK of thinking — å tenke på, to think about something. It is NOT the \"I think\" of an opinion; that is synes, two cards down." },
         { id: "no-u17l3-ahuske", type: "vocab", front: "å huske", reading: "ahuske", meaning: "to remember", example: { jp: "Husker du navnet?", en: "Do you remember the name?" }, accept: ["remember", "to recall", "recall", "to memorise", "memorize"], hint: "HUES-ke, present husker. Look at the question: Norwegian makes a yes/no question by putting the verb FIRST — Husker du. There is no do-support in the language at all, so \"Gjør du huske?\" is not a sentence." },
         { id: "no-u17l3-aglemme", type: "vocab", front: "å glemme", reading: "aglemme", meaning: "to forget", example: { jp: "Erling glemmer nøkkelen i bilen.", en: "Erling leaves the key in the car." }, accept: ["forget", "to leave behind", "leave behind"], hint: "GLEM-me, hard g, present glemmer. Also for leaving something behind by accident, which is what the example does. The opposite of å huske, and worth learning as a pair with it." },
-        { id: "no-u17l3-asynes", type: "vocab", front: "å synes", reading: "asynes", meaning: "to think", example: { jp: "Jeg synes norsk er hyggelig.", en: "I think Norwegian is nice." }, accept: ["to find", "find", "to be of the opinion", "feel", "reckon"], hint: "SUE-nes, present synes — the -s belongs to the verb and never drops. This is your PERSONAL opinion, the \"I think\" of taste: jeg synes filmen er god. Norwegian splits English think three ways — synes for an opinion, tenke for the mental work, and tro for a belief about the facts." },
+        { id: "no-u17l3-asynes", type: "vocab", front: "å synes", reading: "asynes", meaning: "to think (opinion)", example: { jp: "Jeg synes norsk er hyggelig.", en: "I think Norwegian is nice." }, accept: ["to think", "think", "to find", "find", "to be of the opinion", "feel", "reckon"], hint: "SUE-nes, present synes — the -s belongs to the verb and never drops. This is your PERSONAL opinion, the \"I think\" of taste: jeg synes filmen er god. Norwegian splits English think four ways — synes for how a thing strikes you, tenke for the mental work, tro for a belief about the facts, and mene, two cards down, for a position you could argue for." },
         { id: "no-u17l3-ahape", type: "vocab", front: "å håpe", reading: "ahape", meaning: "to hope", example: { jp: "Jeg håper Kari kommer.", en: "I hope Kari is coming." }, accept: ["hope", "to hope for", "hope for"], hint: "HAW-pe, present håper — the å folds to a on its own. Et håp is a hope. Jeg håper det is \"I hope so\"." },
         { id: "no-u17l3-amene", type: "vocab", front: "å mene", reading: "amene", meaning: "to mean", example: { jp: "Hva mener du?", en: "What do you mean?" }, accept: ["to be of the opinion", "to hold", "to reckon", "to intend"], hint: "MEH-ne, present mener. Two jobs: what somebody MEANS by what they said (hva mener du?), and holding a considered opinion — which is the shade separating it from synes, a matter of taste. En mening is both a meaning and an opinion." },
       ],
@@ -130,7 +134,7 @@ export const NO_UNIT17 = {
       id: "no-u17l4",
       unit: 17,
       lesson: 4,
-      title: "Avtaler",
+      title: "Avtaler og kontakt",
       cefr: "A1",
       dominantMode: "recall",
       canDo: "Make and keep an arrangement — phone somebody, greet them, promise something, and say what you are waiting for.",
