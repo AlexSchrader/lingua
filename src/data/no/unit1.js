@@ -134,6 +134,27 @@
 // 5. `example.jp` holds the NORWEGIAN sentence — the key is literally "jp" (the
 //    field name is historical: "jp" = target language); `example.en` the English
 //    gloss. Do not rename it.
+//    ⚠️ YOUR EXAMPLE DECIDES WHETHER THE PRODUCTION CARD EXISTS AT ALL, AND
+//    NOTHING WARNS YOU. `sentence:build` — the only card that makes a learner
+//    PRODUCE a word order, and therefore the only one that actually tests V2 —
+//    is built by `sentenceTokens` (cardRouting.js:390). For a Latin language it
+//    silently returns null, and the card never appears, unless ALL of:
+//      • the item's `front` appears in the example as a WHOLE WORD (contiguous:
+//        an adjective between article and noun, "ei god mor", breaks "ei mor");
+//      • the example carries NO interior . ! ? … — – (a trailing one is stripped
+//        first, so "Hvor er en kafé?" is fine but "Unnskyld! Hvor er en kafé?"
+//        is not — a two-sentence example kills the card);
+//      • it splits into 3–8 space-separated tiles.
+//    MEASURED on block 1 after fixing the four punctuation cases: 125 of 168 items
+//    (74%) can reach it. Of the 43 that cannot, 29 are å-verbs — unavoidable,
+//    because §2 headwords the infinitive while the example shows the -r present,
+//    so the front is never literally in the sentence — and 10 are nouns whose
+//    article an adjective splits. THAT IS THE REAL COST OF THE §2 CONVENTION and
+//    it is worth knowing before you write 144 more cards: a verb card in this
+//    language gets teach/choice/type but not the sentence builder. If you want a
+//    verb to reach it, the example must contain the infinitive itself — which
+//    Norwegian does naturally after a modal or another verb ("Det er viktig å
+//    lære norsk", "Jeg liker å lage mat").
 //
 // 6. Examples stay inside vocab taught at or before that unit, plus the FREE list
 //    below. Inflected forms of a TAUGHT word count as that word — the definite
@@ -258,7 +279,7 @@ export const NO_UNIT1 = {
         { id: "no-u1l4-viktig", type: "vocab", front: "viktig", reading: "viktig", meaning: "important", example: { jp: "Det er viktig å lære norsk.", en: "It is important to learn Norwegian." }, accept: ["significant", "of importance"], hint: "VIK-ti — silent g again. Note how å lære keeps its å here: after an adjective, the infinitive marker stays." },
         { id: "no-u1l4-billig", type: "vocab", front: "billig", reading: "billig", meaning: "cheap", example: { jp: "Ei skjorte er billig.", en: "A shirt is cheap." }, accept: ["inexpensive", "low-priced"], hint: "BIL-li. Three -ig words, three silent g's — the ending is everywhere, so learn the ending, not the words." },
         { id: "no-u1l4-meg", type: "vocab", front: "meg", reading: "meg", meaning: "me", example: { jp: "Erling kjenner meg.", en: "Erling knows me." }, accept: ["myself"], hint: "Spelled -eg, said MY. The same trick as jeg: -eg is pronounced \"ay\", never as written." },
-        { id: "no-u1l4-deg", type: "vocab", front: "deg", reading: "deg", meaning: "you", example: { jp: "Jeg kjenner deg.", en: "I know you." }, accept: ["yourself", "you (object)"], hint: "DYE, rhyming with meg. jeg/meg and du/deg — subject and object, same -eg spelling, same \"ay\" sound." },
+        { id: "no-u1l4-deg", type: "vocab", front: "deg", reading: "deg", meaning: "you (object form)", example: { jp: "Jeg kjenner deg.", en: "I know you." }, accept: ["you", "yourself"], hint: "DYE, rhyming with meg. jeg/meg and du/deg — subject and object, same -eg spelling, same \"ay\" sound." },
         { id: "no-u1l4-agi", type: "vocab", front: "å gi", reading: "agi", meaning: "to give", example: { jp: "Jeg gir Erling ei skje.", en: "I give Erling a spoon." }, accept: ["give", "to hand", "hand over"], hint: "g before i or y turns into a y sound: YEE. Same in gi, gift, gynge — but hard before a, o, u and å: god is GOO." },
       ],
     },
