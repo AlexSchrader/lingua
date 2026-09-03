@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Lock, Check, ChevronRight, Volume2 } from "lucide-react";
 import { useStore, activeLangId } from "../store/useStore.js";
-import { LANGUAGES, UNITS } from "../data/index.js";
+import { LANGUAGES, UNITS, isLive } from "../data/index.js";
 import { roadmapFor } from "../data/roadmap.js";
 import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
@@ -45,7 +45,25 @@ function stageStats(langId, stage, items) {
   return { total, done, pct: total ? Math.round((done / total) * 100) : 0, complete: total > 0 && done === total };
 }
 
-const hasContent = (id) => UNITS.some((u) => u.lang === id);
+// A SCAFFOLDED LANGUAGE IS NOT A STARTABLE ONE. This asked whether any UNIT carries
+// the id, and `npm run scaffold:lang` writes the whole band up front as locked stubs —
+// so a language with 20 units and zero learnable items answered yes, appeared as a
+// startable row, and dropped a learner onto an empty ladder. `isLive` is the same
+// question asked properly (does it have a PLAYABLE lesson) and is already what the
+// rest of the app uses. Onboarding had the identical bug.
+const hasContent = (id) => isLive(id);
+
+// How far along a language is, for the ones that have started but are not finished.
+// "Planned" is true of a language nobody has touched; it is a lie about one a crew is
+// three units into, and it is the difference between "coming eventually" and "coming".
+// Counted in UNITS, not items: a locked stub has no items, so a total item count does
+// not exist until the band is authored, but the unit slots are known from scaffold time.
+function authoringProgress(id) {
+  const us = UNITS.filter((u) => u.lang === id);
+  if (!us.length) return null;
+  const done = us.filter((u) => (u.lessons ?? []).some((l) => Array.isArray(l.items))).length;
+  return done > 0 && done < us.length ? { done, total: us.length } : null;
+}
 
 
 export default function Ladder() {
@@ -146,7 +164,7 @@ export default function Ladder() {
                 onStart={previewAddLang ? undefined : () => startLanguage(l.id)}
               />
             ))}
-            <PlannedLanguages langs={notStarted.filter((l) => !hasContent(l.id))} />
+            <PlannedLanguages langs={notStarted.filter((l) => !hasContent(l.id))} progressFor={authoringProgress} />
           </div>
         </Section>
       )}
