@@ -1,0 +1,3394 @@
+# FR — words already taught
+
+**Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- fr`.
+Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s) still stubs**.
+
+## How to use this (RUNBOOK §4)
+
+- **Before you write an example**, check the words in it against the index below. A word that is here is free to use; a word that is not is either yours to teach or someone else's — see the ownership rule.
+- **Before you commit to a `front`**, check it here. If it is already taught, **the lower slot number owns it** — you use it in examples, you do not re-teach it. Check inflectional relatives too, not just the exact string (infinitive vs conjugated form, noun vs noun+verb): front-uniqueness passes on exact strings and will happily let you teach the same lexeme twice.
+- **Grep it, don't read it.** It is long on purpose — one line per word is what makes the lookup exact.
+
+### What this list cannot tell you
+
+- **It does not contain the words your sibling blocks are writing right now.** They do not exist yet, in this tree or any other. If you need a word a *later* slot will plainly own (a grammar unit's tense, a themed unit's domain), assume it is theirs and teach around it.
+- **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
+- **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
+
+## Index — every taught word, alphabetical
+
+`word` — slot · meaning
+
+- `à` — u7 · to
+- `à bien des égards` — u115 · in many respects
+- `à bientôt` — u11 · see you soon
+- `à cause de` — u36 · because of
+- `à ceci près que` — u113 · except that / with the one difference that
+- `à cet égard` — u115 · in this respect
+- `à charge de` — u133 · on condition of
+- `à condition de` — u113 · provided / on condition of
+- `à condition que` — u76 · on condition that
+- `à côté de` — u51 · next to
+- `à court terme` — u69 · in the short term
+- `à défaut de` — u113 · for lack of / in the absence of
+- `à demain` — u8 · see you tomorrow
+- `à droite` — u7 · to the right
+- `à en croire` — u115 · if one is to believe
+- `a été vendu` — u77 · was sold
+- `à force de` — u94 · by dint of
+- `à gauche` — u7 · to the left
+- `à jamais` — u130 · forever
+- `à l'aune de` — u114 · measured against / in the light of
+- `à l'avenir` — u130 · from now on
+- `à l'égard de` — u133 · towards
+- `à l'heure` — u35 · on time
+- `à l'inverse` — u60 · conversely
+- `à la faveur de` — u133 · under cover of
+- `à la fois` — u94 · at once
+- `à la mode` — u93 · in fashion
+- `à long terme` — u69 · in the long term
+- `à même de` — u133 · able to
+- `à mesure que` — u132 · as
+- `à moins de` — u113 · unless / short of
+- `à moins que` — u76 · unless (formal)
+- `à mon avis` — u25 · in my opinion
+- `à peine` — u56 · barely
+- `à peu près` — u50 · roughly
+- `à plus` — u79 · see you later
+- `à première vue` — u115 · at first sight
+- `à présent` — u130 · now
+- `a priori` — u61 · in principle
+- `à savoir` — u132 · namely
+- `à supposer que` — u113 · supposing that / assuming that
+- `à telle enseigne que` — u114 · so much so that
+- `à terme` — u130 · in the long run
+- `à toutes fins utiles` — u114 · for whatever purpose it may serve / for the record
+- `à venir` — u69 · upcoming
+- `à voix basse` — u86 · in a low voice
+- `à vrai dire` — u78 · to tell the truth
+- `à y regarder de près` — u115 · on closer inspection
+- `abandonner` — u53 · to give up
+- `abîmé` — u87 · damaged
+- `aborder` — u129 · to bring up
+- `aboutir` — u59 · to lead to
+- `abroger` — u99 · to repeal
+- `absolument` — u56 · absolutely
+- `abstrait` — u97 · abstract
+- `accentuer` — u98 · to heighten
+- `accepter` — u48 · to accept
+- `accompagner` — u54 · to go with
+- `accroître` — u125 · to increase
+- `accuser` — u121 · to accuse
+- `acide` — u92 · sharp
+- `acquitter` — u121 · to acquit
+- `acter` — u117 · to formally record, to put on record
+- `actuel` — u83 · current
+- `admettre` — u58 · to admit
+- `affaiblir` — u125 · to weaken
+- `affirmer` — u58 · to assert
+- `affreux` — u55 · awful
+- `affronter` — u67 · to confront
+- `afin de` — u43 · in order to
+- `afin que` — u76 · so that (purpose)
+- `agacé` — u64 · annoyed
+- `aggraver` — u67 · to make worse
+- `agréable` — u38 · pleasant
+- `ai` — u1 · ai — sounds like 'eh'
+- `aider` — u54 · to help
+- `aigu` — u85 · shrill
+- `ailleurs` — u51 · elsewhere
+- `ainsi` — u59 · thus
+- `ainsi que` — u132 · as well as
+- `ajouter` — u48 · to add
+- `aléatoire` — u105 · random
+- `aligner` — u90 · to line up
+- `alimenter` — u125 · to fuel
+- `alors` — u22 · so
+- `alors même que` — u76 · even when
+- `altruiste` — u104 · altruistic
+- `ambitieux` — u69 · ambitious
+- `améliorer` — u53 · to improve
+- `amer` — u85 · bitter
+- `amoindrir` — u125 · to diminish
+- `ample` — u93 · loose
+- `amplifier` — u125 · to amplify
+- `analyser` — u124 · to analyse
+- `ancien` — u70 · former
+- `anglais` — u26 · English
+- `annoncer` — u86 · to announce
+- `ans` — u10 · years old
+- `anticiper` — u105 · to anticipate
+- `anxieux` — u64 · anxious
+- `août` — u15 · August
+- `apaisant` — u112 · soothing
+- `apercevoir` — u85 · to catch sight of
+- `apparaître` — u66 · to appear
+- `apparemment` — u56 · apparently
+- `appeler` — u48 · to call
+- `appliquer` — u68 · to enforce
+- `apporter` — u54 · to bring
+- `apprécier` — u103 · to appreciate
+- `appréhender` — u105 · to be anxious about
+- `apprendre` — u31 · to learn
+- `approfondir` — u124 · to go deeper into
+- `après` — u35 · after
+- `après avoir` — u43 · after (doing)
+- `après tout` — u94 · after all
+- `arracher` — u88 · to tear off
+- `arrêter` — u53 · to halt
+- `articuler` — u97 · to link together
+- `aspirer` — u69 · to aspire
+- `assaisonner` — u92 · to season
+- `assembler` — u88 · to put together
+- `assez` — u27 · enough
+- `assimiler` — u124 · to assimilate
+- `assorti` — u93 · matching
+- `assumer` — u67 · to take on
+- `attacher` — u88 · to fasten
+- `atteindre` — u81 · to reach
+- `attendre` — u54 · to wait
+- `atténuer` — u98 · to soften
+- `attester` — u96 · to attest
+- `attraper` — u54 · to catch
+- `au` — u1 · au — also 'oh'
+- `au cas où` — u89 · just in case
+- `au contraire` — u58 · on the contrary
+- `au demeurant` — u115 · for all that
+- `au détriment de` — u133 · to the detriment of
+- `au fil du temps` — u130 · over time
+- `au fond` — u115 · basically
+- `au fur et à mesure` — u94 · as you go along
+- `au lieu de` — u36 · instead of
+- `au maximum` — u50 · at most
+- `au moins` — u36 · at least
+- `au moment où` — u43 · just as
+- `au nom de` — u133 · in the name of
+- `au péril de` — u133 · at the peril of
+- `au pire` — u89 · at worst
+- `au préalable` — u130 · beforehand
+- `au prix de` — u133 · at the cost of
+- `au revoir` — u2 · goodbye
+- `au risque de` — u113 · at the risk of
+- `au secours` — u32 · help!
+- `au sein de` — u133 · within
+- `au titre de` — u114 · by way of / under (a heading)
+- `au-dessus` — u51 · above
+- `aucun` — u50 · not a single one
+- `augmenter` — u53 · to increase
+- `aujourd'hui` — u8 · today
+- `auquel` — u76 · to which
+- `auquel cas` — u113 · in which case
+- `auriez-vous` — u80 · would you have
+- `aussi` — u2 · also
+- `aussi … que` — u44 · as … as
+- `aussi bien que` — u44 · as well as
+- `aussitôt` — u130 · immediately
+- `autant de` — u44 · as much
+- `autorisé` — u55 · allowed
+- `autour` — u51 · around
+- `autrefois` — u66 · in the past
+- `autrement` — u56 · otherwise
+- `autrement dit` — u132 · in other words
+- `aux fins de` — u117 · for the purpose(s) of
+- `aux termes de` — u114 · under the terms of
+- `avancer` — u84 · to move forward
+- `avant` — u35 · before
+- `avant de` — u36 · before doing something
+- `avant que` — u76 · before (something happens)
+- `avec` — u6 · with
+- `avec plaisir` — u80 · with pleasure
+- `avéré` — u96 · confirmed
+- `avertir` — u86 · to warn
+- `aviver` — u125 · to rekindle
+- `avoir beau` — u133 · however much
+- `avoir du mal à` — u94 · to struggle to
+- `avoir l'air` — u38 · to seem
+- `avoir l'impression` — u61 · to have the feeling
+- `avoir l'intention de` — u69 · to intend to
+- `avoir le droit de` — u68 · to be allowed to
+- `avoir lieu` — u94 · to take place
+- `avoir raison` — u49 · to be right
+- `avoir tendance à` — u61 · to tend to
+- `avoir tort` — u49 · to be wrong
+- `avouer` — u86 · to admit
+- `avril` — u15 · April
+- `bafouiller` — u86 · to stammer
+- `baisser` — u53 · to go down
+- `baisser les bras` — u112 · to give up
+- `balayer` — u90 · to sweep
+- `battre` — u92 · to beat
+- `bavard` — u38 · talkative
+- `bavarder` — u86 · to chat
+- `beau` — u9 · beautiful
+- `beaucoup` — u5 · a lot
+- `ben` — u80 · well…
+- `biaisé` — u96 · biased
+- `bien` — u2 · well
+- `bien à vous` — u79 · yours
+- `bien que` — u76 · although
+- `bien sûr` — u11 · of course
+- `bientôt` — u35 · soon
+- `bienvenue` — u11 · welcome
+- `blâmer` — u104 · to blame
+- `blanc` — u9 · white
+- `blasé` — u112 · jaded
+- `bleu` — u9 · blue
+- `boire` — u24 · to drink
+- `bon` — u6 · good (masculine)
+- `bon marché` — u34 · cheap
+- `bonjour` — u2 · hello
+- `bonne` — u6 · good (feminine)
+- `bonne journée` — u11 · have a good day
+- `bonne nuit` — u11 · good night
+- `bonne réception` — u80 · hope this reaches you well
+- `bonsoir` — u2 · good evening
+- `bouger` — u84 · to move
+- `bouillir` — u92 · to boil
+- `bouleversé` — u64 · shaken
+- `bouleverser` — u125 · to turn upside down
+- `bref` — u80 · anyway
+- `brillant` — u87 · shiny
+- `briller` — u85 · to shine
+- `brusquement` — u89 · abruptly
+- `bruyant` — u55 · noisy
+- `ç` — u1 · ç — c said as 's'
+- `c'est` — u3 · it is
+- `c'est avec humilité que` — u116 · it is with humility that
+- `c'est dommage` — u80 · that's a shame
+- `c'est pourquoi` — u36 · that's why
+- `c'est-à-dire` — u36 · that is to say
+- `c'était` — u46 · it was
+- `ça` — u3 · that
+- `ça craint` — u79 · that sucks
+- `ça se dit` — u77 · people say that
+- `ça se fait` — u77 · that's done
+- `ça te dit` — u79 · do you fancy it?
+- `ça va` — u2 · how's it going / it's going fine
+- `ça vaut le coup` — u94 · it's worth a go
+- `ça vous dirait` — u79 · would you be interested?
+- `calme` — u55 · quiet
+- `capter` — u124 · to pick up on
+- `car` — u43 · because
+- `caresser` — u84 · to stroke
+- `carrément` — u79 · totally
+- `casser` — u52 · to break
+- `causer` — u59 · to cause
+- `ce` — u27 · this (masculine)
+- `ce à quoi` — u76 · what (with à)
+- `ce dont` — u76 · what (with de)
+- `ce faisant` — u114 · in doing so
+- `ce n'est pas` — u22 · it is not
+- `ce que` — u43 · what (as object)
+- `ce qui` — u43 · what (as subject)
+- `ce qui compte` — u76 · what matters
+- `ce serait` — u44 · it would be
+- `ce serait possible de` — u80 · would it be possible to
+- `ceci dit` — u115 · that said
+- `céder` — u91 · to give in
+- `cela dit` — u132 · that said
+- `cela étant` — u115 · that being said
+- `celle` — u43 · the one (feminine)
+- `celui` — u43 · the one (masculine)
+- `cent` — u12 · one hundred
+- `cependant` — u58 · however
+- `cerner` — u124 · to pin down
+- `certain` — u49 · definite
+- `certes` — u58 · admittedly
+- `ces` — u27 · these
+- `cesser` — u66 · to stop
+- `cet` — u27 · this (before a vowel)
+- `cette` — u27 · this (feminine)
+- `ceux` — u43 · the ones
+- `chacun` — u55 · each one
+- `chancelant` — u119 · shaky, faltering
+- `changer` — u53 · to switch
+- `chanter` — u28 · to sing
+- `chaque` — u35 · each
+- `chaud` — u9 · hot
+- `cher` — u9 · expensive
+- `chers collègues` — u80 · dear colleagues
+- `chez` — u31 · at (someone's place)
+- `choisir` — u49 · to choose
+- `chronique` — u74 · chronic
+- `chuchoter` — u86 · to whisper
+- `ci-joint` — u114 · attached / enclosed (hereto)
+- `cinglant` — u119 · scathing
+- `cinq` — u5 · five
+- `cinquante` — u12 · fifty
+- `citer` — u96 · to quote
+- `clair` — u55 · clear
+- `classer` — u90 · to classify
+- `classique` — u103 · classical
+- `clouer` — u88 · to hammer in
+- `collectif` — u106 · collective
+- `coller` — u52 · to glue
+- `combien` — u5 · how many
+- `combien de` — u22 · how many
+- `comblé` — u64 · fulfilled
+- `comme` — u36 · as
+- `commémorer` — u102 · to commemorate
+- `commencer` — u53 · to begin
+- `comment` — u3 · how
+- `commettre` — u121 · to commit
+- `commun` — u55 · shared
+- `comparer` — u81 · to compare
+- `complètement` — u56 · completely
+- `complexe` — u83 · complex
+- `compliqué` — u55 · complicated
+- `compromettre` — u105 · to jeopardise
+- `compter` — u69 · to plan to
+- `concéder` — u58 · to concede
+- `conceptuel` — u97 · conceptual
+- `concevoir` — u101 · to design
+- `conclure` — u100 · to close (a deal)
+- `concret` — u97 · concrete
+- `condamnable` — u104 · reprehensible
+- `condamner` — u99 · to convict
+- `confier` — u129 · to confide
+- `confirmer` — u96 · to confirm
+- `conformément à` — u117 · in accordance with, in compliance with
+- `conformiste` — u106 · conformist
+- `conforter` — u118 · to reinforce
+- `connaître` — u49 · to know
+- `consciencieux` — u104 · conscientious
+- `conseiller` — u81 · to advise
+- `considérable` — u98 · considerable
+- `considérer` — u81 · to consider
+- `consolider` — u125 · to consolidate
+- `constater` — u124 · to note
+- `construire` — u88 · to build
+- `contemporain` — u102 · contemporary
+- `content` — u9 · happy
+- `contester` — u58 · to dispute
+- `continuer` — u53 · to continue
+- `contraignant` — u108 · binding, constraining
+- `contrairement à` — u60 · unlike
+- `contrarier` — u125 · to thwart
+- `contre` — u51 · against
+- `contredire` — u96 · to contradict
+- `contribuer` — u59 · to contribute
+- `contrôler` — u68 · to check
+- `convaincre` — u58 · to convince
+- `coordonner` — u107 · to coordinate
+- `cordialement` — u79 · kind regards
+- `correct` — u83 · correct
+- `correspondre` — u60 · to match
+- `corriger` — u67 · to correct
+- `corroborer` — u96 · to corroborate
+- `coucou` — u79 · hi there
+- `coudre` — u88 · to sew
+- `coupable` — u104 · guilty
+- `couper` — u52 · to cut
+- `courageux` — u38 · brave
+- `courir` — u28 · to run
+- `court` — u17 · short
+- `coûter` — u34 · to cost
+- `couvrir` — u105 · to cover
+- `crédible` — u96 · credible
+- `creuser` — u88 · to dig
+- `criant` — u119 · blatant
+- `crier` — u86 · to shout
+- `croire` — u49 · to believe
+- `cuire` — u92 · to cook through
+- `culturel` — u106 · cultural
+- `curieux` — u38 · curious
+- `d'abord` — u13 · first
+- `d'accord` — u3 · okay
+- `d'ailleurs` — u132 · besides
+- `d'après` — u77 · according to
+- `d'autant plus` — u60 · all the more
+- `d'autant que` — u132 · especially as
+- `d'autre part` — u78 · on the other hand
+- `d'autres` — u50 · other ones
+- `d'emblée` — u130 · right from the start
+- `d'habitude` — u56 · usually
+- `d'où` — u59 · hence
+- `d'un seul coup` — u94 · all at once
+- `d'une part` — u78 · on the one hand
+- `daigner` — u116 · to deign, to condescend (to do)
+- `dangereux` — u55 · dangerous
+- `dans` — u17 · in
+- `dans l'attente de votre réponse` — u79 · looking forward to your reply
+- `dans l'ensemble` — u78 · on the whole
+- `dans l'hypothèse où` — u113 · in the event that / should it happen that
+- `dans l'immédiat` — u130 · for the time being
+- `dans la mesure où` — u59 · insofar as
+- `dans le but de` — u133 · with the aim of
+- `dans une certaine mesure` — u98 · to some extent
+- `danser` — u28 · to dance
+- `davantage` — u60 · more
+- `de` — u4 · of
+- `de bonne heure` — u130 · early
+- `de ce fait` — u59 · as a result
+- `de crainte de` — u133 · for fear of
+- `de l'` — u27 · some (before a vowel)
+- `de la` — u27 · some (feminine)
+- `de manière à` — u133 · so as to
+- `de même` — u60 · likewise
+- `de même que` — u132 · just as
+- `de moins en moins` — u60 · less and less
+- `de nos jours` — u66 · nowadays
+- `de nouveau` — u56 · once more
+- `de plus en plus` — u44 · more and more
+- `de rien` — u2 · you're welcome
+- `de sorte que` — u76 · so that (result)
+- `de source sûre` — u77 · from a reliable source
+- `de surcroît` — u132 · on top of that
+- `de temps en temps` — u35 · from time to time
+- `de toute façon` — u94 · anyway
+- `débarrasser` — u90 · to clear away
+- `décembre` — u15 · December
+- `décider` — u49 · to decide
+- `déclarer` — u129 · to declare
+- `déclencher` — u59 · to set off
+- `décortiquer` — u124 · to dissect
+- `découler` — u125 · to follow from
+- `découler de` — u118 · to follow from
+- `découper` — u88 · to cut out
+- `décourager` — u91 · to discourage
+- `décrypter` — u124 · to decipher
+- `déçu` — u29 · disappointed
+- `décupler` — u125 · to boost tenfold
+- `dedans` — u51 · inside
+- `déduire` — u124 · to deduce
+- `définir` — u81 · to define
+- `dégager` — u90 · to free up
+- `dehors` — u51 · outside
+- `déjà` — u24 · already
+- `déléguer` — u107 · to delegate
+- `délétère` — u119 · harmful
+- `délicieux` — u55 · delicious
+- `demain` — u8 · tomorrow
+- `demander` — u48 · to ask
+- `démêler` — u124 · to untangle
+- `déménager` — u37 · to move house
+- `démentir` — u96 · to deny
+- `démesuré` — u98 · disproportionate
+- `démissionner` — u63 · to resign
+- `démodé` — u93 · out of date
+- `démontrer` — u58 · to demonstrate
+- `dénoter` — u118 · to indicate
+- `dépasser` — u60 · to exceed
+- `dépendre` — u59 · to depend
+- `dépenser` — u34 · to spend
+- `déplorer` — u118 · to deplore
+- `déprimé` — u64 · depressed
+- `depuis` — u35 · since
+- `depuis que` — u43 · ever since
+- `dérisoire` — u119 · derisory
+- `dernier` — u35 · last
+- `derrière` — u51 · behind
+- `des` — u27 · some (plural)
+- `dès l'instant que` — u132 · the moment that
+- `dès lors` — u114 · therefore / from then on
+- `dès lors que` — u113 · once / given that / from the moment that
+- `dès que` — u36 · as soon as
+- `désobéir` — u91 · to disobey
+- `désormais` — u66 · from now on
+- `destituer` — u99 · to remove from office
+- `détacher` — u88 · to undo
+- `déterminé` — u69 · determined
+- `deux` — u5 · two
+- `devant` — u18 · in front of
+- `développer` — u81 · to develop
+- `devenir` — u53 · to become
+- `deviner` — u61 · to guess
+- `dévoiler` — u129 · to unveil
+- `différent` — u55 · not the same
+- `différer` — u60 · to differ
+- `difficile` — u9 · difficult
+- `diffuser` — u71 · to broadcast
+- `dimanche` — u8 · Sunday
+- `diminuer` — u53 · to decrease
+- `dire` — u48 · to say
+- `directement` — u56 · directly
+- `diriger` — u63 · to run
+- `discerner` — u124 · to discern
+- `discuter` — u81 · to discuss
+- `disparaître` — u72 · to disappear
+- `disproportionné` — u119 · disproportionate
+- `distinct` — u60 · distinct
+- `distinguer` — u85 · to tell apart
+- `distribuer` — u54 · to hand out
+- `dix` — u5 · ten
+- `dix-huit` — u12 · eighteen
+- `dix-neuf` — u12 · nineteen
+- `dix-sept` — u12 · seventeen
+- `donc` — u24 · so
+- `dont` — u43 · whose
+- `dorénavant` — u66 · from now on
+- `dormir` — u32 · to sleep
+- `doucement` — u56 · gently
+- `douter` — u49 · to doubt
+- `douteux` — u96 · dubious
+- `doux` — u14 · mild
+- `douze` — u5 · twelve
+- `drôle` — u25 · funny
+- `du` — u27 · some (masculine)
+- `du coup` — u43 · so
+- `du reste` — u115 · besides
+- `duquel` — u76 · of which
+- `dur` — u87 · hard
+- `durable` — u72 · sustainable
+- `durer` — u53 · to last
+- `é` — u1 · é — the 'ay' sound
+- `è` — u1 · è — the open 'eh' sound
+- `ê` — u1 · ê — 'eh', and a missing s
+- `eau` — u1 · eau — sounds like 'oh'
+- `ébranler` — u118 · to shake
+- `échanger` — u54 · to exchange
+- `échouer` — u81 · to fail
+- `éclairer` — u85 · to light up
+- `économiser` — u34 · to save up
+- `écrouer` — u121 · to imprison
+- `édicter` — u117 · to enact, to issue (a rule)
+- `effectuer` — u63 · to carry out
+- `efficace` — u83 · effective
+- `effrayé` — u64 · frightened
+- `égoïste` — u38 · selfish
+- `élaborer` — u124 · to work out
+- `élégant` — u93 · smart
+- `elle a` — u10 · she has
+- `elle est` — u3 · she is
+- `elle viendra` — u45 · she will come
+- `elles` — u23 · they (feminine)
+- `éloquent` — u95 · eloquent
+- `élucider` — u124 · to clear up
+- `émaner` — u118 · to emanate
+- `embaucher` — u63 · to hire
+- `émouvant` — u103 · moving
+- `empêcher` — u77 · to prevent
+- `empiler` — u90 · to pile up
+- `empirer` — u66 · to get worse
+- `empirique` — u101 · empirical
+- `emporter` — u54 · to take away
+- `emprunter` — u34 · to borrow
+- `ému` — u64 · moved
+- `en` — u15 · in
+- `en admettant que` — u113 · even assuming that / granting that
+- `en apparence` — u115 · outwardly
+- `en application de` — u117 · pursuant to, under (a law/decree)
+- `en avoir marre` — u94 · to be fed up
+- `en bas` — u51 · downstairs
+- `en cas de` — u113 · in case of / in the event of
+- `en ce moment` — u56 · right now
+- `en colère` — u29 · angry
+- `en contrepartie` — u133 · in return
+- `en définitive` — u115 · ultimately
+- `en dépit de` — u133 · in spite of
+- `en dessous` — u51 · below
+- `en effet` — u56 · indeed
+- `en espèces` — u34 · in cash
+- `en face de` — u51 · opposite
+- `en fait` — u36 · in fact
+- `en fin de compte` — u115 · in the end
+- `en forme` — u29 · in good shape
+- `en général` — u36 · generally
+- `en gros` — u78 · roughly
+- `en haut` — u51 · upstairs
+- `en l'espèce` — u114 · in the present case / in this instance
+- `en l'occurrence` — u115 · in this case
+- `en ligne` — u40 · online
+- `en même temps` — u56 · at the same time
+- `en outre` — u132 · furthermore
+- `en permanence` — u130 · permanently
+- `en plus` — u36 · what's more
+- `en principe` — u61 · in principle
+- `en quelque sorte` — u78 · in a way
+- `en raison de` — u43 · due to
+- `en retard` — u35 · running late
+- `en revanche` — u58 · on the other hand
+- `en somme` — u132 · in short
+- `en théorie` — u61 · in theory
+- `en tout cas` — u94 · in any case
+- `en toute déférence` — u116 · with all deference, most respectfully
+- `en vertu de` — u114 · by virtue of / under (a law)
+- `en vous renouvelant` — u116 · in renewing to you (my thanks, my apologies)
+- `en vue de` — u133 · with a view to
+- `encadrer` — u107 · to manage
+- `enchanté` — u11 · nice to meet you
+- `encombré` — u90 · cluttered
+- `encore` — u11 · again
+- `encore que` — u132 · although
+- `encourager` — u91 · to encourage
+- `énervé` — u64 · irritated
+- `enfin` — u35 · finally
+- `enfreindre` — u68 · to break
+- `engendrer` — u118 · to generate
+- `énoncer` — u129 · to state
+- `enquêter` — u121 · to investigate
+- `enrayer` — u118 · to curb
+- `enseigner` — u31 · to teach
+- `ensemble` — u29 · together
+- `ensuite` — u13 · then
+- `entasser` — u90 · to heap up
+- `entériner` — u117 · to ratify, to formally confirm/endorse
+- `enthousiaste` — u64 · enthusiastic
+- `entraîner` — u59 · to lead to
+- `entraver` — u118 · to hinder
+- `entre` — u51 · between
+- `entre-temps` — u130 · in the meantime
+- `entrevoir` — u124 · to glimpse
+- `environ` — u50 · about
+- `envisager` — u61 · to consider
+- `envoyer` — u54 · to send
+- `épais` — u52 · thick
+- `épargner` — u73 · to save up
+- `éparpiller` — u90 · to scatter
+- `épicé` — u92 · spicy
+- `éplucher` — u92 · to peel
+- `équivalent` — u60 · equivalent
+- `escompter` — u118 · to expect
+- `espérer` — u49 · to hope
+- `essayer` — u49 · to try
+- `essentiel` — u83 · essential
+- `essuyer` — u88 · to wipe
+- `est construit` — u77 · is built
+- `est-ce qu'il y a` — u22 · is there
+- `est-ce que` — u22 · (question marker)
+- `estimer` — u61 · to reckon
+- `et` — u2 · and
+- `et demie` — u13 · half past
+- `et quart` — u13 · quarter past
+- `établir` — u96 · to establish
+- `étant donné que` — u59 · given that
+- `étayer` — u96 · to back up
+- `étoffer` — u118 · to flesh out, to develop
+- `étonné` — u64 · astonished
+- `être censé` — u68 · to be supposed to
+- `être connu` — u77 · to be known
+- `étroit` — u50 · narrow
+- `étudier` — u31 · to study
+- `eu égard à` — u114 · in view of / considering
+- `éveiller` — u125 · to arouse
+- `éventuellement` — u61 · possibly
+- `évidemment` — u56 · obviously
+- `évident` — u55 · obvious
+- `éviter` — u81 · to avoid
+- `évoluer` — u66 · to evolve
+- `évoquer` — u70 · to evoke
+- `exact` — u55 · accurate
+- `exactement` — u50 · exactly
+- `exagérer` — u95 · to exaggerate
+- `examiner` — u124 · to examine
+- `Excellence` — u116 · Your Excellency
+- `excessif` — u98 · excessive
+- `exclure` — u75 · to exclude
+- `excusez-moi` — u2 · excuse me
+- `excusez-moi de vous déranger` — u80 · sorry to bother you
+- `exiger` — u68 · to require
+- `expérimental` — u101 · experimental
+- `expliquer` — u48 · to explain
+- `exposé` — u105 · exposed
+- `exposer` — u128 · to exhibit
+- `exprès` — u91 · on purpose
+- `extrêmement` — u56 · extremely
+- `fabriquer` — u88 · to manufacture
+- `facile` — u9 · easy
+- `factuel` — u96 · factual
+- `facultatif` — u68 · optional
+- `fade` — u92 · bland
+- `faim` — u10 · hunger
+- `faire` — u24 · to do
+- `faire attention` — u89 · to pay attention
+- `faire de son mieux` — u94 · to do one's best
+- `faire face à` — u67 · to face
+- `faire faire` — u77 · to have something done
+- `faire l'objet de` — u117 · to be the subject of, to undergo (formal)
+- `faire la queue` — u94 · to stand in line
+- `faire semblant` — u91 · to pretend
+- `faisable` — u55 · doable
+- `familier` — u70 · familiar
+- `fatigué` — u9 · tired
+- `faute de` — u133 · for want of
+- `faute de mieux` — u133 · for want of better
+- `faute de quoi` — u113 · failing which / otherwise
+- `faux` — u25 · false
+- `favoriser` — u59 · to promote
+- `féliciter` — u91 · to congratulate
+- `fermé` — u18 · closed
+- `février` — u15 · February
+- `fiable` — u96 · reliable
+- `fier` — u29 · proud
+- `figuratif` — u103 · figurative
+- `finir` — u53 · to finish
+- `fixer` — u85 · to stare at
+- `flagrant` — u119 · glaring
+- `flatter` — u95 · to flatter
+- `foncé` — u87 · dark-coloured
+- `force est de constater` — u114 · one cannot but note / it must be acknowledged
+- `force est de reconnaître` — u115 · one must acknowledge
+- `forcément` — u61 · necessarily
+- `formuler` — u129 · to put into words
+- `fort` — u25 · strong
+- `fragile` — u87 · breakable
+- `fragiliser` — u125 · to undermine
+- `frais` — u14 · cool
+- `français` — u26 · French
+- `franchement` — u56 · frankly
+- `frapper` — u84 · to knock
+- `freiner` — u125 · to slow down
+- `frire` — u92 · to fry
+- `froid` — u9 · cold
+- `frustré` — u64 · frustrated
+- `furieux` — u64 · furious
+- `fusionner` — u100 · to merge
+- `fustiger` — u129 · to castigate
+- `gagner` — u53 · to win
+- `garantir` — u86 · to guarantee
+- `garder` — u53 · to keep
+- `gêné` — u64 · embarrassed
+- `général` — u82 · general
+- `généreux` — u38 · generous
+- `genre` — u80 · like
+- `gentil` — u25 · kind
+- `gérer` — u63 · to manage
+- `glisser` — u84 · to slip
+- `global` — u97 · overall
+- `gn` — u1 · gn — sounds like 'ny'
+- `goûter` — u85 · to sample
+- `grâce à` — u36 · thanks to
+- `graduel` — u98 · gradual
+- `grand` — u4 · big
+- `grandir` — u53 · to grow
+- `gratter` — u84 · to scratch
+- `gratuit` — u12 · free
+- `graver` — u70 · to etch
+- `gravir` — u107 · to climb
+- `grimper` — u84 · to climb
+- `gronder` — u91 · to tell off
+- `guérir` — u32 · to get better
+- `habituel` — u70 · usual
+- `hein` — u79 · eh?
+- `hésiter` — u49 · to hesitate
+- `heureusement` — u35 · luckily
+- `hier` — u8 · yesterday
+- `hiérarchique` — u97 · hierarchical
+- `histoire de` — u133 · just to
+- `honnête` — u38 · honest
+- `hormis` — u133 · apart from
+- `huit` — u5 · eight
+- `humide` — u14 · damp
+- `hurler` — u86 · to scream
+- `ici` — u3 · here
+- `identique` — u55 · identical
+- `il a` — u10 · he has
+- `il arrive que` — u76 · it happens that
+- `il aura` — u45 · he will have
+- `il convient de` — u114 · it is appropriate to / one should
+- `il demande si` — u43 · he asks whether
+- `il dit que` — u43 · he says that
+- `il en découle que` — u114 · from this it follows that
+- `il en va de` — u114 · the same holds for / it is the same with
+- `il est` — u3 · he is
+- `il est porté à la connaissance de` — u117 · it is brought to the attention of
+- `il est rappelé que` — u117 · it is recalled that, a reminder that
+- `il est vrai que` — u76 · it's true that
+- `il fait` — u14 · it is (weather)
+- `il faudrait` — u44 · we should
+- `il faut` — u36 · you have to
+- `il importe de` — u114 · it is important to / it matters to
+- `il manque` — u77 · there is missing
+- `il me semble que` — u80 · it seems to me that
+- `il n'en reste pas moins que` — u115 · the fact remains that
+- `il n'est pas exclu que` — u115 · it is not out of the question that
+- `il n'y a pas` — u22 · there isn't
+- `il ne faut pas` — u44 · you mustn't
+- `il neige` — u14 · it is snowing
+- `il paraît que` — u77 · apparently
+- `il pleut` — u14 · it is raining
+- `il répond que` — u43 · he answers that
+- `il ressort que` — u114 · it emerges that / it follows that
+- `il reste` — u77 · there is left
+- `il s'agit de` — u77 · it's about
+- `il s'avère que` — u114 · it turns out that
+- `il s'ensuit que` — u114 · it follows that
+- `il se peut que` — u61 · it may be that
+- `il sera` — u45 · he will be
+- `il suffit de` — u77 · you just have to
+- `il va` — u23 · he goes
+- `il vaut mieux` — u44 · it's better to
+- `il vaut mieux que` — u76 · it's better that
+- `il vient` — u23 · he comes
+- `il y a` — u7 · there is
+- `il y avait` — u46 · there was
+- `ill` — u1 · ill — sounds like 'ee-y'
+- `ils` — u23 · they
+- `ils habitent` — u46 · they live
+- `ils ont` — u23 · they have
+- `ils prennent` — u46 · they take
+- `ils seront` — u45 · they will be
+- `ils sont` — u23 · they are
+- `imaginer` — u49 · to imagine
+- `imbriqué` — u97 · intertwined
+- `impartial` — u96 · impartial
+- `important` — u16 · important
+- `imposer` — u68 · to impose
+- `impossible` — u47 · impossible
+- `imprévisible` — u105 · unpredictable
+- `imprudent` — u89 · reckless
+- `incessamment` — u130 · any moment now
+- `incontournable` — u119 · unavoidable
+- `inculper` — u121 · to charge
+- `indéniable` — u119 · undeniable
+- `indispensable` — u55 · essential
+- `inférer` — u124 · to infer
+- `inférieur` — u60 · lower
+- `infime` — u98 · tiny
+- `influencer` — u59 · to influence
+- `innocent` — u104 · innocent
+- `inquiet` — u29 · worried
+- `insinuer` — u95 · to insinuate
+- `insister` — u95 · to insist
+- `installer` — u81 · to install
+- `intelligent` — u25 · clever
+- `intensifier` — u125 · to intensify
+- `interdépendant` — u97 · interdependent
+- `interdit` — u55 · forbidden
+- `internet` — u40 · the internet
+- `interpréter` — u103 · to interpret
+- `interrompre` — u86 · to interrupt
+- `inutile` — u55 · useless
+- `investir` — u73 · to invest
+- `inviter` — u48 · to invite
+- `irréversible` — u108 · irreversible
+- `j'achète` — u19 · I buy
+- `j'ai` — u10 · I have
+- `j'ai besoin` — u29 · I need
+- `j'ai envie` — u29 · I feel like
+- `j'ai eu` — u24 · I had
+- `j'ai fait` — u24 · I did
+- `j'ai mal` — u16 · it hurts
+- `j'ai mangé` — u24 · I ate
+- `j'ai parlé` — u24 · I spoke
+- `j'ai peur` — u29 · I'm afraid
+- `j'ai pris` — u24 · I took
+- `j'ai raison` — u29 · I'm right
+- `j'ai sommeil` — u29 · I'm sleepy
+- `j'ai tort` — u29 · I'm wrong
+- `j'ai travaillé` — u24 · I worked
+- `j'ai vu` — u24 · I saw
+- `j'aime` — u6 · I like
+- `j'aimerais` — u44 · I would like
+- `j'allais` — u46 · I used to go
+- `j'allume` — u40 · I turn on
+- `j'arrive` — u13 · I arrive
+- `j'attends` — u47 · I wait
+- `j'aurai` — u45 · I will have
+- `j'avais` — u46 · I used to have
+- `j'écoutais` — u46 · I used to listen
+- `j'écoute` — u10 · I listen
+- `j'écris` — u26 · I write
+- `j'envoie` — u40 · I send
+- `j'essaie` — u47 · I try
+- `j'étais` — u46 · I was
+- `j'éteins` — u40 · I turn off
+- `j'explique` — u47 · I explain
+- `j'habitais` — u46 · I used to live
+- `j'habite` — u10 · I live
+- `j'irai` — u45 · I will go
+- `j'ose espérer` — u116 · I venture to hope, I dare hope
+- `j'oublie` — u47 · I forget
+- `j'ouvre` — u23 · I open
+- `j'y vais` — u47 · I'm going there
+- `jadis` — u66 · long ago
+- `jaloux` — u38 · jealous
+- `jamais` — u13 · never
+- `janvier` — u15 · January
+- `jaune` — u9 · yellow
+- `je bois` — u6 · I drink
+- `je change` — u47 · I change
+- `je cherche` — u19 · I'm looking for
+- `je clique` — u40 · I click
+- `je commence` — u13 · I start
+- `je comprends` — u10 · I understand
+- `je conduis` — u20 · I drive
+- `je connais` — u38 · I know (a person)
+- `je crains que` — u80 · I'm afraid that
+- `je crois` — u25 · I believe
+- `je demande` — u47 · I ask
+- `je descends` — u20 · I get off
+- `je devrais` — u44 · I should
+- `je dois` — u44 · I must
+- `je donne` — u23 · I give
+- `je dors` — u23 · I sleep
+- `je fais` — u10 · I make
+- `je fais réparer` — u77 · I'm having it repaired
+- `je faisais` — u46 · I used to do
+- `je ferai` — u45 · I will do
+- `je ferme` — u23 · I close
+- `je finirai` — u45 · I will finish
+- `je finis` — u13 · I finish
+- `je la connais` — u47 · I know her
+- `je le vois` — u47 · I see him
+- `je les prends` — u47 · I'll take them
+- `je leur donne` — u47 · I give them
+- `je lis` — u26 · I read
+- `je lisais` — u46 · I used to read
+- `je lui parle` — u47 · I speak to him
+- `je m'appelle` — u3 · my name is
+- `je m'entends bien avec` — u38 · I get along well with
+- `je m'habille` — u28 · I get dressed
+- `je mange` — u6 · I eat
+- `je mangerai` — u45 · I will eat
+- `je marche` — u20 · I walk
+- `je me brosse les dents` — u28 · I brush my teeth
+- `je me couche` — u13 · I go to bed
+- `je me demandais si` — u80 · I was wondering whether
+- `je me dépêche` — u28 · I hurry
+- `je me douche` — u28 · I take a shower
+- `je me lave` — u28 · I wash (myself)
+- `je me lève` — u13 · I get up
+- `je me permets de` — u80 · I'm taking the liberty of
+- `je me recommande de` — u116 · I refer to (someone) as my reference
+- `je me repose` — u32 · I rest
+- `je me réveille` — u28 · I wake up
+- `je me sens` — u32 · I feel
+- `je me vois contraint de` — u116 · I find myself compelled to, I am obliged to
+- `je mets` — u23 · I put
+- `je monte` — u20 · I get on
+- `je n'ai pas` — u22 · I don't have
+- `je ne comprends pas` — u10 · I don't understand
+- `je ne mange pas` — u22 · I don't eat
+- `je ne sais pas` — u11 · I don't know
+- `je ne saurais` — u116 · I could not, I would not know how to
+- `je ne suis pas` — u22 · I am not
+- `je paie` — u12 · I pay
+- `je parlais` — u46 · I used to speak
+- `je parle` — u10 · I speak
+- `je parlerai` — u45 · I will speak
+- `je pars` — u13 · I leave
+- `je partirai` — u45 · I will leave
+- `je pense` — u25 · I think
+- `je peux` — u10 · I can
+- `je porte` — u17 · I wear
+- `je pourrai` — u45 · I will be able to
+- `je pourrais` — u44 · I could
+- `je pouvais` — u46 · I was able to
+- `je prenais` — u46 · I used to take
+- `je prendrai` — u45 · I will take
+- `je prends` — u20 · I take
+- `je recycle` — u41 · I recycle
+- `je regardais` — u46 · I used to watch
+- `je regarde` — u10 · I watch
+- `je rentre` — u13 · I come home
+- `je réponds` — u40 · I answer
+- `je ressemble à` — u38 · I look like
+- `je reste` — u23 · I stay
+- `je reste à votre disposition` — u79 · I remain at your disposal
+- `je réussis à` — u44 · I manage to
+- `je sais` — u10 · I know
+- `je saurai` — u45 · I will know
+- `je savais` — u46 · I knew
+- `je serai` — u45 · I will be
+- `je sors` — u23 · I go out
+- `je suis` — u3 · I am
+- `je suis allé` — u24 · I went
+- `je suis au regret de` — u80 · I regret to
+- `je suis capable de` — u44 · I'm able to
+- `je suis d'accord` — u36 · I agree
+- `je suis désolé de` — u80 · I'm sorry to
+- `je suis obligé de` — u44 · I have to
+- `je suis parti` — u24 · I left
+- `je suis resté` — u24 · I stayed
+- `je suis venu` — u24 · I came
+- `je télécharge` — u40 · I download
+- `je tiens à` — u80 · I'd like to (insist)
+- `je travaillais` — u46 · I used to work
+- `je travaille` — u10 · I work
+- `je travaillerai` — u45 · I will work
+- `je trouve` — u19 · I find
+- `je vais` — u7 · I go
+- `je vais manger` — u24 · I'm going to eat
+- `je verrai` — u45 · I will see
+- `je veux` — u10 · I want
+- `je viendrai` — u45 · I will come
+- `je viens` — u23 · I come
+- `je vois` — u23 · I see
+- `je voudrais` — u6 · I would like
+- `je voulais` — u46 · I wanted
+- `je vous écoute` — u80 · I'm listening
+- `je vous en prie` — u80 · you're welcome
+- `je vous prie` — u79 · I beg you
+- `je vous remercie` — u79 · thank you (formal)
+- `je vous saurais gré de` — u116 · I would be grateful to you if you would
+- `je vous serais reconnaissant` — u80 · I would be grateful
+- `jeter` — u54 · to throw away
+- `jeudi` — u8 · Thursday
+- `joli` — u9 · pretty
+- `jouer` — u28 · to play
+- `juger` — u58 · to judge
+- `juillet` — u15 · July
+- `juin` — u15 · June
+- `jurer` — u86 · to swear
+- `jusqu'à` — u35 · until
+- `jusqu'à ce que` — u76 · until
+- `juste` — u104 · fair
+- `l'abattement` — u123 · dejection
+- `l'abonnement` — u71 · the subscription
+- `l'accalmie` — u120 · the lull
+- `l'accent aigu` — u1 · the acute accent
+- `l'accent grave` — u1 · the grave accent
+- `l'accès aux soins` — u109 · access to care
+- `l'accident` — u32 · accident
+- `l'accusation` — u121 · the accusation
+- `l'accusé` — u99 · the defendant
+- `l'acharnement thérapeutique` — u109 · aggressive/futile over-treatment
+- `l'acier` — u131 · the steel
+- `l'acteur` — u42 · the actor
+- `l'actionnaire` — u100 · the shareholder
+- `l'addition` — u21 · the bill
+- `l'adhésion` — u95 · the support
+- `l'admiration` — u123 · admiration
+- `l'aéroport` — u20 · airport
+- `l'âge` — u57 · age
+- `l'agencement` — u97 · the arrangement
+- `l'agriculteur` — u31 · farmer
+- `l'air` — u41 · the air
+- `l'aléa` — u120 · the hazard
+- `l'algorithme` — u101 · the algorithm
+- `l'alimentation` — u74 · diet
+- `l'ambition` — u69 · the ambition
+- `l'ambivalence` — u112 · ambivalence
+- `l'ambulance` — u32 · ambulance
+- `l'âme` — u65 · the soul
+- `l'amende` — u68 · the fine
+- `l'amendement` — u99 · the amendment
+- `l'amertume` — u112 · bitterness
+- `l'ami` — u4 · friend (male)
+- `l'amie` — u4 · friend (female)
+- `l'amitié` — u75 · friendship
+- `l'amour` — u29 · love
+- `l'ampleur` — u98 · the scale
+- `l'analyse` — u101 · the analysis
+- `l'ancêtre` — u102 · the ancestor
+- `l'anecdote` — u70 · the anecdote
+- `l'anglais` — u11 · English
+- `l'Angleterre` — u26 · England
+- `l'angoisse` — u64 · the dread
+- `l'animal` — u26 · animal
+- `l'animosité` — u123 · animosity
+- `l'année` — u15 · year
+- `l'anniversaire` — u57 · birthday
+- `l'anonymat` — u106 · the anonymity
+- `l'antagonisme` — u120 · the antagonism
+- `l'anthologie` — u128 · the anthology
+- `l'Antiquité` — u102 · Antiquity
+- `l'anxiété` — u74 · anxiety
+- `l'appartement` — u18 · flat
+- `l'appartenance` — u75 · belonging
+- `l'application` — u40 · the app
+- `l'appréhension` — u112 · apprehension
+- `l'apprentissage` — u110 · learning (process), apprenticeship
+- `l'aquarelle` — u128 · the watercolour
+- `l'arbre` — u14 · tree
+- `l'architecture` — u97 · the architecture
+- `l'argent` — u12 · money
+- `l'argile` — u131 · the clay
+- `l'argument` — u58 · the argument
+- `l'armoire` — u18 · wardrobe
+- `l'arrêt` — u20 · stop
+- `l'arrivée` — u20 · arrival
+- `l'art` — u42 · art
+- `l'article` — u39 · the article
+- `l'artiste` — u42 · the artist
+- `l'ascenseur` — u37 · lift
+- `l'ascension` — u107 · the rise
+- `l'aspect` — u78 · the aspect
+- `l'assiette` — u21 · plate
+- `l'associé` — u107 · the partner
+- `l'assurance` — u73 · the insurance
+- `l'attitude` — u91 · attitude
+- `l'audace` — u122 · boldness
+- `l'audience` — u121 · the hearing
+- `l'auditeur` — u71 · the listener
+- `l'augmentation` — u78 · the increase
+- `l'auteur` — u42 · the author
+- `l'authenticité` — u96 · authenticity
+- `l'automatisation` — u101 · automation
+- `l'automne` — u15 · autumn
+- `l'autonomie` — u109 · autonomy
+- `l'autoroute` — u30 · motorway
+- `l'avantage` — u82 · the advantage
+- `l'avenir` — u57 · the future
+- `l'avion` — u20 · plane
+- `l'avocat` — u121 · the lawyer
+- `l'eau` — u6 · water
+- `l'écart` — u60 · the gap
+- `l'échantillon` — u101 · the sample
+- `l'échéance` — u69 · the deadline
+- `l'échec` — u71 · the failure
+- `l'échec scolaire` — u110 · academic failure, failure at school
+- `l'échelon` — u107 · the rung
+- `l'écho` — u85 · echo
+- `l'école` — u7 · school
+- `l'économie` — u73 · the economy
+- `l'écosystème` — u72 · the ecosystem
+- `l'écoute` — u83 · listening
+- `l'écran` — u40 · the screen
+- `l'écrivain` — u71 · the writer
+- `l'écueil` — u120 · the pitfall
+- `l'effectif` — u107 · the headcount
+- `l'efficacité` — u126 · effectiveness
+- `l'effort` — u82 · the effort
+- `l'effroi` — u123 · dread
+- `l'égalité` — u62 · equality
+- `l'égoïsme` — u122 · selfishness
+- `l'élection` — u62 · the election
+- `l'élément` — u97 · the element
+- `l'élève` — u31 · pupil
+- `l'élision` — u1 · elision
+- `l'éloquence` — u95 · eloquence
+- `l'élu` — u99 · the elected official
+- `l'embarras` — u112 · embarrassment
+- `l'émerveillement` — u123 · wonder
+- `l'émission` — u42 · the programme
+- `l'émoi` — u123 · the commotion
+- `l'empire` — u102 · the empire
+- `l'emplacement` — u90 · spot
+- `l'employé` — u63 · the employee
+- `l'empreinte` — u70 · the imprint
+- `l'empreinte carbone` — u108 · the carbon footprint
+- `l'endroit` — u51 · place
+- `l'énergie` — u41 · energy
+- `l'enfance` — u57 · childhood
+- `l'enfant` — u4 · child
+- `l'engagement` — u75 · the commitment
+- `l'enjeu` — u67 · the stake
+- `l'enquête` — u71 · the investigation
+- `l'enseignement supérieur` — u110 · higher education
+- `l'ensemble` — u82 · the whole
+- `l'entêtement` — u122 · stubbornness
+- `l'enthousiasme` — u123 · enthusiasm
+- `l'entourage` — u106 · those around one
+- `l'entraide` — u106 · mutual aid
+- `l'entrepreneur` — u73 · the entrepreneur
+- `l'entreprise` — u31 · company
+- `l'entretien` — u63 · the interview
+- `l'envergure` — u120 · the scale
+- `l'environnement` — u41 · the environment
+- `l'épaisseur` — u87 · thickness
+- `l'épidémie` — u74 · the epidemic
+- `l'époque` — u70 · the era
+- `l'épuisement` — u108 · the depletion, exhaustion
+- `l'équilibre` — u74 · the balance
+- `l'équipe` — u63 · the team
+- `l'équité` — u109 · fairness, equity
+- `l'ère` — u102 · the era
+- `l'escalier` — u18 · stairs
+- `l'espace` — u41 · space
+- `l'espèce` — u72 · the species
+- `l'espérance de vie` — u109 · life expectancy
+- `l'espoir` — u67 · the hope
+- `l'esprit` — u65 · the mind
+- `l'essence` — u30 · petrol
+- `l'essentiel` — u65 · the main thing
+- `l'essor` — u100 · the boom
+- `l'esthétique` — u103 · the aesthetic
+- `l'étage` — u18 · floor
+- `l'étagère` — u37 · shelf
+- `l'étang` — u127 · the pond
+- `l'étape` — u53 · step
+- `l'État` — u62 · the State
+- `l'été` — u15 · summer
+- `l'étendue` — u126 · the extent
+- `l'éthique` — u104 · ethics
+- `l'étiquette` — u90 · label
+- `l'étoile` — u41 · the star
+- `l'étranger` — u30 · abroad
+- `l'étudiant` — u25 · student
+- `l'euphorie` — u123 · euphoria
+- `l'euro` — u12 · euro
+- `l'événement` — u39 · the event
+- `l'éventualité` — u105 · the possibility
+- `l'évier` — u37 · sink
+- `l'évolution` — u66 · the change
+- `l'exactitude` — u126 · accuracy
+- `l'exaltation` — u123 · elation
+- `l'examen` — u31 · exam
+- `l'exception` — u65 · the exception
+- `l'exclusion` — u106 · the exclusion
+- `l'excuse` — u86 · excuse
+- `l'exemple` — u82 · the example
+- `l'exercice` — u32 · exercise
+- `l'existence` — u65 · existence
+- `l'expansion` — u100 · the expansion
+- `l'expérience` — u41 · the experiment
+- `l'exposition` — u42 · the exhibition
+- `l'habitant` — u39 · the inhabitant
+- `l'habitude` — u74 · the habit
+- `l'harmonie` — u103 · the harmony
+- `l'herbe` — u33 · grass
+- `l'héritage` — u102 · the legacy
+- `l'heure` — u8 · hour
+- `l'histoire` — u42 · the story
+- `l'hiver` — u15 · winter
+- `l'homme` — u4 · man
+- `l'honnêteté` — u122 · honesty
+- `l'hôpital` — u16 · hospital
+- `l'horaire` — u30 · timetable
+- `l'hôtel` — u7 · hotel
+- `l'hypocrisie` — u104 · hypocrisy
+- `l'hypothèse` — u61 · the hypothesis
+- `l'idée` — u25 · idea
+- `l'identité` — u106 · the identity
+- `l'île` — u33 · island
+- `l'illusion` — u65 · the illusion
+- `l'immeuble` — u18 · building
+- `l'impact` — u59 · the impact
+- `l'impôt` — u73 · the tax
+- `l'imprévu` — u89 · the unexpected
+- `l'incertitude` — u61 · uncertainty
+- `l'inconvénient` — u82 · the drawback
+- `l'indice` — u96 · the clue
+- `l'individu` — u106 · the individual
+- `l'individualisme` — u106 · individualism
+- `l'indulgence` — u104 · the leniency
+- `l'inégalité` — u75 · inequality
+- `l'infirmier` — u32 · nurse
+- `l'inflation` — u73 · inflation
+- `l'inflexion` — u120 · the shift
+- `l'ingénieur` — u31 · engineer
+- `l'ingrédient` — u92 · ingredient
+- `l'innovation` — u101 · the innovation
+- `l'inondation` — u72 · the flood
+- `l'inquiétude` — u83 · the anxiety
+- `l'insecte` — u33 · insect
+- `l'inspiration` — u103 · the inspiration
+- `l'institution` — u99 · the institution
+- `l'intégration` — u75 · integration
+- `l'intégrité` — u104 · integrity
+- `l'intensité` — u98 · the intensity
+- `l'interaction` — u97 · the interaction
+- `l'interdépendance` — u108 · interdependence
+- `l'interface` — u101 · the interface
+- `l'intrigue` — u71 · the plot
+- `l'ironie` — u95 · irony
+- `l'issue` — u67 · the way out
+- `l'objectif` — u78 · the aim
+- `l'objection` — u95 · the objection
+- `l'objet` — u52 · object
+- `l'obligeance` — u116 · kindness, graciousness
+- `l'observation` — u101 · the observation
+- `l'obstacle` — u67 · the obstacle
+- `l'occasion` — u82 · the opportunity
+- `l'odeur` — u85 · smell
+- `l'œuf` — u21 · egg
+- `l'œuvre` — u103 · the work
+- `l'offre` — u100 · the offer
+- `l'oiseau` — u26 · bird
+- `l'ombre` — u85 · shade
+- `l'opposition` — u99 · the opposition
+- `l'or` — u52 · gold
+- `l'orage` — u14 · storm
+- `l'orange` — u19 · orange
+- `l'orateur` — u95 · the speaker
+- `l'ordinateur` — u26 · computer
+- `l'ordonnance` — u32 · prescription
+- `l'ordre` — u90 · order
+- `l'oreille` — u16 · ear
+- `l'organigramme` — u107 · the org chart
+- `l'orgueil` — u122 · arrogance
+- `l'origine` — u59 · the origin
+- `l'ossature` — u97 · the framework
+- `l'ours` — u33 · bear
+- `l'outil` — u52 · tool
+- `l'ouvrage` — u128 · the work
+- `l'univers` — u41 · the universe
+- `l'université` — u31 · university
+- `la` — u3 · the (feminine)
+- `là` — u3 · there
+- `la bague` — u93 · ring
+- `la baguette` — u6 · baguette
+- `la banane` — u19 · banana
+- `la banlieue` — u39 · the suburbs
+- `la banque` — u34 · bank
+- `la batterie` — u40 · the battery
+- `la berge` — u127 · the bank
+- `la bibliothèque` — u42 · the library
+- `la bienveillance` — u104 · kindness
+- `la biodiversité` — u72 · biodiversity
+- `la blessure` — u32 · injury
+- `la boîte` — u52 · box
+- `la bonté` — u122 · goodness
+- `la bouche` — u16 · mouth
+- `la boucherie` — u34 · butcher's
+- `la boulangerie` — u19 · bakery
+- `la bouteille` — u19 · bottle
+- `la boutique` — u34 · small shop
+- `la brique` — u131 · the brick
+- `la brosse` — u93 · brush
+- `la caisse` — u34 · checkout
+- `la campagne` — u33 · countryside
+- `la capacité` — u82 · the ability
+- `la carotte` — u19 · carrot
+- `la carrière` — u63 · the career
+- `la carte` — u12 · card
+- `la carte bancaire` — u73 · the bank card
+- `la casserole` — u92 · saucepan
+- `la ceinture` — u93 · belt
+- `la censure` — u111 · censorship
+- `la chaîne` — u71 · the channel
+- `la chaise` — u18 · chair
+- `la chambre` — u18 · bedroom
+- `la chance` — u82 · luck
+- `la chanson` — u42 · the song
+- `la chaussette` — u17 · sock
+- `la chemise` — u17 · shirt
+- `la chose` — u47 · the thing
+- `la cire` — u131 · the wax
+- `la citoyenneté` — u106 · the citizenship
+- `la civilisation` — u102 · the civilisation
+- `la clairière` — u127 · the clearing
+- `la clarté` — u126 · clarity
+- `la classe` — u31 · classroom
+- `la clé` — u18 · key
+- `la clientèle` — u100 · the customers
+- `la coalition` — u99 · the coalition
+- `la cohérence` — u97 · the coherence
+- `la cohésion` — u106 · the cohesion
+- `la coiffure` — u93 · hairstyle
+- `la colle` — u88 · adhesive
+- `la colline` — u127 · the hill
+- `la comédie` — u128 · the comedy
+- `la communauté` — u106 · the community
+- `la comparaison` — u60 · the comparison
+- `la compassion` — u123 · compassion
+- `la compétence` — u63 · the skill
+- `la complexité` — u126 · complexity
+- `la complication` — u67 · the complication
+- `la concertation` — u108 · consultation, joint dialogue
+- `la concurrence` — u100 · competition
+- `la condition` — u68 · the condition
+- `la conduite` — u91 · conduct
+- `la confiance` — u38 · trust
+- `la conquête` — u102 · the conquest
+- `la conscience` — u65 · the awareness
+- `la conséquence` — u59 · the consequence
+- `la consigne` — u68 · the instruction
+- `la consonne finale` — u1 · the silent final consonant
+- `la constitution` — u99 · the constitution
+- `la construction` — u78 · the construction
+- `la consultation` — u74 · the appointment
+- `la contradiction` — u65 · the contradiction
+- `la contrainte` — u68 · the constraint
+- `la contrepartie` — u100 · the return
+- `la convergence` — u120 · the convergence
+- `la corde` — u131 · the rope
+- `la corrélation` — u101 · the correlation
+- `la corruption` — u104 · corruption
+- `la côte` — u127 · the coast
+- `la cotisation` — u109 · the (social-insurance) contribution
+- `la couleur` — u17 · colour
+- `la coutume` — u102 · the custom
+- `la couverture médiatique` — u111 · media coverage
+- `la crainte` — u64 · the fear
+- `la crête` — u127 · the ridge
+- `la crise` — u62 · the crisis
+- `la critique` — u71 · the review
+- `la croissance` — u73 · growth
+- `la cruauté` — u122 · cruelty
+- `la cuillère` — u21 · spoon
+- `la cuisine` — u18 · kitchen
+- `la cuisson` — u92 · cooking time
+- `la culpabilité` — u121 · guilt
+- `la curiosité` — u122 · curiosity
+- `la danse` — u42 · dance
+- `la date` — u15 · date
+- `la décarbonation` — u108 · decarbonization
+- `la décennie` — u102 · the decade
+- `la déception` — u123 · disappointment
+- `la décision` — u82 · the decision
+- `la découverte` — u41 · the discovery
+- `la défense` — u121 · the defence
+- `la définition` — u65 · the definition
+- `la demande` — u100 · the demand
+- `la démarche` — u78 · the approach
+- `la démocratie` — u62 · democracy
+- `la densité` — u126 · density
+- `la dent` — u16 · tooth
+- `la déontologie` — u109 · professional ethics / code of conduct
+- `la désinformation` — u111 · disinformation
+- `la détention` — u121 · detention
+- `la dette` — u83 · the debt
+- `la différence` — u60 · the difference
+- `la difficulté` — u57 · difficulty
+- `la dignité` — u104 · dignity
+- `la dimension` — u126 · the scope
+- `la diminution` — u78 · the decrease
+- `la discrimination` — u75 · discrimination
+- `la disparité` — u120 · the disparity
+- `la disparition` — u78 · the disappearance
+- `la dispute` — u83 · the argument
+- `la diversité` — u75 · diversity
+- `la douane` — u30 · customs
+- `la douceur` — u122 · gentleness
+- `la douche` — u37 · shower
+- `la douleur` — u32 · pain
+- `la droiture` — u122 · uprightness
+- `la dune` — u127 · the dune
+- `la dynastie` — u102 · the dynasty
+- `la façon` — u57 · way
+- `la facture` — u34 · invoice
+- `la faille` — u67 · the flaw
+- `la faillite` — u100 · the bankruptcy
+- `la falaise` — u127 · the cliff
+- `la famille` — u4 · family
+- `la faute` — u104 · the fault
+- `la femme` — u4 · woman
+- `la fenêtre` — u18 · window
+- `la ferme` — u33 · farm
+- `la fête` — u28 · party
+- `la feuille` — u33 · leaf
+- `la fiabilité` — u126 · reliability
+- `la ficelle` — u131 · the string
+- `la fierté` — u122 · pride
+- `la fièvre` — u16 · fever
+- `la file` — u90 · queue
+- `la filiale` — u100 · the subsidiary
+- `la fille` — u4 · girl
+- `la fin` — u47 · the end
+- `la finesse` — u126 · finesse
+- `la finitude` — u108 · the finiteness
+- `la flambée` — u120 · the surge, the spike
+- `la fleur` — u14 · flower
+- `la fluidité` — u126 · smoothness
+- `la foi` — u65 · faith
+- `la fois` — u57 · time (occasion)
+- `la forêt` — u14 · forest
+- `la formation` — u63 · the training
+- `la forme` — u52 · shape
+- `la fourchette` — u21 · fork
+- `la fracture` — u120 · the rift, the divide
+- `la France` — u26 · France
+- `la franchise` — u122 · frankness
+- `la frayeur` — u123 · fright
+- `la fresque` — u128 · the fresco
+- `la frontière` — u62 · the border
+- `la fureur` — u123 · fury
+- `la fusée` — u41 · the rocket
+- `la gare` — u7 · train station
+- `la gêne` — u112 · awkwardness
+- `la génération` — u75 · the generation
+- `la générosité` — u122 · generosity
+- `la gentillesse` — u122 · kindness
+- `la gouvernance` — u107 · the governance
+- `la grève` — u62 · the strike
+- `la grippe` — u32 · the flu
+- `la grotte` — u127 · the cave
+- `la guérison` — u74 · the recovery
+- `la guerre` — u62 · war
+- `la haine` — u64 · hatred
+- `la hausse` — u66 · the rise
+- `la hauteur` — u50 · height
+- `la hiérarchie` — u107 · the hierarchy
+- `la honte` — u64 · shame
+- `la jalousie` — u123 · jealousy
+- `la jambe` — u16 · leg
+- `la jeunesse` — u70 · youth
+- `la joie` — u29 · joy
+- `la jupe` — u17 · skirt
+- `la juridiction` — u99 · the jurisdiction
+- `la justesse` — u126 · aptness
+- `la justice` — u62 · justice
+- `la lâcheté` — u122 · cowardice
+- `la laine` — u52 · wool
+- `la lampe` — u18 · lamp
+- `la langue` — u48 · language
+- `la largeur` — u50 · width
+- `la lassitude` — u112 · weariness
+- `la légende` — u102 · the legend
+- `la législation` — u99 · the legislation
+- `la lessive` — u28 · the laundry
+- `la lettre` — u48 · letter
+- `la liaison` — u1 · liaison
+- `la liberté` — u65 · freedom
+- `la librairie` — u34 · bookshop
+- `la ligne` — u52 · line
+- `la ligne éditoriale` — u111 · editorial line
+- `la limite` — u68 · the limit
+- `la liste` — u19 · list
+- `la logique` — u126 · the logic
+- `la loi` — u39 · the law
+- `la loyauté` — u104 · loyalty
+- `la lueur` — u85 · glow
+- `la lumière` — u41 · the light
+- `la lune` — u33 · moon
+- `la main` — u16 · hand
+- `la mainmise` — u120 · the grip
+- `la maison` — u7 · house
+- `la maîtrise` — u110 · mastery, command (of a subject)
+- `la majorité` — u60 · the majority
+- `la maladie` — u32 · illness
+- `la maladresse` — u122 · clumsiness
+- `la manche` — u93 · sleeve
+- `la manie` — u91 · quirk
+- `la manifestation` — u62 · the demonstration
+- `la marche` — u74 · walking
+- `la marge` — u100 · the margin
+- `la marque` — u93 · brand
+- `la matière` — u31 · school subject
+- `la méfiance` — u122 · distrust
+- `la mélancolie` — u112 · melancholy
+- `la mélodie` — u128 · the melody
+- `la mémoire` — u49 · memory
+- `la menace` — u67 · the threat
+- `la mentalité` — u65 · the mentality
+- `la mer` — u14 · sea
+- `la mère` — u4 · mother
+- `la méritocratie` — u110 · meritocracy
+- `la méthode` — u78 · the method
+- `la minorité` — u106 · the minority
+- `la minute` — u13 · minute
+- `la minutie` — u126 · meticulousness
+- `la mise en place` — u78 · the introduction
+- `la mise en scène` — u111 · staging / dramatization
+- `la mission` — u63 · the assignment
+- `la mixité` — u106 · the mix
+- `la mobilité` — u106 · the mobility
+- `la mode` — u93 · fashion
+- `la modestie` — u122 · modesty
+- `la moitié` — u50 · half
+- `la mondialisation` — u108 · globalization
+- `la monnaie` — u19 · change
+- `la montagne` — u14 · mountain
+- `la montre` — u93 · watch
+- `la morale` — u65 · morals
+- `la mort` — u57 · death
+- `la mousse` — u131 · the foam
+- `la mouvance` — u120 · the sphere
+- `la musique` — u26 · music
+- `la mutation` — u120 · the transformation
+- `la narration` — u111 · the narration, the telling
+- `la nation` — u62 · the nation
+- `la neige` — u14 · snow
+- `la netteté` — u126 · sharpness
+- `la neutralité carbone` — u108 · carbon neutrality
+- `la norme` — u68 · the norm
+- `la nostalgie` — u70 · nostalgia
+- `la note` — u31 · mark
+- `la notion` — u78 · the notion
+- `la nouvelle` — u39 · the piece of news
+- `la nuance` — u61 · the nuance
+- `la nuit` — u8 · night
+- `là où` — u76 · where
+- `la page` — u42 · the page
+- `la paille` — u131 · the straw
+- `la paix` — u62 · peace
+- `la pandémie` — u109 · the pandemic
+- `la panique` — u64 · panic
+- `la panne` — u67 · the breakdown
+- `la parole` — u83 · the spoken word
+- `la particule` — u101 · the particle
+- `la partie` — u47 · the part
+- `la partition` — u128 · the score
+- `la pâte` — u92 · dough
+- `la patience` — u122 · patience
+- `la pâtisserie` — u34 · cake shop
+- `la pause` — u53 · pause
+- `la pauvreté` — u73 · poverty
+- `la pédagogie` — u110 · pedagogy, teaching method
+- `la peine` — u121 · the sentence
+- `la pensée` — u65 · the thought
+- `la pénurie` — u109 · the shortage
+- `la percée` — u101 · the breakthrough
+- `la personnalité` — u38 · personality
+- `la personne` — u38 · the person
+- `la perte` — u83 · the loss
+- `la pertinence` — u126 · relevance
+- `la peur` — u29 · fear
+- `la pharmacie` — u16 · pharmacy
+- `la phase` — u66 · the phase
+- `la photo` — u40 · the photo
+- `la phrase` — u48 · sentence
+- `la pièce` — u37 · room
+- `la pierre` — u33 · stone
+- `la pile` — u90 · stack
+- `la piqûre` — u32 · injection
+- `la pitié` — u123 · pity
+- `la place` — u30 · seat
+- `la plage` — u14 · beach
+- `la plaine` — u127 · the plain
+- `la planche` — u131 · the plank
+- `la planète` — u41 · the planet
+- `la pluie` — u14 · rain
+- `la plupart` — u50 · most
+- `la poche` — u93 · pocket
+- `la poêle` — u92 · frying pan
+- `la poésie` — u103 · poetry
+- `la polémique` — u95 · the controversy
+- `la politique` — u39 · politics
+- `la pollution` — u41 · pollution
+- `la pomme` — u6 · apple
+- `la population` — u39 · the population
+- `la porte` — u18 · door
+- `la portée` — u120 · the scope
+- `la portion` — u92 · helping
+- `la poubelle` — u37 · bin
+- `la poule` — u33 · hen
+- `la poussière` — u87 · dust
+- `la poutre` — u131 · the beam
+- `la précaution` — u89 · safety measure
+- `la précision` — u126 · precision
+- `la presse` — u71 · the press
+- `la pression` — u83 · the pressure
+- `la preuve` — u58 · the proof
+- `la prévention` — u109 · prevention
+- `la prise en charge` — u109 · the (medical/financial) handling
+- `la prison` — u121 · prison
+- `la probabilité` — u105 · the probability
+- `la procédure` — u78 · the procedure
+- `la profondeur` — u126 · depth
+- `la promenade` — u28 · a walk
+- `la promotion` — u63 · the promotion
+- `la propagande` — u111 · propaganda
+- `la proportion` — u98 · the proportion
+- `la publicité` — u71 · the advert
+- `la qualité` — u38 · good point
+- `la question` — u48 · question
+- `la radio` — u39 · the radio
+- `la rage` — u123 · rage
+- `la raison` — u49 · reason
+- `la rancœur` — u123 · rancour
+- `la rancune` — u112 · grudge
+- `la raréfaction` — u108 · the growing scarcity
+- `la réaction` — u59 · the reaction
+- `la réalité` — u65 · reality
+- `la recette` — u92 · recipe
+- `la recherche` — u41 · research
+- `la reconversion` — u107 · the career change
+- `la recrudescence` — u120 · the resurgence
+- `la rédaction` — u111 · the newsroom / editorial staff
+- `la réduction` — u34 · discount
+- `la référence` — u96 · the reference
+- `la réflexion` — u65 · reflection
+- `la réforme` — u62 · the reform
+- `la région` — u72 · the region
+- `la règle` — u39 · the rule
+- `la régularité` — u126 · regularity
+- `la remarque` — u86 · remark
+- `la réplique` — u95 · the retort
+- `la réponse` — u48 · answer
+- `la réservation` — u30 · booking
+- `la résignation` — u112 · resignation
+- `la responsabilité` — u82 · the responsibility
+- `la ressemblance` — u60 · the resemblance
+- `la ressource` — u72 · the resource
+- `la retraite` — u73 · retirement
+- `la réunion` — u31 · meeting
+- `la rhétorique` — u95 · rhetoric
+- `la richesse` — u73 · wealth
+- `la rigueur` — u101 · the rigour
+- `la rime` — u128 · the rhyme
+- `la rivière` — u33 · river
+- `la robe` — u17 · dress
+- `la route` — u30 · road
+- `la routine` — u91 · routine
+- `la rue` — u7 · street
+- `la rumeur` — u111 · rumour
+- `la rupture` — u75 · the break-up
+- `la ruse` — u122 · cunning
+- `la sagesse` — u65 · wisdom
+- `la salade` — u19 · salad
+- `la salle de bain` — u18 · bathroom
+- `la sanction` — u68 · the penalty
+- `la santé` — u16 · health
+- `la santé publique` — u109 · public health
+- `la scène` — u42 · the stage
+- `la science` — u41 · science
+- `la scolarité` — u110 · schooling, period of formal education
+- `la sculpture` — u103 · the sculpture
+- `la sécheresse` — u72 · the drought
+- `la sécurité` — u62 · safety
+- `la Sécurité sociale` — u109 · the (French) social security
+- `la sélection` — u110 · selection (competitive admission)
+- `la semaine` — u15 · week
+- `la semaine dernière` — u24 · last week
+- `la sensibilité` — u103 · the sensitivity
+- `la sérénité` — u112 · serenity
+- `la série` — u42 · the series
+- `la serviette` — u37 · towel
+- `la sévérité` — u122 · strictness
+- `la simplicité` — u126 · simplicity
+- `la simulation` — u101 · the simulation
+- `la sincérité` — u122 · sincerity
+- `la situation` — u57 · situation
+- `la sobriété` — u108 · restraint, moderation
+- `la société` — u39 · society
+- `la sœur` — u4 · sister
+- `la solidarité` — u75 · solidarity
+- `la solidité` — u126 · sturdiness
+- `la solution` — u39 · the solution
+- `la soupe` — u21 · soup
+- `la souplesse` — u126 · flexibility
+- `la source` — u71 · the source
+- `la souris` — u26 · mouse
+- `la souveraineté` — u99 · sovereignty
+- `la stabilité` — u126 · stability
+- `la strate` — u120 · the layer
+- `la strophe` — u128 · the stanza
+- `la structure` — u97 · the structure
+- `la subtilité` — u126 · subtlety
+- `la suite` — u57 · what comes next
+- `la surenchère` — u111 · escalation / one-upmanship
+- `la surface` — u87 · surface
+- `la surprise` — u89 · surprise
+- `la synthèse` — u101 · the synthesis
+- `la table` — u18 · table
+- `la tablette` — u40 · the tablet
+- `la tâche` — u82 · the task
+- `la taille` — u17 · size
+- `la taxe` — u83 · the tax
+- `la taxe carbone` — u108 · carbon tax
+- `la température` — u14 · temperature
+- `la tendresse` — u64 · tenderness
+- `la teneur` — u120 · the content
+- `la tension` — u83 · the tension
+- `la tenue` — u93 · outfit
+- `la terre` — u33 · the ground
+- `la terreur` — u123 · terror
+- `la tête` — u16 · head
+- `la thérapie` — u74 · therapy
+- `la thèse` — u58 · the argument
+- `la timidité` — u122 · shyness
+- `la toile` — u103 · the canvas
+- `la tomate` — u19 · tomato
+- `la toux` — u32 · a cough
+- `la trace` — u90 · trail
+- `la tradition` — u102 · the tradition
+- `la tragédie` — u128 · the tragedy
+- `la trame` — u97 · the underlying pattern
+- `la tranche` — u92 · slice
+- `la transformation` — u66 · the transformation
+- `la transition écologique` — u108 · the ecological transition
+- `la une` — u71 · the front page
+- `la vaccination` — u109 · vaccination
+- `la vache` — u26 · cow
+- `la vague` — u127 · the wave
+- `la vaisselle` — u28 · the dishes
+- `la valeur` — u82 · the value
+- `la validité` — u126 · validity
+- `la valise` — u20 · suitcase
+- `la vallée` — u127 · the valley
+- `la vanité` — u122 · vanity
+- `la variable` — u101 · the variable
+- `la véracité` — u96 · the truthfulness
+- `la vérité` — u65 · the truth
+- `la vertu` — u65 · the virtue
+- `la veste` — u17 · jacket
+- `la viande` — u21 · meat
+- `la victime` — u121 · the victim
+- `la vidéo` — u40 · the video
+- `la vie` — u39 · life
+- `la ville` — u7 · city
+- `la vis` — u88 · screw
+- `la vitre` — u131 · the windowpane
+- `la voiture` — u20 · car
+- `la voix` — u85 · voice
+- `la volonté` — u65 · the will
+- `la vulgarisation` — u110 · popularization (of science/knowledge)
+- `la vulnérabilité` — u105 · the vulnerability
+- `la zone` — u72 · the zone
+- `là-bas` — u51 · over there
+- `lâcher` — u54 · to let go of
+- `laisser` — u53 · to leave behind
+- `lancer` — u84 · to throw
+- `large` — u50 · wide
+- `latent` — u119 · latent
+- `laver` — u28 · to wash (something)
+- `le` — u3 · the (masculine)
+- `le balcon` — u37 · balcony
+- `le basculement` — u108 · the tipping, the shift
+- `le bateau` — u20 · boat
+- `le bénéfice` — u83 · the profit
+- `le besoin` — u82 · the need
+- `le béton` — u131 · the concrete
+- `le beurre` — u21 · butter
+- `le bien-être` — u74 · wellbeing
+- `le bien-fondé` — u120 · the validity
+- `le billet` — u20 · ticket
+- `le blocage` — u67 · the deadlock
+- `le bois` — u41 · the wood
+- `le bonheur` — u64 · happiness
+- `le bord` — u51 · edge
+- `le boulanger` — u25 · baker
+- `le bout` — u52 · bit
+- `le bras` — u16 · arm
+- `le brevet` — u101 · the patent
+- `le bricolage` — u88 · DIY
+- `le bronze` — u131 · the bronze
+- `le bruit` — u37 · noise
+- `le budget` — u73 · the budget
+- `le bureau` — u31 · office
+- `le bus` — u20 · bus
+- `le buste` — u128 · the bust
+- `le but` — u57 · the goal
+- `le cabinet` — u74 · the surgery
+- `le câble` — u131 · the cable
+- `le cadeau` — u54 · gift
+- `le cadrage` — u111 · framing
+- `le cadre` — u78 · the framework
+- `le café` — u6 · coffee
+- `le calendrier` — u69 · the calendar
+- `le canapé` — u18 · sofa
+- `le canard` — u33 · duck
+- `le candidat` — u62 · the candidate
+- `le caoutchouc` — u131 · the rubber
+- `le capital` — u100 · the capital
+- `le capteur` — u101 · the sensor
+- `le caractère` — u38 · character (personality)
+- `le carton` — u131 · the cardboard
+- `le cas` — u57 · case
+- `le cas échéant` — u113 · if necessary / should the case arise
+- `le casque` — u40 · the headphones
+- `le centre` — u51 · centre
+- `le centre commercial` — u34 · shopping centre
+- `le centre-ville` — u39 · the town centre
+- `le chagrin` — u64 · the sorrow
+- `le champ` — u33 · field
+- `le changement` — u53 · shift
+- `le chanteur` — u42 · the singer
+- `le chapeau` — u17 · hat
+- `le chapitre` — u128 · the chapter
+- `le chat` — u26 · cat
+- `le chef` — u63 · the boss
+- `le chef-d'œuvre` — u103 · the masterpiece
+- `le chemin` — u33 · path
+- `le cheval` — u26 · horse
+- `le chien` — u26 · dog
+- `le chiffre d'affaires` — u100 · the turnover
+- `le chocolat` — u21 · chocolate
+- `le choix` — u49 · choice
+- `le chômage` — u73 · unemployment
+- `le chômeur` — u73 · the unemployed person
+- `le chroniqueur` — u111 · columnist / commentator
+- `le ciel` — u14 · sky
+- `le cinéma` — u28 · cinema
+- `le citoyen` — u39 · the citizen
+- `le classement` — u83 · the ranking
+- `le clavier` — u40 · the keyboard
+- `le client` — u19 · customer
+- `le climat` — u41 · the climate
+- `le clivage` — u106 · the divide
+- `le clou` — u88 · nail
+- `le cochon` — u33 · pig
+- `le cœur` — u16 · heart
+- `le coiffeur` — u31 · hairdresser
+- `le coin` — u51 · corner
+- `le col` — u93 · collar
+- `le collaborateur` — u63 · the co-worker
+- `le collègue` — u31 · colleague
+- `le collier` — u93 · necklace
+- `le commerce` — u73 · trade
+- `le complotisme` — u111 · conspiracy thinking
+- `le composant` — u97 · the component
+- `le compositeur` — u128 · the composer
+- `le compte` — u34 · account
+- `le concept` — u78 · the concept
+- `le concert` — u42 · the concert
+- `le confinement` — u109 · the lockdown
+- `le conflit` — u75 · the conflict
+- `le congé` — u73 · the leave
+- `le consensus` — u95 · the consensus
+- `le consentement` — u109 · consent
+- `le constat` — u96 · the finding
+- `le conte` — u128 · the tale
+- `le contour` — u87 · outline
+- `le contraire` — u60 · the opposite
+- `le contrat` — u63 · the contract
+- `le corollaire` — u120 · the corollary
+- `le corps` — u16 · body
+- `le côté` — u47 · the side
+- `le coton` — u52 · cotton
+- `le couloir` — u37 · corridor
+- `le couple` — u75 · the couple
+- `le courant` — u103 · the trend
+- `le cours` — u31 · class (a lesson)
+- `le coût` — u83 · the cost
+- `le couteau` — u21 · knife
+- `le couvercle` — u92 · lid
+- `le crime` — u121 · the crime
+- `le critère` — u68 · the criterion
+- `le croissant` — u6 · croissant
+- `le cuir` — u52 · leather
+- `le cuisinier` — u25 · cook
+- `le cuivre` — u131 · the copper
+- `le danger` — u89 · danger
+- `le débat` — u62 · the debate
+- `le début` — u47 · the beginning
+- `le décalage` — u120 · the gap
+- `le déchet` — u72 · the piece of waste
+- `le déclin` — u66 · the decline
+- `le décor` — u128 · the set
+- `le décret` — u99 · the decree
+- `le décrochage scolaire` — u110 · dropping out of school, school dropout
+- `le défaut` — u38 · flaw
+- `le défi` — u67 · the challenge
+- `le déficit` — u100 · the deficit
+- `le dégoût` — u123 · disgust
+- `le degré` — u14 · degree
+- `le déjeuner` — u21 · lunch
+- `le délai` — u82 · the deadline
+- `le délit` — u121 · the offence
+- `le dentiste` — u25 · dentist
+- `le départ` — u20 · departure
+- `le département` — u107 · the department
+- `le dépistage` — u109 · the screening (medical testing)
+- `le dépit` — u112 · pique
+- `le déploiement` — u101 · the rollout
+- `le dérèglement` — u108 · the disruption, breakdown
+- `le désaccord` — u83 · the disagreement
+- `le désarroi` — u123 · distress
+- `le désert médical` — u109 · the medical desert (underserved area)
+- `le désespoir` — u123 · despair
+- `le désordre` — u90 · mess
+- `le dessin` — u42 · the drawing
+- `le destin` — u89 · fate
+- `le détail` — u57 · detail
+- `le développement` — u78 · the development
+- `le diagnostic` — u74 · the diagnosis
+- `le dilemme` — u67 · the dilemma
+- `le dîner` — u21 · dinner
+- `le direct` — u71 · live broadcast
+- `le dirigeant` — u107 · the leader
+- `le discours` — u86 · speech
+- `le dispositif` — u101 · the device
+- `le distributeur` — u73 · the cash machine
+- `le divertissement` — u71 · entertainment
+- `le divorce` — u75 · the divorce
+- `le doigt` — u16 · finger
+- `le domaine` — u78 · the field
+- `le dos` — u16 · back
+- `le dossier` — u82 · the file
+- `le double` — u60 · twice as much
+- `le droit` — u39 · the right
+- `le e muet` — u1 · the silent e
+- `le facteur` — u59 · the factor
+- `le fait` — u47 · the fact
+- `le fait que` — u76 · the fact that
+- `le fer` — u52 · iron
+- `le festival` — u42 · the festival
+- `le feu` — u41 · the fire
+- `le feu rouge` — u30 · traffic light
+- `le fichier` — u40 · the file
+- `le fil` — u88 · thread
+- `le film` — u24 · film
+- `le fleuve` — u127 · the river
+- `le flou` — u61 · the vagueness
+- `le fond` — u51 · the far end
+- `le fossé` — u106 · the gap
+- `le four` — u37 · oven
+- `le fournisseur` — u100 · the supplier
+- `le français` — u11 · French
+- `le frère` — u4 · brother
+- `le frigo` — u37 · fridge
+- `le fromage` — u6 · cheese
+- `le fruit` — u19 · fruit
+- `le garage` — u37 · garage
+- `le garçon` — u4 · boy
+- `le gaspillage` — u72 · the waste
+- `le gâteau` — u21 · cake
+- `le genre` — u82 · the kind
+- `le geste` — u83 · the gesture
+- `le glacier` — u127 · the glacier
+- `le goudron` — u131 · the tar
+- `le gouffre` — u127 · the chasm
+- `le goût` — u85 · taste
+- `le gouvernement` — u39 · the government
+- `le grillage` — u131 · the wire fence
+- `le groupe` — u42 · the group
+- `le h muet` — u1 · the silent h
+- `le handicap` — u74 · the disability
+- `le hasard` — u82 · chance
+- `le Japon` — u26 · Japan
+- `le jardin` — u18 · garden
+- `le jeu` — u28 · game
+- `le jour` — u8 · day
+- `le journal` — u39 · the newspaper
+- `le juge` — u121 · the judge
+- `le jury` — u121 · the jury
+- `le jus` — u6 · juice
+- `le kilo` — u19 · kilo
+- `le lac` — u33 · lake
+- `le lait` — u6 · milk
+- `le lapin` — u33 · rabbit
+- `le légume` — u19 · vegetable
+- `le lien` — u75 · the bond
+- `le lin` — u131 · the linen
+- `le lion` — u33 · lion
+- `le lit` — u18 · bed
+- `le litige` — u99 · the dispute
+- `le littoral` — u72 · the coast
+- `le livre` — u26 · book
+- `le loup` — u33 · wolf
+- `le loyer` — u37 · rent
+- `le lycée` — u31 · secondary school
+- `le magasin` — u7 · store
+- `le mail` — u40 · the email
+- `le maire` — u62 · the mayor
+- `le malaise` — u112 · unease
+- `le malentendu` — u83 · the misunderstanding
+- `le mandat` — u99 · the term of office
+- `le manque` — u82 · the lack
+- `le manteau` — u17 · coat
+- `le marais` — u127 · the marsh
+- `le marbre` — u131 · the marble
+- `le marché` — u19 · market
+- `le mariage` — u75 · the marriage
+- `le matin` — u8 · morning
+- `le mec` — u79 · the guy
+- `le mécanisme` — u97 · the mechanism
+- `le médecin` — u16 · doctor
+- `le médicament` — u16 · medicine
+- `le meilleur` — u44 · the best
+- `le même` — u44 · the same
+- `le ménage` — u28 · the housework
+- `le mentor` — u107 · the mentor
+- `le mépris` — u123 · contempt
+- `le mérite` — u110 · merit, worth (earned)
+- `le message` — u40 · the message
+- `le métal` — u41 · the metal
+- `le métier` — u31 · trade
+- `le métro` — u7 · metro
+- `le meurtre` — u121 · the murder
+- `le milieu` — u51 · middle
+- `le ministre` — u62 · the minister
+- `le miroir` — u37 · mirror
+- `le modèle` — u97 · the model
+- `le moins` — u44 · the least
+- `le mois` — u15 · month
+- `le moment` — u35 · moment
+- `le monde` — u26 · world
+- `le monument` — u102 · the monument
+- `le moral` — u74 · spirits
+- `le morceau` — u19 · piece
+- `le mot` — u48 · word
+- `le mot de passe` — u40 · the password
+- `le motif` — u87 · pattern
+- `le mouton` — u33 · sheep
+- `le mouvement` — u103 · the movement
+- `le moyen` — u57 · means
+- `le Moyen Âge` — u102 · the Middle Ages
+- `le mur` — u18 · wall
+- `le musée` — u30 · museum
+- `le mystère` — u61 · the mystery
+- `le mythe` — u102 · the myth
+- `le nez` — u16 · nose
+- `le niveau` — u82 · the level
+- `le nom` — u57 · name
+- `le nombre` — u50 · number
+- `le nuage` — u14 · cloud
+- `le pain` — u6 · bread
+- `le panier` — u34 · basket
+- `le pantalon` — u17 · trousers
+- `le papier` — u26 · paper
+- `le paquet` — u54 · parcel
+- `le paradigme` — u97 · the paradigm
+- `le paradoxe` — u65 · the paradox
+- `le parc` — u7 · park
+- `le parcours` — u70 · the path
+- `le parfum` — u93 · perfume
+- `le pari` — u89 · the bet
+- `le partenaire` — u100 · the partner
+- `le parti` — u62 · the party
+- `le passage` — u70 · the passage
+- `le passé` — u70 · the past
+- `le passeport` — u30 · passport
+- `le patrimoine` — u102 · the heritage
+- `le patrimoine commun` — u108 · the common heritage, the commons
+- `le patron` — u31 · boss
+- `le pays` — u26 · country
+- `le paysage` — u72 · the landscape
+- `le PDG` — u107 · the CEO
+- `le peigne` — u93 · comb
+- `le peintre` — u103 · the painter
+- `le père` — u4 · father
+- `le péril` — u105 · the peril
+- `le permis` — u30 · driving licence
+- `le personnage` — u42 · the character (in a story)
+- `le petit-déjeuner` — u21 · breakfast
+- `le peuple` — u62 · the people
+- `le phénomène` — u59 · the phenomenon
+- `le pied` — u16 · foot
+- `le piège` — u67 · the trap
+- `le pinceau` — u128 · the brush
+- `le pire` — u44 · the worst
+- `le placard` — u37 · cupboard
+- `le plan` — u30 · map (of a town)
+- `le plastique` — u41 · the plastic
+- `le plat` — u92 · dish
+- `le plâtre` — u131 · the plaster
+- `le pli` — u93 · crease
+- `le pluralisme` — u111 · (media) pluralism
+- `le pluriel` — u27 · the plural
+- `le plus` — u44 · the most
+- `le poème` — u128 · the poem
+- `le poète` — u103 · the poet
+- `le poids` — u50 · weight
+- `le point` — u52 · dot
+- `le point commun` — u65 · the common ground
+- `le point de vue` — u58 · the point of view
+- `le point faible` — u67 · the weak point
+- `le poisson` — u21 · fish
+- `le poivre` — u21 · pepper
+- `le policier` — u31 · police officer
+- `le pont` — u30 · bridge
+- `le portable` — u40 · the mobile phone
+- `le porte-monnaie` — u34 · purse
+- `le portrait` — u128 · the portrait
+- `le poste` — u63 · the position
+- `le poulet` — u21 · chicken
+- `le pouvoir` — u62 · power
+- `le pouvoir d'achat` — u73 · purchasing power
+- `le préjudice` — u104 · the harm
+- `le préjugé` — u75 · the prejudice
+- `le prénom` — u57 · first name
+- `le présent règlement` — u117 · this regulation, the present rules (herein)
+- `le président` — u39 · the president
+- `le pressentiment` — u61 · the premonition
+- `le prêt` — u73 · the loan
+- `le printemps` — u15 · spring
+- `le prisme` — u120 · the lens
+- `le prix` — u12 · price
+- `le problème` — u39 · the problem
+- `le procès` — u121 · the trial
+- `le processus` — u66 · the process
+- `le professeur` — u25 · teacher
+- `le profil` — u40 · the profile
+- `le programme` — u69 · the schedule
+- `le progrès` — u53 · progress
+- `le projet` — u63 · the project
+- `le pronostic` — u105 · the forecast
+- `le prototype` — u101 · the prototype
+- `le public` — u42 · the audience
+- `le pull` — u17 · sweater
+- `le quai` — u30 · platform
+- `le quartier` — u39 · the neighbourhood
+- `le raccourci` — u111 · oversimplification / shortcut
+- `le rachat` — u100 · the buyout
+- `le racisme` — u106 · racism
+- `le raisonnement` — u58 · the reasoning
+- `le rang` — u90 · row
+- `le ravin` — u127 · the ravine
+- `le ravissement` — u123 · delight
+- `le rayon` — u34 · aisle
+- `le réalisateur` — u71 · the director
+- `le réchauffement` — u72 · global warming
+- `le récit` — u102 · the account
+- `le réconfort` — u112 · comfort
+- `le recrutement` — u107 · the recruitment
+- `le reçu` — u34 · receipt
+- `le recueil` — u103 · the collection
+- `le rédacteur` — u71 · the editor
+- `le référendum` — u99 · the referendum
+- `le reflet` — u85 · reflection
+- `le réflexe` — u91 · reflex
+- `le refrain` — u128 · the chorus
+- `le régime` — u32 · a diet
+- `le règlement` — u68 · the regulations
+- `le règne` — u102 · the reign
+- `le regret` — u70 · the regret
+- `le remboursement` — u109 · the reimbursement
+- `le remède` — u67 · the remedy
+- `le remords` — u104 · the remorse
+- `le rendez-vous` — u32 · appointment
+- `le renoncement` — u112 · giving up
+- `le repas` — u21 · meal
+- `le repentir` — u123 · repentance
+- `le repère` — u90 · landmark
+- `le reportage` — u71 · the report
+- `le repos` — u74 · rest
+- `le réseau` — u40 · the network
+- `le respect` — u38 · respect
+- `le responsable` — u63 · the person in charge
+- `le ressentiment` — u112 · resentment
+- `le ressort` — u120 · the driving force
+- `le restaurant` — u7 · restaurant
+- `le reste` — u57 · the rest
+- `le résultat` — u41 · the result
+- `le retard` — u30 · delay
+- `le rhume` — u32 · a cold
+- `le rideau` — u37 · curtain
+- `le risque` — u89 · risk
+- `le rivage` — u127 · the shore
+- `le riz` — u21 · rice
+- `le rocher` — u127 · the rock
+- `le rôle` — u75 · the role
+- `le roman` — u42 · the novel
+- `le romancier` — u71 · the novelist
+- `le rouage` — u97 · the cog
+- `le ruban` — u88 · ribbon
+- `le ruisseau` — u127 · the stream
+- `le rythme` — u74 · the pace
+- `le sable` — u33 · sand
+- `le sac` — u17 · bag
+- `le salaire` — u31 · salary
+- `le salarié` — u73 · the employee
+- `le salon` — u18 · living room
+- `le sang` — u32 · blood
+- `le savoir` — u110 · knowledge (body of what is known)
+- `le savoir-faire` — u110 · know-how, practical skill
+- `le savon` — u37 · soap
+- `le scandale` — u62 · the scandal
+- `le scénario` — u71 · the screenplay
+- `le scientifique` — u41 · the scientist
+- `le scrupule` — u104 · the scruple
+- `le scrutin` — u99 · the ballot
+- `le sculpteur` — u128 · the sculptor
+- `le secret médical` — u109 · medical confidentiality
+- `le séjour` — u30 · stay
+- `le sel` — u21 · salt
+- `le sens` — u48 · meaning
+- `le sensationnalisme` — u111 · sensationalism
+- `le sentier` — u127 · the path
+- `le serveur` — u25 · waiter
+- `le service` — u39 · the service
+- `le seuil` — u98 · the threshold
+- `le siècle` — u102 · the century
+- `le siège` — u100 · the head office
+- `le silence` — u83 · the silence
+- `le singe` — u33 · monkey
+- `le site` — u40 · the website
+- `le socle` — u120 · the foundation
+- `le soignant` — u109 · the carer / healthcare worker
+- `le soir` — u8 · evening
+- `le sol` — u37 · floor surface
+- `le soleil` — u14 · sun
+- `le sommeil` — u32 · sleep
+- `le sommet` — u127 · the summit
+- `le sondage` — u71 · the poll
+- `le sonnet` — u128 · the sonnet
+- `le sophisme` — u95 · the fallacy
+- `le souci` — u83 · the worry
+- `le souhait` — u69 · the wish
+- `le soulagement` — u83 · the relief
+- `le spectacle` — u42 · the show
+- `le spectateur` — u71 · the viewer
+- `le sport` — u28 · sport
+- `le stage` — u63 · the internship
+- `le statut` — u75 · the status
+- `le stéréotype` — u106 · the stereotype
+- `le style` — u93 · look
+- `le stylo` — u26 · pen
+- `le succès` — u71 · the success
+- `le sucre` — u21 · sugar
+- `le supermarché` — u19 · supermarket
+- `le suspect` — u121 · the suspect
+- `le symbole` — u65 · the symbol
+- `le symptôme` — u74 · the symptom
+- `le syndicat` — u63 · the trade union
+- `le système` — u65 · the system
+- `le système de santé` — u109 · the healthcare system
+- `le tableau` — u42 · the painting
+- `le tabou` — u106 · the taboo
+- `le talent` — u82 · the talent
+- `le tapis` — u37 · rug
+- `le tas` — u90 · heap
+- `le taxi` — u20 · taxi
+- `le téléphone` — u26 · telephone
+- `le télescope` — u41 · the telescope
+- `le témoignage` — u96 · the testimony
+- `le témoin` — u82 · the witness
+- `le tempérament` — u91 · temperament
+- `le temps libre` — u28 · free time
+- `le territoire` — u72 · the territory
+- `le thé` — u6 · tea
+- `le théâtre` — u42 · the theatre
+- `le tissu` — u52 · fabric
+- `le titre` — u57 · title
+- `le toit` — u37 · roof
+- `le ton` — u86 · tone
+- `le torrent` — u127 · the torrent
+- `le touriste` — u30 · tourist
+- `le tournage` — u71 · the filming
+- `le tournant` — u120 · the turning point
+- `le train` — u20 · train
+- `le traitement` — u74 · the treatment
+- `le travail` — u25 · work
+- `le tri` — u72 · sorting
+- `le tribunal` — u99 · the court
+- `le trou` — u52 · hole
+- `le trouble` — u112 · inner turmoil
+- `le truc` — u52 · thingy
+- `le tuyau` — u131 · the pipe
+- `le vaccin` — u74 · the vaccine
+- `le vécu` — u70 · lived experience
+- `le vélo` — u20 · bicycle
+- `le velours` — u131 · the velvet
+- `le vendeur` — u34 · shop assistant
+- `le vent` — u14 · wind
+- `le ventre` — u16 · stomach
+- `le verdict` — u99 · the verdict
+- `le vernissage` — u128 · the opening
+- `le verre` — u21 · glass
+- `le vers` — u103 · the line of verse
+- `le versant` — u127 · the slope
+- `le vestige` — u102 · the remains
+- `le vêtement` — u17 · piece of clothing
+- `le village` — u39 · the village
+- `le vin` — u6 · wine
+- `le virus` — u74 · the virus
+- `le voisin` — u37 · neighbour
+- `le voisinage` — u75 · the neighbourhood
+- `le vol` — u30 · flight
+- `le voleur` — u121 · the thief
+- `le voyage` — u20 · trip
+- `le week-end` — u8 · weekend
+- `ledit` — u114 · the said / the aforementioned
+- `légal` — u68 · legal
+- `léger` — u50 · light
+- `légèrement` — u98 · slightly
+- `légitime` — u104 · legitimate
+- `lent` — u20 · slow
+- `lentement` — u11 · slowly
+- `lequel` — u76 · which
+- `les acquis` — u110 · learning outcomes, what has been learned
+- `les autres` — u57 · the others
+- `les bagages` — u30 · luggage
+- `les bijoux` — u93 · jewellery
+- `les chaussures` — u17 · shoes
+- `les cheveux` — u16 · hair
+- `les courses` — u19 · the shopping
+- `les déchets` — u41 · the waste
+- `les devoirs` — u31 · homework
+- `les données` — u96 · the data
+- `les émissions` — u108 · emissions
+- `les énergies fossiles` — u108 · fossil fuels
+- `les générations futures` — u108 · future generations
+- `les inégalités de santé` — u109 · health inequalities
+- `les informations` — u39 · the news
+- `les intéressés` — u117 · those concerned, the interested parties
+- `les lunettes` — u17 · glasses
+- `les mœurs` — u106 · the customs
+- `les parents` — u4 · parents
+- `les pâtes` — u21 · pasta
+- `les pouvoirs publics` — u117 · the public authorities, the government (as actor)
+- `les soins` — u109 · care / medical care
+- `les soldes` — u34 · the sales
+- `les urgences` — u32 · the emergency room
+- `les usagers` — u117 · users, the public (of a service)
+- `les vacances` — u30 · holidays
+- `les yeux` — u16 · eyes
+- `léser` — u125 · to wrong
+- `leur` — u27 · their
+- `licencier` — u63 · to lay off
+- `lisse` — u87 · smooth
+- `livrer` — u54 · to deliver
+- `logique` — u55 · logical
+- `loin` — u7 · far
+- `lointain` — u70 · distant
+- `long` — u17 · long
+- `longtemps` — u35 · a long time
+- `lorsque` — u43 · when
+- `lourd` — u50 · heavy
+- `lucratif` — u100 · lucrative
+- `lumineux` — u85 · bright
+- `lundi` — u8 · Monday
+- `ma` — u4 · my (feminine)
+- `madame` — u2 · ma'am
+- `Madame la Présidente` — u116 · Madam President
+- `Madame, Monsieur` — u79 · Dear Sir or Madam
+- `mai` — u15 · May
+- `maintenant` — u8 · now
+- `mais` — u18 · but
+- `Maître` — u116 · Maître (title for a lawyer or notary)
+- `malade` — u9 · sick
+- `malgré` — u89 · in spite of
+- `malheureusement` — u35 · unfortunately
+- `mandater` — u117 · to mandate, to appoint/commission (to act)
+- `manger` — u24 · to eat
+- `manifeste` — u119 · manifest
+- `manifestement` — u61 · obviously
+- `manipuler` — u95 · to manipulate
+- `mardi` — u8 · Tuesday
+- `marginal` — u98 · marginal
+- `marginaliser` — u106 · to marginalise
+- `marquer` — u90 · to leave a mark
+- `mars` — u15 · March
+- `méchant` — u25 · mean
+- `médiéval` — u102 · medieval
+- `méditer` — u124 · to meditate
+- `meilleur` — u44 · better (adjective)
+- `mélanger` — u88 · to mix
+- `même` — u36 · even
+- `même si` — u43 · even if
+- `menacer` — u72 · to threaten
+- `mener` — u59 · to lead to
+- `merci` — u2 · thank you
+- `mercredi` — u8 · Wednesday
+- `mes` — u27 · my (plural)
+- `mes respectueux hommages` — u116 · my respectful regards (deferential sign-off)
+- `mes salutations distinguées` — u116 · my distinguished regards (formal sign-off)
+- `mesurer` — u50 · to measure
+- `mettre au point` — u94 · to finalise
+- `midi` — u13 · noon
+- `mieux` — u29 · better
+- `militer pour` — u118 · to campaign for
+- `mille` — u12 · one thousand
+- `minime` — u98 · minimal
+- `minimiser` — u105 · to play down
+- `minuit` — u13 · midnight
+- `mitigé` — u112 · mixed
+- `modéré` — u98 · moderate
+- `modifier` — u125 · to modify
+- `moi` — u2 · me
+- `moindre` — u98 · the slightest
+- `moins` — u5 · less
+- `moins … que` — u44 · less … than
+- `moins le quart` — u13 · quarter to
+- `momentanément` — u130 · momentarily
+- `mon` — u4 · my (masculine)
+- `monsieur` — u2 · sir
+- `Monsieur le Directeur` — u116 · Mr. Director
+- `morose` — u112 · gloomy
+- `motivé` — u69 · motivated
+- `mou` — u87 · soft
+- `moyennant` — u133 · in exchange for
+- `moyennant quoi` — u113 · in return for which / whereby
+- `multilatéral` — u108 · multilateral
+- `murmurer` — u86 · to murmur
+- `muter` — u107 · to transfer
+- `n'est-ce pas` — u22 · isn't it
+- `n'était` — u113 · were it not for / if it weren't for
+- `n'hésitez pas à` — u80 · feel free to
+- `n'importe où` — u51 · anywhere at all
+- `n'importe qui` — u57 · anyone at all
+- `n'importe quoi` — u57 · anything at all
+- `nager` — u28 · to swim
+- `naguère` — u130 · not long ago
+- `ne … jamais` — u22 · never
+- `ne … pas` — u22 · not
+- `ne … personne` — u22 · nobody
+- `ne … plus` — u22 · not anymore
+- `ne … rien` — u22 · nothing
+- `néanmoins` — u58 · nevertheless
+- `nécessaire` — u47 · necessary
+- `négligeable` — u98 · negligible
+- `négocier` — u100 · to negotiate
+- `net` — u90 · clear-cut
+- `nettement` — u60 · clearly
+- `nettoyer` — u28 · to clean
+- `neuf` — u5 · nine
+- `ni … ni` — u36 · neither … nor
+- `nier` — u58 · to deny
+- `noir` — u9 · black
+- `non` — u2 · no
+- `non seulement` — u132 · not only
+- `nonobstant` — u114 · notwithstanding / despite
+- `nostalgique` — u70 · nostalgic
+- `notable` — u98 · notable
+- `notamment` — u56 · notably
+- `noter` — u90 · to jot down
+- `notifier` — u117 · to notify (officially, in writing)
+- `notre` — u27 · our
+- `nous` — u23 · we
+- `nous allons` — u23 · we go
+- `nous avons` — u23 · we have
+- `nous étions` — u46 · we were
+- `nous finissons` — u46 · we finish
+- `nous mangeons` — u46 · we eat
+- `nous parlerons` — u45 · we will speak
+- `nous serons` — u45 · we will be
+- `nous sommes` — u23 · we are
+- `nouveau` — u9 · new
+- `novembre` — u15 · November
+- `nuire` — u104 · to harm
+- `nuire à` — u118 · to harm
+- `nulle part` — u51 · nowhere
+- `ô` — u1 · ô — a long 'oh'
+- `obéir` — u91 · to obey
+- `objecter` — u129 · to object
+- `obligatoire` — u55 · compulsory
+- `obliger` — u77 · to force
+- `observer` — u85 · to watch closely
+- `obtenir` — u81 · to obtain
+- `occasionner` — u125 · to cause
+- `octobre` — u15 · October
+- `œ` — u1 · œ — o and e fused
+- `officiel` — u68 · official
+- `offrir` — u54 · to give (a gift)
+- `oi` — u1 · oi — sounds like 'wah'
+- `on` — u23 · we
+- `on dit que` — u77 · it is said that
+- `on ne saurait` — u115 · one cannot
+- `on pourrait` — u44 · we could
+- `on raconte que` — u77 · the story goes that
+- `on se tutoie` — u79 · shall we use tu?
+- `on verra` — u45 · we'll see
+- `onze` — u5 · eleven
+- `opaque` — u87 · not see-through
+- `opérationnel` — u107 · operational
+- `or` — u132 · now
+- `organiser` — u81 · to organise
+- `orienter` — u111 · to slant / steer
+- `original` — u103 · original
+- `oser` — u81 · to dare
+- `où` — u3 · where
+- `ou` — u17 · or
+- `ouais` — u79 · yeah
+- `oublier` — u49 · to forget
+- `oui` — u2 · yes
+- `ouvert` — u18 · open
+- `pâle` — u85 · washed out
+- `par` — u77 · by
+- `par ailleurs` — u132 · moreover
+- `par chance` — u89 · as luck would have it
+- `par cœur` — u70 · by heart
+- `par conséquent` — u59 · consequently
+- `par contre` — u36 · on the other hand
+- `par exemple` — u36 · for example
+- `par hasard` — u89 · by chance
+- `par la présente` — u117 · hereby, by this letter
+- `par la suite` — u130 · later on
+- `par moments` — u130 · at times
+- `par rapport à` — u60 · compared to
+- `par suite` — u132 · consequently
+- `paraître` — u61 · to seem
+- `parce que` — u11 · because
+- `pardon` — u2 · sorry
+- `pardonner` — u104 · to forgive
+- `pareil` — u55 · alike
+- `parer` — u105 · to ward off
+- `paresseux` — u38 · lazy
+- `parfait` — u55 · perfect
+- `parfois` — u13 · sometimes
+- `parier` — u89 · to bet
+- `parmi` — u51 · among
+- `partager` — u54 · to share
+- `partant` — u114 · therefore / hence
+- `participer` — u81 · to take part
+- `partir` — u24 · to leave
+- `partout` — u35 · everywhere
+- `pas de` — u27 · no / not any
+- `pas du tout` — u22 · not at all
+- `pas encore` — u22 · not yet
+- `patent` — u119 · obvious
+- `patient` — u38 · patient
+- `pâtir de` — u118 · to suffer from
+- `pauvre` — u73 · poor
+- `pendant` — u35 · during
+- `pendant que` — u36 · while
+- `pénible` — u38 · tiresome
+- `percer` — u88 · to drill
+- `percevoir` — u124 · to perceive
+- `percutant` — u95 · hard-hitting
+- `perdre` — u53 · to lose
+- `pérenne` — u119 · lasting
+- `périlleux` — u105 · perilous
+- `permettez-moi de` — u116 · allow me to, permit me to
+- `permettre` — u77 · to allow
+- `personne` — u22 · nobody
+- `personne d'autre` — u57 · nobody else
+- `persuader` — u58 · to persuade
+- `peser` — u50 · to weigh
+- `petit` — u4 · small
+- `petit à petit` — u94 · bit by bit
+- `pétrir` — u92 · to knead
+- `peu à peu` — u56 · little by little
+- `peu importe` — u94 · it doesn't matter
+- `peut-être` — u25 · maybe
+- `piloter` — u107 · to steer
+- `pincer` — u84 · to pinch
+- `plaider` — u95 · to plead
+- `planifier` — u69 · to plan
+- `plat` — u52 · level
+- `plein` — u50 · full
+- `pleurer` — u29 · to cry
+- `plier` — u52 · to fold
+- `plus` — u5 · more
+- `plus … que` — u44 · more … than
+- `plus ou moins` — u98 · more or less
+- `plusieurs` — u50 · several
+- `plutôt` — u56 · rather
+- `plutôt que` — u43 · rather than
+- `poli` — u38 · polite
+- `polluer` — u72 · to pollute
+- `polyvalent` — u107 · versatile
+- `poser` — u54 · to put down
+- `poser problème` — u94 · to cause a problem
+- `possible` — u47 · possible
+- `postuler` — u63 · to apply
+- `pour` — u20 · for
+- `pour ainsi dire` — u115 · so to speak
+- `pour autant` — u113 · for all that / nonetheless / even so
+- `pour autant que` — u132 · as far as
+- `pour peu que` — u113 · if only / as long as (even a little)
+- `pour que` — u43 · so that
+- `pourquoi` — u11 · why
+- `pourriez-vous` — u79 · could you
+- `poursuivre` — u99 · to prosecute
+- `pourtant` — u36 · however
+- `pourvu que` — u76 · as long as (hopefully)
+- `pousser` — u84 · to push
+- `précaire` — u105 · precarious
+- `précédent` — u70 · previous
+- `précipiter` — u125 · to hasten
+- `précis` — u55 · precise
+- `préciser` — u129 · to specify
+- `préconiser` — u118 · to recommend
+- `préférer` — u49 · to prefer
+- `prendre son temps` — u94 · to take one's time
+- `préoccupant` — u119 · worrying
+- `préparer` — u69 · to prepare
+- `prépondérant` — u119 · predominant
+- `près` — u7 · near
+- `présager` — u118 · to portend, to foreshadow
+- `présenter` — u54 · to introduce
+- `présenter ses hommages` — u116 · to pay one's respects
+- `préserver` — u72 · to preserve
+- `presque` — u35 · almost
+- `présumer` — u61 · to presume
+- `prêt` — u27 · ready
+- `prétendre` — u58 · to claim
+- `prêter` — u34 · to lend
+- `prétexter` — u129 · to use as a pretext
+- `prévaloir` — u118 · to prevail
+- `prévenir` — u74 · to prevent
+- `préventif` — u105 · preventive
+- `prévisible` — u105 · predictable
+- `prévoir` — u69 · to plan for
+- `principalement` — u56 · mainly
+- `probablement` — u56 · probably
+- `probant` — u119 · convincing
+- `prochain` — u35 · next
+- `prochainement` — u69 · shortly
+- `proclamer` — u129 · to proclaim
+- `produire` — u81 · to produce
+- `progresser` — u66 · to progress
+- `progressivement` — u66 · gradually
+- `promettre` — u86 · to promise
+- `promulguer` — u99 · to enact
+- `prôner` — u95 · to advocate
+- `prononcer` — u48 · to pronounce
+- `proposer` — u48 · to suggest
+- `propre` — u17 · clean
+- `protéger` — u72 · to protect
+- `protester` — u62 · to protest
+- `prouver` — u81 · to prove
+- `provenir` — u59 · to come from
+- `provisoirement` — u130 · temporarily
+- `provoquer` — u59 · to trigger
+- `prudent` — u89 · careful
+- `publier` — u128 · to publish
+- `puis-je` — u79 · may I
+- `puisque` — u36 · seeing as
+- `punir` — u91 · to punish
+- `qu'est-ce que c'est` — u11 · what is it
+- `quand` — u8 · when
+- `quand bien même` — u113 · even if / even though
+- `quand même` — u36 · all the same
+- `quant à` — u61 · as for
+- `quantifier` — u101 · to quantify
+- `quarante` — u12 · forty
+- `quasiment` — u50 · almost
+- `quatorze` — u12 · fourteen
+- `quatre` — u5 · four
+- `quatre-vingt-dix` — u12 · ninety
+- `quatre-vingts` — u12 · eighty
+- `que` — u25 · that
+- `quel` — u11 · which (masculine)
+- `quelle` — u11 · which (feminine)
+- `quelle heure est-il` — u13 · what time is it
+- `quelqu'un` — u57 · someone
+- `quelque chose` — u57 · something
+- `quelque part` — u51 · somewhere
+- `quelques` — u50 · a few
+- `qui` — u3 · who
+- `qui est-ce` — u22 · who is it
+- `qui plus est` — u132 · what's more
+- `quinze` — u12 · fifteen
+- `quitte à` — u113 · even if it means / at the risk of
+- `quitte à ce que` — u113 · even if it means (that) / at the risk that
+- `quoi` — u11 · what
+- `quoi qu'il en soit` — u132 · in any case
+- `quoique` — u76 · although (formal)
+- `quotidien` — u82 · daily
+- `raconter` — u48 · to tell
+- `raffiné` — u103 · refined
+- `raide` — u87 · stiff
+- `raisonner` — u124 · to reason
+- `rallier` — u95 · to rally
+- `ramasser` — u54 · to pick up
+- `ramper` — u84 · to crawl
+- `ranger` — u28 · to tidy up
+- `râper` — u92 · to grate
+- `rapide` — u20 · fast
+- `rappeler` — u70 · to remind
+- `rapporter` — u129 · to report
+- `rarement` — u35 · rarely
+- `ratifier` — u99 · to ratify
+- `ravi` — u64 · delighted
+- `ravi de vous rencontrer` — u80 · delighted to meet you
+- `rayé` — u87 · striped
+- `réagir` — u91 · to react
+- `réaliser` — u63 · to carry out
+- `récapituler` — u124 · to recap
+- `récent` — u83 · recent
+- `recevoir` — u54 · to receive
+- `réclamer` — u129 · to demand
+- `recommencer` — u53 · to start over
+- `récompenser` — u91 · to reward
+- `reconnaître` — u49 · to recognize
+- `recouper` — u96 · to cross-check
+- `reculer` — u84 · to back up
+- `récupérer` — u54 · to get back
+- `redoutable` — u119 · formidable
+- `redouter` — u105 · to dread
+- `réduire` — u81 · to reduce
+- `réfléchir` — u124 · to think over
+- `refuser` — u48 · to refuse
+- `réfuter` — u58 · to refute
+- `régir` — u97 · to govern
+- `régler` — u67 · to sort out
+- `regretter` — u70 · to regret
+- `réguler` — u108 · to regulate
+- `relater` — u129 · to recount
+- `relativement` — u98 · relatively
+- `remarquer` — u49 · to notice
+- `rembourser` — u73 · to pay back
+- `remédier` — u67 · to remedy
+- `remercier` — u48 · to thank
+- `remettre` — u69 · to put off
+- `remonter` — u70 · to date back
+- `remplir` — u88 · to fill
+- `rencontrer` — u54 · to meet
+- `rendre` — u34 · to give back
+- `rendre public` — u117 · to make public, to disclose
+- `rendre service` — u94 · to do a favour
+- `renforcer` — u125 · to strengthen
+- `renoncer` — u91 · to give up on
+- `renouvelable` — u72 · renewable
+- `rentable` — u100 · profitable
+- `réparer` — u52 · to repair
+- `repérer` — u90 · to locate
+- `répéter` — u48 · to repeat
+- `répliquer` — u86 · to answer back
+- `répondre` — u48 · to reply
+- `reporter` — u69 · to postpone
+- `reprendre` — u53 · to resume
+- `reprocher` — u129 · to reproach
+- `reproductible` — u101 · reproducible
+- `réprouver` — u129 · to condemn
+- `réserver` — u30 · to book
+- `résister` — u67 · to resist
+- `résonner` — u85 · to reverberate
+- `résoudre` — u81 · to solve
+- `respirer` — u74 · to breathe
+- `restreindre` — u125 · to restrict
+- `restructurer` — u107 · to restructure
+- `résulter` — u59 · to result from
+- `retenir` — u49 · to memorize
+- `rétorquer` — u129 · to retort
+- `retrouver` — u53 · to find again
+- `réussir` — u49 · to succeed
+- `révélateur` — u119 · revealing
+- `révéler` — u129 · to reveal
+- `revendiquer` — u118 · to demand
+- `rêver` — u49 · to dream
+- `revivre` — u70 · to relive
+- `riche` — u73 · rich
+- `rien` — u22 · nothing
+- `riposter` — u129 · to hit back
+- `rire` — u29 · to laugh
+- `risquer` — u89 · to put at risk
+- `robuste` — u105 · robust
+- `rompre` — u75 · to break off
+- `rond` — u52 · round
+- `rôtir` — u92 · to roast
+- `rouge` — u9 · red
+- `rugueux` — u87 · rough
+- `rural` — u72 · rural
+- `s'abstenir` — u104 · to refrain
+- `s'accentuer` — u118 · to intensify
+- `s'affirmer` — u106 · to assert oneself
+- `s'allonger` — u84 · to lie down
+- `s'améliorer` — u66 · to improve
+- `s'apercevoir` — u124 · to realise
+- `s'appuyer` — u84 · to lean on
+- `s'asseoir` — u84 · to sit down
+- `s'attribuer` — u129 · to take credit for
+- `s'en sortir` — u67 · to get through it
+- `s'enfuir` — u121 · to flee
+- `s'engager` — u69 · to commit
+- `s'entendre` — u75 · to get along
+- `s'estomper` — u125 · to fade
+- `s'exclamer` — u129 · to exclaim
+- `s'excuser` — u48 · to apologize
+- `s'exprimer` — u86 · to express oneself
+- `s'habituer` — u91 · to get used to
+- `s'il te plaît` — u79 · please (to a friend)
+- `s'il vous plaît` — u2 · please
+- `s'immiscer` — u118 · to interfere
+- `s'insurger` — u118 · to protest
+- `s'occuper de` — u91 · to take care of
+- `s'opposer` — u58 · to oppose
+- `sa` — u27 · his / her (feminine)
+- `sage` — u38 · well-behaved
+- `saillant` — u119 · salient, striking
+- `saisir` — u117 · to refer a matter to, to bring before (an authority)
+- `sale` — u17 · dirty
+- `salé` — u92 · salty
+- `saluer` — u118 · to welcome
+- `salut` — u2 · hi
+- `salutaire` — u119 · beneficial
+- `samedi` — u8 · Saturday
+- `sans` — u6 · without
+- `sans cesse` — u130 · constantly
+- `sans compter que` — u133 · not to mention that
+- `sans doute` — u36 · probably
+- `sans que` — u76 · without (someone doing)
+- `sans quoi` — u113 · otherwise / or else
+- `santé` — u11 · cheers
+- `sauf` — u89 · except
+- `sauf à` — u113 · unless one is prepared to / at the risk of
+- `sauf erreur` — u80 · unless I'm mistaken
+- `sauf si` — u76 · unless (everyday)
+- `sauf votre respect` — u116 · with all due respect
+- `sauter` — u84 · to jump
+- `sauvage` — u33 · wild
+- `se charger de` — u91 · to take on
+- `se comporter` — u91 · to behave
+- `se conformer` — u68 · to comply
+- `se creuser` — u125 · to deepen
+- `se débrouiller` — u91 · to get by
+- `se détendre` — u74 · to relax
+- `se développer` — u66 · to develop
+- `se disputer` — u75 · to argue
+- `se faire` — u77 · to get (something done to you)
+- `se faire une raison` — u112 · to come to terms with it
+- `se garder de` — u118 · to refrain from
+- `se maquiller` — u93 · to put on make-up
+- `se méfier` — u89 · to be wary
+- `se pencher` — u84 · to lean over
+- `se plaindre` — u86 · to complain
+- `se poursuivre` — u66 · to continue
+- `se prémunir` — u105 · to guard against
+- `se rappeler` — u70 · to recall
+- `se rendre compte` — u94 · to realise
+- `se représenter` — u124 · to picture
+- `se retourner` — u84 · to turn round
+- `se sentir partagé` — u112 · to feel torn
+- `se souvenir` — u49 · to remember
+- `se taire` — u86 · to keep quiet
+- `se tenir à votre entière disposition` — u116 · to remain entirely at your disposal
+- `se transformer` — u66 · to transform
+- `se trouver` — u77 · to be located
+- `sec` — u14 · dry
+- `secouer` — u84 · to shake
+- `séduire` — u95 · to win over
+- `seize` — u12 · sixteen
+- `selon` — u43 · according to
+- `selon toute vraisemblance` — u115 · in all likelihood
+- `semblable` — u60 · similar
+- `sembler` — u49 · to seem
+- `sensible` — u98 · noticeable
+- `sensiblement` — u98 · noticeably
+- `sentir` — u85 · to smell of
+- `séparé` — u55 · separate
+- `sept` — u5 · seven
+- `septembre` — u15 · September
+- `sérieux` — u25 · serious
+- `serré` — u93 · tight
+- `serrer` — u52 · to squeeze
+- `servir` — u81 · to serve
+- `ses` — u27 · his / her (plural)
+- `seul` — u29 · alone
+- `seulement` — u35 · only
+- `sévère` — u68 · harsh
+- `si` — u22 · yes (after a negative)
+- `si bien que` — u43 · with the result that
+- `si ce n'est que` — u132 · except that
+- `si je puis me permettre` — u116 · if I may (be so bold)
+- `si tant est que` — u113 · if indeed / assuming it's even true that
+- `siéger` — u99 · to sit (on a body)
+- `signaler` — u129 · to point out
+- `signifier` — u81 · to mean
+- `simple` — u47 · simple
+- `sincère` — u104 · sincere
+- `sitôt` — u130 · as soon as
+- `six` — u5 · six
+- `soi-disant` — u77 · supposedly
+- `soif` — u10 · thirst
+- `soigner` — u32 · to treat
+- `soixante` — u12 · sixty
+- `soixante-dix` — u12 · seventy
+- `solide` — u87 · sturdy
+- `solliciter` — u116 · to request, to seek (formally)
+- `sombre` — u85 · dark
+- `somme toute` — u115 · all in all
+- `son` — u27 · his / her (masculine)
+- `songer` — u124 · to think of
+- `sont fabriqués` — u77 · are made
+- `sortir` — u28 · to go out
+- `soudain` — u89 · all of a sudden
+- `souhaiter` — u69 · to wish
+- `soulagé` — u64 · relieved
+- `soulever` — u84 · to lift up
+- `souligner` — u95 · to stress
+- `soupçonner` — u61 · to suspect
+- `souple` — u87 · flexible
+- `sourd` — u85 · deaf
+- `sourire` — u29 · to smile
+- `sous` — u37 · under
+- `sous couvert de` — u114 · under the guise of / under cover of
+- `sous peine de` — u133 · under penalty of
+- `sous peu` — u130 · shortly
+- `sous prétexte que` — u132 · on the pretext that
+- `sous réserve de` — u113 · subject to / pending
+- `sous-entendre` — u95 · to imply
+- `sous-estimer` — u105 · to underestimate
+- `sous-jacent` — u119 · underlying
+- `sous-tendre` — u97 · to underlie
+- `soutenir` — u58 · to maintain
+- `souvent` — u13 · often
+- `spéculer` — u105 · to speculate
+- `statuer` — u117 · to rule, to hand down a formal decision
+- `stimuler` — u125 · to stimulate
+- `stressé` — u29 · stressed
+- `strict` — u68 · strict
+- `structurer` — u97 · to structure
+- `subjectif` — u103 · subjective
+- `sublime` — u103 · sublime
+- `subordonné` — u107 · the subordinate
+- `subsister` — u66 · to remain
+- `subtil` — u98 · subtle
+- `sucré` — u92 · sweet
+- `suggérer` — u129 · to suggest
+- `suivre` — u54 · to follow
+- `supérieur` — u60 · higher
+- `superviser` — u107 · to supervise
+- `supplier` — u86 · to beg
+- `supposer` — u81 · to assume
+- `sur` — u18 · on
+- `sûr` — u47 · sure
+- `sur le coup` — u94 · at the time
+- `sur-le-champ` — u130 · on the spot
+- `sûrement` — u56 · surely
+- `surestimer` — u105 · to overestimate
+- `surgir` — u66 · to spring up
+- `surmonter` — u67 · to overcome
+- `surpasser` — u60 · to surpass
+- `surpris` — u29 · surprised
+- `surtout` — u36 · especially
+- `surveiller` — u68 · to watch over
+- `survenir` — u66 · to occur
+- `susciter` — u118 · to arouse
+- `susmentionné` — u114 · aforementioned / above-mentioned
+- `sympa` — u25 · nice
+- `systémique` — u108 · systemic
+- `ta` — u4 · your (feminine)
+- `tandis que` — u43 · while
+- `tangible` — u119 · tangible
+- `tant et si bien que` — u132 · so much so that
+- `tant mieux` — u89 · all the better
+- `tant pis` — u89 · too bad
+- `tant que` — u76 · for as long as
+- `tant s'en faut` — u115 · far from it
+- `tantôt` — u130 · sometimes
+- `taper` — u84 · to type
+- `tard` — u13 · late
+- `tellement` — u56 · so much
+- `témoigner` — u129 · to testify
+- `tenir` — u54 · to hold
+- `tenir à` — u69 · to be keen to
+- `tenir compte de` — u94 · to take into account
+- `tenter` — u89 · to attempt
+- `ténu` — u119 · tenuous
+- `terminer` — u81 · to finish
+- `terne` — u87 · dull
+- `tes` — u27 · your (plural)
+- `timide` — u25 · shy
+- `tirer` — u84 · to pull
+- `toi` — u2 · you
+- `tolérant` — u75 · tolerant
+- `tolérer` — u68 · to tolerate
+- `tomber` — u32 · to fall
+- `ton` — u4 · your (masculine)
+- `tordre` — u84 · to twist
+- `tordu` — u87 · bent
+- `tôt` — u13 · early
+- `tôt ou tard` — u130 · sooner or later
+- `toucher` — u85 · to touch
+- `toujours` — u13 · always
+- `toujours est-il que` — u115 · the fact remains
+- `tous les jours` — u19 · every day
+- `tout` — u27 · all
+- `tout à coup` — u35 · suddenly
+- `tout à fait` — u50 · entirely
+- `tout compte fait` — u132 · all things considered
+- `tout de suite` — u35 · right away
+- `tout droit` — u7 · straight ahead
+- `tout le monde` — u26 · everybody
+- `tout le temps` — u56 · all the time
+- `tout porte à croire que` — u115 · everything suggests that
+- `toutefois` — u58 · however
+- `traduire` — u48 · to translate
+- `tranché` — u119 · clear-cut
+- `tranquille` — u29 · quiet
+- `transformer` — u81 · to transform
+- `transmettre` — u102 · to pass on
+- `transparent` — u87 · see-through
+- `trébucher` — u84 · to stumble
+- `treize` — u12 · thirteen
+- `tremper` — u88 · to dip
+- `trente` — u12 · thirty
+- `très` — u2 · very
+- `trier` — u90 · to sort
+- `triste` — u29 · sad
+- `trois` — u5 · three
+- `trop` — u12 · too much
+- `troué` — u87 · full of holes
+- `tu as` — u10 · you have
+- `tu es` — u3 · you are
+- `tu étais` — u46 · you were
+- `tu feras` — u45 · you will do
+- `tu parles` — u10 · you speak
+- `tu seras` — u45 · you will be
+- `tu vas` — u23 · you go
+- `tutoyer` — u79 · to use tu with someone
+- `û` — u1 · û — the tight 'u'
+- `ui` — u1 · ui — sounds like 'wee'
+- `un` — u3 · a (masculine)
+- `un amalgame` — u111 · conflation (lumping together)
+- `un angle` — u111 · an angle (of a story)
+- `un chercheur` — u110 · a researcher
+- `un colloque` — u110 · an academic conference, symposium
+- `un communiqué` — u117 · a press release, an official statement
+- `un compromis` — u100 · a compromise
+- `un cursus` — u110 · a course of study, degree programme
+- `un décret` — u117 · a decree
+- `un diplôme` — u110 · a degree, diploma, qualification
+- `un doctorat` — u110 · a doctorate, PhD
+- `un éditorialiste` — u111 · an editorial / op-ed writer
+- `un emballement` — u111 · a (media) frenzy
+- `un enjeu planétaire` — u108 · a global issue at stake
+- `un laboratoire` — u110 · a laboratory, lab
+- `un parti pris` — u111 · bias / preconceived stance
+- `un peu` — u5 · a little
+- `un peu de` — u27 · a little of
+- `un pincement au cœur` — u112 · a pang
+- `un porte-parole` — u111 · a spokesperson
+- `un protocole` — u110 · a protocol
+- `un truc` — u79 · a thing
+- `une` — u3 · a (feminine)
+- `une bourse d'études` — u110 · a scholarship, study grant
+- `une circulaire` — u117 · a circular, an administrative directive
+- `une directive` — u117 · a directive, an official instruction
+- `une fois que` — u43 · once
+- `une fuite` — u111 · a leak
+- `une instance` — u117 · an official body, an authority
+- `une revue scientifique` — u110 · a scientific journal
+- `une thèse de doctorat` — u110 · a doctoral thesis, PhD dissertation
+- `uniquement` — u56 · solely
+- `urbain` — u72 · urban
+- `usé` — u87 · worn
+- `utile` — u47 · useful
+- `valoir la peine` — u94 · to be worth it
+- `vanter` — u95 · to praise
+- `vendredi` — u8 · Friday
+- `vérifier` — u96 · to check
+- `verser` — u88 · to pour
+- `vert` — u9 · green
+- `veuillez` — u79 · please (formal command)
+- `veuillez agréer` — u116 · please accept (formal letter close)
+- `vexé` — u64 · hurt
+- `vide` — u50 · empty
+- `vider` — u88 · to empty out
+- `vieux` — u9 · old
+- `vingt` — u12 · twenty
+- `vis-à-vis de` — u133 · in relation to
+- `viser` — u69 · to aim for
+- `visiblement` — u61 · visibly
+- `visiter` — u30 · to visit (a place)
+- `visser` — u88 · to screw in
+- `vite` — u20 · quickly
+- `voilà` — u3 · here it is
+- `voir` — u24 · to see
+- `voire` — u78 · or even
+- `volontiers` — u80 · gladly
+- `voter` — u62 · to vote
+- `votre` — u27 · your (polite)
+- `vouloir bien` — u116 · to be so good as to, to kindly agree to
+- `vouloir dire` — u48 · to stand for
+- `vous` — u23 · you (polite)
+- `vous aurez` — u45 · you will have
+- `vous avez` — u23 · you have (polite)
+- `vous êtes` — u23 · you are (polite)
+- `vous faites` — u46 · you do
+- `vous parlez` — u46 · you speak (plural)
+- `vouvoyer` — u79 · to use vous with someone
+- `voyager` — u30 · to travel
+- `vrai` — u25 · true
+- `vraiment` — u35 · really
+- `vraisemblablement` — u61 · in all likelihood
+- `y compris` — u78 · including
+- `zéro` — u5 · zero
+
+## By unit — what each slot teaches
+
+**u1 · Les sons** (21) — `é`, `è`, `ê`, `ç`, `ô`, `û`, `œ`, `eau`, `au`, `ai`, `oi`, `ui`, `gn`, `ill`, `la consonne finale`, `le h muet`, `le e muet`, `l'élision`, `la liaison`, `l'accent aigu`, `l'accent grave`
+
+**u2 · Salutations** (20) — `bonjour`, `salut`, `bonsoir`, `au revoir`, `merci`, `oui`, `non`, `s'il vous plaît`, `pardon`, `excusez-moi`, `monsieur`, `madame`, `de rien`, `ça va`, `bien`, `très`, `et`, `aussi`, `moi`, `toi`
+
+**u3 · C'est moi** (18) — `un`, `une`, `le`, `la`, `ici`, `là`, `je suis`, `tu es`, `c'est`, `je m'appelle`, `il est`, `elle est`, `qui`, `comment`, `où`, `d'accord`, `voilà`, `ça`
+
+**u4 · La famille** (20) — `la famille`, `de`, `le père`, `la mère`, `le frère`, `la sœur`, `les parents`, `l'homme`, `la femme`, `le garçon`, `la fille`, `l'enfant`, `l'ami`, `l'amie`, `mon`, `ma`, `ton`, `ta`, `petit`, `grand`
+
+**u5 · Les nombres** (17) — `zéro`, `deux`, `trois`, `quatre`, `cinq`, `six`, `sept`, `huit`, `neuf`, `dix`, `onze`, `douze`, `combien`, `beaucoup`, `un peu`, `plus`, `moins`
+
+**u6 · Manger et boire** (19) — `le café`, `le thé`, `l'eau`, `le lait`, `bon`, `bonne`, `je mange`, `le pain`, `le fromage`, `la pomme`, `le croissant`, `la baguette`, `je bois`, `j'aime`, `je voudrais`, `avec`, `sans`, `le jus`, `le vin`
+
+**u7 · La ville** (18) — `la ville`, `la rue`, `la maison`, `l'école`, `le magasin`, `la gare`, `je vais`, `à`, `il y a`, `le restaurant`, `l'hôtel`, `le parc`, `à gauche`, `à droite`, `tout droit`, `loin`, `près`, `le métro`
+
+**u8 · Les jours** (19) — `lundi`, `mardi`, `mercredi`, `jeudi`, `vendredi`, `samedi`, `dimanche`, `le week-end`, `aujourd'hui`, `demain`, `hier`, `à demain`, `le jour`, `la nuit`, `le matin`, `le soir`, `maintenant`, `quand`, `l'heure`
+
+**u9 · Décrire** (18) — `rouge`, `bleu`, `vert`, `jaune`, `noir`, `blanc`, `beau`, `joli`, `nouveau`, `vieux`, `facile`, `difficile`, `chaud`, `froid`, `cher`, `fatigué`, `content`, `malade`
+
+**u10 · Les verbes** (19) — `j'ai`, `tu as`, `il a`, `elle a`, `ans`, `faim`, `soif`, `je parle`, `tu parles`, `j'habite`, `je travaille`, `je regarde`, `j'écoute`, `je veux`, `je peux`, `je sais`, `je fais`, `je comprends`, `je ne comprends pas`
+
+**u11 · Parler français** (18) — `le français`, `l'anglais`, `lentement`, `encore`, `bien sûr`, `je ne sais pas`, `qu'est-ce que c'est`, `pourquoi`, `parce que`, `quel`, `quelle`, `quoi`, `à bientôt`, `bonne nuit`, `bonne journée`, `bienvenue`, `enchanté`, `santé`
+
+**u12 · Les nombres · 2** (24) — `treize`, `quatorze`, `quinze`, `seize`, `dix-sept`, `dix-huit`, `dix-neuf`, `vingt`, `trente`, `quarante`, `cinquante`, `soixante`, `soixante-dix`, `quatre-vingts`, `quatre-vingt-dix`, `cent`, `mille`, `l'euro`, `le prix`, `l'argent`, `je paie`, `la carte`, `gratuit`, `trop`
+
+**u13 · L'heure** (22) — `quelle heure est-il`, `midi`, `minuit`, `la minute`, `et demie`, `et quart`, `moins le quart`, `toujours`, `souvent`, `parfois`, `jamais`, `tôt`, `tard`, `d'abord`, `ensuite`, `je me lève`, `je me couche`, `je commence`, `je finis`, `je pars`, `j'arrive`, `je rentre`
+
+**u14 · Le temps** (22) — `il fait`, `le soleil`, `la pluie`, `il pleut`, `il neige`, `la neige`, `le vent`, `le nuage`, `le ciel`, `la mer`, `la montagne`, `la plage`, `la forêt`, `l'arbre`, `la fleur`, `frais`, `doux`, `humide`, `sec`, `la température`, `le degré`, `l'orage`
+
+**u15 · Les mois** (21) — `en`, `janvier`, `février`, `mars`, `avril`, `mai`, `juin`, `juillet`, `août`, `septembre`, `octobre`, `novembre`, `décembre`, `le mois`, `le printemps`, `l'été`, `l'automne`, `l'hiver`, `l'année`, `la semaine`, `la date`
+
+**u16 · Le corps** (24) — `le corps`, `la tête`, `les yeux`, `le nez`, `la bouche`, `l'oreille`, `les cheveux`, `la dent`, `le bras`, `la main`, `la jambe`, `le pied`, `le dos`, `le ventre`, `le cœur`, `le doigt`, `j'ai mal`, `le médecin`, `l'hôpital`, `la pharmacie`, `le médicament`, `la santé`, `la fièvre`, `important`
+
+**u17 · Les vêtements** (22) — `je porte`, `le vêtement`, `la chemise`, `le pantalon`, `la robe`, `la jupe`, `le manteau`, `les chaussures`, `le chapeau`, `les lunettes`, `la veste`, `le pull`, `la chaussette`, `le sac`, `dans`, `la taille`, `la couleur`, `court`, `long`, `propre`, `sale`, `ou`
+
+**u18 · La maison** (24) — `la chambre`, `la cuisine`, `la salle de bain`, `le salon`, `la porte`, `la fenêtre`, `le jardin`, `mais`, `la table`, `la chaise`, `le lit`, `le canapé`, `l'armoire`, `la lampe`, `sur`, `devant`, `l'appartement`, `l'immeuble`, `l'étage`, `l'escalier`, `la clé`, `le mur`, `ouvert`, `fermé`
+
+**u19 · Les courses** (21) — `les courses`, `le supermarché`, `la boulangerie`, `le marché`, `le kilo`, `la bouteille`, `le morceau`, `le fruit`, `le légume`, `la tomate`, `la carotte`, `la salade`, `la banane`, `l'orange`, `j'achète`, `je cherche`, `je trouve`, `la liste`, `le client`, `tous les jours`, `la monnaie`
+
+**u20 · Les transports** (23) — `la voiture`, `le bus`, `le train`, `l'avion`, `le vélo`, `le bateau`, `le taxi`, `rapide`, `le billet`, `la valise`, `le voyage`, `l'aéroport`, `l'arrêt`, `le départ`, `l'arrivée`, `pour`, `je prends`, `je monte`, `je descends`, `je conduis`, `je marche`, `vite`, `lent`
+
+**u21 · À table** (23) — `le repas`, `le petit-déjeuner`, `le déjeuner`, `le dîner`, `l'assiette`, `le verre`, `la fourchette`, `le couteau`, `la cuillère`, `le sel`, `le poivre`, `le sucre`, `le beurre`, `l'œuf`, `la soupe`, `la viande`, `le poisson`, `le poulet`, `le riz`, `les pâtes`, `le gâteau`, `le chocolat`, `l'addition`
+
+**u22 · Dire non** (21) — `ne … pas`, `je ne mange pas`, `ce n'est pas`, `je n'ai pas`, `il n'y a pas`, `je ne suis pas`, `pas du tout`, `ne … rien`, `rien`, `ne … personne`, `personne`, `ne … plus`, `ne … jamais`, `pas encore`, `est-ce que`, `est-ce qu'il y a`, `n'est-ce pas`, `qui est-ce`, `combien de`, `si`, `alors`
+
+**u23 · Les verbes · 2** (24) — `vous`, `nous`, `ils`, `elles`, `nous sommes`, `vous êtes`, `ils sont`, `on`, `nous avons`, `vous avez`, `ils ont`, `tu vas`, `il va`, `nous allons`, `je viens`, `il vient`, `je mets`, `je dors`, `je sors`, `je reste`, `je donne`, `je vois`, `j'ouvre`, `je ferme`
+
+**u24 · Demain et hier** (21) — `je vais manger`, `manger`, `partir`, `voir`, `faire`, `boire`, `le film`, `j'ai mangé`, `j'ai parlé`, `j'ai travaillé`, `j'ai fait`, `j'ai vu`, `j'ai eu`, `j'ai pris`, `je suis allé`, `je suis parti`, `je suis venu`, `je suis resté`, `donc`, `déjà`, `la semaine dernière`
+
+**u25 · Les gens** (23) — `le travail`, `le professeur`, `l'étudiant`, `le serveur`, `le dentiste`, `le boulanger`, `le cuisinier`, `gentil`, `sympa`, `drôle`, `timide`, `sérieux`, `intelligent`, `méchant`, `fort`, `je pense`, `je crois`, `que`, `à mon avis`, `peut-être`, `l'idée`, `vrai`, `faux`
+
+**u26 · Le monde** (23) — `la France`, `le pays`, `l'Angleterre`, `le Japon`, `le monde`, `français`, `anglais`, `tout le monde`, `l'animal`, `le chien`, `le chat`, `l'oiseau`, `le cheval`, `la vache`, `la souris`, `le livre`, `je lis`, `le téléphone`, `l'ordinateur`, `le papier`, `le stylo`, `j'écris`, `la musique`
+
+**u27 · Un peu de grammaire** (22) — `du`, `de la`, `des`, `de l'`, `pas de`, `un peu de`, `assez`, `mes`, `tes`, `son`, `sa`, `ses`, `notre`, `votre`, `leur`, `ce`, `cet`, `cette`, `ces`, `le pluriel`, `tout`, `prêt`
+
+**u28 · Les activités** (24) — `je me réveille`, `je me lave`, `je me douche`, `je m'habille`, `je me brosse les dents`, `je me dépêche`, `le ménage`, `la vaisselle`, `la lessive`, `nettoyer`, `ranger`, `laver`, `le temps libre`, `jouer`, `nager`, `courir`, `danser`, `chanter`, `le sport`, `le jeu`, `la fête`, `le cinéma`, `sortir`, `la promenade`
+
+**u29 · Les sentiments** (24) — `triste`, `inquiet`, `surpris`, `déçu`, `fier`, `en colère`, `j'ai peur`, `j'ai envie`, `j'ai besoin`, `j'ai raison`, `j'ai tort`, `j'ai sommeil`, `la joie`, `la peur`, `l'amour`, `rire`, `pleurer`, `sourire`, `seul`, `ensemble`, `tranquille`, `mieux`, `en forme`, `stressé`
+
+**u30 · Le voyage** (24) — `la route`, `l'autoroute`, `le pont`, `le feu rouge`, `l'essence`, `le permis`, `les vacances`, `le passeport`, `les bagages`, `la réservation`, `réserver`, `le séjour`, `le vol`, `le quai`, `la place`, `le retard`, `l'horaire`, `la douane`, `voyager`, `visiter`, `le musée`, `le plan`, `le touriste`, `l'étranger`
+
+**u31 · Le travail et l'école** (24) — `le bureau`, `l'entreprise`, `le collègue`, `le patron`, `la réunion`, `le salaire`, `le métier`, `chez`, `l'ingénieur`, `l'agriculteur`, `le coiffeur`, `le policier`, `le cours`, `l'élève`, `la classe`, `le lycée`, `l'université`, `l'examen`, `étudier`, `apprendre`, `enseigner`, `la note`, `les devoirs`, `la matière`
+
+**u32 · La santé** (24) — `le rhume`, `la grippe`, `la toux`, `la douleur`, `la maladie`, `guérir`, `le rendez-vous`, `l'ordonnance`, `l'infirmier`, `les urgences`, `la piqûre`, `soigner`, `je me repose`, `je me sens`, `le sommeil`, `dormir`, `le régime`, `l'exercice`, `tomber`, `la blessure`, `le sang`, `l'accident`, `au secours`, `l'ambulance`
+
+**u33 · La nature** (24) — `la rivière`, `le lac`, `l'île`, `la campagne`, `le champ`, `la terre`, `la ferme`, `le lapin`, `le cochon`, `le mouton`, `la poule`, `le canard`, `sauvage`, `l'ours`, `le lion`, `le singe`, `le loup`, `l'insecte`, `l'herbe`, `la pierre`, `le chemin`, `le sable`, `la feuille`, `la lune`
+
+**u34 · Les achats** (24) — `la boutique`, `la librairie`, `la boucherie`, `la pâtisserie`, `le centre commercial`, `le rayon`, `la caisse`, `le vendeur`, `le panier`, `le reçu`, `en espèces`, `le porte-monnaie`, `coûter`, `dépenser`, `économiser`, `les soldes`, `la réduction`, `bon marché`, `la banque`, `le compte`, `emprunter`, `prêter`, `rendre`, `la facture`
+
+**u35 · Le temps qui passe** (24) — `avant`, `après`, `pendant`, `depuis`, `jusqu'à`, `bientôt`, `tout de suite`, `en retard`, `à l'heure`, `de temps en temps`, `rarement`, `enfin`, `le moment`, `prochain`, `dernier`, `chaque`, `longtemps`, `tout à coup`, `vraiment`, `heureusement`, `malheureusement`, `presque`, `seulement`, `partout`
+
+**u36 · Les mots qui relient** (24) — `pourtant`, `par contre`, `en plus`, `surtout`, `même`, `quand même`, `par exemple`, `c'est-à-dire`, `à cause de`, `grâce à`, `en fait`, `puisque`, `pendant que`, `dès que`, `comme`, `avant de`, `au lieu de`, `ni … ni`, `il faut`, `sans doute`, `je suis d'accord`, `c'est pourquoi`, `en général`, `au moins`
+
+**u37 · Dans la maison** (24) — `la pièce`, `le couloir`, `le garage`, `le balcon`, `le toit`, `le sol`, `le placard`, `l'étagère`, `sous`, `le tapis`, `le rideau`, `le miroir`, `le frigo`, `le four`, `l'évier`, `la douche`, `la serviette`, `le savon`, `le voisin`, `le loyer`, `déménager`, `l'ascenseur`, `la poubelle`, `le bruit`
+
+**u38 · Le caractère** (24) — `le caractère`, `généreux`, `honnête`, `patient`, `poli`, `curieux`, `le défaut`, `la qualité`, `paresseux`, `égoïste`, `bavard`, `jaloux`, `avoir l'air`, `je ressemble à`, `je connais`, `la personnalité`, `courageux`, `sage`, `je m'entends bien avec`, `le respect`, `la personne`, `agréable`, `pénible`, `la confiance`
+
+**u39 · La vie en société** (24) — `la société`, `le gouvernement`, `la loi`, `le citoyen`, `la politique`, `le président`, `le quartier`, `le village`, `la banlieue`, `le centre-ville`, `l'habitant`, `la population`, `le journal`, `les informations`, `la nouvelle`, `la radio`, `l'article`, `l'événement`, `la vie`, `le problème`, `la solution`, `la règle`, `le service`, `le droit`
+
+**u40 · La technologie** (24) — `l'écran`, `le clavier`, `le portable`, `la tablette`, `la batterie`, `le casque`, `internet`, `le site`, `le réseau`, `le mot de passe`, `l'application`, `le profil`, `le message`, `le mail`, `j'envoie`, `je réponds`, `la photo`, `la vidéo`, `j'allume`, `j'éteins`, `je télécharge`, `je clique`, `en ligne`, `le fichier`
+
+**u41 · Les sciences** (24) — `la planète`, `l'étoile`, `l'espace`, `l'univers`, `le télescope`, `la fusée`, `la science`, `la recherche`, `l'expérience`, `le résultat`, `la découverte`, `le scientifique`, `l'environnement`, `la pollution`, `l'énergie`, `le climat`, `les déchets`, `je recycle`, `le feu`, `l'air`, `le bois`, `le métal`, `le plastique`, `la lumière`
+
+**u42 · La culture et les loisirs** (24) — `le théâtre`, `le concert`, `le spectacle`, `l'exposition`, `le festival`, `le public`, `l'art`, `le tableau`, `l'artiste`, `la scène`, `la danse`, `le dessin`, `le roman`, `l'histoire`, `le personnage`, `l'auteur`, `la page`, `la bibliothèque`, `la chanson`, `le chanteur`, `l'acteur`, `la série`, `l'émission`, `le groupe`
+
+**u43 · Un peu de grammaire · 2** (24) — `celui`, `celle`, `ceux`, `ce que`, `ce qui`, `dont`, `lorsque`, `depuis que`, `tandis que`, `au moment où`, `une fois que`, `après avoir`, `car`, `en raison de`, `afin de`, `pour que`, `du coup`, `si bien que`, `il dit que`, `il demande si`, `il répond que`, `selon`, `plutôt que`, `même si`
+
+**u44 · Un peu de grammaire · 3** (24) — `j'aimerais`, `je pourrais`, `ce serait`, `il faudrait`, `on pourrait`, `je devrais`, `je dois`, `il ne faut pas`, `il vaut mieux`, `je réussis à`, `je suis obligé de`, `je suis capable de`, `plus … que`, `moins … que`, `aussi … que`, `meilleur`, `aussi bien que`, `le même`, `le plus`, `le moins`, `le meilleur`, `le pire`, `autant de`, `de plus en plus`
+
+**u45 · Les verbes · 3** (24) — `je serai`, `tu seras`, `il sera`, `nous serons`, `j'aurai`, `il aura`, `je ferai`, `j'irai`, `je viendrai`, `je pourrai`, `je verrai`, `je saurai`, `je parlerai`, `je mangerai`, `je travaillerai`, `je finirai`, `je partirai`, `je prendrai`, `tu feras`, `nous parlerons`, `vous aurez`, `ils seront`, `elle viendra`, `on verra`
+
+**u46 · Les verbes · 4** (24) — `j'étais`, `c'était`, `il y avait`, `j'avais`, `tu étais`, `nous étions`, `je faisais`, `j'allais`, `je parlais`, `j'habitais`, `je travaillais`, `je regardais`, `je voulais`, `je pouvais`, `je savais`, `je prenais`, `je lisais`, `j'écoutais`, `nous mangeons`, `vous parlez`, `ils habitent`, `nous finissons`, `ils prennent`, `vous faites`
+
+**u47 · Les petits mots** (24) — `je le vois`, `je la connais`, `je les prends`, `je lui parle`, `je leur donne`, `j'y vais`, `j'attends`, `je demande`, `j'explique`, `j'essaie`, `je change`, `j'oublie`, `la chose`, `la partie`, `le début`, `la fin`, `le côté`, `le fait`, `possible`, `impossible`, `utile`, `nécessaire`, `simple`, `sûr`
+
+**u48 · Dire et demander** (24) — `dire`, `demander`, `répondre`, `expliquer`, `la question`, `la réponse`, `raconter`, `appeler`, `répéter`, `ajouter`, `le mot`, `la phrase`, `proposer`, `inviter`, `accepter`, `refuser`, `remercier`, `s'excuser`, `la langue`, `traduire`, `vouloir dire`, `le sens`, `la lettre`, `prononcer`
+
+**u49 · Penser et savoir** (24) — `oublier`, `se souvenir`, `connaître`, `reconnaître`, `retenir`, `la mémoire`, `croire`, `douter`, `avoir raison`, `avoir tort`, `hésiter`, `certain`, `décider`, `choisir`, `préférer`, `essayer`, `réussir`, `le choix`, `imaginer`, `espérer`, `rêver`, `remarquer`, `sembler`, `la raison`
+
+**u50 · Combien exactement** (24) — `quelques`, `plusieurs`, `la moitié`, `d'autres`, `la plupart`, `aucun`, `environ`, `quasiment`, `au maximum`, `à peu près`, `exactement`, `tout à fait`, `mesurer`, `peser`, `le poids`, `la hauteur`, `la largeur`, `le nombre`, `lourd`, `léger`, `plein`, `vide`, `large`, `étroit`
+
+**u51 · Où exactement** (24) — `derrière`, `parmi`, `entre`, `contre`, `à côté de`, `en face de`, `dehors`, `dedans`, `en haut`, `en bas`, `au-dessus`, `en dessous`, `n'importe où`, `ailleurs`, `quelque part`, `nulle part`, `autour`, `là-bas`, `le coin`, `le milieu`, `le bord`, `l'endroit`, `le fond`, `le centre`
+
+**u52 · Les choses et les matières** (24) — `le truc`, `l'objet`, `la boîte`, `le bout`, `le trou`, `l'outil`, `le fer`, `le cuir`, `la laine`, `le coton`, `l'or`, `le tissu`, `la ligne`, `le point`, `la forme`, `rond`, `plat`, `épais`, `casser`, `réparer`, `couper`, `coller`, `plier`, `serrer`
+
+**u53 · Changer et devenir** (24) — `devenir`, `changer`, `durer`, `continuer`, `arrêter`, `le changement`, `commencer`, `finir`, `recommencer`, `reprendre`, `la pause`, `l'étape`, `augmenter`, `baisser`, `grandir`, `diminuer`, `améliorer`, `le progrès`, `gagner`, `perdre`, `garder`, `laisser`, `abandonner`, `retrouver`
+
+**u54 · Donner et recevoir** (24) — `offrir`, `recevoir`, `envoyer`, `livrer`, `le cadeau`, `le paquet`, `récupérer`, `distribuer`, `partager`, `échanger`, `apporter`, `emporter`, `tenir`, `poser`, `ramasser`, `jeter`, `attraper`, `lâcher`, `rencontrer`, `aider`, `accompagner`, `attendre`, `suivre`, `présenter`
+
+**u55 · Utile ou inutile** (24) — `faisable`, `indispensable`, `interdit`, `autorisé`, `inutile`, `obligatoire`, `logique`, `compliqué`, `clair`, `évident`, `exact`, `précis`, `pareil`, `différent`, `identique`, `séparé`, `commun`, `chacun`, `dangereux`, `calme`, `bruyant`, `affreux`, `délicieux`, `parfait`
+
+**u56 · Vraiment et surtout** (24) — `extrêmement`, `tellement`, `plutôt`, `complètement`, `absolument`, `à peine`, `franchement`, `en effet`, `probablement`, `sûrement`, `apparemment`, `évidemment`, `uniquement`, `notamment`, `principalement`, `autrement`, `directement`, `doucement`, `en ce moment`, `en même temps`, `de nouveau`, `d'habitude`, `tout le temps`, `peu à peu`
+
+**u57 · Quelqu'un et quelque chose** (24) — `quelqu'un`, `quelque chose`, `n'importe quoi`, `n'importe qui`, `les autres`, `personne d'autre`, `l'enfance`, `la mort`, `l'anniversaire`, `l'âge`, `l'avenir`, `la fois`, `la difficulté`, `le but`, `le cas`, `la situation`, `la façon`, `le moyen`, `le nom`, `le prénom`, `le titre`, `le détail`, `le reste`, `la suite`
+
+**u58 · L'opinion et l'argumentation** (24) — `l'argument`, `soutenir`, `affirmer`, `prétendre`, `le point de vue`, `la thèse`, `certes`, `admettre`, `néanmoins`, `cependant`, `toutefois`, `concéder`, `en revanche`, `contester`, `nier`, `s'opposer`, `au contraire`, `réfuter`, `convaincre`, `persuader`, `la preuve`, `démontrer`, `le raisonnement`, `juger`
+
+**u59 · La cause et la conséquence** (24) — `le facteur`, `l'origine`, `causer`, `provoquer`, `entraîner`, `déclencher`, `la conséquence`, `l'impact`, `le phénomène`, `résulter`, `aboutir`, `mener`, `par conséquent`, `de ce fait`, `étant donné que`, `dans la mesure où`, `d'où`, `ainsi`, `influencer`, `contribuer`, `dépendre`, `provenir`, `favoriser`, `la réaction`
+
+**u60 · La comparaison et le degré** (24) — `davantage`, `d'autant plus`, `de moins en moins`, `nettement`, `la majorité`, `le double`, `la comparaison`, `différer`, `dépasser`, `surpasser`, `correspondre`, `l'écart`, `semblable`, `la différence`, `la ressemblance`, `équivalent`, `distinct`, `le contraire`, `par rapport à`, `contrairement à`, `à l'inverse`, `de même`, `supérieur`, `inférieur`
+
+**u61 · Le doute et l'incertitude** (24) — `vraisemblablement`, `éventuellement`, `a priori`, `forcément`, `visiblement`, `manifestement`, `il se peut que`, `avoir tendance à`, `avoir l'impression`, `quant à`, `en principe`, `en théorie`, `estimer`, `soupçonner`, `deviner`, `présumer`, `envisager`, `paraître`, `l'incertitude`, `l'hypothèse`, `la nuance`, `le pressentiment`, `le mystère`, `le flou`
+
+**u62 · L'actualité et la société** (24) — `l'État`, `le pouvoir`, `le ministre`, `la nation`, `le peuple`, `la démocratie`, `voter`, `l'élection`, `le parti`, `le maire`, `le candidat`, `la réforme`, `la manifestation`, `la grève`, `le débat`, `la justice`, `protester`, `le scandale`, `la crise`, `l'égalité`, `la sécurité`, `la guerre`, `la paix`, `la frontière`
+
+**u63 · Le travail et la carrière** (24) — `la carrière`, `le poste`, `le stage`, `la formation`, `postuler`, `l'entretien`, `embaucher`, `licencier`, `démissionner`, `le chef`, `diriger`, `gérer`, `l'équipe`, `l'employé`, `le responsable`, `le collaborateur`, `la mission`, `le syndicat`, `le projet`, `le contrat`, `réaliser`, `effectuer`, `la compétence`, `la promotion`
+
+**u64 · Les émotions, nuances** (24) — `ravi`, `ému`, `soulagé`, `enthousiaste`, `le bonheur`, `comblé`, `l'angoisse`, `anxieux`, `la crainte`, `effrayé`, `déprimé`, `le chagrin`, `énervé`, `agacé`, `furieux`, `frustré`, `la haine`, `vexé`, `la honte`, `gêné`, `la tendresse`, `bouleversé`, `étonné`, `la panique`
+
+**u65 · Les idées abstraites** (24) — `la pensée`, `l'esprit`, `la conscience`, `la volonté`, `la mentalité`, `la réflexion`, `la vérité`, `la réalité`, `l'existence`, `l'illusion`, `le symbole`, `la définition`, `la liberté`, `la morale`, `la sagesse`, `l'âme`, `la foi`, `la vertu`, `l'essentiel`, `l'exception`, `le point commun`, `la contradiction`, `le système`, `le paradoxe`
+
+**u66 · Le changement dans le temps** (24) — `évoluer`, `se transformer`, `se développer`, `progresser`, `s'améliorer`, `empirer`, `apparaître`, `surgir`, `survenir`, `cesser`, `subsister`, `se poursuivre`, `désormais`, `autrefois`, `progressivement`, `de nos jours`, `jadis`, `dorénavant`, `l'évolution`, `la transformation`, `la hausse`, `le déclin`, `la phase`, `le processus`
+
+**u67 · Les problèmes et les solutions** (24) — `l'obstacle`, `le défi`, `l'enjeu`, `la panne`, `la faille`, `le point faible`, `faire face à`, `affronter`, `surmonter`, `résister`, `assumer`, `s'en sortir`, `régler`, `remédier`, `corriger`, `aggraver`, `le remède`, `la complication`, `l'issue`, `la menace`, `l'espoir`, `le piège`, `le dilemme`, `le blocage`
+
+**u68 · Les règles et les obligations** (24) — `avoir le droit de`, `être censé`, `tolérer`, `facultatif`, `légal`, `la limite`, `exiger`, `imposer`, `la contrainte`, `la condition`, `strict`, `sévère`, `le règlement`, `la norme`, `se conformer`, `enfreindre`, `la consigne`, `le critère`, `appliquer`, `contrôler`, `surveiller`, `la sanction`, `l'amende`, `officiel`
+
+**u69 · Les projets et les intentions** (24) — `avoir l'intention de`, `compter`, `viser`, `tenir à`, `le souhait`, `souhaiter`, `prévoir`, `planifier`, `préparer`, `le programme`, `l'échéance`, `à long terme`, `déterminé`, `motivé`, `ambitieux`, `l'ambition`, `s'engager`, `aspirer`, `à court terme`, `reporter`, `remettre`, `à venir`, `le calendrier`, `prochainement`
+
+**u70 · L'expérience et la mémoire** (24) — `se rappeler`, `rappeler`, `évoquer`, `revivre`, `remonter`, `graver`, `le vécu`, `le parcours`, `familier`, `le passage`, `l'anecdote`, `l'empreinte`, `le passé`, `ancien`, `l'époque`, `précédent`, `lointain`, `la jeunesse`, `la nostalgie`, `nostalgique`, `le regret`, `regretter`, `habituel`, `par cœur`
+
+**u71 · Les médias** (24) — `la presse`, `la une`, `le reportage`, `l'enquête`, `la source`, `le rédacteur`, `la chaîne`, `diffuser`, `le direct`, `le spectateur`, `l'auditeur`, `l'abonnement`, `le scénario`, `le réalisateur`, `l'intrigue`, `l'écrivain`, `le romancier`, `le tournage`, `la critique`, `le succès`, `l'échec`, `la publicité`, `le sondage`, `le divertissement`
+
+**u72 · L'environnement** (24) — `le paysage`, `le littoral`, `le territoire`, `la région`, `rural`, `urbain`, `la biodiversité`, `l'espèce`, `l'écosystème`, `menacer`, `disparaître`, `protéger`, `le réchauffement`, `la sécheresse`, `l'inondation`, `polluer`, `la ressource`, `préserver`, `durable`, `renouvelable`, `le gaspillage`, `le tri`, `le déchet`, `la zone`
+
+**u73 · L'argent et l'économie** (24) — `le budget`, `épargner`, `le prêt`, `rembourser`, `la carte bancaire`, `le distributeur`, `le salarié`, `le chômeur`, `le chômage`, `la retraite`, `le congé`, `l'assurance`, `l'économie`, `la croissance`, `l'inflation`, `investir`, `le commerce`, `l'entrepreneur`, `riche`, `pauvre`, `la richesse`, `la pauvreté`, `l'impôt`, `le pouvoir d'achat`
+
+**u74 · La santé et le bien-être** (24) — `le cabinet`, `la consultation`, `le symptôme`, `le diagnostic`, `le traitement`, `le vaccin`, `chronique`, `l'épidémie`, `le virus`, `le handicap`, `la guérison`, `respirer`, `le bien-être`, `l'anxiété`, `le moral`, `la thérapie`, `se détendre`, `l'équilibre`, `l'alimentation`, `la marche`, `le repos`, `l'habitude`, `prévenir`, `le rythme`
+
+**u75 · Les relations** (24) — `le couple`, `le mariage`, `le divorce`, `l'amitié`, `s'entendre`, `se disputer`, `le lien`, `l'engagement`, `la rupture`, `rompre`, `la génération`, `le voisinage`, `la solidarité`, `l'appartenance`, `l'intégration`, `la diversité`, `le rôle`, `le statut`, `l'inégalité`, `la discrimination`, `le préjugé`, `exclure`, `tolérant`, `le conflit`
+
+**u76 · Un peu de grammaire · 4** (24) — `bien que`, `quoique`, `tant que`, `sauf si`, `à condition que`, `le fait que`, `à moins que`, `pourvu que`, `jusqu'à ce que`, `sans que`, `avant que`, `afin que`, `lequel`, `auquel`, `duquel`, `ce dont`, `ce à quoi`, `là où`, `il est vrai que`, `il arrive que`, `il vaut mieux que`, `ce qui compte`, `de sorte que`, `alors même que`
+
+**u77 · Un peu de grammaire · 5** (24) — `est construit`, `a été vendu`, `sont fabriqués`, `par`, `être connu`, `on dit que`, `faire faire`, `je fais réparer`, `permettre`, `obliger`, `empêcher`, `se faire`, `ça se dit`, `ça se fait`, `se trouver`, `il s'agit de`, `il reste`, `il manque`, `il paraît que`, `on raconte que`, `il suffit de`, `soi-disant`, `d'après`, `de source sûre`
+
+**u78 · Un peu de grammaire · 6** (23) — `l'augmentation`, `la diminution`, `le développement`, `la disparition`, `la construction`, `la mise en place`, `la notion`, `le concept`, `l'aspect`, `le cadre`, `le domaine`, `voire`, `en gros`, `dans l'ensemble`, `en quelque sorte`, `y compris`, `à vrai dire`, `d'une part`, `d'autre part`, `l'objectif`, `la méthode`, `la démarche`, `la procédure`
+
+**u79 · Tu ou vous** (24) — `tutoyer`, `vouvoyer`, `on se tutoie`, `s'il te plaît`, `pourriez-vous`, `puis-je`, `Madame, Monsieur`, `cordialement`, `bien à vous`, `je vous remercie`, `je reste à votre disposition`, `dans l'attente de votre réponse`, `ouais`, `un truc`, `le mec`, `carrément`, `ça craint`, `hein`, `ça te dit`, `ça vous dirait`, `à plus`, `coucou`, `veuillez`, `je vous prie`
+
+**u80 · La politesse** (24) — `je me permets de`, `je me demandais si`, `ce serait possible de`, `auriez-vous`, `n'hésitez pas à`, `je vous serais reconnaissant`, `je crains que`, `il me semble que`, `sauf erreur`, `je suis au regret de`, `je tiens à`, `c'est dommage`, `volontiers`, `avec plaisir`, `ravi de vous rencontrer`, `bonne réception`, `chers collègues`, `je vous en prie`, `excusez-moi de vous déranger`, `je suis désolé de`, `bref`, `ben`, `genre`, `je vous écoute`
+
+**u81 · Les verbes · 5** (23) — `considérer`, `supposer`, `définir`, `prouver`, `signifier`, `obtenir`, `atteindre`, `produire`, `organiser`, `installer`, `développer`, `transformer`, `réduire`, `résoudre`, `éviter`, `échouer`, `terminer`, `participer`, `discuter`, `conseiller`, `comparer`, `oser`, `servir`
+
+**u82 · Les mots de l'argumentation** (23) — `l'exemple`, `la valeur`, `le niveau`, `l'ensemble`, `le genre`, `l'avantage`, `l'inconvénient`, `la décision`, `la responsabilité`, `la capacité`, `l'occasion`, `l'effort`, `le manque`, `le besoin`, `la tâche`, `le délai`, `le dossier`, `la chance`, `le hasard`, `le talent`, `le témoin`, `quotidien`, `général`
+
+**u83 · Encore des mots** (24) — `la pression`, `le souci`, `l'inquiétude`, `la tension`, `le soulagement`, `le malentendu`, `la parole`, `le silence`, `le geste`, `l'écoute`, `le désaccord`, `la dispute`, `efficace`, `essentiel`, `complexe`, `correct`, `récent`, `actuel`, `le coût`, `la taxe`, `la dette`, `le bénéfice`, `la perte`, `le classement`
+
+**u84 · Gestes et mouvements** (24) — `pousser`, `tirer`, `soulever`, `lancer`, `glisser`, `secouer`, `se pencher`, `s'appuyer`, `s'asseoir`, `s'allonger`, `se retourner`, `bouger`, `sauter`, `grimper`, `reculer`, `avancer`, `ramper`, `trébucher`, `frapper`, `taper`, `gratter`, `caresser`, `pincer`, `tordre`
+
+**u85 · Les sens** (23) — `apercevoir`, `observer`, `fixer`, `distinguer`, `l'ombre`, `briller`, `la lueur`, `le reflet`, `éclairer`, `lumineux`, `sombre`, `pâle`, `l'écho`, `résonner`, `sourd`, `aigu`, `la voix`, `l'odeur`, `le goût`, `sentir`, `goûter`, `toucher`, `amer`
+
+**u86 · Façons de parler** (23) — `crier`, `hurler`, `murmurer`, `chuchoter`, `bavarder`, `se taire`, `interrompre`, `répliquer`, `se plaindre`, `avouer`, `l'excuse`, `avertir`, `promettre`, `jurer`, `supplier`, `garantir`, `annoncer`, `le ton`, `à voix basse`, `le discours`, `s'exprimer`, `la remarque`, `bafouiller`
+
+**u87 · Textures et apparences** (23) — `lisse`, `rugueux`, `mou`, `dur`, `souple`, `raide`, `brillant`, `terne`, `transparent`, `opaque`, `foncé`, `rayé`, `usé`, `abîmé`, `solide`, `fragile`, `tordu`, `troué`, `la surface`, `le motif`, `le contour`, `l'épaisseur`, `la poussière`
+
+**u88 · Fabriquer et réparer** (24) — `fabriquer`, `construire`, `assembler`, `visser`, `clouer`, `coudre`, `mélanger`, `verser`, `remplir`, `vider`, `tremper`, `essuyer`, `creuser`, `percer`, `découper`, `arracher`, `attacher`, `détacher`, `la colle`, `le clou`, `la vis`, `le fil`, `le ruban`, `le bricolage`
+
+**u89 · Le hasard et le risque** (24) — `le risque`, `risquer`, `le pari`, `parier`, `tenter`, `le destin`, `par hasard`, `au cas où`, `tant pis`, `tant mieux`, `l'imprévu`, `la surprise`, `le danger`, `prudent`, `imprudent`, `la précaution`, `se méfier`, `faire attention`, `soudain`, `brusquement`, `par chance`, `au pire`, `sauf`, `malgré`
+
+**u90 · Ordre et désordre** (24) — `l'ordre`, `le désordre`, `trier`, `classer`, `empiler`, `entasser`, `éparpiller`, `le tas`, `la pile`, `le rang`, `la file`, `aligner`, `encombré`, `dégager`, `débarrasser`, `balayer`, `net`, `la trace`, `l'emplacement`, `l'étiquette`, `le repère`, `repérer`, `noter`, `marquer`
+
+**u91 · Se comporter** (24) — `se comporter`, `réagir`, `obéir`, `désobéir`, `céder`, `renoncer`, `se débrouiller`, `s'habituer`, `s'occuper de`, `se charger de`, `faire semblant`, `exprès`, `la conduite`, `l'attitude`, `le réflexe`, `la manie`, `la routine`, `le tempérament`, `gronder`, `punir`, `récompenser`, `féliciter`, `encourager`, `décourager`
+
+**u92 · Cuisiner et goûter** (24) — `cuire`, `bouillir`, `frire`, `rôtir`, `la poêle`, `la casserole`, `éplucher`, `râper`, `battre`, `pétrir`, `la pâte`, `la tranche`, `assaisonner`, `salé`, `sucré`, `épicé`, `acide`, `fade`, `la recette`, `l'ingrédient`, `la cuisson`, `le plat`, `la portion`, `le couvercle`
+
+**u93 · Le style et l'apparence** (24) — `la mode`, `le style`, `la tenue`, `élégant`, `à la mode`, `démodé`, `serré`, `ample`, `la poche`, `la manche`, `le col`, `la ceinture`, `les bijoux`, `la bague`, `le collier`, `la montre`, `assorti`, `le pli`, `se maquiller`, `la coiffure`, `la marque`, `le peigne`, `la brosse`, `le parfum`
+
+**u94 · Tournures courantes** (23) — `avoir du mal à`, `se rendre compte`, `tenir compte de`, `faire de son mieux`, `valoir la peine`, `en avoir marre`, `peu importe`, `ça vaut le coup`, `en tout cas`, `de toute façon`, `après tout`, `au fur et à mesure`, `à force de`, `petit à petit`, `d'un seul coup`, `à la fois`, `sur le coup`, `faire la queue`, `prendre son temps`, `avoir lieu`, `mettre au point`, `rendre service`, `poser problème`
+
+**u95 · La rhétorique et la persuasion** (24) — `la rhétorique`, `l'éloquence`, `l'orateur`, `éloquent`, `plaider`, `percutant`, `le sophisme`, `l'objection`, `la réplique`, `l'ironie`, `insinuer`, `sous-entendre`, `manipuler`, `séduire`, `flatter`, `exagérer`, `vanter`, `prôner`, `l'adhésion`, `le consensus`, `rallier`, `souligner`, `insister`, `la polémique`
+
+**u96 · Les preuves et les sources** (24) — `fiable`, `crédible`, `vérifier`, `recouper`, `la référence`, `citer`, `l'indice`, `le témoignage`, `attester`, `étayer`, `corroborer`, `les données`, `démentir`, `contredire`, `biaisé`, `douteux`, `le constat`, `factuel`, `établir`, `confirmer`, `l'authenticité`, `avéré`, `la véracité`, `impartial`
+
+**u97 · Les systèmes et l'abstraction** (24) — `la structure`, `le mécanisme`, `le composant`, `l'élément`, `l'architecture`, `l'ossature`, `abstrait`, `concret`, `le modèle`, `le paradigme`, `conceptuel`, `global`, `interdépendant`, `l'interaction`, `hiérarchique`, `imbriqué`, `le rouage`, `la trame`, `régir`, `structurer`, `la cohérence`, `l'agencement`, `articuler`, `sous-tendre`
+
+**u98 · La nuance et le degré** (24) — `relativement`, `considérable`, `négligeable`, `minime`, `infime`, `modéré`, `l'ampleur`, `la proportion`, `l'intensité`, `notable`, `sensible`, `marginal`, `accentuer`, `atténuer`, `excessif`, `démesuré`, `graduel`, `subtil`, `dans une certaine mesure`, `plus ou moins`, `légèrement`, `sensiblement`, `le seuil`, `moindre`
+
+**u99 · La politique et le droit** (24) — `la législation`, `le décret`, `promulguer`, `ratifier`, `abroger`, `l'amendement`, `la souveraineté`, `la constitution`, `l'institution`, `le mandat`, `la juridiction`, `la coalition`, `l'opposition`, `le scrutin`, `siéger`, `le référendum`, `l'élu`, `destituer`, `le tribunal`, `le verdict`, `condamner`, `l'accusé`, `poursuivre`, `le litige`
+
+**u100 · Le monde des affaires** (24) — `négocier`, `l'offre`, `la contrepartie`, `un compromis`, `conclure`, `le partenaire`, `la concurrence`, `la demande`, `la clientèle`, `le fournisseur`, `rentable`, `lucratif`, `le chiffre d'affaires`, `la marge`, `le capital`, `le déficit`, `le rachat`, `l'expansion`, `fusionner`, `l'actionnaire`, `la filiale`, `le siège`, `la faillite`, `l'essor`
+
+**u101 · Les sciences et la technologie** (24) — `l'observation`, `l'analyse`, `expérimental`, `concevoir`, `l'échantillon`, `la percée`, `empirique`, `la rigueur`, `quantifier`, `la corrélation`, `reproductible`, `la variable`, `l'algorithme`, `l'automatisation`, `le capteur`, `le dispositif`, `la simulation`, `l'interface`, `l'innovation`, `le brevet`, `le prototype`, `la synthèse`, `le déploiement`, `la particule`
+
+**u102 · L'histoire et la culture** (24) — `le siècle`, `l'ère`, `la décennie`, `l'Antiquité`, `le Moyen Âge`, `contemporain`, `le patrimoine`, `l'héritage`, `la tradition`, `la coutume`, `transmettre`, `l'ancêtre`, `la civilisation`, `l'empire`, `la conquête`, `le règne`, `la dynastie`, `médiéval`, `le mythe`, `la légende`, `commémorer`, `le vestige`, `le récit`, `le monument`
+
+**u103 · Les arts et la critique** (24) — `l'œuvre`, `le chef-d'œuvre`, `la toile`, `la sculpture`, `le recueil`, `le peintre`, `le courant`, `le mouvement`, `l'esthétique`, `figuratif`, `classique`, `l'inspiration`, `la poésie`, `le poète`, `interpréter`, `apprécier`, `subjectif`, `la sensibilité`, `raffiné`, `original`, `émouvant`, `l'harmonie`, `sublime`, `le vers`
+
+**u104 · L'éthique et la responsabilité** (24) — `l'éthique`, `l'intégrité`, `la dignité`, `la loyauté`, `la bienveillance`, `sincère`, `légitime`, `condamnable`, `coupable`, `innocent`, `juste`, `l'hypocrisie`, `la faute`, `nuire`, `le préjudice`, `le remords`, `le scrupule`, `s'abstenir`, `blâmer`, `pardonner`, `l'indulgence`, `consciencieux`, `altruiste`, `la corruption`
+
+**u105 · Le risque et l'incertitude** (24) — `aléatoire`, `la probabilité`, `prévisible`, `imprévisible`, `spéculer`, `le pronostic`, `anticiper`, `se prémunir`, `préventif`, `surestimer`, `sous-estimer`, `minimiser`, `exposé`, `la vulnérabilité`, `robuste`, `précaire`, `redouter`, `appréhender`, `parer`, `couvrir`, `le péril`, `périlleux`, `l'éventualité`, `compromettre`
+
+**u106 · L'identité et la société** (24) — `l'identité`, `la communauté`, `la citoyenneté`, `l'individu`, `l'entourage`, `culturel`, `la mixité`, `la minorité`, `le stéréotype`, `marginaliser`, `l'exclusion`, `le racisme`, `la cohésion`, `l'entraide`, `collectif`, `l'individualisme`, `le clivage`, `le fossé`, `le tabou`, `conformiste`, `les mœurs`, `la mobilité`, `l'anonymat`, `s'affirmer`
+
+**u107 · La carrière et les organisations** (24) — `la hiérarchie`, `le dirigeant`, `subordonné`, `l'organigramme`, `l'échelon`, `le PDG`, `déléguer`, `superviser`, `coordonner`, `encadrer`, `piloter`, `la gouvernance`, `le département`, `l'effectif`, `l'associé`, `le recrutement`, `restructurer`, `polyvalent`, `gravir`, `l'ascension`, `muter`, `la reconversion`, `le mentor`, `opérationnel`
+
+**u108 · L'environnement et les enjeux planétaires** (24) — `la concertation`, `un enjeu planétaire`, `contraignant`, `réguler`, `multilatéral`, `la neutralité carbone`, `le dérèglement`, `systémique`, `la finitude`, `irréversible`, `la raréfaction`, `le basculement`, `les émissions`, `la transition écologique`, `les énergies fossiles`, `la taxe carbone`, `la décarbonation`, `la sobriété`, `l'empreinte carbone`, `l'épuisement`, `les générations futures`, `le patrimoine commun`, `la mondialisation`, `l'interdépendance`
+
+**u109 · La santé publique et le soin** (24) — `le système de santé`, `la santé publique`, `les soins`, `la Sécurité sociale`, `la cotisation`, `le remboursement`, `l'accès aux soins`, `la prise en charge`, `les inégalités de santé`, `le désert médical`, `la pénurie`, `le soignant`, `la prévention`, `le dépistage`, `la pandémie`, `le confinement`, `l'espérance de vie`, `la vaccination`, `l'équité`, `le consentement`, `la déontologie`, `le secret médical`, `l'autonomie`, `l'acharnement thérapeutique`
+
+**u110 · L'enseignement supérieur et la recherche** (24) — `l'enseignement supérieur`, `un cursus`, `un diplôme`, `une bourse d'études`, `la scolarité`, `un doctorat`, `un chercheur`, `un laboratoire`, `une thèse de doctorat`, `une revue scientifique`, `la vulgarisation`, `un protocole`, `la pédagogie`, `le savoir`, `le savoir-faire`, `l'apprentissage`, `la maîtrise`, `un colloque`, `le mérite`, `la méritocratie`, `la sélection`, `le décrochage scolaire`, `l'échec scolaire`, `les acquis`
+
+**u111 · Les médias et le récit** (24) — `la ligne éditoriale`, `la rédaction`, `un éditorialiste`, `le chroniqueur`, `le pluralisme`, `un porte-parole`, `la couverture médiatique`, `le cadrage`, `un angle`, `la narration`, `la mise en scène`, `un parti pris`, `la désinformation`, `le sensationnalisme`, `un amalgame`, `le raccourci`, `la propagande`, `orienter`, `la rumeur`, `un emballement`, `une fuite`, `le complotisme`, `la censure`, `la surenchère`
+
+**u112 · Les émotions nuancées** (24) — `l'ambivalence`, `mitigé`, `se sentir partagé`, `le malaise`, `l'embarras`, `la gêne`, `la résignation`, `la lassitude`, `blasé`, `le renoncement`, `se faire une raison`, `baisser les bras`, `l'amertume`, `le dépit`, `le ressentiment`, `morose`, `la rancune`, `un pincement au cœur`, `l'appréhension`, `la sérénité`, `la mélancolie`, `le réconfort`, `apaisant`, `le trouble`
+
+**u113 · La condition et l'hypothèse** (24) — `quand bien même`, `à supposer que`, `en admettant que`, `dans l'hypothèse où`, `si tant est que`, `pour peu que`, `à condition de`, `à moins de`, `sous réserve de`, `à défaut de`, `sauf à`, `quitte à`, `auquel cas`, `sans quoi`, `faute de quoi`, `moyennant quoi`, `le cas échéant`, `dès lors que`, `n'était`, `à ceci près que`, `quitte à ce que`, `pour autant`, `en cas de`, `au risque de`
+
+**u114 · Les structures de l'écrit formel** (24) — `il convient de`, `il importe de`, `force est de constater`, `il en va de`, `il ressort que`, `il s'avère que`, `en vertu de`, `au titre de`, `aux termes de`, `eu égard à`, `à l'aune de`, `nonobstant`, `il s'ensuit que`, `il en découle que`, `partant`, `ce faisant`, `à telle enseigne que`, `dès lors`, `ledit`, `susmentionné`, `en l'espèce`, `ci-joint`, `à toutes fins utiles`, `sous couvert de`
+
+**u115 · Le discours : nuance et cohésion** (24) — `tout porte à croire que`, `il n'est pas exclu que`, `on ne saurait`, `à en croire`, `selon toute vraisemblance`, `force est de reconnaître`, `en l'occurrence`, `à cet égard`, `du reste`, `au demeurant`, `cela étant`, `ceci dit`, `il n'en reste pas moins que`, `toujours est-il que`, `tant s'en faut`, `à première vue`, `en apparence`, `pour ainsi dire`, `en définitive`, `à y regarder de près`, `somme toute`, `au fond`, `à bien des égards`, `en fin de compte`
+
+**u116 · La déférence et les formules de politesse** (24) — `Monsieur le Directeur`, `Madame la Présidente`, `Maître`, `Excellence`, `sauf votre respect`, `en toute déférence`, `permettez-moi de`, `j'ose espérer`, `si je puis me permettre`, `je me vois contraint de`, `je ne saurais`, `c'est avec humilité que`, `je vous saurais gré de`, `l'obligeance`, `daigner`, `solliciter`, `vouloir bien`, `je me recommande de`, `veuillez agréer`, `mes salutations distinguées`, `mes respectueux hommages`, `présenter ses hommages`, `en vous renouvelant`, `se tenir à votre entière disposition`
+
+**u117 · La voix institutionnelle et publique** (24) — `par la présente`, `il est porté à la connaissance de`, `les usagers`, `les intéressés`, `le présent règlement`, `les pouvoirs publics`, `statuer`, `entériner`, `édicter`, `notifier`, `acter`, `mandater`, `conformément à`, `en application de`, `aux fins de`, `il est rappelé que`, `faire l'objet de`, `une circulaire`, `un communiqué`, `une directive`, `un décret`, `une instance`, `saisir`, `rendre public`
+
+**u118 · Verbes de l'analyse et de la position** (24) — `susciter`, `engendrer`, `découler de`, `s'accentuer`, `entraver`, `enrayer`, `étoffer`, `conforter`, `ébranler`, `nuire à`, `pâtir de`, `émaner`, `militer pour`, `préconiser`, `revendiquer`, `s'insurger`, `déplorer`, `se garder de`, `prévaloir`, `s'immiscer`, `dénoter`, `saluer`, `présager`, `escompter`
+
+**u119 · Adjectifs de l'appréciation** (24) — `patent`, `manifeste`, `indéniable`, `flagrant`, `criant`, `tangible`, `latent`, `sous-jacent`, `ténu`, `révélateur`, `probant`, `saillant`, `délétère`, `salutaire`, `préoccupant`, `pérenne`, `chancelant`, `redoutable`, `prépondérant`, `incontournable`, `disproportionné`, `dérisoire`, `cinglant`, `tranché`
+
+**u120 · Noms abstraits : processus et degré** (24) — `la flambée`, `la mutation`, `le tournant`, `la recrudescence`, `l'accalmie`, `l'inflexion`, `la portée`, `l'envergure`, `le socle`, `le ressort`, `la teneur`, `le bien-fondé`, `la fracture`, `l'antagonisme`, `la convergence`, `le décalage`, `la disparité`, `l'écueil`, `la mainmise`, `la mouvance`, `la strate`, `le prisme`, `le corollaire`, `l'aléa`
+
+**u121 · La justice et le droit** (24) — `le crime`, `le délit`, `le meurtre`, `le voleur`, `la victime`, `commettre`, `accuser`, `le suspect`, `enquêter`, `s'enfuir`, `l'accusation`, `inculper`, `l'audience`, `le procès`, `le juge`, `l'avocat`, `le jury`, `la défense`, `la culpabilité`, `la détention`, `écrouer`, `acquitter`, `la peine`, `la prison`
+
+**u122 · Le caractère et le tempérament** (24) — `la générosité`, `la franchise`, `l'honnêteté`, `la droiture`, `la sincérité`, `la bonté`, `l'orgueil`, `la lâcheté`, `l'égoïsme`, `la vanité`, `la cruauté`, `l'entêtement`, `la timidité`, `la douceur`, `la gentillesse`, `la patience`, `la curiosité`, `la sévérité`, `la méfiance`, `la ruse`, `l'audace`, `la fierté`, `la modestie`, `la maladresse`
+
+**u123 · Les émotions fortes** (24) — `l'euphorie`, `l'enthousiasme`, `l'émerveillement`, `l'exaltation`, `l'admiration`, `le ravissement`, `l'effroi`, `la terreur`, `la frayeur`, `l'émoi`, `la jalousie`, `le désarroi`, `la rage`, `la fureur`, `le mépris`, `l'animosité`, `le dégoût`, `la rancœur`, `le désespoir`, `la déception`, `la compassion`, `la pitié`, `le repentir`, `l'abattement`
+
+**u124 · Penser et comprendre** (24) — `percevoir`, `capter`, `se représenter`, `assimiler`, `discerner`, `entrevoir`, `réfléchir`, `songer`, `méditer`, `raisonner`, `approfondir`, `élaborer`, `analyser`, `déduire`, `examiner`, `inférer`, `constater`, `s'apercevoir`, `décrypter`, `démêler`, `cerner`, `décortiquer`, `récapituler`, `élucider`
+
+**u125 · Renforcer et transformer** (24) — `renforcer`, `consolider`, `accroître`, `intensifier`, `décupler`, `stimuler`, `affaiblir`, `amoindrir`, `s'estomper`, `fragiliser`, `restreindre`, `freiner`, `éveiller`, `occasionner`, `précipiter`, `alimenter`, `aviver`, `amplifier`, `modifier`, `bouleverser`, `se creuser`, `découler`, `léser`, `contrarier`
+
+**u126 · Les qualités d'une chose bien faite** (24) — `la clarté`, `la précision`, `la minutie`, `la logique`, `l'exactitude`, `la justesse`, `la profondeur`, `la finesse`, `la subtilité`, `la pertinence`, `la dimension`, `l'étendue`, `la solidité`, `la stabilité`, `la fiabilité`, `la validité`, `l'efficacité`, `la régularité`, `la souplesse`, `la fluidité`, `la netteté`, `la simplicité`, `la complexité`, `la densité`
+
+**u127 · Paysages et reliefs** (24) — `le sommet`, `la falaise`, `le versant`, `la crête`, `le rocher`, `le ravin`, `le fleuve`, `le ruisseau`, `le torrent`, `l'étang`, `la berge`, `le marais`, `la vallée`, `la colline`, `la plaine`, `la grotte`, `le gouffre`, `la clairière`, `la côte`, `le rivage`, `la vague`, `la dune`, `le glacier`, `le sentier`
+
+**u128 · Les arts et la création** (24) — `l'ouvrage`, `le poème`, `le sonnet`, `la strophe`, `la rime`, `l'anthologie`, `le conte`, `le chapitre`, `la comédie`, `la tragédie`, `le décor`, `le refrain`, `la fresque`, `le pinceau`, `l'aquarelle`, `le portrait`, `le buste`, `le sculpteur`, `la mélodie`, `le compositeur`, `la partition`, `exposer`, `publier`, `le vernissage`
+
+**u129 · Révéler et reprocher** (24) — `aborder`, `signaler`, `préciser`, `formuler`, `énoncer`, `suggérer`, `révéler`, `dévoiler`, `confier`, `déclarer`, `proclamer`, `relater`, `rapporter`, `témoigner`, `réclamer`, `s'attribuer`, `prétexter`, `s'exclamer`, `reprocher`, `fustiger`, `objecter`, `rétorquer`, `riposter`, `réprouver`
+
+**u130 · Le temps et le rythme** (24) — `aussitôt`, `sur-le-champ`, `d'emblée`, `sitôt`, `dans l'immédiat`, `incessamment`, `au préalable`, `par la suite`, `entre-temps`, `tôt ou tard`, `sous peu`, `à l'avenir`, `à présent`, `tantôt`, `par moments`, `au fil du temps`, `de bonne heure`, `momentanément`, `sans cesse`, `en permanence`, `à jamais`, `naguère`, `à terme`, `provisoirement`
+
+**u131 · Matières et objets** (24) — `la brique`, `le béton`, `le plâtre`, `la poutre`, `l'acier`, `le goudron`, `le marbre`, `le bronze`, `le cuivre`, `la vitre`, `le câble`, `le grillage`, `le velours`, `le lin`, `la paille`, `la mousse`, `le carton`, `la ficelle`, `la corde`, `le tuyau`, `la planche`, `le caoutchouc`, `l'argile`, `la cire`
+
+**u132 · Les connecteurs du français soutenu** (24) — `par ailleurs`, `en outre`, `de surcroît`, `d'ailleurs`, `non seulement`, `ainsi que`, `à savoir`, `autrement dit`, `en somme`, `tout compte fait`, `qui plus est`, `cela dit`, `encore que`, `pour autant que`, `quoi qu'il en soit`, `si ce n'est que`, `sous prétexte que`, `dès l'instant que`, `or`, `par suite`, `d'autant que`, `à mesure que`, `de même que`, `tant et si bien que`
+
+**u133 · Locutions du registre soutenu** (24) — `de manière à`, `en vue de`, `dans le but de`, `histoire de`, `à même de`, `moyennant`, `à charge de`, `faute de mieux`, `faute de`, `avoir beau`, `au prix de`, `sans compter que`, `au péril de`, `sous peine de`, `de crainte de`, `en dépit de`, `en contrepartie`, `à la faveur de`, `à l'égard de`, `vis-à-vis de`, `au sein de`, `au nom de`, `au détriment de`, `hormis`
+

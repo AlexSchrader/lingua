@@ -28,6 +28,7 @@ export const ES_UNIT35 = {
         { id: "es-u35l1-lapelicula", type: "vocab", front: "la película", reading: "lapelicula", meaning: "film", example: { jp: "Vemos una película en el cine.", en: "We watch a film at the cinema." }, accept: ["the film", "the movie", "movie"], hint: "The everyday short form is la peli. Also a thin \"film\" or layer of something." },
         { id: "es-u35l1-lacancion", type: "vocab", front: "la canción", reading: "lacancion", meaning: "song", example: { jp: "Es mi canción favorita.", en: "It's my favourite song." }, accept: ["the song"], hint: "From cantar, to sing. Plural drops the accent: canción → canciones." },
         { id: "es-u35l1-elgrupo", type: "vocab", front: "el grupo", reading: "elgrupo", meaning: "group", example: { jp: "Mi grupo favorito toca esta noche.", en: "My favourite band is playing tonight." }, accept: ["the group", "band"], hint: "A music band and any group of people — un grupo de amigos." },
+        { id: "es-u35l1-laobra", type: "vocab", front: "la obra", reading: "laobra", meaning: "the work / the play", example: { jp: "Esta obra está en el museo desde hace años.", en: "This work has been in the museum for years." }, accept: ["the work", "the work of art", "the play"], hint: "Any made work: una obra de arte, una obra de teatro. En obras = under construction." },
       ],
     },
     {
@@ -61,6 +62,7 @@ export const ES_UNIT35 = {
         { id: "es-u35l3-elpersonaje", type: "vocab", front: "el personaje", reading: "elpersonaje", meaning: "character (in a story)", example: { jp: "Es un personaje muy interesante.", en: "It's a very interesting character." }, accept: ["the character", "figure"], hint: "A character in a story — not personal character, which is el carácter (u31)." },
         { id: "es-u35l3-contar", type: "vocab", front: "contar", reading: "contar", meaning: "to tell", example: { jp: "Mi abuela cuenta buenas historias.", en: "My grandmother tells good stories." }, accept: ["to count", "to recount"], hint: "To tell a story and to count numbers — same verb. Contar con alguien = to count on someone." },
         { id: "es-u35l3-elcuento", type: "vocab", front: "el cuento", reading: "elcuento", meaning: "tale", example: { jp: "Leo un cuento a mi hija.", en: "I read a story to my daughter." }, accept: ["the tale", "short story", "story"], hint: "A short made-up story, often for children — un cuento de hadas is a fairy tale. From contar." },
+        { id: "es-u35l3-elcapitulo", type: "vocab", front: "el capítulo", reading: "elcapitulo", meaning: "the chapter", example: { jp: "Este capítulo es el más largo del libro.", en: "This chapter is the longest in the book." }, accept: ["the chapter", "the episode"], hint: "Of a book or a series: el capítulo tres, el último capítulo." },
       ],
     },
     {

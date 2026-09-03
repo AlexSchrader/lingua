@@ -58,6 +58,7 @@ export const FR_UNIT85 = {
         { id: "fr-u85l3-sourd", type: "vocab", front: "sourd", reading: "sourd", meaning: "deaf", example: { jp: "Mon grand-père est un peu sourd.", en: "My grandfather is a little deaf." }, accept: ["hard of hearing", "muffled", "dull"], hint: "Also of a sound: un bruit sourd is a dull, muffled thud." },
         { id: "fr-u85l3-aigu", type: "vocab", front: "aigu", reading: "aigu", meaning: "shrill", example: { jp: "Ce bruit est trop aigu.", en: "This noise is too shrill." }, accept: ["high-pitched", "sharp", "piercing"], hint: "The same word as in l'accent aigu — sharp, whether it's a sound or a line." },
         { id: "fr-u85l3-lavoix", type: "vocab", front: "la voix", reading: "lavoix", meaning: "voice", example: { jp: "Je reconnais sa voix.", en: "I recognize their voice." }, accept: ["the voice"], hint: "The x is silent, and it's the same in the singular and plural: une voix, des voix." },
+        { id: "fr-u85l3-levacarme", type: "vocab", front: "le vacarme", reading: "levacarme", meaning: "the din / racket", example: { jp: "Impossible de dormir avec ce vacarme.", en: "Impossible to sleep with that racket." }, accept: ["the din", "the racket", "the uproar"], hint: "Far stronger than le bruit — a noise that fills the whole room. Faire du vacarme." },
       ],
     },
     {

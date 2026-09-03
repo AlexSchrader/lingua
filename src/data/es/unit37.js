@@ -49,6 +49,7 @@ export const ES_UNIT37 = {
         { id: "es-u37l2-dejarde", type: "vocab", front: "dejar de", reading: "dejarde", meaning: "to stop (doing)", example: { jp: "Dejo de trabajar a las seis.", en: "I stop working at six." }, accept: ["to give up", "to quit"], hint: "dejar de + verb = stop doing. dejar (A1) alone is to leave behind; add de and it means to quit." },
         { id: "es-u37l2-hacefalta", type: "vocab", front: "hace falta", reading: "hacefalta", meaning: "it's necessary", example: { jp: "Hace falta estudiar más.", en: "You need to study more." }, accept: ["you need to", "it takes"], hint: "Impersonal, like hay que: hace falta + an infinitive. With a noun it means \"is needed\": hace falta pan." },
         { id: "es-u37l2-necesario", type: "vocab", front: "necesario", reading: "necesario", meaning: "necessary", example: { jp: "Es necesario dormir bien.", en: "It's necessary to sleep well." }, accept: ["needed", "required"], hint: "es necesario + an infinitive. From necesitar (A1). Feminine necesaria." },
+        { id: "es-u37l2-sercapazde", type: "vocab", front: "ser capaz de", reading: "sercapazde", meaning: "to be able to / capable of", example: { jp: "No fui capaz de terminar el trabajo a tiempo.", en: "I wasn't able to finish the work on time." }, accept: ["to be able to", "to be capable of", "to manage to"], hint: "ser capaz DE + infinitive. It is about capability, where poder is about permission or possibility." },
       ],
     },
     {

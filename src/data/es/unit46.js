@@ -81,5 +81,21 @@ export const ES_UNIT46 = {
         { id: "es-u46l4-laseguridad", type: "vocab", front: "la seguridad", reading: "laseguridad", meaning: "the safety / security", example: { jp: "Habla con mucha seguridad.", en: "He speaks with a lot of confidence." }, accept: ["safety", "security", "confidence", "certainty"], hint: "Safety, security, or self-assurance — from seguro (u42). Con seguridad = confidently / for sure." },
       ],
     },
+    {
+      id: "es-u46l5",
+      unit: 46,
+      lesson: 5,
+      title: "El estudio, la década, el siglo",
+      cefr: "A2",
+      dominantMode: "recall",
+      canDo: "Refer to a piece of research, a proposal, a formal session, and stretches of time longer than a year.",
+      items: [
+        { id: "es-u46l5-elestudio", type: "vocab", front: "el estudio", reading: "elestudio", meaning: "the study", example: { jp: "Un estudio reciente dice lo contrario.", en: "A recent study says the opposite." }, accept: ["the study", "the research", "the survey"], hint: "A piece of research, and also a studio flat or an artist's studio. Estudiar (u13) is the verb." },
+        { id: "es-u46l5-lapropuesta", type: "vocab", front: "la propuesta", reading: "lapropuesta", meaning: "the proposal", example: { jp: "Su propuesta no convenció a nadie.", en: "His proposal convinced nobody." }, accept: ["the proposal", "the offer", "the suggestion"], hint: "From proponer. Hacer una propuesta = to put forward a proposal." },
+        { id: "es-u46l5-lasesion", type: "vocab", front: "la sesión", reading: "lasesion", meaning: "the session / sitting", example: { jp: "La sesión duró más de tres horas.", en: "The session lasted more than three hours." }, accept: ["the session", "the sitting", "the showing"], hint: "A formal or scheduled block: una sesión del parlamento, una sesión de cine. La reunión (u18) is an ordinary meeting." },
+        { id: "es-u46l5-ladecada", type: "vocab", front: "la década", reading: "ladecada", meaning: "the decade", example: { jp: "En la década de los noventa todo era distinto.", en: "In the nineties everything was different." }, accept: ["the decade"], hint: "La década de los ochenta is how Spanish names a decade. Note the accent: DÉ-ca-da." },
+        { id: "es-u46l5-elsiglo", type: "vocab", front: "el siglo", reading: "elsiglo", meaning: "the century", example: { jp: "La iglesia es del siglo quince.", en: "The church is from the fifteenth century." }, accept: ["the century", "the age"], hint: "Written with Roman numerals: el siglo XXI, read as veintiuno. Hace siglos = ages ago." },
+      ],
+    },
   ],
 };
