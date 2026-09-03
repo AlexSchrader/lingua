@@ -15,11 +15,15 @@
 // differ as strings (`vær` vs `vær så snill`) so nothing collides, and the noun is
 // unavoidable in a weather unit; u8l3's hint names the clash rather than hiding it.
 //
-// THREE NOUNS ARE TAUGHT BARE, under unit1.js §1(b): `vær`, and the nouns behind
-// `å regne` and `å snø`. Weather is mass — "et vær" is not Norwegian for "the
+// ONE NOUN IS TAUGHT BARE: `vær`, under unit1.js §1(b), which names it in its own
+// not-idiomatic list. Weather is mass — "et vær" is not Norwegian for "the
 // weather" — so the front carries no article and the hint names the definite
-// (været). For rain and snow the VERB is what an A1 learner actually says (det
-// regner, det snør), so the verb is the card and the noun sits in its hint.
+// (været). Rain and snow are NOT a second and third exception: `regn` and `snø`
+// are not taught at all. The VERB is what an A1 learner actually says (det regner,
+// det snør), so `å regne` and `å snø` are the cards and the nouns sit in their
+// hints. An earlier draft of this paragraph counted all three as bare-noun
+// exceptions, which inflated the exception count inside the paragraph arguing the
+// exception is principled. Caught by truth-agent.
 //
 // NEUTER -t IN EXAMPLES, NEVER AS A TASK. unit1.js §8(b) reserves adjective
 // agreement for u14. Colours make the neuter unavoidable in a few places — the

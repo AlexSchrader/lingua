@@ -34,6 +34,19 @@
 // Logged in BUILD-CHECKLIST.md → Feature CC backlog. Grammar is modelled here the
 // way CLAUDE.md prescribes: as function-word vocab whose examples carry the pattern.
 //
+// ONE EXAMPLE IS SHAPED BY THE ENGINE, NOT BY STYLE. `derfor`'s example is a
+// single clause — "Jeg er sulten og derfor spiser jeg." — because
+// `sentenceTokens` (src/store/cardRouting.js:407) returns null for any example
+// carrying interior sentence punctuation, and `sentence:build` is the only card
+// kind that asks the learner to PRODUCE a word order. It was originally two
+// sentences, which made `derfor` the single item in this unit that could never
+// reach that card — the one whose own hint calls it "the cleanest test of V2
+// there is". Measured: 18 of u12's 19 other items are sentence:build-eligible.
+// Caught by truth-agent, who also made the wider point worth recording here:
+// content buys ELIGIBILITY, never routing. Selection is an unsalted hash of the
+// item id, so no author can choose which cards test V2 — only how many are
+// allowed to.
+//
 // LESSON ORDER: the sentence adverbs and the conjunctions come first (l1, l2)
 // because every later example leans on them, and `check-lang-scope.mjs` resolves
 // scope per UNIT, never per lesson — nothing would have caught it. See unit7.js.
@@ -63,7 +76,7 @@ export const NO_UNIT12 = {
         { id: "no-u12l1-ofte", type: "vocab", front: "ofte", reading: "ofte", meaning: "often", example: { jp: "I Bergen regner det ofte.", en: "It often rains in Bergen." }, accept: ["frequently"], hint: "OF-te. Watch the rule bite: I Bergen fills the first slot, so regner has to be second, and det — the subject — is pushed in behind it. English would say \"in Bergen it rains\"; Norwegian cannot." },
         { id: "no-u12l1-sjelden", type: "vocab", front: "sjelden", reading: "sjelden", meaning: "seldom", example: { jp: "Det snør sjelden i Oslo.", en: "It seldom snows in Oslo." }, accept: ["rarely", "rare"], hint: "The broad hush of sjø and skje: SHEL-den. It doubles as an adjective — en sjelden dag, a rare day." },
         { id: "no-u12l1-ogsa", type: "vocab", front: "også", reading: "ogsa", meaning: "also", example: { jp: "Kari snakker også norsk.", en: "Kari also speaks Norwegian." }, accept: ["too", "as well"], hint: "Said OSS-o, with the g silent and the stress at the front. It is built from og but is not og — and like alltid and aldri it follows the finite verb." },
-        { id: "no-u12l1-derfor", type: "vocab", front: "derfor", reading: "derfor", meaning: "therefore", example: { jp: "Jeg er sulten. Derfor spiser jeg nå.", en: "I am hungry. That is why I am eating now." }, accept: ["so", "that is why", "for that reason"], hint: "DER-for. This is the cleanest test of V2 there is: derfor takes the first slot, spiser must be second, and jeg goes behind it — Derfor spiser jeg, never \"Derfor jeg spiser\". English puts the subject first here, which is precisely why this one is worth drilling." },
+        { id: "no-u12l1-derfor", type: "vocab", front: "derfor", reading: "derfor", meaning: "therefore", example: { jp: "Jeg er sulten og derfor spiser jeg.", en: "I am hungry, and that is why I am eating." }, accept: ["so", "that is why", "for that reason"], hint: "DER-for. This is the cleanest test of V2 there is: derfor takes the first slot, spiser must be second, and jeg goes behind it — Derfor spiser jeg, never \"Derfor jeg spiser\". English puts the subject first here, which is precisely why this one is worth drilling." },
       ],
     },
     // Lesson 2: joining clauses — and the subordinate-clause exception.

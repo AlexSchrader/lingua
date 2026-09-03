@@ -29,7 +29,10 @@
 // particle is the card; the particle verb lives in the example and the hint.
 //
 // ø: `før` folds to "for", which is NOT the same word as for — the før hint says so.
-// No other card in the corpus reads "for", so nothing collides.
+// No other card in the corpus reads "for" TODAY, so nothing collides today. That is
+// a fact about the current corpus, not a guarantee: `for` is high-frequency and an
+// A2 band will want it, at which point this becomes the es reading-collision class
+// (BUILD-CHECKLIST.md → Feature CC backlog). Whoever teaches `for` inherits it.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const NO_UNIT13 = {
   id: "no-u13",
@@ -68,10 +71,10 @@ export const NO_UNIT13 = {
       items: [
         { id: "no-u13l2-akunne", type: "vocab", front: "å kunne", reading: "akunne", meaning: "to be able to", example: { jp: "Jeg kan snakke litt norsk.", en: "I can speak a little Norwegian." }, accept: ["can", "be able to", "to be able", "to can"], hint: "The present is kan — irregular, and nothing like the infinitive. Modals are the one class where infinitive + -r fails, so learn each present form on its own. After a modal the next verb drops its å: jeg kan snakke, never \"jeg kan å snakke\"." },
         { id: "no-u13l2-aville", type: "vocab", front: "å ville", reading: "aville", meaning: "to want to", example: { jp: "Vil du ha kaffe?", en: "Would you like some coffee?" }, accept: ["want", "to want", "will", "would like"], hint: "Present vil. It is \"want\" first and \"will\" second. Vil du ha...? is how Norwegians offer you anything at all. No å after it either: jeg vil gå." },
-        { id: "no-u13l2-askulle", type: "vocab", front: "å skulle", reading: "askulle", meaning: "shall", example: { jp: "Vi skal reise i morgen.", en: "We are going to travel tomorrow." }, accept: ["will", "should", "to be going to", "going to"], hint: "Present skal. This is the ordinary Norwegian future — skal + infinitive does the work of both \"will\" and \"going to\". The language has no separate future tense of its own." },
+        { id: "no-u13l2-askulle", type: "vocab", front: "å skulle", reading: "askulle", meaning: "shall", example: { jp: "Vi skal reise i morgen.", en: "We are going to travel tomorrow." }, accept: ["will", "should", "to be going to", "going to"], hint: "Present skal. Norwegian has no future TENSE at all, and skal + infinitive is the commonest way to talk about what is going to happen — though it carries intention, and the plain present (jeg reiser i morgen) and vil both do future work too. At A1, skal is the one to reach for." },
         { id: "no-u13l2-amatte", type: "vocab", front: "å måtte", reading: "amatte", meaning: "must", example: { jp: "Nå må jeg gå.", en: "Now I have to go." }, accept: ["have to", "to have to", "to must"], hint: "Present må, said MAW. Plainer than English \"must\" — jeg må gå is simply \"I have to go\". Its negative is genuinely ambiguous and worth care: du må ikke gjøre det is normally heard as a prohibition, \"you must not\", though context can pull it toward \"you need not\". When you mean \"I don't have to\", say jeg trenger ikke instead. And note nå in the first slot, må second, jeg behind it." },
         { id: "no-u13l2-aburde", type: "vocab", front: "å burde", reading: "aburde", meaning: "should", example: { jp: "Du bør sove nå.", en: "You should sleep now." }, accept: ["ought to", "to ought to", "ought"], hint: "Present bør, BURR — the ø shows up in the present, not the infinitive. It is advice, where må is obligation: du bør sove is a suggestion; du må sove is not." },
-        { id: "no-u13l2-afa", type: "vocab", front: "å få", reading: "afa", meaning: "to get", example: { jp: "Barna får en kake.", en: "The children are getting a cake." }, accept: ["get", "to receive", "receive", "may", "to be allowed to"], hint: "Present får, said FAWR — keep it apart from for and før. It is a full verb meaning \"get\", and a modal meaning \"be allowed to\": Får jeg gå? May I go? Note barna — et barn takes -a in the definite plural." },
+        { id: "no-u13l2-afa", type: "vocab", front: "å få", reading: "afa", meaning: "to get", example: { jp: "Barna får en kake.", en: "The children are getting a cake." }, accept: ["get", "to receive", "receive", "may", "to be allowed to"], hint: "Present får, said FAWR — and keep it apart from før, which you met in lesson 1. It is a full verb meaning \"get\", and a modal meaning \"be allowed to\": Får jeg gå? May I go? Note barna — et barn takes -a in the definite plural." },
       ],
     },
     // Lesson 3: the six directional particles that build Norwegian's particle verbs.

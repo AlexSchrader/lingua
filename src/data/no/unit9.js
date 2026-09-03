@@ -17,8 +17,15 @@
 // sense being taught? For a weekday it is not. The sense here is the time
 // adverbial — på mandag, "on Monday" — and "en mandag" means "one Monday, some
 // Monday", which is a different statement. So the front is bare and the hint names
-// the gender and definite (en mandag → mandagen). Same for the months. This is the
-// same call unit 1 documents for vann and penger, applied to a different reason.
+// the gender and definite (en mandag → mandagen). Same for the months.
+// AND THE SIBLING LANGUAGES ALREADY SETTLED THIS, IN BOTH DIRECTIONS, BY THIS TEST.
+// French — which RUNBOOK §3 item 6 designates as the authority for Latin-script
+// encoding conventions — teaches its weekdays BARE (`lundi`, `mardi`). Spanish
+// teaches them WITH the article (`el lunes`), because Spanish's time adverbial
+// carries one, and teaches its months bare. Two languages, opposite answers, one
+// question: what form is the time adverbial in THIS language? Norwegian's is bare,
+// so Norwegian's cards are bare. This is not a loosening of unit1.js §1 — it is §1's
+// own stated test, applied where block 1 happened not to need it.
 //
 // FOUR MONTH NAMES, NOT TWELVE. januar, mai, august and desember — one per season,
 // each carrying a real sentence. The other eight are near-identical to English and

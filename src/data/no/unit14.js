@@ -20,7 +20,15 @@
 // in examples, never as a card" is a rule about the PRESENT, which needs no card
 // because it is infinitive + -r; the past is not derivable and does.
 // MERGE SEAT: do not delete these as duplicate lexemes. If they go, the band has no
-// past tense.
+// past tense. "And the rest" is not a list, so here are all eleven ids explicitly:
+//   no-u14l1-snakket · no-u14l1-jobbet · no-u14l1-spiste · no-u14l1-kjopte
+//   no-u14l1-laerte  · no-u14l2-var    · no-u14l2-hadde  · no-u14l2-gikk
+//   no-u14l2-kom     · no-u14l2-sa     · no-u14l2-ble
+// ⚠️ `npm run check:lexemes` WILL REPORT THESE CLEAN AND THAT IS NOT EVIDENCE — it
+// imports JA_UNITS and its variants() is a kana conjugation engine, so it returns
+// "free" for any Norwegian input (already recorded at BUILD-CHECKLIST.md:165).
+// RUNBOOK §6 step 3 tells you to run it; run it, but do not read a clean result as
+// confirmation that these eleven are new words. They are not. They are deliberate.
 //
 // `i går` MOVED HERE FROM u9. unit1.js §7 pre-authorises it at u9, but Norwegian
 // cannot put it in a present-tense sentence, and u9 has no past. It is the first
@@ -63,10 +71,28 @@
 // already states the adverbial -t ("godt, not god"). That stands; it is the same
 // -t seen from the other side.
 //
-// NOT TAUGHT, AND FLAGGED: the possessives vår/vårt/våre and sin/sitt/sine. `vår`
-// would fold to "var", colliding with the past of å være taught in l2, and this
-// unit had no room for a third paradigm. Block 3's coverage units should take them,
-// along with the numbers above ti (see unit9.js) and mer/mest/ganske/helt (unit10.js).
+// NOT TAUGHT, AND FLAGGED: the possessives vår/vårt/våre and sin/sitt/sine.
+// AN EARLIER DRAFT GAVE A BAD REASON FOR THIS AND IT IS WORTH REPLACING RATHER THAN
+// DELETING. It said `vår` "would fold to var" and that the unit "had no room for a
+// third paradigm". Both are weak: this block ACCEPTS three ø-fold collisions with a
+// hint each (hår→"har", så→"sa", før→"for"), there is no reading-uniqueness rule in
+// the contract at all, and "no room" is unit-local reasoning when u12l4 is the
+// possessive lesson. truth-agent was right to call the asymmetry out.
+// THE REAL REASON is narrower, and it is a measured engine fact the earlier draft
+// did not have. `checkProduce` (src/store/answer.js) accepts the raw front OR
+// `normalizeReading(item.reading)` whenever the typed answer looks romaji — which
+// for Norwegian is always. So `vår` (reading "var") and l2's `var` (reading "var")
+// would each grade the OTHER's answer as correct: two cards, one lesson apart, that
+// the engine cannot tell apart on typed production. The three collisions this block
+// does accept are all against words met as a DIFFERENT front elsewhere; this one
+// would sit inside the same unit. That is a real difference, not a convenient one.
+// It is still a trade, not a slam dunk — es ships twelve such collisions and files
+// them as an engine problem, not a content one, and es/unit14.js teaches
+// nuestro/nuestra in the very lesson this unit models itself on. BLOCK 3: if the
+// reading-collision ticket lands first, teach vår/vårt/våre; if it does not, take
+// the collision anyway rather than shipping an A1 band with four of five possessive
+// persons. Also yours: the numbers above ti (see unit9.js), sin/sitt/sine, and
+// mer/mest/ganske/helt (unit10.js).
 // lang/unit/lesson are stamped in src/data/index.js.
 export const NO_UNIT14 = {
   id: "no-u14",

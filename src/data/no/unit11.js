@@ -11,7 +11,9 @@
 // indefinite singular is not idiomatic for the sense being taught:
 //   `hår`   — the hair on a head is mass; "et hår" is one single strand.
 //   `feber` — Norwegian says å ha feber with no article, as English says "have flu".
-//   `helse` — god helse, never "en god helse" at this level.
+//   `helse` — god helse. ("en god helse" is attested, so this one is a judgement
+//     about the A1 sense being taught rather than a claim that the article is
+//     ungrammatical. Flagged by truth-agent; the call stands, the reason is narrower.)
 // Each hint names the gender and the definite (håret, feberen, helsa).
 //
 // ø IS DENSE HERE — et øye, et øre, å gjøre, å høre, trøtt — and every one of those
