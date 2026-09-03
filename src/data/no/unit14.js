@@ -24,6 +24,11 @@
 //   no-u14l1-snakket · no-u14l1-jobbet · no-u14l1-spiste · no-u14l1-kjopte
 //   no-u14l1-laerte  · no-u14l2-var    · no-u14l2-hadde  · no-u14l2-gikk
 //   no-u14l2-kom     · no-u14l2-sa     · no-u14l2-ble
+// TEN of the eleven pair with an infinitive BLOCK 1 teaches (å snakke, å jobbe,
+// å spise, å kjøpe, å lære, å være, å ha, å gå, å komme, å se). The eleventh, `ble`,
+// pairs with `å bli` — u13l4, inside block 2. Block 1 independently counted its own
+// ten and reached the same conclusion: a new FORM is real learning, unlike the ja
+// B1 case RUNBOOK §4 cites, which was two citation forms of one word.
 // ⚠️ `npm run check:lexemes` WILL REPORT THESE CLEAN AND THAT IS NOT EVIDENCE — it
 // imports JA_UNITS and its variants() is a kana conjugation engine, so it returns
 // "free" for any Norwegian input (already recorded at BUILD-CHECKLIST.md:165).

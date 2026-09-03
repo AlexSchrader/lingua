@@ -28,6 +28,27 @@
 // formulas and the four time adverbials and explicitly forbids extending. The
 // particle is the card; the particle verb lives in the example and the hint.
 //
+// ⚠️ EVERY VERB CARD IN THIS BLOCK IS DARK TO `sentence:build`, AND THAT IS THE
+// §2 CONVENTION'S PRICE, NOT A DEFECT IN THESE EXAMPLES. Measured: **0 of block 2's
+// 25 `å`-verb cards** can reach the card, against 35 of the 143 non-verb cards.
+// `sentenceTokens` requires the front as a whole word inside its own example
+// (cardRouting.js:400-401), and a §2 infinitive front never appears in a natural
+// example — the sentence shows the -r present (regner, sover, tar). Block 1 found
+// the same thing independently and has recorded it in unit1.js.
+// THE WORKAROUND IS NARROWER THAN IT LOOKS, AND BLOCK 1'S HEADER STATES IT TOO
+// BROADLY. It says a bare infinitive "after a modal or a second verb" restores
+// reachability. A modal does NOT: Norwegian drops the å after kan/vil/skal/må/bør,
+// so "Jeg kan lære norsk" has no "å lære" in it and stays unreachable. Verified by
+// running sentenceTokens on both. Only the å-TAKING frames work — adjective + å
+// (Det er viktig å lære norsk), aspectual verb + å (Det begynner å regne), noun + å
+// (Jeg har noe å si). Block 1's own worked example is one of these; the rule above
+// it is not. BLOCK 3: use the frames, not the modals.
+// These 25 examples were deliberately NOT rewritten to chase the card. The present
+// tense is what an A1 learner actually produces, it is the whole payoff of §2, and
+// three of these examples are the block's fronted-XP V2 demonstrations. Converting
+// them would trade real teaching for a card that is hash-gated to 25% anyway.
+// Routed to Feature CC via the hand-back; block 1 owns the Norwegian backlog entries.
+//
 // ø: `før` folds to "for", which is NOT the same word as for — the før hint says so.
 // No other card in the corpus reads "for" TODAY, so nothing collides today. That is
 // a fact about the current corpus, not a guarantee: `for` is high-frequency and an
