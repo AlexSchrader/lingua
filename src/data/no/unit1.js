@@ -151,10 +151,32 @@
 //    so the front is never literally in the sentence — and 10 are nouns whose
 //    article an adjective splits. THAT IS THE REAL COST OF THE §2 CONVENTION and
 //    it is worth knowing before you write 144 more cards: a verb card in this
-//    language gets teach/choice/type but not the sentence builder. If you want a
-//    verb to reach it, the example must contain the infinitive itself — which
-//    Norwegian does naturally after a modal or another verb ("Det er viktig å
-//    lære norsk", "Jeg liker å lage mat").
+//    language gets teach/choice/type but not the sentence builder.
+//    ⚠️ AND DO NOT CHASE IT WITH A MODAL — an earlier version of this paragraph
+//    said the infinitive comes back "after a modal or another verb", and the
+//    modal half is FLATLY WRONG. Norwegian DROPS the å after kan/vil/skal/må/bør,
+//    so the front is not in the sentence at all. Measured with sentenceTokens:
+//        unreachable  front "å lære"   "Jeg kan lære norsk."
+//        unreachable  front "å snakke"  "Jeg vil snakke norsk."
+//        unreachable  front "å betale"  "Vi må betale nå."
+//    The trap is nastier than it looks: the ONLY way to make a modal example route
+//    is to write "Jeg kan å lære norsk", which DOES tokenise — and is not
+//    Norwegian. A seat chasing reachability through modals writes either dead
+//    cards or ungrammatical ones. Caught by the block 2 seat; block 1 had it wrong.
+//    ONLY THE Å-TAKING FRAMES WORK, and all three are measured REACHABLE:
+//        adjective + å      "Det er viktig å lære norsk."      6 tiles
+//        aspectual verb + å "Vi begynner å spise nå."          5 tiles
+//        noun + å           "Jeg har noe å si."                5 tiles
+//        (å also survives after like/prøve/pleie: "Jeg liker å lage mat.")
+//    BUT REACHABILITY IS NOT THE GOAL AND DO NOT REWRITE GOOD SENTENCES FOR IT.
+//    The present tense is what an A1 learner actually produces and is the entire
+//    payoff of §2, the card is hash-gated to a 25% share, and block 2 measured the
+//    real return: converting three of its examples would buy under one card that
+//    actually routes, at the cost of the sentences that teach. Block 2 left all 25
+//    of its å-verb examples alone on purpose and I agree with that call. Use an
+//    å-frame when it is the natural sentence anyway; never to game the router.
+//    Filed as a Feature CC ticket — the engine, not the content, is what should
+//    match a verb front to its own example.
 //
 // 6. Examples stay inside vocab taught at or before that unit, plus the FREE list
 //    below. Inflected forms of a TAUGHT word count as that word — the definite
