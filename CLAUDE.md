@@ -109,6 +109,38 @@ Alex is neurodivergent and the app is built specifically with ND learners in min
 
 **Brainstorm mode.** When Alex says "what's next" or finishes a brief and asks for direction: propose 3–5 concrete, specific options ranked by impact on the learning feel. Not "improve UX" — "add a 200ms breath between cards in `LEARN_OPTS` to reduce panic on Type cards."
 
+## No front language — every language is built from its own root
+
+Added 2026-08-30 at Alex's explicit direction, after a seat treated a scaffold slot
+title as if it were a rule.
+
+- **Japanese is not the template.** It was first, so its shape is what the scaffold
+  script encodes — three interleaved strands, `Grammar 2 — verbs and particles`, and
+  so on. That is history, not a standard. There is no front language and no base
+  language: `LANGUAGES` is a flat catalog and the learner picks any live entry.
+- **A language's structure comes from the language plus CEFR.** German has case, so
+  its A1 grammar units are nominative/accusative and dative — not "verbs and
+  particles", which names a slot German does not have. Korean will need its own shape
+  again. The CEFR band decides the LEVEL; the language decides the CONTENT of the slot.
+- **The scaffold's English slot titles are placeholders.** Retitle them in the target
+  language, and retheme the slot itself when the language calls for it. Both are
+  ordinary authoring, not a decision to escalate.
+
+## Fix it, don't escalate it
+
+Also Alex, 2026-08-30: *"you seem to make problems that are small and you can fix
+bigger than they are… stop asking for my input unless it's absolutely necessary."*
+
+- **If it is small, reversible and inside your lane, do it and mention it in one line.**
+  A stub slot with the wrong theme, a stale doc line, a placeholder title — fix it.
+- **Escalate only what is genuinely his:** money (the paid audio runs), anything that
+  reaches prod, deleting work, or a real fork in scope where two readings produce
+  different products.
+- **Never end a report with a menu of options he has to choose from** when one of them
+  is obviously right and cheap. Pick it, do it, say what you did.
+- A blocked item still gets named — but name it in a bullet and keep moving, rather
+  than stopping the whole job on it.
+
 ## How to report to Alex — BULLETS, NOT PARAGRAPHS
 
 **Alex's direct instruction (2026-08-14): "explain shit in bullet points and to the point, tired of the paragraph bs."** He's the CEO reading status, not an audience for essays.
