@@ -36,7 +36,7 @@ export const NO_UNIT2 = {
         { id: "no-u2l1-godkveld", type: "vocab", front: "god kveld", reading: "godkveld", meaning: "good evening", example: { jp: "God kveld! Velkommen.", en: "Good evening! Welcome." }, accept: ["evening", "good evening!"], hint: "kveld is the evening — the stretch after dinner. God natt is what you say when someone is actually going to bed, not on arrival." },
         { id: "no-u2l1-hadet", type: "vocab", front: "ha det", reading: "hadet", meaning: "bye", example: { jp: "Ha det, Erling!", en: "Bye, Erling!" }, accept: ["goodbye", "see you", "bye bye"], hint: "Literally \"have it\" — short for ha det bra, \"have it good\". Say ha-DE, with det's silent t." },
         { id: "no-u2l1-du", type: "vocab", front: "du", reading: "du", meaning: "you", example: { jp: "Kjenner du Erling?", en: "Do you know Erling?" }, accept: ["you (singular)", "thou"], hint: "Norwegians use du with everyone — teachers, strangers, the prime minister. There is a formal De, and using it would sound like a costume drama." },
-        { id: "no-u2l1-velkommen", type: "vocab", front: "velkommen", reading: "velkommen", meaning: "welcome", example: { jp: "Hei og velkommen!", en: "Hi and welcome!" }, accept: ["welcome!"], hint: "One word, two l-less halves: vel (well) + kommen (come)." },
+        { id: "no-u2l1-velkommen", type: "vocab", front: "velkommen", reading: "velkommen", meaning: "welcome", example: { jp: "Hei og velkommen!", en: "Hi and welcome!" }, accept: ["welcome!"], hint: "One word made of two: vel (well) + kommen (come) — the same build as English, welded together." },
       ],
     },
     {
