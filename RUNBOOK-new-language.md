@@ -186,6 +186,21 @@ Then run the `content-auditor` agent on your block as the naturalness gate, then
 
 ## 6. Hand back to Alex — the only thing he reads
 
+**Your block moves a number the learner can see, and you do not have to update it.**
+The "Add a language" row for your language reads its state straight off the corpus:
+
+| state | the row says |
+|---|---|
+| nothing authored yet (all locked stubs) | `content coming` |
+| your block has merged, band unfinished | `7/20 units so far` — climbing per block |
+| every unit authored | `480 items` — units-done stops being news once it equals units-total |
+
+So the row advances the moment your units land, and there is no counter to bump, no
+status field to edit, and nothing to keep in sync by hand. If it does NOT move after a
+merge, that is a real signal: a unit whose lessons are all still locked stubs does not
+count as authored, so check you actually shipped items rather than scaffolding.
+
+
 Post exactly this, nothing longer:
 
 ```
