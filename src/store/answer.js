@@ -35,6 +35,7 @@ export function normalizeReading(s = "", lang = null) {
     out = out
       .replace(/œ/g, "oe")
       .replace(/æ/g, "ae")
+      .replace(/ø/g, "o")
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .replace(/['’ʼ\-]/g, "");
