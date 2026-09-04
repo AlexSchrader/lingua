@@ -11,11 +11,12 @@
 // pattern is previewed in the hints instead, pointing forward to u14. Once u14
 // teaches im, "Im Januar schneit es" becomes sayable; it is not sayable yet.
 //
-// FREE: Wochen, Monate
-//   Block-2 additions to the free list. German plurals are not foldable by
-//   check-lang-scope.mjs (see the note in unit1.js): die Woche → Wochen and
-//   der Monat → Monate umlaut-or-suffix away from their taught singulars, so both
-//   are declared here even though the singulars are taught (u5 and this unit).
+// FREE: Wochen
+//   Block 2's one addition to the free list. German plurals are not foldable by
+//   check-lang-scope.mjs (see the note in unit1.js), so a plural used in an example
+//   must be declared even when its singular is taught — die Woche is u5's, but
+//   Wochen is a separate token to the checker. This is the only plural any example
+//   in u8–u14 uses; nothing else is declared, because nothing else is needed.
 export const DE_UNIT9 = {
   id: "de-u9",
   lang: "de",

@@ -10,6 +10,13 @@
 // rejects a reading containing it.
 // heiß is NOT a relative of u3's heißen despite the shared look: different words,
 // different origins, no shared meaning. Kept deliberately.
+// ⚠️ DELIBERATE PAIRS, flagged so a lexeme sweep does not read them as an accident:
+// lesson 3 teaches der Regen AND regnen, der Schnee AND schneien. That derivation is
+// the lesson, not a duplicate — German weather is said with an impersonal es and a
+// weather VERB (Es regnet), which no amount of knowing the noun would give a learner,
+// while the nouns carry gender the verbs cannot teach. Both are needed and both are
+// among the commonest words in the domain. The merge seat may overrule this; if it
+// does, drop the nouns and keep the verbs, since Es regnet is the harder half.
 export const DE_UNIT8 = {
   id: "de-u8",
   lang: "de",
