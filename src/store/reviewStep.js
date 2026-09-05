@@ -52,6 +52,9 @@ export function reviewStepFor(item) {
   // through A1 so no JP keyboard is needed, kana required from A2 (see checkProduce)
   // — interleaved with building the word from tiles.
   if (rung === 3) {
+    // Japanese keeps the drill at its production rung: one form per verb means the
+    // front identifies the card, so the other rungs stay useful (see the Latin hoist above).
+    if (shouldConjugate(item)) return { kind: "conjugate" };
     if (isTraceable(item)) return { kind: "trace" };
     // Reassemble the whole example sentence (production in context) for a share of
     // eligible vocab; else type the Japanese, else build the word from tiles.
