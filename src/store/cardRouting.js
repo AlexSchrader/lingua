@@ -132,7 +132,7 @@ export function earCrowdedOut(item) {
 // guards branch on script shape rather than leaving these cards dark for every
 // non-Japanese language. The language is resolved by itemLang() — from the stamp, or
 // from the item id for a pre-i18n save — never defaulted.
-const isLatin = (item) => !isJapaneseItem(item);
+export const isLatin = (item) => !isJapaneseItem(item);
 const isLetter = (ch) => !!ch && /\p{L}/u.test(ch);
 
 // Is this item's `reading` worth SHOWING the learner?

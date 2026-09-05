@@ -7,7 +7,8 @@
 // So any metric assembled from the gate functions is a proxy, not a measurement --
 // which is exactly how a whole hash quartile went uncovered without a test noticing.
 // Pure, no React, so a test can run it over the entire corpus.
-import { earCrowdedOut, isTraceable, shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate, canBuildReading } from "./cardRouting.js";
+import {
+  isLatin, earCrowdedOut, isTraceable, shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate, canBuildReading } from "./cardRouting.js";
 
 export function reviewStepFor(item) {
   const rung = item.rung ?? 1;
@@ -16,7 +17,11 @@ export function reviewStepFor(item) {
   // tense are six items all reading "être" — identical prompts with different answers,
   // and only the conjugate card shows which form is being asked for. At any other rung
   // they drew choice / type:meaning / speak, which are unanswerable once tagged.
-  if (rung >= 1 && shouldConjugate(item)) return { kind: "conjugate" };
+  // ...but ONLY where the front is ambiguous, which is a Latin problem, not a
+  // Japanese one. ja/unit45 tags one form per verb, so its 24 items have 24 distinct
+  // fronts and the generic cards are perfectly answerable — hoisting there would just
+  // strip them of the ear path for nothing (caught by the never-heard ratchet).
+  if (rung >= 1 && isLatin(item) && shouldConjugate(item)) return { kind: "conjugate" };
   // Recognition (rung ≤ 1): interleave three same-skill variants — the ear path
   // (listen:choice, audio in), the reverse direction (choice:reverse, English in →
   // pick the Japanese), and the plain eye path (choice, glyph in → pick the meaning).
