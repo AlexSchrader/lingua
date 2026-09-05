@@ -16,9 +16,11 @@ Alex settled the expensive question on 2026-09-04: variants differ in voice, not
 
 ### Why Portuguese first, not English
 
-1. **English cannot ship as a track at all yet.** Every `meaning`, `accept` and `example.en` in the corpus IS English, so an English course asks the learner to translate English into English. `LANGUAGES.md` documents this; it needs a source-language concept first. Building the variant machinery English-first means building it for the one language that cannot launch.
-2. **pt-BR vs pt-PT is a wider real split than en-US vs en-GB** — pronunciation, second-person address (*você* / *tu*), and gerund vs infinitive — and Portuguese has crews starting now.
-3. **Portuguese has no spelling problem** (§5). English does, and it is the only wrinkle that survives "voice only". Solving the mechanism on the clean case first keeps the two apart.
+1. **Portuguese has crews running right now.** de/no/pt are the live scaffolds; a mechanism lands faster and gets exercised harder next to people actually authoring.
+2. **pt-BR vs pt-PT is a wider real split than en-US vs en-GB** — pronunciation, second-person address (*você* / *tu*), and gerund vs infinitive.
+3. **Portuguese has no spelling problem** (§5). English does, and it is the only content wrinkle that survives "voice only". Building the mechanism on the clean case first keeps the two apart, so the spelling convention is a decision about English rather than a constraint baked into the machinery.
+
+**None of this is the "English needs a source language" argument, which is a different thing and does not belong in this brief.** Two separate Englishes get confused here, so state them apart once: the app's **gloss English** is the language it explains *in* (`meaning`, `accept`, `example.en`); **taught English** would be a course someone learns. The gloss question is real and already logged in `LANGUAGES.md`, and it has nothing to do with voices — the variant mechanism is indifferent to what language the glosses are written in. Do not let it gate this work.
 
 ---
 
@@ -80,7 +82,7 @@ Portuguese and Spanish variants do not have this problem, which is the third rea
 1. **The variant axis, on `pt` with a single variant.** Path, manifest, setting, companion lookup — no second voice generated yet, so nothing can regress and the diff is provable against existing behaviour.
 2. **Second Portuguese voice.** Alex creates the pt-PT agent; `generate:audio --lang=pt --variant=pt` runs; the picker appears at language start.
 3. **Switching**, including what happens mid-course (it should be free — same corpus, same progress).
-4. **English**, once the source-language work lands, inheriting all of the above plus the spelling convention.
+4. **English**, inheriting all of the above plus the spelling convention (§5). Three variants rather than two; otherwise identical.
 
 ---
 
