@@ -44,6 +44,22 @@ const REVIEW_KINDS = LIVE_CARD_KINDS.filter((k) => k !== "teach");
 // are ABSENT is as much the contract as asserting the others are present.
 const SCRIPT_ONLY = new Set(["type:reading", "build", "trace"]);
 
+// A card kind can also be absent because the LANGUAGE has not declared what it needs:
+//   particle:choice needs an entry in FUNCTION_WORDS (only fr and es have one);
+//   conjugate needs conjForm-tagged content, which no Latin language has authored yet.
+// Absence there is a real gap, not a routing bug — logged in QA findings and routed to
+// Feature CC. This test asserts the PREVIEW matches the ROUTER; it is not the place to
+// fail a language for a capability nobody has given it. When those land, delete the
+// language from this set and the preview must work.
+const CAPABILITY_GAP = {
+  de: new Set(["particle:choice", "conjugate"]),
+  no: new Set(["particle:choice", "conjugate"]),
+  pt: new Set(["particle:choice", "conjugate"]),
+};
+// fr and es are NOT listed: their conjugate preview works — dev.js falls back to
+// canonical verbs (être / ser) tagged with real Latin conjForms, and all three
+// seeded items route to conjugate. Only de/no/pt lack it.
+
 const LIVE = LANGUAGES.map((l) => l.id).filter((id) => isLive(id));
 
 test("the live-language list is real, so nothing below passes vacuously", () => {
@@ -62,6 +78,11 @@ for (const lang of LIVE) {
   for (const kind of REVIEW_KINDS) {
     test(`${lang}: the "${kind}" preview renders ${kind}`, () => {
       const seeded = seededItems(kind, lang);
+
+      if ((CAPABILITY_GAP[lang] ?? new Set()).has(kind)) {
+        assert.equal(seeded.length, 0, `${lang}: ${kind} has no capability declared, so it must seed nothing`);
+        return;
+      }
 
       if (!script && SCRIPT_ONLY.has(kind)) {
         assert.equal(seeded.length, 0, `${lang}: ${kind} is script-only and must seed nothing`);
