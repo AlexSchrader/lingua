@@ -119,12 +119,18 @@ function conjugateEs(inf, form) {
   const irr = ES_IRREGULAR[inf]?.[tense];
   if (irr) return irr[i] ?? null;
 
+  const cls = /ar$/.test(inf) ? "ar" : /er$/.test(inf) ? "er" : /ir$/.test(inf) ? "ir" : null;
+
   if (tense === "fut") {
-    const stem = ES_FUT_STEM[inf] ?? inf; // regular: the whole infinitive
-    return stem + ES_FUT_ENDINGS[i];
+    // The regular future is the WHOLE infinitive plus an ending, which meant any
+    // string at all conjugated: a noun mistagged fut-1s produced "chienai" rather
+    // than null, and the router reads null as "don't show this card". So the word
+    // still has to look like an infinitive, or be a tabled irregular stem.
+    const stem = ES_FUT_STEM[inf];
+    if (!stem && !cls) return null;
+    return (stem ?? inf) + ES_FUT_ENDINGS[i];
   }
 
-  const cls = /ar$/.test(inf) ? "ar" : /er$/.test(inf) ? "er" : /ir$/.test(inf) ? "ir" : null;
   if (!cls) return null;
   return inf.slice(0, -2) + ES_ENDINGS[tense][cls][i];
 }
@@ -233,13 +239,17 @@ function conjugateFr(inf, form) {
   const irr = FR_IRREGULAR[inf]?.[tense];
   if (irr) return irr[i] ?? null;
 
+  const cls = /er$/.test(inf) ? "er" : /ir$/.test(inf) ? "ir" : /re$/.test(inf) ? "re" : null;
+
   if (tense === "fut") {
-    // Regular: the infinitive, minus a final -e for the -re class.
-    const stem = FR_FUT_STEM[inf] ?? (/re$/.test(inf) ? inf.slice(0, -1) : inf);
+    // Same hole as Spanish: the regular future is built on the whole infinitive, so
+    // without this any noun would conjugate. Tabled stem, or it must look like one.
+    const tabled = FR_FUT_STEM[inf];
+    if (!tabled && !cls) return null;
+    const stem = tabled ?? (/re$/.test(inf) ? inf.slice(0, -1) : inf);
     return stem + FR_FUT_ENDINGS[i];
   }
 
-  const cls = /er$/.test(inf) ? "er" : /ir$/.test(inf) ? "ir" : /re$/.test(inf) ? "re" : null;
   if (!cls) return null;
   const stem = inf.slice(0, -2);
   return stem + FR_ENDINGS[tense][cls][i];

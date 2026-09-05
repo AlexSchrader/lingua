@@ -11,6 +11,12 @@ import { earCrowdedOut, isTraceable, shouldListen, shouldReverseChoice, shouldLi
 
 export function reviewStepFor(item) {
   const rung = item.rung ?? 1;
+  // A tagged conjugation item is a drill at EVERY rung, not just rung 3. Its front is
+  // the INFINITIVE (that is what the engine conjugates from), so the six persons of a
+  // tense are six items all reading "être" — identical prompts with different answers,
+  // and only the conjugate card shows which form is being asked for. At any other rung
+  // they drew choice / type:meaning / speak, which are unanswerable once tagged.
+  if (rung >= 1 && shouldConjugate(item)) return { kind: "conjugate" };
   // Recognition (rung ≤ 1): interleave three same-skill variants — the ear path
   // (listen:choice, audio in), the reverse direction (choice:reverse, English in →
   // pick the Japanese), and the plain eye path (choice, glyph in → pick the meaning).
@@ -41,8 +47,6 @@ export function reviewStepFor(item) {
   // through A1 so no JP keyboard is needed, kana required from A2 (see checkProduce)
   // — interleaved with building the word from tiles.
   if (rung === 3) {
-    // A tagged verb with a target form is a conjugation drill — always conjugate.
-    if (shouldConjugate(item)) return { kind: "conjugate" };
     if (isTraceable(item)) return { kind: "trace" };
     // Reassemble the whole example sentence (production in context) for a share of
     // eligible vocab; else type the Japanese, else build the word from tiles.
