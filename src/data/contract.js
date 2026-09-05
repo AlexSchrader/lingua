@@ -37,7 +37,15 @@ const LOCKED_STUB_KEYS = new Set(["id", "title", "locked"]);
 // `group` (verb class) + `conjForm` (target form) are optional tags on verb items
 // that power the conjugate card. group is usually stamped at seed time from
 // verb-groups.js, but is allowed here so A2 drill units may author it explicitly.
-const ITEM_KEYS = new Set(["id", "type", "front", "reading", "meaning", "example", "accept", "hint", "group", "conjForm"]);
+// `drill` (optional) is a SHORT practice sentence, separate from `example`.
+// example teaches — it can be long, subordinate, B2-complex, and it should be.
+// drill is the same sentence content cut to something the engine can take apart:
+// 3-8 whitespace tokens, no sentence-internal punctuation, and the item's own
+// front inside it. That is exactly what canCloze and canSentence require, so a
+// drill turns cloze:choice and sentence:build from "36-63% of items, depending on
+// how their example happened to be written" into universal cards. Same { jp, en }
+// shape as example (the `jp` key is historical — it holds the target language).
+const ITEM_KEYS = new Set(["id", "type", "front", "reading", "meaning", "example", "accept", "hint", "group", "conjForm", "drill"]);
 const UNIT_ID_RE = /^[a-z]{2}-u\d+$/;
 const LESSON_ID_RE = /^[a-z]{2}-u\d+l\d+$/;
 const ITEM_ID_RE = /^[a-z]{2}-u\d+l\d+-[a-z0-9]+$/;
@@ -165,6 +173,15 @@ export function validateContent(units, languages) {
 
           if (item.hint !== undefined && (typeof item.hint !== "string" || !item.hint.trim()))
             e(`item ${item.id}: hint must be a non-empty string if present`);
+
+          // drill (optional): the short practice sentence. Shape only here; the
+          // token-count and front-presence rules that make it USABLE by cloze and
+          // sentence:build are authoring rules, enforced in lint.js where an author
+          // gets them as a readable report rather than a build failure.
+          if (item.drill !== undefined) {
+            if (item.drill === null || typeof item.drill !== "object" || !item.drill.jp || !item.drill.en)
+              e(`item ${item.id}: drill must be { jp, en } with both non-empty when present`);
+          }
 
           // Conjugate-card tags (optional). group = verb class; conjForm = the target
           // form to produce. Both vocabularies are PER LANGUAGE: ja drills a form set
