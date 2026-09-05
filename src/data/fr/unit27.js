@@ -14,10 +14,27 @@
 // This is the Latin-script counterpart of Japanese's kana units. It is NOT a pre-a1 band
 // and it uses NO trace card — see CONTENT.md → "Script policy".
 //
-// EXEMPLAR WORDS: the examples show words for their SPELLING, not as vocabulary to
-// acquire — every one is glossed in English and every one is taught properly in the very
-// next unit (Salutations) or soon after. That's how phonics is taught everywhere; it is a
-// deliberate exception to the teach-before-use rule, not an oversight.
+// THE CARDS ARE REAL WORDS, NOT LETTERS. Rewritten 2026-09-05: l1 and l2 used to front
+// the graphemes themselves (front "é", meaning "é — the 'ay' sound"), which made the
+// meaning a DESCRIPTION rather than a translation. Two cards broke on that: type:meaning
+// asked the learner to type a definition, and type:produce showed a prompt that contained
+// its own answer. Every other language's sounds unit already does this correctly — es-u1
+// "Los sonidos" teaches la casa / la mesa / el libro, no-u1 "Lyder og bokstaver" teaches
+// å være / å lære / norsk — and RUNBOOK §4 requires it: the sounds unit uses real
+// vocabulary, not letter drills. So each card now fronts an everyday word that CARRIES the
+// sound, the meaning is an ordinary translation, and the sound explanation lives in the
+// hint, which is what a hint is for. l3 was already correct and is untouched.
+//
+// THE WORDS ARE CONSTRAINED BY THE UNIT'S POSITION. This unit runs first but was authored
+// last, so units 1–26 had already claimed almost every obvious exemplar — l'été, la mère,
+// la forêt, le garçon, le café, la fenêtre, la sœur, l'eau, trois, oui, la montagne and
+// la fille are all taught elsewhere, and front uniqueness is a hard error. The words below
+// are the A1 survivors of that search, each picked because its sound is the salient thing
+// about it. Do not swap one for a "better" word without re-running `npm run taught -- fr`.
+//
+// The EXAMPLE sentences still show words for their spelling rather than as vocabulary to
+// acquire — that is how phonics is taught everywhere, and it is a deliberate exception to
+// the teach-before-use rule, not an oversight.
 //
 // AUDIO: `listen:choice` and `listen:type` stay dark for French until `generate:audio`
 // runs, so today this teaches through written respellings ("é sounds like 'ay'") on the
@@ -37,15 +54,15 @@ export const FR_UNIT27 = {
       title: "The accents",
       cefr: "A1",
       dominantMode: "recognize",
-      canDo: "Know what the accents do to a sound: é è ê ç ô û œ.",
+      canDo: "Say seven everyday words and hear what each accent does to them: é è ê ç ô û œ.",
       items: [
-        { id: "fr-u27l1-eaigu", type: "vocab", front: "é", reading: "e", meaning: "é — the 'ay' sound", example: { jp: "le café", en: "the coffee — \"ka-FAY\"" }, accept: ["e acute", "acute e", "ay"], hint: "The accent is not decoration — it tells you the sound. é is a closed \"ay\", as in café. Without it, a final e is usually silent." },
-        { id: "fr-u27l1-egrave", type: "vocab", front: "è", reading: "e", meaning: "è — the open 'eh' sound", example: { jp: "très bien", en: "very good — \"treh bee-AN\"" }, accept: ["e grave", "grave e", "eh"], hint: "è is open, like the e in \"bed\". Compare café (ay) with très (eh) — one accent apart." },
-        { id: "fr-u27l1-ecirconflexe", type: "vocab", front: "ê", reading: "e", meaning: "ê — 'eh', and a missing s", example: { jp: "la fenêtre", en: "the window — \"fuh-NET-ruh\"" }, accept: ["e circumflex", "circumflex e"], hint: "The little hat usually marks a letter that fell out of the word centuries ago — often an s. hôtel was hostel, forêt was forest." },
-        { id: "fr-u27l1-cedille", type: "vocab", front: "ç", reading: "c", meaning: "ç — c said as 's'", example: { jp: "ça va", en: "how's it going — \"sa va\"" }, accept: ["c cedilla", "cedilla", "s sound"], hint: "c is hard before a/o/u (café = kaf). The cedilla forces it soft: ça = \"sa\", not \"ka\"." },
-        { id: "fr-u27l1-ocirconflexe", type: "vocab", front: "ô", reading: "o", meaning: "ô — a long 'oh'", example: { jp: "l'hôtel", en: "the hotel — \"oh-TEL\"" }, accept: ["o circumflex", "circumflex o"] },
-        { id: "fr-u27l1-ucirconflexe", type: "vocab", front: "û", reading: "u", meaning: "û — the tight 'u'", example: { jp: "bien sûr", en: "of course — \"bee-an SOOR\"" }, accept: ["u circumflex", "circumflex u"], hint: "French u has no English twin: round your lips for \"oo\" and say \"ee\" instead." },
-        { id: "fr-u27l1-oe", type: "vocab", front: "œ", reading: "oe", meaning: "œ — o and e fused", example: { jp: "la sœur", en: "the sister — \"surr\"" }, accept: ["oe", "o e ligature", "ligature"], hint: "One letter, not two. You can always type it as oe — sœur / soeur are both accepted here." },
+        { id: "fr-u27l1-eaigu", type: "vocab", front: "le bébé", reading: "lebebe", meaning: "baby", example: { jp: "Le bébé est très petit.", en: "The baby is very small — \"bay-BAY\"" }, drill: { jp: "Le bébé est très petit", en: "The baby is very small" }, accept: ["the baby", "baby"], hint: "Two é, two \"ay\" sounds: bébé is \"bay-BAY\". The accent is not decoration — it tells you the e is pronounced at all. A final e with no accent is usually silent." },
+        { id: "fr-u27l1-egrave", type: "vocab", front: "la crème", reading: "lacreme", meaning: "cream", example: { jp: "La crème est dans le café.", en: "The cream is in the coffee — \"krem\"" }, drill: { jp: "La crème est très bonne", en: "The cream is very good" }, accept: ["the cream", "cream"], hint: "è is open, like the e in \"bed\": crème is \"krem\". Compare it with é — bébé closes, crème opens. One accent apart." },
+        { id: "fr-u27l1-ecirconflexe", type: "vocab", front: "la crêpe", reading: "lacrepe", meaning: "pancake", example: { jp: "La crêpe est chaude.", en: "The pancake is hot — \"krep\"" }, drill: { jp: "La crêpe est très chaude", en: "The pancake is very hot" }, accept: ["a pancake", "the pancake", "crepe", "the crepe"], hint: "ê sounds like è — \"krep\". The little hat marks a letter that fell out of the word centuries ago, usually an s: crêpe was crespe, forêt was forest, hôtel was hostel." },
+        { id: "fr-u27l1-cedille", type: "vocab", front: "la leçon", reading: "lalecon", meaning: "lesson", example: { jp: "La leçon est facile.", en: "The lesson is easy — \"luh-SON\"" }, drill: { jp: "La leçon est très facile", en: "The lesson is very easy" }, accept: ["the lesson", "lesson"], hint: "c is hard before a, o and u — without the tail, leçon would be \"luh-KON\". The cedilla forces it soft: \"luh-SON\". Same job in ça and français." },
+        { id: "fr-u27l1-ocirconflexe", type: "vocab", front: "allô", reading: "allo", meaning: "hello (on the phone)", example: { jp: "Allô, c'est Marie.", en: "Hello, it's Marie — answering the phone" }, drill: { jp: "Allô c'est Marie", en: "Hello it's Marie" }, accept: ["hello", "hi"], hint: "ô is a long, closed \"oh\". Say allô only on the telephone — face to face it is always bonjour." },
+        { id: "fr-u27l1-ucirconflexe", type: "vocab", front: "la flûte", reading: "laflute", meaning: "flute", example: { jp: "La flûte est dans la boîte.", en: "The flute is in the box — \"flewt\"" }, drill: { jp: "La flûte est petite", en: "The flute is small" }, accept: ["the flute", "flute"], hint: "French u has no English twin: round your lips for \"oo\" and say \"ee\" instead. The hat does not change the sound, it just marks a lost letter — flûte was fleute." },
+        { id: "fr-u27l1-oe", type: "vocab", front: "l'œil", reading: "loeil", meaning: "eye", example: { jp: "L'œil du chat est vert.", en: "The cat's eye is green — \"luh-y\"" }, drill: { jp: "L'œil du chat est vert", en: "The cat's eye is green" }, accept: ["the eye", "eye"], hint: "œ is one letter, not two — and you can always type it as oe: œil and oeil are both accepted here. The plural is completely irregular: les yeux." },
       ],
     },
     {
@@ -55,15 +72,15 @@ export const FR_UNIT27 = {
       title: "Letters that team up",
       cefr: "A1",
       dominantMode: "recognize",
-      canDo: "Read the multi-letter sounds: eau, au, ai, oi, ui, gn, ill.",
+      canDo: "Read seven everyday words built on the multi-letter sounds: eau, au, ai, oi, ui, gn, ill.",
       items: [
-        { id: "fr-u27l2-eau", type: "vocab", front: "eau", reading: "eau", meaning: "eau — sounds like 'oh'", example: { jp: "l'eau", en: "the water — one syllable, \"oh\"" }, drill: { jp: "L'eau de la montagne", en: "The mountain water" }, accept: ["oh sound", "o sound"], hint: "Three letters, one sound, and not one of them is o-ish in English. l'eau is simply \"loh\"." },
-        { id: "fr-u27l2-au", type: "vocab", front: "au", reading: "au", meaning: "au — also 'oh'", example: { jp: "au revoir", en: "goodbye — \"oh ruh-VWAR\"" }, drill: { jp: "Au revoir et merci", en: "Goodbye and thank you" }, accept: ["oh sound"] },
-        { id: "fr-u27l2-ai", type: "vocab", front: "ai", reading: "ai", meaning: "ai — sounds like 'eh'", example: { jp: "j'ai faim", en: "I'm hungry — \"zhay fam\"" }, drill: { jp: "J'ai très faim", en: "I'm very hungry" }, accept: ["eh sound", "e sound"] },
-        { id: "fr-u27l2-oi", type: "vocab", front: "oi", reading: "oi", meaning: "oi — sounds like 'wah'", example: { jp: "trois", en: "three — \"trwah\"" }, accept: ["wah sound", "wa"], hint: "Always \"wah\", never \"oy\". moi = \"mwah\", trois = \"trwah\", voilà = \"vwah-la\"." },
-        { id: "fr-u27l2-ui", type: "vocab", front: "ui", reading: "ui", meaning: "ui — sounds like 'wee'", example: { jp: "oui", en: "yes — \"wee\"" }, accept: ["wee sound"] },
-        { id: "fr-u27l2-gn", type: "vocab", front: "gn", reading: "gn", meaning: "gn — sounds like 'ny'", example: { jp: "la montagne", en: "the mountain — \"mon-TAN-yuh\"" }, accept: ["ny sound"], hint: "The same sound as Spanish ñ or the ni in \"onion\"." },
-        { id: "fr-u27l2-ill", type: "vocab", front: "ill", reading: "ill", meaning: "ill — sounds like 'ee-y'", example: { jp: "la fille", en: "the girl — \"fee-y\"" }, accept: ["y sound", "ee y"], hint: "Not \"ill\" as in English. la fille is \"fee-y\", la famille is \"fa-MEE-y\"." },
+        { id: "fr-u27l2-eau", type: "vocab", front: "la peau", reading: "lapeau", meaning: "skin", example: { jp: "La peau du bébé est douce.", en: "The baby's skin is soft — \"poh\"" }, drill: { jp: "La peau du bébé est douce", en: "The baby's skin is soft" }, accept: ["the skin", "skin"], hint: "Three letters, one sound, and not one of them is o-ish in English: eau is simply \"oh\", so peau is \"poh\"." },
+        { id: "fr-u27l2-au", type: "vocab", front: "haut", reading: "haut", meaning: "high", example: { jp: "L'arbre est très haut.", en: "The tree is very high — said \"oh\"" }, drill: { jp: "L'arbre est très haut", en: "The tree is very high" }, accept: ["tall", "high up"], hint: "au is the same \"oh\" as eau. And haut hides a silent letter at each end — the h says nothing and the t says nothing, so the whole word is just \"oh\"." },
+        { id: "fr-u27l2-ai", type: "vocab", front: "la fraise", reading: "lafraise", meaning: "strawberry", example: { jp: "La fraise est rouge.", en: "The strawberry is red — \"frez\"" }, drill: { jp: "La fraise est très rouge", en: "The strawberry is very red" }, accept: ["the strawberry", "strawberry"], hint: "ai is the open \"eh\" of è, never \"ay\": fraise is \"frez\", j'ai is \"zhay\" only because of the j." },
+        { id: "fr-u27l2-oi", type: "vocab", front: "la poire", reading: "lapoire", meaning: "pear", example: { jp: "La poire est sur la table.", en: "The pear is on the table — \"pwahr\"" }, drill: { jp: "La poire est très bonne", en: "The pear is very good" }, accept: ["the pear", "pear"], hint: "oi is always \"wah\", never \"oy\": poire is \"pwahr\", moi is \"mwah\", trois is \"trwah\"." },
+        { id: "fr-u27l2-ui", type: "vocab", front: "la truite", reading: "latruite", meaning: "trout", example: { jp: "La truite est dans la rivière.", en: "The trout is in the river — \"trweet\"" }, drill: { jp: "La truite est dans l'eau", en: "The trout is in the water" }, accept: ["the trout", "trout"], hint: "ui is one quick glide, \"wee\": truite is \"trweet\". Same team as nuit and huit." },
+        { id: "fr-u27l2-gn", type: "vocab", front: "l'oignon", reading: "loignon", meaning: "onion", example: { jp: "L'oignon est dans la soupe.", en: "The onion is in the soup — \"oh-NYON\"" }, drill: { jp: "L'oignon est dans la soupe", en: "The onion is in the soup" }, accept: ["the onion", "onion"], hint: "gn is the \"ny\" of Spanish ñ, or the ni in English \"onion\". This word also carries an i that says nothing at all: \"oh-NYON\"." },
+        { id: "fr-u27l2-ill", type: "vocab", front: "le papillon", reading: "lepapillon", meaning: "butterfly", example: { jp: "Le papillon est jaune.", en: "The butterfly is yellow — \"pa-pee-YON\"" }, drill: { jp: "Le papillon est jaune", en: "The butterfly is yellow" }, accept: ["the butterfly", "butterfly"], hint: "ill is \"ee-y\", not the English \"ill\": papillon is \"pa-pee-YON\" and fille is \"fee-y\"." },
       ],
     },
     {
