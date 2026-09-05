@@ -74,6 +74,7 @@ Snapshot 2026-09-05: **480 words** across **20 authored unit(s)**, **0 slot(s) s
 - `das Gemüse` — u6 · vegetables
 - `das Gepäck` — u18 · the luggage
 - `das Geschäft` — u17 · the shop
+- `das Gewitter` — u8 · thunderstorm
 - `das Haus` — u7 · house
 - `das Hemd` — u17 · the shirt
 - `das Hotel` — u7 · hotel
@@ -160,6 +161,7 @@ Snapshot 2026-09-05: **480 words** across **20 authored unit(s)**, **0 slot(s) s
 - `der Montag` — u9 · Monday
 - `der Mund` — u11 · mouth
 - `der Name` — u3 · name
+- `der Nebel` — u8 · fog
 - `der November` — u9 · November
 - `der Oktober` — u9 · October
 - `der Onkel` — u4 · uncle
@@ -402,7 +404,6 @@ Snapshot 2026-09-05: **480 words** across **20 authored unit(s)**, **0 slot(s) s
 - `orange` — u8 · orange (colour)
 - `passen` — u17 · to fit
 - `rechts` — u7 · right
-- `regnen` — u8 · to rain
 - `richtig` — u19 · correct
 - `rosa` — u8 · pink
 - `rot` — u8 · red
@@ -412,7 +413,6 @@ Snapshot 2026-09-05: **480 words** across **20 authored unit(s)**, **0 slot(s) s
 - `schlafen` — u20 · to sleep
 - `schlecht` — u2 · bad / badly
 - `schmutzig` — u10 · dirty
-- `schneien` — u8 · to snow
 - `schnell` — u1 · fast
 - `schön` — u1 · beautiful
 - `schreiben` — u19 · to write
@@ -516,7 +516,7 @@ Snapshot 2026-09-05: **480 words** across **20 authored unit(s)**, **0 slot(s) s
 
 **u7 · Die Stadt** (24) — `die Stadt`, `das Haus`, `die Wohnung`, `der Bahnhof`, `der Markt`, `der Platz`, `das Restaurant`, `das Hotel`, `die Bank`, `die Post`, `das Museum`, `der Park`, `gehen`, `fahren`, `links`, `rechts`, `geradeaus`, `weit`, `dort`, `der Weg`, `die Karte`, `finden`, `suchen`, `nah`
 
-**u8 · Farben und Wetter** (24) — `rot`, `blau`, `gelb`, `grün`, `schwarz`, `weiß`, `braun`, `grau`, `rosa`, `orange`, `die Farbe`, `bunt`, `das Wetter`, `die Sonne`, `der Regen`, `regnen`, `der Schnee`, `schneien`, `der Wind`, `die Wolke`, `kalt`, `warm`, `heiß`, `der Himmel`
+**u8 · Farben und Wetter** (24) — `rot`, `blau`, `gelb`, `grün`, `schwarz`, `weiß`, `braun`, `grau`, `rosa`, `orange`, `die Farbe`, `bunt`, `das Wetter`, `die Sonne`, `der Regen`, `der Nebel`, `der Schnee`, `das Gewitter`, `der Wind`, `die Wolke`, `kalt`, `warm`, `heiß`, `der Himmel`
 
 **u9 · Tage, Monate und Jahreszeiten** (24) — `der Montag`, `der Dienstag`, `der Mittwoch`, `der Donnerstag`, `der Freitag`, `der Samstag`, `der Sonntag`, `der Monat`, `der Januar`, `der Februar`, `der März`, `der April`, `der Mai`, `der Juni`, `der Juli`, `der August`, `der September`, `der Oktober`, `der November`, `der Dezember`, `der Frühling`, `der Sommer`, `der Herbst`, `der Winter`
 
