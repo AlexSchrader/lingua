@@ -12,7 +12,7 @@ import { AUDIO_IDS } from "../data/audioManifest.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { newCard } from "./srs.js";
 import { conjugateIn } from "./conjugate.js";
-import { shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak, shouldCloze, shouldParticleCloze, canParticleCloze, shouldSentence, canBuildReading } from "./cardRouting.js";
+import { earCrowdedOut, shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, isTraceable, shouldSpeak, shouldCloze, shouldParticleCloze, canParticleCloze, shouldSentence, canBuildReading } from "./cardRouting.js";
 
 // The unlock code. Intentionally in the bundle — see note above.
 export const DEV_CODE = "L071201";
@@ -108,13 +108,25 @@ export const QUICK_CARD_COUNT = 3; // examples seeded per Quick-card kind
 function kindSpec(kind) {
   switch (kind) {
     case "listen:choice": return { rung: 1, pick: (it) => it.type === "vocab" && shouldListen(it) };
-    case "choice:reverse": return { rung: 1, pick: (it) => it.type === "vocab" && !shouldListen(it) && shouldReverseChoice(it) };
-    case "choice":        return { rung: 1, pick: (it) => it.type === "vocab" && !shouldListen(it) && !shouldReverseChoice(it) };
+    // earCrowdedOut was added to the rung-1 chain AHEAD of the reverse branch, so an
+    // item that takes its only ear card here is a listen:choice, not a reverse. Without
+    // this exclusion the reverse preview served listening cards in all three languages.
+    case "choice:reverse": return { rung: 1, pick: (it) => it.type === "vocab" && !shouldListen(it) && !earCrowdedOut(it) && shouldReverseChoice(it) };
+    case "choice":        return { rung: 1, pick: (it) => it.type === "vocab" && !shouldListen(it) && !earCrowdedOut(it) && !shouldReverseChoice(it) };
     case "particle:choice": return { rung: 2, pick: (it) => shouldParticleCloze(it) };
     case "cloze:choice":  return { rung: 2, pick: (it) => shouldCloze(it) && !canParticleCloze(it) };
-    case "listen:type":   return { rung: 2, pick: (it) => shouldListenType(it) };
+    // Rung 2 resolves particle -> cloze -> dictation, so picking on shouldListenType
+    // ALONE hands back an item that clozes and the preview renders a cloze card. That
+    // is what `?card=listen:type&lang=es` did: Spanish's first matches all clozed, so
+    // the dictation preview was unreachable in es while fr worked by luck. Exclude the
+    // two branches that outrank it, the same way cloze:choice already excludes particle.
+    case "listen:type":   return { rung: 2, pick: (it) => shouldListenType(it) && !shouldParticleCloze(it) && !shouldCloze(it) };
     case "type:reading":  return { rung: 2, pick: (it) => shouldTypeReading(it) };
-    case "type:meaning":  return { rung: 2, pick: (it) => it.type === "vocab" && !shouldParticleCloze(it) && !shouldCloze(it) && !shouldListenType(it) && !shouldTypeReading(it) };
+    // NOT vocab-only: the runner's rung-2 fallback has no type guard, and in Japanese
+    // EVERY vocab item is claimed by particle/cloze/dictation/reading before it can
+    // reach the meaning card — so a vocab-only pick found nothing and the Type preview
+    // was dead in ja. kana/kanji are what actually route here; preview what ships.
+    case "type:meaning":  return { rung: 2, pick: (it) => !shouldParticleCloze(it) && !shouldCloze(it) && !shouldListenType(it) && !shouldTypeReading(it) };
     case "type:produce":  return { rung: 3, pick: (it) => shouldTypeProduce(it) };
     case "sentence:build": return { rung: 3, pick: (it) => shouldSentence(it) };
     // conjugate is language-shaped and handled in buildCardPreviewItems: ja picks a
