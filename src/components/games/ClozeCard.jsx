@@ -3,7 +3,7 @@ import { C, F } from "../../theme.js";
 import { buildOptions } from "../../store/distractors.js";
 import { deriveGrade } from "../../store/grading.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
-import { blankExample, blankParticle, particleChoices, usesFunctionWords } from "../../store/cardRouting.js";
+import { practice, blankExample, blankParticle, particleChoices, usesFunctionWords } from "../../store/cardRouting.js";
 import { isJapaneseItem } from "../../store/itemLang.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 
@@ -73,7 +73,7 @@ export default function ClozeCard({ item, allItems, onGraded, particle = false }
           textAlign: "center",
         }}
       >
-        <div style={{ fontSize: 14, color: C.inkSoft }}>{item.example?.en}</div>
+        <div style={{ fontSize: 14, color: C.inkSoft }}>{practice(item)?.en}</div>
         <div style={{ fontFamily: tokenFont, fontSize: 28, fontWeight: 500, lineHeight: 1.5 }}>{blanked}</div>
       </div>
 

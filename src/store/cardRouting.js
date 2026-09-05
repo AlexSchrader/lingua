@@ -175,10 +175,26 @@ function findWholeWord(hay, needle) {
   }
 }
 
+// --- which sentence the in-context cards work on ----------------------------
+// `example` teaches; `drill` is the short second sentence authored so the engine can
+// take it apart (3-8 tokens, no internal punctuation, the front present — see
+// CONTENT.md). Every card that BLANKS, TOKENIZES or ANCHORS INTO a sentence must read
+// the same one, so they all go through here.
+//
+// ALL SIX call sites move together, and the particle pair is not optional even though
+// Japanese has no drills: particleAfterFront takes its index from findFrontInExample
+// and then slices the sentence itself. If the finder returns an offset into the drill
+// while the slice reads the example, it cuts the wrong string at the wrong position —
+// a mis-blanked particle, not a no-op. There is no half-migrated state that is safe.
+//
+// The CARDS render the gloss from the same accessor too (ClozeCard, SentenceCard), or
+// the learner reads one sentence with a blank in it captioned by a different sentence.
+export const practice = (item) => item?.drill ?? item?.example;
+
 // Where the item's own front sits inside its example — the anchor every in-context
 // card is built on. ja: exact substring. Latin: whole-word, case-insensitive.
 export function findFrontInExample(item) {
-  const jp = item?.example?.jp ?? "";
+  const jp = practice(item)?.jp ?? "";
   const front = item?.front ?? "";
   if (!jp || !front) return null;
   if (!isLatin(item)) {
@@ -212,7 +228,7 @@ export function canCloze(item) {
     !!item &&
     item.type === "vocab" &&
     [...(item.front ?? "")].length >= 2 &&
-    !!item.example?.jp &&
+    !!practice(item)?.jp &&
     !!findFrontInExample(item)
   );
 }
@@ -221,7 +237,7 @@ export function canCloze(item) {
 // Pure string op — never touches state. Returns the sentence unchanged if the
 // front isn't present (guarded by canCloze upstream).
 export function blankExample(item) {
-  const jp = item?.example?.jp ?? "";
+  const jp = practice(item)?.jp ?? "";
   const found = findFrontInExample(item);
   return !found ? jp : jp.slice(0, found.index) + CLOZE_BLANK + jp.slice(found.index + found.length);
 }
@@ -321,7 +337,7 @@ function shuffleParticles(arr) {
 // can't mis-blank a particle-looking kana inside a word (は in はな). Excludes the
 // copula です/でした (its で is not the particle で).
 export function particleAfterFront(item) {
-  const jp = item?.example?.jp ?? "";
+  const jp = practice(item)?.jp ?? "";
   const found = findFrontInExample(item);
   if (!found) return null;
   const i = found.index + found.length;
@@ -352,7 +368,7 @@ export function canParticleCloze(item) {
 
 // example.jp with the anchored particle replaced by the blank.
 export function blankParticle(item) {
-  const jp = item?.example?.jp ?? "";
+  const jp = practice(item)?.jp ?? "";
   const found = particleAfterFront(item);
   if (!found) return jp;
   return jp.slice(0, found.index) + CLOZE_BLANK + jp.slice(found.index + found.particle.length);
@@ -389,7 +405,7 @@ export function shouldParticleCloze(item) {
 export const SENTENCE_SHARE = 0.25;
 
 export function sentenceTokens(item) {
-  const jp = String(item?.example?.jp ?? "").replace(/\s*[。！？.!?]+\s*$/u, "");
+  const jp = String(practice(item)?.jp ?? "").replace(/\s*[。！？.!?]+\s*$/u, "");
   const front = item?.front ?? "";
   if (!front || !jp) return null;
 
