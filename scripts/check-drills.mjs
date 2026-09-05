@@ -41,7 +41,16 @@ for (const i of items) {
     for (const s of ["en", "et", "a", "er", "ene", "ne", "e"]) add(bare + s, i.u);
     for (const s of ["a", "en", "er", "ene"]) add(bare.replace(/e$/, s), i.u);
     add(bare.replace(/el$/, "ler"), i.u);
-  } else { add(bare + "t", i.u); add(bare + "e", i.u); }
+  } else {
+    // adjective/adverb: neuter -t, plural/definite -e, and the COMPARATIVE and
+    // SUPERLATIVE, which are inflections of a taught word exactly as the present
+    // tense is. Without these, "dyrere" (from dyr) reads as untaught.
+    add(bare + "t", i.u); add(bare + "e", i.u);
+    add(bare + "ere", i.u); add(bare + "est", i.u); add(bare + "este", i.u);
+    add(bare.replace(/e$/, "ere"), i.u); add(bare.replace(/e$/, "est"), i.u);
+    const IRR_CMP = { stor: ["større", "størst"], liten: ["mindre", "minst"], god: ["bedre", "best"], gammel: ["eldre", "eldst"], ung: ["yngre", "yngst"], lang: ["lengre", "lengst"], mange: ["flere", "flest"], mye: ["mer", "mest"], vond: ["verre", "verst"] };
+    (IRR_CMP[bare] || []).forEach((f) => add(f, i.u));
+  }
 }
 
 // --- the real router rules ---
@@ -76,6 +85,14 @@ function check(item) {
     if (at === undefined) bad.push(`"${w}" is taught NOWHERE`);
     else if (at > item.u) bad.push(`"${w}" first taught u${at}, used at u${item.u}`);
   }
+  // Adjective agreement: an adjective front is the BASE (common-gender) form, so a
+  // neuter subject would need -t — but the front must appear verbatim, so the drill
+  // must not put a neuter subject in front of it. Cheap structural catch for the one
+  // agreement error a verbatim-front rule makes easy to write.
+  const isAdj = !/^(en |ei |et |å )/.test(item.front) && !/^[A-ZÆØÅ]/.test(item.front);
+  const neuter = jp.match(/^\s*et\s+\S+\s+er\s+(\S+?)[.,!?]?\s*$/i);
+  if (isAdj && neuter && neuter[1].toLowerCase() === item.front.toLowerCase())
+    bad.push(`neuter subject + base adjective "${item.front}" — Norwegian needs -t here, which would break the verbatim front`);
   if (String(d.jp) === String(item.example?.jp)) bad.push("drill duplicates example (no gain)");
   if (notes.length) NOTES.push(`  · ${item.id.padEnd(24)} ${notes.join(" | ")}`);
   return bad;
