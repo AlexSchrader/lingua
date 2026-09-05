@@ -36,10 +36,12 @@ for (const t of TENSES) for (const p of PERSONS) LATIN_FORMS.push(`${t}-${p}`);
 const PERSON_LABEL = {
   es: { "1s": "yo", "2s": "tú", "3s": "él/ella", "1p": "nosotros", "2p": "vosotros", "3p": "ellos" },
   fr: { "1s": "je", "2s": "tu", "3s": "il/elle", "1p": "nous", "2p": "vous", "3p": "ils/elles" },
+  no: { "1s": "jeg", "2s": "du", "3s": "han/hun", "1p": "vi", "2p": "dere", "3p": "de" },
 };
 const TENSE_LABEL = {
   es: { pres: "presente", imperf: "imperfecto", fut: "futuro" },
   fr: { pres: "présent", imperf: "imparfait", fut: "futur" },
+  no: { pres: "presens", imperf: "preteritum", fut: "futurum" },
 };
 
 // "futuro · ellos" — what the card prints above the input.
@@ -243,7 +245,56 @@ function conjugateFr(inf, form) {
   return stem + FR_ENDINGS[tense][cls][i];
 }
 
-const ENGINES = { es: conjugateEs, fr: conjugateFr };
+// ── Norwegian (Bokmål) ───────────────────────────────────────────────────────
+// Norwegian does not conjugate for PERSON at all: the present is the infinitive stem
+// plus -r, identical for jeg/du/han/vi/dere/de. That is not a simplification, it is
+// the language — and it is why one taught form is the whole present tense, and why
+// headwords are authored as `å snakke` (the å-infinitive) rather than a finite form.
+//
+// So `pres-1s` … `pres-3p` all return the same string, deliberately. A learner meeting
+// six identical answers has learnt the actual rule.
+//
+// The other two tenses are NOT implemented and must return null rather than a guess:
+//   - preterite is class-based (snakket / kjøpte / gikk) and cannot be derived from the
+//     infinitive without a class tag or a table, which is a content decision;
+//   - the future is periphrastic — `skal`/`vil` + infinitive — so it is a sentence
+//     pattern, not a suffix, and does not belong in a single-word produce card.
+// null is read by the router as "don't show this card", so an unimplemented tense
+// degrades to the normal cards instead of teaching an invented form.
+// The present is person-invariant but NOT exception-free. The modals and a handful of
+// high-frequency verbs change the stem, and `være` — certainly in A1 — is the one that
+// matters most: stem+r would produce "værer" for a verb whose present is `er`. Tabled
+// by infinitive, exactly as the Spanish and French irregulars are.
+const NO_PRES_IRREGULAR = {
+  være: "er",       // to be — the rule would give "værer"
+  gjøre: "gjør",    // to do
+  si: "sier",       // to say
+  vite: "vet",      // to know
+  spørre: "spør",   // to ask
+  kunne: "kan",     // can        — the modals, all stem-changing
+  skulle: "skal",   // shall/will
+  ville: "vil",     // want to
+  måtte: "må",      // must
+  burde: "bør",     // ought to
+};
+
+function conjugateNo(inf, form) {
+  const [tense, person] = String(form).split("-");
+  if (idx(person) < 0 || !TENSES.includes(tense)) return null;
+  if (tense !== "pres") return null;
+
+  // Accept the headword with or without the infinitive marker: content authors
+  // `å snakke`, but the bare infinitive must work too.
+  const bare = inf.replace(/^å\s+/, "").trim();
+  if (!bare || /\s/.test(bare)) return null;
+  // A Norwegian infinitive ends in a vowel (nearly always -e); a consonant-final word
+  // is not one, and guessing would produce forms like "husr".
+  if (!/[aeiouyæøå]$/.test(bare)) return null;
+  if (NO_PRES_IRREGULAR[bare]) return NO_PRES_IRREGULAR[bare];
+  return bare + "r";
+}
+
+const ENGINES = { es: conjugateEs, fr: conjugateFr, no: conjugateNo };
 
 export const LATIN_LANGS = Object.keys(ENGINES);
 
@@ -253,12 +304,21 @@ export const LATIN_LANGS = Object.keys(ENGINES);
 export const LATIN_VERB_GROUPS = {
   es: ["ar", "er", "ir", "irregular"],
   fr: ["er", "ir", "re", "irregular"],
+  // Norwegian has verb CLASSES for the preterite, but the present — the only tense
+  // implemented — takes no class at all, so there is nothing an author could usefully
+  // assert yet. `irregular` is kept so the tag never errors if content carries one.
+  no: ["irregular"],
 };
 
 export function conjugateLatin(lang, infinitive, _group, form) {
   const engine = ENGINES[lang];
   if (!engine || typeof infinitive !== "string" || !infinitive) return null;
-  const inf = infinitive.trim().toLowerCase();
+  // Strip the Norwegian infinitive marker BEFORE the phrase guard. Norwegian headwords
+  // are authored `å snakke` — the å is the infinitive marker, not a second word — so
+  // the guard below would otherwise reject every Norwegian verb as "a phrase". Scoped
+  // to `no`: a leading "å " means nothing in Spanish or French.
+  let inf = infinitive.trim().toLowerCase();
+  if (lang === "no") inf = inf.replace(/^å\s+/, "");
   if (/\s/.test(inf)) return null; // a phrase, not a verb — never guess
   try {
     return engine(inf, form) || null;

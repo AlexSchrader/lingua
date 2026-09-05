@@ -119,3 +119,52 @@ test("ja still routes through the Japanese engine", () => {
   // No lang given at all = ja, which is what every existing caller passed.
   assert.equal(conjugateIn(undefined, "のみます", "godan", "te"), "のんで");
 });
+
+// ── Norwegian ────────────────────────────────────────────────────────────────
+// Before this, LATIN_LANGS was ['es','fr'], so conjFormsFor("no") handed back the
+// JAPANESE form set (te/nai/potential) and blocked no-u13 outright.
+test("no: conjFormsFor returns the Latin set, not the Japanese one", () => {
+  assert.ok(conjFormsFor("no").includes("pres-1s"));
+  assert.ok(!conjFormsFor("no").includes("te"), "a ja form is not a valid no form");
+});
+
+test("no: the present is person-invariant — that IS the rule, not a shortcut", () => {
+  // Norwegian does not conjugate for person: jeg/du/han/vi/dere/de all take one form.
+  const forms = PERSONS.map((p) => conjugateIn("no", "å snakke", null, `pres-${p}`));
+  assert.deepEqual(forms, Array(6).fill("snakker"));
+  assert.deepEqual(PERSONS.map((p) => conjugateIn("no", "å være", null, `pres-${p}`)), Array(6).fill("er"));
+});
+
+test("no: the å-infinitive marker is stripped, and a bare infinitive works too", () => {
+  // Headwords are authored "å snakke". The shared phrase guard would otherwise reject
+  // every Norwegian verb as "a phrase, not a verb" on the space.
+  assert.equal(conjugateIn("no", "å snakke", null, "pres-1s"), "snakker");
+  assert.equal(conjugateIn("no", "snakke", null, "pres-1s"), "snakker");
+  // ...and the marker means nothing elsewhere, so it must not be stripped there.
+  assert.equal(conjugateIn("fr", "å parler", null, "pres-1s"), null);
+});
+
+test("no: the irregular presents are tabled, not regularised", () => {
+  // stem+r would give "værer", "gjører", "kanne" — the trap this table exists for.
+  for (const [inf, expected] of [
+    ["å være", "er"], ["å gjøre", "gjør"], ["å si", "sier"], ["å vite", "vet"],
+    ["å spørre", "spør"], ["å kunne", "kan"], ["å skulle", "skal"],
+    ["å ville", "vil"], ["å måtte", "må"], ["å burde", "bør"],
+  ]) assert.equal(conjugateIn("no", inf, null, "pres-1s"), expected, inf);
+  // ...while the regulars still take the plain rule.
+  for (const [inf, expected] of [["å snakke", "snakker"], ["å bo", "bor"], ["å gå", "går"], ["å kjøpe", "kjøper"]])
+    assert.equal(conjugateIn("no", inf, null, "pres-1s"), expected, inf);
+});
+
+test("no: preterite and future return null rather than a guess", () => {
+  // Preterite is class-based (snakket/kjøpte/gikk) and the future is periphrastic
+  // (skal/vil + infinitive) — a sentence pattern, not a suffix. null means the router
+  // shows a different card instead of teaching an invented form.
+  for (const form of ["imperf-1s", "imperf-3p", "fut-1s", "fut-3p"])
+    assert.equal(conjugateIn("no", "å snakke", null, form), null, form);
+});
+
+test("no: a noun is not a verb", () => {
+  for (const w of ["hus", "et brød", "å hus", "bok"])
+    assert.equal(conjugateIn("no", w, null, "pres-1s"), null, w);
+});

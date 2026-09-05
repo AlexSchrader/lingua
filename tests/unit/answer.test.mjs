@@ -191,3 +191,20 @@ test("gradeSpoken: uses optional kana spelling for a kanji-front word", () => {
   assert.equal(gradeSpoken("ねこ", neko), "good");
   assert.equal(gradeSpoken("いぬ", neko), "again");
 });
+
+test("normalizeReading folds ø — it is a letter, not an o with a diacritic", () => {
+  // NFD does not decompose ø, so the combining-mark strip cannot touch it. Without the
+  // explicit fold the typed real word FAILS while the ASCII misspelling passes:
+  // Norwegian readings are authored "brod", so "Et brød" was rejected and "et brod"
+  // accepted — 29 live cards' worth. (å needs nothing; NFD does decompose it.)
+  assert.equal(normalizeReading("brød", "no"), "brod");
+  assert.equal(normalizeReading("Et brød", "no"), "etbrod");
+  assert.equal(normalizeReading("å snakke", "no"), "asnakke");
+  assert.equal(normalizeReading("være", "no"), "vaere");
+  // The typed real word and the authored ASCII reading must converge.
+  assert.equal(normalizeReading("brød", "no"), normalizeReading("brod", "no"));
+  // French is untouched by the new rule.
+  assert.equal(normalizeReading("sœur", "fr"), "soeur");
+  assert.equal(normalizeReading("Ça va", "fr"), "cava");
+  assert.equal(normalizeReading("s'il vous plaît", "fr"), "silvousplait");
+});
