@@ -31,7 +31,9 @@ export function reconstructItems(overlay = {}) {
   const out = {};
   for (const [id, fresh] of Object.entries(seed)) {
     const p = overlay?.[id];
-    out[id] = p ? { ...fresh, rung: p.rung ?? 0, srs: p.srs ?? fresh.srs } : fresh;
+    out[id] = p
+      ? { ...fresh, rung: p.rung ?? 0, srs: p.srs ?? fresh.srs, passes: p.passes, passLog: p.passLog }
+      : fresh;
   }
   return out;
 }
@@ -157,6 +159,30 @@ export function pruneStartedLanguages(profile, hasContent = langHasContent, hasP
   // language it took would lose it again on the next reload — which is precisely
   // how the 2026-07-31 regression became erosive rather than one-off.
   return { ...profile, languages: kept, activeLang, languagesChosen: true };
+}
+
+// --- mastery passes ---------------------------------------------------------
+// A pass is one CORRECT answer on one card kind. Mastery counts these; nothing else
+// does. Two rules keep them honest:
+//
+//   ONLY CORRECT ANSWERS COUNT. A wrong answer has its own consequences (rung, FSRS)
+//   and does not decrement — practice must be safe to attempt.
+//
+//   AT MOST FOUR A DAY PER ITEM. One scheduled review plus three practice runs. That
+//   is Alex's cap and it is what stops a word being drilled to mastery in one sitting.
+//   Tracked per item per day, so it survives a reload — an in-memory counter would
+//   reset and hand out unlimited passes.
+export const PASSES_PER_DAY = 4;
+
+function recordPass(item, kind, day) {
+  if (!kind) return item;
+  const log = item.passLog?.date === day ? item.passLog : { date: day, n: 0 };
+  if (log.n >= PASSES_PER_DAY) return item; // capped for today
+  return {
+    ...item,
+    passes: { ...(item.passes ?? {}), [kind]: (item.passes?.[kind] ?? 0) + 1 },
+    passLog: { date: day, n: log.n + 1 },
+  };
 }
 
 const XP_BY_GRADE = { again: 2, hard: 5, good: 10, easy: 15 };
@@ -441,7 +467,9 @@ export const useStore = create(
           const items = {};
           for (const [id, fresh] of Object.entries(seed)) {
             const p = prev[id];
-            items[id] = p ? { ...fresh, rung: p.rung ?? 0, srs: p.srs ?? fresh.srs } : fresh;
+            items[id] = p
+              ? { ...fresh, rung: p.rung ?? 0, srs: p.srs ?? fresh.srs, passes: p.passes, passLog: p.passLog }
+              : fresh;
           }
           let daily = s.daily;
           if (daily.date !== todayISO()) {
@@ -529,10 +557,13 @@ export const useStore = create(
 
       // Grade a single item: reschedule via SRS, advance/hold/drop its rung,
       // and award XP. Persisted.
-      gradeItem: (id, grade) => {
+      // `kind` is the card that was shown — the runner passes it so mastery can
+      // credit the right skill. Optional so older callers keep working.
+      gradeItem: (id, grade, kind = null) => {
         set((s) => {
-          const item = s.items[id];
+          let item = s.items[id];
           if (!item) return s;
+          if (grade === "good" || grade === "easy") item = recordPass(item, kind, todayISO());
           const srs = schedule(item.srs, grade);
           const rung = nextRung(item, grade);
           const gain = XP_BY_GRADE[grade] ?? 0;
@@ -747,6 +778,22 @@ export const useStore = create(
       disableDevMode: () => set({ devMode: false }),
 
       // Dev/testing helper: wipe all persisted progress back to seed.
+      // PRACTICE. Counts toward mastery and touches NOTHING else — no srs, no rung,
+      // no daily goal, no streak. That is the load-bearing property: a word drilled
+      // four times a day would otherwise have its FSRS interval collapse, destroying
+      // the retention model that sits beside this one. The 4/day cap is shared with
+      // the scheduled review, so practice can supply at most three of them.
+      practiceItem: (id, kind, grade) => {
+        if (grade !== "good" && grade !== "easy") return;
+        set((s) => {
+          const item = s.items[id];
+          if (!item) return s;
+          const next = recordPass(item, kind, todayISO());
+          if (next === item) return s; // capped today — nothing to write
+          return { items: { ...s.items, [id]: next }, lastModified: Date.now() };
+        });
+      },
+
       resetAll: () => {
         // resetAt + lastModified are what make this survive a reopen. Without the
         // receipt the sync guards read the wiped device as a fresh/torn one and pull

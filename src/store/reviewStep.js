@@ -8,23 +8,77 @@
 // which is exactly how a whole hash quartile went uncovered without a test noticing.
 // Pure, no React, so a test can run it over the entire corpus.
 import {
-  isLatin, earCrowdedOut, isTraceable, shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate, canBuildReading } from "./cardRouting.js";
+  isLatin, earCrowdedOut, isTraceable, shouldListen, shouldReverseChoice, shouldListenType,
+  shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze,
+  shouldSentence, shouldConjugate, canBuildReading, eligibleKinds,
+} from "./cardRouting.js";
+
+// --- rotation within a stage ------------------------------------------------
+// The dispatcher below is DETERMINISTIC: same item, same rung, same card, forever.
+// That was fine when variety came from climbing rungs, and it is fatal to mastery,
+// which needs 15 correct passes on EVERY eligible kind — an item that only ever shows
+// one card per stage can never finish the others. So each stage now offers its
+// candidates and the item takes the one it has practised LEAST.
+//
+// Thinnest-skill-first, not random: drilling a word fills the gap you actually have,
+// and the order is stable for a given pass count, so it is testable. Ties fall back to
+// the stage's own priority order, which is why the candidate lists below are written in
+// the same order the old if-chain used — behaviour for an item with no passes yet is
+// unchanged.
+function leastPractised(item, candidates) {
+  if (!candidates.length) return null;
+  const passes = item?.passes ?? {};
+  const count = (k) => Number(passes[k]) || 0;
+  const min = Math.min(...candidates.map(count));
+  const tied = candidates.filter((k) => count(k) === min);
+  // ALL TIED means no evidence yet — almost always a fresh item, since every kind
+  // starts at zero. Rotation has nothing to go on there, and picking the first
+  // candidate would make one card kind the only one the whole corpus ever shows until
+  // it has been practised (that is how choice:reverse and listen:choice each vanished
+  // from the coverage smoke in turn). So we hand back null and let the legacy
+  // hash-gated chain decide, exactly as it did before rotation existed.
+  //
+  // Rotation takes over the moment the counts differ — which is as soon as the learner
+  // answers anything, and is the only state where "least practised" means something.
+  if (tied.length === candidates.length) return null;
+  return tied[0];
+}
+
+// Which of a stage's cards this item can actually be asked, in priority order.
+function stageCandidates(item, rung) {
+  const can = new Set(eligibleKinds(item));
+  const keep = (...ks) => ks.filter((k) => can.has(k));
+  if (rung <= 1) return keep("listen:choice", "choice:reverse", "choice");
+  if (rung === 2) return keep("particle:choice", "cloze:choice", "listen:type", "type:reading", "type:meaning");
+  if (rung === 3) return keep("conjugate", "trace", "sentence:build", "type:produce", "build");
+  return keep("speak", "trace", "build");
+}
+
+// Kinds are named as the mastery counter names them; the runner speaks {kind, mode}.
+function asStep(kind) {
+  if (kind === "type:meaning") return { kind: "type", mode: "meaning" };
+  if (kind === "type:reading") return { kind: "type", mode: "reading" };
+  if (kind === "type:produce") return { kind: "type", mode: "produce" };
+  return { kind };
+}
 
 export function reviewStepFor(item) {
   const rung = item.rung ?? 1;
-  // A tagged conjugation item is a drill at EVERY rung, not just rung 3. Its front is
-  // the INFINITIVE (that is what the engine conjugates from), so the six persons of a
-  // tense are six items all reading "être" — identical prompts with different answers,
-  // and only the conjugate card shows which form is being asked for. At any other rung
-  // they drew choice / type:meaning / speak, which are unanswerable once tagged.
-  // ...but ONLY where the front is ambiguous, which is a Latin problem, not a
-  // Japanese one. ja/unit45 tags one form per verb, so its 24 items have 24 distinct
-  // fronts and the generic cards are perfectly answerable — hoisting there would just
-  // strip them of the ear path for nothing (caught by the never-heard ratchet).
+  // A tagged Latin conjugation item is a drill at every rung: its front is the shared
+  // infinitive, so the generic cards cannot say which form is being asked for.
   if (rung >= 1 && isLatin(item) && shouldConjugate(item)) return { kind: "conjugate" };
-  // Recognition (rung ≤ 1): interleave three same-skill variants — the ear path
-  // (listen:choice, audio in), the reverse direction (choice:reverse, English in →
-  // pick the Japanese), and the plain eye path (choice, glyph in → pick the meaning).
+
+  // Rotation. The old dispatcher was deterministic per (item, rung) — one card per
+  // stage, forever — which mastery cannot finish, because it needs passes on EVERY
+  // eligible kind. Each stage now offers its candidates and the item takes the one it
+  // has practised least. With no passes yet, ties resolve to the stage's own priority
+  // order, so a fresh item routes exactly as it did before.
+  const pick = leastPractised(item, stageCandidates(item, rung));
+  if (pick) return asStep(pick);
+
+  // No evidence to rotate on yet — the original hash-gated chain, unchanged. It is what
+  // gives a fresh item its interleaved variety, so nothing about a learner's first pass
+  // through a word has changed.
   if (rung <= 1) {
     if (shouldListen(item)) return { kind: "listen:choice" };
     // This item's only chance to hear the word (see earCrowdedOut): its hash is above

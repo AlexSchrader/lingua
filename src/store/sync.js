@@ -32,7 +32,20 @@ export function slimItems(items = {}) {
   const out = {};
   for (const id in items) {
     const it = items[id];
-    if ((it?.rung ?? 0) > 0) out[id] = { rung: it.rung, srs: it.srs };
+    // `passes` and `passLog` ride along with rung/srs: mastery is counted evidence, so
+    // dropping them from the overlay would reset every learner's bar on reload and hand
+    // back four fresh passes a day on every device. The touched-only rule still holds —
+    // an untouched item has neither.
+    const touched = (it?.rung ?? 0) > 0 || !!it?.passes;
+    if (!touched) continue;
+    const slim = { rung: it.rung ?? 0, srs: it.srs };
+    // Only when present — an item with no passes must not carry two undefined keys
+    // into the blob (noise in every payload, and it changes the persisted shape for
+    // every learner who has never practised).
+    if (it.passes) slim.passes = it.passes;
+    if (it.passLog) slim.passLog = it.passLog;
+    if (it.seeded != null) slim.seeded = it.seeded;
+    out[id] = slim;
   }
   return out;
 }

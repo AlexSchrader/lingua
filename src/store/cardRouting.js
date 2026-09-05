@@ -16,7 +16,7 @@ export function hasAudio(item) {
 
 // Deterministic 0..1 from the item id — stable within a session and trivially
 // testable (no Math.random, so the coverage fixture reliably hits listen:choice).
-function hash01(id) {
+export function hash01(id) {
   let h = 0;
   for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
   return (h % 1000) / 1000;
@@ -495,6 +495,34 @@ export function shouldConjugate(item) {
 // with real edges (accent and space tiles), so it's logged rather than assumed.
 export function canBuildReading(item) {
   return isJapaneseItem(item);
+}
+
+
+// --- eligibility: which cards can fairly ask about this item -----------------
+// WELL-POSEDNESS, never the hash. Two different questions share the share gates:
+// "can this card be a fair question for this word" (a content question - canCloze,
+// canSentence, hasAudio) and "should it come up today" (a hash share, for variety).
+// Mastery requires the FIRST. If it used the hash, a coin flip on the item id would
+// decide whether mastering a word includes spelling it: type:produce covers ~50% of
+// items by hash and 100% by well-posedness.
+//
+// Relative to the item, always - kana cannot speak, Latin script has no trace, only a
+// tagged verb conjugates. A fixed list would make half the corpus unmasterable.
+export function eligibleKinds(item) {
+  if (!item) return [];
+  const out = ["choice", "type:meaning"]; // no gate - every item can be asked these
+  const vocab = item.type === "vocab";
+  if (vocab && !!item.meaning) out.push("choice:reverse");
+  if (vocab) out.push("type:produce", "speak");
+  if (hasAudio(item)) out.push("listen:choice", "listen:type");
+  if (vocab && isJapaneseItem(item)) out.push("type:reading");
+  if (canCloze(item)) out.push("cloze:choice");
+  if (canParticleCloze(item)) out.push("particle:choice");
+  if (canSentence(item)) out.push("sentence:build");
+  if (canBuildReading(item)) out.push("build");
+  if (isTraceable(item)) out.push("trace");
+  if (shouldConjugate(item)) out.push("conjugate");
+  return out;
 }
 
 // --- spoken production (say it aloud) ----------------------------------------

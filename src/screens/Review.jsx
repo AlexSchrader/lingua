@@ -177,7 +177,10 @@ export default function Review() {
     // would-be rung without depending on gradeItem's async write.
     const after = nextRung(item, grade);
     if (after > (item.rung ?? 1)) (after >= MAX_RUNG ? sfxMastered : sfxRungUp)();
-    gradeItem(item.id, grade);
+    // Tell the store WHICH card this was, so mastery credits the right skill.
+    // kindKey is computed below in the same body and is assigned by the time this
+    // closure runs (it fires on an answer, after render).
+    gradeItem(item.id, grade, kindKey);
     setIdx((i) => i + 1);
   };
   const kindKey = step.kind === "type" ? `type:${step.mode}` : step.kind;
