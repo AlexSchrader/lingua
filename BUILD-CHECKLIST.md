@@ -345,6 +345,90 @@ A whole-app scan. Surfaced one **mission-level tension** (R17/R18/R30 — the da
 
 **Baseline (2026-06-30, updated):** validate 0 err / 0 warn · lint 0 err / **1 advisory** (`ja-u16l6` 3 word cards, recommend 5–8 — yōon-tail, expected) · audit clean (**21 units / 93 lessons / 729 items / 0 dup ids**) · **55/55 unit tests** · build green. Tree is healthy. *(Note: this session the tree grew 20→21 units mid-run — `unit21.js` ぶんぽう・3 synced in via OneDrive while I worked. See P2 below.)*
 
+### CLOSED — reset/sync verified by Alex on a real device (2026-09-05)
+
+**Alex: "Reset works."** The one item in the 100-commit release that no automated environment could reach is confirmed working against live Supabase. Closed.
+
+- **Verified:** sign in -> reset -> the account-attached path. Alex ran it on a real signed-in device, which is the only place `AUTH_ENABLED` is true.
+- **Not separately confirmed:** the double-reset RACE (reset again without waiting for the toast, force-close inside a second). Recorded as unknown rather than assumed — if Alex only exercised the settled path, the race is still untested. Not a blocker; the receipt is the thing that was at risk and it works.
+- The stop condition never fired: no report of "saved on this device" while signed in, which would have meant the account was not attached.
+
+**Original entry, kept for the record:**
+
+### DEFERRED BY ALEX — reset/sync verification (2026-09-02)
+
+**Shipped to prod unverified, knowingly.** `main` `9a3311b5` was pushed with the reset/sync fix never exercised against a live Supabase. Alex was told the risk twice and chose to ship and revisit — recorded so the decision is traceable and the item is not lost.
+
+- **What is unverified:** sign in -> load progress -> Settings -> Reset everything -> wait for "Progress reset — saved to your account" -> force-close -> reopen (must still be reset). Then the RACE: repeat WITHOUT waiting for the toast, force-close within a second, reopen.
+- **Stop condition:** if the toast ever reads "saved on this device" while signed in, the account is not attached — a different and worse bug.
+- **Why no automated test can cover it:** `App.jsx:32` sets `AUTH_ENABLED = supabase configured && !IS_WEBDRIVER`. Under Playwright it is false, so auth and onboarding never render; spoofing `navigator.webdriver` flips it true and the run lands on the login wall instead. **The same flag gates audio playback**, so no single automated run can have both app access and audio. Only a real signed-in device closes this.
+- **Blast radius if wrong:** real user progress — the one item among the 100 merged commits that touches persisted learner state.
+
+### QA pass before the four-branch merge + three new languages (2026-08-30)
+
+**Verdict: the merge is safe to run; the two real blockers are NOT merge problems.** Scratch branch `qa/merge-verify` (kept; worktree removed) carries the whole stack — 4 branches, then the 3 scaffolds — so every resolution below is inspectable.
+
+**JOB 1 — the merge works. ZERO conflicts across all four, including both files expected to collide.**
+
+- `chore/taught-words-tool` clean · `feat/engine-catchup` clean · `content/es-b2-backfill` clean · `fix/latin-card-variety` clean.
+- **`src/store/cardRouting.js` WAS a genuine 3-way** (latin-card-variety does not contain engine-catchup) and auto-merged because the branches touched **different regions**: engine-catchup swapped `isLatin`/`conjugate` for `isJapaneseItem`/`conjugateIn` and widened `FUNCTION_WORDS.fr` to 12; latin-card-variety rewrote the band comments and deleted `LISTEN_TYPE_SHARE`. **Both sides survive in the merged file — verified by marker, not assumed.** Neither side wins: they are orthogonal.
+- **`src/screens/Review.jsx` did NOT collide.** engine-catchup changes **0 lines** there; only latin-card-variety touches it (49 lines, extracting `reviewStepFor`). The expectation that these two collide is wrong.
+- `LISTEN_TYPE_SHARE` removal is clean — **zero dangling references** in `src/` or `tests/`. The dictation band is now `h >= READING_SHARE` (whole top half) instead of `[0.50, 0.75)`.
+- **FULL GATE ON THE MERGED RESULT — all green.** validate 467 units / 0 err · audit **es 3123 / fr 3111 / ja 5012**, 11,246 items, 0 dup ids, 0 issues · lint 0 err / 2,041 warn · **test:unit 313/313** · build clean · Playwright dev **39/39** · preview **37 pass + 2 skip**.
+
+**JOB 2 — every claim reproduces exactly, and the ratchets have teeth.**
+
+- `feat/engine-catchup`: **310/310** unit · smoke **39/39** · preview **37 + 2 skip** · audit **es 2084 / fr 3104 / ja 5012**. All four claims verified.
+- `fix/latin-card-variety`: **259/259** unit; single-kind and never-heard ratchets both pinned at **zero** for ja/fr/es, both pass.
+- **Teeth confirmed.** Commenting out `earCrowdedOut` (`src/store/reviewStep.js:24`) fails all three never-heard tests: **ja 887 · fr 483 · es 449** items own a clip no card ever plays. Restored; 8/8 green; branch left byte-clean.
+
+**JOB 4 — scaffolds validate, but they COLLIDE WITH EACH OTHER.**
+
+- **[P1] `de`, `no`, `pt` conflict pairwise on 3 files** — `src/data/index.js`, `src/data/companions.js`, `server/companions.js`. `de` merged clean only because it went first; `no` and `pt` each hit **3 conflicts**. The collisions are purely additive (each registers its own import, `UNITS` spread and companion entry on the same lines), so the resolution is **union, not a winner** — but it must be done by hand three times, and **a naive "keep both" silently swallows the `},` that closes the previous companion entry**, producing a syntax error reported ~24 lines later. I hit exactly that. Merge one at a time and run `node --check server/companions.js` after each.
+- After union resolution: **527 units, 6 companions (ja es fr de no pt), validate 0 err, 313/313, audit unchanged at 11,246 items.**
+- `npm run taught:words -- de|no|pt` **all succeed**. The resulting `TAUGHT-WORDS.md` diffs are **line-endings only** (LF→CRLF on Windows) — content identical, so the generator is idempotent. Not a defect.
+- **Onboarding gate: the fix is CORRECT AND NECESSARY — verified at the data level.** `itemCount()` returns **0 playable items** for de/no/pt and the picker gates `onClick` on `l.cards > 0`. The pre-fix logic (`UNITS.some(u => u.lang === id)`) returns **true** for all three scaffolds, so without this fix all three would have been pickable and would have booted into an empty language.
+- **[BLOCKED] The onboarding flow itself cannot be exercised here.** `App.jsx:32` sets `AUTH_ENABLED = supabase configured && !IS_WEBDRIVER`, putting the whole auth+onboarding block behind a flag that is FALSE under Playwright. Spoofing `navigator.webdriver` flips it true, and the app then demands a real Supabase login — the automated path lands on `<Auth />`. **The same flag also gates audio playback**, so no single automated run can have both app access and working audio.
+- **[P2] (Feature CC) No smoke test covers first-run onboarding at all** — all 16 fixtures seed `onboarded: true`. `App.jsx:104-108` already documents this as knowingly left to the QA lane.
+
+**JOB 3 — one verdict delivered, one blocked.**
+
+- **[BLOCKED — needs Alex] (a) The reset/sync fix is NOT verified.** It requires signing in against live Supabase on a real device; QA has no credentials and the headless environment disables auth by construction (above). The double-reset race and the "saved to your account" vs "saved on this device" receipt are both **unverified**. This is the highest-risk unverified item in the merge.
+- **(b) The new dictation cards — the cards are right; the PREVIEW TOOL is broken for one case.**
+  - fr `listen:choice` renders "Which one did you hear?" with four real glosses; fr `listen:type` renders "Type what you hear"; es `listen:choice` renders correctly. 
+  - **[P2] (Feature CC) `es listen:type` in Dev Mode renders a CLOZE card, not dictation** — "Which word completes the sentence? … ＿＿ es elegante." Reproduced **3/3**. Routing is fine (**1,177 es items DO route to listen:type**), so the bug is `cardPreviewRoute('listen:type','es')` seeding an item that does not route there. It matters because that preview is the exact tool for eyeballing this change.
+  - **Accent tolerance PASSES in both languages.** Twelve accented items sampled; every one grades correct **with and without** diacritics (`très`/`tres`, `el año`/`el ano`, `s'il vous plaît`, `el lápiz`). Worth knowing it is that permissive: stripping ñ means `el ano` is accepted for `el año`.
+  - **Audible quality remains unverified** — audio is suppressed under WebDriver by design, so "does the clip sound right" is still an ear check only Alex can do.
+
+**JOB 5 — the 2,041 warnings are about 2.5% real. Not a crisis, and not a reason to hold anything.**
+
+- **All 2,041 are Latin-only: es 1,451 / fr 588 / ja 0.** Japanese has 2 lesson-size advisories and zero teach-before-use. Whatever the checker does, ja does not trip it.
+- Random sample of 40 (deterministic seed), every flagged word classified against the full taught-token set: **36 false positives, 4 candidates.** Manual inspection killed 3 more — `sacar`→"saco", `s'insurger`→"insurgent", `soutenir`→"soutient" are conjugations of the item's own headword or of a word taught elsewhere.
+- **1 genuine defect in 40 = 2.5%.** `fr-u117l3-application` uses "doivent" and **`devoir` is taught nowhere in French** — verified against every fr front.
+- **Extrapolated: roughly 50 real teach-before-use defects corpus-wide.** A real Curriculum backlog, but small. The lint's own advisory line is accurate: morphology and cognates dominate, at roughly nine false alarms per real one.
+- **[P2] (Feature CC, cheap) The checker does not exempt the item's own headword.** Five of the 40 sampled warnings flag a conjugation of the very word the card teaches. Exempting `item.front`'s own inflections would strip a large slice of the noise for free and make the rest worth reading.
+
+
+### Companion voices + personas — RE-LOGGED after a branch-switch loss (2026-08-30)
+
+**These were logged once on the `integration/content-finish` working tree and LOST when that tree switched to `feat/engine-catchup` — they were uncommitted edits and no stash holds them.** Re-recorded here. The persona texts themselves survive verbatim at `scratchpad/{en,no,pt,de,it}-companion-persona.txt` (plus `en-...v1.txt`, the superseded draft).
+
+| lang | companion | voice id | in `server/companions.js` | persona | content |
+|---|---|---|---|---|---|
+| `ja` | Haruki | `YYufJjbyLSFHuWXzJAaG` | yes — QA verified match | yes | 5,012 |
+| `es` | Ignacio "Nacho" | `VAVdgocjyCDOemWqwpvZ` | yes — QA verified match | yes | 2,084 |
+| `fr` | Mathieu | `y7bvdjGvOKdLpEryP5tK` | yes — QA verified match | yes | 3,104 |
+| `en` | Alex | `TomNLPx3NfurhItcDWy6` | no | v2 | catalog entry uncommitted |
+| `no` | Erling | `CihXZiOX2fZ5Fu20W5jV` | scaffold branch | yes | 0 units |
+| `pt` | Tiago | `Uvj0CMxcRBHdwUgqIZHn` | scaffold branch | yes | 0 units |
+| `de` | Jonas | `YcSpjFW5geJmlrp9LrzF` | scaffold branch | yes | 0 units |
+| `it` | Gio (Giovanni) | `KKlfTZDDw3cL4IWoV36u` | no | yes | 0 units |
+
+- **All ja/es/fr ids QA-verified against the committed file — all three MATCH.**
+- **All five new personas pass the companion contract** ("never say or imply you are an AI"). The `en` v1 draft breached it by defining the companion as "the person who built Lingua"; v2 fixed exactly that and nothing else.
+- **Dialect constraints are CORPUS constraints and belong in the scaffold brief, not the voice config:** `pt` **European/Lisbon, explicitly not Brazilian**; `no` **Eastern/Oslo Bokmål-adjacent, explicitly not Bergen/rural**. `it` pins Romanesco **accent only** and self-limits, so standard Italian content will not contradict Gio. `de` and `en` pin no dialect.
+- **[P1] `en` still has no catalog entry on any branch** — `en`, `ht`, `ha` existed only in the `integration/content-finish` working tree (23 entries on disk vs 20 committed). **That tree has since switched branches. Those three catalog entries are likely lost too — confirm before relying on them.**
+
 ### App quality-test pass (2026-07-05) — ran the app, dev + preview builds
 
 **Verdict: functionally solid and visually clean; no blocking defects.** Ran after the branch→main push, so this is against the shipped tree.
