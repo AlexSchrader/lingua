@@ -336,6 +336,16 @@ A whole-app scan. Surfaced one **mission-level tension** (R17/R18/R30 — the da
 
 **Baseline (2026-06-30, updated):** validate 0 err / 0 warn · lint 0 err / **1 advisory** (`ja-u16l6` 3 word cards, recommend 5–8 — yōon-tail, expected) · audit clean (**21 units / 93 lessons / 729 items / 0 dup ids**) · **55/55 unit tests** · build green. Tree is healthy. *(Note: this session the tree grew 20→21 units mid-run — `unit21.js` ぶんぽう・3 synced in via OneDrive while I worked. See P2 below.)*
 
+### CLOSED — reset/sync verified by Alex on a real device (2026-09-05)
+
+**Alex: "Reset works."** The one item in the 100-commit release that no automated environment could reach is confirmed working against live Supabase. Closed.
+
+- **Verified:** sign in -> reset -> the account-attached path. Alex ran it on a real signed-in device, which is the only place `AUTH_ENABLED` is true.
+- **Not separately confirmed:** the double-reset RACE (reset again without waiting for the toast, force-close inside a second). Recorded as unknown rather than assumed — if Alex only exercised the settled path, the race is still untested. Not a blocker; the receipt is the thing that was at risk and it works.
+- The stop condition never fired: no report of "saved on this device" while signed in, which would have meant the account was not attached.
+
+**Original entry, kept for the record:**
+
 ### DEFERRED BY ALEX — reset/sync verification (2026-09-02)
 
 **Shipped to prod unverified, knowingly.** `main` `9a3311b5` was pushed with the reset/sync fix never exercised against a live Supabase. Alex was told the risk twice and chose to ship and revisit — recorded so the decision is traceable and the item is not lost.
