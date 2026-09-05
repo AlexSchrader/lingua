@@ -1,4 +1,4 @@
-# Build Brief — Language variants (one corpus, several voices)
+# Build Brief — Three English voices (one corpus, one picker)
 
 **Lane:** Feature CC (engine + server config + persist + the audio pipeline) — persist and schema touch, so **draft PR, Alex merges**; multi-PR.
 **Status:** 🟡 DESIGN — settled shape, not greenlit to build. Numbers below are measured against the shipped corpus, not estimated.
@@ -8,19 +8,19 @@
 
 ## 1. The model in one line
 
-**A variant changes the VOICE, never the corpus.** One set of items, several audio sets and several companions; the learner picks a variant when they start the language and never sees the others. Portuguese is the first consumer (**pt-BR / pt-PT**), English the second.
+**English is taught by one of three companions — American, British or Australian — and the learner picks which.** One set of items, three audio sets, three companions; the whole course runs in the chosen voice and the other two are hidden.
+
+**This is an English feature.** Every other language has one companion and therefore no picker — nothing to choose, nothing shown. The mechanism should not hardcode `"en"` (a language simply has a list of voices, and a list of one means no picker), but English is the only language getting more than one, and this brief is not a general variant system.
 
 ### Why this is scoped to voice, and why that matters
 
 Alex settled the expensive question on 2026-09-04: variants differ in voice, not content. The alternative — showing *"lift"* vs *"elevator"*, *"boot"* vs *"trunk"* — is **three parallel corpora** with a variant axis running through every card, every `accept[]`, and every teach-before-use check. This brief does not build that and should not be quietly grown into it.
 
-### Why Portuguese first, not English
+### Two Englishes, stated apart once so they stop being confused
 
-1. **Portuguese has crews running right now.** de/no/pt are the live scaffolds; a mechanism lands faster and gets exercised harder next to people actually authoring.
-2. **pt-BR vs pt-PT is a wider real split than en-US vs en-GB** — pronunciation, second-person address (*você* / *tu*), and gerund vs infinitive.
-3. **Portuguese has no spelling problem** (§5). English does, and it is the only content wrinkle that survives "voice only". Building the mechanism on the clean case first keeps the two apart, so the spelling convention is a decision about English rather than a constraint baked into the machinery.
+The app's **gloss English** is the language it explains *in* (`meaning`, `accept`, `example.en`). **Taught English** is the course this brief gives three voices to. They are different things; the gloss question is logged in `LANGUAGES.md` and has nothing to do with voices.
 
-**None of this is the "English needs a source language" argument, which is a different thing and does not belong in this brief.** Two separate Englishes get confused here, so state them apart once: the app's **gloss English** is the language it explains *in* (`meaning`, `accept`, `example.en`); **taught English** would be a course someone learns. The gloss question is real and already logged in `LANGUAGES.md`, and it has nothing to do with voices — the variant mechanism is indifferent to what language the glosses are written in. Do not let it gate this work.
+**The only place it touches this brief is scheduling:** the picker cannot be exercised end to end until English has authored content to hear. That is a fact about when this can be tested, not an argument about whether to build it — the build order in §6 starts with the pieces that are provable without content.
 
 ---
 
@@ -35,7 +35,7 @@ Current corpus: **10,200 clips / 180 MB** (ja 5,012 · fr 3,104 · es 2,084, ~18
 
 **The 3× is server-side only.** Clips are fetched on demand — the service-worker precache is ~5 MB and does not include audio — so a learner only ever pulls their own variant. The real costs are deploy weight, and one paid ElevenLabs generation run per variant.
 
-Two variants (pt) is +55 MB. Three (en) is +110 MB over a single voicing.
+English is the only language paying this: **+110 MB** over a single voicing. Nothing else in the catalog changes.
 
 ---
 
@@ -53,36 +53,38 @@ Two variants (pt) is +55 MB. Three (en) is +110 MB over a single voicing.
 
 ---
 
-## 4. The decision this rests on: is a variant a language, or a setting?
+## 4. The decision this rests on: is a voice a language, or a setting?
 
-**Recommendation: a SETTING on one language.** `pt` stays one catalog entry, one corpus, one Ladder, one set of progress; the variant is a preference attached to it.
+**Recommendation: a SETTING on one language.** `en` stays one catalog entry, one corpus, one Ladder, one set of progress; the voice is a preference attached to it.
 
-The alternative — `pt-BR` and `pt-PT` as separate `LANGUAGES[]` rows — looks tidy and is a trap:
-- item ids are prefixed by language (`fr-u1l1-bonjour`), so two rows means **two id spaces over identical content**, and the front-uniqueness check would not see them as duplicates;
-- a learner who switches variant would lose all progress, because progress is keyed per language;
-- `canAddLanguage` would count a variant switch as a second language;
-- every per-language number in the app (milestones, the Ladder, `authoringProgress`) would double-count one corpus.
+The alternative — `en-US`, `en-GB` and `en-AU` as three `LANGUAGES[]` rows — looks tidy and is a trap:
+- item ids are prefixed by language (`fr-u1l1-bonjour`), so three rows means **three id spaces over identical content**, and the front-uniqueness check would not see them as duplicates;
+- a learner who switched voice would lose all progress, because progress is keyed per language;
+- `canAddLanguage` would count a voice switch as starting a second language;
+- every per-language number in the app (milestones, the Ladder, `authoringProgress`) would triple-count one corpus;
+- and the catalog would show three Englishes to someone who wants to learn English once.
 
-As a setting, switching variant is what Alex described — the same course, a different voice — and progress is untouched by definition.
+As a setting, switching is what Alex described — the same course, a different voice — and progress is untouched by definition.
 
 ---
 
-## 5. The one content wrinkle, and it is English-only
+## 5. The one content wrinkle
 
 "Voice, not content" holds for accent. It does **not** hold for **spelling**: *colour/color*, *realise/realize*, *travelled/traveled* are orthography.
 
 A shared corpus must pick one `front` and carry the other in `accept[]`, or a British learner is marked wrong for writing British. The machinery already exists (`accept[]` is checked on every typed answer), but it has to be **decided per item at authoring time**, not discovered by a learner. It belongs in the English authoring conventions before a crew writes a unit.
 
-Portuguese and Spanish variants do not have this problem, which is the third reason to build on pt first.
+This is orthography, so it is the one part of "voice, not content" that is not free. It belongs in the English authoring conventions before a crew writes a unit — decided per item, never discovered by a learner.
 
 ---
 
 ## 6. Build order
 
-1. **The variant axis, on `pt` with a single variant.** Path, manifest, setting, companion lookup — no second voice generated yet, so nothing can regress and the diff is provable against existing behaviour.
-2. **Second Portuguese voice.** Alex creates the pt-PT agent; `generate:audio --lang=pt --variant=pt` runs; the picker appears at language start.
-3. **Switching**, including what happens mid-course (it should be free — same corpus, same progress).
-4. **English**, inheriting all of the above plus the spelling convention (§5). Three variants rather than two; otherwise identical.
+1. **The voice axis, with every language still at one voice.** Path, manifest, setting, companion lookup. Nothing visibly changes and no picker appears, so the diff is provable against existing behaviour on the corpus that exists today — this is the part that does not wait for English content.
+2. **The three English companions.** Alex creates the three ElevenLabs ConvAI agents (the human step, as it was for Mathieu); `server/companions.js` gains the three entries.
+3. **The picker**, shown only for a language with more than one voice — so English only, automatically, with no `"en"` in the condition.
+4. **Audio generation per voice** once there is English content to voice: `generate:audio --lang=en --voice=<variant>`, three runs.
+5. **Switching mid-course** — free by construction, since it is the same corpus and the same progress.
 
 ---
 
