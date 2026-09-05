@@ -106,8 +106,12 @@ test("a real localized title passes", () => {
 test("the real corpus still reports its authored languages as live", () => {
   assert.equal(isLive("ja"), true, "Japanese has authored content");
   assert.equal(isLive("fr"), true, "French has authored content");
+  // pt moved to the live side when its A1 block 1 was authored (u1-u7). A
+  // language belongs in the not-live list only while every one of its units is
+  // still a locked stub; de and no are there now and will move the same way.
+  assert.equal(isLive("pt"), true, "Portuguese has authored content");
   const authored = new Set(UNITS.map((u) => u.lang));
-  for (const lang of ["de", "it", "pt", "ko"])
+  for (const lang of ["de", "it", "ko"])
     assert.equal(isLive(lang), false, `${lang} has no units yet`);
-  assert.ok(authored.has("ja") && authored.has("fr"));
+  assert.ok(authored.has("ja") && authored.has("fr") && authored.has("pt"));
 });
