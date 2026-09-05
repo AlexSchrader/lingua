@@ -22,7 +22,12 @@ for (const n of UNITS.map((u) => u.order)) {
   let src = "";
   try { src = readFileSync(join(root, `src/data/no/unit${n}.js`), "utf8"); } catch { continue; }
   const m = src.match(/^\/\/\s*FREE:\s*(.+)$/m);
-  if (m) m[1].split(/[|,]/).map((s) => s.trim()).filter(Boolean).forEach((w) => FREE.add(w.toLowerCase()));
+  if (m) m[1].split(/[|,]/).map((s) => s.trim()).filter(Boolean).forEach((w) => {
+    const lw = w.toLowerCase(); FREE.add(lw);
+    // a FREE word inflects too: kafé -> kafeen, kafeer. Accent drops before the ending.
+    const stem = lw.normalize("NFD").replace(/[̀-ͯ]/g, "");
+    for (const suf of ["en", "et", "a", "er", "ene", "n"]) { FREE.add(lw + suf); FREE.add(stem + suf); }
+  });
 }
 
 // --- every surface form a taught front can produce, -> earliest unit ---
@@ -41,6 +46,11 @@ for (const i of items) {
     for (const s of ["en", "et", "a", "er", "ene", "ne", "e"]) add(bare + s, i.u);
     for (const s of ["a", "en", "er", "ene"]) add(bare.replace(/e$/, s), i.u);
     add(bare.replace(/el$/, "ler"), i.u);
+    // Short nouns double a final single consonant before an ending: rom -> rommet.
+    if (/^[^aeiouyæøå]*[aeiouyæøå][bdfglmnprtk]$/.test(bare)) {
+      const d = bare + bare.slice(-1);
+      for (const suf of ["et", "en", "er", "a", "ene"]) add(d + suf, i.u);
+    }
     const IRR_PL = { tann: ["tenner", "tennene"], bok: ["bøker", "bøkene"], hånd: ["hender", "hendene"],
       fot: ["føtter", "føttene"], bror: ["brødre", "brødrene"], søster: ["søstre", "søstrene"],
       datter: ["døtre", "døtrene"], mann: ["menn", "mennene"], natt: ["netter", "nettene"],
@@ -54,6 +64,7 @@ for (const i of items) {
     // Neuter -t collapses a final double consonant: grønn -> grønt, tynn -> tynt.
     add(bare.replace(/(nn|mm|ll|tt)$/, (mm) => mm[0] + "t"), i.u);
     add(bare + "ere", i.u); add(bare + "est", i.u); add(bare + "este", i.u);
+    add(bare + "er", i.u); add(bare + "ene", i.u); // bare-front nouns pluralise too
     add(bare.replace(/e$/, "ere"), i.u); add(bare.replace(/e$/, "est"), i.u);
     const IRR_ADJ = { liten: ["lita", "lite", "små", "lille"], gammel: ["gammelt", "gamle"], egen: ["eget", "egne", "egne"], annen: ["annet", "andre"], vakker: ["vakkert", "vakre"], sikker: ["sikkert", "sikre"], ny: ["nytt", "nye"], bra: ["bra"], fri: ["fritt", "frie"], blå: ["blått", "blå"], grå: ["grått", "grå"] };
     (IRR_ADJ[bare] || []).forEach((f) => add(f, i.u));
@@ -106,7 +117,13 @@ function check(item) {
   const neuter = jp.match(/^\s*et\s+\S+\s+er\s+(\S+?)[.,!?]?\s*$/i);
   if (isAdj && neuter && neuter[1].toLowerCase() === item.front.toLowerCase())
     bad.push(`neuter subject + base adjective "${item.front}" — Norwegian needs -t here, which would break the verbatim front`);
-  if (String(d.jp) === String(item.example?.jp)) bad.push("drill duplicates example (no gain)");
+  // Compare NORMALISED, not raw — the drill has no trailing period and the
+  // example does, so a raw compare can never match. This guard never fired.
+  const flat = (x) => String(x ?? "").replace(/\s*[。！？.!?]+\s*$/u, "").replace(/\s+/g, " ").trim().toLowerCase();
+  if (flat(d.jp) === flat(item.example?.jp)) bad.push("drill IS the example (no second context — the whole point of the field)");
+  // A bare å-frame ("Det er lett å prøve") reads as machine output. Norwegian
+  // wants a complement after the infinitive, exactly as English does.
+  if (/^det er \S+ å \S+$/i.test(jp)) bad.push("bare å-frame — the infinitive needs an object or complement");
   if (notes.length) NOTES.push(`  · ${item.id.padEnd(24)} ${notes.join(" | ")}`);
   return bad;
 }
