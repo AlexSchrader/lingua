@@ -1,7 +1,7 @@
 # FR — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- fr`.
-Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-06: **3111 words** across **133 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -45,6 +45,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `à l'inverse` — u60 · conversely
 - `à la faveur de` — u133 · under cover of
 - `à la fois` — u94 · at once
+- `à la limite` — u94 · at a push / if need be
 - `à la mode` — u93 · in fashion
 - `à long terme` — u69 · in the long term
 - `à même de` — u133 · able to
@@ -93,7 +94,6 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `agacé` — u64 · annoyed
 - `aggraver` — u67 · to make worse
 - `agréable` — u38 · pleasant
-- `ai` — u1 · ai — sounds like 'eh'
 - `aider` — u54 · to help
 - `aigu` — u85 · shrill
 - `ailleurs` — u51 · elsewhere
@@ -103,6 +103,9 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `aléatoire` — u105 · random
 - `aligner` — u90 · to line up
 - `alimenter` — u125 · to fuel
+- `aller` — u45 · I will go
+- `aller` — u46 · I used to go
+- `allô` — u1 · hello on the phone
 - `alors` — u22 · so
 - `alors même que` — u76 · even when
 - `altruiste` — u104 · altruistic
@@ -150,7 +153,6 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `atténuer` — u98 · to soften
 - `attester` — u96 · to attest
 - `attraper` — u54 · to catch
-- `au` — u1 · au — also 'oh'
 - `au cas où` — u89 · just in case
 - `au contraire` — u58 · on the contrary
 - `au demeurant` — u115 · for all that
@@ -200,6 +202,11 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `avéré` — u96 · confirmed
 - `avertir` — u86 · to warn
 - `aviver` — u125 · to rekindle
+- `avoir` — u45 · I will have
+- `avoir` — u45 · he will have
+- `avoir` — u45 · you will have
+- `avoir` — u46 · there was
+- `avoir` — u46 · I used to have
 - `avoir beau` — u133 · however much
 - `avoir du mal à` — u94 · to struggle to
 - `avoir l'air` — u38 · to seem
@@ -251,13 +258,11 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `briller` — u85 · to shine
 - `brusquement` — u89 · abruptly
 - `bruyant` — u55 · noisy
-- `ç` — u1 · ç — c said as 's'
 - `c'est` — u3 · it is
 - `c'est avec humilité que` — u116 · it is with humility that
 - `c'est dommage` — u80 · that's a shame
 - `c'est pourquoi` — u36 · that's why
 - `c'est-à-dire` — u36 · that is to say
-- `c'était` — u46 · it was
 - `ça` — u3 · that
 - `ça craint` — u79 · that sucks
 - `ça se dit` — u77 · people say that
@@ -531,15 +536,12 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `dur` — u87 · hard
 - `durable` — u72 · sustainable
 - `durer` — u53 · to last
-- `é` — u1 · é — the 'ay' sound
-- `è` — u1 · è — the open 'eh' sound
-- `ê` — u1 · ê — 'eh', and a missing s
-- `eau` — u1 · eau — sounds like 'oh'
 - `ébranler` — u118 · to shake
 - `échanger` — u54 · to exchange
 - `échouer` — u81 · to fail
 - `éclairer` — u85 · to light up
 - `économiser` — u34 · to save up
+- `écouter` — u46 · I used to listen
 - `écrouer` — u121 · to imprison
 - `édicter` — u117 · to enact, to issue (a rule)
 - `effectuer` — u63 · to carry out
@@ -550,7 +552,6 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `élégant` — u93 · smart
 - `elle a` — u10 · she has
 - `elle est` — u3 · she is
-- `elle viendra` — u45 · she will come
 - `elles` — u23 · they (feminine)
 - `éloquent` — u95 · eloquent
 - `élucider` — u124 · to clear up
@@ -639,6 +640,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `éplucher` — u92 · to peel
 - `équivalent` — u60 · equivalent
 - `escompter` — u118 · to expect
+- `espagnol` — u1 · Spanish
 - `espérer` — u49 · to hope
 - `essayer` — u49 · to try
 - `essentiel` — u83 · essential
@@ -655,6 +657,15 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `étayer` — u96 · to back up
 - `étoffer` — u118 · to flesh out, to develop
 - `étonné` — u64 · astonished
+- `être` — u45 · I will be
+- `être` — u45 · you will be
+- `être` — u45 · he will be
+- `être` — u45 · we will be
+- `être` — u45 · they will be
+- `être` — u46 · I was
+- `être` — u46 · it was
+- `être` — u46 · you were
+- `être` — u46 · we were
 - `être censé` — u68 · to be supposed to
 - `être connu` — u77 · to be known
 - `étroit` — u50 · narrow
@@ -690,6 +701,10 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `fade` — u92 · bland
 - `faim` — u10 · hunger
 - `faire` — u24 · to do
+- `faire` — u45 · I will do
+- `faire` — u45 · you will do
+- `faire` — u46 · I used to do
+- `faire` — u46 · you do
 - `faire attention` — u89 · to pay attention
 - `faire de son mieux` — u94 · to do one's best
 - `faire face à` — u67 · to face
@@ -711,6 +726,8 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `fiable` — u96 · reliable
 - `fier` — u29 · proud
 - `figuratif` — u103 · figurative
+- `finir` — u45 · I will finish
+- `finir` — u46 · we finish
 - `finir` — u53 · to finish
 - `fixer` — u85 · to stare at
 - `flagrant` — u119 · glaring
@@ -745,7 +762,6 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `gérer` — u63 · to manage
 - `glisser` — u84 · to slip
 - `global` — u97 · overall
-- `gn` — u1 · gn — sounds like 'ny'
 - `goûter` — u85 · to sample
 - `grâce à` — u36 · thanks to
 - `graduel` — u98 · gradual
@@ -758,7 +774,10 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `grimper` — u84 · to climb
 - `gronder` — u91 · to tell off
 - `guérir` — u32 · to get better
+- `habiter` — u46 · I used to live
+- `habiter` — u46 · they live
 - `habituel` — u70 · usual
+- `haut` — u1 · high
 - `hein` — u79 · eh?
 - `hésiter` — u49 · to hesitate
 - `heureusement` — u35 · luckily
@@ -774,7 +793,6 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `identique` — u55 · identical
 - `il a` — u10 · he has
 - `il arrive que` — u76 · it happens that
-- `il aura` — u45 · he will have
 - `il convient de` — u114 · it is appropriate to / one should
 - `il demande si` — u43 · he asks whether
 - `il dit que` — u43 · he says that
@@ -804,20 +822,14 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `il s'avère que` — u114 · it turns out that
 - `il s'ensuit que` — u114 · it follows that
 - `il se peut que` — u61 · it may be that
-- `il sera` — u45 · he will be
 - `il suffit de` — u77 · you just have to
 - `il va` — u23 · he goes
 - `il vaut mieux` — u44 · it's better to
 - `il vaut mieux que` — u76 · it's better that
 - `il vient` — u23 · he comes
 - `il y a` — u7 · there is
-- `il y avait` — u46 · there was
-- `ill` — u1 · ill — sounds like 'ee-y'
 - `ils` — u23 · they
-- `ils habitent` — u46 · they live
 - `ils ont` — u23 · they have
-- `ils prennent` — u46 · they take
-- `ils seront` — u45 · they will be
 - `ils sont` — u23 · they are
 - `imaginer` — u49 · to imagine
 - `imbriqué` — u97 · intertwined
@@ -870,23 +882,16 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `j'ai vu` — u24 · I saw
 - `j'aime` — u6 · I like
 - `j'aimerais` — u44 · I would like
-- `j'allais` — u46 · I used to go
 - `j'allume` — u40 · I turn on
 - `j'arrive` — u13 · I arrive
 - `j'attends` — u47 · I wait
-- `j'aurai` — u45 · I will have
-- `j'avais` — u46 · I used to have
-- `j'écoutais` — u46 · I used to listen
 - `j'écoute` — u10 · I listen
 - `j'écris` — u26 · I write
 - `j'envoie` — u40 · I send
 - `j'essaie` — u47 · I try
-- `j'étais` — u46 · I was
 - `j'éteins` — u40 · I turn off
 - `j'explique` — u47 · I explain
-- `j'habitais` — u46 · I used to live
 - `j'habite` — u10 · I live
-- `j'irai` — u45 · I will go
 - `j'ose espérer` — u116 · I venture to hope, I dare hope
 - `j'oublie` — u47 · I forget
 - `j'ouvre` — u23 · I open
@@ -914,23 +919,18 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `je dors` — u23 · I sleep
 - `je fais` — u10 · I make
 - `je fais réparer` — u77 · I'm having it repaired
-- `je faisais` — u46 · I used to do
-- `je ferai` — u45 · I will do
 - `je ferme` — u23 · I close
-- `je finirai` — u45 · I will finish
 - `je finis` — u13 · I finish
 - `je la connais` — u47 · I know her
 - `je le vois` — u47 · I see him
 - `je les prends` — u47 · I'll take them
 - `je leur donne` — u47 · I give them
 - `je lis` — u26 · I read
-- `je lisais` — u46 · I used to read
 - `je lui parle` — u47 · I speak to him
 - `je m'appelle` — u3 · my name is
 - `je m'entends bien avec` — u38 · I get along well with
 - `je m'habille` — u28 · I get dressed
 - `je mange` — u6 · I eat
-- `je mangerai` — u45 · I will eat
 - `je marche` — u20 · I walk
 - `je me brosse les dents` — u28 · I brush my teeth
 - `je me couche` — u13 · I go to bed
@@ -954,22 +954,14 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `je ne saurais` — u116 · I could not, I would not know how to
 - `je ne suis pas` — u22 · I am not
 - `je paie` — u12 · I pay
-- `je parlais` — u46 · I used to speak
 - `je parle` — u10 · I speak
-- `je parlerai` — u45 · I will speak
 - `je pars` — u13 · I leave
-- `je partirai` — u45 · I will leave
 - `je pense` — u25 · I think
 - `je peux` — u10 · I can
 - `je porte` — u17 · I wear
-- `je pourrai` — u45 · I will be able to
 - `je pourrais` — u44 · I could
-- `je pouvais` — u46 · I was able to
-- `je prenais` — u46 · I used to take
-- `je prendrai` — u45 · I will take
 - `je prends` — u20 · I take
 - `je recycle` — u41 · I recycle
-- `je regardais` — u46 · I used to watch
 - `je regarde` — u10 · I watch
 - `je rentre` — u13 · I come home
 - `je réponds` — u40 · I answer
@@ -978,9 +970,6 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `je reste à votre disposition` — u79 · I remain at your disposal
 - `je réussis à` — u44 · I manage to
 - `je sais` — u10 · I know
-- `je saurai` — u45 · I will know
-- `je savais` — u46 · I knew
-- `je serai` — u45 · I will be
 - `je sors` — u23 · I go out
 - `je suis` — u3 · I am
 - `je suis allé` — u24 · I went
@@ -994,19 +983,14 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `je suis venu` — u24 · I came
 - `je télécharge` — u40 · I download
 - `je tiens à` — u80 · I'd like to (insist)
-- `je travaillais` — u46 · I used to work
 - `je travaille` — u10 · I work
-- `je travaillerai` — u45 · I will work
 - `je trouve` — u19 · I find
 - `je vais` — u7 · I go
 - `je vais manger` — u24 · I'm going to eat
-- `je verrai` — u45 · I will see
 - `je veux` — u10 · I want
-- `je viendrai` — u45 · I will come
 - `je viens` — u23 · I come
 - `je vois` — u23 · I see
 - `je voudrais` — u6 · I would like
-- `je voulais` — u46 · I wanted
 - `je vous écoute` — u80 · I'm listening
 - `je vous en prie` — u80 · you're welcome
 - `je vous prie` — u79 · I beg you
@@ -1075,6 +1059,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `l'anthologie` — u128 · the anthology
 - `l'Antiquité` — u102 · Antiquity
 - `l'anxiété` — u74 · anxiety
+- `l'apparence` — u87 · the appearance
 - `l'appartement` — u18 · flat
 - `l'appartenance` — u75 · belonging
 - `l'application` — u40 · the app
@@ -1273,6 +1258,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `l'obstacle` — u67 · the obstacle
 - `l'occasion` — u82 · the opportunity
 - `l'odeur` — u85 · smell
+- `l'œil` — u1 · one eye
 - `l'œuf` — u21 · egg
 - `l'œuvre` — u103 · the work
 - `l'offre` — u100 · the offer
@@ -1383,6 +1369,8 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `la coutume` — u102 · the custom
 - `la couverture médiatique` — u111 · media coverage
 - `la crainte` — u64 · the fear
+- `la crème` — u1 · cream
+- `la crêpe` — u1 · pancake
 - `la crête` — u127 · the ridge
 - `la crise` — u62 · the crisis
 - `la critique` — u71 · the review
@@ -1453,6 +1441,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `la flambée` — u120 · the surge, the spike
 - `la fleur` — u14 · flower
 - `la fluidité` — u126 · smoothness
+- `la flûte` — u1 · flute
 - `la foi` — u65 · faith
 - `la fois` — u57 · time (occasion)
 - `la forêt` — u14 · forest
@@ -1460,6 +1449,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `la forme` — u52 · shape
 - `la fourchette` — u21 · fork
 - `la fracture` — u120 · the rift, the divide
+- `la fraise` — u1 · strawberry
 - `la France` — u26 · France
 - `la franchise` — u122 · frankness
 - `la frayeur` — u123 · fright
@@ -1497,6 +1487,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `la langue` — u48 · language
 - `la largeur` — u50 · width
 - `la lassitude` — u112 · weariness
+- `la leçon` — u1 · lesson
 - `la légende` — u102 · the legend
 - `la législation` — u99 · the legislation
 - `la lessive` — u28 · the laundry
@@ -1587,6 +1578,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `la pâtisserie` — u34 · cake shop
 - `la pause` — u53 · pause
 - `la pauvreté` — u73 · poverty
+- `la peau` — u1 · skin
 - `la pédagogie` — u110 · pedagogy, teaching method
 - `la peine` — u121 · the sentence
 - `la pensée` — u65 · the thought
@@ -1616,6 +1608,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `la poche` — u93 · pocket
 - `la poêle` — u92 · frying pan
 - `la poésie` — u103 · poetry
+- `la poire` — u1 · pear
 - `la polémique` — u95 · the controversy
 - `la politique` — u39 · politics
 - `la pollution` — u41 · pollution
@@ -1800,6 +1793,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `le balcon` — u37 · balcony
 - `le basculement` — u108 · the tipping, the shift
 - `le bateau` — u20 · boat
+- `le bébé` — u1 · baby
 - `le bénéfice` — u83 · the profit
 - `le besoin` — u82 · the need
 - `le béton` — u131 · the concrete
@@ -1807,6 +1801,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `le bien-être` — u74 · wellbeing
 - `le bien-fondé` — u120 · the validity
 - `le billet` — u20 · ticket
+- `le biscuit` — u1 · biscuit
 - `le blocage` — u67 · the deadlock
 - `le bois` — u41 · the wood
 - `le bonheur` — u64 · happiness
@@ -1976,6 +1971,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `le fleuve` — u127 · the river
 - `le flou` — u61 · the vagueness
 - `le fond` — u51 · the far end
+- `le fondement` — u78 · the basis / foundation
 - `le fossé` — u106 · the gap
 - `le four` — u37 · oven
 - `le fournisseur` — u100 · the supplier
@@ -2082,6 +2078,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `le panier` — u34 · basket
 - `le pantalon` — u17 · trousers
 - `le papier` — u26 · paper
+- `le papillon` — u1 · butterfly
 - `le paquet` — u54 · parcel
 - `le paradigme` — u97 · the paradigm
 - `le paradoxe` — u65 · the paradox
@@ -2284,6 +2281,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `le talent` — u82 · the talent
 - `le tapis` — u37 · rug
 - `le tas` — u90 · heap
+- `le taux` — u82 · the rate
 - `le taxi` — u20 · taxi
 - `le téléphone` — u26 · telephone
 - `le télescope` — u41 · the telescope
@@ -2311,6 +2309,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `le trouble` — u112 · inner turmoil
 - `le truc` — u52 · thingy
 - `le tuyau` — u131 · the pipe
+- `le vacarme` — u85 · the din / racket
 - `le vaccin` — u74 · the vaccine
 - `le vécu` — u70 · lived experience
 - `le vélo` — u20 · bicycle
@@ -2372,6 +2371,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `léser` — u125 · to wrong
 - `leur` — u27 · their
 - `licencier` — u63 · to lay off
+- `lire` — u46 · I used to read
 - `lisse` — u87 · smooth
 - `livrer` — u54 · to deliver
 - `logique` — u55 · logical
@@ -2397,6 +2397,8 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `malheureusement` — u35 · unfortunately
 - `mandater` — u117 · to mandate, to appoint/commission (to act)
 - `manger` — u24 · to eat
+- `manger` — u45 · I will eat
+- `manger` — u46 · we eat
 - `manifeste` — u119 · manifest
 - `manifestement` — u61 · obviously
 - `manipuler` — u95 · to manipulate
@@ -2484,18 +2486,13 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `nous` — u23 · we
 - `nous allons` — u23 · we go
 - `nous avons` — u23 · we have
-- `nous étions` — u46 · we were
-- `nous finissons` — u46 · we finish
-- `nous mangeons` — u46 · we eat
-- `nous parlerons` — u45 · we will speak
-- `nous serons` — u45 · we will be
 - `nous sommes` — u23 · we are
 - `nouveau` — u9 · new
 - `novembre` — u15 · November
+- `nuancer` — u81 · to qualify / add nuance to
 - `nuire` — u104 · to harm
 - `nuire à` — u118 · to harm
 - `nulle part` — u51 · nowhere
-- `ô` — u1 · ô — a long 'oh'
 - `obéir` — u91 · to obey
 - `objecter` — u129 · to object
 - `obligatoire` — u55 · compulsory
@@ -2504,17 +2501,14 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `obtenir` — u81 · to obtain
 - `occasionner` — u125 · to cause
 - `octobre` — u15 · October
-- `œ` — u1 · œ — o and e fused
 - `officiel` — u68 · official
 - `offrir` — u54 · to give (a gift)
-- `oi` — u1 · oi — sounds like 'wah'
 - `on` — u23 · we
 - `on dit que` — u77 · it is said that
 - `on ne saurait` — u115 · one cannot
 - `on pourrait` — u44 · we could
 - `on raconte que` — u77 · the story goes that
 - `on se tutoie` — u79 · shall we use tu?
-- `on verra` — u45 · we'll see
 - `onze` — u5 · eleven
 - `opaque` — u87 · not see-through
 - `opérationnel` — u107 · operational
@@ -2553,11 +2547,16 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `parfait` — u55 · perfect
 - `parfois` — u13 · sometimes
 - `parier` — u89 · to bet
+- `parler` — u45 · I will speak
+- `parler` — u45 · we will speak
+- `parler` — u46 · I used to speak
+- `parler` — u46 · you speak (plural)
 - `parmi` — u51 · among
 - `partager` — u54 · to share
 - `partant` — u114 · therefore / hence
 - `participer` — u81 · to take part
 - `partir` — u24 · to leave
+- `partir` — u45 · I will leave
 - `partout` — u35 · everywhere
 - `pas de` — u27 · no / not any
 - `pas du tout` — u22 · not at all
@@ -2620,6 +2619,8 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `pourtant` — u36 · however
 - `pourvu que` — u76 · as long as (hopefully)
 - `pousser` — u84 · to push
+- `pouvoir` — u45 · I will be able to
+- `pouvoir` — u46 · I was able to
 - `précaire` — u105 · precarious
 - `précédent` — u70 · previous
 - `précipiter` — u125 · to hasten
@@ -2627,6 +2628,9 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `préciser` — u129 · to specify
 - `préconiser` — u118 · to recommend
 - `préférer` — u49 · to prefer
+- `prendre` — u45 · I will take
+- `prendre` — u46 · I used to take
+- `prendre` — u46 · they take
 - `prendre son temps` — u94 · to take one's time
 - `préoccupant` — u119 · worrying
 - `préparer` — u69 · to prepare
@@ -2738,6 +2742,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `réfléchir` — u124 · to think over
 - `refuser` — u48 · to refuse
 - `réfuter` — u58 · to refute
+- `regarder` — u46 · I used to watch
 - `régir` — u97 · to govern
 - `régler` — u67 · to sort out
 - `regretter` — u70 · to regret
@@ -2846,6 +2851,8 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `sauf votre respect` — u116 · with all due respect
 - `sauter` — u84 · to jump
 - `sauvage` — u33 · wild
+- `savoir` — u45 · I will know
+- `savoir` — u46 · I knew
 - `se charger de` — u91 · to take on
 - `se comporter` — u91 · to behave
 - `se conformer` — u68 · to comply
@@ -2857,6 +2864,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `se faire` — u77 · to get (something done to you)
 - `se faire une raison` — u112 · to come to terms with it
 - `se garder de` — u118 · to refrain from
+- `se justifier` — u86 · to justify oneself
 - `se maquiller` — u93 · to put on make-up
 - `se méfier` — u89 · to be wary
 - `se pencher` — u84 · to lean over
@@ -3028,6 +3036,8 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `transformer` — u81 · to transform
 - `transmettre` — u102 · to pass on
 - `transparent` — u87 · see-through
+- `travailler` — u45 · I will work
+- `travailler` — u46 · I used to work
 - `trébucher` — u84 · to stumble
 - `treize` — u12 · thirteen
 - `tremper` — u88 · to dip
@@ -3040,14 +3050,9 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `troué` — u87 · full of holes
 - `tu as` — u10 · you have
 - `tu es` — u3 · you are
-- `tu étais` — u46 · you were
-- `tu feras` — u45 · you will do
 - `tu parles` — u10 · you speak
-- `tu seras` — u45 · you will be
 - `tu vas` — u23 · you go
 - `tutoyer` — u79 · to use tu with someone
-- `û` — u1 · û — the tight 'u'
-- `ui` — u1 · ui — sounds like 'wee'
 - `un` — u3 · a (masculine)
 - `un amalgame` — u111 · conflation (lumping together)
 - `un angle` — u111 · an angle (of a story)
@@ -3086,6 +3091,8 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `valoir la peine` — u94 · to be worth it
 - `vanter` — u95 · to praise
 - `vendredi` — u8 · Friday
+- `venir` — u45 · I will come
+- `venir` — u45 · she will come
 - `vérifier` — u96 · to check
 - `verser` — u88 · to pour
 - `vert` — u9 · green
@@ -3104,18 +3111,18 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 - `vite` — u20 · quickly
 - `voilà` — u3 · here it is
 - `voir` — u24 · to see
+- `voir` — u45 · I will see
+- `voir` — u45 · we'll see
 - `voire` — u78 · or even
 - `volontiers` — u80 · gladly
 - `voter` — u62 · to vote
 - `votre` — u27 · your (polite)
+- `vouloir` — u46 · I wanted
 - `vouloir bien` — u116 · to be so good as to, to kindly agree to
 - `vouloir dire` — u48 · to stand for
 - `vous` — u23 · you (polite)
-- `vous aurez` — u45 · you will have
 - `vous avez` — u23 · you have (polite)
 - `vous êtes` — u23 · you are (polite)
-- `vous faites` — u46 · you do
-- `vous parlez` — u46 · you speak (plural)
 - `vouvoyer` — u79 · to use vous with someone
 - `voyager` — u30 · to travel
 - `vrai` — u25 · true
@@ -3126,7 +3133,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 
 ## By unit — what each slot teaches
 
-**u1 · Les sons** (21) — `é`, `è`, `ê`, `ç`, `ô`, `û`, `œ`, `eau`, `au`, `ai`, `oi`, `ui`, `gn`, `ill`, `la consonne finale`, `le h muet`, `le e muet`, `l'élision`, `la liaison`, `l'accent aigu`, `l'accent grave`
+**u1 · Les sons** (21) — `le bébé`, `la crème`, `la crêpe`, `la leçon`, `allô`, `la flûte`, `l'œil`, `la peau`, `haut`, `la fraise`, `la poire`, `le biscuit`, `espagnol`, `le papillon`, `la consonne finale`, `le h muet`, `le e muet`, `l'élision`, `la liaison`, `l'accent aigu`, `l'accent grave`
 
 **u2 · Salutations** (20) — `bonjour`, `salut`, `bonsoir`, `au revoir`, `merci`, `oui`, `non`, `s'il vous plaît`, `pardon`, `excusez-moi`, `monsieur`, `madame`, `de rien`, `ça va`, `bien`, `très`, `et`, `aussi`, `moi`, `toi`
 
@@ -3214,9 +3221,9 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 
 **u44 · Un peu de grammaire · 3** (24) — `j'aimerais`, `je pourrais`, `ce serait`, `il faudrait`, `on pourrait`, `je devrais`, `je dois`, `il ne faut pas`, `il vaut mieux`, `je réussis à`, `je suis obligé de`, `je suis capable de`, `plus … que`, `moins … que`, `aussi … que`, `meilleur`, `aussi bien que`, `le même`, `le plus`, `le moins`, `le meilleur`, `le pire`, `autant de`, `de plus en plus`
 
-**u45 · Les verbes · 3** (24) — `je serai`, `tu seras`, `il sera`, `nous serons`, `j'aurai`, `il aura`, `je ferai`, `j'irai`, `je viendrai`, `je pourrai`, `je verrai`, `je saurai`, `je parlerai`, `je mangerai`, `je travaillerai`, `je finirai`, `je partirai`, `je prendrai`, `tu feras`, `nous parlerons`, `vous aurez`, `ils seront`, `elle viendra`, `on verra`
+**u45 · Les verbes · 3** (24) — `être`, `être`, `être`, `être`, `avoir`, `avoir`, `faire`, `aller`, `venir`, `pouvoir`, `voir`, `savoir`, `parler`, `manger`, `travailler`, `finir`, `partir`, `prendre`, `faire`, `parler`, `avoir`, `être`, `venir`, `voir`
 
-**u46 · Les verbes · 4** (24) — `j'étais`, `c'était`, `il y avait`, `j'avais`, `tu étais`, `nous étions`, `je faisais`, `j'allais`, `je parlais`, `j'habitais`, `je travaillais`, `je regardais`, `je voulais`, `je pouvais`, `je savais`, `je prenais`, `je lisais`, `j'écoutais`, `nous mangeons`, `vous parlez`, `ils habitent`, `nous finissons`, `ils prennent`, `vous faites`
+**u46 · Les verbes · 4** (24) — `être`, `être`, `avoir`, `avoir`, `être`, `être`, `faire`, `aller`, `parler`, `habiter`, `travailler`, `regarder`, `vouloir`, `pouvoir`, `savoir`, `prendre`, `lire`, `écouter`, `manger`, `parler`, `habiter`, `finir`, `prendre`, `faire`
 
 **u47 · Les petits mots** (24) — `je le vois`, `je la connais`, `je les prends`, `je lui parle`, `je leur donne`, `j'y vais`, `j'attends`, `je demande`, `j'explique`, `j'essaie`, `je change`, `j'oublie`, `la chose`, `la partie`, `le début`, `la fin`, `le côté`, `le fait`, `possible`, `impossible`, `utile`, `nécessaire`, `simple`, `sûr`
 
@@ -3280,25 +3287,25 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 
 **u77 · Un peu de grammaire · 5** (24) — `est construit`, `a été vendu`, `sont fabriqués`, `par`, `être connu`, `on dit que`, `faire faire`, `je fais réparer`, `permettre`, `obliger`, `empêcher`, `se faire`, `ça se dit`, `ça se fait`, `se trouver`, `il s'agit de`, `il reste`, `il manque`, `il paraît que`, `on raconte que`, `il suffit de`, `soi-disant`, `d'après`, `de source sûre`
 
-**u78 · Un peu de grammaire · 6** (23) — `l'augmentation`, `la diminution`, `le développement`, `la disparition`, `la construction`, `la mise en place`, `la notion`, `le concept`, `l'aspect`, `le cadre`, `le domaine`, `voire`, `en gros`, `dans l'ensemble`, `en quelque sorte`, `y compris`, `à vrai dire`, `d'une part`, `d'autre part`, `l'objectif`, `la méthode`, `la démarche`, `la procédure`
+**u78 · Un peu de grammaire · 6** (24) — `l'augmentation`, `la diminution`, `le développement`, `la disparition`, `la construction`, `la mise en place`, `la notion`, `le concept`, `l'aspect`, `le cadre`, `le domaine`, `le fondement`, `voire`, `en gros`, `dans l'ensemble`, `en quelque sorte`, `y compris`, `à vrai dire`, `d'une part`, `d'autre part`, `l'objectif`, `la méthode`, `la démarche`, `la procédure`
 
 **u79 · Tu ou vous** (24) — `tutoyer`, `vouvoyer`, `on se tutoie`, `s'il te plaît`, `pourriez-vous`, `puis-je`, `Madame, Monsieur`, `cordialement`, `bien à vous`, `je vous remercie`, `je reste à votre disposition`, `dans l'attente de votre réponse`, `ouais`, `un truc`, `le mec`, `carrément`, `ça craint`, `hein`, `ça te dit`, `ça vous dirait`, `à plus`, `coucou`, `veuillez`, `je vous prie`
 
 **u80 · La politesse** (24) — `je me permets de`, `je me demandais si`, `ce serait possible de`, `auriez-vous`, `n'hésitez pas à`, `je vous serais reconnaissant`, `je crains que`, `il me semble que`, `sauf erreur`, `je suis au regret de`, `je tiens à`, `c'est dommage`, `volontiers`, `avec plaisir`, `ravi de vous rencontrer`, `bonne réception`, `chers collègues`, `je vous en prie`, `excusez-moi de vous déranger`, `je suis désolé de`, `bref`, `ben`, `genre`, `je vous écoute`
 
-**u81 · Les verbes · 5** (23) — `considérer`, `supposer`, `définir`, `prouver`, `signifier`, `obtenir`, `atteindre`, `produire`, `organiser`, `installer`, `développer`, `transformer`, `réduire`, `résoudre`, `éviter`, `échouer`, `terminer`, `participer`, `discuter`, `conseiller`, `comparer`, `oser`, `servir`
+**u81 · Les verbes · 5** (24) — `considérer`, `supposer`, `définir`, `prouver`, `signifier`, `nuancer`, `obtenir`, `atteindre`, `produire`, `organiser`, `installer`, `développer`, `transformer`, `réduire`, `résoudre`, `éviter`, `échouer`, `terminer`, `participer`, `discuter`, `conseiller`, `comparer`, `oser`, `servir`
 
-**u82 · Les mots de l'argumentation** (23) — `l'exemple`, `la valeur`, `le niveau`, `l'ensemble`, `le genre`, `l'avantage`, `l'inconvénient`, `la décision`, `la responsabilité`, `la capacité`, `l'occasion`, `l'effort`, `le manque`, `le besoin`, `la tâche`, `le délai`, `le dossier`, `la chance`, `le hasard`, `le talent`, `le témoin`, `quotidien`, `général`
+**u82 · Les mots de l'argumentation** (24) — `l'exemple`, `la valeur`, `le niveau`, `l'ensemble`, `le genre`, `le taux`, `l'avantage`, `l'inconvénient`, `la décision`, `la responsabilité`, `la capacité`, `l'occasion`, `l'effort`, `le manque`, `le besoin`, `la tâche`, `le délai`, `le dossier`, `la chance`, `le hasard`, `le talent`, `le témoin`, `quotidien`, `général`
 
 **u83 · Encore des mots** (24) — `la pression`, `le souci`, `l'inquiétude`, `la tension`, `le soulagement`, `le malentendu`, `la parole`, `le silence`, `le geste`, `l'écoute`, `le désaccord`, `la dispute`, `efficace`, `essentiel`, `complexe`, `correct`, `récent`, `actuel`, `le coût`, `la taxe`, `la dette`, `le bénéfice`, `la perte`, `le classement`
 
 **u84 · Gestes et mouvements** (24) — `pousser`, `tirer`, `soulever`, `lancer`, `glisser`, `secouer`, `se pencher`, `s'appuyer`, `s'asseoir`, `s'allonger`, `se retourner`, `bouger`, `sauter`, `grimper`, `reculer`, `avancer`, `ramper`, `trébucher`, `frapper`, `taper`, `gratter`, `caresser`, `pincer`, `tordre`
 
-**u85 · Les sens** (23) — `apercevoir`, `observer`, `fixer`, `distinguer`, `l'ombre`, `briller`, `la lueur`, `le reflet`, `éclairer`, `lumineux`, `sombre`, `pâle`, `l'écho`, `résonner`, `sourd`, `aigu`, `la voix`, `l'odeur`, `le goût`, `sentir`, `goûter`, `toucher`, `amer`
+**u85 · Les sens** (24) — `apercevoir`, `observer`, `fixer`, `distinguer`, `l'ombre`, `briller`, `la lueur`, `le reflet`, `éclairer`, `lumineux`, `sombre`, `pâle`, `l'écho`, `résonner`, `sourd`, `aigu`, `la voix`, `le vacarme`, `l'odeur`, `le goût`, `sentir`, `goûter`, `toucher`, `amer`
 
-**u86 · Façons de parler** (23) — `crier`, `hurler`, `murmurer`, `chuchoter`, `bavarder`, `se taire`, `interrompre`, `répliquer`, `se plaindre`, `avouer`, `l'excuse`, `avertir`, `promettre`, `jurer`, `supplier`, `garantir`, `annoncer`, `le ton`, `à voix basse`, `le discours`, `s'exprimer`, `la remarque`, `bafouiller`
+**u86 · Façons de parler** (24) — `crier`, `hurler`, `murmurer`, `chuchoter`, `bavarder`, `se taire`, `interrompre`, `répliquer`, `se plaindre`, `avouer`, `l'excuse`, `se justifier`, `avertir`, `promettre`, `jurer`, `supplier`, `garantir`, `annoncer`, `le ton`, `à voix basse`, `le discours`, `s'exprimer`, `la remarque`, `bafouiller`
 
-**u87 · Textures et apparences** (23) — `lisse`, `rugueux`, `mou`, `dur`, `souple`, `raide`, `brillant`, `terne`, `transparent`, `opaque`, `foncé`, `rayé`, `usé`, `abîmé`, `solide`, `fragile`, `tordu`, `troué`, `la surface`, `le motif`, `le contour`, `l'épaisseur`, `la poussière`
+**u87 · Textures et apparences** (24) — `lisse`, `rugueux`, `mou`, `dur`, `souple`, `raide`, `brillant`, `terne`, `transparent`, `opaque`, `foncé`, `rayé`, `usé`, `abîmé`, `solide`, `fragile`, `tordu`, `troué`, `la surface`, `le motif`, `le contour`, `l'épaisseur`, `la poussière`, `l'apparence`
 
 **u88 · Fabriquer et réparer** (24) — `fabriquer`, `construire`, `assembler`, `visser`, `clouer`, `coudre`, `mélanger`, `verser`, `remplir`, `vider`, `tremper`, `essuyer`, `creuser`, `percer`, `découper`, `arracher`, `attacher`, `détacher`, `la colle`, `le clou`, `la vis`, `le fil`, `le ruban`, `le bricolage`
 
@@ -3312,7 +3319,7 @@ Snapshot 2026-08-29: **3104 words** across **133 authored unit(s)**, **0 slot(s)
 
 **u93 · Le style et l'apparence** (24) — `la mode`, `le style`, `la tenue`, `élégant`, `à la mode`, `démodé`, `serré`, `ample`, `la poche`, `la manche`, `le col`, `la ceinture`, `les bijoux`, `la bague`, `le collier`, `la montre`, `assorti`, `le pli`, `se maquiller`, `la coiffure`, `la marque`, `le peigne`, `la brosse`, `le parfum`
 
-**u94 · Tournures courantes** (23) — `avoir du mal à`, `se rendre compte`, `tenir compte de`, `faire de son mieux`, `valoir la peine`, `en avoir marre`, `peu importe`, `ça vaut le coup`, `en tout cas`, `de toute façon`, `après tout`, `au fur et à mesure`, `à force de`, `petit à petit`, `d'un seul coup`, `à la fois`, `sur le coup`, `faire la queue`, `prendre son temps`, `avoir lieu`, `mettre au point`, `rendre service`, `poser problème`
+**u94 · Tournures courantes** (24) — `avoir du mal à`, `se rendre compte`, `tenir compte de`, `faire de son mieux`, `valoir la peine`, `en avoir marre`, `peu importe`, `ça vaut le coup`, `en tout cas`, `de toute façon`, `après tout`, `à la limite`, `au fur et à mesure`, `à force de`, `petit à petit`, `d'un seul coup`, `à la fois`, `sur le coup`, `faire la queue`, `prendre son temps`, `avoir lieu`, `mettre au point`, `rendre service`, `poser problème`
 
 **u95 · La rhétorique et la persuasion** (24) — `la rhétorique`, `l'éloquence`, `l'orateur`, `éloquent`, `plaider`, `percutant`, `le sophisme`, `l'objection`, `la réplique`, `l'ironie`, `insinuer`, `sous-entendre`, `manipuler`, `séduire`, `flatter`, `exagérer`, `vanter`, `prôner`, `l'adhésion`, `le consensus`, `rallier`, `souligner`, `insister`, `la polémique`
 

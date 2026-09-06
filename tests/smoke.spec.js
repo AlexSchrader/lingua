@@ -634,6 +634,23 @@ test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson se
   // yet. The card is fully live and routed; the preview seeds a group-tagged verb
   // with a target form. It goes live in real reviews the moment A2 conjugation
   // content (conjForm items) is authored.
+  // Session 4: build — also via its sandbox, and for a related reason. `build` is the
+  // tile card for an item whose reading is a DIFFERENT script from its front, so it is
+  // reachable for 1,408 ja items — but it is the last fallback at rung 3, behind
+  // conjugate/trace/sentence:build. Once drills made more items sentence-eligible and
+  // the free-pass guard moved some rung-2 cards, this fixture's session stopped
+  // reaching it inside its card budget. The KIND is not at risk; the session's
+  // composition is. Driving it directly asserts the same property without depending on
+  // which card a fixed-length session happens to serve.
+  await page.goto("/review?sandbox=1&card=build");
+  for (let i = 0; i < 8; i++) {
+    const kind = await playCard(page);
+    if (kind === false) break;
+    if (typeof kind === "string") seenKinds.add(kind);
+    if (covered()) break;
+    await page.waitForTimeout(50);
+  }
+
   await page.goto("/review?sandbox=1&card=conjugate");
   for (let i = 0; i < 8; i++) {
     const kind = await playCard(page);

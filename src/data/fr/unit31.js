@@ -57,7 +57,7 @@ export const FR_UNIT31 = {
       dominantMode: "recall",
       canDo: "Talk about school: the class, the pupils, the classroom, secondary school, university and the exam.",
       items: [
-        { id: "fr-u31l3-lecours", type: "vocab", front: "le cours", reading: "lecours", meaning: "class (a lesson)", example: { jp: "Le cours de français est à neuf heures.", en: "The French class is at nine o'clock." }, accept: ["lesson", "course", "the class"] },
+        { id: "fr-u31l3-lecours", type: "vocab", front: "le cours", reading: "lecours", meaning: "class (a lesson)", example: { jp: "Le cours de français est à neuf heures.", en: "The French class is at nine o'clock." }, accept: ["course", "the class"] },
         { id: "fr-u31l3-leleve", type: "vocab", front: "l'élève", reading: "leleve", meaning: "pupil", example: { jp: "L'élève est dans la classe.", en: "The pupil is in the classroom." }, accept: ["schoolchild", "the pupil"], hint: "l'élève is at school; l'étudiant is at university." },
         { id: "fr-u31l3-laclasse", type: "vocab", front: "la classe", reading: "laclasse", meaning: "classroom", example: { jp: "Il y a vingt élèves dans la classe.", en: "There are twenty pupils in the classroom." }, accept: ["the classroom", "form"] },
         { id: "fr-u31l3-lelycee", type: "vocab", front: "le lycée", reading: "lelycee", meaning: "secondary school", example: { jp: "Mon frère est au lycée.", en: "My brother is at secondary school." }, accept: ["high school", "sixth form", "the lycee"] },
