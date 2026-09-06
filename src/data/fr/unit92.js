@@ -37,7 +37,7 @@ export const FR_UNIT92 = {
       dominantMode: "recall",
       canDo: "Get ingredients ready: peel, grate, beat, knead — and name the dough and a slice.",
       items: [
-        { id: "fr-u92l2-eplucher", type: "vocab", front: "éplucher", reading: "eplucher", meaning: "to peel", example: { jp: "J'épluche les carottes.", en: "I'm peeling the carrots." }, accept: ["skin", "peel off"] },
+        { id: "fr-u92l2-eplucher", type: "vocab", front: "éplucher", reading: "eplucher", meaning: "to peel", example: { jp: "J'épluche les carottes.", en: "I'm peeling the carrots." }, accept: ["peel off", "to peel off"] },
         { id: "fr-u92l2-raper", type: "vocab", front: "râper", reading: "raper", meaning: "to grate", example: { jp: "Je râpe le fromage sur les pâtes.", en: "I grate the cheese onto the pasta." }, accept: ["shred", "grate up"] },
         { id: "fr-u92l2-battre", type: "vocab", front: "battre", reading: "battre", meaning: "to beat", example: { jp: "Il faut battre les œufs.", en: "You have to beat the eggs." }, accept: ["whisk", "whip", "beat up"] },
         { id: "fr-u92l2-petrir", type: "vocab", front: "pétrir", reading: "petrir", meaning: "to knead", example: { jp: "Le boulanger pétrit la pâte.", en: "The baker kneads the dough." }, accept: ["work the dough"] },
