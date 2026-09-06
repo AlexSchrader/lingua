@@ -65,14 +65,14 @@ export const DE_UNIT8 = {
       title: "Das Wetter",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name what the sky is doing — sun, rain, fog, snow, a thunderstorm — and say it the subjectless German way the hints show: Es regnet.",
+      canDo: "Say what the weather is doing with the subjectless German pattern — Es regnet, Es schneit — and name the sun, the fog and the snow.",
       items: [
         { id: "de-u8l3-daswetter", type: "vocab", front: "das Wetter", reading: "daswetter", meaning: "weather", example: { jp: "Das Wetter ist heute gut.", en: "The weather is good today." }, accept: ["weather", "the weather"], hint: "Wie ist das Wetter? is the whole question. German says the weather IS good, exactly as English does." },
         { id: "de-u8l3-diesonne", type: "vocab", front: "die Sonne", reading: "diesonne", meaning: "sun", example: { jp: "Die Sonne ist sehr warm.", en: "The sun is very warm." }, accept: ["sun", "the sun"], hint: "Feminine — die Sonne. Sonntag, the day in the next unit, is built straight out of it." },
-        { id: "de-u8l3-derregen", type: "vocab", front: "der Regen", reading: "derregen", meaning: "rain", example: { jp: "Der Regen kommt.", en: "The rain is coming." }, accept: ["rain", "the rain"], hint: "German makes the verb straight from the noun and drops the e: der Regen → es regnet, it is raining. Weather verbs always take the empty subject es." },
+        { id: "de-u8l3-regnen", type: "vocab", front: "regnen", reading: "regnen", meaning: "to rain", example: { jp: "Heute regnet es und ist kalt.", en: "Today it is raining and it is cold." }, accept: ["to rain", "rain", "raining"], hint: "Weather verbs take the empty subject es and nothing else: Es regnet. There is no \"it\" you could point at, exactly as in English. The infinitive regnen only surfaces after a modal (es kann regnen), which is u20 — so this card has no drill." },
         { id: "de-u8l3-dernebel", type: "vocab", front: "der Nebel", reading: "dernebel", meaning: "fog", example: { jp: "Heute ist der Nebel sehr grau.", en: "Today the fog is very grey." }, accept: ["fog", "the fog", "mist"], hint: "Neblig is the adjective: Es ist neblig. Common on German autumn mornings, and on every motorway warning sign." },
         { id: "de-u8l3-derschnee", type: "vocab", front: "der Schnee", reading: "derschnee", meaning: "snow", example: { jp: "Der Schnee ist weiß.", en: "The snow is white." }, accept: ["snow", "the snow"], hint: "Neblig is the adjective: Es ist neblig. Common on German autumn mornings and on every motorway warning sign." },
-        { id: "de-u8l3-dasgewitter", type: "vocab", front: "das Gewitter", reading: "dasgewitter", meaning: "thunderstorm", example: { jp: "Das Gewitter kommt schnell.", en: "The thunderstorm is coming fast." }, accept: ["thunderstorm", "the thunderstorm", "storm"], hint: "Gewitter is thunder AND lightning together, not just a heavy shower — for that Germans say ein Schauer." },
+        { id: "de-u8l3-schneien", type: "vocab", front: "schneien", reading: "schneien", meaning: "to snow", example: { jp: "Hier schneit es und ist sehr kalt.", en: "Here it snows and it is very cold." }, accept: ["to snow", "snow", "snowing"], hint: "Built from der Schnee exactly as regnen is from der Regen, and it takes the same empty es: Es schneit. Like regnen, its infinitive needs a modal to surface, so it carries no drill." },
       ],
     },
     {

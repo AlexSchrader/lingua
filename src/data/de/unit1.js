@@ -47,7 +47,7 @@
 //     (c) No plural noun forms are taught as separate fronts at A1 — die Eltern,
 //         die Geschwister, die Großeltern and die Nudeln are lexical plurals that
 //         have no singular in normal use, not a plural rule being taught.
-//   FREE: Anna, Thomas, Lena, Max, Berlin, München, Hamburg, Köln, Wien, Deutschland, Österreich, Europa | modern, elegant, interessant, fantastisch, perfekt, super, praktisch, international, laut, blond, direkt, ideal, normal, aktiv, privat, total, exakt, Musik, Foto, Sport, Film, Computer, Adresse, Telefon, Konzert, Theater, Zentrum, Universität, Auto | Bücher, Kinder, Minuten, Stunden, Tage, Türen, Äpfel, Häuser, Eier | 2000
+//   FREE: Anna, Thomas, Lena, Max, Berlin, München, Hamburg, Köln, Wien, Deutschland, Österreich, Europa | modern, elegant, interessant, fantastisch, perfekt, super, praktisch, international, laut, blond, direkt, ideal, normal, aktiv, privat, total, exakt, Musik, Foto, Sport, Film, Filme, Computer, Adresse, Telefon, Konzert, Theater, Zentrum, Universität, Auto | Bücher, Kinder, Minuten, Stunden, Tage, Türen, Äpfel, Häuser, Eier | 2000
 //     ⚠️ TWO THINGS THE NEXT SEAT MUST COPY, both learned from a checker run:
 //     (a) List cognates WITHOUT their article. check-lang-scope.mjs splits this
 //         line on commas and compares WHOLE TOKENS, so "das Auto" never matches
