@@ -34,6 +34,12 @@ for (const i of items) {
     if (/^[^aeiouyæøå]*[aeiouyæøå][bdfglmnprtk]$/.test(bare)) for (const s of ["et", "en", "er", "a", "ene"]) add(bare + bare.slice(-1) + s, i.u);
   } else {
     for (const s of ["t", "e", "ere", "est", "este", "er", "ene"]) add(bare + s, i.u);
+    // A BARE front may be a mass/plural-only NOUN (vann, melk, vær, hår, ull,
+    // såpe, arbeid, musikk, helse, feber, klær, penger), not only an adjective.
+    // Bare fronts were routed through the adjective branch alone, so no bare
+    // noun ever got a definite — "såpa" read as untaught. Found by block 3.
+    for (const suf of ["a", "en", "et", "ene", "ne"]) add(bare + suf, i.u);
+    add(bare.replace(/e$/, "a"), i.u);
     add(bare.replace(/(nn|mm|ll|tt)$/, (x) => x[0] + "t"), i.u);
     (IRR_ADJ[bare] || []).forEach((f) => add(f, i.u));
     (IRR_CMP[bare] || []).forEach((f) => add(f, i.u));

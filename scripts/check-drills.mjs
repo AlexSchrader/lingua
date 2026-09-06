@@ -35,41 +35,48 @@ const IRREG = { være: ["er"], ha: ["har"], gå: ["går"], gi: ["gir"], se: ["se
 const born = new Map();
 const add = (w, u) => { const p = born.get(w); if (p === undefined || u < p) born.set(w, u); };
 for (const i of items) {
+  const slot = i.u * 100 + i.l;   // lesson granularity, not unit — the blind spot unit7.js warns about
   const bare = i.front.replace(/^(en |ei |et |å )/, "").toLowerCase();
-  i.front.toLowerCase().split(" ").forEach((w) => add(w, i.u));
-  add(bare, i.u);
+  i.front.toLowerCase().split(" ").forEach((w) => add(w, slot));
+  add(bare, slot);
   if (/^å /.test(i.front)) {
-    (IRREG[bare] || []).forEach((f) => add(f, i.u));
-    add(bare + "r", i.u); add(bare.replace(/e$/, "er"), i.u);
-    add(bare.replace(/e$/, "te"), i.u); add(bare.replace(/e$/, "et"), i.u); // past
+    (IRREG[bare] || []).forEach((f) => add(f, slot));
+    add(bare + "r", slot); add(bare.replace(/e$/, "er"), slot);
+    add(bare.replace(/e$/, "te"), slot); add(bare.replace(/e$/, "et"), slot); // past
   } else if (/^(en|ei|et) /.test(i.front)) {
-    for (const s of ["en", "et", "a", "er", "ene", "ne", "e"]) add(bare + s, i.u);
-    for (const s of ["a", "en", "er", "ene"]) add(bare.replace(/e$/, s), i.u);
-    add(bare.replace(/el$/, "ler"), i.u);
+    for (const s of ["en", "et", "a", "er", "ene", "ne", "e"]) add(bare + s, slot);
+    for (const s of ["a", "en", "er", "ene"]) add(bare.replace(/e$/, s), slot);
+    add(bare.replace(/el$/, "ler"), slot);
     // Short nouns double a final single consonant before an ending: rom -> rommet.
     if (/^[^aeiouyæøå]*[aeiouyæøå][bdfglmnprtk]$/.test(bare)) {
       const d = bare + bare.slice(-1);
-      for (const suf of ["et", "en", "er", "a", "ene"]) add(d + suf, i.u);
+      for (const suf of ["et", "en", "er", "a", "ene"]) add(d + suf, slot);
     }
     const IRR_PL = { tann: ["tenner", "tennene"], bok: ["bøker", "bøkene"], hånd: ["hender", "hendene"],
       fot: ["føtter", "føttene"], bror: ["brødre", "brødrene"], søster: ["søstre", "søstrene"],
       datter: ["døtre", "døtrene"], mann: ["menn", "mennene"], natt: ["netter", "nettene"],
       bonde: ["bønder"], and: ["ender"], far: ["fedre"], mor: ["mødre"], øye: ["øyne", "øynene"] };
-    (IRR_PL[bare] || []).forEach((f) => add(f, i.u));
+    (IRR_PL[bare] || []).forEach((f) => add(f, slot));
   } else {
     // adjective/adverb: neuter -t, plural/definite -e, and the COMPARATIVE and
     // SUPERLATIVE, which are inflections of a taught word exactly as the present
     // tense is. Without these, "dyrere" (from dyr) reads as untaught.
-    add(bare + "t", i.u); add(bare + "e", i.u);
+    add(bare + "t", slot); add(bare + "e", slot);
+    // A BARE front may be a mass/plural-only NOUN (vann, melk, vær, hår, ull,
+    // såpe, arbeid, musikk, helse, feber), not only an adjective. Bare fronts
+    // went through the adjective branch alone, so no bare noun ever got a
+    // definite — "såpa" read as untaught. Found by the block-3 seat.
+    for (const suf of ["a", "en", "et", "ene", "ne"]) add(bare + suf, slot);
+    add(bare.replace(/e$/, "a"), slot);
     // Neuter -t collapses a final double consonant: grønn -> grønt, tynn -> tynt.
-    add(bare.replace(/(nn|mm|ll|tt)$/, (mm) => mm[0] + "t"), i.u);
-    add(bare + "ere", i.u); add(bare + "est", i.u); add(bare + "este", i.u);
-    add(bare + "er", i.u); add(bare + "ene", i.u); // bare-front nouns pluralise too
-    add(bare.replace(/e$/, "ere"), i.u); add(bare.replace(/e$/, "est"), i.u);
+    add(bare.replace(/(nn|mm|ll|tt)$/, (mm) => mm[0] + "t"), slot);
+    add(bare + "ere", slot); add(bare + "est", slot); add(bare + "este", slot);
+    add(bare + "er", slot); add(bare + "ene", slot); // bare-front nouns pluralise too
+    add(bare.replace(/e$/, "ere"), slot); add(bare.replace(/e$/, "est"), slot);
     const IRR_ADJ = { liten: ["lita", "lite", "små", "lille"], gammel: ["gammelt", "gamle"], egen: ["eget", "egne", "egne"], annen: ["annet", "andre"], vakker: ["vakkert", "vakre"], sikker: ["sikkert", "sikre"], ny: ["nytt", "nye"], bra: ["bra"], fri: ["fritt", "frie"], blå: ["blått", "blå"], grå: ["grått", "grå"] };
-    (IRR_ADJ[bare] || []).forEach((f) => add(f, i.u));
+    (IRR_ADJ[bare] || []).forEach((f) => add(f, slot));
     const IRR_CMP = { stor: ["større", "størst"], liten: ["mindre", "minst"], god: ["bedre", "best"], gammel: ["eldre", "eldst"], ung: ["yngre", "yngst"], lang: ["lengre", "lengst"], mange: ["flere", "flest"], mye: ["mer", "mest"], vond: ["verre", "verst"] };
-    (IRR_CMP[bare] || []).forEach((f) => add(f, i.u));
+    (IRR_CMP[bare] || []).forEach((f) => add(f, slot));
   }
 }
 
@@ -103,7 +110,13 @@ function check(item) {
     if (FREE.has(w) || w.length < 2) continue;
     const at = born.get(w);
     if (at === undefined) bad.push(`"${w}" is taught NOWHERE`);
-    else if (at > item.u) bad.push(`"${w}" first taught u${at}, used at u${item.u}`);
+    else if (at > (item.u + 1) * 100) bad.push(`"${w}" first taught u${Math.floor(at / 100)}, used at u${item.u}`);
+    // LESSON-granular hit: legal under the documented rule (RUNBOOK §4 and
+    // unit1.js §6 both say "at or before that UNIT"), but the learner meets
+    // lessons in order, so it is worth surfacing. A signal, not a defect —
+    // inventing a stricter rule mid-flight would force ~58 rewrites the
+    // convention permits. Raised by the block-3 seat.
+    else if (at > item.u * 100 + item.l) notes.push(`"${w}" is from a later lesson (u${Math.floor(at / 100)}l${at % 100})`);
   }
   // Adjective agreement: an adjective front is the BASE (common-gender) form, so a
   // neuter subject would need -t — but the front must appear verbatim, so the drill
@@ -122,7 +135,10 @@ function check(item) {
   // Compare on WORDS ONLY. Trailing-punctuation stripping was not enough: an
   // example with an internal comma ("Ha det, Erling!") still slipped past.
   const flat = (x) => String(x ?? "").toLowerCase().replace(/[^\p{L}\s]/gu, "").replace(/\s+/g, " ").trim();
-  if (flat(d.jp) === flat(item.example?.jp)) bad.push("drill IS the example (no second context — the whole point of the field)");
+  const fd = flat(d.jp), fe = flat(item.example?.jp);
+  if (fd === fe) bad.push("drill IS the example (no second context — the whole point of the field)");
+  else if (fe && fd && (fe.startsWith(fd + " ") || fd.startsWith(fe + " ")))
+    bad.push("drill is a TRUNCATION of the example (still no second context)");
   // A bare å-frame ("Det er lett å prøve") reads as machine output. Norwegian
   // wants a complement after the infinitive, exactly as English does.
   // Verbs that read absolutely after an å-frame and need no complement.
