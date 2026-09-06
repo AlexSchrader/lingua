@@ -66,8 +66,17 @@ for (const i of items) {
     // såpe, arbeid, musikk, helse, feber), not only an adjective. Bare fronts
     // went through the adjective branch alone, so no bare noun ever got a
     // definite — "såpa" read as untaught. Found by the block-3 seat.
-    for (const suf of ["a", "en", "et", "ene", "ne"]) add(bare + suf, slot);
-    add(bare.replace(/e$/, "a"), slot);
+    // ...but ONLY when the bare front is plausibly a noun. Appending noun endings
+    // to a particle invents words: ut (u13) + "en" = "uten", untaught, and it was
+    // passing. The particles and adverbs are a closed set, so excluding them is
+    // free. Found by the block-3 seat; its scope checker flagged uten while this
+    // one waved it through.
+    const PARTICLE = new Set(["ut", "inn", "opp", "ned", "bort", "tilbake", "med", "av",
+      "etter", "før", "over", "under", "her", "der", "nå", "så", "da", "hjem", "fram"]);
+    if (!PARTICLE.has(bare)) {
+      for (const suf of ["a", "en", "et", "ene", "ne"]) add(bare + suf, slot);
+      add(bare.replace(/e$/, "a"), slot);
+    }
     // Neuter -t collapses a final double consonant: grønn -> grønt, tynn -> tynt.
     add(bare.replace(/(nn|mm|ll|tt)$/, (mm) => mm[0] + "t"), slot);
     add(bare + "ere", slot); add(bare + "est", slot); add(bare + "este", slot);
