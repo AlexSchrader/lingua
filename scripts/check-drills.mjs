@@ -48,7 +48,10 @@ for (const i of items) {
     for (const s of ["a", "en", "er", "ene"]) add(bare.replace(/e$/, s), slot);
     add(bare.replace(/el$/, "ler"), slot);
     // Short nouns double a final single consonant before an ending: rom -> rommet.
-    if (/^[^aeiouyæøå]*[aeiouyæøå][bdfglmnprtk]$/.test(bare)) {
+    // NOTE: the pattern was anchored at ^, so it only matched single-syllable
+    // words and silently rejected `medlemmer` -- the correct plural of a noun
+    // taught in u32l4 -- as "taught NOWHERE". The ^ was the bug, not the rule.
+    if (/[aeiouyæøå][bdfglmnprtk]$/.test(bare)) {
       const d = bare + bare.slice(-1);
       for (const suf of ["et", "en", "er", "a", "ene"]) add(d + suf, slot);
     }
