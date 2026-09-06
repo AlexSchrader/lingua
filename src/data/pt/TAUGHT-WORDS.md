@@ -1,7 +1,7 @@
 # PT — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- pt`.
-Snapshot 2026-09-03: **482 words** across **20 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-06: **482 words** across **20 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
