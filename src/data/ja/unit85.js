@@ -16,7 +16,7 @@ export const UNIT85 = {
       canDo: "Core JLPT N5 vocabulary: だれか ついたち だす つとめる とお とおか.",
       items: [
         { id: "ja-u85l1-dareka", type: "vocab", front: "だれか", reading: "dareka", meaning: "someone", example: { jp: "だれかいますか。", en: "Is someone there?" }, accept: ["somebody","anyone"] },
-        { id: "ja-u85l1-tsuitachi", type: "vocab", front: "ついたち", reading: "tsuitachi", meaning: "first of the month", example: { jp: "しがつついたちです。", en: "It's April first." }, accept: ["the first","1st"] },
+        { id: "ja-u85l1-tsuitachi", type: "vocab", front: "ついたち", reading: "tsuitachi", meaning: "first of the month", example: { jp: "しがつついたちです。", en: "It's April first." }, drill: { jp: "ついたちはやすみです。", en: "The first is a holiday." }, accept: ["the first","1st"] },
         { id: "ja-u85l1-dasu", type: "vocab", front: "だす", reading: "dasu", meaning: "take out", example: { jp: "てがみをだします。", en: "I send a letter." }, accept: ["put out","send","to take out"] },
         { id: "ja-u85l1-tsutomeru", type: "vocab", front: "つとめる", reading: "tsutomeru", meaning: "work", example: { jp: "かいしゃにつとめます。", en: "I work for a company." }, accept: ["be employed","to work","serve"] },
         { id: "ja-u85l1-to", type: "vocab", front: "とお", reading: "tō", meaning: "ten", example: { jp: "りんごがとおあります。", en: "There are ten apples." }, accept: ["10"] },
@@ -34,7 +34,7 @@ export const UNIT85 = {
       items: [
         { id: "ja-u85l2-nanatsu", type: "vocab", front: "ななつ", reading: "nanatsu", meaning: "seven", example: { jp: "たまごがななつあります。", en: "There are seven eggs." }, accept: ["7","seven things"] },
         { id: "ja-u85l2-nanoka", type: "vocab", front: "なのか", reading: "nanoka", meaning: "the seventh", example: { jp: "きょうはなのかです。", en: "Today is the seventh." }, accept: ["seventh","7th","seventh day"] },
-        { id: "ja-u85l2-toshi", type: "vocab", front: "とし", reading: "toshi", meaning: "year", example: { jp: "あたらしいとしです。", en: "It is a new year." }, accept: ["age"] },
+        { id: "ja-u85l2-toshi", type: "vocab", front: "とし", reading: "toshi", meaning: "year", example: { jp: "あたらしいとしです。", en: "It is a new year." }, drill: { jp: "としがかわります。", en: "The year changes." }, accept: ["age"] },
         { id: "ja-u85l2-nan", type: "vocab", front: "なん", reading: "nan", meaning: "what", example: { jp: "これはなんですか。", en: "What is this?" }, accept: [] },
         { id: "ja-u85l2-naze", type: "vocab", front: "なぜ", reading: "naze", meaning: "why", example: { jp: "なぜですか。", en: "Why?" }, accept: ["how come"] },
         { id: "ja-u85l2-dochira", type: "vocab", front: "どちら", reading: "dochira", meaning: "which", example: { jp: "どちらがすきですか。", en: "Which do you like?" }, accept: ["which one","where (polite)"] },
@@ -51,7 +51,7 @@ export const UNIT85 = {
       items: [
         { id: "ja-u85l3-donata", type: "vocab", front: "どなた", reading: "donata", meaning: "who", example: { jp: "あのひとはどなたですか。", en: "Who is that person?" }, accept: ["who (polite)"], hint: "Polite word for 'who'." },
         { id: "ja-u85l3-donna", type: "vocab", front: "どんな", reading: "donna", meaning: "what kind of", example: { jp: "どんなえいががすきですか。", en: "What kind of movie do you like?" }, accept: ["what sort of"] },
-        { id: "ja-u85l3-domo", type: "vocab", front: "どうも", reading: "dōmo", meaning: "thanks", example: { jp: "どうもありがとうございます。", en: "Thank you very much." }, accept: ["thank you","very"], hint: "Casual 'thanks'; also softens ありがとう." },
+        { id: "ja-u85l3-domo", type: "vocab", front: "どうも", reading: "dōmo", meaning: "thanks", example: { jp: "どうもありがとうございます。", en: "Thank you very much." }, drill: { jp: "どうもといいます。", en: "I say thanks." }, accept: ["thank you","very"], hint: "Casual 'thanks'; also softens ありがとう." },
         { id: "ja-u85l3-tokoro", type: "vocab", front: "ところ", reading: "tokoro", meaning: "place", example: { jp: "しずかなところがすきです。", en: "I like quiet places." }, accept: ["spot","location"] },
         { id: "ja-u85l3-toriniku", type: "vocab", front: "とりにく", reading: "toriniku", meaning: "chicken", example: { jp: "とりにくをたべます。", en: "I eat chicken." }, accept: ["chicken meat"] },
         { id: "ja-u85l3-nai", type: "vocab", front: "ない", reading: "nai", meaning: "there isn't", example: { jp: "おかねがない。", en: "I have no money." }, accept: ["not","don't have","isn't"], hint: "Casual form; the opposite of ある." },

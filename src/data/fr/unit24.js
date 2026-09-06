@@ -59,7 +59,7 @@ export const FR_UNIT24 = {
         { id: "fr-u24l3-que", type: "vocab", front: "que", reading: "que", meaning: "that", example: { jp: "Je pense que tu as raison.", en: "I think that you're right." }, accept: ["which", "whom"], hint: "avoir raison = to be right. Literally \"to have reason\"." },
         { id: "fr-u24l3-amonavis", type: "vocab", front: "à mon avis", reading: "amonavis", meaning: "in my opinion", example: { jp: "À mon avis, c'est trop cher.", en: "In my opinion, it's too expensive." }, accept: ["i think", "the way i see it"] },
         { id: "fr-u24l3-peutetre", type: "vocab", front: "peut-être", reading: "peutetre", meaning: "maybe", example: { jp: "Peut-être demain, je ne sais pas.", en: "Maybe tomorrow, I don't know." }, accept: ["perhaps", "possibly"] },
-        { id: "fr-u24l3-lidee", type: "vocab", front: "l'idée", reading: "lidee", meaning: "idea", example: { jp: "C'est une bonne idée !", en: "That's a good idea!" }, accept: ["the idea"] },
+        { id: "fr-u24l3-lidee", type: "vocab", front: "l'idée", reading: "lidee", meaning: "idea", example: { jp: "C'est une bonne idée !", en: "That's a good idea!" }, drill: { jp: "L'idée est très bonne", en: "The idea is very good" }, accept: ["the idea"] },
         { id: "fr-u24l3-vrai", type: "vocab", front: "vrai", reading: "vrai", meaning: "true", example: { jp: "C'est vrai ? Je ne crois pas !", en: "Is that true? I don't believe it!" }, accept: ["real", "right"] },
         { id: "fr-u24l3-faux", type: "vocab", front: "faux", reading: "faux", meaning: "false", example: { jp: "Non, c'est faux.", en: "No, that's false." }, accept: ["wrong", "untrue"] },
       ],

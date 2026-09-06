@@ -23,7 +23,7 @@ export const UNIT77 = {
         { id: "ja-u77l1-aisatsu", type: "vocab", front: "あいさつ", reading: "aisatsu", meaning: "greeting", example: { jp: "あさ、あいさつをします。", en: "I say hello in the morning." }, accept: ["greetings", "salutation"] },
         { id: "ja-u77l1-uwasa", type: "vocab", front: "うわさ", reading: "uwasa", meaning: "rumor", example: { jp: "へんなうわさをききました。", en: "I heard a strange rumor." }, accept: ["rumour", "gossip"] },
         { id: "ja-u77l1-jodan", type: "vocab", front: "じょうだん", reading: "jōdan", meaning: "joke", example: { jp: "かれはよくじょうだんをいいます。", en: "He often tells jokes." }, accept: ["jest", "kidding"] },
-        { id: "ja-u77l1-himitsu", type: "vocab", front: "ひみつ", reading: "himitsu", meaning: "secret", example: { jp: "これはひみつです。", en: "This is a secret." }, accept: ["secrets"] },
+        { id: "ja-u77l1-himitsu", type: "vocab", front: "ひみつ", reading: "himitsu", meaning: "secret", example: { jp: "これはひみつです。", en: "This is a secret." }, drill: { jp: "ひみつをはなします。", en: "I tell the secret." }, accept: ["secrets"] },
         { id: "ja-u77l1-wadai", type: "vocab", front: "わだい", reading: "wadai", meaning: "topic", example: { jp: "あたらしいわだいをはなします。", en: "We talk about a new topic." }, accept: ["subject", "topic of conversation"] },
         { id: "ja-u77l1-aite", type: "vocab", front: "あいて", reading: "aite", meaning: "the other person", example: { jp: "はなしのあいてがいません。", en: "I have no one to talk to." }, accept: ["partner", "companion"] },
       ],
@@ -40,10 +40,10 @@ export const UNIT77 = {
       items: [
         { id: "ja-u77l2-hogen", type: "vocab", front: "ほうげん", reading: "hōgen", meaning: "dialect", example: { jp: "おおさかのほうげんはおもしろいです。", en: "The Osaka dialect is interesting." }, accept: ["regional dialect"] },
         { id: "ja-u77l2-tsuyaku", type: "vocab", front: "つうやく", reading: "tsūyaku", meaning: "interpreter", example: { jp: "かれはえいごのつうやくです。", en: "He is an English interpreter." }, accept: ["interpreting", "interpretation"] },
-        { id: "ja-u77l2-honyaku", type: "vocab", front: "ほんやく", reading: "honyaku", meaning: "translation", example: { jp: "えいごをほんやくします。", en: "I translate English." }, accept: ["translating"] },
-        { id: "ja-u77l2-setsumei", type: "vocab", front: "せつめい", reading: "setsumei", meaning: "explanation", example: { jp: "みちのせつめいをします。", en: "I explain the directions." }, accept: ["description"] },
+        { id: "ja-u77l2-honyaku", type: "vocab", front: "ほんやく", reading: "honyaku", meaning: "translation", example: { jp: "えいごをほんやくします。", en: "I translate English." }, drill: { jp: "ほんやくをします。", en: "I do the translation." }, accept: ["translating"] },
+        { id: "ja-u77l2-setsumei", type: "vocab", front: "せつめい", reading: "setsumei", meaning: "explanation", example: { jp: "みちのせつめいをします。", en: "I explain the directions." }, drill: { jp: "せつめいがわかりません。", en: "I do not understand the explanation." }, accept: ["description"] },
         { id: "ja-u77l2-keigo", type: "vocab", front: "けいご", reading: "keigo", meaning: "polite language", example: { jp: "しごとでけいごをつかいます。", en: "I use polite language at work." }, accept: ["honorific language", "polite speech"] },
-        { id: "ja-u77l2-yomikata", type: "vocab", front: "よみかた", reading: "yomikata", meaning: "reading", example: { jp: "このことばのよみかたがわかりません。", en: "I don't know how to read this word." }, accept: ["how to read", "way of reading"] },
+        { id: "ja-u77l2-yomikata", type: "vocab", front: "よみかた", reading: "yomikata", meaning: "reading", example: { jp: "このことばのよみかたがわかりません。", en: "I don't know how to read this word." }, drill: { jp: "よみかたがわかりません。", en: "I do not know the reading." }, accept: ["how to read", "way of reading"] },
       ],
     },
     // Lesson 3: getting the message across
@@ -57,11 +57,11 @@ export const UNIT77 = {
       canDo: "Share information: スピーチ はっぴょう でんごん アナウンス インタビュー コメント.",
       items: [
         { id: "ja-u77l3-supiichi", type: "vocab", front: "スピーチ", reading: "supiichi", meaning: "speech", example: { jp: "みんなのまえでスピーチをします。", en: "I give a speech in front of everyone." }, accept: ["talk", "address"] },
-        { id: "ja-u77l3-happyo", type: "vocab", front: "はっぴょう", reading: "happyō", meaning: "presentation", example: { jp: "クラスではっぴょうをします。", en: "I give a presentation in class." }, accept: ["announcement"] },
-        { id: "ja-u77l3-dengon", type: "vocab", front: "でんごん", reading: "dengon", meaning: "message", example: { jp: "かれにでんごんをおねがいします。", en: "I leave a message for him." }, accept: ["verbal message"] },
-        { id: "ja-u77l3-anaunsu", type: "vocab", front: "アナウンス", reading: "anaunsu", meaning: "announcement", example: { jp: "えきのアナウンスをききます。", en: "I listen to the station announcement." }, accept: ["announcing"] },
+        { id: "ja-u77l3-happyo", type: "vocab", front: "はっぴょう", reading: "happyō", meaning: "presentation", example: { jp: "クラスではっぴょうをします。", en: "I give a presentation in class." }, drill: { jp: "はっぴょうをクラスでします。", en: "I give the presentation in class." }, accept: ["announcement"] },
+        { id: "ja-u77l3-dengon", type: "vocab", front: "でんごん", reading: "dengon", meaning: "message", example: { jp: "かれにでんごんをおねがいします。", en: "I leave a message for him." }, drill: { jp: "でんごんをおねがいします。", en: "Please pass on the message." }, accept: ["verbal message"] },
+        { id: "ja-u77l3-anaunsu", type: "vocab", front: "アナウンス", reading: "anaunsu", meaning: "announcement", example: { jp: "えきのアナウンスをききます。", en: "I listen to the station announcement." }, drill: { jp: "アナウンスをききます。", en: "I listen to the announcement." }, accept: ["announcing"] },
         { id: "ja-u77l3-intabyu", type: "vocab", front: "インタビュー", reading: "intabyū", meaning: "interview", example: { jp: "テレビのインタビューをみます。", en: "I watch a TV interview." }, accept: ["interviews"] },
-        { id: "ja-u77l3-komento", type: "vocab", front: "コメント", reading: "komento", meaning: "comment", example: { jp: "しゃしんにコメントをかきます。", en: "I write a comment on the photo." }, accept: ["comments", "remark"] },
+        { id: "ja-u77l3-komento", type: "vocab", front: "コメント", reading: "komento", meaning: "comment", example: { jp: "しゃしんにコメントをかきます。", en: "I write a comment on the photo." }, drill: { jp: "コメントをかきます。", en: "I write a comment." }, accept: ["comments", "remark"] },
       ],
     },
     // Lesson 4: communication verbs

@@ -137,6 +137,7 @@ function kindFixtureState() {
     { id: "ja-u1l2-kasa",       type: "vocab", front: "かさ",       reading: "kasa",        meaning: "umbrella",     example: { jp: "かさをどうぞ。", en: "Please take an umbrella." }, accept: [], lang: "ja", unit: 1, lesson: 2 },
     { id: "ja-u1l3-shizuka",    type: "vocab", front: "しずか",     reading: "shizuka",     meaning: "quiet",        example: { jp: "ここはしずかです。", en: "It is quiet here." }, accept: [], lang: "ja", unit: 1, lesson: 3 },
     { id: "ja-u1l3-sakana",     type: "vocab", front: "さかな",     reading: "sakana",      meaning: "fish",         example: null,                                          accept: [], lang: "ja", unit: 1, lesson: 3 },
+    { id: "ja-u1l3-sushi",      type: "vocab", front: "すし",       reading: "sushi",       meaning: "sushi",        example: { jp: "すしをたべます。", en: "I eat sushi." },     accept: [], lang: "ja", unit: 1, lesson: 3 },
     { id: "ja-u1l1-sayounara",  type: "vocab", front: "さようなら", reading: "sayōnara",   meaning: "goodbye",      example: { jp: "さようなら。", en: "Goodbye." },       accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-hai",        type: "vocab", front: "はい",       reading: "hai",         meaning: "yes",          example: { jp: "はい。",       en: "Yes." },           accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-iie",        type: "vocab", front: "いいえ",     reading: "iie",         meaning: "no",           example: { jp: "いいえ。",     en: "No." },            accept: [], lang: "ja", unit: 1, lesson: 1 },
@@ -150,7 +151,15 @@ function kindFixtureState() {
   for (const it of defs) {
     let rung, srs;
     if (it.id === "ja-u1l1-konnichiwa")  { rung = 3; srs = dueCard();   } // rung-3 vocab, hash<share → type:produce (Eng→JP)
-    else if (it.id === "ja-u1l2-arigatou") { rung = 3; srs = dueCard(); } // rung-3 vocab, hash≥share, no particle → build
+    // The `build` exemplar is chosen by HASH BAND, not by its example. shouldSentence
+    // needs hash01(id) >= 0.75 and build needs >= 0.5, so only an item inside
+    // [0.5, 0.75) routes build whatever content it carries. すし is 0.606 and no
+    // future authoring can move it. ありがとう held this slot at 0.773 — one drill
+    // from the sentence band — and the Japanese drills took it (2026-09-06).
+    else if (it.id === "ja-u1l3-sushi")    { rung = 3; srs = dueCard(); } // rung-3 vocab, hash in [0.5,0.75) → build
+    // Now covers the DRILL path: its drill supplies the [word][particle][rest] shape
+    // its own example lacks, so this is the fixture's coverage of practice().
+    else if (it.id === "ja-u1l2-arigatou") { rung = 3; srs = dueCard(); } // rung-3 vocab, drill supplies a particle → sentence:build
     else if (it.id === "ja-u1l4-tegami") { rung = 3; srs = dueCard();   } // rung-3 vocab, sentence band + [word][particle][rest] → sentence:build
     else if (it.id === "ja-u1l1-sayounara") { rung = 2; srs = dueCard(); } // rung-2 vocab, hash<share → type:reading (JP→rōmaji)
     else if (it.id === "ja-u1l2-konbanwa") { rung = 2; srs = dueCard();  } // rung-2 vocab, audio + hash band → listen:type (dictation)

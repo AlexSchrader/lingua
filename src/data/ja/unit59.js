@@ -39,7 +39,7 @@ export const UNIT59 = {
       dominantMode: "recall",
       canDo: "Point out buildings around town: アパート こうじょう カフェ きょうかい ジム ちゅうしゃじょう.",
       items: [
-        { id: "ja-u59l2-apato", type: "vocab", front: "アパート", reading: "apāto", meaning: "apartment", example: { jp: "わたしのアパートはちいさいです。", en: "My apartment is small." }, accept: ["flat", "apartment building"] },
+        { id: "ja-u59l2-apato", type: "vocab", front: "アパート", reading: "apāto", meaning: "apartment", example: { jp: "わたしのアパートはちいさいです。", en: "My apartment is small." }, drill: { jp: "アパートはちいさいです。", en: "The apartment is small." }, accept: ["flat", "apartment building"] },
         { id: "ja-u59l2-kojo", type: "vocab", front: "こうじょう", reading: "kōjō", meaning: "factory", example: { jp: "ちちはこうじょうではたらきます。", en: "My father works at a factory." }, accept: ["plant"] },
         { id: "ja-u59l2-kafe", type: "vocab", front: "カフェ", reading: "kafe", meaning: "cafe", example: { jp: "カフェでコーヒーをのみます。", en: "I drink coffee at the cafe." }, accept: ["coffee shop", "café"] },
         { id: "ja-u59l2-kyokai", type: "vocab", front: "きょうかい", reading: "kyōkai", meaning: "church", example: { jp: "あのきょうかいはふるいです。", en: "That church is old." }, accept: ["chapel"] },
@@ -76,7 +76,7 @@ export const UNIT59 = {
       canDo: "Describe where you are: とおり ばしょ むら とかい いなか ひろば.",
       items: [
         { id: "ja-u59l4-tori", type: "vocab", front: "とおり", reading: "tōri", meaning: "street", example: { jp: "このとおりはひろいです。", en: "This street is wide." }, accept: ["avenue", "road"] },
-        { id: "ja-u59l4-basho", type: "vocab", front: "ばしょ", reading: "basho", meaning: "place", example: { jp: "このばしょはしずかです。", en: "This place is quiet." }, accept: ["location", "spot"] },
+        { id: "ja-u59l4-basho", type: "vocab", front: "ばしょ", reading: "basho", meaning: "place", example: { jp: "このばしょはしずかです。", en: "This place is quiet." }, drill: { jp: "ばしょはしずかです。", en: "The place is quiet." }, accept: ["location", "spot"] },
         { id: "ja-u59l4-mura", type: "vocab", front: "むら", reading: "mura", meaning: "village", example: { jp: "あのむらはちいさいです。", en: "That village is small." }, accept: ["hamlet"] },
         { id: "ja-u59l4-tokai", type: "vocab", front: "とかい", reading: "tokai", meaning: "city", example: { jp: "とかいはにぎやかです。", en: "The city is lively." }, accept: ["big city", "urban area"] },
         { id: "ja-u59l4-inaka", type: "vocab", front: "いなか", reading: "inaka", meaning: "countryside", example: { jp: "いなかはしずかです。", en: "The countryside is quiet." }, accept: ["rural area", "country"] },

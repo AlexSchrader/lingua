@@ -33,11 +33,11 @@ export const UNIT92 = {
       canDo: "Core JLPT N4 vocabulary: とどける のこる しょくりょうひん じてん ぬる かわく.",
       items: [
         { id: "ja-u92l2-todokeru", type: "vocab", front: "とどける", reading: "todokeru", meaning: "deliver", example: { jp: "にもつをとどけます。", en: "I deliver the package." }, accept: ["to deliver","hand over"] },
-        { id: "ja-u92l2-nokoru", type: "vocab", front: "のこる", reading: "nokoru", meaning: "remain", example: { jp: "ごはんがのこりました。", en: "The rice was left over." }, accept: ["to remain","be left"] },
+        { id: "ja-u92l2-nokoru", type: "vocab", front: "のこる", reading: "nokoru", meaning: "remain", example: { jp: "ごはんがのこりました。", en: "The rice was left over." }, drill: { jp: "ごはんがのこる。", en: "The rice is left over." }, accept: ["to remain","be left"] },
         { id: "ja-u92l2-shokuryohin", type: "vocab", front: "しょくりょうひん", reading: "shokuryōhin", meaning: "groceries", example: { jp: "スーパーでしょくりょうひんをかいます。", en: "I buy groceries at the supermarket." }, accept: ["foodstuffs","food"] },
         { id: "ja-u92l2-jiten", type: "vocab", front: "じてん", reading: "jiten", meaning: "dictionary", example: { jp: "じてんでしらべます。", en: "I look it up in the dictionary." }, accept: ["reference book"] },
         { id: "ja-u92l2-nuru", type: "vocab", front: "ぬる", reading: "nuru", meaning: "paint", example: { jp: "かべをしろくぬります。", en: "I paint the wall white." }, accept: ["to spread","apply"] },
-        { id: "ja-u92l2-kawaku", type: "vocab", front: "かわく", reading: "kawaku", meaning: "get dry", example: { jp: "せんたくものがかわきました。", en: "The laundry got dry." }, accept: ["to dry","become dry"] },
+        { id: "ja-u92l2-kawaku", type: "vocab", front: "かわく", reading: "kawaku", meaning: "get dry", example: { jp: "せんたくものがかわきました。", en: "The laundry got dry." }, drill: { jp: "せんたくものがかわく。", en: "The laundry gets dry." }, accept: ["to dry","become dry"] },
       ],
     },
     {

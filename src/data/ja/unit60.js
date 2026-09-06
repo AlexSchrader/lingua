@@ -21,7 +21,7 @@ export const UNIT60 = {
       dominantMode: "recall",
       canDo: "Name upper-body parts: みみ くち あし うで くび むね; say which part hurts.",
       items: [
-        { id: "ja-u60l1-mimi", type: "vocab", front: "みみ", reading: "mimi", meaning: "ear", example: { jp: "ねこのみみはちいさいです。", en: "A cat's ears are small." }, accept: ["ears"] },
+        { id: "ja-u60l1-mimi", type: "vocab", front: "みみ", reading: "mimi", meaning: "ear", example: { jp: "ねこのみみはちいさいです。", en: "A cat's ears are small." }, drill: { jp: "みみはちいさいです。", en: "The ears are small." }, accept: ["ears"] },
         { id: "ja-u60l1-kuchi", type: "vocab", front: "くち", reading: "kuchi", meaning: "mouth", example: { jp: "くちをあけます。", en: "I open my mouth." }, accept: ["mouths"] },
         { id: "ja-u60l1-ashi", type: "vocab", front: "あし", reading: "ashi", meaning: "leg", example: { jp: "あしをあらいます。", en: "I wash my feet." }, accept: ["foot", "feet"] },
         { id: "ja-u60l1-ude", type: "vocab", front: "うで", reading: "ude", meaning: "arm", example: { jp: "うでがつよいです。", en: "My arms are strong." }, accept: ["arms"] },
@@ -59,7 +59,7 @@ export const UNIT60 = {
       items: [
         { id: "ja-u60l3-sukato", type: "vocab", front: "スカート", reading: "sukāto", meaning: "skirt", example: { jp: "あおいスカートです。", en: "It's a blue skirt." }, accept: ["skirts"] },
         { id: "ja-u60l3-beruto", type: "vocab", front: "ベルト", reading: "beruto", meaning: "belt", example: { jp: "ベルトをします。", en: "I put on a belt." }, accept: ["belts"] },
-        { id: "ja-u60l3-mafura", type: "vocab", front: "マフラー", reading: "mafurā", meaning: "scarf", example: { jp: "あたたかいマフラーです。", en: "It's a warm scarf." }, accept: ["muffler", "winter scarf"] },
+        { id: "ja-u60l3-mafura", type: "vocab", front: "マフラー", reading: "mafurā", meaning: "scarf", example: { jp: "あたたかいマフラーです。", en: "It's a warm scarf." }, drill: { jp: "マフラーはあたたかいです。", en: "The scarf is warm." }, accept: ["muffler", "winter scarf"] },
         { id: "ja-u60l3-yubiwa", type: "vocab", front: "ゆびわ", reading: "yubiwa", meaning: "ring", example: { jp: "ゆびわをかいます。", en: "I buy a ring." }, accept: ["rings"] },
         { id: "ja-u60l3-kushi", type: "vocab", front: "くし", reading: "kushi", meaning: "comb", example: { jp: "くしをつかいます。", en: "I use a comb." }, accept: ["combs"] },
         { id: "ja-u60l3-shashin", type: "vocab", front: "しゃしん", reading: "shashin", meaning: "photo", example: { jp: "しゃしんをとります。", en: "I take a photo." }, accept: ["photograph", "picture"] },

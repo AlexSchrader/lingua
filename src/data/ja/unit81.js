@@ -21,7 +21,7 @@ export const UNIT81 = {
       dominantMode: "recall",
       canDo: "Talk about plans and getting ready: ちこく じゅんび したく ようじ つごう ちゅうし.",
       items: [
-        { id: "ja-u81l1-chikoku", type: "vocab", front: "ちこく", reading: "chikoku", meaning: "being late", example: { jp: "かいしゃにちこくします。", en: "I'm late to work." }, accept: ["lateness", "tardiness"] },
+        { id: "ja-u81l1-chikoku", type: "vocab", front: "ちこく", reading: "chikoku", meaning: "being late", example: { jp: "かいしゃにちこくします。", en: "I'm late to work." }, drill: { jp: "ちこくをします。", en: "I am late." }, accept: ["lateness", "tardiness"] },
         { id: "ja-u81l1-junbi", type: "vocab", front: "じゅんび", reading: "junbi", meaning: "preparation", example: { jp: "りょこうのじゅんびをします。", en: "I prepare for the trip." }, accept: ["getting ready", "preparations"] },
         { id: "ja-u81l1-shitaku", type: "vocab", front: "したく", reading: "shitaku", meaning: "getting ready", example: { jp: "でかけるしたくをします。", en: "I get ready to go out." }, accept: ["preparation", "readying"] },
         { id: "ja-u81l1-yoji", type: "vocab", front: "ようじ", reading: "yōji", meaning: "errand", example: { jp: "きょうはようじがあります。", en: "I have an errand today." }, accept: ["things to do", "business"] },
@@ -39,7 +39,7 @@ export const UNIT81 = {
       dominantMode: "recall",
       canDo: "Handle time frames: きかん きげん しめきり にってい れんきゅう るす.",
       items: [
-        { id: "ja-u81l2-kikan", type: "vocab", front: "きかん", reading: "kikan", meaning: "period", example: { jp: "やすみのきかんはみじかいです。", en: "The holiday period is short." }, accept: ["duration", "term"] },
+        { id: "ja-u81l2-kikan", type: "vocab", front: "きかん", reading: "kikan", meaning: "period", example: { jp: "やすみのきかんはみじかいです。", en: "The holiday period is short." }, drill: { jp: "きかんはみじかいです。", en: "The period is short." }, accept: ["duration", "term"] },
         { id: "ja-u81l2-kigen", type: "vocab", front: "きげん", reading: "kigen", meaning: "deadline", example: { jp: "しごとのきげんはきょうです。", en: "The deadline for the work is today." }, accept: ["time limit", "due date"] },
         { id: "ja-u81l2-shimekiri", type: "vocab", front: "しめきり", reading: "shimekiri", meaning: "closing date", example: { jp: "しめきりにまにあいます。", en: "I make it in time for the closing date." }, accept: ["deadline", "cutoff"] },
         { id: "ja-u81l2-nittei", type: "vocab", front: "にってい", reading: "nittei", meaning: "schedule", example: { jp: "りょこうのにっていをきめます。", en: "I decide the trip schedule." }, accept: ["itinerary", "agenda"] },
@@ -79,7 +79,7 @@ export const UNIT81 = {
         { id: "ja-u81l4-seiko", type: "vocab", front: "せいこう", reading: "seikō", meaning: "success", example: { jp: "しごとがせいこうしました。", en: "The work succeeded." }, accept: ["succeeding", "achievement"] },
         { id: "ja-u81l4-enryo", type: "vocab", front: "えんりょ", reading: "enryo", meaning: "reserve", example: { jp: "えんりょしないでください。", en: "Please don't hold back." }, accept: ["restraint", "holding back"] },
         { id: "ja-u81l4-doryoku", type: "vocab", front: "どりょく", reading: "doryoku", meaning: "effort", example: { jp: "まいにちどりょくします。", en: "I make an effort every day." }, accept: ["hard work", "endeavor"] },
-        { id: "ja-u81l4-yoshu", type: "vocab", front: "よしゅう", reading: "yoshū", meaning: "lesson preparation", example: { jp: "あしたのよしゅうをします。", en: "I prepare for tomorrow's lesson." }, accept: ["preview study", "prep study"] },
+        { id: "ja-u81l4-yoshu", type: "vocab", front: "よしゅう", reading: "yoshū", meaning: "lesson preparation", example: { jp: "あしたのよしゅうをします。", en: "I prepare for tomorrow's lesson." }, drill: { jp: "よしゅうをします。", en: "I do the lesson preparation." }, accept: ["preview study", "prep study"] },
         { id: "ja-u81l4-fukushu", type: "vocab", front: "ふくしゅう", reading: "fukushū", meaning: "review", example: { jp: "かんじのふくしゅうをします。", en: "I review the kanji." }, accept: ["revision", "going over"] },
       ],
     },

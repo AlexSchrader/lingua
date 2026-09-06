@@ -43,7 +43,7 @@ export const UNIT118 = {
         { id: "ja-u118l1-misu", type: "vocab", front: "ミス", reading: "misu", meaning: "slip-up", example: { jp: "ちいさなミスをしたので、はじめからやりなおしました。", en: "I made a small slip-up, so I started again from the beginning." }, accept: ["mistake", "error"] },
         { id: "ja-u118l1-machigai", type: "vocab", front: "まちがい", reading: "machigai", meaning: "mistake", example: { jp: "じゅうしょにまちがいがあって、にもつがかえってきました。", en: "There was a mistake in the address, so the parcel came back." }, accept: ["error", "mix-up"] },
         { id: "ja-u118l1-mendo", type: "vocab", front: "めんどう", reading: "mendō", meaning: "a hassle", example: { jp: "そうじはめんどうですが、しないとへやがきたなくなります。", en: "Cleaning is a hassle, but if I don't do it the room gets dirty." }, accept: ["troublesome", "bothersome", "a pain"] },
-        { id: "ja-u118l1-kujo", type: "vocab", front: "くじょう", reading: "kujō", meaning: "complaint", example: { jp: "おきゃくさんからくじょうがきたので、みせのひとがあやまりました。", en: "A complaint came in from a customer, so the shop staff apologized." }, accept: ["grievance", "formal complaint"] },
+        { id: "ja-u118l1-kujo", type: "vocab", front: "くじょう", reading: "kujō", meaning: "complaint", example: { jp: "おきゃくさんからくじょうがきたので、みせのひとがあやまりました。", en: "A complaint came in from a customer, so the shop staff apologized." }, drill: { jp: "くじょうがきました。", en: "A complaint came in." }, accept: ["grievance", "formal complaint"] },
       ],
     },
     {
@@ -55,7 +55,7 @@ export const UNIT118 = {
       dominantMode: "recall",
       canDo: "Judge how serious a problem is and what is actually wrong with it: しんこく そんがい けっかん やっかい くろう きにする.",
       items: [
-        { id: "ja-u118l2-shinkoku", type: "vocab", front: "しんこく", reading: "shinkoku", meaning: "serious", example: { jp: "びょうきがしんこくになるまえに、びょういんへいきました。", en: "I went to the hospital before the illness got serious." }, accept: ["grave", "severe"] },
+        { id: "ja-u118l2-shinkoku", type: "vocab", front: "しんこく", reading: "shinkoku", meaning: "serious", example: { jp: "びょうきがしんこくになるまえに、びょういんへいきました。", en: "I went to the hospital before the illness got serious." }, drill: { jp: "しんこくになります。", en: "It becomes serious." }, accept: ["grave", "severe"] },
         { id: "ja-u118l2-songai", type: "vocab", front: "そんがい", reading: "songai", meaning: "damage", example: { jp: "たいふうでそんがいがおおきくて、みせはやすみました。", en: "The typhoon damage was big, so the shop closed." }, accept: ["loss", "harm", "losses"] },
         { id: "ja-u118l2-kekkan", type: "vocab", front: "けっかん", reading: "kekkan", meaning: "a defect", example: { jp: "くるまにけっかんがみつかったので、みせにもどしました。", en: "A defect was found in the car, so I took it back to the shop." }, accept: ["fault", "flaw", "shortcoming"] },
         { id: "ja-u118l2-yakkai", type: "vocab", front: "やっかい", reading: "yakkai", meaning: "troublesome", example: { jp: "やっかいなしごとをたのまれて、こまっています。", en: "I was asked to do a troublesome job, and I'm stuck with it." }, accept: ["a nuisance", "awkward", "burdensome"] },
@@ -73,7 +73,7 @@ export const UNIT118 = {
       canDo: "Describe how a problem is being handled, step by step: たいしょ しょり てつづき てま ていあん そち.",
       items: [
         { id: "ja-u118l3-taisho", type: "vocab", front: "たいしょ", reading: "taisho", meaning: "dealing with it", example: { jp: "はやくたいしょしたので、おおきなもんだいになりませんでした。", en: "We dealt with it quickly, so it didn't become a big problem." }, accept: ["handling", "coping with", "taking action on"] },
-        { id: "ja-u118l3-shori", type: "vocab", front: "しょり", reading: "shori", meaning: "processing", example: { jp: "メールのしょりがおわってから、ひるごはんをたべます。", en: "I'll eat lunch after the processing of the emails is finished." }, accept: ["dealing with", "handling", "disposal"] },
+        { id: "ja-u118l3-shori", type: "vocab", front: "しょり", reading: "shori", meaning: "processing", example: { jp: "メールのしょりがおわってから、ひるごはんをたべます。", en: "I'll eat lunch after the processing of the emails is finished." }, drill: { jp: "しょりがおわりました。", en: "The processing is finished." }, accept: ["dealing with", "handling", "disposal"] },
         { id: "ja-u118l3-tetsuzuki", type: "vocab", front: "てつづき", reading: "tetsuzuki", meaning: "paperwork", example: { jp: "ぎんこうのてつづきがおわったので、あんしんしました。", en: "The bank paperwork is finished, so I felt relieved." }, accept: ["procedure", "formalities", "process"] },
         { id: "ja-u118l3-tema", type: "vocab", front: "てま", reading: "tema", meaning: "time and effort", example: { jp: "てまがかかるので、みんないやがります。", en: "It takes time and effort, so nobody wants to do it." }, accept: ["trouble", "labour", "the work involved"] },
         { id: "ja-u118l3-teian", type: "vocab", front: "ていあん", reading: "teian", meaning: "proposal", example: { jp: "ともだちがえいがをていあんしたので、いっしょにみにいきました。", en: "A friend proposed a film, so we went to see it together." }, accept: ["suggestion", "proposing"] },

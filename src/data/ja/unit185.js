@@ -56,7 +56,7 @@ export const UNIT185 = {
         { id: "ja-u185l3-oginau", type: "kanji", front: "補", reading: "oginau", meaning: "make up a shortfall", example: { jp: "足りない ぶんは、あとで 補います。", en: "I'll make up the shortfall later." }, accept: ["supplement", "fill in", "compensate for"], hint: "補 = 衤 (cloth) + 甫 — patching cloth. 補足 = an addition made to fill a gap." },
         { id: "ja-u185l3-kurasu", type: "kanji", front: "暮", reading: "kurasu", meaning: "live one's days", example: { jp: "いなかで しずかに 暮らして います。", en: "I live quietly in the countryside." }, accept: ["get by", "dusk", "the year's end"], hint: "暮 = 莫 over 日 — the sun going down in the grass. Both 'nightfall' and 'how one passes the days'." },
         { id: "ja-u185l3-heika", type: "vocab", front: "陛下", reading: "heika", meaning: "His or Her Majesty", example: { jp: "陛下が 来られる 日は、駅の 前が しずかに なります。", en: "On the day His Majesty comes, the area by the station goes quiet." }, accept: ["Your Majesty", "the sovereign"] },
-        { id: "ja-u185l3-katao", type: "vocab", front: "片方", reading: "katahō", meaning: "one of the two", example: { jp: "くつの 片方だけ 見つかりません。", en: "I can only find one of the shoes." }, accept: ["one side", "the other one"] },
+        { id: "ja-u185l3-katao", type: "vocab", front: "片方", reading: "katahō", meaning: "one of the two", example: { jp: "くつの 片方だけ 見つかりません。", en: "I can only find one of the shoes." }, drill: { jp: "片方が ありません。", en: "One of the two is missing." }, accept: ["one side", "the other one"] },
       ],
     },
     {

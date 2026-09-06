@@ -68,7 +68,7 @@ export const UNIT49 = {
       items: [
         { id: "ja-u49l4-shimin", type: "vocab", front: "しみん", reading: "shimin", meaning: "citizen", example: { jp: "とうきょうのしみんです。", en: "I'm a citizen of Tokyo." }, accept: ["citizens","resident"] },
         { id: "ja-u49l4-jinko", type: "vocab", front: "じんこう", reading: "jinkō", meaning: "population", example: { jp: "じんこうがおおいです。", en: "The population is large." }, accept: ["the population"] },
-        { id: "ja-u49l4-chiiki", type: "vocab", front: "ちいき", reading: "chiiki", meaning: "area", example: { jp: "しずかなちいきです。", en: "It's a quiet area." }, accept: ["region","district","local area"] },
+        { id: "ja-u49l4-chiiki", type: "vocab", front: "ちいき", reading: "chiiki", meaning: "area", example: { jp: "しずかなちいきです。", en: "It's a quiet area." }, drill: { jp: "ちいきはしずかです。", en: "The area is quiet." }, accept: ["region","district","local area"] },
         { id: "ja-u49l4-kinjo", type: "vocab", front: "きんじょ", reading: "kinjo", meaning: "neighborhood", example: { jp: "きんじょにすんでいます。", en: "I live in the neighborhood." }, accept: ["neighbourhood","the neighborhood","vicinity"] },
         { id: "ja-u49l4-kotsu", type: "vocab", front: "こうつう", reading: "kōtsū", meaning: "traffic", example: { jp: "こうつうがおおいです。", en: "There is a lot of traffic." }, accept: ["transport","transportation"] },
         { id: "ja-u49l4-kankyo", type: "vocab", front: "かんきょう", reading: "kankyō", meaning: "environment", example: { jp: "かんきょうをまもります。", en: "I protect the environment." }, accept: ["the environment","surroundings"] },
