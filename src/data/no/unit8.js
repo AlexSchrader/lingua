@@ -50,7 +50,7 @@ export const NO_UNIT8 = {
       title: "Colours",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name the six commonest colours and say what colour something is: Bilen er rød.",
+      canDo: "Name five of the commonest colours — and the word for colour itself — and say what colour something is: Bilen er rød.",
       items: [
         { id: "no-u8l1-enfarge", type: "vocab", front: "en farge", reading: "enfarge", meaning: "colour", example: { jp: "Grønn er en god farge.", en: "Green is a good colour." }, accept: ["color", "a colour", "a color", "hue", "shade"], drill: { jp: "Blå er en farge", en: "Blue is a colour" }, hint: "Masculine: en farge → fargen. The plural is farger — Norwegian marks a plural with -er, never with -s." },
         { id: "no-u8l1-rod", type: "vocab", front: "rød", reading: "rod", meaning: "red", example: { jp: "Bilen er rød.", en: "The car is red." }, accept: ["scarlet"], drill: { jp: "Ei skjorte er rød", en: "A shirt is red" }, hint: "The ø rounded and the d silent: RUH. In the neuter it becomes rødt and in the plural røde — unit 14 makes that a rule; for now just notice it." },
@@ -86,10 +86,10 @@ export const NO_UNIT8 = {
       title: "The weather",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say what the weather is doing — sola er varm, det regner, det snør — and name the sun, the clouds and the wind.",
+      canDo: "Say what the weather is doing — været er bra, det regner, det snør — and name the sun, the clouds and the wind.",
       items: [
         { id: "no-u8l3-vaer", type: "vocab", front: "vær", reading: "vaer", meaning: "weather", example: { jp: "Været i Bergen er ikke bra.", en: "The weather in Bergen is not good." }, accept: ["the weather"], drill: { jp: "Det er godt vær nå", en: "The weather is good now" }, hint: "A mass noun, so no en/ei/et — \"et vær\" is not how Norwegian says this. Neuter all the same: the definite is været. Careful: the same four letters appear in vær så snill, where vær is an order from å være — one spelling, two different words." },
-        { id: "no-u8l3-eisol", type: "vocab", front: "ei sol", reading: "eisol", meaning: "sun", example: { jp: "Sola er gul.", en: "The sun is yellow." }, accept: ["a sun", "sunshine", "the sun"], hint: "Feminine: ei sol → sola. You will also see en sol / solen — Bokmål allows both and print often prefers the en form; this course writes ei because ei tells you the definite ends in -a. Sola skinner is far commoner than været er bra." },
+        { id: "no-u8l3-eisol", type: "vocab", front: "ei sol", reading: "eisol", meaning: "sun", example: { jp: "Sola er gul.", en: "The sun is yellow." }, accept: ["a sun", "sunshine", "the sun"], drill: { jp: "Jeg ser ei sol og ei sky", en: "I see a sun and a cloud" }, hint: "Feminine: ei sol → sola. You will also see en sol / solen — Bokmål allows both and print often prefers the en form; this course writes ei because ei tells you the definite ends in -a. Sola skinner is far commoner than været er bra." },
         { id: "no-u8l3-eisky", type: "vocab", front: "ei sky", reading: "eisky", meaning: "cloud", example: { jp: "Det er mange skyer her.", en: "There are many clouds here." }, accept: ["a cloud"], drill: { jp: "Det er ei sky", en: "That is a cloud" }, hint: "Feminine: ei sky → skya, plural skyer. sk before y is the broad hush of skje and sjø: SHUE." },
         { id: "no-u8l3-envind", type: "vocab", front: "en vind", reading: "envind", meaning: "wind", example: { jp: "Vinden kommer fra sjøen.", en: "The wind is coming from the sea." }, accept: ["a wind", "breeze"], drill: { jp: "Det kommer en vind fra en sjø", en: "A wind is coming off a lake" }, hint: "Masculine: en vind → vinden. Final d is silent, as in god and med: VINN." },
         { id: "no-u8l3-aregne", type: "vocab", front: "å regne", reading: "aregne", meaning: "to rain", example: { jp: "I Bergen regner det mye.", en: "It rains a lot in Bergen." }, accept: ["rain", "to be raining"], drill: { jp: "Det begynner å regne", en: "It is starting to rain" }, hint: "Always with det: det regner. Watch the word order — I Bergen opens the sentence, so the verb regner comes second and det is pushed behind it. The noun is regn (regnet)." },
