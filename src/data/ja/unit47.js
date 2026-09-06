@@ -51,7 +51,7 @@ export const UNIT47 = {
       items: [
         { id: "ja-u47l3-sojiki", type: "vocab", front: "そうじき", reading: "sōjiki", meaning: "vacuum cleaner", example: { jp: "そうじきでへやをそうじします。", en: "I clean the room with the vacuum." }, accept: ["hoover","the vacuum"] },
         { id: "ja-u47l3-sentakuki", type: "vocab", front: "せんたくき", reading: "sentakuki", meaning: "washing machine", example: { jp: "せんたくきでふくをあらいます。", en: "I wash clothes in the washing machine." }, accept: ["the washer","laundry machine"] },
-        { id: "ja-u47l3-reizoko", type: "vocab", front: "れいぞうこ", reading: "reizōko", meaning: "refrigerator", example: { jp: "ぎゅうにゅうをれいぞうこにいれます。", en: "I put the milk in the fridge." }, accept: ["fridge","the refrigerator"] },
+        { id: "ja-u47l3-reizoko", type: "vocab", front: "れいぞうこ", reading: "reizōko", meaning: "refrigerator", example: { jp: "ぎゅうにゅうをれいぞうこにいれます。", en: "I put the milk in the fridge." }, drill: { jp: "れいぞうこにぎゅうにゅうをいれます。", en: "I put the milk in the refrigerator." }, accept: ["fridge","the refrigerator"] },
         { id: "ja-u47l3-nabe", type: "vocab", front: "なべ", reading: "nabe", meaning: "pot", example: { jp: "なべでスープをつくります。", en: "I make soup in the pot." }, accept: ["a pot","saucepan","cooking pot"] },
         { id: "ja-u47l3-sara", type: "vocab", front: "さら", reading: "sara", meaning: "plate", example: { jp: "さらをテーブルにおきます。", en: "I put the plate on the table." }, accept: ["dish","a plate","plates"] },
         { id: "ja-u47l3-gomi", type: "vocab", front: "ごみ", reading: "gomi", meaning: "trash", example: { jp: "ごみをそとにだします。", en: "I take the trash outside." }, accept: ["garbage","rubbish","waste"] },

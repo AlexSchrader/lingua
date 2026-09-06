@@ -25,10 +25,10 @@ export const UNIT78 = {
       items: [
         { id: "ja-u78l1-sugata", type: "vocab", front: "すがた", reading: "sugata", meaning: "figure", example: { jp: "かのじょのすがたはきれいです。", en: "Her figure is beautiful." }, accept: ["form", "appearance"] },
         { id: "ja-u78l1-mitame", type: "vocab", front: "みため", reading: "mitame", meaning: "appearance", example: { jp: "みためがわかいです。", en: "He looks young." }, accept: ["looks", "how it looks"] },
-        { id: "ja-u78l1-sutairu", type: "vocab", front: "スタイル", reading: "sutairu", meaning: "figure", example: { jp: "かのじょのスタイルがすきです。", en: "I like her figure." }, accept: ["build", "physique"] },
+        { id: "ja-u78l1-sutairu", type: "vocab", front: "スタイル", reading: "sutairu", meaning: "figure", example: { jp: "かのじょのスタイルがすきです。", en: "I like her figure." }, drill: { jp: "スタイルがすきです。", en: "I like the figure." }, accept: ["build", "physique"] },
         { id: "ja-u78l1-kakkoii", type: "vocab", front: "かっこいい", reading: "kakkoii", meaning: "cool", example: { jp: "あのひとはかっこいいです。", en: "That person is cool." }, accept: ["good-looking", "stylish"] },
         { id: "ja-u78l1-hansamu", type: "vocab", front: "ハンサム", reading: "hansamu", meaning: "handsome", example: { jp: "かれはハンサムです。", en: "He is handsome." }, accept: ["good-looking"] },
-        { id: "ja-u78l1-bijin", type: "vocab", front: "びじん", reading: "bijin", meaning: "beautiful woman", example: { jp: "あのひとはびじんです。", en: "She is a beautiful woman." }, accept: ["a beauty", "beauty"] },
+        { id: "ja-u78l1-bijin", type: "vocab", front: "びじん", reading: "bijin", meaning: "beautiful woman", example: { jp: "あのひとはびじんです。", en: "She is a beautiful woman." }, drill: { jp: "びじんがいます。", en: "There is a beautiful woman." }, accept: ["a beauty", "beauty"] },
       ],
     },
     // Lesson 2: face & hair features
@@ -41,12 +41,12 @@ export const UNIT78 = {
       dominantMode: "recall",
       canDo: "Name face features: けしょう しわ まゆげ まつげ ひたい ほくろ.",
       items: [
-        { id: "ja-u78l2-keshou", type: "vocab", front: "けしょう", reading: "keshō", meaning: "makeup", example: { jp: "まいあさけしょうをします。", en: "I put on makeup every morning." }, accept: ["make-up", "cosmetics"] },
+        { id: "ja-u78l2-keshou", type: "vocab", front: "けしょう", reading: "keshō", meaning: "makeup", example: { jp: "まいあさけしょうをします。", en: "I put on makeup every morning." }, drill: { jp: "けしょうをします。", en: "I put on makeup." }, accept: ["make-up", "cosmetics"] },
         { id: "ja-u78l2-shiwa", type: "vocab", front: "しわ", reading: "shiwa", meaning: "wrinkle", example: { jp: "そぼのかおにしわがあります。", en: "My grandmother has wrinkles on her face." }, accept: ["wrinkles", "line"] },
         { id: "ja-u78l2-mayuge", type: "vocab", front: "まゆげ", reading: "mayuge", meaning: "eyebrow", example: { jp: "まゆげがくろいです。", en: "His eyebrows are black." }, accept: ["eyebrows"] },
         { id: "ja-u78l2-matsuge", type: "vocab", front: "まつげ", reading: "matsuge", meaning: "eyelash", example: { jp: "まつげがながいです。", en: "Her eyelashes are long." }, accept: ["eyelashes"] },
         { id: "ja-u78l2-hitai", type: "vocab", front: "ひたい", reading: "hitai", meaning: "forehead", example: { jp: "ひたいがひろいです。", en: "His forehead is broad." }, accept: ["brow"] },
-        { id: "ja-u78l2-hokuro", type: "vocab", front: "ほくろ", reading: "hokuro", meaning: "mole", example: { jp: "かおにほくろがあります。", en: "There is a mole on her face." }, accept: ["beauty spot"] },
+        { id: "ja-u78l2-hokuro", type: "vocab", front: "ほくろ", reading: "hokuro", meaning: "mole", example: { jp: "かおにほくろがあります。", en: "There is a mole on her face." }, drill: { jp: "ほくろがあります。", en: "There is a mole." }, accept: ["beauty spot"] },
       ],
     },
     // Lesson 3: clothing items

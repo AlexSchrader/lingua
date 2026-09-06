@@ -76,7 +76,7 @@ export const UNIT171 = {
         { id: "ja-u171l4-8377", type: "kanji", front: "荷", reading: "ni", meaning: "load", example: { jp: "重い 荷物を もって、かいだんを 上がりました。", en: "I carried the heavy luggage up the stairs." }, accept: ["baggage", "cargo", "a burden"], hint: "荷 (ni) = a load or baggage. 荷物 = luggage, 入荷 = a delivery of goods, 重荷 = a heavy burden." },
         { id: "ja-u171l4-8ab2", type: "kanji", front: "課", reading: "ka", meaning: "section", example: { jp: "今日の 課題は とても むずかしかったです。", en: "Today's assignment was very difficult." }, accept: ["a lesson", "a department", "to impose"], hint: "課 = a section or lesson. 課長 = a section chief, 課題 = an assignment, 第一課 = lesson one." },
         { id: "ja-u171l4-kioku", type: "vocab", front: "記憶", reading: "kioku", meaning: "memory", example: { jp: "その 日の ことは、今も はっきり 記憶して います。", en: "I still clearly remember what happened that day." }, accept: ["recollection", "remembrance"] },
-        { id: "ja-u171l4-nimotsu", type: "vocab", front: "荷物", reading: "nimotsu", meaning: "luggage", example: { jp: "りょこうの 荷物を 大きな かばんに つめました。", en: "I packed my travel luggage into a big bag." }, accept: ["baggage", "a parcel", "cargo"] },
+        { id: "ja-u171l4-nimotsu", type: "vocab", front: "荷物", reading: "nimotsu", meaning: "luggage", example: { jp: "りょこうの 荷物を 大きな かばんに つめました。", en: "I packed my travel luggage into a big bag." }, drill: { jp: "荷物を つめました。", en: "I packed the luggage." }, accept: ["baggage", "a parcel", "cargo"] },
       ],
     },
   ],

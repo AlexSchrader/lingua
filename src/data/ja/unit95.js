@@ -20,7 +20,7 @@ export const UNIT95 = {
         { id: "ja-u95l1-kaeri", type: "vocab", front: "かえり", reading: "kaeri", meaning: "way home", example: { jp: "かえりに スーパーに よります。", en: "I stop by the supermarket on the way home." }, accept: ["return","way back"] },
         { id: "ja-u95l1-purezento", type: "vocab", front: "プレゼント", reading: "purezento", meaning: "present", example: { jp: "ともだちに プレゼントを あげます。", en: "I give a present to my friend." }, accept: ["gift"] },
         { id: "ja-u95l1-tazuneru", type: "vocab", front: "たずねる", reading: "tazuneru", meaning: "to visit", example: { jp: "せんせいの いえを たずねます。", en: "I visit the teacher's house." }, accept: ["to call on","to ask"] },
-        { id: "ja-u95l1-tenkiyoho", type: "vocab", front: "てんきよほう", reading: "tenkiyohō", meaning: "weather forecast", example: { jp: "あさ てんきよほうを みます。", en: "I watch the weather forecast in the morning." }, accept: ["weather report"] },
+        { id: "ja-u95l1-tenkiyoho", type: "vocab", front: "てんきよほう", reading: "tenkiyohō", meaning: "weather forecast", example: { jp: "あさ てんきよほうを みます。", en: "I watch the weather forecast in the morning." }, drill: { jp: "てんきよほうを みます。", en: "I watch the weather forecast." }, accept: ["weather report"] },
       ],
     },
     {
@@ -34,7 +34,7 @@ export const UNIT95 = {
       items: [
         { id: "ja-u95l2-hososuru", type: "vocab", front: "ほうそうする", reading: "hōsōsuru", meaning: "to broadcast", example: { jp: "テレビで ニュースを ほうそうします。", en: "They broadcast the news on TV." }, accept: ["to air","broadcast"] },
         { id: "ja-u95l2-fakkusu", type: "vocab", front: "ファックス", reading: "fakkusu", meaning: "fax", example: { jp: "かいしゃに ファックスを おくります。", en: "I send a fax to the office." }, accept: ["fax machine"] },
-        { id: "ja-u95l2-shochisuru", type: "vocab", front: "しょうちする", reading: "shōchisuru", meaning: "to agree", example: { jp: "その はなしは しょうちしました。", en: "I agreed to that." }, accept: ["to consent","to understand","acknowledge"] },
+        { id: "ja-u95l2-shochisuru", type: "vocab", front: "しょうちする", reading: "shōchisuru", meaning: "to agree", example: { jp: "その はなしは しょうちしました。", en: "I agreed to that." }, drill: { jp: "その はなしを しょうちする。", en: "I agree to that." }, accept: ["to consent","to understand","acknowledge"] },
         { id: "ja-u95l2-yoruto", type: "vocab", front: "よると", reading: "yoruto", meaning: "according to", example: { jp: "てんきよほうに よると、あした あめです。", en: "According to the weather forecast, it will rain tomorrow." }, accept: ["based on"] },
         { id: "ja-u95l2-makeru", type: "vocab", front: "まける", reading: "makeru", meaning: "to lose", example: { jp: "しあいに まけました。", en: "I lost the match." }, accept: ["to be defeated","be beaten"] },
         { id: "ja-u95l2-sangyo", type: "vocab", front: "さんぎょう", reading: "sangyō", meaning: "industry", example: { jp: "にほんの さんぎょうは つよいです。", en: "Japan's industry is strong." }, accept: ["industries"] },

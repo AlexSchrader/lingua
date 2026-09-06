@@ -52,7 +52,7 @@ export const UNIT93 = {
         { id: "ja-u93l3-boeki", type: "vocab", front: "ぼうえき", reading: "bōeki", meaning: "trade", example: { jp: "にほんと ぼうえきを します。", en: "We trade with Japan." }, accept: ["commerce","foreign trade"] },
         { id: "ja-u93l3-chekku", type: "vocab", front: "チェックする", reading: "chekkusuru", meaning: "to check", example: { jp: "メールを チェックします。", en: "I check my email." }, accept: ["check","to check over"] },
         { id: "ja-u93l3-gochiso", type: "vocab", front: "ごちそう", reading: "gochisō", meaning: "feast", example: { jp: "きょうは ごちそうです。", en: "Today is a feast." }, accept: ["treat","delicious meal"] },
-        { id: "ja-u93l3-odori", type: "vocab", front: "おどり", reading: "odori", meaning: "dance", example: { jp: "にほんの おどりを みます。", en: "I watch a Japanese dance." }, accept: ["dancing"] },
+        { id: "ja-u93l3-odori", type: "vocab", front: "おどり", reading: "odori", meaning: "dance", example: { jp: "にほんの おどりを みます。", en: "I watch a Japanese dance." }, drill: { jp: "おどりを みます。", en: "I watch the dance." }, accept: ["dancing"] },
         { id: "ja-u93l3-reibo", type: "vocab", front: "れいぼう", reading: "reibō", meaning: "air conditioning", example: { jp: "なつは れいぼうを つけます。", en: "In summer I turn on the air conditioning." }, accept: ["cooling","AC"] },
         { id: "ja-u93l3-nyugaku", type: "vocab", front: "にゅうがくする", reading: "nyūgakusuru", meaning: "to enter school", example: { jp: "らいねん にゅうがくします。", en: "I'll enter school next year." }, accept: ["to enrol in school","start school"] },
       ],
@@ -67,7 +67,7 @@ export const UNIT93 = {
       canDo: "Core JLPT N4 vocabulary: おもちゃ おと あそび ひるま うら つる.",
       items: [
         { id: "ja-u93l4-omocha", type: "vocab", front: "おもちゃ", reading: "omocha", meaning: "toy", example: { jp: "こどもがおもちゃであそびます。", en: "The child plays with a toy." }, accept: ["plaything"] },
-        { id: "ja-u93l4-oto", type: "vocab", front: "おと", reading: "oto", meaning: "sound", example: { jp: "おおきいおとがしました。", en: "There was a loud sound." }, accept: ["noise"] },
+        { id: "ja-u93l4-oto", type: "vocab", front: "おと", reading: "oto", meaning: "sound", example: { jp: "おおきいおとがしました。", en: "There was a loud sound." }, drill: { jp: "おとがしました。", en: "There was a sound." }, accept: ["noise"] },
         { id: "ja-u93l4-asobi", type: "vocab", front: "あそび", reading: "asobi", meaning: "play", example: { jp: "あそびのじかんです。", en: "It's playtime." }, accept: ["game","fun"] },
         { id: "ja-u93l4-hiruma", type: "vocab", front: "ひるま", reading: "hiruma", meaning: "daytime", example: { jp: "ひるまはとてもあついです。", en: "It's very hot during the day." }, accept: ["during the day"] },
         { id: "ja-u93l4-ura", type: "vocab", front: "うら", reading: "ura", meaning: "back", example: { jp: "かみのうらにかきます。", en: "I write on the back of the paper." }, accept: ["reverse side","other side"], hint: "The back / reverse side of something." },

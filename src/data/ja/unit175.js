@@ -87,7 +87,7 @@ export const UNIT175 = {
         { id: "ja-u175l4-juku", type: "kanji", front: "熟", reading: "juku", meaning: "ripen", example: { jp: "時期が 熟すのを 待って います。", en: "I'm waiting for the moment to ripen." }, accept: ["mature", "come to fruition", "be practised"], hint: "熟 = 灬 (fire) beneath — brought on slowly by heat. 熟語 = a set compound: words that have matured together." },
         { id: "ja-u175l4-jun", type: "kanji", front: "純", reading: "jun", meaning: "unmixed", example: { jp: "純白の 服を 着て、しずかに 立って いました。", en: "She stood quietly, dressed in pure white." }, accept: ["pure", "innocent", "plain"], hint: "純 = 糸 (thread) + 屯 — thread with nothing else spun into it." },
         { id: "ja-u175l4-shukusho", type: "vocab", front: "縮小", reading: "shukushō", meaning: "scaling down", example: { jp: "計画の 縮小が 決まって、人も へりました。", en: "A scaling-down of the plan was decided, and staff were cut too." }, accept: ["reduction", "downsizing", "shrinking it"] },
-        { id: "ja-u175l4-junpaku", type: "vocab", front: "純白", reading: "junpaku", meaning: "pure white", example: { jp: "朝の 雪は 純白で、足あとが 一つも ありません。", en: "The morning snow was pure white, without a single footprint." }, accept: ["snow white", "unbroken white"] },
+        { id: "ja-u175l4-junpaku", type: "vocab", front: "純白", reading: "junpaku", meaning: "pure white", example: { jp: "朝の 雪は 純白で、足あとが 一つも ありません。", en: "The morning snow was pure white, without a single footprint." }, drill: { jp: "純白の ゆきです。", en: "It is pure white snow." }, accept: ["snow white", "unbroken white"] },
       ],
     },
   ],

@@ -49,8 +49,8 @@ export const UNIT51 = {
       dominantMode: "recall",
       canDo: "Name ground and materials: かせき すな つち こおり ガラス てつ.",
       items: [
-        { id: "ja-u51l3-kaseki", type: "vocab", front: "かせき", reading: "kaseki", meaning: "fossil", example: { jp: "はくぶつかんでかせきをみます。", en: "I look at fossils at the museum." }, accept: ["the fossil"] },
-        { id: "ja-u51l3-suna", type: "vocab", front: "すな", reading: "suna", meaning: "sand", example: { jp: "こどもがすなであそびます。", en: "The child plays in the sand." }, accept: ["the sand"] },
+        { id: "ja-u51l3-kaseki", type: "vocab", front: "かせき", reading: "kaseki", meaning: "fossil", example: { jp: "はくぶつかんでかせきをみます。", en: "I look at fossils at the museum." }, drill: { jp: "かせきをはくぶつかんでみます。", en: "I look at the fossil in the museum." }, accept: ["the fossil"] },
+        { id: "ja-u51l3-suna", type: "vocab", front: "すな", reading: "suna", meaning: "sand", example: { jp: "こどもがすなであそびます。", en: "The child plays in the sand." }, drill: { jp: "すなであそびます。", en: "I play in the sand." }, accept: ["the sand"] },
         { id: "ja-u51l3-tsuchi", type: "vocab", front: "つち", reading: "tsuchi", meaning: "soil", example: { jp: "つちはくろいです。", en: "The soil is black." }, accept: ["earth","dirt","the ground"] },
         { id: "ja-u51l3-kori", type: "vocab", front: "こおり", reading: "kōri", meaning: "ice", example: { jp: "こおりはつめたいです。", en: "Ice is cold." }, accept: ["the ice"] },
         { id: "ja-u51l3-garasu", type: "vocab", front: "ガラス", reading: "garasu", meaning: "glass", example: { jp: "ガラスのコップです。", en: "It's a glass cup." }, accept: ["the glass"] },

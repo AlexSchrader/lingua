@@ -58,7 +58,7 @@ export const UNIT117 = {
         { id: "ja-u117l3-to", type: "kanji", front: "到", reading: "tō", meaning: "to arrive", example: { jp: "ふねが 港に 到着して、みんな 一人ずつ おりました。", en: "The ship arrived at the harbour, and everyone got off one by one." }, accept: ["reach", "arrival"], hint: "到 = reach the destination — 至 (arrive) + 刂. You meet it mostly in 到着 = arrival, the partner of 出発." },
         { id: "ja-u117l3-sho", type: "kanji", front: "昇", reading: "shō", meaning: "to rise", example: { jp: "朝 早く 山に のぼって、日が 昇るのを 見ました。", en: "I climbed the mountain early and watched the sun rise." }, accept: ["to ascend", "promotion", "to go up"], hint: "昇 = go up — 日 (sun) on top. 日が 昇る = the sun rises; 昇進 = promotion at work." },
         { id: "ja-u117l3-shojiki", type: "vocab", front: "正直", reading: "shōjiki", meaning: "honest", example: { jp: "正直に 話して くれて、ありがとう。", en: "Thank you for telling me honestly." }, accept: ["frank", "truthful", "honestly"], hint: "正 (correct) + 直 (straight) — straight and correct, said of a person." },
-        { id: "ja-u117l3-tochaku", type: "vocab", front: "到着", reading: "tōchaku", meaning: "arrival", example: { jp: "バスの 到着は 三時の よていですから、もう少し 待ちましょう。", en: "The bus is due to arrive at three, so let's wait a little longer." }, accept: ["to arrive", "getting in"] },
+        { id: "ja-u117l3-tochaku", type: "vocab", front: "到着", reading: "tōchaku", meaning: "arrival", example: { jp: "バスの 到着は 三時の よていですから、もう少し 待ちましょう。", en: "The bus is due to arrive at three, so let's wait a little longer." }, drill: { jp: "到着は さんじです。", en: "The arrival is at three." }, accept: ["to arrive", "getting in"] },
       ],
     },
     {

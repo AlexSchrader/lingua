@@ -22,7 +22,7 @@ export const FR_UNIT40 = {
       canDo: "Name the things on your desk and in your pocket: l'écran, le clavier, le portable, la tablette.",
       items: [
         { id: "fr-u40l1-lecran", type: "vocab", front: "l'écran", reading: "lecran", meaning: "the screen", example: { jp: "Mon écran est trop petit.", en: "My screen is too small." }, accept: ["screen", "display", "monitor"] },
-        { id: "fr-u40l1-leclavier", type: "vocab", front: "le clavier", reading: "leclavier", meaning: "the keyboard", example: { jp: "J'écris sur mon clavier.", en: "I type on my keyboard." }, accept: ["keyboard", "the keyboard"], hint: "A French keyboard is AZERTY, not QWERTY — the top row starts differently." },
+        { id: "fr-u40l1-leclavier", type: "vocab", front: "le clavier", reading: "leclavier", meaning: "the keyboard", example: { jp: "J'écris sur mon clavier.", en: "I type on my keyboard." }, drill: { jp: "J'écris sur le clavier", en: "I write on the keyboard" }, accept: ["keyboard", "the keyboard"], hint: "A French keyboard is AZERTY, not QWERTY — the top row starts differently." },
         { id: "fr-u40l1-leportable", type: "vocab", front: "le portable", reading: "leportable", meaning: "the mobile phone", example: { jp: "Mon portable est dans mon sac.", en: "My mobile is in my bag." }, accept: ["mobile", "cell phone", "cellphone", "laptop"], hint: "Portable = anything you carry. Usually the phone; sometimes the laptop." },
         { id: "fr-u40l1-latablette", type: "vocab", front: "la tablette", reading: "latablette", meaning: "the tablet", example: { jp: "Ma mère lit sur sa tablette.", en: "My mother reads on her tablet." }, accept: ["tablet", "the tablet", "ipad"] },
         { id: "fr-u40l1-labatterie", type: "vocab", front: "la batterie", reading: "labatterie", meaning: "the battery", example: { jp: "Mon portable a une bonne batterie.", en: "My phone has a good battery." }, accept: ["battery", "the battery"], hint: "Also the drums in a band — une batterie." },
@@ -43,7 +43,7 @@ export const FR_UNIT40 = {
         { id: "fr-u40l2-lereseau", type: "vocab", front: "le réseau", reading: "lereseau", meaning: "the network", example: { jp: "Il n'y a pas de réseau ici.", en: "There's no signal here." }, accept: ["network", "signal", "the network"], hint: "Also the social kind: les réseaux sociaux." },
         { id: "fr-u40l2-lemotdepasse", type: "vocab", front: "le mot de passe", reading: "lemotdepasse", meaning: "the password", example: { jp: "Mon mot de passe est trop facile.", en: "My password is too easy." }, accept: ["password", "the password"], hint: "Literally \"word of passing\" — three words, one idea." },
         { id: "fr-u40l2-lapplication", type: "vocab", front: "l'application", reading: "lapplication", meaning: "the app", example: { jp: "Cette application est gratuite.", en: "This app is free." }, accept: ["app", "application", "the app"], hint: "Everyone shortens it to une appli." },
-        { id: "fr-u40l2-leprofil", type: "vocab", front: "le profil", reading: "leprofil", meaning: "the profile", example: { jp: "J'ai un profil sur ce site.", en: "I have a profile on this site." }, accept: ["profile", "the profile"] },
+        { id: "fr-u40l2-leprofil", type: "vocab", front: "le profil", reading: "leprofil", meaning: "the profile", example: { jp: "J'ai un profil sur ce site.", en: "I have a profile on this site." }, drill: { jp: "Le profil est sur le site", en: "The profile is on the site" }, accept: ["profile", "the profile"] },
       ],
     },
     {

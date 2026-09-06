@@ -39,7 +39,7 @@ export const UNIT76 = {
       canDo: "Talk about life and nature: せいぶつ しょくぶつ こんちゅう いのち じんるい しんりん.",
       items: [
         { id: "ja-u76l2-seibutsu", type: "vocab", front: "せいぶつ", reading: "seibutsu", meaning: "living thing", example: { jp: "うみには、いろいろなせいぶつがいます。", en: "There are many living things in the sea." }, accept: ["living things", "creature", "organism"] },
-        { id: "ja-u76l2-shokubutsu", type: "vocab", front: "しょくぶつ", reading: "shokubutsu", meaning: "plant", example: { jp: "にわのしょくぶつがすきです。", en: "I like the plants in the garden." }, accept: ["plants", "vegetation"] },
+        { id: "ja-u76l2-shokubutsu", type: "vocab", front: "しょくぶつ", reading: "shokubutsu", meaning: "plant", example: { jp: "にわのしょくぶつがすきです。", en: "I like the plants in the garden." }, drill: { jp: "しょくぶつがすきです。", en: "I like plants." }, accept: ["plants", "vegetation"] },
         { id: "ja-u76l2-konchu", type: "vocab", front: "こんちゅう", reading: "konchū", meaning: "insect", example: { jp: "こどもはこんちゅうがすきです。", en: "Children like insects." }, accept: ["insects", "bug"] },
         { id: "ja-u76l2-inochi", type: "vocab", front: "いのち", reading: "inochi", meaning: "life", example: { jp: "いのちはたいせつです。", en: "Life is precious." }, accept: ["a life"] },
         { id: "ja-u76l2-jinrui", type: "vocab", front: "じんるい", reading: "jinrui", meaning: "humankind", example: { jp: "じんるいのれきしはながいです。", en: "The history of humankind is long." }, accept: ["humanity", "the human race"] },
@@ -56,11 +56,11 @@ export const UNIT76 = {
       dominantMode: "recall",
       canDo: "Talk about disasters and danger: つなみ こうずい かじ ひがい じけん きけん.",
       items: [
-        { id: "ja-u76l3-tsunami", type: "vocab", front: "つなみ", reading: "tsunami", meaning: "tsunami", example: { jp: "じしんのあとに、つなみがきました。", en: "A tsunami came after the earthquake." }, accept: ["a tsunami", "tidal wave"] },
+        { id: "ja-u76l3-tsunami", type: "vocab", front: "つなみ", reading: "tsunami", meaning: "tsunami", example: { jp: "じしんのあとに、つなみがきました。", en: "A tsunami came after the earthquake." }, drill: { jp: "つなみがきました。", en: "A tsunami came." }, accept: ["a tsunami", "tidal wave"] },
         { id: "ja-u76l3-kozui", type: "vocab", front: "こうずい", reading: "kōzui", meaning: "flood", example: { jp: "おおきいあめで、こうずいになりました。", en: "The heavy rain caused a flood." }, accept: ["a flood", "flooding"] },
         { id: "ja-u76l3-kaji", type: "vocab", front: "かじ", reading: "kaji", meaning: "fire (blaze)", example: { jp: "よる、かじがありました。", en: "There was a fire at night." }, accept: ["a fire", "blaze"] },
-        { id: "ja-u76l3-higai", type: "vocab", front: "ひがい", reading: "higai", meaning: "damage", example: { jp: "たいふうのひがいがおおきいです。", en: "The typhoon damage is large." }, accept: ["harm", "damage from a disaster"] },
-        { id: "ja-u76l3-jiken", type: "vocab", front: "じけん", reading: "jiken", meaning: "incident", example: { jp: "まちで、じけんがありました。", en: "There was an incident in town." }, accept: ["an incident", "case", "affair"] },
+        { id: "ja-u76l3-higai", type: "vocab", front: "ひがい", reading: "higai", meaning: "damage", example: { jp: "たいふうのひがいがおおきいです。", en: "The typhoon damage is large." }, drill: { jp: "ひがいがおおきいです。", en: "The damage is great." }, accept: ["harm", "damage from a disaster"] },
+        { id: "ja-u76l3-jiken", type: "vocab", front: "じけん", reading: "jiken", meaning: "incident", example: { jp: "まちで、じけんがありました。", en: "There was an incident in town." }, drill: { jp: "じけんがありました。", en: "There was an incident." }, accept: ["an incident", "case", "affair"] },
         { id: "ja-u76l3-kiken", type: "vocab", front: "きけん", reading: "kiken", meaning: "danger", example: { jp: "ここはきけんです。", en: "It's dangerous here." }, accept: ["dangerous", "peril"] },
       ],
     },
