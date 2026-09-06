@@ -275,6 +275,16 @@ Then stop. Alex playtests and merges to `main`.
 
 ## 7. When you're stuck — do this, don't ask
 
+**⚠️ Before anything else: if you edit `BUILD-CHECKLIST.md` with a script, open it with
+explicit `newline=""`.** Python's default translation silently rewrites every line
+ending in the file, so a one-row crew-board update lands as an 800-line diff — and a
+diff that size is one nobody reads closely, which is exactly where a real change
+hides. Found 2026-09-06 by the German drills seat C, who reported it as a defect in
+their own method rather than a footnote on a benign result; theirs happened to
+*correct* a mixed-ending file, but on a deliberately-LF file it would have done real
+damage unnoticed. The same applies to any script that rewrites a whole file it did
+not author.
+
 | Situation | What you do |
 |---|---|
 | A word you need is owned by an earlier block | Use it in examples; don't re-teach. Move on. |
