@@ -2,6 +2,7 @@ import { KANJIVG } from "../data/kanjivg.js";
 import { AUDIO_IDS } from "../data/audioManifest.js";
 import { conjugateIn } from "./conjugate.js";
 import { isJapaneseItem } from "./itemLang.js";
+import { checkProduce, checkMeaning } from "./answer.js";
 
 // Share of eligible (rung ≤ 1, has-audio) reviews that present as a listening
 // card instead of a plain choice — a tuning knob, not structure. Kept here so
@@ -529,6 +530,44 @@ export function eligibleKinds(item) {
 // The SPEAK card is vocab-only: STT on isolated single kana is unreliable (the
 // Brief-C C.0 de-risk showed 0/3), and a kana's sound is already trained by the
 // listen card. Multi-mora words transcribe well enough for a lenient grade.
+// --- free-pass guard -------------------------------------------------------
+// A typed card is worthless when THE PROMPT ITSELF GRADES AS THE ANSWER. The
+// learner reads the prompt, types it back, and is marked correct without
+// recalling anything.
+//
+// This is not hypothetical and it is not rare. Measured on the live corpus:
+// 43 items where typing the meaning satisfies checkProduce, and 31 where typing
+// the front satisfies checkMeaning — 74 cards across fr/es/no. Two causes:
+//   * identical cognates — fr "important"/"important", "possible"/"possible";
+//   * the accent fold — checkReading strips diacritics, so "zero" is accepted
+//     for "zéro" and "legal" for "légal". The accent, which is the whole lesson
+//     in those items, is not actually enforced.
+// A third and worse shape sits in fr-u27 "Les sons", where the meaning restates
+// the front and then explains it ("œ — o and e fused"): the prompt contains the
+// answer in plain sight, and the type:meaning variant asks the learner to type a
+// definition rather than a word.
+//
+// Same precedent as type:reading, which was disabled for Latin script once it
+// was found to be a copy task: detect the degenerate case and route elsewhere.
+// The item is not dropped — it takes a card that still tests something.
+export function produceIsFreePass(item) {
+  if (!item?.meaning) return false;
+  try {
+    return checkProduce(String(item.meaning), item) === true;
+  } catch {
+    return false;
+  }
+}
+
+export function meaningIsFreePass(item) {
+  if (!item?.front) return false;
+  try {
+    return checkMeaning(String(item.front), item) === true;
+  } catch {
+    return false;
+  }
+}
+
 export function shouldSpeak(item) {
   return item?.type === "vocab";
 }

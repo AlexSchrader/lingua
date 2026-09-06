@@ -11,6 +11,7 @@ import {
   isLatin, earCrowdedOut, isTraceable, shouldListen, shouldReverseChoice, shouldListenType,
   shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze,
   shouldSentence, shouldConjugate, canBuildReading, eligibleKinds,
+  meaningIsFreePass, produceIsFreePass, hasAudio,
 } from "./cardRouting.js";
 
 // --- rotation within a stage ------------------------------------------------
@@ -99,7 +100,16 @@ export function reviewStepFor(item) {
     if (shouldParticleCloze(item)) return { kind: "particle:choice" };
     if (shouldCloze(item)) return { kind: "cloze:choice" };
     if (shouldListenType(item)) return { kind: "listen:type" };
-    return shouldTypeReading(item) ? { kind: "type", mode: "reading" } : { kind: "type", mode: "meaning" };
+    if (shouldTypeReading(item)) return { kind: "type", mode: "reading" };
+    // The meaning card is the rung-2 fallback, so a free-pass item would land here and
+    // grade correct for typing the prompt back. Send it somewhere that still tests
+    // recall: dictation if it owns a clip (hearing it is never a free pass), otherwise
+    // the 4-option reverse, where the distractors do the work.
+    if (meaningIsFreePass(item)) {
+      if (shouldListenType(item) || hasAudio(item)) return { kind: "listen:type" };
+      return { kind: "choice:reverse" };
+    }
+    return { kind: "type", mode: "meaning" };
   }
   // Produce (rung 3): single-glyph kana + kanji are produced by stroke tracing;
   // words are produced by TYPING the Japanese from the English — rōmaji is accepted
@@ -116,6 +126,10 @@ export function reviewStepFor(item) {
     // The tile-build card is a transliteration test, so it only applies where the
     // reading is a different script from the front (see canBuildReading) — a
     // Latin-script item produces by typing the word from its meaning instead.
+    // Same guard on the produce side. For an identical cognate or an accent-only
+    // difference, typing it from the English is free — but SAYING it is not: the
+    // pronunciation is exactly what differs.
+    if (produceIsFreePass(item) && shouldSpeak(item)) return { kind: "speak" };
     return shouldTypeProduce(item) || !canBuildReading(item)
       ? { kind: "type", mode: "produce" }
       : { kind: "build" };
