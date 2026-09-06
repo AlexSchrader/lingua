@@ -119,11 +119,17 @@ function check(item) {
     bad.push(`neuter subject + base adjective "${item.front}" — Norwegian needs -t here, which would break the verbatim front`);
   // Compare NORMALISED, not raw — the drill has no trailing period and the
   // example does, so a raw compare can never match. This guard never fired.
-  const flat = (x) => String(x ?? "").replace(/\s*[。！？.!?]+\s*$/u, "").replace(/\s+/g, " ").trim().toLowerCase();
+  // Compare on WORDS ONLY. Trailing-punctuation stripping was not enough: an
+  // example with an internal comma ("Ha det, Erling!") still slipped past.
+  const flat = (x) => String(x ?? "").toLowerCase().replace(/[^\p{L}\s]/gu, "").replace(/\s+/g, " ").trim();
   if (flat(d.jp) === flat(item.example?.jp)) bad.push("drill IS the example (no second context — the whole point of the field)");
   // A bare å-frame ("Det er lett å prøve") reads as machine output. Norwegian
   // wants a complement after the infinitive, exactly as English does.
-  if (/^det er \S+ å \S+$/i.test(jp)) bad.push("bare å-frame — the infinitive needs an object or complement");
+  // Verbs that read absolutely after an å-frame and need no complement.
+  const ABSOLUTE = ["gå", "beklage", "spise", "betale", "gi", "le", "smile", "sove", "hvile", "drikke"];
+  const bareFrame = jp.match(/^det er \S+ å (\S+)$/i);
+  if (bareFrame && !ABSOLUTE.includes(bareFrame[1].toLowerCase()))
+    bad.push("bare å-frame — this infinitive needs an object or complement");
   if (notes.length) NOTES.push(`  · ${item.id.padEnd(24)} ${notes.join(" | ")}`);
   return bad;
 }
