@@ -1,7 +1,7 @@
 # PT — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- pt`.
-Snapshot 2026-09-03: **482 words** across **20 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-06: **482 words** across **20 authored unit(s)**, **30 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -14,6 +14,51 @@ Snapshot 2026-09-03: **482 words** across **20 authored unit(s)**, **0 slot(s) s
 - **It does not contain the words your sibling blocks are writing right now.** They do not exist yet, in this tree or any other. If you need a word a *later* slot will plainly own (a grammar unit's tense, a themed unit's domain), assume it is theirs and teach around it.
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
+
+## Who owns which slots this band
+
+The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
+
+| block | slots |
+|---|---|
+| 1 | u21–u30 |
+| 2 | u31–u40 |
+| 3 | u41–u50 |
+
+## Slots still stubs — not yours unless you were assigned them
+
+| slot | unit | title |
+|---|---|---|
+| 21 | `pt-u21` | Activities and routine |
+| 22 | `pt-u22` | Feelings and states |
+| 23 | `pt-u23` | Travel and transport |
+| 24 | `pt-u24` | Work and school |
+| 25 | `pt-u25` | Health and the body |
+| 26 | `pt-u26` | Nature and animals |
+| 27 | `pt-u27` | Shopping and money |
+| 28 | `pt-u28` | Time and adverbs |
+| 29 | `pt-u29` | Connecting words |
+| 30 | `pt-u30` | Home and household |
+| 31 | `pt-u31` | Personality and character |
+| 32 | `pt-u32` | Society and daily life |
+| 33 | `pt-u33` | Technology and communication |
+| 34 | `pt-u34` | Nature and science |
+| 35 | `pt-u35` | Culture and leisure |
+| 36 | `pt-u36` | Grammar 4 — compound and linked clauses |
+| 37 | `pt-u37` | Grammar 5 — conditionals, ability, comparison |
+| 38 | `pt-u38` | Conjugation drill 1 |
+| 39 | `pt-u39` | Conjugation drill 2 |
+| 40 | `pt-u40` | Vocabulary 1 (A2) |
+| 41 | `pt-u41` | Vocabulary 2 (A2) |
+| 42 | `pt-u42` | Vocabulary 3 (A2) |
+| 43 | `pt-u43` | Vocabulary 4 (A2) |
+| 44 | `pt-u44` | Vocabulary 5 (A2) |
+| 45 | `pt-u45` | Vocabulary 6 (A2) |
+| 46 | `pt-u46` | Vocabulary 7 (A2) |
+| 47 | `pt-u47` | Vocabulary 8 (A2) |
+| 48 | `pt-u48` | Vocabulary 9 (A2) |
+| 49 | `pt-u49` | Vocabulary 10 (A2) |
+| 50 | `pt-u50` | Vocabulary 11 (A2) |
 
 ## Index — every taught word, alphabetical
 
