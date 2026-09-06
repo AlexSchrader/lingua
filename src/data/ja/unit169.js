@@ -25,7 +25,7 @@ export const UNIT169 = {
         { id: "ja-u169l1-614b", type: "kanji", front: "態", reading: "tai", meaning: "condition", example: { jp: "きかいは いま、あぶない 状態に あります。", en: "The machine is now in a dangerous state." }, accept: ["state", "attitude", "form"], hint: "態 = the state or manner of a thing. 状態 = condition, 態度 = attitude, 事態 = the situation." },
         { id: "ja-u169l1-63d0", type: "kanji", front: "提", reading: "tei", meaning: "to submit", example: { jp: "レポートを 期限までに かならず 提出します。", en: "I'll be sure to submit the report by the deadline." }, accept: ["to present", "to put forward"], hint: "提 = to hold out and present. 提出 = submission, 提案 = a proposal, 前提 = a premise." },
         { id: "ja-u169l1-taido", type: "vocab", front: "態度", reading: "taido", meaning: "attitude", example: { jp: "めんせつでは、話し方も 態度も 大切です。", en: "In an interview, both how you speak and your attitude matter." }, accept: ["manner", "bearing"] },
-        { id: "ja-u169l1-teishutsu", type: "vocab", front: "提出", reading: "teishutsu", meaning: "submission", example: { jp: "しゅくだいを 朝までに 提出しました。", en: "I submitted my homework by the morning." }, accept: ["handing in", "presentation"] },
+        { id: "ja-u169l1-teishutsu", type: "vocab", front: "提出", reading: "teishutsu", meaning: "submission", example: { jp: "しゅくだいを 朝までに 提出しました。", en: "I submitted my homework by the morning." }, drill: { jp: "提出を しました。", en: "I made the submission." }, accept: ["handing in", "presentation"] },
       ],
     },
     {
@@ -75,7 +75,7 @@ export const UNIT169 = {
         { id: "ja-u169l4-5a66", type: "kanji", front: "婦", reading: "fu", meaning: "married woman", example: { jp: "母は 長い 間、主婦として はたらいて きました。", en: "My mother has long worked as a housewife." }, accept: ["woman", "wife", "lady"], hint: "婦 = an adult woman. 主婦 = a housewife, 夫婦 = a married couple, 婦人 = a lady." },
         { id: "ja-u169l4-5e03", type: "kanji", front: "布", reading: "fu", meaning: "cloth", example: { jp: "この 布で 子どもの ふくを 作ります。", en: "I'll make children's clothes from this cloth." }, accept: ["fabric", "textile"], hint: "布 (nuno) = cloth. 財布 = a wallet (a fold of cloth for money), 毛布 = a blanket." },
         { id: "ja-u169l4-5bcc", type: "kanji", front: "富", reading: "fu", meaning: "wealth", example: { jp: "この 国は うつくしい 自然に 富んで います。", en: "This country is rich in beautiful nature." }, accept: ["riches", "to be rich in"], hint: "富む (tomu) = to be rich in something. 富 (tomi) = wealth, 豊富 = abundant, 富士山 = Mt. Fuji." },
-        { id: "ja-u169l4-shufu", type: "vocab", front: "主婦", reading: "shufu", meaning: "a housewife", example: { jp: "けっこんして から、母は しばらく 主婦を して いました。", en: "After getting married, my mother was a housewife for a while." }, accept: ["homemaker"] },
+        { id: "ja-u169l4-shufu", type: "vocab", front: "主婦", reading: "shufu", meaning: "a housewife", example: { jp: "けっこんして から、母は しばらく 主婦を して いました。", en: "After getting married, my mother was a housewife for a while." }, drill: { jp: "主婦を して いました。", en: "She was a housewife." }, accept: ["homemaker"] },
         { id: "ja-u169l4-hofu", type: "vocab", front: "豊富", reading: "hōfu", meaning: "abundant", example: { jp: "この 図書館は 本の しゅるいが 豊富です。", en: "This library has an abundant variety of books." }, accept: ["plentiful", "rich"] },
       ],
     },

@@ -19,7 +19,7 @@ export const UNIT97 = {
         { id: "ja-u97l1-hodo", type: "vocab", front: "ほど", reading: "hodo", meaning: "about, extent", example: { jp: "さんじかんほどかかります。", en: "It takes about three hours." }, accept: ["approximately","degree"], hint: "〜ほど = about / to the extent of" },
         { id: "ja-u97l1-kawari", type: "vocab", front: "かわり", reading: "kawari", meaning: "substitute", example: { jp: "コーヒーのかわりにおちゃをのみます。", en: "I drink tea instead of coffee." }, accept: ["replacement","instead"] },
         { id: "ja-u97l1-tsuite", type: "vocab", front: "ついて", reading: "tsuite", meaning: "about, concerning", example: { jp: "にほんについてはなします。", en: "I talk about Japan." }, accept: ["concerning","regarding"], hint: "used as 〜について = about" },
-        { id: "ja-u97l1-shinbunsha", type: "vocab", front: "しんぶんしゃ", reading: "shinbunsha", meaning: "newspaper company", example: { jp: "ちちはしんぶんしゃではたらきます。", en: "My father works at a newspaper company." }, accept: ["newspaper publisher","press company"] },
+        { id: "ja-u97l1-shinbunsha", type: "vocab", front: "しんぶんしゃ", reading: "shinbunsha", meaning: "newspaper company", example: { jp: "ちちはしんぶんしゃではたらきます。", en: "My father works at a newspaper company." }, drill: { jp: "しんぶんしゃではたらきます。", en: "I work at a newspaper company." }, accept: ["newspaper publisher","press company"] },
         { id: "ja-u97l1-kougyou", type: "vocab", front: "こうぎょう", reading: "kōgyō", meaning: "industry", example: { jp: "にほんのこうぎょうはつよいです。", en: "Japan's industry is strong." }, accept: ["manufacturing"] },
       ],
     },
@@ -34,7 +34,7 @@ export const UNIT97 = {
       items: [
         { id: "ja-u97l2-kenkyushitsu", type: "vocab", front: "けんきゅうしつ", reading: "kenkyūshitsu", meaning: "laboratory", example: { jp: "せんせいはけんきゅうしつにいます。", en: "The teacher is in the lab." }, accept: ["research lab","research room"] },
         { id: "ja-u97l2-akusesari", type: "vocab", front: "アクセサリー", reading: "akusesarī", meaning: "accessory", example: { jp: "アクセサリーをかいました。", en: "I bought an accessory." }, accept: ["jewelry"] },
-        { id: "ja-u97l2-asu", type: "vocab", front: "あす", reading: "asu", meaning: "tomorrow", example: { jp: "あす、あめがふります。", en: "It will rain tomorrow." }, accept: ["the next day"], hint: "formal word for あした" },
+        { id: "ja-u97l2-asu", type: "vocab", front: "あす", reading: "asu", meaning: "tomorrow", example: { jp: "あす、あめがふります。", en: "It will rain tomorrow." }, drill: { jp: "あすはあめがふります。", en: "Tomorrow it will rain." }, accept: ["the next day"], hint: "formal word for あした" },
         { id: "ja-u97l2-keredo", type: "vocab", front: "けれど", reading: "keredo", meaning: "but, however", example: { jp: "たかいけれど、かいます。", en: "It's expensive, but I'll buy it." }, accept: ["however","though"] },
         { id: "ja-u97l2-keredomo", type: "vocab", front: "けれども", reading: "keredomo", meaning: "but, however", example: { jp: "さむいけれども、げんきです。", en: "It's cold, but I'm fine." }, accept: ["however","though"] },
         { id: "ja-u97l2-konpyuta", type: "vocab", front: "コンピュータ", reading: "konpyūta", meaning: "computer", example: { jp: "コンピュータをつかいます。", en: "I use a computer." }, accept: ["PC"], hint: "same as コンピューター" },

@@ -41,11 +41,11 @@ export const UNIT74 = {
       canDo: "Talk about driving and traffic: うんてん じゅうたい うんちん ガソリン じこ つうきん.",
       items: [
         { id: "ja-u74l2-unten", type: "vocab", front: "うんてん", reading: "unten", meaning: "driving", example: { jp: "くるまをうんてんします。", en: "I drive a car." }, accept: ["operating (a car)", "to drive"] },
-        { id: "ja-u74l2-jutai", type: "vocab", front: "じゅうたい", reading: "jūtai", meaning: "traffic jam", example: { jp: "みちがじゅうたいです。", en: "The road is jammed." }, accept: ["congestion", "traffic congestion"] },
+        { id: "ja-u74l2-jutai", type: "vocab", front: "じゅうたい", reading: "jūtai", meaning: "traffic jam", example: { jp: "みちがじゅうたいです。", en: "The road is jammed." }, drill: { jp: "じゅうたいがおおいです。", en: "There are a lot of traffic jams." }, accept: ["congestion", "traffic congestion"] },
         { id: "ja-u74l2-unchin", type: "vocab", front: "うんちん", reading: "unchin", meaning: "fare", example: { jp: "でんしゃのうんちんをはらいます。", en: "I pay the train fare." }, accept: ["train fare", "transport fare"] },
         { id: "ja-u74l2-gasorin", type: "vocab", front: "ガソリン", reading: "gasorin", meaning: "gasoline", example: { jp: "ガソリンをかいます。", en: "I buy gasoline." }, accept: ["petrol", "gas"] },
-        { id: "ja-u74l2-jiko", type: "vocab", front: "じこ", reading: "jiko", meaning: "accident", example: { jp: "くるまのじこをみました。", en: "I saw a car accident." }, accept: ["crash", "traffic accident"] },
-        { id: "ja-u74l2-tsukin", type: "vocab", front: "つうきん", reading: "tsūkin", meaning: "commuting to work", example: { jp: "でんしゃでつうきんします。", en: "I commute by train." }, accept: ["commute", "commuting"] },
+        { id: "ja-u74l2-jiko", type: "vocab", front: "じこ", reading: "jiko", meaning: "accident", example: { jp: "くるまのじこをみました。", en: "I saw a car accident." }, drill: { jp: "じこをみました。", en: "I saw the accident." }, accept: ["crash", "traffic accident"] },
+        { id: "ja-u74l2-tsukin", type: "vocab", front: "つうきん", reading: "tsūkin", meaning: "commuting to work", example: { jp: "でんしゃでつうきんします。", en: "I commute by train." }, drill: { jp: "つうきんはたいへんです。", en: "Commuting is hard." }, accept: ["commute", "commuting"] },
       ],
     },
     // Lesson 3: going abroad

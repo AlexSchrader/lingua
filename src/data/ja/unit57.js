@@ -76,7 +76,7 @@ export const UNIT57 = {
       canDo: "Talk about school life: なつやすみ はなし はさみ のり しつもん はつおん.",
       items: [
         { id: "ja-u57l4-natsuyasumi", type: "vocab", front: "なつやすみ", reading: "natsuyasumi", meaning: "summer vacation", example: { jp: "なつやすみはたのしいです。", en: "Summer vacation is fun." }, accept: ["summer break", "summer holiday"] },
-        { id: "ja-u57l4-hanashi", type: "vocab", front: "はなし", reading: "hanashi", meaning: "talk", example: { jp: "せんせいのはなしをききます。", en: "I listen to the teacher's talk." }, accept: ["story", "conversation"] },
+        { id: "ja-u57l4-hanashi", type: "vocab", front: "はなし", reading: "hanashi", meaning: "talk", example: { jp: "せんせいのはなしをききます。", en: "I listen to the teacher's talk." }, drill: { jp: "はなしをききます。", en: "I listen to the talk." }, accept: ["story", "conversation"] },
         { id: "ja-u57l4-hasami", type: "vocab", front: "はさみ", reading: "hasami", meaning: "scissors", example: { jp: "はさみをつかいます。", en: "I use scissors." }, accept: [] },
         { id: "ja-u57l4-nori", type: "vocab", front: "のり", reading: "nori", meaning: "glue", example: { jp: "のりをつかいます。", en: "I use glue." }, accept: ["paste"] },
         { id: "ja-u57l4-shitsumon", type: "vocab", front: "しつもん", reading: "shitsumon", meaning: "question", example: { jp: "せんせいにしつもんします。", en: "I ask the teacher a question." }, accept: ["query"] },

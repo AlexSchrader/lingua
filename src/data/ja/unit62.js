@@ -59,7 +59,7 @@ export const UNIT62 = {
       canDo: "Talk about amounts: はんぶん すべて りょうほう たくさん じゅうぶん だけ.",
       items: [
         { id: "ja-u62l3-hanbun",  type: "vocab", front: "はんぶん", reading: "hanbun", meaning: "half", example: { jp: "ケーキをはんぶんたべます。", en: "I eat half the cake." }, accept: ["a half"], hint: "半分 — half of something." },
-        { id: "ja-u62l3-subete",  type: "vocab", front: "すべて", reading: "subete", meaning: "all", example: { jp: "すべてわかります。", en: "I understand all of it." }, accept: ["everything", "all of it"], hint: "全て — the whole lot." },
+        { id: "ja-u62l3-subete",  type: "vocab", front: "すべて", reading: "subete", meaning: "all", example: { jp: "すべてわかります。", en: "I understand all of it." }, drill: { jp: "すべてがわかります。", en: "I understand everything." }, accept: ["everything", "all of it"], hint: "全て — the whole lot." },
         { id: "ja-u62l3-ryoho",   type: "vocab", front: "りょうほう", reading: "ryōhō", meaning: "both", example: { jp: "りょうほうすきです。", en: "I like both." }, accept: ["both sides", "both of them"], hint: "両方 — the two together." },
         { id: "ja-u62l3-takusan", type: "vocab", front: "たくさん", reading: "takusan", meaning: "a lot", example: { jp: "ほんがたくさんあります。", en: "There are a lot of books." }, accept: ["lots", "many", "much"] },
         { id: "ja-u62l3-jubun",   type: "vocab", front: "じゅうぶん", reading: "jūbun", meaning: "enough", example: { jp: "じかんはじゅうぶんです。", en: "There is enough time." }, accept: ["sufficient", "plenty"], hint: "十分 — as much as you need." },

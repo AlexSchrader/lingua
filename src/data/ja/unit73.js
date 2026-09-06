@@ -44,7 +44,7 @@ export const UNIT73 = {
         { id: "ja-u73l2-atatamemasu", type: "vocab", front: "あたためます", reading: "atatamemasu", meaning: "warm up", example: { jp: "ごはんをあたためます。", en: "I warm up the rice." }, accept: ["to warm up", "heat up"] },
         { id: "ja-u73l2-hiyashimasu", type: "vocab", front: "ひやします", reading: "hiyashimasu", meaning: "chill", example: { jp: "ビールをひやします。", en: "I chill the beer." }, accept: ["to chill", "cool"] },
         { id: "ja-u73l2-morimasu", type: "vocab", front: "もります", reading: "morimasu", meaning: "dish up", example: { jp: "ごはんをもります。", en: "I dish up the rice." }, accept: ["to serve", "dish up"] },
-        { id: "ja-u73l2-ajimi", type: "vocab", front: "あじみ", reading: "ajimi", meaning: "tasting", example: { jp: "スープをあじみします。", en: "I taste the soup." }, accept: ["taste", "tasting"] },
+        { id: "ja-u73l2-ajimi", type: "vocab", front: "あじみ", reading: "ajimi", meaning: "tasting", example: { jp: "スープをあじみします。", en: "I taste the soup." }, drill: { jp: "あじみをします。", en: "I have a taste." }, accept: ["taste", "tasting"] },
         { id: "ja-u73l2-shinsen", type: "vocab", front: "しんせん", reading: "shinsen", meaning: "fresh", example: { jp: "しんせんなさかなです。", en: "It's fresh fish." }, accept: ["fresh"] },
       ],
     },

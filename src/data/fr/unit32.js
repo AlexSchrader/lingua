@@ -75,9 +75,9 @@ export const FR_UNIT32 = {
       items: [
         { id: "fr-u32l4-tomber", type: "vocab", front: "tomber", reading: "tomber", meaning: "to fall", example: { jp: "Il y a de l'eau : je vais tomber !", en: "There's water here: I'm going to fall!" }, accept: ["fall", "to fall over", "to drop"] },
         { id: "fr-u32l4-lablessure", type: "vocab", front: "la blessure", reading: "lablessure", meaning: "injury", example: { jp: "J'ai une blessure au pied.", en: "I have an injury on my foot." }, accept: ["wound", "the injury", "a cut"] },
-        { id: "fr-u32l4-lesang", type: "vocab", front: "le sang", reading: "lesang", meaning: "blood", example: { jp: "Il y a du sang sur ma main.", en: "There's blood on my hand." }, accept: ["the blood"] },
+        { id: "fr-u32l4-lesang", type: "vocab", front: "le sang", reading: "lesang", meaning: "blood", example: { jp: "Il y a du sang sur ma main.", en: "There's blood on my hand." }, drill: { jp: "Le sang est rouge", en: "Blood is red" }, accept: ["the blood"] },
         { id: "fr-u32l4-laccident", type: "vocab", front: "l'accident", reading: "laccident", meaning: "accident", example: { jp: "Il y a un accident sur la route.", en: "There's an accident on the road." }, accept: ["a crash", "the accident"] },
-        { id: "fr-u32l4-ausecours", type: "vocab", front: "au secours", reading: "ausecours", meaning: "help!", example: { jp: "Au secours ! J'ai peur !", en: "Help! I'm scared!" }, accept: ["help", "rescue"], hint: "The word you shout. Asking for help calmly is a different word." },
+        { id: "fr-u32l4-ausecours", type: "vocab", front: "au secours", reading: "ausecours", meaning: "help!", example: { jp: "Au secours ! J'ai peur !", en: "Help! I'm scared!" }, drill: { jp: "Au secours le chien est là", en: "Help the dog is there" }, accept: ["help", "rescue"], hint: "The word you shout. Asking for help calmly is a different word." },
         { id: "fr-u32l4-lambulance", type: "vocab", front: "l'ambulance", reading: "lambulance", meaning: "ambulance", example: { jp: "Il y a une ambulance devant l'hôpital.", en: "There's an ambulance in front of the hospital." }, accept: ["the ambulance"] },
       ],
     },
