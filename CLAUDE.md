@@ -21,6 +21,8 @@ The lane detail below still governs *how the work itself is done*; the Fleet gov
 
 ## Roles — read this first
 
+**Every lane answers in bullets, not paragraphs — see "How to report to Alex". It is a rule for all four CC lanes, not a style note for one.**
+
 **CC owns the work; Alex supervises.** The work splits into four CC lanes so parallel sessions don't collide. **Stay in your lane** — if a task needs another lane's files, say so and hand it off rather than reaching across.
 
 | Role | Owns | Files | Merge rights |
@@ -142,6 +144,8 @@ bigger than they are… stop asking for my input unless it's absolutely necessar
   than stopping the whole job on it.
 
 ## How to report to Alex — BULLETS, NOT PARAGRAPHS
+
+**THIS APPLIES TO EVERY CC, IN EVERY REPLY. No exceptions.** Feature CC, Curriculum CC, QA CC, Idea CC, every authoring block seat, every merge seat, every scaffold seat. Whether you are handing back a block, filing a finding, answering a one-line question, or explaining why something broke — **short sentences, bullets, lists, tables. No paragraphs.** A wall of prose is a failed reply regardless of what it contains.
 
 **Alex's direct instruction (2026-08-14): "explain shit in bullet points and to the point, tired of the paragraph bs."** He's the CEO reading status, not an audience for essays.
 
