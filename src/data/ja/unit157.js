@@ -60,7 +60,7 @@ export const UNIT157 = {
         { id: "ja-u157l3-6db2", type: "kanji", front: "液", reading: "eki", meaning: "liquid", example: { jp: "この 液は 手に つけないで ください。", en: "Please don't get this liquid on your hands." }, accept: ["fluid", "solution"] },
         { id: "ja-u157l3-76ca", type: "kanji", front: "益", reading: "eki", meaning: "benefit", example: { jp: "みんなに 有益な 話でした。", en: "It was a talk of benefit to everyone." }, accept: ["profit", "gain", "advantage"] },
         { id: "ja-u157l3-eigyo", type: "vocab", front: "営業", reading: "eigyō", meaning: "trading (being open)", example: { jp: "この 店は 日曜も 営業して います。", en: "This shop trades on Sundays too." }, accept: ["business hours", "operating"] },
-        { id: "ja-u157l3-yueki", type: "vocab", front: "有益", reading: "yūeki", meaning: "beneficial", example: { jp: "有益な 意見を たくさん もらいました。", en: "I got a lot of useful views." }, accept: ["helpful", "worthwhile"] },
+        { id: "ja-u157l3-yueki", type: "vocab", front: "有益", reading: "yūeki", meaning: "beneficial", example: { jp: "有益な 意見を たくさん もらいました。", en: "I got a lot of useful views." }, drill: { jp: "有益に なりました。", en: "It became beneficial." }, accept: ["helpful", "worthwhile"] },
       ],
     },
     {

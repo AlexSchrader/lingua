@@ -51,10 +51,10 @@ export const UNIT88 = {
       items: [
         { id: "ja-u88l3-tokoya", type: "vocab", front: "とこや", reading: "tokoya", meaning: "barbershop", example: { jp: "とこやでかみをきります。", en: "I get my hair cut at the barbershop." }, accept: ["barber","barber's"] },
         { id: "ja-u88l3-daigakusei", type: "vocab", front: "だいがくせい", reading: "daigakusei", meaning: "university student", example: { jp: "あにはだいがくせいです。", en: "My older brother is a university student." }, accept: ["college student","undergraduate"] },
-        { id: "ja-u88l3-untenshu", type: "vocab", front: "うんてんしゅ", reading: "untenshu", meaning: "driver", example: { jp: "バスのうんてんしゅです。", en: "He is a bus driver." }, accept: ["chauffeur","operator"] },
+        { id: "ja-u88l3-untenshu", type: "vocab", front: "うんてんしゅ", reading: "untenshu", meaning: "driver", example: { jp: "バスのうんてんしゅです。", en: "He is a bus driver." }, drill: { jp: "うんてんしゅはしんせつです。", en: "The driver is kind." }, accept: ["chauffeur","operator"] },
         { id: "ja-u88l3-otaku", type: "vocab", front: "おたく", reading: "otaku", meaning: "your house (polite)", example: { jp: "おたくはどちらですか。", en: "Where is your home?" }, accept: ["your home","your house"] },
         { id: "ja-u88l3-kogai", type: "vocab", front: "こうがい", reading: "kōgai", meaning: "suburbs", example: { jp: "こうがいはしずかです。", en: "The suburbs are quiet." }, accept: ["outskirts","suburb"] },
-        { id: "ja-u88l3-ukagau", type: "vocab", front: "うかがう", reading: "ukagau", meaning: "to visit (humble)", example: { jp: "あした、おたくにうかがいます。", en: "I will visit your home tomorrow." }, accept: ["to ask (humble)","to call on"] },
+        { id: "ja-u88l3-ukagau", type: "vocab", front: "うかがう", reading: "ukagau", meaning: "to visit (humble)", example: { jp: "あした、おたくにうかがいます。", en: "I will visit your home tomorrow." }, drill: { jp: "おたくにうかがう。", en: "I visit your home." }, accept: ["to ask (humble)","to call on"] },
       ],
     },
     {
@@ -68,7 +68,7 @@ export const UNIT88 = {
       items: [
         { id: "ja-u88l4-kikoeru", type: "vocab", front: "きこえる", reading: "kikoeru", meaning: "to be audible", example: { jp: "おとがきこえます。", en: "I can hear a sound." }, accept: ["can hear","to be heard"] },
         { id: "ja-u88l4-okoru", type: "vocab", front: "おこる", reading: "okoru", meaning: "to get angry", example: { jp: "せんせいがおこります。", en: "The teacher gets angry." }, accept: ["to be angry","to lose one's temper"] },
-        { id: "ja-u88l4-yamu", type: "vocab", front: "やむ", reading: "yamu", meaning: "to stop (rain)", example: { jp: "あめがやみます。", en: "The rain stops." }, accept: ["to cease","to let up"] },
+        { id: "ja-u88l4-yamu", type: "vocab", front: "やむ", reading: "yamu", meaning: "to stop (rain)", example: { jp: "あめがやみます。", en: "The rain stops." }, drill: { jp: "あめがやむ。", en: "The rain stops." }, accept: ["to cease","to let up"] },
         { id: "ja-u88l4-undosuru", type: "vocab", front: "うんどうする", reading: "undōsuru", meaning: "to exercise", example: { jp: "まいあさうんどうします。", en: "I exercise every morning." }, accept: ["to work out","to do exercise"] },
         { id: "ja-u88l4-shinpaisuru", type: "vocab", front: "しんぱいする", reading: "shinpaisuru", meaning: "to worry", example: { jp: "ははがしんぱいします。", en: "My mother worries." }, accept: ["to be worried","to be anxious"] },
         { id: "ja-u88l4-uriba", type: "vocab", front: "うりば", reading: "uriba", meaning: "sales counter", example: { jp: "きっぷうりばはどこですか。", en: "Where is the ticket counter?" }, accept: ["counter","place to buy"] },

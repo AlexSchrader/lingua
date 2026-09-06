@@ -39,7 +39,7 @@ export const FR_UNIT57 = {
       dominantMode: "recall",
       canDo: "Talk about time on the big scale: childhood, the future, death, a birthday, age — and count how many times something happened.",
       items: [
-        { id: "fr-u57l2-lenfance", type: "vocab", front: "l'enfance", reading: "lenfance", meaning: "childhood", example: { jp: "Je pense à mon enfance.", en: "I think about my childhood." }, accept: ["the childhood", "early years"], hint: "Feminine, from l'enfant — une enfance heureuse." },
+        { id: "fr-u57l2-lenfance", type: "vocab", front: "l'enfance", reading: "lenfance", meaning: "childhood", example: { jp: "Je pense à mon enfance.", en: "I think about my childhood." }, drill: { jp: "L'enfance est très importante", en: "Childhood is very important" }, accept: ["the childhood", "early years"], hint: "Feminine, from l'enfant — une enfance heureuse." },
         { id: "fr-u57l2-lamort", type: "vocab", front: "la mort", reading: "lamort", meaning: "death", example: { jp: "C'est une question de vie ou de mort.", en: "It's a question of life or death." }, accept: ["the death", "dying"] },
         { id: "fr-u57l2-lanniversaire", type: "vocab", front: "l'anniversaire", reading: "lanniversaire", meaning: "birthday", example: { jp: "L'anniversaire de Marie est en mai.", en: "Marie's birthday is in May." }, accept: ["the birthday", "anniversary"], hint: "Masculine — un anniversaire. It covers both a birthday and a wedding anniversary; you'll hear « Joyeux anniversaire ! »" },
         { id: "fr-u57l2-lage", type: "vocab", front: "l'âge", reading: "lage", meaning: "age", example: { jp: "L'âge n'est pas important.", en: "Age isn't important." }, accept: ["the age"] },
@@ -56,11 +56,11 @@ export const FR_UNIT57 = {
       dominantMode: "recall",
       canDo: "Describe a situation you're stuck in and what you're aiming at: a difficulty, a goal, a case, a way, a means.",
       items: [
-        { id: "fr-u57l3-ladifficulte", type: "vocab", front: "la difficulté", reading: "ladifficulte", meaning: "difficulty", example: { jp: "Il y a une difficulté.", en: "There's a difficulty." }, accept: ["the difficulty", "snag", "hurdle"] },
+        { id: "fr-u57l3-ladifficulte", type: "vocab", front: "la difficulté", reading: "ladifficulte", meaning: "difficulty", example: { jp: "Il y a une difficulté.", en: "There's a difficulty." }, drill: { jp: "La difficulté est très grande", en: "The difficulty is very great" }, accept: ["the difficulty", "snag", "hurdle"] },
         { id: "fr-u57l3-lebut", type: "vocab", front: "le but", reading: "lebut", meaning: "the goal", example: { jp: "Quel est le but ?", en: "What's the goal?" }, accept: ["aim", "purpose", "objective"], hint: "Also the goal you score in football — same word." },
         { id: "fr-u57l3-lecas", type: "vocab", front: "le cas", reading: "lecas", meaning: "case", example: { jp: "Ce n'est pas le cas.", en: "That's not the case." }, accept: ["the case", "instance"], hint: "« Ce n'est pas le cas » — that's not how it is. The s is silent." },
         { id: "fr-u57l3-lasituation", type: "vocab", front: "la situation", reading: "lasituation", meaning: "situation", example: { jp: "La situation est difficile.", en: "The situation is difficult." }, accept: ["the situation", "circumstances", "state of things"] },
-        { id: "fr-u57l3-lafacon", type: "vocab", front: "la façon", reading: "lafacon", meaning: "way", example: { jp: "C'est une bonne façon de faire.", en: "That's a good way of doing it." }, accept: ["the way", "manner", "method"] },
+        { id: "fr-u57l3-lafacon", type: "vocab", front: "la façon", reading: "lafacon", meaning: "way", example: { jp: "C'est une bonne façon de faire.", en: "That's a good way of doing it." }, drill: { jp: "La façon est très simple", en: "The way is very simple" }, accept: ["the way", "manner", "method"] },
         { id: "fr-u57l3-lemoyen", type: "vocab", front: "le moyen", reading: "lemoyen", meaning: "means", example: { jp: "Le train est un bon moyen de transport.", en: "The train is a good means of transport." }, accept: ["the means", "method", "resource"], hint: "Rarely stands alone — un moyen de transport, un moyen de payer. la façon is the MANNER of doing it; le moyen is the tool you do it WITH." },
       ],
     },
@@ -74,7 +74,7 @@ export const FR_UNIT57 = {
       canDo: "Refer back to something already mentioned: its name, a first name, its title, one small detail, the rest, what comes next.",
       items: [
         { id: "fr-u57l4-lenom", type: "vocab", front: "le nom", reading: "lenom", meaning: "name", example: { jp: "Quel est le nom de la rue ?", en: "What's the name of the street?" }, accept: ["the name", "surname", "last name"] },
-        { id: "fr-u57l4-leprenom", type: "vocab", front: "le prénom", reading: "leprenom", meaning: "first name", example: { jp: "Mon prénom est Paul.", en: "My first name is Paul." }, accept: ["the first name", "given name", "forename"], hint: "pré- (before) + nom: the name that comes before the family name." },
+        { id: "fr-u57l4-leprenom", type: "vocab", front: "le prénom", reading: "leprenom", meaning: "first name", example: { jp: "Mon prénom est Paul.", en: "My first name is Paul." }, drill: { jp: "Le prénom est très joli", en: "The first name is very pretty" }, accept: ["the first name", "given name", "forename"], hint: "pré- (before) + nom: the name that comes before the family name." },
         { id: "fr-u57l4-letitre", type: "vocab", front: "le titre", reading: "letitre", meaning: "title", example: { jp: "Quel est le titre du livre ?", en: "What's the title of the book?" }, accept: ["the title", "heading", "headline"] },
         { id: "fr-u57l4-ledetail", type: "vocab", front: "le détail", reading: "ledetail", meaning: "detail", example: { jp: "C'est un petit détail.", en: "It's a small detail." }, accept: ["the detail", "particular", "small point"] },
         { id: "fr-u57l4-lereste", type: "vocab", front: "le reste", reading: "lereste", meaning: "the rest", example: { jp: "Je vais manger le reste.", en: "I'm going to eat the rest." }, accept: ["remainder", "what's left", "leftovers"] },

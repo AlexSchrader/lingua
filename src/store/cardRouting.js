@@ -2,6 +2,7 @@ import { KANJIVG } from "../data/kanjivg.js";
 import { AUDIO_IDS } from "../data/audioManifest.js";
 import { conjugateIn } from "./conjugate.js";
 import { isJapaneseItem } from "./itemLang.js";
+import { checkProduce, checkMeaning } from "./answer.js";
 
 // Share of eligible (rung ≤ 1, has-audio) reviews that present as a listening
 // card instead of a plain choice — a tuning knob, not structure. Kept here so
@@ -16,7 +17,7 @@ export function hasAudio(item) {
 
 // Deterministic 0..1 from the item id — stable within a session and trivially
 // testable (no Math.random, so the coverage fixture reliably hits listen:choice).
-function hash01(id) {
+export function hash01(id) {
   let h = 0;
   for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
   return (h % 1000) / 1000;
@@ -132,7 +133,7 @@ export function earCrowdedOut(item) {
 // guards branch on script shape rather than leaving these cards dark for every
 // non-Japanese language. The language is resolved by itemLang() — from the stamp, or
 // from the item id for a pre-i18n save — never defaulted.
-const isLatin = (item) => !isJapaneseItem(item);
+export const isLatin = (item) => !isJapaneseItem(item);
 const isLetter = (ch) => !!ch && /\p{L}/u.test(ch);
 
 // Is this item's `reading` worth SHOWING the learner?
@@ -175,10 +176,26 @@ function findWholeWord(hay, needle) {
   }
 }
 
+// --- which sentence the in-context cards work on ----------------------------
+// `example` teaches; `drill` is the short second sentence authored so the engine can
+// take it apart (3-8 tokens, no internal punctuation, the front present — see
+// CONTENT.md). Every card that BLANKS, TOKENIZES or ANCHORS INTO a sentence must read
+// the same one, so they all go through here.
+//
+// ALL SIX call sites move together, and the particle pair is not optional even though
+// Japanese has no drills: particleAfterFront takes its index from findFrontInExample
+// and then slices the sentence itself. If the finder returns an offset into the drill
+// while the slice reads the example, it cuts the wrong string at the wrong position —
+// a mis-blanked particle, not a no-op. There is no half-migrated state that is safe.
+//
+// The CARDS render the gloss from the same accessor too (ClozeCard, SentenceCard), or
+// the learner reads one sentence with a blank in it captioned by a different sentence.
+export const practice = (item) => item?.drill ?? item?.example;
+
 // Where the item's own front sits inside its example — the anchor every in-context
 // card is built on. ja: exact substring. Latin: whole-word, case-insensitive.
 export function findFrontInExample(item) {
-  const jp = item?.example?.jp ?? "";
+  const jp = practice(item)?.jp ?? "";
   const front = item?.front ?? "";
   if (!jp || !front) return null;
   if (!isLatin(item)) {
@@ -212,7 +229,7 @@ export function canCloze(item) {
     !!item &&
     item.type === "vocab" &&
     [...(item.front ?? "")].length >= 2 &&
-    !!item.example?.jp &&
+    !!practice(item)?.jp &&
     !!findFrontInExample(item)
   );
 }
@@ -221,7 +238,7 @@ export function canCloze(item) {
 // Pure string op — never touches state. Returns the sentence unchanged if the
 // front isn't present (guarded by canCloze upstream).
 export function blankExample(item) {
-  const jp = item?.example?.jp ?? "";
+  const jp = practice(item)?.jp ?? "";
   const found = findFrontInExample(item);
   return !found ? jp : jp.slice(0, found.index) + CLOZE_BLANK + jp.slice(found.index + found.length);
 }
@@ -321,7 +338,7 @@ function shuffleParticles(arr) {
 // can't mis-blank a particle-looking kana inside a word (は in はな). Excludes the
 // copula です/でした (its で is not the particle で).
 export function particleAfterFront(item) {
-  const jp = item?.example?.jp ?? "";
+  const jp = practice(item)?.jp ?? "";
   const found = findFrontInExample(item);
   if (!found) return null;
   const i = found.index + found.length;
@@ -352,7 +369,7 @@ export function canParticleCloze(item) {
 
 // example.jp with the anchored particle replaced by the blank.
 export function blankParticle(item) {
-  const jp = item?.example?.jp ?? "";
+  const jp = practice(item)?.jp ?? "";
   const found = particleAfterFront(item);
   if (!found) return jp;
   return jp.slice(0, found.index) + CLOZE_BLANK + jp.slice(found.index + found.particle.length);
@@ -389,7 +406,7 @@ export function shouldParticleCloze(item) {
 export const SENTENCE_SHARE = 0.25;
 
 export function sentenceTokens(item) {
-  const jp = String(item?.example?.jp ?? "").replace(/\s*[。！？.!?]+\s*$/u, "");
+  const jp = String(practice(item)?.jp ?? "").replace(/\s*[。！？.!?]+\s*$/u, "");
   const front = item?.front ?? "";
   if (!front || !jp) return null;
 
@@ -481,10 +498,76 @@ export function canBuildReading(item) {
   return isJapaneseItem(item);
 }
 
+
+// --- eligibility: which cards can fairly ask about this item -----------------
+// WELL-POSEDNESS, never the hash. Two different questions share the share gates:
+// "can this card be a fair question for this word" (a content question - canCloze,
+// canSentence, hasAudio) and "should it come up today" (a hash share, for variety).
+// Mastery requires the FIRST. If it used the hash, a coin flip on the item id would
+// decide whether mastering a word includes spelling it: type:produce covers ~50% of
+// items by hash and 100% by well-posedness.
+//
+// Relative to the item, always - kana cannot speak, Latin script has no trace, only a
+// tagged verb conjugates. A fixed list would make half the corpus unmasterable.
+export function eligibleKinds(item) {
+  if (!item) return [];
+  const out = ["choice", "type:meaning"]; // no gate - every item can be asked these
+  const vocab = item.type === "vocab";
+  if (vocab && !!item.meaning) out.push("choice:reverse");
+  if (vocab) out.push("type:produce", "speak");
+  if (hasAudio(item)) out.push("listen:choice", "listen:type");
+  if (vocab && isJapaneseItem(item)) out.push("type:reading");
+  if (canCloze(item)) out.push("cloze:choice");
+  if (canParticleCloze(item)) out.push("particle:choice");
+  if (canSentence(item)) out.push("sentence:build");
+  if (canBuildReading(item)) out.push("build");
+  if (isTraceable(item)) out.push("trace");
+  if (shouldConjugate(item)) out.push("conjugate");
+  return out;
+}
+
 // --- spoken production (say it aloud) ----------------------------------------
 // The SPEAK card is vocab-only: STT on isolated single kana is unreliable (the
 // Brief-C C.0 de-risk showed 0/3), and a kana's sound is already trained by the
 // listen card. Multi-mora words transcribe well enough for a lenient grade.
+// --- free-pass guard -------------------------------------------------------
+// A typed card is worthless when THE PROMPT ITSELF GRADES AS THE ANSWER. The
+// learner reads the prompt, types it back, and is marked correct without
+// recalling anything.
+//
+// This is not hypothetical and it is not rare. Measured on the live corpus:
+// 43 items where typing the meaning satisfies checkProduce, and 31 where typing
+// the front satisfies checkMeaning — 74 cards across fr/es/no. Two causes:
+//   * identical cognates — fr "important"/"important", "possible"/"possible";
+//   * the accent fold — checkReading strips diacritics, so "zero" is accepted
+//     for "zéro" and "legal" for "légal". The accent, which is the whole lesson
+//     in those items, is not actually enforced.
+// A third and worse shape sits in fr-u27 "Les sons", where the meaning restates
+// the front and then explains it ("œ — o and e fused"): the prompt contains the
+// answer in plain sight, and the type:meaning variant asks the learner to type a
+// definition rather than a word.
+//
+// Same precedent as type:reading, which was disabled for Latin script once it
+// was found to be a copy task: detect the degenerate case and route elsewhere.
+// The item is not dropped — it takes a card that still tests something.
+export function produceIsFreePass(item) {
+  if (!item?.meaning) return false;
+  try {
+    return checkProduce(String(item.meaning), item) === true;
+  } catch {
+    return false;
+  }
+}
+
+export function meaningIsFreePass(item) {
+  if (!item?.front) return false;
+  try {
+    return checkMeaning(String(item.front), item) === true;
+  } catch {
+    return false;
+  }
+}
+
 export function shouldSpeak(item) {
   return item?.type === "vocab";
 }

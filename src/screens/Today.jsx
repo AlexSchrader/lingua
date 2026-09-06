@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { BookOpen, RotateCcw, Lock, Check, Star, Award, ChevronRight } from "lucide-react";
+import { BookOpen, RotateCcw, Lock, Check, Star, Award, ChevronRight, Dumbbell } from "lucide-react";
 import { useStore, REVIEW_CAP, activeLangId } from "../store/useStore.js";
 import { LANGUAGES, orderedUnits } from "../data/index.js";
 import { isReviewable, isMastered } from "../store/mastery.js";
@@ -246,6 +246,12 @@ export default function Today() {
   const kanaPct = kanaTotal ? Math.round((kanaLearned / kanaTotal) * 100) : 0;
 
   const startReview = () => navigate("/review");
+  const practiceLeft = useStore((s) => s.practiceRunsLeft)();
+  const startPracticeRun = useStore((s) => s.startPracticeRun);
+  const startPractice = () => {
+    startPracticeRun();
+    navigate("/review?practice=1");
+  };
   const startFix = () => navigate("/review?fix=1");
   // Scoped like everything else on this screen: the mistake list is stored for the
   // whole profile, but "Fix your mistakes (N)" sits under one language's card and
@@ -475,6 +481,22 @@ export default function Today() {
           style={{ padding: "12px 18px", borderRadius: 14, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}
         >
           <RotateCcw size={16} /> Review {active.name} anyway ({sessionDue})
+        </button>
+      )}
+
+      {/* PRACTICE. The only source of mastery passes other than the scheduled review,
+          and the reason mastery is reachable at all: spaced repetition deliberately
+          MINIMISES repetitions, so the queue alone would take years to supply 15 passes
+          on every card kind. Capped at three runs a day, and each item still caps at
+          four counted passes daily, so this cannot become a grind or a shortcut.
+          Offered, never demanded — it touches no streak, no daily goal, no schedule. */}
+      {practiceLeft > 0 && (
+        <button
+          data-testid="start-practice"
+          onClick={startPractice}
+          style={{ padding: "12px 18px", borderRadius: 14, border: `1.5px solid ${C.line}`, background: C.surface, color: C.ink, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}
+        >
+          <Dumbbell size={16} /> Practice ({practiceLeft} left today)
         </button>
       )}
 

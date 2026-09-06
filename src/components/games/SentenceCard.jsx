@@ -3,7 +3,7 @@ import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
 import { useStore } from "../../store/useStore.js";
 import { sfxClick, sfxCorrect, sfxWrong } from "../../store/sfx.js";
-import { sentenceTiles } from "../../store/cardRouting.js";
+import { practice, sentenceTiles } from "../../store/cardRouting.js";
 import { isJapaneseItem } from "../../store/itemLang.js";
 
 // Sentence builder (rung PRODUCED, in context): rebuild the item's example from
@@ -61,7 +61,7 @@ export default function SentenceCard({ item, onGraded }) {
       <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600, textAlign: "center" }}>Build the sentence</div>
 
       <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 20, padding: 20, textAlign: "center" }}>
-        <div style={{ fontSize: 15, color: C.ink }}>{item.example?.en}</div>
+        <div style={{ fontSize: 15, color: C.ink }}>{practice(item)?.en}</div>
       </div>
 
       {/* Assembled row */}

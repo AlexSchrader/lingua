@@ -49,6 +49,28 @@ test("Latin-script normalization: accents, ligatures, apostrophes fold to the AS
   assert.equal(normalizeReading("ca va", "fr"), "cava");
 });
 
+test("Norwegian ø folds to o, like æ and å", () => {
+  // ø is a base letter, not a diacritic: NFD does not decompose it, so without an
+  // explicit rule it survived the fold and every ø reading lost the case- and
+  // space-tolerance every other card gets. å folds via NFD and æ has its own rule;
+  // ø now has one too. 39 Norwegian fronts carry it; zero es/fr/ja items do.
+  assert.equal(normalizeReading("et brød", "no"), "etbrod");
+  assert.equal(normalizeReading("Et brød", "no"), "etbrod");
+  assert.equal(normalizeReading("etbrød", "no"), "etbrod");
+  assert.equal(normalizeReading("ei øy", "no"), "eioy");
+  // å and æ keep working beside it.
+  assert.equal(normalizeReading("en båt", "no"), "enbat");
+  assert.equal(normalizeReading("nær", "no"), "naer");
+});
+
+test("checkReading (no): a ø card accepts the real spelling and the ASCII one", () => {
+  const item = { front: "et brød", reading: "etbrod", lang: "no" };
+  assert.ok(checkReading("et brød", item));
+  assert.ok(checkReading("Et brød", item), "sentence-initial capital must pass");
+  assert.ok(checkReading("etbrød", item), "spacing must be optional, as elsewhere");
+  assert.ok(checkReading("etbrod", item));
+  assert.ok(!checkReading("en bil", item));
+});
 test("checkReading (fr): real orthography, ASCII, or the exact front all pass", () => {
   const item = { front: "ça va", reading: "cava", lang: "fr" };
   assert.ok(checkReading("ça va", item));
@@ -190,4 +212,21 @@ test("gradeSpoken: uses optional kana spelling for a kanji-front word", () => {
   const neko = { front: "猫", kana: "ねこ", reading: "neko" };
   assert.equal(gradeSpoken("ねこ", neko), "good");
   assert.equal(gradeSpoken("いぬ", neko), "again");
+});
+
+test("normalizeReading folds ø — it is a letter, not an o with a diacritic", () => {
+  // NFD does not decompose ø, so the combining-mark strip cannot touch it. Without the
+  // explicit fold the typed real word FAILS while the ASCII misspelling passes:
+  // Norwegian readings are authored "brod", so "Et brød" was rejected and "et brod"
+  // accepted — 29 live cards' worth. (å needs nothing; NFD does decompose it.)
+  assert.equal(normalizeReading("brød", "no"), "brod");
+  assert.equal(normalizeReading("Et brød", "no"), "etbrod");
+  assert.equal(normalizeReading("å snakke", "no"), "asnakke");
+  assert.equal(normalizeReading("være", "no"), "vaere");
+  // The typed real word and the authored ASCII reading must converge.
+  assert.equal(normalizeReading("brød", "no"), normalizeReading("brod", "no"));
+  // French is untouched by the new rule.
+  assert.equal(normalizeReading("sœur", "fr"), "soeur");
+  assert.equal(normalizeReading("Ça va", "fr"), "cava");
+  assert.equal(normalizeReading("s'il vous plaît", "fr"), "silvousplait");
 });

@@ -35,6 +35,12 @@ export function normalizeReading(s = "", lang = null) {
     out = out
       .replace(/œ/g, "oe")
       .replace(/æ/g, "ae")
+      // ø is a LETTER, not an o with a diacritic, so NFD never decomposes it and the
+      // combining-mark strip below cannot touch it. Without this the typed real word
+      // fails while the ASCII misspelling passes: Norwegian readings are authored
+      // "brod", so "Et brød" was rejected and "et brod" accepted. Folds to o, matching
+      // how those readings are written (å needs nothing — NFD does decompose it).
+      .replace(/ø/g, "o")
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .replace(/['’ʼ\-]/g, "");

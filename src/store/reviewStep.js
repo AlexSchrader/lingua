@@ -7,13 +7,79 @@
 // So any metric assembled from the gate functions is a proxy, not a measurement --
 // which is exactly how a whole hash quartile went uncovered without a test noticing.
 // Pure, no React, so a test can run it over the entire corpus.
-import { earCrowdedOut, isTraceable, shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate, canBuildReading } from "./cardRouting.js";
+import {
+  isLatin, earCrowdedOut, isTraceable, shouldListen, shouldReverseChoice, shouldListenType,
+  shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze,
+  shouldSentence, shouldConjugate, canBuildReading, eligibleKinds,
+  meaningIsFreePass, produceIsFreePass, hasAudio,
+} from "./cardRouting.js";
+
+// --- rotation within a stage ------------------------------------------------
+// The dispatcher below is DETERMINISTIC: same item, same rung, same card, forever.
+// That was fine when variety came from climbing rungs, and it is fatal to mastery,
+// which needs 15 correct passes on EVERY eligible kind — an item that only ever shows
+// one card per stage can never finish the others. So each stage now offers its
+// candidates and the item takes the one it has practised LEAST.
+//
+// Thinnest-skill-first, not random: drilling a word fills the gap you actually have,
+// and the order is stable for a given pass count, so it is testable. Ties fall back to
+// the stage's own priority order, which is why the candidate lists below are written in
+// the same order the old if-chain used — behaviour for an item with no passes yet is
+// unchanged.
+function leastPractised(item, candidates) {
+  if (!candidates.length) return null;
+  const passes = item?.passes ?? {};
+  const count = (k) => Number(passes[k]) || 0;
+  const min = Math.min(...candidates.map(count));
+  const tied = candidates.filter((k) => count(k) === min);
+  // ALL TIED means no evidence yet — almost always a fresh item, since every kind
+  // starts at zero. Rotation has nothing to go on there, and picking the first
+  // candidate would make one card kind the only one the whole corpus ever shows until
+  // it has been practised (that is how choice:reverse and listen:choice each vanished
+  // from the coverage smoke in turn). So we hand back null and let the legacy
+  // hash-gated chain decide, exactly as it did before rotation existed.
+  //
+  // Rotation takes over the moment the counts differ — which is as soon as the learner
+  // answers anything, and is the only state where "least practised" means something.
+  if (tied.length === candidates.length) return null;
+  return tied[0];
+}
+
+// Which of a stage's cards this item can actually be asked, in priority order.
+function stageCandidates(item, rung) {
+  const can = new Set(eligibleKinds(item));
+  const keep = (...ks) => ks.filter((k) => can.has(k));
+  if (rung <= 1) return keep("listen:choice", "choice:reverse", "choice");
+  if (rung === 2) return keep("particle:choice", "cloze:choice", "listen:type", "type:reading", "type:meaning");
+  if (rung === 3) return keep("conjugate", "trace", "sentence:build", "type:produce", "build");
+  return keep("speak", "trace", "build");
+}
+
+// Kinds are named as the mastery counter names them; the runner speaks {kind, mode}.
+function asStep(kind) {
+  if (kind === "type:meaning") return { kind: "type", mode: "meaning" };
+  if (kind === "type:reading") return { kind: "type", mode: "reading" };
+  if (kind === "type:produce") return { kind: "type", mode: "produce" };
+  return { kind };
+}
 
 export function reviewStepFor(item) {
   const rung = item.rung ?? 1;
-  // Recognition (rung ≤ 1): interleave three same-skill variants — the ear path
-  // (listen:choice, audio in), the reverse direction (choice:reverse, English in →
-  // pick the Japanese), and the plain eye path (choice, glyph in → pick the meaning).
+  // A tagged Latin conjugation item is a drill at every rung: its front is the shared
+  // infinitive, so the generic cards cannot say which form is being asked for.
+  if (rung >= 1 && isLatin(item) && shouldConjugate(item)) return { kind: "conjugate" };
+
+  // Rotation. The old dispatcher was deterministic per (item, rung) — one card per
+  // stage, forever — which mastery cannot finish, because it needs passes on EVERY
+  // eligible kind. Each stage now offers its candidates and the item takes the one it
+  // has practised least. With no passes yet, ties resolve to the stage's own priority
+  // order, so a fresh item routes exactly as it did before.
+  const pick = leastPractised(item, stageCandidates(item, rung));
+  if (pick) return asStep(pick);
+
+  // No evidence to rotate on yet — the original hash-gated chain, unchanged. It is what
+  // gives a fresh item its interleaved variety, so nothing about a learner's first pass
+  // through a word has changed.
   if (rung <= 1) {
     if (shouldListen(item)) return { kind: "listen:choice" };
     // This item's only chance to hear the word (see earCrowdedOut): its hash is above
@@ -34,14 +100,24 @@ export function reviewStepFor(item) {
     if (shouldParticleCloze(item)) return { kind: "particle:choice" };
     if (shouldCloze(item)) return { kind: "cloze:choice" };
     if (shouldListenType(item)) return { kind: "listen:type" };
-    return shouldTypeReading(item) ? { kind: "type", mode: "reading" } : { kind: "type", mode: "meaning" };
+    if (shouldTypeReading(item)) return { kind: "type", mode: "reading" };
+    // The meaning card is the rung-2 fallback, so a free-pass item would land here and
+    // grade correct for typing the prompt back. Send it somewhere that still tests
+    // recall: dictation if it owns a clip (hearing it is never a free pass), otherwise
+    // the 4-option reverse, where the distractors do the work.
+    if (meaningIsFreePass(item)) {
+      if (shouldListenType(item) || hasAudio(item)) return { kind: "listen:type" };
+      return { kind: "choice:reverse" };
+    }
+    return { kind: "type", mode: "meaning" };
   }
   // Produce (rung 3): single-glyph kana + kanji are produced by stroke tracing;
   // words are produced by TYPING the Japanese from the English — rōmaji is accepted
   // through A1 so no JP keyboard is needed, kana required from A2 (see checkProduce)
   // — interleaved with building the word from tiles.
   if (rung === 3) {
-    // A tagged verb with a target form is a conjugation drill — always conjugate.
+    // Japanese keeps the drill at its production rung: one form per verb means the
+    // front identifies the card, so the other rungs stay useful (see the Latin hoist above).
     if (shouldConjugate(item)) return { kind: "conjugate" };
     if (isTraceable(item)) return { kind: "trace" };
     // Reassemble the whole example sentence (production in context) for a share of
@@ -50,6 +126,10 @@ export function reviewStepFor(item) {
     // The tile-build card is a transliteration test, so it only applies where the
     // reading is a different script from the front (see canBuildReading) — a
     // Latin-script item produces by typing the word from its meaning instead.
+    // Same guard on the produce side. For an identical cognate or an accent-only
+    // difference, typing it from the English is free — but SAYING it is not: the
+    // pronunciation is exactly what differs.
+    if (produceIsFreePass(item) && shouldSpeak(item)) return { kind: "speak" };
     return shouldTypeProduce(item) || !canBuildReading(item)
       ? { kind: "type", mode: "produce" }
       : { kind: "build" };

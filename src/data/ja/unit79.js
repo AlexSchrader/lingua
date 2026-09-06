@@ -23,7 +23,7 @@ export const UNIT79 = {
       canDo: "Name the people in your life: こいびと ふうふ ちじん こうはい なかま しんゆう.",
       items: [
         { id: "ja-u79l1-koibito", type: "vocab", front: "こいびと", reading: "koibito", meaning: "partner", example: { jp: "こいびとが います。", en: "I have a partner." }, accept: ["lover", "sweetheart"] },
-        { id: "ja-u79l1-fufu", type: "vocab", front: "ふうふ", reading: "fūfu", meaning: "married couple", example: { jp: "あの ふうふは しんせつです。", en: "That married couple is kind." }, accept: ["married couple", "husband and wife"] },
+        { id: "ja-u79l1-fufu", type: "vocab", front: "ふうふ", reading: "fūfu", meaning: "married couple", example: { jp: "あの ふうふは しんせつです。", en: "That married couple is kind." }, drill: { jp: "ふうふは しんせつです。", en: "The married couple is kind." }, accept: ["married couple", "husband and wife"] },
         { id: "ja-u79l1-chijin", type: "vocab", front: "ちじん", reading: "chijin", meaning: "acquaintance", example: { jp: "えきで ちじんに あいました。", en: "I met an acquaintance at the station." }, accept: ["acquaintance", "person I know"] },
         { id: "ja-u79l1-kohai", type: "vocab", front: "こうはい", reading: "kōhai", meaning: "junior", example: { jp: "こうはいと はなします。", en: "I talk with my junior." }, accept: ["junior", "younger colleague"] },
         { id: "ja-u79l1-nakama", type: "vocab", front: "なかま", reading: "nakama", meaning: "companion", example: { jp: "いい なかまが います。", en: "I have good companions." }, accept: ["companion", "comrade"] },
@@ -59,7 +59,7 @@ export const UNIT79 = {
       canDo: "Handle social moments: れんあい しょうかい やくそく しょうたい けんか なかなおり.",
       items: [
         { id: "ja-u79l3-renai", type: "vocab", front: "れんあい", reading: "renai", meaning: "romance", example: { jp: "れんあいはむずかしいです。", en: "Romance is difficult." }, accept: ["love", "romantic relationship"] },
-        { id: "ja-u79l3-shokai", type: "vocab", front: "しょうかい", reading: "shōkai", meaning: "introduction", example: { jp: "ともだちを しょうかいします。", en: "I introduce a friend." }, accept: ["introduction", "introducing"] },
+        { id: "ja-u79l3-shokai", type: "vocab", front: "しょうかい", reading: "shōkai", meaning: "introduction", example: { jp: "ともだちを しょうかいします。", en: "I introduce a friend." }, drill: { jp: "しょうかいを します。", en: "I make the introduction." }, accept: ["introduction", "introducing"] },
         { id: "ja-u79l3-yakusoku", type: "vocab", front: "やくそく", reading: "yakusoku", meaning: "promise", example: { jp: "ともだちと やくそくしました。", en: "I made a promise with a friend." }, accept: ["promise", "appointment"] },
         { id: "ja-u79l3-shotai", type: "vocab", front: "しょうたい", reading: "shōtai", meaning: "invitation", example: { jp: "いえに しょうたいします。", en: "I invite them to my house." }, accept: ["invitation", "invite"] },
         { id: "ja-u79l3-kenka", type: "vocab", front: "けんか", reading: "kenka", meaning: "quarrel", example: { jp: "ともだちと けんかしました。", en: "I had a fight with a friend." }, accept: ["fight", "argument"] },
@@ -76,7 +76,7 @@ export const UNIT79 = {
       dominantMode: "recall",
       canDo: "Talk about closeness: せわ こうさい であい わかれ しんらい りこん.",
       items: [
-        { id: "ja-u79l4-sewa", type: "vocab", front: "せわ", reading: "sewa", meaning: "care", example: { jp: "こどもの せわを します。", en: "I take care of the child." }, accept: ["looking after", "help"] },
+        { id: "ja-u79l4-sewa", type: "vocab", front: "せわ", reading: "sewa", meaning: "care", example: { jp: "こどもの せわを します。", en: "I take care of the child." }, drill: { jp: "せわを します。", en: "I take care of it." }, accept: ["looking after", "help"] },
         { id: "ja-u79l4-kosai", type: "vocab", front: "こうさい", reading: "kōsai", meaning: "dating", example: { jp: "かのじょと こうさいしています。", en: "I'm dating her." }, accept: ["going out", "association"] },
         { id: "ja-u79l4-deai", type: "vocab", front: "であい", reading: "deai", meaning: "encounter", example: { jp: "いい であいでした。", en: "It was a good encounter." }, accept: ["encounter", "meeting"] },
         { id: "ja-u79l4-wakare", type: "vocab", front: "わかれ", reading: "wakare", meaning: "parting", example: { jp: "わかれは かなしいです。", en: "Parting is sad." }, accept: ["farewell", "separation"] },

@@ -58,9 +58,11 @@
 //    went the other way on the same kind of call. Blocks 2 and 3 will hit this
 //    constantly — `en øl` and `en kaffe` ARE the ordinary café usage even though
 //    both are mass, while `vær`, `snø`, `regn`, `hår`, `blod`, `tid`, `arbeid`,
-//    `musikk` are not, and `briller`, `bukser`, `sokker` join `penger` as
-//    plural-only. Decide by the sense you are teaching, say which sense in the
-//    hint, and do not expect the rule to decide for you.
+//    `musikk` are not, and `briller` and `sokker` join `penger` as plural-only.
+//    `bukser` does NOT: unlike English "trousers", Norwegian has an ordinary
+//    singular for one pair — `ei bukse`, definite `buksa` — so teach it like any
+//    other count noun. Decide by the sense you are teaching, say which sense in
+//    the hint, and do not expect the rule to decide for you.
 //
 // 2. VERBS ARE HEADWORDED IN THE INFINITIVE, WITH ITS MARKER: `å snakke`.
 //    The parallel to rule 1 — the noun carries its gender marker, the verb

@@ -78,7 +78,7 @@ export const UNIT61 = {
         { id: "ja-u61l4-kusa", type: "vocab", front: "くさ", reading: "kusa", meaning: "grass", example: { jp: "にわにくさがあります。", en: "There is grass in the garden." }, accept: ["weed", "weeds"] },
         { id: "ja-u61l4-happa", type: "vocab", front: "はっぱ", reading: "happa", meaning: "leaf", example: { jp: "はっぱはみどりです。", en: "The leaf is green." }, accept: ["leaves"] },
         { id: "ja-u61l4-tane", type: "vocab", front: "たね", reading: "tane", meaning: "seed", example: { jp: "たねはちいさいです。", en: "The seed is small." }, accept: ["seeds"] },
-        { id: "ja-u61l4-eda", type: "vocab", front: "えだ", reading: "eda", meaning: "branch", example: { jp: "とりがえだにいます。", en: "A bird is on the branch." }, accept: ["twig", "branches"] },
+        { id: "ja-u61l4-eda", type: "vocab", front: "えだ", reading: "eda", meaning: "branch", example: { jp: "とりがえだにいます。", en: "A bird is on the branch." }, drill: { jp: "えだにとりがいます。", en: "There is a bird on the branch." }, accept: ["twig", "branches"] },
         { id: "ja-u61l4-oka", type: "vocab", front: "おか", reading: "oka", meaning: "hill", example: { jp: "おかにのぼります。", en: "I climb the hill." }, accept: ["hills"] },
         { id: "ja-u61l4-nami", type: "vocab", front: "なみ", reading: "nami", meaning: "wave", example: { jp: "うみになみがあります。", en: "There are waves in the sea." }, accept: ["waves"] },
       ],
