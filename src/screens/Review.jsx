@@ -12,12 +12,17 @@ import ConjugateCard from "../components/games/ConjugateCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import Celebration from "../components/Celebration.jsx";
 import { useStore, REVIEW_CAP, activeLangId } from "../store/useStore.js";
-import { isReviewable, nextRung, MAX_RUNG } from "../store/mastery.js";
+import { isReviewable, nextRung, MAX_RUNG, isMastered, masteryPct } from "../store/mastery.js";
 import { sfxRungUp, sfxMastered } from "../store/sfx.js";
 import { reviewStepFor } from "../store/reviewStep.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
+
+// A practice run is deliberately short — it is meant to be repeatable three times a
+// day without becoming a slog, and the 4/day per-item cap means a longer run would
+// just hit the ceiling on the same words.
+const PRACTICE_SIZE = 12;
 
 function assertLiveKind(kindKey) {
   if (!LIVE_CARD_KINDS.includes(kindKey)) {
@@ -38,6 +43,8 @@ export default function Review() {
   // ?fix=1 → the mistake-review: a targeted pass over recently-missed items
   // (not the FSRS-due queue), so it doesn't touch the daily-review bookkeeping.
   const fix = searchParams.get("fix") === "1";
+  // Practice: counts toward mastery, never toward the schedule. See practiceItem.
+  const practice = searchParams.get("practice") === "1";
 
   const storeItems = useStore((s) => s.items);
   const dueItems = useStore((s) => s.dueItems);
@@ -67,6 +74,7 @@ export default function Review() {
     completeReviews: useStore((s) => s.completeReviews),
     rollDailyGoal: useStore((s) => s.rollDailyGoal),
   };
+  const practiceItem = useStore((s) => s.practiceItem);
   const { gradeItem, completeReviews, rollDailyGoal } = runnerWriters(sandbox, realWriters);
 
   // Snapshot the queue on mount — grading mutates items but shouldn't reshuffle.
@@ -76,7 +84,16 @@ export default function Review() {
     () => {
       let source, total = 0;
       if (sandbox) source = Object.values(items).filter(isReviewable);
-      else if (fix)
+      else if (practice) {
+        // Everything this learner has started in this language that is not finished,
+        // ordered by how far from mastery it is — so a run fills the widest gaps first.
+        // NOT filtered by SRS due-ness: that is the whole point. Practice is the only
+        // way to get the passes the schedule will not offer for months.
+        source = Object.values(items)
+          .filter((it) => it.lang === activeId && isReviewable(it) && !isMastered(it))
+          .sort((a, b) => masteryPct(a) - masteryPct(b))
+          .slice(0, PRACTICE_SIZE);
+      } else if (fix)
         source = (mistakeIds ?? [])
           .map((mid) => items[mid])
           .filter((it) => it && it.lang === activeId && isReviewable(it));
@@ -180,7 +197,15 @@ export default function Review() {
     // Tell the store WHICH card this was, so mastery credits the right skill.
     // kindKey is computed below in the same body and is assigned by the time this
     // closure runs (it fires on an answer, after render).
-    gradeItem(item.id, grade, kindKey);
+    if (practice) {
+      // The load-bearing line of this whole mode: a practice answer records a pass and
+      // touches nothing else. No srs, no rung, no daily goal. Drilling a word four
+      // times a day would otherwise collapse its FSRS interval and destroy the
+      // retention model that sits beside mastery.
+      practiceItem(item.id, kindKey, grade);
+    } else {
+      gradeItem(item.id, grade, kindKey);
+    }
     setIdx((i) => i + 1);
   };
   const kindKey = step.kind === "type" ? `type:${step.mode}` : step.kind;

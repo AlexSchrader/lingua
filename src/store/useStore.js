@@ -174,6 +174,11 @@ export function pruneStartedLanguages(profile, hasContent = langHasContent, hasP
 //   reset and hand out unlimited passes.
 export const PASSES_PER_DAY = 4;
 
+// Three practice runs a day, plus the one scheduled review, is Alex's cap. The runs
+// counter is what the UI gates on; the per-item PASSES_PER_DAY above is the harder
+// guarantee underneath it, so even an unbounded run cannot over-drill one word.
+export const PRACTICE_RUNS_PER_DAY = 3;
+
 function recordPass(item, kind, day) {
   if (!kind) return item;
   const log = item.passLog?.date === day ? item.passLog : { date: day, n: 0 };
@@ -783,6 +788,26 @@ export const useStore = create(
       // four times a day would otherwise have its FSRS interval collapse, destroying
       // the retention model that sits beside this one. The 4/day cap is shared with
       // the scheduled review, so practice can supply at most three of them.
+      // How many practice runs are left today. Resets by date, persisted with the
+      // rest of `daily`, so it survives a reload — the cap is meaningless otherwise.
+      practiceRunsLeft: () => {
+        const d = get().daily ?? {};
+        const used = d.date === todayISO() ? (d.practiceRuns ?? 0) : 0;
+        return Math.max(0, PRACTICE_RUNS_PER_DAY - used);
+      },
+
+      // Spend one. Called when a practice run STARTS, not when it finishes: a run
+      // abandoned halfway still consumed the attempt, and counting on completion would
+      // let a learner restart forever.
+      startPracticeRun: () => {
+        set((s) => {
+          const d = s.daily ?? {};
+          const used = d.date === todayISO() ? (d.practiceRuns ?? 0) : 0;
+          if (used >= PRACTICE_RUNS_PER_DAY) return s;
+          return { daily: { ...d, date: todayISO(), practiceRuns: used + 1 } };
+        });
+      },
+
       practiceItem: (id, kind, grade) => {
         if (grade !== "good" && grade !== "easy") return;
         set((s) => {
