@@ -1,18 +1,81 @@
 // DE Unit 2 — Greetings (slot: greetings) — A1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
+// Conventions and the FREE list live in de/unit1.js — read that header first.
+// Everything here is nominative; the case system is u12–u14's.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const DE_UNIT2 = {
   id: "de-u2",
   lang: "de",
-  title: "Greetings",
+  title: "Begrüßung und Abschied",
   order: 2,
   stage: "a1",
   lessons: [
-    { id: "de-u2l1", title: "Lesson 1", locked: true },
-    { id: "de-u2l2", title: "Lesson 2", locked: true },
-    { id: "de-u2l3", title: "Lesson 3", locked: true },
-    { id: "de-u2l4", title: "Lesson 4", locked: true },
+    {
+      id: "de-u2l1",
+      unit: 2,
+      lesson: 1,
+      title: "Hallo sagen",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Greet someone correctly at any hour of the day, and welcome them.",
+      items: [
+        { id: "de-u2l1-hallo", type: "vocab", front: "hallo", reading: "hallo", meaning: "hello", example: { jp: "Hallo! Das ist Anna.", en: "Hello! That is Anna." }, drill: { jp: "Hallo Anna und Thomas", en: "Hello Anna and Thomas" }, accept: ["hello", "hi"], hint: "Works at any hour and with anyone. In the south you will also hear servus and grüß dich." },
+        { id: "de-u2l1-gutenmorgen", type: "vocab", front: "guten Morgen", reading: "gutenmorgen", meaning: "good morning", example: { jp: "Guten Morgen! Ist Thomas hier?", en: "Good morning! Is Thomas here?" }, drill: { jp: "Guten Morgen Anna", en: "Good morning Anna" }, accept: ["good morning", "morning"], hint: "Until about eleven. Germans really do change the greeting with the clock — using the wrong one marks you out instantly." },
+        { id: "de-u2l1-gutentag", type: "vocab", front: "guten Tag", reading: "gutentag", meaning: "good day / hello", example: { jp: "Guten Tag! Wie geht's?", en: "Good day! How are you?" }, drill: { jp: "Guten Tag und willkommen", en: "Good day and welcome" }, accept: ["good day", "hello", "good afternoon"], hint: "The safe, slightly formal daytime greeting — the one to use with a stranger or in a shop." },
+        { id: "de-u2l1-gutenabend", type: "vocab", front: "guten Abend", reading: "gutenabend", meaning: "good evening", example: { jp: "Guten Abend! Die Musik ist schön.", en: "Good evening! The music is beautiful." }, drill: { jp: "Guten Abend Anna und Thomas", en: "Good evening Anna and Thomas" }, accept: ["good evening", "evening"], hint: "From roughly six. Note guten with -n in all three: it is an old accusative frozen into the phrase, not something to analyse yet." },
+        { id: "de-u2l1-gutenacht", type: "vocab", front: "gute Nacht", reading: "gutenacht", meaning: "good night", example: { jp: "Gute Nacht, Anna!", en: "Good night, Anna!" }, accept: ["good night", "night"], hint: "The odd one out: gute without -n, because Nacht is feminine. And it is a PARTING, never a greeting — you say it going to bed." },
+        { id: "de-u2l1-willkommen", type: "vocab", front: "willkommen", reading: "willkommen", meaning: "welcome", example: { jp: "Willkommen! Hier ist die Schule.", en: "Welcome! Here is the school." }, drill: { jp: "Willkommen Anna und Thomas", en: "Welcome Anna and Thomas" }, accept: ["welcome"], hint: "Herzlich willkommen — \"heartily welcome\" — is the full form you will see on signs." },
+      ],
+    },
+    {
+      id: "de-u2l2",
+      unit: 2,
+      lesson: 2,
+      title: "Wie geht's?",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Ask how someone is, answer that you are well or badly, and say please and thank you.",
+      items: [
+        { id: "de-u2l2-wiegehts", type: "vocab", front: "wie geht's", reading: "wiegehts", meaning: "how are you", example: { jp: "Hallo Max, wie geht's?", en: "Hello Max, how are you?" }, accept: ["how are you", "how's it going", "how are things"], hint: "Short for wie geht es dir. Learn it as one chunk now; the grammar behind it (it goes TO me) waits for the dative in u14." },
+        { id: "de-u2l2-danke", type: "vocab", front: "danke", reading: "danke", meaning: "thank you", example: { jp: "Danke! Das ist sehr schön.", en: "Thank you! That is very beautiful." }, drill: { jp: "Danke und bis bald", en: "Thanks and see you soon" }, accept: ["thank you", "thanks"], hint: "Danke schön and vielen Dank are the warmer versions. Careful: danke alone, offered food, is often read as \"no thanks\"." },
+        { id: "de-u2l2-bitte", type: "vocab", front: "bitte", reading: "bitte", meaning: "please / you're welcome", example: { jp: "Bitte! Kein Problem.", en: "You're welcome! No problem." }, drill: { jp: "Die Zeitung bitte", en: "The newspaper please" }, accept: ["please", "you're welcome", "here you are", "pardon"], hint: "The hardest-working word in German: please, you're welcome, here you are, and \"sorry, what?\" — all one word." },
+        { id: "de-u2l2-gut", type: "vocab", front: "gut", reading: "gut", meaning: "good / well", example: { jp: "Danke, gut!", en: "Thanks, good!" }, drill: { jp: "Das ist sehr gut", en: "That is very good" }, accept: ["good", "well", "fine"], hint: "The standard answer to wie geht's. Sehr gut is better, and ganz gut is a polite \"not bad\"." },
+        { id: "de-u2l2-schlecht", type: "vocab", front: "schlecht", reading: "schlecht", meaning: "bad / badly", example: { jp: "Die Zeitung ist schlecht.", en: "The newspaper is bad." }, accept: ["bad", "badly", "poor"], hint: "The opposite of gut. Answering wie geht's with schlecht invites a real conversation, so Germans use it sparingly." },
+        { id: "de-u2l2-sehr", type: "vocab", front: "sehr", reading: "sehr", meaning: "very", example: { jp: "Die Küche ist sehr modern.", en: "The kitchen is very modern." }, accept: ["very", "really"], hint: "Goes in front of the word it strengthens: sehr gut, sehr schön, sehr müde." },
+      ],
+    },
+    {
+      id: "de-u2l3",
+      unit: 2,
+      lesson: 3,
+      title: "Auf Wiedersehen",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Say goodbye casually or formally, and name when you will see someone again.",
+      items: [
+        { id: "de-u2l3-tschuss", type: "vocab", front: "tschüss", reading: "tschuss", meaning: "bye", example: { jp: "Tschüss, Lena! Bis bald.", en: "Bye, Lena! See you soon." }, drill: { jp: "Tschüss Anna und Thomas", en: "Bye Anna and Thomas" }, accept: ["bye", "goodbye", "cheerio"], hint: "Casual, and everywhere among friends. Note the ü — you may type tschuss or tschüss." },
+        { id: "de-u2l3-aufwiedersehen", type: "vocab", front: "auf Wiedersehen", reading: "aufwiedersehen", meaning: "goodbye (formal)", example: { jp: "Auf Wiedersehen! Bis morgen.", en: "Goodbye! Until tomorrow." }, drill: { jp: "Auf Wiedersehen und danke", en: "Goodbye and thank you" }, accept: ["goodbye", "farewell", "see you again"], hint: "Literally \"on seeing again\". The one to use in a shop or an office. On the phone it becomes auf Wiederhören — on HEARING again." },
+        { id: "de-u2l3-bisbald", type: "vocab", front: "bis bald", reading: "bisbald", meaning: "see you soon", example: { jp: "Tschüss und bis bald!", en: "Bye and see you soon!" }, accept: ["see you soon", "until soon", "so long"], hint: "bis = until. The whole bis-family works the same way: bis bald, bis später, bis morgen." },
+        { id: "de-u2l3-bisspater", type: "vocab", front: "bis später", reading: "bisspater", meaning: "see you later", example: { jp: "Bis später, Thomas!", en: "See you later, Thomas!" }, accept: ["see you later", "until later", "later"], hint: "Later the same day. Uses später, the comparative of spät from u1 — literally \"until later\"." },
+        { id: "de-u2l3-bismorgen", type: "vocab", front: "bis morgen", reading: "bismorgen", meaning: "see you tomorrow", example: { jp: "Bis morgen, Anna!", en: "See you tomorrow, Anna!" }, accept: ["see you tomorrow", "until tomorrow"], hint: "Watch the pair: der Morgen is the morning, morgen is tomorrow. Capital letter, different word." },
+        { id: "de-u2l3-gutereise", type: "vocab", front: "gute Reise", reading: "gutereise", meaning: "have a good trip", example: { jp: "Gute Reise! Bis bald.", en: "Have a good trip! See you soon." }, drill: { jp: "Gute Reise Anna", en: "Have a good trip Anna" }, accept: ["have a good trip", "safe travels", "bon voyage"], hint: "gute without -n again, because die Reise is feminine — the same pattern as gute Nacht." },
+      ],
+    },
+    {
+      id: "de-u2l4",
+      unit: 2,
+      lesson: 4,
+      title: "Höflich sein",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Interrupt politely, apologise, agree, and tell someone it is no trouble.",
+      items: [
+        { id: "de-u2l4-entschuldigung", type: "vocab", front: "Entschuldigung", reading: "entschuldigung", meaning: "excuse me / sorry", example: { jp: "Entschuldigung, was ist das?", en: "Excuse me, what is that?" }, accept: ["excuse me", "sorry", "pardon", "apologies"], hint: "A noun, so it is capitalised. Use it to stop a stranger, or as a light apology for something small." },
+        { id: "de-u2l4-estutmirleid", type: "vocab", front: "es tut mir leid", reading: "estutmirleid", meaning: "I'm sorry", example: { jp: "Es tut mir leid! Das ist schlecht.", en: "I'm sorry! That is bad." }, drill: { jp: "Es tut mir leid", en: "I am sorry" }, accept: ["I'm sorry", "I am sorry", "sorry"], hint: "The real apology, for something that matters — Entschuldigung is for bumping into someone. Learn it whole; mir is dative and waits for u14." },
+        { id: "de-u2l4-gern", type: "vocab", front: "gern", reading: "gern", meaning: "gladly / with pleasure", example: { jp: "Anna hört gern Musik.", en: "Anna likes listening to music." }, accept: ["gladly", "with pleasure", "willingly"], hint: "Put gern after a verb and it becomes \"likes doing\": hört gern = likes listening. The most useful little word in German." },
+        { id: "de-u2l4-keinproblem", type: "vocab", front: "kein Problem", reading: "keinproblem", meaning: "no problem", example: { jp: "Kein Problem! Bis später.", en: "No problem! See you later." }, drill: { jp: "Kein Problem und danke", en: "No problem and thanks" }, accept: ["no problem", "no worries", "that's fine"], hint: "kein is the negative article — \"not a\". You will meet it properly with the cases; for now it is part of the phrase." },
+        { id: "de-u2l4-ja", type: "vocab", front: "ja", reading: "ja", meaning: "yes", example: { jp: "Ja, das ist die Schule.", en: "Yes, that is the school." }, accept: ["yes", "yeah"], hint: "Said YAH. Germans also drop ja into the middle of a sentence to mean \"as you know\"." },
+        { id: "de-u2l4-naturlich", type: "vocab", front: "natürlich", reading: "naturlich", meaning: "of course", example: { jp: "Natürlich! Das ist perfekt.", en: "Of course! That is perfect." }, drill: { jp: "Natürlich ist das gut", en: "Of course that is good" }, accept: ["of course", "naturally", "certainly"], hint: "From die Natur. Klar is the everyday spoken version — both mean \"obviously, yes\"." },
+      ],
+    },
   ],
 };
