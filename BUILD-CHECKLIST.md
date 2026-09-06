@@ -147,6 +147,36 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 ---
 
+## Feature CC — engine findings, 2026-09-08 (logged, NOT fixed)
+
+Surfaced while restoring the card-kind forcing function (branch `fix/coverage-forcing-function`).
+All numbers re-measured against `main` at `be72895f` — 13,408 items (ja 5,012 · es 3,123 ·
+fr 3,111 · pt 1,202 · de 480 · no 480).
+
+| # | finding | evidence | route |
+|---|---|---|---|
+| E1 | **Rotation bypasses the free-pass guard.** `leastPractised` returns `asStep(pick)` *before* the legacy chain, and the free-pass diversions live **inside** that chain — so rotation serves the free card anyway. | **112 items** served a card answerable by typing the prompt back (すし, ソファ, トマト, バナナ, メモ, ゼロ …). 80 meaning + 76 produce free-passes. | Fix at `eligibleKinds` — see below |
+| E2 | **`particle:choice` can never route for de / no / pt.** `FUNCTION_WORDS` has only `fr` and `es` keys, and `canParticleCloze` requires a non-empty list. | Measured routes: `ja 662, fr 71, es 141` — **de/no/pt zero**. | Feature CC backlog |
+| E3 | **`de` and `pt` are handed the JAPANESE conjugation vocabulary.** `LATIN_LANGS` = `keys(ENGINES)` = `es, fr, no` only, so `verbGroupsFor`/`conjFormsFor` fall through to the ja tables. | `verbGroupsFor("de") → ["godan","ichidan","irregular"]`, `conjFormsFor("de") → dict, nai, ta`. Same for `pt`. **The German crew hit exactly this** — the contract told them to tag German verbs godan/ichidan. | Feature CC backlog — **guard before engines** |
+| E4 | **The 96 conjugation clips will be paid for a third time.** `be72895f` deleted them "again" — twice generated, twice removed — but `scripts/generate-audio.mjs` has **no `conjForm` filter**: it generates for every item, so the next `generate:audio` run re-buys them. | no conjForm guard in the generator | **Money — fix the guard, don't re-delete** |
+
+**E1 must be fixed at `eligibleKinds`, not at the router.** Excluding a free kind from
+`stageCandidates` alone leaves it in `eligibleKinds`, and `requiredPasses` counts 15
+passes per *eligible* kind — rotation would never serve a kind mastery still demands, so
+all 112 items would become **permanently unmasterable**. Withholding at the eligibility
+level fixes the free card and the mastery denominator together.
+
+**E3's cheap half is worth taking first.** Writing German and Portuguese conjugation
+engines is real work, but the *harm today* is that the contract invites content that
+would route to the Japanese engine. Making `verbGroupsFor`/`conjFormsFor` return empty
+for a language with no engine turns a nonsense instruction into an honest "this language
+has no conjugation yet" — small, reversible, and no live content carries a `group` tag
+for de/pt, so nothing breaks.
+
+**Now covered by a test:** `tests/unit/card-reachability.test.mjs` re-measures every
+`LIVE_CARD_KIND` against the whole corpus in ~0.4s and pins the 11 smoke-fixture
+exemplars, so a dead kind fails with a count of 0 and a stale exemplar fails by name.
+
 ## Language crew board (in-flight authoring — one row per block)
 
 **What this is:** the at-a-glance status of every language block currently being authored, so Alex can see the whole production line without opening sessions. Procedure lives in `RUNBOOK-new-language.md`; the pathway itself in `BUILD-BRIEF-language-blueprint.md`.
@@ -995,6 +1025,36 @@ This file is updated as part of the PR that completes work. When a task is finis
   - State: **21 units · 93 lessons · 729 items** (175 kana / 448 vocab / 106 kanji). All gates green. **A1/N5 is now GRAMMAR-COMPLETE** — copula, all core particles, question words, ～ます verbs + past/negative, い/な-adjective conjugation, want-forms, invitations. Nothing left in A1 except the **native review** (quality gate, parked for app-done) and the **kanji-example forward-references** (some examples use later-unit kanji — for the native/polish pass). Committed locally; **needs a Vercel deploy to go live.**
 
 ---
+
+## Feature CC — engine findings, 2026-09-08 (logged, NOT fixed)
+
+Surfaced while restoring the card-kind forcing function (branch `fix/coverage-forcing-function`).
+All numbers re-measured against `main` at `be72895f` — 13,408 items (ja 5,012 · es 3,123 ·
+fr 3,111 · pt 1,202 · de 480 · no 480).
+
+| # | finding | evidence | route |
+|---|---|---|---|
+| E1 | **Rotation bypasses the free-pass guard.** `leastPractised` returns `asStep(pick)` *before* the legacy chain, and the free-pass diversions live **inside** that chain — so rotation serves the free card anyway. | **112 items** served a card answerable by typing the prompt back (すし, ソファ, トマト, バナナ, メモ, ゼロ …). 80 meaning + 76 produce free-passes. | Fix at `eligibleKinds` — see below |
+| E2 | **`particle:choice` can never route for de / no / pt.** `FUNCTION_WORDS` has only `fr` and `es` keys, and `canParticleCloze` requires a non-empty list. | Measured routes: `ja 662, fr 71, es 141` — **de/no/pt zero**. | Feature CC backlog |
+| E3 | **`de` and `pt` are handed the JAPANESE conjugation vocabulary.** `LATIN_LANGS` = `keys(ENGINES)` = `es, fr, no` only, so `verbGroupsFor`/`conjFormsFor` fall through to the ja tables. | `verbGroupsFor("de") → ["godan","ichidan","irregular"]`, `conjFormsFor("de") → dict, nai, ta`. Same for `pt`. **The German crew hit exactly this** — the contract told them to tag German verbs godan/ichidan. | Feature CC backlog — **guard before engines** |
+| E4 | **The 96 conjugation clips will be paid for a third time.** `be72895f` deleted them "again" — twice generated, twice removed — but `scripts/generate-audio.mjs` has **no `conjForm` filter**: it generates for every item, so the next `generate:audio` run re-buys them. | no conjForm guard in the generator | **Money — fix the guard, don't re-delete** |
+
+**E1 must be fixed at `eligibleKinds`, not at the router.** Excluding a free kind from
+`stageCandidates` alone leaves it in `eligibleKinds`, and `requiredPasses` counts 15
+passes per *eligible* kind — rotation would never serve a kind mastery still demands, so
+all 112 items would become **permanently unmasterable**. Withholding at the eligibility
+level fixes the free card and the mastery denominator together.
+
+**E3's cheap half is worth taking first.** Writing German and Portuguese conjugation
+engines is real work, but the *harm today* is that the contract invites content that
+would route to the Japanese engine. Making `verbGroupsFor`/`conjFormsFor` return empty
+for a language with no engine turns a nonsense instruction into an honest "this language
+has no conjugation yet" — small, reversible, and no live content carries a `group` tag
+for de/pt, so nothing breaks.
+
+**Now covered by a test:** `tests/unit/card-reachability.test.mjs` re-measures every
+`LIVE_CARD_KIND` against the whole corpus in ~0.4s and pins the 11 smoke-fixture
+exemplars, so a dead kind fails with a count of 0 and a stale exemplar fails by name.
 
 ## Language crew board (in-flight authoring — one row per block)
 
