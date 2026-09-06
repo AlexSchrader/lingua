@@ -7,7 +7,12 @@
 // "Det er <adj> å <verb> <complement>" is the same scaffold as "Det er <adj> å
 // <verb>". Caught by the u11-u20 content-auditor. This version collapses the
 // whole frame, so a complement cannot disguise a repeat.
-const m = await import("file:///c:/dev/lingua-no-drills/src/data/no/index.js");
+// NOTE: this read a HARDCODED absolute path to one worktree, so running it from any
+// other checkout silently reported that tree's numbers as your own. Fixed to cwd,
+// which is what check-drills.mjs already did. Found by the block-2 seat after 13
+// rewrites moved nothing.
+import { join } from "node:path";
+const m = await import("file:///" + join(process.cwd(), "src/data/no/index.js").split("\\").join("/"));
 const U = (m.NO_UNITS ?? Object.values(m).find(Array.isArray)).filter((u) => u.lessons.some((l) => l.items));
 const items = U.flatMap((u) => u.lessons.flatMap((l) => (l.items || []).map((i) => ({ ...i, u: u.order }))));
 const withD = items.filter((i) => i.drill);
