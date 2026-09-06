@@ -23,6 +23,12 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
+// The reading check MUST use the same normalizer the app and the contract use.
+// A local NFD-only fold silently disagrees with it on any base letter that is not
+// a diacritic — German ss is the case that surfaced it: NFD leaves ss standing, so
+// this script demanded a reading that validate:content rejects as non-latin, and no
+// value could satisfy both checkers at once.
+import { normalizeReading } from "../src/store/answer.js";
 
 const lang = (process.argv[2] || "").toLowerCase();
 if (!/^[a-z]{2}$/.test(lang)) {
@@ -155,8 +161,9 @@ for (const u of authored)
     for (const it of l.items ?? []) {
       if (seen.has(it.front)) problems.push(`duplicate front "${it.front}": ${it.id} vs ${seen.get(it.front)}`);
       else seen.set(it.front, it.id);
-      const expect = foldAccents(clean(it.front)).replace(/\s+/g, "");
-      if (it.reading !== expect) problems.push(`${it.id}: reading "${it.reading}" is not the ASCII fold of "${it.front}" (expected "${expect}")`);
+      const expect = normalizeReading(it.front, lang);
+      if (normalizeReading(it.reading, lang) !== expect)
+        problems.push(`${it.id}: reading "${it.reading}" does not normalize onto "${it.front}" (front normalizes to "${expect}")`);
     }
   }
 for (const p of problems) console.log("  ✗ " + p);

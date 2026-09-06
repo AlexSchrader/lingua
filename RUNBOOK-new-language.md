@@ -219,6 +219,37 @@ Unresolved: <list, or "none">
 
 Then **stop.** Do not merge. Update your row on the crew board (§0) to `handed back`.
 
+**⚠️ BLOCKS 2 AND 3 ONLY.** If you are block 1 you are the **crew lead** and this is
+step 1 of 7, not the end — see "Block 1 is the CREW LEAD" in `CLAUDE.md`. Blocks 2
+and 3 hand back **to you**. Added 2026-09-06 after the German block-1 seat authored
+its range, handed back and stopped, leaving nobody holding the language.
+
+### Block 1's remaining job, after its own units are green
+
+1. **Conventions into `unit1.js`'s header** — article style, how the script's odd
+   letters fold, what is deliberately deferred to a later unit. Blocks 2 and 3 are
+   told to read that header first, so it is the contract for the whole language.
+2. **Write the kickoff prompts for blocks 2 and 3**, carrying what you learned:
+   every word you used, the conventions you settled, the tooling gaps you hit, and
+   the hazard specific to each block. German's block 2 owns the case system;
+   German's block 3 chose its own six themes and had the worst drill coverage.
+3. **Review what comes back.** Run the checks no single block can run on itself —
+   duplicate fronts, lexeme duplicates (noun vs its verb, infinitive vs conjugated
+   form), meaning-field overlaps, reading collisions, same-lesson pairs. **Fix what
+   you find**; a later block's unit is yours once it has handed back.
+4. **Fold in anything the engine grew mid-flight.** A capability that landed on
+   `main` after the crew branched (drills, a new card kind) is the lead's to notice
+   and bring in, not something to leave for a future seat.
+5. **Commission a cold review**: write a prompt for a fresh Curriculum CC to check
+   the whole language with no memory of authoring it, and act on what it finds.
+6. **Then push and merge** if it is green — curriculum content falls under the
+   self-merge exception. Engine or schema changes go to Alex separately.
+
+If the three blocks were **chained** (2 branched off 1, 3 off 2) the last branch
+already *is* the whole language and there is no merge day — that is the cheaper
+shape and worth choosing at kickoff. Merge day below applies only when the blocks
+ran in **parallel** off a shared base.
+
 ### Merge day — the merge seat only
 
 Runs once, when all three blocks are green. **One session does this, never three.**
@@ -243,6 +274,16 @@ Then stop. Alex playtests and merges to `main`.
 ---
 
 ## 7. When you're stuck — do this, don't ask
+
+**⚠️ Before anything else: if you edit `BUILD-CHECKLIST.md` with a script, open it with
+explicit `newline=""`.** Python's default translation silently rewrites every line
+ending in the file, so a one-row crew-board update lands as an 800-line diff — and a
+diff that size is one nobody reads closely, which is exactly where a real change
+hides. Found 2026-09-06 by the German drills seat C, who reported it as a defect in
+their own method rather than a footnote on a benign result; theirs happened to
+*correct* a mixed-ending file, but on a deliberately-LF file it would have done real
+damage unnoticed. The same applies to any script that rewrites a whole file it did
+not author.
 
 | Situation | What you do |
 |---|---|

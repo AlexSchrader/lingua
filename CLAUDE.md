@@ -30,6 +30,7 @@ The lane detail below still governs *how the work itself is done*; the Fleet gov
 | **Alex** | Scope, review, feel-check, final merge | — | **Merges everything.** The gate is always his. |
 | **Feature CC** | App / engine / UX, schema & contract | `src/screens`, `src/store`, `src/components`, `src/data/contract.js`, `src/data/lint.js` | **Draft PR → Alex merges.** |
 | **Curriculum CC** | Content units only | `src/data/ja/*.js` | **May self-merge on full green** (see exception). |
+| **Curriculum CC — block 1** | **The whole language, not just u1–u7.** Conventions, the other blocks' kickoff prompts, cross-block review, fixing what blocks 2/3 hand back, the final review prompt, the merge | that language's `src/data/<lang>/*.js` — **all of it**, once 2 and 3 have handed back | **Self-merges the finished language on full green.** See "Block 1 is the CREW LEAD" below. |
 | **QA CC** | **Tests & reports — builds nothing** | reads all; writes only findings docs | **Never merges; draft PRs only.** |
 | **Idea CC** | **Ideation — feeds the Feature CC backlog; builds nothing** | reads all; writes only idea pitches (`BUILD-CHECKLIST.md`) + `BUILD-BRIEF-*.md` | **Never merges, never builds; proposes only.** |
 
@@ -110,6 +111,43 @@ Alex is neurodivergent and the app is built specifically with ND learners in min
 - **Content quality** — vocab items that are too abstract for beginners, example sentences that don't reinforce the target word, memory hooks that are weak or culturally off.
 
 **Brainstorm mode.** When Alex says "what's next" or finishes a brief and asks for direction: propose 3–5 concrete, specific options ranked by impact on the learning feel. Not "improve UX" — "add a 200ms breath between cards in `LEARN_OPTS` to reduce panic on Type cards."
+
+## Block 1 is the CREW LEAD — the job does not end at your own units
+
+Added 2026-09-06 at Alex's explicit direction, after the German block-1 seat
+authored its range, handed back, and stopped.
+
+**If you are BLOCK 1 of a language, you are the lead for that whole language.**
+Blocks 2 and 3 author their ranges and hand back to *you*, not to Alex. Your job
+runs in this order and you do not stop until the last step:
+
+1. **Author your own range** and get it green. Same as any block.
+2. **Settle the language-wide conventions** and write them into `unit1.js`'s
+   header, where blocks 2 and 3 are told to read them. Article style, how the
+   script's odd letters fold, what is deliberately deferred to a later unit.
+   You are deciding for the whole language, not just your seven units.
+3. **Write the kickoff prompts for blocks 2 and 3**, updated with what you
+   actually learned — every word you used, the conventions you settled, the
+   tooling gaps you hit, and the specific hazard each later block faces.
+4. **Review what comes back.** Blocks 2 and 3 hand their work to you. Run the
+   cross-block checks no single block can run on itself: duplicate fronts,
+   lexeme duplicates (noun vs its verb, infinitive vs conjugated form), meaning
+   -field overlaps, reading collisions, and same-lesson pairs. **Fix what you
+   find** — a later block's unit is yours to correct once it has handed back.
+5. **Chase the language to done**, not just the cards: drills, or whatever the
+   engine has grown since the crew was kicked off. If a capability landed after
+   the crew branched, it is your job to notice and to fold it in.
+6. **When everything is back and green, write a prompt for a fresh Curriculum
+   CC to review the whole language cold**, then act on what it finds.
+7. **Then push and merge, if it is good.** For a language this is curriculum
+   content, so the self-merge exception applies — see it below. Engine or schema
+   changes still go to Alex separately.
+
+**The failure this fixes:** a block-1 seat that treats its range as the whole job
+leaves nobody holding the language. Blocks 2 and 3 hand back to a seat that has
+stopped reading, cross-block defects are found by nobody, and work that landed on
+`main` mid-flight is never folded in. Handing back your own units is step 1 of 7,
+not the end.
 
 ## No front language — every language is built from its own root
 

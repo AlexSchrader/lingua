@@ -17,7 +17,7 @@ const MACRON = { "ō": "o", "ū": "u", "ā": "a", "ē": "e", "ī": "i" };
 // Latin-script languages (es/fr) fold the OTHER way: authored readings are plain
 // [a-z] (the contract requires it), but learners type the real orthography —
 // "Ça va", "s'il vous plaît", "sœur". So diacritics are stripped (NFD), ligatures
-// expanded (œ→oe, æ→ae), and apostrophes/hyphens dropped, so the typed French
+// expanded (œ→oe, æ→ae, ß→ss), and apostrophes/hyphens dropped, so the typed French
 // converges on the ASCII reading ("cava", "silvousplait", "soeur").
 export function normalizeReading(s = "", lang = null) {
   let out = String(s).trim().toLowerCase().replace(/\s+/g, "");
@@ -41,6 +41,11 @@ export function normalizeReading(s = "", lang = null) {
       // "brod", so "Et brød" was rejected and "et brod" accepted. Folds to o, matching
       // how those readings are written (å needs nothing — NFD does decompose it).
       .replace(/ø/g, "o")
+      // German ß is the same class of problem, found independently: also a letter,
+      // also invisible to NFD. German readings are authored with ss ("diestrasse"),
+      // so without this a learner typing the correct "Straße" was rejected while
+      // "Strasse" passed. Two languages, one bug shape — worth expecting a third.
+      .replace(/ß/g, "ss")
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .replace(/['’ʼ\-]/g, "");
