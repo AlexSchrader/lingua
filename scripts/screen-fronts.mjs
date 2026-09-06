@@ -2,11 +2,11 @@
 // in this tree and (b) EACH OTHER. Front-uniqueness passes on the exact string, so
 // "en jobb" and "å jobbe" both validate while being one word — that is the collision
 // this catches and validate:content does not.
-//   node screen.mjs "en kake" "å bake"
-//   node screen.mjs --file cand.txt
-//   node screen.mjs --selftest        <- proves the rules can actually fail
+//   node scripts/screen-fronts.mjs "en kake" "å bake"
+//   node scripts/screen-fronts.mjs --file cand.txt
+//   node scripts/screen-fronts.mjs --selftest        <- proves the rules can actually fail
 import { readFileSync } from "node:fs";
-import { NO_UNITS } from "./src/data/no/index.js";
+import { NO_UNITS } from "../src/data/no/index.js";
 
 const taught = new Map();
 for (const u of NO_UNITS) for (const l of u.lessons) for (const it of l.items ?? []) taught.set(it.front, u.order);

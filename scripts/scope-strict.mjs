@@ -4,9 +4,9 @@
 // `som` (vs `sommer`), `for` (vs `forstå`) and `der` through a clean lint run.
 // Instead it generates real inflections from each taught front and demands an
 // exact match, so an unknown word is reported rather than excused.
-//   node scope-strict.mjs            check u41-u50 examples AND drills
-//   node scope-strict.mjs --selftest prove it flags a word I know is untaught
-import { NO_UNITS } from "./src/data/no/index.js";
+//   node scripts/scope-strict.mjs            check u41-u50 examples AND drills
+//   node scripts/scope-strict.mjs --selftest prove it flags a word I know is untaught
+import { NO_UNITS } from "../src/data/no/index.js";
 
 const FREE = `Erling Kari Anna Jonas Oslo Bergen Norge Europa Bokmål kafé kaffe taxi pizza telefon
 restaurant museum hotell bank park sjokolade problem person`.split(/\s+/).map((w) => w.toLowerCase());
