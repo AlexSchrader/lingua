@@ -1,7 +1,7 @@
 # DE — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- de`.
-Snapshot 2026-09-05: **480 words** across **20 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-06: **480 words** across **20 authored unit(s)**, **30 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -14,6 +14,51 @@ Snapshot 2026-09-05: **480 words** across **20 authored unit(s)**, **0 slot(s) s
 - **It does not contain the words your sibling blocks are writing right now.** They do not exist yet, in this tree or any other. If you need a word a *later* slot will plainly own (a grammar unit's tense, a themed unit's domain), assume it is theirs and teach around it.
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
+
+## Who owns which slots this band
+
+The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
+
+| block | slots |
+|---|---|
+| 1 | u21–u30 |
+| 2 | u31–u40 |
+| 3 | u41–u50 |
+
+## Slots still stubs — not yours unless you were assigned them
+
+| slot | unit | title |
+|---|---|---|
+| 21 | `de-u21` | Activities and routine |
+| 22 | `de-u22` | Feelings and states |
+| 23 | `de-u23` | Travel and transport |
+| 24 | `de-u24` | Work and school |
+| 25 | `de-u25` | Health and the body |
+| 26 | `de-u26` | Nature and animals |
+| 27 | `de-u27` | Shopping and money |
+| 28 | `de-u28` | Time and adverbs |
+| 29 | `de-u29` | Connecting words |
+| 30 | `de-u30` | Home and household |
+| 31 | `de-u31` | Personality and character |
+| 32 | `de-u32` | Society and daily life |
+| 33 | `de-u33` | Technology and communication |
+| 34 | `de-u34` | Nature and science |
+| 35 | `de-u35` | Culture and leisure |
+| 36 | `de-u36` | Grammar 4 — compound and linked clauses |
+| 37 | `de-u37` | Grammar 5 — conditionals, ability, comparison |
+| 38 | `de-u38` | Conjugation drill 1 |
+| 39 | `de-u39` | Conjugation drill 2 |
+| 40 | `de-u40` | Vocabulary 1 (A2) |
+| 41 | `de-u41` | Vocabulary 2 (A2) |
+| 42 | `de-u42` | Vocabulary 3 (A2) |
+| 43 | `de-u43` | Vocabulary 4 (A2) |
+| 44 | `de-u44` | Vocabulary 5 (A2) |
+| 45 | `de-u45` | Vocabulary 6 (A2) |
+| 46 | `de-u46` | Vocabulary 7 (A2) |
+| 47 | `de-u47` | Vocabulary 8 (A2) |
+| 48 | `de-u48` | Vocabulary 9 (A2) |
+| 49 | `de-u49` | Vocabulary 10 (A2) |
+| 50 | `de-u50` | Vocabulary 11 (A2) |
 
 ## Index — every taught word, alphabetical
 
@@ -74,7 +119,6 @@ Snapshot 2026-09-05: **480 words** across **20 authored unit(s)**, **0 slot(s) s
 - `das Gemüse` — u6 · vegetables
 - `das Gepäck` — u18 · the luggage
 - `das Geschäft` — u17 · the shop
-- `das Gewitter` — u8 · thunderstorm
 - `das Haus` — u7 · house
 - `das Hemd` — u17 · the shirt
 - `das Hotel` — u7 · hotel
@@ -170,7 +214,6 @@ Snapshot 2026-09-05: **480 words** across **20 authored unit(s)**, **0 slot(s) s
 - `der Platz` — u7 · square / space
 - `der Preis` — u16 · the price
 - `der Pullover` — u17 · the jumper
-- `der Regen` — u8 · rain
 - `der Reis` — u6 · rice
 - `der Rock` — u17 · the skirt
 - `der Saft` — u6 · juice
@@ -404,6 +447,7 @@ Snapshot 2026-09-05: **480 words** across **20 authored unit(s)**, **0 slot(s) s
 - `orange` — u8 · orange (colour)
 - `passen` — u17 · to fit
 - `rechts` — u7 · right
+- `regnen` — u8 · to rain
 - `richtig` — u19 · correct
 - `rosa` — u8 · pink
 - `rot` — u8 · red
@@ -413,6 +457,7 @@ Snapshot 2026-09-05: **480 words** across **20 authored unit(s)**, **0 slot(s) s
 - `schlafen` — u20 · to sleep
 - `schlecht` — u2 · bad / badly
 - `schmutzig` — u10 · dirty
+- `schneien` — u8 · to snow
 - `schnell` — u1 · fast
 - `schön` — u1 · beautiful
 - `schreiben` — u19 · to write
@@ -516,7 +561,7 @@ Snapshot 2026-09-05: **480 words** across **20 authored unit(s)**, **0 slot(s) s
 
 **u7 · Die Stadt** (24) — `die Stadt`, `das Haus`, `die Wohnung`, `der Bahnhof`, `der Markt`, `der Platz`, `das Restaurant`, `das Hotel`, `die Bank`, `die Post`, `das Museum`, `der Park`, `gehen`, `fahren`, `links`, `rechts`, `geradeaus`, `weit`, `dort`, `der Weg`, `die Karte`, `finden`, `suchen`, `nah`
 
-**u8 · Farben und Wetter** (24) — `rot`, `blau`, `gelb`, `grün`, `schwarz`, `weiß`, `braun`, `grau`, `rosa`, `orange`, `die Farbe`, `bunt`, `das Wetter`, `die Sonne`, `der Regen`, `der Nebel`, `der Schnee`, `das Gewitter`, `der Wind`, `die Wolke`, `kalt`, `warm`, `heiß`, `der Himmel`
+**u8 · Farben und Wetter** (24) — `rot`, `blau`, `gelb`, `grün`, `schwarz`, `weiß`, `braun`, `grau`, `rosa`, `orange`, `die Farbe`, `bunt`, `das Wetter`, `die Sonne`, `regnen`, `der Nebel`, `der Schnee`, `schneien`, `der Wind`, `die Wolke`, `kalt`, `warm`, `heiß`, `der Himmel`
 
 **u9 · Tage, Monate und Jahreszeiten** (24) — `der Montag`, `der Dienstag`, `der Mittwoch`, `der Donnerstag`, `der Freitag`, `der Samstag`, `der Sonntag`, `der Monat`, `der Januar`, `der Februar`, `der März`, `der April`, `der Mai`, `der Juni`, `der Juli`, `der August`, `der September`, `der Oktober`, `der November`, `der Dezember`, `der Frühling`, `der Sommer`, `der Herbst`, `der Winter`
 
