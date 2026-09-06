@@ -49,12 +49,12 @@ export const UNIT83 = {
       dominantMode: "recall",
       canDo: "Core JLPT N5 vocabulary: くもる けいかん けっこん こうちゃ ここ ここのか.",
       items: [
-        { id: "ja-u83l3-kumoru", type: "vocab", front: "くもる", reading: "kumoru", meaning: "become cloudy", example: { jp: "そらがくもります。", en: "The sky clouds over." }, accept: ["get cloudy","cloud over","to become cloudy"] },
+        { id: "ja-u83l3-kumoru", type: "vocab", front: "くもる", reading: "kumoru", meaning: "become cloudy", example: { jp: "そらがくもります。", en: "The sky clouds over." }, drill: { jp: "そらがくもる。", en: "The sky becomes cloudy." }, accept: ["get cloudy","cloud over","to become cloudy"] },
         { id: "ja-u83l3-keikan", type: "vocab", front: "けいかん", reading: "keikan", meaning: "police officer", example: { jp: "けいかんにききます。", en: "I ask the police officer." }, accept: ["policeman","police","officer"] },
         { id: "ja-u83l3-kekkon", type: "vocab", front: "けっこん", reading: "kekkon", meaning: "marriage", example: { jp: "らいねんけっこんします。", en: "I will get married next year." }, accept: ["wedding","getting married"] },
         { id: "ja-u83l3-koucha", type: "vocab", front: "こうちゃ", reading: "kōcha", meaning: "black tea", example: { jp: "こうちゃをのみます。", en: "I drink black tea." }, accept: ["tea","tea (black)"] },
         { id: "ja-u83l3-koko", type: "vocab", front: "ここ", reading: "koko", meaning: "here", example: { jp: "ここはえきです。", en: "This is the station." }, accept: ["this place"] },
-        { id: "ja-u83l3-kokonoka", type: "vocab", front: "ここのか", reading: "kokonoka", meaning: "the ninth", example: { jp: "きょうはここのかです。", en: "Today is the ninth." }, accept: ["ninth day","the 9th","nine days"] },
+        { id: "ja-u83l3-kokonoka", type: "vocab", front: "ここのか", reading: "kokonoka", meaning: "the ninth", example: { jp: "きょうはここのかです。", en: "Today is the ninth." }, drill: { jp: "ここのかはやすみです。", en: "The ninth is a holiday." }, accept: ["ninth day","the 9th","nine days"] },
       ],
     },
     {

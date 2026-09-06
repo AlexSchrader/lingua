@@ -36,7 +36,7 @@ export const UNIT91 = {
         { id: "ja-u91l2-omatsuri", type: "vocab", front: "おまつり", reading: "omatsuri", meaning: "festival", example: { jp: "おまつりがすきです。", en: "I like festivals." }, accept: ["fair"] },
         { id: "ja-u91l2-papa", type: "vocab", front: "パパ", reading: "papa", meaning: "dad", example: { jp: "パパはやさしいです。", en: "Dad is kind." }, accept: ["papa","daddy"] },
         { id: "ja-u91l2-kyaku", type: "vocab", front: "きゃく", reading: "kyaku", meaning: "guest", example: { jp: "きゃくがきます。", en: "A guest is coming." }, accept: ["customer","visitor"] },
-        { id: "ja-u91l2-orei", type: "vocab", front: "おれい", reading: "orei", meaning: "thanks", example: { jp: "せんせいにおれいをいいます。", en: "I say thanks to the teacher." }, accept: ["gratitude","thank-you"] },
+        { id: "ja-u91l2-orei", type: "vocab", front: "おれい", reading: "orei", meaning: "thanks", example: { jp: "せんせいにおれいをいいます。", en: "I say thanks to the teacher." }, drill: { jp: "おれいをいいます。", en: "I say thank you." }, accept: ["gratitude","thank-you"] },
         { id: "ja-u91l2-owari", type: "vocab", front: "おわり", reading: "owari", meaning: "end", example: { jp: "はなしのおわりです。", en: "It is the end of the story." }, accept: ["the end","ending"] },
       ],
     },
@@ -49,7 +49,7 @@ export const UNIT91 = {
       dominantMode: "recall",
       canDo: "Core JLPT N4 vocabulary: におい ベル そんな けっして どんどん さらいげつ.",
       items: [
-        { id: "ja-u91l3-nioi", type: "vocab", front: "におい", reading: "nioi", meaning: "smell", example: { jp: "いいにおいがします。", en: "It smells good." }, accept: ["scent","odor"] },
+        { id: "ja-u91l3-nioi", type: "vocab", front: "におい", reading: "nioi", meaning: "smell", example: { jp: "いいにおいがします。", en: "It smells good." }, drill: { jp: "においがします。", en: "There is a smell." }, accept: ["scent","odor"] },
         { id: "ja-u91l3-beru", type: "vocab", front: "ベル", reading: "beru", meaning: "bell", example: { jp: "ベルがなります。", en: "The bell rings." }, accept: ["doorbell"] },
         { id: "ja-u91l3-sonna", type: "vocab", front: "そんな", reading: "sonna", meaning: "that kind of", example: { jp: "そんなひとはいません。", en: "There is no such person." }, accept: ["such","that sort of"] },
         { id: "ja-u91l3-kesshite", type: "vocab", front: "けっして", reading: "kesshite", meaning: "never", example: { jp: "けっしてわすれません。", en: "I will never forget." }, accept: ["by no means","not at all"], hint: "Used with a negative verb." },
