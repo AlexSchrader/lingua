@@ -18,6 +18,49 @@
 // survived two audit rounds in A1 — it is the easiest error to write in this
 // language and the hardest to see.
 //
+// ═══ CROSS-BLOCK COLLISION LEDGER — all three A2 seats read THIS list ═══
+// Kept by block 1 (crew lead) because no single seat can see two other branches
+// at once. `et resultat` survived FOUR separate sweeps for exactly that reason:
+// block 3 reported two collisions to me, I fixed one and never relayed the list,
+// and block 2 then re-found them and reported them as unreported. That is a
+// STRUCTURAL gap, not a communication lapse — hence one shared list.
+// Send finds here rather than resolving silently. Lower slot wins unless noted.
+//
+//   front           holder        loser        resolution
+//   ei kø           b1 u23        b2 u32       b2 reserved. Mine was ALSO a gender
+//                                              error (kø is masculine) — fixing it
+//                                              turned a hidden collision into an
+//                                              exact one, which is strictly better.
+//   en søknad       b1 u24        b2 u32       b2 reserved (et krav, en kontrakt)
+//   et resultat     b1 u24        b3 u44       b3 to reserve. Found by b2's sweep.
+//   en retning      b1 u23        b3 u45       b3 reserved (framover). Gender error
+//                                              on my side too; retning is masculine.
+//   å svinge        b1 u23        b3 u45       b3 reserved (å vende)
+//   en innbygger    b2 u32        b3 u45       b3 reserved (en landsdel)
+//   å underholde    b2 u35        b3 u48       b3 to reserve
+//   en skikk        b2 u35        b3 u50       b3 to reserve
+//   et krav         b2 u32        b3 u50       b3 to reserve
+//   ei samling      b2 u35        b3 u47       LEXEME pair with b3's `å samle`, not
+//                                              an exact one. No string screen on any
+//                                              branch would ever have shown it.
+//   ei slette /     b3 u45        b2 u33       NOT A COLLISION — both stand, cross-
+//   å slette                                   referenced. A noun (a plain) and a
+//                                              verb (to delete) sharing a headword,
+//                                              same shape as tre/et tre and dyr/et
+//                                              dyr, which A1 ships deliberately.
+//   nine nature fronts            b2 declined  blomst, blad, himmel, stjerne, is,
+//   (b3 u43/u45/u47)                           temperatur, grad, hav, vekt. b2 WON
+//                                              all nine on slot and took none, so
+//                                              b3 does not reserve against them.
+//
+// TWO CLASSES NO CHECKER IN THIS PROJECT CAN SEE, both found by block 3:
+//   SAME NOUN, DIFFERENT ARTICLE — `ei kø` and `en kø` are one word and two
+//   strings. validate:content passes; every string-diff screen passes. Strip the
+//   article and compare HEADWORDS.
+//   AN UNCOMMITTED SIBLING BRANCH — twelve of fourteen fronts in b3's u48 came
+//   back "free" to b2's screen because u48 is not committed. Clearing a list
+//   against branches is not clearing it; the lead cross-checks by hand.
+//
 // SCOPE: A1's 480 words are all available. Every front here was screened against
 // them with scripts/free.mjs before authoring, exact AND lexeme.
 //   FREE: Erling, Kari, Anna, Jonas, Oslo, Bergen, Norge, Europa | kafé, kaffe, taxi, telefon, restaurant, museum, hotell, bank, park, problem, person, buss, bil | 2000
