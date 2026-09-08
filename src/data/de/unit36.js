@@ -18,6 +18,8 @@
 // collide. Each distinguishing clause is therefore written after an em dash,
 // outside any bracket, where the normaliser cannot remove it.
 //
+// Rejected as already taught: zuerst and kaum — the lead's u21 took both while this
+// unit was being written, and lower slot wins. endlich and besonders replaced them.
 // je and desto were moved OUT of this unit to u37: they need comparatives (mehr,
 // besser) which u37 teaches, and a unit may not use vocabulary from a later slot.
 //
@@ -73,12 +75,12 @@ export const DE_UNIT36 = {
       dominantMode: "recall",
       canDo: "Put an argument in order and point at the part that matters most.",
       items: [
-        { id: "de-u36l3-zuerst", type: "vocab", front: "zuerst", reading: "zuerst", meaning: "first — earliest in time", example: { jp: "Zuerst gehen wir in den Park, dann essen wir.", en: "First we go to the park, then we eat." }, drill: { jp: "Zuerst gehen wir in den Park", en: "First we go to the park" }, accept: ["first", "at first", "firstly", "to begin with"], hint: "About the order events happen in, and it pairs with dann (u12). erstens, three cards on, numbers the points of an argument instead." },
+        { id: "de-u36l3-endlich", type: "vocab", front: "endlich", reading: "endlich", meaning: "at last — after a wait", example: { jp: "Endlich kommt der Zug, obwohl es sehr spät ist.", en: "At last the train is coming, although it is very late." }, drill: { jp: "Endlich kommt der Zug", en: "At last the train is coming" }, accept: ["at last", "finally", "eventually"], hint: "Carries relief that schließlich does not: schließlich just ends a sequence, endlich says you had been waiting. From das Ende." },
         { id: "de-u36l3-schliesslich", type: "vocab", front: "schließlich", reading: "schliesslich", meaning: "finally — the last step of a sequence", example: { jp: "Schließlich kommt der Zug doch noch.", en: "Finally the train comes after all." }, drill: { jp: "Schließlich kommt der Zug doch", en: "Finally the train comes after all" }, accept: ["finally", "in the end", "after all", "eventually"], hint: "Closes what zuerst opened. It has a second use meaning after all, giving a reason: Er ist müde, schließlich hat er gearbeitet." },
         { id: "de-u36l3-voralem", type: "vocab", front: "vor allem", reading: "vorallem", meaning: "above all", example: { jp: "Vor allem brauchen wir viel Zeit.", en: "Above all we need a lot of time." }, drill: { jp: "Vor allem brauchen wir Zeit", en: "Above all we need time" }, accept: ["above all", "especially", "most of all", "particularly"], hint: "Two words, built on vor (u13). It marks the most important item on a list you have just given." },
         { id: "de-u36l3-zumbeispiel", type: "vocab", front: "zum Beispiel", reading: "zumbeispiel", meaning: "for example", example: { jp: "Wir lernen Sprachen, zum Beispiel Deutsch.", en: "We learn languages, for example German." }, drill: { jp: "Wir lernen zum Beispiel Deutsch", en: "We learn German for example" }, accept: ["for example", "for instance", "such as", "e.g."], hint: "Written z. B. and said tsum BY-shpeel. zum is zu plus dem — the dative contraction from u14." },
         { id: "de-u36l3-erstens", type: "vocab", front: "erstens", reading: "erstens", meaning: "firstly — numbering a point in an argument", example: { jp: "Erstens ist das Buch zu teuer und zu lang.", en: "Firstly the book is too expensive and too long." }, drill: { jp: "Erstens ist das Buch zu teuer", en: "Firstly the book is too expensive" }, accept: ["firstly", "first of all", "for one thing", "in the first place"], hint: "For listing reasons, not events — zuerst in this same lesson does time order. It runs erstens, zweitens, drittens." },
-        { id: "de-u36l3-kaum", type: "vocab", front: "kaum", reading: "kaum", meaning: "hardly", example: { jp: "Ich kann ihn kaum hören, weil das Netz schlecht ist.", en: "I can hardly hear him because the signal is bad." }, drill: { jp: "Ich höre ihn kaum", en: "I hardly hear him" }, accept: ["hardly", "scarcely", "barely"], hint: "Already a negative, so it never takes nicht: ich kann ihn kaum hören, never kaum nicht." },
+        { id: "de-u36l3-besonders", type: "vocab", front: "besonders", reading: "besonders", meaning: "especially", example: { jp: "Das Buch ist gut, besonders für Kinder.", en: "The book is good, especially for children." }, drill: { jp: "Das Buch ist besonders gut", en: "The book is especially good" }, accept: ["especially", "particularly", "specially"], hint: "Sharpens vor allem two cards up: vor allem picks the top of a list, besonders simply raises one item. Nicht besonders means not particularly — a very German understatement." },
       ],
     },
     {
