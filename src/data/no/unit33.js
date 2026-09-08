@@ -6,8 +6,9 @@
 //
 // TWO CANDIDATES WERE CUT ON LEXEME GROUNDS, neither of which a front-uniqueness
 // check would have shown:
-//   `å søke`  — u32 already teaches `en søknad`, and its hint says "from å søke".
-//               One root, two cards.
+//   `å søke`  — `en søknad` is taught at the lead's u24. One root, two cards.
+//               (u32 held `en søknad` when this was written; it lost the front to
+//               u24 on lower-slot-wins, which changes the owner and not the rule.)
 //   `en bruker` — A1 u17 teaches `å bruke`.
 // And one was cut on learner cost rather than duplication: `å nå`, to reach. Its
 // present is `når`, spelled identically to `når` "when" (A1 u5), while the bare stem

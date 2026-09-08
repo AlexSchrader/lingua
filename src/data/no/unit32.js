@@ -6,7 +6,15 @@
 // a "daily life" unit that reached for a job, a price or a kitchen would collide
 // with three of their slots at once. What is left — and what an A2 learner in
 // Norway actually needs — is the civic layer: the kommune, a lov, a skatt, a
-// søknad, a skjema and a kø. That is the whole design.
+// skjema, a krav and a kontrakt. That is the whole design.
+//
+// TWO FRONTS WERE SURRENDERED AFTER AUTHORING, both to lower slots, and both were
+// invisible to validate:content because en/ei/et makes one word look like two:
+//   `en kø`     -> the lead's u23 (which first had `ei kø`, itself a gender error;
+//                 kø is masculine. Fixing theirs made the collision exact.)
+//   `en søknad` -> the lead's u24.
+// Replaced by `et krav` and `en kontrakt`. The lesson was retitled with them: a
+// paperwork lesson named after a queue it no longer teaches is its own defect.
 //
 // EXAMPLES AND DRILLS DRAW ON A1's 480 PLUS THIS BLOCK ONLY. u21-u30 are stubs in
 // this worktree, so a word from them cannot be verified here and would break if the
@@ -88,14 +96,14 @@ export const NO_UNIT32 = {
       id: "no-u32l4",
       unit: 32,
       lesson: 4,
-      title: "Paperwork and queues",
+      title: "Paperwork and requirements",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Handle the paperwork side of daily life — an application, a form, an offer, a membership, and standing in a queue.",
+      canDo: "Handle the paperwork side of daily life — a form, an offer, a requirement, a contract and a membership.",
       items: [
-        { id: "no-u32l4-enko", type: "vocab", front: "en kø", reading: "enko", meaning: "queue", example: { jp: "Det er en lang kø i butikken.", en: "There is a long queue in the shop." }, accept: ["a queue", "line", "traffic jam"], drill: { jp: "Vi står i en kø", en: "We are standing in a queue" }, hint: "Masculine: en kø → køen. Said KUR. Borrowed from French queue, and the Norwegian spelling is simply what the French sounds like. It is also the word for a traffic jam." },
+        { id: "no-u32l4-etkrav", type: "vocab", front: "et krav", reading: "etkrav", meaning: "requirement", example: { jp: "Det er et krav at alle betaler skatt.", en: "It is a requirement that everyone pays tax." }, accept: ["a requirement", "demand", "claim"], drill: { jp: "Et krav står i loven", en: "A requirement is in the law" }, hint: "Neuter: et krav → kravet, and the plural takes no ending — krav. From å kreve, to demand. Å stille krav is to make demands of someone." },
         { id: "no-u32l4-ettilbud", type: "vocab", front: "et tilbud", reading: "ettilbud", meaning: "offer", example: { jp: "Butikken har et godt tilbud i dag.", en: "The shop has a good offer today." }, accept: ["an offer", "deal", "special offer"], drill: { jp: "Et tilbud er ikke alltid billig", en: "An offer is not always cheap" }, hint: "Neuter: et tilbud → tilbudet, and the indefinite plural takes no ending — tilbud — like et bein. From til plus by, to offer. På tilbud means \"on sale\"." },
-        { id: "no-u32l4-ensoknad", type: "vocab", front: "en søknad", reading: "ensoknad", meaning: "application", example: { jp: "Jeg sender en søknad til skolen.", en: "I am sending an application to the school." }, accept: ["an application"], drill: { jp: "En søknad går til kommunen", en: "An application goes to the municipality" }, hint: "Masculine: en søknad → søknaden, plural søknader. SURK-nad. From å søke, to seek or to apply for something." },
+        { id: "no-u32l4-enkontrakt", type: "vocab", front: "en kontrakt", reading: "enkontrakt", meaning: "contract", example: { jp: "Vi har en kontrakt med kommunen.", en: "We have a contract with the municipality." }, accept: ["a contract", "agreement"], drill: { jp: "En kontrakt gjelder i et år", en: "A contract is valid for a year" }, hint: "Masculine: en kontrakt → kontrakten, plural kontrakter. kon-TRAKT, with the stress at the end. Å skrive under en kontrakt is to sign one — literally to write under it." },
         { id: "no-u32l4-etskjema", type: "vocab", front: "et skjema", reading: "etskjema", meaning: "form", example: { jp: "Jeg har et nytt skjema.", en: "I have a new form." }, accept: ["a form", "template", "scheme"], drill: { jp: "Et skjema er ofte kjedelig", en: "A form is often boring" }, hint: "Neuter: et skjema → skjemaet, plural skjemaer. SHEH-ma, with the broad hush of skjorte. The form you fill in — Norway runs on them, though nearly all are online now." },
         { id: "no-u32l4-etmedlem", type: "vocab", front: "et medlem", reading: "etmedlem", meaning: "member", example: { jp: "Han er medlem i et parti.", en: "He is a member of a party." }, accept: ["a member"], drill: { jp: "Et medlem betaler penger", en: "A member pays money" }, hint: "Neuter: et medlem → medlemmet, plural medlemmer — the m doubles before the ending. From med, with, plus lem, a limb: a limb of the body." },
         { id: "no-u32l4-enborger", type: "vocab", front: "en borger", reading: "enborger", meaning: "citizen", example: { jp: "En borger har en rett til å stemme.", en: "A citizen has a right to vote." }, accept: ["a citizen"], drill: { jp: "En borger betaler skatt", en: "A citizen pays tax" }, hint: "Masculine: en borger → borgeren, plural borgere. From borg, a fortified town — originally the people who lived inside the walls. The same root as English burgher and every German -burg." },
