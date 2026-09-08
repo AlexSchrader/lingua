@@ -81,6 +81,14 @@ const IRREG = {
   sollen: ["soll", "sollst", "sollen", "sollt"],
   möchten: ["möchte", "möchtest", "möchten", "möchtet"],
 };
+// IRREG is keyed by the infinitive AS AUTHORED (können) but every lookup below
+// uses the FOLDED front (konnen), so the keys must be folded too. Without this
+// every umlauted modal misses and its finite forms — kann, darf, muss, will —
+// read as untaught, which fails correct drills on the six most common verbs in
+// the language. It never showed while drills used only the bare infinitive after
+// another modal; u22's first "Leider kann ich ..." surfaced it.
+const IRREG_F = Object.fromEntries(Object.entries(IRREG).map(([k, v]) => [fold(k), v]));
+
 const FREE = new Set();
 const born = new Map();
 const remember = (w, u) => { const p = born.get(w); if (p === undefined || u < p) born.set(w, u); };
@@ -114,7 +122,7 @@ for (let u = 1; u <= LAST_UNIT; u++) {
       // Without this a correct drill on a taught irregular fails the scope pass,
       // which is a false failure, and the noisiest possible kind — it lands on the
       // most common verbs in the language.
-      (IRREG[bare] ?? []).forEach((f) => remember(fold(f), unit.order));
+      (IRREG_F[bare] ?? []).forEach((f) => remember(fold(f), unit.order));
       ["e", "en", "er", "n", "s"].forEach((s) => remember(bare + s, unit.order));
     }
 }
