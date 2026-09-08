@@ -21,7 +21,7 @@
 // `en hall` is masculine in Bokmål (hallen), so it is NOT marked ei.
 //
 // ø IS WRITTEN o IN `reading` (§3): `å løpe` → "alope", `ei skøyte` → "eiskoyte",
-// `ei øvelse` → "eiovelse".
+// `en øvelse` → "enovelse" (masculine: -else nouns have no feminine option).
 //
 // ⚠ RESERVE LIST — screened against A1's 480, this block's 240, and the sibling
 // A2 branches. Every collision resolves against this block; swap, don't rebuild.
@@ -105,14 +105,14 @@ export const NO_UNIT44 = {
       title: "Resultat",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Report how it ended — resultat, seier, poeng, rekord, medalje — and name an event.",
+      canDo: "Report how it ended — resultat, seier, poeng, rekord, øvelse, medalje — and name an event.",
       items: [
         { id: "no-u44l4-etresultat", type: "vocab", front: "et resultat", reading: "etresultat", meaning: "result", example: { jp: "Et resultat kommer etter at kampen er slutt.", en: "A result comes after the match is over." }, drill: { jp: "Vi venter på et resultat", en: "We wait for a result" }, accept: ["an outcome", "a score", "a finding"], hint: "re-suel-TAHT, stress at the end. Neuter: definite resultatet, plural resultater. A match score, an exam mark, the outcome of anything." },
         { id: "no-u44l4-enseier", type: "vocab", front: "en seier", reading: "enseier", meaning: "victory", example: { jp: "En seier er fin, men en rekord er bedre.", en: "A victory is nice, but a record is better." }, drill: { jp: "Det blir en seier i kveld", en: "There will be a victory tonight" }, accept: ["a win", "a triumph"], hint: "SAY-er. Masculine: definite seieren, plural seire — the plural drops a syllable. Å seire is the verb, though å vinne is what people actually say." },
         { id: "no-u44l4-etpoeng", type: "vocab", front: "et poeng", reading: "etpoeng", meaning: "point", example: { jp: "Vi får et poeng hvis vi ikke taper kampen.", en: "We get a point if we do not lose the match." }, drill: { jp: "Et poeng er ikke mye", en: "One point is not much" }, accept: ["a score", "a mark"], hint: "po-ENG, and the g is barely there. Neuter: definite poenget, and the plural is poeng, unchanged. Also the point of an argument — poenget er at ..., \"the point is that ...\"." },
         { id: "no-u44l4-enrekord", type: "vocab", front: "en rekord", reading: "enrekord", meaning: "record", example: { jp: "Han lager en rekord, og derfor kjenner alle navnet hans.", en: "He sets a record, and that is why everyone knows his name." }, drill: { jp: "Det er en rekord i Norge", en: "There is a record in Norway" }, accept: ["a best", "a record"], hint: "re-KORD. Masculine: definite rekorden, plural rekorder. Only the sporting or statistical sense — a music record is ei plate, and a written record is et register." },
-        { id: "no-u44l4-eiovelse", type: "vocab", front: "ei øvelse", reading: "eiovelse", meaning: "event", example: { jp: "Ei øvelse begynner klokka ti, og alle er klare.", en: "An event starts at ten o'clock, and everyone is ready." }, drill: { jp: "Det er ei øvelse i dag", en: "There is an event today" }, accept: ["an exercise", "a discipline", "a drill"], hint: "UR-vel-se, hand-folded to eiovelse. Feminine: definite øvelsa, plural øvelser. Built on å øve, to practise: an exercise you do, and a numbered event at a sports meeting." },
-        { id: "no-u44l4-enmedalje", type: "vocab", front: "en medalje", reading: "enmedalje", meaning: "medal", example: { jp: "Hun får en medalje fordi hun vinner ei øvelse.", en: "She gets a medal because she wins an event." }, drill: { jp: "Erling vinner en medalje", en: "Erling wins a medal" }, accept: ["a medallion"], hint: "me-DAL-je — lj is an l plus a y sound. Masculine: definite medaljen, plural medaljer. Norway counts them obsessively every February; gull, sølv and bronse are the three." },
+        { id: "no-u44l4-enovelse", type: "vocab", front: "en øvelse", reading: "enovelse", meaning: "event", example: { jp: "En øvelse begynner klokka ti, og alle er klare.", en: "An event starts at ten o'clock, and everyone is ready." }, drill: { jp: "Det er en øvelse i dag", en: "There is an event today" }, accept: ["an exercise", "a discipline", "a drill"], hint: "UR-vel-se, hand-folded to enovelse. Masculine: definite øvelsen, plural øvelser — nouns in -else are masculine in Bokmål with no feminine option, which is why this one is NOT marked ei. Built on å øve, to practise: an exercise you do, and a numbered event at a sports meeting." },
+        { id: "no-u44l4-enmedalje", type: "vocab", front: "en medalje", reading: "enmedalje", meaning: "medal", example: { jp: "Hun får en medalje fordi hun vinner en øvelse.", en: "She gets a medal because she wins an event." }, drill: { jp: "Erling vinner en medalje", en: "Erling wins a medal" }, accept: ["a medallion"], hint: "me-DAL-je — lj is an l plus a y sound. Masculine: definite medaljen, plural medaljer. Norway counts them obsessively every February; gull, sølv and bronse are the three." },
       ],
     },
   ],
