@@ -75,6 +75,42 @@
 //     (c) contractions (do/da/no/na/ao/à = de/em/a + article) are used in examples
 //         from u1 and glossed in hints at first use; they are not carded in block
 //         1 — u12 Grammar 1 owns them.
+//
+//   - ACCENT FOLDS: WHAT THEY DO AND DO NOT BLOCK. `reading` is the NFD fold of
+//     `front`, so two fronts that differ only by an accent share a reading. Front-
+//     uniqueness is keyed on the RAW front (contract.js frontKey = lang + front, no
+//     normalize), so a fold collision does NOT bar the second word — it makes the
+//     PAIR indistinguishable to typed answers, because checkReading compares folds
+//     and will accept either card's answer for the other. Quality cost and a
+//     judgement call, not a hard bar. (A German seat reported the opposite, that a
+//     fold collision makes a word permanently unteachable; that was withdrawn after
+//     this was checked against a real validate run.)
+//     pt SHIPS FOUR SUCH PAIRS ON PURPOSE, each because the contrast IS the lesson:
+//       é / e (u1l1)  ·  às / as (u12)  ·  nós / nos (u4, u29)  ·  porque / porquê (u29)
+//     THE LOUD VERSION IS THE ID, NOT THE FRONT: porque and porquê fold to one id
+//     slug and that IS a hard duplicate-id error. porquê carries an explicit id.
+//     WORDS A LATER BAND WILL WANT THAT WOULD DOUBLE UP ON AN ALREADY-TAUGHT FOLD —
+//     teachable, but they will read the same as the word in brackets, so decide
+//     deliberately rather than discover it at merge:
+//       pôr (por, u29) · esta (está, u12) · têm (tem, u13) · más (mas, u21)
+//       · dá (da, u12) · sê (se, u13).   pôr is the one that matters — it is a core
+//     verb and it will collide with the por taught at u29.
+//     Checked across all 1,202 fronts in u1-u50: four fold collisions, all listed
+//     above, none unknown. Also checked and CLEAN: no noun taught twice under a
+//     different article (o X / a X), and no article-bearing front whose bare
+//     headword is a separate card.
+//
+//   - THE ARTICLE TRAP IS ONE CLASS WITH SEVERAL COSTUMES, and it is the single
+//     commonest defect in this language. A drill must contain the item's own front
+//     as WHOLE WORDS (cardRouting findWholeWord is letter-boundary aware and does
+//     NOT fold), and Portuguese fronts carry their article, so:
+//       possessive swallows it   "O meu irmão…"  does NOT contain front "o irmão"
+//       preposition replaces it  "de metro"      does NOT contain front "o metro"
+//       conjugation hides it     "melhorou"      does NOT contain front "melhorar"
+//     27 A2 block-1 drills passed lint.js and were refused by the ENGINE on exactly
+//     these. lint.js accent-folds and does a plain substring test, so IT IS WEAKER
+//     THAN THE ENGINE and will pass drills the engine rejects. Validate every drill
+//     against canCloze/canSentence, never against the lint alone.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const PT_UNIT1 = {
   id: "pt-u1",
