@@ -17,7 +17,10 @@
 // (~wollen u20, and a bad minimal pair to introduce beside a cooking word).
 // Kept deliberately: der Kuchen is held in reserve rather than taught, because
 // die Küche (u1) folds to almost the same string and the pair would be a
-// gratuitous trap in the unit that also teaches the kitchen.
+// gratuitous trap in the unit that also teaches the kitchen. NOTE: a fold
+// collision does NOT bar a front — frontKey keys on the raw string and German
+// already ships Sie/sie (u3). It costs typed-answer ambiguity, so this is a
+// judgement call, not a rule.
 // FREE: Pizza, Suppe, Salat, Butter, Liter, Gramm | Eier, Nudeln, Kartoffeln, Tomaten, Zwiebeln, Zutaten, Teller, Messer, Löffel
 export const DE_UNIT41 = {
   id: "de-u41",
