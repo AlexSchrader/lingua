@@ -11,8 +11,8 @@
 //   node scripts/check-drills-de.mjs        report
 //   node scripts/check-drills-de.mjs -v     list every item that still needs one
 //   node scripts/check-drills-de.mjs 1 7    limit to a unit range (a block)
-import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import { buildScope } from "./de-vocab-scope.mjs";
 
 const root = process.cwd();
 const args = process.argv.slice(2).filter((a) => a !== "-v");
@@ -52,75 +52,12 @@ for (let u = from; u <= to; u++) {
 // check-lang-scope read `example` and never look at `drill`. A drill is a
 // sentence the learner reads, so it is bound by the same taught-at-or-before
 // rule as an example — and without this pass nothing would ever say so.
-const fold = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/ß/g, "ss");
-
-// Strong/irregular present forms, keyed by the infinitive as it is authored.
-// Extend this when you teach a strong verb whose stem changes — that is normal
-// maintenance, not a workaround.
-const IRREG = {
-  sein: ["bin", "bist", "ist", "sind", "seid"],
-  haben: ["habe", "hast", "hat"],
-  wissen: ["weiß", "weißt", "weiss", "weisst"],
-  werden: ["werde", "wirst", "wird"],
-  sehen: ["sehe", "siehst", "sieht"],
-  geben: ["gebe", "gibst", "gibt"],
-  nehmen: ["nehme", "nimmst", "nimmt", "nimm"],
-  essen: ["esse", "isst"],
-  lesen: ["lese", "liest"],
-  sprechen: ["spreche", "sprichst", "spricht"],
-  fahren: ["fahre", "fährst", "fährt"],
-  laufen: ["laufe", "läufst", "läuft"],
-  schlafen: ["schlafe", "schläfst", "schläft"],
-  tragen: ["trage", "trägst", "trägt"],
-  helfen: ["helfe", "hilfst", "hilft"],
-  gefallen: ["gefalle", "gefällst", "gefällt"],
-  können: ["kann", "kannst", "können", "könnt"],
-  müssen: ["muss", "musst", "müssen", "müsst"],
-  wollen: ["will", "willst", "wollen", "wollt"],
-  dürfen: ["darf", "darfst", "dürfen", "dürft"],
-  sollen: ["soll", "sollst", "sollen", "sollt"],
-  möchten: ["möchte", "möchtest", "möchten", "möchtet"],
-};
-const FREE = new Set();
-const born = new Map();
-const remember = (w, u) => { const p = born.get(w); if (p === undefined || u < p) born.set(w, u); };
-// Derive the corpus size rather than hardcoding it. This was `u <= 20` while German
-// was an A1-only language; the moment the A2 band was scaffolded, every A2 front read
-// as untaught and the scope pass flagged each card against its OWN front. Any check
-// with a hardcoded bound silently stops being correct the day the data outgrows it.
-const LAST_UNIT = readdirSync(join(root, "src/data/de"))
-  .map((f) => Number((f.match(/^unit(\d+)\.js$/) ?? [])[1]))
-  .filter(Number.isFinite)
-  .reduce((a, b) => Math.max(a, b), 0);
-for (let u = 1; u <= LAST_UNIT; u++) {
-  let src = "";
-  try { src = readFileSync(join(root, `src/data/de/unit${u}.js`), "utf8"); } catch { continue; }
-  const m = src.match(/^\/\/\s*FREE:\s*(.+)$/m);
-  if (m) m[1].split(/[|,]/).map((s) => s.trim()).filter(Boolean).forEach((w) => FREE.add(fold(w)));
-  const mod = await import(`file:///${join(root, `src/data/de/unit${u}.js`).replace(/\\/g, "/")}`);
-  const unit = Object.values(mod)[0];
-  for (const l of unit.lessons)
-    for (const it of l.items ?? []) {
-      const f = fold(it.front);
-      f.split(/\s+/).forEach((w) => remember(w, unit.order));
-      const bare = f.replace(/^(der|die|das)\s+/, "");
-      remember(bare, unit.order);
-      if (/en$/.test(bare)) {                       // infinitive -> its person forms
-        const st = bare.replace(/en$/, "");
-        ["e", "st", "t", "en", "et", ""].forEach((s) => remember(st + s, unit.order));
-      }
-      // German's strong verbs change the STEM, so the regular rule above cannot
-      // derive them and they read as untaught: wissen -> weiss, fahren -> faehrt.
-      // Without this a correct drill on a taught irregular fails the scope pass,
-      // which is a false failure, and the noisiest possible kind — it lands on the
-      // most common verbs in the language.
-      (IRREG[bare] ?? []).forEach((f) => remember(fold(f), unit.order));
-      ["e", "en", "er", "n", "s"].forEach((s) => remember(bare + s, unit.order));
-    }
-}
-const outOfScope = (jp, order) =>
-  fold(jp).replace(/[.,!?;:]/g, " ").split(/\s+/).filter(Boolean)
-    .filter((w) => !FREE.has(w) && !(born.get(w) !== undefined && born.get(w) <= order));
+//
+// The morphology itself lives in de-vocab-scope.mjs and is SHARED with
+// scope-strict-de.mjs. It used to be duplicated here, and the copies drifted
+// twice — the folded-IRREG-key bug and the missing -ern/-eln verb class — each
+// time producing false failures on correct drills. See that file's header.
+const { outOfScope } = await buildScope(root);
 
 let usable = 0;
 const need = [];
