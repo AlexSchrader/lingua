@@ -14,7 +14,10 @@
 // Conventions per unit1.js §1-§8. Subordinators are A1's real set: at, fordi,
 // hvis, men, eller, når. NOT `som` — it is untaught in A1 and lint cannot see
 // that (lint.js:226 excuses it as an inflection of `sommer`). u29 claims it.
-//   FREE: Erling, Kari, Anna, Jonas, Oslo, Bergen, Norge, Europa | kafé, taxi, telefon, hotell, bank, buss, bil, kilometer | 2000
+//   FREE: Erling, Kari, Anna, Jonas, Oslo, Bergen, Norge, Europa | kafé, taxi, telefon, hotell, bank, kilometer | 2000
+//   A FREE entry is exempt in EVERY unit, not just this one, so a word this
+//   course teaches as a front must NEVER appear here — it would disable the
+//   forward-reference check for that word corpus-wide.
 export const NO_UNIT23 = {
   id: "no-u23",
   lang: "no",

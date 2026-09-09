@@ -63,7 +63,10 @@
 //
 // SCOPE: A1's 480 words are all available. Every front here was screened against
 // them with scripts/free.mjs before authoring, exact AND lexeme.
-//   FREE: Erling, Kari, Anna, Jonas, Oslo, Bergen, Norge, Europa | kafé, kaffe, taxi, telefon, restaurant, museum, hotell, bank, park, problem, person, buss, bil | 2000
+//   FREE: Erling, Kari, Anna, Jonas, Oslo, Bergen, Norge, Europa | kafé, kaffe, taxi, telefon, restaurant, museum, hotell, bank, park, problem, person | 2000
+//   A FREE entry is exempt in EVERY unit, not just this one, so a word this
+//   course teaches as a front must NEVER appear here — it would disable the
+//   forward-reference check for that word corpus-wide.
 export const NO_UNIT21 = {
   id: "no-u21",
   lang: "no",

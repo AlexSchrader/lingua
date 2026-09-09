@@ -27,7 +27,10 @@
 // `for` or `der` — all three are untaught in A1's 480 and lint structurally
 // cannot see them (lint.js:226 excuses `som` as an inflection of `sommer`).
 // My u29 claims all three; until it lands, nothing in the band may use them.
-//   FREE: Erling, Kari, Anna, Jonas, Oslo, Bergen, Norge | kafé, telefon, kontor, prosjekt, universitet, eksamen, kurs, buss, bil | 2000
+//   FREE: Erling, Kari, Anna, Jonas, Oslo, Bergen, Norge | kafé, telefon | 2000
+//   A FREE entry is exempt in EVERY unit, not just this one, so a word this
+//   course teaches as a front must NEVER appear here — it would disable the
+//   forward-reference check for that word corpus-wide.
 export const NO_UNIT24 = {
   id: "no-u24",
   lang: "no",

@@ -20,7 +20,10 @@
 // Subordinators are A1's REAL set: at, fordi, hvis, men, eller, når. NOT `som`,
 // `for` or `der` — untaught in A1's 480, and lint structurally cannot see that
 // (lint.js:226 excuses `som` as an inflection of `sommer`). u29 claims all three.
-//   FREE: Erling, Kari, Anna, Jonas, Oslo, Bergen, Norge | telefon, doktor, tablett, allergi, resept, pasient, operasjon | 2000
+//   FREE: Erling, Kari, Anna, Jonas, Oslo, Bergen, Norge | telefon, doktor, tablett | 2000
+//   A FREE entry is exempt in EVERY unit, not just this one, so a word this
+//   course teaches as a front must NEVER appear here — it would disable the
+//   forward-reference check for that word corpus-wide.
 export const NO_UNIT25 = {
   id: "no-u25",
   lang: "no",
