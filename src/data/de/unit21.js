@@ -49,11 +49,18 @@
 //   "full"          A1 u10 voll          WINS  vs block3 u42 satt
 //   "appear"        block2 u35 auftreten WINS  vs block3 u43 aussehen
 //
+// ⚠️ RETRACTED — I CLOSED THREE OF THESE WRONGLY AND THE ENGINE DISPROVED ME.
+// I ruled das Buch/buchen, der Park/parken and sauber/putzen NOT DEFECTS on the
+// grounds that they are different parts of speech. normalizeMeaning does not care
+// about part of speech: it STRIPS a leading a/an/the/to, so "the book" and "to
+// book" both canonicalize to "book". All three were real canonical collisions and
+// all three are now fixed on my side — buchen "to make a booking", parken "to park
+// a car", putzen "to scrub", plus die Tüte "the carrier bag" against u17's Tasche.
+// The lesson is the one this crew keeps relearning: a plausible mechanism is not
+// evidence. I reasoned from grammar; the answer was in answer.js.
+//
 // NOT DEFECTS — checked and deliberately kept, listed so nobody re-opens them:
 //   anziehen u17 / sich anziehen u21   different lexeme, hint carries the split
-//   das Buch u1 / buchen u23           different part of speech
-//   der Park u7 / parken u23           different part of speech
-//   sauber u10 / putzen u21            adjective vs verb
 //   u29's weil / dass / als / nachdem  distinguished after an em dash, which
 //                                      normalizeMeaning keeps; A1's denn, das,
 //                                      wann and nach stay clean
@@ -61,6 +68,39 @@
 //     against its Präteritum. The umlaut FOLDS, so the readings are identical and
 //     a TYPED answer cannot tell the pair apart. That is a real cost and block 2
 //     took it knowingly; it is not a bar, exactly as German already ships Sie/sie.
+//
+// HOW THE ENGINE ACTUALLY COMPARES MEANINGS — read this before re-glossing.
+// Established jointly with block 2, by reading src/store/answer.js, not by
+// reasoning about it. meaningVariants (answer.js:96) is the function that decides:
+//   - it folds in accept[] AS WELL AS meaning, so two cards can collide through a
+//     shared synonym while their printed glosses differ. RE-CUTTING A GLOSS CANNOT
+//     CLEAR AN ACCEPT[] OVERLAP.
+//   - it splits every entry on / , ; AND ON THE LITERAL WORD "or" (answer.js:101).
+//     Block 2's first fix, "temperature — how warm or cold", split into a bare
+//     "cold" and collided with A1's kalt. AN EM DASH IS SAFE. THE WORD "or" IS NOT.
+//   - normalizeMeaning (answer.js:83) strips PARENTHETICALS and a leading
+//     a/an/the/to, so a distinction in brackets is thrown away.
+// TWO TIERS, and they are not the same finding:
+//   CANONICAL x CANONICAL  two cards whose printed gloss is the same. A DEFECT.
+//   ACCEPT-ONLY            only a synonym is shared. Leniency working as designed
+//                          (answer.js:78 says pickiness was the top typing
+//                          friction); nobody is misgraded. INFORMATIONAL.
+// scripts/xblock-de.mjs now reports both tiers by calling the real meaningVariants
+// rather than reimplementing it, and separately lists every gloss containing "or".
+// Block 3's satt/voll stands on these grounds: both carry "full" in accept[], the
+// canonical glosses differ, and stripping the most natural English answer to
+// satisfy a tool would make the card worse. Block 3 argued that; it was right.
+//
+// PROCEDURE, learned the hard way, all three from real misses:
+//   - A CROSS-BLOCK PASS ONLY SEES THE DISK IT RUNS ON. Mine cannot see a collision
+//     between two of block 3's units any better than block 3's could see mine. Run
+//     it from more than one seat until merge day.
+//   - DROPPING A FRONT CAN BREAK A DRILL IN A DIFFERENT UNIT. Re-run
+//     check-drills-de across the WHOLE block after any drop, never just the unit
+//     the card left. Block 3's dessert drill broke this way; reading missed it.
+//   - AN UNMERGED SIBLING BRANCH READS AS EMPTY. Block 3 screened nine of my units
+//     as 0 cards for a week and every "screened clear" it reported was against a
+//     corpus missing mine.
 //
 // OPEN, NOT YET ACTIONABLE — the three folded pairs above and A2 AUDIO.
 // German audio today is A1 only (480/480). When A2 audio generates, each of those
@@ -128,7 +168,7 @@ export const DE_UNIT21 = {
       canDo: "Say what you do around the house — tidying, cleaning, preparing something — and say you are getting it ready.",
       items: [
         { id: "de-u21l3-aufraeumen", type: "vocab", front: "aufräumen", reading: "aufraumen", meaning: "to tidy up", example: { jp: "Am Samstag räume ich das Zimmer auf.", en: "On Saturday I tidy up the room." }, drill: { jp: "Wir müssen das Zimmer aufräumen", en: "We have to tidy up the room" }, accept: ["to tidy up", "to clear up", "tidy"], hint: "Separable: ich räume auf. Aufgeräumt describes both a tidy room and a cheerful mood." },
-        { id: "de-u21l3-putzen", type: "vocab", front: "putzen", reading: "putzen", meaning: "to clean", example: { jp: "Am Samstag putzen wir das Bad.", en: "On Saturday we clean the bathroom." }, drill: { jp: "Am Samstag putzen wir das Bad", en: "On Saturday we clean the bathroom" }, accept: ["to clean", "clean", "to scrub"], hint: "For scrubbing something physically. Also what you do to your teeth: Zähne putzen." },
+        { id: "de-u21l3-putzen", type: "vocab", front: "putzen", reading: "putzen", meaning: "to scrub", example: { jp: "Am Samstag putzen wir das Bad.", en: "On Saturday we clean the bathroom." }, drill: { jp: "Am Samstag putzen wir das Bad", en: "On Saturday we clean the bathroom" }, accept: ["to clean", "clean", "to scrub", "scrub"], hint: "For scrubbing something physically. Also what you do to your teeth: Zähne putzen." },
         { id: "de-u21l3-vorbereiten", type: "vocab", front: "vorbereiten", reading: "vorbereiten", meaning: "to prepare", example: { jp: "Ich bereite das Essen vor.", en: "I prepare the meal." }, drill: { jp: "Wir wollen das Essen vorbereiten", en: "We want to prepare the meal" }, accept: ["to prepare", "to get ready", "prepare"], hint: "Separable: ich bereite vor. With sich it means to prepare yourself — sich auf eine Prüfung vorbereiten." },
         { id: "de-u21l3-dasgeschirr", type: "vocab", front: "das Geschirr", reading: "dasgeschirr", meaning: "the dishes", example: { jp: "Nach dem Essen wasche ich das Geschirr.", en: "After the meal I wash the dishes." }, drill: { jp: "Ich wasche das Geschirr", en: "I wash the dishes" }, accept: ["the dishes", "dishes", "crockery", "the washing-up"], hint: "Singular in German where English is plural — das Geschirr ist schmutzig. Geschirr spülen is the usual phrase for washing up." },
         { id: "de-u21l3-diewaesche", type: "vocab", front: "die Wäsche", reading: "diewasche", meaning: "the laundry", example: { jp: "Am Samstag mache ich die Wäsche.", en: "On Saturday I do the laundry." }, drill: { jp: "Am Samstag mache ich die Wäsche", en: "On Saturday I do the laundry" }, accept: ["the laundry", "laundry", "the washing"], hint: "Wäsche waschen is to do the laundry — the noun and the verb share a stem, which is why the phrase sounds doubled to an English ear." },
