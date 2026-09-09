@@ -19,6 +19,16 @@
 // Verb fronts are modal-framed for the same reason as u22 — a German main clause
 // conjugates the verb, so buchen, packen, abholen, fliegen, parken and tanken can
 // only stand whole after a modal. abholen is separable and survives only there.
+// FREE-STRUCTURAL: Auto
+// das Auto is carded HERE but was licensed by u1's FREE list from unit 1, and
+// A1 uses it seven times before this card. check-forward-refs flags that, and it
+// is right to: the word's first appearance is u1, not u23. This is a DELIBERATE
+// late formal treatment, not an accidental forward reference. A1 judged Auto
+// transparent enough to use untaught — which it is — and the cost of that call is
+// that it was never reviewable. Carding it here fixes that without invalidating
+// the seven A1 examples, which would break if Auto left the FREE list.
+// The alternative, dropping the card, would leave a core word permanently
+// unreviewable purely to keep a checker quiet. Declared rather than silenced.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const DE_UNIT23 = {
   id: "de-u23",
