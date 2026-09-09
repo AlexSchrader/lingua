@@ -10,6 +10,11 @@
 // BOUNDARY: u31 is personality and character — what someone IS LIKE. This unit
 // is what they LOOK like. The two never meet: no nett, ruhig or lustig here, and
 // u31 takes no physical description.
+// CROSS-BLOCK RULING (lead, dev-01): wirken lost to block 2 u31 and ähnlich to
+// block 2 u37; both replaced from this unit's own reserve list, and l3 retitled
+// since it was named after wirken. aussehen KEPT and re-glossed from "to appear"
+// to "to look" — it collided with block 2 u35 auftreten on the gloss, and the
+// lead ruled the narrower gloss is the truer one, so nobody loses a card.
 // Rejected as already taught: grau (u8), and u11's anatomy — der Kopf, das Auge,
 // die Nase, der Mund, das Ohr, der Hals, die Hand, der Arm — all used freely in
 // examples instead. blond is on block 1's FREE cognate line, so it is available
@@ -67,17 +72,17 @@ export const DE_UNIT43 = {
       id: "de-u43l3",
       unit: 43,
       lesson: 3,
-      title: "Wie jemand wirkt",
+      title: "Wie jemand aussieht",
       cefr: "A2",
       dominantMode: "recall",
       canDo: "Say how someone looks and the impression they give — good-looking, sporty, or younger than they are.",
       items: [
-        { id: "de-u43l3-aussehen", type: "vocab", front: "aussehen", reading: "aussehen", meaning: "to look / appear", example: { jp: "Du siehst heute sehr gut aus.", en: "You look very good today." }, drill: { jp: "Die Kinder müssen gut aussehen", en: "The children have to look good" }, accept: ["to look", "to appear", "to look like"], hint: "Separable: du siehst … aus. It only stays whole after a modal or in a weil-clause, which is why the drill uses one." },
-        { id: "de-u43l3-wirken", type: "vocab", front: "wirken", reading: "wirken", meaning: "to come across", example: { jp: "Sie wirkt jung, obwohl sie schon fünfzig ist.", en: "She comes across as young, although she is already fifty." }, drill: { jp: "Die Kinder wirken heute müde", en: "The children come across as tired today" }, accept: ["to come across", "to seem", "to have an effect"], hint: "The impression a person gives, not a fact about them. Also to take effect, of medicine." },
+        { id: "de-u43l3-aussehen", type: "vocab", front: "aussehen", reading: "aussehen", meaning: "to look", example: { jp: "Du siehst heute sehr gut aus.", en: "You look very good today." }, drill: { jp: "Die Kinder müssen gut aussehen", en: "The children have to look good" }, accept: ["to look", "to appear", "to look like"], hint: "Separable: du siehst … aus. It only stays whole after a modal or in a weil-clause, which is why the drill uses one." },
+        { id: "de-u43l3-gepflegt", type: "vocab", front: "gepflegt", reading: "gepflegt", meaning: "well-groomed", example: { jp: "Er ist immer gepflegt, auch am Sonntag.", en: "He is always well-groomed, even on Sunday." }, drill: { jp: "Der Mann ist sehr gepflegt", en: "The man is very well-groomed" }, accept: ["well-groomed", "neat", "well-kept"], hint: "From pflegen, to care for — the look of someone who takes trouble. Used of gardens and hands as well as people." },
         { id: "de-u43l3-hubsch", type: "vocab", front: "hübsch", reading: "hubsch", meaning: "pretty", example: { jp: "Das Kleid für den Sommer ist hübsch.", en: "The dress for the summer is pretty." }, drill: { jp: "Die Frau ist sehr hübsch", en: "The woman is very pretty" }, accept: ["pretty", "good-looking", "lovely"], hint: "Lighter than schön (u1) — pleasant rather than beautiful. Works for things as well as people." },
         { id: "de-u43l3-attraktiv", type: "vocab", front: "attraktiv", reading: "attraktiv", meaning: "attractive", example: { jp: "Er findet sie attraktiv, sagt es aber nicht.", en: "He finds her attractive, but does not say so." }, drill: { jp: "Der Mann ist sehr attraktiv", en: "The man is very attractive" }, accept: ["attractive", "appealing"], hint: "Same word as English, stressed at the end: at-trak-TEEF. The v says f." },
         { id: "de-u43l3-sportlich", type: "vocab", front: "sportlich", reading: "sportlich", meaning: "sporty / athletic", example: { jp: "Meine Schwester ist sehr sportlich und läuft oft.", en: "My sister is very sporty and runs often." }, drill: { jp: "Die Kinder sind sehr sportlich", en: "The children are very sporty" }, accept: ["sporty", "athletic", "sports-minded"], hint: "Sport plus -lich. Also means casual of clothes — ein sportliches Hemd." },
-        { id: "de-u43l3-jugendlich", type: "vocab", front: "jugendlich", reading: "jugendlich", meaning: "youthful", example: { jp: "Sie sieht jugendlich aus, obwohl sie älter ist als ich.", en: "She looks youthful, although she is older than me." }, drill: { jp: "Der Mann wirkt sehr jugendlich", en: "The man comes across as very youthful" }, accept: ["youthful", "young-looking"], hint: "Looking young, as opposed to jung (u3), which is being young. The difference matters." },
+        { id: "de-u43l3-jugendlich", type: "vocab", front: "jugendlich", reading: "jugendlich", meaning: "youthful", example: { jp: "Sie sieht jugendlich aus, obwohl sie älter ist als ich.", en: "She looks youthful, although she is older than me." }, drill: { jp: "Der Mann ist sehr jugendlich", en: "The man is very youthful" }, accept: ["youthful", "young-looking"], hint: "Looking young, as opposed to jung (u3), which is being young. The difference matters." },
       ],
     },
     {
@@ -90,7 +95,7 @@ export const DE_UNIT43 = {
       canDo: "Recognise someone, say who they resemble, and name the jewellery and skin you would describe them by.",
       items: [
         { id: "de-u43l4-erkennen", type: "vocab", front: "erkennen", reading: "erkennen", meaning: "to recognise", example: { jp: "Ich erkenne ihn an der Brille.", en: "I recognise him by his glasses." }, drill: { jp: "Wir erkennen ihn an der Brille", en: "We recognise him by his glasses" }, accept: ["to recognise", "to recognize", "to make out"], hint: "erkennen AN plus dative — you recognise someone BY something. Built on kennen, to know a person." },
-        { id: "de-u43l4-ahnlich", type: "vocab", front: "ähnlich", reading: "ahnlich", meaning: "similar", example: { jp: "Die Schwestern sind sehr ähnlich.", en: "The sisters are very similar." }, drill: { jp: "Die Kinder sind sehr ähnlich", en: "The children are very similar" }, accept: ["similar", "alike"], hint: "Takes the dative: er ist SEINEM Vater ähnlich, he is similar to his father." },
+        { id: "de-u43l4-verwechseln", type: "vocab", front: "verwechseln", reading: "verwechseln", meaning: "to mix up", example: { jp: "Wir verwechseln die Schwestern sehr oft.", en: "We mix the sisters up very often." }, drill: { jp: "Wir verwechseln die Kinder oft", en: "We often mix the children up" }, accept: ["to mix up", "to confuse", "to mistake for"], hint: "Two people or things swapped in your head. verwechseln MIT — ich verwechsle ihn mit seinem Bruder." },
         { id: "de-u43l4-diehaut", type: "vocab", front: "die Haut", reading: "diehaut", meaning: "the skin", example: { jp: "Im Sommer ist die Haut oft dunkel.", en: "In summer the skin is often dark." }, drill: { jp: "Die Haut ist sehr dunkel", en: "The skin is very dark" }, accept: ["the skin", "the hide"], hint: "One letter from das Haus and nothing to do with it. The au says ow, as in how." },
         { id: "de-u43l4-derring", type: "vocab", front: "der Ring", reading: "derring", meaning: "the ring", example: { jp: "Der Ring an ihrer Hand ist sehr alt.", en: "The ring on her hand is very old." }, drill: { jp: "Der Ring ist sehr alt", en: "The ring is very old" }, accept: ["the ring"], hint: "Ring and Ring, identical. Also a boxing ring and a ring road." },
         { id: "de-u43l4-diekette", type: "vocab", front: "die Kette", reading: "diekette", meaning: "the necklace / chain", example: { jp: "Die Kette ist von meiner Großmutter.", en: "The necklace is from my grandmother." }, drill: { jp: "Die Kette ist sehr schön", en: "The necklace is very beautiful" }, accept: ["the necklace", "the chain"], hint: "Both the jewellery and a bicycle chain. English chain is the same word one consonant over." },

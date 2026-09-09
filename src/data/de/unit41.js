@@ -13,6 +13,9 @@
 // stove.
 // Rejected as already taught: kochen (u20 — the A1 verb unit took it, and it is
 // used freely here instead), essen, trinken and the eighteen u6 nouns.
+// CROSS-BLOCK RULING (lead, dev-01): süß lost to block 2 u40 by one slot and was
+// replaced by bitter. schmecken re-glossed off the bare "to taste", which collided
+// with u42 probieren — both mine, and the tool caught it, not me.
 // Rejected as the same lexeme or too close: das Viertel (~vier u5), die Wolle
 // (~wollen u20, and a bad minimal pair to introduce beside a cooking word).
 // Kept deliberately: der Kuchen is held in reserve rather than taught, because
@@ -89,8 +92,8 @@ export const DE_UNIT41 = {
       dominantMode: "recall",
       canDo: "Say how something tastes — sweet, salty, sour, spicy or fresh — and ask whether someone likes it.",
       items: [
-        { id: "de-u41l4-schmecken", type: "vocab", front: "schmecken", reading: "schmecken", meaning: "to taste", example: { jp: "Der Salat schmeckt mir sehr gut.", en: "The salad tastes very good to me." }, drill: { jp: "Die Nudeln schmecken sehr gut", en: "The noodles taste very good" }, accept: ["to taste", "to taste good"], hint: "Works like gefallen (u17): the FOOD is the subject and you are dative — es schmeckt mir." },
-        { id: "de-u41l4-suss", type: "vocab", front: "süß", reading: "suss", meaning: "sweet", example: { jp: "Der Tee ist mir zu süß.", en: "The tea is too sweet for me." }, drill: { jp: "Die Banane ist sehr süß", en: "The banana is very sweet" }, accept: ["sweet"], hint: "Also sweet about a person or an animal, exactly as in English. ß, so you may type suss or süß." },
+        { id: "de-u41l4-schmecken", type: "vocab", front: "schmecken", reading: "schmecken", meaning: "to taste good — of food", example: { jp: "Der Salat schmeckt mir sehr gut.", en: "The salad tastes very good to me." }, drill: { jp: "Die Nudeln schmecken sehr gut", en: "The noodles taste very good" }, accept: ["to taste", "to taste good"], hint: "Works like gefallen (u17): the FOOD is the subject and you are dative — es schmeckt mir." },
+        { id: "de-u41l4-bitter", type: "vocab", front: "bitter", reading: "bitter", meaning: "bitter", example: { jp: "Der Kaffee ohne Zucker ist sehr bitter.", en: "The coffee without sugar is very bitter." }, drill: { jp: "Der Kaffee ist sehr bitter", en: "The coffee is very bitter" }, accept: ["bitter"], hint: "Bitter and bitter are the same word. The one taste that is a warning rather than a pleasure." },
         { id: "de-u41l4-salzig", type: "vocab", front: "salzig", reading: "salzig", meaning: "salty", example: { jp: "Die Suppe ist heute sehr salzig.", en: "The soup is very salty today." }, drill: { jp: "Der Käse ist zu salzig", en: "The cheese is too salty" }, accept: ["salty"], hint: "Salz plus -ig, the ending that turns a noun into an adjective." },
         { id: "de-u41l4-sauer", type: "vocab", front: "sauer", reading: "sauer", meaning: "sour", example: { jp: "Der Apfel ist sauer, aber ich esse ihn gern.", en: "The apple is sour, but I eat it happily." }, drill: { jp: "Der Apfel ist sehr sauer", en: "The apple is very sour" }, accept: ["sour", "acidic"], hint: "Also means cross with someone: er ist sauer auf mich. Same word, two very different jobs." },
         { id: "de-u41l4-scharf", type: "vocab", front: "scharf", reading: "scharf", meaning: "spicy / sharp", example: { jp: "Ich esse gern scharf, aber nicht zu scharf.", en: "I like eating spicy food, but not too spicy." }, drill: { jp: "Das Essen ist heute sehr scharf", en: "The food is very spicy today" }, accept: ["spicy", "hot", "sharp"], hint: "One word for chilli-hot food and for a knife with a good edge. Never heiß — that is temperature." },
