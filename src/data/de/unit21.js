@@ -10,6 +10,72 @@
 // Separable verbs appear here too (aufwachen, aufräumen, vorbereiten). Unlike A1,
 // I can drill them: u20 gave modals and u29 gives subordinators, so the infinitive
 // can be kept whole — "Wir müssen früh aufwachen". No item here is undrillable.
+// ============================================================================
+// CROSS-BLOCK COLLISION LEDGER — German A2. Maintained by block 1 (the lead).
+// Blocks 2 and 3: READ THIS BEFORE YOU AUTHOR, and send me new entries.
+//
+// WHY IT EXISTS. Each seat sees a third of the corpus. A collision reported to
+// one seat and fixed there never reaches the third, so the same word gets taught
+// twice by two people who each screened honestly. Worse, an UNCOMMITTED sibling
+// branch reads as EMPTY to every screening script — clearing a candidate against
+// the branches is not clearing it. Only a written ledger closes that.
+//
+// RULE: LOWER SLOT NUMBER WINS, always, and it is not negotiable between crews.
+// The higher slot re-glosses or swaps the card out. No exceptions, no trades.
+//
+// Measured 2026-09-08 across A1 + all three A2 branches, 888 cards.
+//
+// EXACT FRONT DUPLICATES — the higher slot must drop or replace:
+//   nervös        block1 u22  WINS   vs  block2 u31
+//   mutig         block1 u22  WINS   vs  block2 u31
+//   der Ausweis   block1 u23  WINS   vs  block2 u32
+//   frei          block1 u23  WINS   vs  block3 u42
+//   wirken        block2 u31  WINS   vs  block3 u43
+//   ähnlich       block2 u37  WINS   vs  block3 u43
+//   der Gast      block2 u40  WINS   vs  block3 u42
+//   süß           block2 u40  WINS   vs  block3 u41
+//
+// SHARED GLOSS, DIFFERENT WORD — normalizeMeaning strips a leading a/an/the/to
+// and strips PARENTHETICALS, so a distinction in brackets does not survive. Put
+// it after an em dash instead, which does survive: "because — verb to the end".
+//   "mood"          block1 u22 die Laune WINS  vs block2 u40 die Stimmung
+//   "nevertheless"  block1 u29 trotzdem  WINS  vs block2 u36 dennoch
+//   "key"           A1 u15 der Schlüssel WINS  vs block2 u33 die Taste
+//   "right"         A1 u7  rechts        WINS  vs block2 u32 das Recht
+//   "work"          A1 u3  arbeiten      WINS  vs block2 u33 funktionieren
+//   "warm"          A1 u8  warm          WINS  vs block2 u40 herzlich
+//   "cheerful"      A1 u10 lustig        WINS  vs block2 u40 fröhlich
+//   "together"      A1 u1  zusammen      WINS  vs block2 u32 gemeinsam
+//   "full"          A1 u10 voll          WINS  vs block3 u42 satt
+//   "appear"        block2 u35 auftreten WINS  vs block3 u43 aussehen
+//
+// NOT DEFECTS — checked and deliberately kept, listed so nobody re-opens them:
+//   anziehen u17 / sich anziehen u21   different lexeme, hint carries the split
+//   das Buch u1 / buchen u23           different part of speech
+//   der Park u7 / parken u23           different part of speech
+//   sauber u10 / putzen u21            adjective vs verb
+//   u29's weil / dass / als / nachdem  distinguished after an em dash, which
+//                                      normalizeMeaning keeps; A1's denn, das,
+//                                      wann and nach stay clean
+//   hätte u37 / hatte u39, könnte/konnte, würde/wurde — block 2's Konjunktiv II
+//     against its Präteritum. The umlaut FOLDS, so the readings are identical and
+//     a TYPED answer cannot tell the pair apart. That is a real cost and block 2
+//     took it knowingly; it is not a bar, exactly as German already ships Sie/sie.
+//
+// OPEN, NOT YET ACTIONABLE — the three folded pairs above and A2 AUDIO.
+// German audio today is A1 only (480/480). When A2 audio generates, each of those
+// six cards becomes eligible for the ear route: cardRouting.js:518 pushes
+// listen:choice and listen:type on nothing but hasAudio(item). listen:type grades
+// the typed READING, and hätte and hatte both read "hatte" — so the two cards
+// become the SAME QUESTION with the same accepted answer, and the learner has no
+// way to tell which card is being asked. The spoken clips do differ (/hɛtə/ vs
+// /hatə/), so nobody is graded unfairly; the defect is that the pair is
+// indistinguishable, which the Sie/sie precedent does NOT cover — Sie and sie are
+// disambiguated by the sentence on screen, and a bare listen:type card has none.
+// DECIDE BEFORE A2 AUDIO GENERATES, not after: either keep one of each pair off
+// the listen route, or give the pair readings that do not fold together.
+// Raised by the crew lead's seat; recorded here because no single block can see it.
+// ============================================================================
 // lang/unit/lesson are stamped in src/data/index.js.
 export const DE_UNIT21 = {
   id: "de-u21",
