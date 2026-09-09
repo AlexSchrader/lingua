@@ -102,9 +102,31 @@ for (const n of UNITS.map((u) => u.order)) {
 }
 
 // --- surface form -> earliest slot that teaches it ---
-const born = new Map();
-const add = (w, s) => { if (!w) return; const p = born.get(w); if (p === undefined || s < p) born.set(w, s); };
-for (const i of items) morph.surfaces(i.front, i.u * 100 + i.l, add);
+function buildBorn(rows, m) {
+  const b = new Map();
+  const put = (w, s) => { if (!w) return; const prev = b.get(w); if (prev === undefined || s < prev) b.set(w, s); };
+  for (const i of rows) m.surfaces(i.front, i.u * 100 + i.l, put);
+  return b;
+}
+const WORD = /[\p{L}]+/gu;
+// The whole rule, in one place, so --selftest exercises the real thing and not a
+// paraphrase of it. Returns [] for an item in scope.
+function violations(text, item, b, free) {
+  const bad = [];
+  for (const w of String(text).toLowerCase().match(WORD) || []) {
+    if (free.has(w) || w.length < 2) continue;
+    const at = b.get(w);
+    // RUNBOOK §4 is "at or before that UNIT". Slots are u*100+lesson, so the
+    // (u+1)*100 ceiling admits every lesson of unit u and nothing beyond it —
+    // a word first taught in the NEXT unit is a violation. The comment here
+    // used to claim the opposite; --selftest caught the claim, not the code.
+    if (at === undefined) bad.push(`"${w}" is taught NOWHERE`);
+    else if (at > (item.u + 1) * 100) bad.push(`"${w}" first taught u${Math.floor(at / 100)}, used at u${item.u}`);
+  }
+  return bad;
+}
+
+const born = buildBorn(items, morph);
 
 // --- an authoring query: where does this word enter the course? ---
 const taught = flag("--taught");
@@ -116,20 +138,92 @@ if (taught !== null) {
   process.exit(0);
 }
 
-const WORD = /[\p{L}]+/gu;
+// --- --selftest -------------------------------------------------------------
+//
+// Two halves, and the second is the one that matters.
+//
+// CATCHES: sentences that MUST be flagged. These prove the checker fires at all.
+// A checker that reports clean because it silently matched nothing is the failure
+// mode I have hit twice on this project — a \b written inside a template literal
+// became a backspace character and ran clean over 192 drills, and a \1 written
+// through a shell heredoc became a 0x01 byte and ran clean over the whole corpus.
+//
+// ALLOWS: sentences that must NOT be flagged, one per documented resolver gap in
+// morph/<lang>.mjs. Asserting these pass is nearly worthless on its own — a
+// fixture that never had the word in it also passes. So each ALLOW is re-run
+// against the GENERIC resolver, which indexes no inflections whatsoever, and MUST
+// be flagged there. That is the proof the case is load-bearing: it passes because
+// the resolver earns it, not because the fixture is empty.
+if (argv.includes("--selftest")) {
+  if (lang !== "no") { console.error("--selftest fixtures are Norwegian; run with --lang no"); process.exit(2); }
+  const generic = await import(url(join(HERE, "morph/_generic.mjs")));
+  const at = (u, l) => ({ u, l });
+
+  // A miniature course. Only the fronts matter; the slot is where each is taught.
+  const CORPUS = [
+    { front: "å si", u: 12, l: 1 }, { front: "et hjerte", u: 25, l: 2 },
+    { front: "et sykehjem", u: 25, l: 4 }, { front: "å skynde seg", u: 17, l: 3 },
+    { front: "usikker", u: 22, l: 2 }, { front: "min", u: 4, l: 4 },
+    { front: "å huske", u: 17, l: 3 }, { front: "sulten", u: 6, l: 3 },
+    { front: "hvilken", u: 12, l: 3 }, { front: "ei rot", u: 34, l: 1 },
+    { front: "en lege", u: 11, l: 2 }, { front: "å hoste", u: 25, l: 1 },
+    { front: "å være", u: 1, l: 1 }, { front: "å høre", u: 11, l: 4 },
+    { front: "å ha", u: 3, l: 3 },
+    { front: "sår", u: 25, l: 1 },
+    { front: "en operasjon", u: 30, l: 1 },
+  ];
+  const B = buildBorn(CORPUS, morph);
+  const G = buildBorn(CORPUS, generic);
+  const FR = new Set(["oslo"]);
+
+  const CATCH = [
+    ["a word no front can produce", "Legen sier farlig", at(25, 1)],
+    ["a word taught two units later", "Legen sier operasjon", at(25, 1)],
+  ];
+  // label -> [sentence, item, the gap it guards]
+  const ALLOW = [
+    ["gap 1  strong past",        "Legen sa hoste",        at(25, 2)],
+    ["gap 2  e-final neuter def", "Hjertet hoster",        at(25, 2)],
+    ["gap 3  compound doubling",  "Sykehjemmet hoster",    at(25, 4)],
+    ["gap 4  multiword verb head","Legen skynder",         at(25, 2)],
+    ["gap 5  -er adjective",      "Legen er usikre",       at(25, 2)],
+    ["gap 6  possessive",         "Legen er mi",           at(25, 2)],
+    ["gap 7  imperative",         "Husk legen",            at(25, 2)],
+    ["gap 8  -en adjective",      "Legen er sultne",       at(25, 2)],
+    ["gap 9  determiner",         "Hvilket hjerte hoster", at(25, 2)],
+    ["gap 10 irregular plural",   "Røttene hoster",        at(35, 1)],
+    ["gap 11 weak participle",    "Legen har hørt",        at(25, 2)],
+    ["FREE list",                 "Oslo hoster",           at(25, 2)],
+    ["later LESSON, same unit",   "Legen hoster",          at(25, 1)],
+  ];
+
+  let failed = 0;
+  for (const [label, text, item] of CATCH) {
+    const got = violations(text, item, B, FR);
+    const ok = got.length > 0;
+    if (!ok) failed++;
+    console.log(`  ${ok ? "ok  " : "FAIL"} catches ${label.padEnd(30)} ${ok ? got[0] : "reported clean — the checker did not fire"}`);
+  }
+  for (const [label, text, item] of ALLOW) {
+    const got = violations(text, item, B, FR);
+    // Load-bearing? The FREE and boundary cases are not resolver gaps, so they
+    // are exempt from the generic-resolver proof.
+    const isGap = label.startsWith("gap");
+    const underGeneric = isGap ? violations(text, item, G, FR) : ["n/a"];
+    const ok = got.length === 0 && underGeneric.length > 0;
+    if (!ok) failed++;
+    const why = got.length ? `flagged: ${got[0]}` : "VACUOUS — passes even with no resolver at all";
+    console.log(`  ${ok ? "ok  " : "FAIL"} allows  ${label.padEnd(30)} ${ok ? "" : why}`);
+  }
+  console.log(`\nselftest: ${CATCH.length + ALLOW.length - failed} passed, ${failed} failed`);
+  process.exit(failed ? 1 : 0);
+}
+
 const problems = [];
 for (const item of items) {
   const text = String((field === "drill" ? item.drill?.jp : item.example?.jp) ?? "");
   if (!text) continue;
-  const bad = [];
-  for (const w of text.toLowerCase().match(WORD) || []) {
-    if (FREE.has(w) || w.length < 2) continue;
-    const at = born.get(w);
-    // The documented rule (RUNBOOK §4) is "at or before that UNIT", so a word
-    // first taught in the very next unit is the boundary, not a violation.
-    if (at === undefined) bad.push(`"${w}" is taught NOWHERE`);
-    else if (at > (item.u + 1) * 100) bad.push(`"${w}" first taught u${Math.floor(at / 100)}, used at u${item.u}`);
-  }
+  const bad = violations(text, item, born, FREE);
   if (bad.length) problems.push(`  ✗ ${item.id.padEnd(24)} ${bad.join(" | ")}   «${text}»`);
 }
 

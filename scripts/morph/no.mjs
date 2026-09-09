@@ -39,8 +39,13 @@
 //   9. DETERMINERS. hvilken -> hvilket/hvilke and friends are irregular.
 //  10. IRREGULAR PLURALS. ei rot -> røtter/røttene was absent from IRR_PL, so a
 //      unit's own front came back untaught inside its own example again.
+//  11. WEAK PARTICIPLES IN -t. spist, betalt, hørt, kjøpt, brukt, ringt. The -et
+//      class came free with the -et past and the strong ones come from IRREG, so
+//      this was the one participle class with no rule at all. Found in block 3's
+//      u27; I told it to hold the rewrite until I had checked whether the fault
+//      was its content or my matcher. It was mine.
 //
-// An eleventh, not a morphology gap but worth the warning: the -er adjective rule
+// A twelfth, not a morphology gap but worth the warning: the -er adjective rule
 // was written with a \1 backreference through a shell heredoc and the backslash
 // was eaten, leaving a 0x01 control byte. The rule matched nothing and reported
 // clean. A regex that cannot fail is worse than no regex — the same shape as the
@@ -86,6 +91,12 @@ export function surfaces(front, slot, add) {
       (IRREG[b] || []).forEach((f) => add(f, slot));
       add(b + "r", slot); add(b.replace(/e$/, "er"), slot);
       add(b.replace(/e$/, "te"), slot); add(b.replace(/e$/, "et"), slot); // past
+      // WEAK PARTICIPLE in -t: spise -> spist, betale -> betalt, høre -> hørt,
+      // kjøpe -> kjøpt, bruke -> brukt, ringe -> ringt. The -et participle came
+      // free with the -et past and the strong ones come from IRREG, so this whole
+      // class was the only one with no rule at all — and it is how an A2 sentence
+      // usually says "have done something".
+      add(b.replace(/e$/, "t"), slot);
       // kjenne -> kjente, glemme -> glemte: the double consonant collapses.
       add(b.replace(/(nn|mm|ll|tt)e$/, (m) => m[0] + "te"), slot);
       // s-form, both passive and the deponent (finnes, leveres, synes).
