@@ -167,7 +167,9 @@ if (argv.includes("--selftest")) {
     { front: "å huske", u: 17, l: 3 }, { front: "sulten", u: 6, l: 3 },
     { front: "hvilken", u: 12, l: 3 }, { front: "ei rot", u: 34, l: 1 },
     { front: "en lege", u: 11, l: 2 }, { front: "å hoste", u: 25, l: 1 },
-    { front: "å være", u: 1, l: 1 },
+    { front: "å være", u: 1, l: 1 }, { front: "å høre", u: 11, l: 4 },
+    { front: "å ha", u: 3, l: 3 },
+    { front: "sår", u: 25, l: 1 },
     { front: "en operasjon", u: 30, l: 1 },
   ];
   const B = buildBorn(CORPUS, morph);
@@ -190,6 +192,7 @@ if (argv.includes("--selftest")) {
     ["gap 8  -en adjective",      "Legen er sultne",       at(25, 2)],
     ["gap 9  determiner",         "Hvilket hjerte hoster", at(25, 2)],
     ["gap 10 irregular plural",   "Røttene hoster",        at(35, 1)],
+    ["gap 11 weak participle",    "Legen har hørt",        at(25, 2)],
     ["FREE list",                 "Oslo hoster",           at(25, 2)],
     ["later LESSON, same unit",   "Legen hoster",          at(25, 1)],
   ];
