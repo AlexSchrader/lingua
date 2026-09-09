@@ -168,7 +168,8 @@ if (argv.includes("--selftest")) {
     { front: "hvilken", u: 12, l: 3 }, { front: "ei rot", u: 34, l: 1 },
     { front: "en lege", u: 11, l: 2 }, { front: "å hoste", u: 25, l: 1 },
     { front: "å være", u: 1, l: 1 }, { front: "å høre", u: 11, l: 4 },
-    { front: "å ha", u: 3, l: 3 },
+    { front: "å ha", u: 3, l: 3 }, { front: "var", u: 14, l: 2 },
+    { front: "ut", u: 13, l: 3 },
     { front: "sår", u: 25, l: 1 },
     { front: "en operasjon", u: 30, l: 1 },
   ];
@@ -179,6 +180,13 @@ if (argv.includes("--selftest")) {
   const CATCH = [
     ["a word no front can produce", "Legen sier farlig", at(25, 1)],
     ["a word taught two units later", "Legen sier operasjon", at(25, 1)],
+    // GAP 12, opposite polarity to every ALLOWS case below. `var` is a taught
+    // bare front (past of å være) and the resolver used to hand it noun endings,
+    // inventing vare/varen/varer — real Norwegian the course does not teach. The
+    // generic-resolver proof is meaningless for this one, since generic flags
+    // everything; the case earns its place by failing if NOT_NOMINAL loses a
+    // member, which is a silent false negative and the expensive direction.
+    ["over-generation from a verb form", "Legen sier varer", at(25, 1)],
   ];
   // label -> [sentence, item, the gap it guards]
   const ALLOW = [
@@ -193,6 +201,7 @@ if (argv.includes("--selftest")) {
     ["gap 9  determiner",         "Hvilket hjerte hoster", at(25, 2)],
     ["gap 10 irregular plural",   "Røttene hoster",        at(35, 1)],
     ["gap 11 weak participle",    "Legen har hørt",        at(25, 2)],
+    ["gap 12b locative pair",     "Legen hoster ute",      at(25, 2)],
     ["FREE list",                 "Oslo hoster",           at(25, 2)],
     ["later LESSON, same unit",   "Legen hoster",          at(25, 1)],
   ];

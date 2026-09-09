@@ -39,6 +39,23 @@
 //   9. DETERMINERS. hvilken -> hvilket/hvilke and friends are irregular.
 //  10. IRREGULAR PLURALS. ei rot -> røtter/røttene was absent from IRR_PL, so a
 //      unit's own front came back untaught inside its own example again.
+//  12b. ...and the same fix, over-applied, cost the directional/locative pairs
+//      (ut/ute, inn/inne, bort/borte), which the old code produced only
+//      because one line sat outside the old guard. They are now listed
+//      explicitly. A fix that moves a rule behind a guard should be measured
+//      for what it STOPS matching, not only for what it stops inventing.
+//
+//  12. OVER-GENERATION, the direction that costs a MISS rather than noise. A
+//      bare front that is not a noun was still given noun endings, so the table
+//      invented taught words: `var` (past of å være) produced vare/varen/varer,
+//      and varer is a real word the course does not teach — every example in the
+//      corpus could have used it unchallenged. `hul` produced `hule`, a
+//      different lexeme and another unit's front. The old guard held particles
+//      only; the corpus also fronts pronouns, determiners, conjunctions,
+//      question words, numerals, weekdays, months and finite verb forms.
+//      Enumerate the set from the corpus, do not guess it: a missing member here
+//      is an invisible false negative, not a visible false positive.
+//
 //  11. WEAK PARTICIPLES IN -t. spist, betalt, hørt, kjøpt, brukt, ringt. The -et
 //      class came free with the -et past and the strong ones come from IRREG, so
 //      this was the one participle class with no rule at all. Found in block 3's
@@ -139,7 +156,11 @@ export function surfaces(front, slot, add) {
     // adjective/adverb: neuter -t, plural/definite -e, and the COMPARATIVE and
     // SUPERLATIVE, which are inflections of a taught word exactly as the present
     // tense is. Without these, "dyrere" (from dyr) reads as untaught.
-    add(bare + "t", slot); add(bare + "e", slot);
+    // Guarded by NOT_NOMINAL below: a word that is neither a noun nor an
+    // adjective gets NO regular ending, in either shape. The irregular tables
+    // stay OUTSIDE the guard, because `min` and `hvilken` are in the set and
+    // still need mi/mitt/mine and hvilket/hvilke.
+    const REG = [bare + "t", bare + "e"];
     // A BARE front may be a mass/plural-only NOUN (vann, melk, vær, hår, ull,
     // såpe, arbeid, musikk, helse, feber), not only an adjective. Bare fronts
     // went through the adjective branch alone, so no bare noun ever got a
@@ -149,25 +170,53 @@ export function surfaces(front, slot, add) {
     // passing. The particles and adverbs are a closed set, so excluding them is
     // free. Found by the block-3 seat; its scope checker flagged uten while this
     // one waved it through.
-    const PARTICLE = new Set(["ut", "inn", "opp", "ned", "bort", "tilbake", "med", "av",
-      "etter", "før", "over", "under", "her", "der", "nå", "så", "da", "hjem", "fram"]);
-    if (!PARTICLE.has(bare)) {
-      for (const suf of ["a", "en", "et", "ene", "ne"]) add(bare + suf, slot);
-      add(bare.replace(/e$/, "a"), slot);
-    }
+    // NOT_NOMINAL: bare fronts that cannot take a noun ending. Enumerated from
+    // the corpus's own bare fronts rather than guessed, because the cost of a
+    // missing member is an INVENTED taught word that silently excuses a real
+    // violation — `var` -> varer was doing exactly that.
+    const NOT_NOMINAL = new Set([
+      // particles and adverbs of place/direction
+      "ut", "inn", "opp", "ned", "bort", "tilbake", "med", "av", "etter", "før",
+      "over", "under", "her", "der", "nå", "så", "da", "hjem", "fram", "framover",
+      "ute", "inne", "hjemme", "rundt", "igjen", "sammen", "omtrent", "nær",
+      // pronouns, determiners, possessives
+      "jeg", "du", "han", "hun", "vi", "de", "dere", "det", "den", "meg", "deg",
+      "seg", "oss", "ham", "henne", "min", "din", "hans", "hennes", "deres",
+      "denne", "dette", "disse", "egen", "eget", "egne", "annen", "annet", "andre",
+      "alle", "alt", "noe", "noen", "ingen", "ingenting", "hverandre", "hvilken",
+      // question words and conjunctions
+      "hva", "hvem", "hvor", "hvordan", "hvorfor", "hvis", "og", "eller", "men",
+      "at", "fordi", "når", "som", "for", "derfor", "enn", "ikke", "ja", "nei",
+      // finite verb forms the course teaches as their own cards
+      "var", "ble", "kom", "gikk", "hadde", "jobbet", "kjøpte", "lærte",
+      "snakket", "spiste",
+      // numerals. NOT weekdays or months: en søndag pluralises to søndager,
+      // which block 2 uses in u31 — they are ordinary nouns and putting them
+      // here was a guess that cost a false positive within one run.
+      "én", "to", "tre", "fire", "fem", "seks", "sju", "åtte", "ni", "ti", "halv",
+      "neste",
+      // frequency and degree adverbs
+      "aldri", "alltid", "ofte", "sjelden", "snart", "bare", "veldig", "mye",
+      "litt", "nok", "kanskje", "også", "straks", "etterpå", "samtidig",
+      "vanligvis", "underveis", "gratis", "kontant",
+      // fixed greetings and phrases
+      "takk", "hei", "unnskyld", "velkommen",
+    ]);
+    for (const suf of ["a", "en", "et", "ene", "ne"]) REG.push(bare + suf);
+    REG.push(bare.replace(/e$/, "a"));
     // Neuter -t collapses a final double consonant: grønn -> grønt, tynn -> tynt.
-    add(bare.replace(/(nn|mm|ll|tt)$/, (mm) => mm[0] + "t"), slot);
+    REG.push(bare.replace(/(nn|mm|ll|tt)$/, (mm) => mm[0] + "t"));
     // -er adjectives drop the e AND simplify the double consonant before a vowel
     // ending: usikker -> usikre, vakker -> vakre. Plain /er$/ -> "re" would have
     // produced "usikkre", which is not a word, so the real form stayed unindexed.
-    add(bare.replace(/([bdfglmnprtks])\1?er$/, "$1re"), slot);
-    add(bare.replace(/([bdfglmnprtks])\1?er$/, "$1ert"), slot);
+    REG.push(bare.replace(/([bdfglmnprtks])\1?er$/, "$1re"),
+             bare.replace(/([bdfglmnprtks])\1?er$/, "$1ert"));
     // -en adjectives drop the e and simplify the doubled consonant the same way:
     // sulten -> sultne, and the neuter sultent. Without this, "barna er sultne"
     // reported the taught front sulten as a word taught nowhere, three times
     // across two blocks.
-    add(bare.replace(/([bdfglmnprtks])\1?en$/, "$1ne"), slot);
-    add(bare.replace(/en$/, "ne"), slot); add(bare.replace(/en$/, "ent"), slot);
+    REG.push(bare.replace(/([bdfglmnprtks])\1?en$/, "$1ne"),
+             bare.replace(/en$/, "ne"), bare.replace(/en$/, "ent"));
     // Determiners inflect like adjectives but irregularly.
     const IRR_DET = { hvilken: ["hvilket", "hvilke"], denne: ["dette", "disse"],
       noen: ["noe", "noen"], ingen: ["ingenting", "intet"], all: ["alt", "alle"] };
@@ -177,12 +226,23 @@ export function surfaces(front, slot, add) {
     const IRR_POSS = { min: ["mi", "mitt", "mine"], din: ["di", "ditt", "dine"],
       sin: ["si", "sitt", "sine"], vår: ["vårt", "våre"], deres: ["deres"] };
     (IRR_POSS[bare] || []).forEach((f) => add(f, slot));
-    add(bare + "ere", slot); add(bare + "est", slot); add(bare + "este", slot);
-    add(bare + "er", slot); add(bare + "ene", slot); // bare-front nouns pluralise too
-    add(bare.replace(/e$/, "ere"), slot); add(bare.replace(/e$/, "est"), slot);
+    REG.push(bare + "ere", bare + "est", bare + "este");
+    REG.push(bare + "er", bare + "ene"); // bare-front nouns pluralise too
+    REG.push(bare.replace(/e$/, "ere"), bare.replace(/e$/, "est"));
+    if (!NOT_NOMINAL.has(bare)) for (const w of REG) add(w, slot);
+
     const IRR_ADJ = { liten: ["lita", "lite", "små", "lille"], gammel: ["gammelt", "gamle"], egen: ["eget", "egne", "egne"], annen: ["annet", "andre"], vakker: ["vakkert", "vakre"], sikker: ["sikkert", "sikre"], ny: ["nytt", "nye"], bra: ["bra"], fri: ["fritt", "frie"], blå: ["blått", "blå"], grå: ["grått", "grå"] };
     (IRR_ADJ[bare] || []).forEach((f) => add(f, slot));
     const IRR_CMP = { stor: ["større", "størst"], liten: ["mindre", "minst"], god: ["bedre", "best"], gammel: ["eldre", "eldst"], ung: ["yngre", "yngst"], lang: ["lengre", "lengst"], mange: ["flere", "flest"], mye: ["mer", "mest"], vond: ["verre", "verst"] };
     (IRR_CMP[bare] || []).forEach((f) => add(f, slot));
   }
+
+  // Directional -> locative: ut/ute, inn/inne, bort/borte, hjem/hjemme. A closed
+  // set, and OUTSIDE the branches because it does not care how the headword is
+  // articled — `hjem` is fronted as `et hjem`, so a map living in the bare-front
+  // branch never saw it and hjemme stayed unindexed. The pair is real Norwegian
+  // (ut is motion, ute is location) and the two are always taught together.
+  const LOCATIVE = { ut: "ute", inn: "inne", opp: "oppe", ned: "nede",
+    bort: "borte", hjem: "hjemme", fram: "framme" };
+  if (LOCATIVE[bare]) add(LOCATIVE[bare], slot);
 }
