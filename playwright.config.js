@@ -1,4 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
+import os from "node:os";
 
 const MODE = process.env.SMOKE_MODE || "dev";
 const PORT = MODE === "preview" ? 4173 : 5173;
@@ -22,6 +23,22 @@ export default defineConfig({
   // weakened check. If a test needs more than this, profile it; don't raise it again.
   timeout: 45_000,
   fullyParallel: true,
+  // WORKER CAP — every test here drives ONE shared Vite dev server, so workers past the
+  // point that server saturates do not add throughput, they add queueing. Playwright's
+  // default is half the cores; on a 32-core box that is 16 browsers competing for one
+  // server, and the tests that lose the race are simply the longest ones — which is why
+  // failures clustered on the slowest tests (coverage, reset, trace, app-judged) and
+  // looked like a routing regression rather than contention.
+  //
+  // Measured on this machine, 3 full runs each:
+  //   default (16 workers)  card-kind coverage 24.7-25.1s   suite 53.6-55.8s   1 flake in 4 runs
+  //   8 workers             card-kind coverage 18.9-19.8s   suite 49.5-52.8s   0 in 3
+  // Capping is strictly better on BOTH axes — faster wall clock and no contention
+  // losses — so there is no speed/stability trade being made here.
+  //
+  // min(half the cores, 8), never below 1: a 2-core CI runner still gets its usual 1
+  // worker, and a big local box stops oversubscribing. Raise it only with numbers.
+  workers: Math.max(1, Math.min(8, Math.ceil(os.cpus().length / 2))),
   forbidOnly: !!process.env.CI,
   retries: 0,
   reporter: process.env.CI ? [["list"], ["html", { open: "never" }]] : "list",
