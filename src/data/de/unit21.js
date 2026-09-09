@@ -61,6 +61,20 @@
 //     against its Präteritum. The umlaut FOLDS, so the readings are identical and
 //     a TYPED answer cannot tell the pair apart. That is a real cost and block 2
 //     took it knowingly; it is not a bar, exactly as German already ships Sie/sie.
+//
+// OPEN, NOT YET ACTIONABLE — the three folded pairs above and A2 AUDIO.
+// German audio today is A1 only (480/480). When A2 audio generates, each of those
+// six cards becomes eligible for the ear route: cardRouting.js:518 pushes
+// listen:choice and listen:type on nothing but hasAudio(item). listen:type grades
+// the typed READING, and hätte and hatte both read "hatte" — so the two cards
+// become the SAME QUESTION with the same accepted answer, and the learner has no
+// way to tell which card is being asked. The spoken clips do differ (/hɛtə/ vs
+// /hatə/), so nobody is graded unfairly; the defect is that the pair is
+// indistinguishable, which the Sie/sie precedent does NOT cover — Sie and sie are
+// disambiguated by the sentence on screen, and a bare listen:type card has none.
+// DECIDE BEFORE A2 AUDIO GENERATES, not after: either keep one of each pair off
+// the listen route, or give the pair readings that do not fold together.
+// Raised by the crew lead's seat; recorded here because no single block can see it.
 // ============================================================================
 // lang/unit/lesson are stamped in src/data/index.js.
 export const DE_UNIT21 = {
