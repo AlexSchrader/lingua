@@ -55,9 +55,34 @@ export const IRREG = {
 
 const IRREG_F = Object.fromEntries(Object.entries(IRREG).map(([k, v]) => [fold(k), v]));
 
+// German separable prefixes. A separable verb SPLITS in a main clause — "ich hole
+// dich ab" — so the surface forms are a bare-stem verb plus a stranded prefix, and
+// NEITHER is derivable from the infinitive front "abholen". Every separable verb in
+// the corpus therefore reported its own example as out of scope. This is a resolver
+// gap, not a content defect, and it is a class Norwegian does not have.
+const SEP = ["ab", "an", "auf", "aus", "ein", "mit", "nach", "vor", "zu", "um",
+             "zurueck", "weg", "los", "hin", "her", "wieder", "fest", "statt"];
+
 // Everything a token might legitimately be, given a taught front.
 const derive = (bare, remember, order) => {
+  // A reflexive front is stored as "sich waschen"; the learner only ever writes
+  // the conjugated stem (wasche, wäschst). Without stripping sich- the /en$/ rule
+  // derived "sich wasche" — a string with a space in it that no token can match —
+  // so every reflexive verb reported its own example as out of scope.
+  if (bare.startsWith("sich ")) {
+    remember("sich", order);
+    derive(bare.slice(5), remember, order);
+    return;
+  }
   remember(bare, order);
+  // Separable: register the stranded prefix AND derive the base verb under it.
+  for (const p of SEP) {
+    if (bare.length > p.length + 2 && bare.startsWith(p) && /en$|rn$|ln$/.test(bare)) {
+      remember(p, order);
+      derive(bare.slice(p.length), remember, order);
+      break;
+    }
+  }
   // -ern and -eln verbs (dauern, ändern, sammeln) end in -n, NOT -en, so a naive
   // /en$/ misses the whole class and every form of them reads as untaught.
   if (/[el]rn$|eln$/.test(bare)) {
@@ -67,7 +92,9 @@ const derive = (bare, remember, order) => {
     const st = bare.replace(/en$/, "");
     ["", "e", "st", "t", "en", "et", "est"].forEach((s) => remember(st + s, order));
   }
-  ["e", "en", "er", "n", "s"].forEach((s) => remember(bare + s, order)); // noun plurals, adj endings
+  // -es and -em are adjective endings (ein gutes Buch, mit grossem Fenster); without
+  // them every attributive adjective in an example read as untaught.
+  ["e", "en", "er", "es", "em", "n", "s"].forEach((s) => remember(bare + s, order));
   (IRREG_F[bare] ?? []).forEach((x) => remember(fold(x), order));
 };
 
