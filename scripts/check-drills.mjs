@@ -31,111 +31,16 @@ for (const n of UNITS.map((u) => u.order)) {
 }
 
 // --- every surface form a taught front can produce, -> earliest unit ---
-// Present AND past. The past was missing entirely, so every strong past in an
-// example ("sa", "tok", "ga", "forsto", "bestod") read as a word taught nowhere —
-// the checker cried wolf on inflections of fronts it had itself indexed.
-const IRREG = {
-  være: ["er", "var", "vært"], ha: ["har", "hadde", "hatt"], gå: ["går", "gikk", "gått"],
-  gi: ["gir", "ga", "gitt"], se: ["ser", "så", "sett"], bo: ["bor", "bodde", "bodd"],
-  forstå: ["forstår", "forsto", "forstått"], stå: ["står", "sto", "stått"],
-  vite: ["vet", "visste", "visst"], få: ["får", "fikk", "fått"], si: ["sier", "sa", "sagt"],
-  ta: ["tar", "tok", "tatt"], kunne: ["kan", "kunne", "kunnet"], ville: ["vil", "ville"],
-  skulle: ["skal", "skulle"], måtte: ["må", "måtte"], burde: ["bør", "burde"],
-  bli: ["blir", "ble", "blitt"], gjøre: ["gjør", "gjorde", "gjort"],
-  bestå: ["består", "bestod", "besto", "bestått"], spørre: ["spør", "spurte", "spurt"],
-  bry: ["bryr", "brydde"], komme: ["kommer", "kom", "kommet"], drikke: ["drikker", "drakk", "drukket"],
-  sove: ["sover", "sov", "sovet"], sitte: ["sitter", "satt"], ligge: ["ligger", "lå", "ligget"],
-  legge: ["legger", "la", "lagt"], selge: ["selger", "solgte", "solgt"],
-  velge: ["velger", "valgte", "valgt"], finne: ["finner", "fant", "funnet"],
-  hjelpe: ["hjelper", "hjalp", "hjulpet"], løpe: ["løper", "løp", "løpt"],
-  slå: ["slår", "slo", "slått"], skrive: ["skriver", "skrev", "skrevet"],
-  lese: ["leser", "leste", "lest"], gjøre_: [], drikk_: [],
-};
+// The generator lived here and is now scripts/morph/no.mjs, shared with
+// check-examples.mjs. Its header documents the six resolver gaps that took the
+// example gate from 43 flagged sentences to 20 real ones. Two copies of this
+// table drifting apart is how the German fork grew a bug that read kann, darf,
+// muss and will as untaught.
+const { surfaces } = await import("file:///" + join(root, "scripts/morph/no.mjs").replace(/\\/g, "/"));
 const born = new Map();
-const add = (w, u) => { const p = born.get(w); if (p === undefined || u < p) born.set(w, u); };
-for (const i of items) {
-  const slot = i.u * 100 + i.l;   // lesson granularity, not unit — the blind spot unit7.js warns about
-  const bare = i.front.replace(/^(en |ei |et |å )/, "").toLowerCase();
-  i.front.toLowerCase().split(" ").forEach((w) => add(w, slot));
-  add(bare, slot);
-  if (/^å /.test(i.front)) {
-    // A multiword verb front carries a reflexive or a particle ("å skynde seg"),
-    // so inflect the HEAD, not the whole string — otherwise "skynder" reads as
-    // untaught because the generator produced "skynde ser".
-    const head = bare.split(" ")[0];
-    for (const b of new Set([bare, head])) {
-      (IRREG[b] || []).forEach((f) => add(f, slot));
-      add(b + "r", slot); add(b.replace(/e$/, "er"), slot);
-      add(b.replace(/e$/, "te"), slot); add(b.replace(/e$/, "et"), slot); // past
-      // kjenne -> kjente, glemme -> glemte: the double consonant collapses.
-      add(b.replace(/(nn|mm|ll|tt)e$/, (m) => m[0] + "te"), slot);
-      // s-form, both passive and the deponent (finnes, leveres, synes).
-      add(b + "s", slot); add(b.replace(/e$/, "es"), slot);
-    }
-  } else if (/^(en|ei|et) /.test(i.front)) {
-    for (const s of ["en", "et", "a", "er", "ene", "ne", "e"]) add(bare + s, slot);
-    for (const s of ["a", "en", "er", "ene"]) add(bare.replace(/e$/, s), slot);
-    add(bare.replace(/el$/, "ler"), slot);
-    // An e-final noun takes a BARE -t in the neuter definite: hjerte -> hjertet,
-    // emne -> emnet, belte -> beltet. The e$-replacement loop above produces
-    // hjerta/hjerten/hjerter/hjertene and never hjertet, so a unit's own front
-    // came back untaught in its own example.
-    add(bare + "t", slot);
-    // en kollega -> kollegaer/kollegaene, and the -ene variant on the bare stem.
-    add(bare.replace(/a$/, "ene"), slot); add(bare + "er", slot); add(bare + "ene", slot);
-    // Short nouns double a final single consonant before an ending: rom -> rommet.
-    // A COMPOUND does too — sykehjem -> sykehjemmet — so test the last syllable
-    // rather than requiring the whole word to be C*VC.
-    if (/[aeiouyæøå][bdfglmnprtk]$/.test(bare) && !/[aeiouyæøå]{2}[bdfglmnprtk]$/.test(bare)) {
-      const d = bare + bare.slice(-1);
-      for (const suf of ["et", "en", "er", "a", "ene"]) add(d + suf, slot);
-    }
-    const IRR_PL = { tann: ["tenner", "tennene"], bok: ["bøker", "bøkene"], hånd: ["hender", "hendene"],
-      fot: ["føtter", "føttene"], bror: ["brødre", "brødrene"], søster: ["søstre", "søstrene"],
-      datter: ["døtre", "døtrene"], mann: ["menn", "mennene"], natt: ["netter", "nettene"],
-      bonde: ["bønder"], and: ["ender"], far: ["fedre"], mor: ["mødre"], øye: ["øyne", "øynene"] };
-    (IRR_PL[bare] || []).forEach((f) => add(f, slot));
-  } else {
-    // adjective/adverb: neuter -t, plural/definite -e, and the COMPARATIVE and
-    // SUPERLATIVE, which are inflections of a taught word exactly as the present
-    // tense is. Without these, "dyrere" (from dyr) reads as untaught.
-    add(bare + "t", slot); add(bare + "e", slot);
-    // A BARE front may be a mass/plural-only NOUN (vann, melk, vær, hår, ull,
-    // såpe, arbeid, musikk, helse, feber), not only an adjective. Bare fronts
-    // went through the adjective branch alone, so no bare noun ever got a
-    // definite — "såpa" read as untaught. Found by the block-3 seat.
-    // ...but ONLY when the bare front is plausibly a noun. Appending noun endings
-    // to a particle invents words: ut (u13) + "en" = "uten", untaught, and it was
-    // passing. The particles and adverbs are a closed set, so excluding them is
-    // free. Found by the block-3 seat; its scope checker flagged uten while this
-    // one waved it through.
-    const PARTICLE = new Set(["ut", "inn", "opp", "ned", "bort", "tilbake", "med", "av",
-      "etter", "før", "over", "under", "her", "der", "nå", "så", "da", "hjem", "fram"]);
-    if (!PARTICLE.has(bare)) {
-      for (const suf of ["a", "en", "et", "ene", "ne"]) add(bare + suf, slot);
-      add(bare.replace(/e$/, "a"), slot);
-    }
-    // Neuter -t collapses a final double consonant: grønn -> grønt, tynn -> tynt.
-    add(bare.replace(/(nn|mm|ll|tt)$/, (mm) => mm[0] + "t"), slot);
-    // -er adjectives drop the e AND simplify the double consonant before a vowel
-    // ending: usikker -> usikre, vakker -> vakre. Plain /er$/ -> "re" would have
-    // produced "usikkre", which is not a word, so the real form stayed unindexed.
-    add(bare.replace(/([bdfglmnprtks])\1?er$/, "$1re"), slot);
-    add(bare.replace(/([bdfglmnprtks])\1?er$/, "$1ert"), slot);
-    // A taught possessive inflects for gender and number and the forms share no
-    // regular ending with the base: min -> mi/mitt/mine.
-    const IRR_POSS = { min: ["mi", "mitt", "mine"], din: ["di", "ditt", "dine"],
-      sin: ["si", "sitt", "sine"], vår: ["vårt", "våre"], deres: ["deres"] };
-    (IRR_POSS[bare] || []).forEach((f) => add(f, slot));
-    add(bare + "ere", slot); add(bare + "est", slot); add(bare + "este", slot);
-    add(bare + "er", slot); add(bare + "ene", slot); // bare-front nouns pluralise too
-    add(bare.replace(/e$/, "ere"), slot); add(bare.replace(/e$/, "est"), slot);
-    const IRR_ADJ = { liten: ["lita", "lite", "små", "lille"], gammel: ["gammelt", "gamle"], egen: ["eget", "egne", "egne"], annen: ["annet", "andre"], vakker: ["vakkert", "vakre"], sikker: ["sikkert", "sikre"], ny: ["nytt", "nye"], bra: ["bra"], fri: ["fritt", "frie"], blå: ["blått", "blå"], grå: ["grått", "grå"] };
-    (IRR_ADJ[bare] || []).forEach((f) => add(f, slot));
-    const IRR_CMP = { stor: ["større", "størst"], liten: ["mindre", "minst"], god: ["bedre", "best"], gammel: ["eldre", "eldst"], ung: ["yngre", "yngst"], lang: ["lengre", "lengst"], mange: ["flere", "flest"], mye: ["mer", "mest"], vond: ["verre", "verst"] };
-    (IRR_CMP[bare] || []).forEach((f) => add(f, slot));
-  }
-}
+const add = (w, u) => { if (!w) return; const p = born.get(w); if (p === undefined || u < p) born.set(w, u); };
+// lesson granularity, not unit — the blind spot unit7.js warns about
+for (const i of items) surfaces(i.front, i.u * 100 + i.l, add);
 
 // --- the real router rules ---
 const isLetter = (c) => !!c && /\p{L}/u.test(c);
