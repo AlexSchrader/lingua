@@ -23,8 +23,7 @@
 //   node scripts/scope-strict-de.mjs --short    only tokens of 3 chars or fewer,
 //                                               i.e. exactly lint's blind spot
 //   node scripts/scope-strict-de.mjs --selftest prove the check can fail
-import { readFileSync, readdirSync } from "node:fs";
-import { join } from "node:path";
+import { buildScope } from "./de-vocab-scope.mjs";
 
 const root = process.cwd();
 const argv = process.argv.slice(2);
@@ -32,67 +31,12 @@ const shortOnly = argv.includes("--short");
 const selftest = argv.includes("--selftest");
 const nums = argv.filter((a) => /^\d+$/.test(a)).map(Number);
 
-const fold = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/ß/g, "ss");
-
-const IRREG = {
-  sein: ["bin", "bist", "ist", "sind", "seid", "war", "waren", "gewesen"],
-  haben: ["habe", "hast", "hat", "hatte", "gehabt"],
-  wissen: ["weiß", "weißt", "weiss", "weisst"],
-  werden: ["werde", "wirst", "wird"],
-  sehen: ["sehe", "siehst", "sieht"], geben: ["gebe", "gibst", "gibt"],
-  nehmen: ["nehme", "nimmst", "nimmt", "nimm"], essen: ["esse", "isst"],
-  lesen: ["lese", "liest"], sprechen: ["spreche", "sprichst", "spricht"],
-  fahren: ["fahre", "fährst", "fährt"], laufen: ["laufe", "läufst", "läuft"],
-  schlafen: ["schlafe", "schläfst", "schläft"], tragen: ["trage", "trägst", "trägt"],
-  helfen: ["helfe", "hilfst", "hilft"], gefallen: ["gefalle", "gefällst", "gefällt"],
-  können: ["kann", "kannst", "könnt"], müssen: ["muss", "musst", "müsst"],
-  wollen: ["will", "willst", "wollt"], dürfen: ["darf", "darfst", "dürft"],
-  sollen: ["soll", "sollst", "sollt"], möchten: ["möchte", "möchtest", "möchtet"],
-};
-
-const IRREG_F = Object.fromEntries(Object.entries(IRREG).map(([k, v]) => [fold(k), v]));
-
-const LAST = readdirSync(join(root, "src/data/de"))
-  .map((f) => Number((f.match(/^unit(\d+)\.js$/) ?? [])[1]))
-  .filter(Number.isFinite).reduce((a, b) => Math.max(a, b), 0);
-
-const FREE = new Set();
-const born = new Map();
-const remember = (w, u) => { const p = born.get(w); if (p === undefined || u < p) born.set(w, u); };
-const units = [];
-for (let u = 1; u <= LAST; u++) {
-  let src = "";
-  try { src = readFileSync(join(root, `src/data/de/unit${u}.js`), "utf8"); } catch { continue; }
-  const m = src.match(/^\/\/\s*FREE:\s*(.+)$/m);
-  if (m) m[1].split(/[|,]/).map((s) => s.trim()).filter(Boolean).forEach((w) => FREE.add(fold(w)));
-  const mod = await import(`file:///${join(root, `src/data/de/unit${u}.js`).replace(/\\/g, "/")}`);
-  const unit = Object.values(mod)[0];
-  if (!unit?.lessons?.some((l) => l.items)) continue;
-  units.push(unit);
-  for (const l of unit.lessons) for (const it of l.items ?? []) {
-    const f = fold(it.front);
-    f.split(/\s+/).forEach((w) => remember(w, unit.order));
-    const bare = f.replace(/^(der|die|das)\s+/, "");
-    remember(bare, unit.order);
-    // -ern and -eln verbs (dauern, aendern, sammeln) end in -n, NOT -en, so a
-    // naive /en$/ misses the whole class and their every form reads as untaught.
-    if (/[el]rn$|eln$/.test(bare)) {
-      const st = bare.replace(/n$/, "");
-      ["", "e", "st", "t", "n"].forEach((x) => remember(st + x, unit.order));
-    } else if (/en$/.test(bare)) {
-      const st = bare.replace(/en$/, "");
-      ["e", "st", "t", "en", "et", "", "est"].forEach((s) => remember(st + s, unit.order));
-    }
-    ["e", "en", "er", "n", "s"].forEach((s) => remember(bare + s, unit.order));
-    // IRREG is keyed as authored (können) but looked up with the FOLDED front
-    // (konnen), so fold the keys too or every umlauted modal silently misses.
-    (IRREG_F[bare] ?? []).forEach((x) => remember(fold(x), unit.order));
-  }
-}
-
-const check = (text, order) =>
-  fold(text).replace(/[.,!?;:„“"»«—–…-]/g, " ").split(/\s+/).filter(Boolean)
-    .filter((w) => !FREE.has(w) && !(born.get(w) !== undefined && born.get(w) <= order));
+// The taught-word oracle and German morphology are SHARED with
+// check-drills-de.mjs, in de-vocab-scope.mjs. What is NOT shared, and what makes
+// this script different, is that nothing here applies an inflection EXCUSE: a
+// token is licensed only if a taught front derives it by a stated rule.
+const { outOfScope, lastUnit: LAST, units } = await buildScope(root);
+const check = (text, order) => outOfScope(text, order);
 
 // --- selftest: a rule you cannot see fail is a rule you cannot trust -----------
 if (selftest) {
@@ -104,6 +48,13 @@ if (selftest) {
   must("a strong-verb form of a taught infinitive is excused", !check("Er weiß es", 30).includes("weiss"));
   must("a short function word is NOT excused by prefixing a longer taught word",
        check("Ich bin som hier", 30).includes("som"));
+  // The next two are REGRESSION cases: each was a live bug that failed correct
+  // content, and each was invisible because no test exercised it. A checker that
+  // cannot fail on the cases you never ran is the failure mode this crew pays for.
+  must("a finite form of an umlauted modal is excused (IRREG keys must be folded)",
+       !check("Leider kann ich heute kommen", 30).includes("kann"));
+  must("a form of an -ern verb is excused (dauern ends -rn, not -en)",
+       !check("Der Ausflug dauert drei Stunden", 30).includes("dauert"));
   console.log(ok ? "\nselftest: the check can fail" : "\nselftest: BROKEN — do not trust its output");
   process.exit(ok ? 0 : 1);
 }
