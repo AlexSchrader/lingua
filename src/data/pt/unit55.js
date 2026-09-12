@@ -324,7 +324,7 @@ export const PT_UNIT55 = {
           type: "vocab",
           front: "o partido",
           reading: "opartido",
-          meaning: "party",
+          meaning: "party (political)",
           example: { jp: "O partido do governo apoia a medida, mas o debate público mudou depois da sondagem.", en: "The government's party supports the measure, but the public debate changed after the poll." },
           drill: { jp: "O partido do governo apoia a medida", en: "The government's party supports the measure" },
           accept: ["the party", "political party"],

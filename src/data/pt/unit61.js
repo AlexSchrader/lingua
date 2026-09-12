@@ -321,7 +321,7 @@ export const PT_UNIT61 = {
           type: "vocab",
           front: "advertir",
           reading: "advertir",
-          meaning: "to warn",
+          meaning: "to warn (formally)",
           example: { jp: "A escola vai advertir a turma sem castigo, porque o regulamento é novo e ninguém o leu.", en: "The school is going to warn the class without punishment, because the regulations are new and nobody has read them." },
           drill: { jp: "O professor vai advertir a turma hoje", en: "The teacher will warn the class today" },
           accept: ["warn", "to caution", "to admonish", "to advise"],

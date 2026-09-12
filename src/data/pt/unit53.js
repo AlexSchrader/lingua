@@ -174,7 +174,7 @@ export const PT_UNIT53 = {
           type: "vocab",
           front: "reduzido",
           reading: "reduzido",
-          meaning: "low",
+          meaning: "low (reduced)",
           example: { jp: "O prazo do projeto é reduzido, e por isso a empresa não quer assinar o contrato hoje.", en: "The project's deadline is tight, and so the company doesn't want to sign the contract today." },
           drill: { jp: "O prazo do projeto é reduzido", en: "The project's deadline is tight" },
           accept: ["low", "reduced", "limited", "slight"],

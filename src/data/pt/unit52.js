@@ -305,7 +305,7 @@ export const PT_UNIT52 = {
           type: "vocab",
           front: "o propósito",
           reading: "oproposito",
-          meaning: "intention",
+          meaning: "purpose (the point of it)",
           example: { jp: "O propósito da reunião é decidir o prazo, mas o chefe quer falar primeiro com a empresa.", en: "The meeting's intention is to decide the deadline, but the boss wants to speak with the company first." },
           drill: { jp: "O propósito da reunião é decidir", en: "The purpose of the meeting is to decide" },
           accept: ["the intention", "purpose", "aim", "point"],

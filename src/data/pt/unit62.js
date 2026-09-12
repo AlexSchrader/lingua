@@ -127,7 +127,7 @@ export const PT_UNIT62 = {
           type: "vocab",
           front: "marcar",
           reading: "marcar",
-          meaning: "to book",
+          meaning: "to book (an appointment)",
           example: { jp: "A família quer marcar a consulta para segunda-feira, porque a dor do filho aumentou durante a noite.", en: "The family wants to book the appointment for Monday, because the son's pain increased during the night." },
           drill: { jp: "A família quer marcar a consulta para segunda", en: "The family wants to book the appointment for Monday" },
           accept: ["book", "to make an appointment", "to schedule", "to mark"],

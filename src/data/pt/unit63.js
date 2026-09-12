@@ -238,7 +238,7 @@ export const PT_UNIT63 = {
           type: "vocab",
           front: "a lição",
           reading: "alicao",
-          meaning: "lesson",
+          meaning: "lesson (the moral)",
           example: { jp: "A lição do erro foi clara para a equipa, e daí que a chefia quer avaliar cada etapa do processo.", en: "The lesson from the mistake was clear for the team, and hence management wants to assess each stage of the process." },
           drill: { jp: "A lição do erro foi clara para todos", en: "The lesson from the mistake was clear to everyone" },
           accept: ["the lesson", "moral", "class"],

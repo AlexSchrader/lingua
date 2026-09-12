@@ -304,7 +304,7 @@ export const PT_UNIT59 = {
           type: "vocab",
           front: "desde",
           reading: "desde",
-          meaning: "since",
+          meaning: "since (from a time)",
           example: { jp: "O vizinho vive no bairro desde janeiro, mas o aspeto da rua mudou consideravelmente.", en: "The neighbour has lived in the neighbourhood since January, but the street's appearance has changed considerably." },
           drill: { jp: "O vizinho vive no bairro desde janeiro", en: "The neighbour has lived in the neighbourhood since January" },
           accept: ["since", "from", "ever since"],
