@@ -3,7 +3,7 @@
 // RE-AIMED, and the last unit of block 1. The scaffold slot is "Experience and
 // memory", and both head-words are gone: `a experiência` is taught at u34 (in
 // its experiment sense), `a memória` and `o passado` at u48, `a saudade` at u22,
-// `lembrar` at u36 and `esquecer` at u29, `a história` at u48, `aprender` at u17.
+// `lembrar` and `esquecer` at u29, `a história` at u48, `aprender` at u17.
 // A unit built on those would teach nothing new.
 //
 // What is left, and is worth a whole unit, is the machinery AROUND remembering:
@@ -15,7 +15,7 @@
 //
 // LEXEME DISCIPLINE, stated once for the record because this unit had the most
 // tempting duplicates in the whole block: `relembrar` was rejected (it is
-// lembrar, u36, with a prefix), `testemunhar` was rejected in favour of the noun,
+// lembrar, u29, with a prefix), `testemunhar` was rejected in favour of the noun,
 // `a recordação` was rejected in favour of `recordar`, and `crescer` was rejected
 // because this block already teaches `o crescimento` at u59. None of the four
 // would have been caught by validate:content — all four are distinct strings.
@@ -51,7 +51,7 @@ export const PT_UNIT63 = {
           example: { jp: "A família gosta de recordar o verão em Coimbra, mas o filho prefere falar do trabalho novo.", en: "The family likes to recall the summer in Coimbra, but the son prefers to talk about the new job." },
           drill: { jp: "A família gosta de recordar o verão", en: "The family likes to recall the summer" },
           accept: ["recall", "to remember", "to reminisce about", "to look back on"],
-          hint: "The warmer, more deliberate twin of lembrar (u36): lembrar is what a note does to you, recordar is what you do on purpose. Recordar-se DE is the reflexive.",
+          hint: "The warmer, more deliberate twin of lembrar (u29): lembrar is what a note does to you, recordar is what you do on purpose. Recordar-se DE is the reflexive.",
         },
         {
           id: "pt-u63l1-alembranca",
@@ -126,7 +126,7 @@ export const PT_UNIT63 = {
           reading: "ohabito",
           meaning: "habit",
           example: { jp: "O hábito do café depois do almoço é português, mas o médico aconselha o doente a evitar isso.", en: "The habit of coffee after lunch is Portuguese, but the doctor advises the patient to avoid it." },
-          drill: { jp: "O hábito do café depois do almoço", en: "The habit of coffee after lunch" },
+          drill: { jp: "O hábito do café é português", en: "The habit of coffee is Portuguese" },
           accept: ["the habit", "custom", "practice"],
           hint: "Ter o hábito de + infinitive. Note the silent h and the stress: Á-bi-to. Por hábito means 'as a rule'.",
         },
@@ -246,7 +246,7 @@ export const PT_UNIT63 = {
           front: "a maturidade",
           reading: "amaturidade",
           meaning: "maturity",
-          example: { jp: "A maturidade do colega é clara, porque ninguém na equipa quis assumir a responsabilidade do atraso.", en: "The colleague's maturity is obvious, because nobody on the team wanted to take responsibility for the delay." },
+          example: { jp: "A maturidade do colega é clara, porque foi o único que quis assumir a responsabilidade do atraso.", en: "The colleague's maturity is obvious, because he was the only one who wanted to take responsibility for the delay." },
           drill: { jp: "A maturidade do colega é clara", en: "The colleague's maturity is obvious" },
           accept: ["the maturity", "adulthood", "ripeness"],
           hint: "Of people and of fruit alike. Maduro is the adjective for both — uma pessoa madura, uma fruta madura.",
@@ -304,7 +304,7 @@ export const PT_UNIT63 = {
           example: { jp: "É melhor praticar todos os dias, porque o conhecimento da teoria não chega para falar.", en: "It's better to practise every day, because knowledge of theory isn't enough to speak." },
           drill: { jp: "É melhor praticar todos os dias", en: "It's better to practise every day" },
           accept: ["practise", "to practice", "to play", "to do"],
-          hint: "Also the verb for playing a sport: praticar futebol, praticar natação — where English says 'play' or 'do', Portuguese practises.",
+          hint: "The verb for DOING a sport — praticar natação, praticar ioga. Not for ball games: Portugal says jogar futebol, never praticar futebol.",
         },
         {
           id: "pt-u63l4-afotografia",
@@ -329,13 +329,13 @@ export const PT_UNIT63 = {
           hint: "Photos and music alike. The plural shifts the accent to os álbuns — one of the few Portuguese words ending in -m that takes -ns.",
         },
         {
-          id: "pt-u63l4-aideia",
+          id: "pt-u63l4-fazerideia",
           type: "vocab",
           front: "fazer ideia",
           reading: "fazerideia",
           meaning: "to have a clue",
-          example: { jp: "Ninguém consegue fazer ideia do prejuízo, visto que a empresa ainda não divulgou o relatório do ano.", en: "Nobody can have any idea of the loss, seeing that the company still hasn't released the year's report." },
-          drill: { jp: "Ninguém consegue fazer ideia do prejuízo", en: "Nobody can have any idea of the loss" },
+          example: { jp: "É difícil fazer ideia do prejuízo, visto que a empresa ainda não divulgou o relatório do ano.", en: "It is hard to have any idea of the loss, seeing that the company still hasn't released the year's report." },
+          drill: { jp: "É difícil fazer ideia do prejuízo", en: "It is hard to have any idea of the loss" },
           accept: ["to have a clue", "to have any idea", "to imagine", "to picture"],
           hint: "Built on a ideia (u40) and almost always negative: não faço ideia is the standard 'I have no idea'. Nem faço ideia is the emphatic version.",
         },

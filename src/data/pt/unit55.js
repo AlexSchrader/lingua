@@ -130,7 +130,7 @@ export const PT_UNIT55 = {
           example: { jp: "O debate na televisão foi difícil, porque ninguém quis admitir a origem do problema.", en: "The debate on television was difficult, because nobody wanted to admit the origin of the problem." },
           drill: { jp: "O debate na televisão foi difícil ontem", en: "The debate on television was difficult yesterday" },
           accept: ["the debate", "discussion", "argument"],
-          hint: "The organised, public kind. A discussão (u24) is the one at the table, and it can be a row; um debate is always structured.",
+          hint: "The organised, public kind. Uma discussão — the noun of discutir (u24) — is the one at the table, and it can be a row; um debate is always structured.",
         },
         {
           id: "pt-u55l2-aopiniaopublica",
@@ -207,7 +207,7 @@ export const PT_UNIT55 = {
           example: { jp: "Segundo o jornalista, a empresa já assinou o contrato, mas o chefe ainda não quis falar do assunto.", en: "According to the journalist, the company has already signed the contract, but the boss still hasn't wanted to talk about it." },
           drill: { jp: "Segundo o jornalista a empresa já assinou", en: "According to the journalist the company has already signed" },
           accept: ["according to", "as stated by", "per", "going by"],
-          hint: "The same word as the ordinal 'second' you met at u14, and the two never get confused because this one always stands in front of a person or a source: segundo o governo, segundo a imprensa. De acordo com (u51) is the longer alternative.",
+          hint: "Spelled like the ordinal 'second' and like the unit of time, and confused with neither, because this one always stands in front of a person or a source: segundo o governo, segundo a imprensa. De acordo com (u51) is the longer alternative.",
         },
         {
           id: "pt-u55l3-alegadamente",
@@ -246,12 +246,12 @@ export const PT_UNIT55 = {
           id: "pt-u55l3-oportavoz",
           type: "vocab",
           front: "o porta-voz",
-          reading: "portavoz",
+          reading: "oportavoz",
           meaning: "spokesperson",
           example: { jp: "O porta-voz do governo declarou tudo à imprensa, mas a polémica do caso ainda não acabou.", en: "The government's spokesperson declared everything to the press, but the case's controversy still hasn't ended." },
           drill: { jp: "O porta-voz do governo declarou tudo", en: "The government's spokesperson declared everything" },
           accept: ["the spokesperson", "spokesman", "spokeswoman", "press officer"],
-          hint: "porta (carries) + voz (voice) — the one who carries the voice. Invariable in the plural: os porta-vozes keeps the hyphen and changes only the second half.",
+          hint: "porta (carries) + voz (voice) — the one who carries the voice. The plural changes only the second half: os porta-vozes.",
         },
         {
           id: "pt-u55l3-oinquerito",
@@ -317,7 +317,7 @@ export const PT_UNIT55 = {
           example: { jp: "O parlamento vai aprovar a reforma esta semana, mas a opinião pública ainda é incerta.", en: "Parliament is going to approve the reform this week, but public opinion is still uncertain." },
           drill: { jp: "O parlamento vai aprovar a reforma", en: "Parliament is going to approve the reform" },
           accept: ["approve", "to pass", "to endorse", "to pass an exam"],
-          hint: "Also what you do to an exam — aprovei no exame means I passed. The negative is chumbar, to fail, which is pure pt-PT.",
+          hint: "Transitive: a committee aprova a proposal. A student does NOT aprovar an exam — in Portugal you say passei no exame or fui aprovado, and the opposite is chumbar, which is pure pt-PT.",
         },
         {
           id: "pt-u55l4-opartido",
