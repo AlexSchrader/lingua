@@ -89,16 +89,16 @@ Then confirm **all three** prerequisites from `BUILD-BRIEF-language-blueprint.md
 2. **Per-language barrels exist** — `src/data/ja/index.js` and `src/data/fr/index.js` export `JA_UNITS` / `FR_UNITS`, and the root `src/data/index.js` imports one line per language rather than one per unit.
 3. **`npm run scaffold:lang` exists** in `package.json`.
 
-Fast check — all three at once:
+Fast check — all three at once. **This RUNS the key builder instead of grepping for it**, so it tests the property (is the language in the key?) and not the spelling:
 
 ```bash
-grep -qE '\$\{lang\}.{0,12}\$\{(item\.)?front\}' src/data/contract.js \
-  && grep -qE '\$\{unitLang\}.{0,12}\$\{item\.front\}' src/data/lint.js \
+node -e 'import("./src/data/contract.js").then(m=>process.exit(m.frontKey("a",{front:"x"})===m.frontKey("b",{front:"x"})?1:0))' \
+  && grep -q 'frontKey(' src/data/lint.js \
   && test -f src/data/ja/index.js && grep -q 'scaffold:lang' package.json \
-  && echo PREREQS OK || echo PREREQS MISSING — STOP
+  && echo PREREQS OK || echo "PREREQS MISSING — STOP"
 ```
 
-*(The check matches the language variable next to the front variable, deliberately **without** pinning the separator between them. It used to grep for the exact key string, which made it a tripwire on an implementation detail rather than on the property that matters: changing the separator from a literal NUL byte to its unicode-escape form — same runtime value, no behaviour change at all — turned this into `PREREQS MISSING` and would have hard-stopped every crew on a green tree.)*
+*(**Third rewrite, and the last one that should need writing — because this version cannot rot the way the other two did.** Both earlier versions grepped the SOURCE of the front-uniqueness key, so each was a tripwire on how the key happened to be spelled that week: v1 pinned the exact key string and broke when the separator became a unicode escape; v2 matched the language variable next to the front variable and broke on 2026-09-12, when the key moved into a `frontKey(lang, item)` helper. Both times it printed `PREREQS MISSING` on a fully green tree, at the step this file calls a HARD STOP — so the check's own failures have cost more crew time than the condition it guards ever has. The durable fix is to stop reading the code and start executing it: if `frontKey` returns the same key for two different languages the prerequisite is genuinely absent; otherwise it is present, however it is written. `lint.js` is checked for the helper CALL, which is the thing that keeps the two files agreeing.)*
 
 **If any is missing, stop and tell Alex exactly which one, then do nothing else.** Authoring into the old global-front rule produces a block that is green alone and fails CI the moment it merges with another Latin-script language — you won't see it, and neither will the other two sessions. This is not a "flag it and proceed" situation; the point of the runbook is that a block passing locally also passes on merge.
 
