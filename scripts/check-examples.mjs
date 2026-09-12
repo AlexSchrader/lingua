@@ -172,6 +172,7 @@ if (argv.includes("--selftest")) {
     { front: "ut", u: 13, l: 3 },
     { front: "sår", u: 25, l: 1 },
     { front: "en operasjon", u: 30, l: 1 },
+    { front: "en nøkkel", u: 16, l: 1 },
   ];
   const B = buildBorn(CORPUS, morph);
   const G = buildBorn(CORPUS, generic);
@@ -202,6 +203,7 @@ if (argv.includes("--selftest")) {
     ["gap 10 irregular plural",   "Røttene hoster",        at(35, 1)],
     ["gap 11 weak participle",    "Legen har hørt",        at(25, 2)],
     ["gap 12b locative pair",     "Legen hoster ute",      at(25, 2)],
+    ["gap 13 -el plural syncope", "Nøklene hoster",        at(25, 2)],
     ["FREE list",                 "Oslo hoster",           at(25, 2)],
     ["later LESSON, same unit",   "Legen hoster",          at(25, 1)],
   ];

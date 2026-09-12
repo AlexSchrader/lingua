@@ -130,6 +130,15 @@ export function surfaces(front, slot, add) {
     for (const s of ["en", "et", "a", "er", "ene", "ne", "e"]) add(bare + s, slot);
     for (const s of ["a", "en", "er", "ene"]) add(bare.replace(/e$/, s), slot);
     add(bare.replace(/el$/, "ler"), slot);
+    // GAP 13. An -el noun SYNCOPATES before the plural ending and simplifies a
+    // doubled consonant with it: en nøkkel -> nøkler, nøklene; en sykkel ->
+    // sykler; et eksempel -> eksempler; en regel -> regler (nothing to simplify).
+    // The plain /el$/ -> "ler" line above produces `nøkkler`, which is not a word,
+    // so the real plural stayed unindexed and two u38 examples using `nøklene`
+    // read as untaught while `en nøkkel` sits in u16l1.
+    add(bare.replace(/([bdfgklmnprst])\1?el$/, "$1ler"), slot);
+    add(bare.replace(/([bdfgklmnprst])\1?el$/, "$1lene"), slot);
+    add(bare.replace(/el$/, "lene"), slot);
     // An e-final noun takes a BARE -t in the neuter definite: hjerte -> hjertet,
     // emne -> emnet, belte -> beltet. The e$-replacement loop above produces
     // hjerta/hjerten/hjerter/hjertene and never hjertet, so a unit's own front
