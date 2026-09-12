@@ -75,7 +75,7 @@ export const PT_UNIT56 = {
           front: "a meta",
           reading: "ameta",
           meaning: "target",
-          example: { jp: "A meta da empresa é elevada este ano, mas os empregados ainda não quiseram discutir o prazo.", en: "The company's target is high this year, but the employees still haven't wanted to discuss the deadline." },
+          example: { jp: "A meta da empresa é elevada este ano, mas os empregados ainda não quiseram discutir o prazo.", en: "The company's target is high this year, but the employees still haven't discuss the deadline." },
           drill: { jp: "A meta da empresa é elevada este ano", en: "The company's target is high this year" },
           accept: ["the target", "goal", "aim", "finish line"],
           hint: "A number you are trying to reach, and also the finish line in sport. o objetivo (u40) is the purpose; a meta is the measurable version of it.",

@@ -17,7 +17,16 @@
 // four mastery tracks for one piece of learning. The unit keeps the adverb, the
 // negative adjective and the noun, and drops the bare positive adjective, which
 // the other three teach for free. Same reasoning kept duvidar (L2) and a dúvida
-// apart — only the verb is carded; sem dúvida was dropped for afinal.
+// apart — only the verb is carded here.
+//
+// THE RULE AS ACTUALLY APPLIED, since a later seat will read this header as the
+// contract: the test is not "same root" but "does the second card teach the
+// learner anything the first does not". relembrar against lembrar fails it;
+// o empenho against o desempenho passes it. So the band DOES ship root-sharing
+// pairs on purpose — o argumento/argumentar, a origem/originar, gerir/a gestão,
+// o plano/planear, a prática/praticar — and u73's sem dúvida, u76's a dúvida and
+// u80's crescer are later blocks' calls under the same test, not violations of
+// this one.
 //
 // NOTE FOR BLOCK 2 (u69-u71): several of these frames take the subjunctive in
 // natural Portuguese — é possível que SEJA, duvido que VENHA. Every example here
@@ -261,7 +270,7 @@ export const PT_UNIT54 = {
           example: { jp: "Afinal de contas o governo mudou a lei, mas ninguém no bairro quis apoiar o acordo na reunião.", en: "After all the government did change the law, but nobody in the neighbourhood wanted to support the agreement at the meeting." },
           drill: { jp: "Afinal de contas o governo mudou a lei", en: "After all the government did change the law" },
           accept: ["after all", "in the end", "so", "as it turned out"],
-          hint: "Announces that things turned out otherwise than expected. The bare afinal is commoner in speech but is NOT carded here: its fold collides with a final (u50, the sports final), so the two cards would accept each other's typed answers. Afinal de contas is the fuller idiom and the safe front — literally 'when the accounts are settled'.",
+          hint: "Announces that things turned out otherwise than expected. The bare afinal is commoner in speech; afinal de contas is the fuller idiom — literally 'when the accounts are settled'.",
         },
       ],
     },
@@ -302,7 +311,7 @@ export const PT_UNIT54 = {
           front: "incerto",
           reading: "incerto",
           meaning: "uncertain",
-          example: { jp: "O desfecho do caso é incerto, porque o juiz ainda não quis falar com a imprensa.", en: "The case's outcome is uncertain, because the judge still hasn't wanted to talk to the press." },
+          example: { jp: "O desfecho do caso é incerto, porque o juiz ainda não quis falar com a imprensa.", en: "The case's outcome is uncertain, because the judge still hasn't talk to the press." },
           drill: { jp: "O desfecho do caso é incerto", en: "The outcome of the case is uncertain" },
           accept: ["uncertain", "unsure", "unclear", "up in the air"],
           hint: "in- + certo, the mirror of ter a certeza in Lesson 2. Of people, Portuguese prefers não ter a certeza to calling someone incerto.",

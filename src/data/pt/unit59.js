@@ -154,7 +154,7 @@ export const PT_UNIT59 = {
           example: { jp: "A empresa quer desenvolver um modelo novo, mas a chefia ainda não definiu a meta para a equipa.", en: "The company wants to develop a new model, but management still hasn't defined the target for the team." },
           drill: { jp: "A empresa quer desenvolver um modelo novo", en: "The company wants to develop a new model" },
           accept: ["develop", "to build", "to work up", "to expand"],
-          hint: "Products, skills and ideas. Desenvolver-se is what a child or a country does. O desenvolvimento is the noun — not carded here, since it is the same lexeme.",
+          hint: "Products, skills and ideas. Desenvolver-se is what a child or a country does, and o desenvolvimento is the noun.",
         },
         {
           id: "pt-u59l2-acelerar",
@@ -305,7 +305,7 @@ export const PT_UNIT59 = {
           front: "desde",
           reading: "desde",
           meaning: "since",
-          example: { jp: "O vizinho vive no bairro desde a infância, mas o aspeto da rua mudou consideravelmente.", en: "The neighbour has lived in the neighbourhood since childhood, but the street's appearance has changed considerably." },
+          example: { jp: "O vizinho vive no bairro desde janeiro, mas o aspeto da rua mudou consideravelmente.", en: "The neighbour has lived in the neighbourhood since January, but the street's appearance has changed considerably." },
           drill: { jp: "O vizinho vive no bairro desde janeiro", en: "The neighbour has lived in the neighbourhood since January" },
           accept: ["since", "from", "ever since"],
           hint: "Portuguese keeps the PRESENT tense with desde where English switches to 'has lived': vivo aqui desde 2010. Desde que + clause means 'ever since' — and, with the subjunctive (u69), 'provided that'.",

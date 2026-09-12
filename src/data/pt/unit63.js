@@ -17,8 +17,12 @@
 // tempting duplicates in the whole block: `relembrar` was rejected (it is
 // lembrar, u29, with a prefix), `testemunhar` was rejected in favour of the noun,
 // `a recordação` was rejected in favour of `recordar`, and `crescer` was rejected
-// because this block already teaches `o crescimento` at u59. None of the four
+// here because this block already teaches `o crescimento` at u59. None of the four
 // would have been caught by validate:content — all four are distinct strings.
+// The test behind each rejection is the one u54's header states: does the second
+// card teach anything the first does not? It is a judgement, not an automatic
+// ban on a shared root — u80 cards `crescer` under the same test and that is its
+// call to make, not a contradiction of this one.
 //
 // BLOCK 3 BOUNDARY: a infância, a juventude, envelhecer, nascer and a geração
 // are lingua-50's at u80 (As fases da vida). This unit touches none of them; the
@@ -279,7 +283,7 @@ export const PT_UNIT63 = {
           front: "o conhecimento",
           reading: "oconhecimento",
           meaning: "knowledge",
-          example: { jp: "O conhecimento da equipa é enorme, mas a empresa ainda não quis assegurar a formação dos colegas novos.", en: "The team's knowledge is enormous, but the company still hasn't wanted to guarantee the new colleagues' training." },
+          example: { jp: "O conhecimento da equipa é enorme, mas a empresa ainda não quis assegurar a formação dos colegas novos.", en: "The team's knowledge is enormous, but the company still hasn't guarantee the new colleagues' training." },
           drill: { jp: "O conhecimento da equipa é enorme", en: "The team's knowledge is enormous" },
           accept: ["the knowledge", "understanding", "know-how", "awareness"],
           hint: "From conhecer (u39). Tomar conhecimento de is the formal 'to be informed of', and it is what an official letter says it has done.",

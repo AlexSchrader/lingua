@@ -241,7 +241,7 @@ export const PT_UNIT52 = {
           example: { jp: "O governo rejeitou o acordo, daí que a greve vai acontecer outra vez na semana do acordo.", en: "The government rejected the agreement, hence the strike is going to happen again in the week of the agreement." },
           drill: { jp: "O governo rejeitou tudo daí que há greve", en: "The government rejected everything hence there's a strike" },
           accept: ["hence", "and so", "which is why", "therefore"],
-          hint: "daí = de + aí, 'from there'. It always looks BACK at what was just said and draws the conclusion — closer to English 'hence' than to 'so'.",
+          hint: "daí = de + aí, 'from there'. It always looks BACK at what was just said and draws the conclusion — closer to English 'hence' than to 'so'. Careful writing puts the verb after it in the conjuntivo: daí que a greve vá acontecer.",
         },
         {
           id: "pt-u52l3-contribuir",
