@@ -92,15 +92,13 @@ Then confirm **all three** prerequisites from `BUILD-BRIEF-language-blueprint.md
 Fast check — all three at once:
 
 ```bash
-grep -q 'export function frontKey(lang, item)' src/data/contract.js \
-  && grep -qE 'frontKey\(lang|frontKey\(unitLang' src/data/contract.js src/data/lint.js \
+grep -qE '\$\{lang\}.{0,12}\$\{(item\.)?front\}' src/data/contract.js \
+  && grep -qE '\$\{unitLang\}.{0,12}\$\{item\.front\}' src/data/lint.js \
   && test -f src/data/ja/index.js && grep -q 'scaffold:lang' package.json \
   && echo PREREQS OK || echo PREREQS MISSING — STOP
 ```
 
-*(The check looks for the **shared key function and its callers**, not for any particular spelling of the key — because the property that matters is "the language is in the key, and both files use the same key", and `lint.js` imports `frontKey` from `contract.js`, so they now agree by construction.*
-
-*⚠️ This one-liner has now been a false tripwire **three times**, each time after a harmless refactor of a line the grep was pinned to: space-vs-NUL separator, then a raw NUL vs its `\u0000` escape, then (2026-09-12, pt B1 block 2) the two inline template literals being extracted into `frontKey()` — at which point the previous pattern matched neither file and every seat was told `PREREQS MISSING — STOP` on a fully green tree. If you are reading this because it fired: **check `src/data/contract.js` for `frontKey(lang, item)` and confirm `lint.js` imports it before you stop.** §1 is a hard stop on the real property, never on this grep.)*
+*(The check matches the language variable next to the front variable, deliberately **without** pinning the separator between them. It used to grep for the exact key string, which made it a tripwire on an implementation detail rather than on the property that matters: changing the separator from a literal NUL byte to its unicode-escape form — same runtime value, no behaviour change at all — turned this into `PREREQS MISSING` and would have hard-stopped every crew on a green tree.)*
 
 **If any is missing, stop and tell Alex exactly which one, then do nothing else.** Authoring into the old global-front rule produces a block that is green alone and fails CI the moment it merges with another Latin-script language — you won't see it, and neither will the other two sessions. This is not a "flag it and proceed" situation; the point of the runbook is that a block passing locally also passes on merge.
 
