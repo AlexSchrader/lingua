@@ -85,7 +85,7 @@ export const PT_UNIT62 = {
           reading: "tencionar",
           meaning: "to mean to",
           example: { jp: "O colega tenciona pedir o estágio na empresa, e daí que já preparou o currículo todo.", en: "The colleague means to ask for the internship at the company, and hence he has already prepared the whole CV." },
-          drill: { jp: "Tencionar pedir o estágio é normal", en: "To mean to ask for the internship is normal" },
+          drill: { jp: "É normal tencionar pedir mais tempo", en: "It is normal to intend to ask for more time" },
           accept: ["to mean to", "to intend", "to plan to", "to propose to"],
           hint: "Built on a intenção and used only with an infinitive after it. Interchangeable with pretender in most sentences, and slightly more personal.",
         },
@@ -208,7 +208,7 @@ export const PT_UNIT62 = {
           example: { jp: "O partido vai propor uma alternativa no parlamento, visto que a medida do governo é difícil.", en: "The party is going to propose an alternative in parliament, seeing that the government's measure is difficult." },
           drill: { jp: "O partido vai propor uma alternativa hoje", en: "The party will propose an alternative today" },
           accept: ["propose", "to put forward", "to suggest", "to offer"],
-          hint: "Conjugates like pôr — eu proponho, ele propõe — and, like pôr, it keeps that circumflex-free spelling in the infinitive. Propor-se a is to set out to do something.",
+          hint: "Conjugates like pôr — eu proponho, ele propõe — but note the infinitive: pôr carries the circumflex and propor does not. Propor-se a is to set out to do something.",
         },
         {
           id: "pt-u62l3-aproposta",
