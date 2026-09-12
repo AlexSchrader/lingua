@@ -1,18 +1,350 @@
-// PT Unit 52 — Cause and consequence (slot: cause-effect) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
+// PT Unit 52 — O raciocínio e as consequências (slot: cause-effect) — B1
+// ─────────────────────────────────────────────────────────────────────────────
+// RETHEMED, and the reason is worth recording because it is the pattern for the
+// whole band. The scaffold slot is "Cause and consequence", and the es B1 crew
+// put exactly that at its u52 — but pt A2's u34 (A ciência e o ambiente) already
+// teaches `a causa`, `o efeito` and `o resultado`, the three nouns such a unit is
+// built on. Teaching them again would be one lexeme with two mastery tracks and
+// no new learning; teaching around them is the whole point of a B1 slot.
+//
+// So this unit is the REASONING MACHINERY rather than the three core nouns:
+// where something comes from, what it sets off, the formal subordinators that
+// join the two, and the vocabulary for an outcome. a causa / o efeito /
+// o resultado appear in examples here and are never carded.
+//
+// The four subordinators (uma vez que, visto que, de modo que, daí que) are the
+// real B1 delta. A2 spent the everyday causal words — porque, pois, portanto and
+// por isso at u21/u29 — so what a B1 speaker is missing is the register above
+// them: the connectives of a report, a news item or a formal complaint. They are
+// also what makes the two-clause example requirement bite, since each one exists
+// precisely to join two clauses.
+//
+// Conventions: pt/unit1.js (language-wide) and pt/unit51.js (this band, this
+// block) — including the ban on `pôr` as a front and the rule that every drill is
+// validated against the engine rather than the lint.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const PT_UNIT52 = {
   id: "pt-u52",
   lang: "pt",
-  title: "Cause and consequence",
+  title: "O raciocínio e as consequências",
   order: 52,
   stage: "b1",
   lessons: [
-    { id: "pt-u52l1", title: "Lesson 1", locked: true },
-    { id: "pt-u52l2", title: "Lesson 2", locked: true },
-    { id: "pt-u52l3", title: "Lesson 3", locked: true },
-    { id: "pt-u52l4", title: "Lesson 4", locked: true },
+    // Lesson 1: tracing something back. All four verbs here are the ones a
+    // Portuguese report uses instead of "vem de".
+    {
+      id: "pt-u52l1",
+      unit: 52,
+      lesson: 1,
+      title: "De onde vem",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Trace a problem back to where it came from, in the register a report or a news item would use.",
+      items: [
+        {
+          id: "pt-u52l1-aorigem",
+          type: "vocab",
+          front: "a origem",
+          reading: "aorigem",
+          meaning: "origin",
+          example: { jp: "Ninguém explicou a origem do problema, e por isso o chefe ainda não assinou o acordo.", en: "Nobody explained the origin of the problem, and so the boss still hasn't signed the agreement." },
+          drill: { jp: "A origem do problema é antiga", en: "The origin of the problem is old" },
+          accept: ["the origin", "source", "beginning", "root"],
+          hint: "Where something starts. Also used of people: ser de origem portuguesa is how you say someone is of Portuguese descent.",
+        },
+        {
+          id: "pt-u52l1-decorrerde",
+          type: "vocab",
+          front: "decorrer de",
+          reading: "decorrerde",
+          meaning: "to stem from",
+          example: { jp: "A greve pode decorrer de um acordo antigo, porque a empresa nunca respeitou o contrato.", en: "The strike may stem from an old agreement, because the company never respected the contract." },
+          drill: { jp: "O caso pode decorrer de um problema antigo", en: "The case may stem from an old problem" },
+          accept: ["to stem from", "to arise from", "to follow from", "to result from"],
+          hint: "Formal, and the verb of written Portuguese. On its own, decorrer means 'to elapse' — o tempo decorre — so the de is what turns it into 'comes from'.",
+        },
+        {
+          id: "pt-u52l1-deversea",
+          type: "vocab",
+          front: "dever-se a",
+          reading: "deversea",
+          meaning: "to be due to",
+          example: { jp: "O resultado pode dever-se ao prazo, mas o relatório da empresa não explica nada.", en: "The result may be due to the deadline, but the company's report explains nothing." },
+          drill: { jp: "O problema pode dever-se a um fator", en: "The problem may be due to one factor" },
+          accept: ["to be due to", "to be caused by", "to be owing to", "be due to"],
+          hint: "Built on dever (u37's 'must'), but with -se it means the opposite direction: isto deve-se a … = this is caused by …. The a fuses with an article: deve-se AO prazo, deve-se À greve.",
+        },
+        {
+          id: "pt-u52l1-originar",
+          type: "vocab",
+          front: "originar",
+          reading: "originar",
+          meaning: "to give rise to",
+          example: { jp: "Um acordo mau pode originar uma greve, e depois ninguém consegue organizar o trabalho.", en: "A bad agreement can give rise to a strike, and afterwards nobody manages to organise the work." },
+          drill: { jp: "O acordo pode originar um problema", en: "The agreement may give rise to a problem" },
+          accept: ["to give rise to", "to cause", "to bring about", "to originate"],
+          hint: "The verb of a origem. Careful with direction: A origina B means A produces B — the reflexive originar-se em is the one that points back to the source.",
+        },
+        {
+          id: "pt-u52l1-surgir",
+          type: "vocab",
+          front: "surgir",
+          reading: "surgir",
+          meaning: "to arise",
+          example: { jp: "Vai surgir um problema novo quando a lei mudar, porque ninguém apoia o governo no bairro.", en: "A new problem will arise when the law changes, because nobody in the neighbourhood supports the government." },
+          drill: { jp: "Vai surgir um problema novo amanhã", en: "A new problem will arise tomorrow" },
+          accept: ["arise", "to come up", "to emerge", "to appear"],
+          hint: "Something appears that was not there before — surgiu um problema is the everyday way to say it. Also used of people arriving unannounced.",
+        },
+        {
+          id: "pt-u52l1-ofator",
+          type: "vocab",
+          front: "o fator",
+          reading: "ofator",
+          meaning: "factor",
+          example: { jp: "O prazo é o fator que o chefe nunca quer discutir, mas os colegas já falaram do assunto na reunião.", en: "The deadline is the factor the boss never wants to discuss, but the colleagues have already talked about the matter in the meeting." },
+          drill: { jp: "O fator mais importante é o prazo", en: "The most important factor is the deadline" },
+          accept: ["the factor", "element", "aspect"],
+          hint: "Written fator in Portugal since the 1990 spelling agreement — older books and Brazil both use fator too, so the c is simply gone. One of the things that produces a result, never the result itself.",
+        },
+      ],
+    },
+    // Lesson 2: what something sets off. Deliberately the transitive side —
+    // Lesson 1 looks backwards, this one looks forwards.
+    {
+      id: "pt-u52l2",
+      unit: 52,
+      lesson: 2,
+      title: "O que provoca",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Say what an event sets off or affects, without falling back on 'faz' for everything.",
+      items: [
+        {
+          id: "pt-u52l2-resultarem",
+          type: "vocab",
+          front: "resultar em",
+          reading: "resultarem",
+          meaning: "to result in",
+          example: { jp: "A greve pode resultar em mais um acordo, porque o governo não quer discutir os salários outra vez.", en: "The strike may result in another agreement, because the government doesn't want to discuss wages again." },
+          drill: { jp: "A greve pode resultar em mais um problema", en: "The strike may result in another problem" },
+          accept: ["to result in", "to lead to", "to end in", "result in"],
+          hint: "Points at the outcome; decorrer de (Lesson 1) points back at the cause. The em fuses: resultar NUM acordo, resultar NUMA greve.",
+        },
+        {
+          id: "pt-u52l2-acarretar",
+          type: "vocab",
+          front: "acarretar",
+          reading: "acarretar",
+          meaning: "to bring about",
+          example: { jp: "A lei nova vai acarretar um problema para os vizinhos, e a imprensa já falou do caso.", en: "The new law will bring about a problem for the neighbours, and the press has already talked about the case." },
+          drill: { jp: "A greve vai acarretar um problema novo", en: "The strike will bring about a new problem" },
+          accept: ["to bring about", "to entail", "to lead to", "to involve"],
+          hint: "Always of consequences, and usually unwelcome ones — from carregar, to carry: the event carries the trouble along with it.",
+        },
+        {
+          id: "pt-u52l2-desencadear",
+          type: "vocab",
+          front: "desencadear",
+          reading: "desencadear",
+          meaning: "to trigger",
+          example: { jp: "A notícia pode desencadear uma greve na empresa, porque os empregados já estão em desacordo com o chefe.", en: "The news could trigger a strike at the company, because the employees are already at odds with the boss." },
+          drill: { jp: "A notícia pode desencadear uma greve", en: "The news may trigger a strike" },
+          accept: ["to trigger", "to set off", "to spark", "to unleash"],
+          hint: "Literally 'to unchain' — a cadeia is a chain. Used for the first event in a sequence: desencadear uma crise, desencadear uma reação.",
+        },
+        {
+          id: "pt-u52l2-implicar",
+          type: "vocab",
+          front: "implicar",
+          reading: "implicar",
+          meaning: "to entail",
+          example: { jp: "O acordo vai implicar um prazo novo, mas ninguém na reunião quis explicar o resultado aos colegas.", en: "The agreement will entail a new deadline, but nobody in the meeting wanted to explain the result to the colleagues." },
+          drill: { jp: "O acordo vai implicar um prazo novo", en: "The agreement will entail a new deadline" },
+          accept: ["to entail", "to involve", "to imply", "to mean"],
+          hint: "Two lives. Formally: A implica B, A entails B. In the playground: implicar COM alguém is to pick on someone — the preposition tells you which one you are hearing.",
+        },
+        {
+          id: "pt-u52l2-afetar",
+          type: "vocab",
+          front: "afetar",
+          reading: "afetar",
+          meaning: "to affect",
+          example: { jp: "A greve vai afetar toda a cidade, e por isso a população já apoia o acordo do governo.", en: "The strike will affect the whole city, and so the public already supports the government's agreement." },
+          drill: { jp: "A greve vai afetar toda a cidade", en: "The strike will affect the whole city" },
+          accept: ["to affect", "affect", "to have an effect on", "to impact"],
+          hint: "The English pair affect/effect is one letter apart and so is the Portuguese one — but here the VERB is afetar and the noun is o efeito (u34), so the two never look alike. Nothing to confuse.",
+        },
+        {
+          id: "pt-u52l2-oimpacto",
+          type: "vocab",
+          front: "o impacto",
+          reading: "oimpacto",
+          meaning: "impact",
+          example: { jp: "O impacto da greve foi enorme na cidade, mas o governo ainda não quer falar com a imprensa.", en: "The strike's impact on the city was enormous, but the government still doesn't want to talk to the press." },
+          drill: { jp: "O impacto da greve foi enorme", en: "The strike's impact was enormous" },
+          accept: ["the impact", "effect", "consequence"],
+          hint: "ter impacto EM alguma coisa. It is the news word — a report says o impacto da lei where a person would just say o que a lei mudou.",
+        },
+      ],
+    },
+    // Lesson 3: the formal joiners. A2 owns porque/pois/portanto/por isso; these
+    // four are the register above them, and each one needs two clauses to exist.
+    {
+      id: "pt-u52l3",
+      unit: 52,
+      lesson: 3,
+      title: "Ligar as ideias",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Join two clauses in the register of a report or a complaint, instead of repeating porque and por isso.",
+      items: [
+        {
+          id: "pt-u52l3-umavezque",
+          type: "vocab",
+          front: "uma vez que",
+          reading: "umavezque",
+          meaning: "given that",
+          example: { jp: "Uma vez que o governo já decidiu tudo, não é preciso insistir no assunto na reunião de amanhã.", en: "Given that the government has already decided everything, there's no need to insist on the matter at tomorrow's meeting." },
+          drill: { jp: "Uma vez que o governo já decidiu tudo", en: "Given that the government has already decided everything" },
+          accept: ["given that", "since", "seeing that", "as"],
+          hint: "Nothing to do with counting: uma vez que is 'since' in the causal sense, not the time sense. It opens the sentence far more often than it sits in the middle.",
+        },
+        {
+          id: "pt-u52l3-vistoque",
+          type: "vocab",
+          front: "visto que",
+          reading: "vistoque",
+          meaning: "seeing that",
+          example: { jp: "Visto que a lei já mudou, a empresa vai ter de assinar outro contrato com os empregados.", en: "Seeing that the law has already changed, the company will have to sign another contract with the employees." },
+          drill: { jp: "Visto que a lei já mudou", en: "Seeing that the law has already changed" },
+          accept: ["seeing that", "since", "given that", "as"],
+          hint: "From ver — 'it being seen that'. Interchangeable with uma vez que in almost every sentence; visto que is the more clipped, more written of the two.",
+        },
+        {
+          id: "pt-u52l3-demodoque",
+          type: "vocab",
+          front: "de modo que",
+          reading: "demodoque",
+          meaning: "so that",
+          example: { jp: "O chefe explicou tudo de modo que ninguém discordou do prazo na reunião de hoje.", en: "The boss explained everything so that nobody disagreed about the deadline in today's meeting." },
+          drill: { jp: "Explicou tudo de modo que ninguém discordou", en: "He explained everything so that nobody disagreed" },
+          accept: ["so that", "in such a way that", "with the result that"],
+          hint: "o modo is the way something is done, so this is literally 'in a way that'. With the indicative it reports a result; with the subjunctive (block 2's u69) it states a purpose.",
+        },
+        {
+          id: "pt-u52l3-daique",
+          type: "vocab",
+          front: "daí que",
+          reading: "daique",
+          meaning: "hence",
+          example: { jp: "O governo rejeitou o acordo, daí que a greve vai acontecer outra vez na semana do acordo.", en: "The government rejected the agreement, hence the strike is going to happen again in the week of the agreement." },
+          drill: { jp: "O governo rejeitou tudo daí que há greve", en: "The government rejected everything hence there's a strike" },
+          accept: ["hence", "and so", "which is why", "therefore"],
+          hint: "daí = de + aí, 'from there'. It always looks BACK at what was just said and draws the conclusion — closer to English 'hence' than to 'so'.",
+        },
+        {
+          id: "pt-u52l3-contribuir",
+          type: "vocab",
+          front: "contribuir",
+          reading: "contribuir",
+          meaning: "to contribute",
+          example: { jp: "Todos podem contribuir para o acordo, uma vez que o chefe já reconheceu o direito dos empregados.", en: "Everyone can contribute to the agreement, given that the boss has already acknowledged the employees' right." },
+          drill: { jp: "Todos podem contribuir para o acordo", en: "Everyone can contribute to the agreement" },
+          accept: ["contribute", "to help", "to play a part", "to chip in"],
+          hint: "contribuir PARA, not 'a'. Used for money and for effort alike — contribuir para a festa works for both what you pay and what you do.",
+        },
+        {
+          id: "pt-u52l3-dependerde",
+          type: "vocab",
+          front: "depender de",
+          reading: "dependerde",
+          meaning: "to depend on",
+          example: { jp: "O acordo vai depender do relatório, visto que o governo não quer decidir sem factos.", en: "The agreement will depend on the report, seeing that the government doesn't want to decide without facts." },
+          drill: { jp: "O acordo vai depender de um relatório", en: "The agreement will depend on a report" },
+          accept: ["to depend on", "to rely on", "to hinge on", "depend on"],
+          hint: "The de fuses as always: depende DO prazo, depende DA lei. On its own, depende is a complete answer in Portuguese — exactly like English 'it depends'.",
+        },
+      ],
+    },
+    // Lesson 4: naming the outcome and the aim. Two pairs that English keeps
+    // apart with effort and Portuguese keeps apart by vocabulary.
+    {
+      id: "pt-u52l4",
+      unit: 52,
+      lesson: 4,
+      title: "O fim e o desfecho",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Separate what something was FOR from how it actually turned out — the aim, the consequence and the outcome.",
+      items: [
+        {
+          id: "pt-u52l4-aconsequencia",
+          type: "vocab",
+          front: "a consequência",
+          reading: "aconsequencia",
+          meaning: "consequence",
+          example: { jp: "A consequência do acordo foi boa para os empregados, mas a empresa ainda não gastou nada no projeto.", en: "The agreement's consequence was good for the employees, but the company still hasn't spent anything on the project." },
+          drill: { jp: "A consequência do acordo é boa", en: "The consequence of the agreement is good" },
+          accept: ["the consequence", "result", "outcome", "upshot"],
+          hint: "What follows FROM something, where o resultado (u34) is simply what came out. Em consequência de is the formal 'as a result of'.",
+        },
+        {
+          id: "pt-u52l4-afinalidade",
+          type: "vocab",
+          front: "a finalidade",
+          reading: "afinalidade",
+          meaning: "purpose",
+          example: { jp: "A finalidade do projeto é clara, uma vez que o relatório já explicou tudo aos cidadãos.", en: "The project's purpose is clear, given that the report has already explained everything to the citizens." },
+          drill: { jp: "A finalidade do projeto é clara", en: "The purpose of the project is clear" },
+          accept: ["the purpose", "aim", "end", "goal"],
+          hint: "The purpose a THING serves — para que serve. Contrast o objetivo (u40), which is the target a person sets.",
+        },
+        {
+          id: "pt-u52l4-oproposito",
+          type: "vocab",
+          front: "o propósito",
+          reading: "oproposito",
+          meaning: "intention",
+          example: { jp: "O propósito da reunião é decidir o prazo, mas o chefe quer falar primeiro com a empresa.", en: "The meeting's intention is to decide the deadline, but the boss wants to speak with the company first." },
+          drill: { jp: "O propósito da reunião é decidir", en: "The purpose of the meeting is to decide" },
+          accept: ["the intention", "purpose", "aim", "point"],
+          hint: "Someone's intention, so it goes with people and meetings. Two fixed uses worth having: de propósito = on purpose, and a propósito = by the way.",
+        },
+        {
+          id: "pt-u52l4-arepercussao",
+          type: "vocab",
+          front: "a repercussão",
+          reading: "arepercussao",
+          meaning: "repercussion",
+          example: { jp: "A repercussão da notícia foi enorme, daí que o governo vai afirmar tudo outra vez na televisão.", en: "The news's repercussion was enormous, hence the government is going to state everything again on television." },
+          drill: { jp: "A repercussão da notícia foi enorme", en: "The news's repercussion was enormous" },
+          accept: ["the repercussion", "fallout", "knock-on effect", "impact"],
+          hint: "The echo of an event rather than the event — teve muita repercussão is what a news item gets when everyone talks about it. Usually singular in Portuguese where English says 'repercussions'.",
+        },
+        {
+          id: "pt-u52l4-odesfecho",
+          type: "vocab",
+          front: "o desfecho",
+          reading: "odesfecho",
+          meaning: "outcome",
+          example: { jp: "O desfecho do caso foi bom para os vizinhos, visto que o juiz reconheceu o direito de todos.", en: "The case's outcome was good for the neighbours, seeing that the judge acknowledged everyone's right." },
+          drill: { jp: "O desfecho do caso foi bom", en: "The outcome of the case was good" },
+          accept: ["the outcome", "ending", "conclusion", "result"],
+          hint: "How something ENDS — a trial, a story, a negotiation. From fechar, to close: the un-closing, the moment the knot comes undone.",
+        },
+        {
+          id: "pt-u52l4-influenciar",
+          type: "vocab",
+          front: "influenciar",
+          reading: "influenciar",
+          meaning: "to influence",
+          example: { jp: "A imprensa pode influenciar a população, e por isso o governo nunca rejeita uma notícia boa.", en: "The press can influence the public, and so the government never rejects good news." },
+          drill: { jp: "A imprensa pode influenciar a população", en: "The press can influence the public" },
+          accept: ["influence", "to sway", "to have an influence on"],
+          hint: "Direct object, no preposition: influenciar a população, not 'influenciar em'. The noun is a influência, with the stress on the u.",
+        },
+      ],
+    },
   ],
 };
