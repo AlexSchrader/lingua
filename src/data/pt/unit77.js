@@ -14,9 +14,13 @@
 //
 // All 24 fronts checked FREE against the regenerated TAUGHT-WORDS.md (1,202
 // fronts, u1-u50) with the crew checker — exact, fold, headword and lexeme passes.
-// CORPUS GAP FOUND, NOT FIXED HERE: a palavra, responder, perceber and todos are
-// taught by no unit in u1-u50. They belong to the lowest slot that wants them,
-// which is not this one — logged for the lead. Every example routes around them.
+// CORPUS GAP FOUND, NOT FIXED HERE: a palavra, responder and perceber are taught
+// by no unit in u1-u50. They belong to the lowest slot that wants them, which is
+// not this one — block 2 (u74-u76) has taken all three. Examples here route
+// around them. CORRECTION, caught by block 2: an earlier draft of this header
+// also listed `todos`, which is wrong — `todo` IS carded at u14, so `todos` is
+// its plural and free to use in examples. Absent as an exact string is not the
+// same fact as untaught, which is the whole reason the lexeme check exists.
 // Conventions and the pt-PT corpus decision: see unit1.js header.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const PT_UNIT77 = {
