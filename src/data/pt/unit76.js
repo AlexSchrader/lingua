@@ -1,18 +1,103 @@
-// PT Unit 76 — Vocabulary 3 (B1) (slot: coverage-b1-3) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
+// PT Unit 76 — Os nomes abstratos (slot: vocabulary-3 B1) — B1
+// ─────────────────────────────────────────────────────────────────────────────
+// Third and last coverage unit of block 2, and the last unit of the block.
+// Abstract nouns of CONDITION, CAUSE and CHOICE — the nouns a B1 speaker needs
+// to talk about something that is not in the room.
+//
+// Kept clear of three neighbours on purpose:
+//   - u40 "As palavras essenciais" already owns a ideia, o assunto, o facto, a
+//     verdade, a mentira, o pormenor, a maneira, o exemplo, a diferença, a
+//     vantagem, o objetivo and o caso. None is re-carded.
+//   - Block 3's u82 (measure), u84 (information) and u86 (sequence) own the
+//     quantity, data and ordering nouns. o grau, o limite, a quantidade and
+//     their family are theirs, not mine, even though this slot is lower.
+//   - a capacidade, a fase and a etapa were ceded to block 3's u85/u86 by
+//     agreement, and a fonte (u55) and a etapa (u56) belong to block 1.
+//
+// `a palavra` is carded here at block 3's request — it is used across the
+// shipped corpus and taught by no unit, and this is the lowest slot that wants
+// it. Same class as a doença (u67), a relação (u68) and vender (u66).
+//
+// Pairs deliberately kept apart from their verbs, each named in its hint so the
+// learner sees the family rather than two unrelated cards: a escolha / escolher
+// (u27), a decisão / decidir (u24), a dúvida / duvido que (u69), a certeza /
+// com certeza (u72).
+// Conventions and the pt-PT corpus decision: see unit1.js header.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const PT_UNIT76 = {
   id: "pt-u76",
   lang: "pt",
-  title: "Vocabulary 3 (B1)",
+  title: "Os nomes abstratos",
   order: 76,
   stage: "b1",
   lessons: [
-    { id: "pt-u76l1", title: "Lesson 1", locked: true },
-    { id: "pt-u76l2", title: "Lesson 2", locked: true },
-    { id: "pt-u76l3", title: "Lesson 3", locked: true },
-    { id: "pt-u76l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u76l1",
+      unit: 76,
+      lesson: 1,
+      title: "A palavra e o sentido",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about what something means and how sure you are of it — including saying you did not follow.",
+      items: [
+        { id: "pt-u76l1-apalavra", type: "vocab", front: "a palavra", reading: "apalavra", meaning: "word", example: { jp: "Não percebi a palavra que ele disse, por isso pedi para repetir mais devagarinho.", en: "I did not understand the word he said, so I asked him to repeat it more slowly." }, drill: { jp: "Não percebi a palavra que ele disse", en: "I did not understand the word he said" }, accept: ["word", "the word"], hint: "puh-LAH-vruh. Also a promise — dar a palavra, ter palavra. Em poucas palavras is \"in short\", and the course had used this word in examples for fifty units without ever teaching it." },
+        { id: "pt-u76l1-osignificado", type: "vocab", front: "o significado", reading: "osignificado", meaning: "meaning", example: { jp: "O significado muda com a situação, por isso é difícil traduzir esta palavra para inglês.", en: "The meaning changes with the situation, so it is hard to translate this word into English." }, drill: { jp: "O significado muda com a situação", en: "The meaning changes with the situation" }, accept: ["meaning", "the meaning", "sense"], hint: "seeg-nee-fee-KAH-du. The verb is significar — o que significa? is what you ask about a word you have just met, and it is more precise than o que quer dizer?" },
+        { id: "pt-u76l1-osentido", type: "vocab", front: "o sentido", reading: "osentido", meaning: "sense", example: { jp: "O que ele disse não faz sentido nenhum, embora todas as palavras estejam certas.", en: "What he said does not make any sense, although all the words are correct." }, drill: { jp: "O sentido da palavra não é claro", en: "The meaning of the word is not clear" }, accept: ["sense", "meaning", "direction", "the sense"], hint: "sen-TEE-du. Fazer sentido is to make sense. Second job: direction — rua de sentido único is a one-way street. Third: os cinco sentidos, the five senses." },
+        { id: "pt-u76l1-aduvida", type: "vocab", front: "a dúvida", reading: "aduvida", meaning: "doubt", example: { jp: "Fico com uma dúvida sobre o contrato, por isso vou perguntar antes de assinar.", en: "I still have a doubt about the contract, so I am going to ask before signing." }, drill: { jp: "A dúvida do contrato ficou comigo", en: "The doubt about the contract stayed with me" }, accept: ["doubt", "question", "query", "the doubt"], hint: "DOO-vee-duh. In Portugal a dúvida is usually a QUESTION rather than suspicion — tenho uma dúvida is what a student says in class. u69's duvido que is the verb, and sem dúvida (u73) its strongest denial." },
+        { id: "pt-u76l1-acerteza", type: "vocab", front: "a certeza", reading: "acerteza", meaning: "certainty", example: { jp: "Não tenho a certeza de que ele venha, mas deixei a mesa posta para cinco pessoas.", en: "I am not certain he is coming, but I laid the table for five people." }, drill: { jp: "Não tenho a certeza de que ele venha", en: "I am not certain he is coming" }, accept: ["certainty", "sureness", "the certainty"], hint: "ser-TAY-zuh. Ter a certeza is to be sure, and NOT having it takes the subjunctive — não tenho a certeza de que VENHA, exactly as u69's doubt triggers do. Com certeza (u72) is the willing yes." },
+        { id: "pt-u76l1-aconfusao", type: "vocab", front: "a confusão", reading: "aconfusao", meaning: "confusion", example: { jp: "Houve uma confusão com as datas, por isso metade das pessoas chegou no dia errado.", en: "There was a mix-up with the dates, so half the people arrived on the wrong day." }, drill: { jp: "A confusão com as datas foi grande", en: "The mix-up with the dates was big" }, accept: ["confusion", "mix-up", "mess", "the confusion"], hint: "kon-foo-ZOWNG; plural as confusões. A mix-up, and also a commotion — houve confusão à porta do estádio. Não faças confusão is \"don't get it mixed up\"." },
+      ],
+    },
+    {
+      id: "pt-u76l2",
+      unit: 76,
+      lesson: 2,
+      title: "O motivo e a intenção",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Give the reason behind something and say what somebody meant to do — separating cause from intention.",
+      items: [
+        { id: "pt-u76l2-omotivo", type: "vocab", front: "o motivo", reading: "omotivo", meaning: "reason", example: { jp: "Ninguém explicou o motivo da mudança, embora toda a equipa tenha perguntado na reunião.", en: "Nobody explained the reason for the change, although the whole team asked at the meeting." }, drill: { jp: "Ninguém explicou o motivo da mudança", en: "Nobody explained the reason for the change" }, accept: ["reason", "motive", "the reason", "cause"], hint: "mu-TEE-vu. The reason WHY something happened. A causa (u34) is what produced it; o motivo is what justifies it, and Portuguese keeps the two apart more carefully than English does." },
+        { id: "pt-u76l2-arazao", type: "vocab", front: "a razão", reading: "arazao", meaning: "reason", example: { jp: "A razão principal é o preço, no entanto ninguém quer dizer isso em voz alta.", en: "The main reason is the price; however, nobody wants to say that out loud." }, drill: { jp: "A razão principal é o preço", en: "The main reason is the price" }, accept: ["reason", "the reason", "right", "rightness"], hint: "rra-ZOWNG; plural as razões. u22 gave you ter razão, to be right — this is the noun on its own, and the two senses live together: dar razão a alguém is to agree they were right." },
+        { id: "pt-u76l2-aintencao", type: "vocab", front: "a intenção", reading: "aintencao", meaning: "intention", example: { jp: "A intenção era boa, mas o resultado deixou toda a gente pior do que antes.", en: "The intention was good, but the result left everybody worse off than before." }, drill: { jp: "A intenção era boa mas falhou", en: "The intention was good but it failed" }, accept: ["intention", "intent", "the intention", "purpose"], hint: "een-ten-SOWNG. Ter a intenção de fazer is to mean to do something. Sem intenção — \"I didn't mean to\" — is the apology that goes with it." },
+        { id: "pt-u76l2-ointeresse", type: "vocab", front: "o interesse", reading: "ointeresse", meaning: "interest", example: { jp: "Não há interesse nenhum em vender a casa agora, porque os preços ainda estão a subir.", en: "There is no interest at all in selling the house now, because prices are still going up." }, drill: { jp: "O interesse da empresa é o preço", en: "The company's interest is the price" }, accept: ["interest", "the interest", "concern"], hint: "een-tuh-RAY-suh. Curiosity and advantage alike — ter interesse em is to be interested, and no seu interesse is in your own interest. The bank kind is o juro (u45), a different word entirely." },
+        { id: "pt-u76l2-aatencao", type: "vocab", front: "a atenção", reading: "aatencao", meaning: "attention", example: { jp: "Com a atenção toda no telemóvel, ninguém viu o senhor cair na rua.", en: "With all their attention on the phone, nobody saw the man fall in the street." }, drill: { jp: "A atenção estava toda no telemóvel", en: "The attention was all on the phone" }, accept: ["attention", "the attention", "care"], hint: "a-ten-SOWNG. Prestar atenção is to pay attention; atenção! shouted is \"look out!\". Chamar a atenção de alguém means both to get their attention and to tell them off." },
+        { id: "pt-u76l2-aorigem", type: "vocab", front: "a origem", reading: "aorigem", meaning: "origin", example: { jp: "A origem do problema foi a chuva de janeiro, embora só tenha aparecido agora na parede.", en: "The origin of the problem was the January rain, although it only appeared in the wall now." }, drill: { jp: "A origem do problema foi a chuva", en: "The origin of the problem was the rain" }, accept: ["origin", "source", "the origin", "beginning"], hint: "u-REE-zhaym; plural as origens. Where something began, and also where a person is from — é de origem portuguesa. Na origem de is \"at the root of\"." },
+      ],
+    },
+    {
+      id: "pt-u76l3",
+      unit: 76,
+      lesson: 3,
+      title: "A situação e o estado",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Describe how things stand — the situation, the condition something is in, and what is lacking.",
+      items: [
+        { id: "pt-u76l3-asituacao", type: "vocab", front: "a situação", reading: "asituacao", meaning: "situation", example: { jp: "A situação em casa melhorou muito desde que ele voltou a trabalhar.", en: "The situation at home has improved a lot since he went back to work." }, drill: { jp: "A situação em casa melhorou muito", en: "The situation at home has improved a lot" }, accept: ["situation", "the situation", "position"], hint: "see-too-uh-SOWNG; plural as situações. The general state of affairs — a situação do país, a situação em casa. For a single event Portuguese says o caso (u40)." },
+        { id: "pt-u76l3-acondicao", type: "vocab", front: "a condição", reading: "acondicao", meaning: "condition", example: { jp: "Aceito o pedido com uma condição: o prazo tem de ser maior.", en: "I accept the request on one condition: the deadline has to be longer." }, drill: { jp: "A condição principal é o prazo", en: "The main condition is the deadline" }, accept: ["condition", "the condition", "requirement", "term"], hint: "kon-dee-SOWNG; plural as condições. A requirement, and in the plural the terms of anything — as condições do contrato. Em boas condições is \"in good shape\"." },
+        { id: "pt-u76l3-oestado", type: "vocab", front: "o estado", reading: "oestado", meaning: "state", example: { jp: "A casa está em muito mau estado, por isso o preço é mais baixo do que as outras da rua.", en: "The house is in very bad condition, so the price is lower than the others on the street." }, drill: { jp: "O estado da casa é mau", en: "The state of the house is bad" }, accept: ["state", "condition", "the state"], hint: "shtah-du. The state of a thing, and — capitalised — the State: o Estado paga as escolas. From estar (u12), which is why it describes what is temporary." },
+        { id: "pt-u76l3-afalta", type: "vocab", front: "a falta", reading: "afalta", meaning: "lack", example: { jp: "A falta de médicos no interior é um problema antigo, e ainda ninguém encontrou uma solução.", en: "The lack of doctors inland is an old problem, and nobody has found a solution yet." }, drill: { jp: "A falta de médicos é um problema", en: "The lack of doctors is a problem" }, accept: ["lack", "shortage", "absence", "the lack"], hint: "FAL-tuh. From faltar (u74). Fazer falta is to be missed — fazes-me falta. And in football it is the foul, which is the word you will hear shouted most often." },
+        { id: "pt-u76l3-abase", type: "vocab", front: "a base", reading: "abase", meaning: "basis", example: { jp: "A base do acordo é simples, mas os detalhes vão levar semanas a resolver.", en: "The basis of the agreement is simple, but the details are going to take weeks to sort out." }, drill: { jp: "A base do acordo é simples", en: "The basis of the agreement is simple" }, accept: ["basis", "base", "the basis", "foundation"], hint: "BAH-zuh. Com base em is \"on the basis of\", and it is how formal Portuguese introduces evidence. À base de is \"made with\" on a menu — um prato à base de peixe." },
+        { id: "pt-u76l3-ovalor", type: "vocab", front: "o valor", reading: "ovalor", meaning: "value", example: { jp: "O valor da casa aumentou muito desde 2019, embora nada tenha mudado na rua.", en: "The value of the house has increased a lot since 2019, although nothing on the street has changed." }, drill: { jp: "O valor da casa aumentou muito", en: "The value of the house increased a lot" }, accept: ["value", "amount", "the value", "worth"], hint: "va-LOR. The worth of something, and also the amount on a bill — qual é o valor? is what you ask a plumber. Os valores, plural, are moral values, exactly as in English." },
+      ],
+    },
+    {
+      id: "pt-u76l4",
+      unit: 76,
+      lesson: 4,
+      title: "A escolha e a oportunidade",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Talk about choices, chances and habits — and about the thing nobody has said out loud.",
+      items: [
+        { id: "pt-u76l4-aescolha", type: "vocab", front: "a escolha", reading: "aescolha", meaning: "choice", example: { jp: "A escolha não foi fácil, porque as duas casas tinham vantagens diferentes.", en: "The choice was not easy, because the two houses had different advantages." }, drill: { jp: "A escolha não foi fácil", en: "The choice was not easy" }, accept: ["choice", "the choice", "selection"], hint: "shh-KOH-lyuh. From escolher (u27). Não tive escolha — I had no choice — is the phrase that carries most of this word's weight in conversation." },
+        { id: "pt-u76l4-adecisao", type: "vocab", front: "a decisão", reading: "adecisao", meaning: "decision", example: { jp: "A decisão foi tomada na reunião de sexta, no entanto ninguém avisou os funcionários.", en: "The decision was taken at Friday's meeting; however, nobody told the staff." }, drill: { jp: "A decisão foi tomada na reunião", en: "The decision was taken at the meeting" }, accept: ["decision", "the decision", "ruling"], hint: "de-see-ZOWNG; plural as decisões. From decidir (u24). Portuguese TAKES a decision — tomar uma decisão — where English makes one." },
+        { id: "pt-u76l4-aoportunidade", type: "vocab", front: "a oportunidade", reading: "aoportunidade", meaning: "opportunity", example: { jp: "Foi uma oportunidade única, mas ele não quis sair da cidade onde cresceu.", en: "It was a unique opportunity, but he did not want to leave the city where he grew up." }, drill: { jp: "A oportunidade era única para ele", en: "The opportunity was unique for him" }, accept: ["opportunity", "chance", "the opportunity"], hint: "u-por-too-nee-DAH-duh. Aproveitar a oportunidade (u74's verb) is to take the chance. A shorter everyday alternative is uma hipótese, which also means a hypothesis." },
+        { id: "pt-u76l4-apossibilidade", type: "vocab", front: "a possibilidade", reading: "apossibilidade", meaning: "possibility", example: { jp: "Existe a possibilidade de mudar de horário, desde que a equipa toda esteja de acordo.", en: "There is the possibility of changing the schedule, as long as the whole team agrees." }, drill: { jp: "Existe a possibilidade de mudar de horário", en: "There is the possibility of changing the schedule" }, accept: ["possibility", "the possibility", "chance", "option"], hint: "pu-see-bee-lee-DAH-duh. Takes de plus an infinitive. u69's é possível que is the same idea as an adjective, and it takes the subjunctive where this noun takes an infinitive." },
+        { id: "pt-u76l4-ohabito", type: "vocab", front: "o hábito", reading: "ohabito", meaning: "habit", example: { jp: "Tenho o hábito de ler antes de dormir, embora às vezes não passe da primeira página.", en: "I have the habit of reading before sleeping, although sometimes I do not get past the first page." }, drill: { jp: "Tenho o hábito de ler antes de dormir", en: "I have the habit of reading before sleeping" }, accept: ["habit", "custom", "the habit"], hint: "AH-bee-tu, stress on the á. Ter o hábito de is the frame. u36's costumava — \"used to\" — is the verb that does the same job in the past." },
+        { id: "pt-u76l4-osegredo", type: "vocab", front: "o segredo", reading: "osegredo", meaning: "secret", example: { jp: "O segredo já não é segredo nenhum, porque a aldeia inteira falou disso durante a festa.", en: "The secret is not a secret at all any more, because the whole village talked about it during the party." }, drill: { jp: "O segredo já não é segredo", en: "The secret is not a secret any more" }, accept: ["secret", "the secret"], hint: "suh-GRAY-du. Guardar um segredo is to keep one, from u33's guardar. Em segredo is \"secretly\", and o segredo é… is how a Portuguese cook starts every good story." },
+      ],
+    },
   ],
 };
