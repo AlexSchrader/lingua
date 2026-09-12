@@ -153,7 +153,7 @@ export const PT_UNIT53 = {
           front: "em comparação com",
           reading: "emcomparacaocom",
           meaning: "compared with",
-          example: { jp: "Em comparação com o ano passado, a empresa gastou menos, e por isso o resultado foi melhor.", en: "Compared with last year, the company spent less, and hence the result was better." },
+          example: { jp: "Em comparação com o ano passado, a empresa gastou menos, e por isso o resultado foi melhor.", en: "Compared with last year, the company spent less, and so the result was better." },
           drill: { jp: "Em comparação com o ano passado gastámos menos", en: "Compared with last year we spent less" },
           accept: ["compared with", "compared to", "in comparison with", "next to"],
           hint: "Opens a sentence and sets the yardstick. Shorter alternatives you will hear: comparado com, or simply face a in written Portuguese.",

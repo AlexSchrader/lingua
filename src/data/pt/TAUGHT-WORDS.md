@@ -1,7 +1,7 @@
 # PT — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- pt`.
-Snapshot 2026-09-12: **1202 words** across **50 authored unit(s)**, **37 slot(s) still stubs**.
+Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -15,90 +15,53 @@ Snapshot 2026-09-12: **1202 words** across **50 authored unit(s)**, **37 slot(s)
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
 
-## Who owns which slots this band
-
-The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
-
-| block | slots |
-|---|---|
-| 1 | u51–u63 |
-| 2 | u64–u76 |
-| 3 | u77–u87 |
-
-## Slots still stubs — not yours unless you were assigned them
-
-| slot | unit | title |
-|---|---|---|
-| 51 | `pt-u51` | Opinion and agreement |
-| 52 | `pt-u52` | Cause and consequence |
-| 53 | `pt-u53` | Comparison and degree |
-| 54 | `pt-u54` | Hedging and uncertainty |
-| 55 | `pt-u55` | News and society |
-| 56 | `pt-u56` | Work and process |
-| 57 | `pt-u57` | Emotion, finer shades |
-| 58 | `pt-u58` | Abstract ideas |
-| 59 | `pt-u59` | Change over time |
-| 60 | `pt-u60` | Problems and solutions |
-| 61 | `pt-u61` | Rules, permission, obligation |
-| 62 | `pt-u62` | Plans and intentions |
-| 63 | `pt-u63` | Experience and memory |
-| 64 | `pt-u64` | Media and entertainment |
-| 65 | `pt-u65` | Environment and place |
-| 66 | `pt-u66` | Money and the economy |
-| 67 | `pt-u67` | Health and wellbeing |
-| 68 | `pt-u68` | Relationships and society |
-| 69 | `pt-u69` | Grammar 6 — linked and subordinate clauses |
-| 70 | `pt-u70` | Grammar 7 — passive, causative, indirect |
-| 71 | `pt-u71` | Grammar 8 — nuance, evidentiality, nominalization |
-| 72 | `pt-u72` | Register 1 — polite vs plain |
-| 73 | `pt-u73` | Register 2 — softening and formality |
-| 74 | `pt-u74` | Vocabulary 1 (B1) |
-| 75 | `pt-u75` | Vocabulary 2 (B1) |
-| 76 | `pt-u76` | Vocabulary 3 (B1) |
-| 77 | `pt-u77` | Vocabulary 4 (B1) |
-| 78 | `pt-u78` | Vocabulary 5 (B1) |
-| 79 | `pt-u79` | Vocabulary 6 (B1) |
-| 80 | `pt-u80` | Vocabulary 7 (B1) |
-| 81 | `pt-u81` | Vocabulary 8 (B1) |
-| 82 | `pt-u82` | Vocabulary 9 (B1) |
-| 83 | `pt-u83` | Vocabulary 10 (B1) |
-| 84 | `pt-u84` | Vocabulary 11 (B1) |
-| 85 | `pt-u85` | Vocabulary 12 (B1) |
-| 86 | `pt-u86` | Vocabulary 13 (B1) |
-| 87 | `pt-u87` | Vocabulary 14 (B1) |
-
 ## Index — every taught word, alphabetical
 
 `word` — slot · meaning
 
 - `à` — u12 · to the (feminine)
+- `a adolescência` — u80 · adolescence
+- `a agenda` — u62 · diary
+- `a agricultura` — u65 · agriculture
 - `a água` — u6 · water
 - `a agulha` — u42 · needle
 - `a aldeia` — u20 · village
 - `a alegria` — u22 · joy
 - `a alergia` — u25 · allergy
+- `a alteração` — u65 · change (an alteration)
+- `a alternativa` — u60 · alternative
 - `a altura` — u34 · height
+- `a ambição` — u85 · ambition
 - `a ambulância` — u25 · ambulance
 - `a amizade` — u39 · friendship
+- `a amostra` — u84 · sample
 - `a análise` — u25 · test
+- `a ansiedade` — u57 · anxiety
 - `a aplicação` — u33 · app
+- `a área` — u83 · area (extent)
 - `a areia` — u20 · sand
 - `a arte` — u35 · art
 - `a árvore` — u26 · tree
 - `a assinatura` — u44 · signature
+- `a atenção` — u76 · attention
 - `a atualização` — u33 · update
+- `a audiência` — u64 · audience (viewers, ratings)
 - `a aula` — u17 · lesson
 - `a autoestrada` — u23 · motorway
+- `a autoridade` — u76 · authority
 - `a autorização` — u44 · authorisation
 - `a avó` — u4 · grandmother
 - `a bagagem` — u23 · luggage
 - `a balança` — u43 · scales
+- `a barreira` — u85 · barrier
 - `a barriga` — u11 · belly
+- `a base` — u58 · basis
 - `a batata` — u6 · potato
 - `a biblioteca` — u17 · library
 - `a bicicleta` — u23 · bicycle
 - `a boca` — u11 · mouth
 - `a bolsa` — u24 · grant
+- `a borda` — u83 · edge
 - `a borracha` — u17 · rubber
 - `a bússola` — u46 · compass
 - `a cabeça` — u11 · head
@@ -109,8 +72,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a camisa` — u16 · shirt
 - `a camisola` — u16 · sweater
 - `a campainha` — u30 · doorbell
+- `a campanha` — u55 · campaign
 - `a candidatura` — u24 · application
 - `a caneta` — u17 · pen
+- `a capacidade` — u85 · capacity
 - `a capital` — u46 · capital
 - `a carne` — u6 · meat
 - `a carreira` — u24 · career
@@ -121,23 +86,37 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a cave` — u30 · basement
 - `a caverna` — u46 · cave
 - `a cebola` — u38 · onion
+- `a censura` — u64 · censorship
+- `a certeza` — u76 · certainty
 - `a certidão` — u49 · certificate
 - `a cerveja` — u6 · beer
 - `a chamada` — u33 · call
 - `a chave` — u15 · key
 - `a chávena` — u41 · cup
+- `a chefia` — u56 · management (the bosses)
 - `a chuva` — u8 · rain
 - `a cidade` — u7 · city
 - `a ciência` — u34 · science
+- `a cirurgia` — u67 · surgery
+- `a coerência` — u76 · consistency
+- `a coincidência` — u76 · coincidence
 - `a coisa` — u1 · thing
 - `a coleção` — u35 · collection
 - `a colher` — u15 · spoon
 - `a colina` — u46 · hill
+- `a companhia` — u68 · company (companionship)
+- `a competência` — u85 · competence
 - `a competição` — u50 · competition
 - `a comunidade` — u32 · community
+- `a conclusão` — u76 · conclusion
+- `a concorrência` — u66 · competition (rivalry in business)
+- `a condição` — u61 · condition
 - `a confiança` — u31 · trust
+- `a confusão` — u76 · confusion
+- `a consequência` — u52 · consequence
 - `a consulta` — u11 · appointment
 - `a conta` — u18 · bill
+- `a convivência` — u68 · living together
 - `a cor` — u8 · colour
 - `a corda` — u42 · rope
 - `a coroa` — u48 · crown
@@ -146,74 +125,128 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a cozinha` — u15 · kitchen
 - `a criança` — u4 · child
 - `a crise` — u45 · crisis
+- `a crítica` — u64 · review
+- `a culpa` — u57 · fault
 - `a cultura` — u35 · culture
+- `a cura` — u67 · cure
 - `a data` — u48 · date
 - `a década` — u28 · decade
+- `a decisão` — u76 · decision
+- `a dedicação` — u85 · dedication
+- `a demora` — u86 · delay (the wait)
+- `a dependência` — u67 · dependence
 - `a derrota` — u50 · defeat
+- `a descida` — u66 · fall
 - `a descoberta` — u34 · discovery
+- `a desigualdade` — u68 · inequality
 - `a despesa` — u45 · expense
+- `a desvantagem` — u53 · disadvantage
 - `a dieta` — u25 · diet
 - `a diferença` — u40 · difference
+- `a dificuldade` — u60 · difficulty
+- `a dimensão` — u83 · size (the scale of it)
 - `a direção` — u46 · direction
 - `à direita` — u7 · on the right
 - `a disciplina` — u17 · subject
+- `a discussão` — u68 · argument (a row)
 - `a distância` — u23 · distance
 - `a dívida` — u45 · debt
+- `a doença` — u67 · illness
 - `a dor` — u11 · pain
 - `a dose` — u43 · portion
+- `a dúvida` — u76 · doubt
 - `a dúzia` — u27 · dozen
+- `a economia` — u66 · economy
 - `a eleição` — u32 · election
 - `a eletricidade` — u30 · electricity
 - `a embalagem` — u27 · packet
 - `a ementa` — u38 · menu
 - `a emergência` — u47 · emergency
+- `a emissão` — u64 · broadcast
 - `a empresa` — u18 · company
+- `a energia` — u65 · energy
 - `a entrada` — u38 · starter
 - `a entrevista` — u18 · interview
 - `a época` — u48 · era
 - `a equipa` — u19 · team
 - `a erva` — u26 · grass
 - `a escada` — u30 · stairs
+- `a escala` — u82 · scale
 - `a escola` — u7 · school
+- `a escolha` — u76 · choice
+- `a espécie` — u65 · species
+- `a espera` — u86 · wait
+- `a esperança` — u57 · hope
 - `a esplanada` — u19 · terrace
 - `a esquadra` — u47 · police station
 - `à esquerda` — u7 · on the left
 - `a estação` — u7 · station
+- `a estatística` — u82 · statistic
 - `a estátua` — u48 · statue
 - `a estrada` — u20 · road
+- `a estreia` — u64 · premiere
 - `a estrela` — u26 · star
+- `a estrutura` — u58 · structure
+- `a etapa` — u56 · stage (a step in a process)
 - `a etiqueta` — u27 · label
+- `a evidência` — u84 · evidence
+- `a evolução` — u59 · development
+- `a exceção` — u61 · exception
+- `a expectativa` — u62 · expectation
 - `a experiência` — u34 · experiment
 - `a exposição` — u35 · exhibition
+- `a expressão` — u77 · expression
+- `a extremidade` — u83 · far end
+- `a fábrica` — u65 · factory
 - `a faca` — u15 · knife
+- `a falência` — u66 · bankruptcy
+- `a falha` — u60 · flaw (a failure)
+- `a falta` — u76 · lack
 - `a família` — u4 · family
 - `a farinha` — u41 · flour
 - `a farmácia` — u7 · pharmacy
+- `a fase` — u86 · stage (a phase)
 - `a fatia` — u43 · slice
 - `a fatura` — u18 · invoice
 - `a febre` — u11 · fever
 - `a ferida` — u25 · wound
+- `a ferramenta` — u87 · tool
 - `a festa` — u19 · party
 - `a fila` — u49 · queue
 - `a filha` — u4 · daughter
 - `a final` — u50 · final
+- `a finalidade` — u52 · purpose
 - `a flor` — u26 · flower
 - `a floresta` — u26 · forest
 - `a folha` — u26 · leaf
+- `a fonte` — u55 · source
 - `a força` — u50 · strength
 - `a formação` — u24 · training
 - `a foto` — u33 · photo
+- `a fotografia` — u63 · photograph
+- `a fração` — u82 · fraction
+- `a fraqueza` — u85 · weakness
+- `a frase` — u77 · sentence
 - `a frigideira` — u41 · frying pan
 - `a fronteira` — u46 · border
+- `a frustração` — u57 · frustration
 - `a galinha` — u26 · hen
 - `a garagem` — u30 · garage
+- `a garantia` — u87 · guarantee
 - `a garganta` — u25 · throat
 - `a garrafa` — u38 · bottle
 - `a gasolina` — u23 · petrol
+- `a gente` — u72 · we (informal)
+- `a geração` — u68 · generation
+- `a gestão` — u56 · management
 - `a gorjeta` — u38 · tip
+- `a gratidão` — u57 · gratitude
 - `a greve` — u32 · strike
 - `a gripe` — u11 · flu
 - `a guerra` — u48 · war
+- `a habilidade` — u85 · skill
+- `a herança` — u80 · inheritance
+- `a hipótese` — u54 · possibility
 - `a história` — u48 · history
 - `a hora` — u5 · hour
 - `a idade` — u3 · age
@@ -224,21 +257,39 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a ilha` — u26 · island
 - `a imprensa` — u32 · the press
 - `a impressora` — u33 · printer
+- `a independência` — u80 · independence
+- `a indústria` — u66 · industry
+- `a infância` — u80 · childhood
+- `a inflação` — u66 · inflation
+- `a informação` — u84 · information
+- `a infração` — u61 · offence
+- `a insónia` — u67 · insomnia
+- `a integração` — u68 · integration
+- `a intenção` — u62 · intention (what someone means to do)
 - `a internet` — u33 · the internet
+- `a inundação` — u65 · flood
+- `a inveja` — u57 · envy
 - `a investigação` — u34 · research
 - `a irmã` — u4 · sister
 - `a janela` — u15 · window
 - `a justiça` — u44 · justice
+- `a justificação` — u76 · justification
+- `a juventude` — u80 · youth
 - `a lã` — u42 · wool
 - `a laranja` — u6 · orange
 - `a largura` — u43 · width
 - `a lata` — u43 · tin
+- `a legenda` — u64 · subtitle
 - `a lei` — u32 · law
 - `a leitura` — u35 · reading
+- `a lembrança` — u63 · memento
 - `a liberdade` — u32 · freedom
+- `a lição` — u63 · lesson (the moral)
 - `a licença` — u44 · licence
 - `a licenciatura` — u17 · degree
+- `a limitação` — u85 · limitation
 - `a lista` — u27 · list
+- `a lógica` — u58 · logic
 - `a loja` — u7 · shop
 - `a lua` — u26 · moon
 - `a luz` — u30 · light
@@ -247,20 +298,31 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a mãe` — u1 · mother
 - `a maioria` — u40 · most
 - `a mala` — u20 · suitcase
+- `a manchete` — u64 · headline
 - `a maneira` — u40 · way
 - `a manhã` — u1 · morning
+- `a manifestação` — u55 · demonstration
 - `a manteiga` — u38 · butter
 - `a mão` — u1 · hand
+- `a máquina` — u87 · machine
 - `a máquina de lavar` — u30 · washing machine
+- `a marca` — u66 · brand
 - `a maré` — u46 · tide
 - `a massa` — u38 · pasta
+- `a maturidade` — u63 · maturity
+- `a média` — u53 · average
+- `a medida` — u55 · measure
 - `a meia-noite` — u5 · midnight
+- `a melhoria` — u60 · improvement
 - `a memória` — u48 · memory
+- `a menina` — u72 · miss
 - `a mensagem` — u18 · message
 - `a mentira` — u40 · lie
 - `a mesa` — u15 · table
+- `a meta` — u56 · target
 - `a metade` — u43 · half
 - `a minha` — u4 · my (feminine)
+- `a minoria` — u68 · minority
 - `a mobília` — u15 · furniture
 - `a mochila` — u17 · backpack
 - `a moeda` — u27 · coin
@@ -268,62 +330,112 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a montra` — u16 · shop window
 - `a morada` — u49 · address
 - `a mota` — u23 · motorbike
+- `a motivação` — u85 · motivation
 - `a mulher` — u1 · woman
 - `a multa` — u44 · fine
 - `a música` — u19 · music
+- `a não ser que` — u70 · unless
 - `a natação` — u50 · swimming
 - `a natureza` — u34 · nature
 - `a neve` — u26 · snow
+- `a noção` — u58 · notion
 - `a noite` — u9 · night
 - `a norma` — u44 · norm
+- `a nostalgia` — u63 · nostalgia
 - `a nota` — u17 · mark
 - `a notícia` — u32 · news
 - `a nuvem` — u26 · cloud
+- `a obrigação` — u61 · obligation
+- `a ocasião` — u62 · occasion
+- `a oferta` — u66 · supply
+- `a oficina` — u87 · workshop
 - `a onda` — u46 · wave
 - `a opinião` — u24 · opinion
+- `a opinião pública` — u55 · public opinion
+- `a oportunidade` — u76 · opportunity
+- `a ordem` — u61 · order
+- `a origem` — u52 · origin
 - `a ovelha` — u26 · sheep
+- `a paciência` — u60 · patience
 - `a padaria` — u27 · bakery
+- `a paisagem` — u65 · landscape
+- `a palavra` — u76 · word
 - `a palavra-passe` — u33 · password
 - `a panela` — u41 · pot
 - `a parede` — u30 · wall
 - `a parte` — u43 · part
+- `a partir de` — u59 · from
 - `a pasta` — u17 · folder
+- `a pausa` — u86 · pause
 - `a paz` — u48 · peace
 - `a peça` — u35 · play
 - `a pedra` — u26 · stone
 - `a peixaria` — u27 · fishmonger's
+- `a percentagem` — u82 · percentage
+- `a perda` — u82 · loss (the losing of it)
 - `a pergunta` — u17 · question
 - `a perna` — u11 · leg
 - `a personagem` — u35 · character
 - `a personalidade` — u31 · personality
+- `a perspetiva` — u58 · perspective
+- `a pesquisa` — u84 · research (a search)
 - `a pessoa` — u31 · person
+- `a pilha` — u87 · battery
 - `a pimenta` — u38 · pepper
 - `a piscina` — u20 · swimming pool
 - `a pobreza` — u45 · poverty
+- `a polémica` — u55 · controversy
 - `a poluição` — u34 · pollution
 - `a ponte` — u23 · bridge
 - `a população` — u32 · population
+- `a porção` — u82 · portion (an amount)
 - `a porta` — u15 · door
+- `a posição` — u83 · position
+- `a possibilidade` — u76 · possibility (the chance of it)
 - `a poupança` — u45 · savings
 - `a praça` — u7 · square
 - `a praia` — u20 · beach
 - `a prata` — u42 · silver
+- `a prática` — u63 · practice
+- `a precisão` — u82 · precision
 - `a prenda` — u16 · gift
+- `a pressa` — u86 · hurry
 - `a prestação` — u45 · instalment
 - `a primavera` — u8 · spring
+- `a prioridade` — u56 · priority
+- `a probabilidade` — u54 · probability
+- `a procura` — u66 · demand
+- `a produção` — u66 · production
 - `a profissão` — u3 · profession
 - `a profundidade` — u43 · depth
 - `a promoção` — u27 · special offer
 - `a propina` — u17 · tuition fee
+- `a proporção` — u82 · proportion
+- `a proposta` — u62 · proposal
+- `a prova` — u81 · proof (evidence)
+- `a publicidade` — u64 · advertising
 - `a qualidade` — u31 · quality
+- `a quantidade` — u82 · quantity
 - `a queixa` — u49 · complaint
+- `a questão` — u58 · issue
+- `a rádio` — u64 · radio
 - `a rainha` — u48 · queen
 - `a raiva` — u22 · anger
+- `a raiz` — u63 · root
+- `a razão` — u51 · reason
 - `a receção` — u23 · reception
 - `a receita` — u11 · prescription
+- `a reciclagem` — u65 · recycling
 - `a rede` — u33 · network
+- `a referência` — u84 · reference
+- `a reforma` — u55 · reform
 - `a região` — u46 · region
 - `a regra` — u44 · rule
+- `a relação` — u68 · relationship
+- `a repercussão` — u52 · repercussion
+- `a repetição` — u86 · repetition
+- `a reportagem` — u55 · news report
+- `a responsabilidade` — u56 · responsibility
 - `a resposta` — u17 · answer
 - `a reunião` — u18 · meeting
 - `a riqueza` — u45 · wealth
@@ -331,35 +443,55 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a roupa` — u16 · clothes
 - `a rua` — u1 · street
 - `a saia` — u16 · skirt
+- `a saída` — u60 · way out
 - `a sala` — u15 · living room
 - `a salada` — u6 · salad
 - `a salsa` — u6 · parsley
+- `a sanção` — u61 · penalty
 - `a sardinha` — u41 · sardine
 - `a saudade` — u22 · longing
+- `a seca` — u65 · drought
 - `a secretária` — u17 · desk
 - `a segurança` — u32 · safety
 - `a selva` — u46 · jungle
 - `a semana` — u5 · week
+- `a semelhança` — u76 · similarity
 - `a semente` — u26 · seed
 - `a senhora` — u12 · madam
+- `a sequência` — u86 · sequence
 - `a serra` — u46 · mountain range
+- `a síntese` — u84 · summary
+- `a situação` — u76 · situation
 - `a sobremesa` — u38 · dessert
 - `a sociedade` — u32 · society
+- `a solidão` — u68 · loneliness
+- `a solidariedade` — u68 · solidarity
+- `a solução` — u60 · solution
+- `a sondagem` — u55 · poll
 - `a sopa` — u6 · soup
+- `a subida` — u66 · rise
+- `a superfície` — u83 · surface
+- `a surpresa` — u57 · surprise
 - `a taça` — u43 · stemmed glass
 - `a tampa` — u42 · lid
+- `a tarefa` — u56 · task
 - `a taxa` — u45 · rate
 - `a televisão` — u19 · television
 - `a temperatura` — u34 · temperature
+- `a tendência` — u54 · trend
+- `a teoria` — u58 · theory
+- `a terapia` — u67 · therapy
 - `a Terra` — u34 · Earth
 - `a testemunha` — u47 · witness
 - `a tia` — u4 · aunt
 - `a tigela` — u41 · bowl
+- `a tinta` — u87 · paint
 - `a toalha` — u21 · towel
 - `a tonelada` — u43 · tonne
 - `a torneira` — u30 · tap
 - `a tosse` — u25 · cough
 - `a tradição` — u48 · tradition
+- `a trajetória` — u63 · path
 - `a transferência` — u45 · transfer
 - `a trovoada` — u26 · thunderstorm
 - `a turma` — u17 · class group
@@ -371,13 +503,23 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a vantagem` — u40 · advantage
 - `a varanda` — u30 · balcony
 - `a vassoura` — u30 · broom
+- `a velhice` — u80 · old age
 - `a verdade` — u40 · truth
+- `a vergonha` — u57 · shame
 - `a viagem` — u20 · journey
+- `a vida` — u80 · life
 - `a vila` — u46 · town
 - `a vista` — u23 · view
 - `a vítima` — u47 · victim
 - `a vitória` — u50 · victory
+- `a vivência` — u63 · lived experience
+- `à vontade` — u72 · at ease
+- `a zona` — u83 · area (district)
+- `abaixo de` — u53 · below
+- `abordar` — u74 · to bring up
 - `aborrecido` — u35 · boring
+- `abraçar` — u79 · to hug
+- `abrandar` — u59 · to slow down
 - `abre` — u13 · he opens
 - `abri` — u14 · I opened
 - `abria` — u36 · used to open
@@ -385,46 +527,103 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `abrir` — u13 · to open
 - `abriu` — u14 · he opened
 - `abro` — u13 · I open
+- `abstrato` — u58 · abstract
 - `acabar` — u21 · to finish
+- `acarretar` — u52 · to bring about
+- `aceitar` — u68 · to accept
+- `acelerar` — u59 · to speed up
+- `acenar` — u79 · to wave
 - `achar` — u36 · to think
+- `acima de` — u53 · above
 - `acompanhar` — u39 · to accompany
+- `aconselhar` — u60 · to advise
 - `acontecer` — u32 · to happen
 - `acordar` — u19 · to wake up
+- `acrescentar` — u51 · to add
+- `acumular` — u74 · to build up
+- `adaptar` — u74 · to adapt
+- `adequado` — u81 · suitable
 - `adeus` — u2 · goodbye
+- `adiantar` — u62 · to bring forward
+- `adiar` — u56 · to postpone
+- `admitir` — u51 · to admit
 - `adorar` — u22 · to love
+- `advertir` — u61 · to warn (formally)
+- `afastar-se` — u79 · to move away
+- `afetar` — u52 · to affect
+- `afinal de contas` — u54 · after all
+- `afirmar` — u51 · to state
+- `agarrar` — u79 · to grab
+- `agendar` — u62 · to schedule
 - `agora` — u5 · now
 - `agosto` — u9 · August
 - `agradecer` — u39 · to thank
+- `agradeço` — u73 · I would be grateful
+- `agravar-se` — u67 · to get worse (an illness)
+- `aguardo resposta` — u73 · I look forward to hearing
+- `aguentar` — u81 · to hold up
 - `ainda` — u28 · still
+- `ainda que` — u70 · although (even if)
+- `ajudá-lo` — u71 · to help him
 - `ajudar` — u29 · to help
+- `alcançar` — u85 · to reach
+- `alegadamente` — u55 · allegedly
 - `além disso` — u21 · besides
 - `alemão` — u14 · German
 - `algo` — u40 · something
 - `alguém` — u40 · somebody
 - `alguns` — u40 · some
 - `ali` — u7 · there
+- `alternar` — u86 · to alternate
 - `alto` — u10 · tall
 - `alugar` — u23 · to rent
+- `amadurecer` — u80 · to mature
 - `amanhã` — u5 · tomorrow
 - `amarelo` — u8 · yellow
 - `amável` — u31 · kind
 - `ambos` — u29 · both
+- `ameaçar` — u65 · to threaten
+- `analisar` — u84 · to analyse
+- `anexar` — u73 · to attach
+- `animado` — u57 · lively
+- `antecipar` — u86 · to bring forward (to do it earlier)
+- `anterior` — u75 · previous
 - `antes` — u28 · before
+- `antes que` — u69 · before (conjunction)
 - `antigamente` — u36 · in the old days
 - `antigo` — u48 · ancient
+- `anunciar` — u77 · to announce
 - `ao` — u12 · to the
+- `ao que parece` — u54 · from what it seems
 - `aos` — u29 · to the
 - `apagar` — u33 · to delete
 - `apaixonar-se` — u39 · to fall in love
 - `apanhar` — u21 · to catch
+- `aparentemente` — u54 · apparently
 - `apenas` — u28 · only
+- `aperceber-se` — u78 · to realise
+- `apertar` — u87 · to tighten
+- `aplicar` — u74 · to apply
+- `apoiar` — u51 · to support
+- `apontar` — u79 · to point
 - `aprender` — u17 · to learn
 - `apresentar` — u24 · to present
+- `aprovar` — u55 · to approve
+- `aproveitar` — u74 · to make the most of
+- `aproximadamente` — u53 · approximately
+- `aproximado` — u82 · approximate
+- `aproximar-se` — u79 · to approach
+- `apurar` — u55 · to establish
 - `aquecer` — u30 · to heat
 - `aquele` — u12 · that
 - `aqui` — u7 · here
 - `arder` — u47 · to burn
+- `argumentar` — u51 · to argue
+- `arranjar` — u87 · to fix
+- `arrastar` — u79 · to drag
 - `arrefecer` — u41 · to cool
+- `arrepender-se` — u57 · to regret
+- `arriscar` — u54 · to risk
 - `arrumar` — u21 · to tidy
 - `às` — u12 · at (with a time)
 - `as` — u12 · the (feminine plural)
@@ -436,12 +635,28 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `áspero` — u42 · rough
 - `assado` — u38 · roast
 - `assar` — u41 · to roast
+- `assegurar` — u62 · to ensure
 - `assim que` — u36 · as soon as
 - `assinar` — u44 · to sign
+- `assumir` — u51 · to take on
+- `até agora` — u59 · so far
 - `até breve` — u2 · see you soon
 - `até logo` — u2 · see you later
+- `até que` — u69 · until
+- `atenciosamente` — u73 · yours faithfully
 - `atender` — u33 · to answer
+- `atingir` — u85 · to achieve
 - `atrasado` — u23 · late
+- `atrasar` — u86 · to delay
+- `atravessar` — u79 · to cross
+- `atribuir` — u74 · to attribute
+- `atual` — u75 · current (present-day)
+- `atualmente` — u59 · currently
+- `aumentar` — u59 · to increase
+- `autorizar` — u61 · to authorise
+- `avaliar` — u56 · to assess
+- `avançar` — u59 · to move forward
+- `avariar` — u87 · to break down
 - `avisar` — u47 · to warn
 - `azul` — u8 · blue
 - `baixo` — u10 · low
@@ -458,29 +673,47 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `bom dia` — u2 · good morning
 - `bonito` — u10 · beautiful
 - `branco` — u8 · white
+- `brilhar` — u78 · to shine
 - `brincar` — u19 · to play
+- `caber` — u83 · to fit
 - `cada` — u40 · each
+- `cada vez mais` — u53 · more and more
+- `cair` — u79 · to fall
 - `calçar` — u16 · to put on (footwear)
+- `calcular` — u82 · to work out
 - `calmo` — u22 · calm
+- `cancelar` — u62 · to cancel
 - `cansado` — u11 · tired
 - `cantar` — u19 · to sing
+- `capaz` — u85 · able
 - `caro` — u1 · expensive
 - `casar` — u39 · to marry
 - `castanho` — u8 · brown
+- `ceder` — u81 · to give way
+- `cedinho` — u72 · nice and early
 - `cedo` — u28 · early
 - `celebrar` — u48 · to celebrate
 - `cem` — u5 · one hundred
+- `cerca de` — u82 · about
 - `chamo-me` — u3 · my name is
+- `chateado` — u57 · upset
 - `chegar` — u20 · to arrive
 - `cheio` — u10 · full
+- `cheirar` — u78 · to smell
 - `chorar` — u22 · to cry
 - `cinco` — u5 · five
 - `cinquenta` — u5 · fifty
 - `cinzento` — u8 · grey
+- `citar` — u55 · to quote
 - `claro` — u2 · of course
+- `colocar` — u83 · to place
+- `com certeza` — u72 · certainly
 - `com licença` — u2 · excuse me
+- `com os melhores cumprimentos` — u73 · kind regards
+- `combinar` — u62 · to arrange
 - `come` — u13 · he eats
 - `começar` — u21 · to begin
+- `comentar` — u64 · to comment
 - `comer` — u6 · to eat
 - `comes` — u13 · you eat
 - `comeste` — u14 · you ate
@@ -490,131 +723,267 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `como` — u13 · I eat
 - `como está` — u2 · how are you (polite)
 - `como estás` — u2 · how are you
+- `como se` — u70 · as if
 - `como te chamas` — u3 · what is your name
+- `comover` — u57 · to move
+- `comparar` — u53 · to compare
+- `complicado` — u75 · complicated
 - `comprar` — u16 · to buy
 - `comprido` — u10 · long
+- `comprovar` — u84 · to prove
+- `comum` — u75 · common
+- `comunicar` — u77 · to communicate (to announce officially)
+- `concentrar-se` — u78 · to concentrate
+- `concluir` — u56 · to complete
 - `concordar` — u24 · to agree
+- `concreto` — u58 · concrete
 - `conduzir` — u23 · to drive
+- `conferir` — u84 · to check over
 - `confiar` — u31 · to trust
+- `confirmar` — u62 · to confirm
+- `confundir` — u78 · to mix up
 - `conhecer` — u39 · to know
+- `conheço-o` — u71 · I know him
 - `conquistar` — u48 · to conquer
 - `conseguir` — u37 · to manage
+- `consertar` — u87 · to repair
+- `considerar` — u51 · to consider
+- `consideravelmente` — u53 · considerably
 - `constipado` — u11 · having a cold
+- `consultar` — u84 · to look up
+- `consumir` — u65 · to consume
 - `contar` — u36 · to tell
 - `contente` — u22 · pleased
+- `continuar` — u86 · to carry on
+- `contratar` — u66 · to hire
+- `contribuir` — u52 · to contribute
+- `convencer` — u51 · to convince
 - `convidar` — u19 · to invite
+- `conviver` — u68 · to live alongside
 - `cor-de-rosa` — u8 · pink
 - `corajoso` — u31 · brave
 - `correr` — u19 · to run
+- `correr o risco` — u54 · to run the risk
+- `correto` — u75 · correct
+- `corrigir` — u60 · to correct
 - `cortar` — u41 · to cut
 - `costumava` — u36 · used to
 - `cozer` — u41 · to boil (food)
 - `cozido` — u38 · boiled
 - `cozinhar` — u21 · to cook
+- `crescer` — u80 · to grow up
+- `criar` — u74 · to create
 - `criticar` — u39 · to criticise
+- `crónico` — u67 · chronic
+- `cuidar` — u67 · to look after
 - `culpado` — u44 · guilty
 - `cumprimentar` — u39 · to greet
 - `cumprir` — u44 · to comply
 - `curar` — u25 · to cure
+- `curto` — u75 · short
+- `custar` — u74 · to cost
 - `da` — u12 · of the (feminine)
+- `dá-me` — u71 · give me
+- `daí que` — u52 · hence
 - `dançar` — u19 · to dance
+- `daqui a pouco` — u72 · in a little while
 - `das` — u29 · of the (feminine)
+- `dava-me jeito` — u72 · it would suit me
 - `de` — u1 · of
+- `de acordo` — u73 · in agreement
+- `de facto` — u54 · in fact
+- `de modo que` — u52 · so that
 - `de nada` — u2 · you're welcome
 - `de onde és` — u3 · where are you from
 - `de repente` — u36 · suddenly
 - `de vez em quando` — u36 · from time to time
 - `decidir` — u24 · to decide
+- `declarar` — u55 · to declare
+- `decorrer de` — u52 · to stem from
+- `defender` — u51 · to defend
+- `definir` — u58 · to define
 - `deitar-se` — u21 · to lie down
+- `deixar` — u74 · to leave (behind)
+- `delegar` — u56 · to delegate
 - `demasiado` — u28 · too much
 - `demorar` — u28 · to take time
+- `dentro` — u83 · inside
 - `denunciar` — u47 · to report
+- `depender de` — u52 · to depend on
 - `depois` — u28 · after
 - `depositar` — u45 · to deposit
 - `depressa` — u28 · quickly
+- `der` — u71 · when/if it works out
+- `desaparecer` — u65 · to disappear
 - `descansar` — u11 · to rest
 - `descarregar` — u33 · to download
 - `descascar` — u41 · to peel
+- `descer` — u82 · to come down
 - `descobrir` — u34 · to discover
+- `descrever` — u77 · to describe
 - `desculpar-se` — u39 · to apologise
 - `desculpe` — u2 · sorry
+- `desculpe incomodar` — u72 · sorry to bother you
+- `desde` — u59 · since (from a time)
+- `desde que` — u69 · as long as
+- `desencadear` — u52 · to trigger
+- `desenvolver` — u59 · to develop
+- `desistir` — u85 · to give up
 - `desligar` — u18 · to switch off
+- `deslocar-se` — u79 · to travel (to get around)
+- `desmontar` — u87 · to take apart
 - `despedir` — u24 · to dismiss
+- `desperdiçar` — u65 · to waste
+- `desse` — u70 · (if it) gave
+- `destacar` — u74 · to highlight
+- `destacar-se` — u53 · to stand out
+- `detetar` — u78 · to detect
 - `devagar` — u28 · slowly
+- `devagarinho` — u72 · nice and slowly
+- `dever-se a` — u52 · to be due to
 - `devia` — u37 · should
+- `devia ter` — u70 · should have
 - `devolver` — u27 · to return
 - `dez` — u5 · ten
 - `dezembro` — u9 · December
 - `difícil` — u10 · difficult
+- `difundir` — u77 · to spread
+- `diga` — u69 · (that it) say
+- `diminuir` — u59 · to decrease
 - `direi` — u37 · I will say
+- `dirigir-se` — u73 · to make your way to
+- `discordar` — u51 · to disagree
 - `discutir` — u24 · to discuss
+- `disponível` — u62 · available
+- `disse-lhe` — u71 · I told him/her
+- `disser` — u71 · when/if it says
+- `dissesse` — u70 · (if it) said
+- `distinguir` — u78 · to tell apart
+- `distrair-se` — u78 · to get distracted
 - `divertir-se` — u35 · to enjoy oneself
+- `dividir` — u82 · to divide
+- `divulgar` — u55 · to release
+- `diz-me` — u71 · tell me
+- `diz-se` — u73 · it is said
 - `dizer` — u36 · to say
 - `do` — u12 · of the
 - `do que` — u29 · than
 - `doente` — u11 · ill
 - `dói-me` — u11 · it hurts me
 - `dois` — u5 · two
+- `dominar` — u85 · to master
 - `domingo` — u9 · Sunday
 - `dormir` — u19 · to sleep
 - `dos` — u29 · of the
+- `duplicar` — u53 · to double
 - `durante` — u36 · during
 - `durar` — u28 · to last
 - `duro` — u42 · hard
+- `duvidar` — u54 · to doubt
+- `duvido que` — u69 · I doubt that
 - `é` — u1 · is
 - `e` — u1 · and
+- `é capaz de` — u54 · it might well
 - `é melhor` — u37 · it is better
+- `é possível que` — u69 · it is possible that
 - `é preciso` — u37 · it is necessary
 - `educado` — u31 · polite
+- `educar` — u80 · to bring up (a child)
+- `efetuar` — u73 · to carry out (a payment)
+- `eficaz` — u81 · effective
 - `egoísta` — u31 · selfish
 - `ela` — u12 · she
 - `elas` — u12 · they (feminine)
 - `ele` — u12 · he
 - `eles` — u12 · they
+- `elevado` — u53 · high
+- `elevar` — u82 · to raise
 - `elogiar` — u39 · to praise
 - `em` — u3 · in
+- `em comparação com` — u53 · compared with
+- `em contrapartida` — u73 · in return
 - `em frente` — u7 · straight ahead
+- `em parte` — u73 · partly
+- `emagrecer` — u67 · to lose weight
 - `embaraçado` — u10 · tangled
 - `embarcar` — u23 · to board
+- `embora` — u69 · although
+- `emocionar-se` — u57 · to be moved
 - `empatar` — u50 · to draw
 - `emprestar` — u45 · to lend
 - `empurrar` — u15 · to push
+- `encarregar-se de` — u56 · to take charge of
+- `encerrar` — u74 · to close
 - `encher` — u43 · to fill
 - `encomendar` — u27 · to order
 - `encontrar-se` — u39 · to meet up
+- `encostar` — u83 · to lean against
+- `enfrentar` — u60 · to face
+- `engordar` — u67 · to put on weight
 - `enquanto` — u36 · while
 - `ensinar` — u17 · to teach
 - `então` — u21 · so
 - `entrar` — u21 · to enter
 - `entregar` — u27 · to deliver
 - `entretanto` — u28 · meanwhile
+- `entupir` — u87 · to block
+- `envelhecer` — u80 · to grow old
 - `enviar` — u33 · to send
 - `era` — u36 · was
+- `era capaz de` — u72 · could you possibly
+- `errado` — u75 · wrong
 - `escapar` — u47 · to escape
+- `esclarecer` — u60 · to clarify
 - `escolher` — u27 · to choose
+- `escorregar` — u79 · to slip
 - `escrever` — u17 · to write
 - `escuro` — u8 · dark
+- `escutar` — u78 · to listen
+- `espalhar` — u83 · to spread out
 - `espanhol` — u14 · Spanish
 - `esperar` — u21 · to wait
+- `espero que` — u69 · I hope that
 - `esperto` — u31 · clever
 - `esquecer` — u29 · to forget
 - `esquisito` — u10 · weird
+- `essencial` — u75 · essential (crucial)
 - `está` — u12 · he is
 - `estar` — u12 · to be (state)
+- `estar a` — u69 · to be (doing)
 - `estava` — u36 · was (state)
+- `estável` — u59 · stable
 - `este` — u12 · this
+- `esteja` — u69 · (that it) be (state)
 - `estender` — u30 · to hang out
+- `estimar` — u82 · to estimate
+- `estiver` — u71 · when/if it is
+- `estivesse` — u70 · (if it) were (state)
 - `estou` — u12 · I am
 - `estou a falar` — u13 · I am speaking
 - `estou bem` — u2 · I'm fine
+- `estragar` — u87 · to ruin
+- `estranho` — u75 · strange
 - `estudar` — u3 · to study
 - `estudei` — u14 · I studied
 - `eu` — u3 · I
+- `eventualmente` — u54 · possibly (if it comes to that)
+- `evitar` — u60 · to avoid
+- `examinar` — u84 · to examine
+- `exato` — u75 · exact
+- `executar` — u56 · to carry out
+- `exemplificar` — u77 · to give an example
 - `exigente` — u31 · demanding
+- `exigir` — u56 · to demand
+- `existir` — u74 · to exist
 - `explicar` — u24 · to explain
+- `exportar` — u66 · to export
+- `fabricar` — u66 · to manufacture
+- `faça` — u69 · (that it) do
+- `faça favor` — u72 · go ahead
 - `fácil` — u10 · easy
 - `faço` — u13 · I do
 - `fala` — u13 · he speaks
+- `fala-se` — u73 · is spoken
 - `falam` — u13 · they speak
 - `falamos` — u13 · we speak
 - `falar` — u3 · to speak
@@ -624,11 +993,17 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `falaste` — u14 · you spoke
 - `falava` — u36 · used to speak
 - `falei` — u14 · I spoke
+- `falhar` — u74 · to fail
 - `falo` — u13 · I speak
 - `falou` — u14 · he spoke
+- `falso` — u75 · false
+- `faltar` — u74 · to be missing
+- `familiar` — u63 · familiar
 - `farei` — u37 · I will do
 - `faria` — u37 · would do
+- `farto` — u57 · fed up
 - `fazer` — u3 · to do
+- `fazer ideia` — u63 · to have a clue
 - `fazerem` — u37 · for them to do
 - `fazia` — u36 · did
 - `feio` — u10 · ugly
@@ -636,48 +1011,99 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ferver` — u41 · to boil
 - `fevereiro` — u9 · February
 - `fez` — u14 · he did
+- `fiável` — u81 · reliable
 - `ficar` — u20 · to stay
+- `fino` — u81 · thin
+- `firme` — u81 · firm
+- `fiscalizar` — u61 · to inspect
+- `fixe` — u72 · cool
 - `fiz` — u14 · I did
+- `fizer` — u71 · when/if it does
+- `fizesse` — u70 · (if it) did
+- `flexível` — u81 · flexible
 - `foi` — u14 · he went
+- `foi decidido` — u73 · it was decided
+- `fora` — u83 · outside
 - `forte` — u10 · strong
+- `fosse` — u70 · (if it) were
 - `fraco` — u10 · weak
+- `frágil` — u81 · fragile
 - `francês` — u14 · French
 - `fritar` — u41 · to fry
 - `frito` — u38 · fried
 - `fui` — u14 · I went
+- `fumar` — u67 · to smoke
+- `funcional` — u81 · functional
 - `funcionar` — u33 · to work
 - `ganhar` — u18 · to earn
+- `garantir` — u51 · to guarantee
 - `gastar` — u18 · to spend
 - `generoso` — u31 · generous
+- `gerir` — u56 · to manage (to run something)
 - `gostar` — u4 · to like
 - `gostaria` — u37 · I would like
+- `gostaria que` — u70 · I would like (someone) to
+- `gradualmente` — u59 · gradually
 - `grande` — u10 · big
+- `grave` — u67 · serious (severe)
 - `grelhado` — u38 · grilled
 - `grelhar` — u41 · to grill
+- `grosso` — u81 · thick
 - `guardar` — u33 · to save
 - `há` — u13 · there is
+- `habituar-se` — u63 · to get used to
+- `haja` — u69 · (that there) be
 - `haverá` — u37 · there will be
 - `havia` — u36 · there was
+- `hesitar` — u85 · to hesitate
 - `hoje` — u5 · today
 - `honesto` — u31 · honest
+- `houvesse` — u70 · (if there) were
 - `ia` — u36 · used to go
+- `identificar` — u78 · to identify
+- `ignorar` — u78 · to ignore
 - `igual` — u29 · equal
+- `imediatamente` — u86 · immediately
+- `imediato` — u75 · immediate
+- `impedir` — u60 · to prevent
+- `implicar` — u52 · to entail
+- `importa-se de` — u72 · would you mind
+- `importar` — u66 · to import
 - `imprimir` — u33 · to print
+- `improvável` — u54 · unlikely
+- `incerto` — u54 · uncertain
+- `inclinar-se` — u79 · to lean
+- `indicar` — u77 · to point out (to indicate)
+- `indispensável` — u61 · essential
+- `inesquecível` — u63 · unforgettable
+- `inferior a` — u53 · lower than
+- `influenciar` — u52 · to influence
 - `informar` — u49 · to inform
 - `inglês` — u3 · English
+- `inicial` — u86 · initial
 - `inocente` — u44 · innocent
 - `inscrever-se` — u24 · to enrol
+- `insistir` — u51 · to insist
 - `instalar` — u33 · to install
+- `interpretar` — u77 · to interpret
+- `interromper` — u77 · to interrupt
+- `inútil` — u81 · useless
 - `investir` — u45 · to invest
 - `ir` — u7 · to go
+- `irritado` — u57 · irritated
 - `isso` — u1 · that
 - `já` — u28 · already
+- `já lhe disse` — u71 · I already told him
 - `janeiro` — u9 · January
 - `jogar` — u19 · to play
 - `jovem` — u10 · young
 - `julho` — u9 · July
 - `junho` — u9 · June
+- `juntar` — u74 · to put together
 - `juntos` — u39 · together
+- `justificar` — u51 · to justify
+- `justo` — u75 · fair
+- `largar` — u79 · to let go of
 - `largo` — u10 · wide
 - `lavar` — u21 · to wash
 - `legal` — u44 · legal
@@ -685,18 +1111,29 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ler` — u17 · to read
 - `levantar` — u45 · to withdraw
 - `levantar-se` — u21 · to get up
+- `levar` — u74 · to take (to carry there)
+- `leve` — u81 · light (not heavy)
 - `lhe` — u13 · to him
+- `lidar com` — u60 · to deal with
 - `ligar` — u18 · to phone
+- `ligeiramente` — u53 · slightly
 - `limpar` — u15 · to clean
 - `limpo` — u10 · clean
 - `liso` — u42 · smooth
+- `localizar` — u84 · to locate
 - `logo` — u28 · soon
+- `logo que` — u71 · as soon as (the moment that)
 - `longe` — u23 · far
+- `longo` — u75 · long (in time)
 - `lutar` — u48 · to fight
 - `magoar-se` — u25 · to hurt oneself
 - `maio` — u9 · May
 - `mais` — u1 · more
 - `mal-educado` — u31 · rude
+- `mandar` — u74 · to send (a message)
+- `manter` — u59 · to keep
+- `marcante` — u63 · memorable
+- `marcar` — u62 · to book (an appointment)
 - `março` — u9 · March
 - `mas` — u21 · but
 - `mau` — u10 · bad
@@ -704,61 +1141,95 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `medir` — u34 · to measure
 - `melhor` — u11 · better
 - `melhorar` — u25 · to improve
+- `mencionar` — u77 · to mention (by name)
 - `menos` — u29 · less
+- `mesmo que` — u70 · even though
+- `mexer` — u79 · to touch
 - `misturar` — u41 · to mix
 - `mole` — u42 · soft
 - `molhado` — u26 · wet
+- `montar` — u87 · to assemble
 - `morar` — u15 · to live (somewhere)
+- `morrer` — u80 · to die
 - `mudar` — u29 · to change
 - `muitas vezes` — u28 · often
 - `muito` — u2 · very
 - `na` — u12 · in the (feminine)
+- `na minha opinião` — u51 · in my opinion
+- `na verdade` — u54 · actually
 - `nada` — u40 · nothing
 - `nadar` — u20 · to swim
 - `não` — u1 · no
+- `não concordo` — u73 · I disagree
+- `não faz mal` — u72 · it doesn't matter
+- `não me digas` — u71 · don't tell me
 - `naquele tempo` — u36 · at that time
 - `nas` — u29 · in the (feminine)
+- `nascer` — u80 · to be born
 - `navegar` — u33 · to browse
+- `necessário` — u75 · necessary
+- `negar` — u51 · to deny
+- `nem que` — u70 · even if
 - `nenhum` — u40 · no
 - `nervoso` — u22 · nervous
 - `ninguém` — u40 · nobody
+- `ninguém o viu` — u71 · nobody saw him
 - `no` — u12 · in the
 - `no entanto` — u21 · however
 - `normalmente` — u28 · usually
 - `nós` — u4 · we
 - `nos` — u29 · in the
+- `notar` — u74 · to notice
+- `notificar` — u77 · to notify
 - `nove` — u5 · nine
 - `novembro` — u9 · November
 - `novo` — u10 · new
 - `num` — u29 · in a
 - `nunca` — u5 · never
+- `nunca a vi` — u71 · I never saw her
 - `o abraço` — u39 · hug
+- `o abuso` — u61 · abuse
 - `o acidente` — u47 · accident
 - `o acontecimento` — u32 · event
+- `o acordo` — u51 · agreement
 - `o açúcar` — u6 · sugar
 - `o adepto` — u35 · supporter
+- `o adulto` — u80 · adult
 - `o adversário` — u50 · opponent
 - `o advogado` — u18 · lawyer
 - `o aeroporto` — u20 · airport
+- `o afeto` — u68 · affection (regard)
 - `o alarme` — u47 · alarm
+- `o álbum` — u63 · album
 - `o algodão` — u42 · cotton
 - `o alho` — u38 · garlic
+- `o alívio` — u57 · relief
 - `o almoço` — u6 · lunch
 - `o ambiente` — u34 · environment
+- `o âmbito` — u76 · scope
 - `o amigo` — u39 · friend
 - `o amor` — u22 · love
 - `o aniversário` — u3 · birthday
 - `o ano` — u3 · year
+- `o antepassado` — u63 · ancestor
+- `o anúncio` — u64 · advertisement
+- `o apoio` — u60 · support
 - `o ar` — u34 · air
 - `o árbitro` — u50 · referee
+- `o argumento` — u51 · argument
 - `o armário` — u15 · cupboard
+- `o arquivo` — u84 · archive
 - `o arroz` — u6 · rice
+- `o artigo` — u64 · article
 - `o artista` — u35 · artist
+- `o aspeto` — u58 · aspect
 - `o aspirador` — u30 · vacuum cleaner
 - `o assunto` — u40 · subject
 - `o atendimento` — u49 · service
 - `o atletismo` — u50 · athletics
+- `o atraso` — u56 · delay
 - `o autocarro` — u7 · bus
+- `o avanço` — u85 · advance
 - `o avião` — u20 · plane
 - `o aviso` — u49 · notice
 - `o avô` — u4 · grandfather
@@ -770,36 +1241,48 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o banco` — u7 · bank
 - `o barco` — u20 · boat
 - `o barro` — u42 · clay
+- `o barulho` — u78 · racket
 - `o basquetebol` — u50 · basketball
 - `o bebé` — u4 · baby
 - `o beijo` — u39 · kiss
+- `o bem-estar` — u67 · wellbeing
 - `o bilhete` — u7 · ticket
+- `o boato` — u64 · rumour
 - `o bolo` — u6 · cake
 - `o bombeiro` — u47 · firefighter
 - `o botão` — u42 · button
 - `o braço` — u11 · arm
+- `o buraco` — u87 · hole
 - `o cabelo` — u11 · hair
 - `o caderno` — u17 · notebook
 - `o café` — u6 · coffee
+- `o calendário` — u62 · calendar
 - `o calor` — u8 · heat
 - `o campeão` — u50 · champion
 - `o campeonato` — u50 · championship
 - `o campo` — u20 · countryside
+- `o canal` — u64 · channel
+- `o canto` — u83 · corner
 - `o cão` — u4 · dog
 - `o cargo` — u24 · post
 - `o carimbo` — u44 · stamp
+- `o carinho` — u57 · affection
 - `o carrinho` — u27 · trolley
 - `o carro` — u1 · car
 - `o cartão` — u16 · card
 - `o cartão de cidadão` — u49 · citizen card
 - `o cartaz` — u49 · poster
 - `o carteiro` — u49 · postman
+- `o carvão` — u65 · coal
 - `o casaco` — u16 · coat
+- `o casal` — u68 · couple
 - `o casamento` — u39 · wedding
 - `o caso` — u40 · case
 - `o castelo` — u48 · castle
+- `o castigo` — u61 · punishment
 - `o cavalo` — u26 · horse
 - `o centímetro` — u43 · centimetre
+- `o centro` — u83 · centre
 - `o centro comercial` — u27 · shopping centre
 - `o cesto` — u43 · basket
 - `o céu` — u26 · sky
@@ -807,146 +1290,240 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o chão` — u30 · floor
 - `o chapéu` — u16 · hat
 - `o chefe` — u18 · boss
+- `o cheiro` — u63 · smell
 - `o ciclismo` — u50 · cycling
+- `o ciclo` — u86 · cycle
 - `o cidadão` — u32 · citizen
 - `o cientista` — u34 · scientist
 - `o cinema` — u19 · cinema
+- `o ciúme` — u57 · jealousy
 - `o clima` — u34 · climate
 - `o código postal` — u49 · postcode
 - `o colega` — u18 · colleague
 - `o comboio` — u7 · train
+- `o comentário` — u77 · comment
+- `o comércio` — u66 · trade
 - `o comportamento` — u31 · behaviour
 - `o comprimento` — u43 · length
+- `o comprimido` — u67 · pill
+- `o compromisso` — u62 · commitment
 - `o comprovativo` — u49 · proof
 - `o computador` — u18 · computer
+- `o conceito` — u58 · concept
 - `o concerto` — u35 · concert
+- `o conflito` — u68 · conflict
+- `o conhecimento` — u63 · knowledge
+- `o conjunto` — u58 · set
+- `o conselho` — u60 · advice
+- `o consumidor` — u66 · consumer
+- `o consumo` — u65 · consumption
+- `o contacto` — u68 · contact
+- `o contexto` — u58 · context
 - `o continente` — u46 · continent
 - `o conto` — u35 · short story
+- `o contraste` — u76 · contrast
 - `o contrato` — u24 · contract
 - `o copo` — u15 · glass
 - `o coração` — u11 · heart
 - `o corpo` — u11 · body
+- `o costume` — u63 · custom
 - `o couro` — u42 · leather
 - `o cozinheiro` — u18 · cook
+- `o crescimento` — u59 · growth
 - `o crime` — u44 · crime
+- `o critério` — u58 · criterion
+- `o cuidado` — u60 · care
 - `o currículo` — u24 · CV
 - `o curso` — u17 · course
+- `o custo` — u66 · cost
+- `o dado` — u84 · piece of data
+- `o dano` — u87 · damage
+- `o debate` — u55 · debate
 - `o dedo` — u11 · finger
 - `o defeito` — u31 · flaw
 - `o dente` — u25 · tooth
+- `o desacordo` — u51 · disagreement
+- `o desafio` — u60 · challenge
+- `o descanso` — u67 · rest
+- `o descendente` — u80 · descendant
 - `o desconto` — u27 · discount
+- `o desempenho` — u56 · performance
+- `o desemprego` — u66 · unemployment
+- `o desentendimento` — u68 · misunderstanding between people
 - `o deserto` — u46 · desert
+- `o desespero` — u57 · despair
+- `o desfecho` — u52 · outcome
+- `o desgaste` — u81 · wear
+- `o desperdício` — u65 · waste
 - `o despertador` — u21 · alarm clock
 - `o desporto` — u19 · sport
 - `o destino` — u23 · destination
+- `o detalhe` — u84 · detail (a particular)
 - `o dever` — u32 · duty
 - `o dia` — u9 · day
+- `o diagnóstico` — u67 · diagnosis
 - `o dicionário` — u17 · dictionary
 - `o dinheiro` — u1 · money
 - `o diploma` — u24 · diploma
 - `o direito` — u32 · right
+- `o direto` — u64 · live broadcast
+- `o discurso` — u77 · speech
+- `o divórcio` — u68 · divorce
 - `o dobro` — u43 · double
 - `o documento` — u44 · document
 - `o duche` — u21 · shower
 - `o ecrã` — u18 · screen
 - `o efeito` — u34 · effect
+- `o elemento` — u58 · element
 - `o elétrico` — u7 · tram
 - `o elevador` — u23 · lift
 - `o elogio` — u49 · compliment
 - `o email` — u33 · email
+- `o empenho` — u85 · commitment (effort put in)
 - `o empregado` — u18 · employee
+- `o emprego` — u66 · employment
 - `o empréstimo` — u45 · loan
 - `o encontro` — u39 · meeting
 - `o enfermeiro` — u25 · nurse
+- `o engano` — u84 · mistake (a mix-up)
 - `o engenheiro` — u18 · engineer
+- `o enredo` — u64 · plot
+- `o entusiasmo` — u57 · enthusiasm
 - `o envelope` — u49 · envelope
+- `o episódio` — u64 · episode
+- `o equilíbrio` — u76 · balance
+- `o erro` — u60 · mistake
+- `o escândalo` — u55 · scandal
 - `o escritor` — u35 · writer
 - `o escritório` — u7 · office
 - `o esforço` — u50 · effort
+- `o espaço` — u83 · space
 - `o espelho` — u21 · mirror
 - `o espetáculo` — u35 · show
+- `o estado` — u76 · state
 - `o estágio` — u24 · internship
 - `o estudante` — u3 · student
+- `o estudo` — u84 · study
 - `o exame` — u17 · exam
+- `o excesso` — u82 · excess
 - `o exemplo` — u40 · example
 - `o exercício` — u25 · exercise
 - `o exército` — u48 · army
+- `o exterior` — u83 · exterior
 - `o extrato` — u45 · statement
 - `o facto` — u40 · fact
+- `o fator` — u52 · factor
 - `o feitio` — u31 · nature
 - `o ferro` — u42 · iron
 - `o ficheiro` — u33 · file
 - `o filho` — u4 · son
 - `o filme` — u19 · film
+- `o fim` — u86 · end
 - `o fim de semana` — u9 · weekend
 - `o fio` — u42 · thread
 - `o fogão` — u30 · stove
 - `o fogo` — u47 · fire
 - `o formulário` — u44 · form
 - `o forno` — u30 · oven
+- `o fracasso` — u85 · failure
 - `o frasco` — u43 · jar
 - `o frigorífico` — u15 · fridge
 - `o frio` — u8 · cold
 - `o fumo` — u47 · smoke
+- `o funcionamento` — u56 · operation
 - `o funcionário` — u49 · official
+- `o fundo` — u83 · bottom
 - `o futebol` — u19 · football
 - `o futuro` — u37 · the future
 - `o garfo` — u15 · fork
 - `o gás` — u30 · gas
 - `o gato` — u4 · cat
 - `o gelo` — u26 · ice
+- `o gesto` — u79 · gesture
 - `o ginásio` — u50 · gym
 - `o golfe` — u50 · golf
 - `o golo` — u50 · goal
+- `o gosto` — u78 · taste
 - `o governo` — u32 · government
+- `o gráfico` — u84 · chart
 - `o grama` — u43 · gram
 - `o grau` — u43 · degree
 - `o guardanapo` — u38 · napkin
+- `o guião` — u64 · script
+- `o hábito` — u63 · habit
 - `o homem` — u4 · man
 - `o horário` — u18 · schedule
 - `o hospital` — u7 · hospital
+- `o humor` — u57 · mood
+- `o idoso` — u67 · elderly person
+- `o impacto` — u52 · impact
 - `o império` — u48 · empire
 - `o imposto` — u32 · tax
 - `o incêndio` — u47 · blaze
+- `o índice` — u82 · index
+- `o início` — u86 · beginning
+- `o inquérito` — u55 · inquiry
+- `o interesse` — u76 · interest (concern, appeal)
+- `o interior` — u83 · interior
+- `o intervalo` — u86 · break
 - `o inverno` — u8 · winter
+- `o investimento` — u66 · investment
 - `o irmão` — u4 · brother
 - `o jantar` — u6 · dinner
 - `o jardim` — u15 · garden
 - `o joelho` — u25 · knee
 - `o jogo` — u19 · game
 - `o jornal` — u19 · newspaper
+- `o jornalista` — u55 · journalist
 - `o juiz` — u44 · judge
 - `o julgamento` — u44 · trial
 - `o juro` — u45 · interest
+- `o lado` — u83 · side
 - `o ladrão` — u47 · thief
 - `o lago` — u46 · lake
 - `o lápis` — u17 · pencil
 - `o lazer` — u35 · leisure
+- `o legado` — u80 · legacy
 - `o leite` — u6 · milk
+- `o leitor` — u64 · reader
 - `o leste` — u46 · east
+- `o limite` — u58 · limit
 - `o litro` — u27 · litre
 - `o livro` — u1 · book
 - `o lixo` — u21 · rubbish
 - `o lucro` — u45 · profit
 - `o lume` — u41 · the heat
+- `o luto` — u80 · mourning
+- `o mal-entendido` — u68 · misunderstanding
 - `o mapa` — u20 · map
 - `o mar` — u20 · sea
 - `o marido` — u4 · husband
 - `o marisco` — u38 · seafood
+- `o martelo` — u87 · hammer
+- `o máximo` — u53 · maximum
+- `o mecânico` — u87 · mechanic
 - `o médico` — u3 · doctor
 - `o medo` — u22 · fear
+- `o meio` — u83 · middle
+- `o meio de comunicação` — u64 · medium of communication
 - `o meio-dia` — u5 · midday
 - `o mercado` — u7 · market
 - `o mês` — u9 · month
 - `o mestrado` — u24 · master's degree
 - `o metal` — u42 · metal
+- `o método` — u84 · method
 - `o metro` — u23 · underground
 - `o meu` — u4 · my
+- `o mínimo` — u53 · minimum
 - `o minuto` — u5 · minute
+- `o modelo` — u58 · model
 - `o molho` — u41 · sauce
 - `o momento` — u28 · moment
 - `o monumento` — u48 · monument
+- `o motivo` — u76 · reason (the motive)
+- `o motor` — u87 · engine
 - `o motorista` — u18 · driver
+- `o movimento` — u79 · movement
 - `o multibanco` — u16 · cash machine
 - `o mundo` — u34 · world
 - `o músculo` — u50 · muscle
@@ -954,105 +1531,157 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o namorado` — u4 · boyfriend
 - `o nariz` — u11 · nose
 - `o negócio` — u45 · business
+- `o neto` — u80 · grandson
 - `o nevoeiro` — u26 · fog
+- `o nível` — u53 · level
 - `o noivo` — u39 · groom
 - `o nome` — u3 · name
 - `o norte` — u46 · north
+- `o número` — u82 · number
 - `o objetivo` — u40 · aim
+- `o obstáculo` — u60 · obstacle
 - `o oeste` — u46 · west
 - `o óleo` — u41 · oil
 - `o olho` — u11 · eye
 - `o ombro` — u25 · shoulder
 - `o orçamento` — u45 · budget
+- `o orgulho` — u57 · pride
 - `o ouro` — u42 · gold
 - `o outono` — u8 · autumn
 - `o ouvido` — u25 · ear
 - `o ovo` — u38 · egg
 - `o pacote` — u43 · packet
+- `o padrão` — u82 · standard
 - `o pai` — u4 · father
 - `o país` — u3 · country
 - `o palácio` — u48 · palace
+- `o paladar` — u78 · sense of taste
 - `o palco` — u35 · stage
 - `o pão` — u1 · bread
 - `o papel` — u44 · paper
+- `o parafuso` — u87 · screw
+- `o parentesco` — u80 · family tie
+- `o parlamento` — u55 · parliament
+- `o partido` — u55 · party (political)
 - `o passado` — u48 · the past
 - `o passageiro` — u23 · passenger
 - `o passaporte` — u20 · passport
 - `o pássaro` — u26 · bird
 - `o passatempo` — u35 · hobby
+- `o passo` — u62 · step
 - `o pastel` — u41 · pastry
+- `o património` — u80 · heritage
 - `o pé` — u11 · foot
 - `o pedaço` — u43 · piece
 - `o pedido` — u49 · request
 - `o peixe` — u6 · fish
 - `o pequeno-almoço` — u6 · breakfast
+- `o percurso` — u62 · route
+- `o perfume` — u78 · scent
 - `o perigo` — u47 · danger
+- `o período` — u59 · period
 - `o pescoço` — u25 · neck
 - `o peso` — u34 · weight
+- `o pessoal` — u72 · the gang
 - `o petisco` — u38 · snack
+- `o petróleo` — u65 · oil (crude oil)
 - `o planeta` — u34 · planet
+- `o plano` — u62 · plan
 - `o plástico` — u42 · plastic
 - `o poema` — u35 · poem
 - `o polícia` — u18 · policeman
 - `o polvo` — u20 · octopus
+- `o ponto de vista` — u51 · point of view
 - `o porco` — u26 · pig
 - `o pormenor` — u40 · detail
+- `o porta-voz` — u55 · spokesperson
 - `o portátil` — u33 · laptop
 - `o postal` — u49 · postcard
 - `o povo` — u48 · people
 - `o prato` — u15 · plate
 - `o prazo` — u24 · deadline
 - `o preço` — u1 · price
+- `o preconceito` — u68 · prejudice
 - `o prédio` — u15 · building
+- `o prego` — u87 · nail
 - `o prejuízo` — u45 · loss
 - `o prémio` — u50 · prize
 - `o presunto` — u6 · cured ham
 - `o primo` — u4 · cousin
 - `o príncipe` — u48 · prince
+- `o princípio` — u58 · principle
+- `o procedimento` — u56 · procedure
+- `o processo` — u56 · process
+- `o produto` — u66 · product
 - `o professor` — u3 · teacher
+- `o progresso` — u59 · progress
 - `o projeto` — u24 · project
+- `o propósito` — u52 · intention
 - `o público` — u35 · audience
 - `o quadro` — u35 · painting
 - `o quarto` — u15 · bedroom
 - `o que estás a fazer` — u13 · what are you doing
 - `o queijo` — u6 · cheese
+- `o questionário` — u84 · questionnaire
 - `o quilo` — u27 · kilo
 - `o quintal` — u30 · backyard
 - `o quiosque` — u27 · kiosk
 - `o rato` — u1 · mouse
+- `o realizador` — u64 · film director
 - `o recibo` — u27 · receipt
 - `o registo` — u49 · record
+- `o regulamento` — u61 · regulations
 - `o rei` — u48 · king
+- `o relato` — u55 · account
 - `o relatório` — u24 · report
 - `o remédio` — u11 · medicine
+- `o rendimento` — u56 · yield
 - `o requerimento` — u49 · formal request
+- `o requisito` — u61 · requirement
 - `o respeito` — u32 · respect
 - `o resto` — u40 · the rest
 - `o resultado` — u34 · result
+- `o rigor` — u85 · rigour
 - `o rio` — u20 · river
 - `o risco` — u47 · risk
 - `o riso` — u22 · laughter
+- `o ritmo` — u59 · pace
 - `o romance` — u35 · novel
 - `o roubo` — u47 · theft
+- `o ruído` — u78 · noise
+- `o rumo` — u80 · direction (the course life takes)
+- `o sabor` — u78 · flavour
 - `o saco` — u42 · bag
 - `o sal` — u38 · salt
 - `o salário` — u18 · salary
 - `o saldo` — u27 · sale
 - `o sangue` — u25 · blood
 - `o século` — u28 · century
+- `o segredo` — u76 · secret
 - `o selo` — u49 · stamp
 - `o senhor` — u2 · sir
+- `o senhor doutor` — u72 · sir (with a degree)
+- `o sentido` — u58 · sense
 - `o serviço` — u32 · service
+- `o significado` — u58 · meaning
+- `o silêncio` — u78 · silence
+- `o sinal` — u79 · sign
+- `o sindicato` — u66 · trade union
+- `o sintoma` — u67 · symptom
 - `o site` — u33 · website
 - `o sócio` — u45 · partner
 - `o sofá` — u15 · sofa
 - `o sol` — u8 · sun
 - `o soldado` — u48 · soldier
 - `o solo` — u46 · soil
+- `o som` — u78 · sound
 - `o sótão` — u30 · attic
+- `o stress` — u67 · stress
+- `o sucesso` — u85 · success
 - `o sul` — u46 · south
 - `o sumo` — u6 · juice
 - `o supermercado` — u27 · supermarket
+- `o talento` — u85 · talent
 - `o talher` — u41 · cutlery
 - `o talho` — u27 · butcher's
 - `o tamanho` — u16 · size
@@ -1060,41 +1689,68 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o teatro` — u35 · theatre
 - `o tecido` — u42 · fabric
 - `o teclado` — u33 · keyboard
+- `o técnico` — u87 · technician
 - `o telemóvel` — u18 · mobile phone
 - `o telhado` — u30 · roof
+- `o tema` — u58 · topic
 - `o tempo` — u8 · weather
 - `o ténis` — u50 · tennis
+- `o terreno` — u65 · plot of land
 - `o território` — u46 · territory
+- `o testemunho` — u63 · testimony
 - `o teto` — u30 · ceiling
 - `o teu` — u4 · your
 - `o tio` — u4 · uncle
+- `o título` — u64 · title (of an article)
+- `o tom` — u77 · tone
+- `o topo` — u83 · top
+- `o toque` — u78 · ring (of a phone)
+- `o total` — u82 · total
 - `o trabalho` — u1 · work
 - `o tratamento` — u25 · treatment
 - `o treinador` — u50 · coach
 - `o tribunal` — u44 · court
+- `o triplo` — u82 · triple
 - `o troco` — u16 · change
 - `o tubo` — u43 · tube
 - `o turista` — u23 · tourist
 - `o utilizador` — u33 · user
 - `o vale` — u46 · valley
+- `o valor` — u58 · value
 - `o vento` — u8 · wind
 - `o verão` — u8 · summer
 - `o vestido` — u16 · dress
+- `o vício` — u67 · bad habit
 - `o vidro` — u42 · glass
 - `o vinagre` — u38 · vinegar
 - `o vinho` — u6 · wine
+- `o viúvo` — u80 · widower
 - `o vizinho` — u32 · neighbour
+- `o vocabulário` — u77 · vocabulary
 - `o volume` — u43 · volume
 - `o voo` — u23 · flight
+- `obedecer` — u61 · to obey
 - `obrigado` — u2 · thank you
+- `obrigar` — u74 · to force
+- `obrigatório` — u61 · compulsory
+- `observar` — u78 · to observe
+- `óbvio` — u75 · obvious
+- `ocupado` — u75 · busy
+- `ocupar` — u83 · to take up
+- `ofender` — u57 · to offend
 - `oito` — u5 · eight
 - `olá` — u2 · hello
+- `olhar` — u78 · to look
 - `onde` — u7 · where
 - `ontem` — u5 · yesterday
+- `opcional` — u61 · optional
+- `operar` — u67 · to operate
 - `organizar` — u24 · to organise
 - `orgulhoso` — u31 · proud
+- `originar` — u52 · to give rise to
 - `os` — u12 · the (masculine plural)
 - `os correios` — u49 · post office
+- `os resíduos` — u65 · waste materials
 - `os sapatos` — u16 · shoes
 - `ótimo` — u39 · great
 - `ou` — u21 · or
@@ -1102,53 +1758,109 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `outro` — u12 · other
 - `outubro` — u9 · October
 - `ouvir` — u19 · to hear
+- `oxalá` — u70 · hopefully
+- `pá` — u72 · mate
 - `pagar` — u16 · to pay
 - `para` — u29 · for
+- `para que` — u69 · so that (in order that)
 - `parabéns` — u2 · congratulations
+- `parar` — u74 · to stop
 - `parecer` — u31 · to seem
+- `parecido com` — u53 · like
 - `partilhar` — u33 · to share
 - `partir` — u20 · to leave
 - `passear` — u19 · to go for a walk
+- `peço desculpa` — u73 · I apologise
 - `pedir` — u38 · to order
+- `pelo contrário` — u51 · on the contrary
+- `pelos vistos` — u54 · seemingly
 - `pequeno` — u10 · small
+- `perceber` — u74 · to understand
+- `percorrer` — u79 · to cover
+- `perder` — u74 · to lose
 - `perder-se` — u23 · to get lost
+- `perdoar` — u68 · to forgive
+- `perfeito` — u81 · perfect
 - `perguntar` — u36 · to ask
 - `perigoso` — u47 · dangerous
+- `permanecer` — u59 · to remain
+- `permanente` — u59 · permanent
 - `permitido` — u44 · allowed
+- `permitir` — u61 · to allow
+- `persistir` — u85 · to persist
+- `pertencer` — u68 · to belong
 - `perto` — u23 · near
 - `pesado` — u43 · heavy
 - `pesar` — u43 · to weigh
 - `péssimo` — u39 · terrible
 - `pintar` — u35 · to paint
 - `piorar` — u25 · to get worse
+- `planear` — u62 · to plan
+- `plantar` — u65 · to plant
 - `pobre` — u45 · poor
+- `pode ser que` — u69 · it may be that
 - `poder` — u37 · to be able
 - `poderia` — u37 · could
+- `podia` — u70 · could (would be able to)
 - `pois` — u29 · since
 - `poluir` — u34 · to pollute
+- `ponha` — u69 · (that it) put
 - `por` — u29 · by
 - `por favor` — u2 · please
 - `por isso` — u21 · that's why
+- `por um lado` — u73 · on the one hand
 - `porque` — u29 · because
 - `porquê` — u29 · why
 - `portanto` — u29 · therefore
 - `portar-se` — u31 · to behave
 - `português` — u3 · Portuguese
+- `possa` — u69 · (that it) can
+- `possivelmente` — u54 · possibly
+- `posterior` — u86 · later
 - `poupar` — u18 · to save
+- `praticar` — u63 · to practise
+- `prático` — u81 · practical
 - `prazer` — u3 · pleased to meet you
+- `precisa-se` — u73 · wanted
 - `precisar` — u29 · to need
 - `preguiçoso` — u31 · lazy
 - `preocupar-se` — u22 · to worry
+- `preparar` — u62 · to prepare
+- `prestes a` — u62 · to be about to
+- `pretender` — u62 · to intend
 - `preto` — u8 · black
+- `prevenir` — u67 · to prevent (illness)
+- `prever` — u54 · to predict
+- `prévio` — u86 · prior
 - `primeiro` — u14 · first
+- `principal` — u75 · main
+- `proceder` — u73 · to proceed
+- `procurar` — u84 · to look for
+- `produzir` — u56 · to produce
+- `profundo` — u75 · deep
+- `progredir` — u85 · to make progress
 - `proibido` — u44 · forbidden
+- `proibir` — u61 · to forbid
+- `prolongar` — u74 · to extend
+- `prometer` — u77 · to promise
+- `propor` — u62 · to propose
+- `prosseguir` — u86 · to proceed (to press on)
 - `proteger` — u34 · to protect
+- `protestar` — u55 · to protest
 - `provar` — u16 · to try on
+- `provavelmente` — u54 · probably
+- `prudente` — u54 · sensible
+- `publicar` — u64 · to publish
+- `puder` — u71 · when/if I can
+- `pudesse` — u70 · (if it) could
+- `punir` — u61 · to punish
 - `puxar` — u15 · to pull
 - `quadrado` — u42 · square
 - `qualquer` — u40 · any
 - `quando` — u9 · when
+- `quando for` — u71 · when I go
 - `quanto custa` — u16 · how much is it
+- `quanto mais` — u53 · the more
 - `quantos anos tens` — u3 · how old are you
 - `quarta-feira` — u9 · Wednesday
 - `quase` — u28 · almost
@@ -1156,46 +1868,107 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `que` — u36 · that
 - `que horas são` — u5 · what time is it
 - `que tempo faz` — u8 · what's the weather like
+- `quebrar` — u81 · to break
 - `queimar` — u47 · to burn (something)
+- `queira` — u69 · (that it) want
+- `queixar-se` — u60 · to complain (to grumble)
+- `quem me dera` — u70 · I wish
+- `quem sabe` — u54 · who knows
 - `quente` — u8 · hot
 - `querer` — u37 · to want
+- `queria` — u72 · I would like (polite, ordering)
+- `quero que` — u69 · I want (someone) to
 - `quinta-feira` — u9 · Thursday
+- `quiser` — u71 · when/if you want
+- `quisesse` — u70 · (if it) wanted
+- `rachar` — u81 · to crack
 - `ralar` — u41 · to grate
 - `raramente` — u28 · rarely
+- `raro` — u75 · rare
+- `reagir` — u77 · to react
+- `realizar` — u85 · to carry out (to get it done)
 - `receber` — u39 · to receive
+- `recente` — u75 · recent
 - `reciclar` — u34 · to recycle
 - `reclamar` — u27 · to complain
+- `reconhecer` — u51 · to acknowledge
+- `recordar` — u63 · to recall
+- `recuperar` — u67 · to recover
+- `recusar` — u61 · to refuse
 - `redondo` — u42 · round
+- `reduzido` — u53 · low (reduced)
+- `reduzir` — u65 · to reduce
+- `referir` — u73 · to mention
+- `reformar-se` — u80 · to retire
+- `registar` — u84 · to record
+- `rejeitar` — u51 · to reject
+- `relatar` — u77 · to report (to give an account)
+- `remediar` — u60 · to remedy
+- `renovável` — u65 · renewable
+- `reparar` — u78 · to notice (to spot)
+- `repetir` — u77 · to repeat
+- `representar` — u58 · to represent
 - `reservar` — u23 · to book
+- `resistente` — u81 · tough
 - `resolver` — u24 · to solve
 - `respeitar` — u32 · to respect
+- `responder` — u74 · to answer (to reply)
+- `responsável` — u56 · responsible
+- `resultar em` — u52 · to result in
+- `resumir` — u77 · to sum up
+- `retomar` — u86 · to resume
+- `rever` — u84 · to review
+- `reviver` — u63 · to relive
 - `rico` — u45 · rich
+- `rígido` — u81 · strict
 - `rir` — u22 · to laugh
+- `riscar` — u87 · to scratch
+- `rodear` — u83 · to surround
 - `roubar` — u47 · to steal
 - `roxo` — u8 · purple
+- `rural` — u65 · rural
 - `sábado` — u9 · Saturday
+- `sabe dizer-me` — u72 · could you tell me
+- `sabe-se` — u73 · it is known
 - `saber` — u36 · to know
 - `saboroso` — u38 · tasty
+- `saiba` — u69 · (that it) know
 - `sair` — u19 · to go out
+- `salientar` — u51 · to point out
+- `saltar` — u79 · to jump
 - `salvar` — u47 · to save
 - `são` — u12 · they are
 - `saudável` — u25 · healthy
 - `saúde` — u2 · cheers
 - `se` — u13 · himself
 - `se calhar` — u37 · maybe
+- `se faz favor` — u72 · please (in a shop or cafe)
+- `se me disser` — u71 · if you tell me
+- `se precisar` — u71 · if you need
 - `secar` — u30 · to dry
 - `seco` — u26 · dry
+- `seguinte` — u75 · next
+- `seguir` — u79 · to follow
 - `segunda-feira` — u9 · Monday
+- `segundo` — u55 · according to
+- `segurar` — u79 · to hold
 - `seguro` — u47 · safe
 - `seis` — u5 · six
+- `seja` — u69 · (that it) be
+- `sem dúvida` — u73 · without a doubt
+- `sem que` — u69 · without (someone doing)
+- `semelhante` — u53 · similar
 - `sempre` — u5 · always
 - `sempre que` — u36 · whenever
 - `sentar-se` — u21 · to sit down
 - `sentir` — u22 · to feel
+- `separar-se` — u68 · to separate
 - `ser` — u12 · to be
+- `ser obrigado a` — u61 · to be forced to
 - `será` — u37 · will be
 - `serem` — u37 · for them to be
 - `seria` — u37 · would be
+- `sério` — u75 · serious (earnest)
 - `servir` — u38 · to serve
 - `sete` — u5 · seven
 - `setembro` — u9 · September
@@ -1203,13 +1976,31 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `sim` — u1 · yes
 - `simpático` — u10 · nice
 - `simples` — u14 · simple
+- `simplificar` — u77 · to simplify
+- `simultâneo` — u86 · simultaneous
 - `socorro` — u47 · help
+- `solicitar` — u73 · to request
+- `sólido` — u81 · solid
+- `soltar` — u79 · to release (to set free)
+- `somar` — u82 · to add up
 - `somos` — u12 · we are
 - `sorrir` — u22 · to smile
 - `sou` — u3 · I am
+- `souber` — u71 · when/if I know
+- `soubesse` — u70 · (if it) knew
 - `sozinho` — u39 · alone
+- `subir` — u82 · to go up
+- `sublinhar` — u77 · to underline
+- `substituir` — u87 · to replace
 - `sugerir` — u24 · to suggest
 - `sujo` — u10 · dirty
+- `superar` — u53 · to exceed
+- `superior a` — u53 · higher than
+- `supervisionar` — u56 · to oversee
+- `supor` — u54 · to suppose
+- `surgir` — u52 · to arise
+- `suspeitar` — u54 · to suspect
+- `sustentar` — u80 · to support (to provide for)
 - `talvez` — u28 · perhaps
 - `também` — u3 · also
 - `tanto` — u29 · so much
@@ -1218,12 +2009,18 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `teimoso` — u31 · stubborn
 - `tem` — u13 · he has
 - `temperar` — u41 · to season
+- `temporário` — u59 · temporary
+- `tencionar` — u62 · to mean to
+- `tenha` — u69 · (that it) have
 - `tenho` — u13 · I have
 - `tentar` — u37 · to try
 - `ter` — u3 · to have
+- `ter a certeza` — u54 · to be sure
 - `ter de` — u37 · to have to
+- `ter direito a` — u61 · to be entitled to
 - `ter fome` — u22 · to be hungry
 - `ter medo` — u22 · to be afraid
+- `ter pena` — u57 · to feel sorry
 - `ter pressa` — u22 · to be in a hurry
 - `ter razão` — u22 · to be right
 - `ter sede` — u22 · to be thirsty
@@ -1231,40 +2028,79 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `terá` — u37 · will have
 - `terça-feira` — u9 · Tuesday
 - `teria` — u37 · would have
+- `teria feito` — u70 · would have done
+- `terminar` — u86 · to finish (to come to an end)
 - `termos` — u37 · for us to have
+- `testar` — u81 · to test
 - `teve` — u14 · he had
 - `tímido` — u31 · shy
 - `tinha` — u36 · had
 - `tive` — u14 · I had
+- `tiver` — u71 · when/if I have
+- `tivesse` — u70 · (if it) had
+- `tivesse feito` — u70 · had done
 - `tocar` — u19 · to play (an instrument)
 - `todo` — u14 · all
+- `todos o sabem` — u71 · everybody knows it
+- `tolerar` — u61 · to tolerate
 - `tomar` — u29 · to take
+- `tornar-se` — u59 · to become
 - `trabalhador` — u31 · hard-working
 - `trabalhar` — u13 · to work
 - `trabalhei` — u14 · I worked
+- `traduzir` — u77 · to translate
+- `tranquilizar` — u60 · to reassure
 - `transferir` — u45 · to transfer
+- `transformar` — u59 · to transform
+- `transmitir` — u64 · to broadcast
 - `tratar` — u39 · to treat
+- `tratar por tu` — u72 · to address as tu
+- `tratar por você` — u72 · to address as você
 - `treinar` — u50 · to train
 - `três` — u5 · three
 - `triste` — u22 · sad
 - `trocar` — u27 · to exchange
+- `tropeçar` — u79 · to trip
 - `tu` — u2 · you
 - `tudo` — u40 · everything
+- `tudo bem` — u72 · all good
+- `ultimamente` — u59 · lately
+- `último` — u86 · last
+- `ultrapassar` — u53 · to overtake
 - `um` — u1 · a
+- `um bocadinho` — u72 · a little bit
 - `uma` — u1 · a (feminine)
+- `uma vez que` — u52 · given that
 - `uns` — u12 · some
+- `urbano` — u65 · urban
+- `urgente` — u60 · urgent
+- `útil` — u81 · useful
+- `vá` — u69 · (that it) go
 - `vai` — u13 · he goes
 - `vários` — u40 · several
 - `vazio` — u10 · empty
+- `vejo-a` — u71 · I see her
 - `velho` — u10 · old
 - `vencer` — u50 · to win
+- `vende-se` — u73 · for sale
+- `vender` — u66 · to sell
+- `venha` — u69 · (that it) come
+- `venho por este meio` — u73 · I am writing to
 - `ver` — u19 · to see
+- `verdadeiro` — u75 · true
 - `verde` — u8 · green
+- `verificar` — u84 · to check
 - `vermelho` — u8 · red
 - `vestir` — u16 · to wear
 - `viajar` — u20 · to travel
+- `vier` — u71 · when/if it comes
+- `viesse` — u70 · (if it) came
+- `vigiar` — u78 · to keep watch on
 - `vinte` — u5 · twenty
+- `virar` — u79 · to turn
 - `visitar` — u39 · to visit
+- `visse` — u70 · (if it) saw
+- `visto que` — u52 · seeing that
 - `viver` — u4 · to live
 - `voar` — u20 · to fly
 - `você` — u2 · you (polite)
@@ -1273,6 +2109,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `votar` — u32 · to vote
 - `vou` — u13 · I go
 - `zangado` — u22 · angry
+- `zangar-se` — u68 · to get angry
 
 ## By unit — what each slot teaches
 
@@ -1375,4 +2212,78 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 **u49 · Os serviços públicos** (24) — `os correios`, `o selo`, `a carta`, `o envelope`, `o carteiro`, `o postal`, `a câmara municipal`, `o funcionário`, `a fila`, `o balcão`, `o atendimento`, `o requerimento`, `o cartão de cidadão`, `a certidão`, `o registo`, `a morada`, `o código postal`, `o comprovativo`, `o pedido`, `a queixa`, `o elogio`, `informar`, `o aviso`, `o cartaz`
 
 **u50 · O desporto e o ginásio** (24) — `o ténis`, `o ciclismo`, `a natação`, `o atletismo`, `o basquetebol`, `o golfe`, `o ginásio`, `treinar`, `o treinador`, `o músculo`, `a força`, `o esforço`, `o campeonato`, `a competição`, `o adversário`, `a final`, `o árbitro`, `o golo`, `vencer`, `o campeão`, `empatar`, `a vitória`, `a derrota`, `o prémio`
+
+**u51 · A opinião e o acordo** (24) — `o ponto de vista`, `na minha opinião`, `afirmar`, `considerar`, `defender`, `convencer`, `o acordo`, `o desacordo`, `discordar`, `apoiar`, `rejeitar`, `pelo contrário`, `admitir`, `reconhecer`, `negar`, `garantir`, `insistir`, `assumir`, `o argumento`, `argumentar`, `a razão`, `justificar`, `salientar`, `acrescentar`
+
+**u52 · O raciocínio e as consequências** (24) — `a origem`, `decorrer de`, `dever-se a`, `originar`, `surgir`, `o fator`, `resultar em`, `acarretar`, `desencadear`, `implicar`, `afetar`, `o impacto`, `uma vez que`, `visto que`, `de modo que`, `daí que`, `contribuir`, `depender de`, `a consequência`, `a finalidade`, `o propósito`, `a repercussão`, `o desfecho`, `influenciar`
+
+**u53 · A comparação e o grau** (24) — `superior a`, `inferior a`, `acima de`, `abaixo de`, `o nível`, `elevado`, `semelhante`, `parecido com`, `comparar`, `em comparação com`, `a desvantagem`, `reduzido`, `cada vez mais`, `quanto mais`, `ligeiramente`, `consideravelmente`, `aproximadamente`, `a média`, `superar`, `ultrapassar`, `destacar-se`, `duplicar`, `o máximo`, `o mínimo`
+
+**u54 · A dúvida e a cautela** (24) — `provavelmente`, `possivelmente`, `improvável`, `a probabilidade`, `eventualmente`, `quem sabe`, `duvidar`, `supor`, `suspeitar`, `a hipótese`, `prever`, `ter a certeza`, `aparentemente`, `ao que parece`, `pelos vistos`, `de facto`, `na verdade`, `afinal de contas`, `arriscar`, `correr o risco`, `incerto`, `é capaz de`, `prudente`, `a tendência`
+
+**u55 · A atualidade e o debate público** (25) — `a fonte`, `o relato`, `o jornalista`, `a reportagem`, `divulgar`, `apurar`, `o debate`, `a opinião pública`, `a sondagem`, `a manifestação`, `protestar`, `a polémica`, `segundo`, `alegadamente`, `declarar`, `citar`, `o porta-voz`, `o inquérito`, `a medida`, `a reforma`, `o escândalo`, `aprovar`, `o partido`, `a campanha`, `o parlamento`
+
+**u56 · O trabalho e os processos** (24) — `o processo`, `a etapa`, `o procedimento`, `a meta`, `a prioridade`, `a tarefa`, `gerir`, `a gestão`, `delegar`, `supervisionar`, `encarregar-se de`, `a chefia`, `o desempenho`, `o rendimento`, `avaliar`, `executar`, `produzir`, `o funcionamento`, `adiar`, `o atraso`, `concluir`, `a responsabilidade`, `responsável`, `exigir`
+
+**u57 · As emoções e os seus matizes** (24) — `o alívio`, `a vergonha`, `o orgulho`, `a inveja`, `a culpa`, `ter pena`, `a ansiedade`, `a frustração`, `o desespero`, `o ciúme`, `a surpresa`, `ofender`, `chateado`, `irritado`, `farto`, `animado`, `o entusiasmo`, `o humor`, `comover`, `emocionar-se`, `arrepender-se`, `a gratidão`, `o carinho`, `a esperança`
+
+**u58 · As ideias abstratas** (24) — `o conceito`, `a teoria`, `o princípio`, `a noção`, `o modelo`, `a base`, `o sentido`, `o significado`, `definir`, `representar`, `abstrato`, `concreto`, `a perspetiva`, `o aspeto`, `o critério`, `o contexto`, `o tema`, `a questão`, `a estrutura`, `o valor`, `o conjunto`, `o elemento`, `o limite`, `a lógica`
+
+**u59 · A mudança no tempo** (24) — `aumentar`, `diminuir`, `o crescimento`, `o ritmo`, `estável`, `gradualmente`, `transformar`, `tornar-se`, `a evolução`, `desenvolver`, `acelerar`, `abrandar`, `manter`, `permanecer`, `o período`, `temporário`, `permanente`, `o progresso`, `atualmente`, `ultimamente`, `a partir de`, `desde`, `até agora`, `avançar`
+
+**u60 · A dificuldade e a solução** (24) — `a dificuldade`, `o obstáculo`, `o desafio`, `a falha`, `o erro`, `urgente`, `enfrentar`, `evitar`, `impedir`, `lidar com`, `corrigir`, `remediar`, `a solução`, `a alternativa`, `a saída`, `a melhoria`, `o apoio`, `o conselho`, `queixar-se`, `aconselhar`, `esclarecer`, `o cuidado`, `a paciência`, `tranquilizar`
+
+**u61 · A obrigação e a permissão** (24) — `obrigatório`, `a obrigação`, `ser obrigado a`, `indispensável`, `o requisito`, `opcional`, `permitir`, `proibir`, `autorizar`, `tolerar`, `a exceção`, `a condição`, `o regulamento`, `fiscalizar`, `a infração`, `a sanção`, `punir`, `o castigo`, `obedecer`, `a ordem`, `ter direito a`, `o abuso`, `advertir`, `recusar`
+
+**u62 · Os planos e as intenções** (24) — `o plano`, `planear`, `pretender`, `a intenção`, `tencionar`, `a expectativa`, `a agenda`, `marcar`, `agendar`, `o compromisso`, `confirmar`, `cancelar`, `combinar`, `propor`, `a proposta`, `prestes a`, `assegurar`, `o calendário`, `disponível`, `a ocasião`, `o percurso`, `adiantar`, `o passo`, `preparar`
+
+**u63 · A recordação e o hábito** (24) — `recordar`, `a lembrança`, `reviver`, `marcante`, `inesquecível`, `o cheiro`, `o hábito`, `o costume`, `habituar-se`, `a vivência`, `a trajetória`, `familiar`, `a raiz`, `o antepassado`, `o testemunho`, `a lição`, `a maturidade`, `a nostalgia`, `o conhecimento`, `a prática`, `praticar`, `a fotografia`, `o álbum`, `fazer ideia`
+
+**u64 · Os meios de comunicação** (24) — `o meio de comunicação`, `o artigo`, `a manchete`, `publicar`, `o leitor`, `o título`, `o canal`, `a rádio`, `a emissão`, `transmitir`, `o direto`, `a audiência`, `o realizador`, `o guião`, `a legenda`, `a estreia`, `o enredo`, `o episódio`, `a publicidade`, `o anúncio`, `o boato`, `a crítica`, `a censura`, `comentar`
+
+**u65 · O ambiente e o território** (24) — `a energia`, `renovável`, `o petróleo`, `o carvão`, `o consumo`, `consumir`, `o desperdício`, `desperdiçar`, `os resíduos`, `a reciclagem`, `a fábrica`, `reduzir`, `a alteração`, `a seca`, `a inundação`, `ameaçar`, `desaparecer`, `a espécie`, `a paisagem`, `rural`, `urbano`, `a agricultura`, `plantar`, `o terreno`
+
+**u66 · A economia** (24) — `a economia`, `a oferta`, `a procura`, `o consumidor`, `o produto`, `vender`, `o emprego`, `o desemprego`, `contratar`, `o sindicato`, `a inflação`, `o custo`, `a produção`, `a indústria`, `o comércio`, `exportar`, `importar`, `fabricar`, `a subida`, `a descida`, `o investimento`, `a concorrência`, `a marca`, `a falência`
+
+**u67 · A saúde e o bem-estar** (24) — `a doença`, `o sintoma`, `o diagnóstico`, `grave`, `crónico`, `agravar-se`, `a cirurgia`, `operar`, `recuperar`, `o comprimido`, `prevenir`, `a cura`, `o stress`, `a insónia`, `o descanso`, `o bem-estar`, `cuidar`, `a terapia`, `fumar`, `o vício`, `a dependência`, `engordar`, `emagrecer`, `o idoso`
+
+**u68 · As relações e a sociedade** (24) — `a relação`, `o casal`, `separar-se`, `o divórcio`, `a convivência`, `o afeto`, `o conflito`, `a discussão`, `zangar-se`, `perdoar`, `o mal-entendido`, `o desentendimento`, `conviver`, `aceitar`, `a solidão`, `o contacto`, `a solidariedade`, `a companhia`, `a desigualdade`, `a minoria`, `o preconceito`, `a geração`, `pertencer`, `a integração`
+
+**u69 · O conjuntivo presente** (24) — `espero que`, `quero que`, `seja`, `esteja`, `tenha`, `faça`, `é possível que`, `pode ser que`, `duvido que`, `possa`, `saiba`, `vá`, `embora`, `para que`, `antes que`, `até que`, `sem que`, `desde que`, `diga`, `venha`, `ponha`, `queira`, `haja`, `estar a`
+
+**u70 · O conjuntivo imperfeito e o se** (24) — `visse`, `fosse`, `estivesse`, `tivesse`, `fizesse`, `podia`, `pudesse`, `soubesse`, `quisesse`, `quem me dera`, `oxalá`, `gostaria que`, `como se`, `nem que`, `mesmo que`, `ainda que`, `a não ser que`, `viesse`, `dissesse`, `desse`, `tivesse feito`, `teria feito`, `devia ter`, `houvesse`
+
+**u71 · O conjuntivo futuro e os pronomes** (24) — `quando for`, `tiver`, `estiver`, `puder`, `fizer`, `se precisar`, `souber`, `disser`, `vier`, `quiser`, `logo que`, `der`, `diz-me`, `dá-me`, `disse-lhe`, `conheço-o`, `vejo-a`, `ajudá-lo`, `não me digas`, `já lhe disse`, `nunca a vi`, `ninguém o viu`, `se me disser`, `todos o sabem`
+
+**u72 · Tratar por tu ou por você** (24) — `tratar por tu`, `tratar por você`, `o senhor doutor`, `a menina`, `a gente`, `o pessoal`, `se faz favor`, `faça favor`, `importa-se de`, `sabe dizer-me`, `desculpe incomodar`, `com certeza`, `queria`, `era capaz de`, `dava-me jeito`, `não faz mal`, `à vontade`, `daqui a pouco`, `um bocadinho`, `devagarinho`, `cedinho`, `tudo bem`, `fixe`, `pá`
+
+**u73 · A linguagem formal** (24) — `venho por este meio`, `agradeço`, `aguardo resposta`, `com os melhores cumprimentos`, `atenciosamente`, `peço desculpa`, `vende-se`, `precisa-se`, `diz-se`, `fala-se`, `sabe-se`, `foi decidido`, `de acordo`, `não concordo`, `em parte`, `sem dúvida`, `por um lado`, `em contrapartida`, `solicitar`, `dirigir-se`, `referir`, `efetuar`, `proceder`, `anexar`
+
+**u74 · Os verbos · 2** (24) — `responder`, `perceber`, `notar`, `mandar`, `abordar`, `destacar`, `criar`, `obrigar`, `aplicar`, `adaptar`, `atribuir`, `encerrar`, `parar`, `existir`, `falhar`, `faltar`, `prolongar`, `acumular`, `levar`, `deixar`, `custar`, `perder`, `juntar`, `aproveitar`
+
+**u75 · Os adjetivos** (24) — `correto`, `errado`, `exato`, `verdadeiro`, `falso`, `justo`, `complicado`, `óbvio`, `estranho`, `comum`, `raro`, `profundo`, `atual`, `recente`, `anterior`, `seguinte`, `ocupado`, `imediato`, `necessário`, `principal`, `sério`, `curto`, `longo`, `essencial`
+
+**u76 · Os nomes abstratos** (24) — `a palavra`, `a dúvida`, `a certeza`, `a confusão`, `o contraste`, `a semelhança`, `o motivo`, `o interesse`, `a atenção`, `a justificação`, `a coincidência`, `o âmbito`, `a situação`, `o estado`, `a falta`, `o equilíbrio`, `a conclusão`, `a coerência`, `a escolha`, `a decisão`, `a oportunidade`, `a possibilidade`, `o segredo`, `a autoridade`
+
+**u77 · A comunicação e o discurso** (24) — `mencionar`, `indicar`, `relatar`, `descrever`, `prometer`, `reagir`, `resumir`, `sublinhar`, `interpretar`, `traduzir`, `simplificar`, `exemplificar`, `a frase`, `a expressão`, `o discurso`, `o comentário`, `o vocabulário`, `o tom`, `comunicar`, `anunciar`, `repetir`, `interromper`, `difundir`, `notificar`
+
+**u78 · A perceção e os sentidos** (24) — `reparar`, `aperceber-se`, `distinguir`, `confundir`, `detetar`, `identificar`, `olhar`, `escutar`, `brilhar`, `o som`, `o ruído`, `o barulho`, `cheirar`, `o perfume`, `o sabor`, `o gosto`, `o toque`, `o paladar`, `observar`, `concentrar-se`, `distrair-se`, `ignorar`, `o silêncio`, `vigiar`
+
+**u79 · O movimento e o gesto** (24) — `deslocar-se`, `atravessar`, `afastar-se`, `aproximar-se`, `seguir`, `percorrer`, `agarrar`, `segurar`, `largar`, `soltar`, `arrastar`, `mexer`, `saltar`, `cair`, `escorregar`, `tropeçar`, `inclinar-se`, `virar`, `o gesto`, `apontar`, `acenar`, `abraçar`, `o movimento`, `o sinal`
+
+**u80 · As fases da vida** (24) — `nascer`, `a infância`, `crescer`, `a adolescência`, `a juventude`, `educar`, `o adulto`, `a vida`, `a independência`, `sustentar`, `amadurecer`, `o rumo`, `envelhecer`, `a velhice`, `o viúvo`, `reformar-se`, `morrer`, `o luto`, `o descendente`, `a herança`, `o neto`, `o legado`, `o património`, `o parentesco`
+
+**u81 · A fiabilidade e o desgaste** (24) — `fiável`, `resistente`, `sólido`, `eficaz`, `adequado`, `firme`, `frágil`, `o desgaste`, `ceder`, `rachar`, `aguentar`, `quebrar`, `leve`, `flexível`, `rígido`, `grosso`, `fino`, `prático`, `útil`, `inútil`, `funcional`, `perfeito`, `testar`, `a prova`
+
+**u82 · A medida e a proporção** (24) — `o número`, `calcular`, `somar`, `dividir`, `o total`, `a estatística`, `subir`, `elevar`, `descer`, `o excesso`, `a perda`, `o índice`, `a percentagem`, `a proporção`, `a quantidade`, `o triplo`, `a fração`, `a porção`, `a escala`, `aproximado`, `cerca de`, `estimar`, `o padrão`, `a precisão`
+
+**u83 · O espaço e a disposição** (24) — `o lado`, `o centro`, `o meio`, `o canto`, `o fundo`, `o topo`, `dentro`, `fora`, `o interior`, `o exterior`, `a superfície`, `a borda`, `colocar`, `ocupar`, `caber`, `rodear`, `encostar`, `espalhar`, `o espaço`, `a extremidade`, `a zona`, `a posição`, `a área`, `a dimensão`
+
+**u84 · A informação e a pesquisa** (24) — `procurar`, `localizar`, `a pesquisa`, `examinar`, `consultar`, `o método`, `o dado`, `a informação`, `a amostra`, `registar`, `o arquivo`, `o questionário`, `verificar`, `comprovar`, `rever`, `a evidência`, `o engano`, `conferir`, `analisar`, `o estudo`, `a síntese`, `o gráfico`, `o detalhe`, `a referência`
+
+**u85 · A capacidade e o empenho** (24) — `a capacidade`, `capaz`, `a competência`, `a habilidade`, `o talento`, `dominar`, `o empenho`, `persistir`, `a dedicação`, `o rigor`, `a motivação`, `a ambição`, `alcançar`, `atingir`, `progredir`, `realizar`, `o avanço`, `o sucesso`, `a limitação`, `a fraqueza`, `desistir`, `a barreira`, `o fracasso`, `hesitar`
+
+**u86 · A ordem e a sequência** (24) — `posterior`, `prévio`, `o início`, `o fim`, `inicial`, `último`, `a fase`, `a sequência`, `o intervalo`, `simultâneo`, `o ciclo`, `a repetição`, `antecipar`, `atrasar`, `a pausa`, `a espera`, `a demora`, `a pressa`, `continuar`, `prosseguir`, `retomar`, `terminar`, `alternar`, `imediatamente`
+
+**u87 · A manutenção e o conserto** (24) — `avariar`, `estragar`, `riscar`, `entupir`, `o buraco`, `o dano`, `a oficina`, `o mecânico`, `o técnico`, `a máquina`, `o motor`, `a garantia`, `a ferramenta`, `o martelo`, `o parafuso`, `o prego`, `a tinta`, `a pilha`, `arranjar`, `consertar`, `substituir`, `montar`, `desmontar`, `apertar`
 
