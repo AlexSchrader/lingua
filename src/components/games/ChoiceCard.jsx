@@ -112,15 +112,17 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
         })}
       </div>
 
-      {/* Continue is not enabled until the word has actually been heard: the
-          reinforcement clip plays ~1s after the answer, and dismissing the card
-          used to outrun it. `settled` is true whenever nothing will play (audio
-          off, no clip, WebDriver), so it can never strand the learner. */}
+      {/* Continue waits for the word to actually be HEARD: the reinforcement clip
+          plays ~1s after the answer, and dismissing the card used to outrun it.
+          `settled` is true whenever nothing will play — audio off, WebDriver, or no
+          clip for this item in the manifest — so a silent item never waits. While it
+          IS waiting the button must LOOK waiting; a full-strength button that ignores
+          taps reads as a broken app. */}
       {answered && (
         <button
           disabled={!settled}
           onClick={() => onGraded(grade)}
-          style={{ padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+          style={{ padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: settled ? "pointer" : "default", opacity: settled ? 1 : 0.55, transition: "opacity 140ms ease" }}
         >
           Continue
         </button>

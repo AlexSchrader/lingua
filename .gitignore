@@ -26,3 +26,7 @@ scratch-*.py
 # so `git status` stays readable and nothing gets committed by accident.
 /lingua-*/
 /drill-tools/
+
+# Debug screenshots from manual UI checks. They were committed to the repo root
+# once (~1.2 MB) as scope creep in a fix commit; keep them out.
+/shot-*.png

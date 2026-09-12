@@ -353,6 +353,12 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
           </button>
         </div>
       ) : (
+        /* Continue waits for the word to actually be HEARD: the reinforcement clip
+           plays ~1s after the answer, and dismissing the card used to outrun it.
+           `settled` is true whenever nothing will play — audio off, WebDriver, or no
+           clip for this item in the manifest — so a silent item never waits. While it
+           IS waiting the button must LOOK waiting; a full-strength button that ignores
+           taps reads as a broken app. */
         <button
           disabled={!settled}
           onClick={() => onGraded(grade)}
@@ -365,7 +371,9 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
             fontSize: 16,
             fontWeight: 700,
             fontFamily: F.body,
-            cursor: "pointer",
+            cursor: settled ? "pointer" : "default",
+            opacity: settled ? 1 : 0.55,
+            transition: "opacity 140ms ease",
           }}
         >
           Continue

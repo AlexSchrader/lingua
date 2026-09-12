@@ -12,7 +12,14 @@ export const LISTEN_SHARE = 0.5;
 // True when the item has a pronunciation clip (per the generated manifest), so a
 // listening card is never routed for a silent item.
 export function hasAudio(item) {
-  return !!item && AUDIO_IDS.has(item.id);
+  return !!item && hasAudioId(item.id);
+}
+
+// The same rule at the id level. Callers that hold an id rather than an item need
+// it — the post-answer audio gate (itemAudio.js) has to know whether a clip exists
+// BEFORE it disables Continue, and a chained clip (a particle's sound) is an id too.
+export function hasAudioId(id) {
+  return !!id && AUDIO_IDS.has(id);
 }
 
 // Deterministic 0..1 from the item id — stable within a session and trivially
