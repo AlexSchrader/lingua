@@ -19,3 +19,10 @@ dist-ssr
 # throwaway authoring-seat tooling
 scratch-*.mjs
 scratch-*.py
+
+# Language-crew worktrees. They are meant to live as SIBLINGS of this repo, but
+# broken worktree metadata has left full copies nested inside the root before —
+# each one a whole repo with its own node_modules and public/audio. Ignore them
+# so `git status` stays readable and nothing gets committed by accident.
+/lingua-*/
+/drill-tools/

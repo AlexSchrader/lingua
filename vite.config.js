@@ -47,6 +47,18 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    watch: {
+      // Language-crew worktrees are meant to be SIBLINGS of this repo, but broken
+      // worktree metadata has left full copies nested inside the root (`lingua-*/`,
+      // `drill-tools/`) — each a whole repo with its own node_modules and
+      // public/audio. Vite's watcher walked them and the dev server ballooned to
+      // ~4 GB and took longer than Playwright's 120s webServer timeout to become
+      // ready, so the smoke gate could not start at all. Ignoring them here is the
+      // safe half of the fix; reclaiming the directories is a separate cleanup.
+      ignored: ["**/lingua-*", "**/lingua-*/**", "**/drill-tools", "**/drill-tools/**"],
+    },
+  },
   build: {
     rollupOptions: {
       output: {
