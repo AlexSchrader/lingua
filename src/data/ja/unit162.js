@@ -58,7 +58,7 @@ export const UNIT162 = {
         { id: "ja-u162l3-8b77", type: "kanji", front: "護", reading: "go", meaning: "to protect", example: { jp: "自然を 護る ことは、私たちの つとめです。", en: "Protecting nature is our duty." }, accept: ["to guard", "to defend"], hint: "護る (mamoru) = to guard, the same 'mamoru' as 守る but heavier. 保護 = protection, 看護 = nursing." },
         { id: "ja-u162l3-52b9", type: "kanji", front: "効", reading: "kō", meaning: "effect", example: { jp: "この 新しい 薬は とても よく 効きます。", en: "This new medicine works very well." }, accept: ["to be effective", "efficacy"], hint: "効く (kiku) = to take effect. 効果 = an effect, 有効 = valid/in force." },
         { id: "ja-u162l3-539a", type: "kanji", front: "厚", reading: "kō", meaning: "thick", example: { jp: "今日は 寒いので、厚い セーターを 着ました。", en: "It's cold today, so I put on a thick sweater." }, accept: ["thick (in depth)", "generous"], hint: "厚い (atsui) = thick in depth — note it is a different 'atsui' from 暑い (hot) and 熱い (hot to the touch)." },
-        { id: "ja-u162l3-jiko", type: "vocab", front: "事故", reading: "jiko", meaning: "an accident", example: { jp: "その 道路で 車の 事故が あったそうです。", en: "I hear there was a car accident on that road." }, accept: ["a mishap", "a crash"] },
+        { id: "ja-u162l3-jiko", type: "vocab", front: "事故", reading: "jiko", meaning: "an accident", example: { jp: "その 道路で 車の 事故が あったそうです。", en: "I hear there was a car accident on that road." }, drill: { jp: "事故が ありました。", en: "There was an accident." }, accept: ["a mishap", "a crash"] },
         { id: "ja-u162l3-koka", type: "vocab", front: "効果", reading: "kōka", meaning: "an effect", example: { jp: "この やり方は 思ったより 効果が ありました。", en: "This method was more effective than I expected." }, accept: ["result", "efficacy"] },
       ],
     },

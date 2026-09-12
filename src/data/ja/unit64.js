@@ -25,7 +25,7 @@ export const UNIT64 = {
       items: [
         { id: "ja-u64l1-maru",     type: "vocab", front: "まる",   reading: "maru",    meaning: "circle", example: { jp: "これはまるです。", en: "This is a circle." }, accept: ["round", "circle shape"] },
         { id: "ja-u64l1-shikaku",  type: "vocab", front: "しかく", reading: "shikaku", meaning: "square", example: { jp: "これはしかくです。", en: "This is a square." }, accept: ["square shape", "rectangle"] },
-        { id: "ja-u64l1-sankaku",  type: "vocab", front: "さんかく", reading: "sankaku", meaning: "triangle", example: { jp: "これはさんかくです。", en: "This is a triangle." }, accept: ["triangle shape"] },
+        { id: "ja-u64l1-sankaku",  type: "vocab", front: "さんかく", reading: "sankaku", meaning: "triangle", example: { jp: "これはさんかくです。", en: "This is a triangle." }, drill: { jp: "さんかくはちいさいです。", en: "The triangle is small." }, accept: ["triangle shape"] },
         { id: "ja-u64l1-katachi",  type: "vocab", front: "かたち", reading: "katachi", meaning: "shape", example: { jp: "どんなかたちですか。", en: "What shape is it?" }, accept: ["form", "figure"] },
         { id: "ja-u64l1-ten",      type: "vocab", front: "てん",   reading: "ten",     meaning: "dot", example: { jp: "てんをかきます。", en: "I draw a dot." }, accept: ["point", "spot"] },
         { id: "ja-u64l1-massugu",  type: "vocab", front: "まっすぐ", reading: "massugu", meaning: "straight", example: { jp: "まっすぐいきます。", en: "I go straight." }, accept: ["straight ahead", "directly"] },
@@ -42,9 +42,9 @@ export const UNIT64 = {
       canDo: "Say where something sits — むこう すみ よこ まわり ちかく とおく.",
       items: [
         { id: "ja-u64l2-mukou",   type: "vocab", front: "むこう", reading: "mukō",   meaning: "over there", example: { jp: "むこうにいえがあります。", en: "There's a house over there." }, accept: ["the other side", "across"] },
-        { id: "ja-u64l2-sumi",    type: "vocab", front: "すみ",   reading: "sumi",   meaning: "corner", example: { jp: "へやのすみにいます。", en: "I'm in the corner of the room." }, accept: ["nook", "inside corner"] },
-        { id: "ja-u64l2-yoko",    type: "vocab", front: "よこ",   reading: "yoko",   meaning: "side", example: { jp: "つくえのよこにいます。", en: "I'm beside the desk." }, accept: ["beside", "next to"] },
-        { id: "ja-u64l2-mawari",  type: "vocab", front: "まわり", reading: "mawari", meaning: "surroundings", example: { jp: "いえのまわりをあるきます。", en: "I walk around the house." }, accept: ["around", "vicinity"] },
+        { id: "ja-u64l2-sumi",    type: "vocab", front: "すみ",   reading: "sumi",   meaning: "corner", example: { jp: "へやのすみにいます。", en: "I'm in the corner of the room." }, drill: { jp: "すみにねこがいます。", en: "There is a cat in the corner." }, accept: ["nook", "inside corner"] },
+        { id: "ja-u64l2-yoko",    type: "vocab", front: "よこ",   reading: "yoko",   meaning: "side", example: { jp: "つくえのよこにいます。", en: "I'm beside the desk." }, drill: { jp: "よこにつくえがあります。", en: "There is a desk beside it." }, accept: ["beside", "next to"] },
+        { id: "ja-u64l2-mawari",  type: "vocab", front: "まわり", reading: "mawari", meaning: "surroundings", example: { jp: "いえのまわりをあるきます。", en: "I walk around the house." }, drill: { jp: "まわりをあるきます。", en: "I walk around it." }, accept: ["around", "vicinity"] },
         { id: "ja-u64l2-chikaku", type: "vocab", front: "ちかく", reading: "chikaku", meaning: "nearby", example: { jp: "えきのちかくにいます。", en: "I'm near the station." }, accept: ["near", "vicinity"] },
         { id: "ja-u64l2-tooku",   type: "vocab", front: "とおく", reading: "tōku",   meaning: "far away", example: { jp: "とおくにやまがあります。", en: "There's a mountain far away." }, accept: ["distance", "far off"] },
       ],

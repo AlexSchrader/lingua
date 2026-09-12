@@ -23,9 +23,9 @@ export const FR_UNIT31 = {
       dominantMode: "recall",
       canDo: "Describe where you work and who's there: the office, the company, a colleague, the boss, the meeting, the pay.",
       items: [
-        { id: "fr-u31l1-lebureau", type: "vocab", front: "le bureau", reading: "lebureau", meaning: "office", example: { jp: "Je travaille dans un bureau.", en: "I work in an office." }, accept: ["the office", "desk", "study"], hint: "Same word for the desk you sit at and the room it's in." },
+        { id: "fr-u31l1-lebureau", type: "vocab", front: "le bureau", reading: "lebureau", meaning: "office", example: { jp: "Je travaille dans un bureau.", en: "I work in an office." }, drill: { jp: "Je travaille dans le bureau", en: "I work in the office" }, accept: ["the office", "desk", "study"], hint: "Same word for the desk you sit at and the room it's in." },
         { id: "fr-u31l1-lentreprise", type: "vocab", front: "l'entreprise", reading: "lentreprise", meaning: "company", example: { jp: "Mon entreprise est à Paris.", en: "My company is in Paris." }, accept: ["business", "firm", "the company"] },
-        { id: "fr-u31l1-lecollegue", type: "vocab", front: "le collègue", reading: "lecollegue", meaning: "colleague", example: { jp: "Mon collègue est très sympa.", en: "My colleague is really nice." }, accept: ["co-worker", "workmate", "the colleague"] },
+        { id: "fr-u31l1-lecollegue", type: "vocab", front: "le collègue", reading: "lecollegue", meaning: "colleague", example: { jp: "Mon collègue est très sympa.", en: "My colleague is really nice." }, drill: { jp: "Le collègue est très sympa", en: "The colleague is very nice" }, accept: ["co-worker", "workmate", "the colleague"] },
         { id: "fr-u31l1-lepatron", type: "vocab", front: "le patron", reading: "lepatron", meaning: "boss", example: { jp: "Le patron est dans son bureau.", en: "The boss is in his office." }, accept: ["the boss", "manager", "owner"] },
         { id: "fr-u31l1-lareunion", type: "vocab", front: "la réunion", reading: "lareunion", meaning: "meeting", example: { jp: "La réunion est à dix heures.", en: "The meeting is at ten o'clock." }, accept: ["the meeting", "a meeting"] },
         { id: "fr-u31l1-lesalaire", type: "vocab", front: "le salaire", reading: "lesalaire", meaning: "salary", example: { jp: "J'ai un bon salaire.", en: "I have a good salary." }, accept: ["wage", "pay", "the salary"] },
@@ -42,10 +42,10 @@ export const FR_UNIT31 = {
       items: [
         { id: "fr-u31l2-lemetier", type: "vocab", front: "le métier", reading: "lemetier", meaning: "trade", example: { jp: "Quel est ton métier ?", en: "What do you do for a living?" }, accept: ["job", "profession", "occupation"] },
         { id: "fr-u31l2-chez", type: "vocab", front: "chez", reading: "chez", meaning: "at (someone's place)", example: { jp: "Je vais chez le dentiste.", en: "I'm going to the dentist's." }, accept: ["to someones place", "at the house of", "at"], hint: "chez always takes a person, never a place: chez le médecin, chez Marie, chez moi." },
-        { id: "fr-u31l2-lingenieur", type: "vocab", front: "l'ingénieur", reading: "lingenieur", meaning: "engineer", example: { jp: "Mon frère est ingénieur.", en: "My brother is an engineer." }, accept: ["the engineer"], hint: "No article after être with a job: il est ingénieur, never il est un ingénieur." },
+        { id: "fr-u31l2-lingenieur", type: "vocab", front: "l'ingénieur", reading: "lingenieur", meaning: "engineer", example: { jp: "Mon frère est ingénieur.", en: "My brother is an engineer." }, drill: { jp: "L'ingénieur travaille dans le bureau", en: "The engineer works in the office" }, accept: ["the engineer"], hint: "No article after être with a job: il est ingénieur, never il est un ingénieur." },
         { id: "fr-u31l2-lagriculteur", type: "vocab", front: "l'agriculteur", reading: "lagriculteur", meaning: "farmer", example: { jp: "Mon père est agriculteur.", en: "My father is a farmer." }, accept: ["the farmer"] },
         { id: "fr-u31l2-lecoiffeur", type: "vocab", front: "le coiffeur", reading: "lecoiffeur", meaning: "hairdresser", example: { jp: "Je vais chez le coiffeur.", en: "I'm going to the hairdresser's." }, accept: ["barber", "the hairdresser"] },
-        { id: "fr-u31l2-lepolicier", type: "vocab", front: "le policier", reading: "lepolicier", meaning: "police officer", example: { jp: "Il y a un policier dans la rue.", en: "There's a police officer in the street." }, accept: ["policeman", "the police officer", "cop"] },
+        { id: "fr-u31l2-lepolicier", type: "vocab", front: "le policier", reading: "lepolicier", meaning: "police officer", example: { jp: "Il y a un policier dans la rue.", en: "There's a police officer in the street." }, drill: { jp: "Le policier est dans la rue", en: "The police officer is in the street" }, accept: ["policeman", "the police officer", "cop"] },
       ],
     },
     {
@@ -57,7 +57,7 @@ export const FR_UNIT31 = {
       dominantMode: "recall",
       canDo: "Talk about school: the class, the pupils, the classroom, secondary school, university and the exam.",
       items: [
-        { id: "fr-u31l3-lecours", type: "vocab", front: "le cours", reading: "lecours", meaning: "class (a lesson)", example: { jp: "Le cours de français est à neuf heures.", en: "The French class is at nine o'clock." }, accept: ["lesson", "course", "the class"] },
+        { id: "fr-u31l3-lecours", type: "vocab", front: "le cours", reading: "lecours", meaning: "class (a lesson)", example: { jp: "Le cours de français est à neuf heures.", en: "The French class is at nine o'clock." }, accept: ["course", "the class"] },
         { id: "fr-u31l3-leleve", type: "vocab", front: "l'élève", reading: "leleve", meaning: "pupil", example: { jp: "L'élève est dans la classe.", en: "The pupil is in the classroom." }, accept: ["schoolchild", "the pupil"], hint: "l'élève is at school; l'étudiant is at university." },
         { id: "fr-u31l3-laclasse", type: "vocab", front: "la classe", reading: "laclasse", meaning: "classroom", example: { jp: "Il y a vingt élèves dans la classe.", en: "There are twenty pupils in the classroom." }, accept: ["the classroom", "form"] },
         { id: "fr-u31l3-lelycee", type: "vocab", front: "le lycée", reading: "lelycee", meaning: "secondary school", example: { jp: "Mon frère est au lycée.", en: "My brother is at secondary school." }, accept: ["high school", "sixth form", "the lycee"] },

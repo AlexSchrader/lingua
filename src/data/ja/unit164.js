@@ -25,7 +25,7 @@ export const UNIT164 = {
         { id: "ja-u164l1-518d", type: "kanji", front: "再", reading: "sai", meaning: "again", example: { jp: "かれとは 十年後に 再び 会いました。", en: "I met him again ten years later." }, accept: ["once more", "re-"], hint: "再び (futatabi) = once more. As a prefix it means 're-': 再開 = reopening, 再利用 = reuse." },
         { id: "ja-u164l1-59bb", type: "kanji", front: "妻", reading: "tsuma", meaning: "wife", example: { jp: "妻と いっしょに 買いものに 行きました。", en: "I went shopping together with my wife." }, accept: ["one's own wife"], hint: "妻 is your OWN wife; 奥さん is someone else's. The reading tsuma is the everyday word." },
         { id: "ja-u164l1-konzatsu", type: "vocab", front: "混雑", reading: "konzatsu", meaning: "congestion", example: { jp: "れんきゅうは どの 駅も ひどい 混雑です。", en: "Over the long weekend every station is badly congested." }, accept: ["crowding", "a crush"] },
-        { id: "ja-u164l1-kensa", type: "vocab", front: "検査", reading: "kensa", meaning: "an inspection", example: { jp: "びょういんで 体の 検査を 受けました。", en: "I had a physical examination at the hospital." }, accept: ["a checkup", "a test"] },
+        { id: "ja-u164l1-kensa", type: "vocab", front: "検査", reading: "kensa", meaning: "an inspection", example: { jp: "びょういんで 体の 検査を 受けました。", en: "I had a physical examination at the hospital." }, drill: { jp: "検査を うけました。", en: "I had an inspection." }, accept: ["a checkup", "a test"] },
       ],
     },
     {
@@ -76,7 +76,7 @@ export const UNIT164 = {
         { id: "ja-u164l4-4fee", type: "kanji", front: "修", reading: "shū", meaning: "to mend", example: { jp: "こわれた 時計を 修理に 出しました。", en: "I sent my broken watch off to be repaired." }, accept: ["to master", "to fix", "to study"], hint: "修 covers mending and mastering: 修理 = repair, 修学 = pursuing study, 修正 = a correction." },
         { id: "ja-u164l4-8ff0", type: "kanji", front: "述", reading: "jutsu", meaning: "to state", example: { jp: "会議で 自分の 意見を はっきり 述べました。", en: "I stated my opinion clearly at the meeting." }, accept: ["to relate", "to set forth"], hint: "述べる (noberu) = to state formally — the written cousin of 言う. 記述 = a description, 口述 = dictation." },
         { id: "ja-u164l4-jugyo", type: "vocab", front: "授業", reading: "jugyō", meaning: "a class", example: { jp: "びょうきで きのうの 授業を 休みました。", en: "I missed yesterday's class because I was sick." }, accept: ["a lesson", "teaching"] },
-        { id: "ja-u164l4-shuri", type: "vocab", front: "修理", reading: "shūri", meaning: "repair", example: { jp: "この 車の 修理には 一週間 かかります。", en: "Repairing this car will take a week." }, accept: ["mending", "a fix"] },
+        { id: "ja-u164l4-shuri", type: "vocab", front: "修理", reading: "shūri", meaning: "repair", example: { jp: "この 車の 修理には 一週間 かかります。", en: "Repairing this car will take a week." }, drill: { jp: "修理に じかんが かかります。", en: "The repair takes time." }, accept: ["mending", "a fix"] },
       ],
     },
   ],

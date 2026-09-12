@@ -25,13 +25,25 @@
 | 2 | rest of **Strand B**, plus interleaved Strand A character units (own-script only) | ~5 topic units (+ ~6 character units) |
 | 3 | **Strand C** (grammar) + **Strand D** (coverage pass) | 3 grammar units + ~6 coverage units |
 
-Blocks 1 and 2 run cleanly in parallel. **Block 3 draws on vocab that blocks 1–2 introduce** — start it last if convenient; if it runs fully parallel, expect it to revise some examples after the merge. That's normal, not a failure.
+### ALL THREE BLOCKS RUN AT THE SAME TIME
+
+**There is no block order.** Blocks 1, 2 and 3 are opened together, on the same day, in three separate sessions. Block 3 does **not** wait for blocks 1–2, and a block never waits for another block to "finish first". If you are on block 3 and blocks 1–2 look unfinished, that is the expected state — keep authoring.
+
+The block numbers are a **unit range**, not a sequence:
+
+| Block | Units it owns |
+|---|---|
+| 1 | Strand A (script/sounds) + first half of Strand B |
+| 2 | rest of Strand B (+ interleaved character units, own-script only) |
+| 3 | Strand C (grammar) + Strand D (coverage) |
+
+**How block 3 works without waiting.** Your examples draw on the **frozen base** — every word the language already teaches *before this band* — which is what `npm run taught -- <lang>` and `src/data/<lang>/TAUGHT-WORDS.md` give you on day one. Words that blocks 1–2 are introducing *right now* are not yours to lean on and not yours to teach. If you and another block both land the same word, the merge seat resolves it by lower slot number (§6); a handful of post-merge example revisions is the normal cost of parallel authoring, not a failure and not a reason to serialise.
 
 ### Kicking off — copy-paste
 
 **Authoring seat** (open a fresh CC session, paste, walk away):
 
-> **You're on the Spanish crew, block 2. Follow `RUNBOOK-new-language.md` from §1 start to finish. Don't ask me questions — log anything blocked and keep going. Hand back in the §6 format when green.**
+> **You're on the Spanish crew, block 2. Follow `RUNBOOK-new-language.md` from §1 start to finish. All three blocks are running RIGHT NOW in parallel — you are not waiting for block 1 and you are not blocking block 3. Author a `drill` on every vocab item as you write it (§4), not in a later pass. Don't ask me questions — log anything blocked and keep going. Hand back in the §6 format when green.**
 
 **Merge seat** (once all three have handed back):
 
@@ -133,7 +145,8 @@ until merge day.
 2. `BUILD-BRIEF-language-blueprint.md` §1 — **the strand model and band template. This is your assignment.**
 3. `CONTENT.md` — the item schema.
 4. **`src/data/ja/unit22.js` onward — the structural reference.** Japanese is the model: 4 lessons × 6 cards, three strands per band. Match this shape. **Do not model on `ja/unit1.js`–`unit10.js`** (47–55 cards/unit, pre-lint drift).
-5. **`src/data/fr/unit1.js` — Latin-script *conventions* only** (the `front`/`reading` split, articles-with-nouns, accent folding). Its header comment is authoritative for how a Latin language encodes items; ja stays authoritative for how a language is *structured*.
+5. **`src/data/<lang>/TAUGHT-WORDS.md` — every word your language already teaches, and the slot that owns it.** Generated onto the scaffold branch before you existed, so it is already in your worktree. **Grep it, don't read it.** It answers the two questions that cost a whole lesson to get wrong: *may I use this word in an example?* (is it there, at a slot at or before mine) and *may I teach this front?* (if it is there, no — the lower slot owns it, §4). It also lists which slots each block owns, so you can tell when a word belongs to a block that has not written it yet. It cannot see what your siblings are writing right now; nothing can.
+6. **`src/data/fr/unit1.js` — Latin-script *conventions* only** (the `front`/`reading` split, articles-with-nouns, accent folding). Its header comment is authoritative for how a Latin language encodes items; ja stays authoritative for how a language is *structured*.
 
 **Do NOT run `scaffold:lang` yourself.** Scaffolding happens **once**, before any crew starts, on a shared base branch (`content/<lang>-scaffold`) that all three blocks branch from — it creates `src/data/<lang>/` *and* wires the root `src/data/index.js`, so three seats each running it is a guaranteed three-way conflict on the one shared file the per-language barrel exists to avoid. Your worktree already has the stubs. **You fill in `items` only.**
 
@@ -146,7 +159,14 @@ until merge day.
 These are not guidelines; the lint enforces most of them and the gate rejects the rest.
 
 - **Before you author a single card, run `npm run taught -- <lang>` and keep the output open.** It lists every word the language already teaches, with the unit that owns it. A duplicate front is a hard `validate:content` failure, so this is a gate input, not a nicety. Use `--max <unit>` to see only the frozen base you are allowed to draw on (a B1 crew: `npm run taught -- es --max 50`).
-- **The scaffold seat generates that list ON THE SCAFFOLD BRANCH, before any crew is kicked off.** Not on a block branch afterwards — a list written after authoring reaches nobody. This is the fix for the single most expensive failure this project has had: three Spanish B1 crews authored 888 cards for 37 units using only **729 distinct words**, because roughly ten themes were built twice over (`u56 Trabajo y proceso` vs `u84 Trabajo y economía`; `u67 La salud y el bienestar` vs `u85 Salud y enfermedad`). Deduping cost **159 cards** and left 36 of 37 units under the 24-card standard until a fourth seat refilled them. No crew did anything wrong — they simply could not see what the others had claimed.
+- *(Scaffold seat: that list is generated on the scaffold branch **before** any crew is kicked off. A list written afterwards reaches nobody.)* This is the fix for the single most expensive failure this project has had: three Spanish B1 crews authored 888 cards for 37 units using only **729 distinct words**, because roughly ten themes were built twice over (`u56 Trabajo y proceso` vs `u84 Trabajo y economía`; `u67 La salud y el bienestar` vs `u85 Salud y enfermedad`). Deduping cost **159 cards** and left 36 of 37 units under the 24-card standard until a fourth seat refilled them. No crew did anything wrong — they simply could not see what the others had claimed.
+
+- **Every vocab item gets a `drill` as you write it — not in a later pass.** `drill` is a SECOND short sentence beside `example`, same `{ jp, en }` shape (`jp` holds the target language; the key name is historical).
+  - `example` **teaches** — it can be long, subordinate, as complex as the band deserves. Leave it that way.
+  - `drill` is the same idea **cut down so the engine can take it apart**: **3–8 whitespace-separated words**, **no sentence-internal punctuation**, and **the item's own `front` inside it**.
+  - Those are exactly the conditions `cloze:choice` and `sentence:build` require. Without a drill, whether an item gets those two cards is an accident of how its example happened to be written — measured at **36–63% of items depending on the language**. With one, they are universal.
+  - Write it in the same keystroke as the example. Retrofitting drills across an authored band is a second full pass over every card, which is how this became a backlog the first time.
+  - Example: `drill: { jp: "Le français est une belle langue", en: "French is a beautiful language" }`
 
 - **4 lessons per unit × 6 cards per lesson = 24 cards.** The mature ja shape (every unit from u22 on). Band is 5–8 cards/lesson; aim 6.
 - **Teach the script in chunks that get used immediately.** ja's Unit 1 is 25 kana *and* 29 real words — never a run of bare characters before the first word. For a Latin language this means the sounds unit uses real vocabulary, not letter drills.
@@ -154,9 +174,9 @@ These are not guidelines; the lint enforces most of them and the gate rejects th
 - **Every lesson gets a `canDo`** — one plain-English sentence naming a real thing the learner can now do. Not "learn the days of the week"; "Say what day it is and make plans for a specific day."
 - **Rewrite the unit `title` in the target language.** The scaffold writes an English *working* title ("Greetings", "Grammar 4 — compound and linked clauses", "Vocabulary 1 (A2)"). It marks the **slot**, which is fixed; the wording is yours and is meant to be replaced. Titles render on the Ladder, so an unreplaced one ships to the learner in the wrong language. Match the language's existing house style — ja `かず・じかん`, fr `Les nombres`, es `Los números y la hora` — and continue the `· 2` / `· 3` numbering when a unit extends an earlier one (`Les verbes` → `Les verbes · 2`). Name the unit after what it actually teaches: check the fronts before titling, so a "Colors and weather" slot that really carries both becomes `Los colores y el tiempo`, not just `Los colores`. *(This rule lived only in a comment inside `scripts/scaffold-language.mjs`, which no authoring seat opens — so three of the first nine blocks shipped 21 units with English titles while their sibling blocks localized. It is written here now because here is where seats actually read.)*
 - **Every example sentence uses only vocab introduced at or before that unit.** Proper names and transparent cognates are free. This is the rule most likely to bite you in block 2 or 3 — check the earlier blocks' fronts before writing an example, not after.
-  - `lint:curriculum` now **reports this as warnings** (not errors). Read every one; most are real. It is advisory rather than a gate on purpose: measured against shipped French A1, a strict check flags a third of all examples, almost all of it morphology, elision and cognates rather than defects. With those exemptions it settles near 5%, which is a good review list and still too noisy to fail a build on. **A warning here is a question, not a verdict** — confirm the word really is untaught before rewriting.
-  - **It goes quiet on your branch, by design.** The check skips every unit sitting behind an unauthored stub, because the vocabulary an later unit legitimately depends on is not in the tree yet — block 3 measured 89.9% "unknown" purely because blocks 1–2 were still stubs. **So it can only do its real work at merge, once the blocks are combined.** Expect a fresh crop of warnings there; that is the check finally being able to see, not a regression you introduced.
-  - **Japanese is not checked at all** — no word boundaries to tokenise. A real ja check needs a morphological analyser; until then the rule stays honour-system there.
+  - `lint:curriculum` reports these as **warnings, not errors**. Expect noise: the checker cannot see suffix substitution, so `sacar`→`saco` and `devoir`→`doivent` read as untaught. Measured real rate on a random 40-warning sample: **1 in 40**. Read them, do not chase them.
+  - **Check `src/data/<lang>/TAUGHT-WORDS.md` while you write, not the checker afterwards** — it is the only correct view of the frozen base on your branch.
+  - **It goes quiet behind an unauthored stub, by design**, and **Japanese is not checked at all** (no word boundaries to tokenise).
 - **Word ownership: lower slot number wins.** If your block wants a word an earlier block already teaches, you don't teach it — you use it in examples. If a *later* block wants one of yours, it defers to you. Never coordinate with the other sessions; the rule decides.
   - **Compare LEXEMES, not strings.** Front-uniqueness is enforced on the exact `front`, so `ておきます` and `ておく` both validate — while being one word with two mastery tracks and no new learning for the learner. **A green validator is not evidence that a front is new.** The ja B1 block-3 seat checked all 456 of its fronts against the corpus, got zero collisions, and had still re-taught **36 words**; the content gate caught it, and 12 of them were an entire pair of lessons that had to be re-authored. Before committing to a front, check its inflectional relatives: for ja that means ます⇄辞書形 (both verb classes, plus the いらっしゃる-class `い`-drop), noun⇄noun+する/します, and X⇄Xです; for a Latin language, the infinitive against the conjugated form. **This is the merge seat's blind spot too** — §6 step 3 dedupes duplicate fronts, and a dedupe that only compares exact strings leaves every lexeme duplicate in place.
 - **`front` is real orthography** (accents, apostrophes, spaces); **`reading` is its ASCII fold** — the contract requires `[a-z]+`. The checker folds typed accents back, so learners can type either.
@@ -214,6 +234,37 @@ Unresolved: <list, or "none">
 
 Then **stop.** Do not merge. Update your row on the crew board (§0) to `handed back`.
 
+**⚠️ BLOCKS 2 AND 3 ONLY.** If you are block 1 you are the **crew lead** and this is
+step 1 of 7, not the end — see "Block 1 is the CREW LEAD" in `CLAUDE.md`. Blocks 2
+and 3 hand back **to you**. Added 2026-09-06 after the German block-1 seat authored
+its range, handed back and stopped, leaving nobody holding the language.
+
+### Block 1's remaining job, after its own units are green
+
+1. **Conventions into `unit1.js`'s header** — article style, how the script's odd
+   letters fold, what is deliberately deferred to a later unit. Blocks 2 and 3 are
+   told to read that header first, so it is the contract for the whole language.
+2. **Write the kickoff prompts for blocks 2 and 3**, carrying what you learned:
+   every word you used, the conventions you settled, the tooling gaps you hit, and
+   the hazard specific to each block. German's block 2 owns the case system;
+   German's block 3 chose its own six themes and had the worst drill coverage.
+3. **Review what comes back.** Run the checks no single block can run on itself —
+   duplicate fronts, lexeme duplicates (noun vs its verb, infinitive vs conjugated
+   form), meaning-field overlaps, reading collisions, same-lesson pairs. **Fix what
+   you find**; a later block's unit is yours once it has handed back.
+4. **Fold in anything the engine grew mid-flight.** A capability that landed on
+   `main` after the crew branched (drills, a new card kind) is the lead's to notice
+   and bring in, not something to leave for a future seat.
+5. **Commission a cold review**: write a prompt for a fresh Curriculum CC to check
+   the whole language with no memory of authoring it, and act on what it finds.
+6. **Then push and merge** if it is green — curriculum content falls under the
+   self-merge exception. Engine or schema changes go to Alex separately.
+
+If the three blocks were **chained** (2 branched off 1, 3 off 2) the last branch
+already *is* the whole language and there is no merge day — that is the cheaper
+shape and worth choosing at kickoff. Merge day below applies only when the blocks
+ran in **parallel** off a shared base.
+
 ### Merge day — the merge seat only
 
 Runs once, when all three blocks are green. **One session does this, never three.**
@@ -230,13 +281,24 @@ Runs once, when all three blocks are green. **One session does this, never three
 4. Run audio **once**: `npm run generate:audio` then `npm run generate:manifest`. **Never in parallel with another language's merge** — one shared manifest.
 5. Update `BUILD-CHECKLIST.md` per its marking protocol, and clear the language's rows off the crew board.
 6. Hand Alex the §6 block for the whole language, plus one line: which unit to open first in Dev Mode.
-7. `git worktree remove` the three authoring worktrees.
+7. **Regenerate the taught-words list: `npm run taught:words -- <lang>`, and commit it.** Content is final at this point, so this is when it becomes true again — and it is what the NEXT band's crews will author against. Skipping it hands them a list a whole band out of date, which is the hole this file exists to close.
+8. `git worktree remove` the three authoring worktrees.
 
 Then stop. Alex playtests and merges to `main`.
 
 ---
 
 ## 7. When you're stuck — do this, don't ask
+
+**⚠️ Before anything else: if you edit `BUILD-CHECKLIST.md` with a script, open it with
+explicit `newline=""`.** Python's default translation silently rewrites every line
+ending in the file, so a one-row crew-board update lands as an 800-line diff — and a
+diff that size is one nobody reads closely, which is exactly where a real change
+hides. Found 2026-09-06 by the German drills seat C, who reported it as a defect in
+their own method rather than a footnote on a benign result; theirs happened to
+*correct* a mixed-ending file, but on a deliberately-LF file it would have done real
+damage unnoticed. The same applies to any script that rewrites a whole file it did
+not author.
 
 | Situation | What you do |
 |---|---|

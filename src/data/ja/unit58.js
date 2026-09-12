@@ -22,7 +22,7 @@ export const UNIT58 = {
       canDo: "Name furniture and things around a room: ざぶとん じゅうたん はこ かびん かがみ カレンダー.",
       items: [
         { id: "ja-u58l1-zabuton", type: "vocab", front: "ざぶとん", reading: "zabuton", meaning: "floor cushion", example: { jp: "ざぶとんにすわります。", en: "I sit on the floor cushion." }, accept: ["cushion", "seat cushion"] },
-        { id: "ja-u58l1-jutan", type: "vocab", front: "じゅうたん", reading: "jūtan", meaning: "carpet", example: { jp: "あかいじゅうたんです。", en: "It's a red carpet." }, accept: ["rug", "rugs"] },
+        { id: "ja-u58l1-jutan", type: "vocab", front: "じゅうたん", reading: "jūtan", meaning: "carpet", example: { jp: "あかいじゅうたんです。", en: "It's a red carpet." }, drill: { jp: "じゅうたんはあかいです。", en: "The carpet is red." }, accept: ["rug", "rugs"] },
         { id: "ja-u58l1-hako", type: "vocab", front: "はこ", reading: "hako", meaning: "box", example: { jp: "はこをあけます。", en: "I open the box." }, accept: ["boxes", "case"] },
         { id: "ja-u58l1-kabin", type: "vocab", front: "かびん", reading: "kabin", meaning: "vase", example: { jp: "かびんにはなをかざります。", en: "I arrange flowers in the vase." }, accept: ["flower vase"] },
         { id: "ja-u58l1-kagami", type: "vocab", front: "かがみ", reading: "kagami", meaning: "mirror", example: { jp: "かがみをみます。", en: "I look in the mirror." }, accept: ["mirrors"] },
@@ -40,7 +40,7 @@ export const UNIT58 = {
       canDo: "Name everyday hygiene items: せっけん タオル はブラシ シャンプー ハンカチ ティッシュ.",
       items: [
         { id: "ja-u58l2-sekken", type: "vocab", front: "せっけん", reading: "sekken", meaning: "soap", example: { jp: "せっけんでてをあらいます。", en: "I wash my hands with soap." }, accept: ["bar of soap"] },
-        { id: "ja-u58l2-taoru", type: "vocab", front: "タオル", reading: "taoru", meaning: "towel", example: { jp: "しろいタオルです。", en: "It's a white towel." }, accept: ["towels"] },
+        { id: "ja-u58l2-taoru", type: "vocab", front: "タオル", reading: "taoru", meaning: "towel", example: { jp: "しろいタオルです。", en: "It's a white towel." }, drill: { jp: "タオルはしろいです。", en: "The towel is white." }, accept: ["towels"] },
         { id: "ja-u58l2-haburashi", type: "vocab", front: "はブラシ", reading: "haburashi", meaning: "toothbrush", example: { jp: "はブラシをつかいます。", en: "I use a toothbrush." }, accept: ["tooth brush", "toothbrushes"] },
         { id: "ja-u58l2-shanpu", type: "vocab", front: "シャンプー", reading: "shanpū", meaning: "shampoo", example: { jp: "シャンプーをかいます。", en: "I buy shampoo." }, accept: [] },
         { id: "ja-u58l2-hankachi", type: "vocab", front: "ハンカチ", reading: "hankachi", meaning: "handkerchief", example: { jp: "ハンカチはどこですか。", en: "Where is the handkerchief?" }, accept: ["hanky", "handkerchiefs"] },
@@ -59,7 +59,7 @@ export const UNIT58 = {
       items: [
         { id: "ja-u58l3-koppu", type: "vocab", front: "コップ", reading: "koppu", meaning: "cup", example: { jp: "コップでみずをのみます。", en: "I drink water from a cup." }, accept: ["glass", "cups", "tumbler"] },
         { id: "ja-u58l3-supun", type: "vocab", front: "スプーン", reading: "supūn", meaning: "spoon", example: { jp: "スプーンでたべます。", en: "I eat with a spoon." }, accept: ["spoons"] },
-        { id: "ja-u58l3-chawan", type: "vocab", front: "ちゃわん", reading: "chawan", meaning: "rice bowl", example: { jp: "これはわたしのちゃわんです。", en: "This is my rice bowl." }, accept: ["bowl", "teacup"] },
+        { id: "ja-u58l3-chawan", type: "vocab", front: "ちゃわん", reading: "chawan", meaning: "rice bowl", example: { jp: "これはわたしのちゃわんです。", en: "This is my rice bowl." }, drill: { jp: "ちゃわんはわたしのです。", en: "The rice bowl is mine." }, accept: ["bowl", "teacup"] },
         { id: "ja-u58l3-yakan", type: "vocab", front: "やかん", reading: "yakan", meaning: "kettle", example: { jp: "やかんでおちゃをつくります。", en: "I make tea with the kettle." }, accept: ["kettles"] },
         { id: "ja-u58l3-potto", type: "vocab", front: "ポット", reading: "potto", meaning: "thermos", example: { jp: "ポットのおちゃはあついです。", en: "The tea in the thermos is hot." }, accept: ["pot", "flask", "thermos flask"] },
         { id: "ja-u58l3-renji", type: "vocab", front: "レンジ", reading: "renji", meaning: "microwave", example: { jp: "レンジはだいどころにあります。", en: "The microwave is in the kitchen." }, accept: ["microwave oven", "stove"] },

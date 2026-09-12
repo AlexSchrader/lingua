@@ -59,7 +59,7 @@ export const UNIT75 = {
       canDo: "Express thoughts and states of mind: かんがえ はんだん いけん とくちょう ようす ちゅうい.",
       items: [
         { id: "ja-u75l3-kangae", type: "vocab", front: "かんがえ", reading: "kangae", meaning: "idea", example: { jp: "いいかんがえがあります。", en: "I have a good idea." }, accept: ["thought", "thinking"] },
-        { id: "ja-u75l3-handan", type: "vocab", front: "はんだん", reading: "handan", meaning: "judgment", example: { jp: "はやくはんだんします。", en: "I make a judgment quickly." }, accept: ["decision", "judgement"] },
+        { id: "ja-u75l3-handan", type: "vocab", front: "はんだん", reading: "handan", meaning: "judgment", example: { jp: "はやくはんだんします。", en: "I make a judgment quickly." }, drill: { jp: "はんだんがはやいです。", en: "The judgment is fast." }, accept: ["decision", "judgement"] },
         { id: "ja-u75l3-iken", type: "vocab", front: "いけん", reading: "iken", meaning: "opinion", example: { jp: "わたしのいけんを話します。", en: "I share my opinion." }, accept: ["view", "opinions"] },
         { id: "ja-u75l3-tokucho", type: "vocab", front: "とくちょう", reading: "tokuchō", meaning: "characteristic", example: { jp: "このまちのとくちょうです。", en: "It's a feature of this town." }, accept: ["feature", "trait"] },
         { id: "ja-u75l3-yosu", type: "vocab", front: "ようす", reading: "yōsu", meaning: "situation", example: { jp: "そとのようすを見ます。", en: "I check the situation outside." }, accept: ["state", "appearance"] },
@@ -77,11 +77,11 @@ export const UNIT75 = {
       canDo: "Compare and describe change: かんけい ちがい しゅるい じょうたい へんか せいかつ.",
       items: [
         { id: "ja-u75l4-kankei", type: "vocab", front: "かんけい", reading: "kankei", meaning: "relationship", example: { jp: "ふたりのかんけいはいいです。", en: "The relationship between the two is good." }, accept: ["relation", "connection"] },
-        { id: "ja-u75l4-chigai", type: "vocab", front: "ちがい", reading: "chigai", meaning: "difference", example: { jp: "いろのちがいがわかります。", en: "I can tell the difference in color." }, accept: ["distinction", "differences"] },
+        { id: "ja-u75l4-chigai", type: "vocab", front: "ちがい", reading: "chigai", meaning: "difference", example: { jp: "いろのちがいがわかります。", en: "I can tell the difference in color." }, drill: { jp: "ちがいがわかります。", en: "I can tell the difference." }, accept: ["distinction", "differences"] },
         { id: "ja-u75l4-shurui", type: "vocab", front: "しゅるい", reading: "shurui", meaning: "kind", example: { jp: "くだもののしゅるいがおおいです。", en: "There are many kinds of fruit." }, accept: ["type", "variety"] },
         { id: "ja-u75l4-jotai", type: "vocab", front: "じょうたい", reading: "jōtai", meaning: "condition", example: { jp: "くるまのじょうたいはいいです。", en: "The car is in good condition." }, accept: ["state", "situation"] },
         { id: "ja-u75l4-henka", type: "vocab", front: "へんか", reading: "henka", meaning: "change", example: { jp: "てんきのへんかがはやいです。", en: "The weather changes quickly." }, accept: ["shift", "variation"] },
-        { id: "ja-u75l4-seikatsu", type: "vocab", front: "せいかつ", reading: "seikatsu", meaning: "daily life", example: { jp: "にほんのせいかつはたのしいです。", en: "Life in Japan is fun." }, accept: ["living", "lifestyle"] },
+        { id: "ja-u75l4-seikatsu", type: "vocab", front: "せいかつ", reading: "seikatsu", meaning: "daily life", example: { jp: "にほんのせいかつはたのしいです。", en: "Life in Japan is fun." }, drill: { jp: "せいかつはたのしいです。", en: "Daily life is fun." }, accept: ["living", "lifestyle"] },
       ],
     },
   ],

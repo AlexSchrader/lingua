@@ -79,7 +79,7 @@ export const UNIT19 = {
       dominantMode: "recall",
       canDo: "Ask with the question words: なに (what), どこ (where), いつ (when), どう (how), どうして (why).",
       items: [
-        { id: "ja-u19l4-nani", type: "vocab", front: "なに", reading: "nani", meaning: "what", example: { jp: "これはなにですか。", en: "What is this?" }, accept: ["what?"], hint: "なに = what. Before some sounds it becomes なん: なに → なんですか, and 何時 = なんじ (what time)." },
+        { id: "ja-u19l4-nani", type: "vocab", front: "なに", reading: "nani", meaning: "what", example: { jp: "これはなにですか。", en: "What is this?" }, drill: { jp: "なにをたべますか。", en: "What do you eat?" }, accept: ["what?"], hint: "なに = what. Before some sounds it becomes なん: なに → なんですか, and 何時 = なんじ (what time)." },
         { id: "ja-u19l4-doko", type: "vocab", front: "どこ", reading: "doko", meaning: "where", example: { jp: "えきはどこですか。", en: "Where is the station?" }, accept: ["what place"] },
         { id: "ja-u19l4-itsu", type: "vocab", front: "いつ", reading: "itsu", meaning: "when", example: { jp: "テストはいつですか。", en: "When is the test?" }, accept: ["what time (day)"] },
         { id: "ja-u19l4-do", type: "vocab", front: "どう", reading: "dō", meaning: "how", example: { jp: "にほんはどうですか。", en: "How is Japan?" }, accept: ["how about", "in what way"] },

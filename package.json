@@ -16,6 +16,7 @@
     "generate:audio": "node scripts/generate-audio.mjs",
     "generate:manifest": "node scripts/generate-audio-manifest.mjs",
     "scaffold:lang": "node scripts/scaffold-language.mjs",
+    "taught:words": "node scripts/generate-taught-words.mjs",
     "check:glyphs": "node scripts/check-glyph-scope.mjs",
     "taught": "node scripts/taught-words.mjs"
   },

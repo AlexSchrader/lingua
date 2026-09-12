@@ -66,7 +66,7 @@ export const UNIT86 = {
       dominantMode: "recall",
       canDo: "Core JLPT N5 vocabulary: まいげつ まいねん まいとし マッチ まんねんひつ みせる.",
       items: [
-        { id: "ja-u86l4-maigetsu", type: "vocab", front: "まいげつ", reading: "maigetsu", meaning: "every month", example: { jp: "まいげつほんをかいます。", en: "I buy a book every month." }, accept: ["monthly","each month"] },
+        { id: "ja-u86l4-maigetsu", type: "vocab", front: "まいげつ", reading: "maigetsu", meaning: "every month", example: { jp: "まいげつほんをかいます。", en: "I buy a book every month." }, drill: { jp: "まいげつはほんをかいます。", en: "Every month I buy a book." }, accept: ["monthly","each month"] },
         { id: "ja-u86l4-mainen", type: "vocab", front: "まいねん", reading: "mainen", meaning: "every year", example: { jp: "まいねんにほんにいきます。", en: "I go to Japan every year." }, accept: ["yearly","each year","annually"] },
         { id: "ja-u86l4-maitoshi", type: "vocab", front: "まいとし", reading: "maitoshi", meaning: "every year", example: { jp: "まいとしうみにいきます。", en: "I go to the sea every year." }, accept: ["yearly","each year","annually"], hint: "Same kanji 毎年 as まいねん — both read as 'every year'." },
         { id: "ja-u86l4-matchi", type: "vocab", front: "マッチ", reading: "matchi", meaning: "match", example: { jp: "マッチはありますか。", en: "Do you have a match?" }, accept: ["matches","matchstick"] },

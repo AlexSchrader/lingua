@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { Award } from "lucide-react";
 import { useStore, activeLangId } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
-import { RUNGS } from "../store/mastery.js";
+import { RUNGS, isMastered } from "../store/mastery.js";
 import { milestonesFromIds, nextMilestone } from "../data/milestones.js";
 import { C, F } from "../theme.js";
 import LangChip from "../components/LangChip.jsx";
@@ -59,6 +59,7 @@ export default function Stats() {
   const [masteryLang, setMasteryLang] = useState(activeLang);
 
   const masteryItems = masteryLang === "all" ? itemList : itemList.filter((it) => it.lang === masteryLang);
+  const masteredCount = masteryItems.filter(isMastered).length;
   const rungCounts = RUNGS.map((_, r) => masteryItems.filter((it) => (it.rung ?? 0) === r).length);
   const learned = masteryItems.filter((it) => (it.rung ?? 0) >= 1).length;
 
@@ -155,7 +156,11 @@ export default function Stats() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 12 }}>
           <Tile value={masteryItems.length} label="Items" />
           <Tile value={learned} label="Learned" />
-          <Tile value={rungCounts[5]} label="Mastered" />
+          {/* One definition of mastered, shared with the Ladder. This counted rung 5
+              while the Ladder counted stability, so the same word could be mastered on
+              one screen and not the other. Both now read isMastered — every eligible
+              card kind demonstrated. */}
+          <Tile value={masteredCount} label="Mastered" />
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           {RUNGS.map((name, r) => (

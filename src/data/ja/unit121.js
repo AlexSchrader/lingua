@@ -78,7 +78,7 @@ export const UNIT121 = {
         { id: "ja-u121l4-kyoku", type: "kanji", front: "曲", reading: "kyoku", meaning: "tune", example: { jp: "この曲は古いのに、いまでも人気があります。", en: "This tune is old, but it's still popular today." }, accept: ["piece of music", "bend", "song"], hint: "曲 = something bent out of straight — a curve, and by extension a melody line. 作曲 = composing." },
         { id: "ja-u121l4-kin", type: "kanji", front: "禁", reading: "kin", meaning: "forbid", example: { jp: "駅が禁煙になったので、外で吸う人がふえました。", en: "The station went non-smoking, so more people smoke outside." }, accept: ["prohibit", "ban", "abstain"], hint: "禁 = 林 (a grove) + 示 (an altar) — sacred ground you may not enter. 禁煙 = no smoking." },
         { id: "ja-u121l4-sakkyoku", type: "vocab", front: "作曲", reading: "sakkyoku", meaning: "composing", example: { jp: "作曲がすきで、よるおそくまで書いています。", en: "I love composing, and I write late into the night." }, accept: ["writing music", "composition"] },
-        { id: "ja-u121l4-kyushoku", type: "vocab", front: "求職", reading: "kyūshoku", meaning: "job-hunting", example: { jp: "求職中なので、まいにち新聞を見ています。", en: "I'm looking for work, so I read the paper every day." }, accept: ["seeking employment", "job search"] },
+        { id: "ja-u121l4-kyushoku", type: "vocab", front: "求職", reading: "kyūshoku", meaning: "job-hunting", example: { jp: "求職中なので、まいにち新聞を見ています。", en: "I'm looking for work, so I read the paper every day." }, drill: { jp: "求職を つづけます。", en: "I continue job-hunting." }, accept: ["seeking employment", "job search"] },
       ],
     },
   ],

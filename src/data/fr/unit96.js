@@ -60,7 +60,7 @@ export const FR_UNIT96 = {
         { id: "fr-u96l3-biaise", type: "vocab", front: "biaisé", reading: "biaise", meaning: "biased", example: { jp: "Ce sondage semble un peu biaisé.", en: "This poll seems a bit biased." }, accept: ["biased", "skewed", "slanted"], hint: "Biased, skewed — une question biaisée. From biais, a slant." },
         { id: "fr-u96l3-douteux", type: "vocab", front: "douteux", reading: "douteux", meaning: "dubious", example: { jp: "Ce résultat me paraît douteux.", en: "This result seems dubious to me." }, accept: ["dubious", "doubtful", "shady", "questionable"], hint: "Doubtful, dubious, shady — un résultat douteux. From le doute." },
         { id: "fr-u96l3-leconstat", type: "vocab", front: "le constat", reading: "leconstat", meaning: "the finding", example: { jp: "Le constat est simple : rien n'a changé.", en: "The finding is simple: nothing has changed." }, accept: ["finding", "the observation", "the report"], hint: "A statement of fact / finding — faire le constat que… Also an accident report." },
-        { id: "fr-u96l3-factuel", type: "vocab", front: "factuel", reading: "factuel", meaning: "factual", example: { jp: "Reste factuel : donne seulement les faits.", en: "Stay factual: give only the facts." }, accept: ["factual"], hint: "Factual — un compte rendu factuel. Sticking to the facts, no opinion." },
+        { id: "fr-u96l3-factuel", type: "vocab", front: "factuel", reading: "factuel", meaning: "factual", example: { jp: "Reste factuel : donne seulement les faits.", en: "Stay factual: give only the facts." }, drill: { jp: "Son rapport reste très factuel", en: "His report stays very factual" }, accept: ["factual"], hint: "Factual — un compte rendu factuel. Sticking to the facts, no opinion." },
       ],
     },
     {

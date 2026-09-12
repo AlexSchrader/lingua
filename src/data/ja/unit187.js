@@ -40,7 +40,7 @@ export const UNIT187 = {
         { id: "ja-u187l2-yaku", type: "kanji", front: "訳", reading: "yaku", meaning: "translate", example: { jp: "この 一文を 訳すのに、半日 かかりました。", en: "It took me half a day to translate this one sentence." }, accept: ["a translation", "the reason", "rendering"], hint: "訳 = 言 (words) + 尺 (measure) — words measured against words. As わけ it also means 'the reason': 訳が ある." },
         { id: "ja-u187l2-yu", type: "kanji", front: "郵", reading: "yū", meaning: "post", example: { jp: "その 手紙は 郵送で 送りました。", en: "I sent that letter by post." }, accept: ["mail", "postal"], hint: "郵 = 垂 + 阝 — the relay station at the edge of a district. It survives almost only in 郵便 and 郵送." },
         { id: "ja-u187l2-domei", type: "vocab", front: "同盟", reading: "dōmei", meaning: "an alliance", example: { jp: "同盟を つくっても、考え方が 同じに なる わけでは ありません。", en: "Forming an alliance doesn't make two sides think alike." }, accept: ["a league", "allied relationship"] },
-        { id: "ja-u187l2-chokuyaku", type: "vocab", front: "直訳", reading: "chokuyaku", meaning: "a literal translation", example: { jp: "直訳すると 意味が おかしく なる ことが あります。", en: "A literal translation sometimes makes the meaning odd." }, accept: ["word-for-word rendering"] },
+        { id: "ja-u187l2-chokuyaku", type: "vocab", front: "直訳", reading: "chokuyaku", meaning: "a literal translation", example: { jp: "直訳すると 意味が おかしく なる ことが あります。", en: "A literal translation sometimes makes the meaning odd." }, drill: { jp: "直訳を します。", en: "I do a literal translation." }, accept: ["word-for-word rendering"] },
       ],
     },
     {

@@ -21,6 +21,8 @@ The lane detail below still governs *how the work itself is done*; the Fleet gov
 
 ## Roles — read this first
 
+**Every lane answers in bullets, not paragraphs — see "How to report to Alex". It is a rule for all four CC lanes, not a style note for one.**
+
 **CC owns the work; Alex supervises.** The work splits into four CC lanes so parallel sessions don't collide. **Stay in your lane** — if a task needs another lane's files, say so and hand it off rather than reaching across.
 
 | Role | Owns | Files | Merge rights |
@@ -28,6 +30,7 @@ The lane detail below still governs *how the work itself is done*; the Fleet gov
 | **Alex** | Scope, review, feel-check, final merge | — | **Merges everything.** The gate is always his. |
 | **Feature CC** | App / engine / UX, schema & contract | `src/screens`, `src/store`, `src/components`, `src/data/contract.js`, `src/data/lint.js` | **Draft PR → Alex merges.** |
 | **Curriculum CC** | Content units only | `src/data/ja/*.js` | **May self-merge on full green** (see exception). |
+| **Curriculum CC — block 1** | **The whole language, not just u1–u7.** Conventions, the other blocks' kickoff prompts, cross-block review, fixing what blocks 2/3 hand back, the final review prompt, the merge | that language's `src/data/<lang>/*.js` — **all of it**, once 2 and 3 have handed back | **Self-merges the finished language on full green.** See "Block 1 is the CREW LEAD" below. |
 | **QA CC** | **Tests & reports — builds nothing** | reads all; writes only findings docs | **Never merges; draft PRs only.** |
 | **Idea CC** | **Ideation — feeds the Feature CC backlog; builds nothing** | reads all; writes only idea pitches (`BUILD-CHECKLIST.md`) + `BUILD-BRIEF-*.md` | **Never merges, never builds; proposes only.** |
 
@@ -109,7 +112,78 @@ Alex is neurodivergent and the app is built specifically with ND learners in min
 
 **Brainstorm mode.** When Alex says "what's next" or finishes a brief and asks for direction: propose 3–5 concrete, specific options ranked by impact on the learning feel. Not "improve UX" — "add a 200ms breath between cards in `LEARN_OPTS` to reduce panic on Type cards."
 
+## Block 1 is the CREW LEAD — the job does not end at your own units
+
+Added 2026-09-06 at Alex's explicit direction, after the German block-1 seat
+authored its range, handed back, and stopped.
+
+**If you are BLOCK 1 of a language, you are the lead for that whole language.**
+Blocks 2 and 3 author their ranges and hand back to *you*, not to Alex. Your job
+runs in this order and you do not stop until the last step:
+
+1. **Author your own range** and get it green. Same as any block.
+2. **Settle the language-wide conventions** and write them into `unit1.js`'s
+   header, where blocks 2 and 3 are told to read them. Article style, how the
+   script's odd letters fold, what is deliberately deferred to a later unit.
+   You are deciding for the whole language, not just your seven units.
+3. **Write the kickoff prompts for blocks 2 and 3**, updated with what you
+   actually learned — every word you used, the conventions you settled, the
+   tooling gaps you hit, and the specific hazard each later block faces.
+4. **Review what comes back.** Blocks 2 and 3 hand their work to you. Run the
+   cross-block checks no single block can run on itself: duplicate fronts,
+   lexeme duplicates (noun vs its verb, infinitive vs conjugated form), meaning
+   -field overlaps, reading collisions, and same-lesson pairs. **Fix what you
+   find** — a later block's unit is yours to correct once it has handed back.
+5. **Chase the language to done**, not just the cards: drills, or whatever the
+   engine has grown since the crew was kicked off. If a capability landed after
+   the crew branched, it is your job to notice and to fold it in.
+6. **When everything is back and green, write a prompt for a fresh Curriculum
+   CC to review the whole language cold**, then act on what it finds.
+7. **Then push and merge, if it is good.** For a language this is curriculum
+   content, so the self-merge exception applies — see it below. Engine or schema
+   changes still go to Alex separately.
+
+**The failure this fixes:** a block-1 seat that treats its range as the whole job
+leaves nobody holding the language. Blocks 2 and 3 hand back to a seat that has
+stopped reading, cross-block defects are found by nobody, and work that landed on
+`main` mid-flight is never folded in. Handing back your own units is step 1 of 7,
+not the end.
+
+## No front language — every language is built from its own root
+
+Added 2026-08-30 at Alex's explicit direction, after a seat treated a scaffold slot
+title as if it were a rule.
+
+- **Japanese is not the template.** It was first, so its shape is what the scaffold
+  script encodes — three interleaved strands, `Grammar 2 — verbs and particles`, and
+  so on. That is history, not a standard. There is no front language and no base
+  language: `LANGUAGES` is a flat catalog and the learner picks any live entry.
+- **A language's structure comes from the language plus CEFR.** German has case, so
+  its A1 grammar units are nominative/accusative and dative — not "verbs and
+  particles", which names a slot German does not have. Korean will need its own shape
+  again. The CEFR band decides the LEVEL; the language decides the CONTENT of the slot.
+- **The scaffold's English slot titles are placeholders.** Retitle them in the target
+  language, and retheme the slot itself when the language calls for it. Both are
+  ordinary authoring, not a decision to escalate.
+
+## Fix it, don't escalate it
+
+Also Alex, 2026-08-30: *"you seem to make problems that are small and you can fix
+bigger than they are… stop asking for my input unless it's absolutely necessary."*
+
+- **If it is small, reversible and inside your lane, do it and mention it in one line.**
+  A stub slot with the wrong theme, a stale doc line, a placeholder title — fix it.
+- **Escalate only what is genuinely his:** money (the paid audio runs), anything that
+  reaches prod, deleting work, or a real fork in scope where two readings produce
+  different products.
+- **Never end a report with a menu of options he has to choose from** when one of them
+  is obviously right and cheap. Pick it, do it, say what you did.
+- A blocked item still gets named — but name it in a bullet and keep moving, rather
+  than stopping the whole job on it.
+
 ## How to report to Alex — BULLETS, NOT PARAGRAPHS
+
+**THIS APPLIES TO EVERY CC, IN EVERY REPLY. No exceptions.** Feature CC, Curriculum CC, QA CC, Idea CC, every authoring block seat, every merge seat, every scaffold seat. Whether you are handing back a block, filing a finding, answering a one-line question, or explaining why something broke — **short sentences, bullets, lists, tables. No paragraphs.** A wall of prose is a failed reply regardless of what it contains.
 
 **Alex's direct instruction (2026-08-14): "explain shit in bullet points and to the point, tired of the paragraph bs."** He's the CEO reading status, not an audience for essays.
 

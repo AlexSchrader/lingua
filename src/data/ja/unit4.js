@@ -77,7 +77,7 @@ export const UNIT4 = {
         { id: "ja-u4l3-supu",   type: "vocab", front: "スープ",   reading: "sūpu",    meaning: "soup",    example: { jp: "スープをのみます。",     en: "I drink soup." },       accept: ["soups"] },
         { id: "ja-u4l3-seta",   type: "vocab", front: "セーター", reading: "sētā",    meaning: "sweater", example: { jp: "セーターをきます。",     en: "I wear a sweater." },   accept: ["jumper", "pullover", "sweaters"] },
         { id: "ja-u4l3-sarada", type: "vocab", front: "サラダ",   reading: "sarada",  meaning: "salad",   example: { jp: "サラダをたべます。",     en: "I eat a salad." },      accept: ["salads"] },
-        { id: "ja-u4l3-sofa",   type: "vocab", front: "ソファ",   reading: "sofa",    meaning: "sofa",    example: { jp: "あたらしいソファです。", en: "It's a new sofa." },    accept: ["couch", "sofas"] },
+        { id: "ja-u4l3-sofa",   type: "vocab", front: "ソファ",   reading: "sofa",    meaning: "sofa",    example: { jp: "あたらしいソファです。", en: "It's a new sofa." }, drill: { jp: "ソファはあたらしいです。", en: "The sofa is new." },    accept: ["couch", "sofas"] },
         { id: "ja-u4l3-supotsu", type: "vocab", front: "スポーツ", reading: "supōtsu", meaning: "sports",  example: { jp: "スポーツがすきです。",   en: "I like sports." },      accept: ["sport"] },
         { id: "ja-u4l3-shito",  type: "vocab", front: "シート",   reading: "shīto",   meaning: "seat",    example: { jp: "シートはどこですか。",   en: "Where is the seat?" },  accept: ["seats", "the seat"] },
       ],

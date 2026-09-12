@@ -13,7 +13,7 @@ export const UNIT28 = {
         { id: "ja-u28l1-reji", type: "vocab", front: "レジ", reading: "reji", meaning: "register", example: { jp: "レジではらいます。", en: "I pay at the register." }, accept: ["checkout", "till", "cashier"] },
         { id: "ja-u28l1-fukuro", type: "vocab", front: "ふくろ", reading: "fukuro", meaning: "bag", example: { jp: "ふくろをください。", en: "A bag, please." }, accept: ["sack", "pouch"] },
         { id: "ja-u28l1-shinamono", type: "vocab", front: "しなもの", reading: "shinamono", meaning: "goods", example: { jp: "しなものをえらびます。", en: "I choose an item." }, accept: ["item", "product", "merchandise"] },
-        { id: "ja-u28l1-seru", type: "vocab", front: "セール", reading: "sēru", meaning: "sale", example: { jp: "きょうはセールです。", en: "There's a sale today." }, accept: ["discount sale"] },
+        { id: "ja-u28l1-seru", type: "vocab", front: "セール", reading: "sēru", meaning: "sale", example: { jp: "きょうはセールです。", en: "There's a sale today." }, drill: { jp: "セールはきょうです。", en: "The sale is today." }, accept: ["discount sale"] },
       ],
     },
     {

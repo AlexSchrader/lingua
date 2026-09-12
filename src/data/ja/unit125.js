@@ -74,7 +74,7 @@ export const UNIT125 = {
         { id: "ja-u125l4-tane", type: "kanji", front: "種", reading: "shu", meaning: "kind", example: { jp: "この種の花は強いので、はじめての人にもそだてられます。", en: "This kind of flower is hardy, so even a beginner can grow it." }, accept: ["sort", "seed", "species"], hint: "種 = 禾 (grain) + 重 — the seed a crop comes from, hence a kind or type. 種目 = an event or category." },
         { id: "ja-u125l4-sake", type: "kanji", front: "酒", reading: "sake", meaning: "alcohol", example: { jp: "酒はよわいので、少しだけ飲みます。", en: "I can't take much alcohol, so I drink only a little." }, accept: ["sake", "drink", "liquor"], hint: "酒 = 氵 (liquid) + 酉 (a jar) — what is kept in the jar. お酒 = alcohol generally; 日本酒 = sake specifically." },
         { id: "ja-u125l4-nihonshu", type: "vocab", front: "日本酒", reading: "nihonshu", meaning: "sake", example: { jp: "日本酒はつめたくても飲めますし、あたためてもおいしいです。", en: "Sake is good cold, and it's good warmed as well." }, accept: ["rice wine", "Japanese sake"] },
-        { id: "ja-u125l4-shumoku", type: "vocab", front: "種目", reading: "shumoku", meaning: "event", example: { jp: "この種目は人気があるので、はじめる子どもがふえました。", en: "This event is popular, so more children are taking it up." }, accept: ["category", "discipline", "item on a programme"] },
+        { id: "ja-u125l4-shumoku", type: "vocab", front: "種目", reading: "shumoku", meaning: "event", example: { jp: "この種目は人気があるので、はじめる子どもがふえました。", en: "This event is popular, so more children are taking it up." }, drill: { jp: "種目が おおいです。", en: "There are many events." }, accept: ["category", "discipline", "item on a programme"] },
       ],
     },
   ],

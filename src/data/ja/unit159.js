@@ -43,7 +43,7 @@ export const UNIT159 = {
         { id: "ja-u159l2-6163", type: "kanji", front: "慣", reading: "kan", meaning: "to get used to", example: { jp: "新しい 生活に やっと 慣れました。", en: "I've finally got used to the new life." }, accept: ["accustomed", "habit"] },
         { id: "ja-u159l2-773c", type: "kanji", front: "眼", reading: "gan", meaning: "the eye", example: { jp: "医者に 眼を みて もらいました。", en: "I had a doctor look at my eyes." }, accept: ["eyeball", "insight"] },
         { id: "ja-u159l2-nenga", type: "vocab", front: "年賀", reading: "nenga", meaning: "New Year greeting", example: { jp: "年賀の あいさつを 出しました。", en: "I sent New Year greetings." }, accept: ["new year card"] },
-        { id: "ja-u159l2-kanbu", type: "vocab", front: "幹部", reading: "kanbu", meaning: "the leadership", example: { jp: "会社の 幹部が 集まりました。", en: "The company's leadership gathered." }, accept: ["executives", "senior staff"] },
+        { id: "ja-u159l2-kanbu", type: "vocab", front: "幹部", reading: "kanbu", meaning: "the leadership", example: { jp: "会社の 幹部が 集まりました。", en: "The company's leadership gathered." }, drill: { jp: "幹部が あつまりました。", en: "The leadership gathered." }, accept: ["executives", "senior staff"] },
       ],
     },
     {

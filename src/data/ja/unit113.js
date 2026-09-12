@@ -23,7 +23,7 @@ export const UNIT113 = {
         { id: "ja-u113l1-minato", type: "kanji", front: "港", reading: "minato", meaning: "harbour", example: { jp: "港に 大きな ふねが 着いて、人が たくさん おりました。", en: "A big ship arrived at the harbour and a lot of people got off." }, accept: ["port"], hint: "港 = harbour — 氵 (water) again. 空港 = airport, literally the air-harbour." },
         { id: "ja-u113l1-ko", type: "kanji", front: "庫", reading: "ko", meaning: "storehouse", example: { jp: "車庫に 車を 入れて から、家に 入りました。", en: "I put the car in the garage, then went into the house." }, accept: ["warehouse", "vault"], hint: "庫 = a place to keep things — 車 (vehicle) under a 广 roof. 車庫 = garage, 冷蔵庫 = fridge, 金庫 = a safe." },
         { id: "ja-u113l1-kyoku", type: "kanji", front: "局", reading: "kyoku", meaning: "bureau", example: { jp: "駅の となりに テレビ局が あって、よく 人が 立って います。", en: "There's a TV station next to the station, and people often stand around outside." }, accept: ["office", "station (broadcasting)", "department"], hint: "局 = an office of a larger body. 郵便局 = post office, 薬局 = pharmacy, テレビ局 = TV station." },
-        { id: "ja-u113l1-kuko", type: "vocab", front: "空港", reading: "kūkō", meaning: "airport", example: { jp: "空港まで バスで 一時間 かかります。", en: "It takes an hour to the airport by bus." }, accept: ["air terminal"], hint: "空 (sky) + 港 (harbour) — the harbour for the sky." },
+        { id: "ja-u113l1-kuko", type: "vocab", front: "空港", reading: "kūkō", meaning: "airport", example: { jp: "空港まで バスで 一時間 かかります。", en: "It takes an hour to the airport by bus." }, drill: { jp: "空港は とおいです。", en: "The airport is far." }, accept: ["air terminal"], hint: "空 (sky) + 港 (harbour) — the harbour for the sky." },
         { id: "ja-u113l1-shako", type: "vocab", front: "車庫", reading: "shako", meaning: "garage", example: { jp: "この アパートには 車庫が ありませんから、車は 外に とめて います。", en: "This flat has no garage, so I park the car outside." }, accept: ["car shed", "depot"] },
       ],
     },
@@ -41,7 +41,7 @@ export const UNIT113 = {
         { id: "ja-u113l2-mado", type: "kanji", front: "窓", reading: "mado", meaning: "window", example: { jp: "あつい ので 窓を 開けたら、いい 風が 入って きました。", en: "It was hot, so I opened the window and a nice breeze came in." }, accept: ["a window"], hint: "窓 = window — 穴 (hole) on top and 心 (heart) below: the opening a building looks out of." },
         { id: "ja-u113l2-hashira", type: "kanji", front: "柱", reading: "hashira", meaning: "pillar", example: { jp: "古い 家の 柱は ふとくて、とても 強いです。", en: "The pillars of an old house are thick and very strong." }, accept: ["column", "post"], hint: "柱 = pillar — 木 (wood) + 主 (main): the main piece of timber holding a house up." },
         { id: "ja-u113l2-shusseki", type: "vocab", front: "出席", reading: "shusseki", meaning: "attendance", example: { jp: "かぜで 会議に 出席できませんでした。", en: "I had a cold and couldn't attend the meeting." }, accept: ["to attend", "being present"], hint: "出 (go out) + 席 (seat) — turning up to your seat. Its opposite is 欠席." },
-        { id: "ja-u113l2-denchu", type: "vocab", front: "電柱", reading: "denchū", meaning: "utility pole", example: { jp: "強い 風で 電柱が たおれました。", en: "A strong wind knocked the utility pole down." }, accept: ["telegraph pole", "power pole"] },
+        { id: "ja-u113l2-denchu", type: "vocab", front: "電柱", reading: "denchū", meaning: "utility pole", example: { jp: "強い 風で 電柱が たおれました。", en: "A strong wind knocked the utility pole down." }, drill: { jp: "電柱が たおれました。", en: "The utility pole fell over." }, accept: ["telegraph pole", "power pole"] },
       ],
     },
     {

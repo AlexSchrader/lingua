@@ -52,7 +52,7 @@ export const UNIT89 = {
         { id: "ja-u89l3-yureru", type: "vocab", front: "ゆれる", reading: "yureru", meaning: "to sway", example: { jp: "でんしゃがゆれます。", en: "The train sways." }, accept: ["to shake","to sway"] },
         { id: "ja-u89l3-ochiru", type: "vocab", front: "おちる", reading: "ochiru", meaning: "to fall", example: { jp: "りんごがおちます。", en: "The apple falls." }, accept: ["to drop","to fall"] },
         { id: "ja-u89l3-inoru", type: "vocab", front: "いのる", reading: "inoru", meaning: "to pray", example: { jp: "かみさまにいのります。", en: "I pray to god." }, accept: ["to pray","to wish"] },
-        { id: "ja-u89l3-shitsurei", type: "vocab", front: "しつれい", reading: "shitsurei", meaning: "excuse me", example: { jp: "しつれいします。", en: "Excuse me." }, accept: ["rudeness","impoliteness"], hint: "Also a noun (する): しつれいします = a polite \"excuse me\"." },
+        { id: "ja-u89l3-shitsurei", type: "vocab", front: "しつれい", reading: "shitsurei", meaning: "excuse me", example: { jp: "しつれいします。", en: "Excuse me." }, drill: { jp: "しつれいはよくないです。", en: "Rudeness is not good." }, accept: ["rudeness","impoliteness"], hint: "Also a noun (する): しつれいします = a polite \"excuse me\"." },
         { id: "ja-u89l3-suruto", type: "vocab", front: "すると", reading: "suruto", meaning: "and then", example: { jp: "ドアをあけました。すると、ねこがいました。", en: "I opened the door. Then there was a cat." }, accept: ["thereupon","whereupon"] },
         { id: "ja-u89l3-shogatsu", type: "vocab", front: "しょうがつ", reading: "shōgatsu", meaning: "New Year", example: { jp: "しょうがつはやすみです。", en: "New Year is a holiday." }, accept: ["the New Year","New Year's"] },
       ],

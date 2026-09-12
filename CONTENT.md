@@ -127,6 +127,7 @@ rungs. Allowed only in `a1`+ stage units. KanjiVG entry required (add the char t
 | meaning | string            | ✓        | English gloss; non-empty |
 | example | `{ jp, en }`      | ✓        | one sentence in each language |
 | accept  | string[] (opt)    |          | alternate accepted meanings |
+| drill   | `{ jp, en }` (opt) |         | **short practice sentence** — see below. 3–8 tokens, no internal punctuation, must contain the `front` |
 | hint    | string (opt)      |          | memory hook; non-empty if present |
 
 ---

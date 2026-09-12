@@ -1,7 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { seedItems, UNITS } from "../../src/data/index.js";
-import { MASTERY_FULL_DAYS } from "../../src/store/mastery.js";
+import { PASSES_PER_KIND } from "../../src/store/mastery.js";
+import { eligibleKinds } from "../../src/store/cardRouting.js";
 import {
   milestoneCatalog,
   earnedMilestones,
@@ -20,7 +21,11 @@ function freshMap() {
   return m;
 }
 const read = (m, id) => { m[id] = { ...m[id], rung: Math.max(1, m[id].rung ?? 0) }; };
-const master = (m, id) => { m[id] = { ...m[id], srs: { ...m[id].srs, stability: MASTERY_FULL_DAYS } }; };
+// Mastery is demonstrated passes now, not stability: fill every eligible kind.
+const master = (m, id) => {
+  const passes = Object.fromEntries(eligibleKinds(m[id]).map((k) => [k, PASSES_PER_KIND]));
+  m[id] = { ...m[id], passes };
+};
 
 test("catalog is non-empty and every entry is well-formed", () => {
   const cat = milestoneCatalog();

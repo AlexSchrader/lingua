@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { nextRung, isReviewable, MAX_RUNG, masteryPct, isMastered, MASTERY_FULL_DAYS } from "../../src/store/mastery.js";
+import { nextRung, isReviewable, MAX_RUNG } from "../../src/store/mastery.js";
 
 test("good/easy climbs one rung", () => {
   assert.equal(nextRung({ rung: 1 }, "good"), 2);
@@ -37,20 +37,7 @@ test("isReviewable requires at least RECOGNIZED", () => {
 });
 
 // R25 — concave (sqrt) mastery bar. Endpoints fixed, front-loaded in between.
-test("masteryPct: sqrt map, endpoints 0->0 and full-days->1, clamped", () => {
-  assert.equal(masteryPct({ srs: { stability: 0 } }), 0);
-  assert.equal(masteryPct({ srs: { stability: MASTERY_FULL_DAYS } }), 1); // sqrt(1) === 1 exactly
-  assert.ok(masteryPct({ srs: { stability: MASTERY_FULL_DAYS - 1 } }) < 1);
-  assert.equal(masteryPct({ srs: { stability: 999 } }), 1); // clamped
-  assert.equal(masteryPct({}), 0); // no srs → 0
-  // front-loaded: early stability reads ABOVE the old linear ratio
-  const s = 5;
-  assert.ok(masteryPct({ srs: { stability: s } }) > s / MASTERY_FULL_DAYS);
-});
-
-test("isMastered: trips at exactly MASTERY_FULL_DAYS stability, not a day before", () => {
-  assert.equal(isMastered({ srs: { stability: MASTERY_FULL_DAYS - 1 } }), false);
-  assert.equal(isMastered({ srs: { stability: MASTERY_FULL_DAYS } }), true);
-  assert.equal(isMastered({ srs: { stability: MASTERY_FULL_DAYS + 20 } }), true);
-  assert.equal(isMastered({}), false);
-});
+// Mastery is no longer a calendar quantity — it counts demonstrated passes per card
+// kind, so its tests live with the model they belong to in mastery-passes.test.mjs.
+// The stability-era tests that stood here (sqrt of stability/45) are deliberately gone
+// rather than adapted: they asserted a formula that no longer exists.

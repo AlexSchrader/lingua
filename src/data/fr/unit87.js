@@ -39,7 +39,7 @@ export const FR_UNIT87 = {
       items: [
         { id: "fr-u87l2-brillant", type: "vocab", front: "brillant", reading: "brillant", meaning: "shiny", example: { jp: "Le métal est brillant.", en: "The metal is shiny." }, accept: ["glossy", "sparkling", "bright"], hint: "From briller. Also of a person: un élève brillant is a brilliant pupil." },
         { id: "fr-u87l2-terne", type: "vocab", front: "terne", reading: "terne", meaning: "dull", example: { jp: "Cette couleur est un peu terne.", en: "This colour is a little dull." }, accept: ["drab", "lacklustre", "faded"] },
-        { id: "fr-u87l2-transparent", type: "vocab", front: "transparent", reading: "transparent", meaning: "see-through", example: { jp: "La bouteille est transparente.", en: "The bottle is see-through." }, accept: ["transparent", "clear"] },
+        { id: "fr-u87l2-transparent", type: "vocab", front: "transparent", reading: "transparent", meaning: "see-through", example: { jp: "La bouteille est transparente.", en: "The bottle is see-through." }, drill: { jp: "Le verre est transparent", en: "The glass is see-through" }, accept: ["transparent", "clear"] },
         { id: "fr-u87l2-opaque", type: "vocab", front: "opaque", reading: "opaque", meaning: "not see-through", example: { jp: "Cette fenêtre est opaque.", en: "This window is not see-through." }, accept: ["opaque", "solid"] },
         { id: "fr-u87l2-fonce", type: "vocab", front: "foncé", reading: "fonce", meaning: "dark-coloured", example: { jp: "Je préfère le bleu foncé.", en: "I prefer dark blue." }, accept: ["dark", "deep"], hint: "Goes after the colour: bleu foncé, vert foncé. Its opposite is clair — bleu clair." },
         { id: "fr-u87l2-raye", type: "vocab", front: "rayé", reading: "raye", meaning: "striped", example: { jp: "Il porte une chemise rayée.", en: "He's wearing a striped shirt." }, accept: ["with stripes", "scratched"], hint: "Two senses: striped, and scratched — un disque rayé." },
@@ -76,6 +76,7 @@ export const FR_UNIT87 = {
         { id: "fr-u87l4-lecontour", type: "vocab", front: "le contour", reading: "lecontour", meaning: "outline", example: { jp: "On voit le contour de la montagne.", en: "You can see the outline of the mountain." }, accept: ["the outline", "edge", "shape"] },
         { id: "fr-u87l4-lepaisseur", type: "vocab", front: "l'épaisseur", reading: "lepaisseur", meaning: "thickness", example: { jp: "Quelle est l'épaisseur du mur ?", en: "What's the thickness of the wall?" }, accept: ["the thickness", "depth"], hint: "Feminine, from épais — the pattern that also gives la largeur from large." },
         { id: "fr-u87l4-lapoussiere", type: "vocab", front: "la poussière", reading: "lapoussiere", meaning: "dust", example: { jp: "Il y a de la poussière sur l'étagère.", en: "There's dust on the shelf." }, accept: ["the dust"] },
+        { id: "fr-u87l4-lapparence", type: "vocab", front: "l'apparence", reading: "lapparence", meaning: "the appearance", example: { jp: "Son apparence a beaucoup changé cette année.", en: "His appearance has changed a lot this year." }, accept: ["the appearance", "the look", "the outward look"], hint: "Feminine. En apparence = on the face of it; les apparences sont trompeuses = looks deceive." },
       ],
     },
   ],

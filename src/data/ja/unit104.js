@@ -24,7 +24,7 @@ export const UNIT104 = {
         { id: "ja-u104l1-mu", type: "kanji", front: "務", reading: "mu", meaning: "duty", example: { jp: "その 仕事は 事務の 人が して いますから、ここでは できません。", en: "That work is handled by the office staff, so it can't be done here." }, accept: ["task", "service", "affairs"], hint: "務 = the duties of a role. 事務 = office work, 公務員 = civil servant." },
         { id: "ja-u104l1-ro", type: "kanji", front: "労", reading: "rō", meaning: "labour", example: { jp: "毎日の 労働の あとは、ゆっくり 休むように して います。", en: "After each day of labour I make sure to rest properly." }, accept: ["toil", "effort", "trouble"], hint: "労 = effort spent — 力 (strength) at the bottom. 労働 = labour, 苦労 = hardship, ご苦労さま = thanks for your trouble." },
         { id: "ja-u104l1-kinmu", type: "vocab", front: "勤務", reading: "kinmu", meaning: "service (at a job)", example: { jp: "父は 三十年 同じ 会社で 勤務して います。", en: "My father has served the same company for thirty years." }, accept: ["service", "work", "shift"] },
-        { id: "ja-u104l1-roryoku", type: "vocab", front: "労力", reading: "rōryoku", meaning: "effort", example: { jp: "この 仕事は 労力が かかりますが、おもしろいです。", en: "This job takes effort, but it's interesting." }, accept: ["labour", "trouble", "exertion"], hint: "労 (toil) + 力 (strength) — the strength a job costs you." },
+        { id: "ja-u104l1-roryoku", type: "vocab", front: "労力", reading: "rōryoku", meaning: "effort", example: { jp: "この 仕事は 労力が かかりますが、おもしろいです。", en: "This job takes effort, but it's interesting." }, drill: { jp: "労力が かかります。", en: "It takes effort." }, accept: ["labour", "trouble", "exertion"], hint: "労 (toil) + 力 (strength) — the strength a job costs you." },
       ],
     },
     {
@@ -58,7 +58,7 @@ export const UNIT104 = {
         { id: "ja-u104l3-san", type: "kanji", front: "産", reading: "san", meaning: "to produce", example: { jp: "この 町の 主な 産業は 魚を とる 仕事で、秋は とても いそがしいです。", en: "This town's main industry is fishing, and autumn is very busy." }, accept: ["product", "industry", "birth"], hint: "産 = bring forth. 産業 = industry, お産 = childbirth — the same character for making anything new." },
         { id: "ja-u104l3-shu", type: "kanji", front: "収", reading: "shū", meaning: "to take in", example: { jp: "今年は 会社の 収入が ふえて、みんな 喜びました。", en: "The company's income rose this year, and everyone was pleased." }, accept: ["income", "to collect", "harvest"], hint: "収 = gather in. 収入 = income — literally what comes in; its partner is 支出, what goes out." },
         { id: "ja-u104l3-shohin", type: "vocab", front: "商品", reading: "shōhin", meaning: "goods", example: { jp: "その 店の 商品は 高いですが、質が いいです。", en: "That shop's goods are expensive, but the quality is good." }, accept: ["merchandise", "product", "stock"] },
-        { id: "ja-u104l3-kokusan", type: "vocab", front: "国産", reading: "kokusan", meaning: "domestically produced", example: { jp: "この 車は 国産で、ねだんも 安いです。", en: "This car is domestically made, and cheap too." }, accept: ["home-produced", "made in this country"], hint: "国 (country) + 産 (produce). Its opposite is 外国産." },
+        { id: "ja-u104l3-kokusan", type: "vocab", front: "国産", reading: "kokusan", meaning: "domestically produced", example: { jp: "この 車は 国産で、ねだんも 安いです。", en: "This car is domestically made, and cheap too." }, drill: { jp: "国産の くるまです。", en: "It is a domestically produced car." }, accept: ["home-produced", "made in this country"], hint: "国 (country) + 産 (produce). Its opposite is 外国産." },
       ],
     },
     {
@@ -75,7 +75,7 @@ export const UNIT104 = {
         { id: "ja-u104l4-gaku", type: "kanji", front: "額", reading: "gaku", meaning: "amount", example: { jp: "その 金額では 買えませんから、もう少し 考えます。", en: "I can't buy it for that amount, so I'll think about it more." }, accept: ["sum", "forehead", "framed picture"], hint: "額 = a stated sum — 金額 = amount of money. It also means forehead, and a picture frame." },
         { id: "ja-u104l4-bo", type: "kanji", front: "募", reading: "bo", meaning: "to recruit", example: { jp: "その 店は 新しい 人を 募集して いますから、あとで 電話します。", en: "That shop is recruiting new people, so I'll call later." }, accept: ["to invite applications", "to raise", "to gather"], hint: "募 = call for people — 力 (strength) at the bottom. 募集 = recruitment, 応募 = applying." },
         { id: "ja-u104l4-shiten", type: "vocab", front: "支店", reading: "shiten", meaning: "branch shop", example: { jp: "駅の 前に 銀行の 支店が あります。", en: "There's a bank branch in front of the station." }, accept: ["branch office"], hint: "支 (branch off) + 店 (shop) — the shop that branched from the main one. 本店 is the head shop." },
-        { id: "ja-u104l4-kingaku", type: "vocab", front: "金額", reading: "kingaku", meaning: "sum of money", example: { jp: "その 金額では 買えませんから、また 今度 にします。", en: "I can't buy it for that sum, so I'll leave it for another time." }, accept: ["amount", "figure"] },
+        { id: "ja-u104l4-kingaku", type: "vocab", front: "金額", reading: "kingaku", meaning: "sum of money", example: { jp: "その 金額では 買えませんから、また 今度 にします。", en: "I can't buy it for that sum, so I'll leave it for another time." }, drill: { jp: "金額が おおきいです。", en: "The sum of money is large." }, accept: ["amount", "figure"] },
       ],
     },
   ],

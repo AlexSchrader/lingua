@@ -19,7 +19,7 @@ export const UNIT87 = {
         { id: "ja-u87l1-mittsu", type: "vocab", front: "みっつ", reading: "mittsu", meaning: "three", example: { jp: "りんごをみっつかいます。", en: "I buy three apples." }, accept: ["3","three things","three (things)"] },
         { id: "ja-u87l1-muika", type: "vocab", front: "むいか", reading: "muika", meaning: "six days", example: { jp: "むいかかかります。", en: "It takes six days." }, accept: ["6 days","the 6th","sixth day"] },
         { id: "ja-u87l1-muttsu", type: "vocab", front: "むっつ", reading: "muttsu", meaning: "six", example: { jp: "りんごがむっつあります。", en: "There are six apples." }, accept: ["six things","six (things)"] },
-        { id: "ja-u87l1-moshimoshi", type: "vocab", front: "もしもし", reading: "moshimoshi", meaning: "hello (on the phone)", example: { jp: "もしもし、たなかさんですか。", en: "Hello, is this Tanaka?" }, accept: ["hello","hello?"] },
+        { id: "ja-u87l1-moshimoshi", type: "vocab", front: "もしもし", reading: "moshimoshi", meaning: "hello (on the phone)", example: { jp: "もしもし、たなかさんですか。", en: "Hello, is this Tanaka?" }, drill: { jp: "もしもしといいます。", en: "I say hello on the phone." }, accept: ["hello","hello?"] },
         { id: "ja-u87l1-yattsu", type: "vocab", front: "やっつ", reading: "yattsu", meaning: "eight", example: { jp: "たまごがやっつあります。", en: "There are eight eggs." }, accept: ["eight things","eight (things)"] },
       ],
     },

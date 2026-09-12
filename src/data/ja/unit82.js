@@ -15,7 +15,7 @@ export const UNIT82 = {
       dominantMode: "recall",
       canDo: "Core JLPT N5 vocabulary: あそこ あちら あと あびる いい よい.",
       items: [
-        { id: "ja-u82l1-asoko", type: "vocab", front: "あそこ", reading: "asoko", meaning: "over there", example: { jp: "トイレはあそこです。", en: "The toilet is over there." }, accept: ["that place","there"] },
+        { id: "ja-u82l1-asoko", type: "vocab", front: "あそこ", reading: "asoko", meaning: "over there", example: { jp: "トイレはあそこです。", en: "The toilet is over there." }, drill: { jp: "あそこにトイレがあります。", en: "There is a toilet over there." }, accept: ["that place","there"] },
         { id: "ja-u82l1-achira", type: "vocab", front: "あちら", reading: "achira", meaning: "that way", example: { jp: "あちらへどうぞ。", en: "Please go that way." }, accept: ["over there","that direction"] },
         { id: "ja-u82l1-ato", type: "vocab", front: "あと", reading: "ato", meaning: "later", example: { jp: "あとでいきます。", en: "I'll go later." }, accept: ["after","afterwards"] },
         { id: "ja-u82l1-abiru", type: "vocab", front: "あびる", reading: "abiru", meaning: "to take (a shower)", example: { jp: "シャワーをあびる。", en: "I take a shower." }, accept: ["to bathe","to shower"] },

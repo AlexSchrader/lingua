@@ -23,7 +23,7 @@ export const UNIT12 = {
       items: [
         { id: "ja-u12l1-aka",    type: "vocab", front: "あか",   reading: "aka",    meaning: "red",    example: { jp: "あかがすきです。",       en: "I like red." },          accept: ["the color red"] },
         { id: "ja-u12l1-ao",     type: "vocab", front: "あお",   reading: "ao",     meaning: "blue",   example: { jp: "そらはあおです。",       en: "The sky is blue." },     accept: [] },
-        { id: "ja-u12l1-kiiro",  type: "vocab", front: "きいろ", reading: "kiiro",  meaning: "yellow", example: { jp: "バナナはきいろです。",   en: "A banana is yellow." },  accept: [] },
+        { id: "ja-u12l1-kiiro",  type: "vocab", front: "きいろ", reading: "kiiro",  meaning: "yellow", example: { jp: "バナナはきいろです。",   en: "A banana is yellow." }, drill: { jp: "きいろがすきです。", en: "I like yellow." },  accept: [] },
         { id: "ja-u12l1-kuro",   type: "vocab", front: "くろ",   reading: "kuro",   meaning: "black",  example: { jp: "くろのくつです。",       en: "They're black shoes." }, accept: [] },
         { id: "ja-u12l1-midori", type: "vocab", front: "みどり", reading: "midori", meaning: "green",  example: { jp: "みどりがすきです。",     en: "I like green." },        accept: [] },
         { id: "ja-u12l1-iro",    type: "vocab", front: "いろ",   reading: "iro",    meaning: "color",  example: { jp: "すきないろはなんですか。", en: "What's your favorite color?" }, accept: ["colour"] },

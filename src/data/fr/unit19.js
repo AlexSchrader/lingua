@@ -37,7 +37,7 @@ export const FR_UNIT19 = {
       dominantMode: "recall",
       canDo: "Travel: le billet, la valise, le voyage, l'aéroport, l'arrêt, le départ, l'arrivée.",
       items: [
-        { id: "fr-u19l2-lebillet", type: "vocab", front: "le billet", reading: "lebillet", meaning: "ticket", example: { jp: "Un billet pour Paris, s'il vous plaît.", en: "One ticket to Paris, please." }, accept: ["the ticket", "note", "bill"], hint: "Also a banknote — un billet de vingt euros." },
+        { id: "fr-u19l2-lebillet", type: "vocab", front: "le billet", reading: "lebillet", meaning: "ticket", example: { jp: "Un billet pour Paris, s'il vous plaît.", en: "One ticket to Paris, please." }, drill: { jp: "Le billet est à dix euros", en: "The ticket is ten euros" }, accept: ["the ticket", "note", "bill"], hint: "Also a banknote — un billet de vingt euros." },
         { id: "fr-u19l2-lavalise", type: "vocab", front: "la valise", reading: "lavalise", meaning: "suitcase", example: { jp: "Ma valise est trop grande.", en: "My suitcase is too big." }, accept: ["the suitcase", "luggage", "case"] },
         { id: "fr-u19l2-levoyage", type: "vocab", front: "le voyage", reading: "levoyage", meaning: "trip", example: { jp: "Bon voyage !", en: "Have a good trip!" }, accept: ["the trip", "journey", "travel"], hint: "Bon voyage ! is what you say to someone leaving — English borrowed it whole." },
         { id: "fr-u19l2-laeroport", type: "vocab", front: "l'aéroport", reading: "laeroport", meaning: "airport", example: { jp: "L'aéroport est loin de la ville.", en: "The airport is far from the city." }, accept: ["the airport"] },
@@ -61,7 +61,7 @@ export const FR_UNIT19 = {
         { id: "fr-u19l3-jedescends", type: "vocab", front: "je descends", reading: "jedescends", meaning: "I get off", example: { jp: "Je descends à la gare.", en: "I get off at the station." }, accept: ["i go down", "i get out"] },
         { id: "fr-u19l3-jeconduis", type: "vocab", front: "je conduis", reading: "jeconduis", meaning: "I drive", example: { jp: "Je conduis la voiture de mon père.", en: "I drive my father's car." }, accept: ["i'm driving"] },
         { id: "fr-u19l3-jemarche", type: "vocab", front: "je marche", reading: "jemarche", meaning: "I walk", example: { jp: "Je marche tous les jours.", en: "I walk every day." }, accept: ["i'm walking"] },
-        { id: "fr-u19l3-vite", type: "vocab", front: "vite", reading: "vite", meaning: "quickly", example: { jp: "Vite ! Le train est là !", en: "Quick! The train is here!" }, accept: ["fast", "quick", "hurry"] },
+        { id: "fr-u19l3-vite", type: "vocab", front: "vite", reading: "vite", meaning: "quickly", example: { jp: "Vite ! Le train est là !", en: "Quick! The train is here!" }, drill: { jp: "Le train arrive très vite", en: "The train arrives very quickly" }, accept: ["fast", "quick", "hurry"] },
         { id: "fr-u19l3-lent", type: "vocab", front: "lent", reading: "lent", meaning: "slow", example: { jp: "Le bus est lent aujourd'hui.", en: "The bus is slow today." }, accept: ["slowly"] },
       ],
     },

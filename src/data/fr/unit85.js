@@ -36,9 +36,9 @@ export const FR_UNIT85 = {
       dominantMode: "recall",
       canDo: "Describe how bright a place is: a glow, a reflection, light it up — and call it bright, dark or pale.",
       items: [
-        { id: "fr-u85l2-lalueur", type: "vocab", front: "la lueur", reading: "lalueur", meaning: "glow", example: { jp: "Il y a une lueur à la fenêtre.", en: "There's a glow at the window." }, accept: ["gleam", "glimmer", "faint light"] },
+        { id: "fr-u85l2-lalueur", type: "vocab", front: "la lueur", reading: "lalueur", meaning: "glow", example: { jp: "Il y a une lueur à la fenêtre.", en: "There's a glow at the window." }, drill: { jp: "La lueur est à la fenêtre", en: "The glow is at the window" }, accept: ["gleam", "glimmer", "faint light"] },
         { id: "fr-u85l2-lereflet", type: "vocab", front: "le reflet", reading: "lereflet", meaning: "reflection", example: { jp: "Je vois mon reflet dans le miroir.", en: "I see my reflection in the mirror." }, accept: ["the reflection", "image"] },
-        { id: "fr-u85l2-eclairer", type: "vocab", front: "éclairer", reading: "eclairer", meaning: "to light up", example: { jp: "Cette lampe éclaire bien la pièce.", en: "This lamp lights the room well." }, accept: ["illuminate", "brighten", "shine on"] },
+        { id: "fr-u85l2-eclairer", type: "vocab", front: "éclairer", reading: "eclairer", meaning: "to light up", example: { jp: "Cette lampe éclaire bien la pièce.", en: "This lamp lights the room well." }, drill: { jp: "Cette lampe va éclairer la pièce", en: "This lamp is going to light up the room" }, accept: ["illuminate", "brighten", "shine on"] },
         { id: "fr-u85l2-lumineux", type: "vocab", front: "lumineux", reading: "lumineux", meaning: "bright", example: { jp: "L'appartement est très lumineux.", en: "The flat is very bright." }, accept: ["light", "well-lit", "luminous"], hint: "Of a room or a place full of daylight — the estate-agent word for a flat with big windows." },
         { id: "fr-u85l2-sombre", type: "vocab", front: "sombre", reading: "sombre", meaning: "dark", example: { jp: "Le couloir est un peu sombre.", en: "The corridor is a little dark." }, accept: ["gloomy", "dim", "dingy"] },
         { id: "fr-u85l2-pale", type: "vocab", front: "pâle", reading: "pale", meaning: "washed out", example: { jp: "Tu es pâle, tu es malade ?", en: "You're pale, are you ill?" }, accept: ["pale", "pallid", "light"], hint: "Of a face, or of a colour: un bleu pâle. The â is long and open." },
@@ -58,6 +58,7 @@ export const FR_UNIT85 = {
         { id: "fr-u85l3-sourd", type: "vocab", front: "sourd", reading: "sourd", meaning: "deaf", example: { jp: "Mon grand-père est un peu sourd.", en: "My grandfather is a little deaf." }, accept: ["hard of hearing", "muffled", "dull"], hint: "Also of a sound: un bruit sourd is a dull, muffled thud." },
         { id: "fr-u85l3-aigu", type: "vocab", front: "aigu", reading: "aigu", meaning: "shrill", example: { jp: "Ce bruit est trop aigu.", en: "This noise is too shrill." }, accept: ["high-pitched", "sharp", "piercing"], hint: "The same word as in l'accent aigu — sharp, whether it's a sound or a line." },
         { id: "fr-u85l3-lavoix", type: "vocab", front: "la voix", reading: "lavoix", meaning: "voice", example: { jp: "Je reconnais sa voix.", en: "I recognize their voice." }, accept: ["the voice"], hint: "The x is silent, and it's the same in the singular and plural: une voix, des voix." },
+        { id: "fr-u85l3-levacarme", type: "vocab", front: "le vacarme", reading: "levacarme", meaning: "the din / racket", example: { jp: "Impossible de dormir avec ce vacarme.", en: "Impossible to sleep with that racket." }, accept: ["the din", "the racket", "the uproar"], hint: "Far stronger than le bruit — a noise that fills the whole room. Faire du vacarme." },
       ],
     },
     {

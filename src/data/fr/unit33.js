@@ -61,7 +61,7 @@ export const FR_UNIT33 = {
         { id: "fr-u33l3-lelion", type: "vocab", front: "le lion", reading: "lelion", meaning: "lion", example: { jp: "Le lion n'est pas un animal de ferme.", en: "The lion is not a farm animal." }, accept: ["the lion"] },
         { id: "fr-u33l3-lesinge", type: "vocab", front: "le singe", reading: "lesinge", meaning: "monkey", example: { jp: "Le singe est dans l'arbre.", en: "The monkey is in the tree." }, accept: ["the monkey", "ape"] },
         { id: "fr-u33l3-leloup", type: "vocab", front: "le loup", reading: "leloup", meaning: "wolf", example: { jp: "Dans la forêt, il y a un loup.", en: "There's a wolf in the forest." }, accept: ["the wolf"] },
-        { id: "fr-u33l3-linsecte", type: "vocab", front: "l'insecte", reading: "linsecte", meaning: "insect", example: { jp: "Il y a un insecte sur la fleur.", en: "There's an insect on the flower." }, accept: ["a bug", "the insect"] },
+        { id: "fr-u33l3-linsecte", type: "vocab", front: "l'insecte", reading: "linsecte", meaning: "insect", example: { jp: "Il y a un insecte sur la fleur.", en: "There's an insect on the flower." }, drill: { jp: "L'insecte est sur la fleur", en: "The insect is on the flower" }, accept: ["a bug", "the insect"] },
       ],
     },
     {
@@ -74,10 +74,10 @@ export const FR_UNIT33 = {
       canDo: "Describe the detail of a place outdoors: grass, a stone, the path, sand, leaves and the moon.",
       items: [
         { id: "fr-u33l4-lherbe", type: "vocab", front: "l'herbe", reading: "lherbe", meaning: "grass", example: { jp: "L'herbe est verte.", en: "The grass is green." }, accept: ["the grass", "herb"] },
-        { id: "fr-u33l4-lapierre", type: "vocab", front: "la pierre", reading: "lapierre", meaning: "stone", example: { jp: "Il y a une pierre sur le chemin.", en: "There's a stone on the path." }, accept: ["a rock", "the stone"] },
+        { id: "fr-u33l4-lapierre", type: "vocab", front: "la pierre", reading: "lapierre", meaning: "stone", example: { jp: "Il y a une pierre sur le chemin.", en: "There's a stone on the path." }, drill: { jp: "La pierre est sur le chemin", en: "The stone is on the path" }, accept: ["a rock", "the stone"] },
         { id: "fr-u33l4-lechemin", type: "vocab", front: "le chemin", reading: "lechemin", meaning: "path", example: { jp: "Le chemin va à la mer.", en: "The path goes to the sea." }, accept: ["the way", "track", "the path"] },
         { id: "fr-u33l4-lesable", type: "vocab", front: "le sable", reading: "lesable", meaning: "sand", example: { jp: "Sur la plage, il y a du sable.", en: "There's sand on the beach." }, accept: ["the sand"] },
-        { id: "fr-u33l4-lafeuille", type: "vocab", front: "la feuille", reading: "lafeuille", meaning: "leaf", example: { jp: "En automne, les feuilles sont jaunes.", en: "In autumn the leaves are yellow." }, accept: ["the leaf", "sheet", "a sheet of paper"], hint: "A leaf on a tree and a sheet of paper are the same word." },
+        { id: "fr-u33l4-lafeuille", type: "vocab", front: "la feuille", reading: "lafeuille", meaning: "leaf", example: { jp: "En automne, les feuilles sont jaunes.", en: "In autumn the leaves are yellow." }, drill: { jp: "La feuille est jaune", en: "The leaf is yellow" }, accept: ["the leaf", "sheet", "a sheet of paper"], hint: "A leaf on a tree and a sheet of paper are the same word." },
         { id: "fr-u33l4-lalune", type: "vocab", front: "la lune", reading: "lalune", meaning: "moon", example: { jp: "La nuit, la lune est dans le ciel.", en: "At night the moon is in the sky." }, accept: ["the moon"] },
       ],
     },

@@ -18,7 +18,7 @@ export const UNIT25 = {
         { id: "ja-u25l1-shacho", type: "vocab", front: "しゃちょう", reading: "shachō", meaning: "company president", example: { jp: "しゃちょうはしんせつです。", en: "The president is kind." }, accept: ["boss", "CEO", "the president"] },
         { id: "ja-u25l1-meishi", type: "vocab", front: "めいし", reading: "meishi", meaning: "business card", example: { jp: "これはめいしです。", en: "This is a business card." }, accept: ["name card"] },
         { id: "ja-u25l1-shutcho", type: "vocab", front: "しゅっちょう", reading: "shutchō", meaning: "business trip", example: { jp: "しゅっちょうにいきます。", en: "I go on a business trip." }, accept: ["work trip"] },
-        { id: "ja-u25l1-zangyo", type: "vocab", front: "ざんぎょう", reading: "zangyō", meaning: "overtime", example: { jp: "きょうはざんぎょうです。", en: "I have overtime today." }, accept: ["working late"] },
+        { id: "ja-u25l1-zangyo", type: "vocab", front: "ざんぎょう", reading: "zangyō", meaning: "overtime", example: { jp: "きょうはざんぎょうです。", en: "I have overtime today." }, drill: { jp: "ざんぎょうがおおいです。", en: "There is a lot of overtime." }, accept: ["working late"] },
       ],
     },
     {

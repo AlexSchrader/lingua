@@ -30,7 +30,7 @@ export const UNIT3 = {
         { id: "ja-u3l1-kagi",   type: "vocab", front: "かぎ",     reading: "kagi",   meaning: "key",       example: { jp: "かぎをなくしました。",    en: "I lost my key." },         accept: ["keys"] },
         { id: "ja-u3l1-gohan",  type: "vocab", front: "ごはん",   reading: "gohan",  meaning: "rice/meal", example: { jp: "ごはんをたべます。",      en: "I eat a meal." },          accept: ["rice", "meal", "cooked rice"] },
         { id: "ja-u3l1-genki",  type: "vocab", front: "げんき",   reading: "genki",  meaning: "well/healthy", example: { jp: "げんきですか。",        en: "Are you well?" },          accept: ["healthy", "energetic", "fine"] },
-        { id: "ja-u3l1-kagu",   type: "vocab", front: "かぐ",     reading: "kagu",   meaning: "furniture", example: { jp: "あたらしいかぐです。",    en: "It's new furniture." },    accept: [] },
+        { id: "ja-u3l1-kagu",   type: "vocab", front: "かぐ",     reading: "kagu",   meaning: "furniture", example: { jp: "あたらしいかぐです。",    en: "It's new furniture." }, drill: { jp: "かぐはあたらしいです。", en: "The furniture is new." },    accept: [] },
       ],
     },
     // Lesson 2: ざ row (voiced さ row)

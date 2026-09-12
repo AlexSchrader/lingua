@@ -94,7 +94,7 @@ export const FR_UNIT84 = {
       canDo: "Name six things a hand does to something: knock, type, scratch, stroke, pinch, twist.",
       items: [
         { id: "fr-u84l4-frapper", type: "vocab", front: "frapper", reading: "frapper", meaning: "to knock", example: { jp: "Il faut frapper à la porte.", en: "You have to knock on the door." }, accept: ["hit", "strike", "bang"] },
-        { id: "fr-u84l4-taper", type: "vocab", front: "taper", reading: "taper", meaning: "to type", example: { jp: "Je tape le mot de passe.", en: "I type the password." }, accept: ["tap", "bang", "hit"], hint: "Same word for hitting a key and hitting anything else: taper à la porte." },
+        { id: "fr-u84l4-taper", type: "vocab", front: "taper", reading: "taper", meaning: "to type", example: { jp: "Je tape le mot de passe.", en: "I type the password." }, drill: { jp: "Je vais taper le mot de passe", en: "I am going to type the password" }, accept: ["tap", "bang", "hit"], hint: "Same word for hitting a key and hitting anything else: taper à la porte." },
         { id: "fr-u84l4-gratter", type: "vocab", front: "gratter", reading: "gratter", meaning: "to scratch", example: { jp: "Le chien se gratte l'oreille.", en: "The dog scratches its ear." }, accept: ["scrape", "itch"] },
         { id: "fr-u84l4-caresser", type: "vocab", front: "caresser", reading: "caresser", meaning: "to stroke", example: { jp: "J'aime caresser le chat.", en: "I like stroking the cat." }, accept: ["pet", "caress"] },
         { id: "fr-u84l4-pincer", type: "vocab", front: "pincer", reading: "pincer", meaning: "to pinch", example: { jp: "Il ne faut pas pincer son frère.", en: "You mustn't pinch your brother." }, accept: ["nip", "squeeze"] },

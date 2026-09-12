@@ -26,7 +26,7 @@ export const UNIT21 = {
         { id: "ja-u21l1-mashita", type: "vocab", front: "ました", reading: "mashita", meaning: "(did)", example: { jp: "きのう、すしをたべました。", en: "I ate sushi yesterday." }, accept: ["past tense", "-ed"], hint: "～ます → ～ました makes a verb PAST: たべます (eat) → たべました (ate). Polite past." },
         { id: "ja-u21l1-masen", type: "vocab", front: "ません", reading: "masen", meaning: "(don't)", example: { jp: "にくをたべません。", en: "I don't eat meat." }, accept: ["negative", "not", "won't"], hint: "～ます → ～ません makes a verb NEGATIVE (present): たべます → たべません = don't/won't eat." },
         { id: "ja-u21l1-masendeshita", type: "vocab", front: "ませんでした", reading: "masendeshita", meaning: "(didn't)", example: { jp: "あさごはんをたべませんでした。", en: "I didn't eat breakfast." }, accept: ["past negative", "didn't"], hint: "～ません + でした = PAST NEGATIVE: たべませんでした = didn't eat." },
-        { id: "ja-u21l1-senshu", type: "vocab", front: "せんしゅう", reading: "senshū", meaning: "last week", example: { jp: "せんしゅう、えいがをみました。", en: "I watched a movie last week." }, accept: ["the last week"] },
+        { id: "ja-u21l1-senshu", type: "vocab", front: "せんしゅう", reading: "senshū", meaning: "last week", example: { jp: "せんしゅう、えいがをみました。", en: "I watched a movie last week." }, drill: { jp: "せんしゅうはえいがをみました。", en: "Last week I watched a film." }, accept: ["the last week"] },
         { id: "ja-u21l1-kyonen", type: "vocab", front: "きょねん", reading: "kyonen", meaning: "last year", example: { jp: "きょねん、にほんにいきました。", en: "I went to Japan last year." }, accept: ["the last year"] },
       ],
     },

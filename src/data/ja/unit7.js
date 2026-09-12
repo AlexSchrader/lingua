@@ -79,7 +79,7 @@ export const UNIT7 = {
       items: [
         { id: "ja-u7l4-ji",    type: "vocab", front: "じ",     reading: "ji",    meaning: "o'clock", example: { jp: "いま、さんじです。", en: "It's 3 o'clock now." }, accept: ["hour", "hours"] },
         { id: "ja-u7l4-fun",   type: "vocab", front: "ふん",   reading: "fun",   meaning: "minute", example: { jp: "ごふんです。", en: "It's five minutes." }, accept: ["minutes", "pun"] },
-        { id: "ja-u7l4-ima",   type: "vocab", front: "いま",   reading: "ima",   meaning: "now",    example: { jp: "いま、なんじですか。", en: "What time is it now?" }, accept: ["right now"] },
+        { id: "ja-u7l4-ima",   type: "vocab", front: "いま",   reading: "ima",   meaning: "now",    example: { jp: "いま、なんじですか。", en: "What time is it now?" }, drill: { jp: "いまはあさです。", en: "It is morning now." }, accept: ["right now"] },
         { id: "ja-u7l4-han",   type: "vocab", front: "はん",   reading: "han",   meaning: "half past", example: { jp: "しちじはんです。", en: "It's half past seven." }, accept: ["half", "thirty (minutes)"] },
         { id: "ja-u7l4-gozen", type: "vocab", front: "ごぜん", reading: "gozen", meaning: "a.m.",   example: { jp: "ごぜんくじです。", en: "It's 9 a.m." }, accept: ["morning", "am"] },
         { id: "ja-u7l4-gogo",  type: "vocab", front: "ごご",   reading: "gogo",  meaning: "p.m.",   example: { jp: "ごごさんじです。", en: "It's 3 p.m." }, accept: ["afternoon", "pm"] },
@@ -100,7 +100,7 @@ export const UNIT7 = {
         { id: "ja-u7l5-kyo",    type: "vocab", front: "きょう", reading: "kyō",    meaning: "today",     example: { jp: "きょうはやすみです。", en: "Today is a day off." }, accept: [] },
         { id: "ja-u7l5-ashita", type: "vocab", front: "あした", reading: "ashita", meaning: "tomorrow",  example: { jp: "あした、がっこうにいきます。", en: "Tomorrow I go to school." }, accept: [] },
         { id: "ja-u7l5-kino",   type: "vocab", front: "きのう", reading: "kinō",   meaning: "yesterday", example: { jp: "きのうと きょう。", en: "Yesterday and today." }, accept: [] },
-        { id: "ja-u7l5-asa",    type: "vocab", front: "あさ",   reading: "asa",    meaning: "morning",   example: { jp: "あさ、コーヒーをのみます。", en: "In the morning I drink coffee." }, accept: ["the morning"] },
+        { id: "ja-u7l5-asa",    type: "vocab", front: "あさ",   reading: "asa",    meaning: "morning",   example: { jp: "あさ、コーヒーをのみます。", en: "In the morning I drink coffee." }, drill: { jp: "あさはコーヒーをのみます。", en: "In the morning I drink coffee." }, accept: ["the morning"] },
         { id: "ja-u7l5-hiru",   type: "vocab", front: "ひる",   reading: "hiru",   meaning: "noon",      example: { jp: "ひるにたべます。", en: "I eat at noon." }, accept: ["midday", "daytime", "lunchtime"] },
         { id: "ja-u7l5-ban",    type: "vocab", front: "ばん",   reading: "ban",    meaning: "evening",   example: { jp: "こんばんは。", en: "Good evening." }, accept: ["night"] },
         { id: "ja-u7l5-konban", type: "vocab", front: "こんばん", reading: "konban", meaning: "tonight", example: { jp: "こんばん、テレビをみます。", en: "Tonight I'll watch TV." }, accept: ["this evening"] },

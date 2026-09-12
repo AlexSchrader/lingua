@@ -79,7 +79,7 @@ export const UNIT56 = {
         { id: "ja-u56l4-yotei", type: "vocab", front: "よてい", reading: "yotei", meaning: "plan", example: { jp: "あしたのよていはなんですか。", en: "What are your plans for tomorrow?" }, accept: ["schedule", "plans"] },
         { id: "ja-u56l4-nanyoubi", type: "vocab", front: "なんようび", reading: "nanyōbi", meaning: "what day of the week", example: { jp: "きょうはなんようびですか。", en: "What day is it today?" }, accept: ["which day"] },
         { id: "ja-u56l4-saisho", type: "vocab", front: "さいしょ", reading: "saisho", meaning: "the beginning", example: { jp: "さいしょはむずかしいです。", en: "At first it's difficult." }, accept: ["first", "the start"] },
-        { id: "ja-u56l4-saigo", type: "vocab", front: "さいご", reading: "saigo", meaning: "the end", example: { jp: "さいごまでがんばります。", en: "I'll try hard to the end." }, accept: ["last", "the final one"] },
+        { id: "ja-u56l4-saigo", type: "vocab", front: "さいご", reading: "saigo", meaning: "the end", example: { jp: "さいごまでがんばります。", en: "I'll try hard to the end." }, drill: { jp: "さいごはたのしかったです。", en: "The end was fun." }, accept: ["last", "the final one"] },
         { id: "ja-u56l4-konogoro", type: "vocab", front: "このごろ", reading: "konogoro", meaning: "these days", example: { jp: "このごろさむいです。", en: "It's been cold these days." }, accept: ["nowadays", "lately"] },
       ],
     },

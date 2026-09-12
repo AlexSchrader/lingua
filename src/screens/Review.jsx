@@ -12,12 +12,17 @@ import ConjugateCard from "../components/games/ConjugateCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import Celebration from "../components/Celebration.jsx";
 import { useStore, REVIEW_CAP, activeLangId } from "../store/useStore.js";
-import { isReviewable, nextRung, MAX_RUNG } from "../store/mastery.js";
+import { isReviewable, nextRung, MAX_RUNG, isMastered, masteryPct } from "../store/mastery.js";
 import { sfxRungUp, sfxMastered } from "../store/sfx.js";
-import { isTraceable, shouldListen, shouldReverseChoice, shouldListenType, shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze, shouldSentence, shouldConjugate, canBuildReading } from "../store/cardRouting.js";
+import { reviewStepFor } from "../store/reviewStep.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
+
+// A practice run is deliberately short — it is meant to be repeatable three times a
+// day without becoming a slog, and the 4/day per-item cap means a longer run would
+// just hit the ceiling on the same words.
+const PRACTICE_SIZE = 12;
 
 function assertLiveKind(kindKey) {
   if (!LIVE_CARD_KINDS.includes(kindKey)) {
@@ -25,65 +30,6 @@ function assertLiveKind(kindKey) {
   }
 }
 
-function reviewStepFor(item) {
-  const rung = item.rung ?? 1;
-  // A conjugation drill is the whole item. cardRouting has always SAID this — "a
-  // conjForm item's whole purpose IS the conjugation drill, so it always routes to
-  // the conjugate card" — but the check sat at rung 3 only, so the same item drew
-  // `choice` at rung 1, `type:meaning` at rung 2 and `speak` at rung 4.
-  //
-  // Those are unanswerable for a tagged item. The front is the INFINITIVE (that is
-  // what the engine conjugates from), so the six persons of one tense are six items
-  // that all read "être": six identical prompts with six different expected answers.
-  // Only the form tag tells them apart, and only the conjugate card shows it.
-  //
-  // Guarded on shouldConjugate, which already requires the engine to actually produce
-  // a form — so a mistagged verb still degrades to the normal cards rather than
-  // showing a drill nobody can answer.
-  if (rung >= 1 && shouldConjugate(item)) return { kind: "conjugate" };
-  // Recognition (rung ≤ 1): interleave three same-skill variants — the ear path
-  // (listen:choice, audio in), the reverse direction (choice:reverse, English in →
-  // pick the Japanese), and the plain eye path (choice, glyph in → pick the meaning).
-  if (rung <= 1) {
-    if (shouldListen(item)) return { kind: "listen:choice" };
-    if (shouldReverseChoice(item)) return { kind: "choice:reverse" };
-    return { kind: "choice" };
-  }
-  // Recall (rung 2): three interleaved recall paths on distinct hash bands — fill
-  // the word into its own sentence (cloze), recall by ear (dictation), or the
-  // visual recall (type the reading, else the meaning).
-  if (rung === 2) {
-    // In the cloze band, a sentence with a clear particle drills the PARTICLE
-    // (the grammar pain point); otherwise fill the WORD into its sentence.
-    if (shouldParticleCloze(item)) return { kind: "particle:choice" };
-    if (shouldCloze(item)) return { kind: "cloze:choice" };
-    if (shouldListenType(item)) return { kind: "listen:type" };
-    return shouldTypeReading(item) ? { kind: "type", mode: "reading" } : { kind: "type", mode: "meaning" };
-  }
-  // Produce (rung 3): single-glyph kana + kanji are produced by stroke tracing;
-  // words are produced by TYPING the Japanese from the English — rōmaji is accepted
-  // through A1 so no JP keyboard is needed, kana required from A2 (see checkProduce)
-  // — interleaved with building the word from tiles.
-  if (rung === 3) {
-    // A tagged verb with a target form is a conjugation drill — always conjugate.
-    if (shouldConjugate(item)) return { kind: "conjugate" };
-    if (isTraceable(item)) return { kind: "trace" };
-    // Reassemble the whole example sentence (production in context) for a share of
-    // eligible vocab; else type the Japanese, else build the word from tiles.
-    if (shouldSentence(item)) return { kind: "sentence:build" };
-    // The tile-build card is a transliteration test, so it only applies where the
-    // reading is a different script from the front (see canBuildReading) — a
-    // Latin-script item produces by typing the word from its meaning instead.
-    return shouldTypeProduce(item) || !canBuildReading(item)
-      ? { kind: "type", mode: "produce" }
-      : { kind: "build" };
-  }
-  // Speak (rung ≥ 4, SPOKEN→MASTERED): vocab words are reviewed by saying them
-  // aloud — a graded spoken pass is what carries a produced word to MASTERED.
-  // Kana/kanji have no reliable isolated-sound grading, so they keep trace/build.
-  if (shouldSpeak(item)) return { kind: "speak" };
-  return isTraceable(item) ? { kind: "trace" } : { kind: "build" };
-}
 
 export default function Review() {
   const navigate = useNavigate();
@@ -97,6 +43,8 @@ export default function Review() {
   // ?fix=1 → the mistake-review: a targeted pass over recently-missed items
   // (not the FSRS-due queue), so it doesn't touch the daily-review bookkeeping.
   const fix = searchParams.get("fix") === "1";
+  // Practice: counts toward mastery, never toward the schedule. See practiceItem.
+  const practice = searchParams.get("practice") === "1";
 
   const storeItems = useStore((s) => s.items);
   const dueItems = useStore((s) => s.dueItems);
@@ -126,6 +74,7 @@ export default function Review() {
     completeReviews: useStore((s) => s.completeReviews),
     rollDailyGoal: useStore((s) => s.rollDailyGoal),
   };
+  const practiceItem = useStore((s) => s.practiceItem);
   const { gradeItem, completeReviews, rollDailyGoal } = runnerWriters(sandbox, realWriters);
 
   // Snapshot the queue on mount — grading mutates items but shouldn't reshuffle.
@@ -135,7 +84,16 @@ export default function Review() {
     () => {
       let source, total = 0;
       if (sandbox) source = Object.values(items).filter(isReviewable);
-      else if (fix)
+      else if (practice) {
+        // Everything this learner has started in this language that is not finished,
+        // ordered by how far from mastery it is — so a run fills the widest gaps first.
+        // NOT filtered by SRS due-ness: that is the whole point. Practice is the only
+        // way to get the passes the schedule will not offer for months.
+        source = Object.values(items)
+          .filter((it) => it.lang === activeId && isReviewable(it) && !isMastered(it))
+          .sort((a, b) => masteryPct(a) - masteryPct(b))
+          .slice(0, PRACTICE_SIZE);
+      } else if (fix)
         source = (mistakeIds ?? [])
           .map((mid) => items[mid])
           .filter((it) => it && it.lang === activeId && isReviewable(it));
@@ -236,7 +194,18 @@ export default function Review() {
     // would-be rung without depending on gradeItem's async write.
     const after = nextRung(item, grade);
     if (after > (item.rung ?? 1)) (after >= MAX_RUNG ? sfxMastered : sfxRungUp)();
-    gradeItem(item.id, grade);
+    // Tell the store WHICH card this was, so mastery credits the right skill.
+    // kindKey is computed below in the same body and is assigned by the time this
+    // closure runs (it fires on an answer, after render).
+    if (practice) {
+      // The load-bearing line of this whole mode: a practice answer records a pass and
+      // touches nothing else. No srs, no rung, no daily goal. Drilling a word four
+      // times a day would otherwise collapse its FSRS interval and destroy the
+      // retention model that sits beside mastery.
+      practiceItem(item.id, kindKey, grade);
+    } else {
+      gradeItem(item.id, grade, kindKey);
+    }
     setIdx((i) => i + 1);
   };
   const kindKey = step.kind === "type" ? `type:${step.mode}` : step.kind;

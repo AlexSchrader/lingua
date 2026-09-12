@@ -78,7 +78,7 @@ export const UNIT66 = {
       canDo: "Talk about plants and being outside: みき つぼみ しばふ まつ はたけ そと.",
       items: [
         { id: "ja-u66l4-miki", type: "vocab", front: "みき", reading: "miki", meaning: "trunk", example: { jp: "きのみきはふといです。", en: "The tree's trunk is thick." }, accept: ["tree trunk"], hint: "The thick main part of a き (tree)." },
-        { id: "ja-u66l4-tsubomi", type: "vocab", front: "つぼみ", reading: "tsubomi", meaning: "bud", example: { jp: "はなのつぼみはちいさいです。", en: "The flower buds are small." }, accept: ["flower bud", "buds"], hint: "A はな (flower) before it opens." },
+        { id: "ja-u66l4-tsubomi", type: "vocab", front: "つぼみ", reading: "tsubomi", meaning: "bud", example: { jp: "はなのつぼみはちいさいです。", en: "The flower buds are small." }, drill: { jp: "つぼみはちいさいです。", en: "The bud is small." }, accept: ["flower bud", "buds"], hint: "A はな (flower) before it opens." },
         { id: "ja-u66l4-shibafu", type: "vocab", front: "しばふ", reading: "shibafu", meaning: "lawn", example: { jp: "こうえんのしばふであそびます。", en: "I play on the lawn in the park." }, accept: ["turf", "grass lawn"] },
         { id: "ja-u66l4-matsu", type: "vocab", front: "まつ", reading: "matsu", meaning: "pine tree", example: { jp: "にわにまつがあります。", en: "There is a pine tree in the garden." }, accept: ["pine", "pines"] },
         { id: "ja-u66l4-hatake", type: "vocab", front: "はたけ", reading: "hatake", meaning: "field", example: { jp: "はたけでやさいをつくります。", en: "I grow vegetables in the field." }, accept: ["farm field", "vegetable field"], hint: "A cultivated crop field — のはら is a wild grassy one." },

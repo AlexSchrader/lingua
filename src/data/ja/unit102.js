@@ -75,7 +75,7 @@ export const UNIT102 = {
         { id: "ja-u102l4-negai", type: "kanji", front: "願", reading: "negai", meaning: "wish", example: { jp: "お願いが ありますが、少し 時間を もらえますか。", en: "I have a request — could I have a little of your time?" }, accept: ["request", "to wish", "please"], hint: "願 = a wish or request. お願いします is the everyday 'please' — the whole word is one polite ask." },
         { id: "ja-u102l4-tanomu", type: "kanji", front: "頼", reading: "tanomu", meaning: "to rely on", example: { jp: "一人で できない ときは、友だちに 頼みます。", en: "When I can't do it alone, I ask a friend." }, accept: ["to request", "to depend on", "to ask"], hint: "頼む = to ask a favour; 頼る = to lean on someone. Both share 頁 (head) with 願." },
         { id: "ja-u102l4-shinrai", type: "vocab", front: "信頼", reading: "shinrai", meaning: "trust", example: { jp: "長い 間 いっしょに 仕事を して、たがいに 信頼して います。", en: "We've worked together a long time and trust each other." }, accept: ["confidence", "faith", "to rely on"] },
-        { id: "ja-u102l4-gansho", type: "vocab", front: "願書", reading: "gansho", meaning: "application form", example: { jp: "大学の 願書を 書いて、今日 出しました。", en: "I filled in the university application form and sent it today." }, accept: ["written application", "request form"], hint: "願 (wish) + 書 (write) — your request, put in writing." },
+        { id: "ja-u102l4-gansho", type: "vocab", front: "願書", reading: "gansho", meaning: "application form", example: { jp: "大学の 願書を 書いて、今日 出しました。", en: "I filled in the university application form and sent it today." }, drill: { jp: "願書を だしました。", en: "I submitted the application form." }, accept: ["written application", "request form"], hint: "願 (wish) + 書 (write) — your request, put in writing." },
       ],
     },
   ],
