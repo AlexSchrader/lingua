@@ -42,7 +42,7 @@ AI video struggles with character consistency — reuse this exact wording + sty
 | `lingua-loading.webm` *(loops)* | gentle idle: slow breathing, soft blink, taps chin thoughtfully — **seamless loop** | loading |
 | `lingua-error.webm` | mild apologetic shrug with a small sympathetic smile | error |
 
-**Skip `lingua-streak.webm`** — the streak is being removed (see `BUILD-BRIEF-milestones.md`). Once these transparent clips exist, **R35 milestones can use `lingua-achievement` as the celebration** instead of the toast+SFX fallback that the white-bg problem forced (memory `project_mascot_white_bg.md`).
+**Skip `lingua-streak.webm`** — the streak is being removed (see `docs/shipped/BUILD-BRIEF-milestones.md`). Once these transparent clips exist, **R35 milestones can use `lingua-achievement` as the celebration** instead of the toast+SFX fallback that the white-bg problem forced (memory `project_mascot_white_bg.md`).
 
 ### Post-processing (green → transparent WebM)
 ```bash

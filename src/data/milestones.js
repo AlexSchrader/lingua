@@ -1,5 +1,5 @@
 // Capability milestones — honest structural progress, NOT an engagement scoreboard.
-// See BUILD-BRIEF-milestones.md. The one rule this whole file hangs on:
+// See docs/shipped/BUILD-BRIEF-milestones.md. The one rule this whole file hangs on:
 //
 //   A milestone rewards CAPABILITY ("can read all hiragana", "100 words mastered"),
 //   never ACTIVITY (streaks, XP, cards-answered, login days).
