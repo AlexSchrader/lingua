@@ -184,16 +184,40 @@ These are not guidelines; the lint enforces most of them and the gate rejects th
 | | |
 |---|---|
 | ❌ Wrong (what ships today) | `front: "le bébé"`, `meaning: "baby"` — teaches a word that happens to contain é |
-| ✅ Right | `front: "é"`, `reading: "e"` — the accent IS the card |
+| ✅ Intended | `front: "é"` — the accent IS the card |
 
-**Every one of these bare fronts is currently free** in fr, es, pt, de and no — checked against the whole corpus 2026-09-13, zero collisions. You are not fighting front-uniqueness to do this.
+⚠️ **Do not copy that as a literal item — it does not validate.** Contract rule 8 makes `meaning` **hard-required and non-empty** for a `vocab` item, and `example` must be `{ jp, en }`. So `{ front: "é", reading: "e" }` fails `validate:content` on its first item, and the obvious patch (`meaning: "the acute accent"`) re-creates the meaning card the standard exists to delete. **What `meaning` and `example` hold for a character is unresolved and is a prerequisite, not an authoring detail.**
+
+**There may be no new field needed at all.** A `type: "kana"` item is *already* exactly this shape: `meaning: null`, front = the glyph, `type:meaning` auto-rewritten to "type the character", and `listen:choice` showing **glyph options instead of meanings** — i.e. hear-it-→-pick-the-character, for free, with the meaning card suppressing itself. It is blocked only by being Japanese-named (`VALID_ITEM_TYPES`) and by this repo's script policy. `CONTENT.md` already flags generalising `kana` → `glyph` as needed for Korean/Russian/Mandarin/Hindi — **doing that once would serve the accent standard and the next four languages**, instead of a bespoke flag serving only this. Alex's call; raised so nobody builds the narrow thing first.
+
+⚠️ **Three bare fronts are ALREADY TAKEN — an earlier draft of this section said "zero collisions" and that was wrong (my check omitted them).** Verified 2026-09-13:
+
+| front | already taught by | why it matters |
+|---|---|---|
+| `é` (pt) | **`pt-u1l1-e`** — the copula "é" (*is*) | **inside the lesson in scope.** pt u1l1 deliberately pairs `é` (is) against `e` (and) — the contrast IS the lesson. Re-using `é` as an accent card means dropping or renaming that item, and **an id change wipes that item's mastery**. |
+| `à` (fr) | `fr-u6l2-a` | outside scope, but blocks `à` as an accent front |
+| `à` (pt) | `pt-u12l3-a` | same |
+
+Everything else on the list is free. **Check your own language's fronts before you commit to one** — `npm run taught -- <lang>`.
 
 **This is a live cross-lane change, not a free-for-all:**
 
 - **Two things must land from the Feature lane BEFORE this content is authorable**, and both are Alex's call, not a crew's — check the Language crew board before you touch unit 1:
   1. **A way to say "hear/speak/type only" on an item.** `eligibleKinds()` (`src/store/cardRouting.js`) opens with `["choice", "type:meaning"]` and the comment says *"no gate — every item can be asked these"*. The meaning card **cannot be switched off today**, so an accent item would still be asked "what does é mean". Needs a new contract field; `ITEM_KEYS` has no room for one.
-  2. **Audio, where it is missing.** "Hear" routes only when `hasAudio(item)` is true. Right now: **fr unit 1 lessons 1–2 have 0 of 14 clips, de has 0 of 18, no has 0 of 18.** es and pt are fully voiced. Until `generate:audio` runs for those, a third of the standard silently does not exist.
-- **`speak` is live** and routes for any vocab item (`shouldSpeak`). Older notes calling it dormant are stale.
+  2. **Audio, where it is missing — 51 items, not the 46 an earlier draft of this section claimed.** "Hear" routes only when `hasAudio(item)` is true. Measured 2026-09-13 across unit 1 lessons 1–3: **fr 14 silent · de 18 · no 18 · pt 1 (`pt-u1l1-econj`) · es 0 = 51.** Until `generate:audio` runs for those, a third of the standard silently does not exist — the card just never routes, no error.
+     - ⚠️ **`speak` needs the clip too, and an earlier draft of this section said it didn't.** `SpeakCard.jsx` plays the clip and *then* arms the mic; with no clip it arms immediately and asks the learner to pronounce a character **they have never heard** — produce-before-perceive, the exact defect `earCrowdedOut` exists to prevent. So for those 51 items, audio blocks two thirds of "hear, speak, type", not one.
+     - ⚠️ **Audio generation is contended.** The de/no/pt crews share the manifest; pt B1's 889 clips are deliberately unrun for that reason. Sequence with the merge seat, don't just fire it.
+  3. **A typed check that actually requires the accent. THIS IS THE ONE THAT INVALIDATES THE CARD, and it is not optional.** `normalizeReading` strips diacritics for every non-ja language, so measured on `{ front: "é", reading: "e" }`:
+
+     ```
+     checkProduce("e", …)  → true      ← the PLAIN letter passes the "type the accent" card
+     checkProduce("E", …)  → true
+     checkReading("è", …)  → true      ← and é/è/ê all share reading "e", so they accept each other
+     ```
+
+     The learner never has to find é on the keyboard. **The entire point of the standard is a no-op against the engine as it stands** — `fr/unit27.js` already admits this in a comment: *"the lesson titled 'The accents' cannot currently require one."* Ship without fixing this and you ship seven French cards that grade `e` as correct.
+  4. **The keyboard popup**, which is half of what Alex asked for: *"a popup that shows or tells the user how to find the accent on their keyboard."* There is no surface for it — `item.hint` renders **only on TeachCard**, not on the typing card. Feature-lane UI, and it needs three different instructions (iOS/Android long-press · Windows Alt-codes · macOS Option), so it must be platform-aware or neutrally worded.
+- **`speak` routes** for any vocab item (`shouldSpeak`) — notes calling it dormant are stale — **but it is not free here.** It needs the clip (above), and this repo's own Brief-C de-risk measured STT on an **isolated single glyph at 0/3**. `gradeSpoken("e", { front: "é" })` returns `"hard"`: a learner who says the sound correctly is marked down unless the transcriber happens to emit the accent. **Speak the WORD, type the CHARACTER** is the shape that survives this.
 - ⚠️ **French's unit 1 is in `src/data/fr/unit27.js`, not `unit1.js`.** The file name is historical; the unit carries `order: 1`. Edit by unit `order`, never by filename.
 
 **Where each language teaches this today** (confirmed 2026-09-13) — all five currently use the word-based shape and all five need the same rewrite:
