@@ -190,7 +190,7 @@ These are not guidelines; the lint enforces most of them and the gate rejects th
 
 **There may be no new field needed at all.** A `type: "kana"` item is *already* exactly this shape: `meaning: null`, front = the glyph, `type:meaning` auto-rewritten to "type the character", and `listen:choice` showing **glyph options instead of meanings** — i.e. hear-it-→-pick-the-character, for free, with the meaning card suppressing itself. It is blocked only by being Japanese-named (`VALID_ITEM_TYPES`) and by this repo's script policy. `CONTENT.md` already flags generalising `kana` → `glyph` as needed for Korean/Russian/Mandarin/Hindi — **doing that once would serve the accent standard and the next four languages**, instead of a bespoke flag serving only this. Alex's call; raised so nobody builds the narrow thing first.
 
-⚠️ **Three bare fronts are ALREADY TAKEN — an earlier draft of this section said "zero collisions" and that was wrong (my check omitted them).** Verified 2026-09-13:
+⚠️ **Three bare fronts are ALREADY TAKEN.** Verified 2026-09-13:
 
 | front | already taught by | why it matters |
 |---|---|---|
@@ -204,8 +204,8 @@ Everything else on the list is free. **Check your own language's fronts before y
 
 - **Two things must land from the Feature lane BEFORE this content is authorable**, and both are Alex's call, not a crew's — check the Language crew board before you touch unit 1:
   1. **A way to say "hear/speak/type only" on an item.** `eligibleKinds()` (`src/store/cardRouting.js`) opens with `["choice", "type:meaning"]` and the comment says *"no gate — every item can be asked these"*. The meaning card **cannot be switched off today**, so an accent item would still be asked "what does é mean". Needs a new contract field; `ITEM_KEYS` has no room for one.
-  2. **Audio, where it is missing — 51 items, not the 46 an earlier draft of this section claimed.** "Hear" routes only when `hasAudio(item)` is true. Measured 2026-09-13 across unit 1 lessons 1–3: **fr 14 silent · de 18 · no 18 · pt 1 (`pt-u1l1-econj`) · es 0 = 51.** Until `generate:audio` runs for those, a third of the standard silently does not exist — the card just never routes, no error.
-     - ⚠️ **`speak` needs the clip too, and an earlier draft of this section said it didn't.** `SpeakCard.jsx` plays the clip and *then* arms the mic; with no clip it arms immediately and asks the learner to pronounce a character **they have never heard** — produce-before-perceive, the exact defect `earCrowdedOut` exists to prevent. So for those 51 items, audio blocks two thirds of "hear, speak, type", not one.
+  2. **Audio, where it is missing — 51 items.** "Hear" routes only when `hasAudio(item)` is true. Measured 2026-09-13 across unit 1 lessons 1–3: **fr 14 silent · de 18 · no 18 · pt 1 (`pt-u1l1-econj`) · es 0 = 51.** Until `generate:audio` runs for those, a third of the standard silently does not exist — the card just never routes, no error.
+     - ⚠️ **`speak` needs the clip too.** `SpeakCard.jsx` plays the clip and *then* arms the mic; with no clip it arms immediately and asks the learner to pronounce a character **they have never heard** — produce-before-perceive, the exact defect `earCrowdedOut` exists to prevent. So for those 51 items, audio blocks two thirds of "hear, speak, type", not one.
      - ⚠️ **Audio generation is contended.** The de/no/pt crews share the manifest; pt B1's 889 clips are deliberately unrun for that reason. Sequence with the merge seat, don't just fire it.
   3. **A typed check that actually requires the accent. THIS IS THE ONE THAT INVALIDATES THE CARD, and it is not optional.** `normalizeReading` strips diacritics for every non-ja language, so measured on `{ front: "é", reading: "e" }`:
 

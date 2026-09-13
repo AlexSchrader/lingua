@@ -138,7 +138,7 @@ gojūon grid). They count toward a lesson's card-density.
 
 **Scope is literally unit 1, lessons 1–3.** Every other unit keeps teaching sounds through real vocabulary — that rule is unchanged and still correct.
 
-⚠️ **Three fronts are already taken** — an earlier draft of this section claimed zero collisions and was wrong: **`é` in pt is `pt-u1l1-e`** (the copula, *inside* the lesson in scope — u1l1 pairs it against `e`/"and" deliberately, and re-using it means an id change, which **wipes that item's mastery**); `à` in fr is `fr-u6l2-a`; `à` in pt is `pt-u12l3-a`. Everything else is free. Check with `npm run taught -- <lang>` before committing to a front.
+⚠️ **Three fronts are already taken.** **`é` in pt is `pt-u1l1-e`** (the copula, *inside* the lesson in scope — u1l1 pairs it against `e`/"and" deliberately, and re-using it means an id change, which **wipes that item's mastery**); `à` in fr is `fr-u6l2-a`; `à` in pt is `pt-u12l3-a`. Everything else is free. Check with `npm run taught -- <lang>` before committing to a front.
 
 ⚠️ **`fr-u27l3` is the worst case in scope and needs replacing, not adjusting.** All seven of its fronts are French grammar **terminology** — `la consonne finale`, `le h muet`, `l'élision`, `la liaison`, `l'accent aigu`, `l'accent grave` — so the learner types *the name of the character* to learn the character. Two of them become straight duplicates in purpose of l1's `é` and `è` once l1 is rewritten.
 
@@ -146,7 +146,7 @@ gojūon grid). They count toward a lesson's card-density.
 
 ⚠️ **Do not author this yet.** Two Feature-lane prerequisites are outstanding and both are Alex's call — `BUILD-BRIEF-language-blueprint.md` §3e has the detail:
 1. **Meaning cards cannot be turned off.** `eligibleKinds()` always offers `choice` **and** `type:meaning` **and** `choice:reverse`, and `listen:choice` on a vocab item shows **meaning options** — so even the "hear" card is a meaning card. A flag must gate all of them together. `ITEM_KEYS` is a closed set with no field for it.
-2. **"Hear" needs 51 clips that do not exist** — fr 14 · de 18 · no 18 · pt 1 · es 0 (an earlier draft said 46). **`speak` needs the clip too**: SpeakCard plays it *then* arms the mic, so with none it asks the learner to pronounce a character they have never heard.
+2. **"Hear" needs 51 clips that do not exist** — fr 14 · de 18 · no 18 · pt 1 · es 0. **`speak` needs the clip too**: SpeakCard plays it *then* arms the mic, so with none it asks the learner to pronounce a character they have never heard.
 3. **A non-folding typed check — the one that decides whether any of this works.** `normalizeReading` strips diacritics, so `checkProduce("e", { front: "é" })` is **true**: the plain letter passes the "type the accent" card, and é/è/ê share reading `"e"` so they accept each other. TypeCard's own prompt says *"accents optional"*. **Without this the standard is a no-op.**
 4. **The keyboard popup** Alex asked for. `item.hint` renders only on TeachCard, never on the typing card — there is no surface for it yet.
 

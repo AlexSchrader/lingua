@@ -245,3 +245,108 @@ test("normalizeReading folds ø — it is a letter, not an o with a diacritic", 
   assert.equal(normalizeReading("Ça va", "fr"), "cava");
   assert.equal(normalizeReading("s'il vous plaît", "fr"), "silvousplait");
 });
+
+// --- the accent is the answer (Alex, 2026-09-13: "If i type e and its é thats wrong") ---
+// normalizeReading folds diacritics away for every non-ja language, which is right
+// tolerance for an ordinary word and fatal for an accent card: typing "e" was
+// accepted for "é", so the lesson whose entire point is finding the key could not be
+// failed. Narrow rule — only when the whole front is one character the fold erases.
+
+test("accent card: the bare letter is WRONG", () => {
+  const e = { front: "é", reading: "e", lang: "fr" };
+  assert.equal(checkProduce("e", e), false);
+  assert.equal(checkReading("e", e), false);
+  assert.equal(checkProduce("E", e), false);
+});
+
+test("accent card: the right character passes, in either case", () => {
+  const e = { front: "é", reading: "e", lang: "fr" };
+  assert.equal(checkProduce("é", e), true);
+  assert.equal(checkReading("é", e), true);
+  assert.equal(checkProduce("É", e), true, "a capital is the same character, not a wrong answer");
+});
+
+test("accent card: a DIFFERENT accent is wrong — é è ê no longer accept each other", () => {
+  const e = { front: "é", reading: "e", lang: "fr" };
+  for (const wrong of ["è", "ê", "ë"]) {
+    assert.equal(checkProduce(wrong, e), false, `${wrong} must not pass for é`);
+    assert.equal(checkReading(wrong, e), false, `${wrong} must not pass for é on the reading path`);
+  }
+});
+
+test("the three real corpus cards this fixes are contrast pairs", () => {
+  // é "is" vs e "and" (pt-u1l1-e); à "to/at" vs a "has" (fr-u6l2-a, pt-u12l3-a).
+  // The contrast IS the lesson, and the fold was erasing it.
+  const eIs = { front: "é", reading: "e", lang: "pt" };
+  const aTo = { front: "à", reading: "a", lang: "fr" };
+  assert.equal(checkProduce("e", eIs), false);
+  assert.equal(checkProduce("é", eIs), true);
+  assert.equal(checkProduce("a", aTo), false);
+  assert.equal(checkProduce("à", aTo), true);
+});
+
+test("ORDINARY WORDS KEEP THEIR TOLERANCE — this is the guard on the change", () => {
+  // A learner without an accent keyboard must still pass a normal vocab card.
+  const cafe = { front: "café", reading: "cafe", lang: "fr" };
+  assert.equal(checkProduce("cafe", cafe), true, "accents stay optional on real words");
+  assert.equal(checkReading("cafe", cafe), true);
+  const bebe = { front: "le bébé", reading: "lebebe", lang: "fr" };
+  assert.equal(checkProduce("le bebe", bebe), true);
+  const brod = { front: "et brød", reading: "etbrod", lang: "no" };
+  assert.equal(checkProduce("et brod", brod), true, "the ø fold must survive");
+  const strasse = { front: "die Straße", reading: "diestrasse", lang: "de" };
+  assert.equal(checkProduce("die Strasse", strasse), true, "the ß fold must survive");
+});
+
+test("a single-character front with NO diacritic is unaffected", () => {
+  const y = { front: "y", reading: "y", lang: "es" };
+  assert.equal(checkProduce("y", y), true);
+  assert.equal(checkProduce("Y", y), true);
+});
+
+test("Japanese is untouched — kana are single-character fronts too", () => {
+  const ka = { front: "か", reading: "ka", lang: "ja", stage: "pre-a1" };
+  assert.equal(checkReading("ka", ka), true, "romaji must still read a kana");
+  assert.equal(checkProduce("ka", ka), true);
+});
+
+// --- speaking is graded on SOUND, not on how the transcriber spelled it ---
+// foldKana passes Latin text through unchanged, so the Japanese comparison path
+// used to claim every Latin-language card and grade it by edit distance against
+// the spelling: say "café" perfectly, get a transcript of "cafe", score `hard` at
+// one edit — never reaching the romaji branch that folds the accent and passes it.
+// Every fr/es/pt/de/no speak card was affected, not just the accent ones.
+//
+// Note the deliberate asymmetry with typing: typing "e" for "é" is WRONG (the
+// learner picked the key), speaking it is FINE (the speech model picked the
+// spelling). A confidently wrong grade is worse than no grade.
+
+test("speaking a Latin word right is `good`, however the transcriber spells it", () => {
+  const cafe = { front: "café", reading: "cafe", lang: "fr" };
+  assert.equal(gradeSpoken("cafe", cafe), "good", "accent dropped by the transcriber");
+  assert.equal(gradeSpoken("café", cafe), "good", "accent kept by the transcriber");
+});
+
+test("speaking an accent card: the sound is what counts", () => {
+  const e = { front: "é", reading: "e", lang: "fr" };
+  assert.equal(gradeSpoken("e", e), "good");
+  assert.equal(gradeSpoken("é", e), "good");
+});
+
+test("the ø and ß folds reach the speech path too", () => {
+  assert.equal(gradeSpoken("et brod", { front: "et brød", reading: "etbrod", lang: "no" }), "good");
+  assert.equal(gradeSpoken("die Strasse", { front: "die Straße", reading: "diestrasse", lang: "de" }), "good");
+});
+
+test("a genuinely wrong Latin answer still fails", () => {
+  assert.equal(gradeSpoken("banana", { front: "café", reading: "cafe", lang: "fr" }), "again");
+  assert.equal(gradeSpoken("", { front: "café", reading: "cafe", lang: "fr" }), "again");
+});
+
+test("Japanese speech grading is unchanged — the kana path still owns kana", () => {
+  const ka = { front: "か", reading: "ka", lang: "ja" };
+  assert.equal(gradeSpoken("か", ka), "good");
+  assert.equal(gradeSpoken("ka", ka), "good");
+  assert.equal(gradeSpoken("さ", ka), "hard", "a one-kana slip is still a near miss, not a pass");
+  assert.equal(gradeSpoken("banana", ka), "again");
+});

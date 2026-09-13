@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
-import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji, meaningVariants } from "../../store/answer.js";
+import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji, meaningVariants, foldWouldEraseAnswer } from "../../store/answer.js";
 import { langName } from "../../data/languages.js";
 import { isJapaneseItem } from "../../store/itemLang.js";
 import { sfxCorrect, sfxWrong, sfxAlmost } from "../../store/sfx.js";
@@ -102,7 +102,14 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
         ? { prompt: item.reading, jp: false, ask: "Type the kana",
             check: (v) => v.trim() === item.front, answer: item.front }
         : { prompt: item.meaning, jp: false,
-            ask: latin ? `Type it in ${langName(item.lang)} — accents optional`
+            // "accents optional" is TRUE for ordinary words and a lie on an accent
+            // card, where the accent is the entire answer (see foldWouldEraseAnswer).
+            // Promising optional and then failing the bare letter is the worst of
+            // both — say which card this is.
+            ask: latin
+              ? foldWouldEraseAnswer(item)
+                ? `Type it in ${langName(item.lang)} — the accent counts`
+                : `Type it in ${langName(item.lang)} — accents optional`
               : produceAllowsRomaji(item) ? "Type it in Japanese — rōmaji or kana" : "Type it in Japanese ⌨️ (kana — not rōmaji)",
             check: (v) => checkProduce(v, item), answer: item.front };
     }
