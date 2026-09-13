@@ -267,6 +267,53 @@ Multigraphs are glyph targets too (`eau`, `ai`, `oi`, `gn`, `ill`, `ei`, `sch`, 
 
 **⚠️ The clips do not survive the rewrite.** The audio generated on 2026-09-13 is keyed to the WORD ids in these lessons today (`no-u1l1-avaere` = `å være`). Changing a front to a bare letter changes its id and orphans its clip, so the new glyph cards need their own `generate:audio` run. Small — no l1+l3 is 12 items — but not zero, and it applies to all five languages. **`no-u1l2` is the exception: it is already compliant and must not be re-authored, so its six clips survive.**
 
+### ✅ THE GLYPH ITEM — READY TO AUTHOR (engine merged 2026-09-13)
+
+`type: "glyph"` is live on `main`. This exact lesson passes `validate:content` with zero errors — copy it.
+
+```js
+{
+  id: "fr-u27", lang: "fr", order: 1, stage: "a1", title: "Les sons",
+  lessons: [{
+    id: "fr-u27l1", unit: 27, lesson: 1, title: "Les accents", cefr: "A1",
+    dominantMode: "recognize", canDo: "Hear, say and type the French accents.",
+    items: [
+      { id: "fr-u27l1-eaigu",    type: "glyph", front: "é",   reading: "e",   meaning: null, example: null, hint: "The closed ay of café." },
+      { id: "fr-u27l1-egrave",   type: "glyph", front: "è",   reading: "e",   meaning: null, example: null, hint: "The open eh of très." },
+      { id: "fr-u27l1-ccedille", type: "glyph", front: "ç",   reading: "c",   meaning: null, example: null, hint: "Forces a soft s: ça." },
+      { id: "fr-u27l1-eau",      type: "glyph", front: "eau", reading: "eau", meaning: null, example: null, hint: "Three letters, one oh." },
+      // …then the minimal exemplar WORD as an ordinary vocab item, per the lesson shape.
+    ],
+  }],
+}
+```
+
+**The rules, all enforced by the validator:**
+
+| field | for a glyph |
+|---|---|
+| `type` | `"glyph"` |
+| `front` | the character or cluster — **1–4 characters** (`é`, `eau`, `sch`). Longer is a word, and the validator says so. |
+| `reading` | its ASCII fold, `[a-z]+` — `é` → `e`, `eau` → `eau`. This is the SOUND, and it is what the listening card checks. |
+| `meaning` | **must be `null`.** This is the point of the type: it is what stops the engine asking "what does é mean". |
+| `example` | **must be `null`.** |
+| `hint` | optional, and where the sound description goes — it shows while teaching and never becomes a question. |
+
+**What the learner gets, automatically, with no routing to write:**
+
+- **teach** — the companion says it, Continue (this is "hear them all first")
+- **listen:type** — *"Type what you hear"*, speaker button, no text prompt (**this is the card Alex described**)
+- **type:produce** — *"Type the letter"*
+- **speak** — says it, shows it, you repeat
+- **choice** — *"Which sound is this?"*
+- **no meaning card and no reverse card** — they exclude themselves, because there is no meaning to ask for
+
+⚠️ **Typing the bare letter now FAILS.** `checkProduce("e", { front: "é" })` is `false`, and `é`/`è`/`ê` no longer accept each other. Ordinary words keep their tolerance — `cafe` still passes for `café`.
+
+⚠️ **The clips are of WORDS, not letters.** Every recording in the corpus today says a word — `fr-u27l1-eaigu`'s clip is someone saying *"le bébé"*. **A new glyph id has no clip at all**, so `teach`, `listen:*` and `speak` will not route for it until `generate:audio` runs for the new ids. Author anyway — the typing card works today and the rest lights up when the audio lands. **Flag the new ids in your hand-back so they go in one run, not five.**
+
+⚠️ **`no-u1l2` is already compliant** (`hva`, `det`, `god` — 2–4 character words where every character is load-bearing). **Do not re-author it**; it only needs its meaning cards removed. Its six clips are the only ones in scope that survive the rewrite.
+
 **Where each language teaches this today** (confirmed 2026-09-13) — all five currently use the word-based shape and all five need the same rewrite:
 
 | lang | unit 1 file | l1 | l2 | l3 |
