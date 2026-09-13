@@ -7,7 +7,7 @@ import { roadmapFor } from "../data/roadmap.js";
 import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
 import { readingIsInformative } from "../store/cardRouting.js";
-import { currentStageFor } from "../store/levels.js";
+import { currentStageFor, authoringProgress } from "../store/levels.js";
 import GlyphDetail from "../components/GlyphDetail.jsx";
 import PlannedLanguages from "../components/PlannedLanguages.jsx";
 import { C, F } from "../theme.js";
@@ -58,23 +58,6 @@ const hasContent = (id) => isLive(id);
 // three units into, and it is the difference between "coming eventually" and "coming".
 // Counted in UNITS, not items: a locked stub has no items, so a total item count does
 // not exist until the band is authored, but the unit slots are known from scaffold time.
-function authoringProgress(id) {
-  const us = UNITS.filter((u) => u.lang === id);
-  if (!us.length) return null;
-  const authored = us.filter((u) => (u.lessons ?? []).some((l) => Array.isArray(l.items)));
-  const items = authored.reduce(
-    (n, u) => n + u.lessons.reduce((m, l) => m + (l.items?.length ?? 0), 0),
-    0
-  );
-  // Three states, and the middle one is the whole point: a band being written
-  // updates as each block's units land, because this is DERIVED from the corpus —
-  // nobody has to remember to move a number when a crew hands back.
-  //   nothing authored  -> null, the row says "planned"
-  //   partway           -> "3/20 units", climbing as blocks confirm
-  //   complete          -> the item count, because units-done stops being news
-  //                        the moment it equals units-total
-  return { done: authored.length, total: us.length, items, complete: authored.length === us.length };
-}
 
 
 export default function Ladder() {
