@@ -64,7 +64,9 @@ export const NO_UNIT45 = {
         { id: "no-u45l1-rundt", type: "vocab", front: "rundt", reading: "rundt", meaning: "around", example: { jp: "Vi kjører rundt et fjell fordi veien er stengt.", en: "We drive around a mountain because the road is closed." }, drill: { jp: "Vi går rundt en innsjø", en: "We walk around a lake" }, accept: ["round", "about", "approximately"], hint: "RUNT — the d is silent. Both around a thing and roughly a number: rundt ti grader, about ten degrees. It is also the adjective rund, round, in its neuter form, which is why it looks like an adjective and behaves like a preposition." },
       ],
     },
-    // Lesson 2: the landscape. `ei slette` is the unit's first feminine.
+    // Lesson 2: the landscape. No feminine here — kyst, dal and fjord are all
+    // masculine, and `ei slette` went to block 2's u33. The unit's first
+    // feminine is `ei bygd` in l3, which carries the en-/ei- note.
     {
       id: "no-u45l2",
       unit: 45,
