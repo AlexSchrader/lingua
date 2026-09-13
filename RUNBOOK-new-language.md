@@ -267,6 +267,46 @@ Multigraphs are glyph targets too (`eau`, `ai`, `oi`, `gn`, `ill`, `ei`, `sch`, 
 
 **⚠️ The clips do not survive the rewrite.** The audio generated on 2026-09-13 is keyed to the WORD ids in these lessons today (`no-u1l1-avaere` = `å være`). Changing a front to a bare letter changes its id and orphans its clip, so the new glyph cards need their own `generate:audio` run. Small — no l1+l3 is 12 items — but not zero, and it applies to all five languages. **`no-u1l2` is the exception: it is already compliant and must not be re-authored, so its six clips survive.**
 
+### 🚨 ADD THE GLYPHS, DO NOT REPLACE THE WORDS — this is the part that will bite
+
+**Measured across the whole corpus 2026-09-13, and it is the same in every language:**
+
+| lang | items in u1 l1–l3 | taught ONLY there |
+|---|---|---|
+| 🇳🇴 no | 18 | **18** |
+| 🇫🇷 fr | 21 | **21** |
+| 🇪🇸 es | 19 | **19** |
+| 🇵🇹 pt | 19 | **19** |
+| 🇩🇪 de | 18 | **18** |
+
+**Every single word in scope is taught in exactly one place — that lesson — and nowhere else in the whole band.** That is structural, not luck: fronts are globally unique per language, so a word introduced in u1l1 exists in exactly one card by construction.
+
+⚠️ **So replacing a word card with a glyph card does not edit a lesson — it deletes the word from the course.** In Norwegian that list includes **`å være` (to be)**, `å gå` (to go), `å lære` (to learn), `å kjøpe` (to buy), `et språk` (language), plus `hva`, `hvor`, `det`, `og`, `jeg`. Removing "to be" from a language course is not a lesson-shape change. **95 core words across the five languages.**
+
+**THE RULE: glyph cards go IN FRONT OF the existing word cards. Nothing is removed, no id changes, no mastery is reset.**
+
+```js
+items: [
+  { id: "no-u1l1-ae", type: "glyph", front: "æ", … },   // ← new, first
+  { id: "no-u1l1-oe", type: "glyph", front: "ø", … },   // ← new
+  { id: "no-u1l1-aa", type: "glyph", front: "å", … },   // ← new
+  { id: "no-u1l1-avaere", type: "vocab", front: "å være", … },  // ← UNTOUCHED
+  …the rest of the existing word cards, untouched…
+]
+```
+
+**This satisfies Alex's principle exactly, and that is why it is the right shape rather than a compromise.** Teach order is authored order (`buildLearnQueue` runs every teach before any check, in the order written), so glyphs placed first means **the learner meets æ ø å before they are handed a single word** — which is the standard in his own words: *"unit one gets users able to pronounce the accents before ever given a word."*
+
+It also means the lesson keeps its density, keeps its audio (the existing word clips still match their unchanged ids), and adds nothing to the mastery-wipe risk.
+
+⚠️ **Run the check for your own language before you start**, because the trap is the same everywhere but the word list is not:
+
+```bash
+npm run taught -- <lang>     # what the language already teaches, and where
+```
+
+**Raised by the Norwegian seat**, which checked all 18 of its fronts against the 50-unit corpus before authoring, and built its draft additively for exactly this reason.
+
 ### ✅ THE GLYPH ITEM — READY TO AUTHOR (engine merged 2026-09-13)
 
 `type: "glyph"` is live on `main`. This exact lesson passes `validate:content` with zero errors — copy it.

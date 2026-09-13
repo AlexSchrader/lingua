@@ -146,6 +146,8 @@ gojūon grid). They count toward a lesson's card-density.
 
 ⚠️ **French's unit 1 has only THREE lessons; the other four languages have four.** So "lessons 1–3" is French's entire unit — there is no l4 to move elision/liaison into without authoring one. And **lesson ids embed the lesson number**, so moving a card between lessons changes its id and wipes that item's mastery — cheap now, expensive after users. Any reorder belongs in the same pass as the rewrite.
 
+🚨 **ADD the glyph cards IN FRONT OF the existing word cards — never replace them.** Every word in unit 1 lessons 1–3 is taught in exactly one place, that lesson, in all five languages (measured: no 18/18, fr 21/21, es 19/19, pt 19/19, de 18/18). Replacing deletes the word from the course — including Norwegian's `å være`, *to be*. Teach order is authored order, so glyphs placed first still means the learner meets the letters before any word. Full detail + the per-language table in `RUNBOOK-new-language.md` §4.
+
 ✅ **THE ENGINE IS READY — `type: "glyph"` merged to `main` 2026-09-13.** The copyable, validated shape is in `RUNBOOK-new-language.md` §4. What remains is **audio for the new ids** (every clip today is of a word, not a letter) and the keyboard hint, which Alex has deferred. Neither blocks authoring: the typing card works now and the listening cards light up when the clips land.
 
 ⚠️ **Still true before you author:** Two Feature-lane prerequisites are outstanding and both are Alex's call — `BUILD-BRIEF-language-blueprint.md` §3e has the detail:
