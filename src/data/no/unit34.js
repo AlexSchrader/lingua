@@ -18,14 +18,22 @@
 // replaced by `en prosess` and `en verdi`.
 //
 // `ei utvikling` IS FEMININE ON PURPOSE. The crew lead first propagated a rule that
-// "-ning nouns are masculine in Bokmål", extracted from a genuine error (`ei
-// retning` — retning really is masculine-only, as is setning). The rule was wrong:
-// utvikling, utstilling, forestilling, samling, feiring, løsning and endring are all
-// f1/m1 and take either. The band marks them `ei` for consistency, because §1's
-// entire argument for `ei` is that it makes the definite derivable — and -inga is
-// what a learner then predicts. ⚠️ The exception must travel with the rule or it
-// will be over-applied again in the other direction: retning and setning are NOT
-// feminine.
+// "-ning nouns are masculine in Bokmål". The rule was wrong: utvikling, utstilling,
+// forestilling, samling, feiring, løsning and endring are all f1/m1 and take either.
+// The band marks them `ei` for consistency, because §1's entire argument for `ei`
+// is that it makes the definite derivable — and -inga is what a learner then
+// predicts.
+// ⚠️ THE "MASCULINE-ONLY EXCEPTION" WAS ITSELF WRONG, AND IT TRAVELLED TO FIVE
+// UNITS BEFORE ANYONE CHECKED IT. Bokmålsordboka lists BOTH `retning` and
+// `setning` as "hankjønn eller hunkjønn" (ordbokene.no/nob/bm/retning,
+// /setning) — retninga and setninga are correct Bokmål. There is no -ing/-ning
+// exception at all: the whole class takes either gender, so the whole class is
+// marked `ei` in this band. `en retning` in u23 and `en setning` in u49 were
+// flipped to `ei` on that finding. What IS a real exception is -het and -else,
+// which have no feminine form (there is no *muligheta, no *øvelsa) and stay `en`.
+// This note has now been wrong twice in opposite directions — first "-ing nouns
+// are masculine", then "retning and setning are masculine only". Both were
+// generalised from one card without opening a dictionary. Check the dictionary.
 //
 // `en vitenskap` is built on `å vite` (A1 u12) plus -skap, the same ending as `en
 // egenskap` in u31 — the hint cross-references it rather than pretending the words
@@ -100,7 +108,7 @@ export const NO_UNIT34 = {
       items: [
         { id: "no-u34l4-amale", type: "vocab", front: "å måle", reading: "amale", meaning: "to measure", example: { jp: "Vi måler hvor lang veien er.", en: "We measure how long the road is." }, accept: ["measure", "to gauge"], drill: { jp: "Vi begynner å måle et rom", en: "We start measuring a room" }, hint: "Present måler, said MAW-ler. Careful with the near-neighbours: å male with a short a is to paint (u35) — the two fold to the same typed answer, so either spelling is accepted; the card always shows you the front. et mål is both a goal and a measurement." },
         { id: "no-u34l4-enmetode", type: "vocab", front: "en metode", reading: "enmetode", meaning: "method", example: { jp: "Denne metoden er lett å forklare.", en: "This method is easy to explain." }, accept: ["a method", "way", "approach"], drill: { jp: "En metode kan være dårlig", en: "A method can be bad" }, hint: "Masculine: en metode → metoden, plural metoder. me-TOO-de, stress in the middle. En framgangsmåte is the everyday word for the same thing." },
-        { id: "no-u34l4-eiutvikling", type: "vocab", front: "ei utvikling", reading: "eiutvikling", meaning: "development", example: { jp: "Utviklinga i byen har vært rask.", en: "The development in the city has been fast." }, accept: ["a development", "progress", "trend"], drill: { jp: "Ei utvikling tar mange år", en: "A development takes many years" }, hint: "Feminine: ei utvikling → utviklinga, plural utviklinger. You will also see en utvikling / utviklingen — Bokmål allows both for nearly every -ing noun, and this course writes ei so the definite -a is derivable. Two that do NOT allow it: retning and setning are masculine only." },
+        { id: "no-u34l4-eiutvikling", type: "vocab", front: "ei utvikling", reading: "eiutvikling", meaning: "development", example: { jp: "Utviklinga i byen har vært rask.", en: "The development in the city has been fast." }, accept: ["a development", "progress", "trend"], drill: { jp: "Ei utvikling tar mange år", en: "A development takes many years" }, hint: "Feminine: ei utvikling → utviklinga, plural utviklinger. You will also see en utvikling / utviklingen — Bokmål allows both for every -ing noun, and this course writes ei so the definite -a is derivable. The endings that have NO feminine at all are -het and -else: en mulighet, en øvelse." },
         { id: "no-u34l4-enfart", type: "vocab", front: "en fart", reading: "enfart", meaning: "speed", example: { jp: "Bilen har stor fart i gata.", en: "The car has great speed in the street." }, accept: ["a speed", "pace", "velocity"], drill: { jp: "Vi gjorde det i en fart", en: "We did it in a hurry" }, hint: "Masculine: en fart → farten. Usually in the definite: i farten, \"in a hurry\". Fartsgrense is a speed limit, and you will see the word on every Norwegian road sign." },
         { id: "no-u34l4-enprosess", type: "vocab", front: "en prosess", reading: "enprosess", meaning: "process", example: { jp: "Det er en lang prosess å lære et språk.", en: "It is a long process to learn a language." }, accept: ["a process"], drill: { jp: "En prosess kan bli lang", en: "A process can become long" }, hint: "Masculine: en prosess → prosessen, plural prosesser. pro-SESS, with the stress at the end and a sharp double s." },
         { id: "no-u34l4-enverdi", type: "vocab", front: "en verdi", reading: "enverdi", meaning: "value", example: { jp: "Huset har en høy verdi nå.", en: "The house has a high value now." }, accept: ["a value", "worth"], drill: { jp: "En verdi kan bli mindre", en: "A value can become smaller" }, hint: "Masculine: en verdi → verdien, plural verdier. ver-DEE, stress at the end. From verd, worth. In the plural it also means values in the moral sense: norske verdier." },

@@ -20,10 +20,12 @@
 // -het and -else nouns `ei`, which is not a stylistic choice but an error: under
 // §1 the ei-marking is a PROMISE that the definite ends in -a, and for these
 // words it does not. Corrected here and in u44. The -ing/-ning class is
-// different — feminine IS permitted there (løsninga is fine) — but `en`
-// dominates in written Bokmål and both sibling blocks standardised on it, so
-// this block follows suit for band consistency and says so rather than leaving
-// a silent inconsistency with A1's `ei melding`.
+// different — feminine IS permitted there (løsninga is fine) — and the band
+// marks that whole class `ei`, which is what A1's `ei melding` already did.
+// (An earlier version of this header claimed "both sibling blocks standardised
+// on `en`". They had not: blocks 1 and 2 wrote `ei` on eleven -ing cards and
+// `en` on ten, and the band was simply inconsistent. §1 is binding and §1 says
+// `ei`, so all of them are `ei` now.)
 //
 // ø IS WRITTEN o IN `reading` (§3): `å tømme` → "atomme", `å øke` → "aoke".
 //

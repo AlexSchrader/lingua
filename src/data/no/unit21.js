@@ -33,8 +33,11 @@
 //                                              exact one, which is strictly better.
 //   en søknad       b1 u24        b2 u32       b2 reserved (et krav, en kontrakt)
 //   et resultat     b1 u24        b3 u44       b3 to reserve. Found by b2's sweep.
-//   en retning      b1 u23        b3 u45       b3 reserved (framover). Gender error
-//                                              on my side too; retning is masculine.
+//   ei retning      b1 u23        b3 u45       b3 reserved (framover). Written `en`
+//                                              at first on a false "retning is
+//                                              masculine-only" note; Bokmålsordboka
+//                                              gives it hankjønn ELLER hunkjønn, so
+//                                              it is `ei` like the rest of the class.
 //   å svinge        b1 u23        b3 u45       b3 reserved (å vende)
 //   en innbygger    b2 u32        b3 u45       b3 reserved (en landsdel)
 //   å underholde    b2 u35        b3 u48       b3 to reserve

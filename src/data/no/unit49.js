@@ -17,12 +17,13 @@
 // whole-theme risk the crew lead flagged, landing on a lesson rather than a
 // unit — and it is why the reserve list is per-lesson rather than per-unit.
 //
-// ⚠ NO FEMININE NOUN IN THE WHOLE UNIT, so there is no en-/ei- recognition note
-// here. The only four nouns are en samtale, et uttrykk, en setning and en tale,
-// plus et rykte and en lyd — every one masculine or neuter. A1 u17 was the same
-// shape for the same reason. `en setning` is masculine: the -ning class permits
-// a feminine in Bokmål, but `en` dominates and both sibling blocks standardised
-// on it, so this block follows (see u47's header for the full note).
+// ⚠ ONE FEMININE NOUN IN THE UNIT: `ei setning` (l4), and it carries the en-/ei-
+// recognition note §1 requires. The other nouns are en samtale, et uttrykk,
+// en tale, et rykte and en lyd — masculine or neuter. `setning` was written
+// `en` here at first, on a note propagated from u24/u34 that retning and setning
+// are "masculine only". That note was false: Bokmålsordboka gives both as
+// "hankjønn eller hunkjønn" (ordbokene.no/nob/bm/setning), so setninga is
+// correct and the -ing/-ning class has no exception. Marked `ei` per §1.
 //
 // ø IS WRITTEN o IN `reading` (§3): `å påstå` → "apasta" (three å's, all folded),
 // `å spøke` → "aspoke".
@@ -119,7 +120,7 @@ export const NO_UNIT49 = {
       items: [
         { id: "no-u49l4-enprat", type: "vocab", front: "en prat", reading: "enprat", meaning: "chat", example: { jp: "En prat med en nabo er hyggelig, men den blir ofte kort.", en: "A chat with a neighbour is nice, but it often gets short." }, drill: { jp: "Vi tar en prat i kveld", en: "We have a chat tonight" }, accept: ["a talk", "a conversation", "a natter"], hint: "PRAHT. Masculine: definite praten. Å ta en prat is to have a chat — Norwegian TAKES one. Å prate is the verb, and it is warmer and lighter than å snakke. ⚠ `en samtale` would have been the natural card here; block 2 teaches it at u33 and the lower slot owns it." },
         { id: "no-u49l4-etuttrykk", type: "vocab", front: "et uttrykk", reading: "etuttrykk", meaning: "expression", example: { jp: "Et uttrykk er tungt å tolke, og derfor lærer vi det godt.", en: "An expression is hard to interpret, and that is why we learn it well." }, drill: { jp: "Vi lærer et uttrykk i dag", en: "We learn an expression today" }, accept: ["a phrase", "a term", "a look"], hint: "UET-trykk. Neuter: definite uttrykket, plural uttrykk, unchanged. Ut plus trykk, a pressing-out. Both a set phrase and the expression on a face." },
-        { id: "no-u49l4-ensetning", type: "vocab", front: "en setning", reading: "ensetning", meaning: "sentence", example: { jp: "En setning på norsk er ikke lang, og vi skriver den godt.", en: "A sentence in Norwegian is not long, and we write it well." }, drill: { jp: "Vi skriver en setning i ei bok", en: "We write a sentence in a book" }, accept: ["a clause", "a phrase"], hint: "SETT-ning. Masculine: definite setningen, plural setninger. Built on å sette — a setting-together of words. The V2 rule its own example describes is the one unit1.js §4 has been modelling since A1." },
+        { id: "no-u49l4-eisetning", type: "vocab", front: "ei setning", reading: "eisetning", meaning: "sentence", example: { jp: "I ei setning på norsk står verbet alltid på plass nummer to.", en: "In a Norwegian sentence the verb always stands in second place." }, drill: { jp: "Vi skriver ei setning i ei bok", en: "We write a sentence in a book" }, accept: ["a clause", "a phrase"], hint: "SETT-ning. Feminine: definite setninga, plural setninger — Bokmål allows setningen too. Built on å sette — a setting-together of words. The example IS the V2 rule: I ei setning STÅR verbet, the verb second because something else opened the clause." },
         { id: "no-u49l4-entale", type: "vocab", front: "en tale", reading: "entale", meaning: "speech", example: { jp: "En tale er kort hvis den er god, og lang hvis den ikke er det.", en: "A speech is short if it is good, and long if it is not." }, drill: { jp: "Sjefen har en tale i kveld", en: "The boss has a speech tonight" }, accept: ["an address", "a talk"], hint: "TAH-le. Masculine: definite talen, plural taler. Å holde en tale is to give a speech — Norwegian HOLDS one. The seventeenth of May is built out of them." },
         { id: "no-u49l4-etrykte", type: "vocab", front: "et rykte", reading: "etrykte", meaning: "rumour", example: { jp: "Et rykte går i ei bygd, og ofte er det ikke godt.", en: "A rumour goes round a village, and often it is not good." }, drill: { jp: "Et rykte går i byen", en: "A rumour is going round the town" }, accept: ["a rumor", "gossip", "a reputation"], hint: "RUEK-te. Neuter: definite ryktet, plural rykter. Both a rumour and a reputation — et godt rykte is a good name. Note et rykte GÅR: a rumour walks in Norwegian." },
         { id: "no-u49l4-enlyd", type: "vocab", front: "en lyd", reading: "enlyd", meaning: "sound", example: { jp: "En lyd kommer fra et rom, men vi vet ikke hva det er.", en: "A sound comes from a room, but we do not know what it is." }, drill: { jp: "Det kommer en lyd fra kjøkkenet", en: "A sound comes from the kitchen" }, accept: ["a noise", "a tone"], hint: "LUED — the d is silent. Masculine: definite lyden, plural lyder. Any sound at all, and also a speech sound: A1 unit 1 was about the lyder Norwegian has and English does not." },

@@ -22,8 +22,8 @@
 //
 // FIRST FEMININE OF THE UNIT is `ei liste` (l1) and it carries the en-/ei-
 // recognition note §1 requires. The -ing nouns here take `ei` per the band rule
-// (ei regning, ei kvittering); retning and setning remain the two masculine-only
-// exceptions and neither appears in this unit.
+// (ei regning, ei kvittering), which applies to the whole class without
+// exception — Bokmål permits a feminine on every one of them.
 //
 // ø IS WRITTEN o IN `reading` (§3): `et beløp` → "etbelop". That is the only ø.
 //

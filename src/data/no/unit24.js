@@ -10,18 +10,24 @@
 // A1's `å møte` (u2). It would have validated clean while being one word twice —
 // exactly the class front-uniqueness cannot see.
 //
-// GENDER — AND THE EXCEPTION TRAVELS WITH THE RULE, or it gets over-applied in
-// the other direction next time. Most -ing nouns take EITHER gender in Bokmål
-// (stilling, avdeling, utdanning, løsning, endring, utvikling, erfaring,
-// samling, feiring, utstilling), so the band marks them `ei` — §1 exists so the
-// definite is derivable, and -inga is what a learner then predicts.
-// ⚠️ THE EXCEPTIONS: `retning` and `setning` are MASCULINE ONLY. Marking either
-// `ei` is a real error, and `ei retning` in my u23 was exactly that. Under §1 the
-// ei marking is a PROMISE that the definite ends in -a, so getting it wrong does
-// not mislabel the word, it teaches a form that does not exist.
-// The first version of this note said "-ing nouns are masculine", generalised
-// from the true finding about retning. I applied it here and sent it to two other
-// seats before checking it. Both halves are written down now for that reason.
+// GENDER. Every -ing/-ning noun in Bokmål takes EITHER gender (stilling,
+// avdeling, utdanning, løsning, endring, utvikling, erfaring, samling, feiring,
+// utstilling — and retning and setning too), so the band marks the whole class
+// `ei` — §1 exists so the definite is derivable, and -inga is what a learner
+// then predicts. Under §1 the ei marking is a PROMISE that the definite ends in
+// -a, so the class it must NOT be applied to is -het and -else, which have no
+// feminine form at all.
+// ⚠️ THE "MASCULINE-ONLY EXCEPTION" WAS ITSELF WRONG, AND IT TRAVELLED TO FIVE
+// UNITS BEFORE ANYONE CHECKED IT. Bokmålsordboka lists BOTH `retning` and
+// `setning` as "hankjønn eller hunkjønn" (ordbokene.no/nob/bm/retning,
+// /setning) — retninga and setninga are correct Bokmål. There is no -ing/-ning
+// exception at all: the whole class takes either gender, so the whole class is
+// marked `ei` in this band. `en retning` in u23 and `en setning` in u49 were
+// flipped to `ei` on that finding. What IS a real exception is -het and -else,
+// which have no feminine form (there is no *muligheta, no *øvelsa) and stay `en`.
+// This note has now been wrong twice in opposite directions — first "-ing nouns
+// are masculine", then "retning and setning are masculine only". Both were
+// generalised from one card without opening a dictionary. Check the dictionary.
 //
 // Subordinators are A1's REAL set: at, fordi, hvis, men, eller, når. NOT `som`,
 // `for` or `der` — all three are untaught in A1's 480 and lint structurally
@@ -49,7 +55,7 @@ export const NO_UNIT24 = {
       items: [
         { id: "no-u24l1-ensoknad", type: "vocab", front: "en søknad", reading: "ensoknad", meaning: "application", example: { jp: "Søknaden må leveres på fredag, fordi fristen er tidlig neste uke.", en: "The application has to be handed in on Friday, because the deadline is early next week." }, accept: ["an application"], drill: { jp: "Jeg skriver en søknad nå", en: "I am writing an application now" }, hint: "SURK-nad. Masculine: definite søknaden, plural søknader. Built on å søke, the verb below." },
         { id: "no-u24l1-asoke", type: "vocab", front: "å søke", reading: "asoke", meaning: "to apply", example: { jp: "Hun søker på en stilling i Bergen, men hun vet ikke hva sjefen sier.", en: "She is applying for a position in Bergen, but she does not know what the boss says." }, accept: ["apply", "to seek", "seek", "to search"], drill: { jp: "Det er lett å søke her", en: "It is easy to apply here" }, hint: "SUR-ke. You apply PÅ a job in Norwegian, not for it. It also means to search — å søke på nettet." },
-        { id: "no-u24l1-enstilling", type: "vocab", front: "ei stilling", reading: "eistilling", meaning: "position", example: { jp: "Stillinga er ledig fra januar, hvis vi finner en god lærer.", en: "The position is vacant from January, if we find a good teacher." }, accept: ["a position", "a job", "post", "vacancy"], drill: { jp: "Ei stilling er ledig nå", en: "A position is vacant now" }, hint: "STIL-ling, feminine: definite stillinga. Most -ing nouns take either gender in Bokmål; the course marks them ei, because §1 exists so the definite is derivable and -inga is what you then predict. The exceptions are retning and setning, which are masculine only." },
+        { id: "no-u24l1-enstilling", type: "vocab", front: "ei stilling", reading: "eistilling", meaning: "position", example: { jp: "Stillinga er ledig fra januar, hvis vi finner en god lærer.", en: "The position is vacant from January, if we find a good teacher." }, accept: ["a position", "a job", "post", "vacancy"], drill: { jp: "Ei stilling er ledig nå", en: "A position is vacant now" }, hint: "STIL-ling, feminine: definite stillinga. Every -ing noun takes either gender in Bokmål; the course marks them all ei, because §1 exists so the definite is derivable and -inga is what you then predict. You will still meet en stilling / stillingen in print." },
         { id: "no-u24l1-enfrist", type: "vocab", front: "en frist", reading: "enfrist", meaning: "deadline", example: { jp: "Fristen går ut på mandag, men læreren sier at vi kan levere tirsdag.", en: "The deadline runs out on Monday, but the teacher says we can hand in on Tuesday." }, accept: ["a deadline", "time limit"], drill: { jp: "En frist er alltid travel", en: "A deadline is always busy" }, hint: "FRIST. Definite fristen. Å gå ut is what a frist does — it runs out." },
         { id: "no-u24l1-alevere", type: "vocab", front: "å levere", reading: "alevere", meaning: "to hand in", example: { jp: "Elevene leverer leksa på tavla, når de skriver oppgaven.", en: "The pupils hand in the homework at the board, when they write the task." }, accept: ["hand in", "to deliver", "deliver", "to submit"], drill: { jp: "Det er viktig å levere tidlig", en: "It is important to hand in early" }, hint: "le-VEH-re. Past leverte. Handing in schoolwork and delivering a parcel are the same verb." },
         { id: "no-u24l1-aansette", type: "vocab", front: "å ansette", reading: "aansette", meaning: "to hire", example: { jp: "Sjefen vil ansette to nye, fordi avdelinga har mye arbeid.", en: "The boss wants to hire two new people, because the department has a lot of work." }, accept: ["hire", "to employ", "employ", "to take on"], drill: { jp: "Det er dyrt å ansette noen", en: "It is expensive to hire someone" }, hint: "AN-set-te — an plus sette. En ansatt is an employee, and it is the past participle used as a noun." },

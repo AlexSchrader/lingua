@@ -11,10 +11,10 @@
 // and `å undersøke` (my own u24 `å søke`). Each would have validated clean while
 // being one word taught twice.
 //
-// GENDER, with the exception carried per the band convention: -ing nouns take
-// EITHER in Bokmål so the course marks them `ei` — ei behandling, ei øving, ei
-// bedring — because §1 exists so the definite is derivable and -inga is what a
-// learner predicts. ⚠️ `retning` and `setning` are the masculine-only exceptions.
+// GENDER: -ing nouns take EITHER in Bokmål so the course marks them all `ei` —
+// ei behandling, ei øving, ei bedring — because §1 exists so the definite is
+// derivable and -inga is what a learner predicts. There is no -ing exception;
+// the class that must stay `en` is -het and -else, which have no feminine form.
 // `medisin`, `forkjølelse`, `skade` and `søvn` are masculine, so they take en.
 //
 // Subordinators are A1's REAL set: at, fordi, hvis, men, eller, når. NOT `som`,
