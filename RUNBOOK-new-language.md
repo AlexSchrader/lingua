@@ -141,6 +141,19 @@ until merge day.
 
 ## 3. Read exactly these, in order
 
+> 🚨 **MERGE `main` FIRST, AND AGAIN AT THE START OF EVERY SESSION. THE DOCS IN YOUR WORKTREE ARE AS OLD AS YOUR BRANCH.**
+>
+> ```bash
+> git merge main          # before you read anything below
+> ```
+>
+> **This is not housekeeping. It has already sent crews the wrong instruction.** On 2026-09-13 Alex set a new standard for unit 1 lessons 1–3, it was written into these docs and merged to `main` — and **zero of the four live crew branches had it.** All four were still reading the rule it replaced, and their `CONTENT.md` had no accent section at all. Asked about the new standard, a curriculum seat did not know what he was talking about — correctly, because on its branch the standard did not exist.
+>
+> A doc written on `main` is invisible to a worktree on `content/<lang>-...` until that branch merges it. **Nobody is notified.** There is no warning, no conflict, nothing red — you simply read a confident, well-written instruction that was superseded days ago, which is worse than reading nothing.
+>
+> So: **merge `main` before you read, and at the start of every session, and before a hand-back.** If merging mid-authoring would be disruptive, say so in your hand-back rather than skipping it — but read `main`'s copy of these files either way (`git show main:RUNBOOK-new-language.md`) before you trust your own.
+
+
 1. `CLAUDE.md` — you are **Curriculum CC**. Its rules bind you.
 2. `BUILD-BRIEF-language-blueprint.md` §1 — **the strand model and band template. This is your assignment.**
 3. `CONTENT.md` — the item schema.
