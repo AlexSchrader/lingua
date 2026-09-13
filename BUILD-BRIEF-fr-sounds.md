@@ -29,7 +29,9 @@ learners can read immediately — and be wrong immediately.
 
 ## Hard dependency: audio
 
-**Mostly resolved, with one hole exactly where it hurts.** French now has 3,049 clips. But
+✅ **RESOLVED 2026-09-13** — `main` generated the missing clips (de 480 · no 480 · pt A2 720 · fr 14). **Unit 1 lessons 1–3 are now fully voiced in every language except one card** (`pt-u1l1-econj`, front `e`). The table below is the state that prompted the run, kept as the record of what was missing.
+
+**Previously:** French now has 3,049 clips. But
 **`fr-u27` lessons 1 and 2 have 0 of 14**, because the audio for those ids was deleted when
 the unit was re-authored and never regenerated. Corpus-wide, the sounds lessons of three
 languages are still silent:
