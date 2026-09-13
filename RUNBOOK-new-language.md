@@ -245,15 +245,11 @@ Everything else on the list is free. **Check your own language's fronts before y
 2. **Plus a minimal exemplar word or two** carrying one of those letters, as an ordinary vocab card — so the lesson is not a bare alphabet and the learner meets the letter living in a real word. `ø` as a glyph card, then `ei øy`.
 3. **Repetition is fine and expected.** A language with four special letters does not invent two more to reach six.
 
-⚠️ **THE ENGINE ALREADY REPEATS — do not add filler items to hit a number.** `buildLearnQueue` gives every item **three screens in the session** (one teach, then two spaced checks), so:
+⚠️ **THE ENGINE ALREADY REPEATS — do not add filler items to hit a number.** `buildLearnQueue` gives every item **three screens** (one teach, then two spaced checks), and FSRS repeats it again over following days. So a four-letter lesson is **twelve screens**, which is a real lesson rather than a thirty-second one.
 
-| distinct items | screens in the lesson |
-|---|---|
-| 3 | **9** |
-| 4 | **12** |
-| 6 | **18** |
+⚠️ **But do NOT use that as the justification for a short lesson — it does not survive contact.** The 3× applies to *every* lesson equally, so it cancels out of the comparison: 3 items is 9 screens and 6 items is 18, and the short lesson is still exactly half the normal one — in screens, in items, and in review load afterwards. **Multiplying both sides of a gap by three does not close it.** `lint.js` counts items, and items are precisely what is short: the rule is measuring the right thing.
 
-and FSRS repeats each of them again over the following days. A four-letter Norwegian lesson is **twelve screens of learner time**, not four. The density rule counts **distinct items**, not screens — so a short accent lesson is a measurement artefact, not a thin lesson.
+**The honest justification is the shape, not the arithmetic:** glyph cards *plus a minimal exemplar word* fill the lesson with real content, and a language with four special letters does not invent two more. **Cite that.** A crew that cites the screen count instead will ship a bare three-glyph lesson and call the gap closed by multiplication.
 
 ⚠️ **Do not duplicate an item to pad the count — it is a hard validator error.** Item ids are globally unique (`contract.js`: *"duplicate id"*). "Repeat the card" means the engine's own repetition plus spaced review, not the same id twice in `items[]`.
 
