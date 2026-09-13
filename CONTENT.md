@@ -108,6 +108,28 @@ gojūon grid). They count toward a lesson's card-density.
 | drill   | `{ jp, en }` (opt) |         | **short practice sentence** — see below. 3–8 tokens, no internal punctuation, must contain the `front` |
 | hint    | string (opt)      |          | memory hook shown on TeachCard; must be non-empty if present |
 
+### Accent items — unit 1, lessons 1–3 only (the accent standard)
+
+**Alex, 2026-09-12:** accents are taught as **hear → speak → type the character**, never as a meaning. The learner has to find the character on their own keyboard, because a learner who cannot type é cannot write the language.
+
+```js
+// ❌ what ships today — teaches a WORD that happens to contain the accent
+{ id: "fr-u27l1-eaigu", type: "vocab", front: "le bébé", reading: "lebebe", meaning: "baby", … }
+
+// ✅ the standard — the accent IS the card
+{ id: "fr-u27l1-eaigu", type: "vocab", front: "é", reading: "e", … }
+```
+
+**Scope is literally unit 1, lessons 1–3.** Every other unit keeps teaching sounds through real vocabulary — that rule is unchanged and still correct.
+
+All five Latin languages currently use the word-based shape and all five need the rewrite. Every bare accent front (`é è ê ç ô û œ ä ö ü ß æ ø å ñ ã õ …`) is **free of collisions** across the whole corpus (checked 2026-09-13), so front-uniqueness is not in the way.
+
+⚠️ **Do not author this yet.** Two Feature-lane prerequisites are outstanding and both are Alex's call — `BUILD-BRIEF-language-blueprint.md` §3e has the detail:
+1. **The meaning card cannot currently be turned off.** `eligibleKinds()` always offers `choice` and `type:meaning`, so an accent item would still be asked what é *means*. Needs a new contract field; `ITEM_KEYS` is a closed set.
+2. **"Hear" needs clips that do not exist** — fr u1 l1–l2, de u1 l1–l3 and no u1 l1–l3 are **46 items with no audio**, and a listening card silently never routes without one.
+
+⚠️ **French's unit 1 is `src/data/fr/unit27.js`.** The filename is historical; the unit carries `order: 1`. Edit by unit `order`, never by filename.
+
 ---
 
 ## Item — kanji

@@ -169,7 +169,42 @@ These are not guidelines; the lint enforces most of them and the gate rejects th
   - Example: `drill: { jp: "Le français est une belle langue", en: "French is a beautiful language" }`
 
 - **4 lessons per unit × 6 cards per lesson = 24 cards.** The mature ja shape (every unit from u22 on). Band is 5–8 cards/lesson; aim 6.
-- **Teach the script in chunks that get used immediately.** ja's Unit 1 is 25 kana *and* 29 real words — never a run of bare characters before the first word. For a Latin language this means the sounds unit uses real vocabulary, not letter drills.
+- **Teach the script in chunks that get used immediately.** ja's Unit 1 is 25 kana *and* 29 real words — never a run of bare characters before the first word. For a Latin language this means the sounds unit uses real vocabulary, not letter drills — **except unit 1 lessons 1–3, where the accents themselves are taught. See the standard below; it overrides this bullet for those three lessons only.**
+
+### THE ACCENT STANDARD — unit 1, lessons 1–3 only (Alex, 2026-09-12)
+
+**Alex's call, verbatim:** *"for now on accent lessons are listen, speak and type the accent not the 'definition' — meaning user has to find it on their keyboard."* And: *"teaching accents determines how user succeeds and doing le bébé for fr isn't it … they all need the same standard: hear, speak, type. That's it for the first units when learning accents."*
+
+**Scope is narrow and literal: unit 1, lessons 1–3. Everything past that is unchanged** — keep teaching sounds through real vocabulary everywhere else, exactly as the bullet above says.
+
+**What the learner does with an accent card:** hears it, says it, and **types the character itself**. Not its meaning, not a word containing it. The point is that they locate it on their own keyboard, because a learner who cannot type é cannot write the language.
+
+**What that means for the `front`:**
+
+| | |
+|---|---|
+| ❌ Wrong (what ships today) | `front: "le bébé"`, `meaning: "baby"` — teaches a word that happens to contain é |
+| ✅ Right | `front: "é"`, `reading: "e"` — the accent IS the card |
+
+**Every one of these bare fronts is currently free** in fr, es, pt, de and no — checked against the whole corpus 2026-09-13, zero collisions. You are not fighting front-uniqueness to do this.
+
+**This is a live cross-lane change, not a free-for-all:**
+
+- **Two things must land from the Feature lane BEFORE this content is authorable**, and both are Alex's call, not a crew's — check the Language crew board before you touch unit 1:
+  1. **A way to say "hear/speak/type only" on an item.** `eligibleKinds()` (`src/store/cardRouting.js`) opens with `["choice", "type:meaning"]` and the comment says *"no gate — every item can be asked these"*. The meaning card **cannot be switched off today**, so an accent item would still be asked "what does é mean". Needs a new contract field; `ITEM_KEYS` has no room for one.
+  2. **Audio, where it is missing.** "Hear" routes only when `hasAudio(item)` is true. Right now: **fr unit 1 lessons 1–2 have 0 of 14 clips, de has 0 of 18, no has 0 of 18.** es and pt are fully voiced. Until `generate:audio` runs for those, a third of the standard silently does not exist.
+- **`speak` is live** and routes for any vocab item (`shouldSpeak`). Older notes calling it dormant are stale.
+- ⚠️ **French's unit 1 is in `src/data/fr/unit27.js`, not `unit1.js`.** The file name is historical; the unit carries `order: 1`. Edit by unit `order`, never by filename.
+
+**Where each language teaches this today** (confirmed 2026-09-13) — all five currently use the word-based shape and all five need the same rewrite:
+
+| lang | unit 1 file | l1 | l2 | l3 |
+|---|---|---|---|---|
+| fr | `fr/unit27.js` | The accents | Letters that team up | What you don't say |
+| es | `es/unit1.js` | Five vowels, five sounds | Silent h, throaty j | ñ, ll and y |
+| pt | `pt/unit1.js` | The vowels Portugal swallows | Through the nose: ão, ã, ãe | lh, nh and the cedilla |
+| de | `de/unit1.js` | ei und ie | ä, ö und ü | ch, sch und z |
+| no | `no/unit1.js` | Æ, ø and å | Letters you write but never say | kj, skj and sj |
 - **Grammar goes in its own units, in ja's order:** basic sentence/copula → verbs & particles/cases → past tense & adjective agreement.
 - **Every lesson gets a `canDo`** — one plain-English sentence naming a real thing the learner can now do. Not "learn the days of the week"; "Say what day it is and make plans for a specific day."
 - **Rewrite the unit `title` in the target language.** The scaffold writes an English *working* title ("Greetings", "Grammar 4 — compound and linked clauses", "Vocabulary 1 (A2)"). It marks the **slot**, which is fixed; the wording is yours and is meant to be replaced. Titles render on the Ladder, so an unreplaced one ships to the learner in the wrong language. Match the language's existing house style — ja `かず・じかん`, fr `Les nombres`, es `Los números y la hora` — and continue the `· 2` / `· 3` numbering when a unit extends an earlier one (`Les verbes` → `Les verbes · 2`). Name the unit after what it actually teaches: check the fronts before titling, so a "Colors and weather" slot that really carries both becomes `Los colores y el tiempo`, not just `Los colores`. *(This rule lived only in a comment inside `scripts/scaffold-language.mjs`, which no authoring seat opens — so three of the first nine blocks shipped 21 units with English titles while their sibling blocks localized. It is written here now because here is where seats actually read.)*
