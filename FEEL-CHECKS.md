@@ -6,7 +6,7 @@
 
 A build brief must **never** stay open because it is waiting on a feel-check. The build is done or it isn't. If the code shipped and the only thing left is Alex's judgement, **close the brief** (`docs/shipped/`) and add a row here.
 
-**Who writes here:** whoever closes the brief. **Who clears a row:** Alex, or CC on his word. Keep the row when he says it's fine — record the verdict, don't delete the history.
+**Who writes here:** whoever closes the brief — **any lane, as they work.** Alex, 2026-09-13: *"all blocks should be actively reading the docs and taking note and marking things complete as they go."* You do not need permission and you do not wait for the lead. Finished something that only needs Alex's eyes? Add the row, close the brief, keep moving. **Who clears a row:** Alex, or CC on his word. Keep the row when he says it's fine — record the verdict, don't delete the history.
 
 ---
 

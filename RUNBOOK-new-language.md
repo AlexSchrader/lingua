@@ -293,6 +293,21 @@ Unresolved: <list, or "none">
 
 Then **stop.** Do not merge. Update your row on the crew board (§0) to `handed back`.
 
+### Before you hand back: close what you finished (Alex, 2026-09-13)
+
+**Every seat reads the docs and marks things complete as it goes — this is not the lead's job at the end, it is yours as you work.** Alex: *"all blocks should be actively reading the docs and taking note and marking things complete as they go."*
+
+A doc in this repo is written in the imperative, so **a finished doc that is still open reads as a live instruction.** That has already cost real work: `BUILD-BRIEF-fr-sounds.md` sat for six weeks after shipping still telling seats *"No `type:produce` — producing an accent is a keyboard problem, not a knowledge problem"*, which is the opposite of what Alex decided, while four crews were pointed at the docs folder. And four briefs were found claiming *"design doc / not started"* while their feature was live — a standing invitation to build it twice.
+
+So, as part of your block, not after it:
+
+1. **Tick what you actually finished** in `BUILD-CHECKLIST.md`, following the marking protocol at the top of that file (`[x]` + ` — DONE <date>`). Never delete a completed task; the checked list is the project's memory.
+2. **Close any brief whose work you completed.** `git mv` it to `docs/shipped/`, stamp it *"SHIPPED — historical record, do not author from this,"* and **cite the evidence from the CODE** — the card kind in `LIVE_CARD_KINDS`, the module, the npm script. **A brief's own status line is not evidence.**
+3. **Only a feel-check left? Close it anyway.** Alex: *"fuck a feel check i can do that later … so we can close the original doc and not have it open cuz it needs a feel check."* Add a row to `FEEL-CHECKS.md` saying what to try, where, and why no test can cover it — then close the brief. **The build is done or it isn't; Alex's judgement is tracked separately.**
+4. **Spotted a doc that contradicts something Alex has since decided? Fix it in place** — replace the stale sentence, don't append a newer one above it. If it is outside your lane, say so in your hand-back with the file and line; do not leave it for someone to trip over.
+
+"I only touched content" is not an exemption. If you read a doc while authoring and it was wrong, you are the person best placed to fix it.
+
 **⚠️ BLOCKS 2 AND 3 ONLY.** If you are block 1 you are the **crew lead** and this is
 step 1 of 7, not the end — see "Block 1 is the CREW LEAD" in `CLAUDE.md`. Blocks 2
 and 3 hand back **to you**. Added 2026-09-06 after the German block-1 seat authored
