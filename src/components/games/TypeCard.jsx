@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
-import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji, meaningVariants } from "../../store/answer.js";
+import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji, meaningVariants, foldWouldEraseAnswer } from "../../store/answer.js";
 import { langName } from "../../data/languages.js";
 import { isJapaneseItem } from "../../store/itemLang.js";
 import { sfxCorrect, sfxWrong, sfxAlmost } from "../../store/sfx.js";
@@ -102,7 +102,14 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
         ? { prompt: item.reading, jp: false, ask: "Type the kana",
             check: (v) => v.trim() === item.front, answer: item.front }
         : { prompt: item.meaning, jp: false,
-            ask: latin ? `Type it in ${langName(item.lang)} — accents optional`
+            // "accents optional" is TRUE for ordinary words and a lie on an accent
+            // card, where the accent is the entire answer (see foldWouldEraseAnswer).
+            // Promising optional and then failing the bare letter is the worst of
+            // both — say which card this is.
+            ask: latin
+              ? foldWouldEraseAnswer(item)
+                ? `Type it in ${langName(item.lang)} — the accent counts`
+                : `Type it in ${langName(item.lang)} — accents optional`
               : produceAllowsRomaji(item) ? "Type it in Japanese — rōmaji or kana" : "Type it in Japanese ⌨️ (kana — not rōmaji)",
             check: (v) => checkProduce(v, item), answer: item.front };
     }
@@ -132,7 +139,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
   // whether right or wrong — so the learner registers the result, then hears the
   // target. Respects the setting; autoplay:false so a recall prompt never speaks the
   // answer before they type; the pending play cancels if they advance first.
-  const { reinforce } = useItemAudio(item, { autoplay: false });
+  const { reinforce, settled } = useItemAudio(item, { autoplay: false });
 
   // Other senses of this word, for the "also means" note after a meaning answer —
   // e.g. answer "rice" for ごはん → "also means: meal". Meaning mode + vocab only.
@@ -353,7 +360,14 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
           </button>
         </div>
       ) : (
+        /* Continue waits for the word to actually be HEARD: the reinforcement clip
+           plays ~1s after the answer, and dismissing the card used to outrun it.
+           `settled` is true whenever nothing will play — audio off, WebDriver, or no
+           clip for this item in the manifest — so a silent item never waits. While it
+           IS waiting the button must LOOK waiting; a full-strength button that ignores
+           taps reads as a broken app. */
         <button
+          disabled={!settled}
           onClick={() => onGraded(grade)}
           style={{
             padding: 16,
@@ -364,7 +378,9 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
             fontSize: 16,
             fontWeight: 700,
             fontFamily: F.body,
-            cursor: "pointer",
+            cursor: settled ? "pointer" : "default",
+            opacity: settled ? 1 : 0.55,
+            transition: "opacity 140ms ease",
           }}
         >
           Continue

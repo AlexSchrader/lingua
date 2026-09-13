@@ -1,3 +1,13 @@
+> # ✅ SHIPPED — HISTORICAL RECORD. DO NOT AUTHOR FROM THIS.
+>
+> **Closed out 2026-09-13.** The feature described below is built and live. **The code is the source of truth, not this document** — where they disagree, the code is right and this is stale.
+>
+> **Evidence it shipped:** `src/lib/supabase.js` + `src/store/cloudSync.js` ship it; Google sign-in and per-user progress are live.
+>
+> Kept because the reasoning and the rejected alternatives are worth having. Read it as history — never as an instruction.
+
+---
+
 # Build Brief — Accounts + Cross-Device Progress Sync
 
 **Goal:** progress follows the *learner*, not the device. Sign in → your items, streak, and

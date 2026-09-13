@@ -141,6 +141,19 @@ until merge day.
 
 ## 3. Read exactly these, in order
 
+> 🚨 **MERGE `main` FIRST, AND AGAIN AT THE START OF EVERY SESSION. THE DOCS IN YOUR WORKTREE ARE AS OLD AS YOUR BRANCH.**
+>
+> ```bash
+> git merge main          # before you read anything below
+> ```
+>
+> **This is not housekeeping. It has already sent crews the wrong instruction.** On 2026-09-13 Alex set a new standard for unit 1 lessons 1–3, it was written into these docs and merged to `main` — and **zero of the four live crew branches had it.** All four were still reading the rule it replaced, and their `CONTENT.md` had no accent section at all. Asked about the new standard, a curriculum seat did not know what he was talking about — correctly, because on its branch the standard did not exist.
+>
+> A doc written on `main` is invisible to a worktree on `content/<lang>-...` until that branch merges it. **Nobody is notified.** There is no warning, no conflict, nothing red — you simply read a confident, well-written instruction that was superseded days ago, which is worse than reading nothing.
+>
+> So: **merge `main` before you read, and at the start of every session, and before a hand-back.** If merging mid-authoring would be disruptive, say so in your hand-back rather than skipping it — but read `main`'s copy of these files either way (`git show main:RUNBOOK-new-language.md`) before you trust your own.
+
+
 1. `CLAUDE.md` — you are **Curriculum CC**. Its rules bind you.
 2. `BUILD-BRIEF-language-blueprint.md` §1 — **the strand model and band template. This is your assignment.**
 3. `CONTENT.md` — the item schema.
@@ -169,7 +182,66 @@ These are not guidelines; the lint enforces most of them and the gate rejects th
   - Example: `drill: { jp: "Le français est une belle langue", en: "French is a beautiful language" }`
 
 - **4 lessons per unit × 6 cards per lesson = 24 cards.** The mature ja shape (every unit from u22 on). Band is 5–8 cards/lesson; aim 6.
-- **Teach the script in chunks that get used immediately.** ja's Unit 1 is 25 kana *and* 29 real words — never a run of bare characters before the first word. For a Latin language this means the sounds unit uses real vocabulary, not letter drills.
+- **Teach the script in chunks that get used immediately.** ja's Unit 1 is 25 kana *and* 29 real words — never a run of bare characters before the first word. For a Latin language this means the sounds unit uses real vocabulary, not letter drills — **except unit 1 lessons 1–3, where the accents themselves are taught. See the standard below; it overrides this bullet for those three lessons only.**
+
+### THE ACCENT STANDARD — unit 1, lessons 1–3 only (Alex, 2026-09-12)
+
+**Alex's call, verbatim:** *"for now on accent lessons are listen, speak and type the accent not the 'definition' — meaning user has to find it on their keyboard."* And: *"teaching accents determines how user succeeds and doing le bébé for fr isn't it … they all need the same standard: hear, speak, type. That's it for the first units when learning accents."*
+
+**Scope is narrow and literal: unit 1, lessons 1–3. Everything past that is unchanged** — keep teaching sounds through real vocabulary everywhere else, exactly as the bullet above says.
+
+**What the learner does with an accent card:** hears it, says it, and **types the character itself**. Not its meaning, not a word containing it. The point is that they locate it on their own keyboard, because a learner who cannot type é cannot write the language.
+
+**What that means for the `front`:**
+
+| | |
+|---|---|
+| ❌ Wrong (what ships today) | `front: "le bébé"`, `meaning: "baby"` — teaches a word that happens to contain é |
+| ✅ Intended | `front: "é"` — the accent IS the card |
+
+⚠️ **Do not copy that as a literal item — it does not validate.** Contract rule 8 makes `meaning` **hard-required and non-empty** for a `vocab` item, and `example` must be `{ jp, en }`. So `{ front: "é", reading: "e" }` fails `validate:content` on its first item, and the obvious patch (`meaning: "the acute accent"`) re-creates the meaning card the standard exists to delete. **What `meaning` and `example` hold for a character is unresolved and is a prerequisite, not an authoring detail.**
+
+**There may be no new field needed at all.** A `type: "kana"` item is *already* exactly this shape: `meaning: null`, front = the glyph, `type:meaning` auto-rewritten to "type the character", and `listen:choice` showing **glyph options instead of meanings** — i.e. hear-it-→-pick-the-character, for free, with the meaning card suppressing itself. It is blocked only by being Japanese-named (`VALID_ITEM_TYPES`) and by this repo's script policy. `CONTENT.md` already flags generalising `kana` → `glyph` as needed for Korean/Russian/Mandarin/Hindi — **doing that once would serve the accent standard and the next four languages**, instead of a bespoke flag serving only this. Alex's call; raised so nobody builds the narrow thing first.
+
+⚠️ **Three bare fronts are ALREADY TAKEN.** Verified 2026-09-13:
+
+| front | already taught by | why it matters |
+|---|---|---|
+| `é` (pt) | **`pt-u1l1-e`** — the copula "é" (*is*) | **inside the lesson in scope.** pt u1l1 deliberately pairs `é` (is) against `e` (and) — the contrast IS the lesson. Re-using `é` as an accent card means dropping or renaming that item, and **an id change wipes that item's mastery**. |
+| `à` (fr) | `fr-u6l2-a` | outside scope, but blocks `à` as an accent front |
+| `à` (pt) | `pt-u12l3-a` | same |
+
+Everything else on the list is free. **Check your own language's fronts before you commit to one** — `npm run taught -- <lang>`.
+
+**This is a live cross-lane change, not a free-for-all:**
+
+- **Two things must land from the Feature lane BEFORE this content is authorable**, and both are Alex's call, not a crew's — check the Language crew board before you touch unit 1:
+  1. **A way to say "hear/speak/type only" on an item.** `eligibleKinds()` (`src/store/cardRouting.js`) opens with `["choice", "type:meaning"]` and the comment says *"no gate — every item can be asked these"*. The meaning card **cannot be switched off today**, so an accent item would still be asked "what does é mean". Needs a new contract field; `ITEM_KEYS` has no room for one.
+  2. ~~**Audio, where it is missing.**~~ ✅ **CLEARED 2026-09-13** — `main` generated the missing clips (de 480 · no 480 · pt A2 720 · fr 14). Unit 1 lessons 1–3 went from **51 silent to 1**: fr 0/21 · es 0/19 · de 0/18 · no 0/18 · pt **1**/19. The one holdout is **`pt-u1l1-econj`** (front `e`, "and") — a single-letter front, and the only card in scope whose companion still has nothing to say. "Hear" routes only when `hasAudio(item)` is true, so that one card still has no listening step — everything else in scope is voiced.
+     - ⚠️ **`speak` needs the clip too.** `SpeakCard.jsx` plays the clip and *then* arms the mic; with no clip it arms immediately and asks the learner to pronounce a character **they have never heard** — produce-before-perceive, the exact defect `earCrowdedOut` exists to prevent. So for those 51 items, audio blocks two thirds of "hear, speak, type", not one.
+     - ⚠️ **Audio generation is contended.** The de/no/pt crews share the manifest; pt B1's 889 clips are deliberately unrun for that reason. Sequence with the merge seat, don't just fire it.
+  3. **A typed check that actually requires the accent. THIS IS THE ONE THAT INVALIDATES THE CARD, and it is not optional.** `normalizeReading` strips diacritics for every non-ja language, so measured on `{ front: "é", reading: "e" }`:
+
+     ```
+     checkProduce("e", …)  → true      ← the PLAIN letter passes the "type the accent" card
+     checkProduce("E", …)  → true
+     checkReading("è", …)  → true      ← and é/è/ê all share reading "e", so they accept each other
+     ```
+
+     The learner never has to find é on the keyboard. **The entire point of the standard is a no-op against the engine as it stands** — `fr/unit27.js` already admits this in a comment: *"the lesson titled 'The accents' cannot currently require one."* Ship without fixing this and you ship seven French cards that grade `e` as correct.
+  4. **The keyboard popup**, which is half of what Alex asked for: *"a popup that shows or tells the user how to find the accent on their keyboard."* There is no surface for it — `item.hint` renders **only on TeachCard**, not on the typing card. Feature-lane UI, and it needs three different instructions (iOS/Android long-press · Windows Alt-codes · macOS Option), so it must be platform-aware or neutrally worded.
+- **`speak` routes** for any vocab item (`shouldSpeak`) — notes calling it dormant are stale — **but it is not free here.** It needs the clip (above), and this repo's own Brief-C de-risk measured STT on an **isolated single glyph at 0/3**. `gradeSpoken("e", { front: "é" })` returns `"hard"`: a learner who says the sound correctly is marked down unless the transcriber happens to emit the accent. **Speak the WORD, type the CHARACTER** is the shape that survives this.
+- ⚠️ **French's unit 1 is in `src/data/fr/unit27.js`, not `unit1.js`.** The file name is historical; the unit carries `order: 1`. Edit by unit `order`, never by filename.
+
+**Where each language teaches this today** (confirmed 2026-09-13) — all five currently use the word-based shape and all five need the same rewrite:
+
+| lang | unit 1 file | l1 | l2 | l3 |
+|---|---|---|---|---|
+| fr | `fr/unit27.js` | The accents | Letters that team up | What you don't say |
+| es | `es/unit1.js` | Five vowels, five sounds | Silent h, throaty j | ñ, ll and y |
+| pt | `pt/unit1.js` | The vowels Portugal swallows | Through the nose: ão, ã, ãe | lh, nh and the cedilla |
+| de | `de/unit1.js` | ei und ie | ä, ö und ü | ch, sch und z |
+| no | `no/unit1.js` | Æ, ø and å | Letters you write but never say | kj, skj and sj |
 - **Grammar goes in its own units, in ja's order:** basic sentence/copula → verbs & particles/cases → past tense & adjective agreement.
 - **Every lesson gets a `canDo`** — one plain-English sentence naming a real thing the learner can now do. Not "learn the days of the week"; "Say what day it is and make plans for a specific day."
 - **Rewrite the unit `title` in the target language.** The scaffold writes an English *working* title ("Greetings", "Grammar 4 — compound and linked clauses", "Vocabulary 1 (A2)"). It marks the **slot**, which is fixed; the wording is yours and is meant to be replaced. Titles render on the Ladder, so an unreplaced one ships to the learner in the wrong language. Match the language's existing house style — ja `かず・じかん`, fr `Les nombres`, es `Los números y la hora` — and continue the `· 2` / `· 3` numbering when a unit extends an earlier one (`Les verbes` → `Les verbes · 2`). Name the unit after what it actually teaches: check the fronts before titling, so a "Colors and weather" slot that really carries both becomes `Los colores y el tiempo`, not just `Los colores`. *(This rule lived only in a comment inside `scripts/scaffold-language.mjs`, which no authoring seat opens — so three of the first nine blocks shipped 21 units with English titles while their sibling blocks localized. It is written here now because here is where seats actually read.)*
@@ -190,6 +262,15 @@ These are not guidelines; the lint enforces most of them and the gate rejects th
 
 ## 5. Gate — all five, in this order, all green
 
+> ⚠️ **If another crew is live on this machine, give your smoke its own port.** Every worktree's dev server wants the same 5173. Until 2026-09-13 the smoke would happily **attach to whichever tree got there first and report its result as yours** — green, silent, for someone else's code. That is now a loud failure instead (`reuseExistingServer: false`), so a busy port stops the run rather than lying to you. Give yours a port and move on:
+>
+> ```bash
+> SMOKE_PORT=5273 npx playwright test
+> SMOKE_PORT=4273 SMOKE_MODE=preview npx playwright test
+> ```
+>
+> Pick a port nobody else is using — the crew board is the fastest way to see who is live. Reported by the pt-B1 seat, who caught it the honest way: by noticing 5173 was already held.
+
 ```bash
 npm run lint:curriculum
 npm run validate:content
@@ -206,6 +287,21 @@ Then run the `content-auditor` agent on your block as the naturalness gate, then
 
 ## 6. Hand back to Alex — the only thing he reads
 
+**Your block moves a number the learner can see, and you do not have to update it.**
+The "Add a language" row for your language reads its state straight off the corpus:
+
+| state | the row says |
+|---|---|
+| nothing authored yet (all locked stubs) | `content coming` |
+| your block has merged, band unfinished | `7/20 units so far` — climbing per block |
+| every unit authored | `480 items` — units-done stops being news once it equals units-total |
+
+So the row advances the moment your units land, and there is no counter to bump, no
+status field to edit, and nothing to keep in sync by hand. If it does NOT move after a
+merge, that is a real signal: a unit whose lessons are all still locked stubs does not
+count as authored, so check you actually shipped items rather than scaffolding.
+
+
 Post exactly this, nothing longer:
 
 ```
@@ -218,6 +314,21 @@ Unresolved: <list, or "none">
 ```
 
 Then **stop.** Do not merge. Update your row on the crew board (§0) to `handed back`.
+
+### Before you hand back: close what you finished (Alex, 2026-09-13)
+
+**Every seat reads the docs and marks things complete as it goes — this is not the lead's job at the end, it is yours as you work.** Alex: *"all blocks should be actively reading the docs and taking note and marking things complete as they go."*
+
+A doc in this repo is written in the imperative, so **a finished doc that is still open reads as a live instruction.** That has already cost real work: `BUILD-BRIEF-fr-sounds.md` sat for six weeks after shipping still telling seats *"No `type:produce` — producing an accent is a keyboard problem, not a knowledge problem"*, which is the opposite of what Alex decided, while four crews were pointed at the docs folder. And four briefs were found claiming *"design doc / not started"* while their feature was live — a standing invitation to build it twice.
+
+So, as part of your block, not after it:
+
+1. **Tick what you actually finished** in `BUILD-CHECKLIST.md`, following the marking protocol at the top of that file (`[x]` + ` — DONE <date>`). Never delete a completed task; the checked list is the project's memory.
+2. **Close any brief whose work you completed.** `git mv` it to `docs/shipped/`, stamp it *"SHIPPED — historical record, do not author from this,"* and **cite the evidence from the CODE** — the card kind in `LIVE_CARD_KINDS`, the module, the npm script. **A brief's own status line is not evidence.**
+3. **Only a feel-check left? Close it anyway.** Alex: *"fuck a feel check i can do that later … so we can close the original doc and not have it open cuz it needs a feel check."* Add a row to `FEEL-CHECKS.md` saying what to try, where, and why no test can cover it — then close the brief. **The build is done or it isn't; Alex's judgement is tracked separately.**
+4. **Spotted a doc that contradicts something Alex has since decided? Fix it in place** — replace the stale sentence, don't append a newer one above it. If it is outside your lane, say so in your hand-back with the file and line; do not leave it for someone to trip over.
+
+"I only touched content" is not an exemption. If you read a doc while authoring and it was wrong, you are the person best placed to fix it.
 
 **⚠️ BLOCKS 2 AND 3 ONLY.** If you are block 1 you are the **crew lead** and this is
 step 1 of 7, not the end — see "Block 1 is the CREW LEAD" in `CLAUDE.md`. Blocks 2

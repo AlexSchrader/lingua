@@ -9,3 +9,9 @@ test-results/
 tests/
 scripts/
 *.log
+
+# Nested language-crew worktrees — ~19 full repo copies (node_modules +
+# public/audio each). Without this a local `vercel --prod` uploads gigabytes of
+# them. See .gitignore for why they end up inside the root.
+/lingua-*/
+/drill-tools/

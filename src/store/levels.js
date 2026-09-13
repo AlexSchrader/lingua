@@ -65,3 +65,29 @@ export function currentStageFor(stages, statsByStage) {
     stages[stages.length - 1]
   );
 }
+
+// How far a crew has got authoring a language, DERIVED from the corpus — so the
+// Ladder's badge updates as each block lands and nobody has to move a number by
+// hand. Lives here rather than in Ladder.jsx because node:test cannot import .jsx,
+// and the two states that matter are otherwise untestable:
+// all six languages are fully authored today, so the partway and nothing-authored
+// branches are unreachable against the real corpus until the next `scaffold:lang`
+// — which is exactly when a regression here would first be seen by a learner.
+// `units` is injectable for that reason.
+export function authoringProgress(id, units = UNITS) {
+  const us = units.filter((u) => u.lang === id);
+  if (!us.length) return null;
+  const authored = us.filter((u) => (u.lessons ?? []).some((l) => Array.isArray(l.items)));
+  const items = authored.reduce(
+    (n, u) => n + u.lessons.reduce((m, l) => m + (l.items?.length ?? 0), 0),
+    0
+  );
+  // Three states, and the middle one is the whole point: a band being written
+  // updates as each block's units land, because this is DERIVED from the corpus —
+  // nobody has to remember to move a number when a crew hands back.
+  //   nothing authored  -> null, the row says "planned"
+  //   partway           -> "3/20 units", climbing as blocks confirm
+  //   complete          -> the item count, because units-done stops being news
+  //                        the moment it equals units-total
+  return { done: authored.length, total: us.length, items, complete: authored.length === us.length };
+}

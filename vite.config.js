@@ -1,6 +1,12 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
+
+// Absolute project root, forward-slashed — chokidar matches watch globs against
+// absolute paths, and on Windows a backslashed pattern never matches.
+const ROOT = path.dirname(fileURLToPath(import.meta.url)).split(path.sep).join("/");
 
 export default defineConfig({
   plugins: [
@@ -47,6 +53,29 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    watch: {
+      // Language-crew worktrees are meant to be SIBLINGS of this repo, but broken
+      // worktree metadata has left full copies nested inside the root (`lingua-*/`,
+      // `drill-tools/`) — each a whole repo with its own node_modules and
+      // public/audio. Vite's watcher walked them and the dev server ballooned to
+      // ~4 GB and took longer than Playwright's 120s webServer timeout to become
+      // ready, so the smoke gate could not start at all. Ignoring them here is the
+      // safe half of the fix; reclaiming the directories is a separate cleanup.
+      //
+      // ANCHORED to the project root on purpose. The obvious `**/lingua-*` also
+      // matches the 17 mascot assets in public/mascot (lingua-base.png,
+      // lingua-cheer.png, lingua-achievement.mp4 …), which would silently cost
+      // them HMR. These patterns are absolute so only the root-level worktree
+      // directories match.
+      ignored: [
+        path.posix.join(ROOT, "lingua-*"),
+        path.posix.join(ROOT, "lingua-*/**"),
+        path.posix.join(ROOT, "drill-tools"),
+        path.posix.join(ROOT, "drill-tools/**"),
+      ],
+    },
+  },
   build: {
     rollupOptions: {
       output: {
