@@ -62,6 +62,27 @@
 //     the checker's hits on them are the documented morphology class RUNBOOK §4
 //     tells you to expect. Block 1 leaves 27 such hits; that is the floor, not a
 //     defect.
+//   - GLYPH CARDS (added 2026-09-13, `type: "glyph"`). Unit 1's job is that the
+//     learner can PRONOUNCE German's letters before being handed a word, so every
+//     special letter and every real multigraph trap is now its own card, placed
+//     FIRST in its lesson's items[] — teach order is authored order, so the glyph is
+//     taught before any word that contains it. Shape is fixed by the contract:
+//     meaning: null, example: null, front 1–4 characters. Nothing was removed and no
+//     id changed; the 24 word cards of this unit are untouched, which is deliberate —
+//     every one of them is taught here and nowhere else in German.
+//     GERMAN'S SET, and why: ei · ie (l1) — the digraph pair English reads backwards;
+//     ä · ö · ü (l2) — the three umlauts; ch · sch · z (l3) — the clusters English has
+//     no match for; ß (l4) — the fourth special letter, taught in the lesson that
+//     already owns it. DELIBERATELY NOT GLYPH CARDS: sp and st, because they are only
+//     "shp"/"sht" at the START of a word or stem (Fenster and Wespe keep a plain s),
+//     and a glyph card has no example field in which to show that condition — the
+//     hints on spät and sprechen teach it in the word, where the condition is
+//     visible. eu and äu, because no word in unit 1 carries either, and a sound card
+//     with nothing in the unit to anchor it is padding. w and v, because they are
+//     ordinary ASCII keys: there is nothing to FIND, and their pronunciation trap is
+//     taught through wohnen and was, below.
+//     ⚠️ The new glyph ids have NO audio clip until generate:audio runs for them;
+//     the typing card works today and teach/listen/speak light up when audio lands.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const DE_UNIT1 = {
   id: "de-u1",
@@ -81,6 +102,10 @@ export const DE_UNIT1 = {
       dominantMode: "recall",
       canDo: "Read ei and ie the German way — ei says \"eye\", ie says \"ee\" — and point at something and say what it is: Das ist Berlin.",
       items: [
+        // GLYPHS FIRST (see header): the learner meets the digraph before any word
+        // that contains it. ei/ie are the pair every English reader reads backwards.
+        { id: "de-u1l1-ei", type: "glyph", front: "ei", reading: "ei", meaning: null, example: null, hint: "Two letters, one sound, and the SECOND letter names it: ei is the English \"eye\". Zeit, klein, nein." },
+        { id: "de-u1l1-ie", type: "glyph", front: "ie", reading: "ie", meaning: null, example: null, hint: "Same rule, other way round: ie is a long \"ee\". hier, die Zeit, die Tür. Swap the two letters and you swap the sound — that is the whole lesson." },
         { id: "de-u1l1-ist", type: "vocab", front: "ist", reading: "ist", meaning: "is", example: { jp: "Berlin ist fantastisch.", en: "Berlin is fantastic." }, accept: ["is", "it is", "he is", "she is", "it's"], hint: "The link word: X ist Y. From sein, to be — its forms are so irregular that German learners meet them one at a time." },
         { id: "de-u1l1-das", type: "vocab", front: "das", reading: "das", meaning: "that / this", example: { jp: "Das ist Anna.", en: "That is Anna." }, accept: ["that", "this", "that is", "the"], hint: "Das ist… is how you point at anything, whatever its gender. It is also the article for neuter nouns — same word, two jobs." },
         { id: "de-u1l1-diezeit", type: "vocab", front: "die Zeit", reading: "diezeit", meaning: "time", example: { jp: "Die Zeit hier ist perfekt.", en: "The time here is perfect." }, accept: ["time", "the time"], hint: "ei is said like English \"eye\": TSYTE. The rule of thumb — ei and ie are pronounced as the SECOND letter names it." },
@@ -89,9 +114,12 @@ export const DE_UNIT1 = {
         { id: "de-u1l1-nein", type: "vocab", front: "nein", reading: "nein", meaning: "no", example: { jp: "Nein, das ist München.", en: "No, that is Munich." }, accept: ["no"], hint: "NINE, not \"nane\". Careful with its neighbour nein/ein — both ei, both said \"eye\"." },
       ],
     },
-    // Lesson 2: the three umlauts. They fold away in `reading`, so the learner
-    // may type either form — but the SOUND is a real distinction and the hints
-    // carry it.
+    // Lesson 2: the three umlauts. In the WORD cards they fold away in `reading`,
+    // so the learner may type either form — but the SOUND is a real distinction and
+    // the hints carry it. The three GLYPH cards below are the exception and are meant
+    // to be: a single-character front whose fold would erase the answer is graded
+    // strictly (answer.js foldWouldEraseAnswer), so on those three the dots must
+    // actually be typed. That is the card Alex asked for — find it on your keyboard.
     {
       id: "de-u1l2",
       unit: 1,
@@ -101,6 +129,12 @@ export const DE_UNIT1 = {
       dominantMode: "recall",
       canDo: "Recognise and say the three umlauts, and describe something as beautiful, late or tired.",
       items: [
+        // GLYPHS FIRST: all three umlauts as their own cards, before the words that
+        // carry them. The keyboard tip is taught once, on ä — the gesture is the same
+        // for all three.
+        { id: "de-u1l2-ae", type: "glyph", front: "ä", reading: "a", meaning: null, example: null, hint: "Not the a of Mann. ä is the e of English \"bed\", held long: spät = SHPAYT. To type it: long-press a on a phone keyboard — the same long-press finds ö on o and ü on u. (A German keyboard gives all three their own keys.)" },
+        { id: "de-u1l2-oe", type: "glyph", front: "ö", reading: "o", meaning: null, example: null, hint: "Say \"eh\" as in \"bed\", then round your lips as if for \"oh\" and hold them there. schön, hören. English has no such sound — the rounding is the whole trick." },
+        { id: "de-u1l2-ue", type: "glyph", front: "ü", reading: "u", meaning: null, example: null, hint: "Say \"ee\", then round your lips as if for \"oo\". Tür, müde, Küche. On this card the two dots ARE the answer, so type ü itself — inside a whole word like die Tür the app still accepts tur." },
         { id: "de-u1l2-dietur", type: "vocab", front: "die Tür", reading: "dietur", meaning: "door", example: { jp: "Die Tür ist klein.", en: "The door is small." }, accept: ["door", "the door"], hint: "ü is the trick one: say \"ee\" and round your lips as if for \"oo\". You may type tur or tür — both are accepted." },
         { id: "de-u1l2-schon", type: "vocab", front: "schön", reading: "schon", meaning: "beautiful", example: { jp: "Die Musik ist schön.", en: "The music is beautiful." }, accept: ["beautiful", "lovely", "nice"], hint: "ö is \"eh\" with rounded lips. Do not confuse schön (beautiful) with schon (already) — the two dots are the whole difference." },
         { id: "de-u1l2-spat", type: "vocab", front: "spät", reading: "spat", meaning: "late", example: { jp: "Anna ist spät.", en: "Anna is late." }, accept: ["late"], hint: "ä is close to the e of \"bed\", held long: SHPAYT. Note sp- at the start of a word is said \"shp\"." },
@@ -119,6 +153,12 @@ export const DE_UNIT1 = {
       dominantMode: "recall",
       canDo: "Say the three clusters English has no match for — ch, sch and z — and talk about a book, a school and a newspaper.",
       items: [
+        // GLYPHS FIRST: the three clusters English has no match for, each as its own
+        // card, ahead of the words. ch is one spelling with two realisations and the
+        // hint carries both — a glyph has no example field to show the condition in.
+        { id: "de-u1l3-ch", type: "glyph", front: "ch", reading: "ch", meaning: null, example: null, hint: "One spelling, two sounds, decided by the letter in front of it: after a, o or u it rasps at the back of the throat (Buch, auch); after e or i it hisses at the front, like the h of English \"huge\" (sprechen, ich). Never the ch of \"chair\"." },
+        { id: "de-u1l3-sch", type: "glyph", front: "sch", reading: "sch", meaning: null, example: null, hint: "Three letters, one sound: the English \"sh\". Schule, schnell, schön. Put an s in front of p or t at the start of a word and you get the same sound — spät is SHPAYT." },
+        { id: "de-u1l3-z", type: "glyph", front: "z", reading: "z", meaning: null, example: null, hint: "German z is always \"ts\", never the English z: zusammen = tsu-ZA-men, Zeit = TSYTE. The buzzing English z sound is what German spells with a plain s." },
         { id: "de-u1l3-dasbuch", type: "vocab", front: "das Buch", reading: "dasbuch", meaning: "book", example: { jp: "Das Buch ist interessant.", en: "The book is interesting." }, accept: ["book", "the book"], hint: "After a, o or u, ch is a throaty rasp at the back — like Scottish \"loch\". BOOKH, never BOOK." },
         { id: "de-u1l3-sprechen", type: "vocab", front: "sprechen", reading: "sprechen", meaning: "to speak", example: { jp: "Anna und Thomas sprechen zusammen.", en: "Anna and Thomas speak together." }, accept: ["to speak", "to talk", "speak"], hint: "The OTHER ch: after e or i it is soft, like a hissed h in \"huge\". Also note spr- is said \"shpr\"." },
         { id: "de-u1l3-dieschule", type: "vocab", front: "die Schule", reading: "dieschule", meaning: "school", example: { jp: "Die Schule ist groß.", en: "The school is big." }, accept: ["school", "the school"], hint: "sch is always the English \"sh\", one sound: SHOO-le." },
@@ -137,6 +177,16 @@ export const DE_UNIT1 = {
       dominantMode: "recall",
       canDo: "Say w as v, read the letter ß, say that several things ARE something, and ask what something is: Was ist das?",
       items: [
+        // GLYPH FIRST. ß is the fourth of German's four special letters, and this is
+        // the lesson that owns it — the two words that carry it (die Straße, groß) are
+        // right below, so the letter is taught immediately before the words that use
+        // it. ⚠️ Its `reading` is hand-written "ss": the contract rejects a reading
+        // containing ß (see header). ⚠️ And unlike the word cards, this card demands
+        // the character itself — foldWouldEraseAnswer() fires on any single-character
+        // front whose fold changes it, so typing "ss" is marked wrong HERE while
+        // "Strasse" still passes for die Straße. That is the point of the card: find
+        // the key. The hint says so.
+        { id: "de-u1l4-eszett", type: "glyph", front: "ß", reading: "ss", meaning: null, example: null, hint: "The sharp s — one sound, a hissed s, never the buzz of English z. When German writes it: ß after a LONG vowel or a diphthong (Straße, groß, heißen), ss after a short one (essen, Wasser). It has no capital, and Switzerland writes ss everywhere. On this card type the letter itself — long-press s on a phone keyboard." },
         { id: "de-u1l4-wohnen", type: "vocab", front: "wohnen", reading: "wohnen", meaning: "to live (somewhere)", example: { jp: "Anna und Thomas wohnen hier.", en: "Anna and Thomas live here." }, accept: ["to live", "to reside", "live"], hint: "German w is the English V: VOH-nen. The h after a vowel is silent and just makes it long." },
         { id: "de-u1l4-was", type: "vocab", front: "was", reading: "was", meaning: "what", example: { jp: "Was ist das?", en: "What is that?" }, accept: ["what"], hint: "VASS. Was ist das? is the most useful question you will learn this week." },
         { id: "de-u1l4-sind", type: "vocab", front: "sind", reading: "sind", meaning: "are", example: { jp: "Anna und Thomas sind hier.", en: "Anna and Thomas are here." }, accept: ["are", "they are", "we are"], hint: "The plural of ist. Two or more of anything takes sind: Anna und Thomas sind…" },
