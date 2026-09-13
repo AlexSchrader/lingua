@@ -292,7 +292,7 @@ export const PT_UNIT51 = {
           meaning: "to take on",
           example: { jp: "A empresa vai assumir o problema, e depois o chefe vai explicar tudo aos empregados.", en: "The company is going to take on the problem, and afterwards the boss will explain everything to the employees." },
           drill: { jp: "A empresa vai assumir o problema", en: "The company is going to take on the problem" },
-          accept: ["to assume", "to take responsibility for", "to take charge of", "take on"],
+          accept: ["to take responsibility for", "to take charge of", "take on", "to own up to"],
           hint: "FALSE FRIEND, half the time. Portuguese assumir is to take something on or own up to it — assumir um cargo, assumir um erro. English 'assume' in the sense of supposing is supor or partir do princípio.",
         },
       ],

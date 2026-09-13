@@ -81,7 +81,7 @@ export const PT_UNIT57 = {
           meaning: "envy",
           example: { jp: "A inveja do vizinho é antiga, visto que a casa de Ana é cada vez mais elegante.", en: "The neighbour's envy is long-standing, seeing that Ana's house is more and more elegant." },
           drill: { jp: "A inveja do vizinho é antiga", en: "The neighbour's envy is long-standing" },
-          accept: ["the envy", "jealousy"],
+          accept: ["the envy", "envious feeling"],
           hint: "ter inveja DE alguém. Portuguese also says que inveja! admiringly, with no malice at all — closer to English 'lucky you'.",
         },
         {
@@ -158,7 +158,7 @@ export const PT_UNIT57 = {
           meaning: "jealousy",
           example: { jp: "O ciúme do irmão passou com o tempo, mas a família ainda não quis falar do assunto.", en: "The brother's jealousy passed with time, but the family has still not been willing to talk about it." },
           drill: { jp: "O ciúme do irmão passou com o tempo", en: "The brother's jealousy passed with time" },
-          accept: ["the jealousy", "envy"],
+          accept: ["the jealousy", "jealous feeling"],
           hint: "Usually plural in practice — ter ciúmes de alguém. Keep it apart from a inveja: ciúme is about losing someone, inveja about wanting what another has.",
         },
         {
