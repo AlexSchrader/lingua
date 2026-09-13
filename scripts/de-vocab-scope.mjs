@@ -44,6 +44,7 @@ export const IRREG = {
   schlafen: ["schlafe", "schläfst", "schläft"],
   tragen: ["trage", "trägst", "trägt"],
   helfen: ["helfe", "hilfst", "hilft"],
+  schmelzen: ["schmelze", "schmilzt"],
   gefallen: ["gefalle", "gefällst", "gefällt"],
   können: ["kann", "kannst", "können", "könnt"],
   müssen: ["muss", "musst", "müssen", "müsst"],

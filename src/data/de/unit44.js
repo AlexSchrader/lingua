@@ -42,8 +42,11 @@
 //   fall and get retrieved (fallen, halten, lassen), so the keeping sense would be
 //   glossing the card away from the lesson that teaches it. The keeping sense stays
 //   in accept[] and in the hint, where it costs nothing.
+// check-forward-refs reports `ziehen` "used from u30, taught u44". That is the
+// SEPARABLE-VERB artifact, not a forward reference: u30's "Wir ziehen im Sommer um"
+// is the split form of umziehen, carded at u30l1 itself. Nothing to fix.
 // RESERVE, screened clear against all 952 fronts in A1 + all three A2 blocks:
-// werfen, fangen, halten, lassen, rollen, klopfen, aufheben, drinnen, draußen,
+// werfen, fangen, halten, lassen, rollen, klopfen, drinnen, draußen,
 // überall, die Mitte, das Ende.
 // FREE: Sofa, Meter, Foto, Liter | Teller, Gläser, Bücher, Schuhe, Bilder, Kinder, Eltern, Schüler
 export const DE_UNIT44 = {
@@ -98,9 +101,9 @@ export const DE_UNIT44 = {
       items: [
         { id: "de-u44l3-schieben", type: "vocab", front: "schieben", reading: "schieben", meaning: "to push", example: { jp: "Wir schieben den Schrank an die Wand.", en: "We push the wardrobe against the wall." }, drill: { jp: "Wir schieben den Tisch an die Wand", en: "We push the table against the wall" }, accept: ["to push", "to shove", "to slide"], hint: "Pushing something along a surface. Pressing a button is drücken — German splits them." },
         { id: "de-u44l3-ziehen", type: "vocab", front: "ziehen", reading: "ziehen", meaning: "to pull", example: { jp: "Bitte ziehen und nicht drücken.", en: "Pull, please, and do not push." }, drill: { jp: "Die Kinder ziehen den Stuhl an das Fenster", en: "The children pull the chair to the window" }, accept: ["to pull", "to draw", "to tug"], hint: "On every German door: ZIEHEN on one side, DRÜCKEN on the other. It also means to move house." },
-        { id: "de-u44l3-drucken", type: "vocab", front: "drücken", reading: "drucken", meaning: "to press", example: { jp: "Du musst hier lange drücken.", en: "You have to press here for a long time." }, drill: { jp: "Wir drücken ihm die Hand", en: "We shake his hand" }, accept: ["to press", "to push a button", "to squeeze"], hint: "A button, a hand, a hug. The other half of the door pair with ziehen." },
+        { id: "de-u44l3-drucken", type: "vocab", front: "drücken", reading: "drucken", meaning: "to press", example: { jp: "Du musst hier lange drücken.", en: "You have to press here for a long time." }, drill: { jp: "Die Kinder drücken die Tür", en: "The children press the door" }, accept: ["to press", "to push a button", "to squeeze"], hint: "A button, a hand, a hug. The other half of the door pair with ziehen." },
         { id: "de-u44l3-drehen", type: "vocab", front: "drehen", reading: "drehen", meaning: "to turn", example: { jp: "Sie dreht den Schlüssel und die Tür geht auf.", en: "She turns the key and the door opens." }, drill: { jp: "Wir drehen den Schlüssel nach rechts", en: "We turn the key to the right" }, accept: ["to turn", "to rotate", "to twist"], hint: "Turning a thing on its axis — a key, a knob, a film. Turning yourself round is sich umdrehen." },
-        { id: "de-u44l3-heben", type: "vocab", front: "heben", reading: "heben", meaning: "to raise", example: { jp: "Der Koffer ist sehr schwer, aber wir heben ihn.", en: "The suitcase is very heavy, but we lift it." }, drill: { jp: "Die Eltern heben den Koffer zusammen", en: "The parents lift the suitcase together" }, accept: ["to lift", "to raise"], hint: "Straight up, off the ground. aufheben, two cards back, is lifting something that had fallen." },
+        { id: "de-u44l3-heben", type: "vocab", front: "heben", reading: "heben", meaning: "to raise", example: { jp: "Der Koffer ist sehr schwer, aber wir heben ihn.", en: "The suitcase is very heavy, but we lift it." }, drill: { jp: "Die Eltern heben den Koffer zusammen", en: "The parents lift the suitcase together" }, accept: ["to lift", "to raise"], hint: "Straight up, off the ground. aufheben, in the previous lesson, is lifting something that had fallen." },
         { id: "de-u44l3-rollen", type: "vocab", front: "rollen", reading: "rollen", meaning: "to roll", example: { jp: "Der Apfel rollt unter den Tisch.", en: "The apple rolls under the table." }, drill: { jp: "Die Äpfel rollen unter den Tisch", en: "The apples roll under the table" }, accept: ["to roll"], hint: "Roll and rollen are the same word. Works both ways: you can roll a thing, or it can roll by itself." },
       ],
     },
