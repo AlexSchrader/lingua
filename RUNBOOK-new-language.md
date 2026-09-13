@@ -265,7 +265,7 @@ Everything else on the list is free. **Check your own language's fronts before y
 
 Multigraphs are glyph targets too (`eau`, `ai`, `oi`, `gn`, `ill`, `ei`, `sch`, `kj`, `skj`, `ão`, `lh`, `nh`) — they are typeable strings and a real keyboard target, so they need no exception.
 
-**⚠️ The clips do not survive the rewrite.** The audio generated on 2026-09-13 is keyed to the WORD ids in these lessons today (`no-u1l1-avaere` = `å være`). Changing a front to a bare letter changes its id and orphans its clip, so the new glyph cards need their own `generate:audio` run. Small — no l1+l3 is 12 items — but not zero, and it applies to all five languages. **`no-u1l2` is the exception: it is already compliant and must not be re-authored, so its six clips survive.**
+✅ **EVERY EXISTING CLIP SURVIVES — this line said the opposite until 2026-09-13, and the opposite was written for a REPLACE operation that is no longer the rule.** Under the ADD rule above **no id changes**, so no clip is orphaned in any language: every existing word card keeps its front, its id and its audio. An earlier version warned that `no-u1l1`/`no-u1l3` needed re-recording across five languages and that `no-u1l2`'s six clips were the only survivors — true of replacing, and replacing is not what we are doing. **The only audio needed is for the NEW glyph ids** — roughly **60–80 clips across all five languages**, one run, after the cards exist. Caught by the group-1 block-1 seat before any crew acted on it.
 
 ### 🚨 ADD THE GLYPHS, DO NOT REPLACE THE WORDS — this is the part that will bite
 
@@ -352,7 +352,7 @@ npm run taught -- <lang>     # what the language already teaches, and where
 
 ⚠️ **The clips are of WORDS, not letters.** Every recording in the corpus today says a word — `fr-u27l1-eaigu`'s clip is someone saying *"le bébé"*. **A new glyph id has no clip at all**, so `teach`, `listen:*` and `speak` will not route for it until `generate:audio` runs for the new ids. Author anyway — the typing card works today and the rest lights up when the audio lands. **Flag the new ids in your hand-back so they go in one run, not five.**
 
-⚠️ **`no-u1l2` is already compliant** (`hva`, `det`, `god` — 2–4 character words where every character is load-bearing). **Do not re-author it**; it only needs its meaning cards removed. Its six clips are the only ones in scope that survive the rewrite.
+⚠️ **`no-u1l2` needs NO GLYPH CARDS — but it is not "done".** It is *"Letters you write but never say"*: six ordinary **vocab** cards (`hva · det · hvor · god · og · jeg`) and **zero glyph cards** — verified on `main` — and that is CORRECT for it. The lesson teaches an **absence** (a silent letter), and an absence has no character to type; its words are already the right shape, 2–4 characters where every one is load-bearing. **So add no glyph cards and do not re-author the words.** ⚠️ It does **not** mean the lesson already has glyph items — **no lesson in any of the five languages does yet.** (The first wording read as "already has glyph cards" and would have made the Norwegian seat skip a lesson.)
 
 **Where each language teaches this today** (confirmed 2026-09-13) — all five currently use the word-based shape and all five need the same rewrite:
 
