@@ -16,11 +16,14 @@
 //
 // One lexeme per family: calcular without o cálculo, aumentar without o aumento,
 // somar without a soma, duplicar beside o triplo rather than beside o dobro.
-// ONE FORWARD ASSUMPTION, stated rather than hidden: `maior` is used in two
-// examples here and is absent from u1-u50. It is the comparative of grande and
-// belongs to block 1's u53 Comparação e grau, which is BELOW this slot, so it
-// will be in scope once the blocks merge. If block 1 does not card it, these two
-// examples need a rewrite — flagged to the lead rather than assumed away.
+// THE FORWARD ASSUMPTION THIS HEADER USED TO MAKE IS NOW SETTLED. `maior` is
+// used in two examples here and was absent from u1-u50 when this unit was
+// written. It is the irregular comparative of grande and the assumption was
+// that block 1 would card it at u53 Comparação e grau. Block 1 had NOT carded
+// it: the merge-day sweep found `maior` used 24 times across the band and
+// taught nowhere in pt, hiding from the lint teach-before-use check behind
+// `a maioria` (u40). The lead carded it, with `pior`, at u53l1 on merge day,
+// so these two examples now stand on taught vocabulary. Precondition met.
 // Conventions: see unit1.js header. lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT82 = {
   id: "pt-u82",
@@ -73,7 +76,7 @@ export const PT_UNIT82 = {
       canDo: "Read a Portuguese figure properly — the percentage, the proportion, the average, the quantity, three times over.",
       items: [
         { id: "pt-u82l3-apercentagem", type: "vocab", front: "a percentagem", reading: "apercentagem", meaning: "percentage", example: { jp: "A percentagem de pessoas que trabalha em casa aumentou.", en: "The percentage of people working from home has increased." }, drill: { jp: "A percentagem de pessoas aumentou muito", en: "The percentage of people increased a lot" }, accept: ["the percentage", "percentage", "percent", "per cent", "proportion"], hint: "per-sen-TA-zhem. Portugal says percentagem where Brazil says porcentagem — a rare spelling split worth knowing. Por cento is the per cent itself: dez por cento." },
-        { id: "pt-u82l3-aproporcao", type: "vocab", front: "a proporção", reading: "aproporcao", meaning: "proportion", example: { jp: "A proporção de água no pão é pequena mas é sempre igual.", en: "The proportion of water in bread is small but it's always the same." }, drill: { jp: "A proporção de água é pequena", en: "The proportion of water is small" }, accept: ["the proportion", "proportion", "ratio", "the ratio", "share"], hint: "pru-por-SOWN. The relation of a part to the whole. Em proporção means in proportion, and tomar proporções is what a problem does when it gets out of hand." },
+        { id: "pt-u82l3-aproporcao", type: "vocab", front: "a proporção", reading: "aproporcao", meaning: "proportion", example: { jp: "A proporção de sal no pão é pequena mas é sempre igual.", en: "The proportion of salt in bread is small but it's always the same." }, drill: { jp: "A proporção de sal é pequena", en: "The proportion of salt is small" }, accept: ["the proportion", "proportion", "ratio", "the ratio", "share"], hint: "pru-por-SOWN. The relation of a part to the whole. Em proporção means in proportion, and tomar proporções is what a problem does when it gets out of hand." },
         { id: "pt-u82l3-aquantidade", type: "vocab", front: "a quantidade", reading: "aquantidade", meaning: "quantity", example: { jp: "A quantidade de chuva deste inverno foi maior do que a do ano passado.", en: "The quantity of rain this winter was greater than last year's." }, drill: { jp: "A quantidade de chuva foi maior", en: "The quantity of rain was greater" }, accept: ["the quantity", "quantity", "amount", "the amount", "number"], hint: "kwan-ti-DA-de. How much of something there is, countable or not — where o número counts items only. Em grande quantidade is in large amounts." },
         { id: "pt-u82l3-otriplo", type: "vocab", front: "o triplo", reading: "otriplo", meaning: "triple", example: { jp: "A família pagou o triplo do preço do carro novo.", en: "The family paid triple the price of the new car." }, drill: { jp: "A família pagou o triplo do preço", en: "The family paid triple the price" }, accept: ["the triple", "triple", "three times", "threefold"], hint: "TREE-plu. Three times the amount, built exactly like o dobro, which you met at Unit 43 for twice. O triplo DE something." },
         { id: "pt-u82l3-afracao", type: "vocab", front: "a fração", reading: "afracao", meaning: "fraction", example: { jp: "A fração de pessoas que trabalha no campo é pequena hoje.", en: "The fraction of people working in the fields is small today." }, drill: { jp: "A fração de pessoas é pequena", en: "The fraction of people is small" }, accept: ["the fraction", "fraction", "portion", "the portion", "part"], hint: "fra-SOWN. The maths fraction and a small part of anything. Portugal wrote fracção before the 1990 spelling agreement; today both countries write fração, and the old form survives on old signs." },

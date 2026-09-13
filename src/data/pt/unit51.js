@@ -201,7 +201,7 @@ export const PT_UNIT51 = {
           meaning: "to reject",
           example: { jp: "O governo vai rejeitar a ideia dos cidadãos, e a imprensa vai falar do assunto amanhã.", en: "The government is going to reject the citizens' idea, and the press will talk about the matter tomorrow." },
           drill: { jp: "O chefe vai rejeitar o relatório", en: "The boss is going to reject the report" },
-          accept: ["reject", "to turn down", "to refuse"],
+          accept: ["reject", "to turn down", "to throw out"],
           hint: "Formal and final: rejeitar uma ideia, uma candidatura, um pedido. In speech, não aceitar is the softer everyday version.",
         },
         {
@@ -259,7 +259,7 @@ export const PT_UNIT51 = {
           meaning: "to deny",
           example: { jp: "O cidadão vai negar tudo na televisão, mas a imprensa já tem o contrato.", en: "The citizen will deny everything on television, but the press already has the contract." },
           drill: { jp: "Ele vai negar tudo na reunião", en: "He's going to deny everything in the meeting" },
-          accept: ["deny", "to refuse", "to turn down"],
+          accept: ["deny", "to say no to", "to disown"],
           hint: "negar = to say something is not so; negar-se a = to refuse to do it. Do not confuse with não (u1), which just negates the verb.",
         },
         {

@@ -256,7 +256,7 @@ export const PT_UNIT54 = {
           front: "na verdade",
           reading: "naverdade",
           meaning: "actually",
-          example: { jp: "Na verdade o relatório não explica nada, e daí que os colegas ainda duvidam do resultado.", en: "Actually the report explains nothing, and hence the colleagues still doubt the result." },
+          example: { jp: "Na verdade o relatório não explica nada, por isso os colegas ainda duvidam do resultado.", en: "Actually the report explains nothing, and hence the colleagues still doubt the result." },
           drill: { jp: "Na verdade o relatório não explica nada", en: "Actually the report explains nothing" },
           accept: ["actually", "in truth", "really", "as it happens"],
           hint: "The CORRECTING one: it contradicts what was just said, where de facto agrees with it. Built on a verdade (u40).",
