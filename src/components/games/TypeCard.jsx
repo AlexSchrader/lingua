@@ -5,6 +5,7 @@ import { deriveGrade } from "../../store/grading.js";
 import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji, meaningVariants, foldWouldEraseAnswer } from "../../store/answer.js";
 import { langName } from "../../data/languages.js";
 import { isJapaneseItem } from "../../store/itemLang.js";
+import { isGlyph } from "../../store/cardRouting.js";
 import { sfxCorrect, sfxWrong, sfxAlmost } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 import { useStore } from "../../store/useStore.js";
@@ -66,7 +67,10 @@ function NearMiss({ typed, answer, tokenFont }) {
 }
 
 export default function TypeCard({ item, mode, onGraded, listen = false }) {
-  const isKana = item.type === "kana";
+  // Kana and glyph behave identically on a typing card: the prompt is the sound and
+  // the answer is the character. The only difference is the font.
+  const isKana = isGlyph(item);
+  const isJaGlyph = item.type === "kana";
   // Latin-script languages (es/fr) have no rōmaji/kana split — the word IS its
   // letters — so the ask-lines drop the Japanese-specific keyboard framing.
   const latin = !isJapaneseItem(item);
@@ -99,7 +103,9 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
     }
     if (mode === "produce") {
       return isKana
-        ? { prompt: item.reading, jp: false, ask: "Type the kana",
+        // "kana" is the Japanese word for it. A French learner typing é is not
+        // typing kana — say "letter", which is true of every glyph script here.
+        ? { prompt: item.reading, jp: false, ask: isJaGlyph ? "Type the kana" : "Type the letter",
             check: (v) => v.trim() === item.front, answer: item.front }
         : { prompt: item.meaning, jp: false,
             // "accents optional" is TRUE for ordinary words and a lie on an accent

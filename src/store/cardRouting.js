@@ -9,6 +9,14 @@ import { checkProduce, checkMeaning } from "./answer.js";
 // interleave feel is one number, next to the routing it drives.
 export const LISTEN_SHARE = 0.5;
 
+// A GLYPH ITEM: taught by its sound, with no meaning. `kana` is the Japanese case
+// and `glyph` the general one (accents, digraphs, and the non-Latin scripts ahead).
+// Everywhere the engine asks "is this a character rather than a word", ask this —
+// NOT `type === "kana"`, which also carries stroke data and gojuon ordering.
+export function isGlyph(item) {
+  return item?.type === "kana" || item?.type === "glyph";
+}
+
 // True when the item has a pronunciation clip (per the generated manifest), so a
 // listening card is never routed for a silent item.
 export function hasAudio(item) {
@@ -522,6 +530,11 @@ export function eligibleKinds(item) {
   const vocab = item.type === "vocab";
   if (vocab && !!item.meaning) out.push("choice:reverse");
   if (vocab) out.push("type:produce", "speak");
+  // A glyph is produced and spoken like a word - "type the character you heard",
+  // "say this character". It is NOT asked for a meaning: `type:meaning` is rewritten
+  // to "type the sound" and `choice` to "which sound is this?" downstream, the way
+  // kana already works, and `choice:reverse` self-excludes because it needs a meaning.
+  if (item.type === "glyph") out.push("type:produce", "speak");
   if (hasAudio(item)) out.push("listen:choice", "listen:type");
   if (vocab && isJapaneseItem(item)) out.push("type:reading");
   if (canCloze(item)) out.push("cloze:choice");

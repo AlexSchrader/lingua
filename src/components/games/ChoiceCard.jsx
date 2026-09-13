@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { buildOptions } from "../../store/distractors.js";
+import { isGlyph } from "../../store/cardRouting.js";
 import { deriveGrade } from "../../store/grading.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
@@ -14,7 +15,10 @@ import { langName } from "../../data/languages.js";
 // contexts) and turns it back into a normal choice. correct → `good`, wrong →
 // `again`, no retry. No self-grade buttons.
 export default function ChoiceCard({ item, allItems, onGraded, audioFirst = false, reverse = false }) {
-  const isKana = item.type === "kana";
+  // A glyph choice card asks "which sound is this?", exactly as kana does - never
+  // "what does this mean", which is not a question about a letter.
+  const isKana = isGlyph(item);
+  const isJaGlyph = item.type === "kana";
   const [picked, setPicked] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const listening = audioFirst && !revealed;
@@ -38,7 +42,9 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
 
   const answered = picked !== null;
   const grade = answered ? deriveGrade({ kind: "mc", correct: options[picked].correct }) : null;
-  const optionFont = reverse ? F.jp : listening && isKana ? F.jp : isKana ? F.mono : F.body;
+  // Font follows the SCRIPT, not the card kind: a Japanese glyph wants the JP face,
+  // a Latin one (é, eau, sch) must not - it would render an accent in a kana font.
+  const optionFont = reverse ? F.jp : listening && isJaGlyph ? F.jp : isJaGlyph ? F.mono : F.body;
 
   return (
     <div
