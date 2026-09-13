@@ -57,7 +57,15 @@ export function buildOptions(item, allItems, count = 4, fieldOverride = null) {
   // Which field the options show: readings for kana, meanings for vocab — unless
   // overridden (a listening kana card offers glyphs, `front`, since the glyph is
   // the hidden answer). Distractors are drawn from the same field.
-  const field = fieldOverride ?? (item.type === "kana" ? "reading" : "meaning");
+  // A GLYPH HAS NO MEANING, SO IT MUST BE ASKED BY ITS READING — like kana.
+  //
+  // This said `item.type === "kana"` and nothing else, so a `glyph` fell through to
+  // "meaning", which the contract FORCES to null for glyphs. The correct option's
+  // text was null and the `it[field] != null` filter could never match another
+  // glyph, so buildOptions returned exactly one blank, always-correct button — and
+  // this is `check1`, the FIRST check every new glyph gets. The learner tapped an
+  // empty button and the card was graded as recognised.
+  const field = fieldOverride ?? (item.type === "kana" || item.type === "glyph" ? "reading" : "meaning");
   const correctVal = item[field];
   const list = Array.isArray(allItems) ? allItems : Object.values(allItems || {});
 

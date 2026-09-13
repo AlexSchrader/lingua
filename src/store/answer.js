@@ -46,6 +46,17 @@ export function normalizeReading(s = "", lang = null) {
       // so without this a learner typing the correct "Straße" was rejected while
       // "Strasse" passed. Two languages, one bug shape — worth expecting a third.
       .replace(/ß/g, "ss")
+      // ⚠️ THE UMLAUTS ARE DELIBERATELY *NOT* FOLDED TO ae/oe/ue. German's standard
+      // ASCII substitution is ae/oe/ue, exactly as ss stands in for ß, so doing it
+      // here looks obviously right — and breaks the corpus. All 39 German items with
+      // an umlaut author their reading with PLAIN a/o/u ("die Tür" → "dietur",
+      // "schön" → "schon"), which is what NFD already produces. Folding to ae/oe/ue
+      // makes every one of those readings stop matching its own card. Tried
+      // 2026-09-13 and reverted; tests/unit/answer.test.mjs:74 pins it.
+      // If the ae/oe/ue spelling should be ACCEPTED, it is an extra comparison in
+      // the check functions, not a change to the canonical fold — and it must not
+      // apply to glyph cards, where typing "ae" instead of finding ä on the keyboard
+      // defeats the whole point of the accent standard.
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .replace(/['’ʼ\-]/g, "");
