@@ -112,16 +112,22 @@
 // uses it for both: `listen:type` GRADES against it while `type:produce` PROMPTS with it. So é,
 // è and ê — three letters, one ASCII fold — give one identical prompt "e" with three different
 // correct answers, and the learner guesses 1 in 3. Portuguese is worse (á â ã à all fold to a).
-// No value of `reading` fixes it: è and ê are TRUE homophones in modern French, so a field that
-// must equal the sound cannot separate them, and a field that separates them is not the sound.
-// Naming the letters ("e accent aigu") separates all three and is what the audio run needs
-// anyway — but it redefines the field for all five languages at once, so it is not one seat's
-// call to make. ✅ `e86c0df9` (2026-09-13) settled HALF of this: `reading` stays the ASCII fold,
-// and the Latin-glyph recall card now compares readings instead of the fold-hijacked
-// `checkReading`, so the card no longer rejects the answer it prints. The COLLISION is untouched,
-// and so is its mirror image: because a multigraph's ASCII fold IS its front, that same card
-// shows `eau` and accepts `eau` — a copy task on 7 of these 15. LOGGED, not worked around here:
-// Feature CC backlog, BUILD-CHECKLIST.md.
+// ⚠ AND THE OBVIOUS ESCAPE DOES NOT EXIST. `reading` is NOT pinned to the fold by anything —
+// `contract.js:189-195` only requires non-empty and `[a-z]+` after normalising, so these three
+// COULD have been authored apart. They were not, and the reason is the card, not the schema:
+// `e86c0df9` made the Latin-glyph recall card ask "What sound does this make?" and grade on
+// `reading`, so `reading` has to BE the sound — and è and ê are TRUE homophones in modern French,
+// so no honest sound value separates them. Naming them ("eaigu", "egrave") separates all three
+// and immediately breaks the card that was just fixed, by demanding an invented string where
+// the prompt asks for a sound. Same trap on the other side: for a multigraph the fold equals
+// the front, so that card shows `eau` and accepts `eau` — a copy task on 7 of these 15.
+//
+// So this is CARD SHAPE, not content, and it is filed that way. ✅ `e86c0df9` (2026-09-13) already
+// fixed the half that WAS broken content-side — the recall card no longer rejects the answer it
+// prints, and the choice card no longer renders one blank button. ⚠ What is left: on `choice` the
+// correct option reads "e" for é, è AND ê, so a learner who knows only "e" is scored as
+// recognising all three; on `type:produce` the prompt "e" has three correct answers. LOGGED, not
+// worked around here: Feature CC backlog, BUILD-CHECKLIST.md.
 // œ counts as ONE character (U+0153), so it is strict too: on its glyph card only œ passes, and
 // the hint says so. The l2 clusters (eau, au, ai, oi, ui, gn, ill) are multi-character, so they
 // fall through to the fold — but their `reading` IS their own ASCII fold, so typing the cluster
@@ -140,14 +146,14 @@ export const FR_UNIT27 = {
       title: "The accents",
       cefr: "A1",
       dominantMode: "recognize",
-      canDo: "Read, say and type the eight French accent letters — é è ê ô û ï ç œ — then read seven everyday words built on them.",
+      canDo: "Read and type the eight French accent letters — é è ê ô û ï ç œ — then read seven everyday words built on them.",
       items: [
         { id: "fr-u27l1-glypheaigu", type: "glyph", front: "é", reading: "e", meaning: null, example: null, hint: "The closed \"ay\" of café — and the accent is what makes the letter sound at all: chanté is \"shon-TAY\", chante is \"shont\". Type it: hold E on a phone, Option+e then e on a Mac, Alt+0233 on Windows." },
         { id: "fr-u27l1-glyphegrave", type: "glyph", front: "è", reading: "e", meaning: null, example: null, hint: "The open \"eh\" of \"bed\": très is \"treh\". One accent apart from é — é closes the mouth, è opens it. The same grave rides on à and où too, where it changes no sound at all and only separates look-alikes. Type it: hold E on a phone, Option+` then e on a Mac, Alt+0232 on Windows." },
         { id: "fr-u27l1-glyphecirc", type: "glyph", front: "ê", reading: "e", meaning: null, example: null, hint: "Sounds the same as è — open \"eh\". The hat marks a letter that fell out of the word centuries ago, usually an s: forêt was forest, hôtel was hostel. Type it: hold E on a phone, Option+i then e on a Mac, Alt+0234 on Windows." },
         { id: "fr-u27l1-glyphocirc", type: "glyph", front: "ô", reading: "o", meaning: null, example: null, hint: "A long, closed \"oh\": hôpital, bientôt. Same lost s as ê — hôpital was hospital. Type it: hold O on a phone, Option+i then o on a Mac, Alt+0244 on Windows." },
         { id: "fr-u27l1-glyphucirc", type: "glyph", front: "û", reading: "u", meaning: null, example: null, hint: "The French u, which has no English twin: round your lips for \"oo\", then say \"ee\" without moving them. The hat does not change that sound — sûr and sur are said alike. Type it: hold U on a phone, Option+i then u on a Mac, Alt+0251 on Windows." },
-        { id: "fr-u27l1-glyphitrema", type: "glyph", front: "ï", reading: "i", meaning: null, example: null, hint: "The tréma is the one mark that is not an accent: it splits a vowel pair that would otherwise fuse into one sound. maïs is \"ma-EES\" in two pieces, not the \"eh\" of mais, and naïf is \"na-EEF\". The same mark rides on other vowels too — Noël, aigüe — but ï is the one you meet most. Type it: hold I on a phone, Option+u then i on a Mac, Alt+0239 on Windows." },
+        { id: "fr-u27l1-glyphitrema", type: "glyph", front: "ï", reading: "i", meaning: null, example: null, hint: "The tréma is the one mark that is not an accent: it splits a vowel pair that would otherwise fuse into one sound. maïs is \"ma-EES\" in two pieces, not the \"eh\" of mais, and naïf is \"na-EEF\". The same mark rides on e too — Noël — but ï is the one you meet most. Type it: hold I on a phone, Option+u then i on a Mac, Alt+0239 on Windows." },
         { id: "fr-u27l1-glyphcedille", type: "glyph", front: "ç", reading: "c", meaning: null, example: null, hint: "c is hard before a, o and u — without the tail, leçon would be \"luh-KON\". The cedilla forces the soft \"s\": ça, garçon, français. It never appears before e or i, where c is already soft. Type it: hold C on a phone, Option+c on a Mac, Alt+0231 on Windows." },
         { id: "fr-u27l1-glypholigature", type: "glyph", front: "œ", reading: "oe", meaning: null, example: null, hint: "One letter, not two — o and e fused, said \"uh\": sœur, cœur, l'œil. On this card you must type the real œ; inside an ordinary word oe is still accepted. Type it: hold O on a phone, Option+q on a Mac, Alt+0156 on Windows." },
         { id: "fr-u27l1-eaigu", type: "vocab", front: "le bébé", reading: "lebebe", meaning: "baby", example: { jp: "Le bébé est très petit.", en: "The baby is very small — \"bay-BAY\"" }, drill: { jp: "Le bébé est très petit", en: "The baby is very small" }, accept: ["the baby", "baby"], hint: "Two é, two \"ay\" sounds: bébé is \"bay-BAY\". The accent is not decoration — it tells you the e is pronounced at all. A final e with no accent is usually silent." },
@@ -166,11 +172,11 @@ export const FR_UNIT27 = {
       title: "Letters that team up",
       cefr: "A1",
       dominantMode: "recognize",
-      canDo: "Read, say and type the seven multi-letter sounds — eau, au, ai, oi, ui, gn, ill — then read seven everyday words built on them.",
+      canDo: "Read and type the seven multi-letter sounds — eau, au, ai, oi, ui, gn, ill — then read seven everyday words built on them.",
       items: [
         { id: "fr-u27l2-glypheau", type: "glyph", front: "eau", reading: "eau", meaning: null, example: null, hint: "Three letters, one sound, and not one of them is o-ish in English: eau is simply \"oh\". l'eau is \"loh\", and le bureau ends \"-ROH\" — its first vowel is the flûte u, not an English \"boo\"." },
         { id: "fr-u27l2-glyphau", type: "glyph", front: "au", reading: "au", meaning: null, example: null, hint: "The same \"oh\" as eau, one letter shorter: au revoir, jaune, chaud. Wherever you see au, stop reading the a and the u separately." },
-        { id: "fr-u27l2-glyphai", type: "glyph", front: "ai", reading: "ai", meaning: null, example: null, hint: "The open \"eh\" of è, not \"ay\": le lait is \"leh\" and la maison is \"meh-ZON\". Two things change it: the verb ending -ai says \"ay\" (j'ai, j'irai), and ai before m or n turns NASAL — le pain and la main rhyme with each other, not with fraise." },
+        { id: "fr-u27l2-glyphai", type: "glyph", front: "ai", reading: "ai", meaning: null, example: null, hint: "The open \"eh\" of è, not \"ay\": le lait is \"leh\" and la maison is \"meh-ZON\". Two things change it: the verb ending -ai says \"ay\" (j'ai, j'irai), and ai before a FINAL m or n turns nasal — le pain and la main rhyme with each other, not with fraise. If a vowel follows the n, nothing changes: j'aime and la semaine keep the plain \"eh\"." },
         { id: "fr-u27l2-glyphoi", type: "glyph", front: "oi", reading: "oi", meaning: null, example: null, hint: "\"wah\", never \"oy\": moi is \"mwah\", trois is \"trwah\", le soir is \"swahr\". One famous exception: oignon is said \"o-NYON\" — that oi is not an oi at all." },
         { id: "fr-u27l2-glyphui", type: "glyph", front: "ui", reading: "ui", meaning: null, example: null, hint: "A single glide, and it starts with the flûte u, not an English w: set your lips for \"oo\" and run straight into \"ee\". That is exactly what separates lui from Louis. huit, la nuit, aujourd'hui." },
         { id: "fr-u27l2-glyphgn", type: "glyph", front: "gn", reading: "gn", meaning: null, example: null, hint: "One sound, the \"ny\" of English \"onion\" or Spanish ñ: la montagne, magnifique, l'Espagne. A handful of learned words keep the g and n separate (diagnostic, stagner) — rare enough to meet one at a time." },
