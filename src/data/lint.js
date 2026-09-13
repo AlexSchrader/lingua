@@ -2,7 +2,7 @@ import { KANJIVG } from "./kanjivg.js";
 import { frontKey } from "./contract.js";
 
 // Curriculum lint — the mechanical authoring rules CC used to check by hand, now
-// an automated gate (BUILD-BRIEF-curriculum-lint.md, Part 1). This is a LAYER ON
+// an automated gate (docs/shipped/BUILD-BRIEF-curriculum-lint.md, Part 1). This is a LAYER ON
 // TOP of contract.js's `validateContent` (which already enforces id format +
 // uniqueness, stage enum, kana-front and vocab-front uniqueness, KanjiVG-for-kana,
 // and reading normalizability). Here we add the rules a lint can mechanically
