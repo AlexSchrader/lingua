@@ -1,6 +1,10 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { clipUrls, reinforcePlan } from "../../src/store/itemAudio.js";
+import { AUDIO_IDS } from "../../src/data/audioManifest.js";
+import { UNITS } from "../../src/data/index.js";
+
+const CORPUS_ITEMS = UNITS.flatMap((u) => (u.lessons ?? []).flatMap((l) => l.items ?? []));
 
 // WHY THIS FILE EXISTS.
 //
@@ -23,17 +27,26 @@ test("an item WITH a clip closes the gate — this is the feature working", () =
   assert.deepEqual(urls, ["/audio/fr/fr-u1l1-bonjour.mp3"]);
 });
 
+// NOTE: these use SYNTHETIC ids on purpose. An earlier version of this test named
+// real silent items (de-u1l1-ist, fr-u27l1-eaigu …) and went red the moment `main`
+// generated their clips — it was asserting a fact about the CORPUS, which is allowed
+// to change, instead of about the CODE, which is what is under test. Never pin a
+// behaviour test to which items happen to be unvoiced today.
 test("an item with NO clip leaves Continue enabled — no silent dead zone", () => {
-  for (const [lang, id] of [
-    ["de", "de-u1l1-ist"], // de has no clips at all
-    ["no", "no-u1l1-avaere"], // nor does no
-    ["pt", "pt-u1l1-econj"], // pt is ~60% silent
-    ["fr", "fr-u27l1-eaigu"], // and individual items go silent when audio is deleted
-  ]) {
+  for (const lang of ["de", "no", "pt", "fr", "ja"]) {
+    const id = `${lang}-u999l9-noclipexists`;
     const { urls, gate } = reinforcePlan({ lang, id, ...ON });
     assert.equal(gate, false, `${id} must not gate Continue — it has no clip`);
     assert.deepEqual(urls, [], `${id} must produce no urls`);
   }
+});
+
+test("whatever IS silent in the corpus right now must not gate either", () => {
+  // Derived, never hardcoded. Skips cleanly on the day every item is voiced.
+  const silent = CORPUS_ITEMS.find((it) => !AUDIO_IDS.has(it.id));
+  if (!silent) return; // fully voiced corpus — nothing to assert
+  const { gate } = reinforcePlan({ lang: silent.lang, id: silent.id, ...ON });
+  assert.equal(gate, false, `${silent.id} is silent, so it must not gate Continue`);
 });
 
 test("audio turned off never gates, even for an item that has a clip", () => {
@@ -67,7 +80,7 @@ test("a missing id in a chain is dropped, and the rest still plays", () => {
 
 test("a chain where EVERY id is missing does not gate", () => {
   const { gate } = reinforcePlan({
-    lang: "de", id: "de-u1l1-ist", then: ["de-u1l1-das"], ...ON,
+    lang: "de", id: "de-u999l9-nope", then: ["de-u999l9-alsonope"], ...ON,
   });
   assert.equal(gate, false);
 });
@@ -77,5 +90,5 @@ test("clipUrls filters against the manifest and preserves order", () => {
     clipUrls("ja", ["ja-u1l1-a", "ja-not-real", "ja-u1l1-i"]),
     ["/audio/ja/ja-u1l1-a.mp3", "/audio/ja/ja-u1l1-i.mp3"],
   );
-  assert.deepEqual(clipUrls("de", ["de-u1l1-ist"]), []);
+  assert.deepEqual(clipUrls("de", ["de-u999l9-noclipexists"]), []);
 });
