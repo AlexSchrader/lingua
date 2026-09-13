@@ -1,7 +1,10 @@
 # Build Brief — Three English voices (one corpus, one picker)
 
 **Lane:** Feature CC (engine + server config + persist + the audio pipeline) — persist and schema touch, so **draft PR, Alex merges**; multi-PR.
-**Status:** 🟡 DESIGN — settled shape, not greenlit to build. Numbers below are measured against the shipped corpus, not estimated.
+**Status:** ⛔ **PARKED 2026-09-13 — do not build.** Alex: *"we can do this last, this app for the american market rn."*
+**Why it is parked, and it is not about the design:** this brief gives three voices to a **taught English course**. The app is being built for the **American market**, so its learners already speak English — there is no English course for them to take, and a course for non-English speakers needs the source-language concept Alex has just scheduled last. The three voices have nobody to be shown to yet.
+**What survives the park:** the measured numbers in §2 (they were measured, not estimated, and stay true), and §6 step 1 — *the voice axis itself*, a language being able to hold more than one voice. That step is wanted sooner by **pt-BR vs pt-PT** than by English, and is the only part worth building before this unparks.
+**Original status:** 🟡 DESIGN — settled shape, not greenlit to build. Numbers below are measured against the shipped corpus, not estimated.
 **Origin:** Alex, 2026-09-04. English should offer American, British and Australian companions, the learner picks one, *"the whole language would be taught in that voice while the others are hidden."*
 
 ---

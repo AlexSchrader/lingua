@@ -242,7 +242,7 @@ This is the same principle the app is built on. `CLAUDE.md` tells CC to design w
 - **Content is pure, schema-validated data.** The engine is content-agnostic — lesson 47 runs the same code as lesson 1. No lesson- or item-specific branching in engine files.
 - **Separation of concerns by PR type:** schema/field changes go in `src/data/contract.js`; engine changes get their own scope; **content PRs stay content-only.** Bundling a new field or engine tweak into a curriculum PR is how the contract rots.
 - **Structural over instructional.** Enforce boundaries in code, not prompts. (Future Haruki: the graded "quiz me" path receives only the curriculum memory bank; the conversation/exploration bank is never passed in. Promotion is the only bridge.)
-- **`LIVE_CARD_KINDS` forcing function:** a card kind ships only when it's in that list AND exercised by the coverage fixture. Wiring a new card (trace, speak) means adding it to the list, which forces its coverage. `trace` → Brief 3, `speak` → Brief C.
+- **`LIVE_CARD_KINDS` forcing function:** a card kind ships only when it's in that list AND exercised by the coverage fixture. Wiring a new card means adding it to the list, which forces its coverage. **`trace` and `speak` are both DONE and in the list** — they were the standing examples of "not yet wired" and are no longer; use a genuinely new kind as the example.
 
 ---
 
@@ -282,7 +282,7 @@ This is the same principle the app is built on. `CLAUDE.md` tells CC to design w
 - **Content:** `src/data/ja/*.js`, validated by `src/data/contract.js` (`validateContent`, `LIVE_CARD_KINDS`); shape documented in `CONTENT.md`.
 - **Languages / cascade:** `src/data/ja/languages.js` (`target`/`unlock`/`unlocked`).
 - **Learning engine:** `src/screens/Lesson.jsx` (session runner), `src/store/learnQueue.js` (`LEARN_OPTS`), `src/store/grading.js` (`TIMING`), `src/store/answer.js` (`normalizeReading`/`checkReading`/`checkMeaning`/`checkProduce`), `src/store/mastery.js` (`RUNGS`), `src/store/srs.js`, `src/store/useStore.js`.
-- **Cards:** `src/components/games/*.jsx` (Teach, Type, Choice, Build; Trace/Speak dormant).
+- **Cards:** `src/components/games/*.jsx` — Teach, Type, Choice, Cloze, Build, Sentence, Conjugate, **Trace, Speak**. All nine ship: every kind in `LIVE_CARD_KINDS` has a card and routes. *(This line said "Trace/Speak dormant" until 2026-09-13, long after both shipped — which is why a session was told twice this week that the speak card had to be built before the accent lessons could use it. It did not.)*
 - **Shell/nav:** `src/components/AppShell.jsx` (4 bottom tabs + Settings gear).
 - **Audio:** `public/audio/ja/{item.id}.mp3`, played from `TeachCard`. Generation: `npm run generate:audio` (reads `ELEVENLABS_API_KEY` from `.env.local`, uses Haruki voice from `server/companions.js`, `language_code:"ja"` forces correct Japanese phonetics for single kana characters).
 - **Sound effects:** `src/store/sfx.js` — synthesized via Web Audio API (no files).

@@ -249,6 +249,15 @@ Everything else on the list is free. **Check your own language's fronts before y
 
 ## 5. Gate — all five, in this order, all green
 
+> ⚠️ **If another crew is live on this machine, give your smoke its own port.** Every worktree's dev server wants the same 5173. Until 2026-09-13 the smoke would happily **attach to whichever tree got there first and report its result as yours** — green, silent, for someone else's code. That is now a loud failure instead (`reuseExistingServer: false`), so a busy port stops the run rather than lying to you. Give yours a port and move on:
+>
+> ```bash
+> SMOKE_PORT=5273 npx playwright test
+> SMOKE_PORT=4273 SMOKE_MODE=preview npx playwright test
+> ```
+>
+> Pick a port nobody else is using — the crew board is the fastest way to see who is live. Reported by the pt-B1 seat, who caught it the honest way: by noticing 5173 was already held.
+
 ```bash
 npm run lint:curriculum
 npm run validate:content
