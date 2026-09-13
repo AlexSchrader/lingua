@@ -341,7 +341,7 @@ Dormant (not yet wired):
 
 A second, authoring-focused gate (`src/data/lint.js`, run by `scripts/lint-curriculum.mjs`)
 layered on top of `validateContent`. It automates the mechanical rules an author would otherwise
-check by hand, so authored units self-certify in CI. Brief: `BUILD-BRIEF-curriculum-lint.md`.
+check by hand, so authored units self-certify in CI. Brief: `docs/shipped/BUILD-BRIEF-curriculum-lint.md`.
 The CLI runs **both** `validateContent` and `lintCurriculum`, so a green run means every
 mechanical rule passed.
 

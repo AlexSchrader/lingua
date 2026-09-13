@@ -135,6 +135,6 @@ Step 2's "manual tier flag" also covers Alex's **free give-away users**: comp th
 ## 8. Related
 - [[project_companions_in_lessons_tiers]] (memory) · Batch 7 / [R36] (`BUILD-CHECKLIST.md`)
 - `BUILD-CHECKLIST.md` → *Future / come back later* → **"AI tiers = the monetization model"** (2026-08-02) + its **C1/C2** sub-entry (2026-08-28) — the parked record this brief expands
-- `BUILD-BRIEF-speech-grading.md` — the mic→score→grade path the checkpoint reuses
+- `docs/shipped/BUILD-BRIEF-speech-grading.md` — the mic→score→grade path the checkpoint reuses
 - R8 Haruki "why?" ([[project_haruki_next]]) — same graded-bank boundary
 - R7 mascots brief — per-language companion assets

@@ -1,3 +1,15 @@
+> # ✅ SHIPPED — HISTORICAL RECORD. DO NOT AUTHOR FROM THIS.
+>
+> **Closed out 2026-09-13.** The feature described below is built and live. **The code is the source of truth, not this document** — where they disagree, the code is right and this is stale.
+>
+> **Evidence it shipped:** `particle:choice` is in `LIVE_CARD_KINDS`; the chained word→particle clip plays from `itemAudio.js`.
+
+> ⚠️ **This brief's own status line said "design doc / not started" while the feature was already live.** That is how a shipped brief gets built twice. The status line is not evidence; the code is.
+>
+> Kept because the reasoning and the rejected alternatives are worth having. Read it as history — never as an instruction.
+
+---
+
 # Build Brief — Particle-Collocation Audio ("say the word + particle")
 
 **Status:** design doc / not started. Authored by **Idea CC** (2026-07-05) off Alex's feedback on the shipped particle-cloze card. **Lane: Feature CC** (audio pipeline + card wiring) **+ Alex's paid-run authorization** (ElevenLabs). Scope decided by Alex: **generate proper audio** (not clip-stitching, not show-only).

@@ -60,7 +60,7 @@ Default to thoroughness and self-sufficiency. Don't ask permission for routine w
 
 **Open draft PRs only — never mark ready, never merge.** The merge gate is always Alex's, after CI is green AND a personal feel-check.
 
-**Exception — autonomous curriculum authoring (Alex enabled 2026-06-28, `BUILD-BRIEF-curriculum-lint.md` Part 3):** Curriculum CC may author AND **self-merge curriculum content units** without per-unit approval, once `lint:curriculum` + `validate:content` + unit tests + Playwright smoke + build are all green. The naturalness gate is an **LLM naturalness review** (native-speaker-proxy agents / the `content-auditor` gate) plus **Alex's Dev-Mode playtest**; a *human* native review is optional if ever available, not required (2026-07-12). Claude spot-review is on-request. **Scope limit: curriculum content only.** Schema/contract/engine changes still go through draft PRs and stay Alex's call (unless he explicitly directs otherwise for a specific change).
+**Exception — autonomous curriculum authoring (Alex enabled 2026-06-28, `docs/shipped/BUILD-BRIEF-curriculum-lint.md` Part 3):** Curriculum CC may author AND **self-merge curriculum content units** without per-unit approval, once `lint:curriculum` + `validate:content` + unit tests + Playwright smoke + build are all green. The naturalness gate is an **LLM naturalness review** (native-speaker-proxy agents / the `content-auditor` gate) plus **Alex's Dev-Mode playtest**; a *human* native review is optional if ever available, not required (2026-07-12). Claude spot-review is on-request. **Scope limit: curriculum content only.** Schema/contract/engine changes still go through draft PRs and stay Alex's call (unless he explicitly directs otherwise for a specific change).
 
 **Docs map — where each thing lives (and who owns it):**
 
@@ -70,7 +70,9 @@ Default to thoroughness and self-sufficiency. Don't ask permission for routine w
 | `BUILD-CHECKLIST.md` | Single source of truth for project state; **Feature CC backlog** + **QA findings** + **Idea CC pitches** live here | all CC |
 | `CONTENT.md` | Content schema reference for authoring units | Curriculum CC |
 | `README.md` | Public-facing project overview + how to run/test | Feature CC |
-| `BUILD-BRIEF-*.md` | Design briefs (accounts/sync, curriculum lint, speech grading) | Web-Claude / Alex |
+| `BUILD-BRIEF-*.md` | Design briefs for work **not yet built**. A brief is an instruction, so it must never outlive its feature — see "Closing a brief" below. | Web-Claude / Alex |
+| `docs/shipped/` | Briefs whose feature **has shipped** — history, not instructions. Stamped, and not to be authored from. | whoever merges the feature |
+| `FEEL-CHECKS.md` | The only place "Alex needs to try this on a real device" lives. A brief never stays open waiting on one. | whoever closes the brief |
 | `RUNBOOK-new-language.md` | **Running the language production team — the no-questions procedure.** If Alex says "you're on the `<language>` crew, block `<n>`" (or "you're the merge seat"), this file is your whole assignment: preflight, worktree, rules, gate, hand-back, merge day. Follow §1 onward without asking; §7 answers anything you'd want to ask. §0 is Alex's half (crew shape, kickoff prompts, limits). Pathway/unit definitions live in `BUILD-BRIEF-language-blueprint.md`; in-flight status on the **Language crew board** in `BUILD-CHECKLIST.md`. | Curriculum CC |
 
 ---
@@ -219,7 +221,7 @@ This is the same principle the app is built on. `CLAUDE.md` tells CC to design w
 **What not to do:**
 
 - Don't pad responses with "great question!" or unnecessary affirmations.
-- Don't suggest adding gamification, streaks, XP bars, or social features — the anti-burnout principle is structural, not motivational. Mechanics over dopamine tricks. **(Clarified 2026-07-10, Alex's call — the line is *capability vs activity*.** ✅ **Capability milestones** — "can read all hiragana," "100 words mastered," "A1 complete" — mark a real skill gained and ARE the mission-aligned progress signal; build these (see `BUILD-BRIEF-milestones.md`). ❌ **Engagement rewards** — streaks, XP, freezes, day-counts, "cards answered" — reward activity/time and are OUT; the existing streak/XP/freezes scoreboard is slated for removal, pitch R17/R18/R30.)
+- Don't suggest adding gamification, streaks, XP bars, or social features — the anti-burnout principle is structural, not motivational. Mechanics over dopamine tricks. **(Clarified 2026-07-10, Alex's call — the line is *capability vs activity*.** ✅ **Capability milestones** — "can read all hiragana," "100 words mastered," "A1 complete" — mark a real skill gained and ARE the mission-aligned progress signal; build these (see `docs/shipped/BUILD-BRIEF-milestones.md`). ❌ **Engagement rewards** — streaks, XP, freezes, day-counts, "cards answered" — reward activity/time and are OUT; the existing streak/XP/freezes scoreboard is slated for removal, pitch R17/R18/R30.)
 - Don't redesign things that are working. Suggest; don't rewrite unprompted.
 
 ---
@@ -246,6 +248,9 @@ This is the same principle the app is built on. `CLAUDE.md` tells CC to design w
 
 ## Guardrails (follow without being told)
 
+- **A BRIEF DIES WHEN ITS FEATURE SHIPS — close it in the same PR that ships the work.** `git mv` it to `docs/shipped/`, stamp it *"SHIPPED — historical record, do not author from this,"* and cite the evidence (the card kind in `LIVE_CARD_KINDS`, the module, the npm script). **A brief is written in the imperative, so a stale one reads as a live instruction** — that is not theoretical: `BUILD-BRIEF-fr-sounds.md` sat for six weeks after shipping still telling crews *"No `type:produce` — producing an accent is a keyboard problem, not a knowledge problem,"* which is the opposite of what Alex decided, while four crew sessions were pointed at the docs. **And the status line is not evidence — check the code.** Four briefs closed on 2026-09-13 still read *"design doc / not started"* while their feature was live in `LIVE_CARD_KINDS`; a doc that claims unbuilt work is an invitation to build it twice.
+  - **Never hold a brief open for a feel-check** (Alex, 2026-09-13: *"fuck a feel check i can do that later… so we can close the original doc"*). If the code shipped and only Alex's judgement is left, close the brief and add a row to `FEEL-CHECKS.md`.
+- **A NEW INSTRUCTION MEANS RECONCILING EVERY DOC, NOT APPENDING TO ONE.** When Alex decides something new, grep every doc for the subject *first*, then **replace the sentences it contradicts in place**. Appending the new rule above stale text that still asserts the old one is how a crew confidently builds the wrong thing. There is usually a dedicated brief for the exact subject, and it is the likeliest to contradict. Record reversals of **Alex's** decisions; don't leave a trail of which draft of *yours* was wrong.
 - **Never weaken a validator, assertion, or test to force CI green.** If real content or code is wrong, fix it or report it — loosening the check defeats its purpose.
 - **The repo is the source of truth, not memory.** Reasoning about code shapes from memory is unreliable; read the actual file before changing or diagnosing it.
 - **Fix-script anchors** must include the full closing `}` of the target object. Never anchor on a partial field or a string that also matches inside an existing object.

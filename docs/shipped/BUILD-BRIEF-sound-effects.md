@@ -1,3 +1,15 @@
+> # ✅ SHIPPED — HISTORICAL RECORD. DO NOT AUTHOR FROM THIS.
+>
+> **Closed out 2026-09-13.** The feature described below is built and live. **The code is the source of truth, not this document** — where they disagree, the code is right and this is stale.
+>
+> **Evidence it shipped:** `src/store/sfx.js` ships it (Web Audio, no files), with the Settings toggle.
+
+> ⚠️ **This brief's own status line said "design doc / not started" while the feature was already live.** That is how a shipped brief gets built twice. The status line is not evidence; the code is.
+>
+> Kept because the reasoning and the rejected alternatives are worth having. Read it as history — never as an instruction.
+
+---
+
 # Build Brief — More Sound Effects (expanding the synthesized SFX palette)
 
 **Status:** design doc / not started. Authored by **Idea CC** (2026-07-05); for **Feature CC + Alex** to sharpen before code. **Lane: Feature CC** (`src/store/sfx.js` + call sites + Settings = engine/UX, draft PR, Alex merges).

@@ -1,3 +1,15 @@
+> # ✅ SHIPPED — HISTORICAL RECORD. DO NOT AUTHOR FROM THIS.
+>
+> **Closed out 2026-09-13.** The feature described below is built and live. **The code is the source of truth, not this document** — where they disagree, the code is right and this is stale.
+>
+> **Evidence it shipped:** `speak` is in `LIVE_CARD_KINDS`; `src/components/games/SpeakCard.jsx` + `api/score-speech.js` ship it. Phases C.0–C.3 are all done; only C.4 (Alex's device feel-check) remained, and that is tracked in `FEEL-CHECKS.md`, not by holding this brief open.
+
+> ⚠️ **This brief's own status line said "design doc / not started" while the feature was already live.** That is how a shipped brief gets built twice. The status line is not evidence; the code is.
+>
+> Kept because the reasoning and the rejected alternatives are worth having. Read it as history — never as an instruction.
+
+---
+
 # Build Brief — Speech Grading (Brief C, Phase 7)
 
 **Status:** design doc / not started. For Alex + Claude to sharpen before any code.
@@ -77,13 +89,22 @@ SpeakCard (rung 4 review)
   → onGraded(grade)  → existing gradeItem(id, grade)  → FSRS + rung
 ```
 
-- **Reuse, don't reinvent:** the same `normalizeReading` / matching logic that grades typed answers (`src/store/answer.js`) grades the transcript. One notion of "correct reading," typed or spoken.
+- ⚠️ **TYPED AND SPOKEN ARE NOT THE SAME RULE. Reversed 2026-09-13 — this bullet used to say they were.**
+  It read: *"the same `normalizeReading` / matching logic that grades typed answers grades the transcript. One notion of 'correct reading,' typed or spoken."* That is now wrong in both directions, and unifying them again would re-introduce two shipped bugs:
+  - **Typing is STRICTER than the shared fold.** Alex, 2026-09-13: *"If i type e and its é thats wrong dude."* `foldWouldEraseAnswer()` in `answer.js` requires the exact character when the whole front is a single character the diacritic fold would erase. Typing `e` for `é` fails. Ordinary words keep the leniency (`cafe` still passes for `café`).
+  - **Speech is MORE LENIENT than the shared fold.** `gradeSpoken()` folds accents and grades the sound.
+  - **The reason for the asymmetry, and it is the thing to preserve:** when a learner TYPES the bare letter, they chose the wrong key — that is a real mistake. When they SAY it, the **spelling is the transcriber's choice, not theirs**. Marking someone down for how a speech model spelled their correct pronunciation is a confidently wrong grade, and a confidently wrong grade is worse than no grade. This is the same principle as "ND-friendly grading" below, applied to the transcript rather than to the accent.
+  - **Still share `normalizeReading` itself** — one fold, two policies on top of it. What must not be shared is the *decision*.
+  - ⚠️ **`gradeSpoken` must stay gated on the target actually being Japanese script.** `foldKana` passes Latin text through unchanged, so before 2026-09-13 the kana branch claimed every fr/es/pt/de/no card and graded it by **edit distance against the spelling** — a perfectly pronounced `café` transcribed as `cafe` scored `hard` at one edit and never reached the romaji branch that would have passed it. That was every Latin-language speak card in the corpus.
+  - ⚠️ **`language_code: "ja"` in the flow above is Japanese-only.** Scribe must be called with the item's own language, or every Latin card is transcribed as if it were Japanese.
 - **Grade mapping:** clean match → `good`; close (one-sound slip / accepted variant) → `hard`; no match → `again`. Same `again/hard/good/easy` vocabulary the runner already speaks.
 - **Endpoint mirrors `convai-session.js`** — ESM handler, key from env, returns only the verdict (never the key, never raw vendor payload).
 
 ## ND-friendly grading (non-negotiable design constraint)
 
-The anti-burnout principle applies hard here — a mic that punishes an accent is exactly the kind of harsh feedback we avoid.
+The anti-burnout principle applies hard here — a mic that punishes an accent is exactly the kind of harsh feedback we avoid. (Consistent with the asymmetry above: the fold stays ON for speech precisely so a regional accent or a transcriber's spelling never costs the learner a grade.)
+
+⚠️ **Known limit, measured in this repo: STT on an ISOLATED SINGLE GLYPH is unreliable — the Brief-C C.0 de-risk scored 0/3.** That matters now because Alex's accent standard (2026-09-12) adds a speak card for single characters. His design mitigates it — the companion says the letter and the letter is shown on screen immediately before the learner repeats it, so it is shadowing rather than recall — but the transcriber is still the weak link. **Do not treat the accent speak card as proven until it is playtested on a real device.** `shouldSpeak()` is vocab-only today for exactly this reason; the glyph item type must not silently inherit a card kind that was measured failing.
 
 - **Lenient by default.** Pass on "recognizably the right word," not "native-perfect." Beginners get the benefit of the doubt.
 - **Never a hard fail wall.** A miss is `again` (re-teach/re-try), framed warmly — not a red X.
