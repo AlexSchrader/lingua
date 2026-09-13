@@ -14,7 +14,7 @@ import { langName } from "../../data/languages.js";
 // ear-in not eye-in. A "Show it" escape reveals the glyph (deaf / muted / noisy
 // contexts) and turns it back into a normal choice. correct → `good`, wrong →
 // `again`, no retry. No self-grade buttons.
-export default function ChoiceCard({ item, allItems, onGraded, audioFirst = false, reverse = false }) {
+export default function ChoiceCard({ item, allItems, onGraded, onCantHear, audioFirst = false, reverse = false }) {
   // A glyph choice card asks "which sound is this?", exactly as kana does - never
   // "what does this mean", which is not a question about a letter.
   const isKana = isGlyph(item);
@@ -70,7 +70,9 @@ export default function ChoiceCard({ item, allItems, onGraded, audioFirst = fals
         }}
       >
         {listening ? (
-          <ListenPrompt item={item} onShowIt={() => { setRevealed(true); setPicked(null); }} />
+          // onCantHear tells the session the learner could not hear it - a signal
+          // about the ROOM more often than about the word. See TypeCard.
+          <ListenPrompt item={item} onShowIt={() => { onCantHear?.(item.id); setRevealed(true); setPicked(null); }} />
         ) : reverse ? (
           <span style={{ fontSize: 28, fontWeight: 600, textAlign: "center" }}>{item.meaning}</span>
         ) : (

@@ -66,7 +66,7 @@ function NearMiss({ typed, answer, tokenFont }) {
   );
 }
 
-export default function TypeCard({ item, mode, onGraded, listen = false }) {
+export default function TypeCard({ item, mode, onGraded, listen = false, onCantHear }) {
   // Kana and glyph behave identically on a typing card: the prompt is the sound and
   // the answer is the character. The only difference is the font.
   const isKana = isGlyph(item);
@@ -182,7 +182,15 @@ export default function TypeCard({ item, mode, onGraded, listen = false }) {
   // to the ordinary "Show answer" above — you get to see the word, you're graded
   // `again`. The hatch stays open for a learner who genuinely can't hear it; what
   // goes away is getting credit for reading it off the screen.
-  const showDictation = () => (latin ? showAnswer() : setDictRevealed(true));
+  // "Can't hear it" is a SIGNAL, not only a miss. Nine times in ten it means no
+  // headphones, a loud room, a phone on silent or sensory overload — none of which
+  // are learning failures. The grade still stands (the learner did not answer from
+  // the sound), but the session also gets told, so it can offer to go silent instead
+  // of handing out a pile of failures for being somewhere quiet.
+  const showDictation = () => {
+    onCantHear?.(item.id);
+    return latin ? showAnswer() : setDictRevealed(true);
+  };
 
   const submit = () => {
     if (phase === "feedback") return;
