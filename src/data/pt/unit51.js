@@ -166,7 +166,7 @@ export const PT_UNIT51 = {
           front: "o desacordo",
           reading: "odesacordo",
           meaning: "disagreement",
-          example: { jp: "O desacordo dos dois colegas é claro, porque cada um defende uma ideia.", en: "The two colleagues' disagreement is obvious, because each one defends a different idea." },
+          example: { jp: "O desacordo dos dois colegas é claro, porque cada um defende uma ideia.", en: "The two colleagues' disagreement is obvious, because each one defends an idea of their own." },
           drill: { jp: "O desacordo dos colegas é claro", en: "The colleagues' disagreement is clear" },
           accept: ["the disagreement", "dispute", "discord"],
           hint: "des- + acordo, the same prefix English puts on 'disagreement'. Estar em desacordo com = to be at odds with.",

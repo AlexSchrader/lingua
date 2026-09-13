@@ -332,10 +332,10 @@ export const PT_UNIT54 = {
           type: "vocab",
           front: "prudente",
           reading: "prudente",
-          meaning: "sensible",
+          meaning: "prudent",
           example: { jp: "É prudente esperar pelo relatório, visto que ninguém quer arriscar o prazo do projeto.", en: "It's sensible to wait for the report, seeing that nobody wants to risk the project's deadline." },
           drill: { jp: "É prudente esperar pelo relatório", en: "It's sensible to wait for the report" },
-          accept: ["sensible", "prudent", "wise", "cautious"],
+          accept: ["sensible", "wise", "cautious", "careful"],
           hint: "Of decisions more than of people — é prudente esperar. One form for both genders, like semelhante (u53).",
         },
         {
