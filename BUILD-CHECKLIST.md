@@ -229,6 +229,22 @@ Found by sweeping every word used 3+ times in a Spanish example but never taught
 
 ## Feature CC backlog (logged by curriculum CC — app/engine lane, not mine to build)
 
+
+- [ ] **(Feature CC) The accent fold accepts the WRONG WORD on 22 front pairs — my fix of 2026-09-13 caught only 2 of them.** Found by two crew seats reviewing that fix (block 1/pt-B1 and block 3/Norwegian), both independently, both right. `foldWouldEraseAnswer()` gates on the front being a **single character**, and that is the wrong test.
+  - **What the fold does:** `normalizeReading` strips diacritics for every non-`ja` language, so two items whose fronts differ only by an accent fold to the same string and **each card accepts the other's answer**. Measured across the corpus 2026-09-13 — **22 pairs**:
+
+    | lang | pairs | the ones that matter |
+    |---|---|---|
+    | **es** | **12** | `hablo`/`habló` and `trabajo`/`trabajó` — **present vs preterite**, "I speak" vs "he spoke" · `sí`/`si` (yes / if) · `tú`/`tu` (you / your) · `qué`/`que` · `dónde`/`donde` |
+    | pt | 5 | `porquê`/`porque` — **same unit, same LESSON (u29l1), and their `reading` is already the identical string `porque`**, so both the typed and reading paths accept either · `às`/`as` · `nós`/`nos` · `a manhã`/`amanhã` |
+    | fr | 4 | `là`/`la` · `où`/`ou` · `sur`/`sûr` · `sale`/`salé` |
+    | de | 1 | `Sie`/`sie` — ⚠️ **CASE, not a diacritic** (formal vs informal "you"). My fix case-folds deliberately (`É` must pass for `é`), so this one needs a different rule again. |
+  - ⚠️ **And it misses the glyph targets it was written for.** `ã` is protected (one character); **`ão` and `ãe` are not** — typing `ao` passes. Those are the literal titled targets of pt u1 l2, *"Through the nose: ão, ã, ãe"*. The one lesson whose entire subject is that diacritic does not require it.
+  - **The fix is two rules, not a longer length limit** (both seats converged on this, and widening the length test is explicitly the WRONG move — it would kill the deliberate `cafe` → `café` tolerance):
+    1. **Ambiguity:** require the exact front when another item in the same language folds to the same string. Catches all 22. Computable from the front map `contract.js` already builds for uniqueness. Leaves `café` alone, because nothing else folds to `cafe`.
+    2. **Glyph type:** require the exact front for any `glyph` item, at any length — the front IS the thing being taught. Catches `ão`, `ãe` and every multigraph the five crews are about to author (`eau`, `kj`, `skj`, `sch`). This rides along with the `kana` → `glyph` generalisation Alex greenlit 2026-09-13.
+  - ⚠️ **ARCHITECTURE CONSTRAINT — do not import the corpus into `answer.js`.** `contract.js` imports `normalizeReading` from it, and `data/index.js` imports `contract.js`, so `answer.js` → corpus is a **cycle**. The ambiguity set has to reach the checker as data: either stamped onto the item at seed time (`seedItems()` already stamps `lang`) or emitted as a generated manifest the way `audioManifest.js` is. Stamping is the cheaper of the two and has no staleness failure mode.
+  - **Blast radius today:** these are shipped cards in live content, marking wrong answers right. `hablo`/`habló` is the worst — a learner can answer the past-tense card in the present tense and be told they are correct.
 Single place for the feature/engine work that's surfaced. Curriculum CC adds here; **feature CC builds.** Detail/rationale for each is in the status block above and the linked briefs.
 
 - [ ] **(Alex, 2026-09-12 — NEW STANDARD, scoped by Alex 2026-09-13) Accent lessons = HEAR → SPEAK → TYPE THE ACCENT. Unit 1 lessons 1–3 only, every language.** Alex: *"teaching accents determines how user succeeds and doing le bébé for fr isn't it … idk what the other languages teach for accents but they all need the same standard — hear, speak, type. That's it for the first units when learning accents."* The learner types the **character itself**, so they have to find it on their keyboard; no meaning card. **Everything past u1 l3 is unchanged** — sounds keep being taught through real vocabulary there.
