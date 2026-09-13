@@ -233,6 +233,44 @@ Everything else on the list is free. **Check your own language's fronts before y
 - **`speak` routes** for any vocab item (`shouldSpeak`) — notes calling it dormant are stale — **but it is not free here.** It needs the clip (above), and this repo's own Brief-C de-risk measured STT on an **isolated single glyph at 0/3**. `gradeSpoken("e", { front: "é" })` returns `"hard"`: a learner who says the sound correctly is marked down unless the transcriber happens to emit the accent. **Speak the WORD, type the CHARACTER** is the shape that survives this.
 - ⚠️ **French's unit 1 is in `src/data/fr/unit27.js`, not `unit1.js`.** The file name is historical; the unit carries `order: 1`. Edit by unit `order`, never by filename.
 
+### THE LESSON SHAPE — settled by Alex, 2026-09-13
+
+**Alex:** *"we can add a word in the lessons so its not just letters but we can just repeat card for the accent lessons — unit one gets users able to pronounce the accents before ever given a word."*
+
+**The principle, and it decides the arguable cases: unit 1's job is that the learner can PRONOUNCE the language's letters before being handed a single word.** Pronunciation precedes vocabulary. When a call is genuinely close, pick the option that gets a learner saying the letter correctly sooner.
+
+**So a lesson in unit 1 lessons 1–3 is:**
+
+1. **Every special letter the language has, as its own glyph card** — hear it, say it, type it. This is the lesson.
+2. **Plus a minimal exemplar word or two** carrying one of those letters, as an ordinary vocab card — so the lesson is not a bare alphabet and the learner meets the letter living in a real word. `ø` as a glyph card, then `ei øy`.
+3. **Repetition is fine and expected.** A language with four special letters does not invent two more to reach six.
+
+⚠️ **THE ENGINE ALREADY REPEATS — do not add filler items to hit a number.** `buildLearnQueue` gives every item **three screens in the session** (one teach, then two spaced checks), so:
+
+| distinct items | screens in the lesson |
+|---|---|
+| 3 | **9** |
+| 4 | **12** |
+| 6 | **18** |
+
+and FSRS repeats each of them again over the following days. A four-letter Norwegian lesson is **twelve screens of learner time**, not four. The density rule counts **distinct items**, not screens — so a short accent lesson is a measurement artefact, not a thin lesson.
+
+⚠️ **Do not duplicate an item to pad the count — it is a hard validator error.** Item ids are globally unique (`contract.js`: *"duplicate id"*). "Repeat the card" means the engine's own repetition plus spaced review, not the same id twice in `items[]`.
+
+**Inventory, counted from the corpus — this is what each language has to work with:**
+
+| lang | special letters | |
+|---|---|---|
+| 🇫🇷 fr | **12** | à â ç è é ê î ï ô ù û œ |
+| 🇵🇹 pt | **11** | à á â ã ç é ê í ó ô ú |
+| 🇪🇸 es | **7** | á é í ñ ó ú ü |
+| 🇩🇪 de | **4** | ä ö ü ß |
+| 🇳🇴 no | **4** | å æ é ø |
+
+Multigraphs are glyph targets too (`eau`, `ai`, `oi`, `gn`, `ill`, `ei`, `sch`, `kj`, `skj`, `ão`, `lh`, `nh`) — they are typeable strings and a real keyboard target, so they need no exception.
+
+**⚠️ The clips do not survive the rewrite.** The audio generated on 2026-09-13 is keyed to the WORD ids in these lessons today (`no-u1l1-avaere` = `å være`). Changing a front to a bare letter changes its id and orphans its clip, so the new glyph cards need their own `generate:audio` run. Small — no l1+l3 is 12 items — but not zero, and it applies to all five languages. **`no-u1l2` is the exception: it is already compliant and must not be re-authored, so its six clips survive.**
+
 **Where each language teaches this today** (confirmed 2026-09-13) — all five currently use the word-based shape and all five need the same rewrite:
 
 | lang | unit 1 file | l1 | l2 | l3 |

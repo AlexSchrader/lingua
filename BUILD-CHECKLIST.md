@@ -230,7 +230,8 @@ Found by sweeping every word used 3+ times in a Spanish example but never taught
 ## Feature CC backlog (logged by curriculum CC — app/engine lane, not mine to build)
 
 
-- [ ] **(Alex — A SHAPE DECISION, and it blocks authoring) NO LANGUAGE HAS ENOUGH SPECIAL LETTERS TO FILL UNIT 1 LESSONS 1–3 AS GLYPH LESSONS. Not even French.** Raised by a curriculum seat 2026-09-13; the inventory below is counted here from every front in the corpus.
+- [x] **SETTLED BY ALEX 2026-09-13 — glyph cards + a minimal exemplar word, and a short lesson is fine.** *"we can add a word in the lessons so its not just letters but we can just repeat card for the accent lessons — unit one gets users able to pronounce the accents before ever given a word."* Option (b). The principle for close calls: **pronunciation before vocabulary.** ✅ **And the repetition he asks for already exists** — `buildLearnQueue` gives every item three screens (teach + two checks) plus spaced review, so a four-letter Norwegian lesson is **twelve screens**, not four; the density rule counts distinct items, not learner time. ⚠️ **Do not pad with duplicate ids** — a hard validator error. Written into RUNBOOK §4 and CONTENT.md. Remaining engine work: the `lint.js:437` density rule should stop warning on a legitimately short accent lesson, or every one of them ships permanently yellow. Original finding kept below.
+- [ ] **(engine follow-up) NO LANGUAGE HAS ENOUGH SPECIAL LETTERS TO FILL UNIT 1 LESSONS 1–3 AS GLYPH LESSONS. Not even French.** Raised by a curriculum seat 2026-09-13; the inventory below is counted here from every front in the corpus.
   - **A lesson wants 5–8 cards, so three lessons need 15–24 glyph targets. Distinct special letters actually available:**
 
     | lang | special letters | enough for 3 lessons? |
