@@ -11,16 +11,26 @@
 //   Every special letter Spanish has is its own `type: "glyph"` item, placed
 //   FIRST in its lesson's items[], AHEAD of the word cards — teach order is
 //   authored order, so the learner meets the letter before any word that uses
-//   it. Inventory: á é í ó ú (l1), ü (l2), ñ ll (l3), qu rr (l4), plus gu as the
-//   contrast that makes ü teachable. `meaning` and `example` are null by
+//   it. Placement: á é í ó ú (l1), ü (l2), ñ ll (l3). `meaning` and `example` are null by
 //   contract (contract.js ~L226) — a glyph is taught by its SOUND, never a
 //   gloss; the sound description lives in `hint`, and `reading` is the ASCII
 //   fold the listening card checks (á → "a", ñ → "n", ll → "ll").
 //   PURELY ADDITIVE: no existing word card was removed, no id changed, so no
 //   mastery is reset and every existing audio clip still matches its card.
-//   ch was deliberately NOT given a glyph card — Spanish ch is the ch of
-//   "church", identical to English, so there is nothing to teach; h likewise
-//   gets none, because an absence has no character to type.
+//   SCOPE IS LESSONS 1–3 ONLY — RUNBOOK-new-language.md, "THE ACCENT STANDARD":
+//   *"Scope is narrow and literal: unit 1, lessons 1–3. Everything past that is
+//   unchanged."* l4 (hard/soft c, qu, rr) therefore keeps the vocabulary shape
+//   and gets NO glyph cards. An earlier draft of this pass authored qu and rr
+//   into l4 and was reverted: Spanish having a fourth sounds lesson is not a
+//   licence to widen a scope Alex wrote narrowly on purpose. If he wants them,
+//   they are two lines.
+//   ch, gu and h were all considered and REJECTED, by one test — does the card
+//   teach a sound, a keyboard problem, or a spelling an English reader gets
+//   wrong? ch is the ch of "church", identical to English. gu is silent-u before
+//   e/i, which English does too (guess, guitar) — its story belongs in ü's hint,
+//   where it now lives, rather than in a card of its own. h is an absence, and
+//   an absence has no character to type. "Seven letters does not become ten by
+//   invention" (RUNBOOK §4).
 //
 // AUTHORING CONVENTIONS FOR SPANISH (all es units):
 //   - `front` is real orthography (accents, ñ, spaces); `reading` is its ASCII
@@ -119,8 +129,7 @@ export const ES_UNIT1 = {
       dominantMode: "recall",
       canDo: "Read the letters that mislead an English reader: h is never pronounced, j (plus g before e or i) is a rasp at the back of the throat, and the u of gue/gui is silent unless it wears two dots.",
       items: [
-        { id: "es-u1l2-glyphgu", type: "glyph", front: "gu", reading: "gu", meaning: null, example: null, hint: "Before e or i, g needs a silent u to stay hard: guitarra is ghee-TA-rra, with the hard g of \"go\" — not the throaty hee-TA-rra that ge/gi would give you. The u is written and never said." },
-        { id: "es-u1l2-glyphudieresis", type: "glyph", front: "ü", reading: "u", meaning: null, example: null, hint: "Two dots wake that silent u back up: pingüino is peen-GWEE-no. It is the one mark in Spanish that changes a sound instead of a stress — and it only ever sits in güe or güi. Type it: hold U on a phone, or press \" then u." },
+        { id: "es-u1l2-glyphudieresis", type: "glyph", front: "ü", reading: "u", meaning: null, example: null, hint: "In gue and gui the u is written and never said — guitarra is ghee-TA-rra, hard g. Two dots wake it back up: pingüino is peen-GWEE-no. It is the one mark in Spanish that changes a sound instead of a stress, and it only ever sits in güe or güi. Type it: hold U on a phone, or press \" then u." },
         { id: "es-u1l2-lahora", type: "vocab", front: "la hora", reading: "lahora", meaning: "hour", example: { jp: "¡Es la hora!", en: "It's time!" }, drill: { jp: "Es la hora", en: "It's time" }, accept: ["the hour", "time", "o'clock"], hint: "The h is silent, so it sounds exactly like ora: OH-ra." },
         { id: "es-u1l2-hay", type: "vocab", front: "hay", reading: "hay", meaning: "there is", example: { jp: "Hay gente.", en: "There are people." }, drill: { jp: "Hay gente en el museo", en: "There are people in the museum" }, accept: ["there are", "there's"], hint: "One word for both \"there is\" and \"there are\". Silent h again — it sounds like the English word \"eye\"." },
         { id: "es-u1l2-elhombre", type: "vocab", front: "el hombre", reading: "elhombre", meaning: "man", example: { jp: "El hombre es famoso.", en: "The man is famous." }, drill: { jp: "El hombre es elegante", en: "The man is elegant" }, accept: ["the man", "guy"], hint: "OM-bre. Spanish h is the only letter that is always silent — you write it and never say it." },
@@ -157,10 +166,8 @@ export const ES_UNIT1 = {
       title: "Hard c, soft c, and the rolled rr",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Hear, say and type the consonants that shift with the next letter — hard c and qu, soft c and z — and roll the rr that separates perro from pero.",
+      canDo: "Read the consonants that shift with the next letter — hard c and qu, soft c and z — and hear the rolled rr that separates perro from pero.",
       items: [
-        { id: "es-u1l4-glyphqu", type: "glyph", front: "qu", reading: "qu", meaning: null, example: null, hint: "A plain k — the u is silent. Spanish qué is KE, never the KW of English \"queen\". It only ever turns up before e or i." },
-        { id: "es-u1l4-glyphrr", type: "glyph", front: "rr", reading: "rr", meaning: null, example: null, hint: "The rolled r: trill the tongue tip against the ridge behind your teeth. It is the one sound that changes the word — perro is a dog, pero is \"but\"." },
         { id: "es-u1l4-elcoche", type: "vocab", front: "el coche", reading: "elcoche", meaning: "car", example: { jp: "El coche de Ana es rápido.", en: "Ana's car is fast." }, drill: { jp: "El coche de Pablo es rápido", en: "Pablo's car is fast" }, accept: ["the car", "automobile"], hint: "c before a, o, u is a hard k: KO-che. And ch is a single sound, the ch of \"church\". Spain says coche; much of Latin America says carro or auto." },
         { id: "es-u1l4-elcielo", type: "vocab", front: "el cielo", reading: "elcielo", meaning: "sky", example: { jp: "El cielo de la mañana es tranquilo.", en: "The morning sky is calm." }, drill: { jp: "El cielo es enorme", en: "The sky is enormous" }, accept: ["the sky", "heaven"], hint: "But c before e or i goes soft: SYE-lo in Latin America, THYE-lo in most of Spain." },
         { id: "es-u1l4-ellapiz", type: "vocab", front: "el lápiz", reading: "ellapiz", meaning: "pencil", example: { jp: "El lápiz es de Ana.", en: "The pencil is Ana's." }, drill: { jp: "El lápiz es de María", en: "The pencil is María's" }, accept: ["the pencil"], hint: "z is that same soft sound. The accent tells you where to hit: LÁ-piz. With no accent, stress lands on the last syllable — or the second-to-last if the word ends in a vowel, n or s." },
