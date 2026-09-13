@@ -531,9 +531,15 @@ export function eligibleKinds(item) {
   if (vocab && !!item.meaning) out.push("choice:reverse");
   if (vocab) out.push("type:produce", "speak");
   // A glyph is produced and spoken like a word - "type the character you heard",
-  // "say this character". It is NOT asked for a meaning: `type:meaning` is rewritten
-  // to "type the sound" and `choice` to "which sound is this?" downstream, the way
-  // kana already works, and `choice:reverse` self-excludes because it needs a meaning.
+  // "say this character". It is NOT asked for a meaning: TypeCard rewrites the
+  // meaning-recall card to "what sound does this make?" and ChoiceCard asks "which
+  // sound is this?" over READING options (distractors.js picks the reading field for
+  // a glyph, as it does for kana), while `choice:reverse` self-excludes because it
+  // needs a meaning it does not have.
+  //
+  // This comment previously claimed the rewrite happened "downstream" without naming
+  // where, and for a Latin glyph it did not happen at all - the card asked a German
+  // learner to "Type the rōmaji". Name the file when you claim a rewrite exists.
   if (item.type === "glyph") out.push("type:produce", "speak");
   if (hasAudio(item)) out.push("listen:choice", "listen:type");
   if (vocab && isJapaneseItem(item)) out.push("type:reading");

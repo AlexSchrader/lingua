@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
-import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji, meaningVariants, foldWouldEraseAnswer } from "../../store/answer.js";
+import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji, meaningVariants, foldWouldEraseAnswer, normalizeReading } from "../../store/answer.js";
 import { langName } from "../../data/languages.js";
 import { isJapaneseItem } from "../../store/itemLang.js";
 import { isGlyph } from "../../store/cardRouting.js";
@@ -105,8 +105,13 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
       return isKana
         // "kana" is the Japanese word for it. A French learner typing é is not
         // typing kana — say "letter", which is true of every glyph script here.
+        // checkProduce, not a raw === : the bare comparison was CASE-SENSITIVE, so
+        // "Ä" was marked wrong for "ä" — against answer.js's own promise that a
+        // capital is the same character, not a wrong answer. checkProduce keeps the
+        // strictness that matters (the bare letter still fails) and drops the
+        // strictness that does not.
         ? { prompt: item.reading, jp: false, ask: isJaGlyph ? "Type the kana" : "Type the letter",
-            check: (v) => v.trim() === item.front, answer: item.front }
+            check: (v) => (isJaGlyph ? v.trim() === item.front : checkProduce(v, item)), answer: item.front }
         : { prompt: item.meaning, jp: false,
             // "accents optional" is TRUE for ordinary words and a lie on an accent
             // card, where the accent is the entire answer (see foldWouldEraseAnswer).
@@ -127,6 +132,26 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
                check: (v) => checkReading(v, item), answer: item.reading };
     }
     // meaning (recall)
+    //
+    // GLYPH, LATIN SCRIPT: ask for the SOUND, and check it as a sound. The kana
+    // branch below cannot serve this. Two ways it broke, both shipped:
+    //   ü  → prompt "ü", revealed answer "u", and checkReading demanded "ü"
+    //       because foldWouldEraseAnswer fires on a one-character diacritic front.
+    //       The card displayed as correct the exact string it marked wrong.
+    //   ei → prompt "ei", answer "ei". The prompt IS the answer: a copy task, the
+    //       same defect class as the old type:reading and build cards.
+    // The front is already on screen here, so requiring the exact character is
+    // pointless — they can see it. The question is what it SOUNDS like, so compare
+    // readings directly and let the fold do its job.
+    if (isKana && !isJaGlyph) {
+      const soundKnown = (v) =>
+        normalizeReading(v, item.lang) === normalizeReading(item.reading, item.lang);
+      return {
+        prompt: item.front, jp: false,
+        ask: `What sound does this make? (type it in ${langName(item.lang)})`,
+        check: soundKnown, answer: item.reading,
+      };
+    }
     return isKana
       ? { prompt: item.front, jp: true, ask: "Type the rōmaji",
           check: (v) => checkReading(v, item), answer: item.reading }
