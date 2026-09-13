@@ -331,17 +331,6 @@ export const PT_UNIT55 = {
           hint: "The political kind only. A party you are invited to is uma festa — Portuguese never mixes the two, unlike English.",
         },
         {
-          id: "pt-u55l4-acampanha",
-          type: "vocab",
-          front: "a campanha",
-          reading: "acampanha",
-          meaning: "campaign",
-          example: { jp: "A campanha do partido começou na cidade, e daí que a imprensa já falou duas vezes da sondagem.", en: "The party's campaign started in the city, and hence the press has already talked about the poll twice." },
-          drill: { jp: "A campanha do partido começou na cidade", en: "The party's campaign started in the city" },
-          accept: ["the campaign", "drive", "push"],
-          hint: "Elections, advertising and public-health drives all take a campanha. Careful with its near-twin o campo (the countryside) and a companhia (a company).",
-        },
-        {
           id: "pt-u55l4-oparlamento",
           type: "vocab",
           front: "o parlamento",
