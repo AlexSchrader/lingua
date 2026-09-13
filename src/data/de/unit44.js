@@ -34,6 +34,14 @@
 // a modal with a THIRD-PERSON subject, because that is the person whose pronoun is
 // sich. So both reflexive drills are modal-framed, and the subjects vary across
 // the lesson rather than opening "Die Kinder müssen sich…" six times.
+// CROSS-BLOCK RULING (lead, dev-01), canonical-gloss tier, no card lost:
+//   aufheben "to pick up" collided with u23 abholen; heben "to lift" with u30
+//   der Aufzug "the lift". Both re-glossed, neither dropped. On heben I took the
+//   lead's "to raise" as offered. On aufheben I took their SECOND option, "to pick
+//   up off the floor", not their preferred "to keep": this lesson is things that
+//   fall and get retrieved (fallen, halten, lassen), so the keeping sense would be
+//   glossing the card away from the lesson that teaches it. The keeping sense stays
+//   in accept[] and in the hint, where it costs nothing.
 // RESERVE, screened clear against all 952 fronts in A1 + all three A2 blocks:
 // werfen, fangen, halten, lassen, rollen, klopfen, aufheben, drinnen, draußen,
 // überall, die Mitte, das Ende.
@@ -76,7 +84,7 @@ export const DE_UNIT44 = {
         { id: "de-u44l2-fallen", type: "vocab", front: "fallen", reading: "fallen", meaning: "to fall", example: { jp: "Das Glas fällt auf den Boden.", en: "The glass falls onto the floor." }, drill: { jp: "Die Gläser fallen auf den Boden", en: "The glasses fall onto the floor" }, accept: ["to fall", "to drop"], hint: "Nothing puts it there — it goes by itself, so no accusative object. Stem change: er fällt." },
         { id: "de-u44l2-halten", type: "vocab", front: "halten", reading: "halten", meaning: "to hold", example: { jp: "Kannst du bitte den Teller halten?", en: "Can you hold the plate, please?" }, drill: { jp: "Die Schüler halten die Bücher", en: "The pupils hold the books" }, accept: ["to hold", "to keep", "to stop"], hint: "Also to stop, of a bus or train — der Zug hält hier. Stem change: er hält." },
         { id: "de-u44l2-lassen", type: "vocab", front: "lassen", reading: "lassen", meaning: "to leave something", example: { jp: "Wir lassen die Bücher hier, weil sie zu schwer sind.", en: "We are leaving the books here, because they are too heavy." }, drill: { jp: "Wir lassen die Bücher auf dem Tisch", en: "We leave the books on the table" }, accept: ["to leave", "to let", "to allow"], hint: "Leaving a thing where it is, and also letting someone do something — lass mich gehen. Stem change: er lässt." },
-        { id: "de-u44l2-aufheben", type: "vocab", front: "aufheben", reading: "aufheben", meaning: "to pick up", example: { jp: "Die Kinder müssen die Schuhe aufheben.", en: "The children have to pick the shoes up." }, drill: { jp: "Die Eltern müssen das Glas aufheben", en: "The parents have to pick the glass up" }, accept: ["to pick up", "to lift up", "to keep"], hint: "Separable, so it only stays whole after a modal — which is why the drill uses one. Also means to keep something for later." },
+        { id: "de-u44l2-aufheben", type: "vocab", front: "aufheben", reading: "aufheben", meaning: "to pick up off the floor", example: { jp: "Die Kinder müssen die Schuhe aufheben.", en: "The children have to pick the shoes up." }, drill: { jp: "Die Eltern müssen das Glas aufheben", en: "The parents have to pick the glass up" }, accept: ["to pick up", "to lift up", "to keep"], hint: "Separable, so it only stays whole after a modal — which is why the drill uses one. Also means to keep something for later." },
       ],
     },
     {
@@ -92,7 +100,7 @@ export const DE_UNIT44 = {
         { id: "de-u44l3-ziehen", type: "vocab", front: "ziehen", reading: "ziehen", meaning: "to pull", example: { jp: "Bitte ziehen und nicht drücken.", en: "Pull, please, and do not push." }, drill: { jp: "Die Kinder ziehen den Stuhl an das Fenster", en: "The children pull the chair to the window" }, accept: ["to pull", "to draw", "to tug"], hint: "On every German door: ZIEHEN on one side, DRÜCKEN on the other. It also means to move house." },
         { id: "de-u44l3-drucken", type: "vocab", front: "drücken", reading: "drucken", meaning: "to press", example: { jp: "Du musst hier lange drücken.", en: "You have to press here for a long time." }, drill: { jp: "Wir drücken ihm die Hand", en: "We shake his hand" }, accept: ["to press", "to push a button", "to squeeze"], hint: "A button, a hand, a hug. The other half of the door pair with ziehen." },
         { id: "de-u44l3-drehen", type: "vocab", front: "drehen", reading: "drehen", meaning: "to turn", example: { jp: "Sie dreht den Schlüssel und die Tür geht auf.", en: "She turns the key and the door opens." }, drill: { jp: "Wir drehen den Schlüssel nach rechts", en: "We turn the key to the right" }, accept: ["to turn", "to rotate", "to twist"], hint: "Turning a thing on its axis — a key, a knob, a film. Turning yourself round is sich umdrehen." },
-        { id: "de-u44l3-heben", type: "vocab", front: "heben", reading: "heben", meaning: "to lift", example: { jp: "Der Koffer ist sehr schwer, aber wir heben ihn.", en: "The suitcase is very heavy, but we lift it." }, drill: { jp: "Die Eltern heben den Koffer zusammen", en: "The parents lift the suitcase together" }, accept: ["to lift", "to raise"], hint: "Straight up, off the ground. aufheben, two cards back, is lifting something that had fallen." },
+        { id: "de-u44l3-heben", type: "vocab", front: "heben", reading: "heben", meaning: "to raise", example: { jp: "Der Koffer ist sehr schwer, aber wir heben ihn.", en: "The suitcase is very heavy, but we lift it." }, drill: { jp: "Die Eltern heben den Koffer zusammen", en: "The parents lift the suitcase together" }, accept: ["to lift", "to raise"], hint: "Straight up, off the ground. aufheben, two cards back, is lifting something that had fallen." },
         { id: "de-u44l3-rollen", type: "vocab", front: "rollen", reading: "rollen", meaning: "to roll", example: { jp: "Der Apfel rollt unter den Tisch.", en: "The apple rolls under the table." }, drill: { jp: "Die Äpfel rollen unter den Tisch", en: "The apples roll under the table" }, accept: ["to roll"], hint: "Roll and rollen are the same word. Works both ways: you can roll a thing, or it can roll by itself." },
       ],
     },
