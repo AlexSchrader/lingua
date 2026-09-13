@@ -1,3 +1,15 @@
+> # ✅ SHIPPED — HISTORICAL RECORD. DO NOT AUTHOR FROM THIS.
+>
+> **Closed out 2026-09-13.** The feature described below is built and live. **The code is the source of truth, not this document** — where they disagree, the code is right and this is stale.
+>
+> **Evidence it shipped:** `src/data/milestones.js` ships it; used by Achievements, Stats, Settings and DevPanel.
+
+> ⚠️ **This brief's own status line said "design doc / not started" while the feature was already live.** That is how a shipped brief gets built twice. The status line is not evidence; the code is.
+>
+> Kept because the reasoning and the rejected alternatives are worth having. Read it as history — never as an instruction.
+
+---
+
 # Build Brief — Milestones (capability achievements) + retiring the engagement scoreboard
 
 **Status:** design doc / not started. **Decided 2026-07-10** — Alex chose "structural milestones only" when asked about adding achievements vs keeping streak/XP/freezes. **Lane: Feature CC** (store/screens + a persist change → check-in). Codified in CLAUDE.md's mission the same day.

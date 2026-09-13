@@ -3,7 +3,7 @@
 // Pure functions: given a verb's ます-form + its group (godan/ichidan/irregular),
 // produce a target conjugated form in KANA. The group is TAGGED DATA on the item
 // (contract `group` field) — it is NOT inferred from the ending, because 帰る/走る/太る
-// look ichidan but are godan. See BUILD-BRIEF-conjugation-card.md + verb-groups.js.
+// look ichidan but are godan. See docs/shipped/BUILD-BRIEF-conjugation-card.md + verb-groups.js.
 //
 //   conjugate("のみます", "godan",    "te")   → "のんで"
 //   conjugate("たべます", "ichidan",  "nai")  → "たべない"

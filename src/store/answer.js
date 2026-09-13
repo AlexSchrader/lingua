@@ -67,11 +67,36 @@ export function normalizeText(s = "") {
     .replace(/[.!?。、！？]+$/u, "");
 }
 
+// When the front is a SINGLE character whose only distinguishing feature is its
+// diacritic, the fold is not tolerance — it IS the answer, and folding it away
+// means the card cannot be failed. Typing "e" was accepted for "é".
+//
+// That is not a near-miss to be generous about; it is the wrong character. The
+// accent lesson exists so the learner finds the key on their own keyboard, and
+// `fr/unit27.js` already said so in a comment: "the lesson titled 'The accents'
+// cannot currently require one."
+//
+// DELIBERATELY NARROW. Ordinary words keep their tolerance — "cafe" still passes
+// for "café", which is the right call for a learner without an accent keyboard,
+// because there the accent is incidental to a word they know. The rule only bites
+// when the entire front is one character that the fold would erase. Measured
+// against the corpus: 3 items of 13,408 (fr-u6l2-a "à", pt-u1l1-e "é",
+// pt-u12l3-a "à") — and all three are contrast cards (é "is" vs e "and";
+// à "to" vs a "has") whose whole point the fold was erasing.
+export function foldWouldEraseAnswer(item) {
+  const front = String(item?.front ?? "");
+  if ([...front].length !== 1) return false;
+  return normalizeReading(front, item?.lang) !== front.toLowerCase();
+}
+
 // A reading answer matches if the romaji folds equal, OR the raw kana (front)
 // was typed. (Accept either kana or romaji.)
 export function checkReading(input, item) {
   const raw = String(input).trim();
   if (raw && raw === item.front) return true;
+  // The accent is the answer here — the fold below would accept the bare letter.
+  // Case still folds: "É" is the same character, a capital is not a wrong answer.
+  if (foldWouldEraseAnswer(item)) return raw.toLowerCase() === String(item.front).toLowerCase();
   return normalizeReading(input, item?.lang) === normalizeReading(item.reading, item?.lang);
 }
 
@@ -119,7 +144,12 @@ export function checkMeaning(input, item) {
 // Detect a romaji (Latin-letter) answer — used on the PRODUCE card to nudge the
 // learner to their Japanese keyboard (only where rōmaji isn't accepted).
 export function looksRomaji(input) {
-  return /[A-Za-z]/.test(String(input));
+  // Latin-1 + Latin Extended-A as well as plain ASCII, so an accented-only string
+  // still counts as Latin script. `/[A-Za-z]/` alone said NO to "é", "ø" and "ß" —
+  // which made a speech transcript of literally "é" fall through every branch of
+  // gradeSpoken and score `again` on a perfectly pronounced accent. The macron
+  // rōmaji this codebase already supports ("ohayō") is the same class of string.
+  return /[A-Za-zÀ-ɏ]/.test(String(input));
 }
 
 // Stages where the produce card is a beginner ON-RAMP: rōmaji is accepted so no
@@ -146,6 +176,9 @@ export function checkProduce(input, item) {
   const raw = String(input).trim().replace(/[。、！？.!?\s]+$/u, "");
   if (!raw) return false;
   if (raw === item.front || (item.kana && raw === item.kana)) return true;
+  // Same rule as checkReading: for a one-character accent front the fold is the
+  // answer, so the romaji fallback below must not hand out the bare letter.
+  if (foldWouldEraseAnswer(item)) return raw.toLowerCase() === String(item.front).toLowerCase();
   if (produceAllowsRomaji(item) && looksRomaji(raw)) {
     return normalizeReading(raw, item?.lang) === normalizeReading(item.reading, item?.lang);
   }
@@ -216,7 +249,23 @@ export function gradeSpoken(transcript, item) {
   if (!t) return "again";
 
   // Kana path: Japanese-script transcript vs the folded kana front.
-  const targetKana = foldKana(item?.kana ?? item?.front ?? "");
+  //
+  // GATED ON THE TARGET ACTUALLY BEING JAPANESE SCRIPT. foldKana passes Latin text
+  // through unchanged, so this block used to claim every French / Spanish /
+  // Portuguese / German / Norwegian card as well — and then graded them by EDIT
+  // DISTANCE AGAINST THE SPELLING. A learner who pronounced "café" perfectly, whose
+  // transcript came back "cafe", scored `hard` at one edit and never reached the
+  // romaji branch below, which folds the accent and returns `good`.
+  //
+  // Backwards for speech in a way it is not for typing. When you TYPE "e" for "é"
+  // you picked the wrong key, and that is wrong (see foldWouldEraseAnswer). When you
+  // SAY it, the spelling is the speech model's choice, not yours — marking a learner
+  // down for how a transcriber spelled their correct pronunciation is a confidently
+  // wrong grade, and a confidently wrong grade is worse than no grade.
+  //
+  // Tested inline rather than via isJapaneseItem so this module stays dependency-free.
+  const rawTarget = foldKana(item?.kana ?? item?.front ?? "");
+  const targetKana = /[぀-ヿ一-龯]/.test(rawTarget) ? rawTarget : "";
   if (targetKana) {
     const heardKana = foldKana(t);
     if (heardKana === targetKana) return "good";

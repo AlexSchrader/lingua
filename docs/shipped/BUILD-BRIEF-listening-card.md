@@ -1,3 +1,13 @@
+> # ✅ SHIPPED — HISTORICAL RECORD. DO NOT AUTHOR FROM THIS.
+>
+> **Closed out 2026-09-13.** The feature described below is built and live. **The code is the source of truth, not this document** — where they disagree, the code is right and this is stale.
+>
+> **Evidence it shipped:** `listen:choice` and `listen:type` are in `LIVE_CARD_KINDS`.
+>
+> Kept because the reasoning and the rejected alternatives are worth having. Read it as history — never as an instruction.
+
+---
+
 # Build Brief — Listening Card ("hear it → pick / type it")
 
 **Status:** ✅ SHIPPED (PR #47, merged 2026-07-04) — `listen:choice` is live (`ChoiceCard audioFirst`, `src/store/cardRouting.js` `shouldListen`, `src/data/audioManifest.js`). Kept as the design record. Authored by **QA CC** off the Pre-A1/A1 review (2026-07-04). **Lane: Feature CC** (new card kind = engine/schema, draft PR, Alex merges).
@@ -138,5 +148,5 @@ That's what makes this a small, reviewable Feature-CC PR rather than an engine e
 
 ## Relationship to other work
 
-- **Pairs with `speak` (`BUILD-BRIEF-speech-grading.md`).** Hear ↔ say are the two halves of the audio channel; both reuse `useItemAudio` / the answer-checking spine. `listen` is far cheaper (no capture, no vendor, no backend) and can ship first as the "ear" half while `speak` waits on Whisper/Scribe.
+- **Pairs with `speak` (`docs/shipped/BUILD-BRIEF-speech-grading.md`).** Hear ↔ say are the two halves of the audio channel; both reuse `useItemAudio` / the answer-checking spine. `listen` is far cheaper (no capture, no vendor, no backend) and can ship first as the "ear" half while `speak` waits on Whisper/Scribe.
 - **Depends on audio staying at 100%.** The audio-coverage validator (decision 6) is the insurance; without it, a future silent unit would silently disable listening for its items (the guard fails them over to `choice`, so no breakage — but the ear-training quietly vanishes for that unit, which a CI rule would catch).

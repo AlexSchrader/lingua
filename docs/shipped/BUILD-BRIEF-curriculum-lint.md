@@ -1,3 +1,13 @@
+> # ✅ SHIPPED — HISTORICAL RECORD. DO NOT AUTHOR FROM THIS.
+>
+> **Closed out 2026-09-13.** The feature described below is built and live. **The code is the source of truth, not this document** — where they disagree, the code is right and this is stale.
+>
+> **Evidence it shipped:** `npm run lint:curriculum` + `scripts/lint-curriculum.mjs` ship it; it is a CI gate.
+>
+> Kept because the reasoning and the rejected alternatives are worth having. Read it as history — never as an instruction.
+
+---
+
 # BUILD BRIEF — Curriculum Lint + Autonomous Authoring
 
 > Transcribed into the repo by CC (the chat copy arrived with mojibake'd Japanese

@@ -108,6 +108,52 @@ gojūon grid). They count toward a lesson's card-density.
 | drill   | `{ jp, en }` (opt) |         | **short practice sentence** — see below. 3–8 tokens, no internal punctuation, must contain the `front` |
 | hint    | string (opt)      |          | memory hook shown on TeachCard; must be non-empty if present |
 
+### Accent items — unit 1, lessons 1–3 only (the accent standard)
+
+**Alex, 2026-09-12:** accents are taught as **hear → speak → type the character**, never as a meaning. The learner has to find the character on their own keyboard, because a learner who cannot type é cannot write the language.
+
+```js
+// ❌ what ships today — teaches a WORD that happens to contain the accent
+{ id: "fr-u27l1-eaigu", type: "vocab", front: "le bébé", reading: "lebebe", meaning: "baby", … }
+
+// ✅ intended — the accent IS the card
+{ id: "fr-u27l1-eaigu", type: "vocab", front: "é", … }
+```
+
+⚠️ **That second line is the INTENT, not a copyable item — it does not validate.** `meaning` is hard-required and non-empty for `vocab`, and `example` must be `{ jp, en }`. What those hold for a bare character is **unresolved**: the obvious fill (`meaning: "the acute accent"`) recreates the meaning card the standard exists to delete.
+
+**The working rule, converged on independently by three crew seats (2026-09-13) — it covers every lesson with no carve-out:**
+
+> **Type the smallest string that cannot be shortened without losing what is being taught.**
+> Test: *is every character the learner types load-bearing for the sound?*
+> `le bébé` = 7 chars, 1 load-bearing → fails. `é` = 1/1. `eau` = 3/3. `hva` = 3/3.
+
+| the lesson teaches | type | examples |
+|---|---|---|
+| a single character | the character | `é` `ç` `ü` `ñ` `ø` |
+| a digraph / trigraph — **these ARE typeable targets, not exceptions** | the grapheme | `eau` `ai` `oi` `gn` `ill` `ei` `sch` `kj` `ão` `lh` |
+| a process (silence, elision, liaison) — no character exists | the minimal word or pair | `petit` `l'homme` `hva` `vous avez` |
+
+**Why the word is right for the process case and wrong for accents — the mechanical reason, not a preference:** the diacritic fold means `bebe` passes for `bébé`, so the accent is optional and the word card teaches nothing. **A silent letter does not fold away** — typing `petit` forces the `t`, `hva` forces the `h`. The word card fails for accents for exactly the reason Alex objected to it, and works for silence for the same reason.
+
+**Scope is literally unit 1, lessons 1–3.** Every other unit keeps teaching sounds through real vocabulary — that rule is unchanged and still correct.
+
+⚠️ **Three fronts are already taken.** **`é` in pt is `pt-u1l1-e`** (the copula, *inside* the lesson in scope — u1l1 pairs it against `e`/"and" deliberately, and re-using it means an id change, which **wipes that item's mastery**); `à` in fr is `fr-u6l2-a`; `à` in pt is `pt-u12l3-a`. Everything else is free. Check with `npm run taught -- <lang>` before committing to a front.
+
+⚠️ **`fr-u27l3` is the worst case in scope and needs replacing, not adjusting.** All seven of its fronts are French grammar **terminology** — `la consonne finale`, `le h muet`, `l'élision`, `la liaison`, `l'accent aigu`, `l'accent grave` — so the learner types *the name of the character* to learn the character. Two of them become straight duplicates in purpose of l1's `é` and `è` once l1 is rewritten.
+
+⚠️ **French's unit 1 has only THREE lessons; the other four languages have four.** So "lessons 1–3" is French's entire unit — there is no l4 to move elision/liaison into without authoring one. And **lesson ids embed the lesson number**, so moving a card between lessons changes its id and wipes that item's mastery — cheap now, expensive after users. Any reorder belongs in the same pass as the rewrite.
+
+⚠️ **Do not author this yet.** Two Feature-lane prerequisites are outstanding and both are Alex's call — `BUILD-BRIEF-language-blueprint.md` §3e has the detail:
+1. **Meaning cards cannot be turned off.** `eligibleKinds()` always offers `choice` **and** `type:meaning` **and** `choice:reverse`, and `listen:choice` on a vocab item shows **meaning options** — so even the "hear" card is a meaning card. A flag must gate all of them together. `ITEM_KEYS` is a closed set with no field for it.
+2. ~~**"Hear" needs 51 clips that do not exist.**~~ ✅ **CLEARED 2026-09-13** — `main` generated the missing clips (de 480 · no 480 · pt A2 720 · fr 14). Unit 1 lessons 1–3 went from **51 silent to 1**: fr 0/21 · es 0/19 · de 0/18 · no 0/18 · pt **1**/19. The one holdout is **`pt-u1l1-econj`** (front `e`, "and") — a single-letter front, and the only card in scope whose companion still has nothing to say. **`speak` needs the clip too**: SpeakCard plays it *then* arms the mic, so with none it asks the learner to pronounce a character they have never heard.
+3. **A non-folding typed check — the one that decides whether any of this works.** `normalizeReading` strips diacritics, so `checkProduce("e", { front: "é" })` is **true**: the plain letter passes the "type the accent" card, and é/è/ê share reading `"e"` so they accept each other. TypeCard's own prompt says *"accents optional"*. **Without this the standard is a no-op.**
+4. **The keyboard popup** Alex asked for. `item.hint` renders only on TeachCard, never on the typing card — there is no surface for it yet.
+
+**Before a bespoke flag is built, look at `type: "kana"`.** It is already this card: `meaning: null`, front = the glyph, `type:meaning` auto-rewritten to "type the character", `listen:choice` showing glyph options instead of meanings. The meaning card suppresses itself, with no new field. It is blocked only by the type being Japanese-named and by the script policy below — which **already flags generalising `kana` → `glyph`** for Korean/Russian/Mandarin/Hindi. Doing it once serves this and the next four languages.
+
+⚠️ **French's unit 1 is `src/data/fr/unit27.js`.** The filename is historical; the unit carries `order: 1`. Edit by unit `order`, never by filename.
+
 ---
 
 ## Item — kanji
@@ -295,7 +341,7 @@ Dormant (not yet wired):
 
 A second, authoring-focused gate (`src/data/lint.js`, run by `scripts/lint-curriculum.mjs`)
 layered on top of `validateContent`. It automates the mechanical rules an author would otherwise
-check by hand, so authored units self-certify in CI. Brief: `BUILD-BRIEF-curriculum-lint.md`.
+check by hand, so authored units self-certify in CI. Brief: `docs/shipped/BUILD-BRIEF-curriculum-lint.md`.
 The CLI runs **both** `validateContent` and `lintCurriculum`, so a green run means every
 mechanical rule passed.
 

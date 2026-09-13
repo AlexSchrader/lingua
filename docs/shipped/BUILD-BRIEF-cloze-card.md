@@ -1,3 +1,13 @@
+> # ✅ SHIPPED — HISTORICAL RECORD. DO NOT AUTHOR FROM THIS.
+>
+> **Closed out 2026-09-13.** The feature described below is built and live. **The code is the source of truth, not this document** — where they disagree, the code is right and this is stale.
+>
+> **Evidence it shipped:** `cloze:choice` is in `LIVE_CARD_KINDS`; `src/components/games/ClozeCard.jsx` ships it.
+>
+> Kept because the reasoning and the rejected alternatives are worth having. Read it as history — never as an instruction.
+
+---
+
 # Build Brief — Cloze Card ("fill the word into its own sentence")
 
 **Status:** ✅ **SHIPPED** (`cloze:choice` is in `LIVE_CARD_KINDS`, `shouldCloze` in `cardRouting.js`). Authored by **Idea CC** off Batch-1 brainstorm (2026-07-04, pitch **R1**); built by Feature CC. Kept as the design record + the follow-up list (`cloze:type`, particle cloze). **Lane: Feature CC.**

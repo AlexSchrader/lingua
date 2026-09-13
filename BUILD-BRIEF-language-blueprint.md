@@ -45,6 +45,7 @@ ja's early units (u1–u10) run 5 lessons × ~10 cards = 47–55 cards. **Do not
 - **Grammar is never its own item type** — it's function-word/suffix vocab whose examples carry the pattern.
 - Nouns are taught **with** their article/gender marker where the language has one.
 - `accept[]` on every vocab item; any multi-word meaning needs synonyms.
+- **Unit 1, lessons 1–3 teach the ACCENTS THEMSELVES — hear, speak, type the character. Not its meaning, not a word containing it.** Alex, 2026-09-12: *"teaching accents determines how user succeeds and doing le bébé for fr isn't it."* `front` is the bare character (`"é"`), not a word that contains it (`"le bébé"`). Scope is exactly those three lessons; every other unit keeps teaching sounds through real vocabulary. Full standard + the per-language table in `RUNBOOK-new-language.md` §4. **Blocked on two Feature-lane prerequisites — see §3e.**
 
 ### B1 and B2 — what changes above A2
 
@@ -107,6 +108,39 @@ Operational detail (worktree setup, hand-back format, stuck-rules) lives in **`R
 ---
 
 ## 3. Prerequisites — Alex's call (engine/contract, not content)
+
+### 3e. The accent standard needs an engine change and an audio run ⚠️
+
+Alex's accent standard (§1, unit 1 lessons 1–3) cannot be authored until **four** things land. All four are engine/contract, so all four are Alex's call, not a crew's.
+
+> ⚠️ **Prerequisite 3 is the one that matters most.** `normalizeReading` strips diacritics for every non-ja language, so `checkProduce("e", { front: "é" })` returns **true** — the plain letter passes the "type the accent" card, and é/è/ê all share reading `"e"` so they accept each other's answers. **The standard's entire payload is a no-op against the shipped engine.** `src/data/fr/unit27.js` already says so in a comment: *"the lesson titled 'The accents' cannot currently require one."*
+>
+> ⚠️ **Only 1 of the 15 in-scope lessons (5 languages × 3) can take the standard as written** — fr l1. Eight contain no special character at all (digraphs, or lessons about silent letters and liaison where there is nothing to type), and de/no have only 4 and 3 special characters in total, which cannot fill three lessons at the 5–8 density band. **Scoping by lesson number describes French's unit and nothing else** — and it excludes German's ß and Spanish's ¿ ¡, which sit in l4 and are exactly the characters a US-keyboard learner most needs. Scope by CHARACTER, not by lesson number.
+>
+> Two crew seats replied with the same structural read, independently: what Alex is describing is a **routing property** (hear → say → produce-from-sound, never asked for meaning), not a constraint on the shape of the `front`. Read that way the front can be a character (`é`), a cluster (`eau`, `kj`), or the shortest word carrying the feature (`petit` for a silent t) — and the awkward lessons stop being anomalies. **On that reading prerequisite 1 is not a blocker in front of the feature; it IS the feature.**
+
+
+1. **There is no way to restrict an item's card kinds.** `eligibleKinds()` in `src/store/cardRouting.js` opens with `["choice", "type:meaning"]` under the comment *"no gate — every item can be asked these"*. So an accent item is still asked **"what does é mean"**, which is the exact card the standard exists to remove. `ITEM_KEYS` in `src/data/contract.js` is a closed set (`id, type, front, reading, meaning, example, accept, hint, group, conjForm, drill`) with no field for this. Needs a new contract field — **its own scoped PR**, never bundled into a curriculum branch.
+   - Whatever the field is, it must stay **declarative and content-agnostic**: the engine reads a property, it does not branch on unit or item ids. And **mastery follows eligibility** — `eligibleKinds` is what mastery counts as well-posed, so narrowing it narrows what mastering an accent means. That is correct here (an accent has no meaning card to master) but it is a real coupling, not a free change.
+2. **"Hear" is missing exactly where the standard needs it.** `listen:choice` / `listen:type` route only when `hasAudio(item)`. Measured 2026-09-13:
+
+   | lang | u1 l1 | u1 l2 | u1 l3 |
+   |---|---|---|---|
+   | fr | **0/7** | **0/7** | 7/7 |
+   | de | **0/6** | **0/6** | **0/6** |
+   | no | **0/6** | **0/6** | **0/6** |
+   | es | 7/7 | 6/6 | 6/6 |
+   | pt | 5/6 | 7/7 | 6/6 |
+
+   ✅ **CLEARED 2026-09-13** — `main` generated the missing clips (de 480 · no 480 · pt A2 720 · fr 14). Unit 1 lessons 1–3 went from **51 silent to 1**: fr 0/21 · es 0/19 · de 0/18 · no 0/18 · pt **1**/19. The one holdout is **`pt-u1l1-econj`** (front `e`, "and") — a single-letter front, and the only card in scope whose companion still has nothing to say. (Was 51.) ⚠️ **`speak` needs the clip too**: SpeakCard plays it and *then* arms the mic, so with no clip it asks the learner to pronounce a character they have never heard. For those 51 items audio blocks two thirds of the standard, not one. Until `generate:audio` runs for them, a third of "hear, speak, type" silently does not exist — the card simply never routes, with no error. A paid run, so Alex's call.
+
+`speak` **routes** — it is in `LIVE_CARD_KINDS` and `shouldSpeak()` covers any vocab item, so notes calling it dormant are stale — **but it is not free here**: it needs the clip, and this repo's own Brief-C de-risk measured STT on an **isolated single glyph at 0/3**. `gradeSpoken("e", { front: "é" })` → `"hard"`, so a learner who says it right is marked down unless the transcriber emits the accent. **Speak the WORD, type the CHARACTER.**
+
+**Also unsuppressable:** `choice:reverse` ("here is the English, pick the character") is meaning-driven too, and `listen:choice` on a *vocab* item renders **meaning options** — so the "hear" card is itself a meaning card. Suppressing `type:meaning` alone does not yield "hear → identify the character"; it yields no hear card. Any flag must gate `choice`, `choice:reverse` and `type:meaning` together.
+
+**Prerequisite 4 — the keyboard popup**, which is half of what Alex asked for: *"a popup that shows or tells the user how to find the accent on their keyboard."* `item.hint` renders **only on TeachCard**, never on the typing card, so there is no surface for it. Feature-lane UI, platform-aware (long-press · Alt-codes · Option) or neutrally worded.
+
+**Before building a bespoke flag, look at `kana`.** A `type: "kana"` item already is this card: `meaning: null`, front = the glyph, `type:meaning` auto-rewritten to "type the character", `listen:choice` showing glyph options rather than meanings — the meaning card suppresses itself, no new field required. It is blocked only by the type being Japanese-named and by the script policy in `CONTENT.md`, which **already flags generalising `kana` → `glyph` as required for Korean/Russian/Mandarin/Hindi.** Doing it once serves this standard and the next four languages.
 
 ### 3a. Word-front uniqueness is global across languages ⚠️
 
