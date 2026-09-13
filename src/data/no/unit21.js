@@ -43,9 +43,22 @@
 //   å underholde    b2 u35        b3 u48       b3 to reserve
 //   en skikk        b2 u35        b3 u50       b3 to reserve
 //   et krav         b2 u32        b3 u50       b3 to reserve
-//   ei samling      b2 u35        b3 u47       LEXEME pair with b3's `å samle`, not
-//                                              an exact one. No string screen on any
-//                                              branch would ever have shown it.
+//   ei samling      b2 u35        b3 u47       RESOLVED — b2 never shipped the card, so
+//                                              b3's `å samle` (u47l4) stands alone. The
+//                                              row stays as the worked example: a LEXEME
+//                                              pair, not an exact one, which no string
+//                                              screen on any branch would have shown.
+//   ei utvikling /  b1 u24        b2 u34       BOTH STAND, cross-referenced. Noun and
+//   å utvikle                                  verb of one lexeme, the same shape as
+//                                              tre/et tre and dyr/et dyr, which A1 ships
+//                                              on purpose. Found by the content-auditor
+//                                              after the merge; re-authoring either would
+//                                              cost more than it buys.
+//   ei øving /      b1 u25        b3 u44       BOTH STAND, same call. `ei øving` is the
+//   en øvelse                                  activity of practising, `en øvelse` a
+//                                              single exercise you do. The two genders
+//                                              are not a choice either: -ing takes both,
+//                                              -else has no feminine at all.
 //   ei slette /     b3 u45        b2 u33       NOT A COLLISION — both stand, cross-
 //   å slette                                   referenced. A noun (a plain) and a
 //                                              verb (to delete) sharing a headword,
@@ -141,7 +154,7 @@ export const NO_UNIT21 = {
         { id: "no-u21l4-aslappeav", type: "vocab", front: "å slappe av", reading: "aslappeav", meaning: "to relax", example: { jp: "Etter en lang dag vil jeg bare slappe av og høre på musikk.", en: "After a long day I just want to relax and listen to music." }, accept: ["relax", "to unwind", "to take it easy", "chill"], drill: { jp: "Det er godt å slappe av", en: "It is good to relax" }, hint: "SLAP-pe AV. The av is part of the verb and moves in a sentence: jeg slapper av. Slapp av! on its own means calm down." },
         { id: "no-u21l4-afortsette", type: "vocab", front: "å fortsette", reading: "afortsette", meaning: "to continue", example: { jp: "Vi fortsetter å lese boka, men den er lang.", en: "We continue reading the book, but it is long." }, accept: ["continue", "to carry on", "carry on", "to go on"], drill: { jp: "Det er viktig å fortsette å lese", en: "It is important to continue reading" }, hint: "FORT-set-te. Takes å plus a verb: fortsette å lese. It also takes a plain object: vi fortsetter turen." },
         { id: "no-u21l4-aavslutte", type: "vocab", front: "å avslutte", reading: "aavslutte", meaning: "to finish off", example: { jp: "Han avslutter alltid dagen med en tur, når været er bra.", en: "He always finishes the day with a walk, when the weather is good." }, accept: ["finish", "to conclude", "conclude", "to end"], drill: { jp: "Det er godt å avslutte dagen", en: "It is good to finish the day" }, hint: "AV-slut-te. A1 taught å slutte, to stop. å avslutte takes an OBJECT — you finish SOMETHING off, where å slutte is what you yourself do." },
-        { id: "no-u21l4-aklare", type: "vocab", front: "å klare", reading: "aklare", meaning: "to manage", example: { jp: "Jeg klarte ikke å svare, fordi jeg ikke forsto det.", en: "I could not manage to answer, because I did not understand it." }, accept: ["manage", "to cope", "cope", "to be able to"], drill: { jp: "Det er lett å klare oppgaven", en: "It is easy to manage the task" }, hint: "KLAA-re. Managing something hard: jeg klarer det. Past klarte. Different from å kunne, which is knowing how." },
+        { id: "no-u21l4-aklare", type: "vocab", front: "å klare", reading: "aklare", meaning: "to manage", example: { jp: "Jeg klarer ikke å svare, fordi jeg ikke forstår det.", en: "I cannot manage to answer, because I do not understand it." }, accept: ["manage", "to cope", "cope", "to be able to"], drill: { jp: "Det er lett å klare oppgaven", en: "It is easy to manage the task" }, hint: "KLAA-re. Managing something hard: jeg klarer det. Past klarte. Different from å kunne, which is knowing how." },
         { id: "no-u21l4-adelta", type: "vocab", front: "å delta", reading: "adelta", meaning: "to take part", example: { jp: "Mange elever deltar på turen, men noen kan ikke.", en: "Many pupils take part in the trip, but some cannot." }, accept: ["take part", "to participate", "participate", "to join in"], drill: { jp: "Det er hyggelig å delta på turen", en: "It is nice to take part in the trip" }, hint: "DEL-taa — del (part) plus ta (take), literally \"take part\", the same picture as English. You take part PÅ something in Norwegian." },
       ],
     },

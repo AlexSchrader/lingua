@@ -1,7 +1,7 @@
 # NO — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- no`.
-Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -288,6 +288,7 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `av` — u13 · of
 - `av og til` — u28 · sometimes
 - `både` — u29 · both
+- `bagasje` — u23 · luggage
 - `bare` — u2 · only
 - `bedre` — u37 · better
 - `bekymret` — u22 · worried
@@ -339,10 +340,11 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `ei avdeling` — u24 · department
 - `ei avis` — u32 · newspaper
 - `ei avreise` — u23 · outward journey
-- `ei bagasje` — u23 · luggage
 - `ei bedring` — u25 · improvement
 - `ei behandling` — u25 · treatment
+- `ei beslutning` — u40 · decision
 - `ei bestemor` — u4 · grandmother
+- `ei betydning` — u40 · meaning
 - `ei bluse` — u42 · blouse
 - `ei bok` — u18 · book
 - `ei bølge` — u43 · wave
@@ -353,12 +355,16 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `ei datter` — u4 · daughter
 - `ei dør` — u16 · door
 - `ei elv` — u19 · river
+- `ei endring` — u50 · change
+- `ei erfaring` — u50 · experience
 - `ei ferje` — u20 · ferry
 - `ei fil` — u33 · file
 - `ei fjær` — u26 · feather
 - `ei flaske` — u47 · bottle
 - `ei flate` — u46 · surface
 - `ei flue` — u26 · fly
+- `ei forestilling` — u35 · show
+- `ei fortelling` — u35 · tale
 - `ei fortid` — u28 · past
 - `ei framtid` — u28 · future
 - `ei gate` — u7 · street
@@ -367,6 +373,7 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `ei hånd` — u11 · hand
 - `ei helg` — u9 · weekend
 - `ei historie` — u35 · story
+- `ei holdning` — u50 · attitude
 - `ei hule` — u26 · cave
 - `ei husleie` — u30 · rent
 - `ei hylle` — u16 · shelf
@@ -391,6 +398,7 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `ei liste` — u27 · list
 - `ei lomme` — u15 · pocket
 - `ei lønn` — u18 · pay
+- `ei løsning` — u50 · solution
 - `ei lue` — u15 · woolly hat
 - `ei melding` — u20 · message
 - `ei mil` — u47 · ten kilometres
@@ -405,11 +413,13 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `ei plante` — u34 · plant
 - `ei pølse` — u6 · sausage
 - `ei regning` — u27 · bill
+- `ei retning` — u23 · direction
 - `ei rolle` — u35 · role
 - `ei rot` — u34 · root
 - `ei rute` — u23 · route
 - `ei sak` — u50 · matter
 - `ei seng` — u16 · bed
+- `ei setning` — u49 · sentence
 - `ei side` — u33 · page
 - `ei skål` — u6 · bowl
 - `ei skje` — u1 · spoon
@@ -435,6 +445,7 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `ei uke` — u9 · week
 - `ei ulykke` — u50 · accident
 - `ei utdanning` — u24 · education
+- `ei utstilling` — u35 · exhibition
 - `ei utvikling` — u34 · development
 - `ei vekt` — u47 · weight
 - `ei veske` — u15 · bag
@@ -455,9 +466,7 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `en bane` — u44 · pitch
 - `en båt` — u7 · boat
 - `en beskjed` — u21 · message (passed on)
-- `en beslutning` — u40 · decision
 - `en bestefar` — u4 · grandfather
-- `en betydning` — u40 · meaning
 - `en bil` — u7 · car
 - `en billett` — u20 · ticket
 - `en bjørn` — u26 · bear
@@ -480,11 +489,9 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `en eksamen` — u24 · exam
 - `en elev` — u3 · pupil
 - `en elg` — u19 · moose
-- `en endring` — u50 · change
 - `en entré` — u30 · entrance hall
 - `en episode` — u48 · episode
 - `en epost` — u33 · email
-- `en erfaring` — u50 · experience
 - `en familie` — u4 · family
 - `en far` — u4 · father
 - `en fare` — u50 · danger
@@ -500,13 +507,11 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `en flyplass` — u20 · airport
 - `en følelse` — u22 · feeling
 - `en fordel` — u40 · advantage
-- `en forestilling` — u35 · show
 - `en forfatter` — u48 · author
 - `en forkjølelse` — u25 · a cold (the illness)
 - `en form` — u46 · shape
 - `en forsker` — u34 · researcher
 - `en forskjell` — u50 · difference
-- `en fortelling` — u35 · tale
 - `en fot` — u11 · foot
 - `en frakk` — u42 · coat
 - `en frisør` — u18 · hairdresser
@@ -535,7 +540,6 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `en hest` — u19 · horse
 - `en himmel` — u43 · sky
 - `en hobby` — u35 · hobby
-- `en holdning` — u50 · attitude
 - `en høst` — u9 · autumn
 - `en hovedstad` — u45 · capital
 - `en hund` — u4 · dog
@@ -568,7 +572,6 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `en kropp` — u11 · body
 - `en kultur` — u35 · culture
 - `en kunde` — u27 · customer
-- `en kunnskap` — u24 · knowledge
 - `en kunst` — u35 · art
 - `en kunstner` — u35 · artist
 - `en kur` — u25 · cure
@@ -581,7 +584,6 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `en likhet` — u50 · similarity
 - `en liter` — u47 · litre
 - `en løk` — u41 · onion
-- `en løsning` — u50 · solution
 - `en lov` — u32 · law
 - `en lunsj` — u41 · lunch
 - `en lyd` — u49 · sound
@@ -602,7 +604,6 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `en munn` — u11 · mouth
 - `en mynt` — u27 · coin
 - `en nabo` — u16 · neighbour
-- `en natur` — u34 · nature
 - `en nøkkel` — u16 · key
 - `en nyhet` — u32 · news item
 - `en omvei` — u23 · detour
@@ -641,7 +642,6 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `en rente` — u27 · interest (on money)
 - `en resept` — u25 · prescription
 - `en rest` — u47 · rest
-- `en retning` — u23 · direction
 - `en rett` — u32 · right (an entitlement)
 - `en rev` — u26 · fox
 - `en roman` — u48 · novel
@@ -657,7 +657,6 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `en seier` — u44 · victory
 - `en sekk` — u18 · backpack
 - `en selger` — u18 · salesperson
-- `en setning` — u49 · sentence
 - `en sirkel` — u46 · circle
 - `en sjåfør` — u18 · driver
 - `en sjanger` — u48 · genre
@@ -679,7 +678,6 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `en sommer` — u9 · summer
 - `en sønn` — u4 · son
 - `en søppelkasse` — u30 · rubbish bin
-- `en søvn` — u25 · sleep
 - `en stat` — u32 · state
 - `en stikkontakt` — u30 · power socket
 - `en stol` — u16 · chair
@@ -699,11 +697,9 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `en ting` — u10 · thing
 - `en tittel` — u35 · title
 - `en topp` — u45 · summit
-- `en trafikk` — u23 · traffic
 - `en tur` — u19 · walk
 - `en ulempe` — u40 · disadvantage
 - `en ulv` — u26 · wolf
-- `en utstilling` — u35 · exhibition
 - `en vane` — u17 · habit
 - `en vår` — u9 · spring
 - `en vaskemaskin` — u30 · washing machine
@@ -761,7 +757,6 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `et fylke` — u45 · county
 - `et glass` — u6 · glass
 - `et gram` — u47 · gram
-- `et gress` — u26 · grass
 - `et gulv` — u16 · floor
 - `et håndkle` — u16 · towel
 - `et hav` — u45 · sea
@@ -915,6 +910,7 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `grå` — u8 · grey
 - `gratis` — u27 · free (costing nothing)
 - `grei` — u31 · easy-going
+- `gress` — u26 · grass
 - `grønn` — u8 · green
 - `gul` — u8 · yellow
 - `gummi` — u46 · rubber
@@ -1004,6 +1000,7 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `kontant` — u27 · cash
 - `kort` — u10 · short
 - `kunne` — u37 · could
+- `kunnskap` — u24 · knowledge
 - `lå` — u38 · lay
 - `lærte` — u14 · learned
 - `laget` — u38 · made
@@ -1052,6 +1049,7 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `nå` — u5 · now
 - `nær` — u7 · near
 - `når` — u5 · when
+- `natur` — u34 · nature
 - `ned` — u13 · down
 - `nei` — u2 · no
 - `nemlig` — u29 · you see
@@ -1095,7 +1093,7 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `rolig` — u22 · calm
 - `rundt` — u45 · around
 - `så` — u14 · saw
-- `så lenge` — u36 · as long as
+- `så lenge` — u36 · as long as (in time)
 - `så sant` — u36 · provided that
 - `så snart` — u36 · as soon as
 - `særlig` — u37 · particularly
@@ -1142,6 +1140,7 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `sør` — u45 · south
 - `søt` — u41 · sweet
 - `sov` — u38 · slept
+- `søvn` — u25 · sleep
 - `spent` — u22 · excited
 - `spiste` — u14 · ate
 - `spør` — u39 · ask
@@ -1181,6 +1180,7 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `tørr` — u8 · dry
 - `torsdag` — u9 · Thursday
 - `tørst` — u6 · thirsty
+- `trafikk` — u23 · traffic
 - `travel` — u21 · busy
 - `tre` — u5 · three
 - `trist` — u17 · sad
@@ -1274,13 +1274,13 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 
 **u22 · Følelser og stemning** (24) — `en følelse`, `nervøs`, `spent`, `stolt`, `lettet`, `flau`, `bekymret`, `rolig`, `sikker`, `usikker`, `å bry seg`, `å tåle`, `å savne`, `overrasket`, `skuffet`, `ensom`, `å nyte`, `ei stemning`, `et forhold`, `en grense`, `en avstand`, `sjalu`, `å tenke seg`, `hverandre`
 
-**u23 · Reise og transport** (24) — `en avgang`, `en ankomst`, `å ankomme`, `forsinket`, `ei avreise`, `å haste`, `ei rute`, `en retning`, `å svinge`, `en omvei`, `et kryss`, `underveis`, `å reservere`, `et sete`, `en passasjer`, `en kø`, `en rabatt`, `ei bagasje`, `å utsette`, `et opphold`, `en trafikk`, `å parkere`, `en havn`, `et reisemål`
+**u23 · Reise og transport** (24) — `en avgang`, `en ankomst`, `å ankomme`, `forsinket`, `ei avreise`, `å haste`, `ei rute`, `ei retning`, `å svinge`, `en omvei`, `et kryss`, `underveis`, `å reservere`, `et sete`, `en passasjer`, `en kø`, `en rabatt`, `bagasje`, `å utsette`, `et opphold`, `trafikk`, `å parkere`, `en havn`, `et reisemål`
 
-**u24 · Arbeid og utdanning** (24) — `en søknad`, `å søke`, `ei stilling`, `en frist`, `å levere`, `å ansette`, `ei avdeling`, `et prosjekt`, `å samarbeide`, `å tjene`, `å gjennomføre`, `en sjanse`, `ei utdanning`, `et universitet`, `et kurs`, `et emne`, `å undervise`, `en kunnskap`, `en eksamen`, `å bestå`, `et resultat`, `å mestre`, `å utvikle`, `et vitnemål`
+**u24 · Arbeid og utdanning** (24) — `en søknad`, `å søke`, `ei stilling`, `en frist`, `å levere`, `å ansette`, `ei avdeling`, `et prosjekt`, `å samarbeide`, `å tjene`, `å gjennomføre`, `en sjanse`, `ei utdanning`, `et universitet`, `et kurs`, `et emne`, `å undervise`, `kunnskap`, `en eksamen`, `å bestå`, `et resultat`, `å mestre`, `å utvikle`, `et vitnemål`
 
-**u25 · Helse og sykdom** (24) — `en smerte`, `å hoste`, `et sår`, `å blø`, `en forkjølelse`, `en allergi`, `et hjerte`, `å puste`, `en søvn`, `en skade`, `et blodtrykk`, `å slite`, `en pasient`, `ei behandling`, `en resept`, `en medisin`, `ei pille`, `en operasjon`, `ei bedring`, `en kur`, `et sykehjem`, `ei øving`, `sunn`, `å unngå`
+**u25 · Helse og sykdom** (24) — `en smerte`, `å hoste`, `et sår`, `å blø`, `en forkjølelse`, `en allergi`, `et hjerte`, `å puste`, `søvn`, `en skade`, `et blodtrykk`, `å slite`, `en pasient`, `ei behandling`, `en resept`, `en medisin`, `ei pille`, `en operasjon`, `ei bedring`, `en kur`, `et sykehjem`, `ei øving`, `sunn`, `å unngå`
 
-**u26 · Dyr i naturen** (24) — `en ulv`, `en bjørn`, `en rev`, `en hare`, `en orm`, `en frosk`, `et insekt`, `ei flue`, `en maur`, `et egg`, `et reir`, `ei fjær`, `en hale`, `en vinge`, `ei klo`, `en pels`, `en flokk`, `ei hule`, `å jakte`, `å krype`, `å grave`, `å plukke`, `vill`, `et gress`
+**u26 · Dyr i naturen** (24) — `en ulv`, `en bjørn`, `en rev`, `en hare`, `en orm`, `en frosk`, `et insekt`, `ei flue`, `en maur`, `et egg`, `et reir`, `ei fjær`, `en hale`, `en vinge`, `ei klo`, `en pels`, `en flokk`, `ei hule`, `å jakte`, `å krype`, `å grave`, `å plukke`, `vill`, `gress`
 
 **u27 · Handel og penger** (24) — `å handle`, `en kunde`, `en kurv`, `ei liste`, `et produkt`, `et utvalg`, `en pris`, `ei regning`, `ei kvittering`, `et beløp`, `kontant`, `gratis`, `å spare`, `en konto`, `en rente`, `et budsjett`, `å skylde`, `å eie`, `en mynt`, `en seddel`, `en disk`, `et merke`, `en pant`, `å veksle`
 
@@ -1296,9 +1296,9 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 
 **u33 · Teknologi og kontakt** (24) — `et nett`, `en datamaskin`, `en skjerm`, `ei side`, `et passord`, `ei lenke`, `et program`, `ei fil`, `å lagre`, `å slette`, `ei mus`, `et tastatur`, `en epost`, `et nummer`, `ei adresse`, `et brev`, `en samtale`, `å dele`, `å forklare`, `å gjenta`, `å nevne`, `å oversette`, `et innlegg`, `et tegn`
 
-**u34 · Natur og vitenskap** (24) — `en natur`, `ei plante`, `ei rot`, `et menneske`, `et liv`, `å vokse`, `jord`, `luft`, `en planet`, `et miljø`, `ei kraft`, `energi`, `en vitenskap`, `en forsker`, `et forsøk`, `å oppdage`, `et bevis`, `en teori`, `å måle`, `en metode`, `ei utvikling`, `en fart`, `en prosess`, `en verdi`
+**u34 · Natur og vitenskap** (24) — `natur`, `ei plante`, `ei rot`, `et menneske`, `et liv`, `å vokse`, `jord`, `luft`, `en planet`, `et miljø`, `ei kraft`, `energi`, `en vitenskap`, `en forsker`, `et forsøk`, `å oppdage`, `et bevis`, `en teori`, `å måle`, `en metode`, `ei utvikling`, `en fart`, `en prosess`, `en verdi`
 
-**u35 · Kultur og fritid** (24) — `en kultur`, `en kunst`, `et teater`, `en konsert`, `et maleri`, `en kunstner`, `en forestilling`, `ei stjerne`, `ei rolle`, `en utstilling`, `å opptre`, `å underholde`, `en fortelling`, `et eventyr`, `ei historie`, `et dikt`, `en helt`, `en tittel`, `en hobby`, `en interesse`, `et spill`, `å male`, `å tegne`, `å more seg`
+**u35 · Kultur og fritid** (24) — `en kultur`, `en kunst`, `et teater`, `en konsert`, `et maleri`, `en kunstner`, `ei forestilling`, `ei stjerne`, `ei rolle`, `ei utstilling`, `å opptre`, `å underholde`, `ei fortelling`, `et eventyr`, `ei historie`, `et dikt`, `en helt`, `en tittel`, `en hobby`, `en interesse`, `et spill`, `å male`, `å tegne`, `å more seg`
 
 **u36 · Grammatikk 4: å binde setninger** (24) — `i tilfelle`, `så sant`, `hvis ikke`, `uansett`, `bortsett fra`, `som om`, `ettersom`, `på grunn av`, `takket være`, `til tross for`, `det vil si`, `da`, `etter at`, `så snart`, `så lenge`, `innen`, `inntil`, `for at`, `uten at`, `i stedet for`, `for å`, `uten å`, `etter å ha`, `ved å`
 
@@ -1308,7 +1308,7 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 
 **u39 · Verb-drill 2: perfektum og framtid** (24) — `har spist`, `har lest`, `har kjøpt`, `har bodd`, `har reist`, `har brukt`, `har skrevet`, `har drukket`, `har tatt`, `har fått`, `har sett`, `har gjort`, `skal`, `vil`, `kommer til å`, `skal til å`, `tenker å`, `planlegger å`, `gjør`, `vet`, `sier`, `spør`, `får`, `ser`
 
-**u40 · Nyttige ord · 1** (24) — `å oppleve`, `å føle`, `å forandre`, `å bety`, `å foretrekke`, `å angre`, `å innse`, `å tilby`, `å kreve`, `å skape`, `å påvirke`, `å vurdere`, `en fordel`, `en ulempe`, `et forslag`, `en beslutning`, `en betydning`, `en tilstand`, `mulig`, `nødvendig`, `vanlig`, `egentlig`, `faktisk`, `man`
+**u40 · Nyttige ord · 1** (24) — `å oppleve`, `å føle`, `å forandre`, `å bety`, `å foretrekke`, `å angre`, `å innse`, `å tilby`, `å kreve`, `å skape`, `å påvirke`, `å vurdere`, `en fordel`, `en ulempe`, `et forslag`, `ei beslutning`, `ei betydning`, `en tilstand`, `mulig`, `nødvendig`, `vanlig`, `egentlig`, `faktisk`, `man`
 
 **u41 · Mat og drikke · 2** (24) — `kjøtt`, `en potet`, `ei gulrot`, `en løk`, `salt`, `sukker`, `en lunsj`, `ei suppe`, `en salat`, `en dessert`, `en porsjon`, `en meny`, `å koke`, `å steke`, `å bake`, `å skjære`, `å blande`, `å servere`, `søt`, `sur`, `bitter`, `fersk`, `mett`, `deilig`
 
@@ -1326,7 +1326,7 @@ Snapshot 2026-09-12: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 
 **u48 · Medier og underholdning** (24) — `en artikkel`, `ei overskrift`, `en journalist`, `et intervju`, `en redaktør`, `ei spalte`, `en kanal`, `en radio`, `en episode`, `en reklame`, `et opptak`, `et innslag`, `en roman`, `en sjanger`, `et sitat`, `en forfatter`, `et kapittel`, `en scene`, `å anbefale`, `å oppdatere`, `å spre`, `å skru`, `å bla`, `å formidle`
 
-**u49 · Å forklare og å fortelle** (24) — `å beskrive`, `å stave`, `å uttale`, `å notere`, `å understreke`, `å tolke`, `å diskutere`, `å påstå`, `å avbryte`, `å krangle`, `å nekte`, `å innrømme`, `å klage`, `å rose`, `å rope`, `å hviske`, `å spøke`, `å lyve`, `en prat`, `et uttrykk`, `en setning`, `en tale`, `et rykte`, `en lyd`
+**u49 · Å forklare og å fortelle** (24) — `å beskrive`, `å stave`, `å uttale`, `å notere`, `å understreke`, `å tolke`, `å diskutere`, `å påstå`, `å avbryte`, `å krangle`, `å nekte`, `å innrømme`, `å klage`, `å rose`, `å rope`, `å hviske`, `å spøke`, `å lyve`, `en prat`, `et uttrykk`, `ei setning`, `en tale`, `et rykte`, `en lyd`
 
-**u50 · Vanlige begreper** (24) — `en måte`, `ei sak`, `et tilfelle`, `en hensikt`, `en sammenheng`, `en tanke`, `en mulighet`, `en løsning`, `en feil`, `ei ulykke`, `et hell`, `en fare`, `en forskjell`, `en likhet`, `en endring`, `en vekst`, `et nivå`, `et behov`, `et valg`, `en erfaring`, `et inntrykk`, `en skikk`, `et ansvar`, `en holdning`
+**u50 · Vanlige begreper** (24) — `en måte`, `ei sak`, `et tilfelle`, `en hensikt`, `en sammenheng`, `en tanke`, `en mulighet`, `ei løsning`, `en feil`, `ei ulykke`, `et hell`, `en fare`, `en forskjell`, `en likhet`, `ei endring`, `en vekst`, `et nivå`, `et behov`, `et valg`, `ei erfaring`, `et inntrykk`, `en skikk`, `et ansvar`, `ei holdning`
 
