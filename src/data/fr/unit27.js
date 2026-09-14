@@ -33,11 +33,27 @@
 // "listen, speak and type the accent, not the definition — the user has to find it on their
 // keyboard." So each glyph hint below carries the phone / Mac / Windows keystroke.
 //
-// THE SHAPE IS **ADD, NEVER REPLACE** (RUNBOOK §4). The glyph cards sit FIRST in items[] —
-// teach order is authored order, so the learner meets é è ê ô û ï ç œ before a single word — and
-// all 21 original word cards are untouched. That is not politeness: every one of those 21
-// fronts is taught in exactly ONE place in the whole 3,111-word French corpus (checked with
-// `npm run taught -- fr`), so replacing a word card deletes that word from the course.
+// THE SHAPE IS **ADD, NEVER REPLACE** (RUNBOOK §4). No word card has ever been deleted from
+// this unit: all 21 original word fronts are still here, because every one of them is taught in
+// exactly ONE place in the whole 3,111-word French corpus (checked with `npm run taught -- fr`),
+// so replacing a word card would delete that word from the course. Inside every lesson the glyph
+// cards come FIRST and the words built on them follow — teach order is authored order, so the
+// learner meets é è ê ô before le bébé, and û ï ç œ before la flûte.
+//
+// ⚠️ SPLIT 3 LESSONS → 5 ON 2026-09-14 (branch content/fr-u27-split). It used to be l1 = 8 glyphs
+// + 7 words (15 items = 45 screens), l2 = 7 glyphs + 7 words (14 = 42), l3 = 7 words. Each item is
+// one teach + two checks, so the FIRST lesson a French learner ever saw was 2.5× longer than a
+// normal lesson — the exact ND-friction this project exists to avoid. Nothing was added, removed
+// or reworded: the same 36 items are regrouped 8 / 7 / 7 / 8 / 6 (24 / 21 / 21 / 24 / 18 screens),
+// each lesson pairing one family of marks with the words that use it. Only the five `title`s and
+// `canDo`s were rewritten, because the old ones described the old mixed lessons and a lesson whose
+// canDo promises cards it no longer holds is a false promise.
+//
+// ⚠️ 21 OF THE 36 ITEM IDS CHANGED LESSON NUMBER, which WIPES those items' mastery. Alex accepted
+// that cost ONCE, for this pass — do not regroup again. The 15 items in l1 and l3 kept their ids
+// untouched, and that is why the silent-letters lesson STAYED at l3 instead of moving to the end:
+// the `haut` hint says "not the silent h of lesson 3", which the move would have made false, and
+// pinning that lesson to l3 keeps it true — and now points BACKWARD, to a lesson already done.
 //
 // ⚠ à HAS NO GLYPH CARD. Its front is already taught by fr-u6l2-a (vocab, "to/at"), and a
 // second card would be one lexeme with two mastery tracks. â, î and ù have none either, and
@@ -68,7 +84,7 @@
 // acquire — that is how phonics is taught everywhere, and it is a deliberate exception to
 // the teach-before-use rule, not an oversight.
 //
-// AUDIO — THE 14 WORD CARDS HAVE CLIPS; THE 15 NEW GLYPH CARDS DO NOT, YET.
+// AUDIO — ALL 36 IDS STILL HAVE A CLIP. NOTHING WAS ORPHANED AND NOTHING NEEDS RE-RECORDING.
 //
 // ⚠ This block used to read "THESE 14 ITEMS ARE DELIBERATELY SILENT, AND MUST BE RE-RECORDED",
 // and that is now WRONG — it was true only between 2026-09-05 and 2026-09-08. The history:
@@ -78,10 +94,26 @@
 // in 51072a45 (2026-09-08, "fr 14"). Verified on this branch: all 14 mp3s exist in
 // public/audio/fr and all 14 ids are in src/data/audioManifest.js. Nothing here is silent.
 //
-// The NEW glyph ids are the silent ones, and only because they have never been recorded. They
-// go into the single cross-language glyph audio run. Until it runs, `hasAudio()` is false for
-// them, teach/listen/speak do not route, and the cards work through type:produce plus the
-// written respelling in each hint.
+// ⚠ THE GLYPH CLIPS LANDED IN 904c77ef (2026-09-14), so immediately before this split all 36 fr-u27
+// ids had an mp3 in public/audio/fr AND an entry in src/data/audioManifest.js. Clips are keyed by
+// ITEM ID with no text hash, so the 21 renamed ids would have orphaned 21 correct recordings — the
+// single largest such exposure of any language in this sweep.
+//
+// ✅ THEY DID NOT ORPHAN. A clip is a recording of the LETTER or the WORD, never of the lesson it
+// sits in: fr-u27l1-lalecon.mp3 says "la leçon" and is still exactly right as fr-u27l2-lalecon.mp3.
+// So all 21 mp3s were `git mv`-ed to their new ids in this same commit and
+// `scripts/generate-audio-manifest.mjs` was re-run. Manifest total is UNCHANGED at 13456 (21 out,
+// 21 in); all 36 content ids resolve to a file on disk AND a manifest entry, verified by diffing
+// the three lists. Zero re-generation cost. Every French id in scope is voiced; there is no
+// unvoiced-glyph gap here.
+//
+// ⚠ THIS IS NOT COSMETIC, AND tests/unit/card-variety.test.mjs PROVES IT. Run the split WITHOUT the
+// renames and that test fails: `fr-u27l2-ucirconflexe` (la flûte) and `fr-u27l5-ill` (le papillon)
+// collapse to a SINGLE card kind, `speak`, against a hard ceiling of 0. The reason is that
+// `shouldListen` and `shouldListenType` both begin `hasAudio(item)` (cardRouting.js:44, :132), so an
+// orphaned clip does not merely mute a card — it deletes two card kinds from the item, and any item
+// whose hash band already excluded the rest is left with one. With the renames in place the whole
+// suite is 396/396. Any future id move in a voiced unit must carry its clips for the same reason.
 //
 // ⚠ WHEN THAT RUN HAPPENS, GENERATE THE FRENCH GLYPHS AS THE LETTER'S NAME, NOT ITS BARE SOUND.
 // è and ê are homophones in modern French, and so are au and eau; a clip of the bare sound
@@ -92,16 +124,16 @@
 // WHAT THE WORD CARDS STILL CANNOT TEST — AND WHAT THE GLYPH CARDS NOW DO.
 //
 // Unchanged, and deliberate: `checkProduce` still accepts the accent-stripped spelling of the
-// seven l1 WORD fronts (`le bebe`, `la creme`, `la lecon`, `allo`, `la flute`, `l'oeil`…),
+// seven accent WORD fronts, now split across l1 and l2 (`le bebe`, `la creme`, `la lecon`, `allo`, `la flute`, `l'oeil`…),
 // because `normalizeReading` folds diacritics for every non-ja language and
 // `produceAllowsRomaji` is true off `stage: a1`. On a word card the accent is incidental to a
 // word the learner is actually there to learn.
 //
-// ⚠ BUT THE CLAIM THAT USED TO FOLLOW — "so the lesson titled 'The accents' cannot currently
+// ⚠ BUT THE CLAIM THAT USED TO FOLLOW — "so the accents lesson cannot currently
 // require one" — IS NO LONGER TRUE, and neither is "the old bare-letter cards folded the same
 // way". `foldWouldEraseAnswer` (src/store/answer.js:86) fires on any ONE-CHARACTER front whose
 // fold differs from itself, and then both `checkReading` and `checkProduce` demand the exact
-// front. That is precisely the eight glyph cards in l1. Measured on this branch for front "é":
+// front. That is precisely the eight single-character glyph cards — four in l1, four in l2. Measured on this branch for front "é":
 // `checkProduce("e")` false, `checkReading("e")` false, `checkProduce("é")` true. The accents
 // lesson now requires the accent — which is the point of Alex's "the user has to find it on
 // their keyboard".
@@ -129,7 +161,7 @@
 // recognising all three; on `type:produce` the prompt "e" has three correct answers. LOGGED, not
 // worked around here: Feature CC backlog, BUILD-CHECKLIST.md.
 // œ counts as ONE character (U+0153), so it is strict too: on its glyph card only œ passes, and
-// the hint says so. The l2 clusters (eau, au, ai, oi, ui, gn, ill) are multi-character, so they
+// the hint says so. The multi-letter clusters (eau, au, ai, oi in l4; ui, gn, ill in l5) are multi-character, so they
 // fall through to the fold — but their `reading` IS their own ASCII fold, so typing the cluster
 // is still exact. Verified for all 15 new fronts before authoring.
 export const FR_UNIT27 = {
@@ -143,61 +175,47 @@ export const FR_UNIT27 = {
       id: "fr-u27l1",
       unit: 27,
       lesson: 1,
-      title: "The accents",
+      title: "Les accents",
       cefr: "A1",
       dominantMode: "recognize",
-      canDo: "Read and type the eight French accent letters — é è ê ô û ï ç œ — then read seven everyday words built on them.",
+      canDo: "Type é, è, ê and ô on your own keyboard, then read the four everyday words that depend on them.",
       items: [
         { id: "fr-u27l1-glypheaigu", type: "glyph", front: "é", reading: "e", meaning: null, example: null, hint: "The closed \"ay\" of café — and the accent is what makes the letter sound at all: chanté is \"shon-TAY\", chante is \"shont\". Type it: hold E on a phone, Option+e then e on a Mac, Alt+0233 on Windows." },
         { id: "fr-u27l1-glyphegrave", type: "glyph", front: "è", reading: "e", meaning: null, example: null, hint: "The open \"eh\" of \"bed\": très is \"treh\". One accent apart from é — é closes the mouth, è opens it. The same grave rides on à and où too, where it changes no sound at all and only separates look-alikes. Type it: hold E on a phone, Option+` then e on a Mac, Alt+0232 on Windows." },
         { id: "fr-u27l1-glyphecirc", type: "glyph", front: "ê", reading: "e", meaning: null, example: null, hint: "Sounds the same as è — open \"eh\". The hat marks a letter that fell out of the word centuries ago, usually an s: forêt was forest, hôtel was hostel. Type it: hold E on a phone, Option+i then e on a Mac, Alt+0234 on Windows." },
         { id: "fr-u27l1-glyphocirc", type: "glyph", front: "ô", reading: "o", meaning: null, example: null, hint: "A long, closed \"oh\": hôpital, bientôt. Same lost s as ê — hôpital was hospital. Type it: hold O on a phone, Option+i then o on a Mac, Alt+0244 on Windows." },
-        { id: "fr-u27l1-glyphucirc", type: "glyph", front: "û", reading: "u", meaning: null, example: null, hint: "The French u, which has no English twin: round your lips for \"oo\", then say \"ee\" without moving them. The hat does not change that sound — sûr and sur are said alike. Type it: hold U on a phone, Option+i then u on a Mac, Alt+0251 on Windows." },
-        { id: "fr-u27l1-glyphitrema", type: "glyph", front: "ï", reading: "i", meaning: null, example: null, hint: "The tréma is the one mark that is not an accent: it splits a vowel pair that would otherwise fuse into one sound. maïs is \"ma-EES\" in two pieces, not the \"eh\" of mais, and naïf is \"na-EEF\". The same mark rides on e too — Noël — but ï is the one you meet most. Type it: hold I on a phone, Option+u then i on a Mac, Alt+0239 on Windows." },
-        { id: "fr-u27l1-glyphcedille", type: "glyph", front: "ç", reading: "c", meaning: null, example: null, hint: "c is hard before a, o and u — without the tail, leçon would be \"luh-KON\". The cedilla forces the soft \"s\": ça, garçon, français. It never appears before e or i, where c is already soft. Type it: hold C on a phone, Option+c on a Mac, Alt+0231 on Windows." },
-        { id: "fr-u27l1-glypholigature", type: "glyph", front: "œ", reading: "oe", meaning: null, example: null, hint: "One letter, not two — o and e fused, said \"uh\": sœur, cœur, l'œil. On this card you must type the real œ; inside an ordinary word oe is still accepted. Type it: hold O on a phone, Option+q on a Mac, Alt+0156 on Windows." },
         { id: "fr-u27l1-eaigu", type: "vocab", front: "le bébé", reading: "lebebe", meaning: "baby", example: { jp: "Le bébé est très petit.", en: "The baby is very small — \"bay-BAY\"" }, drill: { jp: "Le bébé est très petit", en: "The baby is very small" }, accept: ["the baby", "baby"], hint: "Two é, two \"ay\" sounds: bébé is \"bay-BAY\". The accent is not decoration — it tells you the e is pronounced at all. A final e with no accent is usually silent." },
         { id: "fr-u27l1-lacreme", type: "vocab", front: "la crème", reading: "lacreme", meaning: "cream", example: { jp: "La crème est dans le café.", en: "The cream is in the coffee — \"krem\"" }, drill: { jp: "La crème est très bonne", en: "The cream is very good" }, accept: ["the cream", "cream"], hint: "è is open, like the e in \"bed\": crème is \"krem\". Compare it with é — bébé closes, crème opens. One accent apart." },
         { id: "fr-u27l1-ecirconflexe", type: "vocab", front: "la crêpe", reading: "lacrepe", meaning: "pancake", example: { jp: "La crêpe est chaude.", en: "The pancake is hot — \"krep\"" }, drill: { jp: "La crêpe est très chaude", en: "The pancake is very hot" }, accept: ["a pancake", "crepe"], hint: "ê sounds like è — \"krep\". The little hat usually marks a letter that fell out of the word centuries ago, most often an s: crêpe was crespe, forêt was forest, hôtel was hostel." },
-        { id: "fr-u27l1-lalecon", type: "vocab", front: "la leçon", reading: "lalecon", meaning: "lesson", example: { jp: "La leçon est facile.", en: "The lesson is easy — \"luh-SON\"" }, drill: { jp: "La leçon est très facile", en: "The lesson is very easy" }, accept: ["the lesson", "lesson"], hint: "c is hard before a, o and u — without the tail, leçon would be \"luh-KON\". The cedilla forces it soft. And that final -on is NASAL: send it through your nose and never let the n touch your tongue." },
         { id: "fr-u27l1-ocirconflexe", type: "vocab", front: "allô", reading: "allo", meaning: "hello on the phone", example: { jp: "Allô, c'est Marie.", en: "Hello, it's Marie — answering the telephone" }, drill: { jp: "Allô c'est Marie", en: "Hello it's Marie" }, accept: [], hint: "ô is a long, closed \"oh\". allô belongs to the telephone and nowhere else — face to face it is always bonjour, which is why this card's meaning spells out the phone." },
-        { id: "fr-u27l1-ucirconflexe", type: "vocab", front: "la flûte", reading: "laflute", meaning: "flute", example: { jp: "Elle joue de la flûte.", en: "She plays the flute — jouer DE for an instrument" }, drill: { jp: "Elle joue de la flûte", en: "She plays the flute" }, accept: ["the flute", "flute"], hint: "French u has no English twin and no English respelling can show it: round your lips as if for \"oo\", then say \"ee\" without moving them. The hat does not change that sound — here it marks a vowel that contracted centuries ago, not a lost s." },
-        { id: "fr-u27l1-oe", type: "vocab", front: "l'œil", reading: "loeil", meaning: "one eye", example: { jp: "J'ai quelque chose dans l'œil.", en: "I have something in my eye — one syllable, \"luhy\"" }, drill: { jp: "J'ai quelque chose dans l'œil", en: "I have something in my eye" }, accept: [], hint: "œ is one letter, not two — and here you can always type it as oe: œil and oeil both pass. One eye is l'œil, said \"luhy\" in a single syllable; two are les yeux, which is completely irregular." },
       ],
     },
     {
       id: "fr-u27l2",
       unit: 27,
       lesson: 2,
-      title: "Letters that team up",
+      title: "Les autres signes",
       cefr: "A1",
       dominantMode: "recognize",
-      canDo: "Read and type the seven multi-letter sounds — eau, au, ai, oi, ui, gn, ill — then read seven everyday words built on them.",
+      canDo: "Type the four marks that are not accents — û, ï, ç and œ — then read three words that show what each one does.",
       items: [
-        { id: "fr-u27l2-glypheau", type: "glyph", front: "eau", reading: "eau", meaning: null, example: null, hint: "Three letters, one sound, and not one of them is o-ish in English: eau is simply \"oh\". l'eau is \"loh\", and le bureau ends \"-ROH\" — its first vowel is the flûte u, not an English \"boo\"." },
-        { id: "fr-u27l2-glyphau", type: "glyph", front: "au", reading: "au", meaning: null, example: null, hint: "The same \"oh\" as eau, one letter shorter: au revoir, jaune, chaud. Wherever you see au, stop reading the a and the u separately." },
-        { id: "fr-u27l2-glyphai", type: "glyph", front: "ai", reading: "ai", meaning: null, example: null, hint: "The open \"eh\" of è, not \"ay\": le lait is \"leh\" and la maison is \"meh-ZON\". Two things change it: the verb ending -ai says \"ay\" (j'ai, j'irai), and ai before a FINAL m or n turns nasal — le pain and la main rhyme with each other, not with fraise. If a vowel follows the n, nothing changes: j'aime and la semaine keep the plain \"eh\"." },
-        { id: "fr-u27l2-glyphoi", type: "glyph", front: "oi", reading: "oi", meaning: null, example: null, hint: "\"wah\", never \"oy\": moi is \"mwah\", trois is \"trwah\", le soir is \"swahr\". One famous exception: oignon is said \"o-NYON\" — that oi is not an oi at all." },
-        { id: "fr-u27l2-glyphui", type: "glyph", front: "ui", reading: "ui", meaning: null, example: null, hint: "A single glide, and it starts with the flûte u, not an English w: set your lips for \"oo\" and run straight into \"ee\". That is exactly what separates lui from Louis. huit, la nuit, aujourd'hui." },
-        { id: "fr-u27l2-glyphgn", type: "glyph", front: "gn", reading: "gn", meaning: null, example: null, hint: "One sound, the \"ny\" of English \"onion\" or Spanish ñ: la montagne, magnifique, l'Espagne. A handful of learned words keep the g and n separate (diagnostic, stagner) — rare enough to meet one at a time." },
-        { id: "fr-u27l2-glyphill", type: "glyph", front: "ill", reading: "ill", meaning: null, example: null, hint: "\"ee-y\", not the English \"ill\": la fille is \"fee-y\" and travailler is \"tra-va-YAY\". Learn the exceptions early — in ville, mille and tranquille it really is \"eel\"." },
-        { id: "fr-u27l2-eau", type: "vocab", front: "la peau", reading: "lapeau", meaning: "skin", example: { jp: "La peau du bébé est douce.", en: "The baby's skin is soft — \"poh\"" }, drill: { jp: "La peau du bébé est douce", en: "The baby's skin is soft" }, accept: ["the skin"], hint: "Three letters, one sound, and not one of them is o-ish in English: eau is simply \"oh\", so peau is \"poh\"." },
-        { id: "fr-u27l2-au", type: "vocab", front: "haut", reading: "haut", meaning: "high", example: { jp: "L'arbre est très haut.", en: "The tree is very high — the whole word is just \"oh\"" }, drill: { jp: "L'arbre est très haut", en: "The tree is very high" }, accept: ["high up"], hint: "au is the same \"oh\" as eau, and haut is silent at both ends — no h, no t, just \"oh\". But that h still blocks elision and liaison: le haut, en haut, never l'haut. It is an h aspiré, not the silent h of lesson 3." },
-        { id: "fr-u27l2-ai", type: "vocab", front: "la fraise", reading: "lafraise", meaning: "strawberry", example: { jp: "La fraise est rouge.", en: "The strawberry is red — \"frez\"" }, drill: { jp: "La fraise est très rouge", en: "The strawberry is very red" }, accept: ["the strawberry", "strawberry"], hint: "ai is usually the open \"eh\" of è: fraise is \"frez\" and le lait is \"leh\". The verb ending -ai is the exception and says \"ay\" — j'ai, je serai, j'irai." },
-        { id: "fr-u27l2-oi", type: "vocab", front: "la poire", reading: "lapoire", meaning: "pear", example: { jp: "La poire est très bonne.", en: "The pear is very good — \"pwahr\"" }, drill: { jp: "La poire est sur la table", en: "The pear is on the table" }, accept: ["the pear", "pear"], hint: "oi is always \"wah\", never \"oy\": poire is \"pwahr\", moi is \"mwah\", trois is \"trwah\"." },
-        { id: "fr-u27l2-ui", type: "vocab", front: "le biscuit", reading: "lebiscuit", meaning: "biscuit", example: { jp: "Le biscuit est très bon.", en: "The biscuit is very good — ui is one glide" }, drill: { jp: "Le biscuit est très bon", en: "The biscuit is very good" }, accept: ["cookie"], hint: "ui is a single glide, and it starts with the flûte u, not an English w: set your lips for \"oo\" and run straight into \"ee\". That is exactly what separates lui from Louis. The final t is silent." },
-        { id: "fr-u27l2-gn", type: "vocab", front: "espagnol", reading: "espagnol", meaning: "Spanish", example: { jp: "Mon ami est espagnol.", en: "My friend is Spanish — \"es-pa-NYOL\"" }, drill: { jp: "Mon ami est espagnol", en: "My friend is Spanish" }, accept: [], hint: "gn is one sound, the \"ny\" of Spanish ñ or the ni in English \"onion\" — never a g followed by an n." },
-        { id: "fr-u27l2-ill", type: "vocab", front: "le papillon", reading: "lepapillon", meaning: "butterfly", example: { jp: "Le papillon est jaune.", en: "The butterfly is yellow — \"pa-pee-YON\"" }, drill: { jp: "Le papillon est jaune", en: "The butterfly is yellow" }, accept: ["the butterfly", "butterfly"], hint: "ill is \"ee-y\", not the English \"ill\": papillon is \"pa-pee-YON\" and fille is \"fee-y\". Learn the exceptions early though — in ville, mille and village it really is \"eel\"." },
+        { id: "fr-u27l2-glyphucirc", type: "glyph", front: "û", reading: "u", meaning: null, example: null, hint: "The French u, which has no English twin: round your lips for \"oo\", then say \"ee\" without moving them. The hat does not change that sound — sûr and sur are said alike. Type it: hold U on a phone, Option+i then u on a Mac, Alt+0251 on Windows." },
+        { id: "fr-u27l2-glyphitrema", type: "glyph", front: "ï", reading: "i", meaning: null, example: null, hint: "The tréma is the one mark that is not an accent: it splits a vowel pair that would otherwise fuse into one sound. maïs is \"ma-EES\" in two pieces, not the \"eh\" of mais, and naïf is \"na-EEF\". The same mark rides on e too — Noël — but ï is the one you meet most. Type it: hold I on a phone, Option+u then i on a Mac, Alt+0239 on Windows." },
+        { id: "fr-u27l2-glyphcedille", type: "glyph", front: "ç", reading: "c", meaning: null, example: null, hint: "c is hard before a, o and u — without the tail, leçon would be \"luh-KON\". The cedilla forces the soft \"s\": ça, garçon, français. It never appears before e or i, where c is already soft. Type it: hold C on a phone, Option+c on a Mac, Alt+0231 on Windows." },
+        { id: "fr-u27l2-glypholigature", type: "glyph", front: "œ", reading: "oe", meaning: null, example: null, hint: "One letter, not two — o and e fused, said \"uh\": sœur, cœur, l'œil. On this card you must type the real œ; inside an ordinary word oe is still accepted. Type it: hold O on a phone, Option+q on a Mac, Alt+0156 on Windows." },
+        { id: "fr-u27l2-ucirconflexe", type: "vocab", front: "la flûte", reading: "laflute", meaning: "flute", example: { jp: "Elle joue de la flûte.", en: "She plays the flute — jouer DE for an instrument" }, drill: { jp: "Elle joue de la flûte", en: "She plays the flute" }, accept: ["the flute", "flute"], hint: "French u has no English twin and no English respelling can show it: round your lips as if for \"oo\", then say \"ee\" without moving them. The hat does not change that sound — here it marks a vowel that contracted centuries ago, not a lost s." },
+        { id: "fr-u27l2-lalecon", type: "vocab", front: "la leçon", reading: "lalecon", meaning: "lesson", example: { jp: "La leçon est facile.", en: "The lesson is easy — \"luh-SON\"" }, drill: { jp: "La leçon est très facile", en: "The lesson is very easy" }, accept: ["the lesson", "lesson"], hint: "c is hard before a, o and u — without the tail, leçon would be \"luh-KON\". The cedilla forces it soft. And that final -on is NASAL: send it through your nose and never let the n touch your tongue." },
+        { id: "fr-u27l2-oe", type: "vocab", front: "l'œil", reading: "loeil", meaning: "one eye", example: { jp: "J'ai quelque chose dans l'œil.", en: "I have something in my eye — one syllable, \"luhy\"" }, drill: { jp: "J'ai quelque chose dans l'œil", en: "I have something in my eye" }, accept: [], hint: "œ is one letter, not two — and here you can always type it as oe: œil and oeil both pass. One eye is l'œil, said \"luhy\" in a single syllable; two are les yeux, which is completely irregular." },
       ],
     },
     {
       id: "fr-u27l3",
       unit: 27,
       lesson: 3,
-      title: "What you don't say",
+      title: "L'écrit et l'oral",
       cefr: "A1",
       dominantMode: "recognize",
-      canDo: "Handle silent French: silent final consonants, silent h, the e muet, liaison and elision.",
+      canDo: "Handle the written French you never pronounce — silent final consonants, silent h, the e muet, elision and liaison — and name the two accents from lesson 1.",
       items: [
         { id: "fr-u27l3-consonnefinale", type: "vocab", front: "la consonne finale", reading: "laconsonnefinale", meaning: "the silent final consonant", example: { jp: "petit, grand, beaucoup", en: "small, big, a lot — the last letter is silent in all three" }, drill: { jp: "La consonne finale dans petit", en: "The final consonant in petit" }, accept: ["final consonant", "silent consonant"], hint: "Most final consonants are silent. The rough rule of thumb: c, r, f and l often DO sound — remember the word CaReFuL." },
         { id: "fr-u27l3-hmuet", type: "vocab", front: "le h muet", reading: "lehmuet", meaning: "the silent h", example: { jp: "l'homme, l'heure, l'hôtel", en: "the man, the hour, the hotel — no h sound at all" }, drill: { jp: "Le h muet dans l'homme", en: "The silent h in l'homme" }, accept: ["silent h", "mute h"], hint: "French has no h sound. That's why le becomes l' in front of it: l'homme, not \"le homme\"." },
@@ -208,5 +226,42 @@ export const FR_UNIT27 = {
         { id: "fr-u27l3-accentgrave", type: "vocab", front: "l'accent grave", reading: "laccentgrave", meaning: "the grave accent", example: { jp: "è dans très", en: "è as in très — the one that falls to the right" }, drill: { jp: "L'accent grave dans très", en: "The grave accent in très" }, accept: ["grave accent", "grave"], hint: "It also separates look-alikes: a/à, ou/où, la/là. Same letters, different words." },
       ],
     },
+    {
+      id: "fr-u27l4",
+      unit: 27,
+      lesson: 4,
+      title: "Les voyelles en équipe",
+      cefr: "A1",
+      dominantMode: "recognize",
+      canDo: "Read eau, au, ai and oi as single vowel sounds, in la peau, haut, la fraise and la poire.",
+      items: [
+        { id: "fr-u27l4-glypheau", type: "glyph", front: "eau", reading: "eau", meaning: null, example: null, hint: "Three letters, one sound, and not one of them is o-ish in English: eau is simply \"oh\". l'eau is \"loh\", and le bureau ends \"-ROH\" — its first vowel is the flûte u, not an English \"boo\"." },
+        { id: "fr-u27l4-glyphau", type: "glyph", front: "au", reading: "au", meaning: null, example: null, hint: "The same \"oh\" as eau, one letter shorter: au revoir, jaune, chaud. Wherever you see au, stop reading the a and the u separately." },
+        { id: "fr-u27l4-glyphai", type: "glyph", front: "ai", reading: "ai", meaning: null, example: null, hint: "The open \"eh\" of è, not \"ay\": le lait is \"leh\" and la maison is \"meh-ZON\". Two things change it: the verb ending -ai says \"ay\" (j'ai, j'irai), and ai before a FINAL m or n turns nasal — le pain and la main rhyme with each other, not with fraise. If a vowel follows the n, nothing changes: j'aime and la semaine keep the plain \"eh\"." },
+        { id: "fr-u27l4-glyphoi", type: "glyph", front: "oi", reading: "oi", meaning: null, example: null, hint: "\"wah\", never \"oy\": moi is \"mwah\", trois is \"trwah\", le soir is \"swahr\". One famous exception: oignon is said \"o-NYON\" — that oi is not an oi at all." },
+        { id: "fr-u27l4-eau", type: "vocab", front: "la peau", reading: "lapeau", meaning: "skin", example: { jp: "La peau du bébé est douce.", en: "The baby's skin is soft — \"poh\"" }, drill: { jp: "La peau du bébé est douce", en: "The baby's skin is soft" }, accept: ["the skin"], hint: "Three letters, one sound, and not one of them is o-ish in English: eau is simply \"oh\", so peau is \"poh\"." },
+        { id: "fr-u27l4-au", type: "vocab", front: "haut", reading: "haut", meaning: "high", example: { jp: "L'arbre est très haut.", en: "The tree is very high — the whole word is just \"oh\"" }, drill: { jp: "L'arbre est très haut", en: "The tree is very high" }, accept: ["high up"], hint: "au is the same \"oh\" as eau, and haut is silent at both ends — no h, no t, just \"oh\". But that h still blocks elision and liaison: le haut, en haut, never l'haut. It is an h aspiré, not the silent h of lesson 3." },
+        { id: "fr-u27l4-ai", type: "vocab", front: "la fraise", reading: "lafraise", meaning: "strawberry", example: { jp: "La fraise est rouge.", en: "The strawberry is red — \"frez\"" }, drill: { jp: "La fraise est très rouge", en: "The strawberry is very red" }, accept: ["the strawberry", "strawberry"], hint: "ai is usually the open \"eh\" of è: fraise is \"frez\" and le lait is \"leh\". The verb ending -ai is the exception and says \"ay\" — j'ai, je serai, j'irai." },
+        { id: "fr-u27l4-oi", type: "vocab", front: "la poire", reading: "lapoire", meaning: "pear", example: { jp: "La poire est très bonne.", en: "The pear is very good — \"pwahr\"" }, drill: { jp: "La poire est sur la table", en: "The pear is on the table" }, accept: ["the pear", "pear"], hint: "oi is always \"wah\", never \"oy\": poire is \"pwahr\", moi is \"mwah\", trois is \"trwah\"." },
+      ],
+    },
+    {
+      id: "fr-u27l5",
+      unit: 27,
+      lesson: 5,
+      title: "Les sons qui glissent",
+      cefr: "A1",
+      dominantMode: "recognize",
+      canDo: "Read ui, gn and ill — three sounds English spells nothing like — in le biscuit, espagnol and le papillon.",
+      items: [
+        { id: "fr-u27l5-glyphui", type: "glyph", front: "ui", reading: "ui", meaning: null, example: null, hint: "A single glide, and it starts with the flûte u, not an English w: set your lips for \"oo\" and run straight into \"ee\". That is exactly what separates lui from Louis. huit, la nuit, aujourd'hui." },
+        { id: "fr-u27l5-glyphgn", type: "glyph", front: "gn", reading: "gn", meaning: null, example: null, hint: "One sound, the \"ny\" of English \"onion\" or Spanish ñ: la montagne, magnifique, l'Espagne. A handful of learned words keep the g and n separate (diagnostic, stagner) — rare enough to meet one at a time." },
+        { id: "fr-u27l5-glyphill", type: "glyph", front: "ill", reading: "ill", meaning: null, example: null, hint: "\"ee-y\", not the English \"ill\": la fille is \"fee-y\" and travailler is \"tra-va-YAY\". Learn the exceptions early — in ville, mille and tranquille it really is \"eel\"." },
+        { id: "fr-u27l5-ui", type: "vocab", front: "le biscuit", reading: "lebiscuit", meaning: "biscuit", example: { jp: "Le biscuit est très bon.", en: "The biscuit is very good — ui is one glide" }, drill: { jp: "Le biscuit est très bon", en: "The biscuit is very good" }, accept: ["cookie"], hint: "ui is a single glide, and it starts with the flûte u, not an English w: set your lips for \"oo\" and run straight into \"ee\". That is exactly what separates lui from Louis. The final t is silent." },
+        { id: "fr-u27l5-gn", type: "vocab", front: "espagnol", reading: "espagnol", meaning: "Spanish", example: { jp: "Mon ami est espagnol.", en: "My friend is Spanish — \"es-pa-NYOL\"" }, drill: { jp: "Mon ami est espagnol", en: "My friend is Spanish" }, accept: [], hint: "gn is one sound, the \"ny\" of Spanish ñ or the ni in English \"onion\" — never a g followed by an n." },
+        { id: "fr-u27l5-ill", type: "vocab", front: "le papillon", reading: "lepapillon", meaning: "butterfly", example: { jp: "Le papillon est jaune.", en: "The butterfly is yellow — \"pa-pee-YON\"" }, drill: { jp: "Le papillon est jaune", en: "The butterfly is yellow" }, accept: ["the butterfly", "butterfly"], hint: "ill is \"ee-y\", not the English \"ill\": papillon is \"pa-pee-YON\" and fille is \"fee-y\". Learn the exceptions early though — in ville, mille and village it really is \"eel\"." },
+      ],
+    },
   ],
 };
+
