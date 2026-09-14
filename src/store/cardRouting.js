@@ -63,6 +63,21 @@ export const READING_SHARE = 0.5; // share of rung-2 vocab that TYPE the rōmaji
 // ねこ both accepted) instead of assembling it from tiles. Vocab only — kana/kanji
 // produce by tracing.
 export function shouldTypeProduce(item) {
+  // GLYPHS TOO. eligibleKinds was taught about glyph when the type shipped and this
+  // gate was not — and this is the one that decides what a learner actually SEES.
+  // The result: a letter card only ever routed to listen:choice, so "type the
+  // letter", the card the whole accent standard exists for, never appeared in a
+  // review. Caught by the card-variety ratchet (every fr and es glyph reporting a
+  // single card kind), not by anything I checked.
+  // The hash share is for VOCAB — it keeps a deck varied by giving only some words
+  // the produce card. A glyph gets it ALWAYS: typing the letter is the entire
+  // point of the accent standard ("the user has to find it on their keyboard"),
+  // so leaving it to a coin flip on the item id means some letters are never
+  // typed at all. It also guarantees every glyph at least one sighted card, which
+  // matters for the four pt letters that have no clip: without this, â routed to
+  // `speak` and nothing else — a mic prompt for a character the learner has never
+  // heard, which is produce-before-perceive.
+  if (item?.type === "glyph") return true;
   return item?.type === "vocab" && hash01(item.id) < PRODUCE_SHARE;
 }
 
@@ -595,7 +610,16 @@ export function meaningIsFreePass(item) {
 }
 
 export function shouldSpeak(item) {
-  return item?.type === "vocab";
+  // Vocab, and GLYPHS — Alex's call, made with the risk on the table.
+  //
+  // Kana are deliberately excluded because this repo measured STT on an isolated
+  // single character at 0/3 (Brief-C C.0), and a glyph is the same shape of ask.
+  // Alex asked for the speak card anyway and designed around it: the companion says
+  // the letter and the letter is SHOWN before the learner repeats, so it is
+  // shadowing rather than recall. That mitigates the recall half, not the
+  // transcriber. FEEL-CHECKS.md row 2 holds it open for a real-device verdict —
+  // if it marks him wrong when he said it right, this line is where to revisit.
+  return item?.type === "vocab" || item?.type === "glyph";
 }
 
 // A character is "traceable" when it's a single glyph that has KanjiVG stroke
