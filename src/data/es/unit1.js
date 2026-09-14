@@ -34,23 +34,38 @@
 //   changed; only the five acute glyphs kept theirs. Alex accepted that cost ONCE
 //   — this restructure is a single pass and must not be iterated.
 //
-//   ⚠️ AUDIO: clip filenames ARE item ids, so those same 28 ids orphan their clip
-//   in public/audio/es/. The five acutes (es-u1l1-glyph{a,e,i,o,u}acute.mp3) still
-//   match. The clips are per-item recordings whose CONTENT is still correct — a
-//   `git mv` of the 28 files to the new ids plus a re-run of the audio-manifest
-//   generator restores full coverage at zero API cost. That touches the shared
-//   manifest, so it is the MERGE SEAT's action, not an authoring seat's.
+//   ⚠️ AUDIO: clip filenames ARE item ids, so those 28 ids WOULD have orphaned
+//   their clip in public/audio/es/. They did not. The clips are per-item
+//   recordings whose CONTENT is still correct — a recording of "la casa" is right
+//   wherever the card sits — so THIS COMMIT `git mv`d all 28 to their new ids and
+//   re-ran the manifest generator. es-u1 is 33/33 voiced, zero orphans, zero API
+//   cost. Not optional: with the clips orphaned, tests/unit/card-variety.test.mjs
+//   goes RED (es-u1l3-hay drops to a single card kind, because shouldListenType
+//   requires hasAudio and the new id hashes out of three other kinds).
+//   ⚠️ audioManifest.js is a shared GENERATED file and one very long line. A merge
+//   seat must RE-RUN the generator after merging — never hand-resolve it, and
+//   never take one side, or another language's clips are silently dropped.
 //
-//   WHY THE LETTER ORDER IS ñ á é í ll ó ú ü AND NOT á é í ó ú ñ ll ü:
-//   teaches run FIRST, in authored order (learnQueue.js:18-30), and the checks
-//   keep that same relative order — so authored order is literally the order of
-//   consecutive screens, three times over. Five acutes adjacent means five
-//   near-identical cards in a row, three separate times. The two items that are
-//   real LETTERS (ñ, ll) are therefore used as dividers: no more than three
-//   stress-marks ever run consecutively, while the vowel series still reads in
-//   order (á é í … ó ú). ü lands last, straight after ú, so the learner meets the
-//   two marks that sit on the same vowel back to back — one moves the beat, the
-//   other changes the sound.
+//   WHY THE LETTER ORDER IS á é ñ í ó ll ú ü AND NOT á é í ó ú ñ ll ü:
+//   to break up the run of near-identical accent cards a learner meets in a row.
+//   ⚠️ MEASURED WITH THE REAL LEARN_OPTS, NOT ASSUMED. An earlier version of this
+//   note claimed authored order is the screen order "three times over" and that
+//   dividers cap the run at three. Both were wrong. Teaches do run first in
+//   authored order, but the checks are SORTED, not replayed: learnQueue.js:24-27
+//   keys check1 of item i at (i+off1)*10+1 and check2 at (i+off2)*10+2, with
+//   off1=3 / off2=6, so the two check passes interleave with each other.
+//   Run buildLearnQueue WITH LEARN_OPTS to see it; passing a bare {} silently
+//   yields NaN keys, a no-op sort, and a fake answer.
+//   The real 24-screen sequence for this order is:
+//       á é ñ í ó ll ú ü  á é ñ í á ó é ll ñ ú í ü ó ll ú ü
+//   Measured longest run of consecutive acute cards, same lesson, three orders:
+//       á é í ó ú ñ ll ü  (naive, grouped)      -> 7
+//       ñ á é í ll ó ú ü  (dividers at 1 and 5) -> 5
+//       á é ñ í ó ll ú ü  (this order)          -> 4
+//   ü still lands straight after ú so the learner meets the two marks that sit on
+//   the same vowel back to back: one moves the beat, the other changes the sound.
+//   If an item is ever added to or removed from this lesson, RE-MEASURE — the
+//   interleave depends on the item count and on off1/off2, not on intuition.
 //
 //   L3 TEACHES AN ABSENCE AND CORRECTLY HAS NO LETTER CARD. Silent h has no
 //   character to type (you write it and never say it) and the throaty j/g is a
@@ -148,12 +163,12 @@ export const ES_UNIT1 = {
       dominantMode: "recall",
       canDo: "Hear, say and type the eight letters and marks English does not have — ñ, ll, the five accented vowels á é í ó ú, and ü — and tell a mark that moves the stress from one that changes the sound.",
       items: [
-        { id: "es-u1l1-glyphenye", type: "glyph", front: "ñ", reading: "n", meaning: null, example: null, hint: "n with a y glued on — say \"canyon\" and stop at the ny. Its own letter, with its own slot after n in the alphabet. Type it: long-press N on a phone; ~ then n on a Spanish or US-International layout." },
         { id: "es-u1l1-glyphaacute", type: "glyph", front: "á", reading: "a", meaning: null, example: null, hint: "Still the open \"ah\" of father. The accent never changes the vowel — it only marks which syllable you hit: está, mamá. Type it: long-press A on a phone — that always works. On a desktop you need a Spanish or US-International layout, where ' then a gives á." },
         { id: "es-u1l1-glypheacute", type: "glyph", front: "é", reading: "e", meaning: null, example: null, hint: "Still the short \"eh\" of bed: café, también. Same sound as plain e, different beat. Type it: long-press E on a phone; ' then e on a Spanish or US-International layout." },
+        { id: "es-u1l1-glyphenye", type: "glyph", front: "ñ", reading: "n", meaning: null, example: null, hint: "n with a y glued on — say \"canyon\" and stop at the ny. Its own letter, with its own slot after n in the alphabet. Type it: long-press N on a phone; ~ then n on a Spanish or US-International layout." },
         { id: "es-u1l1-glyphiacute", type: "glyph", front: "í", reading: "i", meaning: null, example: null, hint: "Still \"ee\" — and note the accent REPLACES the dot, so í never carries both: aquí, día. Type it: long-press I on a phone; ' then i on a Spanish or US-International layout." },
-        { id: "es-u1l1-glyphll", type: "glyph", front: "ll", reading: "ll", meaning: null, example: null, hint: "Two l's, one sound: the y of \"yes\", never an English l. Both letters are typed; only one sound comes out." },
         { id: "es-u1l1-glyphoacute", type: "glyph", front: "ó", reading: "o", meaning: null, example: null, hint: "Still a clean \"oh\" right to the end: adiós, canción. Type it: long-press O on a phone; ' then o on a Spanish or US-International layout." },
+        { id: "es-u1l1-glyphll", type: "glyph", front: "ll", reading: "ll", meaning: null, example: null, hint: "Two l's, one sound: the y of \"yes\", never an English l. Both letters are typed; only one sound comes out." },
         { id: "es-u1l1-glyphuacute", type: "glyph", front: "ú", reading: "u", meaning: null, example: null, hint: "Still \"oo\": menú, número. The mark can also split twins — tú is \"you\", tu is \"your\". Type it: long-press U on a phone; ' then u on a Spanish or US-International layout." },
         { id: "es-u1l1-glyphudieresis", type: "glyph", front: "ü", reading: "u", meaning: null, example: null, hint: "In gue and gui the u is written and never said — guitarra is ghee-TA-rra, hard g. Two dots wake it back up: pingüino is peen-GWEE-no. It is the only mark on a VOWEL that changes a sound instead of a stress, and it only ever sits in güe or güi. Type it: long-press U on a phone; \" then u on a Spanish or US-International layout." },
       ],
