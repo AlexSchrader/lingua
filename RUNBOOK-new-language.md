@@ -297,7 +297,9 @@ items: [
 
 **This satisfies Alex's principle exactly, and that is why it is the right shape rather than a compromise.** Teach order is authored order (`buildLearnQueue` runs every teach before any check, in the order written), so glyphs placed first means **the learner meets æ ø å before they are handed a single word** — which is the standard in his own words: *"unit one gets users able to pronounce the accents before ever given a word."*
 
-It also means the lesson keeps its density, keeps its audio (the existing word clips still match their unchanged ids), and adds nothing to the mastery-wipe risk.
+It also keeps the lesson’s audio (the existing word clips still match their unchanged ids) and adds nothing to the mastery-wipe risk.
+
+⚠️ **This paragraph used to also claim ADD “keeps its density”. IT DOES NOT — measured, and it is the one real cost of the rule.** The French seat was the first to do it: the accent inventory in front of 7 untouched word cards put `fr-u27l1` at **15 items** and `fr-u27l2` at **14**, against the 5–8 band in `src/data/lint.js:445-447` — and those are the **only two new warnings the whole branch adds** (corpus 2999 → 3001). **Expect the same in your language, and do NOT trim glyphs to get under the band**: the inventory is what the lesson teaches, the check is a warning not an error, and the band itself is filed as a Feature CC decision in `BUILD-CHECKLIST.md`. Do budget the LOAD, though — `buildLearnQueue` gives every item one teach plus two checks with no per-session cap, so a 15-item lesson is **45 screens, the first 15 of them consecutive teach screens**.
 
 ⚠️ **Run the check for your own language before you start**, because the trap is the same everywhere but the word list is not:
 
@@ -334,7 +336,7 @@ npm run taught -- <lang>     # what the language already teaches, and where
 |---|---|
 | `type` | `"glyph"` |
 | `front` | the character or cluster — **1–4 characters** (`é`, `eau`, `sch`). Longer is a word, and the validator says so. |
-| `reading` | its ASCII fold, `[a-z]+` — `é` → `e`, `eau` → `eau`. This is the SOUND, and it is what the listening card checks. |
+| `reading` | its ASCII fold, `[a-z]+` — `é` → `e`, `eau` → `eau`. ⚠️ **This row used to add "This is the SOUND, and it is what the listening card checks", and the two halves are not the same thing.** The engine uses the field BOTH ways: `listen:type` grades against it, and `type:produce` **prompts** with it (`TypeCard.jsx`, glyph branch). So wherever two of your glyphs share one ASCII fold, the produce card shows one prompt with two correct answers. Measured in French: `é`, `è`, `ê` all fold to `e`, so that card is a 1-in-3 guess; Portuguese `á â ã à` all fold to `a`. ✅ `e86c0df9` confirmed the field stays the FOLD (its own test authors `ü` → `"ue"`) and made the recall card compare readings — which also means that where your glyph is a MULTIGRAPH, fold equals front and that card shows `eau` and accepts `eau`, a copy task. **So: author the plain ASCII fold, list every same-fold pair and every front-equals-reading cluster in your hand-back, and do NOT invent a private convention to dodge either** — both are one decision for all five languages, open in the Feature CC backlog. |
 | `meaning` | **must be `null`.** This is the point of the type: it is what stops the engine asking "what does é mean". |
 | `example` | **must be `null`.** |
 | `hint` | optional, and where the sound description goes — it shows while teaching and never becomes a question. |
