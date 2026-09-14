@@ -100,6 +100,41 @@
 //     different article (o X / a X), and no article-bearing front whose bare
 //     headword is a separate card.
 //
+//
+//   - GLYPH CARDS (added 2026-09-13). Lessons 1-3 open with `type: "glyph"` items
+//     — the accent or cluster on its own, taught by SOUND, with meaning: null and
+//     example: null. They sit FIRST in items[], because teach order is authored
+//     order (buildLearnQueue runs every teach before any check), which is how the
+//     learner pronounces the accents before being handed a word.
+//     THE PORTUGUESE INVENTORY IS 11 — à á â ã ç é ê í ó ô ú — plus the
+//     multigraphs ão, ãe, lh, nh. Nine accents + four clusters ship as glyph cards:
+//       l1 (vowel quality / stress): á â ê í ó ô ú
+//       l2 (the tilde, nasal):       ã  ão  ãe
+//       l3 (the clusters):           ç  lh  nh
+//     TWO ARE DELIBERATELY NOT CARDED, and the reason is NOT that the validator
+//     stops them. Verified by probe, 2026-09-13: front-uniqueness is keyed only on
+//     `vocab` and `kanji` (contract.js vocabFronts loop; lint.js vocabFronts loop),
+//     so a glyph front DUPLICATING a vocab front raises zero errors in both gates.
+//     The bar is editorial, not mechanical:
+//       é — already taught as a WORD in this lesson (pt-u1l1-e, the copula). It is
+//         one of only three items in the whole corpus that foldWouldEraseAnswer()
+//         names (answer.js), so typing it ALREADY requires the real accent on every
+//         produce and dictation card. A glyph é would be a second mastery track for
+//         the identical keystroke, and would put two "é" rows on the Ladder, one
+//         glossed "is" and one glossless. The acute is taught as a CLASS by á í ó ú
+//         in the same lesson, and the ê card names é explicitly as its open partner.
+//         Instead, pt-u1l1-e's hint now carries the typing instruction the glyph
+//         cards use. Do not add a glyph é without reversing this note.
+//       à — taught at u12l3 as the crase (a + a). It is not a distinct SOUND: it is
+//         an orthographic mark on a fused contraction, so it has nothing to teach in
+//         a pronunciation lesson. It stays where the grammar that produces it lives.
+//     DENSITY: these three lessons now run 13 / 10 / 9 cards against lint.js's 5-8
+//     band, so all three carry a standing warning. That is structural, not a defect
+//     to author around — the band was written for word lessons, and an alphabet
+//     lesson is as long as the alphabet. Do NOT drop real letters to get under it.
+//     AUDIO: the 13 new glyph ids have no clips yet and will not route teach /
+//     listen / speak until generate:audio runs for them. Every EXISTING clip still
+//     matches its card — nothing was renamed, removed or re-fronted.
 //   - THE ARTICLE TRAP IS ONE CLASS WITH SEVERAL COSTUMES, and it is the single
 //     commonest defect in this language. A drill must contain the item's own front
 //     as WHOLE WORDS (cardRouting findWholeWord is letter-boundary aware and does
@@ -130,10 +165,17 @@ export const PT_UNIT1 = {
       dominantMode: "recall",
       canDo: "Read the Portuguese vowels — and hear what European Portuguese does to the unstressed ones, which is the single biggest difference from Spanish and from Brazil.",
       items: [
+        { id: "pt-u1l1-glyphaacute", type: "glyph", front: "á", reading: "a", meaning: null, example: null, hint: "The OPEN a, mouth wide — the a of \"father\". The acute also tells you WHERE the stress falls: rápido is RA-pi-du, not ra-PI-du. Type it: hold A on a phone; on a Portuguese keyboard press the ´ key, then a." },
+        { id: "pt-u1l1-glyphacircum", type: "glyph", front: "â", reading: "a", meaning: null, example: null, hint: "The CLOSED a, short and swallowed — câmara is KUH-ma-ra. Same letter as á, opposite mouth: the acute opens the vowel, the hat closes it. Type it: hold A, or press ^ then a." },
+        { id: "pt-u1l1-glyphecircum", type: "glyph", front: "ê", reading: "e", meaning: null, example: null, hint: "The CLOSED e — the \"ay\" of \"say\" with no glide on the end: três, você. Its partner é opens the same vowel to the \"eh\" of \"bed\", and you meet é later in this lesson as a word in its own right. Type it: ^ then e." },
+        { id: "pt-u1l1-glyphiacute", type: "glyph", front: "í", reading: "i", meaning: null, example: null, hint: "A stressed \"ee\" — país is pa-EESH. Portuguese i is ALWAYS \"ee\"; the accent changes nothing about the sound, it only says \"the stress is here\", pulling it off the vowel before. Type it: ´ then i." },
+        { id: "pt-u1l1-glyphoacute", type: "glyph", front: "ó", reading: "o", meaning: null, example: null, hint: "The OPEN o — the o of \"hot\", said wide: avó, grandmother. Type it: hold O on a phone, or ´ then o." },
+        { id: "pt-u1l1-glyphocircum", type: "glyph", front: "ô", reading: "o", meaning: null, example: null, hint: "The CLOSED o — the \"oh\" of \"go\": avô, grandfather. One accent apart from avó and it changes which grandparent you mean, so the hat is not decoration. Type it: ^ then o." },
+        { id: "pt-u1l1-glyphuacute", type: "glyph", front: "ú", reading: "u", meaning: null, example: null, hint: "A stressed \"oo\" — número, açúcar. Like í, it moves the stress rather than the sound: u is always \"oo\" in Portuguese. Type it: ´ then u." },
         { id: "pt-u1l1-acasa", type: "vocab", front: "a casa", reading: "acasa", meaning: "house", example: { jp: "A casa é moderna.", en: "The house is modern." }, drill: { jp: "A casa de Ana é enorme", en: "Ana's house is enormous" }, accept: ["the house", "home"], hint: "KA-zuh. Two lessons in one word: the s between vowels says z, and the final unstressed a is a swallowed \"uh\" in Portugal — not the clean \"ah\" Spanish or Brazil would give it." },
         { id: "pt-u1l1-olivro", type: "vocab", front: "o livro", reading: "olivro", meaning: "book", example: { jp: "O livro é importante.", en: "The book is important." }, drill: { jp: "O livro de Ana é caro", en: "Ana's book is expensive" }, accept: ["the book"], hint: "LEE-vru. i is always \"ee\". A final unstressed o is not \"oh\" — it closes right down to \"oo\"." },
         { id: "pt-u1l1-arua", type: "vocab", front: "a rua", reading: "arua", meaning: "street", example: { jp: "A rua é enorme.", en: "The street is enormous." }, drill: { jp: "A rua de Lisboa é enorme", en: "The Lisbon street is enormous" }, accept: ["the street", "road"], hint: "ROO-uh. u is always \"oo\". That opening r is a strong sound made at the back of the throat — Lesson 4 comes back to it." },
-        { id: "pt-u1l1-e", type: "vocab", front: "é", reading: "e", meaning: "is", example: { jp: "O livro é fantástico.", en: "The book is fantastic." }, drill: { jp: "A rua é tranquila", en: "The street is tranquil" }, accept: ["it is", "he is", "she is", "it's"], hint: "The link word: X é Y. The accent marks an OPEN e — the vowel of \"bed\", said wide. Say it as \"eh\", never \"ay\"." },
+        { id: "pt-u1l1-e", type: "vocab", front: "é", reading: "e", meaning: "is", example: { jp: "O livro é fantástico.", en: "The book is fantastic." }, drill: { jp: "A rua é tranquila", en: "The street is tranquil" }, accept: ["it is", "he is", "she is", "it's"], hint: "The link word: X é Y. The accent marks an OPEN e — the vowel of \"bed\", said wide. Say it as \"eh\", never \"ay\". The accent is part of the answer here, not optional decoration — type it with ´ then e, or by holding E on a phone." },
         { id: "pt-u1l1-econj", type: "vocab", front: "e", reading: "e", meaning: "and", example: { jp: "A casa e a rua.", en: "The house and the street." }, drill: { jp: "A casa e a rua", en: "The house and the street" }, accept: ["plus"], hint: "Same letter, no accent, different word — and in Portugal it is said \"ee\", because an unstressed e closes all the way to an i sound. é = is, e = and." },
         { id: "pt-u1l1-de", type: "vocab", front: "de", reading: "de", meaning: "of", example: { jp: "A casa de Ana é enorme.", en: "Ana's house is enormous." }, drill: { jp: "É o livro de Ana", en: "It is Ana's book" }, accept: ["from", "belonging to", "'s"], hint: "\"duh\" — the unstressed e reduces to almost nothing. Portuguese has no apostrophe-s: \"Ana's house\" is a casa DE Ana. Watch it fuse with an article later: de + o = do, de + a = da." },
       ],
@@ -149,6 +191,9 @@ export const PT_UNIT1 = {
       dominantMode: "recall",
       canDo: "Read and say the Portuguese nasal vowels — ão, ã, ãe and the -m endings — which no other language you know has, and say yes and no.",
       items: [
+        { id: "pt-u1l2-glyphatilde", type: "glyph", front: "ã", reading: "a", meaning: null, example: null, hint: "The tilde sends the air out through your NOSE. Say \"ah\" and let it come down your nose instead: maçã, irmã. It is not a stress mark — it is a different vowel. Type it: ~ then a, or hold A on a phone." },
+        { id: "pt-u1l2-glyphao", type: "glyph", front: "ão", reading: "ao", meaning: null, example: null, hint: "Two letters, one nasal sound, and the sound Portuguese is recognised by. Start to say \"ow\" and route it down your nose: pão, não. Type the tilde first (~ then a), then a plain o." },
+        { id: "pt-u1l2-glyphae", type: "glyph", front: "ãe", reading: "ae", meaning: null, example: null, hint: "A nasal \"eye\": mãe. One letter away from ão and a completely different word — mão is a hand, mãe is a mother. Type it: ~ then a, then e." },
         { id: "pt-u1l2-opao", type: "vocab", front: "o pão", reading: "opao", meaning: "bread", example: { jp: "O pão é enorme.", en: "The bread is enormous." }, drill: { jp: "O pão de Ana é enorme", en: "Ana's bread is enormous" }, accept: ["the bread", "loaf"], hint: "The tilde means the air goes out through your NOSE. Start to say \"pow\" and let it come down your nose instead: pãw. Plural is os pães — the tilde shifts to ãe. Not every -ão goes that way: a estação → as estações." },
         { id: "pt-u1l2-amao", type: "vocab", front: "a mão", reading: "amao", meaning: "hand", example: { jp: "É a mão de Ana.", en: "It's Ana's hand." }, drill: { jp: "É a mão de Tiago", en: "It is Tiago's hand" }, accept: ["the hand"], hint: "Same nasal ending: mãw. Note the gender trap — mão ends in -o but is FEMININE, so it is A mão, never o mão." },
         { id: "pt-u1l2-nao", type: "vocab", front: "não", reading: "nao", meaning: "no", example: { jp: "Não é a casa de Ana.", en: "It isn't Ana's house." }, drill: { jp: "Não é a casa de Ana", en: "It is not Ana's house" }, accept: ["not", "no!", "don't"], hint: "One word for both \"no\" and \"not\" — it goes straight in front of the verb: não é = it isn't." },
@@ -168,6 +213,9 @@ export const PT_UNIT1 = {
       dominantMode: "recognize",
       canDo: "Read the three spellings Portuguese uses that English does not have — lh, nh and ç — and stop guessing at words like mulher and dinheiro.",
       items: [
+        { id: "pt-u1l3-glyphcedilha", type: "glyph", front: "ç", reading: "c", meaning: null, example: null, hint: "The cedilha — the little tail that forces a soft \"s\" where a plain c would go hard: maçã, preço, açúcar. It appears ONLY before a, o or u; before e and i the c is already soft, so ç is never needed there. Type it: on a Portuguese keyboard ç has its own key, right of L; on a phone hold C." },
+        { id: "pt-u1l3-glyphlh", type: "glyph", front: "lh", reading: "lh", meaning: null, example: null, hint: "One sound, never an l followed by an h: the \"lli\" of \"million\". mulher, trabalho, filho. Your tongue goes flat against the roof of your mouth." },
+        { id: "pt-u1l3-glyphnh", type: "glyph", front: "nh", reading: "nh", meaning: null, example: null, hint: "The \"ny\" of \"canyon\". Spanish writes this sound ñ, Portuguese writes it nh: manhã, dinheiro. Same two-letter trick as lh, one nose over." },
         { id: "pt-u1l3-amulher", type: "vocab", front: "a mulher", reading: "amulher", meaning: "woman", example: { jp: "A mulher é elegante.", en: "The woman is elegant." }, drill: { jp: "A mulher de Braga é elegante", en: "The woman from Braga is elegant" }, accept: ["the woman", "wife", "lady"], hint: "moo-LYER. lh is the \"lli\" of \"million\" — one sound, never an l followed by an h. The same word also means \"wife\"." },
         { id: "pt-u1l3-otrabalho", type: "vocab", front: "o trabalho", reading: "otrabalho", meaning: "work", example: { jp: "O trabalho é importante.", en: "The work is important." }, drill: { jp: "O trabalho de Ana é importante", en: "Ana's work is important" }, accept: ["the work", "job", "labour", "labor"], hint: "tra-BA-lyu — lh in the middle, and that final o closing to \"oo\" again. It covers both the work you do and the job you hold." },
         { id: "pt-u1l3-amanha", type: "vocab", front: "a manhã", reading: "amanha", meaning: "morning", example: { jp: "A manhã é tranquila.", en: "The morning is tranquil." }, drill: { jp: "A manhã de Lisboa é tranquila", en: "The Lisbon morning is tranquil" }, accept: ["the morning"], hint: "ma-NYAN. nh is the \"ny\" of \"canyon\" — Spanish writes that sound ñ, Portuguese writes it nh. And the ã at the end is nasal, so the word ends down your nose." },
