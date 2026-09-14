@@ -4,8 +4,9 @@
 // unit (BUILD-BRIEF-language-blueprint.md §1): not letter drills, but the
 // sound-to-spelling map an English reader gets wrong — æ ø å, the kj/skj/sj hush
 // sounds, the letters you write and never say (hv-, final -d, the g in og/jeg),
-// the silent g in -ig, and -eg said "ay". Every rule is taught THROUGH a real
-// word the learner keeps, never through a bare letter. (Modelled on
+// the silent g in -ig, and -eg said "ay". Since the 2026-09-14 split the LETTERS
+// come first, in a lesson of their own (l1); every rule is then taught again
+// THROUGH a real word the learner keeps (l2–l5). (Modelled on
 // src/data/es/unit1.js. Do NOT model a sounds unit on fr/unit4 — French's sounds
 // unit drifted toward bare-letter cards and is the counter-example.)
 //
@@ -179,7 +180,7 @@
 //    frame word is taught, SENTENCE is the earliest unit the whole illustration
 //    is in scope, which is set by its OTHER words:
 //        frame           FRAME   SENTENCE  illustration                     tiles
-//        viktig å        u1l4    u1l4      "Det er viktig å lære norsk."      6
+//        viktig å        u1l5    u1l5      "Det er viktig å lære norsk."      6
 //        å like å        u3l4    u6l3      "Jeg liker å lage kake."          5
 //        å begynne å     u5l4    u6l2      "Vi begynner å spise nå."        5
 //        noe å           u10l1   u12l3     "Jeg har noe å si."              5
@@ -235,7 +236,7 @@
 //    froze inside `god morgen` WITHOUT ever teaching it as a word; `i dag`
 //    contains `dag`, which IS taught (u5l3) but as `en dag`, so the compound
 //    carries a taught noun stripped of the article §1 requires; and `i går`
-//    collides with `går`, the present of `å gå` (u1l1). All four are single
+//    collides with `går`, the present of `å gå` (u1l3). All four are single
 //    lexical items in the learner's mouth and none is a re-teach. This list is
 //    CLOSED — four fronts, no others.
 //
@@ -256,6 +257,47 @@
 //    (c) prepositions arrive where they are first needed, not all at once:
 //        `i` in u3 (bo i Oslo), `fra` in u3, `til` and `på` in u7 (directions).
 //        Units 1–6 are written to need no other preposition.
+//
+// 9. THE 2026-09-14 SPLIT — LETTERS IN THEIR OWN LESSON, THEN THE WORDS.
+//    When the glyph cards landed (2026-09-13) they were placed at the head of the
+//    lesson that already owned each sound, and nobody costed the result: every item
+//    is one teach + two checks, so no-u1l1 became 10 items = 30 screens against ~18
+//    for a normal lesson. (French's worst was 15 items / 45 screens — the one Alex
+//    caught.) THE FIX: l1 is now nothing but the SEVEN glyph cards — æ, ø, å, é,
+//    kj, skj, sj — and the words follow in l2–l5, regrouped by what they DO rather
+//    than by which sound they happened to carry. That grouping lost its reason the
+//    moment the letters left it: "the words with kj in them" is not why a learner
+//    should meet å kjøpe and ei skjorte together, but "these are the six verbs" and
+//    "these are the six nouns, one per gender" both are.
+//    ⚠️ l2 IS UNTOUCHED ON PURPOSE. It teaches an ABSENCE — hv- you do not say, the
+//    final -d you do not say, the g of og and jeg you do not say — and an absence
+//    has no character to type, so it has no glyph cards and must not be given any.
+//    Its six word cards, their order and their ids are exactly as they were; only
+//    its title was put into Norwegian to match the rest of the unit. Those six, plus
+//    å kjøpe and å kjenne (which happen to land in l3 again) and the four l1 glyphs,
+//    are the twelve of thirty-one items whose mastery survived the split.
+//    THE NEW SHAPE: l1 seven letters · l2 six silent-letter words (unchanged) ·
+//    l3 six verbs, which makes the å infinitive marker and the one-form -er present
+//    visible six times in a row · l4 six nouns ordered en / ei / ei / ei / et / et,
+//    so the gender contrast that decides the definite ending is side by side ·
+//    l5 four describing words plus meg and deg.
+//    ⚠️ THE SPLIT CHANGED IDS. A lesson number is part of an item id, so every card
+//    that changed lesson changed its id — which wipes that item's mastery (accepted
+//    by Alex, once, pre-users) and would have orphaned its audio clip, because clip
+//    filenames ARE item ids. 19 of this unit's 31 ids changed; those clips under
+//    public/audio/no were renamed with their items in this same change and
+//    src/data/audioManifest.js was regenerated, so nothing here went silent.
+//    ⚠️ Reordering INSIDE a unit adds no lint scope warnings: the teach-before-use
+//    check introduces a whole unit's vocabulary before checking that unit's
+//    examples (src/data/lint.js — "A unit may use its own new words"). It does have
+//    a PEDAGOGICAL cost and it is worth naming rather than hiding: l2 is frozen at
+//    position 2 while the words it leans on moved behind it, so all six of its
+//    examples/drills now preview a later card (et språk and et kjøkken from l4;
+//    norsk and billig from l5; lærer, kjenner and kjøper from l3). Before the split
+//    four of its six already did this; now six do. The alternative was moving l2
+//    down the unit, which would have changed its six ids and wiped the only mastery
+//    this split preserves — so the preview stands. The one forward reference outside
+//    l2 is no-u1l4-etkjokken's drill, "Et kjøkken er hyggelig", from l5.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const NO_UNIT1 = {
   id: "no-u1",
@@ -264,34 +306,38 @@ export const NO_UNIT1 = {
   order: 1,
   stage: "a1",
   lessons: [
-    // Lesson 1: the three letters that come after z — æ, ø, å.
+    // Lesson 1: THE LETTERS, and nothing else. The three that come after z (æ, ø,
+    // å), the é that only rides on loanwords, and the three hush spellings (kj is
+    // thin, skj and sj are broad). Seven cards, no words — the learner can
+    // pronounce and TYPE every letter Norwegian has and English does not before a
+    // single vocabulary item is handed to them.
     {
       id: "no-u1l1",
       unit: 1,
       lesson: 1,
-      title: "Æ, ø, å og é",
+      title: "Æ, ø, å, é — og kj, skj og sj",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Hear, say and type the letters English does not have — æ, ø, å, é — and say what something is: Erling er norsk.",
+      canDo: "Hear, say and type the seven letters and letter-groups English does not have — æ, ø, å, é, kj, skj and sj — before you meet a single Norwegian word.",
       items: [
         { id: "no-u1l1-glyphae", type: "glyph", front: "\u00e6", reading: "ae", meaning: null, example: null, hint: "The a of \"cat\", held long. The alphabet ends \u00e6, \u00f8, \u00e5 \u2014 this is the first of the three. Type it: right of P on a Norwegian layout, or hold A on a phone." },
         { id: "no-u1l1-glyphoe", type: "glyph", front: "\u00f8", reading: "o", meaning: null, example: null, hint: "The \"er\" of \"her\", said with rounded lips. Type it: right of L, or hold O on a phone." },
         { id: "no-u1l1-glyphaa", type: "glyph", front: "\u00e5", reading: "a", meaning: null, example: null, hint: "A rounded \"aw\", like the vowel in \"more\". Sorts LAST in the alphabet. Type it: right of P, or hold A on a phone." },
         { id: "no-u1l1-glypheacute", type: "glyph", front: "\u00e9", reading: "e", meaning: null, example: null, hint: "Said \"ay\". NOT one of the 29 letters \u2014 it only rides on loanwords like kaf\u00e9 and id\u00e9, marking the stressed final e. Hold E on a phone." },
-        { id: "no-u1l1-avaere", type: "vocab", front: "å være", reading: "avaere", meaning: "to be", example: { jp: "Erling er norsk.", en: "Erling is Norwegian." }, accept: ["be", "to exist"], drill: { jp: "Det er viktig å være hyggelig", en: "It is important to be nice" }, hint: "æ is the a of \"cat\", and it is the rarest of the three extra letters. Present tense is er for EVERY person: jeg er, du er, vi er — one form, no endings to learn." },
-        { id: "no-u1l1-alaere", type: "vocab", front: "å lære", reading: "alaere", meaning: "to learn", example: { jp: "Erling lærer norsk.", en: "Erling is learning Norwegian." }, accept: ["learn", "to teach", "to study"], drill: { jp: "Det er viktig å lære norsk", en: "It is important to learn Norwegian" }, hint: "The å in front is the infinitive marker — Norwegian's \"to\". Every verb card carries it, so you meet å on every single verb you learn." },
-        { id: "no-u1l1-norsk", type: "vocab", front: "norsk", reading: "norsk", meaning: "Norwegian", example: { jp: "Norsk er et språk.", en: "Norwegian is a language." }, accept: ["the norwegian language", "in norwegian"], drill: { jp: "Erling og jeg lærer norsk", en: "Erling and I are learning Norwegian" }, hint: "One word for the language and the adjective. Languages are lowercase in Norwegian — norsk, never Norsk." },
-        { id: "no-u1l1-etsprak", type: "vocab", front: "et språk", reading: "etsprak", meaning: "language", example: { jp: "Erling lærer et språk.", en: "Erling is learning a language." }, accept: ["a language", "speech"], drill: { jp: "Norsk er et språk", en: "Norwegian is a language" }, hint: "å is a rounded \"aw\", like the vowel in \"more\" — sprawk. It is a letter in its own right and sorts LAST in the alphabet, after æ and ø." },
-        { id: "no-u1l1-eioy", type: "vocab", front: "ei øy", reading: "eioy", meaning: "island", example: { jp: "Er Norge ei øy?", en: "Is Norway an island?" }, accept: ["an island", "isle"], drill: { jp: "Det er ei øy", en: "That is an island" }, hint: "ø is the \"er\" of \"her\" said with rounded lips. ei marks a FEMININE noun and the definite is øya. You will also meet these written en øy / øyen — Bokmål allows both, and plenty of print uses the en form. This course always writes ei, because ei tells you the definite ends in -a and en does not tell you anything." },
-        { id: "no-u1l1-aga", type: "vocab", front: "å gå", reading: "aga", meaning: "to go", example: { jp: "Erling går.", en: "Erling is leaving." }, accept: ["go", "to walk", "walk", "to leave"], hint: "Two å's, both long: aw-GAW. It covers walking and leaving on foot — and it is the verb inside hvordan går det, \"how's it going\"." },
+        { id: "no-u1l1-glyphkj", type: "glyph", front: "kj", reading: "kj", meaning: null, example: null, hint: "A thin, breathy hiss \u2014 the h of \"huge\", never a k. k does the same before i and y: kino is HYEE-no." },
+        { id: "no-u1l1-glyphskj", type: "glyph", front: "skj", reading: "skj", meaning: null, example: null, hint: "The BROAD hush, plain English \"sh\". Against the thin kj this is the pair every learner mixes up." },
+        { id: "no-u1l1-glyphsj", type: "glyph", front: "sj", reading: "sj", meaning: null, example: null, hint: "The same broad \"sh\" as skj. Two spellings, one sound." },
       ],
     },
-    // Lesson 2: the letters you write and never say — hv-, final -d, the g in og/jeg.
+    // Lesson 2: UNCHANGED BY THE SPLIT, deliberately — see header §9. This lesson
+    // teaches an absence (the letters you write and never say), and an absence has
+    // no character to type, so it gets no glyph cards. Same six words, same order,
+    // same ids; only the title moved into Norwegian.
     {
       id: "no-u1l2",
       unit: 1,
       lesson: 2,
-      title: "Letters you write but never say",
+      title: "Bokstaver du skriver, men aldri sier",
       cefr: "A1",
       dominantMode: "recall",
       canDo: "Ask what and where, and read the silent letters that hide in the commonest words — hv-, final -d, and the g of og and jeg.",
@@ -304,43 +350,69 @@ export const NO_UNIT1 = {
         { id: "no-u1l2-jeg", type: "vocab", front: "jeg", reading: "jeg", meaning: "I", example: { jp: "Jeg lærer norsk.", en: "I am learning Norwegian." }, accept: [], drill: { jp: "Jeg kjøper ei skjorte i Oslo", en: "I am buying a shirt in Oslo" }, hint: "Said YAY — the j is a y sound and the g is silent. Norwegian j is always the y of \"yes\", never the j of \"jam\"." },
       ],
     },
-    // Lesson 3: the hush sounds — kj, skj, sj.
+    // Lesson 3: all six of the unit's verbs together. Six infinitives in a row is
+    // what makes the å marker visible AS a marker rather than as part of the word,
+    // and six present tenses in a row is what makes the one-form -er present
+    // obvious: er, lærer, går, kjøper, kjenner, gir — no person endings, ever.
+    // å være leads because everything else in the unit leans on er.
     {
       id: "no-u1l3",
       unit: 1,
       lesson: 3,
-      title: "kj, skj og sj",
+      title: "Verb: å være, å lære, å gå",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Hear, say and type the two hushing sounds no English spelling prepares you for — the thin kj and the broad skj/sj — and buy something.",
+      canDo: "Use six everyday verbs — å være, å lære, å gå, å kjøpe, å kjenne, å gi — and say them in the present, where one form fits every person: jeg er, du er, vi er.",
       items: [
-        { id: "no-u1l3-glyphkj", type: "glyph", front: "kj", reading: "kj", meaning: null, example: null, hint: "A thin, breathy hiss \u2014 the h of \"huge\", never a k. k does the same before i and y: kino is HYEE-no." },
-        { id: "no-u1l3-glyphskj", type: "glyph", front: "skj", reading: "skj", meaning: null, example: null, hint: "The BROAD hush, plain English \"sh\". Against the thin kj this is the pair every learner mixes up." },
-        { id: "no-u1l3-glyphsj", type: "glyph", front: "sj", reading: "sj", meaning: null, example: null, hint: "The same broad \"sh\" as skj. Two spellings, one sound." },
+        { id: "no-u1l3-avaere", type: "vocab", front: "å være", reading: "avaere", meaning: "to be", example: { jp: "Erling er norsk.", en: "Erling is Norwegian." }, accept: ["be", "to exist"], drill: { jp: "Det er viktig å være hyggelig", en: "It is important to be nice" }, hint: "æ is the a of \"cat\", and it is the rarest of the three extra letters. Present tense is er for EVERY person: jeg er, du er, vi er — one form, no endings to learn." },
+        { id: "no-u1l3-alaere", type: "vocab", front: "å lære", reading: "alaere", meaning: "to learn", example: { jp: "Erling lærer norsk.", en: "Erling is learning Norwegian." }, accept: ["learn", "to teach", "to study"], drill: { jp: "Det er viktig å lære norsk", en: "It is important to learn Norwegian" }, hint: "The å in front is the infinitive marker — Norwegian's \"to\". Every verb card carries it, so you meet å on every single verb you learn." },
+        { id: "no-u1l3-aga", type: "vocab", front: "å gå", reading: "aga", meaning: "to go", example: { jp: "Erling går.", en: "Erling is leaving." }, accept: ["go", "to walk", "walk", "to leave"], hint: "Two å's, both long: aw-GAW. It covers walking and leaving on foot — and it is the verb inside hvordan går det, \"how's it going\"." },
         { id: "no-u1l3-akjope", type: "vocab", front: "å kjøpe", reading: "akjope", meaning: "to buy", example: { jp: "Jeg kjøper ei skje.", en: "I am buying a spoon." }, accept: ["buy", "to purchase", "purchase"], drill: { jp: "Det er billig å kjøpe ei skje", en: "It is cheap to buy a spoon" }, hint: "kj is a thin, breathy hiss — the h of \"huge\", not \"k\". Say HYUR-pe. k before i or y does the same: kino sounds like HYEE-no." },
-        { id: "no-u1l3-etkjokken", type: "vocab", front: "et kjøkken", reading: "etkjokken", meaning: "kitchen", example: { jp: "Det er et kjøkken.", en: "That is a kitchen." }, accept: ["a kitchen"], drill: { jp: "Et kjøkken er hyggelig", en: "A kitchen is nice" }, hint: "HYUR-ken. Neuter, so the definite is kjøkkenet — the kitchen." },
         { id: "no-u1l3-akjenne", type: "vocab", front: "å kjenne", reading: "akjenne", meaning: "to know", example: { jp: "Jeg kjenner Erling.", en: "I know Erling." }, accept: ["know", "to know a person", "to feel", "to recognize"], drill: { jp: "Det er hyggelig å kjenne Erling", en: "It is nice to know Erling" }, hint: "For knowing PEOPLE and places you have met. Same thin kj: HYEN-ne." },
-        { id: "no-u1l3-eiskje", type: "vocab", front: "ei skje", reading: "eiskje", meaning: "spoon", example: { jp: "Hvor er ei skje?", en: "Where is a spoon?" }, accept: ["a spoon", "spoonful"], drill: { jp: "Det er ei skje", en: "That is a spoon" }, hint: "skj is the BROAD hush — plain English \"sh\": SHEH. Feminine: definite skjea." },
-        { id: "no-u1l3-eiskjorte", type: "vocab", front: "ei skjorte", reading: "eiskjorte", meaning: "shirt", example: { jp: "Jeg kjøper ei skjorte.", en: "I am buying a shirt." }, accept: ["a shirt", "blouse"], drill: { jp: "Erling kjøper ei skjorte", en: "Erling is buying a shirt" }, hint: "SHOR-te. Feminine: definite skjorta." },
-        { id: "no-u1l3-ensjo", type: "vocab", front: "en sjø", reading: "ensjo", meaning: "lake", example: { jp: "Er det en sjø?", en: "Is that a lake?" }, accept: ["sea", "a lake", "the sea"], drill: { jp: "Det er en sjø", en: "That is a lake" }, hint: "sj is the same broad sh as skj: SHUR. Inland it is a lake, at the coast it is the sea." },
+        { id: "no-u1l3-agi", type: "vocab", front: "å gi", reading: "agi", meaning: "to give", example: { jp: "Jeg gir Erling ei skje.", en: "I give Erling a spoon." }, accept: ["give", "to hand", "hand over"], drill: { jp: "Det er godt å gi", en: "It is good to give" }, hint: "g before i or y turns into a y sound: YEE. Same in gi, gift, gynge — but hard before a, o, u and å: god is GOO." },
       ],
     },
-    // Lesson 4: the g that vanishes (-ig), the -eg that says "ay", and the g that turns into j.
+    // Lesson 4: all six of the unit's nouns together, ordered BY GENDER — en, then
+    // the three ei, then the two et. The indefinite article is what tells you the
+    // definite ending (en → -en, ei → -a, et → -et), so putting the three genders
+    // side by side is the point of the lesson, not a side effect of the order.
     {
       id: "no-u1l4",
       unit: 1,
       lesson: 4,
-      title: "Silent g in -ig, and -eg said \"ay\"",
+      title: "Substantiv: en, ei og et",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read the -ig ending that so many Norwegian adjectives take, say me and you, and describe someone: Erling er veldig hyggelig.",
+      canDo: "Name six things with the right gender word — en sjø, ei øy, ei skje, ei skjorte, et språk, et kjøkken — and read the gender to predict the definite form: ei øy → øya.",
       items: [
-        { id: "no-u1l4-hyggelig", type: "vocab", front: "hyggelig", reading: "hyggelig", meaning: "nice", example: { jp: "Erling er hyggelig.", en: "Erling is nice." }, accept: ["pleasant", "friendly", "cosy", "lovely"], drill: { jp: "En kafé i Oslo er hyggelig", en: "A café in Oslo is nice" }, hint: "The g of -ig is silent: HUEG-ge-li. The single most Norwegian compliment there is — warm, easy, good company." },
-        { id: "no-u1l4-viktig", type: "vocab", front: "viktig", reading: "viktig", meaning: "important", example: { jp: "Det er viktig å lære norsk.", en: "It is important to learn Norwegian." }, accept: ["significant", "of importance"], drill: { jp: "Norsk er viktig", en: "Norwegian is important" }, hint: "VIK-ti — silent g again. Note how å lære keeps its å here: after an adjective, the infinitive marker stays." },
-        { id: "no-u1l4-billig", type: "vocab", front: "billig", reading: "billig", meaning: "cheap", example: { jp: "Ei skjorte er billig.", en: "A shirt is cheap." }, accept: ["inexpensive", "low-priced"], drill: { jp: "Kaffe er billig", en: "Coffee is cheap" }, hint: "BIL-li. Three -ig words, three silent g's — the ending is everywhere, so learn the ending, not the words." },
-        { id: "no-u1l4-meg", type: "vocab", front: "meg", reading: "meg", meaning: "me", example: { jp: "Erling kjenner meg.", en: "Erling knows me." }, accept: ["myself"], drill: { jp: "Kari kjenner meg og deg", en: "Kari knows me and you" }, hint: "Spelled -eg, said MY. The same trick as jeg: -eg is pronounced \"ay\", never as written." },
-        { id: "no-u1l4-deg", type: "vocab", front: "deg", reading: "deg", meaning: "you (object form)", example: { jp: "Jeg kjenner deg.", en: "I know you." }, accept: ["you", "yourself"], drill: { jp: "Erling gir deg ei skje", en: "Erling gives you a spoon" }, hint: "DYE, rhyming with meg. jeg/meg and du/deg — subject and object, same -eg spelling, same \"ay\" sound." },
-        { id: "no-u1l4-agi", type: "vocab", front: "å gi", reading: "agi", meaning: "to give", example: { jp: "Jeg gir Erling ei skje.", en: "I give Erling a spoon." }, accept: ["give", "to hand", "hand over"], drill: { jp: "Det er godt å gi", en: "It is good to give" }, hint: "g before i or y turns into a y sound: YEE. Same in gi, gift, gynge — but hard before a, o, u and å: god is GOO." },
+        { id: "no-u1l4-ensjo", type: "vocab", front: "en sjø", reading: "ensjo", meaning: "lake", example: { jp: "Er det en sjø?", en: "Is that a lake?" }, accept: ["sea", "a lake", "the sea"], drill: { jp: "Det er en sjø", en: "That is a lake" }, hint: "sj is the same broad sh as skj: SHUR. Inland it is a lake, at the coast it is the sea." },
+        { id: "no-u1l4-eioy", type: "vocab", front: "ei øy", reading: "eioy", meaning: "island", example: { jp: "Er Norge ei øy?", en: "Is Norway an island?" }, accept: ["an island", "isle"], drill: { jp: "Det er ei øy", en: "That is an island" }, hint: "ø is the \"er\" of \"her\" said with rounded lips. ei marks a FEMININE noun and the definite is øya. You will also meet these written en øy / øyen — Bokmål allows both, and plenty of print uses the en form. This course always writes ei, because ei tells you the definite ends in -a and en does not tell you anything." },
+        { id: "no-u1l4-eiskje", type: "vocab", front: "ei skje", reading: "eiskje", meaning: "spoon", example: { jp: "Hvor er ei skje?", en: "Where is a spoon?" }, accept: ["a spoon", "spoonful"], drill: { jp: "Det er ei skje", en: "That is a spoon" }, hint: "skj is the BROAD hush — plain English \"sh\": SHEH. Feminine: definite skjea." },
+        { id: "no-u1l4-eiskjorte", type: "vocab", front: "ei skjorte", reading: "eiskjorte", meaning: "shirt", example: { jp: "Jeg kjøper ei skjorte.", en: "I am buying a shirt." }, accept: ["a shirt", "blouse"], drill: { jp: "Erling kjøper ei skjorte", en: "Erling is buying a shirt" }, hint: "SHOR-te. Feminine: definite skjorta." },
+        { id: "no-u1l4-etsprak", type: "vocab", front: "et språk", reading: "etsprak", meaning: "language", example: { jp: "Erling lærer et språk.", en: "Erling is learning a language." }, accept: ["a language", "speech"], drill: { jp: "Norsk er et språk", en: "Norwegian is a language" }, hint: "å is a rounded \"aw\", like the vowel in \"more\" — sprawk. It is a letter in its own right and sorts LAST in the alphabet, after æ and ø." },
+        { id: "no-u1l4-etkjokken", type: "vocab", front: "et kjøkken", reading: "etkjokken", meaning: "kitchen", example: { jp: "Det er et kjøkken.", en: "That is a kitchen." }, accept: ["a kitchen"], drill: { jp: "Et kjøkken er hyggelig", en: "A kitchen is nice" }, hint: "HYUR-ken. Neuter, so the definite is kjøkkenet — the kitchen." },
+      ],
+    },
+    // Lesson 5: the describing words, and the two object pronouns. hyggelig,
+    // viktig and billig are the -ig ending with its silent g — learn the ending,
+    // not the three words — and meg and deg are the -eg spelling said "ay", the
+    // same trick as jeg in l2. Every example here points backwards: nothing in
+    // this lesson uses a word the learner has not already met.
+    {
+      id: "no-u1l5",
+      unit: 1,
+      lesson: 5,
+      title: "Ord som beskriver — og meg og deg",
+      cefr: "A1",
+      dominantMode: "recall",
+      canDo: "Describe someone or something — norsk, hyggelig, viktig, billig — and say me and you: Erling kjenner meg og deg.",
+      items: [
+        { id: "no-u1l5-norsk", type: "vocab", front: "norsk", reading: "norsk", meaning: "Norwegian", example: { jp: "Norsk er et språk.", en: "Norwegian is a language." }, accept: ["the norwegian language", "in norwegian"], drill: { jp: "Erling og jeg lærer norsk", en: "Erling and I are learning Norwegian" }, hint: "One word for the language and the adjective. Languages are lowercase in Norwegian — norsk, never Norsk." },
+        { id: "no-u1l5-hyggelig", type: "vocab", front: "hyggelig", reading: "hyggelig", meaning: "nice", example: { jp: "Erling er hyggelig.", en: "Erling is nice." }, accept: ["pleasant", "friendly", "cosy", "lovely"], drill: { jp: "En kafé i Oslo er hyggelig", en: "A café in Oslo is nice" }, hint: "The g of -ig is silent: HUEG-ge-li. The single most Norwegian compliment there is — warm, easy, good company." },
+        { id: "no-u1l5-viktig", type: "vocab", front: "viktig", reading: "viktig", meaning: "important", example: { jp: "Det er viktig å lære norsk.", en: "It is important to learn Norwegian." }, accept: ["significant", "of importance"], drill: { jp: "Norsk er viktig", en: "Norwegian is important" }, hint: "VIK-ti — silent g again. Note how å lære keeps its å here: after an adjective, the infinitive marker stays." },
+        { id: "no-u1l5-billig", type: "vocab", front: "billig", reading: "billig", meaning: "cheap", example: { jp: "Ei skjorte er billig.", en: "A shirt is cheap." }, accept: ["inexpensive", "low-priced"], drill: { jp: "Kaffe er billig", en: "Coffee is cheap" }, hint: "BIL-li. Three -ig words, three silent g's — the ending is everywhere, so learn the ending, not the words." },
+        { id: "no-u1l5-meg", type: "vocab", front: "meg", reading: "meg", meaning: "me", example: { jp: "Erling kjenner meg.", en: "Erling knows me." }, accept: ["myself"], drill: { jp: "Kari kjenner meg og deg", en: "Kari knows me and you" }, hint: "Spelled -eg, said MY. The same trick as jeg: -eg is pronounced \"ay\", never as written." },
+        { id: "no-u1l5-deg", type: "vocab", front: "deg", reading: "deg", meaning: "you (object form)", example: { jp: "Jeg kjenner deg.", en: "I know you." }, accept: ["you", "yourself"], drill: { jp: "Erling gir deg ei skje", en: "Erling gives you a spoon" }, hint: "DYE, rhyming with meg. jeg/meg and du/deg — subject and object, same -eg spelling, same \"ay\" sound." },
       ],
     },
   ],
