@@ -153,8 +153,24 @@ for (let i = 0; i < items.length; i++) {
     // letter does not change the sound it names, so the clip stays correct - and
     // without this, pt-u1l2/l3 glyph cards were unvoiceable and a paid run just
     // kept reporting errors.
+    // A NON-EMPTY BODY IS ALSO NOT PROOF OF AUDIO. The API answers 200 with a
+    // valid-but-SILENT mp3 of exactly 3805 bytes — a real container, no voice in it.
+    // The 0-byte guard below never saw these, so they were written, counted as
+    // generated, and shipped.
+    //
+    // Measured 2026-09-15 by sweeping every clip on disk: 25 files at EXACTLY 3805
+    // bytes, across six languages and three different voices. A byte-identical size
+    // across unrelated voices is not a short sound, it is a fixed silent payload.
+    // Alex confirmed by ear on five of them: "those 5 have no voice."
+    //
+    // Sixteen were JAPANESE, including す ま ど ス ナ ノ — kana from units 1–4, the
+    // first characters anyone meets. The listening cards routed for them and played
+    // silence, and nothing anywhere said so.
+    //
+    // Treat it exactly like an empty body: retry capitalised, then fail loudly.
+    const SILENT_BYTES = 3805;
     let buf = Buffer.from(await res.arrayBuffer());
-    if (buf.length === 0) {
+    if (buf.length <= SILENT_BYTES) {
       await new Promise((r) => setTimeout(r, 1000));
       const retryText = text.charAt(0).toUpperCase() + text.slice(1);
       const retry = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
@@ -164,8 +180,8 @@ for (let i = 0; i < items.length; i++) {
       });
       buf = retry.ok ? Buffer.from(await retry.arrayBuffer()) : Buffer.alloc(0);
     }
-    if (buf.length === 0) {
-      console.error(`  ERROR  ${tag}: empty audio body (200 but 0 bytes) - NOT written`);
+    if (buf.length <= SILENT_BYTES) {
+      console.error(`  ERROR  ${tag}: ${buf.length === 0 ? "empty audio body (200 but 0 bytes)" : `silent audio (${buf.length}b <= ${SILENT_BYTES}b, the known silent payload)`} - NOT written`);
       errors++;
       continue;
     }
