@@ -1,28 +1,28 @@
-// DE Unit 19 — Schule und Arbeit (slot: vocabulary 5) — A1
+// DE Unit 18 — Reisen und Verkehr (slot: vocabulary 4) — A1
 // Block 3 (u15–u20). Conventions: see de/unit1.js.
 //
-// THEME CHOSEN BY THIS SEAT. u3 gave the learner der Beruf, arbeiten and
-// studieren — how to SAY what you do — and u1 gave die Schule and das Buch for
-// their sounds. Nothing since has named a teacher, a lesson, an exam or an
-// office. This unit fills the classroom and the workplace, and takes the verbs
-// of studying with it, because lernen, lesen and schreiben belong with the room
-// they happen in rather than in a general verb list.
+// THEME CHOSEN BY THIS SEAT. u7 "Die Stadt" put the learner at der Bahnhof and
+// taught gehen and fahren, then stopped — it never named a single vehicle, and
+// it could not, because a town unit is about places. This unit takes what you
+// travel IN, what you need at the station, and what you pack.
 //
-// Rejected as already taught: die Schule, das Buch, sprechen (u1), der Beruf,
-// arbeiten, studieren (u3), die Zeitung (u1) — all used in examples here.
-// Rejected as the same lexeme: die Frage and die Antwort. Both are the bare nouns
-// of fragen and antworten, taught in this unit's own lesson 2, and a learner with
-// the verb does not need a second card for the noun. die Arbeit went the same way
-// (~arbeiten u3) — which is why lesson 4 is built round the workplace and the
-// people in it instead.
-// Kept deliberately: der Schüler despite u1's die Schule. The -er turns an
-// institution into a person, which is a different referent, not a shade of the
-// same one; a learner who knows Schule cannot produce Schüler from it.
-// FREE: Student, Chef, Firma, Text, Test, Universität | Klassen, Prüfungen, Aufgaben, Wörter, Sprachen, Lehrer, Termine, Bücher, Kollegen, Studenten, Schüler
+// Rejected as already taught: der Bahnhof, fahren, gehen, der Weg, die Karte
+// (all u7), das Hotel and das Restaurant (u7 — used in examples here).
+// Rejected as the same lexeme: die Reise and reisen — u2 already teaches the
+// phrase gute Reise, so the noun is in the learner's mouth from the second unit
+// and the seat that owns u2 owns it. der Urlaub and die Ferien do that job here.
+// Also rejected: die Abfahrt and die Ankunft, which are the -t nouns of abfahren
+// and ankommen, both taught in lesson 3 of this same unit.
+// Kept deliberately: abfahren and ankommen, whose ab- and an- are not decorative
+// — a learner who knows fahren and kommen still cannot get "depart" and "arrive"
+// out of them, and the separable-verb pattern is A1 grammar no earlier unit
+// covers. einsteigen and umsteigen are built on steigen, which is taught nowhere,
+// so they are wholly new.
+// FREE: Bus, Taxi, Ticket, Meter, Kilometer, Europa | Züge, Busse, Koffer, Grenzen, Zimmer, Schuhe, Jahre
 export const DE_UNIT19 = {
   id: "de-u19",
   lang: "de",
-  title: "Schule und Arbeit",
+  title: "Reisen und Verkehr",
   order: 19,
   stage: "a1",
   lessons: [
@@ -30,68 +30,68 @@ export const DE_UNIT19 = {
       id: "de-u19l1",
       unit: 19,
       lesson: 1,
-      title: "In der Klasse",
+      title: "Verkehrsmittel",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name the people and the events of a classroom: who teaches, who learns, and what you have to hand in.",
+      canDo: "Name what you travel in and say how you get somewhere: Ich fahre mit dem Zug.",
       items: [
-        { id: "de-u19l1-derlehrer", type: "vocab", front: "der Lehrer", reading: "derlehrer", meaning: "the teacher", example: { jp: "Der Lehrer kommt aus Österreich.", en: "The teacher comes from Austria." }, drill: { jp: "Der Lehrer ist sehr nett", en: "The teacher is very nice" }, accept: ["the teacher"], hint: "A woman is die Lehrerin — the -in ending makes the feminine, as with der Freund and die Freundin in u4." },
-        { id: "de-u19l1-derschuler", type: "vocab", front: "der Schüler", reading: "derschuler", meaning: "the pupil", example: { jp: "Die Schüler sind heute sehr ruhig.", en: "The pupils are very quiet today." }, drill: { jp: "Der Schüler ist sehr jung", en: "The pupil is very young" }, accept: ["the pupil", "the student", "the schoolchild"], hint: "A school pupil. Someone at university is der Student — German keeps the two apart, English does not." },
-        { id: "de-u19l1-derstudent", type: "vocab", front: "der Student", reading: "derstudent", meaning: "the university student", example: { jp: "Mein Bruder ist Student in Berlin.", en: "My brother is a student in Berlin." }, drill: { jp: "Der Student kommt aus Berlin", en: "The student comes from Berlin" }, accept: ["the university student", "the student"], hint: "No article after ist for a role: er ist Student, not ein Student. Stress the end: stu-DENT." },
-        { id: "de-u19l1-dieklasse", type: "vocab", front: "die Klasse", reading: "dieklasse", meaning: "the class", example: { jp: "In meiner Klasse sind zwanzig Schüler.", en: "There are twenty pupils in my class." }, drill: { jp: "Die Klasse ist sehr groß", en: "The class is very big" }, accept: ["the class", "the year group", "the classroom"], hint: "Both the group of pupils and the room. As an exclamation, Klasse! means great." },
-        { id: "de-u19l1-dieprufung", type: "vocab", front: "die Prüfung", reading: "dieprufung", meaning: "the exam", example: { jp: "Die Prüfung ist am Montag.", en: "The exam is on Monday." }, drill: { jp: "Die Prüfung ist heute sehr schwer", en: "The exam is very hard today" }, accept: ["the exam", "the test", "the examination"], hint: "From prüfen, to check. Eine Prüfung machen is to sit an exam." },
-        { id: "de-u19l1-dieaufgabe", type: "vocab", front: "die Aufgabe", reading: "dieaufgabe", meaning: "the task", example: { jp: "Die Aufgabe ist nicht leicht.", en: "The task is not easy." }, drill: { jp: "Die Aufgabe ist für morgen", en: "The task is for tomorrow" }, accept: ["the task", "the exercise", "the assignment"], hint: "Homework is die Hausaufgaben, always plural — literally the house-tasks." },
+        { id: "de-u19l1-derzug", type: "vocab", front: "der Zug", reading: "derzug", meaning: "the train", example: { jp: "Der Zug nach Berlin ist sehr schnell.", en: "The train to Berlin is very fast." }, drill: { jp: "Der Zug ist heute sehr voll", en: "The train is very full today" }, accept: ["the train"], hint: "Mit dem Zug fahren — the vehicle takes mit plus the dative, every time." },
+        { id: "de-u19l1-derbus", type: "vocab", front: "der Bus", reading: "derbus", meaning: "the bus", example: { jp: "Der Bus kommt um neunzehn Uhr.", en: "The bus comes at seven in the evening." }, drill: { jp: "Der Bus kommt jetzt nicht", en: "The bus is not coming now" }, accept: ["the bus"], hint: "Same word as English, but the plural doubles the s: die Busse." },
+        { id: "de-u19l1-diebahn", type: "vocab", front: "die Bahn", reading: "diebahn", meaning: "the railway", example: { jp: "Die Bahn ist heute nicht teuer.", en: "The railway is not expensive today." }, drill: { jp: "Die Bahn ist sehr schnell", en: "The railway is very fast" }, accept: ["the railway", "the train", "the tram"], hint: "The system rather than the vehicle — die Deutsche Bahn. In a city, die S-Bahn and die U-Bahn." },
+        { id: "de-u19l1-dasflugzeug", type: "vocab", front: "das Flugzeug", reading: "dasflugzeug", meaning: "the aeroplane", example: { jp: "Das Flugzeug nach Wien ist voll.", en: "The plane to Vienna is full." }, drill: { jp: "Das Flugzeug kommt um acht Uhr", en: "The aeroplane arrives at eight o'clock" }, accept: ["the aeroplane", "the plane", "the airplane"], hint: "Flug, flight, plus Zeug, gear — a flight-thing. German names machines this way constantly." },
+        { id: "de-u19l1-dasfahrrad", type: "vocab", front: "das Fahrrad", reading: "dasfahrrad", meaning: "the bicycle", example: { jp: "Mein Fahrrad ist im Keller.", en: "My bicycle is in the cellar." }, drill: { jp: "Das Fahrrad ist im Keller", en: "The bicycle is in the cellar" }, accept: ["the bicycle", "the bike"], hint: "Fahr, from fahren, plus Rad, wheel. Everyone says das Rad for short." },
+        { id: "de-u19l1-dasschiff", type: "vocab", front: "das Schiff", reading: "dasschiff", meaning: "the ship", example: { jp: "Das Schiff ist sehr groß und weiß.", en: "The ship is very big and white." }, drill: { jp: "Das Schiff ist alt und schmutzig", en: "The ship is old and dirty" }, accept: ["the ship", "the boat"], hint: "Ship and Schiff are the same word — German writes the sh sound as sch." },
       ],
     },
     {
       id: "de-u19l2",
       unit: 19,
       lesson: 2,
-      title: "Fragen und antworten",
+      title: "Am Bahnhof",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Ask a question, answer one, and say whether the answer was right or wrong.",
+      canDo: "Buy a ticket, find your stop, read the timetable, and say where you are going.",
       items: [
-        { id: "de-u19l2-fragen", type: "vocab", front: "fragen", reading: "fragen", meaning: "to ask", example: { jp: "Der Schüler fragt den Lehrer.", en: "The pupil asks the teacher." }, drill: { jp: "Die Schüler fragen den Lehrer", en: "The pupils ask the teacher" }, accept: ["to ask", "to ask a question"], hint: "The person asked is accusative: er fragt DEN Lehrer. The noun is die Frage, a question." },
-        { id: "de-u19l2-antworten", type: "vocab", front: "antworten", reading: "antworten", meaning: "to answer", example: { jp: "Der Lehrer antwortet dem Schüler.", en: "The teacher answers the pupil." }, drill: { jp: "Die Lehrer antworten sehr schnell", en: "The teachers answer very quickly" }, accept: ["to answer", "to reply"], hint: "Mirror image of fragen: this one takes the DATIVE — er antwortet DEM Schüler. The noun is die Antwort." },
-        { id: "de-u19l2-richtig", type: "vocab", front: "richtig", reading: "richtig", meaning: "correct", example: { jp: "Die Antwort ist richtig.", en: "The answer is correct." }, drill: { jp: "Die Zahl ist richtig", en: "The number is correct" }, accept: ["correct", "right", "true"], hint: "Careful with u7's rechts, which is right as in the direction. Richtig is right as in not wrong." },
-        { id: "de-u19l2-falsch", type: "vocab", front: "falsch", reading: "falsch", meaning: "wrong", example: { jp: "Nein, das ist falsch.", en: "No, that is wrong." }, drill: { jp: "Das Wort hier ist falsch", en: "The word here is wrong" }, accept: ["wrong", "false", "incorrect"], hint: "Also means fake: ein falscher Pass. English false is the same word." },
-        { id: "de-u19l2-daswort", type: "vocab", front: "das Wort", reading: "daswort", meaning: "the word", example: { jp: "Ich verstehe das Wort nicht.", en: "I do not understand the word." }, drill: { jp: "Das Wort ist sehr lang", en: "The word is very long" }, accept: ["the word"], hint: "Two plurals with different jobs: die Wörter are separate words, die Worte are words in a speech." },
-        { id: "de-u19l2-diesprache", type: "vocab", front: "die Sprache", reading: "diesprache", meaning: "the language", example: { jp: "Deutsch ist eine schwere Sprache.", en: "German is a difficult language." }, drill: { jp: "Die Sprache ist sehr schwer", en: "The language is very hard" }, accept: ["the language", "the speech"], hint: "From sprechen, u1 — the thing that is spoken." },
+        { id: "de-u19l2-derflughafen", type: "vocab", front: "der Flughafen", reading: "derflughafen", meaning: "the airport", example: { jp: "Der Flughafen ist weit von der Stadt.", en: "The airport is far from the city." }, drill: { jp: "Der Flughafen ist sehr groß", en: "The airport is very big" }, accept: ["the airport"], hint: "Flug, flight, plus Hafen, harbour — a harbour for flights, which is exactly what an airport is." },
+        { id: "de-u19l2-diehaltestelle", type: "vocab", front: "die Haltestelle", reading: "diehaltestelle", meaning: "the stop", example: { jp: "Die Haltestelle ist neben der Post.", en: "The stop is next to the post office." }, drill: { jp: "Die Haltestelle ist dort links", en: "The stop is over there on the left" }, accept: ["the stop", "the bus stop"], hint: "Halte, from halten to stop, plus Stelle, place — the place where it stops." },
+        { id: "de-u19l2-diefahrkarte", type: "vocab", front: "die Fahrkarte", reading: "diefahrkarte", meaning: "the ticket", example: { jp: "Eine Fahrkarte nach Hamburg kostet vierzig Euro.", en: "A ticket to Hamburg costs forty euros." }, drill: { jp: "Die Fahrkarte ist im Koffer", en: "The ticket is in the suitcase" }, accept: ["the ticket"], hint: "Fahr plus Karte, both from u7 — but the compound is a fixed word, and das Ticket is just as common." },
+        { id: "de-u19l2-derfahrplan", type: "vocab", front: "der Fahrplan", reading: "derfahrplan", meaning: "the timetable", example: { jp: "Der Fahrplan ist dort an der Wand.", en: "The timetable is on the wall over there." }, drill: { jp: "Der Fahrplan ist hier am Bahnhof", en: "The timetable is here at the station" }, accept: ["the timetable", "the schedule"], hint: "Every German station has one on the wall — yellow for departures, white for arrivals." },
+        { id: "de-u19l2-dasziel", type: "vocab", front: "das Ziel", reading: "dasziel", meaning: "the destination", example: { jp: "Mein Ziel ist München.", en: "My destination is Munich." }, drill: { jp: "Das Ziel ist München", en: "The destination is Munich" }, accept: ["the destination", "the goal", "the target"], hint: "Where you are headed, and also a goal in life. Note the ie — said zeel." },
+        { id: "de-u19l2-warten", type: "vocab", front: "warten", reading: "warten", meaning: "to wait", example: { jp: "Wir warten hier auf den Bus.", en: "We are waiting for the bus here." }, drill: { jp: "Sie warten am Bahnhof", en: "They are waiting at the station" }, accept: ["to wait", "to wait for"], hint: "warten AUF plus the accusative — you wait on something, not for it, in German." },
       ],
     },
     {
       id: "de-u19l3",
       unit: 19,
       lesson: 3,
-      title: "Lernen",
+      title: "Unterwegs",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say what you do to learn: read, write, practise, understand — and ask someone to explain.",
+      canDo: "Describe a journey as it happens: departing, changing, arriving, and how long it takes.",
       items: [
-        { id: "de-u19l3-lernen", type: "vocab", front: "lernen", reading: "lernen", meaning: "to learn", example: { jp: "Wir lernen Deutsch zusammen.", en: "We are learning German together." }, drill: { jp: "Die Kinder lernen in der Schule", en: "The children learn at school" }, accept: ["to learn", "to study"], hint: "Lernen is to learn; studieren (u3) is specifically to be at university. English study covers both." },
-        { id: "de-u19l3-lesen", type: "vocab", front: "lesen", reading: "lesen", meaning: "to read", example: { jp: "Mein Vater liest die Zeitung.", en: "My father reads the newspaper." }, drill: { jp: "Wir lesen die Zeitung zusammen", en: "We read the newspaper together" }, accept: ["to read"], hint: "Vowel shift in er/sie: ich lese, but er liest. One of a small group that swaps e for ie." },
-        { id: "de-u19l3-schreiben", type: "vocab", front: "schreiben", reading: "schreiben", meaning: "to write", example: { jp: "Die Schüler schreiben die Wörter.", en: "The pupils write the words." }, drill: { jp: "Die Kinder schreiben die Zahlen", en: "The children write the numbers" }, accept: ["to write"], hint: "Schreiben and English scribe come from the same Latin root. The ei says eye." },
-        { id: "de-u19l3-uben", type: "vocab", front: "üben", reading: "uben", meaning: "to practise", example: { jp: "Ich übe jetzt für die Prüfung.", en: "I am practising for the exam now." }, drill: { jp: "Wir üben hier zusammen", en: "We practise here together" }, accept: ["to practise", "to practice", "to rehearse"], hint: "Short and very common. You may type uben or üben — the umlaut folds." },
-        { id: "de-u19l3-verstehen", type: "vocab", front: "verstehen", reading: "verstehen", meaning: "to understand", example: { jp: "Verstehen Sie die Aufgabe?", en: "Do you understand the task?" }, drill: { jp: "Wir verstehen den Lehrer gut", en: "We understand the teacher well" }, accept: ["to understand", "to comprehend"], hint: "ver- plus stehen, to stand — but the meaning is nowhere near standing. Ich verstehe is the single most useful thing to say in a lesson." },
-        { id: "de-u19l3-erklaren", type: "vocab", front: "erklären", reading: "erklaren", meaning: "to explain", example: { jp: "Der Lehrer erklärt die Aufgabe.", en: "The teacher explains the task." }, drill: { jp: "Die Lehrer erklären die Aufgabe", en: "The teachers explain the task" }, accept: ["to explain", "to clarify"], hint: "From klar, clear — to make clear. The person you explain TO is dative." },
+        { id: "de-u19l3-abfahren", type: "vocab", front: "abfahren", reading: "abfahren", meaning: "to depart", example: { jp: "Der Zug fährt um acht Uhr ab.", en: "The train departs at eight o'clock." }, accept: ["to depart", "to leave", "to set off"], hint: "Separable: the ab- goes to the end — der Zug fährt … ab. From fahren, but you would never guess depart from drive." },
+        { id: "de-u19l3-ankommen", type: "vocab", front: "ankommen", reading: "ankommen", meaning: "to arrive", example: { jp: "Wir kommen um zehn Uhr in Wien an.", en: "We arrive in Vienna at ten o'clock." }, accept: ["to arrive", "to get there"], hint: "The other half of abfahren, and separable in the same way: wir kommen … an." },
+        { id: "de-u19l3-einsteigen", type: "vocab", front: "einsteigen", reading: "einsteigen", meaning: "to board", example: { jp: "Bitte einsteigen!", en: "All aboard, please!" }, drill: { jp: "Bitte jetzt einsteigen", en: "Please board now" }, accept: ["to board", "to get on", "to get in"], hint: "The announcement you hear on every German platform. steigen means to climb — you climb in." },
+        { id: "de-u19l3-umsteigen", type: "vocab", front: "umsteigen", reading: "umsteigen", meaning: "to change trains", example: { jp: "In Köln steigen wir um.", en: "We change trains in Cologne." }, drill: { jp: "Bitte in Köln umsteigen", en: "Please change in Cologne" }, accept: ["to change trains", "to change", "to transfer"], hint: "um- means around or over: you climb over into another train. The single most useful travel verb in Germany." },
+        { id: "de-u19l3-dauern", type: "vocab", front: "dauern", reading: "dauern", meaning: "to last", example: { jp: "Die Reise dauert drei Stunden.", en: "The journey lasts three hours." }, drill: { jp: "Die Filme dauern zwei Stunden", en: "The films last two hours" }, accept: ["to last", "to take (time)"], hint: "Only about time, and the subject is the event: die Fahrt dauert lange, the trip takes a long time." },
+        { id: "de-u19l3-diegrenze", type: "vocab", front: "die Grenze", reading: "diegrenze", meaning: "the border", example: { jp: "Nach der Grenze sind wir in Österreich.", en: "After the border we are in Austria." }, drill: { jp: "Die Grenze ist nicht weit", en: "The border is not far" }, accept: ["the border", "the boundary", "the limit"], hint: "Also a limit in the abstract sense. English borrowed it late and unusually — from Polish, through German." },
       ],
     },
     {
       id: "de-u19l4",
       unit: 19,
       lesson: 4,
-      title: "Bei der Arbeit",
+      title: "Im Urlaub",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Talk about a workplace: where you work, who you work with and for, and what you earn.",
+      canDo: "Talk about a holiday: where you are going, what you are taking, and what you need to cross a border.",
       items: [
-        { id: "de-u19l4-dasburo", type: "vocab", front: "das Büro", reading: "dasburo", meaning: "the workplace", example: { jp: "Mein Büro ist im Zentrum.", en: "My office is in the centre." }, drill: { jp: "Das Büro ist im Zentrum", en: "The office is in the centre" }, accept: ["the office", "the workplace"], hint: "Borrowed from French bureau, and it kept the stress at the end: bü-RO." },
-        { id: "de-u19l4-diefirma", type: "vocab", front: "die Firma", reading: "diefirma", meaning: "the company", example: { jp: "Die Firma ist nicht groß.", en: "The company is not big." }, drill: { jp: "Die Firma ist sehr alt", en: "The company is very old" }, accept: ["the company", "the firm", "the business"], hint: "Irregular plural, die Firmen. English firm is the same word." },
-        { id: "de-u19l4-derchef", type: "vocab", front: "der Chef", reading: "derchef", meaning: "the boss", example: { jp: "Der Chef ist heute nicht hier.", en: "The boss is not here today." }, drill: { jp: "Der Chef kommt um neun Uhr", en: "The boss comes at nine o'clock" }, accept: ["the boss", "the manager", "the head"], hint: "French again, so the ch says sh: SHEF. It means the boss, never a cook — that is der Koch." },
-        { id: "de-u19l4-derkollege", type: "vocab", front: "der Kollege", reading: "derkollege", meaning: "the colleague", example: { jp: "Meine Kollegen sind sehr nett.", en: "My colleagues are very nice." }, drill: { jp: "Der Kollege arbeitet hier", en: "The colleague works here" }, accept: ["the colleague", "the co-worker"], hint: "Like der Kunde in u17, it adds -n outside the nominative: der Kollege, den Kollegen." },
-        { id: "de-u19l4-verdienen", type: "vocab", front: "verdienen", reading: "verdienen", meaning: "to earn", example: { jp: "Sie verdient genug Geld für die Familie.", en: "She earns enough money for the family." }, drill: { jp: "Wir verdienen hier gut", en: "We earn well here" }, accept: ["to earn", "to deserve"], hint: "Also to deserve: das hast du verdient, you deserved that. From dienen, to serve." },
-        { id: "de-u19l4-dertermin", type: "vocab", front: "der Termin", reading: "dertermin", meaning: "the appointment", example: { jp: "Ich habe am Freitag einen Termin.", en: "I have an appointment on Friday." }, drill: { jp: "Der Termin ist am Freitag", en: "The appointment is on Friday" }, accept: ["the appointment", "the date", "the deadline"], hint: "Any fixed time with someone — doctor, bank, boss. Not a romantic date, which is das Date." },
+        { id: "de-u19l4-derurlaub", type: "vocab", front: "der Urlaub", reading: "derurlaub", meaning: "the holiday", example: { jp: "Im Urlaub sind wir immer in Österreich.", en: "On holiday we are always in Austria." }, drill: { jp: "Der Urlaub ist sehr schön", en: "The holiday is very lovely" }, accept: ["the holiday", "the vacation", "the leave"], hint: "Time off work. School holidays are die Ferien — German keeps the two apart." },
+        { id: "de-u19l4-derkoffer", type: "vocab", front: "der Koffer", reading: "derkoffer", meaning: "the suitcase", example: { jp: "Mein Koffer ist zu schwer.", en: "My suitcase is too heavy." }, drill: { jp: "Der Koffer ist sehr schwer", en: "The suitcase is very heavy" }, accept: ["the suitcase", "the case"], hint: "Plural is identical: ein Koffer, zwei Koffer. English coffer is the same word, and once meant the same box." },
+        { id: "de-u19l4-dasgepack", type: "vocab", front: "das Gepäck", reading: "dasgepack", meaning: "the luggage", example: { jp: "Das Gepäck ist jetzt im Zug.", en: "The luggage is on the train now." }, drill: { jp: "Das Gepäck ist sehr schwer", en: "The luggage is very heavy" }, accept: ["the luggage", "the baggage"], hint: "Never plural, exactly like English luggage: das Gepäck ist, the luggage is." },
+        { id: "de-u19l4-dasausland", type: "vocab", front: "das Ausland", reading: "dasausland", meaning: "abroad", example: { jp: "Meine Tochter arbeitet im Ausland.", en: "My daughter works abroad." }, drill: { jp: "Das Ausland ist weit", en: "Abroad is far away" }, accept: ["abroad", "foreign countries", "overseas"], hint: "A noun where English uses an adverb: im Ausland, in the abroad. Aus, out, plus Land." },
+        { id: "de-u19l4-derpass", type: "vocab", front: "der Pass", reading: "derpass", meaning: "the passport", example: { jp: "Mein Pass ist in der Tasche.", en: "My passport is in the bag." }, drill: { jp: "Der Pass ist im Koffer", en: "The passport is in the suitcase" }, accept: ["the passport"], hint: "Short for der Reisepass. Nothing to do with passen, to fit, which you met in u17." },
+        { id: "de-u19l4-diewelt", type: "vocab", front: "die Welt", reading: "diewelt", meaning: "the world", example: { jp: "Die Welt ist groß und ich habe wenig Zeit.", en: "The world is big and I have little time." }, drill: { jp: "Die Welt ist sehr groß", en: "The world is very big" }, accept: ["the world"], hint: "Auf der Welt, in the world. Die ganze Welt is the whole world." },
       ],
     },
   ],

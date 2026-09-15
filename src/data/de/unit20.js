@@ -1,31 +1,28 @@
-// DE Unit 20 — Alltag und Modalverben (slot: vocabulary 6) — A1
-// Block 3 (u15–u20). Conventions: see de/unit1.js. LAST UNIT OF GERMAN A1.
+// DE Unit 19 — Schule und Arbeit (slot: vocabulary 5) — A1
+// Block 3 (u15–u20). Conventions: see de/unit1.js.
 //
-// THEME CHOSEN BY THIS SEAT, and it is the one gap that was not a topic at all.
-// u12–u14 gave the learner word order and the whole case system, which is a lot
-// of grammar — but between them they taught exactly two verbs, brauchen and
-// helfen. A learner arriving here can decline a noun three ways and still cannot
-// say I can, I must, I would like, I know, I see. That is what this unit fixes:
-// the six modal verbs first, then the highest-frequency everyday verbs, then the
-// ones for being at home and for a free afternoon.
-// Placing it last is deliberate — every verb here can take an object from any of
-// the nineteen units before it, so the examples get to use the whole language.
+// THEME CHOSEN BY THIS SEAT. u3 gave the learner der Beruf, arbeiten and
+// studieren — how to SAY what you do — and u1 gave die Schule and das Buch for
+// their sounds. Nothing since has named a teacher, a lesson, an exam or an
+// office. This unit fills the classroom and the workplace, and takes the verbs
+// of studying with it, because lernen, lesen and schreiben belong with the room
+// they happen in rather than in a general verb list.
 //
-// Rejected as already taught: haben, lieben (u4), essen, trinken (u6), gehen,
-// fahren, finden, suchen (u7), helfen, brauchen (u13, u14), wohnen, hören,
-// sprechen (u1), arbeiten, studieren, kommen, heißen (u3) — all used freely in
-// the examples instead.
-// Rejected as the same lexeme: mögen. möchten is its subjunctive, and the two
-// would be one word on two cards; möchten is far the more useful at A1, so it
-// takes the slot and mögen is named in its hint.
-// Also rejected: stehen. verstehen (u19) and aufstehen (here) are both built on
-// it, and three cards on one stem in adjacent units is a poor use of three slots
-// — the base verb is the one a learner can most easily infer from the other two.
-// FREE: Sofa, Tennis, Gitarre, Pizza, Party, Radio | Bücher, Kinder, Wörter, Schuhe, Zimmer, Stunden, Freunde, Jahre
+// Rejected as already taught: die Schule, das Buch, sprechen (u1), der Beruf,
+// arbeiten, studieren (u3), die Zeitung (u1) — all used in examples here.
+// Rejected as the same lexeme: die Frage and die Antwort. Both are the bare nouns
+// of fragen and antworten, taught in this unit's own lesson 2, and a learner with
+// the verb does not need a second card for the noun. die Arbeit went the same way
+// (~arbeiten u3) — which is why lesson 4 is built round the workplace and the
+// people in it instead.
+// Kept deliberately: der Schüler despite u1's die Schule. The -er turns an
+// institution into a person, which is a different referent, not a shade of the
+// same one; a learner who knows Schule cannot produce Schüler from it.
+// FREE: Student, Chef, Firma, Text, Test, Universität | Klassen, Prüfungen, Aufgaben, Wörter, Sprachen, Lehrer, Termine, Bücher, Kollegen, Studenten, Schüler
 export const DE_UNIT20 = {
   id: "de-u20",
   lang: "de",
-  title: "Alltag und Modalverben",
+  title: "Schule und Arbeit",
   order: 20,
   stage: "a1",
   lessons: [
@@ -33,68 +30,68 @@ export const DE_UNIT20 = {
       id: "de-u20l1",
       unit: 20,
       lesson: 1,
-      title: "Die Modalverben",
+      title: "In der Klasse",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say what you can, must, want and are allowed to do — and send the second verb to the end of the sentence, where German keeps it.",
+      canDo: "Name the people and the events of a classroom: who teaches, who learns, and what you have to hand in.",
       items: [
-        { id: "de-u20l1-konnen", type: "vocab", front: "können", reading: "konnen", meaning: "to be able to", example: { jp: "Ich kann sehr gut schwimmen.", en: "I can swim very well." }, drill: { jp: "Die Kinder können sehr gut schwimmen", en: "The children can swim very well." }, accept: ["can", "to be able to", "to be able"], hint: "The second verb goes to the very end in the infinitive: ich kann … schwimmen. Irregular: ich kann, du kannst, wir können." },
-        { id: "de-u20l1-mussen", type: "vocab", front: "müssen", reading: "mussen", meaning: "must / to have to", example: { jp: "Wir müssen in Köln umsteigen.", en: "We have to change trains in Cologne." }, drill: { jp: "Wir müssen jetzt aufstehen", en: "We have to get up now" }, accept: ["must", "to have to", "to need to"], hint: "ich muss, du musst, wir müssen. Careful: ich muss nicht means I do not have to, never I must not." },
-        { id: "de-u20l1-wollen", type: "vocab", front: "wollen", reading: "wollen", meaning: "to want to", example: { jp: "Sie will einen Mantel kaufen.", en: "She wants to buy a coat." }, drill: { jp: "Wir wollen hier bleiben", en: "We want to stay here." }, accept: ["to want", "to want to"], hint: "ich will, du willst. A false friend for English speakers: will is want, not the future tense." },
-        { id: "de-u20l1-durfen", type: "vocab", front: "dürfen", reading: "durfen", meaning: "to be allowed to", example: { jp: "Hier dürfen die Kinder spielen.", en: "The children are allowed to play here." }, drill: { jp: "Wir dürfen hier nicht schwimmen", en: "We are not allowed to swim here" }, accept: ["may", "to be allowed to", "to be permitted"], hint: "About permission, where können is about ability. Darf ich? is the polite way to ask for anything." },
-        { id: "de-u20l1-sollen", type: "vocab", front: "sollen", reading: "sollen", meaning: "to be supposed to", example: { jp: "Was soll ich dem Chef sagen?", en: "What am I supposed to tell the boss?" }, drill: { jp: "Die Schüler sollen die Wörter schreiben", en: "The pupils are supposed to write the words." }, accept: ["should", "to be supposed to", "ought to"], hint: "Someone else's instruction or expectation: du sollst warten, you are to wait." },
-        { id: "de-u20l1-mochten", type: "vocab", front: "möchten", reading: "mochten", meaning: "would like", example: { jp: "Ich möchte einen Kaffee, bitte.", en: "I would like a coffee, please." }, drill: { jp: "Wir möchten einen Kaffee trinken", en: "We would like to drink a coffee." }, accept: ["would like", "to would like"], hint: "The politest way to order or ask for anything in German. It is really the subjunctive of mögen, to like, but you meet it first and use it far more." },
+        { id: "de-u20l1-derlehrer", type: "vocab", front: "der Lehrer", reading: "derlehrer", meaning: "the teacher", example: { jp: "Der Lehrer kommt aus Österreich.", en: "The teacher comes from Austria." }, drill: { jp: "Der Lehrer ist sehr nett", en: "The teacher is very nice" }, accept: ["the teacher"], hint: "A woman is die Lehrerin — the -in ending makes the feminine, as with der Freund and die Freundin in u4." },
+        { id: "de-u20l1-derschuler", type: "vocab", front: "der Schüler", reading: "derschuler", meaning: "the pupil", example: { jp: "Die Schüler sind heute sehr ruhig.", en: "The pupils are very quiet today." }, drill: { jp: "Der Schüler ist sehr jung", en: "The pupil is very young" }, accept: ["the pupil", "the student", "the schoolchild"], hint: "A school pupil. Someone at university is der Student — German keeps the two apart, English does not." },
+        { id: "de-u20l1-derstudent", type: "vocab", front: "der Student", reading: "derstudent", meaning: "the university student", example: { jp: "Mein Bruder ist Student in Berlin.", en: "My brother is a student in Berlin." }, drill: { jp: "Der Student kommt aus Berlin", en: "The student comes from Berlin" }, accept: ["the university student", "the student"], hint: "No article after ist for a role: er ist Student, not ein Student. Stress the end: stu-DENT." },
+        { id: "de-u20l1-dieklasse", type: "vocab", front: "die Klasse", reading: "dieklasse", meaning: "the class", example: { jp: "In meiner Klasse sind zwanzig Schüler.", en: "There are twenty pupils in my class." }, drill: { jp: "Die Klasse ist sehr groß", en: "The class is very big" }, accept: ["the class", "the year group", "the classroom"], hint: "Both the group of pupils and the room. As an exclamation, Klasse! means great." },
+        { id: "de-u20l1-dieprufung", type: "vocab", front: "die Prüfung", reading: "dieprufung", meaning: "the exam", example: { jp: "Die Prüfung ist am Montag.", en: "The exam is on Monday." }, drill: { jp: "Die Prüfung ist heute sehr schwer", en: "The exam is very hard today" }, accept: ["the exam", "the test", "the examination"], hint: "From prüfen, to check. Eine Prüfung machen is to sit an exam." },
+        { id: "de-u20l1-dieaufgabe", type: "vocab", front: "die Aufgabe", reading: "dieaufgabe", meaning: "the task", example: { jp: "Die Aufgabe ist nicht leicht.", en: "The task is not easy." }, drill: { jp: "Die Aufgabe ist für morgen", en: "The task is for tomorrow" }, accept: ["the task", "the exercise", "the assignment"], hint: "Homework is die Hausaufgaben, always plural — literally the house-tasks." },
       ],
     },
     {
       id: "de-u20l2",
       unit: 20,
       lesson: 2,
-      title: "Alltagsverben",
+      title: "Fragen und antworten",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Use the six verbs that carry most German sentences: do, say, see, give, take and know.",
+      canDo: "Ask a question, answer one, and say whether the answer was right or wrong.",
       items: [
-        { id: "de-u20l2-machen", type: "vocab", front: "machen", reading: "machen", meaning: "to do / make", example: { jp: "Was machst du am Sonntag?", en: "What are you doing on Sunday?" }, drill: { jp: "Wir machen das heute zusammen", en: "We are doing that together today." }, accept: ["to do", "to make"], hint: "Was machst du? is both what are you doing and what do you do for a living. Probably the most-used verb in spoken German." },
-        { id: "de-u20l2-sagen", type: "vocab", front: "sagen", reading: "sagen", meaning: "to say", example: { jp: "Sie sagt nichts und geht.", en: "She says nothing and leaves." }, drill: { jp: "Die Eltern sagen dem Kind nichts", en: "The parents say nothing to the child." }, accept: ["to say", "to tell"], hint: "The person told is dative: sag mir, tell me. Sagen is to say; sprechen (u1) is to speak." },
-        { id: "de-u20l2-sehen", type: "vocab", front: "sehen", reading: "sehen", meaning: "to see (with the eyes)", example: { jp: "Aus dem Fenster sehen wir den Park.", en: "From the window we see the park." }, drill: { jp: "Hier sehen wir das Schiff", en: "Here we see the ship" }, accept: ["to see", "to look"], hint: "Vowel shift again: ich sehe, but er sieht. Not the same as u2's bis bald, which is a goodbye, not this verb." },
-        { id: "de-u20l2-geben", type: "vocab", front: "geben", reading: "geben", meaning: "to give", example: { jp: "Der Lehrer gibt dem Schüler ein Buch.", en: "The teacher gives the pupil a book." }, drill: { jp: "Wir geben dem Kind ein Buch", en: "We give the child a book." }, accept: ["to give"], hint: "Two objects: person dative, thing accusative — exactly u13 and u14 together. u13's es gibt, there is, is built from it." },
-        { id: "de-u20l2-nehmen", type: "vocab", front: "nehmen", reading: "nehmen", meaning: "to take", example: { jp: "Wir nehmen den Bus nach Berlin.", en: "We take the bus to Berlin." }, drill: { jp: "Ich kann den Schlüssel nehmen", en: "I can take the key" }, accept: ["to take"], hint: "Badly irregular: ich nehme, du nimmst, er nimmt. Worth learning as three separate shapes." },
-        { id: "de-u20l2-wissen", type: "vocab", front: "wissen", reading: "wissen", meaning: "to know", example: { jp: "Ich weiß, wo das Museum ist.", en: "I know where the museum is." }, drill: { jp: "Wir wissen es nicht", en: "We do not know." }, accept: ["to know", "to know a fact"], hint: "For facts. Knowing a person or a place is kennen — German splits what English calls knowing. ich weiß, du weißt." },
+        { id: "de-u20l2-fragen", type: "vocab", front: "fragen", reading: "fragen", meaning: "to ask", example: { jp: "Der Schüler fragt den Lehrer.", en: "The pupil asks the teacher." }, drill: { jp: "Die Schüler fragen den Lehrer", en: "The pupils ask the teacher" }, accept: ["to ask", "to ask a question"], hint: "The person asked is accusative: er fragt DEN Lehrer. The noun is die Frage, a question." },
+        { id: "de-u20l2-antworten", type: "vocab", front: "antworten", reading: "antworten", meaning: "to answer", example: { jp: "Der Lehrer antwortet dem Schüler.", en: "The teacher answers the pupil." }, drill: { jp: "Die Lehrer antworten sehr schnell", en: "The teachers answer very quickly" }, accept: ["to answer", "to reply"], hint: "Mirror image of fragen: this one takes the DATIVE — er antwortet DEM Schüler. The noun is die Antwort." },
+        { id: "de-u20l2-richtig", type: "vocab", front: "richtig", reading: "richtig", meaning: "correct", example: { jp: "Die Antwort ist richtig.", en: "The answer is correct." }, drill: { jp: "Die Zahl ist richtig", en: "The number is correct" }, accept: ["correct", "right", "true"], hint: "Careful with u7's rechts, which is right as in the direction. Richtig is right as in not wrong." },
+        { id: "de-u20l2-falsch", type: "vocab", front: "falsch", reading: "falsch", meaning: "wrong", example: { jp: "Nein, das ist falsch.", en: "No, that is wrong." }, drill: { jp: "Das Wort hier ist falsch", en: "The word here is wrong" }, accept: ["wrong", "false", "incorrect"], hint: "Also means fake: ein falscher Pass. English false is the same word." },
+        { id: "de-u20l2-daswort", type: "vocab", front: "das Wort", reading: "daswort", meaning: "the word", example: { jp: "Ich verstehe das Wort nicht.", en: "I do not understand the word." }, drill: { jp: "Das Wort ist sehr lang", en: "The word is very long" }, accept: ["the word"], hint: "Two plurals with different jobs: die Wörter are separate words, die Worte are words in a speech." },
+        { id: "de-u20l2-diesprache", type: "vocab", front: "die Sprache", reading: "diesprache", meaning: "the language", example: { jp: "Deutsch ist eine schwere Sprache.", en: "German is a difficult language." }, drill: { jp: "Die Sprache ist sehr schwer", en: "The language is very hard" }, accept: ["the language", "the speech"], hint: "From sprechen, u1 — the thing that is spoken." },
       ],
     },
     {
       id: "de-u20l3",
       unit: 20,
       lesson: 3,
-      title: "Zu Hause",
+      title: "Lernen",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Describe an ordinary day at home: getting up, sitting, lying down, staying in, and sleeping.",
+      canDo: "Say what you do to learn: read, write, practise, understand — and ask someone to explain.",
       items: [
-        { id: "de-u20l3-schlafen", type: "vocab", front: "schlafen", reading: "schlafen", meaning: "to sleep", example: { jp: "Das Kind schläft im Bett.", en: "The child is sleeping in bed." }, drill: { jp: "Die Kinder schlafen im Bett", en: "The children are sleeping in bed." }, accept: ["to sleep"], hint: "Vowel shift: ich schlafe, er schläft. das Schlafzimmer in u15 is built on it." },
-        { id: "de-u20l3-aufstehen", type: "vocab", front: "aufstehen", reading: "aufstehen", meaning: "to get up", example: { jp: "Am Montag stehe ich um sechs Uhr auf.", en: "On Monday I get up at six o'clock." }, drill: { jp: "Wir müssen morgen aufstehen", en: "We have to get up tomorrow." }, accept: ["to get up", "to stand up", "to rise"], hint: "Separable — the auf- goes to the end: ich stehe … auf. Watch the word order in the example." },
-        { id: "de-u20l3-sitzen", type: "vocab", front: "sitzen", reading: "sitzen", meaning: "to sit", example: { jp: "Wir sitzen zusammen auf dem Sofa.", en: "We are sitting together on the sofa." }, drill: { jp: "Die Kinder sitzen im Bus", en: "The children are sitting on the bus" }, accept: ["to sit", "to be sitting"], hint: "Being seated, not the act of sitting down — that is sich setzen. Takes the dative for where." },
-        { id: "de-u20l3-liegen", type: "vocab", front: "liegen", reading: "liegen", meaning: "to lie", example: { jp: "Die Zeitung liegt auf dem Tisch.", en: "The newspaper is lying on the table." }, drill: { jp: "Die Bücher liegen auf dem Tisch", en: "The books are lying on the table." }, accept: ["to lie", "to be lying", "to be situated"], hint: "Used constantly for where a thing IS: das Buch liegt dort. Also for towns — Wien liegt in Österreich." },
-        { id: "de-u20l3-bleiben", type: "vocab", front: "bleiben", reading: "bleiben", meaning: "to stay", example: { jp: "Heute bleiben wir hier.", en: "Today we are staying here." }, drill: { jp: "Ich will noch hier bleiben", en: "I want to stay here a bit longer" }, accept: ["to stay", "to remain"], hint: "zu Hause bleiben, to stay at home. In the perfect it takes sein, not haben: ich bin geblieben." },
-        { id: "de-u20l3-denken", type: "vocab", front: "denken", reading: "denken", meaning: "to think", example: { jp: "Ich denke oft an meine Großeltern.", en: "I often think about my grandparents." }, drill: { jp: "Wir denken oft an die Familie", en: "We often think about the family." }, accept: ["to think"], hint: "denken AN plus accusative for thinking about someone. English think and denken are the same old word." },
+        { id: "de-u20l3-lernen", type: "vocab", front: "lernen", reading: "lernen", meaning: "to learn", example: { jp: "Wir lernen Deutsch zusammen.", en: "We are learning German together." }, drill: { jp: "Die Kinder lernen in der Schule", en: "The children learn at school" }, accept: ["to learn", "to study"], hint: "Lernen is to learn; studieren (u3) is specifically to be at university. English study covers both." },
+        { id: "de-u20l3-lesen", type: "vocab", front: "lesen", reading: "lesen", meaning: "to read", example: { jp: "Mein Vater liest die Zeitung.", en: "My father reads the newspaper." }, drill: { jp: "Wir lesen die Zeitung zusammen", en: "We read the newspaper together" }, accept: ["to read"], hint: "Vowel shift in er/sie: ich lese, but er liest. One of a small group that swaps e for ie." },
+        { id: "de-u20l3-schreiben", type: "vocab", front: "schreiben", reading: "schreiben", meaning: "to write", example: { jp: "Die Schüler schreiben die Wörter.", en: "The pupils write the words." }, drill: { jp: "Die Kinder schreiben die Zahlen", en: "The children write the numbers" }, accept: ["to write"], hint: "Schreiben and English scribe come from the same Latin root. The ei says eye." },
+        { id: "de-u20l3-uben", type: "vocab", front: "üben", reading: "uben", meaning: "to practise", example: { jp: "Ich übe jetzt für die Prüfung.", en: "I am practising for the exam now." }, drill: { jp: "Wir üben hier zusammen", en: "We practise here together" }, accept: ["to practise", "to practice", "to rehearse"], hint: "Short and very common. You may type uben or üben — the umlaut folds." },
+        { id: "de-u20l3-verstehen", type: "vocab", front: "verstehen", reading: "verstehen", meaning: "to understand", example: { jp: "Verstehen Sie die Aufgabe?", en: "Do you understand the task?" }, drill: { jp: "Wir verstehen den Lehrer gut", en: "We understand the teacher well" }, accept: ["to understand", "to comprehend"], hint: "ver- plus stehen, to stand — but the meaning is nowhere near standing. Ich verstehe is the single most useful thing to say in a lesson." },
+        { id: "de-u20l3-erklaren", type: "vocab", front: "erklären", reading: "erklaren", meaning: "to explain", example: { jp: "Der Lehrer erklärt die Aufgabe.", en: "The teacher explains the task." }, drill: { jp: "Die Lehrer erklären die Aufgabe", en: "The teachers explain the task" }, accept: ["to explain", "to clarify"], hint: "From klar, clear — to make clear. The person you explain TO is dative." },
       ],
     },
     {
       id: "de-u20l4",
       unit: 20,
       lesson: 4,
-      title: "Freizeit",
+      title: "Bei der Arbeit",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say what you do in your free time — and, with u20's modal verbs, what you can and want to do. This is the last lesson of German A1.",
+      canDo: "Talk about a workplace: where you work, who you work with and for, and what you earn.",
       items: [
-        { id: "de-u20l4-spielen", type: "vocab", front: "spielen", reading: "spielen", meaning: "to play", example: { jp: "Die Kinder spielen im Garten.", en: "The children are playing in the garden." }, drill: { jp: "Die Schüler spielen nach der Schule", en: "The pupils play after school" }, accept: ["to play"], hint: "Games, sport and instruments all use it: Tennis spielen, Gitarre spielen. English play is the same root as das Spiel." },
-        { id: "de-u20l4-schwimmen", type: "vocab", front: "schwimmen", reading: "schwimmen", meaning: "to swim", example: { jp: "Im Urlaub schwimmen wir sehr oft.", en: "On holiday we swim very often." }, drill: { jp: "Die Kinder wollen schwimmen", en: "The children want to swim" }, accept: ["to swim"], hint: "Swim and schwimmen are the same word — German writes the sw sound as schw." },
-        { id: "de-u20l4-tanzen", type: "vocab", front: "tanzen", reading: "tanzen", meaning: "to dance", example: { jp: "Meine Schwester tanzt sehr gut.", en: "My sister dances very well." }, drill: { jp: "Wir tanzen sehr gern zusammen", en: "We very much like dancing together." }, accept: ["to dance"], hint: "The z is ts: TAN-tsen. Same word as English dance, arrived from French in both languages." },
-        { id: "de-u20l4-singen", type: "vocab", front: "singen", reading: "singen", meaning: "to sing", example: { jp: "Wir singen sehr gern zusammen.", en: "We very much like singing together." }, drill: { jp: "Sie singen sehr schön", en: "They sing very beautifully" }, accept: ["to sing"], hint: "Sing and singen — identical but for the ending. das Lied is a song." },
-        { id: "de-u20l4-kochen", type: "vocab", front: "kochen", reading: "kochen", meaning: "to cook", example: { jp: "Am Sonntag kocht mein Vater.", en: "On Sunday my father cooks." }, drill: { jp: "Wir kochen heute zusammen", en: "We are cooking together today." }, accept: ["to cook", "to boil"], hint: "Also to boil: das Wasser kocht. der Koch is a cook — not to be confused with der Chef, the boss." },
-        { id: "de-u20l4-laufen", type: "vocab", front: "laufen", reading: "laufen", meaning: "to run", example: { jp: "Er läuft am Morgen im Park.", en: "He runs in the park in the morning." }, drill: { jp: "Die Kinder laufen jetzt in den Park", en: "The children are running to the park now." }, accept: ["to run", "to walk", "to go"], hint: "Run, but in much of Germany simply to walk — ich laufe zur Schule. Vowel shift: er läuft." },
+        { id: "de-u20l4-dasburo", type: "vocab", front: "das Büro", reading: "dasburo", meaning: "the workplace", example: { jp: "Mein Büro ist im Zentrum.", en: "My office is in the centre." }, drill: { jp: "Das Büro ist im Zentrum", en: "The office is in the centre" }, accept: ["the office", "the workplace"], hint: "Borrowed from French bureau, and it kept the stress at the end: bü-RO." },
+        { id: "de-u20l4-diefirma", type: "vocab", front: "die Firma", reading: "diefirma", meaning: "the company", example: { jp: "Die Firma ist nicht groß.", en: "The company is not big." }, drill: { jp: "Die Firma ist sehr alt", en: "The company is very old" }, accept: ["the company", "the firm", "the business"], hint: "Irregular plural, die Firmen. English firm is the same word." },
+        { id: "de-u20l4-derchef", type: "vocab", front: "der Chef", reading: "derchef", meaning: "the boss", example: { jp: "Der Chef ist heute nicht hier.", en: "The boss is not here today." }, drill: { jp: "Der Chef kommt um neun Uhr", en: "The boss comes at nine o'clock" }, accept: ["the boss", "the manager", "the head"], hint: "French again, so the ch says sh: SHEF. It means the boss, never a cook — that is der Koch." },
+        { id: "de-u20l4-derkollege", type: "vocab", front: "der Kollege", reading: "derkollege", meaning: "the colleague", example: { jp: "Meine Kollegen sind sehr nett.", en: "My colleagues are very nice." }, drill: { jp: "Der Kollege arbeitet hier", en: "The colleague works here" }, accept: ["the colleague", "the co-worker"], hint: "Like der Kunde in u17, it adds -n outside the nominative: der Kollege, den Kollegen." },
+        { id: "de-u20l4-verdienen", type: "vocab", front: "verdienen", reading: "verdienen", meaning: "to earn", example: { jp: "Sie verdient genug Geld für die Familie.", en: "She earns enough money for the family." }, drill: { jp: "Wir verdienen hier gut", en: "We earn well here" }, accept: ["to earn", "to deserve"], hint: "Also to deserve: das hast du verdient, you deserved that. From dienen, to serve." },
+        { id: "de-u20l4-dertermin", type: "vocab", front: "der Termin", reading: "dertermin", meaning: "the appointment", example: { jp: "Ich habe am Freitag einen Termin.", en: "I have an appointment on Friday." }, drill: { jp: "Der Termin ist am Freitag", en: "The appointment is on Friday" }, accept: ["the appointment", "the date", "the deadline"], hint: "Any fixed time with someone — doctor, bank, boss. Not a romantic date, which is das Date." },
       ],
     },
   ],

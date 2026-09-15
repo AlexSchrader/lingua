@@ -1,31 +1,32 @@
-// DE Unit 17 — Kleidung und Einkaufen (slot: vocabulary 3) — A1
+// DE Unit 16 — Zahlen und Geld (slot: vocabulary 2) — A1
 // Block 3 (u15–u20). Conventions: see de/unit1.js.
 //
-// THEME CHOSEN BY THIS SEAT. Clothes are untouched by u1–u14 — the closest any
-// earlier unit comes is u10's teuer/billig, which describe a price without
-// naming a single thing you could buy. Shopping is the natural other half: it
-// gives the clothes something to do, and it is the A1 conversation a traveller
-// has on day one.
-// This unit sits AFTER u16 on purpose. Every honest shopping sentence needs
-// kosten, der Preis or das Geld, and a unit may only use what is taught at or
-// before it, so numbers and money had to land first.
+// THEME CHOSEN BY THIS SEAT, and it closes the largest single hole in this A1.
+// u5 "Zahlen und Zeit" stopped at zwölf — deliberately, because it needed the
+// room for clock time — and u9 took the days, months and seasons without taking
+// a single number. So an A1 learner arrives at u16 unable to say their age, a
+// price, a house number or a year. This unit finishes the count and then spends
+// it on money, which is what A1 numbers are actually for.
 //
-// Rejected as already taught: teuer, billig (u10), die Farbe and every colour
-// (u8 — used freely in examples here instead), brauchen (u13), die Karte (u7).
-// Rejected as the same lexeme: die Kleidung (~das Kleid — the -ung noun of a word
-// this unit already teaches), die Größe (~groß u1), der Verkäufer (~verkaufen,
-// taught two cards earlier in the same lesson).
-// Kept deliberately: kaufen AND verkaufen. ver- here is not a predictable prefix
-// — it reverses the direction of the transaction, which is the opposite of what
-// ver- does in vergessen or verstehen, and a learner who knows kaufen would not
-// guess it.
-// die Mütze and der Hut both mean a hat and both are A1; only die Mütze is here,
-// because two words for one object inside one six-card lesson is a weak lesson.
-// FREE: Pullover, Sofa, Jeans, Mode | Schuhe, Hosen, Jacken, Socken, Kleider, Taschen, Preise, Euro, Farben
+// ORDERING: this unit was drafted as u17 and swapped forward. Shopping (now u17)
+// cannot write an honest example without kosten, der Preis and das Geld, and a
+// unit may only use vocabulary taught at or before it — so numbers and money
+// have to come first. The swap costs nothing and removes the constraint.
+// NOT every number is taught. Teaching all eighteen of thirteen-to-twenty plus
+// every ten would spend a third of the unit on cards a learner already gets free
+// from drei + zehn. What is here is the PATTERN and every place German breaks it:
+// sechzehn and siebzehn (which drop the -s and the -en), dreißig (ß, not -zig),
+// sechzig and siebzig (same truncation again). vierzehn, fünfzehn, achtzig and
+// neunzig are left to the pattern and used in examples instead.
+// Rejected as already taught: teuer and billig (u10 — the describing unit took
+// both), ein…zwölf (u5), die Uhr / die Stunde / die Minute (u5).
+// Rejected as the same lexeme: zählen (~die Zahl — one lexeme, two cards, and the
+// noun is the more useful of the pair at A1).
+// FREE: Euro, Cent, Kilo, Prozent | Zahlen, Nummern, Stücke, Preise, Jahre, Jahren
 export const DE_UNIT17 = {
   id: "de-u17",
   lang: "de",
-  title: "Kleidung und Einkaufen",
+  title: "Zahlen und Geld",
   order: 17,
   stage: "a1",
   lessons: [
@@ -33,68 +34,68 @@ export const DE_UNIT17 = {
       id: "de-u17l1",
       unit: 17,
       lesson: 1,
-      title: "Was man trägt",
+      title: "Von dreizehn bis zwanzig",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name the clothes you are wearing and say what colour they are: Das Hemd ist blau.",
+      canDo: "Count past twelve and say how old someone is: Mein Bruder ist siebzehn.",
       items: [
-        { id: "de-u17l1-dashemd", type: "vocab", front: "das Hemd", reading: "dashemd", meaning: "the shirt", example: { jp: "Das Hemd ist weiß und sehr sauber.", en: "The shirt is white and very clean." }, drill: { jp: "Das Hemd ist zu klein", en: "The shirt is too small" }, accept: ["the shirt"], hint: "A shirt with a collar and buttons. A T-shirt is das T-Shirt, borrowed whole from English." },
-        { id: "de-u17l1-diehose", type: "vocab", front: "die Hose", reading: "diehose", meaning: "the trousers", example: { jp: "Die Hose ist zu lang für mich.", en: "The trousers are too long for me." }, drill: { jp: "Die Hose ist grau und neu", en: "The trousers are grey and new" }, accept: ["the trousers", "the pants"], hint: "Singular in German, plural in English: die Hose ist, the trousers are. One garment, one word." },
-        { id: "de-u17l1-derrock", type: "vocab", front: "der Rock", reading: "derrock", meaning: "the skirt", example: { jp: "Der Rock ist nicht teuer.", en: "The skirt is not expensive." }, drill: { jp: "Der Rock ist zu kurz", en: "The skirt is too short" }, accept: ["the skirt"], hint: "Nothing to do with music or stone. Der Rock is a skirt, and das Kleid is a dress." },
-        { id: "de-u17l1-daskleid", type: "vocab", front: "das Kleid", reading: "daskleid", meaning: "the dress", example: { jp: "Das Kleid dort ist sehr schön.", en: "That dress over there is very beautiful." }, drill: { jp: "Das Kleid ist blau und lang", en: "The dress is blue and long" }, accept: ["the dress"], hint: "The plural die Kleider means clothes in general — which is where die Kleidung comes from." },
-        { id: "de-u17l1-derschuh", type: "vocab", front: "der Schuh", reading: "derschuh", meaning: "the shoe", example: { jp: "Die Schuhe sind neu und noch nicht schmutzig.", en: "The shoes are new and not yet dirty." }, drill: { jp: "Der Schuh ist zu klein.", en: "The shoe is too small." }, accept: ["the shoe"], hint: "Almost always used in the plural, die Schuhe, because they come in twos." },
-        { id: "de-u17l1-dietasche", type: "vocab", front: "die Tasche", reading: "dietasche", meaning: "the bag", example: { jp: "Mein Schlüssel ist in der Tasche.", en: "My key is in the bag." }, drill: { jp: "Die Tasche ist sehr teuer.", en: "The bag is very expensive." }, accept: ["the bag", "the pocket", "the handbag"], hint: "Both a bag you carry and a pocket in your clothes — context decides which." },
+        { id: "de-u17l1-dreizehn", type: "vocab", front: "dreizehn", reading: "dreizehn", meaning: "thirteen", example: { jp: "Mein Bruder ist dreizehn Jahre alt.", en: "My brother is thirteen years old." }, drill: { jp: "Das Haus hat dreizehn Zimmer", en: "The house has thirteen rooms" }, accept: ["thirteen", "13"], hint: "The pattern for the whole teens: the small number first, then zehn. drei + zehn. English does it backwards — thir-teen." },
+        { id: "de-u17l1-sechzehn", type: "vocab", front: "sechzehn", reading: "sechzehn", meaning: "sixteen", example: { jp: "Die Schule hat sechzehn Zimmer.", en: "The school has sixteen rooms." }, drill: { jp: "Hier sind sechzehn Kinder", en: "There are sixteen children here" }, accept: ["sixteen", "16"], hint: "First break in the pattern: sechs loses its s. Not sechszehn — sechzehn." },
+        { id: "de-u17l1-siebzehn", type: "vocab", front: "siebzehn", reading: "siebzehn", meaning: "seventeen", example: { jp: "Meine Schwester ist siebzehn.", en: "My sister is seventeen." }, drill: { jp: "Ich habe siebzehn Euro", en: "I have seventeen euros" }, accept: ["seventeen", "17"], hint: "Second break: sieben loses its -en. Not siebenzehn — siebzehn. These two are the only irregular teens." },
+        { id: "de-u17l1-achtzehn", type: "vocab", front: "achtzehn", reading: "achtzehn", meaning: "eighteen", example: { jp: "Mein Cousin ist jetzt achtzehn.", en: "My cousin is eighteen now." }, drill: { jp: "Das Buch kostet achtzehn Euro", en: "The book costs eighteen euros" }, accept: ["eighteen", "18"], hint: "Back to the regular pattern — acht + zehn, with only one t between them." },
+        { id: "de-u17l1-neunzehn", type: "vocab", front: "neunzehn", reading: "neunzehn", meaning: "nineteen", example: { jp: "Es ist jetzt neunzehn Uhr.", en: "It is nineteen hundred hours now." }, drill: { jp: "Meine Tante ist neunzehn Jahre alt", en: "My aunt is nineteen years old" }, accept: ["nineteen", "19"], hint: "German timetables count to 24, so neunzehn Uhr is seven in the evening." },
+        { id: "de-u17l1-zwanzig", type: "vocab", front: "zwanzig", reading: "zwanzig", meaning: "twenty", example: { jp: "Im Haus sind zwanzig Fenster.", en: "There are twenty windows in the house." }, drill: { jp: "Wir haben zwanzig Minuten Zeit", en: "We have twenty minutes" }, accept: ["twenty", "20"], hint: "Not zweizig. Twenty is its own word, and from here the tens end in -zig." },
       ],
     },
     {
       id: "de-u17l2",
       unit: 17,
       lesson: 2,
-      title: "Warme Sachen",
+      title: "Die Zehner",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say what you put on when it is cold, and connect the weather words from u8 to real clothes.",
+      canDo: "Count in tens up to a hundred, and hear where German breaks its own rule.",
       items: [
-        { id: "de-u17l2-diejacke", type: "vocab", front: "die Jacke", reading: "diejacke", meaning: "the jacket", example: { jp: "Die Jacke ist warm und blau.", en: "The jacket is warm and blue." }, drill: { jp: "Die Jacke hier ist sehr teuer", en: "The jacket here is very expensive" }, accept: ["the jacket"], hint: "Jacket and Jacke are the same word. The ck is one sound, as in English back." },
-        { id: "de-u17l2-dermantel", type: "vocab", front: "der Mantel", reading: "dermantel", meaning: "the coat", example: { jp: "Im Winter trage ich immer einen Mantel.", en: "In winter I always wear a coat." }, drill: { jp: "Der Mantel ist lang und schwarz.", en: "The coat is long and black." }, accept: ["the coat", "the overcoat"], hint: "Longer and warmer than eine Jacke. Plural umlauts: die Mäntel." },
-        { id: "de-u17l2-derpullover", type: "vocab", front: "der Pullover", reading: "derpullover", meaning: "the jumper", example: { jp: "Der Pullover ist grau und sehr warm.", en: "The jumper is grey and very warm." }, drill: { jp: "Der Pullover kostet vierzig Euro", en: "The jumper costs forty euros" }, accept: ["the jumper", "the sweater", "the pullover"], hint: "Everyone shortens it to der Pulli in speech." },
-        { id: "de-u17l2-diesocke", type: "vocab", front: "die Socke", reading: "diesocke", meaning: "the sock", example: { jp: "Die Socken sind rot und gelb.", en: "The socks are red and yellow." }, drill: { jp: "Die Socke ist gelb und klein.", en: "The sock is yellow and small." }, accept: ["the sock"], hint: "Like shoes, nearly always plural: die Socken." },
-        { id: "de-u17l2-diemutze", type: "vocab", front: "die Mütze", reading: "diemutze", meaning: "the woolly cap", example: { jp: "Bei Schnee brauche ich eine Mütze.", en: "When it snows I need a cap." }, drill: { jp: "Die Mütze ist warm und bunt.", en: "The hat is warm and colourful." }, accept: ["the cap", "the woolly hat", "the beanie"], hint: "The soft knitted kind. A hat with a brim is der Hut — a different word for a different object." },
-        { id: "de-u17l2-derschal", type: "vocab", front: "der Schal", reading: "derschal", meaning: "the scarf", example: { jp: "Der Schal ist von meiner Mutter.", en: "The scarf is from my mother." }, drill: { jp: "Der Schal ist rot und warm", en: "The scarf is red and warm" }, accept: ["the scarf"], hint: "Said with a long a, like English shawl — which is where English got the word." },
+        { id: "de-u17l2-dreissig", type: "vocab", front: "dreißig", reading: "dreissig", meaning: "thirty", example: { jp: "Die Frau dort ist dreißig.", en: "The woman over there is thirty." }, drill: { jp: "Der Weg ist dreißig Meter lang", en: "The path is thirty metres long" }, accept: ["thirty", "30"], hint: "The one ten that does not end in -zig: dreißig, with ß. You may type dreissig or dreißig — both are accepted." },
+        { id: "de-u17l2-vierzig", type: "vocab", front: "vierzig", reading: "vierzig", meaning: "forty", example: { jp: "Die Straße ist vierzig Meter lang.", en: "The street is forty metres long." }, drill: { jp: "Mein Vater ist vierzig Jahre alt", en: "My father is forty years old" }, accept: ["forty", "40"], hint: "Regular: vier + zig. Note German writes vierzig, not vierzehn — one is 40, the other 14." },
+        { id: "de-u17l2-funfzig", type: "vocab", front: "fünfzig", reading: "funfzig", meaning: "fifty", example: { jp: "Der Mann arbeitet seit fünfzig Jahren hier.", en: "The man has worked here for fifty years." }, drill: { jp: "In der Schule sind fünfzig Kinder", en: "There are fifty children at the school" }, accept: ["fifty", "50"], hint: "Regular again — fünf + zig, umlaut and all." },
+        { id: "de-u17l2-sechzig", type: "vocab", front: "sechzig", reading: "sechzig", meaning: "sixty", example: { jp: "Eine Stunde hat sechzig Minuten.", en: "An hour has sixty minutes." }, drill: { jp: "Mein Großvater ist sechzig Jahre alt", en: "My grandfather is sixty years old" }, accept: ["sixty", "60"], hint: "sechs drops its s here too, exactly as in sechzehn. The break is consistent." },
+        { id: "de-u17l2-siebzig", type: "vocab", front: "siebzig", reading: "siebzig", meaning: "seventy", example: { jp: "Meine Großmutter ist siebzig.", en: "My grandmother is seventy." }, drill: { jp: "Das Hotel hat siebzig Zimmer", en: "The hotel has seventy rooms" }, accept: ["seventy", "70"], hint: "And sieben drops its -en, as in siebzehn. Learn the four together: sechzehn, siebzehn, sechzig, siebzig." },
+        { id: "de-u17l2-hundert", type: "vocab", front: "hundert", reading: "hundert", meaning: "hundred", example: { jp: "Das Hotel hat hundert Zimmer.", en: "The hotel has a hundred rooms." }, drill: { jp: "Hundert Meter sind nicht weit", en: "A hundred metres is not far" }, accept: ["hundred", "one hundred", "100"], hint: "No ein in front of it: hundert Zimmer, a hundred rooms. Say einhundert only when you are being precise." },
       ],
     },
     {
       id: "de-u17l3",
       unit: 17,
       lesson: 3,
-      title: "Anziehen und passen",
+      title: "Zahlen im Alltag",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say that you are putting something on, trying it on, or that it does or does not fit.",
+      canDo: "Ask for a number, say how many of something there are, and say whether that is a lot or not much.",
       items: [
-        { id: "de-u17l3-tragen", type: "vocab", front: "tragen", reading: "tragen", meaning: "to wear / carry", example: { jp: "Sie trägt heute ein Kleid.", en: "She is wearing a dress today." }, drill: { jp: "Die Kinder tragen neue Schuhe.", en: "The children are wearing new shoes." }, accept: ["to wear", "to carry"], hint: "One verb for both jobs: you tragen clothes and you tragen a heavy bag. The vowel shifts in er/sie: er trägt." },
-        { id: "de-u17l3-anziehen", type: "vocab", front: "anziehen", reading: "anziehen", meaning: "to put on", example: { jp: "Ich ziehe die Schuhe an.", en: "I am putting my shoes on." }, accept: ["to put on", "to get dressed"], hint: "A separable verb: the an- breaks off and goes to the end — ich ziehe … an. Watch for it in the example." },
-        { id: "de-u17l3-ausziehen", type: "vocab", front: "ausziehen", reading: "ausziehen", meaning: "to undress / remove clothing", example: { jp: "Zieh die Jacke aus, hier ist es warm.", en: "Take your jacket off, it is warm in here." }, accept: ["to take off", "to undress", "to remove"], hint: "Same verb, opposite prefix: an- on, aus- off. It also means to move out of a flat." },
-        { id: "de-u17l3-passen", type: "vocab", front: "passen", reading: "passen", meaning: "to fit", example: { jp: "Die Hose passt mir nicht.", en: "The trousers do not fit me." }, drill: { jp: "Die Schuhe passen mir nicht.", en: "The shoes do not fit me." }, accept: ["to fit", "to suit"], hint: "Takes the dative person: die Hose passt MIR. Nothing to do with der Pass, a passport." },
-        { id: "de-u17l3-anprobieren", type: "vocab", front: "anprobieren", reading: "anprobieren", meaning: "to try on", example: { jp: "Ich probiere das Kleid an.", en: "I am trying the dress on." }, accept: ["to try on"], hint: "Separable again, and the one sentence you need in a German clothes shop." },
-        { id: "de-u17l3-gefallen", type: "vocab", front: "gefallen", reading: "gefallen", meaning: "to appeal to", example: { jp: "Der Mantel gefällt mir sehr.", en: "I like the coat very much." }, drill: { jp: "Die Jacken gefallen mir sehr.", en: "I like the jackets a lot." }, accept: ["to please", "to appeal to", "to like"], hint: "Backwards from English: the THING is the subject and YOU are dative — der Mantel gefällt mir, the coat pleases me." },
+        { id: "de-u17l3-tausend", type: "vocab", front: "tausend", reading: "tausend", meaning: "thousand", example: { jp: "Das Auto kostet tausend Euro.", en: "The car costs a thousand euros." }, drill: { jp: "Tausend Euro sind viel Geld", en: "A thousand euros is a lot of money" }, accept: ["thousand", "one thousand", "1000"], hint: "Like hundert, it takes no ein. Note the au — it is said like the ow in how." },
+        { id: "de-u17l3-diezahl", type: "vocab", front: "die Zahl", reading: "diezahl", meaning: "the numeral", example: { jp: "Die Zahl dreizehn ist nicht immer schlecht.", en: "The number thirteen is not always bad." }, drill: { jp: "Die Zahl dort ist sehr groß", en: "The number over there is very big" }, accept: ["the number", "the numeral", "the figure"], hint: "A number as a quantity or a figure. For the number OF something — a phone, a house — German uses die Nummer instead." },
+        { id: "de-u17l3-dienummer", type: "vocab", front: "die Nummer", reading: "dienummer", meaning: "the reference number", example: { jp: "Wie ist deine Nummer?", en: "What is your number?" }, drill: { jp: "Die Nummer ist dreizehn.", en: "The number is thirteen." }, accept: ["the number", "the reference number"], hint: "The one that identifies something: die Telefonnummer, die Hausnummer. Never for counting — that is die Zahl." },
+        { id: "de-u17l3-dasstuck", type: "vocab", front: "das Stück", reading: "dasstuck", meaning: "the piece", example: { jp: "Ich esse ein Stück Brot.", en: "I am eating a piece of bread." }, drill: { jp: "Das Stück Brot ist klein.", en: "The piece of bread is small." }, accept: ["the piece", "the bit", "the item"], hint: "Also how prices are quoted per item: drei Euro das Stück. No von — ein Stück Brot, never ein Stück von Brot." },
+        { id: "de-u17l3-viel", type: "vocab", front: "viel", reading: "viel", meaning: "much / a lot", example: { jp: "Wir haben nicht viel Zeit.", en: "We do not have much time." }, drill: { jp: "Das kostet viel Geld", en: "That costs a lot of money" }, accept: ["much", "a lot", "a lot of", "many"], hint: "Careful with the ie — viel is said feel, not vile. u12's wie viel is built from it." },
+        { id: "de-u17l3-wenig", type: "vocab", front: "wenig", reading: "wenig", meaning: "few / a small amount", example: { jp: "Im Keller ist wenig Licht.", en: "There is little light in the cellar." }, drill: { jp: "Hier ist wenig Platz", en: "There is little space here" }, accept: ["little", "few", "not much", "a small amount"], hint: "The opposite of viel. Ein wenig, with ein, softens it to a little bit." },
       ],
     },
     {
       id: "de-u17l4",
       unit: 17,
       lesson: 4,
-      title: "Im Geschäft",
+      title: "Geld und Preise",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Get through a shop: ask to be shown something, buy it, and pay at the till.",
+      canDo: "Ask what something costs, say the price in euros, and say you have enough money.",
       items: [
-        { id: "de-u17l4-kaufen", type: "vocab", front: "kaufen", reading: "kaufen", meaning: "to buy", example: { jp: "Ich kaufe die Schuhe für vierzig Euro.", en: "I am buying the shoes for forty euros." }, drill: { jp: "Wir kaufen einen Mantel im Geschäft.", en: "We are buying a coat in the shop." }, accept: ["to buy", "to purchase"], hint: "Einkaufen, with ein-, is to do the shopping — the whole trip rather than one purchase." },
-        { id: "de-u17l4-verkaufen", type: "vocab", front: "verkaufen", reading: "verkaufen", meaning: "to sell", example: { jp: "Sie verkaufen hier auch Bücher.", en: "They also sell books here." }, drill: { jp: "Wir verkaufen das Haus", en: "We are selling the house" }, accept: ["to sell"], hint: "ver- turns the transaction around: kaufen is to buy, verkaufen is to sell. Same money, opposite direction." },
-        { id: "de-u17l4-dasgeschaft", type: "vocab", front: "das Geschäft", reading: "dasgeschaft", meaning: "the shop", example: { jp: "Das Geschäft ist heute zu.", en: "The shop is closed today." }, drill: { jp: "Das Geschäft hier ist sehr klein", en: "The shop here is very small" }, accept: ["the shop", "the store", "the business"], hint: "Also the word for a business deal. Der Laden is the smaller, more everyday word for a shop." },
-        { id: "de-u17l4-diekasse", type: "vocab", front: "die Kasse", reading: "diekasse", meaning: "the till", example: { jp: "Sie bezahlen bitte an der Kasse.", en: "Please pay at the till." }, drill: { jp: "Die Kasse ist dort links.", en: "The till is over there on the left." }, accept: ["the till", "the checkout", "the cash desk"], hint: "An der Kasse is where you queue. The same word covers a cinema box office." },
-        { id: "de-u17l4-derkunde", type: "vocab", front: "der Kunde", reading: "derkunde", meaning: "the customer", example: { jp: "Der Kunde dort sucht einen Pullover.", en: "The customer over there is looking for a jumper." }, drill: { jp: "Der Kunde bezahlt an der Kasse", en: "The customer pays at the till" }, accept: ["the customer", "the client"], hint: "One of a small group of masculine nouns that add -n everywhere except the nominative: der Kunde, but den Kunden." },
-        { id: "de-u17l4-zeigen", type: "vocab", front: "zeigen", reading: "zeigen", meaning: "to show", example: { jp: "Zeigen Sie mir bitte den Mantel.", en: "Please show me the coat." }, drill: { jp: "Wir zeigen dir das Zimmer", en: "We will show you the room" }, accept: ["to show", "to point out"], hint: "Two objects at once: the person is dative (mir) and the thing is accusative (den Mantel) — exactly the u13/u14 pattern." },
+        { id: "de-u17l4-dasgeld", type: "vocab", front: "das Geld", reading: "dasgeld", meaning: "the money", example: { jp: "Ich habe kein Geld für ein Hotel.", en: "I have no money for a hotel." }, drill: { jp: "Das Geld ist in der Bank.", en: "The money is in the bank." }, accept: ["the money", "money"], hint: "Never plural in this sense. Geld verdienen is to earn money." },
+        { id: "de-u17l4-dereuro", type: "vocab", front: "der Euro", reading: "dereuro", meaning: "the euro", example: { jp: "Das Buch kostet zwanzig Euro.", en: "The book costs twenty euros." }, drill: { jp: "Der Euro ist das Geld in Europa.", en: "The euro is the money in Europe." }, accept: ["the euro"], hint: "After a number it stays singular: zwanzig Euro, never zwanzig Euros. Said OY-ro, not YOU-ro." },
+        { id: "de-u17l4-kosten", type: "vocab", front: "kosten", reading: "kosten", meaning: "to cost", example: { jp: "Was kostet der Kaffee?", en: "What does the coffee cost?" }, drill: { jp: "Die Äpfel kosten wenig Geld.", en: "The apples cost little money." }, accept: ["to cost"], hint: "Was kostet…? is the everyday way to ask a price. Wie viel kostet…? is also right and slightly fuller." },
+        { id: "de-u17l4-derpreis", type: "vocab", front: "der Preis", reading: "derpreis", meaning: "the price", example: { jp: "Der Preis für das Zimmer ist zu hoch.", en: "The price for the room is too high." }, drill: { jp: "Der Preis ist sehr gut", en: "The price is very good" }, accept: ["the price", "the prize"], hint: "Nothing to do with u6's der Reis, rice — one letter apart and worth keeping straight. It also means a prize you win." },
+        { id: "de-u17l4-bezahlen", type: "vocab", front: "bezahlen", reading: "bezahlen", meaning: "to pay", example: { jp: "Wir bezahlen zusammen, bitte.", en: "We will pay together, please." }, drill: { jp: "Sie bezahlen hundert Euro", en: "They pay a hundred euros" }, accept: ["to pay", "to pay for"], hint: "Said in every restaurant in Germany. Careful: bezahlen is to pay, zählen is to count — the umlaut is the difference." },
+        { id: "de-u17l4-genug", type: "vocab", front: "genug", reading: "genug", meaning: "enough", example: { jp: "Ich habe genug Geld für das Buch.", en: "I have enough money for the book." }, drill: { jp: "Wir haben genug Zeit", en: "We have enough time" }, accept: ["enough"], hint: "Comes before the noun but after an adjective or verb: genug Geld, but gut genug." },
       ],
     },
   ],
