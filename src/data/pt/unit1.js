@@ -86,7 +86,7 @@
 //     fold collision makes a word permanently unteachable; that was withdrawn after
 //     this was checked against a real validate run.)
 //     pt SHIPS FOUR SUCH PAIRS ON PURPOSE, each because the contrast IS the lesson:
-//       é / e (u1l3)  ·  às / as (u12)  ·  nós / nos (u4, u29)  ·  porque / porquê (u29)
+//       é / e (u1l1)  ·  às / as (u12)  ·  nós / nos (u4, u29)  ·  porque / porquê (u29)
 //     THE LOUD VERSION IS THE ID, NOT THE FRONT: porque and porquê fold to one id
 //     slug and that IS a hard duplicate-id error. porquê carries an explicit id.
 //     WORDS A LATER BAND WILL WANT THAT WOULD DOUBLE UP ON AN ALREADY-TAUGHT FOLD —
@@ -269,7 +269,7 @@ export const PT_UNIT1 = {
       title: "As outras vogais: i, o e u",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Type í, ó, ô and ú — the marks that say where the stress falls and how wide the o is — then read o livro and a rua, where an unstressed i, o and u close right down.",
+      canDo: "Type í, ó, ô and ú — the marks that say where the stress falls and how wide the o is — then read o livro and a rua, where the final unstressed o closes right down to an oo.",
       items: [
         { id: "pt-u1l2-glyphiacute", type: "glyph", front: "í", reading: "i", meaning: null, example: null, hint: "A stressed \"ee\" — país is pa-EESH. Portuguese i is ALWAYS \"ee\"; the accent changes nothing about the sound, it only says \"the stress is here\", pulling it off the vowel before. Type it: ´ then i." },
         { id: "pt-u1l2-glyphoacute", type: "glyph", front: "ó", reading: "o", meaning: null, example: null, hint: "The OPEN o — the o of \"hot\", said wide: avó, grandmother. Type it: hold O on a phone, or ´ then o." },
@@ -309,7 +309,7 @@ export const PT_UNIT1 = {
       title: "O til, a cedilha e o m final",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Type ã and ç, read a maçã and o preço, and say sim, um and uma — where a final m nasalises the vowel in front of it instead of closing your lips.",
+      canDo: "Type ã and ç, read a maçã and o preço, and say sim and um — where a final m nasalises the vowel in front of it instead of closing your lips — beside uma, whose m sits between two vowels and stays an ordinary m.",
       items: [
         { id: "pt-u1l4-glyphatilde", type: "glyph", front: "ã", reading: "a", meaning: null, example: null, hint: "The tilde sends the air out through your NOSE. Say \"ah\" and let it come down your nose instead: maçã, irmã. It is not a stress mark — it is a different vowel. Type it: ~ then a, or hold A on a phone." },
         { id: "pt-u1l4-glyphcedilha", type: "glyph", front: "ç", reading: "c", meaning: null, example: null, hint: "The cedilha — the little tail that forces a soft \"s\" where a plain c would go hard: maçã, preço, açúcar. It appears ONLY before a, o or u; before e and i the c is already soft, so ç is never needed there. Type it: on a Portuguese keyboard ç has its own key, right of L; on a phone hold C." },
@@ -317,7 +317,7 @@ export const PT_UNIT1 = {
         { id: "pt-u1l4-opreco", type: "vocab", front: "o preço", reading: "opreco", meaning: "price", example: { jp: "O preço não é um problema.", en: "The price isn't a problem." }, drill: { jp: "O preço não é caro", en: "The price is not expensive" }, accept: ["the price", "cost"], hint: "PRE-su. Cedilla again before an o. You never need ç before e or i — c is already soft there, as in cidade." },
         { id: "pt-u1l4-sim", type: "vocab", front: "sim", reading: "sim", meaning: "yes", example: { jp: "Sim, é o livro de Ana.", en: "Yes, it's Ana's book." }, drill: { jp: "Sim é o livro de Ana", en: "Yes it is Ana's book" }, accept: ["yeah", "yep"], hint: "A final m does not close your lips — it just nasalises the vowel before it. \"seeng\", but stop before the g." },
         { id: "pt-u1l4-um", type: "vocab", front: "um", reading: "um", meaning: "a", example: { jp: "É um livro.", en: "It's a book." }, drill: { jp: "É um livro caro", en: "It is an expensive book" }, accept: ["an", "one", "a/an"], hint: "Nasal again: \"oong\" without the g. It means both \"a\" and \"one\". With a feminine noun it becomes UMA — um livro, uma casa — so you will meet uma from here on." },
-        { id: "pt-u1l4-uma", type: "vocab", front: "uma", reading: "uma", meaning: "a (feminine)", example: { jp: "É uma casa enorme.", en: "It's an enormous house." }, drill: { jp: "Uma casa e uma rua", en: "A house and a street" }, accept: ["a", "an", "one", "a/an (feminine)"], hint: "The feminine of um, and just as nasal: OO-ma. Which one you use is decided by the NOUN, not by you — um livro, uma casa. Portuguese makes you choose a gender every time you say \"a\", which is why every noun in this course is taught with its article attached." },
+        { id: "pt-u1l4-uma", type: "vocab", front: "uma", reading: "uma", meaning: "a (feminine)", example: { jp: "É uma casa enorme.", en: "It's an enormous house." }, drill: { jp: "Uma casa e uma rua", en: "A house and a street" }, accept: ["a", "an", "one", "a/an (feminine)"], hint: "The feminine of um — but NOT nasal. Here the m sits between two vowels, so it stays an ordinary m and the u is plain: OO-ma. Only a FINAL m nasalises, as in um. Which one you use is decided by the NOUN, not by you — um livro, uma casa. Portuguese makes you choose a gender every time you say \"a\", which is why every noun in this course is taught with its article attached." },
       ],
     },
     // Lesson 5: the two digraphs, each in front of the everyday words that carry
