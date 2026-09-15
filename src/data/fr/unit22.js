@@ -1,74 +1,68 @@
-// FR Unit 22 — Les verbes · 2 ("Verbs 2") — A1 GRAMMAR
-// Full present-tense paradigms for the three verbs everything else hangs off —
-// être, avoir, aller — taught as person-by-person chunks (the same modelling as
-// the Japanese ～ます units) rather than as a conjugation table.
-//
-// The subject pronouns vous/nous/ils/elles live HERE, not in Unit 21, because
-// this is where their verb forms are: teaching "ils" in a unit whose examples had
-// to borrow "ils sont" from a later unit was backwards (content-auditor B1c).
+// FR Unit 21 — Dire non ("Saying no") — A1 GRAMMAR
+// Negation as function-word vocab (no grammar item type — same modelling as the
+// Japanese ぶんぽう units). The learner already met ne…pas frozen inside "je ne
+// comprends pas"; here it becomes a pattern they can build themselves, plus the
+// negative pronouns and the de-after-negation rule that trips everyone up.
 // Conventions: see fr/unit1.js.
 export const FR_UNIT22 = {
   id: "fr-u22",
   lang: "fr",
-  title: "Les verbes · 2",
-  order: 23,
+  title: "Dire non",
+  order: 22,
   stage: "a1",
   lessons: [
     {
       id: "fr-u22l1",
       unit: 22,
       lesson: 1,
-      title: "Who's who",
+      title: "ne ... pas",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Use every subject pronoun with être: vous, nous, ils, elles — nous sommes, vous êtes, ils sont, on.",
+      canDo: "Make any sentence negative by wrapping the verb: je ne mange pas, ce n'est pas, il n'y a pas.",
       items: [
-        { id: "fr-u22l1-vous", type: "vocab", front: "vous", reading: "vous", meaning: "you (polite)", example: { jp: "Vous êtes le père de Marie ?", en: "Are you Marie's father?" }, accept: ["you formal", "you plural"], hint: "vous for strangers and groups; tu for friends and family. With a stranger, always start with vous." },
-        { id: "fr-u22l1-nous", type: "vocab", front: "nous", reading: "nous", meaning: "we", example: { jp: "Nous sommes à Paris.", en: "We are in Paris." }, accept: ["us"] },
-        { id: "fr-u22l1-ils", type: "vocab", front: "ils", reading: "ils", meaning: "they", example: { jp: "Ils sont dans le jardin.", en: "They are in the garden." }, accept: ["they masculine"], hint: "ils for men or a mixed group, elles for an all-female group." },
-        { id: "fr-u22l1-elles", type: "vocab", front: "elles", reading: "elles", meaning: "they (feminine)", example: { jp: "Marie et Anne ? Elles sont ici.", en: "Marie and Anne? They're here." }, drill: { jp: "Elles sont dans le jardin", en: "They are in the garden" }, accept: ["they"] },
-        { id: "fr-u22l1-noussommes", type: "vocab", front: "nous sommes", reading: "noussommes", meaning: "we are", example: { jp: "Nous sommes très contents.", en: "We are very happy." }, accept: ["we're"] },
-        { id: "fr-u22l1-vousetes", type: "vocab", front: "vous êtes", reading: "vousetes", meaning: "you are (polite)", example: { jp: "Vous êtes français ?", en: "Are you French?" }, accept: ["you're"] },
-        { id: "fr-u22l1-ilssont", type: "vocab", front: "ils sont", reading: "ilssont", meaning: "they are", example: { jp: "Ils sont dans le salon.", en: "They are in the living room." }, accept: ["they're"] },
-        { id: "fr-u22l1-on", type: "vocab", front: "on", reading: "on", meaning: "we", example: { jp: "On va au restaurant !", en: "We're going to the restaurant!" }, accept: ["one", "people", "you"], hint: "In real speech, on almost always replaces nous: on va, on mange. It takes the il/elle form." },
+        { id: "fr-u22l1-nepas", type: "vocab", front: "ne … pas", reading: "nepas", meaning: "not", example: { jp: "Je ne travaille pas aujourd'hui.", en: "I'm not working today." }, accept: ["not at all", "negation"], hint: "Negation is a SANDWICH: ne goes before the verb, pas after it. je ne parle pas, il ne mange pas." },
+        { id: "fr-u22l1-jenemangepas", type: "vocab", front: "je ne mange pas", reading: "jenemangepas", meaning: "I don't eat", example: { jp: "Je ne mange pas de viande.", en: "I don't eat meat." }, accept: ["i do not eat", "i'm not eating"], hint: "After a negative, un/une/du all become de: je mange de la viande → je ne mange pas DE viande." },
+        { id: "fr-u22l1-cenestpas", type: "vocab", front: "ce n'est pas", reading: "cenestpas", meaning: "it is not", example: { jp: "Ce n'est pas cher, c'est gratuit !", en: "It's not expensive, it's free!" }, accept: ["that's not", "it's not"], hint: "ne shrinks to n' before a vowel: ce n'est pas, il n'a pas." },
+        { id: "fr-u22l1-jenaipas", type: "vocab", front: "je n'ai pas", reading: "jenaipas", meaning: "I don't have", example: { jp: "Je n'ai pas d'argent.", en: "I don't have any money." }, accept: ["i have not", "i haven't"] },
+        { id: "fr-u22l1-ilnyapas", type: "vocab", front: "il n'y a pas", reading: "ilnyapas", meaning: "there isn't", example: { jp: "Il n'y a pas de pain à la maison.", en: "There isn't any bread at home." }, accept: ["there is not", "there aren't"] },
+        { id: "fr-u22l1-jenesuispas", type: "vocab", front: "je ne suis pas", reading: "jenesuispas", meaning: "I am not", example: { jp: "Je ne suis pas fatigué.", en: "I'm not tired." }, accept: ["i'm not", "i am not"] },
+        { id: "fr-u22l1-pasdutout", type: "vocab", front: "pas du tout", reading: "pasdutout", meaning: "not at all", example: { jp: "Fatigué ? Pas du tout !", en: "Tired? Not at all!" }, accept: ["absolutely not", "no way"] },
       ],
     },
     {
       id: "fr-u22l2",
       unit: 22,
       lesson: 2,
-      title: "Having and going",
+      title: "Nothing, nobody, no more",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Use avoir, aller and venir: nous avons, vous avez, ils ont — tu vas, il va, je viens, il vient.",
+      canDo: "Use the other negatives: ne … rien, ne … personne, ne … plus, ne … jamais.",
       items: [
-        { id: "fr-u22l2-nousavons", type: "vocab", front: "nous avons", reading: "nousavons", meaning: "we have", example: { jp: "Nous avons deux enfants.", en: "We have two children." }, accept: ["we've"] },
-        { id: "fr-u22l2-vousavez", type: "vocab", front: "vous avez", reading: "vousavez", meaning: "you have (polite)", example: { jp: "Vous avez l'heure, s'il vous plaît ?", en: "Do you have the time, please?" }, accept: ["you've", "do you have"], hint: "Vous avez l'heure ? is the natural way to ask a stranger the time." },
-        { id: "fr-u22l2-ilsont", type: "vocab", front: "ils ont", reading: "ilsont", meaning: "they have", example: { jp: "Ils ont une grande maison.", en: "They have a big house." }, accept: ["they've"], hint: "Careful: ils ont (they have) vs ils sont (they are). One letter, opposite verbs." },
-        { id: "fr-u22l2-tuvas", type: "vocab", front: "tu vas", reading: "tuvas", meaning: "you go", example: { jp: "Tu vas à l'école aujourd'hui ?", en: "Are you going to school today?" }, accept: ["you're going"], hint: "Ça va ? (Unit 1) is this same verb — literally \"it goes?\"" },
-        { id: "fr-u22l2-ilva", type: "vocab", front: "il va", reading: "ilva", meaning: "he goes", example: { jp: "Il va au marché le samedi.", en: "He goes to the market on Saturdays." }, accept: ["he's going", "she goes"] },
-        { id: "fr-u22l2-nousallons", type: "vocab", front: "nous allons", reading: "nousallons", meaning: "we go", example: { jp: "Nous allons à la plage en août.", en: "We go to the beach in August." }, accept: ["we're going"] },
-        { id: "fr-u22l2-jeviens", type: "vocab", front: "je viens", reading: "jeviens", meaning: "I come", example: { jp: "Je viens avec toi !", en: "I'm coming with you!" }, accept: ["i'm coming"] },
-        { id: "fr-u22l2-ilvient", type: "vocab", front: "il vient", reading: "ilvient", meaning: "he comes", example: { jp: "Il vient de Paris.", en: "He comes from Paris." }, accept: ["he's coming", "she comes"], hint: "venir de = to come from — il vient de Lyon." },
+        { id: "fr-u22l2-nerien", type: "vocab", front: "ne … rien", reading: "nerien", meaning: "nothing", example: { jp: "Je ne mange rien ce matin.", en: "I'm not eating anything this morning." }, accept: ["not anything"], hint: "Same sandwich, different filling: rien replaces pas. je ne vois rien." },
+        { id: "fr-u22l2-rien", type: "vocab", front: "rien", reading: "rien", meaning: "nothing", example: { jp: "Qu'est-ce que c'est ? — Rien !", en: "What is it? — Nothing!" }, accept: ["anything"], hint: "Alone it's a full answer: Rien ! You already know it from de rien (Unit 1)." },
+        { id: "fr-u22l2-nepersonne", type: "vocab", front: "ne … personne", reading: "nepersonne", meaning: "nobody", example: { jp: "Il n'y a personne dans la rue.", en: "There's nobody in the street." }, accept: ["no one", "not anyone"] },
+        { id: "fr-u22l2-personne", type: "vocab", front: "personne", reading: "personne", meaning: "nobody", example: { jp: "Qui est là ? — Personne.", en: "Who's there? — Nobody." }, accept: ["no one"], hint: "Confusingly, une personne is also \"a person\". Context decides." },
+        { id: "fr-u22l2-neplus", type: "vocab", front: "ne … plus", reading: "neplus", meaning: "not anymore", example: { jp: "Je ne travaille plus ici.", en: "I don't work here anymore." }, accept: ["no longer", "not any more"], hint: "Same word as plus = more (Unit 4) — but inside ne…plus it means the opposite." },
+        { id: "fr-u22l2-nejamais", type: "vocab", front: "ne … jamais", reading: "nejamais", meaning: "never", example: { jp: "Je ne bois jamais de vin.", en: "I never drink wine." }, accept: ["not ever"] },
+        { id: "fr-u22l2-pasencore", type: "vocab", front: "pas encore", reading: "pasencore", meaning: "not yet", example: { jp: "Tu as fini ? — Pas encore !", en: "Have you finished? — Not yet!" }, accept: ["not yet"] },
       ],
     },
     {
       id: "fr-u22l3",
       unit: 22,
       lesson: 3,
-      title: "More everyday verbs",
+      title: "Asking properly",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Use more key verbs: je mets, je dors, je sors, je reste, je donne, je vois, j'ouvre, je ferme.",
+      canDo: "Ask real questions: est-ce que, n'est-ce pas, qui est-ce, combien de — and answer a negative with si.",
       items: [
-        { id: "fr-u22l3-jemets", type: "vocab", front: "je mets", reading: "jemets", meaning: "I put", example: { jp: "Je mets le pain sur la table.", en: "I put the bread on the table." }, accept: ["i'm putting", "i place", "i put on"], hint: "Also \"I put on\" for clothes: je mets un manteau." },
-        { id: "fr-u22l3-jedors", type: "vocab", front: "je dors", reading: "jedors", meaning: "I sleep", example: { jp: "Je dors huit heures.", en: "I sleep eight hours." }, accept: ["i'm sleeping"] },
-        { id: "fr-u22l3-jesors", type: "vocab", front: "je sors", reading: "jesors", meaning: "I go out", example: { jp: "Le samedi, je sors avec mon frère.", en: "On Saturdays, I go out with my brother." }, accept: ["i'm going out", "i leave", "i exit"] },
-        { id: "fr-u22l3-jereste", type: "vocab", front: "je reste", reading: "jereste", meaning: "I stay", example: { jp: "Il pleut : je reste à la maison.", en: "It's raining: I'm staying home." }, accept: ["i'm staying", "i remain"] },
-        { id: "fr-u22l3-jedonne", type: "vocab", front: "je donne", reading: "jedonne", meaning: "I give", example: { jp: "Je donne la clé à ma mère.", en: "I'm giving the key to my mother." }, accept: ["i'm giving"] },
-        { id: "fr-u22l3-jevois", type: "vocab", front: "je vois", reading: "jevois", meaning: "I see", example: { jp: "Je vois la mer !", en: "I see the sea!" }, accept: ["i'm seeing"], hint: "Je vois. on its own = \"I see.\" — exactly like English." },
-        { id: "fr-u22l3-jouvre", type: "vocab", front: "j'ouvre", reading: "jouvre", meaning: "I open", example: { jp: "J'ouvre la porte.", en: "I open the door." }, accept: ["i'm opening"] },
-        { id: "fr-u22l3-jeferme", type: "vocab", front: "je ferme", reading: "jeferme", meaning: "I close", example: { jp: "Je ferme la fenêtre : il fait froid.", en: "I'm closing the window: it's cold." }, drill: { jp: "Je ferme la porte", en: "I close the door" }, accept: ["i'm closing", "i shut"] },
+        { id: "fr-u22l3-estceque", type: "vocab", front: "est-ce que", reading: "estceque", meaning: "(question marker)", example: { jp: "Est-ce que tu parles français ?", en: "Do you speak French?" }, accept: ["do", "does", "is it that"], hint: "Put it in front of any statement and it becomes a question. No English equivalent — it just marks the question." },
+        { id: "fr-u22l3-estcequilya", type: "vocab", front: "est-ce qu'il y a", reading: "estcequilya", meaning: "is there", example: { jp: "Est-ce qu'il y a un café près d'ici ?", en: "Is there a café near here?" }, accept: ["are there"] },
+        { id: "fr-u22l3-nestcepas", type: "vocab", front: "n'est-ce pas", reading: "nestcepas", meaning: "isn't it", example: { jp: "Il fait beau, n'est-ce pas ?", en: "The weather's nice, isn't it?" }, accept: ["right", "isn't that so", "don't you think"], hint: "One tag for every English tag question: isn't it, aren't you, doesn't he." },
+        { id: "fr-u22l3-quiestce", type: "vocab", front: "qui est-ce", reading: "quiestce", meaning: "who is it", example: { jp: "Qui est-ce ? — C'est Marie !", en: "Who is it? — It's Marie!" }, drill: { jp: "Qui est-ce que tu regardes", en: "Who is it that you are watching" }, accept: ["who is that", "who's that", "who's it"] },
+        { id: "fr-u22l3-combiende", type: "vocab", front: "combien de", reading: "combiende", meaning: "how many", example: { jp: "Combien de frères ? Deux.", en: "How many brothers? Two." }, accept: ["how much"], hint: "combien (Unit 4) asks the price; combien de + a noun counts things." },
+        { id: "fr-u22l3-si", type: "vocab", front: "si", reading: "si", meaning: "yes (after a negative)", example: { jp: "Tu ne travailles pas ? — Si !", en: "You're not working? — Yes I am!" }, accept: ["yes"], hint: "French has a SECOND yes. Contradicting a negative question takes si, never oui — a real gap in English." },
+        { id: "fr-u22l3-alors", type: "vocab", front: "alors", reading: "alors", meaning: "so", example: { jp: "Il pleut ? Alors je vais à la maison.", en: "It's raining? Then I'm going home." }, accept: ["then", "well"] },
       ],
     },
   ],
