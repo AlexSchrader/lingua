@@ -65,9 +65,28 @@ function asStep(kind) {
 
 export function reviewStepFor(item) {
   const rung = item.rung ?? 1;
-  // A tagged Latin conjugation item is a drill at every rung: its front is the shared
-  // infinitive, so the generic cards cannot say which form is being asked for.
-  if (rung >= 1 && isLatin(item) && shouldConjugate(item)) return { kind: "conjugate" };
+  // A tagged Latin conjugation item cannot take the cards that prompt with its front:
+  // that front is the shared infinitive, so they cannot say which form is being asked.
+  // It CAN take the ear cards, because the clip is the form — and it has to, or the
+  // item never masters (mastery needs a pass on every eligible kind) and its audio is
+  // never played at all. eligibleKinds has already narrowed the set to the drill plus
+  // the ear cards; rotate over it so the least-practised comes up, with the drill
+  // winning ties exactly as it did when it was the only option.
+  if (rung >= 1 && isLatin(item) && shouldConjugate(item)) {
+    // Staged like every other item: HEAR the form before drilling it. The clip says
+    // "je serai", so the ear cards are the only ones that can introduce which form
+    // this card even is — drilling first asks the learner to produce something they
+    // have never been shown. Ties fall to the stage leader, so a fresh item hears the
+    // clip at rung 1; once counts differ, leastPractised rotates as everywhere else.
+    const can = new Set(eligibleKinds(item));
+    const stage =
+      rung <= 1 ? ["listen:choice", "conjugate"]
+      : rung === 2 ? ["listen:type", "listen:choice", "conjugate"]
+      : ["conjugate", "listen:type", "listen:choice"];
+    const cands = stage.filter((k) => can.has(k));
+    if (!cands.length) return { kind: "conjugate" };
+    return asStep(leastPractised(item, cands) ?? cands[0]);
+  }
 
   // Rotation. The old dispatcher was deterministic per (item, rung) — one card per
   // stage, forever — which mastery cannot finish, because it needs passes on EVERY

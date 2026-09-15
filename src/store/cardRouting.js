@@ -564,6 +564,19 @@ export function eligibleKinds(item) {
   if (canBuildReading(item)) out.push("build");
   if (isTraceable(item)) out.push("trace");
   if (shouldConjugate(item)) out.push("conjugate");
+
+  // A LATIN conjugation item shares one front with every other form of the same
+  // verb — `être` is the front of all six future cards — so any card that PROMPTS
+  // with the front cannot say which form it is asking for. Only two kinds can: the
+  // drill, which names the form, and the ear cards, where the clip IS the form
+  // ("je serai"). Everything else must not be eligible, because `requiredPasses`
+  // scales with this list: leaving 11 kinds eligible while reviewStep can only ever
+  // serve one made MASTERED unreachable for all 96 fr/es conjugation items, and left
+  // their audio unplayable for the item's whole life. Japanese is unaffected — its
+  // conjugation fronts differ per form, so the generic cards work there.
+  if (isLatin(item) && shouldConjugate(item)) {
+    return out.filter((k) => k === "conjugate" || k === "listen:choice" || k === "listen:type");
+  }
   return out;
 }
 
