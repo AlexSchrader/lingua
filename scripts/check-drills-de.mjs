@@ -11,8 +11,8 @@
 //   node scripts/check-drills-de.mjs        report
 //   node scripts/check-drills-de.mjs -v     list every item that still needs one
 //   node scripts/check-drills-de.mjs 1 7    limit to a unit range (a block)
-import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { buildScope } from "./de-vocab-scope.mjs";
 
 const root = process.cwd();
 const args = process.argv.slice(2).filter((a) => a !== "-v");
@@ -52,33 +52,12 @@ for (let u = from; u <= to; u++) {
 // check-lang-scope read `example` and never look at `drill`. A drill is a
 // sentence the learner reads, so it is bound by the same taught-at-or-before
 // rule as an example — and without this pass nothing would ever say so.
-const fold = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/ß/g, "ss");
-const FREE = new Set();
-const born = new Map();
-const remember = (w, u) => { const p = born.get(w); if (p === undefined || u < p) born.set(w, u); };
-for (let u = 1; u <= 20; u++) {
-  let src = "";
-  try { src = readFileSync(join(root, `src/data/de/unit${u}.js`), "utf8"); } catch { continue; }
-  const m = src.match(/^\/\/\s*FREE:\s*(.+)$/m);
-  if (m) m[1].split(/[|,]/).map((s) => s.trim()).filter(Boolean).forEach((w) => FREE.add(fold(w)));
-  const mod = await import(`file:///${join(root, `src/data/de/unit${u}.js`).replace(/\\/g, "/")}`);
-  const unit = Object.values(mod)[0];
-  for (const l of unit.lessons)
-    for (const it of l.items ?? []) {
-      const f = fold(it.front);
-      f.split(/\s+/).forEach((w) => remember(w, unit.order));
-      const bare = f.replace(/^(der|die|das)\s+/, "");
-      remember(bare, unit.order);
-      if (/en$/.test(bare)) {                       // infinitive -> its person forms
-        const st = bare.replace(/en$/, "");
-        ["e", "st", "t", "en", "et", ""].forEach((s) => remember(st + s, unit.order));
-      }
-      ["e", "en", "er", "n", "s"].forEach((s) => remember(bare + s, unit.order));
-    }
-}
-const outOfScope = (jp, order) =>
-  fold(jp).replace(/[.,!?;:]/g, " ").split(/\s+/).filter(Boolean)
-    .filter((w) => !FREE.has(w) && !(born.get(w) !== undefined && born.get(w) <= order));
+//
+// The morphology itself lives in de-vocab-scope.mjs and is SHARED with
+// scope-strict-de.mjs. It used to be duplicated here, and the copies drifted
+// twice — the folded-IRREG-key bug and the missing -ern/-eln verb class — each
+// time producing false failures on correct drills. See that file's header.
+const { outOfScope } = await buildScope(root);
 
 let usable = 0;
 const need = [];

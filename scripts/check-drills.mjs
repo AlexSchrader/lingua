@@ -31,54 +31,16 @@ for (const n of UNITS.map((u) => u.order)) {
 }
 
 // --- every surface form a taught front can produce, -> earliest unit ---
-const IRREG = { være: ["er"], ha: ["har"], gå: ["går"], gi: ["gir"], se: ["ser"], bo: ["bor"], forstå: ["forstår"], stå: ["står"], vite: ["vet"], få: ["får"], si: ["sier"], ta: ["tar"], kunne: ["kan"], ville: ["vil"], skulle: ["skal"], måtte: ["må"], burde: ["bør"], bli: ["blir"], gjøre: ["gjør"] };
+// The generator lived here and is now scripts/morph/no.mjs, shared with
+// check-examples.mjs. Its header documents the six resolver gaps that took the
+// example gate from 43 flagged sentences to 20 real ones. Two copies of this
+// table drifting apart is how the German fork grew a bug that read kann, darf,
+// muss and will as untaught.
+const { surfaces } = await import("file:///" + join(root, "scripts/morph/no.mjs").replace(/\\/g, "/"));
 const born = new Map();
-const add = (w, u) => { const p = born.get(w); if (p === undefined || u < p) born.set(w, u); };
-for (const i of items) {
-  const slot = i.u * 100 + i.l;   // lesson granularity, not unit — the blind spot unit7.js warns about
-  const bare = i.front.replace(/^(en |ei |et |å )/, "").toLowerCase();
-  i.front.toLowerCase().split(" ").forEach((w) => add(w, slot));
-  add(bare, slot);
-  if (/^å /.test(i.front)) {
-    (IRREG[bare] || []).forEach((f) => add(f, slot));
-    add(bare + "r", slot); add(bare.replace(/e$/, "er"), slot);
-    add(bare.replace(/e$/, "te"), slot); add(bare.replace(/e$/, "et"), slot); // past
-  } else if (/^(en|ei|et) /.test(i.front)) {
-    for (const s of ["en", "et", "a", "er", "ene", "ne", "e"]) add(bare + s, slot);
-    for (const s of ["a", "en", "er", "ene"]) add(bare.replace(/e$/, s), slot);
-    add(bare.replace(/el$/, "ler"), slot);
-    // Short nouns double a final single consonant before an ending: rom -> rommet.
-    if (/^[^aeiouyæøå]*[aeiouyæøå][bdfglmnprtk]$/.test(bare)) {
-      const d = bare + bare.slice(-1);
-      for (const suf of ["et", "en", "er", "a", "ene"]) add(d + suf, slot);
-    }
-    const IRR_PL = { tann: ["tenner", "tennene"], bok: ["bøker", "bøkene"], hånd: ["hender", "hendene"],
-      fot: ["føtter", "føttene"], bror: ["brødre", "brødrene"], søster: ["søstre", "søstrene"],
-      datter: ["døtre", "døtrene"], mann: ["menn", "mennene"], natt: ["netter", "nettene"],
-      bonde: ["bønder"], and: ["ender"], far: ["fedre"], mor: ["mødre"], øye: ["øyne", "øynene"] };
-    (IRR_PL[bare] || []).forEach((f) => add(f, slot));
-  } else {
-    // adjective/adverb: neuter -t, plural/definite -e, and the COMPARATIVE and
-    // SUPERLATIVE, which are inflections of a taught word exactly as the present
-    // tense is. Without these, "dyrere" (from dyr) reads as untaught.
-    add(bare + "t", slot); add(bare + "e", slot);
-    // A BARE front may be a mass/plural-only NOUN (vann, melk, vær, hår, ull,
-    // såpe, arbeid, musikk, helse, feber), not only an adjective. Bare fronts
-    // went through the adjective branch alone, so no bare noun ever got a
-    // definite — "såpa" read as untaught. Found by the block-3 seat.
-    for (const suf of ["a", "en", "et", "ene", "ne"]) add(bare + suf, slot);
-    add(bare.replace(/e$/, "a"), slot);
-    // Neuter -t collapses a final double consonant: grønn -> grønt, tynn -> tynt.
-    add(bare.replace(/(nn|mm|ll|tt)$/, (mm) => mm[0] + "t"), slot);
-    add(bare + "ere", slot); add(bare + "est", slot); add(bare + "este", slot);
-    add(bare + "er", slot); add(bare + "ene", slot); // bare-front nouns pluralise too
-    add(bare.replace(/e$/, "ere"), slot); add(bare.replace(/e$/, "est"), slot);
-    const IRR_ADJ = { liten: ["lita", "lite", "små", "lille"], gammel: ["gammelt", "gamle"], egen: ["eget", "egne", "egne"], annen: ["annet", "andre"], vakker: ["vakkert", "vakre"], sikker: ["sikkert", "sikre"], ny: ["nytt", "nye"], bra: ["bra"], fri: ["fritt", "frie"], blå: ["blått", "blå"], grå: ["grått", "grå"] };
-    (IRR_ADJ[bare] || []).forEach((f) => add(f, slot));
-    const IRR_CMP = { stor: ["større", "størst"], liten: ["mindre", "minst"], god: ["bedre", "best"], gammel: ["eldre", "eldst"], ung: ["yngre", "yngst"], lang: ["lengre", "lengst"], mange: ["flere", "flest"], mye: ["mer", "mest"], vond: ["verre", "verst"] };
-    (IRR_CMP[bare] || []).forEach((f) => add(f, slot));
-  }
-}
+const add = (w, u) => { if (!w) return; const p = born.get(w); if (p === undefined || u < p) born.set(w, u); };
+// lesson granularity, not unit — the blind spot unit7.js warns about
+for (const i of items) surfaces(i.front, i.u * 100 + i.l, add);
 
 // --- the real router rules ---
 const isLetter = (c) => !!c && /\p{L}/u.test(c);
@@ -91,6 +53,25 @@ function findWholeWord(hay, needle) {
     if (!isLetter(hay[i - 1]) && !isLetter(hay[i + N.length])) return { index: i, length: needle.length };
   }
 }
+// Vocabulary scope, shared by drills and (under --examples) examples. lint runs a
+// weaker matcher of its own and reports every inflection as untaught; this uses the
+// same surface-form table the drill checker does, so an example warning that
+// survives HERE is a real scope violation rather than the A2 noise floor.
+function scope(text, item, bad, notes) {
+  for (const w of text.toLowerCase().match(/[a-zæøåéá]+/g) || []) {
+    if (FREE.has(w) || w.length < 2) continue;
+    const at = born.get(w);
+    if (at === undefined) bad.push(`"${w}" is taught NOWHERE`);
+    else if (at > (item.u + 1) * 100) bad.push(`"${w}" first taught u${Math.floor(at / 100)}, used at u${item.u}`);
+    // LESSON-granular hit: legal under the documented rule (RUNBOOK §4 and
+    // unit1.js §6 both say "at or before that UNIT"), but the learner meets
+    // lessons in order, so it is worth surfacing. A signal, not a defect —
+    // inventing a stricter rule mid-flight would force ~58 rewrites the
+    // convention permits. Raised by the block-3 seat.
+    else if (at > item.u * 100 + item.l) notes.push(`"${w}" is from a later lesson (u${Math.floor(at / 100)}l${at % 100})`);
+  }
+}
+
 const NOTES = [];
 function check(item) {
   const d = item.drill;
@@ -106,18 +87,7 @@ function check(item) {
   // A 1-char front is below canCloze's >=2 floor and can never cloze, drill or not.
   // The drill still serves sentence:build, so this is a NOTE, not a defect.
   if ([...(item.front ?? "")].length < 2) notes.push("1-char front: sentence:build only, never cloze");
-  for (const w of jp.toLowerCase().match(/[a-zæøåéá]+/g) || []) {
-    if (FREE.has(w) || w.length < 2) continue;
-    const at = born.get(w);
-    if (at === undefined) bad.push(`"${w}" is taught NOWHERE`);
-    else if (at > (item.u + 1) * 100) bad.push(`"${w}" first taught u${Math.floor(at / 100)}, used at u${item.u}`);
-    // LESSON-granular hit: legal under the documented rule (RUNBOOK §4 and
-    // unit1.js §6 both say "at or before that UNIT"), but the learner meets
-    // lessons in order, so it is worth surfacing. A signal, not a defect —
-    // inventing a stricter rule mid-flight would force ~58 rewrites the
-    // convention permits. Raised by the block-3 seat.
-    else if (at > item.u * 100 + item.l) notes.push(`"${w}" is from a later lesson (u${Math.floor(at / 100)}l${at % 100})`);
-  }
+  scope(jp, item, bad, notes);
   // Adjective agreement: an adjective front is the BASE (common-gender) form, so a
   // neuter subject would need -t — but the front must appear verbatim, so the drill
   // must not put a neuter subject in front of it. Cheap structural catch for the one
@@ -152,6 +122,33 @@ function check(item) {
 
 const NOTESHOLD=0;
 const verbose = process.argv.includes("-v");
+
+// --taught w1,w2,...: where each surface form enters the course. An AUTHORING
+// query — asking the same table the checker uses beats guessing, which is how
+// untaught words reached examples in the first place.
+if (process.argv.includes("--taught")) {
+  const ws = (process.argv[process.argv.indexOf("--taught") + 1] || "").split(/[ ,]+/).filter(Boolean);
+  for (const w of ws) {
+    const lw = w.toLowerCase(); const at = born.get(lw);
+    console.log(lw.padEnd(16), FREE.has(lw) ? "FREE" : at === undefined ? "— untaught" : `u${Math.floor(at / 100)}l${at % 100}`);
+  }
+  process.exit(0);
+}
+
+// --examples: scope only, over example.jp. Same table, different haystack.
+if (process.argv.includes("--examples")) {
+  const NL = String.fromCharCode(10);
+  const bad2 = [];
+  for (const i of items) {
+    const errs = [], notes = [];
+    scope(String(i.example?.jp ?? ""), i, errs, notes);
+    if (errs.length) bad2.push(`  ✗ ${i.id.padEnd(24)} ${errs.join(" | ")}   «${i.example?.jp ?? ""}»`);
+  }
+  if (bad2.length) console.log(bad2.join(NL));
+  console.log(`${NL}examples: ${items.length - bad2.length} in scope · ${bad2.length} out of scope`);
+  process.exit(bad2.length ? 1 : 0);
+}
+
 let ok = 0; const problems = [];
 for (const i of items) {
   const bad = check(i);

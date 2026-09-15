@@ -1,28 +1,31 @@
-// DE Unit 18 — Reisen und Verkehr (slot: vocabulary 4) — A1
+// DE Unit 17 — Kleidung und Einkaufen (slot: vocabulary 3) — A1
 // Block 3 (u15–u20). Conventions: see de/unit1.js.
 //
-// THEME CHOSEN BY THIS SEAT. u7 "Die Stadt" put the learner at der Bahnhof and
-// taught gehen and fahren, then stopped — it never named a single vehicle, and
-// it could not, because a town unit is about places. This unit takes what you
-// travel IN, what you need at the station, and what you pack.
+// THEME CHOSEN BY THIS SEAT. Clothes are untouched by u1–u14 — the closest any
+// earlier unit comes is u10's teuer/billig, which describe a price without
+// naming a single thing you could buy. Shopping is the natural other half: it
+// gives the clothes something to do, and it is the A1 conversation a traveller
+// has on day one.
+// This unit sits AFTER u16 on purpose. Every honest shopping sentence needs
+// kosten, der Preis or das Geld, and a unit may only use what is taught at or
+// before it, so numbers and money had to land first.
 //
-// Rejected as already taught: der Bahnhof, fahren, gehen, der Weg, die Karte
-// (all u7), das Hotel and das Restaurant (u7 — used in examples here).
-// Rejected as the same lexeme: die Reise and reisen — u2 already teaches the
-// phrase gute Reise, so the noun is in the learner's mouth from the second unit
-// and the seat that owns u2 owns it. der Urlaub and die Ferien do that job here.
-// Also rejected: die Abfahrt and die Ankunft, which are the -t nouns of abfahren
-// and ankommen, both taught in lesson 3 of this same unit.
-// Kept deliberately: abfahren and ankommen, whose ab- and an- are not decorative
-// — a learner who knows fahren and kommen still cannot get "depart" and "arrive"
-// out of them, and the separable-verb pattern is A1 grammar no earlier unit
-// covers. einsteigen and umsteigen are built on steigen, which is taught nowhere,
-// so they are wholly new.
-// FREE: Bus, Taxi, Ticket, Meter, Kilometer, Europa | Züge, Busse, Koffer, Grenzen, Zimmer, Schuhe, Jahre
+// Rejected as already taught: teuer, billig (u10), die Farbe and every colour
+// (u8 — used freely in examples here instead), brauchen (u13), die Karte (u7).
+// Rejected as the same lexeme: die Kleidung (~das Kleid — the -ung noun of a word
+// this unit already teaches), die Größe (~groß u1), der Verkäufer (~verkaufen,
+// taught two cards earlier in the same lesson).
+// Kept deliberately: kaufen AND verkaufen. ver- here is not a predictable prefix
+// — it reverses the direction of the transaction, which is the opposite of what
+// ver- does in vergessen or verstehen, and a learner who knows kaufen would not
+// guess it.
+// die Mütze and der Hut both mean a hat and both are A1; only die Mütze is here,
+// because two words for one object inside one six-card lesson is a weak lesson.
+// FREE: Pullover, Sofa, Jeans, Mode | Schuhe, Hosen, Jacken, Socken, Kleider, Taschen, Preise, Euro, Farben
 export const DE_UNIT18 = {
   id: "de-u18",
   lang: "de",
-  title: "Reisen und Verkehr",
+  title: "Kleidung und Einkaufen",
   order: 18,
   stage: "a1",
   lessons: [
@@ -30,68 +33,68 @@ export const DE_UNIT18 = {
       id: "de-u18l1",
       unit: 18,
       lesson: 1,
-      title: "Verkehrsmittel",
+      title: "Was man trägt",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name what you travel in and say how you get somewhere: Ich fahre mit dem Zug.",
+      canDo: "Name the clothes you are wearing and say what colour they are: Das Hemd ist blau.",
       items: [
-        { id: "de-u18l1-derzug", type: "vocab", front: "der Zug", reading: "derzug", meaning: "the train", example: { jp: "Der Zug nach Berlin ist sehr schnell.", en: "The train to Berlin is very fast." }, accept: ["the train"], hint: "Mit dem Zug fahren — the vehicle takes mit plus the dative, every time." },
-        { id: "de-u18l1-derbus", type: "vocab", front: "der Bus", reading: "derbus", meaning: "the bus", example: { jp: "Der Bus kommt um neunzehn Uhr.", en: "The bus comes at seven in the evening." }, accept: ["the bus"], hint: "Same word as English, but the plural doubles the s: die Busse." },
-        { id: "de-u18l1-diebahn", type: "vocab", front: "die Bahn", reading: "diebahn", meaning: "the railway", example: { jp: "Die Bahn ist heute nicht teuer.", en: "The railway is not expensive today." }, accept: ["the railway", "the train", "the tram"], hint: "The system rather than the vehicle — die Deutsche Bahn. In a city, die S-Bahn and die U-Bahn." },
-        { id: "de-u18l1-dasflugzeug", type: "vocab", front: "das Flugzeug", reading: "dasflugzeug", meaning: "the aeroplane", example: { jp: "Das Flugzeug nach Wien ist voll.", en: "The plane to Vienna is full." }, accept: ["the aeroplane", "the plane", "the airplane"], hint: "Flug, flight, plus Zeug, gear — a flight-thing. German names machines this way constantly." },
-        { id: "de-u18l1-dasfahrrad", type: "vocab", front: "das Fahrrad", reading: "dasfahrrad", meaning: "the bicycle", example: { jp: "Mein Fahrrad ist im Keller.", en: "My bicycle is in the cellar." }, drill: { jp: "Das Fahrrad ist im Keller", en: "The bicycle is in the cellar" }, accept: ["the bicycle", "the bike"], hint: "Fahr, from fahren, plus Rad, wheel. Everyone says das Rad for short." },
-        { id: "de-u18l1-dasschiff", type: "vocab", front: "das Schiff", reading: "dasschiff", meaning: "the ship", example: { jp: "Das Schiff ist sehr groß und weiß.", en: "The ship is very big and white." }, accept: ["the ship", "the boat"], hint: "Ship and Schiff are the same word — German writes the sh sound as sch." },
+        { id: "de-u18l1-dashemd", type: "vocab", front: "das Hemd", reading: "dashemd", meaning: "the shirt", example: { jp: "Das Hemd ist weiß und sehr sauber.", en: "The shirt is white and very clean." }, drill: { jp: "Das Hemd ist zu klein", en: "The shirt is too small" }, accept: ["the shirt"], hint: "A shirt with a collar and buttons. A T-shirt is das T-Shirt, borrowed whole from English." },
+        { id: "de-u18l1-diehose", type: "vocab", front: "die Hose", reading: "diehose", meaning: "the trousers", example: { jp: "Die Hose ist zu lang für mich.", en: "The trousers are too long for me." }, drill: { jp: "Die Hose ist grau und neu", en: "The trousers are grey and new" }, accept: ["the trousers", "the pants"], hint: "Singular in German, plural in English: die Hose ist, the trousers are. One garment, one word." },
+        { id: "de-u18l1-derrock", type: "vocab", front: "der Rock", reading: "derrock", meaning: "the skirt", example: { jp: "Der Rock ist nicht teuer.", en: "The skirt is not expensive." }, drill: { jp: "Der Rock ist zu kurz", en: "The skirt is too short" }, accept: ["the skirt"], hint: "Nothing to do with music or stone. Der Rock is a skirt, and das Kleid is a dress." },
+        { id: "de-u18l1-daskleid", type: "vocab", front: "das Kleid", reading: "daskleid", meaning: "the dress", example: { jp: "Das Kleid dort ist sehr schön.", en: "That dress over there is very beautiful." }, drill: { jp: "Das Kleid ist blau und lang", en: "The dress is blue and long" }, accept: ["the dress"], hint: "The plural die Kleider means clothes in general — which is where die Kleidung comes from." },
+        { id: "de-u18l1-derschuh", type: "vocab", front: "der Schuh", reading: "derschuh", meaning: "the shoe", example: { jp: "Die Schuhe sind neu und noch nicht schmutzig.", en: "The shoes are new and not yet dirty." }, drill: { jp: "Der Schuh ist zu klein.", en: "The shoe is too small." }, accept: ["the shoe"], hint: "Almost always used in the plural, die Schuhe, because they come in twos." },
+        { id: "de-u18l1-dietasche", type: "vocab", front: "die Tasche", reading: "dietasche", meaning: "the bag", example: { jp: "Mein Schlüssel ist in der Tasche.", en: "My key is in the bag." }, drill: { jp: "Die Tasche ist sehr teuer.", en: "The bag is very expensive." }, accept: ["the bag", "the pocket", "the handbag"], hint: "Both a bag you carry and a pocket in your clothes — context decides which." },
       ],
     },
     {
       id: "de-u18l2",
       unit: 18,
       lesson: 2,
-      title: "Am Bahnhof",
+      title: "Warme Sachen",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Buy a ticket, find your stop, read the timetable, and say where you are going.",
+      canDo: "Say what you put on when it is cold, and connect the weather words from u8 to real clothes.",
       items: [
-        { id: "de-u18l2-derflughafen", type: "vocab", front: "der Flughafen", reading: "derflughafen", meaning: "the airport", example: { jp: "Der Flughafen ist weit von der Stadt.", en: "The airport is far from the city." }, accept: ["the airport"], hint: "Flug, flight, plus Hafen, harbour — a harbour for flights, which is exactly what an airport is." },
-        { id: "de-u18l2-diehaltestelle", type: "vocab", front: "die Haltestelle", reading: "diehaltestelle", meaning: "the stop", example: { jp: "Die Haltestelle ist neben der Post.", en: "The stop is next to the post office." }, accept: ["the stop", "the bus stop"], hint: "Halte, from halten to stop, plus Stelle, place — the place where it stops." },
-        { id: "de-u18l2-diefahrkarte", type: "vocab", front: "die Fahrkarte", reading: "diefahrkarte", meaning: "the ticket", example: { jp: "Eine Fahrkarte nach Hamburg kostet vierzig Euro.", en: "A ticket to Hamburg costs forty euros." }, drill: { jp: "Die Fahrkarte ist im Koffer", en: "The ticket is in the suitcase" }, accept: ["the ticket"], hint: "Fahr plus Karte, both from u7 — but the compound is a fixed word, and das Ticket is just as common." },
-        { id: "de-u18l2-derfahrplan", type: "vocab", front: "der Fahrplan", reading: "derfahrplan", meaning: "the timetable", example: { jp: "Der Fahrplan ist dort an der Wand.", en: "The timetable is on the wall over there." }, accept: ["the timetable", "the schedule"], hint: "Every German station has one on the wall — yellow for departures, white for arrivals." },
-        { id: "de-u18l2-dasziel", type: "vocab", front: "das Ziel", reading: "dasziel", meaning: "the destination", example: { jp: "Mein Ziel ist München.", en: "My destination is Munich." }, drill: { jp: "Das Ziel ist München", en: "The destination is Munich" }, accept: ["the destination", "the goal", "the target"], hint: "Where you are headed, and also a goal in life. Note the ie — said zeel." },
-        { id: "de-u18l2-warten", type: "vocab", front: "warten", reading: "warten", meaning: "to wait", example: { jp: "Wir warten hier auf den Bus.", en: "We are waiting for the bus here." }, accept: ["to wait", "to wait for"], hint: "warten AUF plus the accusative — you wait on something, not for it, in German." },
+        { id: "de-u18l2-diejacke", type: "vocab", front: "die Jacke", reading: "diejacke", meaning: "the jacket", example: { jp: "Die Jacke ist warm und blau.", en: "The jacket is warm and blue." }, drill: { jp: "Die Jacke hier ist sehr teuer", en: "The jacket here is very expensive" }, accept: ["the jacket"], hint: "Jacket and Jacke are the same word. The ck is one sound, as in English back." },
+        { id: "de-u18l2-dermantel", type: "vocab", front: "der Mantel", reading: "dermantel", meaning: "the coat", example: { jp: "Im Winter trage ich immer einen Mantel.", en: "In winter I always wear a coat." }, drill: { jp: "Der Mantel ist lang und schwarz.", en: "The coat is long and black." }, accept: ["the coat", "the overcoat"], hint: "Longer and warmer than eine Jacke. Plural umlauts: die Mäntel." },
+        { id: "de-u18l2-derpullover", type: "vocab", front: "der Pullover", reading: "derpullover", meaning: "the jumper", example: { jp: "Der Pullover ist grau und sehr warm.", en: "The jumper is grey and very warm." }, drill: { jp: "Der Pullover kostet vierzig Euro", en: "The jumper costs forty euros" }, accept: ["the jumper", "the sweater", "the pullover"], hint: "Everyone shortens it to der Pulli in speech." },
+        { id: "de-u18l2-diesocke", type: "vocab", front: "die Socke", reading: "diesocke", meaning: "the sock", example: { jp: "Die Socken sind rot und gelb.", en: "The socks are red and yellow." }, drill: { jp: "Die Socke ist gelb und klein.", en: "The sock is yellow and small." }, accept: ["the sock"], hint: "Like shoes, nearly always plural: die Socken." },
+        { id: "de-u18l2-diemutze", type: "vocab", front: "die Mütze", reading: "diemutze", meaning: "the woolly cap", example: { jp: "Bei Schnee brauche ich eine Mütze.", en: "When it snows I need a cap." }, drill: { jp: "Die Mütze ist warm und bunt.", en: "The hat is warm and colourful." }, accept: ["the cap", "the woolly hat", "the beanie"], hint: "The soft knitted kind. A hat with a brim is der Hut — a different word for a different object." },
+        { id: "de-u18l2-derschal", type: "vocab", front: "der Schal", reading: "derschal", meaning: "the scarf", example: { jp: "Der Schal ist von meiner Mutter.", en: "The scarf is from my mother." }, drill: { jp: "Der Schal ist rot und warm", en: "The scarf is red and warm" }, accept: ["the scarf"], hint: "Said with a long a, like English shawl — which is where English got the word." },
       ],
     },
     {
       id: "de-u18l3",
       unit: 18,
       lesson: 3,
-      title: "Unterwegs",
+      title: "Anziehen und passen",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Describe a journey as it happens: departing, changing, arriving, and how long it takes.",
+      canDo: "Say that you are putting something on, trying it on, or that it does or does not fit.",
       items: [
-        { id: "de-u18l3-abfahren", type: "vocab", front: "abfahren", reading: "abfahren", meaning: "to depart", example: { jp: "Der Zug fährt um acht Uhr ab.", en: "The train departs at eight o'clock." }, accept: ["to depart", "to leave", "to set off"], hint: "Separable: the ab- goes to the end — der Zug fährt … ab. From fahren, but you would never guess depart from drive." },
-        { id: "de-u18l3-ankommen", type: "vocab", front: "ankommen", reading: "ankommen", meaning: "to arrive", example: { jp: "Wir kommen um zehn Uhr in Wien an.", en: "We arrive in Vienna at ten o'clock." }, accept: ["to arrive", "to get there"], hint: "The other half of abfahren, and separable in the same way: wir kommen … an." },
-        { id: "de-u18l3-einsteigen", type: "vocab", front: "einsteigen", reading: "einsteigen", meaning: "to board", example: { jp: "Bitte einsteigen!", en: "All aboard, please!" }, drill: { jp: "Bitte jetzt einsteigen", en: "Please board now" }, accept: ["to board", "to get on", "to get in"], hint: "The announcement you hear on every German platform. steigen means to climb — you climb in." },
-        { id: "de-u18l3-umsteigen", type: "vocab", front: "umsteigen", reading: "umsteigen", meaning: "to change trains", example: { jp: "In Köln steigen wir um.", en: "We change trains in Cologne." }, drill: { jp: "Bitte in Köln umsteigen", en: "Please change in Cologne" }, accept: ["to change trains", "to change", "to transfer"], hint: "um- means around or over: you climb over into another train. The single most useful travel verb in Germany." },
-        { id: "de-u18l3-dauern", type: "vocab", front: "dauern", reading: "dauern", meaning: "to last", example: { jp: "Die Reise dauert drei Stunden.", en: "The journey lasts three hours." }, drill: { jp: "Die Reisen dauern drei Stunden", en: "The journeys take three hours" }, accept: ["to last", "to take (time)"], hint: "Only about time, and the subject is the event: die Fahrt dauert lange, the trip takes a long time." },
-        { id: "de-u18l3-diegrenze", type: "vocab", front: "die Grenze", reading: "diegrenze", meaning: "the border", example: { jp: "Nach der Grenze sind wir in Österreich.", en: "After the border we are in Austria." }, drill: { jp: "Die Grenze ist nicht weit", en: "The border is not far" }, accept: ["the border", "the boundary", "the limit"], hint: "Also a limit in the abstract sense. English borrowed it late and unusually — from Polish, through German." },
+        { id: "de-u18l3-tragen", type: "vocab", front: "tragen", reading: "tragen", meaning: "to wear / carry", example: { jp: "Sie trägt heute ein Kleid.", en: "She is wearing a dress today." }, drill: { jp: "Die Kinder tragen neue Schuhe.", en: "The children are wearing new shoes." }, accept: ["to wear", "to carry"], hint: "One verb for both jobs: you tragen clothes and you tragen a heavy bag. The vowel shifts in er/sie: er trägt." },
+        { id: "de-u18l3-anziehen", type: "vocab", front: "anziehen", reading: "anziehen", meaning: "to put on", example: { jp: "Ich ziehe die Schuhe an.", en: "I am putting my shoes on." }, drill: { jp: "Wir müssen die Jacke anziehen", en: "We have to put the jacket on" }, accept: ["to put on", "to get dressed"], hint: "A separable verb: the an- breaks off and goes to the end — ich ziehe … an. Watch for it in the example." },
+        { id: "de-u18l3-ausziehen", type: "vocab", front: "ausziehen", reading: "ausziehen", meaning: "to undress / remove clothing", example: { jp: "Zieh die Jacke aus, hier ist es warm.", en: "Take your jacket off, it is warm in here." }, drill: { jp: "Du kannst den Mantel ausziehen", en: "You can take the coat off" }, accept: ["to take off", "to undress", "to remove"], hint: "Same verb, opposite prefix: an- on, aus- off. It also means to move out of a flat." },
+        { id: "de-u18l3-passen", type: "vocab", front: "passen", reading: "passen", meaning: "to fit", example: { jp: "Die Hose passt mir nicht.", en: "The trousers do not fit me." }, drill: { jp: "Die Schuhe passen mir nicht.", en: "The shoes do not fit me." }, accept: ["to fit", "to suit"], hint: "Takes the dative person: die Hose passt MIR. Nothing to do with der Pass, a passport." },
+        { id: "de-u18l3-anprobieren", type: "vocab", front: "anprobieren", reading: "anprobieren", meaning: "to try on", example: { jp: "Ich probiere das Kleid an.", en: "I am trying the dress on." }, drill: { jp: "Ich möchte das Hemd anprobieren", en: "I would like to try the shirt on" }, accept: ["to try on"], hint: "Separable again, and the one sentence you need in a German clothes shop." },
+        { id: "de-u18l3-gefallen", type: "vocab", front: "gefallen", reading: "gefallen", meaning: "to appeal to", example: { jp: "Der Mantel gefällt mir sehr.", en: "I like the coat very much." }, drill: { jp: "Die Jacken gefallen mir sehr.", en: "I like the jackets a lot." }, accept: ["to please", "to appeal to", "to like"], hint: "Backwards from English: the THING is the subject and YOU are dative — der Mantel gefällt mir, the coat pleases me." },
       ],
     },
     {
       id: "de-u18l4",
       unit: 18,
       lesson: 4,
-      title: "Im Urlaub",
+      title: "Im Geschäft",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Talk about a holiday: where you are going, what you are taking, and what you need to cross a border.",
+      canDo: "Get through a shop: ask to be shown something, buy it, and pay at the till.",
       items: [
-        { id: "de-u18l4-derurlaub", type: "vocab", front: "der Urlaub", reading: "derurlaub", meaning: "the holiday", example: { jp: "Im Urlaub sind wir immer in Österreich.", en: "On holiday we are always in Austria." }, drill: { jp: "Der Urlaub ist sehr schön", en: "The holiday is very lovely" }, accept: ["the holiday", "the vacation", "the leave"], hint: "Time off work. School holidays are die Ferien — German keeps the two apart." },
-        { id: "de-u18l4-derkoffer", type: "vocab", front: "der Koffer", reading: "derkoffer", meaning: "the suitcase", example: { jp: "Mein Koffer ist zu schwer.", en: "My suitcase is too heavy." }, drill: { jp: "Der Koffer ist sehr schwer", en: "The suitcase is very heavy" }, accept: ["the suitcase", "the case"], hint: "Plural is identical: ein Koffer, zwei Koffer. English coffer is the same word, and once meant the same box." },
-        { id: "de-u18l4-dasgepack", type: "vocab", front: "das Gepäck", reading: "dasgepack", meaning: "the luggage", example: { jp: "Das Gepäck ist jetzt im Zug.", en: "The luggage is on the train now." }, accept: ["the luggage", "the baggage"], hint: "Never plural, exactly like English luggage: das Gepäck ist, the luggage is." },
-        { id: "de-u18l4-dasausland", type: "vocab", front: "das Ausland", reading: "dasausland", meaning: "abroad", example: { jp: "Meine Tochter arbeitet im Ausland.", en: "My daughter works abroad." }, drill: { jp: "Das Ausland ist weit", en: "Abroad is far away" }, accept: ["abroad", "foreign countries", "overseas"], hint: "A noun where English uses an adverb: im Ausland, in the abroad. Aus, out, plus Land." },
-        { id: "de-u18l4-derpass", type: "vocab", front: "der Pass", reading: "derpass", meaning: "the passport", example: { jp: "Mein Pass ist in der Tasche.", en: "My passport is in the bag." }, drill: { jp: "Der Pass ist im Koffer", en: "The passport is in the suitcase" }, accept: ["the passport"], hint: "Short for der Reisepass. Nothing to do with passen, to fit, which you met in u17." },
-        { id: "de-u18l4-diewelt", type: "vocab", front: "die Welt", reading: "diewelt", meaning: "the world", example: { jp: "Die Welt ist groß und ich habe wenig Zeit.", en: "The world is big and I have little time." }, drill: { jp: "Die Welt ist sehr groß", en: "The world is very big" }, accept: ["the world"], hint: "Auf der Welt, in the world. Die ganze Welt is the whole world." },
+        { id: "de-u18l4-kaufen", type: "vocab", front: "kaufen", reading: "kaufen", meaning: "to buy", example: { jp: "Ich kaufe die Schuhe für vierzig Euro.", en: "I am buying the shoes for forty euros." }, drill: { jp: "Wir kaufen einen Mantel im Geschäft.", en: "We are buying a coat in the shop." }, accept: ["to buy", "to purchase"], hint: "Einkaufen, with ein-, is to do the shopping — the whole trip rather than one purchase." },
+        { id: "de-u18l4-verkaufen", type: "vocab", front: "verkaufen", reading: "verkaufen", meaning: "to sell", example: { jp: "Sie verkaufen hier auch Bücher.", en: "They also sell books here." }, drill: { jp: "Wir verkaufen das Haus", en: "We are selling the house" }, accept: ["to sell"], hint: "ver- turns the transaction around: kaufen is to buy, verkaufen is to sell. Same money, opposite direction." },
+        { id: "de-u18l4-dasgeschaft", type: "vocab", front: "das Geschäft", reading: "dasgeschaft", meaning: "the shop", example: { jp: "Das Geschäft ist heute zu.", en: "The shop is closed today." }, drill: { jp: "Das Geschäft hier ist sehr klein", en: "The shop here is very small" }, accept: ["the shop", "the store", "the business"], hint: "Also the word for a business deal. Der Laden is the smaller, more everyday word for a shop." },
+        { id: "de-u18l4-diekasse", type: "vocab", front: "die Kasse", reading: "diekasse", meaning: "the till", example: { jp: "Sie bezahlen bitte an der Kasse.", en: "Please pay at the till." }, drill: { jp: "Die Kasse ist dort links.", en: "The till is over there on the left." }, accept: ["the till", "the checkout", "the cash desk"], hint: "An der Kasse is where you queue. The same word covers a cinema box office." },
+        { id: "de-u18l4-derkunde", type: "vocab", front: "der Kunde", reading: "derkunde", meaning: "the customer", example: { jp: "Der Kunde dort sucht einen Pullover.", en: "The customer over there is looking for a jumper." }, drill: { jp: "Der Kunde bezahlt an der Kasse", en: "The customer pays at the till" }, accept: ["the customer", "the client"], hint: "One of a small group of masculine nouns that add -n everywhere except the nominative: der Kunde, but den Kunden." },
+        { id: "de-u18l4-zeigen", type: "vocab", front: "zeigen", reading: "zeigen", meaning: "to show", example: { jp: "Zeigen Sie mir bitte den Mantel.", en: "Please show me the coat." }, drill: { jp: "Wir zeigen dir das Zimmer", en: "We will show you the room" }, accept: ["to show", "to point out"], hint: "Two objects at once: the person is dative (mir) and the thing is accusative (den Mantel) — exactly the u13/u14 pattern." },
       ],
     },
   ],

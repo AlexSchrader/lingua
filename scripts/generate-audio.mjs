@@ -118,7 +118,26 @@ for (let i = 0; i < items.length; i++) {
   // (This is a surgical 2-item fix, not the global kana→katakana conversion the
   // header warns against — that broke other kana; these two are already wrong.)
   const KANA_SOUND_FIX = { "は": "ハ", "へ": "ヘ" };
-  const text = item.type === "kana" && KANA_SOUND_FIX[item.front] ? KANA_SOUND_FIX[item.front] : item.front;
+
+  // THE VOICE REFUSES A FEW CHARACTERS OUTRIGHT, forever, not transiently. ス
+  // (katakana su) returned the 3805-byte silent payload on every attempt across
+  // several runs, and the capitalisation retry below does nothing for Japanese —
+  // there is no capital ス.
+  //
+  // Voice its KANA TWIN instead. ス and す are the same syllable in two scripts, so
+  // the audio is identical BY DEFINITION — this is not an approximation, and it is
+  // the same move KANA_SOUND_FIX makes above in the other direction (は voiced as
+  // ハ to get "ha" rather than the particle "wa"). す generates cleanly.
+  //
+  // A listening card then cannot distinguish ス from す by ear, which is correct:
+  // they ARE homophones. Only the written form differs, and the sighted cards test
+  // that.
+  const KANA_TWIN_FALLBACK = { "ス": "す" };
+
+  const text =
+    item.type === "kana" && KANA_SOUND_FIX[item.front] ? KANA_SOUND_FIX[item.front]
+    : item.type === "kana" && KANA_TWIN_FALLBACK[item.front] ? KANA_TWIN_FALLBACK[item.front]
+    : item.front;
 
   try {
     const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
@@ -143,20 +162,56 @@ for (let i = 0; i < items.length; i++) {
     // code wrote that straight to disk and counted it in `done`, so a paid run
     // reported "0 errors" while leaving a silent card in prod - which is exactly
     // how fr-u6l2-a.mp3 (the French "a" with accent) shipped as 0 bytes uncaught.
-    // Empty bodies are transient, so retry once, then fail LOUDLY rather than
-    // write a file that merely looks generated.
+    // Empty bodies are usually transient, so retry once, then fail LOUDLY rather
+    // than write a file that merely looks generated.
+    // The retry CAPITALISES the first character, and that is the point of it: for
+    // some glyph fronts the empty body is not transient at all and the identical
+    // text fails forever. Measured 2026-09-14 on the pt voice: "ao-tilde" returned
+    // 0 bytes on three separate calls while its capitalised twin returned 12582,
+    // and "o-acute" alternated between 0 and 3805 on the same text. Capitalising a
+    // letter does not change the sound it names, so the clip stays correct - and
+    // without this, pt-u1l2/l3 glyph cards were unvoiceable and a paid run just
+    // kept reporting errors.
+    // A NON-EMPTY BODY IS ALSO NOT PROOF OF AUDIO. The API answers 200 with a
+    // valid-but-SILENT mp3 of exactly 3805 bytes — a real container, no voice in it.
+    // The 0-byte guard below never saw these, so they were written, counted as
+    // generated, and shipped.
+    //
+    // Measured 2026-09-15 by sweeping every clip on disk: 25 files at EXACTLY 3805
+    // bytes, across six languages and three different voices. A byte-identical size
+    // across unrelated voices is not a short sound, it is a fixed silent payload.
+    // Alex confirmed by ear on five of them: "those 5 have no voice."
+    //
+    // Sixteen were JAPANESE, including す ま ど ス ナ ノ — kana from units 1–4, the
+    // first characters anyone meets. The listening cards routed for them and played
+    // silence, and nothing anywhere said so.
+    //
+    // Treat it exactly like an empty body: retry capitalised, then fail loudly.
+    const SILENT_BYTES = 3805;
     let buf = Buffer.from(await res.arrayBuffer());
-    if (buf.length === 0) {
-      await new Promise((r) => setTimeout(r, 1000));
+    // SEVERAL attempts, not one. The silent payload is per-call flaky rather than
+    // deterministic - the pt notes above record "o-acute alternated between 0 and
+    // 3805 on the same text" - so a single retry loses a coin flip and reports a
+    // permanent failure. Katakana su spent two runs looking unfixable for exactly
+    // this reason, including one where its own hiragana twin came back silent too.
+    //
+    // Alternate the text between attempts: plain, capitalised (which rescued the pt
+    // letters and is a no-op for Japanese), then plain again. Cheap - it only runs
+    // on a clip that would otherwise be thrown away.
+    for (let attempt = 1; attempt <= 4 && buf.length <= SILENT_BYTES; attempt++) {
+      await new Promise((r) => setTimeout(r, 400 * attempt));
+      const retryText = attempt % 2 === 0
+        ? text.charAt(0).toUpperCase() + text.slice(1)
+        : text;
       const retry = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
         method: "POST",
         headers: { "xi-api-key": API_KEY, "Content-Type": "application/json", Accept: "audio/mpeg" },
-        body: JSON.stringify({ text, model_id: MODEL_ID }),
+        body: JSON.stringify({ text: retryText, model_id: MODEL_ID }),
       });
-      buf = retry.ok ? Buffer.from(await retry.arrayBuffer()) : Buffer.alloc(0);
+      if (retry.ok) buf = Buffer.from(await retry.arrayBuffer());
     }
-    if (buf.length === 0) {
-      console.error(`  ERROR  ${tag}: empty audio body (200 but 0 bytes) - NOT written`);
+    if (buf.length <= SILENT_BYTES) {
+      console.error(`  ERROR  ${tag}: ${buf.length === 0 ? "empty audio body (200 but 0 bytes)" : `silent audio (${buf.length}b <= ${SILENT_BYTES}b, the known silent payload)`} - NOT written`);
       errors++;
       continue;
     }

@@ -1,32 +1,31 @@
-// DE Unit 16 — Zahlen und Geld (slot: vocabulary 2) — A1
-// Block 3 (u15–u20). Conventions: see de/unit1.js.
+// DE Unit 20 — Alltag und Modalverben (slot: vocabulary 6) — A1
+// Block 3 (u15–u20). Conventions: see de/unit1.js. LAST UNIT OF GERMAN A1.
 //
-// THEME CHOSEN BY THIS SEAT, and it closes the largest single hole in this A1.
-// u5 "Zahlen und Zeit" stopped at zwölf — deliberately, because it needed the
-// room for clock time — and u9 took the days, months and seasons without taking
-// a single number. So an A1 learner arrives at u16 unable to say their age, a
-// price, a house number or a year. This unit finishes the count and then spends
-// it on money, which is what A1 numbers are actually for.
+// THEME CHOSEN BY THIS SEAT, and it is the one gap that was not a topic at all.
+// u12–u14 gave the learner word order and the whole case system, which is a lot
+// of grammar — but between them they taught exactly two verbs, brauchen and
+// helfen. A learner arriving here can decline a noun three ways and still cannot
+// say I can, I must, I would like, I know, I see. That is what this unit fixes:
+// the six modal verbs first, then the highest-frequency everyday verbs, then the
+// ones for being at home and for a free afternoon.
+// Placing it last is deliberate — every verb here can take an object from any of
+// the nineteen units before it, so the examples get to use the whole language.
 //
-// ORDERING: this unit was drafted as u17 and swapped forward. Shopping (now u17)
-// cannot write an honest example without kosten, der Preis and das Geld, and a
-// unit may only use vocabulary taught at or before it — so numbers and money
-// have to come first. The swap costs nothing and removes the constraint.
-// NOT every number is taught. Teaching all eighteen of thirteen-to-twenty plus
-// every ten would spend a third of the unit on cards a learner already gets free
-// from drei + zehn. What is here is the PATTERN and every place German breaks it:
-// sechzehn and siebzehn (which drop the -s and the -en), dreißig (ß, not -zig),
-// sechzig and siebzig (same truncation again). vierzehn, fünfzehn, achtzig and
-// neunzig are left to the pattern and used in examples instead.
-// Rejected as already taught: teuer and billig (u10 — the describing unit took
-// both), ein…zwölf (u5), die Uhr / die Stunde / die Minute (u5).
-// Rejected as the same lexeme: zählen (~die Zahl — one lexeme, two cards, and the
-// noun is the more useful of the pair at A1).
-// FREE: Euro, Cent, Kilo, Prozent | Zahlen, Nummern, Stücke, Preise, Jahre, Jahren
+// Rejected as already taught: haben, lieben (u4), essen, trinken (u6), gehen,
+// fahren, finden, suchen (u7), helfen, brauchen (u13, u14), wohnen, hören,
+// sprechen (u1), arbeiten, studieren, kommen, heißen (u3) — all used freely in
+// the examples instead.
+// Rejected as the same lexeme: mögen. möchten is its subjunctive, and the two
+// would be one word on two cards; möchten is far the more useful at A1, so it
+// takes the slot and mögen is named in its hint.
+// Also rejected: stehen. verstehen (u19) and aufstehen (here) are both built on
+// it, and three cards on one stem in adjacent units is a poor use of three slots
+// — the base verb is the one a learner can most easily infer from the other two.
+// FREE: Sofa, Tennis, Gitarre, Pizza, Party, Radio | Bücher, Kinder, Wörter, Schuhe, Zimmer, Stunden, Freunde, Jahre
 export const DE_UNIT16 = {
   id: "de-u16",
   lang: "de",
-  title: "Zahlen und Geld",
+  title: "Alltag und Modalverben",
   order: 16,
   stage: "a1",
   lessons: [
@@ -34,68 +33,68 @@ export const DE_UNIT16 = {
       id: "de-u16l1",
       unit: 16,
       lesson: 1,
-      title: "Von dreizehn bis zwanzig",
+      title: "Die Modalverben",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Count past twelve and say how old someone is: Mein Bruder ist siebzehn.",
+      canDo: "Say what you can, must, want and are allowed to do — and send the second verb to the end of the sentence, where German keeps it.",
       items: [
-        { id: "de-u16l1-dreizehn", type: "vocab", front: "dreizehn", reading: "dreizehn", meaning: "thirteen", example: { jp: "Mein Bruder ist dreizehn Jahre alt.", en: "My brother is thirteen years old." }, accept: ["thirteen", "13"], hint: "The pattern for the whole teens: the small number first, then zehn. drei + zehn. English does it backwards — thir-teen." },
-        { id: "de-u16l1-sechzehn", type: "vocab", front: "sechzehn", reading: "sechzehn", meaning: "sixteen", example: { jp: "Die Schule hat sechzehn Zimmer.", en: "The school has sixteen rooms." }, accept: ["sixteen", "16"], hint: "First break in the pattern: sechs loses its s. Not sechszehn — sechzehn." },
-        { id: "de-u16l1-siebzehn", type: "vocab", front: "siebzehn", reading: "siebzehn", meaning: "seventeen", example: { jp: "Meine Schwester ist siebzehn.", en: "My sister is seventeen." }, accept: ["seventeen", "17"], hint: "Second break: sieben loses its -en. Not siebenzehn — siebzehn. These two are the only irregular teens." },
-        { id: "de-u16l1-achtzehn", type: "vocab", front: "achtzehn", reading: "achtzehn", meaning: "eighteen", example: { jp: "Mein Cousin ist jetzt achtzehn.", en: "My cousin is eighteen now." }, accept: ["eighteen", "18"], hint: "Back to the regular pattern — acht + zehn, with only one t between them." },
-        { id: "de-u16l1-neunzehn", type: "vocab", front: "neunzehn", reading: "neunzehn", meaning: "nineteen", example: { jp: "Es ist jetzt neunzehn Uhr.", en: "It is nineteen hundred hours now." }, accept: ["nineteen", "19"], hint: "German timetables count to 24, so neunzehn Uhr is seven in the evening." },
-        { id: "de-u16l1-zwanzig", type: "vocab", front: "zwanzig", reading: "zwanzig", meaning: "twenty", example: { jp: "Im Haus sind zwanzig Fenster.", en: "There are twenty windows in the house." }, accept: ["twenty", "20"], hint: "Not zweizig. Twenty is its own word, and from here the tens end in -zig." },
+        { id: "de-u16l1-konnen", type: "vocab", front: "können", reading: "konnen", meaning: "to be able to", example: { jp: "Ich kann sehr gut schwimmen.", en: "I can swim very well." }, drill: { jp: "Die Kinder können sehr gut schwimmen", en: "The children can swim very well." }, accept: ["can", "to be able to", "to be able"], hint: "The second verb goes to the very end in the infinitive: ich kann … schwimmen. Irregular: ich kann, du kannst, wir können." },
+        { id: "de-u16l1-mussen", type: "vocab", front: "müssen", reading: "mussen", meaning: "must / to have to", example: { jp: "Wir müssen in die Stadt gehen.", en: "We have to go into town." }, drill: { jp: "Wir müssen jetzt aufstehen", en: "We have to get up now" }, accept: ["must", "to have to", "to need to"], hint: "ich muss, du musst, wir müssen. Careful: ich muss nicht means I do not have to, never I must not." },
+        { id: "de-u16l1-wollen", type: "vocab", front: "wollen", reading: "wollen", meaning: "to want to", example: { jp: "Sie will das Museum sehen.", en: "She wants to see the museum." }, drill: { jp: "Wir wollen hier bleiben", en: "We want to stay here." }, accept: ["to want", "to want to"], hint: "ich will, du willst. A false friend for English speakers: will is want, not the future tense." },
+        { id: "de-u16l1-durfen", type: "vocab", front: "dürfen", reading: "durfen", meaning: "to be allowed to", example: { jp: "Hier dürfen die Kinder spielen.", en: "The children are allowed to play here." }, drill: { jp: "Wir dürfen hier nicht schwimmen", en: "We are not allowed to swim here" }, accept: ["may", "to be allowed to", "to be permitted"], hint: "About permission, where können is about ability. Darf ich? is the polite way to ask for anything." },
+        { id: "de-u16l1-sollen", type: "vocab", front: "sollen", reading: "sollen", meaning: "to be supposed to", example: { jp: "Was soll ich dem Freund sagen?", en: "What am I supposed to tell my friend?" }, drill: { jp: "Die Kinder sollen die Wörter sagen", en: "The children are supposed to say the words." }, accept: ["should", "to be supposed to", "ought to"], hint: "Someone else's instruction or expectation: du sollst warten, you are to wait." },
+        { id: "de-u16l1-mochten", type: "vocab", front: "möchten", reading: "mochten", meaning: "would like", example: { jp: "Ich möchte einen Kaffee, bitte.", en: "I would like a coffee, please." }, drill: { jp: "Wir möchten einen Kaffee trinken", en: "We would like to drink a coffee." }, accept: ["would like", "to would like"], hint: "The politest way to order or ask for anything in German. It is really the subjunctive of mögen, to like, but you meet it first and use it far more." },
       ],
     },
     {
       id: "de-u16l2",
       unit: 16,
       lesson: 2,
-      title: "Die Zehner",
+      title: "Alltagsverben",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Count in tens up to a hundred, and hear where German breaks its own rule.",
+      canDo: "Use the six verbs that carry most German sentences: do, say, see, give, take and know.",
       items: [
-        { id: "de-u16l2-dreissig", type: "vocab", front: "dreißig", reading: "dreissig", meaning: "thirty", example: { jp: "Die Frau dort ist dreißig.", en: "The woman over there is thirty." }, accept: ["thirty", "30"], hint: "The one ten that does not end in -zig: dreißig, with ß. You may type dreissig or dreißig — both are accepted." },
-        { id: "de-u16l2-vierzig", type: "vocab", front: "vierzig", reading: "vierzig", meaning: "forty", example: { jp: "Die Straße ist vierzig Meter lang.", en: "The street is forty metres long." }, accept: ["forty", "40"], hint: "Regular: vier + zig. Note German writes vierzig, not vierzehn — one is 40, the other 14." },
-        { id: "de-u16l2-funfzig", type: "vocab", front: "fünfzig", reading: "funfzig", meaning: "fifty", example: { jp: "Der Mann arbeitet seit fünfzig Jahren hier.", en: "The man has worked here for fifty years." }, accept: ["fifty", "50"], hint: "Regular again — fünf + zig, umlaut and all." },
-        { id: "de-u16l2-sechzig", type: "vocab", front: "sechzig", reading: "sechzig", meaning: "sixty", example: { jp: "Eine Stunde hat sechzig Minuten.", en: "An hour has sixty minutes." }, accept: ["sixty", "60"], hint: "sechs drops its s here too, exactly as in sechzehn. The break is consistent." },
-        { id: "de-u16l2-siebzig", type: "vocab", front: "siebzig", reading: "siebzig", meaning: "seventy", example: { jp: "Meine Großmutter ist siebzig.", en: "My grandmother is seventy." }, accept: ["seventy", "70"], hint: "And sieben drops its -en, as in siebzehn. Learn the four together: sechzehn, siebzehn, sechzig, siebzig." },
-        { id: "de-u16l2-hundert", type: "vocab", front: "hundert", reading: "hundert", meaning: "hundred", example: { jp: "Das Hotel hat hundert Zimmer.", en: "The hotel has a hundred rooms." }, accept: ["hundred", "one hundred", "100"], hint: "No ein in front of it: hundert Zimmer, a hundred rooms. Say einhundert only when you are being precise." },
+        { id: "de-u16l2-machen", type: "vocab", front: "machen", reading: "machen", meaning: "to do / make", example: { jp: "Was machst du am Sonntag?", en: "What are you doing on Sunday?" }, drill: { jp: "Wir machen das heute zusammen", en: "We are doing that together today." }, accept: ["to do", "to make"], hint: "Was machst du? is both what are you doing and what do you do for a living. Probably the most-used verb in spoken German." },
+        { id: "de-u16l2-sagen", type: "vocab", front: "sagen", reading: "sagen", meaning: "to say", example: { jp: "Sie sagt nichts und geht.", en: "She says nothing and leaves." }, drill: { jp: "Die Eltern sagen dem Kind nichts", en: "The parents say nothing to the child." }, accept: ["to say", "to tell"], hint: "The person told is dative: sag mir, tell me. Sagen is to say; sprechen (u1) is to speak." },
+        { id: "de-u16l2-sehen", type: "vocab", front: "sehen", reading: "sehen", meaning: "to see (with the eyes)", example: { jp: "Aus dem Fenster sehen wir den Park.", en: "From the window we see the park." }, drill: { jp: "Hier sehen wir das Haus", en: "Here we see the house" }, accept: ["to see", "to look"], hint: "Vowel shift again: ich sehe, but er sieht. Not the same as u2's bis bald, which is a goodbye, not this verb." },
+        { id: "de-u16l2-geben", type: "vocab", front: "geben", reading: "geben", meaning: "to give", example: { jp: "Der Vater gibt dem Freund ein Buch.", en: "The father gives his friend a book." }, drill: { jp: "Wir geben dem Kind ein Buch", en: "We give the child a book." }, accept: ["to give"], hint: "Two objects: person dative, thing accusative — exactly u13 and u14 together. u13's es gibt, there is, is built from it." },
+        { id: "de-u16l2-nehmen", type: "vocab", front: "nehmen", reading: "nehmen", meaning: "to take", example: { jp: "Wir nehmen den Bus nach Berlin.", en: "We take the bus to Berlin." }, drill: { jp: "Ich kann den Schlüssel nehmen", en: "I can take the key" }, accept: ["to take"], hint: "Badly irregular: ich nehme, du nimmst, er nimmt. Worth learning as three separate shapes." },
+        { id: "de-u16l2-wissen", type: "vocab", front: "wissen", reading: "wissen", meaning: "to know", example: { jp: "Ich weiß, wo das Museum ist.", en: "I know where the museum is." }, drill: { jp: "Wir wissen es nicht", en: "We do not know." }, accept: ["to know", "to know a fact"], hint: "For facts. Knowing a person or a place is kennen — German splits what English calls knowing. ich weiß, du weißt." },
       ],
     },
     {
       id: "de-u16l3",
       unit: 16,
       lesson: 3,
-      title: "Zahlen im Alltag",
+      title: "Zu Hause",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Ask for a number, say how many of something there are, and say whether that is a lot or not much.",
+      canDo: "Describe an ordinary day at home: getting up, sitting, lying down, staying in, and sleeping.",
       items: [
-        { id: "de-u16l3-tausend", type: "vocab", front: "tausend", reading: "tausend", meaning: "thousand", example: { jp: "Das Auto kostet tausend Euro.", en: "The car costs a thousand euros." }, accept: ["thousand", "one thousand", "1000"], hint: "Like hundert, it takes no ein. Note the au — it is said like the ow in how." },
-        { id: "de-u16l3-diezahl", type: "vocab", front: "die Zahl", reading: "diezahl", meaning: "the numeral", example: { jp: "Die Zahl dreizehn ist nicht immer schlecht.", en: "The number thirteen is not always bad." }, accept: ["the number", "the numeral", "the figure"], hint: "A number as a quantity or a figure. For the number OF something — a phone, a house — German uses die Nummer instead." },
-        { id: "de-u16l3-dienummer", type: "vocab", front: "die Nummer", reading: "dienummer", meaning: "the reference number", example: { jp: "Wie ist deine Nummer?", en: "What is your number?" }, drill: { jp: "Die Nummer ist dreizehn.", en: "The number is thirteen." }, accept: ["the number", "the reference number"], hint: "The one that identifies something: die Telefonnummer, die Hausnummer. Never for counting — that is die Zahl." },
-        { id: "de-u16l3-dasstuck", type: "vocab", front: "das Stück", reading: "dasstuck", meaning: "the piece", example: { jp: "Ich esse ein Stück Brot.", en: "I am eating a piece of bread." }, drill: { jp: "Das Stück Brot ist klein.", en: "The piece of bread is small." }, accept: ["the piece", "the bit", "the item"], hint: "Also how prices are quoted per item: drei Euro das Stück. No von — ein Stück Brot, never ein Stück von Brot." },
-        { id: "de-u16l3-viel", type: "vocab", front: "viel", reading: "viel", meaning: "much / a lot", example: { jp: "Wir haben nicht viel Zeit.", en: "We do not have much time." }, accept: ["much", "a lot", "a lot of", "many"], hint: "Careful with the ie — viel is said feel, not vile. u12's wie viel is built from it." },
-        { id: "de-u16l3-wenig", type: "vocab", front: "wenig", reading: "wenig", meaning: "few / a small amount", example: { jp: "Im Keller ist wenig Licht.", en: "There is little light in the cellar." }, accept: ["little", "few", "not much", "a small amount"], hint: "The opposite of viel. Ein wenig, with ein, softens it to a little bit." },
+        { id: "de-u16l3-schlafen", type: "vocab", front: "schlafen", reading: "schlafen", meaning: "to sleep", example: { jp: "Das Kind schläft im Bett.", en: "The child is sleeping in bed." }, drill: { jp: "Die Kinder schlafen im Bett", en: "The children are sleeping in bed." }, accept: ["to sleep"], hint: "Vowel shift: ich schlafe, er schläft. das Schlafzimmer in u15 is built on it." },
+        { id: "de-u16l3-aufstehen", type: "vocab", front: "aufstehen", reading: "aufstehen", meaning: "to get up", example: { jp: "Am Montag stehe ich um sechs Uhr auf.", en: "On Monday I get up at six o'clock." }, drill: { jp: "Wir müssen morgen aufstehen", en: "We have to get up tomorrow." }, accept: ["to get up", "to stand up", "to rise"], hint: "Separable — the auf- goes to the end: ich stehe … auf. Watch the word order in the example." },
+        { id: "de-u16l3-sitzen", type: "vocab", front: "sitzen", reading: "sitzen", meaning: "to sit", example: { jp: "Wir sitzen zusammen auf dem Sofa.", en: "We are sitting together on the sofa." }, drill: { jp: "Die Kinder sitzen im Park", en: "The children are sitting in the park" }, accept: ["to sit", "to be sitting"], hint: "Being seated, not the act of sitting down — that is sich setzen. Takes the dative for where." },
+        { id: "de-u16l3-liegen", type: "vocab", front: "liegen", reading: "liegen", meaning: "to lie", example: { jp: "Die Zeitung liegt auf dem Tisch.", en: "The newspaper is lying on the table." }, drill: { jp: "Die Bücher liegen auf dem Tisch", en: "The books are lying on the table." }, accept: ["to lie", "to be lying", "to be situated"], hint: "Used constantly for where a thing IS: das Buch liegt dort. Also for towns — Wien liegt in Österreich." },
+        { id: "de-u16l3-bleiben", type: "vocab", front: "bleiben", reading: "bleiben", meaning: "to stay", example: { jp: "Heute bleiben wir hier.", en: "Today we are staying here." }, drill: { jp: "Ich will noch hier bleiben", en: "I want to stay here a bit longer" }, accept: ["to stay", "to remain"], hint: "zu Hause bleiben, to stay at home. In the perfect it takes sein, not haben: ich bin geblieben." },
+        { id: "de-u16l3-denken", type: "vocab", front: "denken", reading: "denken", meaning: "to think", example: { jp: "Ich denke oft an meine Großeltern.", en: "I often think about my grandparents." }, drill: { jp: "Wir denken oft an die Familie", en: "We often think about the family." }, accept: ["to think"], hint: "denken AN plus accusative for thinking about someone. English think and denken are the same old word." },
       ],
     },
     {
       id: "de-u16l4",
       unit: 16,
       lesson: 4,
-      title: "Geld und Preise",
+      title: "Freizeit",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Ask what something costs, say the price in euros, and say you have enough money.",
+      canDo: "Say what you do in your free time — and, with u20's modal verbs, what you can and want to do. This is the last lesson of German A1.",
       items: [
-        { id: "de-u16l4-dasgeld", type: "vocab", front: "das Geld", reading: "dasgeld", meaning: "the money", example: { jp: "Ich habe kein Geld für ein Hotel.", en: "I have no money for a hotel." }, drill: { jp: "Das Geld ist in der Bank.", en: "The money is in the bank." }, accept: ["the money", "money"], hint: "Never plural in this sense. Geld verdienen is to earn money." },
-        { id: "de-u16l4-dereuro", type: "vocab", front: "der Euro", reading: "dereuro", meaning: "the euro", example: { jp: "Das Buch kostet zwanzig Euro.", en: "The book costs twenty euros." }, drill: { jp: "Der Euro ist das Geld in Europa.", en: "The euro is the money in Europe." }, accept: ["the euro"], hint: "After a number it stays singular: zwanzig Euro, never zwanzig Euros. Said OY-ro, not YOU-ro." },
-        { id: "de-u16l4-kosten", type: "vocab", front: "kosten", reading: "kosten", meaning: "to cost", example: { jp: "Was kostet der Kaffee?", en: "What does the coffee cost?" }, drill: { jp: "Die Äpfel kosten wenig Geld.", en: "The apples cost little money." }, accept: ["to cost"], hint: "Was kostet…? is the everyday way to ask a price. Wie viel kostet…? is also right and slightly fuller." },
-        { id: "de-u16l4-derpreis", type: "vocab", front: "der Preis", reading: "derpreis", meaning: "the price", example: { jp: "Der Preis für das Zimmer ist zu hoch.", en: "The price for the room is too high." }, accept: ["the price", "the prize"], hint: "Nothing to do with u6's der Reis, rice — one letter apart and worth keeping straight. It also means a prize you win." },
-        { id: "de-u16l4-bezahlen", type: "vocab", front: "bezahlen", reading: "bezahlen", meaning: "to pay", example: { jp: "Wir bezahlen zusammen, bitte.", en: "We will pay together, please." }, accept: ["to pay", "to pay for"], hint: "Said in every restaurant in Germany. Careful: bezahlen is to pay, zählen is to count — the umlaut is the difference." },
-        { id: "de-u16l4-genug", type: "vocab", front: "genug", reading: "genug", meaning: "enough", example: { jp: "Ich habe genug Geld für das Buch.", en: "I have enough money for the book." }, accept: ["enough"], hint: "Comes before the noun but after an adjective or verb: genug Geld, but gut genug." },
+        { id: "de-u16l4-spielen", type: "vocab", front: "spielen", reading: "spielen", meaning: "to play", example: { jp: "Die Kinder spielen im Garten.", en: "The children are playing in the garden." }, drill: { jp: "Meine Freunde spielen nach der Schule", en: "My friends play after school" }, accept: ["to play"], hint: "Games, sport and instruments all use it: Tennis spielen, Gitarre spielen. English play is the same root as das Spiel." },
+        { id: "de-u16l4-schwimmen", type: "vocab", front: "schwimmen", reading: "schwimmen", meaning: "to swim", example: { jp: "Nach der Schule schwimmen wir sehr oft.", en: "After school we swim very often." }, drill: { jp: "Die Kinder wollen schwimmen", en: "The children want to swim" }, accept: ["to swim"], hint: "Swim and schwimmen are the same word — German writes the sw sound as schw." },
+        { id: "de-u16l4-tanzen", type: "vocab", front: "tanzen", reading: "tanzen", meaning: "to dance", example: { jp: "Meine Schwester tanzt sehr gut.", en: "My sister dances very well." }, drill: { jp: "Wir tanzen sehr gern zusammen", en: "We very much like dancing together." }, accept: ["to dance"], hint: "The z is ts: TAN-tsen. Same word as English dance, arrived from French in both languages." },
+        { id: "de-u16l4-singen", type: "vocab", front: "singen", reading: "singen", meaning: "to sing", example: { jp: "Wir singen sehr gern zusammen.", en: "We very much like singing together." }, drill: { jp: "Sie singen sehr schön", en: "They sing very beautifully" }, accept: ["to sing"], hint: "Sing and singen — identical but for the ending. das Lied is a song." },
+        { id: "de-u16l4-kochen", type: "vocab", front: "kochen", reading: "kochen", meaning: "to cook", example: { jp: "Am Sonntag kocht mein Vater.", en: "On Sunday my father cooks." }, drill: { jp: "Wir kochen heute zusammen", en: "We are cooking together today." }, accept: ["to cook", "to boil"], hint: "Also to boil: das Wasser kocht. der Koch is a cook — not to be confused with der Chef, the boss." },
+        { id: "de-u16l4-laufen", type: "vocab", front: "laufen", reading: "laufen", meaning: "to run", example: { jp: "Er läuft am Morgen im Park.", en: "He runs in the park in the morning." }, drill: { jp: "Die Kinder laufen jetzt in den Park", en: "The children are running to the park now." }, accept: ["to run", "to walk", "to go"], hint: "Run, but in much of Germany simply to walk — ich laufe zur Schule. Vowel shift: er läuft." },
       ],
     },
   ],

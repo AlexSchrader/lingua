@@ -1,67 +1,74 @@
-// FR Unit 23 — Demain et hier ("Tomorrow and yesterday") — A1 GRAMMAR
-// The two tenses A1 actually needs: the near future (aller + infinitive) and the
-// passé composé with avoir. Both are taught as patterns built from chunks the
-// learner already owns — je vais (Unit 6) and j'ai (Unit 9) — so this is
-// assembly, not new machinery. Conventions: see fr/unit1.js.
+// FR Unit 22 — Les verbes · 2 ("Verbs 2") — A1 GRAMMAR
+// Full present-tense paradigms for the three verbs everything else hangs off —
+// être, avoir, aller — taught as person-by-person chunks (the same modelling as
+// the Japanese ～ます units) rather than as a conjugation table.
+//
+// The subject pronouns vous/nous/ils/elles live HERE, not in Unit 21, because
+// this is where their verb forms are: teaching "ils" in a unit whose examples had
+// to borrow "ils sont" from a later unit was backwards (content-auditor B1c).
+// Conventions: see fr/unit1.js.
 export const FR_UNIT23 = {
   id: "fr-u23",
   lang: "fr",
-  title: "Demain et hier",
-  order: 24,
+  title: "Les verbes · 2",
+  order: 23,
   stage: "a1",
   lessons: [
     {
       id: "fr-u23l1",
       unit: 23,
       lesson: 1,
-      title: "What I'm going to do",
+      title: "Who's who",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Talk about the future with aller + verb: je vais manger, je vais partir, on va voir.",
+      canDo: "Use every subject pronoun with être: vous, nous, ils, elles — nous sommes, vous êtes, ils sont, on.",
       items: [
-        { id: "fr-u23l1-jevaismanger", type: "vocab", front: "je vais manger", reading: "jevaismanger", meaning: "I'm going to eat", example: { jp: "Ce soir, je vais manger au restaurant.", en: "Tonight, I'm going to eat at the restaurant." }, accept: ["i will eat", "i'll eat"], hint: "The near future is exactly like English: je vais + the plain verb. manger, partir, voir — the dictionary form." },
-        { id: "fr-u23l1-manger", type: "vocab", front: "manger", reading: "manger", meaning: "to eat", example: { jp: "J'aime manger avec ma famille.", en: "I like eating with my family." }, accept: ["eating"], hint: "The infinitive — the form in the dictionary. je mange is \"I eat\"; manger is just \"to eat\"." },
-        { id: "fr-u23l1-partir", type: "vocab", front: "partir", reading: "partir", meaning: "to leave", example: { jp: "Je vais partir à huit heures.", en: "I'm going to leave at eight." }, accept: ["leaving", "to go"] },
-        { id: "fr-u23l1-voir", type: "vocab", front: "voir", reading: "voir", meaning: "to see", example: { jp: "On va voir un film ce soir.", en: "We're going to see a film tonight." }, accept: ["seeing"], hint: "le film = the film — one of the free ones." },
-        { id: "fr-u23l1-faire", type: "vocab", front: "faire", reading: "faire", meaning: "to do", example: { jp: "Qu'est-ce que tu vas faire demain ?", en: "What are you going to do tomorrow?" }, accept: ["doing", "to make", "making"] },
-        { id: "fr-u23l1-boire", type: "vocab", front: "boire", reading: "boire", meaning: "to drink", example: { jp: "Je vais boire un café.", en: "I'm going to drink a coffee." }, accept: ["drinking"] },
-        { id: "fr-u23l1-lefilm", type: "vocab", front: "le film", reading: "lefilm", meaning: "film", example: { jp: "Le film commence à neuf heures.", en: "The film starts at nine." }, accept: ["the movie", "movie", "the film"] },
+        { id: "fr-u23l1-vous", type: "vocab", front: "vous", reading: "vous", meaning: "you (polite)", example: { jp: "Vous êtes le père de Marie ?", en: "Are you Marie's father?" }, drill: { jp: "Vous avez une grande maison", en: "You have a big house" }, accept: ["you formal", "you plural"], hint: "vous for strangers and groups; tu for friends and family. With a stranger, always start with vous." },
+        { id: "fr-u23l1-nous", type: "vocab", front: "nous", reading: "nous", meaning: "we", example: { jp: "Nous sommes à Paris.", en: "We are in Paris." }, drill: { jp: "Nous allons au restaurant ce soir", en: "We're going to the restaurant tonight" }, accept: ["us"] },
+        { id: "fr-u23l1-ils", type: "vocab", front: "ils", reading: "ils", meaning: "they", example: { jp: "Ils sont dans le jardin.", en: "They are in the garden." }, drill: { jp: "Ils ont une petite voiture", en: "They have a small car" }, accept: ["they masculine"], hint: "ils for men or a mixed group, elles for an all-female group." },
+        { id: "fr-u23l1-elles", type: "vocab", front: "elles", reading: "elles", meaning: "they (feminine)", example: { jp: "Marie et Anne ? Elles sont ici.", en: "Marie and Anne? They're here." }, drill: { jp: "Elles sont dans le jardin", en: "They are in the garden" }, accept: ["they"] },
+        { id: "fr-u23l1-noussommes", type: "vocab", front: "nous sommes", reading: "noussommes", meaning: "we are", example: { jp: "Nous sommes très contents.", en: "We are very happy." }, drill: { jp: "Nous sommes à la gare", en: "We are at the station" }, accept: ["we're"] },
+        { id: "fr-u23l1-vousetes", type: "vocab", front: "vous êtes", reading: "vousetes", meaning: "you are (polite)", example: { jp: "Vous êtes français ?", en: "Are you French?" }, drill: { jp: "Vous êtes fatigué aujourd'hui", en: "You are tired today" }, accept: ["you're"] },
+        { id: "fr-u23l1-ilssont", type: "vocab", front: "ils sont", reading: "ilssont", meaning: "they are", example: { jp: "Ils sont dans le salon.", en: "They are in the living room." }, drill: { jp: "Ils sont à la maison", en: "They are at home" }, accept: ["they're"] },
+        { id: "fr-u23l1-on", type: "vocab", front: "on", reading: "on", meaning: "we", example: { jp: "On va au restaurant !", en: "We're going to the restaurant!" }, drill: { jp: "On mange à midi", en: "We eat at noon" }, accept: ["one", "people", "you"], hint: "In real speech, on almost always replaces nous: on va, on mange. It takes the il/elle form." },
       ],
     },
     {
       id: "fr-u23l2",
       unit: 23,
       lesson: 2,
-      title: "What I did",
+      title: "Having and going",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Talk about the past with avoir + past participle: j'ai mangé, j'ai fait, j'ai vu.",
+      canDo: "Use avoir, aller and venir: nous avons, vous avez, ils ont — tu vas, il va, je viens, il vient.",
       items: [
-        { id: "fr-u23l2-jaimange", type: "vocab", front: "j'ai mangé", reading: "jaimange", meaning: "I ate", example: { jp: "Hier, j'ai mangé au restaurant.", en: "Yesterday, I ate at the restaurant." }, accept: ["i have eaten", "i've eaten", "i did eat"], hint: "The past = j'ai + the participle. For -er verbs just swap -er for -é: manger → mangé. Sounds identical, spelled differently." },
-        { id: "fr-u23l2-jaiparle", type: "vocab", front: "j'ai parlé", reading: "jaiparle", meaning: "I spoke", example: { jp: "J'ai parlé avec ma mère hier.", en: "I spoke with my mother yesterday." }, accept: ["i have spoken", "i talked", "i've talked"] },
-        { id: "fr-u23l2-jaitravaille", type: "vocab", front: "j'ai travaillé", reading: "jaitravaille", meaning: "I worked", example: { jp: "J'ai travaillé toute la semaine.", en: "I worked all week." }, accept: ["i have worked", "i've worked"], hint: "toute = all (feminine) — toute la semaine, all week." },
-        { id: "fr-u23l2-jaifait", type: "vocab", front: "j'ai fait", reading: "jaifait", meaning: "I did", example: { jp: "J'ai fait les courses ce matin.", en: "I did the shopping this morning." }, accept: ["i have done", "i made", "i've made"], hint: "Irregular: faire → fait, not \"faié\". The common verbs are the irregular ones, as always." },
-        { id: "fr-u23l2-jaivu", type: "vocab", front: "j'ai vu", reading: "jaivu", meaning: "I saw", example: { jp: "J'ai vu un beau film hier.", en: "I saw a good film yesterday." }, accept: ["i have seen", "i've seen"] },
-        { id: "fr-u23l2-jaieu", type: "vocab", front: "j'ai eu", reading: "jaieu", meaning: "I had", example: { jp: "J'ai eu froid ce matin.", en: "I was cold this morning." }, accept: ["i have had", "i've had"], hint: "Pronounced just \"ü\" — three letters, one sound. avoir → eu." },
-        { id: "fr-u23l2-jaipris", type: "vocab", front: "j'ai pris", reading: "jaipris", meaning: "I took", example: { jp: "J'ai pris le train à midi.", en: "I took the train at noon." }, accept: ["i have taken", "i've taken"] },
+        { id: "fr-u23l2-nousavons", type: "vocab", front: "nous avons", reading: "nousavons", meaning: "we have", example: { jp: "Nous avons deux enfants.", en: "We have two children." }, drill: { jp: "Nous avons faim ce soir", en: "We're hungry tonight" }, accept: ["we've"] },
+        { id: "fr-u23l2-vousavez", type: "vocab", front: "vous avez", reading: "vousavez", meaning: "you have (polite)", example: { jp: "Vous avez l'heure, s'il vous plaît ?", en: "Do you have the time, please?" }, drill: { jp: "Vous avez un grand jardin", en: "You have a big garden" }, accept: ["you've", "do you have"], hint: "Vous avez l'heure ? is the natural way to ask a stranger the time." },
+        { id: "fr-u23l2-ilsont", type: "vocab", front: "ils ont", reading: "ilsont", meaning: "they have", example: { jp: "Ils ont une grande maison.", en: "They have a big house." }, drill: { jp: "Ils ont deux enfants", en: "They have two children" }, accept: ["they've"], hint: "Careful: ils ont (they have) vs ils sont (they are). One letter, opposite verbs." },
+        { id: "fr-u23l2-tuvas", type: "vocab", front: "tu vas", reading: "tuvas", meaning: "you go", example: { jp: "Tu vas à l'école aujourd'hui ?", en: "Are you going to school today?" }, drill: { jp: "Tu vas au marché demain", en: "You're going to the market tomorrow" }, accept: ["you're going"], hint: "Ça va ? (Unit 1) is this same verb — literally \"it goes?\"" },
+        { id: "fr-u23l2-ilva", type: "vocab", front: "il va", reading: "ilva", meaning: "he goes", example: { jp: "Il va au marché le samedi.", en: "He goes to the market on Saturdays." }, drill: { jp: "Il va à la gare", en: "He's going to the station" }, accept: ["he's going", "she goes"] },
+        { id: "fr-u23l2-nousallons", type: "vocab", front: "nous allons", reading: "nousallons", meaning: "we go", example: { jp: "Nous allons à la plage en août.", en: "We go to the beach in August." }, drill: { jp: "Nous allons à la montagne", en: "We're going to the mountains" }, accept: ["we're going"] },
+        { id: "fr-u23l2-jeviens", type: "vocab", front: "je viens", reading: "jeviens", meaning: "I come", example: { jp: "Je viens avec toi !", en: "I'm coming with you!" }, drill: { jp: "Je viens demain matin", en: "I'm coming tomorrow morning" }, accept: ["i'm coming"] },
+        { id: "fr-u23l2-ilvient", type: "vocab", front: "il vient", reading: "ilvient", meaning: "he comes", example: { jp: "Il vient de Paris.", en: "He comes from Paris." }, drill: { jp: "Il vient avec nous ce soir", en: "He's coming with us tonight" }, accept: ["he's coming", "she comes"], hint: "venir de = to come from — il vient de Lyon." },
       ],
     },
     {
       id: "fr-u23l3",
       unit: 23,
       lesson: 3,
-      title: "Going and coming, in the past",
+      title: "More everyday verbs",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Use the être verbs of the past: je suis allé, je suis parti, je suis venu, je suis resté.",
+      canDo: "Use more key verbs: je mets, je dors, je sors, je reste, je donne, je vois, j'ouvre, je ferme.",
       items: [
-        { id: "fr-u23l3-jesuisalle", type: "vocab", front: "je suis allé", reading: "jesuisalle", meaning: "I went", example: { jp: "Hier, je suis allé à Paris.", en: "Yesterday, I went to Paris." }, accept: ["i have gone", "i've been", "i did go"], hint: "A small set of verbs — mostly coming and going — use être instead of avoir in the past. Learn them as chunks." },
-        { id: "fr-u23l3-jesuisparti", type: "vocab", front: "je suis parti", reading: "jesuisparti", meaning: "I left", example: { jp: "Je suis parti très tôt ce matin.", en: "I left very early this morning." }, accept: ["i have left", "i've left"] },
-        { id: "fr-u23l3-jesuisvenu", type: "vocab", front: "je suis venu", reading: "jesuisvenu", meaning: "I came", example: { jp: "Je suis venu avec ma sœur.", en: "I came with my sister." }, accept: ["i have come", "i've come"] },
-        { id: "fr-u23l3-jesuisreste", type: "vocab", front: "je suis resté", reading: "jesuisreste", meaning: "I stayed", example: { jp: "Il a plu, donc je suis resté à la maison.", en: "It rained, so I stayed home." }, accept: ["i have stayed", "i've stayed", "i remained"], hint: "donc = so, therefore. il a plu = it rained." },
-        { id: "fr-u23l3-donc", type: "vocab", front: "donc", reading: "donc", meaning: "so", example: { jp: "Il fait froid, donc je mets un manteau.", en: "It's cold, so I'm putting on a coat." }, accept: ["therefore", "thus"] },
-        { id: "fr-u23l3-deja", type: "vocab", front: "déjà", reading: "deja", meaning: "already", example: { jp: "J'ai déjà mangé, merci.", en: "I've already eaten, thank you." }, accept: ["yet", "before"], hint: "Sits between the two halves: j'ai déjà mangé, je n'ai pas encore mangé." },
-        { id: "fr-u23l3-lasemainederniere", type: "vocab", front: "la semaine dernière", reading: "lasemainederniere", meaning: "last week", example: { jp: "La semaine dernière, j'ai travaillé beaucoup.", en: "Last week, I worked a lot." }, accept: ["the last week", "previous week"], hint: "dernier/dernière = last. And prochain = next: la semaine prochaine." },
+        { id: "fr-u23l3-jemets", type: "vocab", front: "je mets", reading: "jemets", meaning: "I put", example: { jp: "Je mets le pain sur la table.", en: "I put the bread on the table." }, drill: { jp: "Je mets un manteau aujourd'hui", en: "I'm putting on a coat today" }, accept: ["i'm putting", "i place", "i put on"], hint: "Also \"I put on\" for clothes: je mets un manteau." },
+        { id: "fr-u23l3-jedors", type: "vocab", front: "je dors", reading: "jedors", meaning: "I sleep", example: { jp: "Je dors huit heures.", en: "I sleep eight hours." }, drill: { jp: "Je dors très bien ici", en: "I sleep very well here" }, accept: ["i'm sleeping"] },
+        { id: "fr-u23l3-jesors", type: "vocab", front: "je sors", reading: "jesors", meaning: "I go out", example: { jp: "Le samedi, je sors avec mon frère.", en: "On Saturdays, I go out with my brother." }, drill: { jp: "Je sors ce soir avec Marie", en: "I'm going out tonight with Marie" }, accept: ["i'm going out", "i leave", "i exit"] },
+        { id: "fr-u23l3-jereste", type: "vocab", front: "je reste", reading: "jereste", meaning: "I stay", example: { jp: "Il pleut : je reste à la maison.", en: "It's raining: I'm staying home." }, drill: { jp: "Je reste ici ce matin", en: "I'm staying here this morning" }, accept: ["i'm staying", "i remain"] },
+        { id: "fr-u23l3-jedonne", type: "vocab", front: "je donne", reading: "jedonne", meaning: "I give", example: { jp: "Je donne la clé à ma mère.", en: "I'm giving the key to my mother." }, drill: { jp: "Je donne le livre à Paul", en: "I give the book to Paul" }, accept: ["i'm giving"] },
+        { id: "fr-u23l3-jevois", type: "vocab", front: "je vois", reading: "jevois", meaning: "I see", example: { jp: "Je vois la mer !", en: "I see the sea!" }, drill: { jp: "Je vois la voiture de mon père", en: "I see my father's car" }, accept: ["i'm seeing"], hint: "Je vois. on its own = \"I see.\" — exactly like English." },
+        { id: "fr-u23l3-jouvre", type: "vocab", front: "j'ouvre", reading: "jouvre", meaning: "I open", example: { jp: "J'ouvre la porte.", en: "I open the door." }, drill: { jp: "J'ouvre la fenêtre le matin", en: "I open the window in the morning" }, accept: ["i'm opening"] },
+        { id: "fr-u23l3-jeferme", type: "vocab", front: "je ferme", reading: "jeferme", meaning: "I close", example: { jp: "Je ferme la fenêtre : il fait froid.", en: "I'm closing the window: it's cold." }, drill: { jp: "Je ferme la porte", en: "I close the door" }, accept: ["i'm closing", "i shut"] },
       ],
     },
   ],

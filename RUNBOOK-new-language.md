@@ -233,6 +233,131 @@ Everything else on the list is free. **Check your own language's fronts before y
 - **`speak` routes** for any vocab item (`shouldSpeak`) — notes calling it dormant are stale — **but it is not free here.** It needs the clip (above), and this repo's own Brief-C de-risk measured STT on an **isolated single glyph at 0/3**. `gradeSpoken("e", { front: "é" })` returns `"hard"`: a learner who says the sound correctly is marked down unless the transcriber happens to emit the accent. **Speak the WORD, type the CHARACTER** is the shape that survives this.
 - ⚠️ **French's unit 1 is in `src/data/fr/unit27.js`, not `unit1.js`.** The file name is historical; the unit carries `order: 1`. Edit by unit `order`, never by filename.
 
+### THE LESSON SHAPE — settled by Alex, 2026-09-13
+
+**Alex:** *"we can add a word in the lessons so its not just letters but we can just repeat card for the accent lessons — unit one gets users able to pronounce the accents before ever given a word."*
+
+**The principle, and it decides the arguable cases: unit 1's job is that the learner can PRONOUNCE the language's letters before being handed a single word.** Pronunciation precedes vocabulary. When a call is genuinely close, pick the option that gets a learner saying the letter correctly sooner.
+
+**So a lesson in unit 1 lessons 1–3 is:**
+
+1. **Every special letter the language has, as its own glyph card** — hear it, say it, type it. This is the lesson.
+2. **Plus a minimal exemplar word or two** carrying one of those letters, as an ordinary vocab card — so the lesson is not a bare alphabet and the learner meets the letter living in a real word. `ø` as a glyph card, then `ei øy`.
+3. **Repetition is fine and expected.** A language with four special letters does not invent two more to reach six.
+
+⚠️ **THE ENGINE ALREADY REPEATS — do not add filler items to hit a number.** `buildLearnQueue` gives every item **three screens** (one teach, then two spaced checks), and FSRS repeats it again over following days. So a four-letter lesson is **twelve screens**, which is a real lesson rather than a thirty-second one.
+
+⚠️ **But do NOT use that as the justification for a short lesson — it does not survive contact.** The 3× applies to *every* lesson equally, so it cancels out of the comparison: 3 items is 9 screens and 6 items is 18, and the short lesson is still exactly half the normal one — in screens, in items, and in review load afterwards. **Multiplying both sides of a gap by three does not close it.** `lint.js` counts items, and items are precisely what is short: the rule is measuring the right thing.
+
+**The honest justification is the shape, not the arithmetic:** glyph cards *plus a minimal exemplar word* fill the lesson with real content, and a language with four special letters does not invent two more. **Cite that.** A crew that cites the screen count instead will ship a bare three-glyph lesson and call the gap closed by multiplication.
+
+⚠️ **Do not duplicate an item to pad the count — it is a hard validator error.** Item ids are globally unique (`contract.js`: *"duplicate id"*). "Repeat the card" means the engine's own repetition plus spaced review, not the same id twice in `items[]`.
+
+**Inventory, counted from the corpus — this is what each language has to work with:**
+
+| lang | special letters | |
+|---|---|---|
+| 🇫🇷 fr | **12** | à â ç è é ê î ï ô ù û œ |
+| 🇵🇹 pt | **11** | à á â ã ç é ê í ó ô ú |
+| 🇪🇸 es | **7** | á é í ñ ó ú ü |
+| 🇩🇪 de | **4** | ä ö ü ß |
+| 🇳🇴 no | **4** | å æ é ø |
+
+Multigraphs are glyph targets too (`eau`, `ai`, `oi`, `gn`, `ill`, `ei`, `sch`, `kj`, `skj`, `ão`, `lh`, `nh`) — they are typeable strings and a real keyboard target, so they need no exception.
+
+✅ **NO CLIP IS EVER RE-RECORDED — this line said the opposite until 2026-09-13, and the opposite was written for a REPLACE operation that is no longer the rule.** Under the ADD rule above no word card loses its front, so no recording is ever wrong. An earlier version warned that `no-u1l1`/`no-u1l3` needed re-recording across five languages and that `no-u1l2`'s six clips were the only survivors — true of replacing, and replacing is not what we are doing. **The only audio to GENERATE is for the NEW glyph ids** — roughly **60–80 clips across all five languages**, one run, after the cards exist. Caught by the group-1 block-1 seat before any crew acted on it.
+
+⚠️ **BUT "NO ID CHANGES" IS NO LONGER TRUE, AND THIS PARAGRAPH ASSERTED IT UNTIL 2026-09-14.** Adding the glyphs changed no ids; **REGROUPING the lessons afterwards did** — fr, es, pt, de and no all reshaped u1 on 2026-09-14, and a lesson number is part of an item id. **A clip records the WORD, never the lesson, so the fix is a rename and it costs nothing:** `git mv public/audio/<lang>/<old-id>.mp3 <new-id>.mp3` for every changed id, then `npm run generate:manifest`, then verify the manifest total is unchanged and every item id resolves to a file. **Skipping it does not merely mute a card** — `shouldListen` and `shouldListenType` both begin `hasAudio(item)` (cardRouting.js:44, :132), so an orphaned clip deletes two card kinds from the item and `tests/unit/card-variety.test.mjs` goes red on whichever item that leaves with one. Verified red on `es-u1l3-hay` and on `fr-u1l2-ucirconflexe`. **Any id move in a voiced unit must carry its clips, in the same commit.**
+
+### 🚨 ADD THE GLYPHS, DO NOT REPLACE THE WORDS — this is the part that will bite
+
+**Measured across the whole corpus 2026-09-13, and it is the same in every language:**
+
+| lang | items in u1 l1–l3 | taught ONLY there |
+|---|---|---|
+| 🇳🇴 no | 18 | **18** |
+| 🇫🇷 fr | 21 | **21** |
+| 🇪🇸 es | 19 | **19** |
+| 🇵🇹 pt | 19 | **19** |
+| 🇩🇪 de | 18 | **18** |
+
+**Every single word in scope is taught in exactly one place — that lesson — and nowhere else in the whole band.** That is structural, not luck: fronts are globally unique per language, so a word introduced in u1l1 exists in exactly one card by construction.
+
+⚠️ **So replacing a word card with a glyph card does not edit a lesson — it deletes the word from the course.** In Norwegian that list includes **`å være` (to be)**, `å gå` (to go), `å lære` (to learn), `å kjøpe` (to buy), `et språk` (language), plus `hva`, `hvor`, `det`, `og`, `jeg`. Removing "to be" from a language course is not a lesson-shape change. **95 core words across the five languages.**
+
+**THE RULE: glyph cards go IN FRONT OF the existing word cards. Nothing is removed, no id changes, no mastery is reset.**
+
+```js
+items: [
+  { id: "no-u1l1-ae", type: "glyph", front: "æ", … },   // ← new, first
+  { id: "no-u1l1-oe", type: "glyph", front: "ø", … },   // ← new
+  { id: "no-u1l1-aa", type: "glyph", front: "å", … },   // ← new
+  { id: "no-u1l1-avaere", type: "vocab", front: "å være", … },  // ← UNTOUCHED
+  …the rest of the existing word cards, untouched…
+]
+```
+
+**This satisfies Alex's principle exactly, and that is why it is the right shape rather than a compromise.** Teach order is authored order (`buildLearnQueue` runs every teach before any check, in the order written), so glyphs placed first means **the learner meets æ ø å before they are handed a single word** — which is the standard in his own words: *"unit one gets users able to pronounce the accents before ever given a word."*
+
+It also keeps the lesson’s audio (the existing word clips still match their unchanged ids) and adds nothing to the mastery-wipe risk.
+
+⚠️ **This paragraph used to also claim ADD “keeps its density”. IT DOES NOT — measured, and it is the one real cost of the rule.** The French seat was the first to do it: the accent inventory in front of 7 untouched word cards put `fr-u27l1` at **15 items** and `fr-u27l2` at **14**, against the 5–8 band in `src/data/lint.js:445-447` — and those are the **only two new warnings the whole branch adds** (corpus 2999 → 3001). **Expect the same in your language, and do NOT trim glyphs to get under the band**: the inventory is what the lesson teaches, the check is a warning not an error, and the band itself is filed as a Feature CC decision in `BUILD-CHECKLIST.md`. Do budget the LOAD, though — `buildLearnQueue` gives every item one teach plus two checks with no per-session cap, so a 15-item lesson is **45 screens, the first 15 of them consecutive teach screens**.
+
+⚠️ **Run the check for your own language before you start**, because the trap is the same everywhere but the word list is not:
+
+```bash
+npm run taught -- <lang>     # what the language already teaches, and where
+```
+
+**Raised by the Norwegian seat**, which checked all 18 of its fronts against the 50-unit corpus before authoring, and built its draft additively for exactly this reason.
+
+### ✅ THE GLYPH ITEM — READY TO AUTHOR (engine merged 2026-09-13)
+
+`type: "glyph"` is live on `main`. This exact lesson passes `validate:content` with zero errors — copy it.
+
+```js
+{
+  id: "fr-u27", lang: "fr", order: 1, stage: "a1", title: "Les sons",
+  lessons: [{
+    id: "fr-u27l1", unit: 27, lesson: 1, title: "Les accents", cefr: "A1",
+    dominantMode: "recognize", canDo: "Hear, say and type the French accents.",
+    items: [
+      { id: "fr-u27l1-eaigu",    type: "glyph", front: "é",   reading: "e",   meaning: null, example: null, hint: "The closed ay of café." },
+      { id: "fr-u27l1-egrave",   type: "glyph", front: "è",   reading: "e",   meaning: null, example: null, hint: "The open eh of très." },
+      { id: "fr-u27l1-ccedille", type: "glyph", front: "ç",   reading: "c",   meaning: null, example: null, hint: "Forces a soft s: ça." },
+      { id: "fr-u27l1-eau",      type: "glyph", front: "eau", reading: "eau", meaning: null, example: null, hint: "Three letters, one oh." },
+      // …then the minimal exemplar WORD as an ordinary vocab item, per the lesson shape.
+    ],
+  }],
+}
+```
+
+**The rules, all enforced by the validator:**
+
+| field | for a glyph |
+|---|---|
+| `type` | `"glyph"` |
+| `front` | the character or cluster — **1–4 characters** (`é`, `eau`, `sch`). Longer is a word, and the validator says so. |
+| `reading` | its ASCII fold, `[a-z]+` — `é` → `e`, `eau` → `eau`. ⚠️ **This row used to add "This is the SOUND, and it is what the listening card checks", and the two halves are not the same thing.** The engine uses the field BOTH ways: `listen:type` grades against it, and `type:produce` **prompts** with it (`TypeCard.jsx`, glyph branch). So wherever two of your glyphs share one ASCII fold, the produce card shows one prompt with two correct answers. Measured in French: `é`, `è`, `ê` all fold to `e`, so that card is a 1-in-3 guess; Portuguese `á â ã à` all fold to `a`. ✅ `e86c0df9` confirmed the field stays the FOLD (its own test authors `ü` → `"ue"`) and made the recall card compare readings — which also means that where your glyph is a MULTIGRAPH, fold equals front and that card shows `eau` and accepts `eau`, a copy task. **So: author the plain ASCII fold, list every same-fold pair and every front-equals-reading cluster in your hand-back, and do NOT invent a private convention to dodge either** — both are one decision for all five languages, open in the Feature CC backlog. |
+| `meaning` | **must be `null`.** This is the point of the type: it is what stops the engine asking "what does é mean". |
+| `example` | **must be `null`.** |
+| `hint` | optional, and where the sound description goes — it shows while teaching and never becomes a question. |
+
+**What the learner gets, automatically, with no routing to write:**
+
+- **teach** — the companion says it, Continue (this is "hear them all first")
+- **listen:type** — *"Type what you hear"*, speaker button, no text prompt (**this is the card Alex described**)
+- **type:produce** — *"Type the letter"*
+- **speak** — says it, shows it, you repeat
+- **choice** — *"Which sound is this?"*
+- **no meaning card and no reverse card** — they exclude themselves, because there is no meaning to ask for
+
+⚠️ **Typing the bare letter now FAILS.** `checkProduce("e", { front: "é" })` is `false`, and `é`/`è`/`ê` no longer accept each other. Ordinary words keep their tolerance — `cafe` still passes for `café`.
+
+⚠️ **The clips are of WORDS, not letters.** Every recording in the corpus today says a word — `fr-u27l1-eaigu`'s clip is someone saying *"le bébé"*. **A new glyph id has no clip at all**, so `teach`, `listen:*` and `speak` will not route for it until `generate:audio` runs for the new ids. Author anyway — the typing card works today and the rest lights up when the audio lands. **Flag the new ids in your hand-back so they go in one run, not five.**
+
+⚠️ **`no-u1l2` needs NO GLYPH CARDS — but it is not "done".** It is *"Letters you write but never say"*: six ordinary **vocab** cards (`hva · det · hvor · god · og · jeg`) and **zero glyph cards** — verified on `main` — and that is CORRECT for it. The lesson teaches an **absence** (a silent letter), and an absence has no character to type; its words are already the right shape, 2–4 characters where every one is load-bearing. **So add no glyph cards and do not re-author the words.** ⚠️ It does **not** mean the lesson already has glyph items — **no lesson in any of the five languages does yet.** (The first wording read as "already has glyph cards" and would have made the Norwegian seat skip a lesson.)
+
 **Where each language teaches this today** (confirmed 2026-09-13) — all five currently use the word-based shape and all five need the same rewrite:
 
 | lang | unit 1 file | l1 | l2 | l3 |

@@ -32,7 +32,12 @@ const VALID_CEFR = Object.keys(CEFR_ORDER);
 // Latin-alphabet languages simply won't have any pre-a1 units.
 const VALID_STAGE = ["pre-a1", "a1", "a2", "b1", "b2"];
 const VALID_DOMINANT_MODE = ["recall", "recognize", "produce", "speak", "trace"];
-const VALID_ITEM_TYPES = ["kana", "vocab", "kanji"];
+// "glyph" is `kana` generalised: one character (or one grapheme cluster like "eau"),
+// taught by its SOUND, with no meaning. It is what an accent card is — é does not mean
+// anything, it sounds like something — and it is what Korean/Russian/Mandarin/Hindi
+// will need. `kana` stays as the Japanese-specific type because it carries obligations
+// glyph does not: stroke data, gojuon ordering, and the trace card.
+const VALID_ITEM_TYPES = ["kana", "vocab", "kanji", "glyph"];
 const LOCKED_STUB_KEYS = new Set(["id", "title", "locked"]);
 // `group` (verb class) + `conjForm` (target form) are optional tags on verb items
 // that power the conjugate card. group is usually stamped at seed time from
@@ -212,7 +217,18 @@ export function validateContent(units, languages) {
           if (item.conjForm !== undefined && !forms.includes(item.conjForm))
             e(`item ${item.id}: conjForm "${item.conjForm}" is not a valid ${unit.lang} form (${forms.join(", ")})`);
 
-          if (item.type === "kana") {
+          if (item.type === "glyph") {
+            // Same shape as kana, and the null meaning is the POINT: it is what stops
+            // the engine asking "what does é mean", which is not a question about the
+            // language. No stroke data — a learner already writes Latin letters, so a
+            // glyph is never traced.
+            if (item.meaning !== null)
+              e(`item ${item.id}: glyph item must have meaning: null — a glyph is taught by its sound, not a gloss`);
+            if (item.example !== null)
+              e(`item ${item.id}: glyph item must have example: null`);
+            if ([...item.front].length > 4)
+              e(`item ${item.id}: glyph front "${item.front}" is ${[...item.front].length} characters — a glyph is a letter or a short grapheme cluster (é, eau, sch), not a word`);
+          } else if (item.type === "kana") {
             if (item.meaning !== null)
               e(`item ${item.id}: kana item must have meaning: null`);
             if (item.example !== null)

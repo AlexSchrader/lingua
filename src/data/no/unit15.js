@@ -89,7 +89,7 @@ export const NO_UNIT15 = {
   order: 15,
   stage: "a1",
   lessons: [
-    // Lesson 1: the garments themselves. `ei skjorte` is already taught (u1l3),
+    // Lesson 1: the garments themselves. `ei skjorte` is already taught (u1l4),
     // so it is used here and never re-taught.
     {
       id: "no-u15l1",

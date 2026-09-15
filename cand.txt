@@ -1,0 +1,250 @@
+# u41 Mat og drikke 2
+kjøtt
+en potet
+ei gulrot
+en løk
+salt
+sukker
+en lunsj
+ei suppe
+en salat
+en dessert
+en rett
+en meny
+å koke
+å steke
+å bake
+å skjære
+å blande
+å servere
+søt
+sur
+bitter
+fersk
+mett
+deilig
+# u42 Klær og utseende
+en frakk
+et skjørt
+ei bluse
+et slips
+en støvel
+et smykke
+vakker
+slank
+tynn
+tykk
+et skjegg
+briller
+å sy
+å strikke
+å henge
+å brette
+å pynte
+å kle
+bomull
+silke
+et stoff
+ei stripe
+et mønster
+ei rute
+# u43 Vær og årstider
+en storm
+ei tåke
+et lyn
+en torden
+et uvær
+ei bølge
+en grad
+en temperatur
+mild
+kjølig
+klar
+ei stjerne
+ei blomst
+et løv
+en is
+å gro
+å smelte
+å tine
+ei skygge
+å skinne
+å varsle
+en paraply
+en himmel
+et klima
+# u44 Sport og trening
+en kamp
+et mål
+en dommer
+et publikum
+en supporter
+en idrett
+å slå
+å løpe
+å sparke
+å vinne
+å tape
+å konkurrere
+en bane
+ei hall
+ei skøyte
+en sykkel
+et stadion
+å klatre
+et resultat
+en seier
+et poeng
+en rekord
+ei øvelse
+en medalje
+# u45 Retning og geografi
+nord
+sør
+øst
+vest
+en retning
+rundt
+ei kyst
+en dal
+et hav
+en fjord
+ei slette
+en innsjø
+en verden
+en innbygger
+ei hovedstad
+et fylke
+et område
+ei bygd
+å svinge
+å krysse
+å følge
+å peke
+et hjørne
+å lete
+# u46 Form og materiale
+en form
+ei kule
+en firkant
+en sirkel
+ei linje
+ei flate
+metall
+plast
+gummi
+stål
+betong
+leire
+glatt
+myk
+hard
+skarp
+hul
+fast
+å bøye
+å brekke
+å klippe
+å lime
+å bygge
+å dekke
+# u47 Mengde og maal
+ei mengde
+en del
+en rest
+et stykke
+en helhet
+et antall
+en meter
+en kilo
+en liter
+ei vekt
+et gram
+ei mil
+ei flaske
+en boks
+ei pose
+et beger
+ei kasse
+et lokk
+å samle
+å telle
+å fylle
+å tømme
+å øke
+å minke
+# u48 Medier og underholdning
+et intervju
+en redaktør
+en artikkel
+ei overskrift
+en journalist
+ei side
+en kanal
+et program
+en radio
+en skjerm
+en episode
+en reklame
+en roman
+ei historie
+en forfatter
+et kapittel
+ei rolle
+en scene
+å anbefale
+å underholde
+å oppdatere
+å spre
+å skru
+å bla
+# u49 Aa forklare og aa fortelle
+å forklare
+å beskrive
+å nevne
+å gjenta
+å oversette
+å stave
+å diskutere
+å påstå
+å avbryte
+å krangle
+å nekte
+å innrømme
+å klage
+å rose
+å rope
+å hviske
+å spøke
+å lyve
+en samtale
+et uttrykk
+en setning
+en tale
+et rykte
+en lyd
+# u50 Vanlige begreper
+en tanke
+en måte
+ei sak
+et tilfelle
+en hensikt
+en sammenheng
+en mulighet
+en løsning
+en feil
+ei ulykke
+et hell
+en fare
+en forskjell
+en likhet
+en endring
+en utvikling
+en verdi
+et behov
+et valg
+en erfaring
+et inntrykk
+en skikk
+et ansvar
+et krav

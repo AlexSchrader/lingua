@@ -1,7 +1,7 @@
 # NO — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- no`.
-Snapshot 2026-08-30: **0 words** across **0 authored unit(s)**, **20 slot(s) still stubs**.
+Snapshot 2026-09-15: **1215 words** across **50 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -21,39 +21,1329 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 | block | slots |
 |---|---|
-| 1 | u1–u7 |
-| 2 | u8–u14 |
-| 3 | u15–u20 |
-
-## Slots still stubs — not yours unless you were assigned them
-
-| slot | unit | title |
-|---|---|---|
-| 1 | `no-u1` | Sounds and spelling |
-| 2 | `no-u2` | Greetings |
-| 3 | `no-u3` | Introducing yourself |
-| 4 | `no-u4` | Family |
-| 5 | `no-u5` | Numbers and time |
-| 6 | `no-u6` | Food and drink |
-| 7 | `no-u7` | Town and places |
-| 8 | `no-u8` | Colors and weather |
-| 9 | `no-u9` | Days and months |
-| 10 | `no-u10` | Describing things |
-| 11 | `no-u11` | Body and health |
-| 12 | `no-u12` | Grammar 1 — basic sentence |
-| 13 | `no-u13` | Grammar 2 — verbs and particles |
-| 14 | `no-u14` | Grammar 3 — past tense and agreement |
-| 15 | `no-u15` | Vocabulary 1 |
-| 16 | `no-u16` | Vocabulary 2 |
-| 17 | `no-u17` | Vocabulary 3 |
-| 18 | `no-u18` | Vocabulary 4 |
-| 19 | `no-u19` | Vocabulary 5 |
-| 20 | `no-u20` | Vocabulary 6 |
+| 1 | u51–u63 |
+| 2 | u64–u76 |
+| 3 | u77–u87 |
 
 ## Index — every taught word, alphabetical
 
 `word` — slot · meaning
 
+- `å` — u1
+- `å anbefale` — u48 · to recommend
+- `å angre` — u40 · to regret
+- `å ankomme` — u23 · to arrive
+- `å ansette` — u24 · to hire
+- `å avbryte` — u49 · to interrupt
+- `å avslutte` — u21 · to finish off
+- `å bake` — u41 · to bake
+- `å begynne` — u5 · to begin
+- `å beklage` — u2 · to be sorry
+- `å beskrive` — u49 · to describe
+- `å besøke` — u20 · to visit
+- `å bestå` — u24 · to pass
+- `å bestemme` — u21 · to decide
+- `å betale` — u7 · to pay
+- `å bety` — u40 · to mean (to signify)
+- `å bla` — u48 · to browse
+- `å blande` — u41 · to mix
+- `å blåse` — u8 · to blow
+- `å bli` — u13 · to become
+- `å blø` — u25 · to bleed
+- `å bo` — u3 · to live
+- `å bøye` — u46 · to bend
+- `å brekke` — u46 · to break
+- `å brette` — u42 · to fold
+- `å bruke` — u17 · to use
+- `å bry seg` — u22 · to care
+- `å bygge` — u46 · to build
+- `å bytte` — u20 · to swap
+- `å danse` — u19 · to dance
+- `å dekke` — u46 · to cover
+- `å dele` — u33 · to share
+- `å delta` — u21 · to take part
+- `å diskutere` — u49 · to discuss
+- `å dra` — u20 · to set off
+- `å drikke` — u6 · to drink
+- `å dusje` — u17 · to shower
+- `å eie` — u27 · to own
+- `å elske` — u4 · to love
+- `å få` — u13 · to get
+- `å finne` — u7 · to find
+- `å fiske` — u19 · to fish
+- `å flytte` — u16 · to move
+- `å føle` — u40 · to feel
+- `å følge` — u45 · to follow
+- `å forandre` — u40 · to change (to alter)
+- `å foreslå` — u21 · to suggest
+- `å foretrekke` — u40 · to prefer
+- `å forklare` — u33 · to explain
+- `å formidle` — u48 · to convey
+- `å forstå` — u3 · to understand
+- `å fortelle` — u17 · to tell
+- `å fortsette` — u21 · to continue
+- `å fryse` — u8 · to freeze
+- `å fylle` — u47 · to fill
+- `å gå` — u1 · to go
+- `å gi` — u1 · to give
+- `å gjelde` — u32 · to apply (to be valid)
+- `å gjennomføre` — u24 · to carry out
+- `å gjenta` — u33 · to repeat
+- `å gjøre` — u11 · to do
+- `å glemme` — u17 · to forget
+- `å grave` — u26 · to dig
+- `å gro` — u43 · to grow (of plants)
+- `å ha` — u3 · to have
+- `å handle` — u27 · to shop
+- `å håpe` — u17 · to hope
+- `å haste` — u23 · to be urgent
+- `å henge` — u42 · to hang
+- `å henge opp` — u30 · to hang up
+- `å hente` — u20 · to fetch
+- `å hilse` — u17 · to greet
+- `å hjelpe` — u11 · to help
+- `å hoppe` — u19 · to jump
+- `å høre` — u11 · to hear
+- `å hoste` — u25 · to cough
+- `å huske` — u17 · to remember
+- `å hvile` — u17 · to rest
+- `å hviske` — u49 · to whisper
+- `å innrømme` — u49 · to admit
+- `å innse` — u40 · to realize
+- `å jakte` — u26 · to hunt
+- `å jobbe` — u3 · to work
+- `å kaste` — u19 · to throw
+- `å kjenne` — u1 · to know
+- `å kjøpe` — u1 · to buy
+- `å kjøre` — u7 · to drive
+- `å klage` — u49 · to complain
+- `å klare` — u21 · to manage
+- `å klatre` — u44 · to climb
+- `å kle` — u42 · to dress
+- `å klippe` — u46 · to cut (with scissors)
+- `å koke` — u41 · to boil
+- `å komme` — u3 · to come
+- `å konkurrere` — u44 · to compete
+- `å koste` — u6 · to cost
+- `å krangle` — u49 · to quarrel
+- `å kreve` — u40 · to require
+- `å krype` — u26 · to crawl
+- `å krysse` — u45 · to cross
+- `å kunne` — u13 · to be able to
+- `å lære` — u1 · to learn
+- `å lage` — u6 · to make
+- `å lagre` — u33 · to save (a file)
+- `å låne` — u20 · to borrow
+- `å le` — u17 · to laugh
+- `å leie` — u30 · to rent
+- `å lese` — u18 · to read
+- `å lete` — u45 · to search
+- `å levere` — u24 · to hand in
+- `å ligge` — u13 · to lie
+- `å like` — u3 · to like
+- `å lime` — u46 · to glue
+- `å løpe` — u44 · to run
+- `å love` — u17 · to promise
+- `å lufte` — u30 · to air out
+- `å lyve` — u49 · to lie (tell an untruth)
+- `å måle` — u34 · to measure
+- `å male` — u35 · to paint
+- `å måtte` — u13 · must
+- `å mene` — u17 · to mean
+- `å mestre` — u24 · to master
+- `å minke` — u47 · to decrease
+- `å more seg` — u35 · to have fun
+- `å møte` — u2 · to meet
+- `å nekte` — u49 · to refuse
+- `å nevne` — u33 · to mention
+- `å notere` — u49 · to note down
+- `å nyte` — u22 · to enjoy
+- `å øke` — u47 · to increase
+- `å ønske` — u20 · to wish
+- `å oppdage` — u34 · to discover
+- `å oppdatere` — u48 · to update
+- `å oppføre seg` — u31 · to behave
+- `å oppleve` — u40 · to experience
+- `å opptre` — u35 · to perform
+- `å ordne` — u21 · to sort out
+- `å orke` — u21 · to have the energy
+- `å oversette` — u33 · to translate
+- `å pakke` — u20 · to pack
+- `å parkere` — u23 · to park
+- `å passe` — u15 · to fit
+- `å påstå` — u49 · to claim
+- `å påvirke` — u40 · to affect
+- `å peke` — u45 · to point
+- `å planlegge` — u21 · to plan
+- `å pleie` — u21 · to usually do
+- `å plukke` — u26 · to pick
+- `å prøve` — u15 · to try
+- `å pusse` — u17 · to brush
+- `å puste` — u25 · to breathe
+- `å pynte` — u42 · to decorate
+- `å regne` — u8 · to rain
+- `å reise` — u7 · to travel
+- `å rekke` — u21 · to make it in time
+- `å reservere` — u23 · to book
+- `å ringe` — u17 · to call
+- `å rope` — u49 · to shout
+- `å rose` — u49 · to praise
+- `å rydde` — u16 · to tidy up
+- `å samarbeide` — u24 · to collaborate
+- `å samle` — u47 · to collect
+- `å savne` — u22 · to miss
+- `å se` — u2 · to see
+- `å sende` — u20 · to send
+- `å servere` — u41 · to serve
+- `å si` — u12 · to say
+- `å sitte` — u13 · to sit
+- `å skape` — u40 · to create
+- `å skifte` — u15 · to change
+- `å skinne` — u43 · to shine
+- `å skjære` — u41 · to cut
+- `å skje` — u32 · to happen
+- `å skrive` — u18 · to write
+- `å skru` — u48 · to switch
+- `å skulle` — u13 · shall
+- `å skylde` — u27 · to owe
+- `å skynde seg` — u21 · to hurry
+- `å slå` — u44 · to beat
+- `å slappe av` — u21 · to relax
+- `å slette` — u33 · to delete
+- `å slite` — u25 · to struggle
+- `å slutte` — u5 · to finish
+- `å smake` — u6 · to taste
+- `å smelte` — u43 · to melt
+- `å smile` — u17 · to smile
+- `å snakke` — u3 · to speak
+- `å snø` — u8 · to snow
+- `å søke` — u24 · to apply
+- `å sove` — u11 · to sleep
+- `å spare` — u27 · to save
+- `å sparke` — u44 · to kick
+- `å spille` — u19 · to play
+- `å spise` — u6 · to eat
+- `å spøke` — u49 · to joke
+- `å spørre` — u12 · to ask
+- `å spre` — u48 · to spread
+- `å stå` — u13 · to stand
+- `å stave` — u49 · to spell
+- `å steke` — u41 · to fry
+- `å stemme` — u32 · to vote
+- `å stoppe` — u20 · to stop
+- `å støvsuge` — u30 · to vacuum
+- `å strikke` — u42 · to knit
+- `å svare` — u12 · to answer
+- `å svinge` — u23 · to turn
+- `å svømme` — u19 · to swim
+- `å sy` — u42 · to sew
+- `å synes` — u17 · to think (opinion)
+- `å synge` — u19 · to sing
+- `å ta` — u13 · to take
+- `å tåle` — u22 · to tolerate
+- `å tape` — u44 · to lose
+- `å tegne` — u35 · to draw
+- `å telle` — u47 · to count
+- `å tenke` — u17 · to think
+- `å tenke seg` — u22 · to imagine
+- `å tilby` — u40 · to offer
+- `å tine` — u43 · to thaw
+- `å tjene` — u24 · to earn
+- `å tolke` — u49 · to interpret
+- `å tømme` — u47 · to empty
+- `å tørke` — u30 · to wipe
+- `å trene` — u21 · to exercise
+- `å trenge` — u13 · to need
+- `å tro` — u12 · to believe
+- `å underholde` — u35 · to entertain
+- `å understreke` — u49 · to emphasise
+- `å undervise` — u24 · to teach
+- `å unngå` — u25 · to avoid
+- `å utsette` — u23 · to postpone
+- `å uttale` — u49 · to pronounce
+- `å utvikle` — u24 · to develop
+- `å være` — u1 · to be
+- `å våkne` — u17 · to wake up
+- `å vare` — u28 · to last
+- `å varsle` — u43 · to forecast
+- `å vaske` — u15 · to wash
+- `å vaske opp` — u30 · to wash up
+- `å veksle` — u27 · to change (money)
+- `å velge` — u15 · to choose
+- `å vende` — u45 · to turn (to face another way)
+- `å vente` — u17 · to wait
+- `å ville` — u13 · to want to
+- `å vinne` — u44 · to win
+- `å vise` — u20 · to show
+- `å vite` — u12 · to know (a fact)
+- `å vokse` — u34 · to grow
+- `å vurdere` — u40 · to consider
+- `æ` — u1
+- `ærlig` — u31 · honest
+- `aldri` — u12 · never
+- `alle` — u14 · everyone
+- `allerede` — u28 · already
+- `alltid` — u12 · always
+- `alt` — u14 · everything
+- `altfor` — u37 · far too
+- `altså` — u29 · so
+- `andre` — u14 · others (plural)
+- `annen` — u14 · other (masculine/feminine)
+- `annet` — u14 · other (neuter)
+- `åpen` — u7 · open
+- `arbeid` — u18 · work
+- `at` — u12 · that (conjunction)
+- `åtte` — u5 · eight
+- `august` — u9 · August
+- `av` — u13 · of
+- `av og til` — u28 · sometimes
+- `både` — u29 · both
+- `bagasje` — u23 · luggage
+- `bare` — u2 · only
+- `bedre` — u37 · better
+- `bekymret` — u22 · worried
+- `best` — u37 · best
+- `betong` — u46 · concrete
+- `billig` — u1 · cheap
+- `bitter` — u41 · bitter
+- `blå` — u8 · blue
+- `ble` — u14 · became
+- `bodde` — u38 · lived
+- `bomull` — u42 · cotton
+- `bør` — u13 · should
+- `bort` — u13 · away
+- `bortsett fra` — u36 · apart from
+- `bra` — u2 · well
+- `briller` — u42 · glasses
+- `brukte` — u38 · used
+- `brun` — u8 · brown
+- `burde` — u37 · ought to
+- `da` — u36 · when (past)
+- `dårlig` — u10 · bad
+- `de` — u3 · they
+- `deg` — u1 · you (object form)
+- `deilig` — u41 · delicious
+- `den` — u14 · that (masculine/feminine)
+- `denne` — u14 · this (masculine/feminine)
+- `dere` — u12 · you (plural)
+- `deres` — u12 · their
+- `deretter` — u29 · then
+- `derfor` — u12 · therefore
+- `derimot` — u29 · on the other hand
+- `dermed` — u29 · thereby
+- `dersom` — u29 · if (more formal)
+- `desember` — u9 · December
+- `dessuten` — u29 · besides
+- `det` — u1 · it
+- `det vil si` — u36 · that is
+- `dette` — u14 · this (neuter)
+- `din` — u4 · your
+- `disse` — u14 · these
+- `drakk` — u38 · drank
+- `du` — u2 · you
+- `dum` — u31 · stupid
+- `dyr` — u7 · expensive
+- `é` — u1
+- `egen` — u14 · own (masculine/feminine)
+- `egentlig` — u40 · actually
+- `eget` — u14 · own (neuter)
+- `egne` — u14 · own (plural)
+- `ei adresse` — u33 · address
+- `ei avdeling` — u24 · department
+- `ei avis` — u32 · newspaper
+- `ei avreise` — u23 · outward journey
+- `ei bedring` — u25 · improvement
+- `ei behandling` — u25 · treatment
+- `ei beslutning` — u40 · decision
+- `ei bestemor` — u4 · grandmother
+- `ei betydning` — u40 · meaning
+- `ei bluse` — u42 · blouse
+- `ei bok` — u18 · book
+- `ei bølge` — u43 · wave
+- `ei bøtte` — u30 · bucket
+- `ei bru` — u20 · bridge
+- `ei bukse` — u15 · trousers
+- `ei bygd` — u45 · village
+- `ei datter` — u4 · daughter
+- `ei dør` — u16 · door
+- `ei elv` — u19 · river
+- `ei endring` — u50 · change
+- `ei erfaring` — u50 · experience
+- `ei ferje` — u20 · ferry
+- `ei fil` — u33 · file
+- `ei fjær` — u26 · feather
+- `ei flaske` — u47 · bottle
+- `ei flate` — u46 · surface
+- `ei flue` — u26 · fly
+- `ei forestilling` — u35 · show
+- `ei fortelling` — u35 · tale
+- `ei fortid` — u28 · past
+- `ei framtid` — u28 · future
+- `ei gate` — u7 · street
+- `ei gryte` — u16 · pot
+- `ei gulrot` — u41 · carrot
+- `ei hånd` — u11 · hand
+- `ei helg` — u9 · weekend
+- `ei historie` — u35 · story
+- `ei holdning` — u50 · attitude
+- `ei hule` — u26 · cave
+- `ei husleie` — u30 · rent
+- `ei hylle` — u16 · shelf
+- `ei hytte` — u20 · cabin
+- `ei jakke` — u15 · jacket
+- `ei jul` — u9 · Christmas
+- `ei kake` — u6 · cake
+- `ei kasse` — u47 · crate
+- `ei kirke` — u7 · church
+- `ei klo` — u26 · claw
+- `ei klokke` — u5 · clock
+- `ei kraft` — u34 · force
+- `ei krone` — u15 · krone
+- `ei ku` — u19 · cow
+- `ei kule` — u46 · ball (a sphere)
+- `ei kvinne` — u4 · woman
+- `ei kvittering` — u27 · receipt
+- `ei lampe` — u16 · lamp
+- `ei lekse` — u18 · homework
+- `ei lenke` — u33 · link
+- `ei linje` — u46 · line
+- `ei liste` — u27 · list
+- `ei lomme` — u15 · pocket
+- `ei lønn` — u18 · pay
+- `ei løsning` — u50 · solution
+- `ei lue` — u15 · woolly hat
+- `ei melding` — u20 · message
+- `ei mil` — u47 · ten kilometres
+- `ei mor` — u4 · mother
+- `ei mus` — u33 · mouse
+- `ei natt` — u5 · night
+- `ei nese` — u11 · nose
+- `ei overskrift` — u48 · headline
+- `ei øving` — u25 · exercise
+- `ei øy` — u1 · island
+- `ei pille` — u25 · pill
+- `ei plante` — u34 · plant
+- `ei pølse` — u6 · sausage
+- `ei regning` — u27 · bill
+- `ei retning` — u23 · direction
+- `ei rolle` — u35 · role
+- `ei rot` — u34 · root
+- `ei rute` — u23 · route
+- `ei sak` — u50 · matter
+- `ei seng` — u16 · bed
+- `ei setning` — u49 · sentence
+- `ei side` — u33 · page
+- `ei skål` — u6 · bowl
+- `ei skje` — u1 · spoon
+- `ei skjorte` — u1 · shirt
+- `ei skøyte` — u44 · skate
+- `ei sky` — u8 · cloud
+- `ei skygge` — u43 · shadow
+- `ei sol` — u8 · sun
+- `ei søster` — u4 · sister
+- `ei spalte` — u48 · column
+- `ei stemning` — u22 · mood
+- `ei stilling` — u24 · position
+- `ei stjerne` — u35 · star
+- `ei strand` — u19 · beach
+- `ei stripe` — u42 · stripe
+- `ei stue` — u16 · living room
+- `ei stund` — u28 · a while (a stretch of time)
+- `ei suppe` — u41 · soup
+- `ei tåke` — u43 · fog
+- `ei tann` — u11 · tooth
+- `ei tavle` — u18 · board
+- `ei trapp` — u16 · staircase
+- `ei uke` — u9 · week
+- `ei ulykke` — u50 · accident
+- `ei utdanning` — u24 · education
+- `ei utstilling` — u35 · exhibition
+- `ei utvikling` — u34 · development
+- `ei vekt` — u47 · weight
+- `ei veske` — u15 · bag
+- `eldre` — u37 · older
+- `eller` — u12 · or
+- `ellers` — u29 · otherwise
+- `én` — u5 · one
+- `en alder` — u28 · age
+- `en allergi` — u25 · allergy
+- `en ankomst` — u23 · arrival
+- `en arm` — u11 · arm
+- `en artikkel` — u48 · article
+- `en avgang` — u23 · departure
+- `en avstand` — u22 · distance
+- `en avtale` — u17 · appointment
+- `en balkong` — u30 · balcony
+- `en ball` — u19 · ball
+- `en bane` — u44 · pitch
+- `en båt` — u7 · boat
+- `en beskjed` — u21 · message (passed on)
+- `en bestefar` — u4 · grandfather
+- `en bil` — u7 · car
+- `en billett` — u20 · ticket
+- `en bjørn` — u26 · bear
+- `en blomst` — u43 · flower
+- `en boks` — u47 · tin
+- `en bonde` — u18 · farmer
+- `en borger` — u32 · citizen
+- `en bror` — u4 · brother
+- `en buss` — u7 · bus
+- `en butikk` — u6 · shop
+- `en by` — u3 · city
+- `en dag` — u5 · day
+- `en dal` — u45 · valley
+- `en datamaskin` — u33 · computer
+- `en del` — u47 · part
+- `en dessert` — u41 · dessert
+- `en disk` — u27 · counter
+- `en dommer` — u44 · referee
+- `en egenskap` — u31 · quality
+- `en eksamen` — u24 · exam
+- `en elev` — u3 · pupil
+- `en elg` — u19 · moose
+- `en entré` — u30 · entrance hall
+- `en episode` — u48 · episode
+- `en epost` — u33 · email
+- `en familie` — u4 · family
+- `en far` — u4 · father
+- `en fare` — u50 · danger
+- `en farge` — u8 · colour
+- `en fart` — u34 · speed
+- `en feil` — u50 · mistake
+- `en ferie` — u9 · holiday
+- `en film` — u19 · film
+- `en firkant` — u46 · square (the shape)
+- `en fisk` — u6 · fish
+- `en fjord` — u45 · fjord
+- `en flokk` — u26 · flock
+- `en flyplass` — u20 · airport
+- `en følelse` — u22 · feeling
+- `en fordel` — u40 · advantage
+- `en forfatter` — u48 · author
+- `en forkjølelse` — u25 · a cold (the illness)
+- `en form` — u46 · shape
+- `en forsker` — u34 · researcher
+- `en forskjell` — u50 · difference
+- `en fot` — u11 · foot
+- `en frakk` — u42 · coat
+- `en frisør` — u18 · hairdresser
+- `en frist` — u24 · deadline
+- `en frokost` — u6 · breakfast
+- `en frosk` — u26 · frog
+- `en fugl` — u19 · bird
+- `en gaffel` — u6 · fork
+- `en gang` — u28 · once
+- `en gardin` — u30 · curtain
+- `en gave` — u20 · present
+- `en genser` — u15 · jumper
+- `en gjest` — u20 · guest
+- `en grad` — u43 · degree
+- `en grense` — u22 · limit
+- `en grunn` — u32 · reason
+- `en hage` — u4 · garden
+- `en hale` — u26 · tail
+- `en hall` — u44 · hall
+- `en hanske` — u15 · glove
+- `en hare` — u26 · hare
+- `en havn` — u23 · harbour
+- `en helhet` — u47 · a whole (the entirety)
+- `en helt` — u35 · hero
+- `en hensikt` — u50 · purpose
+- `en hest` — u19 · horse
+- `en himmel` — u43 · sky
+- `en hobby` — u35 · hobby
+- `en høst` — u9 · autumn
+- `en hovedstad` — u45 · capital
+- `en hund` — u4 · dog
+- `en huseier` — u30 · landlord
+- `en idrett` — u44 · sport
+- `en innbygger` — u32 · inhabitant
+- `en innsjø` — u45 · inland lake
+- `en interesse` — u35 · interest
+- `en journalist` — u48 · journalist
+- `en kamp` — u44 · match
+- `en kanal` — u48 · channel
+- `en karakter` — u18 · grade
+- `en katt` — u4 · cat
+- `en kilo` — u47 · kilo
+- `en kino` — u7 · cinema
+- `en kjeller` — u30 · basement
+- `en kjole` — u15 · dress
+- `en klut` — u30 · cloth
+- `en knapp` — u15 · button
+- `en kniv` — u6 · knife
+- `en kø` — u23 · queue
+- `en koffert` — u20 · suitcase
+- `en kokk` — u18 · cook
+- `en kollega` — u18 · colleague
+- `en kommune` — u32 · municipality
+- `en konsert` — u35 · concert
+- `en konto` — u27 · account
+- `en kontrakt` — u32 · contract
+- `en kopp` — u6 · cup
+- `en kropp` — u11 · body
+- `en kultur` — u35 · culture
+- `en kunde` — u27 · customer
+- `en kunst` — u35 · art
+- `en kunstner` — u35 · artist
+- `en kur` — u25 · cure
+- `en kurv` — u27 · basket
+- `en kyst` — u45 · coast
+- `en lærer` — u3 · teacher
+- `en landsdel` — u45 · region
+- `en lege` — u11 · doctor
+- `en leilighet` — u16 · flat
+- `en likhet` — u50 · similarity
+- `en liter` — u47 · litre
+- `en løk` — u41 · onion
+- `en lov` — u32 · law
+- `en lunsj` — u41 · lunch
+- `en lyd` — u49 · sound
+- `en måne` — u43 · moon
+- `en måned` — u9 · month
+- `en mann` — u4 · man
+- `en måte` — u50 · way
+- `en maur` — u26 · ant
+- `en medalje` — u44 · medal
+- `en medisin` — u25 · medicine
+- `en mengde` — u47 · quantity
+- `en meny` — u41 · menu
+- `en meter` — u47 · metre
+- `en metode` — u34 · method
+- `en middag` — u6 · dinner
+- `en mikrobølgeovn` — u30 · microwave
+- `en mulighet` — u50 · possibility
+- `en munn` — u11 · mouth
+- `en mynt` — u27 · coin
+- `en nabo` — u16 · neighbour
+- `en nøkkel` — u16 · key
+- `en nyhet` — u32 · news item
+- `en omvei` — u23 · detour
+- `en operasjon` — u25 · operation
+- `en oppgave` — u18 · task
+- `en oppvaskmaskin` — u30 · dishwasher
+- `en orm` — u26 · snake
+- `en ost` — u6 · cheese
+- `en øvelse` — u44 · event
+- `en ovn` — u16 · oven
+- `en pant` — u27 · deposit
+- `en paraply` — u43 · umbrella
+- `en pasient` — u25 · patient
+- `en passasjer` — u23 · passenger
+- `en pause` — u21 · break
+- `en pels` — u26 · fur
+- `en penn` — u18 · pen
+- `en periode` — u28 · period
+- `en personlighet` — u31 · personality
+- `en plan` — u21 · plan
+- `en planet` — u34 · planet
+- `en plikt` — u32 · duty
+- `en politiker` — u32 · politician
+- `en porsjon` — u41 · portion
+- `en pose` — u47 · bag (plastic or paper)
+- `en potet` — u41 · potato
+- `en prat` — u49 · chat
+- `en pris` — u27 · price
+- `en prosess` — u34 · process
+- `en rabatt` — u23 · discount
+- `en radio` — u48 · radio
+- `en redaktør` — u48 · editor
+- `en regel` — u32 · rule
+- `en reklame` — u48 · advert
+- `en rekord` — u44 · record
+- `en rente` — u27 · interest (on money)
+- `en resept` — u25 · prescription
+- `en rest` — u47 · rest
+- `en rett` — u32 · right (an entitlement)
+- `en rev` — u26 · fox
+- `en roman` — u48 · novel
+- `en runde` — u44 · round
+- `en rutine` — u21 · routine
+- `en salat` — u41 · salad
+- `en sammenheng` — u50 · connection
+- `en samtale` — u33 · conversation
+- `en sang` — u19 · song
+- `en sau` — u19 · sheep
+- `en scene` — u48 · scene
+- `en seddel` — u27 · note
+- `en seier` — u44 · victory
+- `en sekk` — u18 · backpack
+- `en selger` — u18 · salesperson
+- `en sirkel` — u46 · circle
+- `en sjåfør` — u18 · driver
+- `en sjanger` — u48 · genre
+- `en sjanse` — u24 · chance
+- `en sjef` — u18 · boss
+- `en sjø` — u1 · lake
+- `en skade` — u25 · injury
+- `en skatt` — u32 · tax
+- `en ski` — u19 · ski
+- `en skikk` — u50 · custom
+- `en skjerm` — u33 · screen
+- `en sko` — u15 · shoe
+- `en skog` — u19 · forest
+- `en skole` — u7 · school
+- `en skuff` — u30 · drawer
+- `en smerte` — u25 · pain
+- `en snekker` — u18 · carpenter
+- `en søknad` — u24 · application
+- `en sommer` — u9 · summer
+- `en sønn` — u4 · son
+- `en søppelkasse` — u30 · rubbish bin
+- `en stat` — u32 · state
+- `en stikkontakt` — u30 · power socket
+- `en stol` — u16 · chair
+- `en storm` — u43 · storm
+- `en størrelse` — u15 · size
+- `en støvel` — u42 · boot
+- `en støvsuger` — u30 · vacuum cleaner
+- `en supporter` — u44 · supporter
+- `en sykkel` — u44 · bicycle
+- `en tale` — u49 · speech
+- `en tallerken` — u16 · plate
+- `en tanke` — u50 · a thought (an idea)
+- `en temperatur` — u43 · temperature
+- `en teori` — u34 · theory
+- `en tilstand` — u40 · condition
+- `en time` — u5 · hour
+- `en ting` — u10 · thing
+- `en tittel` — u35 · title
+- `en topp` — u45 · summit
+- `en tur` — u19 · walk
+- `en ulempe` — u40 · disadvantage
+- `en ulv` — u26 · wolf
+- `en vane` — u17 · habit
+- `en vår` — u9 · spring
+- `en vaskemaskin` — u30 · washing machine
+- `en vegg` — u16 · wall
+- `en vei` — u20 · road
+- `en vekst` — u50 · growth
+- `en venn` — u2 · friend
+- `en verden` — u45 · world
+- `en verdi` — u34 · value
+- `en vind` — u8 · wind
+- `en vinge` — u26 · wing
+- `en vinter` — u9 · winter
+- `en vitenskap` — u34 · science
+- `enda` — u29 · even
+- `endelig` — u28 · finally
+- `energi` — u34 · energy
+- `enn` — u10 · than
+- `ennå` — u28 · yet
+- `ensom` — u22 · lonely
+- `enten` — u29 · either
+- `et ansikt` — u11 · face
+- `et ansvar` — u50 · responsibility
+- `et antall` — u47 · number (a count of things)
+- `et år` — u5 · year
+- `et bad` — u16 · bathroom
+- `et barn` — u4 · child
+- `et beger` — u47 · beaker
+- `et behov` — u50 · need
+- `et bein` — u11 · leg
+- `et beløp` — u27 · amount
+- `et belte` — u15 · belt
+- `et bevis` — u34 · proof
+- `et bilde` — u16 · picture
+- `et blad` — u43 · leaf
+- `et blodtrykk` — u25 · blood pressure
+- `et bord` — u6 · table
+- `et brev` — u33 · letter
+- `et brød` — u6 · bread
+- `et budsjett` — u27 · budget
+- `et dikt` — u35 · poem
+- `et døgn` — u28 · 24 hours
+- `et dyr` — u19 · animal
+- `et egg` — u26 · egg
+- `et eksempel` — u32 · example
+- `et emne` — u24 · subject (a topic)
+- `et eple` — u6 · apple
+- `et eventyr` — u35 · fairy tale
+- `et fag` — u18 · subject
+- `et fjell` — u19 · mountain
+- `et flagg` — u8 · flag
+- `et fly` — u20 · plane
+- `et forhold` — u22 · relationship
+- `et forslag` — u40 · suggestion
+- `et forsøk` — u34 · experiment
+- `et fylke` — u45 · county
+- `et glass` — u6 · glass
+- `et gram` — u47 · gram
+- `et gulv` — u16 · floor
+- `et håndkle` — u16 · towel
+- `et hav` — u45 · sea
+- `et hell` — u50 · luck
+- `et hjem` — u4 · home
+- `et hjerte` — u25 · heart
+- `et hjørne` — u45 · corner
+- `et hode` — u11 · head
+- `et hus` — u4 · house
+- `et innlegg` — u33 · post
+- `et innslag` — u48 · feature
+- `et inntrykk` — u50 · impression
+- `et insekt` — u26 · insect
+- `et intervju` — u48 · interview
+- `et kapittel` — u48 · chapter
+- `et kart` — u20 · map
+- `et kjøkken` — u1 · kitchen
+- `et kjøleskap` — u30 · fridge
+- `et klima` — u43 · climate
+- `et kontor` — u18 · office
+- `et krav` — u32 · requirement
+- `et kryss` — u23 · crossroads
+- `et kurs` — u24 · course
+- `et land` — u3 · country
+- `et liv` — u34 · life
+- `et lokk` — u47 · lid
+- `et lyn` — u43 · lightning
+- `et mål` — u44 · goal
+- `et maleri` — u35 · painting
+- `et medlem` — u32 · member
+- `et menneske` — u34 · human being
+- `et merke` — u27 · brand
+- `et miljø` — u34 · environment
+- `et minutt` — u28 · minute
+- `et møbel` — u30 · piece of furniture
+- `et mønster` — u42 · pattern
+- `et navn` — u3 · name
+- `et nett` — u33 · internet
+- `et nivå` — u50 · level
+- `et nummer` — u33 · number (of a phone or house)
+- `et område` — u45 · area
+- `et opphold` — u23 · stay
+- `et opptak` — u48 · recording
+- `et ord` — u18 · word
+- `et øre` — u11 · ear
+- `et øye` — u11 · eye
+- `et øyeblikk` — u28 · moment
+- `et papir` — u18 · paper
+- `et par` — u15 · pair
+- `et parti` — u32 · party
+- `et pass` — u20 · passport
+- `et passord` — u33 · password
+- `et poeng` — u44 · point
+- `et produkt` — u27 · product
+- `et program` — u33 · program
+- `et prosjekt` — u24 · project
+- `et publikum` — u44 · audience
+- `et reir` — u26 · nest
+- `et reisemål` — u23 · destination
+- `et resultat` — u24 · result
+- `et rom` — u4 · room
+- `et rykte` — u49 · rumour
+- `et samfunn` — u32 · society
+- `et sår` — u25 · wound
+- `et sekund` — u28 · second
+- `et sete` — u23 · seat
+- `et sitat` — u48 · quotation
+- `et skap` — u15 · cupboard
+- `et skjegg` — u42 · beard
+- `et skjema` — u32 · form
+- `et skjerf` — u15 · scarf
+- `et skjørt` — u42 · skirt
+- `et slips` — u42 · tie
+- `et smykke` — u42 · jewellery
+- `et speil` — u16 · mirror
+- `et spill` — u35 · game
+- `et språk` — u1 · language
+- `et stadion` — u44 · stadium
+- `et sted` — u7 · place
+- `et stoff` — u42 · fabric
+- `et stykke` — u47 · piece
+- `et sykehjem` — u25 · nursing home
+- `et sykehus` — u7 · hospital
+- `et tak` — u30 · ceiling
+- `et tall` — u5 · number
+- `et tastatur` — u33 · keyboard
+- `et teater` — u35 · theatre
+- `et tegn` — u33 · sign
+- `et telt` — u20 · tent
+- `et teppe` — u16 · rug
+- `et tidspunkt` — u28 · point in time
+- `et tilbud` — u32 · offer
+- `et tilfelle` — u50 · case
+- `et tog` — u7 · train
+- `et torg` — u7 · square
+- `et tre` — u19 · tree
+- `et universitet` — u24 · university
+- `et uttrykk` — u49 · expression
+- `et utvalg` — u27 · selection
+- `et uvær` — u43 · bad weather
+- `et valg` — u50 · choice
+- `et vindu` — u16 · window
+- `et vitnemål` — u24 · diploma
+- `et yrke` — u18 · occupation
+- `etter` — u13 · after
+- `etter å ha` — u36 · after having
+- `etter at` — u36 · after (a whole clause)
+- `etterpå` — u21 · afterwards
+- `ettersom` — u36 · as
+- `faktisk` — u40 · in fact
+- `fant` — u38 · found
+- `får` — u39 · get
+- `fast` — u46 · firm
+- `feber` — u11 · fever
+- `fem` — u5 · five
+- `ferdig` — u28 · finished
+- `fersk` — u41 · fresh
+- `fikk` — u38 · got
+- `fin` — u10 · nice (of a thing)
+- `fire` — u5 · four
+- `flau` — u22 · embarrassed
+- `flest` — u37 · most (in number)
+- `flink` — u31 · good at
+- `før` — u13 · before
+- `for å` — u36 · in order to
+- `for at` — u36 · so that (on purpose)
+- `for eksempel` — u29 · for example
+- `fordi` — u12 · because
+- `forsiktig` — u31 · careful
+- `forsinket` — u23 · delayed
+- `først` — u29 · first
+- `forsto` — u38 · understood
+- `fort` — u28 · quickly
+- `fortsatt` — u28 · still
+- `fra` — u3 · from
+- `framover` — u45 · forwards
+- `fredag` — u9 · Friday
+- `frisk` — u11 · healthy
+- `ga` — u38 · gave
+- `gammel` — u3 · old
+- `ganske` — u37 · quite
+- `gikk` — u14 · went
+- `gjerne` — u37 · gladly
+- `gjerrig` — u31 · stingy
+- `gjør` — u39 · do
+- `glad` — u17 · happy
+- `glatt` — u46 · slippery
+- `god` — u1 · good
+- `god kveld` — u2 · good evening
+- `god morgen` — u2 · good morning
+- `grå` — u8 · grey
+- `gratis` — u27 · free (costing nothing)
+- `grei` — u31 · easy-going
+- `gress` — u26 · grass
+- `grønn` — u8 · green
+- `gul` — u8 · yellow
+- `gummi` — u46 · rubber
+- `ha det` — u2 · bye
+- `hadde` — u14 · had
+- `halv` — u5 · half
+- `ham` — u12 · him
+- `han` — u3 · he
+- `hans` — u4 · his
+- `hår` — u11 · hair
+- `har bodd` — u39 · have lived
+- `har brukt` — u39 · have used
+- `har drukket` — u39 · have drunk
+- `har fått` — u39 · have got
+- `har gjort` — u39 · have done
+- `har kjøpt` — u39 · have bought
+- `har lest` — u39 · have read
+- `har reist` — u39 · have travelled
+- `har sett` — u39 · have seen
+- `har skrevet` — u39 · have written
+- `har spist` — u39 · have eaten
+- `har tatt` — u39 · have taken
+- `hard` — u46 · hard
+- `hei` — u2 · hi
+- `hel` — u28 · whole
+- `heller` — u29 · rather
+- `helse` — u11 · health
+- `henne` — u12 · her (object form)
+- `hennes` — u4 · her
+- `her` — u3 · here
+- `heter` — u3 · is called
+- `høflig` — u31 · polite
+- `hoppet` — u38 · jumped
+- `hørte` — u38 · heard
+- `høy` — u10 · tall
+- `høyre` — u7 · right
+- `hul` — u46 · hollow
+- `hun` — u3 · she
+- `husket` — u38 · remembered
+- `hva` — u1 · what
+- `hvem` — u3 · who
+- `hver` — u28 · every
+- `hverandre` — u22 · each other
+- `hvilken` — u12 · which
+- `hvis` — u12 · if
+- `hvis ikke` — u36 · if not
+- `hvit` — u8 · white
+- `hvor` — u1 · where
+- `hvordan` — u2 · how
+- `hvorfor` — u12 · why
+- `hyggelig` — u1 · nice
+- `i` — u3 · in
+- `i dag` — u9 · today
+- `i går` — u14 · yesterday
+- `i hvert fall` — u37 · at any rate
+- `i kveld` — u9 · tonight
+- `i morgen` — u9 · tomorrow
+- `i stedet for` — u36 · instead of
+- `i tilfelle` — u36 · in case
+- `i tillegg` — u29 · in addition
+- `igjen` — u2 · again
+- `ikke` — u2 · not
+- `imidlertid` — u29 · however
+- `ingen` — u10 · nobody
+- `ingenting` — u10 · nothing
+- `inn` — u13 · in (movement)
+- `innen` — u36 · by
+- `inntil` — u36 · until
+- `is` — u43 · ice
+- `ja` — u2 · yes
+- `januar` — u9 · January
+- `jeg` — u1 · I
+- `jobbet` — u14 · worked
+- `jord` — u34 · soil
+- `kald` — u8 · cold
+- `kanskje` — u2 · maybe
+- `kastet` — u38 · threw
+- `kj` — u1
+- `kjedelig` — u31 · boring
+- `kjølig` — u43 · cool
+- `kjøpte` — u14 · bought
+- `kjørte` — u38 · drove
+- `kjøtt` — u41 · meat
+- `klær` — u15 · clothes
+- `klar` — u43 · clear
+- `klok` — u31 · wise
+- `kom` — u14 · came
+- `kommer til å` — u39 · is going to
+- `kontant` — u27 · cash
+- `kort` — u10 · short
+- `kunne` — u37 · could
+- `kunnskap` — u24 · knowledge
+- `lå` — u38 · lay
+- `lærte` — u14 · learned
+- `laget` — u38 · made
+- `lang` — u10 · long
+- `lat` — u31 · lazy
+- `lav` — u10 · low
+- `ledig` — u21 · free
+- `leire` — u46 · clay
+- `lenge` — u28 · for a long time
+- `leste` — u38 · read (past)
+- `lett` — u10 · easy
+- `lettet` — u22 · relieved
+- `likevel` — u29 · anyway
+- `liten` — u10 · small
+- `litt` — u3 · a little
+- `lørdag` — u9 · Saturday
+- `luft` — u34 · air
+- `lys` — u8 · light
+- `mai` — u9 · May
+- `man` — u40 · people in general
+- `mandag` — u9 · Monday
+- `mange` — u5 · many
+- `mat` — u30 · food
+- `måtte` — u37 · would have to
+- `med` — u13 · with
+- `med mindre` — u29 · unless
+- `meg` — u1 · me
+- `melk` — u6 · milk
+- `men` — u12 · but
+- `mens` — u28 · while
+- `mer` — u37 · more
+- `mest` — u37 · most
+- `metall` — u46 · metal
+- `mett` — u41 · full
+- `mild` — u43 · mild
+- `min` — u4 · my
+- `mindre` — u37 · smaller
+- `minst` — u37 · smallest
+- `modig` — u31 · brave
+- `mørk` — u8 · dark
+- `morsom` — u31 · funny
+- `mulig` — u40 · possible
+- `musikk` — u19 · music
+- `mye` — u3 · much
+- `myk` — u46 · soft
+- `nå` — u5 · now
+- `nær` — u7 · near
+- `når` — u5 · when
+- `natur` — u34 · nature
+- `ned` — u13 · down
+- `nei` — u2 · no
+- `nemlig` — u29 · you see
+- `nervøs` — u22 · nervous
+- `neste` — u9 · next
+- `nesten` — u37 · almost
+- `nettopp` — u28 · just now
+- `ni` — u5 · nine
+- `nødvendig` — u40 · necessary
+- `noe` — u10 · something
+- `noen` — u10 · someone
+- `nok` — u10 · enough
+- `nord` — u45 · north
+- `norsk` — u1 · Norwegian
+- `ny` — u10 · new
+- `nysgjerrig` — u31 · curious
+- `ø` — u1
+- `ofte` — u12 · often
+- `og` — u1 · and
+- `også` — u12 · also
+- `om` — u28 · in (after a period)
+- `omtenksom` — u31 · considerate
+- `omtrent` — u37 · about
+- `onsdag` — u9 · Wednesday
+- `opp` — u13 · up
+- `oss` — u12 · us
+- `øst` — u45 · east
+- `over` — u13 · over
+- `overrasket` — u22 · surprised
+- `på` — u7 · on
+- `på grunn av` — u36 · because of
+- `penger` — u7 · money
+- `planlegger å` — u39 · am planning to
+- `plast` — u46 · plastic
+- `plutselig` — u28 · suddenly
+- `prikkete` — u42 · spotted
+- `rask` — u10 · fast
+- `redd` — u17 · afraid
+- `reiste` — u38 · travelled
+- `ren` — u10 · clean
+- `rød` — u8 · red
+- `rolig` — u22 · calm
+- `rundt` — u45 · around
+- `så` — u14 · saw
+- `så lenge` — u36 · as long as (in time)
+- `så sant` — u36 · provided that
+- `så snart` — u36 · as soon as
+- `særlig` — u37 · particularly
+- `sakte` — u10 · slowly
+- `salt` — u41 · salt
+- `samme` — u30 · same
+- `sammen` — u4 · together
+- `samt` — u29 · as well as
+- `samtidig` — u21 · at the same time
+- `såpe` — u16 · soap
+- `satt` — u38 · sat
+- `seg` — u12 · oneself
+- `seks` — u5 · six
+- `selv om` — u29 · even though
+- `sent` — u5 · late
+- `ser` — u39 · see
+- `siden` — u29 · since
+- `sier` — u39 · say
+- `sikker` — u22 · sure
+- `silke` — u42 · silk
+- `sin` — u30 · his own
+- `sint` — u17 · angry
+- `sj` — u1
+- `sjalu` — u22 · jealous
+- `sjelden` — u12 · seldom
+- `sjenert` — u31 · shy
+- `sju` — u5 · seven
+- `skal` — u39 · will (plan)
+- `skal til å` — u39 · about to
+- `skarp` — u46 · sharp
+- `skitten` — u10 · dirty
+- `skj` — u1
+- `skrev` — u38 · wrote
+- `skuffet` — u22 · disappointed
+- `skulle` — u37 · should have
+- `slank` — u42 · slim
+- `slem` — u31 · mean
+- `slik at` — u29 · so that
+- `snakket` — u14 · spoke
+- `snart` — u2 · soon
+- `snill` — u31 · kind
+- `sokker` — u15 · socks
+- `som` — u29 · that (relative)
+- `som om` — u36 · as if
+- `søndag` — u9 · Sunday
+- `sør` — u45 · south
+- `søt` — u41 · sweet
+- `sov` — u38 · slept
+- `søvn` — u25 · sleep
+- `spent` — u22 · excited
+- `spiste` — u14 · ate
+- `spør` — u39 · ask
+- `spurte` — u38 · asked
+- `sta` — u31 · stubborn
+- `stål` — u46 · steel
+- `stengt` — u7 · closed
+- `sterk` — u10 · strong
+- `stille` — u31 · quiet
+- `stolt` — u22 · proud
+- `stor` — u10 · big
+- `større` — u37 · bigger
+- `størst` — u37 · biggest
+- `straks` — u21 · right away
+- `streng` — u31 · strict
+- `stygg` — u10 · ugly
+- `sukker` — u41 · sugar
+- `sulten` — u6 · hungry
+- `sunn` — u25 · healthy (good for you)
+- `sur` — u41 · sour
+- `svart` — u8 · black
+- `syk` — u11 · ill
+- `takk` — u2 · thank you
+- `takket være` — u36 · thanks to
+- `tenker å` — u39 · am thinking of
+- `ti` — u5 · ten
+- `tid` — u28 · time
+- `tidlig` — u5 · early
+- `til` — u7 · to
+- `til slutt` — u29 · in the end
+- `til tross for` — u36 · despite
+- `tilbake` — u13 · back
+- `tirsdag` — u9 · Tuesday
+- `to` — u5 · two
+- `tok` — u38 · took
+- `torden` — u43 · thunder
+- `tørr` — u8 · dry
+- `torsdag` — u9 · Thursday
+- `tørst` — u6 · thirsty
+- `trafikk` — u23 · traffic
+- `travel` — u21 · busy
+- `tre` — u5 · three
+- `trist` — u17 · sad
+- `trodde` — u38 · thought
+- `trøtt` — u11 · tired
+- `tung` — u10 · heavy
+- `tvert imot` — u29 · on the contrary
+- `tykk` — u42 · thick
+- `tynn` — u42 · thin
+- `uansett` — u36 · regardless
+- `ull` — u15 · wool
+- `under` — u13 · under
+- `underveis` — u23 · on the way
+- `ung` — u3 · young
+- `unnskyld` — u2 · excuse me
+- `usikker` — u22 · unsure
+- `ut` — u13 · out
+- `utadvendt` — u31 · outgoing
+- `uten å` — u36 · without doing
+- `uten at` — u36 · without
+- `vær` — u8 · weather
+- `vær så snill` — u2 · please
+- `vakker` — u42 · beautiful
+- `vanlig` — u40 · usual
+- `vanligvis` — u21 · usually
+- `vann` — u6 · water
+- `var` — u14 · was
+- `varm` — u8 · warm
+- `vasket` — u38 · washed
+- `våt` — u8 · wet
+- `ved å` — u36 · by doing
+- `veldig` — u2 · very
+- `velkommen` — u2 · welcome
+- `venstre` — u7 · left
+- `ventet` — u38 · waited
+- `verken` — u29 · neither
+- `verre` — u37 · worse
+- `verst` — u37 · worst
+- `vest` — u45 · west
+- `vet` — u39 · know
+- `vi` — u2 · we
+- `viktig` — u1 · important
+- `vil` — u39 · will (want)
+- `vill` — u26 · wild
+- `ville` — u37 · would
+- `vond` — u11 · painful
 
 ## By unit — what each slot teaches
+
+**u1 · Lyder og bokstaver** (31) — `æ`, `ø`, `å`, `é`, `å være`, `å lære`, `ei øy`, `å gå`, `hva`, `det`, `hvor`, `god`, `og`, `jeg`, `kj`, `å kjøpe`, `å kjenne`, `et kjøkken`, `å gi`, `skj`, `sj`, `ei skje`, `ei skjorte`, `en sjø`, `et språk`, `norsk`, `hyggelig`, `viktig`, `billig`, `meg`, `deg`
+
+**u2 · Hilsener** (24) — `hei`, `god morgen`, `god kveld`, `ha det`, `du`, `velkommen`, `hvordan`, `bra`, `bare`, `takk`, `ikke`, `veldig`, `ja`, `nei`, `unnskyld`, `vær så snill`, `kanskje`, `å beklage`, `å se`, `vi`, `snart`, `å møte`, `igjen`, `en venn`
+
+**u3 · Om meg selv** (24) — `heter`, `et navn`, `å snakke`, `hvem`, `å forstå`, `litt`, `fra`, `i`, `et land`, `å bo`, `en by`, `her`, `gammel`, `ung`, `å ha`, `å jobbe`, `en lærer`, `en elev`, `han`, `hun`, `de`, `å like`, `å komme`, `mye`
+
+**u4 · Familie og hjem** (24) — `en familie`, `ei mor`, `en far`, `en bror`, `ei søster`, `et barn`, `en sønn`, `ei datter`, `en mann`, `ei kvinne`, `en bestefar`, `ei bestemor`, `et hus`, `et hjem`, `en hund`, `en katt`, `et rom`, `en hage`, `min`, `din`, `hans`, `hennes`, `å elske`, `sammen`
+
+**u5 · Tall og tid** (24) — `én`, `to`, `tre`, `fire`, `fem`, `seks`, `sju`, `åtte`, `ni`, `ti`, `et tall`, `mange`, `en dag`, `ei natt`, `en time`, `et år`, `ei klokke`, `når`, `halv`, `tidlig`, `sent`, `nå`, `å begynne`, `å slutte`
+
+**u6 · Mat og drikke** (24) — `et brød`, `en ost`, `ei pølse`, `en fisk`, `ei kake`, `et eple`, `å spise`, `å drikke`, `vann`, `melk`, `en kopp`, `et glass`, `en frokost`, `en middag`, `sulten`, `tørst`, `å lage`, `å smake`, `et bord`, `en gaffel`, `en kniv`, `ei skål`, `en butikk`, `å koste`
+
+**u7 · I byen** (24) — `en bil`, `et tog`, `en buss`, `en båt`, `til`, `på`, `en skole`, `ei kirke`, `et sykehus`, `ei gate`, `et torg`, `en kino`, `høyre`, `venstre`, `nær`, `å finne`, `å kjøre`, `å reise`, `penger`, `dyr`, `å betale`, `et sted`, `åpen`, `stengt`
+
+**u8 · Farger og vær** (24) — `en farge`, `rød`, `blå`, `grønn`, `gul`, `hvit`, `svart`, `brun`, `grå`, `lys`, `mørk`, `et flagg`, `vær`, `ei sol`, `ei sky`, `en vind`, `å regne`, `å snø`, `kald`, `varm`, `våt`, `tørr`, `å blåse`, `å fryse`
+
+**u9 · Dager og måneder** (24) — `i dag`, `i morgen`, `i kveld`, `ei uke`, `ei helg`, `neste`, `mandag`, `tirsdag`, `onsdag`, `torsdag`, `fredag`, `lørdag`, `søndag`, `en måned`, `januar`, `mai`, `august`, `desember`, `en vår`, `en sommer`, `en høst`, `en vinter`, `ei jul`, `en ferie`
+
+**u10 · Store og små ting** (24) — `en ting`, `noe`, `noen`, `ingen`, `ingenting`, `nok`, `stor`, `liten`, `lang`, `kort`, `høy`, `lav`, `enn`, `tung`, `lett`, `rask`, `sakte`, `sterk`, `fin`, `stygg`, `dårlig`, `ny`, `ren`, `skitten`
+
+**u11 · Kropp og helse** (24) — `en kropp`, `et hode`, `ei hånd`, `en fot`, `et øye`, `et øre`, `et ansikt`, `en munn`, `ei nese`, `hår`, `en arm`, `et bein`, `syk`, `frisk`, `vond`, `å gjøre`, `en lege`, `feber`, `ei tann`, `trøtt`, `å sove`, `å hjelpe`, `å høre`, `helse`
+
+**u12 · Setning og ordstilling** (24) — `alltid`, `aldri`, `ofte`, `sjelden`, `også`, `derfor`, `men`, `eller`, `at`, `fordi`, `hvis`, `å tro`, `hvorfor`, `hvilken`, `å spørre`, `å svare`, `å si`, `å vite`, `ham`, `henne`, `oss`, `dere`, `deres`, `seg`
+
+**u13 · Verb og partikler** (24) — `med`, `av`, `etter`, `før`, `over`, `under`, `å kunne`, `å ville`, `å skulle`, `å måtte`, `bør`, `å få`, `ut`, `inn`, `opp`, `ned`, `bort`, `tilbake`, `å ta`, `å stå`, `å sitte`, `å ligge`, `å bli`, `å trenge`
+
+**u14 · Fortid og adjektiv** (24) — `i går`, `snakket`, `jobbet`, `spiste`, `kjøpte`, `lærte`, `var`, `hadde`, `gikk`, `kom`, `så`, `ble`, `den`, `denne`, `dette`, `disse`, `alt`, `alle`, `annen`, `annet`, `andre`, `egen`, `eget`, `egne`
+
+**u15 · Klær** (24) — `klær`, `ei bukse`, `en genser`, `en kjole`, `ei jakke`, `en sko`, `sokker`, `ei lue`, `et skjerf`, `en hanske`, `et belte`, `ei veske`, `å prøve`, `å passe`, `en størrelse`, `et par`, `å velge`, `ei krone`, `å vaske`, `å skifte`, `ei lomme`, `en knapp`, `ull`, `et skap`
+
+**u16 · Hjemme** (24) — `ei stue`, `et bad`, `ei trapp`, `ei dør`, `et vindu`, `en nøkkel`, `ei seng`, `en stol`, `ei hylle`, `et teppe`, `ei lampe`, `et bilde`, `en tallerken`, `ei gryte`, `en ovn`, `et speil`, `såpe`, `et håndkle`, `en leilighet`, `en nabo`, `å flytte`, `et gulv`, `en vegg`, `å rydde`
+
+**u17 · Hverdag og følelser** (24) — `å våkne`, `å dusje`, `å pusse`, `å hvile`, `en vane`, `å bruke`, `glad`, `trist`, `sint`, `redd`, `å le`, `å smile`, `å tenke`, `å huske`, `å glemme`, `å synes`, `å håpe`, `å mene`, `å ringe`, `å hilse`, `en avtale`, `å love`, `å fortelle`, `å vente`
+
+**u18 · Skole og arbeid** (24) — `å lese`, `å skrive`, `ei bok`, `en penn`, `et papir`, `et ord`, `ei lekse`, `en oppgave`, `et fag`, `ei tavle`, `en sekk`, `en karakter`, `arbeid`, `et kontor`, `en sjef`, `en kollega`, `et yrke`, `ei lønn`, `en bonde`, `en kokk`, `en sjåfør`, `en selger`, `en snekker`, `en frisør`
+
+**u19 · Fritid og friluftsliv** (24) — `musikk`, `en sang`, `en film`, `å spille`, `å synge`, `å danse`, `et fjell`, `en skog`, `ei elv`, `et tre`, `ei strand`, `en tur`, `et dyr`, `en fugl`, `en hest`, `ei ku`, `en sau`, `en elg`, `å svømme`, `å fiske`, `å hoppe`, `å kaste`, `en ball`, `en ski`
+
+**u20 · På reise** (24) — `et fly`, `en flyplass`, `en billett`, `et pass`, `en koffert`, `å pakke`, `en vei`, `et kart`, `å stoppe`, `å bytte`, `ei bru`, `ei ferje`, `ei hytte`, `et telt`, `en gjest`, `en gave`, `å besøke`, `å låne`, `å dra`, `å hente`, `å sende`, `å vise`, `å ønske`, `ei melding`
+
+**u21 · Rutiner og planer** (24) — `en rutine`, `vanligvis`, `å pleie`, `etterpå`, `samtidig`, `straks`, `en plan`, `å planlegge`, `å bestemme`, `å foreslå`, `en beskjed`, `å ordne`, `travel`, `ledig`, `en pause`, `å rekke`, `å orke`, `å skynde seg`, `å trene`, `å slappe av`, `å fortsette`, `å avslutte`, `å klare`, `å delta`
+
+**u22 · Følelser og stemning** (24) — `en følelse`, `nervøs`, `spent`, `stolt`, `lettet`, `flau`, `bekymret`, `rolig`, `sikker`, `usikker`, `å bry seg`, `å tåle`, `å savne`, `overrasket`, `skuffet`, `ensom`, `å nyte`, `ei stemning`, `et forhold`, `en grense`, `en avstand`, `sjalu`, `å tenke seg`, `hverandre`
+
+**u23 · Reise og transport** (24) — `en avgang`, `en ankomst`, `å ankomme`, `forsinket`, `ei avreise`, `å haste`, `ei rute`, `ei retning`, `å svinge`, `en omvei`, `et kryss`, `underveis`, `å reservere`, `et sete`, `en passasjer`, `en kø`, `en rabatt`, `bagasje`, `å utsette`, `et opphold`, `trafikk`, `å parkere`, `en havn`, `et reisemål`
+
+**u24 · Arbeid og utdanning** (24) — `en søknad`, `å søke`, `ei stilling`, `en frist`, `å levere`, `å ansette`, `ei avdeling`, `et prosjekt`, `å samarbeide`, `å tjene`, `å gjennomføre`, `en sjanse`, `ei utdanning`, `et universitet`, `et kurs`, `et emne`, `å undervise`, `kunnskap`, `en eksamen`, `å bestå`, `et resultat`, `å mestre`, `å utvikle`, `et vitnemål`
+
+**u25 · Helse og sykdom** (24) — `en smerte`, `å hoste`, `et sår`, `å blø`, `en forkjølelse`, `en allergi`, `et hjerte`, `å puste`, `søvn`, `en skade`, `et blodtrykk`, `å slite`, `en pasient`, `ei behandling`, `en resept`, `en medisin`, `ei pille`, `en operasjon`, `ei bedring`, `en kur`, `et sykehjem`, `ei øving`, `sunn`, `å unngå`
+
+**u26 · Dyr i naturen** (24) — `en ulv`, `en bjørn`, `en rev`, `en hare`, `en orm`, `en frosk`, `et insekt`, `ei flue`, `en maur`, `et egg`, `et reir`, `ei fjær`, `en hale`, `en vinge`, `ei klo`, `en pels`, `en flokk`, `ei hule`, `å jakte`, `å krype`, `å grave`, `å plukke`, `vill`, `gress`
+
+**u27 · Handel og penger** (24) — `å handle`, `en kunde`, `en kurv`, `ei liste`, `et produkt`, `et utvalg`, `en pris`, `ei regning`, `ei kvittering`, `et beløp`, `kontant`, `gratis`, `å spare`, `en konto`, `en rente`, `et budsjett`, `å skylde`, `å eie`, `en mynt`, `en seddel`, `en disk`, `et merke`, `en pant`, `å veksle`
+
+**u28 · Tid og hyppighet** (27) — `et sekund`, `et minutt`, `et døgn`, `ei stund`, `et øyeblikk`, `en alder`, `tid`, `om`, `hver`, `en gang`, `av og til`, `mens`, `fort`, `lenge`, `allerede`, `fortsatt`, `ennå`, `nettopp`, `endelig`, `plutselig`, `ferdig`, `ei fortid`, `ei framtid`, `et tidspunkt`, `en periode`, `å vare`, `hel`
+
+**u29 · Bindeord** (26) — `dessuten`, `i tillegg`, `samt`, `både`, `for eksempel`, `nemlig`, `som`, `deretter`, `til slutt`, `altså`, `dermed`, `slik at`, `siden`, `først`, `likevel`, `selv om`, `imidlertid`, `derimot`, `tvert imot`, `enda`, `enten`, `verken`, `ellers`, `heller`, `dersom`, `med mindre`
+
+**u30 · Hjem og husarbeid** (27) — `å vaske opp`, `å støvsuge`, `å tørke`, `en klut`, `ei bøtte`, `en søppelkasse`, `mat`, `et kjøleskap`, `en vaskemaskin`, `en oppvaskmaskin`, `en mikrobølgeovn`, `en stikkontakt`, `en støvsuger`, `et tak`, `en skuff`, `en gardin`, `et møbel`, `en kjeller`, `en balkong`, `samme`, `å leie`, `ei husleie`, `en huseier`, `å lufte`, `å henge opp`, `en entré`, `sin`
+
+**u31 · Personlighet og egenskaper** (24) — `en personlighet`, `snill`, `grei`, `høflig`, `ærlig`, `omtenksom`, `sjenert`, `stille`, `utadvendt`, `modig`, `forsiktig`, `nysgjerrig`, `lat`, `dum`, `sta`, `streng`, `gjerrig`, `slem`, `en egenskap`, `morsom`, `kjedelig`, `klok`, `flink`, `å oppføre seg`
+
+**u32 · Samfunn og hverdag** (24) — `et samfunn`, `en stat`, `en kommune`, `en innbygger`, `en lov`, `en regel`, `en rett`, `en plikt`, `en skatt`, `å stemme`, `et parti`, `en politiker`, `ei avis`, `en nyhet`, `å skje`, `å gjelde`, `en grunn`, `et eksempel`, `et krav`, `et tilbud`, `en kontrakt`, `et skjema`, `et medlem`, `en borger`
+
+**u33 · Teknologi og kontakt** (24) — `et nett`, `en datamaskin`, `en skjerm`, `ei side`, `et passord`, `ei lenke`, `et program`, `ei fil`, `å lagre`, `å slette`, `ei mus`, `et tastatur`, `en epost`, `et nummer`, `ei adresse`, `et brev`, `en samtale`, `å dele`, `å forklare`, `å gjenta`, `å nevne`, `å oversette`, `et innlegg`, `et tegn`
+
+**u34 · Natur og vitenskap** (24) — `natur`, `ei plante`, `ei rot`, `et menneske`, `et liv`, `å vokse`, `jord`, `luft`, `en planet`, `et miljø`, `ei kraft`, `energi`, `en vitenskap`, `en forsker`, `et forsøk`, `å oppdage`, `et bevis`, `en teori`, `å måle`, `en metode`, `ei utvikling`, `en fart`, `en prosess`, `en verdi`
+
+**u35 · Kultur og fritid** (24) — `en kultur`, `en kunst`, `et teater`, `en konsert`, `et maleri`, `en kunstner`, `ei forestilling`, `ei stjerne`, `ei rolle`, `ei utstilling`, `å opptre`, `å underholde`, `ei fortelling`, `et eventyr`, `ei historie`, `et dikt`, `en helt`, `en tittel`, `en hobby`, `en interesse`, `et spill`, `å male`, `å tegne`, `å more seg`
+
+**u36 · Grammatikk 4: å binde setninger** (24) — `i tilfelle`, `så sant`, `hvis ikke`, `uansett`, `bortsett fra`, `som om`, `ettersom`, `på grunn av`, `takket være`, `til tross for`, `det vil si`, `da`, `etter at`, `så snart`, `så lenge`, `innen`, `inntil`, `for at`, `uten at`, `i stedet for`, `for å`, `uten å`, `etter å ha`, `ved å`
+
+**u37 · Grammatikk 5: ønsker og sammenligning** (24) — `ville`, `skulle`, `kunne`, `burde`, `måtte`, `gjerne`, `større`, `bedre`, `verre`, `mindre`, `mer`, `eldre`, `størst`, `best`, `verst`, `minst`, `mest`, `flest`, `altfor`, `ganske`, `nesten`, `omtrent`, `i hvert fall`, `særlig`
+
+**u38 · Verb-drill 1: fortid** (24) — `vasket`, `laget`, `hoppet`, `ventet`, `husket`, `kastet`, `leste`, `reiste`, `kjørte`, `hørte`, `spurte`, `brukte`, `drakk`, `skrev`, `tok`, `fikk`, `fant`, `satt`, `ga`, `lå`, `sov`, `bodde`, `trodde`, `forsto`
+
+**u39 · Verb-drill 2: perfektum og framtid** (24) — `har spist`, `har lest`, `har kjøpt`, `har bodd`, `har reist`, `har brukt`, `har skrevet`, `har drukket`, `har tatt`, `har fått`, `har sett`, `har gjort`, `skal`, `vil`, `kommer til å`, `skal til å`, `tenker å`, `planlegger å`, `gjør`, `vet`, `sier`, `spør`, `får`, `ser`
+
+**u40 · Nyttige ord · 1** (24) — `å oppleve`, `å føle`, `å forandre`, `å bety`, `å foretrekke`, `å angre`, `å innse`, `å tilby`, `å kreve`, `å skape`, `å påvirke`, `å vurdere`, `en fordel`, `en ulempe`, `et forslag`, `ei beslutning`, `ei betydning`, `en tilstand`, `mulig`, `nødvendig`, `vanlig`, `egentlig`, `faktisk`, `man`
+
+**u41 · Mat og drikke · 2** (24) — `kjøtt`, `en potet`, `ei gulrot`, `en løk`, `salt`, `sukker`, `en lunsj`, `ei suppe`, `en salat`, `en dessert`, `en porsjon`, `en meny`, `å koke`, `å steke`, `å bake`, `å skjære`, `å blande`, `å servere`, `søt`, `sur`, `bitter`, `fersk`, `mett`, `deilig`
+
+**u42 · Klær og utseende** (24) — `en frakk`, `et skjørt`, `ei bluse`, `et slips`, `en støvel`, `et smykke`, `vakker`, `slank`, `tynn`, `tykk`, `et skjegg`, `briller`, `å sy`, `å strikke`, `å henge`, `å brette`, `å pynte`, `å kle`, `bomull`, `silke`, `et stoff`, `ei stripe`, `et mønster`, `prikkete`
+
+**u43 · Vær og årstider** (24) — `en storm`, `ei tåke`, `et lyn`, `torden`, `et uvær`, `ei bølge`, `en himmel`, `en grad`, `en temperatur`, `mild`, `kjølig`, `klar`, `en blomst`, `et blad`, `is`, `å gro`, `å smelte`, `å tine`, `ei skygge`, `en måne`, `å skinne`, `å varsle`, `en paraply`, `et klima`
+
+**u44 · Sport og trening** (24) — `en kamp`, `et mål`, `en dommer`, `et publikum`, `en supporter`, `en idrett`, `å slå`, `å løpe`, `å sparke`, `å vinne`, `å tape`, `å konkurrere`, `en bane`, `en hall`, `ei skøyte`, `en sykkel`, `et stadion`, `å klatre`, `en runde`, `en seier`, `et poeng`, `en rekord`, `en øvelse`, `en medalje`
+
+**u45 · Retning og geografi** (24) — `nord`, `sør`, `øst`, `vest`, `framover`, `rundt`, `en kyst`, `en dal`, `et hav`, `en fjord`, `en topp`, `en innsjø`, `en verden`, `en hovedstad`, `et fylke`, `et område`, `ei bygd`, `en landsdel`, `å vende`, `å krysse`, `å følge`, `å peke`, `et hjørne`, `å lete`
+
+**u46 · Form og materiale** (24) — `en form`, `ei kule`, `en firkant`, `en sirkel`, `ei linje`, `ei flate`, `metall`, `plast`, `gummi`, `stål`, `betong`, `leire`, `glatt`, `myk`, `hard`, `skarp`, `hul`, `fast`, `å bøye`, `å brekke`, `å klippe`, `å lime`, `å bygge`, `å dekke`
+
+**u47 · Mengde og mål** (24) — `en mengde`, `en del`, `en rest`, `et stykke`, `en helhet`, `et antall`, `en meter`, `en kilo`, `en liter`, `ei vekt`, `et gram`, `ei mil`, `ei flaske`, `en boks`, `en pose`, `et beger`, `ei kasse`, `et lokk`, `å samle`, `å telle`, `å fylle`, `å tømme`, `å øke`, `å minke`
+
+**u48 · Medier og underholdning** (24) — `en artikkel`, `ei overskrift`, `en journalist`, `et intervju`, `en redaktør`, `ei spalte`, `en kanal`, `en radio`, `en episode`, `en reklame`, `et opptak`, `et innslag`, `en roman`, `en sjanger`, `et sitat`, `en forfatter`, `et kapittel`, `en scene`, `å anbefale`, `å oppdatere`, `å spre`, `å skru`, `å bla`, `å formidle`
+
+**u49 · Å forklare og å fortelle** (24) — `å beskrive`, `å stave`, `å uttale`, `å notere`, `å understreke`, `å tolke`, `å diskutere`, `å påstå`, `å avbryte`, `å krangle`, `å nekte`, `å innrømme`, `å klage`, `å rose`, `å rope`, `å hviske`, `å spøke`, `å lyve`, `en prat`, `et uttrykk`, `ei setning`, `en tale`, `et rykte`, `en lyd`
+
+**u50 · Vanlige begreper** (24) — `en måte`, `ei sak`, `et tilfelle`, `en hensikt`, `en sammenheng`, `en tanke`, `en mulighet`, `ei løsning`, `en feil`, `ei ulykke`, `et hell`, `en fare`, `en forskjell`, `en likhet`, `ei endring`, `en vekst`, `et nivå`, `et behov`, `et valg`, `ei erfaring`, `et inntrykk`, `en skikk`, `et ansvar`, `ei holdning`
 

@@ -23,21 +23,27 @@ test("orderedUnits sorts every language by `order`, contiguously from 1", () => 
 
 test("French opens on unit 1 lesson 1 — 'Les sons', not 'Salutations'", () => {
   const first = playableLessons("fr")[0];
-  assert.equal(first.id, "fr-u27l1");
+  assert.equal(first.id, "fr-u1l1");
   const unit = orderedUnits("fr")[0];
   assert.equal(unit.order, 1);
   assert.equal(unit.title, "Les sons");
   assert.ok(unit.lessons.some((l) => l.id === first.id), "first lesson is not in the order-1 unit");
 });
 
-test("REGRESSION GUARD: fr barrel order and climb order genuinely differ", () => {
-  // If this ever stops being true the two tests above would pass without the sort,
-  // and the defect could come back unnoticed. 27 fr A1 units carry order = id + 1.
-  const barrelFirst = UNITS.filter((u) => u.lang === "fr")[0];
-  assert.equal(barrelFirst.id, "fr-u1");
-  assert.equal(barrelFirst.order, 2, "fr-u1 is expected to sit at order 2, behind Les sons");
-  const shifted = UNITS.filter((u) => u.lang === "fr" && +u.id.match(/u(\d+)/)[1] !== u.order);
-  assert.equal(shifted.length, 27);
+test("every unit's id number matches its order, in every language", () => {
+  // This replaced a guard that asserted the OPPOSITE for French. fr-u27 "Les sons"
+  // was authored last but given order: 1, so 27 fr A1 units carried order = id + 1
+  // and the id you read in a file, a commit or a crew message was not the unit the
+  // learner met. Alex called that out directly ("why does it say fr u27, this is
+  // unit 1 stuff"), so fr-u27 was renumbered to fr-u1 and u1-u26 shifted up one.
+  // The two numbers now agree for every unit in every language — keep it that way:
+  // a new unit goes at the end, or everything after it renumbers with it.
+  const shifted = UNITS.filter((u) => +u.id.match(/u(\d+)/)[1] !== u.order);
+  assert.deepEqual(
+    shifted.map((u) => `${u.id} sits at order ${u.order}`),
+    [],
+    "a unit's id number no longer matches the order the learner meets it in"
+  );
 });
 
 test("every lesson is served in its unit's climb order, for every language", () => {

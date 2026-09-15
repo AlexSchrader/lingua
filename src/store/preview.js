@@ -40,8 +40,18 @@ export function persistKey() {
 //
 // `languages` levels are set to B2 purely to open the gates — this deck is never
 // read as an achievement, and it is never synced (cloud sync reads the real key).
-export function buildPreviewState({ langs, catalog, version }) {
+// `activeLang` is which language the preview learner is STUDYING — the one whose
+// units the Ladder shows, whose companion greets you, whose flag is in the corner.
+// It defaulted to langs[0], which is always Japanese because that is the catalog
+// order, so "preview the app" answered "what does JAPANESE feel like" no matter
+// which language you had selected. Falls back to langs[0] when unspecified, so the
+// Settings entry point is unchanged.
+export function buildPreviewState({ langs, catalog, version, activeLang }) {
   const languages = {};
+  // Chosen language first — see the activeLang note below.
+  if (activeLang && langs.includes(activeLang)) {
+    langs = [activeLang, ...langs.filter((l) => l !== activeLang)];
+  }
   for (const l of catalog) languages[l.id] = { ...l, level: "B2", xp: 0 };
   return {
     state: {
@@ -54,7 +64,11 @@ export function buildPreviewState({ langs, catalog, version }) {
         reason: null,
         reminderTime: null,
         languages: [...langs],
-        activeLang: langs[0] ?? null,
+        // Put the chosen language FIRST in the started list too, not just in
+        // activeLang: several surfaces (the Ladder's started rows, the companion
+        // tab) read the list order rather than activeLang, so a mismatch shows
+        // French units under a Japanese companion.
+        activeLang: (activeLang && langs.includes(activeLang) ? activeLang : langs[0]) ?? null,
       },
       streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
       stats: { xpTotal: 0 },

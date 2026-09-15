@@ -642,7 +642,8 @@ test("card-kind coverage: every LIVE_CARD_KIND appears across review + lesson se
   // reaching it inside its card budget. The KIND is not at risk; the session's
   // composition is. Driving it directly asserts the same property without depending on
   // which card a fixed-length session happens to serve.
-  await page.goto("/review?sandbox=1&card=build");
+  await page.goto("/review?sandbox=1&card=build");
+
   for (let i = 0; i < 8; i++) {
     const kind = await playCard(page);
     if (kind === false) break;
@@ -1399,3 +1400,29 @@ test("Preview Mode: the app runs, and the real profile is untouched", async ({ p
 
   expect(errors, errors.join("; ")).toEqual([]);
 });
+
+// --- the language picker has NO COVERAGE, and cannot have any here ------------
+//
+// Two smoke tests for it were written on 2026-09-13 and removed the same hour:
+// the screen is UNREACHABLE under Playwright, and no amount of fixture seeding
+// changes that. `App.jsx` puts the onboarding gate INSIDE `if (AUTH_ENABLED)`,
+// and AUTH_ENABLED is `supabase configured && !IS_WEBDRIVER` — so under WebDriver
+// the whole block is skipped and <Onboarding/> never renders, whatever the
+// profile says.
+//
+// App.jsx already records the fix and why it was deferred: hoisting the gate out
+// of the auth block "is correct but turns 16 smoke fixtures red: they boot with
+// no profile at all and would land on onboarding."
+//
+// The cost of that deferral is now measured rather than theoretical. The FIRST
+// SCREEN A NEW LEARNER SEES is the only screen in the app no test has ever
+// opened, and on 2026-09-13 it was carrying two defects that any single pass
+// would have caught — Continue below the fold on a phone, and 23 languages in one
+// flat list where a 0-card entry looked identical to a real one and silently did
+// nothing when tapped. Alex found both on his own phone, which is the only place
+// anyone looks at it.
+//
+// To fix properly: hoist the onboarding gate out of the auth block, then give the
+// fixtures that boot profile-less an explicit `onboarded: true`. That is a real
+// job, not a one-liner, and it belongs to whoever picks up the QA-lane item.
+

@@ -1,64 +1,79 @@
-// FR Unit 2 — C'est moi ("It's me") — A1
-// The first grammar layer, modeled as function-word vocab (no grammar item
-// type, same as ja units 19–21): articles un/une/le/la, ici/là, then the être
-// chunks (je suis, tu es, c'est…) that unlock real sentences, then the little
-// question words that keep a conversation moving. Conventions: see fr/unit1.js.
+// FR Unit 1 — Salutations ("Greetings") — A1
+// First contact with French: hello/goodbye, the politeness set, and the ça-va
+// exchange. AUTHORING CONVENTIONS FOR FRENCH (all fr units):
+//   - `front` is real orthography (accents, apostrophes, spaces); `reading` is
+//     its ASCII fold (contract requires [a-z]+) — the answer checker folds typed
+//     accents back to it, so learners may type either form.
+//   - `example.jp` holds the FRENCH sentence (the field name is historical —
+//     "jp" = target language); `example.en` the English gloss.
+//   - Examples stay inside taught vocab + proper names + transparent cognates
+//     (café, pizza, taxi, Paris); the en gloss always carries the meaning.
+//   - Nouns are taught WITH their article (le/la/l'/les) so gender is learned
+//     as part of the word, never as an afterthought.
+//   - DELIBERATE A1 SIMPLIFICATIONS (known tradeoffs, revisit at A2):
+//     (a) the partitive (du/de la) is out of scope — examples use the definite
+//     article ("Je mange le pain") under the specific-item reading; (b) a few
+//     high-frequency function words (au, ce, ans, peut-être) may appear in an
+//     example glossed by a hint at first use, before any formal teaching.
+// lang/unit/lesson are stamped in index.js.
 export const FR_UNIT2 = {
   id: "fr-u2",
   lang: "fr",
-  title: "C'est moi",
-  order: 3,
+  title: "Salutations",
+  order: 2,
   stage: "a1",
   lessons: [
     {
       id: "fr-u2l1",
       unit: 2,
       lesson: 1,
-      title: "Little words",
+      title: "Hello and goodbye",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Use the articles un / une / le / la — French nouns are masculine or feminine — plus ici and là.",
+      canDo: "Greet people and part ways: bonjour, salut, bonsoir, au revoir — plus oui, non and merci.",
       items: [
-        { id: "fr-u2l1-un", type: "vocab", front: "un", reading: "un", meaning: "a (masculine)", example: { jp: "Un café, s'il vous plaît.", en: "A coffee, please." }, drill: { jp: "Un taxi s'il vous plaît", en: "A taxi please" }, accept: ["a", "an", "one"], hint: "Every French noun is masculine or feminine. un = \"a\" for masculine nouns — and it's also the number one." },
-        { id: "fr-u2l1-une", type: "vocab", front: "une", reading: "une", meaning: "a (feminine)", example: { jp: "Une pizza, s'il vous plaît.", en: "A pizza, please." }, drill: { jp: "Une pizza s'il vous plaît", en: "A pizza please" }, accept: ["a", "an", "one"] },
-        { id: "fr-u2l1-le", type: "vocab", front: "le", reading: "le", meaning: "the (masculine)", example: { jp: "Le café, s'il vous plaît.", en: "The coffee, please." }, drill: { jp: "Le taxi est ici", en: "The taxi is here" }, accept: ["the"] },
-        { id: "fr-u2l1-la", type: "vocab", front: "la", reading: "la", meaning: "the (feminine)", example: { jp: "La pizza, s'il vous plaît !", en: "The pizza, please!" }, drill: { jp: "La pizza est là", en: "The pizza is there" }, accept: ["the"] },
-        { id: "fr-u2l1-ici", type: "vocab", front: "ici", reading: "ici", meaning: "here", example: { jp: "Ici, s'il vous plaît.", en: "Here, please." }, drill: { jp: "Marie est ici", en: "Marie is here" }, accept: ["over here"] },
-        { id: "fr-u2l1-la2", type: "vocab", front: "là", reading: "la", meaning: "there", example: { jp: "Le taxi ? Là !", en: "The taxi? There!" }, drill: { jp: "Le taxi est là", en: "The taxi is there" }, accept: ["over there"], hint: "là (with the accent) = there. la (no accent) = the. Same letters, different words." },
+        { id: "fr-u2l1-bonjour", type: "vocab", front: "bonjour", reading: "bonjour", meaning: "hello", example: { jp: "Bonjour, Marie !", en: "Hello, Marie!" }, drill: { jp: "Bonjour madame ça va bien", en: "Hello madam it's going well" }, accept: ["good morning", "good day", "hi"], hint: "Literally \"good day\" — the all-purpose daytime hello." },
+        { id: "fr-u2l1-salut", type: "vocab", front: "salut", reading: "salut", meaning: "hi", example: { jp: "Salut, Paul !", en: "Hi, Paul!" }, drill: { jp: "Salut Paul ça va", en: "Hi Paul how's it going" }, accept: ["hey", "hi there", "bye"], hint: "Casual — friends only. It works for both \"hi\" and \"bye\"." },
+        { id: "fr-u2l1-bonsoir", type: "vocab", front: "bonsoir", reading: "bonsoir", meaning: "good evening", example: { jp: "Bonsoir, Marie.", en: "Good evening, Marie." }, drill: { jp: "Bonsoir madame et merci", en: "Good evening madam and thank you" }, accept: ["evening", "good evening!"] },
+        { id: "fr-u2l1-aurevoir", type: "vocab", front: "au revoir", reading: "aurevoir", meaning: "goodbye", example: { jp: "Au revoir, Paul !", en: "Goodbye, Paul!" }, drill: { jp: "Au revoir monsieur et merci", en: "Goodbye sir and thank you" }, accept: ["bye", "see you"] },
+        { id: "fr-u2l1-merci", type: "vocab", front: "merci", reading: "merci", meaning: "thank you", example: { jp: "Merci, Marie !", en: "Thank you, Marie!" }, drill: { jp: "Oui merci et toi", en: "Yes thanks and you" }, accept: ["thanks"] },
+        { id: "fr-u2l1-oui", type: "vocab", front: "oui", reading: "oui", meaning: "yes", example: { jp: "Oui, merci.", en: "Yes, thank you." }, drill: { jp: "Oui merci ça va bien", en: "Yes thanks it's going well" }, accept: ["yeah", "yep"] },
+        { id: "fr-u2l1-non", type: "vocab", front: "non", reading: "non", meaning: "no", example: { jp: "Non, merci.", en: "No, thank you." }, drill: { jp: "Non merci monsieur", en: "No thank you sir" }, accept: ["nope"] },
       ],
     },
     {
       id: "fr-u2l2",
       unit: 2,
       lesson: 2,
-      title: "I am, you are",
+      title: "Being polite",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say who's who with the être chunks: je suis, tu es, c'est, il est, elle est — and introduce yourself with je m'appelle.",
+      canDo: "Ask politely and apologize: s'il vous plaît, pardon, excusez-moi — and address monsieur / madame.",
       items: [
-        { id: "fr-u2l2-jesuis", type: "vocab", front: "je suis", reading: "jesuis", meaning: "I am", example: { jp: "Je suis Paul.", en: "I am Paul." }, drill: { jp: "Je suis ici", en: "I am here" }, accept: ["i'm", "am"], hint: "Learned as a chunk — je suis, tu es, il est are all forms of être (to be)." },
-        { id: "fr-u2l2-tues", type: "vocab", front: "tu es", reading: "tues", meaning: "you are", example: { jp: "Tu es Marie ?", en: "Are you Marie?" }, drill: { jp: "Tu es là", en: "You are there" }, accept: ["you're", "are you"] },
-        { id: "fr-u2l2-cest", type: "vocab", front: "c'est", reading: "cest", meaning: "it is", example: { jp: "C'est Marie !", en: "It's Marie!" }, drill: { jp: "C'est une pizza", en: "It's a pizza" }, accept: ["it's", "this is", "that is"] },
-        { id: "fr-u2l2-jemappelle", type: "vocab", front: "je m'appelle", reading: "jemappelle", meaning: "my name is", example: { jp: "Bonjour, je m'appelle Marie.", en: "Hello, my name is Marie." }, drill: { jp: "Je m'appelle Marie", en: "My name is Marie" }, accept: ["i am called", "i'm called", "my name's"], hint: "Literally \"I call myself\" — THE way to introduce yourself." },
-        { id: "fr-u2l2-ilest", type: "vocab", front: "il est", reading: "ilest", meaning: "he is", example: { jp: "Paul ? Il est ici.", en: "Paul? He is here." }, drill: { jp: "Il est ici", en: "He is here" }, accept: ["he's", "it is (he)"] },
-        { id: "fr-u2l2-elleest", type: "vocab", front: "elle est", reading: "elleest", meaning: "she is", example: { jp: "Marie ? Elle est là.", en: "Marie? She is there." }, drill: { jp: "Elle est là", en: "She is there" }, accept: ["she's", "it is (she)"] },
+        { id: "fr-u2l2-silvousplait", type: "vocab", front: "s'il vous plaît", reading: "silvousplait", meaning: "please", example: { jp: "Oui, s'il vous plaît !", en: "Yes, please!" }, drill: { jp: "Oui s'il vous plaît madame", en: "Yes please madam" }, accept: ["please (polite)", "if you please"], hint: "Literally \"if it pleases you\" — the polite please. Typing silvousplait works; accents and apostrophes are optional." },
+        { id: "fr-u2l2-pardon", type: "vocab", front: "pardon", reading: "pardon", meaning: "sorry", example: { jp: "Pardon, madame !", en: "Sorry, ma'am!" }, drill: { jp: "Pardon madame et merci", en: "Sorry madam and thank you" }, accept: ["excuse me", "pardon me", "pardon"] },
+        { id: "fr-u2l2-excusezmoi", type: "vocab", front: "excusez-moi", reading: "excusezmoi", meaning: "excuse me", example: { jp: "Excusez-moi, monsieur !", en: "Excuse me, sir!" }, drill: { jp: "Excusez-moi monsieur s'il vous plaît", en: "Excuse me sir please" }, accept: ["sorry", "excuse me (polite)"] },
+        { id: "fr-u2l2-monsieur", type: "vocab", front: "monsieur", reading: "monsieur", meaning: "sir", example: { jp: "Bonjour, monsieur.", en: "Hello, sir." }, drill: { jp: "Bonjour monsieur ça va bien", en: "Hello sir it's going well" }, accept: ["mister", "mr", "gentleman"] },
+        { id: "fr-u2l2-madame", type: "vocab", front: "madame", reading: "madame", meaning: "ma'am", example: { jp: "Bonsoir, madame.", en: "Good evening, ma'am." }, drill: { jp: "Merci madame et au revoir", en: "Thank you madam and goodbye" }, accept: ["madam", "mrs", "lady"] },
+        { id: "fr-u2l2-derien", type: "vocab", front: "de rien", reading: "derien", meaning: "you're welcome", example: { jp: "Merci ! — De rien.", en: "Thank you! — You're welcome." }, drill: { jp: "De rien madame", en: "You're welcome madam" }, accept: ["it's nothing", "no problem"], hint: "Literally \"of nothing\" — the everyday reply to merci." },
       ],
     },
     {
       id: "fr-u2l3",
       unit: 2,
       lesson: 3,
-      title: "Keeping it moving",
+      title: "How's it going?",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Ask and react: qui, comment, où — with d'accord, voilà and ça.",
+      canDo: "Run the ça-va exchange: ça va ? — ça va bien, merci. Et toi… moi aussi.",
       items: [
-        { id: "fr-u2l3-qui", type: "vocab", front: "qui", reading: "qui", meaning: "who", example: { jp: "C'est qui ?", en: "Who is it?" }, drill: { jp: "C'est qui madame", en: "Who is it madam" }, accept: ["whom"] },
-        { id: "fr-u2l3-comment", type: "vocab", front: "comment", reading: "comment", meaning: "how", example: { jp: "Comment ça va ?", en: "How's it going?" }, drill: { jp: "Comment ça va Paul", en: "How's it going Paul" }, accept: ["what (pardon)"], hint: "Also the polite \"what?\" when you didn't catch something: Comment ?" },
-        { id: "fr-u2l3-ou", type: "vocab", front: "où", reading: "ou", meaning: "where", example: { jp: "Tu es où ?", en: "Where are you?" }, drill: { jp: "Marie tu es où", en: "Marie where are you" }, accept: [], hint: "où (accent) = where. ou (no accent) = or. The accent is the whole difference." },
-        { id: "fr-u2l3-daccord", type: "vocab", front: "d'accord", reading: "daccord", meaning: "okay", example: { jp: "D'accord, merci !", en: "Okay, thanks!" }, drill: { jp: "D'accord merci madame", en: "Okay thank you madam" }, accept: ["ok", "agreed", "alright"] },
-        { id: "fr-u2l3-voila", type: "vocab", front: "voilà", reading: "voila", meaning: "here it is", example: { jp: "Voilà Marie !", en: "Here's Marie!" }, drill: { jp: "Voilà le taxi", en: "Here's the taxi" }, accept: ["there it is", "there you go", "here you go"] },
-        { id: "fr-u2l3-ca", type: "vocab", front: "ça", reading: "ca", meaning: "that", example: { jp: "Oui, c'est ça !", en: "Yes, that's it!" }, drill: { jp: "Oui c'est ça", en: "Yes that's it" }, accept: ["it", "this"] },
+        { id: "fr-u2l3-cava", type: "vocab", front: "ça va", reading: "cava", meaning: "how's it going / it's going fine", example: { jp: "Salut, Marie ! Ça va ?", en: "Hi, Marie! How's it going?" }, drill: { jp: "Salut Marie ça va bien", en: "Hi Marie it's going well" }, accept: ["how are you", "i'm fine", "it's going well", "are you ok"], hint: "Question AND answer: \"Ça va ?\" — \"Ça va !\" Same two words both ways." },
+        { id: "fr-u2l3-bien", type: "vocab", front: "bien", reading: "bien", meaning: "well", example: { jp: "Ça va bien, merci.", en: "It's going well, thanks." }, drill: { jp: "Ça va très bien merci", en: "It's going very well thanks" }, accept: ["good", "fine"] },
+        { id: "fr-u2l3-tres", type: "vocab", front: "très", reading: "tres", meaning: "very", example: { jp: "Très bien, merci !", en: "Very well, thank you!" }, drill: { jp: "Ça va très bien", en: "It's going very well" }, accept: ["really", "very much"] },
+        { id: "fr-u2l3-et", type: "vocab", front: "et", reading: "et", meaning: "and", example: { jp: "Paul et Marie.", en: "Paul and Marie." }, drill: { jp: "Merci et au revoir", en: "Thank you and goodbye" }, accept: [] },
+        { id: "fr-u2l3-aussi", type: "vocab", front: "aussi", reading: "aussi", meaning: "also", example: { jp: "Moi aussi !", en: "Me too!" }, drill: { jp: "Moi aussi ça va bien", en: "Me too I'm doing well" }, accept: ["too", "as well"] },
+        { id: "fr-u2l3-moi", type: "vocab", front: "moi", reading: "moi", meaning: "me", example: { jp: "Et moi ? Moi aussi !", en: "And me? Me too!" }, drill: { jp: "Et moi ça va bien", en: "And me I'm doing well" }, accept: ["i", "myself"] },
+        { id: "fr-u2l3-toi", type: "vocab", front: "toi", reading: "toi", meaning: "you", example: { jp: "Ça va bien, merci — et toi ?", en: "I'm fine, thanks — and you?" }, drill: { jp: "Ça va bien et toi", en: "It's going well and you" }, accept: ["you (casual)"], hint: "The stand-alone you, partner of moi: et toi ? = and you? (The you inside sentences, tu, comes as chunks in Unit 2.)" },
       ],
     },
   ],
