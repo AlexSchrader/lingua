@@ -272,10 +272,18 @@
 //    bare letters, then goodbye. BUILD-BRIEF-language-blueprint.md:15 is explicit
 //    that this is not the model — "each unit teaches a chunk of script and
 //    immediately uses it for real words… never 46 characters in a row. The learner
-//    is reading actual words in unit 1." Japanese, the reference build, has ZERO
-//    script-only lessons. French was rebuilt the right way first
-//    (src/data/fr/unit1.js); Norwegian and German followed on 2026-09-14, branch
-//    content/de-no-u1-align.
+//    is reading actual words in unit 1." ⚠️ AND CITE JAPANESE PRECISELY — an earlier
+//    draft of this paragraph said "ja has ZERO script-only lessons", which is FALSE
+//    and was caught by the fact-checker: ja has 48 of them. What is true, measured,
+//    is that none is in a KANA unit — ja u1–u6 run ~5 kana + 5–6 words in EVERY
+//    lesson (u1 is 25 kana / 29 words) and have zero script-only lessons between
+//    them. The 48 sit in the kanji and yōon units (u11, u13–18, u31–42), hundreds of
+//    cards later, for a learner who already reads — the pattern the blueprint calls
+//    "woven between vocab units", not the pattern for unit 1.
+//    French was rebuilt the right way first (src/data/fr/unit1.js); Norwegian and
+//    German followed on 2026-09-14, branch content/de-no-u1-align, and Spanish and
+//    Portuguese the same morning on main (03c14bb6). No all-glyph lesson survives
+//    outside ja.
 //    ✅ THE SHAPE NOW. The learner meets a letter one CARD before the word that
 //    needs it, never one LESSON before, and finishes lesson 1 owning four words:
 //        l1  æ · ø · å · é   + å være, å lære, ei øy, å gå            (8 items)
@@ -320,11 +328,17 @@
 //    check introduces a whole unit's vocabulary before checking that unit's examples
 //    (src/data/lint.js — "A unit may use its own new words"). It does have a
 //    PEDAGOGICAL cost and it is worth naming rather than hiding: l2 is frozen at
-//    position 2 while some of the words it leans on sit behind it, so four of its six
-//    examples/drills still preview a later card (et språk and ei skjorte from l4; et
-//    kjøkken, kjenner and kjøper from l3; billig and norsk from l5). That is two
-//    FEWER than before this regrouping — lærer is now taught in l1, ahead of l2
-//    instead of behind it. The alternative was moving l2 down the unit, which would
+//    position 2 while some of the words it leans on sit behind it, so it still
+//    previews later cards (et språk and ei skjorte from l4; et kjøkken, kjenner and
+//    kjøper from l3; billig and norsk from l5).
+//    ⚠️ COUNTED PROPERLY, because a first draft of this line said "four of its six
+//    examples/drills" and that was wrong in both directions: l2 has SIX items and
+//    TWELVE example/drill slots, and the right measurement is per slot. Measured with
+//    the same script on both trees: **9 of 12 slots preview a later lesson here,
+//    against 12 of 12 on main** — three slots better, not two, and all six items are
+//    still touched, before and after. The gain is å være: moving it to l1 put `er`
+//    behind l2 instead of in front of it, which is four of l2's own sentences fixed
+//    at a stroke. The alternative was moving l2 down the unit, which would
 //    have changed its six ids and wiped the mastery this shape deliberately preserves.
 //    Glyph hints also name words the learner has not met yet; that is deliberate — a
 //    hint is a preview, not a card.
@@ -403,7 +417,7 @@ export const NO_UNIT1 = {
       id: "no-u1l3",
       unit: 1,
       lesson: 3,
-      title: "Kj — den tynne hvesingen",
+      title: "Kj — den tynne hvislelyden",
       cefr: "A1",
       dominantMode: "recall",
       canDo: "Make the thin kj-hiss — the h of \"huge\", never a k — in å kjøpe, å kjenne and et kjøkken, and hear the same softening turn g into a y in å gi.",
@@ -425,7 +439,7 @@ export const NO_UNIT1 = {
       id: "no-u1l4",
       unit: 1,
       lesson: 4,
-      title: "Skj og sj — den brede hvesingen",
+      title: "Skj og sj — den brede hvislelyden",
       cefr: "A1",
       dominantMode: "recall",
       canDo: "Say the broad hush — one sound, two spellings — in ei skje, ei skjorte and en sjø, and read en, ei and et as the gender that tells you the definite form: ei skje → skjea.",

@@ -14,7 +14,7 @@
 //
 // A1 already owns o computador, o ecrã, o telemóvel, a mensagem, ligar and
 // desligar (u18), so none of those are re-taught — they are used in examples.
-// `o rato` is A1 u1l4 and already carries the mouse sense in its hint.
+// `o rato` is A1 u1l6 and already carries the mouse sense in its hint.
 // Conventions and the pt-PT corpus decision: see unit1.js header.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const PT_UNIT33 = {

@@ -4,76 +4,84 @@
 // unit (BUILD-BRIEF-language-blueprint.md §1): not letter drills, but the
 // sound-to-spelling map an English reader gets wrong — the five constant vowels,
 // silent h, throaty j/g, ñ, ll/y, soft c/z vs hard c/qu, and the rolled rr.
-// Past lesson 1 every rule is taught THROUGH a real word the learner keeps.
+// EVERY rule is taught THROUGH a real word the learner keeps. There is no lesson
+// of bare letters in this unit and there must never be one again — see below.
 //
-// LESSON SHAPE — THE LETTERS/WORDS SPLIT (2026-09-14, Alex's call)
-//   The glyph pass of 2026-09-13 added the eight `type: "glyph"` letter cards in
-//   FRONT of the existing word cards, inside the lessons that already held those
-//   words. Nobody costed the result: the engine gives every item one teach plus
-//   two checks (`buildLearnQueue`, src/store/learnQueue.js), so l1's 12 items had
-//   become 36 screens against ~18 for a normal lesson — and its first five cards
-//   were five near-identical silent glyphs (á é í ó ú). Alex saw it on French
-//   ("Lesson 1 fr has 45 cards?") and decided the fix:
+// LESSON SHAPE — EACH LETTER SITS WITH THE WORDS THAT USE IT (2026-09-14)
+//   This is the SECOND restructure of this unit in one day, and it reverses the
+//   first. Read both, because the middle state still reads as a rule elsewhere.
 //
-//     THE LETTERS GET THEIR OWN LESSON, THEN THE WORDS. 5–8 items per lesson.
+//   2026-09-13 added the eight `type: "glyph"` letter cards in FRONT of the word
+//   cards, inside the lessons that already held those words — l1 hit 12 items /
+//   36 screens. 2026-09-14 (morning) fixed the LENGTH by giving the letters their
+//   own lesson: l1 = 8 glyphs, nothing else; l2–l5 = the 25 words.
 //
-//   So this unit is now FIVE lessons, not four:
-//     l1  the 8 letters, nothing else          8 items · 24 screens
-//     l2  the five pure vowels, in words       7 items · 21 screens
-//     l3  silent h, throaty j/g                6 items · 18 screens
-//     l4  words built on ñ and ll              6 items · 18 screens
-//     l5  hard/soft c, z, qu, and rr           6 items · 18 screens
-//   Same 33 items as before — NOTHING was deleted, no front changed, and no
-//   meaning/example/drill/hint was rewritten. Only `title` and `canDo` were
-//   rewritten (the old ones described the old mixed lessons and had become false
-//   promises: a letters-only lesson whose canDo promised words).
+//   ⚠️ THAT FIXED THE WRONG THING. `BUILD-BRIEF-language-blueprint.md:15` is
+//   explicit: "each unit teaches a chunk of script and immediately uses it for
+//   real words… never 46 characters in a row. The learner is reading actual words
+//   in unit 1." A letters-only l1 means a learner's FIRST Spanish session ends
+//   having learned NO WORDS AT ALL. Japanese, the reference build, has zero
+//   script-only lessons; French was rebuilt to the paired shape the same day
+//   (src/data/fr/unit1.js).
 //
-//   ⚠️ IDS CHANGED, AND THAT WIPES MASTERY. Lesson ids embed the lesson number,
-//   so the 25 word cards each moved down one lesson (l1→l2, l2→l3, l3→l4, l4→l5)
-//   and 3 glyphs moved up into l1 (ü from l2, ñ and ll from l3). 28 of 33 ids
-//   changed; only the five acute glyphs kept theirs. Alex accepted that cost ONCE
-//   — this restructure is a single pass and must not be iterated.
+//   SO THE LETTERS ARE BACK WITH THEIR WORDS, one family per lesson, 5–8 items:
+//     l1  á é        + la casa, la mesa, es, de            6 items · 18 screens
+//     l2  í ó ú      + el libro, la luna, el museo         6 items · 18 screens
+//     l3  (no glyph) + la hora, hay, el hombre,
+//                      la mujer, el ojo, la gente          6 items · 18 screens
+//     l4  ñ ll       + el año, la mañana, el señor,
+//                      la llave, la silla, y               8 items · 24 screens
+//     l5  ü          + el coche, el cielo, el lápiz,
+//                      qué, el perro, pero                 7 items · 21 screens
+//   Glyphs still sit FIRST inside each lesson (teach order is authored order, and
+//   every teach runs before any check — buildLearnQueue), so the learner meets the
+//   letter one CARD before the word that uses it instead of one LESSON before.
+//   Same 33 items throughout: nothing deleted, no `front` changed, no
+//   meaning/example/drill/accept/hint rewritten. Only `title` and `canDo`.
 //
-//   ⚠️ AUDIO: clip filenames ARE item ids, so those 28 ids WOULD have orphaned
-//   their clip in public/audio/es/. They did not. The clips are per-item
-//   recordings whose CONTENT is still correct — a recording of "la casa" is right
-//   wherever the card sits — so THIS COMMIT `git mv`d all 28 to their new ids and
-//   re-ran the manifest generator. es-u1 is 33/33 voiced, zero orphans, zero API
-//   cost. Not optional: with the clips orphaned, tests/unit/card-variety.test.mjs
-//   goes RED (es-u1l3-hay drops to a single card kind, because shouldListenType
-//   requires hasAudio and the new id hashes out of three other kinds).
+//   WHY EACH GLYPH LANDED WHERE IT DID — WORKED OUT FROM THE WORDS:
+//     ñ, ll → l4. el año / la mañana / el señor carry ñ; la llave / la silla
+//       carry ll, and y borrows the ll sound. Three and three — the strongest
+//       pairing in the unit, and the reason l4 runs to 8.
+//     ü → l5. NO WORD IN THIS UNIT CONTAINS ü, so it has no host and is placed
+//       where it READS best rather than where a word forces it. Its rule — "a u
+//       written after g and never said, until two dots wake it up" (guitarra /
+//       pingüino) — is the SAME rule as the silent u of qu, and qué is in l5.
+//       That is the closest host the unit has.
+//     á é í ó ú → l1 and l2, BY VOWEL, and this is the honest part: only TWO of
+//       the five have a host word here (á in el lápiz, é in qué, both l5), and
+//       those two words sit in l5 for their CONSONANTS (z, qu), not their
+//       accents — moving them would break the c/z/qu/rr family. So each acute is
+//       paired with the word that teaches its BARE vowel, which is exactly what
+//       its own hint contrasts against ("Still the open ah of father. The accent
+//       never changes the vowel — it only marks which syllable you hit"):
+//         á → la casa (CA-sa)     é → la mesa (ME-sa), plus es and de
+//         í → el libro (LEE-bro)  ó → el museo (mu-SE-o)  ú → la luna (LOO-na)
+//       el lápiz and qué then REUSE á and é four lessons after they are taught,
+//       which is the right direction.
+//
+//   L3 TEACHES AN ABSENCE AND CORRECTLY HAS NO LETTER CARD — unchanged ruling.
+//   Silent h has no character to type (you write it and never say it) and the
+//   throaty j/g is a sound English lacks, not a sign an English keyboard lacks.
+//   Both are only teachable through words. Do not "complete the set" here.
+//
+//   ⚠️ 10 OF 33 IDS CHANGED, WHICH WIPES THOSE ITEMS' MASTERY. Six glyphs left
+//   l1 (í ó ú → l2, ñ ll → l4, ü → l5) and four words left l2 (la casa, la mesa,
+//   es, de → l1). The other 23 ids are untouched — all of l3, all six l4 words
+//   and all six l5 words. Alex accepted the reset cost for this pass; it is ONE
+//   pass, so do not regroup this unit a third time.
+//
+//   ⚠️ AUDIO: clip filenames ARE item ids, so all 10 changed ids would have
+//   orphaned their mp3. They did not — all 10 were `git mv`d in public/audio/es/
+//   and `npm run generate:manifest` re-run. es-u1 stays 33/33 voiced, 0 orphans,
+//   0 API cost. A clip records the WORD or the LETTER, never the lesson it sits
+//   in, so the rename is correct by construction. NOT optional: an orphaned clip
+//   does not merely mute a card, it DELETES two card kinds (shouldListen and
+//   shouldListenType both begin with hasAudio, cardRouting.js), and
+//   tests/unit/card-variety.test.mjs goes red when an item drops to one kind.
 //   ⚠️ audioManifest.js is a shared GENERATED file and one very long line. A merge
 //   seat must RE-RUN the generator after merging — never hand-resolve it, and
 //   never take one side, or another language's clips are silently dropped.
-//
-//   WHY THE LETTER ORDER IS á é ñ í ó ll ú ü AND NOT á é í ó ú ñ ll ü:
-//   to break up the run of near-identical accent cards a learner meets in a row.
-//   ⚠️ MEASURED WITH THE REAL LEARN_OPTS, NOT ASSUMED. An earlier version of this
-//   note claimed authored order is the screen order "three times over" and that
-//   dividers cap the run at three. Both were wrong. Teaches do run first in
-//   authored order, but the checks are SORTED, not replayed: learnQueue.js:24-27
-//   keys check1 of item i at (i+off1)*10+1 and check2 at (i+off2)*10+2, with
-//   off1=3 / off2=6, so the two check passes interleave with each other.
-//   Run buildLearnQueue WITH LEARN_OPTS to see it; passing a bare {} silently
-//   yields NaN keys, a no-op sort, and a fake answer.
-//   The real 24-screen sequence for this order is:
-//       á é ñ í ó ll ú ü  á é ñ í á ó é ll ñ ú í ü ó ll ú ü
-//   Measured longest run of consecutive acute cards, same lesson, three orders:
-//       á é í ó ú ñ ll ü  (naive, grouped)      -> 7
-//       ñ á é í ll ó ú ü  (dividers at 1 and 5) -> 5
-//       á é ñ í ó ll ú ü  (this order)          -> 4
-//   ü still lands straight after ú so the learner meets the two marks that sit on
-//   the same vowel back to back: one moves the beat, the other changes the sound.
-//   If an item is ever added to or removed from this lesson, RE-MEASURE — the
-//   interleave depends on the item count and on off1/off2, not on intuition.
-//
-//   L3 TEACHES AN ABSENCE AND CORRECTLY HAS NO LETTER CARD. Silent h has no
-//   character to type (you write it and never say it) and the throaty j/g is a
-//   sound, not a glyph English lacks — both are only teachable through words, so
-//   l3 keeps its six word cards and gains nothing. This also fixes a
-//   mis-shelving: ü used to sit in that lesson because its title said "silent u",
-//   but ü has nothing to do with silent h or throaty j; it is a mark on a vowel
-//   and now lives with the other marks on vowels, in l1.
 //
 //   GLYPH CARD CONTRACT: `meaning` and `example` are null (contract.js ~L226) —
 //   a glyph is taught by its SOUND, never a gloss; the sound description lives in
@@ -151,51 +159,52 @@ export const ES_UNIT1 = {
   order: 1,
   stage: "a1",
   lessons: [
-    // Lesson 1: the eight letters and marks English does not have — letters only,
-    // no words. ñ and ll divide the five stress-marks so no more than three
-    // near-identical cards ever run consecutively.
+    // Lesson 1: the a and the e — the two accents that ride on them, then the
+    // words that say those vowels bare. á/é change no vowel sound at all, they
+    // only move the stress, so each sits one card ahead of the word that proves
+    // it. es and de belong here too: both are short-e words, and every later
+    // example in the unit is built on them.
     {
       id: "es-u1l1",
       unit: 1,
       lesson: 1,
-      title: "Las letras y los acentos",
+      title: "Las vocales a y e",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Hear, say and type the eight letters and marks English does not have — ñ, ll, the five accented vowels á é í ó ú, and ü — and tell a mark that moves the stress from one that changes the sound.",
+      canDo: "Type á and é, then read the two vowels they ride on exactly as written — la casa is CA-sa, la mesa is ME-sa — and join two words with es and de.",
       items: [
         { id: "es-u1l1-glyphaacute", type: "glyph", front: "á", reading: "a", meaning: null, example: null, hint: "Still the open \"ah\" of father. The accent never changes the vowel — it only marks which syllable you hit: está, mamá. Type it: long-press A on a phone — that always works. On a desktop you need a Spanish or US-International layout, where ' then a gives á." },
         { id: "es-u1l1-glypheacute", type: "glyph", front: "é", reading: "e", meaning: null, example: null, hint: "Still the short \"eh\" of bed: café, también. Same sound as plain e, different beat. Type it: long-press E on a phone; ' then e on a Spanish or US-International layout." },
-        { id: "es-u1l1-glyphenye", type: "glyph", front: "ñ", reading: "n", meaning: null, example: null, hint: "n with a y glued on — say \"canyon\" and stop at the ny. Its own letter, with its own slot after n in the alphabet. Type it: long-press N on a phone; ~ then n on a Spanish or US-International layout." },
-        { id: "es-u1l1-glyphiacute", type: "glyph", front: "í", reading: "i", meaning: null, example: null, hint: "Still \"ee\" — and note the accent REPLACES the dot, so í never carries both: aquí, día. Type it: long-press I on a phone; ' then i on a Spanish or US-International layout." },
-        { id: "es-u1l1-glyphoacute", type: "glyph", front: "ó", reading: "o", meaning: null, example: null, hint: "Still a clean \"oh\" right to the end: adiós, canción. Type it: long-press O on a phone; ' then o on a Spanish or US-International layout." },
-        { id: "es-u1l1-glyphll", type: "glyph", front: "ll", reading: "ll", meaning: null, example: null, hint: "Two l's, one sound: the y of \"yes\", never an English l. Both letters are typed; only one sound comes out." },
-        { id: "es-u1l1-glyphuacute", type: "glyph", front: "ú", reading: "u", meaning: null, example: null, hint: "Still \"oo\": menú, número. The mark can also split twins — tú is \"you\", tu is \"your\". Type it: long-press U on a phone; ' then u on a Spanish or US-International layout." },
-        { id: "es-u1l1-glyphudieresis", type: "glyph", front: "ü", reading: "u", meaning: null, example: null, hint: "In gue and gui the u is written and never said — guitarra is ghee-TA-rra, hard g. Two dots wake it back up: pingüino is peen-GWEE-no. It is the only mark on a VOWEL that changes a sound instead of a stress, and it only ever sits in güe or güi. Type it: long-press U on a phone; \" then u on a Spanish or US-International layout." },
+        { id: "es-u1l1-lacasa", type: "vocab", front: "la casa", reading: "lacasa", meaning: "house", example: { jp: "La casa es moderna.", en: "The house is modern." }, drill: { jp: "La casa de Ana es enorme", en: "Ana's house is enormous" }, accept: ["the house", "home"], hint: "Spanish a is always the open \"ah\" of father — CA-sa, never the a of cat." },
+        { id: "es-u1l1-lamesa", type: "vocab", front: "la mesa", reading: "lamesa", meaning: "table", example: { jp: "La mesa es elegante.", en: "The table is elegant." }, drill: { jp: "La mesa es elegante", en: "The table is elegant" }, accept: ["the table", "desk"], hint: "e is always the short \"eh\" of bed — ME-sa, never may-sa." },
+        { id: "es-u1l1-es", type: "vocab", front: "es", reading: "es", meaning: "is", example: { jp: "Ana es fantástica.", en: "Ana is fantastic." }, drill: { jp: "El coche es rápido", en: "The car is fast" }, accept: ["it is", "he is", "she is", "it's"], hint: "The link word: X es Y. Watch the adjective change ending to match — fantástico for a man, fantástica for a woman." },
+        { id: "es-u1l1-de", type: "vocab", front: "de", reading: "de", meaning: "of", example: { jp: "La casa de Ana es enorme.", en: "Ana's house is enormous." }, drill: { jp: "La llave de la casa", en: "The key to the house" }, accept: ["from", "belonging to"], hint: "Spanish has no apostrophe-s. \"Ana's house\" is la casa de Ana — the house OF Ana." },
       ],
     },
-    // Lesson 2: the five vowels — the single biggest win in Spanish pronunciation
+    // Lesson 2: i, o and u, same shape — the three remaining acutes first, then
+    // the words that keep each vowel clean right to the end of the word.
     {
       id: "es-u1l2",
       unit: 1,
       lesson: 2,
-      title: "Las cinco vocales",
+      title: "Las vocales i, o y u",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read the five Spanish vowels exactly as they are written — a, e, i, o and u never change — and say what something is: la casa es moderna.",
+      canDo: "Type í, ó and ú, then say i, o and u the way Spanish always says them — el libro, la luna, el museo — without swallowing a vowel the way English does.",
       items: [
-        { id: "es-u1l2-lacasa", type: "vocab", front: "la casa", reading: "lacasa", meaning: "house", example: { jp: "La casa es moderna.", en: "The house is modern." }, drill: { jp: "La casa de Ana es enorme", en: "Ana's house is enormous" }, accept: ["the house", "home"], hint: "Spanish a is always the open \"ah\" of father — CA-sa, never the a of cat." },
-        { id: "es-u1l2-lamesa", type: "vocab", front: "la mesa", reading: "lamesa", meaning: "table", example: { jp: "La mesa es elegante.", en: "The table is elegant." }, drill: { jp: "La mesa es elegante", en: "The table is elegant" }, accept: ["the table", "desk"], hint: "e is always the short \"eh\" of bed — ME-sa, never may-sa." },
+        { id: "es-u1l2-glyphiacute", type: "glyph", front: "í", reading: "i", meaning: null, example: null, hint: "Still \"ee\" — and note the accent REPLACES the dot, so í never carries both: aquí, día. Type it: long-press I on a phone; ' then i on a Spanish or US-International layout." },
+        { id: "es-u1l2-glyphoacute", type: "glyph", front: "ó", reading: "o", meaning: null, example: null, hint: "Still a clean \"oh\" right to the end: adiós, canción. Type it: long-press O on a phone; ' then o on a Spanish or US-International layout." },
+        { id: "es-u1l2-glyphuacute", type: "glyph", front: "ú", reading: "u", meaning: null, example: null, hint: "Still \"oo\": menú, número. The mark can also split twins — tú is \"you\", tu is \"your\". Type it: long-press U on a phone; ' then u on a Spanish or US-International layout." },
         { id: "es-u1l2-ellibro", type: "vocab", front: "el libro", reading: "ellibro", meaning: "book", example: { jp: "El libro es famoso.", en: "The book is famous." }, drill: { jp: "El libro es famoso", en: "The book is famous" }, accept: ["the book"], hint: "i is always \"ee\" and o stays a clean \"oh\" right to the end: LEE-bro, never LEE-bruh." },
         { id: "es-u1l2-laluna", type: "vocab", front: "la luna", reading: "laluna", meaning: "moon", example: { jp: "¡La luna es romántica!", en: "The moon is romantic!" }, drill: { jp: "La luna es romántica", en: "The moon is romantic" }, accept: ["the moon"], hint: "u is always \"oo\" — LOO-na." },
         { id: "es-u1l2-elmuseo", type: "vocab", front: "el museo", reading: "elmuseo", meaning: "museum", example: { jp: "El museo es enorme.", en: "The museum is enormous." }, drill: { jp: "El museo es enorme", en: "The museum is enormous" }, accept: ["the museum"], hint: "Three vowels in a row, every one of them said: mu-SE-o. Spanish never swallows a vowel the way English does." },
-        { id: "es-u1l2-es", type: "vocab", front: "es", reading: "es", meaning: "is", example: { jp: "Ana es fantástica.", en: "Ana is fantastic." }, drill: { jp: "El coche es rápido", en: "The car is fast" }, accept: ["it is", "he is", "she is", "it's"], hint: "The link word: X es Y. Watch the adjective change ending to match — fantástico for a man, fantástica for a woman." },
-        { id: "es-u1l2-de", type: "vocab", front: "de", reading: "de", meaning: "of", example: { jp: "La casa de Ana es enorme.", en: "Ana's house is enormous." }, drill: { jp: "La llave de la casa", en: "The key to the house" }, accept: ["from", "belonging to"], hint: "Spanish has no apostrophe-s. \"Ana's house\" is la casa de Ana — the house OF Ana." },
       ],
     },
-    // Lesson 3: the letters that lie — silent h, throaty j and g. Both are taught
-    // through words on purpose: h is an ABSENCE with no character to type, and
-    // the j/g rasp is a sound, not a glyph English lacks. No letter card belongs
-    // here.
+    // Lesson 3: the letters that lie — silent h, throaty j and g. NO GLYPH CARD
+    // BELONGS HERE, ON PURPOSE: h is an ABSENCE with no character to type, and
+    // the j/g rasp is a sound English lacks, not a sign an English keyboard
+    // lacks. Both are only teachable through words, so this lesson is words only
+    // and must not gain a letter card.
     {
       id: "es-u1l3",
       unit: 1,
@@ -203,7 +212,7 @@ export const ES_UNIT1 = {
       title: "La h muda y la jota",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read the two letters that mislead an English reader — h is written and never pronounced, and j, plus g before e or i, is a rasp at the back of the throat.",
+      canDo: "Read the two letters that mislead an English reader — h is written and never pronounced, and j, plus g before e or i, is a rasp at the back of the throat. No new letter to type here: both rules live in the words.",
       items: [
         { id: "es-u1l3-lahora", type: "vocab", front: "la hora", reading: "lahora", meaning: "hour", example: { jp: "¡Es la hora!", en: "It's time!" }, drill: { jp: "Es la hora", en: "It's time" }, accept: ["the hour", "time", "o'clock"], hint: "The h is silent, so it sounds exactly like ora: OH-ra." },
         { id: "es-u1l3-hay", type: "vocab", front: "hay", reading: "hay", meaning: "there is", example: { jp: "Hay gente.", en: "There are people." }, drill: { jp: "Hay gente en el museo", en: "There are people in the museum" }, accept: ["there are", "there's"], hint: "One word for both \"there is\" and \"there are\". Silent h again — it sounds like the English word \"eye\"." },
@@ -213,17 +222,21 @@ export const ES_UNIT1 = {
         { id: "es-u1l3-lagente", type: "vocab", front: "la gente", reading: "lagente", meaning: "people", example: { jp: "La gente de México es fantástica.", en: "The people of Mexico are fantastic." }, drill: { jp: "La gente de México es fantástica", en: "The people of Mexico are fantastic" }, accept: ["people", "the people", "folk"], hint: "g before e or i takes that same throaty sound: HEN-te. Before a, o, u it is the hard g of \"go\"." },
       ],
     },
-    // Lesson 4: the two letters from l1 put to work in real words, plus y, which
-    // borrows the ll sound.
+    // Lesson 4: the two letters English does not have, each followed by the words
+    // built on it — ñ by año/mañana/señor, ll by llave/silla, and y, which
+    // borrows the ll sound. Eight items, the top of the band, because six words
+    // genuinely depend on these two letters.
     {
       id: "es-u1l4",
       unit: 1,
       lesson: 4,
-      title: "Palabras con ñ y ll",
+      title: "La ñ y la ll",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say and write the words built on the two letters English does not have — el año, la mañana, el señor, la llave, la silla — and read y, which shares the ll sound.",
+      canDo: "Type ñ and ll, then say the five everyday words built on them — el año, la mañana, el señor, la llave, la silla — and read y, which borrows the ll sound.",
       items: [
+        { id: "es-u1l4-glyphenye", type: "glyph", front: "ñ", reading: "n", meaning: null, example: null, hint: "n with a y glued on — say \"canyon\" and stop at the ny. Its own letter, with its own slot after n in the alphabet. Type it: long-press N on a phone; ~ then n on a Spanish or US-International layout." },
+        { id: "es-u1l4-glyphll", type: "glyph", front: "ll", reading: "ll", meaning: null, example: null, hint: "Two l's, one sound: the y of \"yes\", never an English l. Both letters are typed; only one sound comes out." },
         { id: "es-u1l4-elano", type: "vocab", front: "el año", reading: "elano", meaning: "year", example: { jp: "El año 2000 es histórico.", en: "The year 2000 is historic." }, drill: { jp: "El año es histórico", en: "The year is historic" }, accept: ["the year"], hint: "ñ is n with a y glued on: A-nyo. The tilde is not decoration — año is a year, ano is not." },
         { id: "es-u1l4-lamanana", type: "vocab", front: "la mañana", reading: "lamanana", meaning: "morning", example: { jp: "La mañana es tranquila.", en: "The morning is calm." }, drill: { jp: "La mañana es tranquila", en: "The morning is calm" }, accept: ["tomorrow", "the morning"], hint: "ma-NYA-na. With la it is the morning; on its own, mañana means tomorrow." },
         { id: "es-u1l4-elsenor", type: "vocab", front: "el señor", reading: "elsenor", meaning: "sir", example: { jp: "El señor es elegante.", en: "The gentleman is elegant." }, drill: { jp: "El señor es de Madrid", en: "The gentleman is from Madrid" }, accept: ["mister", "mr", "gentleman", "the gentleman"], hint: "se-NYOR — Mr. or sir. Abbreviated Sr. in writing." },
@@ -232,16 +245,20 @@ export const ES_UNIT1 = {
         { id: "es-u1l4-y", type: "vocab", front: "y", reading: "y", meaning: "and", example: { jp: "La casa y el museo.", en: "The house and the museum." }, drill: { jp: "El museo y la casa", en: "The museum and the house" }, accept: ["plus"], hint: "One letter, one word. Alone it is just the vowel i — \"ee\". Before a vowel it turns into the ll sound: yo (I)." },
       ],
     },
-    // Lesson 5: the consonants that shift — c, z, qu, and the two r's
+    // Lesson 5: the consonants that shift — hard/soft c, z, qu and the two r's.
+    // ü opens it because no word in the unit contains ü, and its rule (a u written
+    // after g and never said, until two dots wake it up) is the same rule as the
+    // silent u of qué, four cards below.
     {
       id: "es-u1l5",
       unit: 1,
       lesson: 5,
-      title: "La c, la z y la rr",
+      title: "La c, la z, la qu y la rr",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Read the consonants that change with the letter after them — hard c and qu, soft c and z — and hear the rolled rr that separates el perro from pero.",
+      canDo: "Type ü, the two dots that wake a silent u, then read the consonants that change with the letter after them — hard c and qu, soft c and z — and hear the rolled rr that separates el perro from pero.",
       items: [
+        { id: "es-u1l5-glyphudieresis", type: "glyph", front: "ü", reading: "u", meaning: null, example: null, hint: "In gue and gui the u is written and never said — guitarra is ghee-TA-rra, hard g. Two dots wake it back up: pingüino is peen-GWEE-no. It is the only mark on a VOWEL that changes a sound instead of a stress, and it only ever sits in güe or güi. Type it: long-press U on a phone; \" then u on a Spanish or US-International layout." },
         { id: "es-u1l5-elcoche", type: "vocab", front: "el coche", reading: "elcoche", meaning: "car", example: { jp: "El coche de Ana es rápido.", en: "Ana's car is fast." }, drill: { jp: "El coche de Pablo es rápido", en: "Pablo's car is fast" }, accept: ["the car", "automobile"], hint: "c before a, o, u is a hard k: KO-che. And ch is a single sound, the ch of \"church\". Spain says coche; much of Latin America says carro or auto." },
         { id: "es-u1l5-elcielo", type: "vocab", front: "el cielo", reading: "elcielo", meaning: "sky", example: { jp: "El cielo de la mañana es tranquilo.", en: "The morning sky is calm." }, drill: { jp: "El cielo es enorme", en: "The sky is enormous" }, accept: ["the sky", "heaven"], hint: "But c before e or i goes soft: SYE-lo in Latin America, THYE-lo in most of Spain." },
         { id: "es-u1l5-ellapiz", type: "vocab", front: "el lápiz", reading: "ellapiz", meaning: "pencil", example: { jp: "El lápiz es de Ana.", en: "The pencil is Ana's." }, drill: { jp: "El lápiz es de María", en: "The pencil is María's" }, accept: ["the pencil"], hint: "z is that same soft sound. The accent tells you where to hit: LÁ-piz. With no accent, stress lands on the last syllable — or the second-to-last if the word ends in a vowel, n or s." },

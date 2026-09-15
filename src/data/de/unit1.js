@@ -75,15 +75,23 @@
 //     bare letters, then goodbye. BUILD-BRIEF-language-blueprint.md:15 is explicit
 //     that this is not the model — "each unit teaches a chunk of script and
 //     immediately uses it for real words… never 46 characters in a row. The learner
-//     is reading actual words in unit 1." Japanese, the reference build, has ZERO
-//     script-only lessons. French was rebuilt the right way first (src/data/fr/unit1.js,
-//     five lessons, every one of them letters-then-the-words-that-use-them); German
-//     and Norwegian followed on 2026-09-14, branch content/de-no-u1-align.
+//     is reading actual words in unit 1." ⚠️ AND CITE JAPANESE PRECISELY — an earlier
+//     draft of this paragraph said "ja has ZERO script-only lessons", which is FALSE and
+//     was caught by the fact-checker: ja has 48 of them. What is true, measured, is that
+//     none of them is in a KANA unit — ja u1–u6 run ~5 kana + 5–6 words in EVERY lesson
+//     (u1 is 25 kana / 29 words) and have zero script-only lessons between them. The 48
+//     sit in the kanji and yōon units (u11, u13–18, u31–42), hundreds of cards later, to
+//     a learner who already reads — which is the pattern the blueprint calls "woven
+//     between vocab units", not the pattern for unit 1.
+//     French was rebuilt the right way first (src/data/fr/unit1.js, five lessons, every
+//     one of them letters-then-the-words-that-use-them); German and Norwegian followed on
+//     2026-09-14, branch content/de-no-u1-align, and Spanish and Portuguese the same
+//     morning on main (03c14bb6). No all-glyph lesson survives outside ja.
 //     ✅ THE SHAPE NOW: EVERY LESSON IS A SOUND FAMILY — its letters FIRST, then the
 //     words of this unit that carry them. The learner meets a letter one CARD before
 //     the word that needs it, never one LESSON before, and finishes lesson 1 able to
 //     say "Was ist das? Das ist hier. Nein."
-//         l1  ei · ie          + ist, das, hier, was, nein          (7 items)
+//         l1  ei · ie          + ist, das, nein, hier, was          (7 items)
 //         l2  z · ch           + die Zeit, die Zeitung, das Buch, und, sind   (7)
 //         l3  sch · ß          + die Straße, die Schule, schnell, sprechen, zusammen  (7)
 //         l4  ü · ö            + die Tür, die Küche, müde, hören, wohnen      (7)
@@ -95,9 +103,13 @@
 //     ✅ THE INVARIANT WORTH PROTECTING: **NO WORD IN THIS UNIT PRECEDES ITS OWN
 //     LETTER.** Checked card by card — klein's ei is l1, zusammen's z is l2, groß's ß
 //     and schön's sch are l3, schön's ö and müde's ü are l4, spät's ä is its own
-//     lesson. Every reference a hint makes to a letter points BACKWARD or at the card
-//     above it. Move a card and you have to re-check this by hand; there is no lint
-//     rule for it.
+//     lesson. Move a card and you have to re-check this by hand; there is no lint rule
+//     for it. ⚠️ THE INVARIANT IS ABOUT CARDS, NOT HINTS, and an earlier draft here
+//     overclaimed ("every reference a hint makes to a letter points backward"). It does
+//     not: the ü card's KEYBOARD note names all three umlauts together — "the same
+//     long-press finds ö on o and ä on a" — and ä is l5. That is deliberate. One
+//     long-press gesture finds all three, and splitting the instruction across three
+//     lessons to satisfy a rule about cards would make it worse, not better.
 //     ⚠️ WHY ß IS IN l3 — and the old argument for keeping it out of the glyph set is
 //     now MOOT, not merely overruled. It used to be excluded from the all-glyph l1 on
 //     the grounds that its card teaches a DISTRIBUTION RULE (ß after a long vowel or a
@@ -144,9 +156,14 @@ export const DE_UNIT1 = {
   lessons: [
     // Lesson 1: ei and ie — the one pair every English reader gets backwards —
     // and the five little words that make a sentence possible at all. The learner
-    // meets the two letters, then nein and hier which carry them, then ist, das
-    // and was, and walks out of their FIRST lesson able to point at something and
-    // say what it is. Nothing here is a noun; every later lesson leans on this set.
+    // meets the two letters, then ist and das so a sentence exists to put them in,
+    // then nein and hier which carry them, then was — and walks out of their FIRST
+    // lesson able to point at something and say what it is. Nothing here is a noun;
+    // every later lesson leans on this set.
+    // ⚠️ nein SITS BEFORE hier ON PURPOSE. hier's hint compares it with "the ei of
+    // nein", so nein has to be the card behind it, not the card after it. That was
+    // wrong in the first draft of this regrouping and is the kind of thing only
+    // reading the items in order catches — no check enforces it.
     {
       id: "de-u1l1",
       unit: 1,
@@ -160,9 +177,9 @@ export const DE_UNIT1 = {
         { id: "de-u1l1-ie", type: "glyph", front: "ie", reading: "ie", meaning: null, example: null, hint: "Same rule, other way round: ie is a long \"ee\". hier, die Zeit, die Tür. Swap the two letters and you swap the sound — that is the whole lesson." },
         { id: "de-u1l1-ist", type: "vocab", front: "ist", reading: "ist", meaning: "is", example: { jp: "Berlin ist fantastisch.", en: "Berlin is fantastic." }, accept: ["is", "it is", "he is", "she is", "it's"], hint: "The link word: X ist Y. From sein, to be — its forms are so irregular that German learners meet them one at a time." },
         { id: "de-u1l1-das", type: "vocab", front: "das", reading: "das", meaning: "that / this", example: { jp: "Das ist Anna.", en: "That is Anna." }, accept: ["that", "this", "that is", "the"], hint: "Das ist… is how you point at anything, whatever its gender. It is also the article for neuter nouns — same word, two jobs." },
+        { id: "de-u1l1-nein", type: "vocab", front: "nein", reading: "nein", meaning: "no", example: { jp: "Nein, das ist München.", en: "No, that is Munich." }, accept: ["no"], hint: "NINE, not \"nane\". Careful with its neighbour nein/ein — both ei, both said \"eye\"." },
         { id: "de-u1l1-hier", type: "vocab", front: "hier", reading: "hier", meaning: "here", example: { jp: "Hier ist das Auto.", en: "Here is the car." }, accept: ["here"], hint: "ie is a long \"ee\": HEER. Compare hier (here) with the ei of nein — swap the letters and you swap the sound." },
         { id: "de-u1l1-was", type: "vocab", front: "was", reading: "was", meaning: "what", example: { jp: "Was ist das?", en: "What is that?" }, accept: ["what"], hint: "VASS — German w is the English v, every time. Was ist das? is the most useful question you will learn this week." },
-        { id: "de-u1l1-nein", type: "vocab", front: "nein", reading: "nein", meaning: "no", example: { jp: "Nein, das ist München.", en: "No, that is Munich." }, accept: ["no"], hint: "NINE, not \"nane\". Careful with its neighbour nein/ein — both ei, both said \"eye\"." },
       ],
     },
     // Lesson 2: z and ch, the two consonants English has no match for, and the
@@ -237,7 +254,7 @@ export const DE_UNIT1 = {
         { id: "de-u1l4-dietur", type: "vocab", front: "die Tür", reading: "dietur", meaning: "door", example: { jp: "Die Tür ist klein.", en: "The door is small." }, accept: ["door", "the door"], hint: "ü is the trick one: say \"ee\" and round your lips as if for \"oo\". You may type tur or tür — both are accepted." },
         { id: "de-u1l4-diekuche", type: "vocab", front: "die Küche", reading: "diekuche", meaning: "kitchen", example: { jp: "Die Küche ist modern.", en: "The kitchen is modern." }, accept: ["kitchen", "the kitchen"], hint: "KÜ-che, with the ü of Tür. Its neighbour der Kuchen, without the dots, is cake." },
         { id: "de-u1l4-mude", type: "vocab", front: "müde", reading: "mude", meaning: "tired", example: { jp: "Anna ist müde.", en: "Anna is tired." }, accept: ["tired", "sleepy"], hint: "MÜ-de, two syllables, the final -e clearly said. German never swallows a final e the way English does." },
-        { id: "de-u1l4-horen", type: "vocab", front: "hören", reading: "horen", meaning: "to hear", example: { jp: "Anna und Thomas hören die Musik.", en: "Anna and Thomas hear the music." }, accept: ["to hear", "to listen", "hear"], hint: "The ö you met two cards ago: \"eh\" with rounded lips. Verbs are given in the infinitive, which almost always ends in -en." },
+        { id: "de-u1l4-horen", type: "vocab", front: "hören", reading: "horen", meaning: "to hear", example: { jp: "Anna und Thomas hören die Musik.", en: "Anna and Thomas hear the music." }, accept: ["to hear", "to listen", "hear"], hint: "The ö from the letter card at the top of this lesson: \"eh\" with rounded lips. Verbs are given in the infinitive, which almost always ends in -en." },
         { id: "de-u1l4-wohnen", type: "vocab", front: "wohnen", reading: "wohnen", meaning: "to live (somewhere)", example: { jp: "Anna und Thomas wohnen hier.", en: "Anna and Thomas live here." }, accept: ["to live", "to reside", "live"], hint: "German w is the English V: VOH-nen — the same rule as was. The h after a vowel is silent and just makes it long." },
       ],
     },
