@@ -1,7 +1,7 @@
 # NO — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- no`.
-Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-15: **1215 words** across **50 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -15,10 +15,21 @@ Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
 
+## Who owns which slots this band
+
+The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
+
+| block | slots |
+|---|---|
+| 1 | u51–u63 |
+| 2 | u64–u76 |
+| 3 | u77–u87 |
+
 ## Index — every taught word, alphabetical
 
 `word` — slot · meaning
 
+- `å` — u1
 - `å anbefale` — u48 · to recommend
 - `å angre` — u40 · to regret
 - `å ankomme` — u23 · to arrive
@@ -45,7 +56,6 @@ Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `å brette` — u42 · to fold
 - `å bruke` — u17 · to use
 - `å bry seg` — u22 · to care
-- `å burde` — u13 · should
 - `å bygge` — u46 · to build
 - `å bytte` — u20 · to swap
 - `å danse` — u19 · to dance
@@ -90,7 +100,6 @@ Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `å henge` — u42 · to hang
 - `å henge opp` — u30 · to hang up
 - `å hente` — u20 · to fetch
-- `å hete` — u3 · to be called
 - `å hilse` — u17 · to greet
 - `å hjelpe` — u11 · to help
 - `å hoppe` — u19 · to jump
@@ -269,6 +278,7 @@ Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `å vite` — u12 · to know (a fact)
 - `å vokse` — u34 · to grow
 - `å vurdere` — u40 · to consider
+- `æ` — u1
 - `ærlig` — u31 · honest
 - `aldri` — u12 · never
 - `alle` — u14 · everyone
@@ -300,6 +310,7 @@ Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `ble` — u14 · became
 - `bodde` — u38 · lived
 - `bomull` — u42 · cotton
+- `bør` — u13 · should
 - `bort` — u13 · away
 - `bortsett fra` — u36 · apart from
 - `bra` — u2 · well
@@ -332,6 +343,7 @@ Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `du` — u2 · you
 - `dum` — u31 · stupid
 - `dyr` — u7 · expensive
+- `é` — u1
 - `egen` — u14 · own (masculine/feminine)
 - `egentlig` — u40 · actually
 - `eget` — u14 · own (neuter)
@@ -941,6 +953,7 @@ Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `henne` — u12 · her (object form)
 - `hennes` — u4 · her
 - `her` — u3 · here
+- `heter` — u3 · is called
 - `høflig` — u31 · polite
 - `hoppet` — u38 · jumped
 - `hørte` — u38 · heard
@@ -987,6 +1000,7 @@ Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `kald` — u8 · cold
 - `kanskje` — u2 · maybe
 - `kastet` — u38 · threw
+- `kj` — u1
 - `kjedelig` — u31 · boring
 - `kjølig` — u43 · cool
 - `kjøpte` — u14 · bought
@@ -1066,6 +1080,7 @@ Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `norsk` — u1 · Norwegian
 - `ny` — u10 · new
 - `nysgjerrig` — u31 · curious
+- `ø` — u1
 - `ofte` — u12 · often
 - `og` — u1 · and
 - `også` — u12 · also
@@ -1116,6 +1131,7 @@ Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `silke` — u42 · silk
 - `sin` — u30 · his own
 - `sint` — u17 · angry
+- `sj` — u1
 - `sjalu` — u22 · jealous
 - `sjelden` — u12 · seldom
 - `sjenert` — u31 · shy
@@ -1124,6 +1140,7 @@ Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 - `skal til å` — u39 · about to
 - `skarp` — u46 · sharp
 - `skitten` — u10 · dirty
+- `skj` — u1
 - `skrev` — u38 · wrote
 - `skuffet` — u22 · disappointed
 - `skulle` — u37 · should have
@@ -1230,11 +1247,11 @@ Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 
 ## By unit — what each slot teaches
 
-**u1 · Lyder og bokstaver** (24) — `å være`, `å lære`, `norsk`, `et språk`, `ei øy`, `å gå`, `hva`, `det`, `hvor`, `god`, `og`, `jeg`, `å kjøpe`, `et kjøkken`, `å kjenne`, `ei skje`, `ei skjorte`, `en sjø`, `hyggelig`, `viktig`, `billig`, `meg`, `deg`, `å gi`
+**u1 · Lyder og bokstaver** (31) — `æ`, `ø`, `å`, `é`, `å være`, `å lære`, `ei øy`, `å gå`, `hva`, `det`, `hvor`, `god`, `og`, `jeg`, `kj`, `å kjøpe`, `å kjenne`, `et kjøkken`, `å gi`, `skj`, `sj`, `ei skje`, `ei skjorte`, `en sjø`, `et språk`, `norsk`, `hyggelig`, `viktig`, `billig`, `meg`, `deg`
 
 **u2 · Hilsener** (24) — `hei`, `god morgen`, `god kveld`, `ha det`, `du`, `velkommen`, `hvordan`, `bra`, `bare`, `takk`, `ikke`, `veldig`, `ja`, `nei`, `unnskyld`, `vær så snill`, `kanskje`, `å beklage`, `å se`, `vi`, `snart`, `å møte`, `igjen`, `en venn`
 
-**u3 · Om meg selv** (24) — `å hete`, `et navn`, `å snakke`, `hvem`, `å forstå`, `litt`, `fra`, `i`, `et land`, `å bo`, `en by`, `her`, `gammel`, `ung`, `å ha`, `å jobbe`, `en lærer`, `en elev`, `han`, `hun`, `de`, `å like`, `å komme`, `mye`
+**u3 · Om meg selv** (24) — `heter`, `et navn`, `å snakke`, `hvem`, `å forstå`, `litt`, `fra`, `i`, `et land`, `å bo`, `en by`, `her`, `gammel`, `ung`, `å ha`, `å jobbe`, `en lærer`, `en elev`, `han`, `hun`, `de`, `å like`, `å komme`, `mye`
 
 **u4 · Familie og hjem** (24) — `en familie`, `ei mor`, `en far`, `en bror`, `ei søster`, `et barn`, `en sønn`, `ei datter`, `en mann`, `ei kvinne`, `en bestefar`, `ei bestemor`, `et hus`, `et hjem`, `en hund`, `en katt`, `et rom`, `en hage`, `min`, `din`, `hans`, `hennes`, `å elske`, `sammen`
 
@@ -1254,7 +1271,7 @@ Snapshot 2026-09-13: **1208 words** across **50 authored unit(s)**, **0 slot(s) 
 
 **u12 · Setning og ordstilling** (24) — `alltid`, `aldri`, `ofte`, `sjelden`, `også`, `derfor`, `men`, `eller`, `at`, `fordi`, `hvis`, `å tro`, `hvorfor`, `hvilken`, `å spørre`, `å svare`, `å si`, `å vite`, `ham`, `henne`, `oss`, `dere`, `deres`, `seg`
 
-**u13 · Verb og partikler** (24) — `med`, `av`, `etter`, `før`, `over`, `under`, `å kunne`, `å ville`, `å skulle`, `å måtte`, `å burde`, `å få`, `ut`, `inn`, `opp`, `ned`, `bort`, `tilbake`, `å ta`, `å stå`, `å sitte`, `å ligge`, `å bli`, `å trenge`
+**u13 · Verb og partikler** (24) — `med`, `av`, `etter`, `før`, `over`, `under`, `å kunne`, `å ville`, `å skulle`, `å måtte`, `bør`, `å få`, `ut`, `inn`, `opp`, `ned`, `bort`, `tilbake`, `å ta`, `å stå`, `å sitte`, `å ligge`, `å bli`, `å trenge`
 
 **u14 · Fortid og adjektiv** (24) — `i går`, `snakket`, `jobbet`, `spiste`, `kjøpte`, `lærte`, `var`, `hadde`, `gikk`, `kom`, `så`, `ble`, `den`, `denne`, `dette`, `disse`, `alt`, `alle`, `annen`, `annet`, `andre`, `egen`, `eget`, `egne`
 
