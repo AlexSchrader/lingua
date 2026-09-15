@@ -118,7 +118,26 @@ for (let i = 0; i < items.length; i++) {
   // (This is a surgical 2-item fix, not the global kana→katakana conversion the
   // header warns against — that broke other kana; these two are already wrong.)
   const KANA_SOUND_FIX = { "は": "ハ", "へ": "ヘ" };
-  const text = item.type === "kana" && KANA_SOUND_FIX[item.front] ? KANA_SOUND_FIX[item.front] : item.front;
+
+  // THE VOICE REFUSES A FEW CHARACTERS OUTRIGHT, forever, not transiently. ス
+  // (katakana su) returned the 3805-byte silent payload on every attempt across
+  // several runs, and the capitalisation retry below does nothing for Japanese —
+  // there is no capital ス.
+  //
+  // Voice its KANA TWIN instead. ス and す are the same syllable in two scripts, so
+  // the audio is identical BY DEFINITION — this is not an approximation, and it is
+  // the same move KANA_SOUND_FIX makes above in the other direction (は voiced as
+  // ハ to get "ha" rather than the particle "wa"). す generates cleanly.
+  //
+  // A listening card then cannot distinguish ス from す by ear, which is correct:
+  // they ARE homophones. Only the written form differs, and the sighted cards test
+  // that.
+  const KANA_TWIN_FALLBACK = { "ス": "す" };
+
+  const text =
+    item.type === "kana" && KANA_SOUND_FIX[item.front] ? KANA_SOUND_FIX[item.front]
+    : item.type === "kana" && KANA_TWIN_FALLBACK[item.front] ? KANA_TWIN_FALLBACK[item.front]
+    : item.front;
 
   try {
     const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
@@ -170,15 +189,26 @@ for (let i = 0; i < items.length; i++) {
     // Treat it exactly like an empty body: retry capitalised, then fail loudly.
     const SILENT_BYTES = 3805;
     let buf = Buffer.from(await res.arrayBuffer());
-    if (buf.length <= SILENT_BYTES) {
-      await new Promise((r) => setTimeout(r, 1000));
-      const retryText = text.charAt(0).toUpperCase() + text.slice(1);
+    // SEVERAL attempts, not one. The silent payload is per-call flaky rather than
+    // deterministic - the pt notes above record "o-acute alternated between 0 and
+    // 3805 on the same text" - so a single retry loses a coin flip and reports a
+    // permanent failure. Katakana su spent two runs looking unfixable for exactly
+    // this reason, including one where its own hiragana twin came back silent too.
+    //
+    // Alternate the text between attempts: plain, capitalised (which rescued the pt
+    // letters and is a no-op for Japanese), then plain again. Cheap - it only runs
+    // on a clip that would otherwise be thrown away.
+    for (let attempt = 1; attempt <= 4 && buf.length <= SILENT_BYTES; attempt++) {
+      await new Promise((r) => setTimeout(r, 400 * attempt));
+      const retryText = attempt % 2 === 0
+        ? text.charAt(0).toUpperCase() + text.slice(1)
+        : text;
       const retry = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
         method: "POST",
         headers: { "xi-api-key": API_KEY, "Content-Type": "application/json", Accept: "audio/mpeg" },
         body: JSON.stringify({ text: retryText, model_id: MODEL_ID }),
       });
-      buf = retry.ok ? Buffer.from(await retry.arrayBuffer()) : Buffer.alloc(0);
+      if (retry.ok) buf = Buffer.from(await retry.arrayBuffer());
     }
     if (buf.length <= SILENT_BYTES) {
       console.error(`  ERROR  ${tag}: ${buf.length === 0 ? "empty audio body (200 but 0 bytes)" : `silent audio (${buf.length}b <= ${SILENT_BYTES}b, the known silent payload)`} - NOT written`);
