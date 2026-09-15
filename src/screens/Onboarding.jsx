@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
+import { authoringProgress } from "../store/levels.js";
 import { requestReminderPermission, scheduleDailyReminder } from "../lib/reminders.js";
 import { C, F } from "../theme.js";
 
@@ -33,6 +34,27 @@ const itemCount = (id) =>
 // a tap: nothing is selected, so nothing loads. Better a button that does nothing than
 // an app that boots into an empty language and looks broken.
 const CATALOG = LANGUAGES.map((l) => ({ ...l, cards: itemCount(l.id) }));
+
+// The picker was one flat list of 23 rows, so a language with 0 cards sat between
+// two real ones looking identical and simply did nothing when tapped. Group by how
+// much of it actually exists, so the list answers "what can I learn" before it
+// answers "what exists".
+//   ready      — every unit authored: the whole course is there
+//   inProgress — some units authored, more coming
+//   soon       — nothing authored yet; not startable, and last
+const GROUPS = (() => {
+  const ready = [], inProgress = [], soon = [];
+  for (const l of CATALOG) {
+    if (!l.cards) { soon.push(l); continue; }
+    const prog = authoringProgress(l.id);
+    (prog?.complete ? ready : inProgress).push(l);
+  }
+  return [
+    ["Ready to learn", ready],
+    ["Still being written", inProgress],
+    ["Coming soon", soon],
+  ].filter(([, rows]) => rows.length > 0);
+})();
 
 export default function Onboarding() {
   const navigate = useNavigate();
@@ -79,8 +101,12 @@ export default function Onboarding() {
   }
 
   return (
-    <div style={{ minHeight: "calc(100dvh / var(--app-zoom, 1))", background: C.washi, color: C.ink, fontFamily: F.body, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24, overflowY: "auto" }}>
-      <div style={{ width: "100%", maxWidth: 400, display: "flex", flexDirection: "column", gap: 22 }}>
+    <div style={{ height: "calc(100dvh / var(--app-zoom, 1))", background: C.washi, color: C.ink, fontFamily: F.body, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24, overflowY: "auto" }}>
+      {/* minHeight: 0 is load-bearing — a flex child will not shrink below its
+          content without it, so the scroll box never scrolls and the column
+          overflows instead, pushing Continue off the bottom. paddingBottom clears
+          the phone's home indicator. */}
+      <div style={{ width: "100%", maxWidth: 400, display: "flex", flexDirection: "column", gap: 22, flex: 1, minHeight: 0, paddingBottom: "env(safe-area-inset-bottom, 0px)" }}>
         {(step > 0 || devMode) && (
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: -8 }}>
             {step > 0 ? <button onClick={() => setStep(0)} style={linkBtn}>← Back</button> : <span />}
@@ -95,11 +121,19 @@ export default function Onboarding() {
               <div style={{ fontSize: 13, color: C.inkSoft, marginTop: 4 }}>Pick the one to start with. You'll unlock the next once you reach A1.</div>
             </div>
 
-            {/* 23 languages do not fit a phone screen, and the Continue button must
-                never be the thing that scrolls out of reach. The list scrolls inside
-                its own box; the action stays put. */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 10, maxHeight: "52vh", overflowY: "auto", padding: 2, margin: -2 }}>
-              {CATALOG.map((l) => {
+            {/* 23 languages do not fit a phone screen, and Continue must never be the
+                thing that scrolls out of reach. The list scrolls inside its own box;
+                the action stays put.
+                `flex: 1` + `minHeight: 0`, not a `52vh` guess: vh is the wrong unit
+                on a phone — it ignores the browser chrome that appears and disappears
+                as you scroll — which is how Continue ended up under the home bar. */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 10, flex: 1, minHeight: 0, overflowY: "auto", padding: 2, margin: -2 }}>
+              {GROUPS.map(([heading, rows], gi) => (
+                <div key={heading} style={{ display: "contents" }}>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: C.inkSoft, textTransform: "uppercase", letterSpacing: 0.6, marginTop: gi === 0 ? 0 : 8 }}>
+                    {heading} · {rows.length}
+                  </div>
+                  {rows.map((l) => {
                 const on = lang === l.id;
                 return (
                   <button
@@ -129,7 +163,9 @@ export default function Onboarding() {
                     <span style={{ fontSize: 12, color: C.inkSoft }}>→ {l.target}</span>
                   </button>
                 );
-              })}
+                  })}
+                </div>
+              ))}
             </div>
 
             <button

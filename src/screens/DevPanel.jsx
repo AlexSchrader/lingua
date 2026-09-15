@@ -1,8 +1,10 @@
 import { useMemo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, AlertTriangle, RotateCcw, FlaskConical, Play, Sparkles } from "lucide-react";
+import { ArrowLeft, AlertTriangle, RotateCcw, FlaskConical, Play, Sparkles, Eye } from "lucide-react";
 import { useStore } from "../store/useStore.js";
-import { UNITS, LANGUAGES } from "../data/index.js";
+import { UNITS, LANGUAGES, isLive } from "../data/index.js";
+import { enterPreview, buildPreviewState } from "../store/preview.js";
+import { PERSIST_VERSION } from "../store/migrate.js";
 import { devDiagnostics, sandboxRoute, cardPreviewRoute, PREVIEW_STATES, PREVIEW_LABEL, reviewSandboxRoute, fixupSandboxRoute, microSandboxRoute, devLanguages, defaultDevLang } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { langName } from "../data/languages.js";
@@ -343,6 +345,36 @@ export default function DevPanel() {
       </Section>
 
       <Section title="Preview flows">
+        {/* THE WHOLE APP, AS A LEARNER OF THE LANGUAGE SELECTED ABOVE.
+            The panel's other buttons preview one screen or one card; this previews
+            being that learner — their units, their companion, their flag, real
+            navigation. It follows the language picker at the top of this panel,
+            which is the thing it got wrong before: buildPreviewState defaulted
+            activeLang to langs[0], always Japanese by catalog order, so "preview
+            the app" answered "what does Japanese feel like" whichever language you
+            had selected. Throwaway profile on a separate storage key — nothing
+            here can reach the deck you actually study. */}
+        <button
+          onClick={() =>
+            enterPreview(
+              buildPreviewState({
+                langs: LANGUAGES.filter((l) => isLive(l.id)).map((l) => l.id),
+                catalog: LANGUAGES,
+                version: PERSIST_VERSION,
+                activeLang: lang,
+              })
+            )
+          }
+          style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: 14, borderRadius: 12, border: "none", background: C.ai, color: "#fff", fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer", marginBottom: 8 }}
+        >
+          <Eye size={18} /> Preview the app as a {langName(lang)} learner
+        </button>
+        <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 14, lineHeight: 1.4 }}>
+          The real app on a throwaway profile, studying <strong>{langName(lang)}</strong> — its units,
+          its companion, every band open. Switch the language above and press this again to feel a different one.
+          Leave via Settings → Exit preview; the throwaway deck is deleted on exit.
+        </div>
+
         <button
           onClick={() => { replayOnboarding(); navigate("/"); }}
           style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: 14, borderRadius: 12, border: `1.5px solid ${C.ai}`, background: C.aiSoft, color: C.aiDeep, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}

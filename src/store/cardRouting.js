@@ -9,6 +9,14 @@ import { checkProduce, checkMeaning } from "./answer.js";
 // interleave feel is one number, next to the routing it drives.
 export const LISTEN_SHARE = 0.5;
 
+// A GLYPH ITEM: taught by its sound, with no meaning. `kana` is the Japanese case
+// and `glyph` the general one (accents, digraphs, and the non-Latin scripts ahead).
+// Everywhere the engine asks "is this a character rather than a word", ask this —
+// NOT `type === "kana"`, which also carries stroke data and gojuon ordering.
+export function isGlyph(item) {
+  return item?.type === "kana" || item?.type === "glyph";
+}
+
 // True when the item has a pronunciation clip (per the generated manifest), so a
 // listening card is never routed for a silent item.
 export function hasAudio(item) {
@@ -55,6 +63,21 @@ export const READING_SHARE = 0.5; // share of rung-2 vocab that TYPE the rōmaji
 // ねこ both accepted) instead of assembling it from tiles. Vocab only — kana/kanji
 // produce by tracing.
 export function shouldTypeProduce(item) {
+  // GLYPHS TOO. eligibleKinds was taught about glyph when the type shipped and this
+  // gate was not — and this is the one that decides what a learner actually SEES.
+  // The result: a letter card only ever routed to listen:choice, so "type the
+  // letter", the card the whole accent standard exists for, never appeared in a
+  // review. Caught by the card-variety ratchet (every fr and es glyph reporting a
+  // single card kind), not by anything I checked.
+  // The hash share is for VOCAB — it keeps a deck varied by giving only some words
+  // the produce card. A glyph gets it ALWAYS: typing the letter is the entire
+  // point of the accent standard ("the user has to find it on their keyboard"),
+  // so leaving it to a coin flip on the item id means some letters are never
+  // typed at all. It also guarantees every glyph at least one sighted card, which
+  // matters for the four pt letters that have no clip: without this, â routed to
+  // `speak` and nothing else — a mic prompt for a character the learner has never
+  // heard, which is produce-before-perceive.
+  if (item?.type === "glyph") return true;
   return item?.type === "vocab" && hash01(item.id) < PRODUCE_SHARE;
 }
 
@@ -522,6 +545,17 @@ export function eligibleKinds(item) {
   const vocab = item.type === "vocab";
   if (vocab && !!item.meaning) out.push("choice:reverse");
   if (vocab) out.push("type:produce", "speak");
+  // A glyph is produced and spoken like a word - "type the character you heard",
+  // "say this character". It is NOT asked for a meaning: TypeCard rewrites the
+  // meaning-recall card to "what sound does this make?" and ChoiceCard asks "which
+  // sound is this?" over READING options (distractors.js picks the reading field for
+  // a glyph, as it does for kana), while `choice:reverse` self-excludes because it
+  // needs a meaning it does not have.
+  //
+  // This comment previously claimed the rewrite happened "downstream" without naming
+  // where, and for a Latin glyph it did not happen at all - the card asked a German
+  // learner to "Type the rōmaji". Name the file when you claim a rewrite exists.
+  if (item.type === "glyph") out.push("type:produce", "speak");
   if (hasAudio(item)) out.push("listen:choice", "listen:type");
   if (vocab && isJapaneseItem(item)) out.push("type:reading");
   if (canCloze(item)) out.push("cloze:choice");
@@ -530,6 +564,19 @@ export function eligibleKinds(item) {
   if (canBuildReading(item)) out.push("build");
   if (isTraceable(item)) out.push("trace");
   if (shouldConjugate(item)) out.push("conjugate");
+
+  // A LATIN conjugation item shares one front with every other form of the same
+  // verb — `être` is the front of all six future cards — so any card that PROMPTS
+  // with the front cannot say which form it is asking for. Only two kinds can: the
+  // drill, which names the form, and the ear cards, where the clip IS the form
+  // ("je serai"). Everything else must not be eligible, because `requiredPasses`
+  // scales with this list: leaving 11 kinds eligible while reviewStep can only ever
+  // serve one made MASTERED unreachable for all 96 fr/es conjugation items, and left
+  // their audio unplayable for the item's whole life. Japanese is unaffected — its
+  // conjugation fronts differ per form, so the generic cards work there.
+  if (isLatin(item) && shouldConjugate(item)) {
+    return out.filter((k) => k === "conjugate" || k === "listen:choice" || k === "listen:type");
+  }
   return out;
 }
 
@@ -576,7 +623,16 @@ export function meaningIsFreePass(item) {
 }
 
 export function shouldSpeak(item) {
-  return item?.type === "vocab";
+  // Vocab, and GLYPHS — Alex's call, made with the risk on the table.
+  //
+  // Kana are deliberately excluded because this repo measured STT on an isolated
+  // single character at 0/3 (Brief-C C.0), and a glyph is the same shape of ask.
+  // Alex asked for the speak card anyway and designed around it: the companion says
+  // the letter and the letter is SHOWN before the learner repeats, so it is
+  // shadowing rather than recall. That mitigates the recall half, not the
+  // transcriber. FEEL-CHECKS.md row 2 holds it open for a real-device verdict —
+  // if it marks him wrong when he said it right, this line is where to revisit.
+  return item?.type === "vocab" || item?.type === "glyph";
 }
 
 // A character is "traceable" when it's a single glyph that has KanjiVG stroke

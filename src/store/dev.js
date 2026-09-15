@@ -141,6 +141,37 @@ const PREVIEW_VERBS = {
   fr: [["parler", "pres-1s"], ["être", "fut-1s"], ["finir", "imperf-1p"]],
 };
 
+// The special characters each Latin language teaches, for the GLYPH preview. Same
+// rationale as PREVIEW_VERBS above: the accent lessons are not authored yet, so the
+// preview seeds them synthetically and the card is demonstrable today. Delete a row
+// once that language's unit 1 carries real glyph items.
+//
+// These are the actual inventories, counted from each corpus: fr 12, pt 11, es 7,
+// de 4, no 4 — three each is enough for a preview.
+const PREVIEW_GLYPHS = {
+  fr: [["\u00e9", "e"], ["\u00e8", "e"], ["\u00e7", "c"]],
+  es: [["\u00f1", "n"], ["\u00e1", "a"], ["\u00fc", "u"]],
+  pt: [["\u00e3", "a"], ["\u00e7", "c"], ["\u00f5", "o"]],
+  de: [["\u00e4", "a"], ["\u00f6", "o"], ["\u00fc", "u"]],
+  no: [["\u00e6", "ae"], ["\u00f8", "o"], ["\u00e5", "a"]],
+};
+
+// Synthetic, throwaway GLYPH items — sandbox only, same guarantees as the conjugate
+// ones below. `meaning: null` is the whole point of the type: it is what stops the
+// engine asking what é means, which is not a question about French.
+function previewGlyphItems(lang) {
+  const now = new Date(Date.now() - 1000);
+  const out = {};
+  for (const [front, reading] of PREVIEW_GLYPHS[lang] ?? []) {
+    const id = `${lang}-u0l0-glyph${reading}${front.codePointAt(0)}`;
+    out[id] = {
+      id, lang, type: "glyph", front, reading, meaning: null, example: null,
+      hint: null, rung: 3, srs: { ...newCard(), stability: 8, due: now },
+    };
+  }
+  return out;
+}
+
 // Synthetic, throwaway conjugate items — sandbox only, where every store writer is
 // a no-op (runnerWriters), so nothing here can reach a real profile.
 function previewConjugateItems(lang) {
@@ -184,6 +215,17 @@ export function buildCardPreviewItems(kind, lang) {
     }
     return { ...items, ...previewConjugateItems(lang) };
   }
+  // The typed-production preview is where a GLYPH card is worth seeing: "you heard
+  // it, now type the character". Until unit 1's accent lessons are authored the
+  // corpus has no glyph items, so seed them - same fallback shape as conjugate.
+  if (kind === "type:produce" && lang && lang !== "ja") {
+    const real = Object.values(seed).filter(inLang(lang)).filter((it) => it.type === "glyph");
+    if (!real.length) {
+      const glyphs = previewGlyphItems(lang);
+      if (Object.keys(glyphs).length) return { ...items, ...glyphs };
+    }
+  }
+
   // Scoped to the language under test — previewing a French card must never hand
   // back a Japanese one just because it sorted first.
   const picks = Object.values(seed).filter(inLang(lang)).filter(spec.pick).slice(0, QUICK_CARD_COUNT);
