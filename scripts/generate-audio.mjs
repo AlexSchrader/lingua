@@ -143,15 +143,24 @@ for (let i = 0; i < items.length; i++) {
     // code wrote that straight to disk and counted it in `done`, so a paid run
     // reported "0 errors" while leaving a silent card in prod - which is exactly
     // how fr-u6l2-a.mp3 (the French "a" with accent) shipped as 0 bytes uncaught.
-    // Empty bodies are transient, so retry once, then fail LOUDLY rather than
-    // write a file that merely looks generated.
+    // Empty bodies are usually transient, so retry once, then fail LOUDLY rather
+    // than write a file that merely looks generated.
+    // The retry CAPITALISES the first character, and that is the point of it: for
+    // some glyph fronts the empty body is not transient at all and the identical
+    // text fails forever. Measured 2026-09-14 on the pt voice: "ao-tilde" returned
+    // 0 bytes on three separate calls while its capitalised twin returned 12582,
+    // and "o-acute" alternated between 0 and 3805 on the same text. Capitalising a
+    // letter does not change the sound it names, so the clip stays correct - and
+    // without this, pt-u1l2/l3 glyph cards were unvoiceable and a paid run just
+    // kept reporting errors.
     let buf = Buffer.from(await res.arrayBuffer());
     if (buf.length === 0) {
       await new Promise((r) => setTimeout(r, 1000));
+      const retryText = text.charAt(0).toUpperCase() + text.slice(1);
       const retry = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
         method: "POST",
         headers: { "xi-api-key": API_KEY, "Content-Type": "application/json", Accept: "audio/mpeg" },
-        body: JSON.stringify({ text, model_id: MODEL_ID }),
+        body: JSON.stringify({ text: retryText, model_id: MODEL_ID }),
       });
       buf = retry.ok ? Buffer.from(await retry.arrayBuffer()) : Buffer.alloc(0);
     }
