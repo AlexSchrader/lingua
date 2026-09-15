@@ -72,6 +72,21 @@
 //    EVERY person (å snakke → jeg/du/han/vi/de snakker), so one taught form is
 //    the whole present tense. The -r form appears in examples, never as a card.
 //
+//    ⚠️ TWO DELIBERATE EXCEPTIONS, 2026-09-15, Alex's call. 245 of 247 verbs
+//    follow the rule. These two do not, because their infinitive is a form the
+//    learner never meets and never produces:
+//        `heter`  (u3l1), not `å hete`  — "å hete" has no natural use in any
+//                 register; the learner only ever says "jeg heter" / "hva heter du".
+//        `bør`    (u13l2), not `å burde` — Norwegian modals take the BARE
+//                 infinitive, so even a modal frame drops the å. "å burde" is
+//                 close to unusable in a sentence.
+//    The cost of keeping the citation form was concrete, not theoretical: a card
+//    whose front never appears in a natural sentence cannot carry a `drill` (the
+//    drill must contain its own front verbatim), and its own example never shows
+//    the string the card asks the learner to produce.
+//    DO NOT "FIX" THESE BACK. If a third case appears, apply the same test:
+//    is the infinitive a form the learner will ever say? If yes, keep `å`.
+//
 // 3. `reading` IS THE ASCII ANSWER KEY, AND ø MUST BE FOLDED BY HAND.
 //    The contract requires [a-z]+. normalizeReading() folds å→a via NFD and
 //    æ→ae via an EXPLICIT replace at answer.js:47 (not NFD — æ has no
