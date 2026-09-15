@@ -29,4 +29,5 @@ A build brief must **never** stay open because it is waiting on a feel-check. Th
 
 | What | Verdict | When |
 |---|---|---|
+| **Do the letter clips say the letter, or a noise?** Five were flagged at exactly 3805 bytes. | ❌ **Alex: "those 5 have no voice."** He was right, and it was bigger than the five: a sweep of all 14,918 clips found **25 at exactly 3805 bytes** — a fixed silent payload the API returns with a 200. **16 were Japanese**, including す ま ど ス ナ ノ, kana from units 1–4. All regenerated; the generator now rejects anything ≤ 3805b instead of only 0 bytes. **One holdout: ス (katakana su)** returns the silent payload every time and the capitalisation retry does nothing for Japanese — 1 card of 14,918, left without a clip, which the engine handles correctly by not routing a listening card for it. | 2026-09-15 |
 | **Reset / sync on a real signed-in device** — the one item in the 100-commit release no automated environment could reach. | ✅ **Alex: "Reset works."** Not separately confirmed: the double-reset race (reset again without waiting for the toast, force-close within a second). Recorded as unknown rather than assumed. | 2026-09-05 |
