@@ -116,9 +116,18 @@
 //     "each unit teaches a chunk of script and immediately uses it for real
 //     words… never 46 characters in a row. The learner is reading actual words in
 //     unit 1." Two letters-only lessons mean a learner's FIRST TWO Portuguese
-//     sessions end having learned NO WORDS AT ALL. Japanese, the reference build,
-//     has zero script-only lessons; French (src/data/fr/unit1.js) and Spanish
-//     (src/data/es/unit1.js) were both rebuilt to the paired shape the same day.
+//     sessions end having learned NO WORDS AT ALL. French (src/data/fr/unit1.js)
+//     and Spanish (src/data/es/unit1.js) were both rebuilt to the paired shape
+//     the same day.
+//     ⚠️ CORRECTION, measured 2026-09-14: an earlier version of this paragraph
+//     said "Japanese, the reference build, has zero script-only lessons." That is
+//     FALSE — 48 ja lessons teach script with no vocab at all (u11, u13, u14 and
+//     u16 are whole runs of them, and unit16.js:8-12 waives the density advisory
+//     for yoon on purpose). What IS true is the part that matters here: ja u1-u6,
+//     the kana-introduction units, mix script and words in every one of their 30
+//     lessons — 3-5 kana plus 5-6 vocab each. Japanese accepts a script-only run
+//     LATER, once the learner already has words to hang it on. It never opens
+//     with one. Cite the units, not the corpus.
 //
 //     SO THE LETTERS ARE BACK WITH THEIR WORDS. STILL SIX LESSONS, all inside
 //     lint.js's 5–8 band — 7 / 6 / 6 / 7 / 6 / 6 = 21 / 18 / 18 / 21 / 18 / 18
