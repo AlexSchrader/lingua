@@ -358,8 +358,16 @@ export function lintCurriculum(units = []) {
         // combination of already-learned kana, with no single stroke entry.
         const comboKana = type === "kana" && [...(item.front || "")].length > 1;
 
-        // density "card" count — vocab, kanji, and yōon digraphs each count.
-        if (type === "vocab" || type === "kanji" || comboKana) vocabCount++;
+        // density "card" count — vocab, kanji, yōon digraphs and GLYPHS each count.
+        //
+        // `glyph` was missing here when the type shipped, while the zero-card error
+        // below already said "no word/glyph cards". So a glyphs-only accent lesson
+        // hard-failed with a message claiming to have counted the very cards it had
+        // ignored, and a lesson of glyphs + one exemplar word counted 1 and shipped
+        // permanently yellow. Found by a curriculum seat authoring against the new
+        // shape — the first lesson written to the standard tripped the rule meant to
+        // protect it.
+        if (type === "vocab" || type === "kanji" || type === "glyph" || comboKana) vocabCount++;
 
         if (type === "vocab" || type === "kanji") {
           // --- drill sentence (optional field, but strict when present) ---------

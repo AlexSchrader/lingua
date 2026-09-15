@@ -119,6 +119,29 @@ export default function Review() {
   const [idx, setIdx] = useState(0);
   const [finished, setFinished] = useState(false);
 
+  // --- "you can't listen right now" ---------------------------------------
+  // Tapping "Can't hear it? Show it" is usually a fact about the ROOM, not the
+  // word: no headphones, a loud bus, a phone on silent, sensory overload. One is
+  // noise; a pattern is a message.
+  //
+  // The obvious design - make those cards mandatory before the next lesson - has a
+  // trap. A learner in a library still cannot hear them TOMORROW, so the pile only
+  // grows and the app has locked them out for being somewhere quiet. Audio can also
+  // be switched off entirely in Settings, which would gate that learner forever.
+  // "Never a hard fail wall" (CLAUDE.md); this is the accommodation instead.
+  //
+  // The cards are not forgiven - the grade already stands, so FSRS brings them back
+  // on its own. This only stops the session from stacking up failures the learner
+  // had no way to avoid.
+  const CANT_HEAR_LIMIT = 3;
+  const [cantHear, setCantHear] = useState(() => new Set());
+  const [silent, setSilent] = useState(false);
+  const [nudgeDismissed, setNudgeDismissed] = useState(false);
+  // Count DISTINCT items: three escapes on one stubborn word is one word, three
+  // escapes on three words is a room.
+  const noteCantHear = (id) => setCantHear((prev) => (prev.has(id) ? prev : new Set(prev).add(id)));
+  const showNudge = !silent && !nudgeDismissed && cantHear.size >= CANT_HEAR_LIMIT;
+
   const done = idx >= reviewQueue.length;
 
   useEffect(() => {
@@ -208,24 +231,31 @@ export default function Review() {
     }
     setIdx((i) => i + 1);
   };
-  const kindKey = step.kind === "type" ? `type:${step.mode}` : step.kind;
+  // In silent mode a listening card becomes its sighted twin rather than being
+  // skipped: the learner still reviews the word, just through the eye. The item is
+  // unchanged, so nothing is dropped from the session or from the schedule.
+  const silenced =
+    silent && step.kind === "listen:choice" ? { ...step, kind: "choice" }
+    : silent && step.kind === "listen:type" ? { ...step, kind: "type", mode: "meaning" }
+    : step;
+  const kindKey = silenced.kind === "type" ? `type:${silenced.mode}` : silenced.kind;
   assertLiveKind(kindKey);
 
   let card;
-  if (step.kind === "choice") {
+  if (silenced.kind === "choice") {
     card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} />;
-  } else if (step.kind === "choice:reverse") {
+  } else if (silenced.kind === "choice:reverse") {
     card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} reverse />;
-  } else if (step.kind === "listen:choice") {
-    card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} audioFirst />;
+  } else if (silenced.kind === "listen:choice") {
+    card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} onCantHear={noteCantHear} audioFirst />;
   } else if (step.kind === "cloze:choice") {
     card = <ClozeCard item={item} allItems={items} onGraded={onGraded} />;
   } else if (step.kind === "particle:choice") {
     card = <ClozeCard item={item} allItems={items} onGraded={onGraded} particle />;
-  } else if (step.kind === "listen:type") {
-    card = <TypeCard item={item} listen onGraded={onGraded} />;
-  } else if (step.kind === "type") {
-    card = <TypeCard item={item} mode={step.mode} onGraded={onGraded} />;
+  } else if (silenced.kind === "listen:type") {
+    card = <TypeCard item={item} listen onGraded={onGraded} onCantHear={noteCantHear} />;
+  } else if (silenced.kind === "type") {
+    card = <TypeCard item={item} mode={silenced.mode} onGraded={onGraded} />;
   } else if (step.kind === "trace") {
     card = <TraceCard item={item} mode="free" onGraded={onGraded} />;
   } else if (step.kind === "speak") {
@@ -240,6 +270,39 @@ export default function Review() {
 
   return (
     <PhaseShell title={`${sandbox ? "🧪 Dev · " : ""}${fix ? "Fix-up" : "Review"} · ${idx + 1}/${reviewQueue.length}`} progress={progress} onClose={() => navigate(home)}>
+      {/* Offered, never imposed — and it appears ABOVE the card rather than as a
+          modal, so it never blocks an answer the learner was mid-way through.
+          Wording matters here: it names the room, not the learner. "You keep
+          getting these wrong" would be both wrong and unkind. */}
+      {showNudge && (
+        <div
+          role="status"
+          style={{ background: C.aiSoft, border: `1px solid ${C.ai}`, borderRadius: 14, padding: 14, marginBottom: 12 }}
+        >
+          <div style={{ fontSize: 14, fontWeight: 700, fontFamily: F.body, color: C.aiDeep, marginBottom: 4 }}>
+            Can't listen right now?
+          </div>
+          <div style={{ fontSize: 13, color: C.ink, fontFamily: F.body, marginBottom: 10 }}>
+            No problem — the rest of this session can skip the listening cards. You'll
+            still review every word, and they'll come back with sound another time.
+          </div>
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+            <button
+              onClick={() => setSilent(true)}
+              style={{ padding: "9px 14px", borderRadius: 999, border: "none", background: C.ai, color: "#fff", fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+            >
+              Skip listening this session
+            </button>
+            <button
+              onClick={() => setNudgeDismissed(true)}
+              style={{ padding: "9px 14px", borderRadius: 999, border: `1px solid ${C.line}`, background: "transparent", color: C.inkSoft, fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+            >
+              Keep the sound
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Keyed remount per card drives the entrance "breath" (fade + brief
           input guard) so carried taps don't bleed into the next card. */}
       <CardBreath key={`r${idx}`}>{card}</CardBreath>

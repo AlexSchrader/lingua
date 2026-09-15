@@ -22,9 +22,9 @@ const CORPUS_ITEMS = UNITS.flatMap((u) => (u.lessons ?? []).flatMap((l) => l.ite
 const ON = { enabled: true, isWebdriver: false };
 
 test("an item WITH a clip closes the gate — this is the feature working", () => {
-  const { urls, gate } = reinforcePlan({ lang: "fr", id: "fr-u1l1-bonjour", ...ON });
+  const { urls, gate } = reinforcePlan({ lang: "fr", id: "fr-u2l1-bonjour", ...ON });
   assert.equal(gate, true);
-  assert.deepEqual(urls, ["/audio/fr/fr-u1l1-bonjour.mp3"]);
+  assert.deepEqual(urls, ["/audio/fr/fr-u2l1-bonjour.mp3"]);
 });
 
 // NOTE: these use SYNTHETIC ids on purpose. An earlier version of this test named
