@@ -98,6 +98,15 @@ if (process.argv[2] === "--selftest") {
   process.exit(seen ? 1 : 0);
 }
 
-const miss = check(41, 50);
+// The range was hardcoded to (41, 50) - the block that happened to be authored
+// when this was written - so u21-u40 had NEVER been strict-checked by anything,
+// and the Truth Layer held the whole Norwegian A2 band on exactly that gap.
+// Takes a range now; defaults to the whole A2 band rather than one block.
+const argLo = Number(process.argv[2]);
+const argHi = Number(process.argv[3]);
+const LO = Number.isFinite(argLo) ? argLo : 21;
+const HI = Number.isFinite(argHi) ? argHi : 50;
+
+const miss = check(LO, HI);
 for (const [w, ids] of [...miss].sort()) console.log(`  ${w.padEnd(34)} ${ids.slice(0, 4).join(", ")}${ids.length > 4 ? ` +${ids.length - 4}` : ""}`);
-console.log(`${miss.size} out-of-scope word(s) across u41-u50`);
+console.log(`${miss.size} out-of-scope word(s) across u${LO}-u${HI}`);
