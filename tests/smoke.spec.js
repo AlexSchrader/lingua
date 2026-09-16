@@ -141,6 +141,7 @@ function kindFixtureState() {
     { id: "ja-u1l1-sayounara",  type: "vocab", front: "さようなら", reading: "sayōnara",   meaning: "goodbye",      example: { jp: "さようなら。", en: "Goodbye." },       accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-hai",        type: "vocab", front: "はい",       reading: "hai",         meaning: "yes",          example: { jp: "はい。",       en: "Yes." },           accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-iie",        type: "vocab", front: "いいえ",     reading: "iie",         meaning: "no",           example: { jp: "いいえ。",     en: "No." },            accept: [], lang: "ja", unit: 1, lesson: 1 },
+    { id: "ja-u1l5-inu",        type: "vocab", front: "いぬ",       reading: "inu",         meaning: "dog",          example: { jp: "いぬがいます。", en: "There is a dog." }, accept: [], lang: "ja", unit: 1, lesson: 5 },
     { id: "ja-u1l1-a",          type: "kana",  front: "あ",         reading: "a",           meaning: null,           example: null,                                          accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-i",          type: "kana",  front: "い",         reading: "i",           meaning: null,           example: null,                                          accept: [], lang: "ja", unit: 1, lesson: 1 },
     { id: "ja-u1l1-u",          type: "kana",  front: "う",         reading: "u",           meaning: null,           example: null,                                          accept: [], lang: "ja", unit: 1, lesson: 1 },
@@ -168,8 +169,16 @@ function kindFixtureState() {
     else if (it.id === "ja-u1l1-hai")    { rung = 1; srs = dueCard();   } // due rung-1 + has audio → listen:choice (review)
     else if (it.id === "ja-u1l3-sakana") { rung = 1; srs = dueCard();   } // due rung-1 vocab, not-listen (hash≥.5) + reverse band → choice:reverse (review)
     else if (it.id === "ja-u1l1-iie")    { rung = 4; srs = dueCard();   } // rung-4 vocab → speak (SPOKEN review)
-    else if (it.id === "ja-u1l1-ohayou") { rung = 0; srs = freshCard(); } // new vocab → teach + choice + type:meaning (lesson)
-    else if (it.id === "ja-u1l1-i")      { rung = 0; srs = freshCard(); } // new kana  → teach + choice + trace:guided
+    // PLAIN `choice` now comes from REVIEW, not from a lesson. Every check-1 card
+    // in a lesson is ear-first whenever the item owns a clip (Alex, 2026-09-16:
+    // "words have hear it as well"), and the whole corpus has audio — so the two
+    // rung-0 items below produce listen:choice, and the sighted card they used to
+    // supply had to come from somewhere real rather than from a relaxed assertion.
+    // いぬ is one of 9 rung-1 ja vocab items whose hash falls through shouldListen,
+    // earCrowdedOut and shouldReverseChoice to the plain card (reviewStep.js:117).
+    else if (it.id === "ja-u1l5-inu")    { rung = 1; srs = dueCard();   } // due rung-1 vocab, below every ear/reverse band → choice (review)
+    else if (it.id === "ja-u1l1-ohayou") { rung = 0; srs = freshCard(); } // new vocab → teach + listen:choice + type:meaning (lesson)
+    else if (it.id === "ja-u1l1-i")      { rung = 0; srs = freshCard(); } // new kana  → teach + listen:choice + trace:guided
     else                                  { rung = 1; srs = freshCard(); } // graduated, not due → skipped
     items[it.id] = { ...it, rung, srs };
   }

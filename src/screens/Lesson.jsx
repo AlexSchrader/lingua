@@ -277,7 +277,16 @@ export default function Lesson() {
     // reviewStepFor already routes glyphs ear-first, but a LESSON never calls it:
     // check1 was hardcoded to the sighted ChoiceCard, so the fix did not reach the
     // first thing a new learner sees. audioFirst is the same prop Review passes.
-    const earable = isGlyph(item) && hasAudio(item);
+    //
+    // A WORD is asked by ear too. Alex, 2026-09-16: "words have hear it as well,
+    // idk if that's under see it" - it was not. check1 was the SIGHTED choice for
+    // every word, so a lesson never once asked the learner to recognise a word
+    // from its sound. Ear-first costs no extra card: the teach screen already
+    // showed the spelling, and check2 (type the meaning) shows it again. So a word
+    // now runs hear it > see it > type it > say it across its checks, and the
+    // "Can't hear it? Show it" escape turns this back into the old sighted card
+    // for anyone muted, deaf, or somewhere noisy.
+    const earable = hasAudio(item);
     assertLiveKind(earable ? "listen:choice" : "choice");
     label = "Practice";
     card = <ChoiceCard item={item} allItems={items} onGraded={onCheck} audioFirst={earable} />;
