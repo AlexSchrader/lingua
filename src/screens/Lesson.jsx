@@ -59,6 +59,17 @@ function unitUnlockedBy(lessonId, items) {
 // Reviews are a separate session (/review). Separated so new and old content
 // never mix — you learn a full row of kana, then its vocab; no old material
 // interrupts first exposure.
+// "Unit 3 · Lesson 2" — WHICH lesson, not just its name. A unit now runs five or
+// six lessons, so "Les accents" alone does not tell a learner where they are in the
+// climb, and the completion screen said only "Lesson complete", which tells them
+// nothing they did not already know. Returns null if a lesson somehow carries no
+// numbers, so a malformed unit degrades to the bare title rather than to "Unit
+// undefined". Shared by the intro and the completion screen so the two cannot drift.
+function lessonLabel(lesson) {
+  if (!lesson?.unit || !lesson?.lesson) return null;
+  return `Unit ${lesson.unit} · Lesson ${lesson.lesson}`;
+}
+
 export default function Lesson() {
   const { lessonId } = useParams();
   const navigate = useNavigate();
@@ -189,8 +200,17 @@ export default function Lesson() {
           }}
         >
           <Mascot context={unlockedUnit ? "unitUnlock" : "lessonComplete"} size={150} />
+          {/* NAME what was finished. "Lesson complete" told the learner nothing they
+              did not already know — with a unit now running five or six lessons, which
+              one just ended is the actual information, and it is the thing you want to
+              see when you come back tomorrow. Falls back to the bare word if a lesson
+              somehow carries no numbers, so a malformed unit cannot blank the heading. */}
           <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>
-            {unlockedUnit ? "Unit complete!" : "Lesson complete"}
+            {unlockedUnit
+              ? "Unit complete!"
+              : lessonLabel(lesson)
+              ? `${lessonLabel(lesson)} done`
+              : "Lesson complete"}
           </div>
           <div style={{ color: C.inkSoft, maxWidth: 300 }}>
             {unlockedUnit
@@ -231,6 +251,13 @@ export default function Lesson() {
       <PhaseShell title={lesson.title} progress={0} onClose={() => navigate(home)}>
         <div style={{ margin: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 16, textAlign: "center", maxWidth: 340 }}>
           <Mascot context="greeting" size={110} />
+          {/* Where you are, above what it is called — the same question the
+              completion screen answers, asked at the other end of the lesson. */}
+          {lessonLabel(lesson) && (
+            <div style={{ fontSize: 12, fontWeight: 700, color: C.inkSoft, textTransform: "uppercase", letterSpacing: 0.6, marginBottom: -8 }}>
+              {lessonLabel(lesson)}
+            </div>
+          )}
           <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>{lesson.title}</div>
           {lesson.canDo && <div style={{ fontSize: 15, color: C.ink, lineHeight: 1.4 }}>{lesson.canDo}</div>}
           <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
@@ -308,14 +335,22 @@ export default function Lesson() {
       assertLiveKind("trace");
       card = <TraceCard item={item} mode="guided" onGraded={onCheck} />;
     } else if (learnStep.step === "check3") {
-      // TYPE IT. Produce the character from its sound. On a Latin keyboard that
-      // means finding the accent — Alex's point, and the teach card carries the
-      // per-device instructions. On a Japanese one it means the kana, and
-      // `checkProduce` accepts rōmaji through A1 so no IME is required to start
-      // (Alex, 2026-09-16: "type only accepts rōmaji until A2"); from A2 up
-      // production means the real script, which is the rule already in answer.js.
-      assertLiveKind("type:produce");
-      card = <TypeCard item={item} mode="produce" onGraded={onCheck} />;
+      // TYPE WHAT YOU HEAR. Alex, 2026-09-16, looking at the card this replaces:
+      // "bro this card's stupid, it should play sound then type what you hear."
+      // He is right, and the old one was mine. type:produce prompts a glyph with
+      // its READING, so the è card printed a big "e" and asked for the letter -
+      // it hands over everything but the accent, and "e" is the reading of é, è
+      // AND ê, so it cannot even say which one it wants. Dictation asks the whole
+      // question: the clip is the prompt, and the answer is the real character,
+      // which still has to be found on the keyboard. `foldWouldEraseAnswer` keeps
+      // it strict for a letter, and `checkReading` takes rōmaji for a kana through
+      // A1, so both scripts land where Alex asked. Falls back to produce only for
+      // a letter with no clip, which the corpus currently has none of.
+      const dictate = hasAudio(item);
+      assertLiveKind(dictate ? "listen:type" : "type:produce");
+      card = dictate
+        ? <TypeCard item={item} listen onGraded={onCheck} />
+        : <TypeCard item={item} mode="produce" onGraded={onCheck} />;
     } else {
       // SAY IT — check2 on a typed letter, check4 on a drawn one. The rung the app
       // had never run in a lesson: SpeakCard was built and live in LIVE_CARD_KINDS
@@ -323,7 +358,10 @@ export default function Lesson() {
       // plays the letter, arms the mic and grades leniently; no mic or no endpoint
       // degrades to an ungraded "say it" prompt rather than blocking the lesson.
       assertLiveKind("speak");
-      card = <SpeakCard item={item} onGraded={onCheck} />;
+      // A LETTER is shadowed, never graded - see SpeakCard's `shadow` prop. A
+      // transcriber cannot tell "ay" from "eh" on a bare vowel, so the card plays
+      // the learner back to themselves instead of inventing a verdict.
+      card = <SpeakCard item={item} onGraded={onCheck} shadow />;
     }
   } else if (learnStep.step === "check3") {
     // SAY IT — a WORD's third check, from unit 2 on. (A letter's check3 is the

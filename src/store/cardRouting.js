@@ -544,7 +544,12 @@ export function eligibleKinds(item) {
   const out = ["choice", "type:meaning"]; // no gate - every item can be asked these
   const vocab = item.type === "vocab";
   if (vocab && !!item.meaning) out.push("choice:reverse");
-  if (vocab) out.push("type:produce", "speak");
+  // `speak` goes through shouldSpeak, which requires a CLIP - the card plays the
+  // word and then arms the mic, so with no audio it asks the learner to pronounce
+  // something the app has never said. Listing it here unconditionally also charged
+  // for it: requiredPasses is 15 x eligibleKinds.length.
+  if (vocab) out.push("type:produce");
+  if (vocab && shouldSpeak(item)) out.push("speak");
   // A glyph is produced and spoken like a word - "type the character you heard",
   // "say this character". It is NOT asked for a meaning: TypeCard rewrites the
   // meaning-recall card to "what sound does this make?" and ChoiceCard asks "which
@@ -555,7 +560,8 @@ export function eligibleKinds(item) {
   // This comment previously claimed the rewrite happened "downstream" without naming
   // where, and for a Latin glyph it did not happen at all - the card asked a German
   // learner to "Type the rōmaji". Name the file when you claim a rewrite exists.
-  if (item.type === "glyph") out.push("type:produce", "speak");
+  if (item.type === "glyph") out.push("type:produce");
+  if (item.type === "glyph" && shouldSpeak(item)) out.push("speak");
   // A glyph is NOT asked to have its sound TYPED while the glyph is on screen.
   // Dane hit this in French lesson 1: the card showed é, asked what it sounds
   // like, and accepted "e" - so the learner looks at é and types e, which is just
@@ -645,7 +651,17 @@ export function shouldSpeak(item) {
   // shadowing rather than recall. That mitigates the recall half, not the
   // transcriber. FEEL-CHECKS.md row 2 holds it open for a real-device verdict —
   // if it marks him wrong when he said it right, this line is where to revisit.
-  return item?.type === "vocab" || item?.type === "glyph";
+  //
+  // AND IT MUST HAVE A CLIP. SpeakCard plays the word and THEN arms the mic - that
+  // is the whole design, shadowing rather than recall. With no clip it skips
+  // straight to the mic, so the card asks a learner to pronounce a word the app
+  // has never once said to them. Produce-before-perceive, and on a card graded by
+  // a transcriber. It also charged them for it: requiredPasses is 15 x
+  // eligibleKinds.length, so an item with no audio still had to pass a card that
+  // could not teach it. Zero vocab items lack a clip today, but that is a fact
+  // about the merge seat's timing, not a property of the engine - every crew
+  // authors hundreds of items that have no audio until the merge seat voices them.
+  return (item?.type === "vocab" || item?.type === "glyph") && hasAudio(item);
 }
 
 // A character is "traceable" when it's a single glyph that has KanjiVG stroke
