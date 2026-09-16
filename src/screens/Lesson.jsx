@@ -14,7 +14,7 @@ import { useStore } from "../store/useStore.js";
 import { getLesson, UNITS } from "../data/index.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { initLearn, currentStep, answerStep, LEARN_OPTS } from "../store/learnQueue.js";
-import { isTraceable, isGlyph, hasAudio } from "../store/cardRouting.js";
+import { isTraceable, isGlyph, hasAudio, lessonChecks } from "../store/cardRouting.js";
 import { buildSandboxItems, runnerWriters } from "../store/dev.js";
 import { C, F } from "../theme.js";
 
@@ -126,11 +126,16 @@ export default function Lesson() {
   // same sitting is a lot. From unit 2 the letters are behind them, so the third
   // slot is free. Needs a clip to imitate - without one there is nothing to say
   // back, so those words stay at two.
-  const checksFor = (id) => {
-    const it = items[id];
-    if (isGlyph(it)) return isTraceable(it) ? 4 : 3;
-    return (it?.unit ?? 1) > 1 && hasAudio(it) ? 3 : 2;
-  };
+  //
+  // KANJI ARE THE TRAP HERE. `isGlyph` is kana||glyph and a kanji is NEITHER, so
+  // asking it first sent all 792 kanji items down the WORD path and handed every
+  // one of them a speak card. gradeSpoken folds the transcript against the FRONT
+  // (一), so a learner who says いち perfectly scores `again` - a confidently
+  // wrong grade, which answer.js itself calls worse than no grade. So the drawn
+  // question is asked FIRST, and a kanji keeps exactly the shape it had before
+  // this ladder existed: hear it, then trace it. Extending the ladder to kanji
+  // needs gradeSpoken to judge a kanji front, which it cannot yet.
+  const checksFor = (id) => lessonChecks(items[id]);
   const [learn, setLearn] = useState(() => initLearn(freshIds, LEARN_OPTS, checksFor));
   const [finished, setFinished] = useState(false);
   // A one-screen "calm breath" before card 1 — what this lesson is, how much, how

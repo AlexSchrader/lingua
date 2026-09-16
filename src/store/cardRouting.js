@@ -653,6 +653,28 @@ export function shouldSpeak(item) {
 // and carry no single stroke entry, so they fall back to a typed recall instead
 // of an empty trace pad. Used by both the lesson and review runners so kana and
 // kanji are written by hand wherever a character is practiced.
+// HOW MANY CHECKS an item runs inside a LESSON. Type-level, never identity —
+// the engine still knows nothing about any particular card.
+//
+//   4  a kana: hear it, TRACE it, type it, say it
+//   2  a kanji: hear it, trace it
+//   3  a letter you type (é, ñ, ß, ä, ø): hear it, say it, type it
+//   3  a word from unit 2 on, with a clip: hear it, type the meaning, say it
+//   2  a word in unit 1: hear it, type the meaning
+//
+// The kanji row is the one that bites. `isGlyph` is kana||glyph and a kanji is
+// NEITHER, so asking isGlyph first sends all 792 kanji items down the WORD path
+// and hands each a speak card — and gradeSpoken folds the transcript against the
+// FRONT (一), so a learner who says いち perfectly scores `again`. Ask the DRAWN
+// question first. Extending the ladder to kanji needs gradeSpoken to judge a
+// kanji front, which it cannot do yet; shouldSpeak excludes kanji for the same
+// reason, and lesson and review must not disagree about that.
+export function lessonChecks(item) {
+  if (isTraceable(item)) return isGlyph(item) ? 4 : 2;
+  if (isGlyph(item)) return 3;
+  return (item?.unit ?? 1) > 1 && hasAudio(item) ? 3 : 2;
+}
+
 export function isTraceable(item) {
   return (
     (item.type === "kana" || item.type === "kanji") &&

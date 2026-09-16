@@ -97,15 +97,17 @@ export function normalizeText(s = "") {
 export function foldWouldEraseAnswer(item) {
   const front = String(item?.front ?? "");
   if ([...front].length !== 1) return false;
-  // LATIN SCRIPT ONLY. The rule is "the fold would hand the answer away": é folds
-  // to e - the SAME letter with the mark rubbed off - so accepting e tests nothing
-  // and the accent, the whole point of the card, goes untested.
-  // A kana does not fold that way. は folds to "ha", which is a DIFFERENT SCRIPT,
-  // not は with something rubbed off, and rōmaji is the documented on-ramp through
-  // A1 (see checkProduce and PRODUCE_ROMAJI_STAGES). Firing here made every single
-  // kana demand a Japanese IME at A1, and made the dictation card reject the very
-  // rōmaji its own ask-line promises ("Type what you hear - rōmaji or kana").
-  if (!/[A-Za-zÀ-ɏ]/.test(front)) return false;
+  // I narrowed this to Latin script on 2026-09-16 and it was wrong twice over.
+  // The premise was false: the code-auditor measured the old and new predicates
+  // across ALL 994 single-character fronts in the corpus and they agree on every
+  // one. It never fired on kana - normalizeReading's `ja` branch does no NFD
+  // strip, so は folds to は, not "ha". What actually demanded a Japanese IME
+  // was TypeCard's raw `v.trim() === item.front`, fixed separately and standing on
+  // its own. And the narrowing only bit in the FUTURE: /[A-Za-zÀ-ɏ]/ is false
+  // for Vietnamese ạ, Greek ά, Cyrillic й and Devanagari nukta forms, all of
+  // which fold to a bare base letter - so it re-opened the "type e for é" free
+  // pass for the first non-Latin script to arrive, and Hindi and Mandarin are both
+  // already in languages.js. A grading rule is not the place to guess.
   return normalizeReading(front, item?.lang) !== front.toLowerCase();
 }
 
@@ -289,7 +291,15 @@ export function gradeSpoken(transcript, item) {
   if (targetKana) {
     const heardKana = foldKana(t);
     if (heardKana === targetKana) return "good";
-    if (editDistance(heardKana, targetKana) <= 1) return "hard";
+    // DISTANCE ONLY WITHIN THE SAME SCRIPT. A rōmaji transcript is one edit from
+    // every SINGLE kana - "i" vs い - so this branch returned `hard` for a
+    // perfectly said character and returned before the rōmaji path below could
+    // grade it `good`. On the first Japanese lesson in the app, a correct answer
+    // cost the learner their `clean` run and a shorter first interval. Same
+    // principle as the comment above: the spelling is the transcriber's choice,
+    // not the learner's, so a cross-script transcript is not a near miss - it is
+    // the other grading path, and it must be allowed to run.
+    if (/[぀-ヿ一-龿]/.test(heardKana) && editDistance(heardKana, targetKana) <= 1) return "hard";
   }
   // Romaji path: Latin-letter transcript (romaji or English homophone) vs the
   // romanized reading. Lossier, so allow a slightly larger slip before it fails.

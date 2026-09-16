@@ -520,7 +520,7 @@ test("Today: 'Just a few' starts a capped micro-session", async ({ page }) => {
   // assertion is that a micro-session is a handful and not the whole lesson,
   // which is 30+ cards - so bound it by 3 items x 4 cards, not by a bare number.
   const MICRO_SIZE = 3;
-  const MAX_CARDS_PER_ITEM = 4; // teach + at most 3 checks
+  const MAX_CARDS_PER_ITEM = 5; // teach + at most 4 checks (a kana: hear, trace, type, say)
   const counter = page.getByText(/card 1 of \d+/);
   await expect(counter).toBeVisible();
   const total = parseInt((await counter.textContent()).match(/of (\d+)/)[1], 10);
