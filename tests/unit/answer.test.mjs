@@ -439,3 +439,27 @@ test("a TWO-letter letter card is just as strict as a one-letter one", () => {
     assert.equal(checkProduce(fold, g), false, `${g.id} accepted "${fold}"`);
   }
 });
+
+// Alex tested the é speak card on a real device: "voice can't pick up é, and me
+// saying 'ay' keeps thinking I'm saying 'eh' or 'hey' and says close enough."
+// The slack was flat 2 — twice the entire length of the target — so every short
+// noise landed inside it. A near miss has to be near something.
+test("gradeSpoken slack scales with the target: nothing is 'close enough' to one letter", () => {
+  const e = { lang: "fr", type: "glyph", front: "é", reading: "e" };
+  for (const noise of ["eh", "hey", "ay", "uh", "the"]) {
+    assert.equal(gradeSpoken(noise, e), "again", `"${noise}" must not be close enough to "e"`);
+  }
+  assert.equal(gradeSpoken("é", e), "good");
+  assert.equal(gradeSpoken("e", e), "good");
+
+  // ...and the case the leniency exists FOR still works: a correctly-said word
+  // whose transcript came back as its English homophone.
+  const ohayou = { lang: "ja", front: "おはよう", reading: "ohayō" };
+  assert.equal(gradeSpoken("Ohio", ohayou), "hard");
+  assert.equal(gradeSpoken("banana", ohayou), "again");
+
+  const cafe = { lang: "fr", type: "vocab", front: "le café", reading: "lecafe" };
+  assert.equal(gradeSpoken("le cafe", cafe), "good", "the accent is the transcriber's choice, not the learner's");
+  assert.equal(gradeSpoken("le cafay", cafe), "hard");
+  assert.equal(gradeSpoken("hey", cafe), "again");
+});

@@ -275,6 +275,18 @@ function editDistance(a, b) {
 // Japanese (おはよう / カッサ), sometimes romaji, sometimes an English homophone
 // (おはよう → "Ohio"). So we grade on BOTH forms and take the better result — a
 // correctly-said word must not fail just because Scribe spelled it in English.
+// How far off a transcript may be and still count as a near miss, by how much
+// there is to be near. Nothing at all for one or two characters.
+function romajiSlack(target) {
+  // Proportional, capped at the old flat 2. Buckets were wrong in both
+  // directions: a flat 2 is twice the whole of "e", and my first fix gave
+  // "ohayo" only 1 - which failed the documented case this module exists to
+  // protect, where a correctly-said word comes back as its English homophone
+  // ("Ohio", 2 edits away). One edit per ~2.5 characters keeps that, and leaves
+  // a one- or two-character target with no slack at all.
+  return Math.min(2, Math.floor(String(target ?? "").length / 2.5));
+}
+
 export function gradeSpoken(transcript, item) {
   const t = String(transcript ?? "").trim();
   if (!t) return "again";
@@ -316,7 +328,11 @@ export function gradeSpoken(transcript, item) {
     const heardR = normalizeReading(t, item?.lang);
     const targetR = normalizeReading(item.reading, item?.lang);
     if (heardR === targetR) return "good";
-    if (editDistance(heardR, targetR) <= 2) return "hard";
+    // SLACK SCALES WITH THE TARGET. A flat 2 is a sixth of "konnichiwa" and twice
+    // the whole of "e" - so on a one-letter target it accepted "eh", "hey" and
+    // most short noises and called them close enough. Alex hit exactly that on
+    // the French é card. A near miss has to be near something.
+    if (editDistance(heardR, targetR) <= romajiSlack(targetR)) return "hard";
   }
   return "again";
 }

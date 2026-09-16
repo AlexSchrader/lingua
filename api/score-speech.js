@@ -12,6 +12,23 @@
 // so disable Vercel's body parser.
 export const config = { api: { bodyParser: false } };
 
+// Which language to tell Scribe the clip is in. This used to be an ALLOWLIST of
+// ["ja","es","fr"] with everything else falling through to "ja" - written when the
+// app had three languages, and never updated. So Portuguese, German and Norwegian
+// speech was being sent to the transcriber tagged Japanese, silently, and the
+// catalog now carries 23 languages against a list of 3.
+//
+// A list that must be maintained in lockstep with the catalog will drift again, so
+// there isn't one. The client always sends the item's own `lang`; anything that
+// isn't a plausible code returns null, and the caller then omits language_code and
+// lets Scribe auto-detect. Auto-detect is imperfect; asserting the wrong language
+// is worse, because it fails confidently instead of vaguely.
+export function sttLanguage(param) {
+  return typeof param === "string" && /^[a-z]{2,3}(-[a-z]{2,4})?$/i.test(param)
+    ? param.toLowerCase()
+    : null;
+}
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.status(405).json({ error: "POST only" });
@@ -34,14 +51,14 @@ export default async function handler(req, res) {
 
     // Transcription language follows the item's language (?lang=fr) so a French
     // speak card isn't force-heard as Japanese. Allowlisted; unknown → ja.
-    const STT_LANGS = new Set(["ja", "es", "fr"]);
-    const langParam = req.query && req.query.lang;
-    const lang = STT_LANGS.has(langParam) ? langParam : "ja";
+    const lang = sttLanguage(req.query && req.query.lang);
 
     const mime = req.headers["content-type"] || "audio/webm";
     const form = new FormData();
     form.append("model_id", "scribe_v1");
-    form.append("language_code", lang);
+    // No language_code at all beats the WRONG one: Scribe auto-detects, where a
+    // bad tag makes it hear French as Japanese and return nonsense confidently.
+    if (lang) form.append("language_code", lang);
     form.append("file", new Blob([audio], { type: mime }), "clip");
 
     const r = await fetch("https://api.elevenlabs.io/v1/speech-to-text", {

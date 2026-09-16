@@ -29,10 +29,19 @@ function pickMime() {
   return "";
 }
 
-export default function SpeakCard({ item, onGraded }) {
+// `shadow` = SHADOWING, NOT GRADING. For a single letter there is nothing a
+// transcriber can reliably return: Alex said "ay" for é and Scribe heard "eh" and
+// "hey". Lenient slack called that close enough, which is a confidently wrong
+// grade; tight slack calls a correct answer wrong, which is worse. This repo had
+// already measured STT on an isolated character at 0/3 (Brief-C C.0) - the card
+// was the thing that had to change, not the numbers. So a letter card records you
+// and PLAYS YOU BACK against the reference, and you judge. No verdict is invented.
+export default function SpeakCard({ item, onGraded, shadow = false }) {
   const [phase, setPhase] = useState("prompt"); // prompt | recording | scoring | result | fallback
   const [grade, setGrade] = useState(null); // "good" | "hard" | "again"
   const [heard, setHeard] = useState(""); // STT transcript, for feedback
+  const [mine, setMine] = useState(null); // shadow mode: a URL for the learner's own clip
+  const mineRef = useRef(null);
 
   const streamRef = useRef(null);
   const recRef = useRef(null);
@@ -61,6 +70,14 @@ export default function SpeakCard({ item, onGraded }) {
     stopTracks();
     const blob = new Blob(chunksRef.current, { type: mimeRef.current || "audio/webm" });
     if (!blob.size) { setPhase("fallback"); return; }
+    if (shadow) {
+      // No transcription, no grade. Hand the learner their own voice back.
+      if (mineRef.current) URL.revokeObjectURL(mineRef.current);
+      mineRef.current = URL.createObjectURL(blob);
+      setMine(mineRef.current);
+      setPhase("playback");
+      return;
+    }
     try {
       const res = await fetch(`/api/score-speech?lang=${encodeURIComponent(itemLang(item) ?? "")}`, {
         method: "POST",
@@ -73,7 +90,7 @@ export default function SpeakCard({ item, onGraded }) {
     } catch {
       setPhase("fallback"); // endpoint down / offline → never blocks
     }
-  }, [scoreTranscript, stopTracks]);
+  }, [scoreTranscript, stopTracks, shadow]);
 
   // Arm the mic and start recording. Called after the word has finished playing.
   const armMic = useCallback(async () => {
@@ -143,18 +160,22 @@ export default function SpeakCard({ item, onGraded }) {
     setGrade(null);
     setHeard("");
     playThenArm();
-    return () => { audioRef.current?.pause(); stopTracks(); };
+    return () => {
+      audioRef.current?.pause();
+      stopTracks();
+      if (mineRef.current) { URL.revokeObjectURL(mineRef.current); mineRef.current = null; }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [item.id]);
 
   // Test hook: drive the grade→advance path without a real mic or the endpoint.
   useEffect(() => {
     window.__speak = {
-      pass: () => scoreTranscript(item.front),
-      miss: () => scoreTranscript("banana"),
+      pass: () => (shadow ? setPhase("playback") : scoreTranscript(item.front)),
+      miss: () => (shadow ? setPhase("playback") : scoreTranscript("banana")),
     };
     return () => { delete window.__speak; };
-  }, [item, scoreTranscript]);
+  }, [item, scoreTranscript, shadow]);
 
   const recording = phase === "recording";
   const scoring = phase === "scoring";
@@ -172,7 +193,7 @@ export default function SpeakCard({ item, onGraded }) {
       style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}
     >
       <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600, display: "flex", alignItems: "center", gap: 8 }}>
-        <span>Listen, then say it back</span>
+        <span>{shadow ? "Listen, then say it back — then hear yourself" : "Listen, then say it back"}</span>
         <button
           onClick={replay}
           aria-label="Play it again"
@@ -211,6 +232,27 @@ export default function SpeakCard({ item, onGraded }) {
                 I heard <span style={{ fontFamily: F.jp }}>{heard}</span>
               </div>
             )}
+          </div>
+        ) : phase === "playback" ? (
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+            <div style={{ fontSize: 14, color: C.inkSoft, textAlign: "center", maxWidth: 280 }}>
+              Compare them. Does yours sound like the letter?
+            </div>
+            <div style={{ display: "flex", gap: 10 }}>
+              <button
+                onClick={replay}
+                style={{ display: "flex", alignItems: "center", gap: 7, padding: "10px 16px", borderRadius: 999, border: `1.5px solid ${C.line}`, background: C.surface, color: C.ink, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+              >
+                <Volume2 size={16} /> The letter
+              </button>
+              <button
+                data-testid="play-mine"
+                onClick={() => { try { new Audio(mine).play().catch(() => {}); } catch { /* no-op */ } }}
+                style={{ display: "flex", alignItems: "center", gap: 7, padding: "10px 16px", borderRadius: 999, border: "none", background: C.aiSoft, color: C.aiDeep, fontSize: 14, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+              >
+                <Volume2 size={16} /> You
+              </button>
+            </div>
           </div>
         ) : phase === "fallback" ? (
           <div style={{ textAlign: "center", color: C.inkSoft, fontSize: 14, maxWidth: 260 }}>
@@ -263,6 +305,22 @@ export default function SpeakCard({ item, onGraded }) {
           <button
             data-testid="speak-continue"
             onClick={() => onGraded(grade)}
+            style={{ flex: 2, padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+          >
+            Continue
+          </button>
+        </div>
+      ) : phase === "playback" ? (
+        <div style={{ display: "flex", gap: 10 }}>
+          <button
+            onClick={retry}
+            style={{ flex: 1, padding: 16, borderRadius: 14, border: `1.5px solid ${C.line}`, background: C.surface, color: C.inkSoft, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+          >
+            Again
+          </button>
+          <button
+            data-testid="speak-continue"
+            onClick={() => onGraded("good")}
             style={{ flex: 2, padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
           >
             Continue
