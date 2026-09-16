@@ -11,6 +11,7 @@
 export const LEARN_OPTS = {
   off1: 3, // recognition check ~3 cards after teach
   off2: 6, // recall check ~6 cards after teach
+  off3: 9, // production check ~9 cards after teach - THIRD-CHECK ITEMS ONLY
   missOffset: 2, // a missed check re-appears ~2 cards later
   maxMisses: 2, // after this many misses on a step, graduate anyway (as `hard`)
 };
@@ -19,23 +20,35 @@ export const LEARN_OPTS = {
 // vocab), then checks interleave by position. This guarantees a learner sees
 // every item in the lesson before any recognition/recall checks appear — you
 // can't be quizzed on はな before は and な have both been introduced.
-export function buildLearnQueue(ids, opts = LEARN_OPTS) {
+// Some items need a THIRD check. `needsThird(id)` is supplied by the caller and is
+// a question about the item's TYPE, never its identity - the engine stays
+// content-agnostic. Today it is true for letters: Alex's unit-1 standard is
+// "listen, speak and type the accent", which is three behaviours and does not fit
+// in two slots. Every other item keeps the two-check shape unchanged.
+export function buildLearnQueue(ids, opts = LEARN_OPTS, needsThird = () => false) {
   const teaches = ids.map((id) => ({ id, step: "teach" }));
   const checks = [];
   ids.forEach((id, i) => {
     checks.push({ id, step: "check1", k: (i + opts.off1) * 10 + 1 });
     checks.push({ id, step: "check2", k: (i + opts.off2) * 10 + 2 });
+    if (needsThird(id)) checks.push({ id, step: "check3", k: (i + (opts.off3 ?? 9)) * 10 + 3 });
   });
   checks.sort((a, b) => a.k - b.k);
   return [...teaches, ...checks.map(({ id, step }) => ({ id, step }))];
 }
 
-export function initLearn(ids, opts = LEARN_OPTS) {
+export function initLearn(ids, opts = LEARN_OPTS, needsThird = () => false) {
   const status = {};
   for (const id of ids) {
-    status[id] = { c1: false, c2: false, m1: 0, m2: 0, clean: true, graduated: false };
+    // c3 starts TRUE for a two-check item, so graduation stays ONE condition and
+    // no caller has to know how many checks a given item runs.
+    status[id] = {
+      c1: false, c2: false, c3: !needsThird(id),
+      m1: 0, m2: 0, m3: 0,
+      clean: true, graduated: false,
+    };
   }
-  return { queue: buildLearnQueue(ids, opts), pos: 0, status, opts };
+  return { queue: buildLearnQueue(ids, opts, needsThird), pos: 0, status, opts };
 }
 
 export function currentStep(st) {
@@ -57,8 +70,9 @@ export function answerStep(st, result) {
 
   if (cur.step !== "teach") {
     const s = { ...status[cur.id] };
-    const passKey = cur.step === "check1" ? "c1" : "c2";
-    const missKey = cur.step === "check1" ? "m1" : "m2";
+    const n = cur.step.slice(-1); // "1" | "2" | "3"
+    const passKey = `c${n}`;
+    const missKey = `m${n}`;
 
     if (result && result.pass) {
       s[passKey] = true;
@@ -75,7 +89,7 @@ export function answerStep(st, result) {
       }
     }
 
-    if (s.c1 && s.c2 && !s.graduated) {
+    if (s.c1 && s.c2 && s.c3 && !s.graduated) {
       s.graduated = true;
       graduated = { id: cur.id, grade: s.clean ? "good" : "hard" };
     }

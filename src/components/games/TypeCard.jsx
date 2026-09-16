@@ -97,9 +97,16 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
       }
       // Dictation: hear the word (glyph hidden), type its reading. Accepts rōmaji
       // or kana via checkReading — the ear-path twin of type:reading.
+      //
+      // On Latin script the canonical answer is the FRONT, not the reading. The
+      // reading is an ASCII fold ("e" for é, "silvousplait" for s'il vous plaît),
+      // and `foldWouldEraseAnswer` makes checkReading demand the real character on a
+      // one-character diacritic front — so `reading` named a string the card marks
+      // WRONG. `revealAnswer` below already prints the front for exactly this
+      // reason; this keeps the graded answer and the advertised one in agreement.
       return { prompt: null, jp: false,
                ask: latin ? "Type what you hear" : "Type what you hear (rōmaji or kana)",
-               check: (v) => checkReading(v, item), answer: item.reading };
+               check: (v) => checkReading(v, item), answer: latin ? item.front : item.reading };
     }
     if (mode === "produce") {
       return isKana

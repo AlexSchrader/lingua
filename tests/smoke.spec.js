@@ -505,11 +505,17 @@ test("Today: 'Just a few' starts a capped micro-session", async ({ page }) => {
   await expect(few).toBeVisible();
   await few.click();
   await page.getByTestId("lesson-begin").click(); // R27 intro → Begin
-  // 3 new items → teach×3 + interleaved checks (~9 cards), not the full lesson (~30).
+  // The cap is on ITEMS (MICRO_SIZE = 3), not cards. An ordinary item runs
+  // teach + 2 checks; a LATIN LETTER runs teach + 3 (listen, speak, type - the
+  // unit-1 accent standard), so 3 items is at most 12 cards. The point of the
+  // assertion is that a micro-session is a handful and not the whole lesson,
+  // which is 30+ cards - so bound it by 3 items x 4 cards, not by a bare number.
+  const MICRO_SIZE = 3;
+  const MAX_CARDS_PER_ITEM = 4; // teach + at most 3 checks
   const counter = page.getByText(/card 1 of \d+/);
   await expect(counter).toBeVisible();
   const total = parseInt((await counter.textContent()).match(/of (\d+)/)[1], 10);
-  expect(total).toBeLessThanOrEqual(9);
+  expect(total).toBeLessThanOrEqual(MICRO_SIZE * MAX_CARDS_PER_ITEM);
 });
 
 test("R27: a lesson opens on a calm intro before card 1", async ({ page }) => {
