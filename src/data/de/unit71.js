@@ -8,6 +8,7 @@
 // CASE. A1 deliberately stayed nominative (de/unit1.js, simplification (a)) and
 // A2's u12-u14 opened accusative and dative — the genitive was never opened at
 // all, so a learner who has finished A2 cannot read a German newspaper sentence.
+// (The genitive is DER ZWEITE FALL: 1 Nominativ, 2 Genitiv, 3 Dativ, 4 Akkusativ.)
 // This unit opens it, and l4 keeps the scaffold's nominalization half by teaching
 // the -ung noun, which is the genitive's most common companion.
 // Per CLAUDE.md "No front language": retitling and rethemeing the slot is
@@ -31,7 +32,7 @@ export const DE_UNIT71 = {
       id: "de-u71l1",
       unit: 71,
       lesson: 1,
-      title: "Der vierte Fall",
+      title: "Der zweite Fall",
       cefr: "B1",
       dominantMode: "recall",
       canDo: "Use the genitive: of the, because of, in spite of, instead of, within, outside of.",
@@ -72,7 +73,7 @@ export const DE_UNIT71 = {
       items: [
         { id: "de-u71l3-derselbe", type: "vocab", front: "derselbe", reading: "derselbe", meaning: "the same", example: { jp: "Jeden Morgen kommt derselbe Mann in den kleinen Laden.", en: "Every morning the same man comes into the little shop." }, drill: { jp: "Derselbe Mann kommt wieder", en: "The same man comes again" }, accept: ["the same", "the very same", "the same one"], hint: "Both halves change: dieselbe Frau, dasselbe Haus, denselben Mann." },
         { id: "de-u71l3-mancher", type: "vocab", front: "mancher", reading: "mancher", meaning: "many a", example: { jp: "Mancher Kollege arbeitet auch am Wochenende im Betrieb.", en: "Many a colleague works at the plant at the weekend too." }, drill: { jp: "Mancher Kollege arbeitet zu viel", en: "Many a colleague works too much" }, accept: ["many a", "some", "quite a few", "more than one"], hint: "Singular but means 'a fair number'. Plural manche is far more common in speech." },
-        { id: "de-u71l3-solcher", type: "vocab", front: "solcher", reading: "solcher", meaning: "such", example: { jp: "Solcher Streit in der Familie hilft am Ende niemand.", en: "Such an argument in the family helps nobody in the end." }, drill: { jp: "Solcher Streit ist nicht gut", en: "Such an argument is not good" }, accept: ["such", "that kind of", "this sort of"], hint: "After ein it loses its endings: ein solcher Mann, but so ein Mann in speech." },
+        { id: "de-u71l3-solcher", type: "vocab", front: "solcher", reading: "solcher", meaning: "such", example: { jp: "Solcher Streit in der Familie hilft am Ende niemandem.", en: "Such an argument in the family helps nobody in the end." }, drill: { jp: "Solcher Streit ist nicht gut", en: "Such an argument is not good" }, accept: ["such", "that kind of", "this sort of"], hint: "It KEEPS its ending after ein: ein solcher Mann. Only solch itself goes bare: solch ein Mann." },
         { id: "de-u71l3-mehrere", type: "vocab", front: "mehrere", reading: "mehrere", meaning: "several", example: { jp: "Mehrere Kollegen sind seit Montag krank zu Hause.", en: "Several colleagues have been at home ill since Monday." }, drill: { jp: "Mehrere Kollegen sind heute krank", en: "Several colleagues are ill today" }, accept: ["several", "a number of", "various"], hint: "Plural only, and more than a couple. Built on mehr (u37)." },
         { id: "de-u71l3-samtliche", type: "vocab", front: "sämtliche", reading: "samtliche", meaning: "all of the", example: { jp: "Sämtliche Zimmer im Hotel am Meer sind schon besetzt.", en: "All of the rooms in the hotel by the sea are already taken." }, drill: { jp: "Sämtliche Zimmer sind schon besetzt", en: "All of the rooms are already taken" }, accept: ["all of the", "all", "every single", "the entire"], hint: "Stronger and more formal than alle — it means 'without exception'." },
         { id: "de-u71l3-irgendein", type: "vocab", front: "irgendein", reading: "irgendein", meaning: "some … or other", example: { jp: "Irgendein Mann wartet seit einer Stunde vor der Tür.", en: "Some man or other has been waiting at the door for an hour." }, drill: { jp: "Irgendein Mann wartet vor der Tür", en: "Some man or other is waiting at the door" }, accept: ["some … or other", "some", "any", "any old"], hint: "irgend- + ein. Same family as irgendwann (u28): vague on purpose." },
