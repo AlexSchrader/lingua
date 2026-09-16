@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { buildOptions } from "../../src/store/distractors.js";
-import { eligibleKinds, isGlyph } from "../../src/store/cardRouting.js";
+import { eligibleKinds, isGlyph, hasAudio } from "../../src/store/cardRouting.js";
 import { checkReading, checkProduce, normalizeReading } from "../../src/store/answer.js";
 
 // WHY THIS FILE EXISTS — the forcing function had a hole and `glyph` went through it.
@@ -75,7 +75,12 @@ test("a glyph is never asked for a meaning it does not have", () => {
     assert.ok(!kinds.includes("choice:reverse"),
       `${g.id}: choice:reverse asks "which is this in German?" from a MEANING — a glyph has none`);
     assert.ok(kinds.includes("type:produce"), `${g.id}: must be typeable`);
-    assert.ok(kinds.includes("speak"), `${g.id}: must be speakable`);
+    // SPEAKABLE ONLY WITH A CLIP. The speak card plays the letter and then arms
+    // the mic; with no audio it would ask the learner to pronounce something the
+    // app has never said. These fixtures are synthetic ids with no clip, so the
+    // rule is asserted in both directions rather than assumed in one.
+    assert.equal(kinds.includes("speak"), hasAudio(g),
+      `${g.id}: speak must track whether the letter has a clip to imitate`);
   }
 });
 

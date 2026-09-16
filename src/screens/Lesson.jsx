@@ -59,6 +59,17 @@ function unitUnlockedBy(lessonId, items) {
 // Reviews are a separate session (/review). Separated so new and old content
 // never mix — you learn a full row of kana, then its vocab; no old material
 // interrupts first exposure.
+// "Unit 3 · Lesson 2" — WHICH lesson, not just its name. A unit now runs five or
+// six lessons, so "Les accents" alone does not tell a learner where they are in the
+// climb, and the completion screen said only "Lesson complete", which tells them
+// nothing they did not already know. Returns null if a lesson somehow carries no
+// numbers, so a malformed unit degrades to the bare title rather than to "Unit
+// undefined". Shared by the intro and the completion screen so the two cannot drift.
+function lessonLabel(lesson) {
+  if (!lesson?.unit || !lesson?.lesson) return null;
+  return `Unit ${lesson.unit} · Lesson ${lesson.lesson}`;
+}
+
 export default function Lesson() {
   const { lessonId } = useParams();
   const navigate = useNavigate();
@@ -197,8 +208,8 @@ export default function Lesson() {
           <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>
             {unlockedUnit
               ? "Unit complete!"
-              : lesson.unit && lesson.lesson
-              ? `Unit ${lesson.unit} · Lesson ${lesson.lesson} done`
+              : lessonLabel(lesson)
+              ? `${lessonLabel(lesson)} done`
               : "Lesson complete"}
           </div>
           <div style={{ color: C.inkSoft, maxWidth: 300 }}>
@@ -240,6 +251,13 @@ export default function Lesson() {
       <PhaseShell title={lesson.title} progress={0} onClose={() => navigate(home)}>
         <div style={{ margin: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 16, textAlign: "center", maxWidth: 340 }}>
           <Mascot context="greeting" size={110} />
+          {/* Where you are, above what it is called — the same question the
+              completion screen answers, asked at the other end of the lesson. */}
+          {lessonLabel(lesson) && (
+            <div style={{ fontSize: 12, fontWeight: 700, color: C.inkSoft, textTransform: "uppercase", letterSpacing: 0.6, marginBottom: -8 }}>
+              {lessonLabel(lesson)}
+            </div>
+          )}
           <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>{lesson.title}</div>
           {lesson.canDo && <div style={{ fontSize: 15, color: C.ink, lineHeight: 1.4 }}>{lesson.canDo}</div>}
           <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600 }}>
