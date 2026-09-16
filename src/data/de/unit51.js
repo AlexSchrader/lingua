@@ -39,13 +39,28 @@
 //
 // ─── 3. THE DRILL RULE — THE ONE THAT BITES, AND HOW GERMAN GETS ROUND IT ────
 //   Every vocab item carries a `drill`: a SECOND short sentence, 3–8 whitespace
-//   tokens, NO sentence-internal punctuation, containing the item's own `front`
-//   VERBATIM. cardRouting.findWholeWord matches the whole front INCLUDING its
-//   article, so:
-//     - A NOUN'S DRILL IS NOMINATIVE. "der Standpunkt" must appear as
-//       "Der Standpunkt …" — "den Standpunkt" does not match and the cloze and
-//       sentence:build cards silently vanish. Put the case variety in `example`,
-//       where nothing has to match.
+//   tokens, NO sentence-internal punctuation, containing the item's own `front`.
+//   cardRouting.findWholeWord matches the whole front INCLUDING its article, but
+//   it LOWERCASES BOTH SIDES — so a sentence-initial "Der Standpunkt …" matches the
+//   front "der Standpunkt" and 143 of this block's 288 drills rely on exactly that.
+//   Case is free; the WORDS are not. So:
+//     - A **der**-NOUN'S DRILL IS NOMINATIVE, and ONLY a der-noun's. "der
+//       Standpunkt" must appear as "Der Standpunkt …" — "den Standpunkt" does
+//       not match, and the cloze and sentence:build cards then silently vanish.
+//       ⚠️ BUT THIS IS 48 OF THIS BLOCK'S 125 NOUNS, NOT ALL OF THEM, AND AN
+//       EARLIER DRAFT OF THIS PARAGRAPH SAID "A NOUN'S DRILL IS NOMINATIVE" FLAT.
+//       That was wrong and it was load-bearing, so read this twice: for the 58
+//       **die**-nouns and 19 **das**-nouns — 77 of 125, 62% — the accusative is
+//       STRING-IDENTICAL to the nominative, so "Wir kennen die Tatsache genau"
+//       and "Ich suche das Gespräch mit dir" both match. Even a der-noun takes
+//       inversion and the predicate nominative: "Heute kam der Vorschlag zu
+//       spät" and "Das war der Vorschlag von Anna" both match. Verified by
+//       running findWholeWord directly, not by reading it.
+//       THE ENGINE CONSTRAINS THE FORM OF THE ARTICLE. IT DOES NOT CONSTRAIN THE
+//       SENTENCE TO BE A COPULA. Do not use it as an excuse for one — see the
+//       variety warning at the end of this section, which is what happens if you
+//       do. Case variety beyond that still belongs in `example`, where nothing
+//       has to match at all.
 //     - A VERB'S DRILL NEEDS THE INFINITIVE ON THE PAGE. Two natural ways, and
 //       between them they cover every German verb:
 //         · PLURAL SUBJECT — for -en verbs the wir/sie form IS the infinitive:
@@ -58,13 +73,19 @@
 //       warning is easy to scroll past.
 //   Measured on this block: 288/288 items carry a drill, all inside 3–8 tokens,
 //   all containing their front.
-//   ⚠️ AND VARY THE VERB WHILE YOU WRITE THEM. The nominative constraint pulls every
-//   noun drill towards one frame, and block 1 did not notice until it counted: its
+//   ⚠️ AND VARY THE VERB WHILE YOU WRITE THEM. Reaching for the copula is an
+//   AUTHORING habit, not something the engine forces — block 1 did not notice until
+//   it counted, and then mis-blamed the engine in this very header. Its
 //   first pass was 123/288 (43%) “Der/Die/Das X ist/war sehr ADJ” and 110/288 (38%)
 //   containing “sehr”, which is 123 near-identical practice cards. 81 were rewritten
 //   into subject-verb frames — kommen, liegen, stehen, kosten, dauern, bleiben,
 //   wachsen, steigen, zeigen, helfen, gelten — taking it to 15% and 13%. Cheaper to
 //   vary as you author than to sweep afterwards.
+//   ⚠️ AND CHECK YOUR DRILLS FOR VOCAB SCOPE YOURSELF — `lint:curriculum` DOES NOT.
+//   exampleScopeWarnings (src/data/lint.js) reads `example.jp` ONLY, so half of
+//   everything you write is invisible to it. Run `node scripts/check-drills-de.mjs
+//   <from> <to>`, which checks drills specifically, and `node
+//   scripts/scope-strict-de.mjs <from> <to>`, which applies no inflection excuse.
 //
 // ─── 4. WORD OWNERSHIP — WHAT BLOCK 1 HAS TAKEN, SO YOU DON'T RE-TEACH IT ────
 //   Lower slot wins. u51–u62 teach 288 fronts, all checked against the frozen
@@ -95,29 +116,77 @@
 //   - EXPLICIT GRAMMAR AND REGISTER → u69–u71 (subordinate clauses, passive,
 //     nominalization) and u72–u73 (polite vs plain). Block 1 uses those
 //     structures in examples and never cards them as grammar lessons.
-//   - der Mensch, die Leute, klar, einfach, anders, andere, der Plan, kennen,
-//     fehlen, lösen, mögen, wahr, offen are STILL UNTAUGHT IN GERMAN and are
-//     therefore unusable in an example. Block 1 hit all of them and wrote round
-//     them. They are ordinary A1/A2 gaps a later coverage unit (u76–u87) should
-//     close; block 1 did not take them because they are not B1 words and
-//     teaching them here would put them behind 50 units of content that cannot
-//     use them.
+//   - der Mensch, die Leute, klar, einfach, anders, andere, alle, alles, jeder,
+//     nur, wieder, langsam, wirklich, der Plan, der Teil, der Punkt, die Frage,
+//     das Leben, fertig, bekommen, treffen, erst, gar, kennen, fehlen, lösen,
+//     mögen, wahr, offen are STILL UNTAUGHT IN GERMAN and are therefore unusable
+//     in an example. Block 1 hit all of them and wrote round them — which is why
+//     some of these 288 sentences reach for a longer phrase than a German would.
+//     They are ordinary A1/A2 gaps a later COVERAGE unit (u76–u87) should close,
+//     and that is where the value is: block 1 did not take them because carding
+//     them at u51+ puts them behind 50 units of content that still cannot use
+//     them. ⚠️ BLOCK 3: this list is your single highest-value opportunity, and a
+//     `[ ]` item is filed for it in BUILD-CHECKLIST.md so it does not rest on a
+//     future seat noticing this comment.
+//   - ⚠️ FOUR UNTAUGHT ITEMS BLOCK 1 USED ANYWAY, DECLARED HERE RATHER THAN
+//     QUIETLY. The `content-auditor` gate found every one of them and the block
+//     rewrote 11 other sentences to remove einfach, bauen, jemand, einmal and da
+//     rather than add them to this list — these four are what survived, each with
+//     a reason:
+//     · `wird` / `werden` (13×). THE ONE THAT IS NOT REALLY A NEW WORD: German
+//       cards `wurde` at u39 GLOSSED “past of werden” and `würde` at u37, so the
+//       course teaches two forms of this verb and omits its present. B1 cannot be
+//       written without the future and the passive, and rewriting round it would
+//       mean avoiding both for 288 cards. Declared, not smuggled.
+//     · `so` (13 examples + 1 drill), `schon` (8 + 4), `viele` (6 + 7).
+//     None is in TAUGHT-WORDS.md and none is on a `// FREE:` line — they are not
+//     cognates, proper names or plurals, so FREE would be the wrong label. The
+//     justification is corpus precedent, measured over de u1–u50: `so` appears
+//     163 times, `viele` 4, `schon` 1. `so` is plainly established; `schon` and
+//     `viele` are thin and are named here so the next seat can decide knowingly
+//     rather than infer a rule from block 1's silence. Using `so` freely while
+//     contorting around `nur` is not a principled line — it is which gap got
+//     noticed first, and the honest fix is a coverage unit, not a FREE entry.
 //
 // ─── 6. NEAR-MISS FRONTS BLOCK 1 ACCEPTED, WITH THE REASON ──────────────────
 //   German derives relentlessly, so "is this a new lexeme?" is the real check,
-//   not "is this a new string". Three fronts in this block share a stem with a
-//   taught word and were kept deliberately:
-//     · der Zusammenhang (u52 l1) vs taught `zusammen` — a compound noun, not an
-//       inflection of the adverb.
-//     · scheinen (u54 l1, to seem) vs taught `der Schein` (the banknote, u27) —
-//       homograph family, unrelated meanings; the hint names the other one.
-//     · notfalls (u60 l2) vs taught `der Notfall` — derived adverb, and the hint
-//       builds it from the noun the learner already has.
-//   Rejected for the same test, and this is the more useful half of the list:
-//   mögen (möchten is already taught and is literally its Konjunktiv), lösen
-//   (die Lösung taught), nötig (notwendig is here), die Erlaubnis (erlauben
-//   taught), das Verbot (verbieten taught), die Zustimmung (zustimmen taught),
-//   bewirken (wirken taught), überprüfen (die Prüfung taught).
+//   not "is this a new string".
+//   ⚠️ THE RULE, STATED PROPERLY — AND AN EARLIER DRAFT OF THIS SECTION GOT IT
+//   BADLY WRONG. It said "THREE fronts in this block share a stem with a taught
+//   word" and then listed eight REJECTIONS beside them, which reads as "derivation
+//   is normally refused". The true count of accepted stem-sharing fronts is at
+//   least SIXTEEN, so the ratio a later block would have inferred was backwards.
+//   THE TEST BLOCK 1 ACTUALLY APPLIED: a derived form is a NEW LEXEME when it has
+//   a distinct, separately-usable meaning you cannot get from the base word; it is
+//   the SAME lexeme when it is an inflection, or a nominalization that adds no
+//   meaning. ACCEPT freely under the first half.
+//   ACCEPTED, the full list — all of these share a stem with a taught word:
+//     · die Freiheit (frei u23), die Kindheit (das Kind u4), die Wahrheit,
+//       die Gerechtigkeit, die Einzelheit, die Bildung, die Ordnung — the
+//       -heit/-keit/-ung family. Each names a THING the adjective cannot.
+//     · zugeben, nachgeben (geben u16); zunehmen, abnehmen, teilnehmen,
+//       annehmen (nehmen u16); aushalten, einhalten (halten u44); vorziehen
+//       (ziehen u44); ausfallen (fallen u44); anpassen (passen u18) — separable
+//       prefix verbs, which German treats as independent words and which the
+//       course already does too (abholen/abfahren sit beside holen/fahren).
+//     · der Zusammenhang (zusammen) — a compound noun, not an inflection.
+//     · scheinen, to seem (der Schein, the banknote, u27) — homograph family,
+//       unrelated meanings; the hint names the other one.
+//     · notfalls (der Notfall) — derived adverb; the hint builds it from the
+//       noun the learner already has.
+//   REJECTED under the second half of the test:
+//     nötig (notwendig is carded here and means the same thing), die Erlaubnis
+//     (erlauben taught), das Verbot (verbieten taught), die Zustimmung
+//     (zustimmen taught), die Verpflichtung (die Pflicht taught), bewirken
+//     (wirken taught), überprüfen (die Prüfung taught), die Reparatur
+//     (reparieren taught), die Hilfe (helfen taught).
+//   ⚠️ mögen AND lösen ARE NOT ON THE REJECTED LIST AND AN EARLIER DRAFT PUT THEM
+//   THERE, with a rationale that contradicted §5 two paragraphs up. §5 is the
+//   correct one: they are untaught GAPS, not same-lexeme duplicates. möchten does
+//   NOT give you mögen — it gives "I would like", never "Ich mag Kaffee", and a
+//   B1 learner who cannot say "I like X" has a real hole. die Lösung does not give
+//   you lösen either; a noun never hands you its verb. Both belong to a coverage
+//   unit, for the ordering reason in §5, and neither is block 1's to take.
 //
 // ─── 7. SLOT TITLES WERE ENGLISH PLACEHOLDERS — ALL TWELVE ARE RETITLED ─────
 //   CLAUDE.md "No front language": the scaffold's English titles mark the slot,
@@ -169,11 +238,11 @@ export const DE_UNIT51 = {
       dominantMode: "recall",
       canDo: "Agree at the right strength — plainly, warmly or emphatically — and admit it when the other person has a point.",
       items: [
-        { id: "de-u51l2-einverstanden", type: "vocab", front: "einverstanden", reading: "einverstanden", meaning: "in agreement", example: { jp: "Ich bin mit deinem Vorschlag einverstanden, aber wir brauchen mehr Zeit.", en: "I agree with your suggestion, but we need more time." }, drill: { jp: "Ich bin damit einverstanden", en: "I agree with that" }, accept: ["in agreement", "agreed", "fine with it", "ok with it", "happy with it", "agreeable"], hint: "Lives with sein: Ich bin einverstanden. mit etwas einverstanden sein = to be OK with something. Einverstanden! on its own = Deal." },
+        { id: "de-u51l2-einverstanden", type: "vocab", front: "einverstanden", reading: "einverstanden", meaning: "in agreement", example: { jp: "Ich bin mit deinem Vorschlag einverstanden, aber wir brauchen mehr Zeit.", en: "I agree with your suggestion, but we need more time." }, drill: { jp: "Ich bin damit einverstanden", en: "I agree with that" }, accept: ["in agreement", "agreed", "I agree", "agree", "fine with it", "ok with it", "happy with it", "agreeable"], hint: "Lives with sein: Ich bin einverstanden. mit etwas einverstanden sein = to be OK with something. Einverstanden! on its own = Deal." },
         { id: "de-u51l2-zugeben", type: "vocab", front: "zugeben", reading: "zugeben", meaning: "to admit", example: { jp: "Er will nicht zugeben, dass er den Termin vergessen hat.", en: "He won't admit that he forgot the appointment." }, drill: { jp: "Wir müssen das zugeben", en: "We have to admit that" }, accept: ["to admit", "admit", "to concede", "concede", "to own up"], hint: "zu + geben: to give ground to the other side. Separable, so it splits in a main clause: Ich gebe es zu." },
         { id: "de-u51l2-ebenfalls", type: "vocab", front: "ebenfalls", reading: "ebenfalls", meaning: "likewise", example: { jp: "Meine Kollegen denken ebenfalls so, und der Chef stimmt ihnen zu.", en: "My colleagues think the same way, and the boss agrees with them." }, drill: { jp: "Wir denken ebenfalls so", en: "We think the same way" }, accept: ["likewise", "as well", "too", "also", "the same to you"], hint: "eben + falls: 'in the same case'. Ebenfalls! is also how you hand a greeting straight back." },
-        { id: "de-u51l2-selbstverstandlich", type: "vocab", front: "selbstverständlich", reading: "selbstverstandlich", meaning: "it goes without saying", example: { jp: "Selbstverständlich helfe ich dir, wenn du am Wochenende Zeit brauchst.", en: "Of course I'll help you if you need time at the weekend." }, drill: { jp: "Das ist selbstverständlich für uns", en: "That goes without saying for us" }, accept: ["of course", "naturally", "obviously", "it goes without saying", "self-evident", "certainly"], hint: "selbst + verständlich: it understands itself. Warmer than natürlich when you are saying yes to a favour." },
-        { id: "de-u51l2-durchaus", type: "vocab", front: "durchaus", reading: "durchaus", meaning: "quite", example: { jp: "Das ist durchaus möglich, aber wir müssen es vorher genau untersuchen.", en: "That is perfectly possible, but we have to examine it closely first." }, drill: { jp: "Das ist durchaus richtig", en: "That is absolutely right" }, accept: ["absolutely", "quite", "certainly", "definitely", "perfectly", "thoroughly"], hint: "Strengthens a yes: durchaus möglich = perfectly possible. Watch the flip — durchaus nicht means not at all." },
+        { id: "de-u51l2-selbstverstandlich", type: "vocab", front: "selbstverständlich", reading: "selbstverstandlich", meaning: "it goes without saying", example: { jp: "Selbstverständlich helfe ich dir, wenn du am Wochenende Zeit brauchst.", en: "It goes without saying that I'll help you if you need time at the weekend." }, drill: { jp: "Das ist selbstverständlich für uns", en: "That goes without saying for us" }, accept: ["of course", "naturally", "obviously", "it goes without saying", "self-evident", "certainly"], hint: "selbst + verständlich: it understands itself. Warmer than natürlich when you are saying yes to a favour." },
+        { id: "de-u51l2-durchaus", type: "vocab", front: "durchaus", reading: "durchaus", meaning: "quite", example: { jp: "Das ist durchaus möglich, aber wir müssen es vorher genau untersuchen.", en: "That is perfectly possible, but we have to examine it closely first." }, drill: { jp: "Das ist durchaus richtig", en: "That is quite right" }, accept: ["absolutely", "quite", "certainly", "definitely", "perfectly", "thoroughly"], hint: "Strengthens a yes: durchaus möglich = perfectly possible. Watch the flip — durchaus nicht means not at all." },
         { id: "de-u51l2-keineswegs", type: "vocab", front: "keineswegs", reading: "keineswegs", meaning: "by no means", example: { jp: "Ich bin keineswegs sicher, dass der Weg für uns richtig ist.", en: "I am by no means sure that the path is right for us." }, drill: { jp: "Das ist keineswegs sicher", en: "That is by no means certain" }, accept: ["by no means", "not at all", "in no way", "definitely not", "far from it"], hint: "kein + Weg + s: 'in no way'. The emphatic no, where nicht is the plain one." },
       ],
     },
@@ -189,8 +258,8 @@ export const DE_UNIT51 = {
         { id: "de-u51l3-widersprechen", type: "vocab", front: "widersprechen", reading: "widersprechen", meaning: "to contradict", example: { jp: "Ich muss dir widersprechen, denn so war es damals nicht.", en: "I have to contradict you, because that is not how it was back then." }, drill: { jp: "Die Kollegen widersprechen dem Chef", en: "The colleagues contradict the boss" }, accept: ["to contradict", "contradict", "to disagree", "disagree", "to object"], hint: "wider (against) + sprechen. Takes the DATIVE — Ich widerspreche dir, never dich. Inseparable: er widerspricht." },
         { id: "de-u51l3-dereinwand", type: "vocab", front: "der Einwand", reading: "dereinwand", meaning: "the objection", example: { jp: "Der Einwand von Anna war gut, deshalb haben wir noch lange diskutiert.", en: "Anna's objection was a good one, so we discussed it for a long time." }, drill: { jp: "Der Einwand kam vom Lehrer", en: "The objection came from the teacher" }, accept: ["objection", "the objection", "counterargument", "the counterargument", "reservation"], hint: "From einwenden, to throw something in against. einen Einwand haben = to have an objection. Plural: Einwände." },
         { id: "de-u51l3-bestreiten", type: "vocab", front: "bestreiten", reading: "bestreiten", meaning: "to dispute", example: { jp: "Niemand bestreitet, dass die Arbeit im Sommer sehr schwer war.", en: "Nobody disputes that the work was very hard in the summer." }, drill: { jp: "Wir bestreiten das nicht", en: "We do not dispute that" }, accept: ["to dispute", "dispute", "to deny", "deny", "to contest", "contest"], hint: "Built on der Streit, the next card: to fight a claim rather than a person. Er bestreitet die Tatsache." },
-        { id: "de-u51l3-derstreit", type: "vocab", front: "der Streit", reading: "derstreit", meaning: "the quarrel", example: { jp: "Der Streit zwischen zwei Kollegen dauert schon eine Woche.", en: "The quarrel between the two colleagues has been going on for a week." }, drill: { jp: "Der Streit dauert seit Montag", en: "The quarrel has lasted since Monday" }, accept: ["quarrel", "the quarrel", "argument", "the argument", "dispute", "the dispute", "row"], hint: "A real fight in words, not a polite disagreement. Streit haben mit jemandem = to be having a row with someone." },
-        { id: "de-u51l3-ubertreiben", type: "vocab", front: "übertreiben", reading: "ubertreiben", meaning: "to exaggerate", example: { jp: "Er übertreibt gern, aber heute ist es sehr kalt.", en: "He likes to exaggerate, but today it is very cold." }, drill: { jp: "Die Zeitungen übertreiben das gern", en: "The newspapers like to exaggerate that" }, accept: ["to exaggerate", "exaggerate", "to overstate", "overstate", "to overdo it"], hint: "über + treiben (to drive): to drive it over the top. Übertreib nicht! = Don't exaggerate!" },
+        { id: "de-u51l3-derstreit", type: "vocab", front: "der Streit", reading: "derstreit", meaning: "the quarrel", example: { jp: "Der Streit zwischen zwei Kollegen dauert schon eine Woche.", en: "The quarrel between the two colleagues has been going on for a week." }, drill: { jp: "Der Streit dauert schon seit Montag", en: "The quarrel has been going on since Monday" }, accept: ["quarrel", "the quarrel", "argument", "the argument", "dispute", "the dispute", "row"], hint: "A real fight in words, not a polite disagreement. Streit haben mit jemandem = to be having a row with someone." },
+        { id: "de-u51l3-ubertreiben", type: "vocab", front: "übertreiben", reading: "ubertreiben", meaning: "to exaggerate", example: { jp: "Er übertreibt gern, aber heute hat er recht: es ist sehr kalt.", en: "He likes to exaggerate, but today he is right: it is very cold." }, drill: { jp: "Die Zeitungen übertreiben das gern", en: "The newspapers like to exaggerate that" }, accept: ["to exaggerate", "exaggerate", "to overstate", "overstate", "to overdo it"], hint: "über + treiben (to drive): to drive it over the top. Übertreib nicht! = Don't exaggerate!" },
         { id: "de-u51l3-derunsinn", type: "vocab", front: "der Unsinn", reading: "derunsinn", meaning: "the nonsense", example: { jp: "Was er über die Schule sagt, ist Unsinn, und das weiß er selbst.", en: "What he says about the school is nonsense, and he knows it himself." }, drill: { jp: "Der Unsinn hilft uns nicht", en: "The nonsense does not help us" }, accept: ["nonsense", "the nonsense", "rubbish", "the rubbish", "silliness"], hint: "un- + der Sinn (sense): without sense. Unsinn! on its own is a one-word way to throw something out." },
       ],
     },
