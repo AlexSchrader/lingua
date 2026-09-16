@@ -556,6 +556,19 @@ export function eligibleKinds(item) {
   // where, and for a Latin glyph it did not happen at all - the card asked a German
   // learner to "Type the rōmaji". Name the file when you claim a rewrite exists.
   if (item.type === "glyph") out.push("type:produce", "speak");
+  // A glyph is NOT asked to have its sound TYPED while the glyph is on screen.
+  // Dane hit this in French lesson 1: the card showed é, asked what it sounds
+  // like, and accepted "e" - so the learner looks at é and types e, which is just
+  // stripping the accent. Nothing is learned and the accent, the entire point of
+  // the card, is the one thing not exercised. Alex: "it should be what sound do
+  // you hear and then give choices."
+  // So the sound is HEARD, never shown-and-typed: listen:choice and listen:type
+  // ask it from the clip, type:produce asks for the letter from its sound (the
+  // keyboard card), speak asks it aloud. type:meaning is removed for glyphs only.
+  if (item.type === "glyph") {
+    const i = out.indexOf("type:meaning");
+    if (i >= 0) out.splice(i, 1);
+  }
   if (hasAudio(item)) out.push("listen:choice", "listen:type");
   if (vocab && isJapaneseItem(item)) out.push("type:reading");
   if (canCloze(item)) out.push("cloze:choice");

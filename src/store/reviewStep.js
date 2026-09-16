@@ -11,7 +11,7 @@ import {
   isLatin, earCrowdedOut, isTraceable, shouldListen, shouldReverseChoice, shouldListenType,
   shouldTypeReading, shouldTypeProduce, shouldSpeak, shouldCloze, shouldParticleCloze,
   shouldSentence, shouldConjugate, canBuildReading, eligibleKinds,
-  meaningIsFreePass, produceIsFreePass, hasAudio,
+  meaningIsFreePass, produceIsFreePass, hasAudio, isGlyph,
 } from "./cardRouting.js";
 
 // --- rotation within a stage ------------------------------------------------
@@ -100,6 +100,12 @@ export function reviewStepFor(item) {
   // gives a fresh item its interleaved variety, so nothing about a learner's first pass
   // through a word has changed.
   if (rung <= 1) {
+    // A glyph OPENS on the ear when it has a clip. Alex, after Dane used French
+    // lesson 1: "it should be what sound do you hear and then give choices." The
+    // plain choice card shows the letter and asks which sound it is, which is a
+    // weaker question - the letter is the hint. shouldListen is hash-gated, so
+    // without this only some glyphs got the ear card and the rest opened visually.
+    if (isGlyph(item) && hasAudio(item)) return { kind: "listen:choice" };
     if (shouldListen(item)) return { kind: "listen:choice" };
     // This item's only chance to hear the word (see earCrowdedOut): its hash is above
     // the listen band, and at rung 2 a content card wins ahead of dictation. Checked
@@ -128,6 +134,13 @@ export function reviewStepFor(item) {
       if (shouldListenType(item) || hasAudio(item)) return { kind: "listen:type" };
       return { kind: "choice:reverse" };
     }
+    // A GLYPH MUST NEVER LAND ON THE MEANING CARD. Its "meaning" is a sound, and
+    // the glyph itself is on screen, so the card degenerates into: look at e-acute,
+    // type e. The accent - the entire point of the card - is the one thing not
+    // exercised. Dane hit exactly this in French lesson 1. eligibleKinds no longer
+    // lists type:meaning for a glyph, but this fallback does not consult it, so the
+    // guard has to be here too. Hear the sound instead of being shown it.
+    if (isGlyph(item)) return { kind: hasAudio(item) ? "listen:type" : "choice" };
     return { kind: "type", mode: "meaning" };
   }
   // Produce (rung 3): single-glyph kana + kanji are produced by stroke tracing;
