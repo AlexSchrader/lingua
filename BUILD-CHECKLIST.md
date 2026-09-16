@@ -173,6 +173,28 @@ This file is updated as part of the PR that completes work. When a task is finis
 > - **Why block 1 did not take them:** carding them at u51+ puts them behind fifty units of content that still cannot legally use them in an example, which makes the scope problem worse, not better. A coverage unit at the END of the band is the right home. **Note the honest limit: carding them at u76 does not retroactively license them in u1–u75's examples** — it fixes the course going forward, not the sentences already written.
 > - **`so` is the counter-example worth reading.** It is equally untaught, and is used **163 times** across de u1–u50 anyway. So the real state is not "German forbids these words" but "German never carded them and crews have quietly used some and contorted around others". German B1 block 1 used `so` (14×), `schon` (12×) and `viele` (13×) and declared all three in `src/data/de/unit51.js` §5 rather than hiding them.
 
+### 🚨 German B1 merge day — two findings that outrank the band, filed by the crew lead
+
+**1. — ROUTED TO FEATURE CC. THE KONJUNKTIV II LESSON CANNOT BE GRADED. The umlaut IS the lesson and `normalizeReading` folds it away.** Found 2026-09-16 when the three German B1 blocks were first assembled in one tree; `check-collisions --lang de` reports it as a READING collision. Reproduced by calling the grader directly:
+
+```
+müsste     learner types "musste"     -> ACCEPTED
+dürfte     learner types "durfte"     -> ACCEPTED
+bräuchte   learner types "brauchte"   -> ACCEPTED
+wüsste     learner types "wusste"     -> ACCEPTED
+```
+
+- [ ] **Extend `foldWouldEraseAnswer` from single-character fronts to ANY front whose fold collides with another taught front.** `src/store/answer.js` currently fires it only when the front is one character (the é / ß / ä glyph case). A whole WORD whose fold collides is the identical defect and is not covered.
+- **Why this one is worse than the accent case:** `de-u38l4` teaches `musste`, `durfte`, `wusste` and `de-u38l3` teaches `brauchte` — the PAST forms — so the learner has already been taught the exact string that now passes the Konjunktiv II card. They are not guessing; they are producing something the course drilled into them, and being told it is right. **`de-u70l3` (block 2, "Konjunktiv II") is currently a lesson that cannot teach the one thing it exists for.** Not a content defect — the cards are correctly authored; the grader is the problem, so per CLAUDE.md it is logged rather than worked around.
+- Fifth reading collision, same root, lower stakes: `de-u1l5-schon` (`schön` = beautiful) vs `de-u73l1-schon` (`schon`). Two different words, one fold. Worth keeping both — `schon` is one of the commonest words in German — but the typed-from-audio card cannot tell them apart.
+
+**2. — ROUTED TO CURRICULUM CC, AND IT IS AN A1/A2 RETROFIT, NOT B1 WORK. German teaches 9 of the 100 commonest words in the language NOWHERE.** Measured against an external frequency list and verified card-by-card on `main`: **so, nur, sein, da, wird, werden, alles, tun, werde** have zero cards. At the top 300 it is 56 words; top 600, 156.
+
+- [ ] **Retrofit the missing German core into A1/A2, not into a B1 coverage slot.** u76–u87 is the wrong home: carding `nur` at u76 leaves fifty earlier units still unable to use it, so it fixes the course going forward and nothing behind it.
+- **`werden` is the one that bites hardest.** The course cards `wurde` (u39, glossed "past of werden") and `würde` (u37) and omits the present — and **block 2's entire passive unit is built on an auxiliary the course never teaches.**
+- **WHY NO CHECK CAUGHT IT, and this is the part worth reading twice.** Across 2,998 German example and drill sentences, `nur` appears **0** times, `so` 0, `alle` 0, `jeder` 0, `wirklich` 0 — while `sehr` appears **472**. Authors write inside whatever the scope checker permits, so "used but never taught" is **0 by construction** and measures nothing at all. A green scope run is evidence about the checker, not about the course. The German B1 block-1 header (`unit51.js` §5) documents the seat contorting sentences around `nur` and `einmal` — `de-u61l1-diegenehmigung` reads "auch nicht einen Tag" because the natural "nicht einmal einen Tag" was blocked. That sentence is the gap made visible.
+- **Compounding it, and routed to Feature CC:** `src/data/lint.js` builds its proper-noun whitelist from "capitalised mid-sentence" across all units with no ordering — and German capitalises every noun. Measured: **608 German tokens exempted from the scope check on `main`, 807 in block 2's tree, against 64 fr / 49 pt / 41 es / 12 no.** German's scope lint is ~12× more permissive than any other language's **and it gets weaker as the corpus grows**. Every clean German scope run in this repo, including the crew lead's own, means less than it appears to.
+
 ### German B1 — cold-review prompt, to run once blocks 2 and 3 have handed back
 
 *(RUNBOOK §6 "Block 1's remaining job" step 5, written in advance by the block-1 crew lead. **Do not run it yet** — it is worthless until u63–u87 exist. The lead runs it after folding blocks 2 and 3 in and before merging.)*
