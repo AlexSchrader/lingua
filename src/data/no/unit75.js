@@ -24,7 +24,9 @@
 // GENDER: ei nettside · ei mappe · ei opplysning · ei innstilling are feminine;
 // ⚠ en sikkerhetskopi is MASCULINE (en kopi), even though en sikkerhet inside it
 // is a -het — both halves land on masculine anyway. et nettverk, et varsel,
-// et vedlegg, et personvern, et samtykke, et verktøy, et system are neuter.
+// et vedlegg, et samtykke, et verktøy, et system are neuter. ⚠ `personvern` is
+// neuter too but a MASS noun, so it is taught bare (§1b) — corrected after the
+// content gate, 2026-09-16.
 // FIRST FEMININE is `ei nettside` (l1) and carries the en-/ei- note §1 wants.
 //
 // SCOPE: frozen base u1–u50 plus u63–u74 plus this unit's earlier cards.
@@ -83,7 +85,7 @@ export const NO_UNIT75 = {
       dominantMode: "recall",
       canDo: "Handle your own data safely — consent, settings, and spotting a scam message.",
       items: [
-        { id: "no-u75l3-personvern", type: "vocab", front: "et personvern", reading: "etpersonvern", meaning: "a data protection", example: { jp: "Personvernet er viktig når du deler noe på nettet.", en: "Data protection matters when you share something online." }, accept: ["data protection", "privacy"], drill: { jp: "Loven gir oss et personvern", en: "The law gives us a data protection" }, hint: "en person + et vern (u65). Neuter: personvernet. The Norwegian word for privacy in the legal sense, and it is in the news constantly." },
+        { id: "no-u75l3-personvern", type: "vocab", front: "personvern", reading: "personvern", meaning: "data protection", example: { jp: "Personvernet er viktig når du deler noe på nettet.", en: "Data protection matters when you share something online." }, accept: ["a data protection", "privacy", "protection of personal data"], drill: { jp: "Loven gir oss godt personvern", en: "The law gives us good data protection" }, hint: "en person + vern (u65). ⚠ A MASS noun, so no article on the card (unit1 §1b): neuter, definite personvernet. The Norwegian word for privacy in the legal sense, and it is in the news constantly." },
         { id: "no-u75l3-opplysning", type: "vocab", front: "ei opplysning", reading: "eiopplysning", meaning: "a piece of information", example: { jp: "De ba om opplysninger om saken.", en: "They asked for information about the case." }, accept: ["information", "detail", "data"], drill: { jp: "De ba om ei opplysning til", en: "They asked for one more piece of information" }, hint: "å opplyse (u72) + -ning → feminine: opplysninga. ⚠ In the plural it simply means \"information\" — personopplysninger is what the personvern law protects." },
         { id: "no-u75l3-svindel", type: "vocab", front: "en svindel", reading: "ensvindel", meaning: "a fraud", example: { jp: "Meldinga var en svindel, ikke en regning.", en: "The message was a fraud, not a bill." }, accept: ["fraud", "scam", "swindle"], drill: { jp: "Meldinga var en svindel fra nettet", en: "The message was a fraud from the internet" }, hint: "Masculine: svindelen. The verb å svindle exists but is not taught separately — one word, one mastery track. Norwegian banks warn about svindel on every page." },
         { id: "no-u75l3-blokkere", type: "vocab", front: "å blokkere", reading: "ablokkere", meaning: "to block", example: { jp: "Hun blokkerte nummeret etter meldinga.", en: "She blocked the number after the message." }, accept: ["block", "to bar"], drill: { jp: "Det er lett å blokkere et nummer", en: "It is easy to block a number" }, hint: "blokkerer, blokkerte. For phone numbers, people and roads alike — veien er blokkert." },

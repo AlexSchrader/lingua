@@ -21,7 +21,9 @@
 //     and ei is what makes that predictable. Print writes en/-en too.
 //   en etterspørsel — ⚠ -sel nouns are MASCULINE. Never ei etterspørsel.
 //   ei forsikring · ei prisstigning · ei investering — -ing/-ning, feminine.
-//   en økonomi · en inflasjon · en aksje · en kostnad — masculine.
+//   en økonomi · en aksje · en kostnad — masculine.
+//   `inflasjon` is a MASS noun and so is taught bare (§1b), like `sparing`;
+//     masculine, definite inflasjonen. Corrected after the content gate, 2026-09-16.
 //   `sparing` is a MASS noun and so is taught bare (§1b), like avfall in u65.
 // FIRST FEMININE is `ei inntekt` (l1) and carries the en-/ei- recognition note.
 //
@@ -87,7 +89,7 @@ export const NO_UNIT66 = {
         { id: "no-u66l3-marked", type: "vocab", front: "et marked", reading: "etmarked", meaning: "a market", example: { jp: "Markedet for gamle biler er stort i Norge.", en: "The market for old cars is big in Norway." }, accept: ["market"], drill: { jp: "Det er et marked for gamle biler", en: "There is a market for old cars" }, hint: "Neuter: markedet. The d is silent — say MAR-ke, the same silent d as in god (u1)." },
         { id: "no-u66l3-ettersporsel", type: "vocab", front: "en etterspørsel", reading: "enettersporsel", meaning: "a demand", example: { jp: "Etterspørselen etter strøm øker om vinteren.", en: "Demand for electricity goes up in winter." }, accept: ["demand"], drill: { jp: "Det er en etterspørsel etter strøm", en: "There is a demand for electricity" }, hint: "etter + å spørre (u12) — what is asked for. ⚠ -sel nouns are MASCULINE: etterspørselen, never ei. It pairs with et tilbud (u32): tilbud og etterspørsel." },
         { id: "no-u66l3-prisstigning", type: "vocab", front: "ei prisstigning", reading: "eiprisstigning", meaning: "a price rise", example: { jp: "Prisstigninga på mat er stor i år.", en: "The price rise on food is big this year." }, accept: ["price rise", "price increase"], drill: { jp: "Vi ser ei prisstigning på mat", en: "We are seeing a price rise on food" }, hint: "en pris (u27) + å stige, to rise. -ning → feminine: prisstigninga." },
-        { id: "no-u66l3-inflasjon", type: "vocab", front: "en inflasjon", reading: "eninflasjon", meaning: "inflation", example: { jp: "Inflasjonen gjør at alt koster mer enn før.", en: "Inflation means that everything costs more than before." }, accept: ["inflation"], drill: { jp: "En inflasjon gjør at alt koster mer", en: "Inflation means that everything costs more" }, hint: "Masculine and normally singular: inflasjonen. Another -sjon noun — masculine, stressed at the end, like generasjon (u63)." },
+        { id: "no-u66l3-inflasjon", type: "vocab", front: "inflasjon", reading: "inflasjon", meaning: "inflation", example: { jp: "Inflasjonen gjør at alt koster mer enn før.", en: "Inflation means that everything costs more than before." }, accept: ["inflation"], drill: { jp: "Inflasjon gjør at alt koster mer", en: "Inflation means that everything costs more" }, hint: "⚠ A MASS noun, so no article on the card (unit1 §1b) — nobody says en inflasjon. Masculine, definite inflasjonen. Another -sjon noun — masculine, stressed at the end, like generasjon (u63)." },
         { id: "no-u66l3-investering", type: "vocab", front: "ei investering", reading: "eiinvestering", meaning: "an investment", example: { jp: "Investeringa i huset var god, og de angrer ikke.", en: "The investment in the house was a good one, and they do not regret it." }, accept: ["investment"], drill: { jp: "Dette var ei investering som ble god", en: "This was an investment that turned out well" }, hint: "From å investere in l2. -ing → feminine: investeringa." },
       ],
     },

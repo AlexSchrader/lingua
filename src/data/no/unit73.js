@@ -25,8 +25,10 @@
 // jeg lurte på om (u70) and then stops. A learner who imports the English
 // scaffolding sounds insincere rather than polite.
 //
-// GENDER: et forbehold (neuter), et standpunkt (neuter), et hensyn (neuter),
-// en respekt (masculine). No feminine noun, so no en-/ei- note to carry.
+// GENDER: et forbehold (neuter), et standpunkt (neuter), et hensyn (neuter).
+// ⚠ `respekt` is a MASS noun and so is taught bare (unit1.js §1b); masculine,
+// definite respekten. Corrected after the content gate, 2026-09-16.
+// No feminine noun in this unit, so there is no en-/ei- note to carry.
 //
 // SCOPE: frozen base u1–u50 plus u63–u72 plus this unit's earlier cards.
 // lang/unit/lesson are stamped in src/data/index.js.
@@ -107,7 +109,7 @@ export const NO_UNIT73 = {
         { id: "no-u73l4-nyansere", type: "vocab", front: "å nyansere", reading: "anyansere", meaning: "to qualify", example: { jp: "Han nyanserte påstanden sin etterpå.", en: "He qualified his claim afterwards." }, accept: ["qualify", "to nuance", "to add shades to"], drill: { jp: "Det er viktig å nyansere en påstand", en: "It is important to qualify a claim" }, hint: "nyanserer, nyanserte. To add the shades back to something you said too flatly — Norwegian reaches for this verb where English says \"to be fair\"." },
         { id: "no-u73l4-innvende", type: "vocab", front: "å innvende", reading: "ainnvende", meaning: "to object", example: { jp: "Ingen innvendte noe i dag.", en: "Nobody objected today." }, accept: ["object", "to raise an objection", "to counter"], drill: { jp: "Det er lov å innvende noe her", en: "It is allowed to object to something here" }, hint: "inn + å vende (u45). innvender, innvendte. The noun is ei innvending — an objection you state calmly, not a row." },
         { id: "no-u73l4-hensyn", type: "vocab", front: "et hensyn", reading: "ethensyn", meaning: "a consideration", example: { jp: "Vi må ta hensyn til naboene.", en: "We have to take the neighbours into consideration." }, accept: ["consideration", "regard", "concern"], drill: { jp: "Dette er et hensyn vi må ta", en: "This is a consideration we have to take" }, hint: "Neuter: hensynet. Almost always inside å ta hensyn til noen — and that phrase carries a lot of weight in Norway. av hensyn til means \"out of regard for\"." },
-        { id: "no-u73l4-respekt", type: "vocab", front: "en respekt", reading: "enrespekt", meaning: "a respect", example: { jp: "Det er en respekt for arbeidet hans.", en: "There is a respect for his work." }, accept: ["respect", "esteem"], drill: { jp: "Det er en respekt for arbeidet hans", en: "There is a respect for his work" }, hint: "Masculine and normally singular: respekten. Takes for: respekt for noen. The verb å respektere works exactly as you would expect." },
+        { id: "no-u73l4-respekt", type: "vocab", front: "respekt", reading: "respekt", meaning: "respect", example: { jp: "Det er respekt for arbeidet hans.", en: "There is respect for his work." }, accept: ["a respect", "esteem", "regard"], drill: { jp: "Det er respekt for arbeidet hans", en: "There is respect for his work" }, hint: "⚠ A MASS noun, so no article on the card (unit1 §1b) — ha respekt for noen, never ha en respekt. Masculine, definite respekten. Takes for: respekt for noen. The verb å respektere works exactly as you would expect." },
         { id: "no-u73l4-standpunkt", type: "vocab", front: "et standpunkt", reading: "etstandpunkt", meaning: "a stance", example: { jp: "Hun forandret standpunkt etter praten.", en: "She changed her position after the conversation." }, accept: ["standpoint", "a position", "point of view"], drill: { jp: "Hun hadde et standpunkt alle forsto", en: "She had a position everyone understood" }, hint: "å stå (u13) + punkt — where you are standing. Neuter: standpunktet. å ta standpunkt til noe is to make your mind up about it." },
       ],
     },
