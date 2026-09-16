@@ -97,6 +97,15 @@ export function normalizeText(s = "") {
 export function foldWouldEraseAnswer(item) {
   const front = String(item?.front ?? "");
   if ([...front].length !== 1) return false;
+  // LATIN SCRIPT ONLY. The rule is "the fold would hand the answer away": é folds
+  // to e - the SAME letter with the mark rubbed off - so accepting e tests nothing
+  // and the accent, the whole point of the card, goes untested.
+  // A kana does not fold that way. は folds to "ha", which is a DIFFERENT SCRIPT,
+  // not は with something rubbed off, and rōmaji is the documented on-ramp through
+  // A1 (see checkProduce and PRODUCE_ROMAJI_STAGES). Firing here made every single
+  // kana demand a Japanese IME at A1, and made the dictation card reject the very
+  // rōmaji its own ask-line promises ("Type what you hear - rōmaji or kana").
+  if (!/[A-Za-zÀ-ɏ]/.test(front)) return false;
   return normalizeReading(front, item?.lang) !== front.toLowerCase();
 }
 

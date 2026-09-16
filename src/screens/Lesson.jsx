@@ -14,7 +14,7 @@ import { useStore } from "../store/useStore.js";
 import { getLesson, UNITS } from "../data/index.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { initLearn, currentStep, answerStep, LEARN_OPTS } from "../store/learnQueue.js";
-import { isTraceable, isGlyph, isLatin, hasAudio } from "../store/cardRouting.js";
+import { isTraceable, isGlyph, hasAudio } from "../store/cardRouting.js";
 import { buildSandboxItems, runnerWriters } from "../store/dev.js";
 import { C, F } from "../theme.js";
 
@@ -107,13 +107,31 @@ export default function Lesson() {
   // and type the accent" - hear it, say it, then find it on your keyboard - and
   // two check slots cannot hold three behaviours. Type-level, so the engine stays
   // content-agnostic; every non-glyph item is untouched.
-  // LATIN letters only. A Japanese kana is also a glyph, but its second check is
-  // TRACING - writing the character stroke by stroke - which is the right recall
-  // for a script you draw and has nothing to replace it. The accent standard is
-  // about letters you type and pronounce, so it stops at the script boundary.
-  const isAccentLetter = (it) => isGlyph(it) && isLatin(it);
-  const needsThird = (id) => isAccentLetter(items[id]);
-  const [learn, setLearn] = useState(() => initLearn(freshIds, LEARN_OPTS, needsThird));
+  // A LETTER runs more checks than a word, and a letter you DRAW runs more than a
+  // letter you only type. Alex, 2026-09-16: "Ja check 3 is type and check 4 is say
+  // it - ja has more cuz of trace, just like Mandarin and Hindi will have."
+  //
+  //   drawn letter (kana, kanji; later Mandarin, Hindi)  4: hear, TRACE, type, say
+  //   typed letter (é, ñ, ß, ä, ø)                       3: hear, say, type
+  //   word, unit 2 and later                             3: see, type, SAY
+  //   word, unit 1                                       2: see, type
+  //
+  // Split on whether the script is DRAWN, not on which language it is, so a new
+  // drawn script gets the four-check shape the day its stroke data lands.
+  //
+  // A WORD gets a speaking check too - Alex, 2026-09-16: "vocab should have
+  // speaking as well but that can be introduced [later] ... after unit 1." Unit 1
+  // is the first thing a learner ever touches and is already the heaviest (its
+  // letters run three or four checks each); asking them to talk to the app in the
+  // same sitting is a lot. From unit 2 the letters are behind them, so the third
+  // slot is free. Needs a clip to imitate - without one there is nothing to say
+  // back, so those words stay at two.
+  const checksFor = (id) => {
+    const it = items[id];
+    if (isGlyph(it)) return isTraceable(it) ? 4 : 3;
+    return (it?.unit ?? 1) > 1 && hasAudio(it) ? 3 : 2;
+  };
+  const [learn, setLearn] = useState(() => initLearn(freshIds, LEARN_OPTS, checksFor));
   const [finished, setFinished] = useState(false);
   // A one-screen "calm breath" before card 1 — what this lesson is, how much, how
   // long — so a new learner isn't dropped cold onto a glyph. One tap to Begin.
@@ -263,25 +281,44 @@ export default function Lesson() {
     assertLiveKind(earable ? "listen:choice" : "choice");
     label = "Practice";
     card = <ChoiceCard item={item} allItems={items} onGraded={onCheck} audioFirst={earable} />;
-  } else if (learnStep.step === "check2" && isAccentLetter(item)) {
-    // SAY IT. The middle rung of the standard, and the one the app had never run
-    // in a lesson - SpeakCard was built and live in LIVE_CARD_KINDS but only ever
-    // reached from a rung-4 review, which no unit-1 learner has. It plays the
-    // letter, arms the mic, and grades leniently; no mic or no endpoint degrades
-    // to an ungraded "say it" prompt rather than blocking the lesson.
+  } else if (isGlyph(item) && learnStep.step !== "check1") {
+    // THE LETTER LADDER. check1 (hear it) is handled above and is shared with
+    // every other item; checks 2-4 are the letter-only rungs.
+    label = "Practice";
+    const drawn = isTraceable(item);
+    if (drawn && learnStep.step === "check2") {
+      // DRAW IT. Every character you write — kana AND kanji — is recalled stroke
+      // by stroke. Nothing replaces this for a drawn script, which is exactly why
+      // a drawn letter gets a FOURTH check rather than giving this slot away.
+      // (Yōon digraphs have no single stroke entry, so they are not drawn.)
+      assertLiveKind("trace");
+      card = <TraceCard item={item} mode="guided" onGraded={onCheck} />;
+    } else if (learnStep.step === "check3") {
+      // TYPE IT. Produce the character from its sound. On a Latin keyboard that
+      // means finding the accent — Alex's point, and the teach card carries the
+      // per-device instructions. On a Japanese one it means the kana, and
+      // `checkProduce` accepts rōmaji through A1 so no IME is required to start
+      // (Alex, 2026-09-16: "type only accepts rōmaji until A2"); from A2 up
+      // production means the real script, which is the rule already in answer.js.
+      assertLiveKind("type:produce");
+      card = <TypeCard item={item} mode="produce" onGraded={onCheck} />;
+    } else {
+      // SAY IT — check2 on a typed letter, check4 on a drawn one. The rung the app
+      // had never run in a lesson: SpeakCard was built and live in LIVE_CARD_KINDS
+      // but only reachable from a rung-4 review, which no unit-1 learner has. It
+      // plays the letter, arms the mic and grades leniently; no mic or no endpoint
+      // degrades to an ungraded "say it" prompt rather than blocking the lesson.
+      assertLiveKind("speak");
+      card = <SpeakCard item={item} onGraded={onCheck} />;
+    }
+  } else if (learnStep.step === "check3") {
+    // SAY IT — a WORD's third check, from unit 2 on. (A letter's check3 is the
+    // typing card, routed in the glyph branch above.)
     assertLiveKind("speak");
     label = "Practice";
     card = <SpeakCard item={item} onGraded={onCheck} />;
-  } else if (learnStep.step === "check3") {
-    // TYPE IT. Third and last rung: produce the character itself, which on a
-    // laptop or phone means finding the accent on the keyboard - the point Alex
-    // made. The teach card carries the per-device instructions for doing that.
-    assertLiveKind("type:produce");
-    label = "Practice";
-    card = <TypeCard item={item} mode="produce" onGraded={onCheck} />;
   } else if (isTraceable(item)) {
-    // Every character — kana AND kanji — is recalled by writing it stroke by
-    // stroke. (Yōon digraphs have no single stroke entry, so they fall through.)
+    // A traceable NON-glyph (kanji vocab) still recalls by writing.
     assertLiveKind("trace");
     label = "Practice";
     card = <TraceCard item={item} mode="guided" onGraded={onCheck} />;

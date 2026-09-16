@@ -86,3 +86,44 @@ test("missing a step maxMisses times force-graduates (no infinite loop)", () => 
   assert.ok(guard < 100, "terminated — no infinite re-queue");
   assert.deepEqual(grad, { id: "a", grade: "hard" });
 });
+
+// A LETTER runs more checks than a word, and a letter you DRAW runs more than a
+// letter you only type. Alex, 2026-09-16: "Ja check 3 is type and check 4 is say
+// it - ja has more cuz of trace, just like Mandarin and Hindi will have."
+test("check count is per item: 2 for a word, 3 for a typed letter, 4 for a drawn one", () => {
+  const n = { word: 2, typed: 3, drawn: 4 };
+  const q = buildLearnQueue(["word", "typed", "drawn"], LEARN_OPTS, (id) => n[id]);
+
+  const steps = (id) => q.filter((s) => s.id === id).map((s) => s.step);
+  assert.deepEqual(steps("word"), ["teach", "check1", "check2"]);
+  assert.deepEqual(steps("typed"), ["teach", "check1", "check2", "check3"]);
+  assert.deepEqual(steps("drawn"), ["teach", "check1", "check2", "check3", "check4"]);
+
+  // Teaches still all come first — you never get checked on an item you have not met.
+  const firstCheck = q.findIndex((s) => s.step !== "teach");
+  assert.ok(q.slice(0, firstCheck).every((s) => s.step === "teach"));
+  assert.equal(firstCheck, 3);
+  assert.equal(q.length, 3 + 2 + 3 + 4);
+});
+
+test("an item only graduates once EVERY check it runs has passed", () => {
+  const drawn = () => 4;
+  let st = initLearn(["k"], LEARN_OPTS, drawn);
+  st = answerStep(st, null).state; // the teach card first — it grades nothing
+  let grads = 0;
+  for (let i = 0; i < 4; i++) {
+    const r = answerStep(st, { pass: true, clean: true });
+    st = r.state;
+    if (r.graduated) grads++;
+    if (i < 3) assert.equal(r.graduated, null, `graduated after only ${i + 1} of 4 checks`);
+  }
+  assert.equal(grads, 1, "graduates exactly once, on the last check");
+
+  // A two-check word is untouched by any of this.
+  let w = initLearn(["w"], LEARN_OPTS);
+  w = answerStep(w, null).state; // teach
+  const a = answerStep(w, { pass: true, clean: true });
+  assert.equal(a.graduated, null);
+  const b = answerStep(a.state, { pass: true, clean: true });
+  assert.deepEqual(b.graduated, { id: "w", grade: "good" });
+});

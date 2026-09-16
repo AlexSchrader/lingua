@@ -16,7 +16,20 @@ export default function TeachCard({ item, onAdvance }) {
   // + "Got it" with no explanation of the loop. Show a one-time framing line while
   // nothing is learned yet; it self-hides the moment the first item graduates.
   const isFirstEver = useStore((s) => !Object.values(s.items).some((it) => (it.rung ?? 0) >= 1));
-  const label = item.type === "kana" ? "character" : item.type === "kanji" ? "kanji" : "word";
+  // "New word" over a bare é is wrong - it is a LETTER, and the lesson that
+  // teaches it never shows a word. `glyph` is the Latin-script letter type.
+  const label =
+    item.type === "kana" ? "character"
+    : item.type === "kanji" ? "kanji"
+    : item.type === "glyph" ? "letter"
+    : "word";
+  // A hint may be written as several lines: the first is the hook, and each line
+  // after it is one short bullet. Keyboard instructions are the reason - "hold E
+  // on a phone, Option+e then e on a Mac, Alt+0233 on Windows" is three devices
+  // run together in one sentence, which is exactly the wall of text this app is
+  // supposed to design out. One device per line reads cleanly and scans. Purely a
+  // rendering rule: the engine never looks at WHAT the lines say.
+  const [hookLine, ...hintBullets] = String(item.hint ?? "").split(/\r?\n/).map((t) => t.trim()).filter(Boolean);
   // When furigana rubies the reading over a kanji headword, the romaji line below
   // is redundant — drop it so the reading shows once (all-kana words are unaffected).
   const rubied = furigana && HAS_KANJI.test(item.front ?? "");
@@ -74,7 +87,17 @@ export default function TeachCard({ item, onAdvance }) {
               borderRadius: 10,
             }}
           >
-            Memory hook: {item.hint}
+            <div>Memory hook: {hookLine}</div>
+            {hintBullets.length > 0 && (
+              <ul style={{ margin: "8px 0 0", padding: 0, listStyle: "none", textAlign: "left", fontStyle: "normal" }}>
+                {hintBullets.map((line) => (
+                  <li key={line} style={{ display: "flex", gap: 6, lineHeight: 1.5 }}>
+                    <span aria-hidden="true" style={{ color: C.ai }}>&bull;</span>
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         )}
 

@@ -11,7 +11,8 @@
 export const LEARN_OPTS = {
   off1: 3, // recognition check ~3 cards after teach
   off2: 6, // recall check ~6 cards after teach
-  off3: 9, // production check ~9 cards after teach - THIRD-CHECK ITEMS ONLY
+  off3: 9, // third check ~9 cards after teach - LETTERS ONLY
+  off4: 12, // fourth check ~12 cards after teach - DRAWN LETTERS ONLY
   missOffset: 2, // a missed check re-appears ~2 cards later
   maxMisses: 2, // after this many misses on a step, graduate anyway (as `hard`)
 };
@@ -20,35 +21,43 @@ export const LEARN_OPTS = {
 // vocab), then checks interleave by position. This guarantees a learner sees
 // every item in the lesson before any recognition/recall checks appear — you
 // can't be quizzed on はな before は and な have both been introduced.
-// Some items need a THIRD check. `needsThird(id)` is supplied by the caller and is
-// a question about the item's TYPE, never its identity - the engine stays
-// content-agnostic. Today it is true for letters: Alex's unit-1 standard is
-// "listen, speak and type the accent", which is three behaviours and does not fit
-// in two slots. Every other item keeps the two-check shape unchanged.
-export function buildLearnQueue(ids, opts = LEARN_OPTS, needsThird = () => false) {
+// How many checks an item runs, from the CALLER. A question about the item's TYPE,
+// never its identity - the engine stays content-agnostic and knows nothing about
+// what any check does.
+//
+//   2  an ordinary word.
+//   3  a letter you TYPE (e, n, ss, a) - Alex's unit-1 standard is "listen,
+//      speak and type the accent", three behaviours that do not fit in two slots.
+//   4  a letter you DRAW (kana, kanji, and later Mandarin and Hindi) - tracing is
+//      a fourth behaviour on top of those three, so a drawn script gets one more
+//      check than a typed one, not the same three.
+export const MAX_CHECKS = 4;
+const offsetFor = (opts, n) => opts[`off${n}`] ?? n * 3;
+
+export function buildLearnQueue(ids, opts = LEARN_OPTS, checksFor = () => 2) {
   const teaches = ids.map((id) => ({ id, step: "teach" }));
   const checks = [];
   ids.forEach((id, i) => {
-    checks.push({ id, step: "check1", k: (i + opts.off1) * 10 + 1 });
-    checks.push({ id, step: "check2", k: (i + opts.off2) * 10 + 2 });
-    if (needsThird(id)) checks.push({ id, step: "check3", k: (i + (opts.off3 ?? 9)) * 10 + 3 });
+    const n = Math.min(Math.max(checksFor(id) | 0, 2), MAX_CHECKS);
+    for (let c = 1; c <= n; c++) {
+      checks.push({ id, step: `check${c}`, k: (i + offsetFor(opts, c)) * 10 + c });
+    }
   });
   checks.sort((a, b) => a.k - b.k);
   return [...teaches, ...checks.map(({ id, step }) => ({ id, step }))];
 }
 
-export function initLearn(ids, opts = LEARN_OPTS, needsThird = () => false) {
+export function initLearn(ids, opts = LEARN_OPTS, checksFor = () => 2) {
   const status = {};
   for (const id of ids) {
-    // c3 starts TRUE for a two-check item, so graduation stays ONE condition and
-    // no caller has to know how many checks a given item runs.
-    status[id] = {
-      c1: false, c2: false, c3: !needsThird(id),
-      m1: 0, m2: 0, m3: 0,
-      clean: true, graduated: false,
-    };
+    const n = Math.min(Math.max(checksFor(id) | 0, 2), MAX_CHECKS);
+    // A check this item does not run starts already PASSED, so graduation stays
+    // one condition and no caller has to know how many checks an item has.
+    const s = { m1: 0, m2: 0, m3: 0, m4: 0, clean: true, graduated: false };
+    for (let c = 1; c <= MAX_CHECKS; c++) s[`c${c}`] = c > n;
+    status[id] = s;
   }
-  return { queue: buildLearnQueue(ids, opts, needsThird), pos: 0, status, opts };
+  return { queue: buildLearnQueue(ids, opts, checksFor), pos: 0, status, opts };
 }
 
 export function currentStep(st) {
@@ -70,7 +79,7 @@ export function answerStep(st, result) {
 
   if (cur.step !== "teach") {
     const s = { ...status[cur.id] };
-    const n = cur.step.slice(-1); // "1" | "2" | "3"
+    const n = cur.step.slice(-1); // "1" | "2" | "3" | "4"
     const passKey = `c${n}`;
     const missKey = `m${n}`;
 
@@ -89,7 +98,7 @@ export function answerStep(st, result) {
       }
     }
 
-    if (s.c1 && s.c2 && s.c3 && !s.graduated) {
+    if (s.c1 && s.c2 && s.c3 && s.c4 && !s.graduated) {
       s.graduated = true;
       graduated = { id: cur.id, grade: s.clean ? "good" : "hard" };
     }

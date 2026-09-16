@@ -175,7 +175,7 @@ export default function SpeakCard({ item, onGraded }) {
         <span>Listen, then say it back</span>
         <button
           onClick={replay}
-          aria-label="Play the word again"
+          aria-label="Play it again"
           style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 26, height: 26, borderRadius: 999, border: "none", background: C.aiSoft, color: C.aiDeep, cursor: "pointer" }}
         >
           <Volume2 size={15} />
@@ -278,7 +278,7 @@ export default function SpeakCard({ item, onGraded }) {
         </button>
       ) : (
         <div style={{ fontSize: 12, color: C.inkSoft, textAlign: "center", minHeight: 20 }}>
-          Say the word, then tap the mic to check.
+          Say it, then tap the mic to check.
         </div>
       )}
     </div>

@@ -117,8 +117,15 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
         // capital is the same character, not a wrong answer. checkProduce keeps the
         // strictness that matters (the bare letter still fails) and drops the
         // strictness that does not.
-        ? { prompt: item.reading, jp: false, ask: isJaGlyph ? "Type the kana" : "Type the letter",
-            check: (v) => (isJaGlyph ? v.trim() === item.front : checkProduce(v, item)), answer: item.front }
+        // checkProduce for BOTH scripts. The raw `v.trim() === item.front` this
+        // replaces ignored PRODUCE_ROMAJI_STAGES, so a kana card demanded a
+        // Japanese IME from the very first lesson - against answer.js's own rule
+        // that rōmaji is accepted through A1 and only stops counting at A2.
+        ? { prompt: item.reading, jp: false,
+            ask: !isJaGlyph ? "Type the letter"
+                 : produceAllowsRomaji(item) ? "Type the kana (or its rōmaji)"
+                 : "Type the kana ⌨️ (not rōmaji)",
+            check: (v) => checkProduce(v, item), answer: item.front }
         : { prompt: item.meaning, jp: false,
             // "accents optional" is TRUE for ordinary words and a lie on an accent
             // card, where the accent is the entire answer (see foldWouldEraseAnswer).

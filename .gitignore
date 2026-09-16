@@ -37,3 +37,4 @@ scratch-*.py
 # stay on disk for whoever is using them.
 /shots/
 /shots-deep/
+/shots-ladder/

@@ -350,3 +350,36 @@ test("Japanese speech grading is unchanged — the kana path still owns kana", (
   assert.equal(gradeSpoken("さ", ka), "hard", "a one-kana slip is still a near miss, not a pass");
   assert.equal(gradeSpoken("banana", ka), "again");
 });
+
+// The fold guard is about a mark being RUBBED OFF the same letter, not about a
+// script change. It fired on kana too, which made every single kana demand a
+// Japanese IME from lesson 1 and made the dictation card reject the very romaji
+// its own ask-line promises. Alex, 2026-09-16: "type only accepts romaji until A2."
+test("a single kana accepts romaji through A1, and stops accepting it at A2", () => {
+  const a1 = { id: "ja-u1l1-a", lang: "ja", type: "kana", stage: "a1", front: "あ", reading: "a" };
+  const a2 = { ...a1, id: "ja-u9l1-a", stage: "a2" };
+
+  assert.equal(checkProduce("あ", a1), true, "the kana itself always counts");
+  assert.equal(checkProduce("a", a1), true, "romaji is the A1 on-ramp - no IME required");
+  assert.equal(checkProduce("A", a1), true, "and a capital is the same letter");
+  assert.equal(checkProduce("i", a1), false, "the WRONG romaji is still wrong");
+
+  assert.equal(checkProduce("あ", a2), true, "the kana still counts at A2");
+  assert.equal(checkProduce("a", a2), false, "from A2 up, production means the real script");
+
+  // The dictation card promises "romaji or kana"; it has to honour that.
+  assert.equal(checkReading("a", a1), true);
+  assert.equal(checkReading("あ", a1), true);
+});
+
+test("a one-character LATIN accent still demands the accent - the fold is the answer", () => {
+  const e = { id: "fr-u1l1-e", lang: "fr", type: "glyph", stage: "a1", front: "é", reading: "e" };
+  assert.equal(checkProduce("é", e), true);
+  assert.equal(checkProduce("É", e), true, "a capital is the same character, not a miss");
+  assert.equal(checkProduce("e", e), false, "stripping the accent is not an answer - Dane's defect");
+  assert.equal(checkReading("e", e), false, "and the ear card must not hand it out either");
+
+  const ss = { id: "de-u1l3-ss", lang: "de", type: "glyph", stage: "a1", front: "ß", reading: "ss" };
+  assert.equal(checkProduce("ss", ss), false, "ß is the card's whole point");
+  assert.equal(checkProduce("ß", ss), true);
+});
