@@ -1,18 +1,97 @@
-// DE Unit 76 — Vocabulary 3 (B1) (slot: coverage-b1-3) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// DE Unit 76 — Auf dem Amt (slot: coverage-b1-3) — B1
+// Block 3 (u76-u87), the COVERAGE PASS. Conventions: see de/unit1.js.
+//
+// WHY THIS THEME. The scaffold slot is "Vocabulary 3 (B1)", which is the scaffold
+// admitting it does not know what is missing. What is missing in German, measured
+// against u1-u50 and the B1 slot titles of u51-u75, is the BUREAUCRACY register:
+// the corpus teaches der Pass (u19), der Ausweis (u23), die Behoerde and das
+// Formular (u32) and then never teaches a learner how to USE an office — no
+// counter, no deadline, no fee, no signature, no proof.
+//
+// FRONTS CHECKED at exact, reading-fold, article-stripped and lexeme level against
+// the whole de corpus with scripts/screen-de.mjs. SIX candidates for this unit were
+// dropped as already taught and are used in examples instead, never re-taught:
+//   die Behoerde (u32) · das Formular (u32) · der Ausweis (u23) ·
+//   die Unterschrift/unterschreiben -> only the VERB is carded ·
+//   der Antrag/beantragen -> only the NOUN is carded (same lexeme) ·
+//   die Anmeldung/sich anmelden -> only the REFLEXIVE VERB is carded.
+// "der Schalter" is glossed "the service window", not "the counter" — die Theke
+// (u42) already owns that gloss and two cards with one English answer is a card
+// the learner cannot answer.
 export const DE_UNIT76 = {
   id: "de-u76",
   lang: "de",
-  title: "Vocabulary 3 (B1)",
+  title: "Auf dem Amt",
   order: 76,
   stage: "b1",
   lessons: [
-    { id: "de-u76l1", title: "Lesson 1", locked: true },
-    { id: "de-u76l2", title: "Lesson 2", locked: true },
-    { id: "de-u76l3", title: "Lesson 3", locked: true },
-    { id: "de-u76l4", title: "Lesson 4", locked: true },
+    {
+      id: "de-u76l1",
+      unit: 76,
+      lesson: 1,
+      title: "Ämter und Schalter",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Name the public offices in a German town and say which counter you need.",
+      items: [
+        { id: "de-u76l1-dasamt", type: "vocab", front: "das Amt", reading: "dasamt", meaning: "the public office", example: { jp: "Ich muss morgen zum Amt gehen.", en: "I have to go to the public office tomorrow." }, drill: { jp: "Das Amt ist in der Stadt", en: "The office is in town" }, accept: ["public office", "the public office", "government office"], hint: "The state office you go to for papers: das Bürgeramt, das Finanzamt, das Jugendamt." },
+        { id: "de-u76l1-dieverwaltung", type: "vocab", front: "die Verwaltung", reading: "dieverwaltung", meaning: "the administration", example: { jp: "Die Verwaltung der Stadt ist sehr groß.", en: "The city administration is very big." }, drill: { jp: "Die Verwaltung ist im Rathaus", en: "The administration is in the town hall" }, accept: ["administration", "the administration", "the admin", "management"], hint: "From verwalten, to administer — the office side of any organisation." },
+        { id: "de-u76l1-dasrathaus", type: "vocab", front: "das Rathaus", reading: "dasrathaus", meaning: "the town hall", example: { jp: "Das Rathaus ist am Markt.", en: "The town hall is on the market square." }, drill: { jp: "Das Rathaus ist sehr alt", en: "The town hall is very old" }, accept: ["town hall", "the town hall", "city hall", "the city hall"], hint: "der Rat = the council. Not a rat — that is die Ratte." },
+        { id: "de-u76l1-derschalter", type: "vocab", front: "der Schalter", reading: "derschalter", meaning: "the service window", example: { jp: "Ich warte am Schalter auf meine Nummer.", en: "I am waiting at the window for my number." }, drill: { jp: "Der Schalter ist hier links", en: "The window is here on the left" }, accept: ["service window", "the service window", "the window", "the serving hatch"], hint: "The window you are served at in an office, bank or station. Also a light switch." },
+        { id: "de-u76l1-derbeamte", type: "vocab", front: "der Beamte", reading: "derbeamte", meaning: "the civil servant", example: { jp: "Der Beamte hat mir viel erklärt.", en: "The civil servant explained a lot to me." }, drill: { jp: "Der Beamte ist sehr nett", en: "The civil servant is very nice" }, accept: ["civil servant", "the civil servant", "official", "the official"], hint: "An adjective-noun, so the article changes it: ein Beamter, der Beamte, die Beamtin." },
+        { id: "de-u76l1-dersachbearbeiter", type: "vocab", front: "der Sachbearbeiter", reading: "dersachbearbeiter", meaning: "the case worker", example: { jp: "Mein Sachbearbeiter ist heute nicht im Haus.", en: "My case worker is not in the building today." }, drill: { jp: "Der Sachbearbeiter liest den Antrag", en: "The case worker reads the application" }, accept: ["case worker", "the case worker", "caseworker", "the clerk"], hint: "die Sache + bearbeiten: the person whose desk your case lands on." },
+      ],
+    },
+    {
+      id: "de-u76l2",
+      unit: 76,
+      lesson: 2,
+      title: "Das Formular ausfüllen",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Fill in a German form, tick the right boxes, sign it and hand it in.",
+      items: [
+        { id: "de-u76l2-ausfullen", type: "vocab", front: "ausfüllen", reading: "ausfullen", meaning: "to fill in", example: { jp: "Sie müssen das Formular ganz ausfüllen.", en: "You have to fill the form in completely." }, drill: { jp: "Ich muss das Formular ausfüllen", en: "I have to fill in the form" }, accept: ["to fill in", "fill in", "to fill out", "fill out", "to complete"], hint: "Separable: ich fülle das Formular aus." },
+        { id: "de-u76l2-ankreuzen", type: "vocab", front: "ankreuzen", reading: "ankreuzen", meaning: "to tick a box", example: { jp: "Sie müssen hier ja oder nein ankreuzen.", en: "You have to tick yes or no here." }, drill: { jp: "Sie müssen eine Antwort ankreuzen", en: "You have to tick one answer" }, accept: ["to tick", "tick", "to tick a box", "to check a box", "to mark with a cross"], hint: "das Kreuz = the cross. A German form is ticked with a cross, not a check mark." },
+        { id: "de-u76l2-unterschreiben", type: "vocab", front: "unterschreiben", reading: "unterschreiben", meaning: "to sign", example: { jp: "Sie müssen den Antrag hier unten unterschreiben.", en: "You have to sign the application down here." }, drill: { jp: "Ich muss den Antrag unterschreiben", en: "I have to sign the application" }, accept: ["to sign", "sign", "to put your name to"], hint: "unter + schreiben, you write underneath. NOT separable: ich unterschreibe." },
+        { id: "de-u76l2-derantrag", type: "vocab", front: "der Antrag", reading: "derantrag", meaning: "the formal request", example: { jp: "Der Antrag für den Pass liegt auf dem Tisch.", en: "The application for the passport is on the table." }, drill: { jp: "Der Antrag ist noch hier", en: "The application is still here" }, accept: ["formal request", "the formal request", "the request", "the submission"], hint: "einen Antrag stellen = to put in an application. A JOB application is die Bewerbung." },
+        { id: "de-u76l2-einreichen", type: "vocab", front: "einreichen", reading: "einreichen", meaning: "to submit", example: { jp: "Sie können den Antrag auch bei uns einreichen.", en: "You can also submit the application with us." }, drill: { jp: "Ich will den Antrag einreichen", en: "I want to submit the application" }, accept: ["to submit", "submit", "to hand in", "hand in", "to file"], hint: "Separable and formal: ich reiche den Antrag ein. Everyday German says abgeben." },
+        { id: "de-u76l2-zustandig", type: "vocab", front: "zuständig", reading: "zustandig", meaning: "responsible for a case", example: { jp: "Wer ist hier für meinen Pass zuständig?", en: "Who is responsible for my passport here?" }, drill: { jp: "Das Amt ist hier nicht zuständig", en: "This office is not responsible here" }, accept: ["responsible", "responsible for", "in charge", "the one in charge"], hint: "Wer ist zuständig? = whose job is this? Always with für." },
+      ],
+    },
+    {
+      id: "de-u76l3",
+      unit: 76,
+      lesson: 3,
+      title: "Nachweise und Stempel",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Register with the authorities and show the papers that prove who you are.",
+      items: [
+        { id: "de-u76l3-sichanmelden", type: "vocab", front: "sich anmelden", reading: "sichanmelden", meaning: "to register with the authorities", example: { jp: "Wer neu in der Stadt wohnt, muss sich anmelden.", en: "Anyone who newly lives in the town has to register." }, drill: { jp: "Sie müssen sich anmelden", en: "You have to register" }, accept: ["to register", "register", "to sign up", "to report to the authorities"], hint: "Reflexive: ich melde mich an. The opposite is sich abmelden, to deregister." },
+        { id: "de-u76l3-diebescheinigung", type: "vocab", front: "die Bescheinigung", reading: "diebescheinigung", meaning: "the written confirmation", example: { jp: "Der Arzt gibt mir eine Bescheinigung für die Firma.", en: "The doctor gives me a note for the company." }, drill: { jp: "Die Bescheinigung liegt hier", en: "The confirmation is lying here" }, accept: ["written confirmation", "the written confirmation", "certificate", "the certificate", "the note"], hint: "Any paper that officially confirms something. From bescheinigen, to certify." },
+        { id: "de-u76l3-dernachweis", type: "vocab", front: "der Nachweis", reading: "dernachweis", meaning: "the proof", example: { jp: "Ohne Nachweis kann das Amt nichts machen.", en: "Without proof the office cannot do anything." }, drill: { jp: "Der Nachweis liegt hier auf dem Tisch", en: "The proof is lying here on the table" }, accept: ["proof", "the proof", "evidence", "the evidence"], hint: "nachweisen = to prove. der Einkommensnachweis = proof of income." },
+        { id: "de-u76l3-derstempel", type: "vocab", front: "der Stempel", reading: "derstempel", meaning: "the rubber stamp", example: { jp: "Der Beamte setzt einen Stempel auf den Antrag.", en: "The civil servant puts a stamp on the application." }, drill: { jp: "Der Stempel ist blau", en: "The stamp is blue" }, accept: ["rubber stamp", "the rubber stamp", "stamp", "the stamp", "the official stamp"], hint: "The stamp an office presses onto paper. A POSTAGE stamp is die Briefmarke." },
+        { id: "de-u76l3-diekopie", type: "vocab", front: "die Kopie", reading: "diekopie", meaning: "the photocopy", example: { jp: "Das Amt will eine Kopie vom Pass.", en: "The office wants a copy of the passport." }, drill: { jp: "Die Kopie liegt im Antrag", en: "The copy is in the application" }, accept: ["photocopy", "the photocopy", "copy", "the copy", "duplicate"], hint: "kopieren = to copy. Said 'ko-PEE', two syllables — it is the PLURAL Kopien that has three." },
+        { id: "de-u76l3-dasoriginal", type: "vocab", front: "das Original", reading: "dasoriginal", meaning: "the original document", example: { jp: "Das Original bleibt bei mir, die Kopie geht an das Amt.", en: "The original stays with me, the copy goes to the office." }, drill: { jp: "Das Original bleibt bei mir", en: "The original stays with me" }, accept: ["original document", "the original document", "original", "the original"], hint: "im Original = in the original. Stress on the last syllable: origi-NAL." },
+      ],
+    },
+    {
+      id: "de-u76l4",
+      unit: 76,
+      lesson: 4,
+      title: "Fristen und Gebühren",
+      cefr: "B1",
+      dominantMode: "recall",
+      canDo: "Ask what an office charges, how long you have, and when a document runs out.",
+      items: [
+        { id: "de-u76l4-diefrist", type: "vocab", front: "die Frist", reading: "diefrist", meaning: "the deadline", example: { jp: "Die Frist für den Antrag ist am Montag.", en: "The deadline for the application is on Monday." }, drill: { jp: "Die Frist ist sehr kurz", en: "The deadline is very short" }, accept: ["deadline", "the deadline", "time limit", "the time limit"], hint: "The window of time you get. eine Frist einhalten = to meet a deadline." },
+        { id: "de-u76l4-diegebuhr", type: "vocab", front: "die Gebühr", reading: "diegebuhr", meaning: "the fee", example: { jp: "Für den Pass muss man eine Gebühr bezahlen.", en: "You have to pay a fee for the passport." }, drill: { jp: "Die Gebühr ist sehr hoch", en: "The fee is very high" }, accept: ["fee", "the fee", "charge", "the charge"], hint: "What an office, bank or school charges. Usually plural: die Gebühren." },
+        { id: "de-u76l4-gultig", type: "vocab", front: "gültig", reading: "gultig", meaning: "valid", example: { jp: "Mein Pass ist noch zwei Jahre gültig.", en: "My passport is valid for another two years." }, drill: { jp: "Die Karte ist noch gültig", en: "The ticket is still valid" }, accept: ["valid", "in date", "still valid"], hint: "From gelten, to count. The opposite is ungültig." },
+        { id: "de-u76l4-ablaufen", type: "vocab", front: "ablaufen", reading: "ablaufen", meaning: "to expire", example: { jp: "Mein Pass läuft im Mai ab.", en: "My passport expires in May." }, drill: { jp: "Mein Pass kann bald ablaufen", en: "My passport can expire soon" }, accept: ["to expire", "expire", "to run out", "run out"], hint: "Separable: der Pass läuft ab. Also used for water running out of a sink." },
+        { id: "de-u76l4-diegenehmigung", type: "vocab", front: "die Genehmigung", reading: "diegenehmigung", meaning: "the official approval", example: { jp: "Ohne Genehmigung dürfen Sie hier nicht arbeiten.", en: "Without approval you are not allowed to work here." }, drill: { jp: "Die Genehmigung kommt im Juli", en: "The approval comes in July" }, accept: ["official approval", "the official approval", "approval", "the permit", "permission"], hint: "genehmigen = to approve. die Baugenehmigung = planning permission." },
+        { id: "de-u76l4-dieoffnungszeit", type: "vocab", front: "die Öffnungszeit", reading: "dieoffnungszeit", meaning: "the opening time", example: { jp: "Die Öffnungszeiten sind von acht bis zwölf.", en: "The opening times are from eight to twelve." }, drill: { jp: "Die Öffnungszeit ist sehr kurz", en: "The opening hours are very short" }, accept: ["opening time", "the opening time", "opening hours", "the opening hours"], hint: "Usually plural on a door sign: die Öffnungszeiten. öffnen = to open." },
+      ],
+    },
   ],
 };
