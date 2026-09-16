@@ -203,14 +203,23 @@
 //    frame available does not make the sample sentence available — `å si` is
 //    u12l3, so "Jeg har noe å si" is out of scope anywhere before it even though
 //    the `noe å` frame opens at u10l1. Take the SHAPE, write your own words.
-//    (The like-frame row previously read "Jeg liker å lage mat" — and `mat` is a
-//    front NOWHERE in the corpus, so the sentence illustrating a safe frame was
-//    itself a §6 violation. Third instance of the same class, caught by block 2,
-//    and it happened inside the paragraph that says CHECK A FRAME AGAINST BOTH.
-//    That is the argument for the habit, not against it: the list keeps going
-//    stale, the check does not.)
-//    Want prøve or pleie? Teach the frame verb first — that is allowed, it just
-//    has to be a card before it is an example. And the modals are fine to USE in
+//    (The like-frame row previously read "Jeg liker å lage mat". That was called a
+//    §6 violation on the grounds that `mat` is "a front NOWHERE in the corpus".
+//    ⚠️ THAT IS NO LONGER TRUE, AND THE CORRECTION IS THE POINT OF THE PARAGRAPH.
+//    Measured against the real corpus 2026-09-16: `mat` is u30l1, `å prøve` is
+//    u15l3, `å pleie` is u21l1. All three are taught. The illustration above was
+//    changed to "å lage kake" for a reason that had stopped being true, and this
+//    paragraph then told every later seat that three taught words were untaught —
+//    so seats wrote around vocabulary the learner already has. A stale DO-NOT list
+//    costs more than no list: it is invisible, it is trusted, and it makes the
+//    corpus poorer in a direction nothing measures.
+//    So: the habit the paragraph teaches is right and the list inside it was
+//    wrong. CHECK THE FRAME AGAINST THE CORPUS, not against this comment —
+//    `npm run taught -- no`, or grep the fronts. Do not trust any word list in a
+//    header, including this one, including tomorrow.)
+//    prøve and pleie are taught (u15l3, u21l1) and are free to use as frames. If
+//    you want a frame verb that genuinely is not taught, teach it first — that is
+//    allowed, it just has to be a card before it is an example. And the modals are fine to USE in
 //    examples — block 2 teaches SIX, all at u13l2: å kunne, å ville, å skulle,
 //    å måtte, å burde, å få. They simply never restore reachability, because
 //    Norwegian drops the å after them. "Do not chase modals for the router" is
