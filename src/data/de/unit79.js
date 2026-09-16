@@ -2,11 +2,26 @@
 // Block 3 (u76-u87), the COVERAGE PASS. Conventions: see de/unit1.js.
 //
 // WHY THIS THEME, GIVEN THAT der Vertrag AND die Versicherung ARE ALREADY TAUGHT.
-// They are (u24 and u25) — and that is exactly the shape RUNBOOK §4 describes: an
-// A2 slot spent the CONCRETE noun, and the B1 slot takes the PROCESS layer over
-// it. A learner who knows "der Vertrag" still cannot say what a contract runs for,
-// what is in the small print, what falls due, what the surcharge is, or who is
-// liable. Nothing in u1-u75 teaches a single one of those.
+// They are (u24 and u25). The justification is the FRONTS, and it has to be,
+// because the rule this comment originally cited does not exist:
+//
+// ⚠️ CORRECTED. An earlier version of this header claimed "exactly the shape
+// RUNBOOK §4 describes: an A2 slot spent the CONCRETE noun, and the B1 slot takes
+// the PROCESS layer over it." RUNBOOK §4 says no such thing. The phrase is a
+// PORTUGUESE block-1 lead's ruling to its own blocks 2/3 (BUILD-CHECKLIST.md:173,
+// src/data/pt/unit67.js:8), and importing another language's ruling into German is
+// what CLAUDE.md "No front language — every language is built from its own root"
+// forbids. Worse, RUNBOOK §4 at that point records the Spanish B1 post-mortem in
+// which duplicated THEMES cost 159 cards — so the citation offered the disaster as
+// authority for repeating it.
+//
+// THE ACTUAL JUSTIFICATION, which needs no borrowed rule: not one of the 24 fronts
+// below is taught anywhere in the corpus, each was screened at exact, fold,
+// article-stripped, stem and gloss level, and each is a word a learner cannot do
+// without. A learner who knows "der Vertrag" still cannot say what a contract runs
+// for (die Laufzeit), what is in the small print (das Kleingedruckte), what falls
+// due (fällig), what arrives when it does not (die Mahnung), or who is liable
+// (haften). The theme is carried by its fronts or not at all.
 //
 // FRONTS DROPPED as already taught, used in examples only:
 //   der Vertrag (u24) · kuendigen (u24) · die Bedingung (u37) ·
@@ -50,7 +65,7 @@ export const DE_UNIT79 = {
         { id: "de-u79l2-diezusage", type: "vocab", front: "die Zusage", reading: "diezusage", meaning: "the acceptance", example: { jp: "Wir warten noch auf die Zusage.", en: "We are still waiting for the acceptance." }, drill: { jp: "Die Zusage kommt am Montag", en: "The acceptance comes on Monday" }, accept: ["acceptance", "the acceptance", "the go ahead", "the confirmation", "the yes"], hint: "zu + sagen, to say yes to something. The opposite is die Absage." },
         { id: "de-u79l2-verlangern", type: "vocab", front: "verlängern", reading: "verlangern", meaning: "to extend", example: { jp: "Ich möchte meinen Pass verlängern.", en: "I would like to extend my passport." }, drill: { jp: "Wir wollen den Vertrag verlängern", en: "We want to extend the contract" }, accept: ["to extend", "extend", "to renew", "renew", "to prolong"], hint: "From lang. Used for papers, contracts and cables alike." },
         { id: "de-u79l2-stornieren", type: "vocab", front: "stornieren", reading: "stornieren", meaning: "to cancel a booking", example: { jp: "Wir müssen das Hotel leider stornieren.", en: "Unfortunately we have to cancel the hotel." }, drill: { jp: "Ich will das Hotel stornieren", en: "I want to cancel the hotel" }, accept: ["to cancel a booking", "cancel a booking", "to cancel", "cancel"], hint: "Only bookings and orders. A CONTRACT is gekündigt, never storniert." },
-        { id: "de-u79l2-derwiderspruch", type: "vocab", front: "der Widerspruch", reading: "derwiderspruch", meaning: "the formal objection", example: { jp: "Gegen das Amt hilft ein Widerspruch.", en: "A formal objection helps against the office." }, drill: { jp: "Der Widerspruch kommt zu spät", en: "The objection comes too late" }, accept: ["formal objection", "the formal objection", "objection", "appeal", "the appeal", "the contradiction"], hint: "wider = against + sprechen. Widerspruch einlegen = to lodge an appeal." },
+        { id: "de-u79l2-derwiderspruch", type: "vocab", front: "der Widerspruch", reading: "derwiderspruch", meaning: "the formal objection", example: { jp: "Gegen die Gebühr hilft ein Widerspruch.", en: "A formal objection helps against the fee." }, drill: { jp: "Der Widerspruch kommt zu spät", en: "The objection comes too late" }, accept: ["formal objection", "the formal objection", "objection", "appeal", "the appeal", "the contradiction"], hint: "wider = against + sprechen. Widerspruch einlegen = to lodge an appeal." },
         { id: "de-u79l2-verpflichten", type: "vocab", front: "verpflichten", reading: "verpflichten", meaning: "to oblige", example: { jp: "Der Vertrag verpflichtet uns für zwei Jahre.", en: "The contract obliges us for two years." }, drill: { jp: "Das kann uns nicht verpflichten", en: "That cannot oblige us" }, accept: ["to oblige", "oblige", "to commit", "commit", "to bind"], hint: "die Pflicht = the duty. sich verpflichten = to commit yourself to something." },
         { id: "de-u79l2-deranspruch", type: "vocab", front: "der Anspruch", reading: "deranspruch", meaning: "the claim to something", example: { jp: "Sie haben Anspruch auf Urlaub.", en: "You have a claim to holiday." }, drill: { jp: "Der Anspruch ist noch gültig", en: "The claim is still valid" }, accept: ["claim", "the claim", "the claim to something", "entitlement", "the right to something"], hint: "Anspruch auf etwas haben = to be entitled to something. From ansprechen." },
       ],
@@ -82,7 +97,7 @@ export const DE_UNIT79 = {
       canDo: "Say what you owe, when it falls due, and who is liable for the damage.",
       items: [
         { id: "de-u79l4-fallig", type: "vocab", front: "fällig", reading: "fallig", meaning: "due for payment", example: { jp: "Die Rechnung ist am Freitag fällig.", en: "The bill is due on Friday." }, drill: { jp: "Die Rate ist morgen fällig", en: "The instalment is due tomorrow" }, accept: ["due", "due for payment", "payable", "owing"], hint: "When a payment falls due. Also: das war längst fällig, that was long overdue." },
-        { id: "de-u79l4-diemahnung", type: "vocab", front: "die Mahnung", reading: "diemahnung", meaning: "the payment reminder", example: { jp: "Nach der Mahnung kommt der Zuschlag.", en: "After the reminder comes the surcharge." }, drill: { jp: "Die Mahnung kommt mit der Post", en: "The reminder comes with the post" }, accept: ["payment reminder", "the payment reminder", "reminder", "the reminder", "the demand for payment"], hint: "mahnen = to remind sternly. The second Mahnung costs extra money." },
+        { id: "de-u79l4-diemahnung", type: "vocab", front: "die Mahnung", reading: "diemahnung", meaning: "the payment reminder", example: { jp: "Nach der Mahnung kommt eine Gebühr.", en: "After the reminder comes a fee." }, drill: { jp: "Die Mahnung kommt mit der Post", en: "The reminder comes with the post" }, accept: ["payment reminder", "the payment reminder", "reminder", "the reminder", "the demand for payment"], hint: "mahnen = to remind sternly. The second Mahnung costs extra money." },
         { id: "de-u79l4-schulden", type: "vocab", front: "schulden", reading: "schulden", meaning: "to owe", example: { jp: "Ich schulde meinem Bruder noch Geld.", en: "I still owe my brother money." }, drill: { jp: "Ich will dir nichts schulden", en: "I don't want to owe you anything" }, accept: ["to owe", "owe", "to be in debt for"], hint: "die Schuld is both the debt and the guilt. Du schuldest mir zehn Euro." },
         { id: "de-u79l4-derbeitrag", type: "vocab", front: "der Beitrag", reading: "derbeitrag", meaning: "the membership fee", example: { jp: "Der Beitrag für den Sport ist nicht hoch.", en: "The fee for the sports club is not high." }, drill: { jp: "Der Beitrag kommt jeden Monat", en: "The fee comes every month" }, accept: ["membership fee", "the membership fee", "contribution", "the contribution", "the subscription"], hint: "beitragen = to contribute. Club and insurance payments are both Beiträge." },
         { id: "de-u79l4-derschaden", type: "vocab", front: "der Schaden", reading: "derschaden", meaning: "the damage", example: { jp: "Der Schaden am Auto war nicht groß.", en: "The damage to the car was not big." }, drill: { jp: "Der Schaden ist sehr groß", en: "The damage is very big" }, accept: ["damage", "the damage", "harm", "the harm", "the loss"], hint: "Plural die Schäden. es schadet nichts = it does no harm." },

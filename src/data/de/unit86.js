@@ -9,7 +9,8 @@
 // attention layer neither covers.
 //
 // FRONTS DROPPED as already taught or as lexeme duplicates:
-//   erkennen (u43) · sehen, hoeren (u1-u11) · schmecken (u41) ·
+//   erkennen (u43) · hoeren (u1) · sehen (u16 — this line said "u1-u11") ·
+//   schmecken (u41) ·
 //   die Ablenkung (lexeme of ablenken, carded here) ·
 //   starren (lexeme of starr u49) · auffassen (dropped as too close to verstehen).
 // GLOSS SPLIT: das Geraeusch is "the noise", die Stille is "the silence" —
@@ -68,7 +69,7 @@ export const DE_UNIT86 = {
         { id: "de-u86l3-derduft", type: "vocab", front: "der Duft", reading: "derduft", meaning: "the scent", example: { jp: "Der Duft von Brot kommt aus der Küche.", en: "The smell of bread comes from the kitchen." }, drill: { jp: "Der Duft kommt aus dem Garten", en: "The scent comes from the garden" }, accept: ["scent", "the scent", "the fragrance", "the aroma", "the pleasant smell"], hint: "Always a GOOD smell. A bad one is der Gestank." },
         { id: "de-u86l3-beruhren", type: "vocab", front: "berühren", reading: "beruhren", meaning: "to touch", example: { jp: "Bitte nicht die Bilder berühren.", en: "Please don't touch the pictures." }, drill: { jp: "Man darf das nicht berühren", en: "You must not touch that" }, accept: ["to touch", "touch", "to make contact with", "to move emotionally"], hint: "Also emotionally: die Geschichte hat mich berührt." },
         { id: "de-u86l3-spuren", type: "vocab", front: "spüren", reading: "spuren", meaning: "to sense", example: { jp: "Ich spüre den Wind im Gesicht.", en: "I feel the wind on my face." }, drill: { jp: "Man kann die Kälte spüren", en: "You can feel the cold" }, accept: ["to sense", "sense", "to feel", "feel", "to be aware of"], hint: "Feeling something happen TO you. fühlen is more about emotion." },
-        { id: "de-u86l3-wahrnehmen", type: "vocab", front: "wahrnehmen", reading: "wahrnehmen", meaning: "to perceive", example: { jp: "Sie will das Problem nicht wahrnehmen.", en: "She doesn't want to perceive the problem." }, drill: { jp: "Wir können den Duft wahrnehmen", en: "We can perceive the scent" }, accept: ["to perceive", "perceive", "to become aware of", "to take in"], hint: "wahr + nehmen: to take as true. Separable: ich nehme es wahr." },
+        { id: "de-u86l3-wahrnehmen", type: "vocab", front: "wahrnehmen", reading: "wahrnehmen", meaning: "to perceive", example: { jp: "Im Zimmer kann man den Duft gut wahrnehmen.", en: "In the room you can clearly make out the scent." }, drill: { jp: "Wir können den Duft wahrnehmen", en: "We can perceive the scent" }, accept: ["to perceive", "perceive", "to become aware of", "to take in"], hint: "wahr + nehmen: to take as true. Separable: ich nehme es wahr." },
         { id: "de-u86l3-dereindruck", type: "vocab", front: "der Eindruck", reading: "dereindruck", meaning: "the impression", example: { jp: "Mein Eindruck von der Wohnung ist gut.", en: "My impression of the flat is good." }, drill: { jp: "Der Eindruck ist sehr gut", en: "The impression is very good" }, accept: ["impression", "the impression", "the feeling you get", "the sense of it"], hint: "ein + drücken: pressed in. Eindruck machen = to make an impression." },
       ],
     },

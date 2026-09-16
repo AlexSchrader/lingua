@@ -9,10 +9,14 @@
 // that happened to a person needs all of it.
 //
 // FRONTS DROPPED as already taught or as lexeme duplicates:
-//   springen, fallen (u44/u45) · die Haltung (lexeme of halten u44 — carded here
-//   as the compound die Koerperhaltung instead) · zeigen auf (lexeme of zeigen
-//   u20 — carded here as deuten) · knien (lexeme of das Knie u25) ·
-//   starren (lexeme of starr u49) · laecheln (u22).
+//   fallen (u44) · die Haltung (lexeme of halten u44 — carded here as the
+//   compound die Koerperhaltung instead) · zeigen auf (lexeme of zeigen, u18) ·
+//   knien (lexeme of das Knie u25) · starren (lexeme of starr u49).
+// ⚠️ CORRECTED — this list previously also named "springen (u44/u45)" and
+// "laecheln (u22)" as already taught, and cited zeigen at u20. BOTH springen AND
+// laecheln ARE TAUGHT NOWHERE IN THE CORPUS, and zeigen is u18. So two basic
+// words were declined on a false premise: they are GAPS, not duplicates, and are
+// flagged to the lead rather than silently dropped. Caught by fact-checker.
 // REFLEXIVE FRONTS AND THE DRILL RULE. findWholeWord needs the front contiguous,
 // and German splits a reflexive: "ich bücke mich" does NOT contain "sich bücken".
 // Every reflexive here is therefore drilled with a MODAL, which pushes the
@@ -89,7 +93,7 @@ export const DE_UNIT85 = {
         { id: "de-u85l4-grinsen", type: "vocab", front: "grinsen", reading: "grinsen", meaning: "to grin", example: { jp: "Das Kind grinst über das Geschenk.", en: "The child grins about the present." }, drill: { jp: "Er kann nicht mehr grinsen", en: "He can't grin any more" }, accept: ["to grin", "grin", "to smirk", "smirk", "to beam"], hint: "Broader and cheekier than lächeln, and sometimes unkind." },
         { id: "de-u85l4-gahnen", type: "vocab", front: "gähnen", reading: "gahnen", meaning: "to yawn", example: { jp: "Ich bin müde und gähne.", en: "I am tired and I yawn." }, drill: { jp: "Am Abend muss man gähnen", en: "In the evening you have to yawn" }, accept: ["to yawn", "yawn", "to give a yawn"], hint: "Said 'GAY-nen'. Also of an empty space: eine gähnende Leere." },
         { id: "de-u85l4-sichumdrehen", type: "vocab", front: "sich umdrehen", reading: "sichumdrehen", meaning: "to turn around", example: { jp: "Er dreht sich um und geht.", en: "He turns around and goes." }, drill: { jp: "Man muss sich umdrehen", en: "You have to turn around" }, accept: ["to turn around", "turn around", "to turn round", "to look back"], hint: "Reflexive and separable: ich drehe mich um." },
-        { id: "de-u85l4-diekorperhaltung", type: "vocab", front: "die Körperhaltung", reading: "diekorperhaltung", meaning: "the body posture", example: { jp: "Die Körperhaltung von dem Mann ist schlecht.", en: "The man's posture is bad." }, drill: { jp: "Die Körperhaltung ist nicht gut", en: "The posture is not good" }, accept: ["posture", "the posture", "body posture", "the body posture", "the bearing"], hint: "der Körper + die Haltung. How you hold yourself — and what it signals." },
+        { id: "de-u85l4-diekorperhaltung", type: "vocab", front: "die Körperhaltung", reading: "diekorperhaltung", meaning: "the body posture", example: { jp: "Die Körperhaltung vom Mann ist schlecht.", en: "The man's posture is bad." }, drill: { jp: "Die Körperhaltung ist nicht gut", en: "The posture is not good" }, accept: ["posture", "the posture", "body posture", "the body posture", "the bearing"], hint: "der Körper + die Haltung. How you hold yourself — and what it signals." },
       ],
     },
   ],

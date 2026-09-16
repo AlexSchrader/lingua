@@ -1,14 +1,28 @@
 // DE Unit 84 — Partikeln und Gesprächswörter (slot: coverage-b1-11) — B1
 // Block 3 (u76-u87), the COVERAGE PASS. Conventions: see de/unit1.js.
 //
-// WHY THIS THEME — THE BIGGEST SINGLE GAP IN GERMAN AS THIS CORPUS TEACHES IT.
-// u12 teaches doch, u29 and u36 teach the CONJUNCTIONS that join clauses, and the
-// B1 grammar slots u69-u71 take subordination, the passive and nominalisation.
-// None of them is the German MODAL PARTICLE: the unstressed little word that
-// carries the speaker's attitude and has no English equivalent at all. A learner
+// WHY THIS THEME. u12 teaches doch, u29 and u36 teach the CONJUNCTIONS that join
+// clauses. None of those is the German MODAL PARTICLE: the unstressed little word
+// that carries the speaker's attitude and has no English equivalent. A learner
 // without them sounds blunt in every sentence they speak, and can be understood
-// while never sounding like a person. B1 is exactly where it bites, because B1 is
-// where sentences become turns of speech.
+// while never sounding like a person. B1 is where it bites, because B1 is where
+// sentences become turns of speech.
+//
+// 🚨 COLLISION RISK — LESSON 2 MAY NOT SURVIVE THE MERGE, AND THE LEAD DECIDES.
+// The B1 grammar slots are unauthored stubs on this branch; their titles read, in
+// full and verbatim:
+//     u69  "Grammar 6 — linked and subordinate clauses"
+//     u70  "Grammar 7 — passive, causative, indirect"
+//     u71  "Grammar 8 — nuance, EVIDENTIALITY, nominalization"
+//     u54  "Hedging and uncertainty"        u73  "Register 2 — softening and formality"
+// ⚠️ An earlier version of this header paraphrased u71 as "subordination, the
+// passive and nominalisation" — which kept the one word that did not clash and
+// dropped the two that do. LESSON 2 OF THIS UNIT (angeblich, anscheinend,
+// offenbar, womöglich, wohl, vermutlich) IS EVIDENTIALITY, and it is also
+// hedging; LESSON 1 (mal, bloß, eben, einfach, nun, gar) is softening. On
+// TAUGHT-WORDS.md's "lower slot wins" rule, u54, u71 and u73 all beat u84 and
+// these cards are the ones deleted. Flagged, not resolved: cross-block
+// reconciliation is block 1's job (CLAUDE.md "Block 1 is the CREW LEAD", step 4).
 //
 // FRONTS DROPPED as already taught, used in examples only:
 //   doch (u12) · denn (u12) · ja (u2) · also (u29) · zwar and immerhin and
@@ -43,7 +57,7 @@ export const DE_UNIT84 = {
         { id: "de-u84l1-eben", type: "vocab", front: "eben", reading: "eben", meaning: "that is just how it is", example: { jp: "Er hat eben keine Zeit.", en: "He just doesn't have time." }, drill: { jp: "Das ist eben nicht leicht", en: "That's just not easy" }, accept: ["just", "simply", "that's how it is", "precisely"], hint: "The shrug word: da kann man eben nichts machen. Also means 'a moment ago'." },
         { id: "de-u84l1-einfach", type: "vocab", front: "einfach", reading: "einfach", meaning: "simply", example: { jp: "Sie will einfach nicht kommen.", en: "She simply won't come." }, drill: { jp: "Er will einfach nicht mehr", en: "He simply doesn't want to any more" }, accept: ["simply", "plainly", "easy", "straightforward"], hint: "Both 'easy' (das ist einfach) and 'just' (mach es einfach)." },
         { id: "de-u84l1-nun", type: "vocab", front: "nun", reading: "nun", meaning: "well then", example: { jp: "Nun, was machen wir jetzt?", en: "Well, what do we do now?" }, drill: { jp: "Nun müssen wir schnell gehen", en: "Now we have to go quickly" }, accept: ["well", "well then", "now then", "so"], hint: "A softer, more written jetzt. Nun ja… is the German 'Well…'." },
-        { id: "de-u84l1-gar", type: "vocab", front: "gar", reading: "gar", meaning: "at all, with a negative", example: { jp: "Ich habe gar keine Zeit.", en: "I have no time at all." }, drill: { jp: "Das ist gar nicht teuer", en: "That is not expensive at all" }, accept: ["at all", "even", "whatsoever"], hint: "Only ever strengthens a negative: gar nicht, gar kein. It never stands alone." },
+        { id: "de-u84l1-gar", type: "vocab", front: "gar", reading: "gar", meaning: "at all, with a negative", example: { jp: "Ich habe gar keine Zeit.", en: "I have no time at all." }, drill: { jp: "Das ist gar nicht teuer", en: "That is not expensive at all" }, accept: ["at all", "whatsoever", "not in the slightest"], hint: "As a particle it only strengthens a negative: gar nicht, gar kein. (A separate adjective gar = cooked through.)" },
       ],
     },
     {
@@ -77,7 +91,7 @@ export const DE_UNIT84 = {
         { id: "de-u84l3-sowieso", type: "vocab", front: "sowieso", reading: "sowieso", meaning: "anyway", example: { jp: "Ich gehe sowieso in die Stadt.", en: "I'm going into town anyway." }, drill: { jp: "Das machen wir sowieso morgen", en: "We're doing that tomorrow anyway" }, accept: ["anyway", "anyhow", "either way", "in any event"], hint: "so + wie + so: it happens regardless. Spoken German's favourite." },
         { id: "de-u84l3-ohnehin", type: "vocab", front: "ohnehin", reading: "ohnehin", meaning: "as it is anyway", example: { jp: "Die Wohnung ist ohnehin zu teuer.", en: "The flat is too expensive as it is anyway." }, drill: { jp: "Wir müssen ohnehin zum Amt", en: "We have to go to the office as it is" }, accept: ["as it is", "as it is anyway", "in any case", "regardless"], hint: "The written cousin of sowieso. Same job, one register up." },
         { id: "de-u84l3-jedenfalls", type: "vocab", front: "jedenfalls", reading: "jedenfalls", meaning: "at any rate", example: { jp: "Ich weiß es nicht, jedenfalls nicht genau.", en: "I don't know, at any rate not exactly." }, drill: { jp: "Jedenfalls ist der Antrag hier", en: "At any rate the application is here" }, accept: ["at any rate", "at least", "whatever the case", "in any event"], hint: "jeder + der Fall: in every case. It often closes a paragraph." },
-        { id: "de-u84l3-durchaus", type: "vocab", front: "durchaus", reading: "durchaus", meaning: "absolutely", example: { jp: "Der Preis ist durchaus hoch.", en: "The price is absolutely high." }, drill: { jp: "Das ist durchaus gut", en: "That is absolutely fine" }, accept: ["absolutely", "quite", "perfectly well", "by all means"], hint: "Concedes with force: das ist durchaus richtig. durchaus nicht = definitely not." },
+        { id: "de-u84l3-durchaus", type: "vocab", front: "durchaus", reading: "durchaus", meaning: "quite, granting the point", example: { jp: "Der Preis ist durchaus hoch.", en: "The price is quite high." }, drill: { jp: "Das ist durchaus gut", en: "That is quite good" }, accept: ["quite", "certainly", "perfectly well", "by all means", "absolutely"], hint: "Concedes with force: das ist durchaus richtig. durchaus nicht = definitely not." },
       ],
     },
     {
