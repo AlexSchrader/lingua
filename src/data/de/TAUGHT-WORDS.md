@@ -21,9 +21,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 | block | slots |
 |---|---|
-| 1 | u51–u63 |
-| 2 | u64–u76 |
-| 3 | u77–u87 |
+| 1 | u51–u62 |
+| 2 | u63–u75 |
+| 3 | u76–u87 |
 
 ## Index — every taught word, alphabetical
 
