@@ -96,7 +96,16 @@ export function normalizeText(s = "") {
 // à "to" vs a "has") whose whole point the fold was erasing.
 export function foldWouldEraseAnswer(item) {
   const front = String(item?.front ?? "");
-  if ([...front].length !== 1) return false;
+  if (!front) return false;
+  // A LETTER CARD IS ALWAYS STRICT, however many characters it carries. The
+  // single-character limit let the two-letter letter cards through: the fold of
+  // ão is "ao", so "type ao for ão" was accepted and the nasal - the entire
+  // point of the card - went untested, which is the same defect as é/e one
+  // character wider. Alex, 2026-09-16: "delete the type e for é ... anything like
+  // that should be deleted, it should be wiped from existence."
+  // A WORD stays lenient on purpose: there the accent is not the answer, the word
+  // is, and typing pickiness is this app's #1 recorded friction.
+  if (item?.type !== "glyph" && [...front].length !== 1) return false;
   // I narrowed this to Latin script on 2026-09-16 and it was wrong twice over.
   // The premise was false: the code-auditor measured the old and new predicates
   // across ALL 994 single-character fronts in the corpus and they agree on every

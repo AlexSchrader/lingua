@@ -11,6 +11,7 @@ import {
   foldKana,
   gradeSpoken,
 } from "../../src/store/answer.js";
+import { seedItems } from "../../src/data/index.js";
 
 test("macron folding: long-vowel forms converge", () => {
   assert.equal(normalizeReading("ohayō", "ja"), normalizeReading("ohayou", "ja"));
@@ -382,4 +383,59 @@ test("a one-character LATIN accent still demands the accent - the fold is the an
   const ss = { id: "de-u1l3-ss", lang: "de", type: "glyph", stage: "a1", front: "ß", reading: "ss" };
   assert.equal(checkProduce("ss", ss), false, "ß is the card's whole point");
   assert.equal(checkProduce("ß", ss), true);
+});
+
+// ---------------------------------------------------------------------------
+// "Delete the type e for é bro — anything like that should be wiped from
+// existence." (Alex, 2026-09-16.) This is the wipe, asserted against the whole
+// real corpus rather than a handful of examples, so the defect cannot come back
+// in a language nobody thought to check.
+//
+// The rule: on a LETTER card, the ASCII fold of the front is never an answer.
+// é must not accept e; ã must not accept a; ão must not accept ao; ß must not
+// accept ss. If it folds to something different, the folded form fails — on
+// every grader a letter card can reach.
+test("NO letter card anywhere accepts its own accent-stripped fold", () => {
+  const seed = seedItems();
+  const glyphs = Object.values(seed).filter((it) => it.type === "glyph");
+  assert.ok(glyphs.length >= 40, `expected the real letter corpus, saw ${glyphs.length}`);
+
+  const leaks = [];
+  let checked = 0;
+  for (const g of glyphs) {
+    const fold = normalizeReading(g.front, g.lang);
+    if (fold === String(g.front).toLowerCase()) continue; // nothing to strip (ei, sch)
+    checked++;
+    if (checkReading(fold, g)) leaks.push(`${g.id}: checkReading accepted "${fold}" for "${g.front}"`);
+    if (checkProduce(fold, g)) leaks.push(`${g.id}: checkProduce accepted "${fold}" for "${g.front}"`);
+    // ...and the real character still has to work, in either case.
+    assert.equal(checkProduce(g.front, g), true, `${g.id}: the letter itself must pass`);
+    // ...and a capital is the same letter — EXCEPT where uppercasing is not a
+    // case change at all: "ß".toUpperCase() is "SS", the very digraph this card
+    // exists to distinguish from ß, so it must keep failing.
+    const upper = String(g.front).toUpperCase();
+    if (upper.toLowerCase() === String(g.front).toLowerCase()) {
+      assert.equal(checkProduce(upper, g), true, `${g.id}: a capital is the same letter`);
+    } else {
+      assert.equal(checkProduce(upper, g), false, `${g.id}: "${upper}" is a different spelling, not a capital`);
+    }
+  }
+  assert.ok(checked >= 30, `expected many accented letters, only checked ${checked}`);
+  assert.deepEqual(leaks, [], `letter cards handing away their own answer:\n${leaks.join("\n")}`);
+});
+
+// The multi-character letter cards are the ones the old single-character guard
+// let through — ão folds to "ao", and that was accepted until 2026-09-16.
+test("a TWO-letter letter card is just as strict as a one-letter one", () => {
+  const seed = seedItems();
+  const multi = Object.values(seed).filter(
+    (it) => it.type === "glyph" && [...String(it.front)].length > 1
+  );
+  assert.ok(multi.length > 0, "expected multi-character letter cards (pt ão, ãe)");
+  for (const g of multi) {
+    const fold = normalizeReading(g.front, g.lang);
+    if (fold === String(g.front).toLowerCase()) continue;
+    assert.equal(checkReading(fold, g), false, `${g.id} accepted "${fold}"`);
+    assert.equal(checkProduce(fold, g), false, `${g.id} accepted "${fold}"`);
+  }
 });
