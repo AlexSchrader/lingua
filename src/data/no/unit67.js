@@ -24,9 +24,14 @@
 //
 // GENDER: en betennelse — ⚠ -else is MASCULINE. ei bivirkning, ei legevakt are
 // feminine. en angst, en depresjon, en balanse are masculine.
-// ⚠ `hygiene`, `mosjon` and `selvtillit` are MASS nouns and are taught bare per
-// unit1.js §1b — the indefinite singular is not idiomatic for any of the three.
-// mosjon and selvtillit were corrected after the content gate, 2026-09-16.
+// ⚠ `hygiene`, `mosjon`, `selvtillit`, `angst` and `stress` are MASS nouns and are
+// taught bare per unit1.js §1b — the indefinite singular is not idiomatic for any
+// of them (å ha angst, never å ha en angst). mosjon and selvtillit were corrected
+// after the content gate named them; angst and stress after the Truth Layer
+// pointed out that a gate names INSTANCES and deriving the CLASS is the author's
+// job — their own hints had already conceded "normally singular", which is the
+// tell. All 132 articled fronts in u63–u75 were re-tested; see the note in
+// unit65.js for the four that survive the test and why.
 // FIRST FEMININE is `ei bivirkning` (l1) and carries the en-/ei- note §1 wants.
 //
 // SCOPE: frozen base u1–u50 plus this unit's earlier cards.
@@ -106,9 +111,9 @@ export const NO_UNIT67 = {
       canDo: "Talk about stress and mental health without reaching for English.",
       items: [
         { id: "no-u67l4-psykisk", type: "vocab", front: "psykisk", reading: "psykisk", meaning: "mental", example: { jp: "Psykisk helse er like viktig som resten.", en: "Mental health is just as important as the rest." }, accept: ["psychological", "mental (health)"], drill: { jp: "Psykisk helse er viktig for alle", en: "Mental health is important for everyone" }, hint: "An -isk adjective: no -t in the neuter, et psykisk problem. The pair is psykisk og fysisk, and psykisk helse is the ordinary phrase, not a clinical one." },
-        { id: "no-u67l4-stress", type: "vocab", front: "et stress", reading: "etstress", meaning: "a stress", example: { jp: "Stresset på arbeid ble stort til slutt.", en: "The stress at work became big in the end." }, accept: ["stress", "pressure"], drill: { jp: "Dette ble et stress for alle", en: "This became a stress for everyone" }, hint: "An English loan with Norwegian gender: et stress, stresset. The adjective is stressa or stresset — begge deler er lov." },
+        { id: "no-u67l4-stress", type: "vocab", front: "stress", reading: "stress", meaning: "stress", example: { jp: "Stresset på arbeid ble stort til slutt.", en: "The stress at work became big in the end." }, accept: ["a stress", "pressure", "strain"], drill: { jp: "Det ble mye stress for alle", en: "There was a lot of stress for everyone" }, hint: "⚠ A MASS noun, so no article on the card (unit1 §1b): neuter, definite stresset. The adjective is stressa or stresset — begge deler er lov." },
         { id: "no-u67l4-bekymreseg", type: "vocab", front: "å bekymre seg", reading: "abekymreseg", meaning: "to worry", example: { jp: "Hun bekymrer seg for barna hver dag.", en: "She worries about the children every day." }, accept: ["worry", "to be worried", "to fret"], drill: { jp: "Det er lett å bekymre seg for mye", en: "It is easy to worry too much" }, hint: "Always with seg (u12) — the verb has no form without it. bekymrer seg, bekymret seg. bekymret (u22) is the adjective you already know." },
-        { id: "no-u67l4-angst", type: "vocab", front: "en angst", reading: "enangst", meaning: "anxiety", example: { jp: "Angsten kom om natta og ga seg om morgenen.", en: "The anxiety came at night and let go in the morning." }, accept: ["anxiety", "dread", "fear"], drill: { jp: "Dette er en angst mange kjenner", en: "This is an anxiety many people know" }, hint: "Masculine and normally singular: angsten. Stronger than redd (u17), and a medical word as well as an everyday one." },
+        { id: "no-u67l4-angst", type: "vocab", front: "angst", reading: "angst", meaning: "anxiety", example: { jp: "Angsten kom om natta og ga seg igjen.", en: "The anxiety came at night and let go again." }, accept: ["anxiety", "dread", "fear"], drill: { jp: "Mange kjenner angst om natta", en: "Many people know anxiety at night" }, hint: "⚠ A MASS noun, so no article on the card (unit1 §1b) — å ha angst, never å ha en angst. Masculine, definite angsten. Stronger than redd (u17), and a medical word as well as an everyday one." },
         { id: "no-u67l4-depresjon", type: "vocab", front: "en depresjon", reading: "endepresjon", meaning: "a depression", example: { jp: "En depresjon kan vare i mange måneder.", en: "A depression can last for many months." }, accept: ["depression"], drill: { jp: "En depresjon kan vare i mange måneder", en: "A depression can last for many months" }, hint: "Masculine: depresjonen. Another -sjon noun — masculine, stressed at the end." },
         { id: "no-u67l4-selvtillit", type: "vocab", front: "selvtillit", reading: "selvtillit", meaning: "self-confidence", example: { jp: "Selvtilliten kom tilbake da hun mestret arbeidet.", en: "Her self-confidence came back when she mastered the work." }, accept: ["self-confidence", "confidence", "self-esteem"], drill: { jp: "Han fikk selvtillit han ikke hadde", en: "He got confidence he did not have" }, hint: "selv + tillit (u68), trust in yourself. ⚠ A MASS noun, so no article on the card (unit1 §1b): masculine, definite selvtilliten." },
       ],

@@ -18,9 +18,15 @@
 // for the past tense, and no/unit39.js makes `har spist`, `har skrevet`,
 // `har fått` cards for the perfect** — for the same reason. There is no
 // conjugation card type for Norwegian (unit12.js), so the ONLY way a grammar
-// unit can teach the passive is to make the passive form the card. The -s
-// passive is not derivable from anything the learner has met, and neither is
-// a strong participle like ødelagt.
+// unit can teach the passive is to make the passive form the card.
+// ⚠ AND THE JUSTIFICATION IS NARROWER THAN AN EARLIER DRAFT OF THIS HEADER SAID.
+// It claimed the -s passive "is not derivable", which the card below contradicts
+// in its own first line ("take the infinitive and add -s"). The honest version:
+// SOME of these are drilled for the PATTERN rather than because they could not
+// be derived — selges, brukes, kalles, åpnes and kreves are regular, and the
+// learner needs the form in the mouth, not a rule on paper. The genuinely
+// underivable ones are the strong participles: valgt and ødelagt cannot be got
+// from å velge and å ødelegge by any rule the learner has.
 // MERGE SEAT / BLOCK 1: do not delete these twelve as duplicate lexemes. If they
 // go, the band has no passive at all. The ids, explicitly:
 //   no-u70l1-selges · no-u70l1-brukes · no-u70l1-kalles · no-u70l1-apnes ·
@@ -30,9 +36,16 @@
 // its variants() is a kana engine and returns "free" for any Norwegian input
 // (recorded at BUILD-CHECKLIST.md and in no/unit14.js's header). Run it; do not
 // read a clean result as confirmation.
-// ⚠ `å selge` is NOT a front anywhere in the corpus — only `en selger` (u18) —
-// so `selges` is the learner's first meeting with the verb at all. Its hint
-// names the infinitive for that reason.
+// ⚠ THREE OF THESE PASSIVES HAVE NO INFINITIVE CARD ANYWHERE IN THE CORPUS —
+// `å selge`, `å kalle` and `å åpne` are fronts in ZERO units (å selge has only
+// the agent noun en selger, u18; å åpne only the adjective åpen, u7). So the
+// learner gets a mastery track on the PASSIVE of three verbs they were never
+// taught to produce, while unit1.js §2 makes the infinitive the citation form.
+// Each hint names its infinitive, which is a patch and not a fix.
+// ⚠ BLOCK 1 / MERGE SEAT: this is a request, not a note — please give å selge,
+// å kalle and å åpne cards somewhere in the band. Nothing else in the corpus
+// does, and block 2 cannot add them without taking three slots from its own
+// 5–8 band. Raised by the Truth Layer, 2026-09-16.
 //
 // l3 is the causative (å la, and the til å / i å family), l4 is reported speech.
 // Those are ordinary new verbs, with no inflection question attached.
@@ -98,7 +111,7 @@ export const NO_UNIT70 = {
       items: [
         { id: "no-u70l3-la", type: "vocab", front: "å la", reading: "ala", meaning: "to let", example: { jp: "La meg hjelpe deg med det.", en: "Let me help you with that." }, accept: ["let", "to allow", "to leave"], drill: { jp: "Det er lett å la barna velge", en: "It is easy to let the children choose" }, hint: "lar, lot, har latt. ⚠ The verb after it takes NO å: la meg gå, never la meg å gå. Same rule as after the modals (unit1 §5)." },
         { id: "no-u70l3-tvinge", type: "vocab", front: "å tvinge", reading: "atvinge", meaning: "to force", example: { jp: "Ingen kan tvinge deg til å skrive under.", en: "Nobody can force you to sign." }, accept: ["force", "to compel", "to make someone"], drill: { jp: "Ingen har rett til å tvinge deg", en: "Nobody has the right to force you" }, hint: "tvinger, tvang, har tvunget. Takes til å: tvinge noen til å gjøre noe — and here the å DOES come back, because til å is one of the frames that keeps it." },
-        { id: "no-u70l3-hindre", type: "vocab", front: "å hindre", reading: "ahindre", meaning: "to prevent", example: { jp: "Snøen hindret bussen i å komme.", en: "The snow prevented the bus from coming." }, accept: ["prevent", "to stop", "to hinder"], drill: { jp: "Det er lett å hindre en ulykke", en: "It is easy to prevent an accident" }, hint: "hindrer, hindret. ⚠ This one takes i å, not til å: hindre noen i å gjøre noe. The preposition is part of the word — learn them together." },
+        { id: "no-u70l3-hindre", type: "vocab", front: "å hindre", reading: "ahindre", meaning: "to prevent", example: { jp: "Uværet hindret bussen i å komme.", en: "The storm prevented the bus from coming." }, accept: ["prevent", "to stop", "to hinder"], drill: { jp: "Det er lett å hindre en ulykke", en: "It is easy to prevent an accident" }, hint: "hindrer, hindret. ⚠ This one takes i å, not til å: hindre noen i å gjøre noe. The preposition is part of the word — learn them together." },
         { id: "no-u70l3-overtale", type: "vocab", front: "å overtale", reading: "aovertale", meaning: "to persuade", example: { jp: "Hun overtalte meg til å bli med.", en: "She persuaded me to come along." }, accept: ["persuade", "to talk someone into"], drill: { jp: "Det er lett å overtale ham", en: "It is easy to persuade him" }, hint: "over + å tale (en tale, u49). overtaler, overtalte. til å again." },
         { id: "no-u70l3-sorgefor", type: "vocab", front: "å sørge for", reading: "asorgefor", meaning: "to make sure", example: { jp: "Jeg sørger for at alle får mat.", en: "I make sure that everyone gets food." }, accept: ["make sure", "to see to", "to ensure", "to provide for"], drill: { jp: "Det er viktig å sørge for alle", en: "It is important to provide for everyone" }, hint: "On its own å sørge means to grieve; with for it means to see to something. sørger for, sørget for. ø folds to o: asorgefor." },
         { id: "no-u70l3-oppfordre", type: "vocab", front: "å oppfordre", reading: "aoppfordre", meaning: "to urge", example: { jp: "Legen oppfordret ham til å trene mer.", en: "The doctor urged him to exercise more." }, accept: ["urge", "to encourage", "to call on"], drill: { jp: "Vi pleier å oppfordre alle til å komme", en: "We usually urge everyone to come" }, hint: "opp + fordre. oppfordrer, oppfordret — and til å, like tvinge and overtale. The whole family takes a preposition; only å la goes bare." },

@@ -31,8 +31,17 @@
 // grades against ONE front, so three cards glossed "probably" would punish a
 // learner for knowing the other two (u14's finding, and it is the same trap).
 //
-// `der` IS TAUGHT HERE (l1... l2, card 1) and is used freely from u70 on. It was
-// not in the frozen base, which is why unit63–68 avoid it.
+// `der` IS TAUGHT HERE (l2, card 1) and is used freely from u70 on. It was not in
+// the frozen base, which is why unit63–68 avoid it.
+//
+// ⚠ `om` = "whether" HAS NO CARD AND CANNOT HAVE ONE, and that is worth stating
+// rather than leaving as a silent hole. Fronts are globally unique per language
+// and `om` is already a front at u28l2 meaning "in (after a period)", so the
+// commonest word in the whole lesson is unteachable here. l4 therefore drills
+// the FORMAL twin, `hvorvidt`, and hvorvidt's hint names om as the everyday one.
+// This is RUNBOOK §7's prescribed handling of a front-collision (teach through
+// examples and a hint, never weaken the validator), but the cost is real: the
+// learner meets the rare word as a card and the common one only in passing.
 //
 // SCOPE: frozen base u1–u50 plus u63–u68 plus this unit's earlier cards.
 // lang/unit/lesson are stamped in src/data/index.js.

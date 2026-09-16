@@ -11,7 +11,22 @@
 // for — "fortell litt om deg selv" past the name and the job — so it opens the
 // band.
 //
-// ⚠ SCOPE. Examples and drills use the frozen base (u1–u50, per
+// ⚠⚠ SCOPE — AND USE THE CHECKER, DO NOT HAND-AUDIT LIKE I FIRST DID.
+// `node scripts/scope-strict.mjs 63 75` takes three seconds, is Norwegian-
+// specific, and takes a unit range as arguments. It exists BECAUSE
+// lint:curriculum's isInflection heuristic exempts any token sharing three
+// leading characters with a taught stem — which is how `som`, `for` and `der`
+// passed a clean lint run, and how this block's first pass used `mellom`,
+// `gjennom`, `hele`, `begge` and `få` with nothing reported. I hand-audited
+// instead, asserted a 312-card scope guarantee from it, and the checker's FIRST
+// run falsified the assertion: `morgenen` (u67l4) and `maskiner` (u75) were
+// genuinely out of scope, plus four more the hand pass had waved through.
+// Run it before you claim scope. Its residual for u63–u75 is 47 hits, every one
+// adjudicated to an inflection of a front taught at or before its unit (32 from
+// this block, 13 from the frozen base) or a §6 free cognate (2) — zero genuine
+// out-of-scope words. `--selftest` proves the checker still bites.
+//
+// Examples and drills use the frozen base (u1–u50, per
 // src/data/no/TAUGHT-WORDS.md) plus this unit's own earlier cards. Nothing here
 // leans on u51–u62 (block 1) or u76–u87 (block 3) — they were unauthored stubs
 // while this was written and their words are not mine to use or to teach.
@@ -34,10 +49,11 @@
 //
 // GENDER, the rule that keeps tripping crews (unit1.js §1):
 //   -else  MASCULINE, no feminine form → en hendelse. NEVER ei.
-//   -ing/-ning  feminine → ei påvirkning, påvirkninga.
+//   -ing/-ning  feminine → påvirkning, definite påvirkninga.
 //   -dom   masculine → en barndom, en lærdom.
-// FIRST FEMININE OF THE UNIT is `ei påvirkning` (l3) and it carries the en-/ei-
-// recognition note §1 requires of every unit.
+// ⚠ THIS UNIT HAS NO FEMININE NOUN TO MARK, so there is no en-/ei- recognition
+// note to carry. `påvirkning` is feminine but is a MASS noun and so is taught
+// bare (§1b) — it was `ei påvirkning` until the §1b sweep below.
 //
 // ø IS FOLDED BY HAND in `reading`, ø→o (unit1.js §3): et høydepunkt →
 // "ethoydepunkt". æ likewise → ae: en milepæl → "enmilepael", en lærdom →
@@ -99,7 +115,7 @@ export const NO_UNIT63 = {
         { id: "no-u63l3-prege", type: "vocab", front: "å prege", reading: "aprege", meaning: "to shape", example: { jp: "Barndommen preger et helt liv.", en: "Childhood shapes a whole life." }, accept: ["shape", "to mark", "to leave a mark on"], drill: { jp: "Det er lett å prege et barn", en: "It is easy to shape a child" }, hint: "preger, preget. What leaves its stamp on a person — barndommen preger deg. Not the same as å forandre (u40), which changes something." },
         { id: "no-u63l3-forbilde", type: "vocab", front: "et forbilde", reading: "etforbilde", meaning: "a role model", example: { jp: "Erling er et forbilde for mange i byen.", en: "Erling is a role model for many in town." }, accept: ["role model", "example to follow"], drill: { jp: "Erling er et forbilde i byen", en: "Erling is a role model in town" }, hint: "for + bilde (u16) — the picture you hold in front of you. Neuter: forbildet." },
         { id: "no-u63l3-inspirere", type: "vocab", front: "å inspirere", reading: "ainspirere", meaning: "to inspire", example: { jp: "Boka inspirerte mange unge til å skrive.", en: "The book inspired many young people to write." }, accept: ["inspire"], drill: { jp: "Det er lett å inspirere et barn", en: "It is easy to inspire a child" }, hint: "inspirerer, inspirerte. Borrowed verbs nearly all join the -ere class, and that class is completely regular." },
-        { id: "no-u63l3-pavirkning", type: "vocab", front: "ei påvirkning", reading: "eipavirkning", meaning: "an influence", example: { jp: "Musikk har ei stor påvirkning på oss alle.", en: "Music has a big influence on all of us." }, accept: ["influence", "effect"], drill: { jp: "Musikk har ei påvirkning på oss", en: "Music has an influence on us" }, hint: "From å påvirke (u40). ⚠ -ing/-ning nouns are feminine: ei påvirkning, definite påvirkninga. You will also see en påvirkning / påvirkningen in print — Bokmål allows both; this course marks ei so the definite -a stays predictable." },
+        { id: "no-u63l3-pavirkning", type: "vocab", front: "påvirkning", reading: "pavirkning", meaning: "influence", example: { jp: "Musikk har stor påvirkning på oss alle.", en: "Music has a big influence on all of us." }, accept: ["an influence", "effect", "impact"], drill: { jp: "Musikk har stor påvirkning på oss", en: "Music has a big influence on us" }, hint: "From å påvirke (u40). ⚠ A MASS noun, so no article on the card (unit1 §1b) — the idiom is ha stor påvirkning på noe, never ha ei påvirkning. Feminine, definite påvirkninga." },
         { id: "no-u63l3-laerdom", type: "vocab", front: "en lærdom", reading: "enlaerdom", meaning: "a lesson learned", example: { jp: "Den dårlige erfaringa ga meg en viktig lærdom.", en: "The bad experience gave me an important lesson." }, accept: ["lesson", "moral", "takeaway"], drill: { jp: "Det ble en lærdom for meg", en: "It became a lesson for me" }, hint: "å lære (u1) + -dom. NOT the school lesson — that is ei lekse (u18). Masculine: lærdommen." },
         { id: "no-u63l3-erfaren", type: "vocab", front: "erfaren", reading: "erfaren", meaning: "experienced", example: { jp: "Han er en erfaren sjåfør og kjører rolig.", en: "He is an experienced driver and drives calmly." }, accept: ["seasoned", "practised"], drill: { jp: "Han er en erfaren sjåfør i Oslo", en: "He is an experienced driver in Oslo" }, hint: "The adjective behind ei erfaring (u50). Neuter erfarent, plural and definite erfarne." },
       ],

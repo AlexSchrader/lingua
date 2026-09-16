@@ -20,6 +20,21 @@
 // ⚠ `et forbruk` goes the other way and is articled, because et høyt forbruk IS
 // ordinary. §1's test is the sense, not the countability, and it does not decide
 // itself.
+// ⚠ `et utslipp` IS ARTICLED ON PURPOSE and survived the Truth Layer's review of
+// this exact carve-out: it is genuinely countable, its own example is plural
+// (utslippene fra biler) and its hint teaches the count paradigm (flere utslipp).
+// The eleven fronts that went bare had the opposite profile — a hint conceding
+// "normally singular" and a drill forcing a string no Norwegian writes.
+// ⚠ THE FOUR SURVIVORS OF THE FULL §1b SWEEP, argued rather than assumed:
+//   et utslipp (above) · et hensyn and et standpunkt (u73 — both carry a bare
+//   idiom, ta hensyn til / ta standpunkt til, AND a countable sense, et viktig
+//   hensyn, flere standpunkt; the cards teach the countable one) · en student
+//   (u74 — bare only after være, which is the profession rule, not mass-ness).
+//   u71l3's en sannhet · en frihet · en virkelighet · en svakhet stay articled
+//   for TWO reasons and the second is the load-bearing one: all four are
+//   countable in the sense taught (en gammel sannhet, flere sannheter), and the
+//   LESSON'S WHOLE POINT is that -het nouns are masculine — a bare front would
+//   delete the one thing the lesson exists to show.
 //
 // GENDER: -ing/-ning feminine (ei klimaendring, ei oppvarming); -else masculine;
 // compounds take the gender of their LAST element (ei endring → ei klimaendring,
@@ -51,7 +66,7 @@ export const NO_UNIT65 = {
       items: [
         { id: "no-u65l1-klimaendring", type: "vocab", front: "ei klimaendring", reading: "eiklimaendring", meaning: "a climate change", example: { jp: "Ei klimaendring skjer sakte, og mange ser den ikke.", en: "A climate change happens slowly, and many people do not see it." }, accept: ["climate change"], drill: { jp: "Ei klimaendring skjer over mange år", en: "A climate change happens over many years" }, hint: "et klima (u43) + ei endring (u50). A compound takes the gender of its LAST part, so this is feminine: klimaendringa. Norwegians nearly always say it in the plural — klimaendringene. Print also writes en/-en; this course marks ei so the definite -a stays predictable." },
         { id: "no-u65l1-utslipp", type: "vocab", front: "et utslipp", reading: "etutslipp", meaning: "an emission", example: { jp: "Utslippene fra biler er et stort problem i byen.", en: "Emissions from cars are a big problem in town." }, accept: ["emission", "discharge"], drill: { jp: "Dette er et utslipp vi må stoppe", en: "This is an emission we have to stop" }, hint: "ut + å slippe — what is let out. Neuter, and unchanged in the plural: et utslipp, flere utslipp, utslippet." },
-        { id: "no-u65l1-klimagass", type: "vocab", front: "en klimagass", reading: "enklimagass", meaning: "a greenhouse gas", example: { jp: "En klimagass varmer opp lufta rundt jorda.", en: "A greenhouse gas warms up the air around the earth." }, accept: ["greenhouse gas"], drill: { jp: "En klimagass varmer opp lufta", en: "A greenhouse gas warms up the air" }, hint: "Masculine: klimagassen. This is the everyday word in Norwegian news, where English would say CO2." },
+        { id: "no-u65l1-klimagass", type: "vocab", front: "en klimagass", reading: "enklimagass", meaning: "a greenhouse gas", example: { jp: "En klimagass gjør lufta rundt jorda varmere.", en: "A greenhouse gas makes the air around the earth warmer." }, accept: ["greenhouse gas"], drill: { jp: "En klimagass gjør lufta varmere", en: "A greenhouse gas makes the air warmer" }, hint: "Masculine: klimagassen. This is the everyday word in Norwegian news, where English would say CO2." },
         { id: "no-u65l1-forurensning", type: "vocab", front: "forurensning", reading: "forurensning", meaning: "pollution", example: { jp: "Forurensninga i lufta er verst om vinteren.", en: "The pollution in the air is worst in winter." }, accept: ["pollution", "contamination"], drill: { jp: "Det er forurensning i elva", en: "There is pollution in the river" }, hint: "From å forurense, the next card. ⚠ A MASS noun, so no article on the card (unit1 §1b) — ei forurensning is not something a Norwegian writes. Feminine, definite forurensninga." },
         { id: "no-u65l1-forurense", type: "vocab", front: "å forurense", reading: "aforurense", meaning: "to pollute", example: { jp: "Biler forurenser lufta i byen hver dag.", en: "Cars pollute the air in town every day." }, accept: ["pollute", "to contaminate"], drill: { jp: "Det er lett å forurense ei elv", en: "It is easy to pollute a river" }, hint: "for- + urein, \"unclean\". forurenser, forurenset. The for- here is the same one that turns bruke into forbruke." },
         { id: "no-u65l1-oppvarming", type: "vocab", front: "ei oppvarming", reading: "eioppvarming", meaning: "a warming", example: { jp: "Oppvarminga av jorda går fort nå.", en: "The warming of the earth is going fast now." }, accept: ["warming", "heating", "warm-up"], drill: { jp: "Vi ser ei oppvarming av jorda", en: "We are seeing a warming of the earth" }, hint: "å varme opp → ei oppvarming, oppvarminga. Also the ordinary word for heating a house, and for a warm-up before sport." },
