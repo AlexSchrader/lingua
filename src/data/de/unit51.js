@@ -58,6 +58,13 @@
 //       warning is easy to scroll past.
 //   Measured on this block: 288/288 items carry a drill, all inside 3–8 tokens,
 //   all containing their front.
+//   ⚠️ AND VARY THE VERB WHILE YOU WRITE THEM. The nominative constraint pulls every
+//   noun drill towards one frame, and block 1 did not notice until it counted: its
+//   first pass was 123/288 (43%) “Der/Die/Das X ist/war sehr ADJ” and 110/288 (38%)
+//   containing “sehr”, which is 123 near-identical practice cards. 81 were rewritten
+//   into subject-verb frames — kommen, liegen, stehen, kosten, dauern, bleiben,
+//   wachsen, steigen, zeigen, helfen, gelten — taking it to 15% and 13%. Cheaper to
+//   vary as you author than to sweep afterwards.
 //
 // ─── 4. WORD OWNERSHIP — WHAT BLOCK 1 HAS TAKEN, SO YOU DON'T RE-TEACH IT ────
 //   Lower slot wins. u51–u62 teach 288 fronts, all checked against the frozen
