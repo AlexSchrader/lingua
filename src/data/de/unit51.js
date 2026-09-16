@@ -160,10 +160,21 @@
 //   a distinct, separately-usable meaning you cannot get from the base word; it is
 //   the SAME lexeme when it is an inflection, or a nominalization that adds no
 //   meaning. ACCEPT freely under the first half.
-//   ACCEPTED, the full list — all of these share a stem with a taught word:
-//     · die Freiheit (frei u23), die Kindheit (das Kind u4), die Wahrheit,
-//       die Gerechtigkeit, die Einzelheit, die Bildung, die Ordnung — the
-//       -heit/-keit/-ung family. Each names a THING the adjective cannot.
+//   ⚠️ AND CHECK THE BASE IS ACTUALLY TAUGHT BEFORE YOU CALL SOMETHING A
+//   DERIVATION AT ALL — four entries in the first draft of the list below were not
+//   derivations of anything the learner has. Run the front AND its base against
+//   TAUGHT-WORDS.md, not against your sense of German morphology.
+//   ACCEPTED — SEVENTEEN fronts that share a stem with a genuinely TAUGHT word.
+//   (Counted by running the list against TAUGHT-WORDS.md, which is how the first
+//   draft of this very list was caught listing four fronts whose base is NOT
+//   taught: die Wahrheit, die Gerechtigkeit, die Einzelheit and die Bildung look
+//   like the same family, but wahr, gerecht, einzeln and bilden are untaught, so
+//   those four are ordinary new fronts and prove nothing about derivation. They
+//   are a finding of their own — German cards the derived noun and never the base
+//   adjective — and they are on the §5 gap list for a coverage unit.)
+//     · die Freiheit (frei u23), die Kindheit (das Kind u4), die Ordnung
+//       (ordentlich u43) — the -heit/-keit/-ung family, where the base IS taught.
+//       Each names a THING the adjective cannot.
 //     · zugeben, nachgeben (geben u16); zunehmen, abnehmen, teilnehmen,
 //       annehmen (nehmen u16); aushalten, einhalten (halten u44); vorziehen
 //       (ziehen u44); ausfallen (fallen u44); anpassen (passen u18) — separable
