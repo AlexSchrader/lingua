@@ -110,7 +110,7 @@ export const PT_UNIT53 = {
           reading: "maior",
           meaning: "bigger",
           example: { jp: "A empresa nova é maior do que a antiga, mas o nível dos salários é inferior.", en: "The new company is bigger than the old one, but the level of the salaries is lower." },
-          drill: { jp: "A empresa nova é maior do que a antiga", en: "The new company is bigger than the old one" },
+          drill: { jp: "A empresa nova é maior que a antiga", en: "The new company is bigger than the old one" },
           accept: ["larger", "greater", "the biggest", "biggest"],
           hint: "THERE IS NO *mais grande*. grande (u10) forms its comparative as one irregular word, maior — exactly as bom gives melhor (u11). Pair it with do que, or just que: maior do que a antiga. O maior is \"the biggest\". Going the other way Portugal says mais pequeno far more often than menor.",
         },

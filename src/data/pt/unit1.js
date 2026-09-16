@@ -43,6 +43,13 @@
 //     (hospital, banco, farmácia, escola, museu and cidade are TAUGHT cards in
 //     u7/u3, not free cognates — they are listed here nowhere on purpose.)
 //
+//     MACHINE-READABLE FORM OF THE SAME DECLARATION (added 2026-09-15 so that
+//     `node scripts/check-lang-scope.mjs pt` can run at all — it refused with
+//     "no // FREE: declaration" because the list above is prose. This line adds
+//     NOTHING to what the header already declares; the slash-pairs above are
+//     split into separate tokens only because the parser splits on , and | .
+// FREE: Ana, Tiago, João, Maria, Pedro, Portugal, Lisboa, Porto, Coimbra, Braga, Europa, Brasil | moderno, moderna, elegante, famoso, famosa, enorme, fantástico, fantástica, importante, rápido, rápida, problema, natural, tranquilo, tranquila, delicioso, deliciosa, euro, euros, hotel, táxi, chocolate, telefone, supermercado, restaurante
+//
 //   - THE SPANISH TRAP (this corpus already teaches 3,123 Spanish words, and the
 //     two languages are close enough that a seat drifts without noticing). Two
 //     opposite failures, both live here:

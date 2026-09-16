@@ -239,7 +239,7 @@ export const PT_UNIT52 = {
           reading: "daique",
           meaning: "hence",
           example: { jp: "O governo rejeitou o acordo, daí que a greve vá acontecer outra vez.", en: "The government rejected the agreement, hence the strike is going to happen again." },
-          drill: { jp: "O governo rejeitou tudo daí que a greve vá acontecer", en: "The government rejected everything hence the strike will happen" },
+          drill: { jp: "Rejeitaram tudo daí que a greve vá acontecer", en: "They rejected everything hence the strike is going to happen" },
           accept: ["hence", "and so", "which is why", "therefore"],
           hint: "daí = de + aí, 'from there'. It always looks BACK at what was just said and draws the conclusion — closer to English 'hence' than to 'so'. Careful writing puts the verb after it in the conjuntivo, as the example above does: vá, not vai. Block 2’s u69 teaches that form.",
         },
