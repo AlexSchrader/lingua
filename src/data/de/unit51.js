@@ -139,6 +139,17 @@
 //       written without the future and the passive, and rewriting round it would
 //       mean avoiding both for 288 cards. Declared, not smuggled.
 //     · `so` (13 examples + 1 drill), `schon` (8 + 4), `viele` (6 + 7).
+//     ⚠️ AND THIS LIST WAS INCOMPLETE TWICE. The first sweep missed `einfach`,
+//     `bauen`, `jemand`, `einmal` and `da`; the SECOND missed `treffen`
+//     (`getroffen`, u58 l4) and `laut` in its comparative (`lauter`, u60 l2) — and
+//     `treffen` was on this very list of words the block calls unusable, so the
+//     block broke its own rule in the same commit that claimed to have fixed that
+//     defect class. Both were caught by `content-auditor`, not by the seat, and
+//     both are now reworded away. THE LESSON FOR BLOCKS 2 AND 3: do not trust a
+//     list like this one, including this one. Run `node scripts/scope-strict-de.mjs
+//     <from> <to>` and classify EVERY token in the residue against the real fronts
+//     — do not eyeball it, because the words that escape are exactly the ones that
+//     look too ordinary to check.
 //     None is in TAUGHT-WORDS.md and none is on a `// FREE:` line — they are not
 //     cognates, proper names or plurals, so FREE would be the wrong label. The
 //     justification is corpus precedent, measured over de u1–u50: `so` appears
