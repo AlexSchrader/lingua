@@ -30,3 +30,10 @@ scratch-*.py
 # Debug screenshots from manual UI checks. They were committed to the repo root
 # once (~1.2 MB) as scope creep in a fix commit; keep them out.
 /shot-*.png
+
+# Playtest screenshots. Debug artifacts, not source — 13 MB of them reached a
+# commit on 2026-09-16 because a `git add -A` in this shared working tree swept
+# another live session's output. Ignored so it cannot happen again; the files
+# stay on disk for whoever is using them.
+/shots/
+/shots-deep/
