@@ -216,7 +216,11 @@
 //    So: the habit the paragraph teaches is right and the list inside it was
 //    wrong. CHECK THE FRAME AGAINST THE CORPUS, not against this comment —
 //    `npm run taught -- no`, or grep the fronts. Do not trust any word list in a
-//    header, including this one, including tomorrow.)
+//    header, including this one, including tomorrow.
+//    AND IF YOU MUST ASSERT ONE IN A COMMENT, WRITE IT AS UNTAUGHT(no:<front>).
+//    tests/unit/corpus-guards.test.mjs resolves every such claim against the real
+//    corpus on every run, so it fails loudly the day it stops being true instead
+//    of quietly misleading the next six seats the way this paragraph did.)
 //    prøve and pleie are taught (u15l3, u21l1) and are free to use as frames. If
 //    you want a frame verb that genuinely is not taught, teach it first — that is
 //    allowed, it just has to be a card before it is an example. And the modals are fine to USE in
