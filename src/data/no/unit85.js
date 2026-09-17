@@ -4,9 +4,20 @@
 // u18 and u24 teach school from the LEARNER's side — en elev, en lærer, ei lekse,
 // et fag, en karakter, ei utdanning, et vitnemål, å bestå. Nobody teaches the
 // SYSTEM a parent has to navigate: en barnehage, et foreldremøte, en rektor, en
-// barneskole, en ungdomsskole, videregående, en lærling. `foreldre` itself is
-// taught nowhere in 1215 words, and neither is `å studere` — in a corpus that has
-// a lesson titled "Studying".
+// barneskole, en ungdomsskole, videregående, en lærling. `foreldre` was a front in
+// no unit before this one; it is taught HERE, at l1. (Deliberately NOT written with
+// the UNTAUGHT(...) marker: that marker resolves against the WHOLE corpus, this unit
+// included, so claiming it of a word this unit teaches would fail GUARD 2 — which is
+// exactly what the marker is for.)
+//
+// ⚠ CORRECTED ON MERGE DAY (2026-09-17). This header used to add "and neither is
+// `å studere`". That was true on block 3's branch and is false in the merged tree:
+// block 2 teaches `å studere`, `en student` and `ei forelesning` at u74 "Studier og
+// forskning". Both blocks had built the same lesson — u74l2 and u85l4 were BOTH
+// titled "Å studere" — so per RUNBOOK §6.3 the theme went whole to u74, whose unit
+// title names it. l4 here was retitled "Etter videregående" and now covers what
+// follows upper secondary (en høyskole, en bachelor, et studielån) rather than
+// re-teaching u74's vocabulary.
 //
 // `foreldre` is taught bare, as a plural-only noun (unit1.js rule 1a, the case
 // that rule explicitly names for later blocks).
@@ -48,7 +59,6 @@ export const NO_UNIT85 = {
         { id: "no-u85l2-eiklasse", type: "vocab", front: "ei klasse", reading: "eiklasse", meaning: "class (year group)", example: { jp: "Det er mange elever i klassa til datteren min.", en: "There are many pupils in my daughter's class." }, accept: ["a form", "a grade", "a year"], drill: { jp: "Hun har ei klasse med mange elever", en: "She has a class with many pupils" }, hint: "ei klasse → klassa, flertall klasser. Både gruppa og rommet. Et klasserom er rommet alene." },
         { id: "no-u85l2-etfriminutt", type: "vocab", front: "et friminutt", reading: "etfriminutt", meaning: "break (recess)", example: { jp: "I friminuttene er alle ute, også når det regner.", en: "In the breaks everybody is outside, even when it rains." }, accept: ["a recess", "a playtime"], drill: { jp: "Vi har et friminutt nå", en: "We have a break now" }, hint: "et friminutt → friminuttet, flertall friminutt. Fri + et minutt (u5). Norske skoler sender alle ut uansett vær." },
         { id: "no-u85l2-enrektor", type: "vocab", front: "en rektor", reading: "enrektor", meaning: "head teacher", example: { jp: "Rektoren ringte foreldrene til alle i klassa.", en: "The head teacher called the parents of everybody in the class." }, accept: ["a principal", "a headmaster"], drill: { jp: "Skolen fikk en rektor i august", en: "The school got a head teacher in August" }, hint: "en rektor → rektoren, flertall rektorer. Samme ord på universitetet. Trykket på første stavelse: REK-tor." },
-        { id: "no-u85l2-eimappe", type: "vocab", front: "ei mappe", reading: "eimappe", meaning: "folder", example: { jp: "Alle leksene ligger i ei blå mappe i sekken.", en: "All the homework is in a blue folder in the bag." }, accept: ["a file", "a binder"], drill: { jp: "Leksene ligger i ei mappe", en: "The homework is in a folder" }, hint: "ei mappe → mappa, flertall mapper. Både på pulten og på skjermen — samme ord for begge." },
         { id: "no-u85l2-etskolear", type: "vocab", front: "et skoleår", reading: "etskolear", meaning: "school year", example: { jp: "Skoleåret begynner i august hvert år.", en: "The school year starts in August every year." }, accept: ["an academic year"], drill: { jp: "Et skoleår varer i ti måneder", en: "A school year lasts ten months" }, hint: "et skoleår → skoleåret, flertall skoleår. En skole (u18) + et år (u5). August til juni, med lang sommerferie." },
         { id: "no-u85l2-enskolevei", type: "vocab", front: "en skolevei", reading: "enskolevei", meaning: "way to school", example: { jp: "Skoleveien går langs en stor vei, og det liker vi dårlig.", en: "The way to school runs along a big road, and we don't like that." }, accept: ["a school route", "the school run"], drill: { jp: "De har en skolevei som er lang", en: "They have a way to school that is long" }, hint: "en skolevei → skoleveien. En skole + en vei (u7). Trygg skolevei er et fast politisk tema i hver kommune." },
       ],
@@ -67,24 +77,22 @@ export const NO_UNIT85 = {
         { id: "no-u85l3-videregaende", type: "vocab", front: "videregående", reading: "videregaende", meaning: "upper secondary school", example: { jp: "Hun går på videregående og blir ferdig til sommeren.", en: "She is at upper secondary school and finishes by the summer." }, accept: ["a high school", "a sixth form"], drill: { jp: "Hun går på videregående nå", en: "She is at upper secondary school now" }, hint: "Egentlig en videregående skole, men alle sier bare videregående — derfor bart oppslag. Videre + å gå: the school that goes further." },
         { id: "no-u85l3-enskolegang", type: "vocab", front: "en skolegang", reading: "enskolegang", meaning: "schooling", example: { jp: "Han hadde bare fire år med skolegang før han kom til Norge.", en: "He only had four years of schooling before he came to Norway." }, accept: ["education", "school attendance"], drill: { jp: "Han hadde en skolegang uten problemer", en: "He had a schooling without problems" }, hint: "en skolegang → skolegangen. En skole + en gang (u28); sammensetningen arver kjønnet til siste ledd. Hele løpet ditt, ikke en bestemt skole." },
         { id: "no-u85l3-enlaerling", type: "vocab", front: "en lærling", reading: "enlaerling", meaning: "apprentice", example: { jp: "Han er lærling hos en snekker i to år.", en: "He's an apprentice with a carpenter for two years." }, accept: ["a trainee"], drill: { jp: "Vi tok inn en lærling i august", en: "We took on an apprentice in August" }, hint: "en lærling → lærlingen, flertall lærlinger. Fra å lære (u1). To år på skolen og to i bedrift er den vanlige veien." },
-        { id: "no-u85l3-etkull", type: "vocab", front: "et kull", reading: "etkull", meaning: "cohort (year group)", example: { jp: "Kullet hans var det største skolen har hatt.", en: "His cohort was the biggest the school has had." }, accept: ["a year group", "an intake", "a class of"], drill: { jp: "Dette er et kull på ti", en: "This is a cohort of ten" }, hint: "et kull → kullet, flertall kull. Alle som begynte samme år. Også et kull med dyreunger — og coal, samme ord." },
       ],
     },
     {
       id: "no-u85l4",
       unit: 85,
       lesson: 4,
-      title: "Å studere",
+      title: "Etter videregående",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Talk about being a student — the term, the lectures, the reading list, and a year abroad.",
+      canDo: "Talk about what comes after upper secondary — a university college, a bachelor's, the student loan, the term and a year abroad.",
       items: [
-        { id: "no-u85l4-astudere", type: "vocab", front: "å studere", reading: "astudere", meaning: "to study", example: { jp: "Hun studerer i Bergen og kommer hjem hver jul.", en: "She studies in Bergen and comes home every Christmas." }, accept: ["study", "to read (a subject)"], drill: { jp: "Det er dyrt å studere i byen", en: "It is expensive to study in the city" }, hint: "å studere → studerer, studerte. Om høyere utdanning. Å lese (u18) brukes også: hun leser jus." },
-        { id: "no-u85l4-enstudent", type: "vocab", front: "en student", reading: "enstudent", meaning: "student", example: { jp: "Som student får du billigere billetter over alt.", en: "As a student you get cheaper tickets everywhere." }, accept: ["an undergraduate"], drill: { jp: "Han er en student uten penger", en: "He is a student without money" }, hint: "en student → studenten, flertall studenter. Bare om universitet og høgskole; på skolen er du en elev (u3)." },
         { id: "no-u85l4-etsemester", type: "vocab", front: "et semester", reading: "etsemester", meaning: "term (semester)", example: { jp: "Dette semesteret har hun bare to fag.", en: "This term she only has two subjects." }, accept: ["a semester", "a half-year"], drill: { jp: "Et semester varer i fem måneder", en: "A term lasts five months" }, hint: "et semester → semesteret, flertall semestre. To i året: høst og vår. Trykket på ME: se-MES-ter." },
-        { id: "no-u85l4-eiforelesning", type: "vocab", front: "ei forelesning", reading: "eiforelesning", meaning: "lecture", example: { jp: "Forelesninga varte i to timer uten en pause.", en: "The lecture lasted two hours without a break." }, accept: ["a talk", "a class"], drill: { jp: "Vi hadde ei forelesning i går", en: "We had a lecture yesterday" }, hint: "ei forelesning → forelesninga. -ing-ord er hunkjønn. Fra å forelese, fore + å lese." },
-        { id: "no-u85l4-pensum", type: "vocab", front: "pensum", reading: "pensum", meaning: "syllabus (reading list)", example: { jp: "Pensum er stort dette semesteret.", en: "The reading list is big this term." }, accept: ["a curriculum", "required reading"], drill: { jp: "Pensum er stort dette semesteret", en: "The reading list is big this term" }, hint: "pensum → pensumet, men står nesten alltid uten artikkel og er derfor bart oppslag: pensum er stort. Latinsk ord, brukt daglig." },
         { id: "no-u85l4-eiutveksling", type: "vocab", front: "ei utveksling", reading: "eiutveksling", meaning: "exchange (study abroad)", example: { jp: "Hun var på utveksling i Europa et helt år.", en: "She was on an exchange in Europe for a whole year." }, accept: ["an exchange programme", "a study exchange"], drill: { jp: "Hun søkte om ei utveksling", en: "She applied for an exchange" }, hint: "ei utveksling → utvekslinga. -ing-ord er hunkjønn. Ut + å veksle: swapping students both ways." },
+        { id: "no-u85l4-enhoyskole", type: "vocab", front: "en høyskole", reading: "enhoyskole", meaning: "university college", example: { jp: "Hun går på en høyskole i Bergen og blir lærer.", en: "She attends a university college in Bergen and is becoming a teacher." }, accept: ["college", "polytechnic"], drill: { jp: "Hun går på en høyskole i Bergen", en: "She attends a university college in Bergen" }, hint: "høy + en skole. Kortere og mer yrkesrettet enn et universitet. Mange høyskoler er nå slått sammen med universiteter." },
+        { id: "no-u85l4-etstudielan", type: "vocab", front: "et studielån", reading: "etstudielan", meaning: "student loan", example: { jp: "De fleste tar opp et studielån mens de studerer.", en: "Most people take out a student loan while they study." }, accept: ["study loan"], drill: { jp: "Han tok opp et studielån", en: "He took out a student loan" }, hint: "et studium + et lån (u66). En del av det blir stipend hvis du står til eksamen — derfor tar nesten alle det." },
+        { id: "no-u85l4-enbachelor", type: "vocab", front: "en bachelor", reading: "enbachelor", meaning: "bachelor's degree", example: { jp: "Hun tar en bachelor i økonomi og skal fortsette etterpå.", en: "She is taking a bachelor's degree in economics and will continue afterwards." }, accept: ["bachelor", "undergraduate degree"], drill: { jp: "Hun tar en bachelor i økonomi", en: "She is taking a bachelor's in economics" }, hint: "Engelsk lånord, uttalt nesten som på engelsk. Tre år. Etterpå kommer en master på to år." },
       ],
     },
   ],

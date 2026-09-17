@@ -37,11 +37,21 @@
 // (recorded at BUILD-CHECKLIST.md and in no/unit14.js's header). Run it; do not
 // read a clean result as confirmation.
 // ⚠ THREE OF THESE PASSIVES HAVE NO INFINITIVE CARD ANYWHERE IN THE CORPUS —
-// `å selge`, `å kalle` and `å åpne` are fronts in ZERO units (å selge has only
-// the agent noun en selger, u18; å åpne only the adjective åpen, u7). So the
-// learner gets a mastery track on the PASSIVE of three verbs they were never
-// taught to produce, while unit1.js §2 makes the infinitive the citation form.
-// Each hint names its infinitive, which is a patch and not a fix.
+// UNTAUGHT(no:å selge), UNTAUGHT(no:å kalle) and UNTAUGHT(no:å åpne) are fronts
+// in ZERO units (å selge has only the agent noun en selger, u18; å åpne only the
+// adjective åpen, u7). So the learner gets a mastery track on the PASSIVE of three
+// verbs they were never taught to produce, while unit1.js §2 makes the infinitive
+// the citation form. Each hint names its infinitive, which is a patch and not a fix.
+// Written in the UNTAUGHT(...) form so GUARD 2 (tests/unit/corpus-guards.test.mjs)
+// re-resolves it against the real corpus every run: the day someone adds one of
+// these three as a card, this test goes red and forces this paragraph to be updated
+// rather than leaving a stale claim for the next seat to trust.
+// MERGE-SEAT RULING 2026-09-17: NOT fixed here, deliberately. Adding `å selge`
+// beside `selges` is the exact infinitive/inflection pair this header spends its
+// first half defending against, so the cheap fix would create the defect the unit
+// is built to avoid. The real fix is an A1/A2 backfill — these are A1 verbs that
+// the u1–u50 band should have taught — and that is out of a B1 merge seat's lane.
+// Logged for Alex in the hand-back.
 // ⚠ BLOCK 1 / MERGE SEAT: this is a request, not a note — please give å selge,
 // å kalle and å åpne cards somewhere in the band. Nothing else in the corpus
 // does, and block 2 cannot add them without taking three slots from its own
@@ -111,7 +121,6 @@ export const NO_UNIT70 = {
       items: [
         { id: "no-u70l3-la", type: "vocab", front: "å la", reading: "ala", meaning: "to let", example: { jp: "La meg hjelpe deg med det.", en: "Let me help you with that." }, accept: ["let", "to allow", "to leave"], drill: { jp: "Det er lett å la barna velge", en: "It is easy to let the children choose" }, hint: "lar, lot, har latt. ⚠ The verb after it takes NO å: la meg gå, never la meg å gå. Same rule as after the modals (unit1 §5)." },
         { id: "no-u70l3-tvinge", type: "vocab", front: "å tvinge", reading: "atvinge", meaning: "to force", example: { jp: "Ingen kan tvinge deg til å skrive under.", en: "Nobody can force you to sign." }, accept: ["force", "to compel", "to make someone"], drill: { jp: "Ingen har rett til å tvinge deg", en: "Nobody has the right to force you" }, hint: "tvinger, tvang, har tvunget. Takes til å: tvinge noen til å gjøre noe — and here the å DOES come back, because til å is one of the frames that keeps it." },
-        { id: "no-u70l3-hindre", type: "vocab", front: "å hindre", reading: "ahindre", meaning: "to prevent", example: { jp: "Uværet hindret bussen i å komme.", en: "The storm prevented the bus from coming." }, accept: ["prevent", "to stop", "to hinder"], drill: { jp: "Det er lett å hindre en ulykke", en: "It is easy to prevent an accident" }, hint: "hindrer, hindret. ⚠ This one takes i å, not til å: hindre noen i å gjøre noe. The preposition is part of the word — learn them together." },
         { id: "no-u70l3-overtale", type: "vocab", front: "å overtale", reading: "aovertale", meaning: "to persuade", example: { jp: "Hun overtalte meg til å bli med.", en: "She persuaded me to come along." }, accept: ["persuade", "to talk someone into"], drill: { jp: "Det er lett å overtale ham", en: "It is easy to persuade him" }, hint: "over + å tale (en tale, u49). overtaler, overtalte. til å again." },
         { id: "no-u70l3-sorgefor", type: "vocab", front: "å sørge for", reading: "asorgefor", meaning: "to make sure", example: { jp: "Jeg sørger for at alle får mat.", en: "I make sure that everyone gets food." }, accept: ["make sure", "to see to", "to ensure", "to provide for"], drill: { jp: "Det er viktig å sørge for alle", en: "It is important to provide for everyone" }, hint: "On its own å sørge means to grieve; with for it means to see to something. sørger for, sørget for. ø folds to o: asorgefor." },
         { id: "no-u70l3-oppfordre", type: "vocab", front: "å oppfordre", reading: "aoppfordre", meaning: "to urge", example: { jp: "Legen oppfordret ham til å trene mer.", en: "The doctor urged him to exercise more." }, accept: ["urge", "to encourage", "to call on"], drill: { jp: "Vi pleier å oppfordre alle til å komme", en: "We usually urge everyone to come" }, hint: "opp + fordre. oppfordrer, oppfordret — and til å, like tvinge and overtale. The whole family takes a preposition; only å la goes bare." },
@@ -127,7 +136,6 @@ export const NO_UNIT70 = {
       dominantMode: "recall",
       canDo: "Report what somebody else said, and mark how much you stand behind it.",
       items: [
-        { id: "no-u70l4-hevde", type: "vocab", front: "å hevde", reading: "ahevde", meaning: "to assert", example: { jp: "Han hevder at han ikke var der.", en: "He claims that he was not there." }, accept: ["claim", "to claim", "to maintain"], drill: { jp: "Han pleier å hevde at han har rett", en: "He usually claims that he is right" }, hint: "hevder, hevdet. Stronger and cooler than å si (u12): what somebody hevder is something you are not vouching for. The noun is en påstand (u71)." },
         { id: "no-u70l4-antyde", type: "vocab", front: "å antyde", reading: "aantyde", meaning: "to hint", example: { jp: "Hun antydet at prisen kunne bli lavere.", en: "She hinted that the price could come down." }, accept: ["hint", "to suggest", "to imply"], drill: { jp: "Han prøvde å antyde noe mer", en: "He tried to hint at something more" }, hint: "an + å tyde, to read a sign. antyder, antydet. The polite way to raise something without saying it outright." },
         { id: "no-u70l4-lurepa", type: "vocab", front: "å lure på", reading: "alurepa", meaning: "to wonder", example: { jp: "Jeg lurer på hvem som ringte.", en: "I wonder who called." }, accept: ["wonder", "to be curious about"], drill: { jp: "Det er lett å lure på hvorfor", en: "It is easy to wonder why" }, hint: "lurer på, lurte på. Also the politest way to ask for anything: jeg lurte på om du kunne hjelpe meg — literally \"I was wondering whether\"." },
         { id: "no-u70l4-gjengi", type: "vocab", front: "å gjengi", reading: "agjengi", meaning: "to recount", example: { jp: "Avisa gjenga samtalen ord for ord.", en: "The paper reproduced the conversation word for word." }, accept: ["reproduce", "to render", "to report", "to quote"], drill: { jp: "Det er lett å gjengi en samtale", en: "It is easy to recount a conversation" }, hint: "gjen- (again) + å gi (u13) — to give back what was said. gjengir, gjenga, har gjengitt, following gi exactly." },

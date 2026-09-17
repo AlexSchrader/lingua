@@ -4,15 +4,21 @@
 // ("No front language") to what it actually covers: THE PREPOSITIONS NORWEGIAN
 // NEVER TAUGHT.
 //
-// Why this unit exists, measured not guessed. The corpus at u1-u50 teaches
-// exactly 14 prepositions — i, på, til, fra, med, av, etter, før, over, under,
-// om, innen, rundt, siden — and stops. `bak`, `foran`, `mellom`, `ved`, `hos`,
-// `mot`, `gjennom`, `uten`, `langs`, `blant`, `utenfor`, `innenfor`, `forbi`,
-// `unntatt` and `ifølge` are taught NOWHERE in 1215 words. `mellom` is used in
-// an example (no-u50l3-enlikhet) it is never taught for, and `hos` is used in a
-// LESSON TITLE (u16l4 "Hjemme hos folk") whose two content words are both
-// untaught. A closed class with a third of it missing is a structural hole, not
-// a vocabulary preference, so it gets the first coverage slot.
+// Why this unit exists, measured not guessed. ⚠ CORRECTED ON MERGE DAY (2026-09-17):
+// this paragraph used to claim the corpus at u1-u50 taught "exactly 14 prepositions
+// and stops", and that `ifølge` was taught nowhere. Both were false and the
+// fact-checker gate caught them. u36 also teaches `inntil`, `bortsett fra`,
+// `på grunn av` and `til tross for`, and it teaches the CONJUNCTION forms `uten at`,
+// `uten å` and `ved å` — so what u36 leaves out is the bare PREPOSITION `uten`/`ved`,
+// not the word. `ifølge` is taught at u54l4 (block 1), so this unit no longer teaches
+// it; the l4 item was removed on merge day and the lesson retitled.
+//
+// What IS genuinely missing before this unit is the bare spatial set: `bak`, `foran`,
+// `mellom`, `hos`, `mot`, `gjennom`, `langs`, `blant`, `utenfor`, `innenfor`, `forbi`
+// and `unntatt`. `mellom` is used in an example (no-u50l3-enlikhet) it is never taught
+// for, and `hos` is used in a LESSON TITLE (u16l4 "Hjemme hos folk") whose two content
+// words are both untaught. A closed class with a chunk of it missing is a structural
+// hole, not a vocabulary preference, so it gets the first coverage slot.
 //
 // Lesson 2 is the other half of the same hole. u13l3 teaches the MOTION forms
 // ut, inn, opp, ned, bort, tilbake and stops; Norwegian pairs every one of them
@@ -86,7 +92,7 @@ export const NO_UNIT76 = {
       id: "no-u76l4",
       unit: 76,
       lesson: 4,
-      title: "Uten, unntatt og ifølge",
+      title: "Uten, unntatt og i tillegg",
       cefr: "B1",
       dominantMode: "recall",
       canDo: "Leave something out, make an exception, and say where information comes from.",
@@ -94,7 +100,6 @@ export const NO_UNIT76 = {
         { id: "no-u76l4-uten", type: "vocab", front: "uten", reading: "uten", meaning: "without", example: { jp: "Jeg drikker aldri kaffe uten melk hjemme.", en: "I never drink coffee without milk at home." }, accept: ["lacking"], drill: { jp: "Jeg drar uten deg", en: "I am leaving without you" }, hint: "Uten + substantiv, uten å + infinitiv: han gikk uten å si noe." },
         { id: "no-u76l4-unntatt", type: "vocab", front: "unntatt", reading: "unntatt", meaning: "except", example: { jp: "Butikken er åpen hver dag unntatt søndag.", en: "The shop is open every day except Sunday." }, accept: ["apart from", "but"], drill: { jp: "Alle kom unntatt Erling", en: "Everyone came except Erling" }, hint: "Fra å unnta. Et unntak er an exception — the noun behind the word." },
         { id: "no-u76l4-utenom", type: "vocab", front: "utenom", reading: "utenom", meaning: "besides (apart from)", example: { jp: "Alt gikk fint utenom været, som var helt grått hele helga.", en: "Everything went fine apart from the weather, which was completely grey all weekend." }, accept: ["apart from", "except", "outside of"], drill: { jp: "Alt var bra utenom været", en: "Everything was good apart from the weather" }, hint: "ut + en + om. Mykere enn unntatt og vanligst i tale. Også 'around': å gå utenom." },
-        { id: "no-u76l4-ifolge", type: "vocab", front: "ifølge", reading: "ifolge", meaning: "according to", example: { jp: "Ifølge avisa blir det mye kaldere til helga.", en: "According to the paper it's going to get much colder by the weekend." }, accept: ["as stated by", "per"], drill: { jp: "Ifølge Erling er alt klart", en: "According to Erling everything is ready" }, hint: "i + følge, fra å følge. Skrives i ett ord. Brukes om kilder: ifølge politiet." },
         { id: "no-u76l4-blant", type: "vocab", front: "blant", reading: "blant", meaning: "among", example: { jp: "Han er den beste blant alle elevene på skolen.", en: "He's the best among all the pupils at the school." }, accept: ["amongst", "amid"], drill: { jp: "Hun er blant de beste", en: "She is among the best" }, hint: "Flere enn to: blant. Nøyaktig to: mellom (l1). Blant annet = among other things." },
         { id: "no-u76l4-itilleggtil", type: "vocab", front: "i tillegg til", reading: "itilleggtil", meaning: "in addition to", example: { jp: "I tillegg til brød kjøpte jeg melk og et eple.", en: "In addition to bread I bought milk and an apple." }, accept: ["as well as", "on top of"], drill: { jp: "I tillegg til dette kommer skatten", en: "In addition to this comes the tax" }, hint: "Et tillegg er an addition. Alene betyr i tillegg 'as well': jeg kom i tillegg." },
       ],
