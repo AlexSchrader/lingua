@@ -55,6 +55,12 @@
 //     AROUND A COMMON WORD. German used to teach 9 of the 100 commonest words in
 //     the language NOWHERE: so, nur, sein (the infinitive), da, wird, werden,
 //     alles, tun, werde — 52 of the top 300. All are now taught in u1–u26.
+//     ⚠️ ALWAYS SAY WHICH MEASURE YOU ARE QUOTING; the two differ by ~10 at the
+//     top 300, and an unnamed number here will be re-quoted wrongly by the next
+//     seat. "9 of 100" and "52 of 300" are the `--teachable` figures — the raw
+//     unfiltered ones are 10 and 62. After this pass: --teachable 0 / 3 / 90 / 221
+//     and raw 1 / 13 / 112 / 256 at the 100 / 300 / 600 / 1000 bands. The single
+//     raw top-100 remainder is `Oh`, the interjection, not a content word.
 //     WHY IT SURVIVED SO LONG, because the same trap is still open for every
 //     other language: across all 2,422 de example+drill sentences `nur` appeared
 //     0 times, `so` 0, `alle` 0, `jeder` 0, `wirklich` 0, `Leute` 0 — while `sehr`

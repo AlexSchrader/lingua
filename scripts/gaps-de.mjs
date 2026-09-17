@@ -109,8 +109,19 @@ async function refetch() {
 
 function loadList() {
   const best = new Map(); // folded form -> best-ranked row
-  for (const line of readFileSync(DATA, "utf8").trim().split("\n")) {
-    const [rank, word, ppm, lemma] = line.split("\t");
+  // ⚠️ SPLIT ON /\r?\n/ AND TRIM EVERY FIELD, and do not "simplify" this back.
+  // The .tsv is committed with LF and git checks it out with CRLF on Windows, so
+  // a naive split("\n") leaves a trailing \r on the LAST column — the lemma. That
+  // does not crash and it does not warn: `fold("sagen\r")` simply never matches a
+  // taught front, so lemma-coverage silently switches OFF and every participle of
+  // a taught verb is reported as a word taught nowhere. It cost a wrong headline
+  // number, and the reason it survived is that the author's working copy was the
+  // LF file they had written by hand, while every FRESH CHECKOUT — CI, any other
+  // seat, a detached worktree — got CRLF and a different answer from the same
+  // commit. The selftest below now pins this.
+  for (const line of readFileSync(DATA, "utf8").split(/\r?\n/)) {
+    if (!line.trim()) continue;
+    const [rank, word, ppm, lemma] = line.split("\t").map((s) => (s ?? "").trim());
     const k = fold(word);
     if (!best.has(k)) best.set(k, { rank: Number(rank), word, key: k, ppm: Number(ppm), lemma });
   }
@@ -152,6 +163,16 @@ if (argv.includes("--selftest")) {
        born.get(fold("Krokodil")) === undefined);
   must("an inflection of a taught infinitive counts as covered (kommt <- kommen)",
        born.get(fold("kommt")) !== undefined);
+  // THE REGRESSION THAT MOTIVATED THIS BLOCK. `gesagt` is the Perfekt participle
+  // of `sagen`, taught at u16l2; derive() only builds present-tense forms, so the
+  // ONLY thing that stops it being reported as "taught nowhere" is the lemma
+  // column. If the .tsv is parsed with a stray \r on the last field, this flips —
+  // silently, with no crash and no warning, and the headline number moves by 10.
+  const gesagt = list.find((r) => r.word === "gesagt");
+  must("the lemma column survives parsing (no stray \\r on the last field)",
+       !!gesagt && gesagt.lemma === "sagen");
+  must("a participle of a taught verb is lemma-covered, not a gap (gesagt <- sagen)",
+       !!gesagt && lemmaCovered(gesagt));
   must("the stoplist narrows, never widens", gapsIn(300).length >= 0 &&
        list.slice(0, 300).filter((r) => !covered(r)).length >=
        list.slice(0, 300).filter((r) => !covered(r) && !STOPLIST.has(r.key) && !FREE.has(r.key)).length);
