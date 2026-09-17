@@ -52,6 +52,20 @@ export const IRREG = {
   dürfen: ["darf", "darfst", "dürfen", "dürft"],
   sollen: ["soll", "sollst", "sollen", "sollt"],
   möchten: ["möchte", "möchtest", "möchten", "möchtet"],
+  // Added 2026-09-17 with the A1/A2 frequency retrofit, which teaches both of
+  // these for the first time. Neither is derivable by the regular rules: mögen
+  // drops its umlaut in the finite forms (mag, not mögt-stem), and `tun` does not
+  // end in -en at all, so the /en$/ branch never fires on it.
+  mögen: ["mag", "magst", "mögen", "mögt"],
+  tun: ["tue", "tust", "tut", "tun"],
+  // Determiners decline like der/die/das, and the generic rule below CANNOT build
+  // them: it appends endings to the front as authored, and the front is already
+  // the masculine -er form, so `dieser` + `e` gives "diesere", never "diese".
+  // Both of these are taught (u12l2), so every form is a form of a word the
+  // learner has met; spelling the paradigm out is the same "stated rule" the
+  // strong verbs above get, not a loosening.
+  dieser: ["dieser", "diese", "dieses", "diesen", "diesem"],
+  welcher: ["welcher", "welche", "welches", "welchen", "welchem"],
 };
 
 const IRREG_F = Object.fromEntries(Object.entries(IRREG).map(([k, v]) => [fold(k), v]));

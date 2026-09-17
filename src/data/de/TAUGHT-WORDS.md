@@ -1,7 +1,7 @@
 # DE — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- de`.
-Snapshot 2026-09-15: **1221 words** across **50 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-17: **1264 words** across **50 authored unit(s)**, **37 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -25,6 +25,48 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 | 2 | u64–u76 |
 | 3 | u77–u87 |
 
+## Slots still stubs — not yours unless you were assigned them
+
+| slot | unit | title |
+|---|---|---|
+| 51 | `de-u51` | Opinion and agreement |
+| 52 | `de-u52` | Cause and consequence |
+| 53 | `de-u53` | Comparison and degree |
+| 54 | `de-u54` | Hedging and uncertainty |
+| 55 | `de-u55` | News and society |
+| 56 | `de-u56` | Work and process |
+| 57 | `de-u57` | Emotion, finer shades |
+| 58 | `de-u58` | Abstract ideas |
+| 59 | `de-u59` | Change over time |
+| 60 | `de-u60` | Problems and solutions |
+| 61 | `de-u61` | Rules, permission, obligation |
+| 62 | `de-u62` | Plans and intentions |
+| 63 | `de-u63` | Experience and memory |
+| 64 | `de-u64` | Media and entertainment |
+| 65 | `de-u65` | Environment and place |
+| 66 | `de-u66` | Money and the economy |
+| 67 | `de-u67` | Health and wellbeing |
+| 68 | `de-u68` | Relationships and society |
+| 69 | `de-u69` | Grammar 6 — linked and subordinate clauses |
+| 70 | `de-u70` | Grammar 7 — passive, causative, indirect |
+| 71 | `de-u71` | Grammar 8 — nuance, evidentiality, nominalization |
+| 72 | `de-u72` | Register 1 — polite vs plain |
+| 73 | `de-u73` | Register 2 — softening and formality |
+| 74 | `de-u74` | Vocabulary 1 (B1) |
+| 75 | `de-u75` | Vocabulary 2 (B1) |
+| 76 | `de-u76` | Vocabulary 3 (B1) |
+| 77 | `de-u77` | Vocabulary 4 (B1) |
+| 78 | `de-u78` | Vocabulary 5 (B1) |
+| 79 | `de-u79` | Vocabulary 6 (B1) |
+| 80 | `de-u80` | Vocabulary 7 (B1) |
+| 81 | `de-u81` | Vocabulary 8 (B1) |
+| 82 | `de-u82` | Vocabulary 9 (B1) |
+| 83 | `de-u83` | Vocabulary 10 (B1) |
+| 84 | `de-u84` | Vocabulary 11 (B1) |
+| 85 | `de-u85` | Vocabulary 12 (B1) |
+| 86 | `de-u86` | Vocabulary 13 (B1) |
+| 87 | `de-u87` | Vocabulary 14 (B1) |
+
 ## Index — every taught word, alphabetical
 
 `word` — slot · meaning
@@ -39,12 +81,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `acht` — u5 · eight
 - `achtzehn` — u17 · eighteen
 - `ähnlich` — u37 · similar
+- `alle` — u4 · all / everyone
 - `allerdings` — u36 · though — conceding one point only
+- `alles` — u6 · everything
 - `als` — u29 · when — one past event
 - `also` — u29 · so
 - `alt` — u3 · old
 - `am` — u14 · on the / at the
 - `an` — u13 · on — a vertical surface
+- `andere` — u10 · other
 - `andererseits` — u36 · on the other hand
 - `ankommen` — u19 · to arrive
 - `anprobieren` — u18 · to try on
@@ -111,9 +156,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `brauchen` — u13 · to need
 - `brauchte` — u38 · needed — past of brauchen
 - `braun` — u8 · brown
+- `bringen` — u16 · to bring
 - `buchen` — u23 · to make a booking
 - `bunt` — u8 · colourful
 - `ch` — u1
+- `da` — u3 · there — on the spot
+- `dabei` — u14 · along / present
+- `dafür` — u13 · for it
 - `damals` — u28 · back then
 - `damit` — u29 · so that
 - `danach` — u21 · after that
@@ -198,6 +247,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Lied` — u35 · song
 - `das Loch` — u46 · the hole
 - `das Lokal` — u42 · the eating place
+- `das Mädchen` — u4 · girl
 - `das Meer` — u26 · the sea
 - `das Mehl` — u41 · the flour
 - `das Messer` — u41 · the knife
@@ -246,6 +296,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `dass` — u29 · that — links a clause
 - `dauern` — u19 · to last
 - `dauerte` — u38 · lasted — past of dauern
+- `davon` — u14 · of it / about it
 - `dein` — u4 · your (informal)
 - `deinen` — u13 · object form of dein
 - `dem` — u14 · dative form of der
@@ -332,6 +383,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Henkel` — u47 · the handle
 - `der Herbst` — u9 · autumn
 - `der Herd` — u30 · the cooker
+- `der Herr` — u10 · gentleman / Mr
 - `der Himmel` — u8 · sky
 - `der Hund` — u26 · the dog
 - `der Hunger` — u6 · hunger
@@ -365,6 +417,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Markt` — u7 · market
 - `der März` — u9 · March
 - `der Meißel` — u46 · the chisel
+- `der Mensch` — u11 · the human being
 - `der Mittwoch` — u9 · Wednesday
 - `der Moment` — u28 · the moment
 - `der Monat` — u9 · month
@@ -539,6 +592,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Hausaufgabe` — u24 · the homework
 - `die Haut` — u43 · the skin
 - `die Heizung` — u30 · the heating
+- `die Hilfe` — u14 · the help
 - `die Hitze` — u50 · the heat
 - `die Hochzeit` — u40 · wedding
 - `die Hose` — u18 · the trousers
@@ -566,6 +620,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Lampe` — u15 · the lamp
 - `die Laune` — u22 · the mood
 - `die Leiter` — u46 · the ladder
+- `die Leute` — u10 · people
 - `die Lippe` — u43 · the lip
 - `die Lösung` — u32 · solution
 - `die Luft` — u34 · air
@@ -607,6 +662,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Regierung` — u32 · government
 - `die Reservierung` — u23 · the reservation
 - `die Rezeption` — u23 · the reception
+- `die Sache` — u15 · the thing / the matter
 - `die Säge` — u46 · the saw
 - `die Schachtel` — u47 · the small box
 - `die Schraube` — u46 · the screw
@@ -679,6 +735,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Zeitung` — u1 · newspaper
 - `die Zukunft` — u28 · the future
 - `die Zutat` — u41 · the ingredient
+- `dieser` — u12 · this / these
 - `digital` — u33 · digital
 - `dir` — u14 · you — dative
 - `diskutieren` — u32 · to discuss / argue
@@ -703,9 +760,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ehrlich` — u31 · honest
 - `ei` — u1
 - `ein` — u5 · a / one
+- `ein paar` — u17 · a few
 - `einen` — u13 · object form of ein
 - `einerseits` — u36 · on the one hand
+- `einfach` — u10 · simple / simply
 - `einladen` — u40 · to invite
+- `einmal` — u21 · once
 - `einrichten` — u30 · to furnish
 - `einsam` — u22 · lonely
 - `einsteigen` — u19 · to board
@@ -725,6 +785,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `erlauben` — u48 · to allow
 - `erledigen` — u48 · to get done
 - `erschöpft` — u22 · exhausted
+- `erst` — u21 · not until
 - `erstens` — u36 · firstly — numbering a point in an argument
 - `erzählen` — u29 · to tell
 - `es` — u5 · it
@@ -742,6 +803,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `fast` — u47 · almost
 - `faul` — u31 · lazy
 - `feiern` — u40 · to celebrate
+- `fertig` — u21 · finished / ready
 - `festziehen` — u46 · to tighten
 - `feucht` — u49 · damp
 - `finden` — u7 · to find
@@ -766,6 +828,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `füttern` — u26 · to feed
 - `gab` — u39 · gave / there was — past of geben
 - `ganz` — u49 · completely
+- `gar` — u12 · at all
 - `gearbeitet` — u14 · worked (past participle of arbeiten)
 - `geben` — u16 · to give
 - `geduldig` — u31 · patient — willing to wait
@@ -853,10 +916,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ihn` — u13 · him — object
 - `ihnen` — u14 · them — dative
 - `ihr` — u3 · you — plural and informal
+- `ihre` — u4 · her / their
 - `im` — u14 · in the
 - `immer` — u12 · always
 - `immerhin` — u36 · at least — salvaging one good point
 - `in` — u13 · into / in
+- `in Ordnung` — u15 · in order / OK
 - `inzwischen` — u28 · meanwhile
 - `irgendwann` — u28 · sometime
 - `ist` — u1 · is
@@ -864,6 +929,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `je` — u37 · the — first half of the pair je … desto
 - `jeden Tag` — u21 · every day
 - `jedoch` — u36 · however — the written-register turn
+- `jemand` — u12 · someone
 - `jetzt` — u5 · now
 - `jugendlich` — u43 · youthful
 - `jung` — u3 · young
@@ -877,6 +943,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `kein Problem` — u2 · no problem
 - `keinen` — u13 · object form of kein
 - `klappen` — u37 · to work out
+- `klar` — u10 · clear / obvious
 - `kleben` — u46 · to glue
 - `klebrig` — u49 · sticky
 - `klein` — u1 · small
@@ -896,6 +963,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `las` — u39 · read — past of lesen
 - `lassen` — u44 · to leave something
 - `laufen` — u16 · to run
+- `leben` — u4 · to live / to be alive
 - `lecker` — u6 · delicious
 - `leer` — u10 · empty
 - `leeren` — u47 · to empty
@@ -918,6 +986,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `lustig` — u10 · funny / cheerful
 - `machen` — u16 · to do / make
 - `machte` — u38 · did / made — past of machen
+- `mal` — u21 · just — softening a request
 - `malen` — u35 · to paint
 - `man` — u45 · one — people in general
 - `manchmal` — u12 · sometimes
@@ -933,6 +1002,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `mischen` — u41 · to mix
 - `mit` — u14 · with
 - `möchten` — u16 · would like
+- `mögen` — u16 · to like
 - `möglich` — u37 · possible
 - `morgen` — u5 · tomorrow
 - `müde` — u1 · tired
@@ -964,6 +1034,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `niemand` — u12 · nobody
 - `noch` — u12 · still / yet
 - `normalerweise` — u21 · normally
+- `nun` — u12 · now then / well
+- `nur` — u3 · only
 - `ö` — u1
 - `ob` — u29 · whether
 - `oben` — u44 · up there / at the top
@@ -979,6 +1051,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `packen` — u23 · to pack
 - `parken` — u23 · to park a car
 - `passen` — u18 · to fit
+- `passieren` — u22 · to happen
 - `peinlich` — u22 · embarrassing
 - `planen` — u48 · to plan
 - `plötzlich` — u28 · suddenly
@@ -1029,6 +1102,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `schneit` — u8 · it snows
 - `schnell` — u1 · fast
 - `schön` — u1 · beautiful
+- `schon` — u5 · already
 - `schrauben` — u46 · to screw
 - `schreiben` — u20 · to write
 - `schrieb` — u39 · wrote — past of schreiben
@@ -1042,6 +1116,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `sechzig` — u17 · sixty
 - `sehen` — u16 · to see (with the eyes)
 - `sehr` — u2 · very
+- `sein` — u16 · to be
+- `seine` — u4 · his
 - `seit` — u14 · since / for
 - `selbst` — u48 · myself / yourself
 - `selbstbewusst` — u31 · self-assured
@@ -1075,6 +1151,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `sind` — u1 · are
 - `singen` — u16 · to sing
 - `sitzen` — u16 · to sit
+- `so` — u2 · so / like this
 - `sobald` — u29 · as soon as
 - `sofort` — u28 · immediately
 - `sogar` — u36 · even — more than you would expect
@@ -1132,6 +1209,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `trotzdem` — u29 · nevertheless
 - `trug` — u39 · wore / carried — past of tragen
 - `tschüss` — u2 · bye
+- `tun` — u16 · to do (an act)
 - `tut weh` — u11 · to hurt
 - `ü` — u1
 - `üben` — u20 · to practise
@@ -1149,6 +1227,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `und` — u1 · and
 - `unentschieden` — u45 · a draw
 - `uns` — u13 · us
+- `unsere` — u4 · our
 - `unten` — u44 · down there / at the bottom
 - `unter` — u14 · under / below
 - `untersuchen` — u34 · to investigate / examine
@@ -1202,20 +1281,25 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `weniger` — u37 · less / fewer
 - `wenn` — u29 · if — a condition
 - `wer` — u12 · who
+- `werden` — u8 · to become
 - `werfen` — u45 · to throw
 - `wichtig` — u45 · important
 - `wie` — u3 · how
 - `wie geht's` — u2 · how are you
 - `wie viel` — u12 · how much
+- `wieder` — u12 · again
 - `wiederholen` — u24 · to repeat
+- `wieso` — u12 · how come
 - `wild` — u26 · wild
 - `willkommen` — u2 · welcome
 - `wir` — u3 · we
 - `wirken` — u31 · to seem / come across
+- `wirklich` — u12 · really
 - `wissen` — u16 · to know
 - `wo` — u3 · where
 - `woher` — u3 · where from
 - `wohin` — u12 · where to
+- `wohl` — u12 · probably
 - `wohnen` — u1 · to live (somewhere)
 - `wohnte` — u38 · lived — past of wohnen
 - `wolkig` — u50 · cloudy
@@ -1240,6 +1324,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `zufrieden` — u22 · satisfied
 - `zum Beispiel` — u36 · for example
 - `zur` — u21 · to the
+- `zurück` — u7 · back
 - `zusammen` — u1 · together
 - `zustimmen` — u48 · to agree
 - `zuverlässig` — u31 · reliable
@@ -1255,37 +1340,37 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 **u1 · Laute und Buchstaben** (33) — `ei`, `ie`, `ist`, `das`, `nein`, `hier`, `was`, `z`, `ch`, `die Zeit`, `die Zeitung`, `das Buch`, `und`, `sind`, `sch`, `ß`, `die Straße`, `die Schule`, `schnell`, `sprechen`, `zusammen`, `ü`, `ö`, `die Tür`, `die Küche`, `müde`, `hören`, `wohnen`, `ä`, `spät`, `klein`, `schön`, `groß`
 
-**u2 · Begrüßung und Abschied** (24) — `hallo`, `guten Morgen`, `guten Tag`, `guten Abend`, `gute Nacht`, `willkommen`, `wie geht's`, `danke`, `bitte`, `gut`, `schlecht`, `sehr`, `tschüss`, `auf Wiedersehen`, `bis bald`, `bis später`, `bis morgen`, `gute Reise`, `Entschuldigung`, `es tut mir leid`, `gern`, `kein Problem`, `ja`, `natürlich`
+**u2 · Begrüßung und Abschied** (25) — `hallo`, `guten Morgen`, `guten Tag`, `guten Abend`, `gute Nacht`, `willkommen`, `wie geht's`, `danke`, `bitte`, `gut`, `schlecht`, `sehr`, `so`, `tschüss`, `auf Wiedersehen`, `bis bald`, `bis später`, `bis morgen`, `gute Reise`, `Entschuldigung`, `es tut mir leid`, `gern`, `kein Problem`, `ja`, `natürlich`
 
-**u3 · Sich vorstellen** (24) — `ich`, `bin`, `du`, `bist`, `heißen`, `der Name`, `woher`, `wo`, `wie`, `kommen`, `aus`, `Deutsch`, `Sie`, `er`, `sie`, `wir`, `ihr`, `nicht`, `der Beruf`, `arbeiten`, `studieren`, `alt`, `jung`, `auch`
+**u3 · Sich vorstellen** (26) — `ich`, `bin`, `du`, `bist`, `heißen`, `der Name`, `da`, `woher`, `wo`, `wie`, `kommen`, `aus`, `Deutsch`, `nur`, `Sie`, `er`, `sie`, `wir`, `ihr`, `nicht`, `der Beruf`, `arbeiten`, `studieren`, `alt`, `jung`, `auch`
 
-**u4 · Die Familie** (24) — `die Familie`, `der Vater`, `die Mutter`, `die Eltern`, `der Sohn`, `die Tochter`, `der Bruder`, `die Schwester`, `die Geschwister`, `der Mann`, `die Frau`, `das Kind`, `der Großvater`, `die Großmutter`, `die Großeltern`, `der Onkel`, `die Tante`, `der Cousin`, `mein`, `dein`, `haben`, `der Freund`, `die Freundin`, `lieben`
+**u4 · Die Familie** (30) — `die Familie`, `der Vater`, `die Mutter`, `die Eltern`, `der Sohn`, `die Tochter`, `leben`, `der Bruder`, `die Schwester`, `die Geschwister`, `der Mann`, `die Frau`, `das Kind`, `alle`, `das Mädchen`, `der Großvater`, `die Großmutter`, `die Großeltern`, `der Onkel`, `die Tante`, `der Cousin`, `ihre`, `mein`, `dein`, `haben`, `der Freund`, `die Freundin`, `lieben`, `seine`, `unsere`
 
-**u5 · Zahlen und Zeit** (24) — `ein`, `zwei`, `drei`, `vier`, `fünf`, `sechs`, `sieben`, `acht`, `neun`, `zehn`, `elf`, `zwölf`, `die Uhr`, `die Stunde`, `die Minute`, `halb`, `es`, `jetzt`, `der Tag`, `die Nacht`, `heute`, `morgen`, `das Jahr`, `die Woche`
+**u5 · Zahlen und Zeit** (25) — `ein`, `zwei`, `drei`, `vier`, `fünf`, `sechs`, `sieben`, `acht`, `neun`, `zehn`, `elf`, `zwölf`, `die Uhr`, `die Stunde`, `die Minute`, `halb`, `es`, `jetzt`, `schon`, `der Tag`, `die Nacht`, `heute`, `morgen`, `das Jahr`, `die Woche`
 
-**u6 · Essen und Trinken** (24) — `das Brot`, `der Käse`, `die Butter`, `das Ei`, `der Reis`, `die Nudeln`, `der Apfel`, `die Banane`, `die Tomate`, `die Kartoffel`, `das Gemüse`, `das Obst`, `das Wasser`, `der Kaffee`, `der Tee`, `die Milch`, `der Saft`, `das Bier`, `essen`, `trinken`, `das Frühstück`, `das Mittagessen`, `lecker`, `der Hunger`
+**u6 · Essen und Trinken** (25) — `das Brot`, `der Käse`, `die Butter`, `das Ei`, `der Reis`, `die Nudeln`, `der Apfel`, `die Banane`, `die Tomate`, `die Kartoffel`, `das Gemüse`, `das Obst`, `das Wasser`, `der Kaffee`, `der Tee`, `die Milch`, `der Saft`, `das Bier`, `essen`, `trinken`, `das Frühstück`, `das Mittagessen`, `lecker`, `der Hunger`, `alles`
 
-**u7 · Die Stadt** (24) — `die Stadt`, `das Haus`, `die Wohnung`, `der Bahnhof`, `der Markt`, `der Platz`, `das Restaurant`, `das Hotel`, `die Bank`, `die Post`, `das Museum`, `der Park`, `gehen`, `fahren`, `links`, `rechts`, `geradeaus`, `weit`, `dort`, `der Weg`, `die Karte`, `finden`, `suchen`, `nah`
+**u7 · Die Stadt** (25) — `die Stadt`, `das Haus`, `die Wohnung`, `der Bahnhof`, `der Markt`, `der Platz`, `das Restaurant`, `das Hotel`, `die Bank`, `die Post`, `das Museum`, `der Park`, `gehen`, `fahren`, `links`, `rechts`, `geradeaus`, `weit`, `zurück`, `dort`, `der Weg`, `die Karte`, `finden`, `suchen`, `nah`
 
-**u8 · Farben und Wetter** (24) — `rot`, `blau`, `gelb`, `grün`, `schwarz`, `weiß`, `braun`, `grau`, `rosa`, `orange`, `die Farbe`, `bunt`, `das Wetter`, `die Sonne`, `regnet`, `der Nebel`, `der Schnee`, `schneit`, `der Wind`, `die Wolke`, `kalt`, `warm`, `heiß`, `der Himmel`
+**u8 · Farben und Wetter** (25) — `rot`, `blau`, `gelb`, `grün`, `schwarz`, `weiß`, `braun`, `grau`, `rosa`, `orange`, `die Farbe`, `bunt`, `das Wetter`, `die Sonne`, `regnet`, `der Nebel`, `der Schnee`, `schneit`, `der Wind`, `die Wolke`, `kalt`, `warm`, `heiß`, `der Himmel`, `werden`
 
 **u9 · Tage, Monate und Jahreszeiten** (24) — `der Montag`, `der Dienstag`, `der Mittwoch`, `der Donnerstag`, `der Freitag`, `der Samstag`, `der Sonntag`, `der Monat`, `der Januar`, `der Februar`, `der März`, `der April`, `der Mai`, `der Juni`, `der Juli`, `der August`, `der September`, `der Oktober`, `der November`, `der Dezember`, `der Frühling`, `der Sommer`, `der Herbst`, `der Winter`
 
-**u10 · Beschreiben** (24) — `hell`, `dunkel`, `lang`, `kurz`, `hoch`, `tief`, `dick`, `dünn`, `schwer`, `leicht`, `voll`, `leer`, `neu`, `sauber`, `schmutzig`, `kaputt`, `teuer`, `billig`, `nett`, `ruhig`, `lustig`, `langweilig`, `traurig`, `glücklich`
+**u10 · Beschreiben** (29) — `hell`, `dunkel`, `lang`, `kurz`, `hoch`, `tief`, `andere`, `dick`, `dünn`, `schwer`, `leicht`, `voll`, `leer`, `einfach`, `neu`, `sauber`, `schmutzig`, `kaputt`, `teuer`, `billig`, `klar`, `nett`, `ruhig`, `lustig`, `langweilig`, `traurig`, `glücklich`, `die Leute`, `der Herr`
 
-**u11 · Der Körper und die Gesundheit** (24) — `der Kopf`, `das Auge`, `die Nase`, `der Mund`, `das Ohr`, `der Zahn`, `der Körper`, `der Hals`, `die Hand`, `der Arm`, `das Bein`, `der Fuß`, `krank`, `gesund`, `tut weh`, `der Schmerz`, `das Fieber`, `der Husten`, `der Arzt`, `das Krankenhaus`, `die Apotheke`, `die Medizin`, `die Erkältung`, `der Durst`
+**u11 · Der Körper und die Gesundheit** (25) — `der Kopf`, `das Auge`, `die Nase`, `der Mund`, `das Ohr`, `der Zahn`, `der Körper`, `der Hals`, `die Hand`, `der Arm`, `das Bein`, `der Fuß`, `der Mensch`, `krank`, `gesund`, `tut weh`, `der Schmerz`, `das Fieber`, `der Husten`, `der Arzt`, `das Krankenhaus`, `die Apotheke`, `die Medizin`, `die Erkältung`, `der Durst`
 
-**u12 · Der Satz und die Wortstellung** (24) — `immer`, `oft`, `manchmal`, `selten`, `dann`, `noch`, `wer`, `wann`, `warum`, `wohin`, `wie viel`, `welcher`, `doch`, `vielleicht`, `sicher`, `aber`, `oder`, `denn`, `kein`, `nichts`, `niemand`, `nie`, `sondern`, `etwas`
+**u12 · Der Satz und die Wortstellung** (32) — `immer`, `oft`, `manchmal`, `selten`, `dann`, `noch`, `nun`, `wieder`, `wer`, `wann`, `warum`, `wohin`, `wie viel`, `welcher`, `dieser`, `wieso`, `doch`, `vielleicht`, `sicher`, `aber`, `oder`, `denn`, `wirklich`, `wohl`, `kein`, `nichts`, `niemand`, `nie`, `sondern`, `etwas`, `jemand`, `gar`
 
-**u13 · Nominativ und Akkusativ** (24) — `den`, `einen`, `keinen`, `meinen`, `deinen`, `wen`, `mich`, `dich`, `ihn`, `uns`, `euch`, `es gibt`, `durch`, `für`, `gegen`, `ohne`, `um`, `brauchen`, `in`, `auf`, `an`, `vor`, `hinter`, `neben`
+**u13 · Nominativ und Akkusativ** (25) — `den`, `einen`, `keinen`, `meinen`, `deinen`, `wen`, `mich`, `dich`, `ihn`, `uns`, `euch`, `es gibt`, `durch`, `für`, `gegen`, `ohne`, `um`, `brauchen`, `dafür`, `in`, `auf`, `an`, `vor`, `hinter`, `neben`
 
-**u14 · Dativ und Perfekt** (24) — `dem`, `im`, `am`, `über`, `unter`, `zwischen`, `mir`, `dir`, `ihm`, `ihnen`, `wem`, `helfen`, `mit`, `nach`, `bei`, `seit`, `von`, `zu`, `gewesen`, `gehabt`, `gegangen`, `gekommen`, `gearbeitet`, `getrunken`
+**u14 · Dativ und Perfekt** (27) — `dem`, `im`, `am`, `über`, `unter`, `zwischen`, `mir`, `dir`, `ihm`, `ihnen`, `wem`, `helfen`, `die Hilfe`, `mit`, `nach`, `bei`, `seit`, `von`, `zu`, `davon`, `dabei`, `gewesen`, `gehabt`, `gegangen`, `gekommen`, `gearbeitet`, `getrunken`
 
-**u15 · Zu Hause** (24) — `das Zimmer`, `das Schlafzimmer`, `das Bad`, `der Flur`, `der Garten`, `der Keller`, `das Bett`, `der Tisch`, `der Stuhl`, `der Schrank`, `das Sofa`, `das Regal`, `das Fenster`, `die Wand`, `der Boden`, `die Treppe`, `die Lampe`, `der Teppich`, `der Schlüssel`, `das Bild`, `der Spiegel`, `das Licht`, `der Kühlschrank`, `das Kissen`
+**u15 · Zu Hause** (26) — `das Zimmer`, `das Schlafzimmer`, `das Bad`, `der Flur`, `der Garten`, `der Keller`, `das Bett`, `der Tisch`, `der Stuhl`, `der Schrank`, `das Sofa`, `das Regal`, `das Fenster`, `die Wand`, `der Boden`, `die Treppe`, `die Lampe`, `der Teppich`, `der Schlüssel`, `das Bild`, `der Spiegel`, `das Licht`, `der Kühlschrank`, `das Kissen`, `die Sache`, `in Ordnung`
 
-**u16 · Alltag und Modalverben** (24) — `können`, `müssen`, `wollen`, `dürfen`, `sollen`, `möchten`, `machen`, `sagen`, `sehen`, `geben`, `nehmen`, `wissen`, `schlafen`, `aufstehen`, `sitzen`, `liegen`, `bleiben`, `denken`, `spielen`, `schwimmen`, `tanzen`, `singen`, `kochen`, `laufen`
+**u16 · Alltag und Modalverben** (28) — `können`, `müssen`, `wollen`, `dürfen`, `sollen`, `möchten`, `sein`, `mögen`, `machen`, `sagen`, `sehen`, `geben`, `nehmen`, `wissen`, `tun`, `bringen`, `schlafen`, `aufstehen`, `sitzen`, `liegen`, `bleiben`, `denken`, `spielen`, `schwimmen`, `tanzen`, `singen`, `kochen`, `laufen`
 
-**u17 · Zahlen und Geld** (24) — `dreizehn`, `sechzehn`, `siebzehn`, `achtzehn`, `neunzehn`, `zwanzig`, `dreißig`, `vierzig`, `fünfzig`, `sechzig`, `siebzig`, `hundert`, `tausend`, `die Zahl`, `die Nummer`, `das Stück`, `viel`, `wenig`, `das Geld`, `der Euro`, `kosten`, `der Preis`, `bezahlen`, `genug`
+**u17 · Zahlen und Geld** (25) — `dreizehn`, `sechzehn`, `siebzehn`, `achtzehn`, `neunzehn`, `zwanzig`, `dreißig`, `vierzig`, `fünfzig`, `sechzig`, `siebzig`, `hundert`, `tausend`, `die Zahl`, `die Nummer`, `das Stück`, `viel`, `wenig`, `ein paar`, `das Geld`, `der Euro`, `kosten`, `der Preis`, `bezahlen`, `genug`
 
 **u18 · Kleidung und Einkaufen** (24) — `das Hemd`, `die Hose`, `der Rock`, `das Kleid`, `der Schuh`, `die Tasche`, `die Jacke`, `der Mantel`, `der Pullover`, `die Socke`, `die Mütze`, `der Schal`, `tragen`, `anziehen`, `ausziehen`, `passen`, `anprobieren`, `gefallen`, `kaufen`, `verkaufen`, `das Geschäft`, `die Kasse`, `der Kunde`, `zeigen`
 
@@ -1293,9 +1378,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 **u20 · Schule und Arbeit** (24) — `der Lehrer`, `der Schüler`, `der Student`, `die Klasse`, `die Prüfung`, `die Aufgabe`, `fragen`, `antworten`, `richtig`, `falsch`, `das Wort`, `die Sprache`, `lernen`, `lesen`, `schreiben`, `üben`, `verstehen`, `erklären`, `das Büro`, `die Firma`, `der Chef`, `der Kollege`, `verdienen`, `der Termin`
 
-**u21 · Alltag und Routine** (26) — `aufwachen`, `duschen`, `sich waschen`, `sich anziehen`, `früh`, `pünktlich`, `der Alltag`, `der Tagesablauf`, `zuerst`, `danach`, `später`, `sich beeilen`, `aufräumen`, `putzen`, `vorbereiten`, `das Geschirr`, `die Wäsche`, `der Müll`, `vom`, `zur`, `jeden Tag`, `zweimal`, `meistens`, `kaum`, `normalerweise`, `der Feierabend`
+**u21 · Alltag und Routine** (30) — `aufwachen`, `duschen`, `sich waschen`, `sich anziehen`, `früh`, `pünktlich`, `der Alltag`, `der Tagesablauf`, `zuerst`, `danach`, `später`, `sich beeilen`, `fertig`, `erst`, `aufräumen`, `putzen`, `vorbereiten`, `das Geschirr`, `die Wäsche`, `der Müll`, `vom`, `zur`, `jeden Tag`, `zweimal`, `meistens`, `kaum`, `normalerweise`, `der Feierabend`, `einmal`, `mal`
 
-**u22 · Gefühle und Stimmungen** (24) — `das Gefühl`, `fühlen`, `zufrieden`, `aufgeregt`, `stolz`, `nervös`, `wütend`, `sich ärgern`, `enttäuscht`, `die Sorge`, `einsam`, `erschöpft`, `die Freude`, `sich freuen`, `die Laune`, `überrascht`, `peinlich`, `sich entspannen`, `die Angst`, `sich beruhigen`, `die Geduld`, `mutig`, `schüchtern`, `leider`
+**u22 · Gefühle und Stimmungen** (25) — `das Gefühl`, `fühlen`, `zufrieden`, `aufgeregt`, `stolz`, `nervös`, `wütend`, `sich ärgern`, `enttäuscht`, `die Sorge`, `einsam`, `erschöpft`, `passieren`, `die Freude`, `sich freuen`, `die Laune`, `überrascht`, `peinlich`, `sich entspannen`, `die Angst`, `sich beruhigen`, `die Geduld`, `mutig`, `schüchtern`, `leider`
 
 **u23 · Reise und Unterkunft** (24) — `buchen`, `die Reservierung`, `die Unterkunft`, `der Ausflug`, `die Sehenswürdigkeit`, `packen`, `das Gleis`, `die Verspätung`, `die Auskunft`, `der Ausweis`, `abholen`, `fliegen`, `die Rezeption`, `das Einzelzimmer`, `das Doppelzimmer`, `die Übernachtung`, `die Aussicht`, `frei`, `das Auto`, `parken`, `der Stau`, `tanken`, `der Führerschein`, `die Ampel`
 

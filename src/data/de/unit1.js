@@ -40,12 +40,91 @@
 //         `hinter`, `vor`, `zwischen`: those are exactly the two-way prepositions
 //         whose whole point is the case contrast.
 //     (b) Verbs are headworded in the INFINITIVE (wohnen, kommen, essen), with
-//         person-marked forms shown in examples and hints. `sein` is the one
-//         exception: its forms are so irregular and so early that ist/bin/bist/
-//         sind are taught as separate fronts (u1l1, u1l2, u3l1, u3l3).
+//         person-marked forms shown in examples and hints. `sein` is the one verb
+//         whose finite forms are ALSO taught as separate fronts, because they are
+//         so irregular and arrive so early: ist/bin/bist/sind (u1l1, u1l2, u3l1,
+//         u3l3). ⚠️ UPDATED 2026-09-17 — the infinitive `sein` itself is now taught
+//         too, at u16l1, next to the modals that are the only thing that makes a
+//         bare infinitive sayable. Until then this header said ist/bin/bist/sind
+//         were the whole story, and the infinitive every other verb is headworded
+//         by was missing from the language entirely.
 //     (c) No plural noun forms are taught as separate fronts at A1 — die Eltern,
 //         die Geschwister, die Großeltern and die Nudeln are lexical plurals that
 //         have no singular in normal use, not a plural rule being taught.
+//   - ⚠️⚠️ THE A1/A2 FREQUENCY RETROFIT (2026-09-17) — READ THIS BEFORE YOU WRITE
+//     AROUND A COMMON WORD. German used to teach 9 of the 100 commonest words in
+//     the language NOWHERE: so, nur, sein (the infinitive), da, wird, werden,
+//     alles, tun, werde — 52 of the top 300. All are now taught in u1–u26.
+//     ⚠️ ALWAYS SAY WHICH MEASURE YOU ARE QUOTING; the two differ by ~10 at the
+//     top 300, and an unnamed number here will be re-quoted wrongly by the next
+//     seat. "9 of 100" and "52 of 300" are the `--teachable` figures — the raw
+//     unfiltered ones are 10 and 62. After this pass: --teachable 0 / 3 / 90 / 221
+//     and raw 1 / 13 / 112 / 256 at the 100 / 300 / 600 / 1000 bands. The single
+//     raw top-100 remainder is `Oh`, the interjection, not a content word.
+//     ⚠️⚠️ AND SAY "0 DETECTABLE", NEVER "0". THE PROBE HAS TWO BLIND SPOTS AND BOTH
+//     HAVE ALREADY BITTEN, so a zero from it is a floor, not a clean bill:
+//       (1) FALSE COVER. It inherits the scope oracle's derivation rules, which are
+//           looser than a learner's knowledge. Taught `schön` covered `schon` via
+//           accent folding; taught `malen` covered `mal` by suffix-stripping; taught
+//           `wiederholen` covered `wieder` by separable-prefix registration. All
+//           three were top-100 words with NO CARD IN ANY OF THE 87 UNITS, reported
+//           covered — and `wieder` was already being USED untaught in a drill. They
+//           are now taught (u5l3, u21l4, u12l1). Run `gaps-de.mjs --weak` to list
+//           what is still covered only by a derivation rule, and read it.
+//       (2) SENSE GAPS — see the possessives below.
+//     WHY NO CHECK CAUGHT THE ORIGINAL HOLE, and this is the part that generalises:
+//     every scope check we own asks "is this word, in this sentence, taught by now?"
+//     That is answered INSIDE the corpus, so a word that is neither taught NOR
+//     written is never asked about and warns nobody.
+//     ⚠️ DO NOT INFLATE THAT INTO "authors compose inside the whitelist". An earlier
+//     draft here argued exactly that from a statistic (`nur` 0 uses vs `sehr` 413)
+//     and the statistic was CIRCULAR: `nur` was untaught, and scope-strict-de reports
+//     0 out-of-scope corpus-wide, so any use would already have been flagged — the 0
+//     is entailed by arithmetic, not observed. es and fr run this same scaffold and
+//     the same checkers and DO teach their equivalents (ya, solo, todo, nada,
+//     siempre; déjà, seulement, tout, rien, alors). This was a GERMAN AUTHORING
+//     MISS, not a law of the toolchain. The structural point above stands alone.
+//     THE TOOL: `node scripts/gaps-de.mjs` probes an EXTERNAL published frequency
+//     list, not one we chose. Run it before assuming a common word is unavailable —
+//     and never work around a missing word by rephrasing.
+//     NEWLY AVAILABLE, with where they live: so u2 · da u3 · nur u3 · leben u4 ·
+//     alle u4 · das Mädchen u4 · seine u4 · ihre u4 · unsere u4 · alles u6 ·
+//     zurück u7 · werden u8 · andere/einfach/klar/die Leute/der Herr u10 ·
+//     der Mensch u11 · nun/dieser/wieso/wirklich/wohl/jemand/gar u12 · dafür u13 ·
+//     schon u5 · davon/dabei/die Hilfe u14 · die Sache/in Ordnung u15 ·
+//     sein/mögen/tun/bringen u16 · ein paar u17 · fertig/erst/einmal/mal u21 ·
+//     passieren u22 · wieder u12.
+//     ⚠️ THE POSSESSIVES WERE A SENSE GAP, NOT A FORM GAP, AND THE PROBE MISSED IT.
+//     German taught mein and dein and then stopped: `ihre` (her/their) and `unsere`
+//     (our) were taught NOWHERE in all 87 units. gaps-de.mjs could not see it,
+//     because `ihr` IS taught at u3l3 — as the pronoun "you (plural)" — and the
+//     probe matches spellings, not senses, so the possessive read as covered. A
+//     human reading the cards caught it. Both are now taught (u4l3, u4l4).
+//     ⚠️ A LESSON ABOUT accept[], AND NOT A SHIPPED BUG — be precise about this,
+//     because an earlier draft here overstated it. `seine` NEVER reached main: an
+//     earlier commit ON THIS BRANCH gave it accept: ["his","her","its"], and this
+//     branch's own content gate caught it one commit later. Nothing was ever taught
+//     wrongly to anyone. What is worth keeping is the mechanism: accept[] is GRADED
+//     (src/store/answer.js senses() folds it in beside `meaning`), so a wrong entry
+//     marks a wrong answer CORRECT, and it is invisible to GUARD 1, which compares
+//     `meaning` only. Check accept[] as carefully as the gloss.
+//     ⚠️ `werden` (u8l4) is the auxiliary the B1 PASSIVE unit is built on. It had
+//     no card anywhere until this pass. It does now — build on it.
+//     STILL DELIBERATELY ABSENT from the top 300 — UNTAUGHT(de:Gott),
+//     UNTAUGHT(de:tot), UNTAUGHT(de:rein). Each is inflated by the subtitle
+//     corpus the list is built from (crime drama and exclamations), not A1/A2
+//     vocabulary. That is a judgement, not an oversight — and it is written in
+//     the UNTAUGHT() form GUARD 2 resolves against the real corpus every run, so
+//     the day someone does teach one, this paragraph fails loudly instead of
+//     quietly lying to the next seat.
+//     ⚠️ TWO HOMOGRAPHS THIS CREATED, handled the way CLAUDE.md prescribes for
+//     Japanese に — through the example and a hint, never by weakening a check:
+//       sein  = "to be" (u16l1)  vs  seine = the possessive "his" (u4l4). Fronts
+//             are globally unique, so the possessive is headworded `seine`.
+//       alle  = "all / everyone" (u4l2)  vs  alles = "everything" (u6l4). Separate
+//             cards in separate lessons, distinct glosses, contrasted in both hints.
+//     `dieser` is headworded in the MASCULINE, matching `welcher` in the same
+//     lesson — not `diese`, which cannot generate the -er/-em forms.
 //   FREE: Anna, Thomas, Lena, Max, Berlin, München, Hamburg, Köln, Wien, Deutschland, Österreich, Europa | modern, elegant, interessant, fantastisch, perfekt, super, praktisch, international, laut, blond, direkt, ideal, normal, aktiv, privat, total, exakt, Musik, Foto, Sport, Film, Filme, Computer, Adresse, Telefon, Konzert, Theater, Zentrum, Universität, Auto | Bücher, Kinder, Minuten, Stunden, Tage, Türen, Äpfel, Häuser, Eier | 2000
 //     ⚠️ TWO THINGS THE NEXT SEAT MUST COPY, both learned from a checker run:
 //     (a) List cognates WITHOUT their article. check-lang-scope.mjs splits this
