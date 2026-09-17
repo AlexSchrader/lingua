@@ -8,11 +8,21 @@
 // Lesson 1's six adverbs are chosen because they can all be fronted, which is what
 // makes verb-second visible: Manchmal IST die Straße leer, not Manchmal die Straße ist.
 //
-// ⚠️ REJECTED — schon. It is a perfectly good A1 word and it cannot be taught in this
-// language, because u1 already teaches schön and the umlaut FOLDS: both fronts
-// normalize to the reading "schon". validate:content compares fronts, not readings, so
-// it would have passed silently and left two different cards a learner answers the same
-// way. Caught by hand. selten took the slot instead.
+// ⚠️ "REJECTED — schon" IS REVERSED (2026-09-17). schon IS NOW TAUGHT, at u5l3.
+// Do not author from the paragraph this replaces; it is kept only in outline so the
+// reasoning is not re-derived a third time. It said: schon cannot be taught, because
+// u1 teaches schön and the umlaut FOLDS — both normalize to the reading "schon" —
+// so validate:content, which compares fronts and not readings, would pass silently
+// and leave two cards a learner answers the same way. selten took the slot instead.
+// THAT WAS TRUE WHEN IT WAS WRITTEN AND IS NOT TRUE NOW. corpus-guards GUARD 3 plus
+// the `foldCollides` stamp in seedItems() handle exactly this class: when a front's
+// fold is another taught front, the grader demands the EXACT string, so schön and
+// schon are no longer interchangeable. German already ships three such pairs —
+// hätte/hatte, könnte/konnte, würde/wurde — and schon is rank 66 in the language.
+// ⚠️ THE COST OF LEAVING IT REJECTED, which is why this was revisited: schon had no
+// card anywhere, and scripts/gaps-de.mjs REPORTED IT AS COVERED, because its fold
+// matches taught schön. A top-100 word was invisible to the very probe written to
+// find missing top-100 words. See the false-cover class documented in that script.
 // ⚠️ kein is taught here although u2 teaches the fixed phrase kein Problem. That phrase
 // is lexicalised, like auf Wiedersehen; the negation article kein/keine/keinen is core
 // grammar that has to be taught somewhere, and this is the unit that owns negation.
@@ -40,6 +50,7 @@ export const DE_UNIT12 = {
         { id: "de-u12l1-dann", type: "vocab", front: "dann", reading: "dann", meaning: "then", example: { jp: "Dann kommt der Winter.", en: "Then winter comes." }, drill: { jp: "Dann trinken wir Kaffee", en: "Then we drink coffee" }, accept: ["then", "after that", "next"], hint: "The clearest case of all: Dann KOMMT der Winter. English says then winter comes; German cannot, because the verb has to be second." },
         { id: "de-u12l1-noch", type: "vocab", front: "noch", reading: "noch", meaning: "still / yet", example: { jp: "Der Kaffee ist noch heiß.", en: "The coffee is still hot." }, drill: { jp: "Das Kind ist noch klein", en: "The child is still small" }, accept: ["still", "yet"], hint: "Noch nicht is not yet — the pair sits together constantly. Do not confuse it with nach, a preposition arriving in u14." },
         { id: "de-u12l1-nun", type: "vocab", front: "nun", reading: "nun", meaning: "now then / well", example: { jp: "Nun ist es spät.", en: "Now it is late." }, drill: { jp: "Nun ist das Wetter gut", en: "Now the weather is good" }, accept: ["now", "now then", "well", "well then"], hint: "nun is jetzt's reflective cousin: jetzt marks the clock, nun opens a sentence to mean \"well then, so…\". Nun gut = \"all right then\"." },
+        { id: "de-u12l1-wieder", type: "vocab", front: "wieder", reading: "wieder", meaning: "again", example: { jp: "Es regnet wieder.", en: "It is raining again." }, drill: { jp: "Der Sommer kommt wieder", en: "Summer comes again" }, accept: ["again", "once more"], hint: "Sits mid-clause with the other adverbs in this lesson. It also glues onto verbs — wiederholen (u24) is wieder + holen, to fetch again, hence to repeat. immer wieder means over and over." },
       ],
     },
     {
@@ -76,7 +87,7 @@ export const DE_UNIT12 = {
         { id: "de-u12l3-aber", type: "vocab", front: "aber", reading: "aber", meaning: "but", example: { jp: "Das Hotel ist schön, aber teuer.", en: "The hotel is beautiful but expensive." }, drill: { jp: "Aber der Kaffee ist gut", en: "But the coffee is good" }, accept: ["but", "however"], hint: "Joins two halves without touching the word order of either — aber sits outside the count, so the verb after it is still second." },
         { id: "de-u12l3-oder", type: "vocab", front: "oder", reading: "oder", meaning: "or", example: { jp: "Kaffee oder Tee?", en: "Coffee or tea?" }, drill: { jp: "Trinkst du Kaffee oder Tee", en: "Do you drink coffee or tea" }, accept: ["or"], hint: "Also tacked onto the end of a statement to turn it into a question: Das ist gut, oder? — like English isn't it." },
         { id: "de-u12l3-denn", type: "vocab", front: "denn", reading: "denn", meaning: "because / for", example: { jp: "Ich bin müde, denn es ist spät.", en: "I am tired, because it is late." }, accept: ["because", "for", "since"], hint: "Like aber and oder it leaves the word order alone — the verb stays second after it. German's other because, weil, does something quite different to the verb." },
-        { id: "de-u12l3-wirklich", type: "vocab", front: "wirklich", reading: "wirklich", meaning: "really", example: { jp: "Das ist wirklich gut.", en: "That is really good." }, drill: { jp: "Die Schule ist wirklich schön", en: "The school is really beautiful" }, accept: ["really", "truly", "actually"], hint: "Built on die Wirklichkeit, reality — so it insists the thing is genuinely the case, not merely said to be. On its own, Wirklich? is the German \"Really?\"." },
+        { id: "de-u12l3-wirklich", type: "vocab", front: "wirklich", reading: "wirklich", meaning: "really", example: { jp: "Das ist wirklich gut.", en: "That is really good." }, drill: { jp: "Die Schule ist wirklich schön", en: "The school is really beautiful" }, accept: ["really", "truly", "actually"], hint: "Related to die Wirklichkeit, reality — so it insists the thing is genuinely the case, not merely said to be. On its own, Wirklich? is the German \"Really?\"." },
         { id: "de-u12l3-wohl", type: "vocab", front: "wohl", reading: "wohl", meaning: "probably", example: { jp: "Er ist wohl müde.", en: "He is probably tired." }, drill: { jp: "Das Kind ist wohl krank", en: "The child is probably ill" }, accept: ["probably", "presumably", "I suppose"], hint: "A hedge dropped into the middle of a sentence, not an adverb of manner: Er ist wohl müde. Separately, sich wohl fühlen means to feel well." },
       ],
     },

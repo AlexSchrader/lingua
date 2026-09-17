@@ -1,7 +1,7 @@
 # DE — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- de`.
-Snapshot 2026-09-17: **1261 words** across **50 authored unit(s)**, **37 slot(s) still stubs**.
+Snapshot 2026-09-17: **1264 words** across **50 authored unit(s)**, **37 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -986,6 +986,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `lustig` — u10 · funny / cheerful
 - `machen` — u16 · to do / make
 - `machte` — u38 · did / made — past of machen
+- `mal` — u21 · just — softening a request
 - `malen` — u35 · to paint
 - `man` — u45 · one — people in general
 - `manchmal` — u12 · sometimes
@@ -1101,6 +1102,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `schneit` — u8 · it snows
 - `schnell` — u1 · fast
 - `schön` — u1 · beautiful
+- `schon` — u5 · already
 - `schrauben` — u46 · to screw
 - `schreiben` — u20 · to write
 - `schrieb` — u39 · wrote — past of schreiben
@@ -1285,6 +1287,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `wie` — u3 · how
 - `wie geht's` — u2 · how are you
 - `wie viel` — u12 · how much
+- `wieder` — u12 · again
 - `wiederholen` — u24 · to repeat
 - `wieso` — u12 · how come
 - `wild` — u26 · wild
@@ -1343,7 +1346,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 **u4 · Die Familie** (30) — `die Familie`, `der Vater`, `die Mutter`, `die Eltern`, `der Sohn`, `die Tochter`, `leben`, `der Bruder`, `die Schwester`, `die Geschwister`, `der Mann`, `die Frau`, `das Kind`, `alle`, `das Mädchen`, `der Großvater`, `die Großmutter`, `die Großeltern`, `der Onkel`, `die Tante`, `der Cousin`, `ihre`, `mein`, `dein`, `haben`, `der Freund`, `die Freundin`, `lieben`, `seine`, `unsere`
 
-**u5 · Zahlen und Zeit** (24) — `ein`, `zwei`, `drei`, `vier`, `fünf`, `sechs`, `sieben`, `acht`, `neun`, `zehn`, `elf`, `zwölf`, `die Uhr`, `die Stunde`, `die Minute`, `halb`, `es`, `jetzt`, `der Tag`, `die Nacht`, `heute`, `morgen`, `das Jahr`, `die Woche`
+**u5 · Zahlen und Zeit** (25) — `ein`, `zwei`, `drei`, `vier`, `fünf`, `sechs`, `sieben`, `acht`, `neun`, `zehn`, `elf`, `zwölf`, `die Uhr`, `die Stunde`, `die Minute`, `halb`, `es`, `jetzt`, `schon`, `der Tag`, `die Nacht`, `heute`, `morgen`, `das Jahr`, `die Woche`
 
 **u6 · Essen und Trinken** (25) — `das Brot`, `der Käse`, `die Butter`, `das Ei`, `der Reis`, `die Nudeln`, `der Apfel`, `die Banane`, `die Tomate`, `die Kartoffel`, `das Gemüse`, `das Obst`, `das Wasser`, `der Kaffee`, `der Tee`, `die Milch`, `der Saft`, `das Bier`, `essen`, `trinken`, `das Frühstück`, `das Mittagessen`, `lecker`, `der Hunger`, `alles`
 
@@ -1357,7 +1360,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 **u11 · Der Körper und die Gesundheit** (25) — `der Kopf`, `das Auge`, `die Nase`, `der Mund`, `das Ohr`, `der Zahn`, `der Körper`, `der Hals`, `die Hand`, `der Arm`, `das Bein`, `der Fuß`, `der Mensch`, `krank`, `gesund`, `tut weh`, `der Schmerz`, `das Fieber`, `der Husten`, `der Arzt`, `das Krankenhaus`, `die Apotheke`, `die Medizin`, `die Erkältung`, `der Durst`
 
-**u12 · Der Satz und die Wortstellung** (31) — `immer`, `oft`, `manchmal`, `selten`, `dann`, `noch`, `nun`, `wer`, `wann`, `warum`, `wohin`, `wie viel`, `welcher`, `dieser`, `wieso`, `doch`, `vielleicht`, `sicher`, `aber`, `oder`, `denn`, `wirklich`, `wohl`, `kein`, `nichts`, `niemand`, `nie`, `sondern`, `etwas`, `jemand`, `gar`
+**u12 · Der Satz und die Wortstellung** (32) — `immer`, `oft`, `manchmal`, `selten`, `dann`, `noch`, `nun`, `wieder`, `wer`, `wann`, `warum`, `wohin`, `wie viel`, `welcher`, `dieser`, `wieso`, `doch`, `vielleicht`, `sicher`, `aber`, `oder`, `denn`, `wirklich`, `wohl`, `kein`, `nichts`, `niemand`, `nie`, `sondern`, `etwas`, `jemand`, `gar`
 
 **u13 · Nominativ und Akkusativ** (25) — `den`, `einen`, `keinen`, `meinen`, `deinen`, `wen`, `mich`, `dich`, `ihn`, `uns`, `euch`, `es gibt`, `durch`, `für`, `gegen`, `ohne`, `um`, `brauchen`, `dafür`, `in`, `auf`, `an`, `vor`, `hinter`, `neben`
 
@@ -1375,7 +1378,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 **u20 · Schule und Arbeit** (24) — `der Lehrer`, `der Schüler`, `der Student`, `die Klasse`, `die Prüfung`, `die Aufgabe`, `fragen`, `antworten`, `richtig`, `falsch`, `das Wort`, `die Sprache`, `lernen`, `lesen`, `schreiben`, `üben`, `verstehen`, `erklären`, `das Büro`, `die Firma`, `der Chef`, `der Kollege`, `verdienen`, `der Termin`
 
-**u21 · Alltag und Routine** (29) — `aufwachen`, `duschen`, `sich waschen`, `sich anziehen`, `früh`, `pünktlich`, `der Alltag`, `der Tagesablauf`, `zuerst`, `danach`, `später`, `sich beeilen`, `fertig`, `erst`, `aufräumen`, `putzen`, `vorbereiten`, `das Geschirr`, `die Wäsche`, `der Müll`, `vom`, `zur`, `jeden Tag`, `zweimal`, `meistens`, `kaum`, `normalerweise`, `der Feierabend`, `einmal`
+**u21 · Alltag und Routine** (30) — `aufwachen`, `duschen`, `sich waschen`, `sich anziehen`, `früh`, `pünktlich`, `der Alltag`, `der Tagesablauf`, `zuerst`, `danach`, `später`, `sich beeilen`, `fertig`, `erst`, `aufräumen`, `putzen`, `vorbereiten`, `das Geschirr`, `die Wäsche`, `der Müll`, `vom`, `zur`, `jeden Tag`, `zweimal`, `meistens`, `kaum`, `normalerweise`, `der Feierabend`, `einmal`, `mal`
 
 **u22 · Gefühle und Stimmungen** (25) — `das Gefühl`, `fühlen`, `zufrieden`, `aufgeregt`, `stolz`, `nervös`, `wütend`, `sich ärgern`, `enttäuscht`, `die Sorge`, `einsam`, `erschöpft`, `passieren`, `die Freude`, `sich freuen`, `die Laune`, `überrascht`, `peinlich`, `sich entspannen`, `die Angst`, `sich beruhigen`, `die Geduld`, `mutig`, `schüchtern`, `leider`
 

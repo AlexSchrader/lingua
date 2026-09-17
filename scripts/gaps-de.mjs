@@ -7,17 +7,28 @@
 // can only ever find words that were WRITTEN. It is structurally blind to a word
 // that is neither taught NOR written — and that is the defect it missed.
 //
-// Measured on main, 2026-09-17, across all 2,422 German example+drill sentences:
-//     sehr    413x        nur       0x
-//                         so        0x
-//                         alle      0x
-//                         jeder     0x
-//                         wirklich  0x
-//                         Leute     0x
-// Authors compose inside the scope checker's whitelist, so "used before taught"
-// is 0 BY CONSTRUCTION and measures nothing about coverage. The German corpus was
-// composed around a hole: `werden` — the auxiliary the whole B1 passive unit is
-// built on — had no card anywhere, and no check we own said a word about it.
+// `werden` — the auxiliary the whole B1 passive unit is built on — had no card
+// anywhere in German, and no check we own said a word about it. Nor could one:
+// the question "is this word taught by now?" is answered inside the corpus, and a
+// word that is never written is never asked about.
+//
+// ⚠️ A STATISTIC THAT USED TO SIT HERE HAS BEEN CUT, because it was circular and
+// it was being repeated upward as if it were evidence. It said: across 2,422 de
+// sentences `nur` appears 0 times while `sehr` appears 413, therefore authors
+// compose inside the checker's whitelist. But `nur` was UNTAUGHT, and
+// scope-strict-de reports 0 out-of-scope across the whole corpus — so any use of
+// it anywhere would already have been flagged. "0 occurrences" is ENTAILED BY
+// ARITHMETIC, not an observation about how anyone wrote. The `sehr` contrast does
+// not isolate the variable either: taught particles in the same corpus run doch 9,
+// schon 6, vielleicht 7, leider 8, so the distance between 6 and 0 is the noise
+// floor of a one-clause example format.
+// AND THE DISCONFIRMING TEST NOBODY RAN: es and fr use this same scaffold and the
+// same corpus-internal checkers, and they DO teach their equivalents — ya, solo,
+// todo, nada, siempre, ser, hacer, algo; déjà, seulement, tout, rien, alors, être,
+// faire. If "authors compose inside the whitelist" were a structural law, those
+// languages would show the same holes. They do not. THIS WAS A GERMAN AUTHORING
+// MISS, not a property of the toolchain. The structural argument above needs no
+// statistic and survives without one; the causal story did not survive contact.
 //
 // So the probe has to come from OUTSIDE the corpus. A word list we choose
 // ourselves is an illustration; a published external list is evidence.
@@ -38,7 +49,23 @@
 // authoring target is honest; the HEADLINE number stays the raw one, because a
 // number you can tune by editing a stoplist is not evidence.
 //
-// ⚠️ KNOWN BLIND SPOT — THIS PROBE IS FORM-BASED, SO IT CANNOT SEE A SENSE GAP.
+// ⚠️⚠️ BLIND SPOT 2 — FALSE COVER. THE PROBE REPORTS WORDS AS COVERED THAT HAVE NO
+// CARD ANYWHERE, because coverage is inherited from the scope oracle's derivation
+// rules, and three of those rules are looser than a learner's knowledge:
+//   FOLD COLLISION   fold() strips diacritics, so taught `schön` (u1, "beautiful")
+//                    made `schon` (rank 66, "already") read as covered.
+//   SUFFIX EXPANSION derive() strips /en$/ from an infinitive and registers the bare
+//                    stem, so taught `malen` ("to paint") vouched for `mal` (rank 74).
+//   SEP PREFIX       a separable verb registers its stranded prefix, so taught
+//                    `wiederholen` (u24) vouched for `wieder` (rank 98).
+// ALL THREE WERE REAL: schon, mal and wieder were top-100 words with no card in any
+// of the 87 units, reported covered by this script, and `wieder` was already being
+// USED untaught in a drill with no scope check objecting. They are now taught
+// (u5l3, u21l4, u12l1). `node scripts/gaps-de.mjs --weak` lists the remaining words
+// whose only licence is one of these artefacts — read it before believing a 0.
+// ⚠️ SO THE HONEST HEADLINE IS "0 DETECTABLE GAPS", NEVER "0 GAPS".
+//
+// ⚠️ KNOWN BLIND SPOT 1 — THIS PROBE IS FORM-BASED, SO IT CANNOT SEE A SENSE GAP.
 // Coverage is decided by the SPELLING of a taught front, never by its meaning, so
 // a word taught in ONE sense marks all its homographs covered. `ihr` is taught at
 // u3l3 as "you (plural)", which silently vouched for the possessive ihr/ihre
@@ -145,7 +172,7 @@ if (argv.includes("--refetch")) { await refetch(); if (argv.length === 1) proces
 
 const teachableOnly = argv.includes("--teachable");
 const nums = argv.filter((a) => /^\d+$/.test(a)).map(Number);
-const { born, FREE } = await buildScope(root);
+const { born, FREE, units: unitsAll } = await buildScope(root);
 const list = loadList();
 
 // THREE outcomes, not two, and collapsing them would overstate the defect.
@@ -157,7 +184,23 @@ const list = loadList();
 //                   That is a gap in our morphology, NOT a gap in the curriculum,
 //                   and counting it as missing vocabulary would be a false alarm.
 //   gap           — neither. The word is taught NOWHERE. This is the headline.
+// The set of fronts EXACTLY as authored (article stripped, folded). A word in here
+// has a real card. Anything else that reads as "covered" is covered by a derivation
+// rule — which is where the three false-cover classes in the header live.
+const exactFronts = new Set();
+for (const u of unitsAll)
+  for (const l of u.lessons ?? [])
+    for (const it of l.items ?? []) {
+      if (!it.front) continue;
+      const f = fold(it.front).replace(/^(der|die|das)\s+/, "");
+      exactFronts.add(f);
+      f.split(/\s+/).forEach((w) => exactFronts.add(w)); // phrase fronts: `in Ordnung`
+    }
+
 const covered = (r) => born.get(r.key) !== undefined;
+// Covered, but by a derivation artefact rather than by a card of its own. This is
+// the schon / mal / wieder class: read it before trusting a zero.
+const weaklyCovered = (r) => covered(r) && !exactFronts.has(r.key);
 const lemmaCovered = (r) => !covered(r) && String(r.lemma || "").split(";")
   .some((l) => l && born.get(fold(l)) !== undefined);
 const isGap = (r) => !covered(r) && !lemmaCovered(r);
@@ -184,11 +227,33 @@ if (argv.includes("--selftest")) {
        !!gesagt && gesagt.lemma === "sagen");
   must("a participle of a taught verb is lemma-covered, not a gap (gesagt <- sagen)",
        !!gesagt && lemmaCovered(gesagt));
+  // THE THREE FALSE-COVER CLASSES from the header. Each one hid a real top-100 word
+  // (schon, mal, wieder) behind a derivation rule until a human went looking. All
+  // three now have cards, so these assert the DETECTOR still works — that a word
+  // with no card of its own is classified weak, and a word with a card is not.
+  const row = (w) => list.find((r) => r.key === fold(w));
+  must("a word with a card of its own is NOT flagged weak (und)",
+       !!row("und") && !weaklyCovered(row("und")));
+  must("schon / mal / wieder now have real cards, not derived cover",
+       ["schon", "mal", "wieder"].every((w) => exactFronts.has(fold(w))));
+  must("the weak-cover detector still finds something (it is not vacuously empty)",
+       list.slice(0, 1000).some(weaklyCovered));
   must("the stoplist narrows, never widens", gapsIn(300).length >= 0 &&
        list.slice(0, 300).filter((r) => !covered(r)).length >=
        list.slice(0, 300).filter((r) => !covered(r) && !STOPLIST.has(r.key) && !FREE.has(r.key)).length);
   console.log(ok ? "\nselftest: the probe can fail" : "\nselftest: BROKEN — do not trust its output");
   process.exit(ok ? 0 : 1);
+}
+
+if (argv.includes("--weak")) {
+  const n = nums[0] ?? 300;
+  const weak = list.slice(0, n).filter(weaklyCovered).filter((r) => !FREE.has(r.key));
+  console.log(`de: ${weak.length} of the top ${n} read as COVERED but have no card of their own.`);
+  console.log(`    Each is licensed only by a derivation rule (fold collision / suffix`);
+  console.log(`    expansion / separable prefix). That is how schon, mal and wieder hid.`);
+  console.log(`    Read this list before believing a zero — some are fine, some are holes.\n`);
+  for (const r of weak) console.log(`  #${String(r.rank).padStart(4)}  ${r.word.padEnd(14)} lemma=${r.lemma || "-"}`);
+  process.exit(0);
 }
 
 if (nums.length) {
