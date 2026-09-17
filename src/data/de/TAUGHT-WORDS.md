@@ -1,7 +1,7 @@
 # DE — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- de`.
-Snapshot 2026-09-17: **1264 words** across **50 authored unit(s)**, **37 slot(s) still stubs**.
+Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -15,85 +15,59 @@ Snapshot 2026-09-17: **1264 words** across **50 authored unit(s)**, **37 slot(s)
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
 
-## Who owns which slots this band
-
-The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
-
-| block | slots |
-|---|---|
-| 1 | u51–u63 |
-| 2 | u64–u76 |
-| 3 | u77–u87 |
-
-## Slots still stubs — not yours unless you were assigned them
-
-| slot | unit | title |
-|---|---|---|
-| 51 | `de-u51` | Opinion and agreement |
-| 52 | `de-u52` | Cause and consequence |
-| 53 | `de-u53` | Comparison and degree |
-| 54 | `de-u54` | Hedging and uncertainty |
-| 55 | `de-u55` | News and society |
-| 56 | `de-u56` | Work and process |
-| 57 | `de-u57` | Emotion, finer shades |
-| 58 | `de-u58` | Abstract ideas |
-| 59 | `de-u59` | Change over time |
-| 60 | `de-u60` | Problems and solutions |
-| 61 | `de-u61` | Rules, permission, obligation |
-| 62 | `de-u62` | Plans and intentions |
-| 63 | `de-u63` | Experience and memory |
-| 64 | `de-u64` | Media and entertainment |
-| 65 | `de-u65` | Environment and place |
-| 66 | `de-u66` | Money and the economy |
-| 67 | `de-u67` | Health and wellbeing |
-| 68 | `de-u68` | Relationships and society |
-| 69 | `de-u69` | Grammar 6 — linked and subordinate clauses |
-| 70 | `de-u70` | Grammar 7 — passive, causative, indirect |
-| 71 | `de-u71` | Grammar 8 — nuance, evidentiality, nominalization |
-| 72 | `de-u72` | Register 1 — polite vs plain |
-| 73 | `de-u73` | Register 2 — softening and formality |
-| 74 | `de-u74` | Vocabulary 1 (B1) |
-| 75 | `de-u75` | Vocabulary 2 (B1) |
-| 76 | `de-u76` | Vocabulary 3 (B1) |
-| 77 | `de-u77` | Vocabulary 4 (B1) |
-| 78 | `de-u78` | Vocabulary 5 (B1) |
-| 79 | `de-u79` | Vocabulary 6 (B1) |
-| 80 | `de-u80` | Vocabulary 7 (B1) |
-| 81 | `de-u81` | Vocabulary 8 (B1) |
-| 82 | `de-u82` | Vocabulary 9 (B1) |
-| 83 | `de-u83` | Vocabulary 10 (B1) |
-| 84 | `de-u84` | Vocabulary 11 (B1) |
-| 85 | `de-u85` | Vocabulary 12 (B1) |
-| 86 | `de-u86` | Vocabulary 13 (B1) |
-| 87 | `de-u87` | Vocabulary 14 (B1) |
-
 ## Index — every taught word, alphabetical
 
 `word` — slot · meaning
 
 - `ä` — u1
+- `abbiegen` — u82 · to turn off
+- `abbrechen` — u77 · to break off
 - `aber` — u12 · but
 - `abfahren` — u19 · to depart
+- `abgemacht` — u51 · it's a deal
+- `abhängen` — u52 · to depend
 - `abheben` — u27 · to withdraw
 - `abholen` — u23 · to pick up
+- `ablaufen` — u76 · to expire
 - `ablehnen` — u48 · to turn down
+- `ablenken` — u86 · to distract
+- `abnehmen` — u53 · to decrease
 - `absagen` — u40 · to cancel / call off
+- `abschleppen` — u82 · to tow away
+- `abschließen` — u79 · to conclude a contract
+- `abschwächen` — u73 · to tone down
 - `acht` — u5 · eight
 - `achtzehn` — u17 · eighteen
+- `ahnen` — u86 · to have an inkling
 - `ähnlich` — u37 · similar
-- `alle` — u4 · all / everyone
 - `allerdings` — u36 · though — conceding one point only
-- `alles` — u6 · everything
+- `allmählich` — u59 · gradually
 - `als` — u29 · when — one past event
 - `also` — u29 · so
 - `alt` — u3 · old
+- `altmodisch` — u59 · old-fashioned
 - `am` — u14 · on the / at the
 - `an` — u13 · on — a vertical surface
-- `andere` — u10 · other
+- `an deiner Stelle` — u70 · in your place
 - `andererseits` — u36 · on the other hand
+- `ändern` — u59 · to change
+- `andernfalls` — u70 · failing that
+- `andeuten` — u73 · to hint at
+- `angeblich` — u54 · allegedly
+- `angenommen` — u70 · supposing
+- `angesichts` — u71 · in view of
+- `anhand` — u71 · using
 - `ankommen` — u19 · to arrive
+- `ankreuzen` — u76 · to tick a box
+- `anmelden` — u62 · to register
+- `annehmen` — u54 · to assume
+- `anpassen` — u62 · to adapt
 - `anprobieren` — u18 · to try on
 - `anrufen` — u33 · to call / ring up
+- `anscheinend` — u84 · seemingly
+- `anschließend` — u56 · next
+- `anschnallen` — u82 · to fasten the seatbelt
+- `ansonsten` — u70 · apart from that
 - `anstatt` — u36 · instead of
 - `anstoßen` — u40 · to clink glasses / toast
 - `antworten` — u20 · to answer
@@ -107,33 +81,81 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `auch` — u3 · also / too
 - `auf` — u13 · onto / on
 - `auf Wiedersehen` — u2 · goodbye (formal)
+- `aufbewahren` — u63 · to store
+- `aufdringlich` — u73 · pushy
+- `auffallen` — u86 · to stand out
 - `aufgeben` — u48 · to give up
 - `aufgeregt` — u22 · excited
+- `aufgrund` — u71 · on the basis of
 - `aufheben` — u44 · to pick up off the floor
+- `auflegen` — u77 · to hang up
+- `aufmerksam` — u86 · attentive
+- `aufnehmen` — u64 · to record
 - `aufpassen` — u48 · to watch out
 - `aufräumen` — u21 · to tidy up
 - `aufstehen` — u16 · to get up
 - `auftreten` — u35 · to perform / appear
 - `aufwachen` — u21 · to wake up
+- `aufwachsen` — u59 · to grow up
 - `aus` — u3 · out of
+- `ausfallen` — u62 · to be cancelled
+- `ausfüllen` — u76 · to fill in
 - `ausgeben` — u27 · to spend
+- `aushalten` — u57 · to endure
+- `auslösen` — u52 · to trigger
+- `ausnahmsweise` — u84 · just this once
+- `ausreichend` — u53 · sufficient
+- `ausrichten` — u77 · to pass on a message
 - `aussehen` — u43 · to look
 - `außerdem` — u36 · besides — adding a further reason
+- `außerhalb` — u71 · outside of
+- `äußerst` — u53 · extremely
+- `aussterben` — u65 · to die out
+- `ausstrahlen` — u64 · to broadcast
+- `auswendig` — u63 · by heart
 - `ausziehen` — u18 · to undress / remove clothing
 - `backen` — u41 · to bake
 - `bald` — u28 · soon
 - `bar` — u27 · in cash
+- `beachten` — u61 · to observe
+- `bearbeiten` — u78 · to process
+- `bedauern` — u73 · to regret
+- `beeindrucken` — u63 · to impress
+- `beeinflussen` — u52 · to influence
+- `befürchten` — u54 · to fear
+- `begeistert` — u57 · thrilled
+- `beglaubigen` — u76 · to certify
+- `begleiten` — u62 · to accompany
+- `beharren` — u78 · to insist
+- `behaupten` — u51 · to claim
+- `behutsam` — u73 · gentle
 - `bei` — u14 · at / near / with
+- `beilegen` — u76 · to enclose
+- `beinahe` — u53 · very nearly
+- `belasten` — u57 · to burden
+- `beleidigen` — u57 · to insult
+- `bemerken` — u86 · to notice
 - `benutzen` — u48 · to use
+- `beobachten` — u86 · to watch
 - `berühmt` — u35 · famous
+- `berühren` — u86 · to touch
 - `bescheiden` — u31 · modest
+- `beschleunigen` — u59 · to accelerate
 - `beschließen` — u48 · to resolve
+- `beseitigen` — u60 · to remove
 - `besetzt` — u42 · taken / occupied
 - `besonders` — u36 · especially
 - `besser` — u37 · better
 - `bestehen` — u24 · to pass
 - `bestellen` — u42 · to order
+- `bestimmt` — u62 · definitely
+- `bestreiten` — u51 · to dispute
+- `betonen` — u51 · to emphasize
+- `betrachten` — u86 · to look at closely
+- `betragen` — u87 · to amount to
+- `betreffen` — u52 · to concern
 - `bevor` — u29 · before
+- `bewahren` — u63 · to preserve
 - `beweisen` — u34 · to prove
 - `bewölkt` — u50 · overcast
 - `bezahlen` — u17 · to pay
@@ -147,33 +169,53 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `bisher` — u28 · so far
 - `bist` — u3 · you are
 - `bitte` — u2 · please / you're welcome
+- `bitten` — u73 · to ask for
 - `bitter` — u41 · bitter
 - `blau` — u8 · blue
 - `bleiben` — u16 · to stay
 - `blieb` — u39 · stayed — past of bleiben
+- `bloß` — u54 · just
 - `bohren` — u46 · to drill
+- `borgen` — u66 · to lend out
 - `braten` — u41 · to fry / roast
 - `brauchen` — u13 · to need
 - `brauchte` — u38 · needed — past of brauchen
+- `bräuchte` — u70 · would need
 - `braun` — u8 · brown
-- `bringen` — u16 · to bring
+- `bremsen` — u82 · to brake
+- `brennen` — u81 · to burn
+- `brüllen` — u86 · to roar
 - `buchen` — u23 · to make a booking
+- `buchstabieren` — u77 · to spell out
 - `bunt` — u8 · colourful
 - `ch` — u1
-- `da` — u3 · there — on the spot
-- `dabei` — u14 · along / present
-- `dafür` — u13 · for it
+- `chronisch` — u67 · chronic
+- `dabei` — u69 · in the process
+- `dadurch` — u52 · thereby
+- `dagegen` — u69 · against it
+- `daher` — u52 · hence
 - `damals` — u28 · back then
 - `damit` — u29 · so that
 - `danach` — u21 · after that
+- `dankbar` — u57 · grateful
 - `danke` — u2 · thank you
 - `dann` — u12 · then
+- `daran` — u69 · of it
+- `darauf` — u69 · for it
+- `darin` — u69 · in it
+- `darüber` — u69 · on the subject
 - `das` — u1 · that / this
+- `das Abonnement` — u64 · the subscription
+- `das Alter` — u59 · the age
+- `das Amt` — u75 · the office
+- `das Andenken` — u63 · the keepsake
 - `das Angebot` — u27 · the offer
+- `das Anliegen` — u78 · the concern
 - `das Auge` — u11 · eye
 - `das Ausland` — u19 · abroad
 - `das Auto` — u23 · the car
 - `das Bad` — u15 · the bathroom
+- `das Bargeld` — u66 · the cash
 - `das Bein` — u11 · leg
 - `das Besteck` — u42 · the cutlery
 - `das Bett` — u15 · the bed
@@ -185,13 +227,23 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Brot` — u6 · bread
 - `das Buch` — u1 · book
 - `das Büro` — u20 · the workplace
+- `das Bußgeld` — u82 · the fine
 - `das Dach` — u30 · the roof
 - `das Doppelzimmer` — u23 · the double room
+- `das Drehbuch` — u64 · the screenplay
+- `das Drittel` — u87 · the third part
+- `das Ehrenamt` — u68 · the voluntary post
 - `das Ei` — u6 · egg
+- `das Einkommen` — u66 · the income
+- `das Einschreiben` — u83 · the registered letter
 - `das Einzelzimmer` — u23 · the single room
 - `das Ende` — u28 · the end
 - `das Erdgeschoss` — u30 · the ground floor
+- `das Erdöl` — u65 · the crude oil
+- `das Ereignis` — u63 · the occurrence
 - `das Ergebnis` — u34 · result
+- `das Erlebnis` — u63 · the event you experienced
+- `das Etikett` — u83 · the label
 - `das Experiment` — u34 · experiment
 - `das Fach` — u24 · the subject
 - `das Fahrrad` — u19 · the bicycle
@@ -201,20 +253,30 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Fieber` — u11 · fever / temperature
 - `das Flugzeug` — u19 · the aeroplane
 - `das Formular` — u32 · form — the paper you fill in
+- `das Freizeichen` — u77 · the ringing tone
+- `das Fremdwort` — u74 · the foreign word
 - `das Frühstück` — u6 · breakfast
 - `das Gas` — u34 · gas
+- `das Gebirge` — u65 · the mountains
+- `das Gedächtnis` — u63 · the memory
 - `das Gefühl` — u22 · the feeling
+- `das Gegenteil` — u58 · the opposite
 - `das Gehalt` — u24 · the salary
+- `das Geheimnis` — u58 · the secret
 - `das Geld` — u17 · the money
 - `das Gemüse` — u6 · vegetables
 - `das Gepäck` — u19 · the luggage
 - `das Gerät` — u33 · device / appliance
+- `das Geräusch` — u86 · the sound
+- `das Gericht` — u75 · the court
 - `das Geschäft` — u18 · the shop
 - `das Geschenk` — u40 · present / gift
 - `das Geschirr` — u21 · the dishes
 - `das Gesetz` — u32 · law
 - `das Gesicht` — u43 · the face
+- `das Gespräch` — u51 · the conversation
 - `das Getränk` — u42 · the beverage
+- `das Gewissen` — u58 · the conscience
 - `das Gewitter` — u50 · the thunderstorm
 - `das Glas` — u42 · the glass
 - `das Gleis` — u23 · the platform
@@ -227,30 +289,37 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Hemd` — u18 · the shirt
 - `das Herz` — u25 · the heart
 - `das Hobby` — u35 · hobby
+- `das Hochdeutsch` — u72 · standard German
 - `das Holz` — u46 · the wood
 - `das Hotel` — u7 · hotel
+- `das Inserat` — u80 · the classified ad
 - `das Instrument` — u35 · instrument
 - `das Internet` — u33 · the internet
 - `das Jahr` — u5 · year
+- `das Jahrhundert` — u59 · the century
+- `das Jahrzehnt` — u59 · the decade
 - `das Kapitel` — u35 · chapter
 - `das Kind` — u4 · child
 - `das Kinn` — u43 · the chin
 - `das Kissen` — u15 · the cushion
 - `das Klebeband` — u46 · the tape
 - `das Kleid` — u18 · the dress
+- `das Kleingedruckte` — u79 · the small print
 - `das Kleingeld` — u27 · the change
 - `das Klima` — u34 · climate
 - `das Knie` — u25 · the knee
 - `das Konto` — u33 · account
+- `das Kraftwerk` — u65 · the power station
 - `das Krankenhaus` — u11 · hospital
 - `das Licht` — u15 · the light (illumination)
 - `das Lied` — u35 · song
 - `das Loch` — u46 · the hole
 - `das Lokal` — u42 · the eating place
-- `das Mädchen` — u4 · girl
 - `das Meer` — u26 · the sea
 - `das Mehl` — u41 · the flour
+- `das Merkmal` — u58 · the feature
 - `das Messer` — u41 · the knife
+- `das Missverständnis` — u51 · the misunderstanding
 - `das Mitglied` — u35 · member
 - `das Mittagessen` — u6 · lunch
 - `das Museum` — u7 · museum
@@ -259,64 +328,108 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Obst` — u6 · fruit
 - `das Ohr` — u11 · ear
 - `das Öl` — u41 · the oil
+- `das Opfer` — u75 · the victim
+- `das Original` — u76 · the original document
+- `das Paar` — u68 · the couple
 - `das Paket` — u47 · the parcel
 - `das Passwort` — u33 · password
 - `das Pferd` — u26 · the horse
+- `das Porto` — u83 · the postage
+- `das Postfach` — u83 · the PO box
 - `das Praktikum` — u24 · the internship
+- `das Prinzip` — u58 · the principle
 - `das Problem` — u32 · problem
 - `das Publikum` — u35 · audience
+- `das Rathaus` — u76 · the town hall
 - `das Recht` — u32 · entitlement
 - `das Regal` — u15 · the shelf
 - `das Restaurant` — u7 · restaurant
 - `das Rezept` — u25 · the prescription
+- `das Risiko` — u60 · the risk
 - `das Salz` — u41 · the salt
+- `das Schicksal` — u58 · the fate
 - `das Schiff` — u19 · the ship
+- `das Schild` — u61 · the sign
 - `das Schlafzimmer` — u15 · the bedroom
 - `das Sofa` — u15 · the sofa
 - `das Spiel` — u45 · the game
+- `das Sprichwort` — u74 · the proverb
 - `das Stadion` — u45 · the stadium
 - `das Stück` — u17 · the piece
+- `das Tagebuch` — u63 · the diary
 - `das Tauwetter` — u50 · the thaw
 - `das Thema` — u32 · topic
 - `das Tier` — u26 · the animal
 - `das Tor` — u45 · the goal
 - `das Training` — u45 · training
 - `das Trinkgeld` — u42 · the tip
+- `das Unglück` — u81 · the disaster
+- `das Urteil` — u75 · the verdict
+- `das Verbrechen` — u75 · the crime
 - `das Verhalten` — u31 · behaviour
+- `das Verhältnis` — u87 · the ratio
+- `das Verkehrsschild` — u82 · the road sign
+- `das Verständnis` — u68 · the understanding
+- `das Vertrauen` — u57 · the trust
+- `das Viertel` — u87 · the quarter
 - `das Vorstellungsgespräch` — u24 · the job interview
+- `das Vorurteil` — u51 · the prejudice
 - `das Wasser` — u6 · water
 - `das Werk` — u35 · work — a created piece
 - `das Werkzeug` — u30 · the tool
 - `das Wetter` — u8 · weather
+- `das Windrad` — u65 · the wind turbine
 - `das Wochenende` — u28 · the weekend
+- `das Wohlbefinden` — u67 · the wellbeing
 - `das Wort` — u20 · the word
+- `das Wörterbuch` — u74 · the dictionary
+- `das Wunder` — u58 · the wonder
 - `das Zeugnis` — u24 · the report card
 - `das Ziel` — u19 · the destination
 - `das Zimmer` — u15 · the room
 - `dass` — u29 · that — links a clause
 - `dauern` — u19 · to last
 - `dauerte` — u38 · lasted — past of dauern
-- `davon` — u14 · of it / about it
+- `davon` — u69 · about it
+- `dazu` — u69 · to it
+- `defekt` — u78 · out of order
 - `dein` — u4 · your (informal)
 - `deinen` — u13 · object form of dein
 - `dem` — u14 · dative form of der
+- `demnächst` — u62 · shortly
 - `den` — u13 · object form of der
+- `denkbar` — u70 · conceivable
 - `denken` — u16 · to think
 - `denn` — u12 · because / for
 - `dennoch` — u36 · nevertheless — stronger than trotzdem
+- `der Abfall` — u65 · the waste
 - `der Abschluss` — u24 · the degree
+- `der Absender` — u72 · the sender
 - `der Akku` — u33 · battery — the rechargeable kind
+- `der Akzent` — u74 · the accent
+- `der Alarm` — u81 · the alarm
 - `der Alltag` — u21 · everyday life
 - `der Anfang` — u28 · the beginning
 - `der Anfänger` — u45 · the beginner
+- `der Anrufbeantworter` — u77 · the answering machine
+- `der Anschluss` — u77 · the phone connection
+- `der Anspruch` — u58 · the claim
+- `der Anteil` — u53 · the share
+- `der Antrag` — u61 · the request
+- `der Anwalt` — u75 · the lawyer
 - `der Apfel` — u6 · apple
 - `der April` — u9 · April
 - `der Arm` — u11 · arm
 - `der Arzt` — u11 · doctor
+- `der Auftrag` — u56 · the assignment
+- `der Aufwand` — u56 · the effort
 - `der Aufzug` — u30 · the lift
 - `der Augenblick` — u28 · the instant
 - `der August` — u9 · August
+- `der Ausdruck` — u74 · the expression
 - `der Ausflug` — u23 · the excursion
+- `der Ausstoß` — u65 · the emissions
+- `der Ausweg` — u60 · the way out
 - `der Ausweis` — u23 · the ID card
 - `der Automat` — u27 · the machine
 - `der Autor` — u35 · author
@@ -325,37 +438,64 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Bart` — u43 · the beard
 - `der Bauch` — u25 · the stomach
 - `der Baum` — u26 · the tree
+- `der Beamte` — u75 · the official
+- `der Begriff` — u58 · the concept
 - `der Behälter` — u47 · the container
+- `der Beitrag` — u64 · the item
+- `der Beleg` — u78 · the proof of purchase
+- `der Bereich` — u56 · the area
 - `der Berg` — u26 · the mountain
+- `der Bericht` — u55 · the report
 - `der Beruf` — u3 · profession
+- `der Betrag` — u79 · the sum of money
+- `der Betrieb` — u66 · the business
 - `der Beutel` — u47 · the bag
+- `der Bewohner` — u80 · the resident
 - `der Bildschirm` — u33 · screen
+- `der Blick` — u86 · the glance
+- `der Blinker` — u82 · the indicator
 - `der Blitz` — u50 · the lightning
+- `der Blutdruck` — u67 · the blood pressure
 - `der Boden` — u15 · the floor
 - `der Bohrer` — u46 · the drill bit
+- `der Bote` — u83 · the courier
 - `der Briefkasten` — u30 · the letterbox
+- `der Briefträger` — u83 · the postman
+- `der Bruchteil` — u87 · the fraction
 - `der Bruder` — u4 · brother
+- `der Buchstabe` — u74 · the letter
 - `der Bürger` — u32 · citizen
 - `der Bus` — u19 · the bus
 - `der Charakter` — u31 · character
 - `der Chef` — u20 · the boss
 - `der Chor` — u35 · choir
 - `der Cousin` — u4 · cousin (male)
+- `der Dachboden` — u80 · the attic
 - `der Deckel` — u47 · the lid
 - `der Dezember` — u9 · December
+- `der Dialekt` — u72 · the dialect
 - `der Dienstag` — u9 · Tuesday
 - `der Donner` — u50 · the thunder
 - `der Donnerstag` — u9 · Thursday
 - `der Draht` — u46 · the wire
+- `der Duft` — u86 · the scent
+- `der Durchschnitt` — u87 · the average
 - `der Durst` — u11 · thirst
 - `der Eimer` — u47 · the bucket
+- `der Eindruck` — u54 · the impression
+- `der Eingriff` — u67 · the procedure
 - `der Einkaufswagen` — u27 · the trolley
 - `der Eintritt` — u35 · admission — the fee to get in
+- `der Einwand` — u51 · the objection
+- `der Empfänger` — u83 · the recipient
+- `der Erfolg` — u56 · the success
 - `der Euro` — u17 · the euro
 - `der Fahrplan` — u19 · the timetable
 - `der Februar` — u9 · February
+- `der Fehler` — u60 · the mistake
 - `der Feierabend` — u21 · the end of the working day
 - `der Feiertag` — u40 · public holiday
+- `der Feuerlöscher` — u81 · the fire extinguisher
 - `der Finger` — u25 · the finger
 - `der Fisch` — u26 · the fish
 - `der Flughafen` — u19 · the airport
@@ -368,23 +508,34 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Frühling` — u9 · spring
 - `der Führerschein` — u23 · the driving licence
 - `der Fuß` — u11 · foot
+- `der Fußgänger` — u82 · the pedestrian
 - `der Garten` — u15 · the garden
 - `der Gast` — u40 · guest
+- `der Gastgeber` — u62 · the host
 - `der Geburtstag` — u40 · birthday
 - `der Gegner` — u45 · the opponent
+- `der Geist` — u58 · the mind
 - `der Grad` — u50 · the degree
 - `der Griff` — u46 · the handle
 - `der Großvater` — u4 · grandfather
 - `der Grund` — u29 · the reason
+- `der Grundriss` — u80 · the floor plan
+- `der Gruß` — u72 · the greeting
 - `der Hagel` — u50 · the hail
 - `der Haken` — u46 · the hook
 - `der Hals` — u11 · neck / throat
 - `der Hammer` — u46 · the hammer
+- `der Handwerker` — u80 · the tradesman
+- `der Haushalt` — u66 · the budget
+- `der Hausmeister` — u80 · the caretaker
+- `der Held` — u64 · the hero
+- `der Helm` — u81 · the helmet
 - `der Henkel` — u47 · the handle
 - `der Herbst` — u9 · autumn
 - `der Herd` — u30 · the cooker
-- `der Herr` — u10 · gentleman / Mr
 - `der Himmel` — u8 · sky
+- `der Hinweis` — u52 · the pointer
+- `der Hörer` — u77 · the receiver
 - `der Hund` — u26 · the dog
 - `der Hunger` — u6 · hunger
 - `der Husten` — u11 · cough
@@ -393,31 +544,45 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Juli` — u9 · July
 - `der Juni` — u9 · June
 - `der Kaffee` — u6 · coffee
+- `der Kanal` — u64 · the channel
 - `der Karton` — u47 · the cardboard box
 - `der Käse` — u6 · cheese
+- `der Kassenbon` — u78 · the till receipt
 - `der Keller` — u15 · the cellar
 - `der Kellner` — u42 · the waiter
+- `der Klimawandel` — u65 · climate change
 - `der Koffer` — u19 · the suitcase
 - `der Kollege` — u20 · the colleague
+- `der Kompromiss` — u60 · the compromise
+- `der Konflikt` — u68 · the conflict
 - `der Kopf` — u11 · head
 - `der Korb` — u27 · the basket
 - `der Körper` — u11 · body
 - `der Krankenwagen` — u25 · the ambulance
+- `der Kredit` — u66 · the loan
 - `der Krug` — u47 · the jug
 - `der Kuchen` — u40 · cake
 - `der Kühlschrank` — u15 · the fridge
+- `der Kummer` — u57 · the grief
 - `der Kunde` — u18 · the customer
+- `der Kundendienst` — u78 · the customer service
 - `der Kurs` — u24 · the course
+- `der Lärm` — u61 · the noise
 - `der Lebenslauf` — u24 · the CV
 - `der Lehrer` — u20 · the teacher
+- `der Leser` — u55 · the reader
 - `der Löffel` — u41 · the spoon
+- `der Lohn` — u66 · the wage
 - `der Mai` — u9 · May
+- `der Makler` — u80 · the estate agent
+- `der Mangel` — u60 · the lack
 - `der Mann` — u4 · man / husband
 - `der Mantel` — u18 · the coat
 - `der Markt` — u7 · market
 - `der März` — u9 · March
 - `der Meißel` — u46 · the chisel
-- `der Mensch` — u11 · the human being
+- `der Mietvertrag` — u80 · the tenancy agreement
+- `der Mitarbeiter` — u56 · the employee
 - `der Mittwoch` — u9 · Wednesday
 - `der Moment` — u28 · the moment
 - `der Monat` — u9 · month
@@ -426,11 +591,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Mülleimer` — u30 · the bin
 - `der Mund` — u11 · mouth
 - `der Nachbar` — u32 · neighbour
+- `der Nachteil` — u52 · the disadvantage
 - `der Nachtisch` — u42 · the dessert
+- `der Nachweis` — u76 · the proof
 - `der Nagel` — u46 · the nail
 - `der Name` — u3 · name
 - `der Nebel` — u8 · fog
+- `der Notausgang` — u81 · the emergency exit
 - `der Notfall` — u25 · the emergency
+- `der Notruf` — u81 · the emergency call
 - `der November` — u9 · November
 - `der Ofen` — u30 · the oven
 - `der Oktober` — u9 · October
@@ -442,34 +611,53 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Pinsel` — u46 · the brush
 - `der Platz` — u7 · square / space
 - `der Preis` — u17 · the price
+- `der Prozentsatz` — u87 · the percentage
 - `der Pullover` — u18 · the jumper
+- `der Quadratmeter` — u80 · the square metre
 - `der Rabatt` — u27 · the discount
+- `der Rat` — u60 · the advice
+- `der Rauch` — u81 · the smoke
 - `der Regen` — u50 · the rainfall
 - `der Regenbogen` — u50 · the rainbow
+- `der Regisseur` — u64 · the director
+- `der Reifen` — u82 · the tyre
 - `der Reis` — u6 · rice
+- `der Respekt` — u68 · the respect
+- `der Rest` — u87 · the remainder
+- `der Richter` — u75 · the judge
 - `der Ring` — u43 · the ring
 - `der Rock` — u18 · the skirt
 - `der Roman` — u35 · novel
+- `der Rückblick` — u63 · the look back
 - `der Rücken` — u25 · the back
+- `der Sachbearbeiter` — u76 · the case worker
 - `der Sack` — u47 · the sack
 - `der Saft` — u6 · juice
 - `der Samstag` — u9 · Saturday
+- `der Sanitäter` — u81 · the paramedic
+- `der Schaden` — u79 · the damage
 - `der Schal` — u18 · the scarf
+- `der Schalter` — u76 · the service window
 - `der Schatten` — u50 · the shade
 - `der Schauer` — u50 · the shower
 - `der Schauspieler` — u35 · actor
 - `der Schein` — u27 · the note
+- `der Schimmel` — u80 · the mould
 - `der Schlüssel` — u15 · the key
 - `der Schmerz` — u11 · pain
 - `der Schmuck` — u43 · the jewellery
 - `der Schnee` — u8 · snow
+- `der Schock` — u81 · the shock
 - `der Schrank` — u15 · the cupboard / wardrobe
 - `der Schraubenzieher` — u46 · the screwdriver
+- `der Schritt` — u56 · the step
 - `der Schuh` — u18 · the shoe
 - `der Schüler` — u20 · the pupil
 - `der See` — u26 · the lake
+- `der Sender` — u64 · the station
 - `der September` — u9 · September
 - `der Sieg` — u45 · the victory
+- `der Sinn` — u58 · the sense
 - `der Sohn` — u4 · son
 - `der Sommer` — u9 · summer
 - `der Sonnenschein` — u50 · the sunshine
@@ -478,11 +666,17 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Spieler` — u45 · the player
 - `der Sport` — u45 · sport
 - `der Staat` — u32 · the state
+- `der Standpunkt` — u51 · the point of view
 - `der Stau` — u23 · the traffic jam
 - `der Staubsauger` — u30 · the vacuum cleaner
+- `der Stellplatz` — u80 · the parking space
+- `der Stempel` — u75 · the stamp
 - `der Stock` — u30 · the storey
 - `der Stoff` — u34 · material / substance
 - `der Strand` — u26 · the beach
+- `der Streik` — u55 · the strike
+- `der Streit` — u51 · the quarrel
+- `der Stress` — u67 · the stress
 - `der Strom` — u34 · electricity / current
 - `der Student` — u20 · the university student
 - `der Stuhl` — u15 · the chair
@@ -491,6 +685,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Tag` — u5 · day
 - `der Tagesablauf` — u21 · daily routine
 - `der Tank` — u47 · the tank
+- `der Täter` — u75 · the offender
 - `der Tau` — u50 · the dew
 - `der Tee` — u6 · tea
 - `der Teller` — u41 · the plate
@@ -498,89 +693,205 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Termin` — u20 · the appointment
 - `der Tisch` — u15 · the table
 - `der Topf` — u41 · the pot
+- `der Traum` — u58 · the dream
+- `der Umgang` — u68 · the way of dealing
+- `der Umgangston` — u72 · the tone
+- `der Umsatz` — u66 · the turnover
+- `der Umschlag` — u83 · the envelope
+- `der Umstand` — u52 · the circumstance
+- `der Unfall` — u60 · the accident
+- `der Unsinn` — u51 · the nonsense
 - `der Unterschied` — u37 · difference
 - `der Urlaub` — u19 · the holiday
+- `der Ursprung` — u58 · the origin
 - `der Vater` — u4 · father
+- `der Verband` — u81 · the bandage
+- `der Verbandskasten` — u81 · the first-aid kit
+- `der Verdacht` — u86 · the suspicion
 - `der Verein` — u32 · club / association
+- `der Verlag` — u64 · the publisher
+- `der Verlust` — u66 · the loss
+- `der Vermieter` — u80 · the landlord
+- `der Versand` — u83 · the dispatch
+- `der Verstoß` — u61 · the violation
 - `der Versuch` — u34 · attempt / trial
 - `der Vertrag` — u24 · the contract
 - `der Vogel` — u26 · the bird
+- `der Vorgesetzte` — u78 · the line manager
 - `der Vorhang` — u30 · the curtain
+- `der Vorschlag` — u51 · the suggestion
+- `der Vorteil` — u52 · the advantage
 - `der Wald` — u26 · the forest
+- `der Wandel` — u59 · the transformation
 - `der Weg` — u7 · way / path
+- `der Wert` — u66 · the value
 - `der Wettkampf` — u45 · the competition
+- `der Widerspruch` — u79 · the formal objection
+- `der Wille` — u62 · the will
 - `der Wind` — u8 · wind
 - `der Winter` — u9 · winter
+- `der Wortschatz` — u74 · the vocabulary
 - `der Wunsch` — u37 · wish
 - `der Zahn` — u11 · tooth
+- `der Zeitpunkt` — u62 · the point in time
+- `der Zeitraum` — u59 · the period
+- `der Zeuge` — u75 · the witness
+- `der Zoll` — u83 · the customs
 - `der Zucker` — u41 · the sugar
+- `der Zufall` — u58 · the coincidence
 - `der Zug` — u19 · the train
+- `der Zuhörer` — u64 · the listener
+- `der Zusammenhalt` — u68 · the solidarity
+- `der Zusammenhang` — u52 · the connection
 - `der Zuschauer` — u45 · the spectator
+- `der Zuschlag` — u79 · the surcharge
+- `der Zweck` — u52 · the purpose
+- `der Zweifel` — u54 · the doubt
 - `deren` — u36 · whose — feminine and plural
+- `derjenige` — u69 · the one who
+- `derselbe` — u71 · the same
+- `des` — u71 · of the
 - `deshalb` — u29 · therefore
 - `dessen` — u36 · whose — masculine and neuter
 - `desto` — u37 · the — second half of the pair je … desto
 - `deswegen` — u29 · for that reason
+- `deuten` — u85 · to point
+- `deutlich` — u53 · clearly
 - `Deutsch` — u3 · German (the language)
 - `dich` — u13 · you — object
 - `dicht` — u49 · dense
 - `dick` — u10 · thick / fat
+- `die Abkürzung` — u74 · the abbreviation
+- `die Absicht` — u62 · the intention
 - `die Abteilung` — u24 · the department
+- `die Ahnung` — u54 · the idea
+- `die Akte` — u75 · the case file
 - `die Allergie` — u25 · the allergy
 - `die Ampel` — u23 · the traffic light
+- `die Anfrage` — u71 · the enquiry
+- `die Angabe` — u87 · the stated figure
 - `die Angst` — u22 · the fear
+- `die Anlage` — u72 · the enclosure
 - `die Anleitung` — u46 · the instructions
+- `die Anmeldung` — u75 · the registration
+- `die Anrede` — u72 · the form of address
+- `die Anschrift` — u83 · the postal address
+- `die Anzahlung` — u79 · the down payment
 - `die Apotheke` — u11 · pharmacy / chemist
 - `die App` — u33 · app
+- `die Armut` — u55 · the poverty
+- `die Art` — u58 · the kind
 - `die Aufgabe` — u20 · the task
+- `die Aufnahme` — u64 · the recording
 - `die Ausbildung` — u24 · the training
+- `die Ausfahrt` — u82 · the motorway exit
+- `die Ausgabe` — u66 · the expense
 - `die Auskunft` — u23 · the information desk
+- `die Ausnahme` — u58 · the exception
+- `die Ausrüstung` — u81 · the equipment
+- `die Aussage` — u61 · the statement
 - `die Aussicht` — u23 · the view
+- `die Aussprache` — u74 · the pronunciation
 - `die Ausstellung` — u35 · exhibition
 - `die Auswahl` — u27 · the selection
+- `die Auswirkung` — u52 · the effect
+- `die Autobahn` — u82 · the motorway
 - `die Bäckerei` — u27 · the bakery
 - `die Bahn` — u19 · the railway
 - `die Banane` — u6 · banana
 - `die Bank` — u7 · bank
+- `die Baustelle` — u82 · the roadworks
+- `die Bearbeitung` — u75 · the processing
+- `die Bedeutung` — u74 · the meaning
 - `die Bedienung` — u42 · the service
 - `die Bedingung` — u37 · condition
 - `die Behandlung` — u25 · the treatment
 - `die Behörde` — u32 · public authority / office
+- `die Belastung` — u67 · the strain
+- `die Bescheinigung` — u75 · the certificate
+- `die Beschwerden` — u67 · the complaints
+- `die Besichtigung` — u80 · the viewing
 - `die Besprechung` — u24 · the meeting
+- `die Betonung` — u74 · the emphasis
+- `die Bevölkerung` — u55 · the population
+- `die Bewegung` — u71 · the movement
 - `die Bewerbung` — u24 · the application
+- `die Beziehung` — u68 · the relationship
 - `die Biene` — u26 · the bee
+- `die Bilanz` — u66 · the balance sheet
+- `die Bildung` — u55 · the education
 - `die Blume` — u40 · flower
+- `die Briefmarke` — u83 · the postage stamp
 - `die Brille` — u43 · the glasses
 - `die Bühne` — u35 · stage
 - `die Butter` — u6 · butter
 - `die Datei` — u33 · file
 - `die Decke` — u30 · the ceiling
+- `die Diagnose` — u67 · the diagnosis
 - `die Dose` — u47 · the can
+- `die Dosis` — u67 · the dose
+- `die Durchwahl` — u77 · the extension number
 - `die Ecke` — u44 · the corner
+- `die Ehe` — u68 · the marriage
+- `die Ehre` — u58 · the honour
 - `die Eigenschaft` — u31 · quality / trait
+- `die Einnahme` — u66 · the takings
+- `die Einzelheit` — u58 · the detail
 - `die Eltern` — u4 · parents
 - `die Energie` — u34 · energy
+- `die Entschädigung` — u78 · the compensation
 - `die Erde` — u34 · earth / the Earth
+- `die Erderwärmung` — u65 · global warming
 - `die Erfahrung` — u24 · the experience
 - `die Erkältung` — u11 · a head cold
+- `die Ermäßigung` — u79 · the reduction
+- `die Ernährung` — u67 · the diet
+- `die Erste Hilfe` — u81 · first aid
+- `die Erziehung` — u71 · the upbringing
+- `die Fachsprache` — u72 · the technical language
 - `die Fähigkeit` — u37 · ability
 - `die Fahrkarte` — u19 · the ticket
+- `die Fahrschule` — u82 · the driving school
 - `die Familie` — u4 · family
 - `die Farbe` — u8 · colour
 - `die Feile` — u46 · the file
+- `die Fernbedienung` — u64 · the remote control
+- `die Feuerwehr` — u81 · the fire brigade
+- `die Filiale` — u83 · the branch
 - `die Firma` — u20 · the company
 - `die Flasche` — u42 · the bottle
+- `die Folge` — u52 · the consequence
+- `die Forderung` — u71 · the demand
 - `die Forschung` — u34 · research
 - `die Frau` — u4 · woman / wife
+- `die Freiheit` — u55 · the freedom
 - `die Freizeit` — u35 · free time / leisure
+- `die Fremdsprache` — u74 · the foreign language
 - `die Freude` — u22 · the joy
 - `die Freundin` — u4 · friend — female
+- `die Frist` — u56 · the deadline
 - `die Gabel` — u41 · the fork
 - `die Galerie` — u35 · gallery
+- `die Garantie` — u78 · the guarantee
+- `die Gebühr` — u76 · the fee
 - `die Geduld` — u22 · the patience
+- `die Gefahr` — u81 · the danger
+- `die Gegenwart` — u59 · the present
+- `die Gelegenheit` — u62 · the opportunity
 - `die Gemeinde` — u32 · local community / municipality
+- `die Gemeinschaft` — u68 · the community
+- `die Genehmigung` — u75 · the permit
+- `die Generation` — u68 · the generation
+- `die Genesung` — u67 · the recovery
+- `die Gerechtigkeit` — u55 · the justice
+- `die Geschichte` — u59 · the history
+- `die Geschwindigkeit` — u82 · the speed
 - `die Geschwister` — u4 · siblings
 - `die Gesellschaft` — u32 · society
+- `die Geste` — u85 · the gesture
+- `die Gewalt` — u55 · the violence
+- `die Gewohnheit` — u59 · the habit
+- `die Grammatik` — u74 · the grammar
 - `die Grenze` — u19 · the border
 - `die Grippe` — u25 · the flu
 - `die Großeltern` — u4 · grandparents
@@ -589,14 +900,20 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Halbzeit` — u45 · half-time
 - `die Haltestelle` — u19 · the stop
 - `die Hand` — u11 · hand
+- `die Handlung` — u64 · the plot
 - `die Hausaufgabe` — u24 · the homework
+- `die Hausordnung` — u80 · the house rules
 - `die Haut` — u43 · the skin
+- `die Heimat` — u55 · the home
 - `die Heizung` — u30 · the heating
-- `die Hilfe` — u14 · the help
+- `die Herausforderung` — u62 · the challenge
 - `die Hitze` — u50 · the heat
 - `die Hochzeit` — u40 · wedding
 - `die Hose` — u18 · the trousers
+- `die Impfung` — u67 · the vaccination
+- `die Inflation` — u66 · the inflation
 - `die Insel` — u26 · the island
+- `die Integration` — u68 · the integration
 - `die Jacke` — u18 · the jacket
 - `die Jahreszeit` — u50 · the season
 - `die Kälte` — u50 · the cold
@@ -606,25 +923,44 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Kartoffel` — u6 · potato
 - `die Kasse` — u18 · the till
 - `die Katze` — u26 · the cat
+- `die Kaution` — u80 · the rental deposit
 - `die Kerze` — u40 · candle
 - `die Kette` — u43 · the necklace / chain
+- `die Kindheit` — u59 · the childhood
 - `die Kiste` — u47 · the crate
+- `die Klage` — u75 · the lawsuit
 - `die Klasse` — u20 · the class
 - `die Klinge` — u46 · the blade
 - `die Klingel` — u30 · the doorbell
+- `die Kohle` — u65 · the coal
+- `die Komödie` — u64 · the comedy
+- `die Kopie` — u76 · the photocopy
+- `die Körperhaltung` — u85 · the body posture
 - `die Kraft` — u34 · force / strength
 - `die Kreditkarte` — u27 · the credit card
+- `die Kreuzung` — u82 · the junction
+- `die Krise` — u55 · the crisis
+- `die Kritik` — u55 · the criticism
 - `die Küche` — u1 · kitchen
 - `die Kuh` — u26 · the cow
 - `die Kunst` — u35 · art
+- `die Kur` — u67 · the spa stay
+- `die Küste` — u65 · the coast
 - `die Lampe` — u15 · the lamp
+- `die Landschaft` — u65 · the landscape
+- `die Laufzeit` — u79 · the term of a contract
 - `die Laune` — u22 · the mood
+- `die Leistung` — u56 · the performance
 - `die Leiter` — u46 · the ladder
-- `die Leute` — u10 · people
+- `die Lieferung` — u71 · the delivery
 - `die Lippe` — u43 · the lip
 - `die Lösung` — u32 · solution
 - `die Luft` — u34 · air
+- `die Macht` — u55 · the power
+- `die Mahnung` — u79 · the payment reminder
+- `die Mailbox` — u77 · the voicemail
 - `die Mannschaft` — u45 · the team
+- `die Maßnahme` — u60 · the measure
 - `die Maus` — u26 · the mouse
 - `die Medaille` — u45 · the medal
 - `die Medizin` — u11 · medicine
@@ -633,98 +969,180 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Menge` — u47 · the amount
 - `die Miete` — u30 · the rent
 - `die Milch` — u6 · milk
+- `die Minderheit` — u68 · the minority
 - `die Minute` — u5 · minute
 - `die Mitte` — u44 · the middle
+- `die Mitteilung` — u71 · the notice
+- `die Mundart` — u72 · the local speech
 - `die Münze` — u27 · the coin
 - `die Mutter` — u4 · mother
+- `die Muttersprache` — u74 · the mother tongue
 - `die Mütze` — u18 · the woolly cap
+- `die Nachbarschaft` — u68 · the neighbourhood
+- `die Nachfrage` — u66 · the market demand
 - `die Nachricht` — u33 · message
 - `die Nacht` — u5 · night
 - `die Nase` — u11 · nose
+- `die Nebenkosten` — u80 · the extra costs
+- `die Nebenwirkung` — u67 · the side effect
 - `die Niederlage` — u45 · the defeat
+- `die Notaufnahme` — u81 · the emergency department
 - `die Note` — u24 · the grade
 - `die Nudeln` — u6 · pasta / noodles
 - `die Nummer` — u17 · the reference number
+- `die Öffentlichkeit` — u55 · the public
+- `die Öffnungszeit` — u76 · the opening time
 - `die Oper` — u35 · opera
+- `die Operation` — u67 · the operation
+- `die Ordnung` — u61 · the order
 - `die Packung` — u47 · the pack
+- `die Panik` — u81 · the panic
+- `die Panne` — u60 · the breakdown
+- `die Partei` — u55 · the party
 - `die Pause` — u24 · the break
 - `die Pfanne` — u41 · the frying pan
 - `die Pflanze` — u26 · the plant
+- `die Pflege` — u67 · the care
 - `die Pflicht` — u32 · duty / obligation
+- `die Politik` — u55 · the politics
+- `die Polizei` — u75 · the police
 - `die Portion` — u42 · the portion
 - `die Post` — u7 · post office / mail
+- `die Postkarte` — u83 · the postcard
+- `die Postleitzahl` — u83 · the postcode
 - `die Praxis` — u25 · the surgery
+- `die Presse` — u55 · the press
 - `die Prüfung` — u20 · the exam
+- `die Quelle` — u55 · the source
 - `die Quittung` — u27 · the receipt
+- `die Quote` — u87 · the proportion in figures
+- `die Rate` — u79 · the instalment
 - `die Rechnung` — u42 · the bill
+- `die Redaktion` — u55 · the editorial team
 - `die Rede` — u40 · speech
+- `die Redewendung` — u74 · the idiom
 - `die Regel` — u32 · rule
 - `die Regierung` — u32 · government
+- `die Reihenfolge` — u56 · the sequence
+- `die Rente` — u66 · the pension
+- `die Reportage` — u64 · the news feature
 - `die Reservierung` — u23 · the reservation
+- `die Ressource` — u65 · the resource
 - `die Rezeption` — u23 · the reception
-- `die Sache` — u15 · the thing / the matter
+- `die Rolle` — u52 · the role
+- `die Rücksicht` — u57 · the consideration
+- `die Rückzahlung` — u76 · the refund
 - `die Säge` — u46 · the saw
+- `die Salbe` — u67 · the ointment
 - `die Schachtel` — u47 · the small box
+- `die Schicht` — u56 · the shift
+- `die Schlagzeile` — u64 · the headline
 - `die Schraube` — u46 · the screw
+- `die Schuld` — u61 · the fault
+- `die Schulden` — u66 · the debts
 - `die Schule` — u1 · school
 - `die Schulter` — u25 · the shoulder
 - `die Schüssel` — u47 · the bowl
 - `die Schwester` — u4 · sister
+- `die Schwierigkeit` — u60 · the difficulty
+- `die Seele` — u58 · the soul
 - `die Sehenswürdigkeit` — u23 · the sight
+- `die Sehnsucht` — u57 · the longing
 - `die Seife` — u30 · the soap
 - `die Seite` — u33 · page / site
+- `die Sendung` — u64 · the programme
+- `die Serie` — u64 · the series
 - `die Serviette` — u42 · the napkin
+- `die Silbe` — u74 · the syllable
 - `die Socke` — u18 · the sock
 - `die Sonne` — u8 · sun
 - `die Sorge` — u22 · the worry
 - `die Speisekarte` — u42 · the menu
 - `die Sprache` — u20 · the language
+- `die Sprechstunde` — u76 · the consultation hour
 - `die Spritze` — u25 · the injection
 - `die Spülmaschine` — u30 · the dishwasher
+- `die Spur` — u82 · the lane
 - `die Stadt` — u7 · town / city
 - `die Stelle` — u24 · the position
 - `die Steuer` — u32 · tax
+- `die Stille` — u86 · the silence
+- `die Stimme` — u55 · the vote
 - `die Stimmung` — u40 · atmosphere
 - `die Stirn` — u43 · the forehead
+- `die Störung` — u77 · the fault on a line
+- `die Strafe` — u61 · the punishment
 - `die Straße` — u1 · street
 - `die Stunde` — u5 · hour
+- `die Sucht` — u67 · the addiction
+- `die Summe` — u87 · the total figure
 - `die Tablette` — u25 · the tablet
 - `die Tante` — u4 · aunt
+- `die Tapete` — u80 · the wallpaper
 - `die Tasche` — u18 · the bag
+- `die Taschenlampe` — u81 · the torch
 - `die Taste` — u33 · button — the one you press
+- `die Tatsache` — u51 · the fact
 - `die Temperatur` — u34 · temperature — how warm a thing is
 - `die Theke` — u42 · the counter
+- `die Therapie` — u67 · the therapy
 - `die Tochter` — u4 · daughter
 - `die Tomate` — u6 · tomato
+- `die Tonne` — u65 · the wheelie bin
 - `die Tradition` — u40 · tradition
 - `die Treppe` — u15 · the stairs
 - `die Tube` — u47 · the tube
 - `die Tür` — u1 · door
 - `die Tüte` — u27 · the carrier bag
+- `die Übergabe` — u80 · the handover
 - `die Übernachtung` — u23 · the overnight stay
 - `die Überraschung` — u40 · surprise
 - `die Übung` — u45 · exercise
 - `die Uhr` — u5 · clock / o'clock
 - `die Umfrage` — u32 · survey / poll
+- `die Umleitung` — u82 · the diversion
 - `die Umwelt` — u34 · the environment
 - `die Unterkunft` — u23 · the accommodation
+- `die Unterlagen` — u56 · the documents
+- `die Unterschrift` — u75 · the signature
+- `die Urkunde` — u76 · the official deed
 - `die Ursache` — u34 · cause
 - `die Vase` — u47 · the vase
+- `die Veranstaltung` — u62 · the event
+- `die Verantwortung` — u61 · the responsibility
 - `die Verbindung` — u33 · connection
 - `die Vergangenheit` — u28 · the past
+- `die Vernunft` — u58 · good sense
+- `die Verpackung` — u83 · the packaging
+- `die Verschmutzung` — u65 · the pollution
 - `die Versicherung` — u25 · the insurance
 - `die Verspätung` — u23 · the delay
+- `die Verwaltung` — u76 · the administration
+- `die Vielfalt` — u68 · the diversity
+- `die Vollmacht` — u75 · the power of attorney
+- `die Voraussetzung` — u52 · the prerequisite
+- `die Vorfahrt` — u82 · the right of way
 - `die Vorlesung` — u24 · the lecture
+- `die Vorschrift` — u61 · the regulation
+- `die Vorsorge` — u67 · the prevention
 - `die Vorspeise` — u42 · the starter
+- `die Vorwahl` — u77 · the area code
 - `die Wahl` — u32 · election / choice
+- `die Wahrheit` — u58 · the truth
+- `die Währung` — u66 · the currency
 - `die Wand` — u15 · the wall
 - `die Wange` — u43 · the cheek
+- `die Wartenummer` — u76 · the queue ticket
+- `die Warteschlange` — u83 · the queue
 - `die Wäsche` — u21 · the laundry
 - `die Waschmaschine` — u30 · the washing machine
 - `die Welt` — u19 · the world
 - `die Werbung` — u27 · the advert
+- `die Wiese` — u65 · the meadow
+- `die Wirtschaft` — u66 · the economy
 - `die Wissenschaft` — u34 · science
 - `die Woche` — u5 · week
+- `die Wohnfläche` — u80 · the living space
 - `die Wohnung` — u7 · flat / apartment
 - `die Wolke` — u8 · cloud
 - `die Wunde` — u25 · the wound
@@ -733,69 +1151,118 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Zeit` — u1 · time
 - `die Zeitschrift` — u35 · magazine
 - `die Zeitung` — u1 · newspaper
+- `die Ziffer` — u87 · the digit
 - `die Zukunft` — u28 · the future
+- `die Zulassung` — u61 · the licence
+- `die Zuneigung` — u68 · the affection
+- `die Zusage` — u79 · the acceptance
 - `die Zutat` — u41 · the ingredient
-- `dieser` — u12 · this / these
 - `digital` — u33 · digital
 - `dir` — u14 · you — dative
+- `diskret` — u73 · discreet
 - `diskutieren` — u32 · to discuss / argue
 - `doch` — u12 · yes — contradicting a negative
+- `dolmetschen` — u74 · to interpret
 - `dort` — u7 · over there
+- `dranbleiben` — u77 · to hold the line
 - `drehen` — u44 · to turn
 - `drei` — u5 · three
 - `dreißig` — u17 · thirty
 - `dreizehn` — u17 · thirteen
+- `dringend` — u62 · urgent
 - `drücken` — u44 · to press
 - `du` — u3 · you — informal singular
 - `dunkel` — u10 · dark
 - `dünn` — u10 · thin
 - `durch` — u13 · through
+- `durchaus` — u84 · quite, granting the point
+- `durchführen` — u56 · to carry out
+- `durchschnittlich` — u53 · average
 - `durchsichtig` — u49 · see-through
+- `durchstreichen` — u76 · to cross out
 - `dürfen` — u16 · to be allowed to
 - `durfte` — u38 · was allowed to — past of dürfen
+- `dürfte` — u70 · might well
+- `dürfte ich` — u73 · may I
 - `duschen` — u21 · to shower
+- `duzen` — u72 · to address as du
+- `eben` — u84 · that is just how it is
+- `ebenfalls` — u51 · likewise
+- `echt` — u72 · really
 - `eckig` — u49 · angular
 - `egoistisch` — u31 · selfish
 - `ehrgeizig` — u31 · ambitious
 - `ehrlich` — u31 · honest
+- `ehrlich gesagt` — u84 · to be honest
 - `ei` — u1
+- `eifersüchtig` — u68 · jealous
+- `eigentlich` — u54 · actually
 - `ein` — u5 · a / one
-- `ein paar` — u17 · a few
+- `eindeutig` — u84 · unmistakably
 - `einen` — u13 · object form of ein
 - `einerseits` — u36 · on the one hand
-- `einfach` — u10 · simple / simply
+- `einfach` — u84 · simply
+- `eingreifen` — u60 · to intervene
+- `einhalten` — u61 · to comply with
 - `einladen` — u40 · to invite
-- `einmal` — u21 · once
+- `einreichen` — u76 · to submit
 - `einrichten` — u30 · to furnish
 - `einsam` — u22 · lonely
+- `einschalten` — u64 · to switch on
+- `einst` — u63 · once
 - `einsteigen` — u19 · to board
+- `einverstanden` — u51 · in agreement
+- `einwerfen` — u83 · to post a letter
+- `einwilligen` — u61 · to consent
+- `einziehen` — u80 · to move in
 - `elf` — u5 · eleven
 - `empfehlen` — u42 · to recommend
+- `empfindlich` — u57 · sensitive
+- `endgültig` — u59 · final
 - `endlich` — u36 · at last — after a wait
 - `eng` — u30 · cramped
 - `entdecken` — u34 · to discover
 - `entscheiden` — u48 · to decide
 - `Entschuldigung` — u2 · excuse me / sorry
+- `entsprechen` — u53 · to correspond
+- `entstehen` — u52 · to arise
 - `enttäuscht` — u22 · disappointed
 - `entweder` — u36 · either
 - `entwickeln` — u34 · to develop
 - `er` — u3 · he
+- `erfolgen` — u70 · to be carried out
+- `erheblich` — u53 · considerable
 - `erkennen` — u43 · to recognise
 - `erklären` — u20 · to explain
 - `erlauben` — u48 · to allow
+- `erleben` — u63 · to experience
 - `erledigen` — u48 · to get done
+- `erleichtert` — u57 · relieved
+- `ermöglichen` — u52 · to make possible
+- `erneuerbar` — u65 · renewable
+- `erneut` — u59 · again
+- `erreichbar` — u77 · reachable
+- `erreichen` — u62 · to reach
 - `erschöpft` — u22 · exhausted
-- `erst` — u21 · not until
+- `erschrecken` — u57 · to be startled
+- `ersetzen` — u60 · to replace
+- `erstatten` — u78 · to refund
 - `erstens` — u36 · firstly — numbering a point in an argument
+- `erwachsen` — u59 · grown-up
+- `erwarten` — u54 · to expect
 - `erzählen` — u29 · to tell
 - `es` — u5 · it
 - `es gibt` — u13 · there is / there are
 - `es tut mir leid` — u2 · I'm sorry
+- `essbar` — u70 · edible
 - `essen` — u6 · to eat
+- `etwa` — u54 · roughly
 - `etwas` — u12 · something / a little
 - `euch` — u13 · you — plural object
+- `eventuell` — u54 · possibly
 - `fahren` — u7 · to drive
 - `fallen` — u44 · to fall
+- `fällig` — u79 · due for payment
 - `falls` — u29 · in case
 - `falsch` — u20 · wrong
 - `fand` — u39 · found — past of finden
@@ -803,7 +1270,6 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `fast` — u47 · almost
 - `faul` — u31 · lazy
 - `feiern` — u40 · to celebrate
-- `fertig` — u21 · finished / ready
 - `festziehen` — u46 · to tighten
 - `feucht` — u49 · damp
 - `finden` — u7 · to find
@@ -811,15 +1277,25 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `flach` — u49 · flat
 - `fleißig` — u31 · hard-working
 - `fliegen` — u23 · to fly
+- `fließend` — u74 · fluently
+- `flüchten` — u81 · to flee
+- `flüstern` — u86 · to whisper
+- `folglich` — u52 · consequently
+- `fordern` — u55 · to call for
+- `förmlich` — u72 · formal
 - `fragen` — u20 · to ask
 - `fragte` — u38 · asked — past of fragen
+- `frankieren` — u83 · to put postage on
 - `frei` — u23 · vacant
+- `freilich` — u84 · admittedly
+- `freiwillig` — u61 · voluntary
 - `frieren` — u50 · to freeze
 - `frisch` — u41 · fresh
 - `fröhlich` — u40 · merry
 - `früh` — u21 · early
 - `fühlen` — u22 · to feel
 - `fuhr` — u39 · travelled / drove — past of fahren
+- `führen` — u52 · to lead to
 - `füllen` — u47 · to fill
 - `fünf` — u5 · five
 - `fünfzig` — u17 · fifty
@@ -827,20 +1303,25 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `für` — u13 · for
 - `füttern` — u26 · to feed
 - `gab` — u39 · gave / there was — past of geben
+- `gäbe` — u70 · there would be
+- `gähnen` — u85 · to yawn
 - `ganz` — u49 · completely
-- `gar` — u12 · at all
+- `gar` — u84 · at all, with a negative
 - `gearbeitet` — u14 · worked (past participle of arbeiten)
 - `geben` — u16 · to give
 - `geduldig` — u31 · patient — willing to wait
 - `gefallen` — u18 · to appeal to
 - `gegangen` — u14 · gone (past participle of gehen)
+- `gegebenenfalls` — u73 · should the need arise
 - `gegen` — u13 · against
 - `gehabt` — u14 · had (past participle of haben)
 - `gehen` — u7 · to go / to walk
 - `geizig` — u31 · stingy
 - `gekommen` — u14 · come — past participle of kommen
+- `gelassen` — u57 · calm
 - `gelb` — u8 · yellow
 - `gelingen` — u37 · to succeed / turn out well
+- `gelten` — u58 · to be valid
 - `gemeinsam` — u32 · jointly
 - `gemütlich` — u30 · cosy
 - `genau` — u34 · exact / precisely
@@ -849,26 +1330,35 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `gepflegt` — u43 · well-groomed
 - `gerade` — u28 · right now
 - `geradeaus` — u7 · straight ahead
+- `gering` — u53 · slight
 - `gern` — u2 · gladly / with pleasure
+- `geschehen` — u70 · to happen
+- `gespannt` — u57 · eager
 - `gestatten` — u48 · to permit
 - `gestern` — u28 · yesterday
 - `gesund` — u11 · healthy
 - `getrunken` — u14 · drunk (past participle of trinken)
 - `gewesen` — u14 · been (past participle of sein)
 - `gewinnen` — u45 · to win
+- `gewiss` — u84 · certainly
 - `gießen` — u47 · to pour
 - `giftig` — u49 · poisonous
 - `ging` — u39 · went — past of gehen
 - `glänzend` — u49 · shiny
 - `glatt` — u43 · straight / smooth
 - `glauben` — u29 · to believe
+- `glaubwürdig` — u64 · credible
 - `gleich` — u28 · in a moment
+- `gleichwohl` — u84 · all the same
+- `gleichzeitig` — u53 · at the same time
 - `glücklich` — u10 · happy
 - `gratulieren` — u40 · to congratulate
 - `grau` — u8 · grey
+- `grinsen` — u85 · to grin
 - `groß` — u1 · big
 - `großzügig` — u31 · generous
 - `grün` — u8 · green
+- `gültig` — u76 · valid
 - `günstig` — u27 · good value
 - `gut` — u2 · good / well
 - `gute Nacht` — u2 · good night
@@ -877,17 +1367,23 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `guten Morgen` — u2 · good morning
 - `guten Tag` — u2 · good day / hello
 - `haben` — u4 · to have
+- `haften` — u79 · to be liable
 - `halb` — u5 · half
 - `half` — u39 · helped — past of helfen
 - `hallo` — u2 · hello
+- `halt` — u73 · just, with a shrug
 - `halten` — u44 · to hold
 - `hämmern` — u46 · to hammer
 - `hängen` — u44 · to hang something up
 - `hart` — u49 · hard
+- `hartnäckig` — u78 · persistent
 - `hätte` — u37 · would have
 - `hatte` — u39 · had — past of haben
+- `hätten Sie Zeit` — u73 · would you have time
 - `häufig` — u28 · frequently
 - `heben` — u44 · to raise
+- `heilen` — u67 · to heal
+- `heiraten` — u68 · to marry
 - `heiß` — u8 · hot
 - `heißen` — u3 · to be called
 - `helfen` — u14 · to help
@@ -896,19 +1392,26 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `herzlich` — u40 · cordial
 - `heute` — u5 · today
 - `hier` — u1 · here
+- `hiermit` — u72 · hereby
 - `hieß` — u39 · was called — past of heißen
 - `hilfsbereit` — u31 · helpful
+- `hinsichtlich` — u71 · with regard to
 - `hinten` — u44 · at the back
 - `hinter` — u13 · behind
+- `hinterlassen` — u77 · to leave behind
 - `hoch` — u10 · high / tall
+- `höchstens` — u87 · at most
 - `hoffen` — u29 · to hope
 - `hoffentlich` — u37 · hopefully
 - `höflich` — u31 · polite
 - `hohl` — u49 · hollow
+- `hörbar` — u70 · audible
 - `hören` — u1 · to hear
 - `hörte` — u38 · heard — past of hören
 - `hübsch` — u43 · pretty
 - `hundert` — u17 · hundred
+- `hupen` — u82 · to honk
+- `hüpfen` — u85 · to hop
 - `ich` — u3 · I
 - `identisch` — u37 · identical
 - `ie` — u1
@@ -916,108 +1419,157 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ihn` — u13 · him — object
 - `ihnen` — u14 · them — dative
 - `ihr` — u3 · you — plural and informal
-- `ihre` — u4 · her / their
 - `im` — u14 · in the
+- `im Grunde` — u84 · basically
 - `immer` — u12 · always
 - `immerhin` — u36 · at least — salvaging one good point
 - `in` — u13 · into / in
-- `in Ordnung` — u15 · in order / OK
+- `indem` — u69 · by doing
+- `infolge` — u71 · as a result of
+- `innerhalb` — u71 · within
+- `insgesamt` — u87 · in total
+- `insofern` — u69 · in that respect
+- `investieren` — u66 · to invest
 - `inzwischen` — u28 · meanwhile
+- `irgendein` — u71 · some … or other
 - `irgendwann` — u28 · sometime
+- `irgendwie` — u54 · somehow
 - `ist` — u1 · is
 - `ja` — u2 · yes
 - `je` — u37 · the — first half of the pair je … desto
+- `je nachdem` — u54 · depending
 - `jeden Tag` — u21 · every day
+- `jedenfalls` — u54 · in any case
 - `jedoch` — u36 · however — the written-register turn
-- `jemand` — u12 · someone
 - `jetzt` — u5 · now
+- `jeweils` — u87 · in each case
 - `jugendlich` — u43 · youthful
 - `jung` — u3 · young
 - `kalt` — u8 · cold
 - `kam` — u39 · came — past of kommen
+- `käme` — u70 · would come
 - `kaputt` — u10 · broken
+- `kaputtgehen` — u78 · to break down
 - `kaufen` — u18 · to buy
 - `kaufte` — u38 · bought — past of kaufen
 - `kaum` — u21 · hardly
 - `kein` — u12 · not a
 - `kein Problem` — u2 · no problem
 - `keinen` — u13 · object form of kein
+- `keineswegs` — u51 · by no means
 - `klappen` — u37 · to work out
-- `klar` — u10 · clear / obvious
+- `klären` — u60 · to clarify
 - `kleben` — u46 · to glue
 - `klebrig` — u49 · sticky
 - `klein` — u1 · small
+- `klettern` — u85 · to climb
 - `klug` — u31 · clever
+- `knapp` — u87 · just under
 - `kochen` — u16 · to cook
 - `kommen` — u3 · to come
+- `kompliziert` — u60 · complicated
 - `können` — u16 · to be able to
 - `könnte` — u37 · could / would be able to
 - `konnte` — u38 · could — past of können
 - `kosten` — u17 · to cost
+- `kostenlos` — u76 · free of charge
 - `kostete` — u38 · cost — past of kosten
 - `krank` — u11 · ill / sick
+- `krass` — u72 · extreme
+- `kriechen` — u85 · to crawl
+- `kritisieren` — u64 · to criticise
 - `kündigen` — u24 · to hand in notice
+- `künftig` — u62 · in future
 - `kurz` — u10 · short
+- `kurz gesagt` — u84 · in short
+- `kurzfristig` — u62 · at short notice
+- `kürzlich` — u63 · the other day
+- `lächeln` — u57 · to smile
 - `lang` — u10 · long
+- `langfristig` — u59 · long-term
+- `längst` — u63 · long since
 - `langweilig` — u10 · boring
 - `las` — u39 · read — past of lesen
 - `lassen` — u44 · to leave something
 - `laufen` — u16 · to run
-- `leben` — u4 · to live / to be alive
 - `lecker` — u6 · delicious
+- `lediglich` — u54 · merely
 - `leer` — u10 · empty
 - `leeren` — u47 · to empty
 - `legen` — u44 · to lay something down
 - `leicht` — u10 · easy
+- `leiden` — u57 · to suffer
 - `leider` — u22 · unfortunately
 - `leihen` — u27 · to lend
 - `leiten` — u24 · to lead
+- `lenken` — u82 · to steer
 - `lernen` — u20 · to learn
 - `lernte` — u38 · learned — past of lernen
+- `lesbar` — u70 · readable
 - `lesen` — u20 · to read
+- `leserlich` — u76 · legible
+- `letztlich` — u84 · ultimately
 - `lieben` — u4 · to love
 - `lieber` — u37 · rather / preferably
 - `lief` — u39 · ran / walked — past of laufen
+- `liefern` — u83 · to deliver
 - `liegen` — u16 · to lie
 - `links` — u7 · left
 - `locker` — u49 · loose
 - `lockig` — u43 · curly
 - `löschen` — u33 · to delete
 - `lustig` — u10 · funny / cheerful
+- `machbar` — u70 · doable
 - `machen` — u16 · to do / make
 - `machte` — u38 · did / made — past of machen
-- `mal` — u21 · just — softening a request
+- `mal` — u73 · just, as a softener
 - `malen` — u35 · to paint
 - `man` — u45 · one — people in general
+- `mancher` — u71 · many a
 - `manchmal` — u12 · sometimes
 - `matt` — u49 · matt
 - `mehr` — u37 · more
+- `mehrere` — u71 · several
 - `mein` — u4 · my
 - `meinen` — u13 · object form of mein
+- `meinetwegen` — u51 · as far as I'm concerned
 - `meistens` — u21 · usually
 - `messen` — u34 · to measure
 - `mich` — u13 · me — object
 - `mild` — u50 · mild
+- `mindestens` — u87 · at least, as a minimum
 - `mir` — u14 · me — dative
 - `mischen` — u41 · to mix
+- `missverstehen` — u74 · to misunderstand
 - `mit` — u14 · with
+- `mithilfe` — u71 · with the help of
+- `mittlerweile` — u63 · by now
+- `möbliert` — u80 · furnished
 - `möchten` — u16 · would like
-- `mögen` — u16 · to like
 - `möglich` — u37 · possible
 - `morgen` — u5 · tomorrow
 - `müde` — u1 · tired
+- `mündlich` — u72 · spoken
 - `muskulös` — u43 · muscular
 - `müssen` — u16 · must / to have to
 - `musste` — u38 · had to — past of müssen
+- `müsste` — u70 · ought to
 - `mutig` — u22 · brave
 - `nach` — u14 · after
 - `nachdem` — u29 · after — links a clause
+- `nachfragen` — u73 · to follow up
+- `nachgeben` — u60 · to give in
+- `nachhaken` — u78 · to press the point
+- `nachhaltig` — u65 · sustainable
 - `nachher` — u28 · afterwards
+- `nachsenden` — u83 · to forward post
 - `nah` — u7 · near
 - `nahm` — u39 · took — past of nehmen
+- `naja` — u72 · well now
 - `nämlich` — u29 · namely
 - `natürlich` — u2 · of course
 - `neben` — u13 · next to / beside
+- `nebenbei` — u84 · incidentally
 - `neblig` — u50 · foggy
 - `nehmen` — u16 · to take
 - `nein` — u1 · no
@@ -1030,19 +1582,24 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `neunzehn` — u17 · nineteen
 - `nicht` — u3 · not
 - `nichts` — u12 · nothing
+- `nicken` — u85 · to nod
 - `nie` — u12 · never
 - `niemand` — u12 · nobody
 - `noch` — u12 · still / yet
 - `normalerweise` — u21 · normally
-- `nun` — u12 · now then / well
-- `nur` — u3 · only
+- `notfalls` — u60 · if need be
+- `notwendig` — u52 · necessary
+- `nun` — u84 · well then
 - `ö` — u1
 - `ob` — u29 · whether
 - `oben` — u44 · up there / at the top
 - `obwohl` — u29 · although
 - `oder` — u12 · or
+- `offenbar` — u54 · apparently
 - `oft` — u12 · often
 - `ohne` — u13 · without
+- `ohnehin` — u84 · as it is anyway
+- `ohnmächtig` — u81 · unconscious
 - `online` — u33 · online
 - `orange` — u8 · orange (colour)
 - `ordentlich` — u31 · tidy / orderly
@@ -1051,33 +1608,53 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `packen` — u23 · to pack
 - `parken` — u23 · to park a car
 - `passen` — u18 · to fit
-- `passieren` — u22 · to happen
 - `peinlich` — u22 · embarrassing
 - `planen` — u48 · to plan
 - `plötzlich` — u28 · suddenly
+- `prägen` — u63 · to shape
 - `probieren` — u42 · to sample
 - `pünktlich` — u21 · on time
 - `putzen` — u21 · to scrub
+- `rasen` — u82 · to speed along
 - `rau` — u49 · rough
+- `rauchen` — u61 · to smoke
+- `räumen` — u80 · to clear out
+- `rauschen` — u77 · to crackle
+- `reagieren` — u81 · to react
 - `rechts` — u7 · right
+- `rechtzeitig` — u62 · in good time
+- `recyceln` — u65 · to recycle
 - `reduziert` — u27 · reduced
+- `regelmäßig` — u59 · regular
 - `regnet` — u8 · it rains
 - `regnete` — u38 · rained — past of regnen
+- `reichlich` — u53 · plenty of
 - `reif` — u49 · ripe
+- `reklamieren` — u78 · to return faulty goods
+- `rennen` — u85 · to run fast
+- `renovieren` — u80 · to renovate
 - `reparieren` — u30 · to repair
 - `reservieren` — u42 · to reserve
+- `retten` — u60 · to rescue
 - `richtig` — u20 · correct
+- `riechen` — u86 · to smell
 - `roh` — u49 · raw
 - `rollen` — u44 · to roll
 - `rosa` — u8 · pink
 - `rot` — u8 · red
+- `rücksichtsvoll` — u73 · considerate
+- `rückwärts` — u82 · backwards
 - `ruhig` — u10 · quiet / calm
 - `rühren` — u41 · to stir
+- `rund` — u87 · around
+- `rutschen` — u85 · to slide
 - `sagen` — u16 · to say
 - `sagte` — u38 · said — past of sagen
 - `sah` — u39 · saw — past of sehen
+- `salopp` — u72 · casual
 - `salzig` — u41 · salty
 - `sammeln` — u35 · to collect
+- `sämtliche` — u71 · all of the
 - `sang` — u39 · sang — past of singen
 - `saß` — u39 · sat — past of sitzen
 - `satt` — u42 · full — after eating
@@ -1086,12 +1663,18 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `sch` — u1
 - `schaffen` — u37 · to manage / get done
 - `scharf` — u41 · spicy / sharp
+- `schätzen` — u54 · to estimate
+- `scheinen` — u54 · to seem
+- `scheitern` — u56 · to fail
 - `schicken` — u33 · to send
 - `schieben` — u44 · to push
 - `schief` — u49 · crooked
+- `schiefgehen` — u60 · to go wrong
+- `schildern` — u63 · to describe
 - `schlafen` — u16 · to sleep
 - `schlank` — u43 · slim
 - `schlecht` — u2 · bad / badly
+- `schleichen` — u85 · to creep
 - `schleifen` — u46 · to sand
 - `schlief` — u39 · slept — past of schlafen
 - `schließlich` — u36 · finally — the last step of a sequence
@@ -1102,70 +1685,108 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `schneit` — u8 · it snows
 - `schnell` — u1 · fast
 - `schön` — u1 · beautiful
-- `schon` — u5 · already
+- `schon` — u73 · don't worry
 - `schrauben` — u46 · to screw
 - `schreiben` — u20 · to write
 - `schrieb` — u39 · wrote — past of schreiben
+- `schriftlich` — u79 · in writing
 - `schüchtern` — u22 · shy
+- `schulden` — u79 · to owe
+- `schütteln` — u85 · to shake something
 - `schützen` — u34 · to protect
 - `schwarz` — u8 · black
+- `schweigen` — u51 · to stay silent
 - `schwer` — u10 · heavy / difficult
 - `schwimmen` — u16 · to swim
 - `sechs` — u5 · six
 - `sechzehn` — u17 · sixteen
 - `sechzig` — u17 · sixty
+- `seelisch` — u67 · mental
 - `sehen` — u16 · to see (with the eyes)
 - `sehr` — u2 · very
-- `sein` — u16 · to be
-- `seine` — u4 · his
+- `sehr geehrte` — u72 · dear (formal)
+- `seinerzeit` — u63 · at the time
 - `seit` — u14 · since / for
+- `seitdem` — u59 · since then
+- `seither` — u63 · ever since
 - `selbst` — u48 · myself / yourself
 - `selbstbewusst` — u31 · self-assured
+- `selbstverständlich` — u51 · it goes without saying
 - `selten` — u12 · rarely / seldom
 - `servieren` — u42 · to serve
 - `setzen` — u44 · to seat someone
+- `seufzen` — u85 · to sigh
+- `sich anmelden` — u76 · to register with the authorities
 - `sich anstecken` — u25 · to catch an illness
 - `sich anziehen` — u21 · to get dressed
 - `sich ärgern` — u22 · to get annoyed
 - `sich ausruhen` — u25 · to rest
+- `sich äußern` — u51 · to express oneself
 - `sich beeilen` — u21 · to hurry
+- `sich bemühen` — u60 · to make an effort
 - `sich beruhigen` — u22 · to calm down
+- `sich beschweren` — u78 · to complain
 - `sich bewerben` — u24 · to apply
+- `sich bücken` — u85 · to bend down
+- `sich durchsetzen` — u56 · to assert oneself
+- `sich einigen` — u56 · to agree on
 - `sich entspannen` — u22 · to relax
+- `sich ergeben` — u70 · to come about
 - `sich erholen` — u25 · to recover
 - `sich erinnern` — u48 · to remember
+- `sich erkundigen` — u73 · to enquire
 - `sich freuen` — u22 · to be pleased
+- `sich herausstellen` — u70 · to turn out
+- `sich konzentrieren` — u86 · to concentrate
 - `sich kümmern` — u48 · to take care of
 - `sich legen` — u44 · to lie down
+- `sich lehnen` — u85 · to lean
+- `sich lohnen` — u66 · to be worth it
+- `sich melden` — u77 · to answer the phone
+- `sich merken` — u86 · to memorise
+- `sich schämen` — u57 · to be ashamed
 - `sich setzen` — u44 · to sit down
+- `sich strecken` — u85 · to stretch
 - `sich trauen` — u48 · to dare
+- `sich umdrehen` — u85 · to turn around
+- `sich verabreden` — u62 · to arrange to meet
 - `sich verletzen` — u25 · to injure oneself
+- `sich versöhnen` — u68 · to make up
+- `sich verwählen` — u77 · to dial the wrong number
 - `sich waschen` — u21 · to wash oneself
 - `sich weigern` — u48 · to refuse
 - `sicher` — u12 · certainly / safe
+- `sichtbar` — u70 · visible
 - `Sie` — u3 · you — formal
 - `sie` — u3 · she / they
 - `sieben` — u5 · seven
 - `siebzehn` — u17 · seventeen
 - `siebzig` — u17 · seventy
+- `siezen` — u72 · to address as Sie
 - `sind` — u1 · are
 - `singen` — u16 · to sing
+- `sinken` — u53 · to drop
+- `sinngemäß` — u74 · in substance
 - `sitzen` — u16 · to sit
-- `so` — u2 · so / like this
 - `sobald` — u29 · as soon as
+- `sodass` — u69 · with the result that
 - `sofort` — u28 · immediately
 - `sogar` — u36 · even — more than you would expect
 - `solange` — u29 · as long as
+- `solcher` — u71 · such
 - `sollen` — u16 · to be supposed to
 - `sollte` — u38 · was supposed to — past of sollen
 - `sondern` — u12 · but rather
 - `sonnig` — u50 · sunny
 - `sonst` — u29 · otherwise
 - `sowie` — u36 · as well as — listing items, not joining clauses
+- `sowieso` — u54 · anyway
 - `sowohl` — u36 · both — in the pair sowohl … als auch
 - `sozial` — u32 · social
+- `sozusagen` — u84 · so to speak
 - `spannend` — u35 · gripping / exciting
 - `sparen` — u27 · to save
+- `sparsam` — u65 · thrifty
 - `spät` — u1 · late
 - `später` — u21 · later
 - `speichern` — u33 · to save — a file
@@ -1175,105 +1796,189 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `sportlich` — u43 · sporty / athletic
 - `sprach` — u39 · spoke — past of sprechen
 - `sprechen` — u1 · to speak
+- `spüren` — u86 · to sense
 - `ß` — u1
 - `stand` — u39 · stood — past of stehen
 - `ständig` — u28 · constantly
 - `stark` — u45 · strong
 - `starr` — u49 · rigid
+- `statt` — u71 · in place of
+- `stattfinden` — u62 · to take place
 - `stecken` — u44 · to put inside
 - `stehen` — u44 · to be standing
+- `stehlen` — u75 · to steal
+- `steigen` — u53 · to rise
 - `steil` — u49 · steep
 - `stellen` — u44 · to stand something up
+- `stolpern` — u85 · to trip
 - `stolz` — u22 · proud
+- `stören` — u61 · to disturb
+- `stornieren` — u79 · to cancel a booking
+- `streichen` — u80 · to paint a wall
 - `streng` — u31 · strict
 - `studieren` — u3 · to study
+- `stumm` — u77 · silent
 - `stumpf` — u49 · blunt
 - `stur` — u31 · stubborn
 - `stürmisch` — u50 · stormy
+- `stürzen` — u85 · to fall over
 - `suchen` — u7 · to look for
 - `suchte` — u38 · looked for — past of suchen
 - `süß` — u40 · sweet
 - `sympathisch` — u31 · likeable
+- `taktvoll` — u73 · tactful
 - `tanken` — u23 · to fill up
 - `tanzen` — u16 · to dance
 - `tausend` — u17 · thousand
+- `teilnehmen` — u56 · to take part
+- `teilweise` — u53 · partly
 - `teuer` — u10 · expensive
 - `tief` — u10 · deep
 - `tippen` — u33 · to type
+- `tja` — u72 · well
 - `tragen` — u18 · to wear / carry
 - `trainieren` — u45 · to train
 - `trank` — u39 · drank — past of trinken
 - `traurig` — u10 · sad
+- `trennen` — u65 · to separate
+- `treu` — u68 · loyal
 - `trinken` — u6 · to drink
 - `trocken` — u49 · dry
+- `trösten` — u57 · to comfort
+- `trotz` — u62 · despite
 - `trotzdem` — u29 · nevertheless
 - `trug` — u39 · wore / carried — past of tragen
 - `tschüss` — u2 · bye
-- `tun` — u16 · to do (an act)
 - `tut weh` — u11 · to hurt
 - `ü` — u1
 - `üben` — u20 · to practise
 - `über` — u14 · over / above
+- `überhaupt` — u73 · at all
+- `überholen` — u82 · to overtake
 - `überlegen` — u48 · to think over
 - `übermorgen` — u28 · the day after tomorrow
 - `überrascht` — u22 · surprised
+- `übersehen` — u86 · to overlook
+- `übersetzen` — u74 · to translate
+- `übertragen` — u64 · to transmit
+- `übertreffen` — u53 · to surpass
+- `übertreiben` — u51 · to exaggerate
 - `überweisen` — u27 · to transfer
+- `überwiegend` — u53 · predominantly
+- `überwinden` — u60 · to overcome
+- `überzeugen` — u51 · to convince
+- `übrig` — u53 · left over
 - `übrigens` — u36 · by the way
 - `übte` — u38 · practised — past of üben
 - `um` — u13 · around / at (time)
+- `umarmen` — u85 · to hug
+- `umgangssprachlich` — u72 · colloquial
+- `umgehend` — u78 · without delay
+- `umgekehrt` — u53 · the other way round
 - `umsteigen` — u19 · to change trains
 - `umtauschen` — u27 · to exchange
 - `umziehen` — u30 · to move house
+- `unbedingt` — u61 · absolutely
 - `und` — u1 · and
 - `unentschieden` — u45 · a draw
+- `ungefähr` — u87 · approximately
+- `ungern` — u73 · reluctantly
 - `uns` — u13 · us
-- `unsere` — u4 · our
 - `unten` — u44 · down there / at the bottom
 - `unter` — u14 · under / below
+- `unterbrechen` — u51 · to interrupt
+- `unterschreiben` — u61 · to sign
+- `unterstützen` — u55 · to support
 - `untersuchen` — u34 · to investigate / examine
+- `unverbindlich` — u73 · non-binding
+- `unvergesslich` — u63 · unforgettable
+- `unzufrieden` — u78 · dissatisfied
+- `verbessern` — u56 · to improve
 - `verbieten` — u48 · to forbid
+- `verbindlich` — u61 · binding
+- `verblassen` — u63 · to fade
+- `verbrauchen` — u65 · to use up
 - `verdienen` — u20 · to earn
+- `verdoppeln` — u87 · to double
+- `verdrängen` — u63 · to push away
+- `vereinbaren` — u79 · to arrange
+- `vergehen` — u59 · to go by
 - `vergessen` — u48 · to forget
 - `vergleichen` — u37 · to compare
+- `verhandeln` — u56 · to negotiate
+- `verhindern` — u61 · to prevent
 - `verkaufen` — u18 · to sell
 - `verlangen` — u48 · to demand
+- `verlängern` — u79 · to extend
 - `verlieren` — u45 · to lose
+- `verlobt` — u68 · engaged
 - `vermeiden` — u48 · to avoid
+- `vermissen` — u57 · to miss
+- `vermutlich` — u54 · presumably
+- `veröffentlichen` — u55 · to publish
+- `verpflichten` — u79 · to oblige
+- `verschicken` — u83 · to send off
+- `verschieben` — u62 · to postpone
 - `verschieden` — u37 · different / various
+- `verschwinden` — u59 · to disappear
+- `versprechen` — u61 · to promise
+- `verständlich` — u74 · comprehensible
 - `verstehen` — u20 · to understand
 - `versuchen` — u48 · to try
+- `vertraulich` — u72 · confidential
+- `vertreten` — u55 · to represent
+- `verursachen` — u52 · to cause
+- `verurteilen` — u75 · to convict
 - `verwechseln` — u43 · to mix up
+- `verzeihen` — u73 · to forgive
+- `verzichten` — u62 · to do without
+- `verzweifelt` — u57 · desperate
 - `viel` — u17 · much / a lot
 - `vielleicht` — u12 · maybe / perhaps
+- `vielmehr` — u84 · rather
 - `vier` — u5 · four
 - `vierzig` — u17 · forty
 - `voll` — u10 · full
+- `völlig` — u53 · totally
 - `vom` — u21 · from the
 - `von` — u14 · from / of
 - `vor` — u13 · in front of
 - `vor allem` — u36 · above all
+- `vorausgesetzt` — u70 · provided that
+- `vorbei` — u59 · over
 - `vorbereiten` — u21 · to prepare
 - `vorgestern` — u28 · the day before yesterday
+- `vorhaben` — u62 · to intend
 - `vorher` — u28 · beforehand
+- `vorläufig` — u59 · provisional
+- `vorlegen` — u61 · to produce on request
 - `vorne` — u44 · at the front
 - `vorsichtig` — u31 · careful / cautious
+- `vorziehen` — u53 · to prefer
 - `wachsen` — u26 · to grow
 - `wagen` — u48 · to venture
 - `wählen` — u42 · to choose
 - `während` — u29 · while
+- `wahrnehmen` — u86 · to perceive
+- `wahrscheinlich` — u54 · probably
 - `wann` — u12 · when
 - `war` — u39 · was — past of sein
 - `wäre` — u37 · would be
 - `warm` — u8 · warm
+- `warnen` — u60 · to warn
 - `warten` — u19 · to wait
 - `wartete` — u38 · waited — past of warten
 - `warum` — u12 · why
 - `was` — u1 · what
 - `weder` — u36 · neither
+- `wegen` — u71 · because of
+- `wegwerfen` — u65 · to throw away
 - `Weihnachten` — u40 · Christmas
 - `weil` — u29 · because — verb to the end
+- `weinen` — u57 · to cry
 - `weiß` — u8 · white
 - `weit` — u7 · far
+- `weiterleiten` — u77 · to put a call through
 - `welcher` — u12 · which
 - `wem` — u14 · whom — dative
 - `wen` — u13 · whom — object
@@ -1281,35 +1986,51 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `weniger` — u37 · less / fewer
 - `wenn` — u29 · if — a condition
 - `wer` — u12 · who
-- `werden` — u8 · to become
 - `werfen` — u45 · to throw
+- `wertvoll` — u66 · valuable
+- `wesentlich` — u52 · essential
+- `wessen` — u69 · whose
 - `wichtig` — u45 · important
+- `widerrufen` — u78 · to withdraw an order
+- `widersprechen` — u51 · to contradict
 - `wie` — u3 · how
 - `wie geht's` — u2 · how are you
+- `wie gesagt` — u84 · as I said
 - `wie viel` — u12 · how much
-- `wieder` — u12 · again
 - `wiederholen` — u24 · to repeat
-- `wieso` — u12 · how come
+- `wiegen` — u83 · to weigh
 - `wild` — u26 · wild
 - `willkommen` — u2 · welcome
+- `winken` — u85 · to wave
 - `wir` — u3 · we
 - `wirken` — u31 · to seem / come across
-- `wirklich` — u12 · really
 - `wissen` — u16 · to know
 - `wo` — u3 · where
+- `wobei` — u69 · whereby
+- `wofür` — u69 · what purpose
 - `woher` — u3 · where from
 - `wohin` — u12 · where to
-- `wohl` — u12 · probably
+- `wohl` — u84 · no doubt
 - `wohnen` — u1 · to live (somewhere)
 - `wohnte` — u38 · lived — past of wohnen
 - `wolkig` — u50 · cloudy
 - `wollen` — u16 · to want to
 - `wollte` — u38 · wanted to — past of wollen
+- `womit` — u69 · with what
+- `womöglich` — u84 · conceivably
+- `woran` — u69 · of what
+- `worauf` — u69 · for what
+- `worden` — u70 · been (passive)
+- `worin` — u69 · in what
+- `wörtlich` — u74 · literally
+- `worüber` — u69 · on what subject
+- `wovon` — u69 · about what
 - `wünschen` — u40 · to wish someone something
 - `würde` — u37 · would
 - `wurde` — u39 · became — past of werden
 - `würzen` — u41 · to season
 - `wusste` — u38 · knew — past of wissen
+- `wüsste` — u70 · would know
 - `wütend` — u22 · furious
 - `z` — u1
 - `zäh` — u49 · tough
@@ -1317,20 +2038,38 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `zeigen` — u18 · to show
 - `zeigte` — u38 · showed — past of zeigen
 - `zerbrechlich` — u49 · fragile
+- `zerstören` — u60 · to destroy
 - `ziehen` — u44 · to pull
+- `ziemlich` — u53 · fairly
+- `zittern` — u57 · to tremble
 - `zögern` — u48 · to hesitate
 - `zu` — u14 · to
 - `zuerst` — u21 · first of all
+- `zufällig` — u84 · by any chance
 - `zufrieden` — u22 · satisfied
+- `zugeben` — u78 · to admit
+- `zuhören` — u86 · to listen
 - `zum Beispiel` — u36 · for example
+- `zumal` — u69 · especially since
+- `zumindest` — u54 · at any rate
+- `zunächst` — u56 · to begin with
+- `zunehmen` — u67 · to put on weight
 - `zur` — u21 · to the
-- `zurück` — u7 · back
+- `zurückgeben` — u78 · to give back
+- `zurückhaltend` — u73 · reserved
+- `zurückrufen` — u77 · to call back
+- `zurückschicken` — u78 · to send back
+- `zusagen` — u56 · to accept
 - `zusammen` — u1 · together
+- `zusätzlich` — u53 · additionally
+- `zuständig` — u75 · responsible for
+- `zustellen` — u83 · to deliver to the door
 - `zustimmen` — u48 · to agree
 - `zuverlässig` — u31 · reliable
 - `zwanzig` — u17 · twenty
 - `zwar` — u36 · admittedly — setting up a following aber
 - `zwei` — u5 · two
+- `zweifellos` — u84 · beyond question
 - `zweimal` — u21 · twice
 - `zwingen` — u48 · to force
 - `zwischen` — u14 · between
@@ -1340,37 +2079,37 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 **u1 · Laute und Buchstaben** (33) — `ei`, `ie`, `ist`, `das`, `nein`, `hier`, `was`, `z`, `ch`, `die Zeit`, `die Zeitung`, `das Buch`, `und`, `sind`, `sch`, `ß`, `die Straße`, `die Schule`, `schnell`, `sprechen`, `zusammen`, `ü`, `ö`, `die Tür`, `die Küche`, `müde`, `hören`, `wohnen`, `ä`, `spät`, `klein`, `schön`, `groß`
 
-**u2 · Begrüßung und Abschied** (25) — `hallo`, `guten Morgen`, `guten Tag`, `guten Abend`, `gute Nacht`, `willkommen`, `wie geht's`, `danke`, `bitte`, `gut`, `schlecht`, `sehr`, `so`, `tschüss`, `auf Wiedersehen`, `bis bald`, `bis später`, `bis morgen`, `gute Reise`, `Entschuldigung`, `es tut mir leid`, `gern`, `kein Problem`, `ja`, `natürlich`
+**u2 · Begrüßung und Abschied** (24) — `hallo`, `guten Morgen`, `guten Tag`, `guten Abend`, `gute Nacht`, `willkommen`, `wie geht's`, `danke`, `bitte`, `gut`, `schlecht`, `sehr`, `tschüss`, `auf Wiedersehen`, `bis bald`, `bis später`, `bis morgen`, `gute Reise`, `Entschuldigung`, `es tut mir leid`, `gern`, `kein Problem`, `ja`, `natürlich`
 
-**u3 · Sich vorstellen** (26) — `ich`, `bin`, `du`, `bist`, `heißen`, `der Name`, `da`, `woher`, `wo`, `wie`, `kommen`, `aus`, `Deutsch`, `nur`, `Sie`, `er`, `sie`, `wir`, `ihr`, `nicht`, `der Beruf`, `arbeiten`, `studieren`, `alt`, `jung`, `auch`
+**u3 · Sich vorstellen** (24) — `ich`, `bin`, `du`, `bist`, `heißen`, `der Name`, `woher`, `wo`, `wie`, `kommen`, `aus`, `Deutsch`, `Sie`, `er`, `sie`, `wir`, `ihr`, `nicht`, `der Beruf`, `arbeiten`, `studieren`, `alt`, `jung`, `auch`
 
-**u4 · Die Familie** (30) — `die Familie`, `der Vater`, `die Mutter`, `die Eltern`, `der Sohn`, `die Tochter`, `leben`, `der Bruder`, `die Schwester`, `die Geschwister`, `der Mann`, `die Frau`, `das Kind`, `alle`, `das Mädchen`, `der Großvater`, `die Großmutter`, `die Großeltern`, `der Onkel`, `die Tante`, `der Cousin`, `ihre`, `mein`, `dein`, `haben`, `der Freund`, `die Freundin`, `lieben`, `seine`, `unsere`
+**u4 · Die Familie** (24) — `die Familie`, `der Vater`, `die Mutter`, `die Eltern`, `der Sohn`, `die Tochter`, `der Bruder`, `die Schwester`, `die Geschwister`, `der Mann`, `die Frau`, `das Kind`, `der Großvater`, `die Großmutter`, `die Großeltern`, `der Onkel`, `die Tante`, `der Cousin`, `mein`, `dein`, `haben`, `der Freund`, `die Freundin`, `lieben`
 
-**u5 · Zahlen und Zeit** (25) — `ein`, `zwei`, `drei`, `vier`, `fünf`, `sechs`, `sieben`, `acht`, `neun`, `zehn`, `elf`, `zwölf`, `die Uhr`, `die Stunde`, `die Minute`, `halb`, `es`, `jetzt`, `schon`, `der Tag`, `die Nacht`, `heute`, `morgen`, `das Jahr`, `die Woche`
+**u5 · Zahlen und Zeit** (24) — `ein`, `zwei`, `drei`, `vier`, `fünf`, `sechs`, `sieben`, `acht`, `neun`, `zehn`, `elf`, `zwölf`, `die Uhr`, `die Stunde`, `die Minute`, `halb`, `es`, `jetzt`, `der Tag`, `die Nacht`, `heute`, `morgen`, `das Jahr`, `die Woche`
 
-**u6 · Essen und Trinken** (25) — `das Brot`, `der Käse`, `die Butter`, `das Ei`, `der Reis`, `die Nudeln`, `der Apfel`, `die Banane`, `die Tomate`, `die Kartoffel`, `das Gemüse`, `das Obst`, `das Wasser`, `der Kaffee`, `der Tee`, `die Milch`, `der Saft`, `das Bier`, `essen`, `trinken`, `das Frühstück`, `das Mittagessen`, `lecker`, `der Hunger`, `alles`
+**u6 · Essen und Trinken** (24) — `das Brot`, `der Käse`, `die Butter`, `das Ei`, `der Reis`, `die Nudeln`, `der Apfel`, `die Banane`, `die Tomate`, `die Kartoffel`, `das Gemüse`, `das Obst`, `das Wasser`, `der Kaffee`, `der Tee`, `die Milch`, `der Saft`, `das Bier`, `essen`, `trinken`, `das Frühstück`, `das Mittagessen`, `lecker`, `der Hunger`
 
-**u7 · Die Stadt** (25) — `die Stadt`, `das Haus`, `die Wohnung`, `der Bahnhof`, `der Markt`, `der Platz`, `das Restaurant`, `das Hotel`, `die Bank`, `die Post`, `das Museum`, `der Park`, `gehen`, `fahren`, `links`, `rechts`, `geradeaus`, `weit`, `zurück`, `dort`, `der Weg`, `die Karte`, `finden`, `suchen`, `nah`
+**u7 · Die Stadt** (24) — `die Stadt`, `das Haus`, `die Wohnung`, `der Bahnhof`, `der Markt`, `der Platz`, `das Restaurant`, `das Hotel`, `die Bank`, `die Post`, `das Museum`, `der Park`, `gehen`, `fahren`, `links`, `rechts`, `geradeaus`, `weit`, `dort`, `der Weg`, `die Karte`, `finden`, `suchen`, `nah`
 
-**u8 · Farben und Wetter** (25) — `rot`, `blau`, `gelb`, `grün`, `schwarz`, `weiß`, `braun`, `grau`, `rosa`, `orange`, `die Farbe`, `bunt`, `das Wetter`, `die Sonne`, `regnet`, `der Nebel`, `der Schnee`, `schneit`, `der Wind`, `die Wolke`, `kalt`, `warm`, `heiß`, `der Himmel`, `werden`
+**u8 · Farben und Wetter** (24) — `rot`, `blau`, `gelb`, `grün`, `schwarz`, `weiß`, `braun`, `grau`, `rosa`, `orange`, `die Farbe`, `bunt`, `das Wetter`, `die Sonne`, `regnet`, `der Nebel`, `der Schnee`, `schneit`, `der Wind`, `die Wolke`, `kalt`, `warm`, `heiß`, `der Himmel`
 
 **u9 · Tage, Monate und Jahreszeiten** (24) — `der Montag`, `der Dienstag`, `der Mittwoch`, `der Donnerstag`, `der Freitag`, `der Samstag`, `der Sonntag`, `der Monat`, `der Januar`, `der Februar`, `der März`, `der April`, `der Mai`, `der Juni`, `der Juli`, `der August`, `der September`, `der Oktober`, `der November`, `der Dezember`, `der Frühling`, `der Sommer`, `der Herbst`, `der Winter`
 
-**u10 · Beschreiben** (29) — `hell`, `dunkel`, `lang`, `kurz`, `hoch`, `tief`, `andere`, `dick`, `dünn`, `schwer`, `leicht`, `voll`, `leer`, `einfach`, `neu`, `sauber`, `schmutzig`, `kaputt`, `teuer`, `billig`, `klar`, `nett`, `ruhig`, `lustig`, `langweilig`, `traurig`, `glücklich`, `die Leute`, `der Herr`
+**u10 · Beschreiben** (24) — `hell`, `dunkel`, `lang`, `kurz`, `hoch`, `tief`, `dick`, `dünn`, `schwer`, `leicht`, `voll`, `leer`, `neu`, `sauber`, `schmutzig`, `kaputt`, `teuer`, `billig`, `nett`, `ruhig`, `lustig`, `langweilig`, `traurig`, `glücklich`
 
-**u11 · Der Körper und die Gesundheit** (25) — `der Kopf`, `das Auge`, `die Nase`, `der Mund`, `das Ohr`, `der Zahn`, `der Körper`, `der Hals`, `die Hand`, `der Arm`, `das Bein`, `der Fuß`, `der Mensch`, `krank`, `gesund`, `tut weh`, `der Schmerz`, `das Fieber`, `der Husten`, `der Arzt`, `das Krankenhaus`, `die Apotheke`, `die Medizin`, `die Erkältung`, `der Durst`
+**u11 · Der Körper und die Gesundheit** (24) — `der Kopf`, `das Auge`, `die Nase`, `der Mund`, `das Ohr`, `der Zahn`, `der Körper`, `der Hals`, `die Hand`, `der Arm`, `das Bein`, `der Fuß`, `krank`, `gesund`, `tut weh`, `der Schmerz`, `das Fieber`, `der Husten`, `der Arzt`, `das Krankenhaus`, `die Apotheke`, `die Medizin`, `die Erkältung`, `der Durst`
 
-**u12 · Der Satz und die Wortstellung** (32) — `immer`, `oft`, `manchmal`, `selten`, `dann`, `noch`, `nun`, `wieder`, `wer`, `wann`, `warum`, `wohin`, `wie viel`, `welcher`, `dieser`, `wieso`, `doch`, `vielleicht`, `sicher`, `aber`, `oder`, `denn`, `wirklich`, `wohl`, `kein`, `nichts`, `niemand`, `nie`, `sondern`, `etwas`, `jemand`, `gar`
+**u12 · Der Satz und die Wortstellung** (24) — `immer`, `oft`, `manchmal`, `selten`, `dann`, `noch`, `wer`, `wann`, `warum`, `wohin`, `wie viel`, `welcher`, `doch`, `vielleicht`, `sicher`, `aber`, `oder`, `denn`, `kein`, `nichts`, `niemand`, `nie`, `sondern`, `etwas`
 
-**u13 · Nominativ und Akkusativ** (25) — `den`, `einen`, `keinen`, `meinen`, `deinen`, `wen`, `mich`, `dich`, `ihn`, `uns`, `euch`, `es gibt`, `durch`, `für`, `gegen`, `ohne`, `um`, `brauchen`, `dafür`, `in`, `auf`, `an`, `vor`, `hinter`, `neben`
+**u13 · Nominativ und Akkusativ** (24) — `den`, `einen`, `keinen`, `meinen`, `deinen`, `wen`, `mich`, `dich`, `ihn`, `uns`, `euch`, `es gibt`, `durch`, `für`, `gegen`, `ohne`, `um`, `brauchen`, `in`, `auf`, `an`, `vor`, `hinter`, `neben`
 
-**u14 · Dativ und Perfekt** (27) — `dem`, `im`, `am`, `über`, `unter`, `zwischen`, `mir`, `dir`, `ihm`, `ihnen`, `wem`, `helfen`, `die Hilfe`, `mit`, `nach`, `bei`, `seit`, `von`, `zu`, `davon`, `dabei`, `gewesen`, `gehabt`, `gegangen`, `gekommen`, `gearbeitet`, `getrunken`
+**u14 · Dativ und Perfekt** (24) — `dem`, `im`, `am`, `über`, `unter`, `zwischen`, `mir`, `dir`, `ihm`, `ihnen`, `wem`, `helfen`, `mit`, `nach`, `bei`, `seit`, `von`, `zu`, `gewesen`, `gehabt`, `gegangen`, `gekommen`, `gearbeitet`, `getrunken`
 
-**u15 · Zu Hause** (26) — `das Zimmer`, `das Schlafzimmer`, `das Bad`, `der Flur`, `der Garten`, `der Keller`, `das Bett`, `der Tisch`, `der Stuhl`, `der Schrank`, `das Sofa`, `das Regal`, `das Fenster`, `die Wand`, `der Boden`, `die Treppe`, `die Lampe`, `der Teppich`, `der Schlüssel`, `das Bild`, `der Spiegel`, `das Licht`, `der Kühlschrank`, `das Kissen`, `die Sache`, `in Ordnung`
+**u15 · Zu Hause** (24) — `das Zimmer`, `das Schlafzimmer`, `das Bad`, `der Flur`, `der Garten`, `der Keller`, `das Bett`, `der Tisch`, `der Stuhl`, `der Schrank`, `das Sofa`, `das Regal`, `das Fenster`, `die Wand`, `der Boden`, `die Treppe`, `die Lampe`, `der Teppich`, `der Schlüssel`, `das Bild`, `der Spiegel`, `das Licht`, `der Kühlschrank`, `das Kissen`
 
-**u16 · Alltag und Modalverben** (28) — `können`, `müssen`, `wollen`, `dürfen`, `sollen`, `möchten`, `sein`, `mögen`, `machen`, `sagen`, `sehen`, `geben`, `nehmen`, `wissen`, `tun`, `bringen`, `schlafen`, `aufstehen`, `sitzen`, `liegen`, `bleiben`, `denken`, `spielen`, `schwimmen`, `tanzen`, `singen`, `kochen`, `laufen`
+**u16 · Alltag und Modalverben** (24) — `können`, `müssen`, `wollen`, `dürfen`, `sollen`, `möchten`, `machen`, `sagen`, `sehen`, `geben`, `nehmen`, `wissen`, `schlafen`, `aufstehen`, `sitzen`, `liegen`, `bleiben`, `denken`, `spielen`, `schwimmen`, `tanzen`, `singen`, `kochen`, `laufen`
 
-**u17 · Zahlen und Geld** (25) — `dreizehn`, `sechzehn`, `siebzehn`, `achtzehn`, `neunzehn`, `zwanzig`, `dreißig`, `vierzig`, `fünfzig`, `sechzig`, `siebzig`, `hundert`, `tausend`, `die Zahl`, `die Nummer`, `das Stück`, `viel`, `wenig`, `ein paar`, `das Geld`, `der Euro`, `kosten`, `der Preis`, `bezahlen`, `genug`
+**u17 · Zahlen und Geld** (24) — `dreizehn`, `sechzehn`, `siebzehn`, `achtzehn`, `neunzehn`, `zwanzig`, `dreißig`, `vierzig`, `fünfzig`, `sechzig`, `siebzig`, `hundert`, `tausend`, `die Zahl`, `die Nummer`, `das Stück`, `viel`, `wenig`, `das Geld`, `der Euro`, `kosten`, `der Preis`, `bezahlen`, `genug`
 
 **u18 · Kleidung und Einkaufen** (24) — `das Hemd`, `die Hose`, `der Rock`, `das Kleid`, `der Schuh`, `die Tasche`, `die Jacke`, `der Mantel`, `der Pullover`, `die Socke`, `die Mütze`, `der Schal`, `tragen`, `anziehen`, `ausziehen`, `passen`, `anprobieren`, `gefallen`, `kaufen`, `verkaufen`, `das Geschäft`, `die Kasse`, `der Kunde`, `zeigen`
 
@@ -1378,9 +2117,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 **u20 · Schule und Arbeit** (24) — `der Lehrer`, `der Schüler`, `der Student`, `die Klasse`, `die Prüfung`, `die Aufgabe`, `fragen`, `antworten`, `richtig`, `falsch`, `das Wort`, `die Sprache`, `lernen`, `lesen`, `schreiben`, `üben`, `verstehen`, `erklären`, `das Büro`, `die Firma`, `der Chef`, `der Kollege`, `verdienen`, `der Termin`
 
-**u21 · Alltag und Routine** (30) — `aufwachen`, `duschen`, `sich waschen`, `sich anziehen`, `früh`, `pünktlich`, `der Alltag`, `der Tagesablauf`, `zuerst`, `danach`, `später`, `sich beeilen`, `fertig`, `erst`, `aufräumen`, `putzen`, `vorbereiten`, `das Geschirr`, `die Wäsche`, `der Müll`, `vom`, `zur`, `jeden Tag`, `zweimal`, `meistens`, `kaum`, `normalerweise`, `der Feierabend`, `einmal`, `mal`
+**u21 · Alltag und Routine** (26) — `aufwachen`, `duschen`, `sich waschen`, `sich anziehen`, `früh`, `pünktlich`, `der Alltag`, `der Tagesablauf`, `zuerst`, `danach`, `später`, `sich beeilen`, `aufräumen`, `putzen`, `vorbereiten`, `das Geschirr`, `die Wäsche`, `der Müll`, `vom`, `zur`, `jeden Tag`, `zweimal`, `meistens`, `kaum`, `normalerweise`, `der Feierabend`
 
-**u22 · Gefühle und Stimmungen** (25) — `das Gefühl`, `fühlen`, `zufrieden`, `aufgeregt`, `stolz`, `nervös`, `wütend`, `sich ärgern`, `enttäuscht`, `die Sorge`, `einsam`, `erschöpft`, `passieren`, `die Freude`, `sich freuen`, `die Laune`, `überrascht`, `peinlich`, `sich entspannen`, `die Angst`, `sich beruhigen`, `die Geduld`, `mutig`, `schüchtern`, `leider`
+**u22 · Gefühle und Stimmungen** (24) — `das Gefühl`, `fühlen`, `zufrieden`, `aufgeregt`, `stolz`, `nervös`, `wütend`, `sich ärgern`, `enttäuscht`, `die Sorge`, `einsam`, `erschöpft`, `die Freude`, `sich freuen`, `die Laune`, `überrascht`, `peinlich`, `sich entspannen`, `die Angst`, `sich beruhigen`, `die Geduld`, `mutig`, `schüchtern`, `leider`
 
 **u23 · Reise und Unterkunft** (24) — `buchen`, `die Reservierung`, `die Unterkunft`, `der Ausflug`, `die Sehenswürdigkeit`, `packen`, `das Gleis`, `die Verspätung`, `die Auskunft`, `der Ausweis`, `abholen`, `fliegen`, `die Rezeption`, `das Einzelzimmer`, `das Doppelzimmer`, `die Übernachtung`, `die Aussicht`, `frei`, `das Auto`, `parken`, `der Stau`, `tanken`, `der Führerschein`, `die Ampel`
 
@@ -1437,4 +2176,78 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 **u49 · Eigenschaften und Zustände** (26) — `flach`, `steil`, `eckig`, `schief`, `spitz`, `oval`, `hart`, `stumpf`, `hohl`, `dicht`, `locker`, `biegsam`, `starr`, `ganz`, `feucht`, `trocken`, `roh`, `reif`, `zäh`, `klebrig`, `rau`, `glänzend`, `matt`, `durchsichtig`, `giftig`, `zerbrechlich`
 
 **u50 · Wetter und Jahreszeiten** (25) — `der Sturm`, `der Donner`, `der Blitz`, `das Gewitter`, `der Hagel`, `der Schauer`, `der Frost`, `die Kälte`, `die Hitze`, `frieren`, `schmelzen`, `das Tauwetter`, `wolkig`, `neblig`, `sonnig`, `bewölkt`, `stürmisch`, `mild`, `der Regen`, `der Schatten`, `der Sonnenschein`, `der Regenbogen`, `der Grad`, `der Tau`, `die Jahreszeit`
+
+**u51 · Die eigene Meinung** (24) — `der Standpunkt`, `behaupten`, `betonen`, `die Tatsache`, `der Vorschlag`, `überzeugen`, `einverstanden`, `ebenfalls`, `selbstverständlich`, `keineswegs`, `meinetwegen`, `abgemacht`, `widersprechen`, `der Einwand`, `bestreiten`, `der Streit`, `übertreiben`, `der Unsinn`, `das Gespräch`, `unterbrechen`, `das Missverständnis`, `schweigen`, `das Vorurteil`, `sich äußern`
+
+**u52 · Ursache und Folge** (23) — `verursachen`, `entstehen`, `der Zusammenhang`, `abhängen`, `beeinflussen`, `die Folge`, `folglich`, `daher`, `führen`, `die Auswirkung`, `auslösen`, `die Voraussetzung`, `dadurch`, `ermöglichen`, `der Umstand`, `notwendig`, `der Zweck`, `der Vorteil`, `der Nachteil`, `die Rolle`, `betreffen`, `der Hinweis`, `wesentlich`
+
+**u53 · Vergleich und Steigerung** (23) — `ziemlich`, `äußerst`, `deutlich`, `gering`, `erheblich`, `überwiegend`, `abnehmen`, `steigen`, `sinken`, `der Anteil`, `durchschnittlich`, `übertreffen`, `vorziehen`, `entsprechen`, `gleichzeitig`, `umgekehrt`, `beinahe`, `teilweise`, `völlig`, `ausreichend`, `reichlich`, `zusätzlich`, `übrig`
+
+**u54 · Vermutung und Unsicherheit** (22) — `wahrscheinlich`, `vermutlich`, `offenbar`, `angeblich`, `scheinen`, `eventuell`, `der Zweifel`, `etwa`, `irgendwie`, `zumindest`, `die Ahnung`, `annehmen`, `erwarten`, `schätzen`, `befürchten`, `der Eindruck`, `eigentlich`, `jedenfalls`, `sowieso`, `lediglich`, `bloß`, `je nachdem`
+
+**u55 · Nachrichten und Gesellschaft** (24) — `der Bericht`, `die Quelle`, `veröffentlichen`, `die Presse`, `die Redaktion`, `der Leser`, `die Macht`, `die Partei`, `die Stimme`, `die Freiheit`, `vertreten`, `die Politik`, `die Armut`, `die Bildung`, `die Gewalt`, `die Krise`, `die Gerechtigkeit`, `der Streik`, `die Öffentlichkeit`, `die Bevölkerung`, `unterstützen`, `fordern`, `die Heimat`, `die Kritik`
+
+**u56 · Arbeit und Ablauf** (21) — `der Schritt`, `die Reihenfolge`, `zunächst`, `anschließend`, `die Frist`, `durchführen`, `die Unterlagen`, `der Auftrag`, `der Bereich`, `der Mitarbeiter`, `die Schicht`, `sich einigen`, `verhandeln`, `teilnehmen`, `zusagen`, `sich durchsetzen`, `der Erfolg`, `scheitern`, `die Leistung`, `der Aufwand`, `verbessern`
+
+**u57 · Gefühle, feiner betrachtet** (22) — `erleichtert`, `dankbar`, `begeistert`, `gelassen`, `gespannt`, `leiden`, `belasten`, `verzweifelt`, `sich schämen`, `die Sehnsucht`, `der Kummer`, `erschrecken`, `aushalten`, `zittern`, `weinen`, `lächeln`, `empfindlich`, `das Vertrauen`, `beleidigen`, `die Rücksicht`, `vermissen`, `trösten`
+
+**u58 · Abstrakte Begriffe** (22) — `der Begriff`, `die Wahrheit`, `der Sinn`, `die Vernunft`, `die Ausnahme`, `das Prinzip`, `die Ehre`, `das Gegenteil`, `der Anspruch`, `das Schicksal`, `die Seele`, `der Geist`, `der Traum`, `das Gewissen`, `das Wunder`, `das Geheimnis`, `der Ursprung`, `die Art`, `der Zufall`, `die Einzelheit`, `das Merkmal`, `gelten`
+
+**u59 · Wandel und Zeit** (24) — `allmählich`, `ändern`, `die Gewohnheit`, `vorbei`, `der Zeitraum`, `langfristig`, `das Jahrhundert`, `die Geschichte`, `altmodisch`, `das Jahrzehnt`, `seitdem`, `verschwinden`, `vergehen`, `endgültig`, `vorläufig`, `regelmäßig`, `beschleunigen`, `der Wandel`, `die Gegenwart`, `erwachsen`, `aufwachsen`, `das Alter`, `die Kindheit`, `erneut`
+
+**u60 · Probleme und Lösungen** (23) — `die Schwierigkeit`, `der Fehler`, `der Mangel`, `die Panne`, `schiefgehen`, `kompliziert`, `der Ausweg`, `der Rat`, `die Maßnahme`, `beseitigen`, `eingreifen`, `notfalls`, `das Risiko`, `warnen`, `retten`, `der Unfall`, `zerstören`, `ersetzen`, `klären`, `der Kompromiss`, `nachgeben`, `überwinden`, `sich bemühen`
+
+**u61 · Regeln, Erlaubnis, Pflicht** (23) — `die Vorschrift`, `der Antrag`, `unterschreiben`, `beachten`, `die Zulassung`, `vorlegen`, `die Verantwortung`, `die Strafe`, `einhalten`, `die Schuld`, `unbedingt`, `das Schild`, `rauchen`, `der Lärm`, `verhindern`, `die Ordnung`, `stören`, `die Aussage`, `versprechen`, `freiwillig`, `verbindlich`, `einwilligen`, `der Verstoß`
+
+**u62 · Pläne und Absichten** (24) — `vorhaben`, `die Absicht`, `künftig`, `demnächst`, `rechtzeitig`, `verschieben`, `erreichen`, `der Wille`, `die Herausforderung`, `die Gelegenheit`, `verzichten`, `bestimmt`, `sich verabreden`, `begleiten`, `die Veranstaltung`, `anmelden`, `der Gastgeber`, `stattfinden`, `kurzfristig`, `ausfallen`, `der Zeitpunkt`, `anpassen`, `trotz`, `dringend`
+
+**u63 · Erfahrung und Erinnerung** (22) — `das Gedächtnis`, `auswendig`, `prägen`, `unvergesslich`, `verblassen`, `verdrängen`, `erleben`, `das Erlebnis`, `das Ereignis`, `schildern`, `beeindrucken`, `mittlerweile`, `seinerzeit`, `einst`, `seither`, `längst`, `kürzlich`, `bewahren`, `aufbewahren`, `das Tagebuch`, `das Andenken`, `der Rückblick`
+
+**u64 · Medien und Unterhaltung** (23) — `die Sendung`, `der Sender`, `ausstrahlen`, `einschalten`, `die Fernbedienung`, `der Regisseur`, `das Drehbuch`, `die Handlung`, `der Held`, `die Serie`, `die Komödie`, `die Aufnahme`, `aufnehmen`, `übertragen`, `der Kanal`, `der Zuhörer`, `das Abonnement`, `kritisieren`, `die Schlagzeile`, `der Beitrag`, `die Reportage`, `glaubwürdig`, `der Verlag`
+
+**u65 · Umwelt und Klima** (23) — `der Klimawandel`, `die Erderwärmung`, `der Ausstoß`, `verbrauchen`, `sparsam`, `nachhaltig`, `der Abfall`, `die Tonne`, `trennen`, `recyceln`, `wegwerfen`, `die Verschmutzung`, `das Kraftwerk`, `die Kohle`, `erneuerbar`, `die Ressource`, `das Windrad`, `das Erdöl`, `die Landschaft`, `das Gebirge`, `die Küste`, `die Wiese`, `aussterben`
+
+**u66 · Geld und Wirtschaft** (22) — `die Wirtschaft`, `der Betrieb`, `der Umsatz`, `die Nachfrage`, `die Währung`, `die Inflation`, `das Einkommen`, `der Lohn`, `die Ausgabe`, `die Einnahme`, `der Haushalt`, `die Rente`, `die Schulden`, `borgen`, `der Kredit`, `das Bargeld`, `sich lohnen`, `der Wert`, `wertvoll`, `der Verlust`, `investieren`, `die Bilanz`
+
+**u67 · Gesundheit und Wohlbefinden** (23) — `die Diagnose`, `die Operation`, `der Eingriff`, `die Therapie`, `heilen`, `die Genesung`, `die Impfung`, `die Vorsorge`, `die Salbe`, `die Dosis`, `die Nebenwirkung`, `der Blutdruck`, `der Stress`, `seelisch`, `chronisch`, `die Belastung`, `die Sucht`, `das Wohlbefinden`, `die Ernährung`, `die Pflege`, `zunehmen`, `die Kur`, `die Beschwerden`
+
+**u68 · Beziehungen und Gemeinschaft** (21) — `die Beziehung`, `die Zuneigung`, `treu`, `eifersüchtig`, `das Paar`, `die Ehe`, `heiraten`, `verlobt`, `sich versöhnen`, `der Konflikt`, `die Gemeinschaft`, `der Respekt`, `das Verständnis`, `der Umgang`, `die Vielfalt`, `die Nachbarschaft`, `die Minderheit`, `die Generation`, `das Ehrenamt`, `die Integration`, `der Zusammenhalt`
+
+**u69 · Verweiswörter und Nebensätze** (22) — `worauf`, `woran`, `womit`, `wovon`, `worüber`, `wofür`, `darauf`, `daran`, `davon`, `darüber`, `dabei`, `dagegen`, `darin`, `dazu`, `worin`, `wobei`, `insofern`, `wessen`, `derjenige`, `indem`, `sodass`, `zumal`
+
+**u70 · Passiv und Konjunktiv II** (22) — `worden`, `erfolgen`, `geschehen`, `sich ergeben`, `sich herausstellen`, `machbar`, `lesbar`, `essbar`, `sichtbar`, `hörbar`, `denkbar`, `dürfte`, `müsste`, `bräuchte`, `wüsste`, `käme`, `gäbe`, `an deiner Stelle`, `angenommen`, `vorausgesetzt`, `andernfalls`, `ansonsten`
+
+**u71 · Der Genitiv und die Artikelwörter** (23) — `des`, `wegen`, `statt`, `innerhalb`, `außerhalb`, `aufgrund`, `mithilfe`, `anhand`, `infolge`, `angesichts`, `hinsichtlich`, `derselbe`, `mancher`, `solcher`, `mehrere`, `sämtliche`, `irgendein`, `die Bewegung`, `die Erziehung`, `die Forderung`, `die Lieferung`, `die Anfrage`, `die Mitteilung`
+
+**u72 · Förmlich und vertraut** (22) — `siezen`, `duzen`, `die Anrede`, `förmlich`, `vertraulich`, `der Umgangston`, `sehr geehrte`, `der Gruß`, `der Absender`, `hiermit`, `die Anlage`, `der Dialekt`, `die Mundart`, `das Hochdeutsch`, `umgangssprachlich`, `die Fachsprache`, `mündlich`, `echt`, `krass`, `tja`, `naja`, `salopp`
+
+**u73 · Höflich und vorsichtig** (22) — `mal`, `schon`, `überhaupt`, `halt`, `bitten`, `bedauern`, `dürfte ich`, `hätten Sie Zeit`, `sich erkundigen`, `nachfragen`, `verzeihen`, `gegebenenfalls`, `ungern`, `andeuten`, `abschwächen`, `zurückhaltend`, `taktvoll`, `rücksichtsvoll`, `behutsam`, `diskret`, `aufdringlich`, `unverbindlich`
+
+**u74 · Sprache und Ausdruck** (23) — `die Aussprache`, `der Akzent`, `die Betonung`, `die Silbe`, `der Buchstabe`, `fließend`, `der Ausdruck`, `die Bedeutung`, `das Fremdwort`, `die Abkürzung`, `der Wortschatz`, `übersetzen`, `dolmetschen`, `verständlich`, `missverstehen`, `wörtlich`, `sinngemäß`, `die Muttersprache`, `die Fremdsprache`, `das Wörterbuch`, `die Grammatik`, `die Redewendung`, `das Sprichwort`
+
+**u75 · Recht und Verwaltung** (23) — `das Gericht`, `der Richter`, `der Anwalt`, `das Urteil`, `der Zeuge`, `die Klage`, `das Verbrechen`, `der Täter`, `das Opfer`, `verurteilen`, `die Polizei`, `stehlen`, `das Amt`, `die Genehmigung`, `die Anmeldung`, `der Beamte`, `die Bescheinigung`, `zuständig`, `die Unterschrift`, `der Stempel`, `die Akte`, `die Bearbeitung`, `die Vollmacht`
+
+**u76 · Auf dem Amt** (24) — `die Verwaltung`, `das Rathaus`, `der Schalter`, `der Sachbearbeiter`, `die Wartenummer`, `die Sprechstunde`, `ausfüllen`, `ankreuzen`, `einreichen`, `leserlich`, `durchstreichen`, `beilegen`, `sich anmelden`, `der Nachweis`, `die Kopie`, `das Original`, `beglaubigen`, `die Urkunde`, `die Gebühr`, `gültig`, `ablaufen`, `die Öffnungszeit`, `die Rückzahlung`, `kostenlos`
+
+**u77 · Am Telefon** (21) — `die Vorwahl`, `die Durchwahl`, `der Anschluss`, `erreichbar`, `das Freizeichen`, `sich melden`, `dranbleiben`, `weiterleiten`, `ausrichten`, `zurückrufen`, `der Hörer`, `der Anrufbeantworter`, `die Mailbox`, `hinterlassen`, `buchstabieren`, `stumm`, `sich verwählen`, `auflegen`, `abbrechen`, `die Störung`, `rauschen`
+
+**u78 · Beschwerden und Reklamationen** (22) — `defekt`, `kaputtgehen`, `unzufrieden`, `sich beschweren`, `das Anliegen`, `reklamieren`, `zurückgeben`, `zurückschicken`, `der Kassenbon`, `der Beleg`, `die Garantie`, `erstatten`, `die Entschädigung`, `der Kundendienst`, `bearbeiten`, `umgehend`, `hartnäckig`, `der Vorgesetzte`, `zugeben`, `widerrufen`, `nachhaken`, `beharren`
+
+**u79 · Verträge, Raten und Fristen** (20) — `abschließen`, `vereinbaren`, `das Kleingedruckte`, `schriftlich`, `die Laufzeit`, `die Zusage`, `verlängern`, `stornieren`, `der Widerspruch`, `verpflichten`, `die Rate`, `die Anzahlung`, `der Zuschlag`, `die Ermäßigung`, `der Betrag`, `fällig`, `die Mahnung`, `schulden`, `der Schaden`, `haften`
+
+**u80 · Wohnungssuche und Umzug** (24) — `das Inserat`, `die Besichtigung`, `der Makler`, `möbliert`, `die Wohnfläche`, `der Quadratmeter`, `der Mietvertrag`, `der Vermieter`, `die Kaution`, `die Nebenkosten`, `die Hausordnung`, `der Bewohner`, `einziehen`, `räumen`, `die Übergabe`, `der Grundriss`, `der Stellplatz`, `der Dachboden`, `renovieren`, `streichen`, `die Tapete`, `der Handwerker`, `der Schimmel`, `der Hausmeister`
+
+**u81 · Notfall und Sicherheit** (22) — `der Notruf`, `die Feuerwehr`, `der Sanitäter`, `die Notaufnahme`, `reagieren`, `brennen`, `der Rauch`, `der Feuerlöscher`, `der Notausgang`, `flüchten`, `der Alarm`, `die Erste Hilfe`, `der Verband`, `ohnmächtig`, `der Schock`, `die Panik`, `die Gefahr`, `das Unglück`, `die Ausrüstung`, `der Helm`, `die Taschenlampe`, `der Verbandskasten`
+
+**u82 · Verkehr und Regeln** (23) — `die Fahrschule`, `lenken`, `anschnallen`, `der Blinker`, `rückwärts`, `die Geschwindigkeit`, `das Verkehrsschild`, `die Vorfahrt`, `die Kreuzung`, `abbiegen`, `der Fußgänger`, `hupen`, `die Autobahn`, `die Spur`, `überholen`, `die Ausfahrt`, `rasen`, `bremsen`, `abschleppen`, `der Reifen`, `die Baustelle`, `die Umleitung`, `das Bußgeld`
+
+**u83 · Post und Lieferung** (24) — `verschicken`, `der Umschlag`, `die Briefmarke`, `frankieren`, `einwerfen`, `die Postkarte`, `die Filiale`, `die Warteschlange`, `das Porto`, `wiegen`, `das Einschreiben`, `das Postfach`, `der Empfänger`, `das Etikett`, `nachsenden`, `der Zoll`, `die Anschrift`, `die Postleitzahl`, `liefern`, `der Versand`, `der Bote`, `zustellen`, `die Verpackung`, `der Briefträger`
+
+**u84 · Partikeln und Gesprächswörter** (24) — `eben`, `einfach`, `nun`, `gar`, `zufällig`, `ausnahmsweise`, `wohl`, `anscheinend`, `womöglich`, `zweifellos`, `eindeutig`, `gewiss`, `ohnehin`, `durchaus`, `freilich`, `letztlich`, `vielmehr`, `gleichwohl`, `im Grunde`, `wie gesagt`, `ehrlich gesagt`, `sozusagen`, `nebenbei`, `kurz gesagt`
+
+**u85 · Bewegung und Körpersprache** (22) — `rennen`, `hüpfen`, `klettern`, `kriechen`, `schleichen`, `rutschen`, `stolpern`, `stürzen`, `sich bücken`, `sich strecken`, `sich lehnen`, `winken`, `nicken`, `schütteln`, `deuten`, `umarmen`, `die Geste`, `seufzen`, `grinsen`, `gähnen`, `sich umdrehen`, `die Körperhaltung`
+
+**u86 · Wahrnehmung und Aufmerksamkeit** (22) — `der Blick`, `auffallen`, `bemerken`, `beobachten`, `betrachten`, `übersehen`, `zuhören`, `flüstern`, `brüllen`, `das Geräusch`, `die Stille`, `aufmerksam`, `riechen`, `der Duft`, `berühren`, `spüren`, `wahrnehmen`, `sich konzentrieren`, `ablenken`, `sich merken`, `der Verdacht`, `ahnen`
+
+**u87 · Anteile, Zahlen und Schätzungen** (20) — `das Drittel`, `das Viertel`, `der Rest`, `der Bruchteil`, `das Verhältnis`, `insgesamt`, `jeweils`, `der Durchschnitt`, `die Summe`, `betragen`, `ungefähr`, `rund`, `knapp`, `mindestens`, `höchstens`, `die Ziffer`, `der Prozentsatz`, `die Quote`, `verdoppeln`, `die Angabe`
 
