@@ -370,6 +370,32 @@ export const useStore = create(
           return { profile: { ...s.profile, languages, activeLang: id, languagesChosen: true } };
         }),
 
+      // STOP LEARNING A LANGUAGE — the missing half of startLanguage.
+      //
+      // `startLanguage` only ever appended, and pruneStartedLanguages returns early
+      // once `languagesChosen` is true ("a recorded choice is final"), so a language
+      // could be added and never removed by any means. A learner who ended up with
+      // languages they did not choose — a stale cascade, a dev seed, or (until
+      // 2026-09-16) a preview profile that reached the cloud and came back down —
+      // had no way out, and they also vanished from "Add a language", because that
+      // list is the complement of the started one. Alex hit exactly this.
+      //
+      // ITEM PROGRESS IS KEPT, deliberately. Removing a language is a statement
+      // about what you are studying, not an instruction to delete work: re-adding it
+      // restores everything. That also makes this safe to offer without a scary
+      // confirm, and it is why this is not "delete".
+      //
+      // Refuses to remove the last one — an app with no language has no Today, no
+      // Ladder and no way back except onboarding.
+      stopLanguage: (id) =>
+        set((s) => {
+          const languages = (s.profile.languages ?? []).filter((l) => l !== id);
+          if (languages.length === (s.profile.languages ?? []).length) return s; // not started
+          if (languages.length === 0) return s; // never strand the app
+          const activeLang = s.profile.activeLang === id ? languages[0] : s.profile.activeLang;
+          return { profile: { ...s.profile, languages, activeLang } };
+        }),
+
       // Switch focus among languages already started.
       setActiveLang: (id) =>
         set((s) => (s.profile.languages.includes(id) ? { profile: { ...s.profile, activeLang: id } } : s)),

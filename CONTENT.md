@@ -102,7 +102,7 @@ gojūon grid). They count toward a lesson's card-density.
 | type    | `"vocab"`         | ✓        |       |
 | front   | string            | ✓        | Japanese word/phrase |
 | reading | string            | ✓        | romaji; `[a-z]+` after normalization |
-| meaning | string            | ✓        | English gloss; non-empty |
+| meaning | string            | ✓        | English gloss; non-empty. **Must not be shared with another item in the same language** unless both are the same word in two scripts (same `reading`) — the produce card prompts with this string and accepts only this item's front, so two items under one gloss are one prompt with two right answers. Add a discriminator: `es-u14l4-todo` is `"all (masculine)"`, not `"all"`. `lint:curriculum` warns. |
 | example | `{ jp, en }`      | ✓        | one sentence in each language |
 | accept  | string[] (opt)    |          | alternate accepted meanings for typed answers |
 | drill   | `{ jp, en }` (opt) |         | **short practice sentence** — see below. 3–8 tokens, no internal punctuation, must contain the `front` |
@@ -176,7 +176,7 @@ rungs. Allowed only in `a1`+ stage units. KanjiVG entry required (add the char t
 | type    | `"kanji"`         | ✓        |       |
 | front   | string            | ✓        | a single kanji; must have a KanjiVG stroke entry |
 | reading | string            | ✓        | romaji; `[a-z]+` after normalization |
-| meaning | string            | ✓        | English gloss; non-empty |
+| meaning | string            | ✓        | English gloss; non-empty. **Must not be shared with another item in the same language** unless both are the same word in two scripts (same `reading`) — the produce card prompts with this string and accepts only this item's front, so two items under one gloss are one prompt with two right answers. Add a discriminator: `es-u14l4-todo` is `"all (masculine)"`, not `"all"`. `lint:curriculum` warns. |
 | example | `{ jp, en }`      | ✓        | one sentence in each language |
 | accept  | string[] (opt)    |          | alternate accepted meanings |
 | drill   | `{ jp, en }` (opt) |         | **short practice sentence** — see below. 3–8 tokens, no internal punctuation, must contain the `front` |

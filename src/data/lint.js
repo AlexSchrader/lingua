@@ -166,6 +166,62 @@ const isLatinLang = (units) => {
   return latin / fronts.length > 0.5;
 };
 
+// A GLOSS IS A PROMPT, SO TWO ITEMS MAY NOT SHARE ONE.
+//
+// Fronts are guarded hard — per-language uniqueness in both gates, plus the lexeme
+// rule in RUNBOOK §4. Glosses were guarded not at all, and the produce card prompts
+// with the GLOSS (`TypeCard.jsx` produce branch: prompt = item.meaning, accepted =
+// this item's own front). So four Spanish items glossed "of course" render four
+// identical cards with four different right answers, and a learner who types a
+// synonym THE COURSE ITSELF TAUGHT is marked wrong. Measured 2026-09-16 across the
+// live corpus: 201 such prompts covering 417 items, in ja, fr, es and pt.
+//
+// The fix a crew should reach for is the one the corpus already demonstrates —
+// es-u14l4-todo is glossed "all (masculine)", not "all". A parenthetical (or any
+// other wording that differs) separates the prompts and this check goes quiet,
+// which is why the comparison is deliberately EXACT: the discriminator is the
+// whole point, so anything that makes two glosses differ is a pass.
+//
+// Warning, not error: the collisions above are pre-existing and a crew must not be
+// blocked by content it did not write. It is here so the NEXT one is caught at the
+// gate the crew already runs, rather than by a QA sweep months later.
+export function glossCollisionWarnings(units) {
+  const out = [];
+  const seen = new Map(); // lang + NUL + normalised gloss → [{id, front}]
+  for (const u of units) {
+    for (const l of u.lessons ?? []) {
+      if (l.locked || !Array.isArray(l.items)) continue;
+      for (const it of l.items) {
+        // Conjugation items differ by form, not by gloss ("I will be" / "he will
+        // be"), so they separate themselves and never reach this map as twins.
+        if (it.type !== "vocab" && it.type !== "kanji") continue;
+        const gloss = String(it.meaning ?? "").trim().replace(/\s+/g, " ").toLowerCase();
+        if (!gloss) continue;
+        const key = `${u.lang} ${gloss}`;
+        if (!seen.has(key)) seen.set(key, []);
+        seen.get(key).push({ id: it.id, front: it.front, reading: String(it.reading ?? "").trim().toLowerCase() });
+      }
+    }
+  }
+  for (const [key, hits] of seen) {
+    if (hits.length < 2) continue;
+    const [lang, gloss] = key.split(" ");
+    // ONE WORD IN TWO SCRIPTS IS NOT TWO WORDS. さかな and 魚 share the gloss "fish"
+    // AND the reading "sakana" — that is the curriculum teaching a word in kana and
+    // its kanji later, exactly as intended, and a discriminator on the gloss would
+    // make both cards read worse. Different readings under one gloss is the real
+    // case: three different ja words competing for the prompt "child", or four
+    // Spanish ones for "of course".
+    if (new Set(hits.map((h) => h.reading)).size < 2) continue;
+    out.push(
+      `gloss "${gloss}" is the prompt for ${hits.length} different ${lang} items ` +
+        `(${hits.map((h) => `${h.front} — ${h.id}`).join("; ")}) — the produce card shows this ` +
+        `gloss and accepts only one of them; give each a discriminator (e.g. "all (masculine)")`
+    );
+  }
+  return out;
+}
+
 export function exampleScopeWarnings(units) {
   const out = [];
   const byLang = new Map();
@@ -459,6 +515,7 @@ export function lintCurriculum(units = []) {
   // Cross-unit check: runs over the whole corpus in Ladder order, so it lives
   // outside the per-unit loop above.
   warnings.push(...exampleScopeWarnings(units));
+  warnings.push(...glossCollisionWarnings(units));
 
   return { errors, warnings };
 }

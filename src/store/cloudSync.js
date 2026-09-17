@@ -4,6 +4,7 @@
 // render path. The push-vs-pull decision lives in sync.js (unit-tested); this
 // file is the plumbing: auth listener, fetch/upload, debounced uploads.
 import { supabase, isCloudConfigured } from "../lib/supabase.js";
+import { isPreview } from "./preview.js";
 import { useStore } from "./useStore.js";
 import { PERSIST_VERSION, migrateState } from "./migrate.js";
 import { chooseSource, extractProgress, hasMeaningfulProgress } from "./sync.js";
@@ -44,6 +45,10 @@ async function fetchCloud(userId) {
 
 async function uploadNow() {
   if (!currentUser) return;
+  // Second guard on the write path specifically. initCloudSync already returns
+  // early in preview so currentUser is never set - but an upload that overwrites a
+  // real cloud save deserves a check at the point of the write, not only at setup.
+  if (isPreview()) return;
   const blob = blobNow();
   // SAFETY INTERLOCK: never overwrite a cloud that holds real progress with an
   // empty/torn local state. This path fires debounced on ANY store change — a
@@ -273,6 +278,27 @@ async function updatePassword(password) {
 // Call once at startup. When Supabase isn't configured (no env, e.g. CI/local),
 // mark auth ready+unconfigured so the gate falls through to the app.
 export function initCloudSync() {
+  // PREVIEW IS OFFLINE, ENTIRELY. No pull, no push, no auth listener.
+  //
+  // preview.js promises "nothing you do touches the profile you actually study
+  // on", and that was only ever true of localStorage. Sync was never gated on it,
+  // so signed in:
+  //   PULL  - the real cloud profile landed on top of the preview seconds after
+  //           boot. Alex saw the companion switch to Tiago and revert to Haruki:
+  //           that is the pull overwriting activeLang. "Preview as a Portuguese
+  //           learner" could not work for any signed-in learner.
+  //   PUSH  - worse. The debounced upload fires on any store change, and its
+  //           safety interlock only refuses an EMPTY upload over a cloud holding
+  //           progress. A preview with a lesson done in it is not empty, so it
+  //           would have been uploaded OVER the learner's real cloud save.
+  //
+  // Treated exactly as "cloud not configured", which is the already-supported
+  // fully-local path - so the app runs, the auth gate resolves, and the throwaway
+  // deck stays throwaway.
+  if (isPreview()) {
+    useStore.getState().setAuth({ configured: false, ready: true });
+    return;
+  }
   if (!isCloudConfigured) {
     useStore.getState().setAuth({ configured: false, ready: true });
     return;

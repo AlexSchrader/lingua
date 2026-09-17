@@ -79,7 +79,7 @@ Default to thoroughness and self-sufficiency. Don't ask permission for routine w
 
 ## What this is
 
-Lingua is a Japanese-first language-learning PWA built around the **Polyglot Ladder**: one gated track where Japanese is the deep climb (goal B2), and each side language (es, fr) unlocks at A1 of its predecessor but aims for A2–B1. The promise is *deep understanding*, not memorization. The anti-burnout principle is core: motivation comes from mechanics/structure, never from hand-crafted content — text-first, no character art or visual-novel surface. A small authored, CEFR-banded skeleton + (later) Haruki-generated practice scales difficulty automatically.
+Lingua is a Japanese-first language-learning PWA built around the **Polyglot Ladder**: Japanese is the deep climb, and every language in the catalog targets **B2**. *(The ja→es→fr unlock cascade and the A2–B1 side-language goal were retired — `LANGUAGES` is a flat catalog, `contract.js` rejects `unlock`/`unlocked`, and the learner picks any live entry.)* The promise is *deep understanding*, not memorization. The anti-burnout principle is core: motivation comes from mechanics/structure, never from hand-crafted content — text-first, no character art or visual-novel surface. A small authored, CEFR-banded skeleton + (later) Haruki-generated practice scales difficulty automatically.
 
 ---
 
@@ -281,7 +281,7 @@ This is the same principle the app is built on. `CLAUDE.md` tells CC to design w
 
 - **State of the project:** `BUILD-CHECKLIST.md` (read first).
 - **Content:** `src/data/ja/*.js`, validated by `src/data/contract.js` (`validateContent`, `LIVE_CARD_KINDS`); shape documented in `CONTENT.md`.
-- **Languages / cascade:** `src/data/ja/languages.js` (`target`/`unlock`/`unlocked`).
+- **Languages catalog:** `src/data/languages.js` — an entry is `{id, name, flag, target}` and nothing else. *(This line said `src/data/ja/languages.js` with `unlock`/`unlocked` until 2026-09-16: that file does not exist, and `contract.js` now ERRORS on those two fields — the ja→es→fr cascade is retired, every language targets B2, and the learner picks any live entry.)*
 - **Learning engine:** `src/screens/Lesson.jsx` (session runner), `src/store/learnQueue.js` (`LEARN_OPTS`), `src/store/grading.js` (`TIMING`), `src/store/answer.js` (`normalizeReading`/`checkReading`/`checkMeaning`/`checkProduce`), `src/store/mastery.js` (`RUNGS`), `src/store/srs.js`, `src/store/useStore.js`.
 - **Cards:** `src/components/games/*.jsx` — Teach, Type, Choice, Cloze, Build, Sentence, Conjugate, **Trace, Speak**. All nine ship: every kind in `LIVE_CARD_KINDS` has a card and routes. *(This line said "Trace/Speak dormant" until 2026-09-13, long after both shipped — which is why a session was told twice this week that the speak card had to be built before the accent lessons could use it. It did not.)*
 - **Shell/nav:** `src/components/AppShell.jsx` (4 bottom tabs + Settings gear).

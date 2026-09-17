@@ -563,7 +563,11 @@ test("new words are taught, the loop completes, and it persists", async ({ page 
   }
   await page.getByRole("button", { name: "Back to Today" }).click();
 
-  await expect(page.getByText("Done", { exact: true })).toBeVisible();
+  // The lesson pill NAMES what was finished: "Lesson 1/3 done", not a bare
+  // "Done". It used to read "A1 · Unit 1" over "Done", which names a unit and no
+  // lesson, so it scanned as "unit 1 is done" when the unit had five lessons
+  // left. Still asserts the pill reports completion — only the copy moved.
+  await expect(page.getByText(/Lesson \d+\/\d+ done/)).toBeVisible();
 
   const persisted = await page.evaluate(() => localStorage.getItem("lingua-v1"));
   const state = JSON.parse(persisted).state;
@@ -573,7 +577,11 @@ test("new words are taught, the loop completes, and it persists", async ({ page 
   expect(new Date(graded.srs.due).getTime()).toBeGreaterThan(Date.now());
 
   await page.reload();
-  await expect(page.getByText("Done", { exact: true })).toBeVisible();
+  // The lesson pill NAMES what was finished: "Lesson 1/3 done", not a bare
+  // "Done". It used to read "A1 · Unit 1" over "Done", which names a unit and no
+  // lesson, so it scanned as "unit 1 is done" when the unit had five lessons
+  // left. Still asserts the pill reports completion — only the copy moved.
+  await expect(page.getByText(/Lesson \d+\/\d+ done/)).toBeVisible();
   expect(errors).toEqual([]);
 });
 
@@ -1170,7 +1178,11 @@ test("French: a lesson completes, and no Japanese leaks onto a French card", asy
   }
 
   await page.getByRole("button", { name: "Back to Today" }).click();
-  await expect(page.getByText("Done", { exact: true })).toBeVisible();
+  // The lesson pill NAMES what was finished: "Lesson 1/3 done", not a bare
+  // "Done". It used to read "A1 · Unit 1" over "Done", which names a unit and no
+  // lesson, so it scanned as "unit 1 is done" when the unit had five lessons
+  // left. Still asserts the pill reports completion — only the copy moved.
+  await expect(page.getByText(/Lesson \d+\/\d+ done/)).toBeVisible();
 
   // A French item actually advanced and got scheduled — the session graded, not just rendered.
   // NB: the persisted overlay stores progress only and does NOT carry `lang` (it's

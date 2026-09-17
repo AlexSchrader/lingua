@@ -67,6 +67,8 @@ export default function Ladder() {
   const profile = useStore((s) => s.profile);
   const startLanguage = useStore((s) => s.startLanguage);
   const setActiveLang = useStore((s) => s.setActiveLang);
+  const stopLanguage = useStore((s) => s.stopLanguage);
+  const [removing, setRemoving] = useState(null);
   const realCanAdd = useStore((s) => s.canAddLanguage)();
 
   // Dev-only preview of the add-a-language flow (?preview=addlang, launched from
@@ -119,6 +121,41 @@ export default function Ladder() {
               </button>
             );
           })}
+        </div>
+      )}
+
+      {/* STOP LEARNING THIS ONE. There was no way to remove a language: startLanguage
+          only appended, and a removed-by-nothing language also disappeared from
+          "Add a language", because that list is the complement of the started one.
+          A learner who ended up with languages they never chose was stuck with them.
+          Progress is KEPT — re-adding restores it — which is why this is "stop
+          learning", not "delete", and why it needs a confirm but not a scary one. */}
+      {started.length > 1 && (
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          {removing === active.id ? (
+            <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: C.inkSoft }}>
+              <span>Stop learning {active.name}? Your progress is kept.</span>
+              <button
+                onClick={() => { stopLanguage(active.id); setRemoving(null); }}
+                style={{ padding: "6px 12px", borderRadius: 999, border: "none", background: C.ai, color: "#fff", fontSize: 12, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+              >
+                Stop
+              </button>
+              <button
+                onClick={() => setRemoving(null)}
+                style={{ padding: "6px 12px", borderRadius: 999, border: `1px solid ${C.line}`, background: "transparent", color: C.inkSoft, fontSize: 12, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+              >
+                Keep
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => setRemoving(active.id)}
+              style={{ padding: "4px 2px", border: "none", background: "transparent", color: C.inkSoft, fontSize: 12, fontFamily: F.body, cursor: "pointer", textDecoration: "underline" }}
+            >
+              Stop learning {active.name}
+            </button>
+          )}
         </div>
       )}
 

@@ -235,6 +235,21 @@ export default function Today() {
   }, [currentLesson, allPlayableLessons]);
   // Human-readable location (section / unit / lesson-in-unit) for both cards.
   const curLoc = useMemo(() => (currentLesson ? lessonLocation(currentLesson, langUnits) : null), [currentLesson, langUnits]);
+  // The lesson the learner just FINISHED, which is not `currentLesson` — that is the
+  // NEXT one with unstarted items. Once a lesson is done the pill read
+  // "A1 · Unit 1" over "Done", which names a unit and no lesson, so it scans as
+  // "unit 1 is done" when unit 1 has five lessons left. Alex: "should say unit x
+  // lesson x done, not just unit x."
+  // Derived rather than stored: the last playable lesson whose items have all been
+  // started. No new persisted state, and it stays right if progress is edited or
+  // synced from another device.
+  const doneLoc = useMemo(() => {
+    if (!daily.lessonDone) return null;
+    const finished = [...allPlayableLessons]
+      .reverse()
+      .find((l) => l.items.every((def) => (items[def.id]?.rung ?? 0) >= 1));
+    return finished ? lessonLocation(finished, langUnits) : null;
+  }, [daily.lessonDone, allPlayableLessons, items, langUnits]);
   const nextLoc = useMemo(() => (nextLesson ? lessonLocation(nextLesson, langUnits) : null), [nextLesson, langUnits]);
 
   // Hiragana progress for the fullness strip.
@@ -396,8 +411,22 @@ export default function Today() {
         />
         <StatusPill
           icon={BookOpen}
-          label={curLoc ? `${curLoc.section} · Unit ${curLoc.unitNum}` : "Lesson"}
-          value={daily.lessonDone ? "Done" : lessonState === "locked" ? "Reviews first" : curLoc ? `Lesson ${curLoc.lessonInUnit}/${curLoc.unitTotal}` : "—"}
+          label={
+            (daily.lessonDone ? doneLoc : curLoc)
+              ? `${(daily.lessonDone ? doneLoc : curLoc).section} · Unit ${(daily.lessonDone ? doneLoc : curLoc).unitNum}`
+              : "Lesson"
+          }
+          value={
+            daily.lessonDone
+              ? doneLoc
+                ? `Lesson ${doneLoc.lessonInUnit}/${doneLoc.unitTotal} done`
+                : "Done"
+              : lessonState === "locked"
+              ? "Reviews first"
+              : curLoc
+              ? `Lesson ${curLoc.lessonInUnit}/${curLoc.unitTotal}`
+              : "—"
+          }
           state={lessonState}
         />
       </div>

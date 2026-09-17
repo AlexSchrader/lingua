@@ -166,3 +166,54 @@ test("only the cascade's exact shape is treated as stale, never a lookalike", ()
     assert.deepEqual(out.languages, languages, `${languages.join(",")} is not the cascade and must survive`);
   }
 });
+
+// --- stopLanguage: the missing half of startLanguage -----------------------
+// startLanguage only ever appended, and pruneStartedLanguages returns early once
+// languagesChosen is true ("a recorded choice is final"), so nothing in the app
+// could remove a language. A learner with languages they never chose was stuck —
+// and they also vanished from "Add a language", which is the complement of the
+// started list. Alex hit exactly this with four languages on his Ladder.
+import { useStore } from "../../src/store/useStore.js";
+
+const setProfile = (profile) => useStore.setState((s) => ({ profile: { ...s.profile, ...profile } }));
+const profile = () => useStore.getState().profile;
+
+test("stopLanguage removes a started language and keeps the rest", () => {
+  setProfile({ languages: ["ja", "fr", "no"], activeLang: "fr", languagesChosen: true });
+  useStore.getState().stopLanguage("fr");
+  assert.deepEqual(profile().languages, ["ja", "no"]);
+});
+
+test("removing the ACTIVE language repoints activeLang — never strands the app", () => {
+  setProfile({ languages: ["ja", "fr"], activeLang: "fr", languagesChosen: true });
+  useStore.getState().stopLanguage("fr");
+  assert.equal(profile().activeLang, "ja");
+  assert.ok(profile().languages.includes("ja"));
+});
+
+test("removing a NON-active language leaves the focus alone", () => {
+  setProfile({ languages: ["ja", "fr", "no"], activeLang: "ja", languagesChosen: true });
+  useStore.getState().stopLanguage("no");
+  assert.equal(profile().activeLang, "ja");
+});
+
+test("the LAST language cannot be removed — no language means no app", () => {
+  setProfile({ languages: ["ja"], activeLang: "ja", languagesChosen: true });
+  useStore.getState().stopLanguage("ja");
+  assert.deepEqual(profile().languages, ["ja"], "must refuse rather than strand the learner");
+});
+
+test("removing a language that was never started is a no-op", () => {
+  setProfile({ languages: ["ja", "fr"], activeLang: "ja", languagesChosen: true });
+  useStore.getState().stopLanguage("de");
+  assert.deepEqual(profile().languages, ["ja", "fr"]);
+});
+
+test("item progress is KEPT — stopping is not deleting", () => {
+  // The whole reason this is safe to offer without a scary confirm: re-adding
+  // restores everything, because nothing about items is touched.
+  setProfile({ languages: ["ja", "fr"], activeLang: "ja", languagesChosen: true });
+  const before = Object.keys(useStore.getState().items).length;
+  useStore.getState().stopLanguage("fr");
+  assert.equal(Object.keys(useStore.getState().items).length, before, "no items removed");
+});

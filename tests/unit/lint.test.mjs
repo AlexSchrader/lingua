@@ -109,3 +109,34 @@ test("flags a word front taught twice", () => {
   const { errors } = lintCurriculum([u]);
   assert.ok(errors.find((e) => e.includes("already taught")), `got:\n${errors.join("\n")}`);
 });
+
+// A GLOSS IS A PROMPT. The produce card shows item.meaning and accepts only that
+// item's own front, so two items under one gloss are two identical cards with two
+// different right answers — the learner types a synonym the course taught them and
+// is marked wrong. Measured on the live corpus 2026-09-16: 201 such prompts.
+test("flags two different words sharing one gloss (the produce prompt collides)", () => {
+  const u = kanaUnit();
+  u.lessons[0].items[2].meaning = "cat";
+  u.lessons[0].items[3].meaning = "cat"; // different word, different reading, same prompt
+  const { warnings } = lintCurriculum([u]);
+  assert.ok(
+    warnings.find((w) => w.includes('gloss "cat"') && w.includes("produce card")),
+    `expected a gloss-collision warning, got:\n${warnings.join("\n")}`
+  );
+});
+
+// One word written two ways is not two words: さかな and 魚 share the gloss AND the
+// reading. Flagging that pair would push crews to write a discriminator onto a card
+// that is already correct.
+test("does NOT flag one word in two scripts (same gloss AND same reading)", () => {
+  const u = kanaUnit();
+  u.lessons[0].items[2].meaning = "fish";
+  u.lessons[0].items[2].reading = "sakana";
+  u.lessons[0].items[3].meaning = "fish";
+  u.lessons[0].items[3].reading = "sakana";
+  const { warnings } = lintCurriculum([u]);
+  assert.ok(
+    !warnings.find((w) => w.includes('gloss "fish"')),
+    `same word in two scripts should not warn, got:\n${warnings.join("\n")}`
+  );
+});
