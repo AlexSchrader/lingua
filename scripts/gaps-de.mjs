@@ -38,6 +38,17 @@
 // authoring target is honest; the HEADLINE number stays the raw one, because a
 // number you can tune by editing a stoplist is not evidence.
 //
+// ⚠️ KNOWN BLIND SPOT — THIS PROBE IS FORM-BASED, SO IT CANNOT SEE A SENSE GAP.
+// Coverage is decided by the SPELLING of a taught front, never by its meaning, so
+// a word taught in ONE sense marks all its homographs covered. `ihr` is taught at
+// u3l3 as "you (plural)", which silently vouched for the possessive ihr/ihre
+// ("her/their") — a word that was untaught across all 87 units and commoner than
+// half the batch this script was written to find. It took a human reading the
+// cards to notice. The same shape hides any second sense of `da`, `sein`, `alle`
+// and `um`. So: A GREEN NUMBER HERE IS NOT A COMPLETE CURRICULUM. It proves no
+// common FORM is absent; it proves nothing about whether each form's commonest
+// SENSE is taught. Read the cards too.
+//
 // WHAT COUNTS AS COVERED. The scope oracle in de-vocab-scope.mjs — the same
 // derive() that scope-strict-de.mjs and check-drills-de.mjs use. A form counts as
 // covered if a taught front produces it by a stated rule, so `kommt` is covered by

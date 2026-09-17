@@ -72,11 +72,23 @@
 //     published frequency list, not one we chose. Run it before assuming a common
 //     word is unavailable — and never work around a missing word by rephrasing.
 //     NEWLY AVAILABLE, with where they live: so u2 · da u3 · nur u3 · leben u4 ·
-//     alle u4 · das Mädchen u4 · seine u4 · alles u6 · zurück u7 · werden u8 ·
-//     andere/einfach/klar/die Leute/der Herr u10 · nun/dieser/wieso/wirklich/
-//     wohl/jemand/gar u12 · dafür u13 · davon/dabei u14 · die Sache/die Ordnung
-//     u15 · sein/mögen/tun/bringen u16 · ein paar u17 · fertig/erst u21 ·
-//     einmal u21 · passieren u22 · die Hilfe u25 · der Mensch u26.
+//     alle u4 · das Mädchen u4 · seine u4 · ihre u4 · unsere u4 · alles u6 ·
+//     zurück u7 · werden u8 · andere/einfach/klar/die Leute/der Herr u10 ·
+//     der Mensch u11 · nun/dieser/wieso/wirklich/wohl/jemand/gar u12 · dafür u13 ·
+//     davon/dabei/die Hilfe u14 · die Sache/in Ordnung u15 ·
+//     sein/mögen/tun/bringen u16 · ein paar u17 · fertig/erst/einmal u21 ·
+//     passieren u22.
+//     ⚠️ THE POSSESSIVES WERE A SENSE GAP, NOT A FORM GAP, AND THE PROBE MISSED IT.
+//     German taught mein and dein and then stopped: `ihre` (her/their) and `unsere`
+//     (our) were taught NOWHERE in all 87 units. gaps-de.mjs could not see it,
+//     because `ihr` IS taught at u3l3 — as the pronoun "you (plural)" — and the
+//     probe matches spellings, not senses, so the possessive read as covered. A
+//     human reading the cards caught it. Both are now taught (u4l3, u4l4).
+//     ⚠️ AND THE COST OF LEAVING IT: `seine` had shipped with "her" in its
+//     accept[] list, which the grader treats as CORRECT — so the course would have
+//     taught seine = her and, with ihre absent, never once contradicted it, on the
+//     single most-failed A1 German contrast. accept[] is graded, not decorative;
+//     check it as carefully as `meaning`.
 //     ⚠️ `werden` (u8l4) is the auxiliary the B1 PASSIVE unit is built on. It had
 //     no card anywhere until this pass. It does now — build on it.
 //     STILL DELIBERATELY ABSENT from the top 300 — UNTAUGHT(de:Gott),

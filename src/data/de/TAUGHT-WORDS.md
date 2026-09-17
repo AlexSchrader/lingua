@@ -1,7 +1,7 @@
 # DE — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- de`.
-Snapshot 2026-09-17: **1259 words** across **50 authored unit(s)**, **37 slot(s) still stubs**.
+Snapshot 2026-09-17: **1261 words** across **50 authored unit(s)**, **37 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -417,7 +417,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Markt` — u7 · market
 - `der März` — u9 · March
 - `der Meißel` — u46 · the chisel
-- `der Mensch` — u26 · the human being
+- `der Mensch` — u11 · the human being
 - `der Mittwoch` — u9 · Wednesday
 - `der Moment` — u28 · the moment
 - `der Monat` — u9 · month
@@ -592,7 +592,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Hausaufgabe` — u24 · the homework
 - `die Haut` — u43 · the skin
 - `die Heizung` — u30 · the heating
-- `die Hilfe` — u25 · the help
+- `die Hilfe` — u14 · the help
 - `die Hitze` — u50 · the heat
 - `die Hochzeit` — u40 · wedding
 - `die Hose` — u18 · the trousers
@@ -646,7 +646,6 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Nudeln` — u6 · pasta / noodles
 - `die Nummer` — u17 · the reference number
 - `die Oper` — u35 · opera
-- `die Ordnung` — u15 · the order / tidiness
 - `die Packung` — u47 · the pack
 - `die Pause` — u24 · the break
 - `die Pfanne` — u41 · the frying pan
@@ -917,10 +916,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ihn` — u13 · him — object
 - `ihnen` — u14 · them — dative
 - `ihr` — u3 · you — plural and informal
+- `ihre` — u4 · her / their
 - `im` — u14 · in the
 - `immer` — u12 · always
 - `immerhin` — u36 · at least — salvaging one good point
 - `in` — u13 · into / in
+- `in Ordnung` — u15 · in order / OK
 - `inzwischen` — u28 · meanwhile
 - `irgendwann` — u28 · sometime
 - `ist` — u1 · is
@@ -1224,6 +1225,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `und` — u1 · and
 - `unentschieden` — u45 · a draw
 - `uns` — u13 · us
+- `unsere` — u4 · our
 - `unten` — u44 · down there / at the bottom
 - `unter` — u14 · under / below
 - `untersuchen` — u34 · to investigate / examine
@@ -1339,7 +1341,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 **u3 · Sich vorstellen** (26) — `ich`, `bin`, `du`, `bist`, `heißen`, `der Name`, `da`, `woher`, `wo`, `wie`, `kommen`, `aus`, `Deutsch`, `nur`, `Sie`, `er`, `sie`, `wir`, `ihr`, `nicht`, `der Beruf`, `arbeiten`, `studieren`, `alt`, `jung`, `auch`
 
-**u4 · Die Familie** (28) — `die Familie`, `der Vater`, `die Mutter`, `die Eltern`, `der Sohn`, `die Tochter`, `leben`, `der Bruder`, `die Schwester`, `die Geschwister`, `der Mann`, `die Frau`, `das Kind`, `alle`, `das Mädchen`, `der Großvater`, `die Großmutter`, `die Großeltern`, `der Onkel`, `die Tante`, `der Cousin`, `mein`, `dein`, `haben`, `der Freund`, `die Freundin`, `lieben`, `seine`
+**u4 · Die Familie** (30) — `die Familie`, `der Vater`, `die Mutter`, `die Eltern`, `der Sohn`, `die Tochter`, `leben`, `der Bruder`, `die Schwester`, `die Geschwister`, `der Mann`, `die Frau`, `das Kind`, `alle`, `das Mädchen`, `der Großvater`, `die Großmutter`, `die Großeltern`, `der Onkel`, `die Tante`, `der Cousin`, `ihre`, `mein`, `dein`, `haben`, `der Freund`, `die Freundin`, `lieben`, `seine`, `unsere`
 
 **u5 · Zahlen und Zeit** (24) — `ein`, `zwei`, `drei`, `vier`, `fünf`, `sechs`, `sieben`, `acht`, `neun`, `zehn`, `elf`, `zwölf`, `die Uhr`, `die Stunde`, `die Minute`, `halb`, `es`, `jetzt`, `der Tag`, `die Nacht`, `heute`, `morgen`, `das Jahr`, `die Woche`
 
@@ -1353,15 +1355,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 **u10 · Beschreiben** (29) — `hell`, `dunkel`, `lang`, `kurz`, `hoch`, `tief`, `andere`, `dick`, `dünn`, `schwer`, `leicht`, `voll`, `leer`, `einfach`, `neu`, `sauber`, `schmutzig`, `kaputt`, `teuer`, `billig`, `klar`, `nett`, `ruhig`, `lustig`, `langweilig`, `traurig`, `glücklich`, `die Leute`, `der Herr`
 
-**u11 · Der Körper und die Gesundheit** (24) — `der Kopf`, `das Auge`, `die Nase`, `der Mund`, `das Ohr`, `der Zahn`, `der Körper`, `der Hals`, `die Hand`, `der Arm`, `das Bein`, `der Fuß`, `krank`, `gesund`, `tut weh`, `der Schmerz`, `das Fieber`, `der Husten`, `der Arzt`, `das Krankenhaus`, `die Apotheke`, `die Medizin`, `die Erkältung`, `der Durst`
+**u11 · Der Körper und die Gesundheit** (25) — `der Kopf`, `das Auge`, `die Nase`, `der Mund`, `das Ohr`, `der Zahn`, `der Körper`, `der Hals`, `die Hand`, `der Arm`, `das Bein`, `der Fuß`, `der Mensch`, `krank`, `gesund`, `tut weh`, `der Schmerz`, `das Fieber`, `der Husten`, `der Arzt`, `das Krankenhaus`, `die Apotheke`, `die Medizin`, `die Erkältung`, `der Durst`
 
 **u12 · Der Satz und die Wortstellung** (31) — `immer`, `oft`, `manchmal`, `selten`, `dann`, `noch`, `nun`, `wer`, `wann`, `warum`, `wohin`, `wie viel`, `welcher`, `dieser`, `wieso`, `doch`, `vielleicht`, `sicher`, `aber`, `oder`, `denn`, `wirklich`, `wohl`, `kein`, `nichts`, `niemand`, `nie`, `sondern`, `etwas`, `jemand`, `gar`
 
 **u13 · Nominativ und Akkusativ** (25) — `den`, `einen`, `keinen`, `meinen`, `deinen`, `wen`, `mich`, `dich`, `ihn`, `uns`, `euch`, `es gibt`, `durch`, `für`, `gegen`, `ohne`, `um`, `brauchen`, `dafür`, `in`, `auf`, `an`, `vor`, `hinter`, `neben`
 
-**u14 · Dativ und Perfekt** (26) — `dem`, `im`, `am`, `über`, `unter`, `zwischen`, `mir`, `dir`, `ihm`, `ihnen`, `wem`, `helfen`, `mit`, `nach`, `bei`, `seit`, `von`, `zu`, `davon`, `dabei`, `gewesen`, `gehabt`, `gegangen`, `gekommen`, `gearbeitet`, `getrunken`
+**u14 · Dativ und Perfekt** (27) — `dem`, `im`, `am`, `über`, `unter`, `zwischen`, `mir`, `dir`, `ihm`, `ihnen`, `wem`, `helfen`, `die Hilfe`, `mit`, `nach`, `bei`, `seit`, `von`, `zu`, `davon`, `dabei`, `gewesen`, `gehabt`, `gegangen`, `gekommen`, `gearbeitet`, `getrunken`
 
-**u15 · Zu Hause** (26) — `das Zimmer`, `das Schlafzimmer`, `das Bad`, `der Flur`, `der Garten`, `der Keller`, `das Bett`, `der Tisch`, `der Stuhl`, `der Schrank`, `das Sofa`, `das Regal`, `das Fenster`, `die Wand`, `der Boden`, `die Treppe`, `die Lampe`, `der Teppich`, `der Schlüssel`, `das Bild`, `der Spiegel`, `das Licht`, `der Kühlschrank`, `das Kissen`, `die Sache`, `die Ordnung`
+**u15 · Zu Hause** (26) — `das Zimmer`, `das Schlafzimmer`, `das Bad`, `der Flur`, `der Garten`, `der Keller`, `das Bett`, `der Tisch`, `der Stuhl`, `der Schrank`, `das Sofa`, `das Regal`, `das Fenster`, `die Wand`, `der Boden`, `die Treppe`, `die Lampe`, `der Teppich`, `der Schlüssel`, `das Bild`, `der Spiegel`, `das Licht`, `der Kühlschrank`, `das Kissen`, `die Sache`, `in Ordnung`
 
 **u16 · Alltag und Modalverben** (28) — `können`, `müssen`, `wollen`, `dürfen`, `sollen`, `möchten`, `sein`, `mögen`, `machen`, `sagen`, `sehen`, `geben`, `nehmen`, `wissen`, `tun`, `bringen`, `schlafen`, `aufstehen`, `sitzen`, `liegen`, `bleiben`, `denken`, `spielen`, `schwimmen`, `tanzen`, `singen`, `kochen`, `laufen`
 
@@ -1381,9 +1383,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 **u24 · Arbeit und Ausbildung** (24) — `die Stelle`, `sich bewerben`, `die Bewerbung`, `der Lebenslauf`, `das Vorstellungsgespräch`, `die Erfahrung`, `die Abteilung`, `die Besprechung`, `das Gehalt`, `der Vertrag`, `leiten`, `kündigen`, `die Ausbildung`, `das Praktikum`, `der Kurs`, `die Vorlesung`, `der Abschluss`, `bestehen`, `das Fach`, `die Note`, `die Hausaufgabe`, `das Zeugnis`, `die Pause`, `wiederholen`
 
-**u25 · Gesundheit und Körper** (25) — `die Praxis`, `der Patient`, `das Rezept`, `die Tablette`, `die Spritze`, `die Behandlung`, `der Rücken`, `die Schulter`, `der Bauch`, `das Knie`, `der Finger`, `das Herz`, `die Grippe`, `die Allergie`, `sich verletzen`, `die Wunde`, `sich anstecken`, `das Blut`, `der Notfall`, `der Krankenwagen`, `die Versicherung`, `atmen`, `sich erholen`, `sich ausruhen`, `die Hilfe`
+**u25 · Gesundheit und Körper** (24) — `die Praxis`, `der Patient`, `das Rezept`, `die Tablette`, `die Spritze`, `die Behandlung`, `der Rücken`, `die Schulter`, `der Bauch`, `das Knie`, `der Finger`, `das Herz`, `die Grippe`, `die Allergie`, `sich verletzen`, `die Wunde`, `sich anstecken`, `das Blut`, `der Notfall`, `der Krankenwagen`, `die Versicherung`, `atmen`, `sich erholen`, `sich ausruhen`
 
-**u26 · Natur und Tiere** (25) — `der Baum`, `der Wald`, `die Pflanze`, `das Blatt`, `das Gras`, `wachsen`, `der Berg`, `der See`, `der Fluss`, `das Meer`, `die Insel`, `der Strand`, `das Tier`, `der Hund`, `die Katze`, `das Pferd`, `die Kuh`, `füttern`, `der Mensch`, `der Vogel`, `der Fisch`, `die Maus`, `die Biene`, `das Nest`, `wild`
+**u26 · Natur und Tiere** (24) — `der Baum`, `der Wald`, `die Pflanze`, `das Blatt`, `das Gras`, `wachsen`, `der Berg`, `der See`, `der Fluss`, `das Meer`, `die Insel`, `der Strand`, `das Tier`, `der Hund`, `die Katze`, `das Pferd`, `die Kuh`, `füttern`, `der Vogel`, `der Fisch`, `die Maus`, `die Biene`, `das Nest`, `wild`
 
 **u27 · Einkaufen und Bezahlen** (24) — `der Supermarkt`, `die Bäckerei`, `der Einkaufswagen`, `der Korb`, `die Tüte`, `die Auswahl`, `die Quittung`, `das Kleingeld`, `die Münze`, `der Schein`, `die Kreditkarte`, `bar`, `das Angebot`, `der Rabatt`, `günstig`, `reduziert`, `die Werbung`, `umtauschen`, `sparen`, `ausgeben`, `leihen`, `abheben`, `der Automat`, `überweisen`
 
