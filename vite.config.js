@@ -68,11 +68,27 @@ export default defineConfig({
       // lingua-cheer.png, lingua-achievement.mp4 …), which would silently cost
       // them HMR. These patterns are absolute so only the root-level worktree
       // directories match.
+      //
+      // ⚠️ THE SAME BUG CAME BACK IN A NEW DIRECTORY. `.claude/worktrees/` holds
+      // agent worktrees — full repo copies, node_modules and public/audio included —
+      // and the rule above only named `lingua-*`, so the watcher walked them again.
+      // Symptom: `GET /` took 39 SECONDS on a dev server that reported "ready in
+      // 270ms", which blew Playwright's 45s test timeout and turned the dev smoke
+      // from 39/39 into ~22/39 of page-load failures that looked like real
+      // regressions. `du -sh .claude/worktrees` did not finish in five minutes.
+      //
+      // Ignore by PATTERN, not by naming each new offender: anything that is a repo
+      // copy nested in the root. The next tool to invent its own directory in here
+      // should not cost another afternoon.
       ignored: [
         path.posix.join(ROOT, "lingua-*"),
         path.posix.join(ROOT, "lingua-*/**"),
         path.posix.join(ROOT, "drill-tools"),
         path.posix.join(ROOT, "drill-tools/**"),
+        path.posix.join(ROOT, ".claude/**"),
+        // A nested node_modules or .git is a repo copy by definition, wherever it is.
+        "**/node_modules/**",
+        "**/.git/**",
       ],
     },
   },
