@@ -38,3 +38,8 @@ scratch-*.py
 /shots/
 /shots-deep/
 /shots-ladder/
+
+# Agent worktrees. Embedded git repos — a `git add -A` in this shared tree turns
+# each into a broken submodule pointer. Committed by accident 2026-09-16; ignored
+# so it cannot recur. The directories themselves are transient and agent-owned.
+/.claude/worktrees/
