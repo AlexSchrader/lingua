@@ -1,5 +1,6 @@
 import { LANGUAGES } from "./languages.js";
 import { VERB_GROUPS } from "./ja/verb-groups.js";
+import { normalizeReading } from "../store/answer.js";
 // One import per LANGUAGE, never per unit. Each language owns a generated barrel
 // (src/data/<lang>/index.js) so authoring a unit touches only that language's
 // directory — parallel curriculum sessions can run without editing a shared file.
@@ -61,6 +62,42 @@ export const playableLessons = (langId) =>
 // Flatten every lesson with playable items into a list of seed Items.
 // `lang`, `unit`, and `lesson` are stamped onto each item here in code so the
 // seed data files stay terse (no hand-repeating per item).
+// Fronts whose ASCII fold is ANOTHER TAUGHT FRONT in the same language.
+//
+// Typing tolerance exists so a learner is not punished for a missing accent - the
+// accent is usually decoration on a word there is no mistaking. It stops being
+// decoration the moment the folded form is a DIFFERENT WORD THE COURSE ALSO
+// TEACHES. Then accepting it is not forgiving a typo, it is marking the wrong
+// answer correct, and it is worst exactly where the course tried hardest:
+//
+//   de  hätte/hatte · könnte/konnte · würde/wurde   Konjunktiv II vs simple past
+//   es  qué/que · sí/si · tú/tu · dónde/donde       question word vs conjunction
+//   fr  où/ou · sûr/sur · salé/sale                 where/or, sure/on, salty/dirty
+//   pt  é/e · nós/nos · porquê/porque               is/and, we/us
+//
+// The German B1 crew lead found it by calling the grader on its own Konjunktiv II
+// lesson: `müsste` accepts `musste`, which u38 teaches - so the learner produces
+// the form the course drilled into them and is told it is right. That lesson
+// cannot teach what it exists to teach.
+//
+// Computed, never authored: a list would go stale the first time a crew taught a
+// new word, which is the failure mode of every hand-maintained list in this repo.
+function stampFoldCollisions(items) {
+  const byLang = {};
+  for (const it of Object.values(items)) (byLang[it.lang] ??= []).push(it);
+  for (const [lang, list] of Object.entries(byLang)) {
+    const fronts = new Map();
+    for (const it of list) fronts.set(String(it.front).toLowerCase(), it.id);
+    for (const it of list) {
+      const front = String(it.front);
+      const fold = normalizeReading(front, lang);
+      const other = fronts.get(fold);
+      if (fold !== front.toLowerCase() && other && other !== it.id) it.foldCollides = true;
+    }
+  }
+  return items;
+}
+
 export function seedItems() {
   const out = {};
   for (const unit of UNITS) {
@@ -87,7 +124,7 @@ export function seedItems() {
       }
     }
   }
-  return out;
+  return stampFoldCollisions(out);
 }
 
 // Look up a lesson definition (with its items) by id.

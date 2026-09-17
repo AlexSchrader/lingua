@@ -14,6 +14,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { UNITS, seedItems } from "../../src/data/index.js";
+import { normalizeReading, checkProduce, checkReading } from "../../src/store/answer.js";
 
 // ---------------------------------------------------------------------------
 // GUARD 1 — two items in one lesson must not share a gloss.
@@ -148,4 +149,44 @@ test("GUARD: every UNTAUGHT(...) claim in a header is actually true", async () =
   assert.equal(taught.has("no:å prøve"), true,
     "å prøve IS taught (no-u15l3) — this is the exact claim unit1.js got wrong");
   assert.equal(taught.has("no:zzzznotaword"), false, "a genuinely untaught word must resolve false");
+});
+
+// ---------------------------------------------------------------------------
+// GUARD 3 — a word must never be answerable by another taught word.
+//
+// Accent tolerance exists so a learner is not punished for a missing accent on a
+// word there is no mistaking. It stops being tolerance when the folded form is a
+// DIFFERENT WORD THE COURSE ALSO TEACHES — then it marks the wrong answer right,
+// and it does so exactly where the course tried hardest: `hätte` folds to `hatte`,
+// and German teaches both. Found by the German B1 crew lead, which called the
+// grader on its own Konjunktiv II lesson and discovered the lesson could not
+// teach what it exists to teach.
+test("GUARD: no taught word is answerable by another taught word", () => {
+  const items = Object.values(seedItems());
+  const byLang = {};
+  for (const it of items) (byLang[it.lang] ??= []).push(it);
+
+  const holes = [];
+  let collisions = 0;
+  for (const [lang, list] of Object.entries(byLang)) {
+    const fronts = new Map();
+    for (const it of list) fronts.set(String(it.front).toLowerCase(), it.id);
+    for (const it of list) {
+      const front = String(it.front);
+      const fold = normalizeReading(front, lang);
+      const other = fronts.get(fold);
+      if (fold === front.toLowerCase() || !other || other === it.id) continue;
+      collisions++;
+      // the OTHER word must not be accepted as this one, on either grader
+      if (checkProduce(fold, it)) holes.push(`${it.id} ("${front}") accepts "${fold}" — which is ${other}`);
+      if (checkReading(fold, it)) holes.push(`${it.id} ("${front}") reading-accepts "${fold}" — which is ${other}`);
+      // ...and the word itself must still work, or the fix broke the card
+      assert.equal(checkProduce(front, it), true, `${it.id}: its own front must pass`);
+    }
+  }
+  assert.ok(collisions >= 20, `expected the real collision set, found ${collisions}`);
+  assert.deepEqual(holes, [],
+    "typing one taught word is being accepted as a different taught word. This is " +
+    "not accent tolerance, it is marking a wrong answer correct."
+  );
 });

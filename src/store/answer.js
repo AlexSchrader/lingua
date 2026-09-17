@@ -97,6 +97,11 @@ export function normalizeText(s = "") {
 export function foldWouldEraseAnswer(item) {
   const front = String(item?.front ?? "");
   if (!front) return false;
+  // THE FOLD IS ANOTHER TAUGHT WORD. Stamped by seedItems (src/data/index.js), so
+  // it tracks the corpus instead of a list someone has to remember to update.
+  // Accent tolerance is for a word there is no mistaking; hätte folding to hatte
+  // is not a missing accent, it is the simple past, and the course teaches both.
+  if (item?.foldCollides) return true;
   // A LETTER CARD IS ALWAYS STRICT, however many characters it carries. The
   // single-character limit let the two-letter letter cards through: the fold of
   // ão is "ao", so "type ao for ão" was accepted and the nasal - the entire
