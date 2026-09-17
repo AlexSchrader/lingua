@@ -1,7 +1,7 @@
 # DE — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- de`.
-Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-17: **2090 words** across **87 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -14,6 +14,16 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - **It does not contain the words your sibling blocks are writing right now.** They do not exist yet, in this tree or any other. If you need a word a *later* slot will plainly own (a grammar unit's tense, a themed unit's domain), assume it is theirs and teach around it.
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
+
+## Who owns which slots this band
+
+The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
+
+| block | slots |
+|---|---|
+| 1 | u88–u100 |
+| 2 | u101–u113 |
+| 3 | u114–u126 |
 
 ## Index — every taught word, alphabetical
 
@@ -40,7 +50,9 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `achtzehn` — u17 · eighteen
 - `ahnen` — u86 · to have an inkling
 - `ähnlich` — u37 · similar
+- `alle` — u4 · all / everyone
 - `allerdings` — u36 · though — conceding one point only
+- `alles` — u6 · everything
 - `allmählich` — u59 · gradually
 - `als` — u29 · when — one past event
 - `also` — u29 · so
@@ -49,6 +61,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `am` — u14 · on the / at the
 - `an` — u13 · on — a vertical surface
 - `an deiner Stelle` — u70 · in your place
+- `andere` — u10 · other
 - `andererseits` — u36 · on the other hand
 - `ändern` — u59 · to change
 - `andernfalls` — u70 · failing that
@@ -184,14 +197,17 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `braun` — u8 · brown
 - `bremsen` — u82 · to brake
 - `brennen` — u81 · to burn
+- `bringen` — u16 · to bring
 - `brüllen` — u86 · to roar
 - `buchen` — u23 · to make a booking
 - `buchstabieren` — u77 · to spell out
 - `bunt` — u8 · colourful
 - `ch` — u1
 - `chronisch` — u67 · chronic
+- `da` — u3 · there — on the spot
 - `dabei` — u69 · in the process
 - `dadurch` — u52 · thereby
+- `dafür` — u13 · for it
 - `dagegen` — u69 · against it
 - `daher` — u52 · hence
 - `damals` — u28 · back then
@@ -315,6 +331,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `das Lied` — u35 · song
 - `das Loch` — u46 · the hole
 - `das Lokal` — u42 · the eating place
+- `das Mädchen` — u4 · girl
 - `das Meer` — u26 · the sea
 - `das Mehl` — u41 · the flour
 - `das Merkmal` — u58 · the feature
@@ -533,6 +550,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `der Henkel` — u47 · the handle
 - `der Herbst` — u9 · autumn
 - `der Herd` — u30 · the cooker
+- `der Herr` — u10 · gentleman / Mr
 - `der Himmel` — u8 · sky
 - `der Hinweis` — u52 · the pointer
 - `der Hörer` — u77 · the receiver
@@ -581,6 +599,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `der Markt` — u7 · market
 - `der März` — u9 · March
 - `der Meißel` — u46 · the chisel
+- `der Mensch` — u11 · the human being
 - `der Mietvertrag` — u80 · the tenancy agreement
 - `der Mitarbeiter` — u56 · the employee
 - `der Mittwoch` — u9 · Wednesday
@@ -907,6 +926,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `die Heimat` — u55 · the home
 - `die Heizung` — u30 · the heating
 - `die Herausforderung` — u62 · the challenge
+- `die Hilfe` — u14 · the help
 - `die Hitze` — u50 · the heat
 - `die Hochzeit` — u40 · wedding
 - `die Hose` — u18 · the trousers
@@ -952,6 +972,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `die Laune` — u22 · the mood
 - `die Leistung` — u56 · the performance
 - `die Leiter` — u46 · the ladder
+- `die Leute` — u10 · people
 - `die Lieferung` — u71 · the delivery
 - `die Lippe` — u43 · the lip
 - `die Lösung` — u32 · solution
@@ -1032,6 +1053,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `die Rolle` — u52 · the role
 - `die Rücksicht` — u57 · the consideration
 - `die Rückzahlung` — u76 · the refund
+- `die Sache` — u15 · the thing / the matter
 - `die Säge` — u46 · the saw
 - `die Salbe` — u67 · the ointment
 - `die Schachtel` — u47 · the small box
@@ -1157,6 +1179,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `die Zuneigung` — u68 · the affection
 - `die Zusage` — u79 · the acceptance
 - `die Zutat` — u41 · the ingredient
+- `dieser` — u12 · this / these
 - `digital` — u33 · digital
 - `dir` — u14 · you — dative
 - `diskret` — u73 · discreet
@@ -1198,6 +1221,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `eifersüchtig` — u68 · jealous
 - `eigentlich` — u54 · actually
 - `ein` — u5 · a / one
+- `ein paar` — u17 · a few
 - `eindeutig` — u84 · unmistakably
 - `einen` — u13 · object form of ein
 - `einerseits` — u36 · on the one hand
@@ -1205,6 +1229,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `eingreifen` — u60 · to intervene
 - `einhalten` — u61 · to comply with
 - `einladen` — u40 · to invite
+- `einmal` — u21 · once
 - `einreichen` — u76 · to submit
 - `einrichten` — u30 · to furnish
 - `einsam` — u22 · lonely
@@ -1246,6 +1271,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `erschöpft` — u22 · exhausted
 - `erschrecken` — u57 · to be startled
 - `ersetzen` — u60 · to replace
+- `erst` — u21 · not until
 - `erstatten` — u78 · to refund
 - `erstens` — u36 · firstly — numbering a point in an argument
 - `erwachsen` — u59 · grown-up
@@ -1270,6 +1296,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `fast` — u47 · almost
 - `faul` — u31 · lazy
 - `feiern` — u40 · to celebrate
+- `fertig` — u21 · finished / ready
 - `festziehen` — u46 · to tighten
 - `feucht` — u49 · damp
 - `finden` — u7 · to find
@@ -1419,11 +1446,13 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `ihn` — u13 · him — object
 - `ihnen` — u14 · them — dative
 - `ihr` — u3 · you — plural and informal
+- `ihre` — u4 · her / their
 - `im` — u14 · in the
 - `im Grunde` — u84 · basically
 - `immer` — u12 · always
 - `immerhin` — u36 · at least — salvaging one good point
 - `in` — u13 · into / in
+- `in Ordnung` — u15 · in order / OK
 - `indem` — u69 · by doing
 - `infolge` — u71 · as a result of
 - `innerhalb` — u71 · within
@@ -1441,6 +1470,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `jeden Tag` — u21 · every day
 - `jedenfalls` — u54 · in any case
 - `jedoch` — u36 · however — the written-register turn
+- `jemand` — u12 · someone
 - `jetzt` — u5 · now
 - `jeweils` — u87 · in each case
 - `jugendlich` — u43 · youthful
@@ -1458,6 +1488,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `keinen` — u13 · object form of kein
 - `keineswegs` — u51 · by no means
 - `klappen` — u37 · to work out
+- `klar` — u10 · clear / obvious
 - `klären` — u60 · to clarify
 - `kleben` — u46 · to glue
 - `klebrig` — u49 · sticky
@@ -1492,6 +1523,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `las` — u39 · read — past of lesen
 - `lassen` — u44 · to leave something
 - `laufen` — u16 · to run
+- `leben` — u4 · to live / to be alive
 - `lecker` — u6 · delicious
 - `lediglich` — u54 · merely
 - `leer` — u10 · empty
@@ -1546,6 +1578,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `mittlerweile` — u63 · by now
 - `möbliert` — u80 · furnished
 - `möchten` — u16 · would like
+- `mögen` — u16 · to like
 - `möglich` — u37 · possible
 - `morgen` — u5 · tomorrow
 - `müde` — u1 · tired
@@ -1590,6 +1623,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `notfalls` — u60 · if need be
 - `notwendig` — u52 · necessary
 - `nun` — u84 · well then
+- `nur` — u3 · only
 - `ö` — u1
 - `ob` — u29 · whether
 - `oben` — u44 · up there / at the top
@@ -1608,6 +1642,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `packen` — u23 · to pack
 - `parken` — u23 · to park a car
 - `passen` — u18 · to fit
+- `passieren` — u22 · to happen
 - `peinlich` — u22 · embarrassing
 - `planen` — u48 · to plan
 - `plötzlich` — u28 · suddenly
@@ -1705,6 +1740,8 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `sehen` — u16 · to see (with the eyes)
 - `sehr` — u2 · very
 - `sehr geehrte` — u72 · dear (formal)
+- `sein` — u16 · to be
+- `seine` — u4 · his
 - `seinerzeit` — u63 · at the time
 - `seit` — u14 · since / for
 - `seitdem` — u59 · since then
@@ -1768,6 +1805,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `sinken` — u53 · to drop
 - `sinngemäß` — u74 · in substance
 - `sitzen` — u16 · to sit
+- `so` — u2 · so / like this
 - `sobald` — u29 · as soon as
 - `sodass` — u69 · with the result that
 - `sofort` — u28 · immediately
@@ -1849,6 +1887,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `trotzdem` — u29 · nevertheless
 - `trug` — u39 · wore / carried — past of tragen
 - `tschüss` — u2 · bye
+- `tun` — u16 · to do (an act)
 - `tut weh` — u11 · to hurt
 - `ü` — u1
 - `üben` — u20 · to practise
@@ -1884,6 +1923,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `ungefähr` — u87 · approximately
 - `ungern` — u73 · reluctantly
 - `uns` — u13 · us
+- `unsere` — u4 · our
 - `unten` — u44 · down there / at the bottom
 - `unter` — u14 · under / below
 - `unterbrechen` — u51 · to interrupt
@@ -1986,6 +2026,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `weniger` — u37 · less / fewer
 - `wenn` — u29 · if — a condition
 - `wer` — u12 · who
+- `werden` — u8 · to become
 - `werfen` — u45 · to throw
 - `wertvoll` — u66 · valuable
 - `wesentlich` — u52 · essential
@@ -1997,13 +2038,16 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `wie geht's` — u2 · how are you
 - `wie gesagt` — u84 · as I said
 - `wie viel` — u12 · how much
+- `wieder` — u12 · again
 - `wiederholen` — u24 · to repeat
 - `wiegen` — u83 · to weigh
+- `wieso` — u12 · how come
 - `wild` — u26 · wild
 - `willkommen` — u2 · welcome
 - `winken` — u85 · to wave
 - `wir` — u3 · we
 - `wirken` — u31 · to seem / come across
+- `wirklich` — u12 · really
 - `wissen` — u16 · to know
 - `wo` — u3 · where
 - `wobei` — u69 · whereby
@@ -2055,6 +2099,7 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 - `zunächst` — u56 · to begin with
 - `zunehmen` — u67 · to put on weight
 - `zur` — u21 · to the
+- `zurück` — u7 · back
 - `zurückgeben` — u78 · to give back
 - `zurückhaltend` — u73 · reserved
 - `zurückrufen` — u77 · to call back
@@ -2079,37 +2124,37 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 
 **u1 · Laute und Buchstaben** (33) — `ei`, `ie`, `ist`, `das`, `nein`, `hier`, `was`, `z`, `ch`, `die Zeit`, `die Zeitung`, `das Buch`, `und`, `sind`, `sch`, `ß`, `die Straße`, `die Schule`, `schnell`, `sprechen`, `zusammen`, `ü`, `ö`, `die Tür`, `die Küche`, `müde`, `hören`, `wohnen`, `ä`, `spät`, `klein`, `schön`, `groß`
 
-**u2 · Begrüßung und Abschied** (24) — `hallo`, `guten Morgen`, `guten Tag`, `guten Abend`, `gute Nacht`, `willkommen`, `wie geht's`, `danke`, `bitte`, `gut`, `schlecht`, `sehr`, `tschüss`, `auf Wiedersehen`, `bis bald`, `bis später`, `bis morgen`, `gute Reise`, `Entschuldigung`, `es tut mir leid`, `gern`, `kein Problem`, `ja`, `natürlich`
+**u2 · Begrüßung und Abschied** (25) — `hallo`, `guten Morgen`, `guten Tag`, `guten Abend`, `gute Nacht`, `willkommen`, `wie geht's`, `danke`, `bitte`, `gut`, `schlecht`, `sehr`, `so`, `tschüss`, `auf Wiedersehen`, `bis bald`, `bis später`, `bis morgen`, `gute Reise`, `Entschuldigung`, `es tut mir leid`, `gern`, `kein Problem`, `ja`, `natürlich`
 
-**u3 · Sich vorstellen** (24) — `ich`, `bin`, `du`, `bist`, `heißen`, `der Name`, `woher`, `wo`, `wie`, `kommen`, `aus`, `Deutsch`, `Sie`, `er`, `sie`, `wir`, `ihr`, `nicht`, `der Beruf`, `arbeiten`, `studieren`, `alt`, `jung`, `auch`
+**u3 · Sich vorstellen** (26) — `ich`, `bin`, `du`, `bist`, `heißen`, `der Name`, `da`, `woher`, `wo`, `wie`, `kommen`, `aus`, `Deutsch`, `nur`, `Sie`, `er`, `sie`, `wir`, `ihr`, `nicht`, `der Beruf`, `arbeiten`, `studieren`, `alt`, `jung`, `auch`
 
-**u4 · Die Familie** (24) — `die Familie`, `der Vater`, `die Mutter`, `die Eltern`, `der Sohn`, `die Tochter`, `der Bruder`, `die Schwester`, `die Geschwister`, `der Mann`, `die Frau`, `das Kind`, `der Großvater`, `die Großmutter`, `die Großeltern`, `der Onkel`, `die Tante`, `der Cousin`, `mein`, `dein`, `haben`, `der Freund`, `die Freundin`, `lieben`
+**u4 · Die Familie** (30) — `die Familie`, `der Vater`, `die Mutter`, `die Eltern`, `der Sohn`, `die Tochter`, `leben`, `der Bruder`, `die Schwester`, `die Geschwister`, `der Mann`, `die Frau`, `das Kind`, `alle`, `das Mädchen`, `der Großvater`, `die Großmutter`, `die Großeltern`, `der Onkel`, `die Tante`, `der Cousin`, `ihre`, `mein`, `dein`, `haben`, `der Freund`, `die Freundin`, `lieben`, `seine`, `unsere`
 
 **u5 · Zahlen und Zeit** (24) — `ein`, `zwei`, `drei`, `vier`, `fünf`, `sechs`, `sieben`, `acht`, `neun`, `zehn`, `elf`, `zwölf`, `die Uhr`, `die Stunde`, `die Minute`, `halb`, `es`, `jetzt`, `der Tag`, `die Nacht`, `heute`, `morgen`, `das Jahr`, `die Woche`
 
-**u6 · Essen und Trinken** (24) — `das Brot`, `der Käse`, `die Butter`, `das Ei`, `der Reis`, `die Nudeln`, `der Apfel`, `die Banane`, `die Tomate`, `die Kartoffel`, `das Gemüse`, `das Obst`, `das Wasser`, `der Kaffee`, `der Tee`, `die Milch`, `der Saft`, `das Bier`, `essen`, `trinken`, `das Frühstück`, `das Mittagessen`, `lecker`, `der Hunger`
+**u6 · Essen und Trinken** (25) — `das Brot`, `der Käse`, `die Butter`, `das Ei`, `der Reis`, `die Nudeln`, `der Apfel`, `die Banane`, `die Tomate`, `die Kartoffel`, `das Gemüse`, `das Obst`, `das Wasser`, `der Kaffee`, `der Tee`, `die Milch`, `der Saft`, `das Bier`, `essen`, `trinken`, `das Frühstück`, `das Mittagessen`, `lecker`, `der Hunger`, `alles`
 
-**u7 · Die Stadt** (24) — `die Stadt`, `das Haus`, `die Wohnung`, `der Bahnhof`, `der Markt`, `der Platz`, `das Restaurant`, `das Hotel`, `die Bank`, `die Post`, `das Museum`, `der Park`, `gehen`, `fahren`, `links`, `rechts`, `geradeaus`, `weit`, `dort`, `der Weg`, `die Karte`, `finden`, `suchen`, `nah`
+**u7 · Die Stadt** (25) — `die Stadt`, `das Haus`, `die Wohnung`, `der Bahnhof`, `der Markt`, `der Platz`, `das Restaurant`, `das Hotel`, `die Bank`, `die Post`, `das Museum`, `der Park`, `gehen`, `fahren`, `links`, `rechts`, `geradeaus`, `weit`, `zurück`, `dort`, `der Weg`, `die Karte`, `finden`, `suchen`, `nah`
 
-**u8 · Farben und Wetter** (24) — `rot`, `blau`, `gelb`, `grün`, `schwarz`, `weiß`, `braun`, `grau`, `rosa`, `orange`, `die Farbe`, `bunt`, `das Wetter`, `die Sonne`, `regnet`, `der Nebel`, `der Schnee`, `schneit`, `der Wind`, `die Wolke`, `kalt`, `warm`, `heiß`, `der Himmel`
+**u8 · Farben und Wetter** (25) — `rot`, `blau`, `gelb`, `grün`, `schwarz`, `weiß`, `braun`, `grau`, `rosa`, `orange`, `die Farbe`, `bunt`, `das Wetter`, `die Sonne`, `regnet`, `der Nebel`, `der Schnee`, `schneit`, `der Wind`, `die Wolke`, `kalt`, `warm`, `heiß`, `der Himmel`, `werden`
 
 **u9 · Tage, Monate und Jahreszeiten** (24) — `der Montag`, `der Dienstag`, `der Mittwoch`, `der Donnerstag`, `der Freitag`, `der Samstag`, `der Sonntag`, `der Monat`, `der Januar`, `der Februar`, `der März`, `der April`, `der Mai`, `der Juni`, `der Juli`, `der August`, `der September`, `der Oktober`, `der November`, `der Dezember`, `der Frühling`, `der Sommer`, `der Herbst`, `der Winter`
 
-**u10 · Beschreiben** (24) — `hell`, `dunkel`, `lang`, `kurz`, `hoch`, `tief`, `dick`, `dünn`, `schwer`, `leicht`, `voll`, `leer`, `neu`, `sauber`, `schmutzig`, `kaputt`, `teuer`, `billig`, `nett`, `ruhig`, `lustig`, `langweilig`, `traurig`, `glücklich`
+**u10 · Beschreiben** (28) — `hell`, `dunkel`, `lang`, `kurz`, `hoch`, `tief`, `andere`, `dick`, `dünn`, `schwer`, `leicht`, `voll`, `leer`, `neu`, `sauber`, `schmutzig`, `kaputt`, `teuer`, `billig`, `klar`, `nett`, `ruhig`, `lustig`, `langweilig`, `traurig`, `glücklich`, `die Leute`, `der Herr`
 
-**u11 · Der Körper und die Gesundheit** (24) — `der Kopf`, `das Auge`, `die Nase`, `der Mund`, `das Ohr`, `der Zahn`, `der Körper`, `der Hals`, `die Hand`, `der Arm`, `das Bein`, `der Fuß`, `krank`, `gesund`, `tut weh`, `der Schmerz`, `das Fieber`, `der Husten`, `der Arzt`, `das Krankenhaus`, `die Apotheke`, `die Medizin`, `die Erkältung`, `der Durst`
+**u11 · Der Körper und die Gesundheit** (25) — `der Kopf`, `das Auge`, `die Nase`, `der Mund`, `das Ohr`, `der Zahn`, `der Körper`, `der Hals`, `die Hand`, `der Arm`, `das Bein`, `der Fuß`, `der Mensch`, `krank`, `gesund`, `tut weh`, `der Schmerz`, `das Fieber`, `der Husten`, `der Arzt`, `das Krankenhaus`, `die Apotheke`, `die Medizin`, `die Erkältung`, `der Durst`
 
-**u12 · Der Satz und die Wortstellung** (24) — `immer`, `oft`, `manchmal`, `selten`, `dann`, `noch`, `wer`, `wann`, `warum`, `wohin`, `wie viel`, `welcher`, `doch`, `vielleicht`, `sicher`, `aber`, `oder`, `denn`, `kein`, `nichts`, `niemand`, `nie`, `sondern`, `etwas`
+**u12 · Der Satz und die Wortstellung** (29) — `immer`, `oft`, `manchmal`, `selten`, `dann`, `noch`, `wieder`, `wer`, `wann`, `warum`, `wohin`, `wie viel`, `welcher`, `dieser`, `wieso`, `doch`, `vielleicht`, `sicher`, `aber`, `oder`, `denn`, `wirklich`, `kein`, `nichts`, `niemand`, `nie`, `sondern`, `etwas`, `jemand`
 
-**u13 · Nominativ und Akkusativ** (24) — `den`, `einen`, `keinen`, `meinen`, `deinen`, `wen`, `mich`, `dich`, `ihn`, `uns`, `euch`, `es gibt`, `durch`, `für`, `gegen`, `ohne`, `um`, `brauchen`, `in`, `auf`, `an`, `vor`, `hinter`, `neben`
+**u13 · Nominativ und Akkusativ** (25) — `den`, `einen`, `keinen`, `meinen`, `deinen`, `wen`, `mich`, `dich`, `ihn`, `uns`, `euch`, `es gibt`, `durch`, `für`, `gegen`, `ohne`, `um`, `brauchen`, `dafür`, `in`, `auf`, `an`, `vor`, `hinter`, `neben`
 
-**u14 · Dativ und Perfekt** (24) — `dem`, `im`, `am`, `über`, `unter`, `zwischen`, `mir`, `dir`, `ihm`, `ihnen`, `wem`, `helfen`, `mit`, `nach`, `bei`, `seit`, `von`, `zu`, `gewesen`, `gehabt`, `gegangen`, `gekommen`, `gearbeitet`, `getrunken`
+**u14 · Dativ und Perfekt** (25) — `dem`, `im`, `am`, `über`, `unter`, `zwischen`, `mir`, `dir`, `ihm`, `ihnen`, `wem`, `helfen`, `die Hilfe`, `mit`, `nach`, `bei`, `seit`, `von`, `zu`, `gewesen`, `gehabt`, `gegangen`, `gekommen`, `gearbeitet`, `getrunken`
 
-**u15 · Zu Hause** (24) — `das Zimmer`, `das Schlafzimmer`, `das Bad`, `der Flur`, `der Garten`, `der Keller`, `das Bett`, `der Tisch`, `der Stuhl`, `der Schrank`, `das Sofa`, `das Regal`, `das Fenster`, `die Wand`, `der Boden`, `die Treppe`, `die Lampe`, `der Teppich`, `der Schlüssel`, `das Bild`, `der Spiegel`, `das Licht`, `der Kühlschrank`, `das Kissen`
+**u15 · Zu Hause** (26) — `das Zimmer`, `das Schlafzimmer`, `das Bad`, `der Flur`, `der Garten`, `der Keller`, `das Bett`, `der Tisch`, `der Stuhl`, `der Schrank`, `das Sofa`, `das Regal`, `das Fenster`, `die Wand`, `der Boden`, `die Treppe`, `die Lampe`, `der Teppich`, `der Schlüssel`, `das Bild`, `der Spiegel`, `das Licht`, `der Kühlschrank`, `das Kissen`, `die Sache`, `in Ordnung`
 
-**u16 · Alltag und Modalverben** (24) — `können`, `müssen`, `wollen`, `dürfen`, `sollen`, `möchten`, `machen`, `sagen`, `sehen`, `geben`, `nehmen`, `wissen`, `schlafen`, `aufstehen`, `sitzen`, `liegen`, `bleiben`, `denken`, `spielen`, `schwimmen`, `tanzen`, `singen`, `kochen`, `laufen`
+**u16 · Alltag und Modalverben** (28) — `können`, `müssen`, `wollen`, `dürfen`, `sollen`, `möchten`, `sein`, `mögen`, `machen`, `sagen`, `sehen`, `geben`, `nehmen`, `wissen`, `tun`, `bringen`, `schlafen`, `aufstehen`, `sitzen`, `liegen`, `bleiben`, `denken`, `spielen`, `schwimmen`, `tanzen`, `singen`, `kochen`, `laufen`
 
-**u17 · Zahlen und Geld** (24) — `dreizehn`, `sechzehn`, `siebzehn`, `achtzehn`, `neunzehn`, `zwanzig`, `dreißig`, `vierzig`, `fünfzig`, `sechzig`, `siebzig`, `hundert`, `tausend`, `die Zahl`, `die Nummer`, `das Stück`, `viel`, `wenig`, `das Geld`, `der Euro`, `kosten`, `der Preis`, `bezahlen`, `genug`
+**u17 · Zahlen und Geld** (25) — `dreizehn`, `sechzehn`, `siebzehn`, `achtzehn`, `neunzehn`, `zwanzig`, `dreißig`, `vierzig`, `fünfzig`, `sechzig`, `siebzig`, `hundert`, `tausend`, `die Zahl`, `die Nummer`, `das Stück`, `viel`, `wenig`, `ein paar`, `das Geld`, `der Euro`, `kosten`, `der Preis`, `bezahlen`, `genug`
 
 **u18 · Kleidung und Einkaufen** (24) — `das Hemd`, `die Hose`, `der Rock`, `das Kleid`, `der Schuh`, `die Tasche`, `die Jacke`, `der Mantel`, `der Pullover`, `die Socke`, `die Mütze`, `der Schal`, `tragen`, `anziehen`, `ausziehen`, `passen`, `anprobieren`, `gefallen`, `kaufen`, `verkaufen`, `das Geschäft`, `die Kasse`, `der Kunde`, `zeigen`
 
@@ -2117,9 +2162,9 @@ Snapshot 2026-09-17: **2055 words** across **87 authored unit(s)**, **0 slot(s) 
 
 **u20 · Schule und Arbeit** (24) — `der Lehrer`, `der Schüler`, `der Student`, `die Klasse`, `die Prüfung`, `die Aufgabe`, `fragen`, `antworten`, `richtig`, `falsch`, `das Wort`, `die Sprache`, `lernen`, `lesen`, `schreiben`, `üben`, `verstehen`, `erklären`, `das Büro`, `die Firma`, `der Chef`, `der Kollege`, `verdienen`, `der Termin`
 
-**u21 · Alltag und Routine** (26) — `aufwachen`, `duschen`, `sich waschen`, `sich anziehen`, `früh`, `pünktlich`, `der Alltag`, `der Tagesablauf`, `zuerst`, `danach`, `später`, `sich beeilen`, `aufräumen`, `putzen`, `vorbereiten`, `das Geschirr`, `die Wäsche`, `der Müll`, `vom`, `zur`, `jeden Tag`, `zweimal`, `meistens`, `kaum`, `normalerweise`, `der Feierabend`
+**u21 · Alltag und Routine** (29) — `aufwachen`, `duschen`, `sich waschen`, `sich anziehen`, `früh`, `pünktlich`, `der Alltag`, `der Tagesablauf`, `zuerst`, `danach`, `später`, `sich beeilen`, `fertig`, `erst`, `aufräumen`, `putzen`, `vorbereiten`, `das Geschirr`, `die Wäsche`, `der Müll`, `vom`, `zur`, `jeden Tag`, `zweimal`, `meistens`, `kaum`, `normalerweise`, `der Feierabend`, `einmal`
 
-**u22 · Gefühle und Stimmungen** (24) — `das Gefühl`, `fühlen`, `zufrieden`, `aufgeregt`, `stolz`, `nervös`, `wütend`, `sich ärgern`, `enttäuscht`, `die Sorge`, `einsam`, `erschöpft`, `die Freude`, `sich freuen`, `die Laune`, `überrascht`, `peinlich`, `sich entspannen`, `die Angst`, `sich beruhigen`, `die Geduld`, `mutig`, `schüchtern`, `leider`
+**u22 · Gefühle und Stimmungen** (25) — `das Gefühl`, `fühlen`, `zufrieden`, `aufgeregt`, `stolz`, `nervös`, `wütend`, `sich ärgern`, `enttäuscht`, `die Sorge`, `einsam`, `erschöpft`, `passieren`, `die Freude`, `sich freuen`, `die Laune`, `überrascht`, `peinlich`, `sich entspannen`, `die Angst`, `sich beruhigen`, `die Geduld`, `mutig`, `schüchtern`, `leider`
 
 **u23 · Reise und Unterkunft** (24) — `buchen`, `die Reservierung`, `die Unterkunft`, `der Ausflug`, `die Sehenswürdigkeit`, `packen`, `das Gleis`, `die Verspätung`, `die Auskunft`, `der Ausweis`, `abholen`, `fliegen`, `die Rezeption`, `das Einzelzimmer`, `das Doppelzimmer`, `die Übernachtung`, `die Aussicht`, `frei`, `das Auto`, `parken`, `der Stau`, `tanken`, `der Führerschein`, `die Ampel`
 

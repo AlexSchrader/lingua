@@ -1,7 +1,7 @@
 # PT — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- pt`.
-Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-17: **2106 words** across **87 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -15,10 +15,23 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
 
+## Who owns which slots this band
+
+The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
+
+| block | slots |
+|---|---|
+| 1 | u88–u100 |
+| 2 | u101–u113 |
+| 3 | u114–u126 |
+
 ## Index — every taught word, alphabetical
 
 `word` — slot · meaning
 
+- `á` — u1
+- `â` — u1
+- `ã` — u1
 - `à` — u12 · to the (feminine)
 - `a adolescência` — u80 · adolescence
 - `a agenda` — u62 · diary
@@ -549,6 +562,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `admitir` — u51 · to admit
 - `adorar` — u22 · to love
 - `advertir` — u61 · to warn (formally)
+- `ãe` — u1
 - `afastar-se` — u79 · to move away
 - `afetar` — u52 · to affect
 - `afinal de contas` — u54 · after all
@@ -593,6 +607,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `antigamente` — u36 · in the old days
 - `antigo` — u48 · ancient
 - `anunciar` — u77 · to announce
+- `ão` — u1
 - `ao` — u12 · to the
 - `ao que parece` — u54 · from what it seems
 - `aos` — u29 · to the
@@ -675,6 +690,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `branco` — u8 · white
 - `brilhar` — u78 · to shine
 - `brincar` — u19 · to play
+- `ç` — u1
 - `caber` — u83 · to fit
 - `cada` — u40 · each
 - `cada vez mais` — u53 · more and more
@@ -881,6 +897,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `duro` — u42 · hard
 - `duvidar` — u54 · to doubt
 - `duvido que` — u69 · I doubt that
+- `ê` — u1
 - `é` — u1 · is
 - `e` — u1 · and
 - `é capaz de` — u54 · it might well
@@ -1059,6 +1076,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `hoje` — u5 · today
 - `honesto` — u31 · honest
 - `houvesse` — u70 · (if there) were
+- `í` — u1
 - `ia` — u36 · used to go
 - `identificar` — u78 · to identify
 - `ignorar` — u78 · to ignore
@@ -1113,6 +1131,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `levantar-se` — u21 · to get up
 - `levar` — u74 · to take (to carry there)
 - `leve` — u81 · light (not heavy)
+- `lh` — u1
 - `lhe` — u13 · to him
 - `lidar com` — u60 · to deal with
 - `ligar` — u18 · to phone
@@ -1128,6 +1147,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `lutar` — u48 · to fight
 - `magoar-se` — u25 · to hurt oneself
 - `maio` — u9 · May
+- `maior` — u53 · bigger
 - `mais` — u1 · more
 - `mal-educado` — u31 · rude
 - `mandar` — u74 · to send (a message)
@@ -1144,7 +1164,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `mencionar` — u77 · to mention (by name)
 - `menos` — u29 · less
 - `mesmo que` — u70 · even though
-- `mexer` — u79 · to touch
+- `mexer` — u79 · to meddle with
 - `misturar` — u41 · to mix
 - `mole` — u42 · soft
 - `molhado` — u26 · wet
@@ -1172,6 +1192,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `nem que` — u70 · even if
 - `nenhum` — u40 · no
 - `nervoso` — u22 · nervous
+- `nh` — u1
 - `ninguém` — u40 · nobody
 - `ninguém o viu` — u71 · nobody saw him
 - `no` — u12 · in the
@@ -1187,6 +1208,8 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `num` — u29 · in a
 - `nunca` — u5 · never
 - `nunca a vi` — u71 · I never saw her
+- `ó` — u1
+- `ô` — u1
 - `o abraço` — u39 · hug
 - `o abuso` — u61 · abuse
 - `o acidente` — u47 · accident
@@ -1704,7 +1727,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `o título` — u64 · title (of an article)
 - `o tom` — u77 · tone
 - `o topo` — u83 · top
-- `o toque` — u78 · ring (of a phone)
+- `o toque` — u78 · touch (contact)
 - `o total` — u82 · total
 - `o trabalho` — u1 · work
 - `o tratamento` — u25 · treatment
@@ -1794,6 +1817,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `pesar` — u43 · to weigh
 - `péssimo` — u39 · terrible
 - `pintar` — u35 · to paint
+- `pior` — u53 · worse
 - `piorar` — u25 · to get worse
 - `planear` — u62 · to plan
 - `plantar` — u65 · to plant
@@ -1849,7 +1873,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `protestar` — u55 · to protest
 - `provar` — u16 · to try on
 - `provavelmente` — u54 · probably
-- `prudente` — u54 · sensible
+- `prudente` — u54 · prudent
 - `publicar` — u64 · to publish
 - `puder` — u71 · when/if I can
 - `pudesse` — u70 · (if it) could
@@ -1920,7 +1944,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `rever` — u84 · to review
 - `reviver` — u63 · to relive
 - `rico` — u45 · rich
-- `rígido` — u81 · strict
+- `rígido` — u81 · rigid
 - `rir` — u22 · to laugh
 - `riscar` — u87 · to scratch
 - `rodear` — u83 · to surround
@@ -2064,6 +2088,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 - `tu` — u2 · you
 - `tudo` — u40 · everything
 - `tudo bem` — u72 · all good
+- `ú` — u1
 - `ultimamente` — u59 · lately
 - `último` — u86 · last
 - `ultrapassar` — u53 · to overtake
@@ -2113,7 +2138,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 
 ## By unit — what each slot teaches
 
-**u1 · Os sons e a escrita** (25) — `a casa`, `o livro`, `a rua`, `é`, `e`, `de`, `o pão`, `a mão`, `não`, `a mãe`, `sim`, `um`, `uma`, `a mulher`, `o trabalho`, `a manhã`, `o dinheiro`, `a maçã`, `o preço`, `o carro`, `caro`, `o rato`, `isso`, `a coisa`, `mais`
+**u1 · Os sons e a escrita** (38) — `á`, `â`, `ê`, `a casa`, `é`, `e`, `de`, `í`, `ó`, `ô`, `ú`, `o livro`, `a rua`, `ão`, `ãe`, `o pão`, `a mão`, `não`, `a mãe`, `ã`, `ç`, `a maçã`, `o preço`, `sim`, `um`, `uma`, `lh`, `nh`, `a mulher`, `o trabalho`, `a manhã`, `o dinheiro`, `o carro`, `caro`, `o rato`, `isso`, `a coisa`, `mais`
 
 **u2 · Cumprimentos** (24) — `olá`, `bom dia`, `boa tarde`, `boa noite`, `adeus`, `até logo`, `por favor`, `obrigado`, `de nada`, `desculpe`, `com licença`, `claro`, `tu`, `você`, `como estás`, `como está`, `estou bem`, `o senhor`, `bem-vindo`, `boa sorte`, `até breve`, `parabéns`, `saúde`, `muito`
 
@@ -2217,7 +2242,7 @@ Snapshot 2026-09-12: **2091 words** across **87 authored unit(s)**, **0 slot(s) 
 
 **u52 · O raciocínio e as consequências** (24) — `a origem`, `decorrer de`, `dever-se a`, `originar`, `surgir`, `o fator`, `resultar em`, `acarretar`, `desencadear`, `implicar`, `afetar`, `o impacto`, `uma vez que`, `visto que`, `de modo que`, `daí que`, `contribuir`, `depender de`, `a consequência`, `a finalidade`, `o propósito`, `a repercussão`, `o desfecho`, `influenciar`
 
-**u53 · A comparação e o grau** (24) — `superior a`, `inferior a`, `acima de`, `abaixo de`, `o nível`, `elevado`, `semelhante`, `parecido com`, `comparar`, `em comparação com`, `a desvantagem`, `reduzido`, `cada vez mais`, `quanto mais`, `ligeiramente`, `consideravelmente`, `aproximadamente`, `a média`, `superar`, `ultrapassar`, `destacar-se`, `duplicar`, `o máximo`, `o mínimo`
+**u53 · A comparação e o grau** (26) — `superior a`, `inferior a`, `acima de`, `abaixo de`, `o nível`, `elevado`, `maior`, `pior`, `semelhante`, `parecido com`, `comparar`, `em comparação com`, `a desvantagem`, `reduzido`, `cada vez mais`, `quanto mais`, `ligeiramente`, `consideravelmente`, `aproximadamente`, `a média`, `superar`, `ultrapassar`, `destacar-se`, `duplicar`, `o máximo`, `o mínimo`
 
 **u54 · A dúvida e a cautela** (24) — `provavelmente`, `possivelmente`, `improvável`, `a probabilidade`, `eventualmente`, `quem sabe`, `duvidar`, `supor`, `suspeitar`, `a hipótese`, `prever`, `ter a certeza`, `aparentemente`, `ao que parece`, `pelos vistos`, `de facto`, `na verdade`, `afinal de contas`, `arriscar`, `correr o risco`, `incerto`, `é capaz de`, `prudente`, `a tendência`
 

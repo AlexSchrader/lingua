@@ -15,6 +15,16 @@ Snapshot 2026-09-17: **2032 words** across **87 authored unit(s)**, **0 slot(s) 
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
 
+## Who owns which slots this band
+
+The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
+
+| block | slots |
+|---|---|
+| 1 | u88–u100 |
+| 2 | u101–u113 |
+| 3 | u114–u126 |
+
 ## Index — every taught word, alphabetical
 
 `word` — slot · meaning
@@ -1303,7 +1313,6 @@ Snapshot 2026-09-17: **2032 words** across **87 authored unit(s)**, **0 slot(s) 
 - `et hjørne` — u45 · corner
 - `et hode` — u11 · head
 - `et høydepunkt` — u63 · a highlight
-- `et humør` — u57 · spirits (humour)
 - `et hus` — u4 · house
 - `et innbrudd` — u80 · break-in
 - `et innlegg` — u33 · post
@@ -1377,7 +1386,6 @@ Snapshot 2026-09-17: **2032 words** across **87 authored unit(s)**, **0 slot(s) 
 - `et personnummer` — u78 · national ID number
 - `et piggdekk` — u81 · studded tyre
 - `et poeng` — u44 · point
-- `et politi` — u61 · police
 - `et press` — u56 · pressure
 - `et prinsipp` — u58 · principle
 - `et produkt` — u27 · product
@@ -1598,6 +1606,7 @@ Snapshot 2026-09-17: **2032 words** across **87 authored unit(s)**, **0 slot(s) 
 - `høyre` — u7 · right
 - `hul` — u46 · hollow
 - `humor` — u64 · humour
+- `humør` — u57 · mood (not humour)
 - `hun` — u3 · she
 - `husket` — u38 · remembered
 - `hva` — u1 · what
@@ -1818,6 +1827,7 @@ Snapshot 2026-09-17: **2032 words** across **87 authored unit(s)**, **0 slot(s) 
 - `planlegger å` — u39 · am planning to
 - `plast` — u46 · plastic
 - `plutselig` — u28 · suddenly
+- `politiet` — u61 · the police
 - `praktisk` — u60 · practical
 - `prikkete` — u42 · spotted
 - `psykisk` — u67 · mental
@@ -2166,7 +2176,7 @@ Snapshot 2026-09-17: **2032 words** across **87 authored unit(s)**, **0 slot(s) 
 
 **u56 · Arbeid og framgangsmåte** (24) — `en kompetanse`, `en arbeidsgiver`, `en arbeidstaker`, `ei fagforening`, `å pendle`, `å åpne`, `et steg`, `en fase`, `å utføre`, `å forberede`, `å fordele`, `ei rekkefølge`, `en kvalitet`, `å forbedre`, `grundig`, `effektiv`, `en mangel`, `å godkjenne`, `et press`, `ei belastning`, `å takle`, `å overta`, `å overlate`, `å fortjene`
 
-**u57 · Følelser i finere nyanser** (24) — `rasende`, `å hate`, `å gråte`, `å frykte`, `skamfull`, `forelsket`, `rørt`, `takknemlig`, `trygg`, `lykkelig`, `fornøyd`, `munter`, `irritert`, `misunnelig`, `oppgitt`, `stresset`, `rastløs`, `å plage`, `å skjule`, `å avsløre`, `å trøste`, `å tie`, `et humør`, `å reagere`
+**u57 · Følelser i finere nyanser** (24) — `rasende`, `å hate`, `å gråte`, `å frykte`, `skamfull`, `forelsket`, `rørt`, `takknemlig`, `trygg`, `lykkelig`, `fornøyd`, `munter`, `irritert`, `misunnelig`, `oppgitt`, `stresset`, `rastløs`, `å plage`, `å skjule`, `å avsløre`, `å trøste`, `å tie`, `humør`, `å reagere`
 
 **u58 · Abstrakte begreper** (24) — `et begrep`, `en idé`, `et prinsipp`, `en kjerne`, `innhold`, `å omfatte`, `fornuft`, `bevisst`, `oppmerksom`, `ei evne`, `en drøm`, `ei sjel`, `frihet`, `en skjebne`, `et vilkår`, `umulig`, `tilstrekkelig`, `å utelukke`, `et faktum`, `en innsikt`, `konkret`, `en myte`, `å ane`, `å kalle`
 
@@ -2174,7 +2184,7 @@ Snapshot 2026-09-17: **2032 words** across **87 authored unit(s)**, **0 slot(s) 
 
 **u60 · Problemer og løsninger** (22) — `gal`, `en tabbe`, `å svikte`, `å forstyrre`, `ei utfordring`, `et uhell`, `å undersøke`, `å gjennomgå`, `å overvinne`, `en utvei`, `å reparere`, `praktisk`, `et råd`, `å oppmuntre`, `å gripe`, `en innsats`, `å ofre`, `å lykkes`, `å oppnå`, `å gi opp`, `å fullføre`, `et utfall`
 
-**u61 · Regler, lov og plikt** (20) — `forbudt`, `å bryte`, `et unntak`, `gyldig`, `å advare`, `nødt`, `å slippe`, `en ordre`, `å adlyde`, `et hensyn`, `et politi`, `å beskytte`, `orden`, `en kontroll`, `å mistenke`, `uhøflig`, `en norm`, `å takke`, `å krenke`, `å nikke`
+**u61 · Regler, lov og plikt** (20) — `forbudt`, `å bryte`, `et unntak`, `gyldig`, `å advare`, `nødt`, `å slippe`, `en ordre`, `å adlyde`, `et hensyn`, `politiet`, `å beskytte`, `orden`, `en kontroll`, `å mistenke`, `uhøflig`, `en norm`, `å takke`, `å krenke`, `å nikke`
 
 **u62 · Planer og hensikter** (24) — `å satse`, `å sikte`, `å ombestemme`, `et utkast`, `å prioritere`, `å binde`, `å forvente`, `å regne med`, `å forutse`, `en utsikt`, `på sikt`, `på forhånd`, `å bestille`, `å skaffe`, `et opplegg`, `å avlyse`, `å sørge for`, `å beregne`, `langsiktig`, `å oppfylle`, `å bosette`, `en karriere`, `å se fram til`, `tålmodig`
 
