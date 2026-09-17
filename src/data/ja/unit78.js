@@ -25,7 +25,7 @@ export const UNIT78 = {
       items: [
         { id: "ja-u78l1-sugata", type: "vocab", front: "すがた", reading: "sugata", meaning: "figure", example: { jp: "かのじょのすがたはきれいです。", en: "Her figure is beautiful." }, accept: ["form", "appearance"] },
         { id: "ja-u78l1-mitame", type: "vocab", front: "みため", reading: "mitame", meaning: "appearance", example: { jp: "みためがわかいです。", en: "He looks young." }, accept: ["looks", "how it looks"] },
-        { id: "ja-u78l1-sutairu", type: "vocab", front: "スタイル", reading: "sutairu", meaning: "figure", example: { jp: "かのじょのスタイルがすきです。", en: "I like her figure." }, drill: { jp: "スタイルがすきです。", en: "I like the figure." }, accept: ["build", "physique"] },
+        { id: "ja-u78l1-sutairu", type: "vocab", front: "スタイル", reading: "sutairu", meaning: "build, physique", example: { jp: "かのじょのスタイルがすきです。", en: "I like her figure." }, drill: { jp: "スタイルがすきです。", en: "I like the figure." }, accept: ["build", "physique", "figure"] },
         { id: "ja-u78l1-kakkoii", type: "vocab", front: "かっこいい", reading: "kakkoii", meaning: "cool", example: { jp: "あのひとはかっこいいです。", en: "That person is cool." }, accept: ["good-looking", "stylish"] },
         { id: "ja-u78l1-hansamu", type: "vocab", front: "ハンサム", reading: "hansamu", meaning: "handsome", example: { jp: "かれはハンサムです。", en: "He is handsome." }, accept: ["good-looking"] },
         { id: "ja-u78l1-bijin", type: "vocab", front: "びじん", reading: "bijin", meaning: "beautiful woman", example: { jp: "あのひとはびじんです。", en: "She is a beautiful woman." }, drill: { jp: "びじんがいます。", en: "There is a beautiful woman." }, accept: ["a beauty", "beauty"] },

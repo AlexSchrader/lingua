@@ -30,7 +30,7 @@ export const FR_UNIT23 = {
         { id: "fr-u23l1-noussommes", type: "vocab", front: "nous sommes", reading: "noussommes", meaning: "we are", example: { jp: "Nous sommes très contents.", en: "We are very happy." }, drill: { jp: "Nous sommes à la gare", en: "We are at the station" }, accept: ["we're"] },
         { id: "fr-u23l1-vousetes", type: "vocab", front: "vous êtes", reading: "vousetes", meaning: "you are (polite)", example: { jp: "Vous êtes français ?", en: "Are you French?" }, drill: { jp: "Vous êtes fatigué aujourd'hui", en: "You are tired today" }, accept: ["you're"] },
         { id: "fr-u23l1-ilssont", type: "vocab", front: "ils sont", reading: "ilssont", meaning: "they are", example: { jp: "Ils sont dans le salon.", en: "They are in the living room." }, drill: { jp: "Ils sont à la maison", en: "They are at home" }, accept: ["they're"] },
-        { id: "fr-u23l1-on", type: "vocab", front: "on", reading: "on", meaning: "we", example: { jp: "On va au restaurant !", en: "We're going to the restaurant!" }, drill: { jp: "On mange à midi", en: "We eat at noon" }, accept: ["one", "people", "you"], hint: "In real speech, on almost always replaces nous: on va, on mange. It takes the il/elle form." },
+        { id: "fr-u23l1-on", type: "vocab", front: "on", reading: "on", meaning: "we (informal), one", example: { jp: "On va au restaurant !", en: "We're going to the restaurant!" }, drill: { jp: "On mange à midi", en: "We eat at noon" }, accept: ["one", "people", "you", "we"], hint: "In real speech, on almost always replaces nous: on va, on mange. It takes the il/elle form." },
       ],
     },
     {
