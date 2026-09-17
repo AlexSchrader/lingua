@@ -14,6 +14,11 @@ const command =
     : `npm run dev -- --port ${PORT}`;
 
 export default defineConfig({
+  // Proves the server is usable BEFORE any test runs, and fails with a diagnostic
+  // naming the likely cause instead of letting the suite report a dozen page-load
+  // timeouts that look like code regressions. See tests/preflight.js for the
+  // incident that bought this.
+  globalSetup: "./tests/preflight.js",
   testDir: "./tests",
   testMatch: "**/*.spec.js", // Playwright owns *.spec.js; node:test owns tests/unit/*.test.mjs
   // Playwright's 30s default was set when the corpus was a fraction of its size.
