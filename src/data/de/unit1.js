@@ -40,12 +40,54 @@
 //         `hinter`, `vor`, `zwischen`: those are exactly the two-way prepositions
 //         whose whole point is the case contrast.
 //     (b) Verbs are headworded in the INFINITIVE (wohnen, kommen, essen), with
-//         person-marked forms shown in examples and hints. `sein` is the one
-//         exception: its forms are so irregular and so early that ist/bin/bist/
-//         sind are taught as separate fronts (u1l1, u1l2, u3l1, u3l3).
+//         person-marked forms shown in examples and hints. `sein` is the one verb
+//         whose finite forms are ALSO taught as separate fronts, because they are
+//         so irregular and arrive so early: ist/bin/bist/sind (u1l1, u1l2, u3l1,
+//         u3l3). ⚠️ UPDATED 2026-09-17 — the infinitive `sein` itself is now taught
+//         too, at u16l1, next to the modals that are the only thing that makes a
+//         bare infinitive sayable. Until then this header said ist/bin/bist/sind
+//         were the whole story, and the infinitive every other verb is headworded
+//         by was missing from the language entirely.
 //     (c) No plural noun forms are taught as separate fronts at A1 — die Eltern,
 //         die Geschwister, die Großeltern and die Nudeln are lexical plurals that
 //         have no singular in normal use, not a plural rule being taught.
+//   - ⚠️⚠️ THE A1/A2 FREQUENCY RETROFIT (2026-09-17) — READ THIS BEFORE YOU WRITE
+//     AROUND A COMMON WORD. German used to teach 9 of the 100 commonest words in
+//     the language NOWHERE: so, nur, sein (the infinitive), da, wird, werden,
+//     alles, tun, werde — 52 of the top 300. All are now taught in u1–u26.
+//     WHY IT SURVIVED SO LONG, because the same trap is still open for every
+//     other language: across all 2,422 de example+drill sentences `nur` appeared
+//     0 times, `so` 0, `alle` 0, `jeder` 0, `wirklich` 0, `Leute` 0 — while `sehr`
+//     appeared 413. Authors compose inside the scope checker's whitelist, so
+//     "used before taught" is 0 BY CONSTRUCTION and says nothing about coverage.
+//     A word that is neither taught NOR written warns nobody. The corpus was
+//     composed around the hole, and every check we own was blind to it by design.
+//     THE TOOL THAT SEES IT: `node scripts/gaps-de.mjs` probes an EXTERNAL
+//     published frequency list, not one we chose. Run it before assuming a common
+//     word is unavailable — and never work around a missing word by rephrasing.
+//     NEWLY AVAILABLE, with where they live: so u2 · da u3 · nur u3 · leben u4 ·
+//     alle u4 · das Mädchen u4 · seine u4 · alles u6 · zurück u7 · werden u8 ·
+//     andere/einfach/klar/die Leute/der Herr u10 · nun/dieser/wieso/wirklich/
+//     wohl/jemand/gar u12 · dafür u13 · davon/dabei u14 · die Sache/die Ordnung
+//     u15 · sein/mögen/tun/bringen u16 · ein paar u17 · fertig/erst u21 ·
+//     einmal u21 · passieren u22 · die Hilfe u25 · der Mensch u26.
+//     ⚠️ `werden` (u8l4) is the auxiliary the B1 PASSIVE unit is built on. It had
+//     no card anywhere until this pass. It does now — build on it.
+//     STILL DELIBERATELY ABSENT from the top 300 — UNTAUGHT(de:Gott),
+//     UNTAUGHT(de:tot), UNTAUGHT(de:rein). Each is inflated by the subtitle
+//     corpus the list is built from (crime drama and exclamations), not A1/A2
+//     vocabulary. That is a judgement, not an oversight — and it is written in
+//     the UNTAUGHT() form GUARD 2 resolves against the real corpus every run, so
+//     the day someone does teach one, this paragraph fails loudly instead of
+//     quietly lying to the next seat.
+//     ⚠️ TWO HOMOGRAPHS THIS CREATED, handled the way CLAUDE.md prescribes for
+//     Japanese に — through the example and a hint, never by weakening a check:
+//       sein  = "to be" (u16l1)  vs  seine = the possessive "his" (u4l4). Fronts
+//             are globally unique, so the possessive is headworded `seine`.
+//       alle  = "all / everyone" (u4l2)  vs  alles = "everything" (u6l4). Separate
+//             cards in separate lessons, distinct glosses, contrasted in both hints.
+//     `dieser` is headworded in the MASCULINE, matching `welcher` in the same
+//     lesson — not `diese`, which cannot generate the -er/-em forms.
 //   FREE: Anna, Thomas, Lena, Max, Berlin, München, Hamburg, Köln, Wien, Deutschland, Österreich, Europa | modern, elegant, interessant, fantastisch, perfekt, super, praktisch, international, laut, blond, direkt, ideal, normal, aktiv, privat, total, exakt, Musik, Foto, Sport, Film, Filme, Computer, Adresse, Telefon, Konzert, Theater, Zentrum, Universität, Auto | Bücher, Kinder, Minuten, Stunden, Tage, Türen, Äpfel, Häuser, Eier | 2000
 //     ⚠️ TWO THINGS THE NEXT SEAT MUST COPY, both learned from a checker run:
 //     (a) List cognates WITHOUT their article. check-lang-scope.mjs splits this
