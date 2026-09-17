@@ -10,7 +10,7 @@
 // l1's `selges · brukes · kalles · åpnes · kreves · finnes` and l2's `betalt ·
 // glemt · sendt · valgt · ødelagt · kjent` are inflected forms of verbs the
 // corpus already teaches (å bruke u17, å kreve u40, å finne u7, å betale u7,
-// å glemme u17, å sende u20, å velge u15, å ødelegge u65, å kjenne u1).
+// å glemme u17, å sende u20, å velge u15, å ødelegge u52, å kjenne u1).
 // RUNBOOK §4 warns against exactly this shape — "compare LEXEMES, not strings" —
 // and it is right to, because an ACCIDENTAL infinitive/inflection pair is one
 // word with two mastery tracks. These are not accidental, and the precedent is
@@ -37,25 +37,28 @@
 // (recorded at BUILD-CHECKLIST.md and in no/unit14.js's header). Run it; do not
 // read a clean result as confirmation.
 // ⚠ THREE OF THESE PASSIVES HAVE NO INFINITIVE CARD ANYWHERE IN THE CORPUS —
-// UNTAUGHT(no:å selge), UNTAUGHT(no:å kalle) and UNTAUGHT(no:å åpne) are fronts
-// in ZERO units (å selge has only the agent noun en selger, u18; å åpne only the
-// adjective åpen, u7). So the learner gets a mastery track on the PASSIVE of three
-// verbs they were never taught to produce, while unit1.js §2 makes the infinitive
-// the citation form. Each hint names its infinitive, which is a patch and not a fix.
-// Written in the UNTAUGHT(...) form so GUARD 2 (tests/unit/corpus-guards.test.mjs)
-// re-resolves it against the real corpus every run: the day someone adds one of
-// these three as a card, this test goes red and forces this paragraph to be updated
-// rather than leaving a stale claim for the next seat to trust.
-// MERGE-SEAT RULING 2026-09-17: NOT fixed here, deliberately. Adding `å selge`
-// beside `selges` is the exact infinitive/inflection pair this header spends its
-// first half defending against, so the cheap fix would create the defect the unit
-// is built to avoid. The real fix is an A1/A2 backfill — these are A1 verbs that
-// the u1–u50 band should have taught — and that is out of a B1 merge seat's lane.
-// Logged for Alex in the hand-back.
-// ⚠ BLOCK 1 / MERGE SEAT: this is a request, not a note — please give å selge,
-// å kalle and å åpne cards somewhere in the band. Nothing else in the corpus
-// does, and block 2 cannot add them without taking three slots from its own
-// 5–8 band. Raised by the Truth Layer, 2026-09-16.
+// ✅ RESOLVED ON MERGE DAY 2026-09-17. Until today `å selge`, `å kalle` and `å åpne`
+// were fronts in ZERO units, so the learner got a mastery track on the PASSIVE of
+// three verbs they had never been taught to produce, while unit1.js §2 makes the
+// infinitive the citation form. They are now taught, BEFORE this unit:
+//   å selge  → no-u66l4-aselge  (Penger og økonomi)
+//   å åpne   → no-u56l1-aapne   (Arbeid og framgangsmåte)
+//   å kalle  → no-u58l4-akalle  (Abstrakte begreper)
+//
+// The merge seat first REFUSED this, arguing that an infinitive beside its s-passive
+// is the very duplicate the first half of this header defends against. That argument
+// was self-defeating and the Truth Layer said so: this unit ALREADY ships nine such
+// pairs on purpose (å bruke u17/brukes, å finne u7/finnes, å kreve u40/kreves,
+// å betale u7/betalt, å glemme u17/glemt, å sende u20/sendt, å velge u15/valgt,
+// å ødelegge u52/ødelagt, å kjenne u1/kjent). Either those nine are legitimate grammar
+// cards — in which case three more infinitives create nothing new — or they are
+// duplicates, in which case shipping nine while refusing three is incoherent. The
+// nine are legitimate, for the reason above: Norwegian has no conjugation card type,
+// so the only way to teach the passive is to make the passive form the card. Adding
+// the three infinitives is therefore the same shape, already sanctioned nine times.
+//
+// ⚠ DO NOT re-add an UNTAUGHT marker for these three here. All three ARE taught
+// now, so GUARD 2 (tests/unit/corpus-guards.test.mjs) would correctly call it a lie.
 //
 // l3 is the causative (å la, and the til å / i å family), l4 is reported speech.
 // Those are ordinary new verbs, with no inflection question attached.
@@ -104,7 +107,7 @@ export const NO_UNIT70 = {
         { id: "no-u70l2-glemt", type: "vocab", front: "glemt", reading: "glemt", meaning: "forgotten", example: { jp: "Navnet hennes er glemt av alle.", en: "Her name is forgotten by everyone." }, accept: ["been forgotten"], drill: { jp: "Navnet er glemt av alle", en: "The name is forgotten by everyone" }, hint: "From å glemme (u17). av marks the agent, where English uses \"by\": glemt av alle." },
         { id: "no-u70l2-sendt", type: "vocab", front: "sendt", reading: "sendt", meaning: "sent", example: { jp: "Brevet ble sendt i går.", en: "The letter was sent yesterday." }, accept: ["been sent", "dispatched"], drill: { jp: "Brevet ble sendt i går", en: "The letter was sent yesterday" }, hint: "⚠ THE OTHER HALF OF THE RULE: BLI + participle describes the EVENT, er + participle describes the state. Brevet ble sendt (it happened at a moment) against brevet er sendt (it is out of the house)." },
         { id: "no-u70l2-valgt", type: "vocab", front: "valgt", reading: "valgt", meaning: "chosen", example: { jp: "Hun ble valgt til sjef.", en: "She was chosen as boss." }, accept: ["been chosen", "elected", "selected"], drill: { jp: "Hun ble valgt til sjef", en: "She was chosen as boss" }, hint: "From å velge (u15) — an irregular one: velger, valgte, har valgt. In politics it is the word for elected." },
-        { id: "no-u70l2-odelagt", type: "vocab", front: "ødelagt", reading: "odelagt", meaning: "destroyed", example: { jp: "Bilen ble ødelagt i ulykken.", en: "The car was destroyed in the accident." }, accept: ["been destroyed", "broken", "ruined"], drill: { jp: "Bilen ble ødelagt i ulykken", en: "The car was destroyed in the accident" }, hint: "From å ødelegge (u65): ødelegger, ødela, har ødelagt. It is an adjective too — en ødelagt telefon." },
+        { id: "no-u70l2-odelagt", type: "vocab", front: "ødelagt", reading: "odelagt", meaning: "destroyed", example: { jp: "Bilen ble ødelagt i ulykken.", en: "The car was destroyed in the accident." }, accept: ["been destroyed", "broken", "ruined"], drill: { jp: "Bilen ble ødelagt i ulykken", en: "The car was destroyed in the accident" }, hint: "From å ødelegge (u52): ødelegger, ødela, har ødelagt. It is an adjective too — en ødelagt telefon." },
         { id: "no-u70l2-kjent", type: "vocab", front: "kjent", reading: "kjent", meaning: "known", example: { jp: "Han er kjent i Norge og i Europa.", en: "He is known in Norway and in Europe." }, accept: ["famous", "well known", "familiar"], drill: { jp: "Han er kjent i Norge", en: "He is known in Norway" }, hint: "From å kjenne (u1), and a full adjective in its own right: en kjent skuespiller (u64). Kjent folk is how Norwegians say celebrities." },
       ],
     },
@@ -122,8 +125,8 @@ export const NO_UNIT70 = {
         { id: "no-u70l3-la", type: "vocab", front: "å la", reading: "ala", meaning: "to let", example: { jp: "La meg hjelpe deg med det.", en: "Let me help you with that." }, accept: ["let", "to allow", "to leave"], drill: { jp: "Det er lett å la barna velge", en: "It is easy to let the children choose" }, hint: "lar, lot, har latt. ⚠ The verb after it takes NO å: la meg gå, never la meg å gå. Same rule as after the modals (unit1 §5)." },
         { id: "no-u70l3-tvinge", type: "vocab", front: "å tvinge", reading: "atvinge", meaning: "to force", example: { jp: "Ingen kan tvinge deg til å skrive under.", en: "Nobody can force you to sign." }, accept: ["force", "to compel", "to make someone"], drill: { jp: "Ingen har rett til å tvinge deg", en: "Nobody has the right to force you" }, hint: "tvinger, tvang, har tvunget. Takes til å: tvinge noen til å gjøre noe — and here the å DOES come back, because til å is one of the frames that keeps it." },
         { id: "no-u70l3-overtale", type: "vocab", front: "å overtale", reading: "aovertale", meaning: "to persuade", example: { jp: "Hun overtalte meg til å bli med.", en: "She persuaded me to come along." }, accept: ["persuade", "to talk someone into"], drill: { jp: "Det er lett å overtale ham", en: "It is easy to persuade him" }, hint: "over + å tale (en tale, u49). overtaler, overtalte. til å again." },
-        { id: "no-u70l3-sorgefor", type: "vocab", front: "å sørge for", reading: "asorgefor", meaning: "to make sure", example: { jp: "Jeg sørger for at alle får mat.", en: "I make sure that everyone gets food." }, accept: ["make sure", "to see to", "to ensure", "to provide for"], drill: { jp: "Det er viktig å sørge for alle", en: "It is important to provide for everyone" }, hint: "On its own å sørge means to grieve; with for it means to see to something. sørger for, sørget for. ø folds to o: asorgefor." },
         { id: "no-u70l3-oppfordre", type: "vocab", front: "å oppfordre", reading: "aoppfordre", meaning: "to urge", example: { jp: "Legen oppfordret ham til å trene mer.", en: "The doctor urged him to exercise more." }, accept: ["urge", "to encourage", "to call on"], drill: { jp: "Vi pleier å oppfordre alle til å komme", en: "We usually urge everyone to come" }, hint: "opp + fordre. oppfordrer, oppfordret — and til å, like tvinge and overtale. The whole family takes a preposition; only å la goes bare." },
+        { id: "no-u70l3-apalegge", type: "vocab", front: "å pålegge", reading: "apalegge", meaning: "to impose (require of)", example: { jp: "Sjefen kan ikke pålegge deg å jobbe hver helg.", en: "The boss cannot require you to work every weekend." }, accept: ["to order", "to require", "to enjoin"], drill: { jp: "Det er ikke lov å pålegge deg det", en: "It is not allowed to require that of you" }, hint: "på + å legge → pålegger, påla. Sterkere enn å oppfordre og mer formelt enn å tvinge — det er ordet en sjef eller en lov bruker. Alltid å pålegge NOEN å gjøre noe."},
       ],
     },
     // Lesson 4: reporting what somebody else said.
@@ -137,10 +140,10 @@ export const NO_UNIT70 = {
       canDo: "Report what somebody else said, and mark how much you stand behind it.",
       items: [
         { id: "no-u70l4-antyde", type: "vocab", front: "å antyde", reading: "aantyde", meaning: "to hint", example: { jp: "Hun antydet at prisen kunne bli lavere.", en: "She hinted that the price could come down." }, accept: ["hint", "to suggest", "to imply"], drill: { jp: "Han prøvde å antyde noe mer", en: "He tried to hint at something more" }, hint: "an + å tyde, to read a sign. antyder, antydet. The polite way to raise something without saying it outright." },
-        { id: "no-u70l4-lurepa", type: "vocab", front: "å lure på", reading: "alurepa", meaning: "to wonder", example: { jp: "Jeg lurer på hvem som ringte.", en: "I wonder who called." }, accept: ["wonder", "to be curious about"], drill: { jp: "Det er lett å lure på hvorfor", en: "It is easy to wonder why" }, hint: "lurer på, lurte på. Also the politest way to ask for anything: jeg lurte på om du kunne hjelpe meg — literally \"I was wondering whether\"." },
         { id: "no-u70l4-gjengi", type: "vocab", front: "å gjengi", reading: "agjengi", meaning: "to recount", example: { jp: "Avisa gjenga samtalen ord for ord.", en: "The paper reproduced the conversation word for word." }, accept: ["reproduce", "to render", "to report", "to quote"], drill: { jp: "Det er lett å gjengi en samtale", en: "It is easy to recount a conversation" }, hint: "gjen- (again) + å gi (u13) — to give back what was said. gjengir, gjenga, har gjengitt, following gi exactly." },
         { id: "no-u70l4-tilfoye", type: "vocab", front: "å tilføye", reading: "atilfoye", meaning: "to add", example: { jp: "Han tilføyde at han ikke var sikker.", en: "He added that he was not sure." }, accept: ["add", "to append", "to add in speech"], drill: { jp: "Han pleier å tilføye noe til slutt", en: "He usually adds something at the end" }, hint: "til + å føye. tilføyer, tilføyde. In reported speech this is the standard \"he added\"; for adding numbers Norwegian uses å legge til." },
         { id: "no-u70l4-ifolge", type: "vocab", front: "ifølge", reading: "ifolge", meaning: "according to", example: { jp: "Ifølge avisa blir det dyrere i år.", en: "According to the paper it will be more expensive this year." }, accept: ["as stated by", "per"], drill: { jp: "Ifølge avisa blir det dyrere", en: "According to the paper it gets more expensive" }, hint: "i + følge (å følge, u45). A preposition, so a noun follows it directly: ifølge Erling, ifølge avisa. Fronting it triggers V2 — Ifølge avisa BLIR det …" },
+        { id: "no-u70l4-abemerke", type: "vocab", front: "å bemerke", reading: "abemerke", meaning: "to remark", example: { jp: "Han bemerket at rapporten kom altfor seint.", en: "He remarked that the report came far too late." }, accept: ["to observe", "to comment", "to note"], drill: { jp: "Hun pleier å bemerke slikt", en: "She usually remarks on such things" }, hint: "be- + å merke → bemerker, bemerket. Brukes når du gjengir hva noen sa — litt mer formelt enn å si, og oftest om noe kort."},
       ],
     },
   ],

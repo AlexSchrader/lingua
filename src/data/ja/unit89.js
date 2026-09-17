@@ -36,7 +36,7 @@ export const UNIT89 = {
         { id: "ja-u89l2-gasu", type: "vocab", front: "ガス", reading: "gasu", meaning: "gas", example: { jp: "ガスをつかいます。", en: "I use gas." }, accept: ["gas"] },
         { id: "ja-u89l2-dorobo", type: "vocab", front: "どろぼう", reading: "dorobō", meaning: "thief", example: { jp: "どろぼうがへやにはいります。", en: "A thief enters the room." }, accept: ["burglar","robber"] },
         { id: "ja-u89l2-repoto", type: "vocab", front: "レポート", reading: "repōto", meaning: "report", example: { jp: "レポートをかきます。", en: "I write a report." }, accept: ["paper","report"] },
-        { id: "ja-u89l2-ripoto", type: "vocab", front: "リポート", reading: "ripōto", meaning: "report", example: { jp: "リポートをよみます。", en: "I read a report." }, accept: ["report","news report"], hint: "Same word as レポート — a less common spelling." },
+        { id: "ja-u89l2-ripoto", type: "vocab", front: "リポート", reading: "ripōto", meaning: "news report", example: { jp: "リポートをよみます。", en: "I read a report." }, accept: ["report","news report"], hint: "Same word as レポート — a less common spelling." },
         { id: "ja-u89l2-irassharu", type: "vocab", front: "いらっしゃる", reading: "irassharu", meaning: "to come (honorific)", example: { jp: "せんせいがいらっしゃいます。", en: "The teacher is coming." }, accept: ["to go (honorific)","to be (honorific)"], hint: "Polite word for come / go / be — used about someone respected." },
       ],
     },

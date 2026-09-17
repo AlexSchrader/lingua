@@ -1,7 +1,7 @@
 # NO — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- no`.
-Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-17: **2032 words** across **87 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -32,11 +32,12 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å ansette` — u24 · to hire
 - `å anta` — u74 · to assume
 - `å antyde` — u70 · to hint
+- `å åpne` — u56 · to open
 - `å avbryte` — u49 · to interrupt
 - `å avhenge` — u52 · to depend
 - `å avlyse` — u62 · to cancel
 - `å avskaffe` — u59 · to abolish
-- `å avslå` — u73 · to reject
+- `å avslå` — u73 · to turn down
 - `å avsløre` — u57 · to reveal
 - `å avslutte` — u21 · to finish off
 - `å avstå` — u73 · to abstain
@@ -48,11 +49,13 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å banke` — u82 · to knock (bang)
 - `å be om` — u72 · to ask for
 - `å begrense` — u52 · to limit
+- `å begrunne` — u78 · to give reasons for
 - `å begynne` — u5 · to begin
 - `å behandle` — u78 · to process (handle)
 - `å beklage` — u2 · to be sorry
 - `å bekrefte` — u51 · to confirm
 - `å bekymre seg` — u67 · to worry
+- `å bemerke` — u70 · to remark
 - `å beregne` — u62 · to calculate
 - `å beskrive` — u49 · to describe
 - `å beskytte` — u61 · to protect
@@ -86,7 +89,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å bruke` — u17 · to use
 - `å bruke opp` — u66 · to use up
 - `å bry seg` — u22 · to care
-- `å bryte` — u61 · to break
+- `å bryte` — u61 · to break (a rule)
 - `å bygge` — u46 · to build
 - `å bytte` — u20 · to swap
 - `å danse` — u19 · to dance
@@ -176,7 +179,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å henge seg` — u84 · to freeze (crash)
 - `å hente` — u20 · to fetch
 - `å henvende seg` — u72 · to approach
-- `å hevde` — u51 · to claim
+- `å hevde` — u51 · to assert
 - `å hilse` — u17 · to greet
 - `å hindre` — u52 · to prevent
 - `å hjelpe` — u11 · to help
@@ -203,6 +206,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å invitere` — u86 · to invite
 - `å jakte` — u26 · to hunt
 - `å jobbe` — u3 · to work
+- `å kalle` — u58 · to call (name)
 - `å kaste` — u19 · to throw
 - `å kjenne` — u1 · to know
 - `å kjøpe` — u1 · to buy
@@ -238,9 +242,9 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å laste opp` — u75 · to upload
 - `å le` — u17 · to laugh
 - `å legge` — u77 · to lay (put down)
-- `å legge på` — u84 · to hang up
+- `å legge på` — u84 · to hang up (a phone)
 - `å leie` — u30 · to rent
-- `å leke` — u85 · to play
+- `å leke` — u85 · to play (as children do)
 - `å lese` — u18 · to read
 - `å lete` — u45 · to search
 - `å levere` — u24 · to hand in
@@ -253,8 +257,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å løsne` — u82 · to loosen
 - `å love` — u17 · to promise
 - `å lufte` — u30 · to air out
-- `å lure` — u54 · to wonder
-- `å lure på` — u70 · to wonder
+- `å lure på` — u54 · to wonder
 - `å lykkes` — u60 · to succeed
 - `å lyve` — u49 · to lie (tell an untruth)
 - `å måle` — u34 · to measure
@@ -270,7 +273,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å mistenke` — u61 · to suspect
 - `å more seg` — u35 · to have fun
 - `å møte` — u2 · to meet
-- `å møte opp` — u78 · to turn up
+- `å møte opp` — u78 · to show up (attend)
 - `å motta` — u72 · to receive
 - `å nekte` — u49 · to refuse
 - `å nevne` — u33 · to mention
@@ -309,6 +312,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å overtale` — u70 · to persuade
 - `å overvinne` — u60 · to overcome
 - `å pakke` — u20 · to pack
+- `å pålegge` — u70 · to impose (require of)
 - `å påpeke` — u51 · to point out
 - `å parkere` — u23 · to park
 - `å passe` — u15 · to fit
@@ -353,6 +357,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å savne` — u22 · to miss
 - `å se` — u2 · to see
 - `å se fram til` — u62 · to look forward to
+- `å selge` — u66 · to sell
 - `å sende` — u20 · to send
 - `å servere` — u41 · to serve
 - `å sette` — u77 · to set (put upright)
@@ -395,8 +400,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å snø` — u8 · to snow
 - `å snu` — u59 · to turn around
 - `å søke` — u24 · to apply
-- `å sørge` — u62 · to make sure
-- `å sørge for` — u70 · to make sure
+- `å sørge for` — u62 · to make sure
 - `å sortere` — u65 · to sort
 - `å sove` — u11 · to sleep
 - `å spare` — u27 · to save
@@ -414,11 +418,10 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å stave` — u49 · to spell
 - `å steke` — u41 · to fry
 - `å stemme` — u32 · to vote
-- `å stenge` — u84 · to close (shut off)
+- `å stenge` — u84 · to close (shut for the day)
 - `å stige` — u59 · to rise
 - `å stjele` — u55 · to steal
-- `å stole` — u54 · to trust
-- `å stole på` — u68 · to trust
+- `å stole på` — u54 · to trust
 - `å stoppe` — u20 · to stop
 - `å støtte` — u68 · to support
 - `å støvsuge` — u30 · to vacuum
@@ -473,7 +476,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å undervise` — u24 · to teach
 - `å unngå` — u25 · to avoid
 - `å utelukke` — u58 · to rule out
-- `å utføre` — u56 · to carry out
+- `å utføre` — u56 · to perform (a task)
 - `å utløse` — u52 · to trigger
 - `å utrydde` — u65 · to wipe out
 - `å utsette` — u23 · to postpone
@@ -490,7 +493,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `å velge` — u15 · to choose
 - `å vende` — u45 · to turn (to face another way)
 - `å vente` — u17 · to wait
-- `å verne` — u65 · to protect
+- `å verne` — u65 · to safeguard
 - `å ville` — u13 · to want to
 - `å vinne` — u44 · to win
 - `å virke` — u54 · to seem
@@ -535,7 +538,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `bak` — u76 · behind
 - `bare` — u2 · only
 - `bedre` — u37 · better
-- `begge` — u77 · both
+- `begge` — u77 · both (of two)
 - `beklageligvis` — u73 · regrettably
 - `bekymret` — u22 · worried
 - `bensin` — u81 · petrol
@@ -596,6 +599,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `disse` — u14 · these
 - `dobbelt` — u53 · double
 - `drakk` — u38 · drank
+- `drivstoff` — u81 · fuel
 - `du` — u2 · you
 - `dum` — u31 · stupid
 - `dyr` — u7 · expensive
@@ -702,7 +706,6 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `ei lønn` — u18 · pay
 - `ei løsning` — u50 · solution
 - `ei lue` — u15 · woolly hat
-- `ei makt` — u55 · power
 - `ei mappe` — u75 · a folder
 - `ei matpakke` — u83 · packed lunch
 - `ei melding` — u20 · message
@@ -741,7 +744,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `ei rulle` — u82 · roller (roll)
 - `ei rundkjøring` — u81 · roundabout
 - `ei rute` — u23 · route
-- `ei sag` — u82 · saw
+- `ei sag` — u82 · a saw (tool)
 - `ei sak` — u50 · matter
 - `ei samling` — u86 · gathering
 - `ei seng` — u16 · bed
@@ -898,14 +901,12 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `en forfatter` — u48 · author
 - `en forkjølelse` — u25 · a cold (the illness)
 - `en form` — u46 · shape
-- `en fornuft` — u58 · reason
 - `en forsker` — u34 · researcher
 - `en forskjell` — u50 · difference
 - `en fot` — u11 · foot
 - `en fotgjenger` — u81 · pedestrian
 - `en frakk` — u42 · coat
 - `en framgang` — u59 · progress
-- `en frihet` — u58 · freedom
 - `en frisør` — u18 · hairdresser
 - `en frist` — u24 · deadline
 - `en frokost` — u6 · breakfast
@@ -931,7 +932,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `en heis` — u80 · lift (elevator)
 - `en helhet` — u47 · a whole (the entirety)
 - `en helt` — u35 · hero
-- `en hendelse` — u55 · event
+- `en hendelse` — u55 · an incident
 - `en hensikt` — u50 · purpose
 - `en henvendelse` — u72 · an enquiry
 - `en hest` — u19 · horse
@@ -994,7 +995,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `en kunstner` — u35 · artist
 - `en kur` — u25 · cure
 - `en kurv` — u27 · basket
-- `en kvalitet` — u56 · quality
+- `en kvalitet` — u56 · quality (standard)
 - `en kyst` — u45 · coast
 - `en lader` — u84 · charger
 - `en lærdom` — u63 · a lesson learned
@@ -1051,7 +1052,6 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `en oppsigelse` — u80 · notice (termination)
 - `en oppvaskmaskin` — u30 · dishwasher
 - `en oppvekst` — u63 · an upbringing
-- `en orden` — u61 · tidiness
 - `en ordre` — u61 · command
 - `en orm` — u26 · snake
 - `en ost` — u6 · cheese
@@ -1092,14 +1092,13 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `en ressurs` — u65 · a resource
 - `en rest` — u47 · rest
 - `en rett` — u32 · right (an entitlement)
-- `en rettighet` — u55 · right
+- `en rettighet` — u55 · a right (entitlement)
 - `en rev` — u26 · fox
 - `en rikdom` — u71 · a wealth
 - `en risiko` — u52 · risk
 - `en robot` — u75 · a robot
 - `en roman` — u48 · novel
 - `en rømningsvei` — u87 · escape route
-- `en røyk` — u87 · smoke
 - `en runde` — u44 · round
 - `en rutine` — u21 · routine
 - `en ryggsekk` — u83 · rucksack
@@ -1194,7 +1193,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `en undersøkelse` — u74 · a survey
 - `en ungdomsskole` — u85 · lower secondary school
 - `en unge` — u85 · kid
-- `en utleier` — u80 · landlord
+- `en utleier` — u80 · a landlord (who lets)
 - `en utsikt` — u62 · prospect
 - `en utvei` — u60 · way out
 - `en vaksine` — u67 · a vaccine
@@ -1207,7 +1206,6 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `en vei` — u20 · road
 - `en veileder` — u74 · a supervisor
 - `en vekst` — u50 · growth
-- `en velferd` — u55 · welfare
 - `en venn` — u2 · friend
 - `en verden` — u45 · world
 - `en verdi` — u34 · value
@@ -1234,7 +1232,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `et antall` — u47 · number (a count of things)
 - `et år` — u5 · year
 - `et århundre` — u59 · century
-- `et arrangement` — u86 · event
+- `et arrangement` — u86 · an organised event
 - `et artsmangfold` — u65 · biodiversity
 - `et avdrag` — u79 · instalment
 - `et avslag` — u78 · rejection
@@ -1264,7 +1262,6 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `et depositum` — u79 · deposit (rental)
 - `et dikt` — u35 · poem
 - `et døgn` — u28 · 24 hours
-- `et drivstoff` — u81 · fuel
 - `et dyr` — u19 · animal
 - `et egg` — u26 · egg
 - `et eksempel` — u32 · example
@@ -1286,7 +1283,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `et førerkort` — u81 · driving licence
 - `et forfall` — u79 · due date
 - `et forhold` — u22 · relationship
-- `et formål` — u52 · purpose
+- `et formål` — u52 · an aim (purpose)
 - `et forslag` — u40 · suggestion
 - `et forsøk` — u34 · experiment
 - `et friminutt` — u85 · break (recess)
@@ -1306,10 +1303,9 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `et hjørne` — u45 · corner
 - `et hode` — u11 · head
 - `et høydepunkt` — u63 · a highlight
-- `et humør` — u57 · mood
+- `et humør` — u57 · spirits (humour)
 - `et hus` — u4 · house
 - `et innbrudd` — u80 · break-in
-- `et innhold` — u58 · content
 - `et innlegg` — u33 · post
 - `et innslag` — u48 · feature
 - `et inntrykk` — u50 · impression
@@ -1365,7 +1361,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `et område` — u45 · area
 - `et opphold` — u23 · stay
 - `et opplegg` — u62 · arrangement
-- `et oppslag` — u55 · news item
+- `et oppslag` — u55 · a notice (posting)
 - `et opptak` — u48 · recording
 - `et ord` — u18 · word
 - `et øre` — u11 · ear
@@ -1395,7 +1391,6 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `et rom` — u4 · room
 - `et rykte` — u49 · rumour
 - `et samfunn` — u32 · society
-- `et samhold` — u55 · togetherness
 - `et samliv` — u68 · a life together
 - `et samtykke` — u75 · a consent
 - `et sår` — u25 · wound
@@ -1406,7 +1401,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `et sete` — u23 · seat
 - `et sitat` — u48 · quotation
 - `et skap` — u15 · cupboard
-- `et skilt` — u81 · sign
+- `et skilt` — u81 · a road sign
 - `et skispor` — u83 · ski track
 - `et skjegg` — u42 · beard
 - `et skjema` — u32 · form
@@ -1466,7 +1461,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `et vennskap` — u68 · a friendship
 - `et verksted` — u81 · garage (workshop)
 - `et verktøy` — u75 · a tool
-- `et vilkår` — u58 · condition
+- `et vilkår` — u58 · a term (condition)
 - `et vindu` — u16 · window
 - `et virus` — u67 · a virus
 - `et vitnemål` — u24 · diploma
@@ -1514,6 +1509,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `forholdsvis` — u73 · comparatively
 - `formell` — u72 · formal
 - `fornøyd` — u57 · satisfied
+- `fornuft` — u58 · good sense
 - `forresten` — u54 · by the way
 - `forsiktig` — u31 · careful
 - `forsinket` — u23 · delayed
@@ -1523,17 +1519,18 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `førstehjelp` — u87 · first aid
 - `forsto` — u38 · understood
 - `fort` — u28 · quickly
+- `fortrolig` — u68 · in confidence
 - `fortsatt` — u28 · still
 - `forurensning` — u65 · pollution
 - `fra` — u3 · from
 - `framover` — u45 · forwards
 - `fredag` — u9 · Friday
-- `fremdeles` — u77 · still
+- `fremdeles` — u77 · still (up to now)
+- `frihet` — u58 · freedom
 - `friluftsliv` — u83 · outdoor life
 - `frisk` — u11 · healthy
 - `ga` — u38 · gave
-- `gal` — u78 · wrong
-- `galt` — u60 · wrong
+- `gal` — u60 · wrong
 - `gammel` — u3 · old
 - `gammeldags` — u59 · old-fashioned
 - `ganske` — u37 · quite
@@ -1553,7 +1550,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `grå` — u8 · grey
 - `gratis` — u27 · free (costing nothing)
 - `grei` — u31 · easy-going
-- `greit` — u72 · fine
+- `greit` — u72 · OK (that's fine)
 - `gress` — u26 · grass
 - `grønn` — u8 · green
 - `grundig` — u56 · thorough
@@ -1645,11 +1642,12 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `inne` — u76 · inside (being)
 - `innen` — u36 · by
 - `innenfor` — u76 · inside (of)
+- `innhold` — u58 · content
 - `inntil` — u36 · until
 - `irritert` — u57 · irritated
 - `is` — u43 · ice
 - `ja` — u2 · yes
-- `jammen` — u71 · indeed (surprise)
+- `jammen` — u71 · but (protesting)
 - `januar` — u9 · January
 - `jeg` — u1 · I
 - `jevn` — u59 · steady
@@ -1673,7 +1671,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `knapt` — u53 · barely
 - `kom` — u14 · came
 - `kommer til å` — u39 · is going to
-- `konkret` — u58 · concrete
+- `konkret` — u58 · concrete (specific)
 - `kontant` — u27 · cash
 - `kort` — u10 · short
 - `koselig` — u86 · cosy (pleasant)
@@ -1713,6 +1711,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `lykkelig` — u57 · deeply happy
 - `lys` — u8 · light
 - `mai` — u9 · May
+- `makt` — u55 · power
 - `maling` — u82 · paint
 - `man` — u40 · people in general
 - `mandag` — u9 · Monday
@@ -1730,7 +1729,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `men` — u12 · but
 - `mens` — u28 · while
 - `mer` — u37 · more
-- `mer eller mindre` — u73 · more or less
+- `mer eller mindre` — u73 · give or take
 - `mest` — u37 · most
 - `metall` — u46 · metal
 - `mett` — u41 · full
@@ -1798,6 +1797,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `oppmerksom` — u58 · attentive
 - `oppover` — u76 · upwards
 - `opprinnelig` — u59 · originally
+- `orden` — u61 · tidiness
 - `ordentlig` — u72 · proper
 - `oss` — u12 · us
 - `øst` — u45 · east
@@ -1837,19 +1837,21 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `rolig` — u22 · calm
 - `rørende` — u64 · moving
 - `rørt` — u57 · moved
+- `røyk` — u87 · smoke
 - `rundt` — u45 · around
 - `russen` — u86 · graduating student (russ)
 - `så` — u14 · saw
 - `så lenge` — u36 · as long as (in time)
 - `så sant` — u36 · provided that
 - `så snart` — u36 · as soon as
-- `så vidt` — u69 · barely
+- `så vidt` — u69 · only just
 - `så vidt jeg vet` — u54 · as far as I know
 - `særlig` — u37 · particularly
 - `saklig` — u73 · objective
 - `sakte` — u10 · slowly
 - `således` — u69 · thus
 - `salt` — u41 · salt
+- `samhold` — u55 · togetherness
 - `samme` — u30 · same
 - `sammen` — u4 · together
 - `samt` — u29 · as well as
@@ -1940,15 +1942,15 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `sulten` — u6 · hungry
 - `sunn` — u25 · healthy (good for you)
 - `sur` — u41 · sour
-- `svært` — u53 · very
+- `svært` — u53 · highly
 - `svart` — u8 · black
 - `syk` — u11 · ill
 - `synlig` — u71 · visible
 - `takk` — u2 · thank you
 - `takket være` — u36 · thanks to
 - `takknemlig` — u57 · grateful
-- `tålmodig` — u62 · patient
-- `temmelig` — u53 · rather
+- `tålmodig` — u62 · patient (not hurrying)
+- `temmelig` — u53 · fairly
 - `tenker å` — u39 · am thinking of
 - `ti` — u5 · ten
 - `tid` — u28 · time
@@ -1980,7 +1982,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `trygg` — u57 · safe
 - `tung` — u10 · heavy
 - `tvert imot` — u29 · on the contrary
-- `tydelig` — u51 · clear
+- `tydelig` — u51 · distinct (plain)
 - `tykk` — u42 · thick
 - `tynn` — u42 · thin
 - `uansett` — u36 · regardless
@@ -2001,7 +2003,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `ut` — u13 · out
 - `utadvendt` — u31 · outgoing
 - `ute` — u76 · outside (being)
-- `uten` — u76 · without
+- `uten` — u76 · without (preposition)
 - `uten å` — u36 · without doing
 - `uten at` — u36 · without
 - `utenfor` — u76 · outside (of)
@@ -2025,8 +2027,9 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `ved å` — u36 · by doing
 - `vedlagt` — u72 · attached
 - `vedlikehold` — u80 · maintenance
-- `vel` — u71 · presumably
+- `vel` — u71 · I suppose
 - `veldig` — u2 · very
+- `velferd` — u55 · welfare
 - `velkommen` — u2 · welcome
 - `vennligst` — u72 · please (in writing)
 - `venstre` — u7 · left
@@ -2045,7 +2048,7 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 - `vil` — u39 · will (want)
 - `vill` — u26 · wild
 - `ville` — u37 · would
-- `visst` — u71 · apparently
+- `visst` — u71 · I gather
 - `visstnok` — u54 · apparently
 - `vond` — u11 · painful
 
@@ -2157,23 +2160,23 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 
 **u53 · Sammenligning og grad** (22) — `å sammenligne`, `i forhold til`, `tilsvarende`, `dobbelt`, `halvparten`, `et flertall`, `jo`, `desto`, `like`, `etter hvert`, `omvendt`, `vesentlig`, `knapt`, `temmelig`, `svært`, `overhodet`, `færre`, `enestående`, `overlegen`, `å overgå`, `å skille`, `motsatt`
 
-**u54 · Tvil og forbehold** (20) — `å virke`, `antakelig`, `visstnok`, `tilsynelatende`, `å tyde på`, `å lure`, `å nøle`, `å gjette`, `neppe`, `usannsynlig`, `noenlunde`, `stort sett`, `forresten`, `eventuelt`, `så vidt jeg vet`, `en kilde`, `ei opplysning`, `angivelig`, `å stole`, `pålitelig`
+**u54 · Tvil og det vi ikke vet** (20) — `å virke`, `antakelig`, `visstnok`, `tilsynelatende`, `å tyde på`, `å lure på`, `å nøle`, `å gjette`, `neppe`, `usannsynlig`, `noenlunde`, `stort sett`, `forresten`, `eventuelt`, `så vidt jeg vet`, `en kilde`, `ei opplysning`, `angivelig`, `å stole på`, `pålitelig`
 
-**u55 · Nyheter og samfunn** (22) — `ei makt`, `ei regjering`, `en leder`, `å styre`, `en rettighet`, `å innføre`, `en hendelse`, `aktuell`, `et oppslag`, `en debatt`, `ei ytring`, `et samhold`, `ei befolkning`, `fattig`, `rik`, `en velferd`, `rettferdig`, `en straff`, `ei bot`, `en forbryter`, `å stjele`, `å anmelde`
+**u55 · Nyheter og samfunn** (22) — `makt`, `ei regjering`, `en leder`, `å styre`, `en rettighet`, `å innføre`, `en hendelse`, `aktuell`, `et oppslag`, `en debatt`, `ei ytring`, `samhold`, `ei befolkning`, `fattig`, `rik`, `velferd`, `rettferdig`, `en straff`, `ei bot`, `en forbryter`, `å stjele`, `å anmelde`
 
-**u56 · Arbeid og framgangsmåte** (23) — `en kompetanse`, `en arbeidsgiver`, `en arbeidstaker`, `ei fagforening`, `å pendle`, `et steg`, `en fase`, `å utføre`, `å forberede`, `å fordele`, `ei rekkefølge`, `en kvalitet`, `å forbedre`, `grundig`, `effektiv`, `en mangel`, `å godkjenne`, `et press`, `ei belastning`, `å takle`, `å overta`, `å overlate`, `å fortjene`
+**u56 · Arbeid og framgangsmåte** (24) — `en kompetanse`, `en arbeidsgiver`, `en arbeidstaker`, `ei fagforening`, `å pendle`, `å åpne`, `et steg`, `en fase`, `å utføre`, `å forberede`, `å fordele`, `ei rekkefølge`, `en kvalitet`, `å forbedre`, `grundig`, `effektiv`, `en mangel`, `å godkjenne`, `et press`, `ei belastning`, `å takle`, `å overta`, `å overlate`, `å fortjene`
 
 **u57 · Følelser i finere nyanser** (24) — `rasende`, `å hate`, `å gråte`, `å frykte`, `skamfull`, `forelsket`, `rørt`, `takknemlig`, `trygg`, `lykkelig`, `fornøyd`, `munter`, `irritert`, `misunnelig`, `oppgitt`, `stresset`, `rastløs`, `å plage`, `å skjule`, `å avsløre`, `å trøste`, `å tie`, `et humør`, `å reagere`
 
-**u58 · Abstrakte begreper** (23) — `et begrep`, `en idé`, `et prinsipp`, `en kjerne`, `et innhold`, `å omfatte`, `en fornuft`, `bevisst`, `oppmerksom`, `ei evne`, `en drøm`, `ei sjel`, `en frihet`, `en skjebne`, `et vilkår`, `umulig`, `tilstrekkelig`, `å utelukke`, `et faktum`, `en innsikt`, `konkret`, `en myte`, `å ane`
+**u58 · Abstrakte begreper** (24) — `et begrep`, `en idé`, `et prinsipp`, `en kjerne`, `innhold`, `å omfatte`, `fornuft`, `bevisst`, `oppmerksom`, `ei evne`, `en drøm`, `ei sjel`, `frihet`, `en skjebne`, `et vilkår`, `umulig`, `tilstrekkelig`, `å utelukke`, `et faktum`, `en innsikt`, `konkret`, `en myte`, `å ane`, `å kalle`
 
 **u59 · Endring over tid** (22) — `å stige`, `å synke`, `å avta`, `å forsvinne`, `jevn`, `en framgang`, `moderne`, `gammeldags`, `et århundre`, `opprinnelig`, `å bevare`, `ei krise`, `å snu`, `en overgang`, `å erstatte`, `å avskaffe`, `midlertidig`, `evig`, `stabil`, `å holde`, `å forbli`, `å tilpasse`
 
-**u60 · Problemer og løsninger** (22) — `galt`, `en tabbe`, `å svikte`, `å forstyrre`, `ei utfordring`, `et uhell`, `å undersøke`, `å gjennomgå`, `å overvinne`, `en utvei`, `å reparere`, `praktisk`, `et råd`, `å oppmuntre`, `å gripe`, `en innsats`, `å ofre`, `å lykkes`, `å oppnå`, `å gi opp`, `å fullføre`, `et utfall`
+**u60 · Problemer og løsninger** (22) — `gal`, `en tabbe`, `å svikte`, `å forstyrre`, `ei utfordring`, `et uhell`, `å undersøke`, `å gjennomgå`, `å overvinne`, `en utvei`, `å reparere`, `praktisk`, `et råd`, `å oppmuntre`, `å gripe`, `en innsats`, `å ofre`, `å lykkes`, `å oppnå`, `å gi opp`, `å fullføre`, `et utfall`
 
-**u61 · Regler, lov og plikt** (20) — `forbudt`, `å bryte`, `et unntak`, `gyldig`, `å advare`, `nødt`, `å slippe`, `en ordre`, `å adlyde`, `et hensyn`, `et politi`, `å beskytte`, `en orden`, `en kontroll`, `å mistenke`, `uhøflig`, `en norm`, `å takke`, `å krenke`, `å nikke`
+**u61 · Regler, lov og plikt** (20) — `forbudt`, `å bryte`, `et unntak`, `gyldig`, `å advare`, `nødt`, `å slippe`, `en ordre`, `å adlyde`, `et hensyn`, `et politi`, `å beskytte`, `orden`, `en kontroll`, `å mistenke`, `uhøflig`, `en norm`, `å takke`, `å krenke`, `å nikke`
 
-**u62 · Planer og hensikter** (24) — `å satse`, `å sikte`, `å ombestemme`, `et utkast`, `å prioritere`, `å binde`, `å forvente`, `å regne med`, `å forutse`, `en utsikt`, `på sikt`, `på forhånd`, `å bestille`, `å skaffe`, `et opplegg`, `å avlyse`, `å sørge`, `å beregne`, `langsiktig`, `å oppfylle`, `å bosette`, `en karriere`, `å se fram til`, `tålmodig`
+**u62 · Planer og hensikter** (24) — `å satse`, `å sikte`, `å ombestemme`, `et utkast`, `å prioritere`, `å binde`, `å forvente`, `å regne med`, `å forutse`, `en utsikt`, `på sikt`, `på forhånd`, `å bestille`, `å skaffe`, `et opplegg`, `å avlyse`, `å sørge for`, `å beregne`, `langsiktig`, `å oppfylle`, `å bosette`, `en karriere`, `å se fram til`, `tålmodig`
 
 **u63 · Erfaring og minne** (22) — `et minne`, `en barndom`, `en oppvekst`, `å vokse opp`, `nostalgisk`, `å mimre`, `et vendepunkt`, `et høydepunkt`, `en milepæl`, `å markere`, `å feire`, `å prege`, `et forbilde`, `å inspirere`, `påvirkning`, `en lærdom`, `erfaren`, `å gjenkjenne`, `å dukke opp`, `en generasjon`, `en tradisjon`, `et tilbakeblikk`
 
@@ -2181,15 +2184,15 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 
 **u65 · Miljø og klima** (22) — `ei klimaendring`, `et utslipp`, `en klimagass`, `forurensning`, `å forurense`, `ei oppvarming`, `avfall`, `ei søppelbøtte`, `gjenvinning`, `å gjenvinne`, `å sortere`, `forbruk`, `strøm`, `et kraftverk`, `en ressurs`, `bærekraftig`, `å forbruke`, `å verne`, `vern`, `en art`, `et artsmangfold`, `å utrydde`
 
-**u66 · Penger og økonomi** (23) — `ei inntekt`, `ei utgift`, `sparing`, `en kostnad`, `kostbar`, `å ha råd`, `en bankkonto`, `et lån`, `å betale ned`, `ei forsikring`, `ei avgift`, `å investere`, `en økonomi`, `et marked`, `en etterspørsel`, `ei prisstigning`, `inflasjon`, `ei investering`, `et overskudd`, `et underskudd`, `en aksje`, `å bruke opp`, `å lønne seg`
+**u66 · Penger og økonomi** (24) — `ei inntekt`, `ei utgift`, `sparing`, `en kostnad`, `kostbar`, `å ha råd`, `en bankkonto`, `et lån`, `å betale ned`, `ei forsikring`, `ei avgift`, `å investere`, `en økonomi`, `et marked`, `en etterspørsel`, `ei prisstigning`, `inflasjon`, `ei investering`, `et overskudd`, `et underskudd`, `en aksje`, `å bruke opp`, `å lønne seg`, `å selge`
 
 **u67 · Helse og velvære** (24) — `et symptom`, `en diagnose`, `ei bivirkning`, `en betennelse`, `kronisk`, `ei legevakt`, `en sykdom`, `å smitte`, `et virus`, `en vaksine`, `en epidemi`, `hygiene`, `en livsstil`, `et kosthold`, `mosjon`, `en døgnrytme`, `en balanse`, `å trives`, `psykisk`, `stress`, `å bekymre seg`, `angst`, `en depresjon`, `selvtillit`
 
-**u68 · Forhold og fellesskap** (22) — `et vennskap`, `en bekjent`, `tillit`, `å stole på`, `å støtte`, `en konflikt`, `en uenighet`, `å misforstå`, `et kompromiss`, `å forsone`, `å tilgi`, `et samliv`, `å forlove seg`, `et bryllup`, `å oppdra`, `omsorg`, `ei skilsmisse`, `et fellesskap`, `ei gruppe`, `å inkludere`, `å høre til`, `likestilling`
+**u68 · Forhold og fellesskap** (22) — `et vennskap`, `en bekjent`, `tillit`, `å støtte`, `fortrolig`, `en konflikt`, `en uenighet`, `å misforstå`, `et kompromiss`, `å forsone`, `å tilgi`, `et samliv`, `å forlove seg`, `et bryllup`, `å oppdra`, `omsorg`, `ei skilsmisse`, `et fellesskap`, `ei gruppe`, `å inkludere`, `å høre til`, `likestilling`
 
 **u69 · Grammatikk 6: leddsetninger og ordstilling** (23) — `trolig`, `sannsynligvis`, `åpenbart`, `utvilsomt`, `unektelig`, `der`, `det som`, `noe som`, `de som`, `den som`, `hvem som`, `videre`, `for øvrig`, `således`, `først og fremst`, `på den annen side`, `med andre ord`, `hvorvidt`, `hva som`, `med det samme`, `idet`, `helt til`, `så vidt`
 
-**u70 · Grammatikk 7: passiv og indirekte tale** (22) — `selges`, `brukes`, `kalles`, `åpnes`, `kreves`, `finnes`, `betalt`, `glemt`, `sendt`, `valgt`, `ødelagt`, `kjent`, `å la`, `å tvinge`, `å overtale`, `å sørge for`, `å oppfordre`, `å antyde`, `å lure på`, `å gjengi`, `å tilføye`, `ifølge`
+**u70 · Grammatikk 7: passiv og indirekte tale** (22) — `selges`, `brukes`, `kalles`, `åpnes`, `kreves`, `finnes`, `betalt`, `glemt`, `sendt`, `valgt`, `ødelagt`, `kjent`, `å la`, `å tvinge`, `å overtale`, `å oppfordre`, `å pålegge`, `å antyde`, `å gjengi`, `å tilføye`, `ifølge`, `å bemerke`
 
 **u71 · Grammatikk 8: nyanser og ordbygging** (20) — `vel`, `visst`, `liksom`, `sikkert`, `jammen`, `ei forventning`, `en bevegelse`, `ei forklaring`, `ei vurdering`, `en påstand`, `en sannhet`, `en virkelighet`, `en svakhet`, `en styrke`, `en rikdom`, `uvanlig`, `ulik`, `synlig`, `sannsynlig`, `utrolig`
 
@@ -2205,13 +2208,13 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 
 **u77 · Hverdagsord** (20) — `folk`, `en jobb`, `en slags`, `en morgen`, `vanskelig`, `å legge`, `å sette`, `å sjekke`, `å bære`, `å trekke`, `dem`, `selv`, `begge`, `slik`, `sånn`, `omsider`, `fremdeles`, `stadig`, `riktignok`, `attpåtil`
 
-**u78 · Det offentlige** (20) — `et vedtak`, `en saksbehandler`, `å møte opp`, `et personnummer`, `ei postkasse`, `å fylle ut`, `ei erklæring`, `å signere`, `en signatur`, `ei fullmakt`, `ei trygd`, `en tillatelse`, `å fornye`, `å behandle`, `å klage på`, `et avslag`, `ei ordning`, `dagpenger`, `gal`, `å innvilge`
+**u78 · Det offentlige** (20) — `et vedtak`, `en saksbehandler`, `å møte opp`, `et personnummer`, `ei postkasse`, `å fylle ut`, `ei erklæring`, `å signere`, `en signatur`, `ei fullmakt`, `ei trygd`, `en tillatelse`, `å fornye`, `å behandle`, `å klage på`, `et avslag`, `ei ordning`, `dagpenger`, `å innvilge`, `å begrunne`
 
 **u79 · Regninger og gjeld** (21) — `en faktura`, `et forfall`, `ei purring`, `et gebyr`, `ei innbetaling`, `å betale inn`, `lur`, `stram`, `å kutte`, `ei nedbetaling`, `å spare inn`, `et avdrag`, `gjeld`, `et depositum`, `å spare opp`, `å betale tilbake`, `et abonnement`, `å si opp`, `et kontantkort`, `ei utbetaling`, `en sparekonto`
 
 **u80 · Bolig og leieforhold** (22) — `en utleier`, `en leietaker`, `en oppsigelse`, `å flytte inn`, `ei flytting`, `en plass`, `et borettslag`, `en vaktmester`, `en heis`, `et loft`, `et fellesareal`, `en husordensregel`, `ei nettleie`, `et strømbrudd`, `å varme opp`, `en måler`, `ei varmepumpe`, `en lekkasje`, `å melde fra`, `å ryke`, `et innbrudd`, `vedlikehold`
 
-**u81 · Bil og trafikk** (22) — `et førerkort`, `ei fartsgrense`, `et skilt`, `en fotgjenger`, `å blinke`, `et dekk`, `en motor`, `et verksted`, `å rygge`, `et piggdekk`, `et kjøretøy`, `ei rundkjøring`, `en bilkø`, `et veiarbeid`, `ei omkjøring`, `en fartshump`, `sentrum`, `bensin`, `en bensinstasjon`, `bompenger`, `brøyting`, `et drivstoff`
+**u81 · Bil og trafikk** (22) — `et førerkort`, `ei fartsgrense`, `et skilt`, `en fotgjenger`, `å blinke`, `et dekk`, `en motor`, `et verksted`, `å rygge`, `et piggdekk`, `et kjøretøy`, `ei rundkjøring`, `en bilkø`, `et veiarbeid`, `ei omkjøring`, `en fartshump`, `sentrum`, `bensin`, `en bensinstasjon`, `bompenger`, `brøyting`, `drivstoff`
 
 **u82 · Verktøy og reparasjon** (22) — `en hammer`, `en skrutrekker`, `ei tang`, `ei sag`, `en stige`, `en spiker`, `ei skrue`, `en bolt`, `lim`, `en teip`, `å banke`, `å bore`, `å feste`, `å løsne`, `å fikse`, `å slipe`, `maling`, `en kost`, `et malingsspann`, `sandpapir`, `en flekk`, `ei rulle`
 
@@ -2223,5 +2226,5 @@ Snapshot 2026-09-17: **2029 words** across **87 authored unit(s)**, **0 slot(s) 
 
 **u86 · Høytider og tradisjoner** (22) — `en julaften`, `et juletre`, `ei påske`, `en høytid`, `et julebord`, `en nasjonaldag`, `en bunad`, `en nyttårsaften`, `ei pinse`, `å gratulere`, `et selskap`, `en begravelse`, `en bursdag`, `ei brud`, `et jubileum`, `å invitere`, `en dugnad`, `koselig`, `russen`, `ei feiring`, `et arrangement`, `ei samling`
 
-**u87 · Nødsituasjoner og sikkerhet** (21) — `en brann`, `en ambulanse`, `et nødnummer`, `en alarm`, `å rømme`, `førstehjelp`, `å skade seg`, `ei blødning`, `å besvime`, `en bandasje`, `sikkerhet`, `en vakt`, `å passe på`, `en advarsel`, `en trygghet`, `ei flamme`, `en røyk`, `å slukke`, `et slukkeapparat`, `en rømningsvei`, `en brannalarm`
+**u87 · Nødsituasjoner og sikkerhet** (21) — `en brann`, `en ambulanse`, `et nødnummer`, `en alarm`, `å rømme`, `førstehjelp`, `å skade seg`, `ei blødning`, `å besvime`, `en bandasje`, `sikkerhet`, `en vakt`, `å passe på`, `en advarsel`, `en trygghet`, `ei flamme`, `røyk`, `å slukke`, `et slukkeapparat`, `en rømningsvei`, `en brannalarm`
 

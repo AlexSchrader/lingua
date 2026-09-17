@@ -36,7 +36,7 @@ export const UNIT97 = {
         { id: "ja-u97l2-akusesari", type: "vocab", front: "アクセサリー", reading: "akusesarī", meaning: "accessory", example: { jp: "アクセサリーをかいました。", en: "I bought an accessory." }, accept: ["jewelry"] },
         { id: "ja-u97l2-asu", type: "vocab", front: "あす", reading: "asu", meaning: "tomorrow", example: { jp: "あす、あめがふります。", en: "It will rain tomorrow." }, drill: { jp: "あすはあめがふります。", en: "Tomorrow it will rain." }, accept: ["the next day"], hint: "formal word for あした" },
         { id: "ja-u97l2-keredo", type: "vocab", front: "けれど", reading: "keredo", meaning: "but, however", example: { jp: "たかいけれど、かいます。", en: "It's expensive, but I'll buy it." }, accept: ["however","though"] },
-        { id: "ja-u97l2-keredomo", type: "vocab", front: "けれども", reading: "keredomo", meaning: "but, however", example: { jp: "さむいけれども、げんきです。", en: "It's cold, but I'm fine." }, accept: ["however","though"] },
+        { id: "ja-u97l2-keredomo", type: "vocab", front: "けれども", reading: "keredomo", meaning: "but, however (formal)", example: { jp: "さむいけれども、げんきです。", en: "It's cold, but I'm fine." }, accept: ["however","though", "but, however"] },
         { id: "ja-u97l2-konpyuta", type: "vocab", front: "コンピュータ", reading: "konpyūta", meaning: "computer", example: { jp: "コンピュータをつかいます。", en: "I use a computer." }, accept: ["PC"], hint: "same as コンピューター" },
       ],
     },

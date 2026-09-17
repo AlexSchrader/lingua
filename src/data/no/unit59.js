@@ -80,7 +80,7 @@ export const NO_UNIT59 = {
       id: "no-u59l3",
       unit: 59,
       lesson: 3,
-      title: "Vendepunkt",
+      title: "Når alt snur",
       cefr: "B1",
       dominantMode: "recall",
       canDo: "Talk about the moment things turned — name a crisis, say something turned around, describe a transition, and say what was replaced or abolished.",

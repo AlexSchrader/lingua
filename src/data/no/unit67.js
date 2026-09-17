@@ -48,7 +48,7 @@ export const NO_UNIT67 = {
       id: "no-u67l1",
       unit: 67,
       lesson: 1,
-      title: "Hos legen",
+      title: "Legen og pasienten",
       cefr: "B1",
       dominantMode: "recall",
       canDo: "Describe symptoms to a doctor and understand the diagnosis you are given.",

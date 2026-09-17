@@ -27,46 +27,12 @@ import { normalizeReading, checkProduce, checkReading } from "../../src/store/an
 //
 // The 39 below are the pairs that already shipped in ja/fr/es. They are debt, not
 // permission. Delete an entry when you differentiate the glosses; never add one.
+// CLEARED 2026-09-17. All 39 pairs were differentiated — each item now carries the
+// sense that actually tells it apart from its twin (contento "pleased" vs feliz
+// "happy"; 歴 "career" vs 歴史 "history"), and the old shared gloss moved into
+// accept[] so typing it still passes on the meaning card. The list is empty and
+// must stay empty: there is no longer any such thing as known-acceptable debt here.
 const KNOWN_SHARED_GLOSS = new Set([
-  "es-u22l1-contento+es-u22l1-feliz",
-  "es-u35l4-elpasatiempo+es-u35l4-laaficion",
-  "es-u36l2-nadamas+es-u36l2-tanprontocomo",
-  "es-u51l2-coincidir+es-u51l2-estardeacuerdo",
-  "es-u52l3-conducira+es-u52l3-llevara",
-  "es-u52l4-elfin+es-u52l4-elproposito",
-  "es-u54l1-alparecer+es-u54l1-aparentemente",
-  "es-u54l1-enprincipio+es-u54l1-enteoria",
-  "es-u57l4-elestadodeanimo+es-u57l4-elhumor",
-  "es-u61l1-lanorma+es-u61l1-laregla",
-  "es-u68l1-elafecto+es-u68l1-elcarino",
-  "es-u73l3-comono+es-u73l3-desdeluego+es-u73l3-faltariamas",
-  "es-u76l1-elprocedimiento+es-u76l1-eltramite",
-  "es-u84l3-elcargo+es-u84l3-elpuesto",
-  "es-u87l3-enconsecuencia+es-u87l3-porconsiguiente",
-  "fr-u22l2-nepersonne+fr-u22l2-personne",
-  "fr-u22l2-nerien+fr-u22l2-rien",
-  "fr-u23l1-nous+fr-u23l1-on",
-  "fr-u58l1-largument+fr-u58l1-lathese",
-  "fr-u58l2-cependant+fr-u58l2-toutefois",
-  "fr-u59l2-aboutir+fr-u59l2-mener",
-  "fr-u63l4-effectuer+fr-u63l4-realiser",
-  "fr-u66l3-desormais+fr-u66l3-dorenavant",
-  "ja-u121l3-kicho+ja-u121l3-toutoi",
-  "ja-u123l1-fukei+ja-u123l1-kei",
-  "ja-u136l1-yu+ja-u136l1-yuso",
-  "ja-u136l4-doro+ja-u136l4-ro",
-  "ja-u157l2-8863+ja-u157l2-ifuku",
-  "ja-u166l2-8a3c+ja-u166l2-shomei",
-  "ja-u166l3-8cac+ja-u166l3-sekinin",
-  "ja-u171l2-6b74+ja-u171l2-rekishi",
-  "ja-u30l2-dakedo+ja-u30l2-kedo",
-  "ja-u39l2-do+ja-u39l2-kan",
-  "ja-u62l4-donokurai+ja-u62l4-ikura",
-  "ja-u78l1-sugata+ja-u78l1-sutairu",
-  "ja-u82l1-ii+ja-u82l1-yoi",
-  "ja-u86l4-mainen+ja-u86l4-maitoshi",
-  "ja-u89l2-repoto+ja-u89l2-ripoto",
-  "ja-u97l2-keredo+ja-u97l2-keredomo",
 ]);
 
 test("GUARD: no lesson teaches two items with the same gloss (ratchet)", () => {

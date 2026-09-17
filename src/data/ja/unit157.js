@@ -39,7 +39,7 @@ export const UNIT157 = {
       canDo: "Read 胃 (stomach), 衣 (clothing), 印 (a mark), 栄 (to flourish), and the words 衣服 and 目印.",
       items: [
         { id: "ja-u157l2-80c3", type: "kanji", front: "胃", reading: "i", meaning: "stomach", example: { jp: "食べすぎて、胃が 痛く なりました。", en: "I ate too much and my stomach started hurting." }, accept: ["the stomach"], hint: "胃 = stomach — 田 (a full sack) over 月, the flesh radical that marks nearly every organ." },
-        { id: "ja-u157l2-8863", type: "kanji", front: "衣", reading: "i", meaning: "clothing", example: { jp: "むかしの 衣服が はく物館に あります。", en: "Old clothing is in the museum." }, accept: ["garment", "dress"] },
+        { id: "ja-u157l2-8863", type: "kanji", front: "衣", reading: "i", meaning: "garment", example: { jp: "むかしの 衣服が はく物館に あります。", en: "Old clothing is in the museum." }, accept: ["garment", "dress", "clothing"] },
         { id: "ja-u157l2-5370", type: "kanji", front: "印", reading: "in", meaning: "a mark", example: { jp: "ここに 印を つけて おいて ください。", en: "Please put a mark here." }, accept: ["stamp", "seal", "sign"] },
         { id: "ja-u157l2-6804", type: "kanji", front: "栄", reading: "ei", meaning: "to flourish", example: { jp: "この 港町は 十年で 大きく 栄えました。", en: "This port town flourished greatly in ten years." }, accept: ["prosperity", "glory"] },
         { id: "ja-u157l2-ifuku", type: "vocab", front: "衣服", reading: "ifuku", meaning: "clothing", example: { jp: "衣服は きせつに よって かえます。", en: "We change our clothing with the seasons." }, accept: ["garments", "apparel"] },

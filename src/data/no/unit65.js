@@ -17,9 +17,12 @@
 // singular is not idiomatic for the sense being taught — "et avfall" is not
 // something a Norwegian says. Gender is named in the hint instead, exactly as
 // the base does with vann, melk, mat, luft, jord, energi and plast.
-// ⚠ `et forbruk` goes the other way and is articled, because et høyt forbruk IS
-// ordinary. §1's test is the sense, not the countability, and it does not decide
-// itself.
+// ⚠ CORRECTED ON MERGE DAY 2026-09-17: this used to say `et forbruk` "goes the
+// other way and is articled". It does not — the lemma is a mass noun and is taught
+// bare, like avfall beside it, and the merged tree had it articled here and bare at
+// u79l2, which is how the contradiction was found. A MODIFIED instance still takes an
+// article (et høyt forbruk), and that is true of any mass noun; it does not make the
+// citation form articled. §1's test is the sense, not the countability.
 // ⚠ `et utslipp` IS ARTICLED ON PURPOSE and survived the Truth Layer's review of
 // this exact carve-out: it is genuinely countable, its own example is plural
 // (utslippene fra biler) and its hint teaches the count paradigm (flere utslipp).
@@ -87,7 +90,7 @@ export const NO_UNIT65 = {
         { id: "no-u65l2-gjenvinning", type: "vocab", front: "gjenvinning", reading: "gjenvinning", meaning: "recycling", example: { jp: "Gjenvinning av glass er lett, og alle kan gjøre det.", en: "Recycling glass is easy, and everyone can do it." }, accept: ["recycling"], drill: { jp: "Gjenvinning av glass er lett", en: "Recycling glass is easy" }, hint: "gjen- (again) + å vinne (u44) — winning the material back. A mass noun, so bare: feminine, definite gjenvinninga." },
         { id: "no-u65l2-gjenvinne", type: "vocab", front: "å gjenvinne", reading: "agjenvinne", meaning: "to recycle", example: { jp: "Vi gjenvinner plast og glass i Norge.", en: "We recycle plastic and glass in Norway." }, accept: ["recycle", "to recover"], drill: { jp: "Det er lett å gjenvinne glass", en: "It is easy to recycle glass" }, hint: "It follows å vinne (u44) exactly: gjenvinner, gjenvant, har gjenvunnet. Same gjen- as gjenkjenne (u63) and gjenta (u33)." },
         { id: "no-u65l2-sortere", type: "vocab", front: "å sortere", reading: "asortere", meaning: "to sort", example: { jp: "Vi sorterer glass og plast i hver sin pose.", en: "We sort glass and plastic into separate bags." }, accept: ["sort", "to separate", "to sort out"], drill: { jp: "Vi pleier å sortere glass og plast", en: "We usually sort glass and plastic" }, hint: "sorterer, sorterte. Another regular -ere verb. Å sortere søppel is a daily word in Norway, not a technical one." },
-        { id: "no-u65l2-forbruk", type: "vocab", front: "forbruk", reading: "forbruk", meaning: "consumption", example: { jp: "Forbruket av plast er høyt i Norge.", en: "Plastic consumption is high in Norway." }, accept: ["consumption", "usage"], drill: { jp: "Vi har et forbruk som er høyt", en: "We have a consumption that is high" }, hint: "for- + å bruke (u17). Neuter: forbruket. Articled, unlike avfall, because et høyt forbruk is ordinary Norwegian." },
+        { id: "no-u65l2-forbruk", type: "vocab", front: "forbruk", reading: "forbruk", meaning: "consumption", example: { jp: "Forbruket av plast er høyt i Norge.", en: "Plastic consumption is high in Norway." }, accept: ["consumption", "usage"], drill: { jp: "Vi har et høyt forbruk", en: "We have a high consumption" }, hint: "for- + å bruke (u17). Intetkjønn: bestemt forbruket. Massesubstantiv, derfor bart oppslag (unit1.js §1b) — men et MODIFISERT forbruk tar artikkel: et høyt forbruk." },
       ],
     },
     // Lesson 3: where the power comes from, and why it should last.
@@ -117,7 +120,7 @@ export const NO_UNIT65 = {
       dominantMode: "recall",
       canDo: "Say what ought to be protected and what is being lost.",
       items: [
-        { id: "no-u65l4-verne", type: "vocab", front: "å verne", reading: "averne", meaning: "to protect", example: { jp: "Staten verner skogen rundt byen.", en: "The state protects the forest around the town." }, accept: ["protect", "to safeguard", "to conserve"], drill: { jp: "Det er viktig å verne naturen", en: "It is important to protect nature" }, hint: "verner, vernet. There is usually a law behind it — verne et område. Å passe på (u15) is the everyday, personal one." },
+        { id: "no-u65l4-verne", type: "vocab", front: "å verne", reading: "averne", meaning: "to safeguard", example: { jp: "Staten verner skogen rundt byen.", en: "The state protects the forest around the town." }, accept: ["protect", "to safeguard", "to conserve", "to protect", "to protect"], drill: { jp: "Det er viktig å verne naturen", en: "It is important to protect nature" }, hint: "verner, vernet. There is usually a law behind it — verne et område. Å passe på (u15) is the everyday, personal one." },
         { id: "no-u65l4-vern", type: "vocab", front: "vern", reading: "vern", meaning: "protection", example: { jp: "Vernet av elva kom sent, men det kom.", en: "The protection of the river came late, but it came." }, accept: ["protection", "conservation", "safeguard"], drill: { jp: "Elva trenger vern i loven", en: "The river needs protection in the law" }, hint: "⚠ A MASS noun, so no article on the card (unit1 §1b): neuter, definite vernet. The noun behind å verne, and it lives mostly inside compounds: naturvern, miljøvern, personvern (u75)." },
         { id: "no-u65l4-art", type: "vocab", front: "en art", reading: "enart", meaning: "a species", example: { jp: "Vi har mange arter i skogen som ingen har sett.", en: "We have many species in the forest that nobody has seen." }, accept: ["species", "kind", "sort"], drill: { jp: "Denne skogen har en art fra Europa", en: "This forest has a species from Europe" }, hint: "Masculine: arten, flere arter. A biological species in science, and simply \"kind\" in everyday speech." },
         { id: "no-u65l4-artsmangfold", type: "vocab", front: "et artsmangfold", reading: "etartsmangfold", meaning: "biodiversity", example: { jp: "Artsmangfoldet i skogen blir mindre hvert år.", en: "The biodiversity in the forest gets smaller every year." }, accept: ["biodiversity", "species diversity"], drill: { jp: "Skogen har et artsmangfold vi må verne", en: "The forest has a biodiversity we must protect" }, hint: "art + mange + fold. Neuter: artsmangfoldet. The -s- in the middle glues the compound together, the same -s- as in arbeidsdag." },

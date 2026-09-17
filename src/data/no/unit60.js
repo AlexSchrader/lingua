@@ -41,7 +41,7 @@ export const NO_UNIT60 = {
       dominantMode: "recall",
       canDo: "Say something has gone wrong and how badly — name a blunder and a mishap, say a person or a machine failed, say you were disturbed, and call the whole thing a challenge.",
       items: [
-        { id: "no-u60l1-galt", type: "vocab", front: "galt", reading: "galt", meaning: "wrong", example: { jp: "Noe er galt med bilen i dag.", en: "Something is wrong with the car today." }, drill: { jp: "Noe er galt med telefonen", en: "Something is wrong with the phone" }, accept: ["amiss", "not right", "incorrect", "the matter"], hint: "GALT. The neuter of gal, and the neuter is the form the everyday phrases use: hva er galt? what's wrong? Det gikk galt, it went wrong. ⚠ Gal about a PERSON means mad, not mistaken." },
+        { id: "no-u60l1-galt", type: "vocab", front: "gal", reading: "gal", meaning: "wrong", example: { jp: "Vi tok gal vei og kom for seint.", en: "We took the wrong way and arrived too late." }, drill: { jp: "Vi tok gal vei", en: "We took the wrong way" }, accept: ["amiss", "not right", "incorrect", "the matter"], hint: "GALT. The neuter of gal, and the neuter is the form the everyday phrases use: hva er galt? what's wrong? Det gikk galt, it went wrong. ⚠ Gal about a PERSON means mad, not mistaken." },
         { id: "no-u60l1-entabbe", type: "vocab", front: "en tabbe", reading: "entabbe", meaning: "blunder", example: { jp: "Han gjorde en tabbe og glemte avtalen.", en: "He made a blunder and forgot the appointment." }, drill: { jp: "Hun gjorde en tabbe i går", en: "She made a blunder yesterday" }, accept: ["a slip-up", "a gaffe", "a mistake", "a blunder"], hint: "TAB-be. Masculine: definite tabben, plural tabber. ⚠ Lighter than en feil, which you already know: en feil is an error in the work, en tabbe is an embarrassing one you made yourself. Å tabbe seg ut is to make a fool of yourself." },
         { id: "no-u60l1-asvikte", type: "vocab", front: "å svikte", reading: "asvikte", meaning: "to let down", example: { jp: "Han sviktet oss da vi trengte ham.", en: "He let us down when we needed him." }, drill: { jp: "Det er lett å svikte en venn", en: "It is easy to let a friend down" }, accept: ["fail someone", "to give way", "to break down", "to betray"], hint: "SVIK-te. Present svikter, past sviktet. Two jobs: a person who svikter lets you down, and a thing that svikter gives way. Et svik is a betrayal." },
         { id: "no-u60l1-aforstyrre", type: "vocab", front: "å forstyrre", reading: "aforstyrre", meaning: "to disturb", example: { jp: "Unnskyld, forstyrrer jeg?", en: "Sorry, am I disturbing you?" }, drill: { jp: "Det er lett å forstyrre en samtale", en: "It is easy to disturb a conversation" }, accept: ["disturb", "to interrupt", "interrupt", "to bother"], hint: "for-STUER-re. Present forstyrrer, past forstyrret. ⚠ Ikke forstyrr is what the sign on a hotel door says. It is about breaking someone's concentration, where å plage is about making them unhappy." },
@@ -74,7 +74,7 @@ export const NO_UNIT60 = {
       id: "no-u60l3",
       unit: 60,
       lesson: 3,
-      title: "Hjelp og støtte",
+      title: "Hjelp og gode råd",
       cefr: "B1",
       dominantMode: "recall",
       canDo: "Get behind someone — give advice, encourage them, seize a chance, name the effort they put in, and say what you gave up for it.",

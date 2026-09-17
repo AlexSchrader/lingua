@@ -30,7 +30,7 @@ export const UNIT30 = {
         { id: "ja-u30l2-shikashi", type: "vocab", front: "しかし", reading: "shikashi", meaning: "however", example: { jp: "すきです。しかし、へたです。", en: "I like it. However, I'm bad at it." }, accept: ["but", "yet"] },
         { id: "ja-u30l2-soredemo", type: "vocab", front: "それでも", reading: "soredemo", meaning: "even so", example: { jp: "さむいです。それでも、およぎます。", en: "It's cold. Even so, I'll swim." }, accept: ["still", "nevertheless"] },
         { id: "ja-u30l2-tokorode", type: "vocab", front: "ところで", reading: "tokorode", meaning: "by the way", example: { jp: "ところで、げんきですか。", en: "By the way, how are you?" }, accept: ["incidentally", "anyway"] },
-        { id: "ja-u30l2-dakedo", type: "vocab", front: "だけど", reading: "dakedo", meaning: "but", example: { jp: "だけど、むずかしいです。", en: "But it's difficult." }, accept: ["however", "still"] },
+        { id: "ja-u30l2-dakedo", type: "vocab", front: "だけど", reading: "dakedo", meaning: "though", example: { jp: "だけど、むずかしいです。", en: "But it's difficult." }, accept: ["however", "still", "but"] },
       ],
     },
     {

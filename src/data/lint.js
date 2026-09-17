@@ -243,14 +243,33 @@ export function exampleScopeWarnings(units) {
     //      its English translation. This is what catches a name used ONLY at the
     //      start of a sentence, which signal 1 can never see: "Paul est le frère
     //      de Marie." / "Paul is Marie's brother."
+    //
+    // SIGNAL 1 IS INVALID IN A LANGUAGE THAT CAPITALISES EVERY NOUN. German does,
+    // so "capitalised mid-sentence" describes its entire noun vocabulary rather
+    // than its names, and the whitelist swallowed the check. Measured 2026-09-17
+    // on the live corpus: 608 German words exempted against 65 French, 50
+    // Portuguese, 41 Spanish, 12 Norwegian - and it got WORSE as the corpus grew,
+    // because every noun a crew taught anywhere silenced that word everywhere,
+    // including in units BEFORE it (the set is built over all units with no order
+    // comparison). Two genuine warnings in de-u18l4 and de-u25l4 were silenced
+    // retroactively by a B1 unit teaching `die Sucht` and `Ruhe`.
+    // That is why German reported clean scope runs while `nur`, `so`, `alle`,
+    // `jeder` and `wirklich` appear ZERO times in 2,422 German sentences: the
+    // corpus was written around words it never teaches, and the one check that
+    // could have said so was switched off for German nouns.
+    // Signal 2 still catches German names, because a name is capitalised in the
+    // English gloss too - which is exactly the case signal 2 was added for.
+    const NOUN_CAPITALISING = new Set(["de"]);
     const proper = new Set();
     for (const u of ordered)
       for (const l of u.lessons ?? [])
         for (const it of l.items ?? []) {
-          const raw = (it.example?.jp ?? "").split(/[^\p{L}'’-]+/u).filter(Boolean);
-          raw.forEach((w, i) => {
-            if (i !== 0 && /^\p{Lu}/u.test(w)) wordPieces(w).forEach((p) => proper.add(p));
-          });
+          if (!NOUN_CAPITALISING.has(u.lang)) {
+            const raw = (it.example?.jp ?? "").split(/[^\p{L}'’-]+/u).filter(Boolean);
+            raw.forEach((w, i) => {
+              if (i !== 0 && /^\p{Lu}/u.test(w)) wordPieces(w).forEach((p) => proper.add(p));
+            });
+          }
           const enCaps = (it.example?.en ?? "").split(/[^\p{L}'’-]+/u).filter((w) => /^\p{Lu}/u.test(w));
           for (const w of enCaps) {
             const p = lower(w);
