@@ -8,8 +8,12 @@
 // ─── 1. WHAT CARRIES OVER UNCHANGED (do not re-derive it) ───────────────────
 //   - `front` is real orthography; `reading` is its ASCII fold, [a-z]+ only.
 //     Umlauts fold themselves via NFD (überzeugen → uberzeugen). ß IS NOT A
-//     DIACRITIC — write ss by hand (der Trugschluss → dertrugschluss); a stored
-//     reading containing ß is rejected by the contract.
+//     DIACRITIC — write ss by hand (das Ausmaß → dasausmass, die Messgröße →
+//     diemessgrosse); a stored reading containing ß is rejected by the contract.
+//     ⚠️ And do not claim a ß-fold on a word that has none: Schluss, Trugschluss,
+//     Beschluss, Ausschuss and Missbrauch are spelled with ss in the first place
+//     (1996 reform, short vowel). Five hints in this block said otherwise and
+//     were corrected in content-auditor revision 1.
 //   - NOUNS CARRY THEIR ARTICLE (der/die/das) and stay capitalized.
 //   - Verbs are headworded in the INFINITIVE; reflexives with sich; separables
 //     written together.
@@ -116,6 +120,40 @@
 //     der Krieg + der Frieden (u95) · die Sicherheit (u98) · der Vorwurf (u97).
 //   STILL HOMELESS, routed onward: beginnen · enden. NOTE u111–u113 are block
 //   2's and are already authored, so the coverage sink is u114–u126.
+
+// ─── 7. WHAT accept[] DOES AND DOES NOT DO — A CORRECTION ──────────────────
+//   Written down because I asserted the opposite in a commit message on this
+//   branch, and the next seat would otherwise inherit the mistake.
+//   `accept[]` is read by checkMeaning ONLY (src/store/answer.js). checkProduce
+//   — the card that shows the English gloss and asks for the German word — does
+//   NOT read it: it compares the typed string against `front`, plus a kana
+//   branch and a romaji fold that do not apply to German. Verified by reading
+//   answer.js, not by assuming.
+//   CONSEQUENCE FOR GLOSS WORK: when two cards share a `meaning`, the produce
+//   card shows that gloss and accepts exactly one front, so the other card's
+//   answer is graded wrong. The fix is to change the GLOSS. Putting the old
+//   gloss into accept[] protects the recognition direction, which was never
+//   broken, and does nothing for the produce card. Do both — but do not mistake
+//   the second for the fix, which is what my commit 0ad1aa94 claimed.
+//
+// ─── 8. WHEN A DERIVED NOUN IS ITS OWN CARD — THE RULING ───────────────────
+//   Raised by content-auditor revision 1, which found this block applying one
+//   rule in two directions. It dropped die Auswertung (auswerten), die Erhebung
+//   (erheben), die Haeufigkeit (haeufig) and die Wahrscheinlichkeit
+//   (wahrscheinlich) as same-lexeme duplicates, while keeping der Beweis
+//   (beweisen u34), die Entwicklung (entwickeln u34), die Investition
+//   (investieren u66), die Funktion (funktionieren u33), die Sicherheit (sicher
+//   u12) and die Vorsicht (vorsichtig u31). Both cannot be the rule.
+//   THE RULING, for blocks 2 and 3: a derived noun EARNS ITS OWN CARD when it
+//   names a thing the learner must be able to say and its sense is not simply
+//   "the act of <verb>" — der Beweis is an object you produce, die Entwicklung
+//   is a trend, die Funktion is a role, die Sicherheit covers three senses the
+//   adjective does not. It DOES NOT when it is the bare act-noun of a verb the
+//   learner already has (die Auswertung beside auswerten), and never when both
+//   would be taught inside the same band, where the learner meets them together.
+//   Distance matters: beweisen is at u34, fifty units back.
+//   The four drops above were conservative rather than required. That is the
+//   safe direction to be wrong in; keep erring that way when it is close.
 //
 // FREE: Zahlen, Gründe, Argument, Argumente, Studie, Studien, Experten, Kritiker, Nachbarn, Zeitungen, Absichten, Details, Quellen, Bilder, Seiten, Vorteile, Kosten, Team, Rhetorik, Internet, modern
 export const DE_UNIT88 = {
@@ -139,7 +177,7 @@ export const DE_UNIT88 = {
         { id: "de-u88l1-dieannahme", type: "vocab", front: "die Annahme", reading: "dieannahme", meaning: "the assumption", example: { jp: "Die ganze Studie steht auf einer Annahme, die niemand richtig gelesen hat.", en: "The whole study stands on an assumption that nobody has read properly." }, drill: { jp: "Die Annahme wirkt heute sehr alt", en: "The assumption seems very old today" }, accept: ["assumption", "the assumption", "supposition", "premise", "the premise"], hint: "From annehmen (to accept, to assume): what you take as given before you start. In der Annahme, dass… = on the assumption that…" },
         { id: "de-u88l1-untermauern", type: "vocab", front: "untermauern", reading: "untermauern", meaning: "to underpin", example: { jp: "Die Forschung untermauert seine These, obwohl die Zahlen aus einer kleinen Stadt kommen.", en: "The research underpins his thesis, although the figures come from one small city." }, drill: { jp: "Neue Zahlen untermauern die These", en: "New figures underpin the thesis" }, accept: ["to underpin", "underpin", "to back up", "back up", "to support", "support", "to substantiate"], hint: "unter + die Mauer (wall): to build a wall underneath something. Physical in origin, almost always figurative now — you underpin a claim with evidence." },
         { id: "de-u88l1-schlussig", type: "vocab", front: "schlüssig", reading: "schlussig", meaning: "coherent", example: { jp: "Der Vergleich ist schlüssig, solange man den einen großen Unterschied nicht vergisst.", en: "The comparison is coherent, as long as you don't forget the one big difference." }, drill: { jp: "Der Vergleich wirkt schlüssig genug", en: "The comparison seems coherent enough" }, accept: ["coherent", "conclusive", "consistent", "cogent", "sound", "logical"], hint: "From der Schluss (conclusion): the parts follow from one another. Contrast plausibel (l4) — schlüssig is about internal logic, plausibel about whether you believe it." },
-        { id: "de-u88l1-dieschlussfolgerung", type: "vocab", front: "die Schlussfolgerung", reading: "dieschlussfolgerung", meaning: "the conclusion", example: { jp: "Die Schlussfolgerung geht viel weiter als die Zahlen erlauben, und genau das kritisieren die Experten.", en: "The conclusion goes much further than the figures allow, and that is exactly what the experts criticize." }, drill: { jp: "Die Schlussfolgerung kommt eindeutig zu früh", en: "The conclusion clearly comes too early" }, accept: ["conclusion", "the conclusion", "inference", "the inference", "deduction"], hint: "der Schluss (end, conclusion) + folgern (to infer): the step you take at the end. eine Schlussfolgerung ziehen = to draw a conclusion. Reading folds ß to ss." },
+        { id: "de-u88l1-dieschlussfolgerung", type: "vocab", front: "die Schlussfolgerung", reading: "dieschlussfolgerung", meaning: "the conclusion", example: { jp: "Die Schlussfolgerung geht viel weiter als die Zahlen erlauben, und genau das kritisieren die Experten.", en: "The conclusion goes much further than the figures allow, and that is exactly what the experts criticize." }, drill: { jp: "Die Schlussfolgerung kommt eindeutig zu früh", en: "The conclusion clearly comes too early" }, accept: ["conclusion", "the conclusion", "inference", "the inference", "deduction"], hint: "der Schluss (end, conclusion) + folgern (to infer): the step you take at the end. eine Schlussfolgerung ziehen = to draw a conclusion." },
       ],
     },
     {
@@ -153,7 +191,7 @@ export const DE_UNIT88 = {
       items: [
         { id: "de-u88l2-widerlegen", type: "vocab", front: "widerlegen", reading: "widerlegen", meaning: "to refute", example: { jp: "Diese Zahlen widerlegen die Regel nicht, auch wenn sie in allen Zeitungen stehen.", en: "These figures do not refute the rule, even if they are in all the newspapers." }, drill: { jp: "Neue Studien widerlegen diese Annahme", en: "New studies refute this assumption" }, accept: ["to refute", "refute", "to disprove", "disprove", "to rebut", "rebut"], hint: "wider (against — not wieder, again) + legen: to lay something against a claim. Stronger than bezweifeln: widerlegen means you have shown it to be false." },
         { id: "de-u88l2-entkraften", type: "vocab", front: "entkräften", reading: "entkraften", meaning: "to weaken", example: { jp: "Der Bericht entkräftet die Kritik teilweise, aber das größte Problem bleibt.", en: "The report partly weakens the criticism, but the biggest problem remains." }, drill: { jp: "Diese Zahlen entkräften die Kritik", en: "These figures weaken the criticism" }, accept: ["to weaken", "weaken", "to invalidate", "invalidate", "to undermine", "undermine", "to refute"], hint: "ent- (away) + die Kraft (force): to take the force out of something. Weaker than widerlegen — you have blunted the objection, not killed it." },
-        { id: "de-u88l2-dertrugschluss", type: "vocab", front: "der Trugschluss", reading: "dertrugschluss", meaning: "the fallacy", example: { jp: "Es ist ein Trugschluss zu glauben, dass mehr Geld die Probleme von selbst kleiner macht.", en: "It is a fallacy to believe that more money makes the problems smaller by itself." }, drill: { jp: "Der Trugschluss steckt in der Rede", en: "The fallacy is in the speech" }, accept: ["fallacy", "the fallacy", "false conclusion", "logical fallacy", "mistaken conclusion"], hint: "der Trug (deception) + der Schluss (conclusion): a conclusion that deceives you. Note the ß → ss fold in the reading: dertrugschluss." },
+        { id: "de-u88l2-dertrugschluss", type: "vocab", front: "der Trugschluss", reading: "dertrugschluss", meaning: "the fallacy", example: { jp: "Es ist ein Trugschluss zu glauben, dass mehr Geld die Probleme von selbst kleiner macht.", en: "It is a fallacy to believe that more money makes the problems smaller by itself." }, drill: { jp: "Der Trugschluss steckt in der Rede", en: "The fallacy is in the speech" }, accept: ["fallacy", "the fallacy", "false conclusion", "logical fallacy", "mistaken conclusion"], hint: "der Trug (deception) + der Schluss (conclusion): a conclusion that deceives you. Two s's, no ß — the 1996 reform writes Schluss after a short u." },
         { id: "de-u88l2-unterstellen", type: "vocab", front: "unterstellen", reading: "unterstellen", meaning: "to impute", example: { jp: "Sie unterstellen mir eine Absicht, die ich nie hatte, und darauf steht ihre ganze Kritik.", en: "They impute an intention to me that I never had, and their whole criticism stands on that." }, drill: { jp: "Kritiker unterstellen der Firma schlechte Absichten", en: "Critics impute bad intentions to the company" }, accept: ["to impute", "impute", "to insinuate", "insinuate", "to allege", "allege", "to accuse someone of"], hint: "unter + stellen: to put something under someone — an intention they never stated. Dative person, accusative thing: jemandem etwas unterstellen." },
         { id: "de-u88l2-pauschal", type: "vocab", front: "pauschal", reading: "pauschal", meaning: "sweeping", example: { jp: "Solche pauschalen Urteile helfen niemandem, weil sie am Ende nichts erklären.", en: "Such sweeping judgements help nobody, because in the end they explain nothing." }, drill: { jp: "Diese Kritik bleibt leider sehr pauschal", en: "This criticism unfortunately stays very sweeping" }, accept: ["sweeping", "blanket", "across the board", "generalized", "generalised", "indiscriminate", "flat-rate"], hint: "Two lives: in money it is flat-rate (der Pauschalpreis), in an argument it is the insult — one judgement thrown over everything without looking at the cases." },
         { id: "de-u88l2-voreilig", type: "vocab", front: "voreilig", reading: "voreilig", meaning: "premature", example: { jp: "Der Chef entscheidet oft voreilig, und danach muss das ganze Team die Folgen tragen.", en: "The boss often decides prematurely, and afterwards the whole team has to bear the consequences." }, drill: { jp: "Dieses Urteil wirkt etwas voreilig", en: "This judgement seems somewhat premature" }, accept: ["premature", "hasty", "rash", "over-hasty", "precipitate"], hint: "vor (ahead) + eilen (to hurry): running ahead of what you actually know. voreilige Schlüsse ziehen = to jump to conclusions." },

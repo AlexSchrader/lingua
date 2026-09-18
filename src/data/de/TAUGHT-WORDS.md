@@ -1,7 +1,7 @@
 # DE — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- de`.
-Snapshot 2026-09-17: **2090 words** across **87 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-18: **2402 words** across **100 authored unit(s)**, **26 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -21,9 +21,40 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 | block | slots |
 |---|---|
-| 1 | u88–u100 |
-| 2 | u101–u113 |
-| 3 | u114–u126 |
+| 1 | u101–u109 |
+| 2 | u110–u118 |
+| 3 | u119–u126 |
+
+## Slots still stubs — not yours unless you were assigned them
+
+| slot | unit | title |
+|---|---|---|
+| 101 | `de-u101` | Environment and the global |
+| 102 | `de-u102` | Health systems and care |
+| 103 | `de-u103` | Education and research |
+| 104 | `de-u104` | Media and narrative |
+| 105 | `de-u105` | Emotion, subtle and mixed |
+| 106 | `de-u106` | Grammar 9 — conditional nuance and counterfactuals |
+| 107 | `de-u107` | Grammar 10 — formal written structures |
+| 108 | `de-u108` | Grammar 11 — discourse, cohesion, hedged claims |
+| 109 | `de-u109` | Register 3 — 敬語: humble and honorific |
+| 110 | `de-u110` | Register 4 — written, public and institutional voice |
+| 111 | `de-u111` | Vocabulary 1 (B2) |
+| 112 | `de-u112` | Vocabulary 2 (B2) |
+| 113 | `de-u113` | Vocabulary 3 (B2) |
+| 114 | `de-u114` | Vocabulary 4 (B2) |
+| 115 | `de-u115` | Vocabulary 5 (B2) |
+| 116 | `de-u116` | Vocabulary 6 (B2) |
+| 117 | `de-u117` | Vocabulary 7 (B2) |
+| 118 | `de-u118` | Vocabulary 8 (B2) |
+| 119 | `de-u119` | Vocabulary 9 (B2) |
+| 120 | `de-u120` | Vocabulary 10 (B2) |
+| 121 | `de-u121` | Vocabulary 11 (B2) |
+| 122 | `de-u122` | Vocabulary 12 (B2) |
+| 123 | `de-u123` | Vocabulary 13 (B2) |
+| 124 | `de-u124` | Vocabulary 14 (B2) |
+| 125 | `de-u125` | Vocabulary 15 (B2) |
+| 126 | `de-u126` | Vocabulary 16 (B2) |
 
 ## Index — every taught word, alphabetical
 
@@ -43,9 +74,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ablenken` — u86 · to distract
 - `abnehmen` — u53 · to decrease
 - `absagen` — u40 · to cancel / call off
+- `abschätzen` — u98 · to gauge
 - `abschleppen` — u82 · to tow away
 - `abschließen` — u79 · to conclude a contract
 - `abschwächen` — u73 · to tone down
+- `abstrakt` — u90 · abstract
+- `abwägen` — u88 · to weigh up
 - `acht` — u5 · eight
 - `achtzehn` — u17 · eighteen
 - `ahnen` — u86 · to have an inkling
@@ -73,6 +107,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ankommen` — u19 · to arrive
 - `ankreuzen` — u76 · to tick a box
 - `anmelden` — u62 · to register
+- `annähernd` — u91 · nearly
 - `annehmen` — u54 · to assume
 - `anpassen` — u62 · to adapt
 - `anprobieren` — u18 · to try on
@@ -81,6 +116,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `anschließend` — u56 · next
 - `anschnallen` — u82 · to fasten the seatbelt
 - `ansonsten` — u70 · apart from that
+- `anspruchsvoll` — u96 · demanding
 - `anstatt` — u36 · instead of
 - `anstoßen` — u40 · to clink glasses / toast
 - `antworten` — u20 · to answer
@@ -114,11 +150,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ausfallen` — u62 · to be cancelled
 - `ausfüllen` — u76 · to fill in
 - `ausgeben` — u27 · to spend
+- `ausgeprägt` — u91 · pronounced
 - `aushalten` — u57 · to endure
 - `auslösen` — u52 · to trigger
 - `ausnahmsweise` — u84 · just this once
 - `ausreichend` — u53 · sufficient
 - `ausrichten` — u77 · to pass on a message
+- `aussagekräftig` — u89 · meaningful
 - `aussehen` — u43 · to look
 - `außerdem` — u36 · besides — adding a further reason
 - `außerhalb` — u71 · outside of
@@ -126,6 +164,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `aussterben` — u65 · to die out
 - `ausstrahlen` — u64 · to broadcast
 - `auswendig` — u63 · by heart
+- `auswerten` — u89 · to analyse
 - `ausziehen` — u18 · to undress / remove clothing
 - `backen` — u41 · to bake
 - `bald` — u28 · soon
@@ -145,11 +184,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `bei` — u14 · at / near / with
 - `beilegen` — u76 · to enclose
 - `beinahe` — u53 · very nearly
+- `belastbar` — u89 · robust
 - `belasten` — u57 · to burden
 - `beleidigen` — u57 · to insult
 - `bemerken` — u86 · to notice
 - `benutzen` — u48 · to use
 - `beobachten` — u86 · to watch
+- `bereuen` — u97 · to regret deeply
 - `berühmt` — u35 · famous
 - `berühren` — u86 · to touch
 - `bescheiden` — u31 · modest
@@ -159,16 +200,19 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `besetzt` — u42 · taken / occupied
 - `besonders` — u36 · especially
 - `besser` — u37 · better
+- `bestätigen` — u89 · to confirm
 - `bestehen` — u24 · to pass
 - `bestellen` — u42 · to order
 - `bestimmt` — u62 · definitely
 - `bestreiten` — u51 · to dispute
 - `betonen` — u51 · to emphasize
 - `betrachten` — u86 · to look at closely
+- `beträchtlich` — u91 · sizeable
 - `betragen` — u87 · to amount to
 - `betreffen` — u52 · to concern
 - `bevor` — u29 · before
 - `bewahren` — u63 · to preserve
+- `bewältigen` — u98 · to cope with
 - `beweisen` — u34 · to prove
 - `bewölkt` — u50 · overcast
 - `bezahlen` — u17 · to pay
@@ -229,11 +273,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Anliegen` — u78 · the concern
 - `das Auge` — u11 · eye
 - `das Ausland` — u19 · abroad
+- `das Ausmaß` — u91 · the extent
 - `das Auto` — u23 · the car
 - `das Bad` — u15 · the bathroom
 - `das Bargeld` — u66 · the cash
 - `das Bein` — u11 · leg
 - `das Besteck` — u42 · the cutlery
+- `das Betriebsklima` — u100 · the workplace atmosphere
 - `das Bett` — u15 · the bed
 - `das Bier` — u6 · beer
 - `das Bild` — u15 · the picture
@@ -242,9 +288,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Brett` — u46 · the board
 - `das Brot` — u6 · bread
 - `das Buch` — u1 · book
+- `das Bühnenbild` — u96 · the stage design
+- `das Bündnis` — u92 · the alliance
 - `das Büro` — u20 · the workplace
 - `das Bußgeld` — u82 · the fine
 - `das Dach` — u30 · the roof
+- `das Denkmal` — u95 · the monument
+- `das Dilemma` — u97 · the dilemma
 - `das Doppelzimmer` — u23 · the double room
 - `das Drehbuch` — u64 · the screenplay
 - `das Drittel` — u87 · the third part
@@ -254,6 +304,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Einschreiben` — u83 · the registered letter
 - `das Einzelzimmer` — u23 · the single room
 - `das Ende` — u28 · the end
+- `das Erbe` — u95 · the heritage
 - `das Erdgeschoss` — u30 · the ground floor
 - `das Erdöl` — u65 · the crude oil
 - `das Ereignis` — u63 · the occurrence
@@ -262,6 +313,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Etikett` — u83 · the label
 - `das Experiment` — u34 · experiment
 - `das Fach` — u24 · the subject
+- `das Fachwissen` — u100 · the expertise
 - `das Fahrrad` — u19 · the bicycle
 - `das Fass` — u47 · the barrel
 - `das Fenster` — u15 · the window
@@ -275,12 +327,16 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Gas` — u34 · gas
 - `das Gebirge` — u65 · the mountains
 - `das Gedächtnis` — u63 · the memory
+- `das Gefüge` — u90 · the fabric
 - `das Gefühl` — u22 · the feeling
 - `das Gegenteil` — u58 · the opposite
 - `das Gehalt` — u24 · the salary
 - `das Geheimnis` — u58 · the secret
 - `das Geld` — u17 · the money
+- `das Gemälde` — u96 · the painting
+- `das Gemeinwohl` — u97 · the common good
 - `das Gemüse` — u6 · vegetables
+- `das Genre` — u96 · the genre
 - `das Gepäck` — u19 · the luggage
 - `das Gerät` — u33 · device / appliance
 - `das Geräusch` — u86 · the sound
@@ -314,6 +370,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Jahr` — u5 · year
 - `das Jahrhundert` — u59 · the century
 - `das Jahrzehnt` — u59 · the decade
+- `das Kapital` — u93 · the capital
 - `das Kapitel` — u35 · chapter
 - `das Kind` — u4 · child
 - `das Kinn` — u43 · the chin
@@ -323,23 +380,35 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Kleingedruckte` — u79 · the small print
 - `das Kleingeld` — u27 · the change
 - `das Klima` — u34 · climate
+- `das Klischee` — u99 · the cliché
 - `das Knie` — u25 · the knee
 - `das Konto` — u33 · account
 - `das Kraftwerk` — u65 · the power station
 - `das Krankenhaus` — u11 · hospital
+- `das Labor` — u94 · the laboratory
 - `das Licht` — u15 · the light (illumination)
 - `das Lied` — u35 · song
 - `das Loch` — u46 · the hole
 - `das Lokal` — u42 · the eating place
 - `das Mädchen` — u4 · girl
+- `das Mandat` — u92 · the seat
+- `das Maß` — u91 · the right measure
 - `das Meer` — u26 · the sea
 - `das Mehl` — u41 · the flour
 - `das Merkmal` — u58 · the feature
 - `das Messer` — u41 · the knife
+- `das Milieu` — u99 · the milieu
+- `das Ministerium` — u92 · the ministry
 - `das Missverständnis` — u51 · the misunderstanding
+- `das Miteinander` — u99 · the coexistence
 - `das Mitglied` — u35 · member
 - `das Mittagessen` — u6 · lunch
+- `das Mittel` — u97 · the means
+- `das Mittelalter` — u95 · the Middle Ages
+- `das Modell` — u90 · the model
+- `das Motiv` — u96 · the motif
 - `das Museum` — u7 · museum
+- `das Muster` — u90 · the pattern
 - `das Nest` — u26 · the nest
 - `das Netz` — u33 · network / net
 - `das Obst` — u6 · fruit
@@ -349,7 +418,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Original` — u76 · the original document
 - `das Paar` — u68 · the couple
 - `das Paket` — u47 · the parcel
+- `das Parlament` — u92 · the parliament
 - `das Passwort` — u33 · password
+- `das Patent` — u94 · the patent
 - `das Pferd` — u26 · the horse
 - `das Porto` — u83 · the postage
 - `das Postfach` — u83 · the PO box
@@ -361,18 +432,23 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Recht` — u32 · entitlement
 - `das Regal` — u15 · the shelf
 - `das Restaurant` — u7 · restaurant
+- `das Restrisiko` — u98 · the residual risk
 - `das Rezept` — u25 · the prescription
 - `das Risiko` — u60 · the risk
+- `das Rollenbild` — u99 · the conception of a role
 - `das Salz` — u41 · the salt
 - `das Schicksal` — u58 · the fate
 - `das Schiff` — u19 · the ship
 - `das Schild` — u61 · the sign
 - `das Schlafzimmer` — u15 · the bedroom
+- `das Selbstbild` — u99 · the self-image
 - `das Sofa` — u15 · the sofa
 - `das Spiel` — u45 · the game
 - `das Sprichwort` — u74 · the proverb
 - `das Stadion` — u45 · the stadium
 - `das Stück` — u17 · the piece
+- `das System` — u90 · the system
+- `das Szenario` — u98 · the scenario
 - `das Tagebuch` — u63 · the diary
 - `das Tauwetter` — u50 · the thaw
 - `das Thema` — u32 · topic
@@ -381,8 +457,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Training` — u45 · training
 - `das Trinkgeld` — u42 · the tip
 - `das Unglück` — u81 · the disaster
+- `das Unrecht` — u97 · the injustice
 - `das Urteil` — u75 · the verdict
+- `das Verbot` — u92 · the ban
 - `das Verbrechen` — u75 · the crime
+- `das Verfahren` — u92 · the proceedings
 - `das Verhalten` — u31 · behaviour
 - `das Verhältnis` — u87 · the ratio
 - `das Verkehrsschild` — u82 · the road sign
@@ -401,9 +480,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `das Wort` — u20 · the word
 - `das Wörterbuch` — u74 · the dictionary
 - `das Wunder` — u58 · the wonder
+- `das Zeitalter` — u95 · the era
 - `das Zeugnis` — u24 · the report card
 - `das Ziel` — u19 · the destination
 - `das Zimmer` — u15 · the room
+- `das Zugeständnis` — u88 · the concession
 - `dass` — u29 · that — links a clause
 - `dauern` — u19 · to last
 - `dauerte` — u38 · lasted — past of dauern
@@ -412,6 +493,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `defekt` — u78 · out of order
 - `dein` — u4 · your (informal)
 - `deinen` — u13 · object form of dein
+- `delegieren` — u100 · to delegate
 - `dem` — u14 · dative form of der
 - `demnächst` — u62 · shortly
 - `den` — u13 · object form of der
@@ -426,6 +508,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Akzent` — u74 · the accent
 - `der Alarm` — u81 · the alarm
 - `der Alltag` — u21 · everyday life
+- `der Anbieter` — u93 · the provider
 - `der Anfang` — u28 · the beginning
 - `der Anfänger` — u45 · the beginner
 - `der Anrufbeantworter` — u77 · the answering machine
@@ -433,18 +516,25 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Anspruch` — u58 · the claim
 - `der Anteil` — u53 · the share
 - `der Antrag` — u61 · the request
+- `der Antrieb` — u94 · the drive
 - `der Anwalt` — u75 · the lawyer
 - `der Apfel` — u6 · apple
 - `der April` — u9 · April
 - `der Arm` — u11 · arm
 - `der Arzt` — u11 · doctor
+- `der Aufbau` — u90 · the construction
+- `der Aufschlag` — u93 · the markup
+- `der Aufstand` — u95 · the uprising
+- `der Aufstieg` — u99 · the advancement
 - `der Auftrag` — u56 · the assignment
+- `der Auftritt` — u96 · the appearance
 - `der Aufwand` — u56 · the effort
 - `der Aufzug` — u30 · the lift
 - `der Augenblick` — u28 · the instant
 - `der August` — u9 · August
 - `der Ausdruck` — u74 · the expression
 - `der Ausflug` — u23 · the excursion
+- `der Ausschuss` — u92 · the committee
 - `der Ausstoß` — u65 · the emissions
 - `der Ausweg` — u60 · the way out
 - `der Ausweis` — u23 · the ID card
@@ -458,15 +548,20 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Beamte` — u75 · the official
 - `der Begriff` — u58 · the concept
 - `der Behälter` — u47 · the container
+- `der Beifall` — u96 · the applause
 - `der Beitrag` — u64 · the item
 - `der Beleg` — u78 · the proof of purchase
 - `der Bereich` — u56 · the area
 - `der Berg` — u26 · the mountain
 - `der Bericht` — u55 · the report
 - `der Beruf` — u3 · profession
+- `der Beschluss` — u92 · the formal decision
+- `der Bestandteil` — u90 · the component
 - `der Betrag` — u79 · the sum of money
 - `der Betrieb` — u66 · the business
+- `der Betriebsrat` — u100 · the works council
 - `der Beutel` — u47 · the bag
+- `der Beweis` — u89 · the conclusive proof
 - `der Bewohner` — u80 · the resident
 - `der Bildschirm` — u33 · screen
 - `der Blick` — u86 · the glance
@@ -496,16 +591,20 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Donnerstag` — u9 · Thursday
 - `der Draht` — u46 · the wire
 - `der Duft` — u86 · the scent
+- `der Durchbruch` — u94 · the breakthrough
 - `der Durchschnitt` — u87 · the average
 - `der Durst` — u11 · thirst
 - `der Eimer` — u47 · the bucket
 - `der Eindruck` — u54 · the impression
 - `der Eingriff` — u67 · the procedure
 - `der Einkaufswagen` — u27 · the trolley
+- `der Einspruch` — u92 · the legal objection
 - `der Eintritt` — u35 · admission — the fee to get in
 - `der Einwand` — u51 · the objection
 - `der Empfänger` — u83 · the recipient
+- `der Entwurf` — u96 · the draft
 - `der Erfolg` — u56 · the success
+- `der Ernstfall` — u98 · the real emergency
 - `der Euro` — u17 · the euro
 - `der Fahrplan` — u19 · the timetable
 - `der Februar` — u9 · February
@@ -519,8 +618,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Flur` — u15 · the hallway
 - `der Fluss` — u26 · the river
 - `der Fortschritt` — u34 · progress
+- `der Freispruch` — u92 · the acquittal
 - `der Freitag` — u9 · Friday
 - `der Freund` — u4 · friend — male
+- `der Frieden` — u95 · the peace
 - `der Frost` — u50 · the frost
 - `der Frühling` — u9 · spring
 - `der Führerschein` — u23 · the driving licence
@@ -530,13 +631,17 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Gast` — u40 · guest
 - `der Gastgeber` — u62 · the host
 - `der Geburtstag` — u40 · birthday
+- `der Gegenvorschlag` — u93 · the counter-proposal
 - `der Gegner` — u45 · the opponent
 - `der Geist` — u58 · the mind
+- `der Gewinn` — u93 · the profit
 - `der Grad` — u50 · the degree
+- `der Grenzwert` — u94 · the limit value
 - `der Griff` — u46 · the handle
 - `der Großvater` — u4 · grandfather
 - `der Grund` — u29 · the reason
 - `der Grundriss` — u80 · the floor plan
+- `der Grundsatz` — u97 · the basic principle
 - `der Gruß` — u72 · the greeting
 - `der Hagel` — u50 · the hail
 - `der Haken` — u46 · the hook
@@ -553,6 +658,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Herr` — u10 · gentleman / Mr
 - `der Himmel` — u8 · sky
 - `der Hinweis` — u52 · the pointer
+- `der Höhepunkt` — u96 · the climax
 - `der Hörer` — u77 · the receiver
 - `der Hund` — u26 · the dog
 - `der Hunger` — u6 · hunger
@@ -573,11 +679,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Kollege` — u20 · the colleague
 - `der Kompromiss` — u60 · the compromise
 - `der Konflikt` — u68 · the conflict
+- `der Konsens` — u88 · the consensus
 - `der Kopf` — u11 · head
 - `der Korb` — u27 · the basket
 - `der Körper` — u11 · body
 - `der Krankenwagen` — u25 · the ambulance
 - `der Kredit` — u66 · the loan
+- `der Krieg` — u95 · the war
 - `der Krug` — u47 · the jug
 - `der Kuchen` — u40 · cake
 - `der Kühlschrank` — u15 · the fridge
@@ -589,6 +697,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Lebenslauf` — u24 · the CV
 - `der Lehrer` — u20 · the teacher
 - `der Leser` — u55 · the reader
+- `der Lieferant` — u93 · the supplier
 - `der Löffel` — u41 · the spoon
 - `der Lohn` — u66 · the wage
 - `der Mai` — u9 · May
@@ -597,10 +706,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Mann` — u4 · man / husband
 - `der Mantel` — u18 · the coat
 - `der Markt` — u7 · market
+- `der Marktanteil` — u93 · the market share
 - `der März` — u9 · March
+- `der Mechanismus` — u90 · the mechanism
 - `der Meißel` — u46 · the chisel
 - `der Mensch` — u11 · the human being
 - `der Mietvertrag` — u80 · the tenancy agreement
+- `der Missbrauch` — u97 · the abuse
 - `der Mitarbeiter` — u56 · the employee
 - `der Mittwoch` — u9 · Wednesday
 - `der Moment` — u28 · the moment
@@ -630,12 +742,18 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Pinsel` — u46 · the brush
 - `der Platz` — u7 · square / space
 - `der Preis` — u17 · the price
+- `der Preisdruck` — u93 · the price pressure
+- `der Prototyp` — u94 · the prototype
 - `der Prozentsatz` — u87 · the percentage
+- `der Puffer` — u98 · the buffer
 - `der Pullover` — u18 · the jumper
 - `der Quadratmeter` — u80 · the square metre
+- `der Quereinsteiger` — u100 · the career changer
 - `der Rabatt` — u27 · the discount
+- `der Rahmen` — u90 · the framework
 - `der Rat` — u60 · the advice
 - `der Rauch` — u81 · the smoke
+- `der Rechtsstaat` — u92 · the rule of law
 - `der Regen` — u50 · the rainfall
 - `der Regenbogen` — u50 · the rainbow
 - `der Regisseur` — u64 · the director
@@ -649,6 +767,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Roman` — u35 · novel
 - `der Rückblick` — u63 · the look back
 - `der Rücken` — u25 · the back
+- `der Rückschlag` — u98 · the setback
 - `der Sachbearbeiter` — u76 · the case worker
 - `der Sack` — u47 · the sack
 - `der Saft` — u6 · juice
@@ -672,8 +791,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Schritt` — u56 · the step
 - `der Schuh` — u18 · the shoe
 - `der Schüler` — u20 · the pupil
+- `der Schwerpunkt` — u91 · the focus
 - `der See` — u26 · the lake
 - `der Sender` — u64 · the station
+- `der Sensor` — u94 · the sensor
 - `der September` — u9 · September
 - `der Sieg` — u45 · the victory
 - `der Sinn` — u58 · the sense
@@ -683,6 +804,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Sonntag` — u9 · Sunday
 - `der Spiegel` — u15 · the mirror
 - `der Spieler` — u45 · the player
+- `der Spielraum` — u93 · the leeway
 - `der Sport` — u45 · sport
 - `der Staat` — u32 · the state
 - `der Standpunkt` — u51 · the point of view
@@ -690,11 +812,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Staubsauger` — u30 · the vacuum cleaner
 - `der Stellplatz` — u80 · the parking space
 - `der Stempel` — u75 · the stamp
+- `der Stil` — u96 · the style
 - `der Stock` — u30 · the storey
 - `der Stoff` — u34 · material / substance
 - `der Strand` — u26 · the beach
 - `der Streik` — u55 · the strike
 - `der Streit` — u51 · the quarrel
+- `der Streitfall` — u92 · the dispute
 - `der Stress` — u67 · the stress
 - `der Strom` — u34 · electricity / current
 - `der Student` — u20 · the university student
@@ -704,6 +828,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Tag` — u5 · day
 - `der Tagesablauf` — u21 · daily routine
 - `der Tank` — u47 · the tank
+- `der Tarifvertrag` — u100 · the collective agreement
 - `der Täter` — u75 · the offender
 - `der Tau` — u50 · the dew
 - `der Tee` — u6 · tea
@@ -713,9 +838,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Tisch` — u15 · the table
 - `der Topf` — u41 · the pot
 - `der Traum` — u58 · the dream
+- `der Trugschluss` — u88 · the fallacy
+- `der Überblick` — u90 · the overview
+- `der Umbruch` — u95 · the upheaval
+- `der Umfang` — u91 · the scope
 - `der Umgang` — u68 · the way of dealing
 - `der Umgangston` — u72 · the tone
 - `der Umsatz` — u66 · the turnover
+- `der Umsatzrückgang` — u93 · the drop in sales
 - `der Umschlag` — u83 · the envelope
 - `der Umstand` — u52 · the circumstance
 - `der Unfall` — u60 · the accident
@@ -728,6 +858,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Verbandskasten` — u81 · the first-aid kit
 - `der Verdacht` — u86 · the suspicion
 - `der Verein` — u32 · club / association
+- `der Verfall` — u95 · the decline
 - `der Verlag` — u64 · the publisher
 - `der Verlust` — u66 · the loss
 - `der Vermieter` — u80 · the landlord
@@ -736,24 +867,34 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Versuch` — u34 · attempt / trial
 - `der Vertrag` — u24 · the contract
 - `der Vogel` — u26 · the bird
+- `der Vorbehalt` — u88 · the caveat
 - `der Vorgesetzte` — u78 · the line manager
 - `der Vorhang` — u30 · the curtain
 - `der Vorschlag` — u51 · the suggestion
+- `der Vorstand` — u93 · the executive board
 - `der Vorteil` — u52 · the advantage
+- `der Vorwurf` — u97 · the accusation
 - `der Wald` — u26 · the forest
 - `der Wandel` — u59 · the transformation
 - `der Weg` — u7 · way / path
+- `der Werdegang` — u100 · the background
+- `der Werkstoff` — u94 · the material
 - `der Wert` — u66 · the value
+- `der Wertewandel` — u99 · the shift in values
+- `der Wettbewerb` — u93 · the contest
 - `der Wettkampf` — u45 · the competition
 - `der Widerspruch` — u79 · the formal objection
+- `der Wiederaufbau` — u95 · the reconstruction
 - `der Wille` — u62 · the will
 - `der Wind` — u8 · wind
 - `der Winter` — u9 · winter
+- `der Wirkungsgrad` — u94 · the efficiency
 - `der Wortschatz` — u74 · the vocabulary
 - `der Wunsch` — u37 · wish
 - `der Zahn` — u11 · tooth
 - `der Zeitpunkt` — u62 · the point in time
 - `der Zeitraum` — u59 · the period
+- `der Zeitzeuge` — u95 · the contemporary witness
 - `der Zeuge` — u75 · the witness
 - `der Zoll` — u83 · the customs
 - `der Zucker` — u41 · the sugar
@@ -764,6 +905,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `der Zusammenhang` — u52 · the connection
 - `der Zuschauer` — u45 · the spectator
 - `der Zuschlag` — u79 · the surcharge
+- `der Zuwachs` — u91 · the increase
 - `der Zweck` — u52 · the purpose
 - `der Zweifel` — u54 · the doubt
 - `deren` — u36 · whose — feminine and plural
@@ -780,35 +922,52 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `dich` — u13 · you — object
 - `dicht` — u49 · dense
 - `dick` — u10 · thick / fat
+- `die Abgrenzung` — u99 · the demarcation
 - `die Abkürzung` — u74 · the abbreviation
 - `die Absicht` — u62 · the intention
+- `die Abstimmung` — u92 · the ballot
+- `die Abstufung` — u91 · the gradation
 - `die Abteilung` — u24 · the department
+- `die Abweichung` — u89 · the deviation
 - `die Ahnung` — u54 · the idea
 - `die Akte` — u75 · the case file
+- `die Akzeptanz` — u99 · the public acceptance
 - `die Allergie` — u25 · the allergy
 - `die Ampel` — u23 · the traffic light
+- `die Amtszeit` — u92 · the term of office
+- `die Anerkennung` — u99 · the recognition
 - `die Anfrage` — u71 · the enquiry
 - `die Angabe` — u87 · the stated figure
 - `die Angst` — u22 · the fear
 - `die Anlage` — u72 · the enclosure
 - `die Anleitung` — u46 · the instructions
 - `die Anmeldung` — u75 · the registration
+- `die Annahme` — u88 · the assumption
 - `die Anrede` — u72 · the form of address
 - `die Anschrift` — u83 · the postal address
+- `die Anwendung` — u94 · the practical use
 - `die Anzahlung` — u79 · the down payment
 - `die Apotheke` — u11 · pharmacy / chemist
 - `die App` — u33 · app
 - `die Armut` — u55 · the poverty
 - `die Art` — u58 · the kind
+- `die Aufarbeitung` — u95 · the reckoning
+- `die Aufführung` — u96 · the stage performance
 - `die Aufgabe` — u20 · the task
+- `die Auflösung` — u94 · the resolution
 - `die Aufnahme` — u64 · the recording
+- `die Aufrichtigkeit` — u97 · the sincerity
+- `die Ausbeutung` — u97 · the exploitation
 - `die Ausbildung` — u24 · the training
 - `die Ausfahrt` — u82 · the motorway exit
 - `die Ausgabe` — u66 · the expense
+- `die Ausgrenzung` — u99 · the exclusion
 - `die Auskunft` — u23 · the information desk
+- `die Auslastung` — u100 · the capacity utilisation
 - `die Ausnahme` — u58 · the exception
 - `die Ausrüstung` — u81 · the equipment
 - `die Aussage` — u61 · the statement
+- `die Ausschreibung` — u93 · the tender
 - `die Aussicht` — u23 · the view
 - `die Aussprache` — u74 · the pronunciation
 - `die Ausstellung` — u35 · exhibition
@@ -824,9 +983,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Bedeutung` — u74 · the meaning
 - `die Bedienung` — u42 · the service
 - `die Bedingung` — u37 · condition
+- `die Bedrohung` — u98 · the threat
+- `die Beförderung` — u100 · the promotion
 - `die Behandlung` — u25 · the treatment
 - `die Behörde` — u32 · public authority / office
 - `die Belastung` — u67 · the strain
+- `die Belegschaft` — u100 · the workforce
+- `die Besatzung` — u95 · the occupation
 - `die Bescheinigung` — u75 · the certificate
 - `die Beschwerden` — u67 · the complaints
 - `die Besichtigung` — u80 · the viewing
@@ -839,46 +1002,68 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Biene` — u26 · the bee
 - `die Bilanz` — u66 · the balance sheet
 - `die Bildung` — u55 · the education
+- `die Biografie` — u99 · the life story
 - `die Blume` — u40 · flower
+- `die Blütezeit` — u95 · the heyday
+- `die Branche` — u93 · the sector
 - `die Briefmarke` — u83 · the postage stamp
 - `die Brille` — u43 · the glasses
 - `die Bühne` — u35 · stage
 - `die Butter` — u6 · butter
+- `die Chancengleichheit` — u99 · the equal opportunity
+- `die Chronik` — u95 · the chronicle
+- `die Darstellung` — u96 · the depiction
 - `die Datei` — u33 · file
 - `die Decke` — u30 · the ceiling
 - `die Diagnose` — u67 · the diagnosis
 - `die Dose` — u47 · the can
 - `die Dosis` — u67 · the dose
 - `die Durchwahl` — u77 · the extension number
+- `die Dynamik` — u90 · the dynamic
+- `die Ebene` — u90 · the level
 - `die Ecke` — u44 · the corner
 - `die Ehe` — u68 · the marriage
 - `die Ehre` — u58 · the honour
 - `die Eigenschaft` — u31 · quality / trait
+- `die Einarbeitung` — u100 · the onboarding
+- `die Einheit` — u90 · the unit
 - `die Einnahme` — u66 · the takings
 - `die Einzelheit` — u58 · the detail
 - `die Eltern` — u4 · parents
+- `die Emanzipation` — u99 · the emancipation
+- `die Emission` — u94 · the emission
 - `die Energie` — u34 · energy
 - `die Entschädigung` — u78 · the compensation
+- `die Entwarnung` — u98 · the all-clear
+- `die Entwicklung` — u94 · the development
+- `die Epoche` — u95 · the epoch
 - `die Erde` — u34 · earth / the Earth
 - `die Erderwärmung` — u65 · global warming
 - `die Erfahrung` — u24 · the experience
 - `die Erkältung` — u11 · a head cold
+- `die Erkenntnis` — u94 · the finding
 - `die Ermäßigung` — u79 · the reduction
+- `die Ermittlung` — u92 · the investigation
 - `die Ernährung` — u67 · the diet
 - `die Erste Hilfe` — u81 · first aid
+- `die Erwartungshaltung` — u99 · the expectation
 - `die Erziehung` — u71 · the upbringing
+- `die Fachkraft` — u100 · the skilled worker
 - `die Fachsprache` — u72 · the technical language
 - `die Fähigkeit` — u37 · ability
 - `die Fahrkarte` — u19 · the ticket
 - `die Fahrschule` — u82 · the driving school
 - `die Familie` — u4 · family
 - `die Farbe` — u8 · colour
+- `die Fassung` — u96 · the version
 - `die Feile` — u46 · the file
 - `die Fernbedienung` — u64 · the remote control
 - `die Feuerwehr` — u81 · the fire brigade
+- `die Figur` — u96 · the character
 - `die Filiale` — u83 · the branch
 - `die Firma` — u20 · the company
 - `die Flasche` — u42 · the bottle
+- `die Fluktuation` — u100 · the staff turnover
 - `die Folge` — u52 · the consequence
 - `die Forderung` — u71 · the demand
 - `die Forschung` — u34 · research
@@ -889,12 +1074,18 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Freude` — u22 · the joy
 - `die Freundin` — u4 · friend — female
 - `die Frist` — u56 · the deadline
+- `die Frühwarnung` — u98 · the early warning
+- `die Funktion` — u90 · the function
+- `die Fürsorge` — u97 · the duty of care
 - `die Gabel` — u41 · the fork
 - `die Galerie` — u35 · gallery
 - `die Garantie` — u78 · the guarantee
+- `die Gattung` — u96 · the category
 - `die Gebühr` — u76 · the fee
+- `die Gedenkstätte` — u95 · the memorial site
 - `die Geduld` — u22 · the patience
 - `die Gefahr` — u81 · the danger
+- `die Gegenmaßnahme` — u98 · the counter-measure
 - `die Gegenwart` — u59 · the present
 - `die Gelegenheit` — u62 · the opportunity
 - `die Gemeinde` — u32 · local community / municipality
@@ -909,12 +1100,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Gesellschaft` — u32 · society
 - `die Geste` — u85 · the gesture
 - `die Gewalt` — u55 · the violence
+- `die Gewaltenteilung` — u92 · the separation of powers
 - `die Gewohnheit` — u59 · the habit
 - `die Grammatik` — u74 · the grammar
 - `die Grenze` — u19 · the border
 - `die Grippe` — u25 · the flu
 - `die Großeltern` — u4 · grandparents
 - `die Großmutter` — u4 · grandmother
+- `die Grundlage` — u88 · the basis
 - `die Gruppe` — u32 · group
 - `die Halbzeit` — u45 · half-time
 - `die Haltestelle` — u19 · the stop
@@ -926,14 +1119,22 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Heimat` — u55 · the home
 - `die Heizung` — u30 · the heating
 - `die Herausforderung` — u62 · the challenge
+- `die Herkunft` — u89 · the provenance
+- `die Herrschaft` — u95 · the rule
+- `die Hierarchie` — u100 · the hierarchy
 - `die Hilfe` — u14 · the help
 - `die Hitze` — u50 · the heat
 - `die Hochzeit` — u40 · wedding
 - `die Hose` — u18 · the trousers
+- `die Hypothese` — u94 · the hypothesis
+- `die Identität` — u99 · the identity
 - `die Impfung` — u67 · the vaccination
 - `die Inflation` — u66 · the inflation
 - `die Insel` — u26 · the island
+- `die Instanz` — u92 · the level of court
+- `die Inszenierung` — u96 · the production
 - `die Integration` — u68 · the integration
+- `die Investition` — u93 · the investment
 - `die Jacke` — u18 · the jacket
 - `die Jahreszeit` — u50 · the season
 - `die Kälte` — u50 · the cold
@@ -952,8 +1153,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Klasse` — u20 · the class
 - `die Klinge` — u46 · the blade
 - `die Klingel` — u30 · the doorbell
+- `die Koalition` — u92 · the coalition
 - `die Kohle` — u65 · the coal
 - `die Komödie` — u64 · the comedy
+- `die Komposition` — u96 · the composition
+- `die Konkurrenz` — u93 · the competitors
 - `die Kopie` — u76 · the photocopy
 - `die Körperhaltung` — u85 · the body posture
 - `die Kraft` — u34 · force / strength
@@ -963,68 +1167,93 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Kritik` — u55 · the criticism
 - `die Küche` — u1 · kitchen
 - `die Kuh` — u26 · the cow
+- `die Kulisse` — u96 · the backdrop
 - `die Kunst` — u35 · art
 - `die Kur` — u67 · the spa stay
 - `die Küste` — u65 · the coast
 - `die Lampe` — u15 · the lamp
 - `die Landschaft` — u65 · the landscape
+- `die Laufbahn` — u100 · the career path
 - `die Laufzeit` — u79 · the term of a contract
 - `die Laune` — u22 · the mood
+- `die Lebenslage` — u99 · the life situation
+- `die Legierung` — u94 · the alloy
+- `die Leinwand` — u96 · the canvas
 - `die Leistung` — u56 · the performance
 - `die Leiter` — u46 · the ladder
 - `die Leute` — u10 · people
+- `die Lieferkette` — u93 · the supply chain
 - `die Lieferung` — u71 · the delivery
 - `die Lippe` — u43 · the lip
 - `die Lösung` — u32 · solution
+- `die Lücke` — u89 · the gap
 - `die Luft` — u34 · air
 - `die Macht` — u55 · the power
 - `die Mahnung` — u79 · the payment reminder
 - `die Mailbox` — u77 · the voicemail
 - `die Mannschaft` — u45 · the team
+- `die Marge` — u93 · the margin
 - `die Maßnahme` — u60 · the measure
+- `die Mauer` — u95 · the outer wall
 - `die Maus` — u26 · the mouse
 - `die Medaille` — u45 · the medal
 - `die Medizin` — u11 · medicine
 - `die Mehrheit` — u32 · majority
+- `die Mehrheitsgesellschaft` — u99 · the majority society
+- `die Mehrzahl` — u91 · the majority
 - `die Meinung` — u29 · the opinion
 - `die Menge` — u47 · the amount
+- `die Messgröße` — u94 · the measured variable
+- `die Metapher` — u96 · the metaphor
 - `die Miete` — u30 · the rent
 - `die Milch` — u6 · milk
 - `die Minderheit` — u68 · the minority
 - `die Minute` — u5 · minute
+- `die Mitbestimmung` — u100 · the co-determination
 - `die Mitte` — u44 · the middle
 - `die Mitteilung` — u71 · the notice
+- `die Mobilität` — u99 · the mobility
+- `die Moral` — u97 · the morality
 - `die Mundart` — u72 · the local speech
 - `die Münze` — u27 · the coin
 - `die Mutter` — u4 · mother
 - `die Muttersprache` — u74 · the mother tongue
 - `die Mütze` — u18 · the woolly cap
 - `die Nachbarschaft` — u68 · the neighbourhood
+- `die Nachfolge` — u100 · the succession
 - `die Nachfrage` — u66 · the market demand
+- `die Nachkriegszeit` — u95 · the post-war period
 - `die Nachricht` — u33 · message
 - `die Nacht` — u5 · night
 - `die Nase` — u11 · nose
 - `die Nebenkosten` — u80 · the extra costs
 - `die Nebenwirkung` — u67 · the side effect
+- `die Neuzeit` — u95 · the modern era
 - `die Niederlage` — u45 · the defeat
+- `die Norm` — u94 · the standard
 - `die Notaufnahme` — u81 · the emergency department
 - `die Note` — u24 · the grade
+- `die Notlage` — u98 · the plight
+- `die Nuance` — u91 · the nuance
 - `die Nudeln` — u6 · pasta / noodles
 - `die Nummer` — u17 · the reference number
 - `die Öffentlichkeit` — u55 · the public
 - `die Öffnungszeit` — u76 · the opening time
 - `die Oper` — u35 · opera
 - `die Operation` — u67 · the operation
+- `die Opposition` — u92 · the opposition
 - `die Ordnung` — u61 · the order
 - `die Packung` — u47 · the pack
 - `die Panik` — u81 · the panic
 - `die Panne` — u60 · the breakdown
 - `die Partei` — u55 · the party
 - `die Pause` — u24 · the break
+- `die Personalabteilung` — u100 · the HR department
 - `die Pfanne` — u41 · the frying pan
 - `die Pflanze` — u26 · the plant
 - `die Pflege` — u67 · the care
 - `die Pflicht` — u32 · duty / obligation
+- `die Pflichtverletzung` — u97 · the breach of duty
 - `die Politik` — u55 · the politics
 - `die Polizei` — u75 · the police
 - `die Portion` — u42 · the portion
@@ -1033,24 +1262,32 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Postleitzahl` — u83 · the postcode
 - `die Praxis` — u25 · the surgery
 - `die Presse` — u55 · the press
+- `die Probezeit` — u100 · the probation period
+- `die Prognose` — u98 · the forecast
 - `die Prüfung` — u20 · the exam
 - `die Quelle` — u55 · the source
 - `die Quittung` — u27 · the receipt
 - `die Quote` — u87 · the proportion in figures
 - `die Rate` — u79 · the instalment
+- `die Rechenschaft` — u97 · the account
 - `die Rechnung` — u42 · the bill
 - `die Redaktion` — u55 · the editorial team
 - `die Rede` — u40 · speech
 - `die Redewendung` — u74 · the idiom
+- `die Reform` — u92 · the reform
 - `die Regel` — u32 · rule
 - `die Regierung` — u32 · government
 - `die Reihenfolge` — u56 · the sequence
+- `die Rendite` — u93 · the return
 - `die Rente` — u66 · the pension
 - `die Reportage` — u64 · the news feature
 - `die Reservierung` — u23 · the reservation
 - `die Ressource` — u65 · the resource
+- `die Rezension` — u96 · the review
 - `die Rezeption` — u23 · the reception
+- `die Rohdaten` — u94 · the raw data
 - `die Rolle` — u52 · the role
+- `die Rücklage` — u93 · the reserve
 - `die Rücksicht` — u57 · the consideration
 - `die Rückzahlung` — u76 · the refund
 - `die Sache` — u15 · the thing / the matter
@@ -1059,12 +1296,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Schachtel` — u47 · the small box
 - `die Schicht` — u56 · the shift
 - `die Schlagzeile` — u64 · the headline
+- `die Schlussfolgerung` — u88 · the conclusion
+- `die Schnittstelle` — u90 · the interface
 - `die Schraube` — u46 · the screw
 - `die Schuld` — u61 · the fault
 - `die Schulden` — u66 · the debts
 - `die Schule` — u1 · school
 - `die Schulter` — u25 · the shoulder
 - `die Schüssel` — u47 · the bowl
+- `die Schwachstelle` — u98 · the weak point
 - `die Schwester` — u4 · sister
 - `die Schwierigkeit` — u60 · the difficulty
 - `die Seele` — u58 · the soul
@@ -1072,13 +1312,20 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Sehnsucht` — u57 · the longing
 - `die Seife` — u30 · the soap
 - `die Seite` — u33 · page / site
+- `die Selbstverpflichtung` — u97 · the voluntary commitment
 - `die Sendung` — u64 · the programme
 - `die Serie` — u64 · the series
+- `die Serienreife` — u94 · readiness for production
 - `die Serviette` — u42 · the napkin
+- `die Sicherheit` — u98 · the safety
 - `die Silbe` — u74 · the syllable
 - `die Socke` — u18 · the sock
+- `die Software` — u94 · the software
+- `die Solidarität` — u99 · solidarity
 - `die Sonne` — u8 · sun
 - `die Sorge` — u22 · the worry
+- `die Spaltung` — u99 · the split
+- `die Spanne` — u91 · the range
 - `die Speisekarte` — u42 · the menu
 - `die Sprache` — u20 · the language
 - `die Sprechstunde` — u76 · the consultation hour
@@ -1086,8 +1333,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Spülmaschine` — u30 · the dishwasher
 - `die Spur` — u82 · the lane
 - `die Stadt` — u7 · town / city
+- `die Statistik` — u89 · the statistics
+- `die Steigerung` — u91 · the rise
 - `die Stelle` — u24 · the position
 - `die Steuer` — u32 · tax
+- `die Stichprobe` — u89 · the sample
 - `die Stille` — u86 · the silence
 - `die Stimme` — u55 · the vote
 - `die Stimmung` — u40 · atmosphere
@@ -1095,6 +1345,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Störung` — u77 · the fault on a line
 - `die Strafe` — u61 · the punishment
 - `die Straße` — u1 · street
+- `die Struktur` — u90 · the structure
+- `die Stückzahl` — u93 · the number of units
+- `die Studie` — u89 · the study
 - `die Stunde` — u5 · hour
 - `die Sucht` — u67 · the addiction
 - `die Summe` — u87 · the total figure
@@ -1105,36 +1358,54 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Taschenlampe` — u81 · the torch
 - `die Taste` — u33 · button — the one you press
 - `die Tatsache` — u51 · the fact
+- `die Technik` — u94 · the technology
+- `die Teilhabe` — u99 · the participation
+- `die Teilung` — u95 · the division
+- `die Teilzeit` — u100 · the part-time work
 - `die Temperatur` — u34 · temperature — how warm a thing is
+- `die Tendenz` — u89 · the trend
 - `die Theke` — u42 · the counter
+- `die Theorie` — u94 · the theory
 - `die Therapie` — u67 · the therapy
+- `die These` — u88 · the thesis
 - `die Tochter` — u4 · daughter
+- `die Toleranz` — u94 · the tolerance
 - `die Tomate` — u6 · tomato
 - `die Tonne` — u65 · the wheelie bin
 - `die Tradition` — u40 · tradition
+- `die Transparenz` — u97 · the transparency
 - `die Treppe` — u15 · the stairs
 - `die Tube` — u47 · the tube
 - `die Tür` — u1 · door
 - `die Tüte` — u27 · the carrier bag
 - `die Übergabe` — u80 · the handover
+- `die Überlieferung` — u95 · the tradition handed down
 - `die Übernachtung` — u23 · the overnight stay
+- `die Übernahme` — u93 · the takeover
 - `die Überraschung` — u40 · surprise
+- `die Überstunde` — u100 · the overtime hour
 - `die Übung` — u45 · exercise
 - `die Uhr` — u5 · clock / o'clock
 - `die Umfrage` — u32 · survey / poll
 - `die Umleitung` — u82 · the diversion
 - `die Umwelt` — u34 · the environment
+- `die Ungleichheit` — u99 · the inequality
+- `die Unsicherheit` — u98 · the uncertainty
 - `die Unterkunft` — u23 · the accommodation
 - `die Unterlagen` — u56 · the documents
 - `die Unterschrift` — u75 · the signature
+- `die Uraufführung` — u96 · the world premiere
 - `die Urkunde` — u76 · the official deed
 - `die Ursache` — u34 · cause
 - `die Vase` — u47 · the vase
 - `die Veranstaltung` — u62 · the event
 - `die Verantwortung` — u61 · the responsibility
 - `die Verbindung` — u33 · connection
+- `die Verfassung` — u92 · the constitution
 - `die Vergangenheit` — u28 · the past
+- `die Vermutung` — u89 · the supposition
 - `die Vernunft` — u58 · good sense
+- `die Verordnung` — u92 · the decree
 - `die Verpackung` — u83 · the packaging
 - `die Verschmutzung` — u65 · the pollution
 - `die Versicherung` — u25 · the insurance
@@ -1142,10 +1413,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Verwaltung` — u76 · the administration
 - `die Vielfalt` — u68 · the diversity
 - `die Vollmacht` — u75 · the power of attorney
+- `die Vollzeit` — u100 · the full-time work
 - `die Voraussetzung` — u52 · the prerequisite
 - `die Vorfahrt` — u82 · the right of way
 - `die Vorlesung` — u24 · the lecture
 - `die Vorschrift` — u61 · the regulation
+- `die Vorsicht` — u98 · the caution
 - `die Vorsorge` — u67 · the prevention
 - `die Vorspeise` — u42 · the starter
 - `die Vorwahl` — u77 · the area code
@@ -1158,8 +1431,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Warteschlange` — u83 · the queue
 - `die Wäsche` — u21 · the laundry
 - `die Waschmaschine` — u30 · the washing machine
+- `die Wechselwirkung` — u90 · the interaction
+- `die Weiterbildung` — u100 · the further training
 - `die Welt` — u19 · the world
 - `die Werbung` — u27 · the advert
+- `die Wiedervereinigung` — u95 · the reunification
 - `die Wiese` — u65 · the meadow
 - `die Wirtschaft` — u66 · the economy
 - `die Wissenschaft` — u34 · science
@@ -1168,17 +1444,21 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `die Wohnung` — u7 · flat / apartment
 - `die Wolke` — u8 · cloud
 - `die Wunde` — u25 · the wound
+- `die Würde` — u97 · the dignity
 - `die Zahl` — u17 · the numeral
 - `die Zange` — u46 · the pliers
 - `die Zeit` — u1 · time
 - `die Zeitschrift` — u35 · magazine
 - `die Zeitung` — u1 · newspaper
+- `die Zielvereinbarung` — u100 · the target agreement
 - `die Ziffer` — u87 · the digit
+- `die Zugehörigkeit` — u99 · the belonging
 - `die Zukunft` — u28 · the future
 - `die Zulassung` — u61 · the licence
 - `die Zuneigung` — u68 · the affection
 - `die Zusage` — u79 · the acceptance
 - `die Zutat` — u41 · the ingredient
+- `die Zuversicht` — u98 · the confidence
 - `dieser` — u12 · this / these
 - `digital` — u33 · digital
 - `dir` — u14 · you — dative
@@ -1195,6 +1475,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `dringend` — u62 · urgent
 - `drücken` — u44 · to press
 - `du` — u3 · you — informal singular
+- `dulden` — u97 · to tolerate
 - `dunkel` — u10 · dark
 - `dünn` — u10 · thin
 - `durch` — u13 · through
@@ -1223,19 +1504,24 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ein` — u5 · a / one
 - `ein paar` — u17 · a few
 - `eindeutig` — u84 · unmistakably
+- `eindringlich` — u88 · insistent
 - `einen` — u13 · object form of ein
 - `einerseits` — u36 · on the one hand
 - `einfach` — u84 · simply
 - `eingreifen` — u60 · to intervene
 - `einhalten` — u61 · to comply with
+- `einigermaßen` — u91 · reasonably
 - `einladen` — u40 · to invite
+- `einleuchten` — u89 · to make sense
 - `einmal` — u21 · once
+- `einräumen` — u88 · to concede
 - `einreichen` — u76 · to submit
 - `einrichten` — u30 · to furnish
 - `einsam` — u22 · lonely
 - `einschalten` — u64 · to switch on
 - `einst` — u63 · once
 - `einsteigen` — u19 · to board
+- `eintreten` — u98 · to occur
 - `einverstanden` — u51 · in agreement
 - `einwerfen` — u83 · to post a letter
 - `einwilligen` — u61 · to consent
@@ -1247,6 +1533,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `endlich` — u36 · at last — after a wait
 - `eng` — u30 · cramped
 - `entdecken` — u34 · to discover
+- `entgegenkommen` — u93 · to accommodate
+- `entkräften` — u88 · to weaken
 - `entscheiden` — u48 · to decide
 - `Entschuldigung` — u2 · excuse me / sorry
 - `entsprechen` — u53 · to correspond
@@ -1256,6 +1544,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `entwickeln` — u34 · to develop
 - `er` — u3 · he
 - `erfolgen` — u70 · to be carried out
+- `erheben` — u89 · to collect data
 - `erheblich` — u53 · considerable
 - `erkennen` — u43 · to recognise
 - `erklären` — u20 · to explain
@@ -1280,6 +1569,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `es` — u5 · it
 - `es gibt` — u13 · there is / there are
 - `es tut mir leid` — u2 · I'm sorry
+- `eskalieren` — u98 · to escalate
 - `essbar` — u70 · edible
 - `essen` — u6 · to eat
 - `etwa` — u54 · roughly
@@ -1287,6 +1577,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `euch` — u13 · you — plural object
 - `eventuell` — u54 · possibly
 - `fahren` — u7 · to drive
+- `fahrlässig` — u97 · negligent
 - `fallen` — u44 · to fall
 - `fällig` — u79 · due for payment
 - `falls` — u29 · in case
@@ -1312,6 +1603,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `förmlich` — u72 · formal
 - `fragen` — u20 · to ask
 - `fragte` — u38 · asked — past of fragen
+- `fragwürdig` — u89 · dubious
 - `frankieren` — u83 · to put postage on
 - `frei` — u23 · vacant
 - `freilich` — u84 · admittedly
@@ -1324,6 +1616,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `fuhr` — u39 · travelled / drove — past of fahren
 - `führen` — u52 · to lead to
 - `füllen` — u47 · to fill
+- `fundiert` — u89 · well-founded
 - `fünf` — u5 · five
 - `fünfzig` — u17 · fifty
 - `funktionieren` — u33 · to function
@@ -1338,6 +1631,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `geben` — u16 · to give
 - `geduldig` — u31 · patient — willing to wait
 - `gefallen` — u18 · to appeal to
+- `gefasst` — u98 · composed
 - `gegangen` — u14 · gone (past participle of gehen)
 - `gegebenenfalls` — u73 · should the need arise
 - `gegen` — u13 · against
@@ -1347,8 +1641,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `gekommen` — u14 · come — past participle of kommen
 - `gelassen` — u57 · calm
 - `gelb` — u8 · yellow
+- `gelegentlich` — u91 · occasionally
 - `gelingen` — u37 · to succeed / turn out well
 - `gelten` — u58 · to be valid
+- `gelungen` — u96 · successful
 - `gemeinsam` — u32 · jointly
 - `gemütlich` — u30 · cosy
 - `genau` — u34 · exact / precisely
@@ -1358,6 +1654,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `gerade` — u28 · right now
 - `geradeaus` — u7 · straight ahead
 - `gering` — u53 · slight
+- `geringfügig` — u91 · marginal
 - `gern` — u2 · gladly / with pleasure
 - `geschehen` — u70 · to happen
 - `gespannt` — u57 · eager
@@ -1378,6 +1675,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `gleich` — u28 · in a moment
 - `gleichwohl` — u84 · all the same
 - `gleichzeitig` — u53 · at the same time
+- `gliedern` — u90 · to divide up
 - `glücklich` — u10 · happy
 - `gratulieren` — u40 · to congratulate
 - `grau` — u8 · grey
@@ -1409,6 +1707,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `hätten Sie Zeit` — u73 · would you have time
 - `häufig` — u28 · frequently
 - `heben` — u44 · to raise
+- `heikel` — u97 · delicate
 - `heilen` — u67 · to heal
 - `heiraten` — u68 · to marry
 - `heiß` — u8 · hot
@@ -1475,6 +1774,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `jeweils` — u87 · in each case
 - `jugendlich` — u43 · youthful
 - `jung` — u3 · young
+- `kalkulieren` — u93 · to calculate
 - `kalt` — u8 · cold
 - `kam` — u39 · came — past of kommen
 - `käme` — u70 · would come
@@ -1498,6 +1798,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `knapp` — u87 · just under
 - `kochen` — u16 · to cook
 - `kommen` — u3 · to come
+- `komplex` — u90 · complex
 - `kompliziert` — u60 · complicated
 - `können` — u16 · to be able to
 - `könnte` — u37 · could / would be able to
@@ -1511,6 +1812,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `kritisieren` — u64 · to criticise
 - `kündigen` — u24 · to hand in notice
 - `künftig` — u62 · in future
+- `künstlerisch` — u96 · artistic
 - `kurz` — u10 · short
 - `kurz gesagt` — u84 · in short
 - `kurzfristig` — u62 · at short notice
@@ -1559,6 +1861,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `man` — u45 · one — people in general
 - `mancher` — u71 · many a
 - `manchmal` — u12 · sometimes
+- `mäßig` — u91 · moderate
 - `matt` — u49 · matt
 - `mehr` — u37 · more
 - `mehrere` — u71 · several
@@ -1566,6 +1869,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `meinen` — u13 · object form of mein
 - `meinetwegen` — u51 · as far as I'm concerned
 - `meistens` — u21 · usually
+- `merklich` — u91 · noticeably
 - `messen` — u34 · to measure
 - `mich` — u13 · me — object
 - `mild` — u50 · mild
@@ -1596,6 +1900,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `nachhaltig` — u65 · sustainable
 - `nachher` — u28 · afterwards
 - `nachsenden` — u83 · to forward post
+- `nachvollziehbar` — u88 · understandable
 - `nah` — u7 · near
 - `nahm` — u39 · took — past of nehmen
 - `naja` — u72 · well now
@@ -1643,8 +1948,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `parken` — u23 · to park a car
 - `passen` — u18 · to fit
 - `passieren` — u22 · to happen
+- `pauschal` — u88 · sweeping
 - `peinlich` — u22 · embarrassing
 - `planen` — u48 · to plan
+- `plausibel` — u88 · plausible
 - `plötzlich` — u28 · suddenly
 - `prägen` — u63 · to shape
 - `probieren` — u42 · to sample
@@ -1657,6 +1964,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `rauschen` — u77 · to crackle
 - `reagieren` — u81 · to react
 - `rechts` — u7 · right
+- `rechtskräftig` — u92 · legally binding
 - `rechtzeitig` — u62 · in good time
 - `recyceln` — u65 · to recycle
 - `reduziert` — u27 · reduced
@@ -1666,13 +1974,17 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `reichlich` — u53 · plenty of
 - `reif` — u49 · ripe
 - `reklamieren` — u78 · to return faulty goods
+- `relativieren` — u88 · to qualify
 - `rennen` — u85 · to run fast
 - `renovieren` — u80 · to renovate
 - `reparieren` — u30 · to repair
+- `repräsentativ` — u89 · representative
 - `reservieren` — u42 · to reserve
 - `retten` — u60 · to rescue
+- `rhetorisch` — u88 · rhetorical
 - `richtig` — u20 · correct
 - `riechen` — u86 · to smell
+- `riskant` — u98 · risky
 - `roh` — u49 · raw
 - `rollen` — u44 · to roll
 - `rosa` — u8 · pink
@@ -1713,6 +2025,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `schleifen` — u46 · to sand
 - `schlief` — u39 · slept — past of schlafen
 - `schließlich` — u36 · finally — the last step of a sequence
+- `schlüssig` — u88 · coherent
 - `schmecken` — u41 · to taste good — of food
 - `schmelzen` — u50 · to melt
 - `schmutzig` — u10 · dirty
@@ -1725,10 +2038,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `schreiben` — u20 · to write
 - `schrieb` — u39 · wrote — past of schreiben
 - `schriftlich` — u79 · in writing
+- `schrumpfen` — u91 · to shrink
 - `schüchtern` — u22 · shy
 - `schulden` — u79 · to owe
 - `schütteln` — u85 · to shake something
 - `schützen` — u34 · to protect
+- `schwanken` — u89 · to fluctuate
 - `schwarz` — u8 · black
 - `schweigen` — u51 · to stay silent
 - `schwer` — u10 · heavy / difficult
@@ -1834,6 +2149,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `sportlich` — u43 · sporty / athletic
 - `sprach` — u39 · spoke — past of sprechen
 - `sprechen` — u1 · to speak
+- `spürbar` — u91 · palpable
 - `spüren` — u86 · to sense
 - `ß` — u1
 - `stand` — u39 · stood — past of stehen
@@ -1848,6 +2164,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `steigen` — u53 · to rise
 - `steil` — u49 · steep
 - `stellen` — u44 · to stand something up
+- `steuern` — u90 · to control
+- `stichhaltig` — u88 · watertight
 - `stolpern` — u85 · to trip
 - `stolz` — u22 · proud
 - `stören` — u61 · to disturb
@@ -1892,10 +2210,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ü` — u1
 - `üben` — u20 · to practise
 - `über` — u14 · over / above
+- `übergeordnet` — u90 · overarching
 - `überhaupt` — u73 · at all
 - `überholen` — u82 · to overtake
 - `überlegen` — u48 · to think over
 - `übermorgen` — u28 · the day after tomorrow
+- `überprüfen` — u89 · to check
 - `überrascht` — u22 · surprised
 - `übersehen` — u86 · to overlook
 - `übersetzen` — u74 · to translate
@@ -1911,10 +2231,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `übte` — u38 · practised — past of üben
 - `um` — u13 · around / at (time)
 - `umarmen` — u85 · to hug
+- `umfassen` — u90 · to cover
 - `umgangssprachlich` — u72 · colloquial
 - `umgehend` — u78 · without delay
 - `umgekehrt` — u53 · the other way round
 - `umsteigen` — u19 · to change trains
+- `umstritten` — u97 · contested
 - `umtauschen` — u27 · to exchange
 - `umziehen` — u30 · to move house
 - `unbedingt` — u61 · absolutely
@@ -1927,12 +2249,16 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `unten` — u44 · down there / at the bottom
 - `unter` — u14 · under / below
 - `unterbrechen` — u51 · to interrupt
+- `untermauern` — u88 · to underpin
 - `unterschreiben` — u61 · to sign
+- `unterstellen` — u88 · to impute
 - `unterstützen` — u55 · to support
 - `untersuchen` — u34 · to investigate / examine
 - `unverbindlich` — u73 · non-binding
 - `unvergesslich` — u63 · unforgettable
+- `unvorhersehbar` — u98 · unforeseeable
 - `unzufrieden` — u78 · dissatisfied
+- `verabschieden` — u92 · to pass a law
 - `verbessern` — u56 · to improve
 - `verbieten` — u48 · to forbid
 - `verbindlich` — u61 · binding
@@ -1942,14 +2268,17 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `verdoppeln` — u87 · to double
 - `verdrängen` — u63 · to push away
 - `vereinbaren` — u79 · to arrange
+- `vereinfachen` — u90 · to simplify
 - `vergehen` — u59 · to go by
 - `vergessen` — u48 · to forget
 - `vergleichen` — u37 · to compare
+- `vergleichsweise` — u91 · comparatively
 - `verhandeln` — u56 · to negotiate
 - `verhindern` — u61 · to prevent
 - `verkaufen` — u18 · to sell
 - `verlangen` — u48 · to demand
 - `verlängern` — u79 · to extend
+- `verlässlich` — u89 · dependable
 - `verlieren` — u45 · to lose
 - `verlobt` — u68 · engaged
 - `vermeiden` — u48 · to avoid
@@ -1966,11 +2295,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `verstehen` — u20 · to understand
 - `versuchen` — u48 · to try
 - `vertraulich` — u72 · confidential
+- `vertretbar` — u97 · defensible
 - `vertreten` — u55 · to represent
 - `verursachen` — u52 · to cause
 - `verurteilen` — u75 · to convict
 - `verwechseln` — u43 · to mix up
 - `verzeihen` — u73 · to forgive
+- `verzerren` — u89 · to distort
 - `verzichten` — u62 · to do without
 - `verzweifelt` — u57 · desperate
 - `viel` — u17 · much / a lot
@@ -1987,12 +2318,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `vorausgesetzt` — u70 · provided that
 - `vorbei` — u59 · over
 - `vorbereiten` — u21 · to prepare
+- `vorbeugen` — u98 · to take precautions
+- `voreilig` — u88 · premature
 - `vorgestern` — u28 · the day before yesterday
 - `vorhaben` — u62 · to intend
 - `vorher` — u28 · beforehand
 - `vorläufig` — u59 · provisional
 - `vorlegen` — u61 · to produce on request
 - `vorne` — u44 · at the front
+- `vorsätzlich` — u97 · deliberate
 - `vorsichtig` — u31 · careful / cautious
 - `vorziehen` — u53 · to prefer
 - `wachsen` — u26 · to grow
@@ -2019,6 +2353,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `weiß` — u8 · white
 - `weit` — u7 · far
 - `weiterleiten` — u77 · to put a call through
+- `weitgehend` — u91 · largely
 - `welcher` — u12 · which
 - `wem` — u14 · whom — dative
 - `wen` — u13 · whom — object
@@ -2032,8 +2367,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `wesentlich` — u52 · essential
 - `wessen` — u69 · whose
 - `wichtig` — u45 · important
+- `widerlegen` — u88 · to refute
 - `widerrufen` — u78 · to withdraw an order
 - `widersprechen` — u51 · to contradict
+- `widersprüchlich` — u89 · contradictory
 - `wie` — u3 · how
 - `wie geht's` — u2 · how are you
 - `wie gesagt` — u84 · as I said
@@ -2045,6 +2382,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `wild` — u26 · wild
 - `willkommen` — u2 · welcome
 - `winken` — u85 · to wave
+- `winzig` — u91 · tiny
 - `wir` — u3 · we
 - `wirken` — u31 · to seem / come across
 - `wirklich` — u12 · really
@@ -2085,6 +2423,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `zerstören` — u60 · to destroy
 - `ziehen` — u44 · to pull
 - `ziemlich` — u53 · fairly
+- `zitieren` — u89 · to quote
 - `zittern` — u57 · to tremble
 - `zögern` — u48 · to hesitate
 - `zu` — u14 · to
@@ -2096,8 +2435,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `zum Beispiel` — u36 · for example
 - `zumal` — u69 · especially since
 - `zumindest` — u54 · at any rate
+- `zumutbar` — u97 · reasonable to expect
 - `zunächst` — u56 · to begin with
 - `zunehmen` — u67 · to put on weight
+- `zunehmend` — u91 · increasingly
 - `zur` — u21 · to the
 - `zurück` — u7 · back
 - `zurückgeben` — u78 · to give back
@@ -2106,6 +2447,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `zurückschicken` — u78 · to send back
 - `zusagen` — u56 · to accept
 - `zusammen` — u1 · together
+- `zusammenwirken` — u90 · to work together
 - `zusätzlich` — u53 · additionally
 - `zuständig` — u75 · responsible for
 - `zustellen` — u83 · to deliver to the door
@@ -2117,6 +2459,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `zweifellos` — u84 · beyond question
 - `zweimal` — u21 · twice
 - `zwingen` — u48 · to force
+- `zwingend` — u88 · compelling
 - `zwischen` — u14 · between
 - `zwölf` — u5 · twelve
 
@@ -2295,4 +2638,30 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 **u86 · Wahrnehmung und Aufmerksamkeit** (22) — `der Blick`, `auffallen`, `bemerken`, `beobachten`, `betrachten`, `übersehen`, `zuhören`, `flüstern`, `brüllen`, `das Geräusch`, `die Stille`, `aufmerksam`, `riechen`, `der Duft`, `berühren`, `spüren`, `wahrnehmen`, `sich konzentrieren`, `ablenken`, `sich merken`, `der Verdacht`, `ahnen`
 
 **u87 · Anteile, Zahlen und Schätzungen** (20) — `das Drittel`, `das Viertel`, `der Rest`, `der Bruchteil`, `das Verhältnis`, `insgesamt`, `jeweils`, `der Durchschnitt`, `die Summe`, `betragen`, `ungefähr`, `rund`, `knapp`, `mindestens`, `höchstens`, `die Ziffer`, `der Prozentsatz`, `die Quote`, `verdoppeln`, `die Angabe`
+
+**u88 · Argumentation und Überzeugung** (24) — `die These`, `die Grundlage`, `die Annahme`, `untermauern`, `schlüssig`, `die Schlussfolgerung`, `widerlegen`, `entkräften`, `der Trugschluss`, `unterstellen`, `pauschal`, `voreilig`, `abwägen`, `einräumen`, `das Zugeständnis`, `relativieren`, `der Vorbehalt`, `zwingend`, `plausibel`, `nachvollziehbar`, `stichhaltig`, `eindringlich`, `rhetorisch`, `der Konsens`
+
+**u89 · Belege und Quellen** (24) — `die Herkunft`, `zitieren`, `bestätigen`, `der Beweis`, `verlässlich`, `fragwürdig`, `die Statistik`, `die Stichprobe`, `erheben`, `repräsentativ`, `schwanken`, `die Tendenz`, `überprüfen`, `auswerten`, `die Abweichung`, `verzerren`, `widersprüchlich`, `belastbar`, `fundiert`, `die Studie`, `die Vermutung`, `aussagekräftig`, `einleuchten`, `die Lücke`
+
+**u90 · Systeme und Abstraktion** (24) — `das System`, `die Struktur`, `der Bestandteil`, `die Einheit`, `der Aufbau`, `gliedern`, `der Mechanismus`, `die Wechselwirkung`, `zusammenwirken`, `steuern`, `die Dynamik`, `die Schnittstelle`, `das Muster`, `das Modell`, `abstrakt`, `komplex`, `vereinfachen`, `der Überblick`, `der Rahmen`, `die Ebene`, `übergeordnet`, `umfassen`, `die Funktion`, `das Gefüge`
+
+**u91 · Nuancen und Abstufungen** (24) — `das Ausmaß`, `das Maß`, `beträchtlich`, `geringfügig`, `winzig`, `der Umfang`, `zunehmend`, `schrumpfen`, `der Zuwachs`, `die Steigerung`, `die Spanne`, `die Mehrzahl`, `annähernd`, `weitgehend`, `mäßig`, `gelegentlich`, `einigermaßen`, `vergleichsweise`, `die Nuance`, `die Abstufung`, `merklich`, `spürbar`, `ausgeprägt`, `der Schwerpunkt`
+
+**u92 · Politik und Recht** (24) — `die Verfassung`, `der Rechtsstaat`, `die Gewaltenteilung`, `das Parlament`, `das Ministerium`, `die Instanz`, `die Abstimmung`, `verabschieden`, `der Beschluss`, `die Verordnung`, `die Koalition`, `das Mandat`, `das Verfahren`, `die Ermittlung`, `der Einspruch`, `der Freispruch`, `rechtskräftig`, `das Verbot`, `der Ausschuss`, `die Opposition`, `die Amtszeit`, `die Reform`, `das Bündnis`, `der Streitfall`
+
+**u93 · Wirtschaft und Verhandlung** (24) — `die Konkurrenz`, `der Wettbewerb`, `der Marktanteil`, `die Branche`, `der Lieferant`, `die Lieferkette`, `der Gewinn`, `die Marge`, `die Rendite`, `das Kapital`, `die Rücklage`, `der Aufschlag`, `entgegenkommen`, `der Gegenvorschlag`, `der Spielraum`, `der Preisdruck`, `die Ausschreibung`, `kalkulieren`, `der Vorstand`, `die Investition`, `die Übernahme`, `der Anbieter`, `der Umsatzrückgang`, `die Stückzahl`
+
+**u94 · Wissenschaft und Technik** (24) — `die Hypothese`, `die Theorie`, `die Erkenntnis`, `das Labor`, `die Rohdaten`, `der Durchbruch`, `die Entwicklung`, `der Prototyp`, `die Serienreife`, `das Patent`, `die Anwendung`, `die Technik`, `der Sensor`, `die Software`, `der Antrieb`, `der Werkstoff`, `die Legierung`, `der Wirkungsgrad`, `die Messgröße`, `der Grenzwert`, `die Emission`, `die Norm`, `die Toleranz`, `die Auflösung`
+
+**u95 · Geschichte und Kultur** (24) — `die Epoche`, `das Zeitalter`, `das Mittelalter`, `die Neuzeit`, `die Blütezeit`, `der Verfall`, `die Herrschaft`, `die Besatzung`, `die Teilung`, `der Krieg`, `der Frieden`, `der Wiederaufbau`, `das Erbe`, `die Überlieferung`, `die Chronik`, `das Denkmal`, `die Gedenkstätte`, `der Zeitzeuge`, `die Aufarbeitung`, `die Wiedervereinigung`, `die Nachkriegszeit`, `die Mauer`, `der Umbruch`, `der Aufstand`
+
+**u96 · Kunst und Kritik** (24) — `das Genre`, `die Gattung`, `die Fassung`, `der Stil`, `der Entwurf`, `künstlerisch`, `die Aufführung`, `die Inszenierung`, `die Uraufführung`, `das Bühnenbild`, `der Auftritt`, `der Beifall`, `die Figur`, `das Motiv`, `die Metapher`, `die Darstellung`, `der Höhepunkt`, `die Leinwand`, `gelungen`, `anspruchsvoll`, `die Rezension`, `die Komposition`, `das Gemälde`, `die Kulisse`
+
+**u97 · Ethik und Verantwortung** (24) — `der Grundsatz`, `die Moral`, `die Aufrichtigkeit`, `die Transparenz`, `das Gemeinwohl`, `die Würde`, `das Unrecht`, `der Missbrauch`, `die Ausbeutung`, `der Vorwurf`, `fahrlässig`, `vorsätzlich`, `vertretbar`, `zumutbar`, `die Pflichtverletzung`, `die Selbstverpflichtung`, `die Fürsorge`, `dulden`, `heikel`, `umstritten`, `das Dilemma`, `die Rechenschaft`, `das Mittel`, `bereuen`
+
+**u98 · Risiko und Ungewissheit** (24) — `die Unsicherheit`, `die Bedrohung`, `die Schwachstelle`, `das Szenario`, `die Prognose`, `unvorhersehbar`, `die Vorsicht`, `vorbeugen`, `der Puffer`, `die Gegenmaßnahme`, `die Frühwarnung`, `der Ernstfall`, `eintreten`, `eskalieren`, `die Notlage`, `der Rückschlag`, `riskant`, `abschätzen`, `bewältigen`, `gefasst`, `das Restrisiko`, `die Entwarnung`, `die Zuversicht`, `die Sicherheit`
+
+**u99 · Identität und Gesellschaft** (24) — `die Identität`, `die Zugehörigkeit`, `das Milieu`, `das Selbstbild`, `das Rollenbild`, `das Klischee`, `die Teilhabe`, `die Ausgrenzung`, `die Abgrenzung`, `die Akzeptanz`, `die Anerkennung`, `die Solidarität`, `der Aufstieg`, `die Chancengleichheit`, `die Ungleichheit`, `die Mobilität`, `die Lebenslage`, `die Biografie`, `der Wertewandel`, `die Emanzipation`, `die Spaltung`, `das Miteinander`, `die Mehrheitsgesellschaft`, `die Erwartungshaltung`
+
+**u100 · Beruf und Organisation** (24) — `die Laufbahn`, `der Werdegang`, `die Fachkraft`, `das Fachwissen`, `die Weiterbildung`, `der Quereinsteiger`, `die Hierarchie`, `die Belegschaft`, `die Personalabteilung`, `der Betriebsrat`, `die Mitbestimmung`, `delegieren`, `die Probezeit`, `die Einarbeitung`, `die Beförderung`, `die Zielvereinbarung`, `die Nachfolge`, `die Überstunde`, `das Betriebsklima`, `die Auslastung`, `die Fluktuation`, `der Tarifvertrag`, `die Vollzeit`, `die Teilzeit`
 
