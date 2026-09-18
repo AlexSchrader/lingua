@@ -1,18 +1,88 @@
-// DE Unit 94 — Science and technology (slot: science-tech) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// DE Unit 94 — Wissenschaft und Technik (slot: science-tech) — B2
+// Conventions: de/unit1.js + de/unit51.js + de/unit88.js (B2 band constitution).
+// Already taught, used but never re-taught: die Forschung / das Experiment /
+// der Versuch / der Fortschritt / die Energie (all u34), das Verfahren (u92),
+// die Zulassung (u61), die Störung (u77), messen (u34), das Ergebnis (u34).
+// Self-check: die Schaltung dropped (der Schalter u76); die Patentschrift
+// dropped in favour of das Patent; die Grenzwerte written as the singular
+// der Grenzwert, because a drill has to contain the front verbatim and a plural
+// front makes every singular sentence a silent miss (the u89 lesson).
+//
+// FREE: Daten, Rohdaten, Zahlen, Studien, Experten, Prototyp, Patent, Patente, Sensor, Sensoren, Software, Labor, Hypothese, Theorie, Technik, Emission, Emissionen, Toleranz, Norm, Normen, Material, Prozent, Meter, Grad, Motor, Batterie
 export const DE_UNIT94 = {
   id: "de-u94",
   lang: "de",
-  title: "Science and technology",
+  title: "Wissenschaft und Technik",
   order: 94,
   stage: "b2",
   lessons: [
-    { id: "de-u94l1", title: "Lesson 1", locked: true },
-    { id: "de-u94l2", title: "Lesson 2", locked: true },
-    { id: "de-u94l3", title: "Lesson 3", locked: true },
-    { id: "de-u94l4", title: "Lesson 4", locked: true },
+    {
+      id: "de-u94l1",
+      unit: 94,
+      lesson: 1,
+      title: "Von der Vermutung zur Erkenntnis",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Walk through how knowledge is actually made — state a hypothesis, put it against a theory, work with raw data in the lab, and recognize a real breakthrough.",
+      items: [
+        { id: "de-u94l1-diehypothese", type: "vocab", front: "die Hypothese", reading: "diehypothese", meaning: "the hypothesis", example: { jp: "Die Hypothese war einfach zu prüfen, und genau deshalb hat sie die Forschung weitergebracht.", en: "The hypothesis was easy to test, and that is exactly why it advanced the research." }, drill: { jp: "Die Hypothese hält dem Versuch stand", en: "The hypothesis holds up in the experiment" }, accept: ["hypothesis", "the hypothesis"], hint: "Sharper than die Vermutung (u89): a Hypothese is written so that a test can prove it wrong. Plural: die Hypothesen." },
+        { id: "de-u94l1-dietheorie", type: "vocab", front: "die Theorie", reading: "dietheorie", meaning: "the theory", example: { jp: "In der Theorie ist der Aufbau klar, in der Praxis scheitert er an den Kosten.", en: "In theory the setup is clear; in practice it fails because of the costs." }, drill: { jp: "Die Theorie kommt aus dem Labor", en: "The theory comes from the laboratory" }, accept: ["theory", "the theory"], hint: "in der Theorie / in der Praxis is the fixed German pair. Careful: in science a Theorie is well-tested, not a guess — that is die Hypothese." },
+        { id: "de-u94l1-dieerkenntnis", type: "vocab", front: "die Erkenntnis", reading: "dieerkenntnis", meaning: "the finding", example: { jp: "Die wichtigste Erkenntnis kam spät, weil niemand die alten Rohdaten noch einmal ausgewertet hatte.", en: "The most important finding came late, because nobody had analysed the old raw data again." }, drill: { jp: "Die Erkenntnis kommt aus zwei Studien", en: "The finding comes from two studies" }, accept: ["finding", "the finding", "insight", "the insight", "realization", "realisation", "knowledge"], hint: "From erkennen (to recognize): what you now know that you did not before. neue Erkenntnisse is the standard phrase in German science news." },
+        { id: "de-u94l1-daslabor", type: "vocab", front: "das Labor", reading: "daslabor", meaning: "the laboratory", example: { jp: "Im Labor funktioniert das Verfahren seit Jahren, draußen hat es noch niemand geprüft.", en: "In the laboratory the process has worked for years; outside nobody has tested it yet." }, drill: { jp: "Das Labor liefert die Zahlen morgen", en: "The laboratory delivers the figures tomorrow" }, accept: ["laboratory", "the laboratory", "lab", "the lab"], hint: "Stress on the second syllable: la-BOR. Plural die Labore. im Labor / im Feld is the German pair for lab versus field conditions." },
+        { id: "de-u94l1-dierohdaten", type: "vocab", front: "die Rohdaten", reading: "dierohdaten", meaning: "the raw data", example: { jp: "Die Rohdaten sind nie veröffentlicht worden, deshalb kann niemand die Auswertung überprüfen.", en: "The raw data were never published, which is why nobody can check the analysis." }, drill: { jp: "Die Rohdaten liegen seit Jahren vor", en: "The raw data have been available for years" }, accept: ["raw data", "the raw data", "unprocessed data"], hint: "roh (raw) + die Daten. Plural only, like the English. The German open-science debate is largely an argument about whether these get published." },
+        { id: "de-u94l1-derdurchbruch", type: "vocab", front: "der Durchbruch", reading: "derdurchbruch", meaning: "the breakthrough", example: { jp: "Der Durchbruch kam nicht aus dem großen Labor, sondern aus einer kleinen Gruppe ohne Geld.", en: "The breakthrough did not come from the big laboratory, but from a small group without money." }, drill: { jp: "Der Durchbruch kam nach zehn Jahren", en: "The breakthrough came after ten years" }, accept: ["breakthrough", "the breakthrough"], hint: "durch + brechen: breaking through a wall. German newspapers overuse it exactly as English does — der lang erwartete Durchbruch." },
+      ],
+    },
+    {
+      id: "de-u94l2",
+      unit: 94,
+      lesson: 2,
+      title: "Bis zur Serie",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Follow an idea from the workshop to the market — the development, the prototype, readiness for production, the patent that protects it and the use it is put to.",
+      items: [
+        { id: "de-u94l2-dieentwicklung", type: "vocab", front: "die Entwicklung", reading: "dieentwicklung", meaning: "the development", example: { jp: "Die Entwicklung dauert länger als geplant, und deshalb steigen die Kosten in jedem Bericht.", en: "The development is taking longer than planned, and that is why the costs rise in every report." }, drill: { jp: "Die Entwicklung dauert mehrere Jahre", en: "The development takes several years" }, accept: ["development", "the development", "evolution", "progress", "trend"], hint: "The act of developing and the trend itself — eine gefährliche Entwicklung is a worrying trend. From entwickeln, literally to unwrap." },
+        { id: "de-u94l2-derprototyp", type: "vocab", front: "der Prototyp", reading: "derprototyp", meaning: "the prototype", example: { jp: "Der Prototyp läuft im Labor gut, aber er kostet fast das Zehnfache der geplanten Serie.", en: "The prototype runs well in the laboratory, but it costs almost ten times the planned production model." }, drill: { jp: "Der Prototyp steht im Labor", en: "The prototype is in the laboratory" }, accept: ["prototype", "the prototype"], hint: "Weak masculine: den Prototypen. The one you build to learn from, not to sell." },
+        { id: "de-u94l2-dieserienreife", type: "vocab", front: "die Serienreife", reading: "dieserienreife", meaning: "readiness for production", example: { jp: "Bis zur Serienreife fehlen noch zwei Jahre, obwohl die Technik im Versuch längst funktioniert.", en: "Readiness for production is still two years away, although the technology has long worked in testing." }, drill: { jp: "Die Serienreife kommt in zwei Jahren", en: "Readiness for production comes in two years" }, accept: ["readiness for production", "production readiness", "market readiness", "ready for series production"], hint: "die Serie + reif (ripe): ripe enough to be built in numbers. zur Serienreife bringen = to get a thing production-ready — a favourite of German engineering reports." },
+        { id: "de-u94l2-daspatent", type: "vocab", front: "das Patent", reading: "daspatent", meaning: "the patent", example: { jp: "Das Patent läuft bald aus, und danach darf die ganze Branche das Verfahren nutzen.", en: "The patent expires soon, and after that the whole sector may use the process." }, drill: { jp: "Das Patent kostet die Firma viel", en: "The patent costs the company a lot" }, accept: ["patent", "the patent"], hint: "ein Patent anmelden = to file a patent; ein Patent auf etwas halten = to hold a patent on something. Also patent as an adjective: eine patente Frau, a capable woman." },
+        { id: "de-u94l2-dieanwendung", type: "vocab", front: "die Anwendung", reading: "dieanwendung", meaning: "the application", example: { jp: "Für diese Anwendung ist das Material zu teuer, in der Forschung wird es trotzdem gern benutzt.", en: "For this application the material is too expensive; in research it is nevertheless used gladly." }, drill: { jp: "Die Anwendung bleibt bis heute selten", en: "The application remains rare to this day" }, accept: ["application", "the application", "use", "the use", "app", "usage"], hint: "From anwenden (to apply). Also the German word for a phone app in official texts — die Anwendung, where everyone actually says die App." },
+        { id: "de-u94l2-dietechnik", type: "vocab", front: "die Technik", reading: "dietechnik", meaning: "the technology", example: { jp: "Die Technik ist nicht neu, aber niemand hat sie vorher so billig gebaut.", en: "The technology is not new, but nobody had built it so cheaply before." }, drill: { jp: "Die Technik kommt aus dem Labor", en: "The technology comes from the laboratory" }, accept: ["technology", "the technology", "technique", "the technique", "engineering"], hint: "Both the technology and the technique — and, in a German company, the technical department. die Technik streikt = the equipment is playing up." },
+      ],
+    },
+    {
+      id: "de-u94l3",
+      unit: 94,
+      lesson: 3,
+      title: "Wie es gebaut ist",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe a machine at engineer level — the sensor that measures, the software that steers, the drive that moves it, the material it is made of and how efficient it is.",
+      items: [
+        { id: "de-u94l3-dersensor", type: "vocab", front: "der Sensor", reading: "dersensor", meaning: "the sensor", example: { jp: "Der Sensor misst jede Bewegung, aber bei Kälte liefert er deutlich schlechtere Zahlen.", en: "The sensor measures every movement, but in cold weather it delivers noticeably worse figures." }, drill: { jp: "Der Sensor kostet nur wenig Geld", en: "The sensor costs only little money" }, accept: ["sensor", "the sensor", "detector"], hint: "Stress on the first syllable, plural die Sensoren. The German car industry runs on this word." },
+        { id: "de-u94l3-diesoftware", type: "vocab", front: "die Software", reading: "diesoftware", meaning: "the software", example: { jp: "Die Software steuert den ganzen Antrieb, deshalb wirkt sich jeder Fehler sofort auf die Sicherheit aus.", en: "The software controls the entire drive, which is why every error immediately affects safety." }, drill: { jp: "Die Software steuert die ganze Anlage", en: "The software controls the whole plant" }, accept: ["software", "the software"], hint: "Borrowed whole, and feminine because die Ware (goods) is. No plural in German — man spricht von Softwarelösungen instead." },
+        { id: "de-u94l3-derantrieb", type: "vocab", front: "der Antrieb", reading: "derantrieb", meaning: "the drive", example: { jp: "Der neue Antrieb ist leiser, trotzdem bleibt der Wirkungsgrad fast gleich.", en: "The new drive is quieter, and yet the efficiency stays almost the same." }, drill: { jp: "Der Antrieb kommt ohne Motor aus", en: "The drive gets by without a motor" }, accept: ["drive", "the drive", "propulsion", "the propulsion", "motivation", "drive system"], hint: "From antreiben (to drive something on). Both the mechanical drive train and a person's inner drive — aus eigenem Antrieb = of one's own accord." },
+        { id: "de-u94l3-derwerkstoff", type: "vocab", front: "der Werkstoff", reading: "derwerkstoff", meaning: "the material", example: { jp: "Der Werkstoff hält hohe Temperaturen aus, aber er lässt sich nur schwer in Form bringen.", en: "The material withstands high temperatures, but it is hard to shape." }, drill: { jp: "Der Werkstoff kostet fast nichts", en: "The material costs almost nothing" }, accept: ["material", "the material", "engineering material", "substance"], hint: "das Werk (works) + der Stoff (stuff, fabric): material in the engineering sense. das Material is the everyday word; der Werkstoff is what the data sheet says." },
+        { id: "de-u94l3-dielegierung", type: "vocab", front: "die Legierung", reading: "dielegierung", meaning: "the alloy", example: { jp: "Die Legierung ist leichter als Stahl, und deshalb spart die ganze Anlage später viel Energie.", en: "The alloy is lighter than steel, and that is why the whole plant later saves a lot of energy." }, drill: { jp: "Die Legierung wiegt deutlich weniger", en: "The alloy weighs noticeably less" }, accept: ["alloy", "the alloy"], hint: "From legieren (to alloy — and, in cooking, to thicken a sauce with egg). Metals mixed on purpose: eine Legierung aus Kupfer und Zinn." },
+        { id: "de-u94l3-derwirkungsgrad", type: "vocab", front: "der Wirkungsgrad", reading: "derwirkungsgrad", meaning: "the efficiency", example: { jp: "Der Wirkungsgrad liegt bei knapp vierzig Prozent, und der Rest geht als Wärme verloren.", en: "The efficiency is just under forty percent, and the rest is lost as heat." }, drill: { jp: "Der Wirkungsgrad steigt mit der Temperatur", en: "The efficiency rises with the temperature" }, accept: ["efficiency", "the efficiency", "degree of efficiency", "effectiveness"], hint: "die Wirkung + der Grad (u50): how much of what goes in comes out as useful work. Always a percentage, and always a disappointment." },
+      ],
+    },
+    {
+      id: "de-u94l4",
+      unit: 94,
+      lesson: 4,
+      title: "Messen und Grenzen",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Argue about measurement itself — the quantity being measured, the limit that must not be crossed, the emissions counted, the standard applied and the tolerance allowed.",
+      items: [
+        { id: "de-u94l4-diemessgrosse", type: "vocab", front: "die Messgröße", reading: "diemessgrosse", meaning: "the measured variable", example: { jp: "Die Messgröße ist falsch gewählt, deshalb sagt die ganze Statistik über das Problem wenig aus.", en: "The measured variable is badly chosen, which is why the whole statistic says little about the problem." }, drill: { jp: "Die Messgröße bleibt immer gleich", en: "The measured variable always stays the same" }, accept: ["measured variable", "the measured variable", "measurand", "metric", "the metric", "measured quantity"], hint: "messen (u34) + die Größe: the quantity you decided to measure. Choosing it is half the argument — note ß → ss in the reading." },
+        { id: "de-u94l4-dergrenzwert", type: "vocab", front: "der Grenzwert", reading: "dergrenzwert", meaning: "the limit value", example: { jp: "Der Grenzwert wurde zweimal gesenkt, obwohl sich an der Technik selbst kaum etwas geändert hat.", en: "The limit value has been lowered twice, although hardly anything has changed in the technology itself." }, drill: { jp: "Der Grenzwert liegt sehr hoch", en: "The limit value is very high" }, accept: ["limit value", "the limit value", "limit", "the limit", "threshold", "threshold value"], hint: "die Grenze (border) + der Wert (value): the legal or physical line. einen Grenzwert überschreiten = to exceed a limit, the sentence German environmental reporting is built on." },
+        { id: "de-u94l4-dieemission", type: "vocab", front: "die Emission", reading: "dieemission", meaning: "the emission", example: { jp: "Die Emissionen sind gesunken, aber ein Teil der Produktion ist einfach ins Ausland gegangen.", en: "Emissions have fallen, but part of the production has simply gone abroad." }, drill: { jp: "Die Emission sinkt seit zwei Jahren", en: "The emission has been falling for two years" }, accept: ["emission", "the emission", "emissions"], hint: "Usually plural in use: die Emissionen. Stress on the last syllable. The opposite direction is die Immission — what actually arrives where people live." },
+        { id: "de-u94l4-dienorm", type: "vocab", front: "die Norm", reading: "dienorm", meaning: "the standard", example: { jp: "Die Norm schreibt das Verfahren genau vor, deshalb darf die Firma hier gar nichts selbst entscheiden.", en: "The standard prescribes the procedure precisely, which is why the company may decide nothing itself here." }, drill: { jp: "Die Norm schreibt zwei Versuche vor", en: "The standard prescribes two tests" }, accept: ["standard", "the standard", "norm", "the norm", "specification"], hint: "The written technical standard (DIN-Norm), and the social norm as well. Germany has a whole institute for the first kind, and opinions about the second." },
+        { id: "de-u94l4-dietoleranz", type: "vocab", front: "die Toleranz", reading: "dietoleranz", meaning: "the tolerance", example: { jp: "Die Toleranz ist winzig, und deshalb fällt bei dieser Stückzahl fast jedes zehnte Teil durch.", en: "The tolerance is tiny, and that is why at this number of units almost every tenth part fails." }, drill: { jp: "Die Toleranz bleibt sehr klein", en: "The tolerance stays very small" }, accept: ["tolerance", "the tolerance", "margin", "permitted deviation"], hint: "Both the engineering allowance and the human virtue. In a workshop it is measured in Millimeter; in a debate it is what the other side is said to lack." },
+        { id: "de-u94l4-dieauflosung", type: "vocab", front: "die Auflösung", reading: "dieauflosung", meaning: "the resolution", example: { jp: "Bei dieser Auflösung sieht man den Unterschied gar nicht, obwohl er in den Rohdaten deutlich steht.", en: "At this resolution you cannot see the difference at all, although it is clearly there in the raw data." }, drill: { jp: "Die Auflösung reicht für diesen Versuch", en: "The resolution is enough for this experiment" }, accept: ["resolution", "the resolution", "definition", "dissolution", "breakup"], hint: "From auflösen (to dissolve, to resolve): how fine the detail is on a screen or in a measurement — and also the dissolving of a company or a parliament." },
+      ],
+    },
   ],
 };
