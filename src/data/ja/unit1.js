@@ -13,7 +13,9 @@
 // German does not have. Copy the RIGOUR of this file, never its unit list.
 //
 // Corpus as of 2026-09-17: 208 units — pre-a1 7 / a1 36 / a2 55 / b1 57 / b2 53.
-// 5,013 items: 176 kana, 792 kanji, 4,045 vocab.
+// 5,012 items: 175 kana, 792 kanji, 4,045 vocab. COUNT BY LOADING ja/index.js,
+// not by grepping `type: "kana"` — a COMMENT in unit16.js matches that string and
+// inflates the kana count by one. This header shipped 176/5,013 for exactly that.
 //
 // ─────────────────────────────────────────────────────────────────────────────
 // AUTHORING CONVENTIONS FOR JAPANESE — binding on ALL ja units, every block.
@@ -21,7 +23,8 @@
 //
 // 1. THREE ITEM TYPES, AND THEY ARE NOT INTERCHANGEABLE.
 //      kana  — one glyph. meaning: null, example: null. `reading` is its romaji,
-//              `hint` carries the mnemonic. 176 of them, all in units 1–7.
+//              `hint` carries the mnemonic. 175 of them: 142 across u1–u6, plus the
+//              33 yōon digraphs in u16. u7 has NO kana items — it is vocab only.
 //      kanji — one character, taught as a character. meaning AND example are
 //              REQUIRED. 792 of them.
 //      vocab — a word. meaning + example required. 4,045 of them.
@@ -30,9 +33,9 @@
 //    data and gojuon ordering, which `glyph` deliberately does not.
 //
 // 2. THE VOCAB FRONT IS WRITTEN IN KANA — with one systematic exception.
-//    93.3% of vocab fronts are kana, at EVERY band including B2: u150 (b2) teaches
-//    めんせき , not 面積. The learner reads the word; the kanji is taught
-//    separately as a `kanji` item. The exception is the dedicated かんじ units
+//    93.3% of vocab fronts are kana, at EVERY band including B2: u156 (b2) teaches
+//    ろんてん, not 論点. (u150 is b1, not b2 — めんせき is its word.) The learner
+//    reads the word; the kanji is taught separately. The exception is the かんじ units
 //    from u100 on (u100 かんじ・こころ, u102 かんじ・ことば, …), where the front IS
 //    the compound (愛情, "affection") and the reading carries the romaji.
 //    Measured: 272 kanji-bearing vocab fronts, ALL inside u100–u187, and inside
@@ -50,7 +53,7 @@
 // 5. A KANA FRONT DOES NOT BLOCK A VOCAB FRONT. Deliberate, and easy to get wrong.
 //    contract.js:315 checks word-front uniqueness vocab/kanji against vocab/kanji,
 //    NEVER against kana, "that kana→word reuse is intentional". So the kana か
-//    (u1) and the question particle か (u19) coexist, as do し, な, ね, の — 7 pairs
+//    (u1) and the question particle か (u19) coexist, as do し, な, ね, の — 19 pairs
 //    in all. What you may NOT do is teach the same WORD twice: one word, one home.
 //    Uniqueness is SCOPED PER LANGUAGE — Spanish "no" and Italian "no" are
 //    unrelated words and must not collide.
@@ -58,9 +61,12 @@
 // 6. VERBS ARE TAUGHT IN THE ます-FORM, and that is the front.
 //    front つたえます (tsutaemasu), not the dictionary form. Polite-first: it is
 //    what a beginner can say to a stranger without giving offence. A verb that is
-//    drilled carries `group` (godan | ichidan | irregular) and `conjForm` (e.g.
-//    "て", "ない"), and the hint names both: "ichidan; drilled in the て-form".
-//    ⚠ COMPARE LEXEMES, NOT STRINGS: ておきます and ておく both validate while
+//    drilled carries `group` (godan | ichidan | irregular) and `conjForm`. ⚠ THE
+//    conjForm VALUE IS ASCII — "te", "nai", "ta", "tara", "ba", "dict", "potential",
+//    "volitional", "passive", "causative", "imperative" — never the kana. A kana
+//    conjForm is a HARD validator error (contract.js:217). The kana belongs in the
+//    `hint` prose only: "ichidan; drilled in the て-form" with conjForm: "te".
+//    ⚠ COMPARE LEXEMES, NOT STRINGS: a ます-form and its dictionary form both validate while
 //    being one word with two mastery tracks. A green validator is NOT evidence a
 //    front is new. Check ます⇄dictionary, noun⇄noun+する, and X⇄Xです.
 //
@@ -77,7 +83,7 @@
 // 9. EVERY EXAMPLE USES ONLY VOCAB ALREADY INTRODUCED at or before its unit.
 //    ⚠ lint:curriculum CANNOT CHECK THIS FOR JAPANESE — there are no word
 //    boundaries to tokenise. It tokenises examples on letter boundaries
-//    (lint.js:331) and Japanese has none, so the whole sentence reads as ONE
+//    (wordPieces, lint.js:143-145, called at :334) and Japanese has none, so ONE
 //    token and nothing is ever flagged. MEASURED 2026-09-17 on the full corpus:
 //    de 639 scope warnings, es 1,509, fr 659, no 1,144, pt 1,025 — and ja EXACTLY 0.
 //    That is not a clean corpus, it is an absent check. This is the one rule in
