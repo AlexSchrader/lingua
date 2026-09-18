@@ -1,18 +1,89 @@
-// DE Unit 96 — Arts and criticism (slot: arts-criticism) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// DE Unit 96 — Kunst und Kritik (slot: arts-criticism) — B2
+// Conventions: de/unit1.js + de/unit51.js + de/unit88.js (B2 band constitution).
+// Already taught, used but never re-taught: das Werk (u35), der Roman (u35),
+// das Publikum (u35), die Ausstellung (u35), die Handlung (u64), der Ausdruck
+// (u74), die Kritik (u55), kritisieren (u64), die Besprechung (u24).
+// Self-check, dropped as same-lexeme duplicates: der Erzähler (erzählen u29),
+// die Wirkung (wirken u31), die Spannung (die Spanne u91 — a false family, but
+// a real stem collision worth avoiding while u91 is fresh), die Kritikerin.
+// Pairs with u88: that unit taught how to argue, this one what to argue ABOUT —
+// so the judgement words here (gelungen, anspruchsvoll) lean on u88's scale.
+//
+// FREE: Museen, Museum, Filme, Film, Szene, Szenen, Theater, Konzert, Konzerte, Roman, Romane, Genre, Genres, Metapher, Metaphern, Motiv, Motive, Komposition, Rezension, Rezensionen, Kulisse, Premiere, Details, Original
 export const DE_UNIT96 = {
   id: "de-u96",
   lang: "de",
-  title: "Arts and criticism",
+  title: "Kunst und Kritik",
   order: 96,
   stage: "b2",
   lessons: [
-    { id: "de-u96l1", title: "Lesson 1", locked: true },
-    { id: "de-u96l2", title: "Lesson 2", locked: true },
-    { id: "de-u96l3", title: "Lesson 3", locked: true },
-    { id: "de-u96l4", title: "Lesson 4", locked: true },
+    {
+      id: "de-u96l1",
+      unit: 96,
+      lesson: 1,
+      title: "Was für ein Werk ist das?",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Place a work before judging it — name its genre, its category, the version you saw, the style it is written in and the draft it grew from.",
+      items: [
+        { id: "de-u96l1-dasgenre", type: "vocab", front: "das Genre", reading: "dasgenre", meaning: "the genre", example: { jp: "Das Genre ist schwer zu bestimmen, weil das Werk aus mehreren Traditionen gleichzeitig kommt.", en: "The genre is hard to determine, because the work comes from several traditions at once." }, drill: { jp: "Das Genre wächst seit Jahren", en: "The genre has been growing for years" }, accept: ["genre", "the genre", "category", "type"], hint: "French, and pronounced that way: SCHAHNG-re. German also has die Gattung (below) for the older, more literary classification." },
+        { id: "de-u96l1-diegattung", type: "vocab", front: "die Gattung", reading: "diegattung", meaning: "the category", example: { jp: "Diese Gattung gab es im Mittelalter noch nicht, sie entstand erst in der Neuzeit.", en: "This category did not yet exist in the Middle Ages; it only arose in the modern era." }, drill: { jp: "Die Gattung bleibt bis heute wichtig", en: "The category remains important to this day" }, accept: ["category", "the category", "genre", "the genre", "type", "species", "class"], hint: "The literary form — Epik, Lyrik, Dramatik are die drei Gattungen in every German school. In biology it is a genus, the same idea of a formal class." },
+        { id: "de-u96l1-diefassung", type: "vocab", front: "die Fassung", reading: "diefassung", meaning: "the version", example: { jp: "Die erste Fassung war deutlich länger, aber das Theater wollte den Abend kürzer halten.", en: "The first version was noticeably longer, but the theatre wanted to keep the evening shorter." }, drill: { jp: "Die Fassung bleibt deutlich kürzer", en: "The version stays noticeably shorter" }, accept: ["version", "the version", "edition", "cut", "composure"], hint: "From fassen (to grasp, to set): a version of a text or film — die englische Fassung. Second sense: die Fassung verlieren = to lose your composure." },
+        { id: "de-u96l1-derstil", type: "vocab", front: "der Stil", reading: "derstil", meaning: "the style", example: { jp: "Der Stil ist sehr einfach, und genau deshalb wirkt das Bild bis heute modern.", en: "The style is very simple, and that is exactly why the picture still looks modern today." }, drill: { jp: "Der Stil bleibt in allen Werken gleich", en: "The style stays the same in all the works" }, accept: ["style", "the style", "manner"], hint: "Pronounced SCHTEEL. Careful with the English cognate 'still' — and with die Stille (silence), which is a different word entirely." },
+        { id: "de-u96l1-derentwurf", type: "vocab", front: "der Entwurf", reading: "derentwurf", meaning: "the draft", example: { jp: "Der erste Entwurf hängt heute im Museum, obwohl der Künstler ihn selbst nie zeigen wollte.", en: "The first draft hangs in the museum today, although the artist himself never wanted to show it." }, drill: { jp: "Der Entwurf liegt im Museum", en: "The draft is in the museum" }, accept: ["draft", "the draft", "design", "the design", "sketch", "blueprint", "proposal"], hint: "From entwerfen (to design, to sketch out). Used for drawings, buildings and laws alike — der Gesetzentwurf is a bill before parliament." },
+        { id: "de-u96l1-kunstlerisch", type: "vocab", front: "künstlerisch", reading: "kunstlerisch", meaning: "artistic", example: { jp: "Künstlerisch ist das Werk anspruchsvoll, für ein großes Publikum bleibt es dennoch zu schwer.", en: "Artistically the work is demanding; for a large audience it nevertheless remains too difficult." }, drill: { jp: "Diese Arbeit wirkt künstlerisch sehr frei", en: "This work seems artistically very free" }, accept: ["artistic", "artistically", "creative"], hint: "From der Künstler (the artist), which is from die Kunst (art). künstlerisch = artistic; künstlich = artificial — one letter apart, and a trap." },
+      ],
+    },
+    {
+      id: "de-u96l2",
+      unit: 96,
+      lesson: 2,
+      title: "Auf der Bühne",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about a live performance — the production, the premiere, the set, an entrance, the applause and the evening as a whole.",
+      items: [
+        { id: "de-u96l2-dieauffuhrung", type: "vocab", front: "die Aufführung", reading: "dieauffuhrung", meaning: "the performance", example: { jp: "Die Aufführung dauerte fast vier Stunden, trotzdem ist kaum jemand vor dem Ende gegangen.", en: "The performance lasted almost four hours; nevertheless hardly anyone left before the end." }, drill: { jp: "Die Aufführung dauerte vier Stunden", en: "The performance lasted four hours" }, accept: ["performance", "the performance", "production", "staging", "show"], hint: "From aufführen (to put on, to perform): the evening itself. die Inszenierung (below) is the directorial reading; die Aufführung is the occasion." },
+        { id: "de-u96l2-dieinszenierung", type: "vocab", front: "die Inszenierung", reading: "dieinszenierung", meaning: "the production", example: { jp: "Die Inszenierung verlegt die Handlung in die Nachkriegszeit, und deshalb hat das Stück eine ganz neue Wirkung.", en: "The production moves the plot to the post-war period, and that is why the play has a completely new effect." }, drill: { jp: "Die Inszenierung wirkt sehr modern", en: "The production seems very modern" }, accept: ["production", "the production", "staging", "the staging", "directorial interpretation", "mise-en-scène"], hint: "From inszenieren (to stage). The director's reading of a text — Regietheater is the German argument about how far that may go. Also used of a staged public gesture." },
+        { id: "de-u96l2-dieurauffuhrung", type: "vocab", front: "die Uraufführung", reading: "dieurauffuhrung", meaning: "the world premiere", example: { jp: "Die Uraufführung war ein Misserfolg, aber zwanzig Jahre später galt dasselbe Stück als Meisterwerk.", en: "The world premiere was a failure, but twenty years later the same play counted as a masterpiece." }, drill: { jp: "Die Uraufführung war ein grosser Erfolg", en: "The world premiere was a great success" }, accept: ["world premiere", "the world premiere", "first performance", "premiere"], hint: "ur- (original, primal) + die Aufführung: the very first time anywhere. die Erstaufführung is the first time in a given city or country — German distinguishes the two carefully." },
+        { id: "de-u96l2-dasbuhnenbild", type: "vocab", front: "das Bühnenbild", reading: "dasbuhnenbild", meaning: "the stage design", example: { jp: "Das Bühnenbild besteht aus einer einzigen Wand, und trotzdem entsteht daraus eine ganze Stadt.", en: "The stage design consists of a single wall, and yet a whole city arises out of it." }, drill: { jp: "Das Bühnenbild besteht aus einer Wand", en: "The stage design consists of one wall" }, accept: ["stage design", "the stage design", "set", "the set", "scenery", "set design"], hint: "die Bühne (stage) + das Bild (u15). The person who makes it is der Bühnenbildner — a named credit in every German theatre programme." },
+        { id: "de-u96l2-derauftritt", type: "vocab", front: "der Auftritt", reading: "derauftritt", meaning: "the appearance", example: { jp: "Sein Auftritt dauerte keine zehn Minuten, aber das Publikum spricht bis heute darüber.", en: "His appearance lasted less than ten minutes, but the audience still talks about it today." }, drill: { jp: "Der Auftritt dauerte zehn Minuten", en: "The appearance lasted ten minutes" }, accept: ["appearance", "the appearance", "performance", "entrance", "the entrance", "showing"], hint: "From auftreten (to appear, to step forward). A stage entrance, a TV appearance, or a person's manner — ein sicherer Auftritt = a confident bearing." },
+        { id: "de-u96l2-derbeifall", type: "vocab", front: "der Beifall", reading: "derbeifall", meaning: "the applause", example: { jp: "Der Beifall hielt lange an, obwohl die Kritik am nächsten Morgen sehr hart ausfiel.", en: "The applause went on for a long time, although the criticism the next morning turned out very harsh." }, drill: { jp: "Der Beifall dauerte sehr lange", en: "The applause lasted a long time" }, accept: ["applause", "the applause", "acclaim", "approval"], hint: "bei + fallen: falling in with someone. Also figurative agreement — Beifall finden = to meet with approval. The everyday word for clapping is der Applaus." },
+      ],
+    },
+    {
+      id: "de-u96l3",
+      unit: 96,
+      lesson: 3,
+      title: "Wie es gemacht ist",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe the craft inside a work — the character, the recurring motif, the metaphor, the way something is depicted, the high point and the canvas it sits on.",
+      items: [
+        { id: "de-u96l3-diefigur", type: "vocab", front: "die Figur", reading: "diefigur", meaning: "the character", example: { jp: "Die Figur bleibt bis zum Ende fremd, und genau das macht den Roman so schwer zu lesen.", en: "The character remains a stranger until the end, and that is exactly what makes the novel so hard to read." }, drill: { jp: "Die Figur bleibt bis zum Ende ruhig", en: "The character stays quiet until the end" }, accept: ["character", "the character", "figure", "the figure", "shape"], hint: "A character in a story, a figure in a painting, and a person's shape. Note: the actor playing it is die Rolle — the Figur exists in the text." },
+        { id: "de-u96l3-dasmotiv", type: "vocab", front: "das Motiv", reading: "dasmotiv", meaning: "the motif", example: { jp: "Dasselbe Motiv kommt in jedem Kapitel vor, aber jedes Mal in einer anderen Fassung.", en: "The same motif occurs in every chapter, but each time in a different version." }, drill: { jp: "Das Motiv wirkt sehr stark", en: "The motif works very strongly" }, accept: ["motif", "the motif", "theme", "the theme", "motive", "the motive", "subject"], hint: "Three lives in German: a recurring artistic motif, the subject of a photograph, and a motive for a crime — das Motiv der Tat." },
+        { id: "de-u96l3-diemetapher", type: "vocab", front: "die Metapher", reading: "diemetapher", meaning: "the metaphor", example: { jp: "Die Metapher ist nicht neu, trotzdem wirkt sie an dieser Stelle überraschend stark.", en: "The metaphor is not new; nevertheless it works surprisingly strongly at this point." }, drill: { jp: "Die Metapher wirkt hier sehr stark", en: "The metaphor works very strongly here" }, accept: ["metaphor", "the metaphor"], hint: "Stress on the second syllable: me-TA-pher. German school German also drills der Vergleich and das Symbol beside it." },
+        { id: "de-u96l3-diedarstellung", type: "vocab", front: "die Darstellung", reading: "diedarstellung", meaning: "the depiction", example: { jp: "Die Darstellung der Nachkriegszeit ist genau, aber sie bleibt der Kritik zu freundlich.", en: "The depiction of the post-war period is precise, but it stays too kind for the critics." }, drill: { jp: "Die Darstellung bleibt sehr genau", en: "The depiction stays very precise" }, accept: ["depiction", "the depiction", "portrayal", "representation", "presentation", "account"], hint: "From darstellen (to depict, to portray, to represent). Also the way facts are presented — eine einseitige Darstellung is a one-sided account." },
+        { id: "de-u96l3-derhohepunkt", type: "vocab", front: "der Höhepunkt", reading: "derhohepunkt", meaning: "the climax", example: { jp: "Der Höhepunkt kommt schon in der Mitte, deshalb wirkt der ganze zweite Teil etwas ruhig.", en: "The climax comes as early as the middle, which is why the whole second part seems somewhat quiet." }, drill: { jp: "Der Höhepunkt kommt in der Mitte", en: "The climax comes in the middle" }, accept: ["climax", "the climax", "high point", "the high point", "peak", "highlight"], hint: "die Höhe (height) + der Punkt: the highest point of an evening, a career or a story. der Tiefpunkt is its opposite." },
+        { id: "de-u96l3-dieleinwand", type: "vocab", front: "die Leinwand", reading: "dieleinwand", meaning: "the canvas", example: { jp: "Die Leinwand ist über zwei Meter breit, und trotzdem sieht man jedes einzelne Detail.", en: "The canvas is over two metres wide, and yet you can see every single detail." }, drill: { jp: "Die Leinwand hängt jetzt im Museum", en: "The canvas now hangs in the museum" }, accept: ["canvas", "the canvas", "screen", "the screen", "silver screen"], hint: "das Leinen (linen) + die Wand (wall). Both a painter's canvas and a cinema screen — auf die Leinwand bringen = to film a book." },
+      ],
+    },
+    {
+      id: "de-u96l4",
+      unit: 96,
+      lesson: 4,
+      title: "Das Urteil des Kritikers",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Write the verdict — call a work successful or demanding, place the review, name the composition and the painting, and say what the setting adds.",
+      items: [
+        { id: "de-u96l4-gelungen", type: "vocab", front: "gelungen", reading: "gelungen", meaning: "successful", example: { jp: "Der Anfang ist gelungen, aber am Ende fehlt der Inszenierung eine klare Richtung.", en: "The opening is successful, but at the end the production lacks a clear direction." }, drill: { jp: "Dieser Entwurf wirkt sehr gelungen", en: "This draft seems very successful" }, accept: ["successful", "well done", "accomplished", "a success", "well-executed"], hint: "The past participle of gelingen (to succeed — of a thing, not a person). ein gelungener Abend = an evening that worked. The opposite is misslungen." },
+        { id: "de-u96l4-anspruchsvoll", type: "vocab", front: "anspruchsvoll", reading: "anspruchsvoll", meaning: "demanding", example: { jp: "Der Text ist anspruchsvoll, deshalb bleibt das Publikum am Ende kleiner als bei jeder anderen Fassung.", en: "The text is demanding, which is why the audience ends up smaller than for any other version." }, drill: { jp: "Dieses Werk bleibt sehr anspruchsvoll", en: "This work remains very demanding" }, accept: ["demanding", "sophisticated", "challenging", "high-brow", "exacting", "discerning"], hint: "der Anspruch (u58) + voll: full of claims on you. Of a work it is praise; of a person (ein anspruchsvoller Gast) it is a polite complaint." },
+        { id: "de-u96l4-dierezension", type: "vocab", front: "die Rezension", reading: "dierezension", meaning: "the review", example: { jp: "Die Rezension erschien erst nach einer Woche, aber sie hat die ganze Diskussion bestimmt.", en: "The review only appeared after a week, but it determined the whole discussion." }, drill: { jp: "Die Rezension kam eine Woche später", en: "The review came a week later" }, accept: ["review", "the review", "critique", "notice"], hint: "The written review of a book, play or concert. die Kritik (u55) covers both the review and criticism in general; a Rezension is always a published piece." },
+        { id: "de-u96l4-diekomposition", type: "vocab", front: "die Komposition", reading: "diekomposition", meaning: "the composition", example: { jp: "Die Komposition des Bildes ist streng, und gerade deshalb wirkt die eine offene Stelle so stark.", en: "The composition of the picture is strict, and precisely for that reason the one open spot works so strongly." }, drill: { jp: "Die Komposition wirkt sehr streng", en: "The composition seems very strict" }, accept: ["composition", "the composition", "arrangement", "musical work"], hint: "Both the arrangement inside a picture and a piece of music. The composer is der Komponist — weak masculine, den Komponisten." },
+        { id: "de-u96l4-dasgemalde", type: "vocab", front: "das Gemälde", reading: "dasgemalde", meaning: "the painting", example: { jp: "Das Gemälde hing zweihundert Jahre in einer Kirche, bevor es überhaupt jemand ernst genommen hat.", en: "The painting hung in a church for two hundred years before anyone took it seriously at all." }, drill: { jp: "Das Gemälde hängt seit Jahren dort", en: "The painting has hung there for years" }, accept: ["painting", "the painting", "picture", "canvas"], hint: "From malen (to paint). More formal than das Bild (u15), which covers any picture — a Gemälde is a painted work of art." },
+        { id: "de-u96l4-diekulisse", type: "vocab", front: "die Kulisse", reading: "diekulisse", meaning: "the backdrop", example: { jp: "Die alte Stadt dient dem Film nur als Kulisse, über ihre Geschichte erfährt man fast nichts.", en: "The old city serves the film only as a backdrop; about its history you learn almost nothing." }, drill: { jp: "Die Kulisse kommt aus dem Theater", en: "The backdrop comes from the theatre" }, accept: ["backdrop", "the backdrop", "scenery", "set", "the set", "backcloth"], hint: "The painted flats at the side of a stage, and by extension any setting — vor der Kulisse der Alpen. hinter den Kulissen = behind the scenes." },
+      ],
+    },
   ],
 };
