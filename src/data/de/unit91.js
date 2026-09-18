@@ -1,18 +1,89 @@
-// DE Unit 91 — Nuance and degree (slot: nuance-degree) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// DE Unit 91 — Nuancen und Abstufungen (slot: nuance-degree) — B2
+// Conventions: de/unit1.js + de/unit51.js + de/unit88.js (B2 band constitution,
+// §6 lists the ordinary German words the corpus never taught — written around).
+// Already taught, used freely and never re-taught: der Grad (u50), erheblich
+// (u53), kaum (u21), die Ausnahme (u58), der Anteil (u53), überwiegend (u53),
+// knapp (u87), deutlich (u53), selten (u12), der Unterschied (u37), häufig (u28).
+// Self-check: die Häufigkeit dropped as a lexeme duplicate of häufig (u28).
+// THE POINT OF THIS UNIT: at B2 the learner stops saying sehr and nicht sehr.
+// Every card here is a step on one scale, and the hints place each word against
+// its neighbours — that ordering IS the lesson (u88 §2c).
+//
+// FREE: Prozent, Zahlen, Studien, Details, Nuance, Nuancen, Temperatur, Konflikt, Faktoren, minimal, relativ, Effekt
 export const DE_UNIT91 = {
   id: "de-u91",
   lang: "de",
-  title: "Nuance and degree",
+  title: "Nuancen und Abstufungen",
   order: 91,
   stage: "b2",
   lessons: [
-    { id: "de-u91l1", title: "Lesson 1", locked: true },
-    { id: "de-u91l2", title: "Lesson 2", locked: true },
-    { id: "de-u91l3", title: "Lesson 3", locked: true },
-    { id: "de-u91l4", title: "Lesson 4", locked: true },
+    {
+      id: "de-u91l1",
+      unit: 91,
+      lesson: 1,
+      title: "Wie groß ist es wirklich?",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Give the size of a thing without exaggerating — name the scale, mark a change as considerable or as tiny, and say how far something reaches.",
+      items: [
+        { id: "de-u91l1-dasausmass", type: "vocab", front: "das Ausmaß", reading: "dasausmass", meaning: "the extent", example: { jp: "Das Ausmaß der Schäden wurde erst klar, als die zweite Gruppe die Zahlen erhoben hatte.", en: "The extent of the damage only became clear once the second group had collected the figures." }, drill: { jp: "Das Ausmaß wächst seit Wochen", en: "The extent has been growing for weeks" }, accept: ["extent", "the extent", "scale", "the scale", "magnitude", "dimension"], hint: "das Maß (measure) + aus: how far a thing reaches. Almost always used of something unwelcome — das Ausmaß der Krise. Reading folds ß to ss: dasausmass." },
+        { id: "de-u91l1-dasmass", type: "vocab", front: "das Maß", reading: "dasmass", meaning: "the measure", example: { jp: "Ein gewisses Maß an Kritik ist normal, aber dieser Ton geht deutlich zu weit.", en: "A certain measure of criticism is normal, but this tone clearly goes too far." }, drill: { jp: "Das Maß bleibt für alle gleich", en: "The measure stays the same for everyone" }, accept: ["measure", "the measure", "degree", "the degree", "amount", "extent"], hint: "in hohem Maße = to a high degree; mit Maß = in moderation. Do not confuse with die Maß, the Bavarian litre of beer — different gender, different word." },
+        { id: "de-u91l1-betrachtlich", type: "vocab", front: "beträchtlich", reading: "betrachtlich", meaning: "considerable", example: { jp: "Der Zuwachs ist beträchtlich, auch wenn er die alten Zahlen noch nicht erreicht.", en: "The increase is considerable, even if it does not yet reach the old figures." }, drill: { jp: "Diese Zahlen wachsen beträchtlich schnell", en: "These figures are growing considerably fast" }, accept: ["considerable", "substantial", "sizeable", "significant", "appreciable"], hint: "From betrachten (to look at): big enough to be worth looking at. Sits above erheblich (u53) in feel — erheblich is formal, beträchtlich is simply large." },
+        { id: "de-u91l1-geringfugig", type: "vocab", front: "geringfügig", reading: "geringfugig", meaning: "marginal", example: { jp: "Der Unterschied ist geringfügig, deshalb ist die ganze Statistik am Ende nicht aussagekräftig.", en: "The difference is marginal, which is why the whole statistic is not meaningful in the end." }, drill: { jp: "Diese Abweichung bleibt geringfügig", en: "This deviation remains marginal" }, accept: ["marginal", "minor", "slight", "negligible", "insignificant", "trifling"], hint: "gering (small) + fügen: too small to matter. In German law eine geringfügige Beschäftigung is a mini-job — the legal term for work under a certain amount." },
+        { id: "de-u91l1-winzig", type: "vocab", front: "winzig", reading: "winzig", meaning: "tiny", example: { jp: "Der Anteil ist winzig, trotzdem steht er in den Reden des Chefs.", en: "The share is tiny, and yet it appears in the speeches the boss gives." }, drill: { jp: "Der Zuwachs bleibt winzig klein", en: "The increase stays tiny" }, accept: ["tiny", "minute", "minuscule", "very small", "wee"], hint: "The emotional end of small — klein is neutral, winzig is a reaction. ein winziger Fehler = a tiny slip; ein winziges bisschen = a tiny bit." },
+        { id: "de-u91l1-derumfang", type: "vocab", front: "der Umfang", reading: "derumfang", meaning: "the scope", example: { jp: "Der Umfang der Studie war klein, aber ihre Methode gilt bis heute als verlässlich.", en: "The scope of the study was small, but its method still counts as reliable today." }, drill: { jp: "Der Umfang wächst mit dem Projekt", en: "The scope grows with the project" }, accept: ["scope", "the scope", "extent", "the extent", "size", "volume", "circumference"], hint: "um + fangen (to catch): what the thing takes in — the circumference of a circle, the length of a report, the size of a job. in vollem Umfang = in full." },
+      ],
+    },
+    {
+      id: "de-u91l2",
+      unit: 91,
+      lesson: 2,
+      title: "Mehr oder weniger",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Track a movement on a scale — say something is rising or shrinking, put a range around it, and mark how much of a whole you actually mean.",
+      items: [
+        { id: "de-u91l2-zunehmend", type: "vocab", front: "zunehmend", reading: "zunehmend", meaning: "increasingly", example: { jp: "Die Kritik wird zunehmend lauter, obwohl sich an der Sache selbst wenig ändert.", en: "The criticism is getting increasingly louder, although little is changing in the matter itself." }, drill: { jp: "Die Preise steigen zunehmend schneller", en: "The prices are rising increasingly faster" }, accept: ["increasingly", "growing", "mounting", "more and more"], hint: "The participle of zunehmen (to increase): as an adverb it means 'more and more'. The opposite pair is abnehmend. Of a person, zunehmen means to put on weight." },
+        { id: "de-u91l2-schrumpfen", type: "vocab", front: "schrumpfen", reading: "schrumpfen", meaning: "to shrink", example: { jp: "Die Gruppe schrumpft seit Jahren, und deshalb steigen die Kosten für alle anderen.", en: "The group has been shrinking for years, and that is why the costs are rising for everyone else." }, drill: { jp: "Die Zahlen schrumpfen seit Jahren", en: "The figures have been shrinking for years" }, accept: ["to shrink", "shrink", "to contract", "to dwindle", "to diminish"], hint: "Of a wool jumper in the wash and of an economy alike. Its opposite here is wachsen (u26); zusammenschrumpfen auf = to shrink down to." },
+        { id: "de-u91l2-derzuwachs", type: "vocab", front: "der Zuwachs", reading: "derzuwachs", meaning: "the increase", example: { jp: "Der Zuwachs liegt bei drei Prozent, was für diesen Bereich beträchtlich ist.", en: "The increase is around three percent, which is considerable for this area." }, drill: { jp: "Der Zuwachs kommt fast nur aus der Stadt", en: "The increase comes almost only from the city" }, accept: ["increase", "the increase", "growth", "the growth", "gain", "rise"], hint: "zu + wachsen (u26): what has grown on top. Warmer than die Steigerung, which is a step up you caused — a Zuwachs simply happened. Also a new baby in the family." },
+        { id: "de-u91l2-diesteigerung", type: "vocab", front: "die Steigerung", reading: "diesteigerung", meaning: "the rise", example: { jp: "Eine Steigerung um zehn Prozent klingt gut, solange niemand nach dem Anfangswert fragt.", en: "A rise of ten percent sounds good, as long as nobody asks about the starting figure." }, drill: { jp: "Die Steigerung kommt zu spät", en: "The rise comes too late" }, accept: ["rise", "the rise", "increase", "the increase", "improvement", "escalation"], hint: "From steigen (to climb): a deliberate raising — of prices, of performance, of tension. In grammar, die Steigerung is the comparative and superlative." },
+        { id: "de-u91l2-diespanne", type: "vocab", front: "die Spanne", reading: "diespanne", meaning: "the range", example: { jp: "Die Spanne zwischen beiden Angaben ist groß, deshalb ist der Durchschnitt hier wertlos.", en: "The range between the two figures is big, which is why the average is worthless here." }, drill: { jp: "Die Spanne reicht von zwei bis zehn", en: "The range goes from two to ten" }, accept: ["range", "the range", "span", "the span", "spread", "margin", "gap"], hint: "From spannen (to stretch): the stretch between two points — eine Spanne von zehn Jahren, die Gewinnspanne (profit margin)." },
+        { id: "de-u91l2-diemehrzahl", type: "vocab", front: "die Mehrzahl", reading: "diemehrzahl", meaning: "the majority", example: { jp: "Die Mehrzahl der Firmen hält sich an die Regel, auch wenn niemand sie wirklich überprüft.", en: "The majority of companies keep to the rule, even though nobody really checks it." }, drill: { jp: "Die Mehrzahl entscheidet sich dagegen", en: "The majority decides against it" }, accept: ["majority", "the majority", "most", "most of them", "plural", "the plural"], hint: "mehr + die Zahl (u17): the larger number. Close to die Mehrheit (u32), but Mehrheit is the group that wins a vote and Mehrzahl is simply 'most of them'. In grammar it is the plural." },
+      ],
+    },
+    {
+      id: "de-u91l3",
+      unit: 91,
+      lesson: 3,
+      title: "Ungefähr und beinahe",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Be honestly vague — say roughly, largely, occasionally or moderately, instead of claiming a precision you do not have.",
+      items: [
+        { id: "de-u91l3-annahernd", type: "vocab", front: "annähernd", reading: "annahernd", meaning: "approximately", example: { jp: "Beide Gruppen sind annähernd gleich groß, trotzdem bekommt die eine viel mehr Geld.", en: "Both groups are approximately the same size, and yet one of them gets much more money." }, drill: { jp: "Die Zahlen bleiben annähernd gleich", en: "The figures remain approximately the same" }, accept: ["approximately", "nearly", "almost", "roughly", "close to"], hint: "From sich annähern (to approach): coming close to a figure. nicht annähernd = not nearly — Das reicht nicht annähernd." },
+        { id: "de-u91l3-weitgehend", type: "vocab", front: "weitgehend", reading: "weitgehend", meaning: "largely", example: { jp: "Der Bericht ist weitgehend richtig, aber an einer wichtigen Stelle fehlt die Quelle.", en: "The report is largely correct, but at one important point the source is missing." }, drill: { jp: "Die Regeln bleiben weitgehend gleich", en: "The rules remain largely the same" }, accept: ["largely", "to a large extent", "mostly", "broadly", "extensively"], hint: "weit + gehen: going far, but not all the way. The German hedge of choice in official writing — weitgehend unbekannt, weitgehend erledigt." },
+        { id: "de-u91l3-massig", type: "vocab", front: "mäßig", reading: "massig", meaning: "moderate", example: { jp: "Das Ergebnis war mäßig, und deshalb hat die Firma es gar nicht erst veröffentlicht.", en: "The result was moderate, which is why the company did not publish it at all." }, drill: { jp: "Der Zuwachs bleibt mäßig", en: "The increase remains moderate" }, accept: ["moderate", "modest", "mediocre", "middling", "so-so"], hint: "From das Maß: kept within measure. Careful — as a school report or a review it means mediocre, not merely moderate. Reading folds ß to ss: massig." },
+        { id: "de-u91l3-gelegentlich", type: "vocab", front: "gelegentlich", reading: "gelegentlich", meaning: "occasionally", example: { jp: "Solche Fehler kommen gelegentlich vor, aber hier steht derselbe schon zum dritten Mal.", en: "Such errors occur occasionally, but here the same one appears for the third time." }, drill: { jp: "Diese Muster zeigen sich gelegentlich", en: "These patterns show up occasionally" }, accept: ["occasionally", "from time to time", "now and then", "sometimes", "the odd time"], hint: "From die Gelegenheit (the occasion). Between selten (u12) and häufig (u28) on the scale, and politer than manchmal in writing." },
+        { id: "de-u91l3-einigermassen", type: "vocab", front: "einigermaßen", reading: "einigermassen", meaning: "reasonably", example: { jp: "Die Zahlen sind einigermaßen verlässlich, solange man sie nicht auf einzelne Städte herunterrechnet.", en: "The figures are reasonably reliable, as long as you don't break them down to individual cities." }, drill: { jp: "Das Modell wirkt einigermaßen verlässlich", en: "The model seems reasonably reliable" }, accept: ["reasonably", "fairly", "more or less", "tolerably", "passably", "OK"], hint: "einige + das Maß: to some measure. The spoken German shrug — Wie geht's? Einigermaßen. Reading folds ß to ss." },
+        { id: "de-u91l3-vergleichsweise", type: "vocab", front: "vergleichsweise", reading: "vergleichsweise", meaning: "comparatively", example: { jp: "Die Kosten sind vergleichsweise niedrig, weil die Stadt den größten Anteil selbst zahlt.", en: "The costs are comparatively low, because the city pays the largest share itself." }, drill: { jp: "Diese Methode wirkt vergleichsweise einfach", en: "This method seems comparatively simple" }, accept: ["comparatively", "relatively", "by comparison", "in relative terms"], hint: "der Vergleich + weise: 'by way of comparison'. Says the judgement only holds next to something else — vergleichsweise günstig is not the same as günstig." },
+      ],
+    },
+    {
+      id: "de-u91l4",
+      unit: 91,
+      lesson: 4,
+      title: "Feine Unterschiede",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Work at the fine end of the scale — name a nuance, a grading, a noticeable or a pronounced difference, and say where the emphasis of a thing lies.",
+      items: [
+        { id: "de-u91l4-dienuance", type: "vocab", front: "die Nuance", reading: "dienuance", meaning: "the nuance", example: { jp: "Zwischen den zwei Begriffen liegt eine Nuance, die in der Übersetzung meistens verloren geht.", en: "Between the two terms lies a nuance that is usually lost in translation." }, drill: { jp: "Die Nuance steckt in der Struktur", en: "The nuance is in the structure" }, accept: ["nuance", "the nuance", "shade", "the shade", "subtlety", "fine distinction"], hint: "Borrowed from French, and pronounced that way — nü-ANGS-e. eine Nuance besser = a shade better. German also has die Abstufung (below) for the grading itself." },
+        { id: "de-u91l4-dieabstufung", type: "vocab", front: "die Abstufung", reading: "dieabstufung", meaning: "the gradation", example: { jp: "Das Gesetz kennt mehrere Abstufungen, aber in der Praxis wird fast immer die härteste gewählt.", en: "The law knows several gradations, but in practice the harshest one is almost always chosen." }, drill: { jp: "Die Abstufung bleibt in diesem Modell weg", en: "The gradation is left out of this model" }, accept: ["gradation", "the gradation", "grading", "the grading", "scale", "shading", "tier"], hint: "die Stufe (step) + ab: the steps a scale is cut into. Where die Nuance is the small difference itself, die Abstufung is the whole set of steps." },
+        { id: "de-u91l4-merklich", type: "vocab", front: "merklich", reading: "merklich", meaning: "noticeably", example: { jp: "Der Ton ist merklich schärfer geworden, seit die zweite Studie erschienen ist.", en: "The tone has become noticeably sharper since the second study appeared." }, drill: { jp: "Die Kosten steigen merklich schneller", en: "The costs are rising noticeably faster" }, accept: ["noticeably", "markedly", "appreciably", "perceptibly", "visibly"], hint: "From merken (to notice): enough that you notice it. Weaker than deutlich (u53), stronger than kaum (u21) — the middle of that scale." },
+        { id: "de-u91l4-spurbar", type: "vocab", front: "spürbar", reading: "spurbar", meaning: "palpable", example: { jp: "Die Folgen sind im ganzen Bereich spürbar, obwohl die Zahlen sie noch nicht zeigen.", en: "The consequences are palpable across the whole area, although the figures do not show them yet." }, drill: { jp: "Der Unterschied wird schnell spürbar", en: "The difference quickly becomes palpable" }, accept: ["palpable", "noticeable", "tangible", "perceptible", "felt"], hint: "From spüren (to feel): you feel it rather than measure it. merklich is for what you notice; spürbar for what reaches you physically or emotionally." },
+        { id: "de-u91l4-ausgepragt", type: "vocab", front: "ausgeprägt", reading: "ausgepragt", meaning: "pronounced", example: { jp: "Der Unterschied zwischen den Regionen ist besonders ausgeprägt, und dafür gibt es bisher keine gute Erklärung.", en: "The difference between the regions is especially pronounced, and so far there is no good explanation for it." }, drill: { jp: "Dieses Muster wirkt besonders ausgeprägt", en: "This pattern seems especially pronounced" }, accept: ["pronounced", "marked", "strong", "distinct", "well-developed"], hint: "From prägen (to stamp a coin): stamped out clearly. Used of features and traits — ein ausgeprägter Sinn für Humor." },
+        { id: "de-u91l4-derschwerpunkt", type: "vocab", front: "der Schwerpunkt", reading: "derschwerpunkt", meaning: "the focus", example: { jp: "Der Schwerpunkt der Kritik liegt beim Aufbau, nicht bei den einzelnen Zahlen.", en: "The focus of the criticism lies on the structure, not on the individual figures." }, drill: { jp: "Der Schwerpunkt liegt auf der Methode", en: "The focus lies on the method" }, accept: ["focus", "the focus", "main focus", "emphasis", "the emphasis", "centre of gravity", "priority"], hint: "schwer (heavy) + der Punkt: in physics the centre of gravity, in everything else the main emphasis. der Schwerpunkt liegt auf + dative is the standard frame." },
+      ],
+    },
   ],
 };
