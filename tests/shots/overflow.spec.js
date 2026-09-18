@@ -38,15 +38,24 @@ const learner = (lang) => ({
   version: 1,
 });
 
-for (const lang of ["de", "fr", "no", "es", "pt"]) {
-  const w = worstLesson(lang);
-  test(`${lang}: the longest front (${w.n} chars) fits a 390px screen`, async ({ page }) => {
-    test.setTimeout(120_000);
-    await page.setViewportSize(PHONE);
+// ONE test over five languages, not five tests. Each is a single page load and a
+// geometry read, so splitting them bought nothing and cost four extra parallel
+// workers — enough load to tip `smoke.spec.js:723` ("Reset everything survives a
+// reload"), the heaviest test in the suite, past its 45s budget. lingua-8b traced
+// that and is fixing the heavy test with `test.slow()`; this is the other half,
+// and it is the half I own. Same assertions, same coverage, a fifth of the
+// footprint.
+test("the longest front in every language fits a 390px screen", async ({ page }) => {
+  test.setTimeout(180_000);
+  await page.setViewportSize(PHONE);
+  const failures = [];
+
+  for (const lang of ["de", "fr", "no", "es", "pt"]) {
+    const w = worstLesson(lang);
     await page.addInitScript((j) => localStorage.setItem("lingua-v1", j), JSON.stringify(learner(lang)));
     await page.goto(`/lesson/${w.lesson}`);
     await page.getByTestId("lesson-begin").click({ timeout: 20_000 }).catch(() => {});
-    await page.waitForTimeout(900);
+    await page.waitForTimeout(700);
 
     const overflow = await page.evaluate(() => {
       const bad = [];
@@ -56,8 +65,12 @@ for (const lang of ["de", "fr", "no", "es", "pt"]) {
           bad.push(`"${(el.textContent || "").trim().slice(0, 40)}" spans ${Math.round(r.left)}..${Math.round(r.right)}`);
         }
       }
-      return bad.slice(0, 5);
+      return bad.slice(0, 3);
     });
-    expect(overflow, `content runs off a ${PHONE.width}px screen (longest front here: "${w.front}")`).toEqual([]);
-  });
-}
+    // Collect rather than fail fast: one run should report EVERY language that
+    // overflows, not just the first alphabetically.
+    for (const o of overflow) failures.push(`${lang} (longest front "${w.front}", ${w.n} chars): ${o}`);
+  }
+
+  expect(failures, `content runs off a ${PHONE.width}px screen`).toEqual([]);
+});
