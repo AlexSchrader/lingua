@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Mic, Square, Volume2 } from "lucide-react";
-import { C, F } from "../../theme.js";
+import { C, F, headwordSize, headwordWrap } from "../../theme.js";
 import { gradeSpoken } from "../../store/answer.js";
 import { readingIsInformative } from "../../store/cardRouting.js";
 import { itemLang } from "../../store/itemLang.js";
@@ -217,7 +217,7 @@ export default function SpeakCard({ item, onGraded, shadow = false }) {
           padding: "24px 16px",
         }}
       >
-        <div style={{ fontFamily: F.jp, fontSize: 52, fontWeight: 500 }}>{item.front}</div>
+        <div style={{ fontFamily: F.jp, fontSize: headwordSize(item.front, 52), fontWeight: 500, lineHeight: 1.08, textAlign: "center", ...headwordWrap }}>{item.front}</div>
         {/* Only when the reading tells the learner something the front doesn't —
             for a Latin front it's the ASCII grading key, not a pronunciation. */}
         {readingIsInformative(item) && (

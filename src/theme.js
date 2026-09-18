@@ -63,3 +63,34 @@ export const F = {
   mono: "ui-monospace,'SF Mono',Menlo,monospace",
   jp: "'Hiragino Kaku Gothic ProN','Yu Gothic','Noto Sans JP',sans-serif",
 };
+
+// A HEADWORD MUST FIT ON THE CARD.
+//
+// The four cards that show a front hard-coded it at 48-72px, which is right for
+// `はな` and wrong for `der Standpunkt` — Alex hit exactly that on a German B1
+// teach card, where the word ran off both edges. It is not an edge case: 892
+// fronts in the corpus are 14 characters or longer and the longest is 36
+// (`se tenir à votre entière disposition`). German compounds and French fixed
+// phrases are the bulk of them, and both bands just grew.
+//
+// Scale by length rather than by language: the problem is the string, and a
+// 30-character Norwegian compound has it too. Paired with wrapping (see
+// headwordWrap) so a long phrase breaks across lines instead of overflowing.
+export function headwordSize(front, base) {
+  const n = [...String(front ?? "")].length;
+  if (n <= 8) return base;
+  if (n <= 12) return Math.round(base * 0.78);
+  if (n <= 18) return Math.round(base * 0.58);
+  if (n <= 26) return Math.round(base * 0.44);
+  return Math.round(base * 0.34);
+}
+
+// Let a long front wrap and break rather than run off the card. `anywhere` and
+// not `break-word`: a 36-character French phrase has spaces to break at, but a
+// German compound like `Geschwindigkeitsbegrenzung` has none.
+export const headwordWrap = {
+  maxWidth: "100%",
+  overflowWrap: "anywhere",
+  wordBreak: "break-word",
+  hyphens: "auto",
+};
