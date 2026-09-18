@@ -1,18 +1,93 @@
-// DE Unit 92 — Politics and law (slot: politics-law) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// DE Unit 92 — Politik und Recht (slot: politics-law) — B2
+// Conventions: de/unit1.js + de/unit51.js + de/unit88.js (B2 band constitution).
+// ⚠️ THE CROWDED SLOT. German A1–B1 already teaches most of the civic basics, so
+// almost every obvious front here is gone: das Gesetz (u32), das Recht (u32),
+// die Pflicht (u32), die Behörde (u32), die Regierung (u32), die Wahl (u32),
+// der Bürger (u32), die Partei (u55), der Vertrag (u24), wählen (u42), der
+// Antrag (u61), die Vorschrift (u61), die Strafe (u61), der Täter / der Zeuge
+// (u75), verhandeln (u56), haften (u79), der Anspruch (u58), der Verdacht (u86).
+// All of them are used freely in the examples below and NONE is re-taught.
+// This unit therefore takes the layer ABOVE the basics: the structure of the
+// state, how a decision is actually made, and what happens in a courtroom.
+// Self-check, dropped as same-lexeme duplicates: klagen (die Klage u75), der
+// Vertreter (vertreten u55), die Zuständigkeit (zuständig u75), die Berufung
+// (der Beruf u3 — a false family, but the collision is real on the front).
+//
+// FREE: Gesetze, Parteien, Behörden, Regeln, Details, Prozent, Reform, Reformen, Koalition, Opposition, Instanz, Mandat, Ministerium, Parlament, Verfassung, Demokratie, Minister, Politiker
 export const DE_UNIT92 = {
   id: "de-u92",
   lang: "de",
-  title: "Politics and law",
+  title: "Politik und Recht",
   order: 92,
   stage: "b2",
   lessons: [
-    { id: "de-u92l1", title: "Lesson 1", locked: true },
-    { id: "de-u92l2", title: "Lesson 2", locked: true },
-    { id: "de-u92l3", title: "Lesson 3", locked: true },
-    { id: "de-u92l4", title: "Lesson 4", locked: true },
+    {
+      id: "de-u92l1",
+      unit: 92,
+      lesson: 1,
+      title: "Der Staat und seine Teile",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe how a state is built — name the constitution, the separation of powers, the chamber that votes and the ministry that carries it out.",
+      items: [
+        { id: "de-u92l1-dieverfassung", type: "vocab", front: "die Verfassung", reading: "dieverfassung", meaning: "the constitution", example: { jp: "Die Verfassung steht über jedem Gesetz, deshalb prüft das Gericht am Ende beide.", en: "The constitution stands above every law, which is why the court checks both in the end." }, drill: { jp: "Die Verfassung schützt dieses Recht", en: "The constitution protects this right" }, accept: ["constitution", "the constitution", "condition", "state of health"], hint: "In Germany the document is called das Grundgesetz, but die Verfassung is the general word. Second sense: in guter Verfassung sein = to be in good shape." },
+        { id: "de-u92l1-derrechtsstaat", type: "vocab", front: "der Rechtsstaat", reading: "derrechtsstaat", meaning: "the rule of law", example: { jp: "Im Rechtsstaat gilt das Gesetz auch für die Regierung, und genau das macht ihn aus.", en: "Under the rule of law the law applies to the government too, and that is exactly what defines it." }, drill: { jp: "Der Rechtsstaat schützt auch die Opposition", en: "The rule of law protects the opposition too" }, accept: ["the rule of law", "rule of law", "constitutional state", "state governed by law"], hint: "das Recht (u32) + der Staat: a state bound by its own law. One of the load-bearing words of German public debate — there is no neat one-word English equivalent." },
+        { id: "de-u92l1-diegewaltenteilung", type: "vocab", front: "die Gewaltenteilung", reading: "diegewaltenteilung", meaning: "the separation of powers", example: { jp: "Die Gewaltenteilung sorgt dafür, dass niemand die Regeln macht und sie gleichzeitig selbst prüft.", en: "The separation of powers ensures that nobody makes the rules and checks them himself at the same time." }, drill: { jp: "Die Gewaltenteilung trennt drei Bereiche", en: "The separation of powers divides three areas" }, accept: ["separation of powers", "the separation of powers", "division of powers"], hint: "die Gewalt (power, force) + die Teilung (division). The three Gewalten are Parlament, Regierung and Gericht — the reason u92 puts them in one lesson." },
+        { id: "de-u92l1-dasparlament", type: "vocab", front: "das Parlament", reading: "dasparlament", meaning: "the parliament", example: { jp: "Das Parlament hat das Gesetz verabschiedet, obwohl die Behörden vor den Kosten gewarnt hatten.", en: "Parliament passed the law, although the authorities had warned about the costs." }, drill: { jp: "Das Parlament stimmt am Freitag ab", en: "Parliament votes on Friday" }, accept: ["parliament", "the parliament"], hint: "The German federal one is der Bundestag; das Parlament is the general term. Note the drill: abstimmen is separable, so the prefix lands at the end." },
+        { id: "de-u92l1-dasministerium", type: "vocab", front: "das Ministerium", reading: "dasministerium", meaning: "the ministry", example: { jp: "Das Ministerium hat die Zahlen selbst erhoben, und deshalb zweifelt die Opposition an ihnen.", en: "The ministry collected the figures itself, and that is why the opposition doubts them." }, drill: { jp: "Das Ministerium veröffentlicht den Bericht heute", en: "The ministry publishes the report today" }, accept: ["ministry", "the ministry", "department", "government department"], hint: "Plural die Ministerien. The person in charge is der Minister / die Ministerin — the building and the office are das Ministerium." },
+        { id: "de-u92l1-dieinstanz", type: "vocab", front: "die Instanz", reading: "dieinstanz", meaning: "the level of court", example: { jp: "In der ersten Instanz hat die Firma verloren, aber in der zweiten wurde das Urteil geändert.", en: "The company lost at the first level of court, but at the second the judgement was changed." }, drill: { jp: "Die Instanz entscheidet über den Einspruch", en: "The court level decides on the appeal" }, accept: ["level of court", "instance", "the instance", "court level", "authority", "tier"], hint: "Both a court level (erste Instanz, letzte Instanz) and, more loosely, whoever has the final say — die letzte Instanz in a family argument." },
+      ],
+    },
+    {
+      id: "de-u92l2",
+      unit: 92,
+      lesson: 2,
+      title: "Wie entschieden wird",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Follow a decision from proposal to rule — describe the vote, the passing of a law, the formal decision and the regulation that follows from it.",
+      items: [
+        { id: "de-u92l2-dieabstimmung", type: "vocab", front: "die Abstimmung", reading: "dieabstimmung", meaning: "the vote", example: { jp: "Die Abstimmung war knapp, deshalb versucht die Opposition das Verfahren jetzt zu wiederholen.", en: "The vote was close, which is why the opposition is now trying to repeat the procedure." }, drill: { jp: "Die Abstimmung findet am Freitag statt", en: "The vote takes place on Friday" }, accept: ["vote", "the vote", "ballot", "the ballot", "voting", "poll"], hint: "The act of voting; die Wahl (u32) is the election that chooses people. abstimmen über + accusative = to vote on something." },
+        { id: "de-u92l2-verabschieden", type: "vocab", front: "verabschieden", reading: "verabschieden", meaning: "to pass", example: { jp: "Beide Parteien wollen das Gesetz verabschieden, streiten aber weiter über einen einzelnen Absatz.", en: "Both parties want to pass the law, but are still arguing about one single paragraph." }, drill: { jp: "Die Parteien wollen das Gesetz verabschieden", en: "The parties want to pass the law" }, accept: ["to pass", "pass", "to adopt", "adopt", "to enact", "to say goodbye to", "to see off"], hint: "Two lives: a parliament passes a law, and a person says goodbye — sich verabschieden von. Both are der Abschied, the leave-taking, underneath." },
+        { id: "de-u92l2-derbeschluss", type: "vocab", front: "der Beschluss", reading: "derbeschluss", meaning: "the resolution", example: { jp: "Der Beschluss gilt ab Januar, aber die Behörden haben bis heute keine klare Vorschrift dazu.", en: "The resolution applies from January, but the authorities still have no clear regulation for it." }, drill: { jp: "Der Beschluss kommt im Januar", en: "The resolution comes in January" }, accept: ["resolution", "the resolution", "decision", "the decision", "ruling"], hint: "From beschließen (to resolve): the formal decision a body takes. Note ß → ss in the reading: derbeschluss. Plural: die Beschlüsse." },
+        { id: "de-u92l2-dieverordnung", type: "vocab", front: "die Verordnung", reading: "dieverordnung", meaning: "the regulation", example: { jp: "Die Verordnung ist kein Gesetz, trotzdem muss sich jede Firma genauso daran halten.", en: "The regulation is not a law, and yet every company has to keep to it just the same." }, drill: { jp: "Die Verordnung kommt im Sommer", en: "The regulation comes in summer" }, accept: ["regulation", "the regulation", "decree", "the decree", "ordinance", "prescription"], hint: "From verordnen (to decree, and to prescribe medicine). A rule made by a ministry rather than voted through parliament — which is exactly why the example distinguishes it." },
+        { id: "de-u92l2-diekoalition", type: "vocab", front: "die Koalition", reading: "diekoalition", meaning: "the coalition", example: { jp: "Die Koalition hält noch, aber bei diesem Thema stimmt kaum jemand mit dem Partner überein.", en: "The coalition is still holding, but on this topic hardly anyone agrees with their partner." }, drill: { jp: "Die Koalition hält bis zur Wahl", en: "The coalition holds until the election" }, accept: ["coalition", "the coalition", "alliance", "the alliance"], hint: "The normal state of German government — der Koalitionsvertrag is the written deal between the parties, and it is a real, published document." },
+        { id: "de-u92l2-dasmandat", type: "vocab", front: "das Mandat", reading: "dasmandat", meaning: "the seat", example: { jp: "Die Partei hat drei Mandate verloren, obwohl sie mehr Stimmen als vorher bekommen hat.", en: "The party lost three seats, although it received more votes than before." }, drill: { jp: "Das Mandat dauert vier Jahre", en: "The seat lasts four years" }, accept: ["seat", "the seat", "mandate", "the mandate", "parliamentary seat"], hint: "A seat in parliament, and the authority that comes with it. Also used for a lawyer's brief (ein Mandat annehmen)." },
+      ],
+    },
+    {
+      id: "de-u92l3",
+      unit: 92,
+      lesson: 3,
+      title: "Vor Gericht",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Follow a case through a court — name the proceedings, the investigation, an objection, an acquittal, and say when a judgement is final.",
+      items: [
+        { id: "de-u92l3-dasverfahren", type: "vocab", front: "das Verfahren", reading: "dasverfahren", meaning: "the proceedings", example: { jp: "Das Verfahren dauert schon zwei Jahre, und ein Urteil ist bis heute nicht in Sicht.", en: "The proceedings have already lasted two years, and a judgement is still nowhere in sight." }, drill: { jp: "Das Verfahren dauert mehrere Jahre", en: "The proceedings last several years" }, accept: ["proceedings", "the proceedings", "procedure", "the procedure", "process", "trial", "method"], hint: "Wider than a trial: any formal procedure — ein Verfahren einleiten (to open proceedings), and in industry a technical process." },
+        { id: "de-u92l3-dieermittlung", type: "vocab", front: "die Ermittlung", reading: "dieermittlung", meaning: "the investigation", example: { jp: "Die Ermittlung läuft noch, deshalb sagt die Behörde zu dem Verdacht bisher gar nichts.", en: "The investigation is still running, which is why the authority says nothing at all about the suspicion so far." }, drill: { jp: "Die Ermittlung läuft seit Monaten", en: "The investigation has been running for months" }, accept: ["investigation", "the investigation", "inquiry", "the inquiry", "enquiry"], hint: "From ermitteln (to determine, to investigate). Usually plural in news German: die Ermittlungen laufen. The people doing it are die Ermittler." },
+        { id: "de-u92l3-dereinspruch", type: "vocab", front: "der Einspruch", reading: "dereinspruch", meaning: "the objection", example: { jp: "Der Einspruch kam zu spät, und deshalb wurde das Urteil ohne weitere Prüfung rechtskräftig.", en: "The objection came too late, and that is why the judgement became final without further review." }, drill: { jp: "Der Einspruch kommt fast immer zu spät", en: "The objection almost always comes too late" }, accept: ["objection", "the objection", "appeal", "the appeal", "protest", "challenge"], hint: "ein + sprechen: to speak into something. Einspruch! is what a German courtroom drama shouts; Einspruch einlegen is what actually happens on paper." },
+        { id: "de-u92l3-derfreispruch", type: "vocab", front: "der Freispruch", reading: "derfreispruch", meaning: "the acquittal", example: { jp: "Der Freispruch war eindeutig, trotzdem hat der Fall seinen Beruf am Ende zerstört.", en: "The acquittal was unambiguous, and yet the case destroyed his career in the end." }, drill: { jp: "Der Freispruch kam nach zwei Jahren", en: "The acquittal came after two years" }, accept: ["acquittal", "the acquittal", "not-guilty verdict"], hint: "frei + der Spruch (the pronouncement): spoken free. The verb is freisprechen; im Zweifel für den Angeklagten is the principle behind it." },
+        { id: "de-u92l3-rechtskraftig", type: "vocab", front: "rechtskräftig", reading: "rechtskraftig", meaning: "legally binding", example: { jp: "Sobald das Urteil rechtskräftig ist, hilft auch der beste Anwalt nicht mehr weiter.", en: "As soon as the judgement is legally binding, even the best lawyer cannot help any further." }, drill: { jp: "Dieses Urteil wird bald rechtskräftig", en: "This judgement soon becomes legally binding" }, accept: ["legally binding", "final", "legally effective", "in force", "res judicata"], hint: "das Recht + die Kraft: the judgement now has force. It marks the point where no ordinary Einspruch is possible any more." },
+        { id: "de-u92l3-dasverbot", type: "vocab", front: "das Verbot", reading: "dasverbot", meaning: "the ban", example: { jp: "Das Verbot gilt seit Januar, aber kaum jemand kontrolliert, ob sich die Firmen daran halten.", en: "The ban has applied since January, but hardly anyone checks whether the companies keep to it." }, drill: { jp: "Das Verbot kostet die Firmen viel", en: "The ban costs the companies a lot" }, accept: ["ban", "the ban", "prohibition", "the prohibition", "embargo"], hint: "From verbieten, the opposite of erlauben (u48). ein Verbot aussprechen = to impose a ban; German road signs are full of Verbote." },
+      ],
+    },
+    {
+      id: "de-u92l4",
+      unit: 92,
+      lesson: 4,
+      title: "Streit und Reform",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about political conflict over time — the committee that prepares it, the opposition that attacks it, the term of office it falls in, and the reform that comes out.",
+      items: [
+        { id: "de-u92l4-derausschuss", type: "vocab", front: "der Ausschuss", reading: "derausschuss", meaning: "the committee", example: { jp: "Der Ausschuss hat die Angaben geprüft, bevor das Parlament überhaupt darüber gesprochen hat.", en: "The committee checked the figures before parliament even talked about them." }, drill: { jp: "Der Ausschuss liest den ganzen Bericht", en: "The committee reads the whole report" }, accept: ["committee", "the committee", "panel", "the panel", "board"], hint: "From ausschießen in its old sense of selecting out — a small group cut out of the larger body. Note ß → ss in the reading. Plural: die Ausschüsse." },
+        { id: "de-u92l4-dieopposition", type: "vocab", front: "die Opposition", reading: "dieopposition", meaning: "the opposition", example: { jp: "Die Opposition kritisiert das Verfahren scharf, obwohl sie dieselbe Regel früher selbst verteidigt hat.", en: "The opposition sharply criticizes the procedure, although it defended the same rule itself earlier." }, drill: { jp: "Die Opposition stellt viele Anträge", en: "The opposition submits many motions" }, accept: ["opposition", "the opposition"], hint: "In Germany the parties not in government. in der Opposition sein is a described role with real rights — the Ausschuss seats and the questioning time come with it." },
+        { id: "de-u92l4-dieamtszeit", type: "vocab", front: "die Amtszeit", reading: "dieamtszeit", meaning: "the term of office", example: { jp: "In seiner Amtszeit hat sich wenig geändert, obwohl er große Reformen angekündigt hatte.", en: "During his term of office little changed, although he had announced big reforms." }, drill: { jp: "Die Amtszeit dauert fünf Jahre", en: "The term of office lasts five years" }, accept: ["term of office", "the term of office", "tenure", "term", "time in office"], hint: "das Amt (the office, the post) + die Zeit. German keeps Amt for public office everywhere — das Finanzamt, der Amtsträger, von Amts wegen." },
+        { id: "de-u92l4-diereform", type: "vocab", front: "die Reform", reading: "diereform", meaning: "the reform", example: { jp: "Die Reform war als kleiner Schritt geplant, aber am Ende hat sie das ganze System geändert.", en: "The reform was planned as a small step, but in the end it changed the whole system." }, drill: { jp: "Die Reform kostet sehr viel Geld", en: "The reform costs a great deal of money" }, accept: ["reform", "the reform"], hint: "Almost always a compound in German politics: die Rentenreform, die Steuerreform, die Rechtschreibreform — the last of which people still argue about." },
+        { id: "de-u92l4-dasbundnis", type: "vocab", front: "das Bündnis", reading: "dasbundnis", meaning: "the alliance", example: { jp: "Das Bündnis hält seit Jahren, weil beide Seiten mehr davon haben als vom Streit.", en: "The alliance has held for years, because both sides get more out of it than out of conflict." }, drill: { jp: "Das Bündnis trägt die ganze Reform", en: "The alliance carries the whole reform" }, accept: ["alliance", "the alliance", "coalition", "pact", "union"], hint: "From binden (to bind): the bound-together group. Broader than die Koalition — a Bündnis can be between states, parties, or citizens' groups." },
+        { id: "de-u92l4-derstreitfall", type: "vocab", front: "der Streitfall", reading: "derstreitfall", meaning: "the dispute", example: { jp: "Im Streitfall entscheidet das Gericht, und bis dahin gilt für beide Seiten die alte Vorschrift.", en: "In the event of a dispute the court decides, and until then the old regulation applies to both sides." }, drill: { jp: "Der Streitfall geht vor Gericht", en: "The dispute goes to court" }, accept: ["dispute", "the dispute", "case in dispute", "contentious case", "point at issue"], hint: "der Streit (u51) + der Fall: the case where people disagree. im Streitfall is contract German for 'if it comes to a dispute'." },
+      ],
+    },
   ],
 };
