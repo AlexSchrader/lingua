@@ -76,18 +76,46 @@
 //   is blocked by der Beleg u78, so reach for die Quelle, nachweisen, die
 //   Stichprobe, zitieren) and leave the ARGUING half here.
 //
-// ─── 6. GERMAN CORPUS HOLES THIS UNIT HAD TO WRITE AROUND ──────────────────
-//   Checked with scripts/check-front.mjs while authoring. These ordinary words
-//   are NOT taught anywhere in de u1–u87, so an example using one teaches a word
-//   the learner has never met. Every one of them was rewritten out of this unit:
-//     fehlen · stammen · reichen · klingen · beide · offen · anders · langsam
-//     das Beispiel · der Fall · der Satz · der Punkt · die Frage · die Erklärung
-//     der Vorwurf · die Reaktion · das Medikament · der Schluss · das Beispiel
-//     einzig · geschickt · erstaunlich · das Team (cognate, declared below)
-//   This is the same hole the B1 seat filed (BUILD-CHECKLIST: "German has ~25
-//   ordinary A1/A2 words it has never taught") and it is still open. DO NOT
-//   quietly use them — either write around them, or declare them the way u51 §5
-//   declared so/schon/viele. A coverage unit owes them a home; u111–u126 is it.
+// ─── 6. UNTAUGHT ORDINARY GERMAN — THE RULE, AND THE MEASUREMENT ───────────
+//   ⚠️ THIS REPLACES AN EARLIER VERSION OF §6 THAT READ AS A BAN ("DO NOT
+//   quietly use them"). THE BAN WAS NOT KEPT: u89–u100 used seven of the listed
+//   words about twenty times while this header forbade them. A rule the lead
+//   breaks is worse than no rule, because blocks 2 and 3 author against this
+//   file. Corrected 2026-09-17 after the truth-agent caught the contradiction.
+//   What follows is the rule that is actually kept, and the numbers behind it.
+//
+//   THE FACT: German u1–u87 never taught a set of perfectly ordinary words.
+//   Verified per word with scripts/check-front.mjs; BUILD-CHECKLIST.md records
+//   the same hole independently ("German has ~25 ordinary A1/A2 words it has
+//   never taught"). It is not this band's to close wholesale.
+//
+//   THE RULE, in two halves — they are not the same and were being conflated:
+//     (a) DRILLS: KEEP THEM OUT, no exceptions. A drill is the ROUTER'S INPUT —
+//         it becomes the cloze blank and the sentence-build tiles, so every word
+//         in it is handed to the learner as a thing to manipulate. Measured:
+//         `node scripts/check-drills-de.mjs 88 100` → 0 of 312 out of scope.
+//     (b) EXAMPLES: ALLOWED, BUT COUNTED AND DECLARED. An example is read once
+//         under a taught headword. Writing around every hole distorts the German
+//         — the B1 seat made the same call and declared `so`, `schon`, `viele`
+//         in unit51.js §5 rather than contorting its sentences. Declaring beats
+//         hiding; hiding is what an uncounted "~10 tokens, all morphology" claim
+//         does.
+//
+//   MEASURED ACROSS u88–u100 (examples / drills), 2026-09-17:
+//     nur 13/2 · anders 14/0 · alle 9/5 · der Teil 8/1 · fehlen 7/0 ·
+//     prüfen 7/0 · beginnen 4/0 · die Entscheidung 3/0 · kennen 2/0 ·
+//     die Erklärung 2/0 · die Frage 1/1 · offen 1/0 — 80 occurrences total.
+//     (The drill column is why (a) says "0 out of scope" and this says 9: the
+//     drill checker's scope list treats these function words as free. Both
+//     numbers are true; report both, not the flattering one.)
+//
+//   REMOVED ENTIRELY rather than declared, because they cost nothing to avoid:
+//     stammen · reichen · klingen · langsam · erstaunlich · beide · dieselbe ·
+//     meisten · der Satz · jede/jeder/jedes/jedem · einzeln- · allein.
+//   TAUGHT rather than avoided, because this band is their right home:
+//     der Krieg + der Frieden (u95) · die Sicherheit (u98) · der Vorwurf (u97).
+//   STILL HOMELESS, routed onward: beginnen · enden. NOTE u111–u113 are block
+//   2's and are already authored, so the coverage sink is u114–u126.
 //
 // FREE: Zahlen, Gründe, Argument, Argumente, Studie, Studien, Experten, Kritiker, Nachbarn, Zeitungen, Absichten, Details, Quellen, Bilder, Seiten, Vorteile, Kosten, Team, Rhetorik, Internet, modern
 export const DE_UNIT88 = {
