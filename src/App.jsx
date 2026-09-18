@@ -16,6 +16,7 @@ import Mascot from "./components/Mascot.jsx";
 import MilestoneToast from "./components/MilestoneToast.jsx";
 import SyncToast from "./components/SyncToast.jsx";
 import { useStore } from "./store/useStore.js";
+import { isPreview, authGateEnabled } from "./store/preview.js";
 import { scheduleDailyReminder, notificationPermission } from "./lib/reminders.js";
 import { C, F, setActiveTheme, resolveTheme } from "./theme.js";
 
@@ -28,9 +29,18 @@ const Haruki = lazy(() => import("./screens/Haruki.jsx"));
 // the app runs fully local/offline. Also bypassed under Playwright/WebDriver so
 // the smoke suite exercises the learning engine without a real auth round-trip
 // (auth itself is verified against a live Supabase, not in the headless smoke).
+// ...and OFF IN PREVIEW MODE, which is the same thing: a throwaway deck on its own
+// storage key that is never signed in and never synced. Without that term, entering
+// preview on a keyed build rendered the login screen over the whole app with no way
+// out — see authGateEnabled's note. Read once at module scope, which is correct
+// because entering and leaving preview both reload the page.
 const IS_WEBDRIVER = typeof navigator !== "undefined" && !!navigator.webdriver;
-const AUTH_ENABLED =
-  !!import.meta.env.VITE_SUPABASE_URL && !!import.meta.env.VITE_SUPABASE_ANON_KEY && !IS_WEBDRIVER;
+const AUTH_ENABLED = authGateEnabled({
+  hasUrl: !!import.meta.env.VITE_SUPABASE_URL,
+  hasKey: !!import.meta.env.VITE_SUPABASE_ANON_KEY,
+  isWebdriver: IS_WEBDRIVER,
+  preview: isPreview(),
+});
 
 function Splash() {
   return (

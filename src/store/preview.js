@@ -34,6 +34,30 @@ export function persistKey() {
   return isPreview() ? PREVIEW_KEY : REAL_KEY;
 }
 
+// THE AUTH GATE IS OFF IN PREVIEW MODE. Pure, and exported, so it can be tested —
+// the gate itself cannot be, because `AUTH_ENABLED` is false under WebDriver and
+// every smoke run therefore skips the whole block.
+//
+// THE LOCKOUT THIS FIXES (Alex, 2026-09-17, on his phone). On a build that HAS
+// Supabase keys, entering preview showed the LOGIN screen reading "Auth isn't
+// configured.", with no way back:
+//
+//   1. `initCloudSync()` returns early when isPreview() — deliberately, so the real
+//      cloud profile cannot land on top of the throwaway deck. It therefore never
+//      installs the real `signIn`/`signOut`, leaving the store's stubs, whose error
+//      string is literally "Auth isn't configured."
+//   2. `AUTH_ENABLED` in App.jsx read only the env vars, so it stayed TRUE.
+//   3. No session was ever established, so `auth.user` was null → `<Auth />`.
+//   4. Settings → Exit preview sits INSIDE AppShell, below the gate. Unreachable.
+//
+// Preview is the local-only configuration by definition — a throwaway deck that is
+// never synced and never signed in. App.jsx's own comment already says an
+// unconfigured build should "fall straight through to the app"; preview simply is
+// one, and now says so.
+export function authGateEnabled({ hasUrl, hasKey, isWebdriver, preview }) {
+  return !!hasUrl && !!hasKey && !isWebdriver && !preview;
+}
+
 // A preview deck with nothing locked. Written directly to the preview key BEFORE
 // the reload, so the store rehydrates into it rather than seeding an empty profile
 // and making you click through onboarding to look at a layout.
