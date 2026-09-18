@@ -721,6 +721,14 @@ test("French: the conjugate card runs on a Latin-script verb", async ({ page }) 
 // What this covers is the half a browser can prove: the reset survives a reload, and
 // the learner is actually TOLD it saved rather than having to guess.
 test("Reset everything survives a reload, and says so", async ({ page }) => {
+  // THE HEAVIEST TEST IN THE SUITE, and it was already running at 43.7s against the
+  // 45s default before anything was added to it: a full reviewState() seed, five
+  // navigations, a reload, and two localStorage round-trips. Under full parallel load
+  // it tips over and fails as a TIMEOUT, which reads exactly like a regression in
+  // whatever just merged -- the same false signal tests/preflight.js exists to stop.
+  // test.slow() triples the budget. No assertion is relaxed; it is the same test with
+  // room to finish.
+  test.slow();
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
   // Seed ONCE: addInitScript runs before EVERY navigation, reload included, so the
