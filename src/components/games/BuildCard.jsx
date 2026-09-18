@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef } from "react";
-import { C, F } from "../../theme.js";
+import { C, F, headwordSize, headwordWrap } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
 import { useStore } from "../../store/useStore.js";
 import { sfxClick, sfxCorrect, sfxWrong } from "../../store/sfx.js";
@@ -61,7 +61,7 @@ export default function BuildCard({ item, onGraded }) {
           textAlign: "center",
         }}
       >
-        <div style={{ fontFamily: F.jp, fontSize: 48, fontWeight: 500 }}>{item.front}</div>
+        <div style={{ fontFamily: F.jp, fontSize: headwordSize(item.front, 48), fontWeight: 500, lineHeight: 1.08, textAlign: "center", ...headwordWrap }}>{item.front}</div>
         {item.meaning && <div style={{ marginTop: 4, color: C.inkSoft }}>{item.meaning}</div>}
       </div>
 

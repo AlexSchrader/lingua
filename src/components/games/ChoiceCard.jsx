@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { Volume2 } from "lucide-react";
-import { C, F } from "../../theme.js";
+import { C, F, headwordSize, headwordWrap } from "../../theme.js";
 import { buildOptions } from "../../store/distractors.js";
 import { isGlyph } from "../../store/cardRouting.js";
 import { deriveGrade } from "../../store/grading.js";
@@ -76,7 +76,7 @@ export default function ChoiceCard({ item, allItems, onGraded, onCantHear, audio
         ) : reverse ? (
           <span style={{ fontSize: 28, fontWeight: 600, textAlign: "center" }}>{item.meaning}</span>
         ) : (
-          <span style={{ fontFamily: F.jp, fontSize: 64, fontWeight: 500 }}>{item.front}</span>
+          <span style={{ fontFamily: F.jp, fontSize: headwordSize(item.front, 64), fontWeight: 500, lineHeight: 1.08, ...headwordWrap }}>{item.front}</span>
         )}
       </div>
 

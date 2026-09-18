@@ -108,6 +108,13 @@ node -e 'import("./src/data/contract.js").then(m=>process.exit(m.frontKey("a",{f
 
 Never author in the main checkout — parallel sessions there overwrite each other's work on every branch switch.
 
+**AND BEFORE YOU WRITE ANYTHING, RUN `git status -sb` AND `ListAgents`.** Several
+sessions share this machine. A modified file you did not touch is someone else's
+work-in-progress; a branch you were not told about means somebody moved the
+checkout. Never `git add -A`, never `git checkout <ref> -- <path>` in a live
+tree, never `git stash` here. Full rule and the five collisions it comes from:
+**CLAUDE.md — "OTHER SESSIONS ARE IN THIS REPO RIGHT NOW"**.
+
 **If your worktree already exists** (Alex may have set the crew up in advance — check `C:\dev\lingua-<lang><block>`), just `cd` into it and skip to §3.
 
 Otherwise, branching **off the scaffold branch**, never off the trunk:
