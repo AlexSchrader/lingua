@@ -7,8 +7,12 @@
 // vorausgesetzt, andernfalls, ansonsten) — this unit builds the COMPOUND forms on top of
 // them and never re-teaches a bare one.
 // ⚠ Fold hazard, logged by the German B1 lead: normalizeReading folds ä→a, so hätte and
-// hatte are one string to the grader. Every front here is a MULTI-word chunk, which is
-// why none of them collides — keep it that way if you add cards.
+// hatte are one string to the grader. The Konjunktiv fronts here are multi-word chunks,
+// which is why none of them collides with a taught single word — keep it that way.
+// ⚠ A German-specific authoring rule this unit had to learn: a drill must contain its
+// front VERBATIM, but the Satzklammer splits hätte … gehabt around the object, so a split
+// verb cluster can never be a front. Only clusters that stay contiguous (hätte fast,
+// wäre beinahe, hätte sein können) work as cards.
 export const DE_UNIT106 = {
   id: "de-u106",
   lang: "de",
