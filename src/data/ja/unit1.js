@@ -1,3 +1,89 @@
+// JA Unit 1 — はじめまして — pre-A1
+// ─────────────────────────────────────────────────────────────────────────────
+// First contact with Japanese, and the first unit of the whole project. Japanese
+// keeps the FULL three-strand shape (BUILD-BRIEF-language-blueprint.md §1): a
+// script spine that runs for seven pre-A1 units, thematic vocab, and grammar —
+// where a Latin-script language collapses Strand A to a single sounds unit.
+//
+// ⚠ JAPANESE IS NOT THE TEMPLATE. It was first, so the scaffold script encodes
+// its shape — three interleaved strands, "Grammar 2 — verbs and particles", and
+// so on. That is HISTORY, NOT A STANDARD (CLAUDE.md, "No front language"). A new
+// language takes its structure from the language plus CEFR: German has case, so
+// its A1 grammar is nominative/accusative, not "particles", which names a slot
+// German does not have. Copy the RIGOUR of this file, never its unit list.
+//
+// Corpus as of 2026-09-17: 208 units — pre-a1 7 / a1 36 / a2 55 / b1 57 / b2 53.
+// 5,013 items: 176 kana, 792 kanji, 4,045 vocab.
+//
+// ─────────────────────────────────────────────────────────────────────────────
+// AUTHORING CONVENTIONS FOR JAPANESE — binding on ALL ja units, every block.
+// ─────────────────────────────────────────────────────────────────────────────
+//
+// 1. THREE ITEM TYPES, AND THEY ARE NOT INTERCHANGEABLE.
+//      kana  — one glyph. meaning: null, example: null. `reading` is its romaji,
+//              `hint` carries the mnemonic. 176 of them, all in units 1–7.
+//      kanji — one character, taught as a character. meaning AND example are
+//              REQUIRED. 792 of them.
+//      vocab — a word. meaning + example required. 4,045 of them.
+//    `glyph` exists in the contract for Latin languages' accent cards. DO NOT use
+//    it in ja: `kana` already is that type, and it additionally carries stroke
+//    data and gojuon ordering, which `glyph` deliberately does not.
+//
+// 2. THE VOCAB FRONT IS WRITTEN IN KANA — with one systematic exception.
+//    93.3% of vocab fronts are kana, at EVERY band including B2: u150 (b2) teaches
+//    めんせき , not 面積. The learner reads the word; the kanji is taught
+//    separately as a `kanji` item. The exception is the dedicated かんじ units
+//    from u100 on (u100 かんじ・こころ, u102 かんじ・ことば, …), where the front IS
+//    the compound (愛情, "affection") and the reading carries the romaji.
+//    Measured: 272 kanji-bearing vocab fronts, ALL inside u100–u187, and inside
+//    those units it is 8 of 8 — never mixed. Match the unit you are in.
+//
+// 3. A KANJI ITEM AND A KANJI-FRONT VOCAB ITEM ARE DIFFERENT THINGS.
+//    愛情 as a `vocab` item is a word and needs no stroke data. Its characters
+//    as `kanji` items are glyphs and each needs KANJIVG. Do not merge them.
+//
+// 4. READINGS ARE ROMAJI AND USE MACRONS FOR LONG VOWELS — ō ū ā ē ī.
+//    ohayō, sayōnara, arigatō. 1,027 readings in the corpus carry one.
+//    This is JA-SPECIFIC: a Latin-script language's `reading` is its ASCII fold and
+//    the contract holds it to [a-z]+. Do not "fix" a macron here into oo/ou.
+//
+// 5. A KANA FRONT DOES NOT BLOCK A VOCAB FRONT. Deliberate, and easy to get wrong.
+//    contract.js:315 checks word-front uniqueness vocab/kanji against vocab/kanji,
+//    NEVER against kana, "that kana→word reuse is intentional". So the kana か
+//    (u1) and the question particle か (u19) coexist, as do し, な, ね, の — 7 pairs
+//    in all. What you may NOT do is teach the same WORD twice: one word, one home.
+//    Uniqueness is SCOPED PER LANGUAGE — Spanish "no" and Italian "no" are
+//    unrelated words and must not collide.
+//
+// 6. VERBS ARE TAUGHT IN THE ます-FORM, and that is the front.
+//    front つたえます (tsutaemasu), not the dictionary form. Polite-first: it is
+//    what a beginner can say to a stranger without giving offence. A verb that is
+//    drilled carries `group` (godan | ichidan | irregular) and `conjForm` (e.g.
+//    "て", "ない"), and the hint names both: "ichidan; drilled in the て-form".
+//    ⚠ COMPARE LEXEMES, NOT STRINGS: ておきます and ておく both validate while
+//    being one word with two mastery tracks. A green validator is NOT evidence a
+//    front is new. Check ます⇄dictionary, noun⇄noun+する, and X⇄Xです.
+//
+// 7. GRAMMAR HAS NO ITEM TYPE. Model it as function-word or suffix vocab whose
+//    example sentence carries the pattern — は is a `vocab` item at u19l2 with
+//    meaning "(topic marker)". Never invent a type for it.
+//
+// 8. STROKE DATA IS A HARD GATE. A single-character kana front and EVERY kanji
+//    front must exist in src/data/kanjivg.js or validate:content errors
+//    (contract.js:238, :263). Add the glyph to scripts/fetch-kanjivg.mjs and
+//    regenerate. Yōon digraphs (きょ, しゃ) are 2 characters and are EXEMPT —
+//    they are taught by reading and never traced.
+//
+// 9. EVERY EXAMPLE USES ONLY VOCAB ALREADY INTRODUCED at or before its unit.
+//    ⚠ lint:curriculum CANNOT CHECK THIS FOR JAPANESE — there are no word
+//    boundaries to tokenise. It tokenises examples on letter boundaries
+//    (lint.js:331) and Japanese has none, so the whole sentence reads as ONE
+//    token and nothing is ever flagged. MEASURED 2026-09-17 on the full corpus:
+//    de 639 scope warnings, es 1,509, fr 659, no 1,144, pt 1,025 — and ja EXACTLY 0.
+//    That is not a clean corpus, it is an absent check. This is the one rule in
+//    this file with no machine behind it, so it is the one that needs your
+//    discipline. Read src/data/ja/TAUGHT-WORDS.md as you write, not after.
+//
 export const UNIT1 = {
   id: "ja-u1",
   lang: "ja",
