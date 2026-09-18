@@ -760,19 +760,42 @@ test("Reset everything survives a reload, and says so", async ({ page }) => {
   await page.reload();
   expect(await touched(), "progress came back after a reload").toBe(0);
 
-  // AND THERE IS STILL A WAY BACK IN. Reset clears the started-language list as of
-  // 2026-09-17, and this smoke env has AUTH_ENABLED off, so App.jsx never renders
-  // onboarding here -- the Ladder is the only route to a language. The code-auditor
-  // reproduced the dead end this test could not see: every Start button was gated on
-  // canAddLanguage(), which was false on an empty list, so the learner owned nothing
-  // and could start nothing. "No page errors + progress is zero" is exactly what a
-  // stranded app looks like, which is why that pair is not sufficient on a
-  // destructive path.
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+// RESET MUST LEAVE A WAY BACK IN -- its own test, not an assertion bolted onto the
+// one above. Appended there it pushed that test to 43.7s against a 45s timeout and
+// it began flaking; a destructive-path check that fails at random is worse than none.
+//
+// WHAT THIS CATCHES. Reset clears the started-language list as of 2026-09-17, and
+// this smoke env has AUTH_ENABLED off (App.jsx forces it false under WebDriver), so
+// onboarding never renders here -- the Ladder is the only route to a language. The
+// code-auditor reproduced the dead end the test above could not see: every Start
+// button is gated on canAddLanguage(), which was `[].some(...)` = false on an empty
+// list, so the learner owned nothing and could start nothing short of clearing
+// localStorage. "No page errors + progress is zero" is also exactly what a stranded
+// app looks like, which is why that pair is never sufficient on a destructive path.
+//
+// Verified by deliberately re-breaking the guard in useStore.canAddLanguage and
+// watching this go red.
+test("Reset leaves a way back in -- the learner can still start a language", async ({ page }) => {
+  await page.addInitScript(
+    (json) => { if (!localStorage.getItem("lingua-v1")) localStorage.setItem("lingua-v1", json); },
+    JSON.stringify(reviewState())
+  );
+
+  await page.goto("/settings");
+  await page.getByRole("button", { name: "Reset all progress" }).click();
+  await page.getByRole("button", { name: "Reset everything" }).click();
+
+  const started = await page.evaluate(
+    () => JSON.parse(localStorage.getItem("lingua-v1")).state.profile.languages
+  );
+  expect(started, "reset must clear the started-language list").toEqual([]);
+
   await page.goto("/ladder");
   const starts = page.getByRole("button", { name: /^Start$/ });
-  expect(await starts.count(), "reset left the learner with no way to start a language").toBeGreaterThan(0);
-
-  expect(errors, errors.join("; ")).toEqual([]);
+  await expect(starts.first()).toBeVisible();
 });
 
 // speak is now live: the coverage test above drives it via the rung-4 `iie`
