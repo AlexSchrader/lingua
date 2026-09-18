@@ -3,8 +3,11 @@
 // and who gets through them (l1), higher education and degrees (l2), research bodies and
 // their money (l3), learning after school ends (l4). The classroom itself (Lehrer,
 // Klasse, Prüfung, Note, Zeugnis) belongs to u20/u24 and is used here, not re-taught.
-// Research METHOD and evidence words (Studie, Methode, Beleg, Hypothese) are left to
-// block 1's u89/u94 — lower slot wins, so this unit stays on the institutional side.
+// Research METHOD and evidence words are left to block 1 (u88–u100) — lower slot wins,
+// so this unit stays on the institutional side. Checked against block 1's branch on
+// 2026-09-18: it teaches die Studie, die Hypothese and der Beweis — but NOT die Methode,
+// der Beleg, belegen, die Quelle, die Forschung or das Argument. Those six are taught
+// nowhere in German at B2; flagged to the crew lead rather than grabbed late by u103.
 // Conventions: front = real orthography, reading = its ASCII fold (ä→a, ö→o, ü→u, ß→ss).
 export const DE_UNIT103 = {
   id: "de-u103",

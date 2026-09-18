@@ -3,7 +3,9 @@
 // research and reporting (l1), narrative and point of view (l2), sharpening and staging
 // (l3), reach and outrage (l4). The media the learner consumes (Sendung, Kanal, Serie,
 // Schlagzeile, Publikum) belongs to u35/u45/u55/u64 and is used here, not re-taught.
-// Evidence and source-criticism words (Quelle, Beleg, belegen) are block 1's u89.
+// Evidence and source-criticism words were left to block 1 — but verified against its
+// branch on 2026-09-18, it does not teach die Quelle, der Beleg or belegen either. They
+// are a real gap in German B2, not this unit's to close at u104; flagged on hand-back.
 // Conventions: front = real orthography, reading = its ASCII fold (ä→a, ö→o, ü→u, ß→ss).
 export const DE_UNIT104 = {
   id: "de-u104",
