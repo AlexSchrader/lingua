@@ -179,9 +179,15 @@ export default function Ladder() {
             </div>
           )}
           <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 12 }}>
-            {canAdd
-              ? "You've reached A1 — start another whenever you like. One at a time."
-              : `Reach A1 in ${active.name} to unlock another language.`}
+            {/* Three states, not two. "Nothing started" used to fall into the
+                you've-earned-it copy, which reads as congratulation to someone who
+                has not started a language yet — reachable after a reset in a build
+                that never renders onboarding. */}
+            {started.length === 0
+              ? "Pick a language to start."
+              : canAdd
+                ? "You've reached A1 — start another whenever you like. One at a time."
+                : `Reach A1 in ${active.name} to unlock another language.`}
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {/* Startable (has-content) languages as rows; the ~19 planned fold into

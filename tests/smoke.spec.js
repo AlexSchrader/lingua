@@ -760,6 +760,18 @@ test("Reset everything survives a reload, and says so", async ({ page }) => {
   await page.reload();
   expect(await touched(), "progress came back after a reload").toBe(0);
 
+  // AND THERE IS STILL A WAY BACK IN. Reset clears the started-language list as of
+  // 2026-09-17, and this smoke env has AUTH_ENABLED off, so App.jsx never renders
+  // onboarding here -- the Ladder is the only route to a language. The code-auditor
+  // reproduced the dead end this test could not see: every Start button was gated on
+  // canAddLanguage(), which was false on an empty list, so the learner owned nothing
+  // and could start nothing. "No page errors + progress is zero" is exactly what a
+  // stranded app looks like, which is why that pair is not sufficient on a
+  // destructive path.
+  await page.goto("/ladder");
+  const starts = page.getByRole("button", { name: /^Start$/ });
+  expect(await starts.count(), "reset left the learner with no way to start a language").toBeGreaterThan(0);
+
   expect(errors, errors.join("; ")).toEqual([]);
 });
 

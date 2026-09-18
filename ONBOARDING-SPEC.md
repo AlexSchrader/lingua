@@ -1,9 +1,13 @@
 # Lingua — Onboarding + User Profile Spec
 
-A planning spec, not a build brief. It feeds two later deliverables: an onboarding build
-brief and a small content-contract extension for profile templating. **Do not build until
-Phase 4 closes and Unit 2 is moving** — curriculum is the make-or-break work; onboarding is
-the front door, but a front door to one room isn't worth much yet.
+A planning spec, not a build brief.
+
+**Status (2026-09-17): the onboarding flow and the one-language rule have SHIPPED** — see
+`src/screens/Onboarding.jsx` and the ✅ notes under "The locked one-language rule" below. What
+remains unbuilt here is the **content-contract extension for profile templating** (`{displayName}`
+tokens, `requires: [...]`), which is the only part still written as an instruction. The original
+"do not build until Phase 4 closes and Unit 2 is moving" hold is spent and has been removed, so it
+cannot read as a live blocker.
 
 ---
 
@@ -70,9 +74,29 @@ Lives in the Zustand persist store (one place), swappable to backend sync later.
 
 ## The locked one-language rule (structural)
 
-- `activeLanguage` is set once at onboarding. Other languages stay locked until the active one
-  reaches A1 — uses the existing `unlock: {lang, level}` cascade fields. No parallel tracks in
-  v1, enforced in code, not just UI.
+- `activeLanguage` is set once at onboarding. Another language unlocks only when the one you are
+  climbing reaches A1. No parallel tracks in v1, **enforced in code, not just UI**.
+- ⚠️ **PARTLY BUILT — 2026-09-17, and the gap is a DECISION, not missing work.** What the code
+  enforces today is *"earn one A1, then you may carry more than one language"* — `canAddLanguage()`
+  in `src/store/useStore.js` asks whether **any** started language has reached A1. So a brand-new
+  learner genuinely cannot start two at once, but a learner who has an A1 may then add several.
+  - ✅ **Onboarding chooses, it does not add.** `startLanguage(id, { only: true })` replaces the
+    started list (`src/screens/Onboarding.jsx`). Appending is the Ladder's job, not the pick's.
+    Until this, every re-run of the flow silently appended a language, bypassing the gate — which
+    is how four languages reached Alex's Ladder.
+  - ✅ **Reset returns you to the pick.** `resetAll()` clears the started list and `onboarded`.
+  - ❌ **The strict reading of the rule above — "one at a time, always" — is NOT enforced.** The
+    stricter gate (your *newest* language must be at A1) was written and reverted the same day,
+    unshipped, once its cost was measured: A1 means rung ≥ 1 on **every** item at or below A1
+    (`isLevelComplete`, `src/store/levels.js`) — **1,252 items in Japanese**, 487–582 in the other
+    five. It would also have been bypassable, since `stopLanguage` has no gate and keeps progress.
+    **Open for Alex's decision**, with the number, in `BUILD-CHECKLIST.md` (2026-09-17). Do not
+    implement it off the back of this spec alone.
+  - Coverage: `tests/unit/language-gate.test.mjs`, which pins the shipped rule explicitly so the
+    stricter one cannot return as a silent refactor.
+- ⚠️ The mechanism is **not** the `unlock: {lang, level}` / `unlocked` cascade this spec assumed —
+  that was retired with the flat catalog (see "No front language" in `CLAUDE.md`). Gating is one
+  function, `canAddLanguage()`, and the catalog carries no per-language unlock field.
 - *Possible* future setting: an explicit opt-in "parallel mode." Note as future; do not build.
   Ship the opinionated version first — the opinion is the product.
 
