@@ -99,6 +99,66 @@ Pause and confirm before doing any of these, even mid-task:
 
 ---
 
+## OTHER SESSIONS ARE IN THIS REPO RIGHT NOW — check before you touch it
+
+Alex, 2026-09-17: *"make sure all agents check to make sure other agents aren't
+working in same branch or whatever cuz im tired of there being no communication
+between yall."*
+
+Several sessions share ONE working tree on this machine. Five collisions in a
+single day, every one of them cheap to prevent:
+
+| what happened | what it cost |
+|---|---|
+| a session ran `git add -A` and swept another session's half-finished `Lesson.jsx`, `learnQueue.js` and `TypeCard.jsx` into its own commit | engine files committed mid-edit, plus 13 MB of PNGs it had to untrack in a follow-up |
+| a session pushed `main` carrying two commits another session had made seconds earlier | unverified engine changes reached production |
+| a session's uncommitted `Today.jsx` edit turned another session's gate red | two smoke failures chased as a regression that did not exist |
+| a session switched the shared checkout to a feature branch | the next commit landed on that branch, stranding a user-reported fix off `main` |
+| a subagent ran `git checkout main -- src/data/de` in a LIVE worktree to measure a "before" number | reverted 38 authored cards; only the fact they were committed saved them |
+
+**BEFORE YOUR FIRST WRITE, every session, no exceptions:**
+
+1. **`git status -sb`** — which branch is this, and whose uncommitted changes are
+   already here? **A modified file you did not touch belongs to someone else.**
+2. **`ListAgents`** — who else is live right now.
+3. **If the branch is not the one you were told to work on, STOP.** Someone moved
+   it. Use a worktree (below). Never switch it back — they are mid-edit.
+
+**STAGING AND COMMITTING:**
+
+- **NEVER `git add -A`, `git add .`, or `git commit -a`.** Stage explicit paths.
+  This one rule prevents most of the table above.
+- Re-run `git status --short` before you commit and confirm every staged path is
+  yours.
+
+**BEFORE YOU PUSH:** `git log --oneline origin/main..HEAD`. If a commit there is
+not yours, you are about to publish someone else's unverified work. Verify it or
+leave it — and say which you did.
+
+**BEFORE YOU BLAME A RED GATE:** `git status --short`. Another session's
+work-in-progress is compiled into your build. **A failure in a file you never
+touched is theirs until you prove otherwise.**
+
+**WORK THAT MUST NOT TOUCH THE SHARED CHECKOUT — use a worktree:**
+
+- `git worktree add --detach <dir> <sha>` to measure a "before", reproduce on a
+  clean tree, or commit to a branch that is not checked out.
+- **NEVER `git checkout <ref> -- <path>` in a live tree.** It overwrites working
+  files and stages the deletion of everything that ref lacks.
+- **NEVER junction `node_modules` into a throwaway worktree and then
+  `git worktree remove --force`.** The remove follows the junction and deletes
+  the real `node_modules` for the whole machine — on 2026-09-17 that broke six
+  live crew worktrees at once.
+- **Never `git stash`** in a shared checkout; the stash stack is shared too.
+
+**SUBAGENT RESULTS ROUTE TO THE PARENT SESSION, NOT THE SEAT THAT SPAWNED THEM.**
+A gate a seat spawns reports to whoever owns the conversation, so the seat waits
+for something that is never coming. If you spawn seats, **relay every verdict by
+`SendMessage`**; if you are a seat waiting on a gate, ask rather than wait. Four
+seats stalled exactly this way on 2026-09-16.
+
+---
+
 ## Proactive improvement (do this every session)
 
 Alex is neurodivergent and the app is built specifically with ND learners in mind. You are an active collaborator, not just an executor. Every session, look for things to flag or suggest — don't wait to be asked.
@@ -260,6 +320,10 @@ This is the same principle the app is built on. `CLAUDE.md` tells CC to design w
 - **Cross-platform npm scripts:** Linux CI runs scripts via `/bin/sh`, Windows npm via `cmd.exe`. Don't quote globs — but better, **don't use a glob at all** where a path works. `test:unit` was `node --test tests/unit/*.test.mjs`: correct on CI, and impossible to run on the Windows seat, because `cmd.exe` doesn't expand globs and Node 20 has no built-in expansion — so every Windows gate claim came from a hand-rolled substitute command rather than the real script. It is now `node --test tests/unit/`, which discovers the identical 41 files / 376 tests on both platforms (verified both ways, 2026-09-13).
 - **Don't regenerate the logo or app icons.** Use the committed skewed-rung files and the canonical SVG.
 - **Tuning is constants, not structure.** If something feels too fast/repetitive/harsh, it's a one-line change to `LEARN_OPTS` or `TIMING` + a re-run — not a rebuild.
+- **Never assume you are the only session in this checkout** — see
+  "OTHER SESSIONS ARE IN THIS REPO RIGHT NOW" above. `git add -A` is banned,
+  `git status -sb` comes before your first write, and a red gate in a file you
+  never touched is someone else's until proven otherwise.
 - **Never hammer the GitHub API — pace pushes, PRs, and merges.** A burst of rapid create/merge/poll calls **got Alex's 4-year-old account auto-suspended for "abuse"** (2026-06-30). The abuse-detector has no context; it just counts requests per window. Hard rules: **no tight `gh`/API poll loops** (don't poll PR/CI status on a <30s loop — wait for the run, or check once and move on); **space out PR creates and merges** (don't fire several back-to-back — batch the work into fewer PRs and pause between operations); **prefer local validation** (`lint`/`validate`/`test`/`build`) over round-tripping the API to check state. If you genuinely need many operations, do them slowly and deliberately, not in a script-driven burst. When the API starts erroring (403/suspension/rate-limit), **stop immediately and build locally** — never retry into the throttle.
 
 ---
