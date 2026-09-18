@@ -357,11 +357,24 @@ export const useStore = create(
 
       // Begin a language (onboarding pick or the "add a language" flow) and make
       // it the active one. Idempotent — re-picking a started language just focuses it.
-      startLanguage: (id) =>
+      //
+      // `only: true` REPLACES the started list instead of appending it, and is what
+      // the ONBOARDING pick passes. Onboarding is not an "add" — it is *the* choice,
+      // and its own copy says "pick the one to start with" — but it called the same
+      // appending action as the Ladder's add-a-language row. So every re-run of the
+      // flow (Dev panel → Replay onboarding) silently acquired ANOTHER language,
+      // bypassing canAddLanguage entirely. That is how Alex's Ladder reached four
+      // languages, three of them never deliberately added, with German sitting at
+      // 0 items (2026-09-17). Item progress is untouched either way, so a language
+      // dropped here is re-addable from the Ladder with everything intact.
+      startLanguage: (id, { only = false } = {}) =>
         set((s) => {
-          const languages = s.profile.languages.includes(id)
-            ? s.profile.languages
-            : [...s.profile.languages, id];
+          const current = s.profile.languages ?? [];
+          const languages = only
+            ? [id]
+            : current.includes(id)
+              ? current
+              : [...current, id];
           // Record that this list is a real choice, so pruneStartedLanguages
           // never has to infer it. Everything that adds a language routes through
           // here (the onboarding pick and the add-a-language flow), so from this
@@ -775,12 +788,43 @@ export const useStore = create(
         });
       },
 
-      // Can the learner start another language yet? True once any language they've
-      // already started has reached at least A1 (the "lock till A1" rule).
+      // EARN ONE A1 ANYWHERE, THEN YOU MAY CARRY MORE THAN ONE LANGUAGE.
+      //
+      // Deliberately NOT "your newest language must be at A1". That stricter rule was
+      // written and reverted on 2026-09-17 before it ever shipped, because the
+      // truth-agent measured what it costs: reaching A1 means rung >= 1 on EVERY item
+      // at or below A1 (`isLevelComplete`, src/store/levels.js) — 1,252 items in
+      // Japanese, 487-582 in the others. Under the strict rule a learner mid-climb in
+      // Japanese cannot touch a second language for 1,252 items, and a learner who
+      // already had two would have the gate close behind them. It was also bypassable:
+      // `stopLanguage` has no gate and keeps progress, so dropping the pre-A1 language
+      // reopens it in two taps.
+      //
+      // This rule matches the bar Alex actually stated ("user needs to be serious ...
+      // and at least complete a1"): a brand-new learner CANNOT start two at once,
+      // because no language is at A1 yet. Whether to tighten it further is Alex's
+      // call, not this file's — see BUILD-CHECKLIST.md 2026-09-17.
+      //
+      // TWO REASONS THIS ASKS THE LEVELS MAP RATHER THAN THE STARTED LIST:
+      //
+      //   1. NOTHING STARTED MUST NEVER BE LOCKED. `[].some(...)` is false, so an
+      //      empty started list locked every row on the Ladder — no Start button
+      //      anywhere, which is a dead end rather than a gate. Reset now clears the
+      //      list, and a build without AUTH_ENABLED never renders onboarding (see
+      //      App.jsx), so that dead end was reachable. Your first language is the
+      //      pick's job and was never this gate's business.
+      //   2. AN A1 YOU EARNED CANNOT BE TAKEN AWAY BY LEAVING. Scoping to STARTED
+      //      languages meant a learner at A1 Japanese who re-ran onboarding and
+      //      picked German held an A1 the gate could no longer see, and could not
+      //      re-add Japanese — progress intact and unreachable. `languages[id].level`
+      //      is promote-only (checkCascade) and covers the whole catalog, so it is a
+      //      record of what you have ever reached, which is what "complete A1 first"
+      //      actually means.
       canAddLanguage: () => {
         const { profile, languages } = get();
-        return (profile.languages ?? []).some(
-          (id) => (CEFR_ORDER[languages[id]?.level] ?? -1) >= CEFR_ORDER.A1
+        if (!(profile.languages ?? []).length) return true; // no language yet — the pick is open
+        return Object.values(languages ?? {}).some(
+          (l) => (CEFR_ORDER[l?.level] ?? -1) >= CEFR_ORDER.A1
         );
       },
 
@@ -854,6 +898,20 @@ export const useStore = create(
           lastModified: Date.now(),
           items: freshSeed(),
           languages: initialLanguages(),
+          // A RESET IS A FRESH START, AND THAT INCLUDES WHICH LANGUAGE YOU STUDY.
+          // It used to wipe every item but keep the started list, so a learner who
+          // reset specifically to get back to one language kept all of them — now at
+          // pre-A1, with the add-a-language gate shut behind them. Clearing the list
+          // and `onboarded` sends them back through the pick, which is the only place
+          // a FIRST language is chosen. The answers that aren't progress (name,
+          // reason, reminder) are kept; the flow rewrites them anyway.
+          profile: {
+            ...get().profile,
+            onboarded: false,
+            languages: [],
+            activeLang: null,
+            languagesChosen: false,
+          },
           streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
           stats: { xpTotal: 0 },
           daily: { date: todayISO(), reviewsCleared: false, lessonDone: false, clearedLangs: [] },

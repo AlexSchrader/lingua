@@ -80,7 +80,10 @@ export default function Onboarding() {
 
   function chooseLanguage() {
     if (!lang) return;
-    startLanguage(lang);
+    // `only` — onboarding picks your language, it does not add one. Without this
+    // every re-run of the flow appended, which is how a Ladder grows languages
+    // nobody chose. See startLanguage.
+    startLanguage(lang, { only: true });
     setStep(1);
   }
 

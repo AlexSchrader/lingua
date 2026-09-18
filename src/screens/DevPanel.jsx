@@ -382,7 +382,10 @@ export default function DevPanel() {
           <Play size={18} /> Replay onboarding
         </button>
         <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 8, lineHeight: 1.4 }}>
-          Re-runs the language pick + onboarding screens. Safe — doesn't touch your progress; you'll land back in the app when you finish.
+          Re-runs the language pick + onboarding screens. Doesn't touch your progress — but the
+          language you pick <strong>replaces</strong> your started list, because onboarding chooses a
+          first language rather than adding one. Re-add the others from the Ladder — an A1 you've
+          already earned keeps that gate open, so nothing you've studied becomes unreachable.
         </div>
 
         {/* The Ladder's "Add a language" section is gated on reaching A1, so its
@@ -417,7 +420,8 @@ export default function DevPanel() {
             <div style={{ display: "flex", gap: 8, alignItems: "flex-start", color: C.shu, fontSize: 13, fontWeight: 600 }}>
               <AlertTriangle size={18} style={{ flexShrink: 0, marginTop: 1 }} />
               This wipes your real progress (every item + your milestones) back to a fresh
-              start. Dev Mode stays unlocked. It can't be undone.
+              start and sends you through the language pick again. Dev Mode stays
+              unlocked. It can't be undone.
             </div>
             <div style={{ display: "flex", gap: 10 }}>
               <button
