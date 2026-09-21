@@ -1,18 +1,93 @@
-// DE Unit 100 — Career and organisations (slot: work-career) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// DE Unit 100 — Beruf und Organisation (slot: work-career) — B2
+// Conventions: de/unit1.js + de/unit51.js + de/unit88.js (B2 band constitution).
+// LAST UNIT OF BLOCK 1 (u88–u100). Block 2 starts at u101.
+// Already taught, used but never re-taught: die Abteilung / das Zeugnis / die
+// Bewerbung / der Lebenslauf / kündigen (all u24), der Vorgesetzte (u78),
+// zuständig (u75), führen (u52), die Firma (u20), der Chef (u20), der Auftrag
+// (u56), die Frist (u56), der Vorstand (u93, mine), die Schnittstelle (u90, mine).
+// Self-check, dropped as same-lexeme duplicates: die Zuständigkeit (zuständig
+// u75), die Kündigung (kündigen u24), die Führung (führen u52 — and `fuhr`, the
+// past of fahren, collides on the fold as well).
+// ⚠️ This unit is deliberately about the GERMAN workplace as it really works —
+// der Betriebsrat, die Mitbestimmung, die Probezeit and der Tarifvertrag are
+// institutions a learner meets on day one of a job in Germany and will not find
+// in an English-language course. That is the point of teaching them here.
+//
+// FREE: Details, Prozent, Firmen, Kollegen, Mitarbeiter, Teams, Team, Hierarchie, Hierarchien, Position, Positionen, Projekt, Projekte, Fluktuation, Betriebsrat, Tarifvertrag, Vollzeit, Teilzeit, Personalabteilung
 export const DE_UNIT100 = {
   id: "de-u100",
   lang: "de",
-  title: "Career and organisations",
+  title: "Beruf und Organisation",
   order: 100,
   stage: "b2",
   lessons: [
-    { id: "de-u100l1", title: "Lesson 1", locked: true },
-    { id: "de-u100l2", title: "Lesson 2", locked: true },
-    { id: "de-u100l3", title: "Lesson 3", locked: true },
-    { id: "de-u100l4", title: "Lesson 4", locked: true },
+    {
+      id: "de-u100l1",
+      unit: 100,
+      lesson: 1,
+      title: "Der eigene Weg",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe a career as a path rather than a job — the track, the route someone took, specialist knowledge, further training, and coming in from another field.",
+      items: [
+        { id: "de-u100l1-dielaufbahn", type: "vocab", front: "die Laufbahn", reading: "dielaufbahn", meaning: "the career path", example: { jp: "Ihre Laufbahn verlief gerade, aber die interessanten Jahre kamen erst nach dem Wechsel.", en: "Her career path ran straight, but the interesting years only came after the change." }, drill: { jp: "Die Laufbahn dauert mehrere Jahrzehnte", en: "The career path lasts several decades" }, accept: ["career path", "the career path", "career", "the career", "track"], hint: "laufen + die Bahn (track): the running track you are on. More formal than der Beruf (u3), and standard in public service — die Beamtenlaufbahn." },
+        { id: "de-u100l1-derwerdegang", type: "vocab", front: "der Werdegang", reading: "derwerdegang", meaning: "the background", example: { jp: "Sein Werdegang passt in keine Schublade, und genau deshalb ist er für die Abteilung so wertvoll.", en: "His background fits no pigeonhole, and that is exactly why he is so valuable for the department." }, drill: { jp: "Der Werdegang steht im Lebenslauf", en: "The background is in the CV" }, accept: ["background", "the background", "career history", "path", "professional development", "record"], hint: "werden (to become) + der Gang (the going): how someone became what they are. A CV lists stations; der Werdegang is the story they make." },
+        { id: "de-u100l1-diefachkraft", type: "vocab", front: "die Fachkraft", reading: "diefachkraft", meaning: "the skilled worker", example: { jp: "Ohne Fachkräfte hilft auch die beste Technik nichts, und genau da fehlt es der ganzen Branche.", en: "Without skilled workers even the best technology is no help, and that is exactly where the whole sector is short." }, drill: { jp: "Die Fachkraft kostet die Firma viel", en: "The skilled worker costs the company a lot" }, accept: ["skilled worker", "the skilled worker", "specialist", "qualified professional", "skilled professional"], hint: "das Fach (subject, trade) + die Kraft (force, and a worker). der Fachkräftemangel — the shortage of skilled workers — is a permanent German headline." },
+        { id: "de-u100l1-dasfachwissen", type: "vocab", front: "das Fachwissen", reading: "dasfachwissen", meaning: "the expertise", example: { jp: "Das Fachwissen steckt in wenigen Köpfen, und niemand hat es bisher aufgeschrieben.", en: "The expertise sits in a few heads, and nobody has written it down so far." }, drill: { jp: "Das Fachwissen steckt in wenigen Köpfen", en: "The expertise sits in a few heads" }, accept: ["expertise", "the expertise", "specialist knowledge", "technical knowledge", "know-how"], hint: "das Fach + das Wissen. What a Fachkraft has. German job ads ask for fundiertes Fachwissen — fundiert is u89." },
+        { id: "de-u100l1-dieweiterbildung", type: "vocab", front: "die Weiterbildung", reading: "dieweiterbildung", meaning: "the further training", example: { jp: "Die Weiterbildung läuft neben der Arbeit, deshalb dauert sie fast doppelt so lange.", en: "The further training runs alongside the job, which is why it takes almost twice as long." }, drill: { jp: "Die Weiterbildung dauert zwei Jahre", en: "The further training lasts two years" }, accept: ["further training", "the further training", "continuing education", "professional development", "upskilling"], hint: "weiter + die Bildung (education). A right in some German sectors and a line in most contracts — Bildungsurlaub is paid leave for it." },
+        { id: "de-u100l1-derquereinsteiger", type: "vocab", front: "der Quereinsteiger", reading: "derquereinsteiger", meaning: "the career changer", example: { jp: "Als Quereinsteiger bringt er eine andere Sicht mit, und die Abteilung braucht genau das.", en: "As a career changer he brings a different view with him, and that is exactly what the department needs." }, drill: { jp: "Der Quereinsteiger bringt viel Fachwissen", en: "The career changer brings a lot of expertise" }, accept: ["career changer", "the career changer", "lateral entrant", "newcomer from another field"], hint: "quer (across) + einsteigen (to get in): getting in from the side. German schools currently run on Quereinsteiger, and the word carries no insult." },
+      ],
+    },
+    {
+      id: "de-u100l2",
+      unit: 100,
+      lesson: 2,
+      title: "Wie ein Betrieb gebaut ist",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe an organisation from inside — the hierarchy, the workforce, HR, the works council, co-determination and delegating work.",
+      items: [
+        { id: "de-u100l2-diehierarchie", type: "vocab", front: "die Hierarchie", reading: "diehierarchie", meaning: "the hierarchy", example: { jp: "Die Hierarchie ist flach, trotzdem entscheidet am Ende fast immer die gleiche Person.", en: "The hierarchy is flat; nevertheless almost always the same person decides in the end." }, drill: { jp: "Die Hierarchie bleibt sehr flach", en: "The hierarchy stays very flat" }, accept: ["hierarchy", "the hierarchy", "chain of command"], hint: "Stress on the last syllable: hi-e-rar-CHIE. flache Hierarchien is what every German job ad promises and few deliver." },
+        { id: "de-u100l2-diebelegschaft", type: "vocab", front: "die Belegschaft", reading: "diebelegschaft", meaning: "the workforce", example: { jp: "Die Belegschaft hat dem Vorschlag zugestimmt, aber nur mit einer sehr knappen Mehrheit.", en: "The workforce approved the proposal, but only with a very narrow majority." }, drill: { jp: "Die Belegschaft wächst seit zwei Jahren", en: "The workforce has been growing for two years" }, accept: ["workforce", "the workforce", "staff", "the staff", "employees", "personnel"], hint: "From belegen (to occupy): everyone on the books. Used of the people as a body — for the department you say die Abteilung (u24)." },
+        { id: "de-u100l2-diepersonalabteilung", type: "vocab", front: "die Personalabteilung", reading: "diepersonalabteilung", meaning: "the HR department", example: { jp: "Die Personalabteilung prüft die Bewerbung zweimal, deshalb dauert das Verfahren mehrere Wochen.", en: "The HR department checks the application twice, which is why the procedure takes several weeks." }, drill: { jp: "Die Personalabteilung liest die Bewerbung", en: "The HR department reads the application" }, accept: ["HR department", "the HR department", "human resources", "personnel department"], hint: "das Personal (staff) + die Abteilung (u24). Increasingly called HR in German firms too, but the old word is what stands on the door." },
+        { id: "de-u100l2-derbetriebsrat", type: "vocab", front: "der Betriebsrat", reading: "derbetriebsrat", meaning: "the works council", example: { jp: "Der Betriebsrat muss zustimmen, sonst kann die Firma die neuen Zeiten gar nicht einführen.", en: "The works council has to agree, otherwise the company cannot introduce the new hours at all." }, drill: { jp: "Der Betriebsrat muss hier zustimmen", en: "The works council has to agree here" }, accept: ["works council", "the works council", "employee representation", "staff council"], hint: "der Betrieb (the firm as a workplace) + der Rat (council). Elected by the Belegschaft, with real legal powers — a genuinely German institution, not a committee." },
+        { id: "de-u100l2-diemitbestimmung", type: "vocab", front: "die Mitbestimmung", reading: "diemitbestimmung", meaning: "the co-determination", example: { jp: "Mitbestimmung heißt nicht, dass alle mitreden, sondern dass der Chef bestimmte Fragen nicht selbst entscheidet.", en: "Co-determination does not mean everyone has a say, but that the boss does not decide certain questions alone." }, drill: { jp: "Die Mitbestimmung steht im Gesetz", en: "Co-determination is in the law" }, accept: ["co-determination", "the co-determination", "worker participation", "employee participation", "having a say"], hint: "mit + bestimmen (to determine). The legal principle behind the Betriebsrat, and one of the words that most needs explaining to anyone from outside Germany." },
+        { id: "de-u100l2-delegieren", type: "vocab", front: "delegieren", reading: "delegieren", meaning: "to delegate", example: { jp: "Wer nicht delegieren kann, arbeitet am Ende mehr als sein ganzes Team.", en: "Anyone who cannot delegate ends up working more than their whole team." }, drill: { jp: "Gute Chefs delegieren mehr Aufgaben", en: "Good bosses delegate more tasks" }, accept: ["to delegate", "delegate", "to hand over", "to assign"], hint: "Takes an + accusative: eine Aufgabe an jemanden delegieren. die Delegation covers both the group of people and the act (die Delegation von Aufgaben)." },
+      ],
+    },
+    {
+      id: "de-u100l3",
+      unit: 100,
+      lesson: 3,
+      title: "Anfangen und aufsteigen",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Get through the first year and beyond — the probation period, being shown the ropes, a promotion, the target agreement and who follows you.",
+      items: [
+        { id: "de-u100l3-dieprobezeit", type: "vocab", front: "die Probezeit", reading: "dieprobezeit", meaning: "the probation period", example: { jp: "In der Probezeit können beide Seiten mit einer Frist von zwei Wochen kündigen, danach gelten längere Fristen.", en: "During the probation period the two sides can give two weeks' notice; after that longer periods apply." }, drill: { jp: "Die Probezeit dauert sechs Monate", en: "The probation period lasts six months" }, accept: ["probation period", "the probation period", "trial period", "probation"], hint: "die Probe (test) + die Zeit. Usually six months in Germany, and the notice period inside it is much shorter — the single most useful fact in this lesson." },
+        { id: "de-u100l3-dieeinarbeitung", type: "vocab", front: "die Einarbeitung", reading: "dieeinarbeitung", meaning: "the onboarding", example: { jp: "Die Einarbeitung war kurz, deshalb hat der neue Kollege die Hälfte selbst herausfinden müssen.", en: "The onboarding was short, which is why the new colleague had to work out half of it himself." }, drill: { jp: "Die Einarbeitung dauert mehrere Wochen", en: "The onboarding takes several weeks" }, accept: ["onboarding", "the onboarding", "induction", "training-in", "settling-in period"], hint: "ein + arbeiten: working yourself in. sich einarbeiten is what you do; die Einarbeitung is what the firm owes you." },
+        { id: "de-u100l3-diebeforderung", type: "vocab", front: "die Beförderung", reading: "diebeforderung", meaning: "the promotion", example: { jp: "Die Beförderung kam nach fünf Jahren, aber mit deutlich mehr Verantwortung als Geld.", en: "The promotion came after five years, but with noticeably more responsibility than money." }, drill: { jp: "Die Beförderung kam nach fünf Jahren", en: "The promotion came after five years" }, accept: ["promotion", "the promotion", "advancement", "transport", "carriage"], hint: "From befördern, which means both to promote someone and to transport goods — die Beförderung von Personen is on every German bus ticket." },
+        { id: "de-u100l3-diezielvereinbarung", type: "vocab", front: "die Zielvereinbarung", reading: "diezielvereinbarung", meaning: "the target agreement", example: { jp: "Die Zielvereinbarung wirkt gut, solange niemand fragt, wer die Ziele eigentlich gesetzt hat.", en: "The target agreement looks good, as long as nobody asks who actually set the targets." }, drill: { jp: "Die Zielvereinbarung kommt im Januar", en: "The target agreement comes in January" }, accept: ["target agreement", "the target agreement", "performance agreement", "objectives agreement", "goal agreement"], hint: "das Ziel (u19) + die Vereinbarung (agreement). The German annual-review ritual, and usually what a bonus hangs on." },
+        { id: "de-u100l3-dienachfolge", type: "vocab", front: "die Nachfolge", reading: "dienachfolge", meaning: "the succession", example: { jp: "Die Nachfolge ist seit Jahren offen, und deshalb bleibt die halbe Abteilung in der Schwebe.", en: "The succession has been open for years, and that is why half the department is left hanging." }, drill: { jp: "Die Nachfolge kostet die Abteilung viel", en: "The succession costs the department a lot" }, accept: ["succession", "the succession", "successor arrangement", "handover"], hint: "nach + folgen: coming after. die Nachfolge antreten = to take over from someone; der Nachfolger is the person who does." },
+        { id: "de-u100l3-dieuberstunde", type: "vocab", front: "die Überstunde", reading: "dieuberstunde", meaning: "the overtime hour", example: { jp: "Die Überstunden werden aufgeschrieben, aber ausgezahlt hat sie in dieser Abteilung noch niemand.", en: "The overtime hours get written down, but nobody in this department has ever had them paid out." }, drill: { jp: "Die Überstunde steht auf dem Konto", en: "The overtime hour is on the account" }, accept: ["overtime hour", "the overtime hour", "overtime", "extra hour"], hint: "über + die Stunde. Counted one by one in German, usually in the plural — Überstunden machen, abbauen, auszahlen. das Arbeitszeitkonto is where they sit." },
+      ],
+    },
+    {
+      id: "de-u100l4",
+      unit: 100,
+      lesson: 4,
+      title: "Wie es sich anfühlt zu arbeiten",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Judge a workplace, not just a job — the atmosphere, the workload, staff turnover, the collective agreement, and full-time against part-time.",
+      items: [
+        { id: "de-u100l4-dasbetriebsklima", type: "vocab", front: "das Betriebsklima", reading: "dasbetriebsklima", meaning: "the workplace atmosphere", example: { jp: "Das Betriebsklima entscheidet oft mehr über das Bleiben als das Geld am Monatsende.", en: "The workplace atmosphere often decides more about staying than the money at the end of the month." }, drill: { jp: "Das Betriebsklima bleibt sehr gut", en: "The workplace atmosphere stays very good" }, accept: ["workplace atmosphere", "the workplace atmosphere", "working atmosphere", "workplace climate", "office atmosphere"], hint: "der Betrieb + das Klima. German job ads promise ein gutes Betriebsklima almost as often as flache Hierarchien — and it is the thing people actually leave over." },
+        { id: "de-u100l4-dieauslastung", type: "vocab", front: "die Auslastung", reading: "dieauslastung", meaning: "the capacity utilisation", example: { jp: "Die Auslastung liegt seit Monaten bei fast hundert Prozent, deshalb hilft auch eine neue Fachkraft wenig.", en: "Capacity utilisation has been at almost a hundred percent for months, which is why even a new skilled worker helps little." }, drill: { jp: "Die Auslastung liegt bei hundert Prozent", en: "Capacity utilisation is at a hundred percent" }, accept: ["capacity utilisation", "the capacity utilisation", "capacity utilization", "workload", "utilisation", "occupancy"], hint: "aus + die Last (load). Of machines, hotels and people alike — bei voller Auslastung means nothing more fits in." },
+        { id: "de-u100l4-diefluktuation", type: "vocab", front: "die Fluktuation", reading: "diefluktuation", meaning: "the staff turnover", example: { jp: "Die Fluktuation ist hoch, und mit der Kündigung geht ein Teil des Fachwissens verloren.", en: "Staff turnover is high, and with a resignation part of the expertise is lost." }, drill: { jp: "Die Fluktuation kostet die Firma viel Fachwissen", en: "Staff turnover costs the company a lot of expertise" }, accept: ["staff turnover", "the staff turnover", "turnover", "churn", "fluctuation"], hint: "In German business language it means staff turnover specifically, not any fluctuation — for numbers moving up and down you say schwanken (u89)." },
+        { id: "de-u100l4-dertarifvertrag", type: "vocab", front: "der Tarifvertrag", reading: "dertarifvertrag", meaning: "the collective agreement", example: { jp: "Im Tarifvertrag stehen die Zahlen für alle gleich, und deshalb verhandelt man sie nicht im Betrieb.", en: "In the collective agreement the figures are the same for everyone, and that is why they are not negotiated inside the firm." }, drill: { jp: "Der Tarifvertrag kommt aus der Branche", en: "The collective agreement comes from the sector" }, accept: ["collective agreement", "the collective agreement", "collective bargaining agreement", "pay agreement", "union agreement"], hint: "der Tarif (rate) + der Vertrag (u24). Negotiated between union and employers for a whole sector — nach Tarif bezahlt is a selling point in a German job ad." },
+        { id: "de-u100l4-dievollzeit", type: "vocab", front: "die Vollzeit", reading: "dievollzeit", meaning: "the full-time work", example: { jp: "Nach der Elternzeit ist die Rückkehr in Vollzeit möglich, aber viele entscheiden sich bewusst dagegen.", en: "After parental leave a return to full-time work is possible, but many deliberately decide against it." }, drill: { jp: "Die Vollzeit bringt mehr Rente", en: "Full-time work brings more pension" }, accept: ["full-time work", "the full-time work", "full time", "full-time", "full-time employment"], hint: "voll + die Zeit. Used without an article in the common phrase: in Vollzeit arbeiten. Its partner die Teilzeit is the next card." },
+        { id: "de-u100l4-dieteilzeit", type: "vocab", front: "die Teilzeit", reading: "dieteilzeit", meaning: "the part-time work", example: { jp: "Teilzeit kostet später Rente, und genau darüber wird in Deutschland zu wenig gesprochen.", en: "Part-time work costs pension later, and that is exactly what is talked about too little in Germany." }, drill: { jp: "Die Teilzeit kostet später Geld", en: "Part-time work costs money later" }, accept: ["part-time work", "the part-time work", "part time", "part-time", "part-time employment"], hint: "der Teil + die Zeit, and the counterpart to die Vollzeit above. in Teilzeit gehen = to go part-time — a legal right in German firms above a certain size." },
+      ],
+    },
   ],
 };

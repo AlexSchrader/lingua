@@ -1,18 +1,87 @@
-// DE Unit 90 — Systems and abstraction (slot: abstraction) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// DE Unit 90 — Systeme und Abstraktion (slot: abstraction) — B2
+// Conventions: de/unit1.js (A1/A2) + de/unit51.js (B1) + de/unit88.js (B2 band
+// constitution, incl. §6's list of ordinary German words the corpus never taught
+// — examples here are written around them).
+// Already taught, used but never re-taught: das Prinzip (u58), der Begriff (u58),
+// die Ordnung (u61), funktionieren (u33), der Zusammenhang (u52), die Regel (u32).
+// Self-check: der Ablauf dropped (ablaufen u76), bedingen dropped (die Bedingung
+// u37), die Regelung dropped (die Regel u32) — all same-lexeme duplicates.
+//
+// FREE: Teile, Systeme, Strukturen, Modelle, Muster, Prozent, Details, Motor, Maschine, Maschinen, Elemente, Faktoren, Funktionen, Ebenen, Organisation, Perspektive, abstrakt, komplex
 export const DE_UNIT90 = {
   id: "de-u90",
   lang: "de",
-  title: "Systems and abstraction",
+  title: "Systeme und Abstraktion",
   order: 90,
   stage: "b2",
   lessons: [
-    { id: "de-u90l1", title: "Lesson 1", locked: true },
-    { id: "de-u90l2", title: "Lesson 2", locked: true },
-    { id: "de-u90l3", title: "Lesson 3", locked: true },
-    { id: "de-u90l4", title: "Lesson 4", locked: true },
+    {
+      id: "de-u90l1",
+      unit: 90,
+      lesson: 1,
+      title: "Das System und seine Teile",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe how something is put together — name the system, its structure, the parts it is made of, and how you would divide the whole up.",
+      items: [
+        { id: "de-u90l1-dassystem", type: "vocab", front: "das System", reading: "dassystem", meaning: "the system", example: { jp: "Das System funktioniert seit Jahren, aber niemand versteht heute noch den ganzen Aufbau.", en: "The system has been working for years, but nobody today still understands the whole construction." }, drill: { jp: "Das System wächst seit Jahren weiter", en: "The system has kept growing for years" }, accept: ["system", "the system"], hint: "As wide as in English — a machine, a set of rules, a way of working. Note the gender: das System, plural die Systeme." },
+        { id: "de-u90l1-diestruktur", type: "vocab", front: "die Struktur", reading: "diestruktur", meaning: "the structure", example: { jp: "Die Struktur bleibt gleich, auch wenn die Firma dafür immer neue Namen findet.", en: "The structure stays the same, even if the company keeps finding new names for it." }, drill: { jp: "Die Struktur zeigt sich erst später", en: "The structure only shows itself later" }, accept: ["structure", "the structure"], hint: "The arrangement, not the building — ein Gebäude is the building. klare Strukturen schaffen = to create clear structures, the phrase every German manager reaches for." },
+        { id: "de-u90l1-derbestandteil", type: "vocab", front: "der Bestandteil", reading: "derbestandteil", meaning: "the component", example: { jp: "Ein Bestandteil ist billig, trotzdem kostet die ganze Maschine sehr viel Geld.", en: "One component is cheap, and yet the whole machine costs a great deal of money." }, drill: { jp: "Der Bestandteil kostet fast nichts", en: "The component costs almost nothing" }, accept: ["component", "the component", "constituent", "part", "the part", "ingredient"], hint: "bestehen aus (to consist of) + der Teil: a thing the whole consists of. On a German food label the ingredients are die Bestandteile." },
+        { id: "de-u90l1-dieeinheit", type: "vocab", front: "die Einheit", reading: "dieeinheit", meaning: "the unit", example: { jp: "Die kleinste Einheit im System ist eine kleine Gruppe, und darüber wird alles größer.", en: "The smallest unit in the system is a small group, and above that everything gets bigger." }, drill: { jp: "Die Einheit bleibt immer gleich groß", en: "The unit always stays the same size" }, accept: ["unit", "the unit", "unity", "the unity", "oneness"], hint: "Two senses: a measuring unit (eine Einheit messen) and unity itself — die Deutsche Einheit is reunification, and the 3rd of October is its holiday." },
+        { id: "de-u90l1-deraufbau", type: "vocab", front: "der Aufbau", reading: "deraufbau", meaning: "the construction", example: { jp: "Der Aufbau des Textes ist klar, deshalb findet man die Angaben sofort.", en: "The construction of the text is clear, which is why you find the figures immediately." }, drill: { jp: "Der Aufbau zeigt ein klares Muster", en: "The construction shows a clear pattern" }, accept: ["construction", "the construction", "structure", "the structure", "build-up", "assembly", "layout"], hint: "From aufbauen (to build up): how a thing is put together, and also the act of building it. der Aufbau des Systems = the way the system is set up." },
+        { id: "de-u90l1-gliedern", type: "vocab", front: "gliedern", reading: "gliedern", meaning: "to divide up", example: { jp: "Wir gliedern den Bericht in drei Teile, damit die Leser den Überblick behalten.", en: "We divide the report into three parts, so that readers keep an overview." }, drill: { jp: "Wir gliedern den Text in Teile", en: "We divide the text into parts" }, accept: ["to divide up", "divide up", "to structure", "structure", "to organize", "to organise", "to subdivide", "to break down"], hint: "das Glied (limb, member): to give something limbs. sich gliedern in = to be divided into — Der Bericht gliedert sich in drei Teile." },
+      ],
+    },
+    {
+      id: "de-u90l2",
+      unit: 90,
+      lesson: 2,
+      title: "Wie es zusammenwirkt",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Explain how parts act on each other — name the mechanism, the interaction between two sides, who steers it, and where two systems meet.",
+      items: [
+        { id: "de-u90l2-dermechanismus", type: "vocab", front: "der Mechanismus", reading: "dermechanismus", meaning: "the mechanism", example: { jp: "Der Mechanismus ist einfach zu verstehen, aber seine Folgen sieht man erst nach Jahren.", en: "The mechanism is easy to understand, but you only see its consequences after years." }, drill: { jp: "Der Mechanismus steckt hinter dem Problem", en: "The mechanism is behind the problem" }, accept: ["mechanism", "the mechanism"], hint: "Both the parts inside a machine and the hidden workings of anything else — ein Mechanismus greift = a mechanism kicks in. Plural: die Mechanismen." },
+        { id: "de-u90l2-diewechselwirkung", type: "vocab", front: "die Wechselwirkung", reading: "diewechselwirkung", meaning: "the interaction", example: { jp: "Zwischen den zwei Seiten gibt es eine Wechselwirkung, deshalb ändert eine neue Regel sofort die zweite Seite.", en: "There is an interaction between the two sides, which is why a new rule immediately changes the second side." }, drill: { jp: "Die Wechselwirkung zeigt sich sofort", en: "The interaction shows itself immediately" }, accept: ["interaction", "the interaction", "interplay", "reciprocal effect", "interdependence"], hint: "der Wechsel (change, exchange) + die Wirkung: each side acts on the other. In physics, medicine (drug interactions) and argument alike." },
+        { id: "de-u90l2-zusammenwirken", type: "vocab", front: "zusammenwirken", reading: "zusammenwirken", meaning: "to work together", example: { jp: "Die Teile müssen genau zusammenwirken, sonst steht die ganze Maschine sofort still.", en: "The parts have to work together precisely, otherwise the whole machine stops at once." }, drill: { jp: "Die Firmen müssen hier zusammenwirken", en: "The companies have to work together here" }, accept: ["to work together", "work together", "to interact", "interact", "to act in concert", "to combine"], hint: "Separable: wirkt … zusammen — so in a drill it needs a modal, or the prefix ends up at the end of the sentence. Cooler and more technical than zusammenarbeiten, which is about people." },
+        { id: "de-u90l2-steuern", type: "vocab", front: "steuern", reading: "steuern", meaning: "to control", example: { jp: "Eine kleine Software steuert die ganze Anlage, und deshalb kostet ein Fehler sehr viel Zeit.", en: "A small piece of software controls the whole plant, and that is why one error costs a great deal of time." }, drill: { jp: "Diese Regeln steuern den ganzen Ablauf", en: "These rules control the whole process" }, accept: ["to control", "control", "to steer", "steer", "to govern", "to direct", "to pilot"], hint: "Steering a car, and controlling a process. Do not confuse with die Steuer (tax) — same spelling, different word, and one of German's better traps." },
+        { id: "de-u90l2-diedynamik", type: "vocab", front: "die Dynamik", reading: "diedynamik", meaning: "the dynamic", example: { jp: "Die Dynamik in der Gruppe hat sich völlig geändert, seit der neue Chef da ist.", en: "The dynamic in the group has changed completely since the new boss has been there." }, drill: { jp: "Die Dynamik ändert sich sehr schnell", en: "The dynamic is changing very quickly" }, accept: ["dynamic", "the dynamic", "dynamics", "momentum", "the momentum"], hint: "The movement in a thing, not the energy of a person — for that German says dynamisch. eine eigene Dynamik entwickeln = to take on a life of its own." },
+        { id: "de-u90l2-dieschnittstelle", type: "vocab", front: "die Schnittstelle", reading: "dieschnittstelle", meaning: "the interface", example: { jp: "An der Schnittstelle zwischen den zwei Firmen gehen viele Angaben verloren.", en: "At the interface between the two companies a lot of the information gets lost." }, drill: { jp: "Die Schnittstelle liegt zwischen zwei Systemen", en: "The interface lies between two systems" }, accept: ["interface", "the interface", "junction", "the junction", "point of contact"], hint: "der Schnitt (cut) + die Stelle (place): the place where two things are cut apart and joined. Used for software, for departments, and for jobs that sit between two teams." },
+      ],
+    },
+    {
+      id: "de-u90l3",
+      unit: 90,
+      lesson: 3,
+      title: "Vom Einzelnen zum Muster",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Move from one case to the general rule — name the pattern, build a model of it, say when something is too abstract or too complex, and simplify without lying.",
+      items: [
+        { id: "de-u90l3-dasmuster", type: "vocab", front: "das Muster", reading: "dasmuster", meaning: "the pattern", example: { jp: "Nach hundert Fällen zeigt sich ein Muster, das vorher niemand sehen konnte.", en: "After a hundred cases a pattern shows itself that nobody could see before." }, drill: { jp: "Das Muster steckt in den Zahlen", en: "The pattern is in the figures" }, accept: ["pattern", "the pattern", "sample", "the sample", "model", "template"], hint: "The repeating shape — on cloth, in data, in behaviour. Also a sample in the shop sense; nach dem gleichen Muster = along the same lines." },
+        { id: "de-u90l3-dasmodell", type: "vocab", front: "das Modell", reading: "dasmodell", meaning: "the model", example: { jp: "Das Modell vereinfacht die Welt, und genau deshalb ist es überhaupt zu gebrauchen.", en: "The model simplifies the world, and that is exactly why it is usable at all." }, drill: { jp: "Das Modell erklärt die Struktur gut", en: "The model explains the structure well" }, accept: ["model", "the model"], hint: "The scientific model, the car model, and the person on the catwalk — all das Modell. ein Modell rechnen = to run a model." },
+        { id: "de-u90l3-abstrakt", type: "vocab", front: "abstrakt", reading: "abstrakt", meaning: "abstract", example: { jp: "Die Regel bleibt zu abstrakt, solange niemand sie an einem echten Fall zeigt.", en: "The rule stays too abstract, as long as nobody demonstrates it on a real case." }, drill: { jp: "Diese Ebene wirkt sehr abstrakt", en: "This level seems very abstract" }, accept: ["abstract", "theoretical"], hint: "The opposite of konkret, and the standard German complaint about a presentation: Das ist mir zu abstrakt." },
+        { id: "de-u90l3-komplex", type: "vocab", front: "komplex", reading: "komplex", meaning: "complex", example: { jp: "Das Problem ist komplex, aber es ist nicht kompliziert — die Teile sind einzeln leicht zu verstehen.", en: "The problem is complex, but it is not complicated — the parts are easy to understand individually." }, drill: { jp: "Diese Strukturen bleiben ziemlich komplex", en: "These structures remain fairly complex" }, accept: ["complex", "intricate", "multi-layered"], hint: "Many parts that depend on each other. German writers do distinguish it from kompliziert (hard to follow) — a complex system can be described simply." },
+        { id: "de-u90l3-vereinfachen", type: "vocab", front: "vereinfachen", reading: "vereinfachen", meaning: "to simplify", example: { jp: "Wir vereinfachen das Modell für die Öffentlichkeit, ohne dabei das Ergebnis zu verzerren.", en: "We simplify the model for the public, without distorting the result in the process." }, drill: { jp: "Diese Bilder vereinfachen das Problem stark", en: "These images simplify the problem greatly" }, accept: ["to simplify", "simplify", "to make easier", "to streamline"], hint: "ver- + einfach (simple, u10). The noun die Vereinfachung is often an accusation: eine unzulässige Vereinfachung = an inadmissible simplification." },
+        { id: "de-u90l3-deruberblick", type: "vocab", front: "der Überblick", reading: "deruberblick", meaning: "the overview", example: { jp: "Der Überblick geht schnell verloren, wenn die Gruppen ihre eigenen Zahlen erheben.", en: "The overview is quickly lost if the groups collect their own figures." }, drill: { jp: "Der Überblick bleibt hier sehr wichtig", en: "The overview stays very important here" }, accept: ["overview", "the overview", "survey", "the big picture", "perspective"], hint: "über + der Blick (view): the view from above. den Überblick behalten = to keep track — the thing every German report claims to give you." },
+      ],
+    },
+    {
+      id: "de-u90l4",
+      unit: 90,
+      lesson: 4,
+      title: "Rahmen und Ebene",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Place a thing inside a bigger thing — set the frame, name the level you are arguing on, say what a rule covers, and describe the function a part fills.",
+      items: [
+        { id: "de-u90l4-derrahmen", type: "vocab", front: "der Rahmen", reading: "derrahmen", meaning: "the framework", example: { jp: "Im Rahmen der neuen Regeln ist das erlaubt, aber niemand hat die Firmen darüber wirklich informiert.", en: "Within the framework of the new rules that is allowed, but nobody has really informed the companies about it." }, drill: { jp: "Der Rahmen bleibt für alle gleich", en: "The framework stays the same for everyone" }, accept: ["framework", "the framework", "frame", "the frame", "scope", "context"], hint: "The picture frame, and by extension the limits inside which something happens. im Rahmen von = in the context of; den Rahmen sprengen = to go beyond what was intended." },
+        { id: "de-u90l4-dieebene", type: "vocab", front: "die Ebene", reading: "dieebene", meaning: "the level", example: { jp: "Auf dieser Ebene ist die These schlüssig, auf der nächsten stimmt sie nicht mehr.", en: "On this level the thesis is coherent; on the next one it no longer holds." }, drill: { jp: "Die Ebene liegt über der Gruppe", en: "The level lies above the group" }, accept: ["level", "the level", "plane", "the plane", "tier", "flat land", "plain"], hint: "Geographically a plain (flat land); in an argument a level or layer. auf höchster Ebene = at the highest level, of talks between governments." },
+        { id: "de-u90l4-ubergeordnet", type: "vocab", front: "übergeordnet", reading: "ubergeordnet", meaning: "overarching", example: { jp: "Das übergeordnete Ziel bleibt gleich, auch wenn sich der Weg dahin oft ändert.", en: "The overarching goal stays the same, even if the path to it often changes." }, drill: { jp: "Dieses Ziel bleibt klar übergeordnet", en: "This goal remains clearly overarching" }, accept: ["overarching", "superordinate", "higher-level", "overall", "paramount"], hint: "über + geordnet (ordered): standing above in the order of things. Its opposite is untergeordnet — and eine untergeordnete Rolle spielen = to play a minor role." },
+        { id: "de-u90l4-umfassen", type: "vocab", front: "umfassen", reading: "umfassen", meaning: "to cover", example: { jp: "Die Regel umfasst auch kleine Firmen, obwohl das in der Öffentlichkeit kaum jemand weiß.", en: "The rule also covers small companies, although hardly anyone in public knows that." }, drill: { jp: "Diese Regeln umfassen alle Bereiche", en: "These rules cover all areas" }, accept: ["to cover", "cover", "to comprise", "comprise", "to include", "include", "to encompass"], hint: "um + fassen (to grasp): to reach around something. Inseparable — er umfasst. umfassend as an adjective means comprehensive." },
+        { id: "de-u90l4-diefunktion", type: "vocab", front: "die Funktion", reading: "diefunktion", meaning: "the function", example: { jp: "Diese Regel hat vor allem eine Funktion: Sie soll den Streit zwischen den Ebenen vermeiden.", en: "This rule has one function above all: it is meant to avoid the conflict between the levels." }, drill: { jp: "Die Funktion bleibt bis heute gleich", en: "The function remains the same to this day" }, accept: ["function", "the function", "role", "the role", "purpose"], hint: "The job a thing does — funktionieren (u33) is the verb. eine Funktion erfüllen = to fulfil a function; also the function key and the mathematical function." },
+        { id: "de-u90l4-dasgefuge", type: "vocab", front: "das Gefüge", reading: "dasgefuge", meaning: "the fabric", example: { jp: "Das ganze Gefüge hält nur, solange sich alle Seiten an die alten Regeln halten.", en: "The whole fabric only holds as long as all sides keep to the old rules." }, drill: { jp: "Das Gefüge trägt die ganze Ordnung", en: "The fabric carries the whole order" }, accept: ["fabric", "the fabric", "structure", "the structure", "framework", "constellation"], hint: "From fügen (to join): the joined-together whole — das soziale Gefüge, the social fabric. More organic than die Struktur, and used when the thing could come apart." },
+      ],
+    },
   ],
 };
