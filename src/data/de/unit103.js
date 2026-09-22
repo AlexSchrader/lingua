@@ -1,18 +1,86 @@
-// DE Unit 103 — Education and research (slot: education-research) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// DE Unit 103 — Bildung und Forschung (slot: education-research) — B2
+// Block 2 of German B2 (u101–u113). Conventions: de/unit1.js and de/unit51.js.
+//
+// A1/A2 owns the school (u20, u24: die Schule, der Lehrer, der Schüler, die
+// Prüfung, das Fach, das Zeugnis, der Abschluss). B1 takes die Bildung (u55) and
+// die Forschung (u34) as single words. This unit is what comes after school: how
+// a degree is organised (l1), how learning is measured (l2), how a claim is
+// researched and supported (l3), and the furniture of academic writing (l4).
+// FREE: Anna, Max, Lena, Studiengänge, Stipendien, Thesen, Hypothesen, Zitate, Fußnoten, Studien, Professor, Bachelor, Master, Semester, Labor
 export const DE_UNIT103 = {
   id: "de-u103",
   lang: "de",
-  title: "Education and research",
+  title: "Bildung und Forschung",
   order: 103,
   stage: "b2",
   lessons: [
-    { id: "de-u103l1", title: "Lesson 1", locked: true },
-    { id: "de-u103l2", title: "Lesson 2", locked: true },
-    { id: "de-u103l3", title: "Lesson 3", locked: true },
-    { id: "de-u103l4", title: "Lesson 4", locked: true },
+    {
+      id: "de-u103l1",
+      unit: 103,
+      lesson: 1,
+      title: "An der Hochschule",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe a course of study: the college, the degree course, a scholarship, the syllabus, the field of study, a place on a course.",
+      items: [
+        { id: "de-u103l1-diehochschule", type: "vocab", front: "die Hochschule", reading: "diehochschule", meaning: "the higher-education college", example: { jp: "Nach der Schule wollte er an eine Hochschule, aber die Prüfung am Ende war schwerer als gedacht.", en: "After school he wanted to go to a college, but the exam at the end was harder than expected." }, drill: { jp: "Die Hochschule liegt mitten in der Stadt", en: "The college lies in the middle of the city" }, accept: ["higher-education college", "the higher-education college", "the college", "the university", "the institute of higher education"], hint: "hoch + die Schule. The umbrella word: a Universität is one kind of Hochschule, a Fachhochschule another." },
+        { id: "de-u103l1-derstudiengang", type: "vocab", front: "der Studiengang", reading: "derstudiengang", meaning: "the degree course", example: { jp: "Der Studiengang dauert sechs Semester, und im letzten schreibt man eine lange Arbeit.", en: "The degree course lasts six semesters, and in the last one you write a long paper." }, drill: { jp: "Der Studiengang dauert sechs Semester", en: "The degree course lasts six semesters" }, accept: ["degree course", "the degree course", "the programme of study", "the course of study", "the major"], hint: "das Studium + der Gang, a path. The whole route, not one class." },
+        { id: "de-u103l1-dasstipendium", type: "vocab", front: "das Stipendium", reading: "dasstipendium", meaning: "the scholarship", example: { jp: "Weil seine Eltern wenig Geld hatten, hat er sich um ein Stipendium beworben und es bekommen.", en: "Because his parents had little money, he applied for a scholarship and got it." }, drill: { jp: "Das Stipendium hilft bei der Miete", en: "The scholarship helps with the rent" }, accept: ["scholarship", "the scholarship", "the grant", "the studentship"], hint: "Stress the EN: sti-PEN-dium. Plural Stipendien, like every -ium noun." },
+        { id: "de-u103l1-derlehrplan", type: "vocab", front: "der Lehrplan", reading: "derlehrplan", meaning: "the syllabus", example: { jp: "Im Lehrplan steht genau, was in welchem Jahr gelehrt wird, und die Lehrer halten sich daran.", en: "The syllabus says exactly what is taught in which year, and the teachers stick to it." }, drill: { jp: "Der Lehrplan ändert sich sehr selten", en: "The syllabus changes very rarely" }, accept: ["syllabus", "the syllabus", "the curriculum", "the teaching plan"], hint: "lehren + der Plan. Written by the Land, not by the Lehrer." },
+        { id: "de-u103l1-diefachrichtung", type: "vocab", front: "die Fachrichtung", reading: "diefachrichtung", meaning: "the field of study", example: { jp: "In dieser Fachrichtung gibt es mehr Stellen als Studenten, deshalb ist der Weg in den Beruf leicht.", en: "In this field of study there are more jobs than students, so the way into a profession is easy." }, drill: { jp: "Die Fachrichtung war damals sehr neu", en: "The field of study was very new at the time" }, accept: ["field of study", "the field of study", "the discipline", "the branch of study", "the specialisation"], hint: "das Fach (u24) + die Richtung. Which way your Fach points you." },
+        { id: "de-u103l1-derstudienplatz", type: "vocab", front: "der Studienplatz", reading: "derstudienplatz", meaning: "the place on a course", example: { jp: "Für Medizin gibt es viel zu wenige Studienplätze, und wer keinen bekommt, wartet oft Jahre.", en: "For medicine there are far too few places, and anyone who does not get one often waits years." }, drill: { jp: "Der Studienplatz kostet in Deutschland nichts", en: "A place on a course costs nothing in Germany" }, accept: ["place on a course", "the place on a course", "the university place", "the study place", "the seat"], hint: "das Studium + der Platz (u7). Germany rations them by grade, not by money." },
+      ],
+    },
+    {
+      id: "de-u103l2",
+      unit: 103,
+      lesson: 2,
+      title: "Lernen und bewerten",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about how learning is measured and supported: a requirement, revision, an assessment, private tutoring, the material, a talent.",
+      items: [
+        { id: "de-u103l2-dieanforderung", type: "vocab", front: "die Anforderung", reading: "dieanforderung", meaning: "the requirement", example: { jp: "Die Anforderungen im ersten Jahr sind hoch, deshalb gibt fast ein Drittel der Studenten auf.", en: "The requirements in the first year are high, which is why almost a third of the students give up." }, drill: { jp: "Die Anforderung ist für alle gleich", en: "The requirement is the same for everyone" }, accept: ["requirement", "the requirement", "the demand", "the expectation", "the standard"], hint: "anfordern, to call for. die Forderung (u71) is what a person demands; eine Anforderung is what a job or a course demands." },
+        { id: "de-u103l2-diewiederholung", type: "vocab", front: "die Wiederholung", reading: "diewiederholung", meaning: "the revision", example: { jp: "Ohne Wiederholung ist ein Wort nach einer Woche wieder weg, so gut man es am ersten Tag auch konnte.", en: "Without revision a word is gone again after a week, however well you knew it on the first day." }, drill: { jp: "Die Wiederholung bringt mehr als Lesen", en: "Revision brings more than reading" }, accept: ["revision", "the revision", "the repetition", "the review", "the repeat"], hint: "wiederholen, to fetch back again. Also what a TV channel does with an old Sendung." },
+        { id: "de-u103l2-diebewertung", type: "vocab", front: "die Bewertung", reading: "diebewertung", meaning: "the assessment", example: { jp: "Die Bewertung war für alle gleich, aber zwei Studenten haben trotzdem gegen die Note gekämpft.", en: "The assessment was the same for everyone, but two students nevertheless fought against the grade." }, drill: { jp: "Die Bewertung kommt erst im Sommer", en: "The assessment does not come until the summer" }, accept: ["assessment", "the assessment", "the evaluation", "the grading", "the rating"], hint: "der Wert (u66) sits inside it: bewerten is to put a value on something." },
+        { id: "de-u103l2-dienachhilfe", type: "vocab", front: "die Nachhilfe", reading: "dienachhilfe", meaning: "the private tutoring", example: { jp: "Zwei Stunden Nachhilfe in der Woche kosten so viel, dass sich viele Familien das nicht erlauben.", en: "Two hours of private tutoring a week cost so much that many families cannot allow themselves that." }, drill: { jp: "Die Nachhilfe kostet zwanzig Euro", en: "The private tutoring costs twenty euros" }, accept: ["private tutoring", "the private tutoring", "the tutoring", "the extra tuition", "the coaching"], hint: "nach + die Hilfe (u14): help that comes after, when the Schule was not enough." },
+        { id: "de-u103l2-derlehrstoff", type: "vocab", front: "der Lehrstoff", reading: "derlehrstoff", meaning: "the material to be learned", example: { jp: "Der Lehrstoff für ein ganzes Jahr passt in ein Buch, aber verstehen muss man ihn selbst.", en: "The material for a whole year fits in one book, but you have to understand it yourself." }, drill: { jp: "Der Lehrstoff wächst in jedem Jahr", en: "The material grows every year" }, accept: ["material to be learned", "the material to be learned", "the subject matter", "the teaching material", "the syllabus content"], hint: "lehren + der Stoff (u34). Stoff is a substance, a fabric AND the content of a course." },
+        { id: "de-u103l2-diebegabung", type: "vocab", front: "die Begabung", reading: "diebegabung", meaning: "the natural talent", example: { jp: "Eine Begabung für Sprachen hilft am Anfang, aber nach zwei Jahren gewinnt die Wiederholung.", en: "A talent for languages helps at the beginning, but after two years revision wins." }, drill: { jp: "Die Begabung allein bringt wenig", en: "Talent alone brings little" }, accept: ["natural talent", "the natural talent", "the talent", "the gift", "the aptitude"], hint: "From geben: something you were GIVEN. das Talent works too, but Begabung sounds less like a stage." },
+      ],
+    },
+    {
+      id: "de-u103l3",
+      unit: 103,
+      lesson: 3,
+      title: "Forschen und belegen",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Report what research found: a study, a thesis, a hypothesis, an insight, to substantiate, the analysis of results.",
+      items: [
+        { id: "de-u103l3-diestudie", type: "vocab", front: "die Studie", reading: "diestudie", meaning: "the research study", example: { jp: "Eine neue Studie zeigt, dass Kinder in kleinen Gruppen deutlich mehr lernen.", en: "A new study shows that children learn considerably more in small groups." }, drill: { jp: "Die Studie erschien in dieser Woche", en: "The study appeared this week" }, accept: ["research study", "the research study", "the study", "the piece of research", "the survey"], hint: "Two syllables: STU-die. Not das Studium, which is what a student does for years." },
+        { id: "de-u103l3-diethese", type: "vocab", front: "die These", reading: "diethese", meaning: "the claim being argued", example: { jp: "Seine These ist, dass die Sprache das Denken führt, und die halbe Studie versucht das zu zeigen.", en: "His claim is that language guides thinking, and half the study tries to show it." }, drill: { jp: "Die These ist alt aber stark", en: "The claim is old but strong" }, accept: ["claim being argued", "the claim being argued", "the thesis", "the proposition", "the argument"], hint: "Spoken TE-se, with a hard t. The sentence a whole paper is built to support." },
+        { id: "de-u103l3-diehypothese", type: "vocab", front: "die Hypothese", reading: "diehypothese", meaning: "the hypothesis", example: { jp: "Die Hypothese war gut, aber die Zahlen haben sie am Ende nicht gestützt.", en: "The hypothesis was good, but in the end the figures did not support it." }, drill: { jp: "Die Hypothese passt zu den Zahlen", en: "The hypothesis fits the figures" }, accept: ["hypothesis", "the hypothesis", "the working assumption", "the conjecture"], hint: "hypo-TE-se, stress on the third syllable. Eine These you defend; eine Hypothese you test." },
+        { id: "de-u103l3-dieerkenntnis", type: "vocab", front: "die Erkenntnis", reading: "dieerkenntnis", meaning: "the insight gained", example: { jp: "Die wichtigste Erkenntnis der Studie ist so einfach, dass sie fast niemand glauben wollte.", en: "The most important insight of the study is so simple that almost nobody wanted to believe it." }, drill: { jp: "Diese Erkenntnis ändert sehr viel", en: "This insight changes a great deal" }, accept: ["insight gained", "the insight gained", "the insight", "the finding", "the realisation"], hint: "erkennen, to recognise, plus the -nis that makes it abstract. What you know AFTER the work." },
+        { id: "de-u103l3-belegen", type: "vocab", front: "belegen", reading: "belegen", meaning: "to substantiate", example: { jp: "Wer so etwas schreibt, muss es mit Zahlen belegen, sonst nimmt die Kritik ihn nicht ernst.", en: "Anyone who writes something like that must substantiate it with figures, otherwise the critics will not take him seriously." }, drill: { jp: "Die Zahlen belegen diese These deutlich", en: "The figures clearly substantiate this claim" }, accept: ["to substantiate", "substantiate", "to back up with evidence", "to document", "to prove"], hint: "be- + legen: to lay something under a claim so it holds. A Brötchen is also belegt — the same picture." },
+        { id: "de-u103l3-dieauswertung", type: "vocab", front: "die Auswertung", reading: "dieauswertung", meaning: "the analysis of results", example: { jp: "Die Auswertung hat ein halbes Jahr gedauert, weil so viel Material zusammenkam.", en: "The analysis took half a year, because so much material came together." }, drill: { jp: "Die Auswertung dauert mehrere Monate", en: "The analysis takes several months" }, accept: ["analysis of results", "the analysis of results", "the analysis", "the evaluation of data", "the processing of results"], hint: "aus + der Wert (u66): getting the value out of the numbers you collected." },
+      ],
+    },
+    {
+      id: "de-u103l4",
+      unit: 103,
+      lesson: 4,
+      title: "Wissenschaftlich schreiben",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Write and read an academic paper: a quotation, a footnote, an essay, a specialist field, specialist literature, an investigation.",
+      items: [
+        { id: "de-u103l4-daszitat", type: "vocab", front: "das Zitat", reading: "daszitat", meaning: "the quotation", example: { jp: "Jedes Zitat braucht eine Quelle, denn ohne sie ist es nur eine Meinung.", en: "Every quotation needs a source, because without one it is only an opinion." }, drill: { jp: "Das Zitat stammt aus einem Brief", en: "The quotation comes from a letter" }, accept: ["quotation", "the quotation", "the quote", "the citation"], hint: "Stress the end: tsi-TAT. Plural Zitate." },
+        { id: "de-u103l4-diefussnote", type: "vocab", front: "die Fußnote", reading: "diefussnote", meaning: "the footnote", example: { jp: "In der Fußnote steht, woher die Zahl kommt, und dort findet man auch den Namen der Studie.", en: "The footnote says where the figure comes from, and there you also find the name of the study." }, drill: { jp: "Die Fußnote steht ganz unten", en: "The footnote is right at the bottom" }, accept: ["footnote", "the footnote", "the note at the foot of the page"], hint: "der Fuß + die Note. ß, so the reading is written with ss." },
+        { id: "de-u103l4-deraufsatz", type: "vocab", front: "der Aufsatz", reading: "deraufsatz", meaning: "the essay", example: { jp: "Der Aufsatz ist nur zehn Seiten lang, aber er hat die ganze Fachrichtung geändert.", en: "The essay is only ten pages long, but it changed the whole field of study." }, drill: { jp: "Der Aufsatz erschien in einer Zeitung", en: "The essay appeared in a newspaper" }, accept: ["essay", "the essay", "the paper", "the article", "the composition"], hint: "aufsetzen, to set down. At school it is your Aufsatz; in research it is a published paper." },
+        { id: "de-u103l4-dasfachgebiet", type: "vocab", front: "das Fachgebiet", reading: "dasfachgebiet", meaning: "the specialist area", example: { jp: "Auf seinem Fachgebiet kennt man ihn weltweit, aber daneben weiß er wenig.", en: "In his specialist area he is known worldwide, but beyond it he knows little." }, drill: { jp: "Das Fachgebiet wird immer enger", en: "The specialist area keeps getting narrower" }, accept: ["specialist area", "the specialist area", "the specialist field", "the area of expertise", "the domain"], hint: "die Fachrichtung is where a student points; das Fachgebiet is the ground a researcher actually stands on." },
+        { id: "de-u103l4-diefachliteratur", type: "vocab", front: "die Fachliteratur", reading: "diefachliteratur", meaning: "the specialist literature", example: { jp: "Die Fachliteratur zu diesem Problem ist so groß, dass niemand sie ganz lesen kann.", en: "The specialist literature on this problem is so large that nobody can read all of it." }, drill: { jp: "Die Fachliteratur wächst sehr schnell", en: "The specialist literature is growing very fast" }, accept: ["specialist literature", "the specialist literature", "the academic literature", "the technical literature", "the scholarly writing"], hint: "das Fach + Literatur. Everything already written on your Fachgebiet — the pile you must read first." },
+        { id: "de-u103l4-dieuntersuchung", type: "vocab", front: "die Untersuchung", reading: "dieuntersuchung", meaning: "the investigation", example: { jp: "Nach dem Streit hat die Hochschule eine Untersuchung begonnen, und das Ergebnis kam nach einem Jahr.", en: "After the dispute the college began an investigation, and the result came a year later." }, drill: { jp: "Die Untersuchung dauert noch an", en: "The investigation is still going on" }, accept: ["investigation", "the investigation", "the inquiry", "the examination", "the check-up"], hint: "untersuchen: to search under something. At the Arzt the same word is a medical examination." },
+      ],
+    },
   ],
 };
