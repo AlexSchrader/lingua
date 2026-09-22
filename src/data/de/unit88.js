@@ -155,6 +155,40 @@
 //   The four drops above were conservative rather than required. That is the
 //   safe direction to be wrong in; keep erring that way when it is close.
 //
+// ─── 9. DRILL VOCAB SCOPE IS NOT TESTED BY ANYTHING — RUN THE SCRIPT ───────
+//   ⚠️ BLOCK 3: THIS IS THE ONE THAT WILL BITE YOU, and it already bit block 2.
+//   Added by the lead seat 2026-09-22 after gating the combined blocks 1+2 tree.
+//
+//   THE GAP: nothing in the five-step gate reads a drill's vocabulary.
+//     - `validate:content` only asserts drill is { jp, en }, both non-empty.
+//     - `lint:curriculum` reads `example.jp` ONLY — never `drill`.
+//     - `tests/unit/drill-corpus.test.mjs` checks the ROUTER can find the front
+//       as a whole word. That is BUILDABILITY, not scope. It passes on a drill
+//       made entirely of untaught words.
+//   So a drill can use any word in German and the whole gate stays green. The
+//   ONLY thing that catches it is `node scripts/check-drills-de.mjs <from> <to>`,
+//   which is a manual script nobody is forced to run. RUN IT. It shares its
+//   morphology with scope-strict-de.mjs, so its verdict is the authoritative one.
+//
+//   THE MEASUREMENT, both blocks gated the same way on the same tree 2026-09-22:
+//     block 1 (u88–u100): 312/312 buildable · **0 of 312 out of scope**
+//     block 2 (u101–u113): 312/312 buildable · **134 of 312 out of scope**
+//   Block 2's drills are all buildable — the engine side is perfect. The 134 are
+//   purely vocabulary, spread evenly over all 13 units (7–16 per unit), which
+//   makes it a house-style difference rather than a handful of slips.
+//
+//   WHY BLOCK 1 SCORED 0 AND IT WAS NOT LUCK: §3's shapes do it automatically.
+//   Requiring the INFINITIVE on the page keeps finite forms (gilt, fehlt, zahlt,
+//   hielt, trifft, beginnt) out, and requiring a NOMINATIVE der-noun keeps
+//   declined determiners (jede/jeder/jedem/jedes, solche, weitere) out. Write
+//   §3's shape and scope mostly takes care of itself.
+//
+//   AND NOTE WHAT THE 134 ACTUALLY CONTAIN — §6 above lists langsam, erstaunlich,
+//   jede/jeder/jedes/jedem, allein and der Satz as REMOVED ENTIRELY "because they
+//   cost nothing to avoid". Block 2's drills use exactly those words. A rule in
+//   this header does not travel on its own; a sibling block only keeps it if it
+//   reads it. Block 3: read §6's removal list before you write a drill.
+//
 // FREE: Zahlen, Gründe, Argument, Argumente, Studie, Studien, Experten, Kritiker, Nachbarn, Zeitungen, Absichten, Details, Quellen, Bilder, Seiten, Vorteile, Kosten, Team, Rhetorik, Internet, modern
 export const DE_UNIT88 = {
   id: "de-u88",
