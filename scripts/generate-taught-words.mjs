@@ -68,7 +68,7 @@ export async function collect(lang, root = process.cwd()) {
   return { units, authored, stubs, words };
 }
 
-export function render(lang, { authored, stubs, words, blocks = [] }) {
+export function render(lang, { authored, stubs, words, blocks = [], blocksDerived = false }) {
   const L = [];
   const stamp = new Date().toISOString().slice(0, 10);
 
@@ -119,7 +119,7 @@ export function render(lang, { authored, stubs, words, blocks = [] }) {
   );
   L.push("");
 
-  if (blocks.length) {
+  if (blocks.length && !blocksDerived) {
     L.push("## Who owns which slots this band");
     L.push("");
     L.push(
@@ -131,6 +131,25 @@ export function render(lang, { authored, stubs, words, blocks = [] }) {
     L.push("| block | slots |");
     L.push("|---|---|");
     for (const b of blocks) L.push(`| ${b.block} | u${b.from}–u${b.to} |`);
+    L.push("");
+  } else if (blocks.length) {
+    // DERIVED, NOT ASSIGNED. We are guessing from what is left, and mid-band that
+    // guess is wrong in the one way that matters: it renumbers. With blocks 1 and 2
+    // already merged and 13 stubs remaining, the old code printed "block 1 =
+    // u114–u118" at a seat that was block 3 and owned all thirteen. Caught by the
+    // no B2 block-2 seat, 2026-09-23. So say what we actually know — the range that
+    // is unauthored — and refuse to attach a block number to it.
+    const lo = blocks[0].from;
+    const hi = blocks[blocks.length - 1].to;
+    L.push("## Slots still unauthored");
+    L.push("");
+    L.push(
+      `**u${lo}–u${hi} are unauthored.** ⚠️ This range is DERIVED from the stubs in ` +
+        "the corpus, not read from a crew assignment — so it carries **no block numbers**, " +
+        "on purpose. If blocks 1 and 2 of this band are already merged, everything left is " +
+        "block 3's, however many slots that is. Your kickoff prompt is the only authority " +
+        "on which slots are yours; this file just tells you which are still empty."
+    );
     L.push("");
   }
 
@@ -190,7 +209,14 @@ function blocksFromStubs(stubs, parts = 3) {
 export async function writeTaughtWords(lang, root = process.cwd(), { blocks } = {}) {
   const data = await collect(lang, root);
   const file = path.join(root, "src", "data", lang, OUT);
-  fs.writeFileSync(file, render(lang, { ...data, blocks: blocks ?? blocksFromStubs(data.stubs) }));
+  fs.writeFileSync(
+    file,
+    render(lang, {
+      ...data,
+      blocks: blocks ?? blocksFromStubs(data.stubs),
+      blocksDerived: !blocks,
+    })
+  );
   return { file, ...data };
 }
 
