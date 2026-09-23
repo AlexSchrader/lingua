@@ -137,6 +137,29 @@
 //     1940-45 occupation, Grunnloven § 100, arbeidsmiljøloven — because that is the
 //     content the vocabulary exists to deliver, and the learner can look it up.
 //
+// B11. 🚨 SCOPE-STRICT SILENTLY LICENSES A HOMOGRAPH — THE ONE DEFECT CLASS IT
+//     CANNOT SEE, AND THE ONE THAT COST THIS BLOCK THE MOST. The script's header
+//     says it refuses lint.js's loose stem heuristic and instead 'generates real
+//     inflections from each taught front and demands an exact match'. True — and
+//     still not enough, because a generated form can collide with a DIFFERENT
+//     WORD. Its noun generator emits stem+e and stem+er, which are also the
+//     infinitive and present of an unrelated verb. Measured in this block:
+//         rette   accepted from `en rett` (u32, a right)   — I meant å rette
+//         stoler  accepted from `en stol` (u16, a chair)   — I meant å stole på
+//         lever   accepted from `å levere` (u24, deliver)  — I meant å leve
+//         merker  accepted from `et merke` (u27, a brand)  — I meant å merke
+//     å rette, å stole, å leve and å merke are taught NOWHERE. All four read as
+//     clean, in-scope Norwegian and all four were out of scope. Eight sentences
+//     were rewritten once they surfaced.
+//     HOW TO FIND THEM, because the gate never will: do not ask 'is this word
+//     accepted', ask 'WHICH TAUGHT FRONT IS IT ACCEPTED FROM'. Build the
+//     surface-form → source-front map the script builds, then read the rows where
+//     the source is a NOUN and your sentence uses a VERB (or the reverse). It is a
+//     minutes-long check and nothing else in the repo performs it.
+//     ⚠️ AND THE SAME TRAP RUNS THROUGH HINTS: a citation like 'Å merke (u42)' was
+//     false for exactly this reason — the corpus has `et merke`, not the verb.
+//     A unit reference in a hint is a claim; check it before you write it.
+//
 // Conventions per no/unit1.js. lang/unit/lesson are stamped in src/data/index.js.
 export const NO_UNIT88 = {
   id: "no-u88",
