@@ -84,7 +84,7 @@ export const NO_UNIT96 = {
       title: "Å vise fram",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Talk about putting work in front of people — the performance, the room, and how it was received.",
+      canDo: "Talk about putting work in front of people — the performance, the room, how it was received, and how the thing itself is put together.",
       items: [
         { id: "no-u96l4-eiframforing", type: "vocab", front: "ei framføring", reading: "eiframforing", meaning: "performance (one live rendering of a work)", example: { jp: "Ei framføring er aldri lik to ganger, og derfor kommer folk igjen.", en: "A performance is never the same twice, and that is why people come back." }, accept: ["a rendition", "a live presentation"], drill: { jp: "Dette var ei framføring vi husker", en: "This was a performance we remember" }, hint: "ei framføring → framføringa, flertall framføringer. -ing er hunkjønn (unit88 regel B3). Å framføre er verbet. ø folder til o." },
         { id: "no-u96l4-astilleut", type: "vocab", front: "å stille ut", reading: "astilleut", meaning: "to exhibit (put work up for people to come and see)", example: { jp: "Hun fikk stille ut for første gang i sommer, og siden har hun ikke stoppet.", en: "She got to exhibit for the first time in the summer, and since then she has not stopped." }, accept: ["to put on show", "to display publicly"], drill: { jp: "De pleier å stille ut om våren", en: "They usually exhibit in the spring" }, hint: "Å stille + ut. Ei utstilling (u35) er resultatet. ⚠️ Partikkelen bærer betydninga: å stille alene er noe helt annet." },

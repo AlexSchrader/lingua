@@ -80,6 +80,24 @@
 //     with the gloss and grades against a single front, so a shared gloss is one
 //     card with two right answers and a learner marked wrong for the synonym
 //     your own lesson taught. The debt list in GUARD 1 is EMPTY. Keep it empty.
+//     🚨 AND THE CHECK THAT PROVES B5 IS BLIND TO B5's OWN STRATEGY — found by the
+//     truth-agent, 2026-09-23, and verified by calling the grader. The rule above
+//     says 'put the discriminator in parentheses'. `lint:curriculum` keys on the RAW
+//     lowercased meaning (src/data/lint.js:198), so a parenthetical DOES make two
+//     glosses distinct to lint — which is why `grep "different no items"` reads 0.
+//     But the grader throws the parenthetical away: `normalizeMeaning`
+//     (src/store/answer.js:143) runs `.replace(/\(.*?\)/g, " ")` on purpose, because
+//     meaning answers are deliberately lenient. So:
+//         "objection (a point raised against)"  and
+//         "objection (something else entirely)"  are ONE gloss to the produce card.
+//     MEASURED on the Norwegian corpus: 14 paren-stripped SAME-LESSON collisions
+//     exist, and 22 corpus-wide clusters touch u88-u100.
+//     ✅ ZERO of the 14 same-lesson ones are in u88-u100 — this block obeyed the hard
+//     rule — but it obeyed it on evidence that could not have caught a breach.
+//     SO: the parenthetical is for the HUMAN and for lint. It buys you NOTHING with
+//     the grader. Two items in one lesson must differ in the words OUTSIDE the
+//     parentheses too. Check it the way this was checked — strip the parens yourself
+//     and compare — because no gate does.
 //
 // B6. DRILLS — the front VERBATIM and CONTIGUOUS. Every vocab item carries a
 //     `drill`: a second sentence, 3–8 space-separated words, no internal
@@ -100,6 +118,18 @@
 //     collisions. A claim about a word's status that you did not run a tool for
 //     is a guess; if you must write one in a comment, write it as
 //     UNTAUGHT(no:<front>) so GUARD 2 re-checks it on every run.
+//     ⚠️ AND ONE TOOL ON THE RUNBOOK'S OWN LIST DOES NOT EXIST FOR NORWEGIAN.
+//     RUNBOOK §6 step 4 makes the crew lead responsible for 'lexeme duplicates —
+//     noun vs its verb, infinitive vs conjugated form'. The named tool for that,
+//     `npm run check:lexemes`, imports JA_UNITS (scripts/check-lexeme-collisions.mjs
+//     line 15) and uses kana morphology, so for Norwegian it prints a vacuous
+//     '0/0 free' — a Norwegian front can only collide by exactly equalling a
+//     Japanese one. THERE IS NO NORWEGIAN LEXEME ORACLE. Block 1 did the check by
+//     hand (strip the en/ei/et/å marker, compare heads and stems) and deliberately
+//     KEPT 12 noun/adjective-verb pairs — sårbar/en sårbarhet, ærlig/en ærlighet,
+//     å anmelde/en anmelder — which are the u71l2 nominalisation pattern, split
+//     across lessons and cross-referenced in both hints. Do the same by hand, and
+//     do not report check:lexemes' silence as a result.
 //
 // B8. DRILL VOCABULARY IS IN SCOPE-STRICT'S REMIT — AND NOTHING ELSE CHECKS IT.
 //     `tests/unit/drill-scope.test.mjs` landed 2026-09-22 because a German B2 block
@@ -113,6 +143,13 @@
 //     `[["ex", it.example?.jp], ["drill", it.drill?.jp]]`, so every hit it prints is
 //     tagged `/ex` or `/drill`. Block 1's range reports 6 drill-side hits, all of them
 //     the class-(b) multi-word-front artifact described in B7 — zero real ones.
+//     ⚠️ BE PRECISE ABOUT WHY, because block 1's first wording was too broad. It
+//     said 'the learner only ever meets the taught phrase', and that is true of 5 of
+//     the 6 fronts but NOT of 2 of them: `å strekke seg` appears as `strekke oss`
+//     and `å gardere seg` as `garderte seg`. Those two are ordinary INFLECTIONS of a
+//     taught front (licensed by unit1.js §6), not untouched phrases. Two different
+//     arguments, both valid, and collapsing them into one sentence made the sentence
+//     false. Caught by the truth-agent.
 //     ⚠️ THE GAP IS THAT IT IS A SCRIPT NOBODY IS FORCED TO RUN, which is the exact
 //     failure mode the German test was written to end. Run it, and say in your
 //     hand-back that no TEST covers Norwegian drill scope — only this script.
