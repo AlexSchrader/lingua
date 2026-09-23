@@ -78,3 +78,39 @@ test("the seeded preview deck opens every gate", () => {
   assert.equal(st.state.stats.xpTotal, 0);
   assert.equal(st.state.lastModified, 0, "never looks newer than the real deck to sync");
 });
+
+// --- the auth gate must be OFF in preview -----------------------------------
+//
+// ALEX WAS LOCKED OUT OF THE APP BY THIS, 2026-09-17, on his phone: entering
+// preview on a keyed build rendered the login screen reading "Auth isn't
+// configured." over everything, and Settings -> Exit preview was unreachable
+// because the auth gate sits above AppShell.
+//
+// WHY A PURE PREDICATE AND NOT A SMOKE TEST. `AUTH_ENABLED` is false under
+// WebDriver by construction, so every Playwright run skips the entire auth block
+// -- including the existing "Preview Mode: the app runs" test, which passes
+// precisely because the gate it would trip is disabled. The gate and preview
+// cannot meet under test. Extracting the decision is the only way to pin it.
+import { authGateEnabled } from "../../src/store/preview.js";
+
+const KEYED = { hasUrl: true, hasKey: true, isWebdriver: false };
+
+test("PREVIEW NEVER SHOWS THE LOGIN SCREEN, even on a fully keyed build", () => {
+  assert.equal(authGateEnabled({ ...KEYED, preview: true }), false);
+});
+
+test("a keyed build outside preview still gates on auth", () => {
+  assert.equal(authGateEnabled({ ...KEYED, preview: false }), true);
+});
+
+test("no keys means no gate, preview or not -- the local-only path", () => {
+  for (const preview of [true, false]) {
+    assert.equal(authGateEnabled({ hasUrl: false, hasKey: false, isWebdriver: false, preview }), false);
+    assert.equal(authGateEnabled({ hasUrl: true, hasKey: false, isWebdriver: false, preview }), false, "half-configured is not configured");
+    assert.equal(authGateEnabled({ hasUrl: false, hasKey: true, isWebdriver: false, preview }), false, "half-configured is not configured");
+  }
+});
+
+test("WebDriver never gates -- the smoke suite must not need a real sign-in", () => {
+  assert.equal(authGateEnabled({ hasUrl: true, hasKey: true, isWebdriver: true, preview: false }), false);
+});

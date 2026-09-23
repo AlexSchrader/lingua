@@ -103,9 +103,17 @@ export default defineConfig({
         // so there is no async/runtime behaviour change, only finer file granularity.
         manualChunks(id) {
           if (id.includes("/src/data/kanjivg")) return "kanjivg";
-          if (id.includes("/src/data/ja/")) return "content-ja";
-          if (id.includes("/src/data/fr/")) return "content-fr";
-          if (id.includes("/src/data/es/")) return "content-es";
+          // EVERY language, derived — not a hand-listed three. ja/fr/es were split
+          // by name and de, no and pt were not, so their content stayed in the entry
+          // chunk: 4,068,993 B against workbox's 4,194,304 B ceiling, 97% full, with
+          // nine B2 crews authoring into it. A German B2 seat measured its own tree
+          // at 4,424,147 B — 224.5 KiB OVER — which is a broken precache, not a
+          // warning. A list that must be edited every time a language lands is the
+          // same failure mode as every other hand-maintained list in this repo, and
+          // four new languages (it, nl, id, ru) landed today.
+          const norm = id.split("\\").join("/");
+          const lang = norm.match(/\/src\/data\/([a-z]{2,3})\//);
+          if (lang) return `content-${lang[1]}`;
         },
       },
     },

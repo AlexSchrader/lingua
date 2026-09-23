@@ -43,7 +43,7 @@ The lane detail below still governs *how the work itself is done*; the Fleet gov
   - **Green gate before shipping**: `validate:content` → `test:unit` → Playwright smoke (**dev *and* `SMOKE_MODE=preview`**) → `build`. Never weaken a test/validator/assertion to force green — fix the real thing or report it.
   - **Tuning is constants, not structure** — feel issues (too fast/harsh/repetitive) are one-line changes to `LEARN_OPTS` / `TIMING` / mastery constants + a re-run, not a rebuild.
   - **Proactive every session** — surface ND-friction, learning-science gaps, and quick wins; do the small unambiguous fixes and just mention them, flag the scope-changing ones first.
-  - **Draft PR → Alex merges** (engine/schema keep a human gate — they can break everything). Update `BUILD-CHECKLIST.md` as part of the work. *(While GitHub is suspended, prod ships directly via the Vercel CLI (`vercel deploy --prod`), so prod runs ahead of `main` — reconcile the branch into `main` before any git-triggered deploy once access returns, or prod rolls back.)*
+  - **Draft PR → Alex merges** (engine/schema keep a human gate — they can break everything). Update `BUILD-CHECKLIST.md` as part of the work.
   - **Stay out of `src/data/ja/*.js` content.** Spotted a curriculum issue? Log it as a `[ ]` item routed to the Curriculum CC — hand off, don't reach across.
 - **Curriculum CC** — authors and maintains the content units (`src/data/ja/*.js`): writes new units, thickens thin ones (aim ~5–8 word cards/lesson; leave intentionally-finite lessons like "count 1–5" alone), and restructures/consolidates when the shape drifts. Day to day:
   - Author to `CONTENT.md` + the lint rules. **Every example uses only vocab already introduced**, and reads naturally — write it *as if a native reviews it*.
@@ -53,7 +53,7 @@ The lane detail below still governs *how the work itself is done*; the Fleet gov
   - **Prefer additive edits** (new item ids) so existing progress isn't reset. Any id-changing move (renumber, consolidate) wipes that item's mastery — flag it and time it for pre-users.
   - Run the **full gate** (`lint:curriculum` → `validate:content` → `test:unit` → `audit` → `build`) and **self-merge on all-green** (curriculum *only*; see exception). For the naturalness no lint can check (grammar, examples), run the **LLM naturalness review** — the `content-auditor` gate / native-speaker-proxy agents — and let **Alex playtest in Dev Mode**. A *human* native-speaker review is a nice-to-have if one is ever available, **not a blocker** (Alex has no native reviewer; 2026-07-12). "Slightly awkward but comprehensible" is a survivable v1 failure mode — flag the genuine errors, don't gate on perfection.
   - **Stay out of app/engine/schema files.** Spotted a UI/engine improvement? Log it as a `[ ]` feature item for the Feature CC — hand off, don't reach across.
-- **QA CC** — runs the full local gate (`validate:content` → `lint:curriculum` → `test:unit` → `audit` → `build`) plus real-app/manual checks; hunts bugs, regressions, content defects, ND-friction, architecture drift; hands Alex a **prioritized findings list** in `BUILD-CHECKLIST.md` → "QA findings". **QA writes findings, not fixes** — it may fix only an outright bug or a small-unambiguous defect (the "spot-a-bug" exception below), and files everything else as a `[ ]` item routed to the Feature or Curriculum lane.
+- **QA CC** — runs the full local gate (`validate:content` → `lint:curriculum` → `test:unit` → `audit` → `build`) plus real-app/manual checks; hunts bugs, regressions, content defects, ND-friction, architecture drift; **AND SCANS THE DOCS FOR CLAIMS THAT HAVE STOPPED BEING TRUE** (see "THE STALE-CLAIM SWEEP" below — Alex, 2026-09-21: *"when QA does a scan i should be looking for stuff like that as well"*); hands Alex a **prioritized findings list** in `BUILD-CHECKLIST.md` → "QA findings". **QA writes findings, not fixes** — it may fix only an outright bug or a small-unambiguous defect (the "spot-a-bug" exception below), and files everything else as a `[ ]` item routed to the Feature or Curriculum lane.
 - **Idea CC** — the ideation lane: **generates the pipeline of feature/UX/learning-science ideas the Feature CC builds from.** Where Feature CC surfaces improvements *in-flight*, Idea CC's whole job is the deeper, unhurried work: scanning the learning-science + ND-UX space, studying what the app does today, and turning that into concrete, ranked, ready-to-build proposals. Brainstorm against the mission (deep understanding over memorization, mechanics over dopamine, ND-first, anti-burnout) — reject gamification/streak/XP/social. **Pitch concretely** (friction + why + one concrete change + lane + impact-per-effort rank) in `BUILD-CHECKLIST.md` → "Idea CC — feature pitches"; expand greenlit ideas into a full `BUILD-BRIEF-*.md`. **Read the repo before pitching** (ground every idea in real file refs). **Builds nothing** — writes only pitches + briefs; a pitch becomes work when a lane picks it up and Alex greenlights it. Route/tag the lane on every pitch.
 
 Default to thoroughness and self-sufficiency. Don't ask permission for routine work, but **do** check in before anything risky (see "Check in before"). Web-Claude plans, designs, and writes detailed build briefs; CC executes them in-repo. If a brief is ambiguous or you spot a problem, flag it before building — don't silently reinterpret scope.
@@ -73,6 +73,7 @@ Default to thoroughness and self-sufficiency. Don't ask permission for routine w
 | `BUILD-BRIEF-*.md` | Design briefs for work **not yet built**. A brief is an instruction, so it must never outlive its feature — see "Closing a brief" below. | Web-Claude / Alex |
 | `docs/shipped/` | Briefs whose feature **has shipped** — history, not instructions. Stamped, and not to be authored from. | whoever merges the feature |
 | `FEEL-CHECKS.md` | The only place "Alex needs to try this on a real device" lives. A brief never stays open waiting on one. | whoever closes the brief |
+| `TEST-STORIES.md` | **Does it WORK** — the story list, split by who can actually run it. Part A = the few things only Alex can do (device, ear, mic, real account); **Part B = gaps in the automated suite, which are CC's job, not his**; Part C = admin/operator stories. Alex, 2026-09-17: *"i cant test this all my self i dont even know where to start."* Adding a Part A row is a claim that no machine can run it — justify it there. *Feel* questions go to `FEEL-CHECKS.md` instead. | QA CC; any lane adds rows as it works |
 | `RUNBOOK-new-language.md` | **Running the language production team — the no-questions procedure.** If Alex says "you're on the `<language>` crew, block `<n>`" (or "you're the merge seat"), this file is your whole assignment: preflight, worktree, rules, gate, hand-back, merge day. Follow §1 onward without asking; §7 answers anything you'd want to ask. §0 is Alex's half (crew shape, kickoff prompts, limits). Pathway/unit definitions live in `BUILD-BRIEF-language-blueprint.md`; in-flight status on the **Language crew board** in `BUILD-CHECKLIST.md`. | Curriculum CC |
 
 ---
@@ -115,6 +116,7 @@ single day, every one of them cheap to prevent:
 | a session's uncommitted `Today.jsx` edit turned another session's gate red | two smoke failures chased as a regression that did not exist |
 | a session switched the shared checkout to a feature branch | the next commit landed on that branch, stranding a user-reported fix off `main` |
 | a subagent ran `git checkout main -- src/data/de` in a LIVE worktree to measure a "before" number | reverted 38 authored cards; only the fact they were committed saved them |
+| that same sweep buried a new lint rule, two tests and three doc fixes under a subject line about preview sync | **the swept work became unreviewable** — nobody opens a preview-sync diff looking for a lint rule (QA CC, 2026-09-17) |
 
 **BEFORE YOUR FIRST WRITE, every session, no exceptions:**
 
@@ -143,6 +145,17 @@ touched is theirs until you prove otherwise.**
 
 - `git worktree add --detach <dir> <sha>` to measure a "before", reproduce on a
   clean tree, or commit to a branch that is not checked out.
+- **AND THIS IS HOW YOU RUN THINGS IN IT.** A bare worktree has no
+  `node_modules`, which is the whole reason people reach for a junction and
+  destroy the original. Two safe routes, in order of preference:
+  1. **Nothing at all.** Anything that only touches `src/data` or `src/store`
+     runs on node builtins — `seedItems()`, `gaps-de.mjs`, `scope-strict*.mjs`,
+     the fold/gloss probes. Just `node -e` in the bare worktree. Measured
+     2026-09-18: works, and leaves the real `node_modules` untouched.
+  2. **`npm install` inside the new tree** when you genuinely need vite,
+     playwright or the npm scripts. Slow, and correct.
+  Then `rm -rf <dir>` and `git worktree prune`. Never `worktree remove --force`
+  on a tree containing a junction.
 - **NEVER `git checkout <ref> -- <path>` in a live tree.** It overwrites working
   files and stages the deletion of everything that ref lacks.
 - **NEVER junction `node_modules` into a throwaway worktree and then
@@ -286,6 +299,81 @@ This is the same principle the app is built on. `CLAUDE.md` tells CC to design w
 
 ---
 
+## THE STALE-CLAIM SWEEP — part of every QA scan
+
+Alex, 2026-09-21, on finding CLAUDE.md still saying GitHub was suspended weeks
+after it was restored, having said so repeatedly: *"why tf is that still that
+after saying many times like cmon."*
+
+He was right and the failure was mine twice over: I noticed it, flagged it, and
+then sat on a plain factual correction waiting for permission I did not need. **A
+doc that states a fact is making a testable claim. Test it.**
+
+This is not a style pass. A stale doc is written in the imperative, so it reads
+as a live instruction and crews act on it — already demonstrated three times:
+
+| stale claim | what it caused |
+|---|---|
+| "While GitHub is suspended, prod ships via the Vercel CLI" | a seat nearly ran `vercel --prod`, which on this machine would have created a NEW project at a NEW URL instead of updating the app |
+| `src/data/no/unit1.js` §5: `mat`, `å prøve`, `å pleie` are "a front NOWHERE in the corpus" | all three ARE taught (u30l1, u15l3, u21l1); seats wrote around vocabulary the learner already had |
+| `BUILD-BRIEF-fr-sounds.md` sat six weeks after shipping, still saying "No `type:produce`" | the opposite of what Alex had decided, while four crews were pointed at the docs |
+
+**WHAT TO SWEEP, and each of these is a command not an opinion:**
+
+1. **Infrastructure claims.** Every sentence about GitHub, Vercel, deploys,
+   accounts or access. Verify: `gh auth status`, `git push --dry-run`, is there a
+   `.vercel` link dir, does the live bundle contain a string from the newest
+   commit. Delete what no longer holds — do not soften it.
+2. **Word lists in headers.** Any doc or unit header asserting a word is
+   taught/untaught. Resolve against `npm run taught -- <lang>`, never against
+   another comment. Claims written as `UNTAUGHT(<lang>:<front>)` are checked
+   automatically by `tests/unit/corpus-guards.test.mjs`; prose ones are not, and
+   those are the ones that rot.
+3. **Counts and totals.** Card counts, unit counts, "N of M voiced", warning
+   totals. Re-derive them; a number in a doc is a measurement with a timestamp.
+4. **Status lines.** Any brief or checklist row saying "not started" / "design
+   doc" / "in flight". **Check the CODE, not the status line** — four briefs
+   were closed on 2026-09-13 still reading "not started" while their feature was
+   live in `LIVE_CARD_KINDS`.
+5. **Rules that name a file, function or flag.** Grep that it still exists.
+   `check-lexeme-collisions.mjs` is cited as a cross-language tool and is
+   `JA_UNITS`-only; `scope-strict.mjs` was cited as unrunnable and takes a range.
+
+**FIX IN PLACE, DO NOT APPEND.** Replace the sentence that is wrong. Appending
+the correction under the stale text leaves both, and the next reader believes the
+first one. Record reversals of **Alex's** decisions; do not leave a trail of
+which draft of yours was wrong.
+
+**DO NOT ASK FIRST.** A factual correction to a doc is not a scope decision. If
+the fact is checkable, check it and fix it, and say so in one line.
+
+---
+
+## ONE BRANCH, ONE USER-FACING FIX — a branch carrying two can half-ship
+
+lingua-8b, 2026-09-18, after Alex hit a bug minutes after being unblocked from a
+different one:
+
+> *"I shipped the branch that was urgent and left the branch that was merely
+> finished."*
+
+Two unrelated user-facing fixes sat on one branch. The lockout was urgent so it
+went out alone; the language-list fix was finished hours earlier and did not.
+Alex was let back into the app and immediately hit the second bug — four
+languages on his Ladder after choosing one.
+
+- **If two fixes are unrelated, they are two branches.** "Unrelated" means one
+  could ship without the other, which is exactly the situation that produces a
+  half-ship.
+- **A finished fix that is not merged is not shipped**, and a branch is not a
+  queue. If it is green and it fixes something a learner hits, it goes to Alex
+  now, not when the rest of the branch is ready.
+- **When you ship part of a branch, say what you LEFT behind**, by name, in the
+  same message. The failure was not the decision to ship the urgent half — it
+  was that nobody restated what was still sitting there.
+
+---
+
 ## Workflow (non-negotiable)
 
 1. Branch off current `main`.
@@ -324,7 +412,7 @@ This is the same principle the app is built on. `CLAUDE.md` tells CC to design w
   "OTHER SESSIONS ARE IN THIS REPO RIGHT NOW" above. `git add -A` is banned,
   `git status -sb` comes before your first write, and a red gate in a file you
   never touched is someone else's until proven otherwise.
-- **Never hammer the GitHub API — pace pushes, PRs, and merges.** A burst of rapid create/merge/poll calls **got Alex's 4-year-old account auto-suspended for "abuse"** (2026-06-30). The abuse-detector has no context; it just counts requests per window. Hard rules: **no tight `gh`/API poll loops** (don't poll PR/CI status on a <30s loop — wait for the run, or check once and move on); **space out PR creates and merges** (don't fire several back-to-back — batch the work into fewer PRs and pause between operations); **prefer local validation** (`lint`/`validate`/`test`/`build`) over round-tripping the API to check state. If you genuinely need many operations, do them slowly and deliberately, not in a script-driven burst. When the API starts erroring (403/suspension/rate-limit), **stop immediately and build locally** — never retry into the throttle.
+- **Never hammer the GitHub API — pace pushes, PRs, and merges.** A burst of rapid create/merge/poll calls **got Alex's 4-year-old account auto-suspended for "abuse"** (2026-06-30). ✅ **ACCESS HAS BEEN RESTORED SINCE** — verified 2026-09-18, `gh auth status` authenticates as AlexSchrader with repo+workflow scopes, and `git push origin main` works. The rule below is how it stays restored; it is NOT a description of a current outage. The abuse-detector has no context; it just counts requests per window. Hard rules: **no tight `gh`/API poll loops** (don't poll PR/CI status on a <30s loop — wait for the run, or check once and move on); **space out PR creates and merges** (don't fire several back-to-back — batch the work into fewer PRs and pause between operations); **prefer local validation** (`lint`/`validate`/`test`/`build`) over round-tripping the API to check state. If you genuinely need many operations, do them slowly and deliberately, not in a script-driven burst. When the API starts erroring (403/suspension/rate-limit), **stop immediately and build locally** — never retry into the throttle.
 
 ---
 
@@ -335,7 +423,16 @@ This is the same principle the app is built on. `CLAUDE.md` tells CC to design w
 - Routing: react-router-dom (`App.jsx` = routes only).
 - Scheduling: FSRS via `ts-fsrs`.
 - Accounts & sync: Supabase (auth + Postgres + RLS) — Google sign-in, per-user progress, last-write-wins. Client in `src/lib/supabase.js`; `VITE_SUPABASE_*` live in `.env.local` (anon key public-by-design) **and must also be set in the Vercel project env** or deployed builds ship with Supabase off.
-- Deploy: Vercel — `main` = production, every other branch = preview. **Outage fallback:** deploy straight from local with `npx vercel` (preview) / `npx vercel --prod` (production) — bypasses GitHub entirely. `.vercelignore` keeps the upload lean (excludes `chrome/`, `node_modules`, `dist`).
+- Deploy: Vercel — **`main` = production, and a push to `main` deploys it.** Every
+  other branch is a preview. Verified 2026-09-18 by probing the live bundle for
+  content strings from the newest merges: prod carried them, and its entry chunk
+  changed on the push. **Prod tracks `main`; nothing runs ahead of it.**
+- ⚠️ **DO NOT use the Vercel CLI on this repo.** There is no `.vercel` link dir
+  here, and the CLI account on this machine can see only `god-app` — so
+  `vercel --prod` would create a NEW project at a NEW URL instead of updating
+  Alex's app. The old "outage fallback" text said the opposite and is deleted.
+  `.vercelignore` still keeps the upload lean (excludes `chrome/`, `node_modules`,
+  `dist`).
 - Dev environment: PowerShell on Windows. Repo is currently public.
 - CI: GitHub Actions — `validate:content`, unit tests (`node --test`), Playwright smoke (dev + `SMOKE_MODE=preview`), build.
 

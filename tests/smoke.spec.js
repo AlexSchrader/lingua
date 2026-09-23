@@ -721,6 +721,14 @@ test("French: the conjugate card runs on a Latin-script verb", async ({ page }) 
 // What this covers is the half a browser can prove: the reset survives a reload, and
 // the learner is actually TOLD it saved rather than having to guess.
 test("Reset everything survives a reload, and says so", async ({ page }) => {
+  // THE HEAVIEST TEST IN THE SUITE, and it was already running at 43.7s against the
+  // 45s default before anything was added to it: a full reviewState() seed, five
+  // navigations, a reload, and two localStorage round-trips. Under full parallel load
+  // it tips over and fails as a TIMEOUT, which reads exactly like a regression in
+  // whatever just merged -- the same false signal tests/preflight.js exists to stop.
+  // test.slow() triples the budget. No assertion is relaxed; it is the same test with
+  // room to finish.
+  test.slow();
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
   // Seed ONCE: addInitScript runs before EVERY navigation, reload included, so the
@@ -761,6 +769,41 @@ test("Reset everything survives a reload, and says so", async ({ page }) => {
   expect(await touched(), "progress came back after a reload").toBe(0);
 
   expect(errors, errors.join("; ")).toEqual([]);
+});
+
+// RESET MUST LEAVE A WAY BACK IN -- its own test, not an assertion bolted onto the
+// one above. Appended there it pushed that test to 43.7s against a 45s timeout and
+// it began flaking; a destructive-path check that fails at random is worse than none.
+//
+// WHAT THIS CATCHES. Reset clears the started-language list as of 2026-09-17, and
+// this smoke env has AUTH_ENABLED off (App.jsx forces it false under WebDriver), so
+// onboarding never renders here -- the Ladder is the only route to a language. The
+// code-auditor reproduced the dead end the test above could not see: every Start
+// button is gated on canAddLanguage(), which was `[].some(...)` = false on an empty
+// list, so the learner owned nothing and could start nothing short of clearing
+// localStorage. "No page errors + progress is zero" is also exactly what a stranded
+// app looks like, which is why that pair is never sufficient on a destructive path.
+//
+// Verified by deliberately re-breaking the guard in useStore.canAddLanguage and
+// watching this go red.
+test("Reset leaves a way back in -- the learner can still start a language", async ({ page }) => {
+  await page.addInitScript(
+    (json) => { if (!localStorage.getItem("lingua-v1")) localStorage.setItem("lingua-v1", json); },
+    JSON.stringify(reviewState())
+  );
+
+  await page.goto("/settings");
+  await page.getByRole("button", { name: "Reset all progress" }).click();
+  await page.getByRole("button", { name: "Reset everything" }).click();
+
+  const started = await page.evaluate(
+    () => JSON.parse(localStorage.getItem("lingua-v1")).state.profile.languages
+  );
+  expect(started, "reset must clear the started-language list").toEqual([]);
+
+  await page.goto("/ladder");
+  const starts = page.getByRole("button", { name: /^Start$/ });
+  await expect(starts.first()).toBeVisible();
 });
 
 // speak is now live: the coverage test above drives it via the rung-4 `iie`

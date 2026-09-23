@@ -1,6 +1,20 @@
 # Build Brief — Language Catalog (data-driven, un-hardcode the path)
 
-**Status:** design doc / not started. Authored by **Idea CC** (2026-07-05) off Alex's brainstorm; scope decided by Alex (**neaten + generalize**, **data-driven catalog**). For **Feature CC + Alex**. **Lane: Feature CC** (data model + cascade + multi-screen render). ⚠️ Touches the language/gating model + the content validator → **check-in items** flagged below.
+**SHIPPED — historical record, do not author from this.** Closed 2026-09-17.
+
+Evidence, all present on `main`:
+
+- **L.0** — the catalog lives at `src/data/languages.js` (`src/data/ja/languages.js` no longer exists), and `isLive(id)` is derived from `UNITS` there.
+- **L.1/L.2** — `PlannedLanguages` collapses the no-content entries behind one expander in both `src/screens/Stats.jsx` and `src/screens/Ladder.jsx`; the per-row "Lessons coming soon." is gone.
+- **L.3** — Ladder, Today, Stats and Onboarding all read the catalog; `src/screens/Onboarding.jsx` groups the picker by status.
+
+⚠️ **Two things in the body below are now FALSE and must not be copied forward:**
+
+1. The `unlock: {lang, level}` / `unlocked` cascade and `checkCascade` are **retired**. `LANGUAGES` is a flat catalog and the learner picks any live entry — see "No front language" in `CLAUDE.md`. The line "Keep the `unlock`/`checkCascade` behavior identical" reads as a live instruction to preserve a mechanism that no longer exists.
+2. "Only `ja` has content" was true on 2026-07-05. Six languages are live.
+
+Gating is now one rule in one place: `canAddLanguage()` in `src/store/useStore.js` — **any** started language must have reached A1 before a second can be added. Whether to tighten that to "one at a time, always" is open for Alex; see `ONBOARDING-SPEC.md` and `BUILD-CHECKLIST.md` (2026-09-17).
+
 **Goal in one line:** stop the languages UI being hardcoded to Alex's personal `ja→es→fr` plan — make the catalog data-driven, show only what's real neatly, and collapse the "coming soon" clutter.
 
 > Design doc, not an implementation plan. Grounded in the repo 2026-07-05; repo is source of truth.
