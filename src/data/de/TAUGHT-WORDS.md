@@ -1,7 +1,7 @@
 # DE — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- de`.
-Snapshot 2026-09-23: **3090 words** across **126 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-23: **3092 words** across **126 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -1969,6 +1969,7 @@ Snapshot 2026-09-23: **3090 words** across **126 authored unit(s)**, **0 slot(s)
 - `fangen` — u45 · to catch
 - `fast` — u47 · almost
 - `faul` — u31 · lazy
+- `fehlen` — u60 · to be missing
 - `feiern` — u40 · to celebrate
 - `feige` — u116 · cowardly
 - `ferner` — u108 · furthermore (in a list of points)
@@ -2754,6 +2755,7 @@ Snapshot 2026-09-23: **3090 words** across **126 authored unit(s)**, **0 slot(s)
 - `trainieren` — u45 · to train
 - `trank` — u39 · drank — past of trinken
 - `traurig` — u10 · sad
+- `treffen` — u62 · to meet
 - `trennen` — u65 · to separate
 - `treu` — u68 · loyal
 - `trinken` — u6 · to drink
@@ -3230,11 +3232,11 @@ Snapshot 2026-09-23: **3090 words** across **126 authored unit(s)**, **0 slot(s)
 
 **u59 · Wandel und Zeit** (25) — `allmählich`, `ändern`, `die Gewohnheit`, `vorbei`, `der Zeitraum`, `langfristig`, `anders`, `das Jahrhundert`, `die Geschichte`, `altmodisch`, `das Jahrzehnt`, `seitdem`, `verschwinden`, `vergehen`, `endgültig`, `vorläufig`, `regelmäßig`, `beschleunigen`, `der Wandel`, `die Gegenwart`, `erwachsen`, `aufwachsen`, `das Alter`, `die Kindheit`, `erneut`
 
-**u60 · Probleme und Lösungen** (25) — `die Schwierigkeit`, `der Fehler`, `der Mangel`, `die Panne`, `schiefgehen`, `kompliziert`, `der Ausweg`, `der Rat`, `die Maßnahme`, `beseitigen`, `eingreifen`, `notfalls`, `lösen`, `das Risiko`, `warnen`, `retten`, `der Unfall`, `zerstören`, `verletzen`, `ersetzen`, `klären`, `der Kompromiss`, `nachgeben`, `überwinden`, `sich bemühen`
+**u60 · Probleme und Lösungen** (26) — `die Schwierigkeit`, `der Fehler`, `der Mangel`, `die Panne`, `schiefgehen`, `kompliziert`, `fehlen`, `der Ausweg`, `der Rat`, `die Maßnahme`, `beseitigen`, `eingreifen`, `notfalls`, `lösen`, `das Risiko`, `warnen`, `retten`, `der Unfall`, `zerstören`, `verletzen`, `ersetzen`, `klären`, `der Kompromiss`, `nachgeben`, `überwinden`, `sich bemühen`
 
 **u61 · Regeln, Erlaubnis, Pflicht** (24) — `die Vorschrift`, `der Antrag`, `unterschreiben`, `beachten`, `die Zulassung`, `vorlegen`, `die Verantwortung`, `die Strafe`, `einhalten`, `die Schuld`, `unbedingt`, `untersagen`, `das Schild`, `rauchen`, `der Lärm`, `verhindern`, `die Ordnung`, `stören`, `die Aussage`, `versprechen`, `freiwillig`, `verbindlich`, `einwilligen`, `der Verstoß`
 
-**u62 · Pläne und Absichten** (25) — `vorhaben`, `die Absicht`, `künftig`, `demnächst`, `rechtzeitig`, `verschieben`, `der Plan`, `erreichen`, `der Wille`, `die Herausforderung`, `die Gelegenheit`, `verzichten`, `bestimmt`, `sich verabreden`, `begleiten`, `die Veranstaltung`, `anmelden`, `der Gastgeber`, `stattfinden`, `kurzfristig`, `ausfallen`, `der Zeitpunkt`, `anpassen`, `trotz`, `dringend`
+**u62 · Pläne und Absichten** (26) — `vorhaben`, `die Absicht`, `künftig`, `demnächst`, `rechtzeitig`, `verschieben`, `der Plan`, `erreichen`, `der Wille`, `die Herausforderung`, `die Gelegenheit`, `verzichten`, `bestimmt`, `sich verabreden`, `begleiten`, `die Veranstaltung`, `anmelden`, `der Gastgeber`, `stattfinden`, `treffen`, `kurzfristig`, `ausfallen`, `der Zeitpunkt`, `anpassen`, `trotz`, `dringend`
 
 **u63 · Erfahrung und Erinnerung** (24) — `das Gedächtnis`, `auswendig`, `prägen`, `unvergesslich`, `verblassen`, `verdrängen`, `erleben`, `das Erlebnis`, `das Ereignis`, `schildern`, `beeindrucken`, `erfahren`, `mittlerweile`, `seinerzeit`, `einst`, `seither`, `längst`, `kürzlich`, `bewahren`, `aufbewahren`, `das Tagebuch`, `das Andenken`, `der Rückblick`, `die Erinnerung`
 
