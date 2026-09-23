@@ -28,10 +28,23 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { buildScope } from "../../scripts/de-vocab-scope.mjs";
 
-// Drills already out of scope on main. DEBT, NOT PERMISSION. The ratchet fails on
-// a 20th, and it ALSO fails if one of these is fixed and left in the list - a
-// baseline that drifts out of date stops describing anything.
-const KNOWN_OUT_OF_SCOPE = new Set([
+// Drills the oracle FLAGS on main. Pinned so the count cannot grow.
+//
+// ⚠️ THESE ARE NOT ALL DEFECTS, and I shipped this file claiming they were.
+// Checked afterwards: every one I sampled is an INFLECTION OF A TAUGHT WORD that
+// `derive()` cannot generate -
+//     gewinnen u45 -> gewonnen       schmecken u41 -> geschmeckt
+//     hören    u1  -> gehört         hoch      u10 -> hoher
+//     bei      u14 -> beim (bei + dem)
+// so the oracle over-reports past participles (ge- + stem + t/en), inflected
+// adjectives, and preposition+article contractions. A German B2 seat measuring
+// its own block found the same split: 38 of 144 flags were oracle gaps and 106
+// were real, and rewriting the 38 would have churned sound drills.
+//
+// The ratchet is still worth having - the 106 were real, every gate was green,
+// and nothing else in the suite looks at a drill's vocabulary at all. But a
+// failure here means GO AND CHECK, not GO AND REWRITE.
+const ORACLE_FLAGGED = new Set([
   "de-u53l1-erheblich",
   "de-u54l1-offenbar",
   "de-u54l2-zumindest",
@@ -67,19 +80,22 @@ test("GUARD: no NEW drill uses vocabulary its unit has not taught (de)", async (
     }
   }
 
-  const novel = [...live].filter(([id]) => !KNOWN_OUT_OF_SCOPE.has(id));
+  const novel = [...live].filter(([id]) => !ORACLE_FLAGGED.has(id));
   assert.deepEqual(
     novel.map(([id, miss]) => `${id}: drill uses ${miss.join(", ")} before it is taught`),
     [],
-    "a NEW drill teaches its sentence out of vocabulary the learner has not met. " +
-    "Fix the drill, not this list. `node scripts/check-drills-de.mjs <from> <to>` " +
-    "reports the same thing per block."
+    "a NEW drill uses a token the scope oracle cannot account for. VERIFY BEFORE " +
+    "REWRITING: run `npm run taught -- de` on the token's lemma. The oracle does " +
+    "NOT generate past participles (ge- + stem + t/en), inflected adjectives, or " +
+    "preposition+article contractions (beim, zum, im), so it over-reports those. " +
+    "If the lemma IS taught, the drill is fine and the oracle needs extending - " +
+    "add the id here with a note. If it is not taught, fix the drill."
   );
 
-  const stale = [...KNOWN_OUT_OF_SCOPE].filter((id) => !live.has(id));
+  const stale = [...ORACLE_FLAGGED].filter((id) => !live.has(id));
   assert.deepEqual(stale, [],
-    "these drills are pinned as known debt but are now in scope - delete them from " +
-    "KNOWN_OUT_OF_SCOPE so the list keeps meaning what it says"
+    "these drills are pinned but the oracle no longer flags them - delete them from " +
+    "ORACLE_FLAGGED so the list keeps meaning what it says"
   );
 
   // The oracle must not go quiet. If buildScope ever returns an empty corpus this
