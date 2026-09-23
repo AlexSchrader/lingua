@@ -100,30 +100,26 @@
 //    well as "etbrod". A bare "brød" does not; the raw branch compares against the
 //    entire front string, article included.
 //
-//    ⚠️ AND THAT IS NOT GOOD ENOUGH — READ THIS BEFORE YOU AUTHOR A ø CARD.
-//    An earlier version of this header claimed "the learner is not penalised".
-//    That was wrong, and it was wrong in the way that matters. MEASURED against
-//    the real checkReading, for the 12 ø cards in this block:
-//        "et brød"  PASS      "Et brød"  FAIL   ← a sentence-initial capital
-//        "etbrod"   PASS      "etbrød"   FAIL   ← the same word, no space
-//        "et brod"  PASS  ← the MISSPELLING passes while the correct spelling
-//                            with a capital does not.
-//    The control cards behave properly: "Å VÆRE", "åvære" and "Å være" all pass,
-//    because for them the normalize branch is alive. For a ø card that branch is
-//    DEAD — normalizeReading("etbrød") is "etbrød", which never equals "etbrod" —
-//    so only the exact literal string survives, and case/space tolerance is lost
-//    on precisely the cards that need it most.
-//    THE FIX IS ONE LINE OF ENGINE, NOT A CONTENT CONVENTION: add ø→o beside the
-//    æ→ae replace in `normalizeReading` (src/store/answer.js:47). Verified safe —
-//    ø appears in ZERO es/fr readings, so the blast radius is Norwegian only, and
-//    there is precedent: that same function had ligature folding ADDED for French.
-//    Filed in BUILD-CHECKLIST.md → Feature CC backlog. It is out of the curriculum
-//    lane (RUNBOOK §7), so block 1 logged it rather than fixing it.
-//    BLOCKS 2 AND 3: this is a DEPENDENCY, not a footnote. ø is far denser in your
-//    slots than in mine — rød, grønn, søndag, å høre, å spørre, et øye, et øre,
-//    først. Keep hand-folding ø→o so the corpus stays consistent and the engine
-//    fix is a no-op when it lands — but CHASE THE TICKET, because every ø card
-//    authored before it lands carries this defect.
+//    ✅ THE ø DEFECT IS FIXED — DO NOT CHASE THE TICKET, IT HAS LANDED.
+//    This paragraph used to say the opposite, and it stayed wrong long enough to
+//    send seats after a closed ticket, so here is the measured state instead.
+//    `normalizeReading` now folds ø→o explicitly, beside the æ→ae and ß→ss
+//    replaces, with the reason written into the code (src/store/answer.js).
+//    MEASURED by calling the real checkReading on `et brød` / `etbrod`, 2026-09-21:
+//        "et brød"  PASS      "Et brød"  PASS   ← the capital now passes
+//        "etbrod"   PASS      "etbrød"   PASS   ← so does the unfolded spelling
+//        "et brod"  PASS      "ET BRØD"  PASS
+//    All six. The old failure — a sentence-initial capital rejected while the
+//    ASCII misspelling was accepted — is gone, and ø cards now behave exactly
+//    like the æ and å control cards.
+//    WHAT DOES NOT CHANGE FOR THE AUTHOR: keep hand-folding ø→o when you write
+//    `reading`. That is what the contract's [a-z]+ requires and what the engine
+//    fold now agrees with, so the two stay in step.
+//    ⚠️ WHAT IS NEW, AND IT DOES BITE: ø and o fronts can now COLLIDE, because
+//    they fold to the same string. tests/unit/corpus-guards.test.mjs GUARD 3
+//    fails when one taught word folds onto another taught word — the German
+//    hätte/hatte case. Check a new ø front against its o-spelling before
+//    committing to it.
 //    The fold is an ANSWER KEY, never a pronunciation guide, and is never
 //    displayed — readingIsInformative() gates display on the front's script and
 //    every Norwegian front is Latin.
