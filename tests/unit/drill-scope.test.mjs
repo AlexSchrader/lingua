@@ -152,8 +152,8 @@ const ORACLE_FLAGGED = new Set([
   // before being pinned. Every lemma below is taught well before the unit that
   // uses it; `derive()` simply cannot generate the preterite or the participle:
   //   sein      u16 -> war          sinken    u53 -> gesunken
-  //   steigen   u53 -> stiegen      sparen    u27 -> sparten
-  //   meinen    u13 -> gemeint      bleiben   u16 -> geblieben
+  //   entstehen u52 -> entstanden   meinen    u13 -> gemeint
+  //   bleiben   u16 -> geblieben
   //   erklären  u20 -> erklärte     fürchten  u116 -> gefürchtet
   //   abbrechen u77 -> abgebrochen  stecken   u44 -> steckte
   // The four drills this pass flagged that were REAL forward references were
