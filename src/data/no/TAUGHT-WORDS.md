@@ -1,7 +1,7 @@
 # NO — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- no`.
-Snapshot 2026-09-23: **2344 words** across **100 authored unit(s)**, **26 slot(s) still stubs**.
+Snapshot 2026-09-23: **2656 words** across **113 authored unit(s)**, **13 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -21,27 +21,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 | block | slots |
 |---|---|
-| 1 | u101–u109 |
-| 2 | u110–u118 |
-| 3 | u119–u126 |
+| 1 | u114–u118 |
+| 2 | u119–u123 |
+| 3 | u124–u126 |
 
 ## Slots still stubs — not yours unless you were assigned them
 
 | slot | unit | title |
 |---|---|---|
-| 101 | `no-u101` | Environment and the global |
-| 102 | `no-u102` | Health systems and care |
-| 103 | `no-u103` | Education and research |
-| 104 | `no-u104` | Media and narrative |
-| 105 | `no-u105` | Emotion, subtle and mixed |
-| 106 | `no-u106` | Grammar 9 — conditional nuance and counterfactuals |
-| 107 | `no-u107` | Grammar 10 — formal written structures |
-| 108 | `no-u108` | Grammar 11 — discourse, cohesion, hedged claims |
-| 109 | `no-u109` | Register 3 — 敬語: humble and honorific |
-| 110 | `no-u110` | Register 4 — written, public and institutional voice |
-| 111 | `no-u111` | Vocabulary 1 (B2) |
-| 112 | `no-u112` | Vocabulary 2 (B2) |
-| 113 | `no-u113` | Vocabulary 3 (B2) |
 | 114 | `no-u114` | Vocabulary 4 (B2) |
 | 115 | `no-u115` | Vocabulary 5 (B2) |
 | 116 | `no-u116` | Vocabulary 6 (B2) |
@@ -79,6 +66,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å åpne` — u56 · to open
 - `å appellere` — u88 · to appeal (to)
 - `å avbryte` — u49 · to interrupt
+- `å avgrense` — u111 · to delimit
 - `å avhenge` — u52 · to depend
 - `å avkrefte` — u89 · to deny (disconfirm)
 - `å avlyse` — u62 · to cancel
@@ -94,6 +82,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å bære` — u77 · to carry
 - `å bake` — u41 · to bake
 - `å banke` — u82 · to knock (bang)
+- `å banne` — u109 · to swear (curse)
 - `å be om` — u72 · to ask for
 - `å begrense` — u52 · to limit
 - `å begrunne` — u78 · to give reasons for
@@ -123,6 +112,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å beundre` — u51 · to admire
 - `å bevare` — u59 · to preserve
 - `å bidra` — u52 · to contribute
+- `å bikke` — u111 · to tip (over a threshold)
 - `å binde` — u62 · to tie
 - `å bla` — u48 · to browse
 - `å blande` — u41 · to mix
@@ -141,6 +131,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å bruke opp` — u66 · to use up
 - `å bry seg` — u22 · to care
 - `å bryte` — u61 · to break (a rule)
+- `å bunne i` — u111 · to stem from
 - `å bygge` — u46 · to build
 - `å bytte` — u20 · to swap
 - `å danse` — u19 · to dance
@@ -152,7 +143,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å dokumentere` — u89 · to document (prove with records)
 - `å dømme` — u92 · to convict (pass judgement)
 - `å dra` — u20 · to set off
+- `å dramatisere` — u104 · to dramatise
 - `å drikke` — u6 · to drink
+- `å drive` — u111 · to run (an operation)
 - `å drøfte` — u88 · to weigh up (discuss)
 - `å dukke opp` — u63 · to turn up
 - `å dusje` — u17 · to shower
@@ -162,7 +155,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å erstatte` — u59 · to replace
 - `å etterprøve` — u89 · to verify independently
 - `å få` — u13 · to get
+- `å falle` — u111 · to fall (drop down)
 - `å fastslå` — u74 · to establish
+- `å fatte` — u110 · to make (a formal decision)
+- `å favne` — u111 · to encompass
 - `å feire` — u63 · to celebrate
 - `å feste` — u82 · to fasten
 - `å fikse` — u82 · to fix
@@ -200,6 +196,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å forsvinne` — u59 · to disappear
 - `å fortelle` — u17 · to tell
 - `å fortjene` — u56 · to deserve
+- `å fortone seg` — u111 · to appear (seem, from where you stand)
 - `å fortsette` — u21 · to continue
 - `å forurense` — u65 · to pollute
 - `å forutse` — u62 · to foresee
@@ -221,11 +218,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å gjenkjenne` — u63 · to recognize
 - `å gjennomføre` — u24 · to carry out
 - `å gjennomgå` — u60 · to go through
+- `å gjennomsyre` — u111 · to permeate
 - `å gjenta` — u33 · to repeat
 - `å gjenvinne` — u65 · to recycle
 - `å gjette` — u54 · to guess
 - `å gjøre` — u11 · to do
 - `å glemme` — u17 · to forget
+- `å gli` — u111 · to slide (slip)
 - `å godkjenne` — u56 · to approve
 - `å godta` — u51 · to accept
 - `å granske` — u89 · to scrutinise
@@ -252,6 +251,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å hilse` — u17 · to greet
 - `å hindre` — u52 · to prevent
 - `å hjelpe` — u11 · to help
+- `å hogge` — u101 · to fell (trees)
 - `å holde` — u59 · to hold
 - `å hoppe` — u19 · to jump
 - `å høre` — u11 · to hear
@@ -275,6 +275,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å installere` — u75 · to install
 - `å investere` — u66 · to invest
 - `å invitere` — u86 · to invite
+- `å iverksette` — u110 · to implement
 - `å jakte` — u26 · to hunt
 - `å jobbe` — u3 · to work
 - `å kalle` — u58 · to call (name)
@@ -288,6 +289,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å klatre` — u44 · to climb
 - `å kle` — u42 · to dress
 - `å klippe` — u46 · to cut (with scissors)
+- `å knuse` — u111 · to shatter
 - `å koble til` — u84 · to connect
 - `å koke` — u41 · to boil
 - `å komme` — u3 · to come
@@ -314,6 +316,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å laste opp` — u75 · to upload
 - `å le` — u17 · to laugh
 - `å legge` — u77 · to lay (put down)
+- `å legge om` — u109 · to switch (one's speech)
 - `å legge på` — u84 · to hang up (a phone)
 - `å leie` — u30 · to rent
 - `å leke` — u85 · to play (as children do)
@@ -323,6 +326,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å ligge` — u13 · to lie
 - `å like` — u3 · to like
 - `å lime` — u46 · to glue
+- `å lindre` — u102 · to relieve (ease)
 - `å logge inn` — u75 · to log in
 - `å lønne seg` — u66 · to be worth it
 - `å løpe` — u44 · to run
@@ -383,6 +387,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å overgå` — u53 · to surpass
 - `å overlate` — u56 · to leave to someone
 - `å overleve` — u52 · to survive
+- `å oversende` — u110 · to forward (officially)
 - `å oversette` — u33 · to translate
 - `å overta` — u56 · to take over
 - `å overtale` — u70 · to persuade
@@ -407,6 +412,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å presisere` — u73 · to specify
 - `å prioritere` — u62 · to prioritise
 - `å prøve` — u15 · to try
+- `å pugge` — u103 · to learn by rote
 - `å pusse` — u17 · to brush
 - `å puste` — u25 · to breathe
 - `å pynte` — u42 · to decorate
@@ -425,12 +431,16 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å ringe` — u17 · to call
 - `å ringe opp` — u84 · to call back (ring up)
 - `å risikere` — u98 · to risk
+- `å rive` — u111 · to tear down
+- `å rokke` — u111 · to shake (a position)
+- `å romme` — u111 · to hold (contain)
 - `å rømme` — u87 · to flee (escape)
 - `å rope` — u49 · to shout
 - `å rose` — u49 · to praise
 - `å rydde` — u16 · to tidy up
 - `å rygge` — u81 · to reverse
 - `å ryke` — u80 · to break (snap)
+- `å rykke` — u111 · to move (in jerks)
 - `å samarbeide` — u24 · to collaborate
 - `å samle` — u47 · to collect
 - `å sammenligne` — u53 · to compare
@@ -464,9 +474,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å skrive` — u18 · to write
 - `å skru` — u48 · to switch
 - `å skulle` — u13 · shall
+- `å skulle ønske` — u106 · to wish (that things were otherwise)
 - `å skylde` — u27 · to owe
 - `å skyldes` — u52 · to be due to
 - `å skynde seg` — u21 · to hurry
+- `å skyve` — u111 · to push (also: to defer)
 - `å slå` — u44 · to beat
 - `å slå av` — u84 · to switch off
 - `å slå på` — u84 · to switch on
@@ -481,6 +493,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å smelte` — u43 · to melt
 - `å smile` — u17 · to smile
 - `å smitte` — u67 · to infect
+- `å smuldre` — u111 · to crumble
 - `å snakke` — u3 · to speak
 - `å snø` — u8 · to snow
 - `å snu` — u59 · to turn around
@@ -492,12 +505,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å spare inn` — u79 · to economize
 - `å spare opp` — u79 · to save up
 - `å sparke` — u44 · to kick
+- `å spenne` — u111 · to span (range over)
 - `å sperre` — u84 · to block (bar)
 - `å spille` — u19 · to play
 - `å spise` — u6 · to eat
 - `å spøke` — u49 · to joke
 - `å spørre` — u12 · to ask
 - `å spre` — u48 · to spread
+- `å sprekke` — u111 · to burst (fall apart)
 - `å stå` — u13 · to stand
 - `å starte på nytt` — u84 · to restart
 - `å stave` — u49 · to spell
@@ -510,6 +525,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å stoppe` — u20 · to stop
 - `å støtte` — u68 · to support
 - `å støvsuge` — u30 · to vacuum
+- `å strekke` — u111 · to stretch (make last)
 - `å strikke` — u42 · to knit
 - `å stryke` — u74 · to fail
 - `å studere` — u74 · to study
@@ -524,6 +540,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å synge` — u19 · to sing
 - `å synke` — u59 · to fall
 - `å ta` — u13 · to take
+- `å tære` — u111 · to wear away at
 - `å takke` — u61 · to thank
 - `å takke nei` — u73 · to decline
 - `å takle` — u56 · to cope with
@@ -545,11 +562,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å tillate` — u72 · to allow
 - `å tilpasse` — u59 · to adapt
 - `å tine` — u43 · to thaw
+- `å titulere` — u109 · to address by title
 - `å tjene` — u24 · to earn
 - `å tolke` — u49 · to interpret
 - `å tømme` — u47 · to empty
 - `å tone ned` — u91 · to play down
 - `å tørke` — u30 · to wipe
+- `å tøye` — u111 · to stretch (a limit)
+- `å tre i kraft` — u110 · to come into force
 - `å trekke` — u77 · to pull
 - `å trene` — u21 · to exercise
 - `å trenge` — u13 · to need
@@ -561,6 +581,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å tvinge` — u70 · to force
 - `å tyde på` — u54 · to indicate
 - `å underholde` — u35 · to entertain
+- `å underrette` — u110 · to notify (formally)
 - `å undersøke` — u60 · to investigate
 - `å understreke` — u49 · to emphasise
 - `å undervise` — u24 · to teach
@@ -570,6 +591,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å utestenge` — u99 · to shut out (exclude)
 - `å utføre` — u56 · to perform (a task)
 - `å utgi` — u96 · to publish
+- `å utgjøre` — u111 · to constitute (amount to)
 - `å utløse` — u52 · to trigger
 - `å utnytte` — u97 · to exploit
 - `å utrydde` — u65 · to wipe out
@@ -577,6 +599,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å uttale` — u49 · to pronounce
 - `å utvikle` — u24 · to develop
 - `å være` — u1 · to be
+- `å være dus` — u109 · to be on first-name terms
 - `å våkne` — u17 · to wake up
 - `å vare` — u28 · to last
 - `å varme opp` — u80 · to heat up
@@ -587,6 +610,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å veie` — u97 · to weigh up
 - `å veksle` — u27 · to change (money)
 - `å velge` — u15 · to choose
+- `å velte` — u111 · to overturn
 - `å vende` — u45 · to turn (to face another way)
 - `å vente` — u17 · to wait
 - `å verne` — u65 · to safeguard
@@ -597,6 +621,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `å vite` — u12 · to know (a fact)
 - `å vokse` — u34 · to grow
 - `å vokse opp` — u63 · to grow up
+- `å vri` — u111 · to twist
 - `å vurdere` — u40 · to consider
 - `abstrakt` — u90 · abstract
 - `æ` — u1
@@ -608,20 +633,25 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `allerede` — u28 · already
 - `alltid` — u12 · always
 - `alt` — u14 · everything
+- `alt annet likt` — u106 · all else being equal
+- `alt i alt` — u108 · all in all
 - `altfor` — u37 · far too
 - `altså` — u29 · so
 - `alvorlig` — u52 · serious
+- `ambivalent` — u105 · ambivalent
 - `andre` — u14 · others (plural)
 - `angående` — u72 · regarding
 - `angivelig` — u54 · allegedly
 - `angst` — u67 · anxiety
 - `annen` — u14 · other (masculine/feminine)
 - `annet` — u14 · other (neuter)
+- `anspent` — u105 · tense (strained)
 - `antakelig` — u54 · presumably
 - `åpen` — u7 · open
 - `åpenbart` — u69 · obviously
 - `åpnes` — u70 · is opened
 - `arbeid` — u18 · work
+- `arrogant` — u113 · arrogant
 - `at` — u12 · that (conjunction)
 - `atskillig` — u91 · considerably
 - `åtte` — u5 · eight
@@ -630,6 +660,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `av` — u13 · of
 - `av og til` — u28 · sometimes
 - `avfall` — u65 · waste
+- `avslutningsvis` — u108 · in conclusion
 - `både` — u29 · both
 - `bærekraftig` — u65 · sustainable
 - `bagasje` — u23 · luggage
@@ -638,6 +669,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `bare` — u2 · only
 - `bedre` — u37 · better
 - `begge` — u77 · both (of two)
+- `behersket` — u113 · composed (self-controlled)
 - `beklageligvis` — u73 · regrettably
 - `bekymret` — u22 · worried
 - `bensin` — u81 · petrol
@@ -652,6 +684,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `blant` — u76 · among
 - `ble` — u14 · became
 - `bodde` — u38 · lived
+- `bokmål` — u109 · Bokmål (the majority written standard)
 - `bompenger` — u81 · road tolls
 - `bomull` — u42 · cotton
 - `bør` — u13 · should
@@ -665,6 +698,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `brukte` — u38 · used
 - `brun` — u8 · brown
 - `burde` — u37 · ought to
+- `burde ha` — u106 · ought to have (done)
 - `da` — u36 · when (past)
 - `dagpenger` — u78 · unemployment benefit
 - `dårlig` — u10 · bad
@@ -673,19 +707,23 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `deg` — u1 · you (object form)
 - `deilig` — u41 · delicious
 - `dekning` — u84 · signal (coverage)
+- `dels` — u107 · partly (dels ... dels)
 - `delvis` — u51 · partly
 - `dem` — u77 · them
 - `den` — u14 · that (masculine/feminine)
 - `den som` — u69 · the one who
 - `denne` — u14 · this (masculine/feminine)
 - `der` — u69 · where (relative)
+- `derav` — u107 · hence (from that)
 - `dere` — u12 · you (plural)
 - `deres` — u12 · their
 - `deretter` — u29 · then
 - `derfor` — u12 · therefore
 - `derimot` — u29 · on the other hand
 - `dermed` — u29 · thereby
+- `dernest` — u108 · next (thereafter)
 - `dersom` — u29 · if (more formal)
+- `dertil` — u107 · moreover (in addition)
 - `desember` — u9 · December
 - `dessuten` — u29 · besides
 - `dessverre` — u73 · unfortunately
@@ -706,6 +744,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `é` — u1
 - `effektiv` — u56 · efficient
 - `egen` — u14 · own (masculine/feminine)
+- `egenrådig` — u113 · high-handed (does as he likes)
 - `egentlig` — u40 · actually
 - `eget` — u14 · own (neuter)
 - `egne` — u14 · own (plural)
@@ -714,8 +753,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ei arbeidsdeling` — u100 · division of labour
 - `ei avdeling` — u24 · department
 - `ei avgift` — u66 · a fee
+- `ei avhandling` — u103 · thesis (dissertation)
 - `ei avis` — u32 · newspaper
 - `ei avreise` — u23 · outward journey
+- `ei avskoging` — u101 · deforestation
 - `ei avstemning` — u92 · ballot (vote taken)
 - `ei avveining` — u91 · trade-off (balancing)
 - `ei bålpanne` — u83 · fire bowl
@@ -723,9 +764,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ei befolkning` — u55 · population
 - `ei behandling` — u25 · treatment
 - `ei belastning` — u56 · burden
+- `ei bemanning` — u102 · staffing level
 - `ei beslutning` — u40 · decision
 - `ei bestemor` — u4 · grandmother
 - `ei betydning` — u40 · meaning
+- `ei bevilgning` — u102 · grant (of public money)
 - `ei bivirkning` — u67 · a side effect
 - `ei blanding` — u94 · mixture
 - `ei blødning` — u87 · bleeding
@@ -741,20 +784,27 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ei bukse` — u15 · trousers
 - `ei bygd` — u45 · village
 - `ei celle` — u94 · cell (biological)
+- `ei danning` — u103 · formation (Bildung)
+- `ei datainnsamling` — u103 · data collection
 - `ei datter` — u4 · daughter
 - `ei diskriminering` — u99 · discrimination
 - `ei dør` — u16 · door
+- `ei eksamensform` — u103 · form of examination
 - `ei elv` — u19 · river
 - `ei endring` — u50 · change
 - `ei erfaring` — u50 · experience
 - `ei erklæring` — u78 · declaration
+- `ei ernæring` — u102 · nutrition
 - `ei evne` — u58 · ability
+- `ei fagfellevurdering` — u103 · peer review
 - `ei fagforening` — u56 · trade union
 - `ei fartsgrense` — u81 · speed limit
 - `ei feilmelding` — u84 · error message
 - `ei feiring` — u86 · celebration
 - `ei ferje` — u20 · ferry
 - `ei fil` — u33 · file
+- `ei filterboble` — u104 · filter bubble
+- `ei finansiering` — u102 · funding (arrangement)
 - `ei fjær` — u26 · feather
 - `ei flamme` — u87 · flame
 - `ei flaske` — u47 · bottle
@@ -762,20 +812,25 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ei flue` — u26 · fly
 - `ei flytting` — u80 · move (relocation)
 - `ei folkegruppe` — u99 · ethnic group
+- `ei folkehelse` — u102 · public health
 - `ei folketro` — u95 · folk belief
+- `ei fordeling` — u112 · distribution
 - `ei forelesning` — u74 · a lecture
 - `ei forestilling` — u35 · show
 - `ei forklaring` — u71 · an explanation
+- `ei formulering` — u110 · turn of phrase (as chosen)
 - `ei forsikring` — u66 · an insurance
 - `ei fortelling` — u35 · tale
 - `ei fortid` — u28 · past
 - `ei forvaltning` — u92 · public administration
 - `ei forventning` — u71 · an expectation
+- `ei framferd` — u113 · conduct (how one behaves)
 - `ei framføring` — u96 · performance (rendition)
 - `ei framstilling` — u94 · production (manufacture)
 - `ei framtid` — u28 · future
 - `ei frukt` — u83 · fruit
 - `ei fullmakt` — u78 · power of attorney
+- `ei funksjonsevne` — u102 · functional capacity
 - `ei gate` — u7 · street
 - `ei gruppe` — u68 · a group
 - `ei gryte` — u16 · pot
@@ -783,7 +838,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ei hånd` — u11 · hand
 - `ei handling` — u64 · a plot
 - `ei helg` — u9 · weekend
+- `ei henvisning` — u102 · referral
 - `ei historie` — u35 · story
+- `ei høflighetsform` — u109 · polite form (of address)
 - `ei holdning` — u50 · attitude
 - `ei høring` — u92 · public consultation
 - `ei hule` — u26 · cave
@@ -799,24 +856,30 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ei integrering` — u99 · integration
 - `ei investering` — u66 · an investment
 - `ei jakke` — u15 · jacket
+- `ei jamstilling` — u109 · equal official status
 - `ei jul` — u9 · Christmas
 - `ei kake` — u6 · cake
+- `ei kartlegging` — u112 · survey (mapping)
 - `ei kasse` — u47 · crate
 - `ei kirke` — u7 · church
 - `ei klasse` — u85 · class (year group)
 - `ei klimaendring` — u65 · a climate change
 - `ei klo` — u26 · claw
 - `ei klokke` — u5 · clock
+- `ei kontrollgruppe` — u103 · control group
 - `ei kraft` — u34 · force
+- `ei kringkasting` — u104 · broadcasting
 - `ei krise` — u59 · crisis
 - `ei krisehåndtering` — u98 · crisis management
 - `ei krone` — u15 · krone
 - `ei ku` — u19 · cow
 - `ei kule` — u46 · ball (a sphere)
+- `ei kunngjøring` — u110 · public notice
 - `ei kvinne` — u4 · woman
 - `ei kvittering` — u27 · receipt
 - `ei lampe` — u16 · lamp
 - `ei legevakt` — u67 · an emergency clinic
+- `ei legning` — u113 · disposition (bent)
 - `ei lekse` — u18 · homework
 - `ei lenke` — u33 · link
 - `ei likebehandling` — u97 · equal treatment
@@ -826,6 +889,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ei lønn` — u18 · pay
 - `ei løsning` — u50 · solution
 - `ei lue` — u15 · woolly hat
+- `ei målform` — u109 · written standard (of Norwegian)
 - `ei mappe` — u75 · a folder
 - `ei markedsføring` — u93 · marketing
 - `ei maskinlæring` — u94 · machine learning
@@ -841,6 +905,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ei nese` — u11 · nose
 - `ei nettleie` — u80 · grid rent
 - `ei nettside` — u75 · a website
+- `ei nødhjelp` — u101 · emergency relief
 - `ei nyvinning` — u94 · innovation
 - `ei omkjøring` — u81 · diversion
 - `ei omsetning` — u93 · turnover (revenue)
@@ -865,13 +930,17 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ei plante` — u34 · plant
 - `ei pølse` — u6 · sausage
 - `ei postkasse` — u78 · postbox
+- `ei pressemelding` — u104 · press release
 - `ei prisstigning` — u66 · a price rise
+- `ei problemstilling` — u103 · research question
 - `ei purring` — u79 · payment reminder
 - `ei ramme` — u90 · frame (limit set)
 - `ei regjering` — u55 · government
 - `ei regning` — u27 · bill
+- `ei rehabilitering` — u102 · rehabilitation
 - `ei rekkefølge` — u56 · order
 - `ei retning` — u23 · direction
+- `ei rettskriving` — u109 · orthography (spelling norm)
 - `ei rettssak` — u92 · trial (court case)
 - `ei rolle` — u35 · role
 - `ei rot` — u34 · root
@@ -880,6 +949,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ei rute` — u23 · route
 - `ei sag` — u82 · a saw (tool)
 - `ei sak` — u50 · matter
+- `ei saksbehandling` — u110 · case processing
 - `ei samling` — u86 · gathering
 - `ei samtid` — u95 · the present age
 - `ei satsing` — u93 · drive (major push)
@@ -904,33 +974,42 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ei søppelbøtte` — u65 · an indoor bin
 - `ei søster` — u4 · sister
 - `ei spalte` — u48 · column
+- `ei spredning` — u112 · dispersion (variation)
 - `ei stemning` — u22 · mood
 - `ei stilling` — u24 · position
 - `ei stjerne` — u35 · star
 - `ei stråling` — u94 · radiation
 - `ei strand` — u19 · beach
 - `ei stripe` — u42 · stripe
+- `ei strømming` — u104 · streaming
 - `ei stue` — u16 · living room
 - `ei stund` — u28 · a while (a stretch of time)
 - `ei suppe` — u41 · soup
+- `ei svingning` — u112 · fluctuation
 - `ei tåke` — u43 · fog
 - `ei tang` — u82 · pliers
 - `ei tann` — u11 · tooth
 - `ei tavle` — u18 · board
 - `ei tegning` — u64 · a drawing
+- `ei tilbakemelding` — u103 · feedback
 - `ei tilnærming` — u90 · approach (way of tackling it)
+- `ei tilsløring` — u110 · obfuscation
+- `ei tiltaleform` — u109 · form of address
 - `ei tolkning` — u96 · interpretation (reading)
 - `ei trapp` — u16 · staircase
 - `ei trygd` — u78 · benefit (welfare)
 - `ei turhytte` — u83 · mountain hut
 - `ei uke` — u9 · week
 - `ei ulykke` — u50 · accident
+- `ei undring` — u105 · wonder (puzzlement)
 - `ei urbefolkning` — u99 · indigenous people
 - `ei utbetaling` — u79 · payout
 - `ei utdanning` — u24 · education
+- `ei utflating` — u112 · levelling off
 - `ei utfordring` — u60 · challenge
 - `ei utgift` — u66 · an expense
 - `ei utgraving` — u95 · excavation (archaeological dig)
+- `ei utredning` — u110 · official report (inquiry)
 - `ei utstilling` — u35 · exhibition
 - `ei utvandring` — u95 · emigration
 - `ei utveksling` — u85 · exchange (study abroad)
@@ -938,13 +1017,17 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ei varmepumpe` — u80 · heat pump
 - `ei vekselvirkning` — u90 · two-way effect
 - `ei vekt` — u47 · weight
+- `ei vektlegging` — u112 · emphasis (weighting)
+- `ei vending` — u104 · twist (turn)
 - `ei veske` — u15 · bag
+- `ei vinkling` — u104 · angle (editorial slant)
 - `ei vurdering` — u71 · an assessment
 - `ei ytring` — u55 · utterance
 - `eldre` — u37 · older
 - `eller` — u12 · or
 - `ellers` — u29 · otherwise
 - `én` — u5 · one
+- `en abonnent` — u104 · subscriber
 - `en adel` — u95 · nobility
 - `en advarsel` — u87 · warning
 - `en advokat` — u92 · lawyer (advocate)
@@ -970,6 +1053,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en artikkel` — u48 · article
 - `en arv` — u95 · legacy (inheritance)
 - `en avgang` — u23 · departure
+- `en avling` — u101 · crop (yield)
+- `en avsky` — u105 · disgust (revulsion)
 - `en avstand` — u22 · distance
 - `en avtale` — u17 · appointment
 - `en bachelor` — u85 · bachelor's degree
@@ -995,6 +1080,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en bil` — u7 · car
 - `en bilkø` — u81 · traffic jam
 - `en billett` — u20 · ticket
+- `en bistand` — u101 · development aid
+- `en bitterhet` — u105 · bitterness
 - `en bjørn` — u26 · bear
 - `en blomst` — u43 · flower
 - `en boks` — u47 · tin
@@ -1016,28 +1103,36 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en debatt` — u55 · debate
 - `en del` — u47 · part
 - `en depresjon` — u67 · a depression
+- `en desinformasjon` — u104 · disinformation
 - `en dessert` — u41 · dessert
 - `en diagnose` — u67 · a diagnosis
+- `en dialekt` — u109 · dialect
 - `en disk` — u27 · counter
+- `en dødelighet` — u102 · mortality (rate)
 - `en døgnrytme` — u67 · a sleep rhythm
+- `en doktorgrad` — u103 · doctorate
 - `en dommer` — u44 · referee
 - `en domstol` — u92 · court (institution)
 - `en driftssikkerhet` — u94 · reliability (in operation)
 - `en drøm` — u58 · dream
 - `en dugnad` — u86 · communal work day
 - `en effekt` — u52 · effect
+- `en egenandel` — u102 · patient contribution (co-payment)
 - `en egenskap` — u31 · quality
 - `en eksamen` — u24 · exam
 - `en elev` — u3 · pupil
 - `en elg` — u19 · moose
 - `en energikilde` — u94 · energy source
+- `en enhet` — u112 · unit (of measurement)
 - `en enighet` — u88 · consensus (agreement reached)
 - `en entré` — u30 · entrance hall
 - `en epidemi` — u67 · an epidemic
 - `en episode` — u48 · episode
 - `en epoke` — u95 · epoch
 - `en epost` — u33 · email
+- `en etat` — u110 · government agency
 - `en etterspørsel` — u66 · a demand
+- `en eventualitet` — u106 · eventuality (contingency)
 - `en fagkunnskap` — u100 · professional expertise
 - `en fagperson` — u100 · specialist (professional)
 - `en faktor` — u90 · factor
@@ -1049,7 +1144,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en fart` — u34 · speed
 - `en fartshump` — u81 · speed bump
 - `en fase` — u56 · phase
+- `en fastlege` — u102 · regular GP
+- `en fattigdom` — u101 · poverty
 - `en feil` — u50 · mistake
+- `en feilkilde` — u103 · source of error
+- `en ferdighet` — u103 · skill
 - `en ferie` — u9 · holiday
 - `en film` — u19 · film
 - `en firkant` — u46 · square (the shape)
@@ -1058,26 +1157,36 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en fjord` — u45 · fjord
 - `en flekk` — u82 · stain (spot)
 - `en flokk` — u26 · flock
+- `en flom` — u101 · flood
+- `en floskel` — u109 · empty phrase (platitude)
+- `en flyktning` — u101 · refugee
 - `en flyplass` — u20 · airport
 - `en følelse` — u22 · feeling
+- `en forakt` — u105 · contempt
 - `en forbryter` — u55 · criminal
 - `en fordel` — u40 · advantage
 - `en fordom` — u51 · prejudice
 - `en forfatter` — u48 · author
 - `en forholdsregel` — u98 · precaution
 - `en forkjølelse` — u25 · a cold (the illness)
+- `en forkortelse` — u109 · abbreviation
 - `en form` — u46 · shape
 - `en formel` — u94 · formula
 - `en forpliktelse` — u97 · obligation (undertaken)
 - `en forsker` — u34 · researcher
 - `en forskjell` — u50 · difference
+- `en forskningsetikk` — u103 · research ethics
+- `en forskrift` — u110 · regulation
 - `en fortjeneste` — u93 · margin (profit earned)
+- `en fortrolighet` — u109 · familiarity (closeness)
+- `en fortvilelse` — u105 · despair
 - `en fot` — u11 · foot
 - `en fotgjenger` — u81 · pedestrian
 - `en fotnote` — u89 · footnote
 - `en frakk` — u42 · coat
 - `en framgang` — u59 · progress
 - `en framgangsmåte` — u89 · procedure (way of going about it)
+- `en framvekst` — u112 · rise (emergence)
 - `en fred` — u95 · peace
 - `en fremmedfrykt` — u99 · xenophobia
 - `en frisør` — u18 · hairdresser
@@ -1092,6 +1201,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en generasjon` — u63 · a generation
 - `en genser` — u15 · jumper
 - `en gevinst` — u93 · gain (winnings)
+- `en gjentakelse` — u104 · repetition
 - `en gjest` — u20 · guest
 - `en grad` — u43 · degree
 - `en grense` — u22 · limit
@@ -1106,6 +1216,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en havn` — u23 · harbour
 - `en heis` — u80 · lift (elevator)
 - `en helhet` — u47 · a whole (the entirety)
+- `en helsekø` — u102 · health-service queue
 - `en helt` — u35 · hero
 - `en hendelse` — u55 · an incident
 - `en hensikt` — u50 · purpose
@@ -1113,6 +1224,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en hest` — u19 · horse
 - `en himmel` — u43 · sky
 - `en hobby` — u35 · hobby
+- `en høringsuttalelse` — u110 · consultation response
 - `en høst` — u9 · autumn
 - `en hovedperson` — u64 · a main character
 - `en hovedstad` — u45 · capital
@@ -1122,16 +1234,21 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en huseier` — u30 · landlord
 - `en husordensregel` — u80 · house rule
 - `en hypotese` — u94 · hypothesis
+- `en hyppighet` — u112 · frequency (how often)
 - `en idé` — u58 · idea
 - `en identitet` — u99 · identity
 - `en idrett` — u44 · sport
+- `en indikator` — u112 · indicator (proxy)
 - `en innbygger` — u32 · inhabitant
+- `en innleggelse` — u102 · admission (to hospital)
 - `en innsats` — u60 · effort
 - `en innsikt` — u58 · insight
 - `en innsjø` — u45 · inland lake
+- `en instans` — u110 · level of authority
 - `en integritet` — u97 · integrity
 - `en interesse` — u35 · interest
 - `en interessekonflikt` — u97 · conflict of interest
+- `en isbre` — u101 · glacier
 - `en jobb` — u77 · job
 - `en journalist` — u48 · journalist
 - `en julaften` — u86 · Christmas Eve
@@ -1150,16 +1267,20 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en kjeller` — u30 · basement
 - `en kjerne` — u58 · core
 - `en kjole` — u15 · dress
+- `en klageadgang` — u110 · right of appeal
 - `en klausul` — u93 · clause (contract term)
 - `en klimagass` — u65 · a greenhouse gas
+- `en klisjé` — u104 · cliché
 - `en klut` — u30 · cloth
 - `en knapp` — u15 · button
+- `en knapphet` — u112 · scarcity
 - `en kniv` — u6 · knife
 - `en kø` — u23 · queue
 - `en kode` — u84 · code (PIN)
 - `en koffert` — u20 · suitcase
 - `en kokk` — u18 · cook
 - `en kollega` — u18 · colleague
+- `en kommentator` — u104 · commentator
 - `en kommune` — u32 · municipality
 - `en kompetanse` — u56 · skill set
 - `en kompleksitet` — u90 · complexity
@@ -1175,6 +1296,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en kopp` — u6 · cup
 - `en kost` — u82 · brush
 - `en kostnad` — u66 · a cost
+- `en krenkelse` — u105 · violation (of somebody)
 - `en krig` — u95 · war
 - `en kritiker` — u64 · a critic
 - `en kritikk` — u96 · critique (public criticism)
@@ -1187,9 +1309,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en kur` — u25 · cure
 - `en kurv` — u27 · basket
 - `en kvalitet` — u56 · quality (standard)
+- `en kvote` — u101 · quota
 - `en kyst` — u45 · coast
 - `en lader` — u84 · charger
 - `en lærdom` — u63 · a lesson learned
+- `en læreplan` — u103 · curriculum
 - `en lærer` — u3 · teacher
 - `en lærling` — u85 · apprentice
 - `en landsdel` — u45 · region
@@ -1201,10 +1325,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en leietaker` — u80 · tenant
 - `en leilighet` — u16 · flat
 - `en lekkasje` — u80 · leak
+- `en lengsel` — u105 · longing
+- `en levealder` — u102 · life expectancy
 - `en leverandør` — u93 · supplier
 - `en leveranse` — u93 · delivery (consignment)
 - `en likhet` — u50 · similarity
 - `en liter` — u47 · litre
+- `en livskvalitet` — u102 · quality of life
 - `en livsstil` — u67 · a lifestyle
 - `en logikk` — u88 · logic
 - `en løk` — u41 · onion
@@ -1213,21 +1340,28 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en lyd` — u49 · sound
 - `en majoritet` — u99 · majority (group of people)
 - `en måler` — u80 · meter (gauge)
+- `en målestokk` — u112 · yardstick (scale)
 - `en måne` — u43 · moon
 - `en måned` — u9 · month
 - `en mangel` — u56 · shortcoming
 - `en mann` — u4 · man
 - `en måte` — u50 · way
+- `en matproduksjon` — u101 · food production
 - `en maur` — u26 · ant
 - `en medalje` — u44 · medal
 - `en medarbeider` — u100 · staff member (colleague)
 - `en medborger` — u99 · fellow citizen
+- `en medfølelse` — u105 · compassion
+- `en median` — u112 · median
 - `en medisin` — u25 · medicine
 - `en mekanisme` — u90 · mechanism
 - `en melodi` — u64 · a melody
 - `en mengde` — u47 · quantity
+- `en mentor` — u103 · mentor
 - `en meny` — u41 · menu
-- `en merkevare` — u93 · brand
+- `en merkevare` — u93 · brand (the name on the product)
+- `en merknad` — u110 · comment (on the record)
+- `en metafor` — u104 · metaphor
 - `en meter` — u47 · metre
 - `en metode` — u34 · method
 - `en middag` — u6 · dinner
@@ -1235,6 +1369,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en milepæl` — u63 · a milestone
 - `en minoritet` — u99 · minority (group of people)
 - `en modell` — u90 · model
+- `en modenhet` — u113 · maturity
 - `en moral` — u97 · morality
 - `en morgen` — u77 · morning
 - `en motor` — u81 · engine
@@ -1247,6 +1382,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en myte` — u58 · myth
 - `en nabo` — u16 · neighbour
 - `en nasjonaldag` — u86 · national day
+- `en nedgang` — u112 · decline
 - `en nettleser` — u75 · a browser
 - `en nøkkel` — u16 · key
 - `en norm` — u61 · norm
@@ -1255,32 +1391,38 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en nyhet` — u32 · news item
 - `en nyttårsaften` — u86 · New Year's Eve
 - `en økonomi` — u66 · an economy
+- `en ømhet` — u105 · tenderness
 - `en omtale` — u96 · coverage (mention in print)
 - `en omtanke` — u97 · care (thoughtfulness)
 - `en omvei` — u23 · detour
 - `en operasjon` — u25 · operation
 - `en oppdragsgiver` — u93 · commissioning client
 - `en oppfinnelse` — u94 · invention
+- `en oppfølger` — u104 · sequel
 - `en oppgave` — u18 · task
 - `en opposisjon` — u92 · opposition (political)
 - `en oppsigelse` — u80 · notice (termination)
 - `en oppvaskmaskin` — u30 · dishwasher
 - `en oppvekst` — u63 · an upbringing
+- `en ordlyd` — u110 · exact wording
 - `en ordre` — u61 · command
 - `en orm` — u26 · snake
 - `en ost` — u6 · cheese
 - `en øvelse` — u44 · event
 - `en overgang` — u59 · transition
+- `en oversikt` — u112 · overview
 - `en overvekt` — u91 · preponderance (majority weight)
 - `en ovn` — u16 · oven
 - `en pant` — u27 · deposit
 - `en paragraf` — u92 · section (of a statute)
 - `en parallell` — u96 · parallel (comparison)
 - `en paraply` — u43 · umbrella
+- `en pårørende` — u102 · next of kin
 - `en pasient` — u25 · patient
 - `en passasjer` — u23 · passenger
 - `en påstand` — u71 · a claim
 - `en pause` — u21 · break
+- `en pedagogikk` — u103 · pedagogy
 - `en pels` — u26 · fur
 - `en penn` — u18 · pen
 - `en periode` — u28 · period
@@ -1300,6 +1442,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en rabatt` — u23 · discount
 - `en radio` — u48 · radio
 - `en rasisme` — u99 · racism
+- `en redaksjon` — u104 · editorial team
 - `en redaktør` — u48 · editor
 - `en referanse` — u89 · reference (pointer to a source)
 - `en regel` — u32 · rule
@@ -1308,11 +1451,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en rekord` — u44 · record
 - `en rektor` — u85 · head teacher
 - `en rente` — u27 · interest (on money)
+- `en replikasjon` — u103 · replication
 - `en resept` — u25 · prescription
 - `en ressurs` — u65 · a resource
 - `en rest` — u47 · rest
 - `en retorikk` — u88 · rhetoric
 - `en rett` — u32 · right (an entitlement)
+- `en rettelse` — u104 · correction (printed)
 - `en rettighet` — u55 · a right (entitlement)
 - `en rettssal` — u92 · courtroom
 - `en rettssikkerhet` — u92 · due process
@@ -1343,6 +1488,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en seier` — u44 · victory
 - `en sekk` — u18 · backpack
 - `en selger` — u18 · salesperson
+- `en selvinnsikt` — u113 · self-awareness
 - `en selvstendighet` — u95 · independence
 - `en sensor` — u94 · sensor
 - `en serie` — u64 · a series
@@ -1356,12 +1502,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en sjef` — u18 · boss
 - `en sjø` — u1 · lake
 - `en skade` — u25 · injury
+- `en skam` — u105 · shame
 - `en skatt` — u32 · tax
 - `en ski` — u19 · ski
 - `en skikk` — u50 · custom
 - `en skitur` — u83 · ski trip
 - `en skjebne` — u58 · fate
 - `en skjerm` — u33 · screen
+- `en skjevhet` — u112 · skew (bias)
 - `en sko` — u15 · shoe
 - `en skog` — u19 · forest
 - `en skole` — u7 · school
@@ -1372,9 +1520,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en skuff` — u30 · drawer
 - `en skurk` — u64 · a villain
 - `en slags` — u77 · a kind of
+- `en slang` — u109 · slang
+- `en slitasje` — u102 · wear and tear
 - `en smerte` — u25 · pain
 - `en snekker` — u18 · carpenter
 - `en søknad` — u24 · application
+- `en søknadsfrist` — u110 · application deadline
 - `en solidaritet` — u99 · solidarity
 - `en sommer` — u9 · summer
 - `en sønn` — u4 · son
@@ -1382,6 +1533,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en søppelkasse` — u30 · rubbish bin
 - `en sovepose` — u83 · sleeping bag
 - `en sparekonto` — u79 · savings account
+- `en spesialist` — u102 · specialist (consultant)
 - `en spiker` — u82 · nail
 - `en splittelse` — u99 · rift (split)
 - `en stat` — u32 · state
@@ -1392,9 +1544,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en stikkprøve` — u89 · spot check
 - `en stil` — u96 · style (manner)
 - `en stillingsannonse` — u100 · job advert
+- `en stivhet` — u110 · stiffness (of style)
 - `en stol` — u16 · chair
 - `en storm` — u43 · storm
 - `en størrelse` — u15 · size
+- `en størrelsesorden` — u112 · order of magnitude
 - `en støvel` — u42 · boot
 - `en støvsuger` — u30 · vacuum cleaner
 - `en straff` — u55 · punishment
@@ -1406,6 +1560,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en svindel` — u75 · a fraud
 - `en sykdom` — u67 · a disease
 - `en sykkel` — u44 · bicycle
+- `en synsvinkel` — u104 · point of view
 - `en tabbe` — u60 · blunder
 - `en tabell` — u89 · table (of figures)
 - `en tale` — u49 · speech
@@ -1433,6 +1588,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en topp` — u45 · summit
 - `en topptur` — u83 · summit trip
 - `en tradisjon` — u63 · a tradition
+- `en trass` — u105 · defiance
+- `en trend` — u112 · trend
 - `en trussel` — u52 · threat
 - `en trygghet` — u87 · sense of safety
 - `en tur` — u19 · walk
@@ -1444,9 +1601,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en unge` — u85 · kid
 - `en urett` — u97 · wrong (injustice)
 - `en usikkerhet` — u98 · uncertainty
+- `en utholdenhet` — u113 · endurance (staying power)
 - `en utleier` — u80 · a landlord (who lets)
 - `en utsikt` — u62 · prospect
 - `en utvei` — u60 · way out
+- `en uvilje` — u105 · reluctance (ill will)
 - `en uvisshet` — u98 · suspense (not knowing)
 - `en vaksine` — u67 · a vaccine
 - `en vakt` — u87 · guard (shift)
@@ -1462,6 +1621,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en venn` — u2 · friend
 - `en verden` — u45 · world
 - `en verdi` — u34 · value
+- `en verdighet` — u102 · dignity
+- `en villmark` — u101 · wilderness
 - `en vind` — u8 · wind
 - `en vinge` — u26 · wing
 - `en vinter` — u9 · winter
@@ -1469,18 +1630,22 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `en virksomhet` — u93 · operation (business activity)
 - `en vitenskap` — u34 · science
 - `en vits` — u64 · a joke
+- `en vri` — u104 · twist (angle you give something)
+- `en ytterlighet` — u112 · extreme
 - `enda` — u29 · even
 - `endelig` — u28 · finally
 - `energi` — u34 · energy
 - `enestående` — u53 · one of a kind
 - `enig` — u51 · in agreement
 - `enn` — u10 · than
+- `enn om` — u106 · than if
 - `ennå` — u28 · yet
 - `ensom` — u22 · lonely
 - `enten` — u29 · either
 - `erfaren` — u63 · experienced
 - `estetisk` — u96 · aesthetic
 - `et abonnement` — u79 · subscription
+- `et akuttmottak` — u102 · emergency department
 - `et anbud` — u93 · tender (bid)
 - `et anrop` — u84 · call (incoming)
 - `et ansikt` — u11 · face
@@ -1519,23 +1684,30 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et brød` — u6 · bread
 - `et bryllup` — u68 · a wedding
 - `et budsjett` — u27 · budget
+- `et bygdemål` — u109 · rural dialect
+- `et byråkratspråk` — u110 · officialese
 - `et datagrunnlag` — u89 · data basis
 - `et dekk` — u81 · tyre
 - `et depositum` — u79 · deposit (rental)
+- `et dialektord` — u109 · dialect word
 - `et dikt` — u35 · poem
 - `et dilemma` — u97 · dilemma
 - `et døgn` — u28 · 24 hours
 - `et dyr` — u19 · animal
 - `et egg` — u26 · egg
+- `et ekkokammer` — u104 · echo chamber
 - `et eksempel` — u32 · example
-- `et eksperiment` — u94 · experiment
+- `et eksperiment` — u94 · experiment (scientific)
+- `et ekstremvær` — u101 · extreme weather event
 - `et emne` — u24 · subject (a topic)
 - `et eple` — u6 · apple
+- `et estimat` — u112 · estimate
 - `et eventyr` — u35 · fairy tale
 - `et fag` — u18 · subject
 - `et fagfelt` — u74 · a field
 - `et fagforbund` — u100 · trade union federation
 - `et faktum` — u58 · fact
+- `et fakultet` — u103 · faculty (university division)
 - `et fellesareal` — u80 · shared area
 - `et fellesskap` — u68 · a community
 - `et fjell` — u19 · mountain
@@ -1549,10 +1721,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et førerkort` — u81 · driving licence
 - `et forfall` — u79 · due date
 - `et forhold` — u22 · relationship
+- `et forløp` — u104 · course of events
 - `et formål` — u52 · an aim (purpose)
 - `et formspråk` — u96 · visual idiom
+- `et forskningsdesign` — u103 · study design
 - `et forslag` — u40 · suggestion
 - `et forsøk` — u34 · experiment
+- `et frafall` — u103 · drop-out rate
 - `et framskritt` — u94 · advance (step forward)
 - `et friminutt` — u85 · break (recess)
 - `et funn` — u74 · a finding
@@ -1564,10 +1739,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et glass` — u6 · glass
 - `et gram` — u47 · gram
 - `et gulv` — u16 · floor
+- `et habitat` — u101 · habitat
 - `et håndkle` — u16 · towel
 - `et hav` — u45 · sea
+- `et havnivå` — u101 · sea level
 - `et hell` — u50 · luck
+- `et helsevesen` — u102 · health service (system)
 - `et hensyn` — u61 · consideration
+- `et hjelpemiddel` — u102 · assistive device
 - `et hjem` — u4 · home
 - `et hjerte` — u25 · heart
 - `et hjørne` — u45 · corner
@@ -1580,8 +1759,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et innslag` — u48 · feature
 - `et inntrykk` — u50 · impression
 - `et insekt` — u26 · insect
+- `et institutt` — u103 · department (academic)
 - `et instrument` — u64 · an instrument
 - `et intervju` — u48 · interview
+- `et jordsmonn` — u101 · soil (as a layer)
 - `et jubileum` — u86 · anniversary
 - `et julebord` — u86 · office Christmas party
 - `et juletre` — u86 · Christmas tree
@@ -1590,6 +1771,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et kjøkken` — u1 · kitchen
 - `et kjøleskap` — u30 · fridge
 - `et kjøretøy` — u81 · vehicle
+- `et klikkagn` — u104 · clickbait
 - `et klima` — u43 · climate
 - `et kompass` — u83 · compass
 - `et kompromiss` — u68 · a compromise
@@ -1608,6 +1790,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et laboratorium` — u94 · laboratory
 - `et lån` — u66 · a loan
 - `et land` — u3 · country
+- `et landbruk` — u101 · agriculture
+- `et lånord` — u109 · loanword
 - `et ledd` — u90 · link (element in a chain)
 - `et liv` — u34 · life
 - `et loft` — u80 · attic
@@ -1617,6 +1801,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et mål` — u44 · goal
 - `et maleri` — u35 · painting
 - `et malingsspann` — u82 · paint tin
+- `et måltall` — u112 · target figure
 - `et mandat` — u92 · seat (parliamentary mandate)
 - `et mangfold` — u99 · diversity
 - `et manus` — u64 · a script
@@ -1635,6 +1820,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et mønster` — u42 · pattern
 - `et motargument` — u88 · counter-argument
 - `et motiv` — u96 · motif (subject depicted)
+- `et narrativ` — u104 · narrative (framing story)
+- `et naturinngrep` — u101 · intervention in nature
 - `et navn` — u3 · name
 - `et nett` — u33 · internet
 - `et nettverk` — u75 · a network
@@ -1642,16 +1829,22 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et nødnummer` — u87 · emergency number
 - `et notat` — u74 · a written note
 - `et nummer` — u33 · number (of a phone or house)
+- `et økosystem` — u101 · ecosystem
+- `et omfang` — u112 · extent (scale)
 - `et område` — u45 · area
+- `et omslag` — u112 · turnaround (reversal)
 - `et oppdrag` — u93 · commission (assignment)
 - `et opphav` — u95 · origin
 - `et opphavsland` — u99 · country of origin
 - `et opphold` — u23 · stay
+- `et opplag` — u104 · circulation (print run)
 - `et opplegg` — u62 · arrangement
 - `et oppslag` — u55 · a notice (posting)
 - `et opptak` — u48 · recording
 - `et ord` — u18 · word
 - `et øre` — u11 · ear
+- `et organ` — u110 · public body
+- `et overforbruk` — u101 · overconsumption
 - `et overgrep` — u97 · abuse (violation)
 - `et overskudd` — u66 · a surplus
 - `et øye` — u11 · eye
@@ -1666,6 +1859,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et personnummer` — u78 · national ID number
 - `et perspektiv` — u90 · perspective (viewpoint)
 - `et piggdekk` — u81 · studded tyre
+- `et plagiat` — u103 · plagiarism
+- `et plott` — u104 · plot
 - `et poeng` — u44 · point
 - `et premiss` — u88 · premise
 - `et press` — u56 · pressure
@@ -1676,12 +1871,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et publikum` — u44 · audience
 - `et råd` — u60 · advice
 - `et rammeverk` — u90 · framework (formal)
+- `et regelverk` — u110 · body of rules
 - `et reir` — u26 · nest
 - `et reisemål` — u23 · destination
 - `et resonnement` — u88 · line of reasoning
 - `et resultat` — u24 · result
 - `et rike` — u95 · realm (kingdom)
 - `et rom` — u4 · room
+- `et rovdyr` — u101 · predator
+- `et rundskriv` — u110 · circular (official letter)
 - `et rykte` — u49 · rumour
 - `et sagn` — u95 · folk legend
 - `et samfunn` — u32 · society
@@ -1691,12 +1889,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et samspill` — u90 · interplay
 - `et samtykke` — u75 · a consent
 - `et sår` — u25 · wound
+- `et savn` — u105 · sense of missing something
 - `et scenario` — u98 · scenario
 - `et sekund` — u28 · second
 - `et selskap` — u86 · party (gathering)
+- `et selvbilde` — u113 · self-image
 - `et semester` — u85 · term (semester)
 - `et seminar` — u74 · a seminar
 - `et sete` — u23 · seat
+- `et sidemål` — u109 · second written standard (at school)
 - `et sitat` — u48 · quotation
 - `et skap` — u15 · cupboard
 - `et skilt` — u81 · a road sign
@@ -1706,8 +1907,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et skjerf` — u15 · scarf
 - `et skjørt` — u42 · skirt
 - `et skoleår` — u85 · school year
+- `et skred` — u101 · landslide (or avalanche)
 - `et slips` — u42 · tie
 - `et slukkeapparat` — u87 · fire extinguisher
+- `et smittevern` — u102 · infection control
 - `et smykke` — u42 · jewellery
 - `et snøskred` — u83 · avalanche
 - `et speil` — u16 · mirror
@@ -1718,9 +1921,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et statsborgerskap` — u99 · citizenship
 - `et sted` — u7 · place
 - `et steg` — u56 · step
+- `et stipend` — u103 · grant (scholarship)
 - `et stoff` — u42 · fabric
 - `et strømbrudd` — u80 · power cut
 - `et studielån` — u85 · student loan
+- `et studiepoeng` — u103 · credit (study point)
 - `et studium` — u74 · a degree programme
 - `et stykke` — u47 · piece
 - `et styremøte` — u100 · board meeting
@@ -1732,20 +1937,25 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et symptom` — u67 · a symptom
 - `et system` — u75 · a system
 - `et tak` — u30 · ceiling
+- `et talemål` — u109 · spoken language
 - `et tall` — u5 · number
 - `et tap` — u93 · loss (financial)
 - `et tastatur` — u33 · keyboard
 - `et teater` — u35 · theatre
 - `et tegn` — u33 · sign
 - `et telt` — u20 · tent
+- `et temperament` — u113 · temperament
 - `et teppe` — u16 · rug
 - `et tidspunkt` — u28 · point in time
 - `et tilbakeblikk` — u63 · a look back
 - `et tilbud` — u32 · offer
 - `et tilfelle` — u50 · case
 - `et tog` — u7 · train
+- `et tonefall` — u109 · intonation
+- `et toppmøte` — u101 · summit (meeting)
 - `et torg` — u7 · square
 - `et tre` — u19 · tree
+- `et tyngdepunkt` — u112 · centre of gravity
 - `et uhell` — u60 · mishap
 - `et underskudd` — u66 · a deficit
 - `et universitet` — u24 · university
@@ -1764,11 +1974,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `et vedlegg` — u75 · an attachment
 - `et vedtak` — u78 · decision (official)
 - `et veiarbeid` — u81 · roadworks
+- `et vemod` — u105 · wistfulness (gentle sadness)
 - `et vendepunkt` — u63 · a turning point
 - `et vennskap` — u68 · a friendship
 - `et verksted` — u81 · garage (workshop)
 - `et verktøy` — u75 · a tool
 - `et verv` — u100 · office (position of trust)
+- `et vesen` — u113 · manner (nature)
 - `et vilkår` — u58 · a term (condition)
 - `et vindu` — u16 · window
 - `et virkemiddel` — u96 · device (artistic means)
@@ -1783,6 +1995,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `etter hvert` — u53 · gradually
 - `etterpå` — u21 · afterwards
 - `ettersom` — u36 · as
+- `ettertenksom` — u113 · reflective (thoughtful)
 - `eventuelt` — u54 · possibly
 - `evig` — u59 · eternal
 - `færre` — u53 · fewer
@@ -1803,12 +2016,17 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `flau` — u22 · embarrassed
 - `flest` — u37 · most (in number)
 - `flink` — u31 · good at
+- `følgelig` — u107 · consequently
 - `folk` — u77 · people
+- `folkelig` — u109 · down-to-earth (popular in tone)
 - `før` — u13 · before
 - `for å` — u36 · in order to
 - `for at` — u36 · so that (on purpose)
+- `for det andre` — u108 · secondly
+- `for det første` — u108 · firstly
 - `for eksempel` — u29 · for example
 - `for øvrig` — u69 · incidentally
+- `for så vidt` — u108 · in a way (as far as that goes)
 - `foran` — u76 · in front of
 - `forbi` — u76 · past (by)
 - `forbruk` — u65 · consumption
@@ -1816,8 +2034,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `fordi` — u12 · because
 - `føre` — u83 · going (conditions underfoot)
 - `foreldre` — u85 · parents
+- `foreliggende` — u107 · present (the one before us)
 - `forelsket` — u57 · in love
 - `forholdsvis` — u73 · comparatively
+- `forlegen` — u105 · embarrassed (ill at ease)
 - `formell` — u72 · formal
 - `fornøyd` — u57 · satisfied
 - `fornuft` — u58 · good sense
@@ -1828,11 +2048,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `først` — u29 · first
 - `først og fremst` — u69 · first and foremost
 - `førstehjelp` — u87 · first aid
+- `førstnevnte` — u107 · the former
 - `forsto` — u38 · understood
 - `fort` — u28 · quickly
 - `fortrolig` — u68 · in confidence
 - `fortsatt` — u28 · still
 - `forurensning` — u65 · pollution
+- `foruten` — u107 · apart from (in writing)
+- `forutsatt at` — u106 · provided that (as a stated condition)
 - `fra` — u3 · from
 - `framover` — u45 · forwards
 - `fredag` — u9 · Friday
@@ -1846,7 +2069,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `gammeldags` — u59 · old-fashioned
 - `ganske` — u37 · quite
 - `gikk` — u14 · went
+- `gitt at` — u106 · given that
 - `gjeld` — u79 · debt
+- `gjeldende` — u107 · applicable (in force)
 - `gjennom` — u76 · through
 - `gjensidig` — u90 · mutual (both ways)
 - `gjenvinning` — u65 · recycling
@@ -1856,9 +2081,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `glad` — u17 · happy
 - `glatt` — u46 · slippery
 - `glemt` — u70 · forgotten
+- `global` — u101 · worldwide (in scope)
 - `god` — u1 · good
 - `god kveld` — u2 · good evening
 - `god morgen` — u2 · good morning
+- `godtroende` — u113 · gullible
 - `grå` — u8 · grey
 - `gratis` — u27 · free (costing nothing)
 - `grei` — u31 · easy-going
@@ -1866,12 +2093,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `gress` — u26 · grass
 - `gripende` — u96 · gripping (moving)
 - `grønn` — u8 · green
+- `grovt sagt` — u108 · roughly speaking
 - `grundig` — u56 · thorough
 - `gul` — u8 · yellow
 - `gummi` — u46 · rubber
 - `gyldig` — u61 · valid
 - `ha det` — u2 · bye
 - `hadde` — u14 · had
+- `hadde det ikke vært for` — u106 · if it had not been for
 - `halv` — u5 · half
 - `halvparten` — u53 · half of it
 - `ham` — u12 · him
@@ -1898,10 +2127,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `helse` — u11 · health
 - `helst` — u73 · preferably
 - `helt til` — u69 · right up until
+- `henholdsvis` — u107 · respectively
 - `henne` — u12 · her (object form)
 - `hennes` — u4 · her
-- `hensynsfull` — u97 · considerate
+- `henrykt` — u105 · delighted (carried away)
+- `hensynsfull` — u97 · considerate (of other people)
+- `hensynsløs` — u113 · ruthless (inconsiderate)
 - `her` — u3 · here
+- `herved` — u107 · hereby
 - `heter` — u3 · is called
 - `hjemme` — u76 · at home
 - `høflig` — u31 · polite
@@ -1911,6 +2144,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `hos` — u76 · at (someone's place)
 - `høy` — u10 · tall
 - `høyre` — u7 · right
+- `høytidelig` — u109 · solemn (ceremonious)
 - `hul` — u46 · hollow
 - `humor` — u64 · humour
 - `humør` — u57 · mood (not humour)
@@ -1927,32 +2161,49 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `hvis ikke` — u36 · if not
 - `hvit` — u8 · white
 - `hvor` — u1 · where
+- `hvorav` — u107 · of which
 - `hvordan` — u2 · how
 - `hvorfor` — u12 · why
+- `hvorpå` — u107 · whereupon
 - `hvorvidt` — u69 · whether
 - `hyggelig` — u1 · nice
 - `hygiene` — u67 · hygiene
+- `hypotetisk` — u106 · hypothetical
 - `i` — u3 · in
+- `i beste fall` — u106 · at best
 - `i dag` — u9 · today
+- `i den grad` — u108 · to the extent that
+- `i forbindelse med` — u108 · in connection with
 - `i forhold til` — u53 · compared to
 - `i går` — u14 · yesterday
+- `i henhold til` — u107 · in accordance with
 - `i hovedsak` — u91 · in the main
 - `i hvert fall` — u37 · at any rate
 - `i kveld` — u9 · tonight
 - `i morgen` — u9 · tomorrow
+- `i motsatt fall` — u106 · otherwise (if not)
+- `i motsetning til` — u108 · in contrast to
+- `i og for seg` — u108 · in itself
 - `i overkant` — u91 · on the high side
+- `i praksis` — u108 · in practice
 - `i prinsippet` — u73 · in principle
 - `i så fall` — u52 · in that case
+- `i samsvar med` — u107 · consistent with
 - `i stedet for` — u36 · instead of
+- `i strid med` — u107 · in breach of
+- `i teorien` — u106 · in theory
 - `i tilfelle` — u36 · in case
 - `i tillegg` — u29 · in addition
 - `i tillegg til` — u76 · in addition to
 - `i utgangspunktet` — u73 · to begin with
+- `i verste fall` — u106 · at worst
 - `idet` — u69 · just as
 - `ifølge` — u70 · according to
 - `igjen` — u2 · again
 - `ikke` — u2 · not
+- `ikke minst` — u108 · not least
 - `imidlertid` — u29 · however
+- `impulsiv` — u113 · impulsive
 - `inflasjon` — u66 · inflation
 - `ingen` — u10 · nobody
 - `ingenting` — u10 · nothing
@@ -1993,6 +2244,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `konkret` — u58 · concrete (specific)
 - `kontant` — u27 · cash
 - `kort` — u10 · short
+- `kort sagt` — u108 · in short
 - `koselig` — u86 · cosy (pleasant)
 - `kostbar` — u66 · costly
 - `kreves` — u70 · is required
@@ -2000,6 +2252,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `kuling` — u83 · strong wind (gale)
 - `kult` — u72 · cool (slang)
 - `kunne` — u37 · could
+- `kunne ha` — u106 · could have (done)
 - `kunnskap` — u24 · knowledge
 - `kunstig` — u75 · artificial
 - `lå` — u38 · lay
@@ -2028,6 +2281,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `lørdag` — u9 · Saturday
 - `lovlig` — u92 · lawful
 - `luft` — u34 · air
+- `lunefull` — u113 · moody (unpredictable)
 - `lur` — u79 · smart (sensible)
 - `lykkelig` — u57 · deeply happy
 - `lys` — u8 · light
@@ -2045,6 +2299,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `med` — u13 · with
 - `med andre ord` — u69 · in other words
 - `med det samme` — u69 · the moment that
+- `med hensyn til` — u107 · with regard to
 - `med mindre` — u29 · unless
 - `meg` — u1 · me
 - `melk` — u6 · milk
@@ -2072,6 +2327,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `mosjon` — u67 · gentle exercise
 - `mot` — u76 · towards
 - `motsatt` — u53 · opposite
+- `motvillig` — u105 · reluctant
 - `mulig` — u40 · possible
 - `munter` — u57 · cheerful
 - `musikk` — u19 · music
@@ -2079,11 +2335,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `myk` — u46 · soft
 - `nå` — u5 · now
 - `nær` — u7 · near
+- `nærmere bestemt` — u108 · more precisely
 - `nærmest` — u91 · practically (all but)
 - `når` — u5 · when
+- `når alt kommer til alt` — u108 · when all is said and done
+- `når det gjelder` — u108 · as for (when it comes to)
 - `natur` — u34 · nature
 - `ned` — u13 · down
 - `nede` — u76 · down (being down)
+- `nedstemt` — u105 · downcast
 - `nei` — u2 · no
 - `nemlig` — u29 · you see
 - `neppe` — u54 · hardly
@@ -2100,10 +2360,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `noenlunde` — u54 · more or less
 - `nok` — u10 · enough
 - `nokså` — u73 · somewhat
+- `nøktern` — u113 · level-headed (sober)
 - `nord` — u45 · north
 - `norsk` — u1 · Norwegian
 - `nostalgisk` — u63 · nostalgic
 - `ny` — u10 · new
+- `nynorsk` — u109 · Nynorsk (the minority written standard)
 - `nysgjerrig` — u31 · curious
 - `ø` — u1
 - `ødelagt` — u70 · destroyed
@@ -2111,6 +2373,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `og` — u1 · and
 - `også` — u12 · also
 - `om` — u28 · in (after a period)
+- `om mulig` — u106 · if possible
+- `om nødvendig` — u106 · if necessary
+- `omgjengelig` — u113 · easy to get on with
 - `omsider` — u77 · finally (at last)
 - `omsorg` — u68 · care for someone
 - `omtenksom` — u31 · considerate
@@ -2123,11 +2388,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `oppmerksom` — u58 · attentive
 - `oppover` — u76 · upwards
 - `opprinnelig` — u59 · originally
+- `oppstemt` — u105 · elated (lifted)
 - `orden` — u61 · tidiness
 - `ordentlig` — u72 · proper
 - `original` — u96 · original (not derivative)
 - `oss` — u12 · us
 - `øst` — u45 · east
+- `ovennevnte` — u107 · aforementioned
 - `over` — u13 · over
 - `overbevisende` — u88 · convincing
 - `overdreven` — u91 · exaggerated
@@ -2137,32 +2404,44 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `overrasket` — u22 · surprised
 - `overveiende` — u91 · predominantly
 - `på` — u7 · on
+- `på bakgrunn av` — u107 · on the basis of
+- `på betingelse av` — u106 · on condition of
 - `på den annen side` — u69 · seen from the other side
+- `på den ene siden` — u108 · on the one hand
 - `på en måte` — u73 · in a way
 - `på forhånd` — u62 · in advance
 - `på grunn av` — u36 · because of
+- `på sett og vis` — u108 · in a manner of speaking
 - `på sikt` — u62 · in the long run
+- `på vegne av` — u107 · on behalf of
 - `påfallende` — u91 · conspicuous (striking)
 - `pålitelig` — u54 · reliable
+- `påståelig` — u113 · insistent (won't be told)
 - `påvirkning` — u63 · influence
 - `penger` — u7 · money
 - `personvern` — u75 · data protection
 - `planlegger å` — u39 · am planning to
 - `plast` — u46 · plastic
+- `pliktoppfyllende` — u113 · dutiful
 - `plutselig` — u28 · suddenly
 - `politiet` — u61 · the police
+- `potensielt` — u106 · potentially
 - `praktisk` — u60 · practical
 - `prikkete` — u42 · spotted
+- `prinsippfast` — u113 · principled (unbending)
 - `psykisk` — u67 · mental
+- `rådvill` — u105 · at a loss (not knowing what to do)
 - `rasende` — u57 · furious
 - `rask` — u10 · fast
 - `rastløs` — u57 · restless
+- `raus` — u113 · generous (big-hearted)
 - `redd` — u17 · afraid
 - `reiste` — u38 · travelled
 - `relativt` — u73 · relatively
 - `ren` — u10 · clean
 - `representativ` — u89 · representative (of the whole)
 - `respekt` — u73 · respect
+- `respektive` — u107 · respective
 - `rettferdig` — u55 · fair
 - `rik` — u55 · rich
 - `riktig` — u51 · correct
@@ -2176,6 +2455,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `rundt` — u45 · around
 - `russen` — u86 · graduating student (russ)
 - `så` — u14 · saw
+- `så fremt` — u106 · as long as (provided)
 - `så lenge` — u36 · as long as (in time)
 - `så sant` — u36 · provided that
 - `så snart` — u36 · as soon as
@@ -2192,6 +2472,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `sammensatt` — u90 · composite (of several parts)
 - `samt` — u29 · as well as
 - `samtidig` — u21 · at the same time
+- `samtidig som` — u108 · while (at the same time as)
+- `samtlige` — u107 · all (every single one)
+- `samvittighetsfull` — u113 · conscientious
 - `sandpapir` — u82 · sandpaper
 - `sann` — u51 · true
 - `sånn` — u77 · like that (that way)
@@ -2205,11 +2488,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `selges` — u70 · is sold
 - `selv` — u77 · myself (oneself)
 - `selv om` — u29 · even though
+- `selvhøytidelig` — u113 · self-important
 - `selvtillit` — u67 · self-confidence
 - `sendt` — u70 · sent
 - `sent` — u5 · late
 - `sentrum` — u81 · town centre
 - `ser` — u39 · see
+- `sett bort fra` — u106 · leaving aside
 - `siden` — u29 · since
 - `sier` — u39 · say
 - `sikker` — u22 · sure
@@ -2218,6 +2503,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `silke` — u42 · silk
 - `sin` — u30 · his own
 - `sint` — u17 · angry
+- `sistnevnte` — u107 · the latter
 - `sj` — u1
 - `sjalu` — u22 · jealous
 - `sjelden` — u12 · seldom
@@ -2234,6 +2520,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `skuffende` — u64 · disappointing
 - `skuffet` — u22 · disappointed
 - `skulle` — u37 · should have
+- `skulle ha` — u106 · was meant to have (done)
 - `skyldig` — u92 · guilty
 - `slank` — u42 · slim
 - `slem` — u31 · mean
@@ -2272,6 +2559,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `straks` — u21 · right away
 - `stram` — u79 · tight (financially)
 - `streng` — u31 · strict
+- `strengt tatt` — u108 · strictly speaking
 - `stress` — u67 · mental pressure
 - `stresset` — u57 · stressed
 - `strøm` — u65 · electricity
@@ -2285,18 +2573,22 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `svart` — u8 · black
 - `syk` — u11 · ill
 - `synlig` — u71 · visible
+- `tafatt` — u105 · helpless (at a loss to act)
 - `takk` — u2 · thank you
 - `takket være` — u36 · thanks to
 - `takknemlig` — u57 · grateful
 - `tålmodig` — u62 · patient (not hurrying)
 - `temmelig` — u53 · fairly
 - `tendensiøs` — u89 · slanted (tendentious)
+- `tenk om` — u106 · imagine if
 - `tenker å` — u39 · am thinking of
 - `ti` — u5 · ten
 - `tid` — u28 · time
 - `tidlig` — u5 · early
 - `til` — u7 · to
+- `til gjengjeld` — u108 · in return (on the plus side)
 - `til slutt` — u29 · in the end
+- `til syvende og sist` — u108 · at the end of the day
 - `til tross for` — u36 · despite
 - `tilbake` — u13 · back
 - `tilfeldig` — u52 · random
@@ -2318,6 +2610,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `trist` — u17 · sad
 - `trodde` — u38 · thought
 - `trolig` — u69 · likely
+- `tross alt` — u108 · after all
 - `trøtt` — u11 · tired
 - `troverdig` — u89 · credible
 - `trygg` — u57 · safe
@@ -2339,6 +2632,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ulovlig` — u92 · unlawful
 - `umulig` — u58 · impossible
 - `under` — u13 · under
+- `under forutsetning av` — u106 · on the assumption of
 - `underordnet` — u90 · secondary (subordinate)
 - `underveis` — u23 · on the way
 - `unektelig` — u69 · undeniably
@@ -2346,6 +2640,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `unnskyld` — u2 · excuse me
 - `unntatt` — u76 · except
 - `unøyaktig` — u91 · imprecise
+- `upersonlig` — u110 · impersonal
 - `usaklig` — u88 · off the point (unfair)
 - `usannsynlig` — u54 · unlikely
 - `usikker` — u22 · unsure
@@ -2377,8 +2672,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `våt` — u8 · wet
 - `ved` — u76 · by (next to)
 - `ved å` — u36 · by doing
+- `vedkommende` — u107 · the person in question
 - `vedlagt` — u72 · attached
 - `vedlikehold` — u80 · maintenance
+- `vedrørende` — u107 · regarding (in official writing)
 - `vel` — u71 · I suppose
 - `veldig` — u2 · very
 - `velferd` — u55 · welfare
@@ -2400,9 +2697,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `vil` — u39 · will (want)
 - `vill` — u26 · wild
 - `ville` — u37 · would
+- `ville ha` — u106 · would have (done)
 - `visst` — u71 · I gather
 - `visstnok` — u54 · apparently
 - `vond` — u11 · painful
+- `ydmyk` — u105 · humble
 - `ytterst` — u91 · extremely (utterly)
 
 ## By unit — what each slot teaches
@@ -2606,4 +2905,30 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 **u99 · Identitet og samfunn** (24) — `en identitet`, `en tilhørighet`, `ei slekt`, `et opphavsland`, `et statsborgerskap`, `ei folkegruppe`, `et mangfold`, `en minoritet`, `en majoritet`, `ei urbefolkning`, `en toleranse`, `ei integrering`, `å utestenge`, `et utenforskap`, `ei diskriminering`, `en rasisme`, `en fremmedfrykt`, `en splittelse`, `en solidaritet`, `en samhørighet`, `å anerkjenne`, `en medborger`, `en samfunnsklasse`, `en landsmann`
 
 **u100 · Arbeidsliv og organisasjon** (24) — `å lyse ut`, `en stillingsannonse`, `å rekruttere`, `å kvalifisere`, `en fagkunnskap`, `ei opplæring`, `en medarbeider`, `et arbeidsmiljø`, `ei arbeidsdeling`, `en fagperson`, `et årsverk`, `en ansiennitet`, `en ledelse`, `et verv`, `en tillitsvalgt`, `et fagforbund`, `å forfremme`, `et styremøte`, `ei omstilling`, `ei nedbemanning`, `å permittere`, `ei oppsigelsestid`, `ei sluttpakke`, `et sykefravær`
+
+**u101 · Miljø, ressurser og det globale** (24) — `et økosystem`, `et habitat`, `et rovdyr`, `et jordsmonn`, `en villmark`, `ei avskoging`, `et landbruk`, `en matproduksjon`, `å hogge`, `et naturinngrep`, `en kvote`, `et overforbruk`, `en flom`, `et skred`, `et ekstremvær`, `en isbre`, `et havnivå`, `en avling`, `global`, `et toppmøte`, `en bistand`, `ei nødhjelp`, `en flyktning`, `en fattigdom`
+
+**u102 · Helsevesen og omsorg** (24) — `et helsevesen`, `en fastlege`, `et akuttmottak`, `ei henvisning`, `en spesialist`, `en innleggelse`, `ei finansiering`, `en egenandel`, `ei bevilgning`, `ei bemanning`, `en helsekø`, `en slitasje`, `en pårørende`, `et hjelpemiddel`, `ei funksjonsevne`, `en verdighet`, `en livskvalitet`, `å lindre`, `ei folkehelse`, `et smittevern`, `en levealder`, `en dødelighet`, `ei ernæring`, `ei rehabilitering`
+
+**u103 · Studieløp og forskningsmetode** (24) — `et fakultet`, `et institutt`, `et studiepoeng`, `en doktorgrad`, `ei avhandling`, `et frafall`, `ei problemstilling`, `ei fagfellevurdering`, `et plagiat`, `ei tilbakemelding`, `et stipend`, `ei eksamensform`, `ei kontrollgruppe`, `ei datainnsamling`, `en feilkilde`, `et forskningsdesign`, `en replikasjon`, `en forskningsetikk`, `ei danning`, `en ferdighet`, `en pedagogikk`, `en læreplan`, `å pugge`, `en mentor`
+
+**u104 · Medier og fortelling** (24) — `et narrativ`, `et plott`, `et forløp`, `ei vending`, `en synsvinkel`, `en metafor`, `ei vinkling`, `en klisjé`, `en gjentakelse`, `å dramatisere`, `en vri`, `en oppfølger`, `en redaksjon`, `ei pressemelding`, `en kommentator`, `en rettelse`, `et opplag`, `ei kringkasting`, `en desinformasjon`, `ei filterboble`, `et ekkokammer`, `en abonnent`, `ei strømming`, `et klikkagn`
+
+**u105 · Sammensatte følelser** (24) — `ambivalent`, `et vemod`, `en lengsel`, `et savn`, `oppstemt`, `nedstemt`, `en skam`, `forlegen`, `ydmyk`, `en bitterhet`, `en fortvilelse`, `rådvill`, `en avsky`, `en forakt`, `en uvilje`, `en krenkelse`, `en trass`, `motvillig`, `en ømhet`, `en medfølelse`, `ei undring`, `anspent`, `tafatt`, `henrykt`
+
+**u106 · Grammatikk 9: det uvirkelige** (24) — `tenk om`, `enn om`, `i motsatt fall`, `hypotetisk`, `å skulle ønske`, `i teorien`, `forutsatt at`, `gitt at`, `så fremt`, `under forutsetning av`, `på betingelse av`, `sett bort fra`, `i verste fall`, `i beste fall`, `potensielt`, `en eventualitet`, `om nødvendig`, `om mulig`, `hadde det ikke vært for`, `ville ha`, `skulle ha`, `kunne ha`, `burde ha`, `alt annet likt`
+
+**u107 · Grammatikk 10: det formelle skriftspråket** (24) — `hvorav`, `hvorpå`, `derav`, `dertil`, `herved`, `foruten`, `førstnevnte`, `sistnevnte`, `ovennevnte`, `vedkommende`, `samtlige`, `respektive`, `i henhold til`, `med hensyn til`, `på vegne av`, `i samsvar med`, `i strid med`, `på bakgrunn av`, `følgelig`, `henholdsvis`, `dels`, `vedrørende`, `foreliggende`, `gjeldende`
+
+**u108 · Grammatikk 11: å binde en drøfting sammen** (24) — `for det første`, `for det andre`, `dernest`, `avslutningsvis`, `nærmere bestemt`, `kort sagt`, `på den ene siden`, `i motsetning til`, `til gjengjeld`, `samtidig som`, `når det gjelder`, `i forbindelse med`, `tross alt`, `i den grad`, `strengt tatt`, `grovt sagt`, `for så vidt`, `i og for seg`, `til syvende og sist`, `når alt kommer til alt`, `ikke minst`, `i praksis`, `på sett og vis`, `alt i alt`
+
+**u109 · Stil 3: målform, dialekt og tiltale** (24) — `ei målform`, `bokmål`, `nynorsk`, `et sidemål`, `ei rettskriving`, `ei jamstilling`, `en dialekt`, `et talemål`, `et tonefall`, `et bygdemål`, `å legge om`, `et dialektord`, `ei tiltaleform`, `ei høflighetsform`, `å være dus`, `å titulere`, `en fortrolighet`, `høytidelig`, `en floskel`, `å banne`, `en forkortelse`, `en slang`, `et lånord`, `folkelig`
+
+**u110 · Stil 4: den offentlige stemmen** (24) — `en instans`, `en etat`, `et organ`, `et regelverk`, `en forskrift`, `ei saksbehandling`, `å fatte`, `å iverksette`, `å tre i kraft`, `ei kunngjøring`, `ei utredning`, `et rundskriv`, `en høringsuttalelse`, `en klageadgang`, `en søknadsfrist`, `å oversende`, `å underrette`, `en merknad`, `et byråkratspråk`, `en ordlyd`, `ei formulering`, `upersonlig`, `ei tilsløring`, `en stivhet`
+
+**u111 · Konkrete verb i overført bruk** (24) — `å skyve`, `å rive`, `å velte`, `å drive`, `å rykke`, `å gli`, `å falle`, `å knuse`, `å sprekke`, `å tøye`, `å strekke`, `å vri`, `å romme`, `å favne`, `å spenne`, `å avgrense`, `å utgjøre`, `å bunne i`, `å tære`, `å smuldre`, `å gjennomsyre`, `å bikke`, `å rokke`, `å fortone seg`
+
+**u112 · Omfang, fordeling og utvikling** (24) — `et omfang`, `en størrelsesorden`, `en knapphet`, `en hyppighet`, `et måltall`, `ei vektlegging`, `ei fordeling`, `ei spredning`, `en ytterlighet`, `en median`, `et tyngdepunkt`, `en skjevhet`, `ei svingning`, `en trend`, `en nedgang`, `en framvekst`, `ei utflating`, `et omslag`, `en målestokk`, `en enhet`, `ei kartlegging`, `en oversikt`, `et estimat`, `en indikator`
+
+**u113 · Karakter og framferd** (24) — `ei framferd`, `et vesen`, `et temperament`, `ei legning`, `et selvbilde`, `en modenhet`, `raus`, `nøktern`, `samvittighetsfull`, `prinsippfast`, `omgjengelig`, `pliktoppfyllende`, `arrogant`, `påståelig`, `egenrådig`, `selvhøytidelig`, `godtroende`, `hensynsløs`, `behersket`, `impulsiv`, `ettertenksom`, `lunefull`, `en selvinnsikt`, `en utholdenhet`
 
