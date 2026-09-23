@@ -206,7 +206,7 @@ runs in this order and you do not stop until the last step:
    tooling gaps you hit, and the specific hazard each later block faces.
 4. **Review what comes back.** Blocks 2 and 3 hand their work to you. Run the
    cross-block checks no single block can run on itself: duplicate fronts,
-   lexeme duplicates (noun vs its verb, infinitive vs conjugated form), meaning
+   lexeme duplicates — **the SAME word in another form** (infinitive vs conjugated, article variants); **NOT a noun and a verb derived from it, which are two lexemes and may both be taught**, meaning
    -field overlaps, reading collisions, and same-lesson pairs. **Fix what you
    find** — a later block's unit is yours to correct once it has handed back.
 5. **Chase the language to done**, not just the cards: drills, or whatever the
