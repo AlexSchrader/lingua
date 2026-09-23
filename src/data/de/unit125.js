@@ -18,7 +18,7 @@
 // genuinely untaught; what is unproven is that it is the MOST useful untaught
 // word, and no probe I have can settle that. Flagged for the lead in the
 // hand-back with the exact count: 40 of 264 cards in this block are tier D.
-// FREE: gemacht, gesehen, gekommen, gebrochen, geschlagen, gekostet, gesucht
+// FREE: gebrochen, geschlagen, gekostet, gesucht
 export const DE_UNIT125 = {
   id: "de-u125",
   lang: "de",
