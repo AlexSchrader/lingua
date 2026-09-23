@@ -17,7 +17,7 @@
 // text. Each front below was checked against all 2714 claimed fronts and each is
 // genuinely untaught; what is unproven is that it is the MOST useful untaught
 // word, and no probe I have can settle that. Flagged for the lead in the
-// hand-back with the exact count: 40 of 264 cards in this block are tier D.
+// hand-back with the exact count: 41 of 277 cards in this block are tier D.
 // FREE: gekostet, gesucht
 export const DE_UNIT125 = {
   id: "de-u125",

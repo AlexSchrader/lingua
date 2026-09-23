@@ -34,7 +34,11 @@
 //   bedeuten (die Bedeutung u74), bewegen (die Bewegung u71), erfahren (die
 //   Erfahrung u24), anfangen (der Anfang u28) — so this unit uses beginnen,
 //   which is free. Also dropped: abgeben (geben u16), der Laden (einladen u40),
-//   das Zeug (der Zeuge u75), schliessen (abschliessen u79).
+//   schliessen (abschliessen u79).
+// ⚠️ das Zeug was listed here as dropped and is TAUGHT in u123l4 — the header
+//   was left stale when the call was reversed. Reversed deliberately: Zeug
+//   (stuff) and der Zeuge (witness, u75) are not one lexeme in the modern
+//   language, so the original drop was over-cautious. Stated, not hidden.
 // ⚠️ NOTE FOR THE LEAD — a real policy question, not a complaint. Those first
 // four are high-frequency VERBS the learner cannot be taught, because the course
 // already owns their NOUN. The learner ends the band holding die Bedeutung with
@@ -93,7 +97,7 @@ export const DE_UNIT114 = {
       title: "Anfangen, weitermachen, aufhören",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Put an activity on a timeline — start it, carry it on, open it up, bring it to an end, and stop.",
+      canDo: "Put an activity on a timeline — begin it, bring it to an end, carry it on, launch it, open it up, and stop.",
       items: [
         { id: "de-u114l3-beginnen", type: "vocab", front: "beginnen", reading: "beginnen", meaning: "to begin", example: { jp: "Die Stunde beginnt pünktlich um neun, auch wenn nicht alle da sind.", en: "The lesson begins punctually at nine, even if not everyone is there." }, drill: { jp: "Der Kurs wird im Herbst beginnen", en: "The course will begin in the autumn" }, accept: ["to begin", "begin", "to start", "start", "to commence"], hint: "Slightly more formal than anfangen and, unlike it, not separable — so it keeps its shape in every position. Strong verb: begann, begonnen." },
         { id: "de-u114l3-beenden", type: "vocab", front: "beenden", reading: "beenden", meaning: "to finish (something)", example: { jp: "Wir sollten das Gespräch beenden, bevor jemand etwas Falsches sagt.", en: "We should end the conversation before somebody says something wrong." }, drill: { jp: "Er will das Projekt heute beenden", en: "He wants to finish the project today" }, accept: ["to finish", "finish", "to end", "end", "to conclude", "to terminate"], hint: "Transitive: you beenden a thing. The intransitive 'it ends' is enden, which this course does not teach separately — das Ende (u28) already owns that root." },
