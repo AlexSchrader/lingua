@@ -101,6 +101,42 @@
 //     is a guess; if you must write one in a comment, write it as
 //     UNTAUGHT(no:<front>) so GUARD 2 re-checks it on every run.
 //
+// B8. DRILL VOCABULARY IS IN SCOPE-STRICT'S REMIT — AND NOTHING ELSE CHECKS IT.
+//     `tests/unit/drill-scope.test.mjs` landed 2026-09-22 because a German B2 block
+//     shipped 144 out-of-scope DRILLS with every gate green: `validate` checks a
+//     drill's SHAPE only, `lint:curriculum` reads `example.jp` and never `drill`,
+//     and `drill-corpus.test.mjs` checks a drill BUILDS a card, not that its words
+//     are taught. That test is GERMAN-ONLY (it needs a `de-vocab-scope.mjs`-shaped
+//     oracle), and `scripts/check-drills.mjs` tests Norwegian BUILDABILITY, not scope.
+//     ✅ BUT NORWEGIAN IS NOT UNCOVERED, and it is worth knowing exactly why:
+//     `scripts/scope-strict.mjs` checks BOTH — line 78 iterates
+//     `[["ex", it.example?.jp], ["drill", it.drill?.jp]]`, so every hit it prints is
+//     tagged `/ex` or `/drill`. Block 1's range reports 6 drill-side hits, all of them
+//     the class-(b) multi-word-front artifact described in B7 — zero real ones.
+//     ⚠️ THE GAP IS THAT IT IS A SCRIPT NOBODY IS FORCED TO RUN, which is the exact
+//     failure mode the German test was written to end. Run it, and say in your
+//     hand-back that no TEST covers Norwegian drill scope — only this script.
+//
+// B9. ⚠️ A `// FREE:` DECLARATION IS GLOBAL, NOT PER-UNIT. Verified in
+//     `scripts/check-lang-scope.mjs`: it greps every `src/data/no/unit*.js` for a
+//     `// FREE:` line and pushes them all into ONE set (`FREE_RAW`), with no unit
+//     gating anywhere. So a token you declare in u113 is licensed from u1 backwards,
+//     and it will silently excuse that word for every earlier seat. Declare sparingly
+//     and only for genuine proper nouns and transparent cognates.
+//     AND NOTE THE SECOND HALF: `scope-strict.mjs` does NOT read `// FREE:` lines at
+//     all — its FREE list is a hardcoded const at the top of the script. So a
+//     declaration buys you nothing there and you will still be reported (block 1 hit
+//     this with `Samene`). Work around it in the sentence; never edit the tool.
+//
+// B10. EVIDENCE BELONGS IN THIS HEADER, NEVER ON A CARD. German block 3 deleted 158
+//     "Rank N." claims from its hints after nine were found fabricated, two copied off
+//     the card next door. A learner cannot falsify a corpus measurement, so a hint is
+//     the one place it must not go. Block 1's measured claims (the B3 gender counts,
+//     "9 of 44 candidates already taught") are all in headers. What IS allowed on a
+//     card is a checkable FACT about the language or the country — 1814, 1905, the
+//     1940-45 occupation, Grunnloven § 100, arbeidsmiljøloven — because that is the
+//     content the vocabulary exists to deliver, and the learner can look it up.
+//
 // Conventions per no/unit1.js. lang/unit/lesson are stamped in src/data/index.js.
 export const NO_UNIT88 = {
   id: "no-u88",
