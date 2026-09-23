@@ -44,6 +44,26 @@ import { buildScope } from "../../scripts/de-vocab-scope.mjs";
 // The ratchet is still worth having - the 106 were real, every gate was green,
 // and nothing else in the suite looks at a drill's vocabulary at all. But a
 // failure here means GO AND CHECK, not GO AND REWRITE.
+//
+// ⚠️ THE FREE SET IS GLOBAL, SO THIS LIST GOES STALE IN BOTH DIRECTIONS.
+// Measured at the German B2 merge, 2026-09-23: 60 German unit files declare a
+// `// FREE:` header, 665 tokens between them, and `buildScope` folds every one
+// into a SINGLE corpus-wide set - there is no per-unit scoping. A token declared
+// free in u124 is therefore licensed from u1 backwards.
+//
+// That is not hypothetical. Block 3 declared `beim` free in u124 to cover its own
+// past participles, and that silently un-flagged `de-u61l2-dieverantwortung` and
+// `de-u76l3-dieurkunde` - two pins on `main`, sixty units earlier, neither of them
+// block 3's to touch. They had to be deleted from this list at merge time.
+//
+// So when several blocks land at once, expect BOTH assertions below to fire: new
+// drills appear unpinned, and old pins stop being flagged because somebody else's
+// FREE line reached back for them. Correct the LIST; never relax either assertion.
+// Note also that a `// FREE:` line and a pin here are two ways to record the SAME
+// oracle gap, and the two German B2 blocks each picked a different one - block 3
+// declared its participles free (silent, global), block 2 left them flagged
+// (visible, pinned). Pinning is the better of the two: it is per-id, it is
+// reviewable, and it cannot reach backwards into another block's units.
 const ORACLE_FLAGGED = new Set([
   "de-u53l1-erheblich",
   "de-u54l1-offenbar",
@@ -56,14 +76,77 @@ const ORACLE_FLAGGED = new Set([
   "de-u58l2-dasprinzip",
   "de-u59l4-erneut",
   "de-u61l1-dievorschrift",
-  "de-u61l2-dieverantwortung",
+  // de-u61l2-dieverantwortung and de-u76l3-dieurkunde were pinned here until the
+  // German B2 merge (2026-09-23) and are deliberately GONE - see "THE FREE SET IS
+  // GLOBAL" below. Both drills read "liegt beim", and u124 now declares `beim`
+  // free, which licenses it corpus-wide. The oracle no longer flags them, so the
+  // stale-pin assertion below requires their removal.
   "de-u61l4-dieaussage",
   "de-u62l3-dergastgeber",
   "de-u62l4-kurzfristig",
   "de-u62l4-trotz",
-  "de-u76l3-dieurkunde",
   "de-u84l2-zweifellos",
   "de-u84l3-letztlich",
+
+  // ── German B2 block 2 (u101-u113), added by the merge seat 2026-09-23 ─────────
+  // These are the 38 the block-2 drill-fix seat deliberately did NOT rewrite: it
+  // fixed 106 real out-of-scope drills and left these, because each is an
+  // inflection of a word German teaches LONG before the flagging unit. Every
+  // lemma below was resolved against the scope map before pinning - none was
+  // taken on trust:
+  //   gelten    u58 -> gilt         betreffen u52 -> betrifft
+  //   halten    u44 -> hielt        fallen    u44 -> fiel
+  //   verlieren u45 -> verloren     entstehen u52 -> entstand
+  //   steigen   u19 -> stiegen      sinken    u53 -> gesunken
+  //   hängen    u44 -> hing         ablaufen  u76 -> abgelaufen
+  //   entscheiden u48 -> entschieden  ablehnen u48 -> abgelehnt
+  //   antworten u20 -> geantwortet  planen    u48 -> geplant
+  //   klären    u10 -> geklärt      wachsen   u26 -> gewachsen
+  //   erwarten  u54 -> erwartete    schiefgehen u60 -> schiefgegangen
+  //   teuer     u10 -> teurer       früher    u21 -> früheren
+  //   solcher   u71 -> solche/-n    Kind      u4  -> Kindern
+  //   Nachbar   u32 -> Nachbarin    derselbe  u71 -> dasselbe
+  // i.e. past participles, strong preterites/3sg, inflected adjectives, the
+  // feminine -in, and a neuter determiner - the four gaps `derive()` has always
+  // had, now with a fifth. Rewriting them would churn 38 sound drills.
+  "de-u101l1-dasabkommen",
+  "de-u101l2-dievorgabe",
+  "de-u101l2-diesanktion",
+  "de-u101l3-derrohstoff",
+  "de-u102l4-betreuen",
+  "de-u103l1-derubergang",
+  "de-u104l1-serios",
+  "de-u104l3-derboulevard",
+  "de-u104l4-diereichweite",
+  "de-u104l4-dieemporung",
+  "de-u104l4-derskandal",
+  "de-u105l3-diebeherrschung",
+  "de-u105l4-dertrost",
+  "de-u106l1-hattefast",
+  "de-u106l1-umeinhaar",
+  "de-u107l2-imrahmen",
+  "de-u107l2-imzuge",
+  "de-u107l2-imhinblickauf",
+  "de-u107l4-dersachverhalt",
+  "de-u108l1-somit",
+  "de-u108l1-insbesondere",
+  "de-u108l4-imwesentlichen",
+  "de-u109l3-wohlgemerkt",
+  "de-u110l1-dieverfugung",
+  "de-u110l1-dierichtlinie",
+  "de-u110l4-diebekanntmachung",
+  "de-u111l1-derruckgang",
+  "de-u111l1-sprunghaft",
+  "de-u111l2-ausbleiben",
+  "de-u111l2-vorubergehend",
+  "de-u111l4-dauerhaft",
+  "de-u112l1-insaugefassen",
+  "de-u112l2-zubucheschlagen",
+  "de-u113l1-bislang",
+  "de-u113l2-unlangst",
+  "de-u113l3-etliche",
+  "de-u113l3-allesamt",
+  "de-u113l4-spatestens",
 ]);
 
 test("GUARD: no NEW drill uses vocabulary its unit has not taught (de)", async () => {
