@@ -37,6 +37,7 @@ const bare = (s) => fold(s).replace(ARTICLES, "").trim();
 const stem = (s) => bare(s).replace(/(ung|heit|keit|en|er|es|e|n|s)$/, "");
 
 const taught = new Map(); // fold(front) -> "front — uNN"
+const bares = new Map();  // bare(front) -> "front — uNN"   (article stripped)
 const stems = new Map();  // stem -> [ "front (uNN)" ]
 for (const u of UNITS) {
   if (u.lang !== lang) continue;
@@ -44,6 +45,7 @@ for (const u of UNITS) {
     for (const it of l.items || []) {
       if (!it.front) continue;
       taught.set(fold(it.front), `${it.front} — u${u.order}`);
+      if (!bares.has(bare(it.front))) bares.set(bare(it.front), `${it.front} — u${u.order}`);
       const k = stem(it.front);
       if (k.length >= 4) (stems.get(k) ?? stems.set(k, []).get(k)).push(`${it.front} (u${u.order})`);
     }
@@ -54,6 +56,15 @@ const control = [...UNITS].filter((u) => u.lang === lang).sort((a, b) => a.order
 const probe = (front) => {
   const exact = taught.get(fold(front));
   if (exact) return { verdict: "TAKEN", detail: exact };
+  // ⚠️ ARTICLE-VARIANT. The exact map is keyed on the WHOLE front, article and
+  // all, so `ei fare` missed `en fare` (u50) and `ei lov` missed `en lov` (u32)
+  // and both reported FREE — a false negative, which this file's own header says
+  // costs a card. It is not hypothetical: no/unit1.js §1 requires the front to
+  // carry the gender marker, so a seat that guesses the other marker on a taught
+  // noun gets a clean "free" and ships the same lexeme twice. Caught by the
+  // no-B2-block1 seat, 2026-09-23, on `ei fare` / `ei lov` / `en sak`.
+  const art = bares.get(bare(front));
+  if (art) return { verdict: "SAME", detail: `${art}  (same word, different article)` };
   const k = stem(front);
   const near = k.length >= 4 ? (stems.get(k) || []) : [];
   if (near.length) return { verdict: "LEXEME", detail: near.join(", ") };
