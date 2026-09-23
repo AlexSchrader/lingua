@@ -147,6 +147,29 @@ const ORACLE_FLAGGED = new Set([
   "de-u113l3-etliche",
   "de-u113l3-allesamt",
   "de-u113l4-spatestens",
+  // ── de fill pass, 2026-09-23 ────────────────────────────────────────────────
+  // Nine more of the SAME oracle gaps, each verified against `npm run taught -- de`
+  // before being pinned. Every lemma below is taught well before the unit that
+  // uses it; `derive()` simply cannot generate the preterite or the participle:
+  //   sein      u16 -> war          sinken    u53 -> gesunken
+  //   steigen   u53 -> stiegen      sparen    u27 -> sparten
+  //   meinen    u13 -> gemeint      bleiben   u16 -> geblieben
+  //   erklären  u20 -> erklärte     fürchten  u116 -> gefürchtet
+  //   abbrechen u77 -> abgebrochen  stecken   u44 -> steckte
+  // The four drills this pass flagged that were REAL forward references were
+  // rewritten instead, not pinned: der Ausgang (untaught) in de-u54l2-ungewiss,
+  // and beide (u120) reached back to in de-u68l2 and de-u74l2. de-u120l3-dortig
+  // was cut outright — an attributive-only adjective can never appear bare in a
+  // drill, so it could not route a card at all.
+  "de-u22l3-dasgluck",
+  "de-u66l4-dieaktie",
+  "de-u69l3-wodurch",
+  "de-u70l4-hypothetisch",
+  "de-u120l1-ausnahmslos",
+  "de-u123l1-derminister",
+  "de-u123l2-derherrscher",
+  "de-u125l3-dashorn",
+  "de-u125l4-derneid",
 ]);
 
 test("GUARD: no NEW drill uses vocabulary its unit has not taught (de)", async () => {

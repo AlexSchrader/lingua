@@ -1,7 +1,7 @@
 # DE — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- de`.
-Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-23: **3090 words** across **126 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -50,6 +50,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `achtzehn` — u17 · eighteen
 - `ahnen` — u86 · to have an inkling
 - `ähnlich` — u37 · similar
+- `alarmieren` — u81 · to alert the emergency services
 - `all` — u120 · all of
 - `alle` — u4 · all / everyone
 - `allein` — u120 · alone
@@ -73,6 +74,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `andererseits` — u36 · on the other hand
 - `ändern` — u59 · to change
 - `andernfalls` — u70 · failing that
+- `anders` — u59 · differently
 - `andeuten` — u73 · to hint at
 - `anerkennen` — u109 · to acknowledge (give due recognition)
 - `anführen` — u108 · to cite (bring forward as support)
@@ -137,6 +139,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `ausgeprägt` — u91 · pronounced
 - `aushalten` — u57 · to endure
 - `auslösen` — u52 · to trigger
+- `ausnahmslos` — u120 · without exception
 - `ausnahmsweise` — u84 · just this once
 - `ausreichend` — u53 · sufficient
 - `ausrichten` — u77 · to pass on a message
@@ -157,8 +160,10 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `bauen` — u124 · to build
 - `beachten` — u61 · to observe
 - `beanstanden` — u101 · to object to (formally query a fault)
+- `beantragen` — u75 · to apply for
 - `bearbeiten` — u78 · to process
 - `bedauern` — u73 · to regret
+- `bedeuten` — u74 · to mean
 - `beeindrucken` — u63 · to impress
 - `beeinflussen` — u52 · to influence
 - `beenden` — u114 · to finish (something)
@@ -167,6 +172,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `begeistert` — u57 · thrilled
 - `beginnen` — u114 · to begin
 - `beglaubigen` — u76 · to certify
+- `begleichen` — u79 · to settle a bill
 - `begleiten` — u62 · to accompany
 - `begreifen` — u114 · to grasp (mentally)
 - `behalten` — u114 · to keep
@@ -220,6 +226,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `bevor` — u29 · before
 - `bewahren` — u63 · to preserve
 - `bewältigen` — u98 · to cope with
+- `bewegen` — u85 · to move
 - `beweisen` — u34 · to prove
 - `bewölkt` — u50 · overcast
 - `bezahlen` — u17 · to pay
@@ -390,7 +397,9 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `das Gewitter` — u50 · the thunderstorm
 - `das Gipfeltreffen` — u101 · summit meeting (of heads of state)
 - `das Glas` — u42 · the glass
+- `das Gleichgewicht` — u67 · the balance
 - `das Gleis` — u23 · the platform
+- `das Glück` — u22 · the luck
 - `das Gold` — u123 · the gold
 - `das Gras` — u26 · the grass
 - `das Gremium` — u110 · body (formally constituted group)
@@ -405,7 +414,9 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `das Hobby` — u35 · hobby
 - `das Hochdeutsch` — u72 · standard German
 - `das Holz` — u46 · the wood
+- `das Horn` — u125 · the horn
 - `das Hotel` — u7 · hotel
+- `das Ideal` — u58 · the ideal
 - `das Inserat` — u80 · the classified ad
 - `das Institut` — u103 · institute (research body)
 - `das Instrument` — u35 · instrument
@@ -476,6 +487,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `das Praktikum` — u24 · the internship
 - `das Prinzip` — u58 · the principle
 - `das Problem` — u32 · problem
+- `das Programm` — u64 · the schedule of shows
 - `das Projekt` — u122 · the project
 - `das Protokoll` — u101 · protocol (treaty adding detail to an earlier one)
 - `das Prozent` — u119 · the percent
@@ -507,6 +519,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `das System` — u90 · the system
 - `das Szenario` — u98 · the scenario
 - `das Tagebuch` — u63 · the diary
+- `das Tal` — u125 · the valley
 - `das Talent` — u126 · the talent
 - `das Tauwetter` — u50 · the thaw
 - `das Taxi` — u122 · the taxi
@@ -563,6 +576,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `davon` — u69 · about it
 - `davor` — u126 · before that
 - `dazu` — u69 · to it
+- `dazwischen` — u126 · in between
 - `defekt` — u78 · out of order
 - `dein` — u4 · your (informal)
 - `deinen` — u13 · object form of dein
@@ -578,7 +592,9 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `denn` — u12 · because / for
 - `dennoch` — u36 · nevertheless — stronger than trotzdem
 - `der Abfall` — u65 · the waste
+- `der Ablauf` — u56 · the sequence of events
 - `der Abschluss` — u24 · the degree
+- `der Abschnitt` — u119 · the section
 - `der Absender` — u72 · the sender
 - `der Akku` — u33 · battery — the rechargeable kind
 - `der Akzent` — u74 · the accent
@@ -588,6 +604,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Anbieter` — u93 · the provider
 - `der Anfang` — u28 · the beginning
 - `der Anfänger` — u45 · the beginner
+- `der Anlass` — u52 · the occasion
 - `der Anreiz` — u101 · incentive (something that makes an action attractive)
 - `der Anrufbeantworter` — u77 · the answering machine
 - `der Anschluss` — u77 · the phone connection
@@ -684,6 +701,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Donnerstag` — u9 · Thursday
 - `der Dozent` — u103 · lecturer (university teacher)
 - `der Draht` — u46 · the wire
+- `der Drucker` — u122 · the printer
 - `der Duft` — u86 · the scent
 - `der Durchbruch` — u94 · the breakthrough
 - `der Durchschnitt` — u87 · the average
@@ -705,10 +723,12 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Erfolg` — u56 · the success
 - `der Erlass` — u110 · decree (instruction from a ministry)
 - `der Ernstfall` — u98 · the real emergency
+- `der Ersatz` — u78 · the replacement
 - `der Euro` — u17 · the euro
 - `der Facharzt` — u102 · specialist doctor
 - `der Faden` — u125 · the thread
 - `der Fahrplan` — u19 · the timetable
+- `der Fan` — u121 · the fan
 - `der Februar` — u9 · February
 - `der Fehler` — u60 · the mistake
 - `der Feierabend` — u21 · the end of the working day
@@ -740,6 +760,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Gegenvorschlag` — u93 · the counter-proposal
 - `der Gegner` — u45 · the opponent
 - `der Geist` — u58 · the mind
+- `der Geruch` — u86 · the smell
 - `der Gewinn` — u93 · the profit
 - `der Gipfel` — u125 · the summit
 - `der Glückwunsch` — u121 · the congratulation
@@ -757,6 +778,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Hals` — u11 · neck / throat
 - `der Hammer` — u46 · the hammer
 - `der Handwerker` — u80 · the tradesman
+- `der Hass` — u116 · the hatred
 - `der Hausarzt` — u102 · family doctor (GP)
 - `der Haushalt` — u66 · the budget
 - `der Hausmeister` — u80 · the caretaker
@@ -766,6 +788,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Herbst` — u9 · autumn
 - `der Herd` — u30 · the cooker
 - `der Herr` — u10 · gentleman / Mr
+- `der Herrscher` — u123 · the ruler
 - `der Himmel` — u8 · sky
 - `der Hinweis` — u52 · the pointer
 - `der Höchststand` — u113 · record high (highest level reached)
@@ -814,6 +837,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Kurs` — u24 · the course
 - `der Lärm` — u61 · the noise
 - `der Lebenslauf` — u24 · the CV
+- `der Lebensraum` — u65 · the habitat
 - `der Lehrer` — u20 · the teacher
 - `der Lehrplan` — u103 · curriculum (official plan of what is taught)
 - `der Lehrstuhl` — u103 · professorial chair (a professor's post)
@@ -835,6 +859,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Mensch` — u11 · the human being
 - `der Meter` — u119 · the metre
 - `der Mietvertrag` — u80 · the tenancy agreement
+- `der Minister` — u123 · the minister
 - `der Missbrauch` — u97 · the abuse
 - `der Mitarbeiter` — u56 · the employee
 - `der Mittelwert` — u111 · mean (the calculated average value)
@@ -846,6 +871,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Müll` — u21 · the rubbish
 - `der Mülleimer` — u30 · the bin
 - `der Mund` — u11 · mouth
+- `der Mut` — u22 · the courage
 - `der Nachbar` — u32 · neighbour
 - `der Nachteil` — u52 · the disadvantage
 - `der Nachtisch` — u42 · the dessert
@@ -854,6 +880,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Nagel` — u46 · the nail
 - `der Name` — u3 · name
 - `der Nebel` — u8 · fog
+- `der Neid` — u125 · the envy
 - `der Notausgang` — u81 · the emergency exit
 - `der Notfall` — u25 · the emergency
 - `der Notruf` — u81 · the emergency call
@@ -868,6 +895,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Patient` — u25 · the patient
 - `der Pfeffer` — u41 · the pepper
 - `der Pinsel` — u46 · the brush
+- `der Plan` — u62 · the plan
 - `der Platz` — u7 · square / space
 - `der Polizist` — u123 · the police officer
 - `der Präsident` — u123 · the president
@@ -878,7 +906,10 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Prozentsatz` — u87 · the percentage
 - `der Puffer` — u98 · the buffer
 - `der Pullover` — u18 · the jumper
+- `der Puls` — u81 · the pulse
+- `der Punkt` — u51 · the point
 - `der Quadratmeter` — u80 · the square metre
+- `der Quatsch` — u72 · the nonsense (spoken)
 - `der Quereinsteiger` — u100 · the career changer
 - `der Rabatt` — u27 · the discount
 - `der Rahmen` — u90 · the framework
@@ -901,7 +932,9 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Rückblick` — u63 · the look back
 - `der Rücken` — u25 · the back
 - `der Rückgang` — u111 · decline (fall in a figure)
+- `der Rückruf` — u77 · the call back
 - `der Rückschlag` — u98 · the setback
+- `der Rücktritt` — u79 · the withdrawal from a contract
 - `der Sachbearbeiter` — u76 · the case worker
 - `der Sachverhalt` — u107 · facts of the case (the state of affairs)
 - `der Sack` — u47 · the sack
@@ -932,6 +965,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Schüler` — u20 · the pupil
 - `der Schwanz` — u125 · the tail
 - `der Schwerpunkt` — u91 · the focus
+- `der Schwur` — u124 · the oath
 - `der See` — u26 · the lake
 - `der Sender` — u64 · the station
 - `der Sensor` — u94 · the sensor
@@ -978,6 +1012,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Täter` — u75 · the offender
 - `der Tau` — u50 · the dew
 - `der Tee` — u6 · tea
+- `der Teil` — u87 · the part
 - `der Teller` — u41 · the plate
 - `der Teppich` — u15 · the carpet
 - `der Termin` — u20 · the appointment
@@ -1069,6 +1104,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `der Zuwachs` — u91 · the increase
 - `der Zweck` — u52 · the purpose
 - `der Zweifel` — u54 · the doubt
+- `derartig` — u120 · of that kind
 - `deren` — u36 · whose — feminine and plural
 - `derjenige` — u69 · the one who
 - `derselbe` — u71 · the same
@@ -1096,6 +1132,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Adresse` — u118 · the address
 - `die Ahnung` — u54 · the idea
 - `die Akte` — u75 · the case file
+- `die Aktie` — u66 · the share (in a company)
 - `die Akzeptanz` — u99 · the public acceptance
 - `die Allergie` — u25 · the allergy
 - `die Ambivalenz` — u105 · ambivalence (two opposed feelings at once)
@@ -1107,12 +1144,14 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Angelegenheit` — u107 · matter (affair being dealt with)
 - `die Angst` — u22 · the fear
 - `die Anhörung` — u110 · hearing (formal chance to be heard)
+- `die Ankündigung` — u121 · the announcement
 - `die Anlage` — u72 · the enclosure
 - `die Anleitung` — u46 · the instructions
 - `die Anmeldung` — u75 · the registration
 - `die Annahme` — u88 · the assumption
 - `die Anrede` — u72 · the form of address
 - `die Anschrift` — u83 · the postal address
+- `die Antwort` — u20 · the answer
 - `die Anwendung` — u94 · the practical use
 - `die Anzahlung` — u79 · the down payment
 - `die Apotheke` — u11 · pharmacy / chemist
@@ -1129,6 +1168,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Aufrichtigkeit` — u97 · the sincerity
 - `die Ausbeutung` — u97 · the exploitation
 - `die Ausbildung` — u24 · the training
+- `die Ausdauer` — u126 · the staying power
 - `die Ausfahrt` — u82 · the motorway exit
 - `die Ausgabe` — u66 · the expense
 - `die Ausgrenzung` — u99 · the exclusion
@@ -1211,6 +1251,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Eigenschaft` — u31 · quality / trait
 - `die Einarbeitung` — u100 · the onboarding
 - `die Einheit` — u90 · the unit
+- `die Einigung` — u56 · the agreement reached
 - `die Einnahme` — u66 · the takings
 - `die Einzelheit` — u58 · the detail
 - `die Eltern` — u4 · parents
@@ -1218,6 +1259,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Emission` — u94 · the emission
 - `die Empörung` — u104 · outrage (public indignation)
 - `die Energie` — u34 · energy
+- `die Entfernung` — u118 · the distance
 - `die Entschädigung` — u78 · the compensation
 - `die Entwarnung` — u98 · the all-clear
 - `die Entwicklung` — u94 · the development
@@ -1225,6 +1267,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Erde` — u34 · earth / the Earth
 - `die Erderwärmung` — u65 · global warming
 - `die Erfahrung` — u24 · the experience
+- `die Erinnerung` — u63 · the memory of something
 - `die Erkältung` — u11 · a head cold
 - `die Erkenntnis` — u94 · the finding
 - `die Ermäßigung` — u79 · the reduction
@@ -1242,6 +1285,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Fähigkeit` — u37 · ability
 - `die Fahrkarte` — u19 · the ticket
 - `die Fahrschule` — u82 · the driving school
+- `die Fakultät` — u122 · the faculty
 - `die Familie` — u4 · family
 - `die Farbe` — u8 · colour
 - `die Fassung` — u96 · the version
@@ -1258,6 +1302,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Forderung` — u71 · the demand
 - `die Forschung` — u34 · research
 - `die Fortbildung` — u103 · further training (professional development)
+- `die Frage` — u20 · the question
 - `die Frau` — u4 · woman / wife
 - `die Freiheit` — u55 · the freedom
 - `die Freizeit` — u35 · free time / leisure
@@ -1272,8 +1317,10 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Gabel` — u41 · the fork
 - `die Galerie` — u35 · gallery
 - `die Garantie` — u78 · the guarantee
+- `die Gastfreundschaft` — u124 · the hospitality
 - `die Gattung` — u96 · the category
 - `die Gebühr` — u76 · the fee
+- `die Geburt` — u117 · the birth
 - `die Gedenkstätte` — u95 · the memorial site
 - `die Geduld` — u22 · the patience
 - `die Gefahr` — u81 · the danger
@@ -1287,6 +1334,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Generation` — u68 · the generation
 - `die Genesung` — u67 · the recovery
 - `die Gerechtigkeit` — u55 · the justice
+- `die Gesamtzahl` — u87 · the total number
 - `die Geschichte` — u59 · the history
 - `die Geschwindigkeit` — u82 · the speed
 - `die Geschwister` — u4 · siblings
@@ -1305,7 +1353,9 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Grundlage` — u88 · the basis
 - `die Grundschule` — u103 · primary school
 - `die Gruppe` — u32 · group
+- `die Grußformel` — u72 · the set greeting
 - `die Halbzeit` — u45 · half-time
+- `die Hälfte` — u53 · the half
 - `die Haltestelle` — u19 · the stop
 - `die Hand` — u11 · hand
 - `die Handlung` — u64 · the plot
@@ -1319,10 +1369,12 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Herrschaft` — u95 · the rule
 - `die Hierarchie` — u100 · the hierarchy
 - `die Hilfe` — u14 · the help
+- `die Hilfsbereitschaft` — u68 · the willingness to help
 - `die Hitze` — u50 · the heat
 - `die Hochrechnung` — u111 · projection (figure extrapolated from a part)
 - `die Hochschule` — u103 · higher education institution
 - `die Hochzeit` — u40 · wedding
+- `die Hoffnung` — u54 · the hope
 - `die Hose` — u18 · the trousers
 - `die Hypothese` — u94 · the hypothesis
 - `die Idee` — u124 · the idea (a plan)
@@ -1354,6 +1406,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Kiste` — u47 · the crate
 - `die Klage` — u75 · the lawsuit
 - `die Klasse` — u20 · the class
+- `die Klausel` — u79 · the clause
 - `die Klimaneutralität` — u101 · climate neutrality
 - `die Klinge` — u46 · the blade
 - `die Klingel` — u30 · the doorbell
@@ -1392,6 +1445,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Leinwand` — u96 · the canvas
 - `die Leistung` — u56 · the performance
 - `die Leiter` — u46 · the ladder
+- `die Leitung` — u77 · the phone line
 - `die Leute` — u10 · people
 - `die Lieferkette` — u93 · the supply chain
 - `die Lieferung` — u71 · the delivery
@@ -1420,8 +1474,10 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Menge` — u47 · the amount
 - `die Messgröße` — u94 · the measured variable
 - `die Metapher` — u96 · the metaphor
+- `die Miene` — u85 · the expression on a face
 - `die Miete` — u30 · the rent
 - `die Milch` — u6 · milk
+- `die Milliarde` — u119 · the billion
 - `die Million` — u119 · the million
 - `die Minderheit` — u68 · the minority
 - `die Minute` — u5 · minute
@@ -1445,6 +1501,8 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Nachricht` — u33 · message
 - `die Nachsicht` — u109 · forbearance (indulgence towards a fault)
 - `die Nacht` — u5 · night
+- `die Nadel` — u125 · the needle
+- `die Nähe` — u68 · the closeness
 - `die Nase` — u11 · nose
 - `die Nebenkosten` — u80 · the extra costs
 - `die Nebenwirkung` — u67 · the side effect
@@ -1512,6 +1570,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Reichweite` — u104 · reach (how many people something gets to)
 - `die Reihe` — u119 · the row
 - `die Reihenfolge` — u56 · the sequence
+- `die Reise` — u19 · the journey
 - `die Rendite` — u93 · the return
 - `die Rente` — u66 · the pension
 - `die Reportage` — u64 · the news feature
@@ -1525,9 +1584,11 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Rohdaten` — u94 · the raw data
 - `die Rolle` — u52 · the role
 - `die Rückblende` — u104 · flashback
+- `die Rückfrage` — u73 · the follow-up question
 - `die Rücklage` — u93 · the reserve
 - `die Rücksicht` — u57 · the consideration
 - `die Rückzahlung` — u76 · the refund
+- `die Rufnummer` — u77 · the phone number
 - `die Saat` — u125 · the sowing
 - `die Sache` — u15 · the thing / the matter
 - `die Säge` — u46 · the saw
@@ -1537,6 +1598,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Schachtel` — u47 · the small box
 - `die Schadenfreude` — u105 · malicious glee (pleasure at another's misfortune)
 - `die Scham` — u105 · shame (over what you are or did)
+- `die Scheidung` — u68 · the divorce
 - `die Schicht` — u56 · the shift
 - `die Schlagzeile` — u64 · the headline
 - `die Schlussfolgerung` — u88 · the conclusion
@@ -1574,6 +1636,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Solidarität` — u99 · solidarity
 - `die Sonne` — u8 · sun
 - `die Sorge` — u22 · the worry
+- `die Soße` — u124 · the sauce
 - `die Spaltung` — u99 · the split
 - `die Spanne` — u91 · the range
 - `die Speisekarte` — u42 · the menu
@@ -1596,6 +1659,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Stirn` — u43 · the forehead
 - `die Störung` — u77 · the fault on a line
 - `die Strafe` — u61 · the punishment
+- `die Straftat` — u123 · the criminal offence
 - `die Straße` — u1 · street
 - `die Struktur` — u90 · the structure
 - `die Stückzahl` — u93 · the number of units
@@ -1606,6 +1670,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Summe` — u87 · the total figure
 - `die Suppe` — u124 · the soup
 - `die Szene` — u123 · the scene
+- `die Tabelle` — u87 · the table of figures
 - `die Tablette` — u25 · the tablet
 - `die Tagesordnung` — u110 · agenda (order of business)
 - `die Tante` — u4 · aunt
@@ -1618,6 +1683,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Technik` — u94 · the technology
 - `die Teilhabe` — u99 · the participation
 - `die Teilung` — u95 · the division
+- `die Teilzahlung` — u79 · the part payment
 - `die Teilzeit` — u100 · the part-time work
 - `die Temperatur` — u34 · temperature — how warm a thing is
 - `die Tendenz` — u89 · the trend
@@ -1703,6 +1769,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Welt` — u19 · the world
 - `die Wende` — u101 · turnaround (decisive change of direction)
 - `die Werbung` — u27 · the advert
+- `die Werkstatt` — u82 · the garage
 - `die Wertschätzung` — u109 · appreciation (regard for a person)
 - `die Wiedervereinigung` — u95 · the reunification
 - `die Wiese` — u65 · the meadow
@@ -1723,6 +1790,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `die Zerrissenheit` — u105 · inner turmoil (being pulled in two directions)
 - `die Zielvereinbarung` — u100 · the target agreement
 - `die Ziffer` — u87 · the digit
+- `die Zinsen` — u66 · the interest on money
 - `die Zugehörigkeit` — u99 · the belonging
 - `die Zukunft` — u28 · the future
 - `die Zulassung` — u61 · the licence
@@ -1789,6 +1857,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `ein` — u5 · a / one
 - `ein paar` — u17 · a few
 - `ein Vielfaches` — u113 · many times as much
+- `einander` — u120 · each other
 - `einberufen` — u110 · to convene (call a meeting)
 - `eindeutig` — u84 · unmistakably
 - `eindringlich` — u88 · insistent
@@ -1796,7 +1865,9 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `einen` — u13 · object form of ein
 - `einerseits` — u36 · on the one hand
 - `einfach` — u84 · simply
+- `einfühlsam` — u57 · sensitive to others
 - `eingangs` — u108 · at the outset (earlier in this text)
+- `eingebildet` — u116 · conceited
 - `eingreifen` — u60 · to intervene
 - `einhalten` — u61 · to comply with
 - `einigermaßen` — u91 · reasonably
@@ -1842,7 +1913,9 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `entweder` — u36 · either
 - `entwickeln` — u34 · to develop
 - `er` — u3 · he
+- `erfahren` — u63 · to find out (from someone)
 - `erfolgen` — u70 · to be carried out
+- `erfolgreich` — u56 · successful (of an effort)
 - `erforschen` — u103 · to research (investigate systematically)
 - `erhalten` — u114 · to receive (formally)
 - `erheben` — u89 · to collect data
@@ -1927,6 +2000,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `frieren` — u50 · to freeze
 - `frisch` — u41 · fresh
 - `fristgerecht` — u113 · within the deadline (in due time)
+- `froh` — u57 · glad
 - `fröhlich` — u40 · merry
 - `früh` — u21 · early
 - `fühlen` — u22 · to feel
@@ -2007,6 +2081,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `glücklich` — u10 · happy
 - `gratulieren` — u40 · to congratulate
 - `grau` — u8 · grey
+- `greifen` — u126 · to grasp
 - `grinsen` — u85 · to grin
 - `groß` — u1 · big
 - `großartig` — u115 · magnificent
@@ -2025,6 +2100,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `haben` — u4 · to have
 - `haften` — u79 · to be liable
 - `halb` — u5 · half
+- `halbwegs` — u120 · reasonably (good enough)
 - `half` — u39 · helped — past of helfen
 - `hallo` — u2 · hello
 - `halt` — u73 · just, with a shrug
@@ -2034,6 +2110,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `hart` — u49 · hard
 - `hartnäckig` — u78 · persistent
 - `hassen` — u116 · to hate
+- `hässlich` — u1 · ugly
 - `hätte` — u37 · would have
 - `hatte` — u39 · had — past of haben
 - `hätte fast` — u106 · almost would have (nearly did)
@@ -2053,6 +2130,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `herausfinden` — u114 · to find out
 - `herum` — u118 · around (encircling)
 - `herunterladen` — u33 · to download
+- `hervorragend` — u115 · outstanding
 - `herzlich` — u40 · cordial
 - `heute` — u5 · today
 - `hier` — u1 · here
@@ -2081,6 +2159,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `hundert` — u17 · hundred
 - `hupen` — u82 · to honk
 - `hüpfen` — u85 · to hop
+- `hypothetisch` — u70 · hypothetical
 - `ich` — u3 · I
 - `identisch` — u37 · identical
 - `ie` — u1
@@ -2155,6 +2234,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `kämpfen` — u117 · to fight
 - `kaputt` — u10 · broken
 - `kaputtgehen` — u78 · to break down
+- `kauen` — u126 · to chew
 - `kaufen` — u18 · to buy
 - `kaufte` — u38 · bought — past of kaufen
 - `kaum` — u21 · hardly
@@ -2239,6 +2319,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `locker` — u49 · loose
 - `lockig` — u43 · curly
 - `löschen` — u33 · to delete
+- `lösen` — u60 · to solve
 - `lügen` — u114 · to lie (tell untruths)
 - `lustig` — u10 · funny / cheerful
 - `machbar` — u70 · doable
@@ -2249,6 +2330,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `man` — u45 · one — people in general
 - `mancher` — u71 · many a
 - `manchmal` — u12 · sometimes
+- `mangelhaft` — u78 · defective
 - `mäßig` — u91 · moderate
 - `matt` — u49 · matt
 - `mehr` — u37 · more
@@ -2258,9 +2340,11 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `meinetwegen` — u51 · as far as I'm concerned
 - `meistens` — u21 · usually
 - `merklich` — u91 · noticeably
+- `merkwürdig` — u115 · peculiar
 - `messbar` — u101 · measurable
 - `messen` — u34 · to measure
 - `mich` — u13 · me — object
+- `mies` — u115 · lousy
 - `mild` — u50 · mild
 - `mindestens` — u87 · at least, as a minimum
 - `mir` — u14 · me — dative
@@ -2331,6 +2415,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `nie` — u12 · never
 - `niemals` — u119 · never (emphatic)
 - `niemand` — u12 · nobody
+- `nirgendwo` — u118 · nowhere
 - `noch` — u12 · still / yet
 - `nochmal` — u119 · once more
 - `normal` — u116 · ordinary
@@ -2346,6 +2431,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `oben` — u44 · up there / at the top
 - `obwohl` — u29 · although
 - `oder` — u12 · or
+- `offen` — u116 · open (frank)
 - `offenbar` — u54 · apparently
 - `offensichtlich` — u115 · evidently
 - `öffnen` — u114 · to open
@@ -2439,6 +2525,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `schaffen` — u37 · to manage / get done
 - `scharf` — u41 · spicy / sharp
 - `schätzen` — u54 · to estimate
+- `schätzungsweise` — u87 · at a rough guess
 - `schauen` — u121 · to look (southern)
 - `scheinbar` — u106 · seemingly (but not really)
 - `scheinen` — u54 · to seem
@@ -2683,6 +2770,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `üben` — u20 · to practise
 - `über` — u14 · over / above
 - `überall` — u118 · everywhere
+- `überaus` — u115 · exceedingly
 - `überfordert` — u105 · overwhelmed (asked for more than one can give)
 - `übergeordnet` — u90 · overarching
 - `überhaupt` — u73 · at all
@@ -2723,6 +2811,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `ungeachtet` — u107 · notwithstanding (in spite of)
 - `ungefähr` — u87 · approximately
 - `ungern` — u73 · reluctantly
+- `ungewiss` — u54 · uncertain
 - `unglaublich` — u115 · incredible
 - `unhöflich` — u116 · rude
 - `unlängst` — u113 · recently (not long ago)
@@ -2735,6 +2824,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `unter Umständen` — u106 · possibly (under certain circumstances)
 - `unterbrechen` — u51 · to interrupt
 - `untermauern` — u88 · to underpin
+- `untersagen` — u61 · to prohibit
 - `unterschreiben` — u61 · to sign
 - `unterstellen` — u88 · to impute
 - `unterstützen` — u55 · to support
@@ -2744,7 +2834,9 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `unverbindlich` — u73 · non-binding
 - `unvergesslich` — u63 · unforgettable
 - `unvorhersehbar` — u98 · unforeseeable
+- `unweit` — u71 · not far from
 - `unzufrieden` — u78 · dissatisfied
+- `vage` — u73 · vague
 - `verabschieden` — u92 · to pass a law
 - `verbessern` — u56 · to improve
 - `verbieten` — u48 · to forbid
@@ -2777,6 +2869,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `verlassen` — u114 · to leave (behind)
 - `verlässlich` — u89 · dependable
 - `verlautbaren` — u110 · to state publicly (issue a formal word)
+- `verletzen` — u60 · to injure
 - `verlieren` — u45 · to lose
 - `verlobt` — u68 · engaged
 - `vermeiden` — u48 · to avoid
@@ -2834,6 +2927,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `vorher` — u28 · beforehand
 - `vorhin` — u119 · just now
 - `Vorkehrungen treffen` — u112 · to take precautions
+- `vorkommen` — u70 · to occur (crop up)
 - `vorläufig` — u59 · provisional
 - `vorlegen` — u61 · to produce on request
 - `vorliegen` — u107 · to be on hand (exist as a fact or document)
@@ -2845,9 +2939,11 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `vortragen` — u109 · to present (put a matter formally)
 - `vorübergehend` — u111 · temporary (for the time being)
 - `vorziehen` — u53 · to prefer
+- `wachsam` — u86 · watchful
 - `wachsen` — u26 · to grow
 - `wagen` — u48 · to venture
 - `wählen` — u42 · to choose
+- `wahr` — u58 · true
 - `während` — u29 · while
 - `wahrnehmen` — u86 · to perceive
 - `wahrscheinlich` — u54 · probably
@@ -2915,9 +3011,11 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `witzig` — u115 · funny
 - `wo` — u3 · where
 - `wobei` — u69 · whereby
+- `wodurch` — u69 · through which
 - `wofür` — u69 · what purpose
 - `woher` — u3 · where from
 - `wohin` — u12 · where to
+- `wohingegen` — u69 · whereas
 - `wohl` — u84 · no doubt
 - `wohlgemerkt` — u109 · mind you (note this qualification)
 - `wohlwollend` — u105 · benevolent (well-disposed towards someone)
@@ -2949,6 +3047,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 - `z` — u1
 - `zäh` — u49 · tough
 - `zahlreich` — u113 · numerous
+- `zart` — u117 · tender
 - `zehn` — u5 · ten
 - `zeigen` — u18 · to show
 - `zeigte` — u38 · showed — past of zeigen
@@ -3013,7 +3112,7 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 
 ## By unit — what each slot teaches
 
-**u1 · Laute und Buchstaben** (33) — `ei`, `ie`, `ist`, `das`, `nein`, `hier`, `was`, `z`, `ch`, `die Zeit`, `die Zeitung`, `das Buch`, `und`, `sind`, `sch`, `ß`, `die Straße`, `die Schule`, `schnell`, `sprechen`, `zusammen`, `ü`, `ö`, `die Tür`, `die Küche`, `müde`, `hören`, `wohnen`, `ä`, `spät`, `klein`, `schön`, `groß`
+**u1 · Laute und Buchstaben** (34) — `ei`, `ie`, `ist`, `das`, `nein`, `hier`, `was`, `z`, `ch`, `die Zeit`, `die Zeitung`, `das Buch`, `und`, `sind`, `sch`, `ß`, `die Straße`, `die Schule`, `schnell`, `sprechen`, `zusammen`, `ü`, `ö`, `die Tür`, `die Küche`, `müde`, `hören`, `wohnen`, `ä`, `spät`, `klein`, `schön`, `groß`, `hässlich`
 
 **u2 · Begrüßung und Abschied** (25) — `hallo`, `guten Morgen`, `guten Tag`, `guten Abend`, `gute Nacht`, `willkommen`, `wie geht's`, `danke`, `bitte`, `gut`, `schlecht`, `sehr`, `so`, `tschüss`, `auf Wiedersehen`, `bis bald`, `bis später`, `bis morgen`, `gute Reise`, `Entschuldigung`, `es tut mir leid`, `gern`, `kein Problem`, `ja`, `natürlich`
 
@@ -3049,13 +3148,13 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 
 **u18 · Kleidung und Einkaufen** (24) — `das Hemd`, `die Hose`, `der Rock`, `das Kleid`, `der Schuh`, `die Tasche`, `die Jacke`, `der Mantel`, `der Pullover`, `die Socke`, `die Mütze`, `der Schal`, `tragen`, `anziehen`, `ausziehen`, `passen`, `anprobieren`, `gefallen`, `kaufen`, `verkaufen`, `das Geschäft`, `die Kasse`, `der Kunde`, `zeigen`
 
-**u19 · Reisen und Verkehr** (24) — `der Zug`, `der Bus`, `die Bahn`, `das Flugzeug`, `das Fahrrad`, `das Schiff`, `der Flughafen`, `die Haltestelle`, `die Fahrkarte`, `der Fahrplan`, `das Ziel`, `warten`, `abfahren`, `ankommen`, `einsteigen`, `umsteigen`, `dauern`, `die Grenze`, `der Urlaub`, `der Koffer`, `das Gepäck`, `das Ausland`, `der Pass`, `die Welt`
+**u19 · Reisen und Verkehr** (25) — `der Zug`, `der Bus`, `die Bahn`, `das Flugzeug`, `das Fahrrad`, `das Schiff`, `der Flughafen`, `die Haltestelle`, `die Fahrkarte`, `der Fahrplan`, `das Ziel`, `warten`, `abfahren`, `ankommen`, `einsteigen`, `umsteigen`, `dauern`, `die Grenze`, `der Urlaub`, `der Koffer`, `das Gepäck`, `das Ausland`, `der Pass`, `die Welt`, `die Reise`
 
-**u20 · Schule und Arbeit** (24) — `der Lehrer`, `der Schüler`, `der Student`, `die Klasse`, `die Prüfung`, `die Aufgabe`, `fragen`, `antworten`, `richtig`, `falsch`, `das Wort`, `die Sprache`, `lernen`, `lesen`, `schreiben`, `üben`, `verstehen`, `erklären`, `das Büro`, `die Firma`, `der Chef`, `der Kollege`, `verdienen`, `der Termin`
+**u20 · Schule und Arbeit** (26) — `der Lehrer`, `der Schüler`, `der Student`, `die Klasse`, `die Prüfung`, `die Aufgabe`, `fragen`, `antworten`, `richtig`, `falsch`, `das Wort`, `die Sprache`, `die Frage`, `die Antwort`, `lernen`, `lesen`, `schreiben`, `üben`, `verstehen`, `erklären`, `das Büro`, `die Firma`, `der Chef`, `der Kollege`, `verdienen`, `der Termin`
 
 **u21 · Alltag und Routine** (29) — `aufwachen`, `duschen`, `sich waschen`, `sich anziehen`, `früh`, `pünktlich`, `der Alltag`, `der Tagesablauf`, `zuerst`, `danach`, `später`, `sich beeilen`, `fertig`, `erst`, `aufräumen`, `putzen`, `vorbereiten`, `das Geschirr`, `die Wäsche`, `der Müll`, `vom`, `zur`, `jeden Tag`, `zweimal`, `meistens`, `kaum`, `normalerweise`, `der Feierabend`, `einmal`
 
-**u22 · Gefühle und Stimmungen** (25) — `das Gefühl`, `fühlen`, `zufrieden`, `aufgeregt`, `stolz`, `nervös`, `wütend`, `sich ärgern`, `enttäuscht`, `die Sorge`, `einsam`, `erschöpft`, `passieren`, `die Freude`, `sich freuen`, `die Laune`, `überrascht`, `peinlich`, `sich entspannen`, `die Angst`, `sich beruhigen`, `die Geduld`, `mutig`, `schüchtern`, `leider`
+**u22 · Gefühle und Stimmungen** (27) — `das Gefühl`, `fühlen`, `zufrieden`, `aufgeregt`, `stolz`, `nervös`, `wütend`, `sich ärgern`, `enttäuscht`, `die Sorge`, `einsam`, `erschöpft`, `passieren`, `die Freude`, `sich freuen`, `die Laune`, `überrascht`, `peinlich`, `sich entspannen`, `das Glück`, `die Angst`, `sich beruhigen`, `die Geduld`, `mutig`, `schüchtern`, `leider`, `der Mut`
 
 **u23 · Reise und Unterkunft** (24) — `buchen`, `die Reservierung`, `die Unterkunft`, `der Ausflug`, `die Sehenswürdigkeit`, `packen`, `das Gleis`, `die Verspätung`, `die Auskunft`, `der Ausweis`, `abholen`, `fliegen`, `die Rezeption`, `das Einzelzimmer`, `das Doppelzimmer`, `die Übernachtung`, `die Aussicht`, `frei`, `das Auto`, `parken`, `der Stau`, `tanken`, `der Führerschein`, `die Ampel`
 
@@ -3113,79 +3212,79 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 
 **u50 · Wetter und Jahreszeiten** (25) — `der Sturm`, `der Donner`, `der Blitz`, `das Gewitter`, `der Hagel`, `der Schauer`, `der Frost`, `die Kälte`, `die Hitze`, `frieren`, `schmelzen`, `das Tauwetter`, `wolkig`, `neblig`, `sonnig`, `bewölkt`, `stürmisch`, `mild`, `der Regen`, `der Schatten`, `der Sonnenschein`, `der Regenbogen`, `der Grad`, `der Tau`, `die Jahreszeit`
 
-**u51 · Die eigene Meinung** (24) — `der Standpunkt`, `behaupten`, `betonen`, `die Tatsache`, `der Vorschlag`, `überzeugen`, `einverstanden`, `ebenfalls`, `selbstverständlich`, `keineswegs`, `meinetwegen`, `abgemacht`, `widersprechen`, `der Einwand`, `bestreiten`, `der Streit`, `übertreiben`, `der Unsinn`, `das Gespräch`, `unterbrechen`, `das Missverständnis`, `schweigen`, `das Vorurteil`, `sich äußern`
+**u51 · Die eigene Meinung** (25) — `der Standpunkt`, `behaupten`, `betonen`, `die Tatsache`, `der Vorschlag`, `überzeugen`, `der Punkt`, `einverstanden`, `ebenfalls`, `selbstverständlich`, `keineswegs`, `meinetwegen`, `abgemacht`, `widersprechen`, `der Einwand`, `bestreiten`, `der Streit`, `übertreiben`, `der Unsinn`, `das Gespräch`, `unterbrechen`, `das Missverständnis`, `schweigen`, `das Vorurteil`, `sich äußern`
 
-**u52 · Ursache und Folge** (23) — `verursachen`, `entstehen`, `der Zusammenhang`, `abhängen`, `beeinflussen`, `die Folge`, `folglich`, `daher`, `führen`, `die Auswirkung`, `auslösen`, `die Voraussetzung`, `dadurch`, `ermöglichen`, `der Umstand`, `notwendig`, `der Zweck`, `der Vorteil`, `der Nachteil`, `die Rolle`, `betreffen`, `der Hinweis`, `wesentlich`
+**u52 · Ursache und Folge** (24) — `verursachen`, `entstehen`, `der Zusammenhang`, `abhängen`, `beeinflussen`, `der Anlass`, `die Folge`, `folglich`, `daher`, `führen`, `die Auswirkung`, `auslösen`, `die Voraussetzung`, `dadurch`, `ermöglichen`, `der Umstand`, `notwendig`, `der Zweck`, `der Vorteil`, `der Nachteil`, `die Rolle`, `betreffen`, `der Hinweis`, `wesentlich`
 
-**u53 · Vergleich und Steigerung** (23) — `ziemlich`, `äußerst`, `deutlich`, `gering`, `erheblich`, `überwiegend`, `abnehmen`, `steigen`, `sinken`, `der Anteil`, `durchschnittlich`, `übertreffen`, `vorziehen`, `entsprechen`, `gleichzeitig`, `umgekehrt`, `beinahe`, `teilweise`, `völlig`, `ausreichend`, `reichlich`, `zusätzlich`, `übrig`
+**u53 · Vergleich und Steigerung** (24) — `ziemlich`, `äußerst`, `deutlich`, `gering`, `erheblich`, `überwiegend`, `abnehmen`, `steigen`, `sinken`, `der Anteil`, `durchschnittlich`, `die Hälfte`, `übertreffen`, `vorziehen`, `entsprechen`, `gleichzeitig`, `umgekehrt`, `beinahe`, `teilweise`, `völlig`, `ausreichend`, `reichlich`, `zusätzlich`, `übrig`
 
-**u54 · Vermutung und Unsicherheit** (22) — `wahrscheinlich`, `vermutlich`, `offenbar`, `angeblich`, `scheinen`, `eventuell`, `der Zweifel`, `etwa`, `irgendwie`, `zumindest`, `die Ahnung`, `annehmen`, `erwarten`, `schätzen`, `befürchten`, `der Eindruck`, `eigentlich`, `jedenfalls`, `sowieso`, `lediglich`, `bloß`, `je nachdem`
+**u54 · Vermutung und Unsicherheit** (24) — `wahrscheinlich`, `vermutlich`, `offenbar`, `angeblich`, `scheinen`, `eventuell`, `der Zweifel`, `etwa`, `irgendwie`, `zumindest`, `die Ahnung`, `ungewiss`, `annehmen`, `erwarten`, `schätzen`, `befürchten`, `der Eindruck`, `die Hoffnung`, `eigentlich`, `jedenfalls`, `sowieso`, `lediglich`, `bloß`, `je nachdem`
 
 **u55 · Nachrichten und Gesellschaft** (24) — `der Bericht`, `die Quelle`, `veröffentlichen`, `die Presse`, `die Redaktion`, `der Leser`, `die Macht`, `die Partei`, `die Stimme`, `die Freiheit`, `vertreten`, `die Politik`, `die Armut`, `die Bildung`, `die Gewalt`, `die Krise`, `die Gerechtigkeit`, `der Streik`, `die Öffentlichkeit`, `die Bevölkerung`, `unterstützen`, `fordern`, `die Heimat`, `die Kritik`
 
-**u56 · Arbeit und Ablauf** (21) — `der Schritt`, `die Reihenfolge`, `zunächst`, `anschließend`, `die Frist`, `durchführen`, `die Unterlagen`, `der Auftrag`, `der Bereich`, `der Mitarbeiter`, `die Schicht`, `sich einigen`, `verhandeln`, `teilnehmen`, `zusagen`, `sich durchsetzen`, `der Erfolg`, `scheitern`, `die Leistung`, `der Aufwand`, `verbessern`
+**u56 · Arbeit und Ablauf** (24) — `der Schritt`, `die Reihenfolge`, `zunächst`, `anschließend`, `die Frist`, `durchführen`, `die Unterlagen`, `der Auftrag`, `der Bereich`, `der Mitarbeiter`, `die Schicht`, `der Ablauf`, `sich einigen`, `verhandeln`, `teilnehmen`, `zusagen`, `sich durchsetzen`, `die Einigung`, `der Erfolg`, `scheitern`, `die Leistung`, `der Aufwand`, `verbessern`, `erfolgreich`
 
-**u57 · Gefühle, feiner betrachtet** (22) — `erleichtert`, `dankbar`, `begeistert`, `gelassen`, `gespannt`, `leiden`, `belasten`, `verzweifelt`, `sich schämen`, `die Sehnsucht`, `der Kummer`, `erschrecken`, `aushalten`, `zittern`, `weinen`, `lächeln`, `empfindlich`, `das Vertrauen`, `beleidigen`, `die Rücksicht`, `vermissen`, `trösten`
+**u57 · Gefühle, feiner betrachtet** (24) — `erleichtert`, `dankbar`, `begeistert`, `gelassen`, `gespannt`, `froh`, `leiden`, `belasten`, `verzweifelt`, `sich schämen`, `die Sehnsucht`, `der Kummer`, `erschrecken`, `aushalten`, `zittern`, `weinen`, `lächeln`, `empfindlich`, `das Vertrauen`, `beleidigen`, `die Rücksicht`, `vermissen`, `trösten`, `einfühlsam`
 
-**u58 · Abstrakte Begriffe** (22) — `der Begriff`, `die Wahrheit`, `der Sinn`, `die Vernunft`, `die Ausnahme`, `das Prinzip`, `die Ehre`, `das Gegenteil`, `der Anspruch`, `das Schicksal`, `die Seele`, `der Geist`, `der Traum`, `das Gewissen`, `das Wunder`, `das Geheimnis`, `der Ursprung`, `die Art`, `der Zufall`, `die Einzelheit`, `das Merkmal`, `gelten`
+**u58 · Abstrakte Begriffe** (24) — `der Begriff`, `die Wahrheit`, `der Sinn`, `die Vernunft`, `die Ausnahme`, `wahr`, `das Prinzip`, `die Ehre`, `das Gegenteil`, `der Anspruch`, `das Schicksal`, `das Ideal`, `die Seele`, `der Geist`, `der Traum`, `das Gewissen`, `das Wunder`, `das Geheimnis`, `der Ursprung`, `die Art`, `der Zufall`, `die Einzelheit`, `das Merkmal`, `gelten`
 
-**u59 · Wandel und Zeit** (24) — `allmählich`, `ändern`, `die Gewohnheit`, `vorbei`, `der Zeitraum`, `langfristig`, `das Jahrhundert`, `die Geschichte`, `altmodisch`, `das Jahrzehnt`, `seitdem`, `verschwinden`, `vergehen`, `endgültig`, `vorläufig`, `regelmäßig`, `beschleunigen`, `der Wandel`, `die Gegenwart`, `erwachsen`, `aufwachsen`, `das Alter`, `die Kindheit`, `erneut`
+**u59 · Wandel und Zeit** (25) — `allmählich`, `ändern`, `die Gewohnheit`, `vorbei`, `der Zeitraum`, `langfristig`, `anders`, `das Jahrhundert`, `die Geschichte`, `altmodisch`, `das Jahrzehnt`, `seitdem`, `verschwinden`, `vergehen`, `endgültig`, `vorläufig`, `regelmäßig`, `beschleunigen`, `der Wandel`, `die Gegenwart`, `erwachsen`, `aufwachsen`, `das Alter`, `die Kindheit`, `erneut`
 
-**u60 · Probleme und Lösungen** (23) — `die Schwierigkeit`, `der Fehler`, `der Mangel`, `die Panne`, `schiefgehen`, `kompliziert`, `der Ausweg`, `der Rat`, `die Maßnahme`, `beseitigen`, `eingreifen`, `notfalls`, `das Risiko`, `warnen`, `retten`, `der Unfall`, `zerstören`, `ersetzen`, `klären`, `der Kompromiss`, `nachgeben`, `überwinden`, `sich bemühen`
+**u60 · Probleme und Lösungen** (25) — `die Schwierigkeit`, `der Fehler`, `der Mangel`, `die Panne`, `schiefgehen`, `kompliziert`, `der Ausweg`, `der Rat`, `die Maßnahme`, `beseitigen`, `eingreifen`, `notfalls`, `lösen`, `das Risiko`, `warnen`, `retten`, `der Unfall`, `zerstören`, `verletzen`, `ersetzen`, `klären`, `der Kompromiss`, `nachgeben`, `überwinden`, `sich bemühen`
 
-**u61 · Regeln, Erlaubnis, Pflicht** (23) — `die Vorschrift`, `der Antrag`, `unterschreiben`, `beachten`, `die Zulassung`, `vorlegen`, `die Verantwortung`, `die Strafe`, `einhalten`, `die Schuld`, `unbedingt`, `das Schild`, `rauchen`, `der Lärm`, `verhindern`, `die Ordnung`, `stören`, `die Aussage`, `versprechen`, `freiwillig`, `verbindlich`, `einwilligen`, `der Verstoß`
+**u61 · Regeln, Erlaubnis, Pflicht** (24) — `die Vorschrift`, `der Antrag`, `unterschreiben`, `beachten`, `die Zulassung`, `vorlegen`, `die Verantwortung`, `die Strafe`, `einhalten`, `die Schuld`, `unbedingt`, `untersagen`, `das Schild`, `rauchen`, `der Lärm`, `verhindern`, `die Ordnung`, `stören`, `die Aussage`, `versprechen`, `freiwillig`, `verbindlich`, `einwilligen`, `der Verstoß`
 
-**u62 · Pläne und Absichten** (24) — `vorhaben`, `die Absicht`, `künftig`, `demnächst`, `rechtzeitig`, `verschieben`, `erreichen`, `der Wille`, `die Herausforderung`, `die Gelegenheit`, `verzichten`, `bestimmt`, `sich verabreden`, `begleiten`, `die Veranstaltung`, `anmelden`, `der Gastgeber`, `stattfinden`, `kurzfristig`, `ausfallen`, `der Zeitpunkt`, `anpassen`, `trotz`, `dringend`
+**u62 · Pläne und Absichten** (25) — `vorhaben`, `die Absicht`, `künftig`, `demnächst`, `rechtzeitig`, `verschieben`, `der Plan`, `erreichen`, `der Wille`, `die Herausforderung`, `die Gelegenheit`, `verzichten`, `bestimmt`, `sich verabreden`, `begleiten`, `die Veranstaltung`, `anmelden`, `der Gastgeber`, `stattfinden`, `kurzfristig`, `ausfallen`, `der Zeitpunkt`, `anpassen`, `trotz`, `dringend`
 
-**u63 · Erfahrung und Erinnerung** (22) — `das Gedächtnis`, `auswendig`, `prägen`, `unvergesslich`, `verblassen`, `verdrängen`, `erleben`, `das Erlebnis`, `das Ereignis`, `schildern`, `beeindrucken`, `mittlerweile`, `seinerzeit`, `einst`, `seither`, `längst`, `kürzlich`, `bewahren`, `aufbewahren`, `das Tagebuch`, `das Andenken`, `der Rückblick`
+**u63 · Erfahrung und Erinnerung** (24) — `das Gedächtnis`, `auswendig`, `prägen`, `unvergesslich`, `verblassen`, `verdrängen`, `erleben`, `das Erlebnis`, `das Ereignis`, `schildern`, `beeindrucken`, `erfahren`, `mittlerweile`, `seinerzeit`, `einst`, `seither`, `längst`, `kürzlich`, `bewahren`, `aufbewahren`, `das Tagebuch`, `das Andenken`, `der Rückblick`, `die Erinnerung`
 
-**u64 · Medien und Unterhaltung** (23) — `die Sendung`, `der Sender`, `ausstrahlen`, `einschalten`, `die Fernbedienung`, `der Regisseur`, `das Drehbuch`, `die Handlung`, `der Held`, `die Serie`, `die Komödie`, `die Aufnahme`, `aufnehmen`, `übertragen`, `der Kanal`, `der Zuhörer`, `das Abonnement`, `kritisieren`, `die Schlagzeile`, `der Beitrag`, `die Reportage`, `glaubwürdig`, `der Verlag`
+**u64 · Medien und Unterhaltung** (24) — `die Sendung`, `der Sender`, `ausstrahlen`, `einschalten`, `die Fernbedienung`, `das Programm`, `der Regisseur`, `das Drehbuch`, `die Handlung`, `der Held`, `die Serie`, `die Komödie`, `die Aufnahme`, `aufnehmen`, `übertragen`, `der Kanal`, `der Zuhörer`, `das Abonnement`, `kritisieren`, `die Schlagzeile`, `der Beitrag`, `die Reportage`, `glaubwürdig`, `der Verlag`
 
-**u65 · Umwelt und Klima** (23) — `der Klimawandel`, `die Erderwärmung`, `der Ausstoß`, `verbrauchen`, `sparsam`, `nachhaltig`, `der Abfall`, `die Tonne`, `trennen`, `recyceln`, `wegwerfen`, `die Verschmutzung`, `das Kraftwerk`, `die Kohle`, `erneuerbar`, `die Ressource`, `das Windrad`, `das Erdöl`, `die Landschaft`, `das Gebirge`, `die Küste`, `die Wiese`, `aussterben`
+**u65 · Umwelt und Klima** (24) — `der Klimawandel`, `die Erderwärmung`, `der Ausstoß`, `verbrauchen`, `sparsam`, `nachhaltig`, `der Abfall`, `die Tonne`, `trennen`, `recyceln`, `wegwerfen`, `die Verschmutzung`, `das Kraftwerk`, `die Kohle`, `erneuerbar`, `die Ressource`, `das Windrad`, `das Erdöl`, `die Landschaft`, `das Gebirge`, `die Küste`, `die Wiese`, `aussterben`, `der Lebensraum`
 
-**u66 · Geld und Wirtschaft** (22) — `die Wirtschaft`, `der Betrieb`, `der Umsatz`, `die Nachfrage`, `die Währung`, `die Inflation`, `das Einkommen`, `der Lohn`, `die Ausgabe`, `die Einnahme`, `der Haushalt`, `die Rente`, `die Schulden`, `borgen`, `der Kredit`, `das Bargeld`, `sich lohnen`, `der Wert`, `wertvoll`, `der Verlust`, `investieren`, `die Bilanz`
+**u66 · Geld und Wirtschaft** (24) — `die Wirtschaft`, `der Betrieb`, `der Umsatz`, `die Nachfrage`, `die Währung`, `die Inflation`, `das Einkommen`, `der Lohn`, `die Ausgabe`, `die Einnahme`, `der Haushalt`, `die Rente`, `die Schulden`, `borgen`, `der Kredit`, `das Bargeld`, `sich lohnen`, `die Zinsen`, `der Wert`, `wertvoll`, `der Verlust`, `investieren`, `die Bilanz`, `die Aktie`
 
-**u67 · Gesundheit und Wohlbefinden** (23) — `die Diagnose`, `die Operation`, `der Eingriff`, `die Therapie`, `heilen`, `die Genesung`, `die Impfung`, `die Vorsorge`, `die Salbe`, `die Dosis`, `die Nebenwirkung`, `der Blutdruck`, `der Stress`, `seelisch`, `chronisch`, `die Belastung`, `die Sucht`, `das Wohlbefinden`, `die Ernährung`, `die Pflege`, `zunehmen`, `die Kur`, `die Beschwerden`
+**u67 · Gesundheit und Wohlbefinden** (24) — `die Diagnose`, `die Operation`, `der Eingriff`, `die Therapie`, `heilen`, `die Genesung`, `die Impfung`, `die Vorsorge`, `die Salbe`, `die Dosis`, `die Nebenwirkung`, `der Blutdruck`, `der Stress`, `seelisch`, `chronisch`, `die Belastung`, `die Sucht`, `das Wohlbefinden`, `die Ernährung`, `die Pflege`, `zunehmen`, `die Kur`, `die Beschwerden`, `das Gleichgewicht`
 
-**u68 · Beziehungen und Gemeinschaft** (21) — `die Beziehung`, `die Zuneigung`, `treu`, `eifersüchtig`, `das Paar`, `die Ehe`, `heiraten`, `verlobt`, `sich versöhnen`, `der Konflikt`, `die Gemeinschaft`, `der Respekt`, `das Verständnis`, `der Umgang`, `die Vielfalt`, `die Nachbarschaft`, `die Minderheit`, `die Generation`, `das Ehrenamt`, `die Integration`, `der Zusammenhalt`
+**u68 · Beziehungen und Gemeinschaft** (24) — `die Beziehung`, `die Zuneigung`, `treu`, `eifersüchtig`, `das Paar`, `die Nähe`, `die Ehe`, `heiraten`, `verlobt`, `sich versöhnen`, `der Konflikt`, `die Scheidung`, `die Gemeinschaft`, `der Respekt`, `das Verständnis`, `der Umgang`, `die Vielfalt`, `die Nachbarschaft`, `die Minderheit`, `die Generation`, `das Ehrenamt`, `die Integration`, `der Zusammenhalt`, `die Hilfsbereitschaft`
 
-**u69 · Verweiswörter und Nebensätze** (22) — `worauf`, `woran`, `womit`, `wovon`, `worüber`, `wofür`, `darauf`, `daran`, `davon`, `darüber`, `dabei`, `dagegen`, `darin`, `dazu`, `worin`, `wobei`, `insofern`, `wessen`, `derjenige`, `indem`, `sodass`, `zumal`
+**u69 · Verweiswörter und Nebensätze** (24) — `worauf`, `woran`, `womit`, `wovon`, `worüber`, `wofür`, `darauf`, `daran`, `davon`, `darüber`, `dabei`, `dagegen`, `darin`, `dazu`, `worin`, `wobei`, `insofern`, `wodurch`, `wessen`, `derjenige`, `indem`, `sodass`, `zumal`, `wohingegen`
 
-**u70 · Passiv und Konjunktiv II** (22) — `worden`, `erfolgen`, `geschehen`, `sich ergeben`, `sich herausstellen`, `machbar`, `lesbar`, `essbar`, `sichtbar`, `hörbar`, `denkbar`, `dürfte`, `müsste`, `bräuchte`, `wüsste`, `käme`, `gäbe`, `an deiner Stelle`, `angenommen`, `vorausgesetzt`, `andernfalls`, `ansonsten`
+**u70 · Passiv und Konjunktiv II** (24) — `worden`, `erfolgen`, `geschehen`, `sich ergeben`, `sich herausstellen`, `vorkommen`, `machbar`, `lesbar`, `essbar`, `sichtbar`, `hörbar`, `denkbar`, `dürfte`, `müsste`, `bräuchte`, `wüsste`, `käme`, `gäbe`, `an deiner Stelle`, `angenommen`, `vorausgesetzt`, `andernfalls`, `ansonsten`, `hypothetisch`
 
-**u71 · Der Genitiv und die Artikelwörter** (23) — `des`, `wegen`, `statt`, `innerhalb`, `außerhalb`, `aufgrund`, `mithilfe`, `anhand`, `infolge`, `angesichts`, `hinsichtlich`, `derselbe`, `mancher`, `solcher`, `mehrere`, `sämtliche`, `irgendein`, `die Bewegung`, `die Erziehung`, `die Forderung`, `die Lieferung`, `die Anfrage`, `die Mitteilung`
+**u71 · Der Genitiv und die Artikelwörter** (24) — `des`, `wegen`, `statt`, `innerhalb`, `außerhalb`, `unweit`, `aufgrund`, `mithilfe`, `anhand`, `infolge`, `angesichts`, `hinsichtlich`, `derselbe`, `mancher`, `solcher`, `mehrere`, `sämtliche`, `irgendein`, `die Bewegung`, `die Erziehung`, `die Forderung`, `die Lieferung`, `die Anfrage`, `die Mitteilung`
 
-**u72 · Förmlich und vertraut** (22) — `siezen`, `duzen`, `die Anrede`, `förmlich`, `vertraulich`, `der Umgangston`, `sehr geehrte`, `der Gruß`, `der Absender`, `hiermit`, `die Anlage`, `der Dialekt`, `die Mundart`, `das Hochdeutsch`, `umgangssprachlich`, `die Fachsprache`, `mündlich`, `echt`, `krass`, `tja`, `naja`, `salopp`
+**u72 · Förmlich und vertraut** (24) — `siezen`, `duzen`, `die Anrede`, `förmlich`, `vertraulich`, `der Umgangston`, `sehr geehrte`, `der Gruß`, `der Absender`, `hiermit`, `die Anlage`, `die Grußformel`, `der Dialekt`, `die Mundart`, `das Hochdeutsch`, `umgangssprachlich`, `die Fachsprache`, `mündlich`, `echt`, `krass`, `tja`, `naja`, `salopp`, `der Quatsch`
 
-**u73 · Höflich und vorsichtig** (22) — `mal`, `schon`, `überhaupt`, `halt`, `bitten`, `bedauern`, `dürfte ich`, `hätten Sie Zeit`, `sich erkundigen`, `nachfragen`, `verzeihen`, `gegebenenfalls`, `ungern`, `andeuten`, `abschwächen`, `zurückhaltend`, `taktvoll`, `rücksichtsvoll`, `behutsam`, `diskret`, `aufdringlich`, `unverbindlich`
+**u73 · Höflich und vorsichtig** (24) — `mal`, `schon`, `überhaupt`, `halt`, `bitten`, `bedauern`, `dürfte ich`, `hätten Sie Zeit`, `sich erkundigen`, `nachfragen`, `verzeihen`, `die Rückfrage`, `gegebenenfalls`, `ungern`, `andeuten`, `abschwächen`, `zurückhaltend`, `vage`, `taktvoll`, `rücksichtsvoll`, `behutsam`, `diskret`, `aufdringlich`, `unverbindlich`
 
-**u74 · Sprache und Ausdruck** (23) — `die Aussprache`, `der Akzent`, `die Betonung`, `die Silbe`, `der Buchstabe`, `fließend`, `der Ausdruck`, `die Bedeutung`, `das Fremdwort`, `die Abkürzung`, `der Wortschatz`, `übersetzen`, `dolmetschen`, `verständlich`, `missverstehen`, `wörtlich`, `sinngemäß`, `die Muttersprache`, `die Fremdsprache`, `das Wörterbuch`, `die Grammatik`, `die Redewendung`, `das Sprichwort`
+**u74 · Sprache und Ausdruck** (24) — `die Aussprache`, `der Akzent`, `die Betonung`, `die Silbe`, `der Buchstabe`, `fließend`, `der Ausdruck`, `die Bedeutung`, `das Fremdwort`, `die Abkürzung`, `der Wortschatz`, `bedeuten`, `übersetzen`, `dolmetschen`, `verständlich`, `missverstehen`, `wörtlich`, `sinngemäß`, `die Muttersprache`, `die Fremdsprache`, `das Wörterbuch`, `die Grammatik`, `die Redewendung`, `das Sprichwort`
 
-**u75 · Recht und Verwaltung** (23) — `das Gericht`, `der Richter`, `der Anwalt`, `das Urteil`, `der Zeuge`, `die Klage`, `das Verbrechen`, `der Täter`, `das Opfer`, `verurteilen`, `die Polizei`, `stehlen`, `das Amt`, `die Genehmigung`, `die Anmeldung`, `der Beamte`, `die Bescheinigung`, `zuständig`, `die Unterschrift`, `der Stempel`, `die Akte`, `die Bearbeitung`, `die Vollmacht`
+**u75 · Recht und Verwaltung** (24) — `das Gericht`, `der Richter`, `der Anwalt`, `das Urteil`, `der Zeuge`, `die Klage`, `das Verbrechen`, `der Täter`, `das Opfer`, `verurteilen`, `die Polizei`, `stehlen`, `das Amt`, `die Genehmigung`, `die Anmeldung`, `der Beamte`, `die Bescheinigung`, `beantragen`, `zuständig`, `die Unterschrift`, `der Stempel`, `die Akte`, `die Bearbeitung`, `die Vollmacht`
 
 **u76 · Auf dem Amt** (24) — `die Verwaltung`, `das Rathaus`, `der Schalter`, `der Sachbearbeiter`, `die Wartenummer`, `die Sprechstunde`, `ausfüllen`, `ankreuzen`, `einreichen`, `leserlich`, `durchstreichen`, `beilegen`, `sich anmelden`, `der Nachweis`, `die Kopie`, `das Original`, `beglaubigen`, `die Urkunde`, `die Gebühr`, `gültig`, `ablaufen`, `die Öffnungszeit`, `die Rückzahlung`, `kostenlos`
 
-**u77 · Am Telefon** (21) — `die Vorwahl`, `die Durchwahl`, `der Anschluss`, `erreichbar`, `das Freizeichen`, `sich melden`, `dranbleiben`, `weiterleiten`, `ausrichten`, `zurückrufen`, `der Hörer`, `der Anrufbeantworter`, `die Mailbox`, `hinterlassen`, `buchstabieren`, `stumm`, `sich verwählen`, `auflegen`, `abbrechen`, `die Störung`, `rauschen`
+**u77 · Am Telefon** (24) — `die Vorwahl`, `die Durchwahl`, `der Anschluss`, `erreichbar`, `das Freizeichen`, `die Rufnummer`, `sich melden`, `dranbleiben`, `weiterleiten`, `ausrichten`, `zurückrufen`, `der Hörer`, `der Anrufbeantworter`, `die Mailbox`, `hinterlassen`, `buchstabieren`, `stumm`, `der Rückruf`, `sich verwählen`, `auflegen`, `abbrechen`, `die Störung`, `rauschen`, `die Leitung`
 
-**u78 · Beschwerden und Reklamationen** (22) — `defekt`, `kaputtgehen`, `unzufrieden`, `sich beschweren`, `das Anliegen`, `reklamieren`, `zurückgeben`, `zurückschicken`, `der Kassenbon`, `der Beleg`, `die Garantie`, `erstatten`, `die Entschädigung`, `der Kundendienst`, `bearbeiten`, `umgehend`, `hartnäckig`, `der Vorgesetzte`, `zugeben`, `widerrufen`, `nachhaken`, `beharren`
+**u78 · Beschwerden und Reklamationen** (24) — `defekt`, `kaputtgehen`, `unzufrieden`, `sich beschweren`, `das Anliegen`, `mangelhaft`, `reklamieren`, `zurückgeben`, `zurückschicken`, `der Kassenbon`, `der Beleg`, `die Garantie`, `erstatten`, `die Entschädigung`, `der Kundendienst`, `bearbeiten`, `umgehend`, `der Ersatz`, `hartnäckig`, `der Vorgesetzte`, `zugeben`, `widerrufen`, `nachhaken`, `beharren`
 
-**u79 · Verträge, Raten und Fristen** (20) — `abschließen`, `vereinbaren`, `das Kleingedruckte`, `schriftlich`, `die Laufzeit`, `die Zusage`, `verlängern`, `stornieren`, `der Widerspruch`, `verpflichten`, `die Rate`, `die Anzahlung`, `der Zuschlag`, `die Ermäßigung`, `der Betrag`, `fällig`, `die Mahnung`, `schulden`, `der Schaden`, `haften`
+**u79 · Verträge, Raten und Fristen** (24) — `abschließen`, `vereinbaren`, `das Kleingedruckte`, `schriftlich`, `die Laufzeit`, `die Klausel`, `die Zusage`, `verlängern`, `stornieren`, `der Widerspruch`, `verpflichten`, `der Rücktritt`, `die Rate`, `die Anzahlung`, `der Zuschlag`, `die Ermäßigung`, `der Betrag`, `die Teilzahlung`, `fällig`, `die Mahnung`, `schulden`, `der Schaden`, `haften`, `begleichen`
 
 **u80 · Wohnungssuche und Umzug** (24) — `das Inserat`, `die Besichtigung`, `der Makler`, `möbliert`, `die Wohnfläche`, `der Quadratmeter`, `der Mietvertrag`, `der Vermieter`, `die Kaution`, `die Nebenkosten`, `die Hausordnung`, `der Bewohner`, `einziehen`, `räumen`, `die Übergabe`, `der Grundriss`, `der Stellplatz`, `der Dachboden`, `renovieren`, `streichen`, `die Tapete`, `der Handwerker`, `der Schimmel`, `der Hausmeister`
 
-**u81 · Notfall und Sicherheit** (22) — `der Notruf`, `die Feuerwehr`, `der Sanitäter`, `die Notaufnahme`, `reagieren`, `brennen`, `der Rauch`, `der Feuerlöscher`, `der Notausgang`, `flüchten`, `der Alarm`, `die Erste Hilfe`, `der Verband`, `ohnmächtig`, `der Schock`, `die Panik`, `die Gefahr`, `das Unglück`, `die Ausrüstung`, `der Helm`, `die Taschenlampe`, `der Verbandskasten`
+**u81 · Notfall und Sicherheit** (24) — `der Notruf`, `die Feuerwehr`, `der Sanitäter`, `die Notaufnahme`, `reagieren`, `alarmieren`, `brennen`, `der Rauch`, `der Feuerlöscher`, `der Notausgang`, `flüchten`, `der Alarm`, `die Erste Hilfe`, `der Verband`, `ohnmächtig`, `der Schock`, `die Panik`, `der Puls`, `die Gefahr`, `das Unglück`, `die Ausrüstung`, `der Helm`, `die Taschenlampe`, `der Verbandskasten`
 
-**u82 · Verkehr und Regeln** (23) — `die Fahrschule`, `lenken`, `anschnallen`, `der Blinker`, `rückwärts`, `die Geschwindigkeit`, `das Verkehrsschild`, `die Vorfahrt`, `die Kreuzung`, `abbiegen`, `der Fußgänger`, `hupen`, `die Autobahn`, `die Spur`, `überholen`, `die Ausfahrt`, `rasen`, `bremsen`, `abschleppen`, `der Reifen`, `die Baustelle`, `die Umleitung`, `das Bußgeld`
+**u82 · Verkehr und Regeln** (24) — `die Fahrschule`, `lenken`, `anschnallen`, `der Blinker`, `rückwärts`, `die Geschwindigkeit`, `das Verkehrsschild`, `die Vorfahrt`, `die Kreuzung`, `abbiegen`, `der Fußgänger`, `hupen`, `die Autobahn`, `die Spur`, `überholen`, `die Ausfahrt`, `rasen`, `bremsen`, `abschleppen`, `der Reifen`, `die Baustelle`, `die Umleitung`, `das Bußgeld`, `die Werkstatt`
 
 **u83 · Post und Lieferung** (24) — `verschicken`, `der Umschlag`, `die Briefmarke`, `frankieren`, `einwerfen`, `die Postkarte`, `die Filiale`, `die Warteschlange`, `das Porto`, `wiegen`, `das Einschreiben`, `das Postfach`, `der Empfänger`, `das Etikett`, `nachsenden`, `der Zoll`, `die Anschrift`, `die Postleitzahl`, `liefern`, `der Versand`, `der Bote`, `zustellen`, `die Verpackung`, `der Briefträger`
 
 **u84 · Partikeln und Gesprächswörter** (24) — `eben`, `einfach`, `nun`, `gar`, `zufällig`, `ausnahmsweise`, `wohl`, `anscheinend`, `womöglich`, `zweifellos`, `eindeutig`, `gewiss`, `ohnehin`, `durchaus`, `freilich`, `letztlich`, `vielmehr`, `gleichwohl`, `im Grunde`, `wie gesagt`, `ehrlich gesagt`, `sozusagen`, `nebenbei`, `kurz gesagt`
 
-**u85 · Bewegung und Körpersprache** (22) — `rennen`, `hüpfen`, `klettern`, `kriechen`, `schleichen`, `rutschen`, `stolpern`, `stürzen`, `sich bücken`, `sich strecken`, `sich lehnen`, `winken`, `nicken`, `schütteln`, `deuten`, `umarmen`, `die Geste`, `seufzen`, `grinsen`, `gähnen`, `sich umdrehen`, `die Körperhaltung`
+**u85 · Bewegung und Körpersprache** (24) — `rennen`, `hüpfen`, `klettern`, `kriechen`, `schleichen`, `rutschen`, `stolpern`, `stürzen`, `sich bücken`, `sich strecken`, `sich lehnen`, `bewegen`, `winken`, `nicken`, `schütteln`, `deuten`, `umarmen`, `die Geste`, `seufzen`, `grinsen`, `gähnen`, `sich umdrehen`, `die Körperhaltung`, `die Miene`
 
-**u86 · Wahrnehmung und Aufmerksamkeit** (22) — `der Blick`, `auffallen`, `bemerken`, `beobachten`, `betrachten`, `übersehen`, `zuhören`, `flüstern`, `brüllen`, `das Geräusch`, `die Stille`, `aufmerksam`, `riechen`, `der Duft`, `berühren`, `spüren`, `wahrnehmen`, `sich konzentrieren`, `ablenken`, `sich merken`, `der Verdacht`, `ahnen`
+**u86 · Wahrnehmung und Aufmerksamkeit** (24) — `der Blick`, `auffallen`, `bemerken`, `beobachten`, `betrachten`, `übersehen`, `zuhören`, `flüstern`, `brüllen`, `das Geräusch`, `die Stille`, `aufmerksam`, `riechen`, `der Duft`, `berühren`, `spüren`, `wahrnehmen`, `der Geruch`, `sich konzentrieren`, `ablenken`, `sich merken`, `der Verdacht`, `ahnen`, `wachsam`
 
-**u87 · Anteile, Zahlen und Schätzungen** (20) — `das Drittel`, `das Viertel`, `der Rest`, `der Bruchteil`, `das Verhältnis`, `insgesamt`, `jeweils`, `der Durchschnitt`, `die Summe`, `betragen`, `ungefähr`, `rund`, `knapp`, `mindestens`, `höchstens`, `die Ziffer`, `der Prozentsatz`, `die Quote`, `verdoppeln`, `die Angabe`
+**u87 · Anteile, Zahlen und Schätzungen** (24) — `das Drittel`, `das Viertel`, `der Rest`, `der Bruchteil`, `das Verhältnis`, `der Teil`, `insgesamt`, `jeweils`, `der Durchschnitt`, `die Summe`, `betragen`, `die Gesamtzahl`, `ungefähr`, `rund`, `knapp`, `mindestens`, `höchstens`, `schätzungsweise`, `die Ziffer`, `der Prozentsatz`, `die Quote`, `verdoppeln`, `die Angabe`, `die Tabelle`
 
 **u88 · Argumentation und Überzeugung** (24) — `die These`, `die Grundlage`, `die Annahme`, `untermauern`, `schlüssig`, `die Schlussfolgerung`, `widerlegen`, `entkräften`, `der Trugschluss`, `unterstellen`, `pauschal`, `voreilig`, `abwägen`, `einräumen`, `das Zugeständnis`, `relativieren`, `der Vorbehalt`, `zwingend`, `plausibel`, `nachvollziehbar`, `stichhaltig`, `eindringlich`, `rhetorisch`, `der Konsens`
 
@@ -3241,27 +3340,27 @@ Snapshot 2026-09-23: **2991 words** across **126 authored unit(s)**, **0 slot(s)
 
 **u114 · Bekommen und behalten** (24) — `bekommen`, `erhalten`, `kriegen`, `besorgen`, `behalten`, `verpassen`, `verlassen`, `entkommen`, `verstecken`, `erwischen`, `verfolgen`, `beschützen`, `beginnen`, `beenden`, `fortsetzen`, `starten`, `öffnen`, `aufhören`, `kennen`, `nennen`, `begreifen`, `herausfinden`, `lügen`, `wetten`
 
-**u115 · Urteile: toll, schlimm, seltsam** (20) — `toll`, `großartig`, `wunderbar`, `wunderschön`, `interessant`, `schlimm`, `furchtbar`, `schrecklich`, `übel`, `schwierig`, `komisch`, `seltsam`, `witzig`, `lächerlich`, `blöd`, `unglaublich`, `absolut`, `vollkommen`, `ewig`, `offensichtlich`
+**u115 · Urteile: toll, schlimm, seltsam** (24) — `toll`, `großartig`, `wunderbar`, `wunderschön`, `interessant`, `hervorragend`, `schlimm`, `furchtbar`, `schrecklich`, `übel`, `schwierig`, `mies`, `komisch`, `seltsam`, `witzig`, `lächerlich`, `blöd`, `merkwürdig`, `unglaublich`, `absolut`, `vollkommen`, `ewig`, `offensichtlich`, `überaus`
 
-**u116 · Charakter und Gefühl** (21) — `böse`, `ernst`, `verrückt`, `dumm`, `feige`, `unhöflich`, `geschickt`, `persönlich`, `normal`, `direkt`, `hassen`, `fürchten`, `lachen`, `schreien`, `sich verlieben`, `sich vorstellen`, `die Lüge`, `die Trauer`, `der Feind`, `der Wahnsinn`, `der Witz`
+**u116 · Charakter und Gefühl** (24) — `böse`, `ernst`, `verrückt`, `dumm`, `feige`, `eingebildet`, `unhöflich`, `geschickt`, `persönlich`, `normal`, `direkt`, `offen`, `hassen`, `fürchten`, `lachen`, `schreien`, `sich verlieben`, `sich vorstellen`, `die Lüge`, `die Trauer`, `der Feind`, `der Wahnsinn`, `der Witz`, `der Hass`
 
-**u117 · Körper, Kraft und Leben** (22) — `schwach`, `weich`, `leise`, `langsam`, `nass`, `der Tod`, `sterben`, `schwanger`, `das Gehirn`, `das Fleisch`, `kämpfen`, `der Befehl`, `verhaften`, `die Waffe`, `der Soldat`, `das Feuer`, `die Person`, `der Partner`, `das Team`, `der Ehemann`, `der Bauer`, `der Typ`
+**u117 · Körper, Kraft und Leben** (24) — `schwach`, `weich`, `leise`, `langsam`, `nass`, `zart`, `der Tod`, `sterben`, `schwanger`, `das Gehirn`, `das Fleisch`, `die Geburt`, `kämpfen`, `der Befehl`, `verhaften`, `die Waffe`, `der Soldat`, `das Feuer`, `die Person`, `der Partner`, `das Team`, `der Ehemann`, `der Bauer`, `der Typ`
 
-**u118 · Orte und Richtungen** (22) — `überall`, `irgendwo`, `drinnen`, `draußen`, `drüben`, `hierher`, `herum`, `heraus`, `entlang`, `dahin`, `mitkommen`, `der Ort`, `die Gegend`, `das Dorf`, `das Gebäude`, `die Brücke`, `das Land`, `die Richtung`, `die Adresse`, `das Zentrum`, `der Brief`, `das Zeichen`
+**u118 · Orte und Richtungen** (24) — `überall`, `irgendwo`, `drinnen`, `draußen`, `drüben`, `nirgendwo`, `hierher`, `herum`, `heraus`, `entlang`, `dahin`, `mitkommen`, `der Ort`, `die Gegend`, `das Dorf`, `das Gebäude`, `die Brücke`, `das Land`, `die Richtung`, `die Adresse`, `das Zentrum`, `der Brief`, `das Zeichen`, `die Entfernung`
 
-**u119 · Zeit, Zahl und Maß** (22) — `bereits`, `niemals`, `jemals`, `nochmal`, `diesmal`, `der Schluss`, `zuvor`, `vorhin`, `eher`, `unterwegs`, `soweit`, `mitnehmen`, `die Sekunde`, `die Million`, `das Prozent`, `der Meter`, `pro`, `zweiter`, `weiterer`, `einziger`, `die Reihe`, `die Liste`
+**u119 · Zeit, Zahl und Maß** (24) — `bereits`, `niemals`, `jemals`, `nochmal`, `diesmal`, `der Schluss`, `zuvor`, `vorhin`, `eher`, `unterwegs`, `soweit`, `mitnehmen`, `die Sekunde`, `die Million`, `das Prozent`, `der Meter`, `pro`, `die Milliarde`, `zweiter`, `weiterer`, `einziger`, `die Reihe`, `die Liste`, `der Abschnitt`
 
-**u120 · Alle, jeder, irgendwas** (20) — `all`, `jeder`, `beide`, `allein`, `dasselbe`, `irgendwas`, `irgendetwas`, `irgendwelche`, `sowas`, `wozu`, `euer`, `jener`, `gegenüber`, `entfernt`, `fort`, `bisschen`, `egal`, `darum`, `wenigstens`, `nötig`
+**u120 · Alle, jeder, irgendwas** (24) — `all`, `jeder`, `beide`, `allein`, `dasselbe`, `ausnahmslos`, `irgendwas`, `irgendetwas`, `irgendwelche`, `sowas`, `wozu`, `derartig`, `euer`, `jener`, `gegenüber`, `entfernt`, `fort`, `einander`, `bisschen`, `egal`, `darum`, `wenigstens`, `nötig`, `halbwegs`
 
-**u121 · Gesprochenes Deutsch** (22) — `drin`, `dran`, `drauf`, `rum`, `ran`, `raus`, `runter`, `rüber`, `drüber`, `gucken`, `hauen`, `schauen`, `der Job`, `der Deal`, `die Show`, `das Fernsehen`, `der Idiot`, `der Glückwunsch`, `die Neuigkeit`, `modern`, `namens`, `angetan`
+**u121 · Gesprochenes Deutsch** (24) — `drin`, `dran`, `drauf`, `rum`, `ran`, `raus`, `runter`, `rüber`, `drüber`, `gucken`, `hauen`, `schauen`, `der Job`, `der Deal`, `die Show`, `das Fernsehen`, `der Idiot`, `der Fan`, `der Glückwunsch`, `die Neuigkeit`, `modern`, `namens`, `angetan`, `die Ankündigung`
 
-**u122 · Medien und Technik** (22) — `die Musik`, `das Radio`, `das Foto`, `das Konzert`, `das Theater`, `der Film`, `das Telefon`, `der Computer`, `die Daten`, `das Signal`, `der Text`, `die Information`, `das Projekt`, `die Universität`, `der Professor`, `das Taxi`, `die Kontrolle`, `der Kontakt`, `die Position`, `die Situation`, `die Chance`, `die Lage`
+**u122 · Medien und Technik** (24) — `die Musik`, `das Radio`, `das Foto`, `das Konzert`, `das Theater`, `der Film`, `das Telefon`, `der Computer`, `die Daten`, `das Signal`, `der Text`, `der Drucker`, `die Information`, `das Projekt`, `die Universität`, `der Professor`, `das Taxi`, `die Fakultät`, `die Kontrolle`, `der Kontakt`, `die Position`, `die Situation`, `die Chance`, `die Lage`
 
-**u123 · Menschen und Macht** (21) — `der Doktor`, `der Meister`, `der Präsident`, `der Polizist`, `der Engel`, `das Volk`, `der König`, `die Kirche`, `die Armee`, `das Gefängnis`, `der Mord`, `die Droge`, `das Virus`, `die Bombe`, `die Szene`, `das Gold`, `der Stein`, `das Boot`, `die Maschine`, `das Ding`, `das Zeug`
+**u123 · Menschen und Macht** (24) — `der Doktor`, `der Meister`, `der Präsident`, `der Polizist`, `der Engel`, `der Minister`, `das Volk`, `der König`, `die Kirche`, `die Armee`, `das Gefängnis`, `der Herrscher`, `der Mord`, `die Droge`, `das Virus`, `die Bombe`, `die Szene`, `die Straftat`, `das Gold`, `der Stein`, `das Boot`, `die Maschine`, `das Ding`, `das Zeug`
 
-**u124 · Zu Gast** (21) — `die Suppe`, `der Salat`, `das Eis`, `das Abendessen`, `die Tasse`, `der Besuch`, `das Zuhause`, `der Spaß`, `die Achtung`, `die Idee`, `besuchen`, `verbringen`, `bauen`, `sich interessieren`, `sich beschäftigen`, `mitbringen`, `schwören`, `verraten`, `verheiratet`, `die Ehefrau`, `stöhnen`
+**u124 · Zu Gast** (24) — `die Suppe`, `der Salat`, `das Eis`, `das Abendessen`, `die Tasse`, `die Soße`, `der Besuch`, `das Zuhause`, `der Spaß`, `die Achtung`, `die Idee`, `die Gastfreundschaft`, `besuchen`, `verbringen`, `bauen`, `sich interessieren`, `sich beschäftigen`, `mitbringen`, `schwören`, `verraten`, `verheiratet`, `die Ehefrau`, `stöhnen`, `der Schwur`
 
-**u125 · Landschaft und Tier** (20) — `der Gipfel`, `der Hügel`, `die Wüste`, `das Ufer`, `die Weide`, `die Ernte`, `die Saat`, `der Faden`, `der Knopf`, `der Schirm`, `die Feder`, `der Flügel`, `der Schwanz`, `die Pfote`, `das Fell`, `der Ekel`, `der Zorn`, `die Gier`, `die Demut`, `schweben`
+**u125 · Landschaft und Tier** (24) — `der Gipfel`, `der Hügel`, `die Wüste`, `das Ufer`, `die Weide`, `das Tal`, `die Ernte`, `die Saat`, `der Faden`, `der Knopf`, `der Schirm`, `die Nadel`, `die Feder`, `der Flügel`, `der Schwanz`, `die Pfote`, `das Fell`, `das Horn`, `der Ekel`, `der Zorn`, `die Gier`, `die Demut`, `schweben`, `der Neid`
 
-**u126 · Hand und Mund** (20) — `streicheln`, `kneifen`, `kratzen`, `beißen`, `die Bürste`, `spucken`, `pusten`, `schlucken`, `ekelhaft`, `der Schnabel`, `davor`, `daneben`, `darunter`, `dahinter`, `daraus`, `die Stufe`, `die Mühe`, `das Talent`, `der Eifer`, `zurechtkommen`
+**u126 · Hand und Mund** (24) — `streicheln`, `kneifen`, `kratzen`, `beißen`, `die Bürste`, `greifen`, `spucken`, `pusten`, `schlucken`, `ekelhaft`, `der Schnabel`, `kauen`, `davor`, `daneben`, `darunter`, `dahinter`, `daraus`, `dazwischen`, `die Stufe`, `die Mühe`, `das Talent`, `der Eifer`, `zurechtkommen`, `die Ausdauer`
 
