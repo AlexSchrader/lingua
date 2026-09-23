@@ -30,7 +30,7 @@
 // der Vertrag (u24), der Zug (u19), die Gelegenheit (u62), der Eindruck (u54).
 //
 // Self-check, dropped as same-lexeme duplicates (verb vs its nominalisation,
-// checked against all 2714 claimed fronts, not just main):
+// checked against all 2705 claimed fronts, not just main):
 //   bedeuten (die Bedeutung u74), bewegen (die Bewegung u71), erfahren (die
 //   Erfahrung u24), anfangen (der Anfang u28) — so this unit uses beginnen,
 //   which is free. Also dropped: abgeben (geben u16), der Laden (einladen u40),

@@ -2,7 +2,8 @@
 // Conventions: de/unit1.js + de/unit51.js + de/unit88.js (B2 band constitution).
 // Evidence tier for every front here: A — external frequency. Each is in the top
 // 2000 of the Wiktionary German subtitle list and taught NOWHERE in de once
-// blocks 1 and 2 are counted (2714 claimed fronts). Ranks in the hints below.
+// blocks 1 and 2 are counted (2705 claimed fronts: 2081 on main + 312 from
+// each of blocks 1 and 2, with zero overlap). Ranks in the hints below.
 //
 // ⚠️ WHY MOST LESSONS HOLD FIVE CARDS AND NOT SIX — CORRECTED, AND THE FIRST
 // VERSION OF THIS PARAGRAPH WAS WRONG IN A WAY THAT MATTERED.
@@ -23,10 +24,18 @@
 //     das Glueck, fehlen, veraendern, der Gedanke's relatives, and ~15 more).
 //     THAT filter is a judgement, it is mine, and it is now written down so the
 //     next seat can disagree with a specific entry.
-//   - After this block's 278 cards, 157 of the top 2000 still read as untaught
-//     (re-run the command above). Read by hand, the residue that is neither
-//     film register nor lexeme-blocked came to 14 words — and all 14 were
-//     authored, taking 14 lessons from five cards to six.
+//   - After this block's 278 cards, 144 of the top 2000 still read as untaught
+//     (re-run the command above). ⚠️ This line said 157 until the second gate
+//     pass: 157 was the value at 264 cards, before the refill described below.
+//     A stale measurement sitting one line under the paragraph that apologises
+//     for a stale measurement — caught by fact-checker, not by me.
+//   - Read by hand, the residue that is neither film register nor blocked by
+//     the lexeme rule came to 14 words, and all 14 were authored. ⚠️ The card
+//     count moved by +14 but FIFTEEN fronts were added and ONE was removed:
+//     de-u126l2-stoehnen2 (front "seufzen und stöhnen") was dropped because it
+//     taught no new lexeme — both halves were already cards — and de-u126l2-
+//     schlucken replaced it. That fifteenth card is a replacement, not a
+//     gap-fill, and 14 lessons went from five cards to six.
 // ⚠️ SO THE SHORTFALL IS REAL AND IS NAMED, per RUNBOOK §6.3: 13 units × 4
 // lessons × 6 = 312 is the standard; this block ships 278. 34 lessons remain at
 // five cards. I could not fill them from the measured list, and I did not pad
