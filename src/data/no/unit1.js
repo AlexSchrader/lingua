@@ -101,29 +101,25 @@
 //    entire front string, article included.
 //
 //    ⚠️ AND THAT IS NOT GOOD ENOUGH — READ THIS BEFORE YOU AUTHOR A ø CARD.
-//    An earlier version of this header claimed "the learner is not penalised".
-//    That was wrong, and it was wrong in the way that matters. MEASURED against
-//    the real checkReading, for the 12 ø cards in this block:
-//        "et brød"  PASS      "Et brød"  FAIL   ← a sentence-initial capital
-//        "etbrod"   PASS      "etbrød"   FAIL   ← the same word, no space
-//        "et brod"  PASS  ← the MISSPELLING passes while the correct spelling
-//                            with a capital does not.
-//    The control cards behave properly: "Å VÆRE", "åvære" and "Å være" all pass,
-//    because for them the normalize branch is alive. For a ø card that branch is
-//    DEAD — normalizeReading("etbrød") is "etbrød", which never equals "etbrod" —
-//    so only the exact literal string survives, and case/space tolerance is lost
-//    on precisely the cards that need it most.
-//    THE FIX IS ONE LINE OF ENGINE, NOT A CONTENT CONVENTION: add ø→o beside the
-//    æ→ae replace in `normalizeReading` (src/store/answer.js:47). Verified safe —
-//    ø appears in ZERO es/fr readings, so the blast radius is Norwegian only, and
-//    there is precedent: that same function had ligature folding ADDED for French.
-//    Filed in BUILD-CHECKLIST.md → Feature CC backlog. It is out of the curriculum
-//    lane (RUNBOOK §7), so block 1 logged it rather than fixing it.
-//    BLOCKS 2 AND 3: this is a DEPENDENCY, not a footnote. ø is far denser in your
-//    slots than in mine — rød, grønn, søndag, å høre, å spørre, et øye, et øre,
-//    først. Keep hand-folding ø→o so the corpus stays consistent and the engine
-//    fix is a no-op when it lands — but CHASE THE TICKET, because every ø card
-//    authored before it lands carries this defect.
+//    ✅ THE ENGINE FIX HAS SHIPPED. THIS PARAGRAPH USED TO SAY THE LEARNER WAS
+//    PENALISED AND TO TELL BLOCKS 2 AND 3 TO "CHASE THE TICKET". BOTH ARE NOW
+//    FALSE — corrected 2026-09-23 by the B2 block-3 seat, which read this header,
+//    believed it, and then measured it.
+//    `normalizeReading` folds ø→o at src/store/answer.js:43, beside the æ→ae
+//    replace, with a comment explaining that ø is a LETTER and so NFD never
+//    decomposes it. Re-measured against the real checkReading on `et brød`:
+//        "et brød" PASS   "Et brød" PASS   "ET BRØD" PASS
+//        "etbrød"  PASS   "etbrod"  PASS   "et brod" PASS
+//    All six, where three of them used to fail. The defect the old text described
+//    — the misspelling passing while the correctly-spelled capitalised form was
+//    rejected — is gone, and no ø card carries it.
+//    ⚠️ THE CONVENTION ITSELF IS UNCHANGED AND STILL BINDING: keep writing the
+//    reading by hand as ø→o. That is what makes the engine fold a no-op rather
+//    than a contradiction, it is how all 2344 Norwegian cards are already
+//    authored, and the contract still requires [a-z]+. What changed is only that
+//    it is no longer a DEPENDENCY on an open ticket. There is nothing to chase.
+//    (ß got the same treatment for German in the same function, for the same
+//    reason — see the comment there.)
 //    The fold is an ANSWER KEY, never a pronunciation guide, and is never
 //    displayed — readingIsInformative() gates display on the front's script and
 //    every Norwegian front is Latin.
