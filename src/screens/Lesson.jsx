@@ -16,6 +16,8 @@ import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { initLearn, currentStep, answerStep, LEARN_OPTS } from "../store/learnQueue.js";
 import { isTraceable, isGlyph, hasAudio, lessonChecks } from "../store/cardRouting.js";
 import { buildSandboxItems, runnerWriters } from "../store/dev.js";
+import { canGradeSpeech } from "../store/speechTargets.js";
+import { SPEECH_TARGETS } from "../data/speechTargets.js";
 import { C, F } from "../theme.js";
 
 function assertLiveKind(kindKey) {
@@ -358,10 +360,21 @@ export default function Lesson() {
       // plays the letter, arms the mic and grades leniently; no mic or no endpoint
       // degrades to an ungraded "say it" prompt rather than blocking the lesson.
       assertLiveKind("speak");
-      // A LETTER is shadowed, never graded - see SpeakCard's `shadow` prop. A
-      // transcriber cannot tell "ay" from "eh" on a bare vowel, so the card plays
-      // the learner back to themselves instead of inventing a verdict.
-      card = <SpeakCard item={item} onGraded={onCheck} shadow />;
+      // A LETTER IS NOW GRADED, if there is a measured key for it.
+      //
+      // This used to be `shadow` unconditionally: a transcriber cannot tell "ay"
+      // from "eh" on a bare vowel, so the card played the learner back to
+      // themselves rather than invent a verdict. Alex, 2026-09-23: "i dont like the
+      // recording and i click good i want my recording to be graded just like
+      // duolingo." The blocker was never the microphone — it was grading against
+      // the SPELLING, which this repo's own reference clips fail (é transcribes as
+      // "Et"). Graded against what the correct SOUND transcribes to, a letter is
+      // gradeable; see src/store/speechTargets.js.
+      //
+      // Still shadows when there is no key — a letter card added since the last
+      // generator run, or one whose clip is missing. The fallback is the previous
+      // behaviour, so a gap degrades to "you judge" rather than to a wrong verdict.
+      card = <SpeakCard item={item} onGraded={onCheck} shadow={!canGradeSpeech(item, SPEECH_TARGETS)} />;
     }
   } else if (learnStep.step === "check3") {
     // SAY IT — a WORD's third check, from unit 2 on. (A letter's check3 is the
