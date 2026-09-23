@@ -1,18 +1,91 @@
-// DE Unit 99 — Identity and society (slot: identity-society) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// DE Unit 99 — Identität und Gesellschaft (slot: identity-society) — B2
+// Conventions: de/unit1.js + de/unit51.js + de/unit88.js (B2 band constitution).
+// ⚠️ u68 ALREADY OWNS THE OBVIOUS HALF OF THIS FIELD: die Vielfalt, die
+// Minderheit, die Integration, der Zusammenhalt, die Generation and die
+// Gemeinschaft are all taught there, plus das Vorurteil (u51), die Rolle (u52),
+// die Schicht (u56), prägen (u63) and die Herkunft (u89, mine). All used in the
+// examples here, none re-taught. What is left — and what B2 actually needs — is
+// the vocabulary for talking about belonging and exclusion as processes.
+// Self-check: die Sichtbarkeit dropped (sichtbar u70).
+// ⚠️ TONE, and this is a ruling for blocks 2/3 as well: this unit describes how
+// societies argue about identity. It teaches the WORDS both sides use, in
+// neutral examples, and takes no position. A card is not the place for one.
+//
+// FREE: Details, Prozent, Studien, Generationen, Identitaet, Klischee, Klischees, Milieu, Milieus, Biografie, Biografien, Emanzipation, Mobilitaet, Akzeptanz, Solidaritaet, Integration
 export const DE_UNIT99 = {
   id: "de-u99",
   lang: "de",
-  title: "Identity and society",
+  title: "Identität und Gesellschaft",
   order: 99,
   stage: "b2",
   lessons: [
-    { id: "de-u99l1", title: "Lesson 1", locked: true },
-    { id: "de-u99l2", title: "Lesson 2", locked: true },
-    { id: "de-u99l3", title: "Lesson 3", locked: true },
-    { id: "de-u99l4", title: "Lesson 4", locked: true },
+    {
+      id: "de-u99l1",
+      unit: 99,
+      lesson: 1,
+      title: "Wer man ist",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about who someone is without reaching for clichés — identity, belonging, the milieu they come from, their self-image and the picture a role imposes.",
+      items: [
+        { id: "de-u99l1-dieidentitat", type: "vocab", front: "die Identität", reading: "dieidentitat", meaning: "the identity", example: { jp: "Die Identität eines Menschen besteht aus mehreren Teilen, und keiner davon erklärt ihn ganz.", en: "A person's identity consists of several parts, and none of them explains them fully." }, drill: { jp: "Die Identität bleibt nie ganz gleich", en: "Identity never stays entirely the same" }, accept: ["identity", "the identity"], hint: "Stress on the last syllable: iden-ti-TÄT. Also the identity on a document — der Personalausweis proves it, and German officialdom asks for it often." },
+        { id: "de-u99l1-diezugehorigkeit", type: "vocab", front: "die Zugehörigkeit", reading: "diezugehorigkeit", meaning: "the belonging", example: { jp: "Die Zugehörigkeit zu einer Gruppe entsteht über Jahre, verloren ist sie dagegen oft nach einem Wort.", en: "Belonging to a group arises over years; lost, by contrast, it often is after a single word." }, drill: { jp: "Die Zugehörigkeit wächst über Jahre", en: "Belonging grows over years" }, accept: ["belonging", "the belonging", "membership", "affiliation", "sense of belonging"], hint: "zu + gehören (to belong to) + -keit. Takes zu + dative: die Zugehörigkeit zu einer Gruppe. The feeling itself is das Zugehörigkeitsgefühl." },
+        { id: "de-u99l1-dasmilieu", type: "vocab", front: "das Milieu", reading: "dasmilieu", meaning: "the milieu", example: { jp: "Aus welchem Milieu jemand kommt, sieht man in Deutschland oft noch an der Schule seiner Kinder.", en: "Which milieu someone comes from can often still be seen in Germany from the school their children attend." }, drill: { jp: "Das Milieu prägt die ganze Biografie", en: "The milieu shapes the whole biography" }, accept: ["milieu", "the milieu", "social background", "environment", "social setting"], hint: "French, pronounced mi-li-Ö. German sociology uses it as a technical term for a social environment; die Schicht (u56) is the layer, das Milieu the whole world around a person." },
+        { id: "de-u99l1-dasselbstbild", type: "vocab", front: "das Selbstbild", reading: "dasselbstbild", meaning: "the self-image", example: { jp: "Das Selbstbild der Firma ist modern, ihre eigenen Zahlen zeigen dagegen ein anderes Bild.", en: "The company's self-image is modern; its own figures, by contrast, show a different picture." }, drill: { jp: "Das Selbstbild passt nicht zu den Zahlen", en: "The self-image does not fit the figures" }, accept: ["self-image", "the self-image", "self-perception", "self-conception"], hint: "selbst + das Bild (u15). Its counterpart is das Fremdbild — how others see you. German writing likes to set the two against each other." },
+        { id: "de-u99l1-dasrollenbild", type: "vocab", front: "das Rollenbild", reading: "dasrollenbild", meaning: "the conception of a role", example: { jp: "Das alte Rollenbild hält sich hartnäckig, obwohl kaum eine Familie heute noch so lebt.", en: "The old role model persists stubbornly, although hardly any family still lives that way today." }, drill: { jp: "Das Rollenbild ändert sich kaum", en: "The role model hardly changes" }, accept: ["conception of a role", "the conception of a role", "role image", "gender role", "idea of the role", "role expectation"], hint: "die Rolle (u52) + das Bild: the picture of how a role should be filled. Careful — a person you look up to is das Vorbild, not das Rollenbild." },
+        { id: "de-u99l1-dasklischee", type: "vocab", front: "das Klischee", reading: "dasklischee", meaning: "the cliché", example: { jp: "Das Klischee ist bequem, weil es die Person durch eine fertige Erwartung ersetzt.", en: "The cliché is comfortable, because it replaces the person with a ready-made expectation." }, drill: { jp: "Das Klischee steckt in dieser Frage", en: "The cliché is in this question" }, accept: ["cliché", "the cliché", "cliche", "stereotype", "the stereotype"], hint: "From printing, like the English. Milder than das Vorurteil (u51): a Klischee is a lazy picture, a Vorurteil a judgement you act on." },
+      ],
+    },
+    {
+      id: "de-u99l2",
+      unit: 99,
+      lesson: 2,
+      title: "Dazugehören oder nicht",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe inclusion and its opposite — participation, exclusion, drawing a line between groups, acceptance, recognition and solidarity.",
+      items: [
+        { id: "de-u99l2-dieteilhabe", type: "vocab", front: "die Teilhabe", reading: "dieteilhabe", meaning: "the participation", example: { jp: "Teilhabe bedeutet mehr als ein Recht auf dem Papier, sie muss im Alltag auch möglich sein.", en: "Participation means more than a right on paper; it has to be possible in everyday life too." }, drill: { jp: "Die Teilhabe bleibt ein wichtiges Ziel", en: "Participation remains an important goal" }, accept: ["participation", "the participation", "inclusion", "involvement", "having a share"], hint: "teil + haben: having a share. The key word of German social policy — das Teilhabegesetz exists, and die Teilnahme (taking part in an event) is a different, lighter word." },
+        { id: "de-u99l2-dieausgrenzung", type: "vocab", front: "die Ausgrenzung", reading: "dieausgrenzung", meaning: "the exclusion", example: { jp: "Ausgrenzung passiert selten laut, meistens einfach dadurch, dass niemand gefragt wird.", en: "Exclusion rarely happens loudly, usually simply through nobody being asked." }, drill: { jp: "Die Ausgrenzung steckt oft in der Sprache", en: "Exclusion often lies in the language" }, accept: ["exclusion", "the exclusion", "marginalization", "marginalisation", "ostracism"], hint: "aus + die Grenze (u19): putting someone outside the line. Its counterpart is die Ausgrenzung ↔ die Teilhabe, the pair German social reports use." },
+        { id: "de-u99l2-dieabgrenzung", type: "vocab", front: "die Abgrenzung", reading: "dieabgrenzung", meaning: "the demarcation", example: { jp: "Eine klare Abgrenzung hilft dem Gespräch, solange sie nicht zur Ausgrenzung kleiner Gruppen wird.", en: "A clear demarcation helps the conversation, as long as it does not turn into the exclusion of small groups." }, drill: { jp: "Die Abgrenzung bleibt hier sehr schwer", en: "The demarcation remains very hard here" }, accept: ["demarcation", "the demarcation", "delimitation", "distinction", "boundary", "setting boundaries"], hint: "ab + die Grenze: drawing a line to separate. Neutral where die Ausgrenzung is not — in psychology, sich abgrenzen is the healthy setting of boundaries." },
+        { id: "de-u99l2-dieakzeptanz", type: "vocab", front: "die Akzeptanz", reading: "dieakzeptanz", meaning: "the public acceptance", example: { jp: "Die Akzeptanz in der Bevölkerung ist hoch, in der eigenen Branche dagegen sehr niedrig.", en: "Acceptance among the population is high; within the sector itself, by contrast, it is very low." }, drill: { jp: "Die Akzeptanz wächst seit Jahren", en: "Acceptance has been growing for years" }, accept: ["acceptance", "the acceptance", "approval", "buy-in"], hint: "Used for ideas, technologies and rules rather than people — die Akzeptanz einer Maßnahme. For a person German prefers die Anerkennung, below." },
+        { id: "de-u99l2-dieanerkennung", type: "vocab", front: "die Anerkennung", reading: "dieanerkennung", meaning: "the recognition", example: { jp: "Ohne Anerkennung hält niemand lange durch, auch wenn das Geld am Monatsende stimmt.", en: "Without recognition nobody holds out for long, even if the money is right at the end of the month." }, drill: { jp: "Die Anerkennung kommt meistens zu spät", en: "Recognition usually comes too late" }, accept: ["recognition", "the recognition", "acknowledgement", "acknowledgment", "appreciation", "accreditation"], hint: "an + erkennen: recognizing someone. Two lives: the respect a person is owed, and the formal recognition of a foreign qualification — a real hurdle in Germany." },
+        { id: "de-u99l2-diesolidaritat", type: "vocab", front: "die Solidarität", reading: "diesolidaritat", meaning: "solidarity", example: { jp: "Solidarität kostet erst dann etwas, wenn sie auch für Fremde gilt und nicht nur für die eigene Gruppe.", en: "Solidarity only costs something when it applies to strangers too and not only to your own group." }, drill: { jp: "Die Solidarität hält die Gruppe zusammen", en: "Solidarity holds the group together" }, accept: ["solidarity", "the solidarity"], hint: "Stress on the last syllable. Institutionalized in Germany — der Solidaritätszuschlag, the reunification surcharge, was on every payslip for decades." },
+      ],
+    },
+    {
+      id: "de-u99l3",
+      unit: 99,
+      lesson: 3,
+      title: "Aufstieg und Ungleichheit",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Discuss social mobility honestly — the climb, equal opportunity, inequality, mobility, a person's life situation and their path through it.",
+      items: [
+        { id: "de-u99l3-deraufstieg", type: "vocab", front: "der Aufstieg", reading: "deraufstieg", meaning: "the advancement", example: { jp: "Der soziale Aufstieg dauert in Deutschland im Durchschnitt mehrere Generationen, und das zeigen die Zahlen deutlich.", en: "Social advancement in Germany takes several generations on average, and the figures show that clearly." }, drill: { jp: "Der Aufstieg dauert mehrere Generationen", en: "The rise takes several generations" }, accept: ["rise", "the rise", "advancement", "ascent", "climb", "promotion"], hint: "auf + steigen: climbing up — a mountain, a career, or a league table. Its opposite is der Abstieg, which German football fans know best." },
+        { id: "de-u99l3-diechancengleichheit", type: "vocab", front: "die Chancengleichheit", reading: "diechancengleichheit", meaning: "the equal opportunity", example: { jp: "Chancengleichheit steht in den Reden, aber die Schule entscheidet weiter über den ganzen Weg.", en: "Equal opportunity is in the speeches, but school still decides the whole path." }, drill: { jp: "Die Chancengleichheit bleibt ein Ziel", en: "Equal opportunity remains a goal" }, accept: ["equal opportunity", "the equal opportunity", "equality of opportunity", "equal opportunities"], hint: "die Chance + gleich + -heit. Distinguished in German debate from die Gleichheit (equality of outcome) — the argument is usually about which one is meant." },
+        { id: "de-u99l3-dieungleichheit", type: "vocab", front: "die Ungleichheit", reading: "dieungleichheit", meaning: "the inequality", example: { jp: "Die Ungleichheit ist gewachsen, obwohl die Wirtschaft im selben Zeitraum deutlich zugelegt hat.", en: "Inequality has grown, although the economy expanded noticeably in the same period." }, drill: { jp: "Die Ungleichheit wächst seit Jahrzehnten", en: "Inequality has been growing for decades" }, accept: ["inequality", "the inequality", "disparity", "unequal treatment"], hint: "un + gleich + -heit. soziale Ungleichheit is the fixed phrase; in maths, die Ungleichung is something else entirely." },
+        { id: "de-u99l3-diemobilitat", type: "vocab", front: "die Mobilität", reading: "diemobilitat", meaning: "the mobility", example: { jp: "Die soziale Mobilität ist niedriger als ihr Ruf, und sie hängt stark vom Milieu der Eltern ab.", en: "Social mobility is lower than its reputation, and it depends strongly on the parents' milieu." }, drill: { jp: "Die Mobilität bleibt sehr gering", en: "Mobility remains very low" }, accept: ["mobility", "the mobility"], hint: "Two quite separate uses: soziale Mobilität in sociology, and die Verkehrswende / Mobilität in transport policy. The word alone does not tell you which." },
+        { id: "de-u99l3-dielebenslage", type: "vocab", front: "die Lebenslage", reading: "dielebenslage", meaning: "the life situation", example: { jp: "Je nach Lebenslage bedeutet die gleiche Regel etwas völlig anderes, und genau das übersieht die Statistik.", en: "Depending on the life situation the same rule means something completely different, and that is exactly what the statistic overlooks." }, drill: { jp: "Die Lebenslage entscheidet über die Folgen", en: "The life situation determines the consequences" }, accept: ["life situation", "the life situation", "circumstances", "living conditions", "situation in life"], hint: "das Leben + die Lage (situation). The word German social reporting uses instead of 'poverty' when it wants to describe the whole picture." },
+        { id: "de-u99l3-diebiografie", type: "vocab", front: "die Biografie", reading: "diebiografie", meaning: "the life story", example: { jp: "In seiner Biografie steht ein Bruch, über den er in keinem Gespräch spricht.", en: "In his life story there is a break he does not talk about in any conversation." }, drill: { jp: "Die Biografie erklärt vieles", en: "The life story explains a lot" }, accept: ["biography", "the biography", "life story", "the life story", "CV", "life history"], hint: "Both the written biography and a person's own life course — gebrochene Biografien (broken life courses) is how German sociology describes interrupted careers. Also spelled Biographie." },
+      ],
+    },
+    {
+      id: "de-u99l4",
+      unit: 99,
+      lesson: 4,
+      title: "Wie die Gesellschaft sich ändert",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe change in a society — a shift in values, emancipation, division, living together, and the majority society others are measured against.",
+      items: [
+        { id: "de-u99l4-derwertewandel", type: "vocab", front: "der Wertewandel", reading: "derwertewandel", meaning: "the shift in values", example: { jp: "Der Wertewandel zeigt sich zuerst in der Sprache, und erst viel später in den Gesetzen.", en: "The shift in values shows itself first in language, and only much later in the laws." }, drill: { jp: "Der Wertewandel zeigt sich in der Sprache", en: "The shift in values shows itself in language" }, accept: ["shift in values", "the shift in values", "change in values", "value change"], hint: "die Werte (values) + der Wandel (u59). A standard term in German sociology since the 1970s, and a favourite of newspaper headlines." },
+        { id: "de-u99l4-dieemanzipation", type: "vocab", front: "die Emanzipation", reading: "dieemanzipation", meaning: "the emancipation", example: { jp: "Die Emanzipation hat die Arbeitswelt verändert, aber die Verteilung der Hausarbeit kaum.", en: "Emancipation has changed the world of work, but hardly the distribution of housework." }, drill: { jp: "Die Emanzipation wirkt bis heute", en: "Emancipation is still having an effect today" }, accept: ["emancipation", "the emancipation", "liberation"], hint: "Stress on the last syllable. sich emanzipieren = to emancipate oneself. In German the word carries the whole history of the women's movement with it." },
+        { id: "de-u99l4-diespaltung", type: "vocab", front: "die Spaltung", reading: "diespaltung", meaning: "the split", example: { jp: "Von einer Spaltung der Gesellschaft ist oft die Rede, die Zahlen dazu sind aber widersprüchlich.", en: "There is often talk of a division of society, but the figures on it are contradictory." }, drill: { jp: "Die Spaltung wächst seit Jahren", en: "The division has been growing for years" }, accept: ["division", "the division", "split", "the split", "polarization", "polarisation", "rift"], hint: "From spalten (to split, as of wood). Sharper than die Teilung (u95), which is administrative — eine Spaltung goes through a group that used to be one." },
+        { id: "de-u99l4-dasmiteinander", type: "vocab", front: "das Miteinander", reading: "dasmiteinander", meaning: "the coexistence", example: { jp: "Das Miteinander im Haus funktioniert gut, obwohl hier fast zehn Sprachen gesprochen werden.", en: "Coexistence in the building works well, although almost ten languages are spoken here." }, drill: { jp: "Das Miteinander funktioniert hier gut", en: "The coexistence works well here" }, accept: ["coexistence", "the coexistence", "living together", "togetherness", "working together"], hint: "mit + einander, turned into a noun. German does this freely: das Gegeneinander (working against each other) and das Nebeneinander (side by side, without contact) are its two counterparts." },
+        { id: "de-u99l4-diemehrheitsgesellschaft", type: "vocab", front: "die Mehrheitsgesellschaft", reading: "diemehrheitsgesellschaft", meaning: "the majority society", example: { jp: "Was in der Mehrheitsgesellschaft als normal gilt, muss für eine Minderheit noch lange nicht passen.", en: "What counts as normal in the majority society need not by any means fit a minority." }, drill: { jp: "Die Mehrheitsgesellschaft merkt davon wenig", en: "The majority society notices little of it" }, accept: ["majority society", "the majority society", "mainstream society", "dominant society"], hint: "die Mehrheit (u32) + die Gesellschaft. A term from integration research: the group whose norms are treated as the default." },
+        { id: "de-u99l4-dieerwartungshaltung", type: "vocab", front: "die Erwartungshaltung", reading: "dieerwartungshaltung", meaning: "the expectation", example: { jp: "Die Erwartungshaltung an junge Eltern ist hoch, die Unterstützung dagegen bleibt in vielen Regionen gering.", en: "The expectation placed on young parents is high; the support, by contrast, stays low in many regions." }, drill: { jp: "Die Erwartungshaltung bleibt sehr hoch", en: "The expectation remains very high" }, accept: ["expectation", "the expectation", "expectations", "attitude of expectation", "sense of entitlement"], hint: "die Erwartung + die Haltung (stance): not a single expectation but a settled attitude of expecting. German uses it when the expectation is felt as pressure." },
+      ],
+    },
   ],
 };
