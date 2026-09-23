@@ -27,6 +27,41 @@
 // (formal quantifiers) screened closed classes and the absence was
 // discriminating, this one did not, and the hand-back says so.
 //
+// ─────────────────────────────────────────────────────────────────────────────
+// TWO BAND-WIDE MEASUREMENTS, recorded here because this is the last unit of the
+// Norwegian B2 band and because measurement evidence belongs in a header, where
+// it can be argued with, and never on a card.
+//
+// 1. DRILL VOCABULARY SCOPE — MEASURED, and the tooling claim needs correcting.
+//    `tests/unit/drill-scope.test.mjs` (merged 2026-09-22 after a German B2 block
+//    shipped 144 out-of-scope drills green) is GERMAN-ONLY and says so in its own
+//    header; `scripts/check-drills.mjs` tests Norwegian drills for BUILDABILITY,
+//    not scope. But it is NOT true that nothing measures Norwegian drill scope:
+//    `scripts/scope-strict.mjs` reads `drill?.jp` alongside `example?.jp`
+//    (line 78) and takes a unit range, so `node scripts/scope-strict.mjs 114 126`
+//    IS a drill-scope check. It is manual and range-scoped — exactly what
+//    `check-drills-de` was before it got a ratchet — so the gap is a RATCHET, not
+//    an oracle.
+//    Measured on all 312 drills in u114–u126: 47 residual out-of-scope tokens
+//    across examples and drills, 23 of them touching a drill, and every one is an
+//    inflection `forms()` cannot generate (past tenses slo/skar/bar, -s forms
+//    betales/møtes, definites and plurals pengene/hendene/reglene), two
+//    transparent numeral compounds (tjueni, nittisju), `mi`, and one declared
+//    proper name. A second pass that GENERATES NOTHING — so it over-reports
+//    instead of under-reporting, the safe direction — found no genuine forward
+//    reference. Started at 122 hits; ~45 were real and were rewritten.
+//
+// 2. WORDS THE CORPUS USES AND NEVER TEACHES — A NEGATIVE RESULT, and it is worth
+//    recording precisely because German's equivalent scan was positive. Ranked
+//    every token in every Norwegian example and drill that no taught front can
+//    generate: 19 appear 3+ times, and on inspection ALL NINETEEN are inflections
+//    the generator misses (gamle←gammel, lite/lita/små←liten, begynte←å begynne,
+//    flere←mange, lenger/lengre←lang, reglene←en regel, definites of the FREE
+//    loanwords). Norwegian has no `der Briefkasten`-shaped hole of a word leaned
+//    on and never carded. The ONE genuine case in the whole corpus was bare
+//    `fram` — used in u62l4's example AND drill, a front nowhere — and u119l1
+//    closes it.
+//
 // Conventions per no/unit1.js: infinitives with å (§2). Readings are
 // hand-written ASCII folds.
 // lang/unit/lesson are stamped in src/data/index.js.
