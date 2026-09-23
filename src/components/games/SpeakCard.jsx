@@ -89,7 +89,7 @@ export default function SpeakCard({ item, onGraded, shadow = false }) {
       // wrong on words and is pure noise on a single letter — measured, see
       // alignScore.js. Omitting `expect` makes the server transcribe instead,
       // which is the path letters were already on.
-      const expect = isScorableText(item?.front) ? encodeURIComponent(item.front) : "";
+      const expect = isScorableText(item?.front, itemLang(item)) ? encodeURIComponent(item.front) : "";
       const res = await fetch(`/api/score-speech?lang=${encodeURIComponent(itemLang(item) ?? "")}&expect=${expect}`, {
         method: "POST",
         headers: { "Content-Type": blob.type },

@@ -36,9 +36,41 @@
 // Anything shorter is a letter card by construction and is not scored here.
 export const MIN_SCORABLE_LEN = 4;
 
-// Is this item's expected text long enough for alignment to mean anything?
-export function isScorableText(text) {
-  return String(text ?? "").trim().length >= MIN_SCORABLE_LEN;
+// THE THRESHOLDS ABOVE ARE CALIBRATED ON LATIN SCRIPT AND DO NOT TRANSFER.
+//
+// Measured on Japanese the same way - 8 short words (2-3 kana), each clip aligned
+// to its own text and to another word's:
+//
+//   correct   0.881  0.935  0.980  1.033  1.111  1.238  1.329  1.361
+//   wrong     1.358  1.405  1.669  1.887  2.328  2.746  2.812  3.400
+//
+// The ranges TOUCH: the worst correct (1.361) is above the best wrong (1.358). And
+// HARD_LOSS = 1.18, calibrated on French, would fail THREE of those eight correct
+// words (1.238, 1.329, 1.361). A threshold that marks a correctly said word wrong is the one error this
+// card must not make, so Japanese is not scored here.
+//
+// It loses nothing by being excluded. Japanese already has the strongest transcript
+// path in the app - Scribe returns kana for kana, so gradeSpoken's exact
+// foldKana match does the job, which is exactly what the accent letters could not
+// rely on. Alignment is an upgrade for scripts whose transcripts are unreliable,
+// and Japanese is not one of them.
+//
+// Character count is also the wrong unit across scripts: "はい" is 2 characters and
+// 2 morae, where "allô" is 4 characters and 2 syllables. Rather than invent a
+// mora-counting rule that no measurement supports, this gates on script and leaves
+// Japanese to the path that already works. Re-measure with a real sample before
+// turning it on.
+const NON_LATIN = /[぀-ヿ一-龯가-힯Ѐ-ӿ֐-ࣿ]/;
+
+// Is this item's expected text something alignment was measured to score?
+// `lang` is accepted for callers that have it, but the decision is made on the
+// TEXT, so a Japanese word reaching this from anywhere is refused either way.
+export function isScorableText(text, lang) {
+  const t = String(text ?? "").trim();
+  if (t.length < MIN_SCORABLE_LEN) return false;
+  if (NON_LATIN.test(t)) return false;
+  if (lang === "ja") return false;
+  return true;
 }
 
 // Pull the loss out of the response. Real shape, confirmed against the live API:

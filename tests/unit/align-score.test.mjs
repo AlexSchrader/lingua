@@ -65,6 +65,43 @@ test("words ARE scorable, down to the shortest one measured", () => {
   assert.equal(MIN_SCORABLE_LEN, 4, "4 = 'allô', the shortest word in the measurement");
 });
 
+// --- the thresholds are LATIN-CALIBRATED and must not be applied elsewhere ----
+//
+// Measured on Japanese the same way, 8 short words:
+//   correct  0.881 0.935 0.980 1.033 1.111 1.238 1.329 1.361
+//   wrong    1.358 1.405 1.669 1.887 2.328 2.746 2.812 3.400
+// The ranges TOUCH, and HARD_LOSS (1.18, from French) fails THREE of the eight
+// CORRECT words (1.238, 1.329, 1.361). Marking a correctly said word wrong is the one error this card
+// must not make, so Japanese is refused and keeps its transcript path - which is
+// the strongest in the app, because Scribe returns kana for kana.
+const JA_CORRECT = [0.881, 0.935, 0.980, 1.033, 1.111, 1.238, 1.329, 1.361];
+const JA_WRONG = [1.358, 1.405, 1.669, 1.887, 2.328, 2.746, 2.812, 3.400];
+
+test("JAPANESE IS NOT SCORED — the Latin thresholds would fail correct words", () => {
+  const wouldFail = JA_CORRECT.filter((loss) => gradeAlignment({ loss }) === "again");
+  assert.deepEqual(wouldFail, [1.238, 1.329, 1.361], "the exact correct words French thresholds would fail - re-measure if this changes");
+  assert.ok(Math.min(...JA_WRONG) < Math.max(...JA_CORRECT), "the ja ranges touch, so no clean threshold exists");
+  for (const word of ["はい", "こども", "さかな", "たべます", "ともだち"]) {
+    assert.equal(isScorableText(word, "ja"), false, `${word} must take the transcript path`);
+    assert.equal(isScorableText(word), false, `${word} must be refused on script alone, without a lang hint`);
+  }
+});
+
+test("other non-Latin scripts are refused too, not just ja", () => {
+  // Korean, Cyrillic and Hebrew are in the catalog's future; none has been
+  // measured, so none is scored. Refusing by script means a new language cannot
+  // silently inherit French's numbers.
+  for (const text of ["안녕하세요", "здравствуйте", "שלום עליכם"]) {
+    assert.equal(isScorableText(text), false);
+  }
+});
+
+test("the Latin languages that WERE measured still score", () => {
+  for (const [text, lang] of [["le bébé", "fr"], ["la casa", "es"], ["die Katze", "de"], ["takk", "no"], ["obrigado", "pt"]]) {
+    assert.equal(isScorableText(text, lang), true, `${text} (${lang}) should be scored`);
+  }
+});
+
 // --- parsing ----------------------------------------------------------------
 
 test("reads the loss from the real response shape", () => {
