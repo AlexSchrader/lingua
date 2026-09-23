@@ -1,5 +1,7 @@
 // Answer checking + normalization — one tested place so the session runner and
 // cards never reinvent it.
+import { SPEECH_TARGETS } from "../data/speechTargets.js";
+import { speechTargetsFor, matchesSpeechTarget, normalizeSpeech } from "./speechTargets.js";
 
 const MACRON = { "ō": "o", "ū": "u", "ā": "a", "ē": "e", "ī": "i" };
 
@@ -292,9 +294,32 @@ function romajiSlack(target) {
   return Math.min(2, Math.floor(String(target ?? "").length / 2.5));
 }
 
-export function gradeSpoken(transcript, item) {
+export function gradeSpoken(transcript, item, targets = SPEECH_TARGETS) {
   const t = String(transcript ?? "").trim();
   if (!t) return "again";
+
+  // MEASURED KEY FIRST, for the items that have one — today, letter cards.
+  //
+  // A letter could not be graded against its SPELLING: this repo's own reference
+  // clip for é transcribes as "Et", è as "Euh.", eau as "Oh!". So letters were not
+  // graded at all — SpeakCard shadowed them and the learner judged. Alex,
+  // 2026-09-23: "i dont like the recording and i click good i want my recording to
+  // be graded just like duolingo."
+  //
+  // The key is therefore measured, not spelled: what the CORRECT SOUND actually
+  // transcribes to (scripts/generate-speech-targets.mjs). This runs FIRST and
+  // RETURNS, because the paths below grade against the reading and would fail the
+  // same correct answers that made shadowing necessary in the first place.
+  const spoken = speechTargetsFor(item, targets);
+  if (spoken.length) {
+    if (matchesSpeechTarget(t, item, targets)) return "good";
+    // One edit of grace, and only on a target long enough for an edit to mean
+    // something — the same rule romajiSlack learned. A one- or two-character
+    // target gets no slack, or "eh" passes for é again.
+    const heard = normalizeSpeech(t);
+    if (spoken.some((s) => s.length >= 3 && editDistance(heard, s) <= 1)) return "hard";
+    return "again";
+  }
 
   // Kana path: Japanese-script transcript vs the folded kana front.
   //
