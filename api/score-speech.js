@@ -54,6 +54,41 @@ export default async function handler(req, res) {
     const lang = sttLanguage(req.query && req.query.lang);
 
     const mime = req.headers["content-type"] || "audio/webm";
+
+    // PRONUNCIATION SCORING FIRST, when the caller says what was expected.
+    //
+    // Transcription answers "what did they say?" — an open question, and on a
+    // single letter it does not answer it: this repo's own reference clip for é
+    // comes back "Et". Forced alignment answers "how close was that to é?", which
+    // is the question the card is actually asking and the one Duolingo asks.
+    //
+    // ⚠️ NEVER FAILS THE LEARNER ON ITS OWN. Any non-OK response falls through to
+    // transcription below, because the project key currently lacks the
+    // `forced_alignment` permission (401) and an unavailable scorer must degrade,
+    // not reject. Returns `loss` for the client to grade — grading stays in
+    // src/store, one tested place, exactly as the transcript path does.
+    const expected = typeof req.query?.expect === "string" ? req.query.expect.trim() : "";
+    if (expected) {
+      try {
+        const af = new FormData();
+        af.append("file", new Blob([audio], { type: mime }), "clip");
+        af.append("text", expected);
+        const ar = await fetch("https://api.elevenlabs.io/v1/forced-alignment", {
+          method: "POST",
+          headers: { "xi-api-key": apiKey },
+          body: af,
+        });
+        if (ar.ok) {
+          const alignment = await ar.json();
+          res.setHeader("Cache-Control", "no-store");
+          res.status(200).json({ alignment });
+          return;
+        }
+      } catch {
+        // fall through to transcription
+      }
+    }
+
     const form = new FormData();
     form.append("model_id", "scribe_v1");
     // No language_code at all beats the WRONG one: Scribe auto-detects, where a

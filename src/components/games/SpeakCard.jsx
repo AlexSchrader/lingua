@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Mic, Square, Volume2 } from "lucide-react";
 import { C, F, headwordSize, headwordWrap } from "../../theme.js";
 import { gradeSpoken } from "../../store/answer.js";
+import { gradeAlignment, isScorableText } from "../../store/alignScore.js";
 import { readingIsInformative } from "../../store/cardRouting.js";
 import { itemLang } from "../../store/itemLang.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
@@ -79,14 +80,35 @@ export default function SpeakCard({ item, onGraded, shadow = false }) {
       return;
     }
     try {
-      const res = await fetch(`/api/score-speech?lang=${encodeURIComponent(itemLang(item) ?? "")}`, {
+      // `expect` asks the server to SCORE the pronunciation against the expected
+      // text rather than transcribe it — the Duolingo question ("how close was
+      // that to é?") instead of the open one ("what did they say?"). The server
+      // falls back to transcription when scoring is unavailable, so this is
+      // additive and cannot make the card worse than it was.
+      // ONLY FOR TEXT LONG ENOUGH TO SCORE. Alignment separates correct from
+      // wrong on words and is pure noise on a single letter — measured, see
+      // alignScore.js. Omitting `expect` makes the server transcribe instead,
+      // which is the path letters were already on.
+      const expect = isScorableText(item?.front) ? encodeURIComponent(item.front) : "";
+      const res = await fetch(`/api/score-speech?lang=${encodeURIComponent(itemLang(item) ?? "")}&expect=${expect}`, {
         method: "POST",
         headers: { "Content-Type": blob.type },
         body: blob,
       });
       if (!res.ok) throw new Error(String(res.status));
-      const { transcript } = await res.json();
-      scoreTranscript(transcript ?? "");
+      const data = await res.json();
+      // A SCORED response wins when it produced a verdict. gradeAlignment returns
+      // null for any payload it does not recognise, and that falls through to the
+      // transcript path below — an unrecognised shape must never become a grade.
+      const scored = data?.alignment ? gradeAlignment(data.alignment) : null;
+      if (scored) {
+        setHeard("");
+        setGrade(scored);
+        setPhase("result");
+        if (scored === "again") sfxWrong(); else sfxCorrect();
+        return;
+      }
+      scoreTranscript(data?.transcript ?? "");
     } catch {
       setPhase("fallback"); // endpoint down / offline → never blocks
     }
