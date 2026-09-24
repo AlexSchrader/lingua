@@ -1,18 +1,99 @@
-// PT Unit 121 — Vocabulary 11 (B2) (slot: coverage-b2-11) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 121 — O número que sobe e desce (slot: coverage-b2-11) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-3 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+// Retitled from the scaffold's "Vocabulary 11 (B2)" — see unit114.js's header.
+//
+// u82 owns MEASUREMENT (o número, calcular, o total, a percentagem, a proporção,
+// a quantidade, subir, descer, o índice, estimar) and u66 owns the ECONOMY
+// (a subida, a descida, a inflação, o investimento). Between them a learner can
+// say a number went up. What they cannot do is the thing a B2 news bulletin does
+// every night: say HOW it moved — shot up, drifted, levelled off, hovered around
+// a figure, stalled — and then name the figure itself without saying número
+// again.
+//
+// §C3's test is met because none of these names a quantity; each names the SHAPE
+// of a movement, which is an argument about the data rather than a reading of it.
+//
+// SLOT BOUNDARIES: a queda is u95's, duplicar is u53's, abrandar is u59's,
+// o défice is u93's, o limiar is u90's, o acréscimo is u113's and a amostra is
+// u84's — all probed, none re-taught. o decréscimo is one of the fronts block 2
+// reserved for this block. o aumento is carded although aumentar is u59's: the
+// noun is what a headline prints and the verb is what a sentence needs (§C4).
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT121 = {
   id: "pt-u121",
   lang: "pt",
-  title: "Vocabulary 11 (B2)",
+  title: "O número que sobe e desce",
   order: 121,
   stage: "b2",
   lessons: [
-    { id: "pt-u121l1", title: "Lesson 1", locked: true },
-    { id: "pt-u121l2", title: "Lesson 2", locked: true },
-    { id: "pt-u121l3", title: "Lesson 3", locked: true },
-    { id: "pt-u121l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u121l1",
+      unit: 121,
+      lesson: 1,
+      title: "Subir",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say in Portuguese how fast and how far a figure rose — and where the top of it was.",
+      items: [
+        { id: "pt-u121l1-oaumento", type: "vocab", front: "o aumento", reading: "oaumento", meaning: "rise in a figure", example: { jp: "O aumento do preço da casa continua, mas o salário fica no mesmo nível.", en: "The rise in house prices continues, but the salary stays at the same level." }, drill: { jp: "O aumento do preço da casa continua", en: "The rise in house prices continues" }, accept: ["rise in a figure", "increase", "the increase", "rise", "the rise"], hint: "au-MEN-tu, the noun of aumentar (u59). ⚠ Also a PAY RISE — pedir um aumento — which is the sense a worker means first. Carded although the verb is taught, because a Portuguese headline uses the noun and a learner could not produce it." },
+        { id: "pt-u121l1-ascender", type: "vocab", front: "ascender", reading: "ascender", meaning: "to come to a total of", example: { jp: "O prejuízo pode ascender a um valor enorme, mas a empresa não fala em números.", en: "The loss may come to an enormous figure, but the company does not talk in numbers." }, drill: { jp: "O prejuízo pode ascender a um valor enorme", en: "The loss may come to an enormous figure" }, accept: ["to come to a total of", "to amount to", "to come to", "to rise to", "to total"], hint: "ash-sen-DER. ⚠ ALWAYS ascender A — the preposition is not optional. Two senses: reaching a total, as in the example, and rising in rank — ascender a diretor. Not subir (u82), which is plain physical rising." },
+        { id: "pt-u121l1-disparar", type: "vocab", front: "disparar", reading: "disparar", meaning: "to shoot up suddenly", example: { jp: "O preço da energia pode disparar no inverno, mas o governo promete uma medida.", en: "The price of energy may shoot up in winter, but the government promises a measure." }, drill: { jp: "O preço da energia pode disparar no inverno", en: "Energy prices may shoot up in winter" }, accept: ["to shoot up suddenly", "to shoot up", "to soar", "to spike", "to rocket"], hint: "dish-pa-RAR. ⚠ The first sense is TO FIRE A GUN, and the figurative one keeps that violence — os preços dispararam is much stronger than subiram. Also what an alarm does: o alarme disparou." },
+        { id: "pt-u121l1-oauge", type: "vocab", front: "o auge", reading: "oauge", meaning: "highest point reached", example: { jp: "O auge da crise passa em março, mas a economia demora anos a recuperar.", en: "The height of the crisis passes in March, but the economy takes years to recover." }, drill: { jp: "O auge da crise passa em março", en: "The height of the crisis passes in March" }, accept: ["highest point reached", "peak", "height", "the height", "climax"], hint: "OW-je. ⚠ Used of a PERIOD or a career rather than a measurement — no auge da carreira, at the height of his career. Its neighbour o pico (this lesson) is the one for a graph, and Portuguese keeps that split." },
+        { id: "pt-u121l1-opico", type: "vocab", front: "o pico", reading: "opico", meaning: "peak on a graph", example: { jp: "O pico dos casos chega em janeiro, mas o hospital já não tem camas em dezembro.", en: "The peak in cases arrives in January, but the hospital already has no beds in December." }, drill: { jp: "O pico dos casos chega em janeiro", en: "The peak in cases arrives in January" }, accept: ["peak on a graph", "peak", "the peak", "spike", "high point"], hint: "PEE-ku. ⚠ A MOUNTAIN PEAK first — Pico is the Azorean island with Portugal's highest mountain — and a data peak second. horas de pico is rush hour, where English says peak hours too." },
+        { id: "pt-u121l1-triplicar", type: "vocab", front: "triplicar", reading: "triplicar", meaning: "to treble", example: { jp: "A procura pode triplicar num ano, mas a fábrica não produz mais nada.", en: "Demand may treble in a year, but the factory does not produce any more." }, drill: { jp: "A procura pode triplicar num ano", en: "Demand may treble in a year" }, accept: ["to treble", "to triple", "triple", "to increase threefold"], hint: "tri-pli-KAR, from o triplo (u82). ⚠ duplicar is u53's and is not re-taught here; this is the next one in the series, and Portuguese builds them freely — quadruplicar exists and is used." },
+      ],
+    },
+    {
+      id: "pt-u121l2",
+      unit: 121,
+      lesson: 2,
+      title: "Descer e parar",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Describe a falling or stalling figure in Portuguese — and distinguish going down from merely going nowhere.",
+      items: [
+        { id: "pt-u121l2-odecrescimo", type: "vocab", front: "o decréscimo", reading: "odecrescimo", meaning: "fall in a measured figure", example: { jp: "O decréscimo da população continua, mas o governo não apresenta nenhuma medida.", en: "The fall in population continues, but the government presents no measure." }, drill: { jp: "O decréscimo da população continua este ano", en: "The fall in population continues this year" }, accept: ["fall in a measured figure", "decrease", "the decrease", "decline", "drop"], hint: "de-KRESH-si-mu. ⚠ TECHNICAL, not emotional: it is the word in a statistics table, where a queda (u95) is the word in a headline about a government falling. o acréscimo, its opposite, is u113's and is not re-taught." },
+        { id: "pt-u121l2-decair", type: "vocab", front: "decair", reading: "decair", meaning: "to fall off slowly over time", example: { jp: "A qualidade do serviço começa a decair, mas o preço sobe todos os anos.", en: "The quality of the service starts to fall off, but the price goes up every year." }, drill: { jp: "A qualidade do serviço começa a decair", en: "The quality of the service starts to fall off" }, accept: ["to fall off slowly over time", "to decline", "to fall into decline", "to deteriorate", "to wane"], hint: "de-ka-EER, built on cair (u79). ⚠ SLOW and usually about quality or standing, not a number — um bairro que decaiu. o declínio is u95's, so the verb is carded here and that noun is not re-taught." },
+        { id: "pt-u121l2-estagnar", type: "vocab", front: "estagnar", reading: "estagnar", meaning: "to stop making progress", example: { jp: "O salário pode estagnar durante uma década, mas a economia continua a crescer.", en: "The wage may stagnate for a decade, but the economy carries on growing." }, drill: { jp: "O salário pode estagnar durante uma década", en: "The wage may stagnate for a decade" }, accept: ["to stop making progress", "to stagnate", "stagnate", "to stall", "to flatline"], hint: "esh-tag-NAR, the same root as a água estagnada, standing water. ⚠ NOT falling — the example turns on exactly that: something can estagnar while everything around it rises, which is a worse story than a decline." },
+        { id: "pt-u121l2-oscilar", type: "vocab", front: "oscilar", reading: "oscilar", meaning: "to swing up and down", example: { jp: "O número de turistas pode oscilar muito, mas a média do ano fica igual.", en: "The number of tourists may swing a lot, but the year's average stays the same." }, drill: { jp: "O número de turistas pode oscilar muito", en: "The number of tourists may swing a lot" }, accept: ["to swing up and down", "to fluctuate", "fluctuate", "to vary", "to waver"], hint: "osh-si-LAR. ⚠ Also used of a PERSON who cannot decide — oscila entre as duas ideias — which is the sense closest to English waver. Portuguese says oscilar entre X e Y for a range." },
+        { id: "pt-u121l2-aflutuacao", type: "vocab", front: "a flutuação", reading: "aflutuacao", meaning: "normal up-and-down variation", example: { jp: "A flutuação do mercado é normal, mas o pequeno investidor não aguenta o risco.", en: "Market fluctuation is normal, but the small investor cannot bear the risk." }, drill: { jp: "A flutuação do mercado é normal", en: "Market fluctuation is normal" }, accept: ["normal up-and-down variation", "fluctuation", "the fluctuation", "variation", "swing"], hint: "flu-twa-SOWN, from flutuar, to float. ⚠ The noun to oscilar (this lesson), and it carries a claim: calling something uma flutuação says it is NOISE and not a trend, which is why the example can call it normal." },
+        { id: "pt-u121l2-rondar", type: "vocab", front: "rondar", reading: "rondar", meaning: "to hover around a figure", example: { jp: "O desemprego pode rondar os sete por cento, mas o número real é sempre maior.", en: "Unemployment may hover around seven per cent, but the real figure is always higher." }, drill: { jp: "O desemprego pode rondar os sete por cento", en: "Unemployment may hover around seven per cent" }, accept: ["to hover around a figure", "to hover around", "to be around", "to stand at roughly", "to be in the region of"], hint: "rron-DAR. ⚠ Literally to patrol or prowl — um carro a rondar o bairro — and the figurative sense keeps the image of circling without settling. It is the standard verb in Portuguese economic reporting for an approximate figure." },
+      ],
+    },
+    {
+      id: "pt-u121l3",
+      unit: 121,
+      lesson: 3,
+      title: "Onde o número assenta",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Name in Portuguese the level, the bar and the spread a figure sits inside — not just the figure.",
+      items: [
+        { id: "pt-u121l3-opatamar", type: "vocab", front: "o patamar", reading: "opatamar", meaning: "level something settles at", example: { jp: "O consumo chega a um novo patamar, mas ninguém sabe por quanto tempo.", en: "Consumption reaches a new level, but nobody knows for how long." }, drill: { jp: "O patamar do consumo não muda este ano", en: "The level of consumption does not change this year" }, accept: ["level something settles at", "plateau", "level", "a new level", "tier"], hint: "pa-ta-MAR. ⚠ Literally a LANDING on a staircase, which is exactly the image: you climb, then walk flat for a while. Not o nível (u53), which is any level at all — um patamar is one you have arrived at and stopped on." },
+        { id: "pt-u121l3-afasquia", type: "vocab", front: "a fasquia", reading: "afasquia", meaning: "bar set as a target", example: { jp: "A fasquia do exame está muito alta, mas a escola prepara bem os estudantes.", en: "The bar for the exam is set very high, but the school prepares the students well." }, drill: { jp: "A fasquia do exame está muito alta", en: "The bar for the exam is set very high" }, accept: ["bar set as a target", "the bar", "bar", "threshold", "benchmark"], hint: "fash-KEE-a. ⚠ The high-jump BAR, and Portuguese uses it exactly as English does — colocar a fasquia mais alta, raise the bar. o limiar (u90) is the threshold you cross; a fasquia is the height somebody chose to set." },
+        { id: "pt-u121l3-oracio", type: "vocab", front: "o rácio", reading: "oracio", meaning: "ratio between two figures", example: { jp: "O rácio entre professores e alunos é mau, mas o ministro fala apenas do total.", en: "The ratio of teachers to pupils is poor, but the minister talks only about the total." }, drill: { jp: "O rácio entre professores e alunos é mau", en: "The teacher-to-pupil ratio is poor" }, accept: ["ratio between two figures", "ratio", "the ratio"], hint: "RRA-syu. ⚠ Spelt with the accent in Portugal — o rácio — and borrowed straight from English ratio in banking and management. a proporção (u82) is the everyday word; o rácio is the technical one on a balance sheet." },
+        { id: "pt-u121l3-cifrarse", type: "vocab", front: "cifrar-se", reading: "cifrarse", meaning: "to work out at a figure", example: { jp: "O custo da obra pode cifrar-se em muito dinheiro, mas a câmara não divulga nada.", en: "The cost of the works may work out at a great deal of money, but the council releases nothing." }, drill: { jp: "O custo pode cifrar-se em muito dinheiro", en: "The cost may work out at a lot of money" }, accept: ["to work out at a figure", "to amount to", "to come out at", "to be put at", "to total"], hint: "si-FRAR-se, from a cifra (u121l4). ⚠ ALWAYS cifrar-se EM. Enclitic in the infinitive, proclitic after a negative — não se cifra. Formal register: it is what a report says and never what a person says out loud." },
+        { id: "pt-u121l3-oexcedente", type: "vocab", front: "o excedente", reading: "oexcedente", meaning: "amount left over above what is needed", example: { jp: "O excedente da produção vai para fora, mas o preço no mercado não desce.", en: "The surplus of production goes abroad, but the price on the market does not come down." }, drill: { jp: "O excedente da produção vai para fora", en: "The production surplus goes abroad" }, accept: ["amount left over above what is needed", "surplus", "the surplus", "excess", "overflow"], hint: "esh-se-DEN-te. ⚠ Not o excesso (u82), which is too much of something and a problem; um excedente is a usable balance and can be good news. o défice, its opposite, is u93's and is not re-taught." },
+        { id: "pt-u121l3-aamplitude", type: "vocab", front: "a amplitude", reading: "aamplitude", meaning: "spread between highest and lowest", example: { jp: "A amplitude da temperatura é grande no interior, mas na costa o clima é estável.", en: "The temperature range is wide inland, but on the coast the climate is stable." }, drill: { jp: "A amplitude da temperatura é grande no interior", en: "The temperature range is wide inland" }, accept: ["spread between highest and lowest", "range", "the range", "amplitude", "spread"], hint: "am-pli-TU-de. ⚠ A amplitude térmica is the standard Portuguese weather-forecast phrase for the day's high-to-low gap. Also used of scope — a amplitude do problema — where English says the scale of it." },
+      ],
+    },
+    {
+      id: "pt-u121l4",
+      unit: 121,
+      lesson: 4,
+      title: "Dizer o número",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Report a figure in Portuguese with the right word for it — a sum, a count, an estimate, a single digit.",
+      items: [
+        { id: "pt-u121l4-acifra", type: "vocab", front: "a cifra", reading: "acifra", meaning: "figure quoted in a report", example: { jp: "A cifra do relatório parece alta, mas inclui despesas de três anos.", en: "The figure in the report seems high, but it includes three years of spending." }, drill: { jp: "A cifra do relatório parece alta", en: "The figure in the report seems high" }, accept: ["figure quoted in a report", "figure", "the figure", "sum quoted", "number cited"], hint: "SEE-fra. ⚠ Two senses share the word: the quoted figure, and a CIPHER or code — escrever em cifra. Both come from the Arabic for zero, which is also where English cipher and zero come from." },
+        { id: "pt-u121l4-oalgarismo", type: "vocab", front: "o algarismo", reading: "oalgarismo", meaning: "single written digit", example: { jp: "O algarismo final do número identifica o titular, mas ninguém explica o sistema.", en: "The final digit of the number identifies the holder, but nobody explains the system." }, drill: { jp: "O algarismo final identifica o titular", en: "The final digit identifies the holder" }, accept: ["single written digit", "digit", "the digit", "numeral", "figure character"], hint: "al-ga-REEZH-mu. ⚠ A DIGIT, not a number: 47 is um número made of dois algarismos. Named after the Persian mathematician al-Khwarizmi, which also gives English algorithm — the same man, two words." },
+        { id: "pt-u121l4-omontante", type: "vocab", front: "o montante", reading: "omontante", meaning: "total sum of money", example: { jp: "O montante do empréstimo é alto, mas o juro fica abaixo do normal.", en: "The amount of the loan is high, but the interest stays below normal." }, drill: { jp: "O montante do empréstimo é muito alto", en: "The loan amount is very high" }, accept: ["total sum of money", "amount", "the amount", "sum", "total sum"], hint: "mon-TAN-te. ⚠ ALWAYS MONEY, which is what separates it from o total (u82) — you would not use it of a number of people. It is the word on a Portuguese invoice: montante a pagar." },
+        { id: "pt-u121l4-acontagem", type: "vocab", front: "a contagem", reading: "acontagem", meaning: "act of counting things up", example: { jp: "A contagem dos resultados demora muitas horas, mas o fim já é claro à meia-noite.", en: "The counting of the results takes many hours, but the outcome is already clear by midnight." }, drill: { jp: "A contagem dos resultados demora muitas horas", en: "The count of the results takes many hours" }, accept: ["act of counting things up", "count", "the count", "counting", "tally"], hint: "kon-TA-jem, from contar (u36). ⚠ The PROCESS, not the result — a contagem decrescente is a countdown, and contagem de votos is what happens on election night before any cifra exists." },
+        { id: "pt-u121l4-aestimativa", type: "vocab", front: "a estimativa", reading: "aestimativa", meaning: "worked-out guess at a figure", example: { jp: "A estimativa inicial fica muito abaixo do custo real, mas a obra começa logo.", en: "The initial estimate falls well below the real cost, but the work starts straight away." }, drill: { jp: "A estimativa inicial fica muito abaixo", en: "The initial estimate falls well below" }, accept: ["worked-out guess at a figure", "estimate", "the estimate", "projection", "forecast figure"], hint: "esh-ti-ma-TEE-va, the noun of estimar (u82). ⚠ CLAIMS A METHOD — an estimativa is calculated, where um palpite is a hunch. The example is the standard Portuguese complaint about public works." },
+        { id: "pt-u121l4-avariacao", type: "vocab", front: "a variação", reading: "avariacao", meaning: "change between two measurements", example: { jp: "A variação entre os dois anos não é grande, mas a tendência é forte.", en: "The change between the two years is not great, but the trend is strong." }, drill: { jp: "A variação entre os anos não é grande", en: "The change between the years is not great" }, accept: ["change between two measurements", "variation", "the variation", "change", "movement"], hint: "va-rya-SOWN. ⚠ NEUTRAL about direction — a variação can be up or down, which is why a Portuguese statistics office reports variação homóloga, the change against the same month last year." },
+      ],
+    },
   ],
 };

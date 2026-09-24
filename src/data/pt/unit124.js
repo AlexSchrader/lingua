@@ -1,18 +1,99 @@
-// PT Unit 124 — Vocabulary 14 (B2) (slot: coverage-b2-14) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 124 — A imagem e a aparência (slot: coverage-b2-14) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-3 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+// Retitled from the scaffold's "Vocabulary 14 (B2)" — see unit114.js's header.
+//
+// u78 owns PERCEIVING (olhar, observar, brilhar, distinguir) and u83 owns
+// POSITION IN SPACE (o fundo, a superfície, a borda, o topo). Neither owns the
+// thing seen. The corpus could say somebody looked, and could not name a imagem
+// — one of the words block 2 measured as still missing after 113 units, in a
+// course that talks constantly about art, media and evidence.
+//
+// The second half of the unit is the B2 move the first half makes possible:
+// separating how a thing LOOKS from how it IS. aparentar, a fachada, dissimular
+// and o semblante are the vocabulary of that gap, and a learner who has it can
+// read a Portuguese news profile properly for the first time.
+//
+// SLOT BOUNDARIES: a moldura is u96's, a paisagem is u65's, o cenário is u98's,
+// o fundo and a superfície are u83's, o ecrã is u18's and o aspeto is u58's —
+// all probed, none re-taught. realçar (l2) and o realce (l4) are split across
+// lessons, as are aparentar (l3) and a aparência (l3) — kept together there for
+// the u88l1 reason, since the verb and the noun do different jobs in a sentence.
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT124 = {
   id: "pt-u124",
   lang: "pt",
-  title: "Vocabulary 14 (B2)",
+  title: "A imagem e a aparência",
   order: 124,
   stage: "b2",
   lessons: [
-    { id: "pt-u124l1", title: "Lesson 1", locked: true },
-    { id: "pt-u124l2", title: "Lesson 2", locked: true },
-    { id: "pt-u124l3", title: "Lesson 3", locked: true },
-    { id: "pt-u124l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u124l1",
+      unit: 124,
+      lesson: 1,
+      title: "A imagem",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Name what is seen in Portuguese — the picture, the outline, the shape you cannot quite make out.",
+      items: [
+        { id: "pt-u124l1-aimagem", type: "vocab", front: "a imagem", reading: "aimagem", meaning: "picture of something", example: { jp: "A imagem do jornal mostra pouco, mas o texto explica o resto do caso.", en: "The newspaper's picture shows little, but the text explains the rest of the case." }, drill: { jp: "A imagem do jornal mostra muito pouco", en: "The newspaper's picture shows very little" }, accept: ["picture of something", "image", "the image", "picture", "the picture"], hint: "i-MA-jem. ⚠ AN ORDINARY WORD THE COURSE NEVER TAUGHT, in 123 units about art, media and evidence. Also the public image of a person or brand — a imagem da empresa — exactly as in English. Plural imagens." },
+        { id: "pt-u124l1-oretrato", type: "vocab", front: "o retrato", reading: "oretrato", meaning: "portrait of a person", example: { jp: "O retrato do avô continua na sala, mas ninguém sabe quem pinta o quadro.", en: "The grandfather's portrait is still in the living room, but nobody knows who painted the picture." }, drill: { jp: "O retrato do avô continua na sala", en: "The grandfather's portrait is still in the living room" }, accept: ["portrait of a person", "portrait", "the portrait", "likeness"], hint: "rre-TRA-tu. ⚠ FIGURATIVE USE IS VERY COMMON: um retrato do país is a portrait of the country, and ser o retrato do pai means to be the spitting image of your father. o quadro (u35) is any painting; um retrato is of somebody." },
+        { id: "pt-u124l1-opainel", type: "vocab", front: "o painel", reading: "opainel", meaning: "flat display panel", example: { jp: "O painel da estação indica um atraso, mas o comboio chega a horas.", en: "The station panel shows a delay, but the train arrives on time anyway." }, drill: { jp: "O painel da estação indica um atraso", en: "The station panel shows a delay" }, accept: ["flat display panel", "panel", "the panel", "display board", "board"], hint: "pai-NEL. ⚠ Plural painéis. Covers the departures board, a solar panel (painel solar), a car dashboard and a panel of speakers at a conference — one word where English has four, and the context does the work." },
+        { id: "pt-u124l1-ocontorno", type: "vocab", front: "o contorno", reading: "ocontorno", meaning: "outline of a shape", example: { jp: "O contorno da costa muda com os anos, mas o mapa antigo continua no livro.", en: "The outline of the coast changes over the years, but the old map is still in the book." }, drill: { jp: "O contorno da costa muda com os anos", en: "The coast's outline changes over the years" }, accept: ["outline of a shape", "outline", "the outline", "contour", "edge line"], hint: "kon-TOR-nu. ⚠ Also figurative and usually plural — os contornos do caso são pouco claros, the details of the case are not clear. That is how a Portuguese news report says the shape of a story is uncertain." },
+        { id: "pt-u124l1-asilhueta", type: "vocab", front: "a silhueta", reading: "asilhueta", meaning: "dark shape against the light", example: { jp: "A silhueta da serra está ali ao fim da tarde, mas o nevoeiro esconde tudo de manhã.", en: "The silhouette of the mountains is there in the late afternoon, but the fog hides everything in the morning." }, drill: { jp: "A silhueta da serra está ali", en: "The mountains' silhouette is there" }, accept: ["dark shape against the light", "silhouette", "the silhouette", "outline against the light"], hint: "si-LWE-ta. ⚠ Also used of a person's FIGURE — manter a silhueta, to keep your figure — which is the sense a Portuguese magazine means. Named after a French finance minister, exactly as in English." },
+        { id: "pt-u124l1-ovulto", type: "vocab", front: "o vulto", reading: "ovulto", meaning: "figure you cannot make out", example: { jp: "O vulto na rua parece estranho, mas é apenas o carteiro com o casaco novo.", en: "The figure in the street looks odd, but it is only the postman in his new coat." }, drill: { jp: "O vulto na rua parece estranho", en: "The figure in the street looks odd" }, accept: ["figure you cannot make out", "shadowy figure", "a figure", "shape", "dim figure"], hint: "VUL-tu. ⚠ TWO VERY DIFFERENT SENSES: the dim shape in the example, and an IMPORTANT PERSON — um vulto da política, a major figure in politics. Also de vulto meaning substantial: um problema de vulto." },
+      ],
+    },
+    {
+      id: "pt-u124l2",
+      unit: 124,
+      lesson: 2,
+      title: "Luz e sombra",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Describe light and shadow in Portuguese — and use the same words for what a report hides or highlights.",
+      items: [
+        { id: "pt-u124l2-asombra", type: "vocab", front: "a sombra", reading: "asombra", meaning: "shade cast by something", example: { jp: "A sombra da árvore chega à janela de manhã, mas à tarde o sol entra na sala.", en: "The tree's shade reaches the window in the morning, but in the afternoon the sun comes into the room." }, drill: { jp: "A sombra da árvore chega à janela", en: "The tree's shade reaches the window" }, accept: ["shade cast by something", "shadow", "the shadow", "shade"], hint: "SOM-bra. ⚠ ONE WORD FOR ENGLISH'S TWO — shadow and shade are both a sombra, and à sombra means in the shade. Figuratively, sem sombra de dúvida is without a shadow of a doubt, word for word the same image." },
+        { id: "pt-u124l2-obrilho", type: "vocab", front: "o brilho", reading: "obrilho", meaning: "shine given off", example: { jp: "O brilho do ouro parece bom ao cliente, mas o perito percebe logo o problema.", en: "The shine of the gold looks good to the client, but the expert sees the problem at once." }, drill: { jp: "O brilho do ouro parece bom", en: "The shine of the gold looks good" }, accept: ["shine given off", "shine", "the shine", "gleam", "brightness"], hint: "BREE-lyu, the noun of brilhar (u78). ⚠ Figurative too — o brilho dos olhos, and sem brilho meaning dull or lacklustre, which a Portuguese sports report will say about a flat performance." },
+        { id: "pt-u124l2-oreflexo", type: "vocab", front: "o reflexo", reading: "oreflexo", meaning: "image thrown back by a surface", example: { jp: "O reflexo no vidro mostra a rua, mas quem está dentro não percebe nada.", en: "The reflection in the glass shows the street, but whoever is inside notices nothing." }, drill: { jp: "O reflexo no vidro mostra a rua", en: "The reflection in the glass shows the street" }, accept: ["image thrown back by a surface", "reflection", "the reflection", "reflected image"], hint: "rre-FLEK-su. ⚠ THREE SENSES: the reflection in the example, a bodily REFLEX (os reflexos do condutor), and a consequence — um reflexo da crise, a knock-on effect of the crisis. The third is very common in news Portuguese." },
+        { id: "pt-u124l2-ofuscar", type: "vocab", front: "ofuscar", reading: "ofuscar", meaning: "to dazzle so nothing else is seen", example: { jp: "O sucesso do filho pode ofuscar o trabalho do pai, mas a família não fala disso.", en: "The son's success can overshadow the father's work, but the family does not talk about it." }, drill: { jp: "O sucesso do filho pode ofuscar o trabalho", en: "The son's success can overshadow the work" }, accept: ["to dazzle so nothing else is seen", "to overshadow", "to dazzle", "to eclipse", "to outshine"], hint: "o-fush-KAR. ⚠ TWO DIRECTIONS in one verb: literally, too much light stops you seeing (o sol ofusca o condutor); figuratively, one thing's brightness hides another's, which is the example's sense and the commoner one." },
+        { id: "pt-u124l2-realcar", type: "vocab", front: "realçar", reading: "realcar", meaning: "to make stand out more", example: { jp: "A luz vai realçar o quadro, mas a parede continua a precisar de tinta.", en: "The light will make the painting stand out more, but the wall still needs paint." }, drill: { jp: "A luz vai realçar o quadro", en: "The light will make the painting stand out" }, accept: ["to make stand out more", "to highlight", "to bring out", "to set off", "to enhance"], hint: "rre-al-SAR, built on alto (u10). ⚠ Not destacar (u74), which picks something OUT of a group; realçar makes what is already there look better or clearer — a lighting, cooking and make-up word as much as an argumentative one." },
+        { id: "pt-u124l2-anitidez", type: "vocab", front: "a nitidez", reading: "anitidez", meaning: "sharpness of what is seen", example: { jp: "A nitidez da fotografia não é boa, mas o tribunal aceita a prova.", en: "The sharpness of the photograph is not good, but the court accepts the evidence." }, drill: { jp: "A nitidez da fotografia não é boa", en: "The sharpness of the photograph is not good" }, accept: ["sharpness of what is seen", "sharpness", "clarity", "definition", "crispness"], hint: "ni-ti-DEZH, from nítido, sharp. ⚠ Used of images and of THOUGHT alike — lembro-me com nitidez, I remember it sharply." },
+      ],
+    },
+    {
+      id: "pt-u124l3",
+      unit: 124,
+      lesson: 3,
+      title: "Parecer e não ser",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say in Portuguese that something only looks a certain way — and name the front somebody is keeping up.",
+      items: [
+        { id: "pt-u124l3-aparentar", type: "vocab", front: "aparentar", reading: "aparentar", meaning: "to give the appearance of", example: { jp: "A empresa quer aparentar solidez, mas as contas do ano contam outra história.", en: "The company wants to give an appearance of solidity, but the year's accounts tell another story." }, drill: { jp: "A empresa quer aparentar solidez este ano", en: "The company wants to look solid this year" }, accept: ["to give the appearance of", "to appear", "to look", "to seem outwardly", "to give the impression of"], hint: "a-pa-ren-TAR. ⚠ CLAIMS A GAP between look and reality, where parecer (u31) is neutral about it. Very common about AGE: aparenta menos idade, he looks younger than he is — a compliment in Portugal." },
+        { id: "pt-u124l3-aaparencia", type: "vocab", front: "a aparência", reading: "aaparencia", meaning: "outward look of a thing", example: { jp: "A aparência do prédio é boa, mas o engenheiro nota um problema grave.", en: "The building's outward look is good, but the engineer notices a serious problem." }, drill: { jp: "A aparência do prédio é muito boa", en: "The building's outward look is very good" }, accept: ["outward look of a thing", "appearance", "the appearance", "outward look", "looks"], hint: "a-pa-REN-sya. ⚠ as aparências enganam is the Portuguese proverb for appearances are deceptive, and manter as aparências is to keep up appearances. Carded beside its verb because the noun is what a sentence about deception needs." },
+        { id: "pt-u124l3-afachada", type: "vocab", front: "a fachada", reading: "afachada", meaning: "front put up to hide what is behind", example: { jp: "A fachada da loja é recente, mas por dentro nada muda desde o ano passado.", en: "The shop's frontage is recent, but inside nothing has changed since last year." }, drill: { jp: "A fachada da loja é recente", en: "The shop's frontage is recent" }, accept: ["front put up to hide what is behind", "façade", "frontage", "the front", "a front"], hint: "fa-SHA-da. ⚠ The literal sense — the front wall of a building — comes first, and Lisbon's azulejo fachadas are famous. The figurative one works exactly as in English: uma empresa de fachada is a front company." },
+        { id: "pt-u124l3-dissimular", type: "vocab", front: "dissimular", reading: "dissimular", meaning: "to hide a feeling or fact", example: { jp: "O diretor tenta dissimular a surpresa, mas o resto da sala percebe tudo.", en: "The director tries to conceal his surprise, but the rest of the room notices everything." }, drill: { jp: "O diretor tenta dissimular a surpresa", en: "The director tries to conceal his surprise" }, accept: ["to hide a feeling or fact", "to conceal", "to dissemble", "to mask", "to disguise"], hint: "di-ssi-mu-LAR. ⚠ Not esconder (u112), which hides an OBJECT; dissimular hides a state — a feeling, an intention, a fault in a product. It is what a compostura (u118) is doing on the outside." },
+        { id: "pt-u124l3-odisfarce", type: "vocab", front: "o disfarce", reading: "odisfarce", meaning: "get-up worn to pass as someone else", example: { jp: "O disfarce do polícia funciona bem uma semana, mas alguém reconhece o homem.", en: "The policeman's disguise works well for a week, but somebody recognises the man." }, drill: { jp: "O disfarce do polícia funciona bem uma semana", en: "The policeman's disguise works well for a week" }, accept: ["get-up worn to pass as someone else", "disguise", "the disguise", "costume", "cover"], hint: "dish-FAR-se. ⚠ Also the CARNIVAL costume — ir de disfarce — which is how a Portuguese child meets the word first. sem disfarce means openly, with no pretence at all." },
+        { id: "pt-u124l3-osemblante", type: "vocab", front: "o semblante", reading: "osemblante", meaning: "expression the face is wearing", example: { jp: "O semblante do médico diz tudo, mas a família ainda espera boas notícias.", en: "The doctor's expression says everything, but the family is still hoping for good news." }, drill: { jp: "O semblante do médico diz tudo", en: "The doctor's expression says everything" }, accept: ["expression the face is wearing", "countenance", "expression", "the look on the face", "mien"], hint: "sem-BLAN-te. ⚠ LITERARY but alive — a Portuguese novel or a serious news profile uses it where speech would say a cara. It names the expression, not the face itself, which is why it can say something." },
+      ],
+    },
+    {
+      id: "pt-u124l4",
+      unit: 124,
+      lesson: 4,
+      title: "O olhar e o traje",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say in Portuguese how briefly you looked, how something was played down, and what somebody had on.",
+      items: [
+        { id: "pt-u124l4-orelance", type: "vocab", front: "o relance", reading: "orelance", meaning: "single quick glance", example: { jp: "O relance do documento chega para perceber o erro, mas o funcionário assina logo.", en: "The quick glance at the document is enough to spot the mistake, but the clerk signs it straight away." }, drill: { jp: "O relance do documento chega para perceber", en: "The quick glance at the document is enough to see" }, accept: ["single quick glance", "glance", "a glance", "glimpse", "quick look"], hint: "rre-LAN-se. ⚠ NEARLY ALWAYS in de relance — vi de relance, I caught a glimpse. The bare noun with an article, as in the example, is the slightly more formal use. Not olhar (u78), which is the act of looking." },
+        { id: "pt-u124l4-afeicao", type: "vocab", front: "a feição", reading: "afeicao", meaning: "cast of a face or thing", example: { jp: "A feição do neto lembra logo o avô, mas o feitio é completamente outro.", en: "The grandson's cast of face recalls the grandfather at once, but the temperament is completely different." }, drill: { jp: "A feição do neto lembra logo o avô", en: "The grandson's features recall the grandfather at once" }, accept: ["cast of a face or thing", "feature", "features", "cast of face", "character of a thing"], hint: "fay-SOWN. ⚠ Usually PLURAL for a face — as feições do rosto, the features. ⚠ Note the near-pair in the example: a feição is how you LOOK, o feitio (u31) is what you are LIKE, and the two words come from the same verb fazer." },
+        { id: "pt-u124l4-orealce", type: "vocab", front: "o realce", reading: "orealce", meaning: "prominence given to something", example: { jp: "O realce dado ao número pequeno esconde o total, mas o leitor atento percebe.", en: "The prominence given to the small figure hides the total, but the attentive reader notices." }, drill: { jp: "O realce dado ao número esconde o total", en: "The prominence given to the figure hides the total" }, accept: ["prominence given to something", "emphasis", "prominence", "highlighting", "the spotlight"], hint: "rre-AL-se, the noun of realçar (u124l2), split from it across lessons (§C4). ⚠ dar realce a is to give prominence to, and pôr em realce is to put in the spotlight — both are standard in Portuguese media criticism." },
+        { id: "pt-u124l4-esbater", type: "vocab", front: "esbater", reading: "esbater", meaning: "to soften and blur out", example: { jp: "O tempo vai esbater a memória do caso, mas o documento fica no arquivo para sempre.", en: "Time will blur the memory of the case, but the document stays in the archive forever." }, drill: { jp: "O tempo vai esbater a memória do caso", en: "Time will blur the memory of the case" }, accept: ["to soften and blur out", "to blur", "to soften", "to fade", "to tone down"], hint: "esh-ba-TER. ⚠ A PAINTER'S word first — esbater as cores, to blend the colours so no edge shows — and figurative second: esbater as diferenças, to play down the differences. Reflexive esbater-se is to fade away." },
+        { id: "pt-u124l4-oadorno", type: "vocab", front: "o adorno", reading: "oadorno", meaning: "decorative addition", example: { jp: "O adorno da sala custa muito dinheiro, mas ninguém repara durante a festa.", en: "The decoration in the room costs a lot of money, but nobody notices during the party." }, drill: { jp: "O adorno da sala custa muito dinheiro", en: "The room's decoration costs a lot of money" }, accept: ["decorative addition", "ornament", "decoration", "adornment", "embellishment"], hint: "a-DOR-nu. ⚠ Also used of LANGUAGE — um discurso sem adornos is a speech with no flourishes — which is a compliment in Portuguese, exactly as plain speaking is in English." },
+        { id: "pt-u124l4-otraje", type: "vocab", front: "o traje", reading: "otraje", meaning: "outfit worn for an occasion", example: { jp: "O traje do casamento é caro, mas serve apenas uma vez.", en: "The wedding outfit is expensive, but it is worn only once." }, drill: { jp: "O traje do casamento é sempre caro", en: "The wedding outfit is always expensive" }, accept: ["outfit worn for an occasion", "attire", "outfit", "dress", "garb"], hint: "TRA-je. ⚠ Not a roupa (u16), which is clothes in general: um traje is the set chosen for an occasion, and a Portuguese invitation states traje formal or traje descontraído (u118). O traje académico is the Coimbra student's black cape." },
+      ],
+    },
   ],
 };

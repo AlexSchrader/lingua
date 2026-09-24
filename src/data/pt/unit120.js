@@ -1,18 +1,100 @@
-// PT Unit 120 — Vocabulary 10 (B2) (slot: coverage-b2-10) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 120 — Quem ocupa o cargo (slot: coverage-b2-10) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-3 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+// Retitled from the scaffold's "Vocabulary 10 (B2)" — see unit114.js's header.
+//
+// ⚠ THIS UNIT EXISTS BECAUSE OF A MEASURED HOLE, and the hole is embarrassing:
+// at u119 the corpus taught o governo, a lei, o parlamento, o tribunal, a
+// assembleia, o mandato and o deputado — and could not say o ministro or
+// o presidente. It taught a escola, a universidade, a turma, o professor,
+// o curso and a propina — and could not say o aluno. Those three are on the
+// list block 2 handed to block 3, and they are carded here.
+//
+// §C3 is satisfied even so, because the unit is not a list of jobs: u18 and u24
+// own OCCUPATIONS (o médico, o advogado, o engenheiro, o chefe). What this unit
+// teaches is the ROLE somebody occupies in a procedure — who signs, who applies,
+// who receives, who stands in, who reports — which is the relation a B2 text
+// asserts and an A2 job-name cannot.
+//
+// SLOT BOUNDARIES: o docente is u103's, o porta-voz is u55's, o interlocutor is
+// u109's, o intermediário is u93's, o sucessor is u95's and o subordinado is
+// u100's — all probed, none re-taught. a cátedra and o estabelecimento are two of
+// block 2's reserved fronts; o estabelecimento is spent at u126, not here.
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT120 = {
   id: "pt-u120",
   lang: "pt",
-  title: "Vocabulary 10 (B2)",
+  title: "Quem ocupa o cargo",
   order: 120,
   stage: "b2",
   lessons: [
-    { id: "pt-u120l1", title: "Lesson 1", locked: true },
-    { id: "pt-u120l2", title: "Lesson 2", locked: true },
-    { id: "pt-u120l3", title: "Lesson 3", locked: true },
-    { id: "pt-u120l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u120l1",
+      unit: 120,
+      lesson: 1,
+      title: "Quem manda",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Name who holds power in Portuguese — the office, the holder of it, and the person acting on their behalf.",
+      items: [
+        { id: "pt-u120l1-oministro", type: "vocab", front: "o ministro", reading: "oministro", meaning: "government minister", example: { jp: "O ministro promete mais dinheiro para a saúde, mas o orçamento não muda nada.", en: "The minister promises more money for health, but the budget changes nothing." }, drill: { jp: "O ministro promete mais dinheiro para a saúde", en: "The minister promises more money for health" }, accept: ["government minister", "minister", "the minister", "secretary of state"], hint: "mi-NEESH-tru. ⚠ AN ORDINARY WORD THE COURSE NEVER TAUGHT, though it taught o governo at u32 and o parlamento at u55. Feminine a ministra. o primeiro-ministro is the head of the Portuguese government." },
+        { id: "pt-u120l1-opresidente", type: "vocab", front: "o presidente", reading: "opresidente", meaning: "president or chair", example: { jp: "O presidente assina a lei, embora o partido dele seja contra o texto.", en: "The president signs the law, although his own party is against the text." }, drill: { jp: "O presidente assina a lei hoje", en: "The president signs the law today" }, accept: ["president or chair", "president", "the president", "chairman", "chair"], hint: "pre-zi-DEN-te. ⚠ Covers BOTH heads of state and the chair of any body — o presidente da câmara is the MAYOR, which is the one a learner in Portugal meets first. Invariant in form; a presidente for a woman." },
+        { id: "pt-u120l1-otitular", type: "vocab", front: "o titular", reading: "otitular", meaning: "the person who actually holds the post", example: { jp: "O titular da conta tem de assinar, mas o banco aceita uma autorização do cliente.", en: "The account holder has to sign, but the bank accepts an authorisation from the client." }, drill: { jp: "O titular da conta tem de assinar", en: "The account holder has to sign" }, accept: ["the person who actually holds the post", "holder", "the holder", "incumbent", "titleholder"], hint: "ti-tu-LAR. ⚠ THE WORD ON EVERY PORTUGUESE FORM — titular do cartão, titular da conta, titular dos dados. It names whoever the thing legally belongs to, as opposed to whoever is standing at the counter." },
+        { id: "pt-u120l1-odirigente", type: "vocab", front: "o dirigente", reading: "odirigente", meaning: "senior figure who runs an organisation", example: { jp: "O dirigente do clube fala muito na televisão, mas a equipa continua sem treinador.", en: "The club's senior official talks a lot on television, but the team still has no coach." }, drill: { jp: "O dirigente do clube fala muito na televisão", en: "The club official talks a lot on television" }, accept: ["senior figure who runs an organisation", "senior official", "leader", "executive", "officer of a body"], hint: "di-ri-JEN-te, from dirigir. ⚠ Covers party, union and sports-club leadership — os dirigentes desportivos is a standing phrase in Portuguese sports news, and rarely a flattering one. Invariant in gender." },
+        { id: "pt-u120l1-omandatario", type: "vocab", front: "o mandatário", reading: "omandatario", meaning: "person authorised to act for another", example: { jp: "O mandatário assina o contrato pelo cliente, mas a responsabilidade não passa para ele.", en: "The authorised agent signs the contract for the client, but the responsibility does not pass to him." }, drill: { jp: "O mandatário assina o contrato pelo cliente", en: "The agent signs the contract for the client" }, accept: ["person authorised to act for another", "authorised agent", "proxy", "attorney-in-fact", "representative"], hint: "man-da-TA-ryu, from o mandato (u92). ⚠ A precise legal relation: the mandatário acts IN YOUR NAME and binds you. In an election campaign o mandatário is the candidate's officially registered campaign chief." },
+        { id: "pt-u120l1-odelegado", type: "vocab", front: "o delegado", reading: "odelegado", meaning: "person sent to represent a body", example: { jp: "O delegado da escola vai à reunião, mas volta sem resposta nenhuma.", en: "The school's delegate goes to the meeting, but comes back without any answer." }, drill: { jp: "O delegado da escola vai à reunião", en: "The school delegate goes to the meeting" }, accept: ["person sent to represent a body", "delegate", "representative", "the delegate"], hint: "de-le-GA-du, from delegar (u56). ⚠ Feminine a delegada. In Portugal o delegado de saúde is the local public-health officer, a post that became very familiar in 2020 — the one who signs an isolation order." },
+      ],
+    },
+    {
+      id: "pt-u120l2",
+      unit: 120,
+      lesson: 2,
+      title: "Quem aprende e quem ensina",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name the people of a Portuguese school or university by their role — pupil, trainee, grant-holder, rector.",
+      items: [
+        { id: "pt-u120l2-oaluno", type: "vocab", front: "o aluno", reading: "oaluno", meaning: "pupil on the roll", example: { jp: "O aluno novo chega a meio do ano, mas a turma aceita bem o colega.", en: "The new pupil arrives halfway through the year, but the class takes to the classmate well." }, drill: { jp: "O aluno novo chega a meio do ano", en: "The new pupil arrives halfway through the year" }, accept: ["pupil on the roll", "pupil", "student", "the pupil", "schoolchild"], hint: "a-LU-nu. ⚠ AN ORDINARY WORD THE COURSE NEVER TAUGHT across 119 units about school. Feminine a aluna. In Portugal o aluno is enrolled at a place; o estudante (u3) describes what the person DOES, and adults studying alone are estudantes, not alunos." },
+        { id: "pt-u120l2-oestagiario", type: "vocab", front: "o estagiário", reading: "oestagiario", meaning: "trainee on placement", example: { jp: "O estagiário faz o trabalho todo, mas o nome dele não entra no relatório.", en: "The trainee does all the work, but his name does not go in the report." }, drill: { jp: "O estagiário faz o trabalho todo", en: "The trainee does all the work" }, accept: ["trainee on placement", "trainee", "intern", "the intern", "placement student"], hint: "esh-ta-JYA-ryu, from o estágio (u24). ⚠ Feminine a estagiária. In Portugal the estágio profissional is a formal, often state-subsidised scheme, so o estagiário is a legal status with a contract — not simply a beginner." },
+        { id: "pt-u120l2-oaprendiz", type: "vocab", front: "o aprendiz", reading: "oaprendiz", meaning: "apprentice learning a trade", example: { jp: "O aprendiz aprende mais numa oficina do que na escola, mas ganha muito pouco.", en: "The apprentice learns more in a workshop than at school, but earns very little." }, drill: { jp: "O aprendiz aprende mais numa oficina", en: "The apprentice learns more in a workshop" }, accept: ["apprentice learning a trade", "apprentice", "the apprentice", "learner of a trade"], hint: "a-pren-DEEZH, from aprender (u17). ⚠ Tied to a TRADE learnt by doing — carpentry, cooking, printing. The proverb ninguém nasce ensinado is what Portuguese says about an aprendiz who is criticised too early." },
+        { id: "pt-u120l2-obolseiro", type: "vocab", front: "o bolseiro", reading: "obolseiro", meaning: "holder of a study grant", example: { jp: "O bolseiro não tem contrato de trabalho, mas faz a investigação do projeto.", en: "The grant-holder has no employment contract, but does the project's research." }, drill: { jp: "O bolseiro não tem contrato de trabalho", en: "The grant-holder has no employment contract" }, accept: ["holder of a study grant", "grant-holder", "scholarship holder", "research fellow", "bursary holder"], hint: "bol-SAY-ru, from a bolsa (u24). ⚠ A LIVE POLITICAL WORD in Portugal: os bolseiros de investigação are paid by grant rather than by contract, which is the grievance the example states. Brazil says bolsista." },
+        { id: "pt-u120l2-oreitor", type: "vocab", front: "o reitor", reading: "oreitor", meaning: "head of a university", example: { jp: "O reitor abre o ano com um discurso longo, mas os estudantes falam de propinas.", en: "The rector opens the year with a long speech, but the students talk about fees." }, drill: { jp: "O reitor abre o ano com um discurso", en: "The rector opens the year with a speech" }, accept: ["head of a university", "rector", "vice-chancellor", "university head", "the rector"], hint: "rray-TOR. ⚠ Not a translation of English principal or dean: o reitor heads the WHOLE university, and a Portuguese faculty is headed by o diretor. Feminine a reitora." },
+        { id: "pt-u120l2-acatedra", type: "vocab", front: "a cátedra", reading: "acatedra", meaning: "senior professorial chair", example: { jp: "A cátedra fica sem titular dois anos, mas a faculdade continua a dar as aulas.", en: "The chair stays without a holder for two years, but the faculty carries on giving the classes." }, drill: { jp: "A cátedra fica sem titular dois anos", en: "The chair stays without a holder for two years" }, accept: ["senior professorial chair", "professorial chair", "chair", "the chair", "professorship"], hint: "KA-te-dra. ⚠ The POST, not the person — professor catedrático is the holder. Same Greek root as cathedral, which is literally the church with the bishop's seat, and falar ex cathedra is to pronounce with full authority." },
+      ],
+    },
+    {
+      id: "pt-u120l3",
+      unit: 120,
+      lesson: 3,
+      title: "Quem pede e quem recebe",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say in Portuguese which end of a transaction somebody is on — applying, receiving, sending, or standing surety.",
+      items: [
+        { id: "pt-u120l3-orequerente", type: "vocab", front: "o requerente", reading: "orequerente", meaning: "person making a formal application", example: { jp: "O requerente tem de esperar muito tempo, embora o processo esteja certo desde o início.", en: "The applicant has to wait a long time, although the file has been right from the start." }, drill: { jp: "O requerente tem de esperar muito tempo", en: "The applicant has to wait a long time" }, accept: ["person making a formal application", "applicant", "the applicant", "petitioner", "claimant"], hint: "rre-ke-REN-te, from o requerimento (u49). ⚠ Invariant in gender. This is the word the FORM calls you, in the third person, on the very paper you are filling in: o requerente declara que… — a very Portuguese piece of officialdom." },
+        { id: "pt-u120l3-odestinatario", type: "vocab", front: "o destinatário", reading: "odestinatario", meaning: "person a thing is addressed to", example: { jp: "O destinatário não está em casa, mas o carteiro deixa um aviso na porta.", en: "The addressee is not at home, but the postman leaves a notice on the door." }, drill: { jp: "O destinatário não está em casa", en: "The addressee is not at home" }, accept: ["person a thing is addressed to", "addressee", "recipient", "the recipient", "consignee"], hint: "desh-ti-na-TA-ryu, from o destino (u23). ⚠ Printed on every Portuguese parcel and form opposite o remetente (this lesson). Also used of an audience: o destinatário da mensagem, who a message is aimed at." },
+        { id: "pt-u120l3-oremetente", type: "vocab", front: "o remetente", reading: "oremetente", meaning: "person who sent it", example: { jp: "O remetente escreve a morada na carta, mas o correio devolve tudo.", en: "The sender writes the address on the letter, but the post returns it all." }, drill: { jp: "O remetente escreve a morada na carta", en: "The sender writes the address on the letter" }, accept: ["person who sent it", "sender", "the sender", "consignor"], hint: "rre-me-TEN-te, from remeter, to send on. ⚠ Invariant in gender. devolver ao remetente is return to sender, and it is stamped on Portuguese post exactly as in English. The pair with o destinatário (this lesson) is how an envelope is labelled." },
+        { id: "pt-u120l3-obeneficiario", type: "vocab", front: "o beneficiário", reading: "obeneficiario", meaning: "person entitled to receive", example: { jp: "O beneficiário do seguro recebe o dinheiro depressa, mas a família fala do resto da herança.", en: "The insurance beneficiary receives the money quickly, but the family talks about the rest of the inheritance." }, drill: { jp: "O beneficiário do seguro recebe o dinheiro", en: "The insurance beneficiary receives the money" }, accept: ["person entitled to receive", "beneficiary", "the beneficiary", "recipient of a benefit"], hint: "be-ne-fi-SYA-ryu. ⚠ Feminine a beneficiária. Covers insurance, wills, pensions and state support alike — beneficiário do rendimento social is a standing category in Portuguese social policy." },
+        { id: "pt-u120l3-oqueixoso", type: "vocab", front: "o queixoso", reading: "oqueixoso", meaning: "person who lodged the complaint", example: { jp: "O queixoso sai a meio do processo, mas o tribunal continua com o caso.", en: "The complainant leaves halfway through the case, but the court carries on with it." }, drill: { jp: "O queixoso sai a meio do processo", en: "The complainant leaves halfway through" }, accept: ["person who lodged the complaint", "complainant", "the complainant", "plaintiff", "accuser"], hint: "kay-SHO-zu, from a queixa (u49). ⚠ Feminine a queixosa. Also an ordinary ADJECTIVE meaning plaintive or whiny — um tom queixoso — so the article is what tells you a person in a legal role is meant." },
+        { id: "pt-u120l3-ofiador", type: "vocab", front: "o fiador", reading: "ofiador", meaning: "person who guarantees another's debt", example: { jp: "O jovem não aluga a casa sem um fiador, mas a família mora longe.", en: "The young man does not rent the house without a guarantor, but his family lives far away." }, drill: { jp: "O fiador tem de assinar o contrato", en: "The guarantor has to sign the contract" }, accept: ["person who guarantees another's debt", "guarantor", "the guarantor", "surety", "co-signer"], hint: "fya-DOR, from fiar, to trust. ⚠ A REAL OBSTACLE IN PORTUGUESE LIFE, exactly as the example says: almost no landlord will sign a lease with a young tenant who has no fiador, and a foreigner rarely has one." },
+      ],
+    },
+    {
+      id: "pt-u120l4",
+      unit: 120,
+      lesson: 4,
+      title: "Quem substitui e quem vigia",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say in Portuguese who came before, who stands in, and who is there to check on everyone else.",
+      items: [
+        { id: "pt-u120l4-oantecessor", type: "vocab", front: "o antecessor", reading: "oantecessor", meaning: "the previous holder of a post", example: { jp: "O antecessor deixa as contas em ordem, mas o novo diretor critica tudo.", en: "The predecessor leaves the accounts in order, but the new director criticises everything." }, drill: { jp: "O antecessor deixa as contas em ordem", en: "The predecessor leaves the accounts in order" }, accept: ["the previous holder of a post", "predecessor", "the predecessor", "forerunner"], hint: "an-te-se-SSOR. ⚠ o sucessor is u95's and is not re-taught here; this is the other half of that pair. Feminine a antecessora. Also used of things — o antecessor deste modelo, the earlier model." },
+        { id: "pt-u120l4-osuplente", type: "vocab", front: "o suplente", reading: "osuplente", meaning: "stand-in kept ready", example: { jp: "O suplente entra no fim do jogo, mas marca o golo da vitória.", en: "The substitute comes on at the end of the game, but scores the winning goal." }, drill: { jp: "O suplente entra no fim do jogo", en: "The substitute comes on at the end of the game" }, accept: ["stand-in kept ready", "substitute", "reserve", "stand-in", "deputy"], hint: "su-PLEN-te. ⚠ Invariant in gender. Covers football substitutes, reserve list members and deputy office-holders alike — on a Portuguese ballot each candidate has a suplente who takes the seat if they leave." },
+        { id: "pt-u120l4-operito", type: "vocab", front: "o perito", reading: "operito", meaning: "expert called in to assess", example: { jp: "O perito examina o carro numa hora, mas o seguro demora muito tempo a pagar.", en: "The expert examines the car in an hour, but the insurer takes a long time to pay." }, drill: { jp: "O perito examina o carro numa hora", en: "The expert examines the car in an hour" }, accept: ["expert called in to assess", "expert", "the expert", "assessor", "loss adjuster"], hint: "pe-REE-tu, the same root as a perícia (u119). ⚠ Not any knowledgeable person: o perito is APPOINTED to give a formal opinion — by a court, an insurer or a public body. Feminine a perita." },
+        { id: "pt-u120l4-oprovedor", type: "vocab", front: "o provedor", reading: "oprovedor", meaning: "ombudsman who hears complaints", example: { jp: "O provedor recebe a queixa do cidadão, mas não pode obrigar o Estado a nada.", en: "The ombudsman receives the citizen's complaint, but cannot force the State to do anything." }, drill: { jp: "O provedor recebe a queixa do cidadão", en: "The ombudsman receives the citizen's complaint" }, accept: ["ombudsman who hears complaints", "ombudsman", "the ombudsman", "public advocate"], hint: "pro-ve-DOR. ⚠ o Provedor de Justiça is Portugal's national ombudsman, and the example states the real limit of the office: he can recommend, not compel. A broadcaster's o provedor do ouvinte is the listeners' editor." },
+        { id: "pt-u120l4-orelator", type: "vocab", front: "o relator", reading: "orelator", meaning: "member charged with writing the report", example: { jp: "O relator apresenta o parecer à comissão, mas o grupo muda quase tudo.", en: "The rapporteur presents the opinion to the committee, but the group changes almost everything." }, drill: { jp: "O relator apresenta o parecer à comissão", en: "The rapporteur presents the opinion to the committee" }, accept: ["member charged with writing the report", "rapporteur", "reporting member", "the rapporteur"], hint: "rre-la-TOR, from relatar (u77). ⚠ Feminine a relatora. In a Portuguese court the juiz relator is the judge who drafts the ruling the panel then votes on — so knowing the word tells you who actually wrote it." },
+        { id: "pt-u120l4-ozelador", type: "vocab", front: "o zelador", reading: "ozelador", meaning: "caretaker who looks after a place", example: { jp: "O zelador do prédio conhece as pessoas, mas ninguém sabe o nome.", en: "The building's caretaker knows the people, but nobody knows his name." }, drill: { jp: "O zelador do prédio conhece as pessoas", en: "The building's caretaker knows the people" }, accept: ["caretaker who looks after a place", "caretaker", "custodian", "janitor", "warden"], hint: "ze-la-DOR, from o zelo (u117). ⚠ Feminine a zeladora. In Portugal o porteiro is more usual for a block of flats; o zelador leans towards someone responsible for the CONDITION of a place rather than its door." },
+      ],
+    },
   ],
 };

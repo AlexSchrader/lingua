@@ -1,18 +1,100 @@
-// PT Unit 119 — Vocabulary 9 (B2) (slot: coverage-b2-9) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 119 — A aptidão e o proveito (slot: coverage-b2-9) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-3 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+// Retitled from the scaffold's "Vocabulary 9 (B2)" — see unit114.js's header.
+//
+// u85 owns CAPABILITY AND EFFORT at B1 — a capacidade, capaz, a habilidade,
+// o talento, dominar, o empenho, o rigor, a limitação, a fraqueza, o fracasso.
+// That gives a learner one word for being able and one for trying hard. What it
+// does not give is the vocabulary for RATING somebody — whether they are fit for
+// the post, skilled with their hands, wasted in the job — nor for the other
+// half of this unit, which is whether a thing is WORTH doing at all.
+//
+// The two halves belong together because Portuguese working life joins them:
+// vale a pena is asked of the effort and of the return in the same breath, and
+// u93 owns the money side (o lucro, o retorno, a rentabilidade is u93's, so
+// rentável is carded and the noun is not).
+//
+// a aptidão and o proveito are two of the fronts block 2 reserved for this block.
+// §C4 SPLITS THE DERIVATION PAIRS ACROSS LESSONS on purpose: versátil (l1) /
+// a versatilidade (l4), engenhoso (l2) / o engenho (l4), o proveito (l3) /
+// proveitoso (l4). inepto and a inépcia sit together in l2 for the u88l1 reason
+// — the adjective is what you say, the noun is what a report writes.
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT119 = {
   id: "pt-u119",
   lang: "pt",
-  title: "Vocabulary 9 (B2)",
+  title: "A aptidão e o proveito",
   order: 119,
   stage: "b2",
   lessons: [
-    { id: "pt-u119l1", title: "Lesson 1", locked: true },
-    { id: "pt-u119l2", title: "Lesson 2", locked: true },
-    { id: "pt-u119l3", title: "Lesson 3", locked: true },
-    { id: "pt-u119l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u119l1",
+      unit: 119,
+      lesson: 1,
+      title: "Saber fazer",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say in Portuguese exactly what somebody is good at — a knack, a trained hand, or a gift nobody taught them.",
+      items: [
+        { id: "pt-u119l1-aaptidao", type: "vocab", front: "a aptidão", reading: "aaptidao", meaning: "natural fitness for a kind of work", example: { jp: "A aptidão do jovem para os números é forte, mas a escola não faz nada com isso.", en: "The young man's aptitude for numbers is strong, but the school does nothing with it." }, drill: { jp: "A aptidão do jovem é forte", en: "The young man's aptitude is strong" }, accept: ["natural fitness for a kind of work", "aptitude", "the aptitude", "flair", "natural ability"], hint: "ap-ti-DOWN. ⚠ Points FORWARD — an aptidão is what you could become good at, where a habilidade (u85) is what you already do well. Portuguese job adverts ask for aptidão para trabalhar em equipa." },
+        { id: "pt-u119l1-adestreza", type: "vocab", front: "a destreza", reading: "adestreza", meaning: "skill of the hands", example: { jp: "A destreza do médico salva o doente, mas o hospital não tem dinheiro.", en: "The doctor's dexterity saves the patient, but the hospital has no money." }, drill: { jp: "A destreza do médico salva o doente", en: "The doctor's dexterity saves the patient" }, accept: ["skill of the hands", "dexterity", "deftness", "manual skill", "adroitness"], hint: "desh-TRE-za, from destro, right-handed. ⚠ PHYSICAL first — the hands, the feet, the body — and figurative second: destreza política. The same root gives English dexterous, which also started out meaning right-handed." },
+        { id: "pt-u119l1-apericia", type: "vocab", front: "a perícia", reading: "apericia", meaning: "expert skill built by training", example: { jp: "A perícia do mecânico resolve o problema num minuto, mas a peça demora um mês.", en: "The mechanic's expertise solves the problem in a minute, but the part takes a month." }, drill: { jp: "A perícia do mecânico resolve o problema", en: "The mechanic's expertise solves the problem" }, accept: ["expert skill built by training", "expertise", "skill", "proficiency", "know-how"], hint: "pe-REE-sya. ⚠ In Portuguese legal and insurance language uma perícia is also the formal EXPERT EXAMINATION of damage — a perícia ao carro. Same root as o perito, the expert a court appoints to perform it." },
+        { id: "pt-u119l1-eximio", type: "vocab", front: "exímio", reading: "eximio", meaning: "outstanding at something", example: { jp: "O professor exímio explica tudo em cinco minutos, mas ninguém entra na aula dele.", en: "The outstanding teacher explains everything in five minutes, but nobody attends his class." }, drill: { jp: "O professor exímio explica tudo em cinco minutos", en: "The outstanding teacher explains everything in five minutes" }, accept: ["outstanding at something", "outstanding", "consummate", "masterly", "first-rate"], hint: "e-ZEE-myu. ⚠ HIGH praise and slightly formal — exímio pianista, exímio cozinheiro. Feminine exímia. Always takes a field: you are exímio AT something, never exímio on your own." },
+        { id: "pt-u119l1-versatil", type: "vocab", front: "versátil", reading: "versatil", meaning: "able to turn a hand to many things", example: { jp: "O colega versátil entra em qualquer posição, mas nunca fica na equipa principal.", en: "The versatile colleague steps into any position, but never stays in the main team." }, drill: { jp: "O colega versátil entra em qualquer posição", en: "The versatile colleague steps into any position" }, accept: ["able to turn a hand to many things", "versatile", "adaptable", "all-round"], hint: "ver-SA-til. ⚠ Invariant in gender; plural versáteis. The example carries the standard Portuguese ambivalence about it — being versátil gets you used everywhere and owned nowhere, which is why a versatilidade (u119l4) is carded separately." },
+        { id: "pt-u119l1-odom", type: "vocab", front: "o dom", reading: "odom", meaning: "gift nobody taught you", example: { jp: "O dom do cantor não nasce na escola, mas sem trabalho também não chega a nada.", en: "The singer's gift is not born at school, but without work it comes to nothing either." }, drill: { jp: "O dom do cantor não nasce na escola", en: "The singer's gift is not born at school" }, accept: ["gift nobody taught you", "gift", "a gift", "natural gift", "knack"], hint: "DOM. ⚠ Not the title Dom (as in Dom Pedro), which is a different word with a capital. ter o dom de is the ordinary phrase, and Portuguese uses it sarcastically as readily as English: tem o dom de chegar atrasado." },
+      ],
+    },
+    {
+      id: "pt-u119l2",
+      unit: 119,
+      lesson: 2,
+      title: "Quem serve e quem não serve",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Judge in Portuguese whether somebody is fit for a post — and say so in the words a reference letter would use.",
+      items: [
+        { id: "pt-u119l2-idoneo", type: "vocab", front: "idóneo", reading: "idoneo", meaning: "fit and trustworthy for a role", example: { jp: "O candidato idóneo não ganha o lugar, mas ninguém explica a razão.", en: "The suitable candidate does not get the post, but nobody explains why." }, drill: { jp: "O candidato idóneo não ganha o lugar", en: "The suitable candidate does not get the post" }, accept: ["fit and trustworthy for a role", "suitable", "fit and proper", "eligible", "of good standing"], hint: "i-DO-nyu. ⚠ A FORMAL test, not a compliment: being idóneo means meeting the legal and moral conditions for a post. Feminine idónea. Spelt idôneo in Brazil — the same ó/ô split as sinónimo (u115)." },
+        { id: "pt-u119l2-competente", type: "vocab", front: "competente", reading: "competente", meaning: "up to the job", example: { jp: "O funcionário competente resolve tudo depressa, mas ninguém repara no trabalho dele.", en: "The competent official settles everything quickly, but nobody notices his work." }, drill: { jp: "O funcionário competente resolve tudo depressa", en: "The competent official settles everything quickly" }, accept: ["up to the job", "competent", "capable", "able", "proficient"], hint: "kom-pe-TEN-te. ⚠ SECOND SENSE, and it is the one a learner trips on: a autoridade competente means the authority with JURISDICTION over the matter, not a skilful one. Invariant in gender. The noun a competência is u85's." },
+        { id: "pt-u119l2-inepto", type: "vocab", front: "inepto", reading: "inepto", meaning: "hopelessly unsuited", example: { jp: "O diretor inepto fica no cargo, embora o problema seja claro para todos.", en: "The inept director stays in the post, although the problem is clear to everybody." }, drill: { jp: "O diretor inepto fica no cargo", en: "The inept director stays in the post" }, accept: ["hopelessly unsuited", "inept", "incompetent", "useless at it", "unfit"], hint: "i-NEP-tu. ⚠ HARSH — stronger than incompetente, and it says the person should never have been there. Feminine inepta. Carded beside its noun a inépcia for the u88l1 reason: you say the adjective and a report writes the noun." },
+        { id: "pt-u119l2-ainepcia", type: "vocab", front: "a inépcia", reading: "ainepcia", meaning: "gross unfitness", example: { jp: "A inépcia da gestão custa muito ao Estado, mas ninguém responde por isso.", en: "The gross unfitness of the management costs the State a great deal, but nobody answers for it." }, drill: { jp: "A inépcia da gestão custa muito ao Estado", en: "Management's unfitness costs the State a great deal" }, accept: ["gross unfitness", "ineptitude", "incompetence", "utter incapacity"], hint: "i-NEP-sya. ⚠ The word a Portuguese newspaper editorial uses about a public failure, and it is close to an accusation — it claims the failure was avoidable. Rarer in speech than the adjective inepto (this lesson)." },
+        { id: "pt-u119l2-engenhoso", type: "vocab", front: "engenhoso", reading: "engenhoso", meaning: "clever at finding a way", example: { jp: "O plano engenhoso do técnico funciona bem, mas custa mais do que o simples.", en: "The technician's ingenious plan works well, but costs more than the simple one." }, drill: { jp: "O plano engenhoso do técnico funciona bem", en: "The technician's ingenious plan works well" }, accept: ["clever at finding a way", "ingenious", "inventive", "resourceful", "clever"], hint: "en-je-NYO-zu. ⚠ Praises the SOLUTION rather than the knowledge — an engenhoso answer is one nobody else saw. Feminine engenhosa. Same root as o engenheiro (u18) and o engenho (u119l4)." },
+        { id: "pt-u119l2-amaestria", type: "vocab", front: "a maestria", reading: "amaestria", meaning: "complete mastery of a craft", example: { jp: "A maestria do velho carpinteiro ainda conta muito, mas ninguém quer aprender o ofício.", en: "The old carpenter's mastery still counts for a lot, but nobody wants to learn the trade." }, drill: { jp: "A maestria do carpinteiro ainda conta muito", en: "The carpenter's mastery still counts for a lot" }, accept: ["complete mastery of a craft", "mastery", "consummate skill", "virtuosity"], hint: "ma-esh-TREE-a, from mestre, master. ⚠ THE TOP OF THIS UNIT'S SCALE: a aptidão is potential, a perícia is trained skill, a maestria is skill that has nothing left to learn. com maestria is the standard adverbial." },
+      ],
+    },
+    {
+      id: "pt-u119l3",
+      unit: 119,
+      lesson: 3,
+      title: "O que rende",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say in Portuguese whether something pays off — and separate being busy from being worth it.",
+      items: [
+        { id: "pt-u119l3-oproveito", type: "vocab", front: "o proveito", reading: "oproveito", meaning: "benefit actually drawn from something", example: { jp: "O proveito do curso chega dois anos depois, mas o custo chega logo no primeiro mês.", en: "The benefit of the course arrives two years later, but the cost arrives in the first month." }, drill: { jp: "O proveito do curso chega dois anos depois", en: "The course's benefit arrives two years later" }, accept: ["benefit actually drawn from something", "benefit", "gain", "advantage gained", "profit"], hint: "pro-VAY-tu, from aproveitar (u74). ⚠ Bom proveito! is what a Portuguese waiter says as your food arrives — enjoy your meal. tirar proveito de is to make use of, and can be neutral or accusing depending on who is doing it." },
+        { id: "pt-u119l3-render", type: "vocab", front: "render", reading: "render", meaning: "to yield a return", example: { jp: "O terreno pode render bastante, mas só depois de muitos anos de trabalho.", en: "The land can yield a good deal, but only after many years of work." }, drill: { jp: "O terreno pode render bastante dinheiro", en: "The land can yield a good deal of money" }, accept: ["to yield a return", "to yield", "yield", "to bring in", "to pay"], hint: "rren-DER. ⚠ Three everyday senses: to yield money, to make something LAST (esta massa rende para quatro), and to relieve somebody on shift — render o colega. o rendimento (u56) is the noun and is not re-taught here." },
+        { id: "pt-u119l3-rentavel", type: "vocab", front: "rentável", reading: "rentavel", meaning: "worth the money put in", example: { jp: "A loja é rentável este ano, embora o negócio seja pequeno.", en: "The shop is profitable this year, although the business is small." }, drill: { jp: "A loja é rentável este ano", en: "The shop is profitable this year" }, accept: ["worth the money put in", "profitable", "cost-effective", "viable", "paying"], hint: "rren-TA-vel. ⚠ Invariant in gender; plural rentáveis. Strictly about the RATIO of return to outlay, which is why the example works: a smaller shop can be rentável while a bigger one is not. a rentabilidade is u93's." },
+        { id: "pt-u119l3-produtivo", type: "vocab", front: "produtivo", reading: "produtivo", meaning: "getting a lot done per hour", example: { jp: "O dia produtivo acaba cedo, mas a semana continua igual no fim.", en: "The productive day ends early, but the week comes out the same in the end." }, drill: { jp: "O dia produtivo acaba sempre cedo", en: "The productive day always ends early" }, accept: ["getting a lot done per hour", "productive", "efficient", "fruitful"], hint: "pro-du-TEE-vu, from produzir (u56). ⚠ Feminine produtiva. Portuguese also uses it of a conversation or a meeting — uma reunião produtiva — where the output is agreement rather than goods. a produtividade is u100's." },
+        { id: "pt-u119l3-compensar", type: "vocab", front: "compensar", reading: "compensar", meaning: "to be worth the trouble", example: { jp: "O esforço extra pode compensar no fim, mas ninguém promete nada ao trabalhador.", en: "The extra effort may be worth it in the end, but nobody promises the worker anything." }, drill: { jp: "O esforço extra pode compensar no fim", en: "The extra effort may be worth it in the end" }, accept: ["to be worth the trouble", "to be worth it", "to pay off", "to make up for", "to compensate"], hint: "kom-pen-SAR. ⚠ TWO DIRECTIONS in one verb: impersonally, não compensa means it is not worth it; transitively, compensar alguém is to pay somebody back for a loss. Portuguese uses the first far more often." },
+        { id: "pt-u119l3-frutifero", type: "vocab", front: "frutífero", reading: "frutifero", meaning: "producing real results", example: { jp: "O encontro frutífero muda o projeto todo, mas ninguém escreve uma ata.", en: "The fruitful meeting changes the whole project, but nobody writes any minutes." }, drill: { jp: "O encontro frutífero muda o projeto todo", en: "The fruitful meeting changes the whole project" }, accept: ["producing real results", "fruitful", "productive of results", "rewarding"], hint: "fru-TEE-fe-ru, from o fruto. ⚠ Feminine frutífera. Used of PROCESSES — a conversation, a partnership, a line of research — never of a person. Its literal sense, a fruit-bearing tree, survives in árvore frutífera." },
+      ],
+    },
+    {
+      id: "pt-u119l4",
+      unit: 119,
+      lesson: 4,
+      title: "O ganho que fica",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name in Portuguese what somebody actually added — the extra value, the contribution, the usable part.",
+      items: [
+        { id: "pt-u119l4-amaisvalia", type: "vocab", front: "a mais-valia", reading: "amaisvalia", meaning: "added value something brings", example: { jp: "A mais-valia do novo colega é grande, mas o salário continua igual ao dos outros.", en: "The added value of the new colleague is great, but the salary stays the same as the others'." }, drill: { jp: "A mais-valia do novo colega é grande", en: "The new colleague's added value is great" }, accept: ["added value something brings", "added value", "asset", "a real plus", "capital gain"], hint: "maish-va-LEE-a, written with the hyphen; the reading folds it away: amaisvalia. ⚠ Two lives — the everyday one in the example, and the tax one, where as mais-valias are CAPITAL GAINS on a house or shares and are declared every year." },
+        { id: "pt-u119l4-ocontributo", type: "vocab", front: "o contributo", reading: "ocontributo", meaning: "what one person added to a joint result", example: { jp: "O contributo do estudante está na nota final, mas o nome não entra no artigo.", en: "The student's contribution is there in the final mark, but the name does not go on the paper." }, drill: { jp: "O contributo do estudante está na nota final", en: "The student's contribution is in the final mark" }, accept: ["what one person added to a joint result", "contribution", "input", "the contribution"], hint: "kon-tri-BU-tu, from contribuir (u52). ⚠ pt-PT PREFERS o contributo where Brazil says a contribuição; both exist in Portugal, but a contribuição leans towards money paid in, and o contributo towards ideas and work." },
+        { id: "pt-u119l4-proveitoso", type: "vocab", front: "proveitoso", reading: "proveitoso", meaning: "doing you real good", example: { jp: "O ano fora foi proveitoso para o jovem, mas a família continua contra a ideia.", en: "The year away was beneficial for the young man, but the family is still against the idea." }, drill: { jp: "O ano fora é proveitoso para o jovem", en: "The year away is beneficial for the young man" }, accept: ["doing you real good", "beneficial", "worthwhile", "profitable", "rewarding"], hint: "pro-vay-TO-zu, the adjective to o proveito (u119l3). ⚠ Feminine proveitosa. Split from its noun across lessons on purpose (§C4). Leans towards benefit to a PERSON, where rentável (u119l3) is about money." },
+        { id: "pt-u119l4-aproveitavel", type: "vocab", front: "aproveitável", reading: "aproveitavel", meaning: "still usable for something", example: { jp: "Metade do material é aproveitável, mas o resto vai direto para o lixo.", en: "Half the material is still usable, but the rest goes straight to the rubbish." }, drill: { jp: "Metade do material é aproveitável ainda", en: "Half the material is still usable" }, accept: ["still usable for something", "usable", "salvageable", "worth keeping", "reusable"], hint: "a-pro-vay-TA-vel. ⚠ Invariant in gender; plural aproveitáveis. The judgement that something is not a total loss — which is why it appears in a Portuguese review of a bad film: há uma cena aproveitável." },
+        { id: "pt-u119l4-oengenho", type: "vocab", front: "o engenho", reading: "oengenho", meaning: "inventive wit for solving things", example: { jp: "O engenho do povo resolve o problema sem dinheiro, mas o Estado não aprende nada.", en: "The people's ingenuity solves the problem without money, but the State learns nothing." }, drill: { jp: "O engenho do povo resolve o problema", en: "The people's ingenuity solves the problem" }, accept: ["inventive wit for solving things", "ingenuity", "inventiveness", "resourcefulness", "wit"], hint: "en-JE-nyu. ⚠ THE CULTURAL PHRASE: desenrascanço is the famous Portuguese word for improvising a way out, and o engenho is its respectable cousin. Also a MACHINE in older usage — engenho de açúcar, a sugar mill." },
+        { id: "pt-u119l4-aversatilidade", type: "vocab", front: "a versatilidade", reading: "aversatilidade", meaning: "range across different tasks", example: { jp: "A versatilidade do artista abre muitas portas, mas o público nunca sabe o que esperar.", en: "The artist's versatility opens many doors, but the public never knows what to expect." }, drill: { jp: "A versatilidade do artista abre muitas portas", en: "The artist's versatility opens many doors" }, accept: ["range across different tasks", "versatility", "adaptability", "breadth of range"], hint: "ver-sa-ti-li-DA-de, the noun of versátil (u119l1), split from it across lessons (§C4). ⚠ In Portuguese it is almost always praise for a THING — a versatilidade do material — and more double-edged about a person, exactly as the example has it." },
+      ],
+    },
   ],
 };

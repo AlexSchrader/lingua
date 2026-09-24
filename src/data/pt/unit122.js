@@ -1,18 +1,98 @@
-// PT Unit 122 — Vocabulary 12 (B2) (slot: coverage-b2-12) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 122 — O tempo e a duração (slot: coverage-b2-12) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-3 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+// Retitled from the scaffold's "Vocabulary 12 (B2)" — see unit114.js's header.
+//
+// u28 owns FREQUENCY (sempre, nunca, às vezes, o século, durar, demorar), u59
+// owns CHANGE OVER TIME (o período, temporário, permanente, gradualmente) and
+// u86 owns SEQUENCE (o início, o fim, a fase, prévio, posterior, a pausa,
+// retomar). Three units on time, and a learner still cannot say that something
+// is short-lived, that a rule is in force from now on, that a habit was once the
+// norm, or that a decision keeps being put off.
+//
+// What this unit adds is ASPECT — the shape of a thing's duration rather than
+// its position on a line. That is a different question from "when", and it is
+// the one a B2 text asks.
+//
+// SLOT BOUNDARIES: o intervalo, prévio, a demora, a pausa and a espera are
+// u86's; iminente is u98's; a etapa is u56's; entretanto is u28's; interromper
+// is u77's; durar is u28's — all probed, none re-taught. durar being u28's is
+// why a duração is carded and the verb is not (§C4).
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT122 = {
   id: "pt-u122",
   lang: "pt",
-  title: "Vocabulary 12 (B2)",
+  title: "O tempo e a duração",
   order: 122,
   stage: "b2",
   lessons: [
-    { id: "pt-u122l1", title: "Lesson 1", locked: true },
-    { id: "pt-u122l2", title: "Lesson 2", locked: true },
-    { id: "pt-u122l3", title: "Lesson 3", locked: true },
-    { id: "pt-u122l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u122l1",
+      unit: 122,
+      lesson: 1,
+      title: "O que dura",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say in Portuguese how long something lasts as a property of it — brief by nature, or built to outlive you.",
+      items: [
+        { id: "pt-u122l1-perdurar", type: "vocab", front: "perdurar", reading: "perdurar", meaning: "to last on past expectation", example: { jp: "O problema pode perdurar muitos anos, mas ninguém quer pagar a solução agora.", en: "The problem may last on for many years, but nobody wants to pay for the solution now." }, drill: { jp: "O problema pode perdurar muitos anos", en: "The problem may last on for many years" }, accept: ["to last on past expectation", "to endure", "to persist", "to last", "to linger on"], hint: "per-du-RAR, built on durar (u28). ⚠ Carries SURPRISE that the thing is still here — usually about something unwelcome, as in the example. Portuguese also uses it of fame and of buildings, where it is a compliment." },
+        { id: "pt-u122l1-aduracao", type: "vocab", front: "a duração", reading: "aduracao", meaning: "length of time something runs", example: { jp: "A duração do contrato é de um ano, mas a empresa pode acabar tudo antes.", en: "The duration of the contract is one year, but the company can end it all sooner." }, drill: { jp: "A duração do contrato é de um ano", en: "The duration of the contract is one year" }, accept: ["length of time something runs", "duration", "the duration", "length", "running time"], hint: "du-ra-SOWN, the noun of durar (u28). ⚠ The word on a Portuguese form or ticket — duração da viagem, duração do curso — and it is measured, where o tempo is felt. Carded because the noun is what a document prints." },
+        { id: "pt-u122l1-duradouro", type: "vocab", front: "duradouro", reading: "duradouro", meaning: "built to last", example: { jp: "O acordo duradouro entre os dois países é raro, mas este resiste há muitos anos.", en: "A lasting agreement between the two countries is rare, but this one has held for many years." }, drill: { jp: "O acordo duradouro entre os países é raro", en: "A lasting agreement between the countries is rare" }, accept: ["built to last", "lasting", "long-lasting", "enduring", "durable"], hint: "du-ra-DO-ru. ⚠ Feminine duradoura. Almost always POSITIVE — uma paz duradoura, uma amizade duradoura — where perdurar (this lesson) is often about something you wish had stopped. Brazil spells it duradouro too." },
+        { id: "pt-u122l1-perene", type: "vocab", front: "perene", reading: "perene", meaning: "never stopping year after year", example: { jp: "O rio perene traz água no verão, mas a seca já muda tudo.", en: "The perennial river brings water in summer, but the drought is already changing everything." }, drill: { jp: "O rio perene traz água no verão", en: "The perennial river brings water in summer" }, accept: ["never stopping year after year", "perennial", "everlasting", "year-round", "perpetual"], hint: "pe-RE-ne. ⚠ Invariant in gender. TECHNICAL in geography and botany — um rio perene runs all year, uma planta perene comes back each year — and literary elsewhere: uma questão perene." },
+        { id: "pt-u122l1-incessante", type: "vocab", front: "incessante", reading: "incessante", meaning: "going on without a break", example: { jp: "O barulho incessante da obra começa às sete, mas a câmara não responde às queixas.", en: "The incessant noise of the building work starts at seven, but the council does not answer the complaints." }, drill: { jp: "O barulho incessante da obra começa às sete", en: "The incessant noise of the works starts at seven" }, accept: ["going on without a break", "incessant", "unceasing", "non-stop", "relentless"], hint: "in-se-SSAN-te, the negative of cessar (u122l2). ⚠ Invariant in gender. Nearly always a COMPLAINT in Portuguese — chuva incessante, barulho incessante — so it is not the word for something good that continues." },
+        { id: "pt-u122l1-efemero", type: "vocab", front: "efémero", reading: "efemero", meaning: "lasting only a moment", example: { jp: "O sucesso efémero do grupo passa depressa, mas a música fica para sempre.", en: "The group's fleeting success passes quickly, but the music stays forever." }, drill: { jp: "O sucesso efémero do grupo passa depressa", en: "The group's fleeting success passes quickly" }, accept: ["lasting only a moment", "fleeting", "ephemeral", "short-lived", "transient"], hint: "e-FE-me-ru. ⚠ Feminine efémera; Brazil spells it efêmero. From the Greek for lasting a day — the same root as the mayfly. Slightly literary, and Portuguese journalism uses it freely about fame." },
+      ],
+    },
+    {
+      id: "pt-u122l2",
+      unit: 122,
+      lesson: 2,
+      title: "O que para e o que volta",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say in Portuguese that something stopped, or that it keeps stopping and starting — and that the difference matters.",
+      items: [
+        { id: "pt-u122l2-cessar", type: "vocab", front: "cessar", reading: "cessar", meaning: "to come to an end formally", example: { jp: "O apoio do Estado vai cessar em dezembro, mas as famílias não sabem disso.", en: "State support is going to cease in December, but the families do not know that." }, drill: { jp: "O apoio do Estado vai cessar em dezembro", en: "State support is going to cease in December" }, accept: ["to come to an end formally", "to cease", "cease", "to end", "to come to an end"], hint: "se-SSAR. ⚠ FORMAL and usually about a right, a payment or a rule, not about an object stopping — that is parar (u74). cessar funções is the Portuguese phrase for leaving a post; um cessar-fogo is a ceasefire." },
+        { id: "pt-u122l2-findar", type: "vocab", front: "findar", reading: "findar", meaning: "to reach its appointed end", example: { jp: "O prazo vai findar na sexta-feira, mas o requerente ainda não entrega os papéis.", en: "The deadline is going to expire on Friday, but the applicant still has not handed in the papers." }, drill: { jp: "O prazo vai findar na sexta-feira", en: "The deadline is going to expire on Friday" }, accept: ["to reach its appointed end", "to expire", "to come to an end", "to end", "to run out"], hint: "fin-DAR, from o fim (u86). ⚠ VERY formal — legal and literary Portuguese only; nobody says it in a café. findo o prazo is a standard phrase in a contract meaning once the deadline has passed." },
+        { id: "pt-u122l2-transitorio", type: "vocab", front: "transitório", reading: "transitorio", meaning: "meant to hold only until the real thing", example: { jp: "O acordo transitório vale dois anos, mas o parlamento nunca aprova o texto final.", en: "The transitional agreement holds for two years, but parliament never approves the final text." }, drill: { jp: "O acordo transitório vale dois anos", en: "The transitional agreement holds for two years" }, accept: ["meant to hold only until the real thing", "transitional", "interim", "transitory", "provisional"], hint: "tran-zi-TO-ryu. ⚠ Feminine transitória. Not the same as temporário (u59): something temporário just does not last, something transitório BRIDGES to a successor. Portuguese laws end with disposições transitórias, transitional provisions." },
+        { id: "pt-u122l2-intermitente", type: "vocab", front: "intermitente", reading: "intermitente", meaning: "stopping and starting again", example: { jp: "A rede intermitente estraga a reunião, mas ninguém quer mudar de sistema.", en: "The intermittent network ruins the meeting, but nobody wants to change system." }, drill: { jp: "A rede intermitente estraga a reunião", en: "The intermittent network ruins the meeting" }, accept: ["stopping and starting again", "intermittent", "on and off", "patchy", "sporadic in bursts"], hint: "in-ter-mi-TEN-te. ⚠ Invariant in gender. In a Portuguese car o pisca is the indicator, but the technical term is luz intermitente — a flashing light is literally an intermittent one, which is the clearest picture of the word." },
+        { id: "pt-u122l2-esporadico", type: "vocab", front: "esporádico", reading: "esporadico", meaning: "happening only now and then", example: { jp: "O contacto esporádico com a família chega para as festas, mas não chega para mais nada.", en: "The occasional contact with the family is enough for the holidays, but not for anything else." }, drill: { jp: "O contacto esporádico chega para as festas", en: "The occasional contact is enough for the holidays" }, accept: ["happening only now and then", "sporadic", "occasional", "infrequent", "now and then"], hint: "esh-po-RA-di-ku. ⚠ Feminine esporádica. NO PATTERN at all, where intermitente (this lesson) implies a rhythm of on and off. Portuguese medicine uses casos esporádicos for isolated cases with no chain between them." },
+        { id: "pt-u122l2-oarranque", type: "vocab", front: "o arranque", reading: "oarranque", meaning: "the getting-started of something", example: { jp: "O arranque do projeto é difícil, mas depois tudo avança muito depressa.", en: "The start-up of the project is difficult, but afterwards everything moves very fast." }, drill: { jp: "O arranque do projeto é muito difícil", en: "The project's start-up is very difficult" }, accept: ["the getting-started of something", "start-up", "the launch", "getting going", "start"], hint: "a-RRAN-ke, from arrancar, to pull away. ⚠ The MOMENT OF SETTING OFF, not the beginning as a point in time (o início, u86). A car's arranque is its starter motor, and a school year's arranque is the first week." },
+      ],
+    },
+    {
+      id: "pt-u122l3",
+      unit: 122,
+      lesson: 3,
+      title: "Antes e depois",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Place events relative to each other in Portuguese with formal precision — the eve, the day after, from here on.",
+      items: [
+        { id: "pt-u122l3-avespera", type: "vocab", front: "a véspera", reading: "avespera", meaning: "the day before an event", example: { jp: "A véspera do exame é sempre difícil, mas o dia seguinte passa depressa.", en: "The day before the exam is always difficult, but the next day passes quickly." }, drill: { jp: "A véspera do exame é sempre difícil", en: "The day before the exam is always difficult" }, accept: ["the day before an event", "the eve", "eve", "the day before", "the night before"], hint: "VESH-pe-ra. ⚠ A véspera de Natal is Christmas Eve. na véspera means the day before, and estar na véspera de means to be on the verge of something." },
+        { id: "pt-u122l3-doravante", type: "vocab", front: "doravante", reading: "doravante", meaning: "from this point onwards", example: { jp: "A regra muda doravante, mas o processo antigo fica com a lei anterior.", en: "The rule changes from this point onwards, but an old case stays with the earlier law." }, drill: { jp: "A regra muda doravante para todos", en: "The rule changes from now on for everyone" }, accept: ["from this point onwards", "from now on", "henceforth", "hereafter", "from here on"], hint: "do-ra-VAN-te. ⚠ FORMAL AND WRITTEN — a contract or a decree, never speech, where a Portuguese speaker says a partir de agora. It also introduces a defined term: a empresa, doravante designada por Parte." },
+        { id: "pt-u122l3-outrora", type: "vocab", front: "outrora", reading: "outrora", meaning: "in times now gone", example: { jp: "A vila era outrora um porto importante, mas hoje vive apenas do mar.", en: "The town was once an important port, but today it lives only off the sea." }, drill: { jp: "A vila era outrora um porto importante", en: "The town was once an important port" }, accept: ["in times now gone", "once", "formerly", "in former times", "of old"], hint: "o-TRO-ra. ⚠ LITERARY and nostalgic — a history book or a novel, not a conversation, where Portuguese says antigamente (u36). It implies the thing is gone, which antigamente does not necessarily." },
+        { id: "pt-u122l3-subsequente", type: "vocab", front: "subsequente", reading: "subsequente", meaning: "coming right after in a series", example: { jp: "A reunião subsequente muda a decisão, mas a ata do primeiro encontro já está publicada.", en: "The subsequent meeting changes the decision, but the minutes of the first meeting are already published." }, drill: { jp: "A reunião subsequente muda a decisão", en: "The subsequent meeting changes the decision" }, accept: ["coming right after in a series", "subsequent", "following", "next in sequence", "ensuing"], hint: "sub-se-KWEN-te. ⚠ Invariant in gender; the u IS pronounced (kwen). Needs a FIRST item to follow, where seguinte (u75) can stand on its own. Formal register: a report writes it, a person says seguinte." },
+        { id: "pt-u122l3-ulterior", type: "vocab", front: "ulterior", reading: "ulterior", meaning: "at some later stage still to come", example: { jp: "A decisão fica para momento ulterior, mas o prazo legal continua a correr.", en: "The decision is left for a later stage, but the legal deadline keeps running." }, drill: { jp: "A decisão fica para momento ulterior", en: "The decision is left for a later stage" }, accept: ["at some later stage still to come", "later", "subsequent", "further", "at a later date"], hint: "ul-te-RYOR. ⚠ FALSE FRIEND: it does NOT mean hidden, as in English ulterior motive. Portuguese ulterior is purely about time — em data ulterior, at a later date. Invariant in gender." },
+        { id: "pt-u122l3-vindouro", type: "vocab", front: "vindouro", reading: "vindouro", meaning: "belonging to the years ahead", example: { jp: "O ano vindouro promete ser difícil, mas a empresa não prepara nada.", en: "The coming year promises to be hard, but the company is preparing nothing." }, drill: { jp: "O ano vindouro promete ser difícil", en: "The coming year promises to be hard" }, accept: ["belonging to the years ahead", "coming", "forthcoming", "future", "to come"], hint: "vin-DO-ru, from vir. ⚠ Feminine vindoura. Slightly formal and usually about YEARS and GENERATIONS — as gerações vindouras, the generations to come, is a standing phrase in Portuguese environmental argument." },
+      ],
+    },
+    {
+      id: "pt-u122l4",
+      unit: 122,
+      lesson: 4,
+      title: "Adiar e retomar",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Complain in Portuguese that something keeps being put off — and say what a stopgap arrangement is worth.",
+      items: [
+        { id: "pt-u122l4-oadiamento", type: "vocab", front: "o adiamento", reading: "oadiamento", meaning: "the putting-off of a date", example: { jp: "O adiamento da obra custa mais dinheiro, mas ninguém aceita a responsabilidade.", en: "The postponement of the works costs more money, but nobody accepts responsibility." }, drill: { jp: "O adiamento da obra custa mais dinheiro", en: "The postponement of the works costs more money" }, accept: ["the putting-off of a date", "postponement", "the postponement", "deferral", "delay by decision"], hint: "a-dya-MEN-tu, the noun of adiar (u56). ⚠ A DECISION, not an accident — which is what separates it from o atraso (u56), a delay that simply happened. Only an adiamento has somebody who chose it, and that is the example's point." },
+        { id: "pt-u122l4-protelar", type: "vocab", front: "protelar", reading: "protelar", meaning: "to keep putting off on purpose", example: { jp: "A empresa quer protelar a decisão, mas o tribunal já marca a data.", en: "The company wants to keep putting off the decision, but the court is already setting the date." }, drill: { jp: "A empresa quer protelar a decisão", en: "The company wants to put off the decision" }, accept: ["to keep putting off on purpose", "to stall", "to delay deliberately", "to procrastinate", "to drag out"], hint: "pro-te-LAR. ⚠ ACCUSES the person of doing it on purpose to gain something, where adiar (u56) is neutral. Common in Portuguese legal complaints: protelar o processo, to spin the case out." },
+        { id: "pt-u122l4-aretoma", type: "vocab", front: "a retoma", reading: "aretoma", meaning: "picking up again after a stop", example: { jp: "A retoma do negócio é forte, mas o salário do trabalhador continua baixo.", en: "The recovery of the business is strong, but the worker's wage stays low." }, drill: { jp: "A retoma do negócio é muito forte", en: "The recovery of the business is very strong" }, accept: ["picking up again after a stop", "recovery", "the recovery", "pick-up", "resumption"], hint: "rre-TO-ma, from retomar (u86). ⚠ TWO PORTUGUESE USES: economic recovery, as in the example, and TRADE-IN — a retoma do carro usado is what the dealer gives you for the old one. Both are about taking something back up." },
+        { id: "pt-u122l4-provisorio", type: "vocab", front: "provisório", reading: "provisorio", meaning: "standing in until a final version", example: { jp: "O resultado provisório chega logo à noite, mas o resultado final demora uma semana.", en: "The provisional result arrives that same evening, but the final result takes a week." }, drill: { jp: "O resultado provisório chega logo à noite", en: "The provisional result arrives that evening" }, accept: ["standing in until a final version", "provisional", "interim", "temporary and pending", "draft"], hint: "pro-vi-ZO-ryu. ⚠ Feminine provisória. ON EVERY PORTUGUESE DOCUMENT — resultados provisórios, licença provisória. It says a final version is COMING, where temporário (u59) says only that this one will end." },
+        { id: "pt-u122l4-odecurso", type: "vocab", front: "o decurso", reading: "odecurso", meaning: "the running of a period", example: { jp: "No decurso do ano a situação muda bastante, mas o relatório final não diz isso.", en: "In the course of the year the situation changes a good deal, but the final report does not say so." }, drill: { jp: "O decurso do ano muda a situação", en: "The running of the year changes the situation" }, accept: ["the running of a period", "the course of", "in the course of", "the passage of", "duration"], hint: "de-KUR-su. ⚠ Almost always in no decurso de, in the course of — formal written Portuguese for durante (u36). Same root as decorrer (u122l4), and the pair is carded in one lesson because the phrase and the verb are learnt together." },
+        { id: "pt-u122l4-decorrer", type: "vocab", front: "decorrer", reading: "decorrer", meaning: "to take place over a stretch of time", example: { jp: "A reunião vai decorrer durante a manhã, mas a decisão fica para outro dia.", en: "The meeting is going to run through the morning, but the decision is left for another day." }, drill: { jp: "A reunião vai decorrer durante a manhã", en: "The meeting is going to run through the morning" }, accept: ["to take place over a stretch of time", "to take place", "to run", "to go on", "to proceed"], hint: "de-ko-RRER. ⚠ NOT decorrer de (u52), which means to result from — same verb, and the preposition changes everything. Without de it is the standard Portuguese verb for an event taking place: a conferência decorre em Lisboa." },
+      ],
+    },
   ],
 };

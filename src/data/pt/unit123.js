@@ -1,18 +1,102 @@
-// PT Unit 123 — Vocabulary 13 (B2) (slot: coverage-b2-13) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 123 — As palavras avulsas (slot: coverage-b2-13) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-3 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+// Retitled from the scaffold's "Vocabulary 13 (B2)" — see unit114.js's header.
+//
+// THE FUNCTION WORDS NO THEMED UNIT COULD HOLD. u29 owns the basic connectives,
+// u107 owns formal written structures and u108 owns text-level cohesion — and
+// between them they took a saber, ou seja, isto é, de resto, com efeito,
+// nomeadamente, designadamente, sobretudo, dado que and mediante, all probed and
+// none re-taught here. What is left over is a genuine set: the written-only
+// connectives a Portuguese editorial actually uses, the turn-markers that open a
+// paragraph, the EVIDENTIAL phrases that say how you came to know a thing, and a
+// small scale of quantity adjectives.
+//
+// ⚠ LESSON 3 IS THE ONE THAT EARNS THE UNIT. u54 owns HEDGING the claim itself
+// (talvez, provavelmente, ao que parece, pelos vistos) and u108 owns hedged
+// discourse. Neither gives the learner a way to mark the SOURCE — that it is on
+// the record, that it is only what you heard, that it is your own view. In
+// Portuguese those are fixed phrases, not a grammatical mood, so they can only
+// be carded as vocabulary, and each is glossed by the move it makes rather than
+// by a synonym (§C5).
+//
+// conforme, ora, eis, afim, avulso, exíguo, segundo consta and tanto quanto sei
+// are eight of the fronts block 2 reserved for this block.
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT123 = {
   id: "pt-u123",
   lang: "pt",
-  title: "Vocabulary 13 (B2)",
+  title: "As palavras avulsas",
   order: 123,
   stage: "b2",
   lessons: [
-    { id: "pt-u123l1", title: "Lesson 1", locked: true },
-    { id: "pt-u123l2", title: "Lesson 2", locked: true },
-    { id: "pt-u123l3", title: "Lesson 3", locked: true },
-    { id: "pt-u123l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u123l1",
+      unit: 123,
+      lesson: 1,
+      title: "Conectores de escrita",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Join two clauses in written Portuguese the way an editorial does — and recognise the words that never appear in speech.",
+      items: [
+        { id: "pt-u123l1-conforme", type: "vocab", front: "conforme", reading: "conforme", meaning: "in accordance with what", example: { jp: "O apoio muda conforme o caso, mas ninguém explica a regra ao cidadão.", en: "The support changes according to the case, but nobody explains the rule to the citizen." }, drill: { jp: "O apoio muda conforme o caso", en: "The support changes according to the case" }, accept: ["in accordance with what", "according to", "as", "depending on", "in accordance with"], hint: "kon-FOR-me. ⚠ THREE JOBS: depending on (conforme o caso), just as (conforme já disse), and as an adjective meaning in agreement — estou conforme. The first is the one in the example and the commonest." },
+        { id: "pt-u123l1-outrossim", type: "vocab", front: "outrossim", reading: "outrossim", meaning: "and further to that", example: { jp: "O tribunal aceita o pedido e outrossim manda pagar as custas, mas a empresa não paga nada.", en: "The court accepts the request and furthermore orders the costs paid, but the company pays nothing." }, drill: { jp: "O tribunal aceita e outrossim manda pagar", en: "The court accepts and furthermore orders payment" }, accept: ["and further to that", "furthermore", "moreover", "likewise", "in addition"], hint: "o-tro-SSEEN. ⚠ VERY formal and slightly archaic — legal Portuguese and old-fashioned letters. Using it in conversation is a joke, and Portuguese speakers treat it as one; além disso (u21) is the ordinary word." },
+        { id: "pt-u123l1-porventura", type: "vocab", front: "porventura", reading: "porventura", meaning: "by any chance", example: { jp: "Se porventura o prazo mudar, o requerente recebe um aviso, mas o correio demora.", en: "If by any chance the deadline changes, the applicant gets a notice, but the post is slow." }, drill: { jp: "Se porventura o prazo mudar avisamos o cliente", en: "If by any chance the deadline changes we notify the client" }, accept: ["by any chance", "perchance", "by chance", "should it happen that", "if it so happens"], hint: "por-ven-TU-ra. ⚠ Formal and often in a conditional, as here. It also sharpens a rhetorical question — será porventura justo? is a Portuguese politician asking is that supposed to be fair. o acaso is u98's and is not re-taught." },
+        { id: "pt-u123l1-quica", type: "vocab", front: "quiçá", reading: "quica", meaning: "who knows, perhaps even", example: { jp: "A decisão chega este mês, quiçá antes, mas ninguém assina nada por escrito.", en: "The decision arrives this month, perhaps even sooner, but nobody signs anything in writing." }, drill: { jp: "A decisão chega este mês quiçá antes", en: "The decision arrives this month perhaps even sooner" }, accept: ["who knows, perhaps even", "perhaps even", "who knows", "maybe even", "possibly"], hint: "ki-SA. ⚠ Not a plain synonym of talvez (u28): quiçá usually raises the stakes of what was just said — this month, or who knows, sooner. Literary, and borrowed into Portuguese from the Spanish quizá." },
+        { id: "pt-u123l1-taopouco", type: "vocab", front: "tão-pouco", reading: "taopouco", meaning: "and not that either", example: { jp: "O relatório não explica o custo, e tão-pouco indica quem decide, mas o prazo já corre.", en: "The report does not explain the cost, and does not say who decides either, but the deadline is already running." }, drill: { jp: "O relatório não explica e tão-pouco indica", en: "The report does not explain and does not say either" }, accept: ["and not that either", "nor", "neither", "not either", "nor yet"], hint: "town-PO-ku. ⚠ NEEDS A PRECEDING NEGATIVE — it chains onto one, exactly as English nor does. Written with the hyphen in Portugal; the reading folds it away: taopouco. Not the same as tão pouco (so little), which is two words." },
+        { id: "pt-u123l1-deveras", type: "vocab", front: "deveras", reading: "deveras", meaning: "truly, and I mean it", example: { jp: "O caso é deveras grave, mas o jornal escreve muito pouco.", en: "The case is truly serious, but the paper writes very little." }, drill: { jp: "O caso é deveras grave este ano", en: "The case is truly serious this year" }, accept: ["truly, and I mean it", "truly", "indeed", "really", "genuinely"], hint: "de-VE-rash, from de veras, of truths. ⚠ Formal and emphatic — it insists the speaker is not exaggerating. na verdade (u54) is the ordinary word and is not re-taught; deveras is what a written argument uses to underline." },
+      ],
+    },
+    {
+      id: "pt-u123l2",
+      unit: 123,
+      lesson: 2,
+      title: "Marcar o turno",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Open a turn in Portuguese the way a written argument does — now then, here is, as it happens.",
+      items: [
+        { id: "pt-u123l2-ora", type: "vocab", front: "ora", reading: "ora", meaning: "now then, turning to this", example: { jp: "Ora, o problema não é o preço, mas ninguém quer dizer isso na reunião.", en: "Now then, the problem is not the price, but nobody wants to say so in the meeting." }, drill: { jp: "Ora o problema não é o preço", en: "Now then the problem is not the price" }, accept: ["now then, turning to this", "now then", "now", "well then", "but here"], hint: "O-ra. ⚠ A TURN-TAKING marker, not a time word — it announces that you are about to complicate what was just said. ora… ora… also means now one thing, now the other. Very common in Portuguese argument, in speech and writing alike." },
+        { id: "pt-u123l2-eis", type: "vocab", front: "eis", reading: "eis", meaning: "here you have it", example: { jp: "Eis o resultado do estudo, mas o autor não explica o método.", en: "Here you have the result of the study, but the author does not explain the method." }, drill: { jp: "Eis o resultado do estudo final", en: "Here is the result of the final study" }, accept: ["here you have it", "here is", "behold", "here we have", "this is"], hint: "AYSH. ⚠ NO VERB AND NO ARTICLE OF ITS OWN — eis o problema stands as a whole sentence. eis senão quando is a stock storytelling phrase meaning and then, all of a sudden. Literary and presentational, never conversational." },
+        { id: "pt-u123l2-amiude", type: "vocab", front: "amiúde", reading: "amiude", meaning: "often and repeatedly", example: { jp: "O mesmo erro volta amiúde, mas ninguém muda o sistema.", en: "The same error comes back time and again, but nobody changes the system." }, drill: { jp: "O mesmo erro volta amiúde", en: "The same error comes back time and again" }, accept: ["often and repeatedly", "frequently", "often", "time and again", "repeatedly"], hint: "a-MYU-de. ⚠ Note the accent on the u, which is pronounced as its own syllable. Formal written Portuguese for muitas vezes (u28), and it carries a hint that the repetition is a pattern worth noticing." },
+        { id: "pt-u123l2-avulso", type: "vocab", front: "avulso", reading: "avulso", meaning: "loose and not part of a set", example: { jp: "O documento avulso não prova nada, mas o processo completo conta outra história.", en: "The loose document proves nothing, but the complete file tells another story." }, drill: { jp: "O documento avulso não prova nada", en: "The loose document proves nothing" }, accept: ["loose and not part of a set", "loose", "separate", "stray", "one-off"], hint: "a-VUL-su. ⚠ Feminine avulsa. In a Portuguese shop vende-se avulso means sold loose, by the piece rather than by the pack. Of a document it means detached from its file, which is why the example says it proves nothing." },
+        { id: "pt-u123l2-afim", type: "vocab", front: "afim", reading: "afim", meaning: "of a related kind", example: { jp: "O curso afim conta para a candidatura, mas a faculdade decide caso a caso.", en: "A related course counts towards the application, but the faculty decides case by case." }, drill: { jp: "O curso afim conta para a candidatura", en: "A related course counts towards the application" }, accept: ["of a related kind", "related", "kindred", "cognate", "akin"], hint: "a-FEEN. ⚠ A REAL PORTUGUESE SPELLING TRAP: afim is this adjective, a fim de (two words) means in order to. Portuguese officialdom writes áreas afins, related fields, constantly. Invariant in gender; plural afins." },
+        { id: "pt-u123l2-porsinal", type: "vocab", front: "por sinal", reading: "porsinal", meaning: "as it happens, incidentally", example: { jp: "O novo diretor, por sinal antigo colega, muda tudo na semana seguinte.", en: "The new director, who as it happens is a former colleague, changes everything the following week." }, drill: { jp: "O diretor é por sinal um antigo colega", en: "The director is, as it happens, a former colleague" }, accept: ["as it happens, incidentally", "incidentally", "as it happens", "by the way", "come to think of it"], hint: "por si-NAL. ⚠ Drops in an aside that the speaker finds telling — it is never neutral, and in the example it hints the appointment was not an accident. de resto (u108) is a different move and is not re-taught." },
+      ],
+    },
+    {
+      id: "pt-u123l3",
+      unit: 123,
+      lesson: 3,
+      title: "De onde se sabe",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Mark in Portuguese how you came to know a thing — on the record, by hearsay, or as your own opinion only.",
+      items: [
+        { id: "pt-u123l3-segundoconsta", type: "vocab", front: "segundo consta", reading: "segundoconsta", meaning: "so it is reported", example: { jp: "O ministro sai em janeiro, segundo consta, mas o governo não confirma nada.", en: "The minister leaves in January, so it is reported, but the government confirms nothing." }, drill: { jp: "Segundo consta o ministro sai em janeiro", en: "So it is reported the minister leaves in January" }, accept: ["so it is reported", "it is reported that", "word has it", "reportedly", "so they say"], hint: "se-GUN-du KONSH-ta. ⚠ Hands the claim to an unnamed source, and a Portuguese journalist uses it to print something not yet confirmed. segundo (u55) alone is according to; the fixed phrase adds the distance." },
+        { id: "pt-u123l3-aoqueconsta", type: "vocab", front: "ao que consta", reading: "aoqueconsta", meaning: "from what is on record", example: { jp: "Ao que consta, o processo já está no tribunal, mas o advogado não recebe nada.", en: "From what is on record, the case is already at the court, but the lawyer receives nothing." }, drill: { jp: "Ao que consta o processo está parado", en: "From what is on record the case is stalled" }, accept: ["from what is on record", "as far as is known", "from what is known", "apparently on record", "by all accounts"], hint: "ow ke KONSH-ta. ⚠ Slightly firmer than segundo consta (this lesson): it points at a RECORD rather than at talk. constar is the verb underneath both — constar dos autos is to appear in the case file." },
+        { id: "pt-u123l3-tantoquantosei", type: "vocab", front: "tanto quanto sei", reading: "tantoquantosei", meaning: "as far as my knowledge goes", example: { jp: "Tanto quanto sei, o prazo termina hoje, mas é melhor confirmar com o funcionário.", en: "As far as my knowledge goes, the deadline ends today, but it is better to check with the clerk." }, drill: { jp: "Tanto quanto sei o prazo termina hoje", en: "As far as I know the deadline ends today" }, accept: ["as far as my knowledge goes", "as far as I know", "to the best of my knowledge", "so far as I know"], hint: "TAN-tu KWAN-tu say. ⚠ Claims the speaker's knowledge is LIMITED, not that the fact is doubtful — an important difference from talvez (u28). It is the honest hedge you use before giving somebody directions in Portugal." },
+        { id: "pt-u123l3-queeusaiba", type: "vocab", front: "que eu saiba", reading: "queeusaiba", meaning: "not that I know of", example: { jp: "Ninguém avisa a família, que eu saiba, mas o hospital diz o contrário.", en: "Nobody notifies the family, not that I know of, but the hospital says otherwise." }, drill: { jp: "Ninguém avisa a família que eu saiba", en: "Nobody notifies the family, not that I know of" }, accept: ["not that I know of", "as far as I know", "to my knowledge", "not to my knowledge"], hint: "ke eu SAI-ba. ⚠ Uses the SUBJUNCTIVE saiba (u69) and attaches to a NEGATIVE statement — não, que eu saiba is the standard Portuguese answer meaning no, but I might be wrong. tanto quanto sei (this lesson) attaches to a positive one." },
+        { id: "pt-u123l3-ameuver", type: "vocab", front: "a meu ver", reading: "ameuver", meaning: "to my mind, as I see it", example: { jp: "A meu ver o problema é outro, mas o relatório insiste no mesmo ponto.", en: "To my mind the problem is a different one, but the report insists on the same point." }, drill: { jp: "A meu ver o problema é outro", en: "To my mind the problem is a different one" }, accept: ["to my mind, as I see it", "in my view", "as I see it", "to my mind", "in my opinion"], hint: "a meu VER. ⚠ More formal than na minha opinião (u24), which is not re-taught, and it frames the claim as a READING of evidence rather than a preference. A Portuguese essay or opinion column opens with it." },
+        { id: "pt-u123l3-peloquesei", type: "vocab", front: "pelo que sei", reading: "peloquesei", meaning: "from what I have picked up", example: { jp: "Pelo que sei a empresa vai fechar, mas ninguém fala disso no escritório.", en: "From what I have picked up the company is going to close, but nobody talks about it in the office." }, drill: { jp: "Pelo que sei a empresa vai fechar", en: "From what I have picked up the company is going to close" }, accept: ["from what I have picked up", "from what I know", "from what I hear", "as far as I have heard"], hint: "PE-lu ke say. ⚠ The most CASUAL of the three first-person hedges here — it admits the knowledge came from talk rather than from checking. Note pelo, the contraction of por + o, which Portuguese uses constantly." },
+      ],
+    },
+    {
+      id: "pt-u123l4",
+      unit: 123,
+      lesson: 4,
+      title: "Muito e pouco",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say in Portuguese that an amount is meanly small or embarrassingly large, with the adjective a report would use.",
+      items: [
+        { id: "pt-u123l4-exiguo", type: "vocab", front: "exíguo", reading: "exiguo", meaning: "too small to be enough", example: { jp: "O espaço exíguo da casa chega para uma pessoa, mas a família tem quatro.", en: "The cramped space of the house is enough for one person, but the family has four." }, drill: { jp: "O espaço exíguo da casa chega para um", en: "The cramped space of the house is enough for one" }, accept: ["too small to be enough", "meagre", "scanty", "cramped", "exiguous"], hint: "e-ZEE-gwu. ⚠ Feminine exígua. Note the u IS pronounced (gwu). It always carries a complaint — um orçamento exíguo is a budget that will not stretch, which is the commonest use in Portuguese public debate." },
+        { id: "pt-u123l4-parco", type: "vocab", front: "parco", reading: "parco", meaning: "sparing and held back", example: { jp: "O ministro é parco em palavras, mas o comunicado escrito diz bastante.", en: "The minister is sparing in words, but the written statement says quite a lot." }, drill: { jp: "O ministro é parco em palavras hoje", en: "The minister is sparing in words today" }, accept: ["sparing and held back", "sparing", "scant", "frugal", "meagre by choice"], hint: "PAR-ku. ⚠ Feminine parca. The key difference from exíguo (this lesson): parco suggests somebody CHOSE to give little — parco em elogios, sparing with praise — where exíguo just says there was not enough." },
+        { id: "pt-u123l4-minguado", type: "vocab", front: "minguado", reading: "minguado", meaning: "shrunk to almost nothing", example: { jp: "O apoio minguado não resolve o problema, mas o governo apresenta o número como um sucesso.", en: "The dwindled support does not solve the problem, but the government presents the figure as a success." }, drill: { jp: "O apoio minguado não resolve o problema", en: "The dwindled support does not solve the problem" }, accept: ["shrunk to almost nothing", "dwindled", "paltry", "shrunken", "dwindling"], hint: "min-GWA-du, from minguar, to wane. ⚠ Feminine minguada. Carries the sense of having GOT smaller, not merely being small — a lua minguante is the waning moon, the same verb." },
+        { id: "pt-u123l4-copioso", type: "vocab", front: "copioso", reading: "copioso", meaning: "flowing in great quantity", example: { jp: "O jantar copioso acaba tarde, mas ninguém trabalha bem depois.", en: "The copious dinner ends late, but nobody works well afterwards." }, drill: { jp: "O jantar copioso acaba sempre tarde", en: "The copious dinner always ends late" }, accept: ["flowing in great quantity", "copious", "lavish", "abundant and flowing", "plentiful"], hint: "ko-PYO-zu. ⚠ Feminine copiosa. Used of things that POUR — rain, tears, a meal, a set of notes: chuva copiosa, lágrimas copiosas. It would be odd of a static quantity, where abundante (this lesson) fits." },
+        { id: "pt-u123l4-abundante", type: "vocab", front: "abundante", reading: "abundante", meaning: "there in more than enough", example: { jp: "A água é abundante no norte, mas no sul o problema é todos os verões.", en: "Water is plentiful in the north, but in the south the problem comes every summer." }, drill: { jp: "A água é abundante no norte do país", en: "Water is plentiful in the north of the country" }, accept: ["there in more than enough", "plentiful", "abundant", "ample", "in good supply"], hint: "a-bun-DAN-te. ⚠ Invariant in gender. The plain, neutral word for plenty — a resource, a harvest, evidence. a escassez, its opposite, is u101's and is not re-taught here." },
+        { id: "pt-u123l4-opunhado", type: "vocab", front: "o punhado", reading: "opunhado", meaning: "a mere handful of them", example: { jp: "O punhado de pessoas decide tudo, mas o processo parece justo a todos.", en: "The handful of people decide everything, but the process looks fair to everybody." }, drill: { jp: "O punhado de pessoas decide tudo", en: "The handful of people decide everything" }, accept: ["a mere handful of them", "a handful", "handful", "a small number", "a few"], hint: "pu-NYA-du, from o punho, the fist. ⚠ Literal for grain or sand, and figurative for people, where it is nearly always DISMISSIVE — um punhado de deputados says the number is too small to matter, which is the example's point." },
+      ],
+    },
   ],
 };

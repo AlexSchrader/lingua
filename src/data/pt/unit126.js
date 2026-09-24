@@ -1,18 +1,103 @@
-// PT Unit 126 — Vocabulary 16 (B2) (slot: coverage-b2-16) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 126 — O papel selado (slot: coverage-b2-16) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-3 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+// Retitled from the scaffold's "Vocabulary 16 (B2)" — see unit114.js's header.
+//
+// ⚠ THE LAST UNIT OF THE LAST UNFINISHED LANGUAGE. With it the catalogue —
+// ja, fr, es, de, no, pt — is authored to B2 end to end.
+//
+// It does two jobs, and says so openly rather than pretending to one theme.
+// LESSONS 1–2 finish the strand u44, u49, u92 and u110 have been building since
+// A2: the actual pieces of paper a Portuguese legal process is made of, and the
+// words for where a case stands. u110 took o parecer, o despacho, o ofício,
+// o edital, a ata, deferir and indeferir; u92 took a instância, o recurso and
+// a sentença; u93 took a cláusula and o litígio; u61 took o requisito. What is
+// left is the peça itself — a petição, o articulado — and the frame around it.
+//
+// LESSONS 3–4 ARE DELIBERATE CLOSING COVERAGE, in the u111–u113 tradition: the
+// last ordinary words a themed unit never had room for. o estabelecimento,
+// o termo and o vocábulo are not a theme and are not pretended to be one; they
+// are holes, and this is the last chance the language has to close them.
+//
+// a petição, o articulado and o estabelecimento are three of the fronts block 2
+// reserved for this block. o termo probed LEXEME against termos (u37) — that is
+// the subjunctive of ter, a different word entirely, so the front is taken; the
+// probe over-reports on purpose and this is a case where it should be overruled.
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT126 = {
   id: "pt-u126",
   lang: "pt",
-  title: "Vocabulary 16 (B2)",
+  title: "O papel selado",
   order: 126,
   stage: "b2",
   lessons: [
-    { id: "pt-u126l1", title: "Lesson 1", locked: true },
-    { id: "pt-u126l2", title: "Lesson 2", locked: true },
-    { id: "pt-u126l3", title: "Lesson 3", locked: true },
-    { id: "pt-u126l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u126l1",
+      unit: 126,
+      lesson: 1,
+      title: "A peça escrita",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Name the documents a Portuguese case is built from — the pleading, the articles, the rule being invoked.",
+      items: [
+        { id: "pt-u126l1-apeticao", type: "vocab", front: "a petição", reading: "apeticao", meaning: "written pleading that opens a case", example: { jp: "A petição do advogado é longa, mas o tribunal responde numa frase.", en: "The lawyer's pleading is long, but the court replies in a single sentence." }, drill: { jp: "A petição do advogado é muito longa", en: "The lawyer's pleading is very long" }, accept: ["written pleading that opens a case", "pleading", "petition", "the petition", "statement of claim"], hint: "pe-ti-SOWN. ⚠ TWO SENSES A LEARNER MUST SEPARATE: a petição inicial is the document that STARTS a Portuguese lawsuit; uma petição pública is the thing you sign online. Only the first is legal machinery." },
+        { id: "pt-u126l1-oarticulado", type: "vocab", front: "o articulado", reading: "oarticulado", meaning: "numbered body of a legal text", example: { jp: "O articulado da lei é claro, mas o preâmbulo promete outra coisa.", en: "The numbered body of the law is clear, but the preamble promises something else." }, drill: { jp: "O articulado da lei é muito claro", en: "The body of the law is very clear" }, accept: ["numbered body of a legal text", "the articles", "body of the text", "the operative text", "articles"], hint: "ar-ti-ku-LA-du, from o artigo (u64) in its legal sense, a numbered article. ⚠ THE PART THAT BINDS: everything outside the articulado — the preamble, the explanatory note — is context, and a Portuguese lawyer will say so." },
+        { id: "pt-u126l1-opreceito", type: "vocab", front: "o preceito", reading: "opreceito", meaning: "single binding rule laid down", example: { jp: "O preceito é antigo, mas nenhum tribunal aplica a regra desde o século passado.", en: "The rule laid down is old, but no court has applied it since the last century." }, drill: { jp: "O preceito é antigo mas continua na lei", en: "The rule is old but stays in the law" }, accept: ["single binding rule laid down", "precept", "provision", "rule laid down", "legal provision"], hint: "pre-SAY-tu. ⚠ ONE numbered rule, where a lei (u32) is the whole statute and o regulamento (u61) the whole set. Also moral — os preceitos da religião. Portuguese law texts say nos termos do preceito legal constantly." },
+        { id: "pt-u126l1-oestatuto", type: "vocab", front: "o estatuto", reading: "oestatuto", meaning: "founding rules of a body, or a legal standing", example: { jp: "O estatuto do clube não aceita o negócio, mas os sócios querem mudar o texto.", en: "The club's founding rules do not accept the deal, but the members want to change the text." }, drill: { jp: "O estatuto do clube não aceita o negócio", en: "The club's rules do not accept the deal" }, accept: ["founding rules of a body, or a legal standing", "statutes", "articles of association", "charter", "legal status"], hint: "esh-ta-TU-tu. ⚠ Often PLURAL for a body's constitution — os estatutos da associação. In the singular it usually means legal STATUS: o estatuto de residente, o estatuto do trabalhador-estudante, which is the sense on a Portuguese form." },
+        { id: "pt-u126l1-oconsiderando", type: "vocab", front: "o considerando", reading: "oconsiderando", meaning: "recital giving the reason for a rule", example: { jp: "O considerando explica a razão da medida, mas o articulado não diz nada disso.", en: "The recital explains the reason for the measure, but the body of the text says nothing of the sort." }, drill: { jp: "O considerando explica a razão da medida", en: "The recital explains the reason for the measure" }, accept: ["recital giving the reason for a rule", "recital", "whereas clause", "preamble clause", "statement of reasons"], hint: "kon-si-de-RAN-du. ⚠ A GERUND FROZEN INTO A NOUN — considerando que… is literally whereas…, and the numbered paragraphs opening a Portuguese or EU act are os considerandos. They explain and do not bind." },
+        { id: "pt-u126l1-acontestacao", type: "vocab", front: "a contestação", reading: "acontestacao", meaning: "formal written answer to a claim", example: { jp: "A contestação da empresa chega no último dia, mas não responde ao ponto principal.", en: "The company's written answer arrives on the last day, but does not answer the main point." }, drill: { jp: "A contestação da empresa chega no último dia", en: "The company's answer arrives on the last day" }, accept: ["formal written answer to a claim", "defence", "written answer", "statement of defence", "contestation"], hint: "kon-tesh-ta-SOWN, from contestar. ⚠ The DEFENDANT'S reply to a petição (this lesson) — the pair is how a Portuguese civil case opens. In politics it also means organised protest: um movimento de contestação." },
+      ],
+    },
+    {
+      id: "pt-u126l2",
+      unit: 126,
+      lesson: 2,
+      title: "O processo e a sua marcha",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say in Portuguese which body has power over a case and what stage the proceedings have reached.",
+      items: [
+        { id: "pt-u126l2-aalcada", type: "vocab", front: "a alçada", reading: "aalcada", meaning: "limit of what a body may decide", example: { jp: "O caso não é da alçada do tribunal local, mas o requerente não sabe disso.", en: "The case is not within the local court's powers, but the applicant does not know that." }, drill: { jp: "A alçada do tribunal local não chega", en: "The local court's powers do not reach that far" }, accept: ["limit of what a body may decide", "jurisdiction", "remit", "competence", "purview"], hint: "al-SA-da. ⚠ EXTREMELY USEFUL BEYOND LAW: isso não é da minha alçada is the standard Portuguese way of saying that is not my department — polite, final, and what you will be told at a counter." },
+        { id: "pt-u126l2-aprovidencia", type: "vocab", front: "a providência", reading: "aprovidencia", meaning: "protective measure ordered quickly", example: { jp: "A providência do tribunal para a obra em dois dias, mas o processo principal demora anos.", en: "The court's injunction stops the building work in two days, but the main case takes years." }, drill: { jp: "A providência do tribunal para a obra", en: "The court's injunction stops the building work" }, accept: ["protective measure ordered quickly", "injunction", "interim measure", "precautionary measure", "provisional remedy"], hint: "pro-vi-DEN-sya. ⚠ uma providência cautelar is the Portuguese emergency injunction, decided fast precisely because the main case is slow — the example is the standard pattern. tomar providências also means to take steps generally." },
+        { id: "pt-u126l2-ademanda", type: "vocab", front: "a demanda", reading: "ademanda", meaning: "legal claim brought against someone", example: { jp: "A demanda contra o Estado é pouco comum, mas este caso chega mesmo ao tribunal.", en: "A legal claim against the State is uncommon, but this case really does reach court." }, drill: { jp: "A demanda contra o Estado é pouco comum", en: "A claim against the State is uncommon" }, accept: ["legal claim brought against someone", "lawsuit", "legal claim", "action", "suit"], hint: "de-MAN-da. ⚠ FALSE FRIEND WARNING: economic demand is a procura (u66), not a demanda. In Portuguese a demanda is a lawsuit, or — older and literary — a QUEST: a demanda do Santo Graal." },
+        { id: "pt-u126l2-oauto", type: "vocab", front: "o auto", reading: "oauto", meaning: "official written record of an act", example: { jp: "O auto da polícia descreve tudo, mas a testemunha conta outra versão no tribunal.", en: "The police record describes everything, but the witness tells another version in court." }, drill: { jp: "O auto da polícia descreve tudo", en: "The police record describes everything" }, accept: ["official written record of an act", "official record", "report", "record of proceedings", "the file"], hint: "OW-tu. ⚠ Plural os autos means the whole CASE FILE — consta dos autos, it appears in the file. Also the old theatrical sense: Gil Vicente's autos are the foundation of Portuguese drama. Not related to automóvel." },
+        { id: "pt-u126l2-olibelo", type: "vocab", front: "o libelo", reading: "olibelo", meaning: "sustained written attack", example: { jp: "O libelo contra o regime antigo é forte, mas o autor não apresenta uma prova.", en: "The sustained attack on the old regime is forceful, but the author presents no evidence." }, drill: { jp: "O libelo contra o regime é forte", en: "The attack on the regime is forceful" }, accept: ["sustained written attack", "indictment", "diatribe", "polemic", "denunciation"], hint: "li-BE-lu. ⚠ NOT English libel, which is a difamação (u125) — o libelo is an open, signed, written accusation, and calling a book um libelo describes its form rather than condemning it. Originally the formal charge read at trial." },
+        { id: "pt-u126l2-alide", type: "vocab", front: "a lide", reading: "alide", meaning: "the dispute as the court sees it", example: { jp: "A lide é simples, mas o processo demora seis anos por causa dos prazos.", en: "The dispute itself is simple, but the case takes six years because of the deadlines." }, drill: { jp: "A lide é simples mas o processo demora", en: "The dispute is simple but the case drags on" }, accept: ["the dispute as the court sees it", "the dispute", "the cause", "matter in dispute", "the issue at law"], hint: "LEE-de. ⚠ The ARGUMENT ITSELF, as against o processo (u56), the file and machinery around it — the example turns entirely on that gap. Also the everyday lides da casa, the daily household chores, from the verb lidar com (u60)." },
+      ],
+    },
+    {
+      id: "pt-u126l3",
+      unit: 126,
+      lesson: 3,
+      title: "A palavra técnica",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Insist in Portuguese on what a term means in this text — and say whether it can be read two ways.",
+      items: [
+        { id: "pt-u126l3-otermo", type: "vocab", front: "o termo", reading: "otermo", meaning: "technical term with a fixed sense", example: { jp: "O termo tem um sentido próprio no contrato, mas o cliente percebe outra coisa.", en: "The term has a particular sense in the contract, but the client understands something else." }, drill: { jp: "O termo tem um sentido próprio aqui", en: "The term has a particular sense here" }, accept: ["technical term with a fixed sense", "term", "the term", "technical term"], hint: "TER-mu. ⚠ Also an END — pôr termo a alguma coisa, to put an end to something — and nos termos de, under the terms of, which is on every Portuguese contract. ⚠ Unrelated to the form termos (u37), which belongs to ter." },
+        { id: "pt-u126l3-oenunciado", type: "vocab", front: "o enunciado", reading: "oenunciado", meaning: "wording of a question as set", example: { jp: "O enunciado do exame é confuso, mas o professor não aceita nenhuma pergunta.", en: "The wording of the exam question is confusing, but the teacher accepts no questions." }, drill: { jp: "O enunciado do exame é muito confuso", en: "The exam wording is very confusing" }, accept: ["wording of a question as set", "the wording of a task", "statement of the problem", "question paper wording", "the brief"], hint: "e-nun-SYA-du. ⚠ WHAT EVERY PORTUGUESE STUDENT CALLS THE QUESTION PAPER'S TEXT — ler bem o enunciado is the standard exam advice. In linguistics it is an utterance; in maths, the statement of the problem." },
+        { id: "pt-u126l3-oequivalente", type: "vocab", front: "o equivalente", reading: "oequivalente", meaning: "the matching item in another system", example: { jp: "O equivalente português do diploma existe, mas a universidade demora um ano a reconhecer.", en: "The Portuguese equivalent of the diploma exists, but the university takes a year to recognise it." }, drill: { jp: "O equivalente português do diploma já existe", en: "The Portuguese equivalent of the diploma exists" }, accept: ["the matching item in another system", "equivalent", "the equivalent", "counterpart"], hint: "e-ki-va-LEN-te. ⚠ Invariant in gender, and works as both noun and adjective. a equivalência is the formal RECOGNITION a foreign qualification gets in Portugal — the bureaucratic step the example complains about." },
+        { id: "pt-u126l3-anomenclatura", type: "vocab", front: "a nomenclatura", reading: "anomenclatura", meaning: "agreed system of naming", example: { jp: "A nomenclatura muda de dez em dez anos, mas o livro antigo fica na biblioteca.", en: "The naming system changes every ten years, but the old book stays in the library." }, drill: { jp: "A nomenclatura muda de dez em dez anos", en: "The naming system changes every ten years" }, accept: ["agreed system of naming", "nomenclature", "naming system", "terminology"], hint: "no-men-kla-TU-ra. ⚠ The whole SYSTEM, where um termo (this lesson) is one item in it. Portuguese uses it in science and in customs — a nomenclatura combinada is the EU tariff classification every exporter has to deal with." },
+        { id: "pt-u126l3-ambiguo", type: "vocab", front: "ambíguo", reading: "ambiguo", meaning: "open to two readings at once", example: { jp: "O texto ambíguo serve os dois lados, mas o tribunal tem de escolher um sentido.", en: "The ambiguous text suits both sides, but the court has to choose one meaning." }, drill: { jp: "O texto ambíguo serve os dois lados", en: "The ambiguous text suits both sides" }, accept: ["open to two readings at once", "ambiguous", "equivocal", "open to two readings"], hint: "am-BEE-gwu. ⚠ Feminine ambígua; the u IS pronounced. The adjective to a ambiguidade (u115), split across units on purpose (§C4). In a contract it is a defect; in a poem it is the point." },
+        { id: "pt-u126l3-univoco", type: "vocab", front: "unívoco", reading: "univoco", meaning: "admitting only one reading", example: { jp: "O preceito é unívoco, mas o funcionário aplica a regra de outra maneira.", en: "The rule is unambiguous, but the official applies it in another way." }, drill: { jp: "O preceito é unívoco mas ninguém cumpre", en: "The rule is unambiguous but nobody follows it" }, accept: ["admitting only one reading", "unambiguous", "univocal", "single-meaning", "unequivocal"], hint: "u-NEE-vo-ku. ⚠ The exact opposite of ambíguo (this lesson), and the word a Portuguese legal opinion uses to close down an argument — a norma é unívoca. Feminine unívoca. Rarer in speech than its opposite." },
+      ],
+    },
+    {
+      id: "pt-u126l4",
+      unit: 126,
+      lesson: 4,
+      title: "O que ficou por dizer",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Close the course in Portuguese with the last ordinary words it never had room for — the premises, the word, the joke, the swear.",
+      items: [
+        { id: "pt-u126l4-oestabelecimento", type: "vocab", front: "o estabelecimento", reading: "oestabelecimento", meaning: "business premises open to the public", example: { jp: "O estabelecimento fecha às oito, mas a cozinha para uma hora antes.", en: "The premises close at eight, but the kitchen stops an hour earlier." }, drill: { jp: "O estabelecimento fecha sempre às oito", en: "The premises always close at eight" }, accept: ["business premises open to the public", "establishment", "premises", "business premises", "the establishment"], hint: "esh-ta-be-le-si-MEN-tu. ⚠ THE WORD ON THE SIGN IN THE WINDOW — estabelecimento encerrado, closed. Formal and administrative where speech says a loja (u7) or o café (u6); a Portuguese licence is issued to an estabelecimento." },
+        { id: "pt-u126l4-ovocabulo", type: "vocab", front: "o vocábulo", reading: "ovocabulo", meaning: "a word considered as an item of the language", example: { jp: "O vocábulo é raro hoje, mas está em quase todos os textos do século passado.", en: "The word is rare today, but it is there in almost every text from the last century." }, drill: { jp: "O vocábulo é raro hoje em dia", en: "The word is rare nowadays" }, accept: ["a word considered as an item of the language", "word", "the word", "lexical item", "vocable"], hint: "vo-KA-bu-lu. ⚠ The technical word for a word, where a palavra (u76) is the ordinary one — a dictionary or a linguist says vocábulo. Same root as o vocabulário (u77), which is the whole stock of them." },
+        { id: "pt-u126l4-aironia", type: "vocab", front: "a ironia", reading: "aironia", meaning: "saying one thing and meaning its opposite", example: { jp: "A ironia do escritor escapa a muita gente, mas o crítico percebe tudo desde o início.", en: "The writer's irony escapes many people, but the critic catches it all from the start." }, drill: { jp: "A ironia do escritor escapa a muita gente", en: "The writer's irony escapes many people" }, accept: ["saying one thing and meaning its opposite", "irony", "the irony"], hint: "i-ro-NEE-a. ⚠ Portuguese ALSO uses it for a situation's irony — a ironia do destino — exactly as English does. Carried entirely by tone in speech, which is why it is the hardest thing for a learner to hear and the last to produce." },
+        { id: "pt-u126l4-otrocadilho", type: "vocab", front: "o trocadilho", reading: "otrocadilho", meaning: "play on similar-sounding words", example: { jp: "O trocadilho do título é bom, mas ninguém percebe o sentido fora do país.", en: "The pun in the title is good, but nobody outside the country gets the sense of it." }, drill: { jp: "O trocadilho do título é muito bom", en: "The pun in the title is very good" }, accept: ["play on similar-sounding words", "pun", "the pun", "wordplay", "play on words"], hint: "tro-ka-DEE-lyu, from trocar (u27), to swap — the idea is swapping one word for the one it sounds like. ⚠ Portuguese newspaper headlines run on these, which is exactly why they are so hard to translate." },
+        { id: "pt-u126l4-opalavrao", type: "vocab", front: "o palavrão", reading: "opalavrao", meaning: "swear word", example: { jp: "O palavrão na televisão já não é grave hoje, mas há muitos anos o país era outro.", en: "A swear word on television is no longer serious today, but many years ago the country was a different place." }, drill: { jp: "O palavrão na televisão já não é grave", en: "A swear word on television is no longer serious" }, accept: ["swear word", "swearword", "rude word", "bad word", "expletive"], hint: "pa-la-VROWN — a palavra (u76) with the augmentative -ão, so literally a big word. ⚠ Plural palavrões. Portugal swears more freely than most learners expect, and knowing the CATEGORY word lets you ask about one without using it." },
+        { id: "pt-u126l4-atraducao", type: "vocab", front: "a tradução", reading: "atraducao", meaning: "rendering of a text in another language", example: { jp: "A tradução do contrato parece boa, mas um termo muda todo o sentido do artigo.", en: "The translation of the contract seems good, but one term changes the whole sense of the article." }, drill: { jp: "A tradução do contrato parece muito boa", en: "The translation of the contract seems very good" }, accept: ["rendering of a text in another language", "translation", "the translation"], hint: "tra-du-SOWN, the noun of traduzir (u77). ⚠ THE LAST CARD OF THE PORTUGUESE COURSE, and a fitting one: uma tradução certificada is what Portuguese officialdom demands of every foreign document, and the example is the reason it insists." },
+      ],
+    },
   ],
 };

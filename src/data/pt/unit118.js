@@ -1,18 +1,96 @@
-// PT Unit 118 — Vocabulary 8 (B2) (slot: coverage-b2-8) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 118 — O ânimo e o sobressalto (slot: coverage-b2-8) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-3 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+// Retitled from the scaffold's "Vocabulary 8 (B2)" — see unit114.js's header.
+//
+// NOT A SECOND EMOTION UNIT. u22, u57 and u105 own FEELING — what somebody feels
+// and how finely it can be named; u105 in particular owns the subtle and mixed
+// shades, and this unit names none of them again. What it owns instead is the
+// BODY'S REACTION and the BEARING somebody holds: the jolt before the feeling
+// has a name, the effort of not showing it, and the posture a person keeps in
+// front of other people. o alheamento and o ressentimento were probed and are
+// u105's; they are not re-taught.
+//
+// That distinction is what makes these B2 rather than a repeat: a learner with
+// u105 can say he was afraid and cannot say he flinched, kept his composure, or
+// let it out to a friend afterwards.
+// o sobressalto, brusco, descontraído and o distanciamento's neighbours come
+// from the list block 2 reserved; o distanciamento itself is spent at u117.
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT118 = {
   id: "pt-u118",
   lang: "pt",
-  title: "Vocabulary 8 (B2)",
+  title: "O ânimo e o sobressalto",
   order: 118,
   stage: "b2",
   lessons: [
-    { id: "pt-u118l1", title: "Lesson 1", locked: true },
-    { id: "pt-u118l2", title: "Lesson 2", locked: true },
-    { id: "pt-u118l3", title: "Lesson 3", locked: true },
-    { id: "pt-u118l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u118l1",
+      unit: 118,
+      lesson: 1,
+      title: "O sobressalto",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe the body's jolt in Portuguese — the start, the shiver, the sudden movement — before the feeling has a name.",
+      items: [
+        { id: "pt-u118l1-osobressalto", type: "vocab", front: "o sobressalto", reading: "osobressalto", meaning: "sudden jolt of alarm", example: { jp: "O sobressalto da noite passa depressa, mas o medo fica até de manhã.", en: "The night's jolt of alarm passes quickly, but the fear stays until morning." }, drill: { jp: "O sobressalto da noite passa depressa", en: "The night's jolt of alarm passes quickly" }, accept: ["sudden jolt of alarm", "start", "a start", "jolt", "shock of alarm"], hint: "so-bre-SSAL-tu, literally an over-jump. ⚠ The physical LEAP, not the emotion that follows — which is why the example can have the sobressalto end while the medo (u22) continues. acordar em sobressalto is to wake with a start." },
+        { id: "pt-u118l1-osusto", type: "vocab", front: "o susto", reading: "osusto", meaning: "fright given by something sudden", example: { jp: "O susto do acidente é grande, mas por sorte ninguém fica mal.", en: "The fright from the accident is great, but luckily nobody is badly off." }, drill: { jp: "O susto do acidente é grande", en: "The fright from the accident is great" }, accept: ["fright given by something sudden", "fright", "a scare", "shock", "start"], hint: "SUSH-tu. ⚠ EXTREMELY common in speech, where o sobressalto (this lesson) is more written: que susto! is what a Portuguese person actually shouts. apanhar um susto is to get a fright; pregar um susto a alguém is to give one." },
+        { id: "pt-u118l1-estremecer", type: "vocab", front: "estremecer", reading: "estremecer", meaning: "to shudder briefly", example: { jp: "A casa pode estremecer com o comboio, mas a parede aguenta bem.", en: "The house may shudder with the train, but the wall holds up well." }, drill: { jp: "A casa pode estremecer com o comboio", en: "The house may shudder with the train" }, accept: ["to shudder briefly", "to shudder", "to tremble", "to shake", "to quiver"], hint: "esh-tre-me-SER. ⚠ Works for a building and for a person, which is what makes it useful — estremeceu ao ouvir o nome. Portuguese also uses it for a relationship going wrong: a amizade estremeceu." },
+        { id: "pt-u118l1-oarrepio", type: "vocab", front: "o arrepio", reading: "oarrepio", meaning: "shiver down the skin", example: { jp: "O arrepio do frio é igual ao do medo, mas o corpo sabe sempre a diferença.", en: "The shiver from cold is the same as the one from fear, but the body always knows the difference." }, drill: { jp: "O arrepio do frio é igual ao medo", en: "The shiver from cold is like fear" }, accept: ["shiver down the skin", "shiver", "chill", "goosebumps", "a frisson"], hint: "a-rre-PEE-u. ⚠ Covers both the cold shiver and the one music gives you — dá-me arrepios can be a complaint or a compliment, and only the tone tells you which. Also ao arrepio da lei, against the grain of the law." },
+        { id: "pt-u118l1-brusco", type: "vocab", front: "brusco", reading: "brusco", meaning: "abrupt and without warning", example: { jp: "O gesto brusco do polícia muda tudo, mas a intenção é boa.", en: "The policeman's abrupt gesture changes everything, but the intention is good." }, drill: { jp: "O gesto brusco do polícia muda tudo", en: "The policeman's abrupt gesture changes everything" }, accept: ["abrupt and without warning", "abrupt", "brusque", "sudden", "sharp"], hint: "BRUSH-ku. ⚠ Covers BOTH a sudden physical movement and a rude manner, exactly like English brusque — uma travagem brusca, uma resposta brusca. Feminine brusca. The adverb bruscamente is very common in narrative." },
+        { id: "pt-u118l1-abalado", type: "vocab", front: "abalado", reading: "abalado", meaning: "badly shaken by news", example: { jp: "O diretor abalado cancela a reunião, embora o problema não seja assim tão grave.", en: "The shaken director cancels the meeting, although the problem is not really that serious." }, drill: { jp: "O diretor abalado cancela a reunião", en: "The shaken director cancels the meeting" }, accept: ["badly shaken by news", "shaken", "shaken up", "rattled", "stunned"], hint: "a-ba-LA-du, from abalar, to shake loose. ⚠ EMOTIONAL, not physical — a shaken building is danificado, a shaken person is abalado. Feminine abalada. Portuguese also says a confiança ficou abalada, the trust was shaken." },
+      ],
+    },
+    {
+      id: "pt-u118l2",
+      unit: 118,
+      lesson: 2,
+      title: "A calma",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say in Portuguese what kind of calm somebody has — relaxed, serene, unreadable, or simply rested.",
+      items: [
+        { id: "pt-u118l2-descontraido", type: "vocab", front: "descontraído", reading: "descontraido", meaning: "relaxed in manner", example: { jp: "O chefe descontraído ajuda a conversa, mas a decisão final não muda.", en: "The relaxed boss helps the conversation along, but the final decision does not change." }, drill: { jp: "O chefe descontraído ajuda a conversa", en: "The relaxed boss helps the conversation along" }, accept: ["relaxed in manner", "relaxed", "laid-back", "easy-going", "informal"], hint: "desh-kon-tra-EE-du. ⚠ About MANNER and atmosphere, not about rest: um ambiente descontraído is an informal setting, and it is what a Portuguese invitation means by traje descontraído, dress casual. Feminine descontraída." },
+        { id: "pt-u118l2-sereno", type: "vocab", front: "sereno", reading: "sereno", meaning: "calm from inner steadiness", example: { jp: "O juiz sereno escuta os dois lados, embora o tribunal esteja cheio de gente.", en: "The serene judge listens to both sides, although the court is full of people." }, drill: { jp: "O juiz sereno escuta os dois lados", en: "The serene judge listens to both sides" }, accept: ["calm from inner steadiness", "serene", "composed", "unruffled", "calm"], hint: "se-RE-nu. ⚠ Calm that comes from WITHIN, unlike calmo (u22) which can just describe a quiet room. Also used of weather and sea — um céu sereno. As a noun, o sereno is the night dew." },
+        { id: "pt-u118l2-aplacidez", type: "vocab", front: "a placidez", reading: "aplacidez", meaning: "untroubled evenness of temper", example: { jp: "A placidez do velho médico ajuda o doente, mas irrita os colegas novos.", en: "The old doctor's placidity helps the patient, but irritates the younger colleagues." }, drill: { jp: "A placidez do médico ajuda o doente", en: "The doctor's placidity helps the patient" }, accept: ["untroubled evenness of temper", "placidity", "calmness", "equanimity", "unflappability"], hint: "pla-si-DEZH. ⚠ Can be a criticism as easily as praise — the example runs both at once. Portuguese uses it of water and landscape too, which is where the flavour of not-being-stirred comes from." },
+        { id: "pt-u118l2-impassivel", type: "vocab", front: "impassível", reading: "impassivel", meaning: "showing nothing on the face", example: { jp: "O advogado impassível escuta a acusação, mas por dentro já prepara a resposta.", en: "The impassive lawyer listens to the accusation, but inwardly is already preparing the reply." }, drill: { jp: "O advogado impassível escuta a acusação", en: "The impassive lawyer listens to the accusation" }, accept: ["showing nothing on the face", "impassive", "expressionless", "unmoved", "poker-faced"], hint: "im-pa-SSEE-vel. ⚠ About the SURFACE only, which the example turns on: being impassível says nothing about what is underneath, where sereno (this lesson) claims the calm is real. Invariant in gender; plural impassíveis." },
+        { id: "pt-u118l2-orepouso", type: "vocab", front: "o repouso", reading: "orepouso", meaning: "prescribed rest", example: { jp: "O repouso de três semanas resolve o problema, mas o doente volta logo ao trabalho.", en: "Three weeks of rest solves the problem, but the patient goes straight back to work." }, drill: { jp: "O repouso resolve sempre este problema", en: "Rest always solves this problem" }, accept: ["prescribed rest", "rest", "repose", "bed rest", "period of rest"], hint: "rre-PO-zu. ⚠ More formal than o descanso (u67) and it is the word on a Portuguese sick note — repouso absoluto. em repouso is also the physics sense, at rest, and the resting heart rate." },
+        { id: "pt-u118l2-acompostura", type: "vocab", front: "a compostura", reading: "acompostura", meaning: "self-control kept in public", example: { jp: "A compostura do ministro aguenta a entrevista, mas a mão não para no fim.", en: "The minister's composure holds through the interview, but his hand does not stop at the end." }, drill: { jp: "A compostura do ministro aguenta a entrevista", en: "The minister's composure holds through the interview" }, accept: ["self-control kept in public", "composure", "poise", "self-possession", "decorum"], hint: "kom-posh-TU-ra. ⚠ Always PERFORMED in front of others — perder a compostura is the Portuguese phrase for losing it in public. A parent telling a child tem compostura! means sit up and behave, which is the same idea from the other end." },
+      ],
+    },
+    {
+      id: "pt-u118l3",
+      unit: 118,
+      lesson: 3,
+      title: "A tensão",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say in Portuguese that something is strung tight — a person, a room, or a decision taken on impulse.",
+      items: [
+        { id: "pt-u118l3-tenso", type: "vocab", front: "tenso", reading: "tenso", meaning: "strung tight", example: { jp: "O ambiente tenso da reunião não ajuda ninguém, mas o chefe não faz nada.", en: "The tense atmosphere of the meeting helps nobody, but the boss does nothing." }, drill: { jp: "O ambiente tenso da reunião não ajuda ninguém", en: "The meeting's tense atmosphere helps nobody" }, accept: ["strung tight", "tense", "strained", "taut", "on edge"], hint: "TEN-su. ⚠ Works for a rope, a muscle, a person and a situation, the same range as English tense. Feminine tensa. a tensão is the noun and also means blood pressure and electrical voltage in Portuguese." },
+        { id: "pt-u118l3-crispado", type: "vocab", front: "crispado", reading: "crispado", meaning: "clenched and rigid with strain", example: { jp: "O gesto crispado do colega diz tudo, mas ele diz que está bem.", en: "The colleague's clenched gesture says everything, but he says that he is fine." }, drill: { jp: "O gesto crispado do colega diz tudo", en: "The colleague's clenched gesture says everything" }, accept: ["clenched and rigid with strain", "clenched", "tight-lipped", "taut with strain", "tensed up"], hint: "krish-PA-du. ⚠ VISIBLE and localised — a face, a hand, a jaw — where tenso (this lesson) describes the whole state. Portuguese also uses it of a relationship gone stiff: um encontro crispado. Feminine crispada." },
+        { id: "pt-u118l3-odesassossego", type: "vocab", front: "o desassossego", reading: "odesassossego", meaning: "restless unease with no clear cause", example: { jp: "O desassossego do escritor não tem causa, mas está em cada frase do livro.", en: "The writer's restless unease has no cause, but it is there in every sentence of the book." }, drill: { jp: "O desassossego do escritor não tem causa", en: "The writer's restless unease has no cause" }, accept: ["restless unease with no clear cause", "disquiet", "restlessness", "unease", "inner restlessness"], hint: "de-za-sso-SSE-gu. ⚠ THE Portuguese word of its kind — Fernando Pessoa's Livro do Desassossego is the reason a foreigner meets it first. Unlike a ansiedade (u57) it names no object; the unease is simply there." },
+        { id: "pt-u118l3-inquietar", type: "vocab", front: "inquietar", reading: "inquietar", meaning: "to make uneasy", example: { jp: "O silêncio do banco começa a inquietar o cliente, mas ninguém responde ao email.", en: "The bank's silence is starting to make the client uneasy, but nobody answers the email." }, drill: { jp: "O silêncio começa a inquietar o cliente", en: "The silence is starting to make the client uneasy" }, accept: ["to make uneasy", "to disquiet", "to worry", "to unsettle", "to trouble"], hint: "in-kye-TAR. ⚠ Gentler than assustar, to frighten: inquietar plants a doubt rather than a fear. Reflexive inquietar-se is the polite Portuguese reassurance — não se inquiete, don't trouble yourself." },
+        { id: "pt-u118l3-oimpeto", type: "vocab", front: "o ímpeto", reading: "oimpeto", meaning: "surge that makes you act at once", example: { jp: "O ímpeto do primeiro momento resolve muita coisa, mas estraga outras.", en: "The surge of the first moment solves a lot, but ruins others." }, drill: { jp: "O ímpeto do primeiro momento resolve muito", en: "The first moment's surge solves a lot" }, accept: ["surge that makes you act at once", "impulse", "surge", "burst of impetus", "rush"], hint: "EEM-pe-tu, stressed on the first syllable. ⚠ Not a raiva (u22): an ímpeto can be generous — um ímpeto de generosidade. num ímpeto means on the spur of the moment, and it is the standard Portuguese excuse for a decision taken too fast." },
+        { id: "pt-u118l3-arrebatado", type: "vocab", front: "arrebatado", reading: "arrebatado", meaning: "carried away by feeling", example: { jp: "O discurso arrebatado do candidato convence o público, mas o próprio partido não gosta.", en: "The candidate's impassioned speech convinces the audience, but his own party does not like it." }, drill: { jp: "O discurso arrebatado do candidato convence o público", en: "The candidate's impassioned speech convinces the audience" }, accept: ["carried away by feeling", "impassioned", "carried away", "rapturous", "vehement"], hint: "a-rre-ba-TA-du, from arrebatar, to snatch away. ⚠ Not a compliment by default — the example shows why. Feminine arrebatada. In a religious text it keeps the older sense of being caught up, taken out of yourself." },
+      ],
+    },
+    {
+      id: "pt-u118l4",
+      unit: 118,
+      lesson: 4,
+      title: "Segurar-se",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say in Portuguese that somebody held it in, let it out, or lost heart — the management of feeling, not the feeling.",
+      items: [
+        { id: "pt-u118l4-conterse", type: "vocab", front: "conter-se", reading: "conterse", meaning: "to hold oneself back", example: { jp: "O pai quer conter-se à mesa, mas fala com o filho depois do jantar.", en: "The father wants to hold himself back at the table, but speaks to his son after dinner." }, drill: { jp: "O pai quer conter-se à mesa", en: "The father wants to hold himself back at the table" }, accept: ["to hold oneself back", "to hold back", "to restrain oneself", "to contain oneself", "to keep it in"], hint: "kon-TER-se. ⚠ Enclitic -se in the infinitive and in an affirmative main clause — contém-se — but PROCLITIC after a negative or a subordinator: não se contém, que se contenha. §C1's clitic rule in one word. The reading folds the hyphen away: conterse." },
+        { id: "pt-u118l4-odesabafo", type: "vocab", front: "o desabafo", reading: "odesabafo", meaning: "letting it all out to someone", example: { jp: "O desabafo com o amigo faz bem, mas não resolve o problema.", en: "Letting it all out to a friend does good, but it does not solve the problem." }, drill: { jp: "O desabafo com o amigo faz bem", en: "Letting it out to a friend does good" }, accept: ["letting it all out to someone", "unburdening oneself", "a good moan", "venting", "getting it off one's chest"], hint: "de-za-BA-fu, from desabafar, to un-stifle. ⚠ Needs a LISTENER — a desabafo is told to somebody, which is what separates it from simply being upset. Portuguese says foi só um desabafo to take back something said in heat." },
+        { id: "pt-u118l4-oanimo", type: "vocab", front: "o ânimo", reading: "oanimo", meaning: "spirit to keep going", example: { jp: "O ânimo da equipa volta depois da vitória, mas o treinador continua atento.", en: "The team's spirit comes back after the win, but the coach stays alert." }, drill: { jp: "O ânimo da equipa volta depois da vitória", en: "The team's spirit comes back after the win" }, accept: ["spirit to keep going", "spirits", "morale", "heart", "drive"], hint: "A-ni-mu. ⚠ Ânimo! shouted on its own means chin up, come on. Not o humor (u57), which is the mood you happen to be in — o ânimo is the willingness to continue, which is why a team can lose it and get it back." },
+        { id: "pt-u118l4-odesanimo", type: "vocab", front: "o desânimo", reading: "odesanimo", meaning: "loss of heart", example: { jp: "O desânimo do grupo é natural depois de tanto tempo, mas o projeto continua.", en: "The group's loss of heart is natural after so long, but the project continues." }, drill: { jp: "O desânimo do grupo é natural", en: "The group's loss of heart is natural" }, accept: ["loss of heart", "discouragement", "dejection", "despondency", "flagging spirits"], hint: "de-ZA-ni-mu, the negative of o ânimo (this lesson). ⚠ Carded beside its own opposite on purpose: the pair is how Portuguese talks about morale, and neither half is usable without the other. Weaker than o desespero (u57) — desânimo still works, just without hope." },
+        { id: "pt-u118l4-retrairse", type: "vocab", front: "retrair-se", reading: "retrairse", meaning: "to withdraw into oneself", example: { jp: "O jovem começa a retrair-se depois de mudar de escola, mas ninguém repara a tempo.", en: "The young man starts to withdraw into himself after changing school, but nobody notices in time." }, drill: { jp: "O jovem começa a retrair-se depois", en: "The young man starts to withdraw afterwards" }, accept: ["to withdraw into oneself", "to withdraw", "to draw back", "to become withdrawn", "to shrink back"], hint: "rre-tra-EER-se. ⚠ Also economic — o consumo retraiu-se, consumption contracted — and that is where a Portuguese news reader meets it most. Enclitic in the infinitive, proclitic after a negative: não se retrai." },
+        { id: "pt-u118l4-altivo", type: "vocab", front: "altivo", reading: "altivo", meaning: "holding oneself proudly above others", example: { jp: "O tom altivo do diretor fecha a discussão, mas a equipa fica contra ele.", en: "The director's haughty tone closes the discussion, but the team turns against him." }, drill: { jp: "O tom altivo do diretor fecha a discussão", en: "The director's haughty tone closes the discussion" }, accept: ["holding oneself proudly above others", "haughty", "lofty", "proud and distant", "aloof"], hint: "al-TEE-vu, built on alto (u10). ⚠ NOT simply orgulhoso (u31), which can be warm — you are orgulhoso OF someone. altivo is always about height over other people, and in Portuguese it is nearly always a criticism. Feminine altiva." },
+      ],
+    },
   ],
 };

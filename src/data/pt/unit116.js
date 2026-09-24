@@ -1,18 +1,93 @@
-// PT Unit 116 — Vocabulary 6 (B2) (slot: coverage-b2-6) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 116 — O erro e a emenda (slot: coverage-b2-6) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-3 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+// Retitled from the scaffold's "Vocabulary 6 (B2)" — see unit114.js's header.
+//
+// u60 owns THE PROBLEM AND ITS SOLUTION at B1 — o erro, a falha, corrigir,
+// remediar, a solução — one blunt word for every kind of being wrong. B2 is
+// where a speaker stops saying erro and names WHICH KIND: a slip of the hand, a
+// typo, a lapse of memory, a wrong number, a claim bent out of shape. And the
+// repair verbs are not corrigir either: a Portuguese official sana a fault, a
+// budget colmata a hole, an editor retoca a paragraph.
+//
+// SLOT BOUNDARIES: o erro, a falha, corrigir, remediar are u60's and none is
+// re-taught; o engano is u84's and a omissão is u97's. corrigir being u60's is
+// why the noun a correção is carded here and the verb is not — §C4.
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT116 = {
   id: "pt-u116",
   lang: "pt",
-  title: "Vocabulary 6 (B2)",
+  title: "O erro e a emenda",
   order: 116,
   stage: "b2",
   lessons: [
-    { id: "pt-u116l1", title: "Lesson 1", locked: true },
-    { id: "pt-u116l2", title: "Lesson 2", locked: true },
-    { id: "pt-u116l3", title: "Lesson 3", locked: true },
-    { id: "pt-u116l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u116l1",
+      unit: 116,
+      lesson: 1,
+      title: "Nomear o erro",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say exactly which kind of mistake was made in Portuguese, instead of calling everything an erro.",
+      items: [
+        { id: "pt-u116l1-oequivoco", type: "vocab", front: "o equívoco", reading: "oequivoco", meaning: "misunderstanding taken for fact", example: { jp: "O equívoco do jornal dura uma semana, mas ninguém escreve a correção.", en: "The newspaper's misunderstanding lasts a week, but nobody writes the correction." }, drill: { jp: "O equívoco do jornal dura uma semana", en: "The newspaper's misunderstanding lasts a week" }, accept: ["misunderstanding taken for fact", "misapprehension", "misunderstanding", "mistaken belief", "error of understanding"], hint: "e-KEE-vo-ku. ⚠ Not any old mistake: um equívoco is a wrong READING of a situation that everyone then acts on. Also the adjective equívoco, meaning shady or open to two readings — the ambiguity sense that a ambiguidade (u115) names directly." },
+        { id: "pt-u116l1-olapso", type: "vocab", front: "o lapso", reading: "olapso", meaning: "momentary slip of the mind", example: { jp: "O lapso do professor é pequeno, mas a turma nota logo o problema.", en: "The teacher's momentary slip is small, but the class notices the problem at once." }, drill: { jp: "O lapso do professor é pequeno", en: "The teacher's slip is small" }, accept: ["momentary slip of the mind", "lapse", "slip", "a slip of the mind", "oversight"], hint: "LAP-su. What a competent person does once by accident — por lapso is the standard Portuguese apology on a form, and it claims carelessness rather than ignorance. ⚠ Also a lapse of TIME: um lapso de dois anos." },
+        { id: "pt-u116l1-agralha", type: "vocab", front: "a gralha", reading: "agralha", meaning: "typo in print", example: { jp: "A gralha do título é grave, embora o resto do artigo esteja bom.", en: "The typo in the headline is serious, although the rest of the article is fine." }, drill: { jp: "A gralha do título é grave", en: "The typo in the headline is serious" }, accept: ["typo in print", "typo", "misprint", "typographical error"], hint: "GRA-lya. ⚠ The bird sense comes first — uma gralha is a jackdaw — and printers named the stray black mark after it. The word a errata (u114) names the list; a gralha names the thing on the list." },
+        { id: "pt-u116l1-odescuido", type: "vocab", front: "o descuido", reading: "odescuido", meaning: "lapse of care", example: { jp: "O descuido do motorista custa caro, mas o seguro paga quase tudo.", en: "The driver's lapse of care is costly, but the insurance pays almost everything." }, drill: { jp: "O descuido do motorista custa caro", en: "The driver's carelessness is costly" }, accept: ["lapse of care", "carelessness", "a moment of carelessness", "inattention", "slip"], hint: "desh-KWEE-du, the negative of o cuidado (u60). ⚠ Blames the ATTENTION, not the knowledge — which is why it is the word a Portuguese insurer and a Portuguese court both reach for. num descuido means in an unguarded moment." },
+        { id: "pt-u116l1-odesacerto", type: "vocab", front: "o desacerto", reading: "odesacerto", meaning: "wrong call", example: { jp: "O desacerto do treinador é claro no fim, mas ninguém avisa durante o jogo.", en: "The coach's wrong call is obvious at the end, but nobody warns him during the game." }, drill: { jp: "O desacerto do treinador é claro", en: "The coach's wrong call is clear" }, accept: ["wrong call", "misjudgement", "bad decision", "a wrong choice", "mistaken decision"], hint: "de-za-SER-tu, the negative of acertar, to get right. ⚠ A DECISION that turned out wrong, not a slip — so it is the word for blaming judgement rather than attention, which is exactly what o descuido (this lesson) does not do." },
+        { id: "pt-u116l1-aimprecisao", type: "vocab", front: "a imprecisão", reading: "aimprecisao", meaning: "lack of exactness", example: { jp: "A imprecisão do número não muda a conclusão, mas ajuda o adversário.", en: "The lack of exactness in the figure does not change the conclusion, but it helps the opponent." }, drill: { jp: "A imprecisão do número não muda tudo", en: "The figure's imprecision does not change everything" }, accept: ["lack of exactness", "imprecision", "inexactness", "vagueness of measure"], hint: "im-pre-zi-ZOWN, the negative of a precisão (u82). ⚠ Not the same as being WRONG: an imprecise figure can still be true. The example is the standard B2 move — conceding the imprecision while refusing the conclusion drawn from it." },
+      ],
+    },
+    {
+      id: "pt-u116l2",
+      unit: 116,
+      lesson: 2,
+      title: "Como o erro entra",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Describe in Portuguese how something came out wrong — bent, faulty, unintended, or only roughly right.",
+      items: [
+        { id: "pt-u116l2-inadvertido", type: "vocab", front: "inadvertido", reading: "inadvertido", meaning: "done without noticing", example: { jp: "O corte inadvertido do texto muda o sentido, mas o editor não repara a tempo.", en: "The unnoticed cut to the text changes the meaning, but the editor does not notice in time." }, drill: { jp: "O corte inadvertido muda o sentido", en: "The unnoticed cut changes the meaning" }, accept: ["done without noticing", "inadvertent", "unnoticed", "unintentional", "accidental"], hint: "i-nad-ver-TEE-du, built on advertir (u61), to warn. ⚠ Feminine inadvertida. It excuses INTENT but not care — a Portuguese apology saying de forma inadvertida admits the act and denies the purpose." },
+        { id: "pt-u116l2-impreciso", type: "vocab", front: "impreciso", reading: "impreciso", meaning: "not exact enough", example: { jp: "O dado impreciso serve para o debate, mas não serve para o relatório final.", en: "The imprecise figure works for the debate, but it does not work for the final report." }, drill: { jp: "O dado impreciso serve para o debate", en: "The imprecise figure works for the debate" }, accept: ["not exact enough", "imprecise", "inexact", "vague", "rough"], hint: "im-pre-SEE-zu. ⚠ The adjective to a imprecisão (this lesson). Portuguese also uses vago for the same idea, but vago is about what a word MEANS and impreciso is about how closely a measure MATCHES — a real distinction in a technical text." },
+        { id: "pt-u116l2-falho", type: "vocab", front: "falho", reading: "falho", meaning: "lacking a necessary part", example: { jp: "O argumento falho convence o público, mas o professor mostra o buraco.", en: "The flawed argument convinces the audience, but the teacher shows the hole in it." }, drill: { jp: "O argumento falho convence o público", en: "The flawed argument convinces the audience" }, accept: ["lacking a necessary part", "flawed", "defective in reasoning", "wanting", "deficient"], hint: "FA-lyu, from falhar (u74). ⚠ Usually falho de something — falho de provas, short of evidence. Not the same as defeituoso (also this lesson): defeituoso is a made object that is faulty, falho is an argument or an account with a piece missing." },
+        { id: "pt-u116l2-defeituoso", type: "vocab", front: "defeituoso", reading: "defeituoso", meaning: "faulty as manufactured", example: { jp: "O produto defeituoso volta para a fábrica, mas o cliente espera um mês.", en: "The faulty product goes back to the factory, but the customer waits a month." }, drill: { jp: "O produto defeituoso volta para a fábrica", en: "The faulty product goes back to the factory" }, accept: ["faulty as manufactured", "defective", "faulty", "flawed goods"], hint: "de-fei-TWO-zu, from o defeito (u31). ⚠ THE CONSUMER-RIGHTS WORD in Portugal: produto defeituoso is the phrase that triggers a replacement, and it beats saying the thing is going to avariar (u87), which only means it has broken." },
+        { id: "pt-u116l2-distorcer", type: "vocab", front: "distorcer", reading: "distorcer", meaning: "to bend out of true", example: { jp: "O resumo pode distorcer o estudo, embora cada frase seja verdadeira.", en: "The summary can bend the study out of true, although every sentence is true." }, drill: { jp: "O resumo pode distorcer o estudo", en: "The summary can bend the study" }, accept: ["to bend out of true", "to distort", "distort", "to twist", "to misrepresent"], hint: "dish-tor-SER. ⚠ The point of the example is the B2 one: you can distort with nothing but true sentences, by choosing which. That is why distorcer, and not a mentira (u40), is what for what a selective summary does." },
+        { id: "pt-u116l2-adeturpacao", type: "vocab", front: "a deturpação", reading: "adeturpacao", meaning: "wilful misrepresentation", example: { jp: "A deturpação do discurso é grave, mas o vídeo já corre na rede.", en: "The misrepresentation of the speech is serious, but the video is already going round the network." }, drill: { jp: "A deturpação do discurso é grave", en: "The speech's misrepresentation is serious" }, accept: ["wilful misrepresentation", "distortion", "misrepresentation", "corruption of a text"], hint: "de-tur-pa-SOWN. ⚠ Heavier than distorcer (this lesson): uma deturpação is an accusation of BAD FAITH and a Portuguese politician uses it to reject a quotation outright — isto é uma deturpação do que eu disse." },
+      ],
+    },
+    {
+      id: "pt-u116l3",
+      unit: 116,
+      lesson: 3,
+      title: "Emendar",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say in Portuguese how a fault is being put right — patched, plugged, made good, or properly rectified.",
+      items: [
+        { id: "pt-u116l3-retificar", type: "vocab", front: "retificar", reading: "retificar", meaning: "to correct formally", example: { jp: "O banco vai retificar o extrato, mas o cliente perde uma tarde no balcão.", en: "The bank is going to formally correct the statement, but the customer loses an afternoon at the counter." }, drill: { jp: "O banco vai retificar o extrato hoje", en: "The bank is going to correct the statement today" }, accept: ["to correct formally", "to rectify", "rectify", "to put right officially", "to amend"], hint: "rre-ti-fi-KAR. ⚠ The OFFICIAL correction, entered into the record — a declaração retificativa is the corrected tax return every Portuguese taxpayer eventually files. Spelt without the c since 1990 (formerly rectificar)." },
+        { id: "pt-u116l3-emendar", type: "vocab", front: "emendar", reading: "emendar", meaning: "to put right by hand", example: { jp: "O professor pode emendar o texto todo, mas o estudante aprende pouco assim.", en: "The teacher can put the whole text right, but the student learns little that way." }, drill: { jp: "O professor pode emendar o texto todo", en: "The teacher can put the whole text right" }, accept: ["to put right by hand", "to amend", "to mend", "to fix up", "to correct by hand"], hint: "e-men-DAR. The everyday correcting verb, and the one used of behaviour too: emendar a mão is to correct course. ⚠ Reflexive emendar-se means to mend YOUR ways — a very common Portuguese use that English needs a whole phrase for." },
+        { id: "pt-u116l3-sanar", type: "vocab", front: "sanar", reading: "sanar", meaning: "to cure a defect in law", example: { jp: "O tribunal quer sanar o vício do processo, embora o prazo já esteja quase no fim.", en: "The court wants to cure the defect in the case, although the deadline is already nearly up." }, drill: { jp: "O tribunal quer sanar o vício do processo", en: "The court wants to cure the case's defect" }, accept: ["to cure a defect in law", "to remedy", "to cure a defect", "to make good", "to heal"], hint: "sa-NAR, the same root as saúde (u2). ⚠ Its home is legal and financial Portuguese — sanar uma irregularidade, sanar as contas — where it means the fault is not merely covered but legally ERASED, as if it had never been there." },
+        { id: "pt-u116l3-colmatar", type: "vocab", front: "colmatar", reading: "colmatar", meaning: "to plug a gap", example: { jp: "O governo promete colmatar a falta de médicos, mas a região continua sem ninguém.", en: "The government promises to plug the shortage of doctors, but the region still has nobody." }, drill: { jp: "O governo promete colmatar a falta de médicos", en: "The government promises to plug the doctor shortage" }, accept: ["to plug a gap", "to fill a gap", "to bridge", "to make up a shortfall", "to close a gap"], hint: "kol-ma-TAR. ⚠ ALWAYS OF A HOLE, never of a mistake: you colmatar uma lacuna, uma falha, um défice. It is the standard verb in Portuguese public announcements, which is why the example is about a promise that has not been kept." },
+        { id: "pt-u116l3-suprir", type: "vocab", front: "suprir", reading: "suprir", meaning: "to supply what is missing", example: { jp: "O apoio da família pode suprir a falta de dinheiro, mas não resolve tudo.", en: "The family's support can supply the lack of money, but it does not solve everything." }, drill: { jp: "O apoio da família pode suprir a falta", en: "The family's support can supply the lack" }, accept: ["to supply what is missing", "to make up for", "to make good", "to compensate for", "to supply"], hint: "su-PRIR. ⚠ Close to colmatar (this lesson) but the emphasis differs: colmatar closes the hole, suprir provides the thing the hole was for. A Portuguese court appoints someone to suprir a ausência of a signature." },
+        { id: "pt-u116l3-oremendo", type: "vocab", front: "o remendo", reading: "oremendo", meaning: "makeshift patch", example: { jp: "O remendo da estrada aguenta o inverno, mas em março o buraco volta.", en: "The patch on the road holds out the winter, but in March the hole comes back." }, drill: { jp: "O remendo da estrada aguenta o inverno", en: "The road patch holds out the winter" }, accept: ["makeshift patch", "patch", "a stopgap", "quick fix", "makeshift repair"], hint: "rre-MEN-du. ⚠ Almost always a criticism — a remendo is admitted not to be the real repair. Portuguese says isto é só um remendo exactly where English says that is just a sticking plaster." },
+      ],
+    },
+    {
+      id: "pt-u116l4",
+      unit: 116,
+      lesson: 4,
+      title: "Depois da emenda",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say in Portuguese what improving something further looks like — polishing, refining, or admitting you got it wrong.",
+      items: [
+        { id: "pt-u116l4-acorrecao", type: "vocab", front: "a correção", reading: "acorrecao", meaning: "the correction made", example: { jp: "A correção sai no fim do jornal, mas a notícia falsa está no princípio.", en: "The correction comes out at the back of the paper, but the false story is at the front." }, drill: { jp: "A correção sai no fim do jornal", en: "The correction comes out at the back of the paper" }, accept: ["the correction made", "correction", "the correction", "amendment"], hint: "ko-rre-SOWN, the noun of corrigir (u60). ⚠ Also means CORRECTNESS of behaviour — agir com correção is to behave properly — a second sense English keeps in a separate word. The example is the standard complaint about where corrections are printed." },
+        { id: "pt-u116l4-retocar", type: "vocab", front: "retocar", reading: "retocar", meaning: "to touch up lightly", example: { jp: "O artista vai retocar o quadro outra vez, embora o cliente já esteja farto de esperar.", en: "The artist is going to touch up the painting again, although the client is already fed up with waiting." }, drill: { jp: "O artista vai retocar o quadro outra vez", en: "The artist is going to touch up the painting again" }, accept: ["to touch up lightly", "to touch up", "to retouch", "to tweak"], hint: "rre-to-KAR, from tocar (u19). ⚠ SMALL and COSMETIC by definition — retocar a pintura, retocar um texto. Using it of a serious repair is sarcasm, and Portuguese uses it that way freely." },
+        { id: "pt-u116l4-aprimorar", type: "vocab", front: "aprimorar", reading: "aprimorar", meaning: "to refine to a higher standard", example: { jp: "A empresa quer aprimorar o produto, mas o preço sobe com cada alteração.", en: "The company wants to refine the product, but the price rises with every change." }, drill: { jp: "A empresa quer aprimorar o produto", en: "The company wants to refine the product" }, accept: ["to refine to a higher standard", "to refine", "to perfect", "to improve further", "to hone"], hint: "a-pri-mo-RAR. ⚠ Not melhorar (u25): melhorar takes something bad and makes it acceptable, aprimorar takes something already good and pushes it further. Only the second one can be criticised as a waste of money, which is the example's point." },
+        { id: "pt-u116l4-depurar", type: "vocab", front: "depurar", reading: "depurar", meaning: "to strip out what does not belong", example: { jp: "O editor vai depurar o texto, mas algo bom desaparece sempre.", en: "The editor is going to strip the text down, but something good always disappears from it." }, drill: { jp: "O editor vai depurar o texto todo", en: "The editor is going to strip the whole text down" }, accept: ["to strip out what does not belong", "to purge", "to refine by removing", "to cleanse", "to debug"], hint: "de-pu-RAR, the same root as puro. ⚠ Removal, not addition — you depurar a text of excess, a list of duplicates, water of impurities. It is also the Portuguese computing word for debugging code." },
+        { id: "pt-u116l4-errar", type: "vocab", front: "errar", reading: "errar", meaning: "to get something wrong", example: { jp: "Qualquer pessoa pode errar uma vez, mas repetir o mesmo erro já é outra coisa.", en: "Anyone can get something wrong once, but repeating the same mistake is another matter." }, drill: { jp: "Qualquer pessoa pode errar uma vez", en: "Anyone can get something wrong once" }, accept: ["to get something wrong", "to err", "to make a mistake", "to be wrong", "to miss"], hint: "e-RRAR. ⚠ An ordinary verb the course never taught, though it taught the noun o erro at u60 — so the learner could name a mistake and not say who made it. Also means to WANDER: errar pela cidade, the same root as English errant." },
+        { id: "pt-u116l4-otropeco", type: "vocab", front: "o tropeço", reading: "otropeco", meaning: "stumble in a plan", example: { jp: "O tropeço do primeiro ano não para o projeto, mas o banco fica nervoso.", en: "The first year's stumble does not stop the project, but the bank gets nervous." }, drill: { jp: "O tropeço do primeiro ano não para tudo", en: "The first year's stumble does not stop everything" }, accept: ["stumble in a plan", "stumble", "setback", "a trip-up", "hitch"], hint: "tro-PE-su, from tropeçar (u79). ⚠ Physical in origin and almost always figurative in use — um tropeço na carreira. Lighter than o fracasso (u85): a stumble is something you continue after, which is exactly what the example says." },
+      ],
+    },
   ],
 };

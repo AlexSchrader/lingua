@@ -1,18 +1,97 @@
-// PT Unit 117 — Vocabulary 7 (B2) (slot: coverage-b2-7) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 117 — A atenção e o seu contrário (slot: coverage-b2-7) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-3 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+// Retitled from the scaffold's "Vocabulary 7 (B2)" — see unit114.js's header.
+//
+// u78 owns PERCEPTION — the senses, observar, concentrar-se, distrair-se,
+// ignorar — and u85 owns EFFORT — o empenho, a dedicação, o rigor, persistir.
+// Between them sits the thing neither covers: the QUALITY of somebody's
+// attention as a standing trait, and the many Portuguese words for not having
+// any. A learner can say he is concentrating; he cannot say the work was done
+// com desleixo, that the report is minucioso, or that the department has sunk
+// into inércia — and those are the judgements a B2 speaker actually makes.
+//
+// §C4 NOTE — derivation pairs are deliberately NOT doubled here. concentrar-se
+// (u78) is taught, so a concentração is left unspent; persistir and desistir are
+// u85's, so a persistência and a desistência are left unspent too. Each would be
+// a word a learner who knows the verb would simply produce, which is the working
+// test §C4 sets. negligente is carded and a negligência is not, for the same
+// reason — one card, the one a learner meets in a news report.
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT117 = {
   id: "pt-u117",
   lang: "pt",
-  title: "Vocabulary 7 (B2)",
+  title: "A atenção e o seu contrário",
   order: 117,
   stage: "b2",
   lessons: [
-    { id: "pt-u117l1", title: "Lesson 1", locked: true },
-    { id: "pt-u117l2", title: "Lesson 2", locked: true },
-    { id: "pt-u117l3", title: "Lesson 3", locked: true },
-    { id: "pt-u117l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u117l1",
+      unit: 117,
+      lesson: 1,
+      title: "Prestar atenção",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say in Portuguese how closely somebody is attending to something — and praise care without praising the result.",
+      items: [
+        { id: "pt-u117l1-ofoco", type: "vocab", front: "o foco", reading: "ofoco", meaning: "point attention is fixed on", example: { jp: "O foco do estudo é estreito, mas o resultado serve para muita coisa.", en: "The study's focus is narrow, but the result is useful for a lot of things." }, drill: { jp: "O foco do estudo é estreito", en: "The study's focus is narrow" }, accept: ["point attention is fixed on", "focus", "the focus", "focal point"], hint: "FO-ku. ⚠ Three senses in one word: the optical focus, the centre of attention, and — in Portuguese news — an OUTBREAK: um foco de incêndio, um foco da doença. The last one surprises English speakers every time." },
+        { id: "pt-u117l1-focar", type: "vocab", front: "focar", reading: "focar", meaning: "to direct attention onto", example: { jp: "O relatório vai focar apenas o custo, embora o problema real seja outro.", en: "The report is going to focus only on the cost, although the real problem is another one." }, drill: { jp: "O relatório vai focar apenas o custo", en: "The report is going to focus only on the cost" }, accept: ["to direct attention onto", "to focus on", "focus", "to concentrate on", "to zero in on"], hint: "fo-KAR. ⚠ In Portugal focar takes a DIRECT object — focar o problema — where English needs focus ON. Adding the preposition is a common learner mistake and marks the sentence as translated." },
+        { id: "pt-u117l1-atento", type: "vocab", front: "atento", reading: "atento", meaning: "paying close attention", example: { jp: "O estudante atento percebe o erro do professor, mas não diz nada até ao fim.", en: "The attentive student notices the teacher's mistake, but says nothing until the end." }, drill: { jp: "O estudante atento percebe o erro", en: "The attentive student notices the mistake" }, accept: ["paying close attention", "attentive", "alert", "watchful", "on the ball"], hint: "a-TEN-tu, from a atenção (u76). ⚠ Feminine atenta. Portuguese uses estar atento a as a standing warning — esteja atento ao prazo — where English says keep an eye on. The noun o aluno is taught at u120, so this example uses o estudante (u3) instead." },
+        { id: "pt-u117l1-ozelo", type: "vocab", front: "o zelo", reading: "ozelo", meaning: "conscientious care in doing a job", example: { jp: "O zelo do funcionário é grande, mas o sistema não ajuda nada.", en: "The clerk's conscientious care is great, but the system does not help at all." }, drill: { jp: "O zelo do funcionário é grande", en: "The clerk's conscientious care is great" }, accept: ["conscientious care in doing a job", "diligence", "conscientiousness", "zeal", "care"], hint: "ZE-lu. ⚠ Not English zeal, which suggests excess: o zelo is a virtue in Portuguese and the standard word in a good reference — desempenha as funções com zelo. The jealousy sense belongs to o ciúme (u57), a different word entirely." },
+        { id: "pt-u117l1-minucioso", type: "vocab", front: "minucioso", reading: "minucioso", meaning: "going into small detail", example: { jp: "O relatório minucioso responde a tudo, mas ninguém tem tempo para o ler.", en: "The painstaking report answers everything, but nobody has time to read it." }, drill: { jp: "O relatório minucioso responde a tudo", en: "The painstaking report answers everything" }, accept: ["going into small detail", "painstaking", "detailed", "thorough", "minute"], hint: "mi-nu-SYO-zu. ⚠ Describes the WORK, not the worker's character — um exame minucioso. Its close neighbour meticuloso (this lesson) describes the person's habit, and Portuguese keeps that split more firmly than English does." },
+        { id: "pt-u117l1-meticuloso", type: "vocab", front: "meticuloso", reading: "meticuloso", meaning: "habitually careful about detail", example: { jp: "O engenheiro meticuloso atrasa o projeto, mas evita um erro muito caro.", en: "The meticulous engineer delays the project, but avoids a very costly mistake." }, drill: { jp: "O engenheiro meticuloso atrasa o projeto", en: "The meticulous engineer delays the project" }, accept: ["habitually careful about detail", "meticulous", "painstaking by nature", "scrupulously careful"], hint: "me-ti-ku-LO-zu. ⚠ A TRAIT of a person, where minucioso (this lesson) is a property of a piece of work. The example makes the standard trade-off: the same care that costs time is what saves the money." },
+      ],
+    },
+    {
+      id: "pt-u117l2",
+      unit: 117,
+      lesson: 2,
+      title: "Não prestar atenção",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Criticise sloppy work in Portuguese with the right degree of force — careless, offhand, or legally negligent.",
+      items: [
+        { id: "pt-u117l2-odesleixo", type: "vocab", front: "o desleixo", reading: "odesleixo", meaning: "sloppiness in how work is done", example: { jp: "O desleixo da obra é visível, mas a câmara aceita o trabalho.", en: "The sloppiness of the building work is visible, but the council accepts the job." }, drill: { jp: "O desleixo da obra é visível", en: "The sloppiness of the work is visible" }, accept: ["sloppiness in how work is done", "sloppiness", "slovenliness", "neglect", "carelessness of habit"], hint: "desh-LAY-shu. ⚠ Heavier than o descuido (u116): um descuido happens once, o desleixo is how somebody habitually works. Portuguese also uses it of appearance — andar com desleixo, to let yourself go." },
+        { id: "pt-u117l2-negligente", type: "vocab", front: "negligente", reading: "negligente", meaning: "failing a duty of care", example: { jp: "O médico negligente perde a licença, embora o doente melhore no fim.", en: "The negligent doctor loses his licence, although the patient gets better in the end." }, drill: { jp: "O médico negligente perde a licença", en: "The negligent doctor loses the licence" }, accept: ["failing a duty of care", "negligent", "neglectful", "derelict"], hint: "ne-gli-JEN-te. ⚠ A LEGAL accusation, not just a rude word: being negligente means a duty existed and was not met, which is what turns a mistake into liability. Invariant in gender, so it is safe with any noun." },
+        { id: "pt-u117l2-displicente", type: "vocab", front: "displicente", reading: "displicente", meaning: "offhand and uninterested", example: { jp: "O empregado displicente responde depressa, mas o cliente sai sem resposta.", en: "The offhand employee answers quickly, but the customer leaves without an answer." }, drill: { jp: "O empregado displicente responde depressa", en: "The offhand employee answers quickly" }, accept: ["offhand and uninterested", "offhand", "dismissive", "couldn't-care-less", "casual"], hint: "dish-pli-SEN-te. ⚠ About ATTITUDE, not competence — it says the person could do it properly and does not think you are worth it. That sting is why it is one of the sharper things to call a Portuguese public servant." },
+        { id: "pt-u117l2-superficial", type: "vocab", front: "superficial", reading: "superficial", meaning: "not going below the surface", example: { jp: "A análise superficial chega a tempo, mas deixa o problema todo por resolver.", en: "The superficial analysis arrives on time, but leaves the whole problem unsolved." }, drill: { jp: "A análise superficial chega a tempo", en: "The superficial analysis arrives on time" }, accept: ["not going below the surface", "superficial", "shallow", "cursory", "skin-deep"], hint: "su-per-fi-SYAL, from a superfície (u83). ⚠ Invariant in gender. Also literal and neutral in medicine — uma ferida superficial is good news, not a criticism, which is the one context where the word does not insult anybody." },
+        { id: "pt-u117l2-divagar", type: "vocab", front: "divagar", reading: "divagar", meaning: "to let the mind wander off the point", example: { jp: "O professor começa a divagar depois de meia hora, mas a turma não diz nada.", en: "The teacher starts to wander off the point after half an hour, but the class says nothing." }, drill: { jp: "O professor começa a divagar depois", en: "The teacher starts to wander off the point afterwards" }, accept: ["to let the mind wander off the point", "to digress", "to ramble", "to wander off the point", "to drift"], hint: "di-va-GAR. ⚠ Covers both the harmless daydream and the speaker who will not get to the point. Portuguese uses it of TALK more often than of thought, which is the opposite weighting from English wander." },
+        { id: "pt-u117l2-aociosidade", type: "vocab", front: "a ociosidade", reading: "aociosidade", meaning: "state of being idle", example: { jp: "A ociosidade da máquina custa dinheiro, mas ninguém nota isso na fatura.", en: "The machine's idleness costs money, but nobody notices that on the invoice." }, drill: { jp: "A ociosidade da máquina custa dinheiro", en: "The machine's idleness costs money" }, accept: ["state of being idle", "idleness", "being idle", "inactivity", "down time"], hint: "o-syo-zi-DA-de. ⚠ Used of THINGS as readily as people — a capacidade em ociosidade is idle capacity in a Portuguese economics text. Not a synonym of preguiça (laziness): idleness can be forced on you, laziness is chosen." },
+      ],
+    },
+    {
+      id: "pt-u117l3",
+      unit: 117,
+      lesson: 3,
+      title: "A mente ausente",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe in Portuguese a mind that has gone somewhere else — absorbed, numbed, flat, or deliberately held apart.",
+      items: [
+        { id: "pt-u117l3-ainercia", type: "vocab", front: "a inércia", reading: "ainercia", meaning: "failure to start moving", example: { jp: "A inércia do sistema protege quem já tem o lugar, mas fecha a porta a quem chega.", en: "The system's inertia protects whoever already has the post, but closes the door to newcomers." }, drill: { jp: "A inércia do sistema protege o lugar", en: "The system's inertia protects the post" }, accept: ["failure to start moving", "inertia", "the inertia", "stagnation", "unwillingness to act"], hint: "i-NER-sya. ⚠ Both the physics term and the everyday accusation, exactly as in English. In Portuguese public debate a inércia do Estado is a standing complaint — it blames nobody in particular, which is part of its usefulness." },
+        { id: "pt-u117l3-otorpor", type: "vocab", front: "o torpor", reading: "otorpor", meaning: "heavy numbness of mind", example: { jp: "O torpor da tarde entra na sala, mas a reunião continua até ao fim.", en: "The afternoon's numbness comes into the room, but the meeting carries on to the end." }, drill: { jp: "O torpor da tarde entra na sala", en: "The afternoon's numbness comes into the room" }, accept: ["heavy numbness of mind", "torpor", "numbness", "drowsy dullness", "stupor"], hint: "tor-POR. ⚠ PHYSICAL heaviness as much as mental — the state after a large lunch, or under a drug. It is a literary word in English and an ordinary one in Portuguese, so it will appear in a novel without sounding grand." },
+        { id: "pt-u117l3-aapatia", type: "vocab", front: "a apatia", reading: "aapatia", meaning: "not caring either way", example: { jp: "A apatia do público ajuda o governo, mas custa caro à democracia.", en: "The public's apathy helps the government, but costs the democracy dear." }, drill: { jp: "A apatia do público ajuda o governo", en: "The public's apathy helps the government" }, accept: ["not caring either way", "apathy", "the apathy", "indifference", "listlessness"], hint: "a-pa-TEE-a. ⚠ Two registers in one word: the political one in the example, and the clinical one — apatia is a listed symptom in Portuguese medicine. Neither implies hostility, which is what separates it from o desprezo, contempt." },
+        { id: "pt-u117l3-odistanciamento", type: "vocab", front: "o distanciamento", reading: "odistanciamento", meaning: "deliberate holding back from involvement", example: { jp: "O distanciamento do autor traz força ao livro, mas o leitor quer outra coisa.", en: "The author's deliberate detachment brings the book force, but the reader wants something else." }, drill: { jp: "O distanciamento do autor traz força ao livro", en: "The author's detachment brings the book force" }, accept: ["deliberate holding back from involvement", "detachment", "distancing", "critical distance", "standing back"], hint: "dish-tan-sya-MEN-tu, from a distância (u23). ⚠ CHOSEN, unlike a apatia (this lesson) which just happens — so it can be a virtue: o distanciamento crítico is what a good reviewer is praised for. Portugal also used it for social distancing." },
+        { id: "pt-u117l3-absorto", type: "vocab", front: "absorto", reading: "absorto", meaning: "lost in thought", example: { jp: "O cientista absorto não nota a campainha, mas a experiência corre bem.", en: "The absorbed scientist does not notice the doorbell, but the experiment goes well." }, drill: { jp: "O cientista absorto não nota a campainha", en: "The absorbed scientist does not notice the doorbell" }, accept: ["lost in thought", "absorbed", "engrossed", "rapt", "lost in one's thoughts"], hint: "ab-SOR-tu. ⚠ The one word in this lesson that is NOT a criticism — being absorto means the attention is entirely somewhere, not nowhere. Feminine absorta. Usually absorto em: absorto no trabalho." },
+        { id: "pt-u117l3-alucidez", type: "vocab", front: "a lucidez", reading: "alucidez", meaning: "clear-headed grasp of reality", example: { jp: "A lucidez do velho jornalista incomoda os políticos, mas ninguém o convida para a televisão.", en: "The old journalist's clear-headedness bothers the politicians, but nobody invites him onto television." }, drill: { jp: "A lucidez do jornalista incomoda os políticos", en: "The journalist's clear-headedness bothers the politicians" }, accept: ["clear-headed grasp of reality", "lucidity", "clear-headedness", "clarity of mind", "clear sight"], hint: "lu-si-DEZH. ⚠ Two uses that sit oddly together: the praise in the example, and the clinical one — o doente está lúcido means the patient is oriented and responsive. Both are about seeing what is actually there." },
+      ],
+    },
+    {
+      id: "pt-u117l4",
+      unit: 117,
+      lesson: 4,
+      title: "O rigor e o escrúpulo",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say in Portuguese how far somebody's carefulness goes — to scruple, to sharpness, or over into obsession.",
+      items: [
+        { id: "pt-u117l4-escrupuloso", type: "vocab", front: "escrupuloso", reading: "escrupuloso", meaning: "careful on principle", example: { jp: "O advogado escrupuloso recusa o negócio, embora o lucro seja enorme.", en: "The scrupulous lawyer turns down the deal, although the profit would be enormous." }, drill: { jp: "O advogado escrupuloso recusa o negócio", en: "The scrupulous lawyer turns down the deal" }, accept: ["careful on principle", "scrupulous", "conscientious", "principled", "punctilious"], hint: "esh-kru-pu-LO-zu. ⚠ The care here is MORAL, not technical: meticuloso (u117l1) gets the detail right, escrupuloso refuses to get it wrong on purpose. The example only works with this word." },
+        { id: "pt-u117l4-diligente", type: "vocab", front: "diligente", reading: "diligente", meaning: "prompt and thorough in duty", example: { jp: "O técnico diligente responde no mesmo dia, mas o problema volta na semana seguinte.", en: "The diligent technician replies the same day, but the problem comes back the following week." }, drill: { jp: "O técnico diligente responde no mesmo dia", en: "The diligent technician replies the same day" }, accept: ["prompt and thorough in duty", "diligent", "assiduous", "conscientious and prompt"], hint: "di-li-JEN-te. ⚠ Carries SPEED as well as care in Portuguese, which English diligent does not — a diligência (u110) is the concrete step taken, and being diligente means taking it without being chased. Invariant in gender." },
+        { id: "pt-u117l4-aperspicacia", type: "vocab", front: "a perspicácia", reading: "aperspicacia", meaning: "quickness to see what is hidden", example: { jp: "A perspicácia do juiz percebe logo a deturpação, mas o processo continua.", en: "The judge's sharpness spots the misrepresentation at once, but the case goes on." }, drill: { jp: "A perspicácia do juiz percebe logo tudo", en: "The judge's sharpness sees everything at once" }, accept: ["quickness to see what is hidden", "perceptiveness", "shrewdness", "acuity", "sharpness of mind"], hint: "persh-pi-KA-sya. ⚠ Speed plus depth: seeing what others miss AND seeing it first. Not esperto (u31), which in Portugal leans towards cunning — perspicácia is entirely a compliment." },
+        { id: "pt-u117l4-odiscernimento", type: "vocab", front: "o discernimento", reading: "odiscernimento", meaning: "ability to tell cases apart", example: { jp: "O discernimento do diretor evita o conflito, mas a decisão custa dinheiro.", en: "The director's judgement avoids the conflict, but the decision costs money." }, drill: { jp: "O discernimento do diretor evita o conflito", en: "The director's judgement avoids the conflict" }, accept: ["ability to tell cases apart", "discernment", "sound judgement", "discrimination between cases", "good judgement"], hint: "dish-ser-ni-MEN-tu, from distinguir's cousin discernir. ⚠ Knowing WHICH rule this case falls under — the skill a good manager has and a rule book cannot supply. In Portuguese law it also means legal capacity to tell right from wrong." },
+        { id: "pt-u117l4-afixacao", type: "vocab", front: "a fixação", reading: "afixacao", meaning: "fixed idea somebody cannot drop", example: { jp: "A fixação do chefe no custo atrasa o projeto, mas ninguém diz isso.", en: "The boss's fixation on cost delays the project, but nobody says so." }, drill: { jp: "A fixação do chefe atrasa o projeto", en: "The boss's fixation delays the project" }, accept: ["fixed idea somebody cannot drop", "fixation", "obsessive focus", "hang-up"], hint: "fik-sa-SOWN. ⚠ Also the neutral technical sense — a fixação do preço is price-setting, a fixação de uma data is fixing a date. Only ter uma fixação em carries the psychological meaning the example uses." },
+        { id: "pt-u117l4-aobsessao", type: "vocab", front: "a obsessão", reading: "aobsessao", meaning: "thought that will not go away", example: { jp: "A obsessão do artista com o detalhe atrasa a exposição, mas o resultado é perfeito.", en: "The artist's obsession with detail delays the exhibition, but the result is perfect." }, drill: { jp: "A obsessão do artista atrasa a exposição", en: "The artist's obsession delays the exhibition" }, accept: ["thought that will not go away", "obsession", "the obsession", "compulsion"], hint: "ob-se-SSOWN. ⚠ Stronger than a fixação (this lesson) and used clinically as well as loosely. Portuguese takes the preposition com — uma obsessão com o detalhe — where English says with, so this one transfers cleanly." },
+      ],
+    },
   ],
 };

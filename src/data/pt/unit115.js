@@ -1,18 +1,98 @@
-// PT Unit 115 — Vocabulary 5 (B2) (slot: coverage-b2-5) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 115 — A palavra e o seu sentido (slot: coverage-b2-5) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-3 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+// Retitled from the scaffold's "Vocabulary 5 (B2)" — see unit114.js's header.
+//
+// THE METALINGUISTIC UNIT — talking ABOUT words, which is the one thing a B2
+// learner does constantly and this corpus could not do at all. u77 owns
+// COMMUNICATION (a palavra, a frase, a expressão, o vocabulário, o tom,
+// interpretar, traduzir) and u58 owns o sentido and o significado. What none of
+// them gives you is the vocabulary for asking WHICH sense, why that word and not
+// its synonym, and what a word gives away about the person using it.
+//
+// §C3 applies with unusual force here: none of these NAMES a thing in the world.
+// Every one is a tool for negotiating meaning, which is what a learner needs
+// most and is handed least.
+//
+// SLOT BOUNDARIES: a metáfora is u96's (the critic's tool) and a rubrica is
+// u104's. o vocativo is one of the fronts block 2 reserved for this block.
+// traduzir is u77's, so the noun a tradução is left unspent rather than carded
+// beside it — §C4 allows the derivation, but it earns nothing this unit needs.
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT115 = {
   id: "pt-u115",
   lang: "pt",
-  title: "Vocabulary 5 (B2)",
+  title: "A palavra e o seu sentido",
   order: 115,
   stage: "b2",
   lessons: [
-    { id: "pt-u115l1", title: "Lesson 1", locked: true },
-    { id: "pt-u115l2", title: "Lesson 2", locked: true },
-    { id: "pt-u115l3", title: "Lesson 3", locked: true },
-    { id: "pt-u115l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u115l1",
+      unit: 115,
+      lesson: 1,
+      title: "O que uma palavra quer dizer",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Argue in Portuguese about which sense of a word is meant — and separate what it states from what it hints.",
+      items: [
+        { id: "pt-u115l1-aacepcao", type: "vocab", front: "a acepção", reading: "aacepcao", meaning: "distinct sense of a word", example: { jp: "A acepção original da palavra já não serve, mas o dicionário ainda a regista.", en: "The word's original sense no longer works, but the dictionary still records it." }, drill: { jp: "A acepção original da palavra não serve", en: "The word's original sense does not work" }, accept: ["distinct sense of a word", "sense", "meaning sense", "acceptation", "one of the senses"], hint: "a-se-SOWN. ⚠ NOT a synonym of o significado (u58): o significado is what a word means, uma acepção is ONE of its numbered senses in a dictionary entry. Asking em que acepção is how a Portuguese argument about a word begins." },
+        { id: "pt-u115l1-denotar", type: "vocab", front: "denotar", reading: "denotar", meaning: "to state plainly as fact", example: { jp: "O verbo pode denotar apenas o facto, mas o tom do jornalista indica outra coisa.", en: "The verb may state only the fact, but the journalist's tone indicates something else." }, drill: { jp: "Este verbo pode denotar apenas o facto", en: "This verb may state only the fact" }, accept: ["to state plainly as fact", "to denote", "denote", "to indicate plainly"], hint: "de-no-TAR. What a word says flatly, with nothing added. ⚠ The pair denotar / conotar (this lesson) is the single most useful distinction in the unit, and Portuguese uses it far outside linguistics: o silêncio denota medo." },
+        { id: "pt-u115l1-conotar", type: "vocab", front: "conotar", reading: "conotar", meaning: "to carry an implied overtone", example: { jp: "A palavra pode conotar uma crítica, embora o sentido literal seja simples.", en: "The word can carry an implied criticism, although the literal meaning is simple." }, drill: { jp: "A palavra pode conotar uma crítica", en: "The word can carry an implied criticism" }, accept: ["to carry an implied overtone", "to connote", "connote", "to imply", "to carry overtones"], hint: "ko-no-TAR. What a word drags along with it that nobody wrote down. ⚠ This is the mechanism behind a entrelinha (u114): a Portuguese refusal is usually built entirely out of connotation, which is why the literal reading misses it." },
+        { id: "pt-u115l1-literal", type: "vocab", front: "literal", reading: "literal", meaning: "taken word for word", example: { jp: "O sentido literal da frase é claro, mas ninguém fala assim.", en: "The literal meaning of the sentence is clear, but nobody speaks like that." }, drill: { jp: "O sentido literal da frase é claro", en: "The sentence's literal meaning is clear" }, accept: ["taken word for word", "literal", "word-for-word", "strict"], hint: "li-te-RAL. Invariant in gender — uma tradução literal, um sentido literal — which makes it one of the safe adjectives. ⚠ Portuguese also says ao pé da letra for the same idea, closer to English to the letter." },
+        { id: "pt-u115l1-figurado", type: "vocab", front: "figurado", reading: "figurado", meaning: "used as an image rather than literally", example: { jp: "O sentido figurado é mais forte, mas quem aprende português percebe apenas o literal.", en: "The figurative sense is stronger, but a learner of Portuguese catches only the literal one." }, drill: { jp: "O sentido figurado é mais forte", en: "The figurative sense is stronger" }, accept: ["used as an image rather than literally", "figurative", "metaphorical", "not literal"], hint: "fi-gu-RA-du. ⚠ Feminine is figurada — the -ado/-ada pair, so agree it with what it describes. The stock phrase is em sentido figurado, the standard way a Portuguese speaker flags that they did not mean it literally." },
+        { id: "pt-u115l1-osinonimo", type: "vocab", front: "o sinónimo", reading: "osinonimo", meaning: "word with the same sense", example: { jp: "O sinónimo parece igual ao original, mas o efeito na frase não é o mesmo.", en: "The synonym seems the same as the original, but the effect in the sentence is not." }, drill: { jp: "O sinónimo parece igual ao original", en: "The synonym seems the same as the original" }, accept: ["word with the same sense", "synonym", "the synonym"], hint: "si-NO-ni-mu. ⚠ Spelt with Ó in Portugal and ô in Brazil (sinônimo) — one of the few 1990-accord words where the two varieties still legitimately differ, because the vowel really is pronounced differently." },
+      ],
+    },
+    {
+      id: "pt-u115l2",
+      unit: 115,
+      lesson: 2,
+      title: "Nomear e ser nomeado",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say in Portuguese what something is officially called, what people actually call it, and which name is doing work.",
+      items: [
+        { id: "pt-u115l2-designar", type: "vocab", front: "designar", reading: "designar", meaning: "to give an official name to", example: { jp: "A lei vai designar a zona como área protegida, mas ninguém muda o nome antigo.", en: "The law is going to designate the zone as a protected area, but nobody changes the old name." }, drill: { jp: "A lei vai designar a zona protegida", en: "The law is going to designate the protected zone" }, accept: ["to give an official name to", "to designate", "designate", "to appoint", "to term"], hint: "de-zig-NAR. Two senses that share one idea — to name officially, and to appoint someone to a post: designar um novo diretor. ⚠ Not chamar: anybody can chamar a thing something, only an authority can designar it." },
+        { id: "pt-u115l2-intitular", type: "vocab", front: "intitular", reading: "intitular", meaning: "to give a title to", example: { jp: "O autor quer intitular o livro de outra maneira, mas o editor não aceita.", en: "The author wants to title the book differently, but the publisher does not accept it." }, drill: { jp: "O autor quer intitular o livro assim", en: "The author wants to title the book that way" }, accept: ["to give a title to", "to title", "to entitle", "to call", "to name a work"], hint: "in-ti-tu-LAR, from o título (u64). ⚠ Reflexively, intitular-se means to call YOURSELF something — and in Portuguese it usually carries a sneer: intitula-se especialista, he styles himself an expert." },
+        { id: "pt-u115l2-aalcunha", type: "vocab", front: "a alcunha", reading: "aalcunha", meaning: "nickname given by others", example: { jp: "A alcunha do colega fica para sempre, embora o nome verdadeiro seja outro.", en: "The colleague's nickname sticks forever, although his real name is another." }, drill: { jp: "A alcunha do colega fica para sempre", en: "The colleague's nickname sticks forever" }, accept: ["nickname given by others", "nickname", "the nickname", "byname"], hint: "al-KU-nya. ⚠ THE KEY IS WHO CHOSE IT — uma alcunha is pinned on you by other people, often unkindly, and you do not get a say. A chosen short form of your own name is not an alcunha." },
+        { id: "pt-u115l2-oapelido", type: "vocab", front: "o apelido", reading: "oapelido", meaning: "family surname", example: { jp: "O apelido do pai passa para o filho, mas o nome da mãe também conta.", en: "The father's surname passes to the son, but the mother's name counts too." }, drill: { jp: "O apelido do pai passa para o filho", en: "The father's surname passes to the son" }, accept: ["family surname", "surname", "last name", "family name"], hint: "a-pe-LEE-du. ⚠ A REAL pt-PT / pt-BR TRAP: in Portugal o apelido is your SURNAME; in Brazil the same word means nickname, which is a alcunha here. Portuguese people normally carry the mother's apelido before the father's." },
+        { id: "pt-u115l2-ovocativo", type: "vocab", front: "o vocativo", reading: "ovocativo", meaning: "the naming-of-the-addressee form", example: { jp: "O vocativo da carta é muito formal, mas o resto do texto trata o leitor por tu.", en: "The letter's form of address is very formal, but the rest of the text addresses the reader as tu." }, drill: { jp: "O vocativo da carta é muito formal", en: "The letter's form of address is very formal" }, accept: ["the naming-of-the-addressee form", "vocative", "the vocative", "form of address", "the address line"], hint: "vo-ka-TEE-vu. The bit where you name who you are talking TO — Caro Senhor, ó Pedro, meus amigos. ⚠ In Portuguese it takes a comma that English often drops, and getting it wrong is the loudest register mistake in a formal letter (u109 owns the tu/você axis itself)." },
+        { id: "pt-u115l2-asigla", type: "vocab", front: "a sigla", reading: "asigla", meaning: "set of initials", example: { jp: "A sigla do partido é simples, mas quase ninguém sabe o nome verdadeiro.", en: "The party's set of initials is simple, but almost nobody knows the real name." }, drill: { jp: "A sigla do partido é simples", en: "The party's initials are simple" }, accept: ["set of initials", "initials", "acronym", "abbreviation", "initialism"], hint: "SEE-gla. ⚠ Portugal runs on siglas — CTT, SNS, IRS, CP — and a news text will use one with no expansion at all, so the word you need is the one for asking: o que significa essa sigla?" },
+      ],
+    },
+    {
+      id: "pt-u115l3",
+      unit: 115,
+      lesson: 3,
+      title: "O som e a escrita da palavra",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about how a Portuguese word is spelled and pronounced — and ask someone to spell it out for you.",
+      items: [
+        { id: "pt-u115l3-agrafia", type: "vocab", front: "a grafia", reading: "agrafia", meaning: "the way a word is spelled", example: { jp: "A grafia original ainda parece boa a muita gente, mas o acordo já muda a regra.", en: "The original spelling still looks fine to many people, but the accord has already changed the rule." }, drill: { jp: "A grafia original ainda parece boa", en: "The original spelling still looks fine" }, accept: ["the way a word is spelled", "spelling", "the spelling", "written form"], hint: "gra-FEE-a. ⚠ The word you need to talk about the 1990 accord, which removed the silent consonants: the old grafia acção, objecto, óptimo became ação, objeto, ótimo. Older Portuguese texts still show the old one everywhere." },
+        { id: "pt-u115l3-aortografia", type: "vocab", front: "a ortografia", reading: "aortografia", meaning: "spelling as a system of rules", example: { jp: "A ortografia do estudante não é boa, mas as ideias do texto são fortes.", en: "The student's spelling is not good, but the ideas in the text are strong." }, drill: { jp: "A ortografia do estudante não é boa", en: "The student's spelling is not good" }, accept: ["spelling as a system of rules", "orthography", "spelling rules", "correct spelling"], hint: "or-to-gra-FEE-a. ⚠ Not the same as a grafia (this lesson): a grafia is how ONE word is written, a ortografia is the whole rule system you can be good or bad at. Portuguese school reports grade it separately." },
+        { id: "pt-u115l3-asilaba", type: "vocab", front: "a sílaba", reading: "asilaba", meaning: "syllable", example: { jp: "A sílaba forte muda o sentido da palavra, mas o resto continua igual.", en: "The stressed syllable changes the word's meaning, but the rest stays the same." }, drill: { jp: "A sílaba forte muda o sentido", en: "The stressed syllable changes the meaning" }, accept: ["syllable", "the syllable"], hint: "SEE-la-ba. ⚠ The example is a real Portuguese problem, not a made-up one: sábia, sabia and sabiá are three different words separated only by which syllable is strong. A sílaba tónica is the stressed one." },
+        { id: "pt-u115l3-apronuncia", type: "vocab", front: "a pronúncia", reading: "apronuncia", meaning: "how a word is pronounced", example: { jp: "A pronúncia do norte é forte, mas o resto do país percebe o mesmo.", en: "The northern pronunciation is strong, but the rest of the country understands the same thing." }, drill: { jp: "A pronúncia do norte é forte", en: "The northern pronunciation is strong" }, accept: ["how a word is pronounced", "pronunciation", "the pronunciation"], hint: "pro-NUN-sya. ⚠ In Portugal a pronúncia is also used loosely for a regional ACCENT — ele tem pronúncia do Porto — overlapping o sotaque (this lesson), which is the more precise word for it." },
+        { id: "pt-u115l3-osotaque", type: "vocab", front: "o sotaque", reading: "osotaque", meaning: "accent you speak with", example: { jp: "O sotaque do professor é forte, mas a turma percebe tudo depressa.", en: "The teacher's accent is strong, but the class understands everything quickly." }, drill: { jp: "O sotaque do professor é forte", en: "The teacher's accent is strong" }, accept: ["accent you speak with", "accent", "the accent", "way of speaking"], hint: "so-TA-ke. ⚠ NOT the written accent mark, which is o acento — a trap for English speakers, since English uses accent for both. Nobody in Portugal has a sotaque neutro; Lisbon simply thinks it does." },
+        { id: "pt-u115l3-soletrar", type: "vocab", front: "soletrar", reading: "soletrar", meaning: "to spell out letter by letter", example: { jp: "O funcionário manda soletrar o apelido, porque a grafia não é comum.", en: "The clerk has you spell out the surname, because the spelling is not common." }, drill: { jp: "O funcionário manda soletrar o apelido", en: "The clerk has you spell out the surname" }, accept: ["to spell out letter by letter", "to spell out", "to spell", "spell"], hint: "so-le-TRAR, built on a letra. ⚠ THE MOST PRACTICALLY USEFUL WORD IN THIS UNIT for a foreigner in Portugal — pode soletrar, por favor? is what you will say and hear at every counter, and the answer comes as letter names, not sounds." },
+      ],
+    },
+    {
+      id: "pt-u115l4",
+      unit: 115,
+      lesson: 4,
+      title: "A língua de cada grupo",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name the kind of Portuguese somebody is using in Portuguese — jargon, slang, dialect, or a polite dodge.",
+      items: [
+        { id: "pt-u115l4-ojargao", type: "vocab", front: "o jargão", reading: "ojargao", meaning: "insider professional language", example: { jp: "O jargão do banco protege o profissional, mas deixa o cliente sem perceber nada.", en: "The bank's insider language protects the professional, but leaves the client understanding nothing." }, drill: { jp: "O jargão do banco protege o profissional", en: "The bank's jargon protects the professional" }, accept: ["insider professional language", "jargon", "the jargon", "professional slang", "technical language"], hint: "jar-GOWN. ⚠ In Portuguese, as in English, the word is almost always an accusation — it says the speaker could have been clear and chose not to be. That is exactly the argument the example makes." },
+        { id: "pt-u115l4-agiria", type: "vocab", front: "a gíria", reading: "agiria", meaning: "street slang", example: { jp: "A gíria da rua muda todos os anos, mas o adulto fica sempre com a forma original.", en: "Street slang changes every year, but the adult always sticks with the original form." }, drill: { jp: "A gíria da rua muda todos os anos", en: "Street slang changes every year" }, accept: ["street slang", "slang", "the slang", "colloquial speech"], hint: "JEE-rya. ⚠ Distinguish from o jargão (this lesson): jargão comes from a PROFESSION and claims authority, gíria comes from a group of friends or a street and claims belonging. fixe and pá (u72) are gíria." },
+        { id: "pt-u115l4-odialeto", type: "vocab", front: "o dialeto", reading: "odialeto", meaning: "regional variety of a language", example: { jp: "O dialeto da ilha tem muitas palavras, embora seja português como o resto.", en: "The island's dialect has many words of its own, although it is Portuguese like the rest." }, drill: { jp: "O dialeto da ilha tem muitas palavras", en: "The island's dialect has many words of its own" }, accept: ["regional variety of a language", "dialect", "the dialect", "regional variety"], hint: "dya-LE-tu. ⚠ Spelt without the c since 1990 (formerly dialecto), the same rule as objeto and ótimo. Portugal's real dialects — Madeira, the Azores, Trás-os-Montes — are further from Lisbon speech than most learners expect." },
+        { id: "pt-u115l4-oproverbio", type: "vocab", front: "o provérbio", reading: "oproverbio", meaning: "traditional saying", example: { jp: "O provérbio resolve a discussão, mas ninguém verifica se é verdade.", en: "The traditional saying settles the argument, but nobody checks whether it is true." }, drill: { jp: "O provérbio resolve sempre a discussão", en: "The saying always settles the argument" }, accept: ["traditional saying", "proverb", "saying", "the proverb", "adage"], hint: "pro-VER-byu. ⚠ Portuguese conversation leans on these far more than English does, and quoting one is a recognised way of CLOSING an argument rather than continuing it — which is the point the example makes." },
+        { id: "pt-u115l4-oeufemismo", type: "vocab", front: "o eufemismo", reading: "oeufemismo", meaning: "softer word for a hard thing", example: { jp: "O eufemismo do governo esconde o problema, mas o número real está no relatório.", en: "The government's softer wording hides the problem, but the real figure appears in the report." }, drill: { jp: "O eufemismo do governo esconde o problema", en: "The government's euphemism hides the problem" }, accept: ["softer word for a hard thing", "euphemism", "the euphemism", "polite substitute"], hint: "eu-fe-MIZH-mu. ⚠ The institutional one you will actually meet: a Portuguese company does not despedir people, it makes a reestruturação. Naming the eufemismo is half of reading a public statement honestly." },
+        { id: "pt-u115l4-aambiguidade", type: "vocab", front: "a ambiguidade", reading: "aambiguidade", meaning: "openness to two readings", example: { jp: "A ambiguidade da frase é útil ao político, mas complica a vida ao tribunal.", en: "The sentence's openness to two readings suits the politician, but complicates life for the court." }, drill: { jp: "A ambiguidade da frase é útil", en: "The sentence's ambiguity is useful" }, accept: ["openness to two readings", "ambiguity", "the ambiguity", "double meaning"], hint: "am-bi-gwi-DA-de. ⚠ Note the spelling: the u IS pronounced here (gwi), unlike in guia or guerra. The example is the standard B2 point — ambiguity is a defect in a contract and a tool in a speech." },
+      ],
+    },
   ],
 };
