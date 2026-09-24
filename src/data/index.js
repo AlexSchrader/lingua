@@ -90,13 +90,34 @@ function stampFoldCollisions(items) {
   const byLang = {};
   for (const it of Object.values(items)) (byLang[it.lang] ??= []).push(it);
   for (const [lang, list] of Object.entries(byLang)) {
-    const fronts = new Map();
-    for (const it of list) fronts.set(String(it.front).toLowerCase(), it.id);
+    // Group by the FOLD, and stamp every member of a group that holds more than one
+    // SPELLING. The old version keyed the map on raw fronts and looked the fold up in
+    // it, so it only fired when one word was already spelled the folded way: `sånn`
+    // found `sann`, but `å måle` and `å male` both fold to "a male" and NEITHER was
+    // stamped - the symmetric case, which is the dangerous one, was invisible. Measured
+    // 2026-09-24: `checkReading("å male", å måle)` returned true in both directions, so
+    // a dictation card accepted "paint" for "measure" and vice versa. Same for
+    // `å rømme`/`å romme`, and one-directionally for de `durfte`/`dürfte` and
+    // `wusste`/`wüsste` - the Konjunktiv II defect filed on German B1 merge day, where
+    // the course had already drilled the past form it now accepts for the subjunctive.
+    //
+    // The distinct-spelling guard is load-bearing, not tidiness: ja teaches the same
+    // front twice on purpose (か the kana in u1, か the question particle in u19, and
+    // ~100 more). Those share a fold because they are the SAME string, not because a
+    // diacritic folded away, and stamping them would strip listen:type from a large
+    // slice of Japanese for no reason. Grouping without this guard stamps 206 items;
+    // with it, 35.
+    const byFold = new Map();
     for (const it of list) {
-      const front = String(it.front);
-      const fold = normalizeReading(front, lang);
-      const other = fronts.get(fold);
-      if (fold !== front.toLowerCase() && other && other !== it.id) it.foldCollides = true;
+      const fold = normalizeReading(String(it.front), lang);
+      if (!byFold.has(fold)) byFold.set(fold, []);
+      byFold.get(fold).push(it);
+    }
+    for (const group of byFold.values()) {
+      if (group.length < 2) continue;
+      const spellings = new Set(group.map((it) => String(it.front).toLowerCase()));
+      if (spellings.size < 2) continue; // homograph taught twice, not a fold collision
+      for (const it of group) it.foldCollides = true;
     }
   }
   return items;
