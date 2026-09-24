@@ -298,6 +298,22 @@ export function exampleScopeWarnings(units) {
     // The length bound is what keeps this from excusing anything: without it
     // "par" would vouch for "parlons". Suffixal inflection (plural -s, feminine
     // -e, -ons/-ez) is short by nature; a longer gap is a different word.
+    // ⚠️ KNOWN LIMIT, MEASURED 2026-09-24 — DO NOT "FIX" THIS BY COMPARING STEMS.
+    // Two things this misses, and three crews have now paid to work around them:
+    //   • anything shorter than KEY is never indexed at all (pt `dá`, `vê`, `má`)
+    //   • suffix REPLACEMENT, because it demands one word be a PREFIX of the other:
+    //     novo→nova, decidir→decide, ficar→ficam, pequeno→pequena all fail.
+    // The obvious repair is "shared prefix of KEY, both tails ≤ 3". It was prototyped
+    // against the real corpus and it is MUCH worse than the gap. New pairs it would
+    // excuse: pt +1683, no +1580, de +1217 — including casa~caso (house/case),
+    // preço~preto (price/black), mulher~multa (woman/fine), kjøpe~kjøre (buy/drive),
+    // kjenne~kjerne (know/core), zeit~zeigen (time/show), straße~strand, sind~singen.
+    // Those are different words. Excusing them means a genuinely untaught word passes
+    // the scope check silently, which is strictly worse than a warning an author reads
+    // and dismisses. A real fix needs per-language morphology tables, the way
+    // scripts/check-drills.mjs has them — that is a Feature project, not a patch here.
+    // Until then the noise is the SAFE failure mode: report your warning count and what
+    // share is this class, and do not chase it.
     const isInflection = (t) => {
       if (t.length < KEY) return false;
       for (const c of stems.get(t.slice(0, KEY)) ?? []) {
