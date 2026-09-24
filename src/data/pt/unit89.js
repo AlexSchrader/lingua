@@ -1,18 +1,92 @@
-// PT Unit 89 — Evidence and sources (slot: evidence) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 89 — A prova e o indício (slot: evidence) — B2
+// WHERE A CLAIM GETS ITS AUTHORITY. u88 argues; this unit sources. The corpus
+// already names evidence and checking (u84 a evidência, comprovar, verificar,
+// o dado, a referência, o estudo; u55 a fonte, citar, apurar, o relato,
+// o inquérito, a sondagem; u47 a testemunha; u63 o testemunho; u64 o boato;
+// u81 a prova; u85 o rigor; u49 o registo) — none re-taught. What it cannot do
+// is WEIGH a source: say a claim is unfounded, that a record has a gap, that two
+// accounts do not match, or that something has been corroborated.
+//
+// SLOT BOUNDARIES: u55 owns the act of sourcing (citar, a fonte, apurar), so
+// this unit takes the OBJECTS of it — a citação, o excerto, a autoria. u102
+// (health systems) and u103 (education and research) are block 2/3's; this unit
+// stays on evidence AS EVIDENCE and names neither. o depoimento is glossed
+// "statement (on record)" rather than "testimony", which u63 owns (§C5).
+// Conventions: unit1.js header · B2 constitution §C1–C10: unit88.js header.
 export const PT_UNIT89 = {
   id: "pt-u89",
   lang: "pt",
-  title: "Evidence and sources",
+  title: "A prova e o indício",
   order: 89,
   stage: "b2",
   lessons: [
-    { id: "pt-u89l1", title: "Lesson 1", locked: true },
-    { id: "pt-u89l2", title: "Lesson 2", locked: true },
-    { id: "pt-u89l3", title: "Lesson 3", locked: true },
-    { id: "pt-u89l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u89l1",
+      unit: 89,
+      lesson: 1,
+      title: "Onde está escrito",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Point at the place a claim comes from in Portuguese — the quotation, the passage, who wrote it, and where it is on record.",
+      items: [
+        { id: "pt-u89l1-acitacao", type: "vocab", front: "a citação", reading: "acitacao", meaning: "quotation", example: { jp: "A citação do livro é boa, mas o professor corta a frase antes do fim.", en: "The quotation from the book is a good one, but the teacher cuts the sentence off before the end." }, drill: { jp: "A citação do livro é boa", en: "The quotation from the book is good" }, accept: ["the quotation", "quotation", "quote", "the quote", "citation"], hint: "si-ta-SOWN, from citar (u55). The words themselves, between quotation marks. A referência (u84) says WHERE it came from; a citação is WHAT was said, and the two are different halves of the same footnote." },
+        { id: "pt-u89l1-oexcerto", type: "vocab", front: "o excerto", reading: "oexcerto", meaning: "extract (passage)", example: { jp: "O excerto que o jornal escolhe é curto, mas a parte que falta muda tudo.", en: "The extract the newspaper picks is short, but the missing part changes everything." }, drill: { jp: "O excerto do jornal é curto", en: "The newspaper's extract is short" }, accept: ["the extract", "extract", "passage", "the passage", "excerpt"], hint: "esh-SER-tu. A slice of a longer text, longer than a quotation and shorter than the whole. Portuguese exams are built on them: leia o excerto e responda. Um trecho is the everyday synonym." },
+        { id: "pt-u89l1-aautoria", type: "vocab", front: "a autoria", reading: "aautoria", meaning: "authorship", example: { jp: "A autoria do texto não está provada, mas a data do papel já diz muito.", en: "The text's authorship is not proven, but the date on the document already says a lot." }, drill: { jp: "A autoria do texto não está provada", en: "The text's authorship is not proven" }, accept: ["the authorship", "authorship", "who wrote it", "attribution"], hint: "au-tu-REE-a. Who made it — a text, a crime, an idea. De autoria de X is the formal 'by X'. Portuguese police reports use it too: a autoria do crime, which is nothing to do with writing." },
+        { id: "pt-u89l1-documentar", type: "vocab", front: "documentar", reading: "documentar", meaning: "to document", example: { jp: "A escola quer documentar tudo o que acontece na aldeia, mas ninguém paga este trabalho.", en: "The school wants to document everything that happens in the village, but nobody pays for this work." }, drill: { jp: "A escola quer documentar todo o processo", en: "The school wants to document the whole process" }, accept: ["to document", "document", "to record", "to put on record", "to log"], hint: "do-ku-men-TAR. To leave written evidence on purpose, not merely to remember. Registar (from o registo, u49) enters one item in a list; documentar builds the file the list points at." },
+        { id: "pt-u89l1-constar", type: "vocab", front: "constar", reading: "constar", meaning: "to be on record", example: { jp: "O nome da empresa não consta na lista, mas o dinheiro está no banco.", en: "The company's name is not on the list, but the money is in the bank." }, drill: { jp: "O nome não vai constar na lista", en: "The name will not be on the list" }, accept: ["to be on record", "to appear", "to be stated", "to be listed", "to figure"], hint: "konsh-TAR. The verb a Portuguese official document uses for 'appears in': consta do processo. Second life: consta que… means 'word has it that…' — the same verb doing the opposite job, hearsay instead of record." },
+        { id: "pt-u89l1-remeter", type: "vocab", front: "remeter", reading: "remeter", meaning: "to refer on", example: { jp: "O livro remete para outro estudo, mas o segundo estudo já não está em lado nenhum.", en: "The book refers on to another study, but the second study is no longer anywhere." }, drill: { jp: "O livro vai remeter para outro estudo", en: "The book will refer on to another study" }, accept: ["to refer on", "refer", "to point to", "to send on", "to forward"], hint: "rre-me-TER. To pass the reader (or the file) somewhere else: remeter para o anexo, remeter o caso ao tribunal. It is the citation-chain verb — and a chain that ends in a source nobody can find is how a boato (u64) dresses as evidence." },
+      ],
+    },
+    {
+      id: "pt-u89l2",
+      unit: 89,
+      lesson: 2,
+      title: "Pesar a fonte",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Judge a source out loud in Portuguese — say it is trustworthy, dubious, merely plausible, or simply unfounded.",
+      items: [
+        { id: "pt-u89l2-fidedigno", type: "vocab", front: "fidedigno", reading: "fidedigno", meaning: "trustworthy (of a source)", example: { jp: "O jornal é fidedigno, mas desta vez publica um número que ninguém pode verificar.", en: "The newspaper is trustworthy, but this time it publishes a figure nobody can check." }, drill: { jp: "O jornal do país é fidedigno", en: "The country's newspaper is trustworthy" }, accept: ["trustworthy", "reliable source", "credible", "dependable", "authoritative"], hint: "fi-de-DEEG-nu, from Latin 'worthy of faith'. Said of SOURCES and information, almost never of people — a trustworthy friend is de confiança. Uma fonte fidedigna is the fixed pairing you will meet in print." },
+        { id: "pt-u89l2-duvidoso", type: "vocab", front: "duvidoso", reading: "duvidoso", meaning: "dubious", example: { jp: "O dado é duvidoso porque a fonte não está em lado nenhum.", en: "The figure is dubious because the source is nowhere to be found." }, drill: { jp: "O dado do estudo é duvidoso", en: "The study's figure is dubious" }, accept: ["dubious", "doubtful", "questionable", "iffy", "shaky"], hint: "du-vi-DO-zu, from duvidar (u54). Of a thing, not a feeling: eu estou em dúvida is my state, isto é duvidoso is the thing's. It carries a hint of bad faith that 'uncertain' does not." },
+        { id: "pt-u89l2-plausivel", type: "vocab", front: "plausível", reading: "plausivel", meaning: "plausible", example: { jp: "A versão do governo é plausível, mas ser possível não é o mesmo que estar provado.", en: "The government's version is plausible, but being possible is not the same as being proven." }, drill: { jp: "A versão do governo é plausível", en: "The government's version is plausible" }, accept: ["plausible", "believable", "credible", "reasonable"], hint: "plau-ZEE-vel. The exact B2 hedge: it could be true, and that is all you are saying. Pairing it with mas, as here, is the standard Portuguese move for accepting a story while refusing to endorse it." },
+        { id: "pt-u89l2-averacidade", type: "vocab", front: "a veracidade", reading: "averacidade", meaning: "truthfulness", example: { jp: "A veracidade do relato não está em causa, mas a memória de quem fala já tem muitos anos.", en: "The truthfulness of the account is not in question, but the memory of the person speaking is many years old." }, drill: { jp: "A veracidade do relato não está provada", en: "The truthfulness of the account is not proven" }, accept: ["truthfulness", "veracity", "truth of it", "accuracy"], hint: "ve-ra-si-DA-de, from a verdade (u40). Not 'the truth' itself but the PROPERTY of being true — what a court tests. Pôr em causa a veracidade de algo is to challenge it formally." },
+        { id: "pt-u89l2-afiabilidade", type: "vocab", front: "a fiabilidade", reading: "afiabilidade", meaning: "reliability", example: { jp: "A fiabilidade do estudo é boa, mas o número de pessoas é baixo para um país grande.", en: "The study's reliability is good, but the number of people is low for a large country." }, drill: { jp: "A fiabilidade do estudo é boa", en: "The study's reliability is good" }, accept: ["reliability", "dependability", "soundness", "trustworthiness"], hint: "fya-bi-li-DA-de, from fiar-se, to trust. pt-PT says fiabilidade where Brazil says confiabilidade — this is one of the clean pt-PT / pt-BR splits. It is said of instruments, data and machines." },
+        { id: "pt-u89l2-infundado", type: "vocab", front: "infundado", reading: "infundado", meaning: "unfounded", example: { jp: "O boato é infundado, mas chega a todo o país antes de alguém perguntar nada.", en: "The rumour is unfounded, but it reaches the whole country before anyone asks anything." }, drill: { jp: "O boato do jornal é infundado", en: "The newspaper's rumour is unfounded" }, accept: ["unfounded", "baseless", "groundless", "without basis"], hint: "in-fun-DA-du — 'not founded', built on o fundo. The word for a claim with nothing under it, which is not the same as a false one: an infundada claim may happen to be true and still have no business being made." },
+      ],
+    },
+    {
+      id: "pt-u89l3",
+      unit: 89,
+      lesson: 3,
+      title: "Seguir o rasto",
+      cefr: "B2",
+      dominantMode: "produce",
+      canDo: "Follow evidence back in Portuguese — name the clue, the trace it left, and say who has corroborated or certified it.",
+      items: [
+        { id: "pt-u89l3-oindicio", type: "vocab", front: "o indício", reading: "oindicio", meaning: "clue", example: { jp: "O indício é pequeno, mas quando o mesmo facto volta três vezes já não é por sorte.", en: "The clue is small, but when the same fact comes back three times it is no longer luck." }, drill: { jp: "O indício do caso é pequeno", en: "The case's clue is small" }, accept: ["the clue", "clue", "indication", "sign", "pointer"], hint: "in-DEE-syu. Something that POINTS at a conclusion without proving it. Portuguese law leans on the distinction hard: indícios get you an investigation, a prova (u81) gets you a conviction." },
+        { id: "pt-u89l3-ovestigio", type: "vocab", front: "o vestígio", reading: "ovestigio", meaning: "trace (left behind)", example: { jp: "O vestígio do fogo ainda está na madeira, mas a casa está limpa por fora.", en: "The trace of the fire is still in the wood, but the house is clean on the outside." }, drill: { jp: "O vestígio do fogo está na madeira", en: "The trace of the fire is in the wood" }, accept: ["the trace", "trace", "remnant", "sign left", "vestige"], hint: "vesh-TEE-jyu — originally a footprint. What an event physically left behind, where um indício is what that leaves you thinking. Sem deixar vestígios is 'without a trace'." },
+        { id: "pt-u89l3-rastrear", type: "vocab", front: "rastrear", reading: "rastrear", meaning: "to trace back", example: { jp: "A empresa quer rastrear o dinheiro todo, mas metade dele passou por um país sem registo.", en: "The company wants to trace all the money back, but half of it passed through a country with no records." }, drill: { jp: "A empresa quer rastrear o dinheiro", en: "The company wants to trace the money back" }, accept: ["to trace", "trace back", "to track", "track", "to follow back"], hint: "rrash-tre-AR, from o rasto, a trail. Following a chain backwards to its start — money, a parcel, an illness, a source. Not to be confused with procurar, which is looking for something you have no trail to." },
+        { id: "pt-u89l3-aferir", type: "vocab", front: "aferir", reading: "aferir", meaning: "to gauge", example: { jp: "É difícil aferir o valor do estudo, porque ninguém sabe o número de pessoas que responde.", en: "It is hard to gauge the study's value, because nobody knows the number of people who respond." }, drill: { jp: "O tribunal quer aferir o valor", en: "The court wants to gauge the value" }, accept: ["to gauge", "gauge", "to assess", "assess", "to measure against a standard"], hint: "a-fe-REER. To measure something AGAINST a standard, not just to measure it: medir gives you a number, aferir tells you whether the number is any good. Portuguese schools use it for assessment — provas de aferição." },
+        { id: "pt-u89l3-corroborar", type: "vocab", front: "corroborar", reading: "corroborar", meaning: "to corroborate", example: { jp: "O segundo estudo corrobora o primeiro, mas os dois estudos são da empresa que paga.", en: "The second study corroborates the first, but both studies belong to the company that pays." }, drill: { jp: "O segundo estudo vai corroborar o primeiro", en: "The second study will corroborate the first" }, accept: ["to corroborate", "corroborate", "to back up", "back up", "to confirm independently"], hint: "ko-rru-bu-RAR. To support an existing claim with a SECOND, separate source. Comprovar (u84) proves a thing outright; corroborar only strengthens what someone else already said — and only if it is genuinely independent." },
+        { id: "pt-u89l3-atestar", type: "vocab", front: "atestar", reading: "atestar", meaning: "to certify", example: { jp: "O médico atesta que a pessoa não pode trabalhar, mas a empresa quer outra opinião.", en: "The doctor certifies that the person cannot work, but the company wants a second opinion." }, drill: { jp: "O médico vai atestar a doença", en: "The doctor is going to certify the illness" }, accept: ["to certify", "certify", "to attest", "attest", "to vouch for"], hint: "a-tesh-TAR. To put your own authority behind a fact — a doctor, a notary, a lab. Um atestado médico is the sick note itself. In Portugal atestar a bomba also means to fill the tank, which is a different verb wearing the same coat." },
+      ],
+    },
+    {
+      id: "pt-u89l4",
+      unit: 89,
+      lesson: 4,
+      title: "O que falta",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say what the record is missing in Portuguese — the gap, the guess filling it, the rival version, and where two accounts fail to match.",
+      items: [
+        { id: "pt-u89l4-alacuna", type: "vocab", front: "a lacuna", reading: "alacuna", meaning: "gap (in the record)", example: { jp: "A lacuna do processo é de três anos, mas é no mesmo tempo que o dinheiro desaparece.", en: "The gap in the file is three years long, but it is in that same period that the money disappears." }, drill: { jp: "A lacuna do processo é grande", en: "The gap in the file is large" }, accept: ["the gap", "gap", "hole", "omission", "blank"], hint: "la-KOO-na. A hole in something that should have been complete — a file, a law, a memory. Um buraco (u87) is a physical hole; uma lacuna is a missing part of a system, and uma lacuna legal is a loophole." },
+        { id: "pt-u89l4-asuposicao", type: "vocab", front: "a suposição", reading: "asuposicao", meaning: "supposition", example: { jp: "A suposição do jornal é boa, mas continua a ser uma suposição enquanto o papel não chega ao tribunal.", en: "The newspaper's supposition is a good one, but it remains a supposition while the document doesn't reach the court." }, drill: { jp: "A suposição do jornal não é prova", en: "The newspaper's supposition is not proof" }, accept: ["the supposition", "supposition", "surmise", "conjecture", "guess"], hint: "su-pu-zi-SOWN, the noun of supor (u54). Weaker than uma tese (u88) and much weaker than uma prova: it is what fills a lacuna until evidence arrives. Por suposição means on the basis of a guess." },
+        { id: "pt-u89l4-aversao", type: "vocab", front: "a versão", reading: "aversao", meaning: "version (of events)", example: { jp: "A versão da empresa não é igual à da família, mas o tribunal já escolhe uma.", en: "The company's version is not the same as the family's, but the court is already picking one." }, drill: { jp: "A versão da empresa não é clara", en: "The company's version is not clear" }, accept: ["the version", "version", "account", "the account", "side of the story"], hint: "ver-SOWN. One party's account of what happened, with the built-in admission that there is another. A minha versão dos factos is how a Portuguese witness frames a statement — honest about being a point of view." },
+        { id: "pt-u89l4-odepoimento", type: "vocab", front: "o depoimento", reading: "odepoimento", meaning: "statement (on record)", example: { jp: "O depoimento da mulher é longo, mas não diz nada da noite em questão.", en: "The woman's statement is long, but it says nothing about the night in question." }, drill: { jp: "O depoimento da mulher é longo", en: "The woman's statement is long" }, accept: ["the statement", "statement", "deposition", "account given", "evidence given"], hint: "de-poy-MEN-tu, from depor, to set down. The thing a witness actually SAYS, recorded: prestar depoimento is to give a statement. u63's o testemunho is the broader idea of bearing witness; this is the document that comes out of it." },
+        { id: "pt-u89l4-consistente", type: "vocab", front: "consistente", reading: "consistente", meaning: "consistent", example: { jp: "O relato é consistente do princípio ao fim, mas isso também acontece quando alguém o prepara bem.", en: "The account is consistent from start to finish, but that also happens when somebody rehearses it well." }, drill: { jp: "O relato da família é consistente", en: "The family's account is consistent" }, accept: ["consistent", "coherent", "solid", "holding together"], hint: "kon-sish-TEN-te. Of an argument or an account: nothing inside it contradicts anything else. Careful with the food sense — uma sopa consistente is a thick soup, and that is the older meaning of the word." },
+        { id: "pt-u89l4-adiscrepancia", type: "vocab", front: "a discrepância", reading: "adiscrepancia", meaning: "discrepancy", example: { jp: "A discrepância entre os dois números não é grande, mas em dinheiro público nada é pequeno.", en: "The discrepancy between the two figures is not large, but with public money nothing is small." }, drill: { jp: "A discrepância entre os números não é grande", en: "The discrepancy between the figures is not large" }, accept: ["the discrepancy", "discrepancy", "mismatch", "inconsistency", "difference that shouldn't be there"], hint: "dish-kre-PAN-sya. Not just a difference — a difference between two things that were supposed to agree. Uma diferença de preço is normal; uma discrepância nas contas is the start of an audit." },
+      ],
+    },
   ],
 };

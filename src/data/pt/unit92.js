@@ -1,18 +1,94 @@
-// PT Unit 92 — Politics and law (slot: politics-law) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 92 — A política e a lei (slot: politics-law) — B2
+// §C3 IN ITS PUREST FORM. The corpus already has the furniture of politics and
+// justice: o governo, votar, o cidadão, a lei, o direito, a sociedade (u32),
+// o povo, o rei, a guerra (u48), o tribunal, o julgamento, a norma, a identidade
+// (u44), a testemunha (u47), o crime, o juiz, a polícia, o castigo, a prisão in
+// their own slots. NONE of it is re-taught. What a B1 learner cannot yet do is
+// talk about the MACHINERY: who makes a law, when it starts to bind, how it is
+// undone, what a court does to a person, and how power is held and checked.
+//
+// SLOT BOUNDARIES: u88 owns o apelo, the appeal to FEELING — this unit takes
+// o recurso, the appeal against a RULING, and the u88 hint points at it without
+// citing a unit number (§C8). a pena is glossed "penalty (sentence served)" and
+// u93's a penalização is "penalty clause", because one gloss may not serve two
+// cards (§C5). a comissão, a bancada and condenar are RESERVED, unspent, for
+// blocks 2/3 — condenar in particular pairs with absolver here and a later unit
+// may want the pair intact.
+// Conventions: unit1.js header · B2 constitution §C1–C10: unit88.js header.
 export const PT_UNIT92 = {
   id: "pt-u92",
   lang: "pt",
-  title: "Politics and law",
+  title: "A política e a lei",
   order: 92,
   stage: "b2",
   lessons: [
-    { id: "pt-u92l1", title: "Lesson 1", locked: true },
-    { id: "pt-u92l2", title: "Lesson 2", locked: true },
-    { id: "pt-u92l3", title: "Lesson 3", locked: true },
-    { id: "pt-u92l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u92l1",
+      unit: 92,
+      lesson: 1,
+      title: "Quem faz a lei",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say where a law comes from in Portuguese — the member, the chamber, the act of legislating, the decree, the amendment.",
+      items: [
+        { id: "pt-u92l1-odeputado", type: "vocab", front: "o deputado", reading: "odeputado", meaning: "member of parliament", example: { jp: "O deputado fala muito da escola do campo, mas nunca esteve numa.", en: "The MP talks a lot about country schools, but has never been in one." }, drill: { jp: "O deputado fala muito da escola", en: "The MP talks a lot about the school" }, accept: ["MP", "member of parliament", "deputy", "representative", "congressman"], hint: "de-pu-TA-du. Portugal's parliament is a Assembleia da República and its members are deputados — not senadores, which Portugal does not have. The feminine is a deputada." },
+        { id: "pt-u92l1-aassembleia", type: "vocab", front: "a assembleia", reading: "aassembleia", meaning: "assembly", example: { jp: "A assembleia trabalha um ano num papel, mas o país não sente nada disso.", en: "The assembly works for a year on a document, but the country feels none of it." }, drill: { jp: "A assembleia trabalha um ano num papel", en: "The assembly works for a year on a document" }, accept: ["the assembly", "assembly", "chamber", "parliament", "house"], hint: "a-ssem-BLAY-a. Any body that meets to decide — a school's, a company's shareholders', and above all a Assembleia da República. A reunião (u18) is a meeting; uma assembleia has standing and can bind." },
+        { id: "pt-u92l1-legislar", type: "vocab", front: "legislar", reading: "legislar", meaning: "to legislate", example: { jp: "É fácil legislar para o trabalho, mas difícil fazer a lei chegar ao campo.", en: "It is easy to legislate for work, but hard to make the law reach the countryside." }, drill: { jp: "O governo quer legislar para o trabalho", en: "The government wants to legislate for work" }, accept: ["to legislate", "legislate", "to make law", "to pass laws"], hint: "le-jish-LAR. To make law as an activity, not to pass one particular text. Poder legislativo is the law-making branch, against the executivo and the judicial — a three-way split Portuguese names the same way English does." },
+        { id: "pt-u92l1-odecreto", type: "vocab", front: "o decreto", reading: "odecreto", meaning: "decree", example: { jp: "O decreto do governo chega depressa, mas a assembleia depois quer mudar tudo.", en: "The government's decree arrives quickly, but the assembly then wants to change everything." }, drill: { jp: "O decreto do governo chega depressa", en: "The government's decree arrives quickly" }, accept: ["the decree", "decree", "order", "executive order", "statutory order"], hint: "de-KRE-tu. A rule made by the GOVERNMENT rather than voted by parliament — which is exactly why it is faster and exactly why it is fought over. Decreto-lei is the common Portuguese compound." },
+        { id: "pt-u92l1-aemenda", type: "vocab", front: "a emenda", reading: "aemenda", meaning: "amendment", example: { jp: "A emenda é simples no papel, mas muda quem paga o imposto.", en: "The amendment is simple on paper, but it changes who pays the tax." }, drill: { jp: "A emenda é simples no papel", en: "The amendment is simple on paper" }, accept: ["the amendment", "amendment", "change to the text", "revision"], hint: "e-MEN-da, from emendar, to mend. A change to a text already on the table. The Portuguese proverb is worth the card on its own: a emenda é pior que o soneto — the fix is worse than the original." },
+        { id: "pt-u92l1-promulgar", type: "vocab", front: "promulgar", reading: "promulgar", meaning: "to enact", example: { jp: "O papel está feito, mas ninguém o vai promulgar antes do ano seguinte.", en: "The document is done, but nobody is going to enact it before the following year." }, drill: { jp: "Ninguém vai promulgar a lei este ano", en: "Nobody is going to enact the law this year" }, accept: ["to enact", "enact", "to promulgate", "to sign into law", "to put into law"], hint: "pru-mul-GAR. The final signature that turns a voted text into law — in Portugal the President's, and refusing it is the veto in lesson 2. Aprovar is the vote; promulgar is what happens after it." },
+      ],
+    },
+    {
+      id: "pt-u92l2",
+      unit: 92,
+      lesson: 2,
+      title: "Quando a lei vale",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say when a rule actually binds in Portuguese — in force, repealed, blocked, and which authority it belongs to.",
+      items: [
+        { id: "pt-u92l2-vigorar", type: "vocab", front: "vigorar", reading: "vigorar", meaning: "to be in force", example: { jp: "A regra vigora desde o ano passado, mas quase ninguém na cidade sabe disso.", en: "The rule has been in force since last year, but almost nobody in the city knows about that." }, drill: { jp: "A regra vai vigorar desde o ano seguinte", en: "The rule will be in force from the following year" }, accept: ["to be in force", "be in force", "to apply", "to hold", "to be in effect"], hint: "vi-gu-RAR, from o vigor. Only of rules, contracts and prices — never of people. Em vigor is the fixed phrase you will see on every Portuguese form: a lei em vigor, the law as it currently stands." },
+        { id: "pt-u92l2-revogar", type: "vocab", front: "revogar", reading: "revogar", meaning: "to repeal", example: { jp: "O governo quer revogar a lei do ano passado, mas a assembleia não tem tempo este ano.", en: "The government wants to repeal last year's law, but the assembly has no time this year." }, drill: { jp: "O governo quer revogar a lei", en: "The government wants to repeal the law" }, accept: ["to repeal", "repeal", "to revoke", "revoke", "to strike out"], hint: "rre-vu-GAR. To cancel a rule that is already in force. It is the exact opposite of vigorar and the two live in the same sentence constantly: a lei foi revogada e deixou de vigorar." },
+        { id: "pt-u92l2-aconstituicao", type: "vocab", front: "a constituição", reading: "aconstituicao", meaning: "constitution", example: { jp: "A constituição diz uma coisa, mas a prática do país diz outra há muitos anos.", en: "The constitution says one thing, but the country's practice has said another for many years." }, drill: { jp: "A constituição do país diz outra coisa", en: "The country's constitution says something else" }, accept: ["the constitution", "constitution", "basic law", "founding law"], hint: "konsh-ti-tui-SOWN. The law above the laws. Portugal's dates from 1976, two years after the Carnation Revolution, and inconstitucional — struck down for conflicting with it — is one of the heaviest words in Portuguese politics." },
+        { id: "pt-u92l2-oveto", type: "vocab", front: "o veto", reading: "oveto", meaning: "veto", example: { jp: "O veto atrasa a lei um ano, mas a assembleia pode aprovar o papel outra vez.", en: "The veto delays the law a year, but the assembly can approve the document all over again." }, drill: { jp: "O veto atrasa a lei um ano", en: "The veto delays the law a year" }, accept: ["the veto", "veto", "block", "refusal to sign"], hint: "VE-tu, Latin for 'I forbid'. In Portugal the President vetoes by refusing to promulgar; parliament can override by voting again. Vetar is the verb, and it is used of ideas and plans too." },
+        { id: "pt-u92l2-ajurisdicao", type: "vocab", front: "a jurisdição", reading: "ajurisdicao", meaning: "jurisdiction", example: { jp: "O caso não é da jurisdição do tribunal da cidade, mas a família não sabe disso.", en: "The case is not within the city court's jurisdiction, but the family does not know that." }, drill: { jp: "O caso não é da jurisdição deste tribunal", en: "The case is not in this court's jurisdiction" }, accept: ["the jurisdiction", "jurisdiction", "remit", "authority over it", "competence"], hint: "ju-rish-di-SOWN. The area a court or an authority is allowed to decide in — by place, by subject or by both. Fora da nossa jurisdição is the sentence that sends a file somewhere else." },
+        { id: "pt-u92l2-aautarquia", type: "vocab", front: "a autarquia", reading: "aautarquia", meaning: "local authority", example: { jp: "A autarquia paga a escola do campo, mas o dinheiro chega do governo.", en: "The local authority pays for the country school, but the money comes from central government." }, drill: { jp: "A autarquia paga a escola do campo", en: "The local authority pays for the country school" }, accept: ["the local authority", "local authority", "council", "municipality", "local government"], hint: "au-tar-KEE-a. The Portuguese word for a council — a câmara municipal is the body, autarquia the legal category, and as autárquicas are the local elections. The word means self-rule, which is the whole political argument in one noun." },
+      ],
+    },
+    {
+      id: "pt-u92l3",
+      unit: 92,
+      lesson: 3,
+      title: "No tribunal",
+      cefr: "B2",
+      dominantMode: "produce",
+      canDo: "Follow a case through a Portuguese court — the defendant, the prosecution, acquittal, the ruling, the penalty, the level of court.",
+      items: [
+        { id: "pt-u92l3-oreu", type: "vocab", front: "o réu", reading: "oreu", meaning: "defendant", example: { jp: "O réu não fala durante o julgamento, mas o advogado dele fala por três horas.", en: "The defendant does not speak during the trial, but his lawyer speaks for three hours." }, drill: { jp: "O réu não fala durante o julgamento", en: "The defendant does not speak during the trial" }, accept: ["the defendant", "defendant", "the accused", "accused"], hint: "RREH-u, one syllable and a bit. The person a criminal case is against — feminine a ré. In a civil case the other side is o autor, which is a different word from a book's author despite the spelling." },
+        { id: "pt-u92l3-aacusacao", type: "vocab", front: "a acusação", reading: "aacusacao", meaning: "prosecution case", example: { jp: "A acusação é forte no papel, mas a testemunha principal já não quer falar.", en: "The prosecution case is strong on paper, but the main witness no longer wants to speak." }, drill: { jp: "A acusação é forte no papel", en: "The prosecution case is strong on paper" }, accept: ["the prosecution", "prosecution", "the charge", "charge", "the case against"], hint: "a-ku-za-SOWN. Both the charge itself and the side bringing it — deduzir acusação is to formally charge. Distinct from u88's a alegação, which is a claim anyone can make outside a court." },
+        { id: "pt-u92l3-absolver", type: "vocab", front: "absolver", reading: "absolver", meaning: "to acquit", example: { jp: "O tribunal vai absolver o réu por falta de prova, mas a cidade já decidiu o caso.", en: "The court is going to acquit the defendant for lack of evidence, but the town has already decided the case." }, drill: { jp: "O tribunal vai absolver o réu", en: "The court is going to acquit the defendant" }, accept: ["to acquit", "acquit", "to clear", "clear", "to find not guilty"], hint: "ab-sol-VER. To find not guilty — and in Portuguese law that is not the same as declaring innocence: a court absolve por falta de prova, which says the case failed, not that nothing happened." },
+        { id: "pt-u92l3-asentenca", type: "vocab", front: "a sentença", reading: "asentenca", meaning: "ruling", example: { jp: "A sentença chega um ano depois, mas a família já gasta tudo com o advogado.", en: "The ruling comes a year later, but the family is already spending everything on the lawyer." }, drill: { jp: "A sentença chega um ano depois", en: "The ruling comes a year later" }, accept: ["the ruling", "ruling", "judgment", "the judgment", "verdict"], hint: "sen-TEN-sa. The judge's decision as a document. Careful with the false friend: a sentence you WRITE is uma frase — a sentença is only ever the legal one, and the punishment inside it is a pena." },
+        { id: "pt-u92l3-apena", type: "vocab", front: "a pena", reading: "apena", meaning: "penalty (sentence served)", example: { jp: "A pena é de três anos, mas o homem sai antes por causa do trabalho na prisão.", en: "The sentence is three years, but the man gets out earlier because of work done in prison." }, drill: { jp: "A pena do réu é de três anos", en: "The defendant's sentence is three years" }, accept: ["the sentence", "sentence", "penalty", "punishment", "term"], hint: "PE-na. The punishment itself. This word leads three lives in Portuguese and you need all of them: a pena is a sentence, ter pena de alguém is to feel sorry for them, and vale a pena means it is worth it." },
+        { id: "pt-u92l3-ainstancia", type: "vocab", front: "a instância", reading: "ainstancia", meaning: "court level", example: { jp: "A instância do meio diz que a empresa tem razão, mas o tribunal seguinte muda a sentença.", en: "The middle level says the company is right, but the next court changes the ruling." }, drill: { jp: "A instância do meio muda a sentença", en: "The middle level changes the ruling" }, accept: ["the court level", "level of court", "instance", "tier", "level"], hint: "insh-TAN-sya. One step in the court ladder: primeira instância, segunda instância. Outside the courts it means an authority you apply to — em última instância means in the last analysis." },
+      ],
+    },
+    {
+      id: "pt-u92l4",
+      unit: 92,
+      lesson: 4,
+      title: "O poder e o voto",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about how power is held in Portuguese — the term, the electorate, sovereignty, scrutiny, a coalition, an appeal.",
+      items: [
+        { id: "pt-u92l4-omandato", type: "vocab", front: "o mandato", reading: "omandato", meaning: "term of office", example: { jp: "O mandato é de quatro anos, mas o plano da cidade precisa de dez.", en: "The term of office is four years, but the city's plan needs ten." }, drill: { jp: "O mandato é de quatro anos", en: "The term of office is four years" }, accept: ["the term of office", "term of office", "mandate", "term", "time in office"], hint: "man-DA-tu. The period someone holds an office, and also the authority the vote gave them. Cumprir o mandato is to serve out the term; um mandato de detenção is an arrest warrant, the same word as a legal instruction." },
+        { id: "pt-u92l4-oeleitorado", type: "vocab", front: "o eleitorado", reading: "oeleitorado", meaning: "electorate", example: { jp: "O eleitorado do campo é pequeno, mas o partido que o perde não ganha o país.", en: "The rural electorate is small, but the party that loses it does not win the country." }, drill: { jp: "O eleitorado do campo é pequeno", en: "The rural electorate is small" }, accept: ["the electorate", "electorate", "the voters", "voters", "voting public"], hint: "e-lay-tu-RA-du. All the people entitled to vote, taken as one body — from o eleitor, a voter. A useful contrast with o povo (u48), which is the people as a nation rather than as a count of ballots." },
+        { id: "pt-u92l4-asoberania", type: "vocab", front: "a soberania", reading: "asoberania", meaning: "sovereignty", example: { jp: "A soberania do país está na constituição, mas metade das regras chega de fora.", en: "The country's sovereignty is in the constitution, but half the rules arrive from outside." }, drill: { jp: "A soberania do país está na constituição", en: "The country's sovereignty is in the constitution" }, accept: ["the sovereignty", "sovereignty", "self-rule", "independence of a state"], hint: "su-be-ra-NEE-a. The right of a state to decide for itself. Órgãos de soberania is the formal Portuguese name for the four top institutions — the President, the Assembly, the Government and the courts." },
+        { id: "pt-u92l4-oescrutinio", type: "vocab", front: "o escrutínio", reading: "oescrutinio", meaning: "scrutiny", example: { jp: "O escrutínio da conta pública é fraco, mas o dinheiro é de todos.", en: "Scrutiny of the public accounts is weak, but the money belongs to everybody." }, drill: { jp: "O escrutínio da conta pública é fraco", en: "Scrutiny of the public accounts is weak" }, accept: ["the scrutiny", "scrutiny", "close examination", "oversight", "vote count"], hint: "esh-kru-TEE-nyu. Two senses, both live: the careful checking of someone's work, and the counting of votes on election night. Sob escrutínio means under close examination." },
+        { id: "pt-u92l4-acoligacao", type: "vocab", front: "a coligação", reading: "acoligacao", meaning: "coalition", example: { jp: "A coligação ganha a assembleia, mas os dois partidos não estavam de acordo em nada.", en: "The coalition wins the assembly, but the two parties agreed on nothing." }, drill: { jp: "A coligação ganha a assembleia", en: "The coalition wins the assembly" }, accept: ["the coalition", "coalition", "alliance", "bloc", "joint ticket"], hint: "ku-li-ga-SOWN, from ligar. pt-PT spells it coligação where Brazil writes coalizão — this is a clean split. It covers both an electoral pact and a governing alliance." },
+        { id: "pt-u92l4-orecurso", type: "vocab", front: "o recurso", reading: "orecurso", meaning: "appeal (legal)", example: { jp: "O recurso da empresa demora dois anos, mas a sentença já obriga a pagar agora.", en: "The company's appeal takes two years, but the ruling already requires payment now." }, drill: { jp: "O recurso da empresa demora dois anos", en: "The company's appeal takes two years" }, accept: ["the appeal", "appeal", "legal appeal", "challenge to a ruling"], hint: "rre-KUR-su. The formal challenge that sends a case up an instância. Not o apelo, which is a call on people's feelings — Portuguese keeps the two strictly apart. The same word also means a resource: recursos naturais." },
+      ],
+    },
   ],
 };

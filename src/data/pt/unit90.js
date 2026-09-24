@@ -1,18 +1,91 @@
-// PT Unit 90 — Systems and abstraction (slot: abstraction) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 90 — O sistema e a abstração (slot: abstraction) — B2
+// TALKING ABOUT A THING AS A STRUCTURE. u58 gave the corpus the abstract nouns
+// themselves (a estrutura, o modelo, o princípio, o conjunto, o elemento, o
+// critério, a lógica, a base, o sentido, a questão, abstrato, concreto); u82 gave
+// a escala and o padrão; u86 o ciclo. None re-taught. What is missing is the
+// machinery for USING them: the parts of a system, how you sort things into
+// kinds, how the parts connect, and how you turn a messy thing into variables.
+//
+// SLOT BOUNDARIES: u58 owns the vocabulary of abstraction; this unit owns its
+// GRAMMAR of parts and wholes. Nothing here is computing-specific — u94 owns the
+// technical stack (o algoritmo, o servidor, o circuito) and u103 (block 3) owns
+// research method. a hierarquia is spent HERE, on structure, and so is out of
+// u100's reach; u100 takes the human side of authority instead.
+// Conventions: unit1.js header · B2 constitution §C1–C10: unit88.js header.
 export const PT_UNIT90 = {
   id: "pt-u90",
   lang: "pt",
-  title: "Systems and abstraction",
+  title: "O sistema e a abstração",
   order: 90,
   stage: "b2",
   lessons: [
-    { id: "pt-u90l1", title: "Lesson 1", locked: true },
-    { id: "pt-u90l2", title: "Lesson 2", locked: true },
-    { id: "pt-u90l3", title: "Lesson 3", locked: true },
-    { id: "pt-u90l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u90l1",
+      unit: 90,
+      lesson: 1,
+      title: "As partes e o todo",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe something as a system in Portuguese — the mechanism inside it, the layers it has, the core it turns on.",
+      items: [
+        { id: "pt-u90l1-osistema", type: "vocab", front: "o sistema", reading: "osistema", meaning: "system", example: { jp: "O sistema da escola é bom no papel, mas ninguém tem tempo para o seguir todo.", en: "The school's system is good on paper, but nobody has time to follow all of it." }, drill: { jp: "O sistema da escola é bom", en: "The school's system is good" }, accept: ["the system", "system", "setup", "the setup", "scheme"], hint: "sish-TE-ma. Parts that work as one thing — a school, a body, a computer. Note the gender trap: it ends in -a and is MASCULINE, like o problema and o programa; Greek-derived -ema nouns all behave this way." },
+        { id: "pt-u90l1-omecanismo", type: "vocab", front: "o mecanismo", reading: "omecanismo", meaning: "mechanism", example: { jp: "O mecanismo da lei é claro, mas na prática nada acontece durante anos.", en: "The law's mechanism is clear, but in practice nothing happens for years." }, drill: { jp: "O mecanismo da lei é claro", en: "The law's mechanism is clear" }, accept: ["the mechanism", "mechanism", "workings", "the workings", "machinery"], hint: "me-ka-NEEZ-mu. The working part that makes a system do what it does — in a machine, and just as often in a law or a market. Um mecanismo de apoio is a support scheme, with no metal in sight." },
+        { id: "pt-u90l1-acamada", type: "vocab", front: "a camada", reading: "acamada", meaning: "layer", example: { jp: "A camada de fora protege o resto, mas o problema está por baixo e ninguém o procura.", en: "The outer layer protects the rest, but the problem is underneath and nobody looks for it." }, drill: { jp: "A camada de fora protege o resto", en: "The outer layer protects the rest" }, accept: ["the layer", "layer", "coat", "stratum", "tier"], hint: "ka-MA-da, from a cama — what is laid down. Paint, rock, cloud, society: uma camada da população is a social stratum. A camada do ozono is the ozone layer, which is how most learners first meet the word." },
+        { id: "pt-u90l1-onucleo", type: "vocab", front: "o núcleo", reading: "onucleo", meaning: "nucleus", example: { jp: "O núcleo do problema é pequeno, mas tudo o resto cresce à volta dele.", en: "The nucleus of the problem is small, but everything else grows around it." }, drill: { jp: "O núcleo do problema é pequeno", en: "The nucleus of the problem is small" }, accept: ["the nucleus", "nucleus", "core", "kernel", "nucleus of it"], hint: "NOO-kle-u. The dense centre a thing is organised around — a cell, a group, a town. Um núcleo duro is the hard core of a party or a team. Distinct from o cerne (u88), which is the crux of an ARGUMENT." },
+        { id: "pt-u90l1-oeixo", type: "vocab", front: "o eixo", reading: "oeixo", meaning: "axis", example: { jp: "O eixo do plano é o dinheiro, mas o governo prefere falar da saúde.", en: "The plan's axis is money, but the government prefers to talk about health." }, drill: { jp: "O eixo do plano é o dinheiro", en: "The plan's axis is money" }, accept: ["the axis", "axis", "axle", "the axle", "central line"], hint: "AY-shu. A line something turns on — a wheel's axle, a graph's axis, a policy's main thread. Os eixos do programa is the standard Portuguese way to list the pillars of a plan." },
+        { id: "pt-u90l1-apropriedade", type: "vocab", front: "a propriedade", reading: "apropriedade", meaning: "property (attribute)", example: { jp: "A propriedade do metal muda com o calor, mas a forma continua igual.", en: "The metal's property changes with heat, but the shape stays the same." }, drill: { jp: "A propriedade do metal muda depressa", en: "The metal's property changes quickly" }, accept: ["the property", "property", "attribute", "characteristic", "quality"], hint: "pru-pri-e-DA-de. A feature a thing HAS, in the scientific sense — as propriedades da água. The same noun also means property you own, so context carries it; an estate is uma propriedade no campo." },
+      ],
+    },
+    {
+      id: "pt-u90l2",
+      unit: 90,
+      lesson: 2,
+      title: "Arrumar por tipos",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Sort things into kinds in Portuguese — put them in categories, rank them, and say when a label is too generic to help.",
+      items: [
+        { id: "pt-u90l2-acategoria", type: "vocab", front: "a categoria", reading: "acategoria", meaning: "category", example: { jp: "A categoria do imposto muda com o preço da casa, mas a conta fica quase igual.", en: "The tax category changes with the price of the house, but the bill stays almost the same." }, drill: { jp: "A categoria do imposto muda hoje", en: "The tax category changes today" }, accept: ["the category", "category", "bracket", "class", "band"], hint: "ka-te-gu-REE-a. A box things get put in by rule, not by feel. De primeira categoria means first-rate. Distinct from a classe, which this band keeps for social class." },
+        { id: "pt-u90l2-classificar", type: "vocab", front: "classificar", reading: "classificar", meaning: "to classify", example: { jp: "É fácil classificar os casos por ano, mas isso não explica nada.", en: "It is easy to classify the cases by year, but that explains nothing." }, drill: { jp: "A escola quer classificar todos os casos", en: "The school wants to classify all the cases" }, accept: ["to classify", "classify", "to categorise", "to sort", "to grade"], hint: "kla-ssi-fi-KAR. To assign to a category by a stated rule. In Portuguese schools it is also to mark work — o professor classifica os testes — and in sport, classificar-se is to qualify." },
+        { id: "pt-u90l2-atipologia", type: "vocab", front: "a tipologia", reading: "atipologia", meaning: "typology", example: { jp: "A tipologia da casa diz o número de quartos, mas não diz nada do espaço.", en: "The housing typology gives the number of rooms, but says nothing about the space." }, drill: { jp: "A tipologia da casa é simples", en: "The housing typology is simple" }, accept: ["the typology", "typology", "classification scheme", "type system", "set of types"], hint: "ti-pu-lu-JEE-a. The whole scheme of types, not one type. In Portugal you will meet it on every property advert: tipologia T2 means two bedrooms — a rare case of an abstract noun doing concrete work." },
+        { id: "pt-u90l2-generico", type: "vocab", front: "genérico", reading: "generico", meaning: "generic", example: { jp: "O plano é genérico e serve para tudo, mas por isso mesmo não resolve nada.", en: "The plan is generic and fits everything, but for that very reason it solves nothing." }, drill: { jp: "O plano do governo é genérico", en: "The government's plan is generic" }, accept: ["generic", "general", "non-specific", "catch-all", "vague"], hint: "je-NE-ri-ku. Covering a whole kind, and so saying little about any member of it. Um medicamento genérico is the unbranded drug. Used of an argument it is a criticism: too broad to be tested." },
+        { id: "pt-u90l2-ahierarquia", type: "vocab", front: "a hierarquia", reading: "ahierarquia", meaning: "hierarchy", example: { jp: "A hierarquia da empresa é simples, mas a decisão continua a demorar um ano.", en: "The company's hierarchy is simple, but a decision still takes a year." }, drill: { jp: "A hierarquia da empresa é simples", en: "The company's hierarchy is simple" }, accept: ["the hierarchy", "hierarchy", "chain of command", "ranking", "pecking order"], hint: "ye-rar-KEE-a — the h is silent and the ie is two syllables. A ranking where each level answers to the one above, of people or of ideas: uma hierarquia de valores." },
+        { id: "pt-u90l2-oesquema", type: "vocab", front: "o esquema", reading: "oesquema", meaning: "outline (diagram)", example: { jp: "O esquema no papel é simples, mas a máquina não trabalha como o plano diz.", en: "The outline on paper is simple, but the machine doesn't work the way the plan says." }, drill: { jp: "O esquema no papel é simples", en: "The outline on paper is simple" }, accept: ["the outline", "outline", "diagram", "schema", "sketch"], hint: "esh-KE-ma. A stripped drawing or plan showing how parts relate — another masculine -ema. Careful in Brazil, where um esquema often means a scheme in the shady sense; in Portugal that is um esquema too, so tone decides." },
+      ],
+    },
+    {
+      id: "pt-u90l3",
+      unit: 90,
+      lesson: 3,
+      title: "Como se ligam",
+      cefr: "B2",
+      dominantMode: "produce",
+      canDo: "Say how the parts of something connect in Portuguese — what feeds what, what lies underneath, and how far a rule reaches.",
+      items: [
+        { id: "pt-u90l3-interligar", type: "vocab", front: "interligar", reading: "interligar", meaning: "to interconnect", example: { jp: "O plano quer interligar as escolas do país, mas metade não tem internet.", en: "The plan wants to interconnect the country's schools, but half have no internet." }, drill: { jp: "O plano quer interligar as escolas", en: "The plan wants to interconnect the schools" }, accept: ["to interconnect", "interconnect", "to link up", "link up", "to connect together"], hint: "in-ter-li-GAR, inter- + ligar (u18). Ligar joins A to B; interligar makes a web where everything reaches everything. Estar interligado is the participle you will meet most: os dois problemas estão interligados." },
+        { id: "pt-u90l3-ainteracao", type: "vocab", front: "a interação", reading: "ainteracao", meaning: "interaction", example: { jp: "A interação entre as escolas é boa, mas o trabalho continua a ser feito outra vez.", en: "The interaction between the schools is good, but the work is still done over again." }, drill: { jp: "A interação entre as escolas é boa", en: "The interaction between the schools is good" }, accept: ["the interaction", "interaction", "interplay", "dealings", "give and take"], hint: "in-te-ra-SOWN. pt-PT spells it interação, no c before the ç. Of people, of parts, of drugs: a interação entre dois medicamentos is what a Portuguese pharmacist warns you about." },
+        { id: "pt-u90l3-ofluxo", type: "vocab", front: "o fluxo", reading: "ofluxo", meaning: "flow", example: { jp: "O fluxo de dinheiro é grande, mas o trabalho continua na cidade.", en: "The flow of money is large, but the work is still in the city." }, drill: { jp: "O fluxo de dinheiro é grande", en: "The flow of money is large" }, accept: ["the flow", "flow", "stream", "movement", "throughput"], hint: "FLUK-su. A continuous movement through a system — money, traffic, water, people. O fluxo de caixa is cash flow; fluxo de trabalho is workflow. A corrente is a current; o fluxo is the rate of it." },
+        { id: "pt-u90l3-subjacente", type: "vocab", front: "subjacente", reading: "subjacente", meaning: "underlying", example: { jp: "A ideia subjacente à lei é boa, mas o papel que o governo escreve não faz o mesmo.", en: "The idea underlying the law is a good one, but the document the government writes doesn't do the same." }, drill: { jp: "A ideia subjacente à lei é boa", en: "The idea underlying the law is good" }, accept: ["underlying", "beneath it", "implicit", "lying under", "at the bottom of it"], hint: "sub-ja-SEN-te — lying under. It takes a: subjacente A alguma coisa. Pairs naturally with o pressuposto (u88): the pressuposto is the unstated claim, the ideia subjacente is the whole thinking it belongs to." },
+        { id: "pt-u90l3-abranger", type: "vocab", front: "abranger", reading: "abranger", meaning: "to span", example: { jp: "A lei abrange todo o país, mas cada cidade aplica a regra de outra maneira.", en: "The law spans the whole country, but each city applies the rule a different way." }, drill: { jp: "A lei vai abranger todo o país", en: "The law will span the whole country" }, accept: ["to span", "span", "to take in", "to extend over", "to reach across"], hint: "a-bran-JER. To reach across a whole range — a law over a territory, a course over a subject. Note the spelling shift: abranjo in the first person, because g before o would harden." },
+        { id: "pt-u90l3-englobar", type: "vocab", front: "englobar", reading: "englobar", meaning: "to encompass", example: { jp: "O preço vai englobar a viagem, mas o hotel fica de fora.", en: "The price will encompass the journey, but the hotel is left out." }, drill: { jp: "O preço vai englobar a viagem", en: "The price will encompass the journey" }, accept: ["to encompass", "encompass", "to include", "include", "to take in as a whole"], hint: "en-glu-BAR, from o globo — to gather into one ball. Where abranger stresses the REACH, englobar stresses that separate things are now counted as ONE. The everyday sign in Portugal reads tudo incluído, but a contract says engloba." },
+      ],
+    },
+    {
+      id: "pt-u90l4",
+      unit: 90,
+      lesson: 4,
+      title: "Pôr em variáveis",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Turn a messy thing into something measurable in Portuguese — name the variable, the setting, the threshold, and the aspect you are looking at.",
+      items: [
+        { id: "pt-u90l4-avariavel", type: "vocab", front: "a variável", reading: "avariavel", meaning: "variable", example: { jp: "A variável que conta é o tempo, mas o estudo olha apenas para o dinheiro.", en: "The variable that counts is time, but the study looks only at money." }, drill: { jp: "A variável que conta é o tempo", en: "The variable that counts is time" }, accept: ["the variable", "variable", "factor", "changing quantity"], hint: "va-ri-A-vel. The thing allowed to change while you watch what happens. As an adjective it means changeable — tempo variável on a Portuguese forecast means unsettled weather." },
+        { id: "pt-u90l4-oparametro", type: "vocab", front: "o parâmetro", reading: "oparametro", meaning: "parameter", example: { jp: "O parâmetro da máquina está alto, mas ninguém na empresa sabe porquê.", en: "The machine's parameter is set high, but nobody at the company knows why." }, drill: { jp: "O parâmetro da máquina está alto", en: "The machine's parameter is set high" }, accept: ["the parameter", "parameter", "setting", "the setting", "limit value"], hint: "pa-RA-me-tru, stress on the second syllable. A value you FIX before the system runs — a variável changes, o parâmetro is held. Dentro dos parâmetros means within the agreed limits." },
+        { id: "pt-u90l4-olimiar", type: "vocab", front: "o limiar", reading: "olimiar", meaning: "threshold", example: { jp: "O limiar do imposto é baixo, e por isso muita gente paga sem ganhar quase nada.", en: "The tax threshold is low, and so many people pay while earning almost nothing." }, drill: { jp: "O limiar do imposto é baixo", en: "The tax threshold is low" }, accept: ["the threshold", "threshold", "cutoff", "the cutoff", "trigger point"], hint: "li-mi-AR — originally the stone under a door. The point where behaviour changes: o limiar da pobreza is the poverty line. O limite (u53) is a boundary you must not pass; o limiar is where something starts." },
+        { id: "pt-u90l4-decompor", type: "vocab", front: "decompor", reading: "decompor", meaning: "to break into parts", example: { jp: "É preciso decompor o problema, porque a resposta não está no conjunto mas numa parte.", en: "The problem has to be broken into parts, because the answer is not in the whole but in one part." }, drill: { jp: "O professor quer decompor o problema", en: "The teacher wants to break the problem into parts" }, accept: ["to break into parts", "to decompose", "decompose", "to break down into parts", "to take apart"], hint: "de-kom-POR, built on pôr — to un-put. Of an argument, a number or a force. Its other life is biological: decompor-se is to rot, which is the same verb watching nature do the taking apart." },
+        { id: "pt-u90l4-sistematico", type: "vocab", front: "sistemático", reading: "sistematico", meaning: "systematic", example: { jp: "O erro é sistemático, e por isso não chega arranjar o caso de hoje.", en: "The error is systematic, and so fixing today's case is not enough." }, drill: { jp: "O erro da máquina é sistemático", en: "The machine's error is systematic" }, accept: ["systematic", "methodical", "across the board", "built in", "recurring by rule"], hint: "sish-te-MA-ti-ku. Two senses, and B2 needs both: done by a method (um trabalho sistemático) and produced BY the system, so every case has it — which is why um erro sistemático cannot be fixed one case at a time." },
+        { id: "pt-u90l4-avertente", type: "vocab", front: "a vertente", reading: "avertente", meaning: "strand (aspect)", example: { jp: "A vertente do dinheiro é simples, mas a vertente humana do plano nunca foi estudo de ninguém.", en: "The money strand is simple, but nobody ever made the human strand of the plan a study." }, drill: { jp: "A vertente do dinheiro do plano é simples", en: "The money strand of the plan is simple" }, accept: ["the strand", "strand", "aspect", "the aspect", "side of it"], hint: "ver-TEN-te — literally the slope of a hill, one side of the ridge. Used of a question it is one of the faces it presents: a vertente económica, a vertente social. Uma parte is a piece; uma vertente is a whole view of the same thing." },
+      ],
+    },
   ],
 };

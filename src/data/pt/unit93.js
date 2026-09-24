@@ -1,18 +1,93 @@
-// PT Unit 93 — Business and negotiation (slot: business) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 93 — A negociação e o negócio (slot: business) — B2
+// THE DEAL, NOT THE WORKPLACE. The corpus already has work and money four times
+// over — u18 (a empresa, o chefe, a reunião, a entrevista), u24 (o contrato, o
+// prazo, o cargo, a carreira), u45 (o lucro, a dívida, o orçamento, o prejuízo,
+// o sócio), u66 (o investimento, a concorrência, o sindicato, vender). None of
+// it is re-taught. What is missing is the language of a TRANSACTION between two
+// parties: what each side gives up, what the accounts say afterwards, who the
+// other side actually is, and what happens when it goes wrong.
+//
+// SLOT BOUNDARIES: u100 takes how an organisation is run from INSIDE (authority,
+// bureaucracy, attrition); this unit stays strictly on the deal and the balance
+// sheet, so the two do not collide the way Spanish B1's u56/u84 did. u92 owns
+// the courts, so a arbitragem is carded here as the alternative to them, and
+// a penalização is glossed "penalty clause" because u92's a pena already owns
+// "penalty" (§C5). RESERVED for blocks 2/3: o reembolso, o desconto de volume.
+// Conventions: unit1.js header · B2 constitution §C1–C10: unit88.js header.
 export const PT_UNIT93 = {
   id: "pt-u93",
   lang: "pt",
-  title: "Business and negotiation",
+  title: "A negociação e o negócio",
   order: 93,
   stage: "b2",
   lessons: [
-    { id: "pt-u93l1", title: "Lesson 1", locked: true },
-    { id: "pt-u93l2", title: "Lesson 2", locked: true },
-    { id: "pt-u93l3", title: "Lesson 3", locked: true },
-    { id: "pt-u93l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u93l1",
+      unit: 93,
+      lesson: 1,
+      title: "Sentar à mesa",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Run a negotiation in Portuguese — name the trade-off, the clause, the moment it is ratified, and the dispute if it is not.",
+      items: [
+        { id: "pt-u93l1-negociar", type: "vocab", front: "negociar", reading: "negociar", meaning: "to negotiate", example: { jp: "A empresa quer negociar o preço, mas o prazo do contrato acaba esta semana.", en: "The company wants to negotiate the price, but the contract's deadline ends this week." }, drill: { jp: "A empresa quer negociar o preço", en: "The company wants to negotiate the price" }, accept: ["to negotiate", "negotiate", "to bargain", "bargain", "to haggle"], hint: "ne-gu-si-AR, from o negócio — literally the negation of leisure, which is where 'business' comes from in both languages. It takes com for the other side and sobre for the subject: negociar com o banco." },
+        { id: "pt-u93l1-anegociacao", type: "vocab", front: "a negociação", reading: "anegociacao", meaning: "negotiation", example: { jp: "A negociação demora um ano, mas o acordo final é quase igual ao papel do princípio.", en: "The negotiation takes a year, but the final agreement is almost the same as the first document." }, drill: { jp: "A negociação da empresa demora um ano", en: "The company's negotiation takes a year" }, accept: ["the negotiation", "negotiation", "talks", "the talks", "bargaining"], hint: "ne-gu-sya-SOWN. Portuguese uses the plural for a process: as negociações continuam. The singular names the thing itself, as here." },
+        { id: "pt-u93l1-acontrapartida", type: "vocab", front: "a contrapartida", reading: "acontrapartida", meaning: "quid pro quo", example: { jp: "A contrapartida é boa para a cidade, mas a empresa ganha muito mais do que perde.", en: "The quid pro quo is good for the city, but the company gains far more than it loses." }, drill: { jp: "A contrapartida é boa para a cidade", en: "The quid pro quo is good for the city" }, accept: ["the quid pro quo", "quid pro quo", "something in return", "trade-off", "consideration"], hint: "kon-tra-par-TEE-da. What one side gets BACK for what it gave. Em contrapartida, used as a connector, means 'on the other hand' — the same idea of a counterweight doing grammatical work." },
+        { id: "pt-u93l1-aclausula", type: "vocab", front: "a cláusula", reading: "aclausula", meaning: "clause", example: { jp: "A cláusula do contrato é simples, mas é ela que obriga a empresa a pagar tudo.", en: "The contract's clause is simple, but it is the one that obliges the company to pay everything." }, drill: { jp: "A cláusula do contrato obriga a empresa", en: "The contract's clause obliges the company" }, accept: ["the clause", "clause", "provision", "term of the contract"], hint: "KLAU-zu-la, stress on the first syllable, which the accent marks. One numbered paragraph of a contract. Uma cláusula de rescisão is a termination clause — the one people read last and regret first." },
+        { id: "pt-u93l1-ratificar", type: "vocab", front: "ratificar", reading: "ratificar", meaning: "to ratify", example: { jp: "Os sócios querem ratificar o acordo hoje, mas o advogado diz que falta uma cláusula.", en: "The partners want to ratify the agreement today, but the lawyer says a clause is missing." }, drill: { jp: "Os sócios querem ratificar o acordo", en: "The partners want to ratify the agreement" }, accept: ["to ratify", "ratify", "to confirm formally", "to approve formally", "to rubber-stamp"], hint: "rra-ti-fi-KAR. The formal yes that makes an already-agreed text binding. Assinar is signing; ratificar is the body behind the signature confirming it. Careful with retificar, one letter away, which means to correct." },
+        { id: "pt-u93l1-olitigio", type: "vocab", front: "o litígio", reading: "olitigio", meaning: "litigation", example: { jp: "O litígio custa mais do que o dinheiro em causa, mas nenhuma empresa quer ceder primeiro.", en: "The litigation costs more than the money at stake, but neither company wants to give way first." }, drill: { jp: "O litígio custa mais do que o dinheiro", en: "The litigation costs more than the money" }, accept: ["the litigation", "litigation", "legal dispute", "lawsuit", "court fight"], hint: "li-TEE-jyu. A disagreement that has gone to law. Contestar (u88) is arguing; um litígio is arguing with lawyers and a meter running. Em litígio means the matter is before a court." },
+      ],
+    },
+    {
+      id: "pt-u93l2",
+      unit: 93,
+      lesson: 2,
+      title: "As contas da empresa",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Read a Portuguese company's numbers out loud — the margin, whether it pays, the balance sheet, the shortfall, the billings, the return.",
+      items: [
+        { id: "pt-u93l2-amargem", type: "vocab", front: "a margem", reading: "amargem", meaning: "margin", example: { jp: "A margem da loja não é grande, mas o chefe quer vender muito e ganhar pouco.", en: "The shop's margin is not large, but the boss wants to sell a lot and earn little." }, drill: { jp: "A margem da loja não é grande", en: "The shop's margin is not large" }, accept: ["the margin", "margin", "profit margin", "spread"], hint: "MAR-jen. The gap between cost and price, and also a physical edge — a margem do rio is the riverbank. À margem de means on the sidelines of, which is where u91's marginal comes from." },
+        { id: "pt-u93l2-arentabilidade", type: "vocab", front: "a rentabilidade", reading: "arentabilidade", meaning: "profitability", example: { jp: "A rentabilidade é boa no papel, mas a empresa não tem dinheiro para pagar em janeiro.", en: "Profitability is good on paper, but the company has no money to pay in January." }, drill: { jp: "A rentabilidade da empresa é boa", en: "The company's profitability is good" }, accept: ["the profitability", "profitability", "how well it pays", "yield", "return rate"], hint: "rren-ta-bi-li-DA-de, from render, to yield. Not the same as o lucro (u45): a company can have lucro and poor rentabilidade if the money it tied up was enormous. Rentável is the adjective." },
+        { id: "pt-u93l2-obalanco", type: "vocab", front: "o balanço", reading: "obalanco", meaning: "balance sheet", example: { jp: "O balanço do ano é bom, mas não fala da dívida que chega no ano seguinte.", en: "The year's balance sheet is good, but it says nothing about the debt arriving the following year." }, drill: { jp: "O balanço do ano não fala da dívida", en: "The year's balance sheet says nothing about the debt" }, accept: ["the balance sheet", "balance sheet", "accounts", "the accounts", "stocktaking"], hint: "ba-LAN-su. The company's position at one date. Portuguese also uses it for any taking-stock — fazer um balanço do ano is to look back on the year — and, in a playground, um baloiço is a swing, which is a different word." },
+        { id: "pt-u93l2-odefice", type: "vocab", front: "o défice", reading: "odefice", meaning: "deficit", example: { jp: "O défice do país é grande, mas o governo prefere falar do trabalho que cresce.", en: "The country's deficit is large, but the government prefers to talk about the jobs that are growing." }, drill: { jp: "O défice do país é grande", en: "The country's deficit is large" }, accept: ["the deficit", "deficit", "shortfall", "gap in the accounts"], hint: "DE-fi-se — pt-PT writes défice with the acute; Brazil writes déficit with the t. A Portuguese newspaper's favourite number. O défice público is the state's; uma empresa em défice is simply losing money." },
+        { id: "pt-u93l2-afaturacao", type: "vocab", front: "a faturação", reading: "afaturacao", meaning: "billings", example: { jp: "A faturação cresce todos os anos, mas a margem cai ao mesmo tempo.", en: "Billings grow every year, but the margin falls at the same time." }, drill: { jp: "A faturação da empresa cresce todos os anos", en: "The company's billings grow every year" }, accept: ["the billings", "billings", "turnover", "revenue", "invoicing"], hint: "fa-tu-ra-SOWN, from a fatura, the invoice — and pt-PT drops the c: faturação, not facturação, since the 1990 accord. It is what the company INVOICED, before any cost is taken off." },
+        { id: "pt-u93l2-oretorno", type: "vocab", front: "o retorno", reading: "oretorno", meaning: "return (on money)", example: { jp: "O retorno do investimento chega em dez anos, mas o banco quer o dinheiro em três.", en: "The return on the investment arrives in ten years, but the bank wants the money in three." }, drill: { jp: "O retorno do investimento chega em dez anos", en: "The return on the investment arrives in ten years" }, accept: ["the return", "return", "payback", "yield", "return on investment"], hint: "rre-TOR-nu. The money an investment gives back. Distinct from voltar (u21), which is a person coming back; o retorno is a quantity. Sem retorno means there is no going back, and that sense is alive too." },
+      ],
+    },
+    {
+      id: "pt-u93l3",
+      unit: 93,
+      lesson: 3,
+      title: "Quem está do outro lado",
+      cefr: "B2",
+      dominantMode: "produce",
+      canDo: "Name who you are dealing with in Portuguese — the customer, the supplier, the middleman, the shareholder, the partnership, the buyout.",
+      items: [
+        { id: "pt-u93l3-ocliente", type: "vocab", front: "o cliente", reading: "ocliente", meaning: "customer", example: { jp: "O cliente paga sempre a horas, mas quer um preço que a loja não pode fazer.", en: "The customer always pays on time, but wants a price the shop cannot do." }, drill: { jp: "O cliente paga sempre a horas", en: "The customer always pays on time" }, accept: ["the customer", "customer", "client", "the client", "buyer"], hint: "kli-EN-te. Same form for a man and a woman — o cliente, a cliente. A shop has clientes; a lawyer has clientes; a restaurant, slightly differently, has fregueses, its regulars." },
+        { id: "pt-u93l3-ofornecedor", type: "vocab", front: "o fornecedor", reading: "ofornecedor", meaning: "supplier", example: { jp: "O fornecedor é bom, mas fica a três horas de carro e isso pesa no preço.", en: "The supplier is a good one, but is three hours away by car and that weighs on the price." }, drill: { jp: "O fornecedor da loja é bom", en: "The shop's supplier is good" }, accept: ["the supplier", "supplier", "vendor", "provider"], hint: "for-ne-se-DOR, from fornecer, to supply. The party at the other end of the chain from o cliente, and Portuguese business writing pairs the two constantly: clientes e fornecedores." },
+        { id: "pt-u93l3-ointermediario", type: "vocab", front: "o intermediário", reading: "ointermediario", meaning: "middleman", example: { jp: "O intermediário leva uma parte do dinheiro, mas sem ele a loja não chega ao campo.", en: "The middleman takes a share of the money, but without him the shop doesn't reach the countryside." }, drill: { jp: "O intermediário leva uma parte do dinheiro", en: "The middleman takes a share of the money" }, accept: ["the middleman", "middleman", "intermediary", "go-between", "broker"], hint: "in-ter-me-di-A-ryu. Whoever sits between the two ends of a deal. Sem intermediários is the selling point of every direct-sale advert in Portugal, because the word carries a faint suspicion." },
+        { id: "pt-u93l3-oacionista", type: "vocab", front: "o acionista", reading: "oacionista", meaning: "shareholder", example: { jp: "O acionista quer o dinheiro este ano, mas a empresa precisa dele para a fábrica.", en: "The shareholder wants the money this year, but the company needs it for the factory." }, drill: { jp: "O acionista quer o dinheiro este ano", en: "The shareholder wants the money this year" }, accept: ["the shareholder", "shareholder", "stockholder", "equity holder"], hint: "a-syu-NISH-ta, from uma ação, a share — and pt-PT writes acionista with no c since the accord. Not o sócio (u45), who is a partner in a small firm; an acionista owns paper and may never meet anyone." },
+        { id: "pt-u93l3-aparceria", type: "vocab", front: "a parceria", reading: "aparceria", meaning: "partnership", example: { jp: "A parceria entre a escola e a empresa é boa, mas ninguém escreve quem paga a conta.", en: "The partnership between the school and the company is a good one, but nobody writes down who pays the bill." }, drill: { jp: "A parceria entre a escola e a empresa", en: "The partnership between the school and the company" }, accept: ["the partnership", "partnership", "joint venture", "tie-up", "collaboration"], hint: "par-se-REE-a, from o parceiro, the partner. A working arrangement between two organisations — not a legal firm-type partnership, which is uma sociedade. Em parceria com is on every Portuguese poster with two logos." },
+        { id: "pt-u93l3-aaquisicao", type: "vocab", front: "a aquisição", reading: "aaquisicao", meaning: "acquisition", example: { jp: "A aquisição da loja do campo foi depressa, mas os trabalhadores souberam pelo jornal.", en: "The acquisition of the country shop was quick, but the workers found out from the newspaper." }, drill: { jp: "A aquisição da loja foi depressa", en: "The acquisition of the shop was quick" }, accept: ["the acquisition", "acquisition", "buyout", "takeover", "purchase"], hint: "a-ki-zi-SOWN, from adquirir. One company buying another, and also any formal purchase — a aquisição de material. Comprar is the everyday verb; aquisição is what appears on the form." },
+      ],
+    },
+    {
+      id: "pt-u93l4",
+      unit: 93,
+      lesson: 4,
+      title: "Quando corre mal",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Handle a deal going wrong in Portuguese — the penalty clause, the deposit held, settling up, arbitration, a merger, a quota.",
+      items: [
+        { id: "pt-u93l4-apenalizacao", type: "vocab", front: "a penalização", reading: "apenalizacao", meaning: "penalty clause", example: { jp: "A penalização do contrato é grande, mas a empresa paga e não faz o trabalho.", en: "The contract's penalty clause is large, but the company pays and does not do the work." }, drill: { jp: "A penalização do contrato é grande", en: "The contract's penalty clause is large" }, accept: ["the penalty clause", "penalty clause", "contractual penalty", "financial penalty", "fine under a contract"], hint: "pe-na-li-za-SOWN. The money a contract makes you pay for breaking it. Deliberately not a pena (u92), which is a court's sentence on a person — Portuguese keeps commercial and criminal punishment in separate words." },
+        { id: "pt-u93l4-acaucao", type: "vocab", front: "a caução", reading: "acaucao", meaning: "security deposit", example: { jp: "A caução é de um ano de casa, mas muita gente não tem tanto dinheiro.", en: "The security deposit is a year's rent, but a lot of people do not have that much money." }, drill: { jp: "A caução é de um ano de casa", en: "The security deposit is a year's rent" }, accept: ["the security deposit", "security deposit", "deposit", "bond", "surety"], hint: "kau-SOWN. Money held against something going wrong — a tenancy, a court appearance, a contract. In Portugal the rental caução is the single biggest barrier to a first flat, which is why the word is politically loaded." },
+        { id: "pt-u93l4-liquidar", type: "vocab", front: "liquidar", reading: "liquidar", meaning: "to settle (a debt)", example: { jp: "A empresa quer liquidar a dívida este ano, mas o banco quer continuar a receber.", en: "The company wants to settle the debt this year, but the bank wants to keep receiving." }, drill: { jp: "A empresa quer liquidar a dívida", en: "The company wants to settle the debt" }, accept: ["to settle", "settle", "to pay off", "pay off", "to clear a debt", "to liquidate"], hint: "li-ki-DAR. To pay something off completely, and also to wind a company up. Saldos e liquidação in a Portuguese shop window is the sale where the stock is being cleared — the same idea of getting everything off the books." },
+        { id: "pt-u93l4-aarbitragem", type: "vocab", front: "a arbitragem", reading: "aarbitragem", meaning: "arbitration", example: { jp: "A arbitragem é mais depressa do que o tribunal, mas a conta fica com as empresas.", en: "Arbitration is quicker than court, but the bill stays with the companies." }, drill: { jp: "A arbitragem custa menos do que o tribunal", en: "Arbitration costs less than court" }, accept: ["the arbitration", "arbitration", "binding mediation", "private ruling"], hint: "ar-bi-TRA-jen, from o árbitro. Settling a dispute outside the courts, with someone both sides accept. And yes, it is the same word as refereeing a football match — the Portuguese sports pages use it constantly." },
+        { id: "pt-u93l4-afusao", type: "vocab", front: "a fusão", reading: "afusao", meaning: "merger", example: { jp: "A fusão faz uma empresa grande, mas metade do trabalho acaba no primeiro ano.", en: "The merger makes one large company, but half the work is gone in the first year." }, drill: { jp: "A fusão faz uma empresa grande", en: "The merger makes one large company" }, accept: ["the merger", "merger", "amalgamation", "combination", "fusion"], hint: "fu-ZOWN, from fundir, to melt together. Two firms becoming one — distinct from uma aquisição, where one buys the other and the other disappears. Physics keeps the literal sense: a fusão do metal." },
+        { id: "pt-u93l4-aquota", type: "vocab", front: "a quota", reading: "aquota", meaning: "quota", example: { jp: "A quota do país é grande no papel, mas o mar não tem o peixe que a lei promete.", en: "The country's quota is large on paper, but the sea does not have the fish the law promises." }, drill: { jp: "A quota do país é grande no papel", en: "The country's quota is large on paper" }, accept: ["the quota", "quota", "allocation", "allotted share", "membership fee"], hint: "KWO-ta. A fixed allowed amount — of fish, of imports, of places. Second life in Portugal: as quotas are the dues you pay a club or an association, and estar com as quotas em dia is to be a member in good standing." },
+      ],
+    },
   ],
 };
