@@ -1015,7 +1015,14 @@ test("dev mode: expanded panel — sessions, moments, progress seeder", async ({
 
   // Progress seeder writes REAL state (unlike the rest of the panel).
   await page.getByRole("button", { name: "Learn 20" }).click();
-  await expect(page.getByText(/Learn 20 —/)).toBeVisible();
+  // 20s, not the default 5. "Learn 20" is a SYNCHRONOUS pass over the whole
+  // 17,497-item deck followed by a zustand-persist write that JSON.stringifies all
+  // of it, and the confirmation renders only after both finish. Alone this takes
+  // 2.4s and passed 6 runs of 6; under full parallel load it failed about 1 run in
+  // 3 at ~9s -- which is NOT the 45s test timeout but this assertion's own 5s
+  // default, so an overloaded machine read as a product regression. Measured before
+  // widening; the assertion itself is unchanged.
+  await expect(page.getByText(/Learn 20 —/)).toBeVisible({ timeout: 20_000 });
   const learned = await page.evaluate(() =>
     Object.values(JSON.parse(localStorage.getItem("lingua-v1")).state.items).filter((it) => (it.rung ?? 0) >= 1).length
   );
@@ -1257,7 +1264,9 @@ test("French: Dev Mode seeds the French deck, not the Japanese one", async ({ pa
   // against twenty Japanese items. These write to the real deck, so it was wrong
   // state, not a wrong preview.
   await page.getByRole("button", { name: "Learn 20" }).click();
-  await expect(page.getByText(/Learn 20 —/)).toBeVisible();
+  // Same 20s as the other "Learn 20" assertion -- one synchronous pass over the
+  // whole deck plus a full persist write, which exceeds the 5s default under load.
+  await expect(page.getByText(/Learn 20 —/)).toBeVisible({ timeout: 20_000 });
 
   const seeded = await page.evaluate(() => {
     // Persisted overlay carries no `lang` (re-derived from UNITS on boot), so key
