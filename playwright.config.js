@@ -30,6 +30,20 @@ export default defineConfig({
   // weakened check. If a test needs more than this, profile it; don't raise it again.
   timeout: 45_000,
   fullyParallel: true,
+  // ONE Vite dev server, and Playwright defaults to half the cores - 16 workers on
+  // this machine. Sixteen cold page loads demanding on-the-fly transforms from a
+  // single dev server is the contention that makes wall-clock meaningless, and it
+  // gets worse every time the corpus grows. Measured 2026-09-23 on the pt B2 band:
+  //   default (16 workers)  "reviews are app-judged" TIMED OUT at 45s -> 1 failed
+  //   --workers=2           41 passed
+  //   the same test ALONE   24.2s, twice
+  //   seedItems()           59ms on the branch vs 61ms on main - not the corpus
+  //   SMOKE_MODE=preview    39 passed at full parallelism - a BUILT bundle does not
+  //                         transform on demand, so only dev mode is affected
+  // The config above says "if a test needs more than this, profile it; dont raise it
+  // again". Profiled: the test does not need more time, it needs less contention.
+  // No assertion and no timeout was touched.
+  workers: 4,
   forbidOnly: !!process.env.CI,
   retries: 0,
   reporter: process.env.CI ? [["list"], ["html", { open: "never" }]] : "list",
