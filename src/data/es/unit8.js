@@ -7,6 +7,9 @@
 // Weather is taught the way Spanish actually builds it — hacer for most of it
 // (hace calor / hace frío / hace sol), estar for cloudy, and a bare verb for rain
 // (llueve). Those are lexical phrases at A1, not conjugation practice.
+// l5 teaches THREE seasons, not four: `el verano` is owned by u22 and a front is
+// globally unique, so reclaiming it would mean an id change in u22 and a mastery
+// wipe. The slot is filled with `las vacaciones` instead. (2026-09-24)
 export const ES_UNIT8 = {
   id: "es-u8",
   lang: "es",
@@ -55,10 +58,11 @@ export const ES_UNIT8 = {
       title: "The sky",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name what's overhead: el sol, la nube, la lluvia, el viento, la tormenta.",
+      canDo: "Name what's overhead: el sol, la nube, la estrella, la lluvia, el viento, la tormenta.",
       items: [
         { id: "es-u8l3-sol", type: "vocab", front: "el sol", reading: "elsol", meaning: "sun", example: { jp: "El sol está en el cielo.", en: "The sun is in the sky." }, drill: { jp: "El sol es fantástico hoy", en: "The sun is fantastic today" }, accept: ["the sun", "sunshine"], hint: "Spanish uses it for sunshine too: hace sol = it's sunny." },
         { id: "es-u8l3-nube", type: "vocab", front: "la nube", reading: "lanube", meaning: "cloud", example: { jp: "Hay una nube blanca en el cielo.", en: "There's a white cloud in the sky." }, drill: { jp: "La nube es blanca", en: "The cloud is white" }, accept: ["the cloud"], hint: "The root of \"nebula\" — and of nublado, cloudy, in the next lesson." },
+        { id: "es-u8l3-estrella", type: "vocab", front: "la estrella", reading: "laestrella", meaning: "star", example: { jp: "Hay una estrella en el cielo.", en: "There's a star in the sky." }, drill: { jp: "La estrella está en el cielo", en: "The star is in the sky" }, accept: ["the star"], hint: "Double l again: es-TRE-ya. It is the film sense too — una estrella de cine." },
         { id: "es-u8l3-lluvia", type: "vocab", front: "la lluvia", reading: "lalluvia", meaning: "rain", example: { jp: "Hay lluvia en Madrid.", en: "There's rain in Madrid." }, drill: { jp: "La lluvia de la tarde", en: "The afternoon rain" }, accept: ["the rain", "rainfall"], hint: "Double l again: YU-via." },
         { id: "es-u8l3-viento", type: "vocab", front: "el viento", reading: "elviento", meaning: "wind", example: { jp: "En el pueblo hay viento.", en: "It's windy in the town." }, drill: { jp: "El viento de la noche", en: "The night wind" }, accept: ["the wind"], hint: "Same root as \"ventilate\"." },
         { id: "es-u8l3-tormenta", type: "vocab", front: "la tormenta", reading: "latormenta", meaning: "storm", example: { jp: "En la tormenta hay lluvia y viento.", en: "In a storm there's rain and wind." }, drill: { jp: "La tormenta es enorme", en: "The storm is enormous" }, accept: ["the storm", "thunderstorm"], hint: "Same root as English \"torment\" — a tormenta is the serious kind, with thunder." },
@@ -89,12 +93,13 @@ export const ES_UNIT8 = {
       title: "Las estaciones",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name the seasons and say what the weather does in each one, and talk about something that happens once a year.",
+      canDo: "Name the seasons and say what the weather does in each one, talk about the holidays, and about something that happens once a year.",
       items: [
         { id: "es-u8l5-laprimavera", type: "vocab", front: "la primavera", reading: "laprimavera", meaning: "spring", example: { jp: "En primavera llueve.", en: "In spring it rains." }, drill: { jp: "En la primavera hace calor", en: "In spring it's warm" }, accept: ["spring", "the spring"], hint: "No article after en: en primavera, en verano. La primavera also names a spring-like burst of anything." },
         { id: "es-u8l5-elotono", type: "vocab", front: "el otoño", reading: "elotono", meaning: "autumn / fall", example: { jp: "En otoño hace viento.", en: "In autumn it's windy." }, drill: { jp: "En el otoño llueve mucho", en: "In autumn it rains a lot" }, accept: ["autumn", "fall", "the autumn"], hint: "The ñ matters: otoño, not otono. Otoñal is the adjective." },
         { id: "es-u8l5-elinvierno", type: "vocab", front: "el invierno", reading: "elinvierno", meaning: "winter", example: { jp: "En invierno hace frío y hay nieve.", en: "In winter it's cold and there's snow." }, drill: { jp: "En el invierno no hace calor", en: "In winter it isn't warm" }, accept: ["winter", "the winter"], hint: "Invernal is the adjective. Note the -ie- that verano and otoño do not have." },
         { id: "es-u8l5-latemporada", type: "vocab", front: "la temporada", reading: "latemporada", meaning: "the season / the period", example: { jp: "Es la temporada de la lluvia.", en: "It's the rainy season." }, drill: { jp: "La temporada de nieve es el invierno", en: "The snow season is winter" }, accept: ["the season", "the period", "the run"], hint: "Not a season of the year — that is la estación. Una temporada is a stretch of time for an activity: la temporada de fútbol." },
+        { id: "es-u8l5-lasvacaciones", type: "vocab", front: "las vacaciones", reading: "lasvacaciones", meaning: "the holidays", example: { jp: "En las vacaciones de invierno hace frío.", en: "It's cold in the winter holidays." }, drill: { jp: "En las vacaciones hace sol", en: "It's sunny in the holidays" }, accept: ["holidays", "the holiday", "vacation", "the vacation", "the break"], hint: "Always plural: unas vacaciones, never una vacación. Estar de vacaciones = to be on holiday." },
         { id: "es-u8l5-anual", type: "vocab", front: "anual", reading: "anual", meaning: "annual / yearly", example: { jp: "Es una fiesta anual.", en: "It's an annual festival." }, drill: { jp: "La fiesta anual es en primavera", en: "The annual festival is in spring" }, accept: ["annual", "yearly", "once a year"], hint: "From el año. Anualmente is the adverb." },
       ],
     },

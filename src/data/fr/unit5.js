@@ -1,5 +1,8 @@
-// FR Unit 4 — Les nombres ("Numbers") — A1
-// Counting 0–12 plus the quantity words. NOTE the deliberate gap: the number
+// FR Unit 5 — Les nombres ("Numbers") — A1
+// (Header used to say "Unit 4"; the object below is `fr-u5`, order 5. Corrected 2026-09-24.)
+// Counting 0–12, the quantity words, and `le numéro` — the label kind of number,
+// as opposed to `le nombre`, the quantity kind, which a later unit owns.
+// NOTE the deliberate gap: the number
 // "one" is NOT a separate item — un/une (Unit 2) already IS the number one
 // (same word as the article), exactly like the ja に homograph rule: one front,
 // one home, taught through a hint instead of a duplicate item.
@@ -52,13 +55,14 @@ export const FR_UNIT5 = {
       title: "How many?",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Ask combien and answer with beaucoup, un peu, plus or moins.",
+      canDo: "Ask combien, answer with beaucoup, un peu, plus or moins, and give a numéro.",
       items: [
         { id: "fr-u5l3-combien", type: "vocab", front: "combien", reading: "combien", meaning: "how many", example: { jp: "C'est combien ?", en: "How much is it?" }, drill: { jp: "C'est combien madame", en: "How much is it madam" }, accept: ["how much"], hint: "C'est combien ? is THE price question — four syllables that buy everything." },
         { id: "fr-u5l3-beaucoup", type: "vocab", front: "beaucoup", reading: "beaucoup", meaning: "a lot", example: { jp: "Merci beaucoup !", en: "Thank you very much!" }, drill: { jp: "Merci beaucoup madame", en: "Thank you very much madam" }, accept: ["much", "many", "very much"] },
         { id: "fr-u5l3-unpeu", type: "vocab", front: "un peu", reading: "unpeu", meaning: "a little", example: { jp: "Un peu, s'il vous plaît.", en: "A little, please." }, drill: { jp: "Un peu s'il vous plaît", en: "A little please" }, accept: ["a bit", "a little bit"] },
         { id: "fr-u5l3-plus", type: "vocab", front: "plus", reading: "plus", meaning: "more", example: { jp: "Plus de café, s'il vous plaît.", en: "More coffee, please." }, drill: { jp: "Un peu plus s'il vous plaît", en: "A little more please" }, accept: [] },
         { id: "fr-u5l3-moins", type: "vocab", front: "moins", reading: "moins", meaning: "less", example: { jp: "Moins, merci — ça va !", en: "Less, thanks — that's fine!" }, drill: { jp: "Un peu moins merci", en: "A little less thanks" }, accept: ["fewer", "minus"] },
+        { id: "fr-u5l3-lenumero", type: "vocab", front: "le numéro", reading: "lenumero", meaning: "the number (of a phone or a house)", example: { jp: "C'est le numéro six, madame.", en: "It's number six, madam." }, drill: { jp: "C'est le numéro six", en: "It is number six" }, accept: ["number", "the number"], hint: "A numéro labels one thing — a phone, a house, a room. Combien asks how many; a numéro is which one." },
       ],
     },
   ],
