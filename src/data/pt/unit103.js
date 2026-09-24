@@ -1,18 +1,96 @@
-// PT Unit 103 — Education and research (slot: education-research) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 103 — O ensino superior e a investigação (slot: education-research) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-2 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+//
+// SLOT BOUNDARIES — education is the most-taught domain in this corpus and this
+// is its fourth pass, so the probe mattered. u3 and u17 own the school (a aula,
+// o professor, o estudante, estudar, aprender, ensinar, a universidade, o curso,
+// a disciplina, o exame, a nota, a biblioteca, a licenciatura, A PROPINA); u24
+// owns the credential (o mestrado, a bolsa, o currículo, a formação, o estágio);
+// u84 owns the research toolkit (a pesquisa, o método, o dado, a amostra,
+// analisar, o estudo, a síntese, a evidência). NONE of that is re-taught.
+// ⚠ a propina was flagged in the unit1.js header as belonging to "the education
+// slot in block 3". It does NOT: it has been taught at u17l4 since the A1 band
+// was authored, and the header's note was written before that unit existed.
+// Verified by script against the live corpus, 2026-09-23 — this unit teaches
+// a matrícula instead, which is the word u17 left free.
+// §C3: this unit teaches what a learner DOES with the domain — the degrees above
+// the first one, being judged, doing research honestly, and how learning works.
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT103 = {
   id: "pt-u103",
   lang: "pt",
-  title: "Education and research",
+  title: "O ensino superior e a investigação",
   order: 103,
   stage: "b2",
   lessons: [
-    { id: "pt-u103l1", title: "Lesson 1", locked: true },
-    { id: "pt-u103l2", title: "Lesson 2", locked: true },
-    { id: "pt-u103l3", title: "Lesson 3", locked: true },
-    { id: "pt-u103l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u103l1",
+      unit: 103,
+      lesson: 1,
+      title: "O percurso académico",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe a university career in Portuguese past the first degree — what you sign up for, who teaches, and what the institution counts.",
+      items: [
+        { id: "pt-u103l1-odoutoramento", type: "vocab", front: "o doutoramento", reading: "odoutoramento", meaning: "doctorate", example: { jp: "O doutoramento leva cinco anos, mas quase ninguém acaba no prazo.", en: "The doctorate takes five years, but almost nobody finishes on time." }, drill: { jp: "O doutoramento leva cinco anos", en: "The doctorate takes five years" }, accept: ["doctorate", "the doctorate", "PhD", "doctoral degree"], hint: "dow-tu-ra-MEN-tu. ⚠ THE pt-PT WORD — Brazil says o doutorado. Third rung after a licenciatura and o mestrado, both of which this course already teaches." },
+        { id: "pt-u103l1-amatricula", type: "vocab", front: "a matrícula", reading: "amatricula", meaning: "enrolment", example: { jp: "A matrícula não custa muito, mas a propina de um ano é outra história.", en: "Enrolment does not cost much, but a year's tuition fee is another story." }, drill: { jp: "A matrícula não custa muito dinheiro", en: "Enrolment does not cost much money" }, accept: ["enrolment", "the enrolment", "enrollment", "registration"], hint: "ma-TREE-ku-la. Signing onto the register, and the fee for doing so. ⚠ The same word is a Portuguese car's number plate, which is the sense a learner meets first on the street." },
+        { id: "pt-u103l1-odocente", type: "vocab", front: "o docente", reading: "odocente", meaning: "teaching staff member", example: { jp: "O docente tem menos tempo para a pesquisa, porque a aula ocupa o dia todo.", en: "The teaching staff member has less time for research, because class takes up the whole day." }, drill: { jp: "O docente tem muitas aulas hoje", en: "The teaching staff member has many classes today" }, accept: ["teaching staff member", "academic staff", "lecturer", "member of teaching staff", "faculty member"], hint: "do-SEN-te. The institutional word for anyone who teaches at university level — o professor is what the students call them, o docente is what the payroll calls them. Its opposite number, o discente, means the student body and is rarer." },
+        { id: "pt-u103l1-afaculdade", type: "vocab", front: "a faculdade", reading: "afaculdade", meaning: "faculty", example: { jp: "A faculdade quer mais estudantes, mas não tem espaço para eles.", en: "The faculty wants more students, but has no room for them." }, drill: { jp: "A faculdade quer mais estudantes hoje", en: "The faculty wants more students today" }, accept: ["faculty", "the faculty", "school (of a university)", "college"], hint: "fa-kul-DA-de. One school inside a university — a Faculdade de Letras, a Faculdade de Medicina. ⚠ In Portugal people say andar na faculdade for being at university at all, so the word covers the whole institution in speech." },
+        { id: "pt-u103l1-oensino", type: "vocab", front: "o ensino", reading: "oensino", meaning: "teaching (as a system)", example: { jp: "O ensino na escola não custa nada, embora a universidade queira propinas.", en: "Teaching at school costs nothing, although the university wants tuition fees." }, drill: { jp: "O ensino na escola não custa nada", en: "Teaching at school costs nothing" }, accept: ["teaching", "the teaching", "education", "education system", "schooling"], hint: "en-SEE-nu, from ensinar. Not the act of one lesson but the whole provision — o ensino superior is higher education, o ensino público the state system. Where English says education, Portuguese usually says ensino." },
+        { id: "pt-u103l1-aassiduidade", type: "vocab", front: "a assiduidade", reading: "aassiduidade", meaning: "attendance", example: { jp: "A assiduidade conta para a nota, mas o professor nunca diz isso na aula.", en: "Attendance counts towards the grade, but the teacher never says so in class." }, drill: { jp: "A assiduidade conta para a nota", en: "Attendance counts towards the grade" }, accept: ["attendance", "the attendance", "regular attendance", "turning up"], hint: "a-si-dwi-DA-de. Turning up reliably — the quality, not the headcount. Said of an employee as readily as a student, and always approving: é um funcionário de grande assiduidade." },
+      ],
+    },
+    {
+      id: "pt-u103l2",
+      unit: 103,
+      lesson: 2,
+      title: "Ser avaliado",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Talk about being judged by an institution in Portuguese — the grade, the failure, and the gap between what is taught and what is marked.",
+      items: [
+        { id: "pt-u103l2-aavaliacao", type: "vocab", front: "a avaliação", reading: "aavaliacao", meaning: "assessment", example: { jp: "A avaliação parece boa, mas o exame final decide quase tudo.", en: "The assessment seems good, but the final exam decides almost everything." }, drill: { jp: "A avaliação parece boa este ano", en: "The assessment seems good this year" }, accept: ["assessment", "the assessment", "evaluation", "appraisal"], hint: "a-va-lya-SOWN, from avaliar. The whole scheme by which work is judged — a avaliação contínua is coursework, and it is the standard phrase in a Portuguese syllabus. Also used of property: a avaliação da casa is the valuation." },
+        { id: "pt-u103l2-reprovar", type: "vocab", front: "reprovar", reading: "reprovar", meaning: "to fail a student", example: { jp: "O professor reprova metade dos estudantes, embora o exame seja o mesmo de sempre.", en: "The teacher fails half the students, although the exam is the same as ever." }, drill: { jp: "O professor vai reprovar muitos estudantes", en: "The teacher is going to fail many students" }, accept: ["to fail a student", "to fail someone", "to mark as failed", "to flunk someone"], hint: "rre-pro-VAR, the opposite of aprovar. ⚠ Direction matters: in Portuguese the TEACHER reprova the student, and the student reprova too — both are said. The second, moral sense is also live: reprovo a atitude dele, I disapprove of his attitude." },
+        { id: "pt-u103l2-chumbar", type: "vocab", front: "chumbar", reading: "chumbar", meaning: "to flunk", example: { jp: "Chumbar a uma disciplina não é o fim, mas no dia parece o fim.", en: "Flunking a subject is not the end, but on the day it seems like the end." }, drill: { jp: "Ele vai chumbar a esta disciplina", en: "He is going to flunk this subject" }, accept: ["to flunk", "flunk", "to fail (informal)", "to be failed"], hint: "shum-BAR, from o chumbo, lead — you sink. ⚠ THE pt-PT SPOKEN WORD and it is what students actually say: chumbei a matemática. Brazil says bombar. Reprovar is the same event in the register the school uses." },
+        { id: "pt-u103l2-aclassificacao", type: "vocab", front: "a classificação", reading: "aclassificacao", meaning: "grade awarded", example: { jp: "A classificação final é boa, mas ninguém explica como o professor chega ao número.", en: "The final grade is good, but nobody explains how the teacher arrives at the number." }, drill: { jp: "A classificação final é muito boa", en: "The final grade is very good" }, accept: ["grade awarded", "the grade", "mark awarded", "classification", "final mark"], hint: "kla-si-fi-ka-SOWN. The number that comes out of a avaliação — a nota is the everyday word, a classificação the one on the certificate. In sport it is the league table, same noun." },
+        { id: "pt-u103l2-oaproveitamento", type: "vocab", front: "o aproveitamento", reading: "oaproveitamento", meaning: "academic performance", example: { jp: "O aproveitamento do estudante é fraco, mas ele estuda todos os dias.", en: "The student's academic performance is weak, but he studies every day." }, drill: { jp: "O aproveitamento deste estudante é fraco", en: "This student's academic performance is weak" }, accept: ["academic performance", "performance", "how much is being got out of it", "achievement"], hint: "a-pro-vay-ta-MEN-tu, from aproveitar. Literally how much use is being got out of the course — which is why it is not a synonym of ability. Portuguese uses it of land and materials too: o aproveitamento da água da chuva." },
+        { id: "pt-u103l2-oconteudo", type: "vocab", front: "o conteúdo", reading: "oconteudo", meaning: "content", example: { jp: "O conteúdo do curso é bom, mas o método de o ensinar é do século passado.", en: "The course content is good, but the method of teaching it is from the last century." }, drill: { jp: "O conteúdo do curso é bom", en: "The course content is good" }, accept: ["content", "the content", "contents", "subject content"], hint: "kon-TE-u-du. What is inside anything — a syllabus, a box, a hard disk. Note the accent on the u: it splits the vowels, so the word has four syllables and not three." },
+      ],
+    },
+    {
+      id: "pt-u103l3",
+      unit: 103,
+      lesson: 3,
+      title: "Fazer investigação a sério",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about doing research honestly in Portuguese — who supervises it, what it is written into, how it can be cheated, and how a method is challenged.",
+      items: [
+        { id: "pt-u103l3-oorientador", type: "vocab", front: "o orientador", reading: "oorientador", meaning: "supervisor", example: { jp: "O orientador analisa o trabalho uma vez por mês, e por isso o estudante avança devagar.", en: "The supervisor goes over the work once a month, and so the student advances slowly." }, drill: { jp: "O orientador analisa o trabalho hoje", en: "The supervisor goes over the work today" }, accept: ["supervisor", "the supervisor", "academic supervisor", "doctoral supervisor"], hint: "o-ri-en-ta-DOR, from orientar — to point someone in a direction. ⚠ Not o supervisor, which this corpus reserves for the workplace sense: an academic one is always o orientador in Portugal." },
+        { id: "pt-u103l3-adissertacao", type: "vocab", front: "a dissertação", reading: "adissertacao", meaning: "dissertation", example: { jp: "A dissertação é enorme, mas apenas três pessoas a querem ler.", en: "The dissertation is enormous, but only three people want to read it." }, drill: { jp: "A dissertação é enorme e difícil", en: "The dissertation is enormous and difficult" }, accept: ["dissertation", "the dissertation", "thesis (master's)", "master's thesis"], hint: "di-ser-ta-SOWN. In Portugal the written work of a mestrado; a tese is reserved for the doutoramento. English uses the two words the other way round in Britain and inconsistently in America, so this is worth holding." },
+        { id: "pt-u103l3-oplagio", type: "vocab", front: "o plágio", reading: "oplagio", meaning: "plagiarism", example: { jp: "O plágio acaba com uma carreira, e no entanto muita gente ainda o faz.", en: "Plagiarism ends a career, and yet a lot of people still do it." }, drill: { jp: "O plágio acaba com uma carreira", en: "Plagiarism ends a career" }, accept: ["plagiarism", "the plagiarism", "copying another's work"], hint: "PLA-jyu, stressed on the first syllable. Taking another's work as your own. Portuguese also uses it loosely of songs and designs, where English would say rip-off." },
+        { id: "pt-u103l3-questionar", type: "vocab", front: "questionar", reading: "questionar", meaning: "to call into question", example: { jp: "É preciso questionar o método antes de aceitar o resultado, mas quase ninguém o faz.", en: "One has to call the method into question before accepting the result, but almost nobody does." }, drill: { jp: "Temos de questionar este método agora", en: "We have to call this method into question now" }, accept: ["to call into question", "to question", "question", "to challenge", "to cast doubt on"], hint: "kesh-tyu-NAR. To treat something as open rather than settled. ⚠ Weaker than contestar, which is formal refusal, and quite different from perguntar: you perguntar a person, but you questionar a claim." },
+        { id: "pt-u103l3-sintetizar", type: "vocab", front: "sintetizar", reading: "sintetizar", meaning: "to synthesise", example: { jp: "Sintetizar um estudo enorme é difícil, mas é isso que o professor quer.", en: "Synthesising an enormous study is difficult, but that is what the teacher wants." }, drill: { jp: "É difícil sintetizar este estudo", en: "It is difficult to synthesise this study" }, accept: ["to synthesise", "synthesise", "to synthesize", "to sum up in one piece"], hint: "sin-te-ti-ZAR, the verb of a síntese. ⚠ Not resumir: um resumo shortens one text, sintetizar builds ONE account out of several that disagree. Chemistry uses the same verb for making a compound." },
+        { id: "pt-u103l3-aamostragem", type: "vocab", front: "a amostragem", reading: "aamostragem", meaning: "sampling", example: { jp: "A amostragem do estudo é fraca, por conseguinte o resultado não diz nada.", en: "The study's sampling is weak, and consequently the result says nothing." }, drill: { jp: "A amostragem do estudo é fraca", en: "The study's sampling is weak" }, accept: ["sampling", "the sampling", "sampling method", "how the sample was drawn"], hint: "a-mosh-TRA-jayn. The METHOD of drawing the sample, not the sample itself — a amostra is the hundred people, a amostragem is how those hundred were chosen, and almost every bad study is bad here." },
+      ],
+    },
+    {
+      id: "pt-u103l4",
+      unit: 103,
+      lesson: 4,
+      title: "Como se aprende",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Argue in Portuguese about how learning actually works — the process, the theory of teaching, and the difference between memorising and understanding.",
+      items: [
+        { id: "pt-u103l4-aaprendizagem", type: "vocab", front: "a aprendizagem", reading: "aaprendizagem", meaning: "learning", example: { jp: "A aprendizagem de um método novo leva anos, mas o curso fala de um ano.", en: "Learning a new method takes years, but the course talks about one year." }, drill: { jp: "A aprendizagem de um método leva tempo", en: "Learning a method takes time" }, accept: ["learning", "the learning", "the learning process", "acquisition"], hint: "a-pren-di-ZA-jayn, from aprender. The PROCESS, over time — aprender is the act, a aprendizagem is the whole arc of it. Portuguese also uses it for an apprenticeship." },
+        { id: "pt-u103l4-apedagogia", type: "vocab", front: "a pedagogia", reading: "apedagogia", meaning: "pedagogy", example: { jp: "A pedagogia quer menos aulas, mas o sistema da escola continua igual.", en: "Pedagogy wants fewer classes, but the school system stays the same." }, drill: { jp: "A pedagogia quer menos aulas hoje", en: "Pedagogy wants fewer classes today" }, accept: ["pedagogy", "the pedagogy", "teaching theory", "theory of teaching"], hint: "pe-da-go-JEE-a, stressed on the gi. The theory of how to teach. In Portugal it is also a degree you can hold, so um curso de pedagogia is a real thing to say." },
+        { id: "pt-u103l4-ametodologia", type: "vocab", front: "a metodologia", reading: "ametodologia", meaning: "methodology", example: { jp: "A metodologia do estudo é boa, mas os dados são fracos.", en: "The study's methodology is good, but the data are weak." }, drill: { jp: "A metodologia do estudo é boa", en: "The study's methodology is good" }, accept: ["methodology", "the methodology", "the method section", "overall method"], hint: "me-to-do-lo-JEE-a. The system of methods, and in a paper the section that describes it. ⚠ Not interchangeable with o método: one study has one método and belongs to a metodologia, the family it comes from." },
+        { id: "pt-u103l4-abibliografia", type: "vocab", front: "a bibliografia", reading: "abibliografia", meaning: "bibliography", example: { jp: "A bibliografia do trabalho é enorme, mas o professor conhece apenas metade.", en: "The work's bibliography is enormous, but the teacher knows only half of it." }, drill: { jp: "A bibliografia do trabalho é enorme", en: "The work's bibliography is enormous" }, accept: ["bibliography", "the bibliography", "reading list", "list of sources"], hint: "bi-blyo-gra-FEE-a. Two jobs in Portuguese: the list at the end of a paper, and the reading list a course hands out at the start. Built on the same biblio- as a biblioteca." },
+        { id: "pt-u103l4-decorar", type: "vocab", front: "decorar", reading: "decorar", meaning: "to learn by heart", example: { jp: "Decorar datas não é aprender, mas o exame quer apenas isso.", en: "Learning dates by heart is not learning, but the exam wants only that." }, drill: { jp: "Decorar datas não é aprender nada", en: "Learning dates by heart is not learning anything" }, accept: ["to learn by heart", "learn by heart", "to memorise", "memorise", "to memorize"], hint: "de-ko-RAR, from de cor — by heart. ⚠ A TRUE FALSE FRIEND, and the trap is that the OTHER meaning is also real: decorar a casa is to decorate it. Portuguese keeps both senses in one verb, and only the object tells you which." },
+        { id: "pt-u103l4-amateria", type: "vocab", front: "a matéria", reading: "amateria", meaning: "subject matter", example: { jp: "A matéria do exame é grande, e por isso o estudante estuda apenas o último tema.", en: "The exam's subject matter is large, and so the student studies only the last topic." }, drill: { jp: "A matéria do exame é grande", en: "The exam's subject matter is large" }, accept: ["subject matter", "the subject matter", "the material", "syllabus content"], hint: "ma-TE-rya. What has to be covered — dar a matéria is what a teacher does, and a matéria dada is the part already taught. Also matter in the physical sense, and a newspaper item in Brazil." },
+      ],
+    },
   ],
 };

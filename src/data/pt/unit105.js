@@ -1,18 +1,91 @@
-// PT Unit 105 — Emotion, subtle and mixed (slot: emotion-subtle) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 105 — O sentimento e o seu matiz (slot: emotion-subtle) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-2 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+//
+// SLOT BOUNDARIES — emotion is taught at u22 (A2) and again at u57 (B1), so the
+// easy words are all gone and that is the point. u22 owns the primaries (feliz,
+// triste, zangado, a alegria, a raiva, o medo, A SAUDADE, o amor, chorar, rir);
+// u57 owns the first layer of nuance (O ALÍVIO, a vergonha, o orgulho, a inveja,
+// a culpa, ter pena, a ansiedade, a frustração, o desespero, o ciúme, comover,
+// arrepender-se, a gratidão, o carinho); u63 owns a nostalgia; u97 owns o
+// remorso. NONE of that is re-taught. §C3: this unit teaches the feelings that
+// have NO single English word either — the ones a learner needs in order to say
+// something they cannot currently say at all, not prettier names for anger.
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT105 = {
   id: "pt-u105",
   lang: "pt",
-  title: "Emotion, subtle and mixed",
+  title: "O sentimento e o seu matiz",
   order: 105,
   stage: "b2",
   lessons: [
-    { id: "pt-u105l1", title: "Lesson 1", locked: true },
-    { id: "pt-u105l2", title: "Lesson 2", locked: true },
-    { id: "pt-u105l3", title: "Lesson 3", locked: true },
-    { id: "pt-u105l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u105l1",
+      unit: 105,
+      lesson: 1,
+      title: "O que magoa e fica",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Name a hurt that has outlasted its cause in Portuguese — the quiet kind, the kind that curdles, and the kind that takes the fight out of you.",
+      items: [
+        { id: "pt-u105l1-amagoa", type: "vocab", front: "a mágoa", reading: "amagoa", meaning: "hurt", example: { jp: "A mágoa dura mais do que a raiva, porque ninguém quer falar do assunto.", en: "The hurt lasts longer than the anger, because nobody wants to talk about it." }, drill: { jp: "A mágoa dura mais que a raiva", en: "The hurt lasts longer than the anger" }, accept: ["hurt", "the hurt", "deep hurt", "grievance", "sorrow"], hint: "MA-gwa. Quiet, personal and lasting — what is left when a raiva has burned off. Magoar someone is to wound them in this way, and it is one of the most Portuguese emotional words there is." },
+        { id: "pt-u105l1-oressentimento", type: "vocab", front: "o ressentimento", reading: "oressentimento", meaning: "resentment", example: { jp: "O ressentimento cresce em silêncio, e por isso a família não percebe nada durante anos.", en: "Resentment grows in silence, and so the family notices nothing for years." }, drill: { jp: "O ressentimento cresce sempre em silêncio", en: "Resentment always grows in silence" }, accept: ["resentment", "the resentment", "lasting grudge", "bitterness held"], hint: "rre-sen-ti-MEN-tu. A mágoa that has turned towards the person who caused it. ⚠ Not a translation of resentment in the light English sense: in Portuguese it is heavy and always about an injustice." },
+        { id: "pt-u105l1-aamargura", type: "vocab", front: "a amargura", reading: "aamargura", meaning: "bitterness", example: { jp: "A amargura do irmão é grande, embora ninguém em casa saiba porquê.", en: "The brother's bitterness is great, although nobody at home knows why." }, drill: { jp: "A amargura do irmão é grande", en: "The brother's bitterness is great" }, accept: ["bitterness", "the bitterness", "embitterment"], hint: "a-mar-GU-ra, from amargo, bitter on the tongue. Portuguese takes the taste word straight into feeling, exactly as English does — and, as in English, it describes a settled state rather than a mood." },
+        { id: "pt-u105l1-odesgosto", type: "vocab", front: "o desgosto", reading: "odesgosto", meaning: "heartache", example: { jp: "O desgosto de perder um amigo não passa com o tempo, mas muda devagar.", en: "The heartache of losing a friend does not pass with time, but it changes slowly." }, drill: { jp: "O desgosto de perder um amigo dura", en: "The heartache of losing a friend lasts" }, accept: ["heartache", "the heartache", "deep grief", "sorrow", "distress"], hint: "desh-GOSH-tu, the un- of o gosto. ⚠ MUCH stronger than disgust, which is its false friend: morrer de desgosto is to die of a broken heart, and that phrase is entirely ordinary in Portuguese." },
+        { id: "pt-u105l1-odesalento", type: "vocab", front: "o desalento", reading: "odesalento", meaning: "discouragement", example: { jp: "O desalento chega depois do segundo fracasso, embora o plano ainda possa resultar.", en: "Discouragement arrives after the second failure, although the plan may still work out." }, drill: { jp: "O desalento chega depois do fracasso", en: "Discouragement arrives after the failure" }, accept: ["discouragement", "the discouragement", "dejection", "loss of heart"], hint: "de-za-LEN-tu, from alento, breath or spirit — literally being un-breathed. The moment effort stops feeling worth it, which is why it belongs beside o fracasso and not beside a tristeza." },
+        { id: "pt-u105l1-amelancolia", type: "vocab", front: "a melancolia", reading: "amelancolia", meaning: "melancholy", example: { jp: "A melancolia não é medo nem raiva, mas o corpo conhece o peso.", en: "Melancholy is neither fear nor anger, but the body knows the weight." }, drill: { jp: "A melancolia não é medo nem raiva", en: "Melancholy is neither fear nor anger" }, accept: ["melancholy", "the melancholy", "wistful sadness"], hint: "me-lan-ko-LEE-a. Sadness without an object — and therefore the near neighbour of a saudade, which this course teaches at u22. The difference: saudade misses something specific, melancolia misses nothing in particular." },
+      ],
+    },
+    {
+      id: "pt-u105l2",
+      unit: 105,
+      lesson: 2,
+      title: "O que abranda",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name the gentle feelings in Portuguese — the warmth, the comfort given, the calm that steadies a room, and the silent understanding between two people.",
+      items: [
+        { id: "pt-u105l2-aternura", type: "vocab", front: "a ternura", reading: "aternura", meaning: "tenderness", example: { jp: "A ternura de um avô não é igual ao amor de um pai, embora ninguém saiba explicar porquê.", en: "A grandfather's tenderness is not the same as a father's love, although nobody can explain why." }, drill: { jp: "A ternura do avô é grande", en: "The grandfather's tenderness is great" }, accept: ["tenderness", "the tenderness", "gentle affection"], hint: "ter-NU-ra, from terno, tender. ⚠ Distinguish from o carinho (u57): carinho is shown — a hand on a shoulder — while ternura is the feeling that makes you do it." },
+        { id: "pt-u105l2-oconsolo", type: "vocab", front: "o consolo", reading: "oconsolo", meaning: "solace", example: { jp: "O consolo de um amigo é melhor do que um conselho, mas chega sempre tarde.", en: "A friend's solace is better than advice, but it always arrives late." }, drill: { jp: "O consolo de um amigo é melhor", en: "A friend's solace is better" }, accept: ["solace", "the solace", "comfort", "consolation"], hint: "kon-SO-lu. What you GIVE someone in grief — consolar is the verb. ⚠ Not the same as o conforto, which is physical ease; o consolo is only ever emotional." },
+        { id: "pt-u105l2-aserenidade", type: "vocab", front: "a serenidade", reading: "aserenidade", meaning: "serenity", example: { jp: "A serenidade do médico deixa o doente calmo, ainda que a notícia seja grave.", en: "The doctor's serenity leaves the patient calm, even though the news is serious." }, drill: { jp: "A serenidade do médico deixa tudo calmo", en: "The doctor's serenity leaves everything calm" }, accept: ["serenity", "the serenity", "composure", "calmness"], hint: "se-re-ni-DA-de. Calm that is chosen and held, not calm that just happens to be there — which is why a Portuguese speaker uses it of a person under pressure and never of a quiet street." },
+        { id: "pt-u105l2-acompaixao", type: "vocab", front: "a compaixão", reading: "acompaixao", meaning: "compassion", example: { jp: "A compaixão não é ter pena, porque ninguém quer ser um caso triste.", en: "Compassion is not pity, because nobody wants to be a sad case." }, drill: { jp: "A compaixão não é ter pena", en: "Compassion is not pity" }, accept: ["compassion", "the compassion", "fellow feeling"], hint: "kom-pai-SHOWN, literally suffering-with. ⚠ The distinction the example makes is real and worth holding: ter pena (u57) looks down, a compaixão stands level. Getting this wrong in Portuguese sounds condescending." },
+        { id: "pt-u105l2-acumplicidade", type: "vocab", front: "a cumplicidade", reading: "acumplicidade", meaning: "unspoken complicity", example: { jp: "A cumplicidade entre os dois é grande, e por isso um olhar chega.", en: "The unspoken complicity between the two is great, and so one look is enough." }, drill: { jp: "A cumplicidade entre os dois é grande", en: "The unspoken complicity between the two is great" }, accept: ["unspoken complicity", "complicity", "shared understanding", "closeness"], hint: "kum-pli-si-DA-de. ⚠ In English complicity is nearly always criminal; in Portuguese the WARM sense is the commonest one — the wordless understanding between old friends. The legal sense exists but rarely wins." },
+        { id: "pt-u105l2-oalheamento", type: "vocab", front: "o alheamento", reading: "oalheamento", meaning: "detachment", example: { jp: "O alheamento do pai durante o jantar é evidente, mas ninguém quer falar do assunto.", en: "The father's detachment during dinner is evident, but nobody wants to talk about the subject." }, drill: { jp: "O alheamento do pai é evidente", en: "The father's detachment is evident" }, accept: ["detachment", "the detachment", "being absent in spirit", "remoteness"], hint: "a-lya-MEN-tu, from alheio, belonging to someone else — you are there but the room is not yours. Neutral in a monk, alarming in a parent, and Portuguese leaves that judgement to the context." },
+      ],
+    },
+    {
+      id: "pt-u105l3",
+      unit: 105,
+      lesson: 3,
+      title: "Diante dos outros",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Name the feelings that only exist because someone is watching — the reticence, the awkwardness, the contempt, and the pull of what repels you.",
+      items: [
+        { id: "pt-u105l3-opudor", type: "vocab", front: "o pudor", reading: "opudor", meaning: "sense of modesty", example: { jp: "O pudor não deixa muita gente pedir ajuda, e por isso o problema continua.", en: "A sense of modesty stops many people asking for help, and so the problem carries on." }, drill: { jp: "O pudor não deixa pedir ajuda", en: "Modesty stops people asking for help" }, accept: ["sense of modesty", "modesty", "reticence", "sense of propriety", "shame about showing"], hint: "pu-DOR. The restraint that stops you exposing something — not a vergonha (u57), which is felt AFTER exposure. Sem pudor means shamelessly, and it is a real insult in Portuguese." },
+        { id: "pt-u105l3-oconstrangimento", type: "vocab", front: "o constrangimento", reading: "oconstrangimento", meaning: "awkwardness", example: { jp: "O constrangimento na sala é evidente, mas o chefe continua a falar.", en: "The awkwardness in the room is evident, but the boss carries on talking." }, drill: { jp: "O constrangimento na sala é evidente", en: "The awkwardness in the room is evident" }, accept: ["awkwardness", "the awkwardness", "embarrassment", "discomfort"], hint: "konsh-tran-ji-MEN-tu. The social kind of discomfort, felt in a room rather than in a person. ⚠ Second sense in officialese: constrangimentos orçamentais are budget constraints, the same root squeezing something." },
+        { id: "pt-u105l3-aindignacao", type: "vocab", front: "a indignação", reading: "aindignacao", meaning: "indignation", example: { jp: "A indignação do público dura uma semana, e depois o escândalo desaparece.", en: "The public's indignation lasts a week, and then the scandal disappears." }, drill: { jp: "A indignação do público dura uma semana", en: "The public's indignation lasts a week" }, accept: ["indignation", "the indignation", "moral outrage", "outrage"], hint: "in-dig-na-SOWN, from digno. Anger with a moral claim behind it — you are not merely cross, you are asserting that a line was crossed. The word Portuguese newspapers use for public reaction." },
+        { id: "pt-u105l3-odesdem", type: "vocab", front: "o desdém", reading: "odesdem", meaning: "disdain", example: { jp: "O desdém com que ele trata os colegas é claro, mas ninguém lhe diz nada.", en: "The disdain with which he treats his colleagues is clear, but nobody says anything to him." }, drill: { jp: "O desdém dele é sempre claro", en: "His disdain is always clear" }, accept: ["disdain", "the disdain", "contempt", "scorn"], hint: "desh-DAYN. Treating someone as beneath your attention — colder than a raiva, because it does not grant the other person enough weight to be angry at. Note the nasal ending, written -ém." },
+        { id: "pt-u105l3-arepulsa", type: "vocab", front: "a repulsa", reading: "arepulsa", meaning: "revulsion", example: { jp: "A repulsa começa no corpo, embora a cabeça diga outra coisa.", en: "Revulsion begins in the body, although the head says otherwise." }, drill: { jp: "A repulsa começa sempre no corpo", en: "Revulsion always begins in the body" }, accept: ["revulsion", "the revulsion", "disgust", "repugnance"], hint: "rre-PUL-sa. The physical recoil. ⚠ THIS is the word English speakers reach for when they wrongly say desgosto: o desgosto is grief, a repulsa is disgust, and the two are not close." },
+        { id: "pt-u105l3-ofascinio", type: "vocab", front: "o fascínio", reading: "ofascinio", meaning: "fascination", example: { jp: "O fascínio do público por um crime é grande, mas ninguém gosta de o admitir.", en: "The public's fascination with a crime is great, but nobody likes to admit it." }, drill: { jp: "O fascínio do público é grande", en: "The public's fascination is great" }, accept: ["fascination", "the fascination", "spell", "hold"], hint: "fash-SEE-nyu. Being held by something against your judgement — which is why it sits in this lesson beside a repulsa rather than beside o interesse. Exercer fascínio sobre alguém is the fixed phrase." },
+      ],
+    },
+    {
+      id: "pt-u105l4",
+      unit: 105,
+      lesson: 4,
+      title: "Dois sentimentos de uma vez",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say in Portuguese that you feel two contradictory things at once, or that you feel something too faint to have a name.",
+      items: [
+        { id: "pt-u105l4-ambivalente", type: "vocab", front: "ambivalente", reading: "ambivalente", meaning: "ambivalent", example: { jp: "O pai está ambivalente e não sabe o que dizer, porque gosta da ideia mas não do plano.", en: "The father is ambivalent and does not know what to say, because he likes the idea but not the plan." }, drill: { jp: "O pai está sempre ambivalente", en: "The father is always ambivalent" }, accept: ["ambivalent", "of two minds", "torn"], hint: "am-bi-va-LEN-te. Holding both feelings at full strength, not sitting in the middle — that is the whole distinction from indiferente, which holds neither. Portuguese uses it as readily in conversation as in psychology." },
+        { id: "pt-u105l4-aeuforia", type: "vocab", front: "a euforia", reading: "aeuforia", meaning: "euphoria", example: { jp: "A euforia do primeiro dia passa depressa, e depois começa o trabalho a sério.", en: "The euphoria of the first day passes quickly, and then the real work begins." }, drill: { jp: "A euforia do primeiro dia passa", en: "The euphoria of the first day passes" }, accept: ["euphoria", "the euphoria", "elation", "high spirits"], hint: "ew-fo-REE-a. Joy that is too big for its cause, and therefore expected to end — which is why Portuguese uses it of markets and election nights as much as of people." },
+        { id: "pt-u105l4-aangustia", type: "vocab", front: "a angústia", reading: "aangustia", meaning: "anguish", example: { jp: "A angústia antes do exame é pior do que o exame, mas ninguém diz isso ao estudante.", en: "The anguish before the exam is worse than the exam, but nobody says so to the student." }, drill: { jp: "A angústia antes do exame é pior", en: "The anguish before the exam is worse" }, accept: ["anguish", "the anguish", "dread", "distress"], hint: "an-GOOSH-tya, from the Latin for narrowness — the tightening in the chest. ⚠ Heavier than a ansiedade (u57): ansiedade is restless and forward-looking, angústia is still and airless." },
+        { id: "pt-u105l4-oreceio", type: "vocab", front: "o receio", reading: "oreceio", meaning: "misgiving", example: { jp: "O receio de falhar não deixa começar, mas quem não falha nunca aprende.", en: "The misgiving about failing stops you starting, but whoever never fails never learns." }, drill: { jp: "O receio de falhar não ajuda", en: "The misgiving about failing does not help" }, accept: ["misgiving", "the misgiving", "apprehension about", "fear (mild)", "qualm"], hint: "rre-SAY-u, from recear. Much milder than o medo (u22): receio is the polite, reasoning kind — tenho receio de que não chegue a tempo is a formal way to say I am afraid that." },
+        { id: "pt-u105l4-aapreensao", type: "vocab", front: "a apreensão", reading: "aapreensao", meaning: "apprehension", example: { jp: "A apreensão do doente é grande antes da cirurgia, ainda que o médico esteja calmo.", en: "The patient's apprehension is great before the surgery, even though the doctor is calm." }, drill: { jp: "A apreensão do doente é grande", en: "The patient's apprehension is great" }, accept: ["apprehension", "the apprehension", "unease", "foreboding"], hint: "a-pre-en-SOWN. Unease about something specific that is coming. ⚠ Completely different second sense in the news: a apreensão de droga pela polícia is a SEIZURE — the same noun, from the literal grabbing." },
+        { id: "pt-u105l4-otedio", type: "vocab", front: "o tédio", reading: "otedio", meaning: "boredom", example: { jp: "O tédio de um trabalho fácil cansa mais do que a pressa, mas ninguém o diz ao chefe.", en: "The boredom of an easy job tires you more than the rush, but nobody says so to the boss." }, drill: { jp: "O tédio deste trabalho cansa muito", en: "The boredom of this job is very tiring" }, accept: ["boredom", "the boredom", "tedium", "ennui"], hint: "TE-dyu. Heavier than being merely bored — closer to the French ennui, a boredom that is a condition rather than a moment. Estar aborrecido is the everyday version." },
+      ],
+    },
   ],
 };

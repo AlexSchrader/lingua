@@ -64,9 +64,13 @@
 //       · a salada / a salsa — u6l4. PT salsa: PARSLEY. ES salsa: sauce.
 //     Left for later blocks, where their theme lives (see the block 2/3 briefs):
 //       esquisito (weird, not "exquisite") → u10 Describing things;
-//       embaraçada (tangled/awkward, not "pregnant") → u16 Feelings;
-//       a propina (pt-PT university tuition fee; ES "tip"; pt-BR "bribe" —
-//       a three-way trap) → the education slot in block 3.
+//       embaraçada (tangled/awkward, not "pregnant") → u16 Feelings.
+//     ⚠ a propina (pt-PT university tuition fee; ES "tip"; pt-BR "bribe" — a
+//       three-way trap) IS ALREADY TAUGHT, at u17l4. This line said it was
+//       "left for the education slot in block 3" until 2026-09-23; that was
+//       written before u17 existed and a pt B2 block-2 seat, reading it as a
+//       live instruction, went looking for the slot. Resolved by script
+//       against the live corpus, not against another comment.
 //
 //   - DELIBERATE A1 SIMPLIFICATIONS (revisit at A2, and see the block 2 brief):
 //     (a) `é` is taught here as the copula link word, a chunk, not as an analysed

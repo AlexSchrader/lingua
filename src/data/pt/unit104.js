@@ -1,18 +1,94 @@
-// PT Unit 104 — Media and narrative (slot: media-narrative) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 104 — A narrativa e o enquadramento (slot: media-narrative) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-2 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+//
+// SLOT BOUNDARIES — media is taught at u55 and u64 and criticism at u96, so
+// this slot is the narrowest in the block. u55 owns the newsroom's inputs (a
+// fonte, o relato, a reportagem, divulgar, apurar, citar, o porta-voz, a
+// sondagem); u64 owns its furniture (o artigo, a manchete, publicar, o leitor,
+// o título, o canal, a emissão, transmitir, a audiência, o guião, a legenda,
+// O ENREDO, a publicidade, o boato, a crítica, a censura); u96 owns the artwork
+// (a obra, o autor, o estilo, A NARRATIVA, a metáfora, a interpretação).
+// NONE of that is re-taught. §C3: what is left, and what this unit is, is the
+// MACHINERY — how a story is built, how a newsroom decides what leads, how the
+// same facts are pointed in a direction, and how any of it reaches anyone.
+// ⚠ o enredo (u64) already glosses "plot", so the plot word here is a
+// reviravolta, the turn — a different card, not a synonym of a taught one.
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT104 = {
   id: "pt-u104",
   lang: "pt",
-  title: "Media and narrative",
+  title: "A narrativa e o enquadramento",
   order: 104,
   stage: "b2",
   lessons: [
-    { id: "pt-u104l1", title: "Lesson 1", locked: true },
-    { id: "pt-u104l2", title: "Lesson 2", locked: true },
-    { id: "pt-u104l3", title: "Lesson 3", locked: true },
-    { id: "pt-u104l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u104l1",
+      unit: 104,
+      lesson: 1,
+      title: "Como uma história se monta",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Take a story apart in Portuguese — say who carries it, who tells it, where it turns, and how it lands.",
+      items: [
+        { id: "pt-u104l1-areviravolta", type: "vocab", front: "a reviravolta", reading: "areviravolta", meaning: "plot twist", example: { jp: "A reviravolta no fim salva o livro, embora o resto seja fraco.", en: "The plot twist at the end saves the book, although the rest is weak." }, drill: { jp: "A reviravolta no fim salva tudo", en: "The plot twist at the end saves everything" }, accept: ["plot twist", "the twist", "twist", "sudden turn", "reversal"], hint: "rre-vi-ra-VOL-ta, literally a turn-and-a-turn-again. Fiction, politics and football all use it: uma reviravolta nas sondagens. ⚠ o enredo is the plot as a whole; a reviravolta is the single moment it flips." },
+        { id: "pt-u104l1-oprotagonista", type: "vocab", front: "o protagonista", reading: "oprotagonista", meaning: "protagonist", example: { jp: "O protagonista muda ao longo do livro, mas o leitor apenas percebe isso no fim.", en: "The protagonist changes over the course of the book, but the reader only realises it at the end." }, drill: { jp: "O protagonista muda ao longo do livro", en: "The protagonist changes over the course of the book" }, accept: ["protagonist", "the protagonist", "main character", "lead"], hint: "pro-ta-go-NISH-ta. Ends in -a and is still masculine when it is a man — o protagonista, a protagonista, one form, two articles. Portuguese also uses it of real people: o protagonista do escândalo." },
+        { id: "pt-u104l1-onarrador", type: "vocab", front: "o narrador", reading: "onarrador", meaning: "narrator", example: { jp: "O narrador não diz a verdade ao leitor, e daí que o fim seja uma surpresa.", en: "The narrator does not tell the reader the truth, which is why the ending is a surprise." }, drill: { jp: "O narrador não diz a verdade", en: "The narrator does not tell the truth" }, accept: ["narrator", "the narrator", "the voice telling it"], hint: "na-rra-DOR, from narrar. The VOICE, never the writer — o autor wrote it, o narrador is who is speaking inside it, and a whole B2 conversation about a book turns on keeping them apart." },
+        { id: "pt-u104l1-oclimax", type: "vocab", front: "o clímax", reading: "oclimax", meaning: "climax", example: { jp: "O clímax chega muito cedo, e por isso o resto do filme é fraco.", en: "The climax comes very early, and so the rest of the film is weak." }, drill: { jp: "O clímax chega muito cedo aqui", en: "The climax comes very early here" }, accept: ["climax", "the climax", "high point", "peak moment"], hint: "KLEE-maks, stressed on the first syllable — Portuguese marks it with the accent so you cannot read it the English way. Invariable in the plural: os clímax." },
+        { id: "pt-u104l1-orealismo", type: "vocab", front: "o realismo", reading: "orealismo", meaning: "realism", example: { jp: "O realismo do guião é forte, mas a obra não comove ninguém.", en: "The realism of the script is strong, but the work moves nobody." }, drill: { jp: "O realismo do guião é forte", en: "The realism of the script is strong" }, accept: ["realism", "the realism", "lifelikeness"], hint: "rre-a-LIZH-mu. Both the movement (o Realismo of Eça de Queirós) and the ordinary quality of feeling true. ⚠ In politics it is a compliment for the unsentimental: falta realismo a este plano." },
+        { id: "pt-u104l1-odesenlace", type: "vocab", front: "o desenlace", reading: "odesenlace", meaning: "denouement", example: { jp: "O desenlace é bom, embora o meio do livro seja fraco.", en: "The denouement is good, although the middle of the book is weak." }, drill: { jp: "O desenlace deste livro é bom", en: "This book's denouement is good" }, accept: ["denouement", "the denouement", "resolution", "the unravelling", "final outcome"], hint: "de-zen-LA-se, literally the untying. The part AFTER the clímax where everything is resolved. ⚠ Not o desfecho (u52), which this course teaches as the outcome of any process — o desenlace is specifically the end of a story." },
+      ],
+    },
+    {
+      id: "pt-u104l2",
+      unit: 104,
+      lesson: 2,
+      title: "O jornal por dentro",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Talk about how a newspaper is put together in Portuguese — its own voice, how much room a story gets, and who gets to answer back.",
+      items: [
+        { id: "pt-u104l2-oeditorial", type: "vocab", front: "o editorial", reading: "oeditorial", meaning: "editorial", example: { jp: "O editorial do jornal apoia o governo, mas a reportagem do mesmo dia diz o contrário.", en: "The paper's editorial backs the government, but the same day's report says the opposite." }, drill: { jp: "O editorial do jornal apoia o governo", en: "The paper's editorial backs the government" }, accept: ["editorial", "the editorial", "leader", "leading article"], hint: "e-di-to-ri-AL. The unsigned piece where the paper itself speaks — the only place a Portuguese newspaper says we. As an adjective it means anything to do with the publisher: a linha editorial." },
+        { id: "pt-u104l2-acobertura", type: "vocab", front: "a cobertura", reading: "acobertura", meaning: "coverage", example: { jp: "A cobertura do escândalo dura três dias, e depois ninguém fala mais do assunto.", en: "Coverage of the scandal lasts three days, and afterwards nobody talks about it any more." }, drill: { jp: "A cobertura do escândalo dura três dias", en: "Coverage of the scandal lasts three days" }, accept: ["coverage", "the coverage", "news coverage", "reporting"], hint: "ko-ber-TU-ra, from cobrir. Three live senses at once: news coverage, insurance cover, and the roof terrace of a Portuguese building. The media one is the commonest in print." },
+        { id: "pt-u104l2-odestaque", type: "vocab", front: "o destaque", reading: "odestaque", meaning: "prominence", example: { jp: "O destaque do dia é a sondagem, embora o inquérito seja a notícia mais grave.", en: "The day's lead is the poll, although the inquiry is the more serious news." }, drill: { jp: "O destaque do dia é a sondagem", en: "The day's lead is the poll" }, accept: ["prominence", "the lead item", "top billing", "highlight", "the lead"], hint: "desh-TA-ke, from destacar. Both the QUALITY of being given prominence (dar destaque a) and the item that got it. In a Portuguese paper os destaques are the front-page picks." },
+        { id: "pt-u104l2-atiragem", type: "vocab", front: "a tiragem", reading: "atiragem", meaning: "print run", example: { jp: "A tiragem do jornal cai todos os anos, mas a audiência do site cresce.", en: "The paper's print run falls every year, but the site's audience grows." }, drill: { jp: "A tiragem do jornal cai sempre", en: "The paper's print run always falls" }, accept: ["print run", "the print run", "circulation", "number of copies printed"], hint: "ti-RA-jayn, from tirar. How many copies are pulled off the press — the number that decides whether a Portuguese newspaper survives, and the one every editor quotes selectively." },
+        { id: "pt-u104l2-arubrica", type: "vocab", front: "a rubrica", reading: "arubrica", meaning: "regular column", example: { jp: "A rubrica de domingo é a melhor parte do jornal, mas o autor quer acabar com ela.", en: "The Sunday column is the best part of the paper, but the writer wants to end it." }, drill: { jp: "A rubrica de domingo é boa", en: "The Sunday column is good" }, accept: ["regular column", "the column", "regular slot", "feature", "segment"], hint: "rru-BREE-ka. A recurring slot with a fixed name — in print or on radio. ⚠ The other, entirely unrelated sense is an initial on a document, which is where an official form uses the word: assinatura e rubrica." },
+        { id: "pt-u104l2-areplica", type: "vocab", front: "a réplica", reading: "areplica", meaning: "rejoinder", example: { jp: "A réplica do porta-voz chega tarde, e por isso ninguém a publica.", en: "The spokesperson's rejoinder arrives late, and so nobody publishes it." }, drill: { jp: "A réplica do porta-voz chega tarde", en: "The spokesperson's rejoinder arrives late" }, accept: ["rejoinder", "the rejoinder", "reply", "right of reply", "riposte"], hint: "RRE-pli-ka. The answer given to an accusation, and in Portuguese press law o direito de réplica is a right you can demand. ⚠ The English replica is the SECOND sense here and also real — uma réplica do quadro." },
+      ],
+    },
+    {
+      id: "pt-u104l3",
+      unit: 104,
+      lesson: 3,
+      title: "Enquadrar uma notícia",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say in Portuguese that a report is pointed in a direction — name the frame, the lean, the stretch, and the claim of neutrality.",
+      items: [
+        { id: "pt-u104l3-oenquadramento", type: "vocab", front: "o enquadramento", reading: "oenquadramento", meaning: "framing", example: { jp: "O enquadramento da notícia decide tudo, porque os factos são os mesmos em todo o lado.", en: "The framing of the news decides everything, because the facts are the same everywhere." }, drill: { jp: "O enquadramento da notícia decide tudo", en: "The framing of the news decides everything" }, accept: ["framing", "the framing", "the frame", "how it is presented"], hint: "en-kwa-dra-MEN-tu, from quadro, the frame. Where you put the edges of the picture. ⚠ In Portuguese officialese the same word means the category something is filed under — o enquadramento legal, its legal basis." },
+        { id: "pt-u104l3-ovies", type: "vocab", front: "o viés", reading: "ovies", meaning: "bias", example: { jp: "O viés do estudo é claro, mas o autor diz que os números falam sozinhos.", en: "The study's bias is clear, but the author says the numbers speak for themselves." }, drill: { jp: "O viés deste estudo é claro", en: "This study's bias is clear" }, accept: ["bias", "the bias", "slant", "skew"], hint: "vi-ESH. Originally a diagonal cut in cloth, now the standard word in Portuguese science and journalism for systematic lean. De viés still means sideways: olhar de viés is to look askance." },
+        { id: "pt-u104l3-sensacionalista", type: "vocab", front: "sensacionalista", reading: "sensacionalista", meaning: "sensationalist", example: { jp: "O título é sensacionalista, mas o artigo por baixo é honesto.", en: "The headline is sensationalist, but the article underneath is honest." }, drill: { jp: "Este título é muito sensacionalista", en: "This headline is very sensationalist" }, accept: ["sensationalist", "sensational (in the bad sense)", "lurid", "tabloid"], hint: "sen-sa-syo-na-LISH-ta. Always pejorative. Same -ista ending as o jornalista and, like it, one form for both genders: um jornal sensacionalista, uma manchete sensacionalista." },
+        { id: "pt-u104l3-adistorcao", type: "vocab", front: "a distorção", reading: "adistorcao", meaning: "distortion", example: { jp: "A distorção começa no título, ainda que o resto do artigo esteja correto.", en: "The distortion begins in the headline, even though the rest of the article is correct." }, drill: { jp: "A distorção começa logo no título", en: "The distortion begins right in the headline" }, accept: ["distortion", "the distortion", "misrepresentation", "twisting"], hint: "dish-tor-SOWN. Bending something true out of shape — which is what separates it from a mentira: a distorção keeps the facts and changes what they mean. Also the sound-engineering word." },
+        { id: "pt-u104l3-adesinformacao", type: "vocab", front: "a desinformação", reading: "adesinformacao", meaning: "disinformation", example: { jp: "A desinformação corre depressa, enquanto a verdade chega dias depois.", en: "Disinformation runs fast, whereas the truth arrives days later." }, drill: { jp: "A desinformação corre sempre muito depressa", en: "Disinformation always runs very fast" }, accept: ["disinformation", "the disinformation", "deliberate falsehood", "false information"], hint: "de-zin-for-ma-SOWN. ⚠ The des- prefix carries INTENT: a desinformação is put about on purpose, while being merely wrong is estar mal informado. Portuguese keeps that line more clearly than English misinformation does." },
+        { id: "pt-u104l3-aisencao", type: "vocab", front: "a isenção", reading: "aisencao", meaning: "impartiality", example: { jp: "A isenção do jornalista é um objetivo e não um facto, mas o leitor espera isso dele.", en: "A journalist's impartiality is an aim and not a fact, but the reader expects it of them." }, drill: { jp: "A isenção do jornalista é um objetivo", en: "A journalist's impartiality is an aim" }, accept: ["impartiality", "the impartiality", "freedom from bias", "neutrality"], hint: "i-zen-SOWN. Having no stake — the quality o viés destroys. ⚠ The tax sense is just as common and looks unrelated but is not: uma isenção de imposto is an exemption, being held free of something." },
+      ],
+    },
+    {
+      id: "pt-u104l4",
+      unit: 104,
+      lesson: 4,
+      title: "Chegar ao público",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Talk in Portuguese about whether anything actually reaches anyone — how far it travels, who it was aimed at, and what keeps them coming back.",
+      items: [
+        { id: "pt-u104l4-oalcance", type: "vocab", front: "o alcance", reading: "oalcance", meaning: "reach", example: { jp: "O alcance do anúncio é enorme, mas a audiência do canal continua igual.", en: "The advert's reach is enormous, but the channel's audience stays the same." }, drill: { jp: "O alcance do anúncio é enorme", en: "The advert's reach is enormous" }, accept: ["reach", "the reach", "range", "extent", "scope"], hint: "al-KAN-se, from alcançar. How far something gets — of a rifle, a policy or a post. ⚠ ao alcance de is within reach of, and fora do alcance das crianças is what every Portuguese medicine box says." },
+        { id: "pt-u104l4-oformato", type: "vocab", front: "o formato", reading: "oformato", meaning: "format", example: { jp: "O formato da emissão muda todos os anos, porque a audiência cai sempre.", en: "The programme's format changes every year, because the audience always falls." }, drill: { jp: "O formato da emissão muda hoje", en: "The programme's format changes today" }, accept: ["format", "the format", "the shape of it"], hint: "for-MA-tu. The shape a thing is made in — a television format, a paper size, a file type. Note it is NOT a formação, which this course teaches for training: one letter apart and unrelated." },
+        { id: "pt-u104l4-afidelizacao", type: "vocab", front: "a fidelização", reading: "afidelizacao", meaning: "building loyalty", example: { jp: "A fidelização do leitor é mais importante do que um título forte, mas custa muito mais tempo.", en: "Building reader loyalty is more important than a strong headline, but it costs far more time." }, drill: { jp: "A fidelização do leitor é difícil", en: "Building reader loyalty is difficult" }, accept: ["building loyalty", "customer retention", "winning repeat custom", "loyalty-building"], hint: "fi-de-li-za-SOWN, from fiel, faithful. The business word for turning a one-off reader into a subscriber. Portuguese phone contracts use it constantly — estar fidelizado means being locked into a term." },
+        { id: "pt-u104l4-apar", type: "vocab", front: "a par", reading: "apar", meaning: "in the know", example: { jp: "Estar a par do assunto não é o mesmo que o perceber, embora o jornal diga que sim.", en: "Being in the know about the subject is not the same as understanding it, although the paper says it is." }, drill: { jp: "Estou a par deste assunto todo", en: "I am in the know about this whole subject" }, accept: ["in the know", "abreast of things", "up to date", "informed", "kept informed"], hint: "a PAR. A fixed phrase, not a noun: estar a par de, pôr alguém a par de. ⚠ Distinguish a par de (informed about) from ao par (at face value, in finance) — one letter and a world apart." },
+        { id: "pt-u104l4-opublicoalvo", type: "vocab", front: "o público-alvo", reading: "opublicoalvo", meaning: "target audience", example: { jp: "O público-alvo do anúncio é jovem, embora a audiência real seja outra.", en: "The advert's target audience is young, although the real audience is another one entirely." }, drill: { jp: "O público-alvo do anúncio é jovem", en: "The advert's target audience is young" }, accept: ["target audience", "the target audience", "intended audience", "target market"], hint: "Hyphenated compound: o público (taught) plus o alvo, the target. Portuguese builds a lot of marketing vocabulary this way, noun-hyphen-noun, with the second word narrowing the first." },
+        { id: "pt-u104l4-oalinhamento", type: "vocab", front: "o alinhamento", reading: "oalinhamento", meaning: "running order", example: { jp: "O alinhamento da emissão deixa o desporto para o fim, mas é isso que o público quer.", en: "The programme's running order leaves sport until the end, but that is what the public wants." }, drill: { jp: "O alinhamento da emissão muda hoje", en: "The programme's running order changes today" }, accept: ["running order", "the running order", "line-up", "ordering", "alignment"], hint: "a-li-nya-MEN-tu, from linha. In a newsroom it is the running order of a bulletin. In politics it is alignment — o alinhamento com a Europa — and Portuguese uses both senses without marking which." },
+      ],
+    },
   ],
 };

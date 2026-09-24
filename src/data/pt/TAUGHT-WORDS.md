@@ -1,7 +1,7 @@
 # PT — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- pt`.
-Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s) still stubs**.
+Snapshot 2026-09-24: **2730 words** across **113 authored unit(s)**, **13 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -17,25 +17,12 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 
 ## Slots still unauthored
 
-**u101–u126 are unauthored.** ⚠️ This range is DERIVED from the stubs in the corpus, not read from a crew assignment — so it carries **no block numbers**, on purpose. If blocks 1 and 2 of this band are already merged, everything left is block 3's, however many slots that is. Your kickoff prompt is the only authority on which slots are yours; this file just tells you which are still empty.
+**u114–u126 are unauthored.** ⚠️ This range is DERIVED from the stubs in the corpus, not read from a crew assignment — so it carries **no block numbers**, on purpose. If blocks 1 and 2 of this band are already merged, everything left is block 3's, however many slots that is. Your kickoff prompt is the only authority on which slots are yours; this file just tells you which are still empty.
 
 ## Slots still stubs — not yours unless you were assigned them
 
 | slot | unit | title |
 |---|---|---|
-| 101 | `pt-u101` | Environment and the global |
-| 102 | `pt-u102` | Health systems and care |
-| 103 | `pt-u103` | Education and research |
-| 104 | `pt-u104` | Media and narrative |
-| 105 | `pt-u105` | Emotion, subtle and mixed |
-| 106 | `pt-u106` | Grammar 9 — conditional nuance and counterfactuals |
-| 107 | `pt-u107` | Grammar 10 — formal written structures |
-| 108 | `pt-u108` | Grammar 11 — discourse, cohesion, hedged claims |
-| 109 | `pt-u109` | Register 3 — tu, você, o senhor |
-| 110 | `pt-u110` | Register 4 — written, public and institutional voice |
-| 111 | `pt-u111` | Vocabulary 1 (B2) |
-| 112 | `pt-u112` | Vocabulary 2 (B2) |
-| 113 | `pt-u113` | Vocabulary 3 (B2) |
 | 114 | `pt-u114` | Vocabulary 4 (B2) |
 | 115 | `pt-u115` | Vocabulary 5 (B2) |
 | 116 | `pt-u116` | Vocabulary 6 (B2) |
@@ -68,18 +55,24 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a alegação` — u88 · allegation
 - `a alegria` — u22 · joy
 - `a alergia` — u25 · allergy
+- `a alta` — u102 · discharge (from hospital)
 - `a alteração` — u65 · change (an alteration)
 - `a alternativa` — u60 · alternative
 - `a altura` — u34 · height
+- `a amargura` — u105 · bitterness
 - `a ambição` — u85 · ambition
 - `a ambulância` — u25 · ambulance
 - `a ameaça` — u98 · threat
 - `a amizade` — u39 · friendship
 - `a amostra` — u84 · sample
+- `a amostragem` — u103 · sampling
 - `a análise` — u25 · test
+- `a angústia` — u105 · anguish
 - `a ansiedade` — u57 · anxiety
 - `a antiguidade` — u95 · antiquity
 - `a aplicação` — u33 · app
+- `a apreensão` — u105 · apprehension
+- `a aprendizagem` — u103 · learning
 - `a aquisição` — u93 · acquisition
 - `a arbitragem` — u93 · arbitration
 - `a área` — u83 · area (extent)
@@ -88,7 +81,10 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a árvore` — u26 · tree
 - `a ascensão` — u99 · social rise
 - `a assembleia` — u92 · assembly
+- `a assessoria` — u110 · advisory staff
+- `a assiduidade` — u103 · attendance
 - `a assinatura` — u44 · signature
+- `a ata` — u110 · minutes
 - `a atenção` — u76 · attention
 - `a atualização` — u33 · update
 - `a audiência` — u64 · audience (viewers, ratings)
@@ -99,15 +95,20 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a autoria` — u89 · authorship
 - `a autoridade` — u76 · authority
 - `a autorização` — u44 · authorisation
+- `a avaliação` — u103 · assessment
 - `a avó` — u4 · grandmother
 - `a bagagem` — u23 · luggage
+- `a baixa` — u102 · sick leave
 - `a balança` — u43 · scales
+- `a bancada` — u110 · parliamentary group
 - `a barreira` — u85 · barrier
 - `a barriga` — u11 · belly
 - `a base` — u58 · basis
 - `a batata` — u6 · potato
+- `a bibliografia` — u103 · bibliography
 - `a biblioteca` — u17 · library
 - `a bicicleta` — u23 · bicycle
+- `a biodiversidade` — u101 · biodiversity
 - `a boca` — u11 · mouth
 - `a bolsa` — u24 · grant
 - `a borda` — u83 · edge
@@ -133,6 +134,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a carta` — u49 · letter
 - `a casa` — u1 · house
 - `a casa de banho` — u7 · toilet
+- `a catástrofe` — u101 · catastrophe
 - `a categoria` — u90 · category
 - `a caução` — u93 · security deposit
 - `a causa` — u34 · cause
@@ -152,10 +154,14 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a cidadania` — u99 · citizenship
 - `a cidade` — u7 · city
 - `a ciência` — u34 · science
+- `a cimeira` — u101 · summit
+- `a circular` — u110 · circular
 - `a cirurgia` — u67 · surgery
 - `a citação` — u89 · quotation
 - `a classe` — u99 · social class
+- `a classificação` — u103 · grade awarded
 - `a cláusula` — u93 · clause
+- `a cobertura` — u104 · coverage
 - `a coerência` — u76 · consistency
 - `a coesão` — u99 · cohesion
 - `a coincidência` — u76 · coincidence
@@ -165,6 +171,8 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a coligação` — u92 · coalition
 - `a colina` — u46 · hill
 - `a colónia` — u95 · colony
+- `a comissão` — u110 · committee
+- `a compaixão` — u105 · compassion
 - `a companhia` — u68 · company (companionship)
 - `a competência` — u85 · competence
 - `a competição` — u50 · competition
@@ -175,6 +183,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a condição` — u61 · condition
 - `a confiança` — u31 · trust
 - `a confusão` — u76 · confusion
+- `a conjetura` — u106 · conjecture
 - `a conquista` — u95 · conquest
 - `a consciência` — u97 · conscience
 - `a consequência` — u52 · consequence
@@ -183,12 +192,14 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a conta` — u18 · bill
 - `a contingência` — u98 · contingency
 - `a contrapartida` — u93 · quid pro quo
+- `a convenção` — u101 · convention (treaty)
 - `a convivência` — u68 · living together
 - `a coordenação` — u100 · coordination
 - `a cor` — u8 · colour
 - `a corda` — u42 · rope
 - `a coroa` — u48 · crown
 - `a corrente` — u46 · current
+- `a cortesia` — u109 · courtesy
 - `a costa` — u46 · coast
 - `a cozinha` — u15 · kitchen
 - `a criança` — u4 · child
@@ -198,6 +209,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a cronologia` — u95 · chronology
 - `a culpa` — u57 · fault
 - `a cultura` — u35 · culture
+- `a cumplicidade` — u105 · unspoken complicity
 - `a cúpula` — u100 · the top brass
 - `a cura` — u67 · cure
 - `a data` — u48 · date
@@ -205,18 +217,22 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a decadência` — u95 · decadence
 - `a decisão` — u76 · decision
 - `a dedicação` — u85 · dedication
+- `a deferência` — u109 · deference
+- `a delegação` — u101 · delegation
 - `a demora` — u86 · delay (the wait)
 - `a dependência` — u67 · dependence
 - `a derrota` — u50 · defeat
 - `a descida` — u66 · fall
 - `a descoberta` — u34 · discovery
 - `a desigualdade` — u68 · inequality
+- `a desinformação` — u104 · disinformation
 - `a despesa` — u45 · expense
 - `a desvantagem` — u53 · disadvantage
 - `a dieta` — u25 · diet
 - `a diferença` — u40 · difference
 - `a dificuldade` — u60 · difficulty
 - `a dignidade` — u97 · dignity
+- `a diligência` — u110 · official step taken
 - `a dimensão` — u83 · size (the scale of it)
 - `a direção` — u46 · direction
 - `à direita` — u7 · on the right
@@ -224,12 +240,16 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a disciplina` — u17 · subject
 - `a discrepância` — u89 · discrepancy
 - `a discussão` — u68 · argument (a row)
+- `a dissertação` — u103 · dissertation
 - `a distância` — u23 · distance
+- `a distorção` — u104 · distortion
 - `a ditadura` — u95 · dictatorship
 - `a diversidade` — u99 · diversity
 - `a dívida` — u45 · debt
 - `a doença` — u67 · illness
+- `a dona` — u109 · Dona
 - `a dor` — u11 · pain
+- `a dosagem` — u102 · dosage
 - `a dose` — u43 · portion
 - `a dúvida` — u76 · doubt
 - `a dúzia` — u27 · dozen
@@ -246,14 +266,17 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a energia` — u65 · energy
 - `a ênfase` — u88 · emphasis
 - `a engenharia` — u94 · engineering
+- `a entidade` — u110 · official body
 - `a entrada` — u38 · starter
 - `a entrevista` — u18 · interview
+- `a epidemia` — u102 · epidemic
 - `a época` — u48 · era
 - `a equidade` — u97 · fairness
 - `a equipa` — u19 · team
 - `a erva` — u26 · grass
 - `a escada` — u30 · stairs
 - `a escala` — u82 · scale
+- `a escassez` — u101 · scarcity
 - `a escola` — u7 · school
 - `a escolha` — u76 · choice
 - `a escravatura` — u95 · slavery
@@ -264,6 +287,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a esplanada` — u19 · terrace
 - `a esquadra` — u47 · police station
 - `à esquerda` — u7 · on the left
+- `a essência` — u113 · essence
 - `a estação` — u7 · station
 - `a estatística` — u82 · statistic
 - `a estátua` — u48 · statue
@@ -276,6 +300,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a ética` — u97 · ethics
 - `a etiqueta` — u27 · label
 - `a etnia` — u99 · ethnicity
+- `a euforia` — u105 · euphoria
 - `a eventualidade` — u98 · eventuality
 - `a evidência` — u84 · evidence
 - `a evolução` — u59 · development
@@ -289,11 +314,13 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a extremidade` — u83 · far end
 - `a fábrica` — u65 · factory
 - `a faca` — u15 · knife
+- `a faculdade` — u103 · faculty
 - `a falácia` — u88 · fallacy
 - `a falência` — u66 · bankruptcy
 - `a falha` — u60 · flaw (a failure)
 - `a falta` — u76 · lack
 - `a família` — u4 · family
+- `a familiaridade` — u109 · familiarity
 - `a farinha` — u41 · flour
 - `a farmácia` — u7 · pharmacy
 - `a fase` — u86 · stage (a phase)
@@ -305,15 +332,19 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a ferramenta` — u87 · tool
 - `a festa` — u19 · party
 - `a fiabilidade` — u89 · reliability
+- `a fidelização` — u104 · building loyalty
 - `a fila` — u49 · queue
 - `a filha` — u4 · daughter
+- `a fim de` — u107 · in order to
 - `a final` — u50 · final
 - `a finalidade` — u52 · purpose
+- `a fisioterapia` — u102 · physiotherapy
 - `a flor` — u26 · flower
 - `a floresta` — u26 · forest
 - `a folha` — u26 · leaf
 - `a fonte` — u55 · source
 - `a força` — u50 · strength
+- `a forma` — u111 · shape
 - `a formação` — u24 · training
 - `a fórmula` — u94 · formula
 - `a foto` — u33 · photo
@@ -356,9 +387,13 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a imprensa` — u32 · the press
 - `a impressora` — u33 · printer
 - `a impunidade` — u97 · impunity
+- `a imunidade` — u102 · immunity
+- `a incapacidade` — u102 · incapacity
 - `a incerteza` — u98 · uncertainty
+- `a incidência` — u102 · incidence
 - `a inclusão` — u99 · inclusion
 - `a independência` — u80 · independence
+- `a indignação` — u105 · indignation
 - `a indústria` — u66 · industry
 - `a infância` — u80 · childhood
 - `a inflação` — u66 · inflation
@@ -374,11 +409,13 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a interação` — u90 · interaction
 - `a internet` — u33 · the internet
 - `a interpretação` — u96 · performance (of a role)
+- `a intimidade` — u109 · intimacy
 - `a inundação` — u65 · flood
 - `a invasão` — u95 · invasion
 - `a inveja` — u57 · envy
 - `a investigação` — u34 · research
 - `a irmã` — u4 · sister
+- `a isenção` — u104 · impartiality
 - `a janela` — u15 · window
 - `a jurisdição` — u92 · jurisdiction
 - `a justiça` — u44 · justice
@@ -402,6 +439,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a limitação` — u85 · limitation
 - `a linhagem` — u95 · lineage
 - `a lista` — u27 · list
+- `a lista de espera` — u102 · waiting list
 - `a lógica` — u58 · logic
 - `a loja` — u7 · shop
 - `a lua` — u26 · moon
@@ -409,8 +447,10 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a maçã` — u1 · apple
 - `a madeira` — u42 · wood
 - `a mãe` — u1 · mother
+- `a mágoa` — u105 · hurt
 - `a maioria` — u40 · most
 - `a mala` — u20 · suitcase
+- `a mancha` — u112 · stain
 - `a manchete` — u64 · headline
 - `a maneira` — u40 · way
 - `a manhã` — u1 · morning
@@ -423,22 +463,28 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a maré` — u46 · tide
 - `a margem` — u93 · margin
 - `a massa` — u38 · pasta
+- `a matéria` — u103 · subject matter
+- `a matrícula` — u103 · enrolment
 - `a matriz` — u94 · matrix
 - `a maturidade` — u63 · maturity
 - `a média` — u53 · average
 - `a medida` — u55 · measure
 - `a meia-noite` — u5 · midnight
+- `a melancolia` — u105 · melancholy
 - `a melhoria` — u60 · improvement
 - `a memória` — u48 · memory
 - `a menina` — u72 · miss
+- `a menos que` — u106 · unless (in writing)
 - `a mensagem` — u18 · message
 - `a mentira` — u40 · lie
 - `a mesa` — u15 · table
 - `a meta` — u56 · target
 - `a metade` — u43 · half
 - `a metáfora` — u96 · metaphor
+- `a metodologia` — u103 · methodology
 - `a minha` — u4 · my (feminine)
 - `a minoria` — u68 · minority
+- `a mistura` — u113 · mixture
 - `a mobília` — u15 · furniture
 - `a mobilidade` — u99 · social mobility
 - `a mochila` — u17 · backpack
@@ -467,6 +513,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a nostalgia` — u63 · nostalgia
 - `a nota` — u17 · mark
 - `a notícia` — u32 · news
+- `a notificação` — u110 · formal notification
 - `a nuvem` — u26 · cloud
 - `a objeção` — u88 · objection
 - `a obra` — u96 · work (of art)
@@ -490,17 +537,21 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a palavra` — u76 · word
 - `a palavra-passe` — u33 · password
 - `a panela` — u41 · pot
+- `a par` — u104 · in the know
 - `a parceria` — u93 · partnership
 - `a parede` — u30 · wall
 - `a parte` — u43 · part
 - `a partícula` — u94 · particle
+- `à partida` — u108 · from the outset
 - `a partir de` — u59 · from
 - `a pasta` — u17 · folder
 - `a patente` — u94 · patent
 - `a pausa` — u86 · pause
 - `a paz` — u48 · peace
 - `a peça` — u35 · play
+- `a pedagogia` — u103 · pedagogy
 - `a pedra` — u26 · stone
+- `a pegada` — u101 · footprint
 - `a peixaria` — u27 · fishmonger's
 - `a pena` — u92 · penalty (sentence served)
 - `a penalização` — u93 · penalty clause
@@ -518,9 +569,11 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a pilha` — u87 · battery
 - `a pimenta` — u38 · pepper
 - `a piscina` — u20 · swimming pool
+- `a pista` — u112 · trail
 - `a pobreza` — u45 · poverty
 - `a polémica` — u55 · controversy
 - `a poluição` — u34 · pollution
+- `a ponta` — u112 · the pointed end
 - `a ponte` — u23 · bridge
 - `a população` — u32 · population
 - `a porção` — u82 · portion (an amount)
@@ -532,6 +585,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a praia` — u20 · beach
 - `a prata` — u42 · silver
 - `a prática` — u63 · practice
+- `a praxe` — u110 · standard practice
 - `a precaução` — u98 · precaution
 - `a precisão` — u82 · precision
 - `a premissa` — u88 · premise
@@ -565,6 +619,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a raiva` — u22 · anger
 - `a raiz` — u63 · root
 - `a razão` — u51 · reason
+- `a reabilitação` — u102 · rehabilitation
 - `a receção` — u23 · reception
 - `a receita` — u11 · prescription
 - `a reciclagem` — u65 · recycling
@@ -579,20 +634,27 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a rentabilidade` — u93 · profitability
 - `a repercussão` — u52 · repercussion
 - `a repetição` — u86 · repetition
+- `a réplica` — u104 · rejoinder
 - `a reportagem` — u55 · news report
 - `a república` — u95 · republic
+- `a repulsa` — u105 · revulsion
+- `a resiliência` — u101 · resilience
 - `a responsabilidade` — u56 · responsibility
 - `a resposta` — u17 · answer
 - `a ressalva` — u88 · caveat
 - `a restauração` — u95 · restoration
 - `a retenção` — u100 · retention
+- `a retórica` — u110 · rhetoric
 - `a reunião` — u18 · meeting
+- `a reviravolta` — u104 · plot twist
 - `a revolução` — u95 · revolution
 - `a riqueza` — u45 · wealth
 - `a rotatividade` — u100 · staff turnover
 - `a rotina` — u21 · routine
 - `a roupa` — u16 · clothes
 - `a rua` — u1 · street
+- `a rubrica` — u104 · regular column
+- `a saber` — u108 · to wit
 - `a saia` — u16 · skirt
 - `a saída` — u60 · way out
 - `a sala` — u15 · living room
@@ -613,18 +675,23 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a semente` — u26 · seed
 - `a senhora` — u12 · madam
 - `a sentença` — u92 · ruling
+- `a sequela` — u102 · lasting after-effect
 - `a sequência` — u86 · sequence
+- `a serenidade` — u105 · serenity
+- `a série` — u113 · series
 - `a serra` — u46 · mountain range
 - `a simulação` — u94 · simulation
 - `a síntese` — u84 · summary
 - `a situação` — u76 · situation
 - `a soberania` — u92 · sovereignty
+- `a sobra` — u113 · leftover
 - `a sobrecarga` — u100 · overload
 - `a sobremesa` — u38 · dessert
 - `a sociedade` — u32 · society
 - `a solidão` — u68 · loneliness
 - `a solidariedade` — u68 · solidarity
 - `a solução` — u60 · solution
+- `a soma` — u113 · sum
 - `a sondagem` — u55 · poll
 - `a sopa` — u6 · soup
 - `a subida` — u66 · rise
@@ -641,6 +708,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a tendência` — u54 · trend
 - `a teoria` — u58 · theory
 - `a terapia` — u67 · therapy
+- `a ternura` — u105 · tenderness
 - `a Terra` — u34 · Earth
 - `a tese` — u88 · thesis
 - `a testemunha` — u47 · witness
@@ -648,6 +716,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a tigela` — u41 · bowl
 - `a tinta` — u87 · paint
 - `a tipologia` — u90 · typology
+- `a tiragem` — u104 · print run
 - `a toalha` — u21 · towel
 - `a tolerância` — u99 · tolerance
 - `a tonelada` — u43 · tonne
@@ -657,13 +726,17 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a tragédia` — u96 · tragedy
 - `a trajetória` — u63 · path
 - `a transferência` — u45 · transfer
+- `a transição` — u101 · transition
 - `a transparência` — u97 · transparency
+- `a triagem` — u102 · triage
 - `a trovoada` — u26 · thunderstorm
 - `a turma` — u17 · class group
+- `a tutela` — u110 · supervising ministry
 - `a universidade` — u17 · university
 - `a urgência` — u25 · A&E
 - `a vaca` — u26 · cow
 - `a vacina` — u25 · vaccine
+- `a vacinação` — u102 · vaccination
 - `a vaga` — u100 · vacancy
 - `a validade` — u44 · validity
 - `a vanguarda` — u96 · avant-garde
@@ -677,8 +750,10 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `a vergonha` — u57 · shame
 - `a versão` — u89 · version (of events)
 - `a vertente` — u90 · strand (aspect)
+- `a vez` — u111 · turn
 - `a viagem` — u20 · journey
 - `a vida` — u80 · life
+- `a vigência` — u110 · period in force
 - `a vila` — u46 · town
 - `a virtude` — u97 · virtue
 - `a vista` — u23 · view
@@ -709,6 +784,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `aceitar` — u68 · to accept
 - `acelerar` — u59 · to speed up
 - `acenar` — u79 · to wave
+- `acender` — u112 · to light
 - `acentuar` — u91 · to heighten
 - `achar` — u36 · to think
 - `acima de` — u53 · above
@@ -716,6 +792,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `aconselhar` — u60 · to advise
 - `acontecer` — u32 · to happen
 - `acordar` — u19 · to wake up
+- `acreditar` — u111 · to believe
 - `acrescentar` — u51 · to add
 - `acumular` — u74 · to build up
 - `adaptar` — u74 · to adapt
@@ -723,6 +800,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `adeus` — u2 · goodbye
 - `adiantar` — u62 · to bring forward
 - `adiar` — u56 · to postpone
+- `admitindo que` — u106 · granting that
 - `admitir` — u51 · to admit
 - `adorar` — u22 · to love
 - `advertir` — u61 · to warn (formally)
@@ -743,6 +821,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `aguardo resposta` — u73 · I look forward to hearing
 - `aguentar` — u81 · to hold up
 - `ainda` — u28 · still
+- `ainda assim` — u106 · even so
 - `ainda que` — u70 · although (even if)
 - `ajudá-lo` — u71 · to help him
 - `ajudar` — u29 · to help
@@ -754,7 +833,9 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `algo` — u40 · something
 - `alguém` — u40 · somebody
 - `alguns` — u40 · some
+- `alheio` — u111 · someone else's
 - `ali` — u7 · there
+- `aliás` — u108 · for that matter
 - `alternar` — u86 · to alternate
 - `alto` — u10 · tall
 - `alugar` — u23 · to rent
@@ -762,9 +843,12 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `amanhã` — u5 · tomorrow
 - `amarelo` — u8 · yellow
 - `amável` — u31 · kind
+- `ambivalente` — u105 · ambivalent
 - `ambos` — u29 · both
 - `ameaçar` — u65 · to threaten
+- `amplo` — u113 · broad
 - `analisar` — u84 · to analyse
+- `andar` — u112 · to walk
 - `anexar` — u73 · to attach
 - `animado` — u57 · lively
 - `antecipar` — u86 · to bring forward (to do it earlier)
@@ -777,7 +861,10 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `anunciar` — u77 · to announce
 - `ão` — u1
 - `ao` — u12 · to the
+- `ao abrigo de` — u107 · under the terms of
+- `ao passo que` — u107 · whereas
 - `ao que parece` — u54 · from what it seems
+- `ao que tudo indica` — u108 · by all indications
 - `aos` — u29 · to the
 - `apagar` — u33 · to delete
 - `apaixonar-se` — u39 · to fall in love
@@ -797,7 +884,9 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `aproximadamente` — u53 · approximately
 - `aproximado` — u82 · approximate
 - `aproximar-se` — u79 · to approach
+- `apto` — u113 · fit for
 - `apurar` — u55 · to establish
+- `aquando de` — u107 · at the time of
 - `aquecer` — u30 · to heat
 - `aquele` — u12 · that
 - `aqui` — u7 · here
@@ -833,6 +922,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `atenuar` — u91 · to soften (tone down)
 - `atestar` — u89 · to certify
 - `atingir` — u85 · to achieve
+- `atirar` — u112 · to throw
 - `atrasado` — u23 · late
 - `atrasar` — u86 · to delay
 - `atravessar` — u79 · to cross
@@ -852,6 +942,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `banal` — u96 · trite
 - `barato` — u16 · cheap
 - `bastante` — u28 · quite
+- `bastar` — u111 · to be enough
 - `bater` — u41 · to beat
 - `beber` — u6 · to drink
 - `bebi` — u14 · I drank
@@ -880,6 +971,8 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `capaz` — u85 · able
 - `caro` — u1 · expensive
 - `casar` — u39 · to marry
+- `caso` — u106 · in case (if)
+- `caso contrário` — u106 · failing that
 - `castanho` — u8 · brown
 - `ceder` — u81 · to give way
 - `cedinho` — u72 · nice and early
@@ -887,12 +980,16 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `celebrar` — u48 · to celebrate
 - `cem` — u5 · one hundred
 - `cerca de` — u82 · about
+- `cerimonioso` — u109 · ceremonious
+- `certo` — u111 · a certain
 - `chamo-me` — u3 · my name is
 - `chateado` — u57 · upset
 - `chegar` — u20 · to arrive
+- `chegar a` — u106 · to go so far as to
 - `cheio` — u10 · full
 - `cheirar` — u78 · to smell
 - `chorar` — u22 · to cry
+- `chumbar` — u103 · to flunk
 - `cinco` — u5 · five
 - `cinquenta` — u5 · fifty
 - `cinzento` — u8 · grey
@@ -901,8 +998,10 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `classificar` — u90 · to classify
 - `colocar` — u83 · to place
 - `com certeza` — u72 · certainly
+- `com efeito` — u108 · indeed
 - `com licença` — u2 · excuse me
 - `com os melhores cumprimentos` — u73 · kind regards
+- `com vista a` — u107 · with a view to
 - `combinar` — u62 · to arrange
 - `come` — u13 · he eats
 - `começar` — u21 · to begin
@@ -932,6 +1031,8 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `concluir` — u56 · to complete
 - `concordar` — u24 · to agree
 - `concreto` — u58 · concrete
+- `condenar` — u113 · to condemn
+- `condescendente` — u109 · condescending
 - `conduzir` — u23 · to drive
 - `conferir` — u84 · to check over
 - `confiar` — u31 · to trust
@@ -945,10 +1046,13 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `considerar` — u51 · to consider
 - `consideravelmente` — u53 · considerably
 - `consistente` — u89 · consistent
+- `consoante` — u106 · depending on
 - `constar` — u89 · to be on record
+- `constatar` — u107 · to note as a fact
 - `constipado` — u11 · having a cold
 - `consultar` — u84 · to look up
 - `consumir` — u65 · to consume
+- `contanto que` — u106 · provided that
 - `contar` — u36 · to tell
 - `contente` — u22 · pleased
 - `contestar` — u88 · to dispute
@@ -957,6 +1061,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `contribuir` — u52 · to contribute
 - `convencer` — u51 · to convince
 - `convidar` — u19 · to invite
+- `convir` — u113 · to be advisable
 - `conviver` — u68 · to live alongside
 - `cor-de-rosa` — u8 · pink
 - `corajoso` — u31 · brave
@@ -976,7 +1081,9 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `criticar` — u39 · to criticise
 - `crónico` — u67 · chronic
 - `cuidar` — u67 · to look after
+- `cujo` — u107 · whose
 - `culpado` — u44 · guilty
+- `cumpre` — u107 · it falls to us to
 - `cumprimentar` — u39 · to greet
 - `cumprir` — u44 · to comply
 - `curar` — u25 · to cure
@@ -984,31 +1091,40 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `custar` — u74 · to cost
 - `da` — u12 · of the (feminine)
 - `dá-me` — u71 · give me
+- `dado que` — u107 · given the fact that
 - `daí que` — u52 · hence
 - `dançar` — u19 · to dance
 - `daqui a pouco` — u72 · in a little while
+- `dar` — u111 · to give
 - `das` — u29 · of the (feminine)
 - `dava-me jeito` — u72 · it would suit me
 - `de` — u1 · of
 - `de acordo` — u73 · in agreement
 - `de certo modo` — u91 · in a way
 - `de facto` — u54 · in fact
+- `de igual para igual` — u109 · as equals
 - `de modo que` — u52 · so that
 - `de nada` — u2 · you're welcome
 - `de onde és` — u3 · where are you from
+- `de qualquer modo` — u106 · in any case
 - `de repente` — u36 · suddenly
+- `de resto` — u108 · for the rest
 - `de vez em quando` — u36 · from time to time
 - `decidir` — u24 · to decide
 - `declarar` — u55 · to declare
 - `decompor` — u90 · to break into parts
+- `decorar` — u103 · to learn by heart
 - `decorrer de` — u52 · to stem from
 - `defender` — u51 · to defend
+- `deferir` — u110 · to grant
 - `definir` — u58 · to define
+- `degradar` — u101 · to degrade
 - `deitar-se` — u21 · to lie down
 - `deixar` — u74 · to leave (behind)
 - `delegar` — u56 · to delegate
 - `demasiado` — u28 · too much
 - `demorar` — u28 · to take time
+- `denso` — u112 · dense
 - `dentro` — u83 · inside
 - `denunciar` — u47 · to report
 - `depender de` — u52 · to depend on
@@ -1030,6 +1146,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `desde que` — u69 · as long as
 - `desencadear` — u52 · to trigger
 - `desenvolver` — u59 · to develop
+- `designadamente` — u108 · specifically
 - `desistir` — u85 · to give up
 - `desligar` — u18 · to switch off
 - `deslocar-se` — u79 · to travel (to get around)
@@ -1043,6 +1160,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `detetar` — u78 · to detect
 - `devagar` — u28 · slowly
 - `devagarinho` — u72 · nice and slowly
+- `dever` — u111 · to owe
 - `dever-se a` — u52 · to be due to
 - `devia` — u37 · should
 - `devia ter` — u70 · should have
@@ -1052,7 +1170,9 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `difícil` — u10 · difficult
 - `difundir` — u77 · to spread
 - `diga` — u69 · (that it) say
+- `digno` — u113 · worthy
 - `diminuir` — u59 · to decrease
+- `dir-se-ia` — u107 · one would say
 - `direi` — u37 · I will say
 - `dirigir-se` — u73 · to make your way to
 - `discordar` — u51 · to disagree
@@ -1079,6 +1199,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `dois` — u5 · two
 - `dominar` — u85 · to master
 - `domingo` — u9 · Sunday
+- `donde` — u108 · whence
 - `dormir` — u19 · to sleep
 - `dos` — u29 · of the
 - `duplicar` — u53 · to double
@@ -1112,7 +1233,13 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `em contrapartida` — u73 · in return
 - `em frente` — u7 · straight ahead
 - `em larga medida` — u91 · to a large extent
+- `em nome de` — u110 · on behalf of
 - `em parte` — u73 · partly
+- `em princípio` — u108 · in principle
+- `em rigor` — u108 · strictly speaking
+- `em suma` — u108 · in short
+- `em último caso` — u106 · as a last resort
+- `em virtude de` — u107 · by virtue of
 - `emagrecer` — u67 · to lose weight
 - `embaraçado` — u10 · tangled
 - `embarcar` — u23 · to board
@@ -1144,15 +1271,20 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `enviar` — u33 · to send
 - `era` — u36 · was
 - `era capaz de` — u72 · could you possibly
+- `era de esperar` — u106 · it was to be expected
+- `erguer` — u112 · to lift up
 - `errado` — u75 · wrong
+- `és` — u109 · you are (permanently)
 - `escapar` — u47 · to escape
 - `escasso` — u91 · scarce
 - `esclarecer` — u60 · to clarify
 - `escolher` — u27 · to choose
+- `esconder` — u112 · to hide
 - `escorregar` — u79 · to slip
 - `escrever` — u17 · to write
 - `escuro` — u8 · dark
 - `escutar` — u78 · to listen
+- `esgotar` — u101 · to use up
 - `espalhar` — u83 · to spread out
 - `espanhol` — u14 · Spanish
 - `esperar` — u21 · to wait
@@ -1160,10 +1292,12 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `esperto` — u31 · clever
 - `esquecer` — u29 · to forget
 - `esquisito` — u10 · weird
+- `esse` — u111 · that (near you)
 - `essencial` — u75 · essential (crucial)
 - `está` — u12 · he is
 - `estar` — u12 · to be (state)
 - `estar a` — u69 · to be (doing)
+- `estás` — u109 · you are (right now)
 - `estava` — u36 · was (state)
 - `estável` — u59 · stable
 - `este` — u12 · this
@@ -1177,13 +1311,16 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `estou bem` — u2 · I'm fine
 - `estragar` — u87 · to ruin
 - `estranho` — u75 · strange
+- `estreito` — u112 · narrow
 - `estudar` — u3 · to study
 - `estudei` — u14 · I studied
+- `esvaziar` — u112 · to empty
 - `eu` — u3 · I
 - `eventualmente` — u54 · possibly (if it comes to that)
 - `evitar` — u60 · to avoid
 - `examinar` — u84 · to examine
 - `exato` — u75 · exact
+- `excelentíssimo` — u109 · Most Honourable
 - `executar` — u56 · to carry out
 - `exemplificar` — u77 · to give an example
 - `exigente` — u31 · demanding
@@ -1195,6 +1332,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `fabricar` — u66 · to manufacture
 - `faça` — u69 · (that it) do
 - `faça favor` — u72 · go ahead
+- `face a` — u107 · in view of
 - `fácil` — u10 · easy
 - `faço` — u13 · I do
 - `fala` — u13 · he speaks
@@ -1214,6 +1352,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `falso` — u75 · false
 - `faltar` — u74 · to be missing
 - `familiar` — u63 · familiar
+- `far-se-á` — u107 · will be done
 - `farei` — u37 · I will do
 - `faria` — u37 · would do
 - `farto` — u57 · fed up
@@ -1221,6 +1360,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `fazer ideia` — u63 · to have a clue
 - `fazerem` — u37 · for them to do
 - `fazia` — u36 · did
+- `fechar` — u112 · to shut
 - `feio` — u10 · ugly
 - `feliz` — u22 · happy
 - `ferver` — u41 · to boil
@@ -1240,8 +1380,10 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `foi` — u14 · he went
 - `foi decidido` — u73 · it was decided
 - `fora` — u83 · outside
+- `formal` — u109 · formal in address
 - `forte` — u10 · strong
 - `fosse` — u70 · (if it) were
+- `fosse como fosse` — u106 · come what may
 - `fraco` — u10 · weak
 - `frágil` — u81 · fragile
 - `francês` — u14 · French
@@ -1257,6 +1399,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `genérico` — u90 · generic
 - `generoso` — u31 · generous
 - `gerir` — u56 · to manage (to run something)
+- `global` — u101 · worldwide
 - `gostar` — u4 · to like
 - `gostaria` — u37 · I would like
 - `gostaria que` — u70 · I would like (someone) to
@@ -1274,7 +1417,9 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `haja` — u69 · (that there) be
 - `haverá` — u37 · there will be
 - `havia` — u36 · there was
+- `havia de` — u106 · was bound to
 - `hesitar` — u85 · to hesitate
+- `hipotético` — u106 · hypothetical
 - `hoje` — u5 · today
 - `honesto` — u31 · honest
 - `houvesse` — u70 · (if there) were
@@ -1296,12 +1441,14 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `incerto` — u54 · uncertain
 - `inclinar-se` — u79 · to lean
 - `incontestável` — u88 · indisputable
+- `indeferir` — u110 · to turn down
 - `indevido` — u97 · improper
 - `indicar` — u77 · to point out (to indicate)
 - `indispensável` — u61 · essential
 - `inesquecível` — u63 · unforgettable
 - `inferior a` — u53 · lower than
 - `influenciar` — u52 · to influence
+- `informal` — u109 · informal in address
 - `informar` — u49 · to inform
 - `infundado` — u89 · unfounded
 - `inglês` — u3 · English
@@ -1317,8 +1464,10 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `inútil` — u81 · useless
 - `investir` — u45 · to invest
 - `ir` — u7 · to go
+- `irreversível` — u101 · irreversible
 - `irritado` — u57 · irritated
 - `isso` — u1 · that
+- `isto é` — u108 · that is
 - `já` — u28 · already
 - `já lhe disse` — u71 · I already told him
 - `janeiro` — u9 · January
@@ -1372,13 +1521,16 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `mas` — u21 · but
 - `mau` — u10 · bad
 - `me` — u13 · me
+- `mediante` — u107 · by means of
 - `medieval` — u95 · of the Middle Ages
 - `medir` — u34 · to measure
 - `melhor` — u11 · better
 - `melhorar` — u25 · to improve
 - `mencionar` — u77 · to mention (by name)
 - `menos` — u29 · less
+- `mero` — u111 · mere
 - `mesmo que` — u70 · even though
+- `meter` — u112 · to put in
 - `mexer` — u79 · to meddle with
 - `misturar` — u41 · to mix
 - `mitigar` — u98 · to mitigate
@@ -1388,10 +1540,14 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `montar` — u87 · to assemble
 - `morar` — u15 · to live (somewhere)
 - `morrer` — u80 · to die
+- `morto` — u112 · dead
+- `mostrar` — u111 · to show
 - `mudar` — u29 · to change
 - `muitas vezes` — u28 · often
 - `muito` — u2 · very
 - `na` — u12 · in the (feminine)
+- `na condição de` — u106 · on condition that
+- `na medida em que` — u108 · insofar as
 - `na minha opinião` — u51 · in my opinion
 - `na verdade` — u54 · actually
 - `nada` — u40 · nothing
@@ -1414,9 +1570,12 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `nh` — u1
 - `ninguém` — u40 · nobody
 - `ninguém o viu` — u71 · nobody saw him
+- `nítido` — u112 · sharp (clear)
 - `no` — u12 · in the
 - `no entanto` — u21 · however
+- `no fundo` — u108 · deep down
 - `no limite` — u91 · at a push
+- `nomeadamente` — u107 · namely
 - `normalmente` — u28 · usually
 - `nós` — u4 · we
 - `nos` — u29 · in the
@@ -1430,6 +1589,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `nunca a vi` — u71 · I never saw her
 - `ó` — u1
 - `ô` — u1
+- `o abaixo-assinado` — u110 · round robin
 - `o abraço` — u39 · hug
 - `o absentismo` — u100 · absenteeism
 - `o abuso` — u61 · abuse
@@ -1439,6 +1599,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o acionista` — u93 · shareholder
 - `o acontecimento` — u32 · event
 - `o acordo` — u51 · agreement
+- `o acréscimo` — u113 · increment
 - `o açúcar` — u6 · sugar
 - `o adepto` — u35 · supporter
 - `o adulto` — u80 · adult
@@ -1448,12 +1609,17 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o afeto` — u68 · affection (regard)
 - `o alarme` — u47 · alarm
 - `o álbum` — u63 · album
+- `o alcance` — u104 · reach
 - `o alerta` — u98 · alert
 - `o algodão` — u42 · cotton
 - `o algoritmo` — u94 · algorithm
+- `o alheamento` — u105 · detachment
 - `o alho` — u38 · garlic
+- `o alinhamento` — u104 · running order
 - `o alívio` — u57 · relief
 - `o almoço` — u6 · lunch
+- `o alvo` — u113 · the mark aimed at
+- `o âmago` — u113 · core
 - `o ambiente` — u34 · environment
 - `o âmbito` — u76 · scope
 - `o amigo` — u39 · friend
@@ -1464,6 +1630,8 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o anúncio` — u64 · advertisement
 - `o apelo` — u88 · appeal (to feeling)
 - `o apoio` — u60 · support
+- `o aproveitamento` — u103 · academic performance
+- `o aquecimento` — u101 · warming
 - `o ar` — u34 · air
 - `o árbitro` — u50 · referee
 - `o argumento` — u51 · argument
@@ -1476,6 +1644,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o aspirador` — u30 · vacuum cleaner
 - `o assunto` — u40 · subject
 - `o atendimento` — u49 · service
+- `o aterro` — u101 · landfill
 - `o atletismo` — u50 · athletics
 - `o atraso` — u56 · delay
 - `o autocarro` — u7 · bus
@@ -1500,6 +1669,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o bem-estar` — u67 · wellbeing
 - `o bilhete` — u7 · ticket
 - `o boato` — u64 · rumour
+- `o bocado` — u113 · bit
 - `o bolo` — u6 · cake
 - `o bombeiro` — u47 · firefighter
 - `o botão` — u42 · button
@@ -1516,6 +1686,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o canal` — u64 · channel
 - `o canto` — u83 · corner
 - `o cão` — u4 · dog
+- `o carbono` — u101 · carbon
 - `o cargo` — u24 · post
 - `o carimbo` — u44 · stamp
 - `o carinho` — u57 · affection
@@ -1556,11 +1727,13 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o civismo` — u99 · civic-mindedness
 - `o cliente` — u93 · customer
 - `o clima` — u34 · climate
+- `o clímax` — u104 · climax
 - `o código postal` — u49 · postcode
 - `o colaborador` — u100 · staff member
 - `o colega` — u18 · colleague
 - `o coletivo` — u99 · the collective
 - `o comboio` — u7 · train
+- `o combustível` — u101 · fuel
 - `o comentário` — u77 · comment
 - `o comércio` — u66 · trade
 - `o comportamento` — u31 · behaviour
@@ -1570,6 +1743,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o compromisso` — u62 · commitment
 - `o comprovativo` — u49 · proof
 - `o computador` — u18 · computer
+- `o comunicado` — u110 · press release
 - `o conceito` — u58 · concept
 - `o concerto` — u35 · concert
 - `o conflito` — u68 · conflict
@@ -1577,9 +1751,13 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o conjunto` — u58 · set
 - `o conselho` — u60 · advice
 - `o consenso` — u99 · consensus
+- `o consolo` — u105 · solace
+- `o constrangimento` — u105 · awkwardness
 - `o consumidor` — u66 · consumer
 - `o consumo` — u65 · consumption
 - `o contacto` — u68 · contact
+- `o contágio` — u102 · contagion
+- `o conteúdo` — u103 · content
 - `o contexto` — u58 · context
 - `o continente` — u46 · continent
 - `o conto` — u35 · short story
@@ -1589,6 +1767,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o copo` — u15 · glass
 - `o coração` — u11 · heart
 - `o corpo` — u11 · body
+- `o corte` — u112 · cut
 - `o costume` — u63 · custom
 - `o couro` — u42 · leather
 - `o cozinheiro` — u18 · cook
@@ -1596,6 +1775,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o crime` — u44 · crime
 - `o critério` — u58 · criterion
 - `o cuidado` — u60 · care
+- `o cuidador` — u102 · carer
 - `o currículo` — u24 · CV
 - `o curso` — u17 · course
 - `o custo` — u66 · cost
@@ -1607,24 +1787,32 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o dedo` — u11 · finger
 - `o defeito` — u31 · flaw
 - `o défice` — u93 · deficit
+- `o degelo` — u101 · thaw
 - `o dente` — u25 · tooth
 - `o depoimento` — u89 · statement (on record)
 - `o deputado` — u92 · member of parliament
 - `o desacordo` — u51 · disagreement
 - `o desafio` — u60 · challenge
+- `o desalento` — u105 · discouragement
 - `o descanso` — u67 · rest
 - `o descendente` — u80 · descendant
+- `o desconhecido` — u109 · a stranger
 - `o desconto` — u27 · discount
+- `o desdém` — u105 · disdain
 - `o desempenho` — u56 · performance
 - `o desemprego` — u66 · unemployment
+- `o desenlace` — u104 · denouement
 - `o desentendimento` — u68 · misunderstanding between people
 - `o deserto` — u46 · desert
 - `o desespero` — u57 · despair
 - `o desfecho` — u52 · outcome
 - `o desgaste` — u81 · wear
+- `o desgosto` — u105 · heartache
+- `o despacho` — u110 · official ruling
 - `o desperdício` — u65 · waste
 - `o despertador` — u21 · alarm clock
 - `o desporto` — u19 · sport
+- `o destaque` — u104 · prominence
 - `o destino` — u23 · destination
 - `o desvio` — u94 · deviation
 - `o detalhe` — u84 · detail (a particular)
@@ -1640,10 +1828,17 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o discurso` — u77 · speech
 - `o divórcio` — u68 · divorce
 - `o dobro` — u43 · double
+- `o docente` — u103 · teaching staff member
 - `o documento` — u44 · document
+- `o doutor` — u109 · the doctor (as a title)
+- `o doutoramento` — u103 · doctorate
 - `o duche` — u21 · shower
+- `o ecossistema` — u101 · ecosystem
 - `o ecrã` — u18 · screen
+- `o edital` — u110 · public notice
+- `o editorial` — u104 · editorial
 - `o efeito` — u34 · effect
+- `o efeito secundário` — u102 · side effect
 - `o eixo` — u90 · axis
 - `o eleitorado` — u92 · electorate
 - `o elemento` — u58 · element
@@ -1655,12 +1850,15 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o empregado` — u18 · employee
 - `o emprego` — u66 · employment
 - `o empréstimo` — u45 · loan
+- `o encaminhamento` — u102 · referral
 - `o encontro` — u39 · meeting
 - `o enfermeiro` — u25 · nurse
 - `o engano` — u84 · mistake (a mix-up)
 - `o engenheiro` — u18 · engineer
+- `o enquadramento` — u104 · framing
 - `o enredo` — u64 · plot
 - `o ensaio` — u94 · trial (test run)
+- `o ensino` — u103 · teaching (as a system)
 - `o entusiasmo` — u57 · enthusiasm
 - `o envelope` — u49 · envelope
 - `o episódio` — u64 · episode
@@ -1687,6 +1885,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o exame` — u17 · exam
 - `o excerto` — u89 · extract (passage)
 - `o excesso` — u82 · excess
+- `o exemplar` — u113 · copy
 - `o exemplo` — u40 · example
 - `o exercício` — u25 · exercise
 - `o exército` — u48 · army
@@ -1694,6 +1893,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o exterior` — u83 · exterior
 - `o extrato` — u45 · statement
 - `o facto` — u40 · fact
+- `o fascínio` — u105 · fascination
 - `o fator` — u52 · factor
 - `o feitio` — u31 · nature
 - `o ferro` — u42 · iron
@@ -1706,6 +1906,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o fluxo` — u90 · flow
 - `o fogão` — u30 · stove
 - `o fogo` — u47 · fire
+- `o formato` — u104 · format
 - `o formulário` — u44 · form
 - `o fornecedor` — u93 · supplier
 - `o forno` — u30 · oven
@@ -1734,6 +1935,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o gráfico` — u84 · chart
 - `o grama` — u43 · gram
 - `o grau` — u43 · degree
+- `o grupo` — u111 · group
 - `o guardanapo` — u38 · napkin
 - `o guião` — u64 · script
 - `o hábito` — u63 · habit
@@ -1755,11 +1957,14 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o inquérito` — u55 · inquiry
 - `o interesse` — u76 · interest (concern, appeal)
 - `o interior` — u83 · interior
+- `o interlocutor` — u109 · the person you are addressing
 - `o intermediário` — u93 · middleman
+- `o internamento` — u102 · hospital admission
 - `o intervalo` — u86 · break
 - `o inverno` — u8 · winter
 - `o investimento` — u66 · investment
 - `o irmão` — u4 · brother
+- `o item` — u113 · item
 - `o jantar` — u6 · dinner
 - `o jardim` — u15 · garden
 - `o joelho` — u25 · knee
@@ -1786,6 +1991,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o livro` — u1 · book
 - `o lixo` — u21 · rubbish
 - `o lucro` — u45 · profit
+- `o lugar` — u111 · place
 - `o lume` — u41 · the heat
 - `o luto` — u80 · mourning
 - `o mal-entendido` — u68 · misunderstanding
@@ -1816,6 +2022,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o mínimo` — u53 · minimum
 - `o minuto` — u5 · minute
 - `o modelo` — u58 · model
+- `o modo` — u111 · manner
 - `o molho` — u41 · sauce
 - `o momento` — u28 · moment
 - `o monumento` — u48 · monument
@@ -1829,6 +2036,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o museu` — u7 · museum
 - `o namorado` — u4 · boyfriend
 - `o nariz` — u11 · nose
+- `o narrador` — u104 · narrator
 - `o negócio` — u45 · business
 - `o neto` — u80 · grandson
 - `o nevoeiro` — u26 · fog
@@ -1841,6 +2049,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o objetivo` — u40 · aim
 - `o obstáculo` — u60 · obstacle
 - `o oeste` — u46 · west
+- `o ofício` — u110 · official letter
 - `o óleo` — u41 · oil
 - `o olho` — u11 · eye
 - `o ombro` — u25 · shoulder
@@ -1848,6 +2057,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o organigrama` — u100 · org chart
 - `o organismo` — u94 · organism
 - `o orgulho` — u57 · pride
+- `o orientador` — u103 · supervisor
 - `o ouro` — u42 · gold
 - `o outono` — u8 · autumn
 - `o ouvido` — u25 · ear
@@ -1861,8 +2071,10 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o palco` — u35 · stage
 - `o pão` — u1 · bread
 - `o papel` — u44 · paper
+- `o par` — u113 · pair
 - `o parafuso` — u87 · screw
 - `o parâmetro` — u90 · parameter
+- `o parecer` — u110 · official opinion
 - `o parentesco` — u80 · family tie
 - `o parlamento` — u55 · parliament
 - `o partido` — u55 · party (political)
@@ -1873,6 +2085,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o passatempo` — u35 · hobby
 - `o passo` — u62 · step
 - `o pastel` — u41 · pastry
+- `o patrão` — u109 · the boss
 - `o património` — u80 · heritage
 - `o pé` — u11 · foot
 - `o pedaço` — u43 · piece
@@ -1888,6 +2101,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o pessoal` — u72 · the gang
 - `o petisco` — u38 · snack
 - `o petróleo` — u65 · oil (crude oil)
+- `o plágio` — u103 · plagiarism
 - `o planeta` — u34 · planet
 - `o plano` — u62 · plan
 - `o plástico` — u42 · plastic
@@ -1895,6 +2109,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o poema` — u35 · poem
 - `o polícia` — u18 · policeman
 - `o polvo` — u20 · octopus
+- `o ponto` — u111 · point
 - `o ponto de vista` — u51 · point of view
 - `o porco` — u26 · pig
 - `o pormenor` — u40 · detail
@@ -1919,12 +2134,18 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o processo` — u56 · process
 - `o produto` — u66 · product
 - `o professor` — u3 · teacher
+- `o prognóstico` — u102 · prognosis
 - `o progresso` — u59 · progress
 - `o projeto` — u24 · project
 - `o propósito` — u52 · intention
+- `o protagonista` — u104 · protagonist
+- `o protocolo` — u101 · protocol
 - `o protótipo` — u94 · prototype
 - `o público` — u35 · audience
+- `o público-alvo` — u104 · target audience
+- `o pudor` — u105 · sense of modesty
 - `o quadro` — u35 · painting
+- `o qual` — u107 · which (the one that)
 - `o quarto` — u15 · bedroom
 - `o que estás a fazer` — u13 · what are you doing
 - `o queijo` — u6 · cheese
@@ -1933,11 +2154,15 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o quintal` — u30 · backyard
 - `o quiosque` — u27 · kiosk
 - `o raciocínio` — u88 · line of reasoning
+- `o rastreio` — u102 · screening
 - `o rato` — u1 · mouse
+- `o realismo` — u104 · realism
 - `o realizador` — u64 · film director
+- `o receio` — u105 · misgiving
 - `o recibo` — u27 · receipt
 - `o recrutamento` — u100 · recruitment
 - `o recurso` — u92 · appeal (legal)
+- `o reembolso` — u113 · refund
 - `o registo` — u49 · record
 - `o regulamento` — u61 · regulations
 - `o rei` — u48 · king
@@ -1947,9 +2172,12 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o remédio` — u11 · medicine
 - `o remorso` — u97 · remorse
 - `o rendimento` — u56 · yield
+- `o reparo` — u113 · critical remark
+- `o representante` — u110 · representative
 - `o requerimento` — u49 · formal request
 - `o requisito` — u61 · requirement
 - `o respeito` — u32 · respect
+- `o ressentimento` — u105 · resentment
 - `o resto` — u40 · the rest
 - `o resultado` — u34 · result
 - `o retorno` — u93 · return (on money)
@@ -2001,7 +2229,9 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o sucessor` — u95 · successor
 - `o sul` — u46 · south
 - `o sumo` — u6 · juice
+- `o superior` — u109 · one's superior
 - `o supermercado` — u27 · supermarket
+- `o surto` — u102 · outbreak
 - `o talento` — u85 · talent
 - `o talher` — u41 · cutlery
 - `o talho` — u27 · butcher's
@@ -2011,23 +2241,27 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o tecido` — u42 · fabric
 - `o teclado` — u33 · keyboard
 - `o técnico` — u87 · technician
+- `o tédio` — u105 · boredom
 - `o telemóvel` — u18 · mobile phone
 - `o telhado` — u30 · roof
 - `o tema` — u58 · topic
 - `o tempo` — u8 · weather
 - `o ténis` — u50 · tennis
+- `o teor` — u110 · wording
 - `o terreno` — u65 · plot of land
 - `o território` — u46 · territory
 - `o testemunho` — u63 · testimony
 - `o teto` — u30 · ceiling
 - `o teu` — u4 · your
 - `o tio` — u4 · uncle
+- `o tipo` — u111 · type
 - `o título` — u64 · title (of an article)
 - `o tom` — u77 · tone
 - `o topo` — u83 · top
 - `o toque` — u78 · touch (contact)
 - `o total` — u82 · total
 - `o trabalho` — u1 · work
+- `o traço` — u112 · trait
 - `o trâmite` — u100 · procedural step
 - `o tratado` — u95 · treaty
 - `o tratamento` — u25 · treatment
@@ -2037,6 +2271,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o troco` — u16 · change
 - `o tubo` — u43 · tube
 - `o turista` — u23 · tourist
+- `o utente` — u102 · service user
 - `o utilizador` — u33 · user
 - `o vale` — u46 · valley
 - `o valor` — u58 · value
@@ -2048,6 +2283,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `o veto` — u92 · refusal to sign a law
 - `o vício` — u67 · bad habit
 - `o vidro` — u42 · glass
+- `o viés` — u104 · bias
 - `o vinagre` — u38 · vinegar
 - `o vínculo` — u100 · contractual tie
 - `o vinho` — u6 · wine
@@ -2060,6 +2296,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `obrigado` — u2 · thank you
 - `obrigar` — u74 · to force
 - `obrigatório` — u61 · compulsory
+- `obscuro` — u112 · obscure
 - `observar` — u78 · to observe
 - `óbvio` — u75 · obvious
 - `ocupado` — u75 · busy
@@ -2081,6 +2318,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `os sapatos` — u16 · shoes
 - `ótimo` — u39 · great
 - `ou` — u21 · or
+- `ou seja` — u108 · in other words
 - `outra vez` — u28 · again
 - `outro` — u12 · other
 - `outubro` — u9 · October
@@ -2088,6 +2326,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `oxalá` — u70 · hopefully
 - `pá` — u72 · mate
 - `pagar` — u16 · to pay
+- `paliativo` — u102 · palliative
 - `para` — u29 · for
 - `para que` — u69 · so that (in order that)
 - `parabéns` — u2 · congratulations
@@ -2101,8 +2340,10 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `peço desculpa` — u73 · I apologise
 - `pedir` — u38 · to order
 - `pelo contrário` — u51 · on the contrary
+- `pelo visto` — u108 · by the look of it
 - `pelos vistos` — u54 · seemingly
 - `pequeno` — u10 · small
+- `perante` — u107 · in the presence of
 - `perceber` — u74 · to understand
 - `percorrer` — u79 · to cover
 - `perder` — u74 · to lose
@@ -2128,20 +2369,29 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `planear` — u62 · to plan
 - `plantar` — u65 · to plant
 - `plausível` — u89 · plausible
+- `pleno` — u113 · full-fledged
 - `pobre` — u45 · poor
 - `pode ser que` — u69 · it may be that
 - `poder` — u37 · to be able
 - `poderia` — u37 · could
+- `podes` — u109 · you can (tu)
 - `podia` — u70 · could (would be able to)
 - `pois` — u29 · since
+- `poluente` — u101 · polluting
 - `poluir` — u34 · to pollute
 - `ponderar` — u88 · to weigh up
 - `ponha` — u69 · (that it) put
 - `por` — u29 · by
+- `pôr` — u111 · to put
 - `por assim dizer` — u91 · so to speak
 - `por conseguinte` — u88 · consequently
 - `por favor` — u2 · please
+- `por forma a` — u107 · so as to
 - `por isso` — u21 · that's why
+- `por outras palavras` — u108 · to put it another way
+- `por outro lado` — u108 · on the other hand
+- `por pouco` — u106 · very nearly
+- `por sua vez` — u108 · in turn
 - `por um lado` — u73 · on the one hand
 - `porque` — u29 · because
 - `porquê` — u29 · why
@@ -2151,6 +2401,8 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `possa` — u69 · (that it) can
 - `possivelmente` — u54 · possibly
 - `posterior` — u86 · later
+- `posto isto` — u108 · that said
+- `pouco` — u111 · little
 - `poupar` — u18 · to save
 - `praticamente` — u91 · practically
 - `praticar` — u63 · to practise
@@ -2162,8 +2414,12 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `prejudicar` — u97 · to harm
 - `preocupar-se` — u22 · to worry
 - `preparar` — u62 · to prepare
+- `prescrever` — u102 · to prescribe
+- `preservar` — u101 · to preserve
+- `pressupor` — u106 · to presuppose
 - `prestes a` — u62 · to be about to
 - `presumir` — u98 · to presume
+- `presumivelmente` — u108 · presumably
 - `pretender` — u62 · to intend
 - `preto` — u8 · black
 - `prevenir` — u67 · to prevent (illness)
@@ -2183,9 +2439,11 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `promulgar` — u92 · to enact
 - `propenso` — u98 · prone
 - `propor` — u62 · to propose
+- `próprio` — u111 · own
 - `prosseguir` — u86 · to proceed (to press on)
 - `proteger` — u34 · to protect
 - `protestar` — u55 · to protest
+- `protocolar` — u110 · protocol-bound
 - `provar` — u16 · to try on
 - `provavelmente` — u54 · probably
 - `prudente` — u54 · prudent
@@ -2195,6 +2453,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `punir` — u61 · to punish
 - `puxar` — u15 · to pull
 - `quadrado` — u42 · square
+- `qual` — u111 · which one
 - `qualquer` — u40 · any
 - `quando` — u9 · when
 - `quando for` — u71 · when I go
@@ -2205,6 +2464,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `quantos anos tens` — u3 · how old are you
 - `quarta-feira` — u9 · Wednesday
 - `quase` — u28 · almost
+- `quase que` — u106 · all but
 - `quatro` — u5 · four
 - `que` — u36 · that
 - `que horas são` — u5 · what time is it
@@ -2217,8 +2477,10 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `quem sabe` — u54 · who knows
 - `quente` — u8 · hot
 - `querer` — u37 · to want
+- `queres` — u109 · you want (tu)
 - `queria` — u72 · I would like (polite, ordering)
 - `quero que` — u69 · I want (someone) to
+- `questionar` — u103 · to call into question
 - `quinta-feira` — u9 · Thursday
 - `quiser` — u71 · when/if you want
 - `quisesse` — u70 · (if it) wanted
@@ -2235,6 +2497,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `recente` — u75 · recent
 - `reciclar` — u34 · to recycle
 - `reclamar` — u27 · to complain
+- `recolher` — u112 · to gather in
 - `reconhecer` — u51 · to acknowledge
 - `recordar` — u63 · to recall
 - `recuperar` — u67 · to recover
@@ -2258,16 +2521,19 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `repetir` — u77 · to repeat
 - `replicar` — u94 · to replicate
 - `representar` — u58 · to represent
+- `reprovar` — u103 · to fail a student
 - `reservar` — u23 · to book
 - `resistente` — u81 · tough
 - `resolver` — u24 · to solve
 - `respeitar` — u32 · to respect
 - `responder` — u74 · to answer (to reply)
 - `responsável` — u56 · responsible
+- `restrito` — u113 · restricted
 - `resultar em` — u52 · to result in
 - `resumir` — u77 · to sum up
 - `retomar` — u86 · to resume
 - `retratar` — u96 · to portray
+- `revelar` — u112 · to reveal
 - `rever` — u84 · to review
 - `reviver` — u63 · to relive
 - `revogar` — u92 · to repeal
@@ -2283,12 +2549,14 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `sabe dizer-me` — u72 · could you tell me
 - `sabe-se` — u73 · it is known
 - `saber` — u36 · to know
+- `sabes` — u109 · you know (tu)
 - `saboroso` — u38 · tasty
 - `saiba` — u69 · (that it) know
 - `sair` — u19 · to go out
 - `salientar` — u51 · to point out
 - `saltar` — u79 · to jump
 - `salvar` — u47 · to save
+- `salvo` — u107 · save for
 - `são` — u12 · they are
 - `saudável` — u25 · healthy
 - `saúde` — u2 · cheers
@@ -2307,11 +2575,15 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `seguro` — u47 · safe
 - `seis` — u5 · six
 - `seja` — u69 · (that it) be
+- `sem cerimónia` — u109 · without ceremony
 - `sem dúvida` — u73 · without a doubt
 - `sem que` — u69 · without (someone doing)
 - `semelhante` — u53 · similar
 - `sempre` — u5 · always
 - `sempre que` — u36 · whenever
+- `senão` — u106 · or else
+- `sendo que` — u107 · it being the case that
+- `sensacionalista` — u104 · sensationalist
 - `sensivelmente` — u91 · noticeably
 - `sentar-se` — u21 · to sit down
 - `sentir` — u22 · to feel
@@ -2325,13 +2597,20 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `servir` — u38 · to serve
 - `sete` — u5 · seven
 - `setembro` — u9 · September
+- `severo` — u113 · severe
 - `sexta-feira` — u9 · Friday
 - `sim` — u1 · yes
 - `simpático` — u10 · nice
 - `simples` — u14 · simple
 - `simplificar` — u77 · to simplify
 - `simultâneo` — u86 · simultaneous
+- `sintetizar` — u103 · to synthesise
 - `sistemático` — u90 · systematic
+- `só` — u111 · only (and nothing more)
+- `sob` — u107 · under
+- `sob pena de` — u106 · on pain of
+- `sobre` — u111 · on (the subject of)
+- `sobretudo` — u108 · above all
 - `socorro` — u47 · help
 - `solicitar` — u73 · to request
 - `sólido` — u81 · solid
@@ -2343,6 +2622,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `souber` — u71 · when/if I know
 - `soubesse` — u70 · (if it) knew
 - `sozinho` — u39 · alone
+- `suave` — u112 · gentle
 - `subentender` — u88 · to imply
 - `subir` — u82 · to go up
 - `subjacente` — u90 · underlying
@@ -2354,14 +2634,18 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `superar` — u53 · to exceed
 - `superior a` — u53 · higher than
 - `supervisionar` — u56 · to oversee
+- `supondo que` — u106 · supposing that
 - `supor` — u54 · to suppose
+- `supostamente` — u108 · supposedly
 - `surgir` — u52 · to arise
 - `suscetível` — u98 · liable
 - `suspeitar` — u54 · to suspect
 - `sustentar` — u80 · to support (to provide for)
+- `sustentável` — u101 · sustainable
 - `talvez` — u28 · perhaps
 - `também` — u3 · also
 - `tanto` — u29 · so much
+- `tanto mais que` — u108 · all the more so since
 - `tão` — u29 · as
 - `te` — u13 · you
 - `teimoso` — u31 · stubborn
@@ -2369,10 +2653,13 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `temperar` — u41 · to season
 - `temporário` — u59 · temporary
 - `tencionar` — u62 · to mean to
+- `tendo em conta` — u107 · bearing in mind
 - `tenha` — u69 · (that it) have
 - `tenho` — u13 · I have
+- `tens` — u109 · you have (tu)
 - `tentar` — u37 · to try
 - `ténue` — u91 · faint
+- `teoricamente` — u106 · in theory
 - `ter` — u3 · to have
 - `ter a certeza` — u54 · to be sure
 - `ter de` — u37 · to have to
@@ -2394,6 +2681,7 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `teve` — u14 · he had
 - `tímido` — u31 · shy
 - `tinha` — u36 · had
+- `tirar` — u112 · to take out
 - `tive` — u14 · I had
 - `tiver` — u71 · when/if I have
 - `tivesse` — u70 · (if it) had
@@ -2415,6 +2703,8 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `tratar` — u39 · to treat
 - `tratar por tu` — u72 · to address as tu
 - `tratar por você` — u72 · to address as você
+- `tratar-se de` — u107 · to be a matter of
+- `trazer` — u112 · to bring
 - `treinar` — u50 · to train
 - `três` — u5 · three
 - `triste` — u22 · sad
@@ -2434,11 +2724,15 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `uma vez que` — u52 · given that
 - `uns` — u12 · some
 - `urbano` — u65 · urban
+- `urge` — u107 · it is urgent to
 - `urgente` — u60 · urgent
 - `útil` — u81 · useful
 - `vá` — u69 · (that it) go
+- `vago` — u113 · vague
 - `vai` — u13 · he goes
+- `valer` — u111 · to be worth
 - `vários` — u40 · several
+- `vasto` — u113 · vast
 - `vazio` — u10 · empty
 - `vejo-a` — u71 · I see her
 - `velho` — u10 · old
@@ -2458,16 +2752,21 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 - `viesse` — u70 · (if it) came
 - `vigiar` — u78 · to keep watch on
 - `vigorar` — u92 · to be in force
+- `vinculativo` — u101 · binding
 - `vinte` — u5 · twenty
+- `vir` — u111 · to come
+- `vir a` — u106 · to end up
 - `virar` — u79 · to turn
 - `visitar` — u39 · to visit
 - `visse` — u70 · (if it) saw
 - `visto que` — u52 · seeing that
 - `viver` — u4 · to live
+- `vivo` — u112 · alive
 - `voar` — u20 · to fly
 - `você` — u2 · you (polite)
 - `vocês` — u12 · you (plural)
 - `voltar` — u21 · to return
+- `vossa excelência` — u109 · Your Excellency
 - `votar` — u32 · to vote
 - `vou` — u13 · I go
 - `zangado` — u22 · angry
@@ -2674,4 +2973,30 @@ Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s
 **u99 · A pertença e a exclusão** (24) — `a pertença`, `a etnia`, `a classe`, `o coletivo`, `a cidadania`, `a tolerância`, `a exclusão`, `o estigma`, `marginalizar`, `a segregação`, `o rótulo`, `o estereótipo`, `o fosso`, `a elite`, `a periferia`, `a mobilidade`, `a ascensão`, `a coesão`, `assimilar`, `a diversidade`, `a inclusão`, `o consenso`, `o pluralismo`, `o civismo`
 
 **u100 · A organização por dentro** (24) — `a liderança`, `a autonomia`, `a diretriz`, `o mérito`, `o indicador`, `a cúpula`, `a burocracia`, `o organigrama`, `o trâmite`, `o expediente`, `a reestruturação`, `a vaga`, `a sobrecarga`, `o absentismo`, `a rotatividade`, `a retenção`, `a produtividade`, `o vínculo`, `o recrutamento`, `o colaborador`, `a remuneração`, `o incentivo`, `a coordenação`, `o subordinado`
+
+**u101 · O clima e o planeta** (24) — `o aquecimento`, `o carbono`, `o combustível`, `poluente`, `a pegada`, `o degelo`, `sustentável`, `esgotar`, `preservar`, `a escassez`, `degradar`, `o aterro`, `global`, `a cimeira`, `a convenção`, `vinculativo`, `o protocolo`, `a delegação`, `irreversível`, `a transição`, `a resiliência`, `a catástrofe`, `o ecossistema`, `a biodiversidade`
+
+**u102 · A saúde e os cuidados** (24) — `o utente`, `a triagem`, `o rastreio`, `o internamento`, `a alta`, `o encaminhamento`, `prescrever`, `a dosagem`, `o efeito secundário`, `o prognóstico`, `paliativo`, `a sequela`, `a epidemia`, `o surto`, `o contágio`, `a vacinação`, `a imunidade`, `a incidência`, `a reabilitação`, `a incapacidade`, `a baixa`, `o cuidador`, `a fisioterapia`, `a lista de espera`
+
+**u103 · O ensino superior e a investigação** (24) — `o doutoramento`, `a matrícula`, `o docente`, `a faculdade`, `o ensino`, `a assiduidade`, `a avaliação`, `reprovar`, `chumbar`, `a classificação`, `o aproveitamento`, `o conteúdo`, `o orientador`, `a dissertação`, `o plágio`, `questionar`, `sintetizar`, `a amostragem`, `a aprendizagem`, `a pedagogia`, `a metodologia`, `a bibliografia`, `decorar`, `a matéria`
+
+**u104 · A narrativa e o enquadramento** (24) — `a reviravolta`, `o protagonista`, `o narrador`, `o clímax`, `o realismo`, `o desenlace`, `o editorial`, `a cobertura`, `o destaque`, `a tiragem`, `a rubrica`, `a réplica`, `o enquadramento`, `o viés`, `sensacionalista`, `a distorção`, `a desinformação`, `a isenção`, `o alcance`, `o formato`, `a fidelização`, `a par`, `o público-alvo`, `o alinhamento`
+
+**u105 · O sentimento e o seu matiz** (24) — `a mágoa`, `o ressentimento`, `a amargura`, `o desgosto`, `o desalento`, `a melancolia`, `a ternura`, `o consolo`, `a serenidade`, `a compaixão`, `a cumplicidade`, `o alheamento`, `o pudor`, `o constrangimento`, `a indignação`, `o desdém`, `a repulsa`, `o fascínio`, `ambivalente`, `a euforia`, `a angústia`, `o receio`, `a apreensão`, `o tédio`
+
+**u106 · Gramática 9 — o irreal e a condição** (24) — `caso`, `a menos que`, `sob pena de`, `na condição de`, `contanto que`, `consoante`, `por pouco`, `quase que`, `era de esperar`, `vir a`, `chegar a`, `havia de`, `supondo que`, `admitindo que`, `hipotético`, `a conjetura`, `pressupor`, `teoricamente`, `senão`, `caso contrário`, `de qualquer modo`, `fosse como fosse`, `em último caso`, `ainda assim`
+
+**u107 · Gramática 10 — a escrita formal** (24) — `mediante`, `perante`, `sob`, `salvo`, `face a`, `aquando de`, `cujo`, `o qual`, `nomeadamente`, `sendo que`, `ao passo que`, `dado que`, `a fim de`, `com vista a`, `por forma a`, `em virtude de`, `ao abrigo de`, `tendo em conta`, `dir-se-ia`, `far-se-á`, `tratar-se de`, `constatar`, `cumpre`, `urge`
+
+**u108 · Gramática 11 — o discurso e a coesão** (24) — `ou seja`, `isto é`, `por outras palavras`, `a saber`, `em rigor`, `no fundo`, `por sua vez`, `por outro lado`, `de resto`, `em suma`, `posto isto`, `sobretudo`, `pelo visto`, `em princípio`, `à partida`, `supostamente`, `presumivelmente`, `ao que tudo indica`, `na medida em que`, `com efeito`, `aliás`, `donde`, `tanto mais que`, `designadamente`
+
+**u109 · Registo 3 — tu, você, o senhor** (24) — `formal`, `informal`, `a cortesia`, `o interlocutor`, `a familiaridade`, `de igual para igual`, `queres`, `podes`, `tens`, `és`, `estás`, `sabes`, `o doutor`, `a dona`, `vossa excelência`, `excelentíssimo`, `o patrão`, `o superior`, `cerimonioso`, `condescendente`, `a deferência`, `sem cerimónia`, `o desconhecido`, `a intimidade`
+
+**u110 · Registo 4 — a voz pública e institucional** (24) — `o comunicado`, `o parecer`, `o ofício`, `o despacho`, `a ata`, `o edital`, `deferir`, `indeferir`, `a notificação`, `a diligência`, `a vigência`, `o teor`, `a entidade`, `a comissão`, `a bancada`, `em nome de`, `a tutela`, `o representante`, `a retórica`, `a circular`, `o abaixo-assinado`, `a praxe`, `protocolar`, `a assessoria`
+
+**u111 · Vocabulário 1 (B2) — as palavras em falta** (24) — `esse`, `qual`, `certo`, `próprio`, `alheio`, `mero`, `o tipo`, `a forma`, `o modo`, `a vez`, `o ponto`, `o lugar`, `dar`, `vir`, `pôr`, `mostrar`, `acreditar`, `dever`, `só`, `pouco`, `sobre`, `o grupo`, `bastar`, `valer`
+
+**u112 · Vocabulário 2 (B2) — o gesto e a coisa** (24) — `tirar`, `meter`, `trazer`, `atirar`, `erguer`, `andar`, `esconder`, `revelar`, `recolher`, `fechar`, `acender`, `esvaziar`, `a ponta`, `o corte`, `o traço`, `a mancha`, `a pista`, `estreito`, `vivo`, `morto`, `suave`, `nítido`, `obscuro`, `denso`
+
+**u113 · Vocabulário 3 (B2) — o juízo e a medida** (24) — `condenar`, `o reparo`, `convir`, `digno`, `severo`, `apto`, `amplo`, `restrito`, `vasto`, `pleno`, `vago`, `a série`, `o reembolso`, `a soma`, `a sobra`, `o acréscimo`, `a mistura`, `o par`, `a essência`, `o âmago`, `o item`, `o alvo`, `o exemplar`, `o bocado`
 

@@ -1,18 +1,93 @@
-// PT Unit 110 — Register 4 — written, public and institutional voice (slot: register-4) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 110 — Registo 4 — a voz pública e institucional (slot: register-4) — B2
+// ─────────────────────────────────────────────────────────────────────────────
+// Authored by the pt B2 block-2 seat, 2026-09-23, to §C1–C10 (src/data/pt/unit88.js).
+//
+// WHAT IS LEFT AFTER u73. u73 (register-2) owns the PERSONAL formal letter —
+// venho por este meio, agradeço, aguardo resposta, com os melhores cumprimentos,
+// atenciosamente, peço desculpa, solicitar, dirigir-se, referir, efetuar,
+// proceder, anexar — plus the impersonal se (vende-se, diz-se, sabe-se, foi
+// decidido). What it cannot do is read what comes BACK: the parecer, the
+// despacho, the edital, and the verbs deferir and indeferir on which a
+// Portuguese application lives or dies. u49 owns O REQUERIMENTO and u92 owns the
+// parliament's own vocabulary (o deputado, a assembleia, o mandato, o recurso),
+// so the institution words here are the ones neither claimed: a entidade, a
+// comissão, a bancada, a tutela. a comissão, a bancada and a retórica are three
+// of the fronts block 1 reserved for this block.
+// lang/unit/lesson stamped in src/data/index.js.
 export const PT_UNIT110 = {
   id: "pt-u110",
   lang: "pt",
-  title: "Register 4 — written, public and institutional voice",
+  title: "Registo 4 — a voz pública e institucional",
   order: 110,
   stage: "b2",
   lessons: [
-    { id: "pt-u110l1", title: "Lesson 1", locked: true },
-    { id: "pt-u110l2", title: "Lesson 2", locked: true },
-    { id: "pt-u110l3", title: "Lesson 3", locked: true },
-    { id: "pt-u110l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u110l1",
+      unit: 110,
+      lesson: 1,
+      title: "O documento oficial",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Recognise the five pieces of paper a Portuguese institution produces, and say which one you have actually received.",
+      items: [
+        { id: "pt-u110l1-ocomunicado", type: "vocab", front: "o comunicado", reading: "ocomunicado", meaning: "press release", example: { jp: "O comunicado da empresa fala de um acordo, mas o jornal escreve o contrário.", en: "The company's press release talks about an agreement, but the paper writes the opposite." }, drill: { jp: "O comunicado da empresa fala de acordo", en: "The company's press release talks about an agreement" }, accept: ["press release", "the press release", "statement", "official statement"], hint: "ko-mu-ni-KA-du, from comunicar (u77). The text an organisation issues in its own name. ⚠ um comunicado is written and one-way; uma declaração (u55) is something a person says." },
+        { id: "pt-u110l1-oparecer", type: "vocab", front: "o parecer", reading: "oparecer", meaning: "official opinion", example: { jp: "O parecer do advogado é claro, mas a câmara decide o contrário.", en: "The lawyer's official opinion is clear, but the council decides otherwise." }, drill: { jp: "O parecer do advogado é claro", en: "The lawyer's official opinion is clear" }, accept: ["official opinion", "the opinion", "advisory opinion", "formal advice", "report"], hint: "pa-re-SER. ⚠ Same spelling as the verb parecer (u31), to seem — the noun is the verb frozen with an article, a very Portuguese move (o jantar, o poder). A parecer ADVISES; whoever asked for it is free to ignore it, which is what the example turns on." },
+        { id: "pt-u110l1-ooficio", type: "vocab", front: "o ofício", reading: "ooficio", meaning: "official letter", example: { jp: "O ofício chega três semanas depois, e por isso o prazo é curto.", en: "The official letter arrives three weeks later, and so the deadline is short." }, drill: { jp: "O ofício chega três semanas depois", en: "The official letter arrives three weeks later" }, accept: ["official letter", "the official letter", "formal dispatch", "memorandum"], hint: "o-FEE-syu. A letter from one public body to another, numbered and filed. ⚠ The older sense is a TRADE — o ofício de carpinteiro — which is where English office and officer come from too." },
+        { id: "pt-u110l1-odespacho", type: "vocab", front: "o despacho", reading: "odespacho", meaning: "official ruling", example: { jp: "O despacho do tribunal é curto, mas muda tudo para a família.", en: "The court's ruling is short, but it changes everything for the family." }, drill: { jp: "O despacho do tribunal é curto", en: "The court's ruling is short" }, accept: ["official ruling", "the ruling", "decision", "order", "directive"], hint: "desh-PA-shu, from despachar. The signed decision a minister or a judge writes ON a file — shorter than a sentença (u92) and not necessarily final. Also the everyday sense of dispatching goods." },
+        { id: "pt-u110l1-aata", type: "vocab", front: "a ata", reading: "aata", meaning: "minutes", example: { jp: "A ata da reunião não diz nada do conflito, embora todos o tenham visto.", en: "The minutes of the meeting say nothing about the conflict, although everyone saw it." }, drill: { jp: "A ata da reunião não diz nada", en: "The minutes of the meeting say nothing" }, accept: ["minutes", "the minutes", "written record", "record of a meeting"], hint: "A-ta. ⚠ SINGULAR in Portuguese where English is plural — uma ata, one document. Spelt without the c since the 1990 accord (formerly acta), the same rule as objeção and conjetura." },
+        { id: "pt-u110l1-oedital", type: "vocab", front: "o edital", reading: "oedital", meaning: "public notice", example: { jp: "O edital fica na porta da câmara durante um mês, mas ninguém sabe dele.", en: "The public notice stays on the council door for a month, but nobody knows about it." }, drill: { jp: "O edital fica na porta da câmara", en: "The public notice stays on the council door" }, accept: ["public notice", "the public notice", "official notice", "call for applications"], hint: "e-di-TAL. Posted publicly so that nobody can claim not to have known — a planning application, a job competition, a court summons. ⚠ Not o editorial (u104), which is a newspaper's own opinion." },
+      ],
+    },
+    {
+      id: "pt-u110l2",
+      unit: 110,
+      lesson: 2,
+      title: "O que a instituição decide",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say what an institution did with your request in Portuguese — granted, refused, notified, acted on, and for how long the rule still binds.",
+      items: [
+        { id: "pt-u110l2-deferir", type: "vocab", front: "deferir", reading: "deferir", meaning: "to grant", example: { jp: "A câmara vai deferir o requerimento, mas o dinheiro chega apenas no ano seguinte.", en: "The council is going to grant the application, but the money only arrives the following year." }, drill: { jp: "A câmara vai deferir o requerimento", en: "The council is going to grant the application" }, accept: ["to grant", "grant", "to approve (an application)", "to allow"], hint: "de-fe-RIR. ⚠ THE WORD THAT DECIDES A PORTUGUESE APPLICATION, and it is not aprovar: aprovar (u55) is used of plans and exams, deferir only of a request someone made. Note the -ir conjugation: defiro, defere, deferiu." },
+        { id: "pt-u110l2-indeferir", type: "vocab", front: "indeferir", reading: "indeferir", meaning: "to turn down", example: { jp: "O tribunal decide indeferir o recurso, e por isso o processo acaba hoje.", en: "The court decides to turn down the appeal, and so the case ends today." }, drill: { jp: "O tribunal quer indeferir o recurso", en: "The court wants to turn down the appeal" }, accept: ["to turn down", "to refuse (an application)", "to reject", "to dismiss"], hint: "in-de-fe-RIR, the negative of deferir. ⚠ INDEFERIDO stamped on a Portuguese form means no, and it is the single most useful word in this lesson. Recusar (u61) is a person refusing; indeferir is an institution refusing in writing." },
+        { id: "pt-u110l2-anotificacao", type: "vocab", front: "a notificação", reading: "anotificacao", meaning: "formal notification", example: { jp: "A notificação chega por carta, mas o prazo conta desde o dia do despacho.", en: "The formal notification arrives by letter, but the deadline counts from the day of the ruling." }, drill: { jp: "A notificação chega sempre por carta", en: "The formal notification always arrives by letter" }, accept: ["formal notification", "the notification", "official notice", "service of notice"], hint: "no-ti-fi-ka-SOWN, from notificar (u77). ⚠ It has legal weight: being notificado starts a clock, and the deadline runs from the notification whether or not you opened the envelope." },
+        { id: "pt-u110l2-adiligencia", type: "vocab", front: "a diligência", reading: "adiligencia", meaning: "official step taken", example: { jp: "A diligência do tribunal demora um ano, mas sem ela o processo não avança.", en: "The court's official step takes a year, but without it the case does not move forward." }, drill: { jp: "A diligência do tribunal demora sempre", en: "The court's official step always takes time" }, accept: ["official step taken", "procedural step", "official action", "measure taken", "enquiry"], hint: "di-li-JEN-sya. A concrete action taken inside a process — hearing a witness, requesting a document. ⚠ The English quality sense (diligence, care) also exists — agir com diligência — but in a legal text it is always the act." },
+        { id: "pt-u110l2-avigencia", type: "vocab", front: "a vigência", reading: "avigencia", meaning: "period in force", example: { jp: "A vigência da lei acaba em junho, e por isso a empresa quer decidir já.", en: "The law's period in force ends in June, and so the company wants to decide now." }, drill: { jp: "A vigência da lei acaba em junho", en: "The law's period in force ends in June" }, accept: ["period in force", "the period of validity", "term of validity", "currency"], hint: "vi-JEN-sya, the noun of vigorar (u92). Not when a rule was made but the window in which it BINDS — em vigência and em vigor both mean currently in force." },
+        { id: "pt-u110l2-oteor", type: "vocab", front: "o teor", reading: "oteor", meaning: "wording", example: { jp: "O teor do documento é grave, mas o título não diz nada.", en: "The wording of the document is serious, but the title says nothing." }, drill: { jp: "O teor do documento é grave", en: "The document's wording is serious" }, accept: ["wording", "the wording", "content and tenor", "tenor", "gist"], hint: "te-OR. What a text actually says, taken as a whole — closer to tenor than to content. ⚠ Also a technical measure: o teor de sal, the salt content. Same noun, and the link is what a thing holds." },
+      ],
+    },
+    {
+      id: "pt-u110l3",
+      unit: 110,
+      lesson: 3,
+      title: "Falar em nome de",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say who is speaking for whom in Portuguese — the body, the committee, the parliamentary group, the ministry above it, and the person sent.",
+      items: [
+        { id: "pt-u110l3-aentidade", type: "vocab", front: "a entidade", reading: "aentidade", meaning: "official body", example: { jp: "A entidade que paga o estudo nunca está no relatório, mas todos sabem quem é.", en: "The official body that pays for the study is never in the report, but everyone knows who it is." }, drill: { jp: "A entidade que paga nunca aparece", en: "The body that pays never appears" }, accept: ["official body", "body", "the entity", "organisation", "authority"], hint: "en-ti-DA-de. The deliberately vague word for an organisation whose exact type does not matter — a Portuguese form asks for a entidade empregadora, your employing body. ⚠ Not a empresa: an entidade may be public, private or neither." },
+        { id: "pt-u110l3-acomissao", type: "vocab", front: "a comissão", reading: "acomissao", meaning: "committee", example: { jp: "A comissão escuta todos os trabalhadores, mas o relatório final diz outra coisa.", en: "The committee listens to all the workers, but the final report says something else." }, drill: { jp: "A comissão escuta todos os trabalhadores", en: "The committee listens to all the workers" }, accept: ["committee", "the committee", "commission", "panel"], hint: "ko-mi-SOWN. ⚠ THREE senses, all ordinary: a committee, a salesperson's commission (trabalhar à comissão), and the act of committing an offence. In an institutional text it is always the first." },
+        { id: "pt-u110l3-abancada", type: "vocab", front: "a bancada", reading: "abancada", meaning: "parliamentary group", example: { jp: "A bancada do partido vota contra, embora o deputado tenha outra opinião.", en: "The party's parliamentary group votes against, although the MP has a different view." }, drill: { jp: "A bancada do partido vota contra", en: "The party's parliamentary group votes against" }, accept: ["parliamentary group", "the parliamentary group", "caucus", "party benches", "the bench"], hint: "ban-KA-da, from o banco, the bench they sit on — the same image as the English front bench. ⚠ In a stadium it is the STAND and in a kitchen the worktop; parliament, sport and carpentry share the word." },
+        { id: "pt-u110l3-emnomede", type: "vocab", front: "em nome de", reading: "emnomede", meaning: "on behalf of", example: { jp: "O advogado fala em nome da família, mas ninguém escuta a família.", en: "The lawyer speaks on behalf of the family, but nobody listens to the family at all." }, drill: { jp: "Falo em nome de toda a equipa", en: "I speak on behalf of the whole team" }, accept: ["on behalf of", "in the name of", "for", "representing"], hint: "Contracts with the article exactly as de does: em nome do cliente, em nome da empresa. ⚠ Also the oath sense — em nome da lei — where English says in the name of." },
+        { id: "pt-u110l3-atutela", type: "vocab", front: "a tutela", reading: "atutela", meaning: "supervising ministry", example: { jp: "A tutela do Estado muda todos os anos, e por isso nada avança.", en: "The supervising ministry changes every year, and so nothing moves forward." }, drill: { jp: "A tutela do Estado muda sempre", en: "The supervising ministry always changes" }, accept: ["supervising ministry", "the supervising body", "oversight", "guardianship", "the ministry responsible"], hint: "tu-TE-la. ⚠ pt-PT INSTITUTIONAL SHORTHAND: sob a tutela de means under the responsibility of, and a tutela alone means the ministry in charge of a sector. The family-law sense, guardianship of a child, is the original." },
+        { id: "pt-u110l3-orepresentante", type: "vocab", front: "o representante", reading: "orepresentante", meaning: "representative", example: { jp: "O representante da empresa chega tarde, mas ninguém diz nada.", en: "The company's representative arrives late, but nobody says anything." }, drill: { jp: "O representante da empresa chega tarde", en: "The company's representative arrives late" }, accept: ["representative", "the representative", "delegate", "agent"], hint: "rre-pre-zen-TAN-te, from representar (u58). One person standing for a group. ⚠ Distinguish from a delegação (u101), which is the whole group sent, and from o porta-voz (u55), who only speaks." },
+      ],
+    },
+    {
+      id: "pt-u110l4",
+      unit: 110,
+      lesson: 4,
+      title: "O tom público",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Judge the public voice in Portuguese — the rhetoric, the memo, the petition, the done thing, the apology that means nothing.",
+      items: [
+        { id: "pt-u110l4-aretorica", type: "vocab", front: "a retórica", reading: "aretorica", meaning: "rhetoric", example: { jp: "A retórica do comunicado é forte, mas o número por baixo é fraco.", en: "The rhetoric of the press release is strong, but the figure underneath it is weak." }, drill: { jp: "A retórica do comunicado é forte", en: "The press release's rhetoric is strong" }, accept: ["rhetoric", "the rhetoric", "the art of persuasion", "fine words"], hint: "rre-TO-ri-ka. Both the ancient discipline and the modern complaint — isso é pura retórica is exactly the English dismissal. ⚠ A pergunta retórica is the rhetorical question, and Portuguese uses it the same way." },
+        { id: "pt-u110l4-acircular", type: "vocab", front: "a circular", reading: "acircular", meaning: "circular", example: { jp: "A circular chega a todos os serviços, mas ninguém muda nada.", en: "The circular reaches every department, but nobody changes anything." }, drill: { jp: "A circular chega a todos os serviços", en: "The circular reaches every department" }, accept: ["circular", "the circular", "memo to all", "internal memo"], hint: "sir-ku-LAR. One instruction sent to everyone at once. ⚠ Identical to the adjective circular (round) and to the verb circular (to circulate) — three words, one spelling, and the article tells you which." },
+        { id: "pt-u110l4-oabaixoassinado", type: "vocab", front: "o abaixo-assinado", reading: "oabaixoassinado", meaning: "round robin", example: { jp: "O abaixo-assinado tem muitos nomes, mas a câmara não responde.", en: "The round robin has many names, but the council does not reply." }, drill: { jp: "O abaixo-assinado tem muitos nomes", en: "The round robin has many names" }, accept: ["round robin", "petition", "signed petition", "collective letter"], hint: "Literally the signed-below. Hyphenated and invariable in the singular; the plural is os abaixo-assinados. The everyday Portuguese instrument for collective complaint — a street, a school or a building signs one." },
+        { id: "pt-u110l4-apraxe", type: "vocab", front: "a praxe", reading: "apraxe", meaning: "standard practice", example: { jp: "A praxe manda avisar o chefe primeiro, mas ninguém escreve isso em lado nenhum.", en: "Standard practice requires telling the boss first, but nobody writes that down anywhere." }, drill: { jp: "A praxe manda avisar o chefe", en: "Standard practice requires telling the boss" }, accept: ["standard practice", "the done thing", "custom", "usual procedure"], hint: "PRA-she. Como é da praxe means as is customary. ⚠ IN PORTUGAL THE WORD IS LOADED: a praxe académica is the university hazing tradition, and that association colours the word for anyone under forty." },
+        { id: "pt-u110l4-protocolar", type: "vocab", front: "protocolar", reading: "protocolar", meaning: "protocol-bound", example: { jp: "A desculpa é protocolar, e por isso ninguém a leva a sério.", en: "The apology is protocol-bound, and so nobody takes it seriously." }, drill: { jp: "A resposta é apenas protocolar", en: "The reply is only protocol-bound" }, accept: ["protocol-bound", "purely formal", "for form's sake", "ceremonial"], hint: "pro-to-ko-LAR, the adjective of o protocolo (u101). Done because the form requires it and meant by nobody — a uma visita protocolar is a courtesy call with no content. Damning, politely." },
+        { id: "pt-u110l4-aassessoria", type: "vocab", front: "a assessoria", reading: "aassessoria", meaning: "advisory staff", example: { jp: "A assessoria do partido escreve o comunicado, mas o erro fica com o deputado.", en: "The party's advisory staff writes the press release, but the mistake sticks to the MP." }, drill: { jp: "A assessoria do partido escreve tudo", en: "The party's advisory staff writes everything" }, accept: ["advisory staff", "the advisers", "advisory team", "press office", "aides"], hint: "a-se-so-REE-a. The team of advisers around anyone in office — a assessoria de imprensa is the press office. ⚠ Two s's twice over, and the word is stressed on the last i: a-se-so-REE-a." },
+      ],
+    },
   ],
 };
