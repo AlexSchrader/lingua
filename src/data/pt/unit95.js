@@ -1,18 +1,93 @@
-// PT Unit 95 — History and culture (slot: history-culture) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 95 — A história e o poder (slot: history-culture) — B2
+// THE SLOT SAYS "History and culture"; THIS UNIT TAKES THE HISTORY HALF ONLY,
+// AND DELIBERATELY. u48 already owns culture as lived practice (a tradição, o
+// costume, a memória, a época, o povo, o rei, a guerra, o império) and u80 owns
+// inheritance (o legado, o património, a herança, a independência). Spending a
+// second "culture" unit here is exactly the duplication that cost Spanish B1
+// 159 cards. So the theme is narrowed: how a country's PAST is periodised,
+// who held power in it, how that power was taken and how it fell.
+//
+// SLOT BOUNDARIES: u96 takes the arts; u99 takes society and belonging; u104
+// (block 3) takes media and narrative. o vestígio is u89's (evidence) and is
+// not re-taught here even though an archaeology sentence wants it. a decadência
+// is glossed "decadence" and o declínio "decline", because one gloss may not
+// serve two cards (§C5) — they are genuinely different words in Portuguese, the
+// first moral and the second measurable.
+// Conventions: unit1.js header · B2 constitution §C1–C10: unit88.js header.
 export const PT_UNIT95 = {
   id: "pt-u95",
   lang: "pt",
-  title: "History and culture",
+  title: "A história e o poder",
   order: 95,
   stage: "b2",
   lessons: [
-    { id: "pt-u95l1", title: "Lesson 1", locked: true },
-    { id: "pt-u95l2", title: "Lesson 2", locked: true },
-    { id: "pt-u95l3", title: "Lesson 3", locked: true },
-    { id: "pt-u95l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u95l1",
+      unit: 95,
+      lesson: 1,
+      title: "Antes de agora",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Place something in past time in Portuguese — antiquity, the medieval period, the order of events, and how far back a thing goes.",
+      items: [
+        { id: "pt-u95l1-aantiguidade", type: "vocab", front: "a antiguidade", reading: "aantiguidade", meaning: "antiquity", example: { jp: "A antiguidade da igreja é grande, mas a pedra de hoje é do século passado.", en: "The church's antiquity is great, but today's stone is from the last century." }, drill: { jp: "A antiguidade da igreja é grande", en: "The church's antiquity is great" }, accept: ["the antiquity", "antiquity", "age", "great age", "ancient times"], hint: "an-ti-gwi-DA-de, from antigo (u48). Two senses: the ancient world as a period, and the sheer age of a particular thing. At work it has a third: a antiguidade is your seniority, how long you have been there." },
+        { id: "pt-u95l1-medieval", type: "vocab", front: "medieval", reading: "medieval", meaning: "of the Middle Ages", example: { jp: "A cidade medieval não é grande, mas há 800 anos era o centro de tudo.", en: "The medieval town is not large, but 800 years ago it was the centre of everything." }, drill: { jp: "A cidade medieval não é grande hoje", en: "The medieval town is not large today" }, accept: ["medieval", "mediaeval", "of the Middle Ages", "from the Middle Ages"], hint: "me-dye-VAL. The Middle Ages are a Idade Média in Portuguese — so the adjective and the noun do not share a root, which is worth noticing. Portugal became a country in the middle of this period, in 1143." },
+        { id: "pt-u95l1-acronologia", type: "vocab", front: "a cronologia", reading: "acronologia", meaning: "chronology", example: { jp: "A cronologia do livro é simples, mas os anos do princípio não servem.", en: "The book's chronology is simple, but the years at the beginning do not hold up." }, drill: { jp: "A cronologia do livro é simples", en: "The book's chronology is simple" }, accept: ["the chronology", "chronology", "order of events", "timeline", "sequence"], hint: "kru-nu-lu-JEE-a. The ordering of events in time — a timeline at the back of a history book is uma cronologia. Cronológico is the adjective: por ordem cronológica." },
+        { id: "pt-u95l1-remontar", type: "vocab", front: "remontar", reading: "remontar", meaning: "to date back", example: { jp: "A ponte remonta ao império, mas o carro passa na estrada de pedra todos os dias.", en: "The bridge dates back to the empire, but cars drive on the stone road every day." }, drill: { jp: "A ponte deve remontar ao império", en: "The bridge must date back to the empire" }, accept: ["to date back", "date back", "to go back to", "to originate in", "to trace back to"], hint: "rre-mon-TAR. Takes a: remonta a 1500. Only of things that already exist now and reach backwards — a building, a custom, a family name. For a person's own memory Portuguese would use lembrar-se." },
+        { id: "pt-u95l1-omanuscrito", type: "vocab", front: "o manuscrito", reading: "omanuscrito", meaning: "manuscript", example: { jp: "O manuscrito está no museu, mas ninguém o pode abrir por causa do papel.", en: "The manuscript is in the museum, but nobody can open it because of the paper." }, drill: { jp: "O manuscrito está no museu da cidade", en: "The manuscript is in the city museum" }, accept: ["the manuscript", "manuscript", "handwritten document", "codex"], hint: "ma-nush-KREE-tu — written by hand, from mão plus escrito. Of any handwritten original, ancient or modern: a writer's unpublished book is also o manuscrito, which is how the word survives in publishing." },
+        { id: "pt-u95l1-acronica", type: "vocab", front: "a crónica", reading: "acronica", meaning: "chronicle", example: { jp: "A crónica do rei conta a guerra, mas quem a escreve trabalha para ele.", en: "The king's chronicle tells the war, but the person writing it works for him." }, drill: { jp: "A crónica do rei conta a guerra", en: "The king's chronicle tells the war" }, accept: ["the chronicle", "chronicle", "account", "annals", "column (newspaper)"], hint: "KRO-ni-ka — pt-PT writes crónica with the acute, Brazil crônica with the circumflex. Medieval annals, and in a modern Portuguese newspaper the regular opinion column. Both are one person's telling of events." },
+      ],
+    },
+    {
+      id: "pt-u95l2",
+      unit: 95,
+      lesson: 2,
+      title: "Quem manda",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name a form of rule in Portuguese — monarchy, republic, dictatorship — and who comes next in it.",
+      items: [
+        { id: "pt-u95l2-amonarquia", type: "vocab", front: "a monarquia", reading: "amonarquia", meaning: "monarchy", example: { jp: "A monarquia acaba em Portugal em 1910, mas o rei ainda vive muitos anos fora do país.", en: "The monarchy ends in Portugal in 1910, but the king still lives many years outside the country." }, drill: { jp: "A monarquia acaba em Portugal em 1910", en: "The monarchy ends in Portugal in 1910" }, accept: ["the monarchy", "monarchy", "rule by a king", "crown"], hint: "mu-nar-KEE-a. Rule by one, inherited. Portugal's ended on 5 October 1910 and the date is still a public holiday — o Dia da Implantação da República, which tells you which side wrote the calendar." },
+        { id: "pt-u95l2-arepublica", type: "vocab", front: "a república", reading: "arepublica", meaning: "republic", example: { jp: "A república chega em 1910, mas a vida do povo muda pouco nos anos seguintes.", en: "The republic arrives in 1910, but ordinary people's lives change little in the years that follow." }, drill: { jp: "A república chega ao país em 1910", en: "The republic arrives in the country in 1910" }, accept: ["the republic", "republic", "republican state"], hint: "rre-POO-bli-ka. The state without a crown. Portugal's parliament is a Assembleia da República and the country's official name is República Portuguesa, so the word is on every official document." },
+        { id: "pt-u95l2-aditadura", type: "vocab", front: "a ditadura", reading: "aditadura", meaning: "dictatorship", example: { jp: "A ditadura dura quase cinquenta anos, mas acaba numa manhã sem guerra.", en: "The dictatorship lasts almost fifty years, but it ends in a single morning without war." }, drill: { jp: "A ditadura dura quase cinquenta anos", en: "The dictatorship lasts almost fifty years" }, accept: ["the dictatorship", "dictatorship", "authoritarian rule", "one-man rule"], hint: "di-ta-DOO-ra, from ditar, to dictate. Portugal's lasted from 1926 to 1974 and is called o Estado Novo — a name that is itself a lesson in how a regime describes itself." },
+        { id: "pt-u95l2-oreinado", type: "vocab", front: "o reinado", reading: "oreinado", meaning: "reign", example: { jp: "O reinado foi longo, mas o país perde quase tudo o que tinha fora da Europa.", en: "The reign was long, but the country loses almost everything it had outside Europe." }, drill: { jp: "O reinado do rei foi longo", en: "The king's reign was long" }, accept: ["the reign", "reign", "time on the throne", "rule"], hint: "rray-NA-du, from reinar, to reign. The PERIOD, not the office: o reinado de D. Manuel I. Careful with o reino, which is the kingdom itself — one is time, the other is territory." },
+        { id: "pt-u95l2-osucessor", type: "vocab", front: "o sucessor", reading: "osucessor", meaning: "successor", example: { jp: "O sucessor era novo de mais, mas ninguém na corte quis dizer isso.", en: "The successor was too young, but nobody at court was willing to say so." }, drill: { jp: "O sucessor do rei era novo", en: "The king's successor was young" }, accept: ["the successor", "successor", "heir", "the heir", "next in line"], hint: "su-se-SSOR, from suceder, to follow. Of a throne, a job or a machine. Distinct from o herdeiro, the heir to PROPERTY: a successor takes the position, an heir takes the things." },
+        { id: "pt-u95l2-alinhagem", type: "vocab", front: "a linhagem", reading: "alinhagem", meaning: "lineage", example: { jp: "A linhagem da família conta 500 anos, mas o dinheiro acaba há muito tempo.", en: "The family's lineage counts 500 years, but the money runs out long before that." }, drill: { jp: "A linhagem da família conta 500 anos", en: "The family's lineage counts 500 years" }, accept: ["the lineage", "lineage", "descent", "bloodline", "line of descent"], hint: "li-NYA-jen, from a linha, the line. The chain of descent. De boa linhagem is said of people and of animals both, and in Portuguese the phrase carries the same faint snobbery it does in English." },
+      ],
+    },
+    {
+      id: "pt-u95l3",
+      unit: 95,
+      lesson: 3,
+      title: "Conquista e queda",
+      cefr: "B2",
+      dominantMode: "produce",
+      canDo: "Tell how territory changed hands in Portuguese — the conquest, the invasion, the siege, the colony, slavery, the fall.",
+      items: [
+        { id: "pt-u95l3-aconquista", type: "vocab", front: "a conquista", reading: "aconquista", meaning: "conquest", example: { jp: "A conquista da cidade foi depressa, mas o rei paga 40 anos de guerra para a manter.", en: "The conquest of the city was quick, but the king pays 40 years of war to hold it." }, drill: { jp: "A conquista da cidade foi depressa", en: "The conquest of the city was quick" }, accept: ["the conquest", "conquest", "capture", "taking", "winning"], hint: "kon-KEESH-ta, from conquistar. Territory taken by force — and, in everyday Portuguese, any hard-won gain: as conquistas de abril are the rights won after 1974. Conquistar alguém is to win someone over." },
+        { id: "pt-u95l3-ainvasao", type: "vocab", front: "a invasão", reading: "ainvasao", meaning: "invasion", example: { jp: "A invasão chega pelo norte, mas a família do rei já está no mar a viajar para o Brasil.", en: "The invasion arrives from the north, but the king's family is already at sea travelling to Brazil." }, drill: { jp: "A invasão chega pelo norte do país", en: "The invasion arrives from the north of the country" }, accept: ["the invasion", "invasion", "incursion", "attack"], hint: "in-va-ZOWN, from invadir. The French invasions of 1807–11 are as Invasões Francesas, and the royal family's flight to Brazil that they caused is the single most consequential week in Portuguese history." },
+        { id: "pt-u95l3-ocerco", type: "vocab", front: "o cerco", reading: "ocerco", meaning: "siege", example: { jp: "O cerco dura meio ano, mas a cidade cai quando a água acaba.", en: "The siege lasts half a year, but the city falls when the water runs out." }, drill: { jp: "O cerco da cidade dura meio ano", en: "The city's siege lasts half a year" }, accept: ["the siege", "siege", "blockade", "encirclement"], hint: "SER-ku, from cercar, to surround. Apertar o cerco is to tighten the net, said of police work and of politics. A cerca, with an a, is the fence itself — the same idea one letter apart." },
+        { id: "pt-u95l3-acolonia", type: "vocab", front: "a colónia", reading: "acolonia", meaning: "colony", example: { jp: "A colónia paga muito dinheiro ao país, mas quase nada dele chega a quem trabalha nas terras.", en: "The colony pays the country a lot of money, but almost none of it reaches the people working the land." }, drill: { jp: "A colónia paga muito dinheiro ao país", en: "The colony pays the country a lot of money" }, accept: ["the colony", "colony", "overseas territory", "possession"], hint: "ku-LO-nya — pt-PT writes colónia with the acute, Brazil colônia. Portugal's lasted until 1975, later than any other European power's, which is why the word is not yet historical in Portuguese." },
+        { id: "pt-u95l3-aescravatura", type: "vocab", front: "a escravatura", reading: "aescravatura", meaning: "slavery", example: { jp: "A escravatura acaba no papel em 1869, mas o trabalho sem dinheiro continua muitos anos.", en: "Slavery ends on paper in 1869, but unpaid work continues for many years." }, drill: { jp: "A escravatura acaba no papel em 1869", en: "Slavery ends on paper in 1869" }, accept: ["the slavery", "slavery", "the slave trade", "enslavement"], hint: "esh-kra-va-TOO-ra. pt-PT says escravatura where Brazil says escravidão — a real split, and a heavy one. Portugal abolished it across its territories in 1869, having begun the Atlantic trade four centuries earlier." },
+        { id: "pt-u95l3-aqueda", type: "vocab", front: "a queda", reading: "aqueda", meaning: "fall (of a regime)", example: { jp: "A queda do governo foi depressa, mas ninguém tinha um plano para o dia seguinte.", en: "The government's fall was quick, but nobody had a plan for the next day." }, drill: { jp: "A queda do governo foi depressa", en: "The government's fall was quick" }, accept: ["the fall", "fall", "collapse", "downfall", "drop"], hint: "KE-da, from cair. A regime, a price, a person on the stairs — Portuguese uses one noun for all three. Uma queda de água is a waterfall, and ter queda para algo is to have a knack for it." },
+      ],
+    },
+    {
+      id: "pt-u95l4",
+      unit: 95,
+      lesson: 4,
+      title: "Subida e descida",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe a country's long arc in Portuguese — expansion, decadence, measurable decline, revolution, restoration, a treaty.",
+      items: [
+        { id: "pt-u95l4-aexpansao", type: "vocab", front: "a expansão", reading: "aexpansao", meaning: "expansion", example: { jp: "A expansão leva o país ao outro lado do mar, mas deixa o campo sem gente.", en: "The expansion takes the country to the other side of the sea, but leaves the countryside empty of people." }, drill: { jp: "A expansão leva o país ao mar", en: "The expansion takes the country to the sea" }, accept: ["the expansion", "expansion", "growth", "spread", "extension"], hint: "esh-pan-SOWN, from expandir. Of a country, a company or a city. Portuguese history books call the sixteenth century a Expansão, a word that does a lot of quiet work in place of a conquista." },
+        { id: "pt-u95l4-adecadencia", type: "vocab", front: "a decadência", reading: "adecadencia", meaning: "decadence", example: { jp: "A decadência da corte era simples de ver, mas ninguém dentro do governo queria mudar.", en: "The court's decadence was easy to see, but nobody inside the government wanted to change." }, drill: { jp: "A decadência da corte era simples de ver", en: "The court's decadence was easy to see" }, accept: ["the decadence", "decadence", "moral decay", "degeneration", "rot"], hint: "de-ka-DEN-sya. A MORAL judgement: things falling apart from the inside because nobody cared. Its sibling o declínio, in this same lesson, is a measurement — a country can be em declínio without being decadente." },
+        { id: "pt-u95l4-odeclinio", type: "vocab", front: "o declínio", reading: "odeclinio", meaning: "decline", example: { jp: "O declínio do número de pessoas no campo começa nos anos 60, mas ninguém o quis ver.", en: "The decline in the number of people in the countryside begins in the 60s, but nobody wanted to see it." }, drill: { jp: "O declínio começa nos anos 60", en: "The decline begins in the 60s" }, accept: ["the decline", "decline", "downturn", "falling off", "decrease"], hint: "de-KLEE-nyu. A measurable going-down — of population, of sales, of health. Em declínio is the neutral phrase an economist uses; a decadência, beside it, is the one a moralist uses." },
+        { id: "pt-u95l4-arevolucao", type: "vocab", front: "a revolução", reading: "arevolucao", meaning: "revolution", example: { jp: "A revolução acaba com a ditadura numa manhã, mas o país leva anos a decidir o que quer.", en: "The revolution ends the dictatorship in one morning, but the country takes years to decide what it wants." }, drill: { jp: "A revolução acaba com a ditadura", en: "The revolution puts an end to the dictatorship" }, accept: ["the revolution", "revolution", "uprising", "overthrow"], hint: "rre-vu-lu-SOWN. In Portugal it means one specific morning: 25 April 1974, a Revolução dos Cravos — the Carnation Revolution, named for the flowers put in the soldiers' rifles." },
+        { id: "pt-u95l4-arestauracao", type: "vocab", front: "a restauração", reading: "arestauracao", meaning: "restoration", example: { jp: "A restauração acaba com 60 anos de governo de fora, mas a guerra depois disso dura 30 anos.", en: "The restoration ends 60 years of rule from outside, but the war after that lasts 30 years." }, drill: { jp: "A restauração acaba com o governo de fora", en: "The restoration ends the rule from outside" }, accept: ["the restoration", "restoration", "return to power", "reinstatement", "restoring"], hint: "rresh-tau-ra-SOWN. Putting back what was removed — a dynasty, a building, a right. Portugal's Restauração of 1640 ended sixty years of Spanish rule, and Lisbon's Restauradores square is named for it." },
+        { id: "pt-u95l4-otratado", type: "vocab", front: "o tratado", reading: "otratado", meaning: "treaty", example: { jp: "O tratado parte o mundo entre dois países, mas nenhum pergunta a quem vive nas terras.", en: "The treaty splits the world between two countries, but neither asks the people living on the land." }, drill: { jp: "O tratado parte o mundo entre dois países", en: "The treaty splits the world between two countries" }, accept: ["the treaty", "treaty", "accord", "pact", "formal agreement"], hint: "tra-TA-du, from tratar. A formal agreement between states — o Tratado de Tordesilhas, 1494, drew a line down the Atlantic. The same word also means a treatise: um tratado de medicina." },
+      ],
+    },
   ],
 };

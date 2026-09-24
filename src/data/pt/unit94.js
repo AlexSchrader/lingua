@@ -1,18 +1,93 @@
-// PT Unit 94 — Science and technology (slot: science-tech) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 94 — A ciência e a técnica (slot: science-tech) — B2
+// HOW A CLAIM ABOUT THE WORLD GETS MADE AND BUILT. u34 gave the corpus the
+// nouns (a ciência, o cientista, a descoberta, a experiência, a natureza,
+// o mundo), u54 the uncertainty verbs (a hipótese, a probabilidade, prever,
+// supor, arriscar), u33 the digital surface (a rede, a aplicação, a
+// atualização), u18 o computador. None re-taught. What is missing is the
+// METHOD — what a trial is, what it means to replicate one, how a result is
+// quantified — and the technical stack a B2 news article assumes you know.
+//
+// SLOT BOUNDARIES: u90 owns abstraction as structure (o sistema, a variável,
+// o parâmetro), and a matriz is carded here only in its technical sense. u103
+// (block 3) owns education and RESEARCH as an institution — grants, peer
+// review, the university — so this unit stays on the bench and the workshop.
+// u98 owns risk, so nothing here is about danger. RESERVED, unspent, for
+// blocks 2/3: sintetizar, a amostragem, a dosagem.
+// Conventions: unit1.js header · B2 constitution §C1–C10: unit88.js header.
 export const PT_UNIT94 = {
   id: "pt-u94",
   lang: "pt",
-  title: "Science and technology",
+  title: "A ciência e a técnica",
   order: 94,
   stage: "b2",
   lessons: [
-    { id: "pt-u94l1", title: "Lesson 1", locked: true },
-    { id: "pt-u94l2", title: "Lesson 2", locked: true },
-    { id: "pt-u94l3", title: "Lesson 3", locked: true },
-    { id: "pt-u94l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u94l1",
+      unit: 94,
+      lesson: 1,
+      title: "O método",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Describe how a result was produced in Portuguese — the trial, replicating it, measuring it, and the deviation nobody explains.",
+      items: [
+        { id: "pt-u94l1-oensaio", type: "vocab", front: "o ensaio", reading: "oensaio", meaning: "trial (test run)", example: { jp: "O ensaio corre bem no papel, mas a máquina falha logo no primeiro dia de trabalho.", en: "The trial goes well on paper, but the machine fails on the very first day of work." }, drill: { jp: "O ensaio da máquina corre bem", en: "The machine's trial goes well" }, accept: ["the trial", "trial", "test run", "test", "rehearsal"], hint: "en-SAI-u. A controlled try — of a drug, a machine, a play. Um ensaio clínico is a clinical trial and um ensaio de teatro is a rehearsal, and confusingly it is also an essay: um ensaio sobre a história." },
+        { id: "pt-u94l1-replicar", type: "vocab", front: "replicar", reading: "replicar", meaning: "to replicate", example: { jp: "Ninguém quer replicar o estudo, mas o jornal continua a falar dele como prova.", en: "Nobody wants to replicate the study, but the newspaper still talks about it as evidence." }, drill: { jp: "Ninguém quer replicar o estudo", en: "Nobody wants to replicate the study" }, accept: ["to replicate", "replicate", "to reproduce", "reproduce", "to repeat an experiment"], hint: "rre-pli-KAR. To run the same thing again and get the same answer — the whole test of whether a result was real. Repetir is doing something again; replicar is doing it again in order to check." },
+        { id: "pt-u94l1-empirico", type: "vocab", front: "empírico", reading: "empirico", meaning: "empirical", example: { jp: "O argumento é empírico, mas o número de casos é baixo para um país grande.", en: "The argument is empirical, but the number of cases is low for a large country." }, drill: { jp: "O argumento do estudo é empírico", en: "The study's argument is empirical" }, accept: ["empirical", "based on observation", "evidence-based", "from data"], hint: "em-PEE-ri-ku. Resting on what was observed rather than on reasoning alone. A useful pair with u88's a premissa: a premissa is argued, o empírico is measured, and a B2 reader is expected to notice which a text is offering." },
+        { id: "pt-u94l1-quantificar", type: "vocab", front: "quantificar", reading: "quantificar", meaning: "to quantify", example: { jp: "É difícil quantificar o trabalho da família em casa, mas isso não quer dizer que não conte.", en: "It is hard to quantify a family's work at home, but that does not mean it doesn't count." }, drill: { jp: "É difícil quantificar o trabalho em casa", en: "It is hard to quantify work at home" }, accept: ["to quantify", "quantify", "to put a number on", "to measure", "to express as a number"], hint: "kwan-ti-fi-KAR. To put a number on something. In Portuguese as in English the word carries a quiet argument: things that resist being quantified tend to disappear from the decision." },
+        { id: "pt-u94l1-odesvio", type: "vocab", front: "o desvio", reading: "odesvio", meaning: "deviation", example: { jp: "O desvio é pequeno em cada peça, mas no fim do trabalho a máquina já não serve.", en: "The deviation is small in each part, but by the end of the work the machine no longer fits." }, drill: { jp: "O desvio de cada peça é pequeno", en: "The deviation in each part is small" }, accept: ["the deviation", "deviation", "departure from the norm", "drift", "detour"], hint: "desh-VEE-u, from desviar. The measured distance from what was expected — and also a physical detour, which is what a Portuguese road sign means by it. Um desvio de dinheiro is embezzlement." },
+        { id: "pt-u94l1-asimulacao", type: "vocab", front: "a simulação", reading: "asimulacao", meaning: "simulation", example: { jp: "A simulação do computador diz uma coisa, mas o rio no inverno faz outra.", en: "The computer simulation says one thing, but the river in winter does another." }, drill: { jp: "A simulação do computador diz outra coisa", en: "The computer simulation says something else" }, accept: ["the simulation", "simulation", "model run", "mock-up", "dry run"], hint: "si-mu-la-SOWN. A model run in place of the real thing. Careful with simular, which also means to fake — simular uma doença is to malinger, so the noun's tone depends entirely on who is running it." },
+      ],
+    },
+    {
+      id: "pt-u94l2",
+      unit: 94,
+      lesson: 2,
+      title: "A matéria",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name what things are made of in Portuguese — the molecule, the organism, the particle, the compound, the cell, the formula.",
+      items: [
+        { id: "pt-u94l2-amolecula", type: "vocab", front: "a molécula", reading: "amolecula", meaning: "molecule", example: { jp: "A molécula da água é simples, mas o que ela faz no corpo ainda não se sabe todo.", en: "The water molecule is simple, but what it does in the body is still not fully known." }, drill: { jp: "A molécula da água é simples", en: "The water molecule is simple" }, accept: ["the molecule", "molecule", "particle of matter"], hint: "mu-LE-ku-la, stress on the second syllable, which the accent marks. The smallest piece of a substance that is still that substance — o átomo is smaller and is no longer water." },
+        { id: "pt-u94l2-oorganismo", type: "vocab", front: "o organismo", reading: "oorganismo", meaning: "organism", example: { jp: "O organismo do doente responde bem ao frio, mas o médico não sabe explicar porquê.", en: "The patient's organism responds well to cold, but the doctor cannot explain why." }, drill: { jp: "O organismo do doente responde bem", en: "The patient's organism responds well" }, accept: ["the organism", "organism", "living thing", "the body", "system (living)"], hint: "or-ga-NEEZ-mu. A living thing as a working whole. In Portuguese it is also the everyday word for one's own body in a medical sense — o meu organismo não aceita isto — where English would just say 'my body'." },
+        { id: "pt-u94l2-aparticula", type: "vocab", front: "a partícula", reading: "aparticula", meaning: "particle", example: { jp: "A partícula do ar faz mal que faz mal ao corpo, mas ninguém fala disso.", en: "The air particle does harm that harms the body, but nobody talks about it." }, drill: { jp: "A partícula do ar faz mal", en: "The air particle does harm" }, accept: ["the particle", "particle", "speck", "tiny piece"], hint: "par-TEE-ku-la, from a parte (u43) with the small-making -ícula ending. Physics and air quality both use it; Portuguese grammar borrows the same word for its little function words." },
+        { id: "pt-u94l2-ocomposto", type: "vocab", front: "o composto", reading: "ocomposto", meaning: "compound", example: { jp: "O composto é novo, mas o ensaio no laboratório ainda não chega ao segundo ano.", en: "The compound is new, but the laboratory trial is not yet reaching its second year." }, drill: { jp: "O composto do ensaio é novo", en: "The trial's compound is new" }, accept: ["the compound", "compound", "mixture", "substance"], hint: "kom-POSH-tu, from compor, to put together. Two or more elements joined into one substance. As an adjective it means compound in the grammatical sense too: um tempo composto." },
+        { id: "pt-u94l2-acelula", type: "vocab", front: "a célula", reading: "acelula", meaning: "cell", example: { jp: "A célula é uma máquina simples, mas nada dentro do corpo faz sentido fora do organismo.", en: "The cell is a simple machine, but nothing inside the body makes sense outside the organism." }, drill: { jp: "A célula do corpo é uma máquina simples", en: "The body's cell is a simple machine" }, accept: ["the cell", "cell", "unit of life", "biological cell"], hint: "SE-lu-la. The biological cell, and by extension a small organised group — uma célula do partido. A prison cell is uma cela, one L, which is a word worth keeping apart." },
+        { id: "pt-u94l2-aformula", type: "vocab", front: "a fórmula", reading: "aformula", meaning: "formula", example: { jp: "A fórmula já tem muitos anos, mas fazer o composto em quantidade custa muito dinheiro.", en: "The formula is many years old, but making the compound in quantity costs a lot of money." }, drill: { jp: "A fórmula do composto tem muitos anos", en: "The compound's formula is many years old" }, accept: ["the formula", "formula", "recipe", "the recipe", "expression"], hint: "FOR-mu-la, stress on the first syllable. Chemistry, mathematics, and also a fixed way of saying something — uma fórmula de cortesia is a set polite phrase. Fórmula 1 is the same word, meaning the technical specification." },
+      ],
+    },
+    {
+      id: "pt-u94l3",
+      unit: 94,
+      lesson: 3,
+      title: "A máquina que decide",
+      cefr: "B2",
+      dominantMode: "produce",
+      canDo: "Talk about the machinery behind software in Portuguese — the algorithm, the server, the circuit, the sensor, automating work, the matrix.",
+      items: [
+        { id: "pt-u94l3-oalgoritmo", type: "vocab", front: "o algoritmo", reading: "oalgoritmo", meaning: "algorithm", example: { jp: "O algoritmo escolhe quem recebe a notícia, mas ninguém na empresa explica como.", en: "The algorithm picks who receives the news, but nobody at the company explains how." }, drill: { jp: "O algoritmo escolhe quem recebe a notícia", en: "The algorithm picks who receives the news" }, accept: ["the algorithm", "algorithm", "the rule set", "procedure"], hint: "al-gu-REET-mu, from the name of the mathematician al-Khwarizmi. A fixed procedure a machine follows. Note the Portuguese public debate uses it exactly as English does, with the same implied suspicion." },
+        { id: "pt-u94l3-oservidor", type: "vocab", front: "o servidor", reading: "oservidor", meaning: "server", example: { jp: "O servidor da escola cai todos os dias, mas a autarquia diz que não tem dinheiro.", en: "The school's server goes down every day, but the local authority says it has no money." }, drill: { jp: "O servidor da escola cai todos os dias", en: "The school's server goes down every day" }, accept: ["the server", "server", "host machine", "the host"], hint: "ser-vi-DOR, from servir. The machine that serves the others. In Brazil um servidor público is a civil servant; in Portugal that is um funcionário público, so the human sense is much rarer here." },
+        { id: "pt-u94l3-ocircuito", type: "vocab", front: "o circuito", reading: "ocircuito", meaning: "circuit", example: { jp: "O circuito é simples, mas basta um erro pequeno para a máquina parar.", en: "The circuit is simple, but one small fault is enough to stop the machine." }, drill: { jp: "O circuito da máquina é simples", en: "The machine's circuit is simple" }, accept: ["the circuit", "circuit", "loop", "the loop", "track"], hint: "sir-KWEE-tu. The electrical loop, and also a route that returns to its start — um circuito turístico, and the racing circuit. Curto-circuito is a short circuit, used of people too." },
+        { id: "pt-u94l3-osensor", type: "vocab", front: "o sensor", reading: "osensor", meaning: "detector", example: { jp: "O sensor da porta funciona bem no verão, mas com chuva abre sozinho de noite.", en: "The door sensor works well in summer, but in rain it opens by itself at night." }, drill: { jp: "O sensor da porta funciona bem", en: "The door sensor works well" }, accept: ["the sensor", "sensor", "detector", "the detector", "pickup"], hint: "sen-SOR. The part that measures and reports — light, heat, movement. Portuguese borrows the English word whole; the older native word, o detetor, survives mostly for smoke and metal." },
+        { id: "pt-u94l3-automatizar", type: "vocab", front: "automatizar", reading: "automatizar", meaning: "to automate", example: { jp: "A empresa quer automatizar a conta, mas metade dos clientes quer falar com alguém.", en: "The company wants to automate billing, but half its customers want to speak to someone." }, drill: { jp: "A empresa quer automatizar a conta", en: "The company wants to automate billing" }, accept: ["to automate", "automate", "to mechanise", "to make automatic"], hint: "au-tu-ma-ti-ZAR. To hand a task to a machine. The -izar ending is the productive Portuguese way of making a verb from a noun, the same one behind organizar and realizar." },
+        { id: "pt-u94l3-amatriz", type: "vocab", front: "a matriz", reading: "amatriz", meaning: "matrix", example: { jp: "A matriz do estudo é grande, mas o computador da escola não chega para a ler.", en: "The study's matrix is large, but the school's computer is not enough to read it." }, drill: { jp: "A matriz do estudo é grande", en: "The study's matrix is large" }, accept: ["the matrix", "matrix", "grid", "the grid", "array"], hint: "ma-TREEZ. The grid of numbers in mathematics — and in ordinary Portuguese, the original from which copies are made: a casa-matriz is a company's head office, a igreja matriz the mother church of a parish." },
+      ],
+    },
+    {
+      id: "pt-u94l4",
+      unit: 94,
+      lesson: 4,
+      title: "Do laboratório ao mundo",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Follow an invention out of the lab in Portuguese — the laboratory, the prototype, the patent, the calibration, the engineering, the innovation.",
+      items: [
+        { id: "pt-u94l4-olaboratorio", type: "vocab", front: "o laboratório", reading: "olaboratorio", meaning: "laboratory", example: { jp: "O laboratório da escola é velho, mas o trabalho que sai dele chega ao país todo.", en: "The school's laboratory is old, but the work that comes out of it reaches the whole country." }, drill: { jp: "O laboratório da escola é velho", en: "The school's laboratory is old" }, accept: ["the laboratory", "laboratory", "lab", "the lab"], hint: "la-bu-ra-TO-ryu. Shortened to o labo in speech far less than English shortens it to 'lab'. Also a pharmaceutical company in Portuguese news: os laboratórios subiram o preço." },
+        { id: "pt-u94l4-oprototipo", type: "vocab", front: "o protótipo", reading: "oprototipo", meaning: "prototype", example: { jp: "O protótipo funciona na mesa, mas fazer cem peças com o mesmo resultado é outro problema.", en: "The prototype works on the bench, but making a hundred parts with the same result is another problem." }, drill: { jp: "O protótipo funciona bem na mesa", en: "The prototype works well on the bench" }, accept: ["the prototype", "prototype", "first model", "working model", "mock-up"], hint: "pru-TO-ti-pu. The first working one, built to learn from rather than to sell. The gap between o protótipo and production is the oldest story in engineering, and Portuguese tells it with exactly this word." },
+        { id: "pt-u94l4-apatente", type: "vocab", front: "a patente", reading: "apatente", meaning: "patent", example: { jp: "A patente protege a empresa durante anos, mas o preço fica alto para todos.", en: "The patent protects the company for years, but the price stays high for everybody." }, drill: { jp: "A patente protege a empresa durante anos", en: "The patent protects the company for years" }, accept: ["the patent", "patent", "exclusive right", "IP right"], hint: "pa-TEN-te. The legal monopoly on an invention. As an ADJECTIVE the same word means obvious — é patente que…, it is plain that — which is the older Latin sense of lying open." },
+        { id: "pt-u94l4-calibrar", type: "vocab", front: "calibrar", reading: "calibrar", meaning: "to calibrate", example: { jp: "É preciso calibrar a máquina todos os anos, mas a fábrica faz isso apenas quando a máquina falha.", en: "The machine has to be calibrated every year, but the factory does it only when the machine fails." }, drill: { jp: "A fábrica quer calibrar a máquina", en: "The factory wants to calibrate the machine" }, accept: ["to calibrate", "calibrate", "to adjust to a standard", "to tune", "to set"], hint: "ka-li-BRAR. To set an instrument against a known standard so its numbers can be trusted — the physical twin of u89's aferir, which does the same job to a judgement." },
+        { id: "pt-u94l4-aengenharia", type: "vocab", front: "a engenharia", reading: "aengenharia", meaning: "engineering", example: { jp: "A engenharia da ponte é boa, mas ninguém escreve quem a vai limpar.", en: "The bridge's engineering is good, but nobody writes down who is going to clean it." }, drill: { jp: "A engenharia da ponte é boa", en: "The bridge's engineering is good" }, accept: ["the engineering", "engineering", "engineering work", "the design work"], hint: "en-je-nya-REE-a, from o engenho, ingenuity. The discipline and the work both. Engenharia social is social engineering, and it carries the same edge in Portuguese as in English." },
+        { id: "pt-u94l4-ainovacao", type: "vocab", front: "a inovação", reading: "ainovacao", meaning: "innovation", example: { jp: "A inovação é boa para o país, mas o dinheiro público vai quase todo para as empresas grandes.", en: "Innovation is good for the country, but public money goes almost entirely to the large companies." }, drill: { jp: "A inovação é boa para o país", en: "Innovation is good for the country" }, accept: ["the innovation", "innovation", "new development", "breakthrough"], hint: "i-nu-va-SOWN, from inovar. Distinct from a descoberta (u34), which is finding something that was already there: uma inovação is something made that did not exist. Portuguese public funding uses the word constantly, which has worn it thin." },
+      ],
+    },
   ],
 };

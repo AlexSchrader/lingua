@@ -1,7 +1,7 @@
 # PT — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- pt`.
-Snapshot 2026-09-17: **2106 words** across **87 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-24: **2418 words** across **100 authored unit(s)**, **26 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -15,15 +15,40 @@ Snapshot 2026-09-17: **2106 words** across **87 authored unit(s)**, **0 slot(s) 
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
 
-## Who owns which slots this band
+## Slots still unauthored
 
-The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
+**u101–u126 are unauthored.** ⚠️ This range is DERIVED from the stubs in the corpus, not read from a crew assignment — so it carries **no block numbers**, on purpose. If blocks 1 and 2 of this band are already merged, everything left is block 3's, however many slots that is. Your kickoff prompt is the only authority on which slots are yours; this file just tells you which are still empty.
 
-| block | slots |
-|---|---|
-| 1 | u88–u100 |
-| 2 | u101–u113 |
-| 3 | u114–u126 |
+## Slots still stubs — not yours unless you were assigned them
+
+| slot | unit | title |
+|---|---|---|
+| 101 | `pt-u101` | Environment and the global |
+| 102 | `pt-u102` | Health systems and care |
+| 103 | `pt-u103` | Education and research |
+| 104 | `pt-u104` | Media and narrative |
+| 105 | `pt-u105` | Emotion, subtle and mixed |
+| 106 | `pt-u106` | Grammar 9 — conditional nuance and counterfactuals |
+| 107 | `pt-u107` | Grammar 10 — formal written structures |
+| 108 | `pt-u108` | Grammar 11 — discourse, cohesion, hedged claims |
+| 109 | `pt-u109` | Register 3 — tu, você, o senhor |
+| 110 | `pt-u110` | Register 4 — written, public and institutional voice |
+| 111 | `pt-u111` | Vocabulary 1 (B2) |
+| 112 | `pt-u112` | Vocabulary 2 (B2) |
+| 113 | `pt-u113` | Vocabulary 3 (B2) |
+| 114 | `pt-u114` | Vocabulary 4 (B2) |
+| 115 | `pt-u115` | Vocabulary 5 (B2) |
+| 116 | `pt-u116` | Vocabulary 6 (B2) |
+| 117 | `pt-u117` | Vocabulary 7 (B2) |
+| 118 | `pt-u118` | Vocabulary 8 (B2) |
+| 119 | `pt-u119` | Vocabulary 9 (B2) |
+| 120 | `pt-u120` | Vocabulary 10 (B2) |
+| 121 | `pt-u121` | Vocabulary 11 (B2) |
+| 122 | `pt-u122` | Vocabulary 12 (B2) |
+| 123 | `pt-u123` | Vocabulary 13 (B2) |
+| 124 | `pt-u124` | Vocabulary 14 (B2) |
+| 125 | `pt-u125` | Vocabulary 15 (B2) |
+| 126 | `pt-u126` | Vocabulary 16 (B2) |
 
 ## Index — every taught word, alphabetical
 
@@ -33,12 +58,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `â` — u1
 - `ã` — u1
 - `à` — u12 · to the (feminine)
+- `a acusação` — u92 · prosecution case
 - `a adolescência` — u80 · adolescence
 - `a agenda` — u62 · diary
 - `a agricultura` — u65 · agriculture
 - `a água` — u6 · water
 - `a agulha` — u42 · needle
 - `a aldeia` — u20 · village
+- `a alegação` — u88 · allegation
 - `a alegria` — u22 · joy
 - `a alergia` — u25 · allergy
 - `a alteração` — u65 · change (an alteration)
@@ -46,21 +73,30 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a altura` — u34 · height
 - `a ambição` — u85 · ambition
 - `a ambulância` — u25 · ambulance
+- `a ameaça` — u98 · threat
 - `a amizade` — u39 · friendship
 - `a amostra` — u84 · sample
 - `a análise` — u25 · test
 - `a ansiedade` — u57 · anxiety
+- `a antiguidade` — u95 · antiquity
 - `a aplicação` — u33 · app
+- `a aquisição` — u93 · acquisition
+- `a arbitragem` — u93 · arbitration
 - `a área` — u83 · area (extent)
 - `a areia` — u20 · sand
 - `a arte` — u35 · art
 - `a árvore` — u26 · tree
+- `a ascensão` — u99 · social rise
+- `a assembleia` — u92 · assembly
 - `a assinatura` — u44 · signature
 - `a atenção` — u76 · attention
 - `a atualização` — u33 · update
 - `a audiência` — u64 · audience (viewers, ratings)
 - `a aula` — u17 · lesson
+- `a autarquia` — u92 · local authority
 - `a autoestrada` — u23 · motorway
+- `a autonomia` — u100 · autonomy
+- `a autoria` — u89 · authorship
 - `a autoridade` — u76 · authority
 - `a autorização` — u44 · authorisation
 - `a avó` — u4 · grandmother
@@ -76,11 +112,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a bolsa` — u24 · grant
 - `a borda` — u83 · edge
 - `a borracha` — u17 · rubber
+- `a burocracia` — u100 · bureaucracy
 - `a bússola` — u46 · compass
 - `a cabeça` — u11 · head
 - `a cadeira` — u15 · chair
 - `a caixa` — u16 · checkout
 - `a cama` — u15 · bed
+- `a camada` — u90 · layer
 - `a câmara municipal` — u49 · town hall
 - `a camisa` — u16 · shirt
 - `a camisola` — u16 · sweater
@@ -95,10 +133,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a carta` — u49 · letter
 - `a casa` — u1 · house
 - `a casa de banho` — u7 · toilet
+- `a categoria` — u90 · category
+- `a caução` — u93 · security deposit
 - `a causa` — u34 · cause
 - `a cave` — u30 · basement
 - `a caverna` — u46 · cave
 - `a cebola` — u38 · onion
+- `a célula` — u94 · cell
 - `a censura` — u64 · censorship
 - `a certeza` — u76 · certainty
 - `a certidão` — u49 · certificate
@@ -108,28 +149,42 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a chávena` — u41 · cup
 - `a chefia` — u56 · management (the bosses)
 - `a chuva` — u8 · rain
+- `a cidadania` — u99 · citizenship
 - `a cidade` — u7 · city
 - `a ciência` — u34 · science
 - `a cirurgia` — u67 · surgery
+- `a citação` — u89 · quotation
+- `a classe` — u99 · social class
+- `a cláusula` — u93 · clause
 - `a coerência` — u76 · consistency
+- `a coesão` — u99 · cohesion
 - `a coincidência` — u76 · coincidence
 - `a coisa` — u1 · thing
 - `a coleção` — u35 · collection
 - `a colher` — u15 · spoon
+- `a coligação` — u92 · coalition
 - `a colina` — u46 · hill
+- `a colónia` — u95 · colony
 - `a companhia` — u68 · company (companionship)
 - `a competência` — u85 · competence
 - `a competição` — u50 · competition
 - `a comunidade` — u32 · community
+- `a concessão` — u88 · concession
 - `a conclusão` — u76 · conclusion
 - `a concorrência` — u66 · competition (rivalry in business)
 - `a condição` — u61 · condition
 - `a confiança` — u31 · trust
 - `a confusão` — u76 · confusion
+- `a conquista` — u95 · conquest
+- `a consciência` — u97 · conscience
 - `a consequência` — u52 · consequence
+- `a constituição` — u92 · constitution
 - `a consulta` — u11 · appointment
 - `a conta` — u18 · bill
+- `a contingência` — u98 · contingency
+- `a contrapartida` — u93 · quid pro quo
 - `a convivência` — u68 · living together
+- `a coordenação` — u100 · coordination
 - `a cor` — u8 · colour
 - `a corda` — u42 · rope
 - `a coroa` — u48 · crown
@@ -139,11 +194,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a criança` — u4 · child
 - `a crise` — u45 · crisis
 - `a crítica` — u64 · review
+- `a crónica` — u95 · chronicle
+- `a cronologia` — u95 · chronology
 - `a culpa` — u57 · fault
 - `a cultura` — u35 · culture
+- `a cúpula` — u100 · the top brass
 - `a cura` — u67 · cure
 - `a data` — u48 · date
 - `a década` — u28 · decade
+- `a decadência` — u95 · decadence
 - `a decisão` — u76 · decision
 - `a dedicação` — u85 · dedication
 - `a demora` — u86 · delay (the wait)
@@ -157,12 +216,17 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a dieta` — u25 · diet
 - `a diferença` — u40 · difference
 - `a dificuldade` — u60 · difficulty
+- `a dignidade` — u97 · dignity
 - `a dimensão` — u83 · size (the scale of it)
 - `a direção` — u46 · direction
 - `à direita` — u7 · on the right
+- `a diretriz` — u100 · directive
 - `a disciplina` — u17 · subject
+- `a discrepância` — u89 · discrepancy
 - `a discussão` — u68 · argument (a row)
 - `a distância` — u23 · distance
+- `a ditadura` — u95 · dictatorship
+- `a diversidade` — u99 · diversity
 - `a dívida` — u45 · debt
 - `a doença` — u67 · illness
 - `a dor` — u11 · pain
@@ -172,21 +236,28 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a economia` — u66 · economy
 - `a eleição` — u32 · election
 - `a eletricidade` — u30 · electricity
+- `a elite` — u99 · ruling few
 - `a embalagem` — u27 · packet
+- `a emenda` — u92 · amendment
 - `a ementa` — u38 · menu
 - `a emergência` — u47 · emergency
 - `a emissão` — u64 · broadcast
 - `a empresa` — u18 · company
 - `a energia` — u65 · energy
+- `a ênfase` — u88 · emphasis
+- `a engenharia` — u94 · engineering
 - `a entrada` — u38 · starter
 - `a entrevista` — u18 · interview
 - `a época` — u48 · era
+- `a equidade` — u97 · fairness
 - `a equipa` — u19 · team
 - `a erva` — u26 · grass
 - `a escada` — u30 · stairs
 - `a escala` — u82 · scale
 - `a escola` — u7 · school
 - `a escolha` — u76 · choice
+- `a escravatura` — u95 · slavery
+- `a escultura` — u96 · sculpture
 - `a espécie` — u65 · species
 - `a espera` — u86 · wait
 - `a esperança` — u57 · hope
@@ -196,15 +267,21 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a estação` — u7 · station
 - `a estatística` — u82 · statistic
 - `a estátua` — u48 · statue
+- `a estética` — u96 · aesthetics
 - `a estrada` — u20 · road
 - `a estreia` — u64 · premiere
 - `a estrela` — u26 · star
 - `a estrutura` — u58 · structure
 - `a etapa` — u56 · stage (a step in a process)
+- `a ética` — u97 · ethics
 - `a etiqueta` — u27 · label
+- `a etnia` — u99 · ethnicity
+- `a eventualidade` — u98 · eventuality
 - `a evidência` — u84 · evidence
 - `a evolução` — u59 · development
 - `a exceção` — u61 · exception
+- `a exclusão` — u99 · exclusion
+- `a expansão` — u95 · expansion
 - `a expectativa` — u62 · expectation
 - `a experiência` — u34 · experiment
 - `a exposição` — u35 · exhibition
@@ -212,6 +289,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a extremidade` — u83 · far end
 - `a fábrica` — u65 · factory
 - `a faca` — u15 · knife
+- `a falácia` — u88 · fallacy
 - `a falência` — u66 · bankruptcy
 - `a falha` — u60 · flaw (a failure)
 - `a falta` — u76 · lack
@@ -221,10 +299,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a fase` — u86 · stage (a phase)
 - `a fatia` — u43 · slice
 - `a fatura` — u18 · invoice
+- `a faturação` — u93 · billings
 - `a febre` — u11 · fever
 - `a ferida` — u25 · wound
 - `a ferramenta` — u87 · tool
 - `a festa` — u19 · party
+- `a fiabilidade` — u89 · reliability
 - `a fila` — u49 · queue
 - `a filha` — u4 · daughter
 - `a final` — u50 · final
@@ -235,14 +315,17 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a fonte` — u55 · source
 - `a força` — u50 · strength
 - `a formação` — u24 · training
+- `a fórmula` — u94 · formula
 - `a foto` — u33 · photo
 - `a fotografia` — u63 · photograph
 - `a fração` — u82 · fraction
+- `a fragilidade` — u98 · fragility
 - `a fraqueza` — u85 · weakness
 - `a frase` — u77 · sentence
 - `a frigideira` — u41 · frying pan
 - `a fronteira` — u46 · border
 - `a frustração` — u57 · frustration
+- `a fusão` — u93 · merger
 - `a galinha` — u26 · hen
 - `a garagem` — u30 · garage
 - `a garantia` — u87 · guarantee
@@ -259,6 +342,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a guerra` — u48 · war
 - `a habilidade` — u85 · skill
 - `a herança` — u80 · inheritance
+- `a hierarquia` — u90 · hierarchy
+- `a hipocrisia` — u97 · hypocrisy
 - `a hipótese` — u54 · possibility
 - `a história` — u48 · history
 - `a hora` — u5 · hour
@@ -270,28 +355,41 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a ilha` — u26 · island
 - `a imprensa` — u32 · the press
 - `a impressora` — u33 · printer
+- `a impunidade` — u97 · impunity
+- `a incerteza` — u98 · uncertainty
+- `a inclusão` — u99 · inclusion
 - `a independência` — u80 · independence
 - `a indústria` — u66 · industry
 - `a infância` — u80 · childhood
 - `a inflação` — u66 · inflation
 - `a informação` — u84 · information
 - `a infração` — u61 · offence
+- `a inovação` — u94 · innovation
 - `a insónia` — u67 · insomnia
+- `a instância` — u92 · court level
 - `a integração` — u68 · integration
+- `a integridade` — u97 · integrity
 - `a intenção` — u62 · intention (what someone means to do)
+- `a intensidade` — u91 · intensity
+- `a interação` — u90 · interaction
 - `a internet` — u33 · the internet
+- `a interpretação` — u96 · performance (of a role)
 - `a inundação` — u65 · flood
+- `a invasão` — u95 · invasion
 - `a inveja` — u57 · envy
 - `a investigação` — u34 · research
 - `a irmã` — u4 · sister
 - `a janela` — u15 · window
+- `a jurisdição` — u92 · jurisdiction
 - `a justiça` — u44 · justice
 - `a justificação` — u76 · justification
 - `a juventude` — u80 · youth
 - `a lã` — u42 · wool
+- `a lacuna` — u89 · gap (in the record)
 - `a laranja` — u6 · orange
 - `a largura` — u43 · width
 - `a lata` — u43 · tin
+- `a lealdade` — u97 · loyalty
 - `a legenda` — u64 · subtitle
 - `a lei` — u32 · law
 - `a leitura` — u35 · reading
@@ -300,7 +398,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a lição` — u63 · lesson (the moral)
 - `a licença` — u44 · licence
 - `a licenciatura` — u17 · degree
+- `a liderança` — u100 · leadership
 - `a limitação` — u85 · limitation
+- `a linhagem` — u95 · lineage
 - `a lista` — u27 · list
 - `a lógica` — u58 · logic
 - `a loja` — u7 · shop
@@ -321,7 +421,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a máquina de lavar` — u30 · washing machine
 - `a marca` — u66 · brand
 - `a maré` — u46 · tide
+- `a margem` — u93 · margin
 - `a massa` — u38 · pasta
+- `a matriz` — u94 · matrix
 - `a maturidade` — u63 · maturity
 - `a média` — u53 · average
 - `a medida` — u55 · measure
@@ -334,22 +436,30 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a mesa` — u15 · table
 - `a meta` — u56 · target
 - `a metade` — u43 · half
+- `a metáfora` — u96 · metaphor
 - `a minha` — u4 · my (feminine)
 - `a minoria` — u68 · minority
 - `a mobília` — u15 · furniture
+- `a mobilidade` — u99 · social mobility
 - `a mochila` — u17 · backpack
 - `a moeda` — u27 · coin
+- `a moldura` — u96 · frame
+- `a molécula` — u94 · molecule
+- `a monarquia` — u95 · monarchy
 - `a montanha` — u20 · mountain
 - `a montra` — u16 · shop window
 - `a morada` — u49 · address
+- `a moral` — u97 · morality
 - `a mota` — u23 · motorbike
 - `a motivação` — u85 · motivation
 - `a mulher` — u1 · woman
 - `a multa` — u44 · fine
 - `a música` — u19 · music
 - `a não ser que` — u70 · unless
+- `a narrativa` — u96 · narrative
 - `a natação` — u50 · swimming
 - `a natureza` — u34 · nature
+- `a negociação` — u93 · negotiation
 - `a neve` — u26 · snow
 - `a noção` — u58 · notion
 - `a noite` — u9 · night
@@ -358,11 +468,16 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a nota` — u17 · mark
 - `a notícia` — u32 · news
 - `a nuvem` — u26 · cloud
+- `a objeção` — u88 · objection
+- `a obra` — u96 · work (of art)
+- `a obra-prima` — u96 · masterpiece
 - `a obrigação` — u61 · obligation
 - `a ocasião` — u62 · occasion
 - `a oferta` — u66 · supply
 - `a oficina` — u87 · workshop
+- `a omissão` — u97 · failure to act
 - `a onda` — u46 · wave
+- `a ópera` — u96 · opera
 - `a opinião` — u24 · opinion
 - `a opinião pública` — u55 · public opinion
 - `a oportunidade` — u76 · opportunity
@@ -375,22 +490,29 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a palavra` — u76 · word
 - `a palavra-passe` — u33 · password
 - `a panela` — u41 · pot
+- `a parceria` — u93 · partnership
 - `a parede` — u30 · wall
 - `a parte` — u43 · part
+- `a partícula` — u94 · particle
 - `a partir de` — u59 · from
 - `a pasta` — u17 · folder
+- `a patente` — u94 · patent
 - `a pausa` — u86 · pause
 - `a paz` — u48 · peace
 - `a peça` — u35 · play
 - `a pedra` — u26 · stone
 - `a peixaria` — u27 · fishmonger's
+- `a pena` — u92 · penalty (sentence served)
+- `a penalização` — u93 · penalty clause
 - `a percentagem` — u82 · percentage
 - `a perda` — u82 · loss (the losing of it)
 - `a pergunta` — u17 · question
+- `a periferia` — u99 · outskirts
 - `a perna` — u11 · leg
 - `a personagem` — u35 · character
 - `a personalidade` — u31 · personality
 - `a perspetiva` — u58 · perspective
+- `a pertença` — u99 · belonging
 - `a pesquisa` — u84 · research (a search)
 - `a pessoa` — u31 · person
 - `a pilha` — u87 · battery
@@ -410,27 +532,34 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a praia` — u20 · beach
 - `a prata` — u42 · silver
 - `a prática` — u63 · practice
+- `a precaução` — u98 · precaution
 - `a precisão` — u82 · precision
+- `a premissa` — u88 · premise
 - `a prenda` — u16 · gift
 - `a pressa` — u86 · hurry
 - `a prestação` — u45 · instalment
+- `a previsão` — u98 · forecast
 - `a primavera` — u8 · spring
 - `a prioridade` — u56 · priority
 - `a probabilidade` — u54 · probability
 - `a procura` — u66 · demand
 - `a produção` — u66 · production
+- `a produtividade` — u100 · productivity
 - `a profissão` — u3 · profession
 - `a profundidade` — u43 · depth
 - `a promoção` — u27 · special offer
 - `a propina` — u17 · tuition fee
 - `a proporção` — u82 · proportion
 - `a proposta` — u62 · proposal
+- `a propriedade` — u90 · property (attribute)
 - `a prova` — u81 · proof (evidence)
 - `a publicidade` — u64 · advertising
 - `a qualidade` — u31 · quality
 - `a quantidade` — u82 · quantity
+- `a queda` — u95 · fall (of a regime)
 - `a queixa` — u49 · complaint
 - `a questão` — u58 · issue
+- `a quota` — u93 · allowed share
 - `a rádio` — u64 · radio
 - `a rainha` — u48 · queen
 - `a raiva` — u22 · anger
@@ -440,18 +569,27 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a receita` — u11 · prescription
 - `a reciclagem` — u65 · recycling
 - `a rede` — u33 · network
+- `a reestruturação` — u100 · restructuring
 - `a referência` — u84 · reference
 - `a reforma` — u55 · reform
 - `a região` — u46 · region
 - `a regra` — u44 · rule
 - `a relação` — u68 · relationship
+- `a remuneração` — u100 · remuneration
+- `a rentabilidade` — u93 · profitability
 - `a repercussão` — u52 · repercussion
 - `a repetição` — u86 · repetition
 - `a reportagem` — u55 · news report
+- `a república` — u95 · republic
 - `a responsabilidade` — u56 · responsibility
 - `a resposta` — u17 · answer
+- `a ressalva` — u88 · caveat
+- `a restauração` — u95 · restoration
+- `a retenção` — u100 · retention
 - `a reunião` — u18 · meeting
+- `a revolução` — u95 · revolution
 - `a riqueza` — u45 · wealth
+- `a rotatividade` — u100 · staff turnover
 - `a rotina` — u21 · routine
 - `a roupa` — u16 · clothes
 - `a rua` — u1 · street
@@ -460,21 +598,28 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a sala` — u15 · living room
 - `a salada` — u6 · salad
 - `a salsa` — u6 · parsley
+- `a salvaguarda` — u98 · safeguard
 - `a sanção` — u61 · penalty
 - `a sardinha` — u41 · sardine
+- `a sátira` — u96 · satire
 - `a saudade` — u22 · longing
 - `a seca` — u65 · drought
 - `a secretária` — u17 · desk
+- `a segregação` — u99 · segregation
 - `a segurança` — u32 · safety
 - `a selva` — u46 · jungle
 - `a semana` — u5 · week
 - `a semelhança` — u76 · similarity
 - `a semente` — u26 · seed
 - `a senhora` — u12 · madam
+- `a sentença` — u92 · ruling
 - `a sequência` — u86 · sequence
 - `a serra` — u46 · mountain range
+- `a simulação` — u94 · simulation
 - `a síntese` — u84 · summary
 - `a situação` — u76 · situation
+- `a soberania` — u92 · sovereignty
+- `a sobrecarga` — u100 · overload
 - `a sobremesa` — u38 · dessert
 - `a sociedade` — u32 · society
 - `a solidão` — u68 · loneliness
@@ -484,55 +629,71 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `a sopa` — u6 · soup
 - `a subida` — u66 · rise
 - `a superfície` — u83 · surface
+- `a suposição` — u89 · supposition
 - `a surpresa` — u57 · surprise
 - `a taça` — u43 · stemmed glass
 - `a tampa` — u42 · lid
 - `a tarefa` — u56 · task
 - `a taxa` — u45 · rate
+- `a tela` — u96 · canvas
 - `a televisão` — u19 · television
 - `a temperatura` — u34 · temperature
 - `a tendência` — u54 · trend
 - `a teoria` — u58 · theory
 - `a terapia` — u67 · therapy
 - `a Terra` — u34 · Earth
+- `a tese` — u88 · thesis
 - `a testemunha` — u47 · witness
 - `a tia` — u4 · aunt
 - `a tigela` — u41 · bowl
 - `a tinta` — u87 · paint
+- `a tipologia` — u90 · typology
 - `a toalha` — u21 · towel
+- `a tolerância` — u99 · tolerance
 - `a tonelada` — u43 · tonne
 - `a torneira` — u30 · tap
 - `a tosse` — u25 · cough
 - `a tradição` — u48 · tradition
+- `a tragédia` — u96 · tragedy
 - `a trajetória` — u63 · path
 - `a transferência` — u45 · transfer
+- `a transparência` — u97 · transparency
 - `a trovoada` — u26 · thunderstorm
 - `a turma` — u17 · class group
 - `a universidade` — u17 · university
 - `a urgência` — u25 · A&E
 - `a vaca` — u26 · cow
 - `a vacina` — u25 · vaccine
+- `a vaga` — u100 · vacancy
 - `a validade` — u44 · validity
+- `a vanguarda` — u96 · avant-garde
 - `a vantagem` — u40 · advantage
 - `a varanda` — u30 · balcony
+- `a variável` — u90 · variable
 - `a vassoura` — u30 · broom
 - `a velhice` — u80 · old age
+- `a veracidade` — u89 · truthfulness
 - `a verdade` — u40 · truth
 - `a vergonha` — u57 · shame
+- `a versão` — u89 · version (of events)
+- `a vertente` — u90 · strand (aspect)
 - `a viagem` — u20 · journey
 - `a vida` — u80 · life
 - `a vila` — u46 · town
+- `a virtude` — u97 · virtue
 - `a vista` — u23 · view
 - `a vítima` — u47 · victim
 - `a vitória` — u50 · victory
 - `a vivência` — u63 · lived experience
 - `à vontade` — u72 · at ease
+- `a vulnerabilidade` — u98 · vulnerability
 - `a zona` — u83 · area (district)
 - `abaixo de` — u53 · below
 - `abordar` — u74 · to bring up
 - `aborrecido` — u35 · boring
 - `abraçar` — u79 · to hug
 - `abrandar` — u59 · to slow down
+- `abranger` — u90 · to span
 - `abre` — u13 · he opens
 - `abri` — u14 · I opened
 - `abria` — u36 · used to open
@@ -540,12 +701,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `abrir` — u13 · to open
 - `abriu` — u14 · he opened
 - `abro` — u13 · I open
+- `absolver` — u92 · to acquit
 - `abstrato` — u58 · abstract
 - `acabar` — u21 · to finish
 - `acarretar` — u52 · to bring about
+- `acautelar` — u98 · to guard against
 - `aceitar` — u68 · to accept
 - `acelerar` — u59 · to speed up
 - `acenar` — u79 · to wave
+- `acentuar` — u91 · to heighten
 - `achar` — u36 · to think
 - `acima de` — u53 · above
 - `acompanhar` — u39 · to accompany
@@ -564,6 +728,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `advertir` — u61 · to warn (formally)
 - `ãe` — u1
 - `afastar-se` — u79 · to move away
+- `aferir` — u89 · to gauge
 - `afetar` — u52 · to affect
 - `afinal de contas` — u54 · after all
 - `afirmar` — u51 · to state
@@ -573,6 +738,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `agosto` — u9 · August
 - `agradecer` — u39 · to thank
 - `agradeço` — u73 · I would be grateful
+- `agravar` — u98 · to worsen
 - `agravar-se` — u67 · to get worse (an illness)
 - `aguardo resposta` — u73 · I look forward to hearing
 - `aguentar` — u81 · to hold up
@@ -582,6 +748,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ajudar` — u29 · to help
 - `alcançar` — u85 · to reach
 - `alegadamente` — u55 · allegedly
+- `alegar` — u88 · to allege
 - `além disso` — u21 · besides
 - `alemão` — u14 · German
 - `algo` — u40 · something
@@ -604,6 +771,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `anterior` — u75 · previous
 - `antes` — u28 · before
 - `antes que` — u69 · before (conjunction)
+- `antever` — u98 · to foresee
 - `antigamente` — u36 · in the old days
 - `antigo` — u48 · ancient
 - `anunciar` — u77 · to announce
@@ -621,6 +789,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `aplicar` — u74 · to apply
 - `apoiar` — u51 · to support
 - `apontar` — u79 · to point
+- `apostar` — u98 · to bet on
 - `aprender` — u17 · to learn
 - `apresentar` — u24 · to present
 - `aprovar` — u55 · to approve
@@ -652,6 +821,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `assar` — u41 · to roast
 - `assegurar` — u62 · to ensure
 - `assim que` — u36 · as soon as
+- `assimilar` — u99 · to assimilate
 - `assinar` — u44 · to sign
 - `assumir` — u51 · to take on
 - `até agora` — u59 · so far
@@ -660,6 +830,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `até que` — u69 · until
 - `atenciosamente` — u73 · yours faithfully
 - `atender` — u33 · to answer
+- `atenuar` — u91 · to soften (tone down)
+- `atestar` — u89 · to certify
 - `atingir` — u85 · to achieve
 - `atrasado` — u23 · late
 - `atrasar` — u86 · to delay
@@ -668,13 +840,16 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `atual` — u75 · current (present-day)
 - `atualmente` — u59 · currently
 - `aumentar` — u59 · to increase
+- `automatizar` — u94 · to automate
 - `autorizar` — u61 · to authorise
 - `avaliar` — u56 · to assess
 - `avançar` — u59 · to move forward
 - `avariar` — u87 · to break down
 - `avisar` — u47 · to warn
+- `avultado` — u91 · substantial (of a sum)
 - `azul` — u8 · blue
 - `baixo` — u10 · low
+- `banal` — u96 · trite
 - `barato` — u16 · cheap
 - `bastante` — u28 · quite
 - `bater` — u41 · to beat
@@ -697,6 +872,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `cair` — u79 · to fall
 - `calçar` — u16 · to put on (footwear)
 - `calcular` — u82 · to work out
+- `calibrar` — u94 · to calibrate
 - `calmo` — u22 · calm
 - `cancelar` — u62 · to cancel
 - `cansado` — u11 · tired
@@ -722,6 +898,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `cinzento` — u8 · grey
 - `citar` — u55 · to quote
 - `claro` — u2 · of course
+- `classificar` — u90 · to classify
 - `colocar` — u83 · to place
 - `com certeza` — u72 · certainly
 - `com licença` — u2 · excuse me
@@ -741,6 +918,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `como estás` — u2 · how are you
 - `como se` — u70 · as if
 - `como te chamas` — u3 · what is your name
+- `comovente` — u96 · moving
 - `comover` — u57 · to move
 - `comparar` — u53 · to compare
 - `complicado` — u75 · complicated
@@ -749,6 +927,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `comprovar` — u84 · to prove
 - `comum` — u75 · common
 - `comunicar` — u77 · to communicate (to announce officially)
+- `conceder` — u88 · to grant (a point)
 - `concentrar-se` — u78 · to concentrate
 - `concluir` — u56 · to complete
 - `concordar` — u24 · to agree
@@ -765,11 +944,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `consertar` — u87 · to repair
 - `considerar` — u51 · to consider
 - `consideravelmente` — u53 · considerably
+- `consistente` — u89 · consistent
+- `constar` — u89 · to be on record
 - `constipado` — u11 · having a cold
 - `consultar` — u84 · to look up
 - `consumir` — u65 · to consume
 - `contar` — u36 · to tell
 - `contente` — u22 · pleased
+- `contestar` — u88 · to dispute
 - `continuar` — u86 · to carry on
 - `contratar` — u66 · to hire
 - `contribuir` — u52 · to contribute
@@ -782,6 +964,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `correr o risco` — u54 · to run the risk
 - `correto` — u75 · correct
 - `corrigir` — u60 · to correct
+- `corroborar` — u89 · to corroborate
+- `corromper` — u97 · to corrupt
 - `cortar` — u41 · to cut
 - `costumava` — u36 · used to
 - `cozer` — u41 · to boil (food)
@@ -807,6 +991,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `dava-me jeito` — u72 · it would suit me
 - `de` — u1 · of
 - `de acordo` — u73 · in agreement
+- `de certo modo` — u91 · in a way
 - `de facto` — u54 · in fact
 - `de modo que` — u52 · so that
 - `de nada` — u2 · you're welcome
@@ -815,6 +1000,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `de vez em quando` — u36 · from time to time
 - `decidir` — u24 · to decide
 - `declarar` — u55 · to declare
+- `decompor` — u90 · to break into parts
 - `decorrer de` — u52 · to stem from
 - `defender` — u51 · to defend
 - `definir` — u58 · to define
@@ -847,6 +1033,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `desistir` — u85 · to give up
 - `desligar` — u18 · to switch off
 - `deslocar-se` — u79 · to travel (to get around)
+- `desmedido` — u91 · excessive
 - `desmontar` — u87 · to take apart
 - `despedir` — u24 · to dismiss
 - `desperdiçar` — u65 · to waste
@@ -869,7 +1056,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `direi` — u37 · I will say
 - `dirigir-se` — u73 · to make your way to
 - `discordar` — u51 · to disagree
+- `discriminar` — u97 · to discriminate
 - `discutir` — u24 · to discuss
+- `discutível` — u88 · arguable
 - `disponível` — u62 · available
 - `disse-lhe` — u71 · I told him/her
 - `disser` — u71 · when/if it says
@@ -884,6 +1073,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `dizer` — u36 · to say
 - `do` — u12 · of the
 - `do que` — u29 · than
+- `documentar` — u89 · to document
 - `doente` — u11 · ill
 - `dói-me` — u11 · it hurts me
 - `dois` — u5 · two
@@ -897,6 +1087,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `duro` — u42 · hard
 - `duvidar` — u54 · to doubt
 - `duvido que` — u69 · I doubt that
+- `duvidoso` — u89 · dubious
 - `ê` — u1
 - `é` — u1 · is
 - `e` — u1 · and
@@ -920,6 +1111,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `em comparação com` — u53 · compared with
 - `em contrapartida` — u73 · in return
 - `em frente` — u7 · straight ahead
+- `em larga medida` — u91 · to a large extent
 - `em parte` — u73 · partly
 - `emagrecer` — u67 · to lose weight
 - `embaraçado` — u10 · tangled
@@ -927,15 +1119,19 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `embora` — u69 · although
 - `emocionar-se` — u57 · to be moved
 - `empatar` — u50 · to draw
+- `empírico` — u94 · empirical
 - `emprestar` — u45 · to lend
 - `empurrar` — u15 · to push
 - `encarregar-se de` — u56 · to take charge of
+- `encenar` — u96 · to stage
 - `encerrar` — u74 · to close
 - `encher` — u43 · to fill
+- `encobrir` — u97 · to cover up
 - `encomendar` — u27 · to order
 - `encontrar-se` — u39 · to meet up
 - `encostar` — u83 · to lean against
 - `enfrentar` — u60 · to face
+- `englobar` — u90 · to encompass
 - `engordar` — u67 · to put on weight
 - `enquanto` — u36 · while
 - `ensinar` — u17 · to teach
@@ -950,6 +1146,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `era capaz de` — u72 · could you possibly
 - `errado` — u75 · wrong
 - `escapar` — u47 · to escape
+- `escasso` — u91 · scarce
 - `esclarecer` — u60 · to clarify
 - `escolher` — u27 · to choose
 - `escorregar` — u79 · to slip
@@ -994,6 +1191,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `existir` — u74 · to exist
 - `explicar` — u24 · to explain
 - `exportar` — u66 · to export
+- `extremo` — u91 · extreme
 - `fabricar` — u66 · to manufacture
 - `faça` — u69 · (that it) do
 - `faça favor` — u72 · go ahead
@@ -1030,6 +1228,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `fez` — u14 · he did
 - `fiável` — u81 · reliable
 - `ficar` — u20 · to stay
+- `fidedigno` — u89 · trustworthy (of a source)
 - `fino` — u81 · thin
 - `firme` — u81 · firm
 - `fiscalizar` — u61 · to inspect
@@ -1055,6 +1254,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ganhar` — u18 · to earn
 - `garantir` — u51 · to guarantee
 - `gastar` — u18 · to spend
+- `genérico` — u90 · generic
 - `generoso` — u31 · generous
 - `gerir` — u56 · to manage (to run something)
 - `gostar` — u4 · to like
@@ -1065,7 +1265,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `grave` — u67 · serious (severe)
 - `grelhado` — u38 · grilled
 - `grelhar` — u41 · to grill
+- `gritante` — u91 · glaring
 - `grosso` — u81 · thick
+- `grosso modo` — u91 · roughly speaking
 - `guardar` — u33 · to save
 - `há` — u13 · there is
 - `habituar-se` — u63 · to get used to
@@ -1083,6 +1285,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `igual` — u29 · equal
 - `imediatamente` — u86 · immediately
 - `imediato` — u75 · immediate
+- `iminente` — u98 · imminent
+- `imparcial` — u97 · impartial
 - `impedir` — u60 · to prevent
 - `implicar` — u52 · to entail
 - `importa-se de` — u72 · would you mind
@@ -1091,18 +1295,23 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `improvável` — u54 · unlikely
 - `incerto` — u54 · uncertain
 - `inclinar-se` — u79 · to lean
+- `incontestável` — u88 · indisputable
+- `indevido` — u97 · improper
 - `indicar` — u77 · to point out (to indicate)
 - `indispensável` — u61 · essential
 - `inesquecível` — u63 · unforgettable
 - `inferior a` — u53 · lower than
 - `influenciar` — u52 · to influence
 - `informar` — u49 · to inform
+- `infundado` — u89 · unfounded
 - `inglês` — u3 · English
 - `inicial` — u86 · initial
 - `inocente` — u44 · innocent
 - `inscrever-se` — u24 · to enrol
 - `insistir` — u51 · to insist
 - `instalar` — u33 · to install
+- `íntegro` — u97 · upright
+- `interligar` — u90 · to interconnect
 - `interpretar` — u77 · to interpret
 - `interromper` — u77 · to interrupt
 - `inútil` — u81 · useless
@@ -1125,6 +1334,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `largo` — u10 · wide
 - `lavar` — u21 · to wash
 - `legal` — u44 · legal
+- `legislar` — u92 · to legislate
+- `legítimo` — u97 · legitimate
 - `lembrar` — u29 · to remember
 - `ler` — u17 · to read
 - `levantar` — u45 · to withdraw
@@ -1138,6 +1349,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ligeiramente` — u53 · slightly
 - `limpar` — u15 · to clean
 - `limpo` — u10 · clean
+- `liquidar` — u93 · to settle (a debt)
 - `liso` — u42 · smooth
 - `localizar` — u84 · to locate
 - `logo` — u28 · soon
@@ -1155,9 +1367,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `marcante` — u63 · memorable
 - `marcar` — u62 · to book (an appointment)
 - `março` — u9 · March
+- `marginal` — u91 · negligible
+- `marginalizar` — u99 · to push to the edge
 - `mas` — u21 · but
 - `mau` — u10 · bad
 - `me` — u13 · me
+- `medieval` — u95 · of the Middle Ages
 - `medir` — u34 · to measure
 - `melhor` — u11 · better
 - `melhorar` — u25 · to improve
@@ -1166,6 +1381,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `mesmo que` — u70 · even though
 - `mexer` — u79 · to meddle with
 - `misturar` — u41 · to mix
+- `mitigar` — u98 · to mitigate
+- `moderado` — u91 · moderate
 - `mole` — u42 · soft
 - `molhado` — u26 · wet
 - `montar` — u87 · to assemble
@@ -1189,6 +1406,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `navegar` — u33 · to browse
 - `necessário` — u75 · necessary
 - `negar` — u51 · to deny
+- `negociar` — u93 · to negotiate
+- `nem por isso` — u91 · not particularly
 - `nem que` — u70 · even if
 - `nenhum` — u40 · no
 - `nervoso` — u22 · nervous
@@ -1197,6 +1416,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ninguém o viu` — u71 · nobody saw him
 - `no` — u12 · in the
 - `no entanto` — u21 · however
+- `no limite` — u91 · at a push
 - `normalmente` — u28 · usually
 - `nós` — u4 · we
 - `nos` — u29 · in the
@@ -1211,8 +1431,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ó` — u1
 - `ô` — u1
 - `o abraço` — u39 · hug
+- `o absentismo` — u100 · absenteeism
 - `o abuso` — u61 · abuse
+- `o acaso` — u98 · chance
+- `o acervo` — u96 · collection (holdings)
 - `o acidente` — u47 · accident
+- `o acionista` — u93 · shareholder
 - `o acontecimento` — u32 · event
 - `o acordo` — u51 · agreement
 - `o açúcar` — u6 · sugar
@@ -1224,7 +1448,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o afeto` — u68 · affection (regard)
 - `o alarme` — u47 · alarm
 - `o álbum` — u63 · album
+- `o alerta` — u98 · alert
 - `o algodão` — u42 · cotton
+- `o algoritmo` — u94 · algorithm
 - `o alho` — u38 · garlic
 - `o alívio` — u57 · relief
 - `o almoço` — u6 · lunch
@@ -1236,6 +1462,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o ano` — u3 · year
 - `o antepassado` — u63 · ancestor
 - `o anúncio` — u64 · advertisement
+- `o apelo` — u88 · appeal (to feeling)
 - `o apoio` — u60 · support
 - `o ar` — u34 · air
 - `o árbitro` — u50 · referee
@@ -1252,6 +1479,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o atletismo` — u50 · athletics
 - `o atraso` — u56 · delay
 - `o autocarro` — u7 · bus
+- `o autor` — u96 · author
 - `o avanço` — u85 · advance
 - `o avião` — u20 · plane
 - `o aviso` — u49 · notice
@@ -1259,6 +1487,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o azeite` — u38 · olive oil
 - `o bacalhau` — u41 · salt cod
 - `o bairro` — u32 · neighbourhood
+- `o balanço` — u93 · balance sheet
 - `o balcão` — u49 · counter
 - `o balde` — u30 · bucket
 - `o banco` — u7 · bank
@@ -1304,9 +1533,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o castelo` — u48 · castle
 - `o castigo` — u61 · punishment
 - `o cavalo` — u26 · horse
+- `o cenário` — u98 · scenario
 - `o centímetro` — u43 · centimetre
 - `o centro` — u83 · centre
 - `o centro comercial` — u27 · shopping centre
+- `o cerco` — u95 · siege
+- `o cerne` — u88 · crux
 - `o cesto` — u43 · basket
 - `o céu` — u26 · sky
 - `o chá` — u6 · tea
@@ -1319,14 +1551,20 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o cidadão` — u32 · citizen
 - `o cientista` — u34 · scientist
 - `o cinema` — u19 · cinema
+- `o circuito` — u94 · circuit
 - `o ciúme` — u57 · jealousy
+- `o civismo` — u99 · civic-mindedness
+- `o cliente` — u93 · customer
 - `o clima` — u34 · climate
 - `o código postal` — u49 · postcode
+- `o colaborador` — u100 · staff member
 - `o colega` — u18 · colleague
+- `o coletivo` — u99 · the collective
 - `o comboio` — u7 · train
 - `o comentário` — u77 · comment
 - `o comércio` — u66 · trade
 - `o comportamento` — u31 · behaviour
+- `o composto` — u94 · compound
 - `o comprimento` — u43 · length
 - `o comprimido` — u67 · pill
 - `o compromisso` — u62 · commitment
@@ -1338,12 +1576,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o conhecimento` — u63 · knowledge
 - `o conjunto` — u58 · set
 - `o conselho` — u60 · advice
+- `o consenso` — u99 · consensus
 - `o consumidor` — u66 · consumer
 - `o consumo` — u65 · consumption
 - `o contacto` — u68 · contact
 - `o contexto` — u58 · context
 - `o continente` — u46 · continent
 - `o conto` — u35 · short story
+- `o contraponto` — u88 · counterpoint
 - `o contraste` — u76 · contrast
 - `o contrato` — u24 · contract
 - `o copo` — u15 · glass
@@ -1362,9 +1602,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o dado` — u84 · piece of data
 - `o dano` — u87 · damage
 - `o debate` — u55 · debate
+- `o declínio` — u95 · decline
+- `o decreto` — u92 · decree
 - `o dedo` — u11 · finger
 - `o defeito` — u31 · flaw
+- `o défice` — u93 · deficit
 - `o dente` — u25 · tooth
+- `o depoimento` — u89 · statement (on record)
+- `o deputado` — u92 · member of parliament
 - `o desacordo` — u51 · disagreement
 - `o desafio` — u60 · challenge
 - `o descanso` — u67 · rest
@@ -1381,11 +1626,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o despertador` — u21 · alarm clock
 - `o desporto` — u19 · sport
 - `o destino` — u23 · destination
+- `o desvio` — u94 · deviation
 - `o detalhe` — u84 · detail (a particular)
 - `o dever` — u32 · duty
 - `o dia` — u9 · day
 - `o diagnóstico` — u67 · diagnosis
 - `o dicionário` — u17 · dictionary
+- `o dilema` — u97 · dilemma
 - `o dinheiro` — u1 · money
 - `o diploma` — u24 · diploma
 - `o direito` — u32 · right
@@ -1397,6 +1644,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o duche` — u21 · shower
 - `o ecrã` — u18 · screen
 - `o efeito` — u34 · effect
+- `o eixo` — u90 · axis
+- `o eleitorado` — u92 · electorate
 - `o elemento` — u58 · element
 - `o elétrico` — u7 · tram
 - `o elevador` — u23 · lift
@@ -1411,27 +1660,37 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o engano` — u84 · mistake (a mix-up)
 - `o engenheiro` — u18 · engineer
 - `o enredo` — u64 · plot
+- `o ensaio` — u94 · trial (test run)
 - `o entusiasmo` — u57 · enthusiasm
 - `o envelope` — u49 · envelope
 - `o episódio` — u64 · episode
 - `o equilíbrio` — u76 · balance
 - `o erro` — u60 · mistake
+- `o esboço` — u96 · sketch
 - `o escândalo` — u55 · scandal
 - `o escritor` — u35 · writer
 - `o escritório` — u7 · office
+- `o escrúpulo` — u97 · scruple
+- `o escrutínio` — u92 · scrutiny
 - `o esforço` — u50 · effort
 - `o espaço` — u83 · space
 - `o espelho` — u21 · mirror
 - `o espetáculo` — u35 · show
+- `o esquema` — u90 · outline (diagram)
 - `o estado` — u76 · state
 - `o estágio` — u24 · internship
+- `o estereótipo` — u99 · stereotype
+- `o estigma` — u99 · stigma
+- `o estilo` — u96 · style
 - `o estudante` — u3 · student
 - `o estudo` — u84 · study
 - `o exame` — u17 · exam
+- `o excerto` — u89 · extract (passage)
 - `o excesso` — u82 · excess
 - `o exemplo` — u40 · example
 - `o exercício` — u25 · exercise
 - `o exército` — u48 · army
+- `o expediente` — u100 · day-to-day running
 - `o exterior` — u83 · exterior
 - `o extrato` — u45 · statement
 - `o facto` — u40 · fact
@@ -1444,10 +1703,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o fim` — u86 · end
 - `o fim de semana` — u9 · weekend
 - `o fio` — u42 · thread
+- `o fluxo` — u90 · flow
 - `o fogão` — u30 · stove
 - `o fogo` — u47 · fire
 - `o formulário` — u44 · form
+- `o fornecedor` — u93 · supplier
 - `o forno` — u30 · oven
+- `o fosso` — u99 · gulf
 - `o fracasso` — u85 · failure
 - `o frasco` — u43 · jar
 - `o frigorífico` — u15 · fridge
@@ -1462,6 +1724,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o gás` — u30 · gas
 - `o gato` — u4 · cat
 - `o gelo` — u26 · ice
+- `o género` — u96 · genre
 - `o gesto` — u79 · gesture
 - `o ginásio` — u50 · gym
 - `o golfe` — u50 · golf
@@ -1482,12 +1745,17 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o impacto` — u52 · impact
 - `o império` — u48 · empire
 - `o imposto` — u32 · tax
+- `o imprevisto` — u98 · unforeseen event
 - `o incêndio` — u47 · blaze
+- `o incentivo` — u100 · incentive
+- `o indicador` — u100 · indicator
 - `o índice` — u82 · index
+- `o indício` — u89 · clue
 - `o início` — u86 · beginning
 - `o inquérito` — u55 · inquiry
 - `o interesse` — u76 · interest (concern, appeal)
 - `o interior` — u83 · interior
+- `o intermediário` — u93 · middleman
 - `o intervalo` — u86 · break
 - `o inverno` — u8 · winter
 - `o investimento` — u66 · investment
@@ -1501,6 +1769,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o juiz` — u44 · judge
 - `o julgamento` — u44 · trial
 - `o juro` — u45 · interest
+- `o laboratório` — u94 · laboratory
 - `o lado` — u83 · side
 - `o ladrão` — u47 · thief
 - `o lago` — u46 · lake
@@ -1510,7 +1779,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o leite` — u6 · milk
 - `o leitor` — u64 · reader
 - `o leste` — u46 · east
+- `o limiar` — u90 · threshold
 - `o limite` — u58 · limit
+- `o litígio` — u93 · litigation
 - `o litro` — u27 · litre
 - `o livro` — u1 · book
 - `o lixo` — u21 · rubbish
@@ -1518,19 +1789,24 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o lume` — u41 · the heat
 - `o luto` — u80 · mourning
 - `o mal-entendido` — u68 · misunderstanding
+- `o mandato` — u92 · term of office
+- `o manuscrito` — u95 · manuscript
 - `o mapa` — u20 · map
 - `o mar` — u20 · sea
 - `o marido` — u4 · husband
 - `o marisco` — u38 · seafood
 - `o martelo` — u87 · hammer
+- `o matiz` — u91 · shade of meaning
 - `o máximo` — u53 · maximum
 - `o mecânico` — u87 · mechanic
+- `o mecanismo` — u90 · mechanism
 - `o médico` — u3 · doctor
 - `o medo` — u22 · fear
 - `o meio` — u83 · middle
 - `o meio de comunicação` — u64 · medium of communication
 - `o meio-dia` — u5 · midday
 - `o mercado` — u7 · market
+- `o mérito` — u100 · merit
 - `o mês` — u9 · month
 - `o mestrado` — u24 · master's degree
 - `o metal` — u42 · metal
@@ -1560,6 +1836,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o noivo` — u39 · groom
 - `o nome` — u3 · name
 - `o norte` — u46 · north
+- `o núcleo` — u90 · nucleus
 - `o número` — u82 · number
 - `o objetivo` — u40 · aim
 - `o obstáculo` — u60 · obstacle
@@ -1568,6 +1845,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o olho` — u11 · eye
 - `o ombro` — u25 · shoulder
 - `o orçamento` — u45 · budget
+- `o organigrama` — u100 · org chart
+- `o organismo` — u94 · organism
 - `o orgulho` — u57 · pride
 - `o ouro` — u42 · gold
 - `o outono` — u8 · autumn
@@ -1583,6 +1862,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o pão` — u1 · bread
 - `o papel` — u44 · paper
 - `o parafuso` — u87 · screw
+- `o parâmetro` — u90 · parameter
 - `o parentesco` — u80 · family tie
 - `o parlamento` — u55 · parliament
 - `o partido` — u55 · party (political)
@@ -1611,6 +1891,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o planeta` — u34 · planet
 - `o plano` — u62 · plan
 - `o plástico` — u42 · plastic
+- `o pluralismo` — u99 · pluralism
 - `o poema` — u35 · poem
 - `o polícia` — u18 · policeman
 - `o polvo` — u20 · octopus
@@ -1629,6 +1910,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o prego` — u87 · nail
 - `o prejuízo` — u45 · loss
 - `o prémio` — u50 · prize
+- `o pressuposto` — u88 · unstated assumption
 - `o presunto` — u6 · cured ham
 - `o primo` — u4 · cousin
 - `o príncipe` — u48 · prince
@@ -1640,6 +1922,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o progresso` — u59 · progress
 - `o projeto` — u24 · project
 - `o propósito` — u52 · intention
+- `o protótipo` — u94 · prototype
 - `o público` — u35 · audience
 - `o quadro` — u35 · painting
 - `o quarto` — u15 · bedroom
@@ -1649,27 +1932,36 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o quilo` — u27 · kilo
 - `o quintal` — u30 · backyard
 - `o quiosque` — u27 · kiosk
+- `o raciocínio` — u88 · line of reasoning
 - `o rato` — u1 · mouse
 - `o realizador` — u64 · film director
 - `o recibo` — u27 · receipt
+- `o recrutamento` — u100 · recruitment
+- `o recurso` — u92 · appeal (legal)
 - `o registo` — u49 · record
 - `o regulamento` — u61 · regulations
 - `o rei` — u48 · king
+- `o reinado` — u95 · reign
 - `o relato` — u55 · account
 - `o relatório` — u24 · report
 - `o remédio` — u11 · medicine
+- `o remorso` — u97 · remorse
 - `o rendimento` — u56 · yield
 - `o requerimento` — u49 · formal request
 - `o requisito` — u61 · requirement
 - `o respeito` — u32 · respect
 - `o resto` — u40 · the rest
 - `o resultado` — u34 · result
+- `o retorno` — u93 · return (on money)
+- `o réu` — u92 · defendant
+- `o revés` — u98 · setback
 - `o rigor` — u85 · rigour
 - `o rio` — u20 · river
 - `o risco` — u47 · risk
 - `o riso` — u22 · laughter
 - `o ritmo` — u59 · pace
 - `o romance` — u35 · novel
+- `o rótulo` — u99 · label (put on a person)
 - `o roubo` — u47 · theft
 - `o ruído` — u78 · noise
 - `o rumo` — u80 · direction (the course life takes)
@@ -1684,13 +1976,17 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o selo` — u49 · stamp
 - `o senhor` — u2 · sir
 - `o senhor doutor` — u72 · sir (with a degree)
+- `o sensor` — u94 · detector
 - `o sentido` — u58 · sense
 - `o serviço` — u32 · service
+- `o servidor` — u94 · server
+- `o sigilo` — u97 · confidentiality
 - `o significado` — u58 · meaning
 - `o silêncio` — u78 · silence
 - `o sinal` — u79 · sign
 - `o sindicato` — u66 · trade union
 - `o sintoma` — u67 · symptom
+- `o sistema` — u90 · system
 - `o site` — u33 · website
 - `o sócio` — u45 · partner
 - `o sofá` — u15 · sofa
@@ -1700,7 +1996,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o som` — u78 · sound
 - `o sótão` — u30 · attic
 - `o stress` — u67 · stress
+- `o subordinado` — u100 · subordinate
 - `o sucesso` — u85 · success
+- `o sucessor` — u95 · successor
 - `o sul` — u46 · south
 - `o sumo` — u6 · juice
 - `o supermercado` — u27 · supermarket
@@ -1730,6 +2028,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o toque` — u78 · touch (contact)
 - `o total` — u82 · total
 - `o trabalho` — u1 · work
+- `o trâmite` — u100 · procedural step
+- `o tratado` — u95 · treaty
 - `o tratamento` — u25 · treatment
 - `o treinador` — u50 · coach
 - `o tribunal` — u44 · court
@@ -1742,10 +2042,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `o valor` — u58 · value
 - `o vento` — u8 · wind
 - `o verão` — u8 · summer
+- `o verso` — u96 · line of verse
 - `o vestido` — u16 · dress
+- `o vestígio` — u89 · trace (left behind)
+- `o veto` — u92 · refusal to sign a law
 - `o vício` — u67 · bad habit
 - `o vidro` — u42 · glass
 - `o vinagre` — u38 · vinegar
+- `o vínculo` — u100 · contractual tie
 - `o vinho` — u6 · wine
 - `o viúvo` — u80 · widower
 - `o vizinho` — u32 · neighbour
@@ -1788,6 +2092,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `para que` — u69 · so that (in order that)
 - `parabéns` — u2 · congratulations
 - `parar` — u74 · to stop
+- `parcialmente` — u91 · partially
 - `parecer` — u31 · to seem
 - `parecido com` — u53 · like
 - `partilhar` — u33 · to share
@@ -1811,6 +2116,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `permitido` — u44 · allowed
 - `permitir` — u61 · to allow
 - `persistir` — u85 · to persist
+- `persuadir` — u88 · to persuade
 - `pertencer` — u68 · to belong
 - `perto` — u23 · near
 - `pesado` — u43 · heavy
@@ -1821,6 +2127,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `piorar` — u25 · to get worse
 - `planear` — u62 · to plan
 - `plantar` — u65 · to plant
+- `plausível` — u89 · plausible
 - `pobre` — u45 · poor
 - `pode ser que` — u69 · it may be that
 - `poder` — u37 · to be able
@@ -1828,8 +2135,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `podia` — u70 · could (would be able to)
 - `pois` — u29 · since
 - `poluir` — u34 · to pollute
+- `ponderar` — u88 · to weigh up
 - `ponha` — u69 · (that it) put
 - `por` — u29 · by
+- `por assim dizer` — u91 · so to speak
+- `por conseguinte` — u88 · consequently
 - `por favor` — u2 · please
 - `por isso` — u21 · that's why
 - `por um lado` — u73 · on the one hand
@@ -1842,15 +2152,18 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `possivelmente` — u54 · possibly
 - `posterior` — u86 · later
 - `poupar` — u18 · to save
+- `praticamente` — u91 · practically
 - `praticar` — u63 · to practise
 - `prático` — u81 · practical
 - `prazer` — u3 · pleased to meet you
 - `precisa-se` — u73 · wanted
 - `precisar` — u29 · to need
 - `preguiçoso` — u31 · lazy
+- `prejudicar` — u97 · to harm
 - `preocupar-se` — u22 · to worry
 - `preparar` — u62 · to prepare
 - `prestes a` — u62 · to be about to
+- `presumir` — u98 · to presume
 - `pretender` — u62 · to intend
 - `preto` — u8 · black
 - `prevenir` — u67 · to prevent (illness)
@@ -1867,6 +2180,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `proibir` — u61 · to forbid
 - `prolongar` — u74 · to extend
 - `prometer` — u77 · to promise
+- `promulgar` — u92 · to enact
+- `propenso` — u98 · prone
 - `propor` — u62 · to propose
 - `prosseguir` — u86 · to proceed (to press on)
 - `proteger` — u34 · to protect
@@ -1883,8 +2198,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `qualquer` — u40 · any
 - `quando` — u9 · when
 - `quando for` — u71 · when I go
+- `quantificar` — u94 · to quantify
 - `quanto custa` — u16 · how much is it
 - `quanto mais` — u53 · the more
+- `quanto muito` — u91 · at most
 - `quantos anos tens` — u3 · how old are you
 - `quarta-feira` — u9 · Wednesday
 - `quase` — u28 · almost
@@ -1909,8 +2226,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ralar` — u41 · to grate
 - `raramente` — u28 · rarely
 - `raro` — u75 · rare
+- `rastrear` — u89 · to trace back
+- `ratificar` — u93 · to ratify
 - `reagir` — u77 · to react
 - `realizar` — u85 · to carry out (to get it done)
+- `rebater` — u88 · to hit back at
 - `receber` — u39 · to receive
 - `recente` — u75 · recent
 - `reciclar` — u34 · to recycle
@@ -1924,13 +2244,19 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `reduzir` — u65 · to reduce
 - `referir` — u73 · to mention
 - `reformar-se` — u80 · to retire
+- `refutar` — u88 · to refute
 - `registar` — u84 · to record
 - `rejeitar` — u51 · to reject
 - `relatar` — u77 · to report (to give an account)
+- `relativamente` — u91 · relatively
 - `remediar` — u60 · to remedy
+- `remeter` — u89 · to refer on
+- `remontar` — u95 · to date back
+- `remoto` — u98 · remote
 - `renovável` — u65 · renewable
 - `reparar` — u78 · to notice (to spot)
 - `repetir` — u77 · to repeat
+- `replicar` — u94 · to replicate
 - `representar` — u58 · to represent
 - `reservar` — u23 · to book
 - `resistente` — u81 · tough
@@ -1941,8 +2267,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `resultar em` — u52 · to result in
 - `resumir` — u77 · to sum up
 - `retomar` — u86 · to resume
+- `retratar` — u96 · to portray
 - `rever` — u84 · to review
 - `reviver` — u63 · to relive
+- `revogar` — u92 · to repeal
 - `rico` — u45 · rich
 - `rígido` — u81 · rigid
 - `rir` — u22 · to laugh
@@ -1984,6 +2312,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `semelhante` — u53 · similar
 - `sempre` — u5 · always
 - `sempre que` — u36 · whenever
+- `sensivelmente` — u91 · noticeably
 - `sentar-se` — u21 · to sit down
 - `sentir` — u22 · to feel
 - `separar-se` — u68 · to separate
@@ -2002,6 +2331,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `simples` — u14 · simple
 - `simplificar` — u77 · to simplify
 - `simultâneo` — u86 · simultaneous
+- `sistemático` — u90 · systematic
 - `socorro` — u47 · help
 - `solicitar` — u73 · to request
 - `sólido` — u81 · solid
@@ -2013,7 +2343,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `souber` — u71 · when/if I know
 - `soubesse` — u70 · (if it) knew
 - `sozinho` — u39 · alone
+- `subentender` — u88 · to imply
 - `subir` — u82 · to go up
+- `subjacente` — u90 · underlying
+- `sublime` — u96 · transcendent
 - `sublinhar` — u77 · to underline
 - `substituir` — u87 · to replace
 - `sugerir` — u24 · to suggest
@@ -2023,6 +2356,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `supervisionar` — u56 · to oversee
 - `supor` — u54 · to suppose
 - `surgir` — u52 · to arise
+- `suscetível` — u98 · liable
 - `suspeitar` — u54 · to suspect
 - `sustentar` — u80 · to support (to provide for)
 - `talvez` — u28 · perhaps
@@ -2038,6 +2372,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `tenha` — u69 · (that it) have
 - `tenho` — u13 · I have
 - `tentar` — u37 · to try
+- `ténue` — u91 · faint
 - `ter` — u3 · to have
 - `ter a certeza` — u54 · to be sure
 - `ter de` — u37 · to have to
@@ -2094,6 +2429,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ultrapassar` — u53 · to overtake
 - `um` — u1 · a
 - `um bocadinho` — u72 · a little bit
+- `um tanto` — u91 · somewhat
 - `uma` — u1 · a (feminine)
 - `uma vez que` — u52 · given that
 - `uns` — u12 · some
@@ -2121,6 +2457,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `vier` — u71 · when/if it comes
 - `viesse` — u70 · (if it) came
 - `vigiar` — u78 · to keep watch on
+- `vigorar` — u92 · to be in force
 - `vinte` — u5 · twenty
 - `virar` — u79 · to turn
 - `visitar` — u39 · to visit
@@ -2311,4 +2648,30 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 **u86 · A ordem e a sequência** (24) — `posterior`, `prévio`, `o início`, `o fim`, `inicial`, `último`, `a fase`, `a sequência`, `o intervalo`, `simultâneo`, `o ciclo`, `a repetição`, `antecipar`, `atrasar`, `a pausa`, `a espera`, `a demora`, `a pressa`, `continuar`, `prosseguir`, `retomar`, `terminar`, `alternar`, `imediatamente`
 
 **u87 · A manutenção e o conserto** (24) — `avariar`, `estragar`, `riscar`, `entupir`, `o buraco`, `o dano`, `a oficina`, `o mecânico`, `o técnico`, `a máquina`, `o motor`, `a garantia`, `a ferramenta`, `o martelo`, `o parafuso`, `o prego`, `a tinta`, `a pilha`, `arranjar`, `consertar`, `substituir`, `montar`, `desmontar`, `apertar`
+
+**u88 · A argumentação** (24) — `a tese`, `a premissa`, `o pressuposto`, `alegar`, `a alegação`, `o raciocínio`, `contestar`, `a objeção`, `refutar`, `rebater`, `a falácia`, `discutível`, `conceder`, `a concessão`, `a ressalva`, `o contraponto`, `ponderar`, `subentender`, `por conseguinte`, `o cerne`, `a ênfase`, `persuadir`, `o apelo`, `incontestável`
+
+**u89 · A prova e o indício** (24) — `a citação`, `o excerto`, `a autoria`, `documentar`, `constar`, `remeter`, `fidedigno`, `duvidoso`, `plausível`, `a veracidade`, `a fiabilidade`, `infundado`, `o indício`, `o vestígio`, `rastrear`, `aferir`, `corroborar`, `atestar`, `a lacuna`, `a suposição`, `a versão`, `o depoimento`, `consistente`, `a discrepância`
+
+**u90 · O sistema e a abstração** (24) — `o sistema`, `o mecanismo`, `a camada`, `o núcleo`, `o eixo`, `a propriedade`, `a categoria`, `classificar`, `a tipologia`, `genérico`, `a hierarquia`, `o esquema`, `interligar`, `a interação`, `o fluxo`, `subjacente`, `abranger`, `englobar`, `a variável`, `o parâmetro`, `o limiar`, `decompor`, `sistemático`, `a vertente`
+
+**u91 · O matiz e o grau** (24) — `relativamente`, `praticamente`, `sensivelmente`, `parcialmente`, `escasso`, `avultado`, `atenuar`, `acentuar`, `moderado`, `extremo`, `desmedido`, `a intensidade`, `em larga medida`, `de certo modo`, `quanto muito`, `no limite`, `um tanto`, `por assim dizer`, `o matiz`, `marginal`, `ténue`, `gritante`, `nem por isso`, `grosso modo`
+
+**u92 · A política e a lei** (24) — `o deputado`, `a assembleia`, `legislar`, `o decreto`, `a emenda`, `promulgar`, `vigorar`, `revogar`, `a constituição`, `o veto`, `a jurisdição`, `a autarquia`, `o réu`, `a acusação`, `absolver`, `a sentença`, `a pena`, `a instância`, `o mandato`, `o eleitorado`, `a soberania`, `o escrutínio`, `a coligação`, `o recurso`
+
+**u93 · A negociação e o negócio** (24) — `negociar`, `a negociação`, `a contrapartida`, `a cláusula`, `ratificar`, `o litígio`, `a margem`, `a rentabilidade`, `o balanço`, `o défice`, `a faturação`, `o retorno`, `o cliente`, `o fornecedor`, `o intermediário`, `o acionista`, `a parceria`, `a aquisição`, `a penalização`, `a caução`, `liquidar`, `a arbitragem`, `a fusão`, `a quota`
+
+**u94 · A ciência e a técnica** (24) — `o ensaio`, `replicar`, `empírico`, `quantificar`, `o desvio`, `a simulação`, `a molécula`, `o organismo`, `a partícula`, `o composto`, `a célula`, `a fórmula`, `o algoritmo`, `o servidor`, `o circuito`, `o sensor`, `automatizar`, `a matriz`, `o laboratório`, `o protótipo`, `a patente`, `calibrar`, `a engenharia`, `a inovação`
+
+**u95 · A história e o poder** (24) — `a antiguidade`, `medieval`, `a cronologia`, `remontar`, `o manuscrito`, `a crónica`, `a monarquia`, `a república`, `a ditadura`, `o reinado`, `o sucessor`, `a linhagem`, `a conquista`, `a invasão`, `o cerco`, `a colónia`, `a escravatura`, `a queda`, `a expansão`, `a decadência`, `o declínio`, `a revolução`, `a restauração`, `o tratado`
+
+**u96 · A obra e a crítica** (24) — `a obra`, `o autor`, `o estilo`, `o género`, `a obra-prima`, `o acervo`, `a narrativa`, `a metáfora`, `o verso`, `o esboço`, `a moldura`, `a tela`, `encenar`, `a ópera`, `a tragédia`, `a sátira`, `a escultura`, `a interpretação`, `a estética`, `retratar`, `comovente`, `sublime`, `banal`, `a vanguarda`
+
+**u97 · A ética e a responsabilidade** (24) — `a ética`, `a moral`, `a virtude`, `a dignidade`, `a consciência`, `a integridade`, `o dilema`, `legítimo`, `indevido`, `imparcial`, `a equidade`, `íntegro`, `prejudicar`, `encobrir`, `a omissão`, `corromper`, `a impunidade`, `o sigilo`, `a transparência`, `a lealdade`, `a hipocrisia`, `o remorso`, `o escrúpulo`, `discriminar`
+
+**u98 · O risco e a incerteza** (24) — `a ameaça`, `a vulnerabilidade`, `a fragilidade`, `propenso`, `suscetível`, `iminente`, `o cenário`, `a previsão`, `antever`, `a contingência`, `a eventualidade`, `presumir`, `mitigar`, `a salvaguarda`, `a precaução`, `acautelar`, `o alerta`, `o revés`, `a incerteza`, `o acaso`, `remoto`, `apostar`, `o imprevisto`, `agravar`
+
+**u99 · A pertença e a exclusão** (24) — `a pertença`, `a etnia`, `a classe`, `o coletivo`, `a cidadania`, `a tolerância`, `a exclusão`, `o estigma`, `marginalizar`, `a segregação`, `o rótulo`, `o estereótipo`, `o fosso`, `a elite`, `a periferia`, `a mobilidade`, `a ascensão`, `a coesão`, `assimilar`, `a diversidade`, `a inclusão`, `o consenso`, `o pluralismo`, `o civismo`
+
+**u100 · A organização por dentro** (24) — `a liderança`, `a autonomia`, `a diretriz`, `o mérito`, `o indicador`, `a cúpula`, `a burocracia`, `o organigrama`, `o trâmite`, `o expediente`, `a reestruturação`, `a vaga`, `a sobrecarga`, `o absentismo`, `a rotatividade`, `a retenção`, `a produtividade`, `o vínculo`, `o recrutamento`, `o colaborador`, `a remuneração`, `o incentivo`, `a coordenação`, `o subordinado`
 

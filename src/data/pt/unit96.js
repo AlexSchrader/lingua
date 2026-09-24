@@ -1,18 +1,93 @@
-// PT Unit 96 — Arts and criticism (slot: arts-criticism) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 96 — A obra e a crítica (slot: arts-criticism) — B2
+// TALKING ABOUT A WORK, NOT VISITING ONE. u35 already owns the art outing
+// (a arte, o museu, a exposição, o palco, o espetáculo, o teatro, o quadro,
+// pintar, a personagem, o público) and u64 owns reviewing as an activity
+// (a crítica, o enredo, a estreia); u19 has a música and o filme, u59 o ritmo.
+// None re-taught. What is missing is the vocabulary for the WORK ITSELF and
+// for saying something about it that is not "gostei".
+//
+// SLOT BOUNDARIES: o autor and o estilo were deliberately left free by u88-u95
+// and land here, where they belong. u104 (block 3) owns MEDIA and narrative as
+// a public system — the press, the audience, the story a country tells itself —
+// so this unit stays on the made object and the judgement of it. o realismo is
+// RESERVED, unspent, for blocks 2/3, which will want an -ism to hang a movement
+// on. a interpretação is glossed "performance (of a role)" so that it does not
+// collide with anything in the reading/understanding family (§C5).
+// Conventions: unit1.js header · B2 constitution §C1–C10: unit88.js header.
 export const PT_UNIT96 = {
   id: "pt-u96",
   lang: "pt",
-  title: "Arts and criticism",
+  title: "A obra e a crítica",
   order: 96,
   stage: "b2",
   lessons: [
-    { id: "pt-u96l1", title: "Lesson 1", locked: true },
-    { id: "pt-u96l2", title: "Lesson 2", locked: true },
-    { id: "pt-u96l3", title: "Lesson 3", locked: true },
-    { id: "pt-u96l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u96l1",
+      unit: 96,
+      lesson: 1,
+      title: "A obra",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Name a work and its maker in Portuguese — the work, the author, the style, the genre, the masterpiece, the collection it sits in.",
+      items: [
+        { id: "pt-u96l1-aobra", type: "vocab", front: "a obra", reading: "aobra", meaning: "work (of art)", example: { jp: "A obra não é grande, mas ocupa uma sala do museu porque ninguém a quer ao lado de outra.", en: "The work is not large, but it takes up a museum room because nobody wants it next to another one." }, drill: { jp: "A obra ocupa uma sala do museu", en: "The work takes up a museum room" }, accept: ["the work", "work", "piece", "the piece", "artwork"], hint: "O-bra. Any made thing an artist claims — a painting, a book, a building. Careful with the everyday sense: uma obra na rua is roadworks, and em obras means under construction, which is what most Portuguese signs mean by it." },
+        { id: "pt-u96l1-oautor", type: "vocab", front: "o autor", reading: "oautor", meaning: "author", example: { jp: "O autor não quer falar do livro, mas escreve no jornal todos os dias.", en: "The author doesn't want to talk about the book, but writes in the newspaper every day." }, drill: { jp: "O autor não quer falar do livro", en: "The author doesn't want to talk about the book" }, accept: ["the author", "author", "writer", "the writer", "creator"], hint: "au-TOR. Of a book, a film, a law, a crime — Portuguese uses one word where English splits author and perpetrator. The feminine is a autora. Um escritor is specifically someone whose trade is writing." },
+        { id: "pt-u96l1-oestilo", type: "vocab", front: "o estilo", reading: "oestilo", meaning: "style", example: { jp: "O estilo do livro é simples, mas o que ele conta não é simples de todo.", en: "The book's style is simple, but what it tells is not simple at all." }, drill: { jp: "O estilo do livro é simples", en: "The book's style is simple" }, accept: ["the style", "style", "manner", "way of doing it", "voice"], hint: "esh-TEE-lu. How a thing is made rather than what it says. Ter estilo, of a person, is to have style. Note that a style PERIOD is um estilo too: o estilo manuelino is Portugal's own, all knotted rope in stone." },
+        { id: "pt-u96l1-ogenero", type: "vocab", front: "o género", reading: "ogenero", meaning: "genre", example: { jp: "O género é claro nos primeiros dez minutos, mas depois o filme faz outra coisa.", en: "The genre is clear in the first ten minutes, but after that the film does something else." }, drill: { jp: "O género do filme é claro", en: "The film's genre is clear" }, accept: ["the genre", "genre", "kind", "type", "category of work"], hint: "JE-ne-ru — pt-PT writes género with the acute, Brazil gênero. Three jobs at once: artistic genre, grammatical gender, and social gender. Context does all the work, and Portuguese speakers never confuse them." },
+        { id: "pt-u96l1-aobraprima", type: "vocab", front: "a obra-prima", reading: "aobraprima", meaning: "masterpiece", example: { jp: "A obra-prima do museu está numa sala do fundo, mas o público passa por ela sem parar.", en: "The museum's masterpiece is in a back room, but the public walks past it without stopping." }, drill: { jp: "A obra-prima está numa sala do fundo", en: "The masterpiece is in a back room" }, accept: ["the masterpiece", "masterpiece", "greatest work", "crowning work"], hint: "O-bra-PREE-ma, with the hyphen. Literally the first work — from the guild system, where it was the piece that proved you were a master. The plural is obras-primas: Portuguese pluralises both halves." },
+        { id: "pt-u96l1-oacervo", type: "vocab", front: "o acervo", reading: "oacervo", meaning: "collection (holdings)", example: { jp: "O acervo do museu é grande, mas apenas uma parte está na exposição.", en: "The museum's collection is large, but only a part of it is in the exhibition." }, drill: { jp: "O acervo do museu é muito grande", en: "The museum's collection is very large" }, accept: ["the collection", "collection", "holdings", "the holdings", "archive"], hint: "a-SER-vu. Everything an institution holds, whether or not it is on show — a museum, a library, a newspaper's photographs. Uma coleção is what a private person gathers; um acervo belongs to a body." },
+      ],
+    },
+    {
+      id: "pt-u96l2",
+      unit: 96,
+      lesson: 2,
+      title: "Como é feita",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Describe how a work is put together in Portuguese — the narrative, the metaphor, the line of verse, the sketch, the frame, the canvas.",
+      items: [
+        { id: "pt-u96l2-anarrativa", type: "vocab", front: "a narrativa", reading: "anarrativa", meaning: "narrative", example: { jp: "A narrativa do filme é simples, mas a ordem em que conta tudo faz o trabalho todo.", en: "The film's narrative is simple, but the order in which it tells everything does all the work." }, drill: { jp: "A narrativa do filme é simples", en: "The film's narrative is simple" }, accept: ["the narrative", "narrative", "storytelling", "the telling", "account"], hint: "na-rra-TEE-va, from narrar. The telling, as opposed to o enredo (u64), which is what happens. Portuguese politics borrows it exactly as English does: a narrativa do governo is the story it wants believed." },
+        { id: "pt-u96l2-ametafora", type: "vocab", front: "a metáfora", reading: "ametafora", meaning: "metaphor", example: { jp: "A metáfora do rio volta em todo o livro, mas no fim já não diz nada.", en: "The river metaphor comes back all through the book, but by the end it no longer says anything." }, drill: { jp: "A metáfora do rio volta no livro", en: "The river metaphor comes back in the book" }, accept: ["the metaphor", "metaphor", "figure of speech", "image"], hint: "me-TA-fu-ra, stress on the second syllable. Saying one thing IS another. Por assim dizer (u91) is what you add when you are afraid a metáfora will be taken literally." },
+        { id: "pt-u96l2-overso", type: "vocab", front: "o verso", reading: "overso", meaning: "line of verse", example: { jp: "O verso é curto, mas a criança da escola diz que já o conhece de casa.", en: "The line is short, but the schoolchild says she already knows it from home." }, drill: { jp: "O verso do poema é muito curto", en: "The poem's line is very short" }, accept: ["the line of verse", "line of verse", "verse", "line", "poetic line"], hint: "VER-su. ONE LINE of a poem, not a stanza — that is uma estrofe — and not a Bible verse either, which is um versículo. Also the back of a page: ver no verso means see overleaf." },
+        { id: "pt-u96l2-oesboco", type: "vocab", front: "o esboço", reading: "oesboco", meaning: "sketch", example: { jp: "O esboço é melhor do que o quadro, mas ninguém o quer comprar por este preço.", en: "The sketch is better than the painting, but nobody wants to buy it at this price." }, drill: { jp: "O esboço é melhor do que o quadro", en: "The sketch is better than the painting" }, accept: ["the sketch", "sketch", "draft", "rough", "outline drawing"], hint: "esh-BO-su. The quick first version — of a drawing, a plan or a law. Um esboço de sorriso is the beginning of a smile. Compare u90's o esquema, which is a diagram meant to explain rather than a first attempt." },
+        { id: "pt-u96l2-amoldura", type: "vocab", front: "a moldura", reading: "amoldura", meaning: "frame", example: { jp: "A moldura custa mais do que o quadro, mas é ela que faz as pessoas parar.", en: "The frame costs more than the painting, but it is what makes people stop." }, drill: { jp: "A moldura custa mais do que o quadro", en: "The frame costs more than the painting" }, accept: ["the frame", "frame", "picture frame", "surround", "mount"], hint: "mol-DOO-ra. The wooden edge around a picture or a mirror. Note that a door frame is different — that is um caixilho or uma ombreira; a moldura is for pictures and, in Portuguese law, for the range of a sentence: a moldura penal." },
+        { id: "pt-u96l2-atela", type: "vocab", front: "a tela", reading: "atela", meaning: "canvas", example: { jp: "A tela está sem nada há um ano, mas o artista diz que o trabalho já começou.", en: "The canvas has had nothing on it for a year, but the artist says the work has already begun." }, drill: { jp: "A tela do artista está sem nada", en: "The artist's canvas has nothing on it" }, accept: ["the canvas", "canvas", "screen", "the screen", "cloth"], hint: "TE-la. The cloth a painting is made on, and by extension the painting itself. Second life in the digital age: a tela do telemóvel is the screen in Brazil — in Portugal that is o ecrã, which is one of the clearest pt-PT / pt-BR splits there is." },
+      ],
+    },
+    {
+      id: "pt-u96l3",
+      unit: 96,
+      lesson: 3,
+      title: "Onde acontece",
+      cefr: "B2",
+      dominantMode: "produce",
+      canDo: "Talk about work that is performed in Portuguese — staging it, opera, tragedy, satire, sculpture, and one performer's reading of a role.",
+      items: [
+        { id: "pt-u96l3-encenar", type: "vocab", front: "encenar", reading: "encenar", meaning: "to stage", example: { jp: "A escola quer encenar a peça no verão, mas o palco do teatro está em obras.", en: "The school wants to stage the play in summer, but the theatre stage is under repair." }, drill: { jp: "A escola quer encenar a peça", en: "The school wants to stage the play" }, accept: ["to stage", "stage", "to put on", "put on", "to direct (a play)"], hint: "en-se-NAR, from a cena, the scene. To put a work on a stage. Figuratively it is to fake: encenar uma discussão is to put on a row for someone's benefit, and the word keeps that edge." },
+        { id: "pt-u96l3-aopera", type: "vocab", front: "a ópera", reading: "aopera", meaning: "opera", example: { jp: "A ópera dura quatro horas, mas a parte que o público conhece são dez minutos.", en: "The opera lasts four hours, but the part the public knows is ten minutes long." }, drill: { jp: "A ópera do teatro dura quatro horas", en: "The theatre's opera lasts four hours" }, accept: ["the opera", "opera", "operatic work"], hint: "O-pe-ra, stress on the first syllable, which the accent marks. Italian in origin and unchanged. Lisbon's opera house, o São Carlos, dates from 1793 — built to replace the one the 1755 earthquake destroyed." },
+        { id: "pt-u96l3-atragedia", type: "vocab", front: "a tragédia", reading: "atragedia", meaning: "tragedy", example: { jp: "A tragédia acaba mal para as pessoas do palco, mas o público sai do teatro melhor.", en: "The tragedy ends badly for the people on stage, but the audience leaves the theatre better." }, drill: { jp: "A tragédia acaba mal para as pessoas", en: "The tragedy ends badly for the people" }, accept: ["the tragedy", "tragedy", "tragic work", "disaster"], hint: "tra-JE-dya. Both the dramatic form and a real catastrophe, exactly as in English — and Portuguese newspapers use the second sense far more. Trágico is the adjective for both." },
+        { id: "pt-u96l3-asatira", type: "vocab", front: "a sátira", reading: "asatira", meaning: "satire", example: { jp: "A sátira é dura com o governo, mas quem a escreve nunca diz nenhum nome.", en: "The satire is hard on the government, but the person writing it never names anyone." }, drill: { jp: "A sátira é dura com o governo", en: "The satire is hard on the government" }, accept: ["the satire", "satire", "lampoon", "send-up", "parody"], hint: "SA-ti-ra, stress on the first syllable. Attacking by making ridiculous. Portugal has a long tradition of it in verse — as gargalhadas of the 19th-century press — and the word carries none of the lightness that 'comedy' does." },
+        { id: "pt-u96l3-aescultura", type: "vocab", front: "a escultura", reading: "aescultura", meaning: "sculpture", example: { jp: "A escultura fica na rua, mas a chuva de 50 anos já lhe comeu a pedra.", en: "The sculpture stands in the street, but 50 years of rain have already eaten its stone away." }, drill: { jp: "A escultura fica na rua da cidade", en: "The sculpture stands in the city street" }, accept: ["the sculpture", "sculpture", "carving", "statue", "the carving"], hint: "esh-kul-TOO-ra, from esculpir. The art and the single object both. Uma estátua is specifically a figure of a person standing; uma escultura can be anything, including a shape of nothing at all." },
+        { id: "pt-u96l3-ainterpretacao", type: "vocab", front: "a interpretação", reading: "ainterpretacao", meaning: "performance (of a role)", example: { jp: "A interpretação da personagem é boa, mas o resto da peça não chega ao mesmo nível.", en: "The performance of the character is good, but the rest of the play doesn't reach the same level." }, drill: { jp: "A interpretação da personagem é boa", en: "The performance of the character is good" }, accept: ["the performance", "performance", "rendering", "reading of a role", "portrayal"], hint: "in-ter-pre-ta-SOWN, from interpretar. In Portuguese an actor or a singer INTERPRETS a part, so this is the standard word for a performance. The same noun covers interpreting a text or a law, which is the sense English keeps." },
+      ],
+    },
+    {
+      id: "pt-u96l4",
+      unit: 96,
+      lesson: 4,
+      title: "O que se diz dela",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Judge a work in Portuguese beyond liking it — aesthetics, what it portrays, whether it moves you, and whether it is sublime or merely banal.",
+      items: [
+        { id: "pt-u96l4-aestetica", type: "vocab", front: "a estética", reading: "aestetica", meaning: "aesthetics", example: { jp: "A estética do filme é boa, mas a história por baixo não tem nada novo.", en: "The film's aesthetics are good, but the story underneath has nothing new." }, drill: { jp: "A estética do filme é boa", en: "The film's aesthetics are good" }, accept: ["the aesthetics", "aesthetics", "look and feel", "visual style", "aesthetic"], hint: "esh-TE-ti-ka. The whole question of how a thing looks and why that matters. Portuguese also uses it commercially: uma clínica de estética is a beauty clinic, so the word runs from philosophy to the high street." },
+        { id: "pt-u96l4-retratar", type: "vocab", front: "retratar", reading: "retratar", meaning: "to portray", example: { jp: "O livro quer retratar a aldeia como ela era, mas quem vive na aldeia não se conhece.", en: "The book wants to portray the village as it was, but the people living in the village don't recognise themselves." }, drill: { jp: "O livro quer retratar a aldeia", en: "The book wants to portray the village" }, accept: ["to portray", "portray", "to depict", "depict", "to paint a picture of"], hint: "rre-tra-TAR, from o retrato, the portrait. Of a painting, a book or a film showing something as it is or claims to be. Retratar-se also means to take something back publicly, which is a different verb wearing the same coat." },
+        { id: "pt-u96l4-comovente", type: "vocab", front: "comovente", reading: "comovente", meaning: "moving", example: { jp: "A parte do fim é comovente, mas dura de mais e no fim já ninguém sente nada.", en: "The final part is moving, but it goes on too long and by the end nobody feels anything." }, drill: { jp: "A parte do fim é comovente", en: "The final part is moving" }, accept: ["moving", "touching", "affecting", "stirring"], hint: "ku-mu-VEN-te, from comover, to move someone. Said of the thing; the person is comovido. It is a compliment with a warning inside it — Portuguese critics use comovente for work that succeeds by feeling rather than by thought." },
+        { id: "pt-u96l4-sublime", type: "vocab", front: "sublime", reading: "sublime", meaning: "transcendent", example: { jp: "O verso do princípio é sublime, mas o resto do poema não chega ao mesmo lado.", en: "The opening line is sublime, but the rest of the poem doesn't reach the same place." }, drill: { jp: "O verso do princípio é sublime", en: "The opening line is sublime" }, accept: ["sublime", "exalted", "transcendent", "magnificent"], hint: "su-BLEE-me. Reserved for work that goes beyond merely good — the word is strong in Portuguese and cheapens fast if spent. Its opposite in this lesson is banal, and a critic will place a work on that line in one sentence." },
+        { id: "pt-u96l4-banal", type: "vocab", front: "banal", reading: "banal", meaning: "trite", example: { jp: "O filme é banal do princípio ao fim, mas o público continua a comprar o bilhete.", en: "The film is banal from start to finish, but the public keeps buying tickets." }, drill: { jp: "O filme é banal do princípio ao fim", en: "The film is banal from start to finish" }, accept: ["banal", "trite", "unremarkable", "run of the mill", "commonplace"], hint: "ba-NAL. Ordinary in a way that is a criticism — not simple, which can be a compliment. Banalizar is to make something ordinary by repeating it, and Portuguese uses it of serious things being worn smooth." },
+        { id: "pt-u96l4-avanguarda", type: "vocab", front: "a vanguarda", reading: "avanguarda", meaning: "avant-garde", example: { jp: "A vanguarda de hoje é a moldura do museu de amanhã, mas ninguém quer ouvir isso agora.", en: "Today's avant-garde is tomorrow's museum frame, but nobody wants to hear that now." }, drill: { jp: "A vanguarda de hoje muda depressa", en: "Today's avant-garde changes quickly" }, accept: ["the avant-garde", "avant-garde", "vanguard", "cutting edge", "forefront"], hint: "van-GWAR-da — originally the front rank of an army, which is what the French avant-garde meant too. Na vanguarda de means at the forefront of, and Portuguese uses it of technology and politics as readily as of art." },
+      ],
+    },
   ],
 };

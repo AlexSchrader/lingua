@@ -1,18 +1,91 @@
-// PT Unit 98 — Risk and uncertainty (slot: risk-uncertainty) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 98 — O risco e a incerteza (slot: risk-uncertainty) — B2
+// WHAT MIGHT GO WRONG, AND WHAT YOU DO ABOUT IT FIRST. u47 gave the corpus
+// o risco, o perigo and o seguro; u54 gave arriscar, a probabilidade, prever,
+// duvidar and supor; u52 gave a consequência; u76 a dúvida and a decisão.
+// None re-taught. Missing is everything between the danger and the decision:
+// naming a threat, admitting a weakness, running a scenario, and the specific
+// verbs of guarding against something before it happens.
+//
+// SLOT BOUNDARIES: u91 owns hedged DEGREE (quanto muito, praticamente) and u108
+// (block 3) owns hedged TRUTH (talvez, ao que tudo indica) — this unit hedges
+// the FUTURE, which is a third thing and belongs to neither. u102 (block 2)
+// owns health systems, so nothing here is medical. atenuar (u91) softens a
+// claim; mitigar here reduces a harm, and the two glosses are kept apart (§C5).
+// Conventions: unit1.js header · B2 constitution §C1–C10: unit88.js header.
 export const PT_UNIT98 = {
   id: "pt-u98",
   lang: "pt",
-  title: "Risk and uncertainty",
+  title: "O risco e a incerteza",
   order: 98,
   stage: "b2",
   lessons: [
-    { id: "pt-u98l1", title: "Lesson 1", locked: true },
-    { id: "pt-u98l2", title: "Lesson 2", locked: true },
-    { id: "pt-u98l3", title: "Lesson 3", locked: true },
-    { id: "pt-u98l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u98l1",
+      unit: 98,
+      lesson: 1,
+      title: "O que pode correr mal",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Name a danger properly in Portuguese — the threat, the weak point, who is prone to it, and how close it is.",
+      items: [
+        { id: "pt-u98l1-aameaca", type: "vocab", front: "a ameaça", reading: "aameaca", meaning: "threat", example: { jp: "A ameaça é grande para as aldeias do campo, mas o plano do governo fala apenas da cidade.", en: "The threat is great for country villages, but the government's plan talks only about the city." }, drill: { jp: "A ameaça é grande para as aldeias", en: "The threat is great for the villages" }, accept: ["the threat", "threat", "menace", "danger to something"], hint: "a-me-A-sa, from ameaçar. Something that MIGHT harm you, where o perigo (u47) is a state of being in danger. Also a spoken threat: fazer uma ameaça. Sob ameaça de means under threat of." },
+        { id: "pt-u98l1-avulnerabilidade", type: "vocab", front: "a vulnerabilidade", reading: "avulnerabilidade", meaning: "vulnerability", example: { jp: "A vulnerabilidade do sistema já tem anos, mas a empresa nunca quis pagar para a resolver.", en: "The system's vulnerability is years old, but the company never wanted to pay to fix it." }, drill: { jp: "A vulnerabilidade do sistema já tem anos", en: "The system's vulnerability is years old" }, accept: ["the vulnerability", "vulnerability", "weak point", "exposure", "weakness"], hint: "vul-ne-ra-bi-li-DA-de. The specific opening through which harm can arrive — in a computer system, a building or a population. Grupos vulneráveis is the standard Portuguese policy phrase for people most exposed." },
+        { id: "pt-u98l1-afragilidade", type: "vocab", front: "a fragilidade", reading: "afragilidade", meaning: "fragility", example: { jp: "A fragilidade da empresa não está no produto, mas no facto de um cliente pagar tudo.", en: "The company's fragility is not in the product, but in the fact that one customer pays for everything." }, drill: { jp: "A fragilidade da empresa não está no produto", en: "The company's fragility is not in the product" }, accept: ["the fragility", "fragility", "frailty", "weakness", "brittleness"], hint: "fra-ji-li-DA-de. How easily a thing breaks, of glass and of arrangements. Distinct from a vulnerabilidade, which is a specific opening: something can be robust and still have one weak door." },
+        { id: "pt-u98l1-propenso", type: "vocab", front: "propenso", reading: "propenso", meaning: "prone", example: { jp: "O campo é propenso ao fogo no verão, mas ninguém limpa a terra antes de junho.", en: "The countryside is prone to fire in summer, but nobody clears the land before June." }, drill: { jp: "O campo é propenso ao fogo", en: "The countryside is prone to fire" }, accept: ["prone", "prone to", "inclined", "liable", "given to"], hint: "pru-PEN-su. Takes a: propenso a alguma coisa. Of a place, a thing or a person's tendency — ele é propenso a discutir. It describes a standing inclination, not a one-off." },
+        { id: "pt-u98l1-suscetivel", type: "vocab", front: "suscetível", reading: "suscetivel", meaning: "liable", example: { jp: "O preço é suscetível de mudar até ao fim do mês, mas o contrato não diz isso em lado nenhum.", en: "The price is liable to change before the end of the month, but the contract doesn't say so anywhere." }, drill: { jp: "O preço é suscetível de mudar", en: "The price is liable to change" }, accept: ["liable", "liable to", "susceptible", "open to", "subject to"], hint: "sush-se-TEE-vel — pt-PT writes suscetível with no p since the accord. Takes de plus an infinitive. Careful with the human sense: uma pessoa suscetível is someone easily offended, which is a different word in English entirely." },
+        { id: "pt-u98l1-iminente", type: "vocab", front: "iminente", reading: "iminente", meaning: "imminent", example: { jp: "A queda do governo é iminente, mas o povo continua a viver como se nada fosse mudar.", en: "The government's fall is imminent, but people carry on living as if nothing were going to change." }, drill: { jp: "A queda do governo é iminente", en: "The government's fall is imminent" }, accept: ["imminent", "impending", "about to happen", "looming"], hint: "i-mi-NEN-te. About to happen, and usually of something unwelcome. Do not confuse it with eminente, one letter away, which means distinguished — um professor eminente is a compliment, um perigo iminente is not." },
+      ],
+    },
+    {
+      id: "pt-u98l2",
+      unit: 98,
+      lesson: 2,
+      title: "Pesar hipóteses",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Think ahead in Portuguese — run a scenario, make a forecast, foresee, and plan for the case that may never arrive.",
+      items: [
+        { id: "pt-u98l2-ocenario", type: "vocab", front: "o cenário", reading: "ocenario", meaning: "scenario", example: { jp: "O cenário do estudo é o pior de todos, mas nenhum governo quer escrever um plano para ele.", en: "The study's scenario is the worst of all, but no government wants to write a plan for it." }, drill: { jp: "O cenário do estudo é o pior", en: "The study's scenario is the worst" }, accept: ["the scenario", "scenario", "case", "the case", "set of circumstances"], hint: "se-NA-ryu. A possible future taken seriously enough to plan for. Its older sense is a theatre set, which u96's encenar comes from — the same word looking forward instead of on stage." },
+        { id: "pt-u98l2-aprevisao", type: "vocab", front: "a previsão", reading: "aprevisao", meaning: "forecast", example: { jp: "A previsão do banco falha todos os anos, mas em janeiro o jornal escreve outra.", en: "The bank's forecast is wrong every year, but in January the newspaper writes another one." }, drill: { jp: "A previsão do banco falha todos os anos", en: "The bank's forecast is wrong every year" }, accept: ["the forecast", "forecast", "prediction", "projection", "outlook"], hint: "pre-vi-ZOWN, from prever (u54). Of weather, money and elections. A previsão do tempo is the weather forecast — the phrase you will hear most, and the one Portuguese trusts least." },
+        { id: "pt-u98l2-antever", type: "vocab", front: "antever", reading: "antever", meaning: "to foresee", example: { jp: "É fácil antever o problema, mas resolver o problema antes custa dinheiro que ninguém quer gastar hoje.", en: "It is easy to foresee the problem, but solving the problem beforehand costs money nobody wants to spend today." }, drill: { jp: "É fácil antever o problema", en: "It is easy to foresee the problem" }, accept: ["to foresee", "foresee", "to anticipate", "anticipate", "to see coming"], hint: "an-te-VER, ante- plus ver. Prever (u54) makes a claim about the future; antever is closer to already seeing it coming, with less machinery behind it. Imprevisto, later in this unit, is its negative." },
+        { id: "pt-u98l2-acontingencia", type: "vocab", front: "a contingência", reading: "acontingencia", meaning: "contingency", example: { jp: "A contingência está no contrato, mas ninguém na empresa sabe onde está o papel.", en: "The contingency is in the contract, but nobody at the company knows where the document is." }, drill: { jp: "A contingência está no contrato do banco", en: "The contingency is in the bank's contract" }, accept: ["the contingency", "contingency", "fallback", "provision for the case", "eventuality planned for"], hint: "kon-tin-JEN-sya. Something possible that has been PLANNED for — um plano de contingência. In Portuguese administration it is also a budget line held back for the unexpected, which is the same idea with a number on it." },
+        { id: "pt-u98l2-aeventualidade", type: "vocab", front: "a eventualidade", reading: "aeventualidade", meaning: "eventuality", example: { jp: "A eventualidade de uma guerra parece remota, mas o preço do pão muda numa semana.", en: "The eventuality of a war seems remote, but the price of bread changes within a week." }, drill: { jp: "A eventualidade de uma guerra parece remota", en: "The eventuality of a war seems remote" }, accept: ["the eventuality", "eventuality", "possible event", "the possibility", "contingency case"], hint: "e-ven-twa-li-DA-de. A possible turn of events, named but not planned for. Portuguese eventual is a FALSE FRIEND: it means possible, not final — na eventualidade de is 'in the event of', not 'eventually'." },
+        { id: "pt-u98l2-presumir", type: "vocab", front: "presumir", reading: "presumir", meaning: "to presume", example: { jp: "O tribunal tem de presumir que o réu não fez nada, mas o jornal já escreve o contrário.", en: "The court has to presume the defendant did nothing, but the newspaper already writes the opposite." }, drill: { jp: "O tribunal tem de presumir a boa fé", en: "The court has to presume good faith" }, accept: ["to presume", "presume", "to assume", "assume", "to take as given"], hint: "pre-zu-MEER. To take something as true until shown otherwise — stronger than supor (u54), because a presunção has standing: a presunção de inocência is the presumption of innocence, and it is a rule rather than a guess." },
+      ],
+    },
+    {
+      id: "pt-u98l3",
+      unit: 98,
+      lesson: 3,
+      title: "Defender-se antes",
+      cefr: "B2",
+      dominantMode: "produce",
+      canDo: "Act before harm in Portuguese — mitigate it, build a safeguard, take a precaution, raise the alert, and name the setback when it lands.",
+      items: [
+        { id: "pt-u98l3-mitigar", type: "vocab", front: "mitigar", reading: "mitigar", meaning: "to mitigate", example: { jp: "O plano quer mitigar o problema da água, mas não muda nada no trabalho do campo.", en: "The plan wants to mitigate the water problem, but changes nothing in how the land is worked." }, drill: { jp: "O plano quer mitigar o problema da água", en: "The plan wants to mitigate the water problem" }, accept: ["to mitigate", "mitigate", "to reduce the harm", "to lessen the damage", "to cushion"], hint: "mi-ti-GAR. To make a HARM smaller once it is coming or already here — a flood, a loss, a cost. u91's atenuar softens how strongly something is SAID; mitigar reduces what it does." },
+        { id: "pt-u98l3-asalvaguarda", type: "vocab", front: "a salvaguarda", reading: "asalvaguarda", meaning: "safeguard", example: { jp: "A salvaguarda do contrato protege o banco, mas o cliente paga de qualquer modo se o preço mudar.", en: "The contract's safeguard protects the bank, but the customer pays either way if the price changes." }, drill: { jp: "A salvaguarda do contrato protege o banco", en: "The contract's safeguard protects the bank" }, accept: ["the safeguard", "safeguard", "protection built in", "safety clause", "guarantee"], hint: "sal-va-GWAR-da, from salvar plus guardar — two verbs of keeping, welded. The built-in protection, in a contract, a law or a system. Salvaguardar is the verb: to protect something in advance." },
+        { id: "pt-u98l3-aprecaucao", type: "vocab", front: "a precaução", reading: "aprecaucao", meaning: "precaution", example: { jp: "A precaução custa pouco agora, mas quase ninguém a toma antes de ver o primeiro problema.", en: "The precaution costs little now, but almost nobody takes it before seeing the first problem." }, drill: { jp: "A precaução custa pouco agora", en: "The precaution costs little now" }, accept: ["the precaution", "precaution", "safety measure", "preventive step"], hint: "pre-kau-SOWN. Something you do BEFORE, because harm is possible. Por precaução is the fixed phrase: as a precaution. Note the ç and the two vowels — pre-cau-ção is four syllables." },
+        { id: "pt-u98l3-acautelar", type: "vocab", front: "acautelar", reading: "acautelar", meaning: "to guard against", example: { jp: "A empresa quer acautelar o pior, mas o dinheiro do plano acaba no primeiro ano.", en: "The company wants to guard against the worst, but the plan's money runs out in the first year." }, drill: { jp: "A empresa quer acautelar o pior", en: "The company wants to guard against the worst" }, accept: ["to guard against", "guard against", "to take precautions", "to forestall", "to provide against"], hint: "a-kau-te-LAR, from a cautela, caution. To take steps against something in advance. Acautela-te is a warning: watch yourself. It is the verb whose noun is a precaução, one line above." },
+        { id: "pt-u98l3-oalerta", type: "vocab", front: "o alerta", reading: "oalerta", meaning: "alert", example: { jp: "O alerta chega a horas, mas metade das aldeias não tem quem o leia.", en: "The alert arrives in time, but half the villages have nobody to read it." }, drill: { jp: "O alerta chega a horas às aldeias", en: "The alert arrives in time to the villages" }, accept: ["the alert", "alert", "warning", "the warning", "alarm"], hint: "a-LER-ta. The formal warning a body issues — alerta vermelho is the Portuguese weather service's top level. Estar alerta, as an adjective, is to be on your guard." },
+        { id: "pt-u98l3-oreves", type: "vocab", front: "o revés", reading: "oreves", meaning: "setback", example: { jp: "O revés do primeiro ano foi grande, mas a empresa continua a trabalhar como se nada fosse.", en: "The first year's setback was large, but the company carries on working as if nothing had happened." }, drill: { jp: "O revés do primeiro ano foi grande", en: "The first year's setback was large" }, accept: ["the setback", "setback", "reverse", "blow", "knock"], hint: "rre-VESH — literally the reverse side. A blow that turns progress backwards. Ao revés means the wrong way round, and de revés is a backhand in tennis: the same idea of the other face." },
+      ],
+    },
+    {
+      id: "pt-u98l4",
+      unit: 98,
+      lesson: 4,
+      title: "Quando não se sabe",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Live with not knowing in Portuguese — uncertainty, chance, a remote possibility, betting on it, the thing nobody saw coming.",
+      items: [
+        { id: "pt-u98l4-aincerteza", type: "vocab", front: "a incerteza", reading: "aincerteza", meaning: "uncertainty", example: { jp: "A incerteza custa mais à empresa do que uma resposta difícil, porque ninguém decide nada.", en: "Uncertainty costs the company more than a hard answer, because nobody decides anything." }, drill: { jp: "A incerteza custa muito à empresa", en: "Uncertainty costs the company a lot" }, accept: ["the uncertainty", "uncertainty", "not knowing", "doubt about the future"], hint: "in-ser-TE-za. The STATE of not knowing what will happen, as against a dúvida (u76), which is doubt about a particular claim. Um clima de incerteza is the standard economic phrase." },
+        { id: "pt-u98l4-oacaso", type: "vocab", front: "o acaso", reading: "oacaso", meaning: "chance", example: { jp: "O acaso decidiu tudo naquele dia, mas o relato do jornal fala de um plano.", en: "Chance decided everything that day, but the newspaper's account talks about a plan." }, drill: { jp: "O acaso decidiu tudo naquele dia", en: "Chance decided everything that day" }, accept: ["the chance", "chance", "accident", "randomness", "luck of it"], hint: "a-KA-zu. Chance as a force, not a possibility — por acaso means by coincidence, ao acaso means at random. Careful: a chance you TAKE is uma oportunidade, and a chance something happens is a probabilidade (u54)." },
+        { id: "pt-u98l4-remoto", type: "vocab", front: "remoto", reading: "remoto", meaning: "remote", example: { jp: "O risco é remoto, mas a empresa que o disse também disse o mesmo antes do último problema.", en: "The risk is remote, but the company that said so also said the same before the last problem." }, drill: { jp: "O risco da empresa é remoto", en: "The company's risk is remote" }, accept: ["remote", "slight", "far-fetched", "distant", "unlikely"], hint: "rre-MO-tu. Of a possibility, and of a place — uma aldeia remota. Trabalho remoto is remote work, the newest of its senses and now the commonest in Portuguese offices." },
+        { id: "pt-u98l4-apostar", type: "vocab", front: "apostar", reading: "apostar", meaning: "to bet on", example: { jp: "O governo quer apostar tudo numa fábrica, mas não tem plano nenhum se ela acabar.", en: "The government wants to bet everything on one factory, but has no plan at all if it ends." }, drill: { jp: "O governo quer apostar tudo numa fábrica", en: "The government wants to bet everything on one factory" }, accept: ["to bet on", "bet", "to bet", "to stake on", "to back"], hint: "a-push-TAR. Takes em: apostar em alguma coisa. The gambling sense and the strategic one both — apostar na educação is the phrase every Portuguese manifesto contains, and it quietly admits the outcome is not certain." },
+        { id: "pt-u98l4-oimprevisto", type: "vocab", front: "o imprevisto", reading: "oimprevisto", meaning: "unforeseen event", example: { jp: "O imprevisto acontece sempre, mas o orçamento do plano não tem dinheiro nenhum para ele.", en: "The unforeseen always happens, but the plan's budget has no money at all for it." }, drill: { jp: "O imprevisto acontece sempre no primeiro ano", en: "The unforeseen always happens in the first year" }, accept: ["the unforeseen event", "unforeseen event", "unexpected event", "hitch", "surprise"], hint: "im-pre-VEESH-tu, the negative of prever (u54). The thing nobody planned for. Tive um imprevisto is the standard Portuguese excuse for being late, and it is polite precisely because it says nothing." },
+        { id: "pt-u98l4-agravar", type: "vocab", front: "agravar", reading: "agravar", meaning: "to worsen", example: { jp: "A falta de chuva agrava o problema do campo, mas o plano do governo continua igual.", en: "The lack of rain worsens the countryside's problem, but the government's plan stays the same." }, drill: { jp: "A falta de chuva vai agravar o problema", en: "The lack of rain will worsen the problem" }, accept: ["to worsen", "worsen", "to make worse", "to aggravate", "to deepen"], hint: "a-gra-VAR, from grave (u67). To make an already bad thing worse. Agravar-se is what a situation does on its own; circunstâncias agravantes are the legal opposite of the atenuantes you met at u91." },
+      ],
+    },
   ],
 };

@@ -1,18 +1,93 @@
-// PT Unit 99 — Identity and society (slot: identity-society) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 99 — A pertença e a exclusão (slot: identity-society) — B2
+// THE SLOT SAYS "Identity and society"; THIS UNIT NARROWS IT TO BELONGING AND
+// EXCLUSION, ON PURPOSE. u32 already owns a sociedade, a comunidade, o cidadão
+// and votar; u44 owns a identidade, a norma and o papel; u68 owns a minoria,
+// a desigualdade, a integração, a convivência, a geração and o preconceito;
+// u52 owns a origem. A second general "society" unit would re-teach all of it —
+// the Spanish B1 failure exactly. So the theme is the AXIS: who is inside, who
+// is kept outside, the distance between, and what closing it would mean.
+//
+// SLOT BOUNDARIES: u97 owns discriminar as an ACT of conduct; this unit owns
+// the STRUCTURES that follow from it — a segregação, a exclusão, o estigma.
+// u100 owns the organisation, so a mobilidade is carded here socially and its
+// workplace reading is left to that unit. a ascensão is glossed "social rise"
+// and u100 does not card ascender, so the pair is not split awkwardly across
+// two units (§C4).
+// Conventions: unit1.js header · B2 constitution §C1–C10: unit88.js header.
 export const PT_UNIT99 = {
   id: "pt-u99",
   lang: "pt",
-  title: "Identity and society",
+  title: "A pertença e a exclusão",
   order: 99,
   stage: "b2",
   lessons: [
-    { id: "pt-u99l1", title: "Lesson 1", locked: true },
-    { id: "pt-u99l2", title: "Lesson 2", locked: true },
-    { id: "pt-u99l3", title: "Lesson 3", locked: true },
-    { id: "pt-u99l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u99l1",
+      unit: 99,
+      lesson: 1,
+      title: "Pertencer",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say where someone belongs in Portuguese — belonging, ethnicity, class, the collective, citizenship, tolerance.",
+      items: [
+        { id: "pt-u99l1-apertenca", type: "vocab", front: "a pertença", reading: "apertenca", meaning: "belonging", example: { jp: "A pertença à aldeia é forte, mas quem nasce fora nunca chega a ser da aldeia.", en: "Belonging to the village is strong, but someone born elsewhere never quite becomes of the village." }, drill: { jp: "A pertença à aldeia é muito forte", en: "Belonging to the village is very strong" }, accept: ["the belonging", "belonging", "membership", "sense of belonging", "attachment"], hint: "per-TEN-sa, from pertencer, to belong to. The feeling and the fact of being part of a group. Um sentimento de pertença is the standard phrase; in the plural, as pertenças are your belongings, the objects." },
+        { id: "pt-u99l1-aetnia", type: "vocab", front: "a etnia", reading: "aetnia", meaning: "ethnicity", example: { jp: "A etnia não explica nada do caso, mas o jornal escreve isso logo no princípio.", en: "Ethnicity explains nothing about the case, but the newspaper writes it right at the start." }, drill: { jp: "A etnia não explica nada do caso", en: "Ethnicity explains nothing about the case" }, accept: ["the ethnicity", "ethnicity", "ethnic group", "the ethnic group"], hint: "et-NEE-a. Both the category and a particular group. Note the Portuguese debate uses it where English might say race — a raça exists in Portuguese but has a far heavier history, so etnia is the usual word in print." },
+        { id: "pt-u99l1-aclasse", type: "vocab", front: "a classe", reading: "aclasse", meaning: "social class", example: { jp: "A classe da família decide a escola, mas ninguém quer escrever isso num papel do governo.", en: "A family's class decides the school, but nobody wants to write that down in a government document." }, drill: { jp: "A classe da família decide a escola", en: "A family's class decides the school" }, accept: ["the social class", "social class", "class", "stratum", "social group"], hint: "KLA-sse. Distinct from u90's a categoria, which is a box defined by a rule: a classe is a position in a society. Careful with the school sense — a class of pupils in Portugal is uma turma, not uma classe." },
+        { id: "pt-u99l1-ocoletivo", type: "vocab", front: "o coletivo", reading: "ocoletivo", meaning: "the collective", example: { jp: "O coletivo decide tudo em conjunto, mas quando falha ninguém quer dizer o nome de ninguém.", en: "The collective decides everything together, but when it fails nobody wants to name anybody." }, drill: { jp: "O coletivo decide tudo em conjunto", en: "The collective decides everything together" }, accept: ["the collective", "collective", "the group as a whole", "the body", "the group"], hint: "ku-le-TEE-vu — pt-PT spells it coletivo with no c. The group taken as one actor. As an adjective it is the usual word for shared: transportes coletivos are public transport, and um despedimento coletivo is mass redundancy." },
+        { id: "pt-u99l1-acidadania", type: "vocab", front: "a cidadania", reading: "acidadania", meaning: "citizenship", example: { jp: "A cidadania chega depois de cinco anos, mas quem trabalha no campo raramente tem tudo em ordem.", en: "Citizenship comes after five years, but people working the land rarely have everything in order." }, drill: { jp: "A cidadania chega depois de cinco anos", en: "Citizenship comes after five years" }, accept: ["the citizenship", "citizenship", "nationality", "civic status"], hint: "si-da-da-NEE-a, from o cidadão (u32). The legal status and the practice of taking part in public life both. Portuguese schools teach a subject called Cidadania, which is the second sense." },
+        { id: "pt-u99l1-atolerancia", type: "vocab", front: "a tolerância", reading: "atolerancia", meaning: "tolerance", example: { jp: "A tolerância é fácil quando não custa nada, mas o problema começa quando alguém tem de ceder.", en: "Tolerance is easy when it costs nothing, but the problem starts when somebody has to give way." }, drill: { jp: "A tolerância é fácil quando não custa nada", en: "Tolerance is easy when it costs nothing" }, accept: ["the tolerance", "tolerance", "forbearance", "putting up with", "acceptance"], hint: "tu-le-RAN-sya. Putting up with what you would not choose — and Portuguese keeps the mechanical sense too: a tolerância of a machine part is its allowed play. Tolerância zero is borrowed whole from English." },
+      ],
+    },
+    {
+      id: "pt-u99l2",
+      unit: 99,
+      lesson: 2,
+      title: "Ficar de fora",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name how people are kept out in Portuguese — exclusion, stigma, being pushed to the edge, segregation, the label, the stereotype.",
+      items: [
+        { id: "pt-u99l2-aexclusao", type: "vocab", front: "a exclusão", reading: "aexclusao", meaning: "exclusion", example: { jp: "A exclusão não começa na escola, mas é na escola que a criança a sente.", en: "Exclusion does not begin at school, but school is where a child feels it." }, drill: { jp: "A exclusão não começa na escola", en: "Exclusion does not begin at school" }, accept: ["the exclusion", "exclusion", "shutting out", "being left out", "marginalisation"], hint: "esh-klu-ZOWN. Being kept outside something others are inside. A exclusão social is the fixed policy term; com exclusão de, in a contract, simply means excluding — the same word doing neutral work." },
+        { id: "pt-u99l2-oestigma", type: "vocab", front: "o estigma", reading: "oestigma", meaning: "stigma", example: { jp: "O estigma da doença é maior do que a doença, porque dura muito depois de ela acabar.", en: "The illness's stigma is bigger than the illness, because it lasts long after the illness ends." }, drill: { jp: "O estigma da doença é grande", en: "The illness's stigma is great" }, accept: ["the stigma", "stigma", "mark of shame", "taint", "social mark"], hint: "esh-TEEG-ma — another masculine -ma, from Greek: originally a brand burned into skin. Estigmatizar is the verb. The word says the mark is put on from outside, which is the whole point of using it." },
+        { id: "pt-u99l2-marginalizar", type: "vocab", front: "marginalizar", reading: "marginalizar", meaning: "to push to the edge", example: { jp: "A regra não quer marginalizar ninguém, mas quem não tem computador fica de fora de tudo.", en: "The rule does not intend to push anyone to the edge, but people without a computer are left out of everything." }, drill: { jp: "A regra não quer marginalizar ninguém", en: "The rule does not intend to push anyone to the edge" }, accept: ["to push to the edge", "to marginalise", "marginalise", "to sideline", "to push out"], hint: "mar-ji-na-li-ZAR, from a margem (u93) — to push to the edge of things. Ser marginalizado is to be left there. Careful with the related noun: um marginal is a criminal, so the verb and that noun have drifted apart." },
+        { id: "pt-u99l2-asegregacao", type: "vocab", front: "a segregação", reading: "asegregacao", meaning: "segregation", example: { jp: "A segregação não está em nenhuma lei, mas o mapa da cidade diz tudo.", en: "Segregation is not in any law, but the map of the city tells you everything." }, drill: { jp: "A segregação não está em nenhuma lei", en: "Segregation is not in any law" }, accept: ["the segregation", "segregation", "separation", "keeping apart", "division"], hint: "se-gre-ga-SOWN. Groups kept physically apart, by law or simply by how a city grew. Portuguese uses it of housing and schooling most often, and the second sense — no law, just the map — is the one that survives." },
+        { id: "pt-u99l2-orotulo", type: "vocab", front: "o rótulo", reading: "orotulo", meaning: "label (put on a person)", example: { jp: "O rótulo fica com a pessoa muitos anos, mas quem o escreve já não se lembra de nada.", en: "The label stays with a person for many years, but whoever wrote it no longer remembers a thing." }, drill: { jp: "O rótulo fica com a pessoa muitos anos", en: "The label stays with a person for many years" }, accept: ["the label", "label", "tag", "the tag", "sticker"], hint: "RRO-tu-lu, stress on the first syllable. Literally the label on a bottle, figuratively the one put on a person. Rotular alguém is to label someone, and in Portuguese as in English it is always a complaint." },
+        { id: "pt-u99l2-oestereotipo", type: "vocab", front: "o estereótipo", reading: "oestereotipo", meaning: "stereotype", example: { jp: "O estereótipo do português é o mesmo há cem anos, mas o país já não é igual.", en: "The stereotype of the Portuguese is the same as it was a hundred years ago, but the country is no longer the same." }, drill: { jp: "O estereótipo do país é muito antigo", en: "The country's stereotype is very old" }, accept: ["the stereotype", "stereotype", "fixed idea", "cliché about people"], hint: "esh-te-re-O-ti-pu. From printing: a stereotype was a fixed metal plate that printed the same page for ever, which is exactly the accusation. Um estereótipo is the picture; um rótulo is what you stick on one person with it." },
+      ],
+    },
+    {
+      id: "pt-u99l3",
+      unit: 99,
+      lesson: 3,
+      title: "A distância entre",
+      cefr: "B2",
+      dominantMode: "produce",
+      canDo: "Measure social distance in Portuguese — the gulf, the elite, the outskirts, mobility, a rise, and what holds a society together.",
+      items: [
+        { id: "pt-u99l3-ofosso", type: "vocab", front: "o fosso", reading: "ofosso", meaning: "gulf", example: { jp: "O fosso entre as cidades cresce, mas o plano do governo fala de igualdade.", en: "The gulf between the cities grows, but the government's plan talks about equality." }, drill: { jp: "O fosso entre as cidades cresce", en: "The gulf between the cities grows" }, accept: ["the gulf", "gulf", "gap", "chasm", "divide"], hint: "FO-ssu — originally the ditch around a castle. The distance between two groups when it has become hard to cross. Um fosso geracional is a generation gap, and the word is stronger than uma diferença." },
+        { id: "pt-u99l3-aelite", type: "vocab", front: "a elite", reading: "aelite", meaning: "ruling few", example: { jp: "A elite do país estuda sempre na escola do centro, mas o jornal chama a isso mérito.", en: "The country's elite always study at the school in the centre, but the newspaper calls that merit." }, drill: { jp: "A elite do país estuda no centro", en: "The country's elite study in the centre" }, accept: ["the elite", "elite", "ruling group", "top layer", "establishment"], hint: "e-LEE-te. The small group at the top, and in Portuguese it is almost always said with an edge. As an adjective it is neutral — um atleta de elite is simply a top athlete — so the noun carries the politics, not the word itself." },
+        { id: "pt-u99l3-aperiferia", type: "vocab", front: "a periferia", reading: "aperiferia", meaning: "outskirts", example: { jp: "A periferia da cidade cresce depressa, mas o comboio continua a chegar de hora a hora.", en: "The city's outskirts grow fast, but the train still only comes once an hour." }, drill: { jp: "A periferia da cidade cresce muito depressa", en: "The city's outskirts grow very fast" }, accept: ["the outskirts", "outskirts", "the periphery", "periphery", "edge of the city"], hint: "pe-ri-fe-REE-a. In Portugal it means the ring of towns around Lisbon and Porto where most people actually live — and it carries a social meaning as much as a geographical one, exactly as banlieue does in French." },
+        { id: "pt-u99l3-amobilidade", type: "vocab", front: "a mobilidade", reading: "amobilidade", meaning: "social mobility", example: { jp: "A mobilidade é boa nos números do estudo, mas quem muda de classe é quase sempre filho de quem já era da elite.", en: "Mobility looks good in the study's figures, but the people who change class are nearly always the children of those already in the elite." }, drill: { jp: "A mobilidade é boa nos números do estudo", en: "Mobility looks good in the study's figures" }, accept: ["the social mobility", "social mobility", "mobility", "movement between classes"], hint: "mu-bi-li-DA-de. Moving between social positions. Portuguese also uses it for transport — a mobilidade urbana is how a city moves people — so the social sense usually carries the adjective: mobilidade social." },
+        { id: "pt-u99l3-aascensao", type: "vocab", front: "a ascensão", reading: "aascensao", meaning: "social rise", example: { jp: "A ascensão da família leva três anos, mas basta um ano difícil para acabar com ela.", en: "The family's rise takes three years, but one hard year is enough to end it." }, drill: { jp: "A ascensão da família leva três anos", en: "The family's rise takes three years" }, accept: ["the rise", "rise", "ascent", "climb", "advancement"], hint: "ash-sen-SOWN. Going up — a family, a career, an aeroplane. Ascensão social is the fixed phrase for climbing the ladder; o elevador in a Portuguese building goes up by itself and needs no such noun." },
+        { id: "pt-u99l3-acoesao", type: "vocab", front: "a coesão", reading: "acoesao", meaning: "cohesion", example: { jp: "A coesão do país não se nota quando está tudo bem, mas nota-se logo quando acaba.", en: "A country's cohesion goes unnoticed while all is well, but you notice it at once when it goes." }, drill: { jp: "A coesão do país não se nota", en: "A country's cohesion goes unnoticed" }, accept: ["the cohesion", "cohesion", "togetherness", "what holds it together", "solidarity"], hint: "ku-e-ZOWN. What keeps a group from coming apart. In European Portuguese it is above all an EU word — os fundos de coesão are the cohesion funds that built most of Portugal's motorways." },
+      ],
+    },
+    {
+      id: "pt-u99l4",
+      unit: 99,
+      lesson: 4,
+      title: "Misturar-se",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about closing the gap in Portuguese — assimilating, diversity, inclusion, consensus, pluralism, and civic duty.",
+      items: [
+        { id: "pt-u99l4-assimilar", type: "vocab", front: "assimilar", reading: "assimilar", meaning: "to assimilate", example: { jp: "A escola quer assimilar a criança que chega, mas perder o que se fala em casa não é o mesmo que aprender.", en: "The school wants to assimilate the child who arrives, but losing what is spoken at home is not the same as learning." }, drill: { jp: "A escola quer assimilar a criança que chega", en: "The school wants to assimilate the child who arrives" }, accept: ["to assimilate", "assimilate", "to absorb", "absorb", "to take in"], hint: "a-ssi-mi-LAR. Two lives: a society absorbing people into itself — which the word quietly frames as a duty on the newcomer — and a person taking in an idea: assimilar a matéria, to absorb the course material." },
+        { id: "pt-u99l4-adiversidade", type: "vocab", front: "a diversidade", reading: "adiversidade", meaning: "diversity", example: { jp: "A diversidade da escola é grande no papel, mas cada turma é sempre do mesmo bairro.", en: "The school's diversity is great on paper, but each class always comes from the same neighbourhood." }, drill: { jp: "A diversidade da escola é grande no papel", en: "The school's diversity is great on paper" }, accept: ["the diversity", "diversity", "variety", "range", "mix"], hint: "di-ver-si-DA-de. Of people, and equally of plants or of opinion — a diversidade biológica. Portuguese public documents use it exactly as English does, and it has worn smooth in the same way." },
+        { id: "pt-u99l4-ainclusao", type: "vocab", front: "a inclusão", reading: "ainclusao", meaning: "inclusion", example: { jp: "A inclusão não é deixar entrar, mas mudar o que está dentro, e isso custa dinheiro.", en: "Inclusion is not letting people in, but changing what is inside, and that costs money." }, drill: { jp: "A inclusão não é deixar entrar", en: "Inclusion is not letting people in" }, accept: ["the inclusion", "inclusion", "including people", "bringing in"], hint: "in-klu-ZOWN, the opposite of a exclusão in lesson 2. In Portuguese schooling it is a specific policy — educação inclusiva means teaching children with disabilities in the ordinary classroom, not a separate one." },
+        { id: "pt-u99l4-oconsenso", type: "vocab", front: "o consenso", reading: "oconsenso", meaning: "consensus", example: { jp: "O consenso chega depressa quando ninguém quer falar, mas não é igual a um acordo.", en: "Consensus arrives quickly when nobody wants to speak, but it is not the same as an agreement." }, drill: { jp: "O consenso chega depressa na reunião", en: "Consensus arrives quickly in the meeting" }, accept: ["the consensus", "consensus", "general agreement", "common ground"], hint: "kon-SEN-su. General agreement, or at least nobody objecting — which is why it is not o acordo (u51), where each side actually said yes. Por consenso means without a vote being needed." },
+        { id: "pt-u99l4-opluralismo", type: "vocab", front: "o pluralismo", reading: "opluralismo", meaning: "pluralism", example: { jp: "O pluralismo do jornal acaba no título do dia, mas a lei obriga a isso.", en: "The newspaper's pluralism ends at the day's headline, but the law requires it." }, drill: { jp: "O pluralismo do jornal acaba no título", en: "The newspaper's pluralism ends at the headline" }, accept: ["the pluralism", "pluralism", "plurality of views", "diversity of opinion"], hint: "plu-ra-LEEZ-mu. More than one view holding the floor at once, as a principle rather than an accident. Pluralismo político is written into the Portuguese constitution, which makes it a legal standard and not only an ideal." },
+        { id: "pt-u99l4-ocivismo", type: "vocab", front: "o civismo", reading: "ocivismo", meaning: "civic-mindedness", example: { jp: "O civismo não se ensina numa aula, mas a criança aprende logo quando o pai paga o bilhete.", en: "Civic-mindedness is not taught in a lesson, but a child learns it at once when a parent pays for the ticket." }, drill: { jp: "O civismo não se ensina numa aula", en: "Civic-mindedness is not taught in a lesson" }, accept: ["the civic-mindedness", "civic-mindedness", "public spirit", "good citizenship", "civic sense"], hint: "si-VEEZ-mu. Behaving as though the public thing were yours — not littering, queuing, paying the fare. Falta de civismo is a common Portuguese complaint, and the word is used more often in its absence than its presence." },
+      ],
+    },
   ],
 };

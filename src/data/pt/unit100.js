@@ -1,18 +1,101 @@
-// PT Unit 100 — Career and organisations (slot: work-career) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 100 — A organização por dentro (slot: work-career) — B2
+// ⚠ THIS SLOT WAS RETHEMED, AND THE REASON IS ON THE RECORD. The scaffold
+// stamped it "Career and organisations". Probed against the live corpus, 17 of
+// the 22 obvious career words for it were ALREADY TAUGHT — o cargo, o estágio,
+// a candidatura, o currículo, a carreira and o prazo at u24; o chefe, a empresa,
+// a reunião and a entrevista at u18; a chefia, o desempenho, delegar,
+// supervisionar and o procedimento at u56; o sindicato and o investimento at
+// u66; a competência at u85; a promoção at u27. Authoring "career" again here
+// is the Spanish B1 failure (three crews, ten duplicated themes, 159 cards
+// deleted). CLAUDE.md, "No front language": a scaffold's English slot title
+// names a SLOT, not a theme, and retheming is ordinary authoring.
+//
+// SO THIS UNIT TAKES WHAT THE CORPUS GENUINELY LACKS: how an organisation is
+// RUN from inside — who holds authority and on what basis, the administrative
+// machine, what the arrangement costs the people in it, and how it takes people
+// on and keeps them.
+//
+// SLOT BOUNDARIES: u93 owns the deal and the balance sheet, so nothing here is
+// commercial. u90 owns a hierarquia as a STRUCTURE, so this unit takes authority
+// as a HUMAN fact (a liderança, a cúpula, o subordinado) and does not re-teach
+// it. u99 owns a mobilidade and a ascensão socially, so ascender is deliberately
+// NOT carded here — one lexeme family, one place (§C4). u102/u103 (blocks 2/3)
+// own health systems and education, so neither is named.
+// Conventions: unit1.js header · B2 constitution §C1–C10: unit88.js header.
 export const PT_UNIT100 = {
   id: "pt-u100",
   lang: "pt",
-  title: "Career and organisations",
+  title: "A organização por dentro",
   order: 100,
   stage: "b2",
   lessons: [
-    { id: "pt-u100l1", title: "Lesson 1", locked: true },
-    { id: "pt-u100l2", title: "Lesson 2", locked: true },
-    { id: "pt-u100l3", title: "Lesson 3", locked: true },
-    { id: "pt-u100l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u100l1",
+      unit: 100,
+      lesson: 1,
+      title: "Quem decide",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Say who holds authority in Portuguese and on what basis — leadership, autonomy, the directive, merit, the indicator, the top.",
+      items: [
+        { id: "pt-u100l1-alideranca", type: "vocab", front: "a liderança", reading: "alideranca", meaning: "leadership", example: { jp: "A liderança da empresa muda três vezes em dois anos, mas o problema do princípio continua igual.", en: "The company's leadership changes three times in two years, but the original problem is still the same." }, drill: { jp: "A liderança da empresa muda três vezes", en: "The company's leadership changes three times" }, accept: ["the leadership", "leadership", "the leaders", "command", "top team"], hint: "li-de-RAN-sa, from o líder. Both the quality and the people who have it — a liderança decidiu means the leadership decided. A chefia (u56) is the formal rank; a liderança is whether anyone follows." },
+        { id: "pt-u100l1-aautonomia", type: "vocab", front: "a autonomia", reading: "aautonomia", meaning: "autonomy", example: { jp: "A autonomia da escola está no papel, mas cada decisão tem de esperar pelo governo.", en: "The school's autonomy is on paper, but every decision has to wait for the government." }, drill: { jp: "A autonomia da escola está no papel", en: "The school's autonomy is on paper" }, accept: ["the autonomy", "autonomy", "independence", "freedom to decide", "self-government"], hint: "au-tu-nu-MEE-a. The right to decide for yourself inside a larger body — which is exactly what u92's a autarquia is named for. Of a battery or a car it is the range: a autonomia deste carro é de 400 km." },
+        { id: "pt-u100l1-adiretriz", type: "vocab", front: "a diretriz", reading: "adiretriz", meaning: "directive", example: { jp: "A diretriz chega do centro sem nenhuma explicação, mas é o chefe da sala que tem de a aplicar.", en: "The directive comes from the centre with no explanation, but it is the team leader who has to apply it." }, drill: { jp: "A diretriz chega do centro sem explicação", en: "The directive comes from the centre with no explanation" }, accept: ["the directive", "directive", "guideline", "instruction from above", "policy line"], hint: "di-re-TREESH — pt-PT spells it diretriz with no c. An instruction that sets the line to follow without saying how. As diretrizes, plural, are the guidelines; uma diretiva is specifically an EU one." },
+        { id: "pt-u100l1-omerito", type: "vocab", front: "o mérito", reading: "omerito", meaning: "merit", example: { jp: "O mérito conta muito no papel da empresa, mas quem ganha mais é quase sempre quem já conhece o chefe.", en: "Merit counts for a lot in the company's written policy, but the people who earn more are nearly always the ones who already know the boss." }, drill: { jp: "O mérito conta muito no papel da empresa", en: "Merit counts for a lot in the company's policy" }, accept: ["the merit", "merit", "desert", "what someone deserves", "worth earned"], hint: "ME-ri-tu, stress on the first syllable. What someone has earned. Por mérito próprio means on one's own merits, and in Portuguese public life the word is contested exactly as in English: everyone claims the system runs on it." },
+        { id: "pt-u100l1-oindicador", type: "vocab", front: "o indicador", reading: "oindicador", meaning: "indicator", example: { jp: "O indicador da empresa é bom todos os anos, mas ninguém pergunta o que ele conta.", en: "The company's indicator is good every year, but nobody asks what it counts." }, drill: { jp: "O indicador da empresa é bom", en: "The company's indicator is good" }, accept: ["the indicator", "indicator", "metric", "the metric", "measure"], hint: "in-di-ka-DOR. The number a body watches to tell itself how it is doing — and the number people learn to move without changing anything. O dedo indicador is the index finger, the original pointing thing." },
+        { id: "pt-u100l1-acupula", type: "vocab", front: "a cúpula", reading: "acupula", meaning: "the top brass", example: { jp: "A cúpula da empresa decide tudo numa manhã, mas leva um ano a dizer isso a quem trabalha.", en: "The company's top brass decides everything in one morning, but takes a year to tell the people who do the work." }, drill: { jp: "A cúpula da empresa decide tudo", en: "The company's top brass decides everything" }, accept: ["the top brass", "top brass", "the leadership circle", "the top", "upper echelon"], hint: "KOO-pu-la, stress on the first syllable. Literally a dome — the small group right at the top of a building or an organisation. Uma cimeira, by contrast, is a summit MEETING between countries, which is a different word entirely." },
+      ],
+    },
+    {
+      id: "pt-u100l2",
+      unit: 100,
+      lesson: 2,
+      title: "A máquina administrativa",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Describe how an organisation moves paper in Portuguese — bureaucracy, the org chart, the procedural step, the day-to-day running, a restructuring, a vacancy.",
+      items: [
+        { id: "pt-u100l2-aburocracia", type: "vocab", front: "a burocracia", reading: "aburocracia", meaning: "bureaucracy", example: { jp: "A burocracia protege o cidadão de uma decisão difícil, mas também o protege de qualquer decisão.", en: "Bureaucracy protects the citizen from a hard decision, but it also protects them from any decision at all." }, drill: { jp: "A burocracia protege o cidadão", en: "Bureaucracy protects the citizen" }, accept: ["the bureaucracy", "bureaucracy", "red tape", "officialdom", "paperwork"], hint: "bu-ru-kra-SEE-a. Both the machine and the complaint about it. In Portugal it is a national sport to complain about it and a national skill to navigate it — and o funcionário who does so is not the same thing as a burocracia itself." },
+        { id: "pt-u100l2-oorganigrama", type: "vocab", front: "o organigrama", reading: "oorganigrama", meaning: "org chart", example: { jp: "O organigrama tem dez nomes, mas na prática há dois que decidem tudo.", en: "The org chart has ten names, but in practice there are two who decide everything." }, drill: { jp: "O organigrama tem dez nomes", en: "The org chart has ten names" }, accept: ["the org chart", "org chart", "organisation chart", "structure chart"], hint: "or-ga-ni-GRA-ma — another masculine -ma. The box-and-line drawing of who reports to whom. pt-PT writes organigrama; Brazil writes organograma, and both are understood everywhere." },
+        { id: "pt-u100l2-otramite", type: "vocab", front: "o trâmite", reading: "otramite", meaning: "procedural step", example: { jp: "O trâmite leva quatro anos, mas a decisão é tomada no primeiro dia.", en: "The procedural step takes four years, but the decision is taken on the first day." }, drill: { jp: "O trâmite leva quatro anos", en: "The procedural step takes four years" }, accept: ["the procedural step", "procedural step", "formality", "the process step", "channel"], hint: "TRA-mi-te, stress on the first syllable. One required stage in an official process. Almost always plural in use: seguir os trâmites normais, to go through the normal channels — the phrase a Portuguese counter clerk reaches for first." },
+        { id: "pt-u100l2-oexpediente", type: "vocab", front: "o expediente", reading: "oexpediente", meaning: "day-to-day running", example: { jp: "O expediente ocupa o dia todo do chefe, mas o plano do ano nunca chega a ser escrito.", en: "The day-to-day running takes up the boss's whole day, but the year's plan never gets written." }, drill: { jp: "O expediente ocupa o dia do chefe", en: "The day-to-day running takes up the boss's day" }, accept: ["the day-to-day running", "day-to-day running", "routine business", "office routine", "business hours"], hint: "esh-pe-di-EN-te. The ordinary running business of a place — and in Portugal also the opening hours themselves: horário de expediente. A third sense, um expediente, is a clever way round a problem." },
+        { id: "pt-u100l2-areestruturacao", type: "vocab", front: "a reestruturação", reading: "areestruturacao", meaning: "restructuring", example: { jp: "A reestruturação muda os nomes no organigrama, mas o trabalho de cada dia fica igual.", en: "The restructuring changes the names on the org chart, but the day's work stays the same." }, drill: { jp: "A reestruturação muda os nomes no organigrama", en: "The restructuring changes the names on the org chart" }, accept: ["the restructuring", "restructuring", "reorganisation", "shake-up", "overhaul"], hint: "rre-esh-tru-tu-ra-SOWN, from a estrutura (u58) — note the double e, which Portuguese writes out. In practice, in both languages, it is often the polite word for redundancies." },
+        { id: "pt-u100l2-avaga", type: "vocab", front: "a vaga", reading: "avaga", meaning: "vacancy", example: { jp: "A vaga está sem ninguém há um ano, mas a empresa quer pagar o mesmo de sempre.", en: "The vacancy has had nobody in it for a year, but the company wants to pay what it always has." }, drill: { jp: "A vaga está sem ninguém há um ano", en: "The vacancy has had nobody in it for a year" }, accept: ["the vacancy", "vacancy", "opening", "the opening", "free place"], hint: "VA-ga. An unfilled position, and also any free space — uma vaga no parque is a parking space, which is how most learners meet it in Portugal. Uma onda is a sea wave; uma vaga can be that too, in writing." },
+      ],
+    },
+    {
+      id: "pt-u100l3",
+      unit: 100,
+      lesson: 3,
+      title: "O que custa às pessoas",
+      cefr: "B2",
+      dominantMode: "produce",
+      canDo: "Name what the arrangement costs in Portuguese — overload, absence, churn, keeping people, output, the tie that binds them.",
+      items: [
+        { id: "pt-u100l3-asobrecarga", type: "vocab", front: "a sobrecarga", reading: "asobrecarga", meaning: "overload", example: { jp: "A sobrecarga não está em nenhum papel, mas a equipa trabalha três horas a mais por dia.", en: "The overload is not in any document, but the team works three hours more a day." }, drill: { jp: "A sobrecarga não está em nenhum papel", en: "The overload is not in any document" }, accept: ["the overload", "overload", "excessive workload", "strain", "overburden"], hint: "su-bre-KAR-ga, sobre plus a carga, the load. Of a person, a system or an electrical circuit. Estar em sobrecarga is what a Portuguese hospital or a power grid is said to be when it cannot take any more." },
+        { id: "pt-u100l3-oabsentismo", type: "vocab", front: "o absentismo", reading: "oabsentismo", meaning: "absenteeism", example: { jp: "O absentismo cresce no inverno, mas a empresa quer falar de doença e não de sobrecarga.", en: "Absenteeism grows in winter, but the company wants to talk about illness and not about overload." }, drill: { jp: "O absentismo da empresa é grande", en: "The company's absenteeism is high" }, accept: ["the absenteeism", "absenteeism", "absence rate", "staff absence"], hint: "ab-sen-TEEZ-mu — pt-PT writes absentismo; Brazil writes absenteísmo. The rate at which people are not there. Portuguese management writing treats it as a symptom rather than a cause, which is usually right." },
+        { id: "pt-u100l3-arotatividade", type: "vocab", front: "a rotatividade", reading: "arotatividade", meaning: "staff turnover", example: { jp: "A rotatividade é grande nas lojas, mas o preço de formar uma pessoa nunca entra na conta.", en: "Turnover is high in the shops, but the cost of training a person never enters the calculation." }, drill: { jp: "A rotatividade é grande nas lojas", en: "Turnover is high in the shops" }, accept: ["the staff turnover", "staff turnover", "turnover", "churn", "rate of leaving"], hint: "rru-ta-ti-vi-DA-de, from rodar, to turn. How fast people come and go. Do not translate it as o volume de negócios, which is the money sense of the English word 'turnover' — Portuguese keeps the two strictly apart." },
+        { id: "pt-u100l3-aretencao", type: "vocab", front: "a retenção", reading: "aretencao", meaning: "retention", example: { jp: "A retenção melhora quando o chefe muda, mas a empresa escreve isso como mérito do plano novo.", en: "Retention improves when the boss changes, but the company writes that up as the merit of the new plan." }, drill: { jp: "A retenção melhora quando o chefe muda", en: "Retention improves when the boss changes" }, accept: ["the retention", "retention", "keeping staff", "holding on to people"], hint: "rre-ten-SOWN, from reter, to hold back. Keeping the people you have — the mirror of a rotatividade. In a Portuguese payslip, retenção na fonte is tax withheld at source, which is the same verb holding money instead of people." },
+        { id: "pt-u100l3-aprodutividade", type: "vocab", front: "a produtividade", reading: "aprodutividade", meaning: "productivity", example: { jp: "A produtividade do país não é grande, mas as horas de trabalho são das maiores da Europa.", en: "The country's productivity is not great, but its working hours are among the longest in Europe." }, drill: { jp: "A produtividade do país não é grande", en: "The country's productivity is not great" }, accept: ["the productivity", "productivity", "output per hour", "efficiency"], hint: "pru-du-ti-vi-DA-de. Output against the time and money put in — not how hard anyone works, which is the confusion the word exists to expose. It is the single most-argued number in Portuguese economic writing." },
+        { id: "pt-u100l3-ovinculo", type: "vocab", front: "o vínculo", reading: "ovinculo", meaning: "contractual tie", example: { jp: "O vínculo à empresa acaba em junho, mas o trabalho continua igual depois disso.", en: "The contractual tie to the company ends in June, but the work carries on the same afterwards." }, drill: { jp: "O vínculo à empresa acaba em junho", en: "The contractual tie to the company ends in June" }, accept: ["the contractual tie", "contractual tie", "employment tie", "bond", "formal link"], hint: "VEEN-ku-lu, stress on the first syllable. The formal link between a person and an institution. Vínculo laboral is the employment relationship; sem vínculo is the position a great many Portuguese workers are in, and the word is politically loaded because of it." },
+      ],
+    },
+    {
+      id: "pt-u100l4",
+      unit: 100,
+      lesson: 4,
+      title: "Entrar e ficar",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Talk about joining and staying in Portuguese — recruitment, the staff member, pay, the incentive, coordination, the person below you.",
+      items: [
+        { id: "pt-u100l4-orecrutamento", type: "vocab", front: "o recrutamento", reading: "orecrutamento", meaning: "recruitment", example: { jp: "O recrutamento demora um ano, mas a vaga tem de ter alguém em janeiro.", en: "Recruitment takes a year, but the vacancy has to have somebody in it by January." }, drill: { jp: "O recrutamento demora um ano", en: "Recruitment takes a year" }, accept: ["the recruitment", "recruitment", "hiring", "taking people on", "intake"], hint: "rre-kru-ta-MEN-tu, from recrutar. Taking people on, in a company or an army — the military sense is the older one and is still live. A candidatura (u24) is what the applicant does; o recrutamento is what the organisation does." },
+        { id: "pt-u100l4-ocolaborador", type: "vocab", front: "o colaborador", reading: "ocolaborador", meaning: "staff member", example: { jp: "O colaborador tem um nome bonito na empresa, mas quem assina o contrato continua a ser o chefe.", en: "The staff member has a fine name at the company, but the person signing the contract is still the boss." }, drill: { jp: "O colaborador tem um nome bonito", en: "The staff member has a fine name" }, accept: ["the staff member", "staff member", "employee", "team member", "collaborator"], hint: "ku-la-bu-ra-DOR. The word Portuguese companies use instead of o empregado, and the softening is the point — it says partner while the contract says employee. In a historical text it means a wartime collaborator, so context matters." },
+        { id: "pt-u100l4-aremuneracao", type: "vocab", front: "a remuneração", reading: "aremuneracao", meaning: "remuneration", example: { jp: "A remuneração é igual para a equipa, mas o trabalho de cada pessoa não é nada igual.", en: "Remuneration is the same for the team, but each person's work is not the same at all." }, drill: { jp: "A remuneração é igual para a equipa", en: "Remuneration is the same for the team" }, accept: ["the remuneration", "remuneration", "pay", "compensation", "total pay"], hint: "rre-mu-ne-ra-SOWN. The formal word for everything someone is paid, not only o salário — it covers bonuses, subsídios and the rest. A Portuguese contract says remuneração; a Portuguese person says o ordenado." },
+        { id: "pt-u100l4-oincentivo", type: "vocab", front: "o incentivo", reading: "oincentivo", meaning: "incentive", example: { jp: "O incentivo é bom para quem vende muito, mas a loja fica pior para quem trabalha.", en: "The incentive is good for whoever sells a lot, but the shop gets worse for whoever works there." }, drill: { jp: "O incentivo é bom para quem vende muito", en: "The incentive is good for whoever sells a lot" }, accept: ["the incentive", "incentive", "inducement", "reward scheme", "spur"], hint: "in-sen-TEE-vu. Something set up to make a behaviour more likely — money, time off, a rule. Incentivos fiscais are tax breaks, and Portuguese economic writing uses the word exactly as English does." },
+        { id: "pt-u100l4-acoordenacao", type: "vocab", front: "a coordenação", reading: "acoordenacao", meaning: "coordination", example: { jp: "A coordenação entre as equipas é boa numa reunião, mas o trabalho é feito outra vez.", en: "Coordination between the teams is good in a meeting, but the work gets done twice over." }, drill: { jp: "A coordenação entre as equipas é boa", en: "Coordination between the teams is good" }, accept: ["the coordination", "coordination", "joint working", "alignment", "liaison"], hint: "ku-or-de-na-SOWN. Getting separate parts to act as one, which u90's a interação describes and this names as a job someone has to do. A coordenação, with an article, is often the people doing it: a coordenação decidiu." },
+        { id: "pt-u100l4-osubordinado", type: "vocab", front: "o subordinado", reading: "osubordinado", meaning: "subordinate", example: { jp: "O subordinado conhece o problema primeiro, mas a diretriz chega sempre do centro.", en: "The subordinate knows the problem first, but the directive always comes from the centre." }, drill: { jp: "O subordinado conhece o problema primeiro", en: "The subordinate knows the problem first" }, accept: ["the subordinate", "subordinate", "the person below", "junior", "report"], hint: "su-bor-di-NA-du, from ordenar. The person below you in the line. Portuguese uses it more readily than English, which prefers 'my team'. As an adjective in grammar it is the subordinate clause: uma oração subordinada." },
+      ],
+    },
   ],
 };

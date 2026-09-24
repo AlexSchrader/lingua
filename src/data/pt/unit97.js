@@ -1,18 +1,93 @@
-// PT Unit 97 — Ethics and responsibility (slot: ethics) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// PT Unit 97 — A ética e a responsabilidade (slot: ethics) — B2
+// THE VOCABULARY FOR JUDGING CONDUCT. The corpus has the feelings and the
+// obligations already — u32 o dever and o direito, u57 a culpa, a vergonha,
+// u62 a intenção, o compromisso, u61 o abuso, u68 o preconceito, u47 denunciar,
+// u40 a verdade and a mentira, u85 o rigor. None re-taught. What it cannot do
+// is hold a position: say a choice was legitimate or improper, name the thing
+// that was covered up, or distinguish loyalty from hypocrisy.
+//
+// SLOT BOUNDARIES: u92 owns crime and the courts, so nothing here is a legal
+// term — a impunidade is carded as a social fact, not a legal one. u99 owns
+// society and belonging, so discriminar is carded here for the ACT and the
+// structures are left to that unit. u100 owns how an organisation is run, so
+// the office-politics reading of a lealdade is deliberately left thin here.
+// a moral is a noun, feminine, glossed "morality"; o moral (masculine) is morale
+// and is NOT taught — the hint says so rather than spending a second card.
+// Conventions: unit1.js header · B2 constitution §C1–C10: unit88.js header.
 export const PT_UNIT97 = {
   id: "pt-u97",
   lang: "pt",
-  title: "Ethics and responsibility",
+  title: "A ética e a responsabilidade",
   order: 97,
   stage: "b2",
   lessons: [
-    { id: "pt-u97l1", title: "Lesson 1", locked: true },
-    { id: "pt-u97l2", title: "Lesson 2", locked: true },
-    { id: "pt-u97l3", title: "Lesson 3", locked: true },
-    { id: "pt-u97l4", title: "Lesson 4", locked: true },
+    {
+      id: "pt-u97l1",
+      unit: 97,
+      lesson: 1,
+      title: "O que se deve",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Name the standards people are held to in Portuguese — ethics, morality, virtue, dignity, conscience, integrity.",
+      items: [
+        { id: "pt-u97l1-aetica", type: "vocab", front: "a ética", reading: "aetica", meaning: "ethics", example: { jp: "A ética do jornal é simples no papel, mas o dinheiro chega de quem ele devia estudar.", en: "The newspaper's ethics are simple on paper, but the money arrives from the people it ought to be scrutinising." }, drill: { jp: "A ética do jornal está no papel", en: "The newspaper's ethics are on paper" }, accept: ["the ethics", "ethics", "code of conduct", "professional ethics"], hint: "E-ti-ka, stress on the first syllable. The rules a profession or a person works to — closer to a written code than a moral is. Um comité de ética is the body that says yes or no to a study." },
+        { id: "pt-u97l1-amoral", type: "vocab", front: "a moral", reading: "amoral", meaning: "morality", example: { jp: "A moral do povo muda com os anos, mas a lei leva muito tempo a mudar também.", en: "A people's morality changes over the years, but the law takes a long time to change too." }, drill: { jp: "A moral do povo muda com os anos", en: "A people's morality changes over the years" }, accept: ["the morality", "morality", "morals", "moral sense", "moral code"], hint: "mu-RAL. Watch the gender, because it changes the word: A moral is morality, and also the moral of a story. O moral, masculine, is morale — o moral da equipa está em baixo. Same spelling, two nouns." },
+        { id: "pt-u97l1-avirtude", type: "vocab", front: "a virtude", reading: "avirtude", meaning: "virtue", example: { jp: "A virtude do chefe é ouvir todos, mas isso faz a reunião durar três horas.", en: "The boss's virtue is listening to everybody, but that makes the meeting last three hours." }, drill: { jp: "A virtude do chefe é ouvir", en: "The boss's virtue is listening" }, accept: ["the virtue", "virtue", "good quality", "strength", "merit"], hint: "vir-TOO-de. A good quality in a person, and by extension in a thing — as virtudes deste plano. Em virtude de is a fixed formal connector meaning 'by virtue of', which you will meet in official Portuguese far more often than the plain noun." },
+        { id: "pt-u97l1-adignidade", type: "vocab", front: "a dignidade", reading: "adignidade", meaning: "dignity", example: { jp: "A dignidade do trabalho não está no dinheiro, mas quem ganha pouco tem de ouvir isso todos os dias.", en: "The dignity of work is not in the money, but people who earn little have to hear that every day." }, drill: { jp: "A dignidade do trabalho não está no dinheiro", en: "The dignity of work is not in the money" }, accept: ["the dignity", "dignity", "worth", "self-respect", "standing"], hint: "dig-ni-DA-de. The worth a person has simply by being one. The Portuguese constitution opens on it — a dignidade da pessoa humana — so in political argument it is the heaviest word available." },
+        { id: "pt-u97l1-aconsciencia", type: "vocab", front: "a consciência", reading: "aconsciencia", meaning: "conscience", example: { jp: "A consciência do médico não o deixa dormir, mas a lei diz que ele fez tudo certo.", en: "The doctor's conscience will not let him sleep, but the law says he did everything right." }, drill: { jp: "A consciência do médico não o deixa dormir", en: "The doctor's conscience will not let him sleep" }, accept: ["the conscience", "conscience", "awareness", "consciousness", "sense of right"], hint: "konsh-si-EN-sya. Two jobs at once: conscience, and consciousness — perder a consciência is to pass out. Ter a consciência pesada is to have a heavy conscience, which is the same picture English draws." },
+        { id: "pt-u97l1-aintegridade", type: "vocab", front: "a integridade", reading: "aintegridade", meaning: "integrity", example: { jp: "A integridade do juiz nunca esteve em causa, mas a família dele trabalha para a empresa.", en: "The judge's integrity was never in question, but his family works for the company." }, drill: { jp: "A integridade do juiz nunca esteve em causa", en: "The judge's integrity was never in question" }, accept: ["the integrity", "integrity", "uprightness", "honesty", "wholeness"], hint: "in-te-gri-DA-de. Being whole and undivided, which is the same idea in both senses — a person who cannot be bought, and a structure that has not cracked: a integridade do edifício." },
+      ],
+    },
+    {
+      id: "pt-u97l2",
+      unit: 97,
+      lesson: 2,
+      title: "Sem resposta boa",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Weigh a hard choice in Portuguese — the dilemma, what is legitimate, what is improper, and who is impartial.",
+      items: [
+        { id: "pt-u97l2-odilema", type: "vocab", front: "o dilema", reading: "odilema", meaning: "dilemma", example: { jp: "O dilema do médico é simples de dizer, mas não tem nenhuma resposta boa.", en: "The doctor's dilemma is simple to state, but it has no good answer." }, drill: { jp: "O dilema do médico não tem resposta", en: "The doctor's dilemma has no answer" }, accept: ["the dilemma", "dilemma", "hard choice", "impasse", "bind"], hint: "di-LE-ma — another masculine -ema, like o sistema and o problema. Strictly two options both of which cost something. Portuguese, like English, uses it loosely for any hard decision, and a careful writer does not." },
+        { id: "pt-u97l2-legitimo", type: "vocab", front: "legítimo", reading: "legitimo", meaning: "legitimate", example: { jp: "O medo do povo é legítimo, mas a resposta do governo não vai resolver nada.", en: "The people's fear is legitimate, but the government's answer is not going to solve anything." }, drill: { jp: "O medo do povo é legítimo", en: "The people's fear is legitimate" }, accept: ["legitimate", "justified", "rightful", "fair", "valid"], hint: "le-JEE-ti-mu. Two layers: lawful, and morally defensible. Portuguese leans on the second more than English does — uma dúvida legítima is a reasonable doubt, nothing to do with law. Legítima defesa is self-defence." },
+        { id: "pt-u97l2-indevido", type: "vocab", front: "indevido", reading: "indevido", meaning: "improper", example: { jp: "O preço é indevido, mas a empresa continua a fazer contas ao cliente todos os anos.", en: "The price is improper, but the company keeps billing the customer every year." }, drill: { jp: "O preço ao cliente é indevido", en: "The price to the customer is improper" }, accept: ["improper", "undue", "unwarranted", "not owed", "wrongful"], hint: "in-de-VEE-du — literally not owed, from dever (u32). Of money, of use, of pressure. Uso indevido is misuse; a cobrança indevida is the wrongful charge every Portuguese consumer complaint begins with." },
+        { id: "pt-u97l2-imparcial", type: "vocab", front: "imparcial", reading: "imparcial", meaning: "impartial", example: { jp: "O relato quer ser imparcial, mas quem o escreve trabalha para uma das partes.", en: "The account tries to be impartial, but the person writing it works for one of the parties." }, drill: { jp: "O relato do jornal quer ser imparcial", en: "The newspaper's account tries to be impartial" }, accept: ["impartial", "unbiased", "even-handed", "neutral", "disinterested"], hint: "im-par-si-AL, the opposite of parcial — and u91's parcialmente hides the same trap: parcial means both partial-in-amount and partial-in-favour. Only imparcial is unambiguous, which is why formal Portuguese prefers it." },
+        { id: "pt-u97l2-aequidade", type: "vocab", front: "a equidade", reading: "aequidade", meaning: "fairness", example: { jp: "A equidade não é o mesmo para todos, mas explicar isso numa reunião é difícil.", en: "Fairness is not the same thing for everybody, but explaining that in a meeting is hard." }, drill: { jp: "A equidade não é o mesmo para todos", en: "Fairness is not the same thing for everybody" }, accept: ["the fairness", "fairness", "equity", "even-handedness", "justice in the case"], hint: "e-kwi-DA-de. Giving each what the case calls for, as against a igualdade, which gives everyone the same. Portuguese keeps the two words apart carefully, and most arguments about policy are really about which one is meant." },
+        { id: "pt-u97l2-integro", type: "vocab", front: "íntegro", reading: "integro", meaning: "upright", example: { jp: "O chefe é íntegro, mas isso não chega quando a empresa à volta faz o contrário.", en: "The boss is upright, but that is not enough when the company around him does the opposite." }, drill: { jp: "O chefe da empresa é íntegro", en: "The company's boss is upright" }, accept: ["upright", "honest", "of integrity", "principled", "straight"], hint: "EEN-te-gru, stress on the first syllable. The adjective of a integridade, and used of PEOPLE — a person who does not bend. Do not confuse it with inteiro, whole, which is the same Latin root gone down another road." },
+      ],
+    },
+    {
+      id: "pt-u97l3",
+      unit: 97,
+      lesson: 3,
+      title: "O dano e quem o esconde",
+      cefr: "B2",
+      dominantMode: "produce",
+      canDo: "Name a wrong and its covering-up in Portuguese — harming, covering up, failing to act, corrupting, impunity, confidentiality.",
+      items: [
+        { id: "pt-u97l3-prejudicar", type: "vocab", front: "prejudicar", reading: "prejudicar", meaning: "to harm", example: { jp: "A regra quer proteger o cliente, mas vai prejudicar as lojas do campo.", en: "The rule wants to protect the customer, but it is going to harm country shops." }, drill: { jp: "A regra vai prejudicar as lojas do campo", en: "The rule is going to harm the country shops" }, accept: ["to harm", "harm", "to damage", "damage", "to hurt", "to disadvantage"], hint: "pre-ju-di-KAR, from o prejuízo (u45), the loss. Of interests rather than of bodies — you prejudicar someone's chances, not their leg. Sem prejuízo de is a legal formula meaning 'without affecting'." },
+        { id: "pt-u97l3-encobrir", type: "vocab", front: "encobrir", reading: "encobrir", meaning: "to cover up", example: { jp: "A empresa não quer encobrir nada, mas o relato apenas chega ao público dois anos depois.", en: "The company says it does not want to cover anything up, but the account reaches the public only two years later." }, drill: { jp: "A empresa não quer encobrir nada", en: "The company does not want to cover anything up" }, accept: ["to cover up", "cover up", "to conceal", "conceal", "to hush up"], hint: "en-ku-BREER, from cobrir. To hide something that ought to be known — a fault, a crime, a person. Esconder is hiding an object; encobrir is hiding a truth, and only the second is an accusation." },
+        { id: "pt-u97l3-aomissao", type: "vocab", front: "a omissão", reading: "aomissao", meaning: "failure to act", example: { jp: "A omissão do governo custa mais do que qualquer decisão, mas ninguém a escreve num papel.", en: "The government's failure to act costs more than any decision, but nobody writes it down on paper." }, drill: { jp: "A omissão do governo custa muito dinheiro", en: "The government's failure to act costs a lot of money" }, accept: ["the failure to act", "failure to act", "omission", "inaction", "leaving it out"], hint: "u-mi-SSOWN. Two senses that matter: something left out of a text, and something one had a duty to do and did not. Por omissão means by default in the computing sense, and by failure to act in the legal one." },
+        { id: "pt-u97l3-corromper", type: "vocab", front: "corromper", reading: "corromper", meaning: "to corrupt", example: { jp: "O dinheiro não corrompe todos, mas basta corromper quem assina o papel.", en: "Money does not corrupt everybody, but it is enough to corrupt whoever signs the document." }, drill: { jp: "Basta corromper quem assina o papel", en: "It is enough to corrupt whoever signs the document" }, accept: ["to corrupt", "corrupt", "to bribe", "bribe", "to spoil"], hint: "ku-rrom-PER, from romper, to break. To break someone's integrity with money or favours. Um ficheiro corrompido is a corrupted file, so the word covers people and data with the same idea of something broken from inside." },
+        { id: "pt-u97l3-aimpunidade", type: "vocab", front: "a impunidade", reading: "aimpunidade", meaning: "impunity", example: { jp: "A impunidade é o problema maior, porque quem faz mal uma vez aprende que pode fazer outra.", en: "Impunity is the bigger problem, because someone who does wrong once learns they can do it again." }, drill: { jp: "A impunidade é o problema maior do país", en: "Impunity is the country's bigger problem" }, accept: ["the impunity", "impunity", "getting away with it", "freedom from punishment"], hint: "im-pu-ni-DA-de — from a pena (u92) via the negative. Not a legal term but a social fact: the state of not being punished. Com toda a impunidade means completely unchecked." },
+        { id: "pt-u97l3-osigilo", type: "vocab", front: "o sigilo", reading: "osigilo", meaning: "confidentiality", example: { jp: "O sigilo do médico protege o doente, mas às vezes protege também quem lhe fez mal.", en: "A doctor's confidentiality protects the patient, but sometimes it also protects whoever harmed them." }, drill: { jp: "O sigilo do médico protege o doente", en: "The doctor's confidentiality protects the patient" }, accept: ["the confidentiality", "confidentiality", "secrecy", "professional secrecy", "privilege"], hint: "si-JEE-lu. The duty to keep something private — o sigilo médico, o sigilo bancário, o sigilo profissional. Um segredo is the thing itself; o sigilo is the obligation not to tell it." },
+      ],
+    },
+    {
+      id: "pt-u97l4",
+      unit: 97,
+      lesson: 4,
+      title: "O que fica",
+      cefr: "B2",
+      dominantMode: "recall",
+      canDo: "Judge how someone behaved in Portuguese — transparency, loyalty, hypocrisy, remorse, scruple, and discriminating against people.",
+      items: [
+        { id: "pt-u97l4-atransparencia", type: "vocab", front: "a transparência", reading: "atransparencia", meaning: "transparency", example: { jp: "A transparência das contas é boa para todos, mas quem as escreve quer o contrário.", en: "Transparency in the accounts is good for everybody, but the people who write them want the opposite." }, drill: { jp: "A transparência das contas é boa", en: "Transparency in the accounts is good" }, accept: ["the transparency", "transparency", "openness", "being open", "clarity"], hint: "trans-pa-REN-sya. Of institutions and accounts, and also literally of glass. Portuguese public life uses it as the standard against which u97l3's encobrir is measured, so the two are natural opposites." },
+        { id: "pt-u97l4-alealdade", type: "vocab", front: "a lealdade", reading: "alealdade", meaning: "loyalty", example: { jp: "A lealdade ao chefe é boa, mas não quando obriga a mentir ao cliente.", en: "Loyalty to the boss is a good thing, but not when it requires lying to the customer." }, drill: { jp: "A lealdade ao chefe obriga a mentir", en: "Loyalty to the boss requires lying" }, accept: ["the loyalty", "loyalty", "faithfulness", "allegiance", "fidelity"], hint: "le-al-DA-de, from leal. To a person, a country or a company. Concorrência desleal, unfair competition, is the negative you will meet on a Portuguese business page — dis-loyal rather than merely unfair." },
+        { id: "pt-u97l4-ahipocrisia", type: "vocab", front: "a hipocrisia", reading: "ahipocrisia", meaning: "hypocrisy", example: { jp: "A hipocrisia do governo é grande, porque quer do povo o que ele mesmo nunca faz.", en: "The government's hypocrisy is great, because it wants of the people what it never does itself." }, drill: { jp: "A hipocrisia do governo é grande", en: "The government's hypocrisy is great" }, accept: ["the hypocrisy", "hypocrisy", "double standard", "two-facedness"], hint: "i-pu-kri-ZEE-a — the h is silent, as it always is in Portuguese. The gap between what someone demands and what they do. Um hipócrita is the person; the Greek root means an actor, which is the whole accusation in one word." },
+        { id: "pt-u97l4-oremorso", type: "vocab", front: "o remorso", reading: "oremorso", meaning: "remorse", example: { jp: "O remorso chega anos depois, mas já não muda nada para quem paga a conta.", en: "The remorse comes years later, but it changes nothing any more for the person paying the bill." }, drill: { jp: "O remorso do chefe chega anos depois", en: "The boss's remorse comes years later" }, accept: ["the remorse", "remorse", "regret", "pangs of conscience", "guilt felt"], hint: "rre-MOR-su — from the Latin for biting again, which is exactly the picture. Heavier than o arrependimento, regret: remorso is what a consciência (this unit) does to you when you already know it is too late." },
+        { id: "pt-u97l4-oescrupulo", type: "vocab", front: "o escrúpulo", reading: "oescrupulo", meaning: "scruple", example: { jp: "O escrúpulo do chefe é muito pequeno, mas ninguém na empresa quer saber disso.", en: "The boss's scruple is very small, but nobody at the company wants to know about it." }, drill: { jp: "O escrúpulo do chefe é muito pequeno", en: "The boss's scruple is very small" }, accept: ["the scruple", "scruple", "qualm", "misgiving", "moral hesitation"], hint: "esh-KROO-pu-lu, stress on the second syllable. Latin for a small sharp stone in your shoe. Almost always used in the negative — sem escrúpulos — which tells you Portuguese notices the absence more than the presence." },
+        { id: "pt-u97l4-discriminar", type: "vocab", front: "discriminar", reading: "discriminar", meaning: "to discriminate", example: { jp: "A regra não quer discriminar ninguém, mas na prática deixa de fora quem vive longe da cidade.", en: "The rule does not intend to discriminate against anyone, but in practice it leaves out people living far from the city." }, drill: { jp: "A regra não quer discriminar ninguém", en: "The rule does not intend to discriminate against anyone" }, accept: ["to discriminate", "discriminate", "to treat unequally", "to single out", "to itemise"], hint: "dish-kri-mi-NAR. Careful, because Portuguese keeps the neutral sense alive too: discriminar as despesas is to itemise the expenses, with nothing wrong about it. The social sense is the common one, and context always says which." },
+      ],
+    },
   ],
 };
