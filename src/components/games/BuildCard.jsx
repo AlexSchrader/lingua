@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { C, F, headwordSize, headwordWrap } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
 import { useStore } from "../../store/useStore.js";
@@ -28,6 +28,25 @@ export default function BuildCard({ item, onGraded }) {
   const assembled = picked.map((i) => tiles[i]).join("");
   const correct = assembled === target;
   const full = picked.length === tiles.length;
+
+  // Test hook: assemble the correct order without tapping, mirroring SentenceCard
+  // and ConjugateCard. The tiles are SHUFFLED, so a smoke that taps them in DOM
+  // order builds a scrambled reading and grades `again` — which is fine for a
+  // coverage sweep and useless anywhere the SCORE is the thing under test (the
+  // band-exam smoke). Test-only; nothing in the app calls it.
+  useEffect(() => {
+    window.__build = {
+      solve: () => {
+        const used = [];
+        for (const ch of target.split("")) {
+          const i = tiles.findIndex((t, idx) => t === ch && !used.includes(idx));
+          if (i >= 0) used.push(i);
+        }
+        setPicked(used);
+      },
+    };
+    return () => { delete window.__build; };
+  }, [target, tiles]);
 
   // A wrong full assembly gets one free retry (auto-cleared to rebuild) instead of
   // hard-failing on the first slip — parity with TypeCard. A correct build after a

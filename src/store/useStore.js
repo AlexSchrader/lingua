@@ -6,6 +6,7 @@ import { nextRung, isReviewable } from "./mastery.js";
 import { migrateState, PERSIST_VERSION } from "./migrate.js";
 import { matchesDevCode } from "./dev.js";
 import { earnedMilestones, milestoneCatalog } from "../data/milestones.js";
+import { EXAM_PASS_PCT, parseExamId } from "./exams.js";
 import { CEFR_ORDER, cefrLevelReached, levelRank } from "./levels.js";
 import { persistKey } from "./preview.js";
 import { slimItems } from "./sync.js";
@@ -304,6 +305,18 @@ export const useStore = create(
       // (forgetting a word later must never take a milestone back). Grows via
       // reconcileMilestones; persisted so it survives a lapse. See data/milestones.js.
       milestonesEarned: [],
+      // Band-exam + half-band-check records. See store/exams.js and
+      // docs/shipped/BUILD-BRIEF-exams.md.
+      //   band exam   -> { bestPct, lastTaken, attempts }
+      //   half-check  -> { lastTaken }   and NOTHING ELSE (D3: a check has no
+      //                   threshold, so there is no result to keep)
+      // NO PERSIST BUMP WAS NEEDED FOR THIS KEY, and none was done. `merge` below
+      // starts from `current` (the fresh defaults) and overlays persisted state,
+      // so an existing save that has never heard of `exams` simply keeps this
+      // default — there is nothing for a migration to do. A persist bump is a
+      // CLAUDE.md "check in before" item and the only user with real progress is
+      // Alex; an unnecessary one is pure risk.
+      exams: {},
       // Transient (never persisted): the most-recent newly-earned milestone, shown
       // as a one-time toast then cleared.
       milestoneToast: null,
@@ -479,7 +492,7 @@ export const useStore = create(
             if (items[id]) items[id] = { ...items[id], rung: it.rung ?? items[id].rung, srs: it.srs ?? items[id].srs };
           }
           const next = { items, lastModified: Date.now(), resetAt: Number(blob?.resetAt) || s.resetAt || 0 };
-          for (const k of ["languages", "streak", "stats", "daily", "devMode", "settings", "profile", "milestonesEarned"]) {
+          for (const k of ["languages", "streak", "stats", "daily", "devMode", "settings", "profile", "milestonesEarned", "exams"]) {
             if (blob[k] !== undefined) next[k] = blob[k];
           }
           // `profile` is replaced wholesale, so a blob written by an older build
@@ -637,7 +650,10 @@ export const useStore = create(
       // boot/sync we backfill SILENTLY so existing progress never floods the screen.
       reconcileMilestones: ({ toast = false } = {}) => {
         set((s) => {
-          const earned = earnedMilestones(s.items);
+          // `exams` rides along because the exam-VERIFIED milestones (D2) are
+          // satisfied by a passed paper, not by item rungs. Every other milestone
+          // ignores the second argument, so nothing else changes shape.
+          const earned = earnedMilestones(s.items, s.exams);
           const prev = new Set(s.milestonesEarned ?? []);
           const fresh = earned.filter((id) => !prev.has(id));
           if (fresh.length === 0) return s;
@@ -650,6 +666,61 @@ export const useStore = create(
         });
       },
       dismissMilestoneToast: () => set({ milestoneToast: null }),
+
+      // --- Band exams & half-band checks ---------------------------------------
+      // The ONLY writer an exam run has. Everything the run itself does happens
+      // against a throwaway items map with every store writer no-op'd (see
+      // Exam.jsx + dev.js buildExamSandbox), so no exam answer can ever reach
+      // FSRS or a mastery rung. This records the OUTCOME, and nothing else.
+      //
+      // Nothing here may ever lower anything (the brief's whole stance):
+      //   * bestPct is a max, so a worse retake cannot take a pass away;
+      //   * a half-check stores a DATE ONLY — no pct, no attempts, no pass/fail,
+      //     because D3 gave it no threshold to be measured against;
+      //   * the verified milestone is earned-once via reconcileMilestones, which
+      //     unions and never revokes.
+      recordExam: (id, { pct = 0 } = {}) => {
+        const meta = parseExamId(id);
+        if (!meta) return;
+        const at = Date.now();
+        set((s) => {
+          const prev = s.exams?.[id] ?? {};
+          const rec =
+            meta.kind === "check"
+              ? { lastTaken: at }
+              : {
+                  bestPct: Math.max(Number(prev.bestPct) || 0, Math.round(pct)),
+                  lastTaken: at,
+                  attempts: (Number(prev.attempts) || 0) + 1,
+                };
+          return { exams: { ...(s.exams ?? {}), [id]: rec }, lastModified: at };
+        });
+        // A passed band exam earns `level-<band>-verified` (D2) — a SEPARATE
+        // signal from `level-<band>`, which still means "content covered".
+        if (meta.kind === "exam" && pct >= EXAM_PASS_PCT) {
+          get().reconcileMilestones({ toast: true });
+          get().markImportantChange("Exam passed");
+        }
+      },
+
+      // "Practice the shaky ones" — the one place in this feature that writes real
+      // progress, and it does so only when the learner TAPS it. The exam itself
+      // recorded nothing about these items; this queues them into the existing
+      // mistake list so `/review?fix=1` serves them as an ordinary study session,
+      // which does write SRS because it is real study. A diagnostic that leaves you
+      // holding a number with no next action is the thing to avoid.
+      queuePractice: (ids = []) => {
+        set((s) => {
+          const items = s.items ?? {};
+          // Only items the learner has actually been taught (rung ≥ 1) — the fix
+          // queue filters on exactly that, and an untaught word is a LESSON's job,
+          // not a practice session's.
+          const usable = ids.filter((id) => (items[id]?.rung ?? 0) >= 1);
+          if (!usable.length) return s;
+          const prev = (s.mistakes ?? []).filter((m) => !usable.includes(m));
+          return { mistakes: [...prev, ...usable].slice(-MISTAKES_CAP) };
+        });
+      },
 
       // A review session finished. Two records, because one boolean cannot answer
       // both questions the UI asks:
@@ -917,6 +988,7 @@ export const useStore = create(
           daily: { date: todayISO(), reviewsCleared: false, lessonDone: false, clearedLangs: [] },
           mistakes: [],
           milestonesEarned: [],
+          exams: {},
           milestoneToast: null,
           ui: {},
         });
@@ -1020,6 +1092,7 @@ export const useStore = create(
         daily: s.daily,
         mistakes: s.mistakes,
         milestonesEarned: s.milestonesEarned,
+        exams: s.exams,
         devMode: s.devMode,
         settings: s.settings,
         profile: s.profile,

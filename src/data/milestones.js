@@ -14,6 +14,7 @@
 import { UNITS } from "./index.js";
 import { langName } from "./languages.js";
 import { isMastered, isReviewable } from "../store/mastery.js";
+import { isVerified, verifiedMilestoneId } from "../store/exams.js";
 
 const CEFR_ORDER = { A1: 0, A2: 1, B1: 2, B2: 3 };
 
@@ -69,6 +70,18 @@ const badgeFor = (id) => `/milestones/${id}.png`;
 // milestonesForLangs.
 function threshold({ id, family, label, blurb, need, count, lang = null }) {
   return { id, family, label, blurb, lang, image: badgeFor(id), progress: (items) => ({ have: count(items), need }) };
+}
+// A milestone earned by PASSING A BAND EXAM rather than by item state. It reads
+// the second `progress` argument — the store's `exams` slice — which every other
+// milestone here ignores. See store/exams.js and docs/shipped/BUILD-BRIEF-exams.md:
+// this ADDS to `level-<band>` (content covered), it does not replace it, because
+// "I have seen all of A1" and "I can do A1" are two different true statements, and
+// one ambiguous signal was worse than two honest ones (D2, settled 2026-09-24).
+function verified({ id, label, blurb, lang, band }) {
+  return {
+    id, family: "verified", label, blurb, lang, image: badgeFor(id),
+    progress: (_items, exams) => ({ have: isVerified(exams, lang, band) ? 1 : 0, need: 1 }),
+  };
 }
 function completeAll({ id, family, label, blurb, defs, lang = null }) {
   return { id, family, label, blurb, lang, image: badgeFor(id), progress: (items) => ({ have: countRead(items, defs), need: defs.length }) };
@@ -146,6 +159,19 @@ export function milestoneCatalog() {
             lang,
           })
         );
+      // ...and the exam-VERIFIED twin of the same band. Offered, never required:
+      // a learner who never takes an exam loses nothing but this badge, and a
+      // failed exam locks nothing at all (D1 — an exam certifies, it never gates).
+      if (bandDefs.length)
+        list.push(
+          verified({
+            id: verifiedMilestoneId(lang, band),
+            label: `${langName(lang)} ${band} verified`,
+            blurb: `${band} exam`,
+            lang,
+            band,
+          })
+        );
     }
   }
 
@@ -176,10 +202,13 @@ export function milestonesForLangs(langs) {
 }
 
 // The set of milestone ids currently satisfied by the given items map. Pure.
-export function earnedMilestones(items) {
+// `exams` is the store's exam slice. Only the `verified` family reads it; every
+// other milestone's `progress` takes one argument and ignores the second, so this
+// is additive — no existing milestone changed shape or meaning.
+export function earnedMilestones(items, exams = {}) {
   return milestoneCatalog()
     .filter((m) => {
-      const { have, need } = m.progress(items);
+      const { have, need } = m.progress(items, exams);
       return need > 0 && have >= need;
     })
     .map((m) => m.id);
@@ -192,10 +221,16 @@ export function earnedMilestones(items) {
 // `langs` scopes the suggestion to what the learner is actually studying — otherwise
 // the gentle next goal offered to a French learner could be "1 more to your first
 // kanji", which they can never reach.
-export function nextMilestone(items, langs) {
+export function nextMilestone(items, langs, exams = {}) {
   let best = null;
   for (const m of milestonesForLangs(langs)) {
-    const { have, need } = m.progress(items);
+    // The exam-verified family is never the "gentle next goal". It is need:1, so
+    // it would win this comparison against every real count forever and pin
+    // "1 more to Japanese A1 verified" to Today and Stats from day one — an ask,
+    // not a nearly-there. It is offered on its Ladder rung instead, where a
+    // learner can choose it, which is the only place an optional exam belongs.
+    if (m.family === "verified") continue;
+    const { have, need } = m.progress(items, exams);
     if (need <= 0 || have >= need) continue;
     const remaining = need - have;
     if (!best || remaining < best.remaining)
@@ -215,10 +250,10 @@ export function milestonesFromIds(ids = []) {
 }
 
 // Convenience for the display: earned + next in one pass, each with progress.
-export function milestoneSummary(items) {
-  const earnedSet = new Set(earnedMilestones(items));
+export function milestoneSummary(items, exams = {}) {
+  const earnedSet = new Set(earnedMilestones(items, exams));
   const earned = milestoneCatalog()
     .filter((m) => earnedSet.has(m.id))
     .map((m) => ({ id: m.id, label: m.label, family: m.family, image: m.image }));
-  return { earned, next: nextMilestone(items), total: milestoneCatalog().length };
+  return { earned, next: nextMilestone(items, undefined, exams), total: milestoneCatalog().length };
 }

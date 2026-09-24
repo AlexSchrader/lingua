@@ -98,6 +98,19 @@ export function buildSandboxItems(lessonId, previewState = "fresh") {
   return items;
 }
 
+// The BAND EXAM / HALF-CHECK sandbox. Same guarantee as every other sandbox map
+// here, and for the same reason one notch sharper: an exam must never write SRS
+// state or a mastery rung, because one bad day (tired, anxious, on a train) would
+// otherwise rewrite weeks of scheduling and push a pile of items back down the
+// rungs. An exam paper names its own card kinds (see store/exams.js), so unlike a
+// lesson preview it needs no rung overrides at all — just a clean throwaway deck
+// with the real content on it, which is exactly buildSandboxItems with no lesson.
+// Paired with runnerWriters(true, …) in Exam.jsx, that is the whole isolation
+// contract; tests/unit/exams.test.mjs asserts a full run leaves `items` identical.
+export function buildExamSandbox() {
+  return buildSandboxItems(null);
+}
+
 // --- Quick card preview ------------------------------------------------------
 // "Show me THIS card right now" — seed a handful of items at the rung that
 // produces that card, so one tap runs a short session of examples (not a single

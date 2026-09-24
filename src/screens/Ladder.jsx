@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { Lock, Check, ChevronRight, Volume2 } from "lucide-react";
 import { useStore, activeLangId } from "../store/useStore.js";
 import { LANGUAGES, UNITS, isLive } from "../data/index.js";
@@ -8,6 +8,7 @@ import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
 import { readingIsInformative } from "../store/cardRouting.js";
 import { currentStageFor, authoringProgress } from "../store/levels.js";
+import { examId, checkId, isVerified, bandHasContent, nextBand } from "../store/exams.js";
 import GlyphDetail from "../components/GlyphDetail.jsx";
 import PlannedLanguages from "../components/PlannedLanguages.jsx";
 import { C, F } from "../theme.js";
@@ -64,6 +65,8 @@ export default function Ladder() {
   const languages = useStore((s) => s.languages);
   const items = useStore((s) => s.items);
   const showRomaji = useStore((s) => s.settings?.showRomaji ?? true);
+  // Band-exam records, for the "verified" state on each rung. See store/exams.js.
+  const exams = useStore((s) => s.exams);
   const profile = useStore((s) => s.profile);
   const startLanguage = useStore((s) => s.startLanguage);
   const setActiveLang = useStore((s) => s.setActiveLang);
@@ -159,7 +162,7 @@ export default function Ladder() {
         </div>
       )}
 
-      <ActiveLanguage lang={active} items={items} />
+      <ActiveLanguage lang={active} items={items} exams={exams} />
       <KanaSection langId={active.id} items={items} showRomaji={showRomaji} />
       <YoonSection langId={active.id} items={items} showRomaji={showRomaji} />
       <KanjiSection langId={active.id} items={items} showRomaji={showRomaji} />
@@ -211,7 +214,7 @@ export default function Ladder() {
 
 // --- Active language: CEFR ladder (the spine) -------------------------------
 
-function ActiveLanguage({ lang, items }) {
+function ActiveLanguage({ lang, items, exams }) {
   // Before A1 there is no CEFR level worth printing, and "Starting out" said nothing
   // a learner can act on. The honest number is what they have actually learned.
   const learnedItems = Object.values(items).filter((it) => it.lang === lang.id && (it.rung ?? 0) >= 1).length;
@@ -287,7 +290,7 @@ function ActiveLanguage({ lang, items }) {
               failure. Falls back to `stages` if nothing has content yet, so the
               spine is never empty. */}
           {[...spineStages].reverse().map((stage, i, arr) => (
-            <CefrRung
+            <CefrRungRow
               key={stage}
               level={STAGE_LABEL[stage] ?? stage}
               done={statsByStage[stage].complete}
@@ -295,6 +298,10 @@ function ActiveLanguage({ lang, items }) {
               here={hereLabel}
               first={i === 0}
               last={i === arr.length - 1}
+              langId={lang.id}
+              stage={stage}
+              exams={exams}
+              begun={statsByStage[stage].done > 0}
             />
           ))}
         </div>
@@ -326,7 +333,57 @@ function ActiveLanguage({ lang, items }) {
   );
 }
 
-function CefrRung({ level, done, current, here, first, last }) {
+// --- band exam / half-band check affordance ---------------------------------
+// The exam lives ON ITS RUNG, and the half-check sits between rungs — the spine
+// already draws the climb, so this makes "verified" legible without adding a tab.
+//
+// IT NEVER BLOCKS (D1, settled 2026-09-24). A rung reads "not yet verified" and
+// that is all it ever does: the next band stays open, no lesson is gated, and a
+// learner who never takes an exam loses nothing but the badge. The affordance is
+// offered once the learner has begun that band — a B2 button on day one is noise,
+// not a lock.
+function ExamLinks({ langId, stage, exams, begun }) {
+  const navigate = useNavigate();
+  const band = stage === "pre-a1" ? null : String(stage).toUpperCase();
+  if (!band || !begun || !bandHasContent(langId, band)) return null;
+  const verified = isVerified(exams, langId, band);
+  const nb = nextBand(band);
+  const halfOffered = !!nb && bandHasContent(langId, nb);
+
+  const link = {
+    padding: "4px 0", border: "none", background: "transparent", cursor: "pointer",
+    fontSize: 11, fontWeight: 700, fontFamily: F.body, textAlign: "left",
+  };
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 2, paddingBottom: 6 }}>
+      {verified ? (
+        <span data-testid={`verified-${band}`} style={{ fontSize: 11, fontWeight: 700, color: C.matcha }}>
+          ✓ {band} verified
+        </span>
+      ) : (
+        <button
+          data-testid={`take-exam-${band}`}
+          onClick={() => navigate(`/exam/${examId(langId, band)}`)}
+          style={{ ...link, color: C.ai }}
+        >
+          Take the {band} check →
+        </button>
+      )}
+      {halfOffered && (
+        <button
+          data-testid={`take-check-${band}`}
+          onClick={() => navigate(`/exam/${checkId(langId, band)}`)}
+          style={{ ...link, color: C.inkSoft }}
+        >
+          Where am I? · {band}½ check
+        </button>
+      )}
+    </div>
+  );
+}
+
+function CefrRung({ level, done, current, here, first, last, langId, stage, exams, begun }) {
   const color = done ? C.matcha : current ? C.ai : C.locked;
   return (
     <div style={{ display: "flex", gap: 12 }}>
@@ -352,6 +409,19 @@ function CefrRung({ level, done, current, here, first, last }) {
           {current && <span style={{ fontSize: 11, fontWeight: 600, color: C.ai, marginLeft: 8 }}>{here ?? "you're here"}</span>}
         </span>
         {done && <span style={{ fontSize: 11, fontWeight: 700, color: C.matcha }}>Done</span>}
+      </div>
+    </div>
+  );
+}
+
+// The rung row plus the exam affordance beneath it. Kept as a wrapper so the rail
+// geometry above is untouched.
+function CefrRungRow(props) {
+  return (
+    <div>
+      <CefrRung {...props} />
+      <div style={{ paddingLeft: 34 }}>
+        <ExamLinks langId={props.langId} stage={props.stage} exams={props.exams} begun={props.begun} />
       </div>
     </div>
   );

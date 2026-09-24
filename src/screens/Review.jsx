@@ -1,14 +1,7 @@
 import { useMemo, useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import PhaseShell from "../components/PhaseShell.jsx";
-import ChoiceCard from "../components/games/ChoiceCard.jsx";
-import ClozeCard from "../components/games/ClozeCard.jsx";
-import TypeCard from "../components/games/TypeCard.jsx";
-import BuildCard from "../components/games/BuildCard.jsx";
-import TraceCard from "../components/games/TraceCard.jsx";
-import SpeakCard from "../components/games/SpeakCard.jsx";
-import SentenceCard from "../components/games/SentenceCard.jsx";
-import ConjugateCard from "../components/games/ConjugateCard.jsx";
+import CardStage, { kindKeyOf } from "../components/games/CardStage.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import Celebration from "../components/Celebration.jsx";
 import { useStore, REVIEW_CAP, activeLangId } from "../store/useStore.js";
@@ -16,19 +9,12 @@ import { isReviewable, nextRung, MAX_RUNG, isMastered, masteryPct } from "../sto
 import { sfxRungUp, sfxMastered } from "../store/sfx.js";
 import { reviewStepFor } from "../store/reviewStep.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
-import { LIVE_CARD_KINDS } from "../data/contract.js";
 import { C, F } from "../theme.js";
 
 // A practice run is deliberately short — it is meant to be repeatable three times a
 // day without becoming a slog, and the 4/day per-item cap means a longer run would
 // just hit the ceiling on the same words.
 const PRACTICE_SIZE = 12;
-
-function assertLiveKind(kindKey) {
-  if (!LIVE_CARD_KINDS.includes(kindKey)) {
-    throw new Error(`Review routed unlisted card kind "${kindKey}". Add it to LIVE_CARD_KINDS first.`);
-  }
-}
 
 
 export default function Review() {
@@ -238,35 +224,8 @@ export default function Review() {
     silent && step.kind === "listen:choice" ? { ...step, kind: "choice" }
     : silent && step.kind === "listen:type" ? { ...step, kind: "type", mode: "meaning" }
     : step;
-  const kindKey = silenced.kind === "type" ? `type:${silenced.mode}` : silenced.kind;
-  assertLiveKind(kindKey);
-
-  let card;
-  if (silenced.kind === "choice") {
-    card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} />;
-  } else if (silenced.kind === "choice:reverse") {
-    card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} reverse />;
-  } else if (silenced.kind === "listen:choice") {
-    card = <ChoiceCard item={item} allItems={items} onGraded={onGraded} onCantHear={noteCantHear} audioFirst />;
-  } else if (step.kind === "cloze:choice") {
-    card = <ClozeCard item={item} allItems={items} onGraded={onGraded} />;
-  } else if (step.kind === "particle:choice") {
-    card = <ClozeCard item={item} allItems={items} onGraded={onGraded} particle />;
-  } else if (silenced.kind === "listen:type") {
-    card = <TypeCard item={item} listen onGraded={onGraded} onCantHear={noteCantHear} />;
-  } else if (silenced.kind === "type") {
-    card = <TypeCard item={item} mode={silenced.mode} onGraded={onGraded} />;
-  } else if (step.kind === "trace") {
-    card = <TraceCard item={item} mode="free" onGraded={onGraded} />;
-  } else if (step.kind === "speak") {
-    card = <SpeakCard item={item} onGraded={onGraded} />;
-  } else if (step.kind === "sentence:build") {
-    card = <SentenceCard item={item} onGraded={onGraded} />;
-  } else if (step.kind === "conjugate") {
-    card = <ConjugateCard item={item} onGraded={onGraded} />;
-  } else {
-    card = <BuildCard item={item} onGraded={onGraded} />;
-  }
+  const kindKey = kindKeyOf(silenced);
+  const card = <CardStage step={silenced} item={item} items={items} onGraded={onGraded} onCantHear={noteCantHear} />;
 
   return (
     <PhaseShell title={`${sandbox ? "🧪 Dev · " : ""}${fix ? "Fix-up" : "Review"} · ${idx + 1}/${reviewQueue.length}`} progress={progress} onClose={() => navigate(home)}>

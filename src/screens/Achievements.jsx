@@ -8,8 +8,8 @@ import LangChip from "../components/LangChip.jsx";
 import { C, F } from "../theme.js";
 
 // Display grouping for the milestone `family` tags, in climb order.
-const FAMILY_ORDER = ["script", "kanji", "vocab", "level"];
-const FAMILY_LABEL = { script: "Writing system", kanji: "Kanji", vocab: "Vocabulary", level: "Levels" };
+const FAMILY_ORDER = ["script", "kanji", "vocab", "level", "verified"];
+const FAMILY_LABEL = { script: "Writing system", kanji: "Kanji", vocab: "Vocabulary", level: "Levels", verified: "Verified by exam" };
 
 function Section({ title, children }) {
   return (
@@ -62,6 +62,8 @@ export default function Achievements() {
   const navigate = useNavigate();
   const items = useStore((s) => s.items);
   const milestonesEarned = useStore((s) => s.milestonesEarned);
+  // The `verified` family is satisfied by a passed band exam, not by item state.
+  const exams = useStore((s) => s.exams);
   const profile = useStore((s) => s.profile);
 
   // Only languages the learner has actually started AND that have content — a
@@ -91,7 +93,7 @@ export default function Achievements() {
     const earnedSet = new Set(milestonesEarned ?? []);
     const groups = {};
     for (const m of catalog) {
-      const { have, need } = m.progress(items);
+      const { have, need } = m.progress(items, exams);
       const fam = FAMILY_ORDER.includes(m.family) ? m.family : "other";
       (groups[fam] ??= []).push({ id: m.id, label: m.label, earned: earnedSet.has(m.id), have, need });
     }
@@ -100,7 +102,7 @@ export default function Achievements() {
     // earned Japanese badges before adding a second language).
     const earnedCount = catalog.filter((m) => earnedSet.has(m.id)).length;
     return { groups, earnedCount, total: catalog.length };
-  }, [items, milestonesEarned, myLangs, effectiveScope]);
+  }, [items, exams, milestonesEarned, myLangs, effectiveScope]);
 
   const families = [...FAMILY_ORDER, "other"].filter((f) => groups[f]?.length);
 

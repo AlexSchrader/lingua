@@ -9,6 +9,7 @@ import DevPanel from "./screens/DevPanel.jsx";
 import Achievements from "./screens/Achievements.jsx";
 import Lesson from "./screens/Lesson.jsx";
 import Review from "./screens/Review.jsx";
+import Exam from "./screens/Exam.jsx";
 import Auth from "./screens/Auth.jsx";
 import Onboarding from "./screens/Onboarding.jsx";
 import SetPassword from "./screens/SetPassword.jsx";
@@ -139,6 +140,9 @@ export default function App() {
         <Route path="dev" element={<DevPanel />} />
       </Route>
       <Route path="review" element={<Review />} />
+      {/* Band exams + half-band checks. Full-screen like a lesson (no bottom nav):
+          it is a sitting, not a tab. Runs fully sandboxed — see Exam.jsx. */}
+      <Route path="exam/:examId" element={<Exam />} />
       <Route path="lesson/:lessonId" element={<Lesson />} />
       <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

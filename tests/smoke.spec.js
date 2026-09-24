@@ -370,11 +370,21 @@ async function playCard(page) {
   }
 
   if (await tile.first().isVisible().catch(() => false)) {
-    // BuildCard: click every tile in DOM order to assemble the full word,
-    // then commit. Order doesn't matter for coverage — any assembly triggers commit.
-    const count = await tile.count();
-    for (let i = 0; i < count; i++) {
-      await tile.nth(i).click({ force: true });
+    // BuildCard: the tiles are SHUFFLED, so tapping them in DOM order assembles a
+    // scrambled reading and grades `again`. That was harmless while this helper
+    // only proved card COVERAGE; it is not harmless in the band-exam smoke, where
+    // the score is the thing under test. Use the card's test hook to build the
+    // correct order, falling back to DOM order if it hasn't mounted yet.
+    const solved = await page.evaluate(() => {
+      if (!window.__build) return false;
+      window.__build.solve();
+      return true;
+    });
+    if (!solved) {
+      const count = await tile.count();
+      for (let i = 0; i < count; i++) {
+        await tile.nth(i).click({ force: true });
+      }
     }
     await continueBtn.click({ force: true });
     return "build";
@@ -1504,4 +1514,147 @@ test("Preview Mode: the app runs, and the real profile is untouched", async ({ p
 // To fix properly: hoist the onboarding gate out of the auth block, then give the
 // fixtures that boot profile-less an explicit `onboarded: true`. That is a real
 // job, not a one-liner, and it belongs to whoever picks up the QA-lane item.
+
+// ---- Band exams & half-band checks -----------------------------------------
+// docs/shipped/BUILD-BRIEF-exams.md. Three things have to be true and none of
+// them can be checked by a unit test alone:
+//   1. the affordance is reachable from the Ladder rung (no new tab);
+//   2. a WHOLE paper plays end to end through the real cards;
+//   3. it leaves the learner's real progress byte-identical.
+// (3) is the one that matters. If exam answers reached FSRS, one bad day would
+// rewrite weeks of scheduling — the exact anti-pattern the app exists to avoid.
+
+// A Japanese learner with real progress in the A1 BAND (unit 7 is stage a1), so
+// the Ladder offers that rung's check. `freshCard` keeps them out of the review
+// queue, so nothing but the exam is in play.
+function examLearnerFixture() {
+  return {
+    state: {
+      items: {
+        "ja-u7l1-ichi": { rung: 2, srs: freshCard() },
+        "ja-u7l1-ni": { rung: 1, srs: freshCard() },
+        "ja-u8l1-chichi": { rung: 3, srs: freshCard() },
+      },
+      languages: LANGUAGES,
+      profile: { onboarded: true, displayName: "Test Learner", reason: null, reminderTime: null, languages: ["ja"], activeLang: "ja", languagesChosen: true },
+      streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
+      stats: { xpTotal: 0 },
+      daily: { date: todayISO(), reviewsCleared: true, lessonDone: false, clearedLangs: ["ja"] },
+      settings: {},
+      ui: {},
+    },
+    version: 1,
+  };
+}
+
+// Read a persisted slice. Keys are passed as an ARRAY, not a dotted string: a
+// half-check id is literally `check-ja-a1.5`, so splitting on "." would look for
+// a key named "a1" and find nothing.
+const readState = (page, keys) =>
+  page.evaluate((ks) => {
+    const s = JSON.parse(localStorage.getItem("lingua-v1") ?? "{}")?.state ?? {};
+    return ks.reduce((acc, k) => (acc == null ? acc : acc[k]), s);
+  }, keys);
+
+// Play until the result screen appears (an exam has no "Back to Today").
+async function playExam(page, max) {
+  const headline = page.getByTestId("exam-headline");
+  for (let i = 0; i < max; i++) {
+    if (await headline.isVisible().catch(() => false)) return true;
+    if (!(await playCard(page))) break;
+    await page.waitForTimeout(30);
+  }
+  return await headline.isVisible().catch(() => false);
+}
+
+test("band exam: offered on its Ladder rung, plays end to end, and changes NO real progress", async ({ page }) => {
+  test.setTimeout(300_000);
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await page.addInitScript(
+    (json) => { if (!localStorage.getItem("lingua-v1")) localStorage.setItem("lingua-v1", json); },
+    JSON.stringify(examLearnerFixture())
+  );
+  await page.goto("/");
+  await page.getByRole("button", { name: "Ladder", exact: true }).click();
+
+  // The affordance lives ON the A1 rung — no new tab was added for it.
+  const take = page.getByTestId("take-exam-A1");
+  await expect(take).toBeVisible();
+  // ...and the half-band check sits between the rungs.
+  await expect(page.getByTestId("take-check-A1")).toBeVisible();
+  await expect(page.getByTestId("verified-A1")).toHaveCount(0);
+
+  // THE SNAPSHOT. Everything that is real progress, before a single question.
+  const itemsBefore = JSON.stringify(await readState(page, ["items"]));
+  const mistakesBefore = JSON.stringify(await readState(page, ["mistakes"]));
+
+  await take.click();
+
+  // The calm intro says what this cannot do to you, BEFORE the first card.
+  await expect(page.getByText("WHAT IT CANNOT DO")).toBeVisible();
+  await page.getByTestId("exam-begin").click();
+
+  expect(await playExam(page, 60), "the exam did not reach its result screen").toBe(true);
+
+  // A capability breakdown, not a big number.
+  await expect(page.getByText("YOU'RE SOLID ON")).toBeVisible();
+  await expect(page.getByText("SHAKY ON")).toBeVisible();
+  await expect(page.getByText("NOT YET TESTED")).toBeVisible();
+  await expect(page.getByTestId("exam-no-effect")).toBeVisible();
+
+  // THE ASSERTION THIS WHOLE FEATURE HANGS ON.
+  expect(JSON.stringify(await readState(page, ["items"])), "an exam wrote to real progress").toBe(itemsBefore);
+  expect(JSON.stringify(await readState(page, ["mistakes"])), "an exam wrote to the mistake list").toBe(mistakesBefore);
+
+  // The outcome IS recorded — best result, date, attempt count — and the verified
+  // milestone agrees with it exactly (80% is the bar; D3).
+  const rec = await readState(page, ["exams", "exam-ja-a1"]);
+  expect(rec.attempts).toBe(1);
+  expect(typeof rec.bestPct).toBe("number");
+  expect(rec.lastTaken).toBeGreaterThan(0);
+  const earned = await readState(page, ["milestonesEarned"]);
+  expect(earned.includes("level-A1-verified")).toBe(rec.bestPct >= 80);
+
+  // And the rung now says so, without ever having blocked anything.
+  await page.getByTestId("exam-done").click();
+  if (rec.bestPct >= 80) await expect(page.getByTestId("verified-A1")).toBeVisible();
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+test("half-band check: no pass, no fail, no percentage — and only a date is stored", async ({ page }) => {
+  test.setTimeout(300_000);
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await page.addInitScript(
+    (json) => { if (!localStorage.getItem("lingua-v1")) localStorage.setItem("lingua-v1", json); },
+    JSON.stringify(examLearnerFixture())
+  );
+  await page.goto("/ladder");
+  await page.getByTestId("take-check-A1").click();
+
+  await expect(page.getByText("no pass mark at all")).toBeVisible();
+  await page.getByTestId("exam-begin").click();
+
+  expect(await playExam(page, 40), "the check did not reach its result screen").toBe(true);
+
+  // A mirror, not a verdict: no pass/fail wording, and no percentage anywhere.
+  await expect(page.getByTestId("exam-headline")).toHaveText("Where you are right now");
+  await expect(page.getByText("%")).toHaveCount(0);
+  await expect(page.getByText("verified")).toHaveCount(0);
+
+  // A DATE AND NOTHING ELSE — no bestPct, no attempts, no pass flag.
+  const rec = await readState(page, ["exams", "check-ja-a1.5"]);
+  expect(Object.keys(rec)).toEqual(["lastTaken"]);
+  expect(rec.lastTaken).toBeGreaterThan(0);
+
+  // No exam milestone can come from a check.
+  const earned = await readState(page, ["milestonesEarned"]);
+  expect(earned.some((id) => String(id).includes("verified"))).toBe(false);
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});
 

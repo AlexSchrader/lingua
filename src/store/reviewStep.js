@@ -55,6 +55,13 @@ function stageCandidates(item, rung) {
   return keep("speak", "trace", "build");
 }
 
+// The inverse of asStep: turn a runner step back into the name the mastery
+// counter (and the exam breakdown) uses. Lives here beside asStep so the two
+// cannot drift; imported by the card runners and by store/exams.js.
+export function kindKeyOf(step) {
+  return step?.kind === "type" ? `type:${step.mode}` : step?.kind;
+}
+
 // Kinds are named as the mastery counter names them; the runner speaks {kind, mode}.
 function asStep(kind) {
   if (kind === "type:meaning") return { kind: "type", mode: "meaning" };

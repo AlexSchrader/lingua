@@ -1,3 +1,35 @@
+> # ✅ SHIPPED — HISTORICAL RECORD. DO NOT AUTHOR FROM THIS.
+>
+> **Closed out 2026-09-24**, in the same commit that shipped the work. **The code is the source of truth, not this document** — where they disagree, the code is right and this is stale.
+>
+> **Evidence it shipped:**
+> - `src/store/exams.js` — paper selection, scoring, breakdown (pure, no UI)
+> - `src/screens/Exam.jsx` + route `/exam/:examId` in `src/App.jsx`
+> - `src/components/games/CardStage.jsx` — the card switch, now shared with `Review.jsx` (no new runner, no new card kind)
+> - `buildExamSandbox()` in `src/store/dev.js` — the throwaway deck
+> - store key `exams`, actions `recordExam` / `queuePractice` in `src/store/useStore.js`
+> - milestone family `verified`, ids `level-<band>-verified[-<lang>]`, in `src/data/milestones.js`
+> - Ladder affordance: `ExamLinks` / `CefrRungRow` in `src/screens/Ladder.jsx`
+> - tests: `tests/unit/exams.test.mjs` (26 tests, incl. **"a full exam run leaves the real items map byte-identical"**) and two Playwright smokes in `tests/smoke.spec.js`
+>
+> ## The three blocking decisions, and who settled them
+>
+> **Settled by the main session on 2026-09-24**, which unblocked this brief after seven weeks:
+>
+> | | Decision | Built as |
+> |---|---|---|
+> | **D1** | The exam **does NOT gate** the next band. It certifies; it never blocks. A failed exam locks nothing. | No exam is consulted anywhere in lesson/level gating. A rung reads "not yet verified" and that is all it does. |
+> | **D2** | **ADD, don't replace.** `level-<band>` keeps meaning *content covered*; `level-<band>-verified` is the new exam-earned signal. | Both families ship side by side in `milestones.js`. |
+> | **D3** | **80%** passes a band exam. A **half-check has no threshold at all** and stores no result beyond a last-taken date. The percentage is shown **only on a pass**. | `EXAM_PASS_PCT = 80`; `scoreExam().passed` is `null` for a check, never `false`; `recordExam` writes `{ lastTaken }` and nothing else for a check. |
+>
+> ## What the brief got WRONG, corrected in the build
+>
+> - **"This is a store schema change + persist version bump."** It is not. `useStore`'s `merge` starts from `current` (fresh defaults) and overlays persisted state, so a new `exams` key is simply present for existing saves and overrides nothing. **`PERSIST_VERSION` is unchanged and no migration was added** — an unnecessary bump is pure risk against the only save that has real progress.
+> - **Language-free ids** (`exam-a1`, `check-a1.5`) cannot work in a ten-language catalog. Shipped as `exam-<lang>-<band>` / `check-<lang>-<band>.5`.
+> - **`trace` was not excluded.** It is now, alongside `speak`: both grade the DEVICE (finger, mic) as much as the learner. See `EXAM_EXCLUDED_KINDS`.
+
+---
+
 # Build brief — Band exams & half-band checks
 
 **Lane:** Feature CC (engine + store + screens). **Status:** proposed 2026-08-02, from Alex:
