@@ -4,25 +4,37 @@ import PhaseShell from "../components/PhaseShell.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import CardStage from "../components/games/CardStage.jsx";
 import { useStore } from "../store/useStore.js";
-import { buildExamSandbox, runnerWriters } from "../store/dev.js";
+import { buildExamSandbox } from "../store/dev.js";
 import { examPaper, scoreExam, paperKeyFor, EXAM_PASS_PCT } from "../store/exams.js";
 import { langName } from "../data/languages.js";
 import { C, F } from "../theme.js";
 
-// Band exam / half-band check runner. See docs/shipped/BUILD-BRIEF-exams.md.
+// Band exam / checkpoint runner. See docs/shipped/BUILD-BRIEF-exams.md.
 //
-// THE NON-NEGOTIABLE, and the reason this file is short: an exam must NEVER write
-// SRS state or a mastery rung. One bad day — tired, anxious, on a train — would
-// otherwise rewrite weeks of scheduling and push a pile of items back down the
-// rungs, which is the exact anti-pattern this app exists to avoid. So:
+// THE NON-NEGOTIABLE, and it changed shape on 2026-09-25 (Alex: "the exams should
+// be helping the user build"). It used to be "an exam writes NOTHING". It is now
+// ASYMMETRIC, which is strictly stronger for the learner and no weaker as a
+// guarantee:
 //
-//   * the deck is a THROWAWAY map (buildExamSandbox), never the store's items;
-//   * every store writer is swapped for a no-op (runnerWriters(true, …));
-//   * the ONLY store write in the whole flow is recordExam, at the very end, and
-//     it records an outcome — never an item, never a schedule.
+//   * a CORRECT answer is credited — twenty successful retrievals is real practice
+//     and the sandboxed version threw all of it away;
+//   * a WRONG answer writes NOTHING AT ALL. No rung drop, no interval reset, no
+//     lapse, no mistake-log penalty, no record of the miss;
+//   * so AN EXAM CAN ONLY EVER MOVE AN ITEM FORWARD. One bad day — tired, anxious,
+//     on a train — still costs exactly zero.
 //
-// tests/unit/exams.test.mjs pins that by running a full paper and asserting the
-// real items map is byte-identical afterwards.
+// How that is built, and why it is structural rather than a promise:
+//
+//   * the deck the CARDS read is still a THROWAWAY map (buildExamSandbox), never
+//     the store's items, so nothing a card mutates can reach real progress;
+//   * completeReviews / rollDailyGoal are still no-op'd (runnerWriters(true, …)) —
+//     an exam is not a review session and must not close the day's duty;
+//   * the ONLY writers in the whole flow are `creditExamAnswer` (asymmetric, and
+//     the asymmetry lives in the store, not here) and `recordExam` at the end.
+//
+// tests/unit/exams.test.mjs pins it with three assertions: an all-wrong run leaves
+// `items` byte-identical, a correct answer can only move an item forward, and no
+// mix of answers can lower anything.
 //
 // No timer anywhere. No streak, no XP, no "you beat your best". Leaving mid-exam
 // records nothing at all, and taking it again is free and unlimited.
@@ -54,17 +66,16 @@ export default function Exam() {
   const recordExam = useStore((s) => s.recordExam);
   const queuePractice = useStore((s) => s.queuePractice);
 
-  // EVERY runner writer is a no-op, wired exactly as Review.jsx wires its sandbox
-  // runs — `runnerWriters(true, …)` is the isolation contract, asserted in
-  // tests/unit/dev.test.mjs. The grade below is genuinely handed to `gradeItem`,
-  // and `gradeItem` is genuinely NOOP: the isolation is structural, not a promise
-  // that some future edit could quietly break by adding a call.
-  const realWriters = {
-    gradeItem: useStore((s) => s.gradeItem),
-    completeReviews: useStore((s) => s.completeReviews),
-    rollDailyGoal: useStore((s) => s.rollDailyGoal),
-  };
-  const { gradeItem } = runnerWriters(true, realWriters);
+  // THE ONLY PER-ANSWER WRITER THIS RUNNER HAS, and the isolation is now structural
+  // in the strongest available sense: the session writers (`gradeItem`,
+  // `completeReviews`, `rollDailyGoal`) are not imported at all, so this file cannot
+  // call them even by accident — an exam is not a review session and must never
+  // close the day's review duty or roll the daily goal. `runnerWriters(true, …)`
+  // is no longer needed here; there is nothing left to no-op.
+  //
+  // `creditExamAnswer` is asymmetric by construction (store/useStore.js): a correct
+  // answer credits the item forward, a wrong one writes nothing at all.
+  const creditExamAnswer = useStore((s) => s.creditExamAnswer);
 
   // The throwaway deck the cards read from. Real content, zero progress, and not
   // the store's map — so nothing a card does here can reach a real item.
@@ -104,7 +115,12 @@ export default function Exam() {
   }
 
   const isExam = paper.kind === "exam";
-  const title = isExam ? `${paper.band} check` : `${paper.band}½ check`;
+  const isCheckpoint = paper.kind === "checkpoint";
+  const title = isExam
+    ? `${paper.band} check`
+    : isCheckpoint
+      ? `Checkpoint · units ${paper.from}–${paper.to}`
+      : `${paper.band}½ check`;
   const langLabel = langName(paper.lang) ?? paper.lang;
 
   // --- the calm intro -------------------------------------------------------
@@ -123,6 +139,20 @@ export default function Exam() {
                 {paper.steps.length} questions drawn from everything up to {paper.band}. Pass at{" "}
                 {EXAM_PASS_PCT}% and {paper.band} shows as <strong>verified</strong>.
               </>
+            ) : isCheckpoint ? (
+              <>
+                {paper.steps.length} quick questions — {paper.steps.length - paper.olderActual} from units{" "}
+                {paper.from}–{paper.to}
+                {paper.olderActual > 0 ? (
+                  <>
+                    , and {paper.olderActual} from <strong>earlier on</strong>, so it checks what stuck and
+                    not just what you've just done
+                  </>
+                ) : (
+                  <> (there's nothing earlier than this yet, so all {paper.steps.length} are from here)</>
+                )}
+                . <strong>No pass mark at all.</strong>
+              </>
             ) : (
               <>
                 {paper.steps.length} questions from around the halfway point between {paper.band} and
@@ -130,10 +160,16 @@ export default function Exam() {
               </>
             )}
           </Panel>
+          {/* HONEST, and it has to stay honest: since 2026-09-25 a right answer DOES
+              count. The guarantee is one-directional, not absent, so the copy says
+              that in the learner's words rather than promising "nothing changes". */}
           <Panel title="WHAT IT CANNOT DO" tone={C.matcha}>
-            Nothing here touches your progress. Your review schedule, your mastery bars and your
-            rungs are untouched whatever happens — {isExam ? "including if you don't pass" : "and no result is saved"}.
-            There's no timer, you can leave at any point, and you can take it again as often as you like.
+            <strong>This can't set you back.</strong> Getting one right counts as real practice, exactly
+            like a review. Getting one wrong is recorded <strong>nowhere</strong> — no rung drops, your
+            review dates don't move, nothing is held against you
+            {isExam ? ", including if you don't pass" : ""}.
+            {isExam ? "" : " No result is saved either — just the date."} There's no timer, you can leave
+            at any point, and you can take it again as often as you like.
           </Panel>
           <button
             data-testid="exam-begin"
@@ -183,9 +219,10 @@ export default function Exam() {
           <Panel title="NOT YET TESTED">{untestedLabel}</Panel>
 
           <div style={{ fontSize: 12, color: C.inkSoft, textAlign: "center" }} data-testid="exam-no-effect">
-            {isExam
-              ? "Your progress, rungs and review schedule are exactly as you left them."
-              : "Nothing was recorded but today's date. Your progress is exactly as you left it."}
+            {result.correct > 0
+              ? `The ${result.correct} you got right counted as practice. Nothing you missed was held against you.`
+              : "Nothing you missed was held against you — your progress is exactly as you left it."}
+            {isExam ? "" : " Only the date was saved."}
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
@@ -224,7 +261,9 @@ export default function Exam() {
   const item = items[step.id];
 
   const onGraded = (grade) => {
-    gradeItem(step.id, grade, step.kindKey); // NOOP by construction — see above
+    // THE ONE PER-ANSWER WRITE, and it is asymmetric in the store: a correct answer
+    // credits the item forward, a wrong one writes nothing at all. See the header.
+    creditExamAnswer(step.id, grade, step.kindKey);
     const next = { ...grades, [step.id]: grade };
     setGrades(next);
     if (idx + 1 >= paper.steps.length) {

@@ -8,7 +8,7 @@ import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
 import { readingIsInformative } from "../store/cardRouting.js";
 import { currentStageFor, authoringProgress } from "../store/levels.js";
-import { examId, checkId, isVerified, bandHasContent, nextBand } from "../store/exams.js";
+import { examId, isVerified, bandHasContent, nextCheckpointFor } from "../store/exams.js";
 import GlyphDetail from "../components/GlyphDetail.jsx";
 import PlannedLanguages from "../components/PlannedLanguages.jsx";
 import { C, F } from "../theme.js";
@@ -325,6 +325,10 @@ function ActiveLanguage({ lang, items, exams }) {
           <div style={{ height: 10, borderRadius: 999, background: C.lockedBg, overflow: "hidden" }}>
             <div style={{ width: `${cur.pct}%`, height: "100%", background: C.ai, transition: "width 250ms ease" }} />
           </div>
+          {/* Checkpoints sit BETWEEN units, so they belong next to the unit-level
+              progress the learner is actually reading — not on a CEFR rung, and not
+              behind a new tab. One at a time. */}
+          <NextCheckpoint langId={lang.id} items={items} exams={exams} />
         </div>
       ) : (
         <div style={{ marginTop: 12, fontSize: 12, color: C.inkSoft }}>Lessons for {STAGE_LABEL[currentStage] ?? currentStage} coming soon.</div>
@@ -333,22 +337,26 @@ function ActiveLanguage({ lang, items, exams }) {
   );
 }
 
-// --- band exam / half-band check affordance ---------------------------------
-// The exam lives ON ITS RUNG, and the half-check sits between rungs — the spine
-// already draws the climb, so this makes "verified" legible without adding a tab.
+// --- band exam affordance ----------------------------------------------------
+// The exam lives ON ITS RUNG — the spine already draws the climb, so this makes
+// "verified" legible without adding a tab.
 //
 // IT NEVER BLOCKS (D1, settled 2026-09-24). A rung reads "not yet verified" and
 // that is all it ever does: the next band stays open, no lesson is gated, and a
 // learner who never takes an exam loses nothing but the badge. The affordance is
 // offered once the learner has begun that band — a B2 button on day one is noise,
 // not a lock.
+//
+// THE HALF-BAND CHECK LINK IS GONE (2026-09-25). Three of them across 126 units let
+// a learner climb ~30 units without knowing where they stood, and two flavours of
+// "this doesn't count" was confusing. Checkpoints every CHECKPOINT_EVERY units
+// replace them — surfaced ONCE, below the progress bar (`NextCheckpoint`), never as
+// twenty-one buttons on the spine.
 function ExamLinks({ langId, stage, exams, begun }) {
   const navigate = useNavigate();
   const band = stage === "pre-a1" ? null : String(stage).toUpperCase();
   if (!band || !begun || !bandHasContent(langId, band)) return null;
   const verified = isVerified(exams, langId, band);
-  const nb = nextBand(band);
-  const halfOffered = !!nb && bandHasContent(langId, nb);
 
   const link = {
     padding: "4px 0", border: "none", background: "transparent", cursor: "pointer",
@@ -370,16 +378,43 @@ function ExamLinks({ langId, stage, exams, begun }) {
           Take the {band} check →
         </button>
       )}
-      {halfOffered && (
-        <button
-          data-testid={`take-check-${band}`}
-          onClick={() => navigate(`/exam/${checkId(langId, band)}`)}
-          style={{ ...link, color: C.inkSoft }}
-        >
-          Where am I? · {band}½ check
-        </button>
-      )}
     </div>
+  );
+}
+
+// --- the next checkpoint -----------------------------------------------------
+// ONE affordance, never twenty-one. A language has ~21 checkpoints (~34 for ja) and
+// a spine carrying all of them is noise, so this shows only the one the learner has
+// actually reached: the most recent completed block of CHECKPOINT_EVERY units.
+//
+// Nothing here gates anything and nothing is stored but a date, so the copy is a
+// question ("where am I?"), not a summons. Absent entirely until the first block is
+// finished, which is also the honest answer at unit 3.
+function NextCheckpoint({ langId, items, exams }) {
+  const navigate = useNavigate();
+  const cp = nextCheckpointFor(langId, items);
+  if (!cp) return null;
+  const taken = exams?.[cp.id]?.lastTaken ?? 0;
+
+  return (
+    <button
+      data-testid="next-checkpoint"
+      onClick={() => navigate(`/exam/${cp.id}`)}
+      style={{
+        marginTop: 10, width: "100%", textAlign: "left", cursor: "pointer",
+        background: "transparent", border: `1px dashed ${C.line}`, borderRadius: 12,
+        padding: "10px 12px", fontFamily: F.body,
+      }}
+    >
+      <div style={{ fontSize: 12, fontWeight: 700, color: C.ai }}>
+        Checkpoint · units {cp.from}–{cp.to} →
+      </div>
+      <div style={{ fontSize: 11, color: C.inkSoft, marginTop: 2 }}>
+        {taken
+          ? `Two minutes. Taken ${new Date(taken).toLocaleDateString()} — take it again any time.`
+          : "Two minutes, no pass mark. Mostly these units, plus a couple from earlier on."}
+      </div>
+    </button>
   );
 }
 

@@ -6,7 +6,7 @@ import { nextRung, isReviewable } from "./mastery.js";
 import { migrateState, PERSIST_VERSION } from "./migrate.js";
 import { matchesDevCode } from "./dev.js";
 import { earnedMilestones, milestoneCatalog } from "../data/milestones.js";
-import { EXAM_PASS_PCT, parseExamId } from "./exams.js";
+import { EXAM_PASS_PCT, parseExamId, examCreditGrade, forwardOnlySrs } from "./exams.js";
 import { CEFR_ORDER, cefrLevelReached, levelRank } from "./levels.js";
 import { persistKey } from "./preview.js";
 import { slimItems } from "./sync.js";
@@ -667,16 +667,61 @@ export const useStore = create(
       },
       dismissMilestoneToast: () => set({ milestoneToast: null }),
 
-      // --- Band exams & half-band checks ---------------------------------------
-      // The ONLY writer an exam run has. Everything the run itself does happens
-      // against a throwaway items map with every store writer no-op'd (see
-      // Exam.jsx + dev.js buildExamSandbox), so no exam answer can ever reach
-      // FSRS or a mastery rung. This records the OUTCOME, and nothing else.
+      // --- Band exams & checkpoints --------------------------------------------
+      // THE ASYMMETRIC WRITE (D4 — Alex, 2026-09-25: "the exams should be helping
+      // the user build"). This is the only place an exam answer reaches real state,
+      // and the FIRST LINE of the body is the whole rule:
+      //
+      //   wrong   -> return. Nothing is written. No rung drop, no interval reset,
+      //              no lapse, no mistake-log entry, no record of the miss at all.
+      //   correct -> credit the item as an ordinary correct review, forward only.
+      //
+      // Retrieval practice is among the strongest learning mechanisms there is, and
+      // the sandboxed version of this feature threw twenty successful retrievals
+      // away to stay safe. The invariant that made sandboxing worth it is kept and
+      // is now positive: AN EXAM CAN ONLY EVER MOVE AN ITEM FORWARD.
+      //
+      // Three deliberate narrowings, each one a thing that could otherwise bite:
+      //
+      //   1. rung 0 items are SKIPPED. An exam paper samples the whole band, taught
+      //      or not. Promoting an untaught word to RECOGNIZED would slip it into the
+      //      review queue without a lesson ever teaching it — which is exactly why
+      //      queuePractice already guards on rung >= 1.
+      //   2. always `good`, never `easy` (EXAM_CREDIT_GRADE). An exam is not the
+      //      place to earn a long interval and a lucky guess must not push an item
+      //      weeks out.
+      //   3. no XP, no streak, no mistake-list edit. XP is an engagement counter on
+      //      its way out (CLAUDE.md), and the mistake list belongs to the review
+      //      runner — the exam feeds it once, deliberately, through queuePractice.
+      //
+      // PASSES_PER_DAY still caps mastery credit at four passes per item per day, so
+      // a paper cannot be farmed for mastery either.
+      creditExamAnswer: (id, grade, kind = null) => {
+        const credit = examCreditGrade(grade);
+        if (!credit) return; // <-- a wrong exam answer writes NOTHING.
+        set((s) => {
+          const prev = s.items[id];
+          if (!prev || !prev.srs) return s;
+          if (!isReviewable(prev)) return s; // never taught — a lesson's job, not an exam's
+          const passed = recordPass(prev, kind, todayISO());
+          const srs = forwardOnlySrs(prev.srs, schedule(passed.srs, credit));
+          const rung = Math.max(prev.rung ?? 0, nextRung(passed, credit));
+          return { items: { ...s.items, [id]: { ...passed, srs, rung } } };
+        });
+        // Silent: a milestone toast landing mid-question is the last thing an ND
+        // learner sitting an exam needs. It is still recorded, and the Achievements
+        // screen shows it afterwards.
+        get().reconcileMilestones({ toast: false });
+      },
+
+      // The OUTCOME writer. Everything the run itself does goes through
+      // creditExamAnswer above; this records the result and nothing else.
       //
       // Nothing here may ever lower anything (the brief's whole stance):
       //   * bestPct is a max, so a worse retake cannot take a pass away;
-      //   * a half-check stores a DATE ONLY — no pct, no attempts, no pass/fail,
-      //     because D3 gave it no threshold to be measured against;
+      //   * a CHECKPOINT (and a legacy half-check) stores a DATE ONLY — no pct, no
+      //     attempts, no pass/fail, because neither has a threshold to be measured
+      //     against;
       //   * the verified milestone is earned-once via reconcileMilestones, which
       //     unions and never revokes.
       recordExam: (id, { pct = 0 } = {}) => {
@@ -686,13 +731,13 @@ export const useStore = create(
         set((s) => {
           const prev = s.exams?.[id] ?? {};
           const rec =
-            meta.kind === "check"
-              ? { lastTaken: at }
-              : {
+            meta.kind === "exam"
+              ? {
                   bestPct: Math.max(Number(prev.bestPct) || 0, Math.round(pct)),
                   lastTaken: at,
                   attempts: (Number(prev.attempts) || 0) + 1,
-                };
+                }
+              : { lastTaken: at };
           return { exams: { ...(s.exams ?? {}), [id]: rec }, lastModified: at };
         });
         // A passed band exam earns `level-<band>-verified` (D2) — a SEPARATE
@@ -709,6 +754,9 @@ export const useStore = create(
       // mistake list so `/review?fix=1` serves them as an ordinary study session,
       // which does write SRS because it is real study. A diagnostic that leaves you
       // holding a number with no next action is the thing to avoid.
+      //
+      // The exam recorded NOTHING about these items (D4: a wrong answer writes
+      // nothing at all), so this tap is the only trace a miss leaves anywhere.
       queuePractice: (ids = []) => {
         set((s) => {
           const items = s.items ?? {};

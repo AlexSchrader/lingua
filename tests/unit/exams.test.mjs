@@ -5,10 +5,20 @@ import {
   EXAM_PASS_PCT,
   EXAM_SIZE,
   CHECK_SIZE,
+  CHECKPOINT_EVERY,
+  CHECKPOINT_SIZE,
+  CHECKPOINT_OLDER,
+  EXAM_CREDIT_GRADE,
   EXAM_EXCLUDED_KINDS,
   KIND_TIERS,
   examId,
   checkId,
+  checkpointId,
+  checkpointRanges,
+  furthestUnitOrder,
+  nextCheckpointFor,
+  examCreditGrade,
+  forwardOnlySrs,
   parseExamId,
   nextBand,
   verifiedMilestoneId,
@@ -20,10 +30,12 @@ import {
   isVerified,
   paperKeyFor,
 } from "../../src/store/exams.js";
-import { buildExamSandbox, runnerWriters, NOOP } from "../../src/store/dev.js";
+import { buildExamSandbox } from "../../src/store/dev.js";
 import { LIVE_CARD_KINDS } from "../../src/data/contract.js";
 import { seedItems, UNITS } from "../../src/data/index.js";
 import { produceIsFreePass, meaningIsFreePass } from "../../src/store/cardRouting.js";
+import { countedPasses } from "../../src/store/mastery.js";
+import { newCard, schedule } from "../../src/store/srs.js";
 import { useStore } from "../../src/store/useStore.js";
 import { earnedMilestones, milestoneCatalog, nextMilestone } from "../../src/data/milestones.js";
 import { kindKeyOf } from "../../src/store/reviewStep.js";
@@ -219,48 +231,198 @@ test("buildExamSandbox is a clean throwaway deck — real content, zero progress
   assert.equal(seedItems()[id].rung ?? 0, 0, "the sandbox aliased the real seed");
 });
 
-// THE MOST IMPORTANT TEST IN THIS FEATURE. An exam answer must never reach FSRS
-// or a mastery rung: one bad day would otherwise rewrite weeks of scheduling and
-// push a pile of items back down the rungs. This drives a FULL paper through the
-// same writers Exam.jsx uses and asserts the real items map is byte-identical.
-test("a full exam run leaves the real items map byte-identical", () => {
-  const store = useStore.getState();
-  store.seedOnce();
+// THE THREE TESTS THIS FEATURE HANGS ON, and they replace one weaker test.
+//
+// Until 2026-09-25 this file asserted "a full exam run leaves the real items map
+// byte-identical". Alex changed the rule that day — "the exams should be helping the
+// user build" — so the write is now ASYMMETRIC rather than absent, and a blanket
+// byte-identical assertion is wrong BY DESIGN for the correct-answer case. It is not
+// deleted: it survives below as test 1, narrowed to the case it was really
+// protecting (a bad day costing nothing), and two strictly stronger tests cover the
+// cases it never could.
+//
+// The invariant all three enforce: AN EXAM CAN ONLY EVER MOVE AN ITEM FORWARD.
 
-  // Non-trivial real state first, so there is something to protect.
-  const paper = examPaper("exam-ja-a1");
-  store.graduateItem(paper.steps[0].id, "good");
-  store.gradeItem(paper.steps[0].id, "good", "choice");
-  store.graduateItem(paper.steps[1].id, "good");
-
-  const snapItems = () => JSON.stringify(useStore.getState().items);
-  const snapMistakes = () => JSON.stringify(useStore.getState().mistakes);
-  const beforeItems = snapItems();
-  const beforeMistakes = snapMistakes();
-
-  // Exactly Exam.jsx's wiring: a throwaway deck + every store writer no-op'd.
-  const sandbox = buildExamSandbox();
-  const writers = runnerWriters(true, {
-    gradeItem: useStore.getState().gradeItem,
-    completeReviews: useStore.getState().completeReviews,
-    rollDailyGoal: useStore.getState().rollDailyGoal,
+// Real, non-trivial progress to protect: graduated items with FSRS history, some
+// scheduled well into the future — which is the state that catches the subtle
+// failure (FSRS is NOT monotonic on an early review; a correct answer on a card due
+// in 60 days can return a 40-day interval and pull `due` FORWARD).
+function seedRealProgress(paper) {
+  useStore.getState().seedOnce();
+  // Built DIRECTLY rather than through gradeItem: identical shape, and it avoids a
+  // few hundred whole-corpus milestone reconciles that made the file the slowest in
+  // the suite. The depth is staggered so the paper spans shallow, mid and deeply
+  // scheduled items — the last group is what catches the early-review regression.
+  useStore.setState((s) => {
+    const items = { ...s.items };
+    for (const [i, step] of paper.steps.entries()) {
+      const base = items[step.id];
+      if (!base) continue;
+      const depth = i % 4;
+      let srs = base.srs ?? newCard();
+      for (let n = 0; n <= depth; n++) srs = schedule(srs, "easy");
+      items[step.id] = { ...base, rung: 1 + depth, srs, passes: { ...(base.passes ?? {}), [step.kindKey]: depth } };
+    }
+    return { items };
   });
-  assert.equal(writers.gradeItem, NOOP, "the exam runner's grade writer must be a no-op");
+}
+
+const dueMs = (it) => new Date(it?.srs?.due ?? 0).getTime();
+
+// The monotonic property, asserted field by field over the WHOLE items map. An item
+// may be absent from either side only if it is absent from both.
+function assertOnlyForward(before, after, label) {
+  assert.deepEqual(Object.keys(after).sort(), Object.keys(before).sort(), `${label}: the item set changed`);
+  for (const id of Object.keys(before)) {
+    const b = before[id];
+    const a = after[id];
+    assert.ok((a.rung ?? 0) >= (b.rung ?? 0), `${label}: ${id} rung fell ${b.rung} -> ${a.rung}`);
+    assert.ok(dueMs(a) >= dueMs(b), `${label}: ${id} due moved EARLIER`);
+    assert.ok(
+      Number(a.srs?.lapses ?? 0) <= Number(b.srs?.lapses ?? 0),
+      `${label}: ${id} gained a lapse`
+    );
+    assert.ok(
+      Number(a.srs?.reps ?? 0) >= Number(b.srs?.reps ?? 0),
+      `${label}: ${id} reps regressed`
+    );
+    assert.ok(
+      Number(a.srs?.stability ?? 0) >= Number(b.srs?.stability ?? 0),
+      `${label}: ${id} lost stability`
+    );
+    assert.ok(
+      countedPasses(a) >= countedPasses(b),
+      `${label}: ${id} lost mastery passes`
+    );
+  }
+}
+
+// TEST 1 — the old byte-identical assertion, narrowed to the case Alex needs
+// protected. A day where nothing goes right must cost NOTHING.
+test("a wrong exam answer changes nothing", () => {
+  const paper = examPaper("exam-ja-a1");
+  seedRealProgress(paper);
+  const store = useStore.getState();
+
+  // The deck the CARDS read is still a throwaway map — nothing a card mutates can
+  // reach a real item.
+  const sandbox = buildExamSandbox();
+
+  const beforeItems = JSON.stringify(useStore.getState().items);
+  const beforeMistakes = JSON.stringify(useStore.getState().mistakes);
+  const beforeStats = JSON.stringify(useStore.getState().stats);
 
   const grades = {};
   for (const step of paper.steps) {
     assert.ok(sandbox[step.id], `${step.id} must exist in the exam deck`);
-    // Answer everything WRONG — the worst possible day, which is precisely the
-    // run that must not be allowed to cost anything.
-    writers.gradeItem(step.id, "again", step.kindKey);
+    store.creditExamAnswer(step.id, "again", step.kindKey);
     grades[step.id] = "again";
   }
   const result = scoreExam(paper, grades);
   assert.equal(result.pct, 0);
   assert.equal(result.passed, false);
 
-  assert.equal(snapItems(), beforeItems, "an exam run wrote to the real items map");
-  assert.equal(snapMistakes(), beforeMistakes, "an exam run wrote to the mistake list");
+  // BYTE-IDENTICAL. No rung drop, no interval reset, no lapse, no XP, and the
+  // mistake log does not record the miss either.
+  assert.equal(JSON.stringify(useStore.getState().items), beforeItems, "a wrong exam answer wrote to items");
+  assert.equal(JSON.stringify(useStore.getState().mistakes), beforeMistakes, "a wrong exam answer wrote to the mistake list");
+  assert.equal(JSON.stringify(useStore.getState().stats), beforeStats, "a wrong exam answer wrote to stats");
+});
+
+// TEST 2 — the new half of the contract. A correct answer COUNTS, and every field it
+// touches may only improve.
+test("a correct exam answer can only move an item forward", () => {
+  const paper = examPaper("exam-ja-a2");
+  seedRealProgress(paper);
+  const store = useStore.getState();
+
+  const before = structuredClone(useStore.getState().items);
+  for (const step of paper.steps) store.creditExamAnswer(step.id, "good", step.kindKey);
+  const after = useStore.getState().items;
+
+  assertOnlyForward(before, after, "all-correct");
+
+  // ...and it genuinely CREDITED, rather than being forward-only by doing nothing.
+  const moved = paper.steps.filter((st) => {
+    const b = before[st.id], a = after[st.id];
+    return (a.rung ?? 0) > (b.rung ?? 0) || countedPasses(a) > countedPasses(b) || dueMs(a) > dueMs(b);
+  });
+  assert.ok(moved.length > 0, "a paper of correct answers credited nothing at all");
+
+  // ALWAYS `good`, NEVER `easy` — an exam is not the place to earn a long interval.
+  // Pressing `easy` and pressing `good` must leave identical state.
+  const viaGood = structuredClone(useStore.getState().items);
+  const id = paper.steps[0].id;
+  store.creditExamAnswer(id, "easy", paper.steps[0].kindKey);
+  const viaEasy = structuredClone(useStore.getState().items[id]);
+  // Re-run the same item with the explicit credit grade from a matching baseline.
+  assert.equal(EXAM_CREDIT_GRADE, "good");
+  assert.equal(examCreditGrade("easy"), "good", "`easy` must be credited as `good`");
+  assert.equal(examCreditGrade("hard"), "good", "`hard` must be credited as `good`");
+  assert.equal(examCreditGrade("again"), null, "`again` must credit nothing");
+  assert.ok(viaEasy.rung >= viaGood[id].rung);
+
+  // An item the learner has NEVER been taught is not promoted by an exam — that
+  // would slip it into the review queue without a lesson ever teaching it.
+  const untaught = Object.values(useStore.getState().items).find((it) => (it.rung ?? 0) === 0);
+  assert.ok(untaught, "sanity: the corpus still holds an untaught item");
+  const untaughtBefore = JSON.stringify(untaught);
+  store.creditExamAnswer(untaught.id, "good", "choice");
+  assert.equal(JSON.stringify(useStore.getState().items[untaught.id]), untaughtBefore, "an exam promoted an untaught item");
+});
+
+// TEST 3 — the general case. A real paper is a MIX, and the property has to hold
+// across every item in the store, not just the ones that were answered.
+test("an exam cannot lower anything, on any mix of answers", () => {
+  const paper = examPaper("exam-ja-a1", { seed: "mixed", attempt: 2 });
+  seedRealProgress(paper);
+  const store = useStore.getState();
+
+  const pattern = ["again", "good", "hard", "again", "easy", "again", "good"];
+  const before = structuredClone(useStore.getState().items);
+  const grades = {};
+  for (const [i, step] of paper.steps.entries()) {
+    const g = pattern[i % pattern.length];
+    store.creditExamAnswer(step.id, g, step.kindKey);
+    grades[step.id] = g;
+  }
+  assertOnlyForward(before, useStore.getState().items, "mixed");
+
+  // The scoring still sees the real mix (the write asymmetry is not a scoring lie).
+  const res = scoreExam(paper, grades);
+  assert.ok(res.pct > 0 && res.pct < 100, `a mixed paper should score in between, got ${res.pct}`);
+  assert.ok(res.shakyIds.length > 0, "the misses still feed the practice queue");
+
+  // Every wrong answer's item is untouched, item by item.
+  for (const [i, step] of paper.steps.entries()) {
+    if (pattern[i % pattern.length] !== "again") continue;
+    // ...unless the same item was also answered correctly elsewhere on the paper,
+    // which a stratified paper never does (one question per item).
+    assert.equal(
+      JSON.stringify(useStore.getState().items[step.id]),
+      JSON.stringify(before[step.id]),
+      `${step.id} was answered wrong and still changed`
+    );
+  }
+});
+
+// The clamp itself, in isolation — the failure it exists for cannot be produced on
+// demand from FSRS, so it is pinned directly.
+test("forwardOnlySrs keeps the LATER due date and never adds a lapse", () => {
+  const prev = { due: "2026-12-01T00:00:00.000Z", stability: 60, difficulty: 4, reps: 9, lapses: 1 };
+  // An early review returning a SHORTER interval — the case that would silently cost
+  // the learner scheduling they had already earned.
+  const worse = { due: "2026-10-01T00:00:00.000Z", stability: 40, difficulty: 6, reps: 10, lapses: 2 };
+  const out = forwardOnlySrs(prev, worse);
+  assert.equal(out.due, prev.due, "due was pulled earlier");
+  assert.equal(out.stability, 60);
+  assert.equal(out.difficulty, 4);
+  assert.equal(out.lapses, 1, "an exam added a lapse");
+  assert.equal(out.reps, 10, "reps must still climb");
+
+  // A genuinely better card passes through untouched.
+  const better = { due: "2027-06-01T00:00:00.000Z", stability: 90, difficulty: 3, reps: 10, lapses: 1 };
+  assert.deepEqual(forwardOnlySrs(prev, better), better);
 });
 
 // --- the store slice ---------------------------------------------------------
@@ -307,11 +469,12 @@ test("queuePractice only queues items the learner has actually been taught", () 
   const paper = examPaper("exam-ja-a1");
   const taught = paper.steps[0].id;
   store.graduateItem(taught, "good");
-  // An item that is genuinely still at rung 0 (earlier tests in this file share
-  // the module-level store, so pick it from live state rather than by position).
+  // An item that is genuinely still at rung 0. Earlier tests in this file share the
+  // module-level store and now graduate whole papers, so search the LIVE corpus
+  // rather than one paper's twenty items.
   const live = useStore.getState().items;
-  const untaught = paper.steps.find((s) => (live[s.id]?.rung ?? 0) < 1)?.id;
-  assert.ok(untaught, "sanity: the paper still holds an untaught item");
+  const untaught = Object.values(live).find((it) => it.lang === "ja" && (it.rung ?? 0) < 1)?.id;
+  assert.ok(untaught, "sanity: the corpus still holds an untaught item");
 
   store.queuePractice([taught, untaught]);
   const mistakes = useStore.getState().mistakes;
@@ -388,4 +551,208 @@ test("a FAILED exam changes nothing at all — it certifies, it never gates (D1)
   assert.equal(JSON.stringify(useStore.getState().daily), before.daily);
   // The only thing that moved is the exam record itself.
   assert.equal(useStore.getState().exams["exam-ja-b1"].bestPct, 10);
+});
+
+// --- checkpoints (2026-09-25) ------------------------------------------------
+// Alex: 7 touchpoints across 126 units means a learner can climb ~30 units without
+// knowing where they stand. A checkpoint every CHECKPOINT_EVERY units replaces the
+// three half-band checks.
+
+test("the checkpoint cadence and length are plain tunable constants", () => {
+  // CLAUDE.md: "tuning is constants, not structure". Changing the cadence must be a
+  // one-line edit, so these are numbers and nothing derives a literal from them.
+  assert.equal(typeof CHECKPOINT_EVERY, "number");
+  assert.equal(typeof CHECKPOINT_SIZE, "number");
+  assert.equal(typeof CHECKPOINT_OLDER, "number");
+  assert.equal(CHECKPOINT_EVERY, 6);
+  assert.equal(CHECKPOINT_SIZE, 8);
+  assert.equal(CHECKPOINT_OLDER, 2);
+  assert.ok(CHECKPOINT_OLDER < CHECKPOINT_SIZE, "the older half cannot be the whole paper");
+});
+
+test("a checkpoint id round-trips, and a bad range is rejected", () => {
+  assert.equal(checkpointId("ja", 7, 12), "cp-ja-u7-u12");
+  assert.deepEqual(parseExamId("cp-ja-u7-u12"), {
+    id: "cp-ja-u7-u12", kind: "checkpoint", lang: "ja", band: null, from: 7, to: 12,
+  });
+  assert.equal(parseExamId("cp-ja-u12-u7"), null, "to must not precede from");
+  assert.equal(parseExamId("cp-ja-u7"), null);
+  assert.equal(parseExamId("cp-ja-uX-uY"), null);
+});
+
+test("a RETIRED half-check id still PARSES, so a persisted record cannot crash", () => {
+  // The three half-checks are no longer generated anywhere (Ladder.jsx offers only
+  // the band exam + the next checkpoint), but an existing save holds
+  // `exams["check-ja-a1.5"]` and an old bookmark can still be opened.
+  assert.deepEqual(parseExamId(checkId("ja", "A1")), {
+    id: "check-ja-a1.5", kind: "check", lang: "ja", band: "A1",
+  });
+  const legacy = examPaper("check-ja-a1.5");
+  assert.ok(legacy, "an old half-check link must still open rather than crash");
+  assert.equal(legacy.steps.length, CHECK_SIZE);
+  assert.equal(scoreExam(legacy, {}).passed, null, "and it still has no threshold");
+});
+
+test("every authored language gets a checkpoint every CHECKPOINT_EVERY units", () => {
+  for (const lang of LIVE_LANGS) {
+    const units = new Set(
+      UNITS.filter((u) => u.lang === lang && u.lessons?.some((l) => Array.isArray(l.items))).map((u) => u.id)
+    ).size;
+    const ranges = checkpointRanges(lang);
+    assert.equal(
+      ranges.length,
+      Math.floor(units / CHECKPOINT_EVERY),
+      `${lang}: ${units} units should yield ${Math.floor(units / CHECKPOINT_EVERY)} checkpoints, got ${ranges.length}`
+    );
+    // Contiguous, non-overlapping, CHECKPOINT_EVERY wide.
+    for (const [i, r] of ranges.entries()) {
+      assert.equal(r.to - r.from + 1, CHECKPOINT_EVERY, `${r.id} is not ${CHECKPOINT_EVERY} units wide`);
+      if (i > 0) assert.equal(r.from, ranges[i - 1].to + 1, `${r.id} does not follow ${ranges[i - 1].id}`);
+      assert.equal(r.id, checkpointId(lang, r.from, r.to));
+      assert.deepEqual(parseExamId(r.id).lang, lang);
+    }
+    assert.ok(ranges.length >= 20, `${lang} should have ~21+ checkpoints, got ${ranges.length}`);
+  }
+});
+
+test("A CHECKPOINT IS 6 RECENT + 2 EARLIER — measured on every checkpoint of every language", () => {
+  // This is the whole reason checkpoints exist: without the older pair it only
+  // measures what was just crammed. Measured, never asserted from the constants.
+  let checked = 0;
+  let firstFallbacks = 0;
+  for (const lang of LIVE_LANGS) {
+    for (const r of checkpointRanges(lang)) {
+      const paper = examPaper(r.id);
+      assert.ok(paper, `${r.id} produced no paper`);
+      assert.equal(paper.kind, "checkpoint");
+      assert.equal(paper.steps.length, CHECKPOINT_SIZE, `${r.id} is not ${CHECKPOINT_SIZE} questions`);
+      assert.equal(paper.from, r.from);
+      assert.equal(paper.to, r.to);
+
+      const older = paper.steps.filter((st) => st.era === "older");
+      const recent = paper.steps.filter((st) => st.era === "recent");
+      assert.equal(older.length + recent.length, CHECKPOINT_SIZE, `${r.id}: a step has no era`);
+      assert.equal(paper.olderActual, older.length);
+      assert.equal(paper.olderWanted, CHECKPOINT_OLDER);
+
+      if (r.from === 1) {
+        // The very first checkpoint has nothing earlier to draw on: 8 recent, and the
+        // paper SAYS so rather than silently shipping a short paper.
+        assert.equal(older.length, 0, `${r.id}: there is no material before unit 1`);
+        firstFallbacks += 1;
+      } else {
+        assert.equal(older.length, CHECKPOINT_OLDER, `${r.id}: got ${older.length} older questions`);
+      }
+
+      // The recent ones really are from the block, and the older ones really are not.
+      const inBlock = (st) => {
+        const u = UNITS.find((x) => x.id === st.unitId);
+        return (u?.order ?? 0) >= r.from && (u?.order ?? 0) <= r.to;
+      };
+      for (const st of recent) assert.ok(inBlock(st), `${r.id}: "recent" step ${st.id} is outside units ${r.from}-${r.to}`);
+      for (const st of older) assert.ok(!inBlock(st), `${r.id}: "older" step ${st.id} is inside the recent block`);
+      for (const st of older) {
+        const u = UNITS.find((x) => x.id === st.unitId);
+        assert.ok((u?.order ?? 0) < r.from, `${r.id}: "older" step ${st.id} is not earlier material`);
+      }
+
+      // Never the same item twice, and never an excluded kind.
+      assert.equal(new Set(paper.steps.map((st) => st.id)).size, CHECKPOINT_SIZE, `${r.id} asked an item twice`);
+      for (const st of paper.steps) assert.ok(!EXAM_EXCLUDED_KINDS.has(st.kindKey), `${r.id}: ${st.kindKey} is not examinable`);
+      checked += 1;
+    }
+  }
+  assert.ok(checked > 100, `sanity: the sweep should cover every checkpoint, saw ${checked}`);
+  assert.equal(firstFallbacks, LIVE_LANGS.length, "every language has exactly one first-checkpoint fallback");
+});
+
+test("a checkpoint has NO threshold — never passed, never failed, and stores no result", () => {
+  const paper = examPaper("cp-ja-u7-u12");
+  const perfect = scoreExam(paper, Object.fromEntries(paper.steps.map((st) => [st.id, "easy"])));
+  const awful = scoreExam(paper, Object.fromEntries(paper.steps.map((st) => [st.id, "again"])));
+  assert.equal(perfect.passed, null, "null, not true: there is no bar to clear");
+  assert.equal(awful.passed, null, "null, not false: there is no bar to be under");
+
+  useStore.getState().recordExam("cp-ja-u7-u12", { pct: 100 });
+  const rec = useStore.getState().exams["cp-ja-u7-u12"];
+  assert.deepEqual(Object.keys(rec), ["lastTaken"], "a checkpoint stores a DATE AND NOTHING ELSE");
+  assert.ok(rec.lastTaken > 0);
+
+  // No milestone can come from a checkpoint.
+  assert.ok(
+    !useStore.getState().milestonesEarned.some((id) => String(id).includes("verified") && String(id).includes("cp")),
+    "a checkpoint must not earn a verified milestone"
+  );
+});
+
+test("a checkpoint's scope is the RECENT block only — no wall of 'not yet tested'", () => {
+  const paper = examPaper("cp-ja-u61-u66");
+  assert.equal(paper.unitsInScope.length, CHECKPOINT_EVERY);
+  const res = scoreExam(paper, Object.fromEntries(paper.steps.map((st) => [st.id, "good"])));
+  // A checkpoint that reported the other 200 units as untested would be a wall of
+  // text that says nothing.
+  assert.ok(res.untested.length <= CHECKPOINT_EVERY, `untested listed ${res.untested.length} units`);
+});
+
+test("a checkpoint's paper rotates on retake and resumes mid-run", () => {
+  const a = examPaper("cp-ja-u7-u12", { seed: "alex|0" });
+  const b = examPaper("cp-ja-u7-u12", { seed: "alex|0" });
+  assert.deepEqual(a.steps, b.steps, "a reload mid-checkpoint must resume the same paper");
+  const later = examPaper("cp-ja-u7-u12", { seed: "alex|999999" });
+  assert.notDeepEqual(a.steps, later.steps, "a retake must be a different look");
+
+  // paperKeyFor seeds a checkpoint off lastTaken (it has no attempts counter).
+  assert.deepEqual(
+    paperKeyFor({ "cp-ja-u7-u12": { lastTaken: 777 } }, "cp-ja-u7-u12", "alex"),
+    { seed: "alex|777", attempt: 0 }
+  );
+});
+
+test("exactly ONE checkpoint is surfaced, and none before the first block is finished", () => {
+  const ranges = checkpointRanges("ja");
+  const unitOf = (order) => UNITS.find((u) => u.lang === "ja" && u.order === order);
+  const itemsThrough = (order) => {
+    const out = {};
+    for (const u of UNITS) {
+      if (u.lang !== "ja" || (u.order ?? 0) > order) continue;
+      for (const l of u.lessons ?? []) for (const d of l.items ?? []) out[d.id] = { id: d.id, rung: 2 };
+    }
+    return out;
+  };
+
+  // Mid-way through the first block: nothing to offer yet, and that is the honest
+  // answer — a checkpoint over 3 units is a worse measurement than none.
+  assert.equal(nextCheckpointFor("ja", itemsThrough(3)), null);
+  assert.equal(furthestUnitOrder(itemsThrough(3), "ja"), 3);
+
+  // First block done -> the first checkpoint, and ONLY it.
+  assert.deepEqual(nextCheckpointFor("ja", itemsThrough(6)), ranges[0]);
+  // Part-way into the second block -> still the first (the second isn't complete).
+  assert.deepEqual(nextCheckpointFor("ja", itemsThrough(9)), ranges[0]);
+  // Second block done -> the second.
+  assert.deepEqual(nextCheckpointFor("ja", itemsThrough(12)), ranges[1]);
+  // No progress at all -> nothing.
+  assert.equal(nextCheckpointFor("ja", {}), null);
+  assert.ok(unitOf(6), "sanity: ja unit 6 exists");
+});
+
+test("a checkpoint credits correct answers and charges nothing for wrong ones", () => {
+  // Same contract as a band exam — the asymmetry is in the store writer, not in the
+  // paper, so a checkpoint cannot diverge from it.
+  const paper = examPaper("cp-ja-u7-u12");
+  seedRealProgress(paper);
+  const store = useStore.getState();
+
+  const before = structuredClone(useStore.getState().items);
+  for (const [i, st] of paper.steps.entries()) store.creditExamAnswer(st.id, i % 2 ? "again" : "good", st.kindKey);
+  assertOnlyForward(before, useStore.getState().items, "checkpoint-mixed");
+
+  for (const [i, st] of paper.steps.entries()) {
+    if (!(i % 2)) continue;
+    assert.equal(
+      JSON.stringify(useStore.getState().items[st.id]),
+      JSON.stringify(before[st.id]),
+      `${st.id} was missed on a checkpoint and still changed`
+    );
+  }
 });

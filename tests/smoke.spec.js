@@ -1515,25 +1515,36 @@ test("Preview Mode: the app runs, and the real profile is untouched", async ({ p
 // fixtures that boot profile-less an explicit `onboarded: true`. That is a real
 // job, not a one-liner, and it belongs to whoever picks up the QA-lane item.
 
-// ---- Band exams & half-band checks -----------------------------------------
+// ---- Band exams & checkpoints ----------------------------------------------
 // docs/shipped/BUILD-BRIEF-exams.md. Three things have to be true and none of
 // them can be checked by a unit test alone:
-//   1. the affordance is reachable from the Ladder rung (no new tab);
+//   1. the affordance is reachable from the Ladder (no new tab);
 //   2. a WHOLE paper plays end to end through the real cards;
-//   3. it leaves the learner's real progress byte-identical.
-// (3) is the one that matters. If exam answers reached FSRS, one bad day would
-// rewrite weeks of scheduling — the exact anti-pattern the app exists to avoid.
+//   3. it can only ever leave the learner's real progress BETTER OR EQUAL.
+// (3) is the one that matters, and it changed shape on 2026-09-25: an exam now
+// CREDITS a correct answer (Alex: "the exams should be helping the user build") and
+// still writes nothing at all for a wrong one. So the assertion is no longer
+// "unchanged" — it is "not worse, in any field, for any item". The all-wrong
+// byte-identical case is driven deterministically in tests/unit/exams.test.mjs
+// ("a wrong exam answer changes nothing"), which is the only place the grades can
+// be forced rather than played.
 
-// A Japanese learner with real progress in the A1 BAND (unit 7 is stage a1), so
-// the Ladder offers that rung's check. `freshCard` keeps them out of the review
+// A Japanese learner with real progress up to unit 13 (stage a1 starts at unit 7),
+// so the Ladder offers the A1 exam AND a checkpoint that has earlier material to
+// draw its older pair from (cp-ja-u7-u12). `freshCard` keeps them out of the review
 // queue, so nothing but the exam is in play.
 function examLearnerFixture() {
   return {
     state: {
       items: {
+        "ja-u1l1-a": { rung: 2, srs: freshCard() },
+        "ja-u4l1-i": { rung: 2, srs: freshCard() },
         "ja-u7l1-ichi": { rung: 2, srs: freshCard() },
         "ja-u7l1-ni": { rung: 1, srs: freshCard() },
         "ja-u8l1-chichi": { rung: 3, srs: freshCard() },
+        "ja-u10l1-eki": { rung: 2, srs: freshCard() },
+        "ja-u12l1-aka": { rung: 2, srs: freshCard() },
+        "ja-u13l1-nichi": { rung: 1, srs: freshCard() },
       },
       languages: LANGUAGES,
       profile: { onboarded: true, displayName: "Test Learner", reason: null, reminderTime: null, languages: ["ja"], activeLang: "ja", languagesChosen: true },
@@ -1556,6 +1567,25 @@ const readState = (page, keys) =>
     return ks.reduce((acc, k) => (acc == null ? acc : acc[k]), s);
   }, keys);
 
+// THE MONOTONIC CHECK. Returns a list of regressions — empty means the exam only
+// ever moved things forward. This replaces the old byte-identical assertion, which
+// is wrong by design now that a correct answer counts.
+function regressions(before, after) {
+  const bad = [];
+  const at = (it) => new Date(it?.srs?.due ?? 0).getTime();
+  for (const [id, b] of Object.entries(before)) {
+    const a = after[id];
+    if (!a) { bad.push(`${id} vanished`); continue; }
+    if ((a.rung ?? 0) < (b.rung ?? 0)) bad.push(`${id} rung ${b.rung} -> ${a.rung}`);
+    if (at(a) < at(b)) bad.push(`${id} due moved EARLIER`);
+    if (Number(a.srs?.lapses ?? 0) > Number(b.srs?.lapses ?? 0)) bad.push(`${id} gained a lapse`);
+    if (Number(a.srs?.reps ?? 0) < Number(b.srs?.reps ?? 0)) bad.push(`${id} reps regressed`);
+    if (Number(a.srs?.stability ?? 0) < Number(b.srs?.stability ?? 0)) bad.push(`${id} lost stability`);
+  }
+  for (const id of Object.keys(after)) if (!before[id]) bad.push(`${id} appeared`);
+  return bad;
+}
+
 // Play until the result screen appears (an exam has no "Back to Today").
 async function playExam(page, max) {
   const headline = page.getByTestId("exam-headline");
@@ -1567,7 +1597,7 @@ async function playExam(page, max) {
   return await headline.isVisible().catch(() => false);
 }
 
-test("band exam: offered on its Ladder rung, plays end to end, and changes NO real progress", async ({ page }) => {
+test("band exam: offered on its Ladder rung, plays end to end, and can only move progress FORWARD", async ({ page }) => {
   test.setTimeout(300_000);
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
@@ -1582,18 +1612,22 @@ test("band exam: offered on its Ladder rung, plays end to end, and changes NO re
   // The affordance lives ON the A1 rung — no new tab was added for it.
   const take = page.getByTestId("take-exam-A1");
   await expect(take).toBeVisible();
-  // ...and the half-band check sits between the rungs.
-  await expect(page.getByTestId("take-check-A1")).toBeVisible();
+  // The half-band check link is RETIRED (2026-09-25) — replaced by checkpoints.
+  await expect(page.getByTestId("take-check-A1")).toHaveCount(0);
   await expect(page.getByTestId("verified-A1")).toHaveCount(0);
+  // ...and exactly ONE checkpoint is surfaced, never twenty-one.
+  await expect(page.getByTestId("next-checkpoint")).toHaveCount(1);
 
   // THE SNAPSHOT. Everything that is real progress, before a single question.
-  const itemsBefore = JSON.stringify(await readState(page, ["items"]));
+  const itemsBefore = await readState(page, ["items"]);
   const mistakesBefore = JSON.stringify(await readState(page, ["mistakes"]));
 
   await take.click();
 
-  // The calm intro says what this cannot do to you, BEFORE the first card.
+  // The calm intro says what this cannot do to you, BEFORE the first card — and it
+  // has to be HONEST now that a right answer counts.
   await expect(page.getByText("WHAT IT CANNOT DO")).toBeVisible();
+  await expect(page.getByText("This can't set you back")).toBeVisible();
   await page.getByTestId("exam-begin").click();
 
   expect(await playExam(page, 60), "the exam did not reach its result screen").toBe(true);
@@ -1604,8 +1638,16 @@ test("band exam: offered on its Ladder rung, plays end to end, and changes NO re
   await expect(page.getByText("NOT YET TESTED")).toBeVisible();
   await expect(page.getByTestId("exam-no-effect")).toBeVisible();
 
-  // THE ASSERTION THIS WHOLE FEATURE HANGS ON.
-  expect(JSON.stringify(await readState(page, ["items"])), "an exam wrote to real progress").toBe(itemsBefore);
+  // THE ASSERTION THIS WHOLE FEATURE HANGS ON — NOT WORSE, in any field, for any
+  // item. A right answer is allowed to have moved something forward; nothing is
+  // allowed to have moved back.
+  const itemsAfter = await readState(page, ["items"]);
+  const bad = regressions(itemsBefore, itemsAfter);
+  expect(bad, `an exam LOWERED something: ${bad.slice(0, 5).join("; ")}`).toEqual([]);
+
+  // A MISS IS RECORDED NOWHERE. The mistake list is the one place a wrong answer
+  // could leave a trace, and it must not — a failed exam stays inert whatever the
+  // score was, and only a deliberate "Practice the shaky ones" tap writes here.
   expect(JSON.stringify(await readState(page, ["mistakes"])), "an exam wrote to the mistake list").toBe(mistakesBefore);
 
   // The outcome IS recorded — best result, date, attempt count — and the verified
@@ -1617,14 +1659,20 @@ test("band exam: offered on its Ladder rung, plays end to end, and changes NO re
   const earned = await readState(page, ["milestonesEarned"]);
   expect(earned.includes("level-A1-verified")).toBe(rec.bestPct >= 80);
 
-  // And the rung now says so, without ever having blocked anything.
+  // And the rung now says so, without ever having blocked anything. A FAILED exam
+  // is inert: no badge, and the A1 exam is simply offered again.
   await page.getByTestId("exam-done").click();
-  if (rec.bestPct >= 80) await expect(page.getByTestId("verified-A1")).toBeVisible();
+  if (rec.bestPct >= 80) {
+    await expect(page.getByTestId("verified-A1")).toBeVisible();
+  } else {
+    await expect(page.getByTestId("verified-A1")).toHaveCount(0);
+    await expect(page.getByTestId("take-exam-A1")).toBeVisible();
+  }
 
   expect(errors, errors.join("; ")).toEqual([]);
 });
 
-test("half-band check: no pass, no fail, no percentage — and only a date is stored", async ({ page }) => {
+test("checkpoint: every 6 units, no pass, no fail, no percentage — and only a date is stored", async ({ page }) => {
   test.setTimeout(300_000);
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
@@ -1634,12 +1682,21 @@ test("half-band check: no pass, no fail, no percentage — and only a date is st
     JSON.stringify(examLearnerFixture())
   );
   await page.goto("/ladder");
-  await page.getByTestId("take-check-A1").click();
 
+  // ONE checkpoint, not twenty-one, and it is the block this learner has finished:
+  // the fixture reaches unit 13, so units 7-12 is the most recent complete block.
+  const cp = page.getByTestId("next-checkpoint");
+  await expect(cp).toHaveCount(1);
+  await expect(cp).toContainText("units 7–12");
+  const itemsBefore = await readState(page, ["items"]);
+  await cp.click();
+
+  // THE COMPOSITION IS THE POINT: 6 from the block + 2 from earlier on.
   await expect(page.getByText("no pass mark at all")).toBeVisible();
+  await expect(page.getByText("from earlier on")).toBeVisible();
   await page.getByTestId("exam-begin").click();
 
-  expect(await playExam(page, 40), "the check did not reach its result screen").toBe(true);
+  expect(await playExam(page, 40), "the checkpoint did not reach its result screen").toBe(true);
 
   // A mirror, not a verdict: no pass/fail wording, and no percentage anywhere.
   await expect(page.getByTestId("exam-headline")).toHaveText("Where you are right now");
@@ -1647,11 +1704,15 @@ test("half-band check: no pass, no fail, no percentage — and only a date is st
   await expect(page.getByText("verified")).toHaveCount(0);
 
   // A DATE AND NOTHING ELSE — no bestPct, no attempts, no pass flag.
-  const rec = await readState(page, ["exams", "check-ja-a1.5"]);
+  const rec = await readState(page, ["exams", "cp-ja-u7-u12"]);
   expect(Object.keys(rec)).toEqual(["lastTaken"]);
   expect(rec.lastTaken).toBeGreaterThan(0);
 
-  // No exam milestone can come from a check.
+  // Same one-directional guarantee as the band exam.
+  const bad = regressions(itemsBefore, await readState(page, ["items"]));
+  expect(bad, `a checkpoint LOWERED something: ${bad.slice(0, 5).join("; ")}`).toEqual([]);
+
+  // No exam milestone can come from a checkpoint.
   const earned = await readState(page, ["milestonesEarned"]);
   expect(earned.some((id) => String(id).includes("verified"))).toBe(false);
 

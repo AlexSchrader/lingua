@@ -22,6 +22,29 @@
 > | **D2** | **ADD, don't replace.** `level-<band>` keeps meaning *content covered*; `level-<band>-verified` is the new exam-earned signal. | Both families ship side by side in `milestones.js`. |
 > | **D3** | **80%** passes a band exam. A **half-check has no threshold at all** and stores no result beyond a last-taken date. The percentage is shown **only on a pass**. | `EXAM_PASS_PCT = 80`; `scoreExam().passed` is `null` for a check, never `false`; `recordExam` writes `{ lastTaken }` and nothing else for a check. |
 >
+> ## ⚠️ TWO OF THIS BRIEF'S RULES WERE SUPERSEDED BY ALEX ON 2026-09-25
+>
+> The original text of both survives below, unedited, because it is the historical record. **Where it disagrees with this block, this block is right and the code is righter still.**
+>
+> **D4 — "An exam must never write SRS state or mastery rungs" is REPLACED by an ASYMMETRIC write.** Alex: *"the exams should be helping the user build"*. The sandboxed version threw away twenty successful retrievals — among the strongest learning mechanisms there is — in order to stay safe, and that was the wrong trade.
+> - a **correct** answer (`hard`/`good`/`easy`) credits the item as an ordinary correct review, so SRS and mastery advance;
+> - a **wrong** answer (`again`) writes **NOTHING** — no rung drop, no interval reset, no lapse, no mistake-log penalty, no record of the miss;
+> - a correct answer is always credited as **`good`, never `easy`** (`EXAM_CREDIT_GRADE`) — an exam is not the place to earn a long interval and a lucky guess must not push an item weeks out;
+> - an item at **rung 0** is skipped entirely: an exam samples the whole band, and promoting an untaught word would slip it into the review queue without a lesson.
+>
+> **The brief's actual invariant is preserved and is now positive: AN EXAM CAN ONLY EVER MOVE AN ITEM FORWARD.** It is achieved by writing only upward rather than by writing nothing. `forwardOnlySrs` exists because FSRS is *not* monotonic on an early review — answering a card due in 60 days correctly today can return a 40-day interval and pull `due` forward — so every field that can regress is clamped.
+> - built as: `creditExamAnswer` in `src/store/useStore.js`; `examCreditGrade` + `forwardOnlySrs` + `EXAM_CREDIT_GRADE` in `src/store/exams.js`
+> - the brief's *"a test must assert an exam leaves `items` byte-identical"* is now **three** tests, not one: **`a wrong exam answer changes nothing`** (the original assertion, narrowed to the all-wrong case it was really protecting), **`a correct exam answer can only move an item forward`**, and **`an exam cannot lower anything, on any mix of answers`**.
+>
+> **D5 — THE THREE HALF-BAND CHECKS ARE RETIRED, replaced by a CHECKPOINT every 6 units.** Alex's concern: seven touchpoints across 126 units means a learner can climb ~30 units without knowing where they stand — and two different flavours of "this doesn't count" was confusing on its own.
+> - `CHECKPOINT_EVERY = 6`, `CHECKPOINT_SIZE = 8`, `CHECKPOINT_OLDER = 2` — plain exported constants, tunable in one line
+> - **~21 checkpoints per Latin language (22 for fr), 34 for ja**, derived from the corpus with nothing to author
+> - ids are `cp-<lang>-u<from>-u<to>` (e.g. `cp-ja-u7-u12`), round-tripping through `parseExamId`
+> - **6 questions from the block just finished + 2 from EARLIER material** — the older pair is the point, or it only measures what was just crammed. The very first checkpoint has nothing earlier and falls back to 8 recent, which the paper reports (`olderActual`)
+> - same contract as the half-check: no pass, no fail, no threshold, no stored result beyond a last-taken date
+> - `parseExamId` still READS a legacy `check-<lang>-<band>.5` id and a paper still builds for one, so a persisted record or an old bookmark cannot crash. Nothing generates one any more.
+> - the Ladder surfaces exactly **one** checkpoint — the most recent completed block — below the unit progress bar. **No tab, and not 21 affordances.**
+>
 > ## What the brief got WRONG, corrected in the build
 >
 > - **"This is a store schema change + persist version bump."** It is not. `useStore`'s `merge` starts from `current` (fresh defaults) and overlays persisted state, so a new `exams` key is simply present for existing saves and overrides nothing. **`PERSIST_VERSION` is unchanged and no migration was added** — an unnecessary bump is pure risk against the only save that has real progress.
@@ -56,6 +79,8 @@ design of the half-check, and it's worth saying out loud that **it applies to th
 exam too.** Nothing in this feature may ever *lower* anything.
 
 ## The non-negotiable: sandboxing
+
+> ⚠️ **SUPERSEDED 2026-09-25 — see D4 in the stamp at the top of this file.** The rule below is the ORIGINAL and is kept as the record. It is now asymmetric: a correct answer is credited, a wrong answer writes nothing, and the invariant is *an exam can only ever move an item FORWARD*.
 
 **An exam must never write SRS state or mastery rungs.** If exam answers feed FSRS, one
 bad day (tired, anxious, on a train) rewrites weeks of scheduling and pushes a pile of
@@ -145,6 +170,9 @@ change + persist version bump**. It's additive and safe, but it's your call.
    breakdown shape. Unit-testable with zero UI.
 2. Sandbox wiring — reuse `buildSandboxItems`/`NOOP` writers so a run can't touch progress.
    **A test must assert an exam leaves `items` byte-identical.**
+   *(Superseded 2026-09-25 — D4. The cards still read a throwaway deck, but the store
+   writer is now asymmetric, and the byte-identical assertion applies to the ALL-WRONG
+   case only. Two further tests cover the forward-only property.)*
 3. Result screen + Ladder affordance.
 4. Store slice + persist bump (D3 sign-off), `level-<band>-verified` milestone (D2).
 5. Smoke: take an exam end to end, assert real progress unchanged, assert a half-check

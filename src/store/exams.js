@@ -14,10 +14,21 @@
 //       pass — when the answer is "keep going" the number adds nothing and it is
 //       the part that stings.
 //
-// The other non-negotiable lives in the runner, not here: an exam runs against a
-// throwaway items map with every store writer no-op'd (dev.js buildExamSandbox +
-// runnerWriters), so an exam can never write SRS state or a mastery rung. A bad
-// day must never rewrite weeks of scheduling. See tests/unit/exams.test.mjs.
+// D4 (Alex, 2026-09-25) SUPERSEDES the brief's "an exam must never write SRS
+//     state or mastery rungs": *"the exams should be helping the user build"*.
+//     Correctly retrieving twenty words IS one of the strongest learning mechanisms
+//     there is, and throwing all of it away to stay safe was the wrong trade. The
+//     write is now ASYMMETRIC, not absent:
+//
+//       correct (hard/good/easy) -> credits the item as an ordinary correct review
+//       wrong   (again)          -> writes NOTHING. No rung drop, no interval
+//                                   reset, no lapse, no mistake-log penalty.
+//
+//     The brief's real invariant is preserved and is now stated positively: AN
+//     EXAM CAN ONLY EVER MOVE AN ITEM FORWARD. It is achieved by writing only
+//     upward (EXAM_CREDIT_GRADE + forwardOnlySrs below, store.creditExamAnswer),
+//     rather than by writing nothing at all. A bad day still costs exactly zero.
+//     See tests/unit/exams.test.mjs for the three tests that pin it.
 //
 // An exam is a SELECTION OVER EXISTING ITEMS AND EXISTING CARD KINDS — not new
 // content and not a new card kind. Consequence: every band exam for every
@@ -37,7 +48,36 @@ export const EXAM_PASS_PCT = 80;
 // finish in one go without a timer — there is deliberately no clock anywhere in
 // this feature (a countdown makes it a test rather than a mirror).
 export const EXAM_SIZE = 20;
+
+// LEGACY. The three half-band checks (`check-<lang>-a1.5` etc.) are RETIRED as of
+// 2026-09-25 — two different flavours of "this doesn't count" was confusing, and
+// three touchpoints across 126 units meant a learner could climb ~30 units without
+// knowing where they stood. Checkpoints (below) replace them. Nothing GENERATES a
+// half-check id any more; `parseExamId` still reads one, and a paper still builds
+// for one, purely so a persisted record or an old bookmark cannot crash.
 export const CHECK_SIZE = 10;
+
+// --- checkpoints -------------------------------------------------------------
+// A checkpoint every CHECKPOINT_EVERY units: ~21 per Latin language, ~34 for ja,
+// roughly two minutes each. Same contract as the half-check it replaces — no pass,
+// no fail, no threshold, no stored result beyond a last-taken date.
+//
+// TUNABLE IN ONE LINE (CLAUDE.md: "tuning is constants, not structure"). Cadence
+// and length are these three numbers and nothing else reads a literal.
+export const CHECKPOINT_EVERY = 6;
+export const CHECKPOINT_SIZE = 8;
+
+// THE COMPOSITION IS THE POINT. Two of the eight come from EARLIER material, which
+// is the whole reason a checkpoint exists: without them it only measures what was
+// just crammed. The very first checkpoint has no earlier material to draw on and
+// falls back to CHECKPOINT_SIZE recent questions — the paper reports which it got
+// (`olderWanted` / `olderActual`), so the split is measured, never assumed.
+export const CHECKPOINT_OLDER = 2;
+
+// The grade a CORRECT exam answer is credited as — always `good`, never `easy`,
+// whichever button was pressed. An exam is not the place to earn a long interval,
+// and a lucky guess must not push an item weeks out.
+export const EXAM_CREDIT_GRADE = "good";
 
 // The first language keeps un-suffixed milestone ids, exactly as data/milestones.js
 // does for `level-<band>`, so the two families read alike.
@@ -51,12 +91,30 @@ const LEGACY_LEVEL_LANG = "ja";
 // ten-language catalog where a learner climbs several tracks at once, so the
 // language is part of the id. Everything else about the two shapes is the brief's.
 export const examId = (lang, band) => `exam-${lang}-${String(band).toLowerCase()}`;
+// LEGACY — retired 2026-09-25. Kept so `parseExamId` still has something to
+// round-trip against in the tests; nothing in the app calls it any more.
 export const checkId = (lang, band) => `check-${lang}-${String(band).toLowerCase()}.5`;
+
+// `cp-<lang>-u<from>-u<to>` — "the checkpoint over units 7 to 12". Unit ORDER, not
+// unit id, because the range is what the learner is being asked about and the order
+// is what the Ladder spine already counts in.
+export const checkpointId = (lang, from, to) => `cp-${lang}-u${from}-u${to}`;
 
 const BAND_OF = Object.fromEntries(EXAM_BANDS.map((b) => [b.toLowerCase(), b]));
 
 export function parseExamId(id) {
-  const m = /^(exam|check)-([a-z]{2,3})-(a1|a2|b1|b2)(\.5)?$/.exec(String(id ?? ""));
+  const raw = String(id ?? "");
+  const cp = /^cp-([a-z]{2,3})-u(\d{1,4})-u(\d{1,4})$/.exec(raw);
+  if (cp) {
+    const [, lang, from, to] = cp;
+    const f = Number(from);
+    const t = Number(to);
+    if (!(t >= f)) return null;
+    // A checkpoint's band is a property of the CORPUS, not of the id, so it is
+    // filled in by examPaper rather than guessed here — this stays pure.
+    return { id: raw, kind: "checkpoint", lang, band: null, from: f, to: t };
+  }
+  const m = /^(exam|check)-([a-z]{2,3})-(a1|a2|b1|b2)(\.5)?$/.exec(raw);
   if (!m) return null;
   const [, prefix, lang, bandKey, half] = m;
   if (prefix === "exam" && half) return null;
@@ -153,6 +211,59 @@ function poolFor({ kind, lang, band }) {
   }
   const half = new Set(lessonOrder.slice(0, Math.ceil(lessonOrder.length / 2)));
   return [...base, ...upper.filter((e) => half.has(e.lessonId))];
+}
+
+// --- checkpoint corpus -------------------------------------------------------
+// The two pools a checkpoint draws from, and they are deliberately separate:
+//   recent — units [from..to], the block just finished;
+//   older  — EVERYTHING before `from`, which is what makes this a memory check
+//            rather than a check on what was just crammed.
+function checkpointPools({ lang, from, to }) {
+  const all = corpusIndex().filter((e) => e.lang === lang);
+  return {
+    recent: all.filter((e) => e.unitOrder >= from && e.unitOrder <= to),
+    older: all.filter((e) => e.unitOrder < from),
+  };
+}
+
+// Every checkpoint a language has, in climb order. Only COMPLETE blocks of
+// CHECKPOINT_EVERY get one: a trailing part-block (ja has 208 units, so four are
+// left over) is covered by its band exam, and a 2-unit "checkpoint" would be a
+// worse measurement than none. Derived from the corpus, so a seventh language and
+// a new unit both get their checkpoints with nothing to author.
+export function checkpointRanges(lang) {
+  const orders = [...new Set(corpusIndex().filter((e) => e.lang === lang).map((e) => e.unitOrder))].sort(
+    (a, b) => a - b
+  );
+  const out = [];
+  for (let i = 0; i + CHECKPOINT_EVERY <= orders.length; i += CHECKPOINT_EVERY) {
+    const from = orders[i];
+    const to = orders[i + CHECKPOINT_EVERY - 1];
+    out.push({ id: checkpointId(lang, from, to), from, to });
+  }
+  return out;
+}
+
+// The furthest unit this learner has actually reached in a language: the highest
+// unit order holding an item they have been taught (rung >= 1).
+export function furthestUnitOrder(items, lang) {
+  let far = 0;
+  for (const e of corpusIndex()) {
+    if (e.lang !== lang) continue;
+    if (e.unitOrder <= far) continue;
+    if ((items?.[e.item.id]?.rung ?? 0) >= 1) far = e.unitOrder;
+  }
+  return far;
+}
+
+// THE ONE CHECKPOINT TO SURFACE. Twenty-one affordances on the Ladder is noise, so
+// the screen shows exactly one: the most recent COMPLETED block, which is the one
+// the learner is due for. Null until the first block is finished.
+export function nextCheckpointFor(lang, items = {}) {
+  const reached = furthestUnitOrder(items, lang);
+  let out = null;
+  for (const r of checkpointRanges(lang)) if (r.to <= reached) out = r;
+  return out;
 }
 
 // --- deterministic shuffle ---------------------------------------------------
@@ -264,27 +375,23 @@ function pickKind(item, rnd) {
 // Where a band has more units than the paper has questions (ja B2 has well over a
 // hundred), a seeded starting offset rotates WHICH units a retake covers, so
 // taking it again is a different look at the same capability — not the same paper.
-export function examPaper(id, { seed = "", attempt = 0 } = {}) {
-  const meta = parseExamId(id);
-  if (!meta) return null;
-  const pool = poolFor(meta);
-  if (!pool.length) return null;
-
-  const rnd = mulberry32(hashStr(`${id}|${seed}|${attempt}`));
-  const size = meta.kind === "exam" ? EXAM_SIZE : CHECK_SIZE;
+function drawStratified(pool, size, rnd, era = null, exclude = null) {
+  const steps = [];
+  if (size <= 0 || !pool.length) return steps;
 
   // Group by unit, in climb order.
   const unitIds = [];
   const byUnit = new Map();
   for (const e of [...pool].sort((a, b) => a.unitOrder - b.unitOrder)) {
+    if (exclude?.has(e.item.id)) continue;
     if (!byUnit.has(e.unitId)) { byUnit.set(e.unitId, []); unitIds.push(e.unitId); }
     byUnit.get(e.unitId).push(e);
   }
+  if (!unitIds.length) return steps;
   for (const uid of unitIds) byUnit.set(uid, shuffled(byUnit.get(uid), rnd));
 
   const start = Math.floor(rnd() * unitIds.length);
   const cursor = new Map(unitIds.map((u) => [u, 0]));
-  const steps = [];
   for (let round = 0; steps.length < size && round < size + 2; round++) {
     let consumed = false;
     for (let k = 0; k < unitIds.length && steps.length < size; k++) {
@@ -297,10 +404,76 @@ export function examPaper(id, { seed = "", attempt = 0 } = {}) {
       const entry = bucket[c];
       const kind = pickKind(entry.item, rnd);
       if (!kind) continue; // nothing honest to ask about this item — skip it
-      steps.push({ ...asStep(kind), kindKey: kind, id: entry.item.id, unitId: uid, unitTitle: entry.unitTitle });
+      const step = { ...asStep(kind), kindKey: kind, id: entry.item.id, unitId: uid, unitTitle: entry.unitTitle };
+      if (era) step.era = era;
+      steps.push(step);
     }
     if (!consumed) break;
   }
+  return steps;
+}
+
+// The highest CEFR band a set of pool entries reaches. A checkpoint's band is a
+// label, not a scope — it is what the screen prints, never what it draws from.
+function bandOfEntries(entries) {
+  let best = null;
+  for (const e of entries) {
+    const o = CEFR_ORDER[e.cefr];
+    if (o == null) continue;
+    if (best == null || o > CEFR_ORDER[best]) best = e.cefr;
+  }
+  return best;
+}
+
+// A CHECKPOINT PAPER. CHECKPOINT_SIZE questions: (SIZE - OLDER) from the block just
+// finished plus OLDER from anywhere earlier. The older ones are the point — see
+// CHECKPOINT_OLDER. When there is no earlier material (the very first checkpoint)
+// the recent half tops up to the full size, and `olderActual` says so.
+function checkpointPaper(meta, rnd) {
+  const { recent, older } = checkpointPools(meta);
+  if (!recent.length) return null;
+
+  const wantOlder = Math.min(CHECKPOINT_OLDER, CHECKPOINT_SIZE);
+  const recentSteps = drawStratified(recent, CHECKPOINT_SIZE - wantOlder, rnd, "recent");
+  const used = new Set(recentSteps.map((st) => st.id));
+  const olderSteps = drawStratified(older, wantOlder, rnd, "older", used);
+  for (const st of olderSteps) used.add(st.id);
+
+  let steps = [...recentSteps, ...olderSteps];
+  if (steps.length < CHECKPOINT_SIZE) {
+    steps = [...steps, ...drawStratified(recent, CHECKPOINT_SIZE - steps.length, rnd, "recent", used)];
+  }
+  // Interleaved, so the two memory questions aren't predictably last.
+  steps = shuffled(steps, rnd);
+
+  return {
+    id: meta.id,
+    kind: "checkpoint",
+    lang: meta.lang,
+    band: bandOfEntries(recent),
+    from: meta.from,
+    to: meta.to,
+    steps,
+    // Measured against the RECENT block only. A checkpoint is not claiming to have
+    // tested the other hundred units, so listing them as "not yet tested" would be
+    // a wall of text that says nothing.
+    unitsInScope: unitsOf(recent),
+    olderWanted: wantOlder,
+    olderActual: steps.filter((st) => st.era === "older").length,
+  };
+}
+
+export function examPaper(id, { seed = "", attempt = 0 } = {}) {
+  const meta = parseExamId(id);
+  if (!meta) return null;
+  const rnd = mulberry32(hashStr(`${id}|${seed}|${attempt}`));
+
+  if (meta.kind === "checkpoint") return checkpointPaper(meta, rnd);
+
+  const pool = poolFor(meta);
+  if (!pool.length) return null;
+  const size = meta.kind === "exam" ? EXAM_SIZE : CHECK_SIZE;
+  const steps = drawStratified(pool, size, rnd);
 
   return {
     id,
@@ -316,6 +489,43 @@ export function examPaper(id, { seed = "", attempt = 0 } = {}) {
 // A grade of `again` is the only wrong answer (grading.js: wrong → "again";
 // hard/good/easy are all correct answers, differing only in fluency).
 export const isCorrectGrade = (grade) => grade != null && grade !== "again";
+
+// --- the asymmetric write (D4) -----------------------------------------------
+// The whole rule, in two pure functions the store composes. Keeping it here rather
+// than inside useStore means the invariant is unit-testable without a store.
+
+// What an exam answer is worth. `null` means WRITE NOTHING — the branch that makes
+// a wrong exam answer free. A correct one is always EXAM_CREDIT_GRADE (`good`),
+// never `easy`, whichever button the learner actually pressed.
+export function examCreditGrade(grade) {
+  return isCorrectGrade(grade) ? EXAM_CREDIT_GRADE : null;
+}
+
+// THE MONOTONIC CLAMP. FSRS is not monotonic on an EARLY review: answering a card
+// that is due in 60 days correctly today can return an interval of 40, which would
+// pull `due` forward and cost the learner scheduling they had already earned. That
+// is exactly the "an exam lowered something" failure, arriving through a correct
+// answer rather than a wrong one. So every field that can regress is clamped to the
+// better of the two, and `due` — the field that decides when the card comes back —
+// keeps the LATER date.
+//
+// `due` may be a Date (fresh) or an ISO string (rehydrated from localStorage);
+// keeping `prev.due` by reference preserves whichever it was.
+export function forwardOnlySrs(prev, next) {
+  if (!prev || !next) return next ?? prev ?? null;
+  const out = { ...next };
+  const pd = new Date(prev.due).getTime();
+  const nd = new Date(next.due).getTime();
+  if (Number.isFinite(pd) && Number.isFinite(nd) && nd < pd) out.due = prev.due;
+  // Higher stability is better; lower difficulty is better.
+  if (Number(next.stability ?? 0) < Number(prev.stability ?? 0)) out.stability = prev.stability;
+  if (Number(next.difficulty ?? 0) > Number(prev.difficulty ?? 0)) out.difficulty = prev.difficulty;
+  // A lapse is a mark against the item, and an exam may never add one.
+  if (Number(next.lapses ?? 0) > Number(prev.lapses ?? 0)) out.lapses = prev.lapses ?? 0;
+  // Counters only ever climb.
+  if (Number(next.reps ?? 0) < Number(prev.reps ?? 0)) out.reps = prev.reps ?? 0;
+  return out;
+}
 
 // The result the screen renders. NOT a big percentage: a capability breakdown.
 // `pct` is always computed — the SCREEN decides whether to show it, and per D3 it
@@ -361,8 +571,9 @@ export function scoreExam(paper, gradesById = {}) {
 
 // --- persisted-state readers -------------------------------------------------
 // The store slice is `exams: { [id]: { bestPct, lastTaken, attempts } }` for a
-// band exam and `{ lastTaken }` for a half-check — a check stores NO RESULT, per
-// D3, which is also why its paper is seeded off `lastTaken` rather than a count.
+// band exam and `{ lastTaken }` for a checkpoint (and for a legacy half-check) —
+// neither stores a RESULT, per D3, which is also why their papers are seeded off
+// `lastTaken` rather than off a count.
 
 export function isVerified(exams, lang, band) {
   const rec = exams?.[examId(lang, band)];
@@ -374,6 +585,8 @@ export function isVerified(exams, lang, band) {
 export function paperKeyFor(exams, id, learnerSeed = "") {
   const meta = parseExamId(id);
   const rec = exams?.[id];
-  if (meta?.kind === "check") return { seed: `${learnerSeed}|${rec?.lastTaken ?? 0}`, attempt: 0 };
+  // Anything that is not a band exam stores no attempt counter (it stores a date
+  // and nothing else), so its paper rotates off the last-taken stamp instead.
+  if (meta && meta.kind !== "exam") return { seed: `${learnerSeed}|${rec?.lastTaken ?? 0}`, attempt: 0 };
   return { seed: learnerSeed, attempt: rec?.attempts ?? 0 };
 }
