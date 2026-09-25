@@ -16,13 +16,14 @@ export const UNIT40 = {
       title: "Color kanji",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Read the color kanji: 赤 (red), 青 (blue), 黒 (black), 色 (color), 明 (bright).",
+      canDo: "Read the color kanji: 赤 (red), 青 (blue), 黒 (black), 色 (color), 明 (bright), and the word 白黒.",
       items: [
         { id: "ja-u40l1-aka", type: "kanji", front: "赤", reading: "aka", meaning: "red", example: { jp: "赤いりんごです。", en: "It's a red apple." }, accept: ["red"], hint: "赤 = red (あか). Think of a big fire glowing red." },
         { id: "ja-u40l1-ao", type: "kanji", front: "青", reading: "ao", meaning: "blue", example: { jp: "青いそらです。", en: "It's a blue sky." }, accept: ["green"], hint: "青 = blue (あお). Also covers 'green' for traffic lights and plants." },
         { id: "ja-u40l1-kuro", type: "kanji", front: "黒", reading: "kuro", meaning: "black", example: { jp: "黒いねこがいます。", en: "There is a black cat." }, accept: ["dark"], hint: "黒 = black (くろ). The bottom is 火 (fire) — soot turns things black." },
         { id: "ja-u40l1-iro", type: "kanji", front: "色", reading: "iro", meaning: "color", example: { jp: "すきな色は青です。", en: "My favorite color is blue." }, accept: ["colour"], hint: "色 = color (いろ). 何色 = what color?" },
         { id: "ja-u40l1-akarui", type: "kanji", front: "明", reading: "akarui", meaning: "bright", example: { jp: "へやは明るいです。", en: "The room is bright." }, accept: ["light","clear"], hint: "明 = bright — 日 (sun) + 月 (moon) together give light." },
+        { id: "ja-u40l1-shirokuro", type: "vocab", front: "白黒", reading: "shirokuro", meaning: "black and white", example: { jp: "あの車は白黒です。", en: "That car is black and white." }, drill: { jp: "ねこは白黒です。", en: "The cat is black and white." }, accept: ["monochrome","black-and-white"], hint: "白 (white) + 黒 (black), in that order — Japanese says white first. 白黒テレビ = a black-and-white TV." },
       ],
     },
     {

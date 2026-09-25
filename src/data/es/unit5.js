@@ -1,10 +1,13 @@
 // ES Unit 5 — Numbers and time (slot: numbers-time) — A1
 // ─────────────────────────────────────────────────────────────────────────────
 // One to twelve, then the clock those twelve numbers unlock, then the parts of
-// the day. Twelve is the right stopping point for A1's first pass: it is exactly
-// what telling the time needs, and the teens break their own pattern (once, doce,
-// then the regular dieci- series) — the rest of the count belongs to the coverage
-// units. Conventions: see es/unit1.js.
+// the day — and, in l5 and l6, the rest of the count: trece…treinta and the big
+// round figures up to el millón. (This header used to stop at "twelve is the right
+// stopping point… the rest of the count belongs to the coverage units", which
+// stopped being true when l5/l6 were authored into THIS unit. Corrected 2026-09-24.)
+// Twelve is still the right stopping point for the CLOCK: it is exactly what telling
+// the time needs, and the teens break their own pattern (once, doce, then the regular
+// dieci- series). Conventions: see es/unit1.js.
 // NOTE: `por` + a time of day ("por la mañana") is deliberately deferred to the
 // grammar block, so this unit uses "de noche" and plain adverbs instead.
 // lang/unit/lesson are stamped in src/data/index.js.
@@ -99,6 +102,7 @@ export const ES_UNIT5 = {
         { id: "es-u5l5-trece", type: "vocab", front: "trece", reading: "trece", meaning: "thirteen", example: { jp: "Mi hermana tiene trece años.", en: "My sister is thirteen." }, drill: { jp: "Hay trece perros en la casa", en: "There are thirteen dogs in the house" }, accept: ["thirteen", "13"], hint: "After doce the pattern breaks: trece, catorce, quince are their own words before dieciséis starts the ten-plus-six shape." },
         { id: "es-u5l5-catorce", type: "vocab", front: "catorce", reading: "catorce", meaning: "fourteen", example: { jp: "Hay catorce sillas en la casa.", en: "There are fourteen chairs in the house." }, drill: { jp: "Mi tío tiene catorce perros", en: "My uncle has fourteen dogs" }, accept: ["fourteen", "14"], hint: "Not cuatroce — the cuatro inside it changes shape." },
         { id: "es-u5l5-quince", type: "vocab", front: "quince", reading: "quince", meaning: "fifteen", example: { jp: "Son las tres y quince minutos.", en: "It's three fifteen." }, drill: { jp: "Hay quince libros en la mesa", en: "There are fifteen books on the table" }, accept: ["fifteen", "15"], hint: "For a girl's fifteenth birthday, los quince is the party itself: cumplir quince años." },
+        { id: "es-u5l5-dieciseis", type: "vocab", front: "dieciséis", reading: "dieciseis", meaning: "sixteen", example: { jp: "Mi hermano tiene dieciséis años.", en: "My brother is sixteen." }, drill: { jp: "Hay dieciséis libros en la mesa", en: "There are sixteen books on the table" }, accept: ["sixteen", "16"], hint: "Here the pattern turns regular again: diez y seis squeezed into one word. Written accent on the last syllable — die-ci-SÉIS." },
         { id: "es-u5l5-veinte", type: "vocab", front: "veinte", reading: "veinte", meaning: "twenty", example: { jp: "Mi tío tiene veinte perros.", en: "My uncle has twenty dogs." }, drill: { jp: "Son las tres y veinte", en: "It's three twenty" }, accept: ["twenty", "20"], hint: "Twenty-one to twenty-nine are written as one word — veintiuno, veintidós — unlike the thirties onward." },
         { id: "es-u5l5-treinta", type: "vocab", front: "treinta", reading: "treinta", meaning: "thirty", example: { jp: "Hay treinta minutos en media hora.", en: "There are thirty minutes in half an hour." }, drill: { jp: "Media hora tiene treinta minutos", en: "Half an hour has thirty minutes" }, accept: ["thirty", "30"], hint: "From here the tens take y: treinta y uno, treinta y dos." },
       ],
@@ -110,10 +114,11 @@ export const ES_UNIT5 = {
       title: "Las cifras grandes",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Handle the big round numbers — forty, fifty, a hundred, a thousand, a million — and say how many years or how much of something.",
+      canDo: "Handle the big round numbers — forty, fifty, sixty, a hundred, a thousand, a million — and say how many years or how much of something.",
       items: [
         { id: "es-u5l6-cuarenta", type: "vocab", front: "cuarenta", reading: "cuarenta", meaning: "forty", example: { jp: "Mi padre tiene cuarenta años.", en: "My father is forty." }, drill: { jp: "En la mesa hay cuarenta libros", en: "There are forty books on the table" }, accept: ["forty", "40"], hint: "Cuatro loses its o and gains -enta, the ending every ten from thirty to ninety uses." },
         { id: "es-u5l6-cincuenta", type: "vocab", front: "cincuenta", reading: "cincuenta", meaning: "fifty", example: { jp: "Hay cincuenta libros en la mesa.", en: "There are fifty books on the table." }, drill: { jp: "Mi tío tiene cincuenta años", en: "My uncle is fifty" }, accept: ["fifty", "50"], hint: "Cinco becomes cincu- here, so it is cincuenta and never cincoenta." },
+        { id: "es-u5l6-sesenta", type: "vocab", front: "sesenta", reading: "sesenta", meaning: "sixty", example: { jp: "En una hora hay sesenta minutos.", en: "There are sixty minutes in an hour." }, drill: { jp: "Una hora tiene sesenta minutos", en: "An hour has sixty minutes" }, accept: ["sixty", "60"], hint: "Seis loses its i on the way here: sesenta, never seisenta. Sixty minutes in una hora." },
         { id: "es-u5l6-cien", type: "vocab", front: "cien", reading: "cien", meaning: "one hundred", example: { jp: "Cien años es mucho tiempo.", en: "A hundred years is a long time." }, drill: { jp: "Mi padre tiene cien libros", en: "My father has a hundred books" }, accept: ["a hundred", "one hundred", "100"], hint: "Exactly a hundred is cien; anything above it is ciento — ciento uno, ciento dos." },
         { id: "es-u5l6-mil", type: "vocab", front: "mil", reading: "mil", meaning: "one thousand", example: { jp: "Mil personas en un día es mucho.", en: "A thousand people in one day is a lot." }, drill: { jp: "Mil minutos son muchas horas", en: "A thousand minutes is many hours" }, accept: ["a thousand", "one thousand", "1000"], hint: "Never un mil — a thousand is just mil. It does not change in the plural: dos mil." },
         { id: "es-u5l6-elmillon", type: "vocab", front: "el millón", reading: "elmillon", meaning: "the million", example: { jp: "Un millón de personas vive en esa ciudad.", en: "A million people live in that city." }, accept: ["the million", "a million", "1,000,000"], hint: "Unlike mil, this one is a noun and takes de: un millón DE personas." },

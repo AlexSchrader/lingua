@@ -34,13 +34,14 @@ export const UNIT203 = {
       title: "～か: becoming",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Name a process of change: きかいか, こくさいか, たんじゅんか, せんもんか, きんだいか.",
+      canDo: "Name a process of change: きかいか, こくさいか, たんじゅんか, せんもんか, きんだいか, こうれいか.",
       items: [
         { id: "ja-u203l2-kikaika", type: "vocab", front: "きかいか", reading: "kikaika", meaning: "mechanisation", example: { jp: "きかいかが 進んで、しごとの ないようが 変わりました。", en: "Mechanisation advanced and the nature of the work changed." }, accept: ["automating (by machine)", "becoming mechanised"], hint: "～か is 'becoming' — the same 化 as 変化. It attaches to a noun and makes it a process, always with する available." },
         { id: "ja-u203l2-kokusaika", type: "vocab", front: "こくさいか", reading: "kokusaika", meaning: "internationalisation", example: { jp: "こくさいかに よって、外国の 人が ふえました。", en: "With internationalisation, the number of people from abroad has grown." }, accept: ["going international", "globalising"] },
                 { id: "ja-u203l2-tanjunka", type: "vocab", front: "たんじゅんか", reading: "tanjunka", meaning: "simplification", example: { jp: "てつづきの たんじゅんかを 進めて います。", en: "We are pressing ahead with simplifying the procedure." }, accept: ["streamlining", "making simpler"] },
                 { id: "ja-u203l2-senmonka", type: "vocab", front: "せんもんか", reading: "senmonka", meaning: "specialisation", example: { jp: "しごとの せんもんかが 進みました。", en: "The work has become more specialised." }, accept: ["becoming specialised", "narrowing to a speciality"] },
         { id: "ja-u203l2-kindaika", type: "vocab", front: "きんだいか", reading: "kindaika", meaning: "modernisation", example: { jp: "この 国の きんだいかは 早かったです。", en: "This country's modernisation was rapid." }, accept: ["becoming modern", "modernising"], hint: "Five cards rather than six here, because ～か words that are not already owned by a thematic unit are genuinely scarce — the lesson band is 5–8 and five is honest." },
+        { id: "ja-u203l2-koreika", type: "vocab", front: "こうれいか", reading: "kōreika", meaning: "population ageing", example: { jp: "こうれいかが 進んで、はたらく 人が へって います。", en: "As the population ages, the number of working people is falling." }, drill: { jp: "こうれいかが すこしずつ 進んで います。", en: "The population is ageing little by little." }, accept: ["ageing of the population", "an ageing society", "population aging"], hint: "こうれい (advanced age) + か (becoming) — the same suffix again, naming a slow change that runs across a whole society." },
       ],
     },
     {

@@ -92,6 +92,12 @@ export const ES_UNIT36 = {
         { id: "es-u36l4-salvo", type: "vocab", front: "salvo", reading: "salvo", meaning: "except / apart from", example: { jp: "Vinieron todos salvo mi hermano.", en: "Everyone came except my brother." }, drill: { jp: "Trabajo todos los días salvo el domingo", en: "I work every day except Sunday" }, accept: ["except", "apart from", "other than"], hint: "Interchangeable with excepto: todos salvo uno. Salvo que + subjunctive = unless." },
       ],
     },
+    // l5 is a CLOSED PARADIGM and is deliberately FIVE cards, not six. The haber
+    // auxiliary has six forms; the sixth is `habéis` (vosotros), and this course
+    // teaches ustedes and never vosotros — zero occurrences of "vosotros" anywhere
+    // in src/data/es (checked 2026-09-24). Do not pad this lesson: an invented
+    // sixth card here would either be habéis, which contradicts the course's own
+    // register, or a non-paradigm word inside a paradigm drill.
     {
       id: "es-u36l5",
       unit: 36,

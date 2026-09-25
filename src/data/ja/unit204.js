@@ -51,13 +51,14 @@ export const UNIT204 = {
       title: "～ど: how much of it there is",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Measure a quality on a scale: しんらいど, まんぞくど, なんいど, ちゅうもくど, じゆうど.",
+      canDo: "Measure a quality on a scale: しんらいど, まんぞくど, なんいど, ちゅうもくど, じゆうど, じゅうようど.",
       items: [
         { id: "ja-u204l3-shinraido", type: "vocab", front: "しんらいど", reading: "shinraido", meaning: "degree of trust", example: { jp: "この 数字の しんらいどは どのくらいですか。", en: "How reliable are these figures?" }, accept: ["level of confidence", "trust rating"], hint: "～せい asks WHETHER it has the property; ～ど asks HOW MUCH. しんらいせい is reliability, しんらいど is how much of it." },
         { id: "ja-u204l3-manzokudo", type: "vocab", front: "まんぞくど", reading: "manzokudo", meaning: "satisfaction level", example: { jp: "きゃくの まんぞくどを しらべて います。", en: "We're measuring customer satisfaction." }, accept: ["how satisfied", "satisfaction rating"] },
         { id: "ja-u204l3-nanido", type: "vocab", front: "なんいど", reading: "nanido", meaning: "level of difficulty", example: { jp: "この 本は なんいどが 高いです。", en: "This book is at a high difficulty level." }, accept: ["difficulty rating", "how hard it is"], hint: "難 (hard) + 易 (easy) + 度 — the scale runs between the two, so the word contains both ends." },
         { id: "ja-u204l3-chumokudo", type: "vocab", front: "ちゅうもくど", reading: "chūmokudo", meaning: "level of attention it attracts", example: { jp: "その ニュースの ちゅうもくどは 高かったです。", en: "That news attracted a great deal of attention." }, drill: { jp: "ちゅうもくどが たかいです。", en: "The level of attention is high." }, accept: ["prominence", "how much notice it gets"] },
         { id: "ja-u204l3-jiyudo", type: "vocab", front: "じゆうど", reading: "jiyūdo", meaning: "degree of freedom, flexibility", example: { jp: "この しごとは じゆうどが 高いです。", en: "This job has a lot of flexibility." }, accept: ["latitude", "how much freedom"], hint: "Five here rather than six: ～ど words that a thematic unit has not already claimed are limited, and the lesson band is 5–8." },
+        { id: "ja-u204l3-juyodo", type: "vocab", front: "じゅうようど", reading: "jūyōdo", meaning: "level of importance", example: { jp: "この しごとの じゅうようどは 年々 上がって います。", en: "The importance of this job rises year by year." }, drill: { jp: "この しごとの じゅうようどは 高いです。", en: "The importance of this job is high." }, accept: ["degree of importance", "how important it is", "priority"], hint: "じゅうよう (important) + ど (degree). Like the rest of this lesson it turns a quality into something you can put a number on." },
       ],
     },
     {
