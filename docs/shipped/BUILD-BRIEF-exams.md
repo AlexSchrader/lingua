@@ -10,7 +10,8 @@
 > - store key `exams`, actions `recordExam` / `queuePractice` in `src/store/useStore.js`
 > - milestone family `verified`, ids `level-<band>-verified[-<lang>]`, in `src/data/milestones.js`
 > - Ladder affordance: `ExamLinks` / `CefrRungRow` in `src/screens/Ladder.jsx`
-> - tests: `tests/unit/exams.test.mjs` (26 tests, incl. **"a full exam run leaves the real items map byte-identical"**) and two Playwright smokes in `tests/smoke.spec.js`
+> - store keys `exams` + `missedPool`, actions `recordExam` / `queuePractice` / `creditExamAnswer` / `recordCheckpointMiss` in `src/store/useStore.js`
+> - tests: `tests/unit/exams.test.mjs` (**46 tests** as of 2026-09-26 — the original "a full exam run leaves the real items map byte-identical" is now the narrowed **"a wrong exam answer changes nothing"**, see D4) and two Playwright smokes in `tests/smoke.spec.js`
 >
 > ## The three blocking decisions, and who settled them
 >
@@ -22,7 +23,7 @@
 > | **D2** | **ADD, don't replace.** `level-<band>` keeps meaning *content covered*; `level-<band>-verified` is the new exam-earned signal. | Both families ship side by side in `milestones.js`. |
 > | **D3** | **80%** passes a band exam. A **half-check has no threshold at all** and stores no result beyond a last-taken date. The percentage is shown **only on a pass**. | `EXAM_PASS_PCT = 80`; `scoreExam().passed` is `null` for a check, never `false`; `recordExam` writes `{ lastTaken }` and nothing else for a check. |
 >
-> ## ⚠️ TWO OF THIS BRIEF'S RULES WERE SUPERSEDED BY ALEX ON 2026-09-25
+> ## ⚠️ THREE OF THIS BRIEF'S RULES WERE SUPERSEDED OR REFINED BY ALEX (2026-09-25, 2026-09-26)
 >
 > The original text of both survives below, unedited, because it is the historical record. **Where it disagrees with this block, this block is right and the code is righter still.**
 >
@@ -44,6 +45,29 @@
 > - same contract as the half-check: no pass, no fail, no threshold, no stored result beyond a last-taken date
 > - `parseExamId` still READS a legacy `check-<lang>-<band>.5` id and a paper still builds for one, so a persisted record or an old bookmark cannot crash. Nothing generates one any more.
 > - the Ladder surfaces exactly **one** checkpoint — the most recent completed block — below the unit progress bar. **No tab, and not 21 affordances.**
+>
+> **D6 — A FAILED EXAM NAMES THE LESSONS TO GO BACK TO, AND CHECKPOINTS NOW REMEMBER WHAT WAS MISSED.** Alex, 2026-09-26: *"So what happens when they get to the end exam and fail? I think it should tell the user to review x section(s) x lesson(s) the ones they did poor in since at that point user can go back to any section they learned and checkpoints just keep track of missed questions and use them in the end point but modified so its the same question everytime have a pool"*.
+>
+> **THIS REFINES D3's "a checkpoint stores no result" — it does not repeal it, and the original rule is preserved above, not deleted.** Alex's founding rule for a checkpoint (*"aren't counted against you, just sees where you are"*, 2026-08-02) still holds exactly: **no pass, no fail, no percentage, no threshold**, and its `exams` record is still `{ lastTaken }` and nothing else. What changed is that the checkpoint now also records **which items** were missed, into a separate, unscored slice. Nothing is penalised — no rung drop, no interval reset, no lapse, no mistake-log entry. It changes only **what gets asked later**, which is the mechanism the app is supposed to run on.
+>
+> **Part 1 — the result screen names section AND lesson.** A unit title is something you read; a lesson is somewhere you can go.
+> - `scoreExam()` returns `shakyAreas` (`[{ unitId, unitTitle, unitOrder, lessons: [{ id, title, no, label }] }]`, climb order) and the flat `shakyLessonIds`; steps now carry `lessonId` / `lessonTitle` / `lessonNo` / `unitOrder`. `label` is what the learner reads — `"u7 l2"`.
+> - The panel is titled **"GO BACK TO THESE"** (no shame copy — never "you failed"), every lesson is a tappable chip routing to `/lesson/<id>`, capped at **4** with the remainder counted rather than listed.
+> - **Two distinct actions**, because they answer different questions: **"Review these lessons"** (be taught it again) and the pre-existing **"Practice the words"** (drill the exact words — `queuePractice` → `/review?fix=1`). The second was renamed from "Practice the shaky ones" and is otherwise untouched.
+> - **A PASS GETS THE BREAKDOWN TOO.** Alex only asked about failing; a 90% pass with two shaky items still says which two.
+> - Nothing is unlocked by any of this — every band a learner is examined on is already learned, so it is ordinary navigation.
+>
+> **Part 2 — the missed pool.**
+> - Store key **`missedPool: { [lang]: { [itemId]: { kinds, lastMissed } } }`**. `kinds` accumulates *every* card kind the item has been missed with; `lastMissed` is the eviction key and the draw order. **No count, no score, no percentage anywhere in it.**
+> - **Only a checkpoint adds** (`recordCheckpointMiss`, called from `Exam.jsx` guarded on `paper.kind === "checkpoint"`). Deliberately NOT inside `creditExamAnswer`, so that writer stays literally empty on a wrong answer — which is what D4's tests pin.
+> - **Any correct answer anywhere removes** — a later checkpoint or band exam (`creditExamAnswer`) *and* an ordinary review (`gradeItem`). `hard` clears it too: `isCorrectGrade` defines a correct answer as anything but `again` everywhere else in the module.
+> - **A band exam draws up to `EXAM_POOL_MAX = 8`** of its 20 from the pool, the rest stratified fresh. Fewer in the pool → take what there is. **Empty pool → byte-identical to the previous behaviour**, because the pool draw consumes no randomness when it finds nothing. A checkpoint never draws from the pool; it is the thing that fills it.
+> - 🚨 **A pooled item is re-asked in a card kind it was NOT missed with** — `pickKind(item, rnd, avoid)`. That is the whole point: it tests the word, not a memorised prompt. **Measured 2026-09-26: 0 of 20,483 authored items across all six languages have fewer than 3 eligible exam kinds** (minimum 3, mode 8), so the "only one eligible kind, ask it anyway" fallback is a guard for future content, not a live compromise.
+> - **Capped at `MISSED_POOL_CAP = 60` per language, oldest-missed evicted first**, so a three-month-old mistake can never crowd out this week's.
+> - **`PERSIST_VERSION` is UNCHANGED and no migration was added** — same reasoning as `exams`: `merge` starts from `current`, so an existing save picks up the default. The key is in `partialize` and is cleared by `resetProgress`.
+> - built as: `addMiss` / `clearMiss` / `missedEntries` / `drawFromMissed` / `lessonLabel` in `src/store/exams.js`; `missedPool` + `recordCheckpointMiss` in `src/store/useStore.js`; `LessonChip` + the "GO BACK TO THESE" panel in `src/screens/Exam.jsx`.
+> - **The intro copy was corrected, not appended to.** A checkpoint used to promise *"No result is saved either — just the date"*; that stopped being true, so it now says *"No score is saved — just the date, plus which words you missed, so a later check can come back to them a different way."*
+> - tests: **seven** added in `tests/unit/exams.test.mjs` (46 total), the load-bearing one being **"A POOLED ITEM IS NEVER RE-ASKED WITH THE KIND IT WAS MISSED WITH"**, swept over every band of every authored language. Plus **two** Playwright smokes (45 dev / 43 preview): *"a not-yet-verified exam names the SECTION AND LESSON to go back to, and the lesson opens"* and *"the band exam really spends the missed pool"*. The existing band-exam smoke plays a CLEAN paper — `playCard` answers correctly by construction — so a new `missCard` helper grades wrong on purpose; without it the fail screen and the pool would both have been untested in the browser.
 >
 > ## What the brief got WRONG, corrected in the build
 >

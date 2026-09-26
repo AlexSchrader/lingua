@@ -6,7 +6,15 @@ import { nextRung, isReviewable } from "./mastery.js";
 import { migrateState, PERSIST_VERSION } from "./migrate.js";
 import { matchesDevCode } from "./dev.js";
 import { earnedMilestones, milestoneCatalog } from "../data/milestones.js";
-import { EXAM_PASS_PCT, parseExamId, examCreditGrade, forwardOnlySrs } from "./exams.js";
+import {
+  EXAM_PASS_PCT,
+  parseExamId,
+  examCreditGrade,
+  forwardOnlySrs,
+  isCorrectGrade,
+  addMiss,
+  clearMiss,
+} from "./exams.js";
 import { CEFR_ORDER, cefrLevelReached, levelRank } from "./levels.js";
 import { persistKey } from "./preview.js";
 import { slimItems } from "./sync.js";
@@ -317,6 +325,27 @@ export const useStore = create(
       // CLAUDE.md "check in before" item and the only user with real progress is
       // Alex; an unnecessary one is pure risk.
       exams: {},
+      // THE MISSED POOL (D6 — Alex, 2026-09-26: "checkpoints just keep track of
+      // missed questions and use them in the end point but modified so its the same
+      // question everytime have a pool").
+      //
+      //   { [lang]: { [itemId]: { kinds: string[], lastMissed: number } } }
+      //
+      // A checkpoint adds; ANY correct answer anywhere removes (a later checkpoint, a
+      // band exam, or an ordinary review — see gradeItem / creditExamAnswer). A band
+      // exam draws up to EXAM_POOL_MAX of its questions from it, each re-asked in a
+      // card kind it was NOT missed with.
+      //
+      // IT IS NOT A SCORE AND MUST NEVER BE RENDERED AS ONE. No pass, no fail, no
+      // percentage, no threshold, no count on screen. A checkpoint's stored record is
+      // still `{ lastTaken }` and nothing else; this is a separate, unscored slice
+      // that only changes WHAT GETS ASKED LATER. Capped per language
+      // (MISSED_POOL_CAP), oldest-missed evicted first.
+      //
+      // NO PERSIST BUMP, and none is needed — same reasoning as `exams` above:
+      // `merge` starts from `current`, so an existing save simply picks up this
+      // default. It is in `partialize`, so it survives a reload.
+      missedPool: {},
       // Transient (never persisted): the most-recent newly-earned milestone, shown
       // as a one-time toast then cleared.
       milestoneToast: null,
@@ -639,7 +668,16 @@ export const useStore = create(
           } else if (grade === "good" || grade === "easy") {
             if (mistakes.includes(id)) mistakes = mistakes.filter((m) => m !== id);
           }
-          return { items, stats, languages, mistakes };
+          // AN ORDINARY REVIEW EMPTIES THE MISSED POOL TOO (D6). Without this the
+          // pool only ever shrinks inside an exam, so a band exam slowly becomes an
+          // archive of mistakes the learner has since fixed in normal study.
+          //
+          // `isCorrectGrade` — so `hard` clears it, deliberately unlike the mistake
+          // list above, which keeps a `hard` as "still shaky". The pool answers a
+          // different question: "was this retrieved at all", and exams.js defines a
+          // correct answer as anything but `again` everywhere else.
+          const missedPool = isCorrectGrade(grade) ? clearMiss(s.missedPool, id) : (s.missedPool ?? {});
+          return { items, stats, languages, mistakes, missedPool };
         });
         get().reconcileMilestones({ toast: true });
       },
@@ -700,13 +738,19 @@ export const useStore = create(
         const credit = examCreditGrade(grade);
         if (!credit) return; // <-- a wrong exam answer writes NOTHING.
         set((s) => {
+          // D6: a correct answer takes the item OUT of the missed pool, and it does so
+          // even for an item the progress write below skips (rung 0, no srs) — leaving
+          // the pool is not a progress write, and an item that can never be credited
+          // must still be able to leave.
+          const missedPool = clearMiss(s.missedPool, id);
+          const pooled = missedPool === s.missedPool ? null : { missedPool };
           const prev = s.items[id];
-          if (!prev || !prev.srs) return s;
-          if (!isReviewable(prev)) return s; // never taught — a lesson's job, not an exam's
+          if (!prev || !prev.srs) return pooled ?? s;
+          if (!isReviewable(prev)) return pooled ?? s; // never taught — a lesson's job, not an exam's
           const passed = recordPass(prev, kind, todayISO());
           const srs = forwardOnlySrs(prev.srs, schedule(passed.srs, credit));
           const rung = Math.max(prev.rung ?? 0, nextRung(passed, credit));
-          return { items: { ...s.items, [id]: { ...passed, srs, rung } } };
+          return { ...(pooled ?? {}), items: { ...s.items, [id]: { ...passed, srs, rung } } };
         });
         // Silent: a milestone toast landing mid-question is the last thing an ND
         // learner sitting an exam needs. It is still recorded, and the Achievements
@@ -748,7 +792,29 @@ export const useStore = create(
         }
       },
 
-      // "Practice the shaky ones" — the one place in this feature that writes real
+      // --- the missed pool (D6) -------------------------------------------------
+      // A CHECKPOINT MISS. The one writer that adds to the pool, and it is called
+      // ONLY from a checkpoint run (Exam.jsx guards on `paper.kind`), because a
+      // checkpoint is the touchpoint whose whole job is "where am I right now".
+      //
+      // THIS DOES NOT BREAK "a wrong answer writes nothing" (D4). That rule is about
+      // PROGRESS — rungs, intervals, lapses, the mistake log, XP — and none of them
+      // is touched here. Nothing is penalised and nothing is scored: this slice only
+      // decides which questions a later band exam reaches for. It is kept out of
+      // `creditExamAnswer` on purpose so that writer stays literally empty on a wrong
+      // answer, which is what tests 15-18 pin.
+      //
+      // `lang` is derived from the item where possible so a caller cannot get it
+      // wrong; the argument is the fallback for an item not in the deck.
+      recordCheckpointMiss: (id, kind = null, lang = null) => {
+        set((s) => {
+          const scope = s.items?.[id]?.lang ?? lang;
+          if (!scope) return s;
+          return { missedPool: addMiss(s.missedPool, scope, id, kind) };
+        });
+      },
+
+      // "Practice the words" — the one place in this feature that writes real
       // progress, and it does so only when the learner TAPS it. The exam itself
       // recorded nothing about these items; this queues them into the existing
       // mistake list so `/review?fix=1` serves them as an ordinary study session,
@@ -1037,6 +1103,7 @@ export const useStore = create(
           mistakes: [],
           milestonesEarned: [],
           exams: {},
+          missedPool: {},
           milestoneToast: null,
           ui: {},
         });
@@ -1141,6 +1208,7 @@ export const useStore = create(
         mistakes: s.mistakes,
         milestonesEarned: s.milestonesEarned,
         exams: s.exams,
+        missedPool: s.missedPool,
         devMode: s.devMode,
         settings: s.settings,
         profile: s.profile,

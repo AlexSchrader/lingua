@@ -5,7 +5,7 @@ import CardBreath from "../components/CardBreath.jsx";
 import CardStage from "../components/games/CardStage.jsx";
 import { useStore } from "../store/useStore.js";
 import { buildExamSandbox } from "../store/dev.js";
-import { examPaper, scoreExam, paperKeyFor, EXAM_PASS_PCT } from "../store/exams.js";
+import { examPaper, scoreExam, paperKeyFor, EXAM_PASS_PCT, EXAM_POOL_MAX } from "../store/exams.js";
 import { langName } from "../data/languages.js";
 import { C, F } from "../theme.js";
 
@@ -43,6 +43,12 @@ import { C, F } from "../theme.js";
 // can hold a hundred units and a wall of them is the opposite of reassuring.
 const UNTESTED_SHOWN = 4;
 
+// How many lessons to offer as "go back to these" before summarising the rest. Alex's
+// ask was "review x section(s) x lesson(s)" — but a learner who missed eight questions
+// across eight lessons must be handed a next step, not a homework list. Four is the
+// short list; the remainder is counted, never enumerated.
+const LESSONS_SHOWN = 4;
+
 function Panel({ title, tone, children }) {
   return (
     <div style={{ background: C.surface, border: `1px solid ${C.line}`, borderRadius: 16, padding: 14 }}>
@@ -56,6 +62,25 @@ function Panel({ title, tone, children }) {
 
 const joinTopics = (list) => (list.length ? list.join(" · ") : "—");
 
+// A tappable lesson. This is the actionable half of Alex's ask: a unit TITLE is a
+// label, a lesson is somewhere you can go. Every band a learner is being examined on
+// is already learned, so these are ordinary navigation — nothing is unlocked here.
+function LessonChip({ lesson, onGo }) {
+  return (
+    <button
+      data-testid={`go-lesson-${lesson.id}`}
+      onClick={() => onGo(lesson.id)}
+      style={{
+        padding: "5px 10px", borderRadius: 999, border: `1px solid ${C.line}`,
+        background: "transparent", color: C.ai, cursor: "pointer",
+        fontSize: 12, fontWeight: 700, fontFamily: F.body, textAlign: "left",
+      }}
+    >
+      {lesson.label ? `${lesson.label} · ` : ""}{lesson.title} →
+    </button>
+  );
+}
+
 export default function Exam() {
   const navigate = useNavigate();
   const { examId: id } = useParams();
@@ -65,6 +90,10 @@ export default function Exam() {
   const realItems = useStore((s) => s.items);
   const recordExam = useStore((s) => s.recordExam);
   const queuePractice = useStore((s) => s.queuePractice);
+  // D6. The pool a CHECKPOINT fills and a BAND EXAM draws from. Read once for the
+  // paper; `recordCheckpointMiss` is the only writer and only a checkpoint calls it.
+  const missedPool = useStore((s) => s.missedPool);
+  const recordCheckpointMiss = useStore((s) => s.recordCheckpointMiss);
 
   // THE ONLY PER-ANSWER WRITER THIS RUNNER HAS, and the isolation is now structural
   // in the strongest available sense: the session writers (`gradeItem`,
@@ -83,9 +112,11 @@ export default function Exam() {
 
   // Deterministic per (learner, exam, attempt): a reload mid-exam resumes the SAME
   // paper, because both seed terms only move when a run has finished.
+  // `missedPool` is read at BUILD TIME and deliberately not a dep: the paper must not
+  // rebuild underneath the learner when an answer mid-run empties the pool.
   const paper = useMemo(() => {
     const key = paperKeyFor(exams, id, profile?.displayName ?? "");
-    return examPaper(id, key);
+    return examPaper(id, { ...key, missedPool });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
@@ -168,8 +199,20 @@ export default function Exam() {
             like a review. Getting one wrong is recorded <strong>nowhere</strong> — no rung drops, your
             review dates don't move, nothing is held against you
             {isExam ? ", including if you don't pass" : ""}.
-            {isExam ? "" : " No result is saved either — just the date."} There's no timer, you can leave
-            at any point, and you can take it again as often as you like.
+            {/* HONEST ABOUT THE POOL (D6). A checkpoint now remembers WHICH WORDS were
+                missed so a later band check can ask them again a different way. That
+                is not a score and it is not held against anyone — but it IS something
+                being kept, so the copy says so rather than claiming "nothing is
+                saved but the date", which stopped being true on 2026-09-26. */}
+            {isExam ? (
+              <> Up to {EXAM_POOL_MAX} of these can be words you missed at a checkpoint — asked a
+              different way, never the same question twice.</>
+            ) : (
+              <> No score is saved — just the date, plus <strong>which words</strong> you missed, so a
+              later check can come back to them a different way.</>
+            )}{" "}
+            There's no timer, you can leave at any point, and you can take it again as often as you
+            like.
           </Panel>
           <button
             data-testid="exam-begin"
@@ -201,6 +244,15 @@ export default function Exam() {
     // word is a lesson's job. Checked against the REAL deck, not the sandbox.
     const practicable = result.shakyIds.filter((sid) => (realItems[sid]?.rung ?? 0) >= 1);
 
+    // WHERE TO GO BACK TO (D6). Present on a PASS as well as a fail — Alex asked about
+    // failing, but a 90% pass with two shaky items should still say which two. Capped
+    // at LESSONS_SHOWN so a rough run hands over a next step, not a homework list.
+    const areas = result.shakyAreas ?? [];
+    const allLessons = areas.flatMap((a) => a.lessons.map((l) => ({ ...l, unitTitle: a.unitTitle })));
+    const shownLessons = allLessons.slice(0, LESSONS_SHOWN);
+    const hiddenLessons = allLessons.length - shownLessons.length;
+    const goToLesson = (lessonId) => navigate(`/lesson/${lessonId}`);
+
     return (
       <PhaseShell title={title} progress={1}>
         <div style={{ margin: "auto", display: "flex", flexDirection: "column", gap: 12, maxWidth: 380, width: "100%" }}>
@@ -215,7 +267,36 @@ export default function Exam() {
           </div>
 
           <Panel title="YOU'RE SOLID ON" tone={C.matcha}>{joinTopics(result.solid)}</Panel>
-          <Panel title="SHAKY ON" tone={C.ai}>{joinTopics(result.shaky)}</Panel>
+
+          {/* NO SHAME COPY. "Go back to these", never "you failed" — the learner is
+              being pointed at work, not graded. Section AND lesson, because a unit
+              title on its own is something you can read and not somewhere you can go. */}
+          {areas.length > 0 ? (
+            <Panel title="GO BACK TO THESE" tone={C.ai}>
+              <div data-testid="exam-goback" style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {areas.map((a) => (
+                  <div key={a.unitId}>
+                    <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 4 }}>{a.unitTitle}</div>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                      {a.lessons
+                        .filter((l) => shownLessons.some((sl) => sl.id === l.id))
+                        .map((l) => (
+                          <LessonChip key={l.id} lesson={l} onGo={goToLesson} />
+                        ))}
+                    </div>
+                  </div>
+                ))}
+                {hiddenLessons > 0 && (
+                  <div style={{ fontSize: 12, color: C.inkSoft }}>
+                    …and {hiddenLessons} more lesson{hiddenLessons === 1 ? "" : "s"}. Start with these — the
+                    rest will still be there.
+                  </div>
+                )}
+              </div>
+            </Panel>
+          ) : (
+            <Panel title="SHAKY ON" tone={C.ai}>{joinTopics(result.shaky)}</Panel>
+          )}
           <Panel title="NOT YET TESTED">{untestedLabel}</Panel>
 
           <div style={{ fontSize: 12, color: C.inkSoft, textAlign: "center" }} data-testid="exam-no-effect">
@@ -226,6 +307,21 @@ export default function Exam() {
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {/* TWO DISTINCT ACTIONS, and they answer different questions:
+                  "Review these lessons" — go back and be TAUGHT it again (the lesson);
+                  "Practice the words"   — drill the exact words missed (the SRS queue).
+                Alex asked for the first; the second is the one that already existed and
+                is kept, because a learner who only needs the words shouldn't have to
+                sit through a whole lesson to get them. */}
+            {shownLessons.length > 0 && (
+              <button
+                data-testid="exam-review-lessons"
+                onClick={() => goToLesson(shownLessons[0].id)}
+                style={{ padding: "14px 24px", borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+              >
+                Review {shownLessons.length === 1 ? "this lesson" : "these lessons"}
+              </button>
+            )}
             {practicable.length > 0 && (
               <button
                 data-testid="exam-practice"
@@ -238,9 +334,9 @@ export default function Exam() {
                   navigate("/review?fix=1");
                 }}
                 disabled={practiceQueued}
-                style={{ padding: "14px 24px", borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
+                style={{ padding: "14px 24px", borderRadius: 14, border: `1px solid ${C.ai}`, background: "transparent", color: C.ai, fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
               >
-                Practice the shaky ones
+                Practice the words
               </button>
             )}
             <button
@@ -264,6 +360,11 @@ export default function Exam() {
     // THE ONE PER-ANSWER WRITE, and it is asymmetric in the store: a correct answer
     // credits the item forward, a wrong one writes nothing at all. See the header.
     creditExamAnswer(step.id, grade, step.kindKey);
+    // D6. A CHECKPOINT remembers what was missed, and only a checkpoint does: it is
+    // the "where am I right now" touchpoint, and the band exam is the thing that
+    // spends the pool. Still no score — the item id and the card kind, nothing else,
+    // and a correct answer anywhere later removes it again (see the store).
+    if (isCheckpoint && grade === "again") recordCheckpointMiss(step.id, step.kindKey, paper.lang);
     const next = { ...grades, [step.id]: grade };
     setGrades(next);
     if (idx + 1 >= paper.steps.length) {

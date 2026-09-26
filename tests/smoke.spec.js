@@ -1632,11 +1632,30 @@ test("band exam: offered on its Ladder rung, plays end to end, and can only move
 
   expect(await playExam(page, 60), "the exam did not reach its result screen").toBe(true);
 
-  // A capability breakdown, not a big number.
+  // A capability breakdown, not a big number. The weak half is titled "GO BACK TO
+  // THESE" whenever anything was missed (D6, 2026-09-26) — it names the section AND
+  // the lesson and every lesson is tappable — and falls back to the old "SHAKY ON"
+  // label on a clean sweep, where there is nothing to go back to.
   await expect(page.getByText("YOU'RE SOLID ON")).toBeVisible();
-  await expect(page.getByText("SHAKY ON")).toBeVisible();
+  await expect(page.getByText(/SHAKY ON|GO BACK TO THESE/).first()).toBeVisible();
   await expect(page.getByText("NOT YET TESTED")).toBeVisible();
   await expect(page.getByTestId("exam-no-effect")).toBeVisible();
+
+  // D6: whenever anything was missed the weak half is ACTIONABLE — the panel names
+  // section AND lesson, every lesson is a tappable chip, and there is a primary
+  // "Review these lessons" button next to the kept "Practice the words". Guarded,
+  // because a clean sweep has nothing to go back to and the outcome here is PLAYED,
+  // not forced. The lesson id is captured and opened at the end of this test, which is
+  // what proves the chip points at a live route rather than a plausible string.
+  let weakLessonId = null;
+  const goback = page.getByTestId("exam-goback");
+  if (await goback.isVisible().catch(() => false)) {
+    await expect(page.getByTestId("exam-review-lessons")).toBeVisible();
+    const chip = goback.locator('[data-testid^="go-lesson-"]').first();
+    await expect(chip).toBeVisible();
+    weakLessonId = (await chip.getAttribute("data-testid")).replace("go-lesson-", "");
+    expect(weakLessonId, `"${weakLessonId}" is not a lesson id`).toMatch(/^[a-z]{2,3}-u\d+l\d+$/);
+  }
 
   // THE ASSERTION THIS WHOLE FEATURE HANGS ON — NOT WORSE, in any field, for any
   // item. A right answer is allowed to have moved something forward; nothing is
@@ -1669,6 +1688,14 @@ test("band exam: offered on its Ladder rung, plays end to end, and can only move
     await expect(page.getByTestId("take-exam-A1")).toBeVisible();
   }
 
+  // ...and the lesson the result told the learner to go back to REALLY OPENS. Nothing
+  // was unlocked to make this work: every band a learner is examined on is already
+  // learned, so "Review these lessons" is ordinary navigation.
+  if (weakLessonId) {
+    await page.goto(`/lesson/${weakLessonId}`);
+    await expect(page.getByTestId("lesson-begin")).toBeVisible();
+  }
+
   expect(errors, errors.join("; ")).toEqual([]);
 });
 
@@ -1694,9 +1721,25 @@ test("checkpoint: every 6 units, no pass, no fail, no percentage — and only a 
   // THE COMPOSITION IS THE POINT: 6 from the block + 2 from earlier on.
   await expect(page.getByText("no pass mark at all")).toBeVisible();
   await expect(page.getByText("from earlier on")).toBeVisible();
+  // ...and the copy is HONEST about the one thing a checkpoint now keeps (D6). It used
+  // to promise "no result is saved either — just the date", which stopped being true.
+  await expect(page.getByText(/No score is saved/)).toBeVisible();
+  await expect(page.getByText("which words")).toBeVisible();
   await page.getByTestId("exam-begin").click();
 
-  expect(await playExam(page, 40), "the checkpoint did not reach its result screen").toBe(true);
+  // MISS ON PURPOSE (D6), because a clean run leaves nothing to remember and the pool
+  // assertions below would pass on an empty object. `missCard` grades wrong on every
+  // kind where a wrong answer is expressible; the rest are played straight.
+  const cpHeadline = page.getByTestId("exam-headline");
+  let cpMissed = 0;
+  for (let i = 0; i < 40; i++) {
+    if (await cpHeadline.isVisible().catch(() => false)) break;
+    if (await missCard(page)) cpMissed += 1;
+    else if (!(await playCard(page))) break;
+    await page.waitForTimeout(30);
+  }
+  expect(cpMissed, "the checkpoint never managed to answer anything wrong").toBeGreaterThan(0);
+  expect(await cpHeadline.isVisible().catch(() => false), "the checkpoint did not reach its result screen").toBe(true);
 
   // A mirror, not a verdict: no pass/fail wording, and no percentage anywhere.
   await expect(page.getByTestId("exam-headline")).toHaveText("Where you are right now");
@@ -1707,6 +1750,20 @@ test("checkpoint: every 6 units, no pass, no fail, no percentage — and only a 
   const rec = await readState(page, ["exams", "cp-ja-u7-u12"]);
   expect(Object.keys(rec)).toEqual(["lastTaken"]);
   expect(rec.lastTaken).toBeGreaterThan(0);
+
+  // D6: a checkpoint now ALSO remembers which WORDS were missed, in a separate slice,
+  // so a later band exam can come back to them a different way. It persists, and it is
+  // still not a score: item id + the card kinds it was missed with, and nothing else.
+  const pool = (await readState(page, ["missedPool"])) ?? {};
+  const pooled = Object.entries(pool.ja ?? {});
+  expect(pooled.length, "a checkpoint miss did not reach the missed pool").toBe(cpMissed);
+  for (const [id, entry] of pooled) {
+    expect(Object.keys(entry).sort(), `${id}: the pool grew a field`).toEqual(["kinds", "lastMissed"]);
+    expect(entry.kinds.length, `${id}: the pool forgot WHICH card kind it was missed with`).toBeGreaterThan(0);
+    expect(entry.lastMissed).toBeGreaterThan(0);
+  }
+  // No count of it reaches the screen — the pool is a set of words, never a tally.
+  await expect(page.getByText(/\d+\s*(missed|wrong|mistakes)/i)).toHaveCount(0);
 
   // Same one-directional guarantee as the band exam.
   const bad = regressions(itemsBefore, await readState(page, ["items"]));
@@ -1719,3 +1776,175 @@ test("checkpoint: every 6 units, no pass, no fail, no percentage — and only a 
   expect(errors, errors.join("; ")).toEqual([]);
 });
 
+
+// D6 (2026-09-26). GET THE CARD WRONG ON PURPOSE. `playCard` above answers correctly by
+// construction, so the band-exam smoke plays a clean paper and can never reach the
+// screen Alex actually asked about — what a learner sees when they DON'T pass. This is
+// the mirror of `playCard` for the kinds where a wrong answer is expressible:
+//   * type (meaning/reading/produce/listen:type) and conjugate — type garbage, and both
+//     grant ONE free retry, so it has to be typed twice before the grade lands;
+//   * any options card — click `[data-correct="false"]`.
+// `build` and `sentence:build` have no wrong-order hook and fall through to be played
+// correctly, which is why the caller counts misses instead of assuming all of them.
+// Returns true when it committed a WRONG answer.
+async function missCard(page) {
+  const continueBtn = page.getByRole("button", { name: "Continue" });
+  const check = page.getByRole("button", { name: "Check" });
+  const garbage = "zzqqxx";
+
+  const typeCard = page.getByTestId("type-card");
+  if (await typeCard.isVisible().catch(() => false)) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      if (!(await check.isVisible().catch(() => false))) break;
+      await page.getByTestId("type-input").fill(garbage);
+      await check.evaluate((el) => el.click());
+      await page.waitForTimeout(120);
+    }
+    await continueBtn.waitFor({ state: "visible", timeout: 5000 }).catch(() => {});
+    await continueBtn.evaluate((el) => el.click()).catch(() => {});
+    return true;
+  }
+
+  const conjugateCard = page.getByTestId("conjugate-card");
+  if (await conjugateCard.isVisible().catch(() => false)) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      if (!(await check.isVisible().catch(() => false))) break;
+      await conjugateCard.locator("input").fill(garbage);
+      await check.evaluate((el) => el.click());
+      await page.waitForTimeout(120);
+    }
+    await continueBtn.waitFor({ state: "visible", timeout: 5000 }).catch(() => {});
+    await continueBtn.evaluate((el) => el.click()).catch(() => {});
+    return true;
+  }
+
+  const wrongOption = page.locator('[data-correct="false"]');
+  if (await wrongOption.first().isVisible().catch(() => false)) {
+    await wrongOption.first().click();
+    await continueBtn.click({ force: true }).catch(() => {});
+    return true;
+  }
+
+  return false;
+}
+
+test("a not-yet-verified exam names the SECTION AND LESSON to go back to, and the lesson opens", async ({ page }) => {
+  test.setTimeout(300_000);
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await page.addInitScript(
+    (json) => { if (!localStorage.getItem("lingua-v1")) localStorage.setItem("lingua-v1", json); },
+    JSON.stringify(examLearnerFixture())
+  );
+  await page.goto("/ladder");
+
+  const itemsBefore = await readState(page, ["items"]);
+  const mistakesBefore = JSON.stringify(await readState(page, ["mistakes"]));
+
+  await page.getByTestId("take-exam-A1").click();
+  // The intro is honest about the pool now: up to 8 questions can be words missed at a
+  // checkpoint, asked a different way.
+  await expect(page.getByText(/asked a\s+different way/)).toBeVisible();
+  await page.getByTestId("exam-begin").click();
+
+  // Miss everything that CAN be missed. 80% is the bar, so one wrong answer still
+  // passes — a real "not yet" needs five.
+  const headline = page.getByTestId("exam-headline");
+  let missed = 0;
+  for (let i = 0; i < 60; i++) {
+    if (await headline.isVisible().catch(() => false)) break;
+    if (await missCard(page)) missed += 1;
+    else if (!(await playCard(page))) break;
+    await page.waitForTimeout(30);
+  }
+  expect(missed, "the run never managed to answer anything wrong").toBeGreaterThan(5);
+  await expect(headline).toBeVisible();
+
+  // NOT A VERDICT, AND NO NUMBER. "not yet verified" (D1 — it certifies, it never
+  // gates), and the percentage is withheld on a fail (D3: it is the part that stings).
+  await expect(headline).toHaveText("A1 — not yet verified");
+  await expect(page.getByText(/\d+%/)).toHaveCount(0);
+  // NO SHAME COPY. "Go back to these", never "you failed".
+  await expect(page.getByText(/failed|you got \d+ wrong/i)).toHaveCount(0);
+
+  // THE ACTIONABLE HALF (Alex: "review x section(s) x lesson(s)"). Section heading,
+  // lesson chips reading "u7 l2 · <title>", and BOTH actions — "Review these lessons"
+  // (be taught it again) next to the kept "Practice the words" (drill the words).
+  const goback = page.getByTestId("exam-goback");
+  await expect(goback).toBeVisible();
+  await expect(page.getByTestId("exam-review-lessons")).toBeVisible();
+  // "Practice the words" is the KEPT action and it is gated on a missed item the learner
+  // has actually been TAUGHT — an untaught word is a lesson's job, not a practice
+  // session's. A 20-question band sample over a fixture with 8 taught items usually
+  // misses only untaught words, so the button's PRESENCE is fixture luck and is not
+  // asserted; its copy is, whenever it does appear.
+  const practice = page.getByTestId("exam-practice");
+  if (await practice.isVisible().catch(() => false)) {
+    await expect(practice).toHaveText("Practice the words");
+  }
+  const chip = goback.locator('[data-testid^="go-lesson-"]').first();
+  await expect(chip).toBeVisible();
+  await expect(chip).toHaveText(/^u\d+ l\d+ · .+ →$/);
+  const lessonId = (await chip.getAttribute("data-testid")).replace("go-lesson-", "");
+  expect(lessonId, `"${lessonId}" is not a lesson id`).toMatch(/^[a-z]{2,3}-u\d+l\d+$/);
+  // A short list, never a wall: at most 4 lessons are offered however rough the run was.
+  expect(await goback.locator('[data-testid^="go-lesson-"]').count()).toBeLessThanOrEqual(4);
+
+  // A FAIL IS STILL INERT (D1/D4): nothing lowered, no mistake-list entry, no badge.
+  const bad = regressions(itemsBefore, await readState(page, ["items"]));
+  expect(bad, `a failed exam LOWERED something: ${bad.slice(0, 5).join("; ")}`).toEqual([]);
+  expect(JSON.stringify(await readState(page, ["mistakes"])), "a failed exam wrote to the mistake list").toBe(mistakesBefore);
+
+  // ...and "Review these lessons" REALLY GOES THERE. Nothing was unlocked to make this
+  // work: every band a learner is examined on is already learned.
+  await page.getByTestId("exam-review-lessons").click();
+  await expect(page).toHaveURL(new RegExp(`/lesson/${lessonId}$`));
+  await expect(page.getByTestId("lesson-begin")).toBeVisible();
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+test("the band exam really spends the missed pool: every pooled word is asked, and passing it empties the pool", async ({ page }) => {
+  test.setTimeout(300_000);
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  // The fixture's eight taught items, pre-loaded into the missed pool as if a
+  // checkpoint had missed each of them on a `choice` card. Eight is exactly
+  // EXAM_POOL_MAX, so ALL of them must be drawn onto the A1 paper — which makes the
+  // assertion at the end unambiguous: play the paper clean and the pool must be EMPTY,
+  // because a correct answer anywhere removes an item.
+  const fixture = examLearnerFixture();
+  const taught = Object.keys(fixture.state.items);
+  expect(taught.length).toBe(8);
+  fixture.state.missedPool = {
+    ja: Object.fromEntries(taught.map((id, i) => [id, { kinds: ["choice"], lastMissed: 1_700_000_000_000 + i }])),
+  };
+
+  await page.addInitScript(
+    (json) => { if (!localStorage.getItem("lingua-v1")) localStorage.setItem("lingua-v1", json); },
+    JSON.stringify(fixture)
+  );
+  await page.goto("/ladder");
+
+  // It survived the reload — it is a persisted key, added with NO persist bump.
+  expect(Object.keys((await readState(page, ["missedPool"]))?.ja ?? {}).length).toBe(8);
+
+  await page.getByTestId("take-exam-A1").click();
+  await page.getByTestId("exam-begin").click();
+  expect(await playExam(page, 60), "the pooled exam did not reach its result screen").toBe(true);
+
+  // EVERY POOLED WORD WAS ASKED AND ANSWERED, so nothing is left owing. If the draw had
+  // ignored the pool, or if a correct answer did not clear an entry, these would remain.
+  const after = (await readState(page, ["missedPool"]))?.ja ?? {};
+  expect(Object.keys(after), "a pooled word was never asked, or a right answer left it in the pool").toEqual([]);
+
+  // The pool never became a score: the exam record is the usual three fields and the
+  // page shows no tally of past misses.
+  const rec = await readState(page, ["exams", "exam-ja-a1"]);
+  expect(Object.keys(rec).sort()).toEqual(["attempts", "bestPct", "lastTaken"]);
+  await expect(page.getByText(/\d+\s*(missed|mistakes|from your misses)/i)).toHaveCount(0);
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});

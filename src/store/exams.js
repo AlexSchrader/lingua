@@ -30,6 +30,26 @@
 //     rather than by writing nothing at all. A bad day still costs exactly zero.
 //     See tests/unit/exams.test.mjs for the three tests that pin it.
 //
+// D6 (Alex, 2026-09-26) REFINES D3's "a checkpoint stores no result": *"checkpoints
+//     just keep track of missed questions and use them in the end point but modified
+//     so its the same question everytime have a pool"*.
+//
+//     A checkpoint now records WHICH ITEMS were missed (and with which card kind)
+//     into a per-language MISSED POOL, and a band exam draws up to EXAM_POOL_MAX of
+//     its EXAM_SIZE questions from that pool.
+//
+//     THIS IS STILL NOT "COUNTING IT AGAINST YOU" (Alex's original rule for a
+//     checkpoint, which stands):
+//       * nothing is penalised — no rung drop, no interval reset, no lapse;
+//       * no pass, no fail, no percentage, no threshold is stored or shown;
+//       * the pool is never rendered as a score, a count, or a list of failures.
+//     It changes only WHAT GETS ASKED LATER, which is the mechanism the app is
+//     supposed to run on. The asymmetric write (D4) is untouched.
+//
+//     And the pooled question is DELIBERATELY NOT THE SAME QUESTION: a pooled item
+//     is re-asked in a card kind it was NOT missed with, so the band exam tests the
+//     word rather than a memorised prompt. See `pickKind`'s `avoid` argument.
+//
 // An exam is a SELECTION OVER EXISTING ITEMS AND EXISTING CARD KINDS — not new
 // content and not a new card kind. Consequence: every band exam for every
 // language exists the moment that band's content ships, with nothing to author.
@@ -73,6 +93,24 @@ export const CHECKPOINT_SIZE = 8;
 // falls back to CHECKPOINT_SIZE recent questions — the paper reports which it got
 // (`olderWanted` / `olderActual`), so the split is measured, never assumed.
 export const CHECKPOINT_OLDER = 2;
+
+// --- the missed pool (D6) ----------------------------------------------------
+// How many of a band exam's EXAM_SIZE questions may come from the missed pool. The
+// rest are stratified fresh exactly as before, so a band exam is still a measurement
+// of the BAND and not an archive of old mistakes: 8 of 20 is under half, and if the
+// pool is empty the paper is byte-identical to today's.
+export const EXAM_POOL_MAX = 8;
+
+// How many missed items a language's pool may hold. Above this the OLDEST miss is
+// evicted, so a mistake from three months ago can never crowd out this week's.
+//
+// 60 was chosen against the two numbers that bound it: a checkpoint can add at most
+// CHECKPOINT_SIZE (8) misses, so the cap holds ~7 catastrophic checkpoints' worth —
+// far more than a learner will ever have outstanding, because every correct answer
+// anywhere removes an item. And it is comfortably above EXAM_POOL_MAX (8), so the
+// pool is never the binding constraint on a paper. Same order of magnitude as
+// MISTAKES_CAP (30) in useStore.js, which caps the analogous "fix these" list.
+export const MISSED_POOL_CAP = 60;
 
 // The grade a CORRECT exam answer is credited as — always `good`, never `easy`,
 // whichever button was pressed. An exam is not the place to earn a long interval,
@@ -159,6 +197,10 @@ function corpusIndex() {
           unitTitle: u.title,
           unitOrder: u.order ?? 0,
           lessonId: l.id,
+          // Named so a result screen can say WHICH LESSON to go back to, not just
+          // which unit (D6 / Alex 2026-09-26: "review x section(s) x lesson(s)").
+          lessonTitle: l.title ?? l.id,
+          lessonNo: typeof l.lesson === "number" ? l.lesson : null,
           cefr: l.cefr,
         });
       }
@@ -349,8 +391,18 @@ function asStep(kind) {
   return { kind };
 }
 
-function pickKind(item, rnd) {
-  const tiers = examKindsFor(item);
+// `avoid` is the D6 rule, and it is the whole point of the missed pool: a pooled item
+// must be re-asked in a card kind it was NOT missed with, or the band exam is testing
+// a memorised prompt rather than the word. When avoiding leaves NOTHING askable (an
+// item with a single eligible kind — a kana with only `choice`, say) the kind is used
+// anyway and the question still counts: refusing to ask would silently shrink the
+// paper, which is worse than asking the same way twice weeks apart.
+function pickKind(item, rnd, avoid = null) {
+  let tiers = examKindsFor(item);
+  if (avoid?.size) {
+    const trimmed = tiers.map((t) => t.filter((k) => !avoid.has(k)));
+    if (trimmed.some((t) => t.length)) tiers = trimmed;
+  }
   if (!tiers.some((t) => t.length)) return null;
   // Draw a tier by weight, then fall to the nearest non-empty one so an item that
   // cannot be produced still gets asked its best available question.
@@ -367,6 +419,98 @@ function pickKind(item, rnd) {
     if (tier.length) return tier[Math.floor(rnd() * tier.length)];
   }
   return null;
+}
+
+// One paper question. The lesson stamps ride along because the RESULT has to be able
+// to say "go back to u7 l2", which needs the lesson the item was authored into — the
+// unit title alone names a section a learner cannot navigate to (D6).
+function stepFor(entry, kind, era = null, fromPool = false) {
+  const step = {
+    ...asStep(kind),
+    kindKey: kind,
+    id: entry.item.id,
+    unitId: entry.unitId,
+    unitTitle: entry.unitTitle,
+    unitOrder: entry.unitOrder,
+    lessonId: entry.lessonId,
+    lessonTitle: entry.lessonTitle,
+    lessonNo: entry.lessonNo,
+  };
+  if (era) step.era = era;
+  // Marked, never SHOWN: the learner is not told "this one is from your mistakes".
+  // Used by the tests and by nothing on screen.
+  if (fromPool) step.fromPool = true;
+  return step;
+}
+
+// "u7 l2" — how a lesson is named to the learner on a result screen. Unit ORDER and
+// lesson NUMBER, because those are what the Ladder prints; the lesson id is the
+// navigation target and is never shown.
+export function lessonLabel(unitOrder, lessonNo) {
+  const u = Number(unitOrder) > 0 ? `u${unitOrder}` : null;
+  const l = Number(lessonNo) > 0 ? `l${lessonNo}` : null;
+  return [u, l].filter(Boolean).join(" ");
+}
+
+// --- the missed pool, as pure functions (D6) ---------------------------------
+// Shape: { [lang]: { [itemId]: { kinds: string[], lastMissed: number } } }
+//   kinds      — every card kind this item has been missed with, so a re-ask can
+//                avoid all of them rather than just the most recent one.
+//   lastMissed — the eviction key, and the draw order. Never displayed.
+// There is NO count, NO score and NO percentage in here, by design (D6).
+
+// Record a miss. Additive and idempotent per (item, kind).
+export function addMiss(pool, lang, id, kind = null, at = Date.now()) {
+  if (!lang || !id) return pool ?? {};
+  const base = pool ?? {};
+  const forLang = { ...(base[lang] ?? {}) };
+  const prev = forLang[id];
+  const kinds = kind ? [...new Set([...(prev?.kinds ?? []), kind])] : (prev?.kinds ?? []);
+  forLang[id] = { kinds, lastMissed: at };
+
+  // Cap per language, oldest-missed evicted first — a long-abandoned mistake must
+  // never crowd out a recent one.
+  const ids = Object.keys(forLang);
+  if (ids.length > MISSED_POOL_CAP) {
+    const byAge = ids.sort(
+      (a, b) => (forLang[a].lastMissed ?? 0) - (forLang[b].lastMissed ?? 0) || (a < b ? -1 : 1)
+    );
+    for (const dead of byAge.slice(0, ids.length - MISSED_POOL_CAP)) delete forLang[dead];
+  }
+  return { ...base, [lang]: forLang };
+}
+
+// An item LEAVES the pool the moment it is answered correctly ANYWHERE — a later
+// checkpoint, a band exam, or an ordinary review. Item ids are globally unique, so
+// this sweeps every language rather than needing to be told which one; that also
+// means it cannot miss because a caller didn't know the item's language.
+// Returns the SAME object when there is nothing to remove, so callers can skip the
+// store write entirely.
+export function clearMiss(pool, id) {
+  if (!pool || !id) return pool ?? {};
+  let changed = false;
+  const out = {};
+  for (const [lang, forLang] of Object.entries(pool)) {
+    if (forLang && Object.prototype.hasOwnProperty.call(forLang, id)) {
+      const copy = { ...forLang };
+      delete copy[id];
+      out[lang] = copy;
+      changed = true;
+    } else {
+      out[lang] = forLang;
+    }
+  }
+  return changed ? out : pool;
+}
+
+// The pool for one language, MOST RECENTLY MISSED FIRST — this week's mistake is
+// worth more than last month's. Deterministic (id break on a tie) so a paper built
+// from it is reproducible.
+export function missedEntries(pool, lang) {
+  const forLang = pool?.[lang] ?? {};
+  return Object.entries(forLang)
+    .map(([id, rec]) => ({ id, kinds: rec?.kinds ?? [], lastMissed: Number(rec?.lastMissed) || 0 }))
+    .sort((a, b) => b.lastMissed - a.lastMissed || (a.id < b.id ? -1 : 1));
 }
 
 // --- the paper ---------------------------------------------------------------
@@ -404,9 +548,7 @@ function drawStratified(pool, size, rnd, era = null, exclude = null) {
       const entry = bucket[c];
       const kind = pickKind(entry.item, rnd);
       if (!kind) continue; // nothing honest to ask about this item — skip it
-      const step = { ...asStep(kind), kindKey: kind, id: entry.item.id, unitId: uid, unitTitle: entry.unitTitle };
-      if (era) step.era = era;
-      steps.push(step);
+      steps.push(stepFor(entry, kind, era));
     }
     if (!consumed) break;
   }
@@ -463,7 +605,31 @@ function checkpointPaper(meta, rnd) {
   };
 }
 
-export function examPaper(id, { seed = "", attempt = 0 } = {}) {
+// D6. Up to EXAM_POOL_MAX questions drawn from the language's missed pool, each in a
+// card kind it was NOT missed with. Scoped to the exam's own corpus, so a B1 mistake
+// can never appear on the A1 paper.
+//
+// CONSUMES NO RANDOMNESS WHEN THE POOL IS EMPTY — that is deliberate and load-bearing:
+// it is what makes "if the pool is empty the paper is exactly today's behaviour" a
+// byte-identical guarantee rather than a hand-wave.
+function drawFromMissed(pool, missedPool, lang, rnd, max) {
+  if (max <= 0 || !missedPool) return [];
+  const byId = new Map(pool.map((e) => [e.item.id, e]));
+  const entries = missedEntries(missedPool, lang).filter((m) => byId.has(m.id));
+  if (!entries.length) return [];
+
+  const steps = [];
+  for (const m of entries) {
+    if (steps.length >= max) break;
+    const entry = byId.get(m.id);
+    const kind = pickKind(entry.item, rnd, new Set(m.kinds));
+    if (!kind) continue; // nothing honest to ask about this item at all
+    steps.push(stepFor(entry, kind, null, true));
+  }
+  return steps;
+}
+
+export function examPaper(id, { seed = "", attempt = 0, missedPool = null } = {}) {
   const meta = parseExamId(id);
   if (!meta) return null;
   const rnd = mulberry32(hashStr(`${id}|${seed}|${attempt}`));
@@ -473,7 +639,17 @@ export function examPaper(id, { seed = "", attempt = 0 } = {}) {
   const pool = poolFor(meta);
   if (!pool.length) return null;
   const size = meta.kind === "exam" ? EXAM_SIZE : CHECK_SIZE;
-  const steps = drawStratified(pool, size, rnd);
+
+  // Only a BAND EXAM draws from the pool. A checkpoint is the thing that FILLS it,
+  // and a legacy half-check is a frozen shape nothing generates any more.
+  const pooled = meta.kind === "exam" ? drawFromMissed(pool, missedPool, meta.lang, rnd, EXAM_POOL_MAX) : [];
+  const used = new Set(pooled.map((st) => st.id));
+  const fresh = drawStratified(pool, size - pooled.length, rnd, null, used.size ? used : null);
+
+  // Interleaved only when there is something to interleave, so the empty-pool paper
+  // is unchanged. A learner must not be able to read "these first eight are the ones
+  // I got wrong last time" off the running order.
+  const steps = pooled.length ? shuffled([...pooled, ...fresh], rnd) : fresh;
 
   return {
     id,
@@ -482,6 +658,8 @@ export function examPaper(id, { seed = "", attempt = 0 } = {}) {
     band: meta.band,
     steps,
     unitsInScope: unitsOf(pool),
+    // Measured, never assumed — and never shown to the learner.
+    fromPool: pooled.length,
   };
 }
 
@@ -550,6 +728,37 @@ export function scoreExam(paper, gradesById = {}) {
   for (const u of perUnit.values()) (u.correct === u.total ? solid : shaky).push(u.title);
   const untested = (paper?.unitsInScope ?? []).filter((u) => !perUnit.has(u.id)).map((u) => u.title);
 
+  // --- WHERE TO GO BACK TO (D6 / Alex 2026-09-26) ---------------------------
+  // "it should tell the user to review x section(s) x lesson(s) the ones they did
+  // poor in". A unit title alone is not actionable — there is nothing to tap. So the
+  // misses are grouped section -> lesson(s), in climb order, carrying the lesson id
+  // the Ladder routes on (`/lesson/<id>`).
+  //
+  // COMPUTED ON A PASS TOO. Alex only asked about failing, but a 90% pass with two
+  // shaky items should still say which two; the SCREEN decides how loudly to say it.
+  const areaByUnit = new Map();
+  for (const s of steps) {
+    if (ok(s) || !s.lessonId) continue;
+    const a =
+      areaByUnit.get(s.unitId) ??
+      { unitId: s.unitId, unitTitle: s.unitTitle, unitOrder: s.unitOrder ?? 0, lessons: [], _seen: new Set() };
+    if (!a._seen.has(s.lessonId)) {
+      a._seen.add(s.lessonId);
+      a.lessons.push({
+        id: s.lessonId,
+        title: s.lessonTitle ?? s.lessonId,
+        no: s.lessonNo ?? null,
+        label: lessonLabel(s.unitOrder, s.lessonNo) || s.lessonId,
+      });
+    }
+    areaByUnit.set(s.unitId, a);
+  }
+  const shakyAreas = [...areaByUnit.values()]
+    .sort((a, b) => a.unitOrder - b.unitOrder)
+    .map(({ _seen, ...a }) => ({ ...a, lessons: a.lessons.sort((x, y) => (x.no ?? 0) - (y.no ?? 0)) }));
+  // Flat, in the same order — what "Review these lessons" walks.
+  const shakyLessonIds = shakyAreas.flatMap((a) => a.lessons.map((l) => l.id));
+
   return {
     id: paper?.id ?? null,
     kind: paper?.kind ?? "exam",
@@ -564,8 +773,15 @@ export function scoreExam(paper, gradesById = {}) {
     solid,
     shaky,
     untested,
-    // The ids behind "shaky on" — what the "Practice the shaky ones" button seeds.
+    // The ids behind "shaky on" — what the "Practice the words" button seeds.
     shakyIds: steps.filter((s) => !ok(s)).map((s) => s.id),
+    // Section -> lesson(s) to go back to, and the flat lesson-id list behind
+    // "Review these lessons". Present on a pass as well as a fail.
+    shakyAreas,
+    shakyLessonIds,
+    // The card kind each miss was asked in, so a checkpoint can record it into the
+    // missed pool and a later band exam can avoid re-asking that exact question.
+    missedKinds: Object.fromEntries(steps.filter((s) => !ok(s)).map((s) => [s.id, s.kindKey])),
   };
 }
 

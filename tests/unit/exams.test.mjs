@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import {
   EXAM_BANDS,
   EXAM_PASS_PCT,
@@ -10,7 +11,13 @@ import {
   CHECKPOINT_OLDER,
   EXAM_CREDIT_GRADE,
   EXAM_EXCLUDED_KINDS,
+  EXAM_POOL_MAX,
+  MISSED_POOL_CAP,
   KIND_TIERS,
+  addMiss,
+  clearMiss,
+  missedEntries,
+  lessonLabel,
   examId,
   checkId,
   checkpointId,
@@ -755,4 +762,318 @@ test("a checkpoint credits correct answers and charges nothing for wrong ones", 
       `${st.id} was missed on a checkpoint and still changed`
     );
   }
+});
+
+// --- D6: the missed pool, and a result that names where to go back to ---------
+// Alex, 2026-09-26: "what happens when they get to the end exam and fail? I think it
+// should tell the user to review x section(s) x lesson(s) the ones they did poor in …
+// and checkpoints just keep track of missed questions and use them in the end point
+// but modified so its the same question everytime have a pool".
+//
+// Two features, and the second one's load-bearing half is the word MODIFIED: a pooled
+// item is re-asked in a card kind it was NOT missed with, so the band exam tests the
+// word rather than a memorised prompt.
+
+// Item ids that really are inside a band's corpus, gathered from its own papers — so
+// a fabricated pool cannot accidentally test nothing.
+function bandItemIds(lang, band, attempts = 8) {
+  const ids = new Set();
+  for (let a = 0; a < attempts; a++) {
+    for (const st of examPaper(examId(lang, band), { seed: "pool-fixture", attempt: a }).steps) ids.add(st.id);
+  }
+  return [...ids];
+}
+
+const poolOf = (lang, ids, kindsFor = () => []) => ({
+  [lang]: Object.fromEntries(ids.map((id, i) => [id, { kinds: kindsFor(id), lastMissed: 10_000 + i }])),
+});
+
+test("a checkpoint miss lands in the pool; a correct answer removes it", () => {
+  const store = useStore.getState();
+  store.seedOnce();
+  useStore.setState({ missedPool: {} });
+
+  const paper = examPaper("cp-ja-u7-u12");
+  const missed = paper.steps.slice(0, 3);
+  for (const st of missed) store.recordCheckpointMiss(st.id, st.kindKey, "ja");
+
+  let pool = useStore.getState().missedPool;
+  assert.equal(Object.keys(pool.ja).length, 3, "three misses, three pool entries");
+  for (const st of missed) {
+    assert.deepEqual(pool.ja[st.id].kinds, [st.kindKey], "the pool remembers WHICH card kind it was missed with");
+    assert.ok(pool.ja[st.id].lastMissed > 0);
+  }
+  // The same item missed again with a second kind accumulates both, so a re-ask can
+  // avoid every kind it has ever failed on — not just the most recent.
+  store.recordCheckpointMiss(missed[0].id, "choice", "ja");
+  assert.ok(useStore.getState().missedPool.ja[missed[0].id].kinds.includes("choice"));
+
+  // A CORRECT ANSWER ANYWHERE REMOVES IT. Here: a later exam/checkpoint answer.
+  store.creditExamAnswer(missed[0].id, "good", "type:meaning");
+  pool = useStore.getState().missedPool;
+  assert.ok(!pool.ja[missed[0].id], "a correct exam answer must empty the item out of the pool");
+  assert.ok(pool.ja[missed[1].id], "...and must not touch the others");
+
+  // A WRONG answer on a BAND EXAM adds nothing — only a checkpoint fills the pool,
+  // and `creditExamAnswer` stays literally empty on a wrong answer (D4).
+  const before = JSON.stringify(useStore.getState().missedPool);
+  store.creditExamAnswer(missed[1].id, "again", "choice");
+  assert.equal(JSON.stringify(useStore.getState().missedPool), before, "a wrong answer wrote to the pool");
+});
+
+test("a correct answer in an ORDINARY REVIEW also removes it from the pool", () => {
+  // Without this the pool only ever shrinks inside an exam, so a band exam slowly
+  // becomes an archive of mistakes the learner has since fixed in normal study.
+  const store = useStore.getState();
+  store.seedOnce();
+  useStore.setState({ missedPool: {} });
+
+  const paper = examPaper("cp-ja-u13-u18");
+  const [a, b, c] = paper.steps;
+  for (const st of [a, b, c]) store.recordCheckpointMiss(st.id, st.kindKey, "ja");
+  // Reviewable, or gradeItem has nothing to grade.
+  useStore.setState((s) => ({
+    items: {
+      ...s.items,
+      [a.id]: { ...s.items[a.id], rung: 2 },
+      [b.id]: { ...s.items[b.id], rung: 2 },
+      [c.id]: { ...s.items[c.id], rung: 2 },
+    },
+  }));
+
+  store.gradeItem(a.id, "good", a.kindKey);
+  assert.ok(!useStore.getState().missedPool.ja[a.id], "an ordinary review pass must clear the pool entry");
+
+  // `hard` is a CORRECT answer everywhere else in this module (isCorrectGrade), so it
+  // clears too — deliberately unlike the mistake list, which keeps a `hard` as shaky.
+  store.gradeItem(b.id, "hard", b.kindKey);
+  assert.ok(!useStore.getState().missedPool.ja[b.id], "`hard` is a correct answer and must clear the pool entry");
+
+  // A MISS IN A REVIEW MUST NOT ADD TO THE POOL — only a checkpoint fills it.
+  const before = JSON.stringify(useStore.getState().missedPool);
+  store.gradeItem(c.id, "again", c.kindKey);
+  assert.equal(JSON.stringify(useStore.getState().missedPool), before, "an ordinary review wrote to the pool");
+  assert.ok(useStore.getState().missedPool.ja[c.id], "...and left the existing entry alone");
+});
+
+test("a band exam draws from the pool, capped at EXAM_POOL_MAX, and fills the rest fresh", () => {
+  const ids = bandItemIds("ja", "A1");
+  assert.ok(ids.length > EXAM_POOL_MAX + 4, `sanity: need more than ${EXAM_POOL_MAX} A1 items, got ${ids.length}`);
+
+  // MORE in the pool than a paper may take — the cap has to bite.
+  const many = poolOf("ja", ids.slice(0, EXAM_POOL_MAX + 6));
+  const paper = examPaper("exam-ja-a1", { seed: "alex", attempt: 0, missedPool: many });
+  assert.equal(paper.steps.length, EXAM_SIZE, "a pooled paper is still EXAM_SIZE questions");
+  assert.equal(paper.fromPool, EXAM_POOL_MAX, `a band exam must take at most ${EXAM_POOL_MAX} from the pool`);
+  assert.equal(paper.steps.filter((st) => st.fromPool).length, EXAM_POOL_MAX);
+  assert.equal(
+    paper.steps.filter((st) => !st.fromPool).length,
+    EXAM_SIZE - EXAM_POOL_MAX,
+    "the remainder must be stratified fresh, not more pool"
+  );
+  // Never the same item twice, pooled or fresh.
+  assert.equal(new Set(paper.steps.map((st) => st.id)).size, EXAM_SIZE, "a pooled item was also drawn fresh");
+
+  // FEWER in the pool than the cap — take what there is and fill with fresh.
+  const few = poolOf("ja", ids.slice(0, 3));
+  const small = examPaper("exam-ja-a1", { seed: "alex", attempt: 0, missedPool: few });
+  assert.equal(small.fromPool, 3);
+  assert.equal(small.steps.length, EXAM_SIZE);
+
+  // AN EMPTY POOL IS EXACTLY TODAY'S BEHAVIOUR — byte-identical, because the pool
+  // draw consumes no randomness when it finds nothing.
+  const plain = examPaper("exam-ja-a1", { seed: "alex", attempt: 0 });
+  assert.equal(plain.fromPool, 0);
+  assert.deepEqual(examPaper("exam-ja-a1", { seed: "alex", attempt: 0, missedPool: {} }).steps, plain.steps);
+  assert.deepEqual(examPaper("exam-ja-a1", { seed: "alex", attempt: 0, missedPool: { ja: {} } }).steps, plain.steps);
+  // A pool from ANOTHER language cannot reach a Japanese paper.
+  assert.deepEqual(
+    examPaper("exam-ja-a1", {
+      seed: "alex",
+      attempt: 0,
+      missedPool: poolOf("fr", bandItemIds("fr", "A1").slice(0, 5)),
+    }).steps,
+    plain.steps
+  );
+
+  // A pooled paper is still deterministic — a mid-exam reload resumes it.
+  assert.deepEqual(examPaper("exam-ja-a1", { seed: "alex", attempt: 0, missedPool: many }).steps, paper.steps);
+
+  // A CHECKPOINT NEVER DRAWS FROM THE POOL. It is the thing that FILLS it; a
+  // checkpoint that re-asked its own misses would stop being a look at the block.
+  const cpPlain = examPaper("cp-ja-u7-u12", { seed: "alex" });
+  assert.deepEqual(examPaper("cp-ja-u7-u12", { seed: "alex", missedPool: many }).steps, cpPlain.steps);
+  assert.ok(!cpPlain.steps.some((st) => st.fromPool));
+});
+
+test("A POOLED ITEM IS NEVER RE-ASKED WITH THE KIND IT WAS MISSED WITH", () => {
+  // THE LOAD-BEARING ONE. "modified so its the same question everytime" — the whole
+  // point of the pool is that it tests the WORD, not a memorised prompt. Measured
+  // across every band of every authored language, not asserted on one paper.
+  const seed = seedItems();
+  let checked = 0;
+  let onlyOneKind = 0;
+  for (const lang of LIVE_LANGS) {
+    for (const band of EXAM_BANDS) {
+      if (!bandHasContent(lang, band)) continue;
+      // The pool records the kind each item was ASKED in on an earlier paper, which is
+      // exactly the real-world shape: it was missed on a checkpoint in that kind.
+      const source = examPaper(examId(lang, band), { seed: "missed-with", attempt: 3 });
+      const missedPool = {
+        [lang]: Object.fromEntries(
+          source.steps.map((st, i) => [st.id, { kinds: [st.kindKey], lastMissed: 10_000 + i }])
+        ),
+      };
+      const paper = examPaper(examId(lang, band), { seed: "re-ask", attempt: 0, missedPool });
+      for (const st of paper.steps.filter((s) => s.fromPool)) {
+        const missedKinds = missedPool[lang][st.id].kinds;
+        const eligible = examKindsFor(seed[st.id]).flat();
+        if (eligible.length <= 1) {
+          // The documented escape hatch: an item with a single eligible exam kind is
+          // asked in that kind anyway and still counts — refusing would silently
+          // shorten the paper, which is worse than the same card weeks apart.
+          onlyOneKind += 1;
+          continue;
+        }
+        assert.ok(
+          !missedKinds.includes(st.kindKey),
+          `${lang} ${band}: ${st.id} was re-asked with ${st.kindKey}, the very kind it was missed with`
+        );
+        checked += 1;
+      }
+    }
+  }
+  assert.ok(checked > 50, `sanity: the sweep should have re-asked plenty of pooled items, saw ${checked}`);
+  // Reported, not asserted to zero — the number is a fact about the corpus and is in
+  // the hand-back. It must stay a small minority of pooled re-asks.
+  assert.ok(
+    onlyOneKind / (checked + onlyOneKind) < 0.2,
+    `${onlyOneKind} of ${checked + onlyOneKind} pooled re-asks had only one eligible kind`
+  );
+});
+
+test("the pool is capped per language and evicts the OLDEST miss first", () => {
+  // A long-abandoned mistake must never crowd out a recent one.
+  let pool = {};
+  const ids = [...Array(MISSED_POOL_CAP + 7)].map((_, i) => `fake-item-${String(i).padStart(3, "0")}`);
+  for (const [i, id] of ids.entries()) pool = addMiss(pool, "ja", id, "choice", 1_000 + i);
+
+  assert.equal(Object.keys(pool.ja).length, MISSED_POOL_CAP, `the pool must cap at ${MISSED_POOL_CAP}`);
+  for (const gone of ids.slice(0, 7)) assert.ok(!pool.ja[gone], `${gone} was the oldest and should have been evicted`);
+  for (const kept of ids.slice(7)) assert.ok(pool.ja[kept], `${kept} is recent and must have survived`);
+
+  // Per LANGUAGE, not global — one language's backlog cannot evict another's.
+  pool = addMiss(pool, "fr", "fr-thing", "choice", 1);
+  assert.equal(Object.keys(pool.ja).length, MISSED_POOL_CAP);
+  assert.equal(Object.keys(pool.fr).length, 1);
+
+  // missedEntries is most-recent-first, and deterministic on a tie.
+  const order = missedEntries(pool, "ja");
+  assert.equal(order[0].id, ids[ids.length - 1]);
+  for (let i = 1; i < order.length; i++) assert.ok(order[i - 1].lastMissed >= order[i].lastMissed);
+
+  // clearMiss sweeps every language (item ids are globally unique) and returns the
+  // SAME object when there is nothing to remove, so a caller can skip the write.
+  const same = clearMiss(pool, "not-in-the-pool");
+  assert.equal(same, pool, "clearMiss must be a no-op by identity when the id is absent");
+  assert.ok(!clearMiss(pool, "fr-thing").fr["fr-thing"]);
+});
+
+test("the missed pool is never rendered as a score — no pass, no fail, no percentage in it", () => {
+  // D6 refines D3; it does not repeal it. A checkpoint still stores NO result, and the
+  // pool must not become one by the back door.
+  const store = useStore.getState();
+  store.seedOnce();
+  useStore.setState({ missedPool: {} });
+
+  const paper = examPaper("cp-ja-u19-u24");
+  for (const st of paper.steps) store.recordCheckpointMiss(st.id, st.kindKey, "ja");
+  store.recordExam("cp-ja-u19-u24", { pct: 12 });
+
+  // The checkpoint's own record: STILL a date and nothing else.
+  assert.deepEqual(Object.keys(useStore.getState().exams["cp-ja-u19-u24"]), ["lastTaken"]);
+
+  // The pool holds two fields per item and neither is a measurement of the learner.
+  const banned = /(pct|percent|score|passed|failed|fail|total|correct|wrong|streak|xp|grade)/i;
+  for (const [id, rec] of Object.entries(useStore.getState().missedPool.ja)) {
+    assert.deepEqual(Object.keys(rec).sort(), ["kinds", "lastMissed"], `${id}: the pool grew a field`);
+    for (const k of Object.keys(rec)) assert.ok(!banned.test(k), `${id}: "${k}" reads as a score`);
+    assert.ok(Array.isArray(rec.kinds));
+    assert.equal(typeof rec.lastMissed, "number");
+  }
+  // And there is no per-language tally either — the pool is a set of items, not a count.
+  assert.deepEqual(
+    Object.keys(useStore.getState().missedPool).filter((k) => k !== "ja"),
+    [],
+    "the pool must hold nothing but per-language item maps"
+  );
+
+  // Nothing about the pool reaches the SCORE. A paper drawn from it scores exactly as
+  // a fresh one would — no bonus, no penalty, no separate number.
+  const drawn = examPaper("exam-ja-a1", { seed: "s", attempt: 0, missedPool: useStore.getState().missedPool });
+  const perfect = scoreExam(drawn, Object.fromEntries(drawn.steps.map((st) => [st.id, "good"])));
+  assert.equal(perfect.pct, 100);
+  assert.equal(perfect.passed, true);
+  assert.ok(!("fromPool" in perfect), "the score must not report how many came from the pool");
+
+  // THE SCREEN. The only place the pool could leak out as a number is Exam.jsx, which
+  // reads it for exactly one thing — building the paper. It must never count it, and
+  // the paper's pooled-question tally must never be interpolated into the page.
+  const screen = readFileSync(new URL("../../src/screens/Exam.jsx", import.meta.url), "utf8");
+  assert.match(screen, /examPaper\(id, \{ \.\.\.key, missedPool \}\)/, "Exam.jsx must read the pool only to build the paper");
+  assert.ok(!/missedPool[^\n]*\.length/.test(screen), "Exam.jsx measures the missed pool — a measurement is a score");
+  assert.ok(!/Object\.keys\(\s*missedPool/.test(screen), "Exam.jsx counts the missed pool");
+  assert.ok(!/\{\s*paper\.fromPool\s*\}/.test(screen), "the page prints how many questions came from the pool");
+});
+
+test("a failed exam's breakdown NAMES THE LESSONS to go back to — and a pass gets one too", () => {
+  const paper = examPaper("exam-ja-a1");
+  const lessonIds = new Set(UNITS.flatMap((u) => (u.lessons ?? []).map((l) => l.id)));
+
+  // Every question carries the lesson it came from, or the result cannot name one.
+  for (const st of paper.steps) {
+    assert.ok(lessonIds.has(st.lessonId), `${st.id}: step has no real lessonId`);
+    assert.ok(st.lessonTitle, `${st.id}: step has no lesson title`);
+    assert.ok(Number(st.unitOrder) > 0, `${st.id}: step has no unit order`);
+  }
+
+  // A FAIL: 10/20. The breakdown names section AND lesson, in climb order.
+  const failed = scoreExam(paper, Object.fromEntries(paper.steps.map((st, i) => [st.id, i < 10 ? "good" : "again"])));
+  assert.equal(failed.passed, false);
+  assert.ok(failed.shakyAreas.length > 0, "a failed exam must say where to go back to");
+  assert.ok(failed.shakyLessonIds.length > 0);
+  for (const area of failed.shakyAreas) {
+    assert.ok(area.unitTitle, "an area must name its section");
+    assert.ok(area.lessons.length > 0, "an area must name at least one lesson");
+    for (const l of area.lessons) {
+      assert.ok(lessonIds.has(l.id), `${l.id} is not a real lesson id — "Review these lessons" would 404`);
+      assert.match(l.label, /^u\d+ l\d+$/, `${l.id}: label "${l.label}" is not the "u7 l2" the learner reads`);
+      assert.ok(l.title);
+    }
+  }
+  // Ordered by the climb, so the first tap is the earliest gap.
+  const orders = failed.shakyAreas.map((a) => a.unitOrder);
+  assert.deepEqual(orders, [...orders].sort((a, b) => a - b));
+  // Exactly the lessons the missed items came from, no more.
+  const expected = new Set(paper.steps.filter((_st, i) => i >= 10).map((st) => st.lessonId));
+  assert.deepEqual(new Set(failed.shakyLessonIds), expected);
+
+  // A PASS STILL GETS A BREAKDOWN. Alex only asked about failing, but a 90% pass with
+  // two shaky items should still say which two.
+  const passed = scoreExam(paper, Object.fromEntries(paper.steps.map((st, i) => [st.id, i < 18 ? "good" : "again"])));
+  assert.equal(passed.passed, true);
+  assert.equal(passed.pct, 90);
+  assert.ok(passed.shakyAreas.length > 0, "a pass with misses must still name them");
+  assert.equal(passed.shakyLessonIds.length, new Set(paper.steps.slice(18).map((st) => st.lessonId)).size);
+
+  // A CLEAN SWEEP has nothing to go back to, and says so by being empty rather than
+  // by inventing a lesson.
+  const clean = scoreExam(paper, Object.fromEntries(paper.steps.map((st) => [st.id, "good"])));
+  assert.deepEqual(clean.shakyAreas, []);
+  assert.deepEqual(clean.shakyLessonIds, []);
+
+  // The label helper degrades rather than printing "u0 l0".
+  assert.equal(lessonLabel(7, 2), "u7 l2");
+  assert.equal(lessonLabel(7, null), "u7");
+  assert.equal(lessonLabel(null, null), "");
 });
