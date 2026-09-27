@@ -43,7 +43,7 @@ export const FR_UNIT17 = {
         { id: "fr-u17l2-lepull", type: "vocab", front: "le pull", reading: "lepull", meaning: "sweater", example: { jp: "Il fait froid : je porte un pull.", en: "It's cold: I'm wearing a sweater." }, drill: { jp: "Le pull est chaud et propre", en: "The sweater is warm and clean" }, accept: ["the sweater", "jumper", "pullover"] },
         { id: "fr-u17l2-lachaussette", type: "vocab", front: "la chaussette", reading: "lachaussette", meaning: "sock", example: { jp: "Où est ma chaussette bleue ?", en: "Where's my blue sock?" }, drill: { jp: "La chaussette est dans le sac", en: "The sock is in the bag" }, accept: ["the sock", "socks"] },
         { id: "fr-u17l2-lesac", type: "vocab", front: "le sac", reading: "lesac", meaning: "bag", example: { jp: "Mon sac est dans la maison.", en: "My bag is in the house." }, drill: { jp: "Le sac est près de la porte", en: "The bag is near the door" }, accept: ["the bag", "handbag"], hint: "dans = in (inside something) — dans le sac, dans la maison." },
-        { id: "fr-u17l2-dans", type: "vocab", front: "dans", reading: "dans", meaning: "in", example: { jp: "L'argent est dans le sac.", en: "The money is in the bag." }, drill: { jp: "Le livre est dans le sac", en: "The book is in the bag" }, accept: ["inside", "into"], hint: "dans = physically inside. en (Unit 14) is for months and seasons." },
+        { id: "fr-u17l2-dans", type: "vocab", front: "dans", reading: "dans", meaning: "in (inside)", example: { jp: "L'argent est dans le sac.", en: "The money is in the bag." }, drill: { jp: "Le livre est dans le sac", en: "The book is in the bag" }, accept: ["inside", "into"], hint: "dans = physically inside. en (Unit 14) is for months and seasons." },
       ],
     },
     {
