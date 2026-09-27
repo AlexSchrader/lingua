@@ -176,7 +176,7 @@
 //                     (u10l3, glossed "there is, have")
 //   u14 town:         город TAKEN (u6l1) · площадь TAKEN (u6l3) · машина TAKEN
 //                     (u6l3) · дорога TAKEN (u4l1) · этаж TAKEN (u6l1) · метро
-//                     ТАКЕН (u9l1) · банк парк кафе ресторан отель аэропорт
+//                     TAKEN (u9l1) · банк парк кафе ресторан отель аэропорт
 //                     университет театр TAKEN (u9). Free: улица магазин дом is
 //                     TAKEN (u1l3) · вокзал · аптека · больница · церковь
 //   u16 colours:      all free — цвет красный синий зелёный белый чёрный жёлтый
@@ -190,6 +190,88 @@
 //   u22–u24 grammar:  every verb block 1 taught is available to conjugate —
 //                     говорить читать писать работать жить знать понимать хотеть
 //                     делать любить видеть слышать. Do NOT re-card them.
+// ─────────────────────────────────────────────────────────────────────────────
+// BLOCK 1 IS NOW COMPLETE — u7–u10 AUTHORED 2026-09-27. WHAT THAT TOOK.
+// ─────────────────────────────────────────────────────────────────────────────
+// Added by the seat that finished the block. The reserved list ABOVE was written
+// before u7–u10 existed, so it was a plan; this is the measurement. It holds
+// against `npm run taught -- ru` and `src/data/ru/TAUGHT-WORDS.md` (240 words,
+// 10 authored units) on this branch. **Re-probe with
+// `node scripts/check-front.mjs ru "<front>"` before using any of it** — a
+// snapshot is not a promise.
+//
+//   u7  Приветствие    здравствуйте · пока · до свидания · добрый · скоро ·
+//                      господин · спасибо · пожалуйста · извините · простите ·
+//                      жаль · ничего · как · плохо · нормально · отлично ·
+//                      устал · немного · рад · приятно · вместе · вопрос ·
+//                      ответ · удача
+//   u8  Знакомство     мой · твой · фамилия · звать · знакомиться · кто · где ·
+//                      страна · столица · откуда · родной · по-русски ·
+//                      профессия · студент · учитель · инженер · повар ·
+//                      водитель · возраст · нравится · музыка · книга · фильм ·
+//                      кошка
+//   u9  Знакомые слова метро · такси · автобус · аэропорт · трамвай · билет ·
+//                      банк · парк · кафе · ресторан · отель · театр ·
+//                      университет · директор · музей · компьютер · телефон ·
+//                      интернет · проблема · идея · спорт · паспорт · адрес ·
+//                      секрет
+//   u10 Семья          семья · папа · отец · мать · сын · дочь · брат · сестра ·
+//                      бабушка · дедушка · дядя · тётя · есть · ребёнок · муж ·
+//                      жена · внук · похож · фотография · квартира · взрослый ·
+//                      рядом · свадьба · праздник
+//
+// FOUR THINGS BLOCKS 2 AND 3 WILL TRIP ON IF NOBODY SAYS THEM:
+//
+// A. THE FOUR REMAINING "Characters N" SLOTS ARE THE SAME NON-PROBLEM AS u9.
+//    u12 · u15 · u18 · u21 are scaffold stubs for a Japanese interleaved-kanji
+//    strand Russian does not have. Retheme each one the way u9 was rethemed —
+//    see unit9.js's header for the whole argument. There is far more
+//    international vocabulary left than four units could hold. `lint.js`
+//    hard-errors on /^Characters \d+$/ once a unit is authored, so this is not
+//    optional; it is just cheaper to decide now than at the gate.
+//
+// B. THREE ADJECTIVES THE COURSE LEANS ON HARD ARE TAUGHT NOWHERE — AND THEY
+//    ARE STILL YOURS. Counted 2026-09-27 over all 414 authored sentences, by
+//    sentences containing any form of the word:
+//        хороший (the ADJECTIVE, excluding the taught adverb хорошо)  u1–u6: 24
+//        старый                                                       u1–u6: 11
+//        красивый                                                     u1–u6:  6
+//        каждый                                                       u1–u6:  4
+//        но                                                           u1–u6:  6
+//    Not one of them is a front anywhere. u7's `// FREE:` line declares старый ·
+//    красивый · каждый · но as exposure-only so `scripts/scope-ru.mjs` stops
+//    flagging them (хороший needs no declaration — it shares a stem with the
+//    taught хорошо and the probe already accepts it, which is itself a reason to
+//    not trust a silent probe). **CARDING THEM IS THE RIGHT FIX AND IT IS THE
+//    describing-things unit's job.** Also still free: плохой, большой,
+//    маленький, новый, трудный. The ADVERBS хорошо · плохо · легко · трудно ·
+//    быстро · тихо are all TAKEN; the adjectives are different lexemes and get
+//    their own cards.
+//
+// C. THE PRONOUN SET STOPS AT SIX. я · ты · он · она · мы · вы are taught; the
+//    object forms меня and тебя are taught as their own cards. **они and их are
+//    taught NOWHERE in u1–u10**, and no u7–u10 sentence uses them (checked by
+//    hand 2026-09-27) however natural "their family" would have been. Whoever
+//    needs the third person plural owns carding it.
+//
+// D. TWO LEXEME PAIRS WERE ALLOWED ON PURPOSE, SO DO NOT "FIX" THEM.
+//    муж (u10) alongside мужчина (u3), and жена (u10) alongside женщина (u3).
+//    `scripts/check-front.mjs` reported both free — and note WHY that is not
+//    evidence: its lexeme probe strips GERMAN suffixes (ung/heit/keit/en/…) and
+//    is blind to Cyrillic morphology, so **every LEXEME verdict for Russian is a
+//    human judgement, not a measurement**. The judgement here: a learner who
+//    knows мужчина means a man would not guess муж means a husband. Avoided on
+//    the same test: дело (vs делать), работа (vs работать), разговор (vs
+//    говорить), родина (vs родной), профессор (vs профессия), много (vs
+//    немного), старший (vs старый).
+//
+// AND THE ONE TOOL THAT DID NOT EXIST: `scripts/scope-ru.mjs`. Example scope is
+// UNGATED for Russian — `lint.js` runs `exampleScopeWarnings` only when
+// `isLatinLang()` is true (>50% Latin fronts), and every Russian front is
+// Cyrillic, so it returns silently. Run `node scripts/scope-ru.mjs` before every
+// hand-back. Measured 2026-09-27: **u7–u10 flag 0 of 192 sentences; u1–u6 flag
+// 108 of 222**, which is the previous seat's forward-referencing and is left
+// alone deliberately rather than rewritten under a later seat's name.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const RU_UNIT1 = {
   id: "ru-u1",
