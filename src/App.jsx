@@ -138,6 +138,22 @@ export default function App() {
         <Route path="achievements" element={<Achievements />} />
         <Route path="dev" element={<DevPanel />} />
       </Route>
+      {/* THE FRONT DOOR, AS A ROUTE.
+          The gate above renders <Onboarding /> only when AUTH_ENABLED, which is
+          false under WebDriver — so the language pick and the profile questions
+          have never once been exercised by a test. Three user-facing bugs in one
+          week lived in exactly that code: the pick APPENDED a language instead of
+          choosing one, reset left the old list behind, and preview locked the app.
+          All three shipped past a green suite.
+          Two earlier attempts to make the GATE testable were reverted: hoisting it
+          out of the auth block turns 19 fixtures red, and keying it on "is there
+          saved data" cannot work because zustand-persist writes a default profile
+          before App.jsx can look. A route sidesteps both. It is not a test
+          backdoor — it exposes no state and skips no check; it renders the same
+          screen the gate renders, so the FLOW (where every one of those bugs was)
+          can be driven directly. The gate itself stays covered by the auth path.
+          Dev Mode's "Replay onboarding" is the in-app entry to the same screen. */}
+      <Route path="onboarding" element={<Onboarding />} />
       <Route path="review" element={<Review />} />
       <Route path="lesson/:lessonId" element={<Lesson />} />
       <Route path="*" element={<Navigate to="/" replace />} />

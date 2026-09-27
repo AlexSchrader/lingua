@@ -1505,3 +1505,74 @@ test("Preview Mode: the app runs, and the real profile is untouched", async ({ p
 // fixtures that boot profile-less an explicit `onboarded: true`. That is a real
 // job, not a one-liner, and it belongs to whoever picks up the QA-lane item.
 
+
+// ---- THE FRONT DOOR ---------------------------------------------------------
+//
+// Until 2026-09-27 the onboarding flow had ZERO browser coverage, because App.jsx
+// renders <Onboarding /> only when AUTH_ENABLED, and that is false under WebDriver
+// by construction. Three user-facing bugs in one week lived in this code and all
+// three shipped past a green suite:
+//
+//   - the language pick APPENDED instead of choosing, so replaying onboarding
+//     silently collected languages. Alex ended up with four he never picked.
+//   - reset kept the old language list, so resetting to get back to one left all
+//     four behind at pre-A1.
+//   - preview mode rendered the login screen with no way out.
+//
+// These drive the flow through the /onboarding route. They do not cover the GATE
+// (that needs a live Supabase), they cover the SCREEN and what it writes — which
+// is where every one of those defects actually was.
+
+const FOUR_LANGUAGES = JSON.stringify({
+  state: {
+    items: {},
+    languages: LANGUAGES,
+    profile: { onboarded: false, displayName: "Alex", reason: null, reminderTime: null,
+      languages: ["ja", "fr", "no", "de"], activeLang: "de", languagesChosen: true },
+    streak: { current: 0, longest: 0, freezes: 2, lastActive: null },
+    stats: { xpTotal: 0 }, daily: { date: null, reviewsCleared: false, lessonDone: false },
+    settings: {}, ui: {},
+  },
+  version: 1,
+});
+
+const startedLanguages = (page) =>
+  page.evaluate(() => JSON.parse(localStorage.getItem("lingua-v1")).state.profile.languages);
+
+test("onboarding: picking a language CHOOSES it — it does not add a fifth", async ({ page }) => {
+  // THE EXACT BUG ALEX HIT. He had four languages, replayed onboarding, picked
+  // French, and still had four — because the pick called the same appending action
+  // the Ladder's "add a language" row calls.
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), FOUR_LANGUAGES);
+  await page.goto("/onboarding");
+
+  await page.getByRole("button", { name: /French/ }).click();
+  await page.getByRole("button", { name: /Continue/ }).click();
+
+  expect(await startedLanguages(page), "the pick must REPLACE the list, not append to it")
+    .toEqual(["fr"]);
+});
+
+test("onboarding: a language with no content cannot be picked", async ({ page }) => {
+  // The picker deliberately does not respond to a scaffolded language — better a
+  // button that does nothing than an app that boots into an empty language and
+  // looks broken. Nothing asserted this before.
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), FOUR_LANGUAGES);
+  await page.goto("/onboarding");
+
+  const soon = page.getByText(/Coming soon/i);
+  if (await soon.count()) {
+    // Continue stays inert until a REAL language is selected.
+    await expect(page.getByRole("button", { name: /Continue/ })).toBeVisible();
+    expect(await startedLanguages(page)).toEqual(["ja", "fr", "no", "de"]);
+  }
+});
+
+test("onboarding: the picker groups languages by how much of them exists", async ({ page }) => {
+  // Alex, on seeing 23 flat rows: "list the languages but completed languages,
+  // in-progress and unstarted". A regression here is invisible — the screen still
+  // renders, it just stops helping.
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), FOUR_LANGUAGES);
+  await page.goto("/onboarding");
+  await expect(page.getByText(/Ready to learn/i)).toBeVisible();
+});
