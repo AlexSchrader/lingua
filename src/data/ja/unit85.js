@@ -35,7 +35,7 @@ export const UNIT85 = {
         { id: "ja-u85l2-nanatsu", type: "vocab", front: "ななつ", reading: "nanatsu", meaning: "seven (counting things)", example: { jp: "たまごがななつあります。", en: "There are seven eggs." }, accept: ["7","seven things"] },
         { id: "ja-u85l2-nanoka", type: "vocab", front: "なのか", reading: "nanoka", meaning: "the seventh", example: { jp: "きょうはなのかです。", en: "Today is the seventh." }, accept: ["seventh","7th","seventh day"] },
         { id: "ja-u85l2-toshi", type: "vocab", front: "とし", reading: "toshi", meaning: "year (also one's age)", example: { jp: "あたらしいとしです。", en: "It is a new year." }, drill: { jp: "としがかわります。", en: "The year changes." }, accept: ["age"] },
-        { id: "ja-u85l2-nan", type: "vocab", front: "なん", reading: "nan", meaning: "what (before a counter)", example: { jp: "これはなんですか。", en: "What is this?" }, accept: [] },
+        { id: "ja-u85l2-nan", type: "vocab", front: "なん", reading: "nan", meaning: "what (before a counter)", example: { jp: "これはなんですか。", en: "What is this?" }, accept: ["what", "how many"] },
         { id: "ja-u85l2-naze", type: "vocab", front: "なぜ", reading: "naze", meaning: "why (for what reason)", example: { jp: "なぜですか。", en: "Why?" }, accept: ["how come"] },
         { id: "ja-u85l2-dochira", type: "vocab", front: "どちら", reading: "dochira", meaning: "which (of two politely)", example: { jp: "どちらがすきですか。", en: "Which do you like?" }, accept: ["which one","where (polite)"] },
       ],

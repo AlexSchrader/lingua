@@ -44,9 +44,9 @@ export const UNIT19 = {
       dominantMode: "recall",
       canDo: "Build the core sentence: X は Y です, ask with か, and answer yes/no (そうです / ちがいます).",
       items: [
-        { id: "ja-u19l2-wa", type: "vocab", front: "は", reading: "wa", meaning: "(topic marker)", example: { jp: "これはわたしのです。", en: "This is mine." }, accept: ["topic particle", "as for"], hint: "As a topic marker は is read わ (wa), NOT は (ha). It marks what the sentence is ABOUT: これは… = 'as for this, …'." },
+        { id: "ja-u19l2-wa", type: "vocab", front: "は", reading: "wa", meaning: "topic marker", example: { jp: "これはわたしのです。", en: "This is mine." }, accept: ["topic particle", "as for"], hint: "As a topic marker は is read わ (wa), NOT は (ha). It marks what the sentence is ABOUT: これは… = 'as for this, …'." },
         { id: "ja-u19l2-desu", type: "vocab", front: "です", reading: "desu", meaning: "to be", example: { jp: "わたしはがくせいです。", en: "I am a student." }, accept: ["is", "am", "are", "it is"], hint: "です = the polite 'is/am/are'. It goes at the END: X は Y です." },
-        { id: "ja-u19l2-ka", type: "vocab", front: "か", reading: "ka", meaning: "(question marker)", example: { jp: "がくせいですか。", en: "Are you a student?" }, accept: ["question particle", "?"], hint: "か at the end turns a statement into a question — no word order change: …です → …ですか." },
+        { id: "ja-u19l2-ka", type: "vocab", front: "か", reading: "ka", meaning: "question marker", example: { jp: "がくせいですか。", en: "Are you a student?" }, accept: ["question particle", "?"], hint: "か at the end turns a statement into a question — no word order change: …です → …ですか." },
         { id: "ja-u19l2-janaidesu", type: "vocab", front: "じゃないです", reading: "janaidesu", meaning: "is not", example: { jp: "せんせいじゃないです。", en: "I'm not a teacher." }, accept: ["isn't", "am not", "are not", "is not"], hint: "じゃないです = the negative of です: X じゃないです = 'is not X'." },
         { id: "ja-u19l2-sodesu", type: "vocab", front: "そうです", reading: "sōdesu", meaning: "that's right", example: { jp: "はい、そうです。", en: "Yes, that's right." }, accept: ["that's correct", "yes it is"] },
         { id: "ja-u19l2-chigaimasu", type: "vocab", front: "ちがいます", reading: "chigaimasu", meaning: "that's wrong", example: { jp: "いいえ、ちがいます。", en: "No, that's not right." }, accept: ["that's different", "no", "incorrect"] },
