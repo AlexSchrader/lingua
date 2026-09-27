@@ -5,6 +5,7 @@
 // file is the plumbing: auth listener, fetch/upload, debounced uploads.
 import { supabase, isCloudConfigured } from "../lib/supabase.js";
 import { isPreview } from "./preview.js";
+import { testAuthSeed } from "./testAuth.js";
 import { useStore } from "./useStore.js";
 import { PERSIST_VERSION, migrateState } from "./migrate.js";
 import { chooseSource, extractProgress, hasMeaningfulProgress } from "./sync.js";
@@ -297,6 +298,19 @@ export function initCloudSync() {
   // deck stays throwaway.
   if (isPreview()) {
     useStore.getState().setAuth({ configured: false, ready: true });
+    return;
+  }
+  // DEV-ONLY TEST SEED — stands in for the Supabase auth listener so a browser test
+  // can drive the gate's branches (splash / recovery / login / onboarding / app)
+  // without a live round-trip. Sets exactly the slice onAuthStateChange sets, and
+  // nothing else: no client, no pull, no push. Deliberately AFTER the preview
+  // early-return, so preview stays offline exactly as it is in production, and
+  // BEFORE the isCloudConfigured check, so the branch taken does not depend on
+  // whether the machine running the test happens to have a .env.local.
+  // Null in every production build — see src/store/testAuth.js.
+  const testSeed = testAuthSeed();
+  if (testSeed) {
+    useStore.getState().setAuth({ configured: true, ready: true, ...testSeed });
     return;
   }
   if (!isCloudConfigured) {

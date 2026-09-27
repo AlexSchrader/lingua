@@ -36,11 +36,11 @@ Ranked. **A1–A5 first** — they are the paths with the least automated cover 
 
 ## Part B — CC automates these (NOT Alex's job)
 
-Real gaps, measured against `tests/smoke.spec.js` (44 tests) and `tests/unit/` (432). Ranked by what each would have caught.
+Real gaps, measured against `tests/smoke.spec.js` (53 tests) and `tests/unit/` (474). Ranked by what each would have caught.
 
 | # | Gap | Why it is a gap | Status |
 |---|---|---|---|
-| **B1** | **Onboarding is never run.** Fixtures seed a profile and boot past it; `AUTH_ENABLED` is false under test, so `App.jsx` never renders `<Onboarding/>`. | This is where the four-languages bug lived, undetected, behind 44 green tests. | [ ] |
+| **B1** | ~~**Onboarding is never run.**~~ **CLOSED 2026-09-27.** The screen is driven through the `/onboarding` route (both smoke modes), and **the gate that renders it in production is now rendered too** — splash, password-recovery, login, onboarding-behind-the-gate, saved-profile-skips, and the preview lockout, via the dev-only switch in `src/store/testAuth.js`. 9 tests in `tests/smoke.spec.js` → "THE AUTH GATE". | This is where the four-languages bug lived, undetected, behind 44 green tests. **Residual, and it is B3's:** no real sign-in/sign-up round-trip, no username lookup, no real `PASSWORD_RECOVERY` event — all need a live Supabase, and the gate tests are dev-only because the switch is tree-shaken out of a production build. | [x] |
 | **B2** | **Nothing covers `stopLanguage` in the browser.** Unit-tested only. | It is the only non-destructive exit from a language you did not choose. | [ ] |
 | **B3** | **Cloud sync has no end-to-end test at all.** No Supabase in CI. | Last-write-wins, the empty-profile guard and the reset receipt are the guards on *losing real progress*. | [ ] |
 | **B4** | **Settings toggles: only reduce-motion is asserted.** Eight others are not. | A silently dead toggle is invisible — nothing errors. | [ ] |

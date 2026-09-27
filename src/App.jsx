@@ -17,6 +17,7 @@ import MilestoneToast from "./components/MilestoneToast.jsx";
 import SyncToast from "./components/SyncToast.jsx";
 import { useStore } from "./store/useStore.js";
 import { isPreview, authGateEnabled } from "./store/preview.js";
+import { testAuthSeed } from "./store/testAuth.js";
 import { scheduleDailyReminder, notificationPermission } from "./lib/reminders.js";
 import { C, F, setActiveTheme, resolveTheme } from "./theme.js";
 
@@ -34,11 +35,20 @@ const Haruki = lazy(() => import("./screens/Haruki.jsx"));
 // preview on a keyed build rendered the login screen over the whole app with no way
 // out — see authGateEnabled's note. Read once at module scope, which is correct
 // because entering and leaving preview both reload the page.
+//
+// TEST_AUTH is the DEV-ONLY switch that makes this gate reachable from a browser
+// test at all (src/store/testAuth.js — null in every production build, and null in
+// dev unless a page explicitly sets the hook). It supplies the two ENV terms and
+// neutralises ONLY the WebDriver term: `preview` is still honoured, so "entering
+// preview on a keyed build must not render the login screen" is a property a test
+// can actually assert. With no hook set, every term below is byte-identical to what
+// it was before the switch existed.
 const IS_WEBDRIVER = typeof navigator !== "undefined" && !!navigator.webdriver;
+const TEST_AUTH = testAuthSeed();
 const AUTH_ENABLED = authGateEnabled({
-  hasUrl: !!import.meta.env.VITE_SUPABASE_URL,
-  hasKey: !!import.meta.env.VITE_SUPABASE_ANON_KEY,
-  isWebdriver: IS_WEBDRIVER,
+  hasUrl: !!import.meta.env.VITE_SUPABASE_URL || !!TEST_AUTH,
+  hasKey: !!import.meta.env.VITE_SUPABASE_ANON_KEY || !!TEST_AUTH,
+  isWebdriver: TEST_AUTH ? false : IS_WEBDRIVER,
   preview: isPreview(),
 });
 
@@ -140,18 +150,24 @@ export default function App() {
       </Route>
       {/* THE FRONT DOOR, AS A ROUTE.
           The gate above renders <Onboarding /> only when AUTH_ENABLED, which is
-          false under WebDriver — so the language pick and the profile questions
-          have never once been exercised by a test. Three user-facing bugs in one
-          week lived in exactly that code: the pick APPENDED a language instead of
-          choosing one, reset left the old list behind, and preview locked the app.
-          All three shipped past a green suite.
+          false under WebDriver by default — so for a long time the language pick
+          and the profile questions had never once been exercised by a test. Three
+          user-facing bugs in one week lived in exactly that code: the pick APPENDED
+          a language instead of choosing one, reset left the old list behind, and
+          preview locked the app. All three shipped past a green suite.
           Two earlier attempts to make the GATE testable were reverted: hoisting it
           out of the auth block turns 19 fixtures red, and keying it on "is there
           saved data" cannot work because zustand-persist writes a default profile
           before App.jsx can look. A route sidesteps both. It is not a test
           backdoor — it exposes no state and skips no check; it renders the same
           screen the gate renders, so the FLOW (where every one of those bugs was)
-          can be driven directly. The gate itself stays covered by the auth path.
+          can be driven directly.
+          THE GATE ITSELF IS NOW COVERED TOO, through the dev-only TEST_AUTH switch
+          above (src/store/testAuth.js): tests/smoke.spec.js drives splash,
+          recovery, login, onboarding-behind-the-gate and the preview lockout. Those
+          run in DEV ONLY — the switch is tree-shaken out of a production build — so
+          this route remains the only way the flow is covered under
+          SMOKE_MODE=preview. Keep it.
           Dev Mode's "Replay onboarding" is the in-app entry to the same screen. */}
       <Route path="onboarding" element={<Onboarding />} />
       <Route path="review" element={<Review />} />

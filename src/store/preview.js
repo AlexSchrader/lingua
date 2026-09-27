@@ -34,9 +34,14 @@ export function persistKey() {
   return isPreview() ? PREVIEW_KEY : REAL_KEY;
 }
 
-// THE AUTH GATE IS OFF IN PREVIEW MODE. Pure, and exported, so it can be tested —
-// the gate itself cannot be, because `AUTH_ENABLED` is false under WebDriver and
-// every smoke run therefore skips the whole block.
+// THE AUTH GATE IS OFF IN PREVIEW MODE. Pure, and exported, so it can be tested in
+// isolation (tests/unit/preview.test.mjs). The rendered gate is covered too, since
+// 2026-09-27: `AUTH_ENABLED` is false under WebDriver by default, so a DEV-ONLY
+// switch (src/store/testAuth.js) supplies the env terms and neutralises the
+// WebDriver one. It deliberately does NOT neutralise the `preview` term below, so
+// the lockout described here is asserted by a browser test rather than by argument —
+// "preview lockout: a keyed build in preview shows the app, never the login screen"
+// in tests/smoke.spec.js.
 //
 // THE LOCKOUT THIS FIXES (Alex, 2026-09-17, on his phone). On a build that HAS
 // Supabase keys, entering preview showed the LOGIN screen reading "Auth isn't

@@ -1480,30 +1480,29 @@ test("Preview Mode: the app runs, and the real profile is untouched", async ({ p
   expect(errors, errors.join("; ")).toEqual([]);
 });
 
-// --- the language picker has NO COVERAGE, and cannot have any here ------------
+// --- the language picker: HOW IT CAME TO BE COVERED ---------------------------
 //
-// Two smoke tests for it were written on 2026-09-13 and removed the same hour:
-// the screen is UNREACHABLE under Playwright, and no amount of fixture seeding
-// changes that. `App.jsx` puts the onboarding gate INSIDE `if (AUTH_ENABLED)`,
-// and AUTH_ENABLED is `supabase configured && !IS_WEBDRIVER` — so under WebDriver
-// the whole block is skipped and <Onboarding/> never renders, whatever the
-// profile says.
+// Two smoke tests for it were written on 2026-09-13 and removed the same hour,
+// because the screen was UNREACHABLE under Playwright and no amount of fixture
+// seeding changed that: `App.jsx` puts the onboarding gate INSIDE
+// `if (AUTH_ENABLED)`, and AUTH_ENABLED requires `!navigator.webdriver`.
 //
-// App.jsx already records the fix and why it was deferred: hoisting the gate out
-// of the auth block "is correct but turns 16 smoke fixtures red: they boot with
-// no profile at all and would land on onboarding."
+// The cost of that deferral was measured, not theoretical. On 2026-09-13 the first
+// screen a new learner sees was carrying two defects any single pass would have
+// caught — Continue below the fold on a phone, and 23 languages in one flat list
+// where a 0-card entry looked identical to a real one and silently did nothing
+// when tapped. Alex found both on his own phone.
 //
-// The cost of that deferral is now measured rather than theoretical. The FIRST
-// SCREEN A NEW LEARNER SEES is the only screen in the app no test has ever
-// opened, and on 2026-09-13 it was carrying two defects that any single pass
-// would have caught — Continue below the fold on a phone, and 23 languages in one
-// flat list where a 0-card entry looked identical to a real one and silently did
-// nothing when tapped. Alex found both on his own phone, which is the only place
-// anyone looks at it.
+// Both halves are covered now, by two different routes, and both are needed:
+//   THE SCREEN AND WHAT IT WRITES — the /onboarding route (next section). Runs in
+//     dev AND preview, because it needs no hook.
+//   THE GATE ITSELF — the dev-only TEST_AUTH switch (src/store/testAuth.js), in
+//     "THE AUTH GATE" section at the end of this file. Dev only: the switch is
+//     tree-shaken out of a production build, which is what SMOKE_MODE=preview runs.
 //
-// To fix properly: hoist the onboarding gate out of the auth block, then give the
-// fixtures that boot profile-less an explicit `onboarded: true`. That is a real
-// job, not a one-liner, and it belongs to whoever picks up the QA-lane item.
+// Hoisting the gate out of the auth block is still NOT done, and is still the thing
+// that would turn ~19 profile-less fixtures red. It is no longer needed for
+// coverage; if it is ever wanted for its own sake, it stays a real job.
 
 
 // ---- THE FRONT DOOR ---------------------------------------------------------
@@ -1519,9 +1518,10 @@ test("Preview Mode: the app runs, and the real profile is untouched", async ({ p
 //     four behind at pre-A1.
 //   - preview mode rendered the login screen with no way out.
 //
-// These drive the flow through the /onboarding route. They do not cover the GATE
-// (that needs a live Supabase), they cover the SCREEN and what it writes — which
-// is where every one of those defects actually was.
+// These drive the flow through the /onboarding route: they cover the SCREEN and what
+// it writes — which is where every one of those defects actually was — and they run
+// in BOTH smoke modes because they need no test hook. The GATE that renders the same
+// screen is covered separately, in "THE AUTH GATE" at the end of this file (dev only).
 
 const FOUR_LANGUAGES = JSON.stringify({
   state: {
@@ -1575,4 +1575,286 @@ test("onboarding: the picker groups languages by how much of them exists", async
   await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), FOUR_LANGUAGES);
   await page.goto("/onboarding");
   await expect(page.getByText(/Ready to learn/i)).toBeVisible();
+});
+
+
+// ---- THE AUTH GATE ----------------------------------------------------------
+//
+// THE HOLE THESE CLOSE. App.jsx's gate — splash → set-password → login →
+// onboarding → app — sits above AppShell and had NEVER been rendered by a browser
+// test. `AUTH_ENABLED` requires `!navigator.webdriver`, which Playwright always
+// sets, so all 43 smoke tests booted straight past it and every one of them started
+// INSIDE the app. The gate is unreachable from in there, so nothing ever started
+// outside it.
+//
+// WHAT IT COST. On 2026-09-17 entering Preview Mode on a build with Supabase keys
+// rendered the LOGIN screen over the whole app, reading "Auth isn't configured.",
+// with no way back: Settings → Exit preview lives inside AppShell, BELOW the gate.
+// Alex was locked out of his own app while the suite was green, because the suite
+// could not reach the screen that locked him out.
+//
+// HOW THE GATE IS TURNED ON. `window.__LINGUA_TEST_AUTH__`, read by
+// src/store/testAuth.js — a DEV-ONLY switch that supplies the two env terms of
+// `authGateEnabled` and neutralises ONLY the WebDriver term, then stands in for the
+// Supabase auth listener in cloudSync.js. It cannot weaken anything: all it can do
+// is turn the gate ON and describe an auth state. The `preview` term is still
+// honoured, which is what makes the lockout test below a real assertion.
+//
+// WHY THEY ARE DEV-ONLY. The switch is behind `import.meta.env.PROD` and is
+// tree-shaken out of a production build, which is exactly what SMOKE_MODE=preview
+// smokes. Same arrangement as TraceCard's free-mode hook. The /onboarding-route
+// tests above cover the onboarding SCREEN in both modes; these cover the GATE.
+//
+// WHAT STILL CANNOT BE COVERED HERE. Anything needing a live Supabase: a real
+// sign-in/sign-up round-trip, the username lookup, the sign-in pull-vs-push
+// decision, and the real PASSWORD_RECOVERY event. The store's auth actions are
+// stubs on an unconfigured build, so submitting the login form returns "Auth isn't
+// configured." rather than reaching a server. These tests assert the gate's
+// RENDERING AND ROUTING, which is where the lockout was.
+
+const GATE_ONLY_IN_DEV =
+  "the auth-gate test switch is dev-only (src/store/testAuth.js) — it is tree-shaken " +
+  "out of the production build that SMOKE_MODE=preview smokes";
+
+const TEST_USER = { id: "11111111-1111-1111-1111-111111111111", email: "learner@example.invalid" };
+
+// Turn the gate on for this page, and seed the auth slice Supabase would fill in.
+// Defaults are "resolved, signed out": the state a brand-new visitor is actually in.
+const gateOn = (page, auth = {}) =>
+  page.addInitScript(
+    (a) => { window.__LINGUA_TEST_AUTH__ = a; },
+    { ready: true, user: null, recovery: false, initialSyncDone: true, ...auth }
+  );
+
+test("auth gate: a brand-new visitor lands on the login screen, not inside the app", async ({ page }) => {
+  test.skip(process.env.SMOKE_MODE === "preview", GATE_ONLY_IN_DEV);
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await gateOn(page); // signed out, nothing in storage
+  await page.goto("/");
+
+  // What the learner actually sees.
+  await expect(page.getByText("Welcome back")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Log in" })).toBeVisible();
+  await expect(page.getByText("Username", { exact: true })).toBeVisible();
+  await expect(page.getByText("Password", { exact: true })).toBeVisible();
+
+  // And what it must NOT see: the app is BEHIND the gate, not beside it. A flash of
+  // Today here is the "gate rendered over/under the app" class of bug.
+  await expect(page.locator("nav")).toHaveCount(0);
+  await expect(page.getByTestId("start-session")).toHaveCount(0);
+  await expect(page.getByText("Which language?")).toHaveCount(0);
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+test("auth gate: the login screen is never a dead end — sign up and reset are both reachable", async ({ page }) => {
+  test.skip(process.env.SMOKE_MODE === "preview", GATE_ONLY_IN_DEV);
+  // THE DEAD-END CLASS, at the front door. A learner who cannot sign in and cannot
+  // get to "create an account" or "reset my password" is locked out of the product,
+  // which is exactly what happened in preview. Assert both routes onward exist AND
+  // that each one can be left again — a one-way trip into "Reset password" with no
+  // way back to login is the same bug in miniature.
+  await gateOn(page);
+  await page.goto("/");
+  await expect(page.getByText("Welcome back")).toBeVisible();
+
+  await page.getByRole("button", { name: "Create an account" }).click();
+  await expect(page.getByText("Create your account")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Sign up" })).toBeVisible();
+  await page.getByRole("button", { name: "Log in", exact: true }).click();
+  await expect(page.getByText("Welcome back")).toBeVisible();
+
+  await page.getByRole("button", { name: "Forgot password?" }).click();
+  await expect(page.getByText("Reset password")).toBeVisible();
+  await page.getByRole("button", { name: "Back to log in" }).click();
+  await expect(page.getByText("Welcome back")).toBeVisible();
+});
+
+test("auth gate: it holds the app until auth resolves — no flash of Today behind it", async ({ page }) => {
+  test.skip(process.env.SMOKE_MODE === "preview", GATE_ONLY_IN_DEV);
+  // `ready: false` is the pre-resolution state (Supabase has not answered yet). The
+  // gate must show the splash and nothing else — not the app, and not the login
+  // screen, which would flash and then be replaced for an already-signed-in learner.
+  await gateOn(page, { ready: false });
+  await page.goto("/");
+
+  // NOT `not.toBeEmpty()` — that is a TEXT assertion, and the splash is deliberately
+  // wordless (a mascot, no copy). It reported #root as "empty" and read like a blank
+  // screen, which is the opposite of what the gate is doing here.
+  await expect(page.locator("#root > *")).toHaveCount(1);
+  await expect(page.locator('#root img[src*="mascot"], #root video')).toHaveCount(1);
+  await expect(page.locator("nav")).toHaveCount(0);
+  await expect(page.getByText("Welcome back")).toHaveCount(0);
+  await expect(page.getByText("Which language?")).toHaveCount(0);
+});
+
+test("auth gate: a password-reset link holds the app and asks for a new password", async ({ page }) => {
+  test.skip(process.env.SMOKE_MODE === "preview", GATE_ONLY_IN_DEV);
+  // Supabase fires PASSWORD_RECOVERY → auth.recovery, and the gate must prefer that
+  // branch over both the login screen and the app. Never rendered by a test before.
+  await gateOn(page, { user: TEST_USER, recovery: true });
+  await page.goto("/");
+
+  await expect(page.getByText("Set a new password")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Save password" })).toBeVisible();
+  await expect(page.locator("nav")).toHaveCount(0);
+  await expect(page.getByText("Welcome back")).toHaveCount(0);
+});
+
+test("auth gate: onboarding renders behind it, completes, and the language survives a reload", async ({ page }) => {
+  test.skip(process.env.SMOKE_MODE === "preview", GATE_ONLY_IN_DEV);
+  // THE WHOLE FIRST RUN, through the gate that actually renders it in production:
+  // signed in, no profile → pick a language → the two profile questions → the app.
+  // Then reload, because "it worked once" and "it was written down" are different
+  // claims and only the second one is the feature.
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await gateOn(page, { user: TEST_USER });
+  await page.goto("/");
+
+  await expect(page.getByText("Which language?")).toBeVisible();
+  await expect(page.locator("nav")).toHaveCount(0);
+
+  await page.getByRole("button", { name: /Japanese/ }).click();
+  await page.getByRole("button", { name: "Continue" }).click();
+
+  // Step 2 — name + reason. No reminder: setting one asks for a notification
+  // permission, which is a different test's problem.
+  await expect(page.getByText("You're in")).toBeVisible();
+  await page.getByPlaceholder("Your name").fill("Gate Tester");
+  await page.getByRole("button", { name: /Travel/ }).click();
+  await page.getByRole("button", { name: "Start learning" }).click();
+
+  // Into the app, through the gate.
+  await expect(page.getByTestId("start-session")).toBeVisible({ timeout: 20000 });
+  await expect(page.locator("nav")).toHaveCount(1);
+
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("lingua-v1")).state.profile);
+  expect(saved.onboarded, "onboarding must persist that it finished").toBe(true);
+  expect(saved.languages, "the pick CHOOSES one language, it never appends").toEqual(["ja"]);
+  expect(saved.activeLang).toBe("ja");
+  expect(saved.displayName).toBe("Gate Tester");
+
+  // A reload must NOT put the learner back through onboarding.
+  await page.reload();
+  await expect(page.getByTestId("start-session")).toBeVisible({ timeout: 20000 });
+  await expect(page.getByText("Which language?")).toHaveCount(0);
+  expect(
+    await page.evaluate(() => JSON.parse(localStorage.getItem("lingua-v1")).state.profile.languages),
+    "the chosen language must survive a reload"
+  ).toEqual(["ja"]);
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+test("auth gate: a learner with a saved profile skips onboarding entirely", async ({ page }) => {
+  test.skip(process.env.SMOKE_MODE === "preview", GATE_ONLY_IN_DEV);
+  // The returning-learner path. `profile.onboarded` is the only thing standing
+  // between a signed-in learner and the app — nothing may re-ask the questions.
+  await gateOn(page, { user: TEST_USER });
+  await page.addInitScript((json) => localStorage.setItem("lingua-v1", json), JSON.stringify(japaneseLearner()));
+  await page.goto("/");
+
+  await expect(page.getByTestId("start-session")).toBeVisible({ timeout: 20000 });
+  await expect(page.getByText("Which language?")).toHaveCount(0);
+  await expect(page.getByText("Welcome back")).toHaveCount(0);
+});
+
+test("auth gate: the splash waits out the first cloud pull before deciding onboarding", async ({ page }) => {
+  test.skip(process.env.SMOKE_MODE === "preview", GATE_ONLY_IN_DEV);
+  // The regression App.jsx's gate comment records: a returning learner whose
+  // `onboarded` is still in the cloud must NOT be flashed the onboarding screen
+  // while the first pull is in flight. `initialSyncDone: false` + no local profile
+  // is exactly that moment, and the correct answer is the splash.
+  await gateOn(page, { user: TEST_USER, initialSyncDone: false });
+  await page.goto("/");
+
+  await expect(page.getByText("Which language?")).toHaveCount(0);
+  await expect(page.locator("nav")).toHaveCount(0);
+  await expect(page.locator('#root img[src*="mascot"], #root video')).toHaveCount(1);
+});
+
+// Arm preview on the FIRST load only. addInitScript re-runs on every navigation, so
+// a fixture that re-writes the flag would re-enter preview on the very reload that
+// Exit triggers — the test could never observe the way out, and neither could a
+// learner if the app did the same thing.
+const armPreviewOnce = (page) =>
+  page.addInitScript((json) => {
+    if (!localStorage.getItem("lingua-v1")) {
+      localStorage.setItem("lingua-v1", json);
+      localStorage.setItem("lingua-preview", JSON.stringify({ state: {}, version: 1 }));
+      localStorage.setItem("lingua-preview-on", "1");
+    }
+  }, JSON.stringify(japaneseLearner()));
+
+test("preview is never a dead end — Exit is always there and lands back on the real profile", async ({ page }) => {
+  // THE DEAD-END CLASS, IN BOTH SMOKE MODES. No test hook, so this one also runs
+  // against the real production bundle: whatever else preview does, there is always a
+  // route onward, and taking it leaves preview for good rather than reloading into it.
+  // The existing "Preview Mode: the app runs" test proves the real deck is not
+  // written; it never checks that the learner can get out, which is the half that
+  // locked Alex out on 2026-09-17.
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await armPreviewOnce(page);
+  await page.goto("/");
+
+  const banner = page.getByTestId("preview-banner");
+  await expect(banner).toBeVisible();
+  const exit = banner.getByRole("button", { name: "Exit" });
+  await expect(exit, "the way out must be ON the banner, above every screen").toBeVisible();
+
+  await exit.click();
+  await expect(banner).toHaveCount(0, { timeout: 20000 });
+  await expect(page.getByTestId("start-session")).toBeVisible({ timeout: 20000 });
+  expect(
+    await page.evaluate(() => localStorage.getItem("lingua-preview-on")),
+    "exiting preview must clear the flag, or the next load is back in preview"
+  ).toBeNull();
+  expect(
+    await page.evaluate(() => localStorage.getItem("lingua-preview")),
+    "the throwaway deck is scratch by definition — exiting deletes it"
+  ).toBeNull();
+
+  expect(errors, errors.join("; ")).toEqual([]);
+});
+
+test("preview lockout: a keyed build in preview shows the app and a way out, never the login screen", async ({ page }) => {
+  test.skip(process.env.SMOKE_MODE === "preview", GATE_ONLY_IN_DEV);
+  // THE EXACT BUG THAT LOCKED ALEX OUT (2026-09-17), asserted for the first time.
+  // A build WITH Supabase keys, in preview: the gate must stay off, because preview
+  // is the local-only configuration by definition. If it comes on, the learner gets
+  // a login screen reading "Auth isn't configured." and the Exit button is below it,
+  // inside AppShell, unreachable.
+  //
+  // This is a real assertion and not a tautology: the test switch supplies the env
+  // terms and neutralises the WebDriver term, but it deliberately does NOT touch the
+  // `preview` term of authGateEnabled. Delete `&& !preview` from preview.js and this
+  // test goes red.
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+
+  await gateOn(page, { user: TEST_USER });
+  await armPreviewOnce(page);
+  await page.goto("/");
+
+  // The app, on the throwaway deck — not the login screen.
+  await expect(page.getByTestId("preview-banner")).toBeVisible();
+  await expect(page.getByText("Welcome back")).toHaveCount(0);
+  await expect(page.getByText("Auth isn't configured.")).toHaveCount(0);
+
+  // ...AND A ROUTE ONWARD. The one-tap exit is the property that was missing.
+  await page.getByRole("button", { name: "Exit" }).click();
+  await expect(page.getByTestId("preview-banner")).toHaveCount(0, { timeout: 20000 });
+  await expect(page.getByTestId("start-session")).toBeVisible({ timeout: 20000 });
+  expect(
+    await page.evaluate(() => localStorage.getItem("lingua-preview-on")),
+    "exiting preview must clear the flag, or the next load is back in preview"
+  ).toBeNull();
+
+  expect(errors, errors.join("; ")).toEqual([]);
 });
