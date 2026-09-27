@@ -22,11 +22,15 @@
 //
 // The FREE line below is read by that script and applies to THIS unit and every
 // later one. It is a claim, not a convenience: each of these words appears in a
-// u1–u6 example or drill already, so the learner has MET it, but no unit teaches
-// it and no card ever asks them to produce it. `старый` and `красивый` are the
-// two adjectives the alphabet band leaned on hardest (4 uses each) and the
-// adjective slot proper belongs to a later themed unit, so they stay exposure
-// only. The four proper nouns are names, which no course teaches as vocabulary.
+// u1–u6 example or drill already, so the learner has MET it.
+// ⚠️ FOUR OF THESE TWELVE ARE NOW TAUGHT, so the line is an escape hatch for
+// u7–u18 ONLY and no longer a statement that nothing teaches them. Block 2 carded
+// them in u19 Описание и союзы, 2026-09-27, which is what unit1.js §B asked for:
+//     старый → u19l1 · красивый → u19l2 · но → u19l3 · каждый → u19l4
+// They stay ON the FREE line because scope-ru.mjs reads it per-unit and u7–u18
+// still use them before u19 teaches them; removing the line would flag ~20
+// sentences that are correct. на · за · из remain genuinely exposure-only
+// prepositions, and the four proper nouns are names, which no course cards.
 // FREE: но | на | за | из | старый | красивый | каждый | Россия | Москва | Иван | Анна | Петров
 // lang/unit/lesson are stamped in src/data/index.js.
 export const RU_UNIT7 = {

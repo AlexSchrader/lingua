@@ -85,11 +85,15 @@
 //    perfective, the gloss MUST carry the discriminator:
 //        делать   → "to do (imperfective)"
 //        сделать  → "to do (perfective)"
-//    ⚠️ ONE DOCUMENTED EXCEPTION IN THIS BLOCK, same shape as no/unit1.js §2's
-//    `heter`: `нравится` (u8l4) is taught in the 3rd-person form, not as
-//    `нравиться`. The infinitive has no natural short sentence a learner will
-//    ever say, so it could carry no `drill` — and `мне нравится` is the only
-//    form an A1 learner produces. Apply the same test if a second case appears.
+//    ⚠️ TWO DOCUMENTED 3rd-PERSON EXCEPTIONS IN A1, same shape as no/unit1.js
+//    §2's `heter`. The test: the infinitive has no natural short sentence a
+//    learner will ever say, so it could carry no legal `drill`, and the
+//    3rd-person form is the only one an A1 learner produces.
+//        `нравится` (u8l4, block 1)  — мне нравится, not нравиться
+//        `стоит`   (u18l4, block 2) — Сколько это стоит? and every infinitive
+//            frame that keeps стоить verbatim needs может / будет / должно, none
+//            of which is taught anywhere in u1–u20.
+//    Apply the same test if a third case appears — and record it here.
 //
 // 5. CASE — WHAT A1 TEACHES AND WHAT IS DELIBERATELY DEFERRED.
 //    Russian has six cases and they cannot all live in A1. This is the split;
@@ -222,9 +226,15 @@
 //
 // FOUR THINGS BLOCKS 2 AND 3 WILL TRIP ON IF NOBODY SAYS THEM:
 //
-// A. THE FOUR REMAINING "Characters N" SLOTS ARE THE SAME NON-PROBLEM AS u9.
-//    u12 · u15 · u18 · u21 are scaffold stubs for a Japanese interleaved-kanji
-//    strand Russian does not have. Retheme each one the way u9 was rethemed —
+// A. ONE REMAINING "Characters N" SLOT, AND IT IS THE SAME NON-PROBLEM AS u9.
+//    ⚠️ THREE OF THE FOUR ARE DONE. Block 2 rethemed them 2026-09-27:
+//        u12 → Надписи          signs and the printed public word
+//        u15 → Дом и вещи       home and objects — a MISSING CEFR A1 domain
+//        u18 → Одежда и покупки clothes and shopping — the second missing one
+//    ONLY u21 IS LEFT and it is block 3's; unit20.js's header carries the
+//    leftover themes and the hazards block 2 hit. The remaining slot is a
+//    scaffold stub for a Japanese interleaved-kanji strand Russian does not
+//    have. Retheme it the way u9 was rethemed —
 //    see unit9.js's header for the whole argument. There is far more
 //    international vocabulary left than four units could hold. `lint.js`
 //    hard-errors on /^Characters \d+$/ once a unit is authored, so this is not
@@ -242,17 +252,26 @@
 //    красивый · каждый · но as exposure-only so `scripts/scope-ru.mjs` stops
 //    flagging them (хороший needs no declaration — it shares a stem with the
 //    taught хорошо and the probe already accepts it, which is itself a reason to
-//    not trust a silent probe). **CARDING THEM IS THE RIGHT FIX AND IT IS THE
-//    describing-things unit's job.** Also still free: плохой, большой,
-//    маленький, новый, трудный. The ADVERBS хорошо · плохо · легко · трудно ·
-//    быстро · тихо are all TAKEN; the adjectives are different lexemes and get
-//    their own cards.
+//    not trust a silent probe). **CARDING THEM WAS THE RIGHT FIX AND IT IS DONE.**
+//    ✅ ALL FIVE ARE NOW CARDED, by block 2 in u19 Описание и союзы, 2026-09-27:
+//        хороший u19l1 · старый u19l1 · красивый u19l2 · но u19l3 · каждый u19l4
+//    and so are the five block 1 listed as still free — плохой · большой ·
+//    маленький · новый · трудный — so u19l1–l2 is the complete basic adjective
+//    set. The ADVERBS хорошо · плохо · легко · трудно · быстро · тихо stay
+//    block 1's; the adjectives are different lexemes and have their own cards.
+//    ⚠️ AND A TRAP BLOCK 2 HIT DOING IT: the adjective and its adverb cannot share
+//    a GLOSS. лёгкий glossed "easy" beside легко "easy" is one prompt with two
+//    right answers, and a parenthetical does NOT fix it — `normalizeMeaning`
+//    strips parentheticals before comparing, so "easy (adjective)" normalises to
+//    "easy" too. The primary gloss has to change WORD: лёгкий → "simple",
+//    трудный → "hard", with "easy"/"difficult" moved into accept[].
 //
-// C. THE PRONOUN SET STOPS AT SIX. я · ты · он · она · мы · вы are taught; the
-//    object forms меня and тебя are taught as their own cards. **они and их are
-//    taught NOWHERE in u1–u10**, and no u7–u10 sentence uses them (checked by
-//    hand 2026-09-27) however natural "their family" would have been. Whoever
-//    needs the third person plural owns carding it.
+// C. THE PRONOUN SET STOPPED AT SIX THROUGH u1–u10, AND IS NOW COMPLETE.
+//    я · ты · он · она · мы · вы are block 1's, with the object forms меня and
+//    тебя as their own cards. ✅ они and их were taught NOWHERE in u1–u10 and no
+//    u7–u10 sentence used them; block 2 carded both at u19l4, 2026-09-27
+//    (они "they" · их "their"). No u11–u18 sentence uses them either, so nothing
+//    before u19 forward-references them.
 //
 // D. TWO LEXEME PAIRS WERE ALLOWED ON PURPOSE, SO DO NOT "FIX" THEM.
 //    муж (u10) alongside мужчина (u3), and жена (u10) alongside женщина (u3).
