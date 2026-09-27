@@ -25,7 +25,7 @@ export const UNIT30 = {
       id: "ja-u30l2", unit: 30, lesson: 2, title: "But & however", cefr: "A2", dominantMode: "recall",
       canDo: "Contrast: けど のに しかし それでも ところで だけど.",
       items: [
-        { id: "ja-u30l2-kedo", type: "vocab", front: "けど", reading: "kedo", meaning: "but", example: { jp: "あついですけど、いきます。", en: "It's hot, but I'll go." }, accept: ["although", "though"], hint: "けど = but / though. Attaches right after です / an adjective: あついですけど…" },
+        { id: "ja-u30l2-kedo", type: "vocab", front: "けど", reading: "kedo", meaning: "but (casual clause ending)", example: { jp: "あついですけど、いきます。", en: "It's hot, but I'll go." }, accept: ["although", "though"], hint: "けど = but / though. Attaches right after です / an adjective: あついですけど…" },
         { id: "ja-u30l2-noni", type: "vocab", front: "のに", reading: "noni", meaning: "even though", example: { jp: "べんりなのに、つかいません。", en: "Even though it's convenient, I don't use it." }, accept: ["despite", "although"], hint: "のに = even though (often with a hint of surprise/complaint). Takes な after a noun/な-adjective: べんり な のに." },
         { id: "ja-u30l2-shikashi", type: "vocab", front: "しかし", reading: "shikashi", meaning: "however", example: { jp: "すきです。しかし、へたです。", en: "I like it. However, I'm bad at it." }, accept: ["but", "yet"] },
         { id: "ja-u30l2-soredemo", type: "vocab", front: "それでも", reading: "soredemo", meaning: "even so", example: { jp: "さむいです。それでも、およぎます。", en: "It's cold. Even so, I'll swim." }, accept: ["still", "nevertheless"] },
@@ -37,7 +37,7 @@ export const UNIT30 = {
       id: "ja-u30l3", unit: 30, lesson: 3, title: "When & while", cefr: "A2", dominantMode: "recall",
       canDo: "Place events in time: とき まえに あとで あいだ までに ながら.",
       items: [
-        { id: "ja-u30l3-toki", type: "vocab", front: "とき", reading: "toki", meaning: "when", example: { jp: "こどものとき、およぎました。", en: "When I was a child, I swam." }, accept: ["at the time", "the time when"], hint: "(noun) の とき = 'when / at the time of': こども の とき = when (I was) a child." },
+        { id: "ja-u30l3-toki", type: "vocab", front: "とき", reading: "toki", meaning: "when (at the time that)", example: { jp: "こどものとき、およぎました。", en: "When I was a child, I swam." }, accept: ["at the time", "the time when"], hint: "(noun) の とき = 'when / at the time of': こども の とき = when (I was) a child." },
         { id: "ja-u30l3-maeni", type: "vocab", front: "まえに", reading: "maeni", meaning: "before", example: { jp: "しけんのまえに、べんきょうします。", en: "Before the exam, I study." }, accept: ["prior to", "in front of"] },
         { id: "ja-u30l3-atode", type: "vocab", front: "あとで", reading: "atode", meaning: "after", example: { jp: "しごとのあとで、あそびます。", en: "After work, I hang out." }, accept: ["later", "afterwards"] },
         { id: "ja-u30l3-aida", type: "vocab", front: "あいだ", reading: "aida", meaning: "during", example: { jp: "やすみのあいだ、りょこうします。", en: "During the break, I travel." }, accept: ["while", "the interval"] },
@@ -49,11 +49,11 @@ export const UNIT30 = {
       id: "ja-u30l4", unit: 30, lesson: 4, title: "Probably & seems", cefr: "A2", dominantMode: "recall",
       canDo: "Express likelihood: でしょう かもしれません はず そう みたい らしい.",
       items: [
-        { id: "ja-u30l4-desho", type: "vocab", front: "でしょう", reading: "deshō", meaning: "probably", example: { jp: "あしたはあめでしょう。", en: "It'll probably rain tomorrow." }, accept: ["likely", "I think", "right?"] },
+        { id: "ja-u30l4-desho", type: "vocab", front: "でしょう", reading: "deshō", meaning: "probably (the sentence ending)", example: { jp: "あしたはあめでしょう。", en: "It'll probably rain tomorrow." }, accept: ["likely", "I think", "right?"] },
         { id: "ja-u30l4-kamoshiremasen", type: "vocab", front: "かもしれません", reading: "kamoshiremasen", meaning: "maybe", example: { jp: "びょうきかもしれません。", en: "He might be ill." }, accept: ["might", "perhaps", "possibly"] },
         { id: "ja-u30l4-hazu", type: "vocab", front: "はず", reading: "hazu", meaning: "should be", example: { jp: "あんぜんなはずです。", en: "It should be safe." }, accept: ["ought to", "supposed to", "expected to"] },
         { id: "ja-u30l4-so", type: "vocab", front: "そう", reading: "sō", meaning: "seems (looks)", example: { jp: "おいしそうです。", en: "It looks delicious." }, accept: ["looks like", "appears"], hint: "adjective-stem + そう = 'looks…': おいし + そう = looks tasty." },
-        { id: "ja-u30l4-mitai", type: "vocab", front: "みたい", reading: "mitai", meaning: "like", example: { jp: "こどもみたいです。", en: "He's like a child." }, accept: ["seems like", "resembling"] },
+        { id: "ja-u30l4-mitai", type: "vocab", front: "みたい", reading: "mitai", meaning: "like (resembling something)", example: { jp: "こどもみたいです。", en: "He's like a child." }, accept: ["seems like", "resembling"] },
         { id: "ja-u30l4-rashii", type: "vocab", front: "らしい", reading: "rashii", meaning: "seems", example: { jp: "がくせいらしいです。", en: "He seems to be a student." }, accept: ["apparently", "I hear", "typical of"] },
       ],
     },

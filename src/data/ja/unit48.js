@@ -20,7 +20,7 @@ export const UNIT48 = {
         { id: "ja-u48l1-shojiki", type: "vocab", front: "しょうじき", reading: "shōjiki", meaning: "honest", example: { jp: "しょうじきなひとがすきです。", en: "I like honest people." }, accept: ["honesty","truthful"] },
         { id: "ja-u48l1-yuki", type: "vocab", front: "ゆうき", reading: "yūki", meaning: "courage", example: { jp: "かれはゆうきがあります。", en: "He has courage." }, accept: ["bravery","guts"] },
         { id: "ja-u48l1-akarui", type: "vocab", front: "あかるい", reading: "akarui", meaning: "cheerful", example: { jp: "いもうとはあかるいです。", en: "My little sister is cheerful." }, accept: ["bright","upbeat"] },
-        { id: "ja-u48l1-otonashii", type: "vocab", front: "おとなしい", reading: "otonashii", meaning: "quiet", example: { jp: "このいぬはおとなしいです。", en: "This dog is quiet." }, accept: ["gentle","reserved"] },
+        { id: "ja-u48l1-otonashii", type: "vocab", front: "おとなしい", reading: "otonashii", meaning: "quiet (gentle in manner)", example: { jp: "このいぬはおとなしいです。", en: "This dog is quiet." }, accept: ["gentle","reserved"] },
       ],
     },
     {
@@ -49,7 +49,7 @@ export const UNIT48 = {
       dominantMode: "recall",
       canDo: "Name uneasy feelings: なやみ あんしん きんちょう はずかしい ふあん くやしい.",
       items: [
-        { id: "ja-u48l3-nayami", type: "vocab", front: "なやみ", reading: "nayami", meaning: "worry", example: { jp: "しごとのなやみがあります。", en: "I have worries about work." }, accept: ["trouble","problem"] },
+        { id: "ja-u48l3-nayami", type: "vocab", front: "なやみ", reading: "nayami", meaning: "worry (a trouble on one's mind)", example: { jp: "しごとのなやみがあります。", en: "I have worries about work." }, accept: ["trouble","problem"] },
         { id: "ja-u48l3-anshin", type: "vocab", front: "あんしん", reading: "anshin", meaning: "relief", example: { jp: "これであんしんです。", en: "Now I feel relieved." }, accept: ["peace of mind","reassurance"] },
         { id: "ja-u48l3-kincho", type: "vocab", front: "きんちょう", reading: "kinchō", meaning: "nervousness", example: { jp: "みんなのまえできんちょうします。", en: "I get nervous in front of everyone." }, accept: ["tension","nerves"] },
         { id: "ja-u48l3-hazukashii", type: "vocab", front: "はずかしい", reading: "hazukashii", meaning: "embarrassed", example: { jp: "みんなのまえではずかしいです。", en: "I'm embarrassed in front of everyone." }, accept: ["ashamed","shy"] },

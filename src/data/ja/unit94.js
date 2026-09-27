@@ -17,9 +17,9 @@ export const UNIT94 = {
       items: [
         { id: "ja-u94l1-utsu", type: "vocab", front: "うつ", reading: "utsu", meaning: "to hit", example: { jp: "ボールをうちます。", en: "I hit the ball." }, accept: ["hit","strike"] },
         { id: "ja-u94l1-ayamaru", type: "vocab", front: "あやまる", reading: "ayamaru", meaning: "to apologize", example: { jp: "ともだちにあやまりました。", en: "I apologized to my friend." }, accept: ["apologize","say sorry"] },
-        { id: "ja-u94l1-tsuzukeru", type: "vocab", front: "つづける", reading: "tsuzukeru", meaning: "to continue", example: { jp: "まいにちべんきょうをつづけます。", en: "I keep studying every day." }, accept: ["continue","keep on"] },
+        { id: "ja-u94l1-tsuzukeru", type: "vocab", front: "つづける", reading: "tsuzukeru", meaning: "to continue (to keep it going)", example: { jp: "まいにちべんきょうをつづけます。", en: "I keep studying every day." }, accept: ["continue","keep on"] },
         { id: "ja-u94l1-mieru", type: "vocab", front: "みえる", reading: "mieru", meaning: "to be visible", example: { jp: "まどからやまがみえます。", en: "I can see the mountain from the window." }, accept: ["can see","be seen"] },
-        { id: "ja-u94l1-oideninaru", type: "vocab", front: "おいでになる", reading: "oideninaru", meaning: "to come (honorific)", example: { jp: "せんせいがおいでになります。", en: "The teacher is coming." }, drill: { jp: "せんせいがおいでになる。", en: "The teacher comes." }, accept: ["come (polite)","go/come (honorific)"], hint: "Polite, respectful word for someone coming, going, or being present." },
+        { id: "ja-u94l1-oideninaru", type: "vocab", front: "おいでになる", reading: "oideninaru", meaning: "to come (honorific oide form)", example: { jp: "せんせいがおいでになります。", en: "The teacher is coming." }, drill: { jp: "せんせいがおいでになる。", en: "The teacher comes." }, accept: ["come (polite)","go/come (honorific)"], hint: "Polite, respectful word for someone coming, going, or being present." },
         { id: "ja-u94l1-seisansuru", type: "vocab", front: "せいさんする", reading: "seisansuru", meaning: "to produce", example: { jp: "このこうじょうはくるまをせいさんします。", en: "This factory produces cars." }, accept: ["produce","manufacture"] },
       ],
     },
@@ -36,8 +36,8 @@ export const UNIT94 = {
         { id: "ja-u94l2-kodo", type: "vocab", front: "こうどう", reading: "kōdō", meaning: "action", example: { jp: "すぐにこうどうします。", en: "I take action right away." }, accept: ["behavior","conduct"] },
         { id: "ja-u94l2-jama", type: "vocab", front: "じゃま", reading: "jama", meaning: "hindrance", example: { jp: "しごとのじゃまをしないでください。", en: "Please don't get in the way of my work." }, accept: ["nuisance","obstacle"] },
         { id: "ja-u94l2-yunyu", type: "vocab", front: "ゆにゅう", reading: "yunyū", meaning: "import", example: { jp: "この みせは にくを ゆにゅうします。", en: "This shop imports meat." }, accept: ["importing","to import"] },
-        { id: "ja-u94l2-josei", type: "vocab", front: "じょせい", reading: "josei", meaning: "woman", example: { jp: "あのじょせいはだれですか。", en: "Who is that woman?" }, accept: ["female","lady"] },
-        { id: "ja-u94l2-anna", type: "vocab", front: "あんな", reading: "anna", meaning: "that kind of", example: { jp: "あんなくるまがほしいです。", en: "I want a car like that." }, accept: ["that sort of","such"] },
+        { id: "ja-u94l2-josei", type: "vocab", front: "じょせい", reading: "josei", meaning: "woman (an adult female)", example: { jp: "あのじょせいはだれですか。", en: "Who is that woman?" }, accept: ["female","lady"] },
+        { id: "ja-u94l2-anna", type: "vocab", front: "あんな", reading: "anna", meaning: "that kind of (like that over there)", example: { jp: "あんなくるまがほしいです。", en: "I want a car like that." }, accept: ["that sort of","such"] },
       ],
     },
     {
@@ -50,7 +50,7 @@ export const UNIT94 = {
       canDo: "Core JLPT N4 vocabulary: たとえば ずいぶん まず いがい さらいしゅう こうこう.",
       items: [
         { id: "ja-u94l3-tatoeba", type: "vocab", front: "たとえば", reading: "tatoeba", meaning: "for example", example: { jp: "たとえば、りんごがすきです。", en: "For example, I like apples." }, accept: ["for instance"] },
-        { id: "ja-u94l3-zuibun", type: "vocab", front: "ずいぶん", reading: "zuibun", meaning: "considerably", example: { jp: "きょうはずいぶんさむいです。", en: "It's quite cold today." }, accept: ["quite","very"] },
+        { id: "ja-u94l3-zuibun", type: "vocab", front: "ずいぶん", reading: "zuibun", meaning: "considerably (quite a lot)", example: { jp: "きょうはずいぶんさむいです。", en: "It's quite cold today." }, accept: ["quite","very"] },
         { id: "ja-u94l3-mazu", type: "vocab", front: "まず", reading: "mazu", meaning: "first of all", example: { jp: "まず、てをあらいます。", en: "First of all, I wash my hands." }, accept: ["first","to begin with"] },
         { id: "ja-u94l3-igai", type: "vocab", front: "いがい", reading: "igai", meaning: "other than", example: { jp: "にほんごいがいはわかりません。", en: "I don't understand anything other than Japanese." }, accept: ["except","besides"], hint: "～いがい = apart from / except for X." },
         { id: "ja-u94l3-saraishu", type: "vocab", front: "さらいしゅう", reading: "saraishū", meaning: "week after next", example: { jp: "さらいしゅう、りょこうします。", en: "I'll travel the week after next." }, accept: ["the week after next"] },

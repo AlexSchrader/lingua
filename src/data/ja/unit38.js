@@ -36,7 +36,7 @@ export const UNIT38 = {
       canDo: "Read the nature and weather kanji: 朝 夕 (morning/evening), 花 海 空 風 (flower/sea/sky/wind).",
       items: [
         { id: "ja-u38l2-asa", type: "kanji", front: "朝", reading: "asa", meaning: "morning", example: { jp: "朝はやくおきます。", en: "I get up early in the morning." }, accept: ["a.m."], hint: "朝 = morning (あさ) — the sun 日 rising beside the moon still in the sky. 朝ごはん = breakfast." },
-        { id: "ja-u38l2-yuu", type: "kanji", front: "夕", reading: "yū", meaning: "evening", example: { jp: "夕がたに海へ行きます。", en: "I go to the sea in the evening." }, accept: ["dusk","sunset"], hint: "夕 = evening (ゆう) — a thin crescent moon at dusk. 夕がた = evening." },
+        { id: "ja-u38l2-yuu", type: "kanji", front: "夕", reading: "yū", meaning: "evening (dusk)", example: { jp: "夕がたに海へ行きます。", en: "I go to the sea in the evening." }, accept: ["dusk","sunset"], hint: "夕 = evening (ゆう) — a thin crescent moon at dusk. 夕がた = evening." },
         { id: "ja-u38l2-hana", type: "kanji", front: "花", reading: "hana", meaning: "flower", example: { jp: "花がとてもきれいです。", en: "The flowers are very pretty." }, accept: ["blossom","flowers"], hint: "花 = flower (はな) — 艹 (grass) over 化 (change): a plant transforming into a bloom." },
         { id: "ja-u38l2-umi", type: "kanji", front: "海", reading: "umi", meaning: "sea", example: { jp: "夏に海で泳ぎます。", en: "In summer I swim in the sea." }, accept: ["ocean"], hint: "海 = sea (うみ) — 氵 (water) beside 母 (mother): the mother of all water." },
         { id: "ja-u38l2-sora", type: "kanji", front: "空", reading: "sora", meaning: "sky", example: { jp: "空が青いです。", en: "The sky is blue." }, accept: ["empty","air"], hint: "空 = sky (そら) — also means 'empty'. The wide open air above." },

@@ -23,7 +23,7 @@ export const UNIT159 = {
       items: [
         { id: "ja-u159l1-4fa1", type: "kanji", front: "価", reading: "ka", meaning: "value", example: { jp: "この 品の 価は、年ごとに 上がって います。", en: "This item's value rises year by year." }, accept: ["price", "worth"] },
         { id: "ja-u159l1-6cb3", type: "kanji", front: "河", reading: "kawa", meaning: "a large river", example: { jp: "大きな 河を ふねで 渡りました。", en: "We crossed the great river by boat." }, accept: ["stream"], hint: "川 is any river; 河 is a big one — 銀河 is the Milky Way, literally the silver river." },
-        { id: "ja-u159l1-53ef", type: "kanji", front: "可", reading: "ka", meaning: "possible", example: { jp: "この へやは 十人まで 可です。", en: "This room takes up to ten people." }, accept: ["permissible", "-able"] },
+        { id: "ja-u159l1-53ef", type: "kanji", front: "可", reading: "ka", meaning: "possible (permissible)", example: { jp: "この へやは 十人まで 可です。", en: "This room takes up to ten people." }, accept: ["permissible", "-able"] },
         { id: "ja-u159l1-8cc0", type: "kanji", front: "賀", reading: "ga", meaning: "congratulation", example: { jp: "年賀の はがきを 書きました。", en: "I wrote New Year greeting cards." }, accept: ["celebration", "felicitation"] },
         { id: "ja-u159l1-kako", type: "vocab", front: "河口", reading: "kakō", meaning: "a river mouth", example: { jp: "河口の 近くには 大きな 港が あります。", en: "There is a large harbour near the river mouth." }, accept: ["estuary", "where a river meets the sea"] },
         { id: "ja-u159l1-ginga", type: "vocab", front: "銀河", reading: "ginga", meaning: "the galaxy", example: { jp: "よるは 銀河が よく 見えます。", en: "The galaxy is clearly visible at night." }, accept: ["Milky Way"] },
@@ -38,9 +38,9 @@ export const UNIT159 = {
       dominantMode: "recall",
       canDo: "Read 刊 (publication), 幹 (trunk), 慣 (to get used to), 眼 (the eye), and the words 年賀 and 幹部.",
       items: [
-        { id: "ja-u159l2-520a", type: "kanji", front: "刊", reading: "kan", meaning: "publication", example: { jp: "その 本は 先月 刊行されました。", en: "That book was published last month." }, accept: ["to publish", "issue"] },
-        { id: "ja-u159l2-5e79", type: "kanji", front: "幹", reading: "kan", meaning: "trunk", example: { jp: "木の 幹に 手を あてて みました。", en: "I put my hand against the tree trunk." }, accept: ["main part", "stem"], hint: "幹 = the trunk, and by extension the core of anything — 幹部 is the leadership of an organisation." },
-        { id: "ja-u159l2-6163", type: "kanji", front: "慣", reading: "kan", meaning: "to get used to", example: { jp: "新しい 生活に やっと 慣れました。", en: "I've finally got used to the new life." }, accept: ["accustomed", "habit"] },
+        { id: "ja-u159l2-520a", type: "kanji", front: "刊", reading: "kan", meaning: "publication (to publish an issue)", example: { jp: "その 本は 先月 刊行されました。", en: "That book was published last month." }, accept: ["to publish", "issue"] },
+        { id: "ja-u159l2-5e79", type: "kanji", front: "幹", reading: "kan", meaning: "trunk (the main stem)", example: { jp: "木の 幹に 手を あてて みました。", en: "I put my hand against the tree trunk." }, accept: ["main part", "stem"], hint: "幹 = the trunk, and by extension the core of anything — 幹部 is the leadership of an organisation." },
+        { id: "ja-u159l2-6163", type: "kanji", front: "慣", reading: "kan", meaning: "to get used to (to become accustomed)", example: { jp: "新しい 生活に やっと 慣れました。", en: "I've finally got used to the new life." }, accept: ["accustomed", "habit"] },
         { id: "ja-u159l2-773c", type: "kanji", front: "眼", reading: "gan", meaning: "the eye", example: { jp: "医者に 眼を みて もらいました。", en: "I had a doctor look at my eyes." }, accept: ["eyeball", "insight"] },
         { id: "ja-u159l2-nenga", type: "vocab", front: "年賀", reading: "nenga", meaning: "New Year greeting", example: { jp: "年賀の あいさつを 出しました。", en: "I sent New Year greetings." }, accept: ["new year card"] },
         { id: "ja-u159l2-kanbu", type: "vocab", front: "幹部", reading: "kanbu", meaning: "the leadership", example: { jp: "会社の 幹部が 集まりました。", en: "The company's leadership gathered." }, drill: { jp: "幹部が あつまりました。", en: "The leadership gathered." }, accept: ["executives", "senior staff"] },

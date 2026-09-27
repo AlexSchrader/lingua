@@ -25,7 +25,7 @@ export const UNIT65 = {
         { id: "ja-u65l1-genkin", type: "vocab", front: "げんきん", reading: "genkin", meaning: "cash", example: { jp: "げんきんではらいます。", en: "I pay in cash." }, accept: ["hard cash"] },
         { id: "ja-u65l1-shihei", type: "vocab", front: "しへい", reading: "shihei", meaning: "paper money", example: { jp: "せんえんしへいをつかいます。", en: "I use a 1000-yen bill." }, accept: ["banknote", "bill"] },
         { id: "ja-u65l1-kozeni", type: "vocab", front: "こぜに", reading: "kozeni", meaning: "small change", example: { jp: "さいふにこぜにがあります。", en: "There is small change in my wallet." }, accept: ["coins", "loose change"] },
-        { id: "ja-u65l1-zei", type: "vocab", front: "ぜい", reading: "zei", meaning: "tax", example: { jp: "ぜいをはらいます。", en: "I pay tax." }, accept: ["duty"] },
+        { id: "ja-u65l1-zei", type: "vocab", front: "ぜい", reading: "zei", meaning: "tax (a duty levied)", example: { jp: "ぜいをはらいます。", en: "I pay tax." }, accept: ["duty"] },
         { id: "ja-u65l1-muryo", type: "vocab", front: "むりょう", reading: "muryō", meaning: "free of charge", example: { jp: "みずはむりょうです。", en: "Water is free." }, drill: { jp: "むりょうのみずです。", en: "It is free water." }, accept: ["free", "no charge"] },
         { id: "ja-u65l1-okanemochi", type: "vocab", front: "おかねもち", reading: "okanemochi", meaning: "rich person", example: { jp: "かれはおかねもちです。", en: "He is a rich person." }, drill: { jp: "おかねもちがいます。", en: "There is a rich person." }, accept: ["wealthy person", "the rich"] },
       ],
@@ -63,7 +63,7 @@ export const UNIT65 = {
         { id: "ja-u65l3-chirashi", type: "vocab", front: "ちらし", reading: "chirashi", meaning: "flyer", example: { jp: "スーパーのちらしをみます。", en: "I look at the supermarket flyer." }, accept: ["leaflet", "ad flyer"] },
         { id: "ja-u65l3-kago", type: "vocab", front: "かご", reading: "kago", meaning: "basket", example: { jp: "かごをもちます。", en: "I hold the basket." }, accept: ["shopping basket"] },
         { id: "ja-u65l3-kato", type: "vocab", front: "カート", reading: "kāto", meaning: "cart", example: { jp: "カートをおします。", en: "I push the cart." }, accept: ["shopping cart", "trolley"] },
-        { id: "ja-u65l3-shohin", type: "vocab", front: "しょうひん", reading: "shōhin", meaning: "goods", example: { jp: "このしょうひんはにんきです。", en: "This product is popular." }, accept: ["product", "merchandise"] },
+        { id: "ja-u65l3-shohin", type: "vocab", front: "しょうひん", reading: "shōhin", meaning: "goods (merchandise for sale)", example: { jp: "このしょうひんはにんきです。", en: "This product is popular." }, accept: ["product", "merchandise"] },
       ],
     },
     // Lesson 4: shopping actions
@@ -76,7 +76,7 @@ export const UNIT65 = {
       dominantMode: "recall",
       canDo: "Do the shopping: しはらいます (pay), ちゅうもんします (order), こうかんします (exchange), ためます (save).",
       items: [
-        { id: "ja-u65l4-shiharaimasu", type: "vocab", front: "しはらいます", reading: "shiharaimasu", meaning: "pay", example: { jp: "カードでしはらいます。", en: "I pay by card." }, accept: ["to pay", "pay for"] },
+        { id: "ja-u65l4-shiharaimasu", type: "vocab", front: "しはらいます", reading: "shiharaimasu", meaning: "pay (to settle a bill)", example: { jp: "カードでしはらいます。", en: "I pay by card." }, accept: ["to pay", "pay for"] },
         { id: "ja-u65l4-chumonshimasu", type: "vocab", front: "ちゅうもんします", reading: "chūmonshimasu", meaning: "order", example: { jp: "コーヒーをちゅうもんします。", en: "I order a coffee." }, accept: ["to order", "place an order"] },
         { id: "ja-u65l4-kokanshimasu", type: "vocab", front: "こうかんします", reading: "kōkanshimasu", meaning: "exchange", example: { jp: "しょうひんをこうかんします。", en: "I exchange the product." }, accept: ["to exchange", "swap"] },
         { id: "ja-u65l4-henpinshimasu", type: "vocab", front: "へんぴんします", reading: "henpinshimasu", meaning: "return an item", example: { jp: "みせにへんぴんします。", en: "I return it to the shop." }, accept: ["to return", "return goods"] },

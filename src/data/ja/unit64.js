@@ -42,7 +42,7 @@ export const UNIT64 = {
       canDo: "Say where something sits — むこう すみ よこ まわり ちかく とおく.",
       items: [
         { id: "ja-u64l2-mukou",   type: "vocab", front: "むこう", reading: "mukō",   meaning: "over there", example: { jp: "むこうにいえがあります。", en: "There's a house over there." }, accept: ["the other side", "across"] },
-        { id: "ja-u64l2-sumi",    type: "vocab", front: "すみ",   reading: "sumi",   meaning: "corner", example: { jp: "へやのすみにいます。", en: "I'm in the corner of the room." }, drill: { jp: "すみにねこがいます。", en: "There is a cat in the corner." }, accept: ["nook", "inside corner"] },
+        { id: "ja-u64l2-sumi",    type: "vocab", front: "すみ",   reading: "sumi",   meaning: "corner (the inside corner of a room)", example: { jp: "へやのすみにいます。", en: "I'm in the corner of the room." }, drill: { jp: "すみにねこがいます。", en: "There is a cat in the corner." }, accept: ["nook", "inside corner"] },
         { id: "ja-u64l2-yoko",    type: "vocab", front: "よこ",   reading: "yoko",   meaning: "side", example: { jp: "つくえのよこにいます。", en: "I'm beside the desk." }, drill: { jp: "よこにつくえがあります。", en: "There is a desk beside it." }, accept: ["beside", "next to"] },
         { id: "ja-u64l2-mawari",  type: "vocab", front: "まわり", reading: "mawari", meaning: "surroundings", example: { jp: "いえのまわりをあるきます。", en: "I walk around the house." }, drill: { jp: "まわりをあるきます。", en: "I walk around it." }, accept: ["around", "vicinity"] },
         { id: "ja-u64l2-chikaku", type: "vocab", front: "ちかく", reading: "chikaku", meaning: "nearby", example: { jp: "えきのちかくにいます。", en: "I'm near the station." }, accept: ["near", "vicinity"] },

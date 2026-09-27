@@ -48,7 +48,7 @@ export const UNIT80 = {
         { id: "ja-u80l2-okashii", type: "vocab", front: "おかしい", reading: "okashii", meaning: "funny", example: { jp: "このはなしはおかしいです。", en: "This story is funny." }, accept: ["strange", "odd", "amusing"] },
         { id: "ja-u80l2-umai", type: "vocab", front: "うまい", reading: "umai", meaning: "good (at)", example: { jp: "かれはりょうりがうまいです。", en: "He is good at cooking." }, accept: ["skillful", "tasty", "delicious"] },
         { id: "ja-u80l2-mottainai", type: "vocab", front: "もったいない", reading: "mottainai", meaning: "wasteful", example: { jp: "すてるのはもったいないです。", en: "It's a waste to throw it away." }, accept: ["too good to waste", "what a waste"] },
-        { id: "ja-u80l2-shitashii", type: "vocab", front: "したしい", reading: "shitashii", meaning: "close", example: { jp: "したしいともだちです。", en: "It's a close friend." }, accept: ["intimate", "friendly"] },
+        { id: "ja-u80l2-shitashii", type: "vocab", front: "したしい", reading: "shitashii", meaning: "close (emotionally close)", example: { jp: "したしいともだちです。", en: "It's a close friend." }, accept: ["intimate", "friendly"] },
       ],
     },
     // Lesson 3: judgments (な-adjectives)
@@ -65,8 +65,8 @@ export const UNIT80 = {
         { id: "ja-u80l3-kanpeki", type: "vocab", front: "かんぺき", reading: "kanpeki", meaning: "perfect", example: { jp: "かのじょはかんぺきです。", en: "She is perfect." }, accept: ["flawless"] },
         { id: "ja-u80l3-rippa", type: "vocab", front: "りっぱ", reading: "rippa", meaning: "splendid", example: { jp: "りっぱないえです。", en: "It's a splendid house." }, accept: ["fine", "grand", "impressive"] },
         { id: "ja-u80l3-tekito", type: "vocab", front: "てきとう", reading: "tekitō", meaning: "suitable", example: { jp: "てきとうなへやをさがします。", en: "I'll look for a suitable room." }, accept: ["appropriate", "proper"] },
-        { id: "ja-u80l3-juyo", type: "vocab", front: "じゅうよう", reading: "jūyō", meaning: "important", example: { jp: "じゅうようなかいぎです。", en: "It's an important meeting." }, accept: ["crucial", "significant"] },
-        { id: "ja-u80l3-tokubetsu", type: "vocab", front: "とくべつ", reading: "tokubetsu", meaning: "special", example: { jp: "きょうはとくべつなひです。", en: "Today is a special day." }, accept: ["particular"] },
+        { id: "ja-u80l3-juyo", type: "vocab", front: "じゅうよう", reading: "jūyō", meaning: "important (crucial in weight)", example: { jp: "じゅうようなかいぎです。", en: "It's an important meeting." }, accept: ["crucial", "significant"] },
+        { id: "ja-u80l3-tokubetsu", type: "vocab", front: "とくべつ", reading: "tokubetsu", meaning: "special (particular and set apart)", example: { jp: "きょうはとくべつなひです。", en: "Today is a special day." }, accept: ["particular"] },
       ],
     },
     // Lesson 4: need & ability (な-adjectives)
@@ -81,8 +81,8 @@ export const UNIT80 = {
       items: [
         { id: "ja-u80l4-hitsuyo", type: "vocab", front: "ひつよう", reading: "hitsuyō", meaning: "necessary", example: { jp: "パスポートがひつようです。", en: "A passport is necessary." }, accept: ["needed", "required"] },
         { id: "ja-u80l4-kano", type: "vocab", front: "かのう", reading: "kanō", meaning: "possible", example: { jp: "よやくはかのうです。", en: "A reservation is possible." }, accept: ["feasible", "can be done"] },
-        { id: "ja-u80l4-muda", type: "vocab", front: "むだ", reading: "muda", meaning: "wasteful", example: { jp: "じかんのむだです。", en: "It's a waste of time." }, accept: ["useless", "pointless", "waste"] },
-        { id: "ja-u80l4-tokui", type: "vocab", front: "とくい", reading: "tokui", meaning: "good at", example: { jp: "すうがくがとくいです。", en: "I'm good at math." }, accept: ["skilled at", "strong point"] },
+        { id: "ja-u80l4-muda", type: "vocab", front: "むだ", reading: "muda", meaning: "wasteful (pointless and useless)", example: { jp: "じかんのむだです。", en: "It's a waste of time." }, accept: ["useless", "pointless", "waste"] },
+        { id: "ja-u80l4-tokui", type: "vocab", front: "とくい", reading: "tokui", meaning: "good at (one's strong point)", example: { jp: "すうがくがとくいです。", en: "I'm good at math." }, accept: ["skilled at", "strong point"] },
         { id: "ja-u80l4-nigate", type: "vocab", front: "にがて", reading: "nigate", meaning: "poor at", example: { jp: "うんどうがにがてです。", en: "I'm poor at exercise." }, accept: ["bad at", "weak point", "not good at"] },
         { id: "ja-u80l4-suteki", type: "vocab", front: "すてき", reading: "suteki", meaning: "lovely", example: { jp: "すてきなふくですね。", en: "What lovely clothes." }, accept: ["nice", "wonderful", "cool"] },
       ],

@@ -76,7 +76,7 @@ export const UNIT55 = {
       canDo: "Give impressions: おもしろい つまらない まずい しょっぱい ひどい おなじ.",
       items: [
         { id: "ja-u55l4-omoshiroi", type: "vocab", front: "おもしろい", reading: "omoshiroi", meaning: "interesting", example: { jp: "このえいがはおもしろいです。", en: "This movie is interesting." }, accept: ["fun", "funny"] },
-        { id: "ja-u55l4-tsumaranai", type: "vocab", front: "つまらない", reading: "tsumaranai", meaning: "boring", example: { jp: "このばんぐみはつまらないです。", en: "This program is boring." }, accept: ["dull", "trivial"] },
+        { id: "ja-u55l4-tsumaranai", type: "vocab", front: "つまらない", reading: "tsumaranai", meaning: "boring (dull and trivial)", example: { jp: "このばんぐみはつまらないです。", en: "This program is boring." }, accept: ["dull", "trivial"] },
         { id: "ja-u55l4-mazui", type: "vocab", front: "まずい", reading: "mazui", meaning: "bad-tasting", example: { jp: "このりょうりはまずいです。", en: "This food tastes bad." }, accept: ["unappetizing", "awful"] },
         { id: "ja-u55l4-shoppai", type: "vocab", front: "しょっぱい", reading: "shoppai", meaning: "salty", example: { jp: "このスープはしょっぱいです。", en: "This soup is salty." }, accept: ["salty-tasting"] },
         { id: "ja-u55l4-hidoi", type: "vocab", front: "ひどい", reading: "hidoi", meaning: "terrible", example: { jp: "てんきがひどいです。", en: "The weather is terrible." }, accept: ["awful", "cruel"] },

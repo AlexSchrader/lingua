@@ -81,7 +81,7 @@ export const UNIT66 = {
         { id: "ja-u66l4-tsubomi", type: "vocab", front: "つぼみ", reading: "tsubomi", meaning: "bud", example: { jp: "はなのつぼみはちいさいです。", en: "The flower buds are small." }, drill: { jp: "つぼみはちいさいです。", en: "The bud is small." }, accept: ["flower bud", "buds"], hint: "A はな (flower) before it opens." },
         { id: "ja-u66l4-shibafu", type: "vocab", front: "しばふ", reading: "shibafu", meaning: "lawn", example: { jp: "こうえんのしばふであそびます。", en: "I play on the lawn in the park." }, accept: ["turf", "grass lawn"] },
         { id: "ja-u66l4-matsu", type: "vocab", front: "まつ", reading: "matsu", meaning: "pine tree", example: { jp: "にわにまつがあります。", en: "There is a pine tree in the garden." }, accept: ["pine", "pines"] },
-        { id: "ja-u66l4-hatake", type: "vocab", front: "はたけ", reading: "hatake", meaning: "field", example: { jp: "はたけでやさいをつくります。", en: "I grow vegetables in the field." }, accept: ["farm field", "vegetable field"], hint: "A cultivated crop field — のはら is a wild grassy one." },
+        { id: "ja-u66l4-hatake", type: "vocab", front: "はたけ", reading: "hatake", meaning: "field (a vegetable plot)", example: { jp: "はたけでやさいをつくります。", en: "I grow vegetables in the field." }, accept: ["farm field", "vegetable field"], hint: "A cultivated crop field — のはら is a wild grassy one." },
         { id: "ja-u66l4-soto", type: "vocab", front: "そと", reading: "soto", meaning: "outside", example: { jp: "そとであそびます。", en: "I play outside." }, accept: ["outdoors", "outer"] },
       ],
     },

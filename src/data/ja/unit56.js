@@ -40,7 +40,7 @@ export const UNIT56 = {
       canDo: "Say when in the day and how regularly: けさ ゆうがた こんしゅう まいあさ まいばん まいつき.",
       items: [
         { id: "ja-u56l2-kesa", type: "vocab", front: "けさ", reading: "kesa", meaning: "this morning", example: { jp: "けさパンをたべました。", en: "I ate bread this morning." }, accept: ["this a.m."] },
-        { id: "ja-u56l2-yuugata", type: "vocab", front: "ゆうがた", reading: "yūgata", meaning: "evening", example: { jp: "ゆうがたにかえります。", en: "I return in the evening." }, accept: ["early evening", "dusk"] },
+        { id: "ja-u56l2-yuugata", type: "vocab", front: "ゆうがた", reading: "yūgata", meaning: "evening (the early evening)", example: { jp: "ゆうがたにかえります。", en: "I return in the evening." }, accept: ["early evening", "dusk"] },
         { id: "ja-u56l2-konshuu", type: "vocab", front: "こんしゅう", reading: "konshū", meaning: "this week", example: { jp: "こんしゅうはいそがしいです。", en: "This week is busy." }, accept: ["the current week"] },
         { id: "ja-u56l2-maiasa", type: "vocab", front: "まいあさ", reading: "maiasa", meaning: "every morning", example: { jp: "まいあさコーヒーをのみます。", en: "I drink coffee every morning." }, accept: ["each morning"] },
         { id: "ja-u56l2-maiban", type: "vocab", front: "まいばん", reading: "maiban", meaning: "every night", example: { jp: "まいばんほんをよみます。", en: "I read a book every night." }, accept: ["every evening", "each night"] },
@@ -76,7 +76,7 @@ export const UNIT56 = {
       canDo: "Talk about the future and plans: しょうらい よてい なんようび さいしょ さいご このごろ.",
       items: [
         { id: "ja-u56l4-shourai", type: "vocab", front: "しょうらい", reading: "shōrai", meaning: "future", example: { jp: "しょうらいがしんぱいです。", en: "I'm worried about the future." }, accept: ["one's future"] },
-        { id: "ja-u56l4-yotei", type: "vocab", front: "よてい", reading: "yotei", meaning: "plan", example: { jp: "あしたのよていはなんですか。", en: "What are your plans for tomorrow?" }, accept: ["schedule", "plans"] },
+        { id: "ja-u56l4-yotei", type: "vocab", front: "よてい", reading: "yotei", meaning: "plan (a schedule)", example: { jp: "あしたのよていはなんですか。", en: "What are your plans for tomorrow?" }, accept: ["schedule", "plans"] },
         { id: "ja-u56l4-nanyoubi", type: "vocab", front: "なんようび", reading: "nanyōbi", meaning: "what day of the week", example: { jp: "きょうはなんようびですか。", en: "What day is it today?" }, accept: ["which day"] },
         { id: "ja-u56l4-saisho", type: "vocab", front: "さいしょ", reading: "saisho", meaning: "the beginning", example: { jp: "さいしょはむずかしいです。", en: "At first it's difficult." }, accept: ["first", "the start"] },
         { id: "ja-u56l4-saigo", type: "vocab", front: "さいご", reading: "saigo", meaning: "the end", example: { jp: "さいごまでがんばります。", en: "I'll try hard to the end." }, drill: { jp: "さいごはたのしかったです。", en: "The end was fun." }, accept: ["last", "the final one"] },

@@ -24,7 +24,7 @@ export const UNIT157 = {
         { id: "ja-u157l1-5727", type: "kanji", front: "圧", reading: "atsu", meaning: "pressure", example: { jp: "気圧が 下がると、あたまが 痛く なる 人も います。", en: "When the air pressure drops, some people get headaches." }, accept: ["force", "stress"], hint: "圧 = pressure — 土 (earth) beneath, something pressing down. 気圧 = air pressure, 血圧 = blood pressure." },
         { id: "ja-u157l1-79fb", type: "kanji", front: "移", reading: "i", meaning: "to shift", example: { jp: "会社が となりの 町に 移りました。", en: "The company moved to the next town." }, accept: ["to move", "transfer"] },
         { id: "ja-u157l1-56f2", type: "kanji", front: "囲", reading: "i", meaning: "to surround", example: { jp: "高い かべに 囲まれた 家です。", en: "It's a house surrounded by high walls." }, accept: ["to enclose", "surroundings"], hint: "囲 = surround — the box IS the enclosure, drawn around 井." },
-        { id: "ja-u157l1-59d4", type: "kanji", front: "委", reading: "i", meaning: "to entrust", example: { jp: "その しごとは 部下に 委せました。", en: "I entrusted that work to my staff." }, accept: ["to leave to", "committee"] },
+        { id: "ja-u157l1-59d4", type: "kanji", front: "委", reading: "i", meaning: "to entrust (to leave to a committee)", example: { jp: "その しごとは 部下に 委せました。", en: "I entrusted that work to my staff." }, accept: ["to leave to", "committee"] },
         { id: "ja-u157l1-kiatsu", type: "vocab", front: "気圧", reading: "kiatsu", meaning: "air pressure", example: { jp: "山の 上は 気圧が 低いです。", en: "Air pressure is low at the top of a mountain." }, accept: ["atmospheric pressure"] },
         { id: "ja-u157l1-ido", type: "vocab", front: "移動", reading: "idō", meaning: "movement", example: { jp: "人の 移動が 多い 時期は、道が こみます。", en: "When many people are on the move, the roads are crowded." }, accept: ["shifting", "travel", "relocation"] },
       ],
@@ -38,7 +38,7 @@ export const UNIT157 = {
       dominantMode: "recall",
       canDo: "Read 胃 (stomach), 衣 (clothing), 印 (a mark), 栄 (to flourish), and the words 衣服 and 目印.",
       items: [
-        { id: "ja-u157l2-80c3", type: "kanji", front: "胃", reading: "i", meaning: "stomach", example: { jp: "食べすぎて、胃が 痛く なりました。", en: "I ate too much and my stomach started hurting." }, accept: ["the stomach"], hint: "胃 = stomach — 田 (a full sack) over 月, the flesh radical that marks nearly every organ." },
+        { id: "ja-u157l2-80c3", type: "kanji", front: "胃", reading: "i", meaning: "stomach (the organ)", example: { jp: "食べすぎて、胃が 痛く なりました。", en: "I ate too much and my stomach started hurting." }, accept: ["the stomach"], hint: "胃 = stomach — 田 (a full sack) over 月, the flesh radical that marks nearly every organ." },
         { id: "ja-u157l2-8863", type: "kanji", front: "衣", reading: "i", meaning: "garment", example: { jp: "むかしの 衣服が はく物館に あります。", en: "Old clothing is in the museum." }, accept: ["garment", "dress", "clothing"] },
         { id: "ja-u157l2-5370", type: "kanji", front: "印", reading: "in", meaning: "a mark", example: { jp: "ここに 印を つけて おいて ください。", en: "Please put a mark here." }, accept: ["stamp", "seal", "sign"] },
         { id: "ja-u157l2-6804", type: "kanji", front: "栄", reading: "ei", meaning: "to flourish", example: { jp: "この 港町は 十年で 大きく 栄えました。", en: "This port town flourished greatly in ten years." }, accept: ["prosperity", "glory"] },

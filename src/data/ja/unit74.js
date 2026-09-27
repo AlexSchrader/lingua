@@ -63,7 +63,7 @@ export const UNIT74 = {
         { id: "ja-u74l3-kokusai", type: "vocab", front: "こくさい", reading: "kokusai", meaning: "international", example: { jp: "こくさいでんわをかけます。", en: "I make an international call." }, accept: ["global", "cross-border"] },
         { id: "ja-u74l3-nimotsu", type: "vocab", front: "にもつ", reading: "nimotsu", meaning: "luggage", example: { jp: "にもつがおもいです。", en: "The luggage is heavy." }, accept: ["baggage", "bags"] },
         { id: "ja-u74l3-annai", type: "vocab", front: "あんない", reading: "annai", meaning: "guidance", example: { jp: "ともだちをあんないします。", en: "I show my friend around." }, accept: ["showing around", "information"] },
-        { id: "ja-u74l3-kenbutsu", type: "vocab", front: "けんぶつ", reading: "kenbutsu", meaning: "sightseeing", example: { jp: "おてらをけんぶつします。", en: "I go sightseeing at the temple." }, accept: ["seeing the sights", "visiting"] },
+        { id: "ja-u74l3-kenbutsu", type: "vocab", front: "けんぶつ", reading: "kenbutsu", meaning: "sightseeing (going to see the sights)", example: { jp: "おてらをけんぶつします。", en: "I go sightseeing at the temple." }, accept: ["seeing the sights", "visiting"] },
       ],
     },
     // Lesson 4: lodging & tourism

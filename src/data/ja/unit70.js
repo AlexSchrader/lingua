@@ -77,10 +77,10 @@ export const UNIT70 = {
       items: [
         { id: "ja-u70l4-natsukashii", type: "vocab", front: "なつかしい", reading: "natsukashii", meaning: "nostalgic", example: { jp: "むかしがなつかしいです。", en: "I miss the old days." }, accept: ["dear", "missed"] },
         { id: "ja-u70l4-urayamashii", type: "vocab", front: "うらやましい", reading: "urayamashii", meaning: "envious", example: { jp: "ともだちがうらやましいです。", en: "I envy my friend." }, accept: ["jealous", "enviable"] },
-        { id: "ja-u70l4-tsurai", type: "vocab", front: "つらい", reading: "tsurai", meaning: "painful", example: { jp: "しごとがつらいです。", en: "Work is hard on me." }, accept: ["hard", "tough"] },
+        { id: "ja-u70l4-tsurai", type: "vocab", front: "つらい", reading: "tsurai", meaning: "painful (hard to bear)", example: { jp: "しごとがつらいです。", en: "Work is hard on me." }, accept: ["hard", "tough"] },
         { id: "ja-u70l4-kurushii", type: "vocab", front: "くるしい", reading: "kurushii", meaning: "distressing", example: { jp: "むねがくるしいです。", en: "My chest feels tight." }, accept: ["painful", "suffering"] },
         { id: "ja-u70l4-fushigi", type: "vocab", front: "ふしぎ", reading: "fushigi", meaning: "mysterious", example: { jp: "ふしぎなゆめをみました。", en: "I had a strange dream." }, accept: ["strange", "wonder"] },
-        { id: "ja-u70l4-yukai", type: "vocab", front: "ゆかい", reading: "yukai", meaning: "cheerful", example: { jp: "ゆかいなともだちです。", en: "He is a fun friend." }, accept: ["pleasant", "fun"] },
+        { id: "ja-u70l4-yukai", type: "vocab", front: "ゆかい", reading: "yukai", meaning: "cheerful (pleasant and fun)", example: { jp: "ゆかいなともだちです。", en: "He is a fun friend." }, accept: ["pleasant", "fun"] },
       ],
     },
   ],

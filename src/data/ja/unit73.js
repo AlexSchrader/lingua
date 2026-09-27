@@ -79,7 +79,7 @@ export const UNIT73 = {
         { id: "ja-u73l4-dezato", type: "vocab", front: "デザート", reading: "dezāto", meaning: "dessert", example: { jp: "デザートをたべます。", en: "I eat dessert." }, accept: ["dessert"] },
         { id: "ja-u73l4-suteki", type: "vocab", front: "ステーキ", reading: "sutēki", meaning: "steak", example: { jp: "ステーキがすきです。", en: "I like steak." }, accept: ["steak"] },
         { id: "ja-u73l4-hanbagu", type: "vocab", front: "ハンバーグ", reading: "hanbāgu", meaning: "hamburg steak", example: { jp: "ハンバーグはおいしいです。", en: "The hamburg steak is delicious." }, accept: ["hamburg steak", "salisbury steak"] },
-        { id: "ja-u73l4-donburi", type: "vocab", front: "どんぶり", reading: "donburi", meaning: "rice bowl", example: { jp: "どんぶりをちゅうもんします。", en: "I order a rice bowl." }, accept: ["rice bowl", "donburi"] },
+        { id: "ja-u73l4-donburi", type: "vocab", front: "どんぶり", reading: "donburi", meaning: "rice bowl (a big bowl dish)", example: { jp: "どんぶりをちゅうもんします。", en: "I order a rice bowl." }, accept: ["rice bowl", "donburi"] },
         { id: "ja-u73l4-okazu", type: "vocab", front: "おかず", reading: "okazu", meaning: "side dish", example: { jp: "おかずをつくります。", en: "I make a side dish." }, accept: ["side dish", "dish"] },
         { id: "ja-u73l4-shokuji", type: "vocab", front: "しょくじ", reading: "shokuji", meaning: "meal", example: { jp: "かぞくとしょくじします。", en: "I have a meal with my family." }, accept: ["meal", "dining"] },
       ],

@@ -83,7 +83,7 @@ export const UNIT22 = {
       canDo: "Talk about leisure: うたいます おどります りょこうします とります あつめます いそぎます.",
       items: [
         { id: "ja-u22l4-utaimasu", type: "vocab", front: "うたいます", reading: "utaimasu", meaning: "sing", example: { jp: "みんなでうたいます。", en: "We all sing together." }, accept: ["to sing", "sings"] },
-        { id: "ja-u22l4-odorimasu", type: "vocab", front: "おどります", reading: "odorimasu", meaning: "dance", example: { jp: "ともだちとおどります。", en: "I dance with a friend." }, accept: ["to dance", "dances"] },
+        { id: "ja-u22l4-odorimasu", type: "vocab", front: "おどります", reading: "odorimasu", meaning: "dance (to dance)", example: { jp: "ともだちとおどります。", en: "I dance with a friend." }, accept: ["to dance", "dances"] },
         { id: "ja-u22l4-ryokoshimasu", type: "vocab", front: "りょこうします", reading: "ryokōshimasu", meaning: "travel", example: { jp: "にほんをりょこうします。", en: "I travel around Japan." }, accept: ["to travel", "take a trip", "tour"] },
         { id: "ja-u22l4-torimasu", type: "vocab", front: "とります", reading: "torimasu", meaning: "take", example: { jp: "メモをとります。", en: "I take a memo." }, accept: ["to take", "take (a photo)", "takes"] },
         { id: "ja-u22l4-atsumemasu", type: "vocab", front: "あつめます", reading: "atsumemasu", meaning: "collect", example: { jp: "コインをあつめます。", en: "I collect coins." }, accept: ["to collect", "gather", "collects"] },

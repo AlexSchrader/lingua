@@ -66,7 +66,7 @@ export const UNIT23 = {
         { id: "ja-u23l3-katai", type: "vocab", front: "かたい", reading: "katai", meaning: "hard", example: { jp: "このパンはかたいです。", en: "This bread is hard." }, accept: ["stiff", "tough", "firm"] },
         { id: "ja-u23l3-yawarakai", type: "vocab", front: "やわらかい", reading: "yawarakai", meaning: "soft", example: { jp: "やわらかいベッドです。", en: "It's a soft bed." }, accept: ["tender", "gentle"] },
         { id: "ja-u23l3-omoi", type: "vocab", front: "おもい", reading: "omoi", meaning: "heavy", example: { jp: "かばんがおもいです。", en: "The bag is heavy." }, accept: ["weighty"] },
-        { id: "ja-u23l3-karui", type: "vocab", front: "かるい", reading: "karui", meaning: "light", example: { jp: "このかさはかるいです。", en: "This umbrella is light." }, accept: ["light (weight)"] },
+        { id: "ja-u23l3-karui", type: "vocab", front: "かるい", reading: "karui", meaning: "light (in weight)", example: { jp: "このかさはかるいです。", en: "This umbrella is light." }, accept: ["light (weight)"] },
       ],
     },
     // Lesson 4: judgments (mixed)

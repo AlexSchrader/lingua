@@ -42,7 +42,7 @@ export const UNIT103 = {
         { id: "ja-u103l2-yaya", type: "vocab", front: "やや", reading: "yaya", meaning: "slightly", example: { jp: "きょうは きのうより やや さむいですが、コートは いりません。", en: "Today is slightly colder than yesterday, but you don't need a coat." }, accept: ["a little", "somewhat", "a bit"] },
         { id: "ja-u103l2-sarani", type: "vocab", front: "さらに", reading: "sarani", meaning: "further", example: { jp: "ねだんが さらに たかく なったので、かうのを やめました。", en: "The price went up further, so I gave up on buying it." }, accept: ["moreover", "even more", "additionally"] },
         { id: "ja-u103l2-wazuka", type: "vocab", front: "わずか", reading: "wazuka", meaning: "only a little", example: { jp: "じかんは わずか ごふんでしたから、みんな いそぎました。", en: "There were only five minutes left, so everyone hurried." }, accept: ["slight", "mere", "just"] },
-        { id: "ja-u103l2-soto", type: "vocab", front: "そうとう", reading: "sōtō", meaning: "considerably", example: { jp: "この しごとは そうとう じかんが かかりますが、とても たのしいです。", en: "This job takes a considerable amount of time, but it's very enjoyable." }, accept: ["quite", "fairly", "a good deal"] },
+        { id: "ja-u103l2-soto", type: "vocab", front: "そうとう", reading: "sōtō", meaning: "considerably (a good deal)", example: { jp: "この しごとは そうとう じかんが かかりますが、とても たのしいです。", en: "This job takes a considerable amount of time, but it's very enjoyable." }, accept: ["quite", "fairly", "a good deal"] },
       ],
     },
     {

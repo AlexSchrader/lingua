@@ -25,7 +25,7 @@ export const UNIT25 = {
       id: "ja-u25l2", unit: 25, lesson: 2, title: "At school", cefr: "A2", dominantMode: "recall",
       canDo: "Talk about school: じゅぎょう しけん せいと きょうしつ こくばん さくぶん.",
       items: [
-        { id: "ja-u25l2-jugyo", type: "vocab", front: "じゅぎょう", reading: "jugyō", meaning: "class", example: { jp: "じゅぎょうはたのしいです。", en: "The class is fun." }, accept: ["lesson", "lecture"] },
+        { id: "ja-u25l2-jugyo", type: "vocab", front: "じゅぎょう", reading: "jugyō", meaning: "class (a lesson taught)", example: { jp: "じゅぎょうはたのしいです。", en: "The class is fun." }, accept: ["lesson", "lecture"] },
         { id: "ja-u25l2-shiken", type: "vocab", front: "しけん", reading: "shiken", meaning: "exam", example: { jp: "あしたしけんです。", en: "There's an exam tomorrow." }, accept: ["test", "examination"] },
         { id: "ja-u25l2-seito", type: "vocab", front: "せいと", reading: "seito", meaning: "pupil", example: { jp: "せいとはまじめです。", en: "The pupils are serious." }, accept: ["student", "schoolchild"] },
         { id: "ja-u25l2-kyoshitsu", type: "vocab", front: "きょうしつ", reading: "kyōshitsu", meaning: "classroom", example: { jp: "きょうしつはしずかです。", en: "The classroom is quiet." }, accept: ["the classroom"] },

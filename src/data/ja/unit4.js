@@ -101,7 +101,7 @@ export const UNIT4 = {
         { id: "ja-u4l4-tomato",   type: "vocab", front: "トマト",   reading: "tomato",   meaning: "tomato", example: { jp: "トマトをたべます。",     en: "I eat a tomato." },     accept: ["tomatoes"] },
         { id: "ja-u4l4-takushi",  type: "vocab", front: "タクシー", reading: "takushī",  meaning: "taxi",   example: { jp: "タクシーでいきます。",   en: "I go by taxi." },       accept: ["cab", "taxis"] },
         { id: "ja-u4l4-tesuto",   type: "vocab", front: "テスト",   reading: "tesuto",   meaning: "test",   example: { jp: "テストがあります。",     en: "There is a test." },    accept: ["exam", "quiz", "tests"] },
-        { id: "ja-u4l4-chiketto", type: "vocab", front: "チケット", reading: "chiketto", meaning: "ticket", example: { jp: "チケットをかいます。",   en: "I buy a ticket." },     accept: ["tickets"] },
+        { id: "ja-u4l4-chiketto", type: "vocab", front: "チケット", reading: "chiketto", meaning: "ticket (for an event)", example: { jp: "チケットをかいます。",   en: "I buy a ticket." },     accept: ["tickets"] },
         { id: "ja-u4l4-tsua",     type: "vocab", front: "ツアー",   reading: "tsuā",     meaning: "tour",   example: { jp: "ツアーにいきます。",     en: "I go on a tour." },     accept: ["tours"] },
       ],
     },

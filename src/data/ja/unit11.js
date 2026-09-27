@@ -70,7 +70,7 @@ export const UNIT11 = {
       dominantMode: "recall",
       canDo: "Read the calendar kanji: 午 (noon), 曜 (day), 週 (week), 年 (year), 今 (now), 毎 (every).",
       items: [
-        { id: "ja-u11l4-go2", type: "kanji", front: "午", reading: "go", meaning: "noon", example: { jp: "午前と午後。", en: "a.m. and p.m." }, accept: ["midday"], hint: "午 = noon. It lives in 午前 (a.m., 'before noon') and 午後 (p.m., 'after noon')." },
+        { id: "ja-u11l4-go2", type: "kanji", front: "午", reading: "go", meaning: "noon (as in a.m. and p.m.)", example: { jp: "午前と午後。", en: "a.m. and p.m." }, accept: ["midday"], hint: "午 = noon. It lives in 午前 (a.m., 'before noon') and 午後 (p.m., 'after noon')." },
         { id: "ja-u11l4-yo", type: "kanji", front: "曜", reading: "yō", meaning: "day of the week", example: { jp: "月曜日です。", en: "It's Monday." }, accept: ["weekday"], hint: "曜 carries 日 (day) on the left and only shows up in 曜日 (day of the week): 月曜日 Monday, 日曜日 Sunday." },
         { id: "ja-u11l4-shu", type: "kanji", front: "週", reading: "shū", meaning: "week", example: { jp: "今週はやすみです。", en: "I'm off this week." }, accept: ["weeks"], hint: "週 = week. 今週 = this week, 毎週 = every week." },
         { id: "ja-u11l4-nen", type: "kanji", front: "年", reading: "nen", meaning: "year", example: { jp: "一年です。", en: "It's one year." }, accept: ["years"], hint: "年 = year. 一年 = one year, 毎年 = every year." },

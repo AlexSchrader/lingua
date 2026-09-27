@@ -115,7 +115,7 @@ export const UNIT1 = {
         { id: "ja-u1l5-inu",      type: "vocab", front: "いぬ",     reading: "inu",      meaning: "dog",       example: { jp: "いぬをかっています。",       en: "I have a dog." },                   accept: [] },
         { id: "ja-u1l5-nihon",    type: "vocab", front: "にほん",   reading: "nihon",    meaning: "Japan",     example: { jp: "にほんがすきです。",         en: "I love Japan." },                   accept: ["nippon"] },
         { id: "ja-u1l5-namae",    type: "vocab", front: "なまえ",   reading: "namae",    meaning: "name",      example: { jp: "なまえはなんですか？",       en: "What is your name?" },             accept: [] },
-        { id: "ja-u1l5-nomimono", type: "vocab", front: "のみもの", reading: "nomimono", meaning: "drink",     example: { jp: "のみものはなんですか？",     en: "What would you like to drink?" },   accept: ["beverage"] },
+        { id: "ja-u1l5-nomimono", type: "vocab", front: "のみもの", reading: "nomimono", meaning: "drink (a beverage)",     example: { jp: "のみものはなんですか？",     en: "What would you like to drink?" },   accept: ["beverage"] },
         { id: "ja-u1l5-nanji",    type: "vocab", front: "なんじ",   reading: "nanji",    meaning: "what time", example: { jp: "なんじですか？",             en: "What time is it?" }, drill: { jp: "なんじにおきますか。", en: "What time do you get up?" },               accept: ["what time is it"] },
       ],
     },
