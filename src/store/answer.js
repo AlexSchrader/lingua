@@ -113,6 +113,17 @@ export function foldWouldEraseAnswer(item) {
   // A WORD stays lenient on purpose: there the accent is not the answer, the word
   // is, and typing pickiness is this app's #1 recorded friction.
   if (item?.type !== "glyph" && [...front].length !== 1) return false;
+  // ✅ AND THIS IS WHERE "ALWAYS STRICT" ACTUALLY GETS IMPLEMENTED. Everything above
+  // only let a glyph PAST the length check; the fold test below then decided it, and
+  // for a script whose fold is the identity that test answers "be lenient". Measured
+  // 2026-09-27 on the first non-Latin glyphs to ship: 29 of Russian's 33 letter cards
+  // accepted the TRANSLITERATION -- typing "m" passed for м, "ih" for ы, and
+  // "myagkiyznak" for ь -- while pt's á correctly rejected "a". The comment below
+  // predicted this ("it re-opened the type e for é free pass for the first non-Latin
+  // script to arrive") and the code still did not stop it, because a prediction in a
+  // comment is not a guard. A letter card asks for a CHARACTER; its transliteration is
+  // the prompt, so accepting the prompt back is a free mark and the card tests nothing.
+  if (item?.type === "glyph") return true;
   // I narrowed this to Latin script on 2026-09-16 and it was wrong twice over.
   // The premise was false: the code-auditor measured the old and new predicates
   // across ALL 994 single-character fronts in the corpus and they agree on every

@@ -107,3 +107,39 @@ test("other languages are untouched by the German fold", () => {
   const ka = { front: "か", reading: "ka", lang: "ja", stage: "pre-a1" };
   assert.ok(checkReading("ka", ka), "Japanese unaffected");
 });
+
+// A NON-LATIN LETTER CARD MUST NOT ACCEPT ITS OWN TRANSLITERATION.
+//
+// foldWouldEraseAnswer's comment said "A LETTER CARD IS ALWAYS STRICT" and even
+// predicted this exact failure -- "it re-opened the type e for é free pass for the
+// first non-Latin script to arrive" -- but the code only let a glyph PAST the
+// length check and then decided it with a fold test. For a script whose fold is the
+// identity that test answers "be lenient". Measured 2026-09-27 on the first Cyrillic
+// glyphs to ship: 29 of Russian's 33 letter cards accepted the transliteration --
+// "m" passed for м, "ih" for ы, "myagkiyznak" for ь -- while pt's á correctly
+// rejected "a". A prediction in a comment is not a guard, so here is the guard.
+//
+// Alex, 2026-09-16: "delete the type e for é ... it should be wiped from existence."
+test("a letter card never accepts its transliteration, in any script", () => {
+  const glyph = (front, reading, lang) => ({ front, reading, lang, type: "glyph" });
+
+  // Cyrillic: the fold is the identity, which is what used to let these through.
+  for (const [front, reading] of [["м", "m"], ["ы", "ih"], ["ь", "myagkiyznak"], ["ж", "zh"]]) {
+    const g = glyph(front, reading, "ru");
+    assert.equal(checkProduce(reading, g), false, `${reading} must not pass for ${front}`);
+    assert.equal(checkProduce(front, g), true, `${front} is still the answer`);
+  }
+
+  // Latin, already shipped: unchanged, and still strict.
+  assert.equal(checkProduce("a", glyph("á", "a", "pt")), false);
+  assert.equal(checkProduce("á", glyph("á", "a", "pt")), true);
+  assert.equal(checkProduce("ao", glyph("ão", "ao", "pt")), false);
+
+  // A digraph letter card whose front IS its reading must still accept it -- there the
+  // reading is not a transliteration of a character, it IS the character.
+  assert.equal(checkProduce("ng", glyph("ng", "ng", "no")), true);
+
+  // And a WORD stays lenient on purpose: typing pickiness is this app's worst
+  // recorded friction, and there the accent is incidental to a word the learner knows.
+  assert.equal(checkProduce("cafe", { front: "café", reading: "cafe", lang: "fr" }), true);
+});
