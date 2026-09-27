@@ -68,9 +68,28 @@
 //      ❌ NOT SPLIT, one card each: cari → only `mencari` (the root is the same
 //         word, standard vs colloquial) · tunggu → only `tunggu` (menunggu is the
 //         same word) · kenapa → only `kenapa` (mengapa is the formal twin)
-//    `check-front.mjs` returns **LEXEME** on nearly every affixed pair. It is
-//    ADVISORY and it will fire constantly here. Judge each one. `TAKEN` and
-//    `SAME` stay hard blocks. ⚠️ Withholding a base word because a derivative
+//    ⚠️ **DO NOT WAIT FOR `check-front.mjs` TO WARN YOU — FOR INDONESIAN IT WILL
+//    NOT.** Block 1 was briefed that `LEXEME` "will fire constantly here". It does
+//    the OPPOSITE, and the failure is silent. MEASURED 2026-09-27 against the 168
+//    fronts of this block: `LEXEME` fired on **0 of 14** real derivations of
+//    already-taught roots — `memakan`, `makanan`, `minuman`, `pekerja`,
+//    `kerjaan`, `jalanan`, `perjalanan`, `menjalan`, `masakan`, `ketiduran`,
+//    `berpergian`, `kepergian`, `pemakan`, `tidur-tidur` ALL reported **free**
+//    while their roots (`makan`, `minum`, `kerja`, `jalan`, `tidur`, `pergi`) are
+//    taught in this block.
+//    THE REASON, and it is structural: `stem()` in that script strips GERMAN
+//    SUFFIXES (`ung|heit|keit|en|er|es|e|n|s`) and then compares the front of the
+//    string. **Indonesian derives by PREFIX** (me- · ber- · pe- · ke- · per-), so
+//    the prefix moves the start of the word and the stems never line up. The only
+//    thing it does catch is one front being another minus a final n/s/e/r —
+//    verified: `mani`/`manis`, `kotan`/`kota`, `besoke`/`besok` all reported
+//    LEXEME, and none of those is a word.
+//    SO: `TAKEN` and `SAME` are still trustworthy hard blocks, and a `free` on a
+//    PREFIXED form is worth nothing. **Strip the affix yourself and grep the root
+//    in TAUGHT-WORDS.md before you add any me-/ber-/pe-/per-/ke- word.** The risk
+//    here is the mirror image of German's: not withholding a base word, but
+//    teaching one root twice under two prefixes and getting a green gate for it.
+//    ⚠️ Withholding a base word because a derivative
 //    exists is how German shipped *survey*, *enquiry* and *demand* and never
 //    taught **question** (17 core words, measured 2026-09-23). Do not repeat it.
 //
