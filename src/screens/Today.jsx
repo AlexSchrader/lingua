@@ -5,6 +5,7 @@ import { useStore, REVIEW_CAP, activeLangId } from "../store/useStore.js";
 import { LANGUAGES, orderedUnits } from "../data/index.js";
 import { isReviewable, isMastered } from "../store/mastery.js";
 import { nextMilestone } from "../data/milestones.js";
+import { bandLabel } from "../data/languages.js";
 import { C, F } from "../theme.js";
 import Mascot from "../components/Mascot.jsx";
 import { VERSION } from "../version.js";
@@ -331,7 +332,7 @@ export default function Today() {
           <div style={{ fontFamily: F.disp, fontSize: 19, fontWeight: 700, marginBottom: 2 }}>{greeting(profile.displayName)}</div>
           <div style={{ fontSize: 14, color: C.ink, lineHeight: 1.35, fontWeight: 600 }}>{mascot.msg}</div>
           <div style={{ fontSize: 12, color: C.inkSoft, fontWeight: 600, marginTop: 6 }}>
-            {active.flag} {active.name} · {active.level === "pre-A1" ? `${learnedCount} item${learnedCount === 1 ? "" : "s"}` : active.level} → {active.target} goal
+            {active.flag} {active.name} · {active.level === "pre-A1" ? `${learnedCount} item${learnedCount === 1 ? "" : "s"}` : bandLabel(active.id, active.level)} → {bandLabel(active.id, active.target)} goal
             {nextReviewAt ? ` · next review ${fmtWhen(nextReviewAt)}` : ""}
           </div>
         </div>

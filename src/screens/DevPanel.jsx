@@ -7,7 +7,7 @@ import { enterPreview, buildPreviewState } from "../store/preview.js";
 import { PERSIST_VERSION } from "../store/migrate.js";
 import { devDiagnostics, sandboxRoute, cardPreviewRoute, PREVIEW_STATES, PREVIEW_LABEL, reviewSandboxRoute, fixupSandboxRoute, microSandboxRoute, devLanguages, defaultDevLang } from "../store/dev.js";
 import { LIVE_CARD_KINDS } from "../data/contract.js";
-import { langName } from "../data/languages.js";
+import { langName, bandLabel } from "../data/languages.js";
 import Mascot from "../components/Mascot.jsx";
 import Celebration from "../components/Celebration.jsx";
 import { C, F } from "../theme.js";
@@ -38,7 +38,8 @@ const MASCOT_CONTEXTS = ["greeting", "correctAnswer", "wrongAnswer", "lessonComp
 // CEFR stages, in climb order — the lesson-preview launchers group units by these
 // so the panel shows a couple of stage tabs instead of one tab per unit.
 const STAGE_ORDER = ["pre-a1", "a1", "a2", "b1", "b2"];
-const STAGE_LABEL = { "pre-a1": "Pre-A1", a1: "A1", a2: "A2", b1: "B1", b2: "B2" };
+// Stage headings read through `bandLabel` like every learner-facing screen, so the
+// dev panel names a band the same way the Ladder does (ja: JLPT, everyone else: CEFR).
 
 // Collapsible section — the panel got long, so every block is a tap-to-open
 // accordion (collapsed by default) to kill the scrolling. The title stays visible
@@ -161,7 +162,7 @@ export default function DevPanel() {
       {STAGE_ORDER.filter((st) => langUnits.some((u) => (u.stage ?? "a1") === st)).map((st) => {
         const stageUnits = langUnits.filter((u) => (u.stage ?? "a1") === st);
         return (
-          <Section key={st} title={`${STAGE_LABEL[st] ?? st} lessons · ${stageUnits.length} unit${stageUnits.length === 1 ? "" : "s"}`}>
+          <Section key={st} title={`${bandLabel(lang, st)} lessons · ${stageUnits.length} unit${stageUnits.length === 1 ? "" : "s"}`}>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               {stageUnits.map((unit) => {
                 const lessons = unit.lessons.filter((l) => l.items);
@@ -384,8 +385,9 @@ export default function DevPanel() {
         <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 8, lineHeight: 1.4 }}>
           Re-runs the language pick + onboarding screens. Doesn't touch your progress — but the
           language you pick <strong>replaces</strong> your started list, because onboarding chooses a
-          first language rather than adding one. Re-add the others from the Ladder — an A1 you've
-          already earned keeps that gate open, so nothing you've studied becomes unreachable.
+          first language rather than adding one. Re-add the others from the Ladder — a{" "}
+          {bandLabel(lang, "A1")} you've already earned keeps that gate open, so nothing you've
+          studied becomes unreachable.
         </div>
 
         {/* The Ladder's "Add a language" section is gated on reaching A1, so its
@@ -401,7 +403,7 @@ export default function DevPanel() {
         </button>
         <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 8, lineHeight: 1.4 }}>
           Shows the Ladder's add-a-language rows unlocked, as they look once you've
-          reached A1 — the only way to see {langName(lang)} offered as a second
+          reached {bandLabel(lang, "A1")} — the only way to see {langName(lang)} offered as a second
           language rather than a first pick. Read-only: Start is disabled.
         </div>
       </Section>

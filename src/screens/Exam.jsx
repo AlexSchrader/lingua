@@ -6,7 +6,7 @@ import CardStage from "../components/games/CardStage.jsx";
 import { useStore } from "../store/useStore.js";
 import { buildExamSandbox } from "../store/dev.js";
 import { examPaper, scoreExam, paperKeyFor, EXAM_PASS_PCT, EXAM_POOL_MAX } from "../store/exams.js";
-import { langName } from "../data/languages.js";
+import { langName, bandLabel } from "../data/languages.js";
 import { C, F } from "../theme.js";
 
 // Band exam / checkpoint runner. See docs/shipped/BUILD-BRIEF-exams.md.
@@ -147,11 +147,16 @@ export default function Exam() {
 
   const isExam = paper.kind === "exam";
   const isCheckpoint = paper.kind === "checkpoint";
+  // The band as the LEARNER reads it. Japanese says N5/N4/N3/N2, every other
+  // language says A1/A2/B1/B2 (bandLabel in data/languages.js; Alex, 2026-09-27).
+  // `paper.band` itself stays CEFR everywhere it is reasoned with — ids, records,
+  // milestone ids and the test hooks below are all unchanged.
+  const bandName = bandLabel(paper.lang, paper.band);
   const title = isExam
-    ? `${paper.band} check`
+    ? `${bandName} check`
     : isCheckpoint
       ? `Checkpoint · units ${paper.from}–${paper.to}`
-      : `${paper.band}½ check`;
+      : `${bandName}½ check`;
   const langLabel = langName(paper.lang) ?? paper.lang;
 
   // --- the calm intro -------------------------------------------------------
@@ -167,8 +172,8 @@ export default function Exam() {
           <Panel title="WHAT THIS IS">
             {isExam ? (
               <>
-                {paper.steps.length} questions drawn from everything up to {paper.band}. Pass at{" "}
-                {EXAM_PASS_PCT}% and {paper.band} shows as <strong>verified</strong>.
+                {paper.steps.length} questions drawn from everything up to {bandName}. Pass at{" "}
+                {EXAM_PASS_PCT}% and {bandName} shows as <strong>verified</strong>.
               </>
             ) : isCheckpoint ? (
               <>
@@ -186,7 +191,7 @@ export default function Exam() {
               </>
             ) : (
               <>
-                {paper.steps.length} questions from around the halfway point between {paper.band} and
+                {paper.steps.length} questions from around the halfway point between {bandName} and
                 the next band. This is a mirror, not a test — there is <strong>no pass mark at all</strong>.
               </>
             )}
@@ -234,8 +239,8 @@ export default function Exam() {
     const headline = !isExam
       ? "Where you are right now"
       : result.passed
-        ? `${paper.band} verified`
-        : `${paper.band} — not yet verified`;
+        ? `${bandName} verified`
+        : `${bandName} — not yet verified`;
     const untestedLabel =
       result.untested.length > UNTESTED_SHOWN
         ? `${result.untested.slice(0, UNTESTED_SHOWN).join(" · ")} · and ${result.untested.length - UNTESTED_SHOWN} more`

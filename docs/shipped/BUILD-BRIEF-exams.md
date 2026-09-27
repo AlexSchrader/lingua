@@ -11,7 +11,7 @@
 > - milestone family `verified`, ids `level-<band>-verified[-<lang>]`, in `src/data/milestones.js`
 > - Ladder affordance: `ExamLinks` / `CefrRungRow` in `src/screens/Ladder.jsx`
 > - store keys `exams` + `missedPool`, actions `recordExam` / `queuePractice` / `creditExamAnswer` / `recordCheckpointMiss` in `src/store/useStore.js`
-> - tests: `tests/unit/exams.test.mjs` (**46 tests** as of 2026-09-26 — the original "a full exam run leaves the real items map byte-identical" is now the narrowed **"a wrong exam answer changes nothing"**, see D4) and two Playwright smokes in `tests/smoke.spec.js`
+> - tests: `tests/unit/exams.test.mjs` (**49 tests** as of 2026-09-27 — the original "a full exam run leaves the real items map byte-identical" is now the narrowed **"a wrong exam answer changes nothing"**, see D4) and two Playwright smokes in `tests/smoke.spec.js`
 >
 > ## The three blocking decisions, and who settled them
 >
@@ -68,6 +68,47 @@
 > - built as: `addMiss` / `clearMiss` / `missedEntries` / `drawFromMissed` / `lessonLabel` in `src/store/exams.js`; `missedPool` + `recordCheckpointMiss` in `src/store/useStore.js`; `LessonChip` + the "GO BACK TO THESE" panel in `src/screens/Exam.jsx`.
 > - **The intro copy was corrected, not appended to.** A checkpoint used to promise *"No result is saved either — just the date"*; that stopped being true, so it now says *"No score is saved — just the date, plus which words you missed, so a later check can come back to them a different way."*
 > - tests: **seven** added in `tests/unit/exams.test.mjs` (46 total), the load-bearing one being **"A POOLED ITEM IS NEVER RE-ASKED WITH THE KIND IT WAS MISSED WITH"**, swept over every band of every authored language. Plus **two** Playwright smokes (45 dev / 43 preview): *"a not-yet-verified exam names the SECTION AND LESSON to go back to, and the lesson opens"* and *"the band exam really spends the missed pool"*. The existing band-exam smoke plays a CLEAN paper — `playCard` answers correctly by construction — so a new `missCard` helper grades wrong on purpose; without it the fail screen and the pool would both have been untested in the browser.
+>
+> **D7 — JAPANESE BANDS ARE NAMED BY JLPT LEVEL, NOT CEFR.** Alex, 2026-09-27: *"jlpt n5"*.
+>
+> **THIS REFINES D2 AND D3's LABELS ONLY. It repeals nothing above, and it is not a content change.** `lesson.cefr` is exactly as authored, no lesson was retagged, the cumulative band rule is untouched, `PERSIST_VERSION` is unchanged, and **every milestone id stays byte-identical** — `level-A1`, `level-A1-verified`, `level-B2-verified-fr`. D2's two-honest-signals rule still stands; both signals just say the band in the learner's own vocabulary.
+>
+> **WHY IT CAME UP.** A Japanese A1 exam paper drew `のんびり` (u63), `そろそろ` (u68) and `けいかん` (u83) — words most people would call A2. **That is not an exam bug.** The exam uses the same cumulative `lesson.cefr` rule `milestones.js` already uses, and **ja's A1-tagged lessons genuinely span u1–u87 (43 units, 1252 items)**. So the paper was faithful and the *label* was the thing that was wrong.
+>
+> Two ways out were put to Alex: retag those late lessons to A2, or decide that Japanese A1 **means** JLPT N5 and say so. **He chose the second.** No content moved.
+>
+> | CEFR band (what the engine reasons with) | Japanese label | Every other language |
+> |---|---|---|
+> | `pre-A1` / `pre-a1` | **Before N5** | Pre-A1 |
+> | `A1` | **N5** | A1 |
+> | `A2` | **N4** | A2 |
+> | `B1` | **N3** | B1 |
+> | `B2` | **N2** | B2 |
+>
+> N1 has no CEFR twin and we do not claim one. There is likewise no JLPT level below N5, so ja's kana foundation reads **"Before N5"** rather than dropping a CEFR word into a JLPT spine — a judgement call, one table entry to revert.
+>
+> **Built as ONE exported helper, called by every display site.** `bandLabel(lang, band)` in **`src/data/languages.js`**, beside `langName` — it is a display-name helper, and that module has zero imports so anything can read it. It accepts **both spellings the app uses** (the CEFR band `"A1"` from `lesson.cefr` / exam papers / `cefrLevelReached`, and the lowercase unit stage `"a1"` / `"pre-a1"` from `unit.stage`), because both reach the same screens and a helper that took only one of them would guarantee a second hardcoded table. Unknown band or language falls through unchanged rather than blanking the UI.
+>
+> **There is no `lang === "ja"` branch in any screen** — CLAUDE.md's architecture spine forbids it, and the next language with its own certification ladder (Korean → TOPIK) is one entry in that table and no JSX at all.
+>
+> **Call sites — all of them:**
+> - `src/screens/Exam.jsx` — one `bandName` const feeds the `PhaseShell` title, both intro paragraphs and the result headline. **`N5 verified` / `N5 — not yet verified`.**
+> - `src/data/milestones.js` — the `level-<band>` **label and blurb** and the `level-<band>-verified` **label and blurb**. *Japanese N5 complete* sits next to *Japanese N5 verified*; a learner never sees "N5 verified" against "A1 complete" for one band. **The ids were not touched.**
+> - `src/screens/Ladder.jsx` — six sites: the rung spine (`CefrRungRow`), the "‹band› progress" heading, "Lessons for ‹band› coming soon", the Units-tab stage groups, the `level → target goal` line, and the band-exam affordance (`✓ N5 verified` / `Take the N5 check →`). **This file's own `STAGE_LABEL` + `JLPT_BY_STAGE` pair is deleted** — it rendered ja as `"A1 · N5"`, two names for one band, and was the only place in the app that knew about JLPT at all.
+> - `src/screens/Today.jsx` — the header's `level → target goal` line.
+> - `src/screens/Stats.jsx` — the per-language level chip and the per-stage progress rows. Its private copy of `STAGE_LABEL` is deleted.
+> - `src/screens/Settings.jsx` — the About → Learning row, and the glyph-script typing copy (*"Through N5 you can answer in rōmaji … from N4 you'll type the kana"*).
+> - `src/screens/DevPanel.jsx` — stage section titles and the two add-a-language notes. Its private copy of `STAGE_LABEL` is deleted.
+>
+> **Test hooks stayed CEFR on purpose.** `data-testid="take-exam-A1"` and `verified-A1` are built from the exam id, not the label; they are machine handles, and moving them would have coupled a rename of *copy* to a rename of *contract*.
+>
+> **`src/screens/Onboarding.jsx`** said *"You'll unlock the next once you reach A1"* on the language-**pick** screen, where no language is chosen yet and so no correct band name exists. Rewritten band-agnostically: *"once you finish its first level"*.
+>
+> **tests: five added, one widened.**
+> - `tests/unit/languages.test.mjs` — four: ja returns N5/N4/N3/N2 and never leaks the CEFR name; **every other language in `LANGUAGES`** returns A1/A2/B1/B2 across all four bands; both spellings plus `pre-a1`; junk input.
+> - `tests/unit/exams.test.mjs` — three: a ja exam paper's display label matches `/^N[0-9]$/` and never contains the CEFR band (while `paper.band` is still CEFR); a fr paper still reads A1; and **"THE JLPT LABEL DID NOT MOVE ANY MILESTONE ID"** — the test that stops someone "fixing" the id to match the label later and silently un-earning every badge on disk. It also asserts no catalog id anywhere contains an `N1`–`N5`.
+> - **Widened, not weakened:** *"level-‹band›-verified is a SEPARATE milestone"* asserted `/ (A1|A2|B1|B2) verified$/`. It now derives the expected band from the **id** and pins **one exact string per milestone** (`${langName} ${bandLabel} verified`) — strictly tighter than accepting any of four.
+> - smoke: the existing fail-screen assertion is now **`toHaveText("N5 — not yet verified")`** plus *"the string `A1` appears nowhere on the screen"*, and the Ladder button asserts `Take the N5 check →`. That is the proof the label reached the real rendered DOM and not just the unit tests.
 >
 > ## What the brief got WRONG, corrected in the build
 >

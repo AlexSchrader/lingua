@@ -4,11 +4,14 @@ import { useStore, activeLangId } from "../store/useStore.js";
 import { LANGUAGES, UNITS } from "../data/index.js";
 import { RUNGS, isMastered } from "../store/mastery.js";
 import { milestonesFromIds, nextMilestone } from "../data/milestones.js";
+import { bandLabel } from "../data/languages.js";
 import { C, F } from "../theme.js";
 import LangChip from "../components/LangChip.jsx";
 
 const STAGE_ORDER = ["pre-a1", "a1", "a2", "b1", "b2"];
-const STAGE_LABEL = { "pre-a1": "Pre-A1", a1: "A1", a2: "A2", b1: "B1", b2: "B2" };
+// Band names come from `bandLabel` (data/languages.js) — ja reads JLPT (N5…N2),
+// every other language reads CEFR. This file used to hold its own copy of the CEFR
+// table, which is exactly how one screen ends up disagreeing with another.
 
 export default function Stats() {
   const languages = useStore((s) => s.languages);
@@ -114,7 +117,7 @@ export default function Stats() {
                     {lang.flag} {lang.name} {locked && "🔒"}
                   </span>
                   <span style={{ color: C.inkSoft, fontSize: 12 }}>
-                    {lang.level === "pre-A1" ? `${learnedInLang} item${learnedInLang === 1 ? "" : "s"}` : lang.level}
+                    {lang.level === "pre-A1" ? `${learnedInLang} item${learnedInLang === 1 ? "" : "s"}` : bandLabel(l.id, lang.level)}
                   </span>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
@@ -124,7 +127,9 @@ export default function Stats() {
                     const done = total > 0 && lrn === total;
                     return (
                       <div key={s} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12 }}>
-                        <span style={{ width: 52, color: C.inkSoft, fontWeight: 600 }}>{STAGE_LABEL[s]}</span>
+                        {/* 64, not 52: the widest band label is ja pre-A1 ("Before N5"), which clipped at 52.
+                            flexShrink 0 + nowrap so it can never be squeezed into the bar. */}
+                        <span style={{ width: 64, flexShrink: 0, whiteSpace: "nowrap", color: C.inkSoft, fontWeight: 600 }}>{bandLabel(l.id, s)}</span>
                         <div style={{ flex: 1, height: 6, background: C.lockedBg, borderRadius: 999, overflow: "hidden" }}>
                           <div style={{ width: `${pct}%`, height: "100%", background: done ? C.matcha : C.ai, transition: "width 250ms ease" }} />
                         </div>

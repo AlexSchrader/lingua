@@ -12,7 +12,7 @@
 // engine reads this catalog generically; adding a milestone is one entry.
 
 import { UNITS } from "./index.js";
-import { langName } from "./languages.js";
+import { langName, bandLabel } from "./languages.js";
 import { isMastered, isReviewable } from "../store/mastery.js";
 import { isVerified, verifiedMilestoneId } from "../store/exams.js";
 
@@ -151,10 +151,13 @@ export function milestoneCatalog() {
       if (bandDefs.length)
         list.push(
           completeAll({
+            // The ID is the CEFR band and MUST STAY THAT WAY — it is persisted and
+            // earned-once. Only the LABEL is language-specific (ja reads JLPT, see
+            // bandLabel in languages.js; Alex, 2026-09-27).
             id: lang === LEGACY_LEVEL_LANG ? `level-${band}` : `level-${band}-${lang}`,
             family: "level",
-            label: `${langName(lang)} ${band} complete`,
-            blurb: `${band} items`,
+            label: `${langName(lang)} ${bandLabel(lang, band)} complete`,
+            blurb: `${bandLabel(lang, band)} items`,
             defs: bandDefs,
             lang,
           })
@@ -166,8 +169,8 @@ export function milestoneCatalog() {
         list.push(
           verified({
             id: verifiedMilestoneId(lang, band),
-            label: `${langName(lang)} ${band} verified`,
-            blurb: `${band} exam`,
+            label: `${langName(lang)} ${bandLabel(lang, band)} verified`,
+            blurb: `${bandLabel(lang, band)} exam`,
             lang,
             band,
           })

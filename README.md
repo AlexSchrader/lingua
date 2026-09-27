@@ -53,7 +53,10 @@ Full running list and detail: **`BUILD-CHECKLIST.md`** — readers shouldn't hav
 - **106 kanji ≈ JLPT N5 complete** — recognition by meaning, production by stroke tracing (Units 11, 13–15, 17–18).
 - **Core A1 grammar** — the copula sentence (Xは Yです / か / の / と / も / question words), verbs + particles (を/が/に/で/へ/から/まで), invitations & requests (ませんか/ましょう/ください), and past tense + い/な-adjective conjugation (Units 19–21).
 - **A2 / N4** — the second band, shipped: more grammar, kanji and vocabulary.
-- Sectioned by CEFR stage (`pre-a1` / `a1` / …) with JLPT tags on the Ladder.
+- Sectioned by CEFR stage (`pre-a1` / `a1` / …). **Japanese bands are NAMED by JLPT level on
+  every screen** — A1 reads **N5**, A2 **N4**, B1 **N3**, B2 **N2** (Alex, 2026-09-27; one
+  helper, `bandLabel` in `src/data/languages.js`). Every other language reads CEFR. The Ladder
+  used to print a CEFR label with a JLPT tag beside it (`A1 · N5`); it now prints one name.
 
 **French curriculum — A1 · 27 units · 81 lessons · 566 items.** Greetings through the
 passé composé, plus a **sounds-and-accents unit that runs first** — French learners can

@@ -110,10 +110,12 @@ test("milestoneSummary shape: earned list + next + total", () => {
 test("level milestones are per-language — a new language never moves another's goalposts", () => {
   const levels = milestoneCatalog().filter((m) => m.family === "level");
   // ja keeps its ORIGINAL un-suffixed ids (persisted earned ids must survive),
-  // and its A1 denominator counts only ja items.
+  // and its A1 denominator counts only ja items. The ID is still the CEFR band; the
+  // LABEL reads JLPT, because Japanese bands are named by JLPT level (Alex,
+  // 2026-09-27). See the id-vs-label test in exams.test.mjs.
   const jaA1 = levels.find((m) => m.id === "level-A1");
   assert.ok(jaA1, "legacy level-A1 id exists");
-  assert.equal(jaA1.label, "Japanese A1 complete");
+  assert.equal(jaA1.label, "Japanese N5 complete");
   // fr items must NOT be in ja's denominator. cefr lives on the LESSON (seedItems
   // stamps stage, not cefr), so count from UNITS directly.
   const countBand = (lang, band) => {

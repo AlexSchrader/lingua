@@ -45,6 +45,7 @@ import { countedPasses } from "../../src/store/mastery.js";
 import { newCard, schedule } from "../../src/store/srs.js";
 import { useStore } from "../../src/store/useStore.js";
 import { earnedMilestones, milestoneCatalog, nextMilestone } from "../../src/data/milestones.js";
+import { bandLabel, langName } from "../../src/data/languages.js";
 import { kindKeyOf } from "../../src/store/reviewStep.js";
 
 // Languages with authored content today. Derived, not hardcoded, so this file
@@ -497,8 +498,18 @@ test("level-<band>-verified is a SEPARATE milestone from level-<band>", () => {
   assert.ok(ids.includes("level-A1-verified"), "the exam-verified milestone was added alongside it");
   assert.ok(ids.includes("level-B2-verified-fr"), "every language/band pair gets one");
 
+  // Every verified milestone's label ends in "<the band as that language NAMES it>
+  // verified" — CEFR for most languages, JLPT for Japanese (D7, Alex 2026-09-27).
+  // The expected band is DERIVED FROM THE ID, which is still CEFR and must stay so.
+  // This is tighter than the / (A1|A2|B1|B2) verified$/ it replaces, not looser: it
+  // pins one exact string per milestone instead of accepting any of four bands.
   const verified = milestoneCatalog().filter((m) => m.family === "verified");
-  for (const m of verified) assert.match(m.label, / (A1|A2|B1|B2) verified$/);
+  assert.ok(verified.length > 0, "there are verified milestones to check");
+  for (const m of verified) {
+    const band = /^level-(A1|A2|B1|B2)-verified/.exec(m.id)?.[1];
+    assert.ok(band, `a verified milestone id lost its CEFR band: ${m.id}`);
+    assert.equal(m.label, `${langName(m.lang)} ${bandLabel(m.lang, band)} verified`);
+  }
 });
 
 test("the verified milestone is earned by a passed exam and by nothing else", () => {
@@ -1076,4 +1087,56 @@ test("a failed exam's breakdown NAMES THE LESSONS to go back to — and a pass g
   assert.equal(lessonLabel(7, 2), "u7 l2");
   assert.equal(lessonLabel(7, null), "u7");
   assert.equal(lessonLabel(null, null), "");
+});
+
+// --- the JLPT label (Alex, 2026-09-27: "jlpt n5") ---------------------------
+// Japanese bands are NAMED by JLPT level. Nothing about the exam machinery moved:
+// the paper, the record, the pass mark and the milestone id are all still CEFR.
+
+test("a Japanese exam paper's DISPLAY label is JLPT, and never the CEFR band", () => {
+  for (const band of EXAM_BANDS) {
+    const paper = examPaper(examId("ja", band));
+    if (!paper) continue; // a band with no authored content yields no paper
+    assert.equal(paper.band, band, "the PAPER still carries the CEFR band");
+    const shown = bandLabel(paper.lang, paper.band);
+    assert.match(shown, /^N[0-9]$/, `ja ${band} shows "${shown}"`);
+    assert.ok(!shown.includes(band), `ja exam still shows "${band}" to the learner`);
+  }
+  // The headline Exam.jsx builds from it, in both outcomes.
+  const a1 = bandLabel("ja", "A1");
+  assert.equal(`${a1} verified`, "N5 verified");
+  assert.equal(`${a1} \u2014 not yet verified`, "N5 \u2014 not yet verified");
+});
+
+test("a non-Japanese exam paper's display label is still its CEFR band", () => {
+  const paper = examPaper(examId("fr", "A1"));
+  assert.ok(paper, "fr A1 has a paper");
+  assert.equal(bandLabel(paper.lang, paper.band), "A1");
+});
+
+test("THE JLPT LABEL DID NOT MOVE ANY MILESTONE ID \u2014 ids are persisted, labels are not", () => {
+  // The test that stops someone "fixing" the id to match the label later. A
+  // milestone is earned-once and stored by id: renaming level-A1-verified to
+  // level-N5-verified would silently un-earn every badge already on disk.
+  assert.equal(verifiedMilestoneId("ja", "A1"), "level-A1-verified");
+  assert.equal(verifiedMilestoneId("ja", "A2"), "level-A2-verified");
+  assert.equal(verifiedMilestoneId("ja", "B1"), "level-B1-verified");
+  assert.equal(verifiedMilestoneId("ja", "B2"), "level-B2-verified");
+  const cat = milestoneCatalog();
+  for (const band of EXAM_BANDS) {
+    const vid = verifiedMilestoneId("ja", band);
+    const verifiedM = cat.find((m) => m.id === vid);
+    const levelM = cat.find((m) => m.id === `level-${band}`);
+    assert.ok(verifiedM, `${vid} exists`);
+    assert.ok(levelM, `level-${band} exists`);
+    // ...while BOTH labels read JLPT, so a learner never sees "N5 verified" next to
+    // "A1 complete" for one and the same band.
+    const n = bandLabel("ja", band);
+    assert.equal(verifiedM.label, `Japanese ${n} verified`);
+    assert.equal(levelM.label, `Japanese ${n} complete`);
+    assert.ok(!verifiedM.label.includes(band) && !levelM.label.includes(band));
+  }
+  // And no id anywhere in the catalog picked up a JLPT name.
+  const jlptIds = cat.filter((m) => /N[1-5]/.test(m.id)).map((m) => m.id);
+  assert.deepEqual(jlptIds, [], "a milestone id leaked a JLPT level");
 });

@@ -55,3 +55,43 @@ export const LANGUAGES = [
   { id: "vi", name: "Vietnamese", flag: "🇻🇳", target: "B2" },
   { id: "yo", name: "Yoruba", flag: "🌍", target: "B2" },
 ];
+
+// --- band labels -------------------------------------------------------------
+// A CEFR band has a NAME the engine reasons with and a NAME the learner reads, and
+// for Japanese they are not the same word. Alex, 2026-09-27: *"jlpt n5"*.
+//
+// **Japanese bands are named by JLPT level, not CEFR: A1→N5, A2→N4, B1→N3, B2→N2.**
+// (N1 has no CEFR twin and we do not claim one; there is likewise no JLPT level
+// below N5, so ja's pre-A1 kana foundation reads "Before N5" rather than mixing a
+// CEFR term into a JLPT spine.) Every other language keeps its CEFR label.
+//
+// THIS IS A LABELLING RULE AND NOTHING ELSE. `lesson.cefr` is untouched, milestone
+// IDS are untouched (`level-A1-verified` stays byte-identical — it is persisted and
+// earned-once), `PERSIST_VERSION` is untouched, and exams/levels/milestones still
+// reason in CEFR bands from end to end. Only the string on screen changes.
+//
+// WHY: ja's A1-tagged lessons genuinely span u1–u87 (43 units, 1252 items), so a
+// faithful cumulative A1 exam draws words most people would call A2 — のんびり
+// (u63), そろそろ (u68), けいかん (u83). That is not an exam bug; the exam uses the
+// same cumulative `lesson.cefr` rule milestones.js already uses. The two ways out
+// were to retag those late lessons or to say what Japanese A1 actually IS. Alex
+// chose the second: Japanese A1 *means* JLPT N5, so it says N5. No content moved.
+//
+// EVERY display site calls bandLabel(). A `lang === "ja"` branch in a screen is the
+// content-bleeding-into-engine hardcoding CLAUDE.md's architecture spine forbids —
+// this table is the one place that knows, and the next language with its own
+// certification ladder (Korean → TOPIK) is one entry here and no JSX at all.
+const JLPT = { "PRE-A1": "Before N5", A1: "N5", A2: "N4", B1: "N3", B2: "N2" };
+const CEFR_LABELS = { "PRE-A1": "Pre-A1", A1: "A1", A2: "A2", B1: "B1", B2: "B2" };
+const BAND_LABELS = { ja: JLPT };
+
+// Display label for a band in a language. Accepts either spelling the app uses —
+// the CEFR band ("A1", from lesson.cefr / exam papers / cefrLevelReached) and the
+// lowercase unit stage ("a1", "pre-a1", from unit.stage) — because both reach the
+// same screens and a helper that only took one of them would guarantee a second
+// hardcoded table. Unknown bands pass through unchanged rather than blanking the UI.
+export function bandLabel(lang, band) {
+  if (band == null || band === "") return "";
+  const key = String(band).toUpperCase();
+  return BAND_LABELS[lang]?.[key] ?? CEFR_LABELS[key] ?? String(band);
+}

@@ -39,7 +39,7 @@ No points, no leaderboards, no social, no collect-'em-all pressure, no decay/los
 | **Script** | Can read all hiragana · all katakana · yōon complete | the writing-system grid state (kana items at rung ≥ threshold) |
 | **Vocab depth** | 10 · 50 · 100 · 250 words mastered | `isMastered` count over vocab items |
 | **Kanji** | First kanji · all N5 kanji (106) | mastered kanji count |
-| **Level** | Pre-A1 complete · A1 complete | `isLevelComplete(langId, level, items)` (already exists) |
+| **Level** | Pre-A1 complete · A1 complete — **but for Japanese these SHIP as "Before N5" / "Japanese N5 complete"**, see D7 in `BUILD-BRIEF-exams.md` (Alex, 2026-09-27). The milestone **id** is still `level-A1`. | `isLevelComplete(langId, level, items)` (already exists) |
 | **Skill firsts** | First item to MASTERED · first traced · first spoken (when `speak` lands) | rung transitions |
 
 - **A milestone catalog** (`src/data/milestones.js` or similar) defines each: id, label ("You can read all of hiragana"), and a pure predicate over `(items, units)`. Content-agnostic — the engine reads the catalog; adding a milestone is one entry.
@@ -113,7 +113,7 @@ Each milestone is a pure predicate over `(items, units)`. Thresholds below are *
 | | `kanji-50` | "50 kanji mastered" | ≥ 50 | 50 |
 | | `kanji-n5` | "All 106 N5 kanji learned" | every `kanji` rung ≥ 1 (coverage capstone) | 106 |
 | **Section / level** | `pre-a1` | "Pre-A1 complete — all kana scripts" | `isStageComplete("pre-a1")` | — |
-| | `a1-n5` | "A1 complete — you've reached JLPT N5" | `isLevelComplete("ja","A1")` | — |
+| | `a1-n5` | SHIPPED as id **`level-A1`**, label **"Japanese N5 complete"** — the band name itself is the JLPT level for Japanese, so the label no longer carries both (D7 in `BUILD-BRIEF-exams.md`, 2026-09-27). | `isLevelComplete("ja","A1")` | — |
 
 **Display / "next goal":** show earned milestones + the **single nearest-to-complete** unearned one as a gentle target ("3 more to 100 words mastered"). Suggested ordering for "what's next": Firsts → Script → Vocab/Kanji depth → Section capstones. No wall of locked badges.
 

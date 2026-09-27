@@ -121,7 +121,7 @@ export default function Onboarding() {
             <div style={{ textAlign: "center" }}>
               <img src="/mascot/lingua-wave.png" alt="" aria-hidden style={{ width: 100, height: "auto", margin: "0 auto 8px" }} />
               <div style={{ fontFamily: F.disp, fontSize: 24, fontWeight: 700 }}>Which language?</div>
-              <div style={{ fontSize: 13, color: C.inkSoft, marginTop: 4 }}>Pick the one to start with. You'll unlock the next once you reach A1.</div>
+              <div style={{ fontSize: 13, color: C.inkSoft, marginTop: 4 }}>Pick the one to start with. You'll unlock the next once you finish its first level.</div>
             </div>
 
             {/* 23 languages do not fit a phone screen, and Continue must never be the

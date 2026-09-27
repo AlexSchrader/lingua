@@ -982,8 +982,11 @@ test("dev mode: unlock from Settings, panel shows diagnostics, isolated run leav
   const before = await page.evaluate(() => localStorage.getItem("lingua-v1"));
 
   // Launch a Fresh lesson directly (bypasses ladder gating) and play it through.
-  // Lesson launchers are grouped by stage now — open the Pre-A1 group (holds Unit 1).
-  await page.getByRole("button", { name: /Pre-A1 lessons/ }).click();
+  // Lesson launchers are grouped by stage now — open the kana-foundation group (holds
+  // Unit 1). It reads "Before N5" for Japanese: the dev panel names a band through the
+  // same `bandLabel` as every learner-facing screen, and there is no JLPT level below
+  // N5 (D7, Alex 2026-09-27). A French learner's equivalent group is still "Pre-A1".
+  await page.getByRole("button", { name: /Before N5 lessons/ }).click();
   await page.getByRole("button", { name: "Fresh" }).first().click();
   await expect(page.locator("text=/🧪 Dev ·/")).toBeVisible();
   for (let i = 0; i < 80; i++) {
@@ -1413,7 +1416,10 @@ test("dev preview: add-a-language renders unlocked, and Start cannot write", asy
   await page.goto("/ladder?preview=addlang");
   await expect(page.getByTestId("addlang-preview-banner")).toBeVisible();
   const prev = (await page.locator("#root").textContent()) ?? "";
-  expect(prev).toContain("You've reached A1");
+  // JLPT, because the active language is Japanese (D7, Alex 2026-09-27). The GATE is
+  // still "has this learner reached the CEFR A1 band"; only its name on screen moved.
+  expect(prev).toContain("You've reached N5");
+  expect(prev).not.toContain("You've reached A1");
   expect(prev).toContain("French");
 
   // The isolation contract: Start is inert and real progress is untouched.
@@ -1609,9 +1615,12 @@ test("band exam: offered on its Ladder rung, plays end to end, and can only move
   await page.goto("/");
   await page.getByRole("button", { name: "Ladder", exact: true }).click();
 
-  // The affordance lives ON the A1 rung — no new tab was added for it.
+  // The affordance lives ON the A1 rung — no new tab was added for it. The test HOOK
+  // stays CEFR (it is built from the exam id, which never moved); the LABEL the
+  // learner reads is JLPT for Japanese (D7, Alex 2026-09-27).
   const take = page.getByTestId("take-exam-A1");
   await expect(take).toBeVisible();
+  await expect(take).toHaveText("Take the N5 check →");
   // The half-band check link is RETIRED (2026-09-25) — replaced by checkpoints.
   await expect(page.getByTestId("take-check-A1")).toHaveCount(0);
   await expect(page.getByTestId("verified-A1")).toHaveCount(0);
@@ -1863,7 +1872,12 @@ test("a not-yet-verified exam names the SECTION AND LESSON to go back to, and th
 
   // NOT A VERDICT, AND NO NUMBER. "not yet verified" (D1 — it certifies, it never
   // gates), and the percentage is withheld on a fail (D3: it is the part that stings).
-  await expect(headline).toHaveText("A1 — not yet verified");
+  //
+  // AND THE BAND IS NAMED IN JLPT (D7, Alex 2026-09-27: "jlpt n5"). This is the
+  // learner-facing proof that the label reached the real rendered screen and not just
+  // the unit tests: the Japanese A1 exam says N5, and the string "A1" is nowhere on it.
+  await expect(headline).toHaveText("N5 — not yet verified");
+  await expect(page.getByText(/\bA1\b/)).toHaveCount(0);
   await expect(page.getByText(/\d+%/)).toHaveCount(0);
   // NO SHAME COPY. "Go back to these", never "you failed".
   await expect(page.getByText(/failed|you got \d+ wrong/i)).toHaveCount(0);

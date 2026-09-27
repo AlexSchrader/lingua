@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { LANGUAGES } from "../../src/data/languages.js";
+import { LANGUAGES, bandLabel } from "../../src/data/languages.js";
 
 test("language catalog: 23 languages, all target B2, unique ids", () => {
   assert.equal(LANGUAGES.length, 23);
@@ -96,4 +96,48 @@ test("the retired-field scanner actually detects a read", () => {
   const line = "  const activeLang = LANGUAGES.find((l) => languages[l.id]?.unlocked)?.id;";
   assert.ok(!isComment(line));
   assert.ok(line.includes(".unlocked"), "the scanner's match rule must catch a real read");
+});
+
+// --- band labels: Japanese reads JLPT, every other language reads CEFR -------
+// Alex, 2026-09-27: "jlpt n5". A LABELLING rule only — `lesson.cefr` and every
+// milestone id stay CEFR (see tests/unit/exams.test.mjs for the id guard).
+
+const CEFR_BANDS = ["A1", "A2", "B1", "B2"];
+const JLPT_FOR = { A1: "N5", A2: "N4", B1: "N3", B2: "N2" };
+
+test("bandLabel: Japanese names its bands by JLPT level, not CEFR", () => {
+  for (const band of CEFR_BANDS)
+    assert.equal(bandLabel("ja", band), JLPT_FOR[band], `ja ${band}`);
+  // ...and never leaks the CEFR name for a Japanese band.
+  for (const band of CEFR_BANDS)
+    assert.ok(!bandLabel("ja", band).includes(band), `ja ${band} still reads "${band}"`);
+});
+
+test("bandLabel: EVERY other live language keeps its CEFR band names", () => {
+  for (const l of LANGUAGES) {
+    if (l.id === "ja") continue;
+    for (const band of CEFR_BANDS)
+      assert.equal(bandLabel(l.id, band), band, `${l.id} ${band}`);
+  }
+});
+
+test("bandLabel takes both spellings the app uses — CEFR band and unit stage", () => {
+  // `lesson.cefr` / exam papers / cefrLevelReached say "A1"; `unit.stage` says "a1".
+  // Both reach the same screens, so one helper has to read both or a second
+  // hardcoded table appears.
+  assert.equal(bandLabel("ja", "a1"), "N5");
+  assert.equal(bandLabel("ja", "A1"), "N5");
+  assert.equal(bandLabel("fr", "b2"), "B2");
+  // There is no JLPT level below N5, so ja's kana foundation says so in JLPT terms
+  // rather than mixing a CEFR word into a JLPT spine.
+  assert.equal(bandLabel("ja", "pre-a1"), "Before N5");
+  assert.equal(bandLabel("ja", "pre-A1"), "Before N5");
+  assert.equal(bandLabel("fr", "pre-a1"), "Pre-A1");
+});
+
+test("bandLabel never blanks the UI on junk input", () => {
+  assert.equal(bandLabel("ja", null), "");
+  assert.equal(bandLabel("ja", ""), "");
+  assert.equal(bandLabel("ja", "C1"), "C1", "unknown band passes through unchanged");
+  assert.equal(bandLabel("zz", "A1"), "A1", "unknown language falls back to CEFR");
 });

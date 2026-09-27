@@ -4,6 +4,7 @@ import { Lock, Check, ChevronRight, Volume2 } from "lucide-react";
 import { useStore, activeLangId } from "../store/useStore.js";
 import { LANGUAGES, UNITS, isLive } from "../data/index.js";
 import { roadmapFor } from "../data/roadmap.js";
+import { bandLabel } from "../data/languages.js";
 import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
 import { readingIsInformative } from "../store/cardRouting.js";
@@ -14,18 +15,15 @@ import PlannedLanguages from "../components/PlannedLanguages.jsx";
 import { C, F } from "../theme.js";
 
 // Stage sectioning for the Units list. `stage` lives on each unit (and roadmap
-// entry); these drive the section headers in climb order. The JLPT tag is shown
-// only for the Japanese track — Latin-alphabet languages get plain CEFR labels
-// and simply render no Pre-A1 group (they have no pre-a1 units).
+// entry); these drive the section headers in climb order.
+//
+// EVERY BAND NAME ON THIS SCREEN COMES FROM `bandLabel` (data/languages.js), so
+// Japanese reads N5/N4/N3/N2 and every other language reads A1/A2/B1/B2 (Alex,
+// 2026-09-27: "jlpt n5"). This file used to carry its own `STAGE_LABEL` +
+// `JLPT_BY_STAGE` pair that rendered ja as "A1 · N5" — two names for one band, in
+// one of the six places that print one. There is now a single table and no
+// `langId === "ja"` branch anywhere in the JSX.
 const STAGE_ORDER = ["pre-a1", "a1", "a2", "b1", "b2"];
-const STAGE_LABEL = { "pre-a1": "Pre-A1", a1: "A1", a2: "A2", b1: "B1", b2: "B2" };
-const JLPT_BY_STAGE = { ja: { a1: "N5", a2: "N4", b1: "N3", b2: "N2" } };
-
-function stageHeading(langId, stage) {
-  const label = STAGE_LABEL[stage] ?? stage;
-  const jlpt = JLPT_BY_STAGE[langId]?.[stage];
-  return jlpt ? `${label} · ${jlpt}` : label;
-}
 
 // Authored item defs for a language, in lesson order (gojūon for kana).
 function defsFor(langId, predicate = () => true) {
@@ -177,7 +175,7 @@ export default function Ladder() {
               style={{ fontSize: 12, color: C.aiDeep, background: C.aiSoft, border: `1px solid ${C.ai}`, borderRadius: 10, padding: "8px 10px", marginBottom: 12, lineHeight: 1.4 }}
             >
               🧪 <strong>Dev preview</strong> — this is the unlocked state a learner
-              sees after reaching A1. <strong>Start does nothing here</strong>; it
+              sees after reaching {bandLabel(active.id, "A1")}. <strong>Start does nothing here</strong>; it
               would touch real progress, so it's disabled in preview.
             </div>
           )}
@@ -189,8 +187,8 @@ export default function Ladder() {
             {started.length === 0
               ? "Pick a language to start."
               : canAdd
-                ? "You've reached A1 — start another whenever you like. One at a time."
-                : `Reach A1 in ${active.name} to unlock another language.`}
+                ? `You've reached ${bandLabel(active.id, "A1")} — start another whenever you like. One at a time.`
+                : `Reach ${bandLabel(active.id, "A1")} in ${active.name} to unlock another language.`}
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {/* Startable (has-content) languages as rows; the ~19 planned fold into
@@ -273,7 +271,7 @@ function ActiveLanguage({ lang, items, exams }) {
         <div style={{ flex: 1 }}>
           <div style={{ fontFamily: F.disp, fontSize: 18, fontWeight: 700 }}>{lang.name}</div>
           <div style={{ fontSize: 12, color: C.inkSoft }}>
-            {lang.level === "pre-A1" ? `${learnedItems} item${learnedItems === 1 ? "" : "s"}` : lang.level} → {lang.target} goal
+            {lang.level === "pre-A1" ? `${learnedItems} item${learnedItems === 1 ? "" : "s"}` : bandLabel(lang.id, lang.level)} → {bandLabel(lang.id, lang.target)} goal
           </div>
         </div>
       </div>
@@ -292,7 +290,7 @@ function ActiveLanguage({ lang, items, exams }) {
           {[...spineStages].reverse().map((stage, i, arr) => (
             <CefrRungRow
               key={stage}
-              level={STAGE_LABEL[stage] ?? stage}
+              level={bandLabel(lang.id, stage)}
               done={statsByStage[stage].complete}
               current={stage === currentStage}
               here={hereLabel}
@@ -319,7 +317,7 @@ function ActiveLanguage({ lang, items, exams }) {
       {cur.total > 0 ? (
         <div style={{ marginTop: 12 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 12, marginBottom: 6 }}>
-            <span style={{ fontWeight: 700, color: C.ink }}>{stageHeading(lang.id, currentStage)} progress</span>
+            <span style={{ fontWeight: 700, color: C.ink }}>{bandLabel(lang.id, currentStage)} progress</span>
             <span style={{ fontWeight: 700, color: C.ai }}>{cur.pct}%</span>
           </div>
           <div style={{ height: 10, borderRadius: 999, background: C.lockedBg, overflow: "hidden" }}>
@@ -331,7 +329,7 @@ function ActiveLanguage({ lang, items, exams }) {
           <NextCheckpoint langId={lang.id} items={items} exams={exams} />
         </div>
       ) : (
-        <div style={{ marginTop: 12, fontSize: 12, color: C.inkSoft }}>Lessons for {STAGE_LABEL[currentStage] ?? currentStage} coming soon.</div>
+        <div style={{ marginTop: 12, fontSize: 12, color: C.inkSoft }}>Lessons for {bandLabel(lang.id, currentStage)} coming soon.</div>
       )}
     </div>
   );
@@ -357,6 +355,9 @@ function ExamLinks({ langId, stage, exams, begun }) {
   const band = stage === "pre-a1" ? null : String(stage).toUpperCase();
   if (!band || !begun || !bandHasContent(langId, band)) return null;
   const verified = isVerified(exams, langId, band);
+  // `band` stays CEFR: it builds the exam id, the milestone id and the test hooks.
+  // Only what the learner READS is relabelled.
+  const bandName = bandLabel(langId, band);
 
   const link = {
     padding: "4px 0", border: "none", background: "transparent", cursor: "pointer",
@@ -367,7 +368,7 @@ function ExamLinks({ langId, stage, exams, begun }) {
     <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 2, paddingBottom: 6 }}>
       {verified ? (
         <span data-testid={`verified-${band}`} style={{ fontSize: 11, fontWeight: 700, color: C.matcha }}>
-          ✓ {band} verified
+          ✓ {bandName} verified
         </span>
       ) : (
         <button
@@ -375,7 +376,7 @@ function ExamLinks({ langId, stage, exams, begun }) {
           onClick={() => navigate(`/exam/${examId(langId, band)}`)}
           style={{ ...link, color: C.ai }}
         >
-          Take the {band} check →
+          Take the {bandName} check →
         </button>
       )}
     </div>
@@ -855,7 +856,7 @@ function UnitsSection({ langId, items }) {
           return (
             <StageGroup
               key={stage}
-              label={stageHeading(langId, stage)}
+              label={bandLabel(langId, stage)}
               summary={stageUnits.length ? `${stageDone}/${stageUnits.length}` : "coming"}
               defaultOpen={hasCurrent || (!anyCurrent && stage === lastUnitStage)}
               rows={rows}

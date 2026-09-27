@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { RotateCcw, Globe, Info, AlertTriangle, FlaskConical, ChevronRight, LogOut, Cloud, CheckCircle2, Mic, Award, Bell, Eye } from "lucide-react";
 import { useStore } from "../store/useStore.js";
 import { LANGUAGES, isLive } from "../data/index.js";
-import { langName } from "../data/languages.js";
+import { langName, bandLabel } from "../data/languages.js";
 import { enterPreview, buildPreviewState } from "../store/preview.js";
 import { PERSIST_VERSION } from "../store/migrate.js";
 import { triggersSupported, notificationsSupported, notificationPermission, requestReminderPermission, scheduleDailyReminder, cancelReminders } from "../lib/reminders.js";
@@ -188,7 +188,7 @@ export default function Settings() {
 
       <Section title="About">
         <Row icon={Info} label="Version" value={VERSION} />
-        <Row icon={Globe} label="Learning" value={`${learning.flag} ${learning.name} · ${learning.level}`} />
+        <Row icon={Globe} label="Learning" value={`${learning.flag} ${learning.name} · ${bandLabel(learning.id, learning.level)}`} />
         <Row icon={Award} label="Milestones" value={milestonesEarned?.length ?? 0} />
       </Section>
 
@@ -342,9 +342,10 @@ export default function Settings() {
         <div style={{ fontSize: 13, color: C.inkSoft, lineHeight: 1.4, marginTop: 12 }}>
           {hasGlyphScript ? (
             <>
-              Producing a word asks you to type it in {langName(activeLang)}. Through A1 you can
-              answer in rōmaji (no {langName(activeLang)} keyboard needed); from A2 you'll type the
-              kana. Tiles (build) and typing the meaning always work too.
+              Producing a word asks you to type it in {langName(activeLang)}. Through{" "}
+              {bandLabel(activeLang, "A1")} you can answer in rōmaji (no {langName(activeLang)}{" "}
+              keyboard needed); from {bandLabel(activeLang, "A2")} you'll type the kana. Tiles
+              (build) and typing the meaning always work too.
             </>
           ) : (
             <>
