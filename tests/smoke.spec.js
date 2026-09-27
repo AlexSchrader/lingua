@@ -1858,3 +1858,36 @@ test("preview lockout: a keyed build in preview shows the app and a way out, nev
 
   expect(errors, errors.join("; ")).toEqual([]);
 });
+
+// THE WATCHDOG. `auth.ready` is set ONLY inside cloudSync.js, and the gate returns
+// <Splash /> until it flips. main.jsx swallowed a failed dynamic import with
+// `.catch(() => {})`, so a cloudSync chunk that never loads meant the splash FOREVER:
+// no nav, no login, no error logged, nothing to tap. A stale service worker or an
+// offline first load is enough. Found by the auth-coverage seat 2026-09-27.
+//
+// WHAT THE FIX CAN AND CANNOT DO. `AUTH_ENABLED` is computed at module scope from the
+// env, so the watchdog cannot switch the gate off -- it can only make auth RESOLVE.
+// With no signed-in user that resolves to the login screen, not to the app. So the
+// guarantee is "always reaches a decidable screen with actions on it", NOT "the app
+// opens". Letting a learner in on local progress when the cloud is unreachable is a
+// separate product decision (offline-first), deliberately not made here.
+//
+// ⚠️ THE GATE MUST BE ON, OR THIS TEST DOES NOT REACH THE CODE. A first attempt
+// blocked the chunk with no hook and passed against the UNFIXED build, because under
+// WebDriver the gate is bypassed and auth.ready never matters. Confirmed by reverting
+// main.jsx: this version fails on the old code and passes on the new.
+test("a cloudSync chunk that never loads must not strand the app on the splash", async ({ page }) => {
+  test.skip(process.env.SMOKE_MODE === "preview", GATE_ONLY_IN_DEV);
+
+  await page.route("**/cloudSync*.js", (r) => r.abort());
+  await gateOn(page, { ready: false, initialSyncDone: false });
+  await page.goto("/");
+
+  // The gate really is holding, so the assertion below is not vacuous.
+  await expect(page.locator("nav")).toHaveCount(0);
+
+  // The watchdog (8s) must resolve auth rather than hang. A wordless splash forever is
+  // the bug; an actionable screen is the fix.
+  await expect(page.getByRole("button", { name: "Log in" })).toBeVisible({ timeout: 25_000 });
+  await expect(page.getByText("Welcome back")).toBeVisible();
+});

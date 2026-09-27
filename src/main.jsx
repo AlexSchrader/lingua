@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import ErrorBoundary from "./components/ErrorBoundary.jsx";
 import { setActiveTheme, resolveTheme, C } from "./theme.js";
+import { useStore } from "./store/useStore.js";
 
 // Apply the saved theme BEFORE first render to avoid a light-mode flash. Reads
 // the persisted preference straight from localStorage (the store hasn't rehydrated
@@ -58,6 +59,32 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 // Cloud progress sync (Supabase) — dynamically imported so the SDK stays out of
 // the initial render path. No-ops entirely when Supabase env isn't configured.
+//
+// ⚠️ THE WATCHDOG IS NOT OPTIONAL. `auth.ready` is set ONLY inside cloudSync.js,
+// and App.jsx returns <Splash /> until it flips. So a swallowed failure here used to
+// mean the splash screen FOREVER, silently: `.catch(() => {})` ate the error, nothing
+// logged, no nav, no login, no way forward. Reproduced 2026-09-27 on a keyed build by
+// aborting the cloudSync chunk request (a stale service worker or an offline first
+// load does the same thing): after 12s the page held one wordless element and zero
+// page errors. Falling through to the app un-synced is strictly better than a dead
+// end -- local progress still works, and a later load can sync.
+const authFellThrough = () => {
+  const { auth, setAuth } = useStore.getState();
+  if (!auth?.ready) setAuth({ configured: false, ready: true });
+};
+
+// Fires whether the import rejects, initCloudSync throws, or it resolves but
+// onAuthStateChange never calls back (the case a catch block cannot see).
+const authWatchdog = setTimeout(authFellThrough, 8000);
+
 import("./store/cloudSync.js")
   .then(({ initCloudSync }) => initCloudSync())
-  .catch(() => {});
+  .catch((err) => {
+    console.warn("cloudSync failed to load; continuing without cloud sync", err);
+    authFellThrough();
+  })
+  .finally(() => {
+    // initCloudSync resolving does NOT mean auth resolved, so the watchdog stands
+    // until `ready` is actually true.
+    if (useStore.getState().auth?.ready) clearTimeout(authWatchdog);
+  });
