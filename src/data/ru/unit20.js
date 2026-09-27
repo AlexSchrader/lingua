@@ -35,7 +35,14 @@
 // `src/data/ru/TAUGHT-WORDS.md` on this branch, not a promise — re-probe with
 // `node scripts/check-front.mjs ru "<front>"` before you use any of it.
 //
-// u21 IS THE LAST "Characters N" SLOT AND IT IS YOURS. Blocks 1 and 2 rethemed
+// ✅ u21 IS DONE — BLOCK 3 RETHEMED IT TO `Числа и цифры` (the printed NUMBER),
+// 2026-09-27, and the argument is in unit21.js's header. The instruction below is
+// spent; the reasoning is kept because it is still the reasoning, and because the
+// four themes block 2 listed and did NOT spend are still unspent and are now the
+// A2 crew's to pick from. Word-formation stays refused for the two reasons block 2
+// gave, and block 3 did not revive it.
+//
+// u21 WAS THE LAST "Characters N" SLOT. Blocks 1 and 2 rethemed
 // four of the five (u9 Знакомые слова · u12 Надписи · u15 Дом и вещи · u18 Одежда
 // и покупки) — see unit9.js's header for the argument and unit1.js §10 for the
 // language-wide decision. `lint.js` hard-errors on /^Characters \d+$/ the moment
@@ -93,15 +100,23 @@
 // FRONTS BLOCK 2 CONSIDERED AND LEFT FOR YOU, with the reason:
 //   `боль` · `светлый` · `здоровый` · `больной` — each shares a root with a card
 //        block 2 taught (болеть · свет · здоровье) and fails unit1.js §D's test.
-//        If block 3 wants any of them, that is a deliberate reversal, not an
-//        oversight — say so in the header.
+//        ✅ BLOCK 3 REVERSED NONE OF THEM. All four stay uncarded, and block 3
+//        applied the same test to twelve more of its own — see the AVOIDED lines in
+//        unit21.js through unit30.js.
 //   `станция` — a metro station. NOT carded because it glosses to "a station",
 //        which is u14 `вокзал` after normalisation. It is named in two u14 hints.
 //   `находиться` (to be located) — cut from u14l4; every A1 sentence needs the
 //        conjugated находится, and the drill rule wants the front verbatim.
-//   Free and untouched: готовить · голодный · балкон · чистый · грязный ·
-//        тяжёлый · дешёвый (careful: ё) · близко · много · мало · думать ·
-//        нравиться-as-infinitive · число · улыбка · воздух · желудок · грипп.
+//   ⚠️ CORRECTED, 2026-09-27: this line listed `много` as free, which CONTRADICTS
+//        unit1.js §D — block 1 had already refused it against немного (u7) plus не
+//        (u6). §D wins and much is NOT a card in Russian A1; `мало` is (u21l4).
+//   RESOLVED BY BLOCK 3 out of what this line offered free: готовить (u29l2) ·
+//        голодный (u24l2) · чистый (u29l3) · грязный (u29l3) · близко (u23l2) ·
+//        мало (u21l4) · думать (u22l3) · воздух (u26l4).
+//   STILL FREE AND UNTOUCHED after A1: балкон · тяжёлый · дешёвый (careful: ё) ·
+//        нравиться-as-infinitive · число (block 3 used `цифра` and `дата` instead,
+//        because `число` glosses to "a number", which is u12 `номер` after
+//        normalisation) · улыбка (refused vs u28 улыбаться) · желудок · грипп.
 //   Every A1 verb block 1 taught, plus block 2's: заказывать убирать класть
 //        искать покупать продавать платить выбирать носить примерять идти ехать
 //        ждать спать отдыхать дышать помогать курить. Conjugate them in your
@@ -114,9 +129,23 @@
 //      surfaces read as out-of-scope even though their front is taught: дня/дни
 //      (день) · чашек (чашка) · рынке (рынок) · мае (май) · одна/одно (один) ·
 //      оно (он) · во (в) · идёт/еду (идти/ехать) · нравятся (нравится) ·
-//      был/была (быть, untaught anyway) · нужен (нужно). Block 2 wrote AROUND all
+//      был/была (быть — TAUGHT at u22l4 since block 3, and now in PARADIGM) · нужен (нужно). Block 2 wrote AROUND all
 //      of them rather than extend the shared PARADIGM table mid-flight; block 2's
-//      432 sentences report 0 flagged. If you extend PARADIGM, say so.
+//      432 sentences report 0 flagged.
+//      ⚠️ BLOCK 3 DID EXTEND IT, and says so here as this note asked. Four changes,
+//      all in `scripts/scope-ru.mjs` and all documented in unit28.js's header:
+//        (a) a REFLEXIVE infinitive now contributes its bare stem (смеяться → сме-).
+//            Without it every correct -ся sentence read as a violation, which is the
+//            real reason block 2 had to write around them.
+//        (b) PARADIGM is now looked up through the ё fold. `ребёнок` folds to
+//            "ребенок", which never matched the "ребёнок" key, so дети · детей ·
+//            детям were OUTSIDE the table for the whole of block 2 despite being in
+//            it. A silent hole, found by measurement.
+//        (c) new entries: быть (был/была/было/были/буду/будет…), бояться, петь.
+//        (d) completed entries: это gains этим/этими/этих, твой gains
+//            твоя/твою/твоей/твоё.
+//      Still unreachable and still to be written around: дня/дни · чашек · рынке ·
+//      мае · одна/одно · оно · во · идёт/еду · нравятся · нужен.
 //   2. `check-front.mjs`'s LEXEME verdict is worthless for Russian (unit1.js §D).
 //      TAKEN and SAME are still hard blocks. Every lexeme call in u11–u20 is a
 //      hand judgement and each one is recorded in its own unit header.

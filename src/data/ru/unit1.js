@@ -93,7 +93,10 @@
 //        `стоит`   (u18l4, block 2) — Сколько это стоит? and every infinitive
 //            frame that keeps стоить verbatim needs может / будет / должно, none
 //            of which is taught anywhere in u1–u20.
-//    Apply the same test if a third case appears — and record it here.
+//    ⚠️ NO THIRD CASE EXISTS AND NONE WAS ADDED. Block 3 authored u21–u30 (240
+//    cards, 2026-09-27) with every verb an imperfective infinitive, and refused
+//    `кажется` on exactly this test — see unit22.js's header. The count is final
+//    for A1: TWO. If A2 needs a third, it applies the test above and records it.
 //
 // 5. CASE — WHAT A1 TEACHES AND WHAT IS DELIBERATELY DEFERRED.
 //    Russian has six cases and they cannot all live in A1. This is the split;
@@ -107,6 +110,22 @@
 //        INSTRUMENTAL   DEFERRED TO A2. Nothing in u1–u30 teaches it.
 //    Also deferred: genitive plural as a paradigm (A2), aspect pairs (A2),
 //    participles and verbal adverbs (B1), verbs of motion with prefixes (B1).
+//    ✅ IMPLEMENTED BY BLOCK 3, 2026-09-27, AND NOT EXCEEDED. u23 Глаголы и
+//    падежи carries the accusative (six object verbs + через), the prepositional
+//    (на, and the в/на contrast in its hint) and both allowed genitive jobs
+//    (`у меня` for possession, нет + genitive for negation). u24 is the past
+//    tense. ⚠️ SIX PREPOSITIONS A1 OBVIOUSLY WANTS WERE REFUSED BECAUSE THEY ALL
+//    GOVERN THE GENITIVE and carding them would add a third, fourth and fifth
+//    genitive job by the back door: `из` · `для` · `без` · `до` · `от` · `около`.
+//    They are an A2 lesson as a set, behind the genitive paradigm. Named here so
+//    the A2 crew finds the decision rather than the gap. `вокруг` IS carded, as an
+//    ADVERB (Вокруг тихо), which governs nothing.
+//    ⚠️ AND A MECHANICAL LIMIT, not a judgement: a ONE-LETTER front cannot be a
+//    card at all. `canCloze` (src/store/cardRouting.js) requires ≥2 characters, so
+//    `в` · `с` · `у` · `к` · `о` would each ship a card the cloze and
+//    sentence:build cards silently refuse to route. в is acquired by exposure from
+//    u1 on (it is also a u1 glyph front, so it is in scope everywhere) and `на`'s
+//    hint carries the explicit в/на teaching.
 //    ⚠️ AN INFLECTED FORM IS NEVER ITS OWN CARD. `дом` is taught; `дома`,
 //    `дому`, `домов` appear in examples and drills and never as a front. That
 //    is the lexeme rule (RUNBOOK §4) and it is what keeps `год`/`лет` and
@@ -159,8 +178,18 @@
 //    RUSSIAN HAS NO SUCH THING — the whole alphabet is done by u6. u9 was
 //    "Characters 1" and is rethemed to `Знакомые слова`: internationalisms and
 //    cognates, where the MEANING is free so the lesson is pure Cyrillic
-//    decoding. That is the honest Russian equivalent of a character unit, and it
-//    is what u12 · u15 · u18 · u21 should also become — see the hand-back note.
+//    decoding. ✅ ALL FIVE ARE NOW RETHEMED AND THE PROGRAMME IS CLOSED:
+//        u9  → Знакомые слова     internationalisms and cognates   (block 1)
+//        u12 → Надписи            signs and the printed public word (block 2)
+//        u15 → Дом и вещи         home and objects                 (block 2)
+//        u18 → Одежда и покупки   clothes and shopping             (block 2)
+//        u21 → Числа и цифры      the printed NUMBER               (block 3)
+//    ⚠️ AND A SECOND ARTEFACT NOBODY HAD FLAGGED: u23's scaffold title was
+//    "Grammar 2 — verbs and PARTICLES". A particle is a Japanese word class
+//    (は・が・を・に・で); Russian marks those jobs by changing the end of the word
+//    and has prepositions, which govern a case rather than replacing one. Block 3
+//    rethemed it to `Глаголы и падежи`, which is the job unit1.js §5 assigns to
+//    that slot. u22 and u24's titles DID apply and kept their themes.
 //
 // ─────────────────────────────────────────────────────────────────────────────
 // THEMES SPENT BY BLOCK 1 (u1–u10) — do not re-author these.
@@ -226,7 +255,8 @@
 //
 // FOUR THINGS BLOCKS 2 AND 3 WILL TRIP ON IF NOBODY SAYS THEM:
 //
-// A. ONE REMAINING "Characters N" SLOT, AND IT IS THE SAME NON-PROBLEM AS u9.
+// A. ✅ CLOSED — THE LAST "Characters N" SLOT IS RETHEMED. (History kept because
+//    the reasoning is still the reasoning; the instruction is spent.)
 //    ⚠️ THREE OF THE FOUR ARE DONE. Block 2 rethemed them 2026-09-27:
 //        u12 → Надписи          signs and the printed public word
 //        u15 → Дом и вещи       home and objects — a MISSING CEFR A1 domain
@@ -284,13 +314,102 @@
 //    говорить), родина (vs родной), профессор (vs профессия), много (vs
 //    немного), старший (vs старый).
 //
+// ─────────────────────────────────────────────────────────────────────────────
+// BLOCK 3 IS COMPLETE — u21–u30 AUTHORED 2026-09-27. RUSSIAN A1 IS 30/30.
+// ─────────────────────────────────────────────────────────────────────────────
+// 240 cards, 40 lessons, 10 units, 6 cards per lesson, every card with example +
+// drill + accept[] + hint. **ru is 720 items / 120 lessons / 30 units**, measured
+// with `npm run audit`, and `src/data/ru/TAUGHT-WORDS.md` regenerated to 720 words
+// / 30 authored units / 0 stubs. The fronts, by unit:
+//
+//   u21 Числа и цифры      ноль одиннадцать двенадцать тринадцать четырнадцать
+//                          пятнадцать · тридцать сорок пятьдесят девяносто тысяча
+//                          миллион · первый второй третий четвёртый пятый
+//                          последний · цифра дата счёт процент пара мало
+//   u22 Простое предложение куда когда чей зачем правда точно · никогда иногда
+//                          обычно редко опять сразу · думать помнить забывать
+//                          верить может быть наверное · быть тот так даже просто
+//                          почти
+//   u23 Глаголы и падежи   смотреть показывать давать получать встречать
+//                          спрашивать · на внизу наверху близко везде нигде ·
+//                          через вперёд назад вокруг быстрый прямой · у меня
+//                          никто совсем пустой полный свободный
+//   u24 Прошедшее время    прошлый тогда давно история сначала наконец · должен
+//                          готов занят уверен голодный счастливый · решать терять
+//                          находить менять оставлять гулять · целый пора случай
+//                          вдруг начало будущее
+//   u25 Работа и учёба     офис начальник коллега зарплата отпуск фирма · урок
+//                          экзамен задание класс тетрадь оценка · бумага ручка
+//                          карандаш документ конверт папка · успех опыт цель
+//                          полезный сложный серьёзный
+//   u26 Природа и животные собака птица лошадь корова медведь мышь · дерево
+//                          цветок трава лист ветка сад · лес река море гора поле
+//                          небо · воздух камень песок остров звезда луна
+//   u27 Свободное время    играть петь танцевать рисовать плавать бегать ·
+//                          картина концерт выставка гость кино клуб ·
+//                          приглашать план шутка весело компания хозяин ·
+//                          журнал газета радио телевизор сказка роман
+//   u28 Чувства и характер грустный злой спокойный довольный гордый странный ·
+//                          смеяться плакать бояться улыбаться надеяться кричать ·
+//                          характер честный умный глупый вежливый ленивый ·
+//                          чувство настроение страх мечта душа слеза
+//   u29 Обычный день       просыпаться вставать умываться чистить душ ложиться ·
+//                          готовить резать нож ложка вилка тарелка · стирать
+//                          чистый грязный сосед мебель ремонт · привычка
+//                          расписание будильник сон спешить тихий
+//   u30 Путешествие        самолёт поезд виза граница чемодан очередь · карта
+//                          экскурсия гид памятник сувенир турист · путешествие
+//                          берег пляж далёкий приключение багаж · поздравлять
+//                          желать обещать совет уровень результат
+//
+// ⚠️ TWO DEFECT CLASSES THE GATE CANNOT SEE, FOUND BY MEASURING RATHER THAN READING.
+// `scripts/selfcheck-ru-block3.mjs` imports the REAL answer.js and cardRouting.js
+// and runs 29 checks over all 720 cards. Both of these are worth re-running on any
+// later band, because neither `lint:curriculum` nor `validate:content` sees them:
+//   1. A DRILL CAN CONTAIN THE FRONT AND STILL NOT CLOZE. lint checks front-presence
+//      with `.includes()`; `canCloze` uses WHOLE-WORD matching, so a drill saying
+//      "двадцать процентОВ" satisfies lint for the front `процент` and then silently
+//      refuses to route cloze:choice and sentence:build. Four of block 3's drills
+//      failed exactly this way and lint passed all four.
+//   2. A GLOSS COLLISION CAN CROSS UNITS AND NOBODY IS LOOKING. `normalizeMeaning`
+//      strips a leading "a/an/the" AND a leading "to ", so "a cook" (u8 повар) and
+//      "to cook" (u29 готовить) are ONE prompt, as are "a back"/"back" and
+//      "to sleep"/"sleep" and "to clean"/"clean". Four of block 3's own glosses
+//      collided across ten units of distance; all four were reworded. It also finds
+//      SAME-LESSON sense overlap through accept[] — two of block 3's were real.
+//
+// ⚠️ THE FIVE PRE-EXISTING u1–u8 GLOSS OVERLAPS ARE NOT DEFECTS, AND HERE IS THE
+// TEST THAT SETTLES IT. ваш/твой · ты/вы/тебя · моя/моё/мой · буква/письмо ·
+// любить/любовь all normalise onto one string. The produce card renders
+// `prompt: item.meaning` RAW (`src/components/games/TypeCard.jsx:129`, verified on
+// this branch), so what the learner reads is "my (masculine)" or "a letter (the kind
+// you post)" — different prompts with one answer each. Normalisation only makes the
+// GRADER lenient, which is answer.js's stated design. **The rule, stated once so no
+// later seat has to re-derive it: a gloss overlap is a DEFECT when the RAW meaning
+// strings are identical, and harmless when they differ visibly.** That is why
+// лёгкий/легко (unit1.js §B) WAS a defect — identical raw "easy" — and why these
+// five are not. Left unchanged, deliberately.
+//
+// ⚠️ ALSO VERIFIED NOT DEFECTS, so nobody "fixes" them: the fold pairs е/ё, и/й and
+// the glyph+word pair я/я. §7 explains all three, and `stampFoldCollisions` makes
+// those cards strict on purpose.
+//
 // AND THE ONE TOOL THAT DID NOT EXIST: `scripts/scope-ru.mjs`. Example scope is
 // UNGATED for Russian — `lint.js` runs `exampleScopeWarnings` only when
 // `isLatinLang()` is true (>50% Latin fronts), and every Russian front is
 // Cyrillic, so it returns silently. Run `node scripts/scope-ru.mjs` before every
-// hand-back. Measured 2026-09-27: **u7–u10 flag 0 of 192 sentences; u1–u6 flag
-// 108 of 222**, which is the previous seat's forward-referencing and is left
-// alone deliberately rather than rewritten under a later seat's name.
+// hand-back. MEASURED ON THE FINISHED LANGUAGE, 2026-09-27, after block 3 closed
+// A1: **1374 sentences checked, 107 flagged, and every one of the 107 is in
+// u1–u6** — the first seat's forward-referencing, left alone deliberately rather
+// than rewritten under a later seat's name. u7–u10 flag 0 of 192, u11–u20 flag 0
+// of 480, u21–u30 flag 0 of 480. (The u1–u6 figure was 108 until block 3 completed
+// the `твой` PARADIGM entry, which cleared one.) ⚠️ BLOCK 3 GAVE THE TOOL THREE
+// CAPABILITIES IT DID NOT HAVE, all declared in unit28.js's header: a reflexive
+// infinitive now contributes its bare stem (смеяться → сме-, without which EVERY
+// correct -ся sentence read as a violation); PARADIGM is now looked up through the
+// ё fold, so `ребёнок`'s дети/детей/детям finally resolve (they never had); and
+// быть · бояться · петь have entries, plus the missing этим/этими/этих and
+// твоя/твою/твоей/твоё.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const RU_UNIT1 = {
   id: "ru-u1",

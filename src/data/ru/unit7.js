@@ -23,14 +23,18 @@
 // The FREE line below is read by that script and applies to THIS unit and every
 // later one. It is a claim, not a convenience: each of these words appears in a
 // u1–u6 example or drill already, so the learner has MET it.
-// ⚠️ FOUR OF THESE TWELVE ARE NOW TAUGHT, so the line is an escape hatch for
-// u7–u18 ONLY and no longer a statement that nothing teaches them. Block 2 carded
+// ⚠️ FIVE OF THESE TWELVE ARE NOW TAUGHT, so the line is an escape hatch for
+// EARLIER UNITS ONLY and no longer a statement that nothing teaches them. Block 2 carded
 // them in u19 Описание и союзы, 2026-09-27, which is what unit1.js §B asked for:
 //     старый → u19l1 · красивый → u19l2 · но → u19l3 · каждый → u19l4
 // They stay ON the FREE line because scope-ru.mjs reads it per-unit and u7–u18
 // still use them before u19 teaches them; removing the line would flag ~20
-// sentences that are correct. на · за · из remain genuinely exposure-only
-// prepositions, and the four proper nouns are names, which no course cards.
+// sentences that are correct. ⚠️ `на` IS NO LONGER EXPOSURE-ONLY — block 3 carded
+// it at u23l2 as the в/на case-pair card, 2026-09-27 — and it stays on this line
+// for the same per-unit reason: u7–u22 use it before u23 teaches it. `за` and `из`
+// remain genuinely exposure-only prepositions (`из` governs the genitive, which
+// unit1.js §5 keeps out of A1), and the four proper nouns are names, which no
+// course cards.
 // FREE: но | на | за | из | старый | красивый | каждый | Россия | Москва | Иван | Анна | Петров
 // lang/unit/lesson are stamped in src/data/index.js.
 export const RU_UNIT7 = {
