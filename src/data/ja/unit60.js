@@ -80,7 +80,7 @@ export const UNIT60 = {
         { id: "ja-u60l4-shitagi", type: "vocab", front: "したぎ", reading: "shitagi", meaning: "underwear", example: { jp: "したぎをあらいます。", en: "I wash my underwear." }, accept: ["undergarments"] },
         { id: "ja-u60l4-pajama", type: "vocab", front: "パジャマ", reading: "pajama", meaning: "pajamas", example: { jp: "パジャマをきます。", en: "I wear pajamas." }, accept: ["pyjamas"] },
         { id: "ja-u60l4-hagaki", type: "vocab", front: "はがき", reading: "hagaki", meaning: "postcard", example: { jp: "はがきをかきます。", en: "I write a postcard." }, accept: ["postcards"] },
-        { id: "ja-u60l4-yofuku", type: "vocab", front: "ようふく", reading: "yōfuku", meaning: "clothes", example: { jp: "ようふくをかいます。", en: "I buy clothes." }, accept: ["Western clothes", "clothing"] },
+        { id: "ja-u60l4-yofuku", type: "vocab", front: "ようふく", reading: "yōfuku", meaning: "clothes (Western-style)", example: { jp: "ようふくをかいます。", en: "I buy clothes." }, accept: ["Western clothes", "clothing"] },
       ],
     },
   ],

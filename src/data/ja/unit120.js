@@ -30,7 +30,7 @@ export const UNIT120 = {
       dominantMode: "recall",
       canDo: "Talk about the rules somewhere runs by, and what happens when they are broken: きまり せいど げんそく じょうしき いはん ばつ.",
       items: [
-        { id: "ja-u120l1-kimari", type: "vocab", front: "きまり", reading: "kimari", meaning: "rule", example: { jp: "がっこうのきまりがきびしいので、みんなはやくねます。", en: "The school rules are strict, so everyone goes to bed early." }, accept: ["regulation", "the rules"] },
+        { id: "ja-u120l1-kimari", type: "vocab", front: "きまり", reading: "kimari", meaning: "rule (a settled rule)", example: { jp: "がっこうのきまりがきびしいので、みんなはやくねます。", en: "The school rules are strict, so everyone goes to bed early." }, accept: ["regulation", "the rules"] },
         { id: "ja-u120l1-seido", type: "vocab", front: "せいど", reading: "seido", meaning: "system", example: { jp: "あたらしいせいどができたので、せいかつがべんりになりました。", en: "A new system was set up, so life became more convenient." }, accept: ["scheme", "institution"] },
         { id: "ja-u120l1-gensoku", type: "vocab", front: "げんそく", reading: "gensoku", meaning: "general rule", example: { jp: "げんそくとしてしゃしんはだめですが、ここではとってもいいです。", en: "As a general rule photos are not allowed, but here you may take them." }, accept: ["principle", "as a rule"] },
         { id: "ja-u120l1-joshiki", type: "vocab", front: "じょうしき", reading: "jōshiki", meaning: "common sense", example: { jp: "きそくになくても、じょうしきでかんがえればわかります。", en: "Even when it isn't in the rules, you can work it out with common sense." }, accept: ["what everyone knows", "the done thing", "common knowledge"] },
@@ -69,7 +69,7 @@ export const UNIT120 = {
         { id: "ja-u120l3-tozen", type: "vocab", front: "とうぜん", reading: "tōzen", meaning: "naturally", example: { jp: "やくそくをしたので、とうぜんまもらなければなりません。", en: "I made a promise, so naturally I have to keep it." }, accept: ["of course", "obviously", "only right"] },
         { id: "ja-u120l3-shitagau", type: "vocab", front: "したがう", reading: "shitagau", meaning: "follow", example: { jp: "みんなできめたので、わたしもそれにしたがいます。", en: "We all decided it, so I will go along with it too." }, drill: { jp: "それにしたがう。", en: "I follow it." }, accept: ["to obey", "go along with", "comply"] },
         { id: "ja-u120l3-makaseru", type: "vocab", front: "まかせる", reading: "makaseru", meaning: "leave it to", example: { jp: "しごとをまかせてから、じぶんのじかんがふえました。", en: "Since I left the work to him, my own time has increased." }, accept: ["to entrust", "hand over", "put in someone's hands"] },
-        { id: "ja-u120l3-shikatanai", type: "vocab", front: "しかたない", reading: "shikatanai", meaning: "it can't be helped", example: { jp: "あめでしかたなく、いえでほんをよみました。", en: "It couldn't be helped in the rain, so I read a book at home." }, drill: { jp: "あめでしかたない。", en: "It rained so it cannot be helped." }, accept: ["no choice", "nothing to be done", "unavoidable"] },
+        { id: "ja-u120l3-shikatanai", type: "vocab", front: "しかたない", reading: "shikatanai", meaning: "it can't be helped (there is no choice)", example: { jp: "あめでしかたなく、いえでほんをよみました。", en: "It couldn't be helped in the rain, so I read a book at home." }, drill: { jp: "あめでしかたない。", en: "It rained so it cannot be helped." }, accept: ["no choice", "nothing to be done", "unavoidable"] },
       ],
     },
     {

@@ -25,7 +25,7 @@ export const UNIT20 = {
       canDo: "Mark what a verb acts on with を: ほんをよみます. Use it with new everyday verbs.",
       items: [
         { id: "ja-u20l1-wo", type: "vocab", front: "を", reading: "wo", meaning: "(object marker)", example: { jp: "ほんをよみます。", en: "I read a book." }, accept: ["object particle", "direct object"], hint: "を marks the direct OBJECT — the thing the verb acts on: ほん を よみます = read a book. It's read お (o/wo), and this kana is used ONLY as this particle." },
-        { id: "ja-u20l1-tsukurimasu", type: "vocab", front: "つくります", reading: "tsukurimasu", meaning: "make", example: { jp: "りょうりをつくります。", en: "I make food." }, accept: ["to make", "cook", "makes"] },
+        { id: "ja-u20l1-tsukurimasu", type: "vocab", front: "つくります", reading: "tsukurimasu", meaning: "make (polite form)", example: { jp: "りょうりをつくります。", en: "I make food." }, accept: ["to make", "cook", "makes"] },
         { id: "ja-u20l1-tsukaimasu", type: "vocab", front: "つかいます", reading: "tsukaimasu", meaning: "use", example: { jp: "ペンをつかいます。", en: "I use a pen." }, accept: ["to use", "uses"] },
         { id: "ja-u20l1-akemasu", type: "vocab", front: "あけます", reading: "akemasu", meaning: "open", example: { jp: "まどをあけます。", en: "I open the window." }, accept: ["to open", "opens"] },
         { id: "ja-u20l1-shimemasu", type: "vocab", front: "しめます", reading: "shimemasu", meaning: "close", example: { jp: "ドアをしめます。", en: "I close the door." }, accept: ["to close", "shut", "closes"] },
@@ -62,9 +62,9 @@ export const UNIT20 = {
       canDo: "Mark where an action happens with で: うちでたべます. Contrast it with に (destination), and say どこかで for a place you cannot name.",
       items: [
         { id: "ja-u20l3-de", type: "vocab", front: "で", reading: "de", meaning: "(at / in)", example: { jp: "うちでごはんをたべます。", en: "I eat a meal at home." }, accept: ["at", "in", "by"], hint: "で marks WHERE an action happens (place of the action) — vs に, which is a destination. うちで たべます = eat AT home. Also means 'by means of'." },
-        { id: "ja-u20l3-hatarakimasu", type: "vocab", front: "はたらきます", reading: "hatarakimasu", meaning: "work", example: { jp: "みせではたらきます。", en: "I work at the shop." }, accept: ["to work", "works"] },
+        { id: "ja-u20l3-hatarakimasu", type: "vocab", front: "はたらきます", reading: "hatarakimasu", meaning: "work (to work at a job)", example: { jp: "みせではたらきます。", en: "I work at the shop." }, accept: ["to work", "works"] },
         { id: "ja-u20l3-asobimasu", type: "vocab", front: "あそびます", reading: "asobimasu", meaning: "play", example: { jp: "こうえんであそびます。", en: "I play at the park." }, accept: ["to play", "have fun", "hang out"] },
-        { id: "ja-u20l3-yasumimasu", type: "vocab", front: "やすみます", reading: "yasumimasu", meaning: "rest", example: { jp: "うちでやすみます。", en: "I rest at home." }, accept: ["to rest", "take a break", "be absent"] },
+        { id: "ja-u20l3-yasumimasu", type: "vocab", front: "やすみます", reading: "yasumimasu", meaning: "rest (polite form)", example: { jp: "うちでやすみます。", en: "I rest at home." }, accept: ["to rest", "take a break", "be absent"] },
         { id: "ja-u20l3-naraimasu", type: "vocab", front: "ならいます", reading: "naraimasu", meaning: "learn", example: { jp: "がっこうでならいます。", en: "I learn at school." }, accept: ["to learn", "study", "take lessons"] },
         { id: "ja-u20l3-dokoka", type: "vocab", front: "どこか", reading: "dokoka", meaning: "somewhere", example: { jp: "きょうはどこかであそびます。", en: "Today I’ll go out and play somewhere." }, drill: { jp: "どこかであいます。", en: "We meet up somewhere." }, accept: ["anywhere","some place","someplace"], hint: "どこ + か = somewhere, unnamed. It still takes で for the place of an action: どこかではたらきます." },
       ],

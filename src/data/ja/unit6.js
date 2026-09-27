@@ -103,7 +103,7 @@ export const UNIT6 = {
         { id: "ja-u6l4-teburu",  type: "vocab", front: "テーブル", reading: "tēburu",  meaning: "table", example: { jp: "テーブルがあります。",   en: "There is a table." },    accept: ["tables"] },
         { id: "ja-u6l4-beddo",   type: "vocab", front: "ベッド",   reading: "beddo",   meaning: "bed",   example: { jp: "ベッドがあります。",     en: "There is a bed." },      accept: ["beds"] },
         { id: "ja-u6l4-botan",   type: "vocab", front: "ボタン",   reading: "botan",   meaning: "button", example: { jp: "ボタンがあります。",    en: "There is a button." },   accept: ["buttons"] },
-        { id: "ja-u6l4-biru2",   type: "vocab", front: "ビル",     reading: "biru",    meaning: "building", example: { jp: "たかいビルです。",      en: "It's a tall building." }, accept: ["buildings", "tower block"] },
+        { id: "ja-u6l4-biru2",   type: "vocab", front: "ビル",     reading: "biru",    meaning: "building (a multi-storey block)", example: { jp: "たかいビルです。",      en: "It's a tall building." }, accept: ["buildings", "tower block"] },
       ],
     },
     // Lesson 5: p-row パ ピ プ ペ ポ (handakuten — the small circle ゜)

@@ -19,10 +19,10 @@ export const UNIT13 = {
       dominantMode: "recall",
       canDo: "Read the seven day / element kanji: 日 月 火 水 木 金 土.",
       items: [
-        { id: "ja-u13l1-nichi", type: "kanji", front: "日", reading: "nichi", meaning: "sun", example: { jp: "きょうはいい日です。", en: "Today is a nice day." }, accept: ["day"] },
-        { id: "ja-u13l1-getsu", type: "kanji", front: "月", reading: "getsu", meaning: "moon", example: { jp: "月をみます。", en: "I look at the moon." }, accept: ["month"] },
+        { id: "ja-u13l1-nichi", type: "kanji", front: "日", reading: "nichi", meaning: "sun (also the word for day)", example: { jp: "きょうはいい日です。", en: "Today is a nice day." }, accept: ["day"] },
+        { id: "ja-u13l1-getsu", type: "kanji", front: "月", reading: "getsu", meaning: "moon (also the word for month)", example: { jp: "月をみます。", en: "I look at the moon." }, accept: ["month"] },
         { id: "ja-u13l1-ka", type: "kanji", front: "火", reading: "ka", meaning: "fire", example: { jp: "これは火です。", en: "This is fire." }, accept: [] },
-        { id: "ja-u13l1-sui", type: "kanji", front: "水", reading: "sui", meaning: "water", example: { jp: "水をのみます。", en: "I drink water." }, accept: [] },
+        { id: "ja-u13l1-sui", type: "kanji", front: "水", reading: "sui", meaning: "water (read sui in compounds)", example: { jp: "水をのみます。", en: "I drink water." }, accept: [] },
         { id: "ja-u13l1-moku", type: "kanji", front: "木", reading: "moku", meaning: "tree", example: { jp: "木をみます。", en: "I look at the tree." }, accept: ["wood"] },
         { id: "ja-u13l1-kin", type: "kanji", front: "金", reading: "kin", meaning: "gold", example: { jp: "金がすきです。", en: "I like gold." }, accept: ["money"] },
         { id: "ja-u13l1-do", type: "kanji", front: "土", reading: "do", meaning: "soil", example: { jp: "これは土です。", en: "This is soil." }, accept: ["earth","dirt","ground"] },

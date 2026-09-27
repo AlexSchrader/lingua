@@ -37,7 +37,7 @@ export const UNIT96 = {
         { id: "ja-u96l2-yakeru", type: "vocab", front: "やける", reading: "yakeru", meaning: "be baked/grilled", example: { jp: "パンがやけました。", en: "The bread is baked." }, accept: ["to be grilled","to be burned"] },
         { id: "ja-u96l2-kimi", type: "vocab", front: "きみ", reading: "kimi", meaning: "you (informal)", example: { jp: "きみのなまえはなんですか。", en: "What is your name?" }, accept: ["you (casual)"], hint: "Casual 'you' — friendly, used with close/junior people." },
         { id: "ja-u96l2-wariai", type: "vocab", front: "わりあい", reading: "wariai", meaning: "proportion", example: { jp: "おんなのひとのわりあいがたかいです。", en: "The proportion of women is high." }, accept: ["ratio","rate"] },
-        { id: "ja-u96l2-futsu", type: "vocab", front: "ふつう", reading: "futsū", meaning: "usually", example: { jp: "ふつうはあるいていきます。", en: "I usually go on foot." }, accept: ["ordinary","normal"] },
+        { id: "ja-u96l2-futsu", type: "vocab", front: "ふつう", reading: "futsū", meaning: "usually (ordinarily)", example: { jp: "ふつうはあるいていきます。", en: "I usually go on foot." }, accept: ["ordinary","normal"] },
       ],
     },
     {
@@ -49,7 +49,7 @@ export const UNIT96 = {
       dominantMode: "recall",
       canDo: "Core JLPT N4 vocabulary: もっとも ひさしぶり おき このあいだ かまう おとす.",
       items: [
-        { id: "ja-u96l3-mottomo", type: "vocab", front: "もっとも", reading: "mottomo", meaning: "most", example: { jp: "これがもっともたかいです。", en: "This is the most expensive." }, accept: ["the most"] },
+        { id: "ja-u96l3-mottomo", type: "vocab", front: "もっとも", reading: "mottomo", meaning: "most (the very most)", example: { jp: "これがもっともたかいです。", en: "This is the most expensive." }, accept: ["the most"] },
         { id: "ja-u96l3-hisashiburi", type: "vocab", front: "ひさしぶり", reading: "hisashiburi", meaning: "after a long time", example: { jp: "ひさしぶりにともだちにあいました。", en: "I met my friend after a long time." }, accept: ["long time no see","for the first time in a while"] },
         { id: "ja-u96l3-oki", type: "vocab", front: "おき", reading: "oki", meaning: "at intervals of", example: { jp: "いちにちおきにはしります。", en: "I run every other day." }, accept: ["every other","spaced by"], hint: "〜おき = 'every other / at intervals of'." },
         { id: "ja-u96l3-konoaida", type: "vocab", front: "このあいだ", reading: "konoaida", meaning: "the other day", example: { jp: "このあいだ、えいがをみました。", en: "The other day, I watched a movie." }, accept: ["recently","a while ago"] },
@@ -71,7 +71,7 @@ export const UNIT96 = {
         { id: "ja-u96l4-mukau", type: "vocab", front: "むかう", reading: "mukau", meaning: "to head toward", example: { jp: "えきにむかいます。", en: "I head to the station." }, accept: ["to go toward","to face"] },
         { id: "ja-u96l4-haikensuru", type: "vocab", front: "はいけんする", reading: "haikensuru", meaning: "to see (humble)", example: { jp: "しゃしんをはいけんします。", en: "I take a look at the photo." }, accept: ["to look at (humble)","humbly see"], hint: "humble form of 見る (to look at)" },
         { id: "ja-u96l4-ossharu", type: "vocab", front: "おっしゃる", reading: "ossharu", meaning: "to say (honorific)", example: { jp: "せんせいがおっしゃいました。", en: "The teacher said so." }, accept: ["to say","to speak (honorific)"], hint: "honorific form of 言う (to say)" },
-        { id: "ja-u96l4-kakkou", type: "vocab", front: "かっこう", reading: "kakkō", meaning: "appearance", example: { jp: "へんなかっこうですね。", en: "That's a strange getup." }, accept: ["look","outfit"] },
+        { id: "ja-u96l4-kakkou", type: "vocab", front: "かっこう", reading: "kakkō", meaning: "appearance (one's outfit)", example: { jp: "へんなかっこうですね。", en: "That's a strange getup." }, accept: ["look","outfit"] },
       ],
     },
   ],

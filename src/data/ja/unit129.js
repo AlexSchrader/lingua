@@ -21,7 +21,7 @@ export const UNIT129 = {
       canDo: "Describe the land and climate of a region, and how far away it is: ちけい とち きこう たいき ちほう きょり.",
       items: [
         { id: "ja-u129l1-chikei", type: "vocab", front: "ちけい", reading: "chikei", meaning: "terrain", example: { jp: "このあたりはちけいがふくざつなので、みちがわかりにくいです。", en: "The terrain around here is complicated, so the roads are hard to follow." }, accept: ["landform", "topography", "the lie of the land"] },
-        { id: "ja-u129l1-tochi", type: "vocab", front: "とち", reading: "tochi", meaning: "land", example: { jp: "このとちはひろいですが、いえはたてられません。", en: "This land is large, but you can't build a house on it." }, drill: { jp: "とちはひろいです。", en: "The land is wide." }, accept: ["plot of land", "a piece of land", "ground"] },
+        { id: "ja-u129l1-tochi", type: "vocab", front: "とち", reading: "tochi", meaning: "land (a plot of ground)", example: { jp: "このとちはひろいですが、いえはたてられません。", en: "This land is large, but you can't build a house on it." }, drill: { jp: "とちはひろいです。", en: "The land is wide." }, accept: ["plot of land", "a piece of land", "ground"] },
         { id: "ja-u129l1-kiko", type: "vocab", front: "きこう", reading: "kikō", meaning: "climate", example: { jp: "きこうがあたたかいので、ふゆでもはながさきます。", en: "The climate is warm, so flowers bloom even in winter." }, accept: ["weather patterns", "the climate"] },
         { id: "ja-u129l1-taiki", type: "vocab", front: "たいき", reading: "taiki", meaning: "the atmosphere", example: { jp: "たいきのおせんがひどいので、まちのそらはいつもしろくみえます。", en: "The atmospheric pollution is bad, so the town sky always looks white." }, accept: ["the air", "air"] },
         { id: "ja-u129l1-chiho", type: "vocab", front: "ちほう", reading: "chihō", meaning: "region", example: { jp: "このちほうはゆきがおおいので、ふゆはたいへんです。", en: "This region gets a lot of snow, so winter is hard." }, accept: ["district", "the provinces", "area"] },
@@ -71,11 +71,11 @@ export const UNIT129 = {
       dominantMode: "recall",
       canDo: "Talk about development and what is around a place: かいはつ けんせつ しせつ しゅうへん ふきん きぼ.",
       items: [
-        { id: "ja-u129l4-kaihatsu", type: "vocab", front: "かいはつ", reading: "kaihatsu", meaning: "development", example: { jp: "えきまえのかいはつがはじまったので、みせがふえました。", en: "Development in front of the station began, so there are more shops." }, accept: ["developing", "redevelopment"] },
+        { id: "ja-u129l4-kaihatsu", type: "vocab", front: "かいはつ", reading: "kaihatsu", meaning: "development (developing land)", example: { jp: "えきまえのかいはつがはじまったので、みせがふえました。", en: "Development in front of the station began, so there are more shops." }, accept: ["developing", "redevelopment"] },
         { id: "ja-u129l4-kensetsu", type: "vocab", front: "けんせつ", reading: "kensetsu", meaning: "construction", example: { jp: "はしのけんせつがおわったら、まちがべんりになります。", en: "Once the bridge is built, the town will be more convenient." }, accept: ["building", "erecting"] },
         { id: "ja-u129l4-shisetsu", type: "vocab", front: "しせつ", reading: "shisetsu", meaning: "facility", example: { jp: "あたらしいしせつはきれいですが、ばしょがふべんです。", en: "The new facility is nice, but the location is inconvenient." }, accept: ["facilities", "institution", "amenity"] },
         { id: "ja-u129l4-shuhen", type: "vocab", front: "しゅうへん", reading: "shūhen", meaning: "surrounding area", example: { jp: "えきのしゅうへんはにぎやかで、よるもあかるいです。", en: "The area surrounding the station is lively, and bright at night too." }, accept: ["vicinity", "outskirts", "environs"] },
-        { id: "ja-u129l4-fukin", type: "vocab", front: "ふきん", reading: "fukin", meaning: "nearby", example: { jp: "このふきんにぎんこうがないので、まちまででかけます。", en: "There's no bank nearby, so I go into town." }, drill: { jp: "ふきんにぎんこうがありません。", en: "There is no bank nearby." }, accept: ["neighbourhood", "in the area", "close by"] },
+        { id: "ja-u129l4-fukin", type: "vocab", front: "ふきん", reading: "fukin", meaning: "nearby (the surrounding area)", example: { jp: "このふきんにぎんこうがないので、まちまででかけます。", en: "There's no bank nearby, so I go into town." }, drill: { jp: "ふきんにぎんこうがありません。", en: "There is no bank nearby." }, accept: ["neighbourhood", "in the area", "close by"] },
         { id: "ja-u129l4-kibo", type: "vocab", front: "きぼ", reading: "kibo", meaning: "scale", example: { jp: "けいかくのきぼがおおきいので、じかんもおかねもかかります。", en: "The scale of the plan is large, so it takes both time and money." }, accept: ["size", "scope", "magnitude"] },
       ],
     },

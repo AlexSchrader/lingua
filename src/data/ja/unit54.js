@@ -78,7 +78,7 @@ export const UNIT54 = {
         { id: "ja-u54l4-udon", type: "vocab", front: "うどん", reading: "udon", meaning: "udon", example: { jp: "うどんをたべます。", en: "I eat udon." }, accept: ["udon noodles"] },
         { id: "ja-u54l4-soba", type: "vocab", front: "そば", reading: "soba", meaning: "soba", example: { jp: "そばがすきです。", en: "I like soba." }, accept: ["soba noodles", "buckwheat noodles"] },
         { id: "ja-u54l4-ramen", type: "vocab", front: "ラーメン", reading: "rāmen", meaning: "ramen", example: { jp: "ラーメンはおいしいです。", en: "Ramen is delicious." }, accept: ["ramen noodles"] },
-        { id: "ja-u54l4-gyunyu", type: "vocab", front: "ぎゅうにゅう", reading: "gyūnyū", meaning: "milk", example: { jp: "ぎゅうにゅうをのみます。", en: "I drink milk." }, accept: ["cow's milk"] },
+        { id: "ja-u54l4-gyunyu", type: "vocab", front: "ぎゅうにゅう", reading: "gyūnyū", meaning: "milk (cow's milk)", example: { jp: "ぎゅうにゅうをのみます。", en: "I drink milk." }, accept: ["cow's milk"] },
         { id: "ja-u54l4-osake", type: "vocab", front: "おさけ", reading: "osake", meaning: "sake", example: { jp: "ちちはおさけをのみます。", en: "My father drinks sake." }, accept: ["alcohol", "liquor"] },
         { id: "ja-u54l4-suppai", type: "vocab", front: "すっぱい", reading: "suppai", meaning: "sour", example: { jp: "レモンはすっぱいです。", en: "Lemons are sour." }, accept: ["sour-tasting"] },
       ],

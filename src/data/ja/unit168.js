@@ -25,7 +25,7 @@ export const UNIT168 = {
         { id: "ja-u168l1-kindai", type: "vocab", front: "きんだい", reading: "kindai", meaning: "the modern era", example: { jp: "きんだいに なって、学校が 国じゅうに できました。", en: "In the modern era, schools appeared throughout the country." }, accept: ["modern times", "modernity"], hint: "きんだい is the era that began with industry and the nation-state; げんだい is now, the era you are living in. History books use both, and never as synonyms." },
         { id: "ja-u168l1-gendai", type: "vocab", front: "げんだい", reading: "gendai", meaning: "the present age", example: { jp: "げんだいの 生活は べんりですが、いそがしすぎます。", en: "Life in the present age is convenient but far too busy." }, accept: ["contemporary", "today's world"] },
         { id: "ja-u168l1-iseki", type: "vocab", front: "いせき", reading: "iseki", meaning: "ruins", example: { jp: "畑の 下から 古い いせきが 出て きました。", en: "Old ruins turned up beneath the field." }, drill: { jp: "いせきが みつかりました。", en: "Ruins were found." }, accept: ["archaeological site", "remains"] },
-        { id: "ja-u168l1-yurai", type: "vocab", front: "ゆらい", reading: "yurai", meaning: "origin", example: { jp: "この まつりの ゆらいは、千年 前に あります。", en: "This festival's origin lies a thousand years back." }, drill: { jp: "ゆらいが ふるいです。", en: "The origin is old." }, accept: ["derivation", "how it came about", "provenance"] },
+        { id: "ja-u168l1-yurai", type: "vocab", front: "ゆらい", reading: "yurai", meaning: "origin (how something came about)", example: { jp: "この まつりの ゆらいは、千年 前に あります。", en: "This festival's origin lies a thousand years back." }, drill: { jp: "ゆらいが ふるいです。", en: "The origin is old." }, accept: ["derivation", "how it came about", "provenance"] },
       ],
     },
     {

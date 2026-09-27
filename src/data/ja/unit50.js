@@ -37,7 +37,7 @@ export const UNIT50 = {
         { id: "ja-u50l2-saito", type: "vocab", front: "サイト", reading: "saito", meaning: "website", example: { jp: "このサイトはべんりです。", en: "This website is useful." }, accept: ["site","web site"] },
         { id: "ja-u50l2-tsunagarimasu", type: "vocab", front: "つながります", reading: "tsunagarimasu", meaning: "connect", example: { jp: "ネットにつながります。", en: "It connects to the net." }, accept: ["to connect","be connected","link up"] },
         { id: "ja-u50l2-kensakushimasu", type: "vocab", front: "けんさくします", reading: "kensakushimasu", meaning: "search (online)", example: { jp: "なまえをけんさくします。", en: "I search for the name." }, accept: ["to search","look up","search for"] },
-        { id: "ja-u50l2-torokushimasu", type: "vocab", front: "とうろくします", reading: "tōrokushimasu", meaning: "register", example: { jp: "サイトにとうろくします。", en: "I register on the site." }, accept: ["to register","sign up","enroll"] },
+        { id: "ja-u50l2-torokushimasu", type: "vocab", front: "とうろくします", reading: "tōrokushimasu", meaning: "register (to sign up)", example: { jp: "サイトにとうろくします。", en: "I register on the site." }, accept: ["to register","sign up","enroll"] },
       ],
     },
     {

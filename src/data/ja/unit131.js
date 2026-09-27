@@ -41,9 +41,9 @@ export const UNIT131 = {
         { id: "ja-u131l2-seikyu", type: "vocab", front: "せいきゅう", reading: "seikyū", meaning: "billing", example: { jp: "せいきゅうがまちがっていたので、でんわでききました。", en: "The billing was wrong, so I asked about it by phone." }, accept: ["invoice", "a claim", "demand for payment"] },
         { id: "ja-u131l2-tesuryo", type: "vocab", front: "てすうりょう", reading: "tesūryō", meaning: "handling fee", example: { jp: "てすうりょうはたかくないので、あまりきにしていません。", en: "The handling fee isn't high, so I don't worry about it much." }, accept: ["commission", "service charge", "fee"] },
         { id: "ja-u131l2-hiyo", type: "vocab", front: "ひよう", reading: "hiyō", meaning: "cost", example: { jp: "ひようはかいしゃがはらいますので、しんぱいしないでください。", en: "The company pays the cost, so please don't worry." }, accept: ["expense", "outlay", "costs"] },
-        { id: "ja-u131l2-kakaku", type: "vocab", front: "かかく", reading: "kakaku", meaning: "price", example: { jp: "かかくがあがったのに、あじはかわっていません。", en: "The price went up, but the taste hasn't changed." }, accept: ["cost", "the going price"] },
+        { id: "ja-u131l2-kakaku", type: "vocab", front: "かかく", reading: "kakaku", meaning: "price (the going price)", example: { jp: "かかくがあがったのに、あじはかわっていません。", en: "The price went up, but the taste hasn't changed." }, accept: ["cost", "the going price"] },
         { id: "ja-u131l2-baibai", type: "vocab", front: "ばいばい", reading: "baibai", meaning: "buying and selling", example: { jp: "とちのばいばいはむずかしいので、せんもんかにききました。", en: "Buying and selling land is difficult, so I asked a specialist." }, drill: { jp: "ばいばいはむずかしいです。", en: "Buying and selling is difficult." }, accept: ["trading", "dealing", "trade"] },
-        { id: "ja-u131l2-hanbai", type: "vocab", front: "はんばい", reading: "hanbai", meaning: "sale", example: { jp: "はんばいはあしたからなので、もうならんでいるひとがいます。", en: "The sale starts tomorrow, so there are already people queuing." }, accept: ["selling", "retail", "on sale"] },
+        { id: "ja-u131l2-hanbai", type: "vocab", front: "はんばい", reading: "hanbai", meaning: "sale (selling as a business)", example: { jp: "はんばいはあしたからなので、もうならんでいるひとがいます。", en: "The sale starts tomorrow, so there are already people queuing." }, accept: ["selling", "retail", "on sale"] },
       ],
     },
     {
@@ -56,7 +56,7 @@ export const UNIT131 = {
       canDo: "Talk about how a business runs and whether it is making money: きぎょう けいえい りえき とりひき しょうひ けいひ.",
       items: [
         { id: "ja-u131l3-kigyo", type: "vocab", front: "きぎょう", reading: "kigyō", meaning: "enterprise", example: { jp: "おおきいきぎょうははいりにくいですが、やすみはおおいです。", en: "Big enterprises are hard to get into, but the holidays are plentiful." }, accept: ["company", "corporation", "firm"] },
-        { id: "ja-u131l3-keiei", type: "vocab", front: "けいえい", reading: "keiei", meaning: "management", example: { jp: "けいえいがかわってから、みせのふんいきがよくなりました。", en: "Since the management changed, the shop's atmosphere has improved." }, accept: ["running a business", "administration"] },
+        { id: "ja-u131l3-keiei", type: "vocab", front: "けいえい", reading: "keiei", meaning: "management (running a business)", example: { jp: "けいえいがかわってから、みせのふんいきがよくなりました。", en: "Since the management changed, the shop's atmosphere has improved." }, accept: ["running a business", "administration"] },
         { id: "ja-u131l3-rieki", type: "vocab", front: "りえき", reading: "rieki", meaning: "profit", example: { jp: "りえきがすくなくても、おきゃくさんがよろこべばいいです。", en: "Even if the profit is small, it's enough that the customers are pleased." }, accept: ["gain", "earnings", "return"] },
         { id: "ja-u131l3-torihiki", type: "vocab", front: "とりひき", reading: "torihiki", meaning: "a business deal", example: { jp: "とりひきがまとまったので、しゃいんみんなでいわいました。", en: "The deal came together, so the whole staff celebrated." }, accept: ["transaction", "trade", "dealings"] },
         { id: "ja-u131l3-shohi", type: "vocab", front: "しょうひ", reading: "shōhi", meaning: "consumption", example: { jp: "でんきのしょうひがふえたので、りょうきんもたかくなりました。", en: "Electricity consumption rose, so the charges went up too." }, drill: { jp: "しょうひがふえました。", en: "Consumption increased." }, accept: ["using up", "consumer spending"] },

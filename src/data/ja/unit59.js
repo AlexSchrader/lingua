@@ -58,7 +58,7 @@ export const UNIT59 = {
       canDo: "Talk about getting around: バイク せき バスてい みなと せんろ ふみきり.",
       items: [
         { id: "ja-u59l3-baiku", type: "vocab", front: "バイク", reading: "baiku", meaning: "motorcycle", example: { jp: "バイクでかいしゃへいきます。", en: "I go to work by motorcycle." }, accept: ["motorbike", "bike"] },
-        { id: "ja-u59l3-seki", type: "vocab", front: "せき", reading: "seki", meaning: "seat", example: { jp: "でんしゃにせきがあります。", en: "There are seats on the train." }, accept: ["seats"] },
+        { id: "ja-u59l3-seki", type: "vocab", front: "せき", reading: "seki", meaning: "seat (a place to sit)", example: { jp: "でんしゃにせきがあります。", en: "There are seats on the train." }, accept: ["seats"] },
         { id: "ja-u59l3-basutei", type: "vocab", front: "バスてい", reading: "basutei", meaning: "bus stop", example: { jp: "バスていはえきのまえです。", en: "The bus stop is in front of the station." }, accept: ["bus stand"] },
         { id: "ja-u59l3-minato", type: "vocab", front: "みなと", reading: "minato", meaning: "harbor", example: { jp: "みなとにふねがあります。", en: "There are boats at the harbor." }, accept: ["port", "harbour"] },
         { id: "ja-u59l3-senro", type: "vocab", front: "せんろ", reading: "senro", meaning: "train track", example: { jp: "せんろをわたります。", en: "I cross the tracks." }, accept: ["railway track", "railroad track"] },
@@ -76,11 +76,11 @@ export const UNIT59 = {
       canDo: "Describe where you are: とおり ばしょ むら とかい いなか ひろば.",
       items: [
         { id: "ja-u59l4-tori", type: "vocab", front: "とおり", reading: "tōri", meaning: "street", example: { jp: "このとおりはひろいです。", en: "This street is wide." }, accept: ["avenue", "road"] },
-        { id: "ja-u59l4-basho", type: "vocab", front: "ばしょ", reading: "basho", meaning: "place", example: { jp: "このばしょはしずかです。", en: "This place is quiet." }, drill: { jp: "ばしょはしずかです。", en: "The place is quiet." }, accept: ["location", "spot"] },
+        { id: "ja-u59l4-basho", type: "vocab", front: "ばしょ", reading: "basho", meaning: "place (a location)", example: { jp: "このばしょはしずかです。", en: "This place is quiet." }, drill: { jp: "ばしょはしずかです。", en: "The place is quiet." }, accept: ["location", "spot"] },
         { id: "ja-u59l4-mura", type: "vocab", front: "むら", reading: "mura", meaning: "village", example: { jp: "あのむらはちいさいです。", en: "That village is small." }, accept: ["hamlet"] },
         { id: "ja-u59l4-tokai", type: "vocab", front: "とかい", reading: "tokai", meaning: "city", example: { jp: "とかいはにぎやかです。", en: "The city is lively." }, accept: ["big city", "urban area"] },
         { id: "ja-u59l4-inaka", type: "vocab", front: "いなか", reading: "inaka", meaning: "countryside", example: { jp: "いなかはしずかです。", en: "The countryside is quiet." }, accept: ["rural area", "country"] },
-        { id: "ja-u59l4-hiroba", type: "vocab", front: "ひろば", reading: "hiroba", meaning: "square", example: { jp: "ひろばでこどもがあそびます。", en: "Children play in the square." }, accept: ["plaza", "open space"] },
+        { id: "ja-u59l4-hiroba", type: "vocab", front: "ひろば", reading: "hiroba", meaning: "square (an open plaza)", example: { jp: "ひろばでこどもがあそびます。", en: "Children play in the square." }, accept: ["plaza", "open space"] },
       ],
     },
   ],

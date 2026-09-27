@@ -33,7 +33,7 @@ export const UNIT83 = {
       canDo: "Core JLPT N5 vocabulary: キログラム カップ おふろ おべんとう ぎゅうにく キロメートル.",
       items: [
         { id: "ja-u83l2-kiroguramu", type: "vocab", front: "キログラム", reading: "kiroguramu", meaning: "kilogram", example: { jp: "にキログラムです。", en: "It is two kilograms." }, accept: ["kilo","kg","kilograms"] },
-        { id: "ja-u83l2-kappu", type: "vocab", front: "カップ", reading: "kappu", meaning: "cup", example: { jp: "カップをかいます。", en: "I buy a cup." }, accept: ["mug","a cup"] },
+        { id: "ja-u83l2-kappu", type: "vocab", front: "カップ", reading: "kappu", meaning: "cup (a mug with a handle)", example: { jp: "カップをかいます。", en: "I buy a cup." }, accept: ["mug","a cup"] },
         { id: "ja-u83l2-ofuro", type: "vocab", front: "おふろ", reading: "ofuro", meaning: "bath", example: { jp: "おふろがすきです。", en: "I like baths." }, accept: ["a bath","hot bath"] },
         { id: "ja-u83l2-obento", type: "vocab", front: "おべんとう", reading: "obentō", meaning: "bento", example: { jp: "おべんとうをたべます。", en: "I eat a bento." }, accept: ["boxed lunch","lunch box","box lunch"] },
         { id: "ja-u83l2-gyuniku", type: "vocab", front: "ぎゅうにく", reading: "gyūniku", meaning: "beef", example: { jp: "ぎゅうにくをたべます。", en: "I eat beef." }, accept: ["cow meat"] },
@@ -50,7 +50,7 @@ export const UNIT83 = {
       canDo: "Core JLPT N5 vocabulary: くもる けいかん けっこん こうちゃ ここ ここのか.",
       items: [
         { id: "ja-u83l3-kumoru", type: "vocab", front: "くもる", reading: "kumoru", meaning: "become cloudy", example: { jp: "そらがくもります。", en: "The sky clouds over." }, drill: { jp: "そらがくもる。", en: "The sky becomes cloudy." }, accept: ["get cloudy","cloud over","to become cloudy"] },
-        { id: "ja-u83l3-keikan", type: "vocab", front: "けいかん", reading: "keikan", meaning: "police officer", example: { jp: "けいかんにききます。", en: "I ask the police officer." }, accept: ["policeman","police","officer"] },
+        { id: "ja-u83l3-keikan", type: "vocab", front: "けいかん", reading: "keikan", meaning: "police officer (a police official)", example: { jp: "けいかんにききます。", en: "I ask the police officer." }, accept: ["policeman","police","officer"] },
         { id: "ja-u83l3-kekkon", type: "vocab", front: "けっこん", reading: "kekkon", meaning: "marriage", example: { jp: "らいねんけっこんします。", en: "I will get married next year." }, accept: ["wedding","getting married"] },
         { id: "ja-u83l3-koucha", type: "vocab", front: "こうちゃ", reading: "kōcha", meaning: "black tea", example: { jp: "こうちゃをのみます。", en: "I drink black tea." }, accept: ["tea","tea (black)"] },
         { id: "ja-u83l3-koko", type: "vocab", front: "ここ", reading: "koko", meaning: "here", example: { jp: "ここはえきです。", en: "This is the station." }, accept: ["this place"] },
@@ -66,11 +66,11 @@ export const UNIT83 = {
       dominantMode: "recall",
       canDo: "Core JLPT N5 vocabulary: ここのつ こちら コピー こんな さき さす.",
       items: [
-        { id: "ja-u83l4-kokonotsu", type: "vocab", front: "ここのつ", reading: "kokonotsu", meaning: "nine", example: { jp: "りんごがここのつあります。", en: "There are nine apples." }, accept: ["nine (things)","9"] },
-        { id: "ja-u83l4-kochira", type: "vocab", front: "こちら", reading: "kochira", meaning: "this way", example: { jp: "こちらへどうぞ。", en: "This way, please." }, accept: ["here","this direction","this one"] },
-        { id: "ja-u83l4-kopii", type: "vocab", front: "コピー", reading: "kopī", meaning: "copy", example: { jp: "コピーをします。", en: "I make a copy." }, accept: ["photocopy","copies"] },
+        { id: "ja-u83l4-kokonotsu", type: "vocab", front: "ここのつ", reading: "kokonotsu", meaning: "nine (counting things)", example: { jp: "りんごがここのつあります。", en: "There are nine apples." }, accept: ["nine (things)","9"] },
+        { id: "ja-u83l4-kochira", type: "vocab", front: "こちら", reading: "kochira", meaning: "this way (politely)", example: { jp: "こちらへどうぞ。", en: "This way, please." }, accept: ["here","this direction","this one"] },
+        { id: "ja-u83l4-kopii", type: "vocab", front: "コピー", reading: "kopī", meaning: "copy (a photocopy)", example: { jp: "コピーをします。", en: "I make a copy." }, accept: ["photocopy","copies"] },
         { id: "ja-u83l4-konna", type: "vocab", front: "こんな", reading: "konna", meaning: "this kind of", example: { jp: "こんなくつがすきです。", en: "I like this kind of shoes." }, accept: ["like this","such","this sort of"] },
-        { id: "ja-u83l4-saki", type: "vocab", front: "さき", reading: "saki", meaning: "ahead", example: { jp: "さきにいきます。", en: "I'll go on ahead." }, accept: ["previous","before","earlier","first"] },
+        { id: "ja-u83l4-saki", type: "vocab", front: "さき", reading: "saki", meaning: "ahead (further on)", example: { jp: "さきにいきます。", en: "I'll go on ahead." }, accept: ["previous","before","earlier","first"] },
         { id: "ja-u83l4-sasu", type: "vocab", front: "さす", reading: "sasu", meaning: "put up (an umbrella)", example: { jp: "かさをさします。", en: "I put up an umbrella." }, accept: ["hold up","raise","open (umbrella)"] },
       ],
     },

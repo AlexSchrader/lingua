@@ -22,11 +22,11 @@ export const UNIT135 = {
       canDo: "Describe how close you are to someone and how you look out for each other: つきあう しりあい ささえる おもいやり きょうかん そんちょう.",
       items: [
         { id: "ja-u135l1-tsukiau", type: "vocab", front: "つきあう", reading: "tsukiau", meaning: "keep company with", example: { jp: "だいがくのときからつきあっていて、いまもよくあいます。", en: "We've been close since university, and we still see each other often." }, accept: ["to associate with", "go out with", "spend time with"] },
-        { id: "ja-u135l1-shiriai", type: "vocab", front: "しりあい", reading: "shiriai", meaning: "acquaintance", example: { jp: "かれはともだちではなくしりあいですが、こまったときはたすけてくれます。", en: "He's an acquaintance rather than a friend, but he helps when I'm stuck." }, accept: ["someone I know", "contact", "connection"] },
-        { id: "ja-u135l1-sasaeru", type: "vocab", front: "ささえる", reading: "sasaeru", meaning: "support", example: { jp: "かぞくがささえてくれたので、さいごまでつづけられました。", en: "My family supported me, so I could keep going to the end." }, accept: ["to back up", "hold up", "stand by"] },
+        { id: "ja-u135l1-shiriai", type: "vocab", front: "しりあい", reading: "shiriai", meaning: "acquaintance (someone one knows)", example: { jp: "かれはともだちではなくしりあいですが、こまったときはたすけてくれます。", en: "He's an acquaintance rather than a friend, but he helps when I'm stuck." }, accept: ["someone I know", "contact", "connection"] },
+        { id: "ja-u135l1-sasaeru", type: "vocab", front: "ささえる", reading: "sasaeru", meaning: "support (to hold someone up)", example: { jp: "かぞくがささえてくれたので、さいごまでつづけられました。", en: "My family supported me, so I could keep going to the end." }, accept: ["to back up", "hold up", "stand by"] },
         { id: "ja-u135l1-omoiyari", type: "vocab", front: "おもいやり", reading: "omoiyari", meaning: "consideration for others", example: { jp: "おもいやりのあるひとにあうと、こちらもやさしくなれます。", en: "When you meet someone considerate, it makes you kinder too." }, accept: ["thoughtfulness", "compassion", "kindness"] },
         { id: "ja-u135l1-kyokan", type: "vocab", front: "きょうかん", reading: "kyōkan", meaning: "empathy", example: { jp: "はなしをきいてきょうかんして、なみだがでました。", en: "I listened, felt for them, and the tears came." }, drill: { jp: "きょうかんがあります。", en: "There is empathy." }, accept: ["sympathy", "relating to", "fellow feeling"] },
-        { id: "ja-u135l1-soncho", type: "vocab", front: "そんちょう", reading: "sonchō", meaning: "respect", example: { jp: "いけんがちがっても、あいてをそんちょうします。", en: "Even when our opinions differ, I respect the other person." }, accept: ["esteem", "regard", "respecting"] },
+        { id: "ja-u135l1-soncho", type: "vocab", front: "そんちょう", reading: "sonchō", meaning: "respect (regard for another's view)", example: { jp: "いけんがちがっても、あいてをそんちょうします。", en: "Even when our opinions differ, I respect the other person." }, accept: ["esteem", "regard", "respecting"] },
       ],
     },
     {

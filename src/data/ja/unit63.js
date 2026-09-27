@@ -44,7 +44,7 @@ export const UNIT63 = {
         { id: "ja-u63l2-kekko", type: "vocab", front: "けっこう", reading: "kekkō", meaning: "fairly", example: { jp: "けっこうおいしいです。", en: "It's fairly delicious." }, accept: ["quite", "pretty"] },
         { id: "ja-u63l2-nakanaka", type: "vocab", front: "なかなか", reading: "nakanaka", meaning: "quite", example: { jp: "なかなかおもしろいです。", en: "It's quite interesting." }, accept: ["fairly", "pretty"] },
         { id: "ja-u63l2-kanari", type: "vocab", front: "かなり", reading: "kanari", meaning: "considerably", example: { jp: "かなりさむいです。", en: "It's considerably cold." }, accept: ["fairly", "quite"] },
-        { id: "ja-u63l2-daibu", type: "vocab", front: "だいぶ", reading: "daibu", meaning: "a lot", example: { jp: "だいぶあたたかいです。", en: "It's a lot warmer." }, accept: ["a great deal", "much"] },
+        { id: "ja-u63l2-daibu", type: "vocab", front: "だいぶ", reading: "daibu", meaning: "a lot (considerably more)", example: { jp: "だいぶあたたかいです。", en: "It's a lot warmer." }, accept: ["a great deal", "much"] },
         { id: "ja-u63l2-maamaa", type: "vocab", front: "まあまあ", reading: "māmā", meaning: "so-so", example: { jp: "あじはまあまあです。", en: "The taste is so-so." }, accept: ["okay", "not bad"] },
       ],
     },
@@ -63,7 +63,7 @@ export const UNIT63 = {
         { id: "ja-u63l3-iraira", type: "vocab", front: "いらいら", reading: "iraira", meaning: "irritated", example: { jp: "とてもいらいらします。", en: "I'm very irritated." }, accept: ["annoyed", "frustrated"] },
         { id: "ja-u63l3-nonbiri", type: "vocab", front: "のんびり", reading: "nonbiri", meaning: "relaxed", example: { jp: "うちでのんびりします。", en: "I relax at home." }, accept: ["laid-back", "leisurely"] },
         { id: "ja-u63l3-jobu", type: "vocab", front: "じょうぶ", reading: "jōbu", meaning: "healthy", example: { jp: "からだがじょうぶです。", en: "My body is healthy." }, accept: ["sturdy", "strong"] },
-        { id: "ja-u63l3-daiji", type: "vocab", front: "だいじ", reading: "daiji", meaning: "important", example: { jp: "かぞくがだいじです。", en: "Family is important." }, accept: ["precious", "valuable"] },
+        { id: "ja-u63l3-daiji", type: "vocab", front: "だいじ", reading: "daiji", meaning: "important (precious to one)", example: { jp: "かぞくがだいじです。", en: "Family is important." }, accept: ["precious", "valuable"] },
       ],
     },
     // Lesson 4: everyday state & manner words

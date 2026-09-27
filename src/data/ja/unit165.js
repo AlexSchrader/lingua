@@ -54,7 +54,7 @@ export const UNIT165 = {
       dominantMode: "recall",
       canDo: "Talk about takings, stock and what is left over: りじゅん うりあげ ざいこ きょうきゅう ぶんぱい けっさん.",
       items: [
-        { id: "ja-u165l3-rijun", type: "vocab", front: "りじゅん", reading: "rijun", meaning: "profit", example: { jp: "うりあげは 大きいのに、りじゅんは 少ないです。", en: "Sales are large, yet the profit is small." }, drill: { jp: "りじゅんが すくないです。", en: "The profit is small." }, accept: ["margin", "gain", "return"], hint: "うりあげ is everything that came in; りじゅん is what survives after costs. Confusing them is how a busy shop goes under." },
+        { id: "ja-u165l3-rijun", type: "vocab", front: "りじゅん", reading: "rijun", meaning: "profit (the margin made)", example: { jp: "うりあげは 大きいのに、りじゅんは 少ないです。", en: "Sales are large, yet the profit is small." }, drill: { jp: "りじゅんが すくないです。", en: "The profit is small." }, accept: ["margin", "gain", "return"], hint: "うりあげ is everything that came in; りじゅん is what survives after costs. Confusing them is how a busy shop goes under." },
         { id: "ja-u165l3-uriage", type: "vocab", front: "うりあげ", reading: "uriage", meaning: "sales takings", example: { jp: "夏の うりあげが、一年で いちばん 多いです。", en: "Summer takings are the largest of the year." }, accept: ["turnover", "revenue", "receipts"] },
         { id: "ja-u165l3-zaiko", type: "vocab", front: "ざいこ", reading: "zaiko", meaning: "stock on hand", example: { jp: "ざいこが 多すぎると、場所も お金も むだに なります。", en: "Too much stock wastes both space and money." }, accept: ["inventory", "goods in hand"] },
         { id: "ja-u165l3-kyokyu", type: "vocab", front: "きょうきゅう", reading: "kyōkyū", meaning: "supply", example: { jp: "きょうきゅうが 足りないので、ねだんが 上がって います。", en: "Supply is short, so prices are rising." }, accept: ["provision", "to supply"] },

@@ -43,7 +43,7 @@ export const UNIT76 = {
         { id: "ja-u76l2-konchu", type: "vocab", front: "こんちゅう", reading: "konchū", meaning: "insect", example: { jp: "こどもはこんちゅうがすきです。", en: "Children like insects." }, accept: ["insects", "bug"] },
         { id: "ja-u76l2-inochi", type: "vocab", front: "いのち", reading: "inochi", meaning: "life", example: { jp: "いのちはたいせつです。", en: "Life is precious." }, accept: ["a life"] },
         { id: "ja-u76l2-jinrui", type: "vocab", front: "じんるい", reading: "jinrui", meaning: "humankind", example: { jp: "じんるいのれきしはながいです。", en: "The history of humankind is long." }, accept: ["humanity", "the human race"] },
-        { id: "ja-u76l2-shinrin", type: "vocab", front: "しんりん", reading: "shinrin", meaning: "forest", example: { jp: "しんりんをまもります。", en: "We protect the forest." }, accept: ["woods", "woodland"] },
+        { id: "ja-u76l2-shinrin", type: "vocab", front: "しんりん", reading: "shinrin", meaning: "forest (woodland as a whole)", example: { jp: "しんりんをまもります。", en: "We protect the forest." }, accept: ["woods", "woodland"] },
       ],
     },
     // Lesson 3: disasters & danger
@@ -78,7 +78,7 @@ export const UNIT76 = {
         { id: "ja-u76l4-heiwa", type: "vocab", front: "へいわ", reading: "heiwa", meaning: "peace", example: { jp: "せかいのへいわをねがいます。", en: "I wish for world peace." }, accept: ["peaceful"] },
         { id: "ja-u76l4-rekishi", type: "vocab", front: "れきし", reading: "rekishi", meaning: "history", example: { jp: "にほんのれきしがすきです。", en: "I like Japanese history." }, accept: ["the past"] },
         { id: "ja-u76l4-bunka", type: "vocab", front: "ぶんか", reading: "bunka", meaning: "culture", example: { jp: "にほんのぶんかをべんきょうします。", en: "I study Japanese culture." }, accept: ["a culture"] },
-        { id: "ja-u76l4-mirai", type: "vocab", front: "みらい", reading: "mirai", meaning: "future", example: { jp: "みらいはあかるいです。", en: "The future is bright." }, accept: ["the future"] },
+        { id: "ja-u76l4-mirai", type: "vocab", front: "みらい", reading: "mirai", meaning: "future (the future in general)", example: { jp: "みらいはあかるいです。", en: "The future is bright." }, accept: ["the future"] },
         { id: "ja-u76l4-seifu", type: "vocab", front: "せいふ", reading: "seifu", meaning: "government", example: { jp: "せいふがきめます。", en: "The government decides." }, accept: ["the government", "administration"] },
       ],
     },

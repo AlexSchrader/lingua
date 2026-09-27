@@ -16,7 +16,7 @@ export const UNIT98 = {
       canDo: "Core JLPT N4 vocabulary: ゆしゅつする かんごふ ガソリンスタンド はなみ きょうそう とちゅう.",
       items: [
         { id: "ja-u98l1-yushutsusuru", type: "vocab", front: "ゆしゅつする", reading: "yushutsusuru", meaning: "export", example: { jp: "くるまをゆしゅつする。", en: "We export cars." }, accept: ["to export","exports"] },
-        { id: "ja-u98l1-kangofu", type: "vocab", front: "かんごふ", reading: "kangofu", meaning: "nurse", example: { jp: "あねはかんごふです。", en: "My older sister is a nurse." }, accept: ["nurse"] },
+        { id: "ja-u98l1-kangofu", type: "vocab", front: "かんごふ", reading: "kangofu", meaning: "nurse (the older word for one)", example: { jp: "あねはかんごふです。", en: "My older sister is a nurse." }, accept: ["nurse"] },
         { id: "ja-u98l1-gasorinsutando", type: "vocab", front: "ガソリンスタンド", reading: "gasorinsutando", meaning: "gas station", example: { jp: "ガソリンスタンドはあそこです。", en: "The gas station is over there." }, accept: ["petrol station","filling station"] },
         { id: "ja-u98l1-hanami", type: "vocab", front: "はなみ", reading: "hanami", meaning: "flower viewing", example: { jp: "こうえんではなみをする。", en: "We do flower viewing in the park." }, drill: { jp: "はなみをします。", en: "We go flower viewing." }, accept: ["cherry blossom viewing","blossom viewing"] },
         { id: "ja-u98l1-kyoso", type: "vocab", front: "きょうそう", reading: "kyōsō", meaning: "competition", example: { jp: "きょうそうにかつ。", en: "I win the competition." }, accept: ["race","contest"] },

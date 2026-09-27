@@ -15,8 +15,8 @@ export const UNIT82 = {
       dominantMode: "recall",
       canDo: "Core JLPT N5 vocabulary: あそこ あちら あと あびる いい よい.",
       items: [
-        { id: "ja-u82l1-asoko", type: "vocab", front: "あそこ", reading: "asoko", meaning: "over there", example: { jp: "トイレはあそこです。", en: "The toilet is over there." }, drill: { jp: "あそこにトイレがあります。", en: "There is a toilet over there." }, accept: ["that place","there"] },
-        { id: "ja-u82l1-achira", type: "vocab", front: "あちら", reading: "achira", meaning: "that way", example: { jp: "あちらへどうぞ。", en: "Please go that way." }, accept: ["over there","that direction"] },
+        { id: "ja-u82l1-asoko", type: "vocab", front: "あそこ", reading: "asoko", meaning: "over there (that place)", example: { jp: "トイレはあそこです。", en: "The toilet is over there." }, drill: { jp: "あそこにトイレがあります。", en: "There is a toilet over there." }, accept: ["that place","there"] },
+        { id: "ja-u82l1-achira", type: "vocab", front: "あちら", reading: "achira", meaning: "that way (over there politely)", example: { jp: "あちらへどうぞ。", en: "Please go that way." }, accept: ["over there","that direction"] },
         { id: "ja-u82l1-ato", type: "vocab", front: "あと", reading: "ato", meaning: "later", example: { jp: "あとでいきます。", en: "I'll go later." }, accept: ["after","afterwards"] },
         { id: "ja-u82l1-abiru", type: "vocab", front: "あびる", reading: "abiru", meaning: "to take (a shower)", example: { jp: "シャワーをあびる。", en: "I take a shower." }, accept: ["to bathe","to shower"] },
         { id: "ja-u82l1-ii", type: "vocab", front: "いい", reading: "ii", meaning: "good", example: { jp: "てんきがいいです。", en: "The weather is good." }, accept: ["nice","fine"] },
@@ -49,12 +49,12 @@ export const UNIT82 = {
       dominantMode: "recall",
       canDo: "Core JLPT N5 vocabulary: いりぐち いれる いろいろ うまれる エレベーター おおきな.",
       items: [
-        { id: "ja-u82l3-iriguchi", type: "vocab", front: "いりぐち", reading: "iriguchi", meaning: "entrance", example: { jp: "いりぐちはあそこです。", en: "The entrance is over there." }, accept: ["entry","way in"] },
+        { id: "ja-u82l3-iriguchi", type: "vocab", front: "いりぐち", reading: "iriguchi", meaning: "entrance (the way in)", example: { jp: "いりぐちはあそこです。", en: "The entrance is over there." }, accept: ["entry","way in"] },
         { id: "ja-u82l3-ireru", type: "vocab", front: "いれる", reading: "ireru", meaning: "to put in", example: { jp: "かばんにいれる。", en: "I put it in the bag." }, accept: ["to insert","to add"] },
         { id: "ja-u82l3-iroiro", type: "vocab", front: "いろいろ", reading: "iroiro", meaning: "various", example: { jp: "いろいろなくにへいきます。", en: "I go to various countries." }, accept: ["all sorts","many kinds"] },
         { id: "ja-u82l3-umareru", type: "vocab", front: "うまれる", reading: "umareru", meaning: "to be born", example: { jp: "にほんでうまれる。", en: "I was born in Japan." }, accept: ["to be born","born"] },
         { id: "ja-u82l3-erebeta", type: "vocab", front: "エレベーター", reading: "erebētā", meaning: "elevator", example: { jp: "エレベーターにのります。", en: "I get on the elevator." }, accept: ["lift"] },
-        { id: "ja-u82l3-ookina", type: "vocab", front: "おおきな", reading: "ōkina", meaning: "big", example: { jp: "おおきないぬです。", en: "It's a big dog." }, accept: ["large","great"] },
+        { id: "ja-u82l3-ookina", type: "vocab", front: "おおきな", reading: "ōkina", meaning: "big (before a noun)", example: { jp: "おおきないぬです。", en: "It's a big dog." }, accept: ["large","great"] },
       ],
     },
     {
@@ -66,7 +66,7 @@ export const UNIT82 = {
       dominantMode: "recall",
       canDo: "Core JLPT N5 vocabulary: おさら おじさん おてあらい おとこのこ おんなのこ おばさん.",
       items: [
-        { id: "ja-u82l4-osara", type: "vocab", front: "おさら", reading: "osara", meaning: "plate", example: { jp: "おさらをあらいます。", en: "I wash the plate." }, accept: ["dish","plates"] },
+        { id: "ja-u82l4-osara", type: "vocab", front: "おさら", reading: "osara", meaning: "plate (the polite form)", example: { jp: "おさらをあらいます。", en: "I wash the plate." }, accept: ["dish","plates"] },
         { id: "ja-u82l4-ojisan", type: "vocab", front: "おじさん", reading: "ojisan", meaning: "uncle", example: { jp: "おじさんにあいます。", en: "I meet my uncle." }, accept: ["middle-aged man"] },
         { id: "ja-u82l4-otearai", type: "vocab", front: "おてあらい", reading: "otearai", meaning: "restroom", example: { jp: "おてあらいはどこですか。", en: "Where is the restroom?" }, accept: ["toilet","bathroom"] },
         { id: "ja-u82l4-otokonoko", type: "vocab", front: "おとこのこ", reading: "otokonoko", meaning: "boy", example: { jp: "おとこのこがいます。", en: "There is a boy." }, accept: ["a boy","young boy"] },

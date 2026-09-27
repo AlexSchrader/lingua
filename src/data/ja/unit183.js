@@ -20,7 +20,7 @@ export const UNIT183 = {
       dominantMode: "recall",
       canDo: "Describe the people and stages of formal study: しどう きょうじゅ がくい はかせ しゅうりょう じっせん.",
       items: [
-        { id: "ja-u183l1-shido", type: "vocab", front: "しどう", reading: "shidō", meaning: "guidance", example: { jp: "先生の しどうが よかったので、書き方が 大きく 変わりました。", en: "My teacher's guidance was good, and my writing changed a great deal." }, accept: ["instruction", "supervision", "coaching"] },
+        { id: "ja-u183l1-shido", type: "vocab", front: "しどう", reading: "shidō", meaning: "guidance (coaching and supervision)", example: { jp: "先生の しどうが よかったので、書き方が 大きく 変わりました。", en: "My teacher's guidance was good, and my writing changed a great deal." }, accept: ["instruction", "supervision", "coaching"] },
         { id: "ja-u183l1-kyoju", type: "vocab", front: "きょうじゅ", reading: "kyōju", meaning: "a professor", example: { jp: "きょうじゅは 話が 長いですが、聞く だけの ねうちが あります。", en: "The professor talks at length, but it's worth listening to." }, accept: ["chair", "full professor"] },
         { id: "ja-u183l1-gakui", type: "vocab", front: "がくい", reading: "gakui", meaning: "an academic degree", example: { jp: "はたらきながら がくいを 取るのは、思ったより 大変でした。", en: "Taking a degree while working was harder than I expected." }, accept: ["a degree", "qualification"] },
         { id: "ja-u183l1-hakase", type: "vocab", front: "はかせ", reading: "hakase", meaning: "a doctorate", example: { jp: "はかせまで 進む 人は、この 学校では 多く ありません。", en: "Not many at this school go on as far as a doctorate." }, accept: ["PhD", "doctor (academic)"] },

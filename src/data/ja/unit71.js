@@ -46,7 +46,7 @@ export const UNIT71 = {
         { id: "ja-u71l2-hokoku", type: "vocab", front: "ほうこく", reading: "hōkoku", meaning: "report", example: { jp: "ぶちょうにほうこくします。", en: "I report to the manager." }, accept: ["to report", "reporting"] },
         { id: "ja-u71l2-sodan", type: "vocab", front: "そうだん", reading: "sōdan", meaning: "consultation", example: { jp: "じょうしにそうだんします。", en: "I consult my boss." }, accept: ["to consult", "discussion"] },
         { id: "ja-u71l2-keiyaku", type: "vocab", front: "けいやく", reading: "keiyaku", meaning: "contract", example: { jp: "あたらしいけいやくです。", en: "It's a new contract." }, accept: ["agreement", "contracts"] },
-        { id: "ja-u71l2-kikaku", type: "vocab", front: "きかく", reading: "kikaku", meaning: "plan", example: { jp: "きかくのかいぎです。", en: "It's a planning meeting." }, accept: ["project", "proposal"] },
+        { id: "ja-u71l2-kikaku", type: "vocab", front: "きかく", reading: "kikaku", meaning: "plan (a project proposal)", example: { jp: "きかくのかいぎです。", en: "It's a planning meeting." }, accept: ["project", "proposal"] },
       ],
     },
     // Lesson 3: getting a job
@@ -81,7 +81,7 @@ export const UNIT71 = {
         { id: "ja-u71l4-jikyu", type: "vocab", front: "じきゅう", reading: "jikyū", meaning: "hourly wage", example: { jp: "じきゅうはやすいです。", en: "The hourly wage is low." }, accept: ["hourly pay", "hourly rate"] },
         { id: "ja-u71l4-shunyu", type: "vocab", front: "しゅうにゅう", reading: "shūnyū", meaning: "income", example: { jp: "しゅうにゅうがおおいです。", en: "My income is large." }, accept: ["earnings", "revenue"] },
         { id: "ja-u71l4-bonasu", type: "vocab", front: "ボーナス", reading: "bōnasu", meaning: "bonus", example: { jp: "なつにボーナスをもらいます。", en: "I get a bonus in summer." }, accept: ["work bonus", "bonuses"] },
-        { id: "ja-u71l4-kyuka", type: "vocab", front: "きゅうか", reading: "kyūka", meaning: "leave", example: { jp: "らいしゅうはきゅうかです。", en: "Next week is my time off." }, accept: ["time off", "holiday"] },
+        { id: "ja-u71l4-kyuka", type: "vocab", front: "きゅうか", reading: "kyūka", meaning: "leave (time off work)", example: { jp: "らいしゅうはきゅうかです。", en: "Next week is my time off." }, accept: ["time off", "holiday"] },
         { id: "ja-u71l4-shukkin", type: "vocab", front: "しゅっきん", reading: "shukkin", meaning: "going to work", example: { jp: "あさはやくしゅっきんします。", en: "I go to work early in the morning." }, accept: ["attendance", "reporting to work"] },
       ],
     },

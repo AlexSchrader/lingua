@@ -37,7 +37,7 @@ export const UNIT40 = {
       items: [
         { id: "ja-u40l2-niku", type: "kanji", front: "肉", reading: "niku", meaning: "meat", example: { jp: "肉を食べます。", en: "I eat meat." }, accept: ["flesh"], hint: "肉 = meat (にく). 牛肉 = beef, 鳥肉 = chicken." },
         { id: "ja-u40l2-han", type: "kanji", front: "飯", reading: "han", meaning: "cooked rice", example: { jp: "ご飯を食べます。", en: "I eat a meal." }, accept: ["meal","rice"], hint: "飯 = cooked rice / meal. You know it as ご飯 (gohan)." },
-        { id: "ja-u40l2-cha", type: "kanji", front: "茶", reading: "cha", meaning: "tea", example: { jp: "お茶を飲みます。", en: "I drink tea." }, accept: ["brown"], hint: "茶 = tea (ちゃ). You know it as お茶. The 艹 top is a plant." },
+        { id: "ja-u40l2-cha", type: "kanji", front: "茶", reading: "cha", meaning: "tea (also the colour brown)", example: { jp: "お茶を飲みます。", en: "I drink tea." }, accept: ["brown"], hint: "茶 = tea (ちゃ). You know it as お茶. The 艹 top is a plant." },
         { id: "ja-u40l2-ushi", type: "kanji", front: "牛", reading: "ushi", meaning: "cow", example: { jp: "牛がいます。", en: "There is a cow." }, accept: ["cattle","ox"], hint: "牛 = cow (うし). It looks like a cow's head with horns. 牛肉 = beef." },
         { id: "ja-u40l2-sakana", type: "kanji", front: "魚", reading: "sakana", meaning: "fish", example: { jp: "魚を食べます。", en: "I eat fish." }, accept: ["fishes"], hint: "魚 = fish (さかな) — a pictograph with fins and a tail." },
         { id: "ja-u40l2-tori", type: "kanji", front: "鳥", reading: "tori", meaning: "bird", example: { jp: "鳥がとんでいます。", en: "A bird is flying." }, accept: ["chicken","fowl"], hint: "鳥 = bird (とり) — a pictograph of a bird. 鳥肉 = chicken." },

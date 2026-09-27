@@ -20,7 +20,7 @@ export const UNIT97 = {
         { id: "ja-u97l1-kawari", type: "vocab", front: "かわり", reading: "kawari", meaning: "substitute", example: { jp: "コーヒーのかわりにおちゃをのみます。", en: "I drink tea instead of coffee." }, accept: ["replacement","instead"] },
         { id: "ja-u97l1-tsuite", type: "vocab", front: "ついて", reading: "tsuite", meaning: "about, concerning", example: { jp: "にほんについてはなします。", en: "I talk about Japan." }, accept: ["concerning","regarding"], hint: "used as 〜について = about" },
         { id: "ja-u97l1-shinbunsha", type: "vocab", front: "しんぶんしゃ", reading: "shinbunsha", meaning: "newspaper company", example: { jp: "ちちはしんぶんしゃではたらきます。", en: "My father works at a newspaper company." }, drill: { jp: "しんぶんしゃではたらきます。", en: "I work at a newspaper company." }, accept: ["newspaper publisher","press company"] },
-        { id: "ja-u97l1-kougyou", type: "vocab", front: "こうぎょう", reading: "kōgyō", meaning: "industry", example: { jp: "にほんのこうぎょうはつよいです。", en: "Japan's industry is strong." }, accept: ["manufacturing"] },
+        { id: "ja-u97l1-kougyou", type: "vocab", front: "こうぎょう", reading: "kōgyō", meaning: "industry (manufacturing)", example: { jp: "にほんのこうぎょうはつよいです。", en: "Japan's industry is strong." }, accept: ["manufacturing"] },
       ],
     },
     {
@@ -34,10 +34,10 @@ export const UNIT97 = {
       items: [
         { id: "ja-u97l2-kenkyushitsu", type: "vocab", front: "けんきゅうしつ", reading: "kenkyūshitsu", meaning: "laboratory", example: { jp: "せんせいはけんきゅうしつにいます。", en: "The teacher is in the lab." }, accept: ["research lab","research room"] },
         { id: "ja-u97l2-akusesari", type: "vocab", front: "アクセサリー", reading: "akusesarī", meaning: "accessory", example: { jp: "アクセサリーをかいました。", en: "I bought an accessory." }, accept: ["jewelry"] },
-        { id: "ja-u97l2-asu", type: "vocab", front: "あす", reading: "asu", meaning: "tomorrow", example: { jp: "あす、あめがふります。", en: "It will rain tomorrow." }, drill: { jp: "あすはあめがふります。", en: "Tomorrow it will rain." }, accept: ["the next day"], hint: "formal word for あした" },
+        { id: "ja-u97l2-asu", type: "vocab", front: "あす", reading: "asu", meaning: "tomorrow (the formal word)", example: { jp: "あす、あめがふります。", en: "It will rain tomorrow." }, drill: { jp: "あすはあめがふります。", en: "Tomorrow it will rain." }, accept: ["the next day"], hint: "formal word for あした" },
         { id: "ja-u97l2-keredo", type: "vocab", front: "けれど", reading: "keredo", meaning: "but, however", example: { jp: "たかいけれど、かいます。", en: "It's expensive, but I'll buy it." }, accept: ["however","though"] },
         { id: "ja-u97l2-keredomo", type: "vocab", front: "けれども", reading: "keredomo", meaning: "but, however (formal)", example: { jp: "さむいけれども、げんきです。", en: "It's cold, but I'm fine." }, accept: ["however","though", "but, however"] },
-        { id: "ja-u97l2-konpyuta", type: "vocab", front: "コンピュータ", reading: "konpyūta", meaning: "computer", example: { jp: "コンピュータをつかいます。", en: "I use a computer." }, accept: ["PC"], hint: "same as コンピューター" },
+        { id: "ja-u97l2-konpyuta", type: "vocab", front: "コンピュータ", reading: "konpyūta", meaning: "computer (spelled without the final long mark)", example: { jp: "コンピュータをつかいます。", en: "I use a computer." }, accept: ["PC"], hint: "same as コンピューター" },
       ],
     },
     {
@@ -49,12 +49,12 @@ export const UNIT97 = {
       dominantMode: "recall",
       canDo: "Core JLPT N4 vocabulary: コンピューター もどる まいる あがる さげる のりかえる.",
       items: [
-        { id: "ja-u97l3-konpyutaa", type: "vocab", front: "コンピューター", reading: "konpyūtā", meaning: "computer", example: { jp: "あたらしいコンピューターがほしいです。", en: "I want a new computer." }, accept: ["PC"], hint: "same as コンピュータ" },
-        { id: "ja-u97l3-modoru", type: "vocab", front: "もどる", reading: "modoru", meaning: "return", example: { jp: "いえにもどる。", en: "I return home." }, accept: ["to return","go back"] },
+        { id: "ja-u97l3-konpyutaa", type: "vocab", front: "コンピューター", reading: "konpyūtā", meaning: "computer (spelled with the final long mark)", example: { jp: "あたらしいコンピューターがほしいです。", en: "I want a new computer." }, accept: ["PC"], hint: "same as コンピュータ" },
+        { id: "ja-u97l3-modoru", type: "vocab", front: "もどる", reading: "modoru", meaning: "return (to go back)", example: { jp: "いえにもどる。", en: "I return home." }, accept: ["to return","go back"] },
         { id: "ja-u97l3-mairu", type: "vocab", front: "まいる", reading: "mairu", meaning: "go/come (humble)", example: { jp: "またまいります。", en: "I will come again." }, accept: ["to go (humble)","to come (humble)"], hint: "Humble form of いく／くる." },
         { id: "ja-u97l3-agaru", type: "vocab", front: "あがる", reading: "agaru", meaning: "go up", example: { jp: "ねだんがあがる。", en: "The price goes up." }, accept: ["to rise","to go up"] },
         { id: "ja-u97l3-sageru", type: "vocab", front: "さげる", reading: "sageru", meaning: "lower", example: { jp: "あたまをさげる。", en: "I lower my head." }, accept: ["to lower","to bring down"] },
-        { id: "ja-u97l3-norikaeru", type: "vocab", front: "のりかえる", reading: "norikaeru", meaning: "transfer", example: { jp: "えきでのりかえる。", en: "I transfer at the station." }, accept: ["to transfer","change trains"] },
+        { id: "ja-u97l3-norikaeru", type: "vocab", front: "のりかえる", reading: "norikaeru", meaning: "transfer (to change trains)", example: { jp: "えきでのりかえる。", en: "I transfer at the station." }, accept: ["to transfer","change trains"] },
       ],
     },
     {
@@ -67,10 +67,10 @@ export const UNIT97 = {
       canDo: "Core JLPT N4 vocabulary: わかれる うえる かつ とりかえる ねむる やくにたつ.",
       items: [
         { id: "ja-u97l4-wakareru", type: "vocab", front: "わかれる", reading: "wakareru", meaning: "part", example: { jp: "ともだちとわかれる。", en: "I part from my friend." }, accept: ["to separate","to split up"] },
-        { id: "ja-u97l4-ueru", type: "vocab", front: "うえる", reading: "ueru", meaning: "plant", example: { jp: "はなをうえる。", en: "I plant flowers." }, accept: ["to plant","to grow"] },
+        { id: "ja-u97l4-ueru", type: "vocab", front: "うえる", reading: "ueru", meaning: "plant (to put in the ground)", example: { jp: "はなをうえる。", en: "I plant flowers." }, accept: ["to plant","to grow"] },
         { id: "ja-u97l4-katsu", type: "vocab", front: "かつ", reading: "katsu", meaning: "win", example: { jp: "しあいにかつ。", en: "I win the match." }, accept: ["to win","wins"] },
-        { id: "ja-u97l4-torikaeru", type: "vocab", front: "とりかえる", reading: "torikaeru", meaning: "exchange", example: { jp: "あたらしいのととりかえる。", en: "I exchange it for a new one." }, accept: ["to replace","to swap"] },
-        { id: "ja-u97l4-nemuru", type: "vocab", front: "ねむる", reading: "nemuru", meaning: "sleep", example: { jp: "よくねむる。", en: "I sleep well." }, accept: ["to sleep","to fall asleep"] },
+        { id: "ja-u97l4-torikaeru", type: "vocab", front: "とりかえる", reading: "torikaeru", meaning: "exchange (to swap one for another)", example: { jp: "あたらしいのととりかえる。", en: "I exchange it for a new one." }, accept: ["to replace","to swap"] },
+        { id: "ja-u97l4-nemuru", type: "vocab", front: "ねむる", reading: "nemuru", meaning: "sleep (to fall asleep)", example: { jp: "よくねむる。", en: "I sleep well." }, accept: ["to sleep","to fall asleep"] },
         { id: "ja-u97l4-yakunitatsu", type: "vocab", front: "やくにたつ", reading: "yakunitatsu", meaning: "be useful", example: { jp: "このほんはやくにたつ。", en: "This book is useful." }, accept: ["to be useful","comes in handy"] },
       ],
     },

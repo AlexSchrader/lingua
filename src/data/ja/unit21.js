@@ -99,7 +99,7 @@ export const UNIT21 = {
         { id: "ja-u21l5-hoshii", type: "vocab", front: "ほしい", reading: "hoshii", meaning: "want", example: { jp: "あたらしいくつがほしいです。", en: "I want new shoes." }, accept: ["want (a thing)", "desire"], hint: "ほしい is for wanting a THING: (thing) が ほしいです. For wanting to DO, use verb + たいです." },
         { id: "ja-u21l5-daisuki", type: "vocab", front: "だいすき", reading: "daisuki", meaning: "love", example: { jp: "にほんがだいすきです。", en: "I love Japan." }, accept: ["really like", "adore"] },
         { id: "ja-u21l5-totemo", type: "vocab", front: "とても", reading: "totemo", meaning: "very", example: { jp: "とてもたのしいです。", en: "It's very fun." }, accept: ["really", "so"] },
-        { id: "ja-u21l5-sukoshi", type: "vocab", front: "すこし", reading: "sukoshi", meaning: "a little", example: { jp: "すこしさむいです。", en: "It's a little cold." }, accept: ["a bit", "slightly", "some"] },
+        { id: "ja-u21l5-sukoshi", type: "vocab", front: "すこし", reading: "sukoshi", meaning: "a little (a small amount)", example: { jp: "すこしさむいです。", en: "It's a little cold." }, accept: ["a bit", "slightly", "some"] },
         { id: "ja-u21l5-gurai", type: "vocab", front: "ぐらい", reading: "gurai", meaning: "about (approximately)", example: { jp: "いちじかんぐらいべんきょうします。", en: "I study for about an hour." }, drill: { jp: "すこしぐらいほしいです。", en: "I want a little at least." }, accept: ["approximately","around","or so","roughly"], hint: "ぐらい measures an AMOUNT or a LENGTH — いちじかんぐらい, about an hour. くらい is the same word and equally correct." },
       ],
     },

@@ -18,7 +18,7 @@ export const UNIT91 = {
         { id: "ja-u91l1-nasaru", type: "vocab", front: "なさる", reading: "nasaru", meaning: "do (honorific)", example: { jp: "なにをなさいますか。", en: "What will you do?" }, accept: ["to do (honorific)","do"], hint: "Polite (honorific) form of する." },
         { id: "ja-u91l1-nebo", type: "vocab", front: "ねぼう", reading: "nebō", meaning: "oversleeping", example: { jp: "きょうねぼうしました。", en: "I overslept today." }, accept: ["to oversleep","sleep in"] },
         { id: "ja-u91l1-jusho", type: "vocab", front: "じゅうしょ", reading: "jūsho", meaning: "address", example: { jp: "じゅうしょをかきます。", en: "I write my address." }, accept: ["postal address"] },
-        { id: "ja-u91l1-hikojo", type: "vocab", front: "ひこうじょう", reading: "hikōjō", meaning: "airport", example: { jp: "ひこうじょうへいきます。", en: "I go to the airport." }, accept: ["airfield"] },
+        { id: "ja-u91l1-hikojo", type: "vocab", front: "ひこうじょう", reading: "hikōjō", meaning: "airport (an airfield)", example: { jp: "ひこうじょうへいきます。", en: "I go to the airport." }, accept: ["airfield"] },
         { id: "ja-u91l1-jimusho", type: "vocab", front: "じむしょ", reading: "jimusho", meaning: "office", example: { jp: "じむしょではたらきます。", en: "I work at the office." }, accept: ["business office"] },
         { id: "ja-u91l1-shogakko", type: "vocab", front: "しょうがっこう", reading: "shōgakkō", meaning: "elementary school", example: { jp: "しょうがっこうにいきます。", en: "I go to elementary school." }, accept: ["primary school"] },
       ],
@@ -33,11 +33,11 @@ export const UNIT91 = {
       canDo: "Core JLPT N4 vocabulary: すいどう おまつり パパ きゃく おれい おわり.",
       items: [
         { id: "ja-u91l2-suido", type: "vocab", front: "すいどう", reading: "suidō", meaning: "tap water", example: { jp: "すいどうのみずをのみます。", en: "I drink tap water." }, accept: ["running water","water supply"] },
-        { id: "ja-u91l2-omatsuri", type: "vocab", front: "おまつり", reading: "omatsuri", meaning: "festival", example: { jp: "おまつりがすきです。", en: "I like festivals." }, accept: ["fair"] },
+        { id: "ja-u91l2-omatsuri", type: "vocab", front: "おまつり", reading: "omatsuri", meaning: "festival (the polite form)", example: { jp: "おまつりがすきです。", en: "I like festivals." }, accept: ["fair"] },
         { id: "ja-u91l2-papa", type: "vocab", front: "パパ", reading: "papa", meaning: "dad", example: { jp: "パパはやさしいです。", en: "Dad is kind." }, accept: ["papa","daddy"] },
-        { id: "ja-u91l2-kyaku", type: "vocab", front: "きゃく", reading: "kyaku", meaning: "guest", example: { jp: "きゃくがきます。", en: "A guest is coming." }, accept: ["customer","visitor"] },
-        { id: "ja-u91l2-orei", type: "vocab", front: "おれい", reading: "orei", meaning: "thanks", example: { jp: "せんせいにおれいをいいます。", en: "I say thanks to the teacher." }, drill: { jp: "おれいをいいます。", en: "I say thank you." }, accept: ["gratitude","thank-you"] },
-        { id: "ja-u91l2-owari", type: "vocab", front: "おわり", reading: "owari", meaning: "end", example: { jp: "はなしのおわりです。", en: "It is the end of the story." }, accept: ["the end","ending"] },
+        { id: "ja-u91l2-kyaku", type: "vocab", front: "きゃく", reading: "kyaku", meaning: "guest (a customer)", example: { jp: "きゃくがきます。", en: "A guest is coming." }, accept: ["customer","visitor"] },
+        { id: "ja-u91l2-orei", type: "vocab", front: "おれい", reading: "orei", meaning: "thanks (an expression of gratitude)", example: { jp: "せんせいにおれいをいいます。", en: "I say thanks to the teacher." }, drill: { jp: "おれいをいいます。", en: "I say thank you." }, accept: ["gratitude","thank-you"] },
+        { id: "ja-u91l2-owari", type: "vocab", front: "おわり", reading: "owari", meaning: "end (the ending of a story)", example: { jp: "はなしのおわりです。", en: "It is the end of the story." }, accept: ["the end","ending"] },
       ],
     },
     {
@@ -68,7 +68,7 @@ export const UNIT91 = {
       items: [
         { id: "ja-u91l4-bai", type: "vocab", front: "ばい", reading: "bai", meaning: "double", example: { jp: "きょうはばいたべます。", en: "Today I eat double." }, accept: ["twice as much","twofold"] },
         { id: "ja-u91l4-ichido", type: "vocab", front: "いちど", reading: "ichido", meaning: "once", example: { jp: "いちどいきました。", en: "I went once." }, accept: ["one time","a single time"] },
-        { id: "ja-u91l4-akanbo", type: "vocab", front: "あかんぼう", reading: "akanbō", meaning: "baby", example: { jp: "あかんぼうがねています。", en: "The baby is sleeping." }, accept: ["infant"] },
+        { id: "ja-u91l4-akanbo", type: "vocab", front: "あかんぼう", reading: "akanbō", meaning: "baby (an infant)", example: { jp: "あかんぼうがねています。", en: "The baby is sleeping." }, accept: ["infant"] },
         { id: "ja-u91l4-ojosan", type: "vocab", front: "おじょうさん", reading: "ojōsan", meaning: "young lady", example: { jp: "となりのおじょうさんです。", en: "She is the young lady next door." }, accept: ["young lady","daughter"] },
         { id: "ja-u91l4-anaunsa", type: "vocab", front: "アナウンサー", reading: "anaunsā", meaning: "announcer", example: { jp: "かれはアナウンサーです。", en: "He is an announcer." }, accept: ["newscaster"] },
         { id: "ja-u91l4-kotori", type: "vocab", front: "ことり", reading: "kotori", meaning: "small bird", example: { jp: "ことりがうたっています。", en: "A small bird is singing." }, accept: ["little bird","small bird"] },

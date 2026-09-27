@@ -16,7 +16,7 @@ export const UNIT49 = {
       canDo: "Talk about public services: やくしょ こうきょう こうむいん ほけん けいさつ しょうぼうしょ.",
       items: [
         { id: "ja-u49l1-yakusho", type: "vocab", front: "やくしょ", reading: "yakusho", meaning: "government office", example: { jp: "やくしょへいきます。", en: "I go to the city office." }, accept: ["public office","city office","town hall"] },
-        { id: "ja-u49l1-kokyo", type: "vocab", front: "こうきょう", reading: "kōkyō", meaning: "public", example: { jp: "こうきょうのばしょです。", en: "It's a public place." }, accept: ["the public","communal"], hint: "opposite of private" },
+        { id: "ja-u49l1-kokyo", type: "vocab", front: "こうきょう", reading: "kōkyō", meaning: "public (shared and communal)", example: { jp: "こうきょうのばしょです。", en: "It's a public place." }, accept: ["the public","communal"], hint: "opposite of private" },
         { id: "ja-u49l1-komuin", type: "vocab", front: "こうむいん", reading: "kōmuin", meaning: "civil servant", example: { jp: "ちちはこうむいんです。", en: "My father is a civil servant." }, accept: ["public servant","government worker","government official"] },
         { id: "ja-u49l1-hoken", type: "vocab", front: "ほけん", reading: "hoken", meaning: "insurance", example: { jp: "ほけんはだいじです。", en: "Insurance is important." }, accept: ["health insurance","the insurance"] },
         { id: "ja-u49l1-keisatsu", type: "vocab", front: "けいさつ", reading: "keisatsu", meaning: "police", example: { jp: "けいさつをよびます。", en: "I call the police." }, accept: ["the police","police officer"] },
@@ -37,7 +37,7 @@ export const UNIT49 = {
         { id: "ja-u49l2-keizai", type: "vocab", front: "けいざい", reading: "keizai", meaning: "economy", example: { jp: "にほんのけいざいです。", en: "It's Japan's economy." }, accept: ["economics","the economy"] },
         { id: "ja-u49l2-chokin", type: "vocab", front: "ちょきん", reading: "chokin", meaning: "savings", example: { jp: "まいつきちょきんします。", en: "I save money every month." }, accept: ["saving money","to save money"], hint: "money you keep in the bank" },
         { id: "ja-u49l2-bukka", type: "vocab", front: "ぶっか", reading: "bukka", meaning: "prices", example: { jp: "ぶっかがたかいです。", en: "Prices are high." }, accept: ["cost of living","the prices"] },
-        { id: "ja-u49l2-ryokin", type: "vocab", front: "りょうきん", reading: "ryōkin", meaning: "fee", example: { jp: "でんきのりょうきんです。", en: "It's the electricity bill." }, accept: ["charge","fare","the fee"] },
+        { id: "ja-u49l2-ryokin", type: "vocab", front: "りょうきん", reading: "ryōkin", meaning: "fee (a charge to pay)", example: { jp: "でんきのりょうきんです。", en: "It's the electricity bill." }, accept: ["charge","fare","the fee"] },
       ],
     },
     {
@@ -49,7 +49,7 @@ export const UNIT49 = {
       dominantMode: "recall",
       canDo: "Talk about rules and society: きそく ほうりつ せいじ しゃかい じゆう せんきょ.",
       items: [
-        { id: "ja-u49l3-kisoku", type: "vocab", front: "きそく", reading: "kisoku", meaning: "rule", example: { jp: "きそくをまもります。", en: "I follow the rules." }, accept: ["rules","regulation"] },
+        { id: "ja-u49l3-kisoku", type: "vocab", front: "きそく", reading: "kisoku", meaning: "rule (a regulation)", example: { jp: "きそくをまもります。", en: "I follow the rules." }, accept: ["rules","regulation"] },
         { id: "ja-u49l3-horitsu", type: "vocab", front: "ほうりつ", reading: "hōritsu", meaning: "law", example: { jp: "あたらしいほうりつです。", en: "It's a new law." }, accept: ["laws","the law"] },
         { id: "ja-u49l3-seiji", type: "vocab", front: "せいじ", reading: "seiji", meaning: "politics", example: { jp: "せいじにきょうみがあります。", en: "I'm interested in politics." }, accept: ["political affairs","government"] },
         { id: "ja-u49l3-shakai", type: "vocab", front: "しゃかい", reading: "shakai", meaning: "society", example: { jp: "しゃかいのもんだいです。", en: "It's a problem of society." }, accept: ["community","the public"] },

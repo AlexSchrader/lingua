@@ -52,7 +52,7 @@ export const UNIT3 = {
         { id: "ja-u3l2-zenbu",  type: "vocab", front: "ぜんぶ",   reading: "zenbu",  meaning: "all/everything", example: { jp: "ぜんぶたべました。",   en: "I ate everything." },      accept: ["everything", "the whole thing"] },
         { id: "ja-u3l2-kazoku", type: "vocab", front: "かぞく",   reading: "kazoku", meaning: "family",    example: { jp: "かぞくとすみます。",      en: "I live with my family." }, accept: ["families"] },
         { id: "ja-u3l2-chizu",  type: "vocab", front: "ちず",     reading: "chizu",  meaning: "map",       example: { jp: "ちずをみます。",          en: "I look at the map." },     accept: ["maps"] },
-        { id: "ja-u3l2-suuji",  type: "vocab", front: "すうじ",   reading: "sūji",   meaning: "number",    example: { jp: "すうじをかきます。",      en: "I write the numbers." },   accept: ["numbers", "digit"] },
+        { id: "ja-u3l2-suuji",  type: "vocab", front: "すうじ",   reading: "sūji",   meaning: "number (a written digit)",    example: { jp: "すうじをかきます。",      en: "I write the numbers." },   accept: ["numbers", "digit"] },
       ],
     },
     // Lesson 3: だ row (voiced た row) — ぢ/づ are rare, taught for completeness

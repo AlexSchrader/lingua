@@ -53,7 +53,7 @@ export const UNIT41 = {
       canDo: "Read 早 (early), 急 (hurry), 重 (heavy), 楽 (fun), 悪 (bad), and the word 音楽.",
       items: [
         { id: "ja-u41l3-hayai", type: "kanji", front: "早", reading: "hayai", meaning: "early", example: { jp: "今日は早いです。", en: "Today I'm early." }, accept: ["fast","soon"], hint: "早 = early (はやい). 日 (sun) over 十 — the sun already up high." },
-        { id: "ja-u41l3-isogu", type: "kanji", front: "急", reading: "isogu", meaning: "hurry", example: { jp: "駅まで急ぎます。", en: "I hurry to the station." }, accept: ["urgent","rush"], hint: "急 = hurry / urgent (いそぐ). 急行 = express train ('hurry-go')." },
+        { id: "ja-u41l3-isogu", type: "kanji", front: "急", reading: "isogu", meaning: "hurry (dictionary form)", example: { jp: "駅まで急ぎます。", en: "I hurry to the station." }, accept: ["urgent","rush"], hint: "急 = hurry / urgent (いそぐ). 急行 = express train ('hurry-go')." },
         { id: "ja-u41l3-omoi", type: "kanji", front: "重", reading: "omoi", meaning: "heavy", example: { jp: "このかばんは重いです。", en: "This bag is heavy." }, accept: ["important"], hint: "重 = heavy (おもい). Also 'important' — 大事 things weigh on you." },
         { id: "ja-u41l3-tanoshii", type: "kanji", front: "楽", reading: "tanoshii", meaning: "fun", example: { jp: "パーティーは楽しいです。", en: "The party is fun." }, accept: ["enjoyable","comfortable"], hint: "楽 = fun / enjoyable (たのしい). Also 'ease' — 音楽 = music, 楽 = comfortable." },
         { id: "ja-u41l3-warui", type: "kanji", front: "悪", reading: "warui", meaning: "bad", example: { jp: "天気が悪いです。", en: "The weather is bad." }, accept: ["evil","wrong"], hint: "悪 = bad (わるい). 亜 over 心 (heart) — a twisted heart. 悪い = bad / at fault." },

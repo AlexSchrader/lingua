@@ -16,7 +16,7 @@ export const UNIT88 = {
       canDo: "Core JLPT N4 vocabulary: すっと やはり もし ひじょうに ぼく ございます.",
       items: [
         { id: "ja-u88l1-sutto", type: "vocab", front: "すっと", reading: "sutto", meaning: "smoothly", example: { jp: "ドアがすっとあきます。", en: "The door opens smoothly." }, accept: ["quickly","swiftly"] },
-        { id: "ja-u88l1-yahari", type: "vocab", front: "やはり", reading: "yahari", meaning: "as expected", example: { jp: "やはりこれがいいです。", en: "This one is better after all." }, accept: ["after all","as I thought"] },
+        { id: "ja-u88l1-yahari", type: "vocab", front: "やはり", reading: "yahari", meaning: "as expected (more formal)", example: { jp: "やはりこれがいいです。", en: "This one is better after all." }, accept: ["after all","as I thought"] },
         { id: "ja-u88l1-moshi", type: "vocab", front: "もし", reading: "moshi", meaning: "if", example: { jp: "もし、あめならいきません。", en: "If it rains, I won't go." }, accept: ["supposing","in case"] },
         { id: "ja-u88l1-hijoni", type: "vocab", front: "ひじょうに", reading: "hijōni", meaning: "extremely", example: { jp: "きょうはひじょうにさむいです。", en: "It is extremely cold today." }, accept: ["very","exceedingly"] },
         { id: "ja-u88l1-boku", type: "vocab", front: "ぼく", reading: "boku", meaning: "I (male)", example: { jp: "ぼくはがくせいです。", en: "I am a student." }, accept: ["I","me"] },
@@ -34,9 +34,9 @@ export const UNIT88 = {
       items: [
         { id: "ja-u88l2-manga", type: "vocab", front: "まんが", reading: "manga", meaning: "comic", example: { jp: "まんがをよみます。", en: "I read comics." }, accept: ["comics","manga"] },
         { id: "ja-u88l2-sutereo", type: "vocab", front: "ステレオ", reading: "sutereo", meaning: "stereo", example: { jp: "ステレオでおんがくをききます。", en: "I listen to music on the stereo." }, accept: ["stereo system","hi-fi"] },
-        { id: "ja-u88l2-tekisuto", type: "vocab", front: "テキスト", reading: "tekisuto", meaning: "textbook", example: { jp: "テキストをひらきます。", en: "I open the textbook." }, accept: ["text","coursebook"] },
-        { id: "ja-u88l2-otobai", type: "vocab", front: "オートバイ", reading: "ōtobai", meaning: "motorcycle", example: { jp: "オートバイにのります。", en: "I ride a motorcycle." }, accept: ["motorbike","motorcycle"] },
-        { id: "ja-u88l2-omote", type: "vocab", front: "おもて", reading: "omote", meaning: "front", example: { jp: "かみのおもてにかきます。", en: "I write on the front of the paper." }, accept: ["surface","front side"] },
+        { id: "ja-u88l2-tekisuto", type: "vocab", front: "テキスト", reading: "tekisuto", meaning: "textbook (a coursebook)", example: { jp: "テキストをひらきます。", en: "I open the textbook." }, accept: ["text","coursebook"] },
+        { id: "ja-u88l2-otobai", type: "vocab", front: "オートバイ", reading: "ōtobai", meaning: "motorcycle (the longer loanword)", example: { jp: "オートバイにのります。", en: "I ride a motorcycle." }, accept: ["motorbike","motorcycle"] },
+        { id: "ja-u88l2-omote", type: "vocab", front: "おもて", reading: "omote", meaning: "front (the face-up side)", example: { jp: "かみのおもてにかきます。", en: "I write on the front of the paper." }, accept: ["surface","front side"] },
         { id: "ja-u88l2-igaku", type: "vocab", front: "いがく", reading: "igaku", meaning: "medicine (study)", example: { jp: "だいがくでいがくをべんきょうします。", en: "I study medicine at university." }, accept: ["medical science","study of medicine"] },
       ],
     },

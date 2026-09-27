@@ -41,8 +41,8 @@ export const UNIT75 = {
       canDo: "Describe plans and how things are done: ほうほう けいかく じょうけん ないよう きろく しんぽ.",
       items: [
         { id: "ja-u75l2-hoho", type: "vocab", front: "ほうほう", reading: "hōhō", meaning: "method", example: { jp: "いいほうほうをおしえます。", en: "I'll teach you a good method." }, accept: ["way", "means"] },
-        { id: "ja-u75l2-keikaku", type: "vocab", front: "けいかく", reading: "keikaku", meaning: "plan", example: { jp: "あたらしいけいかくがあります。", en: "There is a new plan." }, accept: ["planning", "schedule"] },
-        { id: "ja-u75l2-joken", type: "vocab", front: "じょうけん", reading: "jōken", meaning: "condition", example: { jp: "しごとのじょうけんがいいです。", en: "The job conditions are good." }, accept: ["terms", "requirement"] },
+        { id: "ja-u75l2-keikaku", type: "vocab", front: "けいかく", reading: "keikaku", meaning: "plan (a worked-out plan)", example: { jp: "あたらしいけいかくがあります。", en: "There is a new plan." }, accept: ["planning", "schedule"] },
+        { id: "ja-u75l2-joken", type: "vocab", front: "じょうけん", reading: "jōken", meaning: "condition (a requirement)", example: { jp: "しごとのじょうけんがいいです。", en: "The job conditions are good." }, accept: ["terms", "requirement"] },
         { id: "ja-u75l2-naiyo", type: "vocab", front: "ないよう", reading: "naiyō", meaning: "content", example: { jp: "ほんのないようはおもしろいです。", en: "The content of the book is interesting." }, accept: ["substance", "details"] },
         { id: "ja-u75l2-kiroku", type: "vocab", front: "きろく", reading: "kiroku", meaning: "record", example: { jp: "きろくを見ます。", en: "I look at the record." }, accept: ["log", "records"] },
         { id: "ja-u75l2-shinpo", type: "vocab", front: "しんぽ", reading: "shinpo", meaning: "progress", example: { jp: "まいにちしんぽします。", en: "I make progress every day." }, accept: ["advancement", "improvement"] },
@@ -78,9 +78,9 @@ export const UNIT75 = {
       items: [
         { id: "ja-u75l4-kankei", type: "vocab", front: "かんけい", reading: "kankei", meaning: "relationship", example: { jp: "ふたりのかんけいはいいです。", en: "The relationship between the two is good." }, accept: ["relation", "connection"] },
         { id: "ja-u75l4-chigai", type: "vocab", front: "ちがい", reading: "chigai", meaning: "difference", example: { jp: "いろのちがいがわかります。", en: "I can tell the difference in color." }, drill: { jp: "ちがいがわかります。", en: "I can tell the difference." }, accept: ["distinction", "differences"] },
-        { id: "ja-u75l4-shurui", type: "vocab", front: "しゅるい", reading: "shurui", meaning: "kind", example: { jp: "くだもののしゅるいがおおいです。", en: "There are many kinds of fruit." }, accept: ["type", "variety"] },
-        { id: "ja-u75l4-jotai", type: "vocab", front: "じょうたい", reading: "jōtai", meaning: "condition", example: { jp: "くるまのじょうたいはいいです。", en: "The car is in good condition." }, accept: ["state", "situation"] },
-        { id: "ja-u75l4-henka", type: "vocab", front: "へんか", reading: "henka", meaning: "change", example: { jp: "てんきのへんかがはやいです。", en: "The weather changes quickly." }, accept: ["shift", "variation"] },
+        { id: "ja-u75l4-shurui", type: "vocab", front: "しゅるい", reading: "shurui", meaning: "kind (a variety of something)", example: { jp: "くだもののしゅるいがおおいです。", en: "There are many kinds of fruit." }, accept: ["type", "variety"] },
+        { id: "ja-u75l4-jotai", type: "vocab", front: "じょうたい", reading: "jōtai", meaning: "condition (the state something is in)", example: { jp: "くるまのじょうたいはいいです。", en: "The car is in good condition." }, accept: ["state", "situation"] },
+        { id: "ja-u75l4-henka", type: "vocab", front: "へんか", reading: "henka", meaning: "change (a shift in something)", example: { jp: "てんきのへんかがはやいです。", en: "The weather changes quickly." }, accept: ["shift", "variation"] },
         { id: "ja-u75l4-seikatsu", type: "vocab", front: "せいかつ", reading: "seikatsu", meaning: "daily life", example: { jp: "にほんのせいかつはたのしいです。", en: "Life in Japan is fun." }, drill: { jp: "せいかつはたのしいです。", en: "Daily life is fun." }, accept: ["living", "lifestyle"] },
       ],
     },

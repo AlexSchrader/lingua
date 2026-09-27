@@ -54,7 +54,7 @@ export const UNIT126 = {
       dominantMode: "recall",
       canDo: "Talk about going to a performance, or watching one streamed: ぶたい かんきゃく かしゅ げいのう さくひん はいしん.",
       items: [
-        { id: "ja-u126l3-butai", type: "vocab", front: "ぶたい", reading: "butai", meaning: "stage", example: { jp: "ぶたいがちかかったので、かおがよくみえました。", en: "The stage was close, so I could see their faces well." }, accept: ["the stage", "a stage production", "theatre stage"] },
+        { id: "ja-u126l3-butai", type: "vocab", front: "ぶたい", reading: "butai", meaning: "stage (a theatre stage)", example: { jp: "ぶたいがちかかったので、かおがよくみえました。", en: "The stage was close, so I could see their faces well." }, accept: ["the stage", "a stage production", "theatre stage"] },
         { id: "ja-u126l3-kankyaku", type: "vocab", front: "かんきゃく", reading: "kankyaku", meaning: "audience", example: { jp: "かんきゃくがおおかったので、ぜんぜんまえにいけませんでした。", en: "There was a big audience, so I couldn't get to the front at all." }, accept: ["spectators", "the crowd", "viewers"] },
         { id: "ja-u126l3-kashu", type: "vocab", front: "かしゅ", reading: "kashu", meaning: "singer", example: { jp: "すきなかしゅがきたので、ともだちとききにいきました。", en: "A singer I like came, so I went to hear them with a friend." }, drill: { jp: "かしゅがきました。", en: "The singer came." }, accept: ["vocalist", "recording artist"] },
         { id: "ja-u126l3-geino", type: "vocab", front: "げいのう", reading: "geinō", meaning: "the entertainment world", example: { jp: "げいのうのしごとはじかんがふきそくなので、からだをこわすひともいます。", en: "The hours in entertainment work are irregular, so some people ruin their health." }, accept: ["show business", "performing arts", "entertainment industry"] },

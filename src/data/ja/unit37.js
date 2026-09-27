@@ -18,10 +18,10 @@ export const UNIT37 = {
       dominantMode: "recall",
       canDo: "Read the commerce kanji: 売 (sell), 借 (borrow), 貸 (lend), 品 (goods), 料 (fee), and the word 売店.",
       items: [
-        { id: "ja-u37l1-uru", type: "kanji", front: "売", reading: "uru", meaning: "sell", example: { jp: "これを売ります。", en: "I sell this." }, accept: ["sell","selling"], hint: "売 = sell (うる). 士 (samurai) over a shop counter — goods going out. Contrast 買 (buy)." },
-        { id: "ja-u37l1-kariru", type: "kanji", front: "借", reading: "kariru", meaning: "borrow", example: { jp: "本を借ります。", en: "I borrow a book." }, accept: ["borrow","rent"], hint: "借 = borrow (かりる). 亻 (person) taking something on loan." },
-        { id: "ja-u37l1-kasu", type: "kanji", front: "貸", reading: "kasu", meaning: "lend", example: { jp: "お金を貸します。", en: "I lend money." }, accept: ["lend","loan"], hint: "貸 = lend (かす). 貝 (shell = money) at the bottom — money going out to someone." },
-        { id: "ja-u37l1-shina", type: "kanji", front: "品", reading: "shina", meaning: "goods", example: { jp: "この品はいいです。", en: "This article is good." }, accept: ["article","product","item"], hint: "品 = goods / article (しな). Three 口 (mouths/boxes) stacked — a pile of wares." },
+        { id: "ja-u37l1-uru", type: "kanji", front: "売", reading: "uru", meaning: "sell (dictionary form)", example: { jp: "これを売ります。", en: "I sell this." }, accept: ["sell","selling"], hint: "売 = sell (うる). 士 (samurai) over a shop counter — goods going out. Contrast 買 (buy)." },
+        { id: "ja-u37l1-kariru", type: "kanji", front: "借", reading: "kariru", meaning: "borrow (dictionary form)", example: { jp: "本を借ります。", en: "I borrow a book." }, accept: ["borrow","rent"], hint: "借 = borrow (かりる). 亻 (person) taking something on loan." },
+        { id: "ja-u37l1-kasu", type: "kanji", front: "貸", reading: "kasu", meaning: "lend (dictionary form)", example: { jp: "お金を貸します。", en: "I lend money." }, accept: ["lend","loan"], hint: "貸 = lend (かす). 貝 (shell = money) at the bottom — money going out to someone." },
+        { id: "ja-u37l1-shina", type: "kanji", front: "品", reading: "shina", meaning: "goods (an article)", example: { jp: "この品はいいです。", en: "This article is good." }, accept: ["article","product","item"], hint: "品 = goods / article (しな). Three 口 (mouths/boxes) stacked — a pile of wares." },
         { id: "ja-u37l1-ryo", type: "kanji", front: "料", reading: "ryō", meaning: "fee", example: { jp: "料金をはらいます。", en: "I pay the fee." }, accept: ["charge","materials"], hint: "料 = fee / materials (りょう). 米 (rice) + 斗 (measure) — measuring out what's owed. 料理 = cooking." },
         { id: "ja-u37l1-baiten", type: "vocab", front: "売店", reading: "baiten", meaning: "a kiosk", example: { jp: "駅の売店は小さいです。", en: "The station kiosk is small." }, drill: { jp: "駅の売店で買います。", en: "I buy it at the station kiosk." }, accept: ["a stall","a stand","kiosk"], hint: "売 (sell) + 店 (shop) — the little shop inside a station or a hospital." },
       ],
@@ -35,7 +35,7 @@ export const UNIT37 = {
       dominantMode: "recall",
       canDo: "Read 計 (measure/plan), 質 (quality), 銀 (silver), 仕 (serve/do), 業 (business), and the word 銀行.",
       items: [
-        { id: "ja-u37l2-kei", type: "kanji", front: "計", reading: "kei", meaning: "plan", example: { jp: "計画を立てます。", en: "I make a plan." }, accept: ["measure","total"], hint: "計 = plan / measure (けい). 言 (words) + 十 (ten) — counting things up. 計画 = a plan." },
+        { id: "ja-u37l2-kei", type: "kanji", front: "計", reading: "kei", meaning: "plan (to measure and total)", example: { jp: "計画を立てます。", en: "I make a plan." }, accept: ["measure","total"], hint: "計 = plan / measure (けい). 言 (words) + 十 (ten) — counting things up. 計画 = a plan." },
         { id: "ja-u37l2-shitsu", type: "kanji", front: "質", reading: "shitsu", meaning: "quality", example: { jp: "この品は質がいいです。", en: "This article's quality is good." }, accept: ["nature","substance"], hint: "質 = quality / nature (しつ). 質問 = a question (asking after the substance of a thing)." },
         { id: "ja-u37l2-gin", type: "kanji", front: "銀", reading: "gin", meaning: "silver", example: { jp: "銀行に行きます。", en: "I go to the bank." }, accept: ["bank"], hint: "銀 = silver (ぎん). 金 (metal) radical + 艮. 銀行 = bank (a 'silver shop')." },
         { id: "ja-u37l2-shi", type: "kanji", front: "仕", reading: "shi", meaning: "serve", example: { jp: "毎日仕事をします。", en: "I work every day." }, accept: ["do","work"], hint: "仕 = serve / do (し). 亻 (person) + 士 (officer) — someone in service. 仕事 = work / a job." },
