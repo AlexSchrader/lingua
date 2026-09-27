@@ -37,7 +37,26 @@ function pickMime() {
 // already measured STT on an isolated character at 0/3 (Brief-C C.0) - the card
 // was the thing that had to change, not the numbers. So a letter card records you
 // and PLAYS YOU BACK against the reference, and you judge. No verdict is invented.
-export default function SpeakCard({ item, onGraded, shadow = false }) {
+// `carrier` = SAY THIS WORD INSTEAD. A bare letter cannot be graded by any
+// mechanism measured here - transcription returns "Et" for a perfect é, and
+// alignment loss on one character overlaps completely between right and wrong
+// answers. The same alignment separates cleanly on WORDS, which is the other half
+// of why Duolingo never asks you to say a single letter. So a letter is spoken
+// through a word that contains it: hear "le bébé", say "le bébé", and the é is
+// practised inside something a grader can actually hear. The carrier is always a
+// word the curriculum already teaches and already has a clip for - see
+// scripts/generate-speech-carriers.mjs.
+export default function SpeakCard({ item, onGraded, shadow = false, carrier = null }) {
+  // Everything audio- and grading-related follows the CARRIER when there is one;
+  // the card still displays `item`, because the letter is what is being taught.
+  const spokenId = carrier?.id ?? item.id;
+  const spokenText = carrier?.text ?? item.front;
+  // Graded as the WORD, not the letter: the reading paths in gradeSpoken compare
+  // against front/reading, and comparing a spoken word to a one-character front
+  // fails every time.
+  const gradeTarget = carrier
+    ? { id: carrier.id, front: carrier.text, reading: carrier.text, lang: itemLang(item), type: "vocab" }
+    : item;
   const [phase, setPhase] = useState("prompt"); // prompt | recording | scoring | result | fallback
   const [grade, setGrade] = useState(null); // "good" | "hard" | "again"
   const [heard, setHeard] = useState(""); // STT transcript, for feedback
@@ -57,14 +76,14 @@ export default function SpeakCard({ item, onGraded, shadow = false }) {
 
   const scoreTranscript = useCallback(
     (transcript) => {
-      const g = gradeSpoken(transcript, item);
+      const g = gradeSpoken(transcript, gradeTarget);
       setHeard(transcript);
       setGrade(g);
       setPhase("result");
       if (g === "again") sfxWrong();
       else sfxCorrect();
     },
-    [item]
+    [item, gradeTarget]
   );
 
   const scoreClip = useCallback(async () => {
@@ -89,7 +108,7 @@ export default function SpeakCard({ item, onGraded, shadow = false }) {
       // wrong on words and is pure noise on a single letter — measured, see
       // alignScore.js. Omitting `expect` makes the server transcribe instead,
       // which is the path letters were already on.
-      const expect = isScorableText(item?.front, itemLang(item)) ? encodeURIComponent(item.front) : "";
+      const expect = isScorableText(spokenText, itemLang(item)) ? encodeURIComponent(spokenText) : "";
       const res = await fetch(`/api/score-speech?lang=${encodeURIComponent(itemLang(item) ?? "")}&expect=${expect}`, {
         method: "POST",
         headers: { "Content-Type": blob.type },
@@ -142,7 +161,7 @@ export default function SpeakCard({ item, onGraded, shadow = false }) {
     if (IS_WEBDRIVER) { setPhase("prompt"); return; } // CI drives via the hook
     setPhase("prompt");
     try {
-      const a = new Audio(`/audio/${item.lang}/${item.id}.mp3`);
+      const a = new Audio(`/audio/${itemLang(item)}/${spokenId}.mp3`);
       audioRef.current = a;
       a.onended = () => armMic();
       a.onerror = () => armMic();
@@ -155,7 +174,7 @@ export default function SpeakCard({ item, onGraded, shadow = false }) {
   const replay = () => {
     audioRef.current?.pause();
     try {
-      const a = new Audio(`/audio/${item.lang}/${item.id}.mp3`);
+      const a = new Audio(`/audio/${itemLang(item)}/${spokenId}.mp3`);
       audioRef.current = a;
       a.play().catch(() => {});
     } catch { /* silent */ }
@@ -193,7 +212,7 @@ export default function SpeakCard({ item, onGraded, shadow = false }) {
   // Test hook: drive the grade→advance path without a real mic or the endpoint.
   useEffect(() => {
     window.__speak = {
-      pass: () => (shadow ? setPhase("playback") : scoreTranscript(item.front)),
+      pass: () => (shadow ? setPhase("playback") : scoreTranscript(spokenText)),
       miss: () => (shadow ? setPhase("playback") : scoreTranscript("banana")),
     };
     return () => { delete window.__speak; };
@@ -215,7 +234,7 @@ export default function SpeakCard({ item, onGraded, shadow = false }) {
       style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}
     >
       <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600, display: "flex", alignItems: "center", gap: 8 }}>
-        <span>{shadow ? "Listen, then say it back — then hear yourself" : "Listen, then say it back"}</span>
+        <span>{shadow ? "Listen, then say it back — then hear yourself" : carrier ? "Listen, then say the word" : "Listen, then say it back"}</span>
         <button
           onClick={replay}
           aria-label="Play it again"
@@ -240,6 +259,22 @@ export default function SpeakCard({ item, onGraded, shadow = false }) {
         }}
       >
         <div style={{ fontFamily: F.jp, fontSize: headwordSize(item.front, 52), fontWeight: 500, lineHeight: 1.08, textAlign: "center", ...headwordWrap }}>{item.front}</div>
+        {/* THE WORD TO SAY. The letter stays the headline - it is what the lesson
+            teaches - but the learner has to know what to pronounce, and a grader
+            can only hear a word. Shown, not just heard, because a first-lesson
+            learner has no idea how an unfamiliar spelling maps to the sound they
+            just heard. */}
+        {carrier && (
+          <div style={{ textAlign: "center" }}>
+            <div style={{ fontSize: 12, color: C.inkSoft, fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.6 }}>Say</div>
+            <div
+              data-testid="speak-carrier"
+              style={{ fontFamily: F.jp, fontSize: headwordSize(carrier.text, 34), fontWeight: 600, lineHeight: 1.15, marginTop: 2, ...headwordWrap }}
+            >
+              {carrier.text}
+            </div>
+          </div>
+        )}
         {/* Only when the reading tells the learner something the front doesn't —
             for a Latin front it's the ASCII grading key, not a pronunciation. */}
         {readingIsInformative(item) && (

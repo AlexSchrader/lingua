@@ -1,0 +1,123 @@
+// THE CARRIER WORD FOR EACH LETTER — say "le bébé", not "é".
+//
+// WHY. Alex's unit-1 standard is hear / speak / type the accent, and SPEAK was the
+// leg with no working grader. Two mechanisms were measured and both fail on a bare
+// letter:
+//
+//   transcription   this repo's own reference clip for é comes back "Et", è "Euh.",
+//                   eau "Oh!" — half of them wrong on a FLAWLESS recording.
+//   alignment       correct letters scored 0.948-2.666, wrong ones 0.942-2.453.
+//                   Total overlap. No threshold exists.
+//
+// On WORDS the same alignment separates cleanly (correct 0.574-1.127, wrong
+// 1.219-2.343). Length is the whole difference, and it is the other half of why
+// Duolingo's speech grading works: it never asks you to say one letter.
+//
+// So a letter's speaking step uses a word that CONTAINS the letter. The learner is
+// still practising that sound — they just do it inside something a grader can hear.
+// Alex, on the same point: "we can add a word in the lessons so its not just letters".
+//
+// NO NEW AUDIO IS NEEDED. Every carrier is chosen from words the curriculum ALREADY
+// teaches in that language, and the corpus is fully voiced (17,497/17,497), so each
+// carrier already has a clip. This script picks them; it calls no API and costs
+// nothing.
+//
+//   node scripts/generate-speech-carriers.mjs          write the map
+//   node scripts/generate-speech-carriers.mjs --dry    print the choices only
+import { writeFileSync, existsSync } from "node:fs";
+import { join } from "node:path";
+import { UNITS } from "../src/data/index.js";
+import { isScorableText } from "../src/store/alignScore.js";
+
+const root = process.cwd();
+const DRY = process.argv.includes("--dry");
+
+const glyphs = [];
+const vocab = {};
+for (const u of UNITS) {
+  for (const l of u.lessons ?? []) {
+    for (const it of l.items ?? []) {
+      if (it.type === "glyph") glyphs.push({ ...it, lang: u.lang, unit: u.order });
+      if (it.type === "vocab") (vocab[u.lang] ??= []).push({ ...it, lang: u.lang, unit: u.order });
+    }
+  }
+}
+
+const hasClip = (w) => existsSync(join(root, "public", "audio", w.lang, `${w.id}.mp3`));
+
+// WHAT MAKES A GOOD CARRIER, in priority order:
+//
+//   1. It must CONTAIN the letter, or it is not practising that sound.
+//   2. It must be long enough to score — isScorableText, the 4-character floor that
+//      was measured, not guessed. "sí" and "qué" contain the accent and are useless
+//      here for the same reason the bare letter is.
+//   3. It must already have a clip. The card plays the word before the learner
+//      repeats it; a silent carrier is nothing to imitate.
+//   4. EARLIEST UNIT WINS. A letter is taught in unit 1, so its carrier should be a
+//      word the learner meets around then, not one from unit 38.
+//   5. Then SHORTEST. Less to say wrong on a first spoken card, and the accent is a
+//      bigger share of a short word.
+//   6. THE LETTER MUST NOT BE SWALLOWED BY A LONGER ONE. German teaches both `ch`
+//      and `sch`, and the first pass carried `ch` on "schön" - where the ch is not
+//      a ch at all, it is the tail of sch. A learner practising the wrong sound is
+//      worse than no carrier, so a candidate is rejected when it contains a LONGER
+//      glyph of the same language that itself contains this one. "das Buch" carries
+//      ch; "schön" carries sch. Same rule keeps pt ã off "o pão", which is ão.
+function swallowedBy(word, g, all) {
+  const w = word.toLowerCase();
+  return all.some(
+    (o) => o.lang === g.lang
+      && o.front.length > g.front.length
+      && o.front.toLowerCase().includes(g.front.toLowerCase())
+      && w.includes(o.front.toLowerCase())
+  );
+}
+
+function pickCarrier(g) {
+  const candidates = (vocab[g.lang] ?? [])
+    .filter((w) => w.front.toLowerCase().includes(g.front.toLowerCase()))
+    .filter((w) => !swallowedBy(w.front, g, glyphs))
+    .filter((w) => isScorableText(w.front, w.lang))
+    .filter(hasClip)
+    .sort((a, b) => a.unit - b.unit || a.front.length - b.front.length);
+  return candidates[0] ?? null;
+}
+
+const carriers = {};
+const missing = [];
+for (const g of glyphs) {
+  const w = pickCarrier(g);
+  if (!w) {
+    missing.push(`${g.lang} ${g.front} (${g.id})`);
+    continue;
+  }
+  carriers[g.id] = { id: w.id, text: w.front, unit: w.unit };
+}
+
+for (const g of glyphs) {
+  const c = carriers[g.id];
+  console.log(
+    " ", g.lang, String(g.front).padEnd(4), "->",
+    c ? `${c.text} (u${c.unit})${c.unit > g.unit + 2 ? "  ⚠ far from where the letter is taught" : ""}` : "— NONE",
+  );
+}
+if (missing.length) {
+  console.log(`\n${missing.length} letter(s) with no usable carrier — these keep the measured-transcript key:`);
+  for (const m of missing) console.log("  ", m);
+}
+console.log(`\n${Object.keys(carriers).length} of ${glyphs.length} letters have a carrier`);
+
+if (DRY) process.exit(0);
+
+const body = `// GENERATED by scripts/generate-speech-carriers.mjs - do not edit by hand.
+//
+// The word each letter is SPOKEN through. A bare letter cannot be graded by
+// transcription or by alignment - both were measured and both fail - but a word
+// containing it can. See the script header for the numbers.
+//
+// Every carrier is a word the curriculum already teaches, and already has a clip.
+// ${Object.keys(carriers).length} of ${glyphs.length} letters, generated ${new Date().toISOString().slice(0, 10)}.
+export const SPEECH_CARRIERS = ${JSON.stringify(carriers, null, 2)};
+`;
+writeFileSync(join(root, "src", "data", "speechCarriers.js"), body, "utf8");
+console.log(`wrote src/data/speechCarriers.js`);

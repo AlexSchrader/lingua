@@ -18,6 +18,7 @@ import { isTraceable, isGlyph, hasAudio, lessonChecks } from "../store/cardRouti
 import { buildSandboxItems, runnerWriters } from "../store/dev.js";
 import { canGradeSpeech } from "../store/speechTargets.js";
 import { SPEECH_TARGETS } from "../data/speechTargets.js";
+import { SPEECH_CARRIERS } from "../data/speechCarriers.js";
 import { C, F } from "../theme.js";
 
 function assertLiveKind(kindKey) {
@@ -374,7 +375,22 @@ export default function Lesson() {
       // Still shadows when there is no key — a letter card added since the last
       // generator run, or one whose clip is missing. The fallback is the previous
       // behaviour, so a gap degrades to "you judge" rather than to a wrong verdict.
-      card = <SpeakCard item={item} onGraded={onCheck} shadow={!canGradeSpeech(item, SPEECH_TARGETS)} />;
+      // A LETTER IS SPOKEN THROUGH A WORD. Measured: a bare letter cannot be
+      // graded by transcription (é comes back "Et") or by alignment (right and
+      // wrong letters overlap completely), but the same alignment separates
+      // cleanly on words. The carrier is a word the curriculum already teaches
+      // that contains the letter - "le bébé" for é. Shadowing survives only where
+      // there is neither a carrier nor a measured key, so a gap degrades to "you
+      // judge" rather than to a wrong verdict.
+      const carrier = SPEECH_CARRIERS[item.id] ?? null;
+      card = (
+        <SpeakCard
+          item={item}
+          onGraded={onCheck}
+          carrier={carrier}
+          shadow={!carrier && !canGradeSpeech(item, SPEECH_TARGETS)}
+        />
+      );
     }
   } else if (learnStep.step === "check3") {
     // SAY IT — a WORD's third check, from unit 2 on. (A letter's check3 is the
