@@ -54,6 +54,16 @@ const PARADIGM = {
   она: ["её", "ей", "неё", "ней"],
   мы: ["нас", "нам", "нами"],
   вы: ["вас", "вам", "вами"],
+  // EXTENDED BY BLOCK 3, 2026-09-27: `быть` is carded at u22 and u24 is the
+  // past-tense unit, so был/была/было/были and буду/будет are unavoidable in
+  // u22-u30 sentences. The stripper cannot reach any of them from "быть"
+  // (its stem is "быть" itself), so without this every correct past-tense
+  // sentence in the last third of the language read as a scope violation.
+  быть: ["был", "была", "было", "были", "буду", "будешь", "будет", "будем", "будете", "будут"],
+  // Two more whose stem mutates outright and which the -ся rule below still cannot
+  // reach: бояться -> боюсь (the я vanishes), петь -> пою (the whole stem changes).
+  бояться: ["боюсь", "боишься", "боится", "боимся", "боитесь", "боятся"],
+  петь: ["пою", "поёшь", "поёт", "поём", "поёте", "поют", "пел", "пела", "пели"],
   хотеть: ["хочу", "хочешь", "хочет", "хотим", "хотите", "хотят"],
   видеть: ["вижу", "видишь", "видит", "видим", "видите", "видят"],
   жить: ["живу", "живёшь", "живет", "живём", "живете", "живут"],
@@ -65,11 +75,15 @@ const PARADIGM = {
   ребёнок: ["дети", "детей", "детям"],
   мать: ["матери", "матерью"],
   дочь: ["дочери", "дочерью"],
-  это: ["эта", "этот", "эти", "этом", "этой", "эту", "этого", "этому"],
+  это: ["эта", "этот", "эти", "этом", "этой", "эту", "этого", "этому", "этим", "этими", "этих"],
   мой: ["моего", "моему", "моём", "мои", "моих", "моим"],
   моя: ["моей", "мою"],
-  твой: ["твоего", "твоему", "твоём", "твои", "твоих"],
+  твой: ["твоего", "твоему", "твоём", "твои", "твоих", "твоя", "твою", "твоей", "твоё"],
 };
+
+// norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own
+// entry (see the lookup below).
+const NORM_KEY = new Map(Object.keys(PARADIGM).map((k) => [norm(k), k]));
 
 const items = [];
 for (const u of RU_UNITS)
@@ -91,7 +105,20 @@ for (const it of items) {
   for (const piece of norm(it.front).split(/[\s-]+/).filter(Boolean)) {
     remember(exact, piece, it.u);
     remember(born, stem(piece), it.u);
-    for (const form of PARADIGM[piece] ?? []) remember(exact, norm(form), it.u);
+    // ⚠️ A REFLEXIVE INFINITIVE ALSO CONTRIBUTES ITS BARE STEM. The stripper stops
+    // at -ся, so stem("смеяться") was "смеятьс" and NOTHING it inflects into —
+    // смеюсь, смеялись, улыбается, надеюсь, ложусь — started with it. Every
+    // correct reflexive sentence in the corpus read as a scope violation, which is
+    // why block 2 wrote around them. Added by block 3, 2026-09-27: strip the
+    // reflexive ending and register that stem too.
+    if (/(ся|сь)$/.test(piece) && piece.length > 4)
+      remember(born, stem(piece.slice(0, -2)), it.u);
+    // ⚠️ PARADIGM is keyed on the AUTHORED spelling, so look it up with BOTH the
+    // normalised piece and the raw one: `ребёнок` folds to "ребенок" here, which
+    // never matched the "ребёнок" key, so дети/детей/детям were silently outside
+    // the table for the whole of block 2. Found by block 3, 2026-09-27.
+    for (const form of PARADIGM[piece] ?? PARADIGM[NORM_KEY.get(piece)] ?? [])
+      remember(exact, norm(form), it.u);
   }
 }
 
