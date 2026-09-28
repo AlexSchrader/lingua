@@ -134,8 +134,18 @@ for (let i = 0; i < items.length; i++) {
   // that.
   const KANA_TWIN_FALLBACK = { "ス": "す" };
 
+  // A LETTER WITH NO SOUND MUST BE SPOKEN BY NAME. Russian’s two signs are silent
+  // modifiers, not sounds: ь softens the consonant before it, ъ only separates. Asked
+  // for a bare ъ the API ERRORED (1 of 720 on the first ru run, 2026-09-27); on retry it
+  // returned 8821 bytes against 15-30kB for a real word, i.e. near-silence. A bare ь is
+  // the same ask. Every Russian speaker names these letters, and naming them is what the
+  // card teaches, so that is what the clip says. The glyph card still SHOWS the character
+  // and still demands the character when typed -- only the audio changes.
+  const LETTER_NAME_FIX = { "ь": "мягкий знак", "ъ": "твёрдый знак" };
+
   const text =
-    item.type === "kana" && KANA_SOUND_FIX[item.front] ? KANA_SOUND_FIX[item.front]
+    item.type === "glyph" && LETTER_NAME_FIX[item.front] ? LETTER_NAME_FIX[item.front]
+    : item.type === "kana" && KANA_SOUND_FIX[item.front] ? KANA_SOUND_FIX[item.front]
     : item.type === "kana" && KANA_TWIN_FALLBACK[item.front] ? KANA_TWIN_FALLBACK[item.front]
     : item.front;
 

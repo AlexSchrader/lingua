@@ -4,6 +4,7 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { SPEECH_CARRIERS } from "../../src/data/speechCarriers.js";
 import { isScorableText } from "../../src/store/alignScore.js";
+import { shouldSpeak } from "../../src/store/cardRouting.js";
 import { UNITS } from "../../src/data/index.js";
 
 // WHY THIS FILE EXISTS.
@@ -23,9 +24,36 @@ const GLYPHS = UNITS.flatMap((u) =>
   )
 );
 
-test("every letter has a carrier", () => {
-  const without = GLYPHS.filter((g) => !SPEECH_CARRIERS[g.id]);
+// SCOPED TO LETTERS THAT CAN ACTUALLY BE SPOKEN, 2026-09-27 -- and the inverse
+// invariant added below, which is the one that protects the learner.
+//
+// The original assertion was "every letter has a carrier", full stop. That held while
+// every letter card was Latin. Russian broke it, and NOT by being unfinished: a carrier
+// must be a taught word the ALIGNER CAN SCORE, and alignScore.js's NON_LATIN guard
+// deliberately excludes the Cyrillic block (Ѐ-ӿ) with a written rationale and a
+// "re-measure with a real sample before turning it on" note. So no Cyrillic word can be
+// a carrier BY DESIGN, and 33 letter cards can never have one until that measurement is
+// done. Asserting otherwise made the suite red for a decision the repo had already taken.
+//
+// What must never happen is a letter card that ARMS THE MIC with no carrier -- that is
+// the "falls back to the weaker key" failure the original message named. shouldSpeak now
+// refuses to route `speak` on a letter with no carrier, so the real property is the
+// second test here. Both directions are pinned: a spoken letter has a carrier, and an
+// unspoken letter never reaches the mic.
+const SPOKEN = GLYPHS.filter((g) => shouldSpeak(g));
+
+test("every letter that can be SPOKEN has a carrier", () => {
+  const without = SPOKEN.filter((g) => !SPEECH_CARRIERS[g.id]);
   assert.deepEqual(without.map((g) => g.id), [], "a letter with no carrier falls back to the weaker key - regenerate");
+});
+
+test("A LETTER WITH NO CARRIER NEVER ROUTES A SPEAK CARD", () => {
+  const armed = GLYPHS.filter((g) => !SPEECH_CARRIERS[g.id] && shouldSpeak(g));
+  assert.deepEqual(
+    armed.map((g) => `${g.lang} ${g.front}`),
+    [],
+    "these letter cards would play nothing and then grade the mic on the weaker key"
+  );
 });
 
 test("THE CARRIER CONTAINS THE LETTER — otherwise it practises a different sound", () => {

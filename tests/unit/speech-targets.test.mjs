@@ -4,6 +4,7 @@ import { normalizeSpeech, speechTargetsFor, matchesSpeechTarget, canGradeSpeech 
 import { SPEECH_TARGETS } from "../../src/data/speechTargets.js";
 import { gradeSpoken } from "../../src/store/answer.js";
 import { UNITS } from "../../src/data/index.js";
+import { shouldSpeak } from "../../src/store/cardRouting.js";
 
 // WHY THIS FILE EXISTS.
 //
@@ -26,10 +27,20 @@ const GLYPHS = UNITS.flatMap((u) =>
   (u.lessons ?? []).flatMap((l) => (l.items ?? []).filter((i) => i.type === "glyph").map((i) => ({ ...i, lang: u.lang })))
 );
 
+// SCOPED TO SPOKEN LETTERS, 2026-09-27. A speech KEY only matters for a letter that
+// reaches the mic. Russian's 33 Cyrillic letter cards never do: a letter is graded
+// through a carrier word, and alignScore.js's NON_LATIN guard deliberately excludes
+// Cyrillic (Ѐ-ӿ) with a "re-measure with a real sample before turning it on" note, so
+// no Cyrillic carrier can exist and shouldSpeak refuses to route `speak` without one.
+// Demanding a key for a card that cannot be spoken made the suite red for a decision
+// the repo had already taken deliberately. The guard that a letter never reaches the
+// mic without a carrier lives in speech-carriers.test.mjs.
+const SPOKEN = GLYPHS.filter((g) => shouldSpeak(g));
+
 // --- the key itself ---------------------------------------------------------
 
 test("every letter card in the corpus has a measured key", () => {
-  const missing = GLYPHS.filter((g) => !canGradeSpeech(g, SPEECH_TARGETS));
+  const missing = SPOKEN.filter((g) => !canGradeSpeech(g, SPEECH_TARGETS));
   assert.deepEqual(missing.map((g) => g.id), [], "a letter with no key falls back to shadowing — regenerate");
 });
 
@@ -69,7 +80,7 @@ test("no key entry is long enough to be a word rather than a sound", () => {
 });
 
 test("the reading is always accepted — a literal transcript must never fail", () => {
-  const missing = GLYPHS.filter((g) => {
+  const missing = SPOKEN.filter((g) => {
     const r = normalizeSpeech(g.reading ?? "");
     return r && !speechTargetsFor(g, SPEECH_TARGETS).includes(r);
   });

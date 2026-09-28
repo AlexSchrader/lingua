@@ -1,5 +1,6 @@
 import { KANJIVG } from "../data/kanjivg.js";
 import { AUDIO_IDS } from "../data/audioManifest.js";
+import { SPEECH_CARRIERS } from "../data/speechCarriers.js";
 import { conjugateIn } from "./conjugate.js";
 import { isJapaneseItem } from "./itemLang.js";
 import { checkProduce, checkMeaning } from "./answer.js";
@@ -661,6 +662,23 @@ export function shouldSpeak(item) {
   // could not teach it. Zero vocab items lack a clip today, but that is a fact
   // about the merge seat's timing, not a property of the engine - every crew
   // authors hundreds of items that have no audio until the merge seat voices them.
+  // AND A LETTER NEEDS ITS CARRIER. A bare letter cannot be graded -- transcription
+  // and alignment were both measured and both fail on one character -- so a letter is
+  // spoken THROUGH a word containing it, from SPEECH_CARRIERS. No carrier means no
+  // mechanism, and the card would arm the mic and grade on the weaker key.
+  //
+  // This surfaced the moment Russian was voiced, 2026-09-27. Before audio, hasAudio()
+  // kept all 33 Cyrillic letter cards out of `speak` by accident. Voicing them let 32
+  // straight in -- and NONE can be scored, because alignScore.js's NON_LATIN guard
+  // deliberately excludes the Cyrillic block (Ѐ-ӿ) with a written rationale and a
+  // "re-measure with a real sample before turning it on" note. So the aligner is off
+  // for Cyrillic ON PURPOSE, and the carrier generator can pick nothing.
+  //
+  // Gating on the carrier rather than on the script keeps this honest in both
+  // directions: the day someone measures Cyrillic alignment and carriers generate,
+  // these cards start routing with no change here. Hindi, Korean and Mandarin are all
+  // in languages.js and will arrive at the same gate.
+  if (item?.type === "glyph" && !SPEECH_CARRIERS[item.id]) return false;
   return (item?.type === "vocab" || item?.type === "glyph") && hasAudio(item);
 }
 
