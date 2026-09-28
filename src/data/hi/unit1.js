@@ -303,6 +303,29 @@
 //     already u5l3, मस्जिद, गली, पुल…).
 //   • मेज़, कुर्सी, पंखा, टीवी, फ़ोन, लाइट, घड़ी (u9l2/u9l4). u15 owns the rest of
 //     the house.
+// ─────────────────────────────────────────────────────────────────────────────
+// FREE — words every hi unit may USE in a sentence and no unit TEACHES.
+// ─────────────────────────────────────────────────────────────────────────────
+// Read by scripts/scope-hi.mjs, which is the only scope check Hindi has (lint's
+// exampleScopeWarnings is silent for a non-Latin script — see that file's header).
+// A FREE word is in scope from this unit onward, exactly like a taught front.
+// Declaring one is a CLAIM: a learner MEETS it in a sentence and is NEVER asked
+// to produce it.
+//
+// Everything here is closed-class grammar or a proper name, never vocabulary:
+//   • the postpositions and their oblique forms — का/के/की (of), को (to), पर (on),
+//     तक (until), ने (the ergative). §6 assigns these to u23 as a PARADIGM; they
+//     are unavoidable in any natural Hindi sentence from u1, so the learner
+//     acquires them by exposure first and is taught them once, properly, later.
+//   • the demonstrative obliques इस/इन/उस/उन and the possessives built on the
+//     pronouns (आपका, उनकी, उसके…). These ARE inflections of taught fronts
+//     (यह, वह, आप, वह), just ones no suffix rule generates.
+//   • करन — a proper name, free by RUNBOOK §4.
+// ⚠️ ADD TO THIS LINE ONLY FOR SOMETHING THAT MEETS THE TEST ABOVE. A content word
+// that belongs in the list is a content word you should be teaching instead.
+// FREE: का | के | की | को | पर | तक | ने | तो | इस | इन | उस | उन | कोई
+// FREE: आपका | आपकी | आपके | उनका | उनकी | उनके | उसका | उसकी | उसके | उसमें
+// FREE: किसकी | किसके | अपने | अपनी | करन
 // ⚠️ AND ONE READING RESERVED: `saath` is साथ (u7l3). साठ ("sixty") must be
 // authored `saatth` — see §1(b).
 export const HI_UNIT1 = {
@@ -359,8 +382,8 @@ export const HI_UNIT1 = {
         { id: "hi-u1l3-letterra", type: "glyph", front: "र", reading: "ra", meaning: null, example: null, hint: "Says ra with one flick of the tongue, like the r in Spanish pero. Note it has no spine of its own — the only common letter that does not." },
         { id: "hi-u1l3-letterta", type: "glyph", front: "त", reading: "ta", meaning: null, example: null, hint: "Says ta with the tongue flat against the TEETH and no puff of air. This is NOT the English t. Unit 2's ट is the one closer to English, made with the tongue curled back." },
         { id: "hi-u1l3-letterda", type: "glyph", front: "द", reading: "da", meaning: null, example: null, hint: "Says da, the voiced partner of त — tongue on the teeth again. Unit 2's ड is its curled-back twin." },
-        { id: "hi-u1l3-ham", type: "vocab", front: "हम", reading: "ham", meaning: "we", accept: ["us"], example: { jp: "हम हिंदी सीखते हैं।", en: "We are learning Hindi." }, drill: { jp: "हम हिंदी बोलते हैं", en: "We speak Hindi" }, hint: "HAM — ह and म, both letters you now know. Hindi also uses हम for I when someone is being grand or regional, but we is the one to learn." },
-        { id: "hi-u1l3-agar", type: "vocab", front: "अगर", reading: "agar", meaning: "if", accept: ["in case", "supposing"], example: { jp: "अगर काम कम है तो हम घर जाते हैं।", en: "If there is less work, we go home." }, drill: { jp: "अगर काम कम है", en: "If there is less work" }, hint: "A-GAR. Three letters, three you already know, and it starts with the independent vowel अ because nothing comes before it." },
+        { id: "hi-u1l3-ham", type: "vocab", front: "हम", reading: "ham", meaning: "we", accept: ["us"], example: { jp: "हम घर पर हिंदी सीखते हैं।", en: "We learn Hindi at home." }, drill: { jp: "हम हिंदी बोलते हैं", en: "We speak Hindi" }, hint: "HAM — ह and म, both letters you now know. Hindi also uses हम for I when someone is being grand or regional, but we is the one to learn." },
+        { id: "hi-u1l3-agar", type: "vocab", front: "अगर", reading: "agar", meaning: "if", accept: ["in case", "supposing"], example: { jp: "अगर काम कम है तो हम घर जाते हैं।", en: "If there is less work, we go home." }, drill: { jp: "अगर तुम यहाँ हो तो अच्छा है", en: "If you are here then it is good" }, hint: "A-GAR. Three letters, three you already know, and it starts with the independent vowel अ because nothing comes before it." },
       ],
     },
     {
