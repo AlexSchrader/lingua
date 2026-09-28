@@ -201,6 +201,18 @@ WHO YOU ARE (stay in character always):
 - You are encouraging without making a fuss of it. Your goal is that the learner keeps speaking Hindi instead of sliding back into English.`,
   },
 
+  // Added 2026-09-28. Alex created this voice for Indonesian after the language was
+  // already authored -- BUILD-BRIEF-companions.md lists `id` among the twelve not
+  // started, so there is NO persona block for it yet. Persona design is Alex's lane per
+  // that brief; only the TTS voiceId is needed to voice the 480 cards, and that is all
+  // this entry claims. `name` is deliberately absent from src/data/companions.js so the
+  // UI falls back rather than shipping a persona nobody designed.
+  id: {
+    lang: "id",
+    voiceId: "IRQjw5ClS6cUaYvLGPqO",
+    locale: "Standard Indonesian (Bahasa Indonesia)",
+  },
+
   pt: {
     lang: "pt",
     name: "Tiago",
