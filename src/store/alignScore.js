@@ -60,7 +60,23 @@ export const MIN_SCORABLE_LEN = 4;
 // mora-counting rule that no measurement supports, this gates on script and leaves
 // Japanese to the path that already works. Re-measure with a real sample before
 // turning it on.
-const NON_LATIN = /[぀-ヿ一-龯가-힯Ѐ-ӿ֐-ࣿ]/;
+// ⚠️ DEVANAGARI WAS MISSING AND THE GAP WAS SILENT. The ranges above stop at U+08FF;
+// Devanagari is U+0900-U+097F, exactly one block past. So isScorableText("नमस्ते", "hi")
+// returned TRUE while the identical Cyrillic case returned false. Nothing failed, because
+// Hindi had no content until 2026-09-28 -- the bug was waiting for the language.
+//
+// Left alone, the first Hindi audio run would have generated speech carriers for all 58
+// letter cards, routed `speak` on every one, and graded them with an aligner that has
+// NEVER been measured on Devanagari -- precisely what the Cyrillic exclusion above exists
+// to prevent. Fixed BEFORE voicing on purpose: afterwards, switching it off removes a card
+// kind from 58 items and card-variety.test.mjs is the ratchet that notices.
+//
+// Found by the Hindi block-1 seat, which checked the claim in its own kickoff brief
+// instead of trusting it. The brief was mine and it was wrong.
+//
+// Same standing instruction as the rest of this guard: re-measure with a real sample
+// before turning any script on. Hindi, Korean and Mandarin are all in languages.js.
+const NON_LATIN = /[぀-ヿ一-龯가-힯Ѐ-ӿ֐-ࣿऀ-ॿ]/;
 
 // Is this item's expected text something alignment was measured to score?
 // `lang` is accepted for callers that have it, but the decision is made on the
