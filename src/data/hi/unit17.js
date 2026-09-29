@@ -20,10 +20,17 @@
 // set without twelve mastery tracks competing with the days of the week, which are
 // genuinely new words.
 //
-// ⚠️ होना IS STILL DEFERRED (§5) AND THAT COSTS THIS UNIT SOMETHING. The natural
-// Hindi for "it rains on Wednesday" is बुधवार को बारिश होती है, and होती is a form
-// of an untaught verb. Every example here is rebuilt around रहना, आना and the
-// copula instead. Recorded so u22–u24 knows the constraint was felt, not missed.
+// ✅ होना IS NO LONGER DEFERRED, AND THIS PARAGRAPH SAID THE OPPOSITE UNTIL
+// 2026-09-28. It read: "होना IS STILL DEFERRED (§5) AND THAT COSTS THIS UNIT
+// SOMETHING" — the natural Hindi for "it rains on Wednesday" is बुधवार को बारिश
+// होती है, होती was a form of an untaught verb, and every example here was rebuilt
+// around रहना, आना and the copula instead. Block 3 carded होना at u22l1 glossed
+// "to happen" (see unit1.js §5 and unit22.js), so from u22 on `scope-hi.mjs`
+// generates होती/होते/होकर/होने and the weather idiom is in scope.
+// ⚠️ THE EXAMPLES IN THIS UNIT WERE NOT REWRITTEN, AND THAT IS DELIBERATE. They
+// are natural Hindi as they stand, and rewriting a merged unit's sentences would
+// re-voice its audio for no learner gain. The GAP is closed; the workaround that
+// was built around it is harmless and stays. A2 may use होती here freely.
 //
 // LEXEME CALLS MADE BY HAND (check-front.mjs's LEXEME verdict is worthless for
 // Devanagari — its stem() strips German suffixes). Each of these is a separate

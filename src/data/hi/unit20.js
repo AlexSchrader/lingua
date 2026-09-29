@@ -15,10 +15,14 @@
 // every hint names the frame rather than only the word, because the word alone is
 // useless — a learner who knows बुखार and not मुझे बुखार है cannot say anything.
 //
-// ⚠️ THE LOSS THIS UNIT TAKES FROM §5's DEFERRAL OF होना. "I had a fever" and "the
-// pain went" both need past forms of होना or जाना, deferred to u24. Every example
-// here is in the present, which is why none of them describes recovery. Named so the
-// grammar blocks know the gap is felt, not overlooked.
+// ✅ THE LOSS THIS UNIT TOOK FROM §5's DEFERRAL OF होना IS NOW CLOSED, AND THIS
+// PARAGRAPH RECORDED IT AS OPEN UNTIL 2026-09-28. It read: "I had a fever" and
+// "the pain went" both need past forms of होना or जाना, deferred to u24 — so every
+// example here is in the present and none describes recovery. Block 3 carded होना
+// at u22l1 and the past copula था/थी/थे/थीं at u24l1, and declared हुआ/हुई/हुए FREE
+// in unit24.js. So मुझे बुखार था and क्या हुआ? are both writable from u24 on.
+// The examples in THIS unit stay in the present, deliberately: they are natural as
+// they stand and rewriting a merged unit would re-voice its audio for no gain.
 //
 // ⚠️ SPELLING: बुखार with PLAIN ख, not ख़, exactly as u18 spells खरीदना — §7's
 // decision not to card क़/ख़/ग़ (Standard Hindi merges them) applied consistently.

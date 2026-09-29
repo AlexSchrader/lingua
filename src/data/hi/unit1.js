@@ -166,10 +166,27 @@
 //    sentence a learner will ever say. Apply it, record it here, and expect the
 //    answer to be no.
 //    THE COPULA IS THE ONE PLACE FORMS ARE CARDED SEPARATELY, and that is not an
-//    exception to the rule above — होना has no usable infinitive card at A1, so
-//    its PRESENT FORMS are the cards: है (is, u3l3) · हूँ (am, u8l1) · हैं (are,
-//    u8l1). Three forms, three glosses, and the infinitive होना is DEFERRED so it
-//    never becomes a fourth mastery track for the same word.
+//    exception to the rule above. Its PRESENT forms are है (is, u3l3) · हूँ (am,
+//    u8l1) · हैं (are, u8l1) · हो (are, casually, u8l1), and its PAST forms are
+//    था · थी · थे · थीं (all u24l1) — because the past copula is where gender
+//    agreement first becomes something the learner must PRODUCE. Eight forms,
+//    eight glosses, each naming its own person, gender and number.
+//    ✅ होना ITSELF IS NOW CARDED, AT u22l1, AND THIS PARAGRAPH SAID THE OPPOSITE
+//    UNTIL 2026-09-28. Block 1 deferred the infinitive so it would not become one
+//    more mastery track for है; block 3 overturned that for the EVENT sense only.
+//    होना glossed "to happen" is a different dictionary meaning with no card
+//    anywhere in the language — बारिश होती है, क्या हुआ?, आज छुट्टी होती है — and
+//    deferring it cost u17 and u20 the natural weather and health idioms, which
+//    both of those files recorded at the time. The gloss is "to happen", never
+//    "is", so it cannot collide with है. unit22.js's header carries the reasoning.
+//    ⚠️ सकना IS THE VERB THAT STAYS DEFERRED, AND THE REASON IS STRUCTURAL RATHER
+//    THAN A JUDGEMENT CALL. It is an auxiliary that only ever follows another
+//    verb's stem (कर सकता हूँ, जा सकते हैं), so NO natural Hindi sentence of any
+//    length contains the bare string सकना — which means it can carry no legal
+//    `drill` under RUNBOOK §4 and cannot be a front at all without a 3rd-person
+//    exception this section forbids. Ability is deferred to A2 as a CONSTRUCTION;
+//    §6's deferred list now names it. Block 2 applied the test and block 3
+//    confirmed it. Do not re-open it.
 //
 // 6. GENDER AGREEMENT, CASE AND ASPECT — WHAT A1 TEACHES AND WHAT IS DEFERRED.
 //    Hindi is SOV, uses POSTPOSITIONS (never prepositions), marks two genders and
@@ -178,8 +195,23 @@
 //        DIRECT case      every noun card, always. The citation form.
 //        POSTPOSITIONS    से (from) and में (in) are carded by block 1 (u8l2) as
 //                         plain vocabulary, because "Where are you from" cannot be
-//                         taught without them. का/के/की (of), को (to), पर (on),
-//                         तक (until) belong to u23.
+//                         taught without them. पर (on) and तक (until) are carded
+//                         by u23, in l1 and l2.
+//                         🚨 का/के/की/को CANNOT BE CARDED, AND THIS LINE USED TO
+//                         SAY THEY BELONGED TO u23. All four fronts are ALREADY
+//                         TAKEN, by u3's mātrā SYLLABLE GLYPH cards —
+//                         hi-u3l1-syllkaa, hi-u3l1-syllkii, hi-u3l2-syllke and
+//                         hi-u3l3-syllko, readings kaa/kii/ke/ko. `contract.js`
+//                         would NOT catch a second card there, because its
+//                         front-uniqueness map skips `glyph` items — so the
+//                         validator stays green while the learner gets two cards
+//                         showing का and the language's 720-fronts-to-720-distinct
+//                         -readings invariant breaks. unit11.js had already met one
+//                         corner of this and declared कि FREE for the same reason.
+//                         So the genitive and dative STAY FREE and are taught as a
+//                         PARADIGM in u23's hints and examples, which is what this
+//                         section asked for. The alternative was renaming a u3
+//                         glyph id, and an id change wipes that item's mastery.
 //        OBLIQUE case     the -ा → -े shift a postposition forces (कमरा → कमरे
 //                         में). Appears in examples from u8 on; taught as a
 //                         PARADIGM in u23, never before.
@@ -191,11 +223,23 @@
 //                         (बड़ा, छोटा, नया, पुराना, अच्छा) and the hint says the
 //                         feminine is -ी. NEVER card both बड़ा and बड़ी — same
 //                         lexeme, two mastery tracks, one gloss.
-//        TENSE            present habitual and the copula only, in u1–u21.
-//                         Past/perfective and the ने-ergative: u24.
+//        TENSE            present habitual and the present copula, in u1–u23.
+//                         ⚠️ u24 TEACHES THE PAST COPULA (था/थी/थे/थीं) AND THE
+//                         INTRANSITIVE PERFECTIVE, AND NOTHING MORE. This line
+//                         used to read "Past/perfective and the ने-ergative: u24",
+//                         which contradicted the deferred list three lines below.
+//                         Block 3 resolved it the other way: THE ERGATIVE IS
+//                         DEFERRED. It needs an oblique subject with ने, the verb
+//                         agreeing with the OBJECT instead of the subject, and
+//                         sometimes को on the object — three interacting rules, and
+//                         past A1 in every Hindi syllabus. The clean consequence is
+//                         that u24l3's six new verbs are all INTRANSITIVE on
+//                         purpose (गिरना, बढ़ना, मरना, बचना, हँसना, रोना), because
+//                         those are the ones whose past a learner can produce now.
 //    DEFERRED PAST A1 ENTIRELY, and named here so the A2 crew finds the decision
-//    rather than the gap: the ने ergative construction, the subjunctive, the
-//    passive, compound verbs (कर लेना, खा जाना), और the -ता था imperfect.
+//    rather than the gap: the ने ergative construction, ABILITY (सकना — see §5),
+//    the subjunctive, the passive, compound verbs (कर लेना, खा जाना), और the -ता था
+//    imperfect.
 //
 // 7. THREE THINGS IN THE ALPHABET ARE DELIBERATELY NOT CARDED. All three are real
 //    decisions, not gaps, and no later block should "fix" them:
@@ -252,19 +296,26 @@
 //    plain English theme names. Lesson titles stay in English, matching ru/ · no/
 //    · es/ · de/ house style.
 //    ⚠️ "Characters N" IS A JAPANESE SLOT — the interleaved kanji strand — AND
-//    HINDI HAS NO SUCH THING: the whole alphabet is finished by u6. There are FIVE
-//    of them in the hi scaffold (u9, u12, u15, u18, u21) and every one must be
-//    rethemed. Block 1 owns u9 and rethemed it to `विदेशी शब्द` — English and
-//    Perso-Arabic loanwords, where the MEANING is nearly free so the lesson is
-//    pure Devanagari decoding. That is the pattern for the other four.
-//    ⚠️ AND A SECOND ARTEFACT: u23's scaffold title is "Grammar 2 — verbs and
+//    HINDI HAS NO SUCH THING: the whole alphabet is finished by u6. There were
+//    FIVE of them in the hi scaffold (u9, u12, u15, u18, u21) and ✅ ALL FIVE ARE
+//    NOW RETHEMED: u9 विदेशी शब्द (block 1, loanword decoding), u12 रोज़ के काम,
+//    u15 घर के अंदर, u18 बाज़ार और पैसा (block 2), u21 जानवर और कुदरत (block 3).
+//    Every one of them filled a MEASURED A1 hole rather than inventing a theme.
+//    ⚠️ AND THERE WERE SIX MORE ARTEFACT TITLES THIS SECTION NEVER NAMED:
+//    "Vocabulary 1"–"Vocabulary 6", on u25–u30. lint's SCAFFOLD_TITLE_PATTERNS
+//    carries the Vocabulary pattern right next to the Characters one, so all six
+//    hard-error identically. ✅ ALL SIX ARE NOW RETHEMED by block 3: u25 और गिनती,
+//    u26 और रोज़ के काम, u27 मन और स्वभाव, u28 काम और पढ़ाई, u29 सफ़र, u30 बातचीत.
+//    ELEVEN rethemed slots in this language, not five.
+//    ⚠️ AND A SECOND ARTEFACT: u23's scaffold title was "Grammar 2 — verbs and
 //    PARTICLES". A particle is a Japanese word class (は・が・を・に・で). Hindi has
 //    POSTPOSITIONS, which follow their noun and force the oblique case — a
-//    different mechanism with a different name. Block 3 must retheme u23; §6 says
-//    what belongs in it.
+//    different mechanism with a different name. ✅ Block 3 rethemed it to परसर्ग;
+//    §6 records what the slot could and could not carry.
 //    ⚠️ AND A THIRD: "Grammar 3 — past tense and AGREEMENT" does apply to Hindi,
 //    but the agreement it names is gender agreement, which Hindi has and the
-//    scaffold's source language does not. Keep the slot, write it for Hindi.
+//    scaffold's source language does not. ✅ Slot kept and written for Hindi as
+//    बीता समय और मेल (u24). u22 is वाक्य बनाना.
 //
 // 11. AUDIO AND THE SPEAK CARD — WHAT THE MERGE SEAT MUST KNOW.
 //    Karan is wired (`server/companions.js`, hi → v4vv5Cuj1q4fFFkQdBm4). Block 1
@@ -315,10 +366,14 @@
 // to produce it.
 //
 // Everything here is closed-class grammar or a proper name, never vocabulary:
-//   • the postpositions and their oblique forms — का/के/की (of), को (to), पर (on),
-//     तक (until), ने (the ergative). §6 assigns these to u23 as a PARADIGM; they
-//     are unavoidable in any natural Hindi sentence from u1, so the learner
-//     acquires them by exposure first and is taught them once, properly, later.
+//   • the postpositions and their oblique forms — का/के/की (of), को (to), ने (the
+//     ergative). They are unavoidable in any natural Hindi sentence from u1, so the
+//     learner acquires them by exposure first. ⚠️ का/के/की/को STAY FREE PERMANENTLY
+//     and are never carded, because u3's mātrā glyph cards already own those four
+//     fronts — see §6. u23 teaches them as a PARADIGM in its hints instead.
+//     ✅ पर AND तक ARE NO LONGER FREE-ONLY: they are TAUGHT FRONTS, at u23l1 and
+//     u23l2. They stay on the FREE line below, because that is what keeps them in
+//     scope for u1–u22, where blocks 1 and 2 already used them in sentences.
 //   • the demonstrative obliques इस/इन/उस/उन and the possessives built on the
 //     pronouns (आपका, उनकी, उसके…). These ARE inflections of taught fronts
 //     (यह, वह, आप, वह), just ones no suffix rule generates.

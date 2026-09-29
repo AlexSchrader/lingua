@@ -13,7 +13,8 @@
 // at or before its unit. Hindi inflects at the edges rather than fusing, so
 // derivation is generative and precise rather than a blind suffix-stripper:
 //   -ना infinitive → -ता/-ती/-ते (habitual), -कर (conjunctive), -िए (polite
-//                    imperative), -ो/-े/-ा/-ी, -ूँगा/-ेगा (future)
+//                    imperative), -ो/-े/-ा/-ी, -ूँगा/-ेगा (future),
+//                    -ने (OBLIQUE INFINITIVE — added by block 3, see below)
 //   -आ noun/adj    → -ी (feminine), -े (plural and oblique), -ों (oblique plural)
 //   -ी noun        → -ियाँ (plural), -ियों (oblique plural)
 //   VOWEL-final    → -एँ (feminine plural: भाषा → भाषाएँ, ऋतु → ऋतुएँ)
@@ -28,6 +29,18 @@
 // out of scope. Same hole for the OBLIQUE PLURAL -ों (घर → घरों, कमरा → कमरों,
 // कुर्सी → कुर्सियों), which no rule generated at all, so every natural "in the
 // rooms" / "of the shops" sentence flagged.
+// ⚠️ THE OBLIQUE INFINITIVE -ने HAD NO RULE EITHER (block 3, 2026-09-28). Every
+// natural Hindi sentence with a purpose, an attempt or a permission uses it —
+// हिंदी बोलने की कोशिश, पढ़ने के लिए, जाने से पहले — and derive() generated
+// -ता/-ती/-ते/-कर/-िए/-ो/-े/-ा/-ी/-ूँगा/-ेगा and stopped. It is the same class as
+// the -ों block 2 added: a GENERATED form in the standard verb paradigm, not a
+// lexical guess. MEASURED both ways on the merged corpus: the band count is
+// **135 before and 135 after** and the A1 count stays 0 — so it overturns no
+// existing verdict, and the only strings it licenses are st+"ने" for a front the
+// course already teaches. Checked by hand that none of those is an independent
+// word needing its own card: खाने/गाने/सोने are the oblique-or-plural of खाना,
+// गाना and सोना, which are already fronts.
+//
 // This WIDENS the check, so each addition is held to one test: it must be a
 // GENERATED INFLECTION of the taught front in the standard noun paradigm, never a
 // lexical guess. -ें / -ों / -ियों are the plural-and-oblique paradigm, exactly the
@@ -62,7 +75,7 @@ function derive(front) {
   const out = new Set([front]);
   if (front.endsWith("ना") && front.length > 2) {
     const st = front.slice(0, -2);
-    for (const suf of ["ता", "ती", "ते", "कर", "िए", "े", "ो", "ा", "ी", "ूँगा", "ेगा", "तें"]) out.add(st + suf);
+    for (const suf of ["ता", "ती", "ते", "कर", "िए", "े", "ो", "ा", "ी", "ूँगा", "ेगा", "तें", "ने"]) out.add(st + suf);
   }
   if (front.endsWith("ा")) {
     out.add(front.slice(0, -1) + "ी");

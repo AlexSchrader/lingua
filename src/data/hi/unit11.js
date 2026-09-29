@@ -23,9 +23,19 @@
 // readings. Collapsing the doubling (tt→t, dd→d) to simulate the merge produces
 // exactly five clashes — ta/tta, da/dda, tha/ttha, dha/ddha, which are block 1's
 // four deliberate GLYPH pairs under §2, and saath/saatth, which is this one. So
-// साठ/साथ is the only WORD pair in the language that needed the hatch. If block 3
-// adds a second member of any pair above, THE RETROFLEX ONE DOUBLES — that is the
-// rule, not a one-off.
+// साठ/साथ is the only WORD pair in the language that needed the hatch. If a later
+// block adds a second member of any pair above, THE RETROFLEX ONE DOUBLES — that is
+// the rule, not a one-off.
+// ✅ BLOCK 3 CHECKED ITS OWN 240 CARDS AGAINST THAT RULE AND ADDED NO PAIR.
+// Measured on the finished corpus: 720 fronts, 720 DISTINCT readings, 0 collisions.
+// The retroflex words block 3 spent — अठारह athaarah · छठा chhathaa · चिट्ठी
+// chitthii · पाठ paath · काटना kaatnaa · अड्डा addaa · ठहरना thaharnaa · गणित ganit
+// — have no dental counterpart anywhere in the corpus (there is no अथारह, छथा,
+// चित्थी, पाथ, कातना, अद्दा, थहरना or गनित), so NONE of them doubles for the hatch.
+// पत्ता pattaa and पत्थर patthar do carry doubled letters, and that is §1's
+// GEMINATION, not §1(b)'s hatch — a distinction worth keeping straight, because
+// the notation is the same and the reason is not. साठ/साथ is still the only place
+// the hatch has ever fired in Hindi.
 //
 // ─────────────────────────────────────────────────────────────────────────────
 // FREE — the seven words block 2 adds to unit1.js's list. Same test: closed-class

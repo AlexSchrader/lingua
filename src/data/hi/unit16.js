@@ -32,6 +32,9 @@
 // have made eight u15–u16 sentences forward-referencing. Measured against
 // `node scripts/scope-hi.mjs`, which flagged exactly those eight. तूफ़ान (a storm)
 // was dropped to make room — the least A1-essential word in the slot.
+// ✅ AND तूफ़ान IS NOT LOST: block 3 teaches it in unit21.js lesson 4, beside the
+// sky and the sea. This paragraph read as though the word were untaught in the
+// language until 2026-09-28; it is not.
 export const HI_UNIT16 = {
   id: "hi-u16",
   lang: "hi",
