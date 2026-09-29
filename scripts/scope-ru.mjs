@@ -107,6 +107,11 @@ const PARADIGM = {
   идти: ["иду", "идёшь", "идет", "идёт", "идём", "идем", "идёте", "идете", "идут", "шёл", "шел", "шла", "шли"],
   ехать: ["еду", "едешь", "едет", "едем", "едете", "едут", "ехал", "ехала", "ехали"],
   друг: ["друга", "другу", "друге", "друзья", "друзей", "друзьям", "друзьями", "друзьях"],
+  // (d) `один` AGREES LIKE AN ADJECTIVE and none of its forms is reachable: TAIL
+  //     has no "н", so stem("один") stays "один" and одна/одно/одни start with
+  //     "одн" instead. A2 needs the neuter and feminine constantly ("одно
+  //     условие", "одна причина").
+  один: ["одна", "одно", "одни", "одного", "одному", "одном", "одним", "одной", "одну", "одних"],
 };
 
 // norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own
