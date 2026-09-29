@@ -97,6 +97,16 @@ const PARADIGM = {
   //     third 3rd-person exception. Carding the INFINITIVE (u32l2) is legal and
   //     needs no exception; only the bare `кажется` front would have.
   казаться: ["кажусь", "кажешься", "кажется", "кажемся", "кажетесь", "кажутся", "казался", "казалась", "казалось", "казались"],
+  // (c) THE TWO MOTION VERBS A1 TAUGHT AT u14l4 HAVE UNREACHABLE PRESENT TENSES.
+  //     stem("идти") strips "ти" to "ид", which is under 3 characters, so the stem
+  //     stayed "идти" and NOTHING it inflects into starts with it. ехать strips to
+  //     "еха", which едет/еду do not start with either. A1 scored 0 out-of-scope
+  //     across u11-u30 because it wrote AROUND both verbs' present tense, which is
+  //     not the same as them being in scope — and an A2 band that teaches
+  //     directional motion (u36) cannot write around them.
+  идти: ["иду", "идёшь", "идет", "идёт", "идём", "идем", "идёте", "идете", "идут", "шёл", "шел", "шла", "шли"],
+  ехать: ["еду", "едешь", "едет", "едем", "едете", "едут", "ехал", "ехала", "ехали"],
+  друг: ["друга", "другу", "друге", "друзья", "друзей", "друзьям", "друзьями", "друзьях"],
 };
 
 // norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own
