@@ -61,6 +61,8 @@ const { UNITS } = await import("../src/data/index.js");
 // never exist again. UNITS is now the whole story.
 
 const MODEL_ID = "eleven_v3";
+// Used ONLY when MODEL_ID returns an empty or silent body -- see the fallback below.
+const FALLBACK_MODEL_ID = "eleven_multilingual_v2";
 
 // Flatten every playable item across the live units, stamping lang.
 const LANG = (process.argv.find((a) => a.startsWith("--lang=")) || "").split("=")[1] || null;
@@ -219,6 +221,37 @@ for (let i = 0; i < items.length; i++) {
         body: JSON.stringify({ text: retryText, model_id: MODEL_ID }),
       });
       if (retry.ok) buf = Buffer.from(await retry.arrayBuffer());
+    }
+    // LAST RESORT: FALL BACK TO A DIFFERENT MODEL. Retrying the same model with the
+    // same text cannot help when the model itself refuses the payload, and that is a
+    // real case, not a hypothetical: measured 2026-09-28, `eleven_v3` returns an EMPTY
+    // body for the bare Devanagari consonants ट, ढ and ण and the 3805-byte silent
+    // payload for ड़, on every attempt across four runs -- while
+    // `eleven_multilingual_v2` returns 11-12kB of real audio for all four, same voice,
+    // same text. Four Hindi letter cards were unvoiceable for that reason alone.
+    //
+    // I nearly "fixed" this by changing what was SAID -- sending टा instead of ट, which
+    // is a different vowel length and would have taught the wrong sound. A probe against
+    // both models is what showed the character was fine and the model was not.
+    //
+    // Scoped deliberately: only on the path where the clip would otherwise be thrown
+    // away, and MODEL_ID stays v3 for everything that works. Do not promote this to the
+    // default -- v3 was chosen for isolated-kana pronunciation and that is still why.
+    if (buf.length <= SILENT_BYTES && MODEL_ID !== FALLBACK_MODEL_ID) {
+      const alt = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
+        method: "POST",
+        headers: { "xi-api-key": API_KEY, "Content-Type": "application/json", Accept: "audio/mpeg" },
+        body: JSON.stringify({ text, model_id: FALLBACK_MODEL_ID }),
+      });
+      if (alt.ok) {
+        const altBuf = Buffer.from(await alt.arrayBuffer());
+        if (altBuf.length > SILENT_BYTES) {
+          writeFileSync(out, altBuf);
+          console.log(`  gen    ${tag}  "${text}"  ${altBuf.length}b  [${FALLBACK_MODEL_ID}]`);
+          done++;
+          continue;
+        }
+      }
     }
     if (buf.length <= SILENT_BYTES) {
       console.error(`  ERROR  ${tag}: ${buf.length === 0 ? "empty audio body (200 but 0 bytes)" : `silent audio (${buf.length}b <= ${SILENT_BYTES}b, the known silent payload)`} - NOT written`);

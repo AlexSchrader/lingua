@@ -5,7 +5,7 @@
 // containing it can. See the script header for the numbers.
 //
 // Every carrier is a word the curriculum already teaches, and already has a clip.
-// 52 of 85 letters, generated 2026-09-28.
+// 52 of 143 letters, generated 2026-09-29.
 export const SPEECH_CARRIERS = {
   "fr-u1l1-glypheaigu": {
     "id": "fr-u1l1-eaigu",
