@@ -103,6 +103,16 @@ function derive(front) {
     out.add(front.slice(0, -1) + "ियाँ");
     out.add(front.slice(0, -1) + "ियों");
   }
+  // A front ending in the INDEPENDENT आ takes the same plural-and-oblique paradigm
+  // as a -ा front, but spelled with independent letters, because a mātrā cannot
+  // follow another mātrā: बटुआ → बटुए (oblique and plural) and बटुओं (oblique
+  // plural). Exactly the class block 2 fixed for the
+  // consonant-final plural: a generated form in the standard paradigm, and the
+  // -ा rule above simply could not reach it. (A2 block 1)
+  if (front.endsWith("आ")) {
+    out.add(front.slice(0, -1) + "ए");
+    out.add(front.slice(0, -1) + "ओं");
+  }
   // A consonant-final front ends in a bare consonant LETTER — no mātrā, no
   // anusvāra, no halant. Those take the mātrā plural ें and the oblique ों; a
   // vowel-final front takes the independent एँ. Getting this backwards is what
