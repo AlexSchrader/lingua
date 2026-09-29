@@ -1,7 +1,7 @@
 # ID — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- id`.
-Snapshot 2026-09-27: **480 words** across **20 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-09-29: **480 words** across **20 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -14,6 +14,16 @@ Snapshot 2026-09-27: **480 words** across **20 authored unit(s)**, **0 slot(s) s
 - **It does not contain the words your sibling blocks are writing right now.** They do not exist yet, in this tree or any other. If you need a word a *later* slot will plainly own (a grammar unit's tense, a themed unit's domain), assume it is theirs and teach around it.
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
+
+## Who owns which slots this band
+
+The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
+
+| block | slots |
+|---|---|
+| 1 | u21–u30 |
+| 2 | u31–u40 |
+| 3 | u41–u50 |
 
 ## Index — every taught word, alphabetical
 
@@ -352,7 +362,7 @@ Snapshot 2026-09-27: **480 words** across **20 authored unit(s)**, **0 slot(s) s
 - `pertanyaan` — u18 · question
 - `perut` — u11 · stomach
 - `pesan` — u6 · to order
-- `pilek` — u11 · a cold
+- `pilek` — u11 · head cold
 - `pilih` — u14 · to choose
 - `pintar` — u20 · clever
 - `pintu` — u4 · door
