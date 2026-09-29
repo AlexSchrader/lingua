@@ -14,10 +14,26 @@
 // derivation is generative and precise rather than a blind suffix-stripper:
 //   -ना infinitive → -ता/-ती/-ते (habitual), -कर (conjunctive), -िए (polite
 //                    imperative), -ो/-े/-ा/-ी, -ूँगा/-ेगा (future)
-//   -आ noun/adj    → -ी (feminine), -े (plural and oblique)
-//   -ी noun        → -ियाँ (plural)
-//   any noun       → -एँ (feminine plural: भाषा → भाषाएँ, ऋतु → ऋतुएँ)
+//   -आ noun/adj    → -ी (feminine), -े (plural and oblique), -ों (oblique plural)
+//   -ी noun        → -ियाँ (plural), -ियों (oblique plural)
+//   VOWEL-final    → -एँ (feminine plural: भाषा → भाषाएँ, ऋतु → ऋतुएँ)
+//   CONSONANT-final→ -ें (feminine plural), -ों (oblique plural)
 // IRREGULAR below carries what generation cannot reach (मैं → मुझे, नया → नई).
+//
+// ⚠️ THE CONSONANT-FINAL PLURAL WAS WRONG AND IS FIXED HERE (block 2, 2026-09-28).
+// The rule read "any noun → -एँ", which is right only for a VOWEL-final noun: the
+// independent letter एँ can only start a syllable. A consonant-final feminine noun
+// takes the MĀTRĀ ें instead — किताब → किताबें, चीज़ → चीज़ें, रात → रातें — and the
+// old rule generated the impossible string किताबएँ while flagging the real form as
+// out of scope. Same hole for the OBLIQUE PLURAL -ों (घर → घरों, कमरा → कमरों,
+// कुर्सी → कुर्सियों), which no rule generated at all, so every natural "in the
+// rooms" / "of the shops" sentence flagged.
+// This WIDENS the check, so each addition is held to one test: it must be a
+// GENERATED INFLECTION of the taught front in the standard noun paradigm, never a
+// lexical guess. -ें / -ों / -ियों are the plural-and-oblique paradigm, exactly the
+// same class as the -े already present. Nothing derivational was added: गरम does
+// not generate गरमी, दुकान does not generate दुकानदार, and those stay separate
+// fronts that must be taught.
 //
 // THE SCRIPT BAND IS REPORTED SEPARATELY, AND THAT IS NOT LENIENCY. unit1.js §8
 // makes u1–u6 sentence-exempt for a mechanical reason: a unit whose whole
@@ -51,9 +67,26 @@ function derive(front) {
   if (front.endsWith("ा")) {
     out.add(front.slice(0, -1) + "ी");
     out.add(front.slice(0, -1) + "े");
+    out.add(front.slice(0, -1) + "ों");
   }
-  if (front.endsWith("ी")) out.add(front.slice(0, -1) + "ियाँ");
-  out.add(front + "एँ");
+  if (front.endsWith("ी")) {
+    out.add(front.slice(0, -1) + "ियाँ");
+    out.add(front.slice(0, -1) + "ियों");
+  }
+  // A consonant-final front ends in a bare consonant LETTER — no mātrā, no
+  // anusvāra, no halant. Those take the mātrā plural ें and the oblique ों; a
+  // vowel-final front takes the independent एँ. Getting this backwards is what
+  // produced किताबएँ.
+  // ⚠️ THE TRAILING NUKTA IS OPTIONAL AND MUST BE ALLOWED. In this corpus ज़ is
+  // TWO codepoints — ज U+091C plus the combining nukta U+093C — not the precomposed
+  // U+095B. Verified on चीज़ (091a 940 91c 93c). Without the ़? this test called
+  // चीज़ vowel-final and flagged its real plural चीज़ें.
+  if (/[क-हक़-य़]़?$/.test(front)) {
+    out.add(front + "ें");
+    out.add(front + "ों");
+  } else {
+    out.add(front + "एँ");
+  }
   return out;
 }
 
@@ -68,6 +101,11 @@ const IRREGULAR = {
   "आप": ["आपको"],
   "यह": ["ये"],
   "वह": ["वे"],
+  // कैसे is block 1's front (u8l4) and it is the ADVERBIAL member of a four-form
+  // adjective paradigm. derive() cannot reach the others from a -े front, so
+  // "आपकी सेहत कैसी है" — the ordinary polite "how are you" — read as out of scope.
+  // Same class as नया → नई: one lexeme, forms no suffix rule generates. (block 2)
+  "कैसे": ["कैसा", "कैसी"],
   "दो": ["दोनों"],
   "तीन": ["तीनों"],
   "बूढ़ा": ["बूढ़े", "बूढ़ी"],
