@@ -130,6 +130,16 @@ const PARADIGM = {
   устал: ["устала", "устало", "устали"],
   уверен: ["уверена", "уверено", "уверены"],
   похож: ["похожа", "похоже", "похожи"],
+  // (g) `всё` (u3l2) IS ONE LEXEME WITH весь/вся/все, and A2 cannot avoid its
+  //     other forms (всю книгу, всех сотрудников). Keyed on the authored ё
+  //     spelling, which the NORM_KEY lookup resolves. ⚠️ This entry is also the
+  //     reason `весь` is NOT carded anywhere — see ru/unit32.js's header.
+  "всё": ["все", "вся", "всю", "всего", "всему", "всем", "всех", "всеми", "весь"],
+  // (h) `нужно` (u5l4) is carded as the neuter/adverbial form; its other short
+  //     forms are what any sentence with a real subject needs.
+  нужно: ["нужен", "нужна", "нужны"],
+  ходить: ["хожу", "ходишь", "ходит", "ходим", "ходите", "ходят", "ходил", "ходила", "ходили"],
+  ездить: ["езжу", "ездишь", "ездит", "ездим", "ездите", "ездят", "ездил", "ездила", "ездили"],
 };
 
 // norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own

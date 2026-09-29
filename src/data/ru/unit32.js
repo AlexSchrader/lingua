@@ -30,12 +30,16 @@
 //
 // ⚠️ TWO FRONTS REFUSED IN THIS UNIT, both for reasons a later block would
 // otherwise re-discover:
-//   `вес` (a weight) — REFUSED, and this is a §1(b) soft-sign collision, not a
-//        judgement. вес → "ves" and весь → "ves" are the same reading, because
-//        unit1.js §1 drops ь. They are exactly the minimal pair §1(b) says never
-//        to teach both members of. `весь` is the more useful of the two and is
-//        carded at u37l1, so `вес` is out of the language. Measure words for u37
-//        use килограмм and литр instead.
+//   `вес` (a weight) — was refused here on a §1(b) soft-sign reading collision
+//        with `весь`, both being "ves" because §1 drops ь. ✅ THAT REASONING WAS
+//        SUPERSEDED WHILE u37 WAS BEING WRITTEN AND `вес` IS NOW CARDED, at u37l3.
+//        `весь` turned out not to be cardable at all: it is the masculine of the
+//        same lexeme as `всё`, which A1 carded at u3l2, so carding it would give
+//        one word two mastery tracks — unit1.js §5's "an inflected form is never
+//        its own card". With весь out of the language there is no pair left for
+//        вес to collide with, and it is the only "ves" a learner ever types.
+//        Recorded here rather than deleted because the §1(b) test itself was
+//        applied correctly; only one of its two members changed.
 //   `тип` (a type) — REFUSED as redundant beside `вид`, which is not carded
 //        either: `вид` is the metalinguistic word this band uses for ASPECT
 //        (u31's title is Вид глагола), and carding it as "a kind" while теaching
