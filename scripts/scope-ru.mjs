@@ -112,6 +112,24 @@ const PARADIGM = {
   //     "одн" instead. A2 needs the neuter and feminine constantly ("одно
   //     условие", "одна причина").
   один: ["одна", "одно", "одни", "одного", "одному", "одном", "одним", "одной", "одну", "одних"],
+  // (e) TWO NOUNS WHOSE STEM DROPS A VOWEL. день -> дня and цветок -> цветы lose
+  //     the е/о of the last syllable, so the front's stem ("ден", "цветок") is not
+  //     a prefix of the inflected form. Both are A1 fronts (u3l3, u26l2) used
+  //     constantly from here on.
+  день: ["дня", "дню", "днём", "днем", "дни", "дней", "дням", "днями", "днях"],
+  цветок: ["цветка", "цветку", "цветком", "цветы", "цветов", "цветам", "цветами"],
+  // (f) THE SHORT-FORM ADJECTIVE CLASS. A1 carded these in the MASCULINE (u7l3,
+  //     u24l2), and a short form has no stem the stripper can cut back to: TAIL
+  //     has no "н", so stem("должен") stays "должен" and должна/должно/должны all
+  //     start with "должн" instead. The feminine, neuter and plural are
+  //     unavoidable in any sentence whose subject is not a single male.
+  должен: ["должна", "должно", "должны"],
+  рад: ["рада", "рады"],
+  готов: ["готова", "готово", "готовы"],
+  занят: ["занята", "занято", "заняты"],
+  устал: ["устала", "устало", "устали"],
+  уверен: ["уверена", "уверено", "уверены"],
+  похож: ["похожа", "похоже", "похожи"],
 };
 
 // norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own
