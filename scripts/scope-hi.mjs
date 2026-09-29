@@ -187,6 +187,14 @@ const explicitFronts = new Set(
 for (const it of items) {
   if (typeof it.front !== "string") continue;
   remember(it.front, it.u); // a multi-word front is one token nowhere, but register it anyway
+  // ⚠️ A GLYPH FRONT IS A LETTER AND HAS NO PARADIGM, so it must not feed derive().
+  // It was feeding it, and the results were nonsense that licensed real words: the
+  // consonant glyph म (u1l2) generated में through the -ें plural, and the vowel
+  // glyph आ (u1l1) generated आएँ through the -एँ plural — which happens to be the
+  // subjunctive of आना and was therefore in scope from unit 1 by accident. Neither
+  // is an inflection of anything. TIGHTENING; measured on the merged corpus. (A2
+  // block 1)
+  if (it.type === "glyph") continue;
   for (const piece of it.front.split(/\s+/).filter(Boolean)) {
     remember(piece, it.u);
     for (const d of [...derive(piece), ...(IRREGULAR[piece] ?? [])]) {
