@@ -270,18 +270,20 @@
 //    Karan is wired (`server/companions.js`, hi → v4vv5Cuj1q4fFFkQdBm4). Block 1
 //    ran NO audio: 240 new ids need clips, in one run, once the language is
 //    settled.
-//    ⚠️ AND A FINDING THE MERGE SEAT MUST NOT SKIP. It is written in more than one
-//    place that `alignScore.js`'s NON_LATIN guard excludes Devanagari. IT DOES
-//    NOT. Measured 2026-09-27: the guard's ranges are U+3040–U+30FF, U+4E00–
-//    U+9FAF, U+AC00–U+D7AF, U+0400–U+04FF and U+0590–U+08FF. Devanagari is
-//    U+0900–U+097F — just past the last range. `isScorableText("नमस्ते", "hi")`
-//    returns **true**. So the moment the corpus is voiced,
-//    `generate-speech-carriers.mjs` WILL generate Hindi carriers (it needs only a
-//    clip and a 4-character front), every glyph card WILL route `speak`, and it
-//    will be graded by an aligner that has never been measured on Devanagari —
-//    the exact situation the Cyrillic exclusion exists to prevent. This is a
-//    Feature-lane call, not a content one: it is filed in BUILD-CHECKLIST.md →
-//    "Feature CC backlog" and must be decided before or with the audio run.
+//    ✅ RESOLVED 2026-09-28, AND THE WARNING THAT STOOD HERE IS NOW FALSE.
+//    Block 1 was right: `alignScore.js`'s NON_LATIN guard did NOT cover Devanagari.
+//    Its ranges stopped at U+08FF and Devanagari is U+0900–U+097F, one block past, so
+//    `isScorableText("नमस्ते","hi")` returned true. Block 1 found it by checking the
+//    claim in its own kickoff brief instead of trusting it — the brief was the main
+//    session's and it was wrong.
+//    FIXED in `91eca9fa` before any Hindi audio ran, which is the part that mattered:
+//    afterwards, switching it off would have removed a card kind from 58 letter cards
+//    and `card-variety.test.mjs` would have reported it as a regression. Now
+//    `isScorableText` is false for Devanagari, no carriers generate, `shouldSpeak`
+//    refuses a glyph without one, and letter cards route ["choice","type:produce"].
+//    THERE IS NOTHING FOR THE MERGE SEAT TO DECIDE. Do not re-open it; do not add
+//    Devanagari stroke data. The standing rule is unchanged: re-measure with a real
+//    sample before turning any script on.
 //
 // ─────────────────────────────────────────────────────────────────────────────
 // THEMES SPENT BY BLOCK 1 (u1–u10) — do not re-author these.
@@ -399,7 +401,7 @@ export const HI_UNIT1 = {
         { id: "hi-u1l4-letterba", type: "glyph", front: "ब", reading: "ba", meaning: null, example: null, hint: "Says ba. Very close in shape to व (va) — ब has the crossbar joined all the way, व does not. Look at the left side." },
         { id: "hi-u1l4-letterla", type: "glyph", front: "ल", reading: "la", meaning: null, example: null, hint: "Says la, a light l, tongue forward — closer to the l in leaf than the l in full." },
         { id: "hi-u1l4-lettersa", type: "glyph", front: "स", reading: "sa", meaning: null, example: null, hint: "Says sa, always s and never z or sh. Hindi has two sh letters as well (श and ष, unit 4) but स is only ever s." },
-        { id: "hi-u1l4-ab", type: "vocab", front: "अब", reading: "ab", meaning: "now", accept: ["at present", "nowadays"], example: { jp: "अब हम हिंदी पढ़ सकते हैं।", en: "Now we can read Hindi." }, drill: { jp: "अब हम घर जाते हैं", en: "Now we go home" }, hint: "AB — two letters. Pair it with तब (then), coming in unit 2 shape by shape: अब and जब and तब all rhyme, and all three are joining words." },
+        { id: "hi-u1l4-ab", type: "vocab", front: "अब", reading: "ab", meaning: "now", accept: ["at present", "nowadays"], example: { jp: "अब हम हिंदी पढ़ सकते हैं।", en: "Now we can read Hindi." }, drill: { jp: "अब हम घर जाते हैं", en: "Now we go home" }, hint: "AB — two letters. अब and जब rhyme and both join clauses." },
         { id: "hi-u1l4-bas", type: "vocab", front: "बस", reading: "bas", meaning: "a bus", accept: ["bus", "coach"], example: { jp: "बस अब स्टेशन पर है।", en: "The bus is at the station now." }, drill: { jp: "बस अब यहाँ है", en: "The bus is here now" }, hint: "BAS, feminine. The same two letters also spell बस meaning enough or that's it, said with a flat hand — one of the first things you will hear in a shop." },
       ],
     },
