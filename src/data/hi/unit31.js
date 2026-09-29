@@ -4,7 +4,7 @@
 // Everything in unit1.js §1–§11 still BINDS — transliteration, gender in the hint,
 // -ना infinitives, the glyph decisions, the gloss rules. unit11.js carries A1
 // block 2's additions and unit21.js block 3's. What follows is only what A2 adds
-// or decides. BLOCKS 2 (u41–u50) AND 3 (u51–u60) READ §A1–§A7 BELOW FIRST.
+// or decides. BLOCKS 2 (u41–u50) AND 3 (u51–u60) READ §A1–§A8 BELOW FIRST.
 //
 // ═════════════════════════════════════════════════════════════════════════════
 // A2 CONVENTIONS — settled by block 1 as A2 crew lead. Numbered so a later block
@@ -80,13 +80,18 @@
 //     habitual -ता/-ती/-ते and the consonant-stem perfective (via ा/ी/े) but
 //     NOTHING for a vowel stem, so खाया, बुलाया, उठाई and सजाए all read as out of
 //     scope while देखा read as in scope — the same asymmetry block 2 fixed for
-//     the consonant-final plural. Three additions, each a GENERATED form in the
+//     the consonant-final plural. FOUR additions, each a GENERATED form in the
 //     standard paradigm and never a lexical guess:
 //       • VOWEL-STEM PERFECTIVE — st + या / ई / ए / ईं, added only when the stem
 //         ends in a vowel (बुला → बुलाया/बुलाई/बुलाए). A consonant stem is
 //         untouched and keeps using ा/ी/े.
 //       • FEMININE-PLURAL PERFECTIVE ीं on a consonant stem — उसने दो किताबें
 //         पढ़ीं. Same class as the ी already there.
+//       • THE VOWEL-STEM FAMILIAR IMPERATIVE st + ओ — जाओ, दिखाओ, लगाओ. A mātrā
+//         cannot follow a mātrā, so बोलो is st + ो and a vowel stem needs the
+//         INDEPENDENT ओ. A1 block 3 measured that only consonant-stem imperatives
+//         generated and left the gap named; u35's instruction sentences are where it
+//         came due. लो and दो (लेना, देना) are irregular and went to IRREGULAR.
 //       • THE BARE STEM (कर, खा, पी, बोल) — the familiar imperative and the base
 //         of every compound and of the ability construction §A3 teaches. Without
 //         it "कर सकता हूँ" is out of scope in its first token.
@@ -94,8 +99,8 @@
 //     होना→हुआ, जाना→गया, लेना→लिया, देना→दिया, पीना→पिया — plus छूना→छुआ, which
 //     is this unit's own. Same class as नया→नई: one lexeme, forms no suffix rule
 //     produces.
-//     🚨 AND A FOURTH CHANGE, WHICH IS A TIGHTENING, FOUND BY AUDITING THE OTHER
-//     THREE RATHER THAN TRUSTING THEM. The widened rules licensed two REAL WORDS
+//     🚨 AND A FIFTH CHANGE, WHICH IS A TIGHTENING, FOUND BY AUDITING THE OTHER
+//     FOUR RATHER THAN TRUSTING THEM. The widened rules licensed two REAL WORDS
 //     early, because derive() cannot tell a verb from a noun ending in -ना:
 //     कहना (u22) generated कहीं, whose own card is u23l3, and नाना (u10) generated
 //     नाई, whose own card is u28l3 — eighteen units early. The fix is a precedence

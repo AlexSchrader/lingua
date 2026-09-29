@@ -87,8 +87,12 @@ function derive(front) {
     // first token of "कर सकता हूँ" is out of scope. Generated, not lexical.
     out.add(st);
     for (const suf of ["ता", "ती", "ते", "कर", "िए", "े", "ो", "ा", "ी", "ीं", "ूँगा", "ेगा", "तें", "ने"]) out.add(st + suf);
-    // The VOWEL-STEM PERFECTIVE, the same paradigm slot as the ा/ी/े above.
-    if (VOWEL_END.test(st)) for (const suf of ["या", "ई", "ए", "ईं"]) out.add(st + suf);
+    // The VOWEL-STEM PERFECTIVE, the same paradigm slot as the ा/ी/े above, and
+    // the VOWEL-STEM FAMILIAR IMPERATIVE, which needs the INDEPENDENT ओ because a
+    // mātrā cannot follow a mātrā: बोलो is st + ो, but जाओ / दिखाओ / लगाओ are
+    // st + ओ. Without it every instruction sentence in a health or cooking unit
+    // reads as out of scope. (A2 block 1)
+    if (VOWEL_END.test(st)) for (const suf of ["या", "ई", "ए", "ईं", "ओ"]) out.add(st + suf);
   }
   if (front.endsWith("ा")) {
     out.add(front.slice(0, -1) + "ी");
@@ -141,8 +145,8 @@ const IRREGULAR = {
   "करना": ["किया", "की", "किए", "कीं"],
   "होना": ["हुआ", "हुई", "हुए", "हुईं"],
   "जाना": ["गया", "गई", "गए", "गईं"],
-  "लेना": ["लिया", "ली", "लिए", "लीं"],
-  "देना": ["दिया", "दी", "दिए", "दीं"],
+  "लेना": ["लिया", "ली", "लिए", "लीं", "लो"],
+  "देना": ["दिया", "दी", "दिए", "दीं", "दो"],
   "पीना": ["पिया", "पी", "पिए", "पीं"],
   "छूना": ["छुआ", "छुई", "छुए", "छुईं"],
 };
