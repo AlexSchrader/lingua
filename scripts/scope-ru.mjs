@@ -78,7 +78,25 @@ const PARADIGM = {
   это: ["эта", "этот", "эти", "этом", "этой", "эту", "этого", "этому", "этим", "этими", "этих"],
   мой: ["моего", "моему", "моём", "мои", "моих", "моим"],
   моя: ["моей", "мою"],
-  твой: ["твоего", "твоему", "твоём", "твои", "твоих", "твоя", "твою", "твоей", "твоё"],
+  твой: ["твоего", "твоему", "твоём", "твои", "твоих", "твоя", "твою", "твоей", "твоё", "твоим", "твоими"],
+  // EXTENDED BY A2 BLOCK 1, 2026-09-29. Three classes, and all of them are
+  // GENERATED INFLECTIONS in the standard paradigm — no lexical guesses. The
+  // proof this is a fix and not a loosening is that the documented u1-u30 figure
+  // does NOT move: 107 of 1374 sentences flagged, every one in u1-u6, before and
+  // after. See ru/unit31.js §7.
+  //
+  // (a) A SHORT ADJECTIVE IN -ой IS UNREACHABLE FROM ITS OWN FRONT. TAIL strips
+  //     "ой", and for a short stem that leaves under 3 characters, so the loop
+  //     breaks and the stem stays the whole word: злой -> "злой", which none of
+  //     злого/злым/злая starts with. Long ones are fine (большой -> "больш",
+  //     другой -> "друг", плохой -> "плох"), which is why this only surfaced now.
+  злой: ["злого", "злому", "злом", "злым", "злые", "злых", "злыми", "злая", "злую", "злой", "злое"],
+  // (b) казаться MUTATES з -> ж THROUGHOUT THE PRESENT TENSE, so the -ся rule
+  //     added by A1's block 3 reaches "каз" and nothing conjugated starts with it.
+  //     ⚠️ Note this is the verb unit1.js §4 records block 3 as REFUSING as a
+  //     third 3rd-person exception. Carding the INFINITIVE (u32l2) is legal and
+  //     needs no exception; only the bare `кажется` front would have.
+  казаться: ["кажусь", "кажешься", "кажется", "кажемся", "кажетесь", "кажутся", "казался", "казалась", "казалось", "казались"],
 };
 
 // norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own
