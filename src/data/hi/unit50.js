@@ -9,8 +9,13 @@
 // retitle for the same reason. "Vocabulary 1" names no theme at all, so the theme had
 // to be measured rather than inherited.
 //
-// THE TWO MEASURED HOLES IT WAS GIVEN, re-derived on the merged 1176-card corpus
-// immediately before authoring and not taken from any earlier note:
+// THE TWO MEASURED HOLES IT WAS GIVEN, re-derived immediately before authoring and not
+// taken from any earlier note. ⚠️ MEASURED ON BLOCK 2's OWN TREE, 1176 cards, WHERE
+// BLOCK 3's u51–u60 WERE STILL STUBS — this line called that "the merged corpus" until
+// the real merge corrected it. Both holes still hold on the merged 1440, with ONE
+// exception the merge itself found: the brick was block 3's (u60l1, the materials
+// lesson), which is why ईंट left this unit. Everything else below is still absent from
+// the whole language except where this unit teaches it.
 //   • THERE IS NOTHING BETWEEN A VILLAGE AND A COUNTRY. The corpus could say गाँव
 //     (u5l2), शहर and देश (u8l1), जगह (u14l1), बाज़ार, सड़क, गली, पुल, खेत, मोड़ and
 //     नक्शा — and had NO word for a state, a district, a small town, a border, an
@@ -18,7 +23,7 @@
 //     neighbourhood or a town square. An Indian address has four levels and the
 //     learner had two of them.
 //   • THERE IS NOTHING THAT OUTLASTS A PERSON. मस्जिद (u14l1) is a place of worship,
-//     not a monument; the corpus had no palace, fort, tower, building, brick or ruin,
+//     not a monument; the corpus had no palace, fort, tower, dome, building or ruin,
 //     and no king, queen, court, crown, war or slavery — while इतिहास ITSELF HAS BEEN
 //     A FRONT SINCE u24l4 and नक्शा since u29l1. A learner could say the word
 //     "history" and could not name one thing in it.
