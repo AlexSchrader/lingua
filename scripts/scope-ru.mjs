@@ -152,6 +152,23 @@ const PARADIGM = {
   нужно: ["нужен", "нужна", "нужны"],
   ходить: ["хожу", "ходишь", "ходит", "ходим", "ходите", "ходят", "ходил", "ходила", "ходили"],
   ездить: ["езжу", "ездишь", "ездит", "ездим", "ездите", "ездят", "ездил", "ездила", "ездили"],
+  // (i) EXTENDED BY A2 BLOCK 3, 2026-09-29. The same class as (e): a noun whose
+  //     LAST-SYLLABLE VOWEL DROPS, so its oblique and plural forms do not begin
+  //     with the front's stem and every correct sentence using one reads as a
+  //     violation. `камень` was already taught at u26l4 and its plural камни had
+  //     been unreachable since; the other four are carded in u53–u57. EVERY FORM
+  //     HERE IS A GENERATED INFLECTION IN THE STANDARD PARADIGM — no lexical
+  //     guesses. The proof this is a fix and not a loosening is the u1–u30 figure,
+  //     which must stay at block 1's documented 107: measured 107 before these
+  //     entries and 107 after. See ru/unit60.js §7.
+  камень: ["камня", "камню", "камнем", "камни", "камней", "камням", "камнями", "камнях"],
+  корень: ["корня", "корню", "корнем", "корни", "корней", "корням", "корнями", "корнях"],
+  кашель: ["кашля", "кашлю", "кашлем", "кашле"],
+  поступок: ["поступка", "поступку", "поступком", "поступке", "поступки", "поступков", "поступкам"],
+  //     And three whose PLURAL writes a ё or moves the stem, same reasoning.
+  ведро: ["вёдра", "ведра", "вёдер", "ведер", "ведру", "ведром", "ведре"],
+  облако: ["облака", "облаку", "облаком", "облаке", "облаков", "облакам", "облаками"],
+  "лёд": ["льда", "льду", "льдом", "льде", "лёдом"],
 };
 
 // norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own
