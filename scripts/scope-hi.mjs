@@ -87,12 +87,32 @@ function derive(front) {
     // first token of "कर सकता हूँ" is out of scope. Generated, not lexical.
     out.add(st);
     for (const suf of ["ता", "ती", "ते", "कर", "िए", "े", "ो", "ा", "ी", "ीं", "ूँगा", "ेगा", "तें", "ने"]) out.add(st + suf);
+    // THE SUBJUNCTIVE AND THE REST OF THE FUTURE. A2 block 2, and this is a
+    // COMPLETION of a paradigm the list above already had two members of, not a new
+    // class: ूँगा and ेगा were here from A2 block 1 and the other six future forms
+    // were not, so करूँगा read as in scope while करेंगे, करेगी and करोगे did not.
+    // The subjunctive ूँ / ें is the same shape (े and ो were already present as the
+    // 3sg and the 2nd-person familiar), and it is what every अगर clause, every
+    // polite request and every "should I?" in Hindi is built out of.
+    //   SUBJUNCTIVE  करूँ · करे · करें · करो
+    //   FUTURE       करूँगा/करूँगी · करेगा/करेगी · करेंगे/करेंगी · करोगे/करोगी
+    // Generated inflections in the standard paradigm, never a lexical guess — the
+    // one test unit31.js §A6 holds every widening to. u47 teaches the subjunctive
+    // and u48 the future, and neither unit is writable without this.
+    for (const suf of ["ूँ", "ें", "ूँगी", "ेगी", "ेंगे", "ेंगी", "ोगे", "ोगी"]) out.add(st + suf);
     // The VOWEL-STEM PERFECTIVE, the same paradigm slot as the ा/ी/े above, and
     // the VOWEL-STEM FAMILIAR IMPERATIVE, which needs the INDEPENDENT ओ because a
     // mātrā cannot follow a mātrā: बोलो is st + ो, but जाओ / दिखाओ / लगाओ are
     // st + ओ. Without it every instruction sentence in a health or cooking unit
     // reads as out of scope. (A2 block 1)
     if (VOWEL_END.test(st)) for (const suf of ["या", "ई", "ए", "ईं", "ओ"]) out.add(st + suf);
+    // THE VOWEL-STEM SUBJUNCTIVE AND FUTURE, for the same reason the vowel-stem
+    // imperative needed the independent ओ: A MĀTRĀ CANNOT FOLLOW A MĀTRĀ. करूँगा is
+    // कर + ूँगा, but जाना's is जाऊँगा — independent ऊ — never जाूँगा, and जाएगा,
+    // जाएँगे, जाऊँ and जाएँ are the same story. Without this every future of
+    // जाना, आना, खाना, पीना, सोना, लाना, गाना and छूना reads as out of scope.
+    if (VOWEL_END.test(st))
+      for (const suf of ["ऊँ", "एँ", "ऊँगा", "ऊँगी", "एगा", "एगी", "एँगे", "एँगी", "ओगे", "ओगी"]) out.add(st + suf);
   }
   if (front.endsWith("ा")) {
     out.add(front.slice(0, -1) + "ी");
@@ -153,10 +173,20 @@ const IRREGULAR = {
   // ने-ergative (unit31.js §A6). Same class as नया → नई: one lexeme, forms
   // generation cannot produce. A transitive-past unit is unwritable without them.
   "करना": ["किया", "की", "किए", "कीं"],
-  "होना": ["हुआ", "हुई", "हुए", "हुईं"],
+  // THE THREE VERBS WHOSE FUTURE AND SUBJUNCTIVE NO RULE REACHES, added by A2
+  // block 2 with the future tense (u48). Each has a stem the paradigm cannot
+  // predict, and each is among the commonest verbs in the language:
+  //   होना  the stem is हो and it takes गा DIRECTLY — होगा, होंगे — not the
+  //         vowel-stem होएगा derive() would build. हूँगा is the 1sg.
+  //   लेना  the stem SHORTENS before ूँ and ो — लूँगा, लूँ, लो — while keeping ले
+  //         before ेगा/ेंगे. देना is identical (दूँगा, दूँ, दो · देगा, देंगे).
+  // Same class as नया → नई and as block 1's six perfectives: one lexeme, forms no
+  // suffix rule produces. हो and हूँ are already taught fronts (u8l1) and stay
+  // governed by their own cards under the precedence rule below.
+  "होना": ["हुआ", "हुई", "हुए", "हुईं", "होगा", "होगी", "होंगे", "होंगी", "होगे", "हूँगा", "हूँगी", "हों"],
   "जाना": ["गया", "गई", "गए", "गईं"],
-  "लेना": ["लिया", "ली", "लिए", "लीं", "लो"],
-  "देना": ["दिया", "दी", "दिए", "दीं", "दो"],
+  "लेना": ["लिया", "ली", "लिए", "लीं", "लो", "लूँ", "लें", "लूँगा", "लूँगी", "लेगा", "लेगी", "लेंगे", "लेंगी", "लोगे", "लोगी"],
+  "देना": ["दिया", "दी", "दिए", "दीं", "दो", "दूँ", "दें", "दूँगा", "दूँगी", "देगा", "देगी", "देंगे", "देंगी", "दोगे", "दोगी"],
   "पीना": ["पिया", "पी", "पिए", "पीं"],
   "छूना": ["छुआ", "छुई", "छुए", "छुईं"],
 };
