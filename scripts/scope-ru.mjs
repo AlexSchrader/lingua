@@ -173,6 +173,16 @@ const PARADIGM = {
   //     reachable, but only by accident — it is a piece of the u22l3 front
   //     `может быть`, which the exact-surface registration splits on whitespace.
   мочь: ["могу", "можешь", "может", "можем", "можете", "могут", "мог", "могла", "могло", "могли"],
+  // (l) FOUR MORE NOUNS WHOSE STEM DROPS A VOWEL, the same class as день and
+  //     цветок in (e) above. The last syllable's ё/е/о vanishes in every case but
+  //     the nominative, so the front's stem is not a prefix of any inflected form:
+  //     stem("кошелёк") is "кошелек" and кошелькА starts "кошельк". All four are
+  //     block 2 fronts and all four have the drop stated in their own hint, so
+  //     writing around them would contradict the card.
+  "кошелёк": ["кошелька", "кошельку", "кошельком", "кошельке", "кошельки", "кошельков", "кошелькам", "кошельками"],
+  образец: ["образца", "образцу", "образцом", "образце", "образцы", "образцов", "образцам", "образцами"],
+  список: ["списка", "списку", "списком", "списке", "списки", "списков", "спискам", "списками"],
+  заголовок: ["заголовка", "заголовку", "заголовком", "заголовке", "заголовки", "заголовков"],
   ездить: ["езжу", "ездишь", "ездит", "ездим", "ездите", "ездят", "ездил", "ездила", "ездили"],
 };
 
