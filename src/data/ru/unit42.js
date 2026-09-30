@@ -52,6 +52,15 @@
 //   `успевать` — vs u25 `успех`. `труд` — vs u6 `трудно` and u19 `трудный`.
 //   `коллектив` — vs u25 `коллега`, and u32 `команда` already glosses "a team".
 //   `ответственность` — vs u7 `ответ`. `срочный` — vs u38 `срок`.
+//
+// ⚠️ A SECOND GLOSS COLLISION INSIDE BLOCK 2 ITSELF, and neither lint:curriculum
+// nor validate:content sees it either: `служба` here was first glossed "a service"
+// and so was `услуга` at u44l2, two units later. `normalizeMeaning` strips the
+// leading "a", so they were ONE produce prompt with two right answers — the same
+// class of defect as `заказ` above, found the same way, by
+// `selfcheck-ru-a2-block2.mjs`. служба is now "a public service" (the body that
+// serves) and услуга keeps "a service" (the one thing done for you), which is also
+// the truer translation of each.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const RU_UNIT42 = {
   id: "ru-u42",
@@ -69,7 +78,7 @@ export const RU_UNIT42 = {
       dominantMode: "recall",
       canDo: "Say what your job title is, which department it sits in, and what shift or project you are on.",
       items: [
-        { id: "ru-u42l1-sluzhba", type: "vocab", front: "служба", reading: "sluzhba", meaning: "a service", accept: ["a public service", "duty", "an official post"], example: { jp: "Его служба начинается очень рано.", en: "His service starts very early." }, drill: { jp: "Служба была совсем не трудная", en: "The service was not hard at all" }, hint: "SLUZH-ba — stress on the first syllable. FEMININE. It names an organisation that serves the public (скорая служба) and also the act of serving in one. Not работа, which is any job at all." },
+        { id: "ru-u42l1-sluzhba", type: "vocab", front: "служба", reading: "sluzhba", meaning: "a public service", accept: ["a service", "duty", "an official post"], example: { jp: "Его служба начинается очень рано.", en: "His service starts very early." }, drill: { jp: "Служба была совсем не трудная", en: "The service was not hard at all" }, hint: "SLUZH-ba — stress on the first syllable. FEMININE. It names an organisation that serves the public (скорая служба) and also the act of serving in one. ⚠️ Glossed «a public service», not «a service» — услуга at unit 44 holds that word, and an услуга is ONE thing done for you where a служба is the body that does it." },
         { id: "ru-u42l1-otdel", type: "vocab", front: "отдел", reading: "otdel", meaning: "a department", accept: ["a section", "a division", "a unit of an office"], example: { jp: "Наш отдел совсем маленький.", en: "Our department is quite small." }, drill: { jp: "Отдел уже работает без начальника", en: "The department is already working without a boss" }, hint: "at-DYEL — stress on the last syllable, and the о reduces to a. MASCULINE. In a shop it is the counter or aisle: «молочный отдел»." },
         { id: "ru-u42l1-dolzhnost", type: "vocab", front: "должность", reading: "dolzhnost", meaning: "a post", accept: ["a position", "a job title", "an official role"], example: { jp: "Это очень важная должность в фирме.", en: "That is a very important post at the firm." }, drill: { jp: "Должность была свободная целый год", en: "The post was vacant for a whole year" }, hint: "DOLZH-nast — stress on the FIRST syllable. FEMININE, and it ends in -ь, so the gender has to be learned. Same root as должен (unit 24), «must» — a должность is what you are obliged to do." },
         { id: "ru-u42l1-karera", type: "vocab", front: "карьера", reading: "karera", meaning: "a career", accept: ["a working life", "a professional path", "advancement"], example: { jp: "Её карьера началась в маленькой фирме.", en: "Her career began at a small firm." }, drill: { jp: "Карьера была для неё важнее", en: "Her career mattered more to her" }, hint: "ka-RYE-ra — stress on RYE, and the ь makes the р soft before е. FEMININE. Russian uses it for the long arc of a working life, not for one job." },
