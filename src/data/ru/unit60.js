@@ -13,8 +13,13 @@
 // BUILDINGS. Nothing at all covered the ground between the two — the floor under
 // your feet, a yard, a balcony, a fence, a pipe, a porch, a pavement, a street
 // lamp, a bench, a traffic light, a crossroads, a gate. l3 and l4 then take the
-// last twelve adjectives the band needed: heavy, loud, smooth, wet, dry, blunt,
+// last twelve adjectives the band needed: slippery, rusty, smooth, wet, dry, blunt,
 // ancient, modern, durable, fragile, plus `тип` and `свойство`.
+// ⚠️ l3 READ "heavy, loud" IN THOSE TWO SLOTS UNTIL THE BAND DEDUPE OF 2026-09-30.
+// `тяжёлый` and `громкий` were taught by block 2's u47 Сравнение и возможность as
+// well; adjectives of degree are u47's, so u47 keeps both and l3 re-authored the
+// slots with `скользкий` "slippery" and `ржавый` "rusty" — which are the street's
+// own adjectives and belong here more than the pair they replace.
 //
 // ═════════════════════════════════════════════════════════════════════════════
 // §6 — EVERY SLOT BLOCK 3 RETHEMED, AND THE HOLE EACH ONE FILLS.
@@ -24,11 +29,11 @@
 // ═════════════════════════════════════════════════════════════════════════════
 //   u51 Vocabulary 2  → Общество и государство   A1 gave the office (u25), the
 //        town's buildings (u14) and public signs (u12). Nothing named the state,
-//        who holds power, the law, a crime, a tax or a public service.
+//        who holds power, the law, a crime, a right, a party or an official.
 //   u52 Vocabulary 3  → Причина и вывод          u39 took the OPINION nouns and u34
 //        причина/условие, so naming a thought was done. FOLLOWING one through was
 //        not: no consequence, basis, principle, source, influence, task, method or
-//        necessity, and no verb for to depend, exist, take place or create.
+//        necessity, and no verb for causing a thing or for what it leads to.
 //   u53 Vocabulary 4  → Болезнь и лечение        u20 is the OUTSIDE of a person plus
 //        four illness words. No neck, bone or muscle; no organ but сердце; no
 //        injection, lab test, prescription or appointment.
@@ -56,6 +61,35 @@
 //   u60 Vocabulary 11 → Улица и двор             u15 is inside a house, u14 the
 //        town's buildings. The ground between them — floor, yard, fence, pavement,
 //        bench, traffic light — was empty, as were the last twelve adjectives.
+//
+// ═════════════════════════════════════════════════════════════════════════════
+// §8 — THE BAND DEDUPE, 2026-09-30. TWENTY OF BLOCK 3's 240 CARDS WERE REPLACED.
+//      ⚠️ READ THIS BEFORE "FIXING" ANYTHING IN u51–u60 THAT LOOKS LIKE A GAP.
+// ═════════════════════════════════════════════════════════════════════════════
+// Blocks 2 (u41–u50) and 3 (u51–u60) authored the A2 band in parallel and neither
+// could see the other's fronts. 34 fronts were taught twice. A word gets ONE home
+// per language, so each was assigned by THEME; block 3 gave up twenty and
+// re-authored each slot, so every unit is still 4 lessons × 6 items = 24.
+//   GIVEN UP BY BLOCK 3 (the word's home is now the unit named):
+//     правило u41 · служба u42 · отдел u42 · обязанность u42 · пенсия u42 ·
+//     налог u44 · считать u44 · создавать u48 · зависеть u46 · наоборот u46 ·
+//     именно u46 · вообще u46 · ведь u46 · кстати u46 · вирус u43 · автор u45 ·
+//     зритель u45 · публика u45 · тяжёлый u47 · громкий u47
+//   AUTHORED INTO THE VACATED SLOTS (all 20 checked for front, reading and gloss
+//   collisions across the whole ru corpus, and against unit1.js §D):
+//     u51l3 тюрьма                       u51l4 право · партия · союз ·
+//                                              депутат · чиновник
+//     u52l3 вызывать · приводить ·       u52l4 теория · практика · вариант ·
+//           убеждать                           обстоятельство · противоречие
+//     u53l3 ожог                         u55l2 актёр · критик
+//     u55l3 хор                          u60l3 скользкий · ржавый
+//   Two lessons were RETHEMED rather than patched, because five of six cards left:
+//     u51l4 "What the state runs for you" → "Parties, unions and officials"
+//     u52l4 "The little words that steer a thought" → "Laying a case out". The
+//           whole discourse-marker lane is u46's now; `например` stays in u52.
+//   ⚠️ THE ONE CONVENTION THIS REOPENED: unit51.js §3 refused `право` to keep the
+//   прав- count at one new word in u51. `правило` leaving freed that slot, so
+//   `право` takes it — the count is still one. `правительство` stays refused.
 //
 // ═════════════════════════════════════════════════════════════════════════════
 // §7 — BLOCK 3 IS COMPLETE. u51–u60 AUTHORED 2026-09-29. THE MEASUREMENTS.
@@ -111,8 +145,9 @@
 //        менее · самый · мочь · уметь · хотя · чтобы
 //   LEFT TO BLOCK 2 BY DOMAIN (unit51.js §5): богатый · бедный · включать ·
 //        выключать · сравнивать · различие · сходство · степень · связь
-//   SIMPLY NOT REACHED, all measured free: право · правительство · выборы ·
-//        свобода · справедливость · безопасность (refused, без+X) · истина ·
+//   SIMPLY NOT REACHED, all measured free: правительство · выборы (refused, §D vs
+//        выбирать u18) · свобода (refused, §D vs свободный u23) ·
+//        справедливость · безопасность (refused, без+X) · истина ·
 //        принадлежать · толстый's partner · ствол · клетка · урожай · почка ·
 //        сустав · ноготь · диета · скульптор · оркестрант · юмор · эгоизм ·
 //        обманывать · следить · спасать · вредить · крыльцо's partner ворота's
@@ -122,7 +157,8 @@
 //        вывеска · витрина · чердак · подвал · кладовка · тропинка · пенсионер ·
 //        одинокий · прекрасный · ужасный · обязательный · вечность · промежуток ·
 //        пауза · опоздание · регулярно · содержание · обсуждение · молчание ·
-//        убеждение · развиваться · бороться · улучшаться · советовать ·
+//        убеждение (refused since the dedupe, §D vs убеждать u52l3) ·
+//        развиваться · бороться · улучшаться · советовать ·
 //        безопасный · неправильный · понятный
 //   ONE-OF-A-PAIR, where block 3 took the other half: `вид` (block 3 took `тип`
 //        at l4) · `растение` (took `расти`) · `сушить` (took `сухой`) ·
@@ -175,15 +211,15 @@ export const RU_UNIT60 = {
       id: "ru-u60l3",
       unit: 60,
       lesson: 3,
-      title: "Weight, texture and sound",
+      title: "Surfaces and what has happened to them",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Describe a thing by how it feels and sounds — heavy, loud, smooth, wet, dry or blunt.",
+      canDo: "Describe a surface and what has happened to it — slippery, rusty, smooth, wet, dry or blunt.",
       items: [
-        { id: "ru-u60l3-tyazhyolyy", type: "vocab", front: "тяжёлый", reading: "tyazhyolyy", meaning: "heavy", accept: ["weighing a lot", "heavy to carry", "hard going"], example: { jp: "Эта сумка очень тяжёлая.", en: "That bag is very heavy." }, drill: { jp: "Этот камень очень тяжёлый", en: "This stone is very heavy" }, hint: "ti-ZHO-lyy — stress on ZHO, the ё always written, and the я at the front reduces to i. ⚠️ Its opposite in the WEIGHT sense is лёгкий from unit 19 — which this course glosses «simple», because легко already held «easy». вес from unit 37 is the noun." },
-        { id: "ru-u60l3-gromkiy", type: "vocab", front: "громкий", reading: "gromkiy", meaning: "loud", accept: ["noisy", "at high volume", "carrying far"], example: { jp: "Этот голос очень громкий.", en: "That voice is very loud." }, drill: { jp: "Здесь очень громкий голос", en: "There is a very loud voice here" }, hint: "GROM-kiy — stress on the first syllable. Built on гром, thunder. тихий from unit 29 is its opposite, and шум from unit 39 is the noun for noise." },
+        { id: "ru-u60l3-skolzkiy", type: "vocab", front: "скользкий", reading: "skolzkiy", meaning: "slippery", accept: ["slippy", "easy to slip on", "greasy underfoot"], example: { jp: "Зимой этот тротуар очень скользкий.", en: "In winter that pavement is very slippery." }, drill: { jp: "Здесь очень скользкий пол", en: "The floor here is very slippery" }, hint: "SKOLZ-kiy — stress on the first syllable, and ⚠️ зк devoices to sk, so it comes out SKOLS-kiy, the same way дк does in гладкий two cards on. A гладкий floor is smooth; a скользкий one will put you on your back. Its verb скользить is not carded." },
+        { id: "ru-u60l3-rzhavyy", type: "vocab", front: "ржавый", reading: "rzhavyy", meaning: "rusty", accept: ["rusted", "covered in rust", "gone rusty"], example: { jp: "Этот забор уже совсем ржавый.", en: "That fence is completely rusty already." }, drill: { jp: "Этот старый фонарь совсем ржавый", en: "That old street lamp is completely rusty" }, hint: "RZHA-vyy — stress on the first syllable, and the рж at the front takes no vowel between the two letters. Of a труба or a забор from lesson 1, and of a машина from unit 6. ⚠️ Ржавчина is the rust itself and is not carded — this course cards only the adjective." },
         { id: "ru-u60l3-gladkiy", type: "vocab", front: "гладкий", reading: "gladkiy", meaning: "smooth", accept: ["even to the touch", "sleek", "with no bumps"], example: { jp: "Этот стол очень гладкий.", en: "That table is very smooth." }, drill: { jp: "Здесь очень гладкий пол", en: "The floor here is very smooth" }, hint: "GLAD-kiy — stress on the first syllable, and ⚠️ дк devoices to tk, so it comes out GLAT-kiy, exactly as сладкий in unit 58 does. Its verb гладить means both to stroke and to iron." },
-        { id: "ru-u60l3-mokryy", type: "vocab", front: "мокрый", reading: "mokryy", meaning: "wet", accept: ["soaked", "damp", "wet through"], example: { jp: "Эта тряпка уже совсем мокрая.", en: "That rag is completely wet already." }, drill: { jp: "Этот пол ещё мокрый", en: "This floor is still wet" }, hint: "MOK-ryy — stress on the first syllable. Its opposite сухой is the next card but one. дождь from unit 16 is what makes a thing мокрый." },
+        { id: "ru-u60l3-mokryy", type: "vocab", front: "мокрый", reading: "mokryy", meaning: "wet", accept: ["soaked", "damp", "wet through"], example: { jp: "Эта тряпка уже совсем мокрая.", en: "That rag is completely wet already." }, drill: { jp: "Этот пол ещё мокрый", en: "This floor is still wet" }, hint: "MOK-ryy — stress on the first syllable. Its opposite сухой is the next card. дождь from unit 16 is what makes a thing мокрый." },
         { id: "ru-u60l3-sukhoy", type: "vocab", front: "сухой", reading: "sukhoy", meaning: "dry", accept: ["dried out", "not wet", "dry of a wine or a tone"], example: { jp: "Здесь очень сухой воздух.", en: "The air here is very dry." }, drill: { jp: "Этот хлеб уже сухой", en: "This bread is dry already" }, hint: "su-KHOY — stress on the last syllable, ending in the scraping х. Dry of air, of bread, of wine, and of a manner: «сухой ответ» is a curt one. Its verb сушить, «to dry», is not carded — one of the pair." },
         { id: "ru-u60l3-tupoy", type: "vocab", front: "тупой", reading: "tupoy", meaning: "blunt", accept: ["dull of a blade", "not sharp", "dim of a person"], example: { jp: "Этот нож совсем тупой.", en: "That knife is completely blunt." }, drill: { jp: "Такой нож очень тупой", en: "A knife like that is very blunt" }, hint: "tu-POY — stress on the last syllable. острый from unit 58 is its opposite — and острый's OTHER opposite, in the taste sense, does not exist, which is why that card is glossed by the taste. ⚠️ Of a person тупой means dim, and it is rude." },
       ],

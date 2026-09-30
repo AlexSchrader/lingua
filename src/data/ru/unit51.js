@@ -36,9 +36,13 @@
 //   * Block 3 took the ABSTRACT/INSTITUTIONAL slice of each shared domain (the
 //     state, the law, the sciences as school subjects, the arts as art forms,
 //     character as NOUNS of conduct) and left the concrete everyday slice.
-//   * Block 3 took PARTICLES AND ADVERBS in u52l4 (наоборот · вообще · именно ·
-//     кстати · ведь · например) and deliberately left every CLAUSE CONNECTOR to
-//     block 2's u46, on top of block 1's reserved eight.
+//   * ⚠️ THAT LINE DID NOT HOLD, AND THE BAND DEDUPE OF 2026-09-30 SETTLED IT.
+//     Block 3 originally took the STEERING PARTICLES in u52l4 (наоборот · вообще ·
+//     именно · кстати · ведь), leaving only CLAUSE CONNECTORS to block 2's u46.
+//     Block 2 could not see that and took all five as well. THE WHOLE
+//     DISCOURSE-MARKER LANE IS NOW u46's — particles included — and u52l4 was
+//     re-authored as the NOUNS OF A CASE (теория · практика · вариант ·
+//     обстоятельство · противоречие) plus `например`, which stays in u52.
 //   * Nothing on block 1's reserved list was touched. `чем` · `более` · `менее` ·
 //     `самый` · `мочь` · `уметь` · `хотя` · `чтобы` are all still free, verified
 //     with `node scripts/tmp/ru-a2-block3-probe.mjs` on this branch.
@@ -111,19 +115,27 @@
 //          "loneliness" is the whole point of the word.
 //     `надёжный` vs `надеяться` (u28) — "reliable" is not guessable from "to hope".
 //     `современный` vs `время` (u22) — со+времен+ный is three steps.
-//     `правило` vs `правильный` (u40) — kept DELIBERATELY, and it is the closest
+//     `право` vs `правильный` (u40) — kept DELIBERATELY, and it is the closest
 //          call in the block. The прав- root already carries правда (u22),
 //          направо (u14), правильный (u40) and направление (u36). It stays
-//          because "правила" is core A2 (правила движения, правила игры) and
-//          because the root link is a teaching ASSET — u51l3's hint uses it.
-//          ⚠️ `право` "a right" and `правительство` "a government" were BOTH
-//          refused to keep the count at one new прав- word in this unit.
+//          because "права" is core A2 (права человека, and the plural is the
+//          everyday word for a driving licence) and because the root link is a
+//          teaching ASSET — u51l4's hint uses it.
+//          ⚠️ REVISED 2026-09-30, AND THE REASONING MATTERS. Block 3 originally
+//          carded `правило` "a rule" here and refused BOTH `право` and
+//          `правительство` to keep the count at one new прав- word in the unit.
+//          The band dedupe sent `правило` to u41 (it collided with block 2), which
+//          freed the single slot — so `право` takes it and u51l4 cards it. The
+//          count is still ONE new прав- word in this unit. `правительство`
+//          "a government" stays refused on exactly that ground.
 //     `учить` vs `учиться` (u35) — explicitly sanctioned by the crew brief and by
 //          unit31.js's -ся rule: the government and the gloss both differ
 //          (учить кого-то = to teach, учиться = to study).
-//     `зависть` "envy" alongside `зависеть` "to depend" (u52l3, block 3's own) —
-//          DIFFERENT roots (завид- vs вис-) that look alike. Not a duplicate; the
-//          hint on each warns about the other.
+//     `зависть` "envy" alongside `зависеть` "to depend" — DIFFERENT roots
+//          (завид- vs вис-) that look alike. Not a duplicate; the hint on each
+//          warns about the other. ⚠️ `зависеть` was block 3's own at u52l3 until
+//          the band dedupe of 2026-09-30 moved it to block 2's u46, which had
+//          taught it too. u56l3's hint cites u46 accordingly.
 //
 // ═════════════════════════════════════════════════════════════════════════════
 // §4 — THE TWO VERBS RUSSIAN A1 FORGOT, and why only one of them could be fixed.
@@ -202,10 +214,10 @@ export const RU_UNIT51 = {
       title: "The law and what it forbids",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Talk about a law and a rule, and say that something is a crime carrying a punishment or a penalty.",
+      canDo: "Talk about a law and the court that applies it, and say that something is a crime carrying a punishment, a fine or a prison term.",
       items: [
         { id: "ru-u51l3-zakon", type: "vocab", front: "закон", reading: "zakon", meaning: "a law", accept: ["the law", "a statute", "a law of the land"], example: { jp: "Это новый закон нашей страны.", en: "That is a new law of our country." }, drill: { jp: "Это очень старый закон", en: "This is a very old law" }, hint: "za-KON — stress on the last syllable. MASCULINE. One written law. «По закону» means «by law», and it is the phrase you will meet most often." },
-        { id: "ru-u51l3-pravilo", type: "vocab", front: "правило", reading: "pravilo", meaning: "a rule", accept: ["a regulation", "the rules", "how it is done"], example: { jp: "Это главное правило нашей игры.", en: "That is the main rule of our game." }, drill: { jp: "Это главное правило здесь", en: "That is the main rule here" }, hint: "PRA-vi-la — stress on the first syllable. NEUTER (-о). Same -прав- root as правда from unit 22 and правильный from unit 40, which is the point: a правило is what makes an answer правильный. A закон is passed by a state; a правило can belong to a game." },
+        { id: "ru-u51l3-tyurma", type: "vocab", front: "тюрьма", reading: "tyurma", meaning: "a prison", accept: ["a jail", "gaol", "being locked up"], example: { jp: "После суда он был в тюрьме год.", en: "After the trial he was in prison for a year." }, drill: { jp: "Эта тюрьма очень старая", en: "That prison is very old" }, hint: "tyur-MA — stress on the last syllable, and the ь keeps the р soft. FEMININE (-а). Where a наказание is served once a суд has passed one. ⚠️ Its stress moves right back in the plural: TYUR-my, тюрьмы." },
         { id: "ru-u51l3-sud", type: "vocab", front: "суд", reading: "sud", meaning: "a court", accept: ["a court of law", "a trial", "the judges"], example: { jp: "Суд в этом городе очень старый.", en: "The court in this town is very old." }, drill: { jp: "Суд здесь очень старый", en: "The court here is very old" }, hint: "SUD — one syllable, and the д goes quiet, so it comes out SUT. MASCULINE. The building, the institution, and the hearing itself. ⚠️ Its stress MOVES in the oblique cases: в судЕ, о судЕ." },
         { id: "ru-u51l3-prestuplenie", type: "vocab", front: "преступление", reading: "prestuplenie", meaning: "a crime", accept: ["an offence", "a criminal act", "breaking the law"], example: { jp: "Такое преступление очень серьёзное.", en: "A crime like that is very serious." }, drill: { jp: "Это очень серьёзное преступление", en: "That is a very serious crime" }, hint: "pri-stup-LE-ni-ye — five syllables, stress on LE. NEUTER (-е). Literally a stepping-over: the -ступ- inside it is the same root as шаг's idea of a step. Serious enough for a суд." },
         { id: "ru-u51l3-nakazanie", type: "vocab", front: "наказание", reading: "nakazanie", meaning: "a punishment", accept: ["a penalty in law", "being punished", "a sentence"], example: { jp: "Это наказание очень строгое.", en: "That punishment is very strict." }, drill: { jp: "Наказание здесь очень строгое", en: "The punishment here is very strict" }, hint: "na-ka-ZA-ni-ye — stress on ZA. NEUTER (-е). What a court gives for a преступление. Do not hear сказать from unit 31 in it — the roots only look alike." },
@@ -216,17 +228,17 @@ export const RU_UNIT51 = {
       id: "ru-u51l4",
       unit: 51,
       lesson: 4,
-      title: "What the state runs for you",
+      title: "Parties, unions and officials",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Name a public service, a department and a tax, and say that something is a duty you cannot get out of.",
+      canDo: "Talk about the civic side of a state — name a political party, a union and a public body, say who is an elected member and who is an official, and say what right you have.",
       items: [
-        { id: "ru-u51l4-sluzhba", type: "vocab", front: "служба", reading: "sluzhba", meaning: "a public service", accept: ["a service", "an official service", "duty as a job"], example: { jp: "Эта служба работает каждый день.", en: "This service is open every day." }, drill: { jp: "Эта служба работает здесь", en: "This service works here" }, hint: "SLUZH-ba — stress on the first syllable. FEMININE (-а). An official service — скорая служба, служба такси. It also means service in the армия from lesson 2." },
+        { id: "ru-u51l4-pravo", type: "vocab", front: "право", reading: "pravo", meaning: "a right", accept: ["a legal right", "the right to do something", "an entitlement"], example: { jp: "У каждого человека есть это право.", en: "Every person has this right." }, drill: { jp: "У меня есть такое право", en: "I have a right like that" }, hint: "PRA-va — stress on the first syllable, and the final о reduces to a. NEUTER (-о). ⚠️ Do not mix it with правило from unit 41: a право is what you are ENTITLED to, a правило is what you must follow. Its plural права is also the everyday word for a driving licence." },
+        { id: "ru-u51l4-partiya", type: "vocab", front: "партия", reading: "partiya", meaning: "a political party", accept: ["a party in politics", "a political grouping", "one round of a game"], example: { jp: "Эта партия в нашей стране очень старая.", en: "That party is very old in our country." }, drill: { jp: "Эта новая партия уже большая", en: "That new party is large already" }, hint: "PAR-ti-ya — stress on the first syllable. FEMININE (-я). ⚠️ It is NEVER a celebration — a birthday party is a праздник from unit 10. It also means one round of a game: «партия в шахматы»." },
+        { id: "ru-u51l4-soyuz", type: "vocab", front: "союз", reading: "soyuz", meaning: "a union", accept: ["an alliance", "a league of states", "a trade union"], example: { jp: "Этот союз был очень сильный.", en: "That union was very strong." }, drill: { jp: "Это очень старый союз", en: "That is a very old union" }, hint: "sa-YUZ — stress on the last syllable, and the о reduces to a. MASCULINE. An alliance of states or of people: Советский Союз was the Soviet Union, профсоюз is a trade union. ⚠️ In grammar it is also the word for a conjunction." },
         { id: "ru-u51l4-organizatsiya", type: "vocab", front: "организация", reading: "organizatsiya", meaning: "an organisation", accept: ["an organization", "a body", "an association"], example: { jp: "Эта организация очень известная.", en: "That organisation is very well known." }, drill: { jp: "Наша организация уже известная", en: "Our organisation is well known already" }, hint: "ar-ga-ni-ZA-tsi-ya — six syllables, stress on ZA, and the о at the front reduces to a. FEMININE (-я). ⚠️ Russian's -ция ending answers English -tion every time, and always takes the stress on the syllable before it." },
-        { id: "ru-u51l4-otdel", type: "vocab", front: "отдел", reading: "otdel", meaning: "a department", accept: ["a section", "a division of an office", "a counter in a shop"], example: { jp: "Наш отдел работает в этом доме.", en: "Our department works in this building." }, drill: { jp: "Наш отдел работает здесь", en: "Our department works here" }, hint: "at-DEL — stress on the last syllable, and the о reduces to a. MASCULINE. A department of a firm or a ministry, and also a counter in a big shop: мясной отдел." },
-        { id: "ru-u51l4-nalog", type: "vocab", front: "налог", reading: "nalog", meaning: "a tax", accept: ["taxation", "a duty you pay the state", "the tax"], example: { jp: "Этот налог очень большой для нас.", en: "That tax is very large for us." }, drill: { jp: "Налог здесь очень большой", en: "The tax here is very large" }, hint: "na-LOG — stress on the last syllable, and the г goes quiet at the end, so it comes out na-LOK. MASCULINE. Money the государство takes. «Платить налоги» is the everyday phrase." },
-        { id: "ru-u51l4-pensiya", type: "vocab", front: "пенсия", reading: "pensiya", meaning: "a pension", accept: ["retirement", "a state pension", "retirement money"], example: { jp: "Его пенсия очень маленькая сегодня.", en: "His pension is very small nowadays." }, drill: { jp: "Её пенсия очень маленькая", en: "Her pension is very small" }, hint: "PEN-si-ya — stress on the first syllable. FEMININE (-я). Both the money and the state of being retired: «он на пенсии» means he has retired." },
-        { id: "ru-u51l4-obyazannost", type: "vocab", front: "обязанность", reading: "obyazannost", meaning: "a duty", accept: ["an obligation", "a responsibility", "something you are obliged to do"], example: { jp: "Это моя обязанность, а не твоя.", en: "That is my duty, not yours." }, drill: { jp: "Это моя обязанность здесь", en: "That is my duty here" }, hint: "a-BYA-zan-nast — four syllables, stress on BYA, and the о at the front reduces to a. ⚠️ FEMININE — every noun in -ость is, without exception, which makes -ость the one -ь ending you never have to guess at." },
+        { id: "ru-u51l4-deputat", type: "vocab", front: "депутат", reading: "deputat", meaning: "an elected member", accept: ["a member of parliament", "an MP", "a deputy in a parliament"], example: { jp: "Этот депутат работает в нашем городе.", en: "That elected member works in our town." }, drill: { jp: "Наш депутат уже здесь", en: "Our elected member is here already" }, hint: "di-pu-TAT — stress on the last syllable, and the е reduces to i. MASCULINE. ⚠️ Glossed «an elected member» and not «a deputy» on purpose: the word transliterates, and a prompt you can read the answer off is not a card. He is chosen by the народ from lesson 1 and makes the законы from lesson 3." },
+        { id: "ru-u51l4-chinovnik", type: "vocab", front: "чиновник", reading: "chinovnik", meaning: "an official", accept: ["a civil servant", "a bureaucrat", "someone who works for the state"], example: { jp: "Этот чиновник работает здесь давно.", en: "That official has worked here a long time." }, drill: { jp: "Этот чиновник не хочет помогать", en: "That official does not want to help" }, hint: "chi-NOV-nik — stress on NOV. MASCULINE. Built on чин, an official rank, which is not carded. ⚠️ It carries a sour note in Russian: a чиновник is the person behind the desk who will not help you, and nobody calls themselves one with pride." },
       ],
     },
   ],
