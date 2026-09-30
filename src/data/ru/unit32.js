@@ -40,11 +40,13 @@
 //        вес to collide with, and it is the only "ves" a learner ever types.
 //        Recorded here rather than deleted because the §1(b) test itself was
 //        applied correctly; only one of its two members changed.
-//   `тип` (a type) — REFUSED as redundant beside `вид`, which is not carded
+//   `тип` (a type) — refused HERE as redundant beside `вид`, which is not carded
 //        either: `вид` is the metalinguistic word this band uses for ASPECT
-//        (u31's title is Вид глагола), and carding it as "a kind" while теaching
-//        it as "aspect" three units earlier is a trap. Neither is carded; both
-//        are available to block 2 if it wants one, but not both.
+//        (u31's title is Вид глагола), and carding it as "a kind" while teaching
+//        it as "aspect" three units earlier is a trap. ✅ UPDATED 2026-09-29:
+//        BLOCK 3 TOOK `тип`, at u60l4, glossed "a type" — which is the "one of
+//        the two, never both" this note allowed. `вид` is now spoken for and
+//        must NOT be carded.
 //
 // ⚠️ ONE LEXEME CALL RECORDED (unit1.js §D — a judgement, not a measurement):
 //   `гордиться` beside u28 `гордый` — SAME ROOT, and §D's test ("would a learner
