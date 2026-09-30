@@ -262,7 +262,41 @@ for (const u of RU_UNITS) {
 }
 
 const tokenize = (s) => String(s ?? "").split(/[^\p{L}-]+/u).filter(Boolean);
-const only = process.argv[2] ? new Set(process.argv[2].split(",").map(Number)) : null;
+// UNIT FILTER. Accepts a comma list (`41,42,43`), a range (`41..60`), or a mix
+// (`3,41..60`). No argument means every unit.
+//
+// IT USED TO ACCEPT ONLY A COMMA LIST, AND A RANGE SILENTLY CHECKED NOTHING:
+// `41..60` split to one token, Number("41..60") is NaN, no unit ever matched, and
+// the script printed "0 sentence(s) checked · 0 carrying an out-of-scope token"
+// — which reads as a pass. Two A2 seats reported a clean range on that output.
+// Their content turned out to be clean when re-run correctly (960 · 0), so no bad
+// content shipped, but the next seat would not have been so lucky.
+//
+// So: ranges parse, AND an argument that selects no real unit is a hard error
+// rather than a quiet zero. A check that cannot reach the content must not be
+// able to look like a check that passed.
+function parseUnitFilter(arg) {
+  if (!arg) return null;
+  const orders = new Set(RU_UNITS.map((u) => u.order));
+  const want = new Set();
+  for (const part of String(arg).split(",").map((s) => s.trim()).filter(Boolean)) {
+    const range = /^(\d+)\.\.(\d+)$/.exec(part);
+    if (range) {
+      const [a, b] = [Number(range[1]), Number(range[2])];
+      if (a > b) throw new Error(`scope-ru: range "${part}" runs backwards`);
+      for (let i = a; i <= b; i++) want.add(i);
+      continue;
+    }
+    if (!/^\d+$/.test(part)) throw new Error(`scope-ru: "${part}" is not a unit number or a N..M range`);
+    want.add(Number(part));
+  }
+  const real = [...want].filter((n) => orders.has(n));
+  if (!real.length) throw new Error(`scope-ru: filter "${arg}" selects no existing ru unit (have ${Math.min(...orders)}..${Math.max(...orders)})`);
+  const missing = [...want].filter((n) => !orders.has(n));
+  if (missing.length) console.warn(`scope-ru: note — no such ru unit: ${missing.join(", ")}`);
+  return new Set(real);
+}
+const only = parseUnitFilter(process.argv[2]);
 
 let checked = 0;
 let flagged = 0;
