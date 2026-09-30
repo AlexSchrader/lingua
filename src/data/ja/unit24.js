@@ -50,7 +50,7 @@ export const UNIT24 = {
       canDo: "Move around: おります つきます でかけます むかえます とどきます まがります.",
       items: [
         { id: "ja-u24l4-orimasu", type: "vocab", front: "おります", reading: "orimasu", meaning: "get off", example: { jp: "つぎのえきでおります。", en: "I get off at the next station." }, accept: ["get down", "alight", "descend"] },
-        { id: "ja-u24l4-tsukimasu", type: "vocab", front: "つきます", reading: "tsukimasu", meaning: "arrive", example: { jp: "くうこうにつきます。", en: "I arrive at the airport." }, accept: ["reach", "get to"] },
+        { id: "ja-u24l4-tsukimasu", type: "vocab", front: "つきます", reading: "tsukimasu", meaning: "arrive (reach a place)", example: { jp: "くうこうにつきます。", en: "I arrive at the airport." }, accept: ["reach", "get to"] },
         { id: "ja-u24l4-dekakemasu", type: "vocab", front: "でかけます", reading: "dekakemasu", meaning: "go out", example: { jp: "あさ、でかけます。", en: "I go out in the morning." }, accept: ["set out", "head out"] },
         { id: "ja-u24l4-mukaemasu", type: "vocab", front: "むかえます", reading: "mukaemasu", meaning: "pick up", example: { jp: "えきでともだちをむかえます。", en: "I meet my friend at the station." }, accept: ["go to meet", "welcome", "greet"] },
         { id: "ja-u24l4-todokimasu", type: "vocab", front: "とどきます", reading: "todokimasu", meaning: "arrive (be delivered)", example: { jp: "てがみがとどきます。", en: "The letter arrives." }, accept: ["be delivered", "reach"] },

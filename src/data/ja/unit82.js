@@ -19,7 +19,7 @@ export const UNIT82 = {
         { id: "ja-u82l1-achira", type: "vocab", front: "あちら", reading: "achira", meaning: "that way (over there politely)", example: { jp: "あちらへどうぞ。", en: "Please go that way." }, accept: ["over there","that direction"] },
         { id: "ja-u82l1-ato", type: "vocab", front: "あと", reading: "ato", meaning: "later", example: { jp: "あとでいきます。", en: "I'll go later." }, accept: ["after","afterwards"] },
         { id: "ja-u82l1-abiru", type: "vocab", front: "あびる", reading: "abiru", meaning: "to take (a shower)", example: { jp: "シャワーをあびる。", en: "I take a shower." }, accept: ["to bathe","to shower"] },
-        { id: "ja-u82l1-ii", type: "vocab", front: "いい", reading: "ii", meaning: "good", example: { jp: "てんきがいいです。", en: "The weather is good." }, accept: ["nice","fine"] },
+        { id: "ja-u82l1-ii", type: "vocab", front: "いい", reading: "ii", meaning: "good (everyday)", example: { jp: "てんきがいいです。", en: "The weather is good." }, accept: ["nice","fine"] },
         { id: "ja-u82l1-yoi", type: "vocab", front: "よい", reading: "yoi", meaning: "good (formal)", example: { jp: "よいてんきです。", en: "It's good weather." }, accept: ["nice","fine", "good"], hint: "A slightly more formal word for いい." },
       ],
     },
