@@ -100,16 +100,36 @@
 //     Both are in this one unit, which is why it was worth checking.
 //   • रस (u13l2, juice) inside बरसना (l4). Same story — the letter before it is ब.
 //
-// ⚠️ SIX TRANSITIVE TWINS ARE DELIBERATELY NOT CARDED, and each verb's hint says so
-// rather than leaving a learner to guess: जलाना (against जलना), पकाना (पकना), उबालना
-// (उबलना), घोलना (घुलना), बहाना (बहना), चमकाना (चमकना), छिपाना (छिपना) and हिलाना
-// (हिलना). Every one of the eleven intransitives in l2 and l3 would take a -आना or
-// -ओना transitive, and carding all of them would be eleven more cards of one pattern
-// instead of a unit. u48l2 teaches the -आना causative RULE, so the learner can read
-// them when they meet them. ⚠️ THE TWO PAIRS THAT **ARE** BOTH CARDED are मिटना
-// (u46l1) / मिटाना (l4 here) and बढ़ना (u24l3) / बढ़ाना (l4 here) — in different units
-// each time, which is the corpus's standing rule for a transitive/intransitive pair,
-// and u46's header named this file as मिटाना's home before this unit existed.
+// 🚨 THE TRANSITIVE TWINS — AND THIS PARAGRAPH SAID THE OPPOSITE OF THE TRUTH UNTIL IT
+// WAS MEASURED, 2026-09-30. It asserted that EIGHT twins were "deliberately not carded"
+// and five of the eight ARE carded, in units this file's own hints should have been
+// pointing at. Five hints in u48 and u49 told the learner a word had no card when it
+// did. Checked against all 1200 fronts with `seedItems()`, not against a comment:
+//     ✅ CARDED, and every pair is in a DIFFERENT unit, which is the corpus's standing
+//        rule for a transitive/intransitive pair and needed no card to move:
+//          जलाना   u31l4 "to light"          against जलना    l2 here
+//          छिपाना  u31l4 "to hide something"  against छिपना   l4 here
+//          बिगाड़ना u31l3 "to spoil"           against बिगड़ना  u48l4
+//          पकाना   u36l3 "to cook on a fire"  against पकना    l2 here
+//          उबालना  u36l3 "to boil"            against उबलना   l2 here
+//        Plus the two this file adds the transitive half of: मिटना (u46l1) / मिटाना
+//        (l4 here), named by u46's header before this unit existed, and बढ़ना (u24l3) /
+//        बढ़ाना (l4 here).
+//     ❌ GENUINELY NOT CARDED, verified absent from all 1200 fronts: घोलना (against
+//        घुलना), चमकाना (चमकना), हिलाना (हिलना) — plus u48's जागना (जगाना) and u46's
+//        हटना, निपटना and झुकाना. Those hints say "not carded" and are true.
+//     ⚠️ ONE MORE THAT IS TRUE HERE AND FALSE ON THE MERGED TREE, so it is named
+//        instead: बहाना. The CAUSATIVE of बहना is not carded, but the front बहाना is
+//        a HOMOGRAPH — an unrelated noun meaning "an excuse" — and block 3 cards
+//        THAT, at u57. बहना's hint now says so rather than claiming the string is
+//        free. Checked against block 3's live front list, which is the only way to
+//        see it: the two blocks cannot read each other's trees.
+// Carding every remaining -आना transitive would be eleven more cards of one pattern
+// rather than a unit, and u48l2 teaches the -आना causative RULE so a learner can read
+// the ones with no card. ⚠️ THE LESSON FOR THE NEXT SEAT: "X is not carded" is a
+// TESTABLE CLAIM about 1200 fronts and takes one `seedItems()` call to check. A hint
+// that names the sibling card teaches better than one that denies it exists — and four
+// of these five were in the SAME BAND I was authoring.
 //
 // RETROFLEX/DENTAL (§1b): no new colliding pair, checked against all 1152 readings.
 // टोकना toknaa, डाँटना daantnaa and टपकना tapaknaa are RETROFLEX with no dental
@@ -152,11 +172,11 @@ export const HI_UNIT49 = {
       dominantMode: "recognize",
       canDo: "Say what is burning, cooking, boiling, dissolving, flowing or shining right now — six processes that need no doer at all.",
       items: [
-        { id: "hi-u49l2-jalnaa", type: "vocab", front: "जलना", reading: "jalnaa", meaning: "to burn away", accept: ["to be alight", "to be consumed by fire"], example: { jp: "रसोई में चूल्हा जल रहा है।", en: "The stove is burning in the kitchen." }, drill: { jp: "पूरी रात चूल्हा जलना ठीक नहीं है", en: "The stove burning all night is not right" }, hint: "JAL-NAA, INTRANSITIVE so NO ने — चूल्हा जला, and never चूल्हे ने जला. To be alight and to be used up by burning. Also of a light being on: लाइट जल रही है. Its transitive twin जलाना, to set something alight, is not carded — u48l2's rule lets you read it." },
-        { id: "hi-u49l2-paknaa", type: "vocab", front: "पकना", reading: "paknaa", meaning: "to cook through", accept: ["to be getting done", "to ripen"], example: { jp: "रसोई में दाल पक रही है।", en: "The lentils are cooking in the kitchen." }, drill: { jp: "चावल पकना शुरू हो गया", en: "The rice has started to cook" }, hint: "PAK-NAA, INTRANSITIVE so no ने. Of food on the fire and of fruit on the tree: आम पक गया, the mango ripened. बनाना is what the COOK does; पकना is what the FOOD does. ⚠️ Note पक रही है, feminine because दाल is. Its transitive twin पकाना is not carded." },
-        { id: "hi-u49l2-ubalnaa", type: "vocab", front: "उबलना", reading: "ubalnaa", meaning: "to come to the boil", accept: ["to be bubbling", "to seethe on the fire"], example: { jp: "चूल्हे पर पानी उबल रहा है।", en: "Water is boiling on the stove." }, drill: { jp: "दूध उबलना बंद हो गया", en: "The milk has stopped boiling" }, hint: "U-BAL-NAA, INTRANSITIVE so no ने. Of water, milk or dāl over a flame — पानी उबल रहा है. Also of a person's temper: गुस्से से उबलना, to seethe with anger. Its transitive twin उबालना, to boil something, is not carded." },
+        { id: "hi-u49l2-jalnaa", type: "vocab", front: "जलना", reading: "jalnaa", meaning: "to burn away", accept: ["to be alight", "to be consumed by fire"], example: { jp: "रसोई में चूल्हा जल रहा है।", en: "The stove is burning in the kitchen." }, drill: { jp: "पूरी रात चूल्हा जलना ठीक नहीं है", en: "The stove burning all night is not right" }, hint: "JAL-NAA, INTRANSITIVE so NO ने — चूल्हा जला, and never चूल्हे ने जला. To be alight and to be used up by burning. Also of a light being on: लाइट जल रही है. Its transitive twin जलाना, to light, is the ergative unit's: उसने चूल्हा जलाया, he lit the stove, against चूल्हा जला, it caught." },
+        { id: "hi-u49l2-paknaa", type: "vocab", front: "पकना", reading: "paknaa", meaning: "to cook through", accept: ["to be getting done", "to ripen"], example: { jp: "रसोई में दाल पक रही है।", en: "The lentils are cooking in the kitchen." }, drill: { jp: "चावल पकना शुरू हो गया", en: "The rice has started to cook" }, hint: "PAK-NAA, INTRANSITIVE so no ने. Of food on the fire and of fruit on the tree: आम पक गया, the mango ripened. बनाना is what the COOK does; पकना is what the FOOD does. ⚠️ Note पक रही है, feminine because दाल is. Its transitive twin पकाना, to cook on a fire, is the kitchen unit's: माँ ने दाल पकाई against दाल पकी." },
+        { id: "hi-u49l2-ubalnaa", type: "vocab", front: "उबलना", reading: "ubalnaa", meaning: "to come to the boil", accept: ["to be bubbling", "to seethe on the fire"], example: { jp: "चूल्हे पर पानी उबल रहा है।", en: "Water is boiling on the stove." }, drill: { jp: "दूध उबलना बंद हो गया", en: "The milk has stopped boiling" }, hint: "U-BAL-NAA, INTRANSITIVE so no ने. Of water, milk or dāl over a flame — पानी उबल रहा है. Also of a person's temper: गुस्से से उबलना, to seethe with anger. Its transitive twin उबालना is the kitchen unit's: उसने पानी उबाला, he boiled the water, against पानी उबला." },
         { id: "hi-u49l2-ghulnaa", type: "vocab", front: "घुलना", reading: "ghulnaa", meaning: "to dissolve", accept: ["to melt into a liquid", "to disappear into water"], example: { jp: "दूध में चीनी घुल रही है।", en: "The sugar is dissolving in the milk." }, drill: { jp: "पानी में नमक घुलना आसान है", en: "Salt dissolves easily in water" }, hint: "GHUL-NAA, INTRANSITIVE so no ने, with an ASPIRATED घ. Of sugar, salt or medicine in water: चीनी घुल गई. Also of a person fitting into a group — लोगों में घुल जाना. Its transitive twin घोलना is not carded." },
-        { id: "hi-u49l2-bahnaa", type: "vocab", front: "बहना", reading: "bahnaa", meaning: "to flow", accept: ["to run as a liquid", "to be carried along by water"], example: { jp: "पहाड़ से एक नदी बह रही है।", en: "A river is flowing down from the mountain." }, drill: { jp: "सड़क पर पानी बहना ठीक नहीं है", en: "Water running on the road is not right" }, hint: "BAH-NAA, INTRANSITIVE so no ने. Of a river, of water on a road, of blood from a cut: नदी बह रही है. ⚠️ बहन, a sister, WHOLE-WORD-MATCHES inside this word at the mātrā seam, so the two never share a sentence here. Its transitive twin बहाना is not carded." },
+        { id: "hi-u49l2-bahnaa", type: "vocab", front: "बहना", reading: "bahnaa", meaning: "to flow", accept: ["to run as a liquid", "to be carried along by water"], example: { jp: "पहाड़ से एक नदी बह रही है।", en: "A river is flowing down from the mountain." }, drill: { jp: "सड़क पर पानी बहना ठीक नहीं है", en: "Water running on the road is not right" }, hint: "BAH-NAA, INTRANSITIVE so no ने. Of a river, of water on a road, of blood from a cut: नदी बह रही है. ⚠️ बहन, a sister, WHOLE-WORD-MATCHES inside this word at the mātrā seam, so the two never share a sentence here. ⚠️ AND ITS TRANSITIVE TWIN बहाना IS A HOMOGRAPH: the causative of बहना, to let something flow, is spelled exactly like the unrelated noun बहाना, an excuse — two different words, one front. This course cards neither sense here; block 3 cards the NOUN at u57." },
         { id: "hi-u49l2-chamaknaa", type: "vocab", front: "चमकना", reading: "chamaknaa", meaning: "to shine", accept: ["to glint", "to give off a bright light"], example: { jp: "बारिश के बाद आसमान में तारे चमक रहे थे।", en: "The stars were shining in the sky after the rain." }, drill: { jp: "धूप में पानी चमकना अच्छा लगता है", en: "Water glinting in the sunshine looks good" }, hint: "CHA-MAK-NAA, INTRANSITIVE so no ने. Of stars, of sun on water, of polished metal. ⚠️ Note चमक रहे थे: रहे is masculine plural for तारे, and थे makes it the PAST continuous — they WERE shining, at that moment, not habitually. Its transitive twin चमकाना, to polish, is not carded." },
       ],
     },
@@ -187,7 +207,7 @@ export const HI_UNIT49 = {
       canDo: "Say what is coming into sight, hiding, dripping, being rubbed out, being put up or pouring down.",
       items: [
         { id: "hi-u49l4-dikhnaa", type: "vocab", front: "दिखना", reading: "dikhnaa", meaning: "to be visible", accept: ["to show up to the eye", "to be in sight"], example: { jp: "यहाँ से पूरा शहर दिख रहा है।", en: "The whole city is visible from here." }, drill: { jp: "रात में कुछ दिखना मुश्किल है", en: "Anything being visible at night is difficult" }, hint: "DIKH-NAA, INTRANSITIVE so NO ने, ever. ⚠️ HINDI PUTS THE SEER IN THE DATIVE: मुझे शहर दिख रहा है is 'I can see the city' and literally 'the city is visible to me' — मुझे, and the city is the subject. देखना is the act of looking; दिखना is the thing being there to be seen." },
-        { id: "hi-u49l4-chhipnaa", type: "vocab", front: "छिपना", reading: "chhipnaa", meaning: "to hide away", accept: ["to get out of sight", "to keep oneself concealed"], example: { jp: "बच्चा दरवाज़े के पीछे छिप रहा है।", en: "The child is hiding behind the door." }, drill: { jp: "किसी से छिपना आसान नहीं है", en: "Hiding from somebody is not easy" }, hint: "CHHIP-NAA, INTRANSITIVE so no ने, छ read chh under §1. To get YOURSELF out of sight — बच्चा छिप गया. ⚠️ WHO you hide FROM takes से. Its transitive twin छिपाना, to hide an object, is not carded, so for that say रखना or use a compound." },
+        { id: "hi-u49l4-chhipnaa", type: "vocab", front: "छिपना", reading: "chhipnaa", meaning: "to hide away", accept: ["to get out of sight", "to keep oneself concealed"], example: { jp: "बच्चा दरवाज़े के पीछे छिप रहा है।", en: "The child is hiding behind the door." }, drill: { jp: "किसी से छिपना आसान नहीं है", en: "Hiding from somebody is not easy" }, hint: "CHHIP-NAA, INTRANSITIVE so no ने, छ read chh under §1. To get YOURSELF out of sight — बच्चा छिप गया. ⚠️ WHO you hide FROM takes से. Its transitive twin छिपाना, to hide something, is the ergative unit's: उसने चाबी छिपाई, she hid the key, against बच्चा छिपा." },
         { id: "hi-u49l4-tapaknaa", type: "vocab", front: "टपकना", reading: "tapaknaa", meaning: "to drip", accept: ["to come down drop by drop", "to leak from above"], example: { jp: "बारिश में छत टपक रही है।", en: "The roof is dripping in the rain." }, drill: { jp: "नल का टपकना बंद नहीं हुआ", en: "The tap has not stopped dripping" }, hint: "TA-PAK-NAA, INTRANSITIVE so no ने, RETROFLEX ट. Of a roof, a tap or an eave. ⚠️ पकना, to cook through, sits inside this word as a plain substring but NOT as a whole word — the letter before it is ट, a real letter, so the router keeps them apart. Measured on the real boundary test, not assumed." },
         { id: "hi-u49l4-mitaanaa", type: "vocab", front: "मिटाना", reading: "mitaanaa", meaning: "to erase", accept: ["to rub something out", "to wipe a thing away for good"], example: { jp: "वह कागज़ से सब मिटा रहा है।", en: "He is rubbing everything off the paper." }, drill: { jp: "स्याही से लिखा मिटाना मुश्किल है", en: "Rubbing out what is written in ink is difficult" }, hint: "MI-TAA-NAA, TRANSITIVE so the PAST takes ने — उसने मिटाया — RETROFLEX ट. The twin of मिटना, to be wiped out, which the compound-verbs unit cards: the two halves of a transitive pair always live in DIFFERENT units in this course. To rub out writing, and figuratively to wipe out a name." },
         { id: "hi-u49l4-barhaanaa", type: "vocab", front: "बढ़ाना", reading: "barhaanaa", meaning: "to raise something", accept: ["to increase a thing", "to put a figure up"], example: { jp: "दुकानदार अब कीमत बढ़ा रहा है।", en: "The shopkeeper is putting the price up now." }, drill: { jp: "इस तरह कीमत बढ़ाना ठीक नहीं", en: "Raising the price like this is not right" }, hint: "BAR-HAA-NAA, TRANSITIVE so the past takes ने, ढ़ read rh under §1(c). The twin of बढ़ना, to grow, from the past-tense unit: कीमत बढ़ी, the price rose, against दुकानदार ने कीमत बढ़ाई, the shopkeeper raised it. Also हाथ बढ़ाना, to hold a hand out." },

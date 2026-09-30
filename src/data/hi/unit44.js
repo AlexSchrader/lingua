@@ -28,7 +28,10 @@
 // differ, and they sit in different lessons. Named here rather than left to be found.
 // ⚠️ AND लेखक (an author) WAS DROPPED for the opposite reason: with लेख carded in l1,
 // the pair would have been root-siblings in ONE unit with adjacent meanings. स्याही
-// took the slot. Whoever wants लेखक should card it in a unit that does not hold लेख.
+// took the slot. ✅ AND BLOCK 3 HAS SINCE CARDED IT, at u58 ("a writer") — a unit that
+// holds no लेख, which is exactly the condition this line asked for. So this is a record
+// now, not an open instruction: DO NOT card लेखक a third time. (Verified 2026-09-30
+// against block 3's live front list; the two blocks cannot see each other's trees.)
 //
 // ⚠️ THREE NOUNS HERE END IN -ना AND ARE NOT INFINITIVES: सूचना, घटना and — in the next
 // unit — तुलना. `derive()` in scope-hi.mjs cannot tell a noun from a verb, so it
