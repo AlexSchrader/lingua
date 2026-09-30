@@ -41,6 +41,16 @@
 //   आविष्कार, विकास and ईंधन are MASCULINE.
 //   चालू is INVARIANT — चालू मशीन and चालू यंत्र both, with no feminine form.
 //
+// ⚠️ MARK-BOUNDARY PAIRS THIS UNIT CREATES, measured with the router's own boundary
+// test rather than by eye: **चार (u3l4) matches inside चार्जर** across the र् halant,
+// **नल (u15l4) inside चैनल**, **मत (u22l2) inside मरम्मत**, **पर (u23l1) inside संपर्क**
+// and **शक (u30l2) inside दर्शक** — every seam is a `\p{M}` character, which the
+// router's `\p{L}` test does not treat as a word boundary. None of those older cards'
+// sentences can contain a word this unit introduces, so nothing breaks; the list exists
+// so a later block moving one of those practice sentences knows what not to put in it.
+// ⚠️ NOT a pair, though it looks like one: **पास does NOT match inside पासवर्ड**,
+// because the character after पास is व, a real letter. Measured, not assumed.
+//
 // READINGS: §1's inherent-a rule does real work here. यंत्र is **yantr** with no
 // final vowel, the way u6's प्रश्न is prashn and u39's तर्क is tark; कैमरा is
 // **kaimraa** and not kaimaraa, because the medial schwa is syncopated. Checked

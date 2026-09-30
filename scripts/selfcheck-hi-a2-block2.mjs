@@ -183,14 +183,22 @@ for (const [lid, items] of byLesson)
 // Cross-corpus mark-boundary map: which of MY fronts whole-word-match inside a LONGER
 // front anywhere in Hindi. Not a failure on its own — it is the list of words that must
 // never share a sentence with that front.
-const fronts = [...new Set(all.map((i) => i.front))];
-const trapPairs = [];
-for (const it of mine)
-  for (const w of fronts)
-    if (w !== it.front && w.length > it.front.length) {
-      const at = routerFind(w, it.front);
-      if (at >= 0) trapPairs.push(`${it.front} inside ${w}`);
-    }
+// BOTH DIRECTIONS. A block-2 front can be the NEEDLE (डाक inside u28's डाकिया) or the
+// HAYSTACK (u40's मीटर inside this block's किलोमीटर) — the first version of this check
+// only did the needle direction and missed मीटर/किलोमीटर entirely.
+// GLYPH fronts are excluded as needles: a letter card has no example and no drill, so it
+// can never mis-blank. canCloze also requires a front of 2+ characters.
+const fronts = [...new Set(all.filter((i) => i.type !== "glyph").map((i) => i.front))];
+const mineFronts = new Set(mine.map((i) => i.front));
+const trapNeedleMine = []; // MY front hides inside a longer word — MY sentences must avoid it
+const trapHayMine = []; // an older front hides inside MY front — that older card's sentences must avoid MINE
+for (const needle of fronts)
+  for (const hay of fronts) {
+    if (needle === hay || hay.length <= needle.length) continue;
+    if (routerFind(hay, needle) < 0) continue;
+    if (mineFronts.has(needle)) trapNeedleMine.push(`${needle} inside ${hay}`);
+    else if (mineFronts.has(hay)) trapHayMine.push(`${needle} inside ${hay}`);
+  }
 
 const order = [
   "charset", "normReading", "glyphFrontClash", "mixedScript", "emptyMeaning", "emptyAccept", "parenOnlyGloss",
@@ -211,6 +219,15 @@ for (const k of order) {
   if (v.length > 14) console.log(`       ... ${v.length - 14} more`);
 }
 console.log(`\nTOTAL findings: ${bad}`);
-console.log(`mark-boundary pairs involving a block-2 front (informational): ${trapPairs.length}`);
-for (const p of new Set(trapPairs)) console.log(`       ${p}`);
+// INFORMATIONAL, not failures — `matraTrap` above is the failure test, and it already
+// proves no block-2 sentence hides its own front. These two lists say which words must
+// stay out of which sentences if a later block moves one.
+const uNM = [...new Set(trapNeedleMine)];
+const uHM = [...new Set(trapHayMine)];
+console.log(`\nmark-boundary: ${uNM.length} pair(s) where a BLOCK-2 front hides inside a longer word`);
+for (const p of uNM) console.log(`       ${p}`);
+console.log(`mark-boundary: ${uHM.length} pair(s) where an OLDER front hides inside a block-2 front`);
+console.log(`       (those cards' sentences predate this block and cannot contain these words)`);
+for (const p of uHM.slice(0, 30)) console.log(`       ${p}`);
+if (uHM.length > 30) console.log(`       ... ${uHM.length - 30} more`);
 process.exitCode = bad ? 1 : 0;
