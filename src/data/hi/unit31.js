@@ -68,6 +68,14 @@
 //         need the perfective (this unit) as a prerequisite and they are a
 //         construction, not vocabulary — the same shape as §A3. खो जाना is the
 //         one unit1.js named; खोना itself is already a front (u29l3).
+//         ⚠️ BUT THEY DO APPEAR IN EXAMPLES, IN EIGHT SENTENCES ACROSS u35–u40,
+//         AND PRETENDING OTHERWISE WOULD BE THE STALE-CLAIM FAILURE. हो गया,
+//         खो गया, ले लो, हो जाती है, ले आओ — Hindi cannot be written naturally
+//         without them, and every piece is already in scope (the bare stem from
+//         §A6 plus गया/लिया from IRREGULAR). So the learner MEETS them from u35
+//         and is never asked to produce one: the same met-not-produced licence
+//         §A3 gives सकना. What u46 owes is the RULE — which vector to choose and
+//         what it adds — not the first sighting.
 //       • CONDITIONALS AND THE SUBJUNCTIVE — अगर…तो with होता, करूँ/करें. → u47,
 //         whose slot names conditionals. अगर is a front since u1l3.
 //       • COMPARISON — से ज़्यादा, सबसे. → u47, whose slot names comparison.
@@ -208,7 +216,7 @@ export const HI_UNIT31 = {
         { id: "hi-u31l1-pakarnaa", type: "vocab", front: "पकड़ना", reading: "pakarnaa", meaning: "to catch", accept: ["to grab", "to hold", "to seize"], example: { jp: "मेरे पिता ने कल एक बड़ी मछली पकड़ी।", en: "My father caught a big fish yesterday." }, drill: { jp: "मछली पकड़ना आसान नहीं है", en: "Catching fish is not easy" }, hint: "PA-KAR-NAA, with the curled-back ड़ of §1(c). This verb takes an object, so its past puts ने on the doer: पिता ने मछली पकड़ी. And look at the verb — मछली is feminine, so it is पकड़ी, not पकड़ा." },
         { id: "hi-u31l1-phenknaa", type: "vocab", front: "फेंकना", reading: "phenknaa", meaning: "to throw", accept: ["to toss", "to fling", "to throw away"], example: { jp: "उस बच्चे ने पत्थर नदी में फेंका।", en: "That child threw a stone into the river." }, drill: { jp: "पत्थर फेंकना अच्छी बात नहीं", en: "Throwing stones is not a good thing" }, hint: "PHENK-NAA — फ with a real puff of air, and the ं before क says it through the nose. पत्थर is masculine, so the past is फेंका." },
         { id: "hi-u31l1-khiinchnaa", type: "vocab", front: "खींचना", reading: "khiinchnaa", meaning: "to pull", accept: ["to drag", "to tug", "to draw"], example: { jp: "मैंने अपनी कुर्सी मेज़ के पास खींची।", en: "I pulled my chair over next to the table." }, drill: { jp: "यह मेज़ खींचना मुश्किल है", en: "Pulling this table is difficult" }, hint: "KHIINCH-NAA, long ii through the nose. मैंने is मैं plus ने — the I-form of the doer, and it only ever appears in a sentence like this one. कुर्सी is feminine: खींची." },
-        { id: "hi-u31l1-chhuunaa", type: "vocab", front: "छूना", reading: "chhuunaa", meaning: "to touch", accept: ["to feel", "to put a hand on"], example: { jp: "बच्चे ने गरम चूल्हा छुआ और रोया।", en: "The child touched the hot stove and cried." }, drill: { jp: "गरम चूल्हा छूना ठीक नहीं", en: "Touching a hot stove is not OK" }, hint: "CHHUU-NAA. Its past is छुआ, not छूआ — the long ū shortens. One of the handful of verbs whose past you learn as a word rather than a rule." },
+        { id: "hi-u31l1-chhuunaa", type: "vocab", front: "छूना", reading: "chhuunaa", meaning: "to touch", accept: ["to feel", "to put a hand on"], example: { jp: "बच्चे ने गरम चूल्हा छुआ।", en: "The child touched the hot stove." }, drill: { jp: "गरम चूल्हा छूना ठीक नहीं", en: "Touching a hot stove is not OK" }, hint: "CHHUU-NAA. Its past is छुआ, not छूआ — the long ū shortens. One of the handful of verbs whose past you learn as a word rather than a rule." },
         { id: "hi-u31l1-maarnaa", type: "vocab", front: "मारना", reading: "maarnaa", meaning: "to hit", accept: ["to strike", "to beat", "to kill"], example: { jp: "बिल्ली ने चूहे को मारा।", en: "The cat killed the mouse." }, drill: { jp: "किसी को मारना बुरी बात है", en: "Hitting someone is a bad thing" }, hint: "MAAR-NAA. Note the object here takes को (चूहे को), and when it does the verb stops agreeing and sits in the plain masculine form: मारा. That is rule 3 of this unit." },
         { id: "hi-u31l1-bulaanaa", type: "vocab", front: "बुलाना", reading: "bulaanaa", meaning: "to call over", accept: ["to summon", "to invite", "to send for"], example: { jp: "माँ ने बच्चों को खाने के लिए बुलाया।", en: "Mum called the children over to eat." }, drill: { jp: "मुझे अपने दोस्त को बुलाना है", en: "I have to call my friend over" }, hint: "BU-LAA-NAA — calling someone TO you, not calling on a phone. Its stem ends in a vowel (बुला), so the past adds य: बुलाया, बुलाई, बुलाए." },
       ],
