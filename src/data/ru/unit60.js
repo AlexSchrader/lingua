@@ -79,10 +79,30 @@
 //   collisions across the whole ru corpus, and against unit1.js §D):
 //     u51l3 тюрьма                       u51l4 право · партия · союз ·
 //                                              депутат · чиновник
-//     u52l3 вызывать · приводить ·       u52l4 теория · практика · вариант ·
-//           убеждать                           обстоятельство · противоречие
+//     u52l3 вызывать · приводить ·       u52l4 мотив · совпадение · вариант ·
+//           наблюдать                          обстоятельство · противоречие
 //     u53l3 ожог                         u55l2 актёр · критик
 //     u55l3 хор                          u60l3 скользкий · ржавый
+//   ⚠️ THREE OF THE TWENTY WERE REPLACED A SECOND TIME, and the reason is a
+//   PROCEDURE every future band dedupe needs. Round one was authored on a branch
+//   where the other block's units were STUBS, so a candidate could be checked only
+//   against u1–u40 plus block 3. Three picks collided with block 2 vocabulary that
+//   was never part of the original 34-front overlap and was therefore invisible:
+//        убеждать → u49l3   replaced by наблюдать
+//        теория   → u41l4   replaced by мотив
+//        практика → u41l4   replaced by совпадение
+//   A CANDIDATE CHECKED ON A BRANCH WITH STUBBED UNITS IS NOT CHECKED. Merge the
+//   other block in first, then probe: round two was picked against the full u1–u60
+//   corpus, 1436 fronts. unit52.js's header carries the detail and the reject list.
+//   ⚠️ TWO GLOSSES ALSO NEEDED A DISCRIMINATOR once block 2 was visible, for the
+//   reason lint.js's glossCollisionWarnings states — a gloss IS the produce prompt:
+//        `ожог`     "a burn"     → "a burn on the skin"  (block 2's `гореть`
+//                                  u48l3 is glossed "to burn")
+//        `чиновник` "an official" → "a state official"   (block 2's `официальный`
+//                                  u50l4 is glossed "official")
+//   `lint:curriculum` compares glosses EXACTLY and was quiet on both; the block
+//   selfchecks strip a leading article or "to" and caught them. The bare wording
+//   moved into accept[] in each case, so nothing was taken away from the learner.
 //   Two lessons were RETHEMED rather than patched, because five of six cards left:
 //     u51l4 "What the state runs for you" → "Parties, unions and officials"
 //     u52l4 "The little words that steer a thought" → "Laying a case out". The
@@ -150,14 +170,16 @@
 //        справедливость · безопасность (refused, без+X) · истина ·
 //        принадлежать · толстый's partner · ствол · клетка · урожай · почка ·
 //        сустав · ноготь · диета · скульптор · оркестрант · юмор · эгоизм ·
-//        обманывать · следить · спасать · вредить · крыльцо's partner ворота's
+//        обманывать · следить (⚠️ free, but a near-synonym of `наблюдать` u52l3
+//        since the dedupe — gloss it apart or leave it) · спасать · вредить ·
+//        крыльцо's partner ворота's
 //        partner · кувшин · щётка · расчёска · порошок · тряпка's partner ·
 //        конфета · печенье · десерт · творог · носок · перчатка · надевать ·
 //        снимать · вешалка · поднос · тротуар's partner обочина · указатель ·
 //        вывеска · витрина · чердак · подвал · кладовка · тропинка · пенсионер ·
 //        одинокий · прекрасный · ужасный · обязательный · вечность · промежуток ·
 //        пауза · опоздание · регулярно · содержание · обсуждение · молчание ·
-//        убеждение (refused since the dedupe, §D vs убеждать u52l3) ·
+//        убеждение (refused, §D vs block 2's убеждать u49l3) ·
 //        развиваться · бороться · улучшаться · советовать ·
 //        безопасный · неправильный · понятный
 //   ONE-OF-A-PAIR, where block 3 took the other half: `вид` (block 3 took `тип`

@@ -41,8 +41,13 @@
 //     именно · кстати · ведь), leaving only CLAUSE CONNECTORS to block 2's u46.
 //     Block 2 could not see that and took all five as well. THE WHOLE
 //     DISCOURSE-MARKER LANE IS NOW u46's — particles included — and u52l4 was
-//     re-authored as the NOUNS OF A CASE (теория · практика · вариант ·
+//     re-authored as the NOUNS OF A CASE (мотив · совпадение · вариант ·
 //     обстоятельство · противоречие) plus `например`, which stays in u52.
+//     ⚠️ Two of those five were themselves replaced in a second round the same day:
+//     `теория` and `практика` collided with block 2's u41l4, which the first round
+//     could not see because u41–u50 were stubs on block 3's branch. unit52.js's
+//     header records the procedure that prevents it: merge the other block FIRST,
+//     then probe.
 //   * Nothing on block 1's reserved list was touched. `чем` · `более` · `менее` ·
 //     `самый` · `мочь` · `уметь` · `хотя` · `чтобы` are all still free, verified
 //     with `node scripts/tmp/ru-a2-block3-probe.mjs` on this branch.
@@ -238,7 +243,7 @@ export const RU_UNIT51 = {
         { id: "ru-u51l4-soyuz", type: "vocab", front: "союз", reading: "soyuz", meaning: "a union", accept: ["an alliance", "a league of states", "a trade union"], example: { jp: "Этот союз был очень сильный.", en: "That union was very strong." }, drill: { jp: "Это очень старый союз", en: "That is a very old union" }, hint: "sa-YUZ — stress on the last syllable, and the о reduces to a. MASCULINE. An alliance of states or of people: Советский Союз was the Soviet Union, профсоюз is a trade union. ⚠️ In grammar it is also the word for a conjunction." },
         { id: "ru-u51l4-organizatsiya", type: "vocab", front: "организация", reading: "organizatsiya", meaning: "an organisation", accept: ["an organization", "a body", "an association"], example: { jp: "Эта организация очень известная.", en: "That organisation is very well known." }, drill: { jp: "Наша организация уже известная", en: "Our organisation is well known already" }, hint: "ar-ga-ni-ZA-tsi-ya — six syllables, stress on ZA, and the о at the front reduces to a. FEMININE (-я). ⚠️ Russian's -ция ending answers English -tion every time, and always takes the stress on the syllable before it." },
         { id: "ru-u51l4-deputat", type: "vocab", front: "депутат", reading: "deputat", meaning: "an elected member", accept: ["a member of parliament", "an MP", "a deputy in a parliament"], example: { jp: "Этот депутат работает в нашем городе.", en: "That elected member works in our town." }, drill: { jp: "Наш депутат уже здесь", en: "Our elected member is here already" }, hint: "di-pu-TAT — stress on the last syllable, and the е reduces to i. MASCULINE. ⚠️ Glossed «an elected member» and not «a deputy» on purpose: the word transliterates, and a prompt you can read the answer off is not a card. He is chosen by the народ from lesson 1 and makes the законы from lesson 3." },
-        { id: "ru-u51l4-chinovnik", type: "vocab", front: "чиновник", reading: "chinovnik", meaning: "an official", accept: ["a civil servant", "a bureaucrat", "someone who works for the state"], example: { jp: "Этот чиновник работает здесь давно.", en: "That official has worked here a long time." }, drill: { jp: "Этот чиновник не хочет помогать", en: "That official does not want to help" }, hint: "chi-NOV-nik — stress on NOV. MASCULINE. Built on чин, an official rank, which is not carded. ⚠️ It carries a sour note in Russian: a чиновник is the person behind the desk who will not help you, and nobody calls themselves one with pride." },
+        { id: "ru-u51l4-chinovnik", type: "vocab", front: "чиновник", reading: "chinovnik", meaning: "a state official", accept: ["an official", "a civil servant", "a bureaucrat"], example: { jp: "Этот чиновник работает здесь давно.", en: "That official has worked here a long time." }, drill: { jp: "Этот чиновник не хочет помогать", en: "That official does not want to help" }, hint: "chi-NOV-nik — stress on NOV. MASCULINE. Built on чин, an official rank, which is not carded. ⚠️ It carries a sour note in Russian: a чиновник is the person behind the desk who will not help you, and nobody calls themselves one with pride." },
       ],
     },
   ],

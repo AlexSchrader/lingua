@@ -28,27 +28,59 @@
 // THE WHOLE DISCOURSE-MARKER LANE IS u46's — clause connectors AND the steering
 // particles. unit51.js §1 originally drew that line between the two and the line
 // did not hold; it now records the correction. l3 was re-authored with the verbs of
-// CAUSE AND CONSEQUENCE (вызывать · приводить · убеждать) and l4 with the NOUNS OF
-// A CASE (теория · практика · вариант · обстоятельство · противоречие). `например`
-// stays: it is an example-giver, not a connector, and nothing else carries it.
+// CAUSE AND OBSERVATION (вызывать · приводить · наблюдать) and l4 with the NOUNS OF
+// A CASE (мотив · совпадение · вариант · обстоятельство · противоречие).
+// `например` stays: it is an example-giver, not a connector, and nothing else
+// carries it.
 //
-// ⚠️ THE THREE NEW VERBS PASS unit1.js §D BECAUSE THEY ARE PREFIXED DERIVATIONS,
-// which unit31.js §3 sanctions (the same ground as `доверие` vs `верить`):
-//     вызывать  = вы- on звать (u8), across the -зв-/-зыв- alternation
-//     приводить = при- on the -вод- of водитель (u8), a noun of profession
-//     убеждать  — no taught root at all; and its -бежд- is NOT бежать (u36)
+// ⚠️ SECOND ROUND, SAME DAY — THREE OF THOSE ELEVEN HAD TO GO AGAIN, and the reason
+// is worth writing down because it will happen to the next band. The first round
+// was authored on a branch where u41–u50 were STUBS, so a candidate could only be
+// checked against u1–u40 plus block 3. Three of the eleven collided with block 2
+// vocabulary that was never in the original 34-front overlap and was therefore
+// invisible:
+//     убеждать → u49l3 (block 2's imperative unit)   replaced by `наблюдать`
+//     теория   → u41l4 (block 2's study unit)        replaced by `мотив`
+//     практика → u41l4                                replaced by `совпадение`
+// ⚠️ THE LESSON, and it is a procedure not a regret: A CANDIDATE CHECKED ON A
+// BRANCH WITH STUBBED UNITS IS NOT CHECKED. Merge the other blocks in FIRST, then
+// probe. The second round was picked against the full u1–u60 corpus (1436 fronts)
+// and every one of the three is clean on front, reading, gloss and §D.
+// ⚠️ `риск` was the first pick for l4's second slot and was REJECTED: its reading
+// "risk" is one letter from `рис` "rice" (u13l2, "ris"), which is the look-alike
+// class §2(a) of unit51.js exists to catch. `совпадение` is better anyway — telling
+// a coincidence from a cause IS what Причина и вывод is for.
+//
+// ⚠️ THE THREE NEW VERBS PASS unit1.js §D:
+//     вызывать  = вы- on звать (u8), across the -зв-/-зыв- alternation — a PREFIXED
+//          derivation, which unit31.js §3 sanctions (the `доверие` vs `верить` case)
+//     приводить = при- on the -вод- of водитель (u8), a noun of profession, same
+//          ground. ⚠️ `выводить` was refused: same root, and it would sit in the
+//          SAME LESSON as приводить.
+//     наблюдать — no taught root at all. Its -блюд- is NOT `блюдо` (u58l1): two
+//          lexemes, an opaque link, and u58 comes later anyway. The hint says so.
 //
 // ⚠️ REFUSED IN THIS UNIT, all on unit1.js §D's derivation test — the full list and
 // the reasoning are in unit51.js §3, not repeated here: решение · знание ·
 // объяснение · сомнение · интерес · уверенность · значение · выбор · относиться ·
 // замечать · доказывать · требовать · мечтать. `истина` stays refused on block 1's
-// ground (a gloss collision with u22 `правда`). `пример` was DROPPED IN FAVOUR OF
-// `например`, which is far commoner and which на+пример would have made a
-// duplicate of; `довод` carries the "a reason offered" sense instead. Four more
-// were refused at the dedupe on the same test, and they are the obvious candidates
-// a later seat would reach for: `ошибаться` (ошибка u6) · `следовать` and
-// `последствие` (следствие, THIS unit's l1) · `влиять` (влияние, l1) · `означать`
-// (значит u22). `повод` was refused for near-homography with l1's `довод`.
+// ground (a gloss collision with u22 `правда`). `довод` carries the "a reason
+// offered" sense. ⚠️ `пример` was refused HERE in favour of `например`, which на+
+// пример would have made a duplicate of — but block 2 cards `пример` itself at
+// u41l3, so the bare noun IS taught in the language, one unit earlier, and this
+// header used to imply it was not. Both stand: на+X is the prefixed-derivation case
+// unit31.js §3 allows.
+//   Refused at the dedupe on the same test, and these are the obvious candidates a
+//   later seat would reach for: `ошибаться` (ошибка u6) · `следовать` and
+//   `последствие` (следствие, THIS unit's l1) · `влиять` (влияние, l1) · `означать`
+//   (значит u22) · `убеждение` (убеждать, now u49l3) · `догадываться` (clean, but
+//   its perfective догадаться is the form every idiomatic sentence wants, and the
+//   imperfective is what a card must teach — dropped for `наблюдать`).
+//   Refused for CONFUSABILITY rather than §D: `повод` (near-homograph of l1's
+//   `довод`) · `подтверждать` (block 2's `утверждать` u46l4, same -тверд- root, and
+//   near-identical in sense) · `заключать` and `заключение` (block 2's `включать`
+//   u43l4) · `рассуждать` (block 2's `обсуждать` u46l4) · `исходить` (the -ход- of
+//   `происходить`, THIS lesson) · `фактор` (the front begins with `факт`, u39).
 // lang/unit/lesson are stamped in src/data/index.js.
 export const RU_UNIT52 = {
   id: "ru-u52",
@@ -98,14 +130,14 @@ export const RU_UNIT52 = {
       title: "Verbs for thinking it out",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Say what causes what and what it leads to, talk someone round to your view, picture a thing to yourself, and say that something exists or is taking place.",
+      canDo: "Say what causes what and what it leads to, observe a thing closely, picture it to yourself, and say that it exists or is taking place.",
       items: [
         { id: "ru-u52l3-vyzyvat", type: "vocab", front: "вызывать", reading: "vyzyvat", meaning: "to cause", accept: ["to bring about", "to give rise to", "to call someone out"], example: { jp: "Этот вопрос вызывает большие проблемы.", en: "That question causes big problems." }, drill: { jp: "Такой шум будет вызывать страх", en: "Noise like that will cause fear" }, hint: "vy-zy-VAT — stress on the last syllable. Imperfective infinitive. To bring a thing about: вызывать проблемы, вызывать интерес. ⚠️ Its other everyday sense is to summon — «вызвать врача» is to call the doctor out. It is вы- on the same root as звать from unit 8, with the -зыв- alternation that hides the link." },
         { id: "ru-u52l3-privodit", type: "vocab", front: "приводить", reading: "privodit", meaning: "to lead to", accept: ["to result in", "to end in", "to bring someone along"], example: { jp: "Такая работа приводит к ошибкам.", en: "Work like that leads to mistakes." }, drill: { jp: "Это будет приводить к проблемам", en: "That will lead to problems" }, hint: "pri-va-DIT — stress on the last syllable, and the о reduces to a. Imperfective infinitive. ⚠️ In the «to lead to» sense it takes к plus the dative: приводить К ошибкам. Its plain sense is to bring a person along, which is the same -вод- root as водитель in unit 8." },
         { id: "ru-u52l3-predstavlyat", type: "vocab", front: "представлять", reading: "predstavlyat", meaning: "to picture to yourself", accept: ["to imagine", "to form an idea of", "to present something"], example: { jp: "Мне трудно представлять этот город.", en: "It is hard for me to picture this town." }, drill: { jp: "Я хочу представлять это ясно", en: "I want to picture it clearly" }, hint: "prit-stav-LYAT — four syllables, stress on the last. Imperfective infinitive. To hold a picture in your head, and in a formal sentence to present or represent. «Представь себе!» means «just imagine!»" },
         { id: "ru-u52l3-sushchestvovat", type: "vocab", front: "существовать", reading: "sushchestvovat", meaning: "to exist", accept: ["to be in existence", "to be there at all", "to subsist"], example: { jp: "Эта страна будет существовать всегда.", en: "That country will exist for ever." }, drill: { jp: "Здесь не будет существовать ничего", en: "Nothing will exist here" }, hint: "su-shchist-va-VAT — five syllables, stress on the last. Built on существо, a living being. Stronger and more bookish than быть from unit 22 — use it for whether a thing exists AT ALL." },
         { id: "ru-u52l3-proiskhodit", type: "vocab", front: "происходить", reading: "proiskhodit", meaning: "to take place", accept: ["to happen", "to go on", "to occur"], example: { jp: "Что здесь будет происходить завтра?", en: "What will be taking place here tomorrow?" }, drill: { jp: "Здесь будет происходить очень много", en: "A great deal will be taking place here" }, hint: "pra-is-kha-DIT — five syllables, stress on the last. Imperfective infinitive. «Что происходит?» — what is going on? — is one of the most useful questions in the language. It also means to be descended from." },
-        { id: "ru-u52l3-ubezhdat", type: "vocab", front: "убеждать", reading: "ubezhdat", meaning: "to convince", accept: ["to persuade", "to talk someone round", "to win someone over"], example: { jp: "Трудно убеждать таких людей.", en: "It is hard to convince people like that." }, drill: { jp: "Я не хочу тебя убеждать", en: "I do not want to convince you" }, hint: "u-bizh-DAT — stress on the last syllable, and the е reduces to i. Imperfective infinitive. To bring someone round to your довод from lesson 1. ⚠️ Nothing to do with бежать from unit 36 — the -бежд- here is from an old root meaning to win, not to run." },
+        { id: "ru-u52l3-nablyudat", type: "vocab", front: "наблюдать", reading: "nablyudat", meaning: "to observe", accept: ["to watch closely", "to keep an eye on", "to study by watching"], example: { jp: "Я давно наблюдаю за этой семьёй.", en: "I have been observing that family for a long time." }, drill: { jp: "Трудно наблюдать за детьми", en: "It is hard to keep an eye on children" }, hint: "na-blyu-DAT — stress on the last syllable. Imperfective infinitive. ⚠️ It takes за plus the instrumental from unit 32: наблюдать ЗА погодой. смотреть from unit 23 is to look AT a thing; наблюдать is to watch it over time to find out how it works, which is how a причина gets found at all. ⚠️ Nothing to do with блюдо, «a dish», in unit 58 — the roots only look alike." },
       ],
     },
     {
@@ -115,13 +147,13 @@ export const RU_UNIT52 = {
       title: "Laying a case out",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Lay a case out — set the theory against the practice, name the option in front of you, the circumstances around it and the contradiction in it, and give an example.",
+      canDo: "Lay a case out — name the reason someone acted, tell a coincidence from a cause, name the option in front of you, the circumstances around it and the contradiction in it, and give an example.",
       items: [
-        { id: "ru-u52l4-teoriya", type: "vocab", front: "теория", reading: "teoriya", meaning: "a theory", accept: ["a worked-out explanation", "theory as against practice", "an idea of how it works"], example: { jp: "В теории это очень просто.", en: "In theory that is very simple." }, drill: { jp: "Это очень старая теория", en: "That is a very old theory" }, hint: "ti-O-ri-ya — four syllables, stress on O. FEMININE (-я). ⚠️ «В теории» is nearly always said against «на практике», the next card, and the pair is how a Russian marks the gap between a plan and what happens. Like логика in lesson 2 it is an everyday word, not a philosophy term." },
-        { id: "ru-u52l4-praktika", type: "vocab", front: "практика", reading: "praktika", meaning: "practice", accept: ["putting it into practice", "hands-on experience", "practical work"], example: { jp: "На практике это очень трудно.", en: "In practice that is very difficult." }, drill: { jp: "Нам нужна хорошая практика", en: "We need good practical experience" }, hint: "PRAK-ti-ka — stress on the first syllable. FEMININE (-а). ⚠️ «На практике» — in practice, in the real world — is the standing answer to «в теории». It also means a work placement, which is what a студент from unit 8 calls it." },
+        { id: "ru-u52l4-motiv", type: "vocab", front: "мотив", reading: "motiv", meaning: "the reason someone did it", accept: ["what drove them to it", "the why of it", "what someone was after"], example: { jp: "Мотив этого преступления совсем не ясный.", en: "The reason he did that crime is not at all clear." }, drill: { jp: "Здесь есть другой мотив", en: "There is a different reason here" }, hint: "ma-TIV — stress on the last syllable, and the о reduces to a. MASCULINE. ⚠️ Glossed the long way round: the word transliterates, and a prompt you can read the answer off is not a card. причина from unit 34 is a cause that simply exists; a мотив is what was going on inside the person. It also means a tune." },
+        { id: "ru-u52l4-sovpadenie", type: "vocab", front: "совпадение", reading: "sovpadenie", meaning: "a coincidence", accept: ["two things landing together", "chance, not cause", "a fluke"], example: { jp: "Это простое совпадение, а не следствие.", en: "That is a simple coincidence, not a consequence." }, drill: { jp: "Это просто совпадение", en: "That is simply a coincidence" }, hint: "sav-pa-DE-ni-ye — five syllables, stress on DE, and both о reduce to a. NEUTER (-е). ⚠️ THE ONE WORD IN THIS UNIT THAT KEEPS YOU HONEST: two things happening together is a совпадение until you can show one is the причина of the other. «Какое совпадение!» — what a coincidence!" },
         { id: "ru-u52l4-variant", type: "vocab", front: "вариант", reading: "variant", meaning: "an option", accept: ["one possible version", "an alternative", "the way it could go"], example: { jp: "У нас есть другой вариант.", en: "We have another option." }, drill: { jp: "Этот вариант очень простой", en: "That option is very simple" }, hint: "va-ri-ANT — stress on the last syllable. MASCULINE. Glossed «an option» and not «a variant»: it is what a Russian says where English says option or version — «первый вариант», «другой вариант». «Есть вариант…» is how a suggestion gets floated." },
         { id: "ru-u52l4-obstoyatelstvo", type: "vocab", front: "обстоятельство", reading: "obstoyatelstvo", meaning: "a circumstance", accept: ["the circumstances", "how things stood", "a factor around it"], example: { jp: "Здесь есть одно важное обстоятельство.", en: "There is one important circumstance here." }, drill: { jp: "Это очень важное обстоятельство", en: "That is a very important circumstance" }, hint: "ab-stay-A-til-stva — five syllables, stress on A, and the о at the front reduces to a. NEUTER (-о). ⚠️ In real speech it is nearly always PLURAL: «по семейным обстоятельствам», for family reasons. условие from unit 34 is a condition someone SETS; an обстоятельство is one that simply obtains." },
-        { id: "ru-u52l4-protivorechie", type: "vocab", front: "противоречие", reading: "protivorechie", meaning: "a contradiction", accept: ["a clash between two things", "an inconsistency", "saying the opposite"], example: { jp: "В его словах есть противоречие.", en: "There is a contradiction in what he says." }, drill: { jp: "Здесь есть большое противоречие", en: "There is a big contradiction here" }, hint: "pra-ti-va-RE-chi-ye — six syllables, stress on RE, and both о reduce to a. NEUTER (-е). Literally «against-speech»: против, «against», on the -реч- of речь from unit 39. ⚠️ Only the noun is carded; the verb противоречить takes the dative." },
+        { id: "ru-u52l4-protivorechie", type: "vocab", front: "противоречие", reading: "protivorechie", meaning: "a contradiction", accept: ["a clash between two things", "an inconsistency", "saying the opposite"], example: { jp: "В его словах есть противоречие.", en: "There is a contradiction in what he says." }, drill: { jp: "Здесь есть большое противоречие", en: "There is a big contradiction here" }, hint: "pra-ti-va-RE-chi-ye — six syllables, stress on RE, and both о reduce to a. NEUTER (-е). Literally «against-speech»: против from unit 46 on the -реч- of речь from unit 39. ⚠️ Only the noun is carded; the verb противоречить takes the dative." },
         { id: "ru-u52l4-naprimer", type: "vocab", front: "например", reading: "naprimer", meaning: "for example", accept: ["for instance", "say", "take the case of"], example: { jp: "Например, этот дом очень старый.", en: "For example, this house is very old." }, drill: { jp: "Например здесь очень тихо", en: "For example, it is very quiet here" }, hint: "na-pri-MER — stress on the last syllable. Literally «for an example» — на + пример. ⚠️ Because it already contains пример, this course teaches the phrase and NOT the bare noun; unit 52's header records that decision." },
       ],
     },
