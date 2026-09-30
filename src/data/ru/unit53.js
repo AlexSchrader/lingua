@@ -22,8 +22,9 @@
 //        MASCULINE: кашель  ⚠️ — the one masculine -ь in the unit, and its е
 //             drops in every oblique case (кашля, кашлю), which no other card here
 //             does.
-//   Two more are -ость nouns elsewhere in the block (обязанность u51l4,
-//   необходимость u52l2) and those ARE predictable: -ость is always feminine.
+//   One more is an -ость noun elsewhere in the block (необходимость u52l2) and
+//   that one IS predictable: -ость is always feminine. (`обязанность` was the
+//   second, at u51l4, until the band dedupe of 2026-09-30 sent it to u42.)
 //
 // ⚠️ REFUSED IN THIS UNIT, and each is a rule rather than a taste:
 //   `лёгкое` "a lung" — it IS the neuter singular of `лёгкий` (u19l2), so carding
@@ -35,10 +36,14 @@
 //   `лечение` (vs `лечиться` u35) · `здоровый` (vs `здоровье` u20) · `слабость`
 //        (vs `слабый` u20) · `усталость` (vs `устал` u7) — all §D.
 //   `больной` "a patient" — the same substantivised-adjective fault as `лёгкое`.
-//   `вирус`'s gloss is "an infection" and NOT "a virus", and no accept[] entry is
-//        the bare word: `вирус` transliterates to "virus", so "a virus" in accept
-//        would make checkProduce pass on the prompt — the free-pass fault
-//        unit1.js §9 names. Same reason `грипп` is glossed "the flu".
+//   `грипп` is glossed "the flu" and not "grippe" for the free-pass reason
+//        unit1.js §9 names: a gloss that transliterates to its own front makes
+//        checkProduce pass on the prompt.
+//   ⚠️ `вирус` "an infection" WAS l3's fifth card and is the standing example of
+//        that rule in this file's history. The band dedupe of 2026-09-30 sent it to
+//        block 2's u43 Техника и связь, which taught it as the COMPUTER sense and
+//        taught it earlier. `ожог` "a burn" took the slot — a second outside injury
+//        beside `рана`, which is what l3 was short of anyway.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const RU_UNIT53 = {
   id: "ru-u53",
@@ -88,13 +93,13 @@ export const RU_UNIT53 = {
       title: "Being ill",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Describe being ill — name the illness, a cough, a runny nose, a wound — and say that something is going round.",
+      canDo: "Describe being ill — name the illness, a cough, a runny nose, a wound, a burn — and say you have the flu.",
       items: [
         { id: "ru-u53l3-bolezn", type: "vocab", front: "болезнь", reading: "bolezn", meaning: "an illness", accept: ["a disease", "a sickness", "a named condition"], example: { jp: "Это очень серьёзная болезнь.", en: "That is a very serious illness." }, drill: { jp: "Эта болезнь очень серьёзная", en: "That illness is very serious" }, hint: "ba-LEZN — stress on the last syllable, and the о reduces to a. ⚠️ FEMININE despite the -ь. Three words share this root and each has its own job: болеть from unit 20 is to hurt, больно from unit 34 is «it hurts», болезнь is the named illness." },
         { id: "ru-u53l3-kashel", type: "vocab", front: "кашель", reading: "kashel", meaning: "a cough", accept: ["the cough", "coughing", "a bad cough"], example: { jp: "У ребёнка сильный кашель и температура.", en: "The child has a bad cough and a temperature." }, drill: { jp: "У меня сильный кашель", en: "I have a bad cough" }, hint: "KA-shil — stress on the first syllable. ⚠️ MASCULINE, the one masculine -ь noun in this unit — and its е DROPS in every other case: кашля, кашлю, о кашле. A Russian says «у меня кашель», not «я кашляю», when reporting it." },
         { id: "ru-u53l3-nasmork", type: "vocab", front: "насморк", reading: "nasmork", meaning: "a runny nose", accept: ["a head cold in the nose", "a blocked nose", "the sniffles"], example: { jp: "У меня насморк и болит голова.", en: "I have a runny nose and a headache." }, drill: { jp: "Сегодня у меня насморк", en: "I have a runny nose today" }, hint: "NAS-mark — stress on the first syllable. MASCULINE. Built on нос from unit 20 with the vowel changed. простуда from unit 20 is the whole cold; насморк is just the nose part of it." },
         { id: "ru-u53l3-rana", type: "vocab", front: "рана", reading: "rana", meaning: "a wound", accept: ["the wound", "a cut", "an injury that bleeds"], example: { jp: "Эта рана уже не болит.", en: "That wound does not hurt any more." }, drill: { jp: "Рана на руке уже маленькая", en: "The wound on my hand is small already" }, hint: "RA-na — stress on the first syllable. FEMININE (-а). Something that broke the skin and bled, as against a болезнь, which is inside." },
-        { id: "ru-u53l3-virus", type: "vocab", front: "вирус", reading: "virus", meaning: "an infection", accept: ["a bug you catch", "a virus that is going round", "the germ"], example: { jp: "Этот вирус очень опасный для детей.", en: "That infection is very dangerous for children." }, drill: { jp: "Вирус здесь очень опасный", en: "The infection here is very dangerous" }, hint: "VI-rus — stress on the first syllable. MASCULINE. ⚠️ Glossed «an infection» on purpose: this word transliterates to the English one, and a prompt you can read the answer off is not a card. Unit 9 taught that trap." },
+        { id: "ru-u53l3-ozhog", type: "vocab", front: "ожог", reading: "ozhog", meaning: "a burn", accept: ["a scald", "a burn on the skin", "where it burned you"], example: { jp: "Этот ожог на руке очень болит.", en: "That burn on my hand hurts a lot." }, drill: { jp: "У него большой ожог", en: "He has a big burn" }, hint: "a-ZHOG — stress on the last syllable, the о at the front reduces to a, and the г goes quiet, so it comes out a-ZHOK. MASCULINE. From boiling water, or from the солнце of unit 6. ⚠️ Like рана it is damage from OUTSIDE, as against a болезнь, which is inside." },
         { id: "ru-u53l3-gripp", type: "vocab", front: "грипп", reading: "gripp", meaning: "the flu", accept: ["influenza", "a dose of flu", "the flu bug"], example: { jp: "Зимой у нас часто грипп.", en: "In winter we often have the flu." }, drill: { jp: "У него уже грипп", en: "He has the flu already" }, hint: "GRIPP — one syllable, and the double пп is held a beat longer. MASCULINE. From the French, not the English, which is why it has no -e. «Я болею гриппом» uses the instrumental from unit 32." },
       ],
     },

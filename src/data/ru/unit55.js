@@ -22,14 +22,31 @@
 // not name the person who made any of it, and had no word for a stage, a
 // performance or a part in one.
 //
-// ★ SEVEN -ь FRONTS AGAIN, and unit1.js §3 makes the gender compulsory on each:
-//   FEMININE живопись · роль    MASCULINE зритель · спектакль · стиль
-//   That is a genuine two-to-three split inside one unit, which is exactly why the
-//   rule exists — nothing in the spelling predicts it.
+// ★ FOUR -ь FRONTS, and unit1.js §3 makes the gender compulsory on each:
+//   FEMININE живопись · роль    MASCULINE спектакль · стиль
+//   A dead-even split inside one unit, which is exactly why the rule exists —
+//   nothing in the spelling predicts it. ⚠️ This header said SEVEN and listed
+//   `зритель` as a fifth; the count was wrong when written (there were five) and
+//   `зритель` left at the band dedupe of 2026-09-30. Re-derived, not softened.
+//
+// ═════════════════════════════════════════════════════════════════════════════
+// ⚠️ THREE OF THIS UNIT'S 24 CARDS WERE RE-AUTHORED AT THE BAND DEDUPE, 2026-09-30.
+// ═════════════════════════════════════════════════════════════════════════════
+// Blocks 2 and 3 authored in parallel and could not see each other's fronts. Three
+// of u55's went to block 2's u45 Пресса и передачи as well, which teaches them
+// EARLIER, so u45 keeps them and u55 re-authored the slots:
+//     автор   → u45      `актёр` "a stage performer" took l2's slot
+//     зритель → u45      `критик` "a reviewer" took l2's slot
+//     публика → u45      `хор` "a choir" took l3's slot
+// The new three were checked against the whole ru corpus for front, reading and
+// gloss collisions and against §D below. `актёр` and `критик` are both glossed the
+// long way round for the free-pass reason unit1.js §9 names.
 //
 // ⚠️ REFUSED IN THIS UNIT, and all four cost a card:
 //   `писатель` "a writer" — §D against `писать` (u4l3) and `написать` (u31l1).
-//        `поэт` and `автор` carry the sense between them.
+//        `поэт` carries the sense, and `читатель` (vs `читать` u4l3) is refused on
+//        exactly the same ground — both were re-checked at the dedupe and both
+//        stay refused.
 //   `песня` (vs `петь` u27l1) and `танец` (vs `танцевать` u27l1) — §D. This is why
 //        l3 is the STAGE and not the concert; A1 taught the verbs and the noun
 //        would be a second mastery track for each.
@@ -68,16 +85,16 @@ export const RU_UNIT55 = {
       id: "ru-u55l2",
       unit: 55,
       lesson: 2,
-      title: "Who makes it and who watches",
+      title: "Who makes it and who judges it",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Name the person behind a work — a poet, an author, an artist — call someone a hero, and talk about the people watching.",
+      canDo: "Name the person behind a work — a poet, an artist, a stage performer — call someone a hero, and talk about the reviewer who judges it.",
       items: [
         { id: "ru-u55l2-poet", type: "vocab", front: "поэт", reading: "poet", meaning: "a writer of verse", accept: ["a poet by trade", "someone who writes poems", "a versifier"], example: { jp: "Этот поэт очень известный в нашей стране.", en: "That poet is very well known in our country." }, drill: { jp: "Он очень известный поэт", en: "He is a very well known poet" }, hint: "pa-ET — stress on the last syllable, the о reduces to a, and the э is э, not е. MASCULINE. ⚠️ Glossed the long way round on purpose: this word transliterates to the English one, and a prompt you can read the answer off is not a card." },
-        { id: "ru-u55l2-avtor", type: "vocab", front: "автор", reading: "avtor", meaning: "an author", accept: ["the writer of it", "whoever wrote it", "the creator of a work"], example: { jp: "Автор этой книги очень молодой.", en: "The author of this book is very young." }, drill: { jp: "Кто автор этой книги", en: "Who is the author of this book" }, hint: "AV-tar — stress on the FIRST syllable, unlike English, and the final о reduces to a. MASCULINE. It covers the author of anything at all — a book, a law, a plan, a joke." },
+        { id: "ru-u55l2-aktyor", type: "vocab", front: "актёр", reading: "aktyor", meaning: "a stage performer", accept: ["an actor", "an actress", "someone who plays a part"], example: { jp: "Этот актёр играет главную роль.", en: "That performer plays the leading part." }, drill: { jp: "Он очень известный актёр", en: "He is a very well known performer" }, hint: "ak-TYOR — stress on the last syllable, and the ё is always written, as unit 1 §7 requires. MASCULINE; the woman is актриса. ⚠️ Glossed «a stage performer» on purpose: this word transliterates to the English one, and a prompt you can read the answer off is not a card — the same trap поэт is glossed around." },
         { id: "ru-u55l2-khudozhnik", type: "vocab", front: "художник", reading: "khudozhnik", meaning: "an artist", accept: ["a painter", "someone who paints", "an artist by trade"], example: { jp: "Этот художник любит рисовать море.", en: "That artist likes painting the sea." }, drill: { jp: "Это очень молодой художник", en: "That is a very young artist" }, hint: "khu-DOZH-nik — stress on DOZH, with the scraping х from unit 1. MASCULINE; the woman is художница. It means a painter first of all, not an artist in general." },
         { id: "ru-u55l2-geroy", type: "vocab", front: "герой", reading: "geroy", meaning: "a hero", accept: ["the hero", "a brave man", "the main character"], example: { jp: "Он настоящий герой нашего города.", en: "He is a genuine hero of our town." }, drill: { jp: "Он настоящий герой здесь", en: "He is a genuine hero here" }, hint: "gi-ROY — stress on the last syllable, and the е reduces to i. MASCULINE. Two senses that Russian keeps in one word: a brave person, and the main character of a book or a film." },
-        { id: "ru-u55l2-zritel", type: "vocab", front: "зритель", reading: "zritel", meaning: "a spectator", accept: ["a member of the audience", "a viewer", "someone watching"], example: { jp: "Каждый зритель уже здесь.", en: "Every spectator is here already." }, drill: { jp: "Этот зритель очень довольный", en: "That spectator is very content" }, hint: "ZRI-til — stress on the first syllable. ⚠️ MASCULINE despite the -ь: the -тель ending is always a masculine doer, like учитель from unit 8. One person watching; публика in lesson 3 is all of them together." },
+        { id: "ru-u55l2-kritik", type: "vocab", front: "критик", reading: "kritik", meaning: "a reviewer", accept: ["a critic", "someone who reviews art", "a book or film critic"], example: { jp: "Этот критик написал о нашем театре.", en: "That reviewer wrote about our theatre." }, drill: { jp: "Этот критик очень строгий", en: "That reviewer is very strict" }, hint: "KRI-tik — stress on the first syllable. MASCULINE. ⚠️ Glossed «a reviewer» and not «a critic»: the word transliterates, and unit 9 taught that a prompt you can read the answer off is not a card. He judges the творчество of lesson 4." },
         { id: "ru-u55l2-stikh", type: "vocab", front: "стих", reading: "stikh", meaning: "a verse", accept: ["a poem", "a line of poetry", "one short poem"], example: { jp: "Этот стих очень красивый и простой.", en: "That verse is very beautiful and very plain." }, drill: { jp: "Он написал очень красивый стих", en: "He wrote a very beautiful verse" }, hint: "STIKH — one syllable, ending in the scraping х. MASCULINE. ⚠️ Its PLURAL, стихи, is the ordinary word for poetry: «он пишет стихи» means he writes poems, and no Russian says «поэзия» in conversation." },
       ],
     },
@@ -88,12 +105,12 @@ export const RU_UNIT55 = {
       title: "On the stage",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Talk about a night at the theatre — the stage, the performance, who plays which part, the audience, the orchestra and the ballet.",
+      canDo: "Talk about a night at the theatre — the stage, the performance, who plays which part, the choir, the orchestra and the ballet.",
       items: [
         { id: "ru-u55l3-stsena", type: "vocab", front: "сцена", reading: "stsena", meaning: "a stage", accept: ["the stage", "a scene in a play", "the boards"], example: { jp: "Сцена в этом театре очень большая.", en: "The stage in this theatre is very large." }, drill: { jp: "Эта сцена очень большая", en: "That stage is very large" }, hint: "STSE-na — stress on the first syllable, and the сц at the front is said s-ts with no vowel between. FEMININE (-а). Both the platform and a scene in a play." },
         { id: "ru-u55l3-spektakl", type: "vocab", front: "спектакль", reading: "spektakl", meaning: "a theatre performance", accept: ["a show on stage", "a play being performed", "a production"], example: { jp: "Этот спектакль был очень интересный.", en: "That performance was very interesting." }, drill: { jp: "Спектакль будет завтра вечером", en: "The performance is tomorrow evening" }, hint: "spik-TAKL — stress on TAKL, and the кль at the end takes no vowel. ⚠️ MASCULINE despite the -ь. It is the EVENING, not the text: концерт from unit 27 is the musical equivalent." },
         { id: "ru-u55l3-rol", type: "vocab", front: "роль", reading: "rol", meaning: "a part in a play", accept: ["a role", "the part someone plays", "a part in a film"], example: { jp: "Её роль в этом фильме очень важная.", en: "Her part in that film is very important." }, drill: { jp: "Это очень важная роль", en: "That is a very important part" }, hint: "ROL — one syllable, with the ь keeping the л soft. ⚠️ FEMININE despite the -ь. «Играть роль» is to play a part, and also to matter: «это не играет роли» means it makes no difference." },
-        { id: "ru-u55l3-publika", type: "vocab", front: "публика", reading: "publika", meaning: "an audience", accept: ["the audience", "the public", "the people watching"], example: { jp: "Публика была очень довольная.", en: "The audience was very pleased." }, drill: { jp: "Эта публика очень довольная", en: "That audience is very pleased" }, hint: "PU-bli-ka — stress on the first syllable. FEMININE (-а), and SINGULAR, so the verb is singular too: «публика была», never «были». One зритель, one whole публика." },
+        { id: "ru-u55l3-khor", type: "vocab", front: "хор", reading: "khor", meaning: "a choir", accept: ["a chorus", "singers together", "a choral group"], example: { jp: "Этот хор поёт очень хорошо.", en: "That choir sings very well." }, drill: { jp: "Наш хор поёт в этом зале", en: "Our choir sings in this hall" }, hint: "KHOR — one syllable, opening with the scraping х. MASCULINE. Singers together, as an оркестр is players together. ⚠️ «Хором» means all together, in one voice — «отвечать хором» is what a class does." },
         { id: "ru-u55l3-orkestr", type: "vocab", front: "оркестр", reading: "orkestr", meaning: "an orchestra", accept: ["the orchestra", "the band", "the players together"], example: { jp: "Оркестр играет очень хорошо.", en: "The orchestra plays very well." }, drill: { jp: "Этот оркестр играет хорошо", en: "That orchestra plays well" }, hint: "ar-KESTR — stress on KESTR, the о at the front reduces to a, and ⚠️ the -стр at the end takes no vowel after it, exactly like министр in unit 51 and литр in unit 37. MASCULINE." },
         { id: "ru-u55l3-balet", type: "vocab", front: "балет", reading: "balet", meaning: "a ballet", accept: ["the ballet", "ballet as an art", "a ballet evening"], example: { jp: "Русский балет очень известный в мире.", en: "Russian ballet is very well known in the world." }, drill: { jp: "Этот балет очень известный", en: "That ballet is very well known" }, hint: "ba-LET — stress on the last syllable. MASCULINE. ⚠️ Its sister word опера could NOT be taught here: «opera» is its own transliteration, so the prompt would give the answer away — the free-pass trap unit 9 found." },
       ],
@@ -111,7 +128,7 @@ export const RU_UNIT55 = {
         { id: "ru-u55l4-religiya", type: "vocab", front: "религия", reading: "religiya", meaning: "religion", accept: ["a religion", "a faith", "what people believe"], example: { jp: "Религия здесь очень важная для людей.", en: "Religion here is very important to people." }, drill: { jp: "Эта религия очень старая", en: "That religion is very old" }, hint: "ri-LI-gi-ya — stress on LI, and both unstressed е reduce to a short i. FEMININE (-я). церковь from unit 14 is the building; религия is the belief." },
         { id: "ru-u55l4-moda", type: "vocab", front: "мода", reading: "moda", meaning: "fashion", accept: ["a fashion", "what is in", "the latest thing"], example: { jp: "Мода в этом городе очень разная.", en: "Fashion in this town is very varied." }, drill: { jp: "Эта мода уже старая", en: "That fashion is old already" }, hint: "MO-da — stress on the first syllable. FEMININE (-а). «Модный» is the adjective and «в моде» means in fashion. It is about clothes far more often than about anything else." },
         { id: "ru-u55l4-stil", type: "vocab", front: "стиль", reading: "stil", meaning: "a style", accept: ["the style of something", "a manner", "a way of doing things"], example: { jp: "Его стиль очень простой и ясный.", en: "His style is very plain and very clear." }, drill: { jp: "Мне нравится этот стиль", en: "I like this style" }, hint: "STIL — one syllable, with the ь keeping the л soft. ⚠️ MASCULINE despite the -ь. A writer's style, a person's style of dress, a style of music — all one word." },
-        { id: "ru-u55l4-tvorchestvo", type: "vocab", front: "творчество", reading: "tvorchestvo", meaning: "creative work", accept: ["a body of work", "someone's output", "creativity"], example: { jp: "Творчество этого автора очень известное.", en: "That author's creative work is very well known." }, drill: { jp: "Его творчество очень известное", en: "His creative work is very well known" }, hint: "TVOR-chist-va — stress on the first syllable. NEUTER (-о). It means a person's whole body of creative work, which is how a Russian book review is written — «творчество Пушкина», Pushkin's work." },
+        { id: "ru-u55l4-tvorchestvo", type: "vocab", front: "творчество", reading: "tvorchestvo", meaning: "creative work", accept: ["a body of work", "someone's output", "creativity"], example: { jp: "Творчество этого поэта очень известное.", en: "That poet's creative work is very well known." }, drill: { jp: "Его творчество очень известное", en: "His creative work is very well known" }, hint: "TVOR-chist-va — stress on the first syllable. NEUTER (-о). It means a person's whole body of creative work, which is how a Russian book review is written — «творчество Пушкина», Pushkin's work." },
         { id: "ru-u55l4-legenda", type: "vocab", front: "легенда", reading: "legenda", meaning: "a legend", accept: ["an old tale", "a famous story", "a legendary figure"], example: { jp: "Эта легенда очень старая и красивая.", en: "That legend is very old and very beautiful." }, drill: { jp: "Легенда этого города очень старая", en: "The legend of this town is very old" }, hint: "li-GEN-da — stress on GEN, and the first е reduces. FEMININE (-а). Both a story handed down and a person who has become one. A миф is older and about gods; a легенда can be about a footballer." },
       ],
     },
