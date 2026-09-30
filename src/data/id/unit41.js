@@ -1,82 +1,154 @@
-// ID Unit 41 — Di atas, di bawah, di antara ("Above, below, between") — A2
+// ID Unit 41 — Olahraga dan pertandingan ("Sport and competition") — A2
 // ─────────────────────────────────────────────────────────────────────────────
-// A2 block 3 (u41–u50), authored 2026-09-29. The 12 conventions in unit1.js and
-// the 10 A2 conventions in unit21.js BIND this file. Read both before editing.
+// A2 block 3 (u41–u50). The 12 conventions in unit1.js and the 10 A2 conventions
+// in unit21.js BIND this file. Read both before editing.
 //
-// RETITLED AND RETHEMED from the scaffold's "Vocabulary 2 (A2)". That title names
-// no subject at all — `lint.js` SCAFFOLD_TITLE_PATTERNS hard-errors on
-// /^Vocabulary \d+( \((?:A2|B1|B2)\))?$/ the moment a lesson unlocks — so the
-// theme was chosen by measurement, not by the slot.
+// ⚠️ RETHEMED A SECOND TIME, 2026-09-30, AND THE REASON IS A MEASURED
+// COLLISION. This slot was authored on 2026-09-29 as "Di atas, di bawah, di
+// antara" — spatial relations and the written prepositions. Block 2 (u31–u40) was
+// authoring **the same theme into u36 at the same time**, under the **identical
+// title**, and block 2 merged to `main` first. Measured with
+// `scripts/tmp/dupes.mjs id`: the two units shared **16 of 24 fronts** (atas ·
+// bawah · antara · tengah · luar · ujung · kepada · pada · tanpa · melalui ·
+// sejak · ketika · saat · menuju · turun · pinggir) plus `sesuai` from u37. u36 is
+// the fixed point, so **u36 keeps the spatial lane and this slot is rethemed in
+// full.** The old header's claim that nothing taught `antara` was TRUE WHEN
+// WRITTEN and is now false — u36 teaches it. Nothing is lost: every word listed
+// above is still taught, one unit earlier.
 //
-// THE HOLE THIS FILLS, and it is the one block 1 explicitly asked for. A1's u7l2
-// taught `depan` · `belakang` · `sebelah` · `dekat` · `jauh`. Nothing in the 720
-// authored cards teaches ABOVE, BELOW, BETWEEN or OUTSIDE, and nothing teaches the
-// prepositions `kepada` · `pada` · `tanpa` · `melalui`. unit21.js's reserved list
-// names all of them and says of one:
-//     "⚠️ `antara` is the worst of them: u30's own `perbedaan` card wants
-//      'perbedaan antara A dan B' and cannot say it. **Card it early.**"
-// It is carded here, in l2, and this unit is the earliest slot block 3 owns.
+// THE HOLE THIS FILLS, derived from all 50 id unit titles and measured against
+// the live corpus. Indonesian A1+A2 taught the *verbs* of physical activity
+// (`berolahraga` · `bermain` · `berenang` · `berlari` · `melompat` · `memanjat` ·
+// `menendang` · `memukul` · `melempar` · `menangkap`) and the *abstract* result
+// of a contest (`menang` · `kalah` · `seimbang` · `membandingkan` in u30, whose
+// own lesson 2 is titled "Membandingkan dan bertanding") — and **never once named
+// a sport, a pitch, a ball, a match, a player, a referee or a trophy.** 1200 cards
+// with `menang` and no `pertandingan` is the German `die Frage` failure: the
+// machinery for talking about a thing, and not the thing. This unit is where u30's
+// comparison words and u39's motion verbs finally get a subject. It sits at u41
+// deliberately — u39/u40's body-motion and measurement verbs are exactly what its
+// examples need, and they are one and two units back.
 //
-// ⚠️ TAKEN FROM BLOCK 1's RESERVED LIST, DELIBERATELY: atas · bawah · antara ·
-// luar · kepada · pada · ketika. Block 2 (u31–u40) is authoring concurrently and
-// may have taken some of the same words — the merge seat dedupes. Flagged in the
-// hand-back rather than taken silently.
+// ⛔ THREE OTHER CANDIDATE THEMES WERE MEASURED AND REJECTED, so nobody
+// re-argues them:
+//   • **Law and rules** — genuinely empty, and it is now **u50**, which had to be
+//     rethemed for its own reasons. Putting it here would have left u50 a
+//     grab-bag. It also has to stay off u47's STATE lane (`pemerintah` · `hukum`
+//     · `presiden` · `tentara`), which is easier to police from the adjacent slot.
+//   • **Plans, the future, managing time** — looked empty, measured FULL:
+//     `rencana` · `jadwal` · `sibuk` · `sempat` · `siap` · `tepat` · `segera` ·
+//     `daftar` · `terlambat` · `awal` · `cepat` · `lambat` · `sengaja` ·
+//     `berjanji` are ALL taught, across u9/u13/u14/u15/u18/u21/u26/u28. Eight free
+//     words is not a unit.
+//   • **Giving directions** — u7l4 (`kanan` · `kiri` · `lurus` · `belok` ·
+//     `masuk` · `keluar`) plus u23l3 (`peta` · `arah` · `macet`) already spent it.
 //
-// ⛔ `oleh` IS ON THAT LIST AND IS **DECLINED HERE, WITH A REASON**. It marks the
-// AGENT of a passive, and every natural example needs one — "Surat itu dibaca oleh
-// ibu". A2 convention A6 pushed `di-` passives to B1, so carding `oleh` now would
-// either teach the passive a band early or ship an unnatural example. Both are
-// worse than the gap. It belongs in the B1 unit that teaches `di-`, alongside it.
-// (`oleh karena itu` is already taught as a fixed connector, so nothing is
-// unreadable in the meantime.)
+// ⚠️ SPORT WAS ONLY *PARTLY* EMPTY — nine words were already taught and
+// are NOT re-carded here. They are the words this unit's examples are built out
+// of: `berolahraga` · `bermain` · `berenang` · `menonton` (u18), `sepeda` (u7),
+// `tim` (u24), `menang` · `kalah` · `seimbang` (u30), `penonton` · `hadiah` (u35).
+// If you are looking for one of those, it is taught earlier.
 //
-// ⚠️ WHOLE-WORD DRILL HAZARDS CHECKED BY HAND (A2 convention A7 — lint uses
-// `.includes()`, the router uses `findWholeWord`, and a hyphen is not a letter):
-//   `atas`  — `atasan` (u24l1) contains it at index 0 but is followed by a LETTER,
-//             so findWholeWord does not match. Safe both ways.
-//   `luar`  — same shape inside `keluar` (u12l3) and `keluarga` (u3l1): preceded by
-//             a letter, no match.
-//   `tengah`— inside `setengah` (u15l1), preceded by `e`. No match.
-//   `hingga`— inside `sehingga` (u26l3), preceded by `e`. No match.
-//   `melalui`— contains `lalu` (u15l2) at index 2, preceded by `e`. No match.
-//   `pada`  — `kepada` contains it at index 2, preceded by `e`, so no match. The
-//             two cards sit in the SAME lesson and each drill carries only its own
-//             form; checked through the real router, not by eye.
-//   `bagi`  — `membagi` (u25l2) contains it at index 3, preceded by `m`. No match.
+// ⛔ DECLINED, EACH FOR A NAMED REASON — do not read these as holes:
+//   `main`        same lexeme as `bermain` (u18). Convention 5.
+//   `mainan`      third card off root `main` after `bermain` and this unit's
+//                 `pemain` + `permainan`. A6's ceiling is three off one root and
+//                 those two earn it; a toy does not.
+//   `bertanding`  `pertandingan` is carded instead. A6: a form you can read
+//                 straight off the parts gets no second card, and ber-/per--an
+//                 off one root in one unit is exactly that.
+//   `pemenang`    gloss would sit on top of this unit's own `juara`.
+//   `seri`        u30's `seimbang` accepts **"level with each other"** and
+//                 **"balanced"**. A4 — that is an accept[] collision, not a
+//                 meaning one, and it would ship two right answers.
+//   `skor`        front and English gloss differ by one letter; the produce card
+//                 is a copy task. The `bus`/`hotel` trap, A10.
+//   `lomba`       this unit's `pertandingan` accepts "a sporting contest".
+//   `melatih`     `pelatih` is carded; root `latih` already carries u44's
+//                 `berlatih` and `latihan`, so a fourth is over A6's ceiling.
+//   `bertaruh`    betting. Out on content grounds, not vocabulary ones.
 //
-// AFFIX ROOTS STRIPPED AND GREPPED BY HAND (`check-front.mjs`'s LEXEME verdict
-// fails open for Indonesian — unit1.js convention 3):
-//   permukaan → muka    root not taught.
-//   melalui   → lalu    ⚠️ `lalu` IS taught ("then"). Carded anyway: "then" does
-//     not give you "by way of". Different word, convention 3's test passes.
-//   menuju    → tuju    root not taught; `tujuan` (u23l3, a purpose) is the other
-//     card off it. Neither whole-word-contains the other. See A6.
-//   bagi      → bagi    ⚠️ the root IS the front. `membagi` (u25l2, to divide) is
-//     already a card off it, and `sebagian` (u49l4, some of it) is a third. Three
-//     genuinely different words off one root — A6 permits it, and the three sit in
-//     three different units.
-//   sesuai    → suai    root not taught, and not itself a word in use.
-//   kemudian · menjelang · ketika · sejak · saat · dasar · turun · ujung ·
-//   pinggir · lewat · tanpa · antara · atas · bawah · tengah · luar ·
-//   kepada · pada — all roots.
+// ⚠️ ONE ROOT CARRIES THREE CARDS AND IT IS DELIBERATE (A6). `main`:
+// **bermain** (u18, to play) · **pemain** (l1, a player) · **permainan** (l4, a
+// game). Convention 3's test passes on both new ones — knowing "to play" gives
+// you neither "a player" nor "a game" — and A6 names three-off-one-root as fine
+// where each is a different word. They sit in two different lessons.
+// Root `latih` will carry **pelatih** (l1) plus u44's `berlatih` and `latihan`:
+// three, at the ceiling, and each is a different word (a coach / to practise / a
+// practice session).
 //
-// ⚠️ ONE SAME-LESSON COMPONENT PAIR IS DELIBERATE: `pada` and `kepada` sit
-// adjacent in l3, and `kepada` contains `pada` as a substring. It is NOT a router
-// hazard — measured through the real `findWholeWord`, the `e` before `pada` inside
-// `kepada` blocks a whole-word match in both directions, so neither cloze can steal
-// the other's blank. And teaching them adjacent IS the point: the ke- is the whole
-// difference between a place and a person, the same way block 1 put `tahu` and
-// `kenal` side by side. A choice card offering one against the other tests exactly
-// the distinction the lesson is for.
+// ⚠️ WHOLE-WORD DRILL HAZARDS CHECKED THROUGH THE REAL `findWholeWord`,
+// not by eye (A7 — lint uses `.includes()`, the router does not, and a hyphen is
+// not a letter):
+//   `olahraga`  — `berolahraga` (u18) contains it at index 3, preceded by `r`, a
+//                 LETTER, so no whole-word match in either direction. This unit's
+//                 `olahraga` drill carries the bare form.
+//   `pemain` / `permainan` — neither contains `bermain` and `bermain` contains
+//                 neither. No overlap at all.
+//   `bola` / `sepak bola` — **`sepak bola` DOES whole-word-contain `bola`** (the
+//                 space is not a letter). So `bola`'s own drill carries the BARE
+//                 noun and never the compound; `sepak bola`'s drill carries the
+//                 compound, which its own finder matches in full. Checked both.
+//   `senam`     — `enam` (u5, six) sits inside it at index 1 preceded by `s`. No
+//                 match.
+//   `gawang`    — `awan` (u8, cloud) sits inside at index 1 preceded by `g`. No
+//                 match.
+//   `lapangan`  — `apa` (u3) at index 1, preceded by `l`. No match.
+//   `peserta`   — `serta` (u29, and also) at index 2, preceded by `e`. No match.
+//   `mengalahkan` — does NOT contain `kalah` at all: meng- + kalah assimilates the
+//                 k away, leaving `-alah-`. Nothing to check.
+//   `maju` · `mundur` · `medali` · `piala` · `juara` · `curang` · `catur` ·
+//   `kartu` · `wasit` · `gol` · `menyerah` — no substring relation to any taught
+//   front in either direction.
 //
-// ⛔ NO ter- FORM IS CARDED IN THIS UNIT. `terhadap` (toward) was the obvious
-// candidate and A2 convention A5 forbids it: ter- on a root the learner does not
-// have is deferred to B1, and `hadap` is untaught.
+// ⚠️ FOLD CHECK ON THE TWO MULTI-WORD FRONTS (convention 9, A8).
+// `sepak bola` → "sepakbola" and `bulu tangkis` → "bulutangkis" through the real
+// `normalizeReading(f, "id")`. Neither collides with any reading in the corpus,
+// and this unit teaches only the spaced form of each — never a solid `sepakbola`.
+//
+// ⚠️ accept[] COLLISIONS AVOIDED BY MEASUREMENT (A4 — the defect class
+// that passes both validators). Every one of these was found by reading the
+// earlier card's accept[], not its meaning:
+//   `tujuan` (u24) **IS "a goal"** → so `gol` is glossed "a goal scored" and its
+//     accept[] carries none of "a goal".
+//   `kalah` (u30) accepts **"to be defeated"** → so `mengalahkan` is "to beat an
+//     opponent" and accepts "to get the better of", never "to defeat".
+//   `menang` (u30) accepts **"to take the prize"** and `hadiah` (u35) accepts
+//     **"a prize"** → so `piala` is "a trophy" and `medali` is "a medal"; neither
+//     accepts "a prize".
+//   `anggota` (u32) **IS "a member"** → so `pemain` accepts "a member of a team",
+//     never the bare "a member".
+//   `bermain` (u18) accepts **"to play a game"** → so `permainan` accepts no form
+//     of that string.
+//   `berolahraga` (u18) accepts **"to do sport"** → `olahraga` is the bare noun
+//     "sport", which normalises differently, and its accept[] avoids every verb.
+//   `hobi` (u35) **IS "a hobby"** → `permainan` accepts "a pastime with rules".
+//
+// ⚠️ AND READING THE NEIGHBOURS BY HAND WAS NOT ENOUGH — DO NOT TRUST IT. The
+// list above was compiled by hand BEFORE any card was written, exactly as A4 asks.
+// A script then compared every new meaning AND accept string against every other
+// one in the language, normalised the way `normalizeMeaning` does it, and found
+// **13 MORE** across this branch that hand-reading had missed. The reason is the
+// one A4 already states and which is easy to read past: **`normalizeMeaning`
+// strips a leading "to " AND a leading a/an/the, so "to match" and "a match" are
+// THE SAME STRING.** Hand-reading compares concepts; the grader compares strings,
+// and the two disagree wherever a verb and a noun share a stem. In this unit it
+// caught two:
+//   `cocok` (u14) **IS "to match"** → which normalises to "match", so
+//     `pertandingan` could not be "a match". It is glossed "a sporting fixture".
+//   `mengaku` (u22) accepts **"to concede"** → so `menyerah` accepts "to throw in
+//     the towel" instead.
+// **So: write the glosses, then run the comparison mechanically.** The probe lives
+// at `scripts/tmp/a4.mjs` on this branch; it is untracked, and it is twenty lines.
+//
+// ⛔ NO ter- FORM AND NO di- PASSIVE IS CARDED HERE (A5, A6). `tertinggal`
+// and `dikalahkan` were the obvious candidates; both are deferred to B1 with the
+// patterns they belong to.
 // ─────────────────────────────────────────────────────────────────────────────
 export const ID_UNIT41 = {
   id: "id-u41",
   lang: "id",
-  title: "Di atas, di bawah, di antara",
+  title: "Olahraga dan pertandingan",
   order: 41,
   stage: "a2",
   lessons: [
@@ -84,68 +156,68 @@ export const ID_UNIT41 = {
       id: "id-u41l1",
       unit: 41,
       lesson: 1,
-      title: "Atas dan bawah",
+      title: "Olahraga dan lapangan",
       cefr: "A2",
       dominantMode: "recognize",
-      canDo: "Place a thing in the vertical — on top of, underneath, in the middle, at the base — and say that something has come down.",
+      canDo: "Name sport itself, the ground it is played on, the match, and the three people a match needs — the player, the coach and the referee.",
       items: [
-        { id: "id-u41l1-atas", type: "vocab", front: "atas", reading: "atas", meaning: "above", example: { jp: "Buku saya ada di atas meja.", en: "My book is on top of the table." }, accept: ["on top of", "the upper part", "overhead"], drill: { jp: "Kucing itu tidur di atas kursi", en: "That cat is sleeping on top of the chair" }, hint: "AH-tas. It almost never stands alone — you want di atas for where a thing IS and ke atas for movement upward. ⚠️ Do not read it inside atasan, your boss at work: that word is built on it but means the person above you, not a position." },
-        { id: "id-u41l1-bawah", type: "vocab", front: "bawah", reading: "bawah", meaning: "underneath", example: { jp: "Sepatu saya ada di bawah tempat tidur.", en: "My shoes are underneath the bed." }, accept: ["below", "the lower part", "under"], drill: { jp: "Anjing itu duduk di bawah meja", en: "That dog is sitting under the table" }, hint: "BAH-wah, both a's open. The exact pair to atas, and the same rule: di bawah for position, ke bawah for going down. Bawah tanah, literally under-ground, is how Indonesian says a basement." },
-        { id: "id-u41l1-tengah", type: "vocab", front: "tengah", reading: "tengah", meaning: "the middle", example: { jp: "Meja besar itu ada di tengah kamar.", en: "That big table is in the middle of the room." }, accept: ["the centre", "halfway along", "the midst"], drill: { jp: "Ada pohon tinggi di tengah jalan", en: "There is a tall tree in the middle of the road" }, hint: "TUH-ngah, first e swallowed, ng one hum. You already know setengah for half — the same word with se- in front, because half is what the middle divides. Tengah hari is midday; tengah malam is midnight." },
-        { id: "id-u41l1-turun", type: "vocab", front: "turun", reading: "turun", meaning: "to go down", example: { jp: "Harga mobil itu turun tahun ini.", en: "The price of that car went down this year." }, accept: ["to come down", "to drop", "to get off a vehicle"], drill: { jp: "Kami turun dari kereta di kota", en: "We got off the train in the city" }, hint: "TOO-roon. The mirror of naik, which you learned as to ride: naik is to go UP or to board, turun is to go DOWN or to get off. It works for prices, rain and fever alike — hujan turun, demam turun." },
-        { id: "id-u41l1-dasar", type: "vocab", front: "dasar", reading: "dasar", meaning: "the base", example: { jp: "Ada gula di dasar gelas saya.", en: "There is sugar at the base of my glass." }, accept: ["the bottom", "the foundation", "the floor of something"], drill: { jp: "Ada air dingin di dasar botol", en: "There is cold water at the bottom of the bottle" }, hint: "DAH-sar. The inside bottom of a container or of water — bawah is the space UNDER a thing, dasar is the thing's own floor. It is also basis in the abstract sense: dasar yang kuat, a strong foundation." },
-        { id: "id-u41l1-permukaan", type: "vocab", front: "permukaan", reading: "permukaan", meaning: "the surface", example: { jp: "Permukaan jalan ini keras dan panas.", en: "The surface of this road is hard and hot." }, accept: ["the outer face", "the top face", "the exposed side"], drill: { jp: "Permukaan meja itu halus sekali", en: "The surface of that table is very smooth" }, hint: "puhr-moo-KAH-an — four syllables, and the last two split apart. Built on muka, a face, so it is literally the face of a thing. It pairs with dasar: permukaan air is the water's surface, dasar is its bottom." },
+        { id: "id-u41l1-olahraga", type: "vocab", front: "olahraga", reading: "olahraga", meaning: "sport", example: { jp: "Olahraga adalah hobi saya yang paling baik.", en: "Sport is my favourite hobby." }, accept: ["athletics", "a sporting discipline", "sports"], drill: { jp: "Anak saya suka olahraga dan musik", en: "My child likes sport and music" }, hint: "oh-lah-RAH-ga, four syllables, every a open. You already know berolahraga, to exercise — this is the bare noun underneath it, so berolahraga is what you DO and olahraga is the thing itself. The name of a particular sport usually follows it: olahraga air, water sports." },
+        { id: "id-u41l1-lapangan", type: "vocab", front: "lapangan", reading: "lapangan", meaning: "a sports field", example: { jp: "Ada lapangan besar di belakang sekolah itu.", en: "There is a big sports field behind that school." }, accept: ["a pitch", "a playing field", "an open ground"], drill: { jp: "Banyak anak bermain di lapangan setiap sore", en: "Many children play on the field every afternoon" }, hint: "la-PAH-ngan, the ng one hum. Any flat open ground, not only a sports one — lapangan kerja is the job market and a small airfield is a lapangan terbang. Keep it apart from taman, which is a planted public garden." },
+        { id: "id-u41l1-pertandingan", type: "vocab", front: "pertandingan", reading: "pertandingan", meaning: "a sporting fixture", example: { jp: "Pertandingan itu mulai pada jam empat sore.", en: "That match starts at four in the afternoon." }, accept: ["a game between two sides", "a sporting contest", "a tie between two teams"], drill: { jp: "Kami menonton pertandingan di lapangan kota", en: "We watched a match on the city field" }, hint: "per-tan-DEENG-an, five syllables. Built on tanding, to be matched against — so it is the EVENT, the thing on the schedule. You already met menang and kalah for how one ends; this is the noun they attach to. For a race or a school competition the word is lomba instead." },
+        { id: "id-u41l1-pemain", type: "vocab", front: "pemain", reading: "pemain", meaning: "a player", example: { jp: "Pemain itu paling tinggi di dalam tim kami.", en: "That player is the tallest in our team." }, accept: ["a member of a team", "someone who plays", "a squad player"], drill: { jp: "Pemain baru itu berlari sangat cepat", en: "That new player runs very fast" }, hint: "puh-MAH-een, three syllables. The pe- prefix makes the PERSON who does a thing, off bermain, to play — the same shape as penulis off writing and penjual off selling. It works for a musician and an actor too, not only for sport." },
+        { id: "id-u41l1-pelatih", type: "vocab", front: "pelatih", reading: "pelatih", meaning: "a coach", example: { jp: "Pelatih kami sangat keras tetapi adil.", en: "Our coach is very hard on us but fair." }, accept: ["a trainer", "the person who trains a team", "a team manager"], drill: { jp: "Pelatih itu menunjuk pemain yang paling baik", en: "That coach pointed at the best player" }, hint: "puh-lah-TEEH, the final h a soft breath. Same pe- shape as pemain, off the root latih, to drill someone. Not an atasan, a boss at work — a pelatih trains you to do a thing, and the word covers a driving instructor as readily as a football coach." },
+        { id: "id-u41l1-wasit", type: "vocab", front: "wasit", reading: "wasit", meaning: "a referee", example: { jp: "Wasit itu melihat pemain yang melanggar aturan.", en: "The referee saw the player who broke the rules." }, accept: ["an umpire", "the official in charge", "the match official"], drill: { jp: "Wasit berdiri di tengah lapangan", en: "The referee stands in the middle of the field" }, hint: "WAH-sit. An Arabic loan, and the root sense is the one in the middle — the neutral party. It is the word for every sport and also for a neutral go-between in an argument, which is where the borrowing came from." },
       ],
     },
     {
       id: "id-u41l2",
       unit: 41,
       lesson: 2,
-      title: "Antara dan ujung",
+      title: "Sepak bola dan bulu tangkis",
       cefr: "A2",
       dominantMode: "recognize",
-      canDo: "Locate a thing relative to two others, name the outside and the ends of it, and say which way something is heading.",
+      canDo: "Name Indonesia's two biggest sports, the ball and the goal they are played at, and the keep-fit class you do without either.",
       items: [
-        { id: "id-u41l2-antara", type: "vocab", front: "antara", reading: "antara", meaning: "between", example: { jp: "Ada pasar antara sekolah dan kantor.", en: "There is a market between the school and the office." }, accept: ["in between", "amid", "among"], drill: { jp: "Ada jalan kecil antara dua rumah", en: "There is a small road between two houses" }, hint: "an-TAH-ra. The two things go either side of dan: antara pagi dan siang, antara saya dan kamu. ⚠️ THIS IS THE WORD THE COURSE HAS BEEN MISSING — you cannot say perbedaan antara dua kota, the difference between two cities, without it. Sementara looks similar and is unrelated." },
-        { id: "id-u41l2-luar", type: "vocab", front: "luar", reading: "luar", meaning: "the outside", example: { jp: "Anak kecil itu bermain di luar rumah.", en: "That small child is playing outside the house." }, accept: ["outdoors", "beyond", "the exterior"], drill: { jp: "Teman saya ada di luar kelas", en: "My friend is outside the classroom" }, hint: "LOO-ar, two syllables. Di luar is outside and di dalam is inside — you met dalam as deep, and this is its other job. Luar negeri, literally outside-the-country, is the everyday word for abroad. It hides inside keluar, to go out, which you already know." },
-        { id: "id-u41l2-pinggir", type: "vocab", front: "pinggir", reading: "pinggir", meaning: "the edge", example: { jp: "Kami duduk di pinggir sungai.", en: "We sat at the edge of the river." }, accept: ["the side of something", "the rim", "the margin"], drill: { jp: "Ada warung di pinggir jalan besar", en: "There is a food stall at the edge of the big road" }, hint: "PEENG-gheer — ngg is the hum plus a hard g, the trap from unit 1. The border of a flat thing: pinggir jalan is the roadside, pinggir kota the outskirts. Minggir! is the shout for get out of the way." },
-        { id: "id-u41l2-ujung", type: "vocab", front: "ujung", reading: "ujung", meaning: "the tip", example: { jp: "Ada toko kecil di ujung jalan ini.", en: "There is a small shop at the end of this road." }, accept: ["the far end", "the point of something", "the extremity"], drill: { jp: "Nama saya ada di ujung surat itu", en: "My name is at the end of that letter" }, hint: "OO-joong, one ng hum. The END of something long — a road, a queue, a finger, a story. Keep it apart from akhir, which is the end in TIME, and from pinggir, which is the edge running along the side." },
-        { id: "id-u41l2-menuju", type: "vocab", front: "menuju", reading: "menuju", meaning: "to head for", example: { jp: "Kereta ini menuju pantai.", en: "This train is heading for the beach." }, accept: ["bound for", "to make for", "in the direction of"], drill: { jp: "Kami menuju rumah nenek pagi ini", en: "We are heading for grandmother's house this morning" }, hint: "muh-NOO-joo. Built on the same root as tujuan, a purpose — you head TOWARD your aim. It is what a station board and a bus front say: menuju Jakarta. In speech ke plus a place is far commoner; menuju is the written and announced form." },
-        { id: "id-u41l2-lewat", type: "vocab", front: "lewat", reading: "lewat", meaning: "to go past", example: { jp: "Kami lewat pasar setiap pagi.", en: "We go past the market every morning." }, accept: ["to pass by", "via a route", "gone by"], drill: { jp: "Mobil itu lewat depan rumah saya", en: "That car goes past in front of my house" }, hint: "LEH-wat. Three everyday jobs: going past a place, going BY a route (lewat jalan kecil), and time being past (jam tujuh lewat, gone seven). Melewati is the formal transitive twin. Do not confuse it with melalui in the next lesson, which is by MEANS of something." },
+        { id: "id-u41l2-bola", type: "vocab", front: "bola", reading: "bola", meaning: "a ball", example: { jp: "Anak kecil itu melempar bola ke atas.", en: "That small child threw the ball upwards." }, accept: ["a ball you kick", "a ball you throw", "a round ball"], drill: { jp: "Bola itu jatuh di bawah meja", en: "That ball fell under the table" }, hint: "BOH-la. Any ball at all, and it is also the shape — bola bumi is a globe. You already know bulat for round; bola is the object, bulat is the quality. ⚠️ The compound sepak bola in the next card contains this word, so listen for whether a speaker means the ball or the game." },
+        { id: "id-u41l2-sepakbola", type: "vocab", front: "sepak bola", reading: "sepakbola", meaning: "football", example: { jp: "Sepak bola adalah olahraga yang paling terkenal di Indonesia.", en: "Football is the most famous sport in Indonesia." }, accept: ["soccer", "the game of football", "association football"], drill: { jp: "Mereka bermain sepak bola di lapangan sekolah", en: "They play football on the school field" }, hint: "SEH-pak BOH-la, two words with a space, always. Sepak is to kick with the side of the foot — the same idea as menendang, which you know, but sepak is the older word and only survives in fixed phrases like this one. Written as two words; never sepakbola." },
+        { id: "id-u41l2-gol", type: "vocab", front: "gol", reading: "gol", meaning: "a goal scored", example: { jp: "Pemain itu membuat dua gol di dalam satu pertandingan.", en: "That player scored two goals in one match." }, accept: ["a score in football", "a scored goal", "a point put past the keeper"], drill: { jp: "Gol itu membuat semua penonton berdiri", en: "That goal made all the spectators stand up" }, hint: "GOL, one syllable, hard g. Borrowed from English but only for the SCORE — the thing you aim at is gawang, the next card. ⚠️ Indonesian already has tujuan for a goal in the sense of an aim, so gol never means a purpose. Mencetak gol is the set phrase for scoring one." },
+        { id: "id-u41l2-gawang", type: "vocab", front: "gawang", reading: "gawang", meaning: "the goalposts", example: { jp: "Bola itu masuk ke dalam gawang.", en: "The ball went into the goal." }, accept: ["a goalmouth", "the goal frame", "the posts"], drill: { jp: "Ada dua gawang di ujung lapangan", en: "There are two goals at the ends of the field" }, hint: "GAH-wang, ng one hum. The frame, not the score — masuk gawang is the ball going in, and gol is what the scoreboard records. The word means an archway, which is what a goal looks like from a distance." },
+        { id: "id-u41l2-bulutangkis", type: "vocab", front: "bulu tangkis", reading: "bulutangkis", meaning: "badminton", example: { jp: "Bulu tangkis adalah olahraga yang membuat Indonesia terkenal.", en: "Badminton is the sport that made Indonesia famous." }, accept: ["the game of badminton", "shuttlecock badminton"], drill: { jp: "Kakak saya bermain bulu tangkis setiap hari Minggu", en: "My older sibling plays badminton every Sunday" }, hint: "BOO-loo TANG-kis, two words. Literally feather-parrying: bulu is a feather and tangkis is to fend off. This is Indonesia's strongest sport by a wide margin, so it is worth knowing even if you never play. Two words, always." },
+        { id: "id-u41l2-senam", type: "vocab", front: "senam", reading: "senam", meaning: "gymnastics", example: { jp: "Ibu saya ikut senam di taman setiap pagi.", en: "My mother joins a gymnastics class in the park every morning." }, accept: ["an exercise class", "callisthenics", "a keep-fit routine"], drill: { jp: "Senam pagi membuat badan saya segar", en: "Morning exercise makes my body feel fresh" }, hint: "suh-NAHM, first e swallowed. Both competitive gymnastics and — far commoner — the group keep-fit session done to music in parks and offices all over Indonesia, senam pagi. ⚠️ Do not read enam, six, inside it: the s in front makes a different word." },
       ],
     },
     {
       id: "id-u41l3",
       unit: 41,
       lesson: 3,
-      title: "Kepada dan pada",
+      title: "Juara dan piala",
       cefr: "A2",
       dominantMode: "recognize",
-      canDo: "Use the written prepositions A1 never taught — mark a recipient, an abstract point in time, the absence of a thing, and the channel something came through.",
+      canDo: "Say who won the title, what they lifted for it, who beat whom, who cheated, and who merely took part.",
       items: [
-        { id: "id-u41l3-kepada", type: "vocab", front: "kepada", reading: "kepada", meaning: "addressed to", example: { jp: "Saya menulis surat kepada guru saya.", en: "I wrote a letter to my teacher." }, accept: ["to a person", "toward someone", "for the attention of"], drill: { jp: "Dia memberi uang kepada anak itu", en: "He gave money to that child" }, hint: "kuh-pah-DAH. The ke you know points at PLACES; kepada points at PEOPLE. Saya pergi ke pasar, but saya berbicara kepada ibu. In relaxed speech people simply say sama or ke, so treat kepada as the careful and written choice — which is where you will read it." },
-        { id: "id-u41l3-pada", type: "vocab", front: "pada", reading: "pada", meaning: "at a point in time", example: { jp: "Kami bertemu pada hari Jumat.", en: "We met on Friday." }, accept: ["on a date", "at a moment", "upon"], drill: { jp: "Rapat itu mulai pada jam delapan", en: "That meeting starts at eight o'clock" }, hint: "PAH-da. Where di marks a PLACE, pada marks a time or an abstract point: pada tahun ini, pada awalnya. It also carries on or upon for something abstract — tergantung pada cuaca. Everyday speech drops it before a day or a clock time; writing keeps it." },
-        { id: "id-u41l3-tanpa", type: "vocab", front: "tanpa", reading: "tanpa", meaning: "without", example: { jp: "Saya minum kopi tanpa gula.", en: "I drink coffee without sugar." }, accept: ["with none of", "in the absence of", "free of"], drill: { jp: "Dia pergi ke pasar tanpa uang", en: "He went to the market without money" }, hint: "TAHN-pa. The exact opposite of dengan, with — and it works in front of a verb too: tanpa berpikir, without thinking. This is the piece that lets you say no rather than only tidak: tanpa alasan, for no reason at all." },
-        { id: "id-u41l3-melalui", type: "vocab", front: "melalui", reading: "melalui", meaning: "by way of", example: { jp: "Saya tahu berita itu melalui teman saya.", en: "I learned that news through my friend." }, accept: ["by means of", "through a channel", "across something"], drill: { jp: "Kami masuk kota melalui jalan lama", en: "We entered the city by way of an old road" }, hint: "muh-lah-LOO-ee, four syllables. It is the MEANS or the channel, not merely the route: melalui telepon, melalui surat. Its root is lalu, the word you know for then and for past. Lewat is the everyday spoken cousin when the route is physical." },
-        { id: "id-u41l3-bagi", type: "vocab", front: "bagi", reading: "bagi", meaning: "for a recipient", example: { jp: "Berita itu penting bagi semua orang.", en: "That news is important for everyone." }, accept: ["as regards someone", "from the point of view of", "where someone is concerned"], drill: { jp: "Pekerjaan ini susah bagi anak kecil", en: "This work is hard for a small child" }, hint: "BAH-ghee, hard g. Untuk is for a PURPOSE; bagi is for a PERSON's sake or viewpoint — bagi saya is close to as far as I am concerned. ⚠️ The same root gives membagi, to divide, which you already know: sharing something out is what dividing it does." },
-        { id: "id-u41l3-sesuai", type: "vocab", front: "sesuai", reading: "sesuai", meaning: "in line with", example: { jp: "Harga itu sesuai dengan kontrak kami.", en: "That price is in line with our contract." }, accept: ["matching", "as agreed", "consistent with"], drill: { jp: "Jadwal baru sesuai dengan rencana kami", en: "The new schedule is in line with our plan" }, hint: "suh-SOO-ai, the last two vowels sliding into one. It nearly always takes dengan after it. Cocok, which you know, is the everyday it fits or it suits; sesuai is the formal matches what was agreed — the word on a form, a contract or a sign." },
+        { id: "id-u41l3-juara", type: "vocab", front: "juara", reading: "juara", meaning: "a champion", example: { jp: "Tim kami menjadi juara pada tahun ini.", en: "Our team became champions this year." }, accept: ["the title holder", "a champ", "the winner of a title"], drill: { jp: "Pemain itu juara di kota kami", en: "That player is the champion in our city" }, hint: "joo-AH-ra. The TITLE, not the single win — menang is winning a match, juara is holding the crown. It also numbers the places: juara satu, dua, tiga are first, second and third, so a juara tiga has come third rather than lost." },
+        { id: "id-u41l3-piala", type: "vocab", front: "piala", reading: "piala", meaning: "a trophy", example: { jp: "Piala itu ada di atas meja di kantor sekolah.", en: "The trophy is on the table in the school office." }, accept: ["a winner's cup", "a cup you lift", "silverware"], drill: { jp: "Tim kami membawa piala besar dari kota lain", en: "Our team brought a big trophy back from another city" }, hint: "pee-AH-la. The physical cup. It is also the name of a competition, exactly as English says Cup: Piala Dunia is the World Cup. ⚠️ Not a hadiah, which is any gift or prize — a piala is specifically the cup shape you hold over your head." },
+        { id: "id-u41l3-medali", type: "vocab", front: "medali", reading: "medali", meaning: "a medal", example: { jp: "Dia mendapat medali karena berenang paling cepat.", en: "She got a medal for swimming the fastest." }, accept: ["a medal you win", "a sporting medal", "a medal round the neck"], drill: { jp: "Ada tiga medali di dalam kotak itu", en: "There are three medals inside that box" }, hint: "muh-DAH-lee, stress on the middle. Borrowed, but the spelling has moved far enough from English that it is worth learning as its own word — one l, final -i. Medali emas is a gold medal, and it is the word a news report uses for an Olympic count." },
+        { id: "id-u41l3-mengalahkan", type: "vocab", front: "mengalahkan", reading: "mengalahkan", meaning: "to beat an opponent", example: { jp: "Tim kami mengalahkan tim mereka pada hari Sabtu.", en: "Our team beat their team on Saturday." }, accept: ["to get the better of", "to see off", "to win against"], drill: { jp: "Pemain muda itu mengalahkan pelatih kami", en: "That young player beat our coach" }, hint: "muh-nga-lah-KAHN. This is the ACTIVE twin of kalah, which you know as to be beaten — and Indonesian needs both, because kalah cannot take an object. Tim kami menang says we won; tim kami mengalahkan mereka says whom we won against. Note the k of kalah disappears under meng-." },
+        { id: "id-u41l3-curang", type: "vocab", front: "curang", reading: "curang", meaning: "cheating", example: { jp: "Pemain yang curang tidak boleh ikut pertandingan.", en: "A player who cheats may not join the match." }, accept: ["unfair in play", "dishonest in a game", "crooked"], drill: { jp: "Wasit tahu tim itu curang", en: "The referee knew that team was cheating" }, hint: "CHOO-rang — c is CH, ng one hum. The exact opposite of adil, fair, and narrower than bohong or menipu: curang is breaking the rules of a game or a deal specifically. Berbuat curang is the full phrase for committing a foul." },
+        { id: "id-u41l3-peserta", type: "vocab", front: "peserta", reading: "peserta", meaning: "a participant", example: { jp: "Semua peserta harus datang pada jam tujuh pagi.", en: "All participants must come at seven in the morning." }, accept: ["an entrant", "someone taking part", "a competitor"], drill: { jp: "Ada banyak peserta dari sekolah lain", en: "There are many participants from other schools" }, hint: "puh-SER-ta. Another pe- person-word, and it is not only for sport — the peserta of a meeting, a course or an exam. ⚠️ The word serta, and also, hides inside it but is not related in use: a peserta takes part, serta joins two things in a sentence." },
       ],
     },
     {
       id: "id-u41l4",
       unit: 41,
       lesson: 4,
-      title: "Ketika dan sejak",
+      title: "Permainan dan catur",
       cefr: "A2",
       dominantMode: "recognize",
-      canDo: "Pin an event to a moment — when it happened, the instant itself, how long since, and how far it ran.",
+      canDo: "Name the games played sitting down, move a piece forward or back, and concede when you are beaten.",
       items: [
-        { id: "id-u41l4-ketika", type: "vocab", front: "ketika", reading: "ketika", meaning: "at the moment when", example: { jp: "Ketika saya kecil, saya tinggal di desa.", en: "When I was small, I lived in a village." }, accept: ["at the time that", "just as", "back when"], drill: { jp: "Hujan datang ketika kami tidur", en: "The rain came while we were sleeping" }, hint: "kuh-TEE-ka. The clause-opening when, for something that HAPPENED — kalau is the when of a condition and kapan is the question. Waktu does this job in speech; ketika is the neutral written one, and is the form you will read." },
-        { id: "id-u41l4-saat", type: "vocab", front: "saat", reading: "saat", meaning: "the instant", example: { jp: "Saat itu saya sangat lelah.", en: "At that instant I was very tired." }, accept: ["the very moment", "the point in time", "just then"], drill: { jp: "Saat guru masuk semua anak diam", en: "The moment the teacher came in every child went quiet" }, hint: "SAH-at, two syllables with a tiny break between the a's. A NOUN, where ketika is a connector — saat ini is right now, pada saat itu at that moment. Waktu is a stretch of time; saat is a single point inside it." },
-        { id: "id-u41l4-sejak", type: "vocab", front: "sejak", reading: "sejak", meaning: "ever since", example: { jp: "Saya belajar bahasa ini sejak tahun lalu.", en: "I have been studying this language since last year." }, accept: ["starting from", "as of", "from a point onward"], drill: { jp: "Dia bekerja di sini sejak bulan Mei", en: "He has worked here since May" }, hint: "suh-JAHK, final k a glottal catch. Indonesian has no perfect tense, so sejak plus a starting point IS how you say have been doing: sejak pagi, since this morning. Its natural partner is sampai or hingga for the far end." },
-        { id: "id-u41l4-hingga", type: "vocab", front: "hingga", reading: "hingga", meaning: "right up until", example: { jp: "Kami bekerja hingga malam.", en: "We worked right up until night." }, accept: ["all the way to", "through to", "up to the point of"], drill: { jp: "Toko itu buka hingga jam sepuluh", en: "That shop is open until ten o'clock" }, hint: "HEENG-ga, ngg the hum plus a hard g. The written twin of sampai, which you already know — sampai in speech, hingga in writing and on signs. ⚠️ You have also met sehingga, so that: the same word with se- in front, and it marks a RESULT, not a limit." },
-        { id: "id-u41l4-kemudian", type: "vocab", front: "kemudian", reading: "kemudian", meaning: "next in order", example: { jp: "Kami makan, kemudian kami pergi.", en: "We ate, and next we left." }, accept: ["thereupon", "the next thing", "then in a sequence"], drill: { jp: "Dia menulis surat kemudian pergi ke kantor", en: "He wrote a letter and then went to the office" }, hint: "kuh-moo-DEE-an. It steps through a SEQUENCE, so it sits between two whole clauses: A, kemudian B. Lalu does the same job in speech and is shorter; kemudian is the written, more formal step. Keep it apart from nanti, which is later on, not next." },
-        { id: "id-u41l4-menjelang", type: "vocab", front: "menjelang", reading: "menjelang", meaning: "as it approaches", example: { jp: "Menjelang malam, cuaca menjadi dingin.", en: "As night approached, the weather turned cold." }, accept: ["shortly before", "in the run-up to", "coming up to"], drill: { jp: "Jalan menjadi macet menjelang hari Sabtu", en: "The road gets jammed in the run-up to Saturday" }, hint: "muhn-juh-LAHNG. Sebelum is simply before; menjelang is the narrowing stretch just before a thing arrives, so it carries anticipation — menjelang ujian, menjelang pagi. Newspapers use it constantly for the days before an event." },
+        { id: "id-u41l4-permainan", type: "vocab", front: "permainan", reading: "permainan", meaning: "a game", example: { jp: "Permainan itu sangat susah untuk anak kecil.", en: "That game is very difficult for a small child." }, accept: ["a round of play", "a pastime with rules", "a game with rules"], drill: { jp: "Permainan ini butuh dua orang saja", en: "This game needs only two people" }, hint: "per-mah-EE-nan. The per--an noun off bermain, to play — so it is the game as a THING WITH RULES, where pertandingan is a specific fixture between two sides. A hobi is anything you do for pleasure; a permainan has rules you can break." },
+        { id: "id-u41l4-catur", type: "vocab", front: "catur", reading: "catur", meaning: "chess", example: { jp: "Ayah saya bermain catur dengan rekan di kantor.", en: "My father plays chess with a colleague at the office." }, accept: ["the game of chess", "a chess game"], drill: { jp: "Catur adalah permainan yang paling lama", en: "Chess is the longest game" }, hint: "CHAH-toor, c is CH. From Sanskrit catur, four — after the four arms of an ancient Indian army, which is where chess comes from. Papan catur is the board. It is a serious pastime in Indonesia and you will see it played on pavements everywhere." },
+        { id: "id-u41l4-kartu", type: "vocab", front: "kartu", reading: "kartu", meaning: "a playing card", example: { jp: "Mereka bermain kartu di dalam rumah karena hujan.", en: "They played cards indoors because it was raining." }, accept: ["a card", "a card from a pack", "a deck card"], drill: { jp: "Ada kartu di bawah kursi itu", en: "There is a card under that chair" }, hint: "KAR-too. Every flat card, not only the playing kind: kartu nama is a business card and kartu kredit a credit card, both everyday words. Main kartu is to play cards. ⚠️ The plastic sort you carry and the paper sort you deal are the same word." },
+        { id: "id-u41l4-maju", type: "vocab", front: "maju", reading: "maju", meaning: "to move forward", example: { jp: "Pemain itu maju ke depan dan menendang bola.", en: "That player moved forward and kicked the ball." }, accept: ["to advance", "to step up", "to make progress"], drill: { jp: "Mobil itu maju sedikit saja", en: "That car moved forward just a little" }, hint: "MAH-joo. Physical forward motion, and also progress in the abstract — negara yang maju is a developed country, and maju! is the shout for go on. Its exact opposite is mundur, the next card. Not bergerak, which is simply to move at all." },
+        { id: "id-u41l4-mundur", type: "vocab", front: "mundur", reading: "mundur", meaning: "to move backwards", example: { jp: "Kami mundur karena bola itu datang sangat cepat.", en: "We moved back because the ball was coming very fast." }, accept: ["to retreat", "to back up", "to go into reverse"], drill: { jp: "Mobil itu mundur ke pinggir jalan", en: "That car backed up to the side of the road" }, hint: "MOON-door. The mirror of maju, and used for a reversing car as readily as for a retreating army. A third sense you will hear on the news: mundur means to resign or step down from a post — literally to move back out of it." },
+        { id: "id-u41l4-menyerah", type: "vocab", front: "menyerah", reading: "menyerah", meaning: "to give up", example: { jp: "Tim kami tidak mau menyerah sebelum pertandingan selesai.", en: "Our team did not want to give up before the match was over." }, accept: ["to surrender", "to throw in the towel", "to admit defeat"], drill: { jp: "Peserta itu menyerah karena sangat lelah", en: "That entrant gave up because he was very tired" }, hint: "muh-nyuh-RAH — ny is one sound, the trap from unit 1. Built on serah, to hand over, so it is handing yourself over: giving in to an opponent, to an illness or to a problem. Not gagal, which is failing at something you kept trying; menyerah is stopping." },
       ],
     },
   ],
