@@ -197,7 +197,7 @@ export function glossCollisionWarnings(units) {
         if (it.type !== "vocab" && it.type !== "kanji") continue;
         const gloss = String(it.meaning ?? "").trim().replace(/\s+/g, " ").toLowerCase();
         if (!gloss) continue;
-        const key = `${u.lang} ${gloss}`;
+        const key = `${u.lang}\0${gloss}`;
         if (!seen.has(key)) seen.set(key, []);
         seen.get(key).push({ id: it.id, front: it.front, reading: String(it.reading ?? "").trim().toLowerCase() });
       }
@@ -205,7 +205,7 @@ export function glossCollisionWarnings(units) {
   }
   for (const [key, hits] of seen) {
     if (hits.length < 2) continue;
-    const [lang, gloss] = key.split(" ");
+    const [lang, gloss] = key.split("\0");
     // ONE WORD IN TWO SCRIPTS IS NOT TWO WORDS. さかな and 魚 share the gloss "fish"
     // AND the reading "sakana" — that is the curriculum teaching a word in kana and
     // its kanji later, exactly as intended, and a discriminator on the gloss would
