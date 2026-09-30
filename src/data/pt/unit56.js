@@ -129,7 +129,7 @@ export const PT_UNIT56 = {
           type: "vocab",
           front: "a gestão",
           reading: "agestao",
-          meaning: "management",
+          meaning: "management (the activity)",
           example: { jp: "A gestão da empresa mudou este ano, mas a prioridade do projeto é igual.", en: "The company's management changed this year, but the project's priority is the same." },
           drill: { jp: "A gestão da empresa mudou este ano", en: "The company's management changed this year" },
           accept: ["the management", "administration", "running"],
