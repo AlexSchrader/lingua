@@ -71,11 +71,28 @@ import { HI_UNITS } from "../src/data/hi/index.js";
 
 const BAND_MAX = 6; // u1–u6 is the pre-A1 script band (unit1.js §8)
 
+// A stem "ends in a vowel" when its last codepoint is a vowel MĀTRĀ (खा, बुला, पी,
+// सो, छू) or an independent vowel letter. Those stems build the perfective with an
+// inserted य — खाया, बुलाई, सजाए — where a CONSONANT stem just adds ा/ी/े (देखा,
+// पकड़ी, बाँटे). Getting this backwards is what left every -आना verb's past out of
+// scope while देखा read as in scope. See unit31.js §A6.
+const VOWEL_END = /[ा-ौऄ-औ]$/;
+
 function derive(front) {
   const out = new Set([front]);
   if (front.endsWith("ना") && front.length > 2) {
     const st = front.slice(0, -2);
-    for (const suf of ["ता", "ती", "ते", "कर", "िए", "े", "ो", "ा", "ी", "ूँगा", "ेगा", "तें", "ने"]) out.add(st + suf);
+    // THE BARE STEM. The familiar imperative (बोल, देख) and the base of every
+    // compound and of the ability construction unit32.js teaches — without it the
+    // first token of "कर सकता हूँ" is out of scope. Generated, not lexical.
+    out.add(st);
+    for (const suf of ["ता", "ती", "ते", "कर", "िए", "े", "ो", "ा", "ी", "ीं", "ूँगा", "ेगा", "तें", "ने"]) out.add(st + suf);
+    // The VOWEL-STEM PERFECTIVE, the same paradigm slot as the ा/ी/े above, and
+    // the VOWEL-STEM FAMILIAR IMPERATIVE, which needs the INDEPENDENT ओ because a
+    // mātrā cannot follow a mātrā: बोलो is st + ो, but जाओ / दिखाओ / लगाओ are
+    // st + ओ. Without it every instruction sentence in a health or cooking unit
+    // reads as out of scope. (A2 block 1)
+    if (VOWEL_END.test(st)) for (const suf of ["या", "ई", "ए", "ईं", "ओ"]) out.add(st + suf);
   }
   if (front.endsWith("ा")) {
     out.add(front.slice(0, -1) + "ी");
@@ -85,6 +102,16 @@ function derive(front) {
   if (front.endsWith("ी")) {
     out.add(front.slice(0, -1) + "ियाँ");
     out.add(front.slice(0, -1) + "ियों");
+  }
+  // A front ending in the INDEPENDENT आ takes the same plural-and-oblique paradigm
+  // as a -ा front, but spelled with independent letters, because a mātrā cannot
+  // follow another mātrā: बटुआ → बटुए (oblique and plural) and बटुओं (oblique
+  // plural). Exactly the class block 2 fixed for the
+  // consonant-final plural: a generated form in the standard paradigm, and the
+  // -ा rule above simply could not reach it. (A2 block 1)
+  if (front.endsWith("आ")) {
+    out.add(front.slice(0, -1) + "ए");
+    out.add(front.slice(0, -1) + "ओं");
   }
   // A consonant-final front ends in a bare consonant LETTER — no mātrā, no
   // anusvāra, no halant. Those take the mātrā plural ें and the oblique ों; a
@@ -122,6 +149,16 @@ const IRREGULAR = {
   "दो": ["दोनों"],
   "तीन": ["तीनों"],
   "बूढ़ा": ["बूढ़े", "बूढ़ी"],
+  // The six perfectives no rule reaches, plus छूना's, added by A2 block 1 with the
+  // ने-ergative (unit31.js §A6). Same class as नया → नई: one lexeme, forms
+  // generation cannot produce. A transitive-past unit is unwritable without them.
+  "करना": ["किया", "की", "किए", "कीं"],
+  "होना": ["हुआ", "हुई", "हुए", "हुईं"],
+  "जाना": ["गया", "गई", "गए", "गईं"],
+  "लेना": ["लिया", "ली", "लिए", "लीं", "लो"],
+  "देना": ["दिया", "दी", "दिए", "दीं", "दो"],
+  "पीना": ["पिया", "पी", "पिए", "पीं"],
+  "छूना": ["छुआ", "छुई", "छुए", "छुईं"],
 };
 
 const items = [];
@@ -135,12 +172,35 @@ const remember = (w, unit) => {
   const prev = born.get(w);
   if (prev === undefined || unit < prev) born.set(w, unit);
 };
+
+// ⚠️ A WORD THAT IS ITSELF A TAUGHT FRONT IS LICENSED BY ITS OWN UNIT AND BY
+// NOTHING EARLIER. Without this, one word's paradigm licenses a DIFFERENT word
+// early, and the collisions are real, not hypothetical: कहना (u22) generates
+// कहीं, which is its own front at u23l3, and नाना (u10) generates नाई, which is
+// its own front at u28l3 — eighteen units early. derive() cannot tell a verb from
+// a noun that happens to end in -ना, so the fix belongs here rather than in a
+// lexical exception list. This TIGHTENS the check; measured on the merged corpus,
+// the band count and the A1 count are both unchanged by it. (A2 block 1)
+const explicitFronts = new Set(
+  items.filter((it) => typeof it.front === "string").flatMap((it) => it.front.split(/\s+/).filter(Boolean))
+);
 for (const it of items) {
   if (typeof it.front !== "string") continue;
   remember(it.front, it.u); // a multi-word front is one token nowhere, but register it anyway
+  // ⚠️ A GLYPH FRONT IS A LETTER AND HAS NO PARADIGM, so it must not feed derive().
+  // It was feeding it, and the results were nonsense that licensed real words: the
+  // consonant glyph म (u1l2) generated में through the -ें plural, and the vowel
+  // glyph आ (u1l1) generated आएँ through the -एँ plural — which happens to be the
+  // subjunctive of आना and was therefore in scope from unit 1 by accident. Neither
+  // is an inflection of anything. TIGHTENING; measured on the merged corpus. (A2
+  // block 1)
+  if (it.type === "glyph") continue;
   for (const piece of it.front.split(/\s+/).filter(Boolean)) {
-    for (const d of derive(piece)) remember(d, it.u);
-    for (const d of IRREGULAR[piece] ?? []) remember(d, it.u);
+    remember(piece, it.u);
+    for (const d of [...derive(piece), ...(IRREGULAR[piece] ?? [])]) {
+      if (d !== piece && explicitFronts.has(d)) continue; // its own card governs it
+      remember(d, it.u);
+    }
   }
 }
 
