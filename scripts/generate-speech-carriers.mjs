@@ -18,7 +18,11 @@
 // Alex, on the same point: "we can add a word in the lessons so its not just letters".
 //
 // NO NEW AUDIO IS NEEDED. Every carrier is chosen from words the curriculum ALREADY
-// teaches in that language, and the corpus is fully voiced (17,497/17,497), so each
+// teaches in that language. ⚠️ THE CORPUS IS NO LONGER FULLY VOICED - this line read
+// "fully voiced (17,497/17,497)" and the corpus is now 21,436 of 23,596 voiceable
+// (2026-09-30), with ru/hi/id A2 awaiting a paid run. That matters HERE because
+// pickCarrier() filters on hasClip: run this before those clips exist and a letter
+// silently keeps the weaker measured-transcript key instead of gaining a carrier. So
 // carrier already has a clip. This script picks them; it calls no API and costs
 // nothing.
 //
