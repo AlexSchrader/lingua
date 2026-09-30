@@ -60,6 +60,15 @@
 //   pinggir · lewat · tanpa · antara · atas · bawah · tengah · luar ·
 //   kepada · pada — all roots.
 //
+// ⚠️ ONE SAME-LESSON COMPONENT PAIR IS DELIBERATE: `pada` and `kepada` sit
+// adjacent in l3, and `kepada` contains `pada` as a substring. It is NOT a router
+// hazard — measured through the real `findWholeWord`, the `e` before `pada` inside
+// `kepada` blocks a whole-word match in both directions, so neither cloze can steal
+// the other's blank. And teaching them adjacent IS the point: the ke- is the whole
+// difference between a place and a person, the same way block 1 put `tahu` and
+// `kenal` side by side. A choice card offering one against the other tests exactly
+// the distinction the lesson is for.
+//
 // ⛔ NO ter- FORM IS CARDED IN THIS UNIT. `terhadap` (toward) was the obvious
 // candidate and A2 convention A5 forbids it: ter- on a root the learner does not
 // have is deferred to B1, and `hadap` is untaught.
