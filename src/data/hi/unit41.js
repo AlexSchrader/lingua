@@ -57,6 +57,64 @@
 // ⚠️ गुड़िया's plural is गुड़ियाँ, NOT गुड़िये — an -िया noun does not take the -ा
 // noun paradigm, and `derive()` generates the wrong form, so the plural is named in
 // the hint and used in no sentence.
+//
+// ═════════════════════════════════════════════════════════════════════════════
+// THEMES SPENT BY A2 BLOCK 2 (u41–u50) — 240 cards, range closed 2026-09-30.
+// The counterpart to unit31.js's list for u31–u40. Do not re-author these.
+// ═════════════════════════════════════════════════════════════════════════════
+//   sport and the contest · society, the state, crime and the army · technology and
+//   staying in touch · the news media and the post · measuring, the fractional
+//   numbers and the partitives · the COMPOUND (VECTOR) VERBS · conditionals, the
+//   SUBJUNCTIVE, the counterfactual and comparison · the FUTURE TENSE and the -आना
+//   causative · the CONTINUOUS · the administrative map, the village, monuments and
+//   the vocabulary of history
+//
+// ⚠️ FOUR GRAMMAR SLOTS CLOSED, and each was on a deferred list with no owner:
+//   u46  compound verbs      unit1.js §6 and unit31.js §A5 both named u46
+//   u47  subjunctive + conditionals + comparison   §A5 named u47
+//   u48  THE FUTURE          named by NOBODY. Measured at 4 accidental sightings in
+//        1104 cards with no explanation anywhere, and taken into the "Conjugation
+//        drill 1" slot, which named no theme at all.
+//   u49  THE CONTINUOUS      named by NOBODY. Measured at ZERO sightings in 1104
+//        cards — the only major Hindi tense with none — into "Conjugation drill 2".
+// WHAT IS STILL DEFERRED AFTER THIS BLOCK: the PASSIVE (किया जाता है) → B1, per
+// unit1.js §6 and §A5, unchanged. Block 2 did not re-open it.
+//
+// ⚠️ SIX SLOTS RETHEMED IN THIS RANGE, on unit31.js §A8's rule — a slot keeps its
+// theme only where the corpus was MEASURED to have a remainder:
+//   u41 "Personality and character" → खेल और मुकाबला   (u27 + u32 own personality)
+//   u44 "Nature and science"        → खबर और मीडिया    (u21 owns nature; science is
+//                                                      one word, विज्ञान, at u6l1)
+//   u45 "Culture and leisure"       → नाप-तोल          (block 3's domain, and u26l3
+//                                                      + u41 + u17 spend leisure)
+//   u48 "Conjugation drill 1"       → कल क्या होगा       (the future)
+//   u49 "Conjugation drill 2"       → हो रहा है         (the continuous)
+//   u50 "Vocabulary 1 (A2)"         → इलाका और इतिहास    (lint HARD-ERRORS on that
+//                                                      title; §10 records six more)
+//   KEPT: u42 (society 6/12), u43 (technology 5/13), u46 (the slot names compounds).
+//   TWENTY-ONE rethemed slots in Hindi so far — 11 in A1, 4 by A2 block 1, 6 here.
+//
+// ⚠️ FREE: BLOCK 2 ADDS NOTHING TO unit1.js's OR unit31.js's LISTS. Every
+// construction it teaches is built from forms of fronts the course already has, so
+// the subjunctive and the future are handled by EXTENDING derive() in
+// scripts/scope-hi.mjs (see unit47.js) rather than by declaring anything free —
+// which is the stricter of the two routes and the one §A6 asks for. सबसे needed no
+// declaration either: it is already a taught front, at u22l4.
+//
+// 🚨 THIRTEEN PLANNED FRONTS WENT TO BLOCK 3, AND ONE AUTHORED CARD WAS WITHDRAWN.
+// Blocks 2 and 3 author in parallel, cannot see each other's trees, and
+// `validate:content` passes on each branch while FAILING on the merged tree — the one
+// class of defect no gate in this repo catches. Measured 2026-09-30 against block 3's
+// live 216-front list and resolved ON THEME rather than by the lower-slot-wins rule,
+// which would have handed all thirteen to block 2 and forced block 3 to re-author
+// finished work. Full per-unit lists are in unit47.js, unit48.js, unit49.js and
+// unit50.js; the withdrawn card is बूँद (u45l3 → block 3's u54), replaced by घूँट.
+// FIVE COLLISIONS STAY WITH BLOCK 2 AND BLOCK 3 IS FIXING ITS SIDE: दर्शक (u41l1),
+// खोज (u43l4), दावा and जानकारी (u44l3), अंदाज़ा (u45l4).
+// ⚠️ WHOEVER AUTHORS THE NEXT BLOCK OF ANY LANGUAGE: run
+// `node scripts/probe-hi-b2.mjs screen` against the OTHER blocks' front lists, not
+// only against your own tree. Indonesian skipped this step and paid for it in
+// duplicate cards.
 export const HI_UNIT41 = {
   id: "hi-u41",
   lang: "hi",

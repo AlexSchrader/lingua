@@ -1,4 +1,26 @@
-// TEMPORARY probe for hi A2 block 2. Deleted before hand-back.
+// Candidate-screening probe for hi. Written for A2 block 2 and KEPT.
+//
+// ⚠️ THIS HEADER SAID "TEMPORARY … Deleted before hand-back" UNTIL 2026-09-30, and it
+// was already wrong — the file had been committed. It is kept deliberately now,
+// because on 2026-09-30 its `screen` and `traps` modes caught THIRTEEN front
+// collisions between block 2's planned u47–u50 fronts and block 3's already-authored
+// u51–u59, on branches that cannot see each other and that `validate:content` passes
+// separately. That is the one class of defect no gate in this repo catches.
+//
+//   node scripts/probe-hi-b2.mjs dump                      every hi card
+//   node scripts/probe-hi-b2.mjs readings                  reading collisions
+//   node scripts/probe-hi-b2.mjs screen  <cands.txt>       front/reading/gloss/free-pass
+//   node scripts/probe-hi-b2.mjs traps   <cands.txt>       mark-boundary, candidate as needle
+//   node scripts/probe-hi-b2.mjs matra                     self-test of the boundary finder
+// where <cands.txt> is one `front|reading|gloss` per line.
+//
+// ⚠️ IT SCREENS AGAINST THE CORPUS IN **THIS** TREE, WHICH IS NOT ENOUGH ON ITS OWN.
+// A sibling block's fronts do not exist here, so a candidate can come back FREE and
+// still be a duplicate on the merged tree. Screen against the other blocks' front
+// lists as well — and note that `screen` alone would have passed जोड़ी, whose twin
+// जोड़ा (u19l4) differs in gender: it took `selfcheck-hi-a2-block2.mjs`'s
+// variantCollision check, which compares through `meaningVariants` and across
+// accept[], to catch that one. Run BOTH.
 import { seedItems } from "../src/data/index.js";
 import { normalizeReading, checkMeaning, checkProduce } from "../src/store/answer.js";
 
