@@ -1,7 +1,7 @@
 # RU — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- ru`.
-Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) still stubs**.
+Snapshot 2026-09-30: **1440 words** across **60 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -15,110 +15,127 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
 
-## Slots still unauthored
-
-**u41–u60 are unauthored.** ⚠️ This range is DERIVED from the stubs in the corpus, not read from a crew assignment — so it carries **no block numbers**, on purpose. If blocks 1 and 2 of this band are already merged, everything left is block 3's, however many slots that is. Your kickoff prompt is the only authority on which slots are yours; this file just tells you which are still empty.
-
-## Slots still stubs — not yours unless you were assigned them
-
-| slot | unit | title |
-|---|---|---|
-| 41 | `ru-u41` | Personality and character |
-| 42 | `ru-u42` | Society and daily life |
-| 43 | `ru-u43` | Technology and communication |
-| 44 | `ru-u44` | Nature and science |
-| 45 | `ru-u45` | Culture and leisure |
-| 46 | `ru-u46` | Grammar 4 — compound and linked clauses |
-| 47 | `ru-u47` | Grammar 5 — conditionals, ability, comparison |
-| 48 | `ru-u48` | Conjugation drill 1 |
-| 49 | `ru-u49` | Conjugation drill 2 |
-| 50 | `ru-u50` | Vocabulary 1 (A2) |
-| 51 | `ru-u51` | Vocabulary 2 (A2) |
-| 52 | `ru-u52` | Vocabulary 3 (A2) |
-| 53 | `ru-u53` | Vocabulary 4 (A2) |
-| 54 | `ru-u54` | Vocabulary 5 (A2) |
-| 55 | `ru-u55` | Vocabulary 6 (A2) |
-| 56 | `ru-u56` | Vocabulary 7 (A2) |
-| 57 | `ru-u57` | Vocabulary 8 (A2) |
-| 58 | `ru-u58` | Vocabulary 9 (A2) |
-| 59 | `ru-u59` | Vocabulary 10 (A2) |
-| 60 | `ru-u60` | Vocabulary 11 (A2) |
-
 ## Index — every taught word, alphabetical
 
 `word` — slot · meaning
 
 - `а` — u1
+- `абзац` — u50 · a paragraph
 - `август` — u17 · August
 - `автобус` — u9 · a bus
+- `автор` — u45 · an author
 - `адрес` — u9 · an address
+- `актёр` — u55 · a stage performer
+- `активный` — u56 · active
+- `анализ` — u53 · a lab test
+- `анкета` — u50 · a questionnaire
+- `аппетит` — u58 · an appetite
 - `апрель` — u17 · April
 - `аптека` — u14 · a chemist
+- `аренда` — u44 · rent
+- `армия` — u51 · an army
+- `аудитория` — u41 · a lecture room
 - `аэропорт` — u9 · an airport
 - `б` — u1
 - `бабушка` — u10 · a grandmother
 - `багаж` — u30 · luggage
+- `балет` — u55 · a ballet
+- `балкон` — u60 · a balcony
 - `банк` — u9 · a bank
+- `банкомат` — u44 · a cash machine
 - `бегать` — u27 · to run
+- `бедный` — u44 · poor
 - `бежать` — u36 · to be running
 - `без` — u33 · without
 - `белый` — u16 · white
 - `берег` — u30 · a shore
+- `беречь` — u59 · to look after
 - `беседа` — u39 · a conversation
+- `бесплатный` — u44 · free of charge
 - `беспокоиться` — u35 · to worry
 - `билет` — u9 · a ticket
+- `биология` — u54 · biology
+- `благодарить` — u59 · to thank
+- `бланк` — u50 · a blank form
 - `близко` — u23 · close by
+- `блюдо` — u58 · a dish of food
+- `богатый` — u44 · rich
+- `более` — u47 · more so
+- `болезнь` — u53 · an illness
 - `болеть` — u20 · to hurt
+- `болтать` — u49 · to chatter
 - `больница` — u14 · a hospital
 - `больно` — u34 · it hurts
 - `больше` — u5 · more
 - `большой` — u19 · big
 - `бояться` — u28 · to be afraid
 - `брат` — u10 · a brother
+- `бросать` — u57 · to throw
 - `брюки` — u18 · trousers
 - `будильник` — u29 · an alarm clock
+- `будить` — u48 · to wake someone
 - `будни` — u38 · weekdays
+- `будто` — u46 · as if
 - `будущее` — u24 · the future
 - `буква` — u3 · a letter (of the alphabet)
 - `бумага` — u25 · paper
 - `бутылка` — u13 · a bottle
+- `бухгалтер` — u42 · an accountant
+- `бы` — u47 · would
 - `быстро` — u5 · quickly
 - `быстрый` — u23 · fast
 - `быть` — u22 · to be
+- `бюджет` — u44 · a budget
 - `в` — u1
 - `важный` — u19 · important
+- `вакансия` — u42 · a vacancy
+- `валюта` — u44 · a currency
 - `ванная` — u15 · a bathroom
+- `вариант` — u52 · an option
+- `варить` — u58 · to boil
 - `ваш` — u2 · your (formal or plural)
 - `вверх` — u36 · upwards
 - `вдоль` — u33 · along
 - `вдруг` — u24 · suddenly
+- `ведро` — u57 · a bucket
+- `ведь` — u46 · after all
 - `вежливый` — u28 · polite
 - `везде` — u23 · everywhere
 - `везти` — u36 · to be transporting
 - `век` — u38 · a century
 - `верить` — u22 · to believe
 - `вернуться` — u35 · to come back
+- `вероятно` — u47 · in all likelihood
+- `версия` — u43 · a version
 - `вес` — u37 · a weight
 - `весело` — u27 · it is fun
 - `весна` — u16 · spring
 - `ветер` — u16 · wind
 - `ветка` — u26 · a branch
 - `вечер` — u11 · an evening
+- `вешать` — u57 · to hang up
+- `вещество` — u54 · a substance
 - `вещь` — u3 · a thing
 - `взгляд` — u39 · a look
+- `взнос` — u44 · a contribution
 - `взрослый` — u10 · an adult
 - `взять` — u31 · to take
 - `видеть` — u4 · to see
 - `виза` — u30 · a visa
 - `вилка` — u29 · a fork
 - `вино` — u13 · wine
+- `вирус` — u43 · a virus
+- `включать` — u43 · to switch on
 - `вкусно` — u13 · it tastes good
+- `власть` — u51 · authority
+- `влияние` — u52 · an influence
 - `вместе` — u7 · together
 - `вместо` — u33 · instead of
 - `внезапно` — u38 · abruptly
 - `вниз` — u36 · downwards
 - `внизу` — u23 · downstairs
 - `внимание` — u12 · attention
+- `внимательный` — u56 · attentive
 - `внук` — u10 · a grandson
 - `внутри` — u14 · inside
 - `вовремя` — u38 · on time
@@ -127,16 +144,24 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `воздух` — u26 · air
 - `возле` — u33 · beside
 - `возможность` — u34 · a chance
+- `возражать` — u49 · to raise an objection
 - `возраст` — u8 · an age
+- `война` — u51 · a war
 - `вокзал` — u14 · a railway station
 - `вокруг` — u23 · all around
+- `волна` — u54 · a wave
+- `воля` — u56 · will power
+- `вообще` — u46 · in general
 - `вопрос` — u7 · a question
+- `ворота` — u60 · a gate
 - `восемь` — u11 · eight
 - `воскресенье` — u17 · Sunday
 - `вот` — u1 · here is
 - `впервые` — u38 · for the first time
 - `вперёд` — u23 · forward
+- `впрочем` — u46 · though
 - `врач` — u2 · a doctor
+- `вредный` — u53 · harmful
 - `время` — u11 · time
 - `всё` — u3 · everything
 - `всегда` — u11 · always
@@ -150,17 +175,27 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `вчера` — u17 · yesterday
 - `вы` — u2 · you (formal or plural)
 - `выбирать` — u18 · to choose
+- `выбрасывать` — u49 · to throw out
 - `вывод` — u39 · a conclusion
+- `выгодный` — u44 · worth it
+- `вызывать` — u52 · to cause
+- `выпуск` — u45 · an issue
 - `выражение` — u39 · an expression
+- `высокий` — u47 · tall
 - `высота` — u36 · a height
 - `выставка` — u27 · an exhibition
+- `вытирать` — u57 · to wipe
 - `выход` — u12 · an exit
 - `выходной` — u17 · a day off
+- `выяснять` — u46 · to establish
 - `г` — u2
 - `газета` — u27 · a newspaper
 - `где` — u8 · where
+- `география` — u41 · geography
+- `герой` — u55 · a hero
 - `гид` — u30 · a guide
 - `главный` — u40 · the main one
+- `гладкий` — u60 · smooth
 - `глаз` — u20 · an eye
 - `глубокий` — u40 · deep
 - `глупый` — u28 · stupid
@@ -173,13 +208,25 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `гора` — u26 · a mountain
 - `гордиться` — u32 · to be proud of
 - `гордый` — u28 · proud
+- `гореть` — u48 · to burn
+- `горло` — u53 · a throat
 - `город` — u6 · a city
+- `горький` — u58 · bitter
+- `горячий` — u58 · piping hot
 - `господин` — u7 · a mister
 - `гость` — u27 · a guest
+- `государство` — u51 · a state
 - `готов` — u24 · ready
 - `готовить` — u29 · to do the cooking
+- `гражданин` — u51 · a citizen
 - `грамм` — u37 · a gramme
 - `граница` — u30 · a border
+- `график` — u50 · a schedule
+- `грипп` — u53 · the flu
+- `громкий` — u47 · loud
+- `грубый` — u56 · rude
+- `грудь` — u53 · a chest
+- `грузить` — u49 · to load
 - `группа` — u32 · a group
 - `грустно` — u34 · it is sad
 - `грустный` — u28 · sad
@@ -188,6 +235,7 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `д` — u1
 - `да` — u2 · yes
 - `давать` — u23 · to give
+- `давление` — u54 · pressure
 - `давно` — u24 · long ago
 - `даже` — u22 · even
 - `далёкий` — u30 · distant
@@ -199,36 +247,53 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `двенадцать` — u21 · twelve
 - `дверь` — u5 · a door
 - `движение` — u36 · movement
+- `двор` — u60 · a yard
 - `девяносто` — u21 · ninety
 - `девять` — u11 · nine
 - `дедушка` — u10 · a grandfather
 - `декабрь` — u17 · December
 - `делать` — u4 · to do
+- `делить` — u48 · to divide
 - `день` — u3 · a day
 - `деньги` — u5 · money
+- `депутат` — u51 · an elected member
+- `деревня` — u51 · a village
 - `дерево` — u26 · a tree
+- `держать` — u57 · to hold
 - `десять` — u11 · ten
 - `дёшево` — u12 · it is cheap
+- `дешёвый` — u44 · cheap
 - `диалог` — u39 · a dialogue
 - `диван` — u15 · a sofa
+- `диплом` — u41 · a degree certificate
 - `директор` — u9 · a director
 - `длина` — u37 · a length
 - `для` — u33 · for
 - `до` — u33 · as far as
 - `до свидания` — u7 · goodbye (formal)
+- `добавлять` — u48 · to add
+- `добиваться` — u47 · to achieve
 - `добрый` — u7 · kind
+- `доверенность` — u50 · a power of attorney
+- `доверие` — u56 · trust
+- `довод` — u52 · a point in favour
 - `довольный` — u28 · content
+- `договор` — u42 · a contract
 - `дождь` — u16 · rain
 - `доказательство` — u39 · proof
+- `доклад` — u41 · a presentation
 - `документ` — u25 · a document
 - `долго` — u11 · for a long time
 - `должен` — u24 · must
+- `должность` — u42 · a post
 - `доля` — u37 · a share
 - `дом` — u1 · a house
 - `дорога` — u4 · a road
 - `дорого` — u12 · it is expensive
 - `достаточно` — u37 · enough
+- `доход` — u44 · income
 - `дочь` — u10 · a daughter
+- `древний` — u60 · ancient
 - `друг` — u6 · a friend
 - `другой` — u19 · another
 - `думать` — u22 · to think
@@ -239,6 +304,7 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `е` — u1
 - `ё` — u3
 - `его` — u6 · his
+- `едва` — u46 · hardly
 - `её` — u3 · her
 - `ездить` — u36 · to travel regularly
 - `ёлка` — u3 · a fir tree
@@ -247,54 +313,84 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `ехать` — u14 · to go by vehicle
 - `ещё` — u3 · still, yet
 - `ж` — u2
+- `жадный` — u56 · greedy
 - `жаль` — u7 · a pity
 - `жара` — u16 · the heat
+- `жарить` — u58 · to fry
 - `жарко` — u34 · it is hot
 - `ждать` — u14 · to wait
 - `желать` — u30 · to wish
 - `жёлтый` — u16 · yellow
+- `желудок` — u53 · the stomach organ
 - `жена` — u10 · a wife
 - `женщина` — u3 · a woman
+- `живопись` — u55 · the art of painting
 - `живот` — u20 · a stomach
 - `животное` — u6 · an animal
 - `жизнь` — u5 · life
+- `жирный` — u58 · fatty
+- `житель` — u59 · an inhabitant
 - `жить` — u4 · to live
 - `журнал` — u27 · a magazine
 - `з` — u2
 - `за` — u32 · behind
+- `забор` — u60 · a fence
+- `забота` — u56 · care for someone
 - `забывать` — u22 · to forget
+- `зависеть` — u46 · to depend
+- `зависть` — u56 · envy
 - `завтра` — u17 · tomorrow
 - `завтрак` — u13 · breakfast
+- `заголовок` — u45 · a headline
 - `задание` — u25 · an assignment
+- `задача` — u52 · a task
 - `задержка` — u38 · a delay
+- `заказ` — u42 · a customer order
 - `заказывать` — u13 · to order
 - `заканчиваться` — u35 · to come to an end
+- `закон` — u51 · a law
+- `закрывать` — u57 · to shut
 - `закрыто` — u12 · it is closed
 - `зал` — u12 · a hall
+- `заменять` — u49 · to replace
 - `замечание` — u39 · a remark
 - `заниматься` — u32 · to be busy with
 - `занят` — u24 · busy
+- `записывать` — u48 · to write down
 - `заплатить` — u31 · to settle the bill
+- `заполнять` — u49 · to fill in
+- `запоминать` — u48 · to memorise
 - `запрещать` — u34 · to forbid
+- `запрос` — u43 · a query
+- `зарабатывать` — u44 · to earn
 - `заранее` — u38 · in advance
 - `зарплата` — u25 · a salary
 - `затем` — u38 · next after that
+- `зато` — u46 · but on the other hand
 - `зачем` — u22 · what for
+- `защищать` — u59 · to defend
+- `заявление` — u50 · an application
 - `звать` — u8 · to call by name
 - `звезда` — u26 · a star
 - `звонить` — u34 · to ring someone up
+- `звучать` — u48 · to sound
 - `здесь` — u3 · here
 - `здоровье` — u20 · health
 - `здравствуйте` — u7 · hello (formal)
 - `зелёный` — u16 · green
 - `земля` — u4 · the earth
 - `зеркало` — u15 · a mirror
+- `зерно` — u54 · a grain
 - `зима` — u16 · winter
 - `злой` — u28 · angry
 - `знакомиться` — u8 · to get acquainted
+- `знакомый` — u56 · an acquaintance
+- `знание` — u41 · knowledge
 - `знать` — u4 · to know
 - `значит` — u19 · it means
 - `золото` — u33 · gold
+- `зритель` — u45 · a viewer
+- `зря` — u47 · for nothing
 - `зуб` — u20 · a tooth
 - `и` — u1
 - `й` — u2
@@ -305,16 +401,27 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `известный` — u40 · well known
 - `извините` — u7 · excuse me
 - `извиняться` — u35 · to apologise
+- `издание` — u45 · an edition
+- `измерять` — u54 · to measure
+- `изучать` — u48 · to study a subject
 - `или` — u19 · or
+- `именно` — u46 · precisely
 - `имя` — u3 · a first name
 - `инженер` — u8 · an engineer
 - `иногда` — u22 · sometimes
+- `инструкция` — u50 · a set of instructions
 - `инструмент` — u32 · a tool
+- `интервью` — u45 · an interview
 - `интересный` — u19 · interesting
 - `интересоваться` — u32 · to take an interest in
 - `интернет` — u9 · the internet
 - `искать` — u15 · to look for
+- `искусство` — u55 · art
+- `исправлять` — u48 · to put right
+- `исследование` — u54 · a piece of research
 - `история` — u24 · a story
+- `источник` — u52 · a source
+- `итак` — u46 · so then
 - `итог` — u37 · a total
 - `их` — u19 · their
 - `июль` — u17 · July
@@ -325,61 +432,100 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `как` — u7 · how
 - `какой` — u19 · what kind of
 - `камень` — u26 · a stone
+- `канал` — u45 · a channel
+- `каникулы` — u41 · the school holidays
 - `карандаш` — u25 · a pencil
 - `карман` — u18 · a pocket
 - `карта` — u30 · a map
 - `картина` — u27 · a painting
 - `картошка` — u13 · a potato
+- `карьера` — u42 · a career
+- `касаться` — u46 · to concern
 - `касса` — u12 · a till
+- `кастрюля` — u58 · a saucepan
 - `кафе` — u9 · a café
 - `качество` — u32 · a quality
+- `каша` — u58 · porridge
+- `кашель` — u53 · a cough
 - `квартира` — u10 · a flat
+- `квитанция` — u50 · a payment slip
 - `килограмм` — u37 · a kilo
 - `километр` — u37 · a kilometre
 - `кино` — u27 · the cinema
+- `кислый` — u58 · sour
+- `клавиатура` — u43 · a keyboard
 - `класс` — u25 · a classroom
 - `класть` — u15 · to put
+- `клиент` — u42 · a client
+- `климат` — u54 · a climate
 - `клуб` — u27 · a club
 - `ключ` — u15 · a key
 - `книга` — u8 · a book
+- `кнопка` — u43 · a button
 - `когда` — u22 · when
 - `кожа` — u33 · skin
+- `колено` — u53 · a knee
 - `количество` — u37 · an amount
 - `коллега` — u25 · a colleague
 - `команда` — u32 · a team
+- `командировка` — u42 · a work trip
+- `комментировать` — u48 · to comment
 - `комната` — u15 · a room
 - `компания` — u27 · a group of friends
 - `компьютер` — u9 · a computer
 - `конверт` — u25 · an envelope
 - `конечно` — u6 · of course
+- `конкурс` — u42 · a competition
+- `конспект` — u41 · lecture notes
 - `концерт` — u27 · a concert
+- `копать` — u57 · to dig
 - `копейка` — u12 · a kopeck
+- `копировать` — u48 · to duplicate
+- `копить` — u48 · to save up
+- `корень` — u54 · a root
 - `коричневый` — u16 · brown
+- `кормить` — u58 · to feed
 - `корова` — u26 · a cow
+- `кость` — u53 · a bone
 - `который` — u11 · which
 - `кофе` — u13 · coffee
+- `кошелёк` — u44 · a purse
 - `кошка` — u8 · a cat
 - `край` — u33 · an edge
 - `красивый` — u19 · beautiful
 - `красный` — u16 · red
+- `кредит` — u44 · a loan
+- `критик` — u55 · a reviewer
 - `кричать` — u28 · to shout
 - `кровать` — u15 · a bed
+- `кровь` — u53 · blood
 - `кроме` — u33 · except
 - `круг` — u36 · a circle
+- `крупный` — u47 · large in scale
+- `крутить` — u49 · to turn something round
+- `крыльцо` — u60 · a porch
 - `крыша` — u32 · a roof
+- `кстати` — u46 · by the way
 - `кто` — u8 · who
 - `куда` — u22 · where to
+- `культура` — u55 · culture
 - `купаться` — u35 · to have a swim
 - `купить` — u31 · to make a purchase
+- `купюра` — u44 · a banknote
 - `курить` — u12 · to smoke
+- `курс` — u41 · a course
 - `куртка` — u18 · a jacket
 - `кусок` — u37 · a piece
 - `кухня` — u15 · a kitchen
 - `л` — u1
 - `лампа` — u15 · a lamp
+- `легенда` — u55 · a legend
 - `лёгкий` — u19 · simple
 - `легко` — u6 · easy
+- `лёд` — u54 · ice
+- `лежать` — u57 · to be lying
 - `лекарство` — u20 · medicine
+- `лекция` — u41 · a lecture
 - `ленивый` — u28 · lazy
 - `лес` — u26 · a forest
 - `лестница` — u12 · a staircase
@@ -387,15 +533,21 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `лететь` — u36 · to be flying
 - `лето` — u16 · summer
 - `лечиться` — u35 · to have treatment
+- `ли` — u46 · whether
 - `линия` — u36 · a line
 - `лист` — u26 · a leaf
+- `литература` — u55 · literature
 - `литр` — u37 · a litre
 - `лифт` — u12 · a lift
 - `лицо` — u20 · a face
+- `личный` — u50 · personal
 - `лишь` — u37 · merely
+- `ловить` — u57 · to catch
+- `логика` — u52 · logic
 - `ложиться` — u29 · to lie down
 - `ложка` — u29 · a spoon
 - `ложь` — u39 · a lie
+- `ломать` — u57 · to break in pieces
 - `лошадь` — u26 · a horse
 - `луна` — u26 · the moon
 - `лучше` — u5 · better
@@ -411,13 +563,18 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `март` — u17 · March
 - `маршрут` — u36 · a route
 - `масло` — u13 · butter
+- `мастер` — u42 · a craftsman
+- `математика` — u54 · mathematics
 - `материал` — u32 · raw material
 - `мать` — u10 · a mother
 - `машина` — u6 · a car
 - `мебель` — u29 · furniture
+- `мёд` — u58 · honey
 - `медведь` — u26 · a bear
 - `медленно` — u36 · slowly
 - `между` — u32 · between
+- `мелкий` — u47 · small in scale
+- `менее` — u47 · less so
 - `меньше` — u5 · less
 - `меню` — u13 · a menu
 - `меня` — u4 · me (object form)
@@ -425,27 +582,40 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `место` — u4 · a place
 - `месяц` — u17 · a month
 - `металл` — u33 · metal
+- `метод` — u52 · a method
 - `метр` — u37 · a metre
 - `метро` — u9 · the underground
 - `мечта` — u28 · a dream you long for
 - `мешать` — u34 · to get in the way of
+- `микрофон` — u43 · a microphone
 - `миллион` — u21 · a million
 - `мимо` — u33 · past
+- `министр` — u51 · a minister
 - `минута` — u11 · a minute
 - `мир` — u5 · peace
+- `миф` — u55 · a myth
 - `мнение` — u39 · an opinion
 - `много` — u37 · a lot
+- `мобильный` — u43 · mobile
+- `мода` — u55 · fashion
 - `модный` — u18 · fashionable
 - `моё` — u3 · my (neuter)
 - `может быть` — u22 · maybe
 - `можно` — u5 · it is allowed
+- `мозг` — u53 · a brain
 - `мой` — u8 · my (masculine)
+- `мокрый` — u60 · wet
+- `молодёжь` — u59 · young people
 - `молодой` — u19 · young
 - `молоко` — u4 · milk
+- `молчать` — u59 · to keep silent
 - `момент` — u38 · an instant
+- `монета` — u44 · a coin
 - `море` — u26 · the sea
 - `мороз` — u16 · a hard frost
 - `мост` — u14 · a bridge
+- `мотив` — u52 · the reason someone did it
+- `мочь` — u47 · to be able
 - `моя` — u3 · my (feminine)
 - `муж` — u10 · a husband
 - `мужчина` — u3 · a man
@@ -455,27 +625,50 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `мы` — u2 · we
 - `мыло` — u15 · soap
 - `мысль` — u39 · a thought
+- `мыть` — u57 · to wash something
+- `мышца` — u53 · a muscle
 - `мышь` — u26 · a mouse
 - `мягкий` — u40 · soft
 - `мясо` — u13 · meat
 - `н` — u1
 - `на` — u23 · on
+- `набирать` — u49 · to key in
+- `наблюдать` — u52 · to observe
 - `наверное` — u22 · probably
 - `наверху` — u23 · upstairs
 - `навсегда` — u38 · for ever
+- `навык` — u42 · a skill
+- `наглый` — u56 · cheeky
 - `над` — u32 · above
+- `надёжный` — u56 · reliable
 - `надеяться` — u28 · to hope
+- `нажимать` — u49 · to press a button
 - `назад` — u23 · backwards
+- `назначать` — u49 · to appoint
 - `называться` — u35 · to be called
 - `найти` — u31 · to track down
+- `наказание` — u51 · a punishment
 - `наконец` — u24 · finally
 - `налево` — u14 · to the left
+- `налог` — u44 · a tax
+- `нанимать` — u42 · to take on staff
+- `наоборот` — u46 · the other way round
 - `написать` — u31 · to finish writing
+- `напоминать` — u49 · to remind
 - `направление` — u36 · a direction
 - `направо` — u14 · to the right
+- `например` — u52 · for example
 - `напротив` — u33 · opposite
+- `народ` — u51 · a nation
+- `нарочно` — u59 · on purpose
+- `насекомое` — u54 · an insect
+- `население` — u51 · a population
+- `насморк` — u53 · a runny nose
+- `настойчивый` — u56 · persistent
 - `настоящий` — u40 · genuine
 - `настроение` — u28 · a mood
+- `наука` — u54 · science
+- `наушники` — u43 · headphones
 - `находить` — u24 · to find
 - `находиться` — u35 · to be located
 - `начало` — u24 · the beginning
@@ -485,12 +678,16 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `не` — u6 · not
 - `небо` — u26 · the sky
 - `неделя` — u17 · a week
+- `нежный` — u56 · tender
 - `нельзя` — u5 · it is not allowed
 - `немного` — u7 · a little
+- `необходимость` — u52 · a necessity
+- `нерв` — u53 · a nerve
 - `несколько` — u37 · several
 - `нести` — u36 · to be carrying
 - `нет` — u1 · no
 - `нигде` — u23 · nowhere
+- `низкий` — u47 · low
 - `никогда` — u22 · never
 - `никто` — u23 · nobody
 - `ничего` — u7 · it is nothing
@@ -513,22 +710,41 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `о` — u1
 - `оба` — u37 · both
 - `обед` — u13 · lunch
+- `обеспечивать` — u48 · to provide
 - `обещать` — u30 · to promise
+- `обзор` — u45 · a review
 - `обидно` — u34 · it is hurtful
+- `облако` — u54 · a cloud
+- `обложка` — u45 · a cover
+- `обман` — u56 · a deception
+- `обмен` — u44 · an exchange
+- `образец` — u50 · a sample
 - `обратно` — u36 · back again
+- `обстоятельство` — u52 · a circumstance
+- `обсуждать` — u46 · to discuss
 - `обувь` — u18 · footwear
+- `общежитие` — u41 · a hall of residence
+- `общество` — u51 · society
 - `общий` — u40 · shared
+- `объём` — u54 · a volume
+- `объявление` — u45 · an announcement
 - `объяснять` — u34 · to explain
 - `обычно` — u22 · usually
 - `обычный` — u40 · ordinary
+- `обязанность` — u42 · a duty
 - `овощи` — u13 · vegetables
 - `огонь` — u12 · fire
+- `огромный` — u47 · enormous
 - `одеваться` — u35 · to get dressed
 - `одежда` — u18 · clothes
 - `один` — u11 · one
 - `одинаковый` — u40 · identical
 - `одиннадцать` — u21 · eleven
+- `одиночество` — u56 · loneliness
 - `однажды` — u38 · once upon a time
+- `однако` — u46 · however
+- `одноклассник` — u41 · a classmate
+- `ожог` — u53 · a burn on the skin
 - `оказаться` — u35 · to turn out
 - `окно` — u4 · a window
 - `около` — u33 · close to
@@ -538,9 +754,19 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `они` — u19 · they
 - `опасно` — u12 · it is dangerous
 - `опасный` — u40 · dangerous
+- `операция` — u53 · an operation
+- `оплата` — u44 · payment
+- `определять` — u48 · to define
+- `опускать` — u57 · to lower
 - `опыт` — u25 · experience
 - `опять` — u22 · again
+- `организация` — u51 · an organisation
+- `организовать` — u48 · to organise
+- `орех` — u58 · a nut
+- `оригинал` — u50 · an original
+- `оркестр` — u55 · an orchestra
 - `осень` — u16 · autumn
+- `основа` — u52 · a basis
 - `особенный` — u40 · special
 - `оставлять` — u24 · to leave behind
 - `останавливаться` — u35 · to come to a stop
@@ -548,20 +774,28 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `остаться` — u35 · to be left over
 - `осторожно` — u12 · carefully
 - `остров` — u26 · an island
+- `острый` — u58 · sharp to the taste
 - `от` — u33 · away from
 - `ответ` — u7 · an answer
+- `отдел` — u42 · a department
 - `отдыхать` — u20 · to rest
 - `отель` — u9 · a hotel
 - `отец` — u10 · a father
 - `отказываться` — u35 · to refuse
+- `откладывать` — u48 · to postpone
+- `открывать` — u57 · to open
 - `открыто` — u12 · it is open
 - `откуда` — u8 · where from
 - `отлично` — u7 · excellent
+- `отмечать` — u48 · to tick off
 - `отношение` — u39 · a relationship
 - `отправлять` — u34 · to send off
 - `отпуск` — u25 · annual leave
+- `отчёт` — u50 · a written report
 - `офис` — u25 · an office
+- `официальный` — u50 · official
 - `официант` — u13 · a waiter
+- `оформлять` — u49 · to draw up
 - `оценка` — u25 · a mark
 - `очень` — u3 · very
 - `очередь` — u30 · a queue
@@ -570,29 +804,45 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `палец` — u20 · a finger
 - `пальто` — u18 · a coat
 - `памятник` — u30 · a monument
+- `память` — u52 · memory
 - `папа` — u10 · dad
 - `папка` — u25 · a folder
 - `пара` — u21 · a pair
 - `парк` — u9 · a park
+- `пароль` — u43 · a password
+- `партия` — u51 · a political party
 - `паспорт` — u9 · a passport
+- `пенсия` — u42 · a pension
 - `первый` — u21 · first
+- `перебивать` — u49 · to interrupt
 - `перевод` — u39 · a translation
 - `перед` — u32 · in front of
+- `передача` — u45 · a broadcast
+- `перекрёсток` — u60 · a crossroads
 - `перерыв` — u12 · a break
 - `переход` — u36 · a crossing
+- `перец` — u58 · pepper
 - `период` — u38 · a stretch of time
 - `перчатки` — u18 · gloves
 - `песок` — u26 · sand
 - `петь` — u27 · to sing
+- `печатать` — u49 · to print
+- `печень` — u53 · a liver
+- `печь` — u58 · to bake
 - `пешком` — u36 · on foot
 - `пиво` — u13 · beer
 - `писать` — u4 · to write
 - `письмо` — u5 · a letter (the kind you post)
+- `пить` — u58 · to drink
 - `плавать` — u27 · to swim
 - `плакать` — u28 · to cry
 - `план` — u27 · a plan
+- `планета` — u54 · a planet
 - `платить` — u18 · to pay
 - `платье` — u18 · a dress
+- `плечо` — u53 · a shoulder
+- `плита` — u58 · a cooker
+- `плотный` — u47 · dense
 - `плохо` — u7 · badly
 - `плохой` — u19 · bad
 - `площадь` — u6 · a square (in a town)
@@ -601,19 +851,28 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `по` — u34 · around
 - `по-русски` — u8 · in Russian
 - `повар` — u8 · a cook
+- `поведение` — u56 · behaviour
 - `поворот` — u14 · a turn
 - `повторять` — u34 · to repeat
 - `погода` — u16 · the weather
 - `под` — u32 · under
 - `подарок` — u18 · a present
+- `подбирать` — u49 · to pick out
+- `поднимать` — u57 · to raise up
+- `подписка` — u45 · a subscription
+- `подписывать` — u49 · to sign
 - `поезд` — u30 · a train
+- `поесть` — u58 · to have a meal
 - `пожалуйста` — u7 · please
 - `поздно` — u11 · late
 - `поздравлять` — u30 · to congratulate
+- `поиск` — u43 · a search
 - `пока` — u7 · bye
 - `показать` — u31 · to point out
 - `показывать` — u23 · to show
+- `поколение` — u59 · a generation
 - `покупать` — u18 · to buy
+- `пол` — u60 · a floor you walk on
 - `полдень` — u38 · midday
 - `поле` — u26 · a field
 - `полезный` — u25 · useful
@@ -634,43 +893,75 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `понимать` — u4 · to understand
 - `понять` — u31 · to realise
 - `пора` — u24 · it is time
+- `поручать` — u49 · to entrust
 - `порядок` — u15 · tidiness
 - `после` — u33 · after
 - `последний` — u21 · last
 - `посмотреть` — u31 · to take a look
 - `постепенно` — u38 · gradually
 - `постоянно` — u38 · constantly
+- `поступок` — u56 · a deed
+- `посуда` — u57 · the dishes
 - `потерять` — u31 · to lose for good
 - `потолок` — u15 · a ceiling
 - `потом` — u4 · later
 - `потому что` — u19 · because
 - `похож` — u10 · similar (masculine form)
+- `похороны` — u59 · a funeral
+- `почва` — u54 · soil
 - `почему` — u2 · why
 - `почта` — u14 · the post office
 - `почти` — u22 · almost
+- `поэт` — u55 · a writer of verse
 - `поэтому` — u19 · that is why
 - `появляться` — u35 · to appear
 - `правда` — u22 · the truth
+- `правило` — u41 · a rule
 - `правильно` — u6 · correctly
 - `правильный` — u40 · correct
+- `право` — u51 · a right
 - `праздник` — u10 · a holiday
+- `практика` — u41 · a work placement
 - `предлагать` — u34 · to offer
+- `предмет` — u41 · a school subject
+- `представлять` — u52 · to picture to yourself
+- `предупреждать` — u49 · to warn
 - `прежде` — u38 · formerly
+- `президент` — u51 · a president
+- `премия` — u42 · a bonus
+- `преподаватель` — u41 · a lecturer
+- `пресса` — u45 · the press
+- `преступление` — u51 · a crime
 - `при` — u39 · in the presence of
 - `привет` — u1 · hi
+- `приводить` — u52 · to lead to
 - `привычка` — u29 · a habit
 - `приглашать` — u27 · to invite
 - `приготовить` — u31 · to cook a meal
+- `приём` — u53 · an appointment
+- `признавать` — u59 · to admit
 - `приключение` — u30 · an adventure
+- `приложение` — u43 · an app
+- `пример` — u41 · an example
 - `примерно` — u37 · roughly
 - `примерять` — u18 · to try on
+- `принтер` — u43 · a printer
+- `принцип` — u52 · a principle
+- `природа` — u54 · nature
+- `причём` — u46 · what is more
 - `причина` — u34 · a reason
 - `приятно` — u7 · pleasant
 - `приятный` — u40 · enjoyable
 - `про` — u39 · about
 - `проблема` — u9 · a problem
+- `проверять` — u59 · to check
+- `программа` — u43 · a program
 - `продавать` — u18 · to sell
 - `продолжаться` — u35 · to go on
+- `продукты` — u58 · groceries
+- `проект` — u42 · a project
+- `происходить` — u52 · to take place
+- `пропуск` — u50 · an entry pass
 - `простите` — u7 · forgive me
 - `просто` — u22 · simply
 - `простой` — u40 · plain
@@ -678,13 +969,20 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `простудиться` — u35 · to catch a cold
 - `просыпаться` — u29 · to wake up
 - `просьба` — u34 · a request
+- `против` — u46 · against
+- `противоречие` — u52 · a contradiction
 - `профессия` — u8 · a profession
 - `процент` — u21 · a percent
 - `прочитать` — u31 · to read right through
+- `прочный` — u60 · durable
 - `прошлый` — u24 · previous
+- `прощать` — u59 · to forgive
 - `прямо` — u14 · straight on
 - `прямой` — u23 · direct
 - `птица` — u26 · a bird
+- `публика` — u45 · the public
+- `публиковать` — u48 · to publish
+- `пункт` — u50 · a clause
 - `пустой` — u23 · empty
 - `путешествие` — u30 · a journey
 - `пятнадцать` — u21 · fifteen
@@ -701,28 +999,45 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `разный` — u40 · various
 - `разрешать` — u34 · to allow
 - `район` — u14 · a district
+- `рана` — u53 · a wound
 - `рано` — u11 · early
 - `расписание` — u29 · a timetable
 - `рассказывать` — u34 · to tell a story
 - `расстояние` — u36 · a distance
+- `расти` — u54 · to grow
+- `расход` — u44 · an outgoing
 - `ребёнок` — u10 · a child
+- `регистрировать` — u49 · to register
+- `редактировать` — u48 · to edit
+- `редакция` — u45 · an editorial office
+- `редкий` — u47 · rare
 - `редко` — u22 · rarely
 - `резать` — u29 · to cut
 - `результат` — u30 · a result
+- `резюме` — u42 · a CV
 - `река` — u26 · a river
+- `реклама` — u45 · an advert
+- `религия` — u55 · religion
 - `ремонт` — u29 · repairs
+- `репортаж` — u45 · a report from the scene
 - `ресторан` — u9 · a restaurant
+- `рецепт` — u53 · a prescription
 - `речь` — u39 · speech
 - `решать` — u24 · to decide
 - `решить` — u31 · to make up your mind
+- `ржавый` — u60 · rusty
 - `рис` — u13 · rice
 - `рисовать` — u27 · to draw
 - `ровно` — u37 · on the dot
 - `родной` — u8 · native
+- `родственник` — u59 · a relative
+- `рождение` — u59 · a birth
+- `роль` — u55 · a part in a play
 - `роман` — u27 · a novel
 - `рот` — u20 · a mouth
 - `рубашка` — u18 · a shirt
 - `рубль` — u12 · a rouble
+- `ругать` — u59 · to tell off
 - `рука` — u20 · a hand
 - `руководитель` — u32 · a manager
 - `русский` — u6 · Russian (the adjective)
@@ -733,213 +1048,333 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `рядом` — u10 · nearby
 - `с` — u1
 - `сад` — u26 · a garden
+- `сайт` — u43 · a website
 - `салат` — u13 · a salad
 - `самолёт` — u30 · a plane
+- `самый` — u47 · the most
 - `сахар` — u13 · sugar
 - `свадьба` — u10 · a wedding
 - `свежий` — u40 · fresh
 - `свет` — u15 · light
+- `светофор` — u60 · a traffic light
+- `свидетельство` — u50 · a certificate
 - `свободный` — u23 · vacant
+- `свойство` — u60 · a property
+- `связь` — u43 · a signal
+- `сдавать` — u48 · to hand in
 - `сделать` — u31 · to get done
 - `сегодня` — u6 · today
 - `сейчас` — u4 · now
 - `секрет` — u9 · a secret
 - `секунда` — u11 · a second
+- `семестр` — u41 · a term at university
+- `семинар` — u41 · a seminar
 - `семь` — u11 · seven
 - `семья` — u10 · a family
 - `сентябрь` — u17 · September
 - `сердце` — u6 · a heart
 - `середина` — u33 · the middle
+- `сериал` — u45 · a drama series
 - `серый` — u16 · grey
 - `серьёзный` — u25 · serious
 - `сестра` — u10 · a sister
 - `сесть` — u31 · to sit down
+- `сеть` — u43 · a network
+- `сидеть` — u57 · to be sitting
 - `сильно` — u5 · strongly
 - `сильный` — u20 · strong
 - `синий` — u16 · blue
+- `система` — u52 · a system
 - `сказать` — u31 · to say
 - `сказка` — u27 · a fairy tale
+- `скамейка` — u60 · a bench
+- `скачивать` — u49 · to download
 - `скидка` — u12 · a discount
+- `скользкий` — u60 · slippery
 - `сколько` — u5 · how much
 - `скоро` — u7 · soon
 - `скорость` — u36 · speed
+- `скромный` — u56 · modest
+- `скульптура` — u55 · sculpture
 - `скучать` — u34 · to miss someone
 - `скучно` — u6 · boring
 - `скучный` — u40 · dull
 - `слабый` — u20 · weak
+- `сладкий` — u58 · sweet
+- `следствие` — u52 · a consequence
 - `слеза` — u28 · a tear
 - `слишком` — u37 · excessively
 - `словарь` — u5 · a dictionary
 - `слово` — u6 · a word
 - `сложный` — u25 · complicated
+- `служба` — u42 · a public service
 - `случай` — u24 · an occasion
+- `случайно` — u59 · by accident
+- `слушать` — u59 · to listen
 - `слышать` — u4 · to hear
+- `смелый` — u56 · brave
+- `смена` — u42 · a shift
+- `смерть` — u59 · death
+- `сметана` — u58 · sour cream
 - `смеяться` — u28 · to laugh
 - `смотреть` — u23 · to watch
 - `смысл` — u39 · a meaning
 - `сначала` — u24 · at first
 - `снег` — u16 · snow
 - `снова` — u38 · all over again
+- `сноска` — u50 · a footnote
 - `собака` — u26 · a dog
+- `собеседование` — u42 · a job interview
 - `собираться` — u35 · to get ready to go
+- `собрание` — u59 · a meeting
+- `событие` — u59 · an event
+- `совесть` — u56 · a conscience
 - `совет` — u30 · advice
+- `совпадение` — u52 · a coincidence
+- `современный` — u60 · modern
 - `совсем` — u23 · at all
 - `соглашаться` — u35 · to agree
+- `содержание` — u50 · the contents
+- `создавать` — u48 · to create
 - `сок` — u13 · juice
+- `солдат` — u51 · a soldier
 - `солнце` — u6 · the sun
 - `соль` — u5 · salt
 - `сомневаться` — u35 · to doubt
 - `сон` — u29 · a night's sleep
+- `сообщение` — u43 · a message
 - `сорок` — u21 · forty
 - `сосед` — u29 · a neighbour
 - `сотрудник` — u32 · a member of staff
+- `сохранять` — u49 · to save
+- `сочинение` — u41 · an essay
+- `союз` — u51 · a union
 - `спальня` — u15 · a bedroom
 - `спасибо` — u7 · thank you
 - `спать` — u20 · to sleep
+- `спектакль` — u55 · a theatre performance
 - `специалист` — u32 · an expert
 - `спешить` — u29 · to hurry
 - `спина` — u20 · a back
+- `список` — u50 · a list
 - `спокойный` — u28 · calm
 - `спор` — u39 · an argument
 - `спорт` — u9 · sport (the activity)
 - `способ` — u32 · a way of doing something
+- `способность` — u47 · an ability
+- `справка` — u50 · an official note
+- `справляться` — u47 · to cope
 - `спрашивать` — u23 · to ask
 - `спросить` — u31 · to ask a question
+- `сравнение` — u47 · a comparison
 - `сразу` — u22 · straight away
 - `среда` — u17 · Wednesday
 - `среди` — u33 · among
 - `средство` — u32 · a means
 - `срок` — u38 · a deadline
 - `срочно` — u12 · urgently
+- `ссылка` — u43 · a link
+- `ставить` — u57 · to set upright
+- `стаж` — u42 · a track record
 - `стакан` — u13 · a glass
 - `становиться` — u32 · to be turning into
 - `стараться` — u35 · to try hard
 - `старый` — u19 · old
 - `стать` — u31 · to become
+- `статья` — u45 · an article
 - `стекло` — u33 · glass as a material
 - `стена` — u15 · a wall
+- `степень` — u47 · a degree
+- `стиль` — u55 · a style
 - `стирать` — u29 · to do the laundry
+- `стих` — u55 · a verse
 - `сто` — u11 · a hundred
 - `стоит` — u18 · it costs
 - `стол` — u15 · a table
 - `столица` — u8 · a capital city
 - `сторона` — u33 · a side
+- `стоять` — u57 · to be standing
 - `страна` — u8 · a country
+- `страница` — u41 · a page
 - `странный` — u28 · strange
 - `страх` — u28 · fear
 - `страшно` — u34 · it is frightening
 - `строгий` — u40 · strict
+- `строить` — u57 · to build
+- `строка` — u50 · a line of text
 - `студент` — u8 · a student
 - `стул` — u15 · a chair
 - `стыдно` — u34 · it is shameful
 - `суббота` — u17 · Saturday
 - `сувенир` — u30 · a souvenir
+- `суд` — u51 · a court
 - `сумка` — u15 · a bag
 - `сумма` — u37 · a sum
 - `суп` — u13 · soup
 - `сутки` — u38 · a full day and night
 - `суть` — u39 · the essence
+- `сухой` — u60 · dry
+- `существовать` — u52 · to exist
+- `сцена` — u55 · a stage
 - `счастливый` — u24 · happy
 - `счёт` — u21 · a bill
+- `считать` — u44 · to count
+- `съёмка` — u45 · filming
 - `сын` — u10 · a son
 - `сыр` — u5 · cheese
 - `сюда` — u14 · towards here
+- `сюжет` — u45 · a plot
 - `т` — u1
 - `таблетка` — u20 · a tablet
 - `так` — u22 · that way
+- `также` — u46 · as well
 - `такой` — u19 · such a
 - `такси` — u9 · a taxi
+- `талант` — u47 · a talent
 - `там` — u1 · there
 - `танцевать` — u27 · to dance
 - `тарелка` — u29 · a plate
 - `твёрдый` — u40 · hard to the touch
 - `твой` — u8 · your (informal)
+- `творчество` — u55 · creative work
 - `театр` — u9 · a theatre
 - `тебя` — u4 · you (object form, informal)
+- `текст` — u41 · a text
 - `телевизор` — u27 · a television
 - `телефон` — u9 · a telephone
 - `тема` — u39 · a subject
 - `тёмный` — u16 · dark
 - `температура` — u20 · a temperature
+- `теория` — u41 · a theory
 - `теперь` — u38 · nowadays
 - `тепло` — u16 · it is warm
+- `терпение` — u56 · patience
 - `терять` — u24 · to lose
 - `тетрадь` — u25 · an exercise book
 - `тётя` — u10 · an aunt
+- `техника` — u43 · machinery
 - `течение` — u38 · a current
+- `тип` — u60 · a type
+- `тираж` — u45 · a print run
 - `тихий` — u29 · quiet
 - `тихо` — u5 · quietly
 - `ткань` — u33 · cloth
+- `товар` — u44 · goods
 - `тогда` — u24 · at that time
 - `тоже` — u5 · also
+- `толкать` — u57 · to push
+- `толпа` — u59 · a crowd
 - `толстый` — u40 · thick
 - `только` — u3 · only
 - `тон` — u39 · a tone
 - `тонкий` — u40 · thin
+- `торговля` — u44 · trade
 - `торопиться` — u35 · to be in a hurry
+- `торт` — u58 · a cake
 - `тот` — u22 · that one
 - `точно` — u22 · exactly
 - `точный` — u40 · accurate
 - `трава` — u26 · grass
+- `традиция` — u55 · a tradition
 - `трамвай` — u9 · a tram
 - `транспорт` — u36 · public transport
+- `тратить` — u48 · to spend
 - `требование` — u34 · a demand
 - `третий` — u21 · third
 - `три` — u11 · three
 - `тридцать` — u21 · thirty
 - `тринадцать` — u21 · thirteen
+- `трогать` — u49 · to touch
+- `тротуар` — u60 · a pavement
+- `труба` — u60 · a pipe
+- `трубка` — u43 · a handset
 - `трудно` — u6 · difficult
 - `трудный` — u19 · hard
+- `тряпка` — u57 · a rag
 - `туалет` — u12 · a toilet
 - `туда` — u14 · towards there
+- `туман` — u54 · fog
+- `тупой` — u60 · blunt
 - `турист` — u30 · a tourist
 - `ты` — u2 · you (informal)
 - `тысяча` — u21 · a thousand
+- `тюрьма` — u51 · a prison
+- `тяжёлый` — u47 · heavy
+- `тянуть` — u57 · to pull
 - `у` — u1
 - `у меня` — u23 · I have
+- `убеждать` — u49 · to persuade
 - `убирать` — u15 · to tidy up
 - `убрать` — u31 · to clear away
+- `уважение` — u56 · respect
+- `увеличивать` — u48 · to increase
 - `уверен` — u24 · sure
+- `увольнять` — u42 · to lay off
 - `угол` — u12 · a corner
+- `удалять` — u49 · to delete
 - `удача` — u7 · luck
 - `удивляться` — u34 · to be surprised at
 - `удобно` — u18 · it is comfortable
+- `удостоверение` — u50 · an identity document
 - `уже` — u5 · already
 - `ужин` — u13 · supper
 - `узкий` — u40 · narrow
 - `узнать` — u31 · to find out
+- `укол` — u53 · an injection
 - `улица` — u14 · a street
 - `улыбаться` — u28 · to smile
+- `уметь` — u47 · to know how
 - `умный` — u28 · clever
 - `умываться` — u29 · to wash your face
 - `университет` — u9 · a university
+- `управлять` — u42 · to be in charge of
+- `упражнение` — u41 · an exercise
+- `упрямый` — u56 · stubborn
 - `уровень` — u30 · a level
 - `урок` — u25 · a lesson
 - `условие` — u34 · a condition
+- `услуга` — u44 · a service
 - `успех` — u25 · success
 - `устал` — u7 · tired (masculine form)
+- `устройство` — u43 · a device
+- `утверждать` — u46 · to claim
+- `уточнять` — u46 · to check a detail
 - `утро` — u11 · a morning
 - `ухо` — u20 · an ear
+- `участвовать` — u48 · to take part
+- `ученик` — u41 · a pupil
 - `учитель` — u8 · a teacher
+- `учить` — u59 · to teach
 - `учиться` — u35 · to study
 - `ф` — u2
+- `файл` — u43 · a file
 - `факт` — u39 · a fact
 - `фамилия` — u8 · a surname
 - `февраль` — u17 · February
+- `физика` — u54 · physics
 - `фильм` — u8 · a movie
 - `фирма` — u25 · a firm
+- `фонарь` — u60 · a street lamp
 - `форма` — u32 · a shape
 - `фотография` — u10 · a photograph
 - `фрукты` — u13 · fruit
 - `х` — u1
 - `характер` — u28 · a character
+- `хвалить` — u59 · to praise
+- `химия` — u54 · chemistry
 - `хлеб` — u6 · bread
 - `ходить` — u36 · to go on foot regularly
 - `хозяин` — u27 · a host
 - `холодно` — u16 · it is cold
+- `холодный` — u58 · cold to the touch
+- `хор` — u55 · a choir
 - `хороший` — u19 · good
 - `хорошо` — u2 · well
 - `хотеть` — u4 · to want
+- `хотя` — u46 · although
+- `хранить` — u59 · to keep safe
+- `хрупкий` — u60 · fragile
+- `художник` — u55 · an artist
 - `хуже` — u5 · worse
 - `ц` — u2
 - `цвет` — u16 · a colour
@@ -960,43 +1395,59 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 - `чей` — u22 · whose
 - `чек` — u18 · a receipt
 - `человек` — u4 · a person
+- `чем` — u47 · than
 - `чемодан` — u30 · a suitcase
 - `через` — u23 · across
+- `черновик` — u50 · a rough draft
 - `чёрный` — u16 · black
 - `честный` — u28 · honest
 - `четверг` — u17 · Thursday
 - `четвёртый` — u21 · fourth
 - `четыре` — u11 · four
 - `четырнадцать` — u21 · fourteen
+- `чинить` — u57 · to mend
+- `чиновник` — u51 · a state official
 - `число` — u37 · a figure
 - `чистить` — u29 · to brush
 - `чистый` — u29 · clean
 - `читать` — u4 · to read
 - `член` — u32 · a member
 - `что` — u2 · what
+- `чтобы` — u46 · in order to
 - `чувство` — u28 · a feeling
+- `чуть` — u46 · slightly
 - `ш` — u2
 - `шаг` — u36 · a step
 - `шапка` — u18 · a hat
 - `шарф` — u18 · a scarf
 - `шерсть` — u33 · wool
 - `шесть` — u11 · six
+- `шея` — u53 · a neck
 - `широкий` — u40 · wide
+- `шить` — u57 · to sew
 - `шкаф` — u15 · a cupboard
 - `школа` — u2 · a school
+- `штамп` — u50 · a stamp
+- `штраф` — u51 · a penalty
 - `штука` — u37 · an item
 - `шум` — u39 · noise
 - `шутка` — u27 · a joke
 - `щ` — u3
+- `щедрый` — u56 · generous
 - `ъ` — u3
 - `ы` — u2
 - `ь` — u3
 - `э` — u2
 - `экзамен` — u25 · an exam
+- `экземпляр` — u45 · a copy
+- `экран` — u43 · a screen
 - `экскурсия` — u30 · a guided tour
+- `электричество` — u54 · electricity
+- `энергия` — u54 · energy
 - `эпоха` — u38 · an era
 - `этаж` — u6 · a floor (storey)
 - `это` — u2 · this is
+- `эфир` — u45 · the airwaves
 - `ю` — u3
 - `юг` — u3 · the south
 - `юность` — u38 · youth
@@ -1090,4 +1541,44 @@ Snapshot 2026-09-30: **960 words** across **40 authored unit(s)**, **20 slot(s) 
 **u39 · Мнение и речь** (24) — `про`, `при`, `тема`, `беседа`, `диалог`, `тон`, `мнение`, `смысл`, `мысль`, `вывод`, `взгляд`, `суть`, `речь`, `голос`, `выражение`, `замечание`, `перевод`, `шум`, `факт`, `доказательство`, `ложь`, `спор`, `новость`, `отношение`
 
 **u40 · Качества и признаки** (24) — `главный`, `настоящий`, `общий`, `особенный`, `обычный`, `разный`, `правильный`, `точный`, `ясный`, `простой`, `одинаковый`, `известный`, `приятный`, `скучный`, `опасный`, `строгий`, `свежий`, `глубокий`, `мягкий`, `твёрдый`, `тонкий`, `толстый`, `узкий`, `широкий`
+
+**u41 · Учёба и знание** (24) — `преподаватель`, `ученик`, `одноклассник`, `аудитория`, `курс`, `общежитие`, `предмет`, `лекция`, `семинар`, `конспект`, `каникулы`, `география`, `текст`, `страница`, `упражнение`, `правило`, `пример`, `сочинение`, `знание`, `диплом`, `семестр`, `доклад`, `практика`, `теория`
+
+**u42 · Работа и карьера** (24) — `служба`, `отдел`, `должность`, `карьера`, `смена`, `проект`, `клиент`, `заказ`, `договор`, `премия`, `командировка`, `бухгалтер`, `собеседование`, `резюме`, `вакансия`, `стаж`, `навык`, `обязанность`, `нанимать`, `увольнять`, `управлять`, `конкурс`, `мастер`, `пенсия`
+
+**u43 · Техника и связь** (24) — `экран`, `клавиатура`, `кнопка`, `устройство`, `техника`, `принтер`, `сайт`, `сеть`, `файл`, `пароль`, `программа`, `приложение`, `сообщение`, `связь`, `трубка`, `мобильный`, `наушники`, `микрофон`, `версия`, `вирус`, `ссылка`, `поиск`, `запрос`, `включать`
+
+**u44 · Деньги и услуги** (24) — `доход`, `расход`, `бюджет`, `налог`, `кредит`, `взнос`, `услуга`, `аренда`, `товар`, `обмен`, `валюта`, `банкомат`, `монета`, `купюра`, `кошелёк`, `оплата`, `торговля`, `выгодный`, `богатый`, `бедный`, `дешёвый`, `бесплатный`, `зарабатывать`, `считать`
+
+**u45 · Пресса и передачи** (24) — `статья`, `заголовок`, `обложка`, `издание`, `редакция`, `автор`, `канал`, `передача`, `выпуск`, `эфир`, `зритель`, `пресса`, `сериал`, `сюжет`, `реклама`, `подписка`, `публика`, `интервью`, `объявление`, `обзор`, `репортаж`, `тираж`, `экземпляр`, `съёмка`
+
+**u46 · Сложное предложение** (24) — `чтобы`, `хотя`, `зато`, `однако`, `наоборот`, `против`, `ли`, `будто`, `именно`, `вообще`, `ведь`, `кстати`, `итак`, `впрочем`, `причём`, `также`, `едва`, `чуть`, `зависеть`, `касаться`, `выяснять`, `уточнять`, `утверждать`, `обсуждать`
+
+**u47 · Сравнение и возможность** (24) — `чем`, `более`, `менее`, `самый`, `сравнение`, `степень`, `высокий`, `низкий`, `крупный`, `мелкий`, `огромный`, `тяжёлый`, `мочь`, `уметь`, `способность`, `талант`, `справляться`, `добиваться`, `бы`, `вероятно`, `зря`, `редкий`, `громкий`, `плотный`
+
+**u48 · Спряжение глаголов** (24) — `изучать`, `определять`, `исправлять`, `запоминать`, `отмечать`, `добавлять`, `записывать`, `сдавать`, `создавать`, `откладывать`, `обеспечивать`, `увеличивать`, `гореть`, `тратить`, `копить`, `делить`, `будить`, `звучать`, `копировать`, `редактировать`, `публиковать`, `организовать`, `участвовать`, `комментировать`
+
+**u49 · Повелительное наклонение** (24) — `заполнять`, `подписывать`, `оформлять`, `назначать`, `поручать`, `регистрировать`, `нажимать`, `печатать`, `скачивать`, `сохранять`, `удалять`, `набирать`, `перебивать`, `напоминать`, `убеждать`, `предупреждать`, `возражать`, `болтать`, `грузить`, `крутить`, `трогать`, `выбрасывать`, `подбирать`, `заменять`
+
+**u50 · Документы и порядок** (24) — `справка`, `анкета`, `бланк`, `образец`, `оригинал`, `черновик`, `заявление`, `отчёт`, `доверенность`, `квитанция`, `удостоверение`, `свидетельство`, `пункт`, `строка`, `абзац`, `список`, `содержание`, `сноска`, `штамп`, `пропуск`, `график`, `инструкция`, `официальный`, `личный`
+
+**u51 · Общество и государство** (24) — `государство`, `народ`, `общество`, `население`, `гражданин`, `деревня`, `власть`, `президент`, `министр`, `армия`, `солдат`, `война`, `закон`, `тюрьма`, `суд`, `преступление`, `наказание`, `штраф`, `право`, `партия`, `союз`, `организация`, `депутат`, `чиновник`
+
+**u52 · Причина и вывод** (24) — `довод`, `следствие`, `основа`, `принцип`, `источник`, `влияние`, `задача`, `метод`, `система`, `необходимость`, `логика`, `память`, `вызывать`, `приводить`, `представлять`, `существовать`, `происходить`, `наблюдать`, `мотив`, `совпадение`, `вариант`, `обстоятельство`, `противоречие`, `например`
+
+**u53 · Болезнь и лечение** (24) — `шея`, `плечо`, `колено`, `горло`, `кость`, `мышца`, `кровь`, `мозг`, `нерв`, `желудок`, `печень`, `грудь`, `болезнь`, `кашель`, `насморк`, `рана`, `ожог`, `грипп`, `операция`, `укол`, `анализ`, `рецепт`, `приём`, `вредный`
+
+**u54 · Наука и природа** (24) — `наука`, `исследование`, `физика`, `химия`, `биология`, `математика`, `вещество`, `энергия`, `электричество`, `давление`, `объём`, `измерять`, `природа`, `корень`, `зерно`, `насекомое`, `расти`, `почва`, `планета`, `климат`, `облако`, `лёд`, `волна`, `туман`
+
+**u55 · Искусство и культура** (24) — `искусство`, `культура`, `литература`, `живопись`, `скульптура`, `миф`, `поэт`, `актёр`, `художник`, `герой`, `критик`, `стих`, `сцена`, `спектакль`, `роль`, `хор`, `оркестр`, `балет`, `традиция`, `религия`, `мода`, `стиль`, `творчество`, `легенда`
+
+**u56 · Личность и поведение** (24) — `щедрый`, `нежный`, `внимательный`, `скромный`, `забота`, `уважение`, `смелый`, `воля`, `настойчивый`, `надёжный`, `терпение`, `активный`, `грубый`, `жадный`, `упрямый`, `наглый`, `зависть`, `обман`, `поведение`, `поступок`, `доверие`, `совесть`, `одиночество`, `знакомый`
+
+**u57 · Вещи и их место** (24) — `сидеть`, `лежать`, `стоять`, `ставить`, `вешать`, `держать`, `открывать`, `закрывать`, `поднимать`, `опускать`, `бросать`, `ловить`, `строить`, `ломать`, `тянуть`, `толкать`, `копать`, `шить`, `мыть`, `вытирать`, `чинить`, `посуда`, `ведро`, `тряпка`
+
+**u58 · Еда и вкус** (24) — `пить`, `поесть`, `блюдо`, `продукты`, `аппетит`, `перец`, `варить`, `жарить`, `печь`, `кормить`, `кастрюля`, `плита`, `сладкий`, `кислый`, `горький`, `жирный`, `острый`, `горячий`, `холодный`, `торт`, `мёд`, `орех`, `каша`, `сметана`
+
+**u59 · Слова и поступки** (24) — `слушать`, `молчать`, `благодарить`, `прощать`, `хвалить`, `ругать`, `учить`, `беречь`, `хранить`, `проверять`, `признавать`, `защищать`, `родственник`, `молодёжь`, `поколение`, `толпа`, `собрание`, `житель`, `событие`, `рождение`, `смерть`, `похороны`, `случайно`, `нарочно`
+
+**u60 · Улица и двор** (24) — `пол`, `двор`, `балкон`, `забор`, `труба`, `крыльцо`, `тротуар`, `фонарь`, `скамейка`, `светофор`, `перекрёсток`, `ворота`, `скользкий`, `ржавый`, `гладкий`, `мокрый`, `сухой`, `тупой`, `древний`, `современный`, `прочный`, `хрупкий`, `тип`, `свойство`
 

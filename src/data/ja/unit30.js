@@ -54,7 +54,7 @@ export const UNIT30 = {
         { id: "ja-u30l4-hazu", type: "vocab", front: "はず", reading: "hazu", meaning: "should be", example: { jp: "あんぜんなはずです。", en: "It should be safe." }, accept: ["ought to", "supposed to", "expected to"] },
         { id: "ja-u30l4-so", type: "vocab", front: "そう", reading: "sō", meaning: "seems (looks)", example: { jp: "おいしそうです。", en: "It looks delicious." }, accept: ["looks like", "appears"], hint: "adjective-stem + そう = 'looks…': おいし + そう = looks tasty." },
         { id: "ja-u30l4-mitai", type: "vocab", front: "みたい", reading: "mitai", meaning: "like (resembling something)", example: { jp: "こどもみたいです。", en: "He's like a child." }, accept: ["seems like", "resembling"] },
-        { id: "ja-u30l4-rashii", type: "vocab", front: "らしい", reading: "rashii", meaning: "seems", example: { jp: "がくせいらしいです。", en: "He seems to be a student." }, accept: ["apparently", "I hear", "typical of"] },
+        { id: "ja-u30l4-rashii", type: "vocab", front: "らしい", reading: "rashii", meaning: "seems (from what I hear)", example: { jp: "がくせいらしいです。", en: "He seems to be a student." }, accept: ["apparently", "I hear", "typical of"] },
       ],
     },
   ],

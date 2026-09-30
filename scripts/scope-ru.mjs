@@ -151,7 +151,58 @@ const PARADIGM = {
   //     forms are what any sentence with a real subject needs.
   нужно: ["нужен", "нужна", "нужны"],
   ходить: ["хожу", "ходишь", "ходит", "ходим", "ходите", "ходят", "ходил", "ходила", "ходили"],
+  // EXTENDED BY A2 BLOCK 2, 2026-09-29. Five entries, every one a GENERATED
+  // INFLECTION in the standard paradigm of a front that IS carded — no lexical
+  // guesses, same discipline as block 1's (a)-(h) above. The proof they are a fix
+  // and not a loosening is that neither documented figure moves: u1-u30 stays at
+  // 107 of 1374, every one still in u1-u6, and u31-u40 stays at 0 of 480.
+  //
+  // (i) THE -давать FAMILY DROPS -ава- IN THE PRESENT TENSE, so nothing it
+  //     inflects into starts with the stem the stripper reaches. stem("давать")
+  //     is "дав" and даю/даёшь/дают start with "да". u48l2 TEACHES that drop as
+  //     its whole lesson, so it cannot be written around — the same position
+  //     block 1 was in with идти/ехать at u36.
+  давать: ["даю", "даёшь", "даешь", "даёт", "дает", "даём", "даем", "даёте", "даете", "дают", "давал", "давала", "давали"],
+  сдавать: ["сдаю", "сдаёшь", "сдаешь", "сдаёт", "сдает", "сдаём", "сдаем", "сдаёте", "сдаете", "сдают", "сдавал", "сдавала", "сдавали"],
+  создавать: ["создаю", "создаёшь", "создаешь", "создаёт", "создает", "создаём", "создаем", "создаёте", "создаете", "создают"],
+  // (j) `дать` (u31l2) is the perfective of the same family and mutates further:
+  //     stem("дать") is "дать" itself, which дам/дашь/дал start with none of.
+  дать: ["дам", "дашь", "даст", "дадим", "дадите", "дадут", "дал", "дала", "дали", "дай", "дайте"],
+  // (k) `мочь` (u47l3) mutates ч -> г/ж throughout. stem("мочь") is "моч" and
+  //     могу/можешь/могут start with "мог"/"мож". Note "может" was already
+  //     reachable, but only by accident — it is a piece of the u22l3 front
+  //     `может быть`, which the exact-surface registration splits on whitespace.
+  мочь: ["могу", "можешь", "может", "можем", "можете", "могут", "мог", "могла", "могло", "могли"],
+  // (l) FOUR MORE NOUNS WHOSE STEM DROPS A VOWEL, the same class as день and
+  //     цветок in (e) above. The last syllable's ё/е/о vanishes in every case but
+  //     the nominative, so the front's stem is not a prefix of any inflected form:
+  //     stem("кошелёк") is "кошелек" and кошелькА starts "кошельк". All four are
+  //     block 2 fronts and all four have the drop stated in their own hint, so
+  //     writing around them would contradict the card.
+  "кошелёк": ["кошелька", "кошельку", "кошельком", "кошельке", "кошельки", "кошельков", "кошелькам", "кошельками"],
+  образец: ["образца", "образцу", "образцом", "образце", "образцы", "образцов", "образцам", "образцами"],
+  список: ["списка", "списку", "списком", "списке", "списки", "списков", "спискам", "списками"],
+  заголовок: ["заголовка", "заголовку", "заголовком", "заголовке", "заголовки", "заголовков"],
   ездить: ["езжу", "ездишь", "ездит", "ездим", "ездите", "ездят", "ездил", "ездила", "ездили"],
+  // (i) EXTENDED BY A2 BLOCK 3, 2026-09-29. The same class as (e): a noun whose
+  //     LAST-SYLLABLE VOWEL DROPS, so its oblique and plural forms do not begin
+  //     with the front's stem and every correct sentence using one reads as a
+  //     violation. `камень` was already taught at u26l4 and its plural камни had
+  //     been unreachable since; the other four are carded in u53–u57. EVERY FORM
+  //     HERE IS A GENERATED INFLECTION IN THE STANDARD PARADIGM — no lexical
+  //     guesses. The proof this is a fix and not a loosening is the u1–u30 figure,
+  //     which must stay at block 1's documented 107: measured 107 before these
+  //     entries and 107 after. See ru/unit60.js §7.
+  камень: ["камня", "камню", "камнем", "камни", "камней", "камням", "камнями", "камнях"],
+  отец: ["отца", "отцу", "отцом", "отце", "отцы", "отцов", "отцам", "отцами"],
+  перец: ["перца", "перцу", "перцем", "перце"],
+  корень: ["корня", "корню", "корнем", "корни", "корней", "корням", "корнями", "корнях"],
+  кашель: ["кашля", "кашлю", "кашлем", "кашле"],
+  поступок: ["поступка", "поступку", "поступком", "поступке", "поступки", "поступков", "поступкам"],
+  //     And three whose PLURAL writes a ё or moves the stem, same reasoning.
+  ведро: ["вёдра", "ведра", "вёдер", "ведер", "ведру", "ведром", "ведре"],
+  облако: ["облака", "облаку", "облаком", "облаке", "облаков", "облакам", "облаками"],
+  "лёд": ["льда", "льду", "льдом", "льде", "лёдом"],
 };
 
 // norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own
@@ -211,7 +262,41 @@ for (const u of RU_UNITS) {
 }
 
 const tokenize = (s) => String(s ?? "").split(/[^\p{L}-]+/u).filter(Boolean);
-const only = process.argv[2] ? new Set(process.argv[2].split(",").map(Number)) : null;
+// UNIT FILTER. Accepts a comma list (`41,42,43`), a range (`41..60`), or a mix
+// (`3,41..60`). No argument means every unit.
+//
+// IT USED TO ACCEPT ONLY A COMMA LIST, AND A RANGE SILENTLY CHECKED NOTHING:
+// `41..60` split to one token, Number("41..60") is NaN, no unit ever matched, and
+// the script printed "0 sentence(s) checked · 0 carrying an out-of-scope token"
+// — which reads as a pass. Two A2 seats reported a clean range on that output.
+// Their content turned out to be clean when re-run correctly (960 · 0), so no bad
+// content shipped, but the next seat would not have been so lucky.
+//
+// So: ranges parse, AND an argument that selects no real unit is a hard error
+// rather than a quiet zero. A check that cannot reach the content must not be
+// able to look like a check that passed.
+function parseUnitFilter(arg) {
+  if (!arg) return null;
+  const orders = new Set(RU_UNITS.map((u) => u.order));
+  const want = new Set();
+  for (const part of String(arg).split(",").map((s) => s.trim()).filter(Boolean)) {
+    const range = /^(\d+)\.\.(\d+)$/.exec(part);
+    if (range) {
+      const [a, b] = [Number(range[1]), Number(range[2])];
+      if (a > b) throw new Error(`scope-ru: range "${part}" runs backwards`);
+      for (let i = a; i <= b; i++) want.add(i);
+      continue;
+    }
+    if (!/^\d+$/.test(part)) throw new Error(`scope-ru: "${part}" is not a unit number or a N..M range`);
+    want.add(Number(part));
+  }
+  const real = [...want].filter((n) => orders.has(n));
+  if (!real.length) throw new Error(`scope-ru: filter "${arg}" selects no existing ru unit (have ${Math.min(...orders)}..${Math.max(...orders)})`);
+  const missing = [...want].filter((n) => !orders.has(n));
+  if (missing.length) console.warn(`scope-ru: note — no such ru unit: ${missing.join(", ")}`);
+  return new Set(real);
+}
+const only = parseUnitFilter(process.argv[2]);
 
 let checked = 0;
 let flagged = 0;

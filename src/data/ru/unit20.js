@@ -113,10 +113,20 @@
 //   RESOLVED BY BLOCK 3 out of what this line offered free: готовить (u29l2) ·
 //        голодный (u24l2) · чистый (u29l3) · грязный (u29l3) · близко (u23l2) ·
 //        мало (u21l4) · думать (u22l3) · воздух (u26l4).
-//   STILL FREE AND UNTOUCHED after A1: балкон · тяжёлый · дешёвый (careful: ё) ·
-//        нравиться-as-infinitive · число (block 3 used `цифра` and `дата` instead,
-//        because `число` glosses to "a number", which is u12 `номер` after
-//        normalisation) · улыбка (refused vs u28 улыбаться) · желудок · грипп.
+//   ⚠️ CORRECTED, 2026-09-30, at the A2 merge. This line used to list EIGHT words as
+//        "STILL FREE AND UNTOUCHED after A1". Six of them are now carded, so the list
+//        was inviting a seat to author a front the validator would reject — two A2
+//        seats flagged it and correctly would not reach across ranges to fix it.
+//        Re-derived against the merged u1-u60 corpus:
+//          NOW TAUGHT: балкон (u60l1) · тяжёлый (u47l2) · дешёвый (u44l4) ·
+//            число (u37l1) · желудок (u53l2) · грипп (u53l3).
+//          STILL GENUINELY FREE: нравиться-as-infinitive · улыбка (refused vs u28
+//            улыбаться, and that refusal still stands).
+//        The old parenthetical said block 3 chose `цифра`/`дата` over `число` because
+//        `число` normalises onto u12 `номер` — `цифра` and `дата` are both at u21l4
+//        and `число` IS carded at u37l1, so that reasoning no longer describes the
+//        corpus either. Resolve this list with `npm run taught -- ru`, never against
+//        a comment.
 //   Every A1 verb block 1 taught, plus block 2's: заказывать убирать класть
 //        искать покупать продавать платить выбирать носить примерять идти ехать
 //        ждать спать отдыхать дышать помогать курить. Conjugate them in your

@@ -49,7 +49,9 @@
 //   `количество` takes "an amount" against u32 качество "a quality" — one letter
 //        apart in Russian and two different questions, which the hint says.
 //   `доля` "a share" vs u11 половина "a half" and u21 процент "a percent".
-//   `объём` and `ширина` and `глубина` are all measured free and are NOT carded:
+//   `ширина` and `глубина` are measured free and are NOT carded (✅ and `объём`
+//        no longer is — BLOCK 3 CARDED IT at u54l2, in the physics lesson, where a
+//        volume is what you measure rather than an abstract dimension):
 //        24 cards were full, and the dimension ADJECTIVES (широкий · глубокий ·
 //        тонкий · толстый · узкий) are u40's, where they are more use to a
 //        learner than an abstract noun. `длина` is the exception, carded at l3,

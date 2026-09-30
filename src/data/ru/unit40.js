@@ -66,10 +66,13 @@
 // Referenced from ru/unit31.js §7, which promised the final measurement here.
 // ═════════════════════════════════════════════════════════════════════════════
 // 240 cards · 40 lessons · 10 units · SIX cards in every lesson, no exceptions.
-// Every card has example + drill + accept[] + hint. **ru is now 960 items / 160
-// lessons / 40 authored units**, measured with `npm run audit`, and
-// src/data/ru/TAUGHT-WORDS.md regenerated to 960 words / 40 authored units /
-// 20 stubs (u41–u60, which are blocks 2 and 3).
+// Every card has example + drill + accept[] + hint. **ru stood at 960 items / 160
+// lessons / 40 authored units AT BLOCK 1's HAND-BACK**, measured with `npm run
+// audit`, and src/data/ru/TAUGHT-WORDS.md was regenerated to 960 words / 40
+// authored units / 20 stubs at that point. ⚠️ THOSE ARE BLOCK 1's NUMBERS AND
+// THEY ARE NOT THE BAND'S — blocks 2 and 3 landed after them. For the figure as
+// the band closed, see §7 of ru/unit60.js, and re-derive it rather than quoting
+// either.
 //
 // ALL FOUR OF unit1.js §5's A2 DEFERRALS ARE CLOSED, plus one §4 deferral and one
 // §D reversal. Nothing was pushed to B1 that §5 did not already put there:
@@ -131,9 +134,12 @@
 //   HELD BACK FOR u46/u47 ON PURPOSE — block 1 refused all eight so those slots
 //   have their content: чем · более · менее · самый · мочь · уметь · хотя · чтобы
 //   ONE-OF-A-PAIR, where block 1 took the other half and a later block may revisit:
-//     возить (u36 took везти) · высокий (u36 took высота) · объём · ширина ·
-//     глубина (u37/u40 took the adjectives) · тип AND вид (block 1 took NEITHER —
-//     one of the two is available, never both; see u32's header)
+//     возить (u36 took везти) · высокий (u36 took высота) · ширина ·
+//     глубина (u37/u40 took the adjectives)
+//     ✅ UPDATED 2026-09-29, BLOCK 3 SPENT TWO OF THIS LIST: `объём` is carded at
+//     u54l2 and `тип` at u60l4, so `вид` — the other half of that pair — is now
+//     CLOSED and must not be carded. возить, высокий, ширина and глубина
+//     were re-probed on block 3's branch and are all still free.
 //   REFUSED BY BLOCK 1 BUT ARGUABLE, with the whole argument in the unit header
 //   named: советовать (u34) · безопасный · неправильный · понятный (u40) ·
 //     истина (u39, a gloss collision with u22 правда rather than a lexeme one)
