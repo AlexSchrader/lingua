@@ -13,7 +13,7 @@
 // finished A1 and most of A2 cannot tell anyone to do anything.
 //
 // ⚠️ AND THE COMMAND FORM IS NOT A CARD, FOR THE SAME REASON THE COMPARATIVE IS
-// NOT ONE AT u47. заполняй · подпиши · молчи are INFLECTED FORMS, and unit1.js §5
+// NOT ONE AT u47. заполняй · подпиши · грузи are INFLECTED FORMS, and unit1.js §5
 // bans carding those. So this unit cards 24 NEW VERBS, exactly as u48 does, and
 // the imperative lives in every canDo, every hint and every example sentence. By
 // the end of l4 a learner has met the rule four times over four separate stem
@@ -22,8 +22,8 @@
 // THE RULE, stated once here and once per lesson:
 //   Take the ОНИ form, drop its ending, and look at what is left.
 //     ends in a VOWEL  → add -й      (они заполняЮТ → заполня- → ЗАПОЛНЯЙ)
-//     ends in a CONSONANT → add -и   (они молчАТ → молч- → МОЛЧИ)
-//   Then add -ТЕ for вы, always: заполняйТЕ, молчиТЕ. There is no third pattern.
+//     ends in a CONSONANT → add -и   (они грузЯТ → груз- → ГРУЗИ)
+//   Then add -ТЕ for вы, always: заполняйТЕ, грузиТЕ. There is no third pattern.
 //
 // ⚠️ ASPECT AND THE IMPERATIVE — WHAT THIS UNIT DELIBERATELY DOES NOT TEACH.
 // Russian picks the imperfective imperative for a general or repeated instruction
@@ -34,18 +34,29 @@
 // first. The perfective imperative belongs with aspect, which is ru/unit31.js's
 // subject, and is named in the hints rather than taught.
 //
-// THREE CALLS I MADE, with the reasoning:
-//   `слушать` "to listen" IS carded even though u4 `слышать` "to hear" exists and
-//        the two are one letter apart. They are separate lexemes in every Russian
-//        course, the glosses differ ("listen" against "hear"), the readings differ
-//        ("slushat" against "slyshat"), and unit1.js §1's lossy-scheme warning is
-//        about SOFT-SIGN minimal pairs, which this is not. Measured clear on both
-//        the reading and the gloss check. Its hint names слышать explicitly.
-//   `слушатель` was therefore REFUSED at u45l2 — a verb and its agent noun in one
-//        block is the §D case; see u45's header.
-//   `напоминать` and `признавать` are PREFIXED DERIVATIONS of u22 `помнить` and u4
-//        `знать`, which u48's header establishes as allowed on block 1's own u31
-//        precedent. Both glosses measured clear.
+// TWO CALLS I MADE, with the reasoning:
+//   `напоминать` is a PREFIXED DERIVATION of u22 `помнить`, which u48's header
+//        establishes as allowed on block 1's own u31 precedent. Gloss measured clear.
+//   `убеждать` and `предупреждать` sit beside u24 `уверен` in sense but on a
+//        different root; neither gloss collides.
+//
+// ⚠️ MERGE-SEAT DEDUPE, 2026-09-30. Five of this unit's fronts were ALSO authored by
+// block 3 (u51–u60), which could not see this range while it ran. The merge seat gave
+// each word ONE home by theme and replaced the block-2 copy in its slot:
+//   `слушать`    → u59 Слова и поступки; l3 slot 1 is now `перебивать`.
+//   `признавать` → u59 Слова и поступки; l3 slot 5 is now `возражать`.
+//   `молчать`    → u59 Слова и поступки; l3 slot 6 is now `болтать`.
+//   `вешать`     → u57 Вещи и их место;  l4 slot 1 is now `грузить`.
+//   `тянуть`     → u57 Вещи и их место;  l4 slot 2 is now `крутить`.
+// The unit is still 4 × 6 = 24, and every replacement is a new id, front, gloss,
+// example and drill — nothing was renamed, so no mastery track was reused.
+// ⚠️ ONE STRUCTURAL CONSEQUENCE, AND IT IS DELIBERATE. `молчать` carried the -и
+// imperative pattern in l3 and `тянуть` reinforced it in l4. Russian has no FREE
+// imperfective speaking verb left with a consonant stem — молчать, кричать (u28),
+// спорить, просить, шутить, хвалить and благодарить are each taken or blocked by a
+// noun already carded — so the -и pattern now lives entirely in l4, where `грузить`
+// introduces it and `крутить` repeats it. l1–l3 are pure -й; l4 teaches both. The
+// learner still meets -и twice, and the canDos say so.
 //
 // ⚠️ ALSO REFUSED HERE:
 //   `поправлять` — vs `правило` (u41l3, mine) and u40 `правильный`.
@@ -91,7 +102,7 @@ export const RU_UNIT49 = {
         { id: "ru-u49l2-nazhimat", type: "vocab", front: "нажимать", reading: "nazhimat", meaning: "to press a button", accept: ["to press", "to push down", "to click"], example: { jp: "Нажимайте эту кнопку два раза.", en: "Press that button twice." }, drill: { jp: "Эту кнопку можно нажимать два раза", en: "That button can be pressed twice" }, hint: "na-zhi-MAT — stress on the last syllable. First conjugation: нажимаю, нажимают. ⚠️ IMPERATIVE: нажимай, нажимайте. Glossed «to press a button» because пресса at unit 45 is «the press». Russian says «нажимать НА кнопку» as often as the bare accusative." },
         { id: "ru-u49l2-pechatat", type: "vocab", front: "печатать", reading: "pechatat", meaning: "to print", accept: ["to type", "to run off copies", "to put into print"], example: { jp: "Печатайте этот файл на нашем принтере.", en: "Print that file on our printer." }, drill: { jp: "Я буду печатать этот файл сегодня", en: "I will print that file today" }, hint: "pe-CHA-tat — stress on CHA. First conjugation: печатаю, печатают. ⚠️ IMPERATIVE: печатай, печатайте. Two senses Russian keeps in one verb: to print on paper AND to type on a keyboard." },
         { id: "ru-u49l2-skachivat", type: "vocab", front: "скачивать", reading: "skachivat", meaning: "to download", accept: ["to pull down a file", "to get off the internet", "to fetch a file"], example: { jp: "Скачивайте эту программу только с нашего сайта.", en: "Only download that program from our website." }, drill: { jp: "Программу можно скачивать с сайта", en: "The program can be downloaded from the website" }, hint: "SKA-chi-vat — stress on the first syllable. First conjugation, the -ива- stays: скачиваю, скачивают. ⚠️ IMPERATIVE: скачивай, скачивайте. A very new verb in Russian, built on качать, to rock or pump." },
-        { id: "ru-u49l2-sokhranyat", type: "vocab", front: "сохранять", reading: "sokhranyat", meaning: "to save", accept: ["to save a file", "to keep safe", "to retain"], example: { jp: "Сохраняйте каждый файл два раза.", en: "Save every file twice." }, drill: { jp: "Я хочу сохранять каждый файл два раза", en: "I want to save every file twice" }, hint: "sa-khra-NYAT — stress on the last syllable, the о reduces to a. First conjugation. ⚠️ IMPERATIVE: сохраняй, сохраняйте. Built on хранить (unit 48) with со-: хранить is keeping a thing, сохранять is keeping it FROM being lost." },
+        { id: "ru-u49l2-sokhranyat", type: "vocab", front: "сохранять", reading: "sokhranyat", meaning: "to save", accept: ["to save a file", "to keep safe", "to retain"], example: { jp: "Сохраняйте каждый файл два раза.", en: "Save every file twice." }, drill: { jp: "Я хочу сохранять каждый файл два раза", en: "I want to save every file twice" }, hint: "sa-khra-NYAT — stress on the last syllable, the о reduces to a. First conjugation. ⚠️ IMPERATIVE: сохраняй, сохраняйте. Built with со- on the same root as хранить (unit 59): хранить is keeping a thing, сохранять is keeping it FROM being lost." },
         { id: "ru-u49l2-udalyat", type: "vocab", front: "удалять", reading: "udalyat", meaning: "to delete", accept: ["to remove", "to erase", "to take away"], example: { jp: "Не удаляйте этот файл без меня.", en: "Do not delete that file without me." }, drill: { jp: "Не нужно удалять этот файл", en: "That file should not be deleted" }, hint: "u-da-LYAT — stress on the last syllable. First conjugation. ⚠️ IMPERATIVE: удаляй, удаляйте — and THIS is where the imperfective earns its place: every NEGATIVE command in Russian uses the imperfective, so «не удаляй!» is the only correct way to say «do not delete». Built on далеко (unit 14)." },
         { id: "ru-u49l2-nabirat", type: "vocab", front: "набирать", reading: "nabirat", meaning: "to key in", accept: ["to dial a number", "to type in", "to gather a quantity"], example: { jp: "Набирайте пароль очень медленно.", en: "Key the password in very slowly." }, drill: { jp: "Пароль лучше набирать очень медленно", en: "The password is better keyed in very slowly" }, hint: "na-bi-RAT — stress on the last syllable. First conjugation: набираю, набирают. ⚠️ IMPERATIVE: набирай, набирайте. Its oldest sense is to gather up a quantity — «набирать сотрудников» is to recruit — and from there it became dialling a number and typing text." },
       ],
@@ -103,14 +114,14 @@ export const RU_UNIT49 = {
       title: "Telling someone what to do in a conversation",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Tell someone to listen, to remind you, to say nothing — and meet the second pattern, where the stem ends in a consonant and the ending is -и, not -й.",
+      canDo: "Tell someone not to interrupt, to remind you, to warn you, to object politely — the whole -й pattern again, over the verbs a conversation actually runs on.",
       items: [
-        { id: "ru-u49l3-slushat", type: "vocab", front: "слушать", reading: "slushat", meaning: "to listen", accept: ["to pay attention to", "to hear someone out", "to attend to"], example: { jp: "Слушайте эту передачу каждый вечер.", en: "Listen to that broadcast every evening." }, drill: { jp: "Я люблю слушать эту передачу вечером", en: "I like listening to that broadcast in the evening" }, hint: "SLU-shat — stress on the first syllable. First conjugation: слушаю, слушают. ⚠️ IMPERATIVE: слушай, слушайте. ⚠️ NOT слышать from unit 4, which is «to hear» and is second conjugation (слышу, слышишь): слышать happens to you, слушать is something you DO. Russian never confuses them; English «listen/hear» is the same split." },
+        { id: "ru-u49l3-perebivat", type: "vocab", front: "перебивать", reading: "perebivat", meaning: "to interrupt", accept: ["to cut someone off", "to break into a conversation", "to talk over someone"], example: { jp: "Не перебивайте клиента так часто.", en: "Do not interrupt the client so often." }, drill: { jp: "Не нужно перебивать клиента", en: "There is no need to interrupt the client" }, hint: "pe-re-bi-VAT — four syllables, stress on the last. First conjugation: перебиваю, перебивают. ⚠️ IMPERATIVE: перебивай, перебивайте — and the negative is where it lives: «не перебивай!» is what a Russian says to a child. Built on бить, to strike: to cut straight across what someone is saying." },
         { id: "ru-u49l3-napominat", type: "vocab", front: "напоминать", reading: "napominat", meaning: "to remind", accept: ["to jog someone's memory", "to bring to mind", "to be reminiscent of"], example: { jp: "Напоминайте мне об этом каждый день.", en: "Remind me about that every day." }, drill: { jp: "Ты можешь напоминать мне об этом", en: "You can remind me about that" }, hint: "na-pa-mi-NAT — four syllables, stress on the last, both о reduce to a. First conjugation. ⚠️ IMPERATIVE: напоминай, напоминайте. Built on помнить (unit 22): помнить is to hold in mind, запоминать (unit 48) is to put it there, напоминать is to put it in SOMEBODY ELSE'S. It takes КОМУ О ЧЁМ — dative plus о, units 34 and 39." },
         { id: "ru-u49l3-ubezhdat", type: "vocab", front: "убеждать", reading: "ubezhdat", meaning: "to persuade", accept: ["to talk someone round", "to convince", "to win someone over"], example: { jp: "Убеждайте клиента только цифрами.", en: "Persuade the client with figures alone." }, drill: { jp: "Клиента лучше убеждать только цифрами", en: "A client is better persuaded with figures alone" }, hint: "u-bezh-DAT — stress on the last syllable. First conjugation: убеждаю, убеждают. ⚠️ IMPERATIVE: убеждай, убеждайте. Same root as уверен (unit 24) in sense if not in spelling; it takes КОГО (accusative) В ЧЁМ or ЧЕМ (instrumental, unit 32)." },
         { id: "ru-u49l3-preduprezhdat", type: "vocab", front: "предупреждать", reading: "preduprezhdat", meaning: "to warn", accept: ["to give notice", "to let someone know in advance", "to forestall"], example: { jp: "Предупреждайте нас об этом заранее.", en: "Warn us about that in advance." }, drill: { jp: "Он будет предупреждать нас заранее", en: "He will warn us in advance" }, hint: "pre-du-prezh-DAT — four syllables, stress on the last. First conjugation. ⚠️ IMPERATIVE: предупреждай, предупреждайте. It takes КОГО О ЧЁМ. «Предупреждён — значит вооружён» is the Russian «forewarned is forearmed»." },
-        { id: "ru-u49l3-priznavat", type: "vocab", front: "признавать", reading: "priznavat", meaning: "to admit", accept: ["to acknowledge", "to own up to", "to recognise formally"], example: { jp: "Признавайте эти ошибки сразу.", en: "Admit these mistakes straight away." }, drill: { jp: "Такие ошибки лучше признавать сразу", en: "Mistakes like that are better admitted straight away" }, hint: "pri-zna-VAT — stress on the last syllable. ⚠️ THE -ава- DROPS, like сдавать at unit 48: признаю, признаёшь, признают. IMPERATIVE: признавай, признавайте. Built on знать (unit 4) with при-: to bring a fact into your own knowledge out loud." },
-        { id: "ru-u49l3-molchat", type: "vocab", front: "молчать", reading: "molchat", meaning: "to say nothing", accept: ["to keep quiet", "to be silent", "to hold your tongue"], example: { jp: "Молчите, пожалуйста, эта передача в прямом эфире.", en: "Please keep quiet — this broadcast is live on air." }, drill: { jp: "Трудно молчать так долго", en: "It is hard to keep quiet for so long" }, hint: "mal-CHAT — stress on the last syllable, the о reduces to a. ⚠️ SECOND CONJUGATION despite the -ать, like звучать at unit 48: молчу, молчишь, молчат. ⚠️ AND THIS IS THE SECOND IMPERATIVE PATTERN: они молчАТ → молч- ends in a CONSONANT → so the ending is -И, not -й: МОЛЧИ, МОЛЧИТЕ." },
+        { id: "ru-u49l3-vozrazhat", type: "vocab", front: "возражать", reading: "vozrazhat", meaning: "to raise an objection", accept: ["to disagree out loud", "to speak against", "to protest"], example: { jp: "Возражайте только очень вежливо.", en: "Raise your objection only very politely." }, drill: { jp: "Здесь лучше возражать очень вежливо", en: "Here it is better to object very politely" }, hint: "vaz-ra-ZHAT — stress on the last syllable, and the о reduces to a. First conjugation: возражаю, возражают. ⚠️ IMPERATIVE: возражай, возражайте. ⚠️ Glossed «to raise an objection» because вещь at unit 3 is already «an object» — English uses one word for two unrelated ideas, Russian does not. «Не возражаю» is the polite Russian for «I don't mind»." },
+        { id: "ru-u49l3-boltat", type: "vocab", front: "болтать", reading: "boltat", meaning: "to chatter", accept: ["to chat away", "to talk too much", "to natter"], example: { jp: "Не болтайте на семинаре, преподаватель уже здесь.", en: "Do not chatter in the seminar — the lecturer is here already." }, drill: { jp: "Не нужно болтать на семинаре", en: "There is no need to chatter in the seminar" }, hint: "bal-TAT — stress on the last syllable, the о reduces to a. First conjugation: болтаю, болтают. ⚠️ IMPERATIVE: болтай, болтайте — and «не болтай!» is the everyday one, both for «stop chattering» and for «do not tell anyone». Its first sense is physical: to shake a liquid about." },
       ],
     },
     {
@@ -120,10 +131,10 @@ export const RU_UNIT49 = {
       title: "Telling someone what to do with a thing",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Tell someone to hang something up, pull it, not touch it, throw it out, pick one out or replace it — and produce both imperative endings without thinking.",
+      canDo: "Tell someone to load a thing, to turn it, not to touch it, to throw it out, to pick one out or to replace it — and meet the second pattern, where the stem ends in a consonant and the ending is -и, not -й.",
       items: [
-        { id: "ru-u49l4-veshat", type: "vocab", front: "вешать", reading: "veshat", meaning: "to hang up", accept: ["to hang something", "to put on a hook", "to suspend"], example: { jp: "Вешайте это объявление около входа.", en: "Hang that notice up near the entrance." }, drill: { jp: "Это объявление можно вешать около входа", en: "That notice can be hung up near the entrance" }, hint: "VYE-shat — stress on the first syllable. First conjugation: вешаю, вешают. ⚠️ IMPERATIVE: вешай, вешайте. It is the third member of the класть / ставить family (units 15 and 48): класть lays flat, ставить stands upright, вешать hangs." },
-        { id: "ru-u49l4-tyanut", type: "vocab", front: "тянуть", reading: "tyanut", meaning: "to pull", accept: ["to drag", "to draw towards you", "to drag something out in time"], example: { jp: "Тяните эту дверь очень медленно.", en: "Pull that door very slowly." }, drill: { jp: "Эту дверь лучше тянуть очень медленно", en: "That door is better pulled very slowly" }, hint: "tya-NUT — stress on the last syllable. First conjugation with a stem change: тяну, тянешь, тянут. ⚠️ IMPERATIVE: они тянУТ → тян- ends in a CONSONANT → ТЯНИ, ТЯНИТЕ — the -и pattern, like молчать. Its second sense is to drag out time: «не тяни!»" },
+        { id: "ru-u49l4-gruzit", type: "vocab", front: "грузить", reading: "gruzit", meaning: "to load", accept: ["to load up", "to put cargo in", "to load onto a vehicle"], example: { jp: "Грузите багаж очень медленно.", en: "Load the luggage very slowly." }, drill: { jp: "Этот багаж лучше грузить медленно", en: "That luggage is better loaded slowly" }, hint: "gru-ZIT — stress on the last syllable. Second conjugation, and з → ж in the я form only: гружу, but грузишь, грузит, грузят. ⚠️ THE SECOND IMPERATIVE PATTERN: они грузЯТ → груз- ends in a CONSONANT → so the ending is -И, not -й: ГРУЗИ, ГРУЗИТЕ." },
+        { id: "ru-u49l4-krutit", type: "vocab", front: "крутить", reading: "krutit", meaning: "to turn something round", accept: ["to twist", "to spin something", "to turn a knob"], example: { jp: "Крутите эту кнопку очень медленно.", en: "Turn that knob very slowly." }, drill: { jp: "Эту кнопку лучше крутить очень медленно", en: "That knob is better turned very slowly" }, hint: "kru-TIT — stress on the last syllable. Second conjugation, and т → ч in the я form only: кручу, but крутишь, крутят — the mutation from unit 48. ⚠️ IMPERATIVE: они крутЯТ → крут- ends in a CONSONANT → КРУТИ, КРУТИТЕ, the same -и as грузить above. «Не крути!» is also what you say to someone dodging a question." },
         { id: "ru-u49l4-trogat", type: "vocab", front: "трогать", reading: "trogat", meaning: "to touch", accept: ["to lay a hand on", "to handle", "to move something"], example: { jp: "Не трогайте это устройство без мастера.", en: "Do not touch that device without the craftsman." }, drill: { jp: "Не нужно трогать это устройство", en: "That device should not be touched" }, hint: "TRO-gat — stress on the first syllable. First conjugation: трогаю, трогают. ⚠️ IMPERATIVE: трогай, трогайте — and «НЕ ТРОГАЙ!» is one of the commonest sentences in spoken Russian, which is the negative-imperfective rule from l2 in its natural home." },
         { id: "ru-u49l4-vybrasyvat", type: "vocab", front: "выбрасывать", reading: "vybrasyvat", meaning: "to throw out", accept: ["to throw away", "to discard", "to chuck out"], example: { jp: "Не выбрасывайте эти документы без подписи.", en: "Do not throw those documents out without a signature." }, drill: { jp: "Не нужно выбрасывать эти документы", en: "Those documents should not be thrown out" }, hint: "vy-BRA-sy-vat — four syllables, stress on BRA. First conjugation, the -ыва- stays: выбрасываю, выбрасывают. ⚠️ IMPERATIVE: выбрасывай, выбрасывайте. The вы- prefix is the same «out» as in выключать (unit 43) and выпуск (unit 45)." },
         { id: "ru-u49l4-podbirat", type: "vocab", front: "подбирать", reading: "podbirat", meaning: "to pick out", accept: ["to select a suitable one", "to match up", "to pick up off the floor"], example: { jp: "Подбирайте самый выгодный обмен.", en: "Pick out the most favourable exchange." }, drill: { jp: "Я хочу подбирать самый выгодный обмен", en: "I want to pick out the most favourable exchange" }, hint: "pad-bi-RAT — stress on the last syllable, the о reduces to a. First conjugation: подбираю, подбирают. ⚠️ IMPERATIVE: подбирай, подбирайте. Not выбирать (unit 18), «to choose»: выбирать picks from a list, подбирать finds the one that FITS." },

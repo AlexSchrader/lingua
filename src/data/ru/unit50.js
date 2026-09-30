@@ -105,7 +105,7 @@
 // seat, and it is the measurement, not a plan.
 // ─────────────────────────────────────────────────────────────────────────────
 //   u41 Учёба и знание       преподаватель ученик одноклассник аудитория курс
-//        общежитие · наука математика физика химия литература география · текст
+//        общежитие · предмет лекция семинар конспект каникулы география · текст
 //        страница упражнение правило пример сочинение · знание диплом семестр
 //        доклад практика теория
 //   u42 Работа и карьера     служба отдел должность карьера смена проект · клиент
@@ -127,18 +127,34 @@
 //   u47 Сравнение и возможность  чем более менее самый сравнение степень ·
 //        высокий низкий крупный мелкий огромный тяжёлый · мочь уметь способность
 //        талант справляться добиваться · бы вероятно зря редкий громкий плотный
-//   u48 Спряжение глаголов   изучать проверять исправлять запоминать отмечать
+//   u48 Спряжение глаголов   изучать определять исправлять запоминать отмечать
 //        добавлять · записывать сдавать создавать откладывать обеспечивать
-//        увеличивать · хранить тратить копить делить ставить звучать · копировать
+//        увеличивать · гореть тратить копить делить будить звучать · копировать
 //        редактировать публиковать организовать участвовать комментировать
 //   u49 Повелительное наклонение  заполнять подписывать оформлять назначать
 //        поручать регистрировать · нажимать печатать скачивать сохранять удалять
-//        набирать · слушать напоминать убеждать предупреждать признавать молчать ·
-//        вешать тянуть трогать выбрасывать подбирать заменять
+//        набирать · перебивать напоминать убеждать предупреждать возражать болтать ·
+//        грузить крутить трогать выбрасывать подбирать заменять
 //   u50 Документы и порядок  справка анкета бланк образец оригинал черновик ·
 //        заявление отчёт доверенность квитанция удостоверение свидетельство ·
-//        пункт строка абзац список содержание сноска · штамп приём график
+//        пункт строка абзац список содержание сноска · штамп пропуск график
 //        инструкция официальный личный
+//
+// ⚠️ THIS LIST WAS REWRITTEN BY THE MERGE SEAT ON 2026-09-30, and the fourteen words
+// above are the CORRECTED ones. Block 2 and block 3 ran blind to each other and
+// collided on 34 fronts; the merge seat gave each word one home by theme. Fourteen
+// were block 2's to give up, and each was replaced in its own slot by a new card —
+// new id, front, gloss, example and drill — so every unit is still 4 × 6 = 24:
+//   наука · математика · физика · химия  → u54 Наука и природа   (u41l2)
+//   литература                           → u55 Искусство и культура (u41l2)
+//   проверять · хранить                  → u59 Слова и поступки  (u48l1, u48l3)
+//   ставить                              → u57 Вещи и их место   (u48l3)
+//   слушать · признавать · молчать       → u59 Слова и поступки  (u49l3)
+//   вешать · тянуть                      → u57 Вещи и их место   (u49l4)
+//   приём                                → u53 Болезнь и лечение (u50l4)
+// The replacements are: предмет · лекция · семинар · конспект · каникулы (u41l2);
+// определять (u48l1); гореть · будить (u48l3); перебивать · возражать · болтать
+// (u49l3); грузить · крутить (u49l4); пропуск (u50l4). See each unit's own header.
 //
 // ⚠️ ALL SIX OF BLOCK 1'S RESERVED EIGHT THAT WERE MINE WERE USED, all re-probed on
 // this branch first as ru/unit40.js's header instructs: `чем` · `более` · `менее` ·
@@ -299,13 +315,13 @@ export const RU_UNIT50 = {
       id: "ru-u50l4",
       unit: 50,
       lesson: 4,
-      title: "Stamps, appointments and the rules",
+      title: "Stamps, passes and the rules",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Deal with an office: the stamp it puts on things, the hours it sees people, its schedule, its written instructions, and whether a matter is official or personal.",
+      canDo: "Deal with an office: the stamp it puts on things, the pass that gets you through the door, its schedule, its written instructions, and whether a matter is official or personal.",
       items: [
         { id: "ru-u50l4-shtamp", type: "vocab", front: "штамп", reading: "shtamp", meaning: "a stamp", accept: ["an official mark", "a rubber stamp", "a cliché"], example: { jp: "Без штампа эта справка не работает.", en: "Without a stamp that official note does not work." }, drill: { jp: "Штамп был уже очень старый", en: "The stamp was already very old" }, hint: "One syllable, SHTAMP. MASCULINE. A German loan. ⚠️ Not the postage kind — that is марка. A штамп is the rubber stamp an office bangs onto your paper, and by extension a tired phrase: «это штамп»." },
-        { id: "ru-u50l4-priyom", type: "vocab", front: "приём", reading: "priyom", meaning: "a reception", accept: ["consulting hours", "an appointment slot", "a way of doing something"], example: { jp: "Приём в этом отделе только утром.", en: "Reception in that department is only in the morning." }, drill: { jp: "Приём был только утром", en: "Reception was only in the morning" }, hint: "pri-YOM — stress on the last syllable, where the ё always is. MASCULINE. Three senses: the hours an office or doctor sees people («часы приёма»), a formal reception, and a technique — «этот приём работает»." },
+        { id: "ru-u50l4-propusk", type: "vocab", front: "пропуск", reading: "propusk", meaning: "an entry pass", accept: ["a pass to get in", "a security pass", "a pass for a building"], example: { jp: "Мой пропуск был в этой папке.", en: "My entry pass was in that folder." }, drill: { jp: "Пропуск можно оформлять в этом отделе", en: "The pass can be drawn up in that department" }, hint: "PRO-pusk — stress on the first syllable. MASCULINE. The card an office issues so the door opens for you: «покажите пропуск». ⚠️ Not удостоверение in lesson 2, which proves WHO you are — a пропуск only proves you are allowed THROUGH. Its other sense is a gap: a missed lesson, or a blank left in a text." },
         { id: "ru-u50l4-grafik", type: "vocab", front: "график", reading: "grafik", meaning: "a schedule", accept: ["a work schedule", "a chart or graph", "a planned sequence"], example: { jp: "Наш график работы очень плотный.", en: "Our work schedule is very packed." }, drill: { jp: "График был очень плотный", en: "The schedule was very packed" }, hint: "GRA-fik — stress on the first syllable. MASCULINE. ⚠️ Not расписание (unit 29), which is a fixed TIMETABLE of times: a график is the planned sequence of work, and it is also a graph on a page." },
         { id: "ru-u50l4-instruktsiya", type: "vocab", front: "инструкция", reading: "instruktsiya", meaning: "a set of instructions", accept: ["instructions", "a manual", "written directions"], example: { jp: "Инструкция была только на этом сайте.", en: "The instructions were only on that website." }, drill: { jp: "Инструкция была только на сайте", en: "The instructions were only on the website" }, hint: "in-STRUK-tsi-ya — stress on STRUK. FEMININE, and SINGULAR where English is plural: «прочитайте инструкцию» = read the instructions. Not инструмент (unit 32), a tool." },
         { id: "ru-u50l4-ofitsialnyy", type: "vocab", front: "официальный", reading: "ofitsialnyy", meaning: "official", accept: ["formal", "issued by an authority", "on the record"], example: { jp: "Это был официальный отчёт нашего отдела.", en: "That was our department's official report." }, drill: { jp: "Это был официальный ответ", en: "That was an official answer" }, hint: "a-fi-tsi-AL-nyy — five syllables, stress on AL, and the first о reduces to a. An ADJECTIVE: официальная справка, официальное заявление. Not официант (unit 13), a waiter — same Latin root, very different job." },

@@ -19,8 +19,18 @@
 // карандаш · документ · конверт · папка. Plus школа (u2), студент · учитель (u8),
 // университет (u9), словарь (u5), книга (u8). Against that a learner could not
 // name WHO teaches them past школа, WHICH subject they are studying, or WHAT is
-// on the page in front of them. No A1 or block-1 unit teaches a single academic
-// subject — not one of maths, physics, chemistry, literature or geography.
+// on the page in front of them.
+//
+// ⚠️ MERGE-SEAT DEDUPE, 2026-09-30, AND IT CHANGED WHAT l2 IS. This unit originally
+// carded наука · математика · физика · химия · литература in l2. Block 3 (u51–u60)
+// authored the same five words blind to this range, and the merge seat gave each one
+// ONE home by theme: the four named sciences to u54 Наука и природа, литература to
+// u55 Искусство и культура. u41 is Учёба и знание — the MACHINERY of studying, not
+// the named disciplines — so l2 now cards предмет · лекция · семинар · конспект ·
+// каникулы beside the surviving география, and is retitled "What is on the
+// timetable". Five new ids, five new glosses, five new example/drill pairs; nothing
+// was renamed, so no mastery track was reused, and the unit is still 4 × 6 = 24.
+// ⚠️ DO NOT re-author a named science or литература here — they are taught at u54/u55.
 //
 // FOUR CALLS I MADE AND THE REASONING, so nobody re-litigates them:
 //   `правило` "a rule" beside u40 `правильный` "correct" and u6 `правильно`.
@@ -75,16 +85,16 @@ export const RU_UNIT41 = {
       id: "ru-u41l2",
       unit: 41,
       lesson: 2,
-      title: "The subjects on the timetable",
+      title: "What is on the timetable",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Name the school and university subjects you study, and say which one you are good at.",
+      canDo: "Name what your timetable is made of — the subject, the lecture, the seminar, the notes you take in it, and when the holidays start.",
       items: [
-        { id: "ru-u41l2-nauka", type: "vocab", front: "наука", reading: "nauka", meaning: "a science", accept: ["a field of study", "an academic discipline", "scholarship"], example: { jp: "Это очень трудная наука.", en: "That is a very hard science." }, drill: { jp: "Наука в этом университете сильная", en: "Science at this university is strong" }, hint: "na-U-ka — stress on U. FEMININE. Russian uses it far more widely than English «science»: any organised field of knowledge is a наука, including history and languages." },
-        { id: "ru-u41l2-matematika", type: "vocab", front: "математика", reading: "matematika", meaning: "maths", accept: ["mathematics", "the subject of numbers", "arithmetic as a subject"], example: { jp: "Математика в школе была для меня трудной.", en: "Maths at school was hard for me." }, drill: { jp: "Математика мне очень нравится", en: "I really like maths" }, hint: "ma-te-MA-ti-ka — five syllables, stress on the third MA. FEMININE. Russian schoolchildren shorten it to матеша, but the full word is what you write." },
-        { id: "ru-u41l2-fizika", type: "vocab", front: "физика", reading: "fizika", meaning: "physics", accept: ["the physics course", "the subject of physics"], example: { jp: "Физика и химия для меня одинаково трудные.", en: "Physics and chemistry are equally hard for me." }, drill: { jp: "Физика сегодня в большой аудитории", en: "Physics is in the big lecture room today" }, hint: "FI-zi-ka — stress on the FIRST syllable. FEMININE. Note the и after ф: Russian has no letter for the English «y» sound here." },
-        { id: "ru-u41l2-khimiya", type: "vocab", front: "химия", reading: "khimiya", meaning: "chemistry", accept: ["the chemistry course", "the subject of chemistry"], example: { jp: "Химия — моя любимая наука.", en: "Chemistry is my favourite science." }, drill: { jp: "Химия была вчера утром", en: "Chemistry was yesterday morning" }, hint: "KHI-mi-ya — stress on the first syllable, and х is the rough back-of-the-throat sound from unit 2, not English «h». FEMININE." },
-        { id: "ru-u41l2-literatura", type: "vocab", front: "литература", reading: "literatura", meaning: "literature", accept: ["the literature course", "books as a subject", "writing as a subject"], example: { jp: "Русская литература очень интересная.", en: "Russian literature is very interesting." }, drill: { jp: "Литература очень нравится моей сестре", en: "My sister really likes literature" }, hint: "li-te-ra-TU-ra — five syllables, stress on TU. FEMININE. A school subject as well as the books themselves." },
+        { id: "ru-u41l2-predmet", type: "vocab", front: "предмет", reading: "predmet", meaning: "a school subject", accept: ["a subject on the timetable", "a course subject", "a discipline studied"], example: { jp: "Мой любимый предмет — география.", en: "My favourite subject is geography." }, drill: { jp: "Этот предмет очень трудный", en: "That subject is very hard" }, hint: "pred-MYET — stress on the last syllable. MASCULINE. Two jobs in one word: a subject on a timetable, and any physical thing — «предметы на столе». Ask a Russian pupil «сколько у тебя предметов?» and they will count their timetable." },
+        { id: "ru-u41l2-lektsiya", type: "vocab", front: "лекция", reading: "lektsiya", meaning: "a lecture", accept: ["a lecture given to a class", "a talk in a lecture room", "a lecture course session"], example: { jp: "Эта лекция была в большой аудитории.", en: "That lecture was in the big lecture room." }, drill: { jp: "Лекция будет завтра утром", en: "The lecture will be tomorrow morning" }, hint: "LYEK-tsi-ya — stress on the first syllable. FEMININE (-я). What a преподаватель gives and you sit and write down. ⚠️ The Russian verb for giving one is «читать лекцию» — literally to READ a lecture, never «говорить»." },
+        { id: "ru-u41l2-seminar", type: "vocab", front: "семинар", reading: "seminar", meaning: "a seminar", accept: ["a small teaching class", "a tutorial group", "a discussion class"], example: { jp: "Наш семинар всегда очень интересный.", en: "Our seminar is always very interesting." }, drill: { jp: "Семинар был в этой аудитории", en: "The seminar was in that lecture room" }, hint: "se-mi-NAR — stress on the last syllable. MASCULINE. The other half of a Russian timetable: at a лекция you listen, at a семинар you have to talk. Twenty people at most, and the преподаватель asks the questions." },
+        { id: "ru-u41l2-konspekt", type: "vocab", front: "конспект", reading: "konspekt", meaning: "lecture notes", accept: ["notes taken in class", "a written summary", "a summary of a lecture"], example: { jp: "Мой конспект был совсем пустой.", en: "My lecture notes were completely empty." }, drill: { jp: "Конспект был у меня в тетради", en: "My notes were in my exercise book" }, hint: "kan-SPYEKT — stress on the last syllable, and the о reduces to a. MASCULINE, and SINGULAR where English says «notes»: «я пишу конспект». It is the running summary a student keeps during a лекция, and lending yours out is a standing favour." },
+        { id: "ru-u41l2-kanikuly", type: "vocab", front: "каникулы", reading: "kanikuly", meaning: "the school holidays", accept: ["a school break", "the university vacation", "time off between terms"], example: { jp: "Каникулы начинаются в июне.", en: "The school holidays start in June." }, drill: { jp: "Каникулы будут очень долгие", en: "The holidays will be very long" }, hint: "ka-NI-ku-ly — four syllables, stress on NI. ⚠️ PLURAL ONLY — there is no «каникула», and the verb agrees in the plural: «каникулы начались». School and university only; an adult's time off work is отпуск (unit 25)." },
         { id: "ru-u41l2-geografiya", type: "vocab", front: "география", reading: "geografiya", meaning: "geography", accept: ["the geography course", "the subject of maps and places"], example: { jp: "На географии мы смотрели карту мира.", en: "In geography we looked at a map of the world." }, drill: { jp: "География всегда была очень интересной", en: "Geography was always very interesting" }, hint: "ge-a-GRA-fi-ya — five syllables, stress on GRA; the г is hard and the о reduces to a. FEMININE." },
       ],
     },

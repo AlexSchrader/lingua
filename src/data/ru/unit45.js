@@ -34,10 +34,13 @@
 // see and a single block can:
 //   `журналист` — vs u27 `журнал`. The -ист suffix is international and the
 //        learner already has журнал; derivable. `автор` covers the sense.
-//   `читатель` — vs u4 `читать`. `слушатель` — AND I CARD `слушать` at u49, so
-//        carding both would put a verb and its agent noun in one block. The verb
-//        is worth more; зритель has no carded verb behind it (зреть is not
-//        taught anywhere) and IS carded here.
+//   `читатель` — vs u4 `читать`. `слушатель` — the verb `слушать` was worth more
+//        than its agent noun, so the noun went. (⚠️ Corrected 2026-09-30: this line
+//        said "I CARD `слушать` at u49". The merge seat gave `слушать` to u59
+//        Слова и поступки, because block 3 had authored it too — so the verb is
+//        taught, but at u59, not in this block. The refusal still stands.)
+//        зритель has no carded verb behind it (зреть is not taught anywhere)
+//        and IS carded here.
 //   `печать` — vs `печатать`, which I card at u49l2. Same root, same block.
 //   `серия` — vs `сериал`, which is carded at l3. One of the two, never both.
 //   `заметка` — vs u39 `замечание`, carded by block 1.
