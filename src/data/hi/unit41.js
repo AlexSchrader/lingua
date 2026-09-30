@@ -101,16 +101,40 @@
 // which is the stricter of the two routes and the one §A6 asks for. सबसे needed no
 // declaration either: it is already a taught front, at u22l4.
 //
-// 🚨 THIRTEEN PLANNED FRONTS WENT TO BLOCK 3, AND ONE AUTHORED CARD WAS WITHDRAWN.
+// 🚨 THIRTEEN PLANNED FRONTS WENT TO BLOCK 3, AND THREE AUTHORED CARDS WERE WITHDRAWN.
 // Blocks 2 and 3 author in parallel, cannot see each other's trees, and
 // `validate:content` passes on each branch while FAILING on the merged tree — the one
 // class of defect no gate in this repo catches. Measured 2026-09-30 against block 3's
 // live 216-front list and resolved ON THEME rather than by the lower-slot-wins rule,
 // which would have handed all thirteen to block 2 and forced block 3 to re-author
 // finished work. Full per-unit lists are in unit47.js, unit48.js, unit49.js and
-// unit50.js; the withdrawn card is बूँद (u45l3 → block 3's u54), replaced by घूँट.
-// FIVE COLLISIONS STAY WITH BLOCK 2 AND BLOCK 3 IS FIXING ITS SIDE: दर्शक (u41l1),
-// खोज (u43l4), दावा and जानकारी (u44l3), अंदाज़ा (u45l4).
+// unit50.js. THE THREE WITHDRAWN CARDS:
+//     बूँद u45l3 → block 3's u54 (water, not measuring)      replaced by घूँट
+//     ईंट  u50l3 → block 3's u60l1 (the materials lesson)     replaced by गुंबद
+//     जंग  u50l4 → block 3's u60l4, meaning RUST              replaced by युद्ध
+// 🚨 AND THE LESSON IS IN **WHEN** EACH WAS CAUGHT, not in the count. बूँद was caught
+// by screening a candidate list against block 3's front list. ईंट AND जंग SURVIVED THAT
+// SCREEN AND WERE CAUGHT ONLY BY `validate:content` ON THE MERGED TREE — because a
+// front-list screen sees what a sibling block has ALREADY WRITTEN, and block 3 wrote
+// u60 afterwards. **A screen narrows the window; only the merge closes it.** Run both,
+// and expect the merge to find more.
+// ✅ जंग IS THE ONE WORTH COPYING: a REAL HOMOGRAPH — "a war" here, "rust" at u60 — where
+// lower-slot-wins would have cost Hindi the word for rust entirely. युद्ध is free across
+// all 1440 merged fronts, so swapping the FRONT and keeping the SENSE let both concepts
+// live. ⚠️ And a swap like that is never one line: जंग is feminine and युद्ध masculine,
+// so the hint, u50's gender-trap list, u50's mark-boundary list (जंग hid inside जंगल;
+// युद्ध hides in nothing) and two other sentences of mine all moved with it.
+// ✅ THE FIVE FRONT COLLISIONS THAT WERE LEFT WITH BLOCK 2 ARE ALL RESOLVED — block 3
+// fixed its side, as agreed: दर्शक (u41l1), खोज (u43l4), दावा and जानकारी (u44l3),
+// अंदाज़ा (u45l4). Measured on the merged tree: **0 duplicate fronts in all 1440 hi
+// cards, 1440 distinct readings.** This paragraph said they were still open until the
+// merge proved otherwise.
+// ⚠️ TWO `accept[]`-VARIANT COLLISIONS REMAIN AND ARE NOT BLOCK 2's TO FIX, because in
+// each one block 2's card carries the string as its MEANING and block 3's as an accept,
+// and a meaning cannot yield to an accept: "match" (मैच u41l3 vs रिश्ता u59l2's accept)
+// and "screen" (स्क्रीन u43l1 vs पर्दा u58l3's accept). One typed word is marked right for
+// two cards until one accept changes. A third, "what is known", WAS block 2's accept and
+// is fixed: जानकारी now accepts "the particulars of a matter".
 // ⚠️ WHOEVER AUTHORS THE NEXT BLOCK OF ANY LANGUAGE: run
 // `node scripts/probe-hi-b2.mjs screen` against the OTHER blocks' front lists, not
 // only against your own tree. Indonesian skipped this step and paid for it in

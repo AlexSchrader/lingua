@@ -31,21 +31,38 @@
 // the future (u48) and the continuous (u49), which is deliberate — a coverage slot at
 // the end of a band is the natural place to meet all of them together.
 //
-// ⚠️ ONE FRONT WENT TO BLOCK 3 — see u47's header for why this measurement exists and
-// how it is resolved. Against block 3's live front list, 2026-09-30:
+// ⚠️ THREE FRONTS WENT TO BLOCK 3 — see u47's header for why this measurement exists.
+// One was caught by screening a candidate list; TWO SURVIVED THAT AND WERE ONLY CAUGHT
+// ON THE MERGED TREE, by `validate:content` itself, which is the point worth recording:
+// a front-list screen sees the fronts a sibling block HAS ALREADY WRITTEN, and block 3
+// wrote u60 after the screen was run. **The merge is the only complete check.**
 //     कुआँ ("a water well") → block 3's u54 ज़मीन, पानी और आग, where a well is water
-//     rather than village administration.                              l2
-// झोपड़ी ("a hut") took the slot, and it is the better card for THIS lesson anyway:
-// l2 is what a village is MADE OF and who runs it, and a hut is a dwelling where a
-// well is a water source. Screened against the whole corpus AND block 3's 216
-// authored fronts: zero front, reading or gloss collisions.
+//        rather than village administration. Caught by the screen.        l2
+//     ईंट ("a brick") → block 3's u60l1, the MATERIALS lesson (लोहा · लकड़ी · काँच ·
+//        चाँदी · ईंट · कोयला). A brick belongs with the materials; in a unit about the
+//        map and its monuments it was incidental. Caught by the merge.    l3
+//     जंग → block 3's u60l4 meaning RUST, and this one is A REAL HOMOGRAPH rather than
+//        a duplicate: mine was "a war". Both senses are common, both units are the
+//        natural home for their own sense, and lower-slot-wins would have cost Hindi
+//        the word for rust entirely. Caught by the merge.                 l4
+// झोपड़ी, गुंबद ("a dome") and युद्ध ("a war") took the three slots.
+// 🚨 युद्ध IS THE RESOLUTION WORTH READING: it is free across all 1440 merged fronts,
+// so replacing जंग with युद्ध keeps this unit's SENSE and its slot while letting block 3
+// keep जंग = rust. **Both concepts are taught and the collision is gone** — no card had
+// to die. ⚠️ THE GENDER FLIPS WITH THE WORD, though: जंग is FEMININE (जंग हुई) and युद्ध
+// is MASCULINE (युद्ध हुआ), so the card's hint, this unit's gender-trap list, and TWO
+// OTHER SENTENCES OF MINE THAT USED जंग — किला's drill and खंडहर's example — all changed
+// with it. A swap like this is never one line.
+// गुंबद pairs with मीनार in its own lesson the way a dome pairs with a minaret, which is
+// a better l3 card than a brick was. All three replacements screened on the MERGED tree:
+// zero front, reading or gloss collisions.
 //
 // GENDER TRAPS (§4), and this unit is unusually full of them:
-//   ⚠️ सरहद, मीनार, इमारत, ईंट and जंग are FEMININE AND ALL FIVE END IN A CONSONANT,
-//   so nothing whatever in the shape tells you: यह सरहद लंबी है, यह मीनार ऊँची है, यह
-//   जंग लंबी थी — never लंबा or ऊँचा. बस्ती, झोपड़ी, पंचायत, रानी and गुलामी are
-//   FEMININE too and at least say so with their -ी.
-//   राज्य, ज़िला, कस्बा, इलाका, महानगर, देहात, मुहल्ला, चौक, महल, किला, खंडहर, दरबार and
+//   ⚠️ सरहद, मीनार and इमारत are FEMININE AND ALL THREE END IN A CONSONANT, so nothing
+//   whatever in the shape tells you: यह सरहद लंबी है, यह मीनार ऊँची है — never लंबा or
+//   ऊँचा. बस्ती, झोपड़ी, पंचायत, रानी and गुलामी are FEMININE too and at least say so
+//   with their -ी.
+//   राज्य, ज़िला, कस्बा, इलाका, महानगर, देहात, मुहल्ला, चौक, महल, किला, गुंबद, खंडहर, युद्ध, दरबार and
 //   ताज are MASCULINE — and ⚠️ राजा IS MASCULINE DESPITE THE -ा, which unit1.js §4
 //   already names alongside पिता, दादा and चाचा. Regular, but it is the one an
 //   English speaker guesses wrong.
@@ -61,10 +78,11 @@
 // ⚠️ MARK-BOUNDARY PAIRS THIS UNIT CREATES, measured with the router's own `\p{L}`
 // boundary test and not by eye. Both seams below are `\p{M}` characters, so
 // `canCloze` would blank the wrong span:
-//     जंग (l4) whole-word-matches INSIDE जंगल (u21l4, a forest) — across the mātrā
 //     ताज (l4) whole-word-matches INSIDE ताज़ा (u44l1, freshly made) — across the NUKTA
 //     बस (u1l4, a bus) whole-word-matches INSIDE बस्ती (l2) — across the HALANT
-// So जंग's sentences contain no जंगल, ताज's contain no ताज़ा, and बस्ती's contain no बस.
+// So ताज's sentences contain no ताज़ा, and बस्ती's contain no बस.
+// ⚠️ A THIRD PAIR WAS HERE AND IS GONE WITH THE CARD THAT MADE IT: जंग inside जंगल. This
+// unit no longer teaches जंग — see the homograph note below.
 // ⚠️ u44's OWN HEADER PREDICTED THE ताज/ताज़ा PAIR AND NAMED THIS UNIT AND LESSON
 // BEFORE THIS FILE EXISTED — "ताज (u50l4, a crown)" — and it is correct.
 // `selfcheck-hi-a2-block2.mjs` checks all three mechanically.
@@ -86,10 +104,11 @@
 // गुलामी), बसना (to settle, behind बस्ती) and नगर (a city, behind महानगर). All three
 // would be a second mastery track for a form the learner only ever needs to READ.
 //
-// RETROFLEX/DENTAL (§1b): no new colliding pair, checked against all 1176 readings.
-// ईंट iint and ज़िला zilaa are RETROFLEX/nukta with no dental counterpart in the
-// corpus (no ईंत, no ज़ीला), and महल mahal, ताज taaj, दरबार darbaar and देहात dehaat
-// are all DENTAL with no retroflex counterpart. §1(b)'s doubling hatch fires NOWHERE.
+// RETROFLEX/DENTAL (§1b): no new colliding pair, re-checked against all 1440 readings on
+// the MERGED tree (block 2 + block 3), not the 1176 this line said when block 3 was still
+// stubs. ज़िला zilaa is nukta with no counterpart in the corpus (no ज़ीला), and महल mahal,
+// ताज taaj, युद्ध yuddh, दरबार darbaar and देहात dehaat are all DENTAL with no retroflex
+// counterpart. §1(b)'s doubling hatch fires NOWHERE.
 // ⚠️ TWO READING NEIGHBOURS WORTH THEIR HINTS: किला **kilaa** against ताला **taalaa**
 // (u15l2, a lock) — different first letter and §1's length-by-doubling on the second
 // vowel are the only things separating them; and महल **mahal** has NO long vowel at
@@ -148,11 +167,11 @@ export const HI_UNIT50 = {
       canDo: "Name a palace, a fort, a tower, a building, a brick and a ruin — the things a history book is about.",
       items: [
         { id: "hi-u50l3-mahal", type: "vocab", front: "महल", reading: "mahal", meaning: "a palace", accept: ["a royal residence", "the house a ruler lived in"], example: { jp: "पुराने राजा का महल अब खाली है।", en: "The old king's palace is empty now." }, drill: { jp: "यह महल बहुत पुराना और बड़ा है", en: "This palace is very old and very big" }, hint: "MA-HAL, MASCULINE, plural महल unchanged, all DENTAL. The house a राजा lived in, and in India usually now a museum or a hotel. ⚠️ THERE IS NO LONG VOWEL IN IT: mahal, never mahaal — the ह makes an English reader want to stretch the second a, and §1's length-by-doubling says not to." },
-        { id: "hi-u50l3-kilaa", type: "vocab", front: "किला", reading: "kilaa", meaning: "a fort", accept: ["a walled stronghold", "a fortified building"], example: { jp: "पहाड़ पर एक पुराना किला है।", en: "There is an old fort on the mountain." }, drill: { jp: "यह किला जंग में टूटा था", en: "This fort was broken in the war" }, hint: "KI-LAA, MASCULINE, plural and oblique किले. A walled stronghold built to be held — लाल किला, the Red Fort. A महल is for living in; a किला is for defending. ⚠️ NOT ताला taalaa, a lock, from the house unit: different first letter, and the long aa is the other half of the difference." },
+        { id: "hi-u50l3-kilaa", type: "vocab", front: "किला", reading: "kilaa", meaning: "a fort", accept: ["a walled stronghold", "a fortified building"], example: { jp: "पहाड़ पर एक पुराना किला है।", en: "There is an old fort on the mountain." }, drill: { jp: "यह किला युद्ध में टूटा था", en: "This fort was broken in the war" }, hint: "KI-LAA, MASCULINE, plural and oblique किले. A walled stronghold built to be held — लाल किला, the Red Fort. A महल is for living in; a किला is for defending. ⚠️ NOT ताला taalaa, a lock, from the house unit: different first letter, and the long aa is the other half of the difference." },
         { id: "hi-u50l3-miinaar", type: "vocab", front: "मीनार", reading: "miinaar", meaning: "a tower", accept: ["a tall column standing alone", "a minaret"], example: { jp: "इस मस्जिद की मीनार बहुत ऊँची है।", en: "The tower of this mosque is very tall." }, drill: { jp: "यह मीनार दूर से दिखती है", en: "This tower is visible from far off" }, hint: "MII-NAAR, ⚠️ FEMININE despite the consonant ending — यह मीनार ऊँची है, never ऊँचा. A tall column standing on its own, and the minaret of a मस्जिद. ⚠️ BOTH VOWELS ARE LONG: mii-naar, which §1 writes with doubling in both syllables." },
         { id: "hi-u50l3-imaarat", type: "vocab", front: "इमारत", reading: "imaarat", meaning: "a building", accept: ["a built structure", "a block of a town"], example: { jp: "यह इमारत सौ साल पुरानी है।", en: "This building is a hundred years old." }, drill: { jp: "शहर में नई इमारत बन रही है", en: "A new building is going up in the city" }, hint: "I-MAA-RAT, ⚠️ FEMININE despite the consonant ending, plural इमारतें. Any built structure, and the everyday word for an office block: सरकारी इमारत. घर is a home; an इमारत is a building thought of as a thing that was built." },
-        { id: "hi-u50l3-iint", type: "vocab", front: "ईंट", reading: "iint", meaning: "a brick", accept: ["a baked block of clay", "one unit of a wall"], example: { jp: "दीवार की एक ईंट टूट गई है।", en: "One brick of the wall has broken." }, drill: { jp: "यह ईंट बहुत भारी है", en: "This brick is very heavy" }, hint: "IINT, ⚠️ FEMININE, plural ईंटें, and it opens with the INDEPENDENT ई because nothing comes before it — then the ं read n, then a RETROFLEX ट. The baked clay brick almost every Indian इमारत is made of. पत्थर is stone, which nobody made." },
-        { id: "hi-u50l3-khandahar", type: "vocab", front: "खंडहर", reading: "khandahar", meaning: "ruins of an old building", accept: ["what is left of a fallen building", "a wrecked and roofless structure"], example: { jp: "जंग के बाद शहर खंडहर बन गया।", en: "After the war the city became a ruin." }, drill: { jp: "इस खंडहर में कोई नहीं रहता", en: "Nobody lives in this ruin" }, hint: "KHAN-DA-HAR, MASCULINE, ं read n, PLAIN ख, and plural in sense even when singular — खंडहर हो जाना, to fall into ruin. What is left of an इमारत or a किला once the roof has gone. ⚠️ हर, every, sits inside it but not as a whole word: the letter before it is ड." },
+        { id: "hi-u50l3-gumbad", type: "vocab", front: "गुंबद", reading: "gumbad", meaning: "a dome", accept: ["the rounded top of a building", "a cupola"], example: { jp: "मस्जिद का सफ़ेद गुंबद बहुत बड़ा है।", en: "The mosque's white dome is very big." }, drill: { jp: "इस महल का गुंबद बहुत ऊँचा है", en: "The dome of this palace is very high" }, hint: "GUM-BAD, MASCULINE, plural गुंबद unchanged, with the ं before ब read as **m** under §1 — gumbad, not gunbad. The rounded top of a mosque, a tomb or a palace, and the shape every Mughal monument in India is known by. A मीनार is the tall thin one standing beside it; a गुंबद is the round one sitting on top." },
+        { id: "hi-u50l3-khandahar", type: "vocab", front: "खंडहर", reading: "khandahar", meaning: "ruins of an old building", accept: ["what is left of a fallen building", "a wrecked and roofless structure"], example: { jp: "युद्ध के बाद शहर खंडहर बन गया।", en: "After the war the city became a ruin." }, drill: { jp: "इस खंडहर में कोई नहीं रहता", en: "Nobody lives in this ruin" }, hint: "KHAN-DA-HAR, MASCULINE, ं read n, PLAIN ख, and plural in sense even when singular — खंडहर हो जाना, to fall into ruin. What is left of an इमारत or a किला once the roof has gone. ⚠️ हर, every, sits inside it but not as a whole word: the letter before it is ड." },
       ],
     },
     {
@@ -168,7 +187,7 @@ export const HI_UNIT50 = {
         { id: "hi-u50l4-raanii", type: "vocab", front: "रानी", reading: "raanii", meaning: "a queen", accept: ["a king's wife", "a woman who rules"], example: { jp: "रानी अपने महल में रहती थी।", en: "The queen used to live in her palace." }, drill: { jp: "इस देश की कोई रानी नहीं है", en: "This country has no queen" }, hint: "RAA-NII, FEMININE, plural रानियाँ, with a plain DENTAL न and no retroflex in it. The wife of a राजा, and also a woman who rules in her own right — झाँसी की रानी. राजा to रानी is the same -ा to -ी pairing as बेटा to बेटी." },
         { id: "hi-u50l4-darbaar", type: "vocab", front: "दरबार", reading: "darbaar", meaning: "a royal court", accept: ["the hall where a ruler sat", "a ruler's assembly"], example: { jp: "राजा का दरबार हर सुबह लगता था।", en: "The king's court was held every morning." }, drill: { jp: "पुराना दरबार अब खाली है", en: "The old court hall is empty now" }, hint: "DAR-BAAR, MASCULINE, with the र् halant. The hall where a राजा sat and the assembly that met in it — दरबार लगना, for a court to be held. ⚠️ NOT अदालत, which is a court of LAW: English uses one word for both and Hindi keeps them apart. बार is inside it but not as a whole word." },
         { id: "hi-u50l4-gulaamii", type: "vocab", front: "गुलामी", reading: "gulaamii", meaning: "slavery", accept: ["being owned by somebody", "life under another country's rule"], example: { jp: "गुलामी के दिन बहुत बुरे थे।", en: "The days of slavery were very bad." }, drill: { jp: "किसी की गुलामी अच्छी नहीं होती", en: "Being in anybody's servitude is not a good thing" }, hint: "GU-LAA-MII, FEMININE, PLAIN ग — §A4 keeps क़ ख़ ग़ out of every Hindi front. Being owned, and by extension a whole country living under another's rule: गुलामी के दिन. ⚠️ Built on गुलाम, a slave, which is NOT carded — you only ever need to read it. आज़ादी is its opposite." },
-        { id: "hi-u50l4-jang", type: "vocab", front: "जंग", reading: "jang", meaning: "a war", accept: ["armed fighting between countries", "a military campaign"], example: { jp: "उस साल दो देशों के बीच जंग हुई।", en: "There was a war between two countries that year." }, drill: { jp: "जंग में बहुत लोग मरते हैं", en: "Many people die in a war" }, hint: "JANG, ⚠️ FEMININE despite the consonant ending — यह जंग लंबी थी, never लंबा — with the ं read n. War between countries, where लड़ना is the fighting itself and फ़ौज does it. ⚠️ IT WHOLE-WORD-MATCHES INSIDE जंगल, a forest, at the mātrā seam, so the two never share a sentence in this course." },
+        { id: "hi-u50l4-yuddh", type: "vocab", front: "युद्ध", reading: "yuddh", meaning: "a war", accept: ["armed fighting between countries", "a military campaign"], example: { jp: "उस साल दो देशों के बीच युद्ध हुआ।", en: "There was a war between two countries that year." }, drill: { jp: "युद्ध में बहुत लोग मरते हैं", en: "Many people die in a war" }, hint: "YUDDH, MASCULINE, with the द्ध conjunct of unit 6 — द with ध stacked under it, read **ddh**. War between countries, where लड़ना is the fighting itself and फ़ौज does it. ⚠️ THE OTHER HINDI WORD FOR WAR IS जंग, AND THIS COURSE DOES NOT TEACH THAT SENSE: जंग is carded in the workshop unit at the very end of the language meaning RUST on metal, which is its other and unrelated sense. You will meet जंग for war in a newspaper, so know both — and note the gender flips with the word: युद्ध हुआ, but जंग हुई." },
         { id: "hi-u50l4-taaj", type: "vocab", front: "ताज", reading: "taaj", meaning: "a crown", accept: ["the headpiece a ruler wears", "the symbol of a throne"], example: { jp: "राजा का ताज बहुत भारी था।", en: "The king's crown was very heavy." }, drill: { jp: "इस ताज की कीमत बहुत है", en: "This crown is worth a great deal" }, hint: "TAAJ, MASCULINE, all DENTAL त. The crown a राजा or रानी wears, and by extension the throne itself — ताज छोड़ना, to give up the crown. ⚠️ IT WHOLE-WORD-MATCHES INSIDE ताज़ा, freshly made, across the NUKTA, which the router does not read as a word break — so the two never share a sentence. खिताब is a title you are awarded; a ताज you inherit." },
       ],
     },
