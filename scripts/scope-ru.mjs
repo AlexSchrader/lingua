@@ -54,6 +54,10 @@ const PARADIGM = {
   она: ["её", "ей", "неё", "ней"],
   мы: ["нас", "нам", "нами"],
   вы: ["вас", "вам", "вами"],
+  // A2 block 1: `они` (u19l4) was the one pronoun with no entry — its oblique forms
+  // change root like every other pronoun's, and `их` is carded separately as the
+  // possessive, which left них/им/ними unreachable.
+  они: ["их", "им", "ими", "них", "ним", "ними"],
   // EXTENDED BY BLOCK 3, 2026-09-27: `быть` is carded at u22 and u24 is the
   // past-tense unit, so был/была/было/были and буду/будет are unavoidable in
   // u22-u30 sentences. The stripper cannot reach any of them from "быть"
@@ -81,6 +85,9 @@ const PARADIGM = {
   // and "в чём", "о чём", "чего" are unavoidable once o + prepositional is taught
   // at u39. A generated paradigm, like every other entry here.
   что: ["чего", "чему", "чём", "чем"],
+  // `человек` (u4l2) has an irregular plural on a different root entirely. люди
+  // reads as a free front and must never be carded — it is this word's plural.
+  человек: ["человека", "человеку", "человеком", "люди", "людей", "людям", "людьми", "людях"],
   мой: ["моего", "моему", "моём", "мои", "моих", "моим"],
   моя: ["моей", "мою"],
   твой: ["твоего", "твоему", "твоём", "твои", "твоих", "твоя", "твою", "твоей", "твоё", "твоим", "твоими"],
