@@ -179,14 +179,21 @@
 //    deferring it cost u17 and u20 the natural weather and health idioms, which
 //    both of those files recorded at the time. The gloss is "to happen", never
 //    "is", so it cannot collide with है. unit22.js's header carries the reasoning.
-//    ⚠️ सकना IS THE VERB THAT STAYS DEFERRED, AND THE REASON IS STRUCTURAL RATHER
+//    ⚠️ सकना IS NEVER A FRONT, IN ANY BAND, AND THE REASON IS STRUCTURAL RATHER
 //    THAN A JUDGEMENT CALL. It is an auxiliary that only ever follows another
 //    verb's stem (कर सकता हूँ, जा सकते हैं), so NO natural Hindi sentence of any
 //    length contains the bare string सकना — which means it can carry no legal
 //    `drill` under RUNBOOK §4 and cannot be a front at all without a 3rd-person
-//    exception this section forbids. Ability is deferred to A2 as a CONSTRUCTION;
-//    §6's deferred list now names it. Block 2 applied the test and block 3
-//    confirmed it. Do not re-open it.
+//    exception this section forbids. Block 2 applied the test, block 3 confirmed it,
+//    and A2 block 1 applied it again and reached the same answer.
+//    ✅ ABILITY IS NOW TAUGHT, AT u32, AND THIS PARAGRAPH SAID "DEFERRED TO A2"
+//    UNTIL 2026-09-29. It is taught as a CONSTRUCTION with no front — the paradigm
+//    in the hints and examples of all four u32 lessons, with the vocabulary of
+//    possibility carded instead (मुमकिन, नामुमकिन, काबिल, हुनर, इजाज़त, मना…) — which
+//    is exactly the mechanism §6 uses for का/के/की/को, whose fronts u3's mātrā glyph
+//    cards own. सकता/सकती/सकते/सके/सकें are declared FREE by unit32.js. So: the verb
+//    still has no card and never will, and the learner can still say "I can".
+//    STILL ZERO 3rd-PERSON EXCEPTIONS IN THE WHOLE LANGUAGE. Do not re-open it.
 //
 // 6. GENDER AGREEMENT, CASE AND ASPECT — WHAT A1 TEACHES AND WHAT IS DEFERRED.
 //    Hindi is SOV, uses POSTPOSITIONS (never prepositions), marks two genders and
@@ -236,10 +243,30 @@
 //                         that u24l3's six new verbs are all INTRANSITIVE on
 //                         purpose (गिरना, बढ़ना, मरना, बचना, हँसना, रोना), because
 //                         those are the ones whose past a learner can produce now.
-//    DEFERRED PAST A1 ENTIRELY, and named here so the A2 crew finds the decision
-//    rather than the gap: the ने ergative construction, ABILITY (सकना — see §5),
-//    the subjunctive, the passive, compound verbs (कर लेना, खा जाना), और the -ता था
-//    imperfect.
+//                         ✅ AND IT IS NO LONGER DEFERRED — A2 BLOCK 1 CLOSED IT AT
+//                         u31, WHICH IS WHY THIS PARAGRAPH IS ABOUT A1 ONLY. The
+//                         decision above still stands for A1 and u24l3's six verbs
+//                         are still intransitive on purpose; the ergative is taught
+//                         in किसने क्या किया (u31), with 24 transitive verbs, and
+//                         unit31.js §A1 carries the three rules.
+//    DEFERRED PAST A1, and each entry now says WHERE IT LANDED — the A2 crew has
+//    been through this list and it is a record, not a queue:
+//        ✅ the ने ERGATIVE and the transitive perfective → u31 (A2 block 1).
+//        ✅ ABILITY (सकना) → u32, as a CONSTRUCTION WITH NO FRONT, which is the
+//           mechanism §6 already used for का/के/की/को. §5's proof that सकना can
+//           never be a front still stands and is why. unit32.js has the paradigm.
+//        ✅ the -ता था IMPERFECT → u38, built from the -ता of u12 and the था of
+//           u24l1, so it cost nothing new.
+//        ✅ उतना, the correlative u23l3's hint promised "at A2" → u39l2, with the
+//           other three correlative pairs.
+//        → COMPOUND (VECTOR) VERBS (कर लेना, खा जाना, खो जाना) → u46, whose slot
+//           names them. ⚠️ They are MET from u35 on, in eight A2 examples, because
+//           Hindi cannot be written naturally without हो गया and ले लो; what u46
+//           owes is the rule. unit31.js §A5.
+//        → the SUBJUNCTIVE and CONDITIONALS → u47, whose slot names them. Met in
+//           u39l1's ताकि clauses.
+//        → the PASSIVE → B1. Three interacting rules on top of the ergative, and
+//           no A2 syllabus needs it.
 //
 // 7. THREE THINGS IN THE ALPHABET ARE DELIBERATELY NOT CARDED. All three are real
 //    decisions, not gaps, and no later block should "fix" them:
@@ -306,7 +333,14 @@
 //    carries the Vocabulary pattern right next to the Characters one, so all six
 //    hard-error identically. ✅ ALL SIX ARE NOW RETHEMED by block 3: u25 और गिनती,
 //    u26 और रोज़ के काम, u27 मन और स्वभाव, u28 काम और पढ़ाई, u29 सफ़र, u30 बातचीत.
-//    ELEVEN rethemed slots in this language, not five.
+//    ELEVEN rethemed slots in A1, not five.
+//    ⚠️ AND FOUR MORE IN A2, because the A2 scaffold repeats A1's themes almost
+//    exactly: u31 "Activities and routine" (a duplicate of u12 AND u26), u36 "Nature
+//    and animals" (a duplicate of u21, and A2 already has u44), u38 "Time and
+//    adverbs" (u11 and u17 own time) and u40 "Home and household" (u15 owns it).
+//    FIFTEEN rethemed slots in Hindi so far. unit31.js §A8 has the measured holes
+//    each one was rethemed INTO — the rule is that a slot keeps its theme only
+//    where the corpus was measured to have a remainder.
 //    ⚠️ AND A SECOND ARTEFACT: u23's scaffold title was "Grammar 2 — verbs and
 //    PARTICLES". A particle is a Japanese word class (は・が・を・に・で). Hindi has
 //    POSTPOSITIONS, which follow their noun and force the oblique case — a
@@ -318,9 +352,17 @@
 //    बीता समय और मेल (u24). u22 is वाक्य बनाना.
 //
 // 11. AUDIO AND THE SPEAK CARD — WHAT THE MERGE SEAT MUST KNOW.
-//    Karan is wired (`server/companions.js`, hi → v4vv5Cuj1q4fFFkQdBm4). Block 1
-//    ran NO audio: 240 new ids need clips, in one run, once the language is
-//    settled.
+//    Karan is wired (`server/companions.js`, hi → v4vv5Cuj1q4fFFkQdBm4).
+//    ✅ ALL 720 A1 IDS ARE VOICED — done in one run in `f83b0b23`, and this line
+//    read "Block 1 ran NO audio: 240 new ids need clips" until 2026-09-29, months
+//    after that run. That sentence was written in the imperative and a merge seat
+//    would have read it as a job still to do.
+//    ⚠️ FOUR BARE CONSONANTS NEEDED A MODEL FALLBACK to voice at all: `eleven_v3`
+//    returns an empty body for ट ढ ण and a silent payload for ड़, and
+//    `eleven_multilingual_v2` works. Already handled in `scripts/generate-audio.mjs`;
+//    expect the log line and do not treat it as a failure.
+//    ⏳ A2 BLOCK 1 (u31–u40) ADDS 240 NEW IDS AND RAN NO AUDIO, on purpose: one run
+//    for the whole A2 band once block 3 closes u60, not three partial runs.
 //    ✅ RESOLVED 2026-09-28, AND THE WARNING THAT STOOD HERE IS NOW FALSE.
 //    Block 1 was right: `alignScore.js`'s NON_LATIN guard did NOT cover Devanagari.
 //    Its ranges stopped at U+08FF and Devanagari is U+0900–U+097F, one block past, so
