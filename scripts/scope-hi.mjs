@@ -227,8 +227,27 @@ for (const it of items) {
   if (it.type === "glyph") continue;
   for (const piece of it.front.split(/\s+/).filter(Boolean)) {
     remember(piece, it.u);
+    // ⚠️ ONE EXCEPTION TO THE RULE ABOVE: A VERB'S BARE STEM IS NOT A GUESS.
+    //
+    // Stripping -ना off an infinitive gives the stem, and the stem is a REAL form of
+    // that verb by morphology, not by derive()'s pattern-matching: it is what the
+    // continuous (stem + रहा है) and the compound verbs are built on. So the stem is
+    // in scope wherever the verb is, even if some later card owns the same string.
+    //
+    // Without this, चमकना "to shine" (u49l2) lost its own continuous. u49 IS the
+    // continuous unit, its example is बारिश के बाद आसमान में तारे चमक रहे थे, and
+    // चमक is also the noun "a gleam" at u56l1 — so the stem was skipped, known only
+    // from u56, and a correct sentence using nothing but the card's own verb was
+    // reported out of scope on the merged tree.
+    //
+    // Kept deliberately narrow. Licensing every derived form whose owner comes later
+    // would undo the tightening the comment above describes — कहना (u22) derives
+    // कहीं, a front at u23, and नाना (u10) derives नाई, a front at u28. Neither is an
+    // inflection of anything; both would come back into scope early. The stem rule
+    // cannot reach them: कहना's stem is कह and नाना's is ना, not कहीं or नाई.
+    const bareStem = piece.endsWith("ना") && piece.length > 2 ? piece.slice(0, -2) : null;
     for (const d of [...derive(piece), ...(IRREGULAR[piece] ?? [])]) {
-      if (d !== piece && explicitFronts.has(d)) continue; // its own card governs it
+      if (d !== piece && explicitFronts.has(d) && d !== bareStem) continue; // its own card governs it
       remember(d, it.u);
     }
   }
