@@ -68,7 +68,7 @@ export const PT_UNIT54 = {
           type: "vocab",
           front: "possivelmente",
           reading: "possivelmente",
-          meaning: "possibly",
+          meaning: "possibly (it may be so)",
           example: { jp: "A greve possivelmente vai acontecer outra vez, mas ninguém no bairro quer falar do assunto.", en: "The strike will possibly happen again, but nobody in the neighbourhood wants to talk about it." },
           drill: { jp: "A greve possivelmente vai acontecer amanhã", en: "The strike will possibly happen tomorrow" },
           accept: ["possibly", "maybe", "perhaps", "it may be that"],
