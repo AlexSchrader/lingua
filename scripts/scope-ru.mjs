@@ -151,6 +151,28 @@ const PARADIGM = {
   //     forms are what any sentence with a real subject needs.
   нужно: ["нужен", "нужна", "нужны"],
   ходить: ["хожу", "ходишь", "ходит", "ходим", "ходите", "ходят", "ходил", "ходила", "ходили"],
+  // EXTENDED BY A2 BLOCK 2, 2026-09-29. Five entries, every one a GENERATED
+  // INFLECTION in the standard paradigm of a front that IS carded — no lexical
+  // guesses, same discipline as block 1's (a)-(h) above. The proof they are a fix
+  // and not a loosening is that neither documented figure moves: u1-u30 stays at
+  // 107 of 1374, every one still in u1-u6, and u31-u40 stays at 0 of 480.
+  //
+  // (i) THE -давать FAMILY DROPS -ава- IN THE PRESENT TENSE, so nothing it
+  //     inflects into starts with the stem the stripper reaches. stem("давать")
+  //     is "дав" and даю/даёшь/дают start with "да". u48l2 TEACHES that drop as
+  //     its whole lesson, so it cannot be written around — the same position
+  //     block 1 was in with идти/ехать at u36.
+  давать: ["даю", "даёшь", "даешь", "даёт", "дает", "даём", "даем", "даёте", "даете", "дают", "давал", "давала", "давали"],
+  сдавать: ["сдаю", "сдаёшь", "сдаешь", "сдаёт", "сдает", "сдаём", "сдаем", "сдаёте", "сдаете", "сдают", "сдавал", "сдавала", "сдавали"],
+  создавать: ["создаю", "создаёшь", "создаешь", "создаёт", "создает", "создаём", "создаем", "создаёте", "создаете", "создают"],
+  // (j) `дать` (u31l2) is the perfective of the same family and mutates further:
+  //     stem("дать") is "дать" itself, which дам/дашь/дал start with none of.
+  дать: ["дам", "дашь", "даст", "дадим", "дадите", "дадут", "дал", "дала", "дали", "дай", "дайте"],
+  // (k) `мочь` (u47l3) mutates ч -> г/ж throughout. stem("мочь") is "моч" and
+  //     могу/можешь/могут start with "мог"/"мож". Note "может" was already
+  //     reachable, but only by accident — it is a piece of the u22l3 front
+  //     `может быть`, which the exact-surface registration splits on whitespace.
+  мочь: ["могу", "можешь", "может", "можем", "можете", "могут", "мог", "могла", "могло", "могли"],
   ездить: ["езжу", "ездишь", "ездит", "ездим", "ездите", "ездят", "ездил", "ездила", "ездили"],
 };
 
