@@ -12,12 +12,12 @@
 | German 🇩🇪 | 126 | 3,092 | A1 → **B2** | 3,092 / 3,092 (Jonas) |
 | Portuguese 🇵🇹 | 126 | 3,042 | A1 → **B2** | 3,042 / 3,042 (Tiago) |
 | Norwegian 🇳🇴 | 126 | 3,040 | A1 → **B2** | 3,040 / 3,040 (Erling) |
-| Russian 🇷🇺 | 60 | 1,440 | A1 → **A2** | 720 / 1,440 — **u31–u60 unvoiced** (Dmitri) |
-| Hindi 🇮🇳 | 60 | 1,440 | A1 → **A2** | 720 / 1,440 — **u31–u60 unvoiced** (Karan) |
-| Indonesian 🇮🇩 | 50 | 1,200 | A1 → **A2** | 480 / 1,200 — **u21–u50 unvoiced** |
+| Russian 🇷🇺 | 60 | 1,440 | pre-A1 → **A2** | 1,440 / 1,440 (Dmitri) |
+| Hindi 🇮🇳 | 60 | 1,440 | pre-A1 → **A2** | 1,440 / 1,440 (Karan) |
+| Indonesian 🇮🇩 | 50 | 1,200 | A1 → **A2** | 1,200 / 1,200 |
 
-**Corpus total: 24,563 items · 23,596 voiceable · 21,436 clips · 2,160 awaiting one paid run.**
-Japanese items exceed its voiceable count because kanji `trace` items carry no clip by design.
+**Corpus total: 24,563 items · 24,563 clips · 100% voiced** (measured 2026-09-30 after the ru/hi/id run: 2,160 clips generated, 0 errors, 0 silent payloads).
+⚠️ An earlier draft of this line said "23,596 voiceable · 21,436 clips" and claimed kanji carry no clip. Both wrong: the voiceable filter had excluded Japanese's `kana` (175) and `kanji` (792) item types, which **do** have clips. Every item in every live language has one.
 
 Spanish B2 is the one remaining band in a live language. See `BUILD-CHECKLIST.md` for what is in flight. Adding a language is one catalog entry once the catalog is data-driven — see `BUILD-BRIEF-languages-catalog.md` (pitch R15).
 
@@ -58,14 +58,14 @@ No script-build cost, solid TTS — the lowest lift of everything on the list.
 | Dutch | 🇳🇱 | Latin | B2 | lowest | planned |
 | Polish | 🇵🇱 | Latin | B2 | lowest | planned |
 | Turkish | 🇹🇷 | Latin | B2 | lowest | planned |
-| Indonesian | 🇮🇩 | Latin | B2 | lowest | ✅ **LIVE** — A1→**A2**, 50 units, 1,200 items; u21–u50 unvoiced |
+| Indonesian | 🇮🇩 | Latin | B2 | lowest | ✅ **LIVE** — A1→**A2**, 50 units, 1,200 items, fully voiced |
 | Vietnamese | 🇻🇳 | Latin | B2 | lowest | planned |
 
 ## Tier 2 — mixed
 | Lang | Flag | Script | Target | Lift | Status |
 |------|------|--------|--------|------|--------|
 | Korean | 🇰🇷 | **Hangul** (own script) | B2 | medium — real script-teaching build | planned |
-| Russian | 🇷🇺 | **Cyrillic** (own script) | B2 | medium — real script-teaching build | ✅ **LIVE** — A1→**A2**, 60 units, 1,440 items; u31–u60 unvoiced |
+| Russian | 🇷🇺 | **Cyrillic** (own script) | B2 | medium — real script-teaching build | ✅ **LIVE** — pre-A1→**A2**, 60 units, 1,440 items, fully voiced; B1/B2 not started |
 | Swahili | (regional — flag TBD) | Latin | B2 | low (grouped here by history, not difficulty) | planned |
 | Yoruba | (regional — flag TBD) | Latin | B2 | low (grouped here by history, not difficulty) | planned |
 | Hausa | (regional — flag TBD) | Latin | B2 | low (grouped here by history, not difficulty) | planned |
@@ -77,7 +77,7 @@ Deepest content-design work; **native review is non-negotiable before shipping**
 |------|------|--------|--------|------|--------|
 | Japanese | 🇯🇵 | kana + **kanji** (logographic) | B2 | highest — the deep climb | **LIVE** (kanji depth ongoing) |
 | Mandarin | 🇨🇳 | **hanzi** (logographic) | B2 | highest | planned |
-| Hindi | 🇮🇳 | **Devanagari** | B2 | highest | ✅ **LIVE** — A1→**A2**, 60 units, 1,440 items; u31–u60 unvoiced |
+| Hindi | 🇮🇳 | **Devanagari** | B2 | highest | ✅ **LIVE** — pre-A1→**A2**, 60 units, 1,440 items, fully voiced; B1/B2 not started |
 
 ---
 
