@@ -1,8 +1,10 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Award, Lock } from "lucide-react";
 import { useStore } from "../store/useStore.js";
-import { milestoneCatalog } from "../data/milestones.js";
+import { LANGUAGES, isLive } from "../data/index.js";
+import { milestonesForLangs } from "../data/milestones.js";
+import LangChip from "../components/LangChip.jsx";
 import { C, F } from "../theme.js";
 
 // Display grouping for the milestone `family` tags, in climb order.
@@ -53,15 +55,39 @@ function Row({ label, earned, have, need }) {
   );
 }
 
-// Full achievements view — every milestone in the catalog, earned ones lit and
-// locked ones greyed with their progress. Opened from the header award counter.
+// Full achievements view — every milestone for the languages this learner has
+// started, earned ones lit and locked ones greyed with their progress. Opened from
+// the header award counter.
 export default function Achievements() {
   const navigate = useNavigate();
   const items = useStore((s) => s.items);
   const milestonesEarned = useStore((s) => s.milestonesEarned);
+  const profile = useStore((s) => s.profile);
+
+  // Only languages the learner has actually started AND that have content — a
+  // started language with no units can't have milestones to show.
+  const myLangs = useMemo(
+    () => (profile?.languages ?? []).filter((id) => isLive(id)),
+    [profile?.languages]
+  );
+
+  // The switcher mirrors Stats' Mastery panel: one language at a time, plus "All".
+  // It only APPEARS at two or more languages — a lone chip for a single-language
+  // learner is noise, and the unscoped catalog is what made this screen wrong in the
+  // first place. Defaults to the language you're actually studying.
+  const [scope, setScope] = useState(() => profile?.activeLang ?? null);
+  const multi = myLangs.length > 1;
+  const effectiveScope = multi ? scope : myLangs[0] ?? null;
 
   const { groups, earnedCount, total } = useMemo(() => {
-    const catalog = milestoneCatalog();
+    // `null`/unknown scope and the "all" tab both fall through to every started
+    // language; milestonesForLangs treats an empty list as "no scoping" so a learner
+    // mid-onboarding sees the full catalog rather than an empty screen.
+    const langs =
+      effectiveScope && effectiveScope !== "all" && myLangs.includes(effectiveScope)
+        ? [effectiveScope]
+        : myLangs;
+    const catalog = milestonesForLangs(langs);
     const earnedSet = new Set(milestonesEarned ?? []);
     const groups = {};
     for (const m of catalog) {
@@ -69,8 +95,12 @@ export default function Achievements() {
       const fam = FAMILY_ORDER.includes(m.family) ? m.family : "other";
       (groups[fam] ??= []).push({ id: m.id, label: m.label, earned: earnedSet.has(m.id), have, need });
     }
-    return { groups, earnedCount: earnedSet.size, total: catalog.length };
-  }, [items, milestonesEarned]);
+    // Count earned WITHIN scope, so "12 of 40" can't read as 12-of-a-denominator
+    // that includes another language's milestones (or exceed it, for a learner who
+    // earned Japanese badges before adding a second language).
+    const earnedCount = catalog.filter((m) => earnedSet.has(m.id)).length;
+    return { groups, earnedCount, total: catalog.length };
+  }, [items, milestonesEarned, myLangs, effectiveScope]);
 
   const families = [...FAMILY_ORDER, "other"].filter((f) => groups[f]?.length);
 
@@ -91,6 +121,26 @@ export default function Achievements() {
           <div style={{ fontSize: 13, color: C.inkSoft }}>{earnedCount} of {total} unlocked — capability, not activity.</div>
         </div>
       </div>
+
+      {/* Same switcher as Stats' Mastery panel, and it appears on the same terms:
+          only once a second language is being learned. One language → no row, because
+          a lone chip is noise. */}
+      {multi && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+          {myLangs.map((id) => {
+            const l = LANGUAGES.find((x) => x.id === id);
+            return (
+              <LangChip
+                key={id}
+                label={`${l?.flag ?? ""} ${l?.name ?? id}`.trim()}
+                on={effectiveScope === id}
+                onClick={() => setScope(id)}
+              />
+            );
+          })}
+          <LangChip label="All languages" on={effectiveScope === "all"} onClick={() => setScope("all")} />
+        </div>
+      )}
 
       {families.map((fam) => (
         <Section key={fam} title={FAMILY_LABEL[fam] ?? "More"}>

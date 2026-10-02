@@ -68,6 +68,7 @@ Default to thoroughness and self-sufficiency. Don't ask permission for routine w
 | `CONTENT.md` | Content schema reference for authoring units | Curriculum CC |
 | `README.md` | Public-facing project overview + how to run/test | Feature CC |
 | `BUILD-BRIEF-*.md` | Design briefs (accounts/sync, curriculum lint, speech grading) | Web-Claude / Alex |
+| `RUNBOOK-new-language.md` | **Running the language production team — the no-questions procedure.** If Alex says "you're on the `<language>` crew, block `<n>`" (or "you're the merge seat"), this file is your whole assignment: preflight, worktree, rules, gate, hand-back, merge day. Follow §1 onward without asking; §7 answers anything you'd want to ask. §0 is Alex's half (crew shape, kickoff prompts, limits). Pathway/unit definitions live in `BUILD-BRIEF-language-blueprint.md`; in-flight status on the **Language crew board** in `BUILD-CHECKLIST.md`. | Curriculum CC |
 
 ---
 

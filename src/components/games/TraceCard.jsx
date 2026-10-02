@@ -6,6 +6,7 @@ import { KANJIVG } from "../../data/kanjivg.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 import { useStore } from "../../store/useStore.js";
 import { useReduceMotion } from "../../store/useReduceMotion.js";
+import { readingIsInformative } from "../../store/cardRouting.js";
 
 const KVG_SIZE = 109; // fixed by KanjiVG spec — not a tuning knob
 const TRACE_MAX = 380; // cap on the trace pad's px size so the glyph stays a readable size, not full-screen
@@ -441,8 +442,9 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
             <Volume2 size={17} />
           </button>
           {/* Romaji so the learner knows which kana this is — but respect Show-romaji
-              (this was the one card that leaked it when the crutch was turned off). */}
-          {showRomaji && (
+              (this was the one card that leaked it when the crutch was turned off),
+              and only where the reading adds something the front doesn't. */}
+          {showRomaji && readingIsInformative(item) && (
             <span style={{ fontFamily: F.mono, fontSize: 18, fontWeight: 700, color: C.ai }}>
               {item.reading}
             </span>

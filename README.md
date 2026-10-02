@@ -4,19 +4,30 @@ A Japanese-first, phone-first PWA for learning languages through deep understand
 rather than memorization. The daily loop is tight: **clear reviews → lesson → prove it**,
 scheduled by FSRS spaced repetition and judged by the app (no self-grading).
 
-Built around the **Polyglot Ladder**: one gated track where Japanese is the deep climb
-(goal B2) and side languages (es, fr) unlock at A1 of their predecessor. Motivation comes
-from mechanics and structure — text-first, no character art, no streaks or XP. An
-anti-burnout design, built with neurodivergent learners in mind.
+Built around the **Polyglot Ladder**: a CEFR climb per language, all targeting B2. There
+is **no prescribed order** — you start any language that has content, and once one of
+yours reaches A1 you may add another, in any order. Motivation comes from mechanics and
+structure — text-first, no character art, no streaks or XP. An anti-burnout design, built
+with neurodivergent learners in mind.
 
 ---
 
 ## Status
 
-- **A1 is content-complete** — 21 units · 93 lessons · 729 items (kana scripts + yōon, A1 thematic vocab, 106 N5 kanji, and core A1 grammar). Green on all local gates.
-- **Shipped to `main`:** Units 1–10 (kana scripts + A1 thematic vocab).
-- **Built locally, awaiting GitHub resume:** Units 11–21 (kanji stack + yōon + grammar) — validated and tested, not yet pushed.
-- **Blockers:** PR #46 (Unit 13) is held by a GitHub account suspension (see [Known issues](#known-issues)); and A1's "N5 verified" claim is gated on a batched native-speaker review of the kanji + grammar examples.
+**Two languages live · 125 units · 450 lessons · 2,941 items.** Run `npm run audit` for the
+live breakdown — the numbers below are derived from it, not maintained by hand.
+
+| Language | Units | Lessons | Items | Bands authored |
+|---|---|---|---|---|
+| 🇯🇵 Japanese | 98 | 369 | 2,375 | Pre-A1 · A1 · A2 |
+| 🇫🇷 French | 27 | 81 | 566 | A1 |
+
+- **Japanese A1 and A2 are content-complete** — kana scripts + yōon, thematic vocab, the
+  N5 kanji set, core grammar, and the A2/N4 build-out.
+- **French is A1-core, not A1-complete** — see [Known issues](#known-issues).
+- The remaining gate before any "JLPT N5 verified" claim is a **batched native-speaker
+  review** of the kanji + grammar examples (naturalness/register — the one thing no
+  validator can check).
 
 ---
 
@@ -26,46 +37,69 @@ anti-burnout design, built with neurodivergent learners in mind.
 - **French has no audio yet.** `public/audio/fr/` is empty, so the two listening cards don't route for French and teach cards are silent. Run `npm run generate:audio` then `npm run generate:manifest` to light them up.
 - **Mathieu (the French tutor) is wired but untested against the live API.** The ConvAI agent id and voice are configured; the endpoint has only been exercised with a stubbed fetch.
 
-*(Resolved: the June GitHub suspension is over and `main` is the production source of truth again — no CLI-deploy divergence.)*
-
 Full running list and detail: **`BUILD-CHECKLIST.md`** — readers shouldn't have to infer hidden problems.
 
 ---
 
 ## What's built today
 
-**Curriculum — A1 content-complete · 21 units · 93 lessons · 729 items** (`npm run audit` for the live breakdown):
+**Japanese curriculum — Pre-A1 through A2 · 98 units · 369 lessons · 2,375 items** (`npm run audit` for the live breakdown):
 
 - **Full hiragana** あ–ん (Units 1–3) and **full katakana** including dakuten/handakuten (Units 4–6).
 - **Yōon** — 33 combination kana (きょ・しゃ・ぎょ…), Unit 16.
 - **First A1 thematic vocab** — numbers/time, family, food + ～ます verbs, town/places, colors/weather (Units 7–10, 12).
 - **106 kanji ≈ JLPT N5 complete** — recognition by meaning, production by stroke tracing (Units 11, 13–15, 17–18).
 - **Core A1 grammar** — the copula sentence (Xは Yです / か / の / と / も / question words), verbs + particles (を/が/に/で/へ/から/まで), invitations & requests (ませんか/ましょう/ください), and past tense + い/な-adjective conjugation (Units 19–21).
+- **A2 / N4** — the second band, shipped: more grammar, kanji and vocabulary.
 - Sectioned by CEFR stage (`pre-a1` / `a1` / …) with JLPT tags on the Ladder.
-- **A1 is content-complete across scripts, vocab, kanji, and grammar.** The remaining gate before any "JLPT N5 verified" claim is a **batched native-speaker review** of the kanji + grammar examples (naturalness/register — the one thing no validator can check).
+
+**French curriculum — A1 · 27 units · 81 lessons · 566 items.** Greetings through the
+passé composé, plus a **sounds-and-accents unit that runs first** — French learners can
+read the letters on day one and be wrong on day one, so the sound-to-spelling map is
+taught before the vocabulary that uses it. Latin-script languages get that instead of a
+glyph-tracing band; `pre-a1` is the *script* band, not a difficulty band.
 
 **Engine & app:**
 
 - **FSRS spaced repetition** (`ts-fsrs`) — app-judged recall, FSRS grade derived from correctness + response speed.
 - **Mastery rungs** per item; card kind is chosen by rung (teach → choice → type → build, with characters traced stroke-by-stroke).
 - **Accounts + cross-device sync** — Supabase auth (Google sign-in), per-user progress with row-level security, last-write-wins with fresh-device safety.
-- **Haruki** — an in-app text + voice tutor (ElevenLabs conversational agent on Claude Haiku 4.5, native-JP voice, serverless signed-URL auth so the key stays server-side).
-- **Real audio** — ElevenLabs Haruki-voice clips per item, played from the teach card.
+- **A tutor per language** — an in-app text + voice companion (ElevenLabs conversational agent on Claude Haiku 4.5, native voice, serverless signed-URL auth so the key stays server-side). Haruki for Japanese, Mathieu for French; the tab and bottom-nav label follow the language you're studying.
+- **Real audio** — ElevenLabs clips per item in the tutor's voice, played from the teach card. Japanese is fully voiced; French is not generated yet.
 - **Ladder** — full-climb view, collapsible sections (writing system / yōon / kanji / units), optional romaji under each glyph.
-- **Settings** — SFX toggle, auto-play pronunciation, show-romaji toggle, and a hidden **Dev Mode** (unlocked with a code in Settings) that launches any unit or lesson — bypassing the normal review/unlock gating — in a throwaway sandbox run that never touches real progress, FSRS state, or the streak.
+- **Settings** — SFX toggle, auto-play pronunciation, reduce-motion, and (for languages written in a script new to the learner) romaji + furigana scaffolds. Plus a hidden **Dev Mode** (unlocked with a code in Settings) that launches any unit or lesson — bypassing the normal review/unlock gating — in a throwaway sandbox run that never touches real progress, FSRS state, or the streak.
 - **PWA** — installable, offline precache, `autoUpdate` (no stale builds after deploy).
 
 **Card kinds** (`LIVE_CARD_KINDS` in `src/data/contract.js`):
 
-| kind | description | status |
-|------|-------------|--------|
-| `teach` | presentation card, no testing | live |
-| `choice` | 4-option multiple choice | live |
-| `type:meaning` | type the English meaning | live |
-| `type:produce` | type the rōmaji / kana | built, not routed (production is via `trace` / `build`) |
-| `build` | assemble the reading from tiles | live |
-| `trace` | KanjiVG touch-to-trace — every kana and kanji | live |
-| `speak` | Whisper speech recognition | dormant (Brief C) |
+All 15 are live. A card kind ships only when it's in that list **and** exercised by the
+smoke coverage fixture — the forcing function that stops a kind from being half-wired.
+
+| kind | description | languages |
+|------|-------------|-----------|
+| `teach` | presentation card, no testing | all |
+| `choice` | 4-option multiple choice | all |
+| `choice:reverse` | meaning → word (the harder direction) | all |
+| `listen:choice` | hear it, pick it | needs audio |
+| `listen:type` | dictation — hear it, type it | needs audio |
+| `type:meaning` | type the English meaning | all |
+| `type:reading` | type the reading of the word shown | ja only |
+| `type:produce` | produce the word from its meaning | all |
+| `cloze:choice` | the word blanked out of its own example | all |
+| `particle:choice` | the function word after it blanked | all |
+| `build` | assemble the reading from tiles | ja only |
+| `sentence:build` | rebuild the example from word tiles | all |
+| `conjugate` | produce a verb form | ja only |
+| `trace` | KanjiVG touch-to-trace | new-script languages only |
+| `speak` | speech recognition + scoring | all |
+
+**`ja only` is a correctness constraint, not a gap.** `type:reading` and `build` both show
+the word and ask for its reading — a real transliteration test in Japanese (おはよう →
+ohayō), but for a Latin script the prompt *is* the answer, so French items would have
+graded correct by copying off the screen. They route to cards that test recall instead.
+`trace` follows the script policy: a language gets stroke practice when its script is new
+to the learner, so the 15 Latin-script languages get a sounds-and-accents unit rather than
+a traceable a–z.
 
 ---
 
@@ -134,7 +168,7 @@ Lesson 47 runs the same code as lesson 1 — no lesson- or item-specific branchi
 - `src/data/index.js` — imports all units, seeds/reconciles items into the store.
 - `src/data/ja/*.js` — the units; `languages.js` holds the cascade (`target`/`unlock`/`unlocked`).
 - `src/screens/` — Today, Ladder, Haruki, Stats, Lesson (session runner).
-- `src/components/games/` — TeachCard, ChoiceCard, TypeCard, BuildCard (Trace/Speak dormant).
+- `src/components/games/` — one component per card kind: Teach, Choice, Type, Build, Cloze, Sentence, Conjugate, Trace, Speak.
 - `server/companions.js` — companion config, server-side only (voice ids ok, keys are env secrets).
 
 ### Workflow
@@ -171,9 +205,7 @@ are the **batched native-speaker review** gate, required before any "JLPT-aligne
 
 ## Not yet built
 
-A2 (JLPT N4) curriculum · Whisper speech grading (Brief C, the one dormant card kind) ·
-Apple sign-in · side languages (es, fr).
-
-*(A1 grammar is **authored** — Units 19–21 — pending only the batched native-speaker review, not further building.)*
-
-*(KanjiVG tracing is **live**, not pending — it shipped PR #19 and kanji production reuses it.)*
+Japanese B1/B2 · French A1 completion (object pronouns, the imperative, `il faut` /
+`je dois`, comparatives) and French audio · Spanish and the other 17 catalogued languages ·
+Apple sign-in · a French `conjugate` card (needs a French conjugator and a contract change,
+since the verb-group and form enums are currently Japanese-only).

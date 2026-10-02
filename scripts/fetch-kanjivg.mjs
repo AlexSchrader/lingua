@@ -49,7 +49,38 @@ const KANJI = "一二三四五六七八九十" + // numbers (Unit 11)
   "赤青黒色明肉飯茶牛魚鳥犬" +           // colors & food (U40)
   "同正不無有特別物強広早急重楽悪" +     // descriptive (U41)
   "度用以近方理公洋服旅真";              // function & misc (U42)
-const kanaChars = (HIRAGANA + DAKUTEN + KATAKANA + KANJI).split("");
+
+// --- N3 kanji (B1 band) — fetched AHEAD of authoring, deliberately -------------
+// Every kanji item hard-errors without stroke data, and the documented workflow
+// ("add the glyph here, re-run") is a shared-file edit — fine for one author, a
+// three-way conflict for a parallel crew, on the one file the per-language barrel
+// exists to keep them out of. So the whole band's stroke data is fetched ONCE up
+// front, exactly like scaffolding, and no authoring seat ever touches this file.
+//
+// This is a SUPERSET to draw from, not a syllabus: a glyph nobody teaches costs
+// only bytes, while a missing one blocks a unit. The fetch logs and skips any
+// character KanjiVG lacks, so an imperfect list degrades loudly, never silently.
+// If a crew does need one that isn't here, the per-glyph path still works.
+const KANJI_N3 =
+  "愛暗位偉違育因引越園演煙押横王温化科果過解回快格確覚額掛割活寒完" +
+  "官管簡関願喜幾期機記規貴議客求泣救給居許共供橋局曲勤禁均型景経警" +
+  "迎欠決件権険現戸庫湖向幸港号根祭細材昨察殺雑参散産賛残士支史志" +
+  "枝師資飼示似識失実若取守種酒受収周就州拾終習集住重宿祝順初所暑助" +
+  "昇消商章勝乗常情条状職植信寝深申神進吸数寸成政晴精製税席積接絶" +
+  "舌説雪戦選然全組相争窓総想像増造側則測束速族続存尊他打対退隊代第" +
+  "題達単担探団断値置遅築注柱丁帳張直追痛低停底適転点伝徒努渡怒党島" +
+  "投湯統等到答童得毒独届難任熱念燃悩能派破敗杯配倍箱畑反判板悲比非" +
+  "飛費備必表評秒品負部風副復複払仏粉平閉並米辺変返便募報豊防貿暴末" +
+  "満未民務夢無命迷鳴綿面戻約役薬油輸予余預容様養欲頼落乱卵利陸律略" +
+  "流留両良量領緑林礼列練路老労録和";
+
+// Defensive filter: only kana and CJK ideographs are fetchable KanjiVG glyphs.
+// A stray Latin letter or lookalike in the lists above would otherwise become its
+// own doomed request and a confusing per-character ERROR line.
+const IS_GLYPH = /[぀-ヿ一-鿿]/;
+const kanaChars = [
+  ...new Set((HIRAGANA + DAKUTEN + KATAKANA + KANJI + KANJI_N3).split("")),
+].filter((c) => IS_GLYPH.test(c));
 
 console.log(`Fetching KanjiVG data for ${kanaChars.length} characters: ${kanaChars.join(" ")}\n`);
 

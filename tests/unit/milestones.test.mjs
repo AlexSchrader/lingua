@@ -7,6 +7,7 @@ import {
   earnedMilestones,
   nextMilestone,
   milestoneSummary,
+  milestonesForLangs,
 } from "../../src/data/milestones.js";
 
 const SEED = seedItems();
@@ -131,4 +132,69 @@ test("level milestones are per-language — a new language never moves another's
   // only the A1-band ja items matter for level-A1; ranging all ja is a superset
   assert.ok(earnedMilestones(m).includes("level-A1"), "ja A1 earned with zero French progress");
   assert.ok(!earnedMilestones(m).includes("level-A1-fr"));
+});
+
+// --- display scoping: a learner never sees another language's milestones --------
+// The regression: Achievements listed the WHOLE catalog, so a French-only learner
+// scrolled past permanently-locked hiragana/kanji/"Japanese A2 complete" rows and an
+// "X of Y" counter measured against them.
+
+test("milestonesForLangs keeps cross-language milestones and drops other languages'", () => {
+  const fr = milestonesForLangs(["fr"]);
+  assert.ok(fr.length > 0, "French learner sees some milestones");
+
+  // Nothing Japanese-only survives.
+  const jaOnly = fr.filter((m) => m.lang === "ja");
+  assert.deepEqual(jaOnly, [], `French scope leaked ja milestones: ${jaOnly.map((m) => m.id).join(", ")}`);
+
+  // Specifically the ones that read worst to a French learner.
+  const ids = new Set(fr.map((m) => m.id));
+  for (const id of ["script-hiragana", "script-katakana", "script-yoon", "kanji-first", "kanji-all", "level-A1"])
+    assert.ok(!ids.has(id), `${id} must not be offered to a French learner`);
+
+  // The deliberately cross-language word counts DO survive — "100 words mastered"
+  // is an honest capability whatever the language.
+  assert.ok(ids.has("read-first"), "cross-language word milestones stay");
+  assert.ok(ids.has("vocab-first"), "cross-language mastery milestones stay");
+  // ...and French's own level milestone is there.
+  assert.ok([...ids].some((id) => id.endsWith("-fr")), "French level milestones are present");
+});
+
+test("every catalog entry declares a lang (or null for cross-language)", () => {
+  for (const m of milestoneCatalog()) {
+    assert.ok("lang" in m, `${m.id} is missing a lang tag`);
+    assert.ok(m.lang === null || typeof m.lang === "string", `${m.id}: lang must be a string or null`);
+  }
+});
+
+test("a ja learner still sees the full Japanese set — scoping cuts nothing it shouldn't", () => {
+  const ja = milestonesForLangs(["ja"]);
+  const ids = new Set(ja.map((m) => m.id));
+  for (const id of ["script-hiragana", "kanji-first", "read-first", "level-A1"])
+    assert.ok(ids.has(id), `${id} must still be offered to a Japanese learner`);
+  assert.ok(![...ids].some((id) => id.endsWith("-fr")), "a ja-only learner sees no French milestones");
+});
+
+test("no scoping info = whole catalog, never an empty screen", () => {
+  // A caller that doesn't know the learner's languages must degrade to the old
+  // behaviour rather than silently rendering nothing.
+  assert.equal(milestonesForLangs(undefined).length, milestoneCatalog().length);
+  assert.equal(milestonesForLangs([]).length, milestoneCatalog().length);
+});
+
+test("nextMilestone never suggests a goal outside the learner's languages", () => {
+  const m = freshMap();
+  const next = nextMilestone(m, ["fr"]);
+  assert.ok(next, "a French learner has a next goal");
+  const entry = milestoneCatalog().find((x) => x.id === next.id);
+  assert.ok(entry.lang === null || entry.lang === "fr", `suggested ${next.id} (lang ${entry.lang}) to a French learner`);
+});
+
+test("awarding is NOT scoped — earned ids come from what you actually did", () => {
+  // Display scoping must never revoke an earned milestone. earnedMilestones reads
+  // the full catalog on purpose.
+  const m = freshMap();
+  for (const it of byType("kana")) read(m, it.id);
+  const earned = earnedMilestones(m);
+  assert.ok(earned.includes("script-hiragana"), "kana read → hiragana milestone earned regardless of display scope");
 });

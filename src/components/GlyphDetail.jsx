@@ -3,6 +3,7 @@ import { X, Volume2 } from "lucide-react";
 import { KANJIVG } from "../data/kanjivg.js";
 import { useItemAudio } from "../store/itemAudio.js";
 import { masteryPct, isMastered } from "../store/mastery.js";
+import { readingIsInformative } from "../store/cardRouting.js";
 import { C, F } from "../theme.js";
 
 // A view-only study card for a learned kana/kanji — opened by tapping its chip on
@@ -75,7 +76,17 @@ export default function GlyphDetail({ item, onClose }) {
           <div style={{ fontFamily: F.jp, fontSize: glyphFontSize(item.front), fontWeight: 500, lineHeight: 1.15, textAlign: "center", maxWidth: "100%", wordBreak: "break-word" }}>{item.front}</div>
         )}
 
-        <div style={{ fontFamily: F.mono, fontSize: 22, fontWeight: 700, color: C.ai }}>{item.reading}</div>
+        {/* The loudest of the five surfaces that render `reading`, and the last one
+            still leaking: 22px bold accent, ungated — not even by showRomaji. For a
+            Latin-script front the reading is only the ASCII fold ("lacasa"), i.e. a
+            typing answer key, so gate it the same way the cards are. db5e45c fixed
+            three surfaces from memory and missed both Ladder rows and this modal —
+            which the Ladder word-bank row OPENS ON TAP, so fixing the row alone just
+            moved the leak from 12px grey to 22px bold. Found by the truth-agent,
+            2026-08-05, by running the one grep nobody had: `grep -rn "\.reading}" src/`. */}
+        {readingIsInformative(item) && (
+          <div style={{ fontFamily: F.mono, fontSize: 22, fontWeight: 700, color: C.ai }}>{item.reading}</div>
+        )}
         {item.meaning && <div style={{ fontSize: 16, fontWeight: 600 }}>{item.meaning}</div>}
         {item.example && (
           <div style={{ fontSize: 13, color: C.inkSoft, textAlign: "center", lineHeight: 1.4 }}>

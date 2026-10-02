@@ -138,6 +138,17 @@ export default function Settings() {
   const setSetting = useStore((s) => s.setSetting);
   const auth = useStore((s) => s.auth);
   const signOut = useStore((s) => s.signOut);
+  const activeLang = useStore((s) => s.profile?.activeLang);
+  const items = useStore((s) => s.items);
+  // Rōmaji and furigana are scaffolds for a language written in a script the learner
+  // can't yet read. Offering them to a French learner is offering to switch off a
+  // crutch they never had — and the copy talks about kana and kanji, which reads as
+  // "this app is really for someone else". Keyed on whether the learner actually has
+  // glyph items, not on a hardcoded "ja", so a future Hangul or Cyrillic track gets
+  // them automatically.
+  const hasGlyphScript = Object.values(items).some(
+    (it) => it.lang === activeLang && (it.type === "kana" || it.type === "kanji")
+  );
   const [confirming, setConfirming] = useState(false);
   const [code, setCode] = useState("");
   const [codeError, setCodeError] = useState(false);
@@ -283,18 +294,22 @@ export default function Settings() {
       </Section>
 
       <Section title="Display">
-        <Toggle
-          label="Show romaji"
-          desc="Show the romaji reading under each character on the Ladder and on new-word cards. Turn off to read kana and kanji without the crutch."
-          checked={settings?.showRomaji ?? true}
-          onChange={(v) => setSetting("showRomaji", v)}
-        />
-        <Toggle
-          label="Furigana"
-          desc="Show the reading above kanji on new-word cards, and kana readings inside example sentences where the lesson provides them — so you can read a word before you know its kanji. A scaffold you can switch off as the kanji become familiar."
-          checked={settings?.furigana ?? true}
-          onChange={(v) => setSetting("furigana", v)}
-        />
+        {hasGlyphScript && (
+          <>
+            <Toggle
+              label="Show romaji"
+              desc="Show the romaji reading under each character on the Ladder and on new-word cards. Turn off to read kana and kanji without the crutch."
+              checked={settings?.showRomaji ?? true}
+              onChange={(v) => setSetting("showRomaji", v)}
+            />
+            <Toggle
+              label="Furigana"
+              desc="Show the reading above kanji on new-word cards, and kana readings inside example sentences where the lesson provides them — so you can read a word before you know its kanji. A scaffold you can switch off as the kanji become familiar."
+              checked={settings?.furigana ?? true}
+              onChange={(v) => setSetting("furigana", v)}
+            />
+          </>
+        )}
         <Toggle
           label="Reduce motion"
           desc="Freeze the mascot to a still and skip the finish-line confetti. Calmer if animation is distracting. (Your device's reduced-motion setting is always respected too.)"
@@ -459,8 +474,12 @@ export default function Settings() {
         )}
       </Section>
 
-      <div style={{ textAlign: "center", fontFamily: F.mono, fontSize: 11, color: C.locked, opacity: 0.6 }}>
-        🇯🇵 {VERSION}
+      {/* The flag follows the language being learned. It was hardcoded to 🇯🇵, so a
+          French learner got a Japanese flag stamped on the bottom of their own
+          settings screen — a small thing that quietly says the app is somebody
+          else's. Falls back to a neutral globe when no language is active yet. */}
+      <div data-testid="version-watermark" style={{ textAlign: "center", fontFamily: F.mono, fontSize: 11, color: C.locked, opacity: 0.6 }}>
+        {LANGUAGES.find((l) => l.id === activeLang)?.flag ?? "🌍"} {VERSION}
       </div>
     </div>
   );
