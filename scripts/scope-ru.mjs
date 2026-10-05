@@ -252,6 +252,9 @@ const PARADIGM = {
   //     stem "ясн" does not have. ⚠️ The neuter `ясно` is left out on purpose: it
   //     is a separate untaught adverb, and the same caution as согласно above.
   ясный: ["ясен", "ясна", "ясны"],
+  //     `оба` (u37) has a feminine stem обе-, which the stripper cannot reach
+  //     from "оба" — the same shape as `два` above.
+  оба: ["обе", "обоих", "обеих", "обоим", "обеим", "обоими", "обеими"],
   //     And one form missing from (e)-class `ребёнок`, which already has an entry
   //     above: the PREPOSITIONAL singular. Added for completeness, not for a flag.
 };
