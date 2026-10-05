@@ -362,7 +362,21 @@ const USAGE =
 //
 // There is deliberately NO --dry flag. Adding one is fine; silently treating an
 // unknown flag as "no flag" is not, for a script whose whole job is to create files.
-const KNOWN = new Set(["--script", "--band"]);
+// Built with .add() rather than from an array literal ON PURPOSE, and this comment
+// deliberately does not reproduce that literal either.
+//
+// tests/unit/scaffold.test.mjs harvests this file's band templates by matching a
+// two-string array whose first string is all lowercase/digits/hyphens. A flag name
+// qualifies: the long-form flags here are entirely hyphens and lowercase letters. So
+// holding the known flags in a two-element array made the test harvest the SECOND
+// one as a unit TITLE the lint did not recognise, and turned test:unit red on main.
+//
+// The test was right and the array literal was the bug. Do NOT resolve it by adding
+// a flag name to SCAFFOLD_TITLES in src/data/lint.js — that would weaken a real
+// check and leave the scaffold able to stamp a flag as a title.
+const KNOWN = new Set();
+KNOWN.add("--script");
+KNOWN.add("--band");
 const unknown = args.filter(
   (a, i) => a.startsWith("--") && !KNOWN.has(a) && args[i - 1] !== "--band"
 );
