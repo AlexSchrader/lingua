@@ -240,6 +240,14 @@ const PARADIGM = {
   //     B1 sentence reaches for constantly, and neither was reachable.
   понять: ["пойму", "поймёшь", "поймешь", "поймёт", "поймет", "поймём", "поймем", "поймёте", "поймете", "поймут"],
   помочь: ["помогу", "поможешь", "поможет", "поможем", "поможете", "помогут", "помог", "помогла", "помогли"],
+  //     `два` (u11) has a feminine form with a different vowel, and `ошибка`
+  //     (u6) drops its к-vowel in the genitive plural — the (e) class again.
+  два: ["две", "двух", "двум", "двумя"],
+  ошибка: ["ошибки", "ошибке", "ошибку", "ошибкой", "ошибок", "ошибкам", "ошибками", "ошибках"],
+  //     `согласен` (u61l1) short forms, the (f) class. ⚠️ The neuter `согласно` is
+  //     deliberately NOT listed: it is the untaught PREPOSITION u62 refused, and
+  //     listing it would quietly put that word in scope everywhere.
+  согласен: ["согласна", "согласны"],
   //     And one form missing from (e)-class `ребёнок`, which already has an entry
   //     above: the PREPOSITIONAL singular. Added for completeness, not for a flag.
 };
