@@ -248,6 +248,10 @@ const PARADIGM = {
   //     deliberately NOT listed: it is the untaught PREPOSITION u62 refused, and
   //     listing it would quietly put that word in scope everywhere.
   согласен: ["согласна", "согласны"],
+  //     `ясный` (u40) short forms, the (f) class — "ясен" inserts an е the long
+  //     stem "ясн" does not have. ⚠️ The neuter `ясно` is left out on purpose: it
+  //     is a separate untaught adverb, and the same caution as согласно above.
+  ясный: ["ясен", "ясна", "ясны"],
   //     And one form missing from (e)-class `ребёнок`, which already has an entry
   //     above: the PREPOSITIONAL singular. Added for completeness, not for a flag.
 };
