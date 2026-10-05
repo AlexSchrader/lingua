@@ -352,6 +352,32 @@ const USAGE =
   "Usage: npm run scaffold:lang -- <lang-code> [--script] [--band a1|a2|b1|b2]\n" +
   "  --band a2|b1|b2 EXTENDS an existing language with that band (units appended).";
 
+// AN UNKNOWN FLAG IS A HARD ERROR, because this script WRITES — it is not a query.
+//
+// Unrecognised flags used to be ignored silently. On 2026-10-05 a `--dry` was
+// passed, expecting a preview; there is no such flag, so the run scaffolded a
+// SECOND b1 band onto ru (74 stub units instead of 37) while printing its normal
+// success output. Nothing was lost — it was uncommitted and reverted — but the
+// reason it was recoverable was luck about timing, not a property of this tool.
+//
+// There is deliberately NO --dry flag. Adding one is fine; silently treating an
+// unknown flag as "no flag" is not, for a script whose whole job is to create files.
+const KNOWN = new Set(["--script", "--band"]);
+const unknown = args.filter(
+  (a, i) => a.startsWith("--") && !KNOWN.has(a) && args[i - 1] !== "--band"
+);
+if (unknown.length) {
+  console.error(`Unknown flag(s): ${unknown.join(" ")}`);
+  console.error("This script WRITES files, so it refuses rather than guessing.");
+  console.error(USAGE);
+  process.exit(2);
+}
+if (bandIdx >= 0 && (band === undefined || band.startsWith("--"))) {
+  console.error("--band needs a value: a1 | a2 | b1 | b2");
+  console.error(USAGE);
+  process.exit(2);
+}
+
 if (!lang) {
   console.error(USAGE);
   process.exit(1);

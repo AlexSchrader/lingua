@@ -39,7 +39,16 @@ const esc = (s) => String(s).replace(/\|/g, "\\|");
 export async function collect(lang, root = process.cwd()) {
   const barrel = path.join(root, "src", "data", lang, "index.js");
   if (!fs.existsSync(barrel)) throw new Error(`no barrel at ${barrel}`);
-  const mod = await import(pathToFileURL(barrel).href);
+  // CACHE-BUST THE IMPORT. ESM caches a module graph per process, so a caller that
+  // already imported this barrel BEFORE writing new unit files gets the stale graph
+  // back here — and that is exactly what scaffold-language.mjs does: it imports the
+  // barrel to find the highest existing order, writes the new stubs, then calls this.
+  //
+  // Measured 2026-10-05 scaffolding ru/hi B1: 37 stub units were written and this
+  // reported "0 slot(s) still stubs". The block table was right and the stub count
+  // was wrong, in the one file crews are told to resolve "is this slot mine" against.
+  // Re-running as a fresh process gave 37. A unique query string forces a reload.
+  const mod = await import(`${pathToFileURL(barrel).href}?taught=${Date.now()}`);
   const units = mod[`${lang.toUpperCase()}_UNITS`];
   if (!Array.isArray(units)) throw new Error(`no ${lang.toUpperCase()}_UNITS export in ${barrel}`);
 
