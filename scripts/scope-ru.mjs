@@ -77,7 +77,7 @@ const PARADIGM = {
   звать: ["зовут", "зову", "зовёшь", "зовём"],
   год: ["лет", "года", "году", "годы"],
   чай: ["чая", "чаю", "чаем"],
-  ребёнок: ["дети", "детей", "детям", "детях", "детьми", "ребёнка", "ребенка", "ребёнку", "ребенку"],
+  ребёнок: ["дети", "детей", "детям", "детях", "детьми", "ребёнка", "ребенка", "ребёнку", "ребенку", "ребёнке", "ребенке"],
   мать: ["матери", "матерью"],
   дочь: ["дочери", "дочерью"],
   это: ["эта", "этот", "эти", "этом", "этой", "эту", "этого", "этому", "этим", "этими", "этих"],
@@ -228,6 +228,14 @@ const PARADIGM = {
   //     which is under 3 characters, so the loop breaks and the stem stays "сеть"
   //     — which сети/сетью/сетей do not start with.
   сеть: ["сети", "сетью", "сетей", "сетям", "сетями", "сетях"],
+  //     `ждать` (u14l1) mutates its stem in the present tense: three passes take
+  //     "ждать" down to "жда", which жду/ждёшь/ждут do not start with.
+  ждать: ["жду", "ждёшь", "ждешь", "ждёт", "ждет", "ждём", "ждем", "ждёте", "ждете", "ждут", "ждал", "ждала", "ждали"],
+  //     `никто` (u23l4) declines like кто and its stem loses the т: stem("никто")
+  //     is "никт" and никого/никому/никем all run "нико" + a consonant.
+  никто: ["никого", "никому", "никем", "ником"],
+  //     And one form missing from (e)-class `ребёнок`, which already has an entry
+  //     above: the PREPOSITIONAL singular. Added for completeness, not for a flag.
 };
 
 // norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own
