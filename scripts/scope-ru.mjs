@@ -234,6 +234,12 @@ const PARADIGM = {
   //     `никто` (u23l4) declines like кто and its stem loses the т: stem("никто")
   //     is "никт" and никого/никому/никем all run "нико" + a consonant.
   никто: ["никого", "никому", "никем", "ником"],
+  //     `понять` (u31l1) and `помочь` (u31l3) both mutate in the future/present:
+  //     stem("понять") is "пон" and пойму/поймёт run "пойм"; stem("помочь") is
+  //     "помоч" and поможет/помогут run "помож"/"помог". Both are perfectives a
+  //     B1 sentence reaches for constantly, and neither was reachable.
+  понять: ["пойму", "поймёшь", "поймешь", "поймёт", "поймет", "поймём", "поймем", "поймёте", "поймете", "поймут"],
+  помочь: ["помогу", "поможешь", "поможет", "поможем", "поможете", "помогут", "помог", "помогла", "помогли"],
   //     And one form missing from (e)-class `ребёнок`, which already has an entry
   //     above: the PREPOSITIONAL singular. Added for completeness, not for a flag.
 };

@@ -213,6 +213,19 @@
 //     is that neither documented figure moved — u1–u30 stayed at 107 of 1374 and
 //     u31–u60 at 0 of 1440, measured before and after.
 //
+// §7b. ⚠️ NEVER WRITE " or " OR A COMMA INSIDE AN accept[] ENTRY. `meaningVariants`
+//     (src/store/answer.js) splits every gloss on `/`, `,`, `;` AND the word
+//     `or`, so "one or two people" becomes ["one", "two people"] and
+//     "some person or other" becomes ["some person", "other"]. Two cards in the
+//     SAME LESSON then share the fragment "one" or "other", which is the
+//     sameLessonSenseOverlap defect — one prompt, two right answers — and
+//     `lint:curriculum` does not see it because it compares primary glosses only.
+//     Measured: u65 shipped FIVE of these on its first draft (кто-то/что-то/
+//     какой-то all sharing "other", кое-кто/кое-что sharing "one"), every one
+//     introduced by an accept entry that read perfectly well in English. The rule
+//     is mechanical, so follow it mechanically: ONE sense per accept entry, no
+//     commas, no "or".
+//
 // §7a. TWO WORDS THIS BAND CANNOT AVOID AND A1/A2 NEVER TAUGHT.
 //     `свой` — the reflexive possessive. A1 carded мой · твой · наш · ваш · их
 //     and nothing covers «на своём месте». It is NOT declared FREE: block 1
