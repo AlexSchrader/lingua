@@ -261,8 +261,17 @@
 //     **तभी (u39)**. Both were carded because they carry a meaning their parts do
 //     not — checked with `chk2.mjs`, not assumed. If you need either, it is
 //     already in scope as ordinary taught vocabulary.
-// FREE: यही | वही | इसी | उसी | यहीं | वहीं | इससे | उससे | इसको | उसको
+// FREE: यही | वही | इसी | उसी | यहीं | वहीं | इससे | उससे | इसको | उसको | उन्हीं | इन्हीं
 // FREE: सबको | सबका | सबकी | सबके | इसका | इसकी | इसके
+// FREE: मुझसे | तुमसे | हमसे | आपसे | उनसे | इनसे | सका | सकी | सकीं
+// ⚠️ THE LAST THREE ARE A HOLE IN unit32.js's OWN LIST, not a new claim.
+// unit32.js declared सकता | सकती | सकते | सके | सकें FREE and **left out the
+// masculine singular perfective सका** — so "कर सका", which is how Hindi says
+// 'was able to', read as out of scope while "कर सके" read as in scope. सकी and
+// सकीं are the same omission on the feminine side. Repaired here rather than
+// worked around; the ability construction itself is still frontless (§A3).
+// And मुझसे | तुमसे | हमसे | आपसे | उनसे | इनसे are the pronoun+से forms, the
+// identical class unit11.js declared with मुझे | उसे | उन्हें | इसे | इन्हें.
 export const HI_UNIT61 = {
   id: "hi-u61",
   lang: "hi",
