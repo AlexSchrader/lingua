@@ -167,7 +167,7 @@ const PARADIGM = {
   создавать: ["создаю", "создаёшь", "создаешь", "создаёт", "создает", "создаём", "создаем", "создаёте", "создаете", "создают"],
   // (j) `дать` (u31l2) is the perfective of the same family and mutates further:
   //     stem("дать") is "дать" itself, which дам/дашь/дал start with none of.
-  дать: ["дам", "дашь", "даст", "дадим", "дадите", "дадут", "дал", "дала", "дали", "дай", "дайте"],
+  дать: ["дам", "дашь", "даст", "дадим", "дадите", "дадут", "дал", "дала", "дало", "дали", "дай", "дайте"],
   // (k) `мочь` (u47l3) mutates ч -> г/ж throughout. stem("мочь") is "моч" and
   //     могу/можешь/могут start with "мог"/"мож". Note "может" was already
   //     reachable, but only by accident — it is a piece of the u22l3 front
@@ -203,6 +203,31 @@ const PARADIGM = {
   ведро: ["вёдра", "ведра", "вёдер", "ведер", "ведру", "ведром", "ведре"],
   облако: ["облака", "облаку", "облаком", "облаке", "облаков", "облакам", "облаками"],
   "лёд": ["льда", "льду", "льдом", "льде", "лёдом"],
+  // (m) EXTENDED BY B1 BLOCK 1, 2026-10-05. Two entries, both GENERATED
+  //     INFLECTIONS in the standard paradigm of a front that IS carded — no
+  //     lexical guesses, same discipline as (a)–(l). The proof they are a fix and
+  //     not a loosening is that neither documented figure moves: u1–u30 stays at
+  //     107 of 1374 and u31–u60 stays at 0 of 1440, measured before and after.
+  //
+  //     `тот` (u22l4) AGREES AND DECLINES LIKE AN ADJECTIVE and not one of its
+  //     forms is reachable: TAIL has no "т", so stem("тот") stays "тот" and
+  //     та/то/те/того/тому/том all start with "т" + a different letter. ⚠️ THIS IS
+  //     THE ONE THAT MATTERS AT B1, and it would have bitten all three blocks:
+  //     «то, что …» is the backbone of Russian subordination, so a band whose
+  //     whole job is relating clauses (unit61.js §1) cannot write around it the
+  //     way A1 and A2 did.
+  тот: ["та", "то", "те", "того", "тому", "том", "тем", "той", "ту", "тех", "теми", "тою"],
+  //     `довольный` (u28l1) short forms, the same class as (f). The feminine and
+  //     plural are what any sentence with a real subject needs, and the long
+  //     form's stem "довольн" does not prefix "доволен" — the е is inserted.
+  //     ⚠️ The ADVERB `довольно` "quite" is deliberately NOT listed: it is a
+  //     different, untaught word, and putting it here would quietly make it
+  //     in-scope everywhere, which is the loosening this table must never do.
+  "довольный": ["доволен", "довольна", "довольны"],
+  //     `сеть` (u43l2) is the same shape as (e)'s день: TAIL strips "ть" to "се",
+  //     which is under 3 characters, so the loop breaks and the stem stays "сеть"
+  //     — which сети/сетью/сетей do not start with.
+  сеть: ["сети", "сетью", "сетей", "сетям", "сетями", "сетях"],
 };
 
 // norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own
