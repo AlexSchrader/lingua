@@ -203,6 +203,23 @@ const PARADIGM = {
   ведро: ["вёдра", "ведра", "вёдер", "ведер", "ведру", "ведром", "ведре"],
   облако: ["облака", "облаку", "облаком", "облаке", "облаков", "облакам", "облаками"],
   "лёд": ["льда", "льду", "льдом", "льде", "лёдом"],
+  // (j) EXTENDED BY B1 BLOCK 2, 2026-10-05. TWO entries, both GENERATED
+  //     INFLECTIONS in the standard paradigm of a front that IS carded — same
+  //     discipline as (a)–(i) above, no lexical guesses. The proof they are a fix
+  //     and not a loosening is that neither documented figure moves: u1–u30 stays
+  //     at 107 of 1374, every one still in u1–u6, and u31–u60 stays at 0 of 1440.
+  //     Measured before and after on content/ru-b1-block2.
+  //
+  //     `тот` (u22l4) AGREES LIKE AN ADJECTIVE AND CHANGES ROOT, the same class as
+  //     `один` in (d): TAIL has no "т", so stem("тот") stays "тот" and того/тем/та/
+  //     тех begin "тог"/"те"/"та" instead. B1 cannot write around it: «после того,
+  //     как» and «до того, как» are the two commonest subordinators in the band,
+  //     and u79 teaches clause linking as its subject.
+  "тот": ["того", "тому", "том", "тем", "та", "ту", "той", "то", "те", "тех", "теми", "тем"],
+  //     `огонь` (u12l4) DROPS THE VOWEL OF ITS LAST SYLLABLE, the same class as
+  //     день and камень in (e) and (i): stem("огонь") is "огон" and огня/огнем
+  //     begin "огн" instead, so every correct oblique use read as a violation.
+  "огонь": ["огня", "огню", "огнём", "огнем", "огне", "огни", "огней", "огням", "огнями", "огнях"],
 };
 
 // norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own
