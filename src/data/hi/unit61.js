@@ -74,10 +74,12 @@
 //         अपेक्षा   "an expectation" → उम्मीद (u27)
 //         दुगना   — REFUSED OUTRIGHT: दुगुना (u45) is the SAME LEXEME, and only the
 //                   gloss probe caught it, because the two spellings differ.
-//     THE TOOL: `node scripts/tmp/gloss.mjs "<gloss>" ...` reimplements
+//     THE TOOL: `node scripts/qa/gloss-taken.mjs "<gloss>" ...` reimplements
 //     `normalizeMeaning` and names the owner. Run it on every gloss BEFORE you
 //     write the card, not after the gate. Same for fronts:
-//     `node scripts/tmp/chk2.mjs <front> ...`, and readings `readchk.mjs`.
+//     `node scripts/qa/front-taken.mjs <front> ...`, and readings
+//     `node scripts/qa/reading-taken.mjs`. All three are committed beside the
+//     other probes; a header that cites a file in scripts/tmp/ cites nothing.
 //
 // B5. NO 3rd-PERSON VERB EXCEPTIONS; STILL ZERO IN THE WHOLE LANGUAGE, AND B1
 //     SPENDS NONE. unit1.js §5's test was applied to five B1 candidates and
@@ -120,7 +122,7 @@
 //     shared words. So block 1 measured the holes FIRST and allocated all fourteen
 //     before authoring a single card. §B9 is the table. **Each number is
 //     `taken/probed` against the real 1,440-word corpus on 2026-10-05** — not a
-//     guess, and re-derivable with `scripts/tmp/chk2.mjs`.
+//     guess, and re-derivable with `scripts/qa/front-taken.mjs`.
 //
 // B9. RETHEMED, NARROWED AND KEPT SLOTS — the whole band, with the measurement.
 //     ─── u84–u86, BLOCK 2. Deliberately the three holes ADJACENT to block 2's own
