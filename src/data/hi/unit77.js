@@ -1,7 +1,7 @@
 // HI Unit 77 — बीमारी और रोकथाम ("Illness and prevention") — B1
 // ─────────────────────────────────────────────────────────────────────────────
 // B1 BLOCK 2. Conventions: unit1.js §1–§11, then unit31.js §A1–§A8, then
-// unit79.js §B1–§B6.
+// unit74.js §B1–§B7.
 //
 // 🚨 RETHEMED SLOT (scaffold: "Health and wellbeing") — lint hard-errors on that
 // title, and the theme had to split as well. Hindi already has TWO health units:

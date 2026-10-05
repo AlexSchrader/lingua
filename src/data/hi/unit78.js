@@ -1,7 +1,7 @@
 // HI Unit 78 — समाज में अपनी जगह ("One's place in society") — B1
 // ─────────────────────────────────────────────────────────────────────────────
 // B1 BLOCK 2. Conventions: unit1.js §1–§11, then unit31.js §A1–§A8, then
-// unit79.js §B1–§B6.
+// unit74.js §B1–§B7.
 //
 // 🚨 RETHEMED SLOT (scaffold: "Relationships and society") — lint hard-errors on
 // that title, and BOTH halves of it are half-spent, which is why the slot had to

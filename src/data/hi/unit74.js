@@ -1,8 +1,8 @@
 // HI Unit 74 — सिनेमा और रंगमंच ("Cinema and the stage") — B1
 // ─────────────────────────────────────────────────────────────────────────────
 // B1 BLOCK 2 (u74–u86), FIRST UNIT OF THE RANGE. Conventions: unit1.js §1–§11,
-// then unit31.js §A1–§A8. Both BIND; §B2 in unit79.js carries what B1 block 2
-// adds. Nothing in this file overrides either.
+// then unit31.js §A1–§A8. Both BIND. §B1–§B7 at the foot of this file are B1
+// block 2's own conventions, settled here as the first unit of the range.
 //
 // 🚨 RETHEMED SLOT (scaffold: "Media and entertainment"). `src/data/lint.js`
 // SCAFFOLD_TITLES carries that exact string, so a Devanagari title is compulsory.
@@ -83,6 +83,84 @@
 //   फ़िल्म film → glossed "a motion picture", NOT "a film" — the gloss would have
 //   BEEN the transliteration, which is the exact defect §9 names.
 //   सिनेमा sinemaa ≠ "a cinema hall". Zero free passes.
+// ════════════════════════════════════════════════════════════════════════════
+// B1 BLOCK 2 CONVENTIONS (u74-u86) — settled here, as the first unit of the range,
+// the way unit31.js, unit41.js and unit51.js did for A2. Numbered so a later block
+// can cite one. unit1.js §1–§11 and unit31.js §A1–§A8 both still BIND and are not
+// restated.
+// ════════════════════════════════════════════════════════════════════════════
+//
+// B1. SHAPE IS UNCHANGED: 4 lessons × EXACTLY 6 cards, matching all 120 A1 and all
+//     40 A2 lessons. 13 units, 312 cards.
+//     ⚠️ ALL THIRTEEN SLOT TITLES WERE SCAFFOLD TITLES and all thirteen are
+//     retitled in Devanagari. `src/data/lint.js` SCAFFOLD_TITLES carries every B1
+//     theme name verbatim ("Media and entertainment", "Environment and place",
+//     "Money and the economy", "Health and wellbeing", "Relationships and
+//     society", the three "Grammar N — ..." strings and both "Register N — ..."
+//     strings) and SCAFFOLD_TITLE_PATTERNS matches /^Vocabulary \d+ \(B1\)$/, so a
+//     Devanagari title is compulsory on all 13 — not a style choice.
+//
+// B2. WHAT B1 MEANS HERE, and it is not A2 with longer words. A2 left the learner
+//     able to NAME things and narrate a past. B1 is where he starts RELATING them:
+//     a condition on a clause, a cause chain, an attributed opinion, a concession,
+//     a hedge. So every unit in this range carries one of those in its sentences
+//     even when its cards are nouns — u76 relates production to consumption, u77
+//     relates a habit to an outcome, u78 relates a person to how he is treated.
+//
+// B3. 🚨 THE PASSIVE IS CLOSED AT u80, AND IT WAS DEFERRED "TO B1" BY TWO FILES
+//     WITH NO UNIT NAMED. unit1.js §6's deferred list says "the PASSIVE
+//     (किया जाता है) → B1" and unit31.js §A5 repeats it; A2 block 2 confirmed it
+//     did not re-open it. u80 निष्क्रिय और प्रेरणार्थक teaches it, so those two
+//     deferred entries are now answered rather than left reading as a live
+//     instruction.
+//
+// B4. A CAUSATIVE IS NOT A LEXEME DUPLICATE, and u80 cards six -वाना verbs on that
+//     basis. The corpus has always taught causative pairs in different units —
+//     उठना/उठाना, रुकना/रोकना, गिरना/गिराना, बचना/बचाना — and A2 u48 taught
+//     the -आना causative as a class. -वाना is the THIRD degree and a different
+//     dictionary entry: बनाना is to make a thing, बनवाना is to have somebody else
+//     make it. `scope-hi.mjs` generates no -वाना, so none was in scope before u80.
+//     ⚠️ THE LINE THAT IS NOT CROSSED: an INFLECTION is never carded twice —
+//     बड़ा/बड़ी stays banned (unit1.js §6), and no verb's own conjugated form is ever
+//     a front.
+//
+// B5. u81 IS RETHEMED OFF EVIDENTIALITY, AND THE EVIDENTIALITY IS STILL TAUGHT.
+//     The slot reads "Grammar 8 — nuance, evidentiality, nominalization". The
+//     mental vocabulary an evidentiality unit needs is 16/18 SPENT: A2 u57
+//     सोचना और मानना plus u32 and u39 took सोचना, जानना, समझना, मानना, याद,
+//     अंदाज़ा, तुलना, उम्मीद, इरादा, शक, भरोसा, ध्यान, गौर, कल्पना — and block 1's
+//     u64 "Hedging and uncertainty" owns what is left. So u81 takes the THIRD
+//     thing the slot names, NOMINALIZATION, and teaches it as word formation: the
+//     -आई/-आवट/-आव suffixes, the -ई/-ी abstract nouns, and the बे-/ना-/अन-/गैर-/नि-
+//     prefixes. EVIDENTIALITY IS TAUGHT IN ITS HINTS AND EXAMPLES AS A
+//     CONSTRUCTION WITH NO FRONT — सुना है कि, कहा जाता है कि, लगता है कि — which
+//     is the mechanism unit1.js §6 used for का/के/की/को and §A3 used for सकना.
+//     ZERO 3rd-PERSON EXCEPTIONS SPENT; no validator weakened.
+//
+// B6. 🚨 MOST B1 REFUSALS ARE `accept[]` REFUSALS, NOT FRONT REFUSALS, AND
+//     `check-front.mjs` CANNOT SEE THEM. Measured across this range: of the fronts
+//     wanted and refused, ELEVEN were reported FREE by check-front.mjs and were
+//     blocked by a taught card's accept list, which `normalizeMeaning`
+//     (src/store/answer.js) treats as a right answer. The worst case was
+//     स्वास्थ्य, blocked by सेहत (u20), whose accept list contains BOTH
+//     "wellbeing" AND "fitness" — three of the four words that card wanted.
+//     THE RULE THIS RANGE FOLLOWED: before writing a card, read the taught
+//     near-synonym's WHOLE ITEM, not just its front. The corpus has reached the
+//     point where the GLOSS is scarcer than the front.
+//
+// B7. ⚠️ TOOLING GAP FOUND AND DELIBERATELY NOT FIXED. `scope-hi.mjs`'s derive()
+//     has no rule for an ई-FINAL noun's oblique plural: भाई (u10) does not generate
+//     भाइयों, so "दोनों भाइयों में" reads as out of scope while the identical
+//     sentence with लड़कों passes. It is the SAME CLASS as the consonant-final
+//     plural A2 block 2 added and the oblique infinitive A2 block 3 added
+//     (unit31.js §A6), so it would qualify.
+//     IT WAS LEFT ALONE ON PURPOSE: blocks 1 and 3 are authoring in parallel
+//     against a measured baseline (band 136, A1 u7+ 0), and widening the checker
+//     mid-flight would move the number they are measuring against with nothing
+//     red to tell them. The sentence was rewritten instead. WHOEVER MERGES THIS
+//     BAND: add ई → इयों/इयाँ to derive(), measure both ways, and record the
+//     before/after the way §A6 does.
+//
 // ─────────────────────────────────────────────────────────────────────────────
 // FREE — what B1 block 2 adds to unit1.js's, unit11.js's and unit31.js's lists.
 // Same test as always: closed-class grammar or a proper name, met in a sentence,

@@ -1,7 +1,7 @@
 // HI Unit 76 — अर्थव्यवस्था ("The economy") — B1
 // ─────────────────────────────────────────────────────────────────────────────
 // B1 BLOCK 2. Conventions: unit1.js §1–§11, then unit31.js §A1–§A8, then
-// unit79.js §B1–§B6.
+// unit74.js §B1–§B7.
 //
 // 🚨 RETHEMED SLOT (scaffold: "Money and the economy") — lint hard-errors on that
 // title. THE "MONEY" HALF IS GONE and the measurement says so plainly: A2 u37

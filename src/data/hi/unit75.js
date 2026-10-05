@@ -1,7 +1,7 @@
 // HI Unit 75 — पर्यावरण और जलवायु ("The environment and the climate") — B1
 // ─────────────────────────────────────────────────────────────────────────────
 // B1 BLOCK 2. Conventions: unit1.js §1–§11, then unit31.js §A1–§A8, then
-// unit79.js §B1–§B6 (this block's own).
+// unit74.js §B1–§B7 (this block's own).
 //
 // 🚨 RETHEMED SLOT (scaffold: "Environment and place") — lint's SCAFFOLD_TITLES
 // hard-errors on that string. THE "PLACE" HALF WAS DROPPED, on measurement:
