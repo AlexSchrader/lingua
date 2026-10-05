@@ -99,15 +99,6 @@
 //      in Russian (unit1.js §10 — and `lint.js` hard-errors on the stub titles
 //      /^Vocabulary \d+ \(B1\)$/, /^Grammar [6-8] — …$/ and /^Register [12] — …$/,
 //      all five of which are in this block's range).
-// ⚠️ ONE EXPOSURE-ONLY WORD IS DECLARED FOR THIS WHOLE BLOCK, and the FREE line
-// below is the declaration `scripts/scope-ru.mjs` reads (its §"ESCAPE HATCH").
-// `равно` exists in this corpus ONLY inside «всё равно» — "anyway, all the
-// same" — which is unavoidable in natural B1 Russian and which no taught front
-// reaches: `ровно` (u37l4) is a different word meaning "exactly", and `равный`
-// is taught nowhere. Declaring it is a CLAIM, and the claim is the narrow one:
-// a learner MEETS «всё равно» in sentences from u74 on and is never asked to
-// produce it. Nothing else in u74–u86 is declared free.
-// FREE: равно
 // lang/unit/lesson are stamped in src/data/index.js.
 export const RU_UNIT74 = {
   id: "ru-u74",

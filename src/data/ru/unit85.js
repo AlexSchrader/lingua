@@ -33,6 +33,16 @@
 //   reachable from «to build» in any direction — and `ноготь` sits on нога
 //   (u20l1), where «a nail» is not reachable from «a leg». The hint on each
 //   names the look-alike so the learner is not left guessing at a false link.
+// ⚠️ THE ONE EXPOSURE-ONLY WORD BLOCK 2 DECLARES, and the FREE line below is
+// the declaration `scripts/scope-ru.mjs` reads (its §"ESCAPE HATCH"). `равно` occurs
+// in exactly ONE sentence in u74–u86 — l3's «всё равно», "anyway, all the same" —
+// which is unavoidable in natural B1 Russian and which no taught front reaches:
+// `ровно` (u37l4) is a different word meaning "exactly", and `равный` is taught
+// nowhere. Declaring it is a CLAIM, and the claim is the narrow one: a learner
+// MEETS «всё равно» here and is never asked to produce it. It is declared in THIS
+// unit rather than in u74 so that it is in scope from the sentence that uses it
+// and not before. Nothing else in u74–u86 is declared free.
+// FREE: равно
 // lang/unit/lesson are stamped in src/data/index.js.
 export const RU_UNIT85 = {
   id: "ru-u85",
