@@ -62,7 +62,44 @@ import { RU_UNIT57 } from "./unit57.js";
 import { RU_UNIT58 } from "./unit58.js";
 import { RU_UNIT59 } from "./unit59.js";
 import { RU_UNIT60 } from "./unit60.js";
+import { RU_UNIT61 } from "./unit61.js";
+import { RU_UNIT62 } from "./unit62.js";
+import { RU_UNIT63 } from "./unit63.js";
+import { RU_UNIT64 } from "./unit64.js";
+import { RU_UNIT65 } from "./unit65.js";
+import { RU_UNIT66 } from "./unit66.js";
+import { RU_UNIT67 } from "./unit67.js";
+import { RU_UNIT68 } from "./unit68.js";
+import { RU_UNIT69 } from "./unit69.js";
+import { RU_UNIT70 } from "./unit70.js";
+import { RU_UNIT71 } from "./unit71.js";
+import { RU_UNIT72 } from "./unit72.js";
+import { RU_UNIT73 } from "./unit73.js";
+import { RU_UNIT74 } from "./unit74.js";
+import { RU_UNIT75 } from "./unit75.js";
+import { RU_UNIT76 } from "./unit76.js";
+import { RU_UNIT77 } from "./unit77.js";
+import { RU_UNIT78 } from "./unit78.js";
+import { RU_UNIT79 } from "./unit79.js";
+import { RU_UNIT80 } from "./unit80.js";
+import { RU_UNIT81 } from "./unit81.js";
+import { RU_UNIT82 } from "./unit82.js";
+import { RU_UNIT83 } from "./unit83.js";
+import { RU_UNIT84 } from "./unit84.js";
+import { RU_UNIT85 } from "./unit85.js";
+import { RU_UNIT86 } from "./unit86.js";
+import { RU_UNIT87 } from "./unit87.js";
+import { RU_UNIT88 } from "./unit88.js";
+import { RU_UNIT89 } from "./unit89.js";
+import { RU_UNIT90 } from "./unit90.js";
+import { RU_UNIT91 } from "./unit91.js";
+import { RU_UNIT92 } from "./unit92.js";
+import { RU_UNIT93 } from "./unit93.js";
+import { RU_UNIT94 } from "./unit94.js";
+import { RU_UNIT95 } from "./unit95.js";
+import { RU_UNIT96 } from "./unit96.js";
+import { RU_UNIT97 } from "./unit97.js";
 
 export const RU_UNITS = [
-  RU_UNIT1, RU_UNIT2, RU_UNIT3, RU_UNIT4, RU_UNIT5, RU_UNIT6, RU_UNIT7, RU_UNIT8, RU_UNIT9, RU_UNIT10, RU_UNIT11, RU_UNIT12, RU_UNIT13, RU_UNIT14, RU_UNIT15, RU_UNIT16, RU_UNIT17, RU_UNIT18, RU_UNIT19, RU_UNIT20, RU_UNIT21, RU_UNIT22, RU_UNIT23, RU_UNIT24, RU_UNIT25, RU_UNIT26, RU_UNIT27, RU_UNIT28, RU_UNIT29, RU_UNIT30, RU_UNIT31, RU_UNIT32, RU_UNIT33, RU_UNIT34, RU_UNIT35, RU_UNIT36, RU_UNIT37, RU_UNIT38, RU_UNIT39, RU_UNIT40, RU_UNIT41, RU_UNIT42, RU_UNIT43, RU_UNIT44, RU_UNIT45, RU_UNIT46, RU_UNIT47, RU_UNIT48, RU_UNIT49, RU_UNIT50, RU_UNIT51, RU_UNIT52, RU_UNIT53, RU_UNIT54, RU_UNIT55, RU_UNIT56, RU_UNIT57, RU_UNIT58, RU_UNIT59, RU_UNIT60,
+  RU_UNIT1, RU_UNIT2, RU_UNIT3, RU_UNIT4, RU_UNIT5, RU_UNIT6, RU_UNIT7, RU_UNIT8, RU_UNIT9, RU_UNIT10, RU_UNIT11, RU_UNIT12, RU_UNIT13, RU_UNIT14, RU_UNIT15, RU_UNIT16, RU_UNIT17, RU_UNIT18, RU_UNIT19, RU_UNIT20, RU_UNIT21, RU_UNIT22, RU_UNIT23, RU_UNIT24, RU_UNIT25, RU_UNIT26, RU_UNIT27, RU_UNIT28, RU_UNIT29, RU_UNIT30, RU_UNIT31, RU_UNIT32, RU_UNIT33, RU_UNIT34, RU_UNIT35, RU_UNIT36, RU_UNIT37, RU_UNIT38, RU_UNIT39, RU_UNIT40, RU_UNIT41, RU_UNIT42, RU_UNIT43, RU_UNIT44, RU_UNIT45, RU_UNIT46, RU_UNIT47, RU_UNIT48, RU_UNIT49, RU_UNIT50, RU_UNIT51, RU_UNIT52, RU_UNIT53, RU_UNIT54, RU_UNIT55, RU_UNIT56, RU_UNIT57, RU_UNIT58, RU_UNIT59, RU_UNIT60, RU_UNIT61, RU_UNIT62, RU_UNIT63, RU_UNIT64, RU_UNIT65, RU_UNIT66, RU_UNIT67, RU_UNIT68, RU_UNIT69, RU_UNIT70, RU_UNIT71, RU_UNIT72, RU_UNIT73, RU_UNIT74, RU_UNIT75, RU_UNIT76, RU_UNIT77, RU_UNIT78, RU_UNIT79, RU_UNIT80, RU_UNIT81, RU_UNIT82, RU_UNIT83, RU_UNIT84, RU_UNIT85, RU_UNIT86, RU_UNIT87, RU_UNIT88, RU_UNIT89, RU_UNIT90, RU_UNIT91, RU_UNIT92, RU_UNIT93, RU_UNIT94, RU_UNIT95, RU_UNIT96, RU_UNIT97,
 ];

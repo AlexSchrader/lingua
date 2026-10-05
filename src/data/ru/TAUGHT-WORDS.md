@@ -1,7 +1,7 @@
 # RU — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- ru`.
-Snapshot 2026-09-30: **1440 words** across **60 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-10-05: **1440 words** across **60 authored unit(s)**, **37 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -14,6 +14,58 @@ Snapshot 2026-09-30: **1440 words** across **60 authored unit(s)**, **0 slot(s) 
 - **It does not contain the words your sibling blocks are writing right now.** They do not exist yet, in this tree or any other. If you need a word a *later* slot will plainly own (a grammar unit's tense, a themed unit's domain), assume it is theirs and teach around it.
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
+
+## Who owns which slots this band
+
+The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
+
+| block | slots |
+|---|---|
+| 1 | u61–u73 |
+| 2 | u74–u86 |
+| 3 | u87–u97 |
+
+## Slots still stubs — not yours unless you were assigned them
+
+| slot | unit | title |
+|---|---|---|
+| 61 | `ru-u61` | Opinion and agreement |
+| 62 | `ru-u62` | Cause and consequence |
+| 63 | `ru-u63` | Comparison and degree |
+| 64 | `ru-u64` | Hedging and uncertainty |
+| 65 | `ru-u65` | News and society |
+| 66 | `ru-u66` | Work and process |
+| 67 | `ru-u67` | Emotion, finer shades |
+| 68 | `ru-u68` | Abstract ideas |
+| 69 | `ru-u69` | Change over time |
+| 70 | `ru-u70` | Problems and solutions |
+| 71 | `ru-u71` | Rules, permission, obligation |
+| 72 | `ru-u72` | Plans and intentions |
+| 73 | `ru-u73` | Experience and memory |
+| 74 | `ru-u74` | Media and entertainment |
+| 75 | `ru-u75` | Environment and place |
+| 76 | `ru-u76` | Money and the economy |
+| 77 | `ru-u77` | Health and wellbeing |
+| 78 | `ru-u78` | Relationships and society |
+| 79 | `ru-u79` | Grammar 6 — linked and subordinate clauses |
+| 80 | `ru-u80` | Grammar 7 — passive, causative, indirect |
+| 81 | `ru-u81` | Grammar 8 — nuance, evidentiality, nominalization |
+| 82 | `ru-u82` | Register 1 — polite vs plain |
+| 83 | `ru-u83` | Register 2 — softening and formality |
+| 84 | `ru-u84` | Vocabulary 1 (B1) |
+| 85 | `ru-u85` | Vocabulary 2 (B1) |
+| 86 | `ru-u86` | Vocabulary 3 (B1) |
+| 87 | `ru-u87` | Vocabulary 4 (B1) |
+| 88 | `ru-u88` | Vocabulary 5 (B1) |
+| 89 | `ru-u89` | Vocabulary 6 (B1) |
+| 90 | `ru-u90` | Vocabulary 7 (B1) |
+| 91 | `ru-u91` | Vocabulary 8 (B1) |
+| 92 | `ru-u92` | Vocabulary 9 (B1) |
+| 93 | `ru-u93` | Vocabulary 10 (B1) |
+| 94 | `ru-u94` | Vocabulary 11 (B1) |
+| 95 | `ru-u95` | Vocabulary 12 (B1) |
+| 96 | `ru-u96` | Vocabulary 13 (B1) |
+| 97 | `ru-u97` | Vocabulary 14 (B1) |
 
 ## Index — every taught word, alphabetical
 
