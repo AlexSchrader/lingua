@@ -233,6 +233,36 @@
 // dental twin exists in the corpus, so nothing collides. टिप्पणी has RETROFLEX ट
 // and ण, both merged. Checked against all 1,440 readings: 0 collisions.
 // LOANWORD FREE-PASS CHECK (unit1.js §9): no loanwords. Zero free passes.
+//
+// ─────────────────────────────────────────────────────────────────────────────
+// FREE — what B1 block 1 adds to unit1.js's, unit11.js's and unit31.js's lists.
+// Same test as always: closed-class grammar or a proper name, MET in a sentence,
+// never produced alone. A content word that belongs here is one you should be
+// teaching instead.
+// ─────────────────────────────────────────────────────────────────────────────
+// 🚨 THE FUSED CLITIC AND CASE FORMS OF PRONOUNS ALREADY TAUGHT. This is a
+// TOKENIZER limitation in `scripts/scope-hi.mjs`, not a vocabulary claim, and it
+// cost block 1 one revision round on every one of its first four units before
+// being written down:
+//   • ही IS ALREADY FREE (unit39.js) and को/से/का/की/के have been FREE since
+//     unit1.js. But scope-hi splits on WHITESPACE, so when Hindi writes the
+//     clitic SOLID onto its host — यह+ही → यही, वह+ही → वही, इस+से → इससे,
+//     सब+को → सबको — the checker sees one unknown token and flags it, while the
+//     same two morphemes written apart pass. Nothing new is being introduced.
+//   • They are the identical closed class unit1.js declared with इस/इन/उस/उन and
+//     उसका/उसकी/उसके, unit11.js with उसे/इसे/उन्हें/इन्हें, unit26.js with इसमें,
+//     and unit31.js with the ten ergative pronouns. No suffix rule generates them
+//     and no unit teaches them.
+//   • ⚠️ **इसका / इसकी / इसके WERE SIMPLY MISSING** from unit1.js's list, which
+//     already carried उसका / उसकी / उसके and उनका / उनकी / उनके. That is an
+//     omission, not a decision, and it is repaired here rather than worked around.
+//   • ⚠️ AND TWO MEMBERS OF THIS FAMILY ARE TAUGHT FRONTS, NOT FREE WORDS, so
+//     they are deliberately absent from the line below: **सभी (u22)** and
+//     **तभी (u39)**. Both were carded because they carry a meaning their parts do
+//     not — checked with `chk2.mjs`, not assumed. If you need either, it is
+//     already in scope as ordinary taught vocabulary.
+// FREE: यही | वही | इसी | उसी | यहीं | वहीं | इससे | उससे | इसको | उसको
+// FREE: सबको | सबका | सबकी | सबके | इसका | इसकी | इसके
 export const HI_UNIT61 = {
   id: "hi-u61",
   lang: "hi",
