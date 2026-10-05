@@ -83,6 +83,19 @@
 //   फ़िल्म film → glossed "a motion picture", NOT "a film" — the gloss would have
 //   BEEN the transliteration, which is the exact defect §9 names.
 //   सिनेमा sinemaa ≠ "a cinema hall". Zero free passes.
+// ─────────────────────────────────────────────────────────────────────────────
+// FREE — what B1 block 2 adds to unit1.js's, unit11.js's and unit31.js's lists.
+// Same test as always: closed-class grammar or a proper name, met in a sentence,
+// never produced alone.
+// ─────────────────────────────────────────────────────────────────────────────
+//   • THE PROXIMATE DEMONSTRATIVE POSSESSIVES — इसका, इसकी, इसके, इसमें. unit1.js
+//     already declares the DISTAL set (उसका, उसकी, उसके, उसमें) and the obliques
+//     इस/इन/उस/उन, and says in so many words that "the possessives built on the
+//     pronouns" belong on this line. The proximate four were simply missed: they
+//     are the same closed class, inflections of यह that no suffix rule generates
+//     and no unit teaches. Measured on this branch: four B1 sentences flagged on
+//     इसका alone while the identical sentence with उसका passed.
+// FREE: इसका | इसकी | इसके | इसमें
 export const HI_UNIT74 = {
   id: "hi-u74",
   lang: "hi",
