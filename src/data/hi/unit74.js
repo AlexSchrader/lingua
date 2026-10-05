@@ -166,6 +166,14 @@
 // Same test as always: closed-class grammar or a proper name, met in a sentence,
 // never produced alone.
 // ─────────────────────────────────────────────────────────────────────────────
+//   • THE INFLECTIONS OF सब — सबका, सबकी, सबके, सबको. Same class and the same
+//     omission: सब is a taught front (u1l4) and `derive()` treats it as a
+//     consonant-final noun, so it generates सबें and सबों and nothing a learner
+//     would ever write. Measured: six B1 sentences flagged on सबका/सबके/सबको
+//     while the identical sentence with उनका passed.
+//   • शर्मा — a surname, free by RUNBOOK §4, exactly like करन (unit1.js) and
+//     मीना (unit11.js). It is what a Hindi sentence calls a man you address as
+//     साहब (u82l2), and the course had no surname at all.
 //   • THE PROXIMATE DEMONSTRATIVE POSSESSIVES — इसका, इसकी, इसके, इसमें. unit1.js
 //     already declares the DISTAL set (उसका, उसकी, उसके, उसमें) and the obliques
 //     इस/इन/उस/उन, and says in so many words that "the possessives built on the
@@ -173,7 +181,8 @@
 //     are the same closed class, inflections of यह that no suffix rule generates
 //     and no unit teaches. Measured on this branch: four B1 sentences flagged on
 //     इसका alone while the identical sentence with उसका passed.
-// FREE: इसका | इसकी | इसके | इसमें
+// FREE: इसका | इसकी | इसके
+// FREE: सबका | सबकी | सबके | सबको | शर्मा
 export const HI_UNIT74 = {
   id: "hi-u74",
   lang: "hi",
@@ -194,7 +203,7 @@ export const HI_UNIT74 = {
         { id: "hi-u74l1-sinemaa", type: "vocab", front: "सिनेमा", reading: "sinemaa", meaning: "a cinema hall", accept: ["a picture house", "the building where films are shown"], example: { jp: "शहर का नया सिनेमा स्टेशन के पास बना है।", en: "The city's new cinema has been built near the station." }, drill: { jp: "यह सिनेमा घर के पास है", en: "This cinema is near the house" }, hint: "SI-NE-MAA, masculine — ⚠️ and like पिता and नेता it does NOT take the -े plural: दो सिनेमा, never दो सिनेमे. The PLACE, not the art form: the film itself is फ़िल्म." },
         { id: "hi-u74l1-dhaaraavaahik", type: "vocab", front: "धारावाहिक", reading: "dhaaraavaahik", meaning: "a television serial", accept: ["a serial drama", "a story told in parts on air"], example: { jp: "माँ हर रात यह धारावाहिक देखती हैं।", en: "Mother watches this serial every night." }, drill: { jp: "माँ यह धारावाहिक रोज़ देखती हैं", en: "Mother watches this serial every day" }, hint: "DHAA-RAA-VAA-HIK, masculine, all DENTAL ध. Literally 'running in a stream', which is what a serial does. Not कार्यक्रम (unit 44), which is any programme on air — a धारावाहिक is the one that continues next week." },
         { id: "hi-u74l1-drishya", type: "vocab", front: "दृश्य", reading: "drishya", meaning: "a scene", accept: ["a shot in a film", "what is in view"], example: { jp: "इस फ़िल्म का पहला दृश्य बहुत अच्छा था।", en: "The first scene of this film was very good." }, drill: { jp: "इस फ़िल्म का पहला दृश्य अच्छा था", en: "The first scene of this film was good" }, hint: "DRISH-YA, masculine. ⚠️ It opens with ृ, the MĀTRĀ of ऋ — the mark unit 1 §7 left uncarded and you have met once, in कृपया. Read it **ri**. The श्य is श and य stacked, as in वाक्य (unit 6)." },
-        { id: "hi-u74l1-sanvaad", type: "vocab", front: "संवाद", reading: "sanvaad", meaning: "a line of dialogue", accept: ["spoken lines in a play", "what the characters say to each other"], example: { jp: "इस नाटक के संवाद बहुत अच्छे हैं।", en: "The dialogue in this play is very good." }, drill: { jp: "इस नाटक के संवाद अच्छे हैं", en: "This play's dialogue is good" }, hint: "SAN-VAAD, masculine, DENTAL द. ⚠️ Its ं sits before व, which is not a stop, so §1's homorganic rule does not fire and the reading is plain **n** — like संसार (unit 5). Not बातचीत (unit 30), which is a real conversation: a संवाद is written for someone to say." },
+        { id: "hi-u74l1-sanvaad", type: "vocab", front: "संवाद", reading: "sanvaad", meaning: "a line of dialogue", accept: ["spoken lines in a play", "what the characters say to each other"], example: { jp: "इस नाटक के संवाद बहुत अच्छे हैं।", en: "The dialogue in this play is very good." }, drill: { jp: "इस नाटक के संवाद अच्छे हैं", en: "This play's dialogue is good" }, hint: "SAN-VAAD, masculine, DENTAL द. ⚠️ Its ं sits before व, which is not a stop, so §1's homorganic rule does not fire and the reading is plain **n** — like संसार (unit 5). Not बात (unit 30), a spoken matter: a संवाद is written in advance for somebody to say. बातचीत is taught NOWHERE in Hindi — checked with `npm run taught -- hi`, not assumed." },
         { id: "hi-u74l1-patkathaa", type: "vocab", front: "पटकथा", reading: "patkathaa", meaning: "a screenplay", accept: ["a film script", "the written plan of a film"], example: { jp: "अच्छी फ़िल्म के लिए अच्छी पटकथा ज़रूरी है।", en: "A good screenplay is essential for a good film." }, drill: { jp: "इस फ़िल्म की पटकथा नई है", en: "This film's screenplay is new" }, hint: "PAT-KA-THAA — ⚠️ FEMININE, so पटकथा अच्छी है. RETROFLEX ट in पट (a screen) plus कथा (a tale): the tale written for the screen. The थ is DENTAL — tongue on the teeth." },
       ],
     },
