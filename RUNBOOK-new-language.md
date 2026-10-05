@@ -37,7 +37,25 @@ The block numbers are a **unit range**, not a sequence:
 | 2 | rest of Strand B (+ interleaved character units, own-script only) |
 | 3 | Strand C (grammar) + Strand D (coverage) |
 
-**How block 3 works without waiting.** Your examples draw on the **frozen base** — every word the language already teaches *before this band* — which is what `npm run taught -- <lang>` and `src/data/<lang>/TAUGHT-WORDS.md` give you on day one. Words that blocks 1–2 are introducing *right now* are not yours to lean on and not yours to teach. If you and another block both land the same word, the merge seat resolves it by lower slot number (§6); a handful of post-merge example revisions is the normal cost of parallel authoring, not a failure and not a reason to serialise.
+**How block 3 works without waiting.** Your examples draw on the **frozen base** — every word the language already teaches *before this band* — which is what `npm run taught -- <lang>` and `src/data/<lang>/TAUGHT-WORDS.md` give you on day one. Words that blocks 1–2 are introducing *right now* are not yours to lean on and not yours to teach.
+
+⚠️ **CORRECTED 2026-10-05, AND THIS IS THE EXPENSIVE ONE.** This paragraph used to end: *"a handful of post-merge example revisions is the normal cost of parallel authoring."* **Measured over the A2 band for three languages, the real cost was 104 re-authored CARDS** — not example revisions:
+
+| band | duplicate fronts at merge | what it took to fix |
+|---|---|---|
+| ru A2 | **34** | two parallel dedupe seats, then a third round for 3 residual collisions |
+| id A2 | **62** | 62 replacement cards, and **two whole units rethemed** |
+| hi A2 | **8** | 5 + 2 replacements, one of them forcing 5 further edits (gender change) |
+
+**id's was structural, not a word clash:** `u36` and `u41` ended up with the **identical title** and **16 shared words**, because both were generic `Vocabulary N` placeholders and two blocks rethemed them into the same territory independently. A whole unit was authored twice.
+
+**So three steps are now mandatory, and none of them is "serialise the crew":**
+
+1. **ALLOCATE THE PLACEHOLDER SLOTS CENTRALLY, BEFORE ANY BLOCK AUTHORS.** Every band template ends in generic `Vocabulary N (<BAND>)` slots — 14 of them at B1, 16 at B2. Those have no theme, so two blocks will invent the same one. Block 1, as crew lead, measures the language's uncovered ground and proposes a theme per generic slot; the merge seat issues that allocation to blocks 2 and 3 **as part of their kickoff**. A theme is justified by a count ("tools were 0 of 14 in the whole language"), never by intuition.
+2. **EXCHANGE FRONT LISTS MID-FLIGHT.** Blocks cannot see each other's branches, but the merge seat can read all of them. Dump each block's authored fronts and hand every block the others' list while they still have units left to write. Measured: Hindi, which got this, came in at **8** collisions; Indonesian, which did not, at **62**.
+3. **A SCREEN NARROWS THE WINDOW; ONLY THE MERGE CLOSES IT.** A mid-flight list shows what a sibling has *already written*, so words it writes afterwards still collide — two Hindi fronts survived the screen for exactly that reason. Run the central cross-block gate at merge **regardless** of how clean the screens were: `node scripts/qa/crossblock.mjs <lang> <from> <to>` plus `npm run validate:content` on the **merged** tree. A clean number measured on a branch without its siblings is worth nothing — Indonesian reported "0 duplicate fronts" while its sibling block was not in the tree.
+
+Lower slot number still resolves a genuine clash (§6), but prefer the resolution that keeps **both** concepts: when Hindi's `जंग` collided as "war" vs "rust", `युद्ध` was free, so both shipped and no card died.
 
 ### Kicking off — copy-paste
 
