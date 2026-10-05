@@ -220,6 +220,26 @@ const PARADIGM = {
   //     день and камень in (e) and (i): stem("огонь") is "огон" and огня/огнем
   //     begin "огн" instead, so every correct oblique use read as a violation.
   "огонь": ["огня", "огню", "огнём", "огнем", "огне", "огни", "огней", "огням", "огнями", "огнях"],
+  // (k) ALSO B1 BLOCK 2, 2026-10-05. NINE VERBS THIS BLOCK CARDS WHOSE PRESENT
+  //     TENSE MUTATES THE STEM OUTRIGHT, so nothing they inflect into begins with
+  //     the stem the stripper reaches: stem("дуть") is "дуть" and дую/дует/дул
+  //     begin "ду"; stem("шептать") is "шепт" and шепчу/шепча begin "шепч".
+  //     u80 TEACHES THE VERBAL ADVERB, which is built off the present tense, so
+  //     these cannot be written around the way A1 wrote around идти/ехать.
+  //     Every form is a GENERATED INFLECTION in the standard paradigm of a front
+  //     carded in u80 — no lexical guesses, no PERFECTIVE forms (the prefixed -в
+  //     verbal adverbs украв/ограбив stay unreachable on purpose, and u80's
+  //     header records that). Baselines unmoved: u1–u30 107 of 1374, u31–u60 0 of
+  //     1440, measured before and after.
+  "шептать": ["шепчу", "шепчешь", "шепчет", "шепчем", "шепчете", "шепчут", "шепча"],
+  "дуть": ["дую", "дуешь", "дует", "дуем", "дуете", "дуют", "дул", "дула", "дуло", "дули", "дуя"],
+  "таять": ["таю", "таешь", "тает", "таем", "таете", "тают"],
+  "сеять": ["сею", "сеешь", "сеет", "сеем", "сеете", "сеют"],
+  "жевать": ["жую", "жуёшь", "жуешь", "жуёт", "жует", "жуём", "жуем", "жуете", "жуют", "жуя"],
+  "прятать": ["прячу", "прячешь", "прячет", "прячем", "прячете", "прячут", "пряча"],
+  "красть": ["краду", "крадёшь", "крадешь", "крадёт", "крадет", "крадём", "крадете", "крадут", "крал", "крала", "крали"],
+  "пахать": ["пашу", "пашешь", "пашет", "пашем", "пашете", "пашут", "пашется", "пашутся"],
+  "пасти": ["пасу", "пасёшь", "пасёт", "пасет", "пасём", "пасете", "пасут", "пасутся", "пасётся"],
 };
 
 // norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own
