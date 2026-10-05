@@ -99,6 +99,15 @@
 //      in Russian (unit1.js §10 — and `lint.js` hard-errors on the stub titles
 //      /^Vocabulary \d+ \(B1\)$/, /^Grammar [6-8] — …$/ and /^Register [12] — …$/,
 //      all five of which are in this block's range).
+// ⚠️ ONE EXPOSURE-ONLY WORD IS DECLARED FOR THIS WHOLE BLOCK, and the FREE line
+// below is the declaration `scripts/scope-ru.mjs` reads (its §"ESCAPE HATCH").
+// `равно` exists in this corpus ONLY inside «всё равно» — "anyway, all the
+// same" — which is unavoidable in natural B1 Russian and which no taught front
+// reaches: `ровно` (u37l4) is a different word meaning "exactly", and `равный`
+// is taught nowhere. Declaring it is a CLAIM, and the claim is the narrow one:
+// a learner MEETS «всё равно» in sentences from u74 on and is never asked to
+// produce it. Nothing else in u74–u86 is declared free.
+// FREE: равно
 // lang/unit/lesson are stamped in src/data/index.js.
 export const RU_UNIT74 = {
   id: "ru-u74",
@@ -138,7 +147,7 @@ export const RU_UNIT74 = {
         { id: "ru-u74l2-akkord", type: "vocab", front: "аккорд", reading: "akkord", meaning: "a chord", accept: ["the chord", "a guitar chord", "a chord of music"], example: { jp: "Первый аккорд всегда самый трудный, но через неделю рука его помнит.", en: "The first chord is always the hardest, but after a week your hand remembers it." }, drill: { jp: "Он знает только один аккорд", en: "He knows only one chord" }, hint: "a-KKORD — stress on the last syllable, and the кк is held a beat. MASCULINE. Three or more notes at once; one note is a нота." },
         { id: "ru-u74l2-kuplet", type: "vocab", front: "куплет", reading: "kuplet", meaning: "a verse of a song", accept: ["a verse", "the verse", "a stanza of a song"], example: { jp: "Первый куплет все поют громко, а второй почти никто не помнит.", en: "Everyone sings the first verse loudly and hardly anyone remembers the second." }, drill: { jp: "Мы поём первый куплет", en: "We are singing the first verse" }, hint: "kup-LET — stress on LET. MASCULINE. ⚠️ `припев` «the chorus» is NOT a card in this course: it is built on петь from unit 27, so a learner who knows петь would guess it — unit1.js §D. Same reason `песня` is not carded and is only ever met in sentences." },
         { id: "ru-u74l2-albom", type: "vocab", front: "альбом", reading: "albom", meaning: "an album of music", accept: ["an album", "the album", "a record"], example: { jp: "Этот альбом мы слушаем вместе каждое воскресенье, хотя он очень старый.", en: "We listen to that album together every Sunday, although it is very old." }, drill: { jp: "Я купил новый альбом", en: "I bought a new album" }, hint: "al-BOM — stress on the last syllable, with the ь keeping the л soft. MASCULINE. The same word covers a photo album, so Russian says «музыкальный альбом» when it matters." },
-        { id: "ru-u74l2-ispolnyat", type: "vocab", front: "исполнять", reading: "ispolnyat", meaning: "to perform a piece", accept: ["to perform", "to play a work", "to carry out"], example: { jp: "Оркестр будет исполнять эту музыку в театре, если зал будет готов.", en: "The orchestra will perform this music in the theatre if the hall is ready." }, drill: { jp: "Он хочет исполнять эту музыку", en: "He wants to perform this music" }, hint: "is-pol-NYAT — stress on the last syllable. Imperfective infinitive; the perfective is исполнить. Of music, of a role, and of an order: исполнять роль, исполнять просьбу. ⚠️ Historically from полный (unit 23), «to make full» — a link no learner would draw, which is why both are carded." },
+        { id: "ru-u74l2-ispolnyat", type: "vocab", front: "исполнять", reading: "ispolnyat", meaning: "to perform a piece", accept: ["to perform", "to play a work", "to carry out an order"], example: { jp: "Оркестр будет исполнять эту музыку в театре, если зал будет готов.", en: "The orchestra will perform this music in the theatre if the hall is ready." }, drill: { jp: "Он хочет исполнять эту музыку", en: "He wants to perform this music" }, hint: "is-pol-NYAT — stress on the last syllable. Imperfective infinitive; the perfective is исполнить. Of music, of a role, and of an order: исполнять роль, исполнять просьбу. ⚠️ Historically from полный (unit 23), «to make full» — a link no learner would draw, which is why both are carded." },
       ],
     },
     {

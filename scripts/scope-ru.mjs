@@ -240,6 +240,14 @@ const PARADIGM = {
   "красть": ["краду", "крадёшь", "крадешь", "крадёт", "крадет", "крадём", "крадете", "крадут", "крал", "крала", "крали"],
   "пахать": ["пашу", "пашешь", "пашет", "пашем", "пашете", "пашут", "пашется", "пашутся"],
   "пасти": ["пасу", "пасёшь", "пасёт", "пасет", "пасём", "пасете", "пасут", "пасутся", "пасётся"],
+  //     AND `никто` (u23l4), which changes root in every oblique case exactly as
+  //     the personal pronouns in (a) do: stem("никто") is "никто" and никого/
+  //     никому/никем begin "нико"/"нике". A negative object is unavoidable in
+  //     any band — «он никому не сказал» — and A1/A2 wrote around it.
+  "никто": ["никого", "никому", "никем", "ником"],
+  //     AND `искать` (u15l4), whose present mutates ск → щ: stem("искать") is
+  //     "иска" and ищу/ищет/ищут begin "ищ". Same class as казаться in (b).
+  "искать": ["ищу", "ищешь", "ищет", "ищем", "ищете", "ищут", "искал", "искала", "искали"],
 };
 
 // norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own
