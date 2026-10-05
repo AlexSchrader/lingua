@@ -255,6 +255,13 @@ const PARADIGM = {
   //     `оба` (u37) has a feminine stem обе-, which the stripper cannot reach
   //     from "оба" — the same shape as `два` above.
   оба: ["обе", "обоих", "обеих", "обоим", "обеим", "обоими", "обеими"],
+  //     `свой` (u65l4) IS EXACTLY CASE (a) ABOVE — a short adjective in -ой. TAIL
+  //     strips "ой" and that leaves "св", under three characters, so the loop
+  //     breaks and the stem stays "свой", which NONE of своя/своё/свои/своим
+  //     starts with. Measured: before this entry every B1 sentence using the
+  //     reflexive possessive read as a scope violation, and the possessive is
+  //     COMPULSORY in Russian, not optional — see unit65.js.
+  "свой": ["своя", "своё", "свое", "свои", "своего", "своему", "своём", "своем", "своим", "своей", "свою", "своих", "своими"],
   //     And one form missing from (e)-class `ребёнок`, which already has an entry
   //     above: the PREPOSITIONAL singular. Added for completeness, not for a flag.
 };
