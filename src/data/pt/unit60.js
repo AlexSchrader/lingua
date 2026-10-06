@@ -35,7 +35,7 @@ export const PT_UNIT60 = {
       title: "A dificuldade",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Name a problem precisely — an obstacle, a challenge, a fault or a mistake — instead of calling everything um problema.",
+      canDo: "Name o problema, then name it precisely — an obstacle, a challenge, a fault or a mistake — instead of calling everything um problema.",
       items: [
         {
           id: "pt-u60l1-adificuldade",
@@ -45,7 +45,7 @@ export const PT_UNIT60 = {
           meaning: "difficulty",
           example: { jp: "A dificuldade do processo é o prazo, mas a chefia ainda não quis adiar a entrega do relatório.", en: "The process's difficulty is the deadline, but management has still not been willing to postpone the report's delivery." },
           drill: { jp: "A dificuldade do processo é o prazo", en: "The process's difficulty is the deadline" },
-          accept: ["the difficulty", "trouble", "hardship", "problem"],
+          accept: ["the difficulty", "trouble", "hardship"],
           hint: "The noun of difícil (u10). Ter dificuldade EM fazer alguma coisa is 'to have trouble doing it', and passar dificuldades means to go through hard times.",
         },
         {
@@ -102,6 +102,17 @@ export const PT_UNIT60 = {
           drill: { jp: "O caso é urgente para os vizinhos", en: "The case is urgent for the neighbours" },
           accept: ["urgent", "pressing", "immediate"],
           hint: "One form for both genders. You already know as urgências (u25) — the hospital's emergency department takes its name from this word.",
+        },
+        {
+          id: "pt-u60l1-oproblema",
+          type: "vocab",
+          front: "o problema",
+          reading: "oproblema",
+          meaning: "problem",
+          example: { jp: "O problema da equipa é o prazo, mas ninguém na empresa pode adiar a entrega.", en: "The team's problem is the deadline, but nobody at the company can postpone the delivery." },
+          drill: { jp: "O problema da equipa é o prazo", en: "The team's problem is the deadline" },
+          accept: ["the problem", "problems"],
+          hint: "⚠ MASCULINE, despite the -a: o problema, os problemas. Every Greek-derived noun in -ema goes this way — o sistema, o tema, o cinema. This is the plain word the other five cards in this lesson sharpen.",
         },
       ],
     },
