@@ -32,24 +32,38 @@
 //   • TAKEN outright: तापमान (u45l?), ईंधन (u43), धुआँ (u54), कचरा (u15),
 //     भूकंप/बाढ़/झील/नहर/घाटी (u54), तूफ़ान (u21), मैदान (u14), बीज (u21),
 //     लहर (u33), घटना (u44). **Thirteen of the obvious environment fronts.**
-//   • NAMED FOR A LATER BLOCK, free and unspent: क्षेत्र, सीमा, बाँध, सिंचाई,
-//     चौड़ाई, दलदल's neighbours (कीचड़), and ज्वालामुखी's (भूस्खलन).
+//   • NAMED FOR A LATER BLOCK, free and unspent: क्षेत्र, सीमा, and दलदल's
+//     neighbour कीचड़.
+//     ⚠️ THIS LINE USED TO NAME बाँध, सिंचाई, चौड़ाई AND भूस्खलन TOO, and three of
+//     the four claims were wrong or have stopped being true. **बाँध IS REFUSED** —
+//     बाँधना is carded at u26, so the bare बाँध is its stem AND its imperative, the
+//     कड़ी/लड़ी/मानो trap of unit61.js §B1's homograph note; `front-taken.mjs`
+//     passes it because the strings differ. **चौड़ाई was taken by u95** आकार और बनावट
+//     after this header was written. **सिंचाई and भूस्खलन are now carded HERE**,
+//     in l2, by the B1 cross-block dedupe (2026-10-06).
 //
 // THREE GLOSSES ARE DELIBERATELY LONGER THAN THEY NEED TO BE, because the short
 // version collides through `normalizeMeaning` (unit1.js §9). Do not "tidy" them:
 //   जलवायु  "the long-run climate of a place"  — मौसम (u16) ACCEPTS "a climate".
-//   ऊर्जा   "energy as a resource"             — ताकत (u20) ACCEPTS "energy".
 //   तट      "the coast"                        — किनारा (u54) IS "a shore".
 //   चट्टान   "a cliff face"                      — पत्थर (u21) ACCEPTS "a rock".
 //
+// ⚠️ THREE CARDS LEFT THIS UNIT IN THE B1 CROSS-BLOCK DEDUPE (2026-10-06), because
+// block 1 and block 3 had carded the same fronts and own the earlier/allocated slot:
+//   आपदा → kept at u70 दिक्कत और हल (block 1, earlier slot). Still usable in this
+//          unit's sentences, and l2's विनाश and प्राकृतिक cards still lean on it.
+//   ऊर्जा → kept at u87 विज्ञान और शोध (block 3, centrally allocated theme).
+//   जीव   → kept at u87 विज्ञान और शोध. **BOTH are now taught AFTER this unit, so
+//          neither may appear in a u75 sentence again.** सिंचाई and अंकुर replaced them.
+//
 // GENDER TRAPS THIS UNIT ADDS (§4), each named in its own hint:
-//   ⚠️ FEMININE: जलवायु, आपदा, ऊर्जा, हरियाली, चट्टान, वनस्पति, प्रजाति.
+//   ⚠️ FEMININE: जलवायु, सिंचाई, हरियाली, चट्टान, वनस्पति, प्रजाति.
 //   **जलवायु is FEMININE despite the -ु** (the साधु class of §4 in reverse) and
 //   **चट्टान is CONSONANT-FINAL** — चट्टान ऊँची है, not ऊँचा. Those two are the
 //   ones in the unit a learner cannot predict.
-//   MASCULINE: पर्यावरण, प्रदूषण, संरक्षण, विनाश, रेगिस्तान, तट, ज्वालामुखी, दर्रा,
-//   दलदल, जीव, घोंसला. **तट, दलदल and जीव are consonant-final masculine and
-//   their plural is the bare form** — दो तट, तीन जीव.
+//   MASCULINE: पर्यावरण, प्रदूषण, संरक्षण, विनाश, भूस्खलन, रेगिस्तान, तट,
+//   ज्वालामुखी, दर्रा, दलदल, अंकुर, घोंसला. **तट, दलदल, भूस्खलन and अंकुर are
+//   consonant-final masculine and their plural is the bare form** — दो तट, तीन अंकुर.
 //   ADJECTIVES: **नष्ट, प्राकृतिक, उपजाऊ and बंजर are INVARIANT** (unit53's rule);
 //   **ज़हरीला AGREES**, because it ends in -आ: ज़हरीला धुआँ, ज़हरीली हवा.
 //   फैलना is a VERB, headworded -ना per §5, and it is INTRANSITIVE — प्रदूषण फैलता
@@ -95,12 +109,12 @@ export const HI_UNIT75 = {
       title: "Saving it, and losing it",
       cefr: "B1",
       dominantMode: "produce",
-      canDo: "Talk about conservation and destruction, name a natural disaster, say that something is natural, and talk about energy and greenery.",
+      canDo: "Talk about conservation and destruction, name a landslide, say that something is natural, and talk about irrigation and greenery.",
       items: [
-        { id: "hi-u75l2-sanrakshan", type: "vocab", front: "संरक्षण", reading: "sanrakshan", meaning: "conservation", accept: ["protecting something for the future", "keeping a thing safe from harm"], example: { jp: "जंगल के संरक्षण के लिए नया नियम बना है।", en: "A new rule has been made for the conservation of the forest." }, drill: { jp: "जंगल के संरक्षण के लिए नियम बना है", en: "A rule has been made for the forest's conservation" }, hint: "SAN-RAK-SHAN, masculine. The क्ष conjunct is one of unit 6's three, said ksh in one breath. Its ं comes before र, not a stop, so plain n (§1). Not बचाव, a defence (unit 81) — संरक्षण is what a government does about a forest." },
+        { id: "hi-u75l2-sanrakshan", type: "vocab", front: "संरक्षण", reading: "sanrakshan", meaning: "conservation", accept: ["protecting something for the future", "keeping a thing safe from harm"], example: { jp: "जंगल के संरक्षण के लिए नया नियम बना है।", en: "A new rule has been made for the conservation of the forest." }, drill: { jp: "जंगल के संरक्षण के लिए नियम बना है", en: "A rule has been made for the forest's conservation" }, hint: "SAN-RAK-SHAN, masculine. The क्ष conjunct is one of unit 6's three, said ksh in one breath. Its ं comes before र, not a stop, so plain n (§1). Not बचाव, a defence (unit 89) — संरक्षण is what a government does about a forest." },
         { id: "hi-u75l2-vinaash", type: "vocab", front: "विनाश", reading: "vinaash", meaning: "destruction", accept: ["the wiping out of something", "ruin on a large scale"], example: { jp: "एक आपदा पूरे गाँव का विनाश कर सकती है।", en: "One disaster can bring about the destruction of a whole village." }, drill: { jp: "आपदा पूरे गाँव का विनाश करती है", en: "A disaster destroys a whole village" }, hint: "VI-NAASH, masculine. ⚠️ The noun beside नष्ट (l1), which is the adjective — same root, two words, and this is the pair that teaches the shape. Heavier than नुकसान, a loss (unit 37): a नुकसान can be repaid, a विनाश cannot." },
-        { id: "hi-u75l2-aapdaa", type: "vocab", front: "आपदा", reading: "aapdaa", meaning: "a natural disaster", accept: ["a calamity", "a catastrophe that hits a place"], example: { jp: "बाढ़ और भूकंप दोनों आपदा हैं।", en: "A flood and an earthquake are both disasters." }, drill: { jp: "बाढ़ और भूकंप दोनों आपदा हैं", en: "A flood and an earthquake are both disasters" }, hint: "AAP-DAA — ⚠️ FEMININE despite looking like a -ा masculine, and the medial inherent a is not said (§1): aapdaa, not aapadaa. DENTAL द. Bigger than मुश्किल, a difficulty (unit 6): an आपदा happens TO a whole place at once." },
-        { id: "hi-u75l2-uurjaa", type: "vocab", front: "ऊर्जा", reading: "uurjaa", meaning: "energy as a resource", accept: ["usable power", "what fuel and sunlight give"], example: { jp: "धूप से भी ऊर्जा मिल सकती है।", en: "Energy can be got from sunshine too." }, drill: { jp: "धूप से भी ऊर्जा मिल सकती है", en: "Energy can be got from sunshine too" }, hint: "UUR-JAA — ⚠️ FEMININE, long uu opening with the INDEPENDENT letter ऊ. ⚠️ Its gloss is long on purpose: ताकत (unit 20) ACCEPTS 'energy', so this card had to say which energy — the kind a country produces, not the kind a person has." },
+        { id: "hi-u75l2-bhuuskhalan", type: "vocab", front: "भूस्खलन", reading: "bhuuskhalan", meaning: "a landslide", accept: ["a hillside giving way", "earth sliding down a slope"], example: { jp: "भारी बारिश के बाद पहाड़ पर भूस्खलन हुआ और रास्ता बंद हो गया।", en: "After the heavy rain there was a landslide on the mountain and the road closed." }, drill: { jp: "भारी बारिश के बाद भूस्खलन हुआ", en: "There was a landslide after the heavy rain" }, hint: "BHUUS-KHA-LAN, masculine, consonant-final, so the plural is the bare form: दो भूस्खलन. भू (the earth) plus स्खलन (a slipping) — the स्ख is स and ख stacked, said in one breath. ⚠️ Narrower than आपदा, a natural disaster (unit 70): an आपदा is the whole calamity, a भूस्खलन is the one hillside that came down." },
+        { id: "hi-u75l2-sinchaaii", type: "vocab", front: "सिंचाई", reading: "sinchaaii", meaning: "irrigation", accept: ["the watering of fields", "bringing water to a crop"], example: { jp: "नहर के पानी से खेतों की सिंचाई होती है।", en: "The fields are irrigated with the canal's water." }, drill: { jp: "नहर के पानी से सिंचाई होती है", en: "Irrigation is done with the canal's water" }, hint: "SIN-CHAA-II — ⚠️ FEMININE, like every -आई noun. Its ं comes before च, a stop, so §1's homorganic rule applies and it is still written n. Built on सींचना, to water a field, which this course does not card — the noun carries the idea on its own." },
         { id: "hi-u75l2-praakritik", type: "vocab", front: "प्राकृतिक", reading: "praakritik", meaning: "natural", accept: ["belonging to nature", "not made by people"], example: { jp: "दर्रा एक प्राकृतिक जगह है और कोई उसे नहीं बनाता।", en: "A mountain pass is a natural place and nobody builds it." }, drill: { jp: "दर्रा एक प्राकृतिक जगह है", en: "A mountain pass is a natural place" }, hint: "PRAA-KRI-TIK — ⚠️ INVARIANT: प्राकृतिक आपदा, प्राकृतिक जंगल. ⚠️ It carries ृ, ऋ's MĀTRĀ, read **ri** — your third sighting after कृपया (unit 7) and दृश्य (unit 74). The noun is प्रकृति, which this course does not card: कुदरत (unit 54) holds that slot." },
         { id: "hi-u75l2-hariyaalii", type: "vocab", front: "हरियाली", reading: "hariyaalii", meaning: "greenery", accept: ["green growing cover", "how green a place is"], example: { jp: "बारिश के बाद पहाड़ों पर हरियाली आ जाती है।", en: "After the rain greenery comes to the mountains." }, drill: { jp: "बारिश के बाद पहाड़ों पर हरियाली आती है", en: "Greenery comes to the mountains after the rain" }, hint: "HA-RI-YAA-LII — ⚠️ FEMININE. Built on हरा, green (unit 16), with the -आली suffix. `scope-hi.mjs` generates no such suffix, so it needed its own card. Of a whole landscape, never of one leaf." },
       ],
@@ -129,11 +143,11 @@ export const HI_UNIT75 = {
       title: "What lives and what grows",
       cefr: "B1",
       dominantMode: "produce",
-      canDo: "Talk about plant life, a species, a living creature and a nest — and say whether land is fertile or barren.",
+      canDo: "Talk about plant life, a species, a sprout and a nest — and say whether land is fertile or barren.",
       items: [
         { id: "hi-u75l4-vanaspati", type: "vocab", front: "वनस्पति", reading: "vanaspati", meaning: "plant life", accept: ["the plants of a place", "growing things taken together"], example: { jp: "रेगिस्तान की वनस्पति बहुत कम होती है।", en: "A desert's plant life is very scanty." }, drill: { jp: "रेगिस्तान की वनस्पति बहुत कम होती है", en: "A desert's plant life is very scanty" }, hint: "VA-NAS-PA-TI — ⚠️ FEMININE. वन (a wood) plus पति (a lord) — the word is old and literary, and it is the only word Hindi has for plants as a class. Not पेड़ (unit 14) or फूल (unit 21), which are one tree and one flower." },
         { id: "hi-u75l4-prajaati", type: "vocab", front: "प्रजाति", reading: "prajaati", meaning: "a species", accept: ["one kind of living thing", "a biological kind"], example: { jp: "इस जंगल में पेड़ों की बीस प्रजाति हैं।", en: "There are twenty species of trees in this forest." }, drill: { jp: "इस जंगल में पेड़ों की बीस प्रजाति हैं", en: "There are twenty species of trees in this forest" }, hint: "PRA-JAA-TI — ⚠️ FEMININE. ⚠️ Read it against जाति, a caste, which unit 78 cards: प्रजाति is जाति with the प्र- prefix and it means a kind of ANIMAL or PLANT, never a kind of person. The two are kept in different units for exactly that reason." },
-        { id: "hi-u75l4-jiiv", type: "vocab", front: "जीव", reading: "jiiv", meaning: "a living creature", accept: ["a living being", "anything that is alive"], example: { jp: "पानी के अंदर भी हज़ारों जीव रहते हैं।", en: "Thousands of living creatures live inside the water too." }, drill: { jp: "पानी के अंदर भी बहुत जीव रहते हैं", en: "Many living creatures live inside the water too" }, hint: "JIIV, masculine, consonant-final: दो जीव. Long ii. ⚠️ Wider than जानवर (unit 55), which ACCEPTS 'a beast': a जीव is anything alive at all, including an insect or a person." },
+        { id: "hi-u75l4-ankur", type: "vocab", front: "अंकुर", reading: "ankur", meaning: "a sprout", accept: ["a shoot just come up", "the first green shoot of a seed"], example: { jp: "बीज से छोटा अंकुर निकलता है और बाद में पेड़ बनता है।", en: "A small sprout comes out of the seed and later becomes a tree." }, drill: { jp: "बीज से छोटा अंकुर निकलता है", en: "A small sprout comes out of the seed" }, hint: "AN-KUR, masculine, consonant-final: दो अंकुर. Its ं comes before क, a stop, so §1's homorganic rule applies and it is still written n. Of a seed or a plant only — the first green thing that pushes up out of a बीज (unit 21)." },
         { id: "hi-u75l4-ghonslaa", type: "vocab", front: "घोंसला", reading: "ghonslaa", meaning: "a nest", accept: ["a bird's home", "where a bird lays its eggs"], example: { jp: "चिड़िया ने पेड़ पर घोंसला बनाया।", en: "The bird built a nest in the tree." }, drill: { jp: "चिड़िया ने पेड़ पर घोंसला बनाया", en: "The bird built a nest in the tree" }, hint: "GHONS-LAA, masculine, regular -ा. The ं is word-medial before स, which is not a stop, so it is written n (§1). घ is gh with a puff of air. The medial inherent a is not said: ghonslaa, not ghonsalaa." },
         { id: "hi-u75l4-upjaauu", type: "vocab", front: "उपजाऊ", reading: "upjaauu", meaning: "fertile", accept: ["that grows a good crop", "rich enough to grow things"], example: { jp: "नदी के पास की ज़मीन सबसे उपजाऊ होती है।", en: "The land near the river is the most fertile." }, drill: { jp: "नदी के पास की ज़मीन उपजाऊ होती है", en: "The land near the river is fertile" }, hint: "UP-JAA-UU — ⚠️ INVARIANT even though it ends in a vowel: उपजाऊ ज़मीन, उपजाऊ खेत. The final ऊ is the INDEPENDENT letter, because a mātrā cannot follow a mātrā (§1) — the same shape as उबाऊ (unit 74)." },
         { id: "hi-u75l4-banjar", type: "vocab", front: "बंजर", reading: "banjar", meaning: "barren", accept: ["that grows nothing", "dead as farmland"], example: { jp: "बिना पानी के उपजाऊ खेत भी बंजर हो जाता है।", en: "Without water even a fertile field becomes barren." }, drill: { jp: "बिना पानी के खेत बंजर हो जाता है", en: "Without water a field becomes barren" }, hint: "BAN-JAR — ⚠️ INVARIANT: बंजर ज़मीन, बंजर पहाड़. Its ं comes before ज, a stop, so §1's homorganic rule applies and it is still written n. The exact opposite of उपजाऊ, and the two are taught side by side on purpose." },
