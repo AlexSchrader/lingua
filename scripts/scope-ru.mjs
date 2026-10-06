@@ -128,7 +128,7 @@ const PARADIGM = {
   //     the е/о of the last syllable, so the front's stem ("ден", "цветок") is not
   //     a prefix of the inflected form. Both are A1 fronts (u3l3, u26l2) used
   //     constantly from here on.
-  день: ["дня", "дню", "днём", "днем", "дни", "дней", "дням", "днями", "днях"],
+  день: ["дня", "дню", "дне", "днём", "днем", "дни", "дней", "дням", "днями", "днях"],
   цветок: ["цветка", "цветку", "цветком", "цветы", "цветов", "цветам", "цветами"],
   // (f) THE SHORT-FORM ADJECTIVE CLASS. A1 carded these in the MASCULINE (u7l3,
   //     u24l2), and a short form has no stem the stripper can cut back to: TAIL
@@ -234,6 +234,15 @@ const PARADIGM = {
   //     `никто` (u23l4) declines like кто and its stem loses the т: stem("никто")
   //     is "никт" and никого/никому/никем all run "нико" + a consonant.
   никто: ["никого", "никому", "никем", "ником"],
+  //     and `кто` (u2l2) itself, which declines the same way and whose oblique
+  //     forms are unavoidable in any B1 relative clause («те, кого…»).
+  кто: ["кого", "кому", "кем", "ком"],
+  //     FOUR MORE (e)-class nouns whose last-syllable о drops — all four are
+  //     block 1's own B1 fronts and all four inflect constantly.
+  предок: ["предка", "предку", "предком", "предке", "предки", "предков", "предкам", "предками"],
+  потомок: ["потомка", "потомку", "потомком", "потомке", "потомки", "потомков", "потомкам"],
+  новичок: ["новичка", "новичку", "новичком", "новичке", "новички", "новичков", "новичкам"],
+  отпечаток: ["отпечатка", "отпечатку", "отпечатком", "отпечатке", "отпечатки", "отпечатков"],
   //     `понять` (u31l1) and `помочь` (u31l3) both mutate in the future/present:
   //     stem("понять") is "пон" and пойму/поймёт run "пойм"; stem("помочь") is
   //     "помоч" and поможет/помогут run "помож"/"помог". Both are perfectives a

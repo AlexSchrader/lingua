@@ -226,6 +226,40 @@
 //     is mechanical, so follow it mechanically: ONE sense per accept entry, no
 //     commas, no "or".
 //
+// §7d. ⚠️ RUN `node scripts/qa/accept-collisions.mjs ru` — IT FINDS A DEFECT NO
+//     OTHER TOOL DOES, AND IT FOUND 31 IN THIS BLOCK. `lint.js`'s
+//     glossCollisionWarnings compares PRIMARY GLOSS against PRIMARY GLOSS only.
+//     It is blind to the worse case: YOUR PRIMARY GLOSS IS AN EARLIER CARD'S
+//     accept ENTRY. The produce card prompts with your gloss and accepts only
+//     your front, so a learner who answers with the word THE COURSE ITSELF
+//     taught earlier is marked wrong. Measured on this block's first draft:
+//         `сокращение` "a reduction" was already `скидка`'s accept (u12)
+//         `предел` "a limit" was already `граница`'s (u30)
+//         `исход` "the outcome" was already `результат`'s (u30)
+//         `ответственность` "responsibility" was already `обязанность`'s (u42)
+//         `свой` "one's own" was already `родной`'s (u8)
+//     …and twenty-six more. All 31 were reglossed — the block's primary glosses
+//     are now clean against the whole ru corpus's accept lists.
+//     ⚠️ TWENTY-NINE accept-vs-accept overlaps REMAIN in u61–u73 and are
+//     deliberately left: in every one the colliding entry is an A1/A2 accept, the
+//     produce card never prompts with an accept, and the typed-meaning grader is
+//     lenient by design. ZERO of the 29 have both sides inside this block.
+//     The corpus-wide ru figure went 392 → 355.
+//
+// §7c. ⚠️ TWO STEMMER BLIND SPOTS IN `scope-ru.mjs` THAT FLAG CORRECT RUSSIAN,
+//     so you recognise them instead of rewriting a good sentence. TAIL's
+//     alternation is tried LEFT TO RIGHT and `ого` comes early, so:
+//       `много` loses "ого" → "мн", which is under three characters, the loop
+//            breaks and the stem stays "много" — which многих/многим/многие do
+//            not start with. Block 1 wrote around it rather than add a PARADIGM
+//            entry, because `многие` is arguably a second lexeme and the table
+//            must never quietly put an untaught word in scope.
+//       `свой` loses "ой" → "св", same shape, same result. THAT one block 1 DID
+//            add to PARADIGM, because the reflexive possessive is compulsory in
+//            Russian and cannot be written around — see the (m) entry.
+//     The general rule: a 3–4 letter front ending in -ой or -ого is a candidate
+//     for this, and the documented case (a) `злой` is the same bug.
+//
 // §7a. TWO WORDS THIS BAND CANNOT AVOID AND A1/A2 NEVER TAUGHT.
 //     `свой` — the reflexive possessive. A1 carded мой · твой · наш · ваш · их
 //     and nothing covers «на своём месте». It is NOT declared FREE: block 1
@@ -277,7 +311,7 @@ export const RU_UNIT61 = {
       canDo: "Push back on a claim — deny it, contest it, refute it outright, be outraged by it, make a reproach, and accuse someone.",
       items: [
         { id: "ru-u61l2-otritsat", type: "vocab", front: "отрицать", reading: "otritsat", meaning: "to deny", accept: ["to say it is not so", "to reject a claim", "to refuse to admit"], example: { jp: "Он продолжает отрицать эту ошибку, хотя все документы говорят об обратном.", en: "He goes on denying his mistake, although all the documents say the opposite." }, drill: { jp: "Нельзя отрицать такой факт", en: "You cannot deny such a fact" }, hint: "at-ri-TSAT — stress on the last syllable, and the ц is said ts. IMPERFECTIVE, and it has no everyday perfective. ⚠️ It is stronger than не соглашаться: you deny that the thing happened at all." },
-        { id: "ru-u61l2-osparivat", type: "vocab", front: "оспаривать", reading: "osparivat", meaning: "to contest", accept: ["to challenge a claim", "to dispute", "to argue against"], example: { jp: "Никто не стал оспаривать его вывод, потому что доказательство было слишком ясным.", en: "Nobody contested his conclusion, because the proof was too clear." }, drill: { jp: "Он будет оспаривать это решение", en: "He will contest this decision" }, hint: "as-PA-ri-vat — stress on PA. IMPERFECTIVE; the perfective is оспорить. It sits on спор «an argument» with the о- prefix, and ⚠️ its bare sibling спорить was REFUSED on the derivation test — see this unit's header §6." },
+        { id: "ru-u61l2-osparivat", type: "vocab", front: "оспаривать", reading: "osparivat", meaning: "to challenge a claim", accept: ["to dispute a point", "to argue against", "to take issue with"], example: { jp: "Никто не стал оспаривать его вывод, потому что доказательство было слишком ясным.", en: "Nobody contested his conclusion, because the proof was too clear." }, drill: { jp: "Он будет оспаривать это решение", en: "He will contest this decision" }, hint: "as-PA-ri-vat — stress on PA. IMPERFECTIVE; the perfective is оспорить. It sits on спор «an argument» with the о- prefix, and ⚠️ its bare sibling спорить was REFUSED on the derivation test — see this unit's header §6." },
         { id: "ru-u61l2-oprovergat", type: "vocab", front: "опровергать", reading: "oprovergat", meaning: "to refute", accept: ["to disprove", "to show something is false", "to knock down an argument"], example: { jp: "Специалист приводит новые факты, чтобы опровергать старую теорию, которую все считали правильной.", en: "The specialist brings new facts in order to refute the old theory, which everyone considered correct." }, drill: { jp: "Трудно опровергать такое доказательство", en: "It is hard to refute such proof" }, hint: "a-pra-vir-GAT — stress on the last syllable, and every unstressed vowel reduces. IMPERFECTIVE; the perfective is опровергнуть. Stronger than оспаривать: you contest a claim, you refute it with evidence." },
         { id: "ru-u61l2-vozmushchatsya", type: "vocab", front: "возмущаться", reading: "vozmushchatsya", meaning: "to be outraged", accept: ["to be indignant", "to protest angrily", "to be appalled"], example: { jp: "Соседи стали возмущаться шумом, потому что ремонт продолжался уже третий месяц.", en: "The neighbours began to be outraged by the noise, because the repairs had already been going on for a third month." }, drill: { jp: "Люди начинают возмущаться этим решением", en: "People are starting to be outraged by this decision" }, hint: "vaz-mu-SHCHAT-sya — stress on SHCHAT, with the long щ from unit 3. IMPERFECTIVE and REFLEXIVE; the perfective is возмутиться. It takes the INSTRUMENTAL: возмущаться шумом." },
         { id: "ru-u61l2-upryok", type: "vocab", front: "упрёк", reading: "upryok", meaning: "a reproach", accept: ["a rebuke", "a word of blame", "a criticism of someone"], example: { jp: "В её голосе был упрёк, хотя она ничего прямо не сказала.", en: "There was a reproach in her voice, although she said nothing directly." }, drill: { jp: "Это был тихий упрёк", en: "That was a quiet reproach" }, hint: "up-RYOK — stress on the last syllable, and the ё is always written, as unit 1 §7 requires. MASCULINE. Softer than an accusation: a reproach is personal and often unspoken." },
