@@ -1,0 +1,60 @@
+collisions: 40 fronts, 41 cards to replace
+
+replacements by block: {"2":31,"3":10} 
+
+u75 (block 2) — 3 to replace
+    आपदा             hi-u75l2-aapdaa            -> keeps at u70 "दिक्कत और हल"
+    ऊर्जा            hi-u75l2-uurjaa            -> keeps at u87 "विज्ञान और शोध"
+    जीव              hi-u75l4-jiiv              -> keeps at u87 "विज्ञान और शोध"
+u76 (block 2) — 3 to replace
+    उत्पादन          hi-u76l1-utpaadan          -> keeps at u66 "काम का तरीका"
+    मंदी             hi-u76l4-mandii            -> keeps at u69 "समय के साथ बदलाव"
+    मुद्रा           hi-u76l2-mudraa            -> keeps at u92 "विदेश और प्रवास"
+u77 (block 2) — 1 to replace
+    संतुलन           hi-u77l3-santulan          -> keeps at u63 "तुलना और मात्रा"
+u79 (block 2) — 4 to replace
+    नतीजतन           hi-u79l4-natiijatan        -> keeps at u62 "कारण और नतीजा"
+    गोया             hi-u79l3-goyaa             -> keeps at u64 "हो सकता है"
+    मुताबिक          hi-u79l1-mutaabik          -> keeps at u65 "खबर कहाँ से आई"
+    फ़िलहाल          hi-u79l4-filhaal           -> keeps at u72 "योजना और इरादा"
+u81 (block 2) — 5 to replace
+    रुकावट           hi-u81l1-rukaavat          -> keeps at u70 "दिक्कत और हल"
+    बनावट            hi-u81l1-banaavat          -> keeps at u95 "आकार और बनावट"
+    बचाव             hi-u81l2-bachaav           -> keeps at u89 "युद्ध और शांति"
+    चुनाव            hi-u81l2-chunaav           -> keeps at u88 "चुनाव और दल"
+    गहराई            hi-u81l3-gahraaii          -> keeps at u95 "आकार और बनावट"
+u82 (block 2) — 2 to replace
+    संकोच            hi-u82l3-sankoch           -> keeps at u67 "मन के बारीक रंग"
+    विदाई            hi-u82l2-vidaaii           -> keeps at u92 "विदेश और प्रवास"
+u83 (block 2) — 8 to replace
+    फलस्वरूप         hi-u83l2-phalsvaruup       -> keeps at u62 "कारण और नतीजा"
+    आदेश             hi-u83l4-aadesh            -> keeps at u71 "नियम और पाबंदी"
+    आवेदन            hi-u83l3-aavedan           -> keeps at u92 "विदेश और प्रवास"
+    शपथ              hi-u83l3-shapath           -> keeps at u93 "दस्तावेज़ और रिकॉर्ड"
+    दस्तावेज़        hi-u83l3-dastaavez         -> keeps at u93 "दस्तावेज़ और रिकॉर्ड"
+    हस्ताक्षर        hi-u83l3-hastaakshar       -> keeps at u93 "दस्तावेज़ और रिकॉर्ड"
+    प्रमाणपत्र       hi-u83l3-pramaanpatra      -> keeps at u93 "दस्तावेज़ और रिकॉर्ड"
+    पंजीकरण          hi-u83l3-panjiikaran       -> keeps at u93 "दस्तावेज़ और रिकॉर्ड"
+u85 (block 2) — 3 to replace
+    जुर्माना         hi-u85l3-jurmaanaa         -> keeps at u71 "नियम और पाबंदी"
+    अनुबंध           hi-u85l1-anubandh          -> keeps at u93 "दस्तावेज़ और रिकॉर्ड"
+    समझौता           hi-u85l1-samjhautaa        -> keeps at u89 "युद्ध और शांति"
+u86 (block 2) — 2 to replace
+    खंभा             hi-u86l2-khambhaa          -> keeps at u94 "इमारत और सामग्री"
+    गोदाम            hi-u86l4-godaam            -> keeps at u94 "इमारत और सामग्री"
+u87 (block 3) — 1 to replace
+    निष्कर्ष         hi-u87l3-nishkarsh         -> keeps at u61 "राय और सहमति"
+u90 (block 3) — 1 to replace
+    विवेक            hi-u90l3-vivek             -> keeps at u68 "अमूर्त विचार"
+u91 (block 3) — 2 to replace
+    शीर्षक           hi-u91l1-shiirshak         -> keeps at u65 "खबर कहाँ से आई"
+    प्रतीक           hi-u91l2-pratiik           -> keeps at u68 "अमूर्त विचार"
+u93 (block 3) — 4 to replace
+    टिप्पणी          hi-u93l4-tippanii          -> keeps at u61 "राय और सहमति"
+    मूल              hi-u93l1-muul              -> keeps at u62 "कारण और नतीजा"
+    गोपनीय           hi-u93l4-gopaniiya         -> keeps at u65 "खबर कहाँ से आई"
+    आदेश             hi-u93l4-aadesh            -> keeps at u71 "नियम और पाबंदी"
+u96 (block 3) — 1 to replace
+    प्रमुख           hi-u96l1-pramukh           -> keeps at u62 "कारण और नतीजा"
+u97 (block 3) — 1 to replace
+    संदर्भ           hi-u97l4-sandarbh          -> keeps at u68 "अमूर्त विचार"
