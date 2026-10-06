@@ -1,4 +1,4 @@
-// RU Unit 74 — Музыка и кино ("Music and cinema") — B1
+// RU Unit 74 — Кино и сцена ("Cinema and the stage") — B1
 // ─────────────────────────────────────────────────────────────────────────────
 // FIRST UNIT OF BLOCK 2 (u74–u86) IN THE B1 BAND. Everything in ru/unit1.js
 // §1–§10 and §A–§D binds, and so does ru/unit31.js §1–§7 and ru/unit51.js §1–§5.
@@ -22,16 +22,29 @@
 //                          скульптура · поэт · актёр · художник · герой ·
 //                          критик · стих · сцена · спектакль · роль · хор ·
 //                          оркестр · балет · традиция · мода · стиль
-// So the slot has no theme left — but it has ONE measured hole, and it is big:
-// **THERE IS NOT A SINGLE MUSICAL INSTRUMENT IN THE 1,440-WORD CORPUS.** A
-// learner has музыка (u8), концерт (u27), петь (u27), хор and оркестр (u55),
-// and cannot name a guitar, a note, a tune or a chord. The same is true of
-// cinema-GOING: театр · кино · билет · сюжет · съёмка are taught and афиша ·
-// сеанс · премьера · режиссёр · кадр · жанр are not.
-// Those two holes are this unit's 24. The reserve list offered `Ресторан и
-// застолье` and `Жильё и переезд`; block 2 took NEITHER, because both are
-// concrete-noun A1/A2 ground (блин · пирог · подъезд · кирпич) and this is B1.
-// Nothing was taken off the reserve list by u74.
+// So the slot has no theme left — but it had TWO measured holes, and block 2
+// took both: musical instruments (the 1,440-word corpus had none at all) and
+// cinema-GOING (театр · кино · билет · сюжет · съёмка taught; афиша · сеанс ·
+// премьера · режиссёр · кадр · жанр not).
+// The reserve list offered `Ресторан и застолье` and `Жильё и переезд`; block 2
+// took NEITHER, because both are concrete-noun A1/A2 ground (блин · пирог ·
+// подъезд · кирпич) and this is B1. Nothing was taken off the reserve list.
+// ⚠️ THE MUSIC HALF IS GONE, AND THAT IS WHY THIS UNIT IS CALLED «Кино и сцена».
+// Block 3's u96 «Музыка и звучание» was allocated the music theme CENTRALLY
+// before either block authored, and both blocks then measured the same real hole
+// independently — a briefing gap, not either seat's mistake. The cross-block
+// dedupe (2026-10-06) resolved it in u96's favour, per the allocation policy:
+// block 3's eleven themes are binding and block 2 yields inside them.
+//     TO u96l1/l2: гитара · скрипка · барабан · струна · мелодия · ритм · нота ·
+//         аккорд. u96 also cards рояль · флейта · гамма · такт · песня.
+//     KEPT HERE: `пианино` (the hall fixture, l1 — u96 cards рояль, the concert
+//         grand, so the two pianos are split by instrument and by unit),
+//         `куплет` · `альбом` · `исполнять` (the WORK that gets performed, l2).
+//     NEW HERE, 11 cards: занавес · кулисы · фойе · гардероб · антракт (l1, the
+//         theatre hall) · репетиция · декорация · гастроли (l2, putting the work
+//         on) · шедевр · рецензия · аншлаг (l4, how it was received).
+// The unit is now cinema-going and the stage end to end. It does NOT drift back
+// into press (u45) or art (u55), which were already measured as spent above.
 //
 // ═════════════════════════════════════════════════════════════════════════════
 // §2 — WHAT BLOCK 2 REFUSED AT B1, AND THE ONE RULE THAT DECIDED MOST OF IT.
@@ -40,7 +53,7 @@
 // already know this one?") decides nearly every B1 candidate, because by u74
 // almost every useful root is spent. Read ONE-DIRECTIONAL, as unit51.js §3 set
 // it. Refused across u74–u86, with the taught word that gives it away:
-//   песня (петь u27) · припев (петь u27) · игрок (играть u27) · тренировка
+//   припев (петь u27) · игрок (играть u27) · тренировка
 //   (тренер, carded u84) · судья (суд u51) · надежда (надеяться u28) · терпеть
 //   (терпение u56) · влюбиться (любить u4) · загрязнение (грязный u29) ·
 //   конкуренция (конкурс u42) · вклад (класть u15) · долг (должен u24) ·
@@ -52,6 +65,9 @@
 //   (ясный u40) · подруга (друг u6) · приятель (приятный u40) ·
 //   болельщик (болеть u20) · зрелище (зритель u45) · свидетель (видеть u4) ·
 //   шёпот (шептать, carded u80) · звон (звучать u48) · кусать (кусок u37).
+// ⚠️ ONE REVERSAL TO RECORD: `песня` was on that refused list until the
+// cross-block dedupe. Block 3 carded it at u96l4, so it IS taught, and the list
+// above no longer claims otherwise.
 // ⚠️ AND FOUR READING / FORM COLLISIONS, each found by transliterating the
 // candidate before carding it — unit51.js §2(a)'s rule, and it earned its keep:
 //   `смог` "smog" IS ALSO мочь's past (смог = he managed). BARRED.
@@ -103,7 +119,7 @@
 export const RU_UNIT74 = {
   id: "ru-u74",
   lang: "ru",
-  title: "Музыка и кино",
+  title: "Кино и сцена",
   order: 74,
   stage: "b1",
   lessons: [
@@ -111,32 +127,32 @@ export const RU_UNIT74 = {
       id: "ru-u74l1",
       unit: 74,
       lesson: 1,
-      title: "Instruments nobody had named",
+      title: "Inside the hall",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Name the instrument someone plays, say that you play ON it rather than play it, and talk about a tune and a string.",
+      canDo: "Find your way round a theatre: hand your coat in, wait in the foyer, say when the curtain goes up and how long the interval is.",
       items: [
-        { id: "ru-u74l1-gitara", type: "vocab", front: "гитара", reading: "gitara", meaning: "a guitar", accept: ["the guitar", "an acoustic guitar", "a six-string guitar"], example: { jp: "Он играет на гитаре каждый вечер, хотя музыке никогда не учился.", en: "He plays the guitar every evening, although he never studied music." }, drill: { jp: "Это очень старая гитара", en: "That is a very old guitar" }, hint: "gi-TA-ra — stress on TA. FEMININE (-а). ⚠️ Russian plays an instrument with на + the PREPOSITIONAL case from unit 23: играть на гитарЕ. «играть гитару» is wrong, and the mistake survives for years." },
-        { id: "ru-u74l1-skripka", type: "vocab", front: "скрипка", reading: "skripka", meaning: "a violin", accept: ["the violin", "a fiddle", "the fiddle"], example: { jp: "Говорят, что скрипка самый трудный инструмент, но моя сестра с ней справляется.", en: "They say the violin is the hardest instrument, but my sister manages it." }, drill: { jp: "Эта скрипка очень дорогая", en: "That violin is very expensive" }, hint: "SKRIP-ka — stress on the first syllable. FEMININE (-а). From скрип, a creak — which is what a beginner gets out of it. инструмент from unit 32 is the general word for any instrument or tool." },
-        { id: "ru-u74l1-pianino", type: "vocab", front: "пианино", reading: "pianino", meaning: "an upright piano", accept: ["a piano", "the piano", "a household piano"], example: { jp: "Пианино стоит в зале, и его никто не трогает уже много лет.", en: "The piano stands in the hall and nobody has touched it for years." }, drill: { jp: "Здесь стоит старое пианино", en: "An old piano stands here" }, hint: "pi-a-NI-no — stress on NI. NEUTER, and ⚠️ INDECLINABLE: на пианино, о пианино, без пианино — the word never changes its ending, which is rare in Russian. The concert grand is a рояль and is not taught here." },
-        { id: "ru-u74l1-baraban", type: "vocab", front: "барабан", reading: "baraban", meaning: "a drum", accept: ["the drum", "a side drum", "drums"], example: { jp: "Сосед играет на барабане, поэтому вечером у нас в квартире очень громко.", en: "The neighbour plays the drum, so it is very loud in our flat in the evening." }, drill: { jp: "Он купил новый барабан", en: "He bought a new drum" }, hint: "ba-ra-BAN — stress on the last syllable, and both unstressed а stay а. MASCULINE. «Бить в барабан» is to beat a drum, and it also means to make a fuss about something." },
-        { id: "ru-u74l1-struna", type: "vocab", front: "струна", reading: "struna", meaning: "a string on an instrument", accept: ["a string", "the string", "an instrument string"], example: { jp: "Если струна старая, играть становится труднее, а звучит она хуже.", en: "If a string is old, playing gets harder and it sounds worse." }, drill: { jp: "Эта струна уже старая", en: "That string is old already" }, hint: "stru-NA — stress on the last syllable. FEMININE (-а), and ⚠️ the stress MOVES in the plural: стрУны. Only of an instrument; a piece of string you tie things with is верёвка, which is not taught." },
-        { id: "ru-u74l1-melodiya", type: "vocab", front: "мелодия", reading: "melodiya", meaning: "a tune", accept: ["a melody", "the tune", "the melody"], example: { jp: "Мелодия простая, но её помнят все, кто слышал этот фильм.", en: "The tune is simple, but everyone who heard that film remembers it." }, drill: { jp: "Это очень простая мелодия", en: "That is a very simple tune" }, hint: "me-LO-di-ya — stress on LO. FEMININE (-я). музыка from unit 8 is music as a whole; a мелодия is one line of it you can hum." },
+        { id: "ru-u74l1-zanaves", type: "vocab", front: "занавес", reading: "zanaves", meaning: "a stage curtain", accept: ["the curtain", "a theatre curtain", "the stage curtain"], example: { jp: "Занавес поднялся, и в зале стало тихо.", en: "The curtain went up and the hall fell silent." }, drill: { jp: "Занавес уже поднялся", en: "The curtain has already gone up" }, hint: "ZA-na-ves — stress on the first syllable, and neither а reduces far because the first one is stressed. MASCULINE. The curtain of a stage; the curtain at a window is a different word, занавеска." },
+        { id: "ru-u74l1-kulisy", type: "vocab", front: "кулисы", reading: "kulisy", meaning: "the wings of a stage", accept: ["the wings", "backstage", "the side screens of a stage"], example: { jp: "Актёры стоят за кулисами и ждут своей сцены.", en: "The actors stand in the wings and wait for their scene." }, drill: { jp: "Кулисы закрыты для зрителей", en: "The wings are closed to the audience" }, hint: "ku-LI-sy — stress on LI. ⚠️ PLURAL ONLY in this sense. «За кулисами» is the fixed phrase for backstage, and it is also said of anything settled out of sight." },
+        { id: "ru-u74l1-pianino", type: "vocab", front: "пианино", reading: "pianino", meaning: "an upright piano", accept: ["a piano", "the piano", "a household piano"], example: { jp: "Пианино стоит в зале, и его никто не трогает уже много лет.", en: "The piano stands in the hall and nobody has touched it for years." }, drill: { jp: "Здесь стоит старое пианино", en: "An old piano stands here" }, hint: "pi-a-NI-no — stress on NI. NEUTER, and ⚠️ INDECLINABLE: на пианино, о пианино, без пианино — the word never changes its ending, which is rare in Russian. The concert grand is a рояль, which unit 96 teaches." },
+        { id: "ru-u74l1-foye", type: "vocab", front: "фойе", reading: "foye", meaning: "a foyer", accept: ["the foyer", "a lobby", "the lobby"], example: { jp: "В антракте все выходят в фойе, потому что в зале жарко.", en: "In the interval everyone goes out into the foyer, because it is hot in the hall." }, drill: { jp: "В фойе было очень тихо", en: "It was very quiet in the foyer" }, hint: "fo-YE — stress on the last syllable. NEUTER, and ⚠️ INDECLINABLE like пианино: в фойе, из фойе, о фойе. A French loanword, which is why the ending never changes." },
+        { id: "ru-u74l1-garderob", type: "vocab", front: "гардероб", reading: "garderob", meaning: "a cloakroom", accept: ["the cloakroom", "a coat check", "the coat check"], example: { jp: "Зимой пальто оставляют в гардеробе, потому что в зале будет жарко.", en: "In winter you leave your coat in the cloakroom, because it will be hot in the hall." }, drill: { jp: "Пальто уже в гардеробе", en: "The coat is already in the cloakroom" }, hint: "gar-de-ROB — stress on the last syllable, and both unstressed о reduce to a. MASCULINE. In a theatre or a museum it is the cloakroom you hand your coat in at; at home the same word is the wardrobe." },
+        { id: "ru-u74l1-antrakt", type: "vocab", front: "антракт", reading: "antrakt", meaning: "an interval between acts", accept: ["an intermission", "a break between acts", "the interval between acts"], example: { jp: "Антракт был очень короткий, и мы остались в зале.", en: "The interval was very short and we stayed in the hall." }, drill: { jp: "Антракт будет через час", en: "The interval will be in an hour" }, hint: "an-TRAKT — stress on the last syllable, and the нтр is one cluster. MASCULINE. The break between the acts of a play or a concert; пауза from unit 66 is any gap at all." },
       ],
     },
     {
       id: "ru-u74l2",
       unit: 74,
       lesson: 2,
-      title: "How the music is put together",
+      title: "Putting the work on",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Talk about the rhythm, the notes and the chords of a piece, name a verse and an album, and say that someone performs a work.",
+      canDo: "Talk about a rehearsal, the set and a touring run, name a verse of a song and an album, and say that someone performs a work.",
       items: [
-        { id: "ru-u74l2-ritm", type: "vocab", front: "ритм", reading: "ritm", meaning: "a rhythm", accept: ["the rhythm", "a beat", "the beat"], example: { jp: "Танцевать легко, если ритм простой, и очень трудно, если он быстрый.", en: "Dancing is easy if the rhythm is simple and very hard if it is fast." }, drill: { jp: "Здесь очень быстрый ритм", en: "The rhythm here is very fast" }, hint: "RITM — one syllable, and the тм at the end is said without a vowel between them. MASCULINE. Also used of a life or a city: «ритм большого города»." },
-        { id: "ru-u74l2-nota", type: "vocab", front: "нота", reading: "nota", meaning: "a musical note", accept: ["a note", "the note", "a written note of music"], example: { jp: "Он играет по нотам, хотя его брат играет без них и помнит всё.", en: "He plays from the notes, although his brother plays without them and remembers everything." }, drill: { jp: "Это очень высокая нота", en: "That is a very high note" }, hint: "NO-ta — stress on the first syllable. FEMININE (-а). ⚠️ The sheet music is the PLURAL, ноты, and «играть по нотам» is the fixed phrase for reading music." },
-        { id: "ru-u74l2-akkord", type: "vocab", front: "аккорд", reading: "akkord", meaning: "a chord", accept: ["the chord", "a guitar chord", "a chord of music"], example: { jp: "Первый аккорд всегда самый трудный, но через неделю рука его помнит.", en: "The first chord is always the hardest, but after a week your hand remembers it." }, drill: { jp: "Он знает только один аккорд", en: "He knows only one chord" }, hint: "a-KKORD — stress on the last syllable, and the кк is held a beat. MASCULINE. Three or more notes at once; one note is a нота." },
-        { id: "ru-u74l2-kuplet", type: "vocab", front: "куплет", reading: "kuplet", meaning: "a verse of a song", accept: ["a verse", "the verse", "a stanza of a song"], example: { jp: "Первый куплет все поют громко, а второй почти никто не помнит.", en: "Everyone sings the first verse loudly and hardly anyone remembers the second." }, drill: { jp: "Мы поём первый куплет", en: "We are singing the first verse" }, hint: "kup-LET — stress on LET. MASCULINE. ⚠️ `припев` «the chorus» is NOT a card in this course: it is built on петь from unit 27, so a learner who knows петь would guess it — unit1.js §D. Same reason `песня` is not carded and is only ever met in sentences." },
+        { id: "ru-u74l2-repetitsiya", type: "vocab", front: "репетиция", reading: "repetitsiya", meaning: "a rehearsal", accept: ["the rehearsal", "a practice run", "a run-through"], example: { jp: "Репетиция началась поздно, потому что режиссёр был занят.", en: "The rehearsal started late, because the director was busy." }, drill: { jp: "Репетиция начинается в семь", en: "The rehearsal starts at seven" }, hint: "re-pe-TI-tsi-ya — stress on TI. FEMININE (-я). Always of a work to be performed. «Генеральная репетиция» is the dress rehearsal, the last one before the премьера." },
+        { id: "ru-u74l2-dekoratsiya", type: "vocab", front: "декорация", reading: "dekoratsiya", meaning: "a piece of stage scenery", accept: ["scenery", "a stage set", "the set"], example: { jp: "Декорация была простая: стол, два стула и окно, которого нет.", en: "The set was simple: a table, two chairs and a window that is not there." }, drill: { jp: "Декорация здесь очень простая", en: "The scenery here is very simple" }, hint: "de-ko-RA-tsi-ya — stress on RA. FEMININE (-я). ⚠️ Usually met in the PLURAL, декорации, because a set is many pieces; the singular names one of them." },
+        { id: "ru-u74l2-gastroli", type: "vocab", front: "гастроли", reading: "gastroli", meaning: "a touring run", accept: ["a tour", "the tour", "a touring season"], example: { jp: "Театр уезжает на гастроли, поэтому спектакля в этом месяце не будет.", en: "The theatre is going on tour, so there will be no play this month." }, drill: { jp: "Гастроли начнутся в сентябре", en: "The tour will start in September" }, hint: "gas-TRO-li — stress on TRO. ⚠️ PLURAL ONLY: nobody uses a singular гастроль. «Ехать на гастроли» is how a company goes on tour and «быть на гастролях» is being on one." },
+        { id: "ru-u74l2-kuplet", type: "vocab", front: "куплет", reading: "kuplet", meaning: "a verse of a song", accept: ["a verse", "the verse", "a stanza of a song"], example: { jp: "Первый куплет все поют громко, а второй почти никто не помнит.", en: "Everyone sings the first verse loudly and hardly anyone remembers the second." }, drill: { jp: "Мы поём первый куплет", en: "We are singing the first verse" }, hint: "kup-LET — stress on LET. MASCULINE. ⚠️ `припев` «the chorus» is NOT a card in this course: it is built on петь from unit 27, so a learner who knows петь would guess it — unit1.js §D. ⚠️ `песня` «a song» IS carded, at u96l4 by block 3 — this hint said the opposite until the cross-block dedupe." },
         { id: "ru-u74l2-albom", type: "vocab", front: "альбом", reading: "albom", meaning: "an album of music", accept: ["an album", "the album", "a record"], example: { jp: "Этот альбом мы слушаем вместе каждое воскресенье, хотя он очень старый.", en: "We listen to that album together every Sunday, although it is very old." }, drill: { jp: "Я купил новый альбом", en: "I bought a new album" }, hint: "al-BOM — stress on the last syllable, with the ь keeping the л soft. MASCULINE. The same word covers a photo album, so Russian says «музыкальный альбом» when it matters." },
         { id: "ru-u74l2-ispolnyat", type: "vocab", front: "исполнять", reading: "ispolnyat", meaning: "to perform a piece", accept: ["to perform", "to play a work", "to carry out an order"], example: { jp: "Оркестр будет исполнять эту музыку в театре, если зал будет готов.", en: "The orchestra will perform this music in the theatre if the hall is ready." }, drill: { jp: "Он хочет исполнять эту музыку", en: "He wants to perform this music" }, hint: "is-pol-NYAT — stress on the last syllable. Imperfective infinitive; the perfective is исполнить. Of music, of a role, and of an order: исполнять роль, исполнять просьбу. ⚠️ Historically from полный (unit 23), «to make full» — a link no learner would draw, which is why both are carded." },
       ],
@@ -165,12 +181,12 @@ export const RU_UNIT74 = {
       title: "How it was received",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Say what impression a work left, that the audience was delighted or that it was a flop, and name a fan and the applause.",
+      canDo: "Say that a work was a masterpiece or a sell-out, quote a written review, name a fan and the applause, and talk about fame.",
       items: [
         { id: "ru-u74l4-slava", type: "vocab", front: "слава", reading: "slava", meaning: "fame", accept: ["glory", "renown", "being famous"], example: { jp: "Слава у него есть, но денег она ему так и не дала.", en: "He has the fame, but it never gave him any money." }, drill: { jp: "Ему нужна только слава", en: "He only wants fame" }, hint: "SLA-va — stress on the first syllable. FEMININE (-а). Two senses Russian keeps in one word: fame, and glory in the heavy sense («слава армии»). известный from unit 40 is the adjective a learner already has." },
-        { id: "ru-u74l4-vpechatlenie", type: "vocab", front: "впечатление", reading: "vpechatlenie", meaning: "an impression", accept: ["the impression", "an effect on someone", "how it struck you"], example: { jp: "Фильм оставил сильное впечатление, хотя сюжет был очень простой.", en: "The film left a strong impression, although the plot was very simple." }, drill: { jp: "Это очень сильное впечатление", en: "That is a very strong impression" }, hint: "fpe-chat-LE-ni-ye — stress on LE, and the в before п is said f. NEUTER (-ие). ⚠️ Built on печать, a stamp — the same root as печатать from unit 49 — so an впечатление is literally what got stamped on you. The senses no longer meet, which is why both are carded." },
-        { id: "ru-u74l4-vostorg", type: "vocab", front: "восторг", reading: "vostorg", meaning: "delight", accept: ["rapture", "being thrilled", "enthusiasm"], example: { jp: "Публика была в восторге, и аплодисменты продолжались очень долго.", en: "The audience was delighted and the applause went on for a very long time." }, drill: { jp: "Это был настоящий восторг", en: "That was real delight" }, hint: "va-STORG — stress on STORG, and the о before it reduces to a. MASCULINE. ⚠️ Almost always met in the fixed frame «быть в востОрге» — to be thrilled. Stronger than довольный from unit 28, which is merely pleased." },
-        { id: "ru-u74l4-proval", type: "vocab", front: "провал", reading: "proval", meaning: "a flop", accept: ["a failure", "the flop", "a disaster of a show"], example: { jp: "Для режиссёра это был провал, хотя публика фильм хвалила.", en: "For the director it was a flop, although the audience praised the film." }, drill: { jp: "Это был полный провал", en: "That was a total flop" }, hint: "pra-VAL — stress on the last syllable, and the о reduces to a. MASCULINE. Literally a hole in the ground that something fell through. The opposite is успех from unit 25." },
+        { id: "ru-u74l4-shedevr", type: "vocab", front: "шедевр", reading: "shedevr", meaning: "a masterpiece", accept: ["a masterwork", "the masterpiece", "a work of genius"], example: { jp: "Критики считают этот фильм шедевром, хотя публика его почти не знает.", en: "The critics consider that film a masterpiece, although the public hardly knows it." }, drill: { jp: "Этот фильм настоящий шедевр", en: "That film is a real masterpiece" }, hint: "she-DEVR — stress on the last syllable, and the двр at the end is one cluster. MASCULINE. From the French chef-d'œuvre, so the е after ш is said e and never ye." },
+        { id: "ru-u74l4-retsenziya", type: "vocab", front: "рецензия", reading: "retsenziya", meaning: "a written review", accept: ["the written review", "a critic's written review", "a written notice of a work"], example: { jp: "Рецензия была в субботу, и в ней не было ничего доброго.", en: "The review was on Saturday, and there was nothing kind in it." }, drill: { jp: "Рецензия была очень короткая", en: "The review was very short" }, hint: "re-TSEN-zi-ya — stress on TSEN. FEMININE (-я). A written, argued review of ONE work. обзор from unit 45 surveys several things at once, and the критик from unit 55 is the person who writes it." },
+        { id: "ru-u74l4-anshlag", type: "vocab", front: "аншлаг", reading: "anshlag", meaning: "a full house", accept: ["a sell-out", "a packed house", "a house-full sign"], example: { jp: "На премьере был аншлаг, и даже в фойе стояли люди.", en: "There was a full house at the first night, and people were even standing in the foyer." }, drill: { jp: "На концерте был полный аншлаг", en: "There was a complete sell-out at the concert" }, hint: "an-SHLAG — stress on the last syllable. MASCULINE. From the German Anschlag, a notice posted up — originally the sign saying the house was full. «Идти с аншлагом» is said of a show that sells out every night." },
         { id: "ru-u74l4-poklonnik", type: "vocab", front: "поклонник", reading: "poklonnik", meaning: "a fan", accept: ["an admirer", "the fan", "a devotee"], example: { jp: "Один поклонник ждал её у театра четыре часа, хотя было очень холодно.", en: "One fan waited for her outside the theatre for four hours, although it was very cold." }, drill: { jp: "Он её старый поклонник", en: "He is an old fan of hers" }, hint: "pa-KLON-nik — stress on KLON, the о before it reduces to a, and the нн is held. MASCULINE; the feminine is поклонница. From кланяться, to bow — a поклонник is someone who bows to what you make." },
         { id: "ru-u74l4-aplodismenty", type: "vocab", front: "аплодисменты", reading: "aplodismenty", meaning: "applause", accept: ["clapping", "the applause", "a round of applause"], example: { jp: "Аплодисменты были такими громкими, что оркестр начал играть снова.", en: "The applause was so loud that the orchestra began to play again." }, drill: { jp: "Аплодисменты были очень громкими", en: "The applause was very loud" }, hint: "a-plo-dis-MEN-ty — stress on MEN, and the о reduces to a. MASCULINE, and ⚠️ PLURAL ONLY: there is no singular аплодисмент. Russian has no shorter everyday word for it." },
       ],
