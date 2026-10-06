@@ -47,14 +47,25 @@
 // gloss on it anyway.
 //
 // GENDER TRAPS THIS UNIT ADDS (§4), each named in its own hint:
-//   ⚠️ FEMININE: पाइपलाइन, टंकी, नाली, जलापूर्ति, कटौती, लिफ़्ट, कॉलोनी, झुग्गी,
-//   नगरपालिका. **पाइपलाइन and लिफ़्ट are CONSONANT-FINAL LOANWORDS and feminine**,
-//   which nothing predicts — लिफ़्ट बंद है, not बंद हुआ — and they are the two in
-//   the unit a learner will get wrong.
-//   MASCULINE: हैंडपंप, गटर, बिजलीघर, कनेक्शन, जनरेटर, खंभा, मकान, फ़्लैट,
-//   किराएदार, कूड़ाघर, शौचालय, ठेला, गोदाम, फाटक. **गटर, कनेक्शन, जनरेटर, फ़्लैट,
-//   किराएदार, गोदाम and फाटक are consonant-final masculine and their plural is the
-//   bare form** — दो गटर, तीन गोदाम.
+//   ⚠️ FEMININE: पाइपलाइन, टंकी, नाली, जलापूर्ति, कटौती, मोमबत्ती, लिफ़्ट, कॉलोनी,
+//   झुग्गी, नगरपालिका. **पाइपलाइन and लिफ़्ट are CONSONANT-FINAL LOANWORDS and
+//   feminine**, which nothing predicts — लिफ़्ट बंद है, not बंद हुआ — and they are
+//   the two in the unit a learner will get wrong.
+//   MASCULINE: हैंडपंप, गटर, बिजलीघर, कनेक्शन, जनरेटर, मकान, फ़्लैट,
+//   किराएदार, कूड़ाघर, शौचालय, ठेला, थाना, फाटक. **गटर, कनेक्शन, जनरेटर, फ़्लैट,
+//   किराएदार and फाटक are consonant-final masculine and their plural is the
+//   bare form** — दो गटर, तीन फाटक. **थाना is a regular -ा masculine** and its
+//   oblique is थाने.
+//
+// ⚠️ TWO CARDS LEFT THIS UNIT IN THE B1 CROSS-BLOCK DEDUPE (2026-10-06), both to
+// u94 इमारत और सामग्री, which unit61.js §B9 allocated THE BUILDING PROCESS and
+// which names खंभा in that allocation by hand:
+//   खंभा (l2) → u94   ·   गोदाम (l4) → u94
+// Both are now taught AFTER u86, so neither may appear in a u86 sentence again.
+// मोमबत्ती and थाना replaced them, and **neither is a loanword**, so the
+// loanword-free-pass count below is unchanged at seven and zero. फ़्यूज़ was the
+// obvious l2 replacement and was passed over for exactly that reason: its gloss
+// would have had to dodge its own reading, the way लिफ़्ट's and फ़्लैट's do.
 //   ADJECTIVE: **बहुमंज़िला AGREES**, because it ends in -आ: बहुमंज़िला मकान,
 //   बहुमंज़िली इमारत.
 //
@@ -66,9 +77,12 @@
 //     Glossed apart on purpose.
 // RETROFLEX/DENTAL (§1b): no new collision. टंकी tankii, गटर gatar, कटौती katautii,
 // ठेला thelaa and फाटक phaatak carry RETROFLEX ट/ठ with no dental टंकी-with-त,
-// गतर, कतौती, थेला or फातक anywhere in the corpus; गोदाम godaam and शौचालय
-// shauchaalay are DENTAL with no retroflex twin. The doubling hatch — which DID
-// fire in u85 for पट्टा — fires nowhere here. GEMINATION: झुग्गी jhuggii doubles, as the spelling requires. ड़ READS r (§1c): कूड़ाघर
+// गतर, कतौती, थेला or फातक anywhere in the corpus; शौचालय
+// shauchaalay is DENTAL with no retroflex twin. ⚠️ **थाना thaanaa is DENTAL थ and
+// its near-twin is ठेका thekaa (u85), which is RETROFLEX ठ** — §1(b) merges both
+// to th and the rest of the string keeps them apart; no ठाना and no थेका exist in
+// the corpus, checked. The doubling hatch — which DID
+// fire in u85 for पट्टा — fires nowhere here. GEMINATION: झुग्गी jhuggii and मोमबत्ती mombattii double, as the spelling requires. ड़ READS r (§1c): कूड़ाघर
 // kuuraaghar. ॉ READS o (§A4): कॉलोनी kolonii — the third front in the language to
 // carry the candra-o, after डॉक्टर (u35) and ऑपरेशन (u77, this block).
 // LOANWORD FREE-PASS CHECK (§9), measured with the real `checkProduce`. **This is
@@ -113,13 +127,13 @@ export const HI_UNIT86 = {
       title: "Power, and the cut",
       cefr: "B1",
       dominantMode: "produce",
-      canDo: "Talk about a power station, a connection, a scheduled cut, a generator, a pole and a lift.",
+      canDo: "Talk about a power station, a connection, a scheduled cut, a generator, a candle and a lift.",
       items: [
         { id: "hi-u86l2-bijliighar", type: "vocab", front: "बिजलीघर", reading: "bijliighar", meaning: "a power station", accept: ["the plant that generates electricity", "where a town's power is made"], example: { jp: "नया बिजलीघर कोयले से चलता है।", en: "The new power station runs on coal." }, drill: { jp: "नया बिजलीघर कोयले से चलता है", en: "The new power station runs on coal" }, hint: "BIJ-LII-GHAR, masculine, consonant-final. बिजली, electricity (unit 15), plus घर, a house (unit 2) — Hindi builds the word out of two you have. घ is gh with a puff of air. Not कारखाना (unit 60), a factory: a बिजलीघर makes only power." },
         { id: "hi-u86l2-kanekshan", type: "vocab", front: "कनेक्शन", reading: "kanekshan", meaning: "a line brought into a house", accept: ["the supply hooked up to a building", "a service connection"], example: { jp: "नए फ़्लैट में बिजली का कनेक्शन अभी नहीं आया।", en: "The electricity connection has not yet come to the new flat." }, drill: { jp: "नए घर में बिजली का कनेक्शन नहीं है", en: "The new house has no electricity connection" }, hint: "KA-NEK-SHAN, masculine, consonant-final. The क्श is क and श stacked. ⚠️ Glossed 'a line brought into a house' because §9 forbids a loanword glossing to its own reading. In India you apply for a कनेक्शन for power, water, gas and the telephone alike." },
         { id: "hi-u86l2-katautii", type: "vocab", front: "कटौती", reading: "katautii", meaning: "a cut in the power supply", accept: ["a scheduled shutting-off of supply", "load shedding"], example: { jp: "गरमी में हर शाम बिजली की कटौती होती है।", en: "In the heat there is a power cut every evening." }, drill: { jp: "गरमी में बिजली की कटौती रोज़ होती है", en: "In the heat there is a power cut daily" }, hint: "KA-TAU-TII — ⚠️ FEMININE. RETROFLEX ट and औ's open vowel (unit 2). Built off काटना, to cut (unit 26). ⚠️ Its other sense is a DEDUCTION from a payment, which is how it turns up on a wage slip — the gloss names the power sense because that is the one you hear daily." },
         { id: "hi-u86l2-janaretar", type: "vocab", front: "जनरेटर", reading: "janaretar", meaning: "a machine that makes power when the mains fail", accept: ["a standby engine for electricity", "what a shop runs during a cut"], example: { jp: "कटौती के समय दुकानें जनरेटर चलाती हैं।", en: "During a cut the shops run a generator." }, drill: { jp: "कटौती के समय दुकानें जनरेटर चलाती हैं", en: "During a cut the shops run a generator" }, hint: "JA-NA-RE-TAR, masculine, consonant-final, RETROFLEX ट: दो जनरेटर. ⚠️ Glossed the long way per §9. It is the sound of an Indian market street in summer, and the word a learner will hear before he sees the machine." },
-        { id: "hi-u86l2-khambhaa", type: "vocab", front: "खंभा", reading: "khambhaa", meaning: "a post set in the ground", accept: ["a pillar or pole", "what wires are strung from"], example: { jp: "तेज़ हवा से बिजली का खंभा गिर गया।", en: "The electricity pole fell in the strong wind." }, drill: { jp: "तेज़ हवा से बिजली का खंभा गिर गया", en: "The electricity pole fell in the strong wind" }, hint: "KHAM-BHAA, masculine, regular -ा. ⚠️ Its ं sits before भ, so §1's homorganic rule makes it **m**, not n — khambhaa. Plain ख; भ is bh with a puff of air. Of a power pole and of a stone pillar in a temple both." },
+        { id: "hi-u86l2-mombattii", type: "vocab", front: "मोमबत्ती", reading: "mombattii", meaning: "a candle", accept: ["a wax light you burn when the power goes", "a taper"], example: { jp: "कटौती के समय घर में मोमबत्ती जलानी पड़ती है।", en: "During a cut a candle has to be lit in the house." }, drill: { jp: "कटौती के समय घर में मोमबत्ती जलती है", en: "During a cut a candle burns in the house" }, hint: "MOM-BAT-TII — ⚠️ FEMININE, with the त doubled as the spelling requires: mombattii. ⚠️ Its ं sits before ब, so §1's homorganic rule makes it **m** and not n, the same rule as कंप्यूटर kampyuutar (unit 9). मोम (wax) plus बत्ती (a wick), and this course cards neither on its own, so the compound needed its own card. ⚠️ It is in the POWER lesson rather than a lighting one on purpose: in India a मोमबत्ती is what a कटौती means." },
         { id: "hi-u86l2-lift", type: "vocab", front: "लिफ़्ट", reading: "lift", meaning: "the car that carries people up a tall building", accept: ["an elevator", "the thing you ride instead of the stairs"], example: { jp: "कटौती में लिफ़्ट बंद हो जाती है।", en: "During a cut the lift stops working." }, drill: { jp: "कटौती में लिफ़्ट बंद हो जाती है", en: "During a cut the lift stops working" }, hint: "LIFT — ⚠️ FEMININE and CONSONANT-FINAL: लिफ़्ट बंद हो जाती है, not हो जाता है. With फ़ — an f (unit 4). ⚠️ Glossed the long way because 'a lift' IS the reading, which §9 forbids — the gloss would have been answerable straight off the prompt." },
       ],
     },
@@ -147,13 +161,13 @@ export const HI_UNIT86 = {
       title: "What the council runs",
       cefr: "B1",
       dominantMode: "produce",
-      canDo: "Name the municipal council, the rubbish dump, a public lavatory, a handcart, a warehouse and a large gate.",
+      canDo: "Name the municipal council, the rubbish dump, a public lavatory, a handcart, the police station and a large gate.",
       items: [
         { id: "hi-u86l4-nagarpaalikaa", type: "vocab", front: "नगरपालिका", reading: "nagarpaalikaa", meaning: "the municipal council", accept: ["the body that runs a town", "the local authority"], example: { jp: "सड़क और नाली का काम नगरपालिका का है।", en: "The road and the drains are the council's job." }, drill: { jp: "सड़क और नाली का काम नगरपालिका का है", en: "The roads and drains are the council's job" }, hint: "NA-GAR-PAA-LI-KAA — ⚠️ FEMININE. नगर (a town) plus पालिका, from पालना, to raise or keep (unit 59) — 'she who keeps the town'. ⚠️ Not सरकार (unit 42), which accepts 'the state authorities': a नगरपालिका is the LOCAL one, and it is who you complain to." },
         { id: "hi-u86l4-kuuraaghar", type: "vocab", front: "कूड़ाघर", reading: "kuuraaghar", meaning: "a rubbish dump", accept: ["the place a town's waste is tipped", "a refuse yard"], example: { jp: "मुहल्ले का कूड़ाघर अब बहुत दूर है।", en: "The quarter's rubbish dump is now a long way off." }, drill: { jp: "मुहल्ले का कूड़ाघर अब बहुत दूर है", en: "The quarter's rubbish dump is now far away" }, hint: "KUU-RAA-GHAR, masculine, consonant-final. ड़ reads **r** (§1c), so kuuraaghar. कूड़ा (rubbish) plus घर — and कूड़ा itself is NOT carded: कचरा (unit 15) holds that gloss, so the compound carries the word. घ is gh with a puff of air." },
         { id: "hi-u86l4-shauchaalay", type: "vocab", front: "शौचालय", reading: "shauchaalay", meaning: "a public lavatory", accept: ["a toilet block", "the official word for a toilet"], example: { jp: "स्टेशन के सामने नया शौचालय बना है।", en: "A new public lavatory has been built opposite the station." }, drill: { jp: "स्टेशन के सामने नया शौचालय बना है", en: "A new public lavatory has been built opposite the station" }, hint: "SHAU-CHAA-LAY, masculine, consonant-final, with औ's open vowel (unit 2). शौच (relieving oneself) plus आलय (a place) — the -आलय suffix also builds विद्यालय, a school. ⚠️ This is the WRITTEN word, on every sign; in speech people say टॉयलेट or बाथरूम, which this course does not card." },
         { id: "hi-u86l4-thelaa", type: "vocab", front: "ठेला", reading: "thelaa", meaning: "a two-wheeled barrow pushed by hand", accept: ["a handcart a hawker pushes", "a wheeled stall"], example: { jp: "गली के बाहर सब्ज़ी का ठेला लगा था।", en: "A vegetable barrow was set up outside the lane." }, drill: { jp: "गली के बाहर सब्ज़ी का ठेला लगा था", en: "A vegetable barrow was set up outside the lane" }, hint: "THE-LAA, masculine, regular -ा, RETROFLEX ठ. ⚠️ Read it against ठेका thekaa, a works contract (unit 85): both RETROFLEX, one letter apart, three units apart. ⚠️ Glossed the long way because गाड़ी (unit 14) ACCEPTS 'a cart'. From ठेलना, to push, which is uncarded." },
-        { id: "hi-u86l4-godaam", type: "vocab", front: "गोदाम", reading: "godaam", meaning: "a warehouse", accept: ["a store shed for goods", "where stock is kept before it is sold"], example: { jp: "थोक का पूरा सामान गोदाम में रखा जाता है।", en: "All the wholesale goods are kept in the warehouse." }, drill: { jp: "थोक का सामान गोदाम में रखा जाता है", en: "Wholesale goods are kept in the warehouse" }, hint: "GO-DAAM, masculine, consonant-final, DENTAL द: दो गोदाम. Plain ग. The English 'godown' comes from this word, by way of the ports. The example is unit 80's passive and uses थोक (unit 85)." },
+        { id: "hi-u86l4-thaanaa", type: "vocab", front: "थाना", reading: "thaanaa", meaning: "a police station", accept: ["the local police post", "the building a complaint is taken to"], example: { jp: "शिकायत करने के लिए थाना जाना पड़ता है।", en: "One has to go to the police station to make a complaint." }, drill: { jp: "शिकायत करने के लिए थाना जाना पड़ता है", en: "One has to go to the police station to complain" }, hint: "THAA-NAA, masculine with a regular -ा, so the oblique is थाने — थाने में, at the police station. **DENTAL थ** — tongue on the teeth, then a puff. ⚠️ Read it against ठेका (unit 85), which opens with the RETROFLEX ठ: §1(b) merges both to th and the rest of the string is what keeps them apart. ⚠️ **IT LOOKS LIKE A VERB INFINITIVE AND IS NOT** — the बहाना class (unit 57); no verb थाना exists. पुलिस (unit 9) is the people; the थाना is the building they sit in, and in India it is the unit a town is divided into." },
         { id: "hi-u86l4-phaatak", type: "vocab", front: "फाटक", reading: "phaatak", meaning: "a large gate into a compound", accept: ["the main gate of a walled place", "a railway crossing gate"], example: { jp: "कारखाने का फाटक सुबह छह बजे खुलता है।", en: "The factory gate opens at six in the morning." }, drill: { jp: "कारखाने का फाटक सुबह छह बजे खुलता है", en: "The factory gate opens at six in the morning" }, hint: "PHAA-TAK, masculine, consonant-final, RETROFLEX ट: दो फाटक. ph is one puff of air, not f. ⚠️ Not दरवाज़ा (unit 1), a door: a फाटक is big enough for a vehicle, and in India the word above all means the gate at a level crossing." },
       ],
     },
