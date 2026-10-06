@@ -39,7 +39,13 @@ const glossesFor = (L) => {
   const out = [];
   for (const u of UNITS.filter((x) => x.lang === L))
     for (const l of u.lessons ?? []) for (const it of l.items ?? [])
-      if (it.type === "vocab") out.push({ g: String(it.meaning ?? "").toLowerCase(), front: it.front, u: u.order });
+      if (it.type === "vocab")
+        out.push({
+          g: String(it.meaning ?? "").toLowerCase(),
+          a: (it.accept ?? []).join(" | ").toLowerCase(),
+          front: it.front,
+          u: u.order,
+        });
   return out;
 };
 const cache = new Map();
@@ -57,21 +63,41 @@ const cache = new Map();
 // characters or more only, anywhere as a substring (bread -> flatbread). The
 // five-character floor is what keeps short concepts from matching inside unrelated
 // words; it was measured, not guessed — at four it readmits able/vegetables.
+// TWO TIERS, because "no card's gloss names it" is not the same as "the course does
+// not teach it". The gap-fill seat proved it on two of my twelve: fr la fille
+// already carries accept:["the girl","daughter"] AND a hint saying so, and no
+// ei historie accepts "history" with a hint naming both senses. The front is taken
+// by the same lexeme in each case, so re-carding is impossible and accept+hint IS
+// the remedy CLAUDE.md prescribes. Reporting those as gaps sends a seat to do
+// nothing.
+//   "gloss"  — a card's primary meaning names it. Fully taught.
+//   "accept" — only accept[] or the hint names it. Covered, usually deliberately,
+//              and usually because the front is a homograph of a taught word.
+//   null     — nothing in the language mentions it. The real gap.
 const has = (L, w) => {
   if (!cache.has(L)) cache.set(L, glossesFor(L));
   const prefix = new RegExp(`(^|[^a-z])${w}[a-z]*`, "i");
   const list = cache.get(L);
-  const hit = list.find((x) => prefix.test(x.g));
-  if (hit) return hit;
-  if (w.length >= 5) return list.find((x) => x.g.includes(w)) ?? null;
+  const sub = (f) => w.length >= 5 && f.includes(w);
+  let hit = list.find((x) => prefix.test(x.g) || sub(x.g));
+  if (hit) return { ...hit, tier: "gloss" };
+  // accept[] ONLY — NOT the hint. A hint mentions a word in passing all the time
+  // and that is not teaching it: searching hints had Norwegian "covered" for coffee
+  // via the hints of ei kake "cake" and en kopp "cup", Spanish for salt via
+  // la ensalada and saltar "to jump", and Portuguese for animal via o peixe. The
+  // two real accept[]-covered cases (fr la fille → daughter, no ei historie →
+  // history) both carry it in accept[], which is what makes them answerable.
+  hit = list.find((x) => prefix.test(x.a) || sub(x.a));
+  if (hit) return { ...hit, tier: "accept" };
   return null;
 };
+const hard = (L, w) => has(L, w) === null;
 
 const only = process.argv[2];
 if (only) {
   console.log(`=== ${only} — core inventory, verbose\n`);
   for (const [cat, words] of Object.entries(CORE)) {
-    const miss = words.filter((w) => !has(only, w));
+    const miss = words.filter((w) => hard(only, w));
     console.log(`${cat}: ${words.length - miss.length}/${words.length}${miss.length ? "   MISSING: " + miss.join(" · ") : ""}`);
   }
   process.exit(0);
@@ -85,7 +111,7 @@ const gaps = new Map(LANGS.map((L) => [L, []]));
 for (const [cat, words] of Object.entries(CORE)) {
   let row = pad(cat, 22);
   for (const L of LANGS) {
-    const miss = words.filter((w) => !has(L, w));
+    const miss = words.filter((w) => hard(L, w));
     gaps.get(L).push(...miss.map((w) => `${cat}:${w}`));
     row += pad(`${words.length - miss.length}/${words.length}`, 6);
   }
