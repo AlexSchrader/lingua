@@ -49,7 +49,7 @@ export const NO_UNIT5 = {
       title: "Seven to ten, and how many",
       cefr: "A1",
       dominantMode: "produce",
-      canDo: "Finish the count to ten, and ask how many there are: hvor mange?",
+      canDo: "Finish the count to ten, jump to hundre, and ask how many there are: hvor mange?",
       items: [
         { id: "no-u5l2-sju", type: "vocab", front: "sju", reading: "sju", meaning: "seven", example: { jp: "Han har sju katter.", en: "He has seven cats." }, accept: ["7"], drill: { jp: "Vi har sju barn", en: "We have seven children" }, hint: "SHUE — sj is the broad sh from unit 1. There is an older spelling, syv, still used by plenty of people; sju is the standard one to learn." },
         { id: "no-u5l2-atte", type: "vocab", front: "åtte", reading: "atte", meaning: "eight", example: { jp: "Åtte elever er her.", en: "Eight pupils are here." }, accept: ["8"], drill: { jp: "Klokka er åtte nå", en: "It is eight o'clock now" }, hint: "OT-te, with the rounded å and a double t. Åtti is eighty — the same stem doing the same job as femten and femti." },
@@ -57,6 +57,7 @@ export const NO_UNIT5 = {
         { id: "no-u5l2-ti", type: "vocab", front: "ti", reading: "ti", meaning: "ten", example: { jp: "Erling har ti venner.", en: "Erling has ten friends." }, accept: ["10"], drill: { jp: "Kari er ti år", en: "Kari is ten years old" }, hint: "TEE. From here the pattern is regular: elleve, tolv, tretten, fjorten…" },
         { id: "no-u5l2-ettall", type: "vocab", front: "et tall", reading: "ettall", meaning: "number", example: { jp: "Ti er et tall.", en: "Ten is a number." }, accept: ["a number", "figure", "digit"], drill: { jp: "Fem er et tall", en: "Five is a number" }, hint: "Neuter: definite tallet, plural tall — unchanged. For a phone number Norwegians say et nummer instead." },
         { id: "no-u5l2-mange", type: "vocab", front: "mange", reading: "mange", meaning: "many", example: { jp: "Erling har mange venner.", en: "Erling has many friends." }, accept: ["a lot of", "lots of", "numerous"], drill: { jp: "Vi har mange barn", en: "We have many children" }, hint: "MANG-e. Pair it with hvor to ask the count: hvor mange barn har du? Use mange for countable things, mye for uncountable." },
+        { id: "no-u5l2-hundre", type: "vocab", front: "hundre", reading: "hundre", meaning: "hundred", example: { jp: "Kari jobber hundre timer.", en: "Kari works a hundred hours." }, accept: ["100", "a hundred", "one hundred"], drill: { jp: "Hundre er mange", en: "A hundred is many" }, hint: "HUN-dre. Say it bare — hundre kroner, hundre år — with no word for \"one\" in front of it. Et hundre exists, but only when you mean the number itself." },
       ],
     },
     {
