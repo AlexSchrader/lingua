@@ -1,18 +1,155 @@
-// HI Unit 77 — Health and wellbeing (slot: health-wellbeing) — B1
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// HI Unit 77 — बीमारी और रोकथाम ("Illness and prevention") — B1
+// ─────────────────────────────────────────────────────────────────────────────
+// B1 BLOCK 2. Conventions: unit1.js §1–§11, then unit31.js §A1–§A8, then
+// unit74.js §B1–§B7.
+//
+// 🚨 RETHEMED SLOT (scaffold: "Health and wellbeing") — lint hard-errors on that
+// title, and the theme had to split as well. Hindi already has TWO health units:
+//   A1 u20 शरीर और सेहत  → शरीर, सिर, आँख, कान, नाक, मुँह, दाँत, पेट, हाथ, पैर,
+//                           बाल, सेहत, इलाज, थकान, चोट, बुखार, दर्द, मज़बूत
+//   A2 u35 डॉक्टर का कमरा → डॉक्टर, मरीज़, बीमारी, दवा, गोली, टीका, सूई, घाव,
+//                           सूजन, मरहम, हड्डी, खून, नस, कमज़ोर, जाँच, चक्कर, उल्टी
+// So the doctor's room and the parts of the body are both spent. **u84 of this
+// block takes the body's remaining 20 fronts**; this unit takes the half neither
+// has: the NAMED illness, the mechanism of catching one, and what you do so as
+// not to — prevention, diet, exercise, and the habits that undo it. That is the
+// B1 move the band asks for: from "my head hurts" to "the infection spread
+// because nobody was vaccinated".
+//
+// ⚠️ SIX FRONTS WANTED AND REFUSED. **Four of the six are GLOSS refusals** —
+// `check-front.mjs` reports every one of them FREE, and only reading the taught
+// card's `accept[]` catches them. This is the densest gloss-refusal list in the
+// block:
+//   • स्वास्थ्य — सेहत (u20) is "health" and accepts "wellbeing" AND "fitness".
+//     Three of the four words this card would have wanted. DROPPED; there is no
+//     second word for health in Hindi worth a mastery track.
+//   • उपचार — इलाज (u20) is "treatment". DROPPED.
+//   • कीट — कीड़ा is "an insect". DROPPED (u75 refused it for the same reason).
+//   • टीकाकरण — would be a second mastery track for टीका (u35), which is already
+//     glossed "a vaccination". DROPPED.
+//   • TAKEN outright: थकान (u20), चक्कर, उल्टी, सूजन, घाव, मरहम, मरीज़, गोली,
+//     बुखार, टीका (u35), जलन (u52), तनाव (u52), सेहत (u20). **Thirteen.**
+//     ⚠️ तनाव IS TAKEN — a stress-and-burnout lesson is NOT available to this
+//     unit, and block 1's u67 "Emotion, finer shades" owns what is left of it.
+//   • NAMED FOR A LATER BLOCK, free and unspent: नब्ज़, दस्त, कब्ज़, मधुमेह,
+//     अंगदान, चिकित्सा, बेहोश, एलर्जी.
+//
+// ⚠️ पोषण IS TAKEN FROM THE SPARE SHELF, AND I AM SAYING SO OUT LOUD. The central
+// allocation recorded "restaurant/nutrition is allocated to nobody — spare; don't
+// assume it's free for you without telling me". This unit cards **पोषण** (l3) and
+// nothing else from that field: no restaurant word, no food word, no cooking word
+// (A2 u36 रसोई और खाना owns those). A diet-and-exercise lesson cannot be written
+// without a word for nourishment. RESTAURANT IS UNTOUCHED AND STILL SPARE.
+//
+// GENDER TRAPS THIS UNIT ADDS (§4), each named in its own hint:
+//   ⚠️ FEMININE: महामारी, खुजली, छींक, नाड़ी, खुराक, मालिश, रोकथाम, कसरत,
+//   कमज़ोरी. **छींक, खुराक, रोकथाम and कसरत are CONSONANT-FINAL**, so nothing in
+//   the shape says so — कसरत ज़रूरी है, not ज़रूरा — and those four are the ones a
+//   learner cannot predict.
+//   MASCULINE: लक्षण, संक्रमण, दमा, ऑपरेशन, कीटाणु, योग, परहेज़, संतुलन, नशा,
+//   धूम्रपान, पोषण. **दमा and नशा look like -ा masculines and ARE**; **कीटाणु is
+//   masculine despite the -ु**, the साधु class of §4.
+//   शराब is FEMININE — शराब बुरी है, not बुरा — and it is the one gender fact in
+//   the unit no rule predicts.
+//   ADJECTIVES: **तंदुरुस्त, मानसिक and शारीरिक are INVARIANT** (unit53's rule).
+//
+// ⚠️ TWO NEAR-PAIRS AND ONE MARK:
+//   • नाड़ी naarii (the pulse) against नाई naaii (u28l3, a barber) and घड़ी gharii
+//     (u9l2, a watch). ड़ reads **r** (§1c), so नाड़ी is naarii — one letter from
+//     naaii, and §1's doubling is not involved. Checked against all 1,512
+//     readings: naarii is free.
+//   • शारीरिक does NOT contain शरीर (u20). Checked mechanically, not by eye: the
+//     taught front is श+र+ी+र and this word is श+ा+र+ी+र+ि+क, so the ा after श
+//     breaks the string. No substring trap.
+//   • ऑपरेशन carries ॉ, the candra-o, which unit31.js §A4 declared live as a
+//     READING-ONLY note and which appears in exactly one other front in the
+//     language — डॉक्टर (u35l1). It reads **o**, like ो. This card's hint teaches
+//     the mark the way डॉक्टर's does.
+// SUBSTRING TRAP: **कमज़ोरी ⊃ कमज़ोर (u35)** — ी is \p{M} and does not block the
+// match. Checked both directions: no u35 drill contains कमज़ोरी, and this card's
+// drill does not contain कमज़ोर.
+// RETROFLEX/DENTAL (§1b): no new collision. कीटाणु kiitaanu and तंदुरुस्त
+// tandurust carry RETROFLEX ट with no dental कीताणु / तंदुरुस्त-with-त in the
+// corpus; संतुलन santulan, धूम्रपान dhuumrapaan and परहेज़ parhez are DENTAL with
+// no retroflex twin. The doubling hatch fires nowhere in this unit.
+// LOANWORD FREE-PASS CHECK (§9), measured with the real `checkProduce`:
+//   ऑपरेशन opareshan → glossed "a surgical operation", not "an operation".
+//   योग yog → glossed "yoga as a practice", not "yoga" — one letter apart is too
+//   close to read the answer off the prompt. Zero free passes.
 export const HI_UNIT77 = {
   id: "hi-u77",
   lang: "hi",
-  title: "Health and wellbeing",
+  title: "बीमारी और रोकथाम",
   order: 77,
   stage: "b1",
   lessons: [
-    { id: "hi-u77l1", title: "Lesson 1", locked: true },
-    { id: "hi-u77l2", title: "Lesson 2", locked: true },
-    { id: "hi-u77l3", title: "Lesson 3", locked: true },
-    { id: "hi-u77l4", title: "Lesson 4", locked: true },
+    {
+      id: "hi-u77l1",
+      unit: 77,
+      lesson: 1,
+      title: "Spotting the illness",
+      cefr: "B1",
+      dominantMode: "produce",
+      canDo: "Name a symptom, an infection and an epidemic — and say that someone has asthma, is itching, or has sneezed.",
+      items: [
+        { id: "hi-u77l1-lakshan", type: "vocab", front: "लक्षण", reading: "lakshan", meaning: "a symptom", accept: ["a sign of illness", "what shows an illness is there"], example: { jp: "बुखार इस बीमारी का पहला लक्षण है।", en: "A fever is the first symptom of this illness." }, drill: { jp: "बुखार इस बीमारी का पहला लक्षण है", en: "Fever is the first symptom of this illness" }, hint: "LAK-SHAN, masculine, consonant-final: दो लक्षण. The क्ष conjunct is one of unit 6's three, said ksh in one breath; the final ण is RETROFLEX and merges to n (§1b). Also used of a person's character: अच्छे लक्षण." },
+        { id: "hi-u77l1-sankraman", type: "vocab", front: "संक्रमण", reading: "sankraman", meaning: "an infection", accept: ["illness passing from one body to another", "a thing catching from person to person"], example: { jp: "गंदे हाथों से संक्रमण जल्दी फैलता है।", en: "An infection spreads quickly from dirty hands." }, drill: { jp: "गंदे हाथों से संक्रमण फैलता है", en: "Infection spreads from dirty hands" }, hint: "SAN-KRA-MAN, masculine. Its ं sits before क, a stop, so §1's homorganic rule applies and it is written n. ⚠️ Not बीमारी (unit 35), which is the illness itself — संक्रमण is the illness MOVING from one person to another." },
+        { id: "hi-u77l1-mahaamaarii", type: "vocab", front: "महामारी", reading: "mahaamaarii", meaning: "an epidemic", accept: ["an illness that sweeps a whole country", "a plague"], example: { jp: "महामारी के समय स्कूल बंद रहे।", en: "The schools stayed shut during the epidemic." }, drill: { jp: "महामारी के समय स्कूल बंद रहे", en: "The schools stayed shut during the epidemic" }, hint: "MA-HAA-MAA-RII — ⚠️ FEMININE. महा (great) plus मारी (a killing). ⚠️ Read it against बीमारी, an illness (unit 35): the two rhyme and are not related — बीमारी is from बीमार, महामारी from मारना. One person has a बीमारी; a country has a महामारी." },
+        { id: "hi-u77l1-damaa", type: "vocab", front: "दमा", reading: "damaa", meaning: "asthma", accept: ["the illness that makes breathing hard", "a wheezing illness"], example: { jp: "सर्दी में उसका दमा और बढ़ जाता है।", en: "His asthma gets worse in the cold." }, drill: { jp: "सर्दी में उसका दमा बढ़ जाता है", en: "His asthma gets worse in the cold" }, hint: "DA-MAA, masculine, regular -ा, DENTAL द. The commonest named illness in Hindi after बुखार, and the only one this course cards — the rest are named in this file's header as a gap. Its frame is X को दमा है." },
+        { id: "hi-u77l1-khujlii", type: "vocab", front: "खुजली", reading: "khujlii", meaning: "itching", accept: ["an itch", "the feeling that makes you scratch"], example: { jp: "इस दवा से खुजली कम हो जाती है।", en: "The itching goes down with this medicine." }, drill: { jp: "इस दवा से खुजली कम हो जाती है", en: "The itching goes down with this medicine" }, hint: "KHUJ-LII — ⚠️ FEMININE. Plain ख — unit 1 §7 keeps ख़ uncarded. The medial inherent a is not said (§1): khujlii, not khujalii. The frame is X को खुजली हो रही है." },
+        { id: "hi-u77l1-chhiink", type: "vocab", front: "छींक", reading: "chhiink", meaning: "a sneeze", accept: ["sneezing", "the sudden blow out of the nose"], example: { jp: "सर्दी में उसे बहुत छींक आती है।", en: "In the cold he sneezes a great deal." }, drill: { jp: "सर्दी में उसे छींक आती है", en: "In the cold he sneezes" }, hint: "CHHIINK — ⚠️ FEMININE and CONSONANT-FINAL: छींक आई, not आया. छ is ch with a puff of air, और the ं before क is written n (§1). ⚠️ Hindi uses आना, not करना: छींक आती है, 'a sneeze comes'." },
+      ],
+    },
+    {
+      id: "hi-u77l2",
+      unit: 77,
+      lesson: 2,
+      title: "Examining and treating",
+      cefr: "B1",
+      dominantMode: "produce",
+      canDo: "Talk about the pulse, a dose of medicine, an operation, germs, a massage and prevention.",
+      items: [
+        { id: "hi-u77l2-naarii", type: "vocab", front: "नाड़ी", reading: "naarii", meaning: "the pulse", accept: ["the beat felt at the wrist", "the beating a doctor feels for"], example: { jp: "डॉक्टर ने उसकी नाड़ी देखी और कुछ नहीं कहा।", en: "The doctor felt his pulse and said nothing." }, drill: { jp: "डॉक्टर ने उसकी नाड़ी देखी", en: "The doctor felt his pulse" }, hint: "NAA-RII — ⚠️ FEMININE. ड़ reads **r** (§1c), so this is naarii — one letter from नाई naaii, a barber (unit 28), and §1's doubling is not involved. ⚠️ Not नस (unit 35), which is the vein itself: the नाड़ी is the BEAT in it. Hindi says नाड़ी देखना, to look at the pulse." },
+        { id: "hi-u77l2-khuraak", type: "vocab", front: "खुराक", reading: "khuraak", meaning: "a prescribed amount of medicine", accept: ["how much to take at one time", "a measured helping"], example: { jp: "बच्चों की खुराक बड़ों से कम होती है।", en: "A child's dose is smaller than an adult's." }, drill: { jp: "बच्चों की खुराक बड़ों से कम होती है", en: "A child's dose is less than an adult's" }, hint: "KHU-RAAK — ⚠️ FEMININE and CONSONANT-FINAL: खुराक पूरी है. ⚠️ The gloss is long on purpose: दवा (unit 20) ACCEPTS 'a dose', so this card had to say which dose. Also used of food — दो वक्त की खुराक." },
+        { id: "hi-u77l2-opareshan", type: "vocab", front: "ऑपरेशन", reading: "opareshan", meaning: "a surgical operation", accept: ["surgery", "being cut open to be treated"], example: { jp: "हड्डी टूटी थी इसलिए ऑपरेशन करना पड़ा।", en: "The bone was broken, so an operation had to be done." }, drill: { jp: "हड्डी टूटी थी इसलिए ऑपरेशन करना पड़ा", en: "The bone was broken, so an operation had to be done" }, hint: "O-PA-RE-SHAN, masculine. ⚠️ It opens with ऑ, the CANDRA-O for English loans, which reads **o** exactly like ो — the mark unit 31 §A4 declared live, and this is only its second front in the whole language after डॉक्टर (unit 35). Glossed 'a surgical operation' per §9." },
+        { id: "hi-u77l2-kiitaanu", type: "vocab", front: "कीटाणु", reading: "kiitaanu", meaning: "a germ", accept: ["a microbe", "the tiny thing that makes you ill"], example: { jp: "उबले पानी में कीटाणु नहीं रहते।", en: "Germs do not survive in boiled water." }, drill: { jp: "उबले पानी में कीटाणु नहीं रहते", en: "Germs do not survive in boiled water" }, hint: "KII-TAA-NU — ⚠️ MASCULINE despite the -ु, the साधु class of §4: कीटाणु मरे, not मरी. RETROFLEX ट and the retroflex ण, which merges to n. Not कीड़ा (unit 55), an insect you can see — a कीटाणु you cannot." },
+        { id: "hi-u77l2-maalish", type: "vocab", front: "मालिश", reading: "maalish", meaning: "a massage", accept: ["rubbing oil into the body", "a rub-down"], example: { jp: "तेल की मालिश से दर्द कम होता है।", en: "An oil massage reduces the pain." }, drill: { jp: "तेल की मालिश से दर्द कम होता है", en: "An oil massage reduces pain" }, hint: "MAA-LISH — ⚠️ FEMININE and CONSONANT-FINAL: मालिश अच्छी है. Its verb is करना — मालिश करना — and in India it is done with तेल (unit 29), which is why the example says so." },
+        { id: "hi-u77l2-rokthaam", type: "vocab", front: "रोकथाम", reading: "rokthaam", meaning: "prevention", accept: ["stopping a thing before it starts", "measures taken to head something off"], example: { jp: "बीमारी की रोकथाम इलाज से सस्ती है।", en: "Prevention of illness is cheaper than treatment." }, drill: { jp: "बीमारी की रोकथाम इलाज से सस्ती है", en: "Prevention of illness is cheaper than treatment" }, hint: "ROK-THAAM — ⚠️ FEMININE and CONSONANT-FINAL: रोकथाम ज़रूरी है. Built on रोकना, to stop (unit 31), plus थाम from थामना — two verbs of holding back, joined. The थ is DENTAL." },
+      ],
+    },
+    {
+      id: "hi-u77l3",
+      unit: 77,
+      lesson: 3,
+      title: "Keeping the body fit",
+      cefr: "B1",
+      dominantMode: "produce",
+      canDo: "Talk about exercise, yoga, nourishment and a restricted diet — and say that someone is in good shape or out of balance.",
+      items: [
+        { id: "hi-u77l3-kasrat", type: "vocab", front: "कसरत", reading: "kasrat", meaning: "physical exercise", accept: ["working the body on purpose", "a workout"], example: { jp: "वह हर सुबह आधे घंटे कसरत करता है।", en: "He exercises for half an hour every morning." }, drill: { jp: "वह हर सुबह कसरत करता है", en: "He exercises every morning" }, hint: "KAS-RAT — ⚠️ FEMININE and CONSONANT-FINAL: कसरत ज़रूरी है. DENTAL त. Its verb is करना. Not खेल (unit 41), a game: कसरत has no opponent and no score." },
+        { id: "hi-u77l3-yog", type: "vocab", front: "योग", reading: "yog", meaning: "yoga as a practice", accept: ["the discipline of yoga", "yogic exercise and breathing"], example: { jp: "योग करने से मन शांत रहता है।", en: "Doing yoga keeps the mind calm." }, drill: { jp: "योग करने से मन शांत रहता है", en: "Doing yoga keeps the mind calm" }, hint: "YOG, masculine, consonant-final. ⚠️ Glossed 'yoga as a practice' and not 'yoga': the reading is yog and §9 forbids a gloss a learner can read straight off the prompt. The word also means 'a joining' and 'addition' in Hindi, which is where the practice gets its name." },
+        { id: "hi-u77l3-poshan", type: "vocab", front: "पोषण", reading: "poshan", meaning: "nourishment", accept: ["what food gives the body", "being fed well enough"], example: { jp: "बच्चों के पोषण के लिए दूध ज़रूरी है।", en: "Milk is essential for children's nourishment." }, drill: { jp: "बच्चों के पोषण के लिए दूध ज़रूरी है", en: "Milk is essential for children's nourishment" }, hint: "PO-SHAN, masculine. ष is the second sh (§1a) and ण the retroflex n — both merge in the reading, and the hint is where the letters are taught. Not खाना, food (unit 13): पोषण is what the food DOES once it is eaten." },
+        { id: "hi-u77l3-parhez", type: "vocab", front: "परहेज़", reading: "parhez", meaning: "keeping off something on purpose", accept: ["avoiding a food or a habit", "a restriction one keeps to"], example: { jp: "डॉक्टर ने मीठे से परहेज़ करने को कहा।", en: "The doctor said to keep off sweet things." }, drill: { jp: "डॉक्टर ने मीठे से परहेज़ करने को कहा", en: "The doctor said to avoid sweet things" }, hint: "PAR-HEZ, masculine, consonant-final, ending in ज़ — a z (unit 4). Its frame is X से परहेज़ करना, 'to keep off X'. ⚠️ Not मना, not allowed (unit 32): मना is somebody else's rule, परहेज़ is a discipline you hold yourself to." },
+        { id: "hi-u77l3-tandurust", type: "vocab", front: "तंदुरुस्त", reading: "tandurust", meaning: "in good physical shape", accept: ["fit and well", "sound in body"], example: { jp: "सत्तर साल में भी वह तंदुरुस्त है।", en: "Even at seventy he is in good shape." }, drill: { jp: "सत्तर साल में भी वह तंदुरुस्त है", en: "Even at seventy he is in good shape" }, hint: "TAN-DU-RUST — ⚠️ INVARIANT (unit 53's rule): तंदुरुस्त आदमी, तंदुरुस्त औरत. DENTAL त at the front, RETROFLEX nothing — the ुस्त is स and DENTAL त stacked. ⚠️ Glossed 'in good physical shape' because सेहत (unit 20) ACCEPTS 'fitness'." },
+        { id: "hi-u77l3-santulan", type: "vocab", front: "संतुलन", reading: "santulan", meaning: "balance", accept: ["an even state between two things", "keeping two things level"], example: { jp: "काम और आराम के बीच संतुलन ज़रूरी है।", en: "A balance between work and rest is essential." }, drill: { jp: "काम और आराम के बीच संतुलन ज़रूरी है", en: "A balance between work and rest is essential" }, hint: "SAN-TU-LAN, masculine, consonant-final. Its ं sits before DENTAL त, a stop, so §1's homorganic rule still gives n. From तुलना, a comparison (unit 32) — the same root as the scales: a संतुलन is two pans hanging level." },
+      ],
+    },
+    {
+      id: "hi-u77l4",
+      unit: 77,
+      lesson: 4,
+      title: "The mind, and the habits that undo it",
+      cefr: "B1",
+      dominantMode: "produce",
+      canDo: "Say whether something is mental or bodily, and talk about intoxication, smoking, liquor and a weakness in the body.",
+      items: [
+        { id: "hi-u77l4-maansik", type: "vocab", front: "मानसिक", reading: "maansik", meaning: "mental", accept: ["of the mind", "to do with the mind rather than the body"], example: { jp: "यह मानसिक बीमारी है और इलाज भी होता है।", en: "This is a mental illness and there is a treatment too." }, drill: { jp: "यह मानसिक बीमारी है और इलाज होता है", en: "This is a mental illness and there is a treatment" }, hint: "MAAN-SIK — ⚠️ INVARIANT: मानसिक बीमारी, मानसिक काम. Built on मन, the mind (unit 1), with the -इक suffix that turns a noun into an adjective — the same suffix as शारीरिक beside it. `scope-hi.mjs` generates no -इक, so each needs its own card." },
+        { id: "hi-u77l4-shaariirik", type: "vocab", front: "शारीरिक", reading: "shaariirik", meaning: "bodily", accept: ["physical", "of the body rather than the mind"], example: { jp: "खेत का काम शारीरिक काम है।", en: "Field work is bodily work." }, drill: { jp: "खेत का काम शारीरिक काम है", en: "Field work is bodily work" }, hint: "SHAA-RII-RIK — ⚠️ INVARIANT. Built the same way as मानसिक, on शरीर, the body (unit 20). ⚠️ It does NOT contain शरीर as a string — checked mechanically: the taught front is श+र+ी+र and this word has a ा after the श, which breaks it. The pair मानसिक/शारीरिक is how Hindi says 'mind and body'." },
+        { id: "hi-u77l4-nashaa", type: "vocab", front: "नशा", reading: "nashaa", meaning: "intoxication", accept: ["being under the influence", "the hold a drug or drink has on someone"], example: { jp: "नशा छोड़ना आसान नहीं होता।", en: "Giving up intoxication is not easy." }, drill: { jp: "नशा छोड़ना आसान नहीं होता", en: "Giving up intoxication is not easy" }, hint: "NA-SHAA, masculine, regular -ा. The frame is X को नशा है or नशा करना. Used of drink, of drugs, and of anything that takes you over — पैसे का नशा is a real Hindi phrase." },
+        { id: "hi-u77l4-dhuumrapaan", type: "vocab", front: "धूम्रपान", reading: "dhuumrapaan", meaning: "smoking tobacco", accept: ["the smoking of cigarettes", "taking smoke into the lungs"], example: { jp: "अस्पताल में धूम्रपान मना है।", en: "Smoking is forbidden in the hospital." }, drill: { jp: "अस्पताल में धूम्रपान मना है", en: "Smoking is forbidden in the hospital" }, hint: "DHUUM-RA-PAAN, masculine, long uu, DENTAL ध with a puff of air. धूम्र (smoke) plus पान (drinking) — Hindi says you DRINK smoke. ⚠️ This is the written, official word; in speech people say सिगरेट पीना, which uses पीना (unit 13) and needs no new card." },
+        { id: "hi-u77l4-sharaab", type: "vocab", front: "शराब", reading: "sharaab", meaning: "liquor", accept: ["strong drink", "alcohol you drink"], example: { jp: "ज़्यादा शराब पीने से सेहत खराब होती है।", en: "Drinking too much liquor ruins your health." }, drill: { jp: "शराब से सेहत खराब होती है", en: "Liquor ruins your health" }, hint: "SHA-RAAB — ⚠️ FEMININE, and this is the one gender fact in the unit no rule predicts: शराब बुरी है, never बुरा. Consonant-final, so the shape gives nothing away. The verb is पीना (unit 13)." },
+        { id: "hi-u77l4-kamzorii", type: "vocab", front: "कमज़ोरी", reading: "kamzorii", meaning: "a weakness in the body", accept: ["feeling with no strength", "a run-down state"], example: { jp: "खाना कम खाने से कमज़ोरी आ जाती है।", en: "Eating too little brings on weakness." }, drill: { jp: "खाना कम खाने से कमज़ोरी आ जाती है", en: "Eating too little brings on weakness" }, hint: "KAM-ZO-RII — ⚠️ FEMININE, with ज़ — a z. The noun of कमज़ोर, weak (unit 35), in a different unit — the नाप/नापना precedent. ⚠️ It CONTAINS कमज़ोर, because ी is a mātrā and does not block the match, so neither card's sentence uses the other word." },
+      ],
+    },
   ],
 };
