@@ -35,9 +35,17 @@
 //   ⚠️ **पदोन्नति ENDS IN A SHORT ि** — padonnati, never padonnatii.
 //   🚨 **FOUR FRONTS END IN -ी AND ARE MASCULINE** — अधिकारी, चपरासी, मोची, and
 //   none changes for a woman: the पानी/हाथी class of §4.
-//   MASCULINE: प्रबंधक, सचिव, लेखाकार, प्रमुख, तकनीशियन, प्लंबर, रसोइया, पायलट,
+//   MASCULINE: प्रबंधक, सचिव, लेखाकार, अध्यक्ष, तकनीशियन, प्लंबर, रसोइया, पायलट,
 //   चौकीदार, सलाहकार, निरीक्षक, प्रशिक्षक, शोधकर्ता, अनुवादक, विक्रेता, पेशा,
 //   साझेदार, साक्षात्कार, इस्तीफ़ा.
+//
+// ⚠️ ONE CARD LEFT THIS UNIT IN THE B1 CROSS-BLOCK DEDUPE (2026-10-06): प्रमुख
+// → kept at u62 कारण और नतीजा, block 1's earlier slot, where it is the ADJECTIVE
+// ("the principal one") rather than the person. Still in scope here, and no u96
+// sentence uses it. अध्यक्ष replaced it, and it keeps the l1 slot a JOB TITLE,
+// which unit61.js §B9 says this unit owns and u66 spends none of. ⚠️ **अध्यक्ष is
+// the ONE title in the unit that DOES have a feminine form**, अध्यक्षा — named on
+// its card, because the rule just below it is that the other eighteen do not.
 //   ⚠️ **NOT ONE OF THE EIGHTEEN JOB TITLES CHANGES FOR A WOMAN.** -क (प्रबंधक,
 //   निरीक्षक, प्रशिक्षक, अनुवादक), -कार (लेखाकार, सलाहकार), -ता (शोधकर्ता, विक्रेता)
 //   and -दार (चौकीदार, साझेदार) are all FIXED agent suffixes, exactly like नेता
@@ -97,13 +105,13 @@ export const HI_UNIT96 = {
       title: "In the office",
       cefr: "B1",
       dominantMode: "produce",
-      canDo: "Name the people in an office — the manager, the secretary, the accountant, a government official, the head of the place and the messenger — and say what each one does.",
+      canDo: "Name the people in an office — the manager, the secretary, the accountant, a government official, the chairman of a committee and the messenger — and say what each one does.",
       items: [
         { id: "hi-u96l1-prabandhak", type: "vocab", front: "प्रबंधक", reading: "prabandhak", meaning: "a manager", accept: ["one who runs a department"], example: { jp: "कंपनी के प्रबंधक ने हर कर्मचारी से बात की।", en: "The company's manager spoke to every employee." }, drill: { jp: "प्रबंधक ने हर कर्मचारी से बात की", en: "The manager spoke to every employee" }, hint: "PRA-BAN-DHAK, masculine, and ⚠️ IT DOES NOT CHANGE FOR A WOMAN — the -क agent suffix is fixed, like आलोचक (unit 91). प्र is a stacked conjunct (unit 6) and ध carries a puff of air. ⚠️ Not मालिक (unit 34), who OWNS the company; a प्रबंधक is paid to run it, so he is a कर्मचारी too." },
         { id: "hi-u96l1-sachiv", type: "vocab", front: "सचिव", reading: "sachiv", meaning: "a secretary", accept: ["an officer who keeps the records of a body"], example: { jp: "समिति के सचिव ने हर बात लिखकर रखी।", en: "The committee's secretary wrote down and kept every point." }, drill: { jp: "सचिव ने सब कागज़ रखे", en: "The secretary kept all the papers" }, hint: "SA-CHIV, masculine and consonant-final. 🚨 सच, truth (unit 2), IS A STRING AT ITS START and the ि after it is a mātrā, not a letter, so the router CAN match it — two entirely unrelated words, and the easiest trap in this unit to miss by eye. The सचिव of a समिति (unit 88) keeps its papers." },
         { id: "hi-u96l1-lekhaakaar", type: "vocab", front: "लेखाकार", reading: "lekhaakaar", meaning: "an accountant", accept: ["one who keeps the books"], example: { jp: "लेखाकार ने पूरे साल का हिसाब तैयार किया।", en: "The accountant prepared the whole year's accounts." }, drill: { jp: "लेखाकार हर महीने हिसाब देखता है", en: "The accountant checks the accounts every month" }, hint: "LE-KHAA-KAAR, masculine, fixed for a woman too. -कार, a maker — the same suffix as कलाकार (unit 58) and वास्तुकार (unit 94). 🚨 लेख, an article (unit 44), IS A STRING AT ITS START and the ा after it is a mātrā, so the router CAN match it; the लेखा half here means an account, not a piece of writing." },
         { id: "hi-u96l1-adhikaarii", type: "vocab", front: "अधिकारी", reading: "adhikaarii", meaning: "a government official", accept: ["an official with authority"], example: { jp: "अदालत के अधिकारी ने हर दस्तावेज़ देखा।", en: "The court official looked at every document." }, drill: { jp: "अधिकारी ने दस्तावेज़ देखकर दस्तखत किए", en: "The official looked at the document and signed" }, hint: "A-DHI-KAA-RII — ⚠️ MASCULINE DESPITE THE -ी, the पानी and हाथी class of §4, and it does not change for a woman. Built on अधिकार, authority — the same root as हक (unit 32) in meaning. ⚠️ The gloss says \"government\" because अफ़सर (unit 34) already owns \"an officer\" and the grader strips a/an/the." },
-        { id: "hi-u96l1-pramukh", type: "vocab", front: "प्रमुख", reading: "pramukh", meaning: "the head of an organisation", accept: ["a chief", "principal"], example: { jp: "कंपनी के प्रमुख ने नई नीति पढ़कर सुनाई।", en: "The head of the company read out the new policy." }, drill: { jp: "कंपनी के प्रमुख ने नई नीति सुनाई", en: "The head of the company read out the new policy" }, hint: "PRA-MUKH, masculine, and ALSO an adjective — प्रमुख कारण, the principal reason. ख carries a puff of air. ⚠️ Not मुख्य (unit 19), which is only an adjective, and not सिर (unit 20), which is the head on your neck — प्रमुख is the person at the top." },
+        { id: "hi-u96l1-adhyaksh", type: "vocab", front: "अध्यक्ष", reading: "adhyaksh", meaning: "a chairman", accept: ["the person who presides over a body", "the chair of a committee"], example: { jp: "समिति के अध्यक्ष ने मीटिंग शुरू की।", en: "The chairman of the committee opened the meeting." }, drill: { jp: "समिति के अध्यक्ष ने मीटिंग शुरू की", en: "The committee's chairman opened the meeting" }, hint: "A-DHYAK-SH, masculine, consonant-final: दो अध्यक्ष. ⚠️ TWO CONJUNCTS IN FOUR LETTERS — ध्य is a DENTAL ध with य stacked under it, and क्ष is one of unit 6's three, said ksh in one breath. अधि (over) plus अक्ष (an eye): the one who oversees. ⚠️ Not प्रमुख (unit 62), the head of an organisation: an अध्यक्ष PRESIDES — over a समिति (unit 88), a meeting or a party — and the post exists only while the body is sitting. The feminine is अध्यक्षा." },
         { id: "hi-u96l1-chapraasii", type: "vocab", front: "चपरासी", reading: "chapraasii", meaning: "an office messenger", accept: ["an office peon", "an errand man"], example: { jp: "चपरासी हर कमरे में चाय और फ़ाइल पहुँचाता है।", en: "The messenger takes tea and files round to every room." }, drill: { jp: "चपरासी हर कमरे में फ़ाइल पहुँचाता है", en: "The messenger takes files round to every room" }, hint: "CHAP-RAA-SII — ⚠️ MASCULINE DESPITE THE -ी, and it does not change for a woman. Built on चपरास, the brass badge such a man once wore on his belt. The one who carries a फ़ाइल (unit 34) from one room to the next; an Indian office cannot be described without him." },
       ],
     },
