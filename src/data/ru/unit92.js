@@ -45,6 +45,14 @@
 // exactly like `имя` from u3l1 (Имени). Both hints say so and both point at имя,
 // because the class is small enough to learn as a list.
 // lang/unit/lesson are stamped in src/data/index.js.
+// ═════════════════════════════════════════════════════════════════════════════
+// ⚠️ CROSS-BLOCK DEDUPE, 2026-10-06 — 1 of 24 replaced.
+// ═════════════════════════════════════════════════════════════════════════════
+//     архив -> u73 Опыт и воспоминание
+// Block 1's u73 is the earlier range and cards архив · летопись · мемуары ·
+// дневник · предание · наследие as one lesson about the keeping of a record;
+// block 3 yields to it. Replaced by `свержение`, which fits l4's own subject
+// (how power changed hands) better than архив did.
 export const RU_UNIT92 = {
   id: "ru-u92",
   lang: "ru",
@@ -110,14 +118,14 @@ export const RU_UNIT92 = {
       title: "How it all changed hands",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Talk about how power changed — a revolution, an uprising, a conquest, a colony — and name the palace and the archive that keep the record.",
+      canDo: "Talk about how power changed — a revolution, an uprising, a conquest, a colony, the overthrow of a ruler — and name the palace they lived in.",
       items: [
         { id: "ru-u92l4-revolyutsiya", type: "vocab", front: "революция", reading: "revolyutsiya", meaning: "a revolution", accept: ["the overthrow of a government", "a complete change of rule", "a political upheaval"], example: { jp: "После революции у власти был народ.", en: "After the revolution the people were in power." }, drill: { jp: "Эта революция была очень давно", en: "This revolution was a very long time ago" }, hint: "ri-va-LYU-tsi-ya — stress on LYU, and both vowels before it reduce. FEMININE (-я). ⚠️ In Russian history «Революция» with no adjective means 1917 and nothing else." },
         { id: "ru-u92l4-vosstanie", type: "vocab", front: "восстание", reading: "vosstanie", meaning: "an uprising", accept: ["a rising against a ruler", "a revolt", "an armed rebellion"], example: { jp: "Восстание было в этой деревне.", en: "The uprising was in this village." }, drill: { jp: "Это восстание было очень большое", en: "This uprising was very large" }, hint: "vas-STA-ni-ye — stress on STA, the first о reduces to a, and the сс is held a beat longer. NEUTER (-е). From встать, to get up, which unit 31 taught: the people standing up. Smaller than a революция, and usually unsuccessful." },
         { id: "ru-u92l4-zavoevanie", type: "vocab", front: "завоевание", reading: "zavoevanie", meaning: "a conquest", accept: ["the taking of land by force", "the winning of a country in war", "military subjugation"], example: { jp: "Завоевание этой страны было очень быстрое.", en: "The conquest of this country was very quick." }, drill: { jp: "Это завоевание было очень быстрое", en: "This conquest was very quick" }, hint: "za-va-i-VA-ni-ye — six syllables, stress on VA. NEUTER (-е). Built on the same во- root as война from unit 51. ⚠️ Its plural means gains in a good sense: завоевания науки, the achievements of science." },
         { id: "ru-u92l4-koloniya", type: "vocab", front: "колония", reading: "koloniya", meaning: "a colony", accept: ["a land ruled from abroad", "a possession overseas", "a dependent territory"], example: { jp: "Эта страна была колонией сто лет.", en: "This country was a colony for a hundred years." }, drill: { jp: "Это была очень богатая колония", en: "This was a very rich colony" }, hint: "ka-LO-ni-ya — stress on LO, and the first о reduces to a. FEMININE (-я). ⚠️ In Russian it is ALSO the standard word for a prison camp — исправительная колония — and that is the sense you will meet in the news far more often." },
         { id: "ru-u92l4-dvorets", type: "vocab", front: "дворец", reading: "dvorets", meaning: "a palace", accept: ["a grand royal house", "the house of a ruler", "a great ceremonial building"], example: { jp: "Этот дворец очень большой и красивый.", en: "This palace is very large and very beautiful." }, drill: { jp: "Этот дворец очень красивый", en: "This palace is very beautiful" }, hint: "dva-RETS — stress on the last syllable, and the о reduces to a. MASCULINE. ⚠️ The е DROPS in every other form: дворцА, дворцЫ — the same class as отец from unit 10. Built on двор from unit 60, a yard." },
-        { id: "ru-u92l4-arkhiv", type: "vocab", front: "архив", reading: "arkhiv", meaning: "an archive", accept: ["a store of old documents", "where records are kept", "a collection of papers"], example: { jp: "В архиве лежат очень старые документы.", en: "Very old documents are lying in the archive." }, drill: { jp: "Этот архив очень большой", en: "This archive is very large" }, hint: "ar-KHIV — stress on the last syllable, with the scraping х. MASCULINE. ⚠️ Also the everyday computer word: an архив is a zip file, and архивировать is to zip something." },
+        { id: "ru-u92l4-sverzhenie", type: "vocab", front: "свержение", reading: "sverzhenie", meaning: "the overthrow of a ruler", accept: ["an overthrow", "the deposing of a ruler", "the toppling of a government"], example: { jp: "После свержения царя страна жила совсем иначе.", en: "After the overthrow of the tsar the country lived quite differently." }, drill: { jp: "Свержение царя было неизбежно", en: "The overthrow of the tsar was unavoidable" }, hint: "sver-ZHE-ni-ye — stress on ZHE. NEUTER (-ие). From свергнуть, to throw down, which is not carded. ⚠️ Of a ruler or a government and nothing else: «свержение царя», «свержение власти». революция in this lesson is the whole upheaval; свержение is the single act of removing the man at the top." },
       ],
     },
   ],

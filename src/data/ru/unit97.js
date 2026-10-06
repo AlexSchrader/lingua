@@ -98,6 +98,18 @@
 // forms instead and records the defect here. u90's four compass points are the
 // unit most affected.
 // lang/unit/lesson are stamped in src/data/index.js.
+// ═════════════════════════════════════════════════════════════════════════════
+// ⚠️ CROSS-BLOCK DEDUPE, 2026-10-06 — 1 of 24 replaced.
+// ═════════════════════════════════════════════════════════════════════════════
+//     гибель -> u69 Развитие и перемена
+// Block 1's u69 cards гибель · крах · упадок · застой as the vocabulary of a
+// thing falling apart, and u69 is the earlier range. Replaced by `утрата`, the
+// bookish word for a loss nothing makes good — which is what l4 is about.
+// ⚠️ `потеря` was refused: `потерять` is taught at u31 and the noun is the verb
+// plus nothing (unit1.js §D). `ранение` likewise, against `рана` (u53l3).
+// ⚠️ THREE WORDS ARRIVED HERE from block 2 in the same dedupe — тревога · паника
+// (u77) and дым · спасать · жертва (u75) — so this unit now holds five cards it
+// did not author. Their ids are u97's; the u77/u75 copies were deleted.
 export const RU_UNIT97 = {
   id: "ru-u97",
   lang: "ru",
@@ -163,10 +175,10 @@ export const RU_UNIT97 = {
       title: "What it costs and what it takes",
       cefr: "B1",
       dominantMode: "recall",
-      canDo: "Talk about the cost and the courage — a victim, loss of life, drowning, a heroic deed, bravery — and call a person wary.",
+      canDo: "Talk about the cost and the courage — a victim, an irreplaceable loss, drowning, a heroic deed, bravery — and call a person wary.",
       items: [
         { id: "ru-u97l4-zhertva", type: "vocab", front: "жертва", reading: "zhertva", meaning: "a victim", accept: ["someone harmed by an event", "a casualty", "a person something was done to"], example: { jp: "Жертва этой аварии была в больнице.", en: "The victim of this crash was in hospital." }, drill: { jp: "Эта жертва была очень молодая", en: "That victim was very young" }, hint: "ZHERT-va — stress on the first syllable. FEMININE (-а), and ⚠️ used of men too, keeping its feminine grammar: он жертва, like сирота in unit 95. It also means a sacrifice — «принести жертву»." },
-        { id: "ru-u97l4-gibel", type: "vocab", front: "гибель", reading: "gibel", meaning: "loss of life", accept: ["death in a disaster", "being killed in an accident", "the destruction of people"], example: { jp: "Гибель этих людей была очень страшная.", en: "The loss of these lives was terrible." }, drill: { jp: "Эта гибель была очень страшная", en: "That loss of life was terrible" }, hint: "GI-bel — stress on the first syllable, and the ь keeps the л soft. FEMININE despite the -ь. A high, formal word: the news uses it where English says deaths. ⚠️ The verb is гибнуть, to perish." },
+        { id: "ru-u97l4-utrata", type: "vocab", front: "утрата", reading: "utrata", meaning: "an irreplaceable loss", accept: ["a grievous loss", "something that cannot be replaced", "a loss nothing makes good"], example: { jp: "Для города это была настоящая утрата, и о нём говорили ещё долго.", en: "For the city it was a real loss, and people talked about him for a long time afterwards." }, drill: { jp: "Для города это настоящая утрата", en: "For the city that is a real loss" }, hint: "u-TRA-ta — stress on TRA. FEMININE (-а). ⚠️ BOOKISH and heavy: of a death, or of a thing that cannot be replaced. The everyday потеря is deliberately not carded, because потерять is taught at unit 31 and the noun would be the verb plus nothing. ⚠️ гибель from unit 69 is the ruin itself; an утрата is what that ruin costs the people left." },
         { id: "ru-u97l4-tonut", type: "vocab", front: "тонуть", reading: "tonut", meaning: "to drown", accept: ["to go under the water and die", "to sink in water", "to be lost under the water"], example: { jp: "Здесь очень глубоко и легко тонуть.", en: "It is very deep here and easy to drown." }, drill: { jp: "Здесь очень легко тонуть", en: "It is very easy to drown here" }, hint: "ta-NUT — stress on the last syllable, and the о reduces to a. Its present is тону, тонешь. ⚠️ Used of things going under as well — лодка тонет — and figuratively: «тонуть в работе», to be drowning in work." },
         { id: "ru-u97l4-podvig", type: "vocab", front: "подвиг", reading: "podvig", meaning: "a heroic deed", accept: ["an act of great courage", "a feat", "something brave that somebody did"], example: { jp: "Это был настоящий подвиг.", en: "That was a real feat of courage." }, drill: { jp: "Это настоящий подвиг для нас", en: "This is a real feat of courage for us" }, hint: "POD-vig — stress on the first syllable, and the д is said as a t. MASCULINE. From двигать, to move, with под-: the thing that shifts everything forward. ⚠️ A big word, not used lightly — a подвиг is what gets a памятник, from unit 30." },
         { id: "ru-u97l4-khrabrost", type: "vocab", front: "храбрость", reading: "khrabrost", meaning: "bravery", accept: ["boldness in the face of danger", "the nerve to do something frightening", "dash and daring"], example: { jp: "Храбрость этого человека очень большая.", en: "This man's bravery is very great." }, drill: { jp: "Храбрость здесь очень нужна", en: "Bravery is very much needed here" }, hint: "KHRAB-rast — stress on the first syllable, opening with the scraping х, and the final о reduces to a. FEMININE despite the -ь, like every -ость noun. ⚠️ The DASHING kind of courage; `мужество` in lesson 3 is the enduring kind, and `смелый` from unit 56 is the adjective." },
