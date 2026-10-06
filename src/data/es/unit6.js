@@ -20,7 +20,7 @@ export const ES_UNIT6 = {
       title: "At the table",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name what is on the table — la comida, el pan, el queso, la carne, el pescado, el agua.",
+      canDo: "Name what is on the table — la comida, el pan, el queso, la carne, el pescado, el agua, el huevo — and the cuchillo you eat it with.",
       items: [
         { id: "es-u6l1-lacomida", type: "vocab", front: "la comida", reading: "lacomida", meaning: "food", example: { jp: "La comida de mi abuela es fantástica.", en: "My grandmother's food is fantastic." }, drill: { jp: "La comida de mi abuela es fantástica", en: "My grandmother's food is fantastic" }, accept: ["the food", "meal", "lunch"], hint: "Both \"food\" in general and, in Spain, the midday meal — the big one, eaten around two." },
         { id: "es-u6l1-elpan", type: "vocab", front: "el pan", reading: "elpan", meaning: "bread", example: { jp: "Hay pan en la mesa.", en: "There's bread on the table." }, drill: { jp: "El pan de mi abuela es fantástico", en: "My grandmother’s bread is fantastic" }, accept: ["the bread", "loaf"], hint: "One syllable, clean vowel: PAN. Nothing like the English \"pan\"." },
@@ -28,6 +28,8 @@ export const ES_UNIT6 = {
         { id: "es-u6l1-lacarne", type: "vocab", front: "la carne", reading: "lacarne", meaning: "meat", example: { jp: "No como carne.", en: "I don't eat meat." }, drill: { jp: "La carne es de España", en: "The meat is from Spain" }, accept: ["the meat", "beef", "flesh"], hint: "CAR-ne — you can hear it inside the English word \"carnivore\"." },
         { id: "es-u6l1-elpescado", type: "vocab", front: "el pescado", reading: "elpescado", meaning: "fish", example: { jp: "Hoy hay pescado.", en: "There's fish today." }, drill: { jp: "El pescado es fantástico", en: "The fish is fantastic" }, accept: ["the fish"], hint: "From pescar, to fish — so this is the fish on your plate. The one still swimming is el pez." },
         { id: "es-u6l1-elagua", type: "vocab", front: "el agua", reading: "elagua", meaning: "water", example: { jp: "Agua, por favor.", en: "Water, please." }, drill: { jp: "El agua es fantástica", en: "The water is fantastic" }, accept: ["the water"], hint: "Feminine, but it takes el — la agua would run two stressed a's together. It stays feminine in every other way." },
+        { id: "es-u6l1-elhuevo", type: "vocab", front: "el huevo", reading: "elhuevo", meaning: "egg", example: { jp: "Hay un huevo en la mesa.", en: "There's an egg on the table." }, drill: { jp: "El huevo es de España", en: "The egg is from Spain" }, accept: ["the egg", "eggs"], hint: "The h is silent — WE-vo — and Spanish writes it anyway, in el huevo and in los huevos. Huevos fritos, fried eggs, is the breakfast you will see most." },
+        { id: "es-u6l1-elcuchillo", type: "vocab", front: "el cuchillo", reading: "elcuchillo", meaning: "knife", example: { jp: "Hay un cuchillo en la mesa.", en: "There's a knife on the table." }, drill: { jp: "El cuchillo es de México", en: "The knife is from Mexico" }, accept: ["the knife", "knives"], hint: "The double ll is one sound, close to the y in \"yes\": ku-CHI-yo. Same ll you already met in la llave." },
       ],
     },
     // Lesson 2: fruit and vegetables
@@ -74,7 +76,7 @@ export const ES_UNIT6 = {
       title: "Ordering",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Order a meal and pay for it — quiero, me gusta, como, bebo, con — then ask for la cuenta.",
+      canDo: "Order a meal and pay for it — quiero, me gusta, como, bebo, con, el arroz — then ask for la sal and la cuenta.",
       items: [
         { id: "es-u6l4-quiero", type: "vocab", front: "quiero", reading: "quiero", meaning: "I want", example: { jp: "Quiero pescado y ensalada.", en: "I'd like fish and salad." }, drill: { jp: "Quiero pescado y ensalada", en: "I want fish and salad" }, accept: ["i'd like", "i would like", "i wish"], hint: "In a restaurant it lands as \"I'd like\", not as a demand. It also means \"I love\" — te quiero is what you say to family and partners." },
         { id: "es-u6l4-megusta", type: "vocab", front: "me gusta", reading: "megusta", meaning: "I like", example: { jp: "Me gusta el café con leche.", en: "I like coffee with milk." }, drill: { jp: "Me gusta el café con leche", en: "I like coffee with milk" }, accept: ["i enjoy", "it pleases me", "i like it"], hint: "Literally \"it pleases me\", so the thing you like is the subject: me gusta el vino. For more than one thing it becomes me gustan." },
@@ -82,6 +84,8 @@ export const ES_UNIT6 = {
         { id: "es-u6l4-bebo", type: "vocab", front: "bebo", reading: "bebo", meaning: "I drink", example: { jp: "Bebo agua.", en: "I drink water." }, drill: { jp: "Bebo agua y té", en: "I drink water and tea" }, accept: ["i am drinking", "i have (a drink)"], hint: "From beber. In much of Latin America tomar does this job instead: tomo agua." },
         { id: "es-u6l4-lacuenta", type: "vocab", front: "la cuenta", reading: "lacuenta", meaning: "the bill", example: { jp: "La cuenta, por favor.", en: "The bill, please." }, drill: { jp: "La cuenta por favor", en: "The bill please" }, accept: ["the check", "bill", "account"], hint: "You have to ask for it — in Spain it is considered rude to bring it before you do." },
         { id: "es-u6l4-con", type: "vocab", front: "con", reading: "con", meaning: "with", example: { jp: "Quiero un té con leche.", en: "I'd like a tea with milk." }, drill: { jp: "Quiero un té con leche", en: "I want a tea with milk" }, accept: ["along with", "together with"], hint: "Two irregular partners worth knowing early: conmigo (with me) and contigo (with you)." },
+        { id: "es-u6l4-elarroz", type: "vocab", front: "el arroz", reading: "elarroz", meaning: "rice", example: { jp: "Quiero arroz con pescado.", en: "I'd like rice with fish." }, drill: { jp: "Me gusta el arroz con pescado", en: "I like rice with fish" }, accept: ["the rice"], hint: "a-RROS, and that rr is the rolled one. In most of Spain the final z is a soft th: a-RROTH. Arroz con leche is rice pudding." },
+        { id: "es-u6l4-lasal", type: "vocab", front: "la sal", reading: "lasal", meaning: "salt", example: { jp: "La sal, por favor.", en: "Salt, please." }, drill: { jp: "No me gusta la sal", en: "I don't like salt" }, accept: ["the salt"], hint: "You already met it hiding inside la ensalada — the salted thing. Ask for it exactly the way you ask for la cuenta: la sal, por favor." },
       ],
     },
   ],
