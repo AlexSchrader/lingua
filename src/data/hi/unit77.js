@@ -43,12 +43,18 @@
 //
 // GENDER TRAPS THIS UNIT ADDS (§4), each named in its own hint:
 //   ⚠️ FEMININE: महामारी, खुजली, छींक, नाड़ी, खुराक, मालिश, रोकथाम, कसरत,
-//   कमज़ोरी. **छींक, खुराक, रोकथाम and कसरत are CONSONANT-FINAL**, so nothing in
-//   the shape says so — कसरत ज़रूरी है, not ज़रूरा — and those four are the ones a
-//   learner cannot predict.
-//   MASCULINE: लक्षण, संक्रमण, दमा, ऑपरेशन, कीटाणु, योग, परहेज़, संतुलन, नशा,
+//   दिनचर्या, कमज़ोरी. **छींक, खुराक, रोकथाम and कसरत are CONSONANT-FINAL**, so
+//   nothing in the shape says so — कसरत ज़रूरी है, not ज़रूरा — and those four are
+//   the ones a learner cannot predict. **दिनचर्या is FEMININE IN -आ against the
+//   ending rule** (§B6's मात्रा class), which is the fifth unpredictable one.
+//   MASCULINE: लक्षण, संक्रमण, दमा, ऑपरेशन, कीटाणु, योग, परहेज़, नशा,
 //   धूम्रपान, पोषण. **दमा and नशा look like -ा masculines and ARE**; **कीटाणु is
 //   masculine despite the -ु**, the साधु class of §4.
+//
+// ⚠️ ONE CARD LEFT THIS UNIT IN THE B1 CROSS-BLOCK DEDUPE (2026-10-06): संतुलन
+// → kept at u63 तुलना और मात्रा (block 1, earlier slot, and the unit that owns
+// quantity abstraction per unit61.js §B9). Still in scope for u77's sentences,
+// but no u77 sentence uses it. दिनचर्या replaced it.
 //   शराब is FEMININE — शराब बुरी है, not बुरा — and it is the one gender fact in
 //   the unit no rule predicts.
 //   ADJECTIVES: **तंदुरुस्त, मानसिक and शारीरिक are INVARIANT** (unit53's rule).
@@ -70,7 +76,7 @@
 // drill does not contain कमज़ोर.
 // RETROFLEX/DENTAL (§1b): no new collision. कीटाणु kiitaanu and तंदुरुस्त
 // tandurust carry RETROFLEX ट with no dental कीताणु / तंदुरुस्त-with-त in the
-// corpus; संतुलन santulan, धूम्रपान dhuumrapaan and परहेज़ parhez are DENTAL with
+// corpus; दिनचर्या dincharyaa, धूम्रपान dhuumrapaan and परहेज़ parhez are DENTAL with
 // no retroflex twin. The doubling hatch fires nowhere in this unit.
 // LOANWORD FREE-PASS CHECK (§9), measured with the real `checkProduce`:
 //   ऑपरेशन opareshan → glossed "a surgical operation", not "an operation".
@@ -124,14 +130,14 @@ export const HI_UNIT77 = {
       title: "Keeping the body fit",
       cefr: "B1",
       dominantMode: "produce",
-      canDo: "Talk about exercise, yoga, nourishment and a restricted diet — and say that someone is in good shape or out of balance.",
+      canDo: "Talk about exercise, yoga, nourishment, a restricted diet and a daily routine — and say that someone is in good physical shape.",
       items: [
         { id: "hi-u77l3-kasrat", type: "vocab", front: "कसरत", reading: "kasrat", meaning: "physical exercise", accept: ["working the body on purpose", "a workout"], example: { jp: "वह हर सुबह आधे घंटे कसरत करता है।", en: "He exercises for half an hour every morning." }, drill: { jp: "वह हर सुबह कसरत करता है", en: "He exercises every morning" }, hint: "KAS-RAT — ⚠️ FEMININE and CONSONANT-FINAL: कसरत ज़रूरी है. DENTAL त. Its verb is करना. Not खेल (unit 41), a game: कसरत has no opponent and no score." },
         { id: "hi-u77l3-yog", type: "vocab", front: "योग", reading: "yog", meaning: "yoga as a practice", accept: ["the discipline of yoga", "yogic exercise and breathing"], example: { jp: "योग करने से मन शांत रहता है।", en: "Doing yoga keeps the mind calm." }, drill: { jp: "योग करने से मन शांत रहता है", en: "Doing yoga keeps the mind calm" }, hint: "YOG, masculine, consonant-final. ⚠️ Glossed 'yoga as a practice' and not 'yoga': the reading is yog and §9 forbids a gloss a learner can read straight off the prompt. The word also means 'a joining' and 'addition' in Hindi, which is where the practice gets its name." },
         { id: "hi-u77l3-poshan", type: "vocab", front: "पोषण", reading: "poshan", meaning: "nourishment", accept: ["what food gives the body", "being fed well enough"], example: { jp: "बच्चों के पोषण के लिए दूध ज़रूरी है।", en: "Milk is essential for children's nourishment." }, drill: { jp: "बच्चों के पोषण के लिए दूध ज़रूरी है", en: "Milk is essential for children's nourishment" }, hint: "PO-SHAN, masculine. ष is the second sh (§1a) and ण the retroflex n — both merge in the reading, and the hint is where the letters are taught. Not खाना, food (unit 13): पोषण is what the food DOES once it is eaten." },
         { id: "hi-u77l3-parhez", type: "vocab", front: "परहेज़", reading: "parhez", meaning: "keeping off something on purpose", accept: ["avoiding a food or a habit", "a restriction one keeps to"], example: { jp: "डॉक्टर ने मीठे से परहेज़ करने को कहा।", en: "The doctor said to keep off sweet things." }, drill: { jp: "डॉक्टर ने मीठे से परहेज़ करने को कहा", en: "The doctor said to avoid sweet things" }, hint: "PAR-HEZ, masculine, consonant-final, ending in ज़ — a z (unit 4). Its frame is X से परहेज़ करना, 'to keep off X'. ⚠️ Not मना, not allowed (unit 32): मना is somebody else's rule, परहेज़ is a discipline you hold yourself to." },
         { id: "hi-u77l3-tandurust", type: "vocab", front: "तंदुरुस्त", reading: "tandurust", meaning: "in good physical shape", accept: ["fit and well", "sound in body"], example: { jp: "सत्तर साल में भी वह तंदुरुस्त है।", en: "Even at seventy he is in good shape." }, drill: { jp: "सत्तर साल में भी वह तंदुरुस्त है", en: "Even at seventy he is in good shape" }, hint: "TAN-DU-RUST — ⚠️ INVARIANT (unit 53's rule): तंदुरुस्त आदमी, तंदुरुस्त औरत. DENTAL त at the front, RETROFLEX nothing — the ुस्त is स and DENTAL त stacked. ⚠️ Glossed 'in good physical shape' because सेहत (unit 20) ACCEPTS 'fitness'." },
-        { id: "hi-u77l3-santulan", type: "vocab", front: "संतुलन", reading: "santulan", meaning: "balance", accept: ["an even state between two things", "keeping two things level"], example: { jp: "काम और आराम के बीच संतुलन ज़रूरी है।", en: "A balance between work and rest is essential." }, drill: { jp: "काम और आराम के बीच संतुलन ज़रूरी है", en: "A balance between work and rest is essential" }, hint: "SAN-TU-LAN, masculine, consonant-final. Its ं sits before DENTAL त, a stop, so §1's homorganic rule still gives n. From तुलना, a comparison (unit 32) — the same root as the scales: a संतुलन is two pans hanging level." },
+        { id: "hi-u77l3-dincharyaa", type: "vocab", front: "दिनचर्या", reading: "dincharyaa", meaning: "a daily routine", accept: ["the way one's day is ordered", "the round of a day's habits"], example: { jp: "सुबह जल्दी उठना अच्छी दिनचर्या का हिस्सा है।", en: "Getting up early in the morning is part of a good daily routine." }, drill: { jp: "जल्दी उठना अच्छी दिनचर्या है", en: "Getting up early is a good daily routine" }, hint: "DIN-CHAR-YAA — ⚠️ FEMININE despite the -ा, the मात्रा class of §B6: दिनचर्या पक्की है, not पक्का. दिन, a day (unit 3), plus चर्या (a way of going about), which this course does not card. The र्य is र with a halant drawn as the hook over the य." },
       ],
     },
     {
