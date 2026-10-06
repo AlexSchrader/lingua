@@ -21,7 +21,7 @@
 // the `canDo`. One lesson per job:
 //     l1  -я on a MANNER verb      «дрожа от холода» — how it was done
 //     l2  -я for SIMULTANEITY       «зевая, он смотрел на часы» — at the same time
-//     l3  -в for a FINISHED action  «украв деньги, он уехал» — having done it
+//     l3  -в for a FINISHED action  «ограбив банк, он исчез» — having done it
 //     l4  the -ся PASSIVE           «земля пашется трактором» — on land verbs,
 //                                   where Russian actually uses it
 // ⚠️ MEASURED LIMIT ON THE EXAMPLES, recorded so the next seat does not read a
