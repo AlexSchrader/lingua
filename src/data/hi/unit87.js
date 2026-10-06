@@ -38,7 +38,16 @@
 //   unit no rule predicts. ⚠️ **दूरबीन is CONSONANT-FINAL feminine**, so nothing
 //   in the shape says so: दूरबीन छोटी है, not छोटा.
 //   MASCULINE: रसायन, जीव, अणु, परमाणु, प्रयोग, वैज्ञानिक, नमूना, सूत्र, शोध,
-//   सिद्धांत, आँकड़े, विश्लेषण, निष्कर्ष, गुरुत्व, खगोल, ब्रह्मांड, ग्रह.
+//   सिद्धांत, आँकड़े, विश्लेषण, तथ्य, गुरुत्व, खगोल, ब्रह्मांड, ग्रह.
+//
+// ⚠️ ONE CARD LEFT THIS UNIT IN THE B1 CROSS-BLOCK DEDUPE (2026-10-06): निष्कर्ष
+// → kept at u61 राय और सहमति, block 1's earlier slot, where unit61.js §B4 records
+// it being re-glossed off "a conclusion" because अंत (u5) already owns that
+// string. Still in scope for u87's sentences, and no u87 sentence uses it.
+// तथ्य replaced it. ⚠️ **AND THIS UNIT IS WHERE ऊर्जा AND जीव NOW LIVE ALONE** —
+// u75 पर्यावरण और जलवायु carded both and gave them up to this slot, because §B9
+// allocated विज्ञान और शोध centrally. Neither word may appear in a sentence before
+// u87 any more, which is the direction a seat forgets to check.
 //   ⚠️ **नमूना ENDS IN -ना AND IS A NOUN**, not a verb — the खिलौना (u41) and
 //   कारखाना (u60) class. परखना is the unit's only VERB, headworded -ना per §5.
 //   ⚠️ **आँकड़े IS CARDED IN THE PLURAL** on purpose: data comes in sets and the
@@ -118,14 +127,14 @@ export const HI_UNIT87 = {
       title: "From a guess to a conclusion",
       cefr: "B1",
       dominantMode: "produce",
-      canDo: "Walk through how research actually runs — make a hypothesis, test it, let the data decide the theory, do the analysis and reach a conclusion.",
+      canDo: "Walk through how research actually runs — make a hypothesis, test it, let the data decide the theory, do the analysis and separate a fact from an opinion.",
       items: [
         { id: "hi-u87l3-shodh", type: "vocab", front: "शोध", reading: "shodh", meaning: "academic research", accept: ["research", "scholarly research"], example: { jp: "वह तीन साल से इस सवाल पर शोध कर रहा है।", en: "He has been doing research on this question for three years." }, drill: { jp: "वह इस सवाल पर शोध कर रहा है", en: "He is doing research on this question" }, hint: "SHODH, masculine, DENTAL ध with a puff of air. ⚠️ READ IT AGAINST शोक shok, mourning (unit 59) — the same two letters to start and only ध against क between them. The frame is शोध करना. 🚨 It is the first half of शोधकर्ता, a researcher (unit 96), and of शोधग्रंथ, a thesis (unit 97)." },
         { id: "hi-u87l3-parikalpanaa", type: "vocab", front: "परिकल्पना", reading: "parikalpanaa", meaning: "a hypothesis", accept: ["a working assumption"], example: { jp: "पहले एक परिकल्पना बनाओ, फिर उसे प्रयोग से परखो।", en: "First make a hypothesis, then test it with an experiment." }, drill: { jp: "पहले एक परिकल्पना बनाओ", en: "First make a hypothesis" }, hint: "PA-RI-KAL-PA-NAA — ⚠️ FEMININE. 🚨 कल्पना, imagination (unit 57), SITS INSIDE IT and that is the hook, not a trap to hide: a परिकल्पना is an imagining you have agreed to test. The ि before it is a mātrā, not a letter, so the router really can match कल्पना there — so neither word's drill contains the other." },
         { id: "hi-u87l3-siddhaant", type: "vocab", front: "सिद्धांत", reading: "siddhaant", meaning: "a scientific theory", accept: ["a theory", "a principle"], example: { jp: "एक सिद्धांत ठीक है या नहीं, यह आँकड़े बताते हैं।", en: "Whether a theory is right or not — the data tells you that." }, drill: { jp: "यह सिद्धांत अब पुराना हो गया है", en: "This theory has now become old" }, hint: "SID-DHAANT, masculine. GEMINATION in द्ध: you HEAR both d's and only the second carries the puff — sid-dhaant, the doubling rule of unit 1. ⚠️ BIGGER THAN A नियम (unit 32): a नियम is a rule you follow, a सिद्धांत is an explanation that many प्रयोग have survived." },
         { id: "hi-u87l3-aankre", type: "vocab", front: "आँकड़े", reading: "aankre", meaning: "statistical data", accept: ["data", "figures"], example: { jp: "दस साल के आँकड़े देखने पर एक साफ़ बात दिखती है।", en: "On looking at ten years of data, one clear thing shows up." }, drill: { jp: "दस साल के आँकड़े यहाँ हैं", en: "Ten years of data are here" }, hint: "AAN-KRE, masculine and ⚠️ **CARDED IN THE PLURAL ON PURPOSE** — data comes in sets, and one single figure is an आँकड़ा. Same licence as पतलून and चश्मा (unit 40). It opens with the independent आ, the ँ nasalises it (unit 5), and ड़ is the curled-back flap written r (unit 4)." },
         { id: "hi-u87l3-vishleshan", type: "vocab", front: "विश्लेषण", reading: "vishleshan", meaning: "an analysis", accept: ["analysis", "a breakdown of the parts"], example: { jp: "इस काम में सबसे मुश्किल हिस्सा विश्लेषण है।", en: "In this work the most difficult part is the analysis." }, drill: { jp: "यह विश्लेषण बहुत मुश्किल है", en: "This analysis is very difficult" }, hint: "VISH-LE-SHAN, masculine. ⚠️ IT HAS BOTH sh LETTERS, ONE EACH: श in श्ले and ष in षण. Modern Hindi says both as [ʃ] so the reading writes both sh (§1a) — the spelling is the only difference. Breaking a thing into its parts to see how it works, where a जाँच (unit 35) only asks whether it is all right." },
-        { id: "hi-u87l3-nishkarsh", type: "vocab", front: "निष्कर्ष", reading: "nishkarsh", meaning: "a conclusion drawn", accept: ["a conclusion", "an inference"], example: { jp: "सब कुछ देखने के बाद वैज्ञानिक एक ही निष्कर्ष पर पहुँचे।", en: "After looking at everything, the scientists arrived at a single conclusion." }, drill: { jp: "वैज्ञानिक एक ही निष्कर्ष पर पहुँचे", en: "The scientists arrived at a single conclusion" }, hint: "NISH-KARSH, masculine, and both sh letters again — ष in ष्क, श at the end. ⚠️ NOT A नतीजा (unit 32): a नतीजा is what HAPPENED, a निष्कर्ष is what you decide it MEANS, so one प्रयोग gives both. The frame is निष्कर्ष पर पहुँचना, to arrive at a conclusion — never निष्कर्ष करना." },
+        { id: "hi-u87l3-tathya", type: "vocab", front: "तथ्य", reading: "tathya", meaning: "a fact established by evidence", accept: ["a thing shown to be so", "what the evidence actually says"], example: { jp: "राय बदल सकती है पर तथ्य नहीं बदलता।", en: "An opinion can change but a fact does not." }, drill: { jp: "राय बदलती है पर तथ्य नहीं बदलता", en: "An opinion changes but a fact does not" }, hint: "TATH-YA, masculine, consonant-final: दो तथ्य. The थ्य is a DENTAL थ with य stacked under it, said in one breath. ⚠️ Not सच (unit 2), which is 'true' and accepts 'the truth': a सच is what IS so, a तथ्य is what has been SHOWN to be so, which is why it belongs in a research lesson and not in one about honesty. ⚠️ And not आँकड़े two cards back: आँकड़े are the numbers, a तथ्य is the one statement they establish." },
       ],
     },
     {
