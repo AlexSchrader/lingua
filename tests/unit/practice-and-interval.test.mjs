@@ -131,3 +131,69 @@ test("an empty deck produces an empty queue rather than throwing", () => {
   assert.deepEqual(buildPracticeQueue({ items: {}, lang: "fr" }), []);
   assert.deepEqual(buildPracticeQueue({ items: null, lang: "fr" }), []);
 });
+
+// --- the sweep: keep the WHOLE working set warm ------------------------------
+//
+// Alex, 2026-10-06: "i mean reviews on all current words and stuff keep the mind
+// fresh." Practice served the 12 weakest items every time, so three runs in a day
+// re-served roughly the same 36 words. Depth with no breadth: a word that was
+// neither weakest nor FSRS-due could sit untouched for weeks while still feeling
+// like current material to the learner.
+
+const withSeen = (id, pct, lastSeen) => item(id, { pct, lastSeen });
+
+test("THE SWEEP: practice reaches past the weakest corner", () => {
+  // 40 current words. The 3 weakest are deliberately also the most recently seen,
+  // so a weakest-only selector would serve them and nothing else.
+  const items = {};
+  for (let i = 0; i < 40; i++) {
+    const weakest = i < 3;
+    items[`w${i}`] = withSeen(`w${i}`, weakest ? 0 : 0.5, weakest ? "2026-10-06" : `2026-01-${String((i % 28) + 1).padStart(2, "0")}`);
+  }
+  const q = buildPracticeQueue({ items, lang: "fr" });
+  const ids = q.map((it) => it.id);
+  const weakIds = ["w0", "w1", "w2"];
+  assert.ok(weakIds.every((w) => ids.includes(w)), "the gaps must still be served");
+  const swept = ids.filter((id) => !weakIds.includes(id));
+  assert.ok(swept.length >= 6, `expected a real sweep, got ${swept.length} non-gap items`);
+});
+
+test("the sweep takes the LONGEST-UNSEEN first, so coverage is a guarantee", () => {
+  const items = {};
+  for (let i = 0; i < 30; i++) items[`recent${i}`] = withSeen(`recent${i}`, 0.5, "2026-10-05");
+  items.ancient = withSeen("ancient", 0.5, "2020-01-01");
+  items.old = withSeen("old", 0.5, "2024-01-01");
+  const ids = buildPracticeQueue({ items, lang: "fr" }).map((it) => it.id);
+  assert.ok(ids.includes("ancient"), "the word you have gone longest without must be swept in");
+  assert.ok(ids.includes("old"));
+});
+
+test("three runs a day cover distinct words, not the same twelve repeated", () => {
+  // The actual complaint, simulated: run practice, mark what it served as just-seen,
+  // run again. A weakest-only selector returns the same list every time.
+  const items = {};
+  for (let i = 0; i < 60; i++) items[`w${i}`] = withSeen(`w${i}`, 0.5, "2026-01-01");
+  const seen = new Set();
+  let stamp = Date.parse("2026-10-06T00:00:00Z");
+  for (let run = 0; run < 3; run++) {
+    const q = buildPracticeQueue({ items, lang: "fr" });
+    for (const it of q) {
+      seen.add(it.id);
+      // Real timestamps. A first draft built these by string concatenation and
+      // rolled past hour 09 into "T010:00:00Z", which Date rejects — lastSeen then
+      // scores NaN, falls back to 0, and those words sort as never-seen and get
+      // re-served forever. The run output was identical three times and looked
+      // exactly like the bug under test.
+      items[it.id] = { ...items[it.id], srs: { ...items[it.id].srs, last_review: new Date((stamp += 60_000)).toISOString() } };
+    }
+  }
+  assert.ok(seen.size >= 30, `three runs should cover ~36 distinct words, covered ${seen.size}`);
+});
+
+test("gap slots are still reserved — breadth did not evict depth", () => {
+  const items = {};
+  items.worst = withSeen("worst", 0, "2026-10-06");
+  for (let i = 0; i < 40; i++) items[`w${i}`] = withSeen(`w${i}`, 0.9, "2020-01-01");
+  const ids = buildPracticeQueue({ items, lang: "fr" }).map((it) => it.id);
+  assert.ok(ids.includes("worst"), "the weakest word must survive even when everything else is older");
+});

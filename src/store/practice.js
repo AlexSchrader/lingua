@@ -25,6 +25,29 @@ export const PRACTICE_SIZE = 12;
 // closing the widest gaps.
 export const REFRESH_SLOTS = 3;
 
+// How many slots close the WIDEST GAPS — the weakest things you know.
+//
+// This used to be the whole session. Practice took the 12 items furthest from
+// mastery, every time, so running it three times in a day served roughly the same
+// 36 words three times over. That is depth with no breadth, and Alex named the
+// miss directly (2026-10-06): "i mean reviews on all current words and stuff keep
+// the mind fresh". Nothing in the app swept across everything a learner was
+// actively working on; a word that was neither weakest nor FSRS-due could sit
+// untouched for weeks while feeling, to the learner, like current material.
+export const GAP_SLOTS = 3;
+
+// Everything left over SWEEPS — least-recently-seen first, across everything you
+// have started and not yet finished. This is the half that keeps the whole working
+// set warm rather than grinding the same weak corner.
+//
+// Why least-recently-seen and not random: random revisits some words twice before
+// touching others at all, so the worst-case gap between meetings is unbounded.
+// Rotation makes coverage a guarantee — with 3 runs a day the entire active set is
+// swept in (set size / sweep slots / 3) days, and nothing can hide.
+//
+// Practice grading runs through FSRS, which stamps last_review, so a swept word
+// goes to the back of the queue on its own. No separate bookkeeping.
+
 // Longest-unseen first. A card that has never been reviewed sorts oldest, which is
 // right: it is the one the learner has gone longest without meeting.
 function lastSeen(item) {
@@ -60,7 +83,7 @@ function interleave(gaps, refreshers) {
 // language is eligible - practice is not filtered by SRS due-ness, which is the
 // whole point of it existing: it is the only way to get passes the schedule will
 // not offer for months.
-export function buildPracticeQueue({ items, lang, size = PRACTICE_SIZE, refreshSlots = REFRESH_SLOTS }) {
+export function buildPracticeQueue({ items, lang, size = PRACTICE_SIZE, refreshSlots = REFRESH_SLOTS, gapSlots = GAP_SLOTS }) {
   const started = Object.values(items ?? {}).filter(
     (it) => it && it.lang === lang && isReviewable(it)
   );
@@ -74,11 +97,21 @@ export function buildPracticeQueue({ items, lang, size = PRACTICE_SIZE, refreshS
   const mastered = started.filter(isMastered).sort((a, b) => lastSeen(a) - lastSeen(b));
 
   const refreshers = mastered.slice(0, Math.max(0, Math.min(refreshSlots, size)));
-  const gaps = unmastered.slice(0, Math.max(0, size - refreshers.length));
+  const gaps = unmastered.slice(0, Math.max(0, Math.min(gapSlots, size - refreshers.length)));
+
+  // The sweep: everything else you are working on, least-recently-seen first, with
+  // the gap picks removed so one word cannot take two slots.
+  const taken = new Set(gaps.map((it) => it.id));
+  const sweep = unmastered
+    .filter((it) => !taken.has(it.id))
+    .sort((a, b) => lastSeen(a) - lastSeen(b))
+    .slice(0, Math.max(0, size - refreshers.length - gaps.length));
 
   // A learner with nothing left unmastered gets a full run of refreshers rather
   // than a three-card session - the reserved slice is a floor, not a ceiling.
-  const queue = interleave(gaps, refreshers);
+  // Gaps first, then the sweep — hardest while attention is freshest — with the
+  // known words spread through so the run is not a wall followed by a victory lap.
+  const queue = interleave([...gaps, ...sweep], refreshers);
   if (queue.length < size) {
     const seen = new Set(queue.map((it) => it.id));
     for (const it of mastered) {
