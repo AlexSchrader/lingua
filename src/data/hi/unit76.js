@@ -22,7 +22,7 @@
 //     an economy unit without "the rate of inflation" is thinner than it should
 //     be — and did not take it. `check-front.mjs` reports दर FREE; it is left
 //     free on purpose. The gap is named, not filled.
-//   • u85 अनुबंध और मोलभाव (this block) owns the DEAL: थोक, फुटकर, रकम, भुगतान,
+//   • u85 इकरारनामा और मोलभाव (this block) owns the DEAL: थोक, फुटकर, रकम, भुगतान,
 //     छूट, मोलभाव. This unit stays macro, that one stays at the counter.
 //
 // ⚠️ TWO FRONTS WANTED AND REFUSED, and both refusals are worth copying:

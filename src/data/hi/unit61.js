@@ -129,7 +129,11 @@
 //     units, so the overlap risk sits inside one seat instead of crossing a block
 //     line. A seat can see its own duplicate; it cannot see a sibling's.
 //       u84 शरीर के अंदर और बाहर  0/20  ← next to its own u77 health
-//       u85 अनुबंध और मोलभाव       3/16  ← next to its own u76 money
+//       u85 इकरारनामा और मोलभाव  3/16  ← next to its own u76 money
+//           *(allocated as अनुबंध और मोलभाव; retitled 2026-10-06 when the B1 dedupe
+//           sent the front अनुबंध to u93, which §B9 allocates the documents field.
+//           Same theme, and इकरारनामा is carded in u85l1, so the title now names a
+//           word the unit itself teaches — as every other B1 title does.)*
 //       u86 शहर की सुविधाएँ        3/16  ← next to its own u75 environment
 //     u84 IS THE LARGEST HOLE IN THE LANGUAGE: कंधा घुटना कोहनी उँगली त्वचा गला
 //     छाती पीठ कमर जीभ होंठ ठुड्डी गाल भौंह नाखून एड़ी कलाई हथेली जाँघ फेफड़ा —
