@@ -211,8 +211,28 @@ const remember = (w, unit) => {
 // a noun that happens to end in -ना, so the fix belongs here rather than in a
 // lexical exception list. This TIGHTENS the check; measured on the merged corpus,
 // the band count and the A1 count are both unchanged by it. (A2 block 1)
+// ONLY SINGLE-WORD FRONTS GOVERN A WORD. A PIECE OF A FIXED EXPRESSION DOES NOT.
+//
+// This used to split EVERY front on whitespace and treat each piece as if that
+// piece were its own card. So a multi-word idiom silently claimed each of its
+// words, and the rule below ("its own card governs it") then deleted that word's
+// derivation from wherever it legitimately came from:
+//
+//   जैसा "similar to" is u23l3, and derive() correctly produces जैसे from the -ा
+//   adjective paradigm. But block 2 carded the fixed expression जैसे ही "the
+//   moment that" at u79l3, whose pieces are जैसे and ही — so जैसे was treated as
+//   governed by a card at u79, and three of block 1's u64/u68 sentences using
+//   एक जैसे were reported out of scope. Visible only on the merged tree: on
+//   block 1's own branch u79 was a stub and the count was 0.
+//
+// A multi-word front is still registered whole (remember() below does that), which
+// is correct — it just no longer lets its parts outrank a real paradigm. Same
+// failure as the bare-stem case fixed earlier: the rule was right, its idea of
+// "has its own card" was too broad.
 const explicitFronts = new Set(
-  items.filter((it) => typeof it.front === "string").flatMap((it) => it.front.split(/\s+/).filter(Boolean))
+  items
+    .filter((it) => typeof it.front === "string" && !/\s/.test(it.front.trim()))
+    .map((it) => it.front.trim())
 );
 for (const it of items) {
   if (typeof it.front !== "string") continue;
