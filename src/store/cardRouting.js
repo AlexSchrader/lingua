@@ -79,7 +79,26 @@ export function shouldTypeProduce(item) {
   // `speak` and nothing else — a mic prompt for a character the learner has never
   // heard, which is produce-before-perceive.
   if (item?.type === "glyph") return true;
-  return item?.type === "vocab" && hash01(item.id) < PRODUCE_SHARE;
+  if (item?.type !== "vocab") return false;
+  // THE FLOOR FOR AN UNVOICED ITEM. The produce/dictation split exists to vary a
+  // deck: below PRODUCE_SHARE you type the word, at or above it you type what you
+  // heard. But shouldListenType also requires a CLIP, so for an item with no audio
+  // the upper band has no alternative branch — it is audio-only, and the item falls
+  // out of every hash-gated kind at once.
+  //
+  // Measured on 13 newly authored cards in six otherwise fully-voiced languages:
+  // three Spanish and one Japanese card routed to ZERO card kinds and one to one,
+  // because their hash landed in [0.5, 0.75) and they had no clip yet. The learner
+  // would be served nothing at all for them. `tests/unit/card-variety.test.mjs`
+  // caught it and names this fix as the safer of its two options, because it cannot
+  // shift the global mix: an item WITH audio is unaffected, so on a fully-voiced
+  // corpus this line changes nothing. Verified byte-identical kind counts for every
+  // voiced item before and after.
+  //
+  // This is a floor, not a widening — it fires only where the alternative is an
+  // item with no card at all.
+  if (!hasAudio(item)) return true;
+  return hash01(item.id) < PRODUCE_SHARE;
 }
 
 // Japanese → rōmaji: at rung 2, sometimes type the reading instead of the meaning.
