@@ -47,32 +47,51 @@
 //   जनाब       "sir, said to a stranger"             — जी (u7) accepts "sir".
 //   अभिवादन     "a formal greeting"                    — नमस्ते (u7) accepts
 //              "greetings".
-//   विदाई       "a send-off"                           — अलविदा (u7) accepts
-//              "farewell".
+//   प्रणाम       "a reverent greeting made to an elder" — नमस्ते (u7) accepts
+//              "greetings", and अभिवादन in the same lesson is the abstract act.
 //   आशीर्वाद     "a blessing given by an elder"         — दुआ (u30) IS "a blessing".
-//   संकोच       "diffidence"                           — झिझक (u52) is
-//              "hesitation" and accepts "holding back".
 //   खुशामद      "flattery"                             — तारीफ़ (u30) is "praise"
 //              and accepts "a compliment".
 //
+// ⚠️ TWO CARDS LEFT THIS UNIT IN THE B1 CROSS-BLOCK DEDUPE (2026-10-06):
+//   संकोच → kept at u67 मन के बारीक रंग (block 1, earlier slot — and §B9(2)
+//           re-probed that slot at 3/18 and KEPT it, so the fine-shade emotions
+//           are u67's by allocation). Still in scope here; no u82 sentence uses it.
+//   विदाई  → kept at u92 विदेश और प्रवास (block 3, centrally-allocated theme).
+//           **Taught AFTER this unit, so it may not appear in a u82 sentence.**
+//   प्रणाम (l2) and परवाह (l3) replaced them. ⚠️ **लिहाज़ was the obvious word for
+//   the l3 slot and is still REFUSED on this file's own near-pair rule above** —
+//   लिहाज़ा (u79l3) contains it. परवाह carries the same idea with no string clash,
+//   and it is the base of लापरवाह, careless (u53), which the learner already has:
+//   base plus prefixed derivative, both carded, in different units — the
+//   बेअदबी/अदब and बेरोज़गारी/रोज़गार (u76) precedent, and NOT a lexeme duplicate,
+//   because an adjective and the noun it is built on are two lexemes.
+//
 // GENDER TRAPS THIS UNIT ADDS (§4), each named in its own hint:
-//   ⚠️ FEMININE: इज़्ज़त, विदाई, मेहरबानी, विनती, ज़हमत, तकलीफ़, बेअदबी, खुशामद.
+//   ⚠️ FEMININE: इज़्ज़त, मेहरबानी, विनती, ज़हमत, तकलीफ़, परवाह, बेअदबी, खुशामद.
+//   **परवाह is CONSONANT-FINAL**, so nothing in the shape says so — परवाह हुई.
 //   **इज़्ज़त, ज़हमत and तकलीफ़ are CONSONANT-FINAL**, so nothing in the shape says
 //   so — इज़्ज़त बड़ी है, not बड़ा — and those three are the ones a learner cannot
 //   predict. **खुशामद is feminine and consonant-final too.**
-//   MASCULINE: आदर, अदब, शिष्टाचार, सलीका, आशीर्वाद, साहब, जनाब, अभिवादन, न्योता,
-//   आग्रह, संकोच, घमंड, बड़प्पन, बरताव. **रवैया is MASCULINE despite the -या** —
+//   MASCULINE: आदर, अदब, शिष्टाचार, सलीका, आशीर्वाद, साहब, जनाब, अभिवादन, प्रणाम,
+//   न्योता, आग्रह, घमंड, बड़प्पन, बरताव. **रवैया is MASCULINE despite the -या** —
 //   रवैया बदला, not बदली — the नज़रिया class (unit 57l2), and it is the one gender
 //   fact in this unit no rule predicts.
 //   ADJECTIVE: **विनम्र is INVARIANT** (unit53's rule): विनम्र आदमी, विनम्र औरत.
 //
-// 🚨 ONE SUBSTRING TRAP INSIDE THIS UNIT, and the two cards are deliberately in
-// different lessons: **बेअदबी (l4) ⊃ अदब (l1)** — े and ी are both \p{M}, so
-// `findWholeWord` is not blocked. Neither card's sentence contains the other word.
-// Also checked and NOT firing: बड़प्पन does NOT contain बड़ा (u4), because the base
+// 🚨 TWO SUBSTRING TRAPS, and in both of them the cards are deliberately apart:
+// **बेअदबी (l4) ⊃ अदब (l1)** — े and ी are both \p{M}, so `findWholeWord` is not
+// blocked. Neither card's sentence contains the other word.
+// **लापरवाह (u53) ⊃ परवाह (l3)** — the ा before it is \p{M} too, so the same hole.
+// Different UNITS, so the two never share a lesson, and neither sentence uses the
+// other word. ⚠️ Note the direction: here the LATER card is the shorter one, which
+// is the opposite of बेअदबी/अदब and of बेरोज़गारी/रोज़गार (u76).
+// Also checked and NOT firing: परवाह does NOT expose पर (u5), because the व after
+// it is a LETTER; and बड़प्पन does NOT contain बड़ा (u4), because the base
 // is ब+ड़+ा and this word is ब+ड़+प — the ा is absent, so the string breaks.
 // RETROFLEX/DENTAL (§1b): no new collision. शिष्टाचार shishtaachaar carries the
-// RETROFLEX ष्ट with no dental शिस्ताचार in the corpus; अभिवादन abhivaadan,
+// RETROFLEX ष्ट with no dental शिस्ताचार in the corpus; प्रणाम pranaam ends in the
+// RETROFLEX ण, which merges to n; अभिवादन abhivaadan,
 // आदर aadar and बरताव bartaav are DENTAL with no retroflex twin. The doubling
 // hatch fires nowhere. GEMINATION: इज़्ज़त izzat and बड़प्पन barappan double, as the
 // spelling requires; ड़ reads **r** (§1c), so barappan and not badappan.
@@ -109,13 +128,13 @@ export const HI_UNIT82 = {
       title: "Addressing a person, and seeing them off",
       cefr: "B1",
       dominantMode: "produce",
-      canDo: "Address a man with respect, greet somebody formally, give an invitation, see a person off, and thank them for a kindness.",
+      canDo: "Address a man with respect, greet somebody formally, greet an elder with a bow, give an invitation, and thank them for a kindness.",
       items: [
         { id: "hi-u82l2-saahab", type: "vocab", front: "साहब", reading: "saahab", meaning: "a term of respect used after a man's name", accept: ["the way one addresses a superior", "a form of address for an officer"], example: { jp: "शर्मा साहब अभी दफ़्तर में नहीं हैं।", en: "Mr Sharma is not in the office at the moment." }, drill: { jp: "साहब अभी दफ़्तर में नहीं हैं", en: "The gentleman is not in the office at the moment" }, hint: "SAA-HAB, masculine, consonant-final. ⚠️ It goes AFTER the name — शर्मा साहब — exactly where जी goes (unit 7), and the difference is that साहब is used of an officer, a boss or a stranger of standing, while जी attaches to anybody. A woman is addressed with जी, never साहब." },
         { id: "hi-u82l2-janaab", type: "vocab", front: "जनाब", reading: "janaab", meaning: "sir, said to a stranger", accept: ["the polite word for a man you do not know", "a respectful address to a man"], example: { jp: "जनाब आपका नाम क्या है।", en: "Sir, what is your name?" }, drill: { jp: "जनाब आपका नाम क्या है", en: "Sir, what is your name?" }, hint: "JA-NAAB, masculine. ⚠️ Glossed with 'to a stranger' because जी (unit 7) already accepts 'sir'. जनाब stands ALONE at the head of a sentence, where साहब cannot: जनाब, सुनिए. ⚠️ Said drily it becomes sarcastic, which is worth knowing before you use it." },
         { id: "hi-u82l2-abhivaadan", type: "vocab", front: "अभिवादन", reading: "abhivaadan", meaning: "a formal greeting", accept: ["a salutation made properly", "the act of greeting with respect"], example: { jp: "उसने हाथ जोड़कर अभिवादन किया।", en: "He made a formal greeting with joined hands." }, drill: { jp: "उसने हाथ जोड़कर अभिवादन किया", en: "He greeted them with joined hands" }, hint: "A-BHI-VAA-DAN, masculine, DENTAL द, भ with a puff of air. ⚠️ Glossed 'a formal greeting' because नमस्ते (unit 7) accepts 'greetings'. नमस्ते is what you SAY; अभिवादन is the act, and जोड़कर हाथ — joined hands — is how it is done." },
         { id: "hi-u82l2-nyotaa", type: "vocab", front: "न्योता", reading: "nyotaa", meaning: "an invitation", accept: ["being asked to come", "a bidding to an occasion"], example: { jp: "शादी का न्योता पूरे गाँव को गया।", en: "The wedding invitation went to the whole village." }, drill: { jp: "शादी का न्योता पूरे गाँव को गया", en: "The wedding invitation went to the whole village" }, hint: "NYO-TAA, masculine, regular -ा, RETROFLEX ट. It opens with the न्य conjunct — न and य stacked, said in one breath. ⚠️ The verb is देना or भेजना: न्योता देना. आमंत्रण is the formal twin and this course does not card it." },
-        { id: "hi-u82l2-vidaaii", type: "vocab", front: "विदाई", reading: "vidaaii", meaning: "a send-off", accept: ["the seeing-off of somebody leaving", "the ceremony of parting"], example: { jp: "बेटी की विदाई पर सब रो रहे थे।", en: "Everyone was crying at the daughter's send-off." }, drill: { jp: "बेटी की विदाई पर सब रो रहे थे", en: "Everyone was crying at the daughter's send-off" }, hint: "VI-DAA-II — ⚠️ FEMININE, like every -आई noun (unit 81's rule). DENTAL द. ⚠️ Glossed 'a send-off' because अलविदा (unit 7) accepts 'farewell'. In India the word belongs above all to the bride leaving her parents' house, which is what the example means." },
+        { id: "hi-u82l2-pranaam", type: "vocab", front: "प्रणाम", reading: "pranaam", meaning: "a reverent greeting made to an elder", accept: ["the bow a younger person makes to an elder", "a respectful salutation"], example: { jp: "घर आते ही उसने दादा को प्रणाम किया।", en: "As soon as he got home he made a reverent greeting to his grandfather." }, drill: { jp: "उसने दादा को प्रणाम किया", en: "He made a reverent greeting to his grandfather" }, hint: "PRA-NAAM, masculine, consonant-final: दो प्रणाम. The ण is RETROFLEX and merges to n in the reading (§1b). ⚠️ Not अभिवादन two cards back, which is the act of greeting in the ABSTRACT, and not नमस्ते (unit 7), which accepts 'greetings': a प्रणाम goes DOWNWARD in age only — to a parent, a grandparent or a teacher — and its verb is करना." },
         { id: "hi-u82l2-meharbaanii", type: "vocab", front: "मेहरबानी", reading: "meharbaanii", meaning: "a kindness done", accept: ["a favour somebody has done you", "kind treatment"], example: { jp: "आपकी मेहरबानी से यह काम हो गया।", en: "This got done through your kindness." }, drill: { jp: "आपकी मेहरबानी से यह काम हो गया", en: "This got done through your kindness" }, hint: "ME-HAR-BAA-NII — ⚠️ FEMININE. ⚠️ Its commonest use is as a polite request: मेहरबानी करके, 'kindly', which is the spoken alternative to कृपया (unit 7). कृपा, the bare noun, is NOT carded — it is कृपया's own lexeme." },
       ],
     },
@@ -126,13 +145,13 @@ export const HI_UNIT82 = {
       title: "Asking, and holding back",
       cefr: "B1",
       dominantMode: "produce",
-      canDo: "Make an entreaty, press a request, apologise for the bother, speak of discomfort and of diffidence, and call somebody humble in manner.",
+      canDo: "Make an entreaty, press a request, apologise for the bother, speak of discomfort and of regard for other people, and call somebody humble in manner.",
       items: [
         { id: "hi-u82l3-vintii", type: "vocab", front: "विनती", reading: "vintii", meaning: "an entreaty", accept: ["a humble plea", "an appeal made softly"], example: { jp: "उसने मालिक से बार विनती की और कुछ नहीं हुआ।", en: "He made an entreaty to the owner and nothing came of it." }, drill: { jp: "उसने मालिक से विनती की", en: "He made an entreaty to the owner" }, hint: "VIN-TII — ⚠️ FEMININE, DENTAL त. The medial inherent a is not said (§1): vintii, not vinatii. ⚠️ Not प्रार्थना (unit 51), which accepts 'a plea to God': a विनती is made to a person who could help you and might not." },
         { id: "hi-u82l3-aagrah", type: "vocab", front: "आग्रह", reading: "aagrah", meaning: "an insistent request", accept: ["pressing somebody to do a thing", "a request that will not be dropped"], example: { jp: "उन्होंने आग्रह किया कि हम खाना खाकर जाएँ।", en: "They insisted that we should eat before going." }, drill: { jp: "उन्होंने आग्रह किया कि हम खाना खाकर जाएँ", en: "They insisted that we eat before going" }, hint: "AA-GRAH, masculine, consonant-final. The ग्र is ग and र stacked. ⚠️ An आग्रह is PRESSED, warmly — an Indian host's आग्रह that you eat more is a social duty, not rudeness. The verb after कि goes SUBJUNCTIVE: जाएँ, not जाते हैं." },
         { id: "hi-u82l3-zahmat", type: "vocab", front: "ज़हमत", reading: "zahmat", meaning: "the bother of doing something", accept: ["the trouble you put somebody to", "an imposition"], example: { jp: "मैं आपको इतनी ज़हमत नहीं देना चाहता था।", en: "I did not want to put you to so much bother." }, drill: { jp: "मैं आपको ज़हमत नहीं देना चाहता", en: "I do not want to put you to any bother" }, hint: "ZAH-MAT — ⚠️ FEMININE and CONSONANT-FINAL: ज़हमत हुई, not हुआ. With ज़ — a z. DENTAL त. ⚠️ The frame is ज़हमत देना, to give somebody the bother, and ज़हमत उठाना, to take it on yourself — which is what a polite Hindi speaker says when he does you a favour." },
         { id: "hi-u82l3-takliif", type: "vocab", front: "तकलीफ़", reading: "takliif", meaning: "discomfort", accept: ["being put out", "a hardship or an ache one puts up with"], example: { jp: "उसे चलने में तकलीफ़ होती है।", en: "He has discomfort in walking." }, drill: { jp: "उसे चलने में तकलीफ़ होती है", en: "He has discomfort in walking" }, hint: "TAK-LIIF — ⚠️ FEMININE and CONSONANT-FINAL, ending in फ़ — an f. DENTAL त. ⚠️ Not दर्द (unit 20), which is 'pain' and accepts 'an ache': तकलीफ़ covers bodily discomfort AND social inconvenience, which is why it is in the politeness unit." },
-        { id: "hi-u82l3-sankoch", type: "vocab", front: "संकोच", reading: "sankoch", meaning: "diffidence", accept: ["shyness about asking", "a reluctance to impose"], example: { jp: "माँगने में उसे संकोच होता है।", en: "He feels diffident about asking." }, drill: { jp: "माँगने में उसे संकोच होता है", en: "He feels diffident about asking" }, hint: "SAN-KOCH, masculine. Its ं sits before क, a stop, so §1's homorganic rule gives n. ⚠️ Glossed 'diffidence' because झिझक (unit 52) is 'hesitation' and accepts 'holding back'. संकोच is specifically about not wanting to be a burden — बिना संकोच कहिए, 'say it without hesitation'." },
+        { id: "hi-u82l3-parvaah", type: "vocab", front: "परवाह", reading: "parvaah", meaning: "regard for what another person feels", accept: ["caring what somebody else thinks", "minding about another person"], example: { jp: "उसे किसी की परवाह नहीं है और यही उसकी बुराई है।", en: "He has no regard for anybody, and that is his vice." }, drill: { jp: "उसे किसी की परवाह नहीं है", en: "He has no regard for anybody" }, hint: "PAR-VAAH — ⚠️ FEMININE and CONSONANT-FINAL: परवाह हुई, not हुआ. The frame is X की परवाह करना, to mind about X, and its commonest shape is the negative — किसी की परवाह नहीं. ⚠️ You already know its ला- reversal: लापरवाह, careless (unit 53). And it OPENS with पर (unit 5), but the व after it is a LETTER, so `findWholeWord` cannot see the shorter word inside — unlike बेअदबी ⊃ अदब in l4." },
         { id: "hi-u82l3-vinamra", type: "vocab", front: "विनम्र", reading: "vinamra", meaning: "humble in manner", accept: ["modest and polite", "that does not push himself forward"], example: { jp: "इतना बड़ा आदमी और इतना विनम्र।", en: "So great a man and so humble." }, drill: { jp: "वह बड़ा आदमी है और बहुत विनम्र है", en: "He is a great man and very humble" }, hint: "VI-NAM-RA — ⚠️ INVARIANT (unit53's rule): विनम्र आदमी, विनम्र औरत. The म्र is म and र stacked. ⚠️ The noun नम्रता is NOT carded — it would be a second mastery track for the same lexeme. The opposite is घमंड (l4)." },
       ],
     },
