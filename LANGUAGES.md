@@ -23,6 +23,25 @@ Spanish B2 is the one remaining band in a live language. See `BUILD-CHECKLIST.md
 
 Tiers below are Alex's planning groups (from the original conversation). The **honest build-lift** is noted separately — a couple of languages sit in a tier by history, not by difficulty.
 
+## THE BUILD QUEUE — Alex, 2026-10-06
+
+**In flight:** Russian and Hindi to **B2** (B1 complete and voiced as of 2026-10-06; B2 scaffolded, u98–u136, 39 units each). Indonesian still needs **B1 and B2** — it is the only live language below B1.
+
+**Next, in this order: Italian → English → Dutch.**
+
+| lang | state today | what it needs |
+|---|---|---|
+| 🇮🇹 Italian | 20 units scaffolded, **0 cards** | the whole ladder, A1→B2 |
+| 🇬🇧 English | **0 units** — only a `languages.js` entry for the companion's regional voices | see the open question below |
+| 🇳🇱 Dutch | 20 units scaffolded, **0 cards** | the whole ladder, A1→B2 |
+
+⚠️ **ENGLISH HAS AN UNRESOLVED PREMISE, and it is the one thing in this queue that is not just work.** Every card in this corpus glosses the target word *into English* — `meaning`, `accept[]` and the hints are all English, and `checkMeaning` grades against them. So an English ladder would ask an English speaker to translate English into English, and the whole grading path collapses. Two readings, two different products:
+
+- **ESL** — English for speakers of other languages. Needs a base-language layer the engine does not have: glosses, accepts and hints in the learner's language, and a base-language setting. That is an engine project, not a curriculum one.
+- **English-as-content** — vocabulary building for existing English speakers (register, idiom, academic word list). Works with the engine as it stands, but it is a different product from the other 22 ladders.
+
+Italian and Dutch need neither decision; they are ordinary Latin-script builds on the existing scaffold. **Recommend building those two first and settling English's premise while they run** — which is also the order Alex gave.
+
 **Total: 23 entries in `src/data/languages.js` · all target B2 · 9 live, 14 planned.** (English is an entry for the companion's regional voices, not a learnable ladder.)
 
 ---

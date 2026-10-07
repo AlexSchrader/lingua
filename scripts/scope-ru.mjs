@@ -50,7 +50,7 @@ function stem(word) {
 const PARADIGM = {
   я: ["меня", "мне", "мной"],
   ты: ["тебя", "тебе", "тобой"],
-  он: ["его", "ему", "им", "нём", "него", "нему"],
+  он: ["его", "ему", "им", "нём", "него", "нему", "оно"],
   она: ["её", "ей", "неё", "ней"],
   мы: ["нас", "нам", "нами"],
   вы: ["вас", "вам", "вами"],
@@ -77,7 +77,7 @@ const PARADIGM = {
   звать: ["зовут", "зову", "зовёшь", "зовём"],
   год: ["лет", "года", "году", "годы"],
   чай: ["чая", "чаю", "чаем"],
-  ребёнок: ["дети", "детей", "детям", "детях", "детьми", "ребёнка", "ребенка", "ребёнку", "ребенку"],
+  ребёнок: ["дети", "детей", "детям", "детях", "детьми", "ребёнка", "ребенка", "ребёнку", "ребенку", "ребёнке", "ребенке"],
   мать: ["матери", "матерью"],
   дочь: ["дочери", "дочерью"],
   это: ["эта", "этот", "эти", "этом", "этой", "эту", "этого", "этому", "этим", "этими", "этих"],
@@ -128,7 +128,7 @@ const PARADIGM = {
   //     the е/о of the last syllable, so the front's stem ("ден", "цветок") is not
   //     a prefix of the inflected form. Both are A1 fronts (u3l3, u26l2) used
   //     constantly from here on.
-  день: ["дня", "дню", "днём", "днем", "дни", "дней", "дням", "днями", "днях"],
+  день: ["дня", "дню", "дне", "днём", "днем", "дни", "дней", "дням", "днями", "днях"],
   цветок: ["цветка", "цветку", "цветком", "цветы", "цветов", "цветам", "цветами"],
   // (f) THE SHORT-FORM ADJECTIVE CLASS. A1 carded these in the MASCULINE (u7l3,
   //     u24l2), and a short form has no stem the stripper can cut back to: TAIL
@@ -167,7 +167,7 @@ const PARADIGM = {
   создавать: ["создаю", "создаёшь", "создаешь", "создаёт", "создает", "создаём", "создаем", "создаёте", "создаете", "создают"],
   // (j) `дать` (u31l2) is the perfective of the same family and mutates further:
   //     stem("дать") is "дать" itself, which дам/дашь/дал start with none of.
-  дать: ["дам", "дашь", "даст", "дадим", "дадите", "дадут", "дал", "дала", "дали", "дай", "дайте"],
+  дать: ["дам", "дашь", "даст", "дадим", "дадите", "дадут", "дал", "дала", "дало", "дали", "дай", "дайте"],
   // (k) `мочь` (u47l3) mutates ч -> г/ж throughout. stem("мочь") is "моч" and
   //     могу/можешь/могут start with "мог"/"мож". Note "может" was already
   //     reachable, but only by accident — it is a piece of the u22l3 front
@@ -203,6 +203,121 @@ const PARADIGM = {
   ведро: ["вёдра", "ведра", "вёдер", "ведер", "ведру", "ведром", "ведре"],
   облако: ["облака", "облаку", "облаком", "облаке", "облаков", "облакам", "облаками"],
   "лёд": ["льда", "льду", "льдом", "льде", "лёдом"],
+  // (m) EXTENDED BY B1 BLOCK 1, 2026-10-05. Two entries, both GENERATED
+  //     INFLECTIONS in the standard paradigm of a front that IS carded — no
+  //     lexical guesses, same discipline as (a)–(l). The proof they are a fix and
+  //     not a loosening is that neither documented figure moves: u1–u30 stays at
+  //     107 of 1374 and u31–u60 stays at 0 of 1440, measured before and after.
+  //
+  //     `тот` (u22l4) AGREES AND DECLINES LIKE AN ADJECTIVE and not one of its
+  //     forms is reachable: TAIL has no "т", so stem("тот") stays "тот" and
+  //     та/то/те/того/тому/том all start with "т" + a different letter. ⚠️ THIS IS
+  //     THE ONE THAT MATTERS AT B1, and it would have bitten all three blocks:
+  //     «то, что …» is the backbone of Russian subordination, so a band whose
+  //     whole job is relating clauses (unit61.js §1) cannot write around it the
+  //     way A1 and A2 did.
+  тот: ["та", "то", "те", "того", "тому", "том", "тем", "той", "ту", "тех", "теми", "тою"],
+  //     `довольный` (u28l1) short forms, the same class as (f). The feminine and
+  //     plural are what any sentence with a real subject needs, and the long
+  //     form's stem "довольн" does not prefix "доволен" — the е is inserted.
+  //     ⚠️ The ADVERB `довольно` "quite" is deliberately NOT listed: it is a
+  //     different, untaught word, and putting it here would quietly make it
+  //     in-scope everywhere, which is the loosening this table must never do.
+  "довольный": ["доволен", "довольна", "довольны"],
+  //     `сеть` (u43l2) is the same shape as (e)'s день: TAIL strips "ть" to "се",
+  //     which is under 3 characters, so the loop breaks and the stem stays "сеть"
+  //     — which сети/сетью/сетей do not start with.
+  сеть: ["сети", "сетью", "сетей", "сетям", "сетями", "сетях"],
+  //     `ждать` (u14l1) mutates its stem in the present tense: three passes take
+  //     "ждать" down to "жда", which жду/ждёшь/ждут do not start with.
+  ждать: ["жду", "ждёшь", "ждешь", "ждёт", "ждет", "ждём", "ждем", "ждёте", "ждете", "ждут", "ждал", "ждала", "ждали"],
+  //     `никто` (u23l4) declines like кто and its stem loses the т: stem("никто")
+  //     is "никт" and никого/никому/никем all run "нико" + a consonant.
+  никто: ["никого", "никому", "никем", "ником"],
+  //     and `кто` (u2l2) itself, which declines the same way and whose oblique
+  //     forms are unavoidable in any B1 relative clause («те, кого…»).
+  кто: ["кого", "кому", "кем", "ком"],
+  //     FOUR MORE (e)-class nouns whose last-syllable о drops — all four are
+  //     block 1's own B1 fronts and all four inflect constantly.
+  предок: ["предка", "предку", "предком", "предке", "предки", "предков", "предкам", "предками"],
+  потомок: ["потомка", "потомку", "потомком", "потомке", "потомки", "потомков", "потомкам"],
+  новичок: ["новичка", "новичку", "новичком", "новичке", "новички", "новичков", "новичкам"],
+  отпечаток: ["отпечатка", "отпечатку", "отпечатком", "отпечатке", "отпечатки", "отпечатков"],
+  //     `понять` (u31l1) and `помочь` (u31l3) both mutate in the future/present:
+  //     stem("понять") is "пон" and пойму/поймёт run "пойм"; stem("помочь") is
+  //     "помоч" and поможет/помогут run "помож"/"помог". Both are perfectives a
+  //     B1 sentence reaches for constantly, and neither was reachable.
+  понять: ["пойму", "поймёшь", "поймешь", "поймёт", "поймет", "поймём", "поймем", "поймёте", "поймете", "поймут"],
+  помочь: ["помогу", "поможешь", "поможет", "поможем", "поможете", "помогут", "помог", "помогла", "помогли"],
+  //     `два` (u11) has a feminine form with a different vowel, and `ошибка`
+  //     (u6) drops its к-vowel in the genitive plural — the (e) class again.
+  два: ["две", "двух", "двум", "двумя"],
+  ошибка: ["ошибки", "ошибке", "ошибку", "ошибкой", "ошибок", "ошибкам", "ошибками", "ошибках"],
+  //     `согласен` (u61l1) short forms, the (f) class. ⚠️ The neuter `согласно` is
+  //     deliberately NOT listed: it is the untaught PREPOSITION u62 refused, and
+  //     listing it would quietly put that word in scope everywhere.
+  согласен: ["согласна", "согласны"],
+  //     `ясный` (u40) short forms, the (f) class — "ясен" inserts an е the long
+  //     stem "ясн" does not have. ⚠️ The neuter `ясно` is left out on purpose: it
+  //     is a separate untaught adverb, and the same caution as согласно above.
+  ясный: ["ясен", "ясна", "ясны"],
+  //     `оба` (u37) has a feminine stem обе-, which the stripper cannot reach
+  //     from "оба" — the same shape as `два` above.
+  оба: ["обе", "обоих", "обеих", "обоим", "обеим", "обоими", "обеими"],
+  //     `свой` (u65l4) IS EXACTLY CASE (a) ABOVE — a short adjective in -ой. TAIL
+  //     strips "ой" and that leaves "св", under three characters, so the loop
+  //     breaks and the stem stays "свой", which NONE of своя/своё/свои/своим
+  //     starts with. Measured: before this entry every B1 sentence using the
+  //     reflexive possessive read as a scope violation, and the possessive is
+  //     COMPULSORY in Russian, not optional — see unit65.js.
+  "свой": ["своя", "своё", "свое", "свои", "своего", "своему", "своём", "своем", "своим", "своей", "свою", "своих", "своими"],
+  //     And one form missing from (e)-class `ребёнок`, which already has an entry
+  //     above: the PREPOSITIONAL singular. Added for completeness, not for a flag.
+  // (n) EXTENDED BY B1 BLOCK 2, 2026-10-05. TWO entries, both GENERATED
+  //     INFLECTIONS in the standard paradigm of a front that IS carded — same
+  //     discipline as (a)–(i) above, no lexical guesses. The proof they are a fix
+  //     and not a loosening is that neither documented figure moves: u1–u30 stays
+  //     at 107 of 1374, every one still in u1–u6, and u31–u60 stays at 0 of 1440.
+  //     Measured before and after on content/ru-b1-block2.
+  //
+  //     `тот` (u22l4) AGREES LIKE AN ADJECTIVE AND CHANGES ROOT, the same class as
+  //     `один` in (d): TAIL has no "т", so stem("тот") stays "тот" and того/тем/та/
+  //     тех begin "тог"/"те"/"та" instead. B1 cannot write around it: «после того,
+  //     как» and «до того, как» are the two commonest subordinators in the band,
+  //     and u79 teaches clause linking as its subject.
+  "тот": ["того", "тому", "том", "тем", "та", "ту", "той", "то", "те", "тех", "теми", "тем"],
+  //     `огонь` (u12l4) DROPS THE VOWEL OF ITS LAST SYLLABLE, the same class as
+  //     день and камень in (e) and (i): stem("огонь") is "огон" and огня/огнем
+  //     begin "огн" instead, so every correct oblique use read as a violation.
+  "огонь": ["огня", "огню", "огнём", "огнем", "огне", "огни", "огней", "огням", "огнями", "огнях"],
+  // (k) ALSO B1 BLOCK 2, 2026-10-05. NINE VERBS THIS BLOCK CARDS WHOSE PRESENT
+  //     TENSE MUTATES THE STEM OUTRIGHT, so nothing they inflect into begins with
+  //     the stem the stripper reaches: stem("дуть") is "дуть" and дую/дует/дул
+  //     begin "ду"; stem("шептать") is "шепт" and шепчу/шепча begin "шепч".
+  //     u80 TEACHES THE VERBAL ADVERB, which is built off the present tense, so
+  //     these cannot be written around the way A1 wrote around идти/ехать.
+  //     Every form is a GENERATED INFLECTION in the standard paradigm of a front
+  //     carded in u80 — no lexical guesses, no PERFECTIVE forms (the prefixed -в
+  //     verbal adverbs украв/ограбив stay unreachable on purpose, and u80's
+  //     header records that). Baselines unmoved: u1–u30 107 of 1374, u31–u60 0 of
+  //     1440, measured before and after.
+  "шептать": ["шепчу", "шепчешь", "шепчет", "шепчем", "шепчете", "шепчут", "шепча"],
+  "дуть": ["дую", "дуешь", "дует", "дуем", "дуете", "дуют", "дул", "дула", "дуло", "дули", "дуя"],
+  "таять": ["таю", "таешь", "тает", "таем", "таете", "тают"],
+  "сеять": ["сею", "сеешь", "сеет", "сеем", "сеете", "сеют"],
+  "жевать": ["жую", "жуёшь", "жуешь", "жуёт", "жует", "жуём", "жуем", "жуете", "жуют", "жуя"],
+  "прятать": ["прячу", "прячешь", "прячет", "прячем", "прячете", "прячут", "пряча"],
+  "красть": ["краду", "крадёшь", "крадешь", "крадёт", "крадет", "крадём", "крадете", "крадут", "крал", "крала", "крали"],
+  "пахать": ["пашу", "пашешь", "пашет", "пашем", "пашете", "пашут", "пашется", "пашутся"],
+  "пасти": ["пасу", "пасёшь", "пасёт", "пасет", "пасём", "пасете", "пасут", "пасутся", "пасётся"],
+  //     AND `никто` (u23l4), which changes root in every oblique case exactly as
+  //     the personal pronouns in (a) do: stem("никто") is "никто" and никого/
+  //     никому/никем begin "нико"/"нике". A negative object is unavoidable in
+  //     any band — «он никому не сказал» — and A1/A2 wrote around it.
+  "никто": ["никого", "никому", "никем", "ником"],
+  //     AND `искать` (u15l4), whose present mutates ск → щ: stem("искать") is
+  //     "иска" and ищу/ищет/ищут begin "ищ". Same class as казаться in (b).
+  "искать": ["ищу", "ищешь", "ищет", "ищем", "ищете", "ищут", "искал", "искала", "искали"],
 };
 
 // norm(key) -> the authored PARADIGM key, so a front spelled with ё finds its own

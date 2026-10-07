@@ -87,7 +87,18 @@ function kindsFor(item) {
 // everything that could not use it. Dictation now runs to the top of the range in every
 // language; cloze and particle card counts are byte-identical before and after.
 // es 219 -> 0, fr 172 -> 0, and ja's 12 yōon kana fell out with them.
-const SINGLE_KIND_CEILING = { ja: 0, fr: 0, es: 0 };
+// ⚠️ IT ONLY EVER TESTED THREE LANGUAGES. de, no, pt, ru, hi and id were never
+// checked, so the ratchet was green while ru and hi shipped 259 vocab items that
+// routed to NO hash-gated card at all (125 ru + 134 hi, B1, measured 2026-10-06).
+// All nine live languages are listed now. A language absent from this map is a
+// language nobody is watching.
+//
+// ru and hi were 391 and 400 when this map was first extended, entirely because
+// their B1 band was unvoiced — listen:choice, listen:type and speak cannot fire
+// without a clip. B1 was voiced on 2026-10-06 (888 clips each) and both fell to 0
+// on the same commit, which is the prediction this comment used to carry. All nine
+// live languages are now at zero, and every one of them is fully voiced.
+const SINGLE_KIND_CEILING = { ja: 0, fr: 0, es: 0, de: 0, no: 0, pt: 0, id: 0, ru: 0, hi: 0 };
 
 for (const [lang, ceiling] of Object.entries(SINGLE_KIND_CEILING)) {
   test(`${lang}: items with only ONE card kind must not increase (target 0)`, () => {
