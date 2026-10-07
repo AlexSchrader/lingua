@@ -12,7 +12,8 @@ import ConjugateCard from "../components/games/ConjugateCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
 import Celebration from "../components/Celebration.jsx";
 import { useStore, REVIEW_CAP, activeLangId } from "../store/useStore.js";
-import { isReviewable, nextRung, MAX_RUNG, isMastered, masteryPct } from "../store/mastery.js";
+import { isReviewable, nextRung, MAX_RUNG } from "../store/mastery.js";
+import { buildPracticeQueue, PRACTICE_SIZE } from "../store/practice.js";
 import { sfxRungUp, sfxMastered } from "../store/sfx.js";
 import { reviewStepFor } from "../store/reviewStep.js";
 import { buildSandboxItems, buildCardPreviewItems, runnerWriters } from "../store/dev.js";
@@ -22,7 +23,6 @@ import { C, F } from "../theme.js";
 // A practice run is deliberately short — it is meant to be repeatable three times a
 // day without becoming a slog, and the 4/day per-item cap means a longer run would
 // just hit the ceiling on the same words.
-const PRACTICE_SIZE = 12;
 
 function assertLiveKind(kindKey) {
   if (!LIVE_CARD_KINDS.includes(kindKey)) {
@@ -85,14 +85,13 @@ export default function Review() {
       let source, total = 0;
       if (sandbox) source = Object.values(items).filter(isReviewable);
       else if (practice) {
-        // Everything this learner has started in this language that is not finished,
-        // ordered by how far from mastery it is — so a run fills the widest gaps first.
+        // Widest gaps first, PLUS a reserved slice of words you already know.
         // NOT filtered by SRS due-ness: that is the whole point. Practice is the only
-        // way to get the passes the schedule will not offer for months.
-        source = Object.values(items)
-          .filter((it) => it.lang === activeId && isReviewable(it) && !isMastered(it))
-          .sort((a, b) => masteryPct(a) - masteryPct(b))
-          .slice(0, PRACTICE_SIZE);
+        // way to get the passes the schedule will not offer for months — and until
+        // 2026-10-06 it excluded mastered items, so a word you had finished could
+        // only come back via its FSRS interval, which ran to years. See
+        // buildPracticeQueue, where the selection now lives and is tested.
+        source = buildPracticeQueue({ items, lang: activeId });
       } else if (fix)
         source = (mistakeIds ?? [])
           .map((mid) => items[mid])

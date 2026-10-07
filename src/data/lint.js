@@ -477,8 +477,20 @@ export function lintCurriculum(units = []) {
               if (tokens.length < 3 || tokens.length > 8)
                 w(`item ${id}: drill "${jp}" is ${tokens.length} tokens — needs 3-8 to tile into sentence:build`);
             }
-            if (/[,;:!?…]|\.\s/.test(jp))
+            // ⚠️ THIS WARNING USED TO SAY "sentence:build rejects it" AND THAT WAS
+            // FALSE. The engine's test is /[.!?…—–]/ and a COMMA is not in it:
+            // measured on the real string, canSentence returns TRUE for a drill with
+            // a comma. A Hindi B2 seat dropped ten commas believing it was recovering
+            // a card kind and recovered zero, then measured it and corrected its own
+            // commit. Dropping the comma is still right — the comma rides onto a tile
+            // and the learner assembles `बदली,` as if it were a word — but that is a
+            // TILE-QUALITY reason, not a routing one, and the warning must not claim
+            // a consequence it does not have. The token-count rule above is the one
+            // that actually blocks routing.
+            if (/[;:!?…]|\.\s/.test(jp))
               w(`item ${id}: drill "${jp}" has sentence-internal punctuation — sentence:build rejects it`);
+            else if (/,/.test(jp))
+              w(`item ${id}: drill "${jp}" has a comma — it still tiles, but the comma rides onto a tile and is assembled as part of a word`);
             const fold = (s) => String(s).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
             if (typeof item.front === "string" && !fold(jp).includes(fold(item.front)))
               w(`item ${id}: drill "${jp}" does not contain the front "${item.front}" — cloze cannot blank it`);

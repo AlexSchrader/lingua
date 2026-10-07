@@ -51,6 +51,22 @@ for (const L of langs) {
   const vocab = items.filter((i) => i.type === "vocab");
   console.log(`\n=== ${L} — ${units.length} units, ${items.length} cards`);
 
+  // 0. AN EMPTY UNIT MAKES EVERY OTHER CHECK PASS VACUOUSLY — so it goes first.
+  //
+  // On 2026-10-07 this gate printed `hi ... SHIP GATE PASSED` while 39 of Hindi's
+  // 136 units held ZERO cards, and the same for 37 of Indonesian's 87. Every check
+  // below iterates the cards, so a scaffolded-but-unauthored unit contributes
+  // nothing to look at and the gate reads it as clean. A gate that cannot tell
+  // "finished" from "scaffolded" is the false-green class this file exists to kill,
+  // and it had it on its own first page.
+  //
+  // A stub band is a NORMAL mid-flight state, so the message names the range and
+  // says it is not shippable rather than implying the cards are wrong.
+  const empty = units.filter((u) => !(u.lessons ?? []).some((l) => (l.items ?? []).length));
+  empty.length
+    ? FAIL(`${empty.length} of ${units.length} units hold ZERO cards — u${empty[0].order}..u${empty[empty.length - 1].order} are scaffolded, not authored. NOT SHIPPABLE; every check below passes vacuously on them.`)
+    : OK("every unit holds cards");
+
   // 1. ROUTING — the check that was missing
   const dead = vocab.filter((i) => kindCount(i) === 0);
   dead.length ? FAIL(`${dead.length} vocab route to ZERO card kinds (e.g. ${dead.slice(0, 3).map((x) => x.id).join(", ")})`)
@@ -58,6 +74,29 @@ for (const L of langs) {
   const single = vocab.filter((i) => kindCount(i) === 1);
   single.length ? console.log(`   ⚠ ${single.length} vocab route to only ONE kind — usually unvoiced content`)
                 : OK("no vocab stuck on a single kind");
+
+  // 1b. A DRILL OVER 8 TOKENS SILENTLY KILLS sentence:build.
+  //
+  // `sentenceTokens` bounds a non-Japanese sentence to 3-8 tiles, so a 9-token
+  // drill makes canSentence false and the item loses a card kind with nothing red
+  // anywhere. A Hindi B2 seat found 23 of them in one block on 2026-10-07.
+  // crossblock.mjs had been printing `canSentence 289/312` the whole time and
+  // nobody read it, me included. A number nobody reads is not a check.
+  //
+  // THIS TESTS THE TOKEN COUNT, NOT canSentence ITSELF. Measuring canSentence
+  // wholesale flags what is structurally impossible and so gets switched off: a
+  // single-character front cannot be clozed at all (à, y, e, я, に), a split front
+  // like `ne … pas` is not one contiguous word, and Japanese sentence:build
+  // additionally requires a particle immediately after the front — which is the
+  // designed ~37% yield, not a defect. My first version reported 340 ja and 60 fr
+  // "failures" that were all of that kind.
+  const longDrill = vocab.filter((i) => {
+    const d = i.drill?.jp; if (!d) return false;
+    if (/[぀-ヿ一-鿿]/.test(String(i.front))) return false; // ja is tokenised differently
+    return String(d).trim().split(/\s+/).length > 8;
+  });
+  longDrill.length ? FAIL(`${longDrill.length} drills run over 8 tokens, so sentence:build cannot route them (${longDrill.slice(0, 3).map((x) => x.id).join(", ")})`)
+                   : OK("no drill exceeds the 8-token sentence:build bound");
 
   // 2. AUDIO — the other thing nothing asked
   const voiceable = items.filter((i) => i.type === "vocab" || i.type === "glyph" || i.type === "kana" || i.type === "kanji");
@@ -153,7 +192,63 @@ for (const L of langs) {
   ctrl.length ? FAIL(`${ctrl.length} cards contain a control character (${ctrl.slice(0, 3).map((x) => x.id).join(", ")})`)
               : OK("no control characters in data");
 
-  // 9. REQUIRED FIELDS
+  // 9. STRAY SCRIPT — a letter from a writing system this language does not use.
+  //
+  // The ru B2 block-3 seat found a CJK 三 inside a Russian example and a Hangul
+  // syllable inside a Russian hint. Both RENDER FINE on screen; validate:content
+  // checks shapes and lint is silent for Cyrillic, so nothing in the gate saw
+  // either. Hand-authoring and scripted edits both leak these.
+  const SCRIPTS = {
+    ja: /[぀-ヿ一-鿿　-〿]/,
+    ru: /[Ѐ-ӿ]/,
+    hi: /[ऀ-ॿ]/,
+  };
+  // NARROWED AFTER ITS FIRST RUN, which flagged four cards and all four were
+  // legitimate: `ª` and `º` are the Spanish and Portuguese ordinal indicators
+  // (Dª Ana, 1º) and `ˈ` and `ʃ` are IPA inside pronunciation hints. The defect
+  // this check exists for is a whole FOREIGN WRITING SYSTEM leaking in — the
+  // seat's actual finds were a CJK 三 and a Hangul syllable in Russian cards — so
+  // it now tests only for those blocks, and IPA and Latin typography are allowed
+  // everywhere. Flagging a language's own correct orthography is how a check gets
+  // switched off.
+  const FOREIGN = {
+    cjk: /[぀-ヿ一-鿿]/,
+    hangul: /[가-힯ᄀ-ᇿ]/,
+    cyrillic: /[Ѐ-ӿ]/,
+    devanagari: /[ऀ-ॿ]/,
+    arabic: /[؀-ۿ]/,
+    hebrew: /[֐-׿]/,
+    thai: /[฀-๿]/,
+    greek: /[Ͱ-Ͽ]/,
+  };
+  const ownScript = SCRIPTS[L] ?? null;
+  const strayLetter = (t) => {
+    for (const ch of String(t ?? "")) {
+      if (ownScript && ownScript.test(ch)) continue;   // the language's own script
+      for (const re of Object.values(FOREIGN)) if (re.test(ch)) return ch;
+    }
+    return null;
+  };
+  const stray = [];
+  for (const i of items)
+    for (const v of [i.front, i.meaning, i.reading, i.example?.jp, i.drill?.jp, i.hint])
+      { const c = strayLetter(v); if (c) { stray.push(`${i.id}:${JSON.stringify(c)}`); break; } }
+  stray.length ? FAIL(`${stray.length} cards contain a letter from a foreign script (${stray.slice(0, 3).join(", ")})`)
+               : OK("no stray foreign-script letters");
+
+  // 10. MIXED-SCRIPT WORD — one word built from two alphabets. Check 9 cannot see
+  // it, because a hint legitimately holds both. The same seat caught `плaster`
+  // (Cyrillic п-л + Latin a-s-t-e-r) and `хлопОk` in its own fresh cards.
+  const mixed = [];
+  for (const i of items)
+    for (const v of [i.front, i.example?.jp, i.drill?.jp])
+      for (const w of String(v ?? "").split(/[^\p{L}\p{M}]+/u))
+        if (w.length > 1 && /[a-zA-Z]/.test(w) && /[Ѐ-ӿऀ-ॿ]/.test(w))
+          mixed.push(`${i.id}:${w}`);
+  mixed.length ? FAIL(`${mixed.length} words built from two scripts (${mixed.slice(0, 3).join(", ")})`)
+               : OK("no word mixes two scripts");
+
+  // 11. REQUIRED FIELDS
   const missing = vocab.filter((i) => !i.front || !i.meaning || !i.example?.jp);
   missing.length ? FAIL(`${missing.length} vocab missing front/meaning/example`)
                  : OK("every vocab has front, meaning and an example");

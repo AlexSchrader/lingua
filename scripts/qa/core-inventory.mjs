@@ -3,6 +3,24 @@
 //   node scripts/qa/core-inventory.mjs           matrix + per-language gap list
 //   node scripts/qa/core-inventory.mjs ru        one language, verbose
 //
+// ⚠️ THE LIST GREW FROM 178 TO 243 ON 2026-10-07, AND THE REASON MATTERS. Two B2
+// crew leads independently found that NONE of north/south/east/west is taught in
+// Hindi (u48 teaches दिशा, "direction", and not one of the four) and that only юг
+// is taught in Russian. This probe reported Hindi at 162/178 and never saw it,
+// because compass directions were not in the list. Auditing for what else was
+// absent turned up 65 concepts, including BROTHER, SISTER, WIFE, HUSBAND, ARM,
+// LEG, EAR, NOSE and TOOTH. An inventory that omits "brother" cannot answer "is
+// the course missing common words", which is the question it exists for.
+// If you find a gap this list does not contain, ADD IT HERE rather than reporting
+// it once — that is the whole difference between a probe and an anecdote.
+//
+// ⚠️ KNOWN BLEED IN THE VERIFICATION STEP, not in this file. When you re-check a
+// reported gap by hand with SYNONYMS, loose ones give a false clear: "born" matches
+// *birthday* (fr l'anniversaire, de der Geburtstag, no en bursdag — none of which
+// teaches "to be born"), and "fly" matches *flight* (fr le vol, es el vuelo — a
+// noun, not the verb). A gap this file reports is a gap in the GLOSS; clearing it
+// needs a word that teaches the concept, not one that contains the letters.
+//
 // METHOD, STATED SO IT CAN BE ARGUED WITH. The concept list below is a hand-built
 // inventory of what any course claiming A1->B2 must contain: body, family, food
 // staples, weather, greetings, the high-frequency verbs, question words, numbers,
@@ -20,18 +38,27 @@ const { UNITS } = await import(pathToFileURL(join(process.cwd(), "src/data/index
 const LANGS = ["ja", "fr", "es", "de", "no", "pt", "ru", "hi", "id"];
 
 const CORE = {
-  "greetings & social": ["hello", "goodbye", "please", "thank", "sorry", "yes", "no", "excuse"],
-  "people & family": ["mother", "father", "child", "son", "daughter", "friend", "man", "woman", "person", "name"],
-  "body": ["head", "hand", "foot", "eye", "mouth", "heart", "hair", "body", "blood", "skin"],
+  "greetings & social": ["hello", "goodbye", "please", "thank", "sorry", "yes", "no", "excuse", "happy", "sad", "tired", "hungry", "thirsty", "sick", "ready"],
+  "people & family": ["mother", "father", "child", "son", "daughter", "friend", "man", "woman", "person", "name", "brother", "sister", "wife", "husband"],
+  "body": ["head", "hand", "foot", "eye", "mouth", "heart", "hair", "body", "blood", "skin", "arm", "leg", "ear", "nose", "tooth", "back"],
   "food & drink": ["water", "bread", "milk", "meat", "fish", "egg", "rice", "salt", "coffee", "tea", "eat", "drink"],
   "home & objects": ["house", "door", "window", "table", "chair", "bed", "key", "clothes", "shoe", "knife", "money"],
   "weather & nature": ["rain", "snow", "sun", "wind", "hot", "cold", "tree", "sky", "sea", "animal", "dog", "cat"],
-  "time": ["day", "night", "week", "month", "year", "hour", "today", "tomorrow", "yesterday", "now", "morning", "time"],
-  "core verbs": ["be", "have", "go", "come", "do", "say", "see", "know", "want", "can", "give", "take", "make", "think", "speak", "work", "live", "sleep", "buy", "walk", "read", "write", "open", "close", "wait", "help", "find", "put"],
+  "time": ["day", "night", "week", "month", "year", "hour", "today", "tomorrow", "yesterday", "now", "morning", "time", "minute", "evening", "afternoon", "always", "never", "often", "sometimes"],
+  "core verbs": ["be", "have", "go", "come", "do", "say", "see", "know", "want", "can", "give", "take", "make", "think", "speak", "work", "live", "sleep", "buy", "walk", "read", "write", "open", "close", "wait", "help", "find", "put", "listen", "hear", "run", "stand", "sit", "play", "learn", "teach", "start", "stop", "remember", "forget", "understand", "believe", "feel", "need", "try", "change", "break", "build", "carry", "send", "pay", "sell"],
   "question & function": ["who", "what", "where", "when", "why", "how", "which", "and", "but", "because", "if", "not", "very", "all", "some", "more", "with", "without", "here", "there"],
-  "number & size": ["one", "two", "three", "ten", "hundred", "first", "many", "few", "big", "small", "long", "short", "new", "old", "good", "bad"],
+  "number & size": ["one", "two", "three", "four", "five", "ten", "twenty", "hundred", "thousand", "first", "many", "few", "big", "small", "long", "short", "tall", "heavy", "new", "old", "good", "bad", "easy", "difficult", "clean", "dirty", "young"],
+  // ADDED 2026-10-07, THE THIRD EXPANSION. An Indonesian B1 seat found that
+  // `terbang` ("to fly") is taught nowhere in 1,464 id cards although `pesawat`,
+  // `burung` and `sayap` all are — and "fly" was not in this list, so the probe
+  // reported id at 235/241 and never looked. Auditing for what else was absent
+  // turned up fifty more everyday verbs. That is the third time a seat has found a
+  // core concept this file lacked (compass directions, then brother/sister/arm/leg,
+  // now the action verbs), which is itself the finding: THE LIST IS THE WEAK PART,
+  // not the corpus. Add here, do not report once.
+  "everyday actions": ["fly", "swim", "jump", "climb", "push", "pull", "throw", "catch", "cut", "wash", "cook", "burn", "grow", "die", "born", "kill", "win", "lose", "begin", "end", "wear", "laugh", "cry", "smile", "sing", "dance", "count", "measure", "weigh", "fill", "empty", "lift", "carry", "hide", "follow", "meet", "visit", "invite", "answer", "ask", "tell", "show", "explain", "promise", "decide", "choose", "agree", "refuse", "allow", "thank"],
   "colour": ["red", "blue", "green", "black", "white", "yellow", "colour"],
-  "place & travel": ["city", "country", "street", "shop", "school", "work", "car", "train", "bus", "road", "left", "right", "near", "far"],
+  "place & travel": ["city", "country", "street", "shop", "school", "work", "car", "train", "bus", "road", "left", "right", "near", "far", "north", "south", "east", "west"],
   "B1/B2 abstractions": ["government", "freedom", "society", "economy", "history", "science", "law", "war", "peace", "health", "education", "future", "reason", "problem", "change", "power", "right", "truth"],
 };
 

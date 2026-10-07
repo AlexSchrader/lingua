@@ -1,7 +1,7 @@
 # ID — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- id`.
-Snapshot 2026-09-30: **1200 words** across **50 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-10-07: **1200 words** across **50 authored unit(s)**, **37 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -14,6 +14,58 @@ Snapshot 2026-09-30: **1200 words** across **50 authored unit(s)**, **0 slot(s) 
 - **It does not contain the words your sibling blocks are writing right now.** They do not exist yet, in this tree or any other. If you need a word a *later* slot will plainly own (a grammar unit's tense, a themed unit's domain), assume it is theirs and teach around it.
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
+
+## Who owns which slots this band
+
+The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
+
+| block | slots |
+|---|---|
+| 1 | u51–u63 |
+| 2 | u64–u76 |
+| 3 | u77–u87 |
+
+## Slots still stubs — not yours unless you were assigned them
+
+| slot | unit | title |
+|---|---|---|
+| 51 | `id-u51` | Opinion and agreement |
+| 52 | `id-u52` | Cause and consequence |
+| 53 | `id-u53` | Comparison and degree |
+| 54 | `id-u54` | Hedging and uncertainty |
+| 55 | `id-u55` | News and society |
+| 56 | `id-u56` | Work and process |
+| 57 | `id-u57` | Emotion, finer shades |
+| 58 | `id-u58` | Abstract ideas |
+| 59 | `id-u59` | Change over time |
+| 60 | `id-u60` | Problems and solutions |
+| 61 | `id-u61` | Rules, permission, obligation |
+| 62 | `id-u62` | Plans and intentions |
+| 63 | `id-u63` | Experience and memory |
+| 64 | `id-u64` | Media and entertainment |
+| 65 | `id-u65` | Environment and place |
+| 66 | `id-u66` | Money and the economy |
+| 67 | `id-u67` | Health and wellbeing |
+| 68 | `id-u68` | Relationships and society |
+| 69 | `id-u69` | Grammar 6 — linked and subordinate clauses |
+| 70 | `id-u70` | Grammar 7 — passive, causative, indirect |
+| 71 | `id-u71` | Grammar 8 — nuance, evidentiality, nominalization |
+| 72 | `id-u72` | Register 1 — polite vs plain |
+| 73 | `id-u73` | Register 2 — softening and formality |
+| 74 | `id-u74` | Vocabulary 1 (B1) |
+| 75 | `id-u75` | Vocabulary 2 (B1) |
+| 76 | `id-u76` | Vocabulary 3 (B1) |
+| 77 | `id-u77` | Vocabulary 4 (B1) |
+| 78 | `id-u78` | Vocabulary 5 (B1) |
+| 79 | `id-u79` | Vocabulary 6 (B1) |
+| 80 | `id-u80` | Vocabulary 7 (B1) |
+| 81 | `id-u81` | Vocabulary 8 (B1) |
+| 82 | `id-u82` | Vocabulary 9 (B1) |
+| 83 | `id-u83` | Vocabulary 10 (B1) |
+| 84 | `id-u84` | Vocabulary 11 (B1) |
+| 85 | `id-u85` | Vocabulary 12 (B1) |
+| 86 | `id-u86` | Vocabulary 13 (B1) |
+| 87 | `id-u87` | Vocabulary 14 (B1) |
 
 ## Index — every taught word, alphabetical
 
