@@ -57,13 +57,20 @@
 //   `примирение` · `уступка` · `компромисс` · `контингент` — all FREE, all
 //        dropped for count at 24.
 //
-// ⚠️ `вето` AND `эмбарго` ARE GLOSSED THE LONG WAY ROUND. Both transliterate to
-// the English word, so "a veto" and "an embargo" normalise to exactly the
-// card's own reading and are free passes under unit1.js §9 — the same trap
-// `генерал` and `танк` hit at u129l1–l2. Neither card's accept[] contains the
-// bare English noun.
-// ⚠️ BOTH ARE ALSO INDECLINABLE NEUTERS, like `кафе` (u9) and `купе` (u125l2):
-// вето, эмбарго, метро, домино (u134) never change their ending.
+// ⚠️ `ВЕТО` WAS l2's AND IS NOW u102's. The cross-block dedupe of 2026-10-07
+// found it carded at u102l4 Конституция и правосудие as well, and u102 is
+// the lower unit with no explicit allocation either way, so this unit yielded.
+// l2 cards `кворум` instead — what lets a vote happen at all, which the
+// agreement lesson had no word for. u102 < u130, so `вето` remains IN scope for
+// this unit's sentences; it simply is not taught here.
+// ⚠️ `эмбарго` IS GLOSSED THE LONG WAY ROUND. It transliterates to the English
+// word, so "an embargo" normalises to exactly the card's own reading and is a
+// free pass under unit1.js §9 — the same trap `генерал` and `танк` hit at
+// u129l1–l2. Its accept[] does not contain the bare English noun. (u102's `вето`
+// is glossed the same way for the same reason — see that unit's header.)
+// ⚠️ `эмбарго` IS ALSO AN INDECLINABLE NEUTER, like `кафе` (u9) and `купе`
+// (u125l2): эмбарго, метро, домино (u134) never change their ending.
+// `кворум`, which replaced вето, is an ordinary hard-stem MASCULINE and declines.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const RU_UNIT130 = {
   id: "ru-u130",
@@ -96,14 +103,14 @@ export const RU_UNIT130 = {
       title: "The agreement",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Talk about what states sign and how they sign it — a pact, an alliance, a coalition, a resolution, ratification and the power to block.",
+      canDo: "Talk about what states sign and how they sign it — a pact, an alliance, a coalition, a resolution, ratification and the attendance a vote needs.",
       items: [
         { id: "ru-u130l2-pakt", type: "vocab", front: "пакт", reading: "pakt", meaning: "a pact", accept: ["a signed agreement between states", "a formal treaty", "a written promise between countries"], example: { jp: "Этот пакт подписали в тридцать девятом году, и через два года его уже не было.", en: "This pact was signed in nineteen thirty-nine, and two years later it was already gone." }, drill: { jp: "Этот пакт был очень важный", en: "This pact was very important" }, hint: "PAKT — one syllable. MASCULINE. ⚠️ Russian keeps пакт for the big political ones and says договор for everything else, from a trade deal to a rental agreement." },
         { id: "ru-u130l2-alyans", type: "vocab", front: "альянс", reading: "alyans", meaning: "a standing alliance", accept: ["a long-term union of states", "a lasting partnership between countries", "a permanent bloc of allies"], example: { jp: "Этот альянс работает уже семьдесят лет, и в нём больше тридцати стран.", en: "This alliance has been working for seventy years, and there are more than thirty countries in it." }, drill: { jp: "Этот альянс очень сильный", en: "This alliance is very strong" }, hint: "a-LYANS — stress on LYANS, with the soft л before я. MASCULINE. A French loan. ⚠️ An альянс is permanent and institutional; a `коалиция` is put together for one purpose and then comes apart. Russian keeps the two apart and so should you." },
         { id: "ru-u130l2-koalitsiya", type: "vocab", front: "коалиция", reading: "koalitsiya", meaning: "a coalition", accept: ["a bloc formed for one purpose", "a temporary union of sides", "parties working together for a time"], example: { jp: "Коалиция была вместе только пока шла война, а потом её не стало.", en: "The coalition was together only while the war went on, and then it was no more." }, drill: { jp: "Эта коалиция очень большая", en: "This coalition is very large" }, hint: "ka-a-LI-tsi-ya — stress on LI, and the first о reduces to a. FEMININE (-я). ⚠️ Used of a government of several parties as much as of a war: коалиционное правительство." },
         { id: "ru-u130l2-rezolyutsiya", type: "vocab", front: "резолюция", reading: "rezolyutsiya", meaning: "a resolution", accept: ["a formal decision voted by a body", "a text a council votes through", "a written decision of a meeting"], example: { jp: "Резолюция была очень короткая, но каждое слово в ней было важное.", en: "The resolution was very short, but every word in it was important." }, drill: { jp: "Эта резолюция очень важная", en: "This resolution is very important" }, hint: "ri-za-LYU-tsi-ya — stress on LYU; the е reduces to i and the о to a. FEMININE (-я). ⚠️ A SECOND, office sense: a резолюция is also the short note a boss writes on a document — «его резолюция на письме»." },
         { id: "ru-u130l2-ratifikatsiya", type: "vocab", front: "ратификация", reading: "ratifikatsiya", meaning: "ratification", accept: ["the formal approval of a treaty", "a parliament's confirming of an agreement", "the step that makes a signed treaty binding"], example: { jp: "Ратификация шла целый год, потому что не все были согласны.", en: "Ratification went on for a whole year, because not everyone agreed." }, drill: { jp: "Эта ратификация шла очень долго", en: "This ratification went on a very long time" }, hint: "ra-ti-fi-KA-tsi-ya — six syllables, stress on KA. FEMININE (-я). ⚠️ Signing is not enough: in Russian as in English a treaty is подписан first and ратифицирован after, and only then does it work." },
-        { id: "ru-u130l2-veto", type: "vocab", front: "вето", reading: "veto", meaning: "the power to block a decision", accept: ["a formal refusal that stops a decision", "the right to say no alone", "a block one member can put on a motion"], example: { jp: "У каждой из этих стран есть вето, поэтому решения очень трудные.", en: "Each of these countries has a veto, so decisions are very difficult." }, drill: { jp: "Это вето было очень важное", en: "This block was very important" }, hint: "VE-ta — stress on the first syllable, and the final о reduces to a. NEUTER, and ⚠️ IT NEVER CHANGES: an indeclinable loan like `кафе` from unit 9 and `купе` from unit 125. ⚠️ Glossed the long way round on purpose: the word transliterates to the English one, and unit 1 §9 calls that a free pass. The verb is наложить вето." },
+        { id: "ru-u130l2-kvorum", type: "vocab", front: "кворум", reading: "kvorum", meaning: "the least number of members needed for a decision to count", accept: ["the minimum attendance a vote requires", "enough members present for business to be done", "the number without which a body cannot decide"], example: { jp: "Кворум был только к вечеру, и резолюцию обсуждали почти ночью.", en: "There were only enough members by evening, and the resolution was discussed almost at night." }, drill: { jp: "Кворум был только к вечеру", en: "There were only enough members by evening" }, hint: "KVO-rum — stress on the first syllable, so that о is NOT reduced. MASCULINE. ⚠️ The two phrases a learner meets are «кворум есть» and «кворума нет», which is how a Russian chairman opens a sitting or postpones it. ⚠️ Distinguish it from `ратификация` in this lesson: a кворум is what lets a vote happen at all, a ратификация is what a parliament does to a treaty afterwards." },
       ],
     },
     {
