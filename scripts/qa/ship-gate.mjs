@@ -126,11 +126,29 @@ for (const L of langs) {
     ? FAIL(`${freeUnvoiced.length} UNVOICED cards are answerable by typing the prompt back — produce free-pass reroutes to speak, which needs a clip (${freeUnvoiced.slice(0, 3).map((x) => `${x.id} "${x.front}"<-"${x.meaning}"`).join(", ")})`)
     : OK("no unvoiced card is answerable by typing its own prompt back");
 
-  // 2. AUDIO — the other thing nothing asked
+  // 2. AUDIO — the other thing nothing asked.
+  //
+  // AND IT ASKS THE MANIFEST, NOT THE DISK, BECAUSE THAT IS WHAT THE ENGINE ASKS.
+  // `hasAudio` is `AUDIO_IDS.has(item.id)` and `AUDIO_IDS` comes from
+  // src/data/audioManifest.js, which is GENERATED from the disk by a separate
+  // command. So between `generate:audio` and `generate:manifest` the two disagree,
+  // and a gate that stats the filesystem reports a band fully voiced while every
+  // card of it is still routed as silent.
+  //
+  // Not hypothetical: measured mid-run on 2026-10-07, 252 ru clips were on disk and
+  // absent from the manifest. A disk check would have called that voiced. This is
+  // the same shape as every other defect in this file — the check has to reach the
+  // code path the learner actually gets.
   const voiceable = items.filter((i) => i.type === "vocab" || i.type === "glyph" || i.type === "kana" || i.type === "kanji");
-  const silent = voiceable.filter((i) => !existsSync(join("public", "audio", L, `${i.id}.mp3`)));
-  silent.length ? FAIL(`${silent.length} of ${voiceable.length} voiceable cards have NO clip`)
-                : OK(`all ${voiceable.length} voiceable cards have a clip`);
+  const silent = voiceable.filter((i) => !C.hasAudioId(i.id));
+  silent.length ? FAIL(`${silent.length} of ${voiceable.length} voiceable cards are SILENT TO THE ENGINE (absent from audioManifest.js)`)
+                : OK(`all ${voiceable.length} voiceable cards are voiced to the engine`);
+
+  // 2b. A CLIP ON DISK THAT THE MANIFEST DOES NOT LIST IS A PAID CLIP NOBODY HEARS.
+  // The repair is `npm run generate:manifest`, so the message says so.
+  const unwired = voiceable.filter((i) => !C.hasAudioId(i.id) && existsSync(join("public", "audio", L, `${i.id}.mp3`)));
+  unwired.length ? FAIL(`${unwired.length} clips EXIST ON DISK but are missing from audioManifest.js — run \`npm run generate:manifest\` (paid audio nobody hears)`)
+                 : OK("no clip on disk is missing from the manifest");
 
   // 3. SHAPE
   const offShape = units.filter((u) => {
