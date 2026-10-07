@@ -20,6 +20,18 @@
 // them, although l3 ("feelings you would rather not admit") is exactly where a
 // seat would reach for them.
 //
+// ⚠️ THE CROSS-BLOCK DEDUPE OF 2026-10-07 TOOK `азарт` OFF l3, and not on unit
+// order — u115 is the LOWER unit. **АЗАРТ IS IN u134'S OWN TITLE, «Игра и
+// азарт»**, and a unit whose title names a word it does not teach is the
+// defect Hindi had to retitle its u85 over. l3 cards `малодушие` instead —
+// still a feeling nobody admits to, and it crowds neither `тщеславие` nor
+// `самолюбие`. **`азарт` is NOT in scope for any sentence before u134.**
+//   ⚠️ `корысть` WAS THE FIRST CHOICE AND IS REFUSED, by a trap no probe sees:
+//     u107l2 cards `бескорыстие` and its hint says in as many words that the
+//     без- is legal *because* корысть is not taught. Teaching it here would make
+//     a taught без+X of it — unit51.js §3's bar — and would falsify a shipped
+//     hint. Grep the hints, not only the fronts.
+//
 // ⚠️ TEN CANDIDATES REFUSED ON unit1.js §D — the adverb or adjective is already
 // taught and the noun is what it names:
 //   `стыд` (vs `стыдно` u34) · `обида` (vs `обидно` u34) · `жалость` (vs `жаль`
@@ -81,13 +93,13 @@ export const RU_UNIT115 = {
       title: "Feelings you would rather not admit",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Name malicious glee, squeamishness, vanity, touchy self-regard, the thrill of a gamble, and call a feeling two-sided.",
+      canDo: "Name malicious glee, squeamishness, vanity, touchy self-regard, a shameful loss of nerve, and call a feeling two-sided.",
       items: [
         { id: "ru-u115l3-zloradstvo", type: "vocab", front: "злорадство", reading: "zloradstvo", meaning: "malicious glee", accept: ["taking pleasure in another's trouble", "spiteful delight", "gloating"], example: { jp: "Злорадство у него на лице, и это видели все.", en: "His malicious glee was on his face, and everyone saw it." }, drill: { jp: "Злорадство у него на лице", en: "His malicious glee was on his face" }, hint: "zla-RAD-stva — stress on RAD, and both unstressed о reduce to a. NEUTER (-о). ⚠️ A TRANSPARENT COMPOUND OF TWO WORDS YOU HAVE: `злой` (u28, «angry, evil») + `рад` (u7, «glad») — «evil-gladness». Russian has the single word German has as Schadenfreude and English does not. Its verb злорадствовать is not carded." },
         { id: "ru-u115l3-brezglivost", type: "vocab", front: "брезгливость", reading: "brezglivost", meaning: "squeamishness", accept: ["fastidious distaste", "being easily disgusted", "a fussy revulsion"], example: { jp: "Брезгливость мешает ему работать там, где грязно.", en: "Squeamishness stops him working anywhere dirty." }, drill: { jp: "Брезгливость мешает ему работать там", en: "Squeamishness stops him working anywhere dirty" }, hint: "brez-GLI-vast — stress on GLI, and the final о reduces to a. FEMININE (-ость). ⚠️ WEAKER AND FUSSIER THAN `отвращение` (u67, «revulsion»): отвращение is moral and total, брезгливость is about a dirty cup — and when used of PEOPLE it is a reproach, because it means you find someone beneath you." },
         { id: "ru-u115l3-tshcheslavie", type: "vocab", front: "тщеславие", reading: "tshcheslavie", meaning: "vanity", accept: ["love of praise", "craving admiration", "vainglory"], example: { jp: "Тщеславие у него большое, и он сам об этом знает.", en: "His vanity is great, and he knows it himself." }, drill: { jp: "Тщеславие у него большое", en: "His vanity is great" }, hint: "tshche-SLA-vi-ye — stress on SLA, and ⚠️ THE OPENING IS THE HARDEST CLUSTER IN THIS COURSE: тщ = t + the long soft sh of щ, said together. NEUTER (-ие). A compound of тщетный «vain, futile» and слава «glory»: craving glory that is empty. `гордый` (u28) can be a virtue; тщеславие never is." },
         { id: "ru-u115l3-samolyubie", type: "vocab", front: "самолюбие", reading: "samolyubie", meaning: "touchy self-regard", accept: ["wounded pride", "amour propre", "a sensitive sense of one's own worth"], example: { jp: "Самолюбие ему мешает просить помощи даже у друзей.", en: "His self-regard stops him asking for help even from friends." }, drill: { jp: "Самолюбие ему мешает просить помощи у друзей", en: "His self-regard stops him asking friends for help" }, hint: "sa-ma-LYU-bi-ye — stress on LYU, and both unstressed о reduce to a. NEUTER (-ие). A compound of сам «self» and `любить` (u4): self-love. ⚠️ NOT A VICE LIKE `тщеславие`: самолюбие is the part of you that can be OFFENDED — «задеть самолюбие», to wound someone's pride — and Russian treats having some as normal." },
-        { id: "ru-u115l3-azart", type: "vocab", front: "азарт", reading: "azart", meaning: "the thrill of a gamble", accept: ["reckless excitement", "a gambling fever", "being carried away by a risk"], example: { jp: "Азарт у игрока такой, что он не видит времени.", en: "A gambler's thrill is such that he does not notice the time." }, drill: { jp: "Азарт у игрока такой", en: "A gambler's thrill is such" }, hint: "a-ZART — stress on the last syllable. MASCULINE. ⚠️ TWO SIDES IN ONE WORD, which is why it is in this unit: «работать с азартом» is a compliment — working with real fire — while «игорный азарт» is an addiction. «Азартные игры» is the legal term for gambling. From the French for chance." },
+        { id: "ru-u115l3-malodushie", type: "vocab", front: "малодушие", reading: "malodushie", meaning: "a shameful loss of nerve", accept: ["faint-heartedness in a hard moment", "giving way out of cowardice", "a want of courage a person is ashamed of"], example: { jp: "Малодушие он признал сам, однако себе эту минуту всё ещё не простил.", en: "He admitted the loss of nerve himself, yet he still has not forgiven himself that moment." }, drill: { jp: "Малодушие он признал совершенно честно", en: "He admitted the loss of nerve quite honestly" }, hint: "ma-la-DU-shi-ye — stress on DU, and both о reduce to a. NEUTER (-ие). Built on мало (u21) + душа (u28), literally little-soul — the same two-taught-roots shape as `злорадство` and `самолюбие` in this lesson, and idiomatic in the same way. ⚠️ NOT `страх` (u28), which is the feeling: малодушие is the DECISION fear makes for you, and in Russian it is a moral reproach — a person is blamed for it, never pitied." },
         { id: "ru-u115l3-dvoystvennyy", type: "vocab", front: "двойственный", reading: "dvoystvennyy", meaning: "two-sided", accept: ["ambivalent", "of two minds", "pulling in two directions"], example: { jp: "Двойственный ответ никому не помог, и вопрос остался.", en: "The two-sided answer helped nobody, and the question remained." }, drill: { jp: "Двойственный ответ никому не помог", en: "The two-sided answer helped nobody" }, hint: "DVOY-stven-nyy — stress on the first syllable. From два / `двое` — «double-natured». ⚠️ THE ADJECTIVE THIS WHOLE UNIT IS ABOUT: «двойственное чувство», a feeling that is two feelings. Also of a person's position or an answer that faces both ways, where it is a criticism." },
       ],
     },
