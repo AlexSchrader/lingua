@@ -153,7 +153,63 @@ for (const L of langs) {
   ctrl.length ? FAIL(`${ctrl.length} cards contain a control character (${ctrl.slice(0, 3).map((x) => x.id).join(", ")})`)
               : OK("no control characters in data");
 
-  // 9. REQUIRED FIELDS
+  // 9. STRAY SCRIPT — a letter from a writing system this language does not use.
+  //
+  // The ru B2 block-3 seat found a CJK 三 inside a Russian example and a Hangul
+  // syllable inside a Russian hint. Both RENDER FINE on screen; validate:content
+  // checks shapes and lint is silent for Cyrillic, so nothing in the gate saw
+  // either. Hand-authoring and scripted edits both leak these.
+  const SCRIPTS = {
+    ja: /[぀-ヿ一-鿿　-〿]/,
+    ru: /[Ѐ-ӿ]/,
+    hi: /[ऀ-ॿ]/,
+  };
+  // NARROWED AFTER ITS FIRST RUN, which flagged four cards and all four were
+  // legitimate: `ª` and `º` are the Spanish and Portuguese ordinal indicators
+  // (Dª Ana, 1º) and `ˈ` and `ʃ` are IPA inside pronunciation hints. The defect
+  // this check exists for is a whole FOREIGN WRITING SYSTEM leaking in — the
+  // seat's actual finds were a CJK 三 and a Hangul syllable in Russian cards — so
+  // it now tests only for those blocks, and IPA and Latin typography are allowed
+  // everywhere. Flagging a language's own correct orthography is how a check gets
+  // switched off.
+  const FOREIGN = {
+    cjk: /[぀-ヿ一-鿿]/,
+    hangul: /[가-힯ᄀ-ᇿ]/,
+    cyrillic: /[Ѐ-ӿ]/,
+    devanagari: /[ऀ-ॿ]/,
+    arabic: /[؀-ۿ]/,
+    hebrew: /[֐-׿]/,
+    thai: /[฀-๿]/,
+    greek: /[Ͱ-Ͽ]/,
+  };
+  const ownScript = SCRIPTS[L] ?? null;
+  const strayLetter = (t) => {
+    for (const ch of String(t ?? "")) {
+      if (ownScript && ownScript.test(ch)) continue;   // the language's own script
+      for (const re of Object.values(FOREIGN)) if (re.test(ch)) return ch;
+    }
+    return null;
+  };
+  const stray = [];
+  for (const i of items)
+    for (const v of [i.front, i.meaning, i.reading, i.example?.jp, i.drill?.jp, i.hint])
+      { const c = strayLetter(v); if (c) { stray.push(`${i.id}:${JSON.stringify(c)}`); break; } }
+  stray.length ? FAIL(`${stray.length} cards contain a letter from a foreign script (${stray.slice(0, 3).join(", ")})`)
+               : OK("no stray foreign-script letters");
+
+  // 10. MIXED-SCRIPT WORD — one word built from two alphabets. Check 9 cannot see
+  // it, because a hint legitimately holds both. The same seat caught `плaster`
+  // (Cyrillic п-л + Latin a-s-t-e-r) and `хлопОk` in its own fresh cards.
+  const mixed = [];
+  for (const i of items)
+    for (const v of [i.front, i.example?.jp, i.drill?.jp])
+      for (const w of String(v ?? "").split(/[^\p{L}\p{M}]+/u))
+        if (w.length > 1 && /[a-zA-Z]/.test(w) && /[Ѐ-ӿऀ-ॿ]/.test(w))
+          mixed.push(`${i.id}:${w}`);
+  mixed.length ? FAIL(`${mixed.length} words built from two scripts (${mixed.slice(0, 3).join(", ")})`)
+               : OK("no word mixes two scripts");
+
+  // 11. REQUIRED FIELDS
   const missing = vocab.filter((i) => !i.front || !i.meaning || !i.example?.jp);
   missing.length ? FAIL(`${missing.length} vocab missing front/meaning/example`)
                  : OK("every vocab has front, meaning and an example");
