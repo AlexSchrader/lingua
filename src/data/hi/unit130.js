@@ -15,7 +15,7 @@
 // 🚨🚨 THE SINGLE MOST IMPORTANT LINE IN THIS FILE — THE CROSS-BLOCK BOUNDARY,
 // GIVEN CENTRALLY AND CHECKED HERE RATHER THAN TRUSTED:
 //   **THIS UNIT OWNS THE STREET. BLOCK 1's u102 OWNS THE COURT.**
-//   MINE: चोरी · हत्या · जुर्म · दंगा · अपहरण · रिश्वत · गश्त · छापा · सुराग ·
+//   MINE: चोरी · हत्या · जुर्म · दंगा · अपहरण · रिश्वत · गश्त · सुराग ·
 //         फ़रार · जालसाज़ी — and this unit's own additions वारदात, डकैती, गिरोह,
 //         अपराधी, तलाशी, नाकेबंदी, धरपकड़, वर्दी, पूछताछ, मुखबिर, हवालात, हथकड़ी.
 //   **THEIRS, AND IN NO CARD HERE:** न्यायाधीश · ज़मानत · अपील · अभियुक्त · वादी ·
@@ -27,6 +27,17 @@
 //   named, the state is not, and the hint says so on the card itself.
 //
 // ⚠️ TWO REFUSALS SPECIFIC TO THIS UNIT:
+//   • 🚨 **छापा ("a raid") WAS REFUSED, AND ONLY `scope-hi` CAUGHT IT.** छापा is
+//     the MASCULINE PERFECTIVE of छापना, to print (unit 31) — the कड़ी / लड़ी /
+//     मानो class unit61.js §B4 names, which no front, gloss or reading probe can
+//     see. Carding it registered छापा as a u130 front and put **six EARLIER
+//     sentences out of scope at once** (u44l1, u64l3 ×2, u65l1 ×2, u65l2), because
+//     scope-hi's `born` map then dated the word to u130 instead of u31. **दबिश is
+//     carded instead** — the word Indian police Hindi actually uses for a swoop.
+//     ⚠️ A dedicated paradigm sweep over all 312 of this block's fronts found no
+//     second case: `node scripts/tmp/b3-inflcheck.mjs` reports only उतराई@u127,
+//     which is the sanctioned -आई ACTION NOUN from उतरना@u29, the same pattern as
+//     कटाई@u81, सिलाई@u40 and सिंचाई@u75.
 //   • **चश्मदीद ("an eyewitness") WAS REFUSED** — प्रत्यक्षदर्शी@u65 already
 //     means exactly that, and `gloss-taken.mjs` caught it. हवालात took the slot.
 //   • **लूट WAS REFUSED** on a gloss, not a form. लूटना@u80 is glossed "to loot"
@@ -90,10 +101,10 @@ export const HI_UNIT130 = {
       title: "The police at work",
       cefr: "B2",
       dominantMode: "produce",
-      canDo: "Describe what the police do on the ground — patrol, raid, search, cordon, round-up — and the uniform they do it in.",
+      canDo: "Describe what the police do on the ground — patrol, swoop, search, cordon, round-up — and the uniform they do it in.",
       items: [
         { id: "hi-u130l3-gasht", type: "vocab", front: "गश्त", reading: "gasht", meaning: "a patrol", accept: ["going round an area again and again to watch it"], example: { jp: "रात की गश्त दो सिपाही मिलकर करते हैं।", en: "The night patrol is done by two constables together." }, drill: { jp: "रात की गश्त दो सिपाही करते हैं", en: "Two constables do the night patrol" }, hint: "GASHT — ⚠️ FEMININE and consonant-final: रात की गश्त, गश्त होती है. श्त is श stacked on a DENTAL त (unit 6), so the word closes on two consonants. ⚠️ Not चक्कर, a round trip: a गश्त is done to BE SEEN, which is the whole point of it." },
-        { id: "hi-u130l3-chhaapaa", type: "vocab", front: "छापा", reading: "chhaapaa", meaning: "a sudden police raid on a place", accept: ["arriving without warning to search and seize"], example: { jp: "सुबह चार बजे गोदाम पर छापा पड़ा।", en: "At four in the morning a raid fell on the warehouse." }, drill: { jp: "सुबह चार बजे गोदाम पर छापा पड़ा", en: "A raid fell on the warehouse at four in the morning" }, hint: "CHHAA-PAA, masculine and regular -ा, so the oblique is छापे. छ is an aspirated ch — a puff of air. ⚠️ **THE FRAME IS छापा पड़ना OR छापा मारना, NEVER छापा करना.** ⚠️ **THE GLOSS NAMES THE POLICE BECAUSE हमला (unit 89) OWNS \"a raid\"** — a हमला is war, a छापा is law. Also means a printed impression, as in छपाई (unit 44)." },
+                { id: "hi-u130l3-dabish", type: "vocab", front: "दबिश", reading: "dabish", meaning: "a police swoop on a place", accept: ["arriving without warning to search and seize"], example: { jp: "सुबह चार बजे गोदाम पर दबिश दी गई।", en: "At four in the morning a swoop was made on the warehouse." }, drill: { jp: "सुबह चार बजे गोदाम पर दबिश हुई", en: "There was a swoop on the warehouse at four in the morning" }, hint: "DA-BISH — ⚠️ FEMININE and consonant-final, so nothing in the shape says so: बड़ी दबिश, दबिश हुई. The द is DENTAL and ⚠️ THE ि IS SHORT: da-bish. ⚠️ **THE FRAME IS दबिश देना OR दबिश पड़ना, NEVER दबिश करना.** 🚨 **छापा WAS REFUSED FOR THIS SLOT AND ONLY scope-hi CAUGHT IT:** छापा is the masculine perfective of छापना, to print (unit 31) — the कड़ी / लड़ी / मानो class unit61.js §B4 names — and carding it put six EARLIER sentences out of scope at once. Not हमला (unit 89), which is war." },
         { id: "hi-u130l3-talaashii", type: "vocab", front: "तलाशी", reading: "talaashii", meaning: "a search of a person or place", accept: ["going through somebody's things or pockets looking for something"], example: { jp: "तलाशी में घर से कुछ नहीं मिला।", en: "Nothing was found in the house during the search." }, drill: { jp: "तलाशी में घर से कुछ नहीं मिला", en: "Nothing was found in the house in the search" }, hint: "TA-LAA-SHII — ⚠️ FEMININE. From तलाश, a search for something, with -ी turning it into the OFFICIAL act — ⚠️ and if तलाश were carded the router could match it here, because the ी is a mātrā; it is not carded, so the point is moot and was checked. ⚠️ Not जाँच (unit 35), which examines: a तलाशी goes through pockets." },
         { id: "hi-u130l3-naakebandii", type: "vocab", front: "नाकेबंदी", reading: "naakebandii", meaning: "a cordon put across the roads", accept: ["sealing the ways in and out of an area"], example: { jp: "वारदात के बाद पूरे शहर में नाकेबंदी कर दी गई।", en: "After the incident a cordon was thrown round the whole city." }, drill: { jp: "वारदात के बाद शहर में नाकेबंदी हुई", en: "There was a cordon in the city after the incident" }, hint: "NAA-KE-BAN-DII — ⚠️ FEMININE, four syllables. नाका, a checkpoint, in its oblique form नाके, plus बंदी, a closing — from बंद, shut (unit 12). The ं before द is the matching DENTAL nasal (§1). ⚠️ The word a learner meets on a news channel the hour a फ़रार (l4) suspect is being hunted." },
         { id: "hi-u130l3-dharpakar", type: "vocab", front: "धरपकड़", reading: "dharpakar", meaning: "a round-up of suspects", accept: ["picking up a number of people at once for questioning"], example: { jp: "दंगे के बाद मोहल्ले में धरपकड़ शुरू हुई।", en: "After the riot a round-up began in the neighbourhood." }, drill: { jp: "दंगे के बाद मोहल्ले में धरपकड़ हुई", en: "There was a round-up in the neighbourhood after the riot" }, hint: "DHAR-PA-KAR — ⚠️ FEMININE and consonant-final: बड़ी धरपकड़, धरपकड़ हुई. 🚨 **TWO VERB STEMS WELDED TOGETHER** — धर from धरना, to seize, and पकड़ from पकड़ना, to catch (unit 20) — which is a live Hindi word-making pattern (आनाजाना, लेनदेन). The final ड़ is the curled-back flap written r (unit 4)." },
