@@ -3,6 +3,7 @@ import { persist } from "zustand/middleware";
 import { seedItems, LANGUAGES, UNITS, isLive } from "../data/index.js";
 import { newCard, schedule, isDue, startOfTomorrow } from "./srs.js";
 import { nextRung, isReviewable } from "./mastery.js";
+import { blockedBy, conflictReason } from "./interference.js";
 import { migrateState, PERSIST_VERSION } from "./migrate.js";
 import { matchesDevCode } from "./dev.js";
 import { earnedMilestones, milestoneCatalog } from "../data/milestones.js";
@@ -178,6 +179,19 @@ export const PASSES_PER_DAY = 4;
 // counter is what the UI gates on; the per-item PASSES_PER_DAY above is the harder
 // guarantee underneath it, so even an unbounded run cannot over-drill one word.
 export const PRACTICE_RUNS_PER_DAY = 3;
+
+// HOW MANY LANGUAGES RUN AT ONCE BEFORE THE A1 BAR APPLIES.
+//
+// Two, and Alex set it: "we allow two languages but cant be of same root". The
+// pairing constraint does the real work (src/store/interference.js) — this is just
+// the count. A third still requires an A1 earned somewhere, which is the bar he set
+// earlier and did not retract: "user needs to be serious about lang learning and at
+// least complete a1".
+//
+// Note what this costs, because it is not free: the daily review obligation is
+// global (see REVIEW_CAP), so a second language adds an optional queue, not a
+// required one. Two is affordable for that reason and a larger number would not be.
+export const MAX_CONCURRENT_LANGUAGES = 2;
 
 function recordPass(item, kind, day) {
   if (!kind) return item;
@@ -820,12 +834,40 @@ export const useStore = create(
       //      is promote-only (checkCascade) and covers the whole catalog, so it is a
       //      record of what you have ever reached, which is what "complete A1 first"
       //      actually means.
+      // TWO IS FREE IF THEY DO NOT BLUR; A THIRD MUST BE EARNED.
+      //
+      // Alex, 2026-10-06, set the shape: "we allow two languages but cant be of same
+      // root ... but like say hindi and french or japanese and spanish etc". So the
+      // A1 bar he set earlier still governs a THIRD language — "user needs to be
+      // serious ... and at least complete a1" — while a second one is open from day
+      // one, provided it does not interfere. Japanese alongside Spanish is a real
+      // thing people do; Spanish alongside French is how you end up speaking neither.
+      //
+      // Interference itself is checked per CANDIDATE in canStartLanguage below,
+      // because it depends on which language is being added. This answers only
+      // "is there room for another at all".
       canAddLanguage: () => {
         const { profile, languages } = get();
-        if (!(profile.languages ?? []).length) return true; // no language yet — the pick is open
+        const started = profile.languages ?? [];
+        if (!started.length) return true; // no language yet — the pick is open
+        if (started.length < MAX_CONCURRENT_LANGUAGES) return true;
+        // Past the free allowance, the old rule stands: an A1 earned anywhere.
         return Object.values(languages ?? {}).some(
           (l) => (CEFR_ORDER[l?.level] ?? -1) >= CEFR_ORDER.A1
         );
+      },
+
+      // Can this SPECIFIC language be started right now? Room, plus no interference
+      // with anything already on the Ladder. Returns a reason so the UI can say why
+      // rather than render a dead button.
+      canStartLanguage: (id) => {
+        const { profile } = get();
+        const started = profile.languages ?? [];
+        if (started.includes(id)) return { ok: false, reason: null, blocker: null };
+        const blocker = blockedBy(id, started, LANGUAGES);
+        if (blocker) return { ok: false, blocker, reason: conflictReason(id, blocker, LANGUAGES) };
+        if (!get().canAddLanguage()) return { ok: false, blocker: null, reason: null };
+        return { ok: true, blocker: null, reason: null };
       },
 
       // Selector: items the learner has touched for `lang`, scoped to CEFR ≤

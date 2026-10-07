@@ -81,10 +81,23 @@ test("the Ladder's add-a-language flow still APPENDS — that path was never wro
 // learner still cannot start two at once, because no language is at A1 yet. These
 // tests pin that, so the stricter rule cannot be reintroduced silently.
 
-test("a brand-new learner cannot carry two languages - nothing is at A1 yet", () => {
+test("a SECOND language is free from day one — Alex changed this rule 2026-10-06", () => {
+  // This asserted the opposite until 2026-10-06, and the reversal is his:
+  // "we allow two languages but cant be of same root". A learner carrying Japanese
+  // and Spanish is doing something real; the A1 bar now guards the THIRD language,
+  // not the second. Which PAIRS are allowed is a separate question, answered by
+  // canStartLanguage and pinned in interference.test.mjs.
   setProfile({ languages: ["ja"], activeLang: "ja", languagesChosen: true });
   setLevels({ ja: "pre-A1", fr: "pre-A1", de: "pre-A1", es: "pre-A1", pt: "pre-A1", no: "pre-A1" });
-  assert.equal(useStore.getState().canAddLanguage(), false);
+  assert.equal(useStore.getState().canAddLanguage(), true);
+});
+
+test("a THIRD language still has to be earned — the \"at least complete a1\" bar", () => {
+  setProfile({ languages: ["ja", "es"], activeLang: "ja", languagesChosen: true });
+  setLevels({ ja: "pre-A1", fr: "pre-A1", de: "pre-A1", es: "pre-A1", pt: "pre-A1", no: "pre-A1" });
+  assert.equal(useStore.getState().canAddLanguage(), false, "two is the free allowance, not the limit");
+  setLevels({ ja: "A1" });
+  assert.equal(useStore.getState().canAddLanguage(), true, "an A1 earned anywhere opens the third");
 });
 
 test("reaching A1 opens the gate", () => {
@@ -160,5 +173,10 @@ test("resetAll drops every earned level back to pre-A1", () => {
   // that happens is picking a first language. It shuts again the moment one is picked
   // and no A1 exists — covered above.
   useStore.getState().startLanguage("ja", { only: true });
-  assert.equal(useStore.getState().canAddLanguage(), false);
+  // One started language leaves room for a second under MAX_CONCURRENT_LANGUAGES,
+  // so the gate is OPEN here. What reset guarantees is that no earned LEVEL
+  // survived it, which is what the assertion above checks.
+  assert.equal(useStore.getState().canAddLanguage(), true);
+  useStore.getState().startLanguage("es");
+  assert.equal(useStore.getState().canAddLanguage(), false, "and the third is shut, because reset cleared every level");
 });

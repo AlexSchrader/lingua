@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Lock, Check, ChevronRight, Volume2 } from "lucide-react";
-import { useStore, activeLangId } from "../store/useStore.js";
+import { useStore, activeLangId, MAX_CONCURRENT_LANGUAGES } from "../store/useStore.js";
 import { LANGUAGES, UNITS, isLive } from "../data/index.js";
 import { roadmapFor } from "../data/roadmap.js";
 import { KANJI_CATEGORIES, categoryOf } from "../data/ja/kanjiCategories.js";
@@ -70,6 +70,7 @@ export default function Ladder() {
   const stopLanguage = useStore((s) => s.stopLanguage);
   const [removing, setRemoving] = useState(null);
   const realCanAdd = useStore((s) => s.canAddLanguage)();
+  const canStartLanguage = useStore((s) => s.canStartLanguage);
 
   // Dev-only preview of the add-a-language flow (?preview=addlang, launched from
   // the Dev panel). "Add a language" is gated on reaching A1, so until a learner
@@ -179,15 +180,24 @@ export default function Ladder() {
             </div>
           )}
           <div style={{ fontSize: 12, color: C.inkSoft, marginBottom: 12 }}>
-            {/* Three states, not two. "Nothing started" used to fall into the
-                you've-earned-it copy, which reads as congratulation to someone who
-                has not started a language yet — reachable after a reset in a build
-                that never renders onboarding. */}
+            {/* FOUR states, and each one is a different sentence.
+                "You've reached A1" used to cover every open gate, which became a lie
+                the moment a SECOND language stopped needing A1 (2026-10-06): it
+                congratulated a day-one learner for something they had not done.
+                Earlier the same line also greeted someone with no language at all.
+                A gate that misreports WHY it is open is worse than one that says
+                nothing, because the learner acts on the reason. */}
             {started.length === 0
               ? "Pick a language to start."
-              : canAdd
-                ? "You've reached A1 — start another whenever you like. One at a time."
-                : `Reach A1 in ${active.name} to unlock another language.`}
+              : !previewAddLang && started.length < MAX_CONCURRENT_LANGUAGES
+                ? `Add a second — anything that won't blur with ${active.name}.`
+                : canAdd
+                  ? "You've reached A1 — start another whenever you like."
+                  : `Reach A1 in ${active.name} to unlock a third language.`}
+            {/* The dev preview skips the second-language line on purpose. Its whole
+                job is to render the state a learner cannot otherwise reach, and as
+                of 2026-10-06 the SECOND language is reachable on day one — so the
+                unreachable state it exists to show is now the THIRD. */}
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {/* Startable (has-content) languages as rows; the ~19 planned fold into
@@ -197,6 +207,7 @@ export default function Ladder() {
                 key={l.id}
                 lang={l}
                 canAdd={canAdd}
+                blockedReason={previewAddLang ? null : canStartLanguage(l.id).reason}
                 preview={previewAddLang}
                 onStart={previewAddLang ? undefined : () => startLanguage(l.id)}
               />
@@ -910,7 +921,7 @@ function Num({ n, color }) {
 
 // --- Other languages --------------------------------------------------------
 
-function AddLangRow({ lang, canAdd, onStart, preview = false }) {
+function AddLangRow({ lang, canAdd, onStart, preview = false, blockedReason = null }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 12, padding: 12, borderRadius: 12, background: canAdd ? C.surface : C.lockedBg, border: `1px ${canAdd ? "solid" : "dashed"} ${C.line}`, opacity: canAdd ? 1 : 0.85 }}>
       <div style={{ fontSize: 26 }}>{lang.flag}</div>
@@ -928,7 +939,17 @@ function AddLangRow({ lang, canAdd, onStart, preview = false }) {
           })()}
         </div>
       </div>
-      {canAdd && hasContent(lang.id) && (
+      {/* A LANGUAGE TOO CLOSE TO ONE YOU ALREADY STUDY SAYS SO.
+          Spanish beside French, Norwegian beside Swedish, Japanese beside Mandarin
+          — these blur together, so the app declines the pair. It names the language
+          it is protecting rather than showing a dead row: a control that refuses
+          without saying why reads as a bug, and a learner cannot act on silence. */}
+      {blockedReason && hasContent(lang.id) && (
+        <div data-testid={`blocked-${lang.id}`} style={{ fontSize: 11, color: C.inkSoft, textAlign: "right", maxWidth: 150, lineHeight: 1.35, flexShrink: 0 }}>
+          {blockedReason}
+        </div>
+      )}
+      {canAdd && !blockedReason && hasContent(lang.id) && (
         <button
           onClick={onStart}
           disabled={preview}
