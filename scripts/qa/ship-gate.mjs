@@ -98,6 +98,34 @@ for (const L of langs) {
   longDrill.length ? FAIL(`${longDrill.length} drills run over 8 tokens, so sentence:build cannot route them (${longDrill.slice(0, 3).map((x) => x.id).join(", ")})`)
                    : OK("no drill exceeds the 8-token sentence:build bound");
 
+  // 1c. A FREE-PASS CARD IS ONLY CAUGHT BY ITS AUDIO. Unvoiced, it is a free card.
+  //
+  // `reviewStep.js` guards both typed directions, but NOT symmetrically:
+  //   meaning side  `if (meaningIsFreePass) -> listen:type if clip, else choice:reverse`
+  //                 — an unconditional reroute, safe with or without audio.
+  //   produce side  `if (produceIsFreePass(item) && shouldSpeak(item)) -> speak`
+  //                 — and `shouldSpeak` REQUIRES A CLIP, by its own design note.
+  // So a cognate whose front IS its gloss falls through to type:produce whenever it
+  // has no audio, and the learner types the prompt back for a pass.
+  //
+  // Measured 2026-10-07: 73 produce free-pass items live in the corpus and ZERO are
+  // exposed — every one sits in fr/es/de/no/pt, which are fully voiced. That is the
+  // audio run hiding an engine asymmetry, not a guard doing its job. The condition
+  // needed is LATIN SCRIPT (so a front can equal an English gloss) plus NO CLIP,
+  // and Cyrillic ru B2 cannot meet it however long it waits for its run.
+  //
+  // IT IS THE NEXT THREE LANGUAGES THAT MEET IT: it, nl and en are Latin, and every
+  // band is unvoiced between authoring and its paid run — while main is production.
+  // So this fails the gate at merge, before that window can open.
+  const freeUnvoiced = vocab.filter((i) => {
+    try {
+      return C.produceIsFreePass(i) && !existsSync(join("public", "audio", L, `${i.id}.mp3`));
+    } catch { return false; }
+  });
+  freeUnvoiced.length
+    ? FAIL(`${freeUnvoiced.length} UNVOICED cards are answerable by typing the prompt back — produce free-pass reroutes to speak, which needs a clip (${freeUnvoiced.slice(0, 3).map((x) => `${x.id} "${x.front}"<-"${x.meaning}"`).join(", ")})`)
+    : OK("no unvoiced card is answerable by typing its own prompt back");
+
   // 2. AUDIO — the other thing nothing asked
   const voiceable = items.filter((i) => i.type === "vocab" || i.type === "glyph" || i.type === "kana" || i.type === "kanji");
   const silent = voiceable.filter((i) => !existsSync(join("public", "audio", L, `${i.id}.mp3`)));
