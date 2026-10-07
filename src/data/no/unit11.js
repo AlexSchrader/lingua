@@ -44,7 +44,7 @@ export const NO_UNIT11 = {
       title: "The body",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name the body and its head, hands, feet, eyes and ears, and say that one of them hurts: Jeg har vondt i hodet.",
+      canDo: "Name the body and its head, hands, feet, eyes, ears and skin, and say that one of them hurts: Jeg har vondt i hodet.",
       items: [
         { id: "no-u11l1-enkropp", type: "vocab", front: "en kropp", reading: "enkropp", meaning: "body", example: { jp: "Kroppen min er kald.", en: "My body is cold." }, accept: ["a body"], drill: { jp: "Vi har en kropp og et hode", en: "We have a body and a head" }, hint: "Masculine: en kropp → kroppen. Watch where the possessive sits — kroppen min, definite noun first, then min. That is the everyday order; min kropp is correct too but sounds formal." },
         { id: "no-u11l1-ethode", type: "vocab", front: "et hode", reading: "ethode", meaning: "head", example: { jp: "Hun har vondt i hodet.", en: "She has a headache." }, accept: ["a head"], drill: { jp: "Et hode har to øyne", en: "A head has two eyes" }, hint: "Neuter: et hode → hodet. The d IS pronounced here — HOO-de — but the -t of the definite is not, which is true of every definite neuter: huset, flagget, øyet. Learn ha vondt i as one piece — jeg har vondt i hodet, \"I have a pain in the head\". It is how Norwegian reports every ache there is." },
@@ -52,6 +52,7 @@ export const NO_UNIT11 = {
         { id: "no-u11l1-enfot", type: "vocab", front: "en fot", reading: "enfot", meaning: "foot", example: { jp: "I dag er foten min vond.", en: "Today my foot is sore." }, accept: ["a foot", "leg"], drill: { jp: "Jeg har vondt i en fot", en: "I have a pain in one foot" }, hint: "Masculine: en fot → foten, plural føtter — the vowel changes. til fots is \"on foot\". Note the order once more: i dag opens, er comes second, foten min follows." },
         { id: "no-u11l1-etoye", type: "vocab", front: "et øye", reading: "etoye", meaning: "eye", example: { jp: "Øynene er blå.", en: "The eyes are blue." }, accept: ["an eye"], drill: { jp: "Et øye ser mye", en: "An eye sees a lot" }, hint: "Neuter: et øye → øyet, said UH-ye. The plural is irregular and you will meet it constantly — øyne, definite øynene." },
         { id: "no-u11l1-etore", type: "vocab", front: "et øre", reading: "etore", meaning: "ear", example: { jp: "Har du vondt i øret?", en: "Does your ear hurt?" }, accept: ["an ear"], drill: { jp: "Et øre hører når vi snakker", en: "An ear hears when we speak" }, hint: "Neuter: et øre → øret, plural ører. It is the same family as å høre, \"to hear\", which arrives in lesson 4 — a hook, not a trap." },
+        { id: "no-u11l1-enhud", type: "vocab", front: "en hud", reading: "enhud", meaning: "skin", example: { jp: "Sola gjør huden brun.", en: "The sun makes the skin brown." }, accept: ["a skin", "the skin"], drill: { jp: "En hud kjenner sol og vann", en: "Skin feels sun and water" }, hint: "The d is silent: HUE. Masculine: en hud → huden, plural huder. In practice you meet it definite almost every time — huden min, tørr hud — because you only have the one." },
       ],
     },
     // Lesson 2: the face and the limbs.

@@ -53,7 +53,7 @@ export const PT_UNIT26 = {
       title: "Os animais",
       cefr: "A2",
       dominantMode: "recall",
-      canDo: "Name the farm and garden animals a Portuguese child learns first.",
+      canDo: "Name o animal itself and the farm and garden animals a Portuguese child learns first.",
       items: [
         { id: "pt-u26l3-opassaro", type: "vocab", front: "o pássaro", reading: "opassaro", meaning: "bird", example: { jp: "Um pássaro entrou pela janela e não conseguia sair.", en: "A bird came in through the window and couldn't get out." }, drill: { jp: "O pássaro do jardim é pequeno", en: "The garden bird is small" }, accept: ["the bird", "birds"], hint: "PA-sa-ru, stressed on the first syllable, with the double ss saying a hard s. A ave is the more formal or scientific word, as in bird of prey." },
         { id: "pt-u26l3-ocavalo", type: "vocab", front: "o cavalo", reading: "ocavalo", meaning: "horse", example: { jp: "O cavalo do meu tio é castanho e muito calmo.", en: "My uncle's horse is brown and very calm." }, drill: { jp: "O cavalo do campo é castanho", en: "The horse in the field is brown" }, accept: ["the horse", "horses"], hint: "ka-VA-lu. The Lusitano is Portugal's own breed. A cavalo means on horseback, the same de frame you met for de comboio." },
@@ -61,6 +61,7 @@ export const PT_UNIT26 = {
         { id: "pt-u26l3-aovelha", type: "vocab", front: "a ovelha", reading: "aovelha", meaning: "sheep", example: { jp: "A ovelha da serra dá o leite do queijo mais famoso do país.", en: "The mountain sheep gives the milk of the country's most famous cheese." }, drill: { jp: "A ovelha da serra dá leite", en: "The mountain sheep gives milk" }, accept: ["the sheep", "ewe"], hint: "o-VE-lya, the lh again. Queijo da Serra, from Unit 6, is made from this animal's milk — the two cards explain each other." },
         { id: "pt-u26l3-agalinha", type: "vocab", front: "a galinha", reading: "agalinha", meaning: "hen", example: { jp: "A galinha põe um ovo quase todos os dias.", en: "The hen lays an egg almost every day." }, drill: { jp: "A galinha do campo é branca", en: "The farm hen is white" }, accept: ["the hen", "chicken", "the chicken", "hens"], hint: "ga-LEE-nya, the nh from Unit 1. o frango is the chicken you eat, a galinha the bird in the yard — Portuguese keeps them apart on the menu." },
         { id: "pt-u26l3-oporco", type: "vocab", front: "o porco", reading: "oporco", meaning: "pig", example: { jp: "O porco preto do Alentejo é famoso em todo o país.", en: "The black pig of the Alentejo is famous throughout the country." }, drill: { jp: "O porco preto é muito famoso", en: "The black pig is very famous" }, accept: ["the pig", "pork", "swine"], hint: "POR-ku. One word for the animal and the meat — carne de porco. The presunto from Unit 6 comes from exactly this animal." },
+        { id: "pt-u26l3-oanimal", type: "vocab", front: "o animal", reading: "oanimal", meaning: "animal", example: { jp: "O cavalo é um animal grande e muito calmo.", en: "The horse is a big and very calm animal." }, drill: { jp: "O animal do campo é grande", en: "The farm animal is big" }, accept: ["the animal", "animals", "creature"], hint: "a-ni-MAL, stressed on the end. The plural moves the l: um animal, dois animais — the same -al / -ais swap as o jornal / os jornais. Um animal de estimação is a pet." },
       ],
     },
     {

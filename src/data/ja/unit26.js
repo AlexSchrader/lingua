@@ -48,7 +48,7 @@ export const UNIT26 = {
     },
     {
       id: "ja-u26l4", unit: 26, lesson: 4, title: "More of the body", cefr: "A2", dominantMode: "recall",
-      canDo: "Name more parts: かみ ゆび つめ こえ ちから ひげ.",
+      canDo: "Name more parts: かみ ゆび つめ こえ ちから ひげ はだ.",
       items: [
         { id: "ja-u26l4-kami", type: "vocab", front: "かみ", reading: "kami", meaning: "hair", example: { jp: "かみをあらいます。", en: "I wash my hair." }, accept: ["one's hair"] },
         { id: "ja-u26l4-yubi", type: "vocab", front: "ゆび", reading: "yubi", meaning: "finger", example: { jp: "ゆびがいたいです。", en: "My finger hurts." }, accept: ["toe", "fingers"] },
@@ -56,6 +56,7 @@ export const UNIT26 = {
         { id: "ja-u26l4-koe", type: "vocab", front: "こえ", reading: "koe", meaning: "voice", example: { jp: "こえがおおきいです。", en: "The voice is loud." }, accept: ["a voice"] },
         { id: "ja-u26l4-chikara", type: "vocab", front: "ちから", reading: "chikara", meaning: "strength", example: { jp: "ちからがつよいです。", en: "He is strong." }, accept: ["power", "force"] },
         { id: "ja-u26l4-hige", type: "vocab", front: "ひげ", reading: "hige", meaning: "beard", example: { jp: "ちちはひげがあります。", en: "My father has a beard." }, accept: ["moustache", "facial hair"] },
+        { id: "ja-u26l4-hada", type: "vocab", front: "はだ", reading: "hada", meaning: "skin", example: { jp: "はだがしろいです。", en: "Her skin is fair." }, accept: ["the skin", "complexion"] },
       ],
     },
   ],

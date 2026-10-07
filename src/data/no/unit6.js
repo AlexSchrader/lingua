@@ -2,8 +2,8 @@
 // What is on the table, what is in the glass, the meals, and buying it.
 // Conventions are declared in no/unit1.js and bind every unit.
 //
-// THE MASS-NOUN EXCEPTION LIVES HERE (unit1.js §1b). `vann` and `melk` are taught
-// BARE, with no article, because the indefinite singular does not exist for them:
+// THE MASS-NOUN EXCEPTION LIVES HERE (unit1.js §1b). `vann`, `melk`, `ris` and `kaffe` are taught
+// BARE, with no article, because the indefinite singular does not name the substance:
 // "et vann" is a lake, not a glass of water. Their gender is named in the hint
 // (vannet, melka) so nothing is lost. Every countable food noun on this unit takes
 // en/ei/et as normal. Blocks 2 and 3: this exception is for mass nouns and
@@ -27,7 +27,7 @@ export const NO_UNIT6 = {
       title: "On the plate",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Name the food a Norwegian shop actually sells — brød, ost, pølse, fisk — and say what you are buying.",
+      canDo: "Name the food a Norwegian shop actually sells — brød, ost, pølse, fisk, ris — and say what you are buying.",
       items: [
         { id: "no-u6l1-etbrod", type: "vocab", front: "et brød", reading: "etbrod", meaning: "bread", example: { jp: "Jeg kjøper et brød.", en: "I am buying a loaf of bread." }, accept: ["a loaf", "loaf", "a loaf of bread"], drill: { jp: "Et brød er billig", en: "A loaf is cheap" }, hint: "BRUR. et brød is one whole loaf; the stuff in general is brød with no article. Neuter: definite brødet. The reading is hand-written etbrod — ø will not fold on its own." },
         { id: "no-u6l1-enost", type: "vocab", front: "en ost", reading: "enost", meaning: "cheese", example: { jp: "En ost er ikke billig.", en: "A cheese is not cheap." }, accept: ["a cheese", "a whole cheese"], drill: { jp: "Jeg kjøper en ost", en: "I am buying a cheese" }, hint: "OOST. Masculine: definite osten. Brunost — brown cheese, sweet and caramelly — is the one Norwegians will make you try." },
@@ -35,6 +35,7 @@ export const NO_UNIT6 = {
         { id: "no-u6l1-enfisk", type: "vocab", front: "en fisk", reading: "enfisk", meaning: "fish", example: { jp: "Erling kjøper en fisk.", en: "Erling is buying a fish." }, accept: ["a fish"], drill: { jp: "En fisk er god", en: "A fish is good" }, hint: "Masculine: definite fisken, plural fisker. Laks, salmon, is the one Norway is famous for." },
         { id: "no-u6l1-eikake", type: "vocab", front: "ei kake", reading: "eikake", meaning: "cake", example: { jp: "Kari kjøper ei kake.", en: "Kari is buying a cake." }, accept: ["a cake", "pastry"], drill: { jp: "Vi lager ei kake", en: "We are making a cake" }, hint: "KAH-ke. Feminine: definite kaka. Norwegians eat it with coffee, constantly." },
         { id: "no-u6l1-eteple", type: "vocab", front: "et eple", reading: "eteple", meaning: "apple", example: { jp: "Et eple er billig.", en: "An apple is cheap." }, accept: ["an apple"], drill: { jp: "Jeg spiser et eple", en: "I am eating an apple" }, hint: "EP-le. Neuter: definite eplet, plural epler." },
+        { id: "no-u6l1-ris", type: "vocab", front: "ris", reading: "ris", meaning: "rice", example: { jp: "Jeg kjøper ris.", en: "I am buying rice." }, accept: ["the rice"], drill: { jp: "Vi spiser ris og fisk", en: "We eat rice and fish" }, hint: "REES. No article — the same mass-noun rule as vann and melk, because you cannot buy \"a rice\". Masculine, so the definite is risen." },
       ],
     },
     {
@@ -44,7 +45,7 @@ export const NO_UNIT6 = {
       title: "Eating and drinking",
       cefr: "A1",
       dominantMode: "recall",
-      canDo: "Say what you eat and drink, and handle the two words that take no article at all: vann and melk.",
+      canDo: "Say what you eat and drink, and handle the words that take no article at all: vann, melk and kaffe.",
       items: [
         { id: "no-u6l2-aspise", type: "vocab", front: "å spise", reading: "aspise", meaning: "to eat", example: { jp: "Vi spiser en fisk.", en: "We are eating a fish." }, accept: ["eat", "to have a meal", "dine"], drill: { jp: "Det er viktig å spise frokost", en: "It is important to eat breakfast" }, hint: "SPEE-se, present spiser. sp- is said as written — Norwegian never turns it into \"shp\" the way German does." },
         { id: "no-u6l2-adrikke", type: "vocab", front: "å drikke", reading: "adrikke", meaning: "to drink", example: { jp: "Hva drikker du?", en: "What are you drinking?" }, accept: ["drink", "to have a drink"], drill: { jp: "Det er viktig å drikke vann", en: "It is important to drink water" }, hint: "DRIK-ke, present drikker. As a noun, en drikk is a drink and drikke is the drinks in general — mat og drikke." },
@@ -52,6 +53,7 @@ export const NO_UNIT6 = {
         { id: "no-u6l2-melk", type: "vocab", front: "melk", reading: "melk", meaning: "milk", example: { jp: "Kari kjøper melk.", en: "Kari is buying milk." }, accept: ["the milk"], drill: { jp: "Melk er billig", en: "Milk is cheap" }, hint: "MELK. No article either, for the same reason — you cannot have \"a milk\". Feminine, so the definite is melka." },
         { id: "no-u6l2-enkopp", type: "vocab", front: "en kopp", reading: "enkopp", meaning: "cup", example: { jp: "Jeg har en kopp kaffe.", en: "I have a cup of coffee." }, accept: ["a cup", "mug", "a mug"], drill: { jp: "En kopp er ikke et glass", en: "A cup is not a glass" }, hint: "Masculine: definite koppen. En kopp kaffe — a cup of coffee — needs no \"of\": the two nouns just sit side by side." },
         { id: "no-u6l2-etglass", type: "vocab", front: "et glass", reading: "etglass", meaning: "glass", example: { jp: "Et glass vann, vær så snill.", en: "A glass of water, please." }, accept: ["a glass", "tumbler"], drill: { jp: "Her er et glass", en: "Here is a glass" }, hint: "GLASS. Neuter: definite glasset, plural glass — unchanged. Same trick as en kopp kaffe: et glass vann, no \"of\"." },
+        { id: "no-u6l2-kaffe", type: "vocab", front: "kaffe", reading: "kaffe", meaning: "coffee", example: { jp: "Kari lager kaffe nå.", en: "Kari is making coffee now." }, accept: ["the coffee"], drill: { jp: "Jeg drikker kaffe", en: "I drink coffee" }, hint: "KAF-fe. Mass noun, so no article in general use — but en kopp kaffe, and en kaffe when you mean one cup of it in a café. Masculine: definite kaffen. Norway drinks more of it per head than almost any country, and kaffe og kake is a whole social form." },
       ],
     },
     {
