@@ -190,8 +190,12 @@
 //         it and cards no survey.
 //      2. **राजस्व → u110 ONLY.** It was in u103's field and u128's. Both drop it.
 //      3. **मंडी → u127 ONLY.** It was in u103's field. u103 drops it.
-//      4. **जनगणना → u134 ONLY**, not u110. u110 keeps मंत्रालय आयोग अधिसूचना
-//         तहसील राजस्व सचिवालय अध्यादेश आवंटन पटवारी मद.
+//      4. **जनगणना → u134 ONLY**, not u110. u110 cards मंत्रालय आयोग अधिसूचना
+//         तहसील राजस्व सचिवालय अध्यादेश पटवारी मद — ⚠️ **आवंटन WAS ON THIS LIST
+//         AND IS NOT u110's: BLOCK 3 CARDED IT AT u128** (मकान और जायदाद), probed
+//         TAKEN 2026-10-07, and u110 did not card it. Corrected here rather than
+//         left asserting an allocation that no longer holds. सर्वेक्षण is u134's
+//         too (line 1), and nothing demographic is u110's.
 //      5. 🚨 **आरक्षण → u109 ONLY, AND IN THE CASTE-RESERVATION SENSE.** It is a
 //         homograph and **u112 and u132 will both want it as "a booking"**.
 //         Neither may card it — the gloss would collide through
