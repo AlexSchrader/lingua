@@ -13,7 +13,7 @@
 // working title once a unit is authored, so retitling in Russian was
 // compulsory, not a choice.
 //
-// THE MEASURED HOLE FOR THIS UNIT. `планета` (u54) is the ONLY space word in
+// THE MEASURED HOLE FOR THIS UNIT. `планета` (u54l4) is the ONLY space word in
 // 2,328 cards; `звезда` · `луна` · `небо` (u26) and `солнце` (u6) are the A1
 // sky, and all four are BARRED as fronts. So the course could say "a star" and
 // could not say a galaxy, an orbit, a rocket, an eclipse or an astronomer.
@@ -54,12 +54,12 @@
 //   refused. `гравитация` carries the field and its hint names weightlessness
 //   in English rather than carding it.
 //
-// §3 — `туманность` ("a nebula") IS BARRED: `туман` IS TAUGHT (u54, "fog"), and
+// §3 — `туманность` ("a nebula") IS BARRED: `туман` IS TAUGHT (u54l4, "fog"), and
 //   -ость on a taught noun is the one shape §D's test refuses every time.
 //   Likewise `астрономия` was refused against `астроном`, which is carded in l4
 //   of this very unit — unit51.js §3 calls a base and its derivative in the
 //   SAME unit "the worst version of the fault". And `светило` ("a heavenly
-//   body") was refused against `свет` (u15).
+//   body") was refused against `свет` (u15l4).
 //
 // §4 — `старт` WAS REFUSED FOR A GLOSS COLLISION WITH THIS UNIT'S OWN `запуск`,
 //   not for a rule. Both land in "launch"/"start" territory once
