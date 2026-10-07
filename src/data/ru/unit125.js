@@ -3,6 +3,8 @@
 // B2 block 3 (u124–u136). Conventions: ru/unit1.js §1–§10 and §A–§D,
 // ru/unit31.js §1–§7, ru/unit51.js §1–§5, ru/unit87.js §1–§6, and
 // ru/unit124.js §1–§5 for this block.
+// Probes quoted in this header are reproducible with
+// `node scripts/selfcheck-ru-b2-block3.mjs --probe <word> ...` — see unit124.js.
 //
 // THE MEASURED HOLE. u30 owns travel (путь · поездка · багаж · билет · виза),
 // u94 owns the car (машина since u6, плюс грузовик · пассажир · водить), and

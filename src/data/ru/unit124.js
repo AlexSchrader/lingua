@@ -19,6 +19,17 @@
 // could not say a galaxy, an orbit, a rocket, an eclipse or an astronomer.
 // Fourteen of the fifteen allocated fronts were free; the fifteenth is §1.
 //
+// ⚠️ THE PROBE EVERY HEADER IN THIS BLOCK CITES IS COMMITTED, so the citation
+// still resolves once this worktree is gone:
+//     node scripts/selfcheck-ru-b2-block3.mjs --probe <word> ...   front + reading + stem
+//     node scripts/selfcheck-ru-b2-block3.mjs 124 136             the 7 checks, whole range
+// A header naming a path under `scripts/tmp/` names nothing after the tree is
+// pruned, which is why this one is in the repo.
+// ⚠️ AND IT HAD TO EXIST: `scripts/qa/reading-taken.mjs` IMPORTS `HI_UNITS` AND IS
+// HARDCODED TO HINDI, so it cannot check Russian's reading invariant at all.
+// Measured 2026-10-06. The gate still runs it; its clean output for ru is NOT
+// EVIDENCE, and check 2 of the committed script is what actually measures it.
+//
 // ═════════════════════════════════════════════════════════════════════════════
 // §1 — ⚠️ `вселенная` IS BARRED AND IT IS IN THIS UNIT'S OWN TITLE.
 // ═════════════════════════════════════════════════════════════════════════════
