@@ -1,0 +1,45 @@
+✅ DONE 2026-10-07 — ALL 22 REPLACED, ru B2 is at 0 `already taught` errors.
+`node scripts/tmp/alloc-b2.mjs` now prints `collisions: 0 fronts, 0 cards to replace`.
+**THIS IS A HISTORICAL RECORD, NOT A WORKLIST — do not author from it.** What each
+deleted card became is in the unit headers (u100, u102, u113, u114, u115, u120,
+u124, u130, u131, u136) and in the crew-board row in BUILD-CHECKLIST.md.
+The allocation policy it was generated under is in alloc-b2.mjs's header.
+
+─── the list as it stood before the replacements ───
+
+collisions: 22 fronts, 22 cards to replace
+
+replacements by block: {"1":2,"2":15,"3":5} 
+
+u100 (block 1) — 1 to replace
+    ярус             ru-u100l3-yarus            -> keeps at u126 "Строительство и зодчество"
+u102 (block 1) — 1 to replace
+    мандат           ru-u102l2-mandat           -> keeps at u130 "Дипломатия и мир"
+u113 (block 2) — 3 to replace
+    эксперимент      ru-u113l4-eksperiment      -> keeps at u104 "Эксперимент и изобретение"
+    лаборатория      ru-u113l4-laboratoriya     -> keeps at u104 "Эксперимент и изобретение"
+    звание           ru-u113l3-zvanie           -> keeps at u129 "Войско и оборона"
+u114 (block 2) — 6 to replace
+    пропаганда       ru-u114l4-propaganda       -> keeps at u98 "Риторика и полемика"
+    домысел          ru-u114l2-domysel          -> keeps at u99 "Достоверность и подлог"
+    рубрика          ru-u114l3-rubrika          -> keeps at u100 "Классификация и разряд"
+    прототип         ru-u114l2-prototip         -> keeps at u104 "Эксперимент и изобретение"
+    метафора         ru-u114l2-metafora         -> keeps at u106 "Эстетика и приём"
+    трактовка        ru-u114l2-traktovka        -> keeps at u106 "Эстетика и приём"
+u115 (block 2) — 1 to replace
+    азарт            ru-u115l3-azart            -> keeps at u134 "Игра и азарт"
+u120 (block 2) — 5 to replace
+    риторика         ru-u120l1-ritorika         -> keeps at u98 "Риторика и полемика"
+    лозунг           ru-u120l4-lozung           -> keeps at u98 "Риторика и полемика"
+    присяга          ru-u120l2-prisyaga         -> keeps at u102 "Конституция и правосудие"
+    трибуна          ru-u120l1-tribuna          -> keeps at u136 "Спорт высших достижений"
+    призыв           ru-u120l4-prizyv           -> keeps at u129 "Войско и оборона"
+u124 (block 3) — 2 to replace
+    излучение        ru-u124l2-izluchenie       -> keeps at u104 "Эксперимент и изобретение"
+    спектр           ru-u124l4-spektr           -> keeps at u104 "Эксперимент и изобретение"
+u130 (block 3) — 1 to replace
+    вето             ru-u130l2-veto             -> keeps at u102 "Конституция и правосудие"
+u131 (block 3) — 1 to replace
+    экспертиза       ru-u131l3-ekspertiza       -> keeps at u99 "Достоверность и подлог"
+u136 (block 3) — 1 to replace
+    зачёт            ru-u136l2-zachyot          -> keeps at u113 "Образование и наука"

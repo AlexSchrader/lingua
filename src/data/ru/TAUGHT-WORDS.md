@@ -1,7 +1,7 @@
 # RU — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- ru`.
-Snapshot 2026-10-07: **2328 words** across **97 authored unit(s)**, **39 slot(s) still stubs**.
+Snapshot 2026-10-07: **3264 words** across **136 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -15,151 +15,160 @@ Snapshot 2026-10-07: **2328 words** across **97 authored unit(s)**, **39 slot(s)
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
 
-## Who owns which slots this band
-
-The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
-
-| block | slots |
-|---|---|
-| 1 | u98–u110 |
-| 2 | u111–u123 |
-| 3 | u124–u136 |
-
-## Slots still stubs — not yours unless you were assigned them
-
-| slot | unit | title |
-|---|---|---|
-| 98 | `ru-u98` | Argument and persuasion |
-| 99 | `ru-u99` | Evidence and sources |
-| 100 | `ru-u100` | Systems and abstraction |
-| 101 | `ru-u101` | Nuance and degree |
-| 102 | `ru-u102` | Politics and law |
-| 103 | `ru-u103` | Business and negotiation |
-| 104 | `ru-u104` | Science and technology |
-| 105 | `ru-u105` | History and culture |
-| 106 | `ru-u106` | Arts and criticism |
-| 107 | `ru-u107` | Ethics and responsibility |
-| 108 | `ru-u108` | Risk and uncertainty |
-| 109 | `ru-u109` | Identity and society |
-| 110 | `ru-u110` | Career and organisations |
-| 111 | `ru-u111` | Environment and the global |
-| 112 | `ru-u112` | Health systems and care |
-| 113 | `ru-u113` | Education and research |
-| 114 | `ru-u114` | Media and narrative |
-| 115 | `ru-u115` | Emotion, subtle and mixed |
-| 116 | `ru-u116` | Grammar 9 — conditional nuance and counterfactuals |
-| 117 | `ru-u117` | Grammar 10 — formal written structures |
-| 118 | `ru-u118` | Grammar 11 — discourse, cohesion, hedged claims |
-| 119 | `ru-u119` | Register 3 — 敬語: humble and honorific |
-| 120 | `ru-u120` | Register 4 — written, public and institutional voice |
-| 121 | `ru-u121` | Vocabulary 1 (B2) |
-| 122 | `ru-u122` | Vocabulary 2 (B2) |
-| 123 | `ru-u123` | Vocabulary 3 (B2) |
-| 124 | `ru-u124` | Vocabulary 4 (B2) |
-| 125 | `ru-u125` | Vocabulary 5 (B2) |
-| 126 | `ru-u126` | Vocabulary 6 (B2) |
-| 127 | `ru-u127` | Vocabulary 7 (B2) |
-| 128 | `ru-u128` | Vocabulary 8 (B2) |
-| 129 | `ru-u129` | Vocabulary 9 (B2) |
-| 130 | `ru-u130` | Vocabulary 10 (B2) |
-| 131 | `ru-u131` | Vocabulary 11 (B2) |
-| 132 | `ru-u132` | Vocabulary 12 (B2) |
-| 133 | `ru-u133` | Vocabulary 13 (B2) |
-| 134 | `ru-u134` | Vocabulary 14 (B2) |
-| 135 | `ru-u135` | Vocabulary 15 (B2) |
-| 136 | `ru-u136` | Vocabulary 16 (B2) |
-
 ## Index — every taught word, alphabetical
 
 `word` — slot · meaning
 
 - `а` — u1
+- `а именно` — u118 · and specifically
 - `абзац` — u50 · a paragraph
+- `абитуриент` — u113 · a university applicant
 - `абстрактный` — u68 · abstract
+- `авангард` — u106 · the artists pushing furthest ahead of their time
+- `авантюра` — u108 · a reckless undertaking with poor odds
 - `авария` — u94 · a crash
 - `август` — u17 · August
 - `авось` — u81 · with any luck
 - `автобус` — u9 · a bus
+- `автоматизация` — u104 · the handing of work over to machines
 - `автор` — u45 · an author
 - `ага` — u82 · uh-huh
+- `агитация` — u98 · active campaigning to win people over
 - `ад` — u93 · hell
+- `адвокат` — u102 · the lawyer who speaks for a side in court
 - `адрес` — u9 · an address
+- `азарт` — u134 · a reckless thrill
+- `академия` — u113 · an academy
+- `аккаунт` — u121 · an online account
 - `аккорд` — u96 · a chord
 - `актёр` — u55 · a stage performer
 - `активный` — u56 · active
 - `акцент` — u81 · an emphasis placed on something
 - `акция` — u76 · a share in a company
+- `алгоритм` — u121 · an algorithm
+- `алиби` — u131 · proof that you were elsewhere
 - `алтарь` — u93 · an altar
 - `альбом` — u74 · an album of music
+- `альтернатива` — u116 · the other course open to you
+- `альтруизм` — u107 · acting for others at your own cost
+- `альянс` — u130 · a standing alliance
 - `амбиция` — u72 · a desire to rise
+- `амбулаторный` — u112 · outpatient
+- `амфора` — u105 · a tall two-handled jar of the ancient world
 - `анализ` — u53 · a lab test
+- `аналогия` — u100 · a likeness brought in to explain something
 - `ангел` — u93 · an angel
 - `анкета` — u50 · a questionnaire
+- `аннексия` — u130 · annexation
+- `аннотация` — u114 · a short summary printed on a book to say what is in it
+- `анонимный` — u99 · with no name attached to it
+- `анонс` — u114 · an advance announcement
 - `ансамбль` — u96 · an ensemble
+- `античность` — u105 · the world of Greece and Rome
 - `антракт` — u74 · an interval between acts
 - `аншлаг` — u74 · a full house
 - `апатия` — u77 · apathy
+- `апелляция` — u102 · a challenge taking a ruling to a higher court
 - `аплодисменты` — u74 · applause
+- `апломб` — u98 · unearned self-assurance in speech
+- `аппарат` — u104 · a machine built for one purpose
 - `аппетит` — u58 · an appetite
 - `апрель` — u17 · April
 - `аптека` — u14 · a chemist
+- `аргумент` — u98 · a point made in support of a view
 - `аренда` — u44 · rent
+- `арест` — u131 · an arrest
+- `арка` — u126 · an arch
 - `армия` — u51 · an army
 - `аромат` — u86 · an aroma
+- `археология` — u105 · the study of the past through what is dug up
 - `архив` — u73 · an archive
+- `архитектура` — u126 · architecture
 - `аспект` — u68 · an aspect
+- `аспирантура` — u113 · postgraduate study
+- `ассимиляция` — u109 · the merging of newcomers into the host people
+- `ассортимент` — u103 · the range of goods on offer
+- `астероид` — u124 · a small rocky body going around the sun
+- `астроном` — u124 · an astronomer
 - `атмосфера` — u75 · the atmosphere of the earth
+- `атом` — u104 · the smallest piece an element divides into
+- `аттестат` — u113 · a school certificate
+- `аттестация` — u110 · a formal review of whether somebody is up to the job
 - `аудитория` — u41 · a lecture room
+- `аукцион` — u103 · a sale where the highest bid wins
 - `афиша` — u74 · a playbill
 - `аэропорт` — u9 · an airport
 - `б` — u1
 - `бабушка` — u10 · a grandmother
 - `багаж` — u30 · luggage
+- `бакалавр` — u113 · a bachelor
 - `балет` — u55 · a ballet
+- `балка` — u126 · a load-bearing beam
 - `балкон` — u60 · a balcony
 - `балл` — u84 · a point in scoring
+- `бан` — u121 · a ban from a platform
 - `банк` — u9 · a bank
 - `банкомат` — u44 · a cash machine
 - `барабан` — u96 · a drum
+- `баржа` — u125 · a barge
+- `барометр` — u135 · a barometer
+- `бархат` — u133 · velvet
 - `бассейн` — u84 · a swimming pool
+- `бахрома` — u133 · a fringe of hanging threads
+- `башня` — u126 · a tower
 - `бегать` — u27 · to run
 - `бедный` — u44 · poor
 - `бедствие` — u91 · a calamity
 - `бежать` — u36 · to be running
+- `беженец` — u130 · a refugee
 - `без` — u33 · without
+- `безвкусица` — u106 · a plain want of taste in what is made
 - `белый` — u16 · white
 - `бензин` — u94 · petrol
 - `берег` — u30 · a shore
+- `берёза` — u127 · a birch
 - `беременная` — u78 · pregnant
 - `беречь` — u59 · to look after
 - `беседа` — u39 · a conversation
+- `бескорыстие` — u107 · doing good with nothing at all to gain
 - `бесплатный` — u44 · free of charge
 - `беспокоиться` — u35 · to worry
+- `беспристрастный` — u107 · judging without taking a side
 - `бетон` — u87 · concrete the material
 - `билет` — u9 · a ticket
+- `бильярд` — u134 · billiards
 - `биография` — u95 · a life story
 - `биология` — u54 · biology
+- `биоразнообразие` — u111 · biodiversity
+- `биотопливо` — u111 · biofuel
 - `биржа` — u76 · the stock exchange
 - `битва` — u92 · a battle
 - `благодарить` — u59 · to thank
 - `благодаря` — u62 · thanks to
+- `блаженство` — u115 · bliss
 - `бланк` — u50 · a blank form
 - `бледный` — u85 · pale
 - `блеск` — u86 · brilliance
+- `блеф` — u134 · a bluff
 - `близко` — u23 · close by
 - `близнецы` — u78 · twins
 - `блин` — u82 · damn
+- `блог` — u121 · a blog
+- `блокада` — u130 · a blockade
 - `блюдо` — u58 · a dish of food
 - `бог` — u93 · God
 - `богатый` — u44 · rich
 - `более` — u47 · more so
+- `более того` — u118 · and more than that
 - `болезнь` — u53 · an illness
+- `болельщик` — u136 · a sports supporter
 - `болеть` — u20 · to hurt
 - `болото` — u75 · a bog
 - `болтать` — u49 · to chatter
 - `больница` — u14 · a hospital
 - `больно` — u34 · it hurts
 - `больше` — u5 · more
+- `большинство` — u109 · the greater part of a people
 - `большой` — u19 · big
 - `бормотать` — u81 · to mutter
 - `борода` — u85 · a beard
@@ -168,8 +177,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `брак` — u78 · a marriage
 - `браконьер` — u75 · a poacher
 - `брат` — u10 · a brother
+- `браузер` — u121 · a web browser
+- `брезгливость` — u115 · squeamishness
 - `бремя` — u77 · a burden you carry
+- `бренд` — u103 · a name a product is known and trusted by
 - `брови` — u85 · eyebrows
+- `броня` — u129 · armour plate
 - `бросать` — u57 · to throw
 - `брюки` — u18 · trousers
 - `будильник` — u29 · an alarm clock
@@ -178,6 +191,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `будто` — u46 · as if
 - `будущее` — u24 · the future
 - `буква` — u3 · a letter (of the alphabet)
+- `буксир` — u125 · a tug boat
+- `бульон` — u123 · broth
 - `бумага` — u25 · paper
 - `буря` — u91 · a gale
 - `бутылка` — u13 · a bottle
@@ -188,9 +203,35 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `бытие` — u68 · existence
 - `быть` — u22 · to be
 - `бюджет` — u44 · a budget
+- `бюллетень` — u102 · the printed paper a voter marks
+- `бюрократия` — u110 · rule by officials and their paperwork
 - `в` — u1
+- `в виде` — u117 · in the form of
+- `в заключение` — u118 · in conclusion
+- `в итоге` — u118 · as things finally stood
+- `в качестве` — u117 · in the capacity of
+- `в основном` — u118 · for the most part
+- `в отношении` — u117 · as it applies to
+- `в пользу` — u117 · in favour of
+- `в принципе` — u116 · broadly speaking
+- `в противном случае` — u118 · failing that
+- `в рамках` — u117 · within the framework of
+- `в результате` — u117 · as the outcome of
+- `в связи с` — u117 · in connection with
+- `в силу` — u117 · by force of
+- `в случае` — u117 · in the event of
+- `в соответствии с` — u117 · in accordance with
+- `в течение` — u117 · for the duration of
+- `в ходе` — u117 · in the course of
+- `в целом` — u118 · taken as a whole
+- `в целях` — u117 · for the purposes of
+- `в части` — u117 · in so far as it concerns
+- `в частности` — u118 · in particular
+- `вагон` — u125 · a railway carriage
 - `важный` — u19 · important
 - `вакансия` — u42 · a vacancy
+- `вакуум` — u124 · a vacuum
+- `вакцина` — u112 · a vaccine
 - `валюта` — u44 · a currency
 - `валяться` — u82 · to lounge about
 - `ванная` — u15 · a bathroom
@@ -199,40 +240,54 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ваш` — u2 · your (formal or plural)
 - `вверх` — u36 · upwards
 - `ввиду` — u62 · in view of
+- `вдвое` — u101 · by twice as much
 - `вдова` — u95 · a widow
 - `вдоль` — u33 · along
 - `вдруг` — u24 · suddenly
+- `ведомство` — u102 · a department of state with its own remit
 - `ведро` — u57 · a bucket
 - `ведь` — u46 · after all
 - `вежливый` — u28 · polite
 - `везде` — u23 · everywhere
 - `везти` — u36 · to be transporting
 - `век` — u38 · a century
+- `величать` — u119 · to address by full title
 - `велосипед` — u94 · a bicycle
 - `верёвка` — u89 · a rope
 - `верить` — u22 · to believe
+- `верификация` — u99 · the checking of a claim against the facts
 - `вернуться` — u35 · to come back
 - `вероятно` — u47 · in all likelihood
 - `версия` — u43 · a version
 - `вершина` — u90 · a summit
 - `вес` — u37 · a weight
 - `весело` — u27 · it is fun
+- `веский` — u98 · carrying real weight in a debate
 - `весна` — u16 · spring
+- `весы` — u122 · a set of scales
 - `весьма` — u83 · exceedingly
 - `ветер` — u16 · wind
 - `ветеран` — u73 · an old hand
 - `ветка` — u26 · a branch
+- `вето` — u102 · the power to block a decision outright
+- `ветряной` — u111 · wind-powered
 - `веха` — u73 · a landmark in a history
 - `вечер` — u11 · an evening
 - `вешать` — u57 · to hang up
+- `вещание` — u114 · broadcasting
 - `вещество` — u54 · a substance
 - `вещь` — u3 · a thing
 - `взаимосвязь` — u68 · a mutual connection
+- `взбивать` — u123 · to whisk
 - `взгляд` — u39 · a look
+- `взлом` — u131 · a break-in
 - `взнос` — u44 · a contribution
 - `взрослый` — u10 · an adult
 - `взрыв` — u97 · an explosion
+- `взыскание` — u108 · the forcing of payment out of somebody
+- `взятка` — u131 · a bribe
 - `взять` — u31 · to take
+- `вид` — u100 · a kind of thing within a wider group
 - `видеть` — u4 · to see
 - `видимо` — u64 · evidently
 - `виза` — u30 · a visa
@@ -241,15 +296,21 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `вино` — u13 · wine
 - `виноват` — u71 · at fault
 - `винт` — u89 · a bolt
+- `винтовка` — u129 · a rifle
 - `вирус` — u43 · a virus
+- `виток` — u124 · one circuit around a body
+- `витраж` — u126 · a stained-glass window
+- `вихрь` — u135 · a sudden swirl of wind
 - `включать` — u43 · to switch on
 - `вкупе` — u79 · taken together with
 - `вкусно` — u13 · it tastes good
+- `влажность` — u135 · humidity
 - `власть` — u51 · authority
 - `влияние` — u52 · an influence
 - `вместе` — u7 · together
 - `вместо` — u33 · instead of
 - `вмешиваться` — u71 · to interfere
+- `внедрение` — u104 · the bringing of something into actual use
 - `внезапно` — u38 · abruptly
 - `внешний` — u68 · outward
 - `внешность` — u85 · appearance
@@ -260,14 +321,20 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `вносить` — u63 · to carry something in
 - `внук` — u10 · a grandson
 - `внутри` — u14 · inside
+- `во избежание` — u117 · so as to avoid
+- `во-вторых` — u118 · secondly
 - `во-первых` — u61 · in the first place
 - `вовремя` — u38 · on time
+- `вовсе` — u101 · flatly not, contrary to what was supposed
 - `вода` — u4 · water
 - `водитель` — u8 · a driver
 - `водить` — u94 · to drive a car
 - `водка` — u82 · Russian spirit
 - `воздух` — u26 · air
+- `воззвание` — u120 · a proclamation to the people
 - `возле` — u33 · beside
+- `возмездие` — u107 · punishment coming back on the doer
+- `возмещение` — u108 · the making good of a measured loss in money
 - `возможность` — u34 · a chance
 - `возмущаться` — u61 · to be outraged
 - `возникать` — u69 · to arise
@@ -280,13 +347,17 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `волк` — u75 · a wolf
 - `волна` — u54 · a wave
 - `волнение` — u67 · agitation
+- `волокита` — u110 · the dragging-out of a matter by officials
 - `волосы` — u85 · hair
 - `воля` — u56 · will power
 - `вонь` — u86 · a stench
+- `воображать` — u116 · to picture in the imagination
 - `вообще` — u46 · in general
 - `вопреки` — u62 · contrary to
 - `вопрос` — u7 · a question
+- `вор` — u131 · a thief
 - `ворота` — u60 · a gate
+- `воротник` — u133 · a collar
 - `ворчать` — u82 · to grumble
 - `восемь` — u11 · eight
 - `воскресенье` — u17 · Sunday
@@ -306,16 +377,23 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `впредь` — u66 · from now on
 - `впрок` — u72 · for future use
 - `впрочем` — u46 · though
+- `враг` — u129 · an enemy
+- `вратарь` — u136 · a goalkeeper
 - `врать` — u81 · to tell lies
 - `врач` — u2 · a doctor
+- `вред` — u107 · harm done to somebody or something
 - `вредный` — u53 · harmful
 - `время` — u11 · time
 - `вроде` — u62 · sort of
+- `вручение` — u120 · a formal presentation
 - `вряд ли` — u64 · hardly likely
 - `всё` — u3 · everything
 - `всё-таки` — u62 · even so
 - `всегда` — u11 · always
+- `всецело` — u101 · wholly and with nothing held back
+- `вскрытие` — u131 · the opening of a body to find the cause of death
 - `вследствие` — u62 · as a result of
+- `вслепую` — u108 · blindly, with no sight of what you are doing
 - `вспышка` — u77 · an outburst
 - `вставать` — u29 · to get up
 - `встать` — u31 · to stand up
@@ -324,46 +402,72 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `всякий` — u65 · every single one
 - `вторник` — u17 · Tuesday
 - `второй` — u21 · the second one
+- `вторсырьё` — u111 · reclaimed material
+- `втрое` — u101 · by three times as much
 - `вулкан` — u91 · a volcano
 - `вход` — u12 · an entrance
 - `вчера` — u17 · yesterday
 - `въезжать` — u63 · to drive in
 - `вы` — u2 · you (formal or plural)
 - `выбирать` — u18 · to choose
+- `выборка` — u99 · the part of a whole that is studied to stand for it
 - `выбрасывать` — u49 · to throw out
+- `выброс` — u111 · an emission
 - `вывод` — u39 · a conclusion
 - `выговор` — u71 · an official telling-off
 - `выгодный` — u44 · worth it
+- `выгорание` — u110 · the used-up state that long overwork brings
 - `выдерживать` — u70 · to withstand
 - `выезжать` — u63 · to drive out
 - `выживать` — u97 · to survive
 - `вызывать` — u52 · to cause
+- `выигрыш` — u134 · winnings from a game
+- `выкройка` — u133 · a paper pattern for cutting cloth
 - `вымирать` — u75 · to die out as a species
+- `вымысел` — u114 · invention
+- `выписка` — u99 · an extract copied out of a record
+- `выплата` — u108 · a payment made out under an obligation
 - `выполнять` — u66 · to carry out
 - `выпуск` — u45 · an issue
 - `выражение` — u39 · an expression
+- `вырубка` — u111 · felling
 - `выручать` — u70 · to bail someone out
+- `выселение` — u132 · an eviction
 - `высокий` — u47 · tall
+- `высокомерный` — u119 · arrogant in manner
 - `высота` — u36 · a height
 - `выставка` — u27 · an exhibition
+- `выступление` — u120 · a public appearance
 - `вытекать` — u79 · to follow as a consequence
 - `вытирать` — u57 · to wipe
+- `выхлоп` — u111 · exhaust
 - `выход` — u12 · an exit
 - `выходной` — u17 · a day off
+- `вычитать` — u122 · to subtract
+- `вычурный` — u106 · fussily overdone in style
+- `вышивка` — u133 · embroidery
 - `выяснять` — u46 · to establish
 - `г` — u2
+- `гаджет` — u121 · a handheld device
 - `газ` — u87 · gas
 - `газета` — u27 · a newspaper
 - `гайка` — u89 · a nut for a bolt
+- `галактика` — u124 · a galaxy
 - `гамма` — u96 · a scale of notes
 - `гараж` — u94 · a garage
+- `гарантия` — u108 · a promise that something will hold good
 - `гардероб` — u74 · a cloakroom
+- `гармония` — u106 · parts fitting together agreeably
+- `гарнир` — u123 · a side dish
 - `гастроли` — u74 · a touring run
 - `гвоздь` — u89 · a nail
 - `где` — u8 · where
 - `где-нибудь` — u65 · anywhere at all
 - `где-то` — u65 · somewhere in particular
+- `генерал` — u129 · the highest army rank
+- `генетика` — u104 · the study of what is passed from parents
 - `география` — u41 · geography
+- `геометрия` — u122 · geometry
 - `герб` — u92 · a coat of arms
 - `герой` — u55 · a hero
 - `гибель` — u69 · ruin
@@ -379,6 +483,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `глупый` — u28 · stupid
 - `глухой` — u86 · deaf
 - `гнев` — u77 · wrath
+- `гнездо` — u128 · a nest
 - `гнуть` — u89 · to bend something
 - `говорить` — u4 · to speak
 - `год` — u6 · a year
@@ -388,45 +493,62 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `голодный` — u24 · hungry
 - `гололёд` — u91 · black ice
 - `голос` — u39 · a voice
+- `голословный` — u98 · asserted with nothing behind it
 - `голубой` — u16 · light blue
 - `гора` — u26 · a mountain
 - `гордиться` — u32 · to be proud of
 - `гордый` — u28 · proud
 - `горе` — u67 · grief
 - `гореть` — u48 · to burn
+- `горечь` — u115 · bitterness of feeling
 - `горизонт` — u90 · the horizon
 - `горло` — u53 · a throat
 - `город` — u6 · a city
 - `горький` — u58 · bitter
 - `горячий` — u58 · piping hot
+- `госпитализация` — u112 · admission to hospital
 - `господин` — u7 · a mister
 - `гость` — u27 · a guest
 - `государство` — u51 · a state
 - `готов` — u24 · ready
 - `готовить` — u29 · to do the cooking
+- `грабёж` — u131 · a robbery
 - `грабить` — u80 · to rob
+- `гравитация` — u124 · gravity
 - `град` — u91 · hail
+- `градация` — u100 · a graded series of small steps
+- `градус` — u122 · a degree of temperature or angle
 - `гражданин` — u51 · a citizen
 - `грамм` — u37 · a gramme
 - `граница` — u30 · a border
+- `грант` — u113 · a research grant
+- `грань` — u107 · the line past which a thing becomes another
 - `график` — u50 · a schedule
 - `грех` — u93 · a sin
+- `гриб` — u127 · a mushroom
+- `грива` — u128 · a mane
 - `грипп` — u53 · the flu
 - `гроза` — u91 · a thunderstorm
 - `гром` — u91 · thunder
 - `громкий` — u47 · loud
 - `грохот` — u86 · a crashing din
+- `грубо говоря` — u118 · roughly speaking
+- `грубость` — u119 · rudeness
 - `грубый` — u56 · rude
 - `грудь` — u53 · a chest
+- `груз` — u125 · cargo
 - `грузить` — u49 · to load
 - `грузовик` — u94 · a lorry
 - `группа` — u32 · a group
 - `грустно` — u34 · it is sad
 - `грустный` — u28 · sad
+- `грызун` — u128 · a rodent
 - `грязный` — u29 · dirty
 - `гудок` — u94 · a car horn
 - `гул` — u86 · a drone
 - `гулять` — u24 · to go for a walk
+- `гуманитарный` — u130 · humanitarian
+- `гуманность` — u107 · treating people decently when you need not
 - `д` — u1
 - `да` — u2 · yes
 - `давать` — u23 · to give
@@ -436,26 +558,40 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `далёкий` — u30 · distant
 - `далеко` — u14 · far
 - `дата` — u21 · a date
+- `датировка` — u105 · the fixing of how old a thing is
+- `датчик` — u104 · a part that senses and reports a reading
 - `дать` — u31 · to hand over
+- `дача` — u132 · a summer house out of town
 - `два` — u11 · two
 - `двадцать` — u11 · twenty
 - `двенадцать` — u21 · twelve
 - `дверь` — u5 · a door
 - `двигатель` — u94 · an engine
 - `движение` — u36 · movement
+- `двойственный` — u115 · two-sided
 - `двор` — u60 · a yard
 - `дворец` — u92 · a palace
+- `двуличие` — u107 · showing one face here and another there
 - `двусмысленный` — u64 · open to two readings
+- `девиз` — u120 · a short phrase a body takes as its guiding words
 - `девочка` — u82 · a little girl
 - `девушка` — u82 · a young woman
 - `девяносто` — u21 · ninety
 - `девять` — u11 · nine
 - `дедушка` — u10 · a grandfather
+- `дезинформация` — u114 · disinformation
 - `действительно` — u61 · in actual fact
 - `декабрь` — u17 · December
+- `деканат` — u113 · the dean's office
+- `декларация` — u120 · a formal declaration
 - `декорация` — u74 · a piece of stage scenery
 - `делать` — u4 · to do
+- `делегация` — u130 · a delegation
+- `делегировать` — u110 · to hand a task and the authority for it to somebody
+- `деликатный` — u119 · delicate in handling people
 - `делить` — u48 · to divide
+- `деловой` — u110 · to do with business and getting things done
+- `демагогия` — u98 · playing to a crowd instead of arguing
 - `день` — u3 · a day
 - `деньги` — u5 · money
 - `депрессия` — u77 · depression
@@ -466,17 +602,28 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `дескать` — u81 · so they say
 - `десять` — u11 · ten
 - `деталь` — u87 · a component part
+- `детёныш` — u128 · a young animal
 - `детство` — u95 · childhood
 - `дефицит` — u70 · a thing in short supply
 - `дёшево` — u12 · it is cheap
 - `дешёвый` — u44 · cheap
+- `диагноз` — u112 · a diagnosis
+- `диаграмма` — u122 · a chart of figures
 - `диалог` — u39 · a dialogue
+- `диаспора` — u109 · a people living scattered outside its homeland
 - `диван` — u15 · a sofa
 - `дикий` — u75 · wild
+- `дилемма` — u107 · a choice where both ways are bad
 - `династия` — u92 · a dynasty
 - `диплом` — u41 · a degree certificate
 - `директор` — u9 · a director
 - `дирижёр` — u96 · a conductor
+- `дисквалификация` — u136 · a ban from competing
+- `дискриминация` — u109 · treating people worse for what they are
+- `дискуссия` — u98 · a formal discussion of a question
+- `диссертация` — u113 · a dissertation
+- `дистанция` — u136 · a race distance
+- `дисциплина` — u110 · the holding to rules of conduct at work
 - `длина` — u37 · a length
 - `для` — u33 · for
 - `дневник` — u73 · a diary
@@ -490,6 +637,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `добыча` — u87 · extraction of a resource
 - `доверенность` — u50 · a power of attorney
 - `доверие` — u56 · trust
+- `довестись` — u116 · to happen to fall to you
 - `довод` — u52 · a point in favour
 - `довольный` — u28 · content
 - `догадка` — u64 · a hunch
@@ -497,6 +645,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `договор` — u42 · a contract
 - `доезжать` — u63 · to get as far as
 - `дождь` — u16 · rain
+- `дозировка` — u112 · a dosage
 - `доить` — u88 · to milk an animal
 - `доказательство` — u39 · proof
 - `доклад` — u41 · a presentation
@@ -508,24 +657,40 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `долина` — u90 · a valley
 - `доля` — u37 · a share
 - `дом` — u1 · a house
+- `домино` — u134 · the game of numbered tiles
+- `домысел` — u99 · a guess presented as if it were known
+- `донор` — u112 · a donor
+- `допинг` — u136 · banned performance drugs
+- `допрос` — u131 · an interrogation
 - `допускать` — u64 · to concede that something is possible
+- `допустим` — u116 · let us suppose
 - `дорога` — u4 · a road
 - `дорого` — u12 · it is expensive
 - `досада` — u67 · vexation
 - `доска` — u89 · a plank
+- `дословно` — u99 · word for word with nothing changed
 - `достаточно` — u37 · enough
 - `достигать` — u79 · to attain
 - `достижение` — u72 · a thing accomplished
+- `достоверный` — u99 · that can be relied on as true
+- `достоинство` — u107 · the worth a person holds simply as a person
+- `досье` — u99 · a file collected on one person or case
 - `доход` — u44 · income
+- `доцент` — u113 · a senior lecturer
 - `дочь` — u10 · a daughter
 - `древний` — u60 · ancient
 - `дрель` — u89 · a power drill
+- `дробление` — u100 · the breaking of a whole into small parts
+- `дробь` — u122 · a fraction
 - `дрожать` — u80 · to tremble
 - `друг` — u6 · a friend
 - `друг друга` — u65 · one another
 - `другой` — u19 · another
+- `дуб` — u127 · an oak
 - `думать` — u22 · to think
 - `дуть` — u91 · to blow
+- `духовка` — u123 · an oven
+- `духота` — u135 · stuffy airless heat
 - `душ` — u29 · a shower
 - `душа` — u28 · a soul
 - `дым` — u97 · the smoke of a fire
@@ -536,11 +701,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ё` — u3
 - `его` — u6 · his
 - `едва` — u46 · hardly
+- `единица` — u122 · a unit of measurement
 - `единство` — u68 · unity
+- `единый` — u100 · one and the same throughout
 - `её` — u3 · her
 - `ездить` — u36 · to travel regularly
 - `ёлка` — u3 · a fir tree
 - `если` — u19 · if
+- `если бы` — u116 · if only it were the case
+- `если угодно` — u118 · if you like
 - `есть` — u10 · there is, have
 - `ехать` — u14 · to go by vehicle
 - `ещё` — u3 · still, yet
@@ -560,20 +729,28 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `железо` — u87 · iron
 - `жёлтый` — u16 · yellow
 - `желудок` — u53 · the stomach organ
+- `жёлудь` — u127 · an acorn
 - `жена` — u10 · a wife
 - `жених` — u78 · a bridegroom
 - `женщина` — u3 · a woman
+- `жеребьёвка` — u136 · the draw for a tournament
 - `жертва` — u97 · a victim
+- `жестокость` — u107 · the willingness to cause suffering
 - `живопись` — u55 · the art of painting
 - `живот` — u20 · a stomach
 - `животное` — u6 · an animal
 - `жизнь` — u5 · life
+- `жильё` — u132 · housing
 - `жирный` — u58 · fatty
 - `житель` — u59 · an inhabitant
 - `жить` — u4 · to live
+- `жребий` — u134 · the drawing of lots
+- `жулик` — u131 · a crook
 - `журнал` — u27 · a magazine
 - `з` — u2
 - `за` — u32 · behind
+- `за счёт` — u117 · at the expense of
+- `забег` — u136 · a heat of a race
 - `забивать` — u89 · to hammer something in
 - `заблуждение` — u64 · a mistaken belief
 - `забор` — u60 · a fence
@@ -587,8 +764,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `завоевание` — u92 · a conquest
 - `завтра` — u17 · tomorrow
 - `завтрак` — u13 · breakfast
+- `завязка` — u114 · the opening of a plot
+- `загадка` — u134 · a riddle
 - `заголовок` — u45 · a headline
+- `загрузка` — u121 · the loading of a file
 - `задание` — u25 · an assignment
+- `задаток` — u103 · money paid up front to hold a deal
 - `задача` — u52 · a task
 - `задержка` — u38 · a delay
 - `задумывать` — u72 · to conceive a plan
@@ -602,13 +783,19 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `залив` — u90 · a bay
 - `залог` — u81 · a pledge
 - `заменять` — u49 · to replace
+- `заметно` — u101 · by an amount one can see
 - `замечание` — u39 · a remark
+- `замешательство` — u115 · a fluster
+- `заморозки` — u135 · light night frosts
+- `замша` — u133 · suede
 - `замысел` — u72 · a design conceived
 - `занавес` — u74 · a stage curtain
 - `заниматься` — u32 · to be busy with
 - `занят` — u24 · busy
 - `запад` — u90 · the west
+- `запас` — u108 · a stock laid in ahead of time
 - `запах` — u86 · a smell
+- `запекать` — u123 · to roast in the oven
 - `записывать` — u48 · to write down
 - `заплатить` — u31 · to settle the bill
 - `заповедник` — u75 · a nature reserve
@@ -618,46 +805,60 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `заправка` — u94 · a petrol station
 - `запрещать` — u34 · to forbid
 - `запрос` — u43 · a query
+- `запуск` — u124 · a launch
 - `зарабатывать` — u44 · to earn
+- `заразный` — u112 · catching
 - `заранее` — u38 · in advance
 - `зарплата` — u25 · a salary
 - `зарядка` — u84 · morning exercises
 - `застой` — u69 · stagnation
+- `застройщик` — u132 · a property developer
 - `засуха` — u91 · a drought
 - `затем` — u38 · next after that
 - `затея` — u72 · a venture
+- `затмение` — u124 · an eclipse
 - `зато` — u46 · but on the other hand
 - `затягивать` — u66 · to spin out
 - `заходить` — u63 · to drop in
 - `зачем` — u22 · what for
+- `зачёт` — u113 · a pass assessment
 - `защищать` — u59 · to defend
 - `заявка` — u72 · an application form submitted
 - `заявление` — u50 · an application
 - `заяц` — u75 · a hare
+- `звание` — u129 · a military rank
 - `звать` — u8 · to call by name
 - `звезда` — u26 · a star
+- `звено` — u100 · one link in a connected chain
 - `зверь` — u75 · a wild animal
 - `звонить` — u34 · to ring someone up
 - `звук` — u96 · a sound you hear
 - `звучать` — u48 · to sound
 - `здесь` — u3 · here
 - `здоровье` — u20 · health
+- `здравоохранение` — u112 · health care
 - `здравствуйте` — u7 · hello (formal)
 - `зевать` — u80 · to yawn
 - `зелёный` — u16 · green
 - `землетрясение` — u91 · an earthquake
 - `земля` — u4 · the earth
+- `зенит` — u124 · the point of the sky straight overhead
 - `зеркало` — u15 · a mirror
 - `зерно` — u54 · a grain
 - `зима` — u16 · winter
 - `злой` — u28 · angry
+- `злорадство` — u115 · malicious glee
+- `злоупотребление` — u107 · the misuse of a power you were given
+- `знак` — u122 · a written symbol
 - `знакомиться` — u8 · to get acquainted
 - `знакомый` — u56 · an acquaintance
 - `знамя` — u92 · a banner
 - `знание` — u41 · knowledge
 - `знать` — u4 · to know
 - `значит` — u19 · it means
+- `зной` — u135 · blazing dry heat
 - `золото` — u33 · gold
+- `зонд` — u124 · an unmanned craft sent to explore
 - `зрелость` — u95 · full maturity
 - `зрение` — u86 · eyesight
 - `зритель` — u45 · a viewer
@@ -667,45 +868,73 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `и` — u1
 - `й` — u2
 - `ибо` — u83 · for the reason that
+- `ива` — u127 · a willow
 - `игла` — u89 · a needle for sewing
 - `играть` — u27 · to play
 - `идеал` — u68 · a model of perfection
 - `идея` — u9 · an idea
 - `идти` — u14 · to go on foot
+- `иерархия` — u100 · a ranking of who stands above whom
+- `иероглиф` — u105 · a picture sign standing for a whole word
+- `иждивенец` — u108 · somebody who lives on another's money
 - `из` — u33 · out of
 - `из-за` — u62 · because of
 - `избегать` — u70 · to avoid
+- `избиратель` — u102 · a person entitled to cast a vote
+- `избыток` — u101 · an amount over what is needed
+- `избыточный` — u101 · more than is needed
 - `известный` — u40 · well known
 - `извините` — u7 · excuse me
 - `извиняться` — u35 · to apologise
+- `изгнание` — u130 · banishment
+- `изгой` — u109 · somebody cast out by his own people
 - `издание` — u45 · an edition
 - `изделие` — u87 · a manufactured article
+- `издержки` — u103 · what it costs to keep a business running
+- `изложение` — u99 · a setting out of something in one's own words
+- `излучение` — u104 · energy given off and travelling outward
 - `измерять` — u54 · to measure
+- `изобилие` — u101 · a great plenty of something
+- `изобретение` — u104 · a thing newly thought up and made
+- `изрядно` — u101 · by a good deal
 - `изумление` — u67 · astonishment
 - `изучать` — u48 · to study a subject
+- `изящный` — u106 · finely and gracefully made
 - `икона` — u93 · an icon
 - `или` — u19 · or
 - `именно` — u46 · precisely
+- `иммунитет` — u112 · immunity
 - `империя` — u92 · an empire
 - `импорт` — u76 · import of goods
 - `имя` — u3 · a first name
 - `иначе` — u79 · otherwise
+- `инвентаризация` — u99 · a counting of everything on hand
 - `инвестиция` — u76 · an investment
+- `ингредиент` — u123 · an ingredient
+- `иней` — u135 · hoar frost
 - `инженер` — u8 · an engineer
 - `инициатива` — u72 · an initiative
 - `иногда` — u22 · sometimes
 - `иной` — u65 · a different kind
+- `иносказание` — u106 · a saying of one thing to mean another
 - `инстанция` — u83 · an official body
+- `институт` — u113 · an institute
 - `инструкция` — u50 · a set of instructions
 - `инструмент` — u32 · a tool
+- `интеграция` — u109 · the taking of newcomers into the common life
 - `интервью` — u45 · an interview
 - `интересный` — u19 · interesting
 - `интересоваться` — u32 · to take an interest in
 - `интернет` — u9 · the internet
 - `инфляция` — u76 · inflation
+- `иными словами` — u118 · to put it another way
+- `ипотека` — u132 · a mortgage
+- `ирония` — u106 · saying the opposite of what is meant
+- `иск` — u102 · a claim brought before a court
 - `искажать` — u81 · to distort
 - `искать` — u15 · to look for
 - `исключать` — u64 · to exclude
+- `искупление` — u107 · the making good of a wrong done
 - `искусство` — u55 · art
 - `исповедь` — u93 · a confession
 - `исполнять` — u74 · to perform a piece
@@ -714,6 +943,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `испытывать` — u73 · to put to the test
 - `исследование` — u54 · a piece of research
 - `истерика` — u77 · hysterics
+- `истец` — u102 · the side bringing a claim
 - `истина` — u68 · an established truth
 - `история` — u24 · a story
 - `источник` — u52 · a source
@@ -726,113 +956,178 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `июль` — u17 · July
 - `июнь` — u17 · June
 - `к` — u1
+- `к тому же` — u118 · on top of that
+- `каблук` — u133 · the heel of a shoe
 - `кадр` — u74 · a single shot in a film
 - `каждый` — u19 · every
 - `казаться` — u32 · to seem
+- `казино` — u134 · a casino
 - `казна` — u76 · the state treasury
 - `как` — u7 · how
+- `как правило` — u118 · as a general rule
 - `какой` — u19 · what kind of
 - `какой-нибудь` — u65 · any sort of
 - `какой-то` — u65 · some kind of
+- `калибровка` — u104 · the setting of an instrument against a standard
 - `камень` — u26 · a stone
 - `канал` — u45 · a channel
+- `кандидат` — u102 · a person standing for a post
 - `каникулы` — u41 · the school holidays
+- `канон` — u106 · the set of works held to be the standard
+- `капель` — u135 · the dripping of melting snow
 - `капитал` — u76 · capital as money put to work
 - `капот` — u94 · a bonnet
+- `капремонт` — u132 · a major overhaul of a building
 - `капуста` — u88 · a cabbage
 - `карандаш` — u25 · a pencil
+- `карантин` — u112 · quarantine
+- `каркас` — u126 · the frame of a structure
 - `карман` — u18 · a pocket
+- `карниз` — u126 · a cornice
 - `карта` — u30 · a map
 - `картина` — u27 · a painting
 - `картошка` — u13 · a potato
 - `карьера` — u42 · a career
 - `касаться` — u46 · to concern
+- `каска` — u129 · a helmet
 - `касса` — u12 · a till
+- `каста` — u109 · a closed group nobody enters or leaves
 - `кастрюля` — u58 · a saucepan
 - `катастрофа` — u91 · a catastrophe
+- `категория` — u100 · a broad class a thing is assigned to
 - `кафе` — u9 · a café
+- `кафедра` — u113 · a university subject group
 - `качать` — u80 · to rock
 - `качество` — u32 · a quality
 - `каша` — u58 · porridge
 - `кашель` — u53 · a cough
+- `каюта` — u125 · a cabin on a ship
+- `квадрат` — u122 · a square figure
 - `квалификация` — u73 · a qualification held
 - `квартира` — u10 · a flat
+- `квасить` — u123 · to ferment
 - `квитанция` — u50 · a payment slip
+- `кворум` — u130 · the least number of members needed for a decision to count
+- `квота` — u111 · an emissions quota
+- `кедр` — u127 · a cedar
 - `килограмм` — u37 · a kilo
 - `километр` — u37 · a kilometre
 - `кино` — u27 · the cinema
 - `кипеть` — u80 · to be on the boil
+- `кипяток` — u123 · boiling water
 - `кирпич` — u87 · a brick
 - `кислород` — u75 · oxygen
 - `кислый` — u58 · sour
 - `кисть` — u89 · a paintbrush
 - `клавиатура` — u43 · a keyboard
 - `кладбище` — u95 · a cemetery
+- `кладка` — u126 · brickwork
+- `кладовка` — u132 · a store cupboard
 - `класс` — u25 · a classroom
 - `класть` — u15 · to put
+- `клевета` — u99 · a damaging lie told about a person
 - `клей` — u89 · glue
+- `клён` — u127 · a maple
+- `клетка` — u104 · the smallest living unit of a body
 - `клещи` — u89 · pincers
 - `клиент` — u42 · a client
 - `климат` — u54 · a climate
 - `клуб` — u27 · a club
+- `клык` — u128 · a fang
+- `клюв` — u128 · a beak
 - `ключ` — u15 · a key
 - `клясться` — u81 · to swear an oath
+- `клятва` — u120 · a solemn promise
 - `книга` — u8 · a book
 - `кнопка` — u43 · a button
 - `князь` — u92 · a prince of old Rus
+- `коалиция` — u130 · a coalition
 - `ковать` — u80 · to forge metal
 - `когда` — u22 · when
 - `когда-нибудь` — u65 · at some time ever
 - `когда-то` — u65 · at some time in the past
+- `коготь` — u128 · a claw
+- `кодекс` — u102 · a body of law gathered into one book
 - `кое-кто` — u65 · a certain person
 - `кое-что` — u65 · a thing I have in mind
 - `кожа` — u33 · skin
+- `козырь` — u134 · a trump card
 - `колебаться` — u64 · to waver
 - `колено` — u53 · a knee
 - `колесо` — u94 · a wheel
+- `колея` — u125 · the track a wheel runs in
 - `количество` — u37 · an amount
 - `коллега` — u25 · a colleague
+- `колода` — u134 · a deck of playing cards
 - `колокол` — u93 · a bell
 - `колония` — u92 · a colony
+- `колонка` — u114 · an opinion column
+- `колонна` — u126 · a column
+- `колоссальный` — u101 · enormous beyond ordinary scale
 - `колыбель` — u95 · a cradle
 - `команда` — u32 · a team
 - `командировка` — u42 · a work trip
+- `комета` — u124 · a comet
 - `комментировать` — u48 · to comment
+- `коммуналка` — u132 · a flat shared between families
 - `комната` — u15 · a room
 - `компания` — u27 · a group of friends
+- `компенсация` — u108 · a payment that makes up for something given up
 - `композитор` — u96 · a composer
 - `компромисс` — u70 · a middle ground
 - `компьютер` — u9 · a computer
 - `конверт` — u25 · an envelope
 - `конечно` — u6 · of course
 - `конкретный` — u68 · concrete
+- `конкуренция` — u103 · firms contending for the same buyers
 - `конкурс` — u42 · a competition
 - `конспект` — u41 · lecture notes
 - `констатировать` — u83 · to state as a fact
+- `конституция` — u102 · the founding law a state is built on
+- `консул` — u130 · a consul
+- `контейнер` — u125 · a container
+- `контент` — u121 · online content
+- `контраст` — u106 · a sharp difference set deliberately side by side
 - `контроль` — u71 · oversight
 - `конфликт` — u70 · a conflict
 - `концерт` — u27 · a concert
 - `коньки` — u84 · skates
+- `координировать` — u110 · to make separate efforts work together
 - `копать` — u57 · to dig
 - `копейка` — u12 · a kopeck
 - `копировать` — u48 · to duplicate
 - `копить` — u48 · to save up
+- `копыто` — u128 · a hoof
+- `кора` — u127 · bark
 - `корень` — u54 · a root
+- `коридор` — u132 · a corridor
 - `коричневый` — u16 · brown
 - `кормить` — u58 · to feed
 - `корова` — u26 · a cow
 - `корона` — u92 · a crown
 - `короче` — u82 · in short
+- `корпорация` — u110 · a very large company as a legal body
+- `корреспондент` — u114 · a correspondent
 - `коррупция` — u76 · corruption
 - `косвенный` — u62 · indirect
 - `косить` — u80 · to mow
+- `космодром` — u124 · a launch site
+- `космонавт` — u124 · a cosmonaut
+- `космос` — u124 · outer space
 - `кость` — u53 · a bone
+- `котлован` — u126 · a pit dug for a foundation
 - `который` — u11 · which
 - `кофе` — u13 · coffee
+- `кочевник` — u105 · somebody who moves with his herds
 - `кошелёк` — u44 · a purse
 - `кошка` — u8 · a cat
+- `коэффициент` — u122 · a coefficient
+- `кража` — u131 · a theft
 - `край` — u33 · an edge
+- `крайне` — u101 · to the utmost degree
 - `красивый` — u19 · beautiful
+- `краска` — u132 · paint
+- `красноречие` — u98 · the gift of speaking beautifully
 - `красный` — u16 · red
 - `красть` — u80 · to steal
 - `крах` — u69 · a collapse
@@ -841,22 +1136,29 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `крест` — u93 · a cross
 - `крестьянин` — u92 · a peasant
 - `кризис` — u70 · a crisis
+- `кристалл` — u104 · matter grown into a regular solid form
 - `критерий` — u68 · a criterion
 - `критик` — u55 · a reviewer
 - `кричать` — u28 · to shout
 - `кровать` — u15 · a bed
+- `кровля` — u126 · roofing
 - `кровь` — u53 · blood
 - `кроме` — u33 · except
+- `кроссворд` — u134 · a crossword
 - `круг` — u36 · a circle
+- `кружево` — u133 · lace
 - `кружка` — u82 · a mug
 - `крупный` — u47 · large in scale
+- `крупье` — u134 · a croupier
 - `крутить` — u49 · to turn something round
+- `крыло` — u128 · a wing
 - `крыльцо` — u60 · a porch
 - `крыша` — u32 · a roof
 - `кстати` — u46 · by the way
 - `кто` — u8 · who
 - `кто-нибудь` — u65 · anyone at all
 - `кто-то` — u65 · someone in particular
+- `кубик` — u134 · a dice
 - `кубок` — u84 · a cup trophy
 - `куда` — u22 · where to
 - `куда-нибудь` — u65 · off to anywhere
@@ -867,31 +1169,44 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `кулисы` — u74 · the wings of a stage
 - `культура` — u55 · culture
 - `купаться` — u35 · to have a swim
+- `купе` — u125 · a compartment on a train
 - `купить` — u31 · to make a purchase
 - `куплет` — u74 · a verse of a song
+- `купол` — u126 · a dome
 - `купюра` — u44 · a banknote
+- `курган` — u105 · an ancient burial mound raised as a hill
 - `курить` — u12 · to smoke
 - `курица` — u88 · a hen
 - `курс` — u41 · a course
 - `куртка` — u18 · a jacket
 - `кусок` — u37 · a piece
+- `куст` — u127 · a bush
 - `кухня` — u15 · a kitchen
 - `л` — u1
+- `лаборатория` — u104 · a room fitted out for scientific work
 - `лавина` — u91 · an avalanche
 - `ладно` — u82 · all right then
 - `ладонь` — u85 · a palm of the hand
+- `лайк` — u121 · a like on a post
 - `лампа` — u15 · a lamp
+- `лапа` — u128 · a paw
+- `лауреат` — u113 · a holder of an awarded prize
+- `лацкан` — u133 · a lapel
 - `легальный` — u71 · lawful
 - `легенда` — u55 · a legend
+- `легитимность` — u102 · being accepted as rightful by those governed
 - `лёгкий` — u19 · simple
 - `легко` — u6 · easy
 - `лёд` — u54 · ice
+- `ледник` — u111 · a glacier
 - `лежать` — u57 · to be lying
 - `лезть` — u82 · to climb
 - `лекарство` — u20 · medicine
 - `лекция` — u41 · a lecture
+- `лён` — u133 · linen
 - `ленивый` — u28 · lazy
 - `лента` — u89 · a ribbon
+- `лепесток` — u127 · a petal
 - `лепить` — u80 · to mould
 - `лес` — u26 · a forest
 - `лестница` — u12 · a staircase
@@ -903,42 +1218,67 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ли` — u46 · whether
 - `либо` — u79 · either ... or
 - `ливень` — u91 · a downpour
+- `лига` — u136 · a league
+- `лимит` — u108 · the most that will be paid or allowed
 - `линия` — u36 · a line
+- `линолеум` — u132 · a smooth floor covering in rolls
+- `липа` — u127 · a lime tree
 - `лиса` — u75 · a fox
 - `лист` — u26 · a leaf
 - `литература` — u55 · literature
 - `литр` — u37 · a litre
 - `лифт` — u12 · a lift
+- `лицемерие` — u107 · pretending to a goodness you do not have
 - `лицо` — u20 · a face
 - `личный` — u50 · personal
 - `лишать` — u79 · to deprive of
 - `лишь` — u37 · merely
+- `лишь бы` — u116 · just so long as
 - `лоб` — u85 · a forehead
 - `ловить` — u57 · to catch
 - `логика` — u52 · logic
+- `логистика` — u103 · the organising of moving and storing goods
+- `логово` — u128 · a lair
 - `ложиться` — u29 · to lie down
 - `ложка` — u29 · a spoon
 - `ложь` — u39 · a lie
+- `лозунг` — u98 · a short rallying phrase for a cause
+- `локомотив` — u125 · a locomotive
 - `локоть` — u85 · an elbow
 - `ломать` — u57 · to break in pieces
+- `ломтик` — u123 · a thin slice
 - `лопата` — u89 · a spade
+- `лотерея` — u134 · a lottery
 - `лошадь` — u26 · a horse
+- `лояльность` — u107 · staying true to the side you belong to
 - `луна` — u26 · the moon
 - `лучше` — u5 · better
 - `лыжи` — u84 · skis
 - `лысый` — u85 · bald
 - `льгота` — u71 · a benefit granted by law
 - `льстить` — u81 · to flatter
+- `любезный` — u119 · obliging
 - `любить` — u4 · to love
 - `любовь` — u5 · love (the noun)
 - `любой` — u37 · any
 - `м` — u1
 - `магазин` — u14 · a shop
+- `магистратура` — u113 · a master's programme
 - `май` — u17 · the month of May
+- `максимально` — u101 · to the highest degree that can be managed
 - `маленький` — u19 · small
 - `мало` — u21 · few
+- `мало ли` — u116 · you never know
+- `маловероятный` — u116 · improbable
+- `малодушие` — u115 · a shameful loss of nerve
 - `мальчик` — u82 · a little boy
 - `мама` — u1 · mum
+- `мандат` — u130 · a mandate given by a body
+- `манжета` — u133 · a cuff
+- `манипуляция` — u98 · steering someone's choices without their seeing it
+- `манифест` — u120 · a manifesto
+- `маринад` — u123 · a marinade
+- `маркетинг` — u103 · the business of finding and holding buyers
 - `март` — u17 · March
 - `маршрут` — u36 · a route
 - `масло` — u13 · butter
@@ -949,21 +1289,29 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `материк` — u90 · a continent
 - `матч` — u84 · a match
 - `мать` — u10 · a mother
+- `мачта` — u125 · a mast
 - `машина` — u6 · a car
+- `маяк` — u125 · a lighthouse
 - `мебель` — u29 · furniture
 - `мёд` — u58 · honey
 - `медаль` — u84 · a medal
 - `медведь` — u26 · a bear
 - `медитация` — u77 · meditation
 - `медленно` — u36 · slowly
+- `медсестра` — u112 · a nurse
 - `медь` — u87 · copper
 - `между` — u32 · between
+- `между тем` — u118 · meanwhile
+- `меланхолия` — u115 · a melancholic temper
 - `мелкий` — u47 · small in scale
 - `мелодия` — u96 · a tune you can hum
 - `мельница` — u88 · a mill
+- `мем` — u121 · an internet meme
 - `мемуары` — u73 · a memoir
 - `менее` — u47 · less so
+- `менталитет` — u105 · the settled cast of mind of a whole people
 - `меньше` — u5 · less
+- `меньшинство` — u109 · the smaller part of a people
 - `меню` — u13 · a menu
 - `меня` — u4 · me (object form)
 - `менять` — u24 · to change
@@ -974,22 +1322,35 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `место` — u4 · a place
 - `месяц` — u17 · a month
 - `металл` — u33 · metal
+- `метафора` — u106 · a word used for something it is not, to make a point
 - `метель` — u91 · a blizzard
+- `метеорит` — u124 · a stone fallen from space
 - `метод` — u52 · a method
+- `методика` — u113 · a methodology
 - `метр` — u37 · a metre
 - `метро` — u9 · the underground
 - `механизм` — u87 · a mechanism
 - `меч` — u92 · a sword
 - `мечта` — u28 · a dream you long for
 - `мешать` — u34 · to get in the way of
+- `мигрант` — u109 · somebody who has moved country to live
+- `мизерный` — u101 · pitifully small in amount
+- `микроскоп` — u104 · an instrument for seeing the very small
 - `микрофон` — u43 · a microphone
 - `миллион` — u21 · a million
+- `милосердие` — u107 · mercy shown to one who could be punished
 - `милый` — u82 · dear
 - `мимо` — u33 · past
+- `минимально` — u101 · to the lowest degree that can be managed
 - `министр` — u51 · a minister
+- `миновать` — u116 · to pass someone by
 - `минута` — u11 · a minute
 - `мир` — u5 · peace
+- `миска` — u123 · a mixing bowl
+- `миссия` — u130 · a diplomatic mission
+- `митинг` — u120 · a political rally
 - `миф` — u55 · a myth
+- `мишень` — u129 · a shooting target
 - `младенец` — u95 · a baby in arms
 - `мнение` — u39 · an opinion
 - `мнимый` — u64 · imaginary
@@ -998,20 +1359,25 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `мобильный` — u43 · mobile
 - `могила` — u95 · someone's grave
 - `мода` — u55 · fashion
+- `модерация` — u121 · moderation of a forum
 - `модный` — u18 · fashionable
 - `моё` — u3 · my (neuter)
 - `может быть` — u22 · maybe
 - `можно` — u5 · it is allowed
+- `мозаика` — u126 · a mosaic
 - `мозг` — u53 · a brain
 - `мой` — u8 · my (masculine)
 - `мокрый` — u60 · wet
 - `мол` — u81 · so he says
+- `молва` — u99 · what people are generally saying about something
+- `молекула` — u104 · two or more atoms bound together
 - `молитва` — u93 · a prayer
 - `молния` — u91 · lightning
 - `молодёжь` — u59 · young people
 - `молодой` — u19 · young
 - `молоко` — u4 · milk
 - `молоток` — u89 · a hammer
+- `молчание` — u120 · a silence that is kept
 - `молчать` — u59 · to keep silent
 - `момент` — u38 · an instant
 - `монастырь` — u93 · a monastery
@@ -1022,10 +1388,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `море` — u26 · the sea
 - `морковь` — u88 · a carrot
 - `мороз` — u16 · a hard frost
+- `морось` — u135 · drizzle
 - `морщина` — u85 · a wrinkle
 - `мост` — u14 · a bridge
 - `мотив` — u52 · the reason someone did it
+- `мох` — u127 · moss
 - `мочь` — u47 · to be able
+- `мошенничество` — u131 · fraud
 - `моя` — u3 · my (feminine)
 - `мрак` — u86 · gloom
 - `мрачный` — u67 · sombre in mood
@@ -1036,6 +1405,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `музей` — u9 · a museum
 - `музыка` — u8 · music
 - `музыкант` — u96 · a musician
+- `мумия` — u105 · a body preserved against decay
 - `мусор` — u15 · rubbish
 - `мучить` — u79 · to torment
 - `мы` — u2 · we
@@ -1046,22 +1416,30 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `мышца` — u53 · a muscle
 - `мышь` — u26 · a mouse
 - `мягкий` — u40 · soft
+- `мягко говоря` — u118 · to put it mildly
 - `мясо` — u13 · meat
 - `мяч` — u84 · a ball
 - `н` — u1
 - `на` — u23 · on
+- `на всякий случай` — u116 · just in case
+- `на основании` — u117 · on the basis of
 - `набирать` — u49 · to key in
 - `наблюдать` — u52 · to observe
+- `набор` — u100 · a matched set sold or used together
 - `наверное` — u22 · probably
 - `наверху` — u23 · upstairs
 - `наводнение` — u91 · a flood
 - `навсегда` — u38 · for ever
 - `навык` — u42 · a skill
+- `навязчивый` — u119 · intrusive
 - `наглый` — u56 · cheeky
+- `награждение` — u120 · an award-giving
 - `над` — u32 · above
+- `надбавка` — u108 · an extra added onto a standard payment
 - `надёжный` — u56 · reliable
 - `надеяться` — u28 · to hope
 - `надоедать` — u82 · to get on someone's nerves
+- `надрыв` — u115 · emotional over-strain
 - `нажимать` — u49 · to press a button
 - `назад` — u23 · backwards
 - `назначать` — u49 · to appoint
@@ -1084,21 +1462,30 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `нападение` — u97 · an attack
 - `написать` — u31 · to finish writing
 - `наподобие` — u62 · in the manner of
+- `наполовину` — u101 · by half and no further
 - `напоминать` — u49 · to remind
+- `напор` — u98 · the sheer force someone presses with
 - `направление` — u36 · a direction
 - `направо` — u14 · to the right
 - `например` — u52 · for example
 - `напротив` — u33 · opposite
 - `напряжение` — u77 · tension
+- `напутствие` — u120 · parting words of advice
+- `нарды` — u134 · backgammon
+- `нарезать` — u123 · to slice up
 - `народ` — u51 · a nation
 - `нарочно` — u59 · on purpose
+- `наручники` — u131 · handcuffs
 - `нарушать` — u71 · to break a rule
+- `наряд` — u133 · a fine outfit
+- `наряду с` — u117 · on a par with
 - `насекомое` — u54 · an insect
 - `население` — u51 · a population
 - `наследие` — u73 · a legacy
 - `наследник` — u92 · an heir
 - `наследство` — u95 · an inheritance
 - `насморк` — u53 · a runny nose
+- `наст` — u135 · a hard crust on snow
 - `наставник` — u95 · a mentor
 - `настаивать` — u61 · to insist
 - `настойчивый` — u56 · persistent
@@ -1106,10 +1493,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `настроение` — u28 · a mood
 - `наступать` — u79 · to set in of a season
 - `насчёт` — u62 · about a matter to settle
+- `наугад` — u108 · at random, without knowing
 - `наука` — u54 · science
 - `наушники` — u43 · headphones
 - `находить` — u24 · to find
 - `находиться` — u35 · to be located
+- `наценка` — u103 · the amount added on to the cost price
+- `национальность` — u109 · the people a person belongs to by descent
 - `начало` — u24 · the beginning
 - `начальник` — u25 · a boss
 - `начинаться` — u35 · to begin
@@ -1118,18 +1508,26 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `небо` — u26 · the sky
 - `небось` — u81 · I daresay
 - `невеста` — u78 · a bride
+- `невозмутимый` — u115 · unflappable
 - `негодование` — u67 · indignation
 - `неделя` — u17 · a week
 - `недоразумение` — u78 · a misunderstanding
 - `недоумение` — u67 · bewilderment
+- `нежность` — u115 · tenderness towards someone
 - `нежный` — u56 · tender
 - `неизбежный` — u62 · unavoidable
+- `нейрон` — u104 · a cell that carries signals in the body
+- `нейтралитет` — u130 · neutrality
 - `некий` — u65 · a certain unnamed
+- `неловкость` — u115 · awkwardness
 - `нельзя` — u5 · it is not allowed
 - `немного` — u7 · a little
+- `немыслимый` — u116 · unthinkable
 - `ненависть` — u77 · hatred
+- `ненастье` — u135 · foul weather
 - `необходимость` — u52 · a necessity
 - `непосредственно` — u83 · at first hand
+- `непредсказуемый` — u108 · impossible to see coming
 - `неприязнь` — u77 · a settled dislike
 - `нерв` — u53 · a nerve
 - `несколько` — u37 · several
@@ -1137,17 +1535,22 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `нести` — u36 · to be carrying
 - `нет` — u1 · no
 - `неужели` — u64 · can it really be
+- `неустойка` — u103 · a penalty owed for breaking terms
 - `нефть` — u87 · crude oil
 - `нехватка` — u70 · a shortage
 - `нигде` — u23 · nowhere
 - `низкий` — u47 · low
 - `никакой` — u65 · not any at all
+- `никнейм` — u121 · a username
 - `никогда` — u22 · never
 - `никто` — u23 · nobody
 - `ничего` — u7 · it is nothing
+- `ничтожный` — u101 · so small as to count for nothing
+- `ничуть` — u101 · not in the least
 - `ничья` — u84 · a drawn game
 - `нищета` — u76 · destitution
 - `но` — u19 · but
+- `новаторство` — u106 · the doing of something nobody has done before
 - `новичок` — u73 · a newcomer
 - `новость` — u39 · a piece of news
 - `новый` — u19 · new
@@ -1157,6 +1560,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ножницы` — u89 · scissors
 - `ноль` — u21 · zero
 - `номер` — u12 · a number
+- `нора` — u128 · a burrow
 - `норма` — u83 · a norm
 - `нормально` — u7 · fine
 - `нос` — u20 · a nose
@@ -1167,6 +1571,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ночь` — u5 · night
 - `ноябрь` — u17 · November
 - `нравится` — u8 · is pleasing
+- `нравственность` — u107 · the sense of right and wrong a person lives by
 - `ну` — u82 · well then
 - `нужно` — u5 · it is necessary
 - `нужный` — u34 · needed
@@ -1181,10 +1586,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `обвинять` — u61 · to accuse
 - `обгон` — u94 · overtaking
 - `обед` — u13 · lunch
+- `обернуться` — u116 · to turn out otherwise
 - `обеспечивать` — u48 · to provide
+- `обет` — u120 · a religious vow
 - `обещать` — u30 · to promise
+- `обжаловать` — u102 · to challenge a ruling through the proper channel
 - `обзор` — u45 · a review
 - `обидно` — u34 · it is hurtful
+- `обильный` — u101 · plentiful and generous in amount
+- `облава` — u131 · a police round-up
 - `обладать` — u79 · to possess
 - `облако` — u54 · a cloud
 - `область` — u90 · a province
@@ -1194,12 +1604,22 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `обмен` — u44 · an exchange
 - `обморок` — u77 · a fainting fit
 - `обнаруживать` — u79 · to discover
+- `обои` — u132 · wallpaper
+- `обойтись` — u116 · to manage without
+- `оборона` — u129 · defence
 - `оборот` — u76 · turnover
 - `оборудование` — u87 · equipment installed somewhere
+- `обоснование` — u98 · the grounding given for a claim
+- `обособление` — u100 · the setting of a thing apart from the rest
 - `образ` — u68 · an image in the mind
 - `образец` — u50 · a sample
+- `образование` — u113 · education
 - `обратно` — u36 · back again
+- `обращение` — u119 · a form of address
+- `обречённость` — u115 · a sense of doom
 - `обряд` — u93 · a rite
+- `обсерватория` — u124 · an observatory
+- `обследование` — u112 · a work-up
 - `обстоятельство` — u52 · a circumstance
 - `обсуждать` — u46 · to discuss
 - `обувь` — u18 · footwear
@@ -1212,14 +1632,18 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `объявление` — u45 · an announcement
 - `объяснять` — u34 · to explain
 - `объятие` — u78 · an embrace
+- `обыск` — u131 · a search of a place
 - `обычно` — u22 · usually
 - `обычный` — u40 · ordinary
 - `обязанность` — u42 · a duty
+- `овация` — u120 · a standing ovation
 - `овощи` — u13 · vegetables
 - `овца` — u88 · a sheep
+- `огласка` — u114 · publicity
 - `оговорка` — u64 · a caveat
 - `огонь` — u12 · fire
 - `огород` — u88 · a kitchen garden
+- `ограда` — u132 · a fence around a property
 - `ограничение` — u71 · a restriction
 - `огромный` — u47 · enormous
 - `одеваться` — u35 · to get dressed
@@ -1232,17 +1656,23 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `однако` — u46 · however
 - `одновременно` — u66 · at the same time
 - `одноклассник` — u41 · a classmate
+- `одноразовый` — u111 · single-use
 - `одобрять` — u61 · to approve of
 - `ожог` — u53 · a burn on the skin
 - `озеро` — u90 · a lake
+- `озон` — u111 · ozone
 - `ой` — u82 · oh!
 - `оказаться` — u35 · to turn out
 - `океан` — u90 · the open ocean
 - `окно` — u4 · a window
 - `около` — u33 · close to
 - `окончательный` — u66 · final and settled
+- `окоп` — u129 · a trench
+- `округлять` — u122 · to round off
 - `октябрь` — u17 · October
+- `окупаемость` — u103 · how soon an outlay pays itself back
 - `олень` — u75 · a deer
+- `олимпиада` — u136 · the Olympic Games
 - `он` — u1 · he
 - `она` — u4 · she
 - `они` — u19 · they
@@ -1254,27 +1684,40 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `опираться` — u62 · to rest on something
 - `оплата` — u44 · payment
 - `опора` — u77 · a mainstay
+- `оппозиция` — u102 · the parties ranged against those in power
+- `оппонент` — u98 · the person arguing the other side
 - `оправдывать` — u62 · to justify
 - `определять` — u48 · to define
 - `опровергать` — u61 · to refute
+- `опрос` — u99 · a round of questions put to many people
+- `оптовый` — u103 · sold in bulk to those who resell
 - `опускать` — u57 · to lower
+- `опустошение` — u115 · being hollowed out
+- `опустынивание` — u111 · desertification
 - `опыт` — u25 · experience
 - `опять` — u22 · again
+- `оратор` — u120 · an orator
 - `орать` — u82 · to bawl
+- `орбита` — u124 · an orbit
 - `организация` — u51 · an organisation
 - `организовать` — u48 · to organise
 - `орех` — u58 · a nut
 - `оригинал` — u50 · an original
 - `ориентироваться` — u72 · to find your bearings
 - `оркестр` — u55 · an orchestra
+- `оружие` — u129 · a weapon
 - `осада` — u92 · a siege
+- `осадки` — u135 · precipitation
 - `осень` — u16 · autumn
+- `осмотр` — u112 · a check-over
+- `осмотрительный` — u108 · careful to look before acting
 - `основа` — u52 · a basis
 - `особенный` — u40 · special
 - `оспаривать` — u61 · to challenge a claim
 - `оставлять` — u24 · to leave behind
 - `останавливаться` — u35 · to come to a stop
 - `остановка` — u14 · a bus stop
+- `остаток` — u122 · a remainder
 - `остаться` — u35 · to be left over
 - `осторожно` — u12 · carefully
 - `осторожный` — u97 · wary
@@ -1283,11 +1726,13 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `осуждать` — u61 · to condemn
 - `осуществлять` — u66 · to put into effect
 - `от` — u33 · away from
+- `отбор` — u136 · a qualifying selection
 - `отвёртка` — u89 · a screwdriver
 - `ответ` — u7 · an answer
 - `ответственность` — u71 · answerability
 - `отвлекать` — u77 · to distract
 - `отвращение` — u67 · revulsion
+- `отгрузка` — u103 · the sending out of goods from store
 - `отдел` — u42 · a department
 - `отдыхать` — u20 · to rest
 - `отель` — u9 · a hotel
@@ -1311,14 +1756,19 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `отражать` — u79 · to reflect
 - `отрасль` — u76 · a branch of industry
 - `отрицать` — u61 · to deny
+- `отступление` — u129 · a retreat
 - `отсутствовать` — u83 · to be absent
 - `оттенок` — u68 · a shade of meaning
+- `оттепель` — u135 · a warm spell in winter
 - `отходить` — u63 · to step away
 - `отходы` — u75 · industrial waste
 - `отчасти` — u61 · in part
 - `отчаяние` — u77 · despair
+- `отчество` — u119 · a patronymic
 - `отчёт` — u50 · a written report
+- `отчисление` — u108 · a sum taken off and paid over regularly
 - `офис` — u25 · an office
+- `офицер` — u129 · an officer
 - `официальный` — u50 · official
 - `официант` — u13 · a waiter
 - `оформлять` — u49 · to draw up
@@ -1327,75 +1777,120 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `очевидный` — u64 · self-evident
 - `очень` — u3 · very
 - `очередь` — u30 · a queue
+- `очерк` — u114 · a long documentary piece on a real subject
 - `очки` — u85 · glasses
 - `ошибка` — u6 · a mistake
+- `ощутимо` — u101 · by an amount that is felt in practice
 - `ощущение` — u86 · a sensation
 - `п` — u1
+- `пакт` — u130 · a pact
+- `палата` — u112 · a hospital ward
 - `палец` — u20 · a finger
 - `паломник` — u93 · a pilgrim
+- `палуба` — u125 · the deck of a ship
 - `пальто` — u18 · a coat
 - `памятник` — u30 · a monument
 - `память` — u52 · memory
+- `панибратство` — u119 · back-slapping familiarity
 - `паника` — u97 · a panic
+- `панировка` — u123 · a breadcrumb coating
+- `панцирь` — u128 · a shell on an animal's back
 - `папа` — u10 · dad
 - `папка` — u25 · a folder
+- `папоротник` — u127 · a fern
 - `пара` — u21 · a pair
 - `параллельно` — u66 · alongside each other
 - `параметр` — u83 · a parameter
 - `парень` — u82 · a lad
+- `пари` — u134 · a wager
+- `парировать` — u98 · to turn an attack back on the attacker
 - `парк` — u9 · a park
 - `парковка` — u94 · a car park
+- `парламент` — u102 · the elected assembly that makes law
+- `парниковый` — u111 · heat-trapping
+- `пародия` — u106 · a copy made to mock the original
 - `пароль` — u43 · a password
+- `паром` — u125 · a ferry
 - `партия` — u51 · a political party
+- `партнёр` — u103 · the other side you run a venture with
+- `пасмурный` — u135 · overcast
 - `паспорт` — u9 · a passport
 - `пассажир` — u94 · a passenger
 - `пасти` — u80 · to graze animals
 - `пастух` — u88 · a herdsman
+- `пасть` — u128 · the open mouth of a beast
+- `патент` — u104 · an exclusive right granted over an invention
 - `пауза` — u66 · a pause
+- `пафос` — u98 · a raised pitch of feeling in speech
 - `пахать` — u88 · to plough land
+- `пенальти` — u136 · a spot kick
 - `пенсия` — u42 · a pension
+- `первенство` — u136 · a championship
+- `первобытный` — u105 · of the earliest human times, before any cities
+- `первоисточник` — u99 · the original record a claim comes from
 - `первый` — u21 · first
+- `пергамент` — u105 · writing material made from prepared skin
 - `перебивать` — u49 · to interrupt
 - `перевод` — u39 · a translation
 - `переворот` — u69 · an upheaval
+- `переговоры` — u103 · a formal talking-through of terms
+- `перегородка` — u132 · a partition wall
 - `перед` — u32 · in front of
 - `передача` — u45 · a broadcast
 - `переживать` — u73 · to live through
 - `перекрёсток` — u60 · a crossroads
 - `перемена` — u69 · a change of state
+- `перемирие` — u130 · a truce
 - `переносить` — u63 · to move something across
+- `переработка` — u111 · recycling
 - `перерыв` — u12 · a break
 - `переход` — u36 · a crossing
 - `перец` — u58 · pepper
+- `перечень` — u100 · an itemised enumeration of things
+- `периметр` — u122 · a perimeter
 - `период` — u38 · a stretch of time
+- `перо` — u128 · a feather
+- `перрон` — u125 · a station platform
+- `персонаж` — u114 · a character in a story
+- `персонал` — u110 · all the people employed somewhere
 - `перспектива` — u69 · a prospect
 - `перчатки` — u18 · gloves
 - `песня` — u96 · a song
 - `песок` — u26 · sand
+- `петиция` — u120 · a signed request put to an authority
+- `петля` — u133 · a buttonhole
 - `петь` — u27 · to sing
 - `печаль` — u67 · sorrow
 - `печатать` — u49 · to print
 - `печень` — u53 · a liver
 - `печь` — u58 · to bake
 - `пешеход` — u94 · a pedestrian
+- `пешка` — u134 · a pawn
 - `пешком` — u36 · on foot
 - `пианино` — u74 · an upright piano
 - `пиво` — u13 · beer
 - `пила` — u89 · a saw
+- `пилот` — u125 · the person who flies an aircraft
 - `писать` — u4 · to write
 - `письмо` — u5 · a letter (the kind you post)
 - `пить` — u58 · to drink
 - `плавать` — u27 · to swim
+- `плавник` — u128 · a fin
+- `плагиат` — u113 · plagiarism
 - `плакать` — u28 · to cry
 - `план` — u27 · a plan
 - `планета` — u54 · a planet
+- `планировка` — u132 · the layout of a flat
+- `пластик` — u111 · plastic
 - `пластинка` — u96 · a vinyl record
 - `платить` — u18 · to pay
 - `платье` — u18 · a dress
 - `племя` — u92 · a tribe
 - `племянник` — u95 · a nephew
+- `плен` — u129 · captivity
 - `плечо` — u53 · a shoulder
 - `плита` — u58 · a cooker
+- `плитка` — u132 · a wall or floor tile
 - `плотный` — u47 · dense
 - `плохо` — u7 · badly
 - `плохой` — u19 · bad
@@ -1404,36 +1899,65 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `плыть` — u36 · to be swimming
 - `пляж` — u30 · a beach
 - `по` — u34 · around
+- `по идее` — u116 · by rights
+- `по итогам` — u117 · on the results of
+- `по мере` — u117 · in proportion as
+- `по причине` — u117 · by reason of
+- `по сути` — u118 · in essence
 - `по-моему` — u61 · in my view
 - `по-русски` — u8 · in Russian
 - `побег` — u97 · an escape
 - `победа` — u84 · a victory
+- `побочный` — u112 · incidental
 - `побуждение` — u72 · a motive for acting
 - `повар` — u8 · a cook
 - `поведение` — u56 · behaviour
+- `повествование` — u114 · narration
 - `повестка` — u72 · an agenda
 - `повод` — u62 · an occasion for something
 - `поворот` — u14 · a turn
 - `повторять` — u34 · to repeat
+- `повышение` — u110 · a move to a higher post
 - `погибать` — u75 · to perish
 - `погода` — u16 · the weather
+- `погрешность` — u122 · a margin of error
 - `под` — u32 · under
 - `подарок` — u18 · a present
 - `подбирать` — u49 · to pick out
+- `подвал` — u132 · a basement
 - `подвиг` — u97 · a heroic deed
+- `подвох` — u134 · a hidden catch
+- `подделка` — u99 · a fake object made to pass as real
 - `поддерживать` — u61 · to back someone up
+- `поджог` — u131 · arson
+- `подкаст` — u121 · a podcast
+- `подкладка` — u133 · the lining of a garment
+- `подкласс` — u100 · a smaller division inside a class
+- `подлинный` — u99 · genuine and not a copy
+- `подлог` — u99 · the swapping in of a false document
+- `подлость` — u107 · a mean act against somebody who trusted you
 - `поднимать` — u57 · to raise up
 - `подниматься` — u63 · to go up
+- `подобострастный` — u119 · fawning
 - `подозревать` — u64 · to suspect
 - `подозрение` — u64 · a suspicion
+- `подол` — u133 · the hem of a skirt
 - `подписка` — u45 · a subscription
+- `подписчик` — u121 · a follower on social media
 - `подписывать` — u49 · to sign
+- `подражание` — u106 · the copying of another's manner in earnest
+- `подразделение` — u110 · a named part of a larger organisation
 - `подробность` — u81 · a detail
 - `подросток` — u95 · a teenager
+- `подрядчик` — u126 · a contractor
+- `подсчёт` — u122 · a counting-up
+- `подтасовка` — u114 · a juggling of facts to suit a case
+- `подтекст` — u106 · what a text means without saying it
 - `подушка` — u82 · a pillow
 - `подходить` — u63 · to come up to someone
 - `подчёркивать` — u61 · to stress a point
 - `подчиняться` — u71 · to submit to authority
+- `подъезд` — u132 · the entrance of a block of flats
 - `поезд` — u30 · a train
 - `поесть` — u58 · to have a meal
 - `пожалуй` — u64 · I rather think
@@ -1446,22 +1970,31 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `пока` — u7 · bye
 - `показать` — u31 · to point out
 - `показывать` — u23 · to show
+- `поклон` — u119 · a bow
 - `поклонник` — u74 · a fan
 - `поколение` — u59 · a generation
+- `покорный` — u119 · submissive
+- `покрытие` — u108 · the extent of what cover answers for
 - `покупать` — u18 · to buy
 - `пол` — u60 · a floor you walk on
 - `полагать` — u61 · to suppose
 - `полдень` — u38 · midday
 - `поле` — u26 · a field
 - `полезный` — u25 · useful
+- `полемика` — u98 · a controversy carried on in public
+- `поликлиника` — u112 · a local clinic
+- `полис` — u108 · the paper that proves you are covered
 - `полиция` — u14 · the police
+- `полк` — u129 · a regiment
 - `полка` — u15 · a shelf
 - `полномочие` — u71 · an authority granted
 - `полночь` — u38 · midnight
 - `полный` — u23 · full
 - `половина` — u11 · a half
+- `половник` — u123 · a ladle
 - `полотенце` — u15 · a towel
 - `полуостров` — u90 · a peninsula
+- `полуфинал` — u136 · a semi-final
 - `получать` — u23 · to receive
 - `получить` — u31 · to get hold of
 - `получиться` — u35 · to work out
@@ -1471,26 +2004,41 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `помнить` — u22 · to remember
 - `помогать` — u20 · to help
 - `помолвка` — u78 · an engagement to marry
+- `помост` — u120 · a raised wooden platform put up to stand on
 - `помочь` — u31 · to give a hand
 - `понедельник` — u17 · Monday
 - `понимать` — u4 · to understand
 - `понять` — u31 · to realise
+- `поправка` — u102 · a change written into an existing law
 - `пора` — u24 · it is time
 - `поражение` — u84 · a defeat
+- `порода` — u128 · a breed of animal
 - `порождать` — u62 · to breed something
+- `порок` — u107 · a settled flaw of character
+- `порт` — u125 · a harbour for ships
 - `поручать` — u49 · to entrust
+- `порция` — u123 · a serving
+- `порыв` — u135 · a gust of wind
 - `порядок` — u15 · tidiness
 - `поскольку` — u79 · inasmuch as
 - `после` — u33 · after
 - `последний` — u21 · last
+- `последствие` — u111 · an after-effect
 - `посмотреть` — u31 · to take a look
+- `посол` — u130 · an ambassador
 - `посредством` — u62 · through the agency of
 - `пост` — u93 · a religious fast
+- `поставка` — u103 · the supplying of goods under an agreement
+- `поставщик` — u103 · the firm that supplies the goods
+- `постановление` — u102 · a formal written ruling adopted by a body
 - `постепенно` — u38 · gradually
 - `постоянно` — u38 · constantly
+- `поступление` — u113 · getting a university place
 - `поступок` — u56 · a deed
 - `посуда` — u57 · the dishes
+- `посылка` — u98 · the starting assumption of an argument
 - `потенциал` — u76 · the potential of something
+- `потепление` — u111 · a warming
 - `потерять` — u31 · to lose for good
 - `потолок` — u15 · a ceiling
 - `потом` — u4 · later
@@ -1503,9 +2051,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `поцелуй` — u78 · a kiss
 - `почва` — u54 · soil
 - `почему` — u2 · why
+- `почерк` — u106 · the individual mark of a maker's hand
 - `почта` — u14 · the post office
 - `почти` — u22 · almost
+- `почтительный` — u119 · respectful
 - `пошлина` — u76 · a customs duty
+- `пошлый` — u106 · cheap and vulgar in a self-satisfied way
 - `поэт` — u55 · a writer of verse
 - `поэтому` — u19 · that is why
 - `появляться` — u35 · to appear
@@ -1513,12 +2064,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `правило` — u41 · a rule
 - `правильно` — u6 · correctly
 - `правильный` — u40 · correct
+- `правительство` — u102 · the body of ministers that runs a country
 - `право` — u51 · a right
 - `праздник` — u10 · a holiday
 - `практика` — u41 · a work placement
 - `превращаться` — u69 · to become something else
 - `предание` — u73 · a story handed down
 - `предварительный` — u66 · preliminary
+- `предвидеть` — u116 · to foresee
 - `предел` — u68 · the furthest point
 - `предлагать` — u34 · to offer
 - `предлог` — u81 · a pretext you give
@@ -1526,11 +2079,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `предок` — u73 · an ancestor
 - `предотвращать` — u70 · to prevent
 - `предписание` — u71 · a directive
+- `предположение` — u116 · a supposition
 - `предприятие` — u76 · an enterprise
+- `предрассудок` — u109 · a settled bad opinion held without reason
 - `представлять` — u52 · to picture to yourself
 - `предстоять` — u72 · to lie ahead
 - `предупреждать` — u49 · to warn
 - `предусматривать` — u72 · to make provision for
+- `преемник` — u110 · whoever takes over a post after you
 - `прежде` — u38 · formerly
 - `президент` — u51 · a president
 - `презрение` — u67 · contempt
@@ -1538,6 +2094,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `прекращать` — u66 · to put a stop to
 - `премия` — u42 · a bonus
 - `премьера` — u74 · a first night
+- `прения` — u98 · the formal exchange of speeches in a chamber
 - `преодолевать` — u70 · to overcome
 - `преподаватель` — u41 · a lecturer
 - `препятствие` — u70 · an obstacle
@@ -1547,20 +2104,31 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `претензия` — u70 · a claim against someone
 - `преувеличивать` — u64 · to overstate
 - `при` — u39 · in the presence of
+- `при наличии` — u117 · where there is
+- `при условии` — u117 · on condition that
+- `при этом` — u118 · while that is so
+- `прибавлять` — u122 · to add on
+- `прибор` — u104 · an instrument that gives a reading
 - `прибыль` — u76 · a profit
 - `привет` — u1 · hi
+- `прививка` — u112 · a vaccination
+- `привилегия` — u109 · a right somebody has and others do not
 - `приводить` — u52 · to lead to
 - `привозить` — u63 · to bring by vehicle
 - `привычка` — u29 · a habit
 - `приглашать` — u27 · to invite
+- `приговор` — u131 · a court's sentence
 - `приготовить` — u31 · to cook a meal
 - `приезжать` — u63 · to arrive by vehicle
 - `приём` — u53 · an appointment
+- `приз` — u134 · a prize for winning
 - `призвание` — u72 · a vocation
 - `признавать` — u59 · to admit
+- `призыв` — u129 · the call-up to military service
 - `приказ` — u71 · a written order
 - `приключение` — u30 · an adventure
 - `прилетать` — u63 · to arrive by air
+- `приличие` — u119 · propriety
 - `приложение` — u43 · an app
 - `пример` — u41 · an example
 - `примерно` — u37 · roughly
@@ -1572,12 +2140,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `принцип` — u52 · a principle
 - `приобретать` — u73 · to acquire
 - `приоритет` — u83 · a priority
+- `приправа` — u123 · a seasoning
 - `природа` — u54 · nature
 - `приступать` — u66 · to set about
 - `присутствовать` — u83 · to be present
+- `присяга` — u102 · a formal oath sworn on taking office
 - `притворяться` — u81 · to pretend
 - `приходить` — u63 · to arrive on foot
 - `прицеп` — u94 · a trailer
+- `причал` — u125 · a berth for a ship
 - `причём` — u46 · what is more
 - `причёска` — u85 · a hairstyle
 - `причина` — u34 · a reason
@@ -1589,6 +2160,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `пробовать` — u86 · to taste
 - `провал` — u70 · a failure
 - `проверять` — u59 · to check
+- `проводник` — u125 · a train attendant
+- `провозглашать` — u120 · to proclaim
 - `проволока` — u89 · wire
 - `прогноз` — u72 · a forecast
 - `программа` — u43 · a program
@@ -1598,15 +2171,21 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `продукты` — u58 · groceries
 - `проезжать` — u63 · to drive past
 - `проект` — u42 · a project
+- `проигрыш` — u134 · a loss at a game
 - `производитель` — u76 · a manufacturer
 - `производство` — u87 · the making of goods
 - `произвол` — u71 · arbitrary rule
 - `происходить` — u52 · to take place
+- `прокурор` — u102 · the state's lawyer who brings charges
 - `пролив` — u90 · a strait
 - `промежуточный` — u66 · intermediate
 - `промышленность` — u87 · industry as a sector
+- `пропаганда` — u98 · organised persuasion run by a power
+- `проповедь` — u120 · a sermon
 - `пропуск` — u50 · an entry pass
 - `пророк` — u93 · a prophet
+- `просвещение` — u105 · the age that put reason above authority
+- `прослойка` — u109 · a layer of society between two bigger ones
 - `простите` — u7 · forgive me
 - `просто` — u22 · simply
 - `простой` — u40 · plain
@@ -1615,9 +2194,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `просыпаться` — u29 · to wake up
 - `просьба` — u34 · a request
 - `против` — u46 · against
+- `противень` — u123 · a baking tray
 - `противоречие` — u52 · a contradiction
 - `протокол` — u83 · a written record
+- `прототип` — u104 · the first working model built to try
 - `профессия` — u8 · a profession
+- `профилактика` — u112 · prevention
+- `профиль` — u121 · a user profile
+- `профсоюз` — u110 · an organisation of workers facing the employer
+- `прохлада` — u135 · coolness
 - `проходить` — u63 · to walk past
 - `процедура` — u83 · a procedure
 - `процент` — u21 · a percent
@@ -1635,6 +2220,9 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `публика` — u45 · the public
 - `публиковать` — u48 · to publish
 - `пугать` — u79 · to frighten
+- `пуговица` — u133 · a sewn-on button
+- `пулемёт` — u129 · a machine gun
+- `пуля` — u129 · a bullet
 - `пункт` — u50 · a clause
 - `пустой` — u23 · empty
 - `пустыня` — u90 · a desert
@@ -1644,6 +2232,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `путь` — u95 · a path through life
 - `пшеница` — u88 · wheat
 - `пыль` — u75 · dust
+- `пыльца` — u127 · pollen
+- `пьедестал` — u136 · the winners' podium
 - `пятнадцать` — u21 · fifteen
 - `пятница` — u17 · Friday
 - `пятый` — u21 · fifth
@@ -1652,42 +2242,68 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `р` — u1
 - `раб` — u92 · a slave
 - `работать` — u4 · to work
+- `равенство` — u109 · the having of the same rights as everybody
 - `равнина` — u90 · wide flat country
 - `равнодушный` — u67 · indifferent
 - `рад` — u7 · glad (masculine form)
 - `ради` — u62 · for somebody's sake
 - `радио` — u27 · the radio
+- `радуга` — u135 · a rainbow
 - `раз` — u6 · one time
 - `разбираться` — u70 · to get to grips with
+- `развалины` — u105 · what is left standing of a ruined building
 - `разве` — u64 · surely not
+- `разведка` — u129 · reconnaissance
 - `развитие` — u69 · development
 - `развод` — u78 · a divorce
+- `развязка` — u114 · the resolution of a plot
+- `развязный` — u119 · free and easy
 - `разделять` — u61 · to share a view
 - `раздражение` — u67 · irritation
 - `различие` — u68 · a distinction
 - `разлука` — u78 · a long separation
+- `размах` — u108 · the sheer scale something is done on
 - `размер` — u18 · a size
+- `разминка` — u136 · a warm-up before competing
 - `разный` — u40 · various
 - `разоблачать` — u81 · to expose a liar
+- `разогревать` — u123 · to reheat
 - `разочарование` — u67 · disappointment
+- `разработка` — u104 · the working-out of something new
 - `разрешать` — u34 · to allow
 - `разрушать` — u91 · to destroy
 - `разрушаться` — u69 · to fall apart
 - `разрыв` — u78 · a break-up
+- `разряд` — u100 · a rung somebody is rated into
+- `разрядка` — u130 · an easing of tension
 - `рай` — u93 · heaven as a place
 - `район` — u14 · a district
+- `ракета` — u124 · a rocket
+- `ракурс` — u106 · the angle a thing is seen and shown from
 - `рана` — u53 · a wound
+- `ранимый` — u115 · easily hurt
 - `рано` — u11 · early
 - `раскаяние` — u77 · remorse
+- `расклад` — u134 · the way the cards have fallen
+- `раскопки` — u105 · a dig opened to uncover remains
 - `расписание` — u29 · a timetable
 - `распоряжение` — u71 · an instruction from above
+- `рассказчик` — u114 · a narrator
 - `рассказывать` — u34 · to tell a story
+- `расследование` — u131 · a criminal investigation
+- `расслоение` — u109 · the drifting apart of a society into layers
 - `расстояние` — u36 · a distance
 - `рассчитывать` — u72 · to bank on
 - `расти` — u54 · to grow
+- `расторгать` — u103 · to break off an agreement formally
 - `расход` — u44 · an outgoing
+- `ратификация` — u130 · ratification
+- `реабилитация` — u112 · rehabilitation
+- `реактор` — u104 · a vessel where a reaction is run and held
+- `реализм` — u106 · the showing of life as it actually is
 - `реальность` — u68 · reality
 - `ребёнок` — u10 · a child
+- `ревизия` — u99 · an inspection of accounts or stock
 - `ревность` — u78 · jealousy
 - `революция` — u92 · a revolution
 - `регистрировать` — u49 · to register
@@ -1698,24 +2314,36 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `редакция` — u45 · an editorial office
 - `редкий` — u47 · rare
 - `редко` — u22 · rarely
+- `реестр` — u99 · an official list kept up to date
 - `режим` — u77 · a set daily routine
 - `режиссёр` — u74 · a film director
 - `резать` — u29 · to cut
+- `резерв` — u108 · an amount held back untouched against need
 - `резкий` — u69 · sharp and sudden
+- `резолюция` — u130 · a resolution
 - `результат` — u30 · a result
 - `резюме` — u42 · a CV
+- `рейс` — u125 · a scheduled service
 - `река` — u26 · a river
 - `реклама` — u45 · an advert
 - `рекорд` — u84 · a record performance
+- `ректор` — u113 · a vice-chancellor
 - `религия` — u55 · religion
 - `реликвия` — u95 · a family heirloom
+- `рельсы` — u125 · rails
 - `ремень` — u94 · a seat belt
 - `ремонт` — u29 · repairs
+- `рентабельность` — u103 · the degree to which a business pays its way
+- `репатриация` — u130 · repatriation
 - `репетиция` — u74 · a rehearsal
 - `репортаж` — u45 · a report from the scene
+- `репост` — u121 · a reshare
 - `ресницы` — u85 · eyelashes
+- `реставрация` — u126 · the restoring of a building
 - `ресторан` — u9 · a restaurant
 - `ресурс` — u87 · a natural resource
+- `референдум` — u102 · a question put to every voter directly
+- `рефери` — u136 · the official who enforces the rules
 - `реформа` — u69 · a reform
 - `рецензия` — u74 · a written review
 - `рецепт` — u53 · a prescription
@@ -1728,26 +2356,39 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `рисковать` — u79 · to take a risk
 - `рисовать` — u27 · to draw
 - `ритм` — u96 · a rhythm
+- `риторика` — u98 · the craft of speaking so as to convince
 - `ровно` — u37 · on the dot
+- `рог` — u128 · a horn
 - `родник` — u75 · a spring in the ground
 - `родной` — u8 · native
 - `родственник` — u59 · a relative
 - `рождение` — u59 · a birth
 - `рожь` — u88 · rye
+- `роза` — u127 · a rose
+- `розничный` — u103 · sold singly to the public
 - `роль` — u55 · a part in a play
 - `роман` — u27 · a novel
+- `романтизм` — u106 · the movement that put feeling above rule
+- `ромашка` — u127 · a daisy
 - `ронять` — u80 · to drop
+- `роса` — u135 · dew
 - `рот` — u20 · a mouth
+- `ротация` — u110 · the regular moving of people between posts
 - `рояль` — u96 · a grand piano
 - `рубашка` — u18 · a shirt
 - `рубеж` — u69 · a milestone reached
 - `рубить` — u80 · to chop
 - `рубль` — u12 · a rouble
+- `рубрика` — u100 · the heading a thing is filed under
 - `ругать` — u59 · to tell off
 - `ругаться` — u81 · to swear at someone
 - `руда` — u87 · metal ore
 - `рука` — u20 · a hand
+- `рукав` — u133 · a sleeve
 - `руководитель` — u32 · a manager
+- `рукопись` — u105 · a text written out by hand
+- `рукопожатие` — u119 · a handshake
+- `рулетка` — u134 · roulette
 - `руль` — u94 · a steering wheel
 - `русский` — u6 · Russian (the adjective)
 - `ручка` — u25 · a pen
@@ -1758,34 +2399,48 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ряд` — u33 · a row
 - `рядом` — u10 · nearby
 - `с` — u1
+- `с одной стороны` — u118 · on the one hand
+- `с целью` — u117 · with the aim of
 - `сад` — u26 · a garden
 - `сайт` — u43 · a website
 - `салат` — u13 · a salad
 - `сам` — u65 · in person
+- `самец` — u128 · the male of an animal
+- `саммит` — u130 · a summit meeting
 - `самолёт` — u30 · a plane
+- `самолюбие` — u115 · touchy self-regard
 - `самостоятельно` — u71 · on one's own initiative
 - `самый` — u47 · the most
+- `санкция` — u130 · a sanction
+- `сантехника` — u132 · the plumbing of a flat
 - `сарай` — u88 · a farm shed
+- `сатира` — u106 · writing that attacks by making ridiculous
 - `сахар` — u13 · sugar
 - `сбой` — u70 · a malfunction
+- `сбыт` — u103 · the getting of made goods sold
 - `свадьба` — u10 · a wedding
 - `свалка` — u75 · a rubbish dump
 - `сведения` — u83 · information held on record
 - `свежий` — u40 · fresh
 - `свекровь` — u78 · a husband's mother
 - `свержение` — u92 · the overthrow of a ruler
+- `сверка` — u99 · the putting of two records side by side
 - `сверло` — u89 · a drill bit
 - `сверстник` — u95 · someone of your own age
 - `свет` — u15 · light
 - `светофор` — u60 · a traffic light
 - `свеча` — u93 · a candle
 - `свидание` — u78 · a date with someone
+- `свидетель` — u131 · a witness
 - `свидетельство` — u50 · a certificate
 - `свинья` — u88 · a pig
 - `свист` — u96 · a whistling sound
 - `свисток` — u84 · a whistle
+- `свиток` — u105 · a long sheet rolled up for keeping
 - `свободный` — u23 · vacant
+- `свод` — u126 · a vault
 - `сводиться` — u62 · to come down to
+- `сводка` — u99 · a short digest of figures or events
 - `свой` — u65 · the subject's own
 - `свойство` — u60 · a property
 - `связь` — u43 · a signal
@@ -1793,25 +2448,31 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `священник` — u93 · a priest
 - `сдавать` — u48 · to hand in
 - `сделать` — u31 · to get done
+- `сделка` — u103 · an agreed exchange on set terms
 - `сеанс` — u74 · a showing at the cinema
 - `себя` — u65 · oneself
 - `север` — u90 · the north
 - `сегодня` — u6 · today
+- `сегрегация` — u109 · the keeping of groups apart by rule
 - `седой` — u85 · grey-haired
 - `сейчас` — u4 · now
 - `секрет` — u9 · a secret
 - `секунда` — u11 · a second
 - `семестр` — u41 · a term at university
+- `семечко` — u127 · a plant seed
 - `семинар` — u41 · a seminar
 - `семь` — u11 · seven
 - `семья` — u10 · a family
 - `сено` — u88 · hay
+- `сенсация` — u114 · a sensational story
 - `сентябрь` — u17 · September
+- `сервер` — u121 · a server machine
 - `сердце` — u6 · a heart
 - `середина` — u33 · the middle
 - `сериал` — u45 · a drama series
 - `серый` — u16 · grey
 - `серьёзный` — u25 · serious
+- `сессия` — u113 · the examination period at the end of a term
 - `сестра` — u10 · a sister
 - `сесть` — u31 · to sit down
 - `сеть` — u43 · a network
@@ -1820,8 +2481,11 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `силуэт` — u86 · a silhouette
 - `сильно` — u5 · strongly
 - `сильный` — u20 · strong
+- `символ` — u106 · a thing taken to stand for something larger
 - `симпатия` — u78 · a liking for someone
+- `симптом` — u112 · a symptom
 - `синий` — u16 · blue
+- `синтез` — u104 · the building of one thing out of simpler parts
 - `сирена` — u97 · a siren
 - `сирота` — u95 · an orphan
 - `система` — u52 · a system
@@ -1830,11 +2494,15 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `сказка` — u27 · a fairy tale
 - `скамейка` — u60 · a bench
 - `скандал` — u78 · a scene in public
+- `скафандр` — u124 · a spacesuit
 - `скачивать` — u49 · to download
 - `скачок` — u69 · a sudden jump
+- `сквозняк` — u135 · a draught
 - `скидка` — u12 · a discount
 - `склад` — u87 · a warehouse
+- `складка` — u133 · a pleat
 - `склонность` — u72 · a leaning towards something
+- `сковорода` — u123 · a frying pan
 - `скользкий` — u60 · slippery
 - `сколько` — u5 · how much
 - `скоро` — u7 · soon
@@ -1844,6 +2512,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `скрипка` — u96 · a violin
 - `скромный` — u56 · modest
 - `скрывать` — u81 · to conceal
+- `скудный` — u101 · meagre and barely sufficient
 - `скульптура` — u55 · sculpture
 - `скучать` — u34 · to miss someone
 - `скучно` — u6 · boring
@@ -1851,42 +2520,56 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `слабый` — u20 · weak
 - `слава` — u74 · fame
 - `сладкий` — u58 · sweet
+- `слегка` — u101 · by a slight amount and no more
 - `след` — u73 · a trace
+- `следователь` — u131 · an investigator
 - `следовательно` — u62 · it follows that
 - `следствие` — u52 · a consequence
 - `слеза` — u28 · a tear
 - `слепой` — u86 · blind
 - `слишком` — u37 · excessively
+- `слияние` — u103 · the joining of two firms into one
 - `словарь` — u5 · a dictionary
 - `словно` — u64 · just like
 - `слово` — u6 · a word
+- `слог` — u114 · a writer's style
+- `сложиться` — u116 · to come together as it did
 - `сложный` — u25 · complicated
+- `слой` — u100 · a layer lying over or under another
 - `служба` — u42 · a public service
 - `слух` — u86 · hearing
 - `случай` — u24 · an occasion
 - `случайно` — u59 · by accident
 - `слушать` — u59 · to listen
 - `слышать` — u4 · to hear
+- `слякоть` — u135 · slush
+- `смежный` — u132 · opening straight into the next room
 - `смелый` — u56 · brave
 - `смена` — u42 · a shift
 - `смерть` — u59 · death
 - `смерч` — u91 · a tornado
+- `смета` — u126 · a cost estimate
 - `сметана` — u58 · sour cream
 - `смеяться` — u28 · to laugh
+- `смирение` — u115 · humility
 - `смотреть` — u23 · to watch
 - `смутный` — u64 · vague
 - `смущать` — u79 · to embarrass
 - `смущение` — u67 · embarrassment
 - `смысл` — u39 · a meaning
 - `смятение` — u77 · inner turmoil
+- `снаряд` — u129 · an artillery shell
 - `сначала` — u24 · at first
 - `снег` — u16 · snow
+- `снисходительный` — u119 · condescending
 - `снова` — u38 · all over again
+- `снос` — u126 · a demolition
 - `сноска` — u50 · a footnote
 - `собака` — u26 · a dog
 - `собеседование` — u42 · a job interview
 - `собираться` — u35 · to get ready to go
 - `соблюдать` — u71 · to abide by
+- `соболезнование` — u120 · condolences
 - `собрание` — u59 · a meeting
 - `собственный` — u65 · privately owned
 - `событие` — u59 · an event
@@ -1894,6 +2577,8 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `совершеннолетие` — u95 · coming of age
 - `совесть` — u56 · a conscience
 - `совет` — u30 · advice
+- `совещание` — u110 · a meeting called to decide something
+- `совокупность` — u100 · everything of a kind taken together as one
 - `совпадать` — u79 · to coincide
 - `совпадение` — u52 · a coincidence
 - `современный` — u60 · modern
@@ -1902,11 +2587,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `соглашаться` — u35 · to agree
 - `содержание` — u50 · the contents
 - `сожаление` — u67 · regret
+- `созвездие` — u124 · a constellation
+- `созвучие` — u106 · two things chiming together
 - `создавать` — u48 · to create
 - `сознание` — u86 · consciousness
 - `сок` — u13 · juice
 - `сокращение` — u69 · a cutting-down
 - `солдат` — u51 · a soldier
+- `солнечный` — u111 · solar
 - `солнце` — u6 · the sun
 - `солома` — u88 · straw
 - `соль` — u5 · salt
@@ -1914,27 +2602,42 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `сон` — u29 · a night's sleep
 - `сообщение` — u43 · a message
 - `соответствовать` — u61 · to correspond to
+- `соотечественник` — u109 · somebody from the same country as you
 - `соперник` — u84 · a rival
+- `соподчинение` — u100 · the ranking of one thing under another
 - `сопровождать` — u62 · to accompany
 - `соревнование` — u84 · a sporting contest
+- `сорняк` — u127 · a weed
 - `сорок` — u21 · forty
+- `сортировать` — u100 · to put things into groups by a feature
+- `сортировка` — u111 · sorting
 - `сосед` — u29 · a neighbour
+- `сословие` — u109 · an inherited rank in an old society
+- `сосна` — u127 · a pine
+- `сострадание` — u107 · feeling another's pain as if it were yours
 - `сотрудник` — u32 · a member of staff
+- `соус` — u123 · a sauce
+- `соучастник` — u131 · an accomplice
+- `софизм` — u98 · a clever argument that is secretly false
 - `сохранять` — u49 · to save
 - `сочинение` — u41 · an essay
 - `сочувствие` — u67 · sympathy
 - `союз` — u51 · a union
+- `союзник` — u129 · an ally
 - `спад` — u69 · a downturn
 - `спальня` — u15 · a bedroom
+- `спам` — u121 · junk messages
 - `спасать` — u97 · to rescue
 - `спасибо` — u7 · thank you
 - `спать` — u20 · to sleep
 - `спектакль` — u55 · a theatre performance
+- `спектр` — u104 · the spread of something across a range
 - `специалист` — u32 · an expert
 - `спешить` — u29 · to hurry
 - `спина` — u20 · a back
 - `список` — u50 · a list
 - `сплетня` — u81 · a piece of gossip
+- `сплочённость` — u109 · how tightly a group holds together
 - `спокойный` — u28 · calm
 - `спор` — u39 · an argument
 - `спорт` — u9 · sport (the activity)
@@ -1946,10 +2649,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `спрашивать` — u23 · to ask
 - `спросить` — u31 · to ask a question
 - `спускаться` — u63 · to go down
+- `спутник` — u124 · a satellite
 - `сравнение` — u47 · a comparison
 - `сразу` — u22 · straight away
 - `среда` — u17 · Wednesday
 - `среди` — u33 · among
+- `средневековье` — u105 · the thousand years between antiquity and the modern age
 - `средство` — u32 · a means
 - `срок` — u38 · a deadline
 - `срочно` — u12 · urgently
@@ -1957,25 +2662,37 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ссора` — u78 · a row between people
 - `ссылка` — u43 · a link
 - `ставить` — u57 · to set upright
+- `ставка` — u108 · money put on an outcome
 - `стадион` — u84 · a stadium
 - `стадия` — u66 · a period a thing passes through
+- `стадо` — u128 · a herd of grazing animals
 - `стаж` — u42 · a track record
+- `стажёр` — u110 · somebody working in order to learn the job
 - `стакан` — u13 · a glass
+- `стало быть` — u118 · therefore it follows
 - `сталь` — u87 · steel
 - `становиться` — u32 · to be turning into
 - `станок` — u87 · a machine tool
 - `стараться` — u35 · to try hard
 - `старость` — u95 · the last part of a life
 - `старый` — u19 · old
+- `статистика` — u99 · the figures collected about something
 - `статус` — u83 · a status
 - `стать` — u31 · to become
 - `статья` — u45 · an article
+- `стационар` — u112 · inpatient care
+- `стая` — u128 · a flock
+- `ствол` — u127 · a tree trunk
+- `стебель` — u127 · a stem
 - `стекло` — u33 · glass as a material
 - `стена` — u15 · a wall
 - `степень` — u47 · a degree
 - `степь` — u90 · a steppe
+- `стереотип` — u109 · a fixed picture of a whole group
+- `стеснение` — u115 · shyness in company
 - `стиль` — u55 · a style
 - `стимул` — u72 · an incentive
+- `стипендия` — u113 · a student allowance
 - `стирать` — u29 · to do the laundry
 - `стих` — u55 · a verse
 - `стихия` — u91 · the elements
@@ -1993,24 +2710,34 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `страсть` — u78 · passion
 - `стратегия` — u72 · a strategy
 - `страх` — u28 · fear
+- `страхование` — u108 · the business of covering people against loss
+- `страховка` — u112 · insurance
 - `страшно` — u34 · it is frightening
 - `стремиться` — u72 · to strive
 - `стресс` — u77 · strain on the nerves
+- `стрим` — u121 · a livestream
 - `строгий` — u40 · strict
+- `строго говоря` — u118 · strictly speaking
 - `стройный` — u85 · slim
 - `строить` — u57 · to build
 - `строка` — u50 · a line of text
 - `структура` — u83 · the structure of a thing
 - `струна` — u96 · a string of an instrument
 - `студент` — u8 · a student
+- `стужа` — u135 · a bitter cold spell
 - `стук` — u96 · a knock
 - `стул` — u15 · a chair
 - `стыдно` — u34 · it is shameful
+- `стыковка` — u124 · a docking in space
 - `суббота` — u17 · Saturday
+- `субординация` — u110 · the keeping to the chain of command
 - `субсидия` — u76 · a state subsidy
 - `сувенир` — u30 · a souvenir
+- `суверенитет` — u130 · sovereignty
+- `сугроб` — u135 · a snowdrift
 - `сугубо` — u83 · purely and only
 - `суд` — u51 · a court
+- `сударыня` — u119 · madam in the old style
 - `судьба` — u95 · fate
 - `сумерки` — u86 · dusk
 - `сумка` — u15 · a bag
@@ -2022,6 +2749,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `суть` — u39 · the essence
 - `сухой` — u60 · dry
 - `существовать` — u52 · to exist
+- `схема` — u100 · a simplified drawing of how something works
 - `сходство` — u68 · a similarity
 - `сцена` — u55 · a stage
 - `счастливый` — u24 · happy
@@ -2037,39 +2765,54 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `т` — u1
 - `таблетка` — u20 · a tablet
 - `тайга` — u90 · the taiga
+- `тайм` — u136 · a half of a match
 - `так` — u22 · that way
+- `так или иначе` — u116 · one way or another
 - `также` — u46 · as well
+- `таким образом` — u118 · in this way
 - `такой` — u19 · such a
 - `такси` — u9 · a taxi
 - `такт` — u96 · a bar of music
 - `тактика` — u72 · tactics
+- `тактичный` — u119 · tactful
 - `талант` — u47 · a talent
 - `там` — u1 · there
+- `тамбур` — u132 · a lobby between two doors
 - `таможня` — u76 · the customs service
+- `танк` — u129 · an armoured fighting vehicle
 - `танцевать` — u27 · to dance
 - `тарелка` — u29 · a plate
 - `тариф` — u76 · a rate charged
+- `таяние` — u111 · a melting
 - `таять` — u80 · to melt
 - `твёрдый` — u40 · hard to the touch
 - `твой` — u8 · your (informal)
 - `творчество` — u55 · creative work
 - `театр` — u9 · a theatre
 - `тебя` — u4 · you (object form, informal)
+- `тезис` — u98 · the claim a speaker sets out to prove
 - `текст` — u41 · a text
+- `текучесть` — u110 · the rate at which staff leave and are replaced
 - `телевизор` — u27 · a television
+- `телескоп` — u124 · a telescope
 - `телефон` — u9 · a telephone
+- `тем не менее` — u118 · none the less
 - `тема` — u39 · a subject
 - `тёмный` — u16 · dark
 - `температура` — u20 · a temperature
 - `тенденция` — u69 · a trend
 - `тень` — u86 · a shadow
+- `теоретически` — u116 · in theory
 - `теория` — u41 · a theory
 - `теперь` — u38 · nowadays
 - `теплица` — u88 · a greenhouse
 - `тепло` — u16 · it is warm
 - `терапия` — u77 · therapy
+- `тереть` — u123 · to grate
 - `терпение` — u56 · patience
+- `терпимость` — u107 · putting up with what you do not approve of
 - `терять` — u24 · to lose
+- `тесто` — u123 · dough
 - `тетрадь` — u25 · an exercise book
 - `тётя` — u10 · an aunt
 - `техника` — u43 · machinery
@@ -2078,56 +2821,77 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `тип` — u60 · a type
 - `типичный` — u68 · typical
 - `тираж` — u45 · a print run
+- `титул` — u119 · a title of rank
 - `тихий` — u29 · quiet
 - `тихо` — u5 · quietly
 - `ткань` — u33 · cloth
 - `ткать` — u80 · to weave
+- `то есть` — u118 · that is to say
 - `товар` — u44 · goods
 - `товарищ` — u82 · a comrade
 - `тогда` — u24 · at that time
+- `тождество` — u100 · being one and the same thing, not merely alike
 - `тоже` — u5 · also
 - `толкать` — u57 · to push
 - `толпа` — u59 · a crowd
 - `толстый` — u40 · thick
 - `толчок` — u62 · an impetus
+- `толщина` — u122 · a thickness
 - `только` — u3 · only
+- `томление` — u115 · a languid yearning
 - `тон` — u39 · a tone
 - `тонкий` — u40 · thin
+- `тонна` — u122 · a tonne
 - `тонуть` — u97 · to drown
 - `топливо` — u87 · fuel
+- `тополь` — u127 · a poplar
 - `топор` — u89 · an axe
+- `торг` — u103 · haggling back and forth over a price
 - `торговля` — u44 · trade
+- `торжественный` — u120 · solemn and festive
 - `тормоз` — u94 · a brake
 - `торопиться` — u35 · to be in a hurry
 - `торт` — u58 · a cake
 - `торф` — u75 · peat
 - `тоска` — u67 · a deep longing
+- `тост` — u120 · a toast at a table
 - `тот` — u22 · that one
 - `точить` — u89 · to sharpen
 - `точно` — u22 · exactly
 - `точный` — u40 · accurate
 - `трава` — u26 · grass
+- `травма` — u136 · an injury
 - `традиция` — u55 · a tradition
+- `траектория` — u124 · the line a moving body traces through space
+- `трактовка` — u106 · the reading somebody gives a work
 - `трактор` — u88 · a tractor
 - `трамвай` — u9 · a tram
 - `транспорт` — u36 · public transport
 - `тратить` — u48 · to spend
 - `траур` — u95 · mourning
+- `трафик` — u121 · data traffic
 - `требование` — u34 · a demand
 - `тревога` — u97 · an alarm raised
+- `тренажёр` — u136 · an exercise machine
 - `тренер` — u84 · a coach
+- `трепет` — u115 · a tremor of awe
 - `треск` — u86 · a crackle
 - `третий` — u21 · third
+- `треугольник` — u122 · a triangle
 - `три` — u11 · three
+- `трибуна` — u136 · a stand of seats
 - `тридцать` — u21 · thirty
+- `трикотаж` — u133 · knitted fabric
 - `тринадцать` — u21 · thirteen
 - `трогать` — u49 · to touch
+- `тролль` — u121 · an online troll
 - `тротуар` — u60 · a pavement
 - `труба` — u60 · a pipe
 - `трубка` — u43 · a handset
 - `трудно` — u6 · difficult
 - `трудный` — u19 · hard
 - `трус` — u97 · a coward
+- `трюм` — u125 · a ship's hold
 - `тряпка` — u57 · a rag
 - `туалет` — u12 · a toilet
 - `туда` — u14 · towards there
@@ -2137,10 +2901,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `тупик` — u70 · a dead end
 - `тупой` — u60 · blunt
 - `турист` — u30 · a tourist
+- `турнир` — u134 · a tournament played in rounds
 - `тусклый` — u86 · dim
+- `туча` — u135 · a heavy rain cloud
 - `тушить` — u97 · to put out a fire
 - `тщательно` — u66 · thoroughly
+- `тщеславие` — u115 · vanity
 - `ты` — u2 · you (informal)
+- `тыл` — u129 · the rear
 - `тысяча` — u21 · a thousand
 - `тюрьма` — u51 · a prison
 - `тяга` — u72 · a craving
@@ -2151,10 +2919,12 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `убегать` — u63 · to run away
 - `убеждать` — u49 · to persuade
 - `убежище` — u97 · a refuge
+- `уберечь` — u116 · to keep from harm
 - `убивать` — u80 · to kill
 - `убирать` — u15 · to tidy up
 - `убрать` — u31 · to clear away
 - `убыток` — u76 · a loss of money
+- `уважаемый` — u119 · esteemed in a salutation
 - `уважение` — u56 · respect
 - `уведомлять` — u83 · to notify
 - `увеличивать` — u48 · to increase
@@ -2162,7 +2932,10 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `увозить` — u63 · to take away by vehicle
 - `увольнять` — u42 · to lay off
 - `увы` — u82 · alas
+- `углерод` — u111 · carbon
 - `угол` — u12 · a corner
+- `угон` — u131 · a car theft
+- `угораздить` — u116 · to be unlucky enough to
 - `угощать` — u82 · to treat someone
 - `угрожать` — u79 · to threaten
 - `угроза` — u97 · a threat
@@ -2178,41 +2951,60 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `ужин` — u13 · supper
 - `узкий` — u40 · narrow
 - `узнать` — u31 · to find out
+- `узор` — u133 · a repeating pattern
+- `указ` — u102 · a decree issued by a head of state
+- `уклад` — u105 · the settled pattern of how people live
 - `укол` — u53 · an injection
 - `укреплять` — u79 · to strengthen
 - `укрепляться` — u69 · to grow stronger
 - `улетать` — u63 · to fly off
+- `улика` — u131 · an incriminating clue
 - `улица` — u14 · a street
 - `улыбаться` — u28 · to smile
+- `умеренно` — u101 · to a moderate degree
 - `уметь` — u47 · to know how
 - `умиление` — u67 · tenderness at something sweet
+- `умиротворение` — u115 · a settled peace
+- `умножать` — u122 · to multiply
 - `умный` — u28 · clever
+- `умозаключение` — u98 · an inference drawn from premises
 - `умываться` — u29 · to wash your face
+- `умысел` — u131 · criminal intent
+- `умышленно` — u107 · on purpose, knowing what would follow
 - `университет` — u9 · a university
 - `уносить` — u63 · to carry something away
 - `уныние` — u67 · despondency
 - `упадок` — u69 · a falling off
+- `упаковка` — u111 · packaging
+- `упорствовать` — u98 · to dig in and refuse to shift
 - `управлять` — u42 · to be in charge of
 - `упражнение` — u41 · an exercise
 - `упрёк` — u61 · a reproach
 - `упрямый` — u56 · stubborn
+- `упускать` — u116 · to miss an opportunity
 - `ура` — u82 · hurray
+- `уравнение` — u122 · an equation
 - `ураган` — u91 · a hurricane
 - `уровень` — u30 · a level
 - `урожай` — u88 · a harvest
+- `уроженец` — u109 · somebody born in a particular place
 - `урок` — u25 · a lesson
+- `усадьба` — u132 · a country estate
 - `усилие` — u70 · an effort
 - `условие` — u34 · a condition
 - `услуга` — u44 · a service
+- `успеваемость` — u113 · academic performance
 - `успех` — u25 · success
 - `устав` — u71 · a charter
 - `устал` — u7 · tired (masculine form)
+- `устойчивый` — u111 · sustainable
 - `устранять` — u70 · to eliminate
 - `устройство` — u43 · a device
 - `уступать` — u78 · to give way
 - `уступка` — u61 · a concession
 - `усы` — u85 · a moustache
 - `утверждать` — u46 · to claim
+- `утечка` — u121 · a data leak
 - `утешать` — u77 · to comfort
 - `уточнять` — u46 · to check a detail
 - `утрата` — u97 · an irreplaceable loss
@@ -2225,42 +3017,73 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `учитель` — u8 · a teacher
 - `учить` — u59 · to teach
 - `учиться` — u35 · to study
+- `учредитель` — u110 · whoever set an organisation up
+- `учтивый` — u119 · punctiliously polite
 - `ущелье` — u90 · a gorge
+- `ущемлять` — u109 · to cut down somebody's rights
 - `ущерб` — u70 · damage done
+- `уязвимость` — u108 · the state of being open to harm
 - `ф` — u2
 - `фабрика` — u87 · a light-industry factory
+- `фабула` — u114 · the bare run of events behind a plot
 - `файл` — u43 · a file
 - `факт` — u39 · a fact
+- `факультет` — u113 · a university faculty
+- `фальсификация` — u99 · the faking of a result or a record
 - `фамилия` — u8 · a surname
+- `фамильярный` — u119 · over-familiar
 - `фара` — u94 · a headlight
+- `фарш` — u123 · mince
+- `фасад` — u126 · a facade
+- `фасон` — u133 · the style of a garment
 - `февраль` — u17 · February
+- `фейк` — u114 · a fake story
+- `феодализм` — u105 · the order where land is held in return for service
 - `фермер` — u88 · a farmer
 - `фигура` — u85 · a person's build
 - `физика` — u54 · physics
 - `фиксировать` — u83 · to record formally
+- `филиал` — u110 · an outpost of an organisation in another place
 - `фильм` — u8 · a movie
+- `финал` — u136 · the last match of a competition
+- `финиш` — u136 · the line where a race ends
 - `фирма` — u25 · a firm
+- `фишка` — u134 · a playing counter
 - `флейта` — u96 · a flute
 - `флиртовать` — u78 · to flirt
+- `флот` — u129 · a country's war fleet
 - `фойе` — u74 · a foyer
+- `фольклор` — u105 · what a people hands down by word of mouth
 - `фонарь` — u60 · a street lamp
 - `форма` — u32 · a shape
+- `формула` — u122 · a formula
 - `фотография` — u10 · a photograph
+- `фракция` — u102 · a party's bloc of members inside a chamber
+- `франшиза` — u108 · the first slice of a loss you bear yourself
 - `фрукты` — u13 · fruit
+- `фундамент` — u126 · the foundation of a building
+- `функция` — u100 · the job a part does within a whole
 - `футбол` — u84 · football
 - `х` — u1
+- `хакер` — u121 · a hacker
 - `хандра` — u77 · a low grey mood
 - `характер` — u28 · a character
 - `хвалить` — u59 · to praise
 - `хвастаться` — u81 · to boast
 - `хватать` — u79 · to be enough
+- `хвост` — u128 · a tail
+- `хвоя` — u127 · pine needles
 - `химия` — u54 · chemistry
+- `хирург` — u112 · a surgeon
 - `хищник` — u75 · a predator
 - `хлеб` — u6 · bread
+- `хлопок` — u133 · cotton
+- `хобот` — u128 · an elephant's trunk
 - `ход` — u66 · the course of something
 - `ходить` — u36 · to go on foot regularly
 - `хозяин` — u27 · a host
 - `хоккей` — u84 · ice hockey
+- `холдинг` — u110 · a company that owns a group of others
 - `холм` — u90 · a low hill
 - `холодно` — u16 · it is cold
 - `холодный` — u58 · cold to the touch
@@ -2268,11 +3091,14 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `хороший` — u19 · good
 - `хорошо` — u2 · well
 - `хотеть` — u4 · to want
+- `хоть бы` — u116 · if only
 - `хотя` — u46 · although
 - `храбрость` — u97 · bravery
 - `храм` — u93 · a temple
 - `хранить` — u59 · to keep safe
 - `хребет` — u90 · a mountain range
+- `хроника` — u114 · a dated record of events
+- `хронический` — u112 · chronic
 - `хрупкий` — u60 · fragile
 - `хруст` — u86 · a crunch
 - `художник` — u55 · an artist
@@ -2285,20 +3111,27 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `целый` — u24 · whole
 - `цель` — u25 · a goal
 - `цена` — u12 · a price
+- `цензура` — u114 · censorship
 - `ценность` — u68 · a value
 - `центр` — u14 · the centre
 - `цепь` — u89 · a chain
+- `церемония` — u120 · a ceremony
 - `церковь` — u14 · a church
 - `цех` — u87 · a workshop inside a plant
+- `цивилизация` — u105 · a whole settled way of life with cities and writing
+- `цинизм` — u107 · assuming nobody ever acts from a decent motive
+- `цитата` — u114 · a passage repeated word for word from somebody else
 - `цитировать` — u79 · to quote
 - `цифра` — u21 · a digit
 - `цунами` — u91 · a giant sea wave
 - `ч` — u2
 - `чай` — u2 · tea
 - `час` — u11 · an hour
+- `частица` — u104 · a very small piece of matter
 - `часто` — u2 · often
 - `часть` — u37 · a part
 - `часы` — u6 · a clock
+- `чат` — u121 · a chat thread
 - `чашка` — u6 · a cup
 - `чей` — u22 · whose
 - `чей-то` — u65 · somebody's
@@ -2307,15 +3140,19 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `чем` — u47 · than
 - `чемодан` — u30 · a suitcase
 - `чемпион` — u84 · a champion
+- `чердак` — u132 · a loft
 - `через` — u23 · across
+- `черепок` — u105 · a broken fragment of old pottery
 - `черновик` — u50 · a rough draft
 - `чёрный` — u16 · black
 - `черта` — u81 · a trait
+- `чертёж` — u126 · a technical drawing
 - `честный` — u28 · honest
 - `четверг` — u17 · Thursday
 - `четвёртый` — u21 · fourth
 - `четыре` — u11 · four
 - `четырнадцать` — u21 · fourteen
+- `чешуя` — u128 · scales
 - `чинить` — u57 · to mend
 - `чиновник` — u51 · a state official
 - `число` — u37 · a figure
@@ -2324,42 +3161,64 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `читать` — u4 · to read
 - `чихать` — u80 · to sneeze
 - `член` — u32 · a member
+- `чрезвычайно` — u101 · to an extreme degree
+- `чрезмерный` — u101 · more than is proper
 - `что` — u2 · what
 - `что-нибудь` — u65 · anything at all
 - `что-то` — u65 · something in particular
 - `чтобы` — u46 · in order to
 - `чувство` — u28 · a feeling
 - `чудо` — u93 · a miracle
+- `чужак` — u109 · somebody treated as not belonging
 - `чуть` — u46 · slightly
 - `ш` — u2
 - `шаг` — u36 · a step
+- `шанс` — u108 · a possibility of something going well
+- `шантаж` — u131 · blackmail
 - `шапка` — u18 · a hat
 - `шарф` — u18 · a scarf
 - `шахматы` — u84 · chess
 - `шахта` — u87 · a mine in the ground
 - `шедевр` — u74 · a masterpiece
+- `шёлк` — u133 · silk
 - `шёпот` — u96 · a whisper
 - `шептать` — u80 · to whisper
 - `шерсть` — u33 · wool
+- `шествие` — u120 · a ceremonial procession through the streets
 - `шесть` — u11 · six
 - `шея` — u53 · a neck
 - `шина` — u94 · a tyre
+- `ширина` — u122 · a width
 - `широкий` — u40 · wide
 - `шить` — u57 · to sew
+- `шишка` — u127 · a pine cone
+- `шкала` — u122 · a graded scale
 - `шкаф` — u15 · a cupboard
 - `школа` — u2 · a school
+- `шов` — u133 · a seam
 - `шорох` — u86 · a rustle
 - `шоссе` — u94 · a highway
+- `шпаклёвка` — u132 · filler for a wall
+- `шпала` — u125 · a railway sleeper
+- `шпаргалка` — u113 · a hidden crib note sneaked into an exam
+- `шпиль` — u126 · a spire
 - `шрам` — u85 · a scar
+- `штаб` — u129 · a headquarters
 - `штамп` — u50 · a stamp
+- `штанга` — u136 · a weightlifting bar
+- `штат` — u110 · the established list of posts an organisation has
+- `штиль` — u135 · a dead calm at sea
 - `шторм` — u91 · a storm at sea
 - `штраф` — u51 · a penalty
 - `штука` — u37 · an item
+- `штукатурка` — u126 · plaster
 - `шум` — u39 · noise
 - `шутка` — u27 · a joke
 - `щ` — u3
 - `щедрый` — u56 · generous
 - `щека` — u85 · a cheek
+- `щемящий` — u115 · achingly sweet
+- `щепотка` — u123 · a pinch
 - `щётка` — u89 · a scrubbing brush
 - `щит` — u92 · a fighting shield
 - `ъ` — u3
@@ -2368,39 +3227,62 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `э` — u2
 - `эвакуация` — u97 · an evacuation
 - `эволюция` — u69 · evolution
+- `эйфория` — u115 · euphoria
 - `экзамен` — u25 · an exam
 - `экземпляр` — u45 · a copy
+- `экипаж` — u125 · the crew of a vessel
 - `экология` — u75 · ecology
 - `экономика` — u76 · the economy
+- `экосистема` — u111 · an ecosystem
 - `экран` — u43 · a screen
+- `экранизация` — u114 · a screen adaptation
 - `экскурсия` — u30 · a guided tour
+- `эксперимент` — u104 · a trial set up to test a claim
+- `экспертиза` — u99 · an expert examination ordered to settle a question
 - `экспорт` — u76 · export of goods
+- `экспромт` — u120 · a speech made with no preparation
 - `электричество` — u54 · electricity
+- `элемент` — u100 · one of the parts a whole is made of
+- `элита` — u109 · the few at the top of a society
+- `эмбарго` — u130 · a ban on trade with a country
 - `энергия` — u54 · energy
+- `эпиграф` — u114 · a short quotation set at the head of a work
 - `эпидемия` — u91 · an epidemic
 - `эпизод` — u73 · one incident in a longer story
 - `эпоха` — u38 · an era
+- `эстафета` — u136 · a relay race
+- `эстетика` — u106 · the study of what makes a thing beautiful
 - `этаж` — u6 · a floor (storey)
 - `этап` — u66 · a stage in a plan
+- `этика` — u107 · the study of what one ought to do
+- `этикет` — u119 · etiquette
+- `этнос` — u105 · a people sharing descent and language
 - `это` — u2 · this is
 - `эфир` — u45 · the airwaves
+- `эффективность` — u110 · how much is got out for what goes in
 - `эхо` — u96 · an echo
+- `эшелон` — u100 · one of the ranked bands an organisation is stacked into
 - `ю` — u3
 - `юбилей` — u73 · a milestone birthday
 - `юг` — u3 · the south
 - `юность` — u38 · youth
+- `юрист` — u102 · somebody trained in the law
 - `я` — u3
 - `я` — u3 · I
 - `яблоко` — u13 · an apple
 - `явление` — u68 · a phenomenon
 - `яд` — u75 · poison
 - `язык` — u3 · a language
+- `язычество` — u105 · the religion of many gods before the one God
 - `яйцо` — u13 · an egg
 - `якобы` — u64 · allegedly
+- `якорь` — u125 · an anchor
 - `январь` — u17 · January
 - `яркий` — u16 · bright
 - `ярость` — u67 · fury
+- `ярус` — u126 · a tier of a building
 - `ясный` — u40 · clear
+- `ячейка` — u100 · a single cell in a grid or honeycomb
 
 ## By unit — what each slot teaches
 
@@ -2597,4 +3479,82 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 **u96 · Музыка и звучание** (24) — `гитара`, `скрипка`, `барабан`, `рояль`, `флейта`, `струна`, `нота`, `ритм`, `мелодия`, `аккорд`, `гамма`, `такт`, `звук`, `эхо`, `свист`, `стук`, `шёпот`, `скрип`, `песня`, `музыкант`, `композитор`, `дирижёр`, `ансамбль`, `пластинка`
 
 **u97 · Опасность и спасение** (24) — `риск`, `угроза`, `тревога`, `нападение`, `паника`, `трус`, `пожар`, `дым`, `тушить`, `сирена`, `взрыв`, `эвакуация`, `спасать`, `выживать`, `уцелеть`, `убежище`, `побег`, `мужество`, `жертва`, `утрата`, `тонуть`, `подвиг`, `храбрость`, `осторожный`
+
+**u98 · Риторика и полемика** (24) — `тезис`, `аргумент`, `обоснование`, `посылка`, `умозаключение`, `веский`, `полемика`, `дискуссия`, `прения`, `оппонент`, `парировать`, `упорствовать`, `риторика`, `красноречие`, `пафос`, `напор`, `лозунг`, `агитация`, `демагогия`, `пропаганда`, `манипуляция`, `софизм`, `голословный`, `апломб`
+
+**u99 · Достоверность и подлог** (24) — `достоверный`, `подлинный`, `первоисточник`, `анонимный`, `экспертиза`, `верификация`, `статистика`, `выборка`, `опрос`, `сводка`, `изложение`, `дословно`, `реестр`, `досье`, `выписка`, `сверка`, `ревизия`, `инвентаризация`, `фальсификация`, `подделка`, `подлог`, `клевета`, `молва`, `домысел`
+
+**u100 · Классификация и разряд** (24) — `категория`, `вид`, `разряд`, `рубрика`, `сортировать`, `подкласс`, `совокупность`, `элемент`, `набор`, `перечень`, `звено`, `ячейка`, `иерархия`, `эшелон`, `слой`, `градация`, `соподчинение`, `дробление`, `тождество`, `аналогия`, `схема`, `функция`, `единый`, `обособление`
+
+**u101 · Усиление и преуменьшение** (24) — `чрезвычайно`, `крайне`, `заметно`, `ощутимо`, `всецело`, `колоссальный`, `ничтожный`, `слегка`, `умеренно`, `ничуть`, `вовсе`, `мизерный`, `чрезмерный`, `избыточный`, `избыток`, `скудный`, `обильный`, `изобилие`, `вдвое`, `втрое`, `наполовину`, `максимально`, `минимально`, `изрядно`
+
+**u102 · Конституция и правосудие** (24) — `правительство`, `парламент`, `конституция`, `указ`, `постановление`, `ведомство`, `кандидат`, `избиратель`, `оппозиция`, `фракция`, `референдум`, `бюллетень`, `иск`, `истец`, `адвокат`, `прокурор`, `апелляция`, `обжаловать`, `кодекс`, `поправка`, `юрист`, `легитимность`, `вето`, `присяга`
+
+**u103 · Переговоры и сбыт** (24) — `переговоры`, `сделка`, `партнёр`, `задаток`, `расторгать`, `неустойка`, `поставка`, `поставщик`, `отгрузка`, `логистика`, `оптовый`, `розничный`, `издержки`, `наценка`, `рентабельность`, `окупаемость`, `сбыт`, `конкуренция`, `бренд`, `маркетинг`, `ассортимент`, `аукцион`, `торг`, `слияние`
+
+**u104 · Эксперимент и изобретение** (24) — `эксперимент`, `лаборатория`, `прибор`, `микроскоп`, `датчик`, `калибровка`, `атом`, `молекула`, `частица`, `кристалл`, `излучение`, `синтез`, `клетка`, `нейрон`, `генетика`, `реактор`, `аппарат`, `спектр`, `изобретение`, `патент`, `прототип`, `разработка`, `внедрение`, `автоматизация`
+
+**u105 · Цивилизация и древность** (24) — `археология`, `раскопки`, `курган`, `черепок`, `развалины`, `датировка`, `рукопись`, `свиток`, `пергамент`, `иероглиф`, `амфора`, `мумия`, `цивилизация`, `античность`, `средневековье`, `феодализм`, `просвещение`, `первобытный`, `уклад`, `кочевник`, `язычество`, `менталитет`, `этнос`, `фольклор`
+
+**u106 · Эстетика и приём** (24) — `метафора`, `символ`, `подтекст`, `иносказание`, `контраст`, `ракурс`, `ирония`, `сатира`, `пародия`, `созвучие`, `гармония`, `подражание`, `эстетика`, `канон`, `авангард`, `реализм`, `романтизм`, `новаторство`, `изящный`, `вычурный`, `пошлый`, `безвкусица`, `трактовка`, `почерк`
+
+**u107 · Этика и достоинство** (24) — `этика`, `нравственность`, `дилемма`, `достоинство`, `грань`, `умышленно`, `милосердие`, `сострадание`, `альтруизм`, `бескорыстие`, `гуманность`, `терпимость`, `лицемерие`, `двуличие`, `цинизм`, `подлость`, `жестокость`, `злоупотребление`, `вред`, `порок`, `искупление`, `возмездие`, `беспристрастный`, `лояльность`
+
+**u108 · Страхование и гарантии** (24) — `страхование`, `полис`, `гарантия`, `франшиза`, `лимит`, `покрытие`, `возмещение`, `компенсация`, `выплата`, `взыскание`, `уязвимость`, `непредсказуемый`, `резерв`, `запас`, `отчисление`, `надбавка`, `иждивенец`, `осмотрительный`, `шанс`, `ставка`, `авантюра`, `размах`, `наугад`, `вслепую`
+
+**u109 · Принадлежность и неравенство** (24) — `национальность`, `уроженец`, `соотечественник`, `диаспора`, `мигрант`, `ассимиляция`, `меньшинство`, `большинство`, `чужак`, `изгой`, `сплочённость`, `интеграция`, `сословие`, `каста`, `элита`, `привилегия`, `прослойка`, `расслоение`, `дискриминация`, `предрассудок`, `стереотип`, `сегрегация`, `ущемлять`, `равенство`
+
+**u110 · Руководство и штат** (24) — `штат`, `персонал`, `подразделение`, `филиал`, `корпорация`, `холдинг`, `делегировать`, `координировать`, `субординация`, `совещание`, `преемник`, `ротация`, `стажёр`, `аттестация`, `повышение`, `текучесть`, `профсоюз`, `учредитель`, `выгорание`, `деловой`, `дисциплина`, `бюрократия`, `волокита`, `эффективность`
+
+**u111 · Глобальные проблемы** (24) — `потепление`, `таяние`, `ледник`, `углерод`, `парниковый`, `озон`, `выброс`, `выхлоп`, `биотопливо`, `солнечный`, `ветряной`, `квота`, `переработка`, `сортировка`, `упаковка`, `пластик`, `одноразовый`, `вторсырьё`, `вырубка`, `биоразнообразие`, `опустынивание`, `экосистема`, `устойчивый`, `последствие`
+
+**u112 · Система здравоохранения** (24) — `поликлиника`, `палата`, `стационар`, `госпитализация`, `хирург`, `медсестра`, `диагноз`, `осмотр`, `обследование`, `симптом`, `хронический`, `заразный`, `вакцина`, `прививка`, `иммунитет`, `профилактика`, `карантин`, `донор`, `страховка`, `здравоохранение`, `реабилитация`, `дозировка`, `побочный`, `амбулаторный`
+
+**u113 · Образование и наука** (24) — `образование`, `факультет`, `кафедра`, `деканат`, `академия`, `институт`, `аттестат`, `абитуриент`, `поступление`, `бакалавр`, `магистратура`, `аспирантура`, `ректор`, `доцент`, `диссертация`, `грант`, `стипендия`, `лауреат`, `зачёт`, `успеваемость`, `плагиат`, `сессия`, `шпаргалка`, `методика`
+
+**u114 · Повествование и огласка** (24) — `повествование`, `рассказчик`, `персонаж`, `завязка`, `развязка`, `вымысел`, `цитата`, `эпиграф`, `слог`, `аннотация`, `фабула`, `экранизация`, `корреспондент`, `очерк`, `колонка`, `хроника`, `вещание`, `анонс`, `цензура`, `фейк`, `дезинформация`, `подтасовка`, `сенсация`, `огласка`
+
+**u115 · Смешанные чувства** (24) — `блаженство`, `умиротворение`, `нежность`, `трепет`, `томление`, `эйфория`, `горечь`, `щемящий`, `надрыв`, `меланхолия`, `обречённость`, `опустошение`, `злорадство`, `брезгливость`, `тщеславие`, `самолюбие`, `малодушие`, `двойственный`, `неловкость`, `стеснение`, `замешательство`, `смирение`, `ранимый`, `невозмутимый`
+
+**u116 · Условное и невозможное** (24) — `если бы`, `хоть бы`, `лишь бы`, `мало ли`, `на всякий случай`, `допустим`, `предположение`, `альтернатива`, `воображать`, `теоретически`, `по идее`, `в принципе`, `обернуться`, `сложиться`, `обойтись`, `миновать`, `довестись`, `так или иначе`, `предвидеть`, `упускать`, `уберечь`, `угораздить`, `маловероятный`, `немыслимый`
+
+**u117 · Составные предлоги** (24) — `в связи с`, `в силу`, `по причине`, `на основании`, `в результате`, `за счёт`, `в целях`, `с целью`, `при условии`, `в случае`, `при наличии`, `во избежание`, `в отношении`, `в части`, `в рамках`, `в качестве`, `в виде`, `наряду с`, `в течение`, `в ходе`, `по мере`, `в соответствии с`, `по итогам`, `в пользу`
+
+**u118 · Вводные слова и связки** (24) — `во-вторых`, `а именно`, `в частности`, `с одной стороны`, `таким образом`, `в заключение`, `в целом`, `в основном`, `в итоге`, `иными словами`, `то есть`, `стало быть`, `мягко говоря`, `как правило`, `строго говоря`, `грубо говоря`, `если угодно`, `по сути`, `тем не менее`, `более того`, `к тому же`, `при этом`, `между тем`, `в противном случае`
+
+**u119 · Обращение и учтивость** (24) — `отчество`, `обращение`, `уважаемый`, `титул`, `сударыня`, `величать`, `учтивый`, `любезный`, `тактичный`, `деликатный`, `приличие`, `этикет`, `почтительный`, `покорный`, `снисходительный`, `подобострастный`, `поклон`, `рукопожатие`, `фамильярный`, `панибратство`, `развязный`, `навязчивый`, `высокомерный`, `грубость`
+
+**u120 · Выступление и церемония** (24) — `выступление`, `оратор`, `помост`, `митинг`, `овация`, `экспромт`, `церемония`, `торжественный`, `вручение`, `награждение`, `шествие`, `молчание`, `тост`, `соболезнование`, `напутствие`, `клятва`, `обет`, `проповедь`, `девиз`, `петиция`, `воззвание`, `провозглашать`, `манифест`, `декларация`
+
+**u121 · Сеть и соцсети** (24) — `аккаунт`, `профиль`, `подписчик`, `лайк`, `репост`, `никнейм`, `блог`, `контент`, `стрим`, `подкаст`, `мем`, `чат`, `сервер`, `браузер`, `алгоритм`, `трафик`, `загрузка`, `гаджет`, `спам`, `хакер`, `утечка`, `тролль`, `бан`, `модерация`
+
+**u122 · Числа и расчёт** (24) — `умножать`, `вычитать`, `прибавлять`, `округлять`, `подсчёт`, `остаток`, `уравнение`, `формула`, `коэффициент`, `дробь`, `знак`, `диаграмма`, `геометрия`, `квадрат`, `треугольник`, `периметр`, `ширина`, `толщина`, `единица`, `шкала`, `весы`, `градус`, `тонна`, `погрешность`
+
+**u123 · Кухня и рецепт** (24) — `запекать`, `взбивать`, `нарезать`, `тереть`, `квасить`, `разогревать`, `духовка`, `сковорода`, `противень`, `миска`, `кипяток`, `половник`, `ингредиент`, `приправа`, `маринад`, `тесто`, `фарш`, `панировка`, `соус`, `бульон`, `гарнир`, `порция`, `ломтик`, `щепотка`
+
+**u124 · Космос и Вселенная** (24) — `космос`, `галактика`, `созвездие`, `комета`, `астероид`, `метеорит`, `орбита`, `спутник`, `виток`, `гравитация`, `вакуум`, `траектория`, `ракета`, `запуск`, `космонавт`, `скафандр`, `стыковка`, `космодром`, `телескоп`, `обсерватория`, `астроном`, `затмение`, `зенит`, `зонд`
+
+**u125 · Транспорт и перевозки** (24) — `рельсы`, `шпала`, `колея`, `перрон`, `вагон`, `локомотив`, `купе`, `каюта`, `проводник`, `рейс`, `экипаж`, `пилот`, `палуба`, `мачта`, `якорь`, `маяк`, `паром`, `буксир`, `порт`, `причал`, `груз`, `контейнер`, `баржа`, `трюм`
+
+**u126 · Строительство и зодчество** (24) — `котлован`, `фундамент`, `каркас`, `балка`, `кладка`, `кровля`, `фасад`, `арка`, `колонна`, `купол`, `свод`, `шпиль`, `штукатурка`, `карниз`, `витраж`, `мозаика`, `башня`, `ярус`, `архитектура`, `чертёж`, `смета`, `подрядчик`, `снос`, `реставрация`
+
+**u127 · Растения и деревья** (24) — `дуб`, `берёза`, `клён`, `липа`, `тополь`, `ива`, `сосна`, `кедр`, `хвоя`, `шишка`, `ствол`, `кора`, `стебель`, `лепесток`, `пыльца`, `семечко`, `жёлудь`, `куст`, `роза`, `ромашка`, `гриб`, `мох`, `папоротник`, `сорняк`
+
+**u128 · Животный мир** (24) — `стая`, `стадо`, `порода`, `грызун`, `самец`, `детёныш`, `лапа`, `копыто`, `коготь`, `крыло`, `перо`, `хвост`, `клюв`, `клык`, `пасть`, `рог`, `грива`, `хобот`, `чешуя`, `плавник`, `панцирь`, `нора`, `гнездо`, `логово`
+
+**u129 · Войско и оборона** (24) — `офицер`, `генерал`, `звание`, `полк`, `штаб`, `флот`, `оружие`, `винтовка`, `пулемёт`, `пуля`, `снаряд`, `танк`, `броня`, `каска`, `окоп`, `мишень`, `тыл`, `призыв`, `союзник`, `враг`, `оборона`, `отступление`, `разведка`, `плен`
+
+**u130 · Дипломатия и мир** (24) — `посол`, `консул`, `делегация`, `миссия`, `саммит`, `мандат`, `пакт`, `альянс`, `коалиция`, `резолюция`, `ратификация`, `кворум`, `санкция`, `эмбарго`, `блокада`, `нейтралитет`, `суверенитет`, `аннексия`, `перемирие`, `разрядка`, `беженец`, `репатриация`, `изгнание`, `гуманитарный`
+
+**u131 · Преступление и следствие** (24) — `кража`, `грабёж`, `взлом`, `угон`, `мошенничество`, `поджог`, `вор`, `жулик`, `соучастник`, `умысел`, `шантаж`, `взятка`, `расследование`, `следователь`, `улика`, `допрос`, `обыск`, `вскрытие`, `арест`, `наручники`, `облава`, `свидетель`, `алиби`, `приговор`
+
+**u132 · Жильё и ремонт** (24) — `жильё`, `дача`, `усадьба`, `коммуналка`, `подъезд`, `тамбур`, `планировка`, `смежный`, `подвал`, `чердак`, `кладовка`, `коридор`, `ипотека`, `капремонт`, `застройщик`, `выселение`, `ограда`, `сантехника`, `обои`, `плитка`, `краска`, `линолеум`, `шпаклёвка`, `перегородка`
+
+**u133 · Ткань и покрой** (24) — `шёлк`, `лён`, `хлопок`, `бархат`, `замша`, `трикотаж`, `фасон`, `выкройка`, `шов`, `подкладка`, `подол`, `складка`, `рукав`, `манжета`, `воротник`, `лацкан`, `пуговица`, `петля`, `узор`, `вышивка`, `кружево`, `бахрома`, `каблук`, `наряд`
+
+**u134 · Игра и азарт** (24) — `кубик`, `фишка`, `колода`, `козырь`, `пешка`, `домино`, `загадка`, `кроссворд`, `нарды`, `бильярд`, `турнир`, `приз`, `азарт`, `казино`, `рулетка`, `лотерея`, `пари`, `крупье`, `выигрыш`, `проигрыш`, `жребий`, `расклад`, `блеф`, `подвох`
+
+**u135 · Погода и осадки** (24) — `осадки`, `морось`, `капель`, `слякоть`, `сугроб`, `роса`, `иней`, `заморозки`, `наст`, `оттепель`, `прохлада`, `стужа`, `зной`, `духота`, `влажность`, `сквозняк`, `порыв`, `вихрь`, `радуга`, `туча`, `ненастье`, `пасмурный`, `штиль`, `барометр`
+
+**u136 · Спорт высших достижений** (24) — `олимпиада`, `первенство`, `лига`, `финал`, `полуфинал`, `жеребьёвка`, `забег`, `дистанция`, `эстафета`, `тайм`, `финиш`, `отбор`, `трибуна`, `болельщик`, `пьедестал`, `рефери`, `пенальти`, `вратарь`, `разминка`, `тренажёр`, `штанга`, `травма`, `допинг`, `дисквалификация`
 
