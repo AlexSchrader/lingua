@@ -167,5 +167,25 @@ for (const i of mine) {
 console.log(`8. stray non-Cyrillic non-Latin letters in a card field: ${stray}`);
 fails += stray;
 
+// 9. MIXED-SCRIPT WORD. Check 8 allows both scripts in a field, because a hint
+// is written in English about Russian — so it cannot see a single WORD built
+// from both. That is always a typo and it is invisible on screen: u132l4's hint
+// had `плaster`, Cyrillic п-л plus Latin a-s-t-e-r, and it rendered perfectly.
+let mixed = 0;
+for (const i of mine) {
+  for (const [field, val] of [["meaning", i.meaning], ["hint", i.hint ?? ""],
+    ["example.jp", i.example?.jp ?? ""], ["example.en", i.example?.en ?? ""],
+    ["drill.jp", i.drill?.jp ?? ""], ["drill.en", i.drill?.en ?? ""],
+    ...(i.accept ?? []).map((a, n) => [`accept[${n}]`, a])]) {
+    for (const w of String(val).split(/[^\p{L}]+/u)) {
+      if (w.length > 1 && /\p{Script=Cyrillic}/u.test(w) && /\p{Script=Latin}/u.test(w)) {
+        mixed++; console.log(`   MIXED ${i.front}@u${i.unit} ${field}: "${w}"`);
+      }
+    }
+  }
+}
+console.log(`9. words built from both Cyrillic and Latin letters: ${mixed}`);
+fails += mixed;
+
 console.log(`\n${fails === 0 ? "PASS" : `FAIL — ${fails} finding(s)`}`);
 process.exit(fails === 0 ? 0 : 1);
