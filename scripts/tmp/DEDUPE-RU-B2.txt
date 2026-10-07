@@ -1,3 +1,12 @@
+✅ DONE 2026-10-07 — ALL 22 REPLACED, ru B2 is at 0 `already taught` errors.
+`node scripts/tmp/alloc-b2.mjs` now prints `collisions: 0 fronts, 0 cards to replace`.
+**THIS IS A HISTORICAL RECORD, NOT A WORKLIST — do not author from it.** What each
+deleted card became is in the unit headers (u100, u102, u113, u114, u115, u120,
+u124, u130, u131, u136) and in the crew-board row in BUILD-CHECKLIST.md.
+The allocation policy it was generated under is in alloc-b2.mjs's header.
+
+─── the list as it stood before the replacements ───
+
 collisions: 22 fronts, 22 cards to replace
 
 replacements by block: {"1":2,"2":15,"3":5} 
