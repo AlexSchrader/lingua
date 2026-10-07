@@ -34,8 +34,9 @@
 //     verbatim). The subordination goes in `example`. unit61.js §1 holds.
 //
 // §2. THE REAL CONSTRAINT AT B2 IS NOT THE FRONT — IT IS §D. Measured on this
-//     block: of 503 probed candidates, the derivation test and documented bars
-//     refused roughly twice as many as front and reading uniqueness did. By B2
+//     block: of **930 distinct candidates probed** across 54 themed sections, the
+//     derivation test and the documented bars refused substantially more than
+//     front and reading uniqueness did. By B2
 //     nearly every abstract Russian noun sits on a root the course already spent,
 //     so §D (unit1.js), read one-directionally as unit51.js §3 and unit61.js §6
 //     read it, decides the band. Each unit header records its own refusals.
@@ -94,6 +95,27 @@
 //     `node scripts/qa/ship-gate.mjs ru`. ⚠️ ship-gate reports an AUDIO failure
 //     for the whole band until the clips are generated, which is expected and is
 //     the merge seat's one run.
+//     ⚠️ `tests/unit/card-variety.test.mjs` GOES RED FOR THE SAME REASON AND THE
+//     CEILING MUST NOT BE RAISED. `listen:choice`, `listen:type` and `speak` all
+//     gate on `hasAudio`, so an unvoiced B2 card routes to `type:produce` and
+//     little else. **Measured on this block, not inherited: with clips simulated
+//     for u98–u110 by adding their ids to `AUDIO_IDS` in memory, ru's single-kind
+//     count goes 28 → 0.** Voicing is the only fix; ru sat at 391 for the whole
+//     of B1 and fell to 0 when B1 was voiced on 2026-10-06. `SINGLE_KIND_CEILING`
+//     is Feature CC's file and the number is the only signal the band still needs
+//     a run — raising it is weakening a test to force green.
+//
+// §7d. THE PROBE AND ITS EVIDENCE ARE COMMITTED, so this header cites a path that
+//     still exists after the worktree is gone:
+//         `node scripts/qa/front-probe.mjs ru --file scripts/data/ru-b2-candidates.txt`
+//     `front-probe.mjs` checks FRONT, READING, GLOSS (through the grader's own
+//     `normalizeMeaning`) and a 5-character STEM in one pass, for ANY language —
+//     `front-taken.mjs`, `reading-taken.mjs` and `gloss-taken.mjs` each answer one
+//     of those questions and all three import `HI_UNITS`, so none of them can be
+//     run for Russian at all. Each of the four columns caught candidates the other
+//     three passed: `среда` (front), `уголь` (reading), `хроника` (gloss),
+//     `руководство` (stem). The STEM column is ADVISORY — §D's test is a human
+//     judgement — and a clean line never outranks §3.
 //
 // §7b. unit61.js §7b STILL BINDS AND IS THE EASIEST RULE TO BREAK: NEVER WRITE
 //     " or " OR A COMMA INSIDE AN accept[] ENTRY. `meaningVariants` splits on
