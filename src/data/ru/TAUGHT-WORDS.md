@@ -1,7 +1,7 @@
 # RU — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- ru`.
-Snapshot 2026-10-06: **2328 words** across **97 authored unit(s)**, **0 slot(s) still stubs**.
+Snapshot 2026-10-07: **2328 words** across **97 authored unit(s)**, **39 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -14,6 +14,60 @@ Snapshot 2026-10-06: **2328 words** across **97 authored unit(s)**, **0 slot(s) 
 - **It does not contain the words your sibling blocks are writing right now.** They do not exist yet, in this tree or any other. If you need a word a *later* slot will plainly own (a grammar unit's tense, a themed unit's domain), assume it is theirs and teach around it.
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
+
+## Who owns which slots this band
+
+The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
+
+| block | slots |
+|---|---|
+| 1 | u98–u110 |
+| 2 | u111–u123 |
+| 3 | u124–u136 |
+
+## Slots still stubs — not yours unless you were assigned them
+
+| slot | unit | title |
+|---|---|---|
+| 98 | `ru-u98` | Argument and persuasion |
+| 99 | `ru-u99` | Evidence and sources |
+| 100 | `ru-u100` | Systems and abstraction |
+| 101 | `ru-u101` | Nuance and degree |
+| 102 | `ru-u102` | Politics and law |
+| 103 | `ru-u103` | Business and negotiation |
+| 104 | `ru-u104` | Science and technology |
+| 105 | `ru-u105` | History and culture |
+| 106 | `ru-u106` | Arts and criticism |
+| 107 | `ru-u107` | Ethics and responsibility |
+| 108 | `ru-u108` | Risk and uncertainty |
+| 109 | `ru-u109` | Identity and society |
+| 110 | `ru-u110` | Career and organisations |
+| 111 | `ru-u111` | Environment and the global |
+| 112 | `ru-u112` | Health systems and care |
+| 113 | `ru-u113` | Education and research |
+| 114 | `ru-u114` | Media and narrative |
+| 115 | `ru-u115` | Emotion, subtle and mixed |
+| 116 | `ru-u116` | Grammar 9 — conditional nuance and counterfactuals |
+| 117 | `ru-u117` | Grammar 10 — formal written structures |
+| 118 | `ru-u118` | Grammar 11 — discourse, cohesion, hedged claims |
+| 119 | `ru-u119` | Register 3 — 敬語: humble and honorific |
+| 120 | `ru-u120` | Register 4 — written, public and institutional voice |
+| 121 | `ru-u121` | Vocabulary 1 (B2) |
+| 122 | `ru-u122` | Vocabulary 2 (B2) |
+| 123 | `ru-u123` | Vocabulary 3 (B2) |
+| 124 | `ru-u124` | Vocabulary 4 (B2) |
+| 125 | `ru-u125` | Vocabulary 5 (B2) |
+| 126 | `ru-u126` | Vocabulary 6 (B2) |
+| 127 | `ru-u127` | Vocabulary 7 (B2) |
+| 128 | `ru-u128` | Vocabulary 8 (B2) |
+| 129 | `ru-u129` | Vocabulary 9 (B2) |
+| 130 | `ru-u130` | Vocabulary 10 (B2) |
+| 131 | `ru-u131` | Vocabulary 11 (B2) |
+| 132 | `ru-u132` | Vocabulary 12 (B2) |
+| 133 | `ru-u133` | Vocabulary 13 (B2) |
+| 134 | `ru-u134` | Vocabulary 14 (B2) |
+| 135 | `ru-u135` | Vocabulary 15 (B2) |
+| 136 | `ru-u136` | Vocabulary 16 (B2) |
 
 ## Index — every taught word, alphabetical
 
