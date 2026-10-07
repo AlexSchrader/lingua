@@ -71,12 +71,27 @@ test("Swahili + Yoruba is ALLOWED, though both are Niger-Congo", () => {
   assert.equal(blocked("sw", "yo"), false);
 });
 
-test("Korean pairs freely, including with Japanese", () => {
-  // Deliberate and written down: modern Korean is hangul, so the two do not blur on
-  // the page. If the curriculum ever teaches hanja this test should be the thing
-  // that forces the conversation.
-  assert.equal(blocked("ko", "ja"), false);
-  assert.equal(blocked("ko", "zh"), false);
+test("Korean + Japanese is BLOCKED — the closest pair here by structure", () => {
+  // THIS TEST ASSERTED THE OPPOSITE FOR ONE DAY, and the reversal is worth keeping.
+  // Korean was left untagged on the reasoning that it is written in hangul, so it
+  // could not blur with Japanese on the page. Alex: "Korean and jap are similar
+  // arent they as well as chinese?" He was right, and the error was using SCRIPT as
+  // the test — the same mistake a family field makes, one level down.
+  //
+  // Korean and Japanese are both SOV, both mark nouns with trailing particles, both
+  // carry layered honorifics, and sentences map near one-to-one. Both also took
+  // ~60% of their vocabulary from Chinese and it still sounds alike: 시간 sigan /
+  // 時間 jikan, 도서관 doseogwan / 図書館 toshokan.
+  assert.ok(blocked("ko", "ja"));
+  assert.ok(blocked("ja", "ko"));
+});
+
+test("Korean + Mandarin is BLOCKED too — a deliberately coarse group", () => {
+  // Lower risk than ko+ja: the shared Sino vocabulary is there without the shared
+  // grammar. Grouped anyway, because the cost of refusing this pair is one
+  // unavailable combination and the cost of getting ko+ja wrong is a learner mixing
+  // two languages for months. Precision is not worth buying here.
+  assert.ok(blocked("ko", "zh"));
 });
 
 // --- shape -------------------------------------------------------------------
@@ -91,7 +106,7 @@ test("conflictsWith names every blocker, not just the first", () => {
 
 test("an untagged language conflicts with nothing", () => {
   const every = LANGUAGES.map((l) => l.id);
-  for (const id of ["hi", "tr", "vi", "id", "sw", "ha", "yo", "tw", "ko"]) {
+  for (const id of ["hi", "tr", "vi", "id", "sw", "ha", "yo", "tw"]) {
     assert.deepEqual(conflictsWith(id, every, LANGUAGES), [], `${id} should pair with anything`);
   }
 });

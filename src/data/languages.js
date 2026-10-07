@@ -56,9 +56,27 @@ export const langName = (id) =>
 // `ht` (Haitian Creole) carries `romance` despite being a creole: its vocabulary
 // comes from French, which is exactly the interference this guards against.
 //
-// Korean is deliberately untagged. It shares grammar shape with Japanese and Sino-
-// derived vocabulary, but modern Korean is written in hangul, so the two do not
-// blur on the page. Add `han` to it the day the curriculum teaches hanja.
+// KOREAN IS IN THE `cjk` GROUP, and the first pass had it wrong. It was left
+// untagged on the reasoning that modern Korean is written in hangul, so it could
+// not blur with Japanese or Mandarin ON THE PAGE. Alex pushed back - "Korean and
+// jap are similar arent they as well as chinese?" - and he is right. Script is one
+// interference channel, not the test; using it as the test is the same error that
+// a family field makes, one level down.
+//
+// Korean and Japanese are the closest pair in this catalog by STRUCTURE: both are
+// SOV, both mark nouns with trailing particles, both carry layered honorifics, and
+// sentences map near one-to-one between them. On top of that, both took roughly
+// 60% of their vocabulary from Chinese and it still sounds alike - 시간 sigan /
+// 時間 jikan, 도서관 doseogwan / 図書館 toshokan, 준비 junbi / 準備 junbi.
+//
+// Korean and Mandarin share that Sino vocabulary layer without the grammar, so the
+// risk is lower - but the group is deliberately coarse here. Three languages that
+// the whole world already groups together, where two of the three pairs are plainly
+// dangerous, is not where to spend precision: the cost of refusing ko+zh is one
+// unavailable pairing, and the cost of allowing ko+ja is a learner mixing two
+// languages for months.
+//
+// The tag is `cjk` rather than `han` because it is no longer about the characters.
 
 export const LANGUAGES = [
   { id: "nl", name: "Dutch", flag: "🇳🇱", target: "B2", similar: ["west-germanic"] },
@@ -73,9 +91,9 @@ export const LANGUAGES = [
   { id: "hi", name: "Hindi", flag: "🇮🇳", target: "B2" },
   { id: "id", name: "Indonesian", flag: "🇮🇩", target: "B2" },
   { id: "it", name: "Italian", flag: "🇮🇹", target: "B2", similar: ["romance"] },
-  { id: "ja", name: "Japanese", flag: "🇯🇵", target: "B2", similar: ["han"] },
-  { id: "ko", name: "Korean", flag: "🇰🇷", target: "B2" },
-  { id: "zh", name: "Mandarin", flag: "🇨🇳", target: "B2", similar: ["han"] },
+  { id: "ja", name: "Japanese", flag: "🇯🇵", target: "B2", similar: ["cjk"] },
+  { id: "ko", name: "Korean", flag: "🇰🇷", target: "B2", similar: ["cjk"] },
+  { id: "zh", name: "Mandarin", flag: "🇨🇳", target: "B2", similar: ["cjk"] },
   { id: "no", name: "Norwegian", flag: "🇳🇴", target: "B2", similar: ["north-germanic"] },
   { id: "pl", name: "Polish", flag: "🇵🇱", target: "B2", similar: ["slavic"] },
   { id: "pt", name: "Portuguese", flag: "🇵🇹", target: "B2", similar: ["romance"] },
