@@ -16,6 +16,13 @@
 // every collision in the language rather than only ones touching a new card.
 // ⚠️ LIMIT — A LANGUAGE-WIDE RUN IS NOT A DEFECT COUNT. Measured 2026-10-02:
 //     de 1,564 · pt 1,556 · no 1,366 · ru 331 · hi 145 · id 101
+// ⚠️ AND THAT ru FIGURE IS NOT A BASELINE ANY MORE. `ru 331` was measured on
+// 2026-10-02 against a 1,440-card corpus; ru B1 (u61–u97, 888 cards) was
+// authored on 2026-10-05/06, AFTER it. Re-measured 2026-10-07 on
+// `content/ru-b2-block3`: **ru 426**, and it is 426 both WITH and WITHOUT that
+// branch's 312 new B2 cards — so the whole rise is B1's and none of it is B2
+// block 3's. A count in a comment is a measurement with a timestamp: re-run the
+// command rather than diffing against a figure from a smaller corpus.
 // Most of that is inherent to translation and is DESIGNED behaviour: accept[] is
 // deliberately lenient ("pickiness here was the #1 typing friction",
 // src/store/answer.js), so `hallo`/`guten Tag` both taking "hello" is correct.
