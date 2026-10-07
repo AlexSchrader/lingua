@@ -19,7 +19,7 @@
 //     डिग्री's string (unit1.js §9). Same reason for अध्ययन "academic study"
 //     (पढ़ाई u34l3 owns "studying") and व्याख्यान "a university lecture" (पाठ u34l2
 //     owns "a lesson").
-//   • ज्ञान (u57l4, knowledge) and तर्क (u57l2, logic) are TAKEN; संगोष्ठी and
+//   • ज्ञान (u57l3, knowledge) and तर्क (u39l3, logic) are TAKEN; संगोष्ठी and
 //     संदर्भ took the free slots.
 //   • **स्नातकोत्तर WAS REFUSED**: स्नातक is a strict prefix of it with a mātrā in
 //     between, so the router would match the shorter card inside the longer one,
