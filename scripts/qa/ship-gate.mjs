@@ -51,6 +51,22 @@ for (const L of langs) {
   const vocab = items.filter((i) => i.type === "vocab");
   console.log(`\n=== ${L} — ${units.length} units, ${items.length} cards`);
 
+  // 0. AN EMPTY UNIT MAKES EVERY OTHER CHECK PASS VACUOUSLY — so it goes first.
+  //
+  // On 2026-10-07 this gate printed `hi ... SHIP GATE PASSED` while 39 of Hindi's
+  // 136 units held ZERO cards, and the same for 37 of Indonesian's 87. Every check
+  // below iterates the cards, so a scaffolded-but-unauthored unit contributes
+  // nothing to look at and the gate reads it as clean. A gate that cannot tell
+  // "finished" from "scaffolded" is the false-green class this file exists to kill,
+  // and it had it on its own first page.
+  //
+  // A stub band is a NORMAL mid-flight state, so the message names the range and
+  // says it is not shippable rather than implying the cards are wrong.
+  const empty = units.filter((u) => !(u.lessons ?? []).some((l) => (l.items ?? []).length));
+  empty.length
+    ? FAIL(`${empty.length} of ${units.length} units hold ZERO cards — u${empty[0].order}..u${empty[empty.length - 1].order} are scaffolded, not authored. NOT SHIPPABLE; every check below passes vacuously on them.`)
+    : OK("every unit holds cards");
+
   // 1. ROUTING — the check that was missing
   const dead = vocab.filter((i) => kindCount(i) === 0);
   dead.length ? FAIL(`${dead.length} vocab route to ZERO card kinds (e.g. ${dead.slice(0, 3).map((x) => x.id).join(", ")})`)
