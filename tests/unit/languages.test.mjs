@@ -31,12 +31,23 @@ test("catalog entries carry no retired cascade fields", () => {
   }
 });
 
-test("a catalog entry is exactly {id, name, flag, target}", () => {
-  // Availability is DERIVED — isLive() from content, canAddLanguage() from the
-  // earn-A1 rule — so a catalog entry must not carry per-language state that could
-  // drift from it, or hardcode which language a learner starts with.
+test("a catalog entry is {id, name, flag, target} plus an optional `similar`", () => {
+  // Availability stays DERIVED — isLive() from content, canAddLanguage() from the
+  // rules in useStore — so a catalog entry must not carry per-language STATE that
+  // could drift from it, or hardcode which language a learner starts with.
+  //
+  // `similar` was added 2026-10-06 and is not state: it is a fixed property of the
+  // language itself (what it could blur with for a learner), it never changes as
+  // anyone studies, and nothing writes it. That is the line this test is actually
+  // drawing, so it allows the field and still refuses anything else.
+  const ALLOWED = new Set(["flag", "id", "name", "target", "similar"]);
   for (const l of LANGUAGES) {
-    assert.deepEqual(Object.keys(l).sort(), ["flag", "id", "name", "target"], `${l.id} shape`);
+    for (const k of Object.keys(l)) assert.ok(ALLOWED.has(k), `${l.id}: unexpected catalog field "${k}"`);
+    for (const k of ["id", "name", "flag", "target"]) assert.ok(k in l, `${l.id}: missing ${k}`);
+    if ("similar" in l) {
+      assert.ok(Array.isArray(l.similar) && l.similar.length, `${l.id}: similar must be a non-empty array`);
+      for (const t of l.similar) assert.equal(typeof t, "string", `${l.id}: similar tags are strings`);
+    }
   }
 });
 

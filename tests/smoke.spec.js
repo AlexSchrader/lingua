@@ -1397,7 +1397,11 @@ test("dev preview: add-a-language renders unlocked, and Start cannot write", asy
 
   // Baseline: a pre-A1 learner sees the LOCKED copy.
   await page.goto("/ladder");
-  expect((await page.locator("#root").textContent()) ?? "").toContain("to unlock another language");
+  // A pre-A1 learner with ONE language is now invited to add a SECOND. This
+  // asserted "to unlock another language" until 2026-10-06, when Alex opened the
+  // second slot from day one — "we allow two languages but cant be of same root".
+  // The A1 wall moved to the third language, and the copy moved with it.
+  expect((await page.locator("#root").textContent()) ?? "").toContain("Add a second");
 
   // Preview: the unlocked state, with French offered as a SECOND language.
   await page.goto("/ladder?preview=addlang");
@@ -1426,7 +1430,11 @@ test("the preview is dev-gated — the query string alone does nothing", async (
   await seed(page, false);
   await page.goto("/ladder?preview=addlang");
   await expect(page.getByTestId("addlang-preview-banner")).toHaveCount(0);
-  expect((await page.locator("#root").textContent()) ?? "").toContain("to unlock another language");
+  // A pre-A1 learner with ONE language is now invited to add a SECOND. This
+  // asserted "to unlock another language" until 2026-10-06, when Alex opened the
+  // second slot from day one — "we allow two languages but cant be of same root".
+  // The A1 wall moved to the third language, and the copy moved with it.
+  expect((await page.locator("#root").textContent()) ?? "").toContain("Add a second");
 });
 // PREVIEW MODE — the app on a throwaway profile. Its one safety property is that
 // the real deck is never written, so that is what this asserts: enter preview, do

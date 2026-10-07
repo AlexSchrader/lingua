@@ -27,29 +27,62 @@ export const langName = (id) =>
 // (Portuguese 🇵🇹 not 🇧🇷, Spanish 🇪🇸 not 🇲🇽, English 🇬🇧). Pan-regional languages take
 // 🌍 rather than misrepresent themselves with one country's flag — a display choice
 // to revisit deliberately, never a fact about the language.
+// INTERFERENCE TAGS — which languages must not be studied side by side.
+//
+// Alex, 2026-10-06: "we allow two languages but cant be of same root like spanish
+// and french cant be learned together cuz theyre too similar and users may get
+// messed up but like say hindi and french or japanese and spanish etc".
+//
+// TAGS, NOT A FAMILY FIELD, because genealogy is the wrong test and gets two cases
+// backwards:
+//
+//   Swahili + Yoruba are both Niger-Congo and are NOT confusable. A family field
+//   would block a pair no learner would ever mix up.
+//   Japanese + Mandarin are different families entirely - Japonic and Sinitic - and
+//   are among the worst pairs here, because Japanese writes with Chinese
+//   characters. Alex called this one directly: "Chinese and Japanese isnt allowed
+//   either". A family field cannot express it.
+//
+// So a language carries the tags describing what it could BLUR WITH, and two
+// languages conflict when they share any tag. A language with no tag conflicts with
+// nothing.
+//
+// GERMANIC IS SPLIT ON PURPOSE. Alex, same conversation: "germanic and Norwegian
+// dont look similar thats fine". Norwegian and Swedish are mutually readable, so
+// they share `north-germanic`; German and Dutch share `west-germanic`; German +
+// Norwegian is therefore allowed. The split is a judgement about what a learner
+// confuses, not about descent.
+//
+// `ht` (Haitian Creole) carries `romance` despite being a creole: its vocabulary
+// comes from French, which is exactly the interference this guards against.
+//
+// Korean is deliberately untagged. It shares grammar shape with Japanese and Sino-
+// derived vocabulary, but modern Korean is written in hangul, so the two do not
+// blur on the page. Add `han` to it the day the curriculum teaches hanja.
+
 export const LANGUAGES = [
-  { id: "nl", name: "Dutch", flag: "🇳🇱", target: "B2" },
-  { id: "en", name: "English", flag: "🇬🇧", target: "B2" },
-  { id: "fr", name: "French", flag: "🇫🇷", target: "B2" },
-  { id: "de", name: "German", flag: "🇩🇪", target: "B2" },
+  { id: "nl", name: "Dutch", flag: "🇳🇱", target: "B2", similar: ["west-germanic"] },
+  { id: "en", name: "English", flag: "🇬🇧", target: "B2", similar: ["west-germanic"] },
+  { id: "fr", name: "French", flag: "🇫🇷", target: "B2", similar: ["romance"] },
+  { id: "de", name: "German", flag: "🇩🇪", target: "B2", similar: ["west-germanic"] },
   // The only creole with an ISO 639-1 code, which the 2-char id convention requires
   // (CONTENT.md → Language). Jamaican Patois (jam), Louisiana Creole (lou) and
   // Mauritian (mfe) would each need that rule waived first.
-  { id: "ht", name: "Haitian Creole", flag: "🇭🇹", target: "B2" },
+  { id: "ht", name: "Haitian Creole", flag: "🇭🇹", target: "B2", similar: ["romance"] },
   { id: "ha", name: "Hausa", flag: "🌍", target: "B2" },
   { id: "hi", name: "Hindi", flag: "🇮🇳", target: "B2" },
   { id: "id", name: "Indonesian", flag: "🇮🇩", target: "B2" },
-  { id: "it", name: "Italian", flag: "🇮🇹", target: "B2" },
-  { id: "ja", name: "Japanese", flag: "🇯🇵", target: "B2" },
+  { id: "it", name: "Italian", flag: "🇮🇹", target: "B2", similar: ["romance"] },
+  { id: "ja", name: "Japanese", flag: "🇯🇵", target: "B2", similar: ["han"] },
   { id: "ko", name: "Korean", flag: "🇰🇷", target: "B2" },
-  { id: "zh", name: "Mandarin", flag: "🇨🇳", target: "B2" },
-  { id: "no", name: "Norwegian", flag: "🇳🇴", target: "B2" },
-  { id: "pl", name: "Polish", flag: "🇵🇱", target: "B2" },
-  { id: "pt", name: "Portuguese", flag: "🇵🇹", target: "B2" },
-  { id: "ru", name: "Russian", flag: "🇷🇺", target: "B2" },
-  { id: "es", name: "Spanish", flag: "🇪🇸", target: "B2" },
+  { id: "zh", name: "Mandarin", flag: "🇨🇳", target: "B2", similar: ["han"] },
+  { id: "no", name: "Norwegian", flag: "🇳🇴", target: "B2", similar: ["north-germanic"] },
+  { id: "pl", name: "Polish", flag: "🇵🇱", target: "B2", similar: ["slavic"] },
+  { id: "pt", name: "Portuguese", flag: "🇵🇹", target: "B2", similar: ["romance"] },
+  { id: "ru", name: "Russian", flag: "🇷🇺", target: "B2", similar: ["slavic"] },
+  { id: "es", name: "Spanish", flag: "🇪🇸", target: "B2", similar: ["romance"] },
   { id: "sw", name: "Swahili", flag: "🌍", target: "B2" },
-  { id: "sv", name: "Swedish", flag: "🇸🇪", target: "B2" },
+  { id: "sv", name: "Swedish", flag: "🇸🇪", target: "B2", similar: ["north-germanic"] },
   { id: "tr", name: "Turkish", flag: "🇹🇷", target: "B2" },
   { id: "tw", name: "Twi", flag: "🌍", target: "B2" },
   { id: "vi", name: "Vietnamese", flag: "🇻🇳", target: "B2" },
