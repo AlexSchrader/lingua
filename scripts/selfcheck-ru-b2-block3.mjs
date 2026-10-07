@@ -145,7 +145,9 @@ fails += noAcc;
 // NOTHING in the gate noticed: `validate:content` checks shapes and
 // `lint:curriculum` is gated on `isLatinLang()`, so it returns silently for
 // Cyrillic. Any letter that is neither Cyrillic nor Latin in a ru field is a typo.
-const CYR = /[Ѐ-ӿ]/, LAT = /[A-Za-z]/;
+// \p{Script=Latin} rather than [A-Za-z], so a legitimate accented loan in a
+// hint (détente at u130l4) is not a finding while CJK and Hangul still are.
+const CYR = /\p{Script=Cyrillic}/u, LAT = /\p{Script=Latin}/u;
 let stray = 0;
 for (const i of mine) {
   const fields = [["front", i.front], ["reading", i.reading], ["meaning", i.meaning], ["hint", i.hint ?? ""],
