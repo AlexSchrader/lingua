@@ -74,8 +74,18 @@
 // ⚠️ `алиби` IS GLOSSED THE LONG WAY ROUND. It transliterates to the English
 // word, so "an alibi" normalises to exactly the card's own reading and is a
 // free pass under unit1.js §9 — the same trap `генерал` hit at u129l1 and
-// `вето` at u130l2. ⚠️ It is also an INDECLINABLE NEUTER, like `вето` (u130l2),
-// `кафе` (u9) and `купе` (u125l2).
+// `вето` at **u102l4** (it was u130l2's until the cross-block dedupe of
+// 2026-10-07 gave it to the lower unit). ⚠️ It is also an INDECLINABLE NEUTER,
+// like `вето` (u102l4), `кафе` (u9) and `купе` (u125l2).
+//
+// ⚠️ THE CROSS-BLOCK DEDUPE OF 2026-10-07 TOOK `экспертиза` OFF l3 — u99
+// Достоверность и подлог carded it too and is the lower unit. l3 cards
+// `вскрытие` instead, which keeps the forensic step concrete and is the one
+// procedure the lesson had no word for. u99 < u131, so `экспертиза` stays IN
+// scope for this unit's sentences.
+//   ⚠️ `отпечаток` was the first choice and is TAKEN (u73). `слежка` is
+//     refused against this lesson's own `следователь`; `подозрение` is TAKEN
+//     (u64). `криминалистика` and `розыск` probe free and are DEFERRED.
 // lang/unit/lesson are stamped in src/data/index.js.
 export const RU_UNIT131 = {
   id: "ru-u131",
@@ -125,14 +135,14 @@ export const RU_UNIT131 = {
       title: "The investigation",
       cefr: "B2",
       dominantMode: "recall",
-      canDo: "Describe how a case is worked — an investigation, the investigator, a piece of evidence, an interrogation, a search and forensic examination.",
+      canDo: "Describe how a case is worked — an investigation, the investigator, a piece of evidence, an interrogation, a search and a post-mortem.",
       items: [
         { id: "ru-u131l3-rassledovanie", type: "vocab", front: "расследование", reading: "rassledovanie", meaning: "a criminal investigation", accept: ["the official work of finding out what happened", "an inquiry into a crime", "the process of working out who did it"], example: { jp: "Расследование было очень трудное, и потом оказалось, что виноват сосед.", en: "The investigation was very difficult, and later it turned out the neighbour was to blame." }, drill: { jp: "Это расследование было очень долгое", en: "This investigation was very long" }, hint: "ra-SSLE-da-va-ni-ye — six syllables, stress on SLE, and the сс is held a beat longer. NEUTER (-ие). From расследовать, which this course does not card. ⚠️ Also used of journalism: журналистское расследование, an investigative report." },
         { id: "ru-u131l3-sledovatel", type: "vocab", front: "следователь", reading: "sledovatel", meaning: "an investigator", accept: ["the officer who works a criminal case", "the official who questions and gathers evidence", "a detective who runs a case"], example: { jp: "Следователь работал один и никому ничего не говорил.", en: "The investigator worked alone and told nobody anything." }, drill: { jp: "Этот следователь очень опытный", en: "This investigator is very experienced" }, hint: "sli-DO-va-tel — stress on DO, and the first е reduces to i. MASCULINE despite the -ь, so unit 1 §3 says to name it. ⚠️ Nothing in `след` (unit 73) or `следовательно` (unit 62) gives this word away, which is why it is carded: it is a specific legal office, not \"someone who follows\"." },
         { id: "ru-u131l3-ulika", type: "vocab", front: "улика", reading: "ulika", meaning: "an incriminating clue", accept: ["a thing that shows who did it", "proof found at a scene", "something that points to the guilty person"], example: { jp: "Эта улика была очень маленькая, но её хватило для суда.", en: "This clue was very small, but it was enough for the court." }, drill: { jp: "Эта улика очень важная", en: "This clue is very important" }, hint: "u-LI-ka — stress on LI. FEMININE (-а). ⚠️ A улика points at a PERSON — it is incriminating by definition. Neutral evidence in a case is доказательство, which unit 39 already handed the course." },
         { id: "ru-u131l3-dopros", type: "vocab", front: "допрос", reading: "dopros", meaning: "an interrogation", accept: ["formal questioning by an officer", "being questioned about a crime", "an official session of questions"], example: { jp: "Допрос шёл шесть часов, и после него он ничего не сказал.", en: "The interrogation went on six hours, and after it he said nothing." }, drill: { jp: "Этот допрос шёл очень долго", en: "This interrogation went on a very long time" }, hint: "da-PROS — stress on the last syllable, and the first о reduces to a. MASCULINE. From спросить, to ask, with до-. ⚠️ A formal, recorded event, not a chat: «вызвать на допрос», to summon for questioning." },
         { id: "ru-u131l3-obysk", type: "vocab", front: "обыск", reading: "obysk", meaning: "a search of a place", accept: ["an official going through a house", "a legal search of premises", "officers looking through someone's things"], example: { jp: "Обыск был в шесть утра, и в доме были все документы.", en: "The search was at six in the morning, and all the documents were in the house." }, drill: { jp: "Этот обыск был очень долгий", en: "This search was very long" }, hint: "O-bysk — stress on the FIRST syllable, with the ы from unit 5. MASCULINE. From искать, to look for, with об-. ⚠️ Only the OFFICIAL kind, with a warrant. Looking for your keys is искать, never обыск." },
-        { id: "ru-u131l3-ekspertiza", type: "vocab", front: "экспертиза", reading: "ekspertiza", meaning: "forensic examination", accept: ["expert testing of evidence", "a specialist's formal examination", "laboratory work on a case"], example: { jp: "Экспертиза показала, что в комнате был ещё один человек.", en: "The examination showed that there had been one more person in the room." }, drill: { jp: "Эта экспертиза была очень важная", en: "This examination was very important" }, hint: "eks-pir-TI-za — stress on TI, and the е reduces to i. FEMININE (-а). ⚠️ Used far outside crime: an экспертиза of a building, a painting, a contract — any formal assessment by a specialist." },
+        { id: "ru-u131l3-vskrytie", type: "vocab", front: "вскрытие", reading: "vskrytie", meaning: "the opening of a body to find the cause of death", accept: ["a post-mortem examination", "the cutting open of a body by a doctor", "an autopsy ordered in a case"], example: { jp: "Вскрытие было в тот же день, однако результата следователь ждал почти месяц.", en: "The post-mortem was on the same day, yet the investigator waited almost a month for the result." }, drill: { jp: "Вскрытие было в тот же день", en: "The post-mortem was on the same day" }, hint: "vskry-TI-ye — stress on TI, and the opening вскр is four consonants with no vowel between them, which is ordinary in Russian. NEUTER (-ие). From крыть, to cover, with вс- — and the course teaches `открывать` (u57), never крыть, so nothing already taught hands this word over. ⚠️ Also the opening of any sealed thing — вскрытие письма, вскрытие замка — and the breaking-up of river ice in spring. The doctor who does it is a патологоанатом." },
       ],
     },
     {
