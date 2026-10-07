@@ -1,9 +1,35 @@
 // ID Unit 64 — Film, panggung, dan penggemar ("Screen, stage and fans") — B1
 // ─────────────────────────────────────────────────────────────────────────────
-// B1 block 2 (u64–u76). unit1.js's 12 conventions and unit21.js's 10 A2
-// conventions BIND this file. The B1 layer this block settled is at the head of
+// B1 block 2 (u64–u76). unit1.js's 12 A1 conventions, unit21.js's 10 A2
+// conventions and **unit51.js's B1–B12 (the crew lead's, binding on the whole
+// band)** ALL BIND this file. This block's own layer is B2-1–B2-11, in unit69.js
+// (grammar) and unit72.js (register). The B1 layer this block settled is at the head of
 // unit69.js (the grammar conventions) and unit72.js (the register conventions);
 // read both before touching u64–u76.
+//
+// ⚠️ **THIRTEEN FRONTS IN THIS BLOCK COLLIDED WITH BLOCK 1 AND WERE REPLACED
+// ON 2026-10-07, AFTER MERGING `content/id-b1-block1`.** The pre-write probe for
+// u64–u76 ran against a tree that did NOT contain u51–u63 — block 1 was authoring
+// them in parallel — so every front was measured against 1,200 words when the real
+// corpus was 1,512. RUNBOOK §0 predicts exactly this and says only the merge closes
+// the window; id-A2 lost 62 cards to the same gap. Lower slot wins, so all 13 are
+// block 1's and this block re-authored. The full list, with what replaced each:
+//   u55 `menyiarkan`   -> u64 cards `pembawa acara` (a programme presenter)
+//   u60 `krisis`       -> u66 cards `resesi` (a recession)
+//   u55 `kemiskinan`   -> u66 cards `daya beli` (purchasing power)
+//   u55 `kesejahteraan`-> u66 cards `koperasi` (a cooperative)
+//   u51 `dukungan`     -> u68 cards `mengalah` (to give way to somebody)
+//   u54 `seolah-olah`  -> u69 cards `jangan sampai` (make sure it does not happen)
+//   u62 `mempersiapkan`-> u70 cards `memperkuat` (to strengthen)
+//   u51 `menyetujui`   -> u70 cards `menduduki` (to occupy a place)
+//   u54 `katanya`      -> u71 cards `sayangnya` (sad to say)
+//   u61 `semestinya`   -> u71 cards `masalahnya` (the trouble is)
+//   u56 `pelaksanaan`  -> u71 cards `penjelasan` (an explanation)
+//   u51 `pihak`        -> u73 cards `beliau` (the respectful he or she)
+//   u61 `kewajiban`    -> u74 cards `reformasi` (political reform)
+// Re-measured after the swap: **0 duplicate fronts and 0 reading-fold collisions**
+// across all 312 cards against the full 1,824-card id corpus. Every replacement
+// names the word it was displaced by, in its own hint, so the learner meets both.
 //
 // RETITLED AND NARROWED from the scaffold's "Media and entertainment".
 //
@@ -35,10 +61,11 @@
 //
 // AFFIX ROOTS STRIPPED AND GREPPED BY HAND (unit1.js convention 3 — a `free`
 // verdict from check-front.mjs on a PREFIXED Indonesian form is worth nothing):
-//   menyiarkan → siar    root not taught. ⚠️ `siaran` (u33, a broadcast) IS the
-//     other card off this root, and its accept[] carries **"to broadcast"** — so
-//     this card is glossed "to put on air" instead. Drill-safe: "menyiarkan"
-//     does not contain "siaran" and vice versa.
+//   pembawa acara → bawa · acara   ⚠️ `membawa` (u25) and `acara` (u9) are BOTH
+//     taught, and the compound is carded under convention 8: nobody reads *presenter*
+//     off *carry-programme*. It replaced `menyiarkan`, which block 1 took at u55 —
+//     see the merge note at the head of this file. ⚠️ A drill containing
+//     "pembawa acara" whole-word-matches `acara` too, which is harmless.
 //   pertunjukan → tunjuk ⚠️ `menunjuk` (u39, to point at) is taught off the same
 //     root. Different word entirely; named in the hint. Drill-safe — neither
 //     string whole-word-contains the other.
@@ -71,9 +98,10 @@
 //     leaves "drama", "episode", "rating" and the front is that string.
 //   `tayangan` — would be a second noun for a programme going out, and `siaran`
 //     (u33) already accepts "a programme going out". A4's accept[] collision.
-//   `pembawa acara` (a presenter) — `acara` is taught (u9) and the compound adds
-//     a third card to a field already carrying `pemirsa` and `penonton`. Named in
-//     `saluran`'s hint instead.
+//   `menyiarkan` (to broadcast) — **TAKEN at u55 by block 1.** It was carded here
+//     until the block-1 merge; `pembawa acara` replaced it. `siaran` (u33) holds
+//     the noun and its accept[] carries "to broadcast", so no third card is
+//     available on that root anyway.
 //   `gosip` — low value against `berita` (u26) and a near-copy of the English.
 // ─────────────────────────────────────────────────────────────────────────────
 export const ID_UNIT64 = {
@@ -145,7 +173,7 @@ export const ID_UNIT64 = {
       items: [
         { id: "id-u64l4-pemirsa", type: "vocab", front: "pemirsa", reading: "pemirsa", meaning: "the viewers", example: { jp: "Pemirsa di rumah bisa pilih saluran lain.", en: "Viewers at home can choose another channel." }, accept: ["the television audience", "people watching at home", "the viewing public"], drill: { jp: "Pemirsa sinetron itu sangat banyak", en: "That soap opera has very many viewers" }, hint: "puh-MEER-sa. Specifically the people watching a BROADCAST, at home, which is why every Indonesian news reader opens with pemirsa — it is their word for *ladies and gentlemen*. ⚠️ Keep it apart from penonton, which you know: penonton are present, in a room or a stadium; pemirsa are scattered in front of screens." },
         { id: "id-u64l4-penggemar", type: "vocab", front: "penggemar", reading: "penggemar", meaning: "a fan", example: { jp: "Penggemar penyanyi itu datang dari semua kota.", en: "That singer's fans came from every city." }, accept: ["an enthusiast", "a follower of somebody", "a keen supporter"], drill: { jp: "Penggemar film lama itu masih banyak", en: "There are still many fans of that old movie" }, hint: "puhng-guh-MAR. From gemar, to be keen on, which is not taught on its own. A pe- agent noun again, and it takes a bare possessor: penggemar sepak bola, a football fan. Note it is warmer than pendukung, a backer — a penggemar likes the thing, a pendukung is on its side." },
-        { id: "id-u64l4-menyiarkan", type: "vocab", front: "menyiarkan", reading: "menyiarkan", meaning: "to put on air", example: { jp: "Saluran itu akan menyiarkan pertunjukan itu besok malam.", en: "That channel will broadcast the performance tomorrow evening." }, accept: ["to send out over the air", "to put out a programme", "to air something"], drill: { jp: "Televisi menyiarkan berita itu pagi ini", en: "Television broadcast that news this morning" }, hint: "muh-nyee-AR-kan. You already know siaran, a broadcast; this is the verb behind it, off the same root siar, to spread. ⚠️ Glossed to put on air, not to broadcast, because siaran's own card already accepts *to broadcast* and two cards may never share an answer. It also covers spreading word of something: menyiarkan kabar." },
+        { id: "id-u64l4-pembawaacara", type: "vocab", front: "pembawa acara", reading: "pembawaacara", meaning: "a programme presenter", example: { jp: "Pembawa acara itu terkenal di semua saluran televisi.", en: "That presenter is famous on every television channel." }, accept: ["a television host", "the one who fronts a show", "a presenter"], drill: { jp: "Pembawa acara itu sangat lucu malam ini", en: "That presenter is very funny tonight" }, hint: "pem-BAH-wa ah-CHAH-ra, c as CH. From membawa, to carry, which you know, plus acara, a programme, which you also know — literally the one who carries the programme. ⚠️ You already know menyiarkan, to put something out on air, from earlier in this band; this card is the PERSON rather than the act. In speech it is often shortened to MC." },
         { id: "id-u64l4-menghibur", type: "vocab", front: "menghibur", reading: "menghibur", meaning: "to entertain", example: { jp: "Pertunjukan itu menghibur semua pemirsa di rumah.", en: "That performance entertained all the viewers at home." }, accept: ["to amuse people", "to keep people happy", "to divert somebody"], drill: { jp: "Lelucon itu menghibur anak-anak di kelas", en: "That joke entertains the children in the class" }, hint: "muhng-HEE-boor. You already know hiburan, entertainment; this is its verb. ⚠️ Its OTHER sense matters just as much and is not in the gloss: menghibur orang yang sedih is to comfort somebody who is sad. The word covers cheering somebody up and putting on a show, and Indonesians hear one meaning in the other." },
         { id: "id-u64l4-ulasan", type: "vocab", front: "ulasan", reading: "ulasan", meaning: "a review", example: { jp: "Ulasan film itu di koran sangat bagus.", en: "The review of that movie in the newspaper was very good." }, accept: ["a written appraisal", "a piece going over something", "a notice of a new work"], drill: { jp: "Ulasan itu membuat banyak orang menonton film", en: "That review made many people watch the movie" }, hint: "oo-LAH-san. From ulas, to go over something, not taught alone. A piece of writing that goes over a film, a book or a match and says how it was. Mengulas is the verb. Note it is descriptive and neutral in a way the English *review* is not — it need not pass judgement at all." },
         { id: "id-u64l4-dangdut", type: "vocab", front: "dangdut", reading: "dangdut", meaning: "Indonesian pop music", example: { jp: "Musik dangdut itu bisa membuat semua tamu menari.", en: "That dangdut music can get all the guests dancing." }, accept: ["the dangdut style", "Indonesia's own pop style", "a popular Indonesian music genre"], drill: { jp: "Penyanyi dangdut itu terkenal di seluruh negara", en: "That dangdut singer is famous throughout the country" }, hint: "DANG-doot, both syllables short. The name is the drum: dang-DUT is the two-beat tabla pattern the whole style hangs on. Indian film music crossed with Malay and Arabic, and it is the music of ordinary Indonesia — weddings, street stalls, political rallies, every province. Sinetron, dangdut and wayang between them are three quarters of Indonesian popular culture." },

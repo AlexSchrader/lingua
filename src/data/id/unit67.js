@@ -1,7 +1,9 @@
 // ID Unit 67 — Penyakit dan kebugaran ("Illness and fitness") — B1
 // ─────────────────────────────────────────────────────────────────────────────
-// B1 block 2 (u64–u76). unit1.js's 12 conventions and unit21.js's 10 A2
-// conventions BIND this file. RETITLED AND NARROWED from "Health and
+// B1 block 2 (u64–u76). unit1.js's 12 A1 conventions, unit21.js's 10 A2
+// conventions and **unit51.js's B1–B12 (the crew lead's, binding on the whole
+// band)** ALL BIND this file. This block's own layer is B2-1–B2-11, in unit69.js
+// (grammar) and unit72.js (register). RETITLED AND NARROWED from "Health and
 // wellbeing".
 //
 // THE HOLE. Health was already spent TWICE, which is why "wellbeing" had to be

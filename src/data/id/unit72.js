@@ -1,7 +1,7 @@
 // ID Unit 72 — Bahasa santai sehari-hari ("Everyday relaxed Indonesian") — B1
 // ─────────────────────────────────────────────────────────────────────────────
 // B1 block 2 (u64–u76). unit1.js's 12 conventions, unit21.js's A1–A10 and
-// unit69.js's B1–B7 ALL bind this file.
+// unit69.js's B2-1–B2-7 ALL bind this file.
 //
 // ⛔⛔ **RETHEMED FROM A JAPANESE SLOT, AND THIS IS THE DECISION, NOT AN
 // OMISSION.** The scaffold stubs u72 as *"Register 1 — polite vs plain"* and u73
@@ -22,11 +22,14 @@
 // learned best against each other, which is why they remain adjacent.
 //
 // ─────────────────────────────────────────────────────────────────────────────
-// B1 CONVENTIONS FOR INDONESIAN — the REGISTER layer. Binding on u64–u76.
-// Settled by B1 block 2, 2026-10-07. Adds to unit69.js's B1–B7.
+// B1 CONVENTIONS FOR INDONESIAN — the REGISTER layer, BLOCK 2's. Binding on
+// u64–u76. Settled by B1 block 2, 2026-10-07. Adds to unit69.js's B2-1–B2-7, and
+// sits UNDER unit51.js's B1–B12, which are the crew lead's and bind the band —
+// unit51.js B4 is the instruction to retheme this slot, and this unit is it.
+// ⚠️ Numbered B2-n and not Bn because unit51.js already owns B1–B12.
 // ─────────────────────────────────────────────────────────────────────────────
 //
-// B8. ⚠️ **A COLLOQUIAL CLIPPING OF A TAUGHT WORD *IS* CARDED HERE, AND THIS IS
+// B2-8. ⚠️ **A COLLOQUIAL CLIPPING OF A TAUGHT WORD *IS* CARDED HERE, AND THIS IS
 //     THE ONE JUDGEMENT THE WHOLE UNIT RESTS ON.** unit1.js convention 7 says a
 //     "spelling/register variant of one word" gets ONE card — and by that rule
 //     `udah` (← `sudah`), `nggak` (← `tidak`), `gimana` (← `bagaimana`), `aja`
@@ -54,7 +57,7 @@
 //     learner who meets only one of a pair is stuck, which is convention 7's
 //     real point and is honoured here.
 //
-// B9. ⚠️ **WHAT IS STILL NOT CARDED, so the line is drawn somewhere.** A
+// B2-9. ⚠️ **WHAT IS STILL NOT CARDED, so the line is drawn somewhere.** A
 //     clipping whose standard form is ALSO its everyday spoken form adds
 //     nothing, and a clipping of a word the course does not teach teaches
 //     nothing. Declined by name: `tapi` (← `tetapi`, u12 — `tetapi` is already
@@ -64,12 +67,12 @@
 //     of `elo`, named in its hint). Each is one lexeme with one pronunciation
 //     the learner can already reach.
 //     ⚠️ **ONE GENUINE OMISSION, AND IT IS NOT ON THE ABOVE GROUNDS:** `nonton`
-//     (← `menonton`, u18) passes B8's test exactly as `udah` does — it is what
+//     (← `menonton`, u18) passes B2-8's test exactly as `udah` does — it is what
 //     people say and the full form is not — and it was cut only because the unit
 //     was already at 24. It is named in `yuk`'s hint and is FLAGGED IN THE
 //     HAND-BACK as the one card this unit should have had room for.
 //
-// B10. ⚠️ **TWO FRONTS ON THE CENTRAL ALLOCATION WERE FALSE POSITIVES OF THE
+// B2-10. ⚠️ **TWO FRONTS ON THE CENTRAL ALLOCATION WERE FALSE POSITIVES OF THE
 //     CREW LEAD'S PREFIX STRIPPER AND ARE FREE — BUT ONE OF THEM IS A GLOSS
 //     TRAP.** `sih` was flagged against `bersih` and `cuma` against `percuma`;
 //     both are genuinely untaught. **However, the allocation suggested glossing
@@ -80,7 +83,7 @@
 //     "only in slang" instead, with no comma anywhere.** Checked every gloss in
 //     this unit for the same trap; two more were caught (`emang`, `kok`).
 //
-// B11. REGISTER IS MARKED IN THE GLOSS AND TAUGHT IN THE HINT. Every card in
+// B2-11. REGISTER IS MARKED IN THE GLOSS AND TAUGHT IN THE HINT. Every card in
 //     this unit carries the register in the gloss itself ("in slang") and names
 //     (i) the standard twin, (ii) whether the word may be WRITTEN, and (iii)
 //     where it would be wrong. A learner who uses `gue` to a government official

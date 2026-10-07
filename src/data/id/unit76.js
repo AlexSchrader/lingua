@@ -1,7 +1,7 @@
 // ID Unit 76 — Bentang alam dan iklim ("Landscape and climate") — B1
 // ─────────────────────────────────────────────────────────────────────────────
 // B1 block 2 (u64–u76) — the last unit of this block. unit1.js's 12
-// conventions, unit21.js's A1–A10, unit69.js's B1–B7 and unit72.js's B8–B11 ALL
+// conventions, unit21.js's A1–A10, unit69.js's B2-1–B2-7 and unit72.js's B2-8–B2-11 ALL
 // bind this file.
 //
 // ⛔ **A GENERIC `Vocabulary N (B1)` SLOT, THEMED CENTRALLY BY THE CREW LEAD

@@ -1,16 +1,23 @@
 // ID Unit 69 — Tata bahasa 6 — klausa dan pasangan kata ("Clauses and
 // correlative pairs") — B1
 // ─────────────────────────────────────────────────────────────────────────────
-// B1 block 2 (u64–u76). unit1.js's 12 conventions and unit21.js's 10 A2
-// conventions BIND this file.
+// B1 block 2 (u64–u76). unit1.js's 12 A1 conventions, unit21.js's 10 A2
+// conventions and **unit51.js's B1–B12 (the crew lead's, binding on the whole
+// band)** ALL BIND this file. This block's own layer is B2-1–B2-11, in unit69.js
+// (grammar) and unit72.js (register).
 //
 // ─────────────────────────────────────────────────────────────────────────────
-// B1 CONVENTIONS FOR INDONESIAN — the grammar layer. Binding on u64–u76.
-// Settled by B1 block 2, 2026-10-07. These ADD TO unit1.js's 12 and unit21.js's
-// A1–A10; they replace nothing. The register layer is at the head of unit72.js.
+// B1 CONVENTIONS FOR INDONESIAN — the grammar layer, BLOCK 2's. Binding on
+// u64–u76. Settled by B1 block 2, 2026-10-07. These ADD TO unit1.js's 12 A1
+// conventions, unit21.js's A1–A10, and **unit51.js's B1–B12, which are the CREW
+// LEAD's and bind the whole band**; they replace nothing.
+// ⚠️ **NUMBERED B2-n AND NOT Bn ON PURPOSE.** unit51.js already owns B1–B12
+// for this band, and two rules called "B5" in one language is how a seat reads
+// the wrong one. Block 2's layer is B2-1…B2-11; the register half is at the head
+// of unit72.js (B2-8–B2-11).
 // ─────────────────────────────────────────────────────────────────────────────
 //
-// B1. ⚠️ **THE A2 CONNECTIVE UNIT ATE MOST OF THIS SLOT, AND THAT IS MEASURED,
+// B2-1. ⚠️ **THE A2 CONNECTIVE UNIT ATE MOST OF THIS SLOT, AND THAT IS MEASURED,
 //     NOT AN IMPRESSION.** The scaffold calls u69 "linked and subordinate
 //     clauses". A1's u12l3 took `yang` `atau` `tetapi` `karena` `kalau` `untuk`,
 //     and A2's u29 then took **`bahwa` `sedangkan` `padahal` `sehingga` `demi`
@@ -23,7 +30,7 @@
 //     could NOT reach: the `-pun` indefinite series, the correlative PAIRS, the
 //     counterfactual conditionals, and the formal identifying copulas.
 //
-// B2. ⚠️ **A SYNONYM OF A TAUGHT CONNECTIVE IS A GLOSS COLLISION, AND THE GLOSS
+// B2-2. ⚠️ **A SYNONYM OF A TAUGHT CONNECTIVE IS A GLOSS COLLISION, AND THE GLOSS
 //     CHECK IS THE REAL CONSTRAINT IN A GRAMMAR UNIT.** Function words have one
 //     obvious English equivalent each, so the second card for a meaning cannot
 //     be glossed at all. Caught by hand in this unit, every one of which would
@@ -46,7 +53,7 @@
 //     **Probe the gloss AND the accept[] of every taught connective before you
 //     commit to a function word.** A4's rule, and it bites hardest here.
 //
-// B3. GRAMMAR STILL HAS NO ITEM TYPE, so every pattern in u69–u71 is carded as
+// B2-3. GRAMMAR STILL HAS NO ITEM TYPE, so every pattern in u69–u71 is carded as
 //     FUNCTION-WORD VOCABULARY whose `example` carries the construction and
 //     whose `hint` states the rule. That is CLAUDE.md's standing instruction and
 //     A2 followed it for the aspect markers. Two consequences worth stating:
@@ -57,7 +64,7 @@
 //         whole word**, so a correlative pair usually cannot fit in the drill.
 //         Put the pair in `example`, the single word in `drill`.
 //
-// B4. ⚠️ **A SPACED MULTI-WORD FRONT IS SAFE; ITS SOLID TWIN IS NOT.** Convention
+// B2-4. ⚠️ **A SPACED MULTI-WORD FRONT IS SAFE; ITS SOLID TWIN IS NOT.** Convention
 //     9's fold collision is live in this unit. `apa pun` folds to "apapun",
 //     `di mana` folds to "dimana", and BOTH solid spellings exist in real
 //     Indonesian. **This band teaches only the SPACED form of each**, which is
@@ -66,7 +73,7 @@
 //     the standard writes solid — so it is carded solid, and no spaced twin is
 //     carded anywhere. Checked against all 1,248 readings: zero collisions.
 //
-// B5. ⚠️ **A `-pun` PHRASE AND THE BARE CLITIC `pun` MAY BOTH BE CARDS, AND THE
+// B2-5. ⚠️ **A `-pun` PHRASE AND THE BARE CLITIC `pun` MAY BOTH BE CARDS, AND THE
 //     DRILL DIRECTION MATTERS.** Convention 8 allows the fixed phrase beside its
 //     component. But `findWholeWord` treats the space as a boundary, so a drill
 //     containing "apa pun" DOES satisfy front `pun`, while a drill containing
@@ -75,7 +82,7 @@
 //     where `pun` stands alone after a noun** — which is also the only place its
 //     meaning is visible. Checked item by item in l1.
 //
-// B6. THE PASSIVE AND THE VALENCY AFFIXES ARE u70's, AND NOTHING EARLIER MAY
+// B2-6. THE PASSIVE AND THE VALENCY AFFIXES ARE u70's, AND NOTHING EARLIER MAY
 //     USE THEM. A1's convention 11 and A2's A6 both deferred `di-` passives and
 //     `-kan`/`-i` valency to B1, and u70 is where they land. ⚠️ That means
 //     **u64–u69 may not put a `di-` form in an example or a drill either** — a
@@ -84,7 +91,7 @@
 //     prevent. Three were caught and removed from u65–u67 by hand (`dipakai`,
 //     `diperbaiki`, `diobati`, `dibayar`). Check your own.
 //
-// B7. ORDER WITHIN THE BLOCK IS A SCOPE RULE, NOT JUST A COURTESY. A derived
+// B2-7. ORDER WITHIN THE BLOCK IS A SCOPE RULE, NOT JUST A COURTESY. A derived
 //     form taught before its root reads backwards. Two words were dropped from
 //     u68 for this reason (`memusuhi` and `berdamai`, whose roots `musuh` and
 //     `damai` are u75's). **Before carding a derivation, check whether its root
@@ -108,21 +115,21 @@
 //     Drill-safe — "melainkan" contains "lain" at index 2 preceded by `e`, a
 //     letter, so findWholeWord does not match in either direction.
 //   merupakan  → rupa    root not taught. ⚠️ `rupanya` is u71's, off the same
-//     root, in a later unit of this block — so the ORDER is right (B7).
+//     root, in a later unit of this block — so the ORDER is right (B2-7).
 //   selagi     → lagi    ⚠️ `lagi` (u5, again) IS taught. Carded: se- plus lagi
 //     gives a time conjunction, nothing a learner would guess. Drill-safe.
 //   sedemikian → demikian  ⚠️ `demikian` is u73's, in a LATER unit of this block.
-//     B7 says a derivation must not precede its root — so `sedemikian`'s hint
+//     B2-7 says a derivation must not precede its root — so `sedemikian`'s hint
 //     does NOT lean on `demikian`, and u73's `demikian` hint names this one
 //     backwards instead.
 //   bagaimanapun → bagaimana  ⚠️ `bagaimana` (u2, how) IS taught. Carded solid
-//     per B4.
+//     per B2-4.
 //   sekiranya · kalau-kalau · seolah-olah · walaupun · biarpun · maupun ·
 //   andaikata · kemudian · ialah · pula · apa pun · siapa pun · kapan pun ·
 //   mana pun · bukan hanya · antara lain · dengan kata lain · sampai-sampai —
 //   compounds of taught words or unanalysable particles.
 //
-// ⛔ NOT CARDED, every one for a gloss reason stated in B2:
+// ⛔ NOT CARDED, every one for a gloss reason stated in B2-2:
 //   `seraya` · `jangankan` · `agar` · `jika` · `apabila` · `semakin` · `makin` ·
 //   `kian` · `dengan demikian` · `lantaran` · `sebaliknya` · `seakan-akan` ·
 //   `andai` · `meski` · `hingga` · `yang mana` · `di mana`.
@@ -130,7 +137,7 @@
 //     (Comparison and degree); `dengan demikian` · `lantaran` · `sebaliknya` are
 //     CAUSE AND CONTRAST and belong to block 1's u52. Reaching for them here is
 //     exactly how two blocks card the same word. Deliberately left.
-//   ⚠️ `di mana` was dropped on the fold rule (B4) and `yang mana` because
+//   ⚠️ `di mana` was dropped on the fold rule (B2-4) and `yang mana` because
 //     `yang` (u12) and `mana` (u3) are both taught and the phrase is readable
 //     straight off the parts — A6's "adds nothing" clause.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -184,10 +191,10 @@ export const ID_UNIT69 = {
       dominantMode: "recognize",
       canDo: "Suppose something that is not true, hedge against something that might be, say a thing only looks that way, and concede a point without giving it up.",
       items: [
-        { id: "id-u69l3-andaikata", type: "vocab", front: "andaikata", reading: "andaikata", meaning: "supposing that", example: { jp: "Andaikata saya kaya, saya akan membantu perkumpulan itu.", en: "Supposing I were rich, I would help that association." }, accept: ["if it were the case that", "imagine that", "say for argument that"], drill: { jp: "Andaikata hujan besok kami tetap pergi", en: "Supposing it rains tomorrow we are still going" }, hint: "an-dai-KAH-ta, four syllables. From andai, to suppose, plus kata, a word, which you know — literally suppose-word. ⚠️ It marks the condition as UNREAL, where kalau, which you know, is neutral: kalau saya kaya may be a real plan, andaikata saya kaya is a daydream. You already know seandainya, which is the same idea built from the same root." },
+        { id: "id-u69l3-andaikata", type: "vocab", front: "andaikata", reading: "andaikata", meaning: "supposing that", example: { jp: "Andaikata saya kaya, saya akan membantu perkumpulan itu.", en: "Supposing I were rich, I would help that association." }, accept: ["if it were the case that", "picture it being so", "say for argument that"], drill: { jp: "Andaikata hujan besok kami tetap pergi", en: "Supposing it rains tomorrow we are still going" }, hint: "an-dai-KAH-ta, four syllables. From andai, to suppose, plus kata, a word, which you know — literally suppose-word. ⚠️ It marks the condition as UNREAL, where kalau, which you know, is neutral: kalau saya kaya may be a real plan, andaikata saya kaya is a daydream. You already know seandainya, which is the same idea built from the same root." },
         { id: "id-u69l3-sekiranya", type: "vocab", front: "sekiranya", reading: "sekiranya", meaning: "were it to be the case", example: { jp: "Sekiranya kamu tidak bisa datang, saya akan pergi sendiri.", en: "Should you be unable to come, I will go on my own." }, accept: ["should it happen that", "if it should arise", "if by any chance"], drill: { jp: "Sekiranya dia sakit kami akan pergi tanpa dia", en: "Should he be ill we will go without him" }, hint: "suh-kee-RAH-nya, four syllables. Built on kira, to estimate — you know kira-kira, roughly, and mengira, to assume. ⚠️ It is the polite, written conditional and it is softer than kalau: a letter asking a favour opens with sekiranya. Nothing in English matches the register exactly, which is why the gloss is the stiff one." },
         { id: "id-u69l3-kalaukalau", type: "vocab", front: "kalau-kalau", reading: "kalaukalau", meaning: "just in case", example: { jp: "Saya membawa payung kalau-kalau hujan datang.", en: "I brought an umbrella just in case it rains." }, accept: ["on the chance that", "in case it happens", "lest it happen"], drill: { jp: "Dia menyimpan uang kalau-kalau ada masalah", en: "He saves money just in case there is a problem" }, hint: "kah-lau kah-LAU. A doubling of kalau, if, which you know, and like sampai-sampai it is a non-plural reduplication making a new word. ⚠️ It does NOT mean *if*: it marks a precaution against something you do not expect. Compare the three you now have: kalau is if, andaikata is supposing, kalau-kalau is just in case." },
-        { id: "id-u69l3-seolaholah", type: "vocab", front: "seolah-olah", reading: "seolaholah", meaning: "as if", example: { jp: "Dia berbicara seolah-olah dia sudah tahu semua.", en: "He talks as if he already knew everything." }, accept: ["as though", "giving the impression that", "in the manner of somebody who"], drill: { jp: "Anak itu diam seolah-olah tidak mendengar", en: "That child stayed silent as if he could not hear" }, hint: "suh-oh-lah OH-lah, five syllables. Olah on its own means to process or work something, and the doubling with se- makes the comparison. ⚠️ It carries a hint that the appearance is FALSE — seolah-olah dia kaya suggests he is not. Seakan-akan is an exact synonym and is not carded, because two cards may never share one answer." },
+        { id: "id-u69l3-jangansampai", type: "vocab", front: "jangan sampai", reading: "jangansampai", meaning: "make sure it does not happen", example: { jp: "Jangan sampai dia tahu masalah itu dari orang lain.", en: "Make sure he does not hear about that problem from somebody else." }, accept: ["do not let it come to that", "see that it never happens", "on no account let it"], drill: { jp: "Jangan sampai kamu lupa kunci rumah", en: "Mind you do not forget the house key" }, hint: "JAH-ngan SAM-pai. Jangan, do not, and sampai, to reach — both already yours. ⚠️ Literally do-not-let-it-reach, and it is the standard Indonesian way of saying make sure not to: jangan sampai lupa, mind you do not forget. You already know seolah-olah, as if, from earlier in this band, so that one is not re-taught here." },
         { id: "id-u69l3-walaupun", type: "vocab", front: "walaupun", reading: "walaupun", meaning: "even if", example: { jp: "Walaupun harga naik, konsumen tetap membeli barang itu.", en: "Even if the price rises, consumers still buy that product." }, accept: ["even though it be", "notwithstanding that", "although it may be"], drill: { jp: "Walaupun miskin keluarga itu rukun", en: "Even if poor that family lives in harmony" }, hint: "wah-lau-POON. Walau plus pun again — the clitic you met in l1 is everywhere in this unit. ⚠️ You already know meskipun, even though. Indonesian has four of these and they are interchangeable in practice; the useful split is that meskipun concedes a FACT and walaupun will also accept something hypothetical. The main clause usually takes tetap, which you know." },
         { id: "id-u69l3-biarpun", type: "vocab", front: "biarpun", reading: "biarpun", meaning: "no matter if", example: { jp: "Biarpun jauh, kami akan datang ke pernikahan itu.", en: "No matter how far it is, we will come to that wedding." }, accept: ["regardless of whether", "it makes no difference that", "whatever the case"], drill: { jp: "Biarpun sakit dia tetap bekerja hari ini", en: "No matter that he is ill he still works today" }, hint: "bee-ar-POON. From biar, let it be, plus pun. ⚠️ Of the four concessives it is the most dismissive — biarpun shrugs the objection off, where meskipun and walaupun grant it. Biar on its own is let: biar saya coba, let me try. The whole family shares the pun clitic, which is the thread through this unit." },
       ],

@@ -1,7 +1,8 @@
 // ID Unit 73 — Bahasa tulis resmi ("Formal written Indonesian") — B1
 // ─────────────────────────────────────────────────────────────────────────────
-// B1 block 2 (u64–u76). unit1.js's 12 conventions, unit21.js's A1–A10,
-// unit69.js's B1–B7 and unit72.js's B8–B11 ALL bind this file.
+// B1 block 2 (u64–u76). unit1.js's 12 A1 conventions, unit21.js's A1–A10,
+// **unit51.js's B1–B12 (the crew lead's)**, and this block's own B2-1–B2-7
+// (unit69.js) and B2-8–B2-11 (unit72.js) ALL bind this file.
 //
 // ⛔ **RETHEMED FROM A JAPANESE SLOT — the full reasoning is at the head of
 // unit72.js and is not repeated here.** The scaffold stubs this slot as
@@ -33,11 +34,11 @@
 //   meaning — and a register unit is where a register difference belongs:
 //     `jika` and `apabila` and `bilamana` against `kalau` (u12)
 //     `agar` against `supaya` (u29)
-//   unit69.js's B2 records the move and the gloss collisions that forced it.
+//   unit69.js's B2-2 records the move and the gloss collisions that forced it.
 //
 // AFFIX ROOTS STRIPPED AND GREPPED BY HAND (unit1.js convention 3):
 //   tersebut     → sebut     root not taught. ⚠️ `disebut` (u70, three units
-//     earlier in my own block) is the other card off it — order is right (B7),
+//     earlier in my own block) is the other card off it — order is right (B2-7),
 //     and each hint names the other.
 //   dimaksud     → maksud    ⚠️ `maksud` (u21, what somebody means) IS taught.
 //     Carded: this is a `di-` passive used as a referring adjective, and the
@@ -49,6 +50,10 @@
 //   perihal      → hal       ⚠️ `hal` (u36, a matter) IS taught. Carded: perihal
 //     is the subject line of a letter, which hal alone does not give you.
 //     Drill-safe.
+//   beliau       a root, no affix. ⚠️ It replaced `pihak`, **TAKEN at u51 by block
+//     1** — see the merge note at the head of unit64.js. `pihak` is now taught
+//     before this unit, so it is used freely in these examples and named in
+//     `beliau`'s hint.
 //   berdasarkan  → dasar     root not taught.
 //   mengenai     → kena      root not taught. ⚠️ `tentang` (u26) IS "concerning",
 //     so this card is glossed "in regard to". A4's rule.
@@ -67,7 +72,7 @@
 //     block). Carded as an unanalysable discourse opener — no learner reads
 //     "as for" off "there-is-even". Convention 8.
 //   demikian     → ⚠️ **`sedemikian` (u69) IS FOUR UNITS EARLIER IN MY OWN
-//     BLOCK, which inverts B7's order rule** (a derivation before its root).
+//     BLOCK, which inverts B2-7's order rule** (a derivation before its root).
 //     Flagged in u69's header and accepted deliberately: the slots are fixed by
 //     the scaffold, `sedemikian` is a degree word that belongs in the grammar
 //     unit and `demikian` is a register word that belongs here. **The mitigation
@@ -120,7 +125,7 @@ export const ID_UNIT73 = {
         { id: "id-u73l1-bersangkutan", type: "vocab", front: "bersangkutan", reading: "bersangkutan", meaning: "the person concerned", example: { jp: "Pihak yang bersangkutan harus datang pada hari itu.", en: "The party concerned must attend on that day." }, accept: ["the one involved", "the relevant person", "whoever it relates to"], drill: { jp: "Orang yang bersangkutan sudah menerima kabar itu", en: "The person concerned has already received that news" }, hint: "buhr-sang-KOO-tan, four syllables. From sangkut, to be hooked on, not taught alone. ⚠️ Like dimaksud it lives behind yang: yang bersangkutan, the person concerned — and in a letter that phrase alone, with no noun at all, means you. It is how Indonesian bureaucracy names somebody without naming them." },
         { id: "id-u73l1-tertera", type: "vocab", front: "tertera", reading: "tertera", meaning: "as printed", example: { jp: "Harga yang tertera di kwitansi itu salah.", en: "The price printed on that receipt is wrong." }, accept: ["as shown on the document", "stated in print", "as it appears there"], drill: { jp: "Nama yang tertera di surat itu salah", en: "The name printed on that letter is wrong" }, hint: "tuhr-tuh-RAH. From tera, a stamp or an impression, not taught alone. ⚠️ A ter- state, exactly like tertulis which you know — but tertulis is written by hand or by anyone, tertera is PRINTED on an official thing: a receipt, a label, an identity card. Sebagaimana tertera, as stated therein, is the full formula." },
         { id: "id-u73l1-perihal", type: "vocab", front: "perihal", reading: "perihal", meaning: "the subject of a letter", example: { jp: "Perihal surat itu adalah pembayaran yang terlambat.", en: "The subject of that letter is the late payment." }, accept: ["the subject line", "re, in a letter", "the matter a letter is about"], drill: { jp: "Perihal dalam surat resmi itu sangat jelas", en: "The subject in that official letter is very clear" }, hint: "puh-ree-HAHL. Built on hal, a matter, which you know. ⚠️ IT IS LITERALLY A FIELD ON A FORM: an Indonesian official letter has a line reading Perihal: followed by what it is about, exactly as an English memo has Re:. That is why it earns a card beside hal — hal is any matter, perihal is the heading." },
-        { id: "id-u73l1-pihak", type: "vocab", front: "pihak", reading: "pihak", meaning: "a party to something", example: { jp: "Dua pihak itu belum setuju mengenai harga.", en: "Those two parties have not yet agreed on the price." }, accept: ["a side in a matter", "one of the parties involved", "an interested side"], drill: { jp: "Pihak sekolah sudah menyetujui keputusan itu", en: "The school side has already approved that decision" }, hint: "PEE-hak. A side — in an agreement, a dispute, or an organisation. ⚠️ ENORMOUSLY USEFUL AND HAS NO NEAT ENGLISH EQUIVALENT: pihak sekolah means the school as an institution, pihak kepolisian means the police as a body. Indonesian uses pihak X wherever English would say *the X* and mean *those in charge of X*." },
+        { id: "id-u73l1-beliau", type: "vocab", front: "beliau", reading: "beliau", meaning: "the respectful he or she", example: { jp: "Beliau sudah menandatangani keputusan tersebut pagi ini.", en: "He has already signed the aforementioned decision this morning." }, accept: ["the honorific third person", "that honoured person", "the respected one spoken of"], drill: { jp: "Beliau sudah datang ke kantor pagi ini", en: "He has already come to the office this morning" }, hint: "buh-LEE-au, three syllables. ⚠️ **THE RESPECTFUL dia, AND INDONESIAN MARKS RESPECT IN THE THIRD PERSON WHERE ENGLISH DOES NOT.** You use beliau of an elder, a teacher, a minister, a religious figure or the dead; dia of everybody else. Writing dia about somebody grandmother is a small rudeness. Nothing else in the sentence changes — only the pronoun. You already know pihak, a party to a matter, from earlier in this band." },
       ],
     },
     {
