@@ -140,5 +140,30 @@ for (const i of mine) if (String(i.meaning).trim().includes(" ") && !(i.accept ?
 console.log(`7. multi-word meanings with an empty accept[]: ${noAcc}`);
 fails += noAcc;
 
+// 8. STRAY SCRIPT. Authoring these files by hand leaked a CJK character into
+// u127's `ствол` example and a Hangul syllable into u129's `плен` hint, and
+// NOTHING in the gate noticed: `validate:content` checks shapes and
+// `lint:curriculum` is gated on `isLatinLang()`, so it returns silently for
+// Cyrillic. Any letter that is neither Cyrillic nor Latin in a ru field is a typo.
+const CYR = /[Ѐ-ӿ]/, LAT = /[A-Za-z]/;
+let stray = 0;
+for (const i of mine) {
+  const fields = [["front", i.front], ["reading", i.reading], ["meaning", i.meaning], ["hint", i.hint ?? ""],
+    ["example.jp", i.example?.jp ?? ""], ["example.en", i.example?.en ?? ""],
+    ["drill.jp", i.drill?.jp ?? ""], ["drill.en", i.drill?.en ?? ""],
+    ...(i.accept ?? []).map((a, n) => [`accept[${n}]`, a])];
+  for (const [field, val] of fields) {
+    for (const ch of String(val)) {
+      if (/\p{L}/u.test(ch) && !CYR.test(ch) && !LAT.test(ch)) {
+        stray++;
+        console.log(`   STRAY ${i.front}@u${i.unit} ${field}: U+${ch.codePointAt(0).toString(16).toUpperCase()}`);
+        break;
+      }
+    }
+  }
+}
+console.log(`8. stray non-Cyrillic non-Latin letters in a card field: ${stray}`);
+fails += stray;
+
 console.log(`\n${fails === 0 ? "PASS" : `FAIL — ${fails} finding(s)`}`);
 process.exit(fails === 0 ? 0 : 1);
