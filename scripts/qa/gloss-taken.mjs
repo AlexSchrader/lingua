@@ -13,7 +13,11 @@
 // caught दुगना, which `front-taken.mjs` passed because दुगुना (u45) is spelled
 // differently — one lexeme, two spellings, and only the gloss saw it.
 
-import { HI_UNITS } from "../../src/data/hi/index.js";
+import { UNITS } from "../../src/data/index.js";
+const LANG = process.argv[2];
+if (!LANG) { console.error('usage: node scripts/qa/gloss-taken.mjs <lang> "<gloss>" ["<gloss>" ...]'); process.exit(2); }
+const HI_UNITS = UNITS.filter((u) => u.lang === LANG);
+if (!HI_UNITS.length) { console.error(`no units for language "${LANG}"`); process.exit(2); }
 const nm = (s="") => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")
   .replace(/\(.*?\)/g," ").replace(/\s+/g," ").trim()
   .replace(/^(?:a|an|the)\s+/,"").replace(/^to\s+/,"");
@@ -24,6 +28,6 @@ for (const u of HI_UNITS) for (const l of (u.lessons||[])) for (const it of (l.i
     if (!m.has(k)) m.set(k,[]); m.get(k).push(`${it.front}@u${u.order}`);
   }
 const out=[];
-for (const g of process.argv.slice(2)) { const k=nm(g);
+for (const g of process.argv.slice(3)) { const k=nm(g);
   if (m.has(k)) out.push(`COLLIDE "${g}" -> ${[...new Set(m.get(k))].join(" ")}`); }
 console.log(out.length?out.join("\n"):"all glosses free");

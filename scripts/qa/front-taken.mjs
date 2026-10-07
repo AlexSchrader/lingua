@@ -13,12 +13,16 @@
 // imperative of मानना (u26). Check your candidate against the -ा/-ी/-े/-ो paradigm
 // of every taught verb and -आ adjective by hand as well.
 
-import { HI_UNITS } from "../../src/data/hi/index.js";
+import { UNITS } from "../../src/data/index.js";
+const LANG = process.argv[2];
+if (!LANG) { console.error("usage: node scripts/qa/front-taken.mjs <lang> <front> [front ...]"); process.exit(2); }
+const units = UNITS.filter((u) => u.lang === LANG);
+if (!units.length) { console.error(`no units for language "${LANG}"`); process.exit(2); }
 const byFront=new Map();
-for (const u of HI_UNITS) for (const l of (u.lessons||[])) for (const it of (l.items||[]))
+for (const u of units) for (const l of (u.lessons||[])) for (const it of (l.items||[]))
   byFront.set(it.front, `u${u.order}`);
 const out=[];
-for (const w of process.argv.slice(2)) {
+for (const w of process.argv.slice(3)) {
   const h=byFront.get(w);
   if (h) out.push(`X${w}(${h})`);
 }
