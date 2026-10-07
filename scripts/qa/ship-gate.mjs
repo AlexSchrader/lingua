@@ -59,6 +59,29 @@ for (const L of langs) {
   single.length ? console.log(`   ⚠ ${single.length} vocab route to only ONE kind — usually unvoiced content`)
                 : OK("no vocab stuck on a single kind");
 
+  // 1b. A DRILL OVER 8 TOKENS SILENTLY KILLS sentence:build.
+  //
+  // `sentenceTokens` bounds a non-Japanese sentence to 3-8 tiles, so a 9-token
+  // drill makes canSentence false and the item loses a card kind with nothing red
+  // anywhere. A Hindi B2 seat found 23 of them in one block on 2026-10-07.
+  // crossblock.mjs had been printing `canSentence 289/312` the whole time and
+  // nobody read it, me included. A number nobody reads is not a check.
+  //
+  // THIS TESTS THE TOKEN COUNT, NOT canSentence ITSELF. Measuring canSentence
+  // wholesale flags what is structurally impossible and so gets switched off: a
+  // single-character front cannot be clozed at all (à, y, e, я, に), a split front
+  // like `ne … pas` is not one contiguous word, and Japanese sentence:build
+  // additionally requires a particle immediately after the front — which is the
+  // designed ~37% yield, not a defect. My first version reported 340 ja and 60 fr
+  // "failures" that were all of that kind.
+  const longDrill = vocab.filter((i) => {
+    const d = i.drill?.jp; if (!d) return false;
+    if (/[぀-ヿ一-鿿]/.test(String(i.front))) return false; // ja is tokenised differently
+    return String(d).trim().split(/\s+/).length > 8;
+  });
+  longDrill.length ? FAIL(`${longDrill.length} drills run over 8 tokens, so sentence:build cannot route them (${longDrill.slice(0, 3).map((x) => x.id).join(", ")})`)
+                   : OK("no drill exceeds the 8-token sentence:build bound");
+
   // 2. AUDIO — the other thing nothing asked
   const voiceable = items.filter((i) => i.type === "vocab" || i.type === "glyph" || i.type === "kana" || i.type === "kanji");
   const silent = voiceable.filter((i) => !existsSync(join("public", "audio", L, `${i.id}.mp3`)));
