@@ -1,18 +1,120 @@
-// ID Unit 90 — Systems and abstraction (slot: abstraction) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// ID Unit 90 — Golongan, kriteria, dan perumpamaan ("Classification, criteria
+// and analogy") — B2
+// B2 block 1 (u88–u100). CONVENTIONS: see unit88.js §C1–§C12 — binding here.
+//
+// §C-C1. RETHEMED ON MEASURED EVIDENCE, NOT PREFERENCE. The scaffold slot is
+//        "Systems and abstraction". **u58 `Konsep, makna, dan pola` already owns
+//        that field**: probed 25 candidates for the slot as titled and **10 came
+//        back TAKEN** — `sistem`(u58) `unsur`(u58) `kerangka`(u58)
+//        `struktur`(u58) `abstrak`(u58) `definisi`(u58) `jaringan`(u43)
+//        `saling`(u15) `bagian`(u14) `rancangan`(u56). A unit built on the
+//        remainder would be fifteen words thin and half of it synonyms.
+//        **The same field one step over is almost untouched:** probed 24
+//        candidates for classification, criteria and figurative language —
+//        **21 free of 24**, with only `ciri`(u49), `definisi`(u58) and
+//        `abstrak`(u58) spoken for. That is this unit.
+//
+// §C-C2. WHY IT IS A COHERENT UNIT AND NOT THREE. The three lessons are one
+//        move in three steps, which is what B2 adds over B1: you SORT a thing
+//        into a class (l1), you say BY WHAT MEASURE you sorted it (l2), you pull
+//        the abstraction up or down (l3), and when the plain words run out you
+//        reach for a figure (l4). u58 gave the learner `konsep`, `makna` and
+//        `pola`; this unit gives them the operations you perform with those.
+//
+// §C-C3. AFFIX ROOTS STRIPPED AND GREPPED BY HAND (C3/C4):
+//        `menggolongkan`/`golongan`←golong (not taught) — verb+noun in one
+//        lesson, house style per C4 · `klasifikasi`, `kategori`, `himpunan`,
+//        `lapisan`, `kriteria`, `indikator`, `batasan`, `variabel`, `bobot`,
+//        `analogi`, `metafora`, `kiasan`, `ibarat` — roots not taught ·
+//        `mendefinisikan`←**definisi (u58)** — KEPT under C4 as one of this
+//        unit's two allowed circumfixes; the verb is the new learning and the
+//        hint names the noun · `perumusan`←**rumus (u44, a formula)** — KEPT as
+//        the second; "formulation" is not derivable from "a formula" ·
+//        `menyederhanakan`/`penyederhanaan`←sederhana (not a taught front) ·
+//        `perumpamaan`←umpama (not taught) · `menyerupai`←serupa (not taught).
+//
+// §C-C4. REFUSED HERE, AND BOTH FOR THE SAME MECHANICAL REASON (C5). `parameter`
+//        — the natural gloss "a parameter" folds to the front after
+//        `normalizeMeaning` strips the article, so the card shows "parameter"
+//        and accepts "parameter". Replaced with **`batasan`**. `model` — same,
+//        "a model" ⇒ "model". Replaced with **`perumpamaan`**, which is the word
+//        the figurative lesson actually needed. Also refused: `ragam`, because
+//        the allocation gives `beragam`/`keberagaman` to u99 and three cards off
+//        one root across two units is what C4 forbids; `patokan`, given to u91.
 export const ID_UNIT90 = {
   id: "id-u90",
   lang: "id",
-  title: "Systems and abstraction",
+  title: "Golongan, kriteria, dan perumpamaan",
   order: 90,
   stage: "b2",
   lessons: [
-    { id: "id-u90l1", title: "Lesson 1", locked: true },
-    { id: "id-u90l2", title: "Lesson 2", locked: true },
-    { id: "id-u90l3", title: "Lesson 3", locked: true },
-    { id: "id-u90l4", title: "Lesson 4", locked: true },
+    {
+      id: "id-u90l1",
+      unit: 90,
+      lesson: 1,
+      title: "Menggolongkan",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Sort things into classes and talk about the sorting — put something in a class, name the class, name a category, name the whole scheme, name a set taken together, and name one tier of several.",
+      items: [
+        { id: "id-u90l1-menggolongkan", type: "vocab", front: "menggolongkan", reading: "menggolongkan", meaning: "to sort into classes", example: { jp: "Ahli itu menggolongkan semua pendapat menjadi tiga kelompok besar.", en: "That expert sorted all the opinions into three large groups." }, accept: ["to classify", "to group by kind", "to place in a class"], drill: { jp: "Dia menggolongkan binatang itu menurut makanannya", en: "She classifies those animals by their food" }, hint: "muhng-goh-lohng-KAHN, four syllables, hard g both times. The root golong is a bundling-together. ⚠️ It takes menjadi or ke dalam for the classes you end up with, never kepada. Keep it apart from membagi, to divide, which you know: dividing splits one thing into parts, menggolongkan sorts many things into kinds." },
+        { id: "id-u90l1-golongan", type: "vocab", front: "golongan", reading: "golongan", meaning: "a class things are sorted into", example: { jp: "Obat itu masuk golongan yang hanya boleh dijual dengan surat dokter.", en: "That medicine falls in the class that may only be sold with a doctor's letter." }, accept: ["a category of things", "a bracket", "a classed grouping"], drill: { jp: "Barang itu masuk golongan yang mahal", en: "That item falls in the expensive class" }, hint: "goh-LOHNG-an. The noun of the card before it. ⚠️ Keep it well apart from kelompok, a group, which you know from A2: a kelompok is any set of people standing together, a golongan is a bracket somebody DEFINED — tax brackets, blood groups, drug schedules. Golongan darah is your blood type, and it is on every Indonesian ID card." },
+        { id: "id-u90l1-kategori", type: "vocab", front: "kategori", reading: "kategori", meaning: "a named heading in a scheme", example: { jp: "Setiap karya masuk satu kategori saja dalam pameran besar itu.", en: "Each work goes in one category only in that big exhibition." }, accept: ["a category", "a heading things are filed under", "a class in a scheme"], drill: { jp: "Karya itu menang di kategori pertama", en: "That work won in the first category" }, hint: "kah-tuh-GOH-ree, four syllables, hard g. ⚠️ The practical difference from golongan, the card before: a golongan is a bracket with CONSEQUENCES — tax, price, dosage — while a kategori is just a heading for sorting. A competition has kategori; a tax office has golongan. Both translate as category, which is exactly why they need separating." },
+        { id: "id-u90l1-klasifikasi", type: "vocab", front: "klasifikasi", reading: "klasifikasi", meaning: "a whole scheme of classes", example: { jp: "Klasifikasi yang dipakai di pustaka itu sudah lama tidak diubah.", en: "The classification scheme used in that library has not been changed for a long time." }, accept: ["a classification system", "a taxonomy", "the scheme used for sorting"], drill: { jp: "Klasifikasi lama itu sudah tidak dipakai", en: "That old classification is no longer used" }, hint: "klah-see-fee-KAH-see, five syllables. ⚠️ This is the SYSTEM, where golongan and kategori are single places inside one. The distinction matters in a sentence: you argue about the klasifikasi when you think the whole scheme is wrong, and about the kategori when you think one item is in the wrong box." },
+        { id: "id-u90l1-himpunan", type: "vocab", front: "himpunan", reading: "himpunan", meaning: "a set taken as one thing", example: { jp: "Himpunan dari semua angka itu dipakai dalam rumus di bab dua.", en: "The set of all those numbers is used in the formula in the second chapter." }, accept: ["a collection taken together", "a set in the mathematical sense", "an aggregate"], drill: { jp: "Himpunan itu hanya berisi tiga angka", en: "That set contains only three numbers" }, hint: "heem-POO-nan. From himpun, to gather. ⚠️ Two lives, and a learner meets both: in a maths class it is a set, with all the formal machinery English gives the word. On a campus it is a students' association — Himpunan Mahasiswa is the department society on every Indonesian campus. Context separates them entirely." },
+        { id: "id-u90l1-lapisan", type: "vocab", front: "lapisan", reading: "lapisan", meaning: "one tier among several stacked", example: { jp: "Lapisan paling bawah dalam masyarakat itu paling sedikit mendapat sumbangan.", en: "The bottom tier in that society gets the least in donations." }, accept: ["a layer", "a stratum", "one level of a stack"], drill: { jp: "Lapisan atas tanah itu sangat tipis", en: "The top layer of that soil is very thin" }, hint: "lah-PEE-san. From lapis, a layer. ⚠️ The reason it belongs in a classification lesson rather than a geology one: Indonesian uses it constantly for SOCIAL strata — lapisan masyarakat, the layers of society — and that is the sense this band needs. Unlike golongan, a lapisan is ordered: there is a top and a bottom." },
+      ],
+    },
+    {
+      id: "id-u90l2",
+      unit: 90,
+      lesson: 2,
+      title: "Kriteria dan tolok ukur",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say by what measure something was judged — name a criterion, name the yardstick, name a signal you read off, name a limit set on the thing, name a quantity that can change, and say how much weight one factor carries.",
+      items: [
+        { id: "id-u90l2-kriteria", type: "vocab", front: "kriteria", reading: "kriteria", meaning: "a condition something must meet", example: { jp: "Hanya tiga calon yang memenuhi semua kriteria dalam pengumuman itu.", en: "Only three candidates meet all the conditions in that announcement." }, accept: ["a criterion", "a requirement to be met", "a test of eligibility"], drill: { jp: "Calon itu memenuhi semua kriteria kami", en: "That candidate meets all our criteria" }, hint: "kree-TEH-ree-ah, four syllables. ⚠️ Indonesian treats it as both singular and plural, so satu kriteria and semua kriteria are both correct and there is no kriterion. Memenuhi kriteria, to meet the criteria, is the fixed phrase on every job advert and every grant form you will read." },
+        { id: "id-u90l2-tolokukur", type: "vocab", front: "tolok ukur", reading: "tolokukur", meaning: "the yardstick a judgement is made against", example: { jp: "Nilai ujian tidak boleh menjadi tolok ukur satu-satunya untuk pelajar.", en: "Exam marks must not become the only yardstick for a pupil." }, accept: ["a benchmark", "the measure used to judge", "a standard of comparison"], drill: { jp: "Angka itu bukan tolok ukur yang adil", en: "That figure is not a fair yardstick" }, hint: "TOH-lohk OO-koor. Two words: tolok means equal-to, and ukur is to measure, which you know from u40 — so it is the thing you measure AGAINST. ⚠️ Spelling trap even for Indonesians: it is tolok, never tolak (to reject, which you know from u22). Keep it apart from kriteria, the card before: a kriterion is a condition you pass or fail, a tolok ukur is a scale you score on." },
+        { id: "id-u90l2-indikator", type: "vocab", front: "indikator", reading: "indikator", meaning: "a visible sign used to judge something hidden", example: { jp: "Jumlah pelajar yang berhenti sekolah menjadi indikator masalah yang lebih besar.", en: "The number of pupils who drop out is a sign of a bigger problem." }, accept: ["an indicator", "a measurable sign", "a proxy for something unseen"], drill: { jp: "Angka itu indikator keadaan yang buruk", en: "That figure is an indicator of a bad situation" }, hint: "een-dee-KAH-tohr, four syllables. ⚠️ What makes it different from tolok ukur, the card before, is DIRECTION: a tolok ukur is the scale you chose, an indikator is a thing you can see that stands in for a thing you cannot. Unemployment is an indikator of the economy; it is not the economy." },
+        { id: "id-u90l2-batasan", type: "vocab", front: "batasan", reading: "batasan", meaning: "a limit deliberately set on something", example: { jp: "Ahli itu menulis batasan penelitiannya di awal bab pertama.", en: "That researcher wrote the limits of his study at the start of the first chapter." }, accept: ["a defined limit", "a bound set in advance", "the scope something is held to"], drill: { jp: "Batasan dalam penelitian itu sudah jelas", en: "The limits in that study are clear now" }, hint: "bah-TAH-san. ⚠️ You already know batas, a border or limit, from A2 — and the -an form is NOT just its plural. A batas is where a thing happens to end; a batasan is a limit somebody CHOSE and wrote down. Batasan masalah is the section of every Indonesian thesis that says what the writer is deliberately not covering." },
+        { id: "id-u90l2-variabel", type: "vocab", front: "variabel", reading: "variabel", meaning: "a quantity that is allowed to change", example: { jp: "Dalam percobaan itu hanya satu variabel yang diubah setiap kali.", en: "In that experiment only one quantity was changed each time." }, accept: ["a variable", "a factor that varies", "a changing quantity in a study"], drill: { jp: "Satu variabel saja diubah setiap kali", en: "Only one variable is changed each time" }, hint: "fah-ree-AH-buhl, four syllables — the v is said like an f. ⚠️ Note the Indonesian spelling: variabel with -el, not variable. Worth holding beside tolok ukur and indikator: a variabel is what you MEASURE, a tolok ukur is what you measure against, and an indikator is what you accept as a stand-in." },
+        { id: "id-u90l2-bobot", type: "vocab", front: "bobot", reading: "bobot", meaning: "how much weight one factor is given", example: { jp: "Nilai ujian akhir punya bobot paling besar di antara semua nilai.", en: "The final exam mark carries the greatest weight among all the marks." }, accept: ["weighting", "the importance assigned to a factor", "substance and gravity"], drill: { jp: "Nilai itu punya bobot paling besar", en: "That mark carries the greatest weight" }, hint: "BOH-boht. ⚠️ Not physical weight — that is berat, which you have had since A1. Bobot is weight in the figurative sense only, and it runs in two directions a learner needs: bobot nilai is the percentage a mark counts for, and tulisan yang berbobot is a piece of writing with real substance. Tanpa bobot means lightweight, dismissively." },
+      ],
+    },
+    {
+      id: "id-u90l3",
+      unit: 90,
+      lesson: 3,
+      title: "Abstrak jadi konkret",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Move between the general and the particular — pin down what a word will mean, say a thing is concrete, name an over-broad leap, cut something down to its simplest form, name that cutting-down, and name the wording a rule was finally given.",
+      items: [
+        { id: "id-u90l3-mendefinisikan", type: "vocab", front: "mendefinisikan", reading: "mendefinisikan", meaning: "to pin down what a word will mean", example: { jp: "Pengarang itu mendefinisikan kata kunci di awal bab supaya pembaca tidak salah.", en: "That author pins down the key words at the start of the chapter so readers do not go wrong." }, accept: ["to define", "to fix the sense of a term", "to state what is meant by"], drill: { jp: "Dia mendefinisikan kata itu dengan hati-hati", en: "She defines that word carefully" }, hint: "muhn-deh-fee-nee-see-KAHN, six syllables. ⚠️ You already know the noun definisi from u58; this is the ACT, and it is the new learning. The difference matters in an argument: a definisi is a thing you can look up, mendefinisikan is a choice a writer makes — and choosing a narrow definition is itself a move in a polemik." },
+        { id: "id-u90l3-konkret", type: "vocab", front: "konkret", reading: "konkret", meaning: "particular enough to point at", example: { jp: "Dewan itu meminta contoh yang konkret, bukan rencana yang masih berupa wacana.", en: "That council asked for a concrete example, not a plan that is still only talk." }, accept: ["concrete", "specific and tangible", "actual rather than general"], drill: { jp: "Kami butuh contoh yang konkret sekarang", en: "We need a concrete example now" }, hint: "KOHN-kreht. ⚠️ Spelling: Indonesian writes konkret, with no c and no -e on the end — konkrit is common but not standard. It is the exact opposite of abstrak, which you know from u58, and the pair is how Indonesian argues about vagueness: lebih konkret, dong, be more specific, is what a frustrated meeting says." },
+        { id: "id-u90l3-generalisasi", type: "vocab", front: "generalisasi", reading: "generalisasi", meaning: "a claim about all of something from a few cases", example: { jp: "Pendapat itu hanya generalisasi dari tiga orang saja.", en: "That conclusion is only a sweeping claim drawn from three people." }, accept: ["a generalisation", "a sweeping conclusion", "an over-broad inference"], drill: { jp: "Generalisasi itu dibuat dari tiga contoh", en: "That generalisation is made from three examples" }, hint: "geh-nuh-rah-lee-SAH-see, six syllables, hard g. ⚠️ In Indonesian it leans NEGATIVE almost all the time: calling something a generalisasi is an accusation that the writer went too far from too little. The neutral act of reasoning from examples is menyimpulkan, which you met in u49 — keep the two apart or you will insult somebody by accident." },
+        { id: "id-u90l3-menyederhanakan", type: "vocab", front: "menyederhanakan", reading: "menyederhanakan", meaning: "to cut something down to its simplest form", example: { jp: "Mereka menyederhanakan formulir itu supaya warga tidak bingung.", en: "They cut that form down to its simplest form so that citizens would not be confused." }, accept: ["to simplify", "to strip down", "to make less complicated"], drill: { jp: "Mereka menyederhanakan aturan lama itu", en: "They simplify that old rule" }, hint: "muh-nyuh-duhr-hah-nah-KAHN, six syllables, ny one sound. Built on sederhana, simple, which you know. ⚠️ It is neutral in Indonesian, unlike English simplify, which can imply loss — if you mean that something was flattened and damaged, the word is menyederhanakan secara berlebihan or just a complaint that the uraian is gone." },
+        { id: "id-u90l3-penyederhanaan", type: "vocab", front: "penyederhanaan", reading: "penyederhanaan", meaning: "a deliberate cutting-down", example: { jp: "Penyederhanaan prosedur itu membuat waktu tunggu jauh lebih pendek.", en: "The simplification of that procedure made the waiting time far shorter." }, accept: ["simplification", "a streamlining", "a reduction to essentials"], drill: { jp: "Penyederhanaan itu membantu banyak warga", en: "That simplification helps many citizens" }, hint: "puh-nyuh-duhr-hah-NAH-an, seven syllables and genuinely long — Indonesian builds this kind of word freely, and getting comfortable with pe-...-an nouns is half of reading official prose. It is the noun of the card before it. ⚠️ Note the two a's at the end: -naan, not -nan." },
+        { id: "id-u90l3-perumusan", type: "vocab", front: "perumusan", reading: "perumusan", meaning: "the wording a rule is finally given", example: { jp: "Perumusan aturan itu diubah tiga kali sebelum dewan setuju.", en: "The wording of that rule was changed three times before the council agreed." }, accept: ["formulation", "the drafting of exact wording", "how something was finally put"], drill: { jp: "Perumusan aturan itu masih diperiksa", en: "The wording of that rule is still being checked" }, hint: "puh-roo-MOO-san. ⚠️ Built on rumus, a formula, which you know from u44 — and the noun means something the root does not: not the formula itself but the WORK of settling how a rule will read. It is a political word in Indonesia: perumusan kebijakan is policy formulation, and the fights happen there rather than in the voting." },
+      ],
+    },
+    {
+      id: "id-u90l4",
+      unit: 90,
+      lesson: 4,
+      title: "Kiasan dan perumpamaan",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Explain by comparison when plain words run out — draw a parallel, name a figure that calls one thing another, name a likeness used to teach, say a thing is like another, name non-literal speech, and say two things resemble each other.",
+      items: [
+        { id: "id-u90l4-analogi", type: "vocab", front: "analogi", reading: "analogi", meaning: "a parallel drawn to explain something", example: { jp: "Dosen itu memakai analogi tentang air supaya mahasiswa mengerti listrik.", en: "That lecturer used a parallel about water so the students would understand electricity." }, accept: ["an analogy", "a parallel case", "a comparison used to explain"], drill: { jp: "Analogi itu membantu mahasiswa baru mengerti", en: "That analogy helps new students understand" }, hint: "ah-nah-LOH-gee, hard g. A structural comparison: *this works the way that works*. ⚠️ Keep it apart from contoh, an example, which you have had since A1: an example is one of the things you are talking about, an analogi is something else entirely that has the same shape. Analogi yang keliru, a false analogy, is the standard objection." },
+        { id: "id-u90l4-metafora", type: "vocab", front: "metafora", reading: "metafora", meaning: "a figure that calls one thing another outright", example: { jp: "Dalam puisi itu ada metafora tentang laut yang menjadi ibu.", en: "In that poem there is a figure calling the sea a mother." }, accept: ["a metaphor", "an image standing for something else", "a figure of identification"], drill: { jp: "Metafora dalam puisi itu sangat kuat", en: "The metaphor in that poem is very strong" }, hint: "meh-tah-FOH-rah. ⚠️ The line against analogi, the card before, is the same one English draws: an analogi says A works LIKE B and argues from it, a metafora simply says A IS B and lets the image do the work. A lecturer reaches for an analogi, a poet for a metafora — and u81 gave you puisi and sajak to talk about where they live." },
+        { id: "id-u90l4-perumpamaan", type: "vocab", front: "perumpamaan", reading: "perumpamaan", meaning: "a likeness told to teach a lesson", example: { jp: "Guru itu memberi perumpamaan tentang petani dan benih kepada pelajar kecil.", en: "That teacher gave a likeness about a farmer and a seed to the small pupils." }, accept: ["a parable", "an illustrative comparison", "a figure told as a little story"], drill: { jp: "Perumpamaan itu mudah diingat anak kecil", en: "That parable is easy for a small child to remember" }, hint: "puh-room-pah-MAH-an, five syllables. From umpama, likeness. ⚠️ Longer and warmer than the two cards before it: a perumpamaan is usually a little STORY told to teach, which is why it is the word Indonesian religious teaching uses for a parable. It also means a figure of speech generally, so context decides how literary it sounds." },
+        { id: "id-u90l4-ibarat", type: "vocab", front: "ibarat", reading: "ibarat", meaning: "just like, introducing a comparison", example: { jp: "Belajar bahasa ibarat menanam pohon: hasilnya datang lama sesudah pekerjaannya.", en: "Learning a language is just like planting a tree: the result comes long after the work." }, accept: ["much as", "by way of comparison", "as though it were"], drill: { jp: "Belajar ibarat perjalanan yang panjang", en: "Learning is like a long journey" }, hint: "ee-BAH-raht. ⚠️ This one is a WORD YOU USE, not a word you talk about — it sits in the middle of the sentence where English puts *is like*. You already know seperti for plain comparison; ibarat is heavier and more deliberate, the opener of a proverb or a considered image. Ibarat kata means so to speak." },
+        { id: "id-u90l4-kiasan", type: "vocab", front: "kiasan", reading: "kiasan", meaning: "words not meant literally", example: { jp: "Kalimat itu kiasan saja, jadi jangan dibaca seperti berita.", en: "That sentence is only figurative, so do not read it like a news report." }, accept: ["figurative language", "a non-literal expression", "words meant by implication"], drill: { jp: "Kalimat itu kiasan bukan keterangan resmi", en: "That sentence is figurative not an official statement" }, hint: "kee-AH-san. From kias, a comparison. ⚠️ The useful thing is the pair it forms with literal meaning: arti kiasan versus arti harfiah is how an Indonesian dictionary labels the two senses of a word. So kiasan is the CATEGORY that metafora and perumpamaan both belong to, and saying something is kiasan is a request not to take it at face value." },
+        { id: "id-u90l4-menyerupai", type: "vocab", front: "menyerupai", reading: "menyerupai", meaning: "to resemble closely", example: { jp: "Pola di kain itu menyerupai pola yang dipakai di pulau sebelah.", en: "The pattern on that cloth closely resembles the pattern used on the next island." }, accept: ["to look like", "to be similar to", "to bear a likeness to"], drill: { jp: "Bentuk batu itu menyerupai kepala burung", en: "That rock's shape resembles a bird's head" }, hint: "muh-nyuh-roo-PAH-ee, five syllables, ny one sound. From serupa, alike. ⚠️ It is a statement of FACT about two things, where the four cards before it are all moves a speaker makes. So you use menyerupai in a description and ibarat in an argument — and a careful writer never uses menyerupai to smuggle in a comparison they have not earned." },
+      ],
+    },
   ],
 };

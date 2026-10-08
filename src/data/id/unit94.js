@@ -1,18 +1,125 @@
-// ID Unit 94 — Science and technology (slot: science-tech) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// ID Unit 94 — Kaidah ilmiah dan percobaan ("Scientific method and the
+// laboratory") — B2
+// B2 block 1 (u88–u100). CONVENTIONS: see unit88.js §C1–§C12 — binding here.
+//
+// §C-G1. NARROWED FROM "Science and technology", WHICH IS THREE UNITS WIDE AND
+//        TWO OF THEM EXIST. **u44 `Ilmu dan kuliah`** owns the academic frame
+//        (`teori` `rumus` `percobaan` `meneliti` `penelitian` `memeriksa`),
+//        **u42 `Listrik dan mesin`** owns machines and **u43 `Komputer dan
+//        jaringan`** owns computing. Probed 27 candidates for the slot as titled
+//        and **9 came back TAKEN** — all from those three. What no unit has is
+//        **the METHOD and the BENCH**: the hypothesis, the observation, the
+//        specimen, the sample, and the matter the experiment is made of. 18 free.
+//
+// §C-G2. BOUNDARY WITH u103 AND u117, BOTH LATER BLOCKS'. ⚠️ Read this before
+//        authoring either.
+//        • **u94 owns THE METHOD AND THE LAB. u103 `Education and research`
+//          owns THE INSTITUTION** — the university, the thesis, the supervisor,
+//          the scholarship, the curriculum, the viva. If a word describes a
+//          building, a qualification or a career it is u103's; if it describes
+//          what you do at a bench it is this unit's.
+//        • **u94 owns CHEMISTRY AS A SCIENCE (`senyawa` `molekul` `partikel`
+//          `reaksi` `kimia`). u117 `Zat, aliran, dan wujud` owns the EVERYDAY
+//          PHYSICS of substances** — `mengalir` `mendidih` `menguap` `larut` and,
+//          by the allocation, the word **`zat`** itself. This unit deliberately
+//          does NOT teach `zat`, so that u117 can.
+//
+// §C-G3. AFFIX ROOTS STRIPPED AND GREPPED BY HAND (C3/C4). Zero circumfix
+//        families, which is unusually clean for a B2 unit:
+//        `pengamatan`/`mengamati`←amat (not a taught front) — verb+noun pair,
+//        house style per C4 · `temuan`←temu (not taught; `menemukan` is u39's
+//        and is named in the hint) · `penemu`←same root, agent noun, a PERSON ·
+//        `menguji`←uji (not taught; `ujian`, an exam, is u18's and is named in
+//        the hint) · `terapan`←terap (not taught) · `kaidah` `hipotesis`
+//        `laboratorium` `spesimen` `mikroskop` `eksperimen` `takaran` `sampel`
+//        `sel` `molekul` `partikel` `senyawa` `kimia` `reaksi` `rekayasa`
+//        `purwarupa` `paten` `inovasi` — roots not taught.
+//        ⚠️ `pengujian`←**ujian(u18)** was flagged and DROPPED for `sampel`: the
+//        unit already has `menguji` and did not need a third word off that root.
+//
+// §C-G4. REFUSED HERE. `atom` — the natural gloss "an atom" folds to the front
+//        once `normalizeMeaning` strips the article, so the card would show
+//        "atom" and accept "atom" (C5). Replaced with **`partikel`**, whose
+//        Indonesian spelling genuinely diverges from the English. Also refused:
+//        `unsur`, TAKEN by u58 in its abstract sense of "element of a thing",
+//        which means the CHEMICAL element has no front available in this
+//        language — that is a real hole and it is named here rather than worked
+//        around. A later seat wanting it must use a phrase such as `unsur kimia`
+//        and fold-check it first (C8).
 export const ID_UNIT94 = {
   id: "id-u94",
   lang: "id",
-  title: "Science and technology",
+  title: "Kaidah ilmiah dan percobaan",
   order: 94,
   stage: "b2",
   lessons: [
-    { id: "id-u94l1", title: "Lesson 1", locked: true },
-    { id: "id-u94l2", title: "Lesson 2", locked: true },
-    { id: "id-u94l3", title: "Lesson 3", locked: true },
-    { id: "id-u94l4", title: "Lesson 4", locked: true },
+    {
+      id: "id-u94l1",
+      unit: 94,
+      lesson: 1,
+      title: "Hipotesis dan pengamatan",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Describe how a scientific claim is made and tested — state a hypothesis, name systematic observation, say somebody is observing, name a governing rule, name what the study found, and say somebody put a claim to the test.",
+      items: [
+        { id: "id-u94l1-hipotesis", type: "vocab", front: "hipotesis", reading: "hipotesis", meaning: "a claim set up to be tested", example: { jp: "Hipotesis dalam penelitian itu ditolak setelah dua percobaan.", en: "The hypothesis in that study was rejected after two experiments." }, accept: ["a hypothesis", "a testable proposition", "a provisional claim to be checked"], drill: { jp: "Hipotesis dalam penelitian itu akhirnya ditolak", en: "The hypothesis in that study was finally rejected" }, hint: "hee-poh-TEH-sees. ⚠️ Keep it apart from u88's premis and u54's dugaan: a premis is what an argument ASSUMES and never tests, a dugaan is a guess somebody holds, and a hipotesis is written down precisely so that a percobaan can knock it over. Hipotesis ditolak, the hypothesis is rejected, is a normal good result and not a failure." },
+        { id: "id-u94l1-pengamatan", type: "vocab", front: "pengamatan", reading: "pengamatan", meaning: "watching something systematically to record it", example: { jp: "Pengamatan terhadap burung di pulau itu dilakukan selama enam bulan.", en: "The observation of birds on that island was carried out for six months." }, accept: ["systematic observation", "a period of recorded watching", "field observation"], drill: { jp: "Pengamatan terhadap burung itu memakan enam bulan", en: "Observing those birds took six months" }, hint: "puh-ngah-MAH-tan. ⚠️ Not simply looking: a pengamatan has a method, a duration and a record, which is why it is the second chapter of every field study. Keep it apart from u89's pengecekan, which checks something already claimed, and from penelitian, research, which you know from u71 — a penelitian may contain several pengamatan." },
+        { id: "id-u94l1-mengamati", type: "vocab", front: "mengamati", reading: "mengamati", meaning: "to watch closely and deliberately", example: { jp: "Ahli muda itu mengamati perubahan suhu setiap dua jam.", en: "That young researcher observed the temperature change every two hours." }, accept: ["to observe attentively", "to study by watching", "to monitor closely"], drill: { jp: "Ahli itu mengamati perubahan suhu setiap jam", en: "That researcher observes the temperature change hourly" }, hint: "muh-ngah-MAH-tee. The verb of the card before it. ⚠️ Three verbs of looking and they are not the same: melihat, which you have had since A1, is simply to see; memperhatikan is to pay attention; mengamati is to watch with a purpose and usually a notebook. An amatir is literally one who merely watches — the same Latin root arriving by a different road." },
+        { id: "id-u94l1-kaidah", type: "vocab", front: "kaidah", reading: "kaidah", meaning: "a governing rule of a field", example: { jp: "Kaidah penulisan laporan itu harus diikuti oleh semua mahasiswa.", en: "That rule of report writing must be followed by all students." }, accept: ["a principle of practice", "an established rule of a discipline", "a canon"], drill: { jp: "Kaidah penulisan itu harus diikuti semua mahasiswa", en: "That writing rule must be followed by all students" }, hint: "KAH-ee-dah, from Arabic. ⚠️ Heavier than aturan, a rule, which you have had since A2: an aturan is made by somebody and can be changed by them, a kaidah is a principle the field itself rests on. You will meet it most in two places — kaidah bahasa, the rules of the language, and kaidah ilmiah, scientific principle." },
+        { id: "id-u94l1-temuan", type: "vocab", front: "temuan", reading: "temuan", meaning: "what a study found", example: { jp: "Temuan dari penelitian itu diterbitkan di dua negara.", en: "The findings from that study were published in two countries." }, accept: ["a research finding", "the result arrived at", "what came to light"], drill: { jp: "Temuan dari penelitian itu sudah diterbitkan", en: "The findings from that study are published" }, hint: "tuh-MOO-an. ⚠️ Built on temu, the root behind menemukan, to find, which you know from u39 — and the noun names the RESULT, which the verb does not. Keep it apart from hasil, a result, which you have had since A2: a hasil is any outcome, including of a match or a cooking attempt, while a temuan is specifically what an investigation uncovered." },
+        { id: "id-u94l1-menguji", type: "vocab", front: "menguji", reading: "menguji", meaning: "to put a claim or a thing to the test", example: { jp: "Mereka menguji hipotesis itu dengan percobaan yang biasa.", en: "They tested that hypothesis with an ordinary experiment." }, accept: ["to test deliberately", "to subject to trial", "to try out under conditions"], drill: { jp: "Mereka menguji hipotesis itu dengan percobaan biasa", en: "They test that hypothesis with an ordinary experiment" }, hint: "muh-NGOO-jee, ng one hum. ⚠️ You already know ujian, an exam, from u18 — same root, and the connection is worth seeing, because an exam is a test applied to a person. Menguji takes anything: a hypothesis, a machine, a theory, somebody's patience. Note the passive diuji, which is how a lab report says it was tested, with nobody named." },
+      ],
+    },
+    {
+      id: "id-u94l2",
+      unit: 94,
+      lesson: 2,
+      title: "Di laboratorium",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Describe the bench and the material on it — name the laboratory, name a preserved specimen, name the microscope, name a controlled experiment, name the measured dose, and name the portion taken to stand for the whole.",
+      items: [
+        { id: "id-u94l2-laboratorium", type: "vocab", front: "laboratorium", reading: "laboratorium", meaning: "a room fitted out for experiments", example: { jp: "Laboratorium di sekolah itu baru dibuka setelah penyempurnaan selama setahun.", en: "The laboratory at that campus was only opened after a year of refurbishment." }, accept: ["a laboratory", "a research workroom", "a lab"], drill: { jp: "Laboratorium di sekolah itu baru dibuka", en: "The laboratory at that campus just opened" }, hint: "lah-boh-rah-TOH-ree-oom, six syllables. ⚠️ The Dutch-derived full form is what you write; in speech everybody says lab, and uji lab means a laboratory test. Note the -um ending, which Indonesian keeps on a whole family of borrowed nouns — museum, stadium, auditorium — and which never changes for plural." },
+        { id: "id-u94l2-spesimen", type: "vocab", front: "spesimen", reading: "spesimen", meaning: "a preserved sample kept for examination", example: { jp: "Spesimen dari gua itu disimpan di laboratorium selama sepuluh tahun.", en: "The specimen from that cave was kept in the laboratory for ten years." }, accept: ["a specimen", "a preserved biological sample", "a kept example for study"], drill: { jp: "Spesimen dari gua itu disimpan sepuluh tahun", en: "The specimen from that cave was kept ten years" }, hint: "SPEH-see-muhn. ⚠️ Note the Indonesian spelling, which is why this word is allowed to be a card at all: spesimen with an s, never specimen. The difference from sampel, three cards on, is purpose: a spesimen is a physical object kept and labelled, a sampel is a portion taken to represent a larger whole." },
+        { id: "id-u94l2-mikroskop", type: "vocab", front: "mikroskop", reading: "mikroskop", meaning: "the instrument for seeing what is too small to see", example: { jp: "Tanpa mikroskop, sel di dalam daun itu tidak bisa diamati.", en: "Without a microscope the cells inside that leaf cannot be observed." }, accept: ["a microscope", "a magnifying instrument", "a lens for the very small"], drill: { jp: "Tanpa mikroskop sel itu tidak bisa diamati", en: "Without a microscope that cell cannot be observed" }, hint: "mee-kroh-SKOHP. ⚠️ Indonesian drops the final -e, so it is mikroskop and never mikroskope — and the same pattern gives you teleskop and mikrofon. Di bawah mikroskop, under the microscope, works figuratively exactly as in English: a decision under scrutiny is di bawah mikroskop." },
+        { id: "id-u94l2-eksperimen", type: "vocab", front: "eksperimen", reading: "eksperimen", meaning: "a trial run under controlled conditions", example: { jp: "Eksperimen itu diulang tiga kali supaya galatnya kecil.", en: "That experiment was repeated three times so its margin of error would be small." }, accept: ["an experiment", "a controlled trial", "a planned test run"], drill: { jp: "Eksperimen itu diulang tiga kali minggu lalu", en: "That experiment was repeated three times last week" }, hint: "ehk-spuh-ree-MEHN, four syllables. ⚠️ You already know percobaan from u44, and the two overlap almost completely — the honest difference is register, not meaning: percobaan is the native word a school textbook uses, eksperimen the borrowed one a journal article uses. Learn both and match the register of what you are reading." },
+        { id: "id-u94l2-takaran", type: "vocab", front: "takaran", reading: "takaran", meaning: "a measured-out quantity", example: { jp: "Takaran obat untuk anak kecil berbeda dari takaran untuk orang dewasa.", en: "The measured dose of medicine for a small child differs from the dose for an adult." }, accept: ["a dose measured out", "a measured portion", "the amount prescribed"], drill: { jp: "Takaran obat untuk anak kecil lebih sedikit", en: "The dose of medicine for a small child is less" }, hint: "tah-KAH-ran. From takar, to measure out by volume. ⚠️ A kitchen and pharmacy word before it is a laboratory one: takaran air, the measure of water in a recipe, and takaran obat, a dose. Keep it apart from ukuran, a size, which you know: an ukuran is how big a thing IS, a takaran is how much of it you DELIBERATELY TOOK." },
+        { id: "id-u94l2-sampel", type: "vocab", front: "sampel", reading: "sampel", meaning: "a portion taken to stand for the whole", example: { jp: "Sampel dari seratus orang itu terlalu kecil untuk penelitian itu.", en: "A sample of a hundred people is too small for that study." }, accept: ["a sample of a population", "a subset taken as representative", "a test portion"], drill: { jp: "Sampel seratus orang itu terlalu kecil", en: "That sample of a hundred people is too small" }, hint: "SAHM-puhl. ⚠️ Indonesian spells it sampel with -el, which is the pattern you met in u90's variabel. The whole concept is representation: a sampel is only useful if it resembles the thing it was taken from, which is why you will read sampel yang mewakili, a representative sample. Contrast spesimen three cards back — kept for itself, not for what it stands for." },
+      ],
+    },
+    {
+      id: "id-u94l3",
+      unit: 94,
+      lesson: 3,
+      title: "Sel, molekul, dan reaksi",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name what matter is made of and what it does — the living cell, the molecule, a particle in general, a compound of two substances, the science of them, and what happens when two substances meet.",
+      items: [
+        { id: "id-u94l3-sel", type: "vocab", front: "sel", reading: "sel", meaning: "the smallest living unit of a body", example: { jp: "Sel di dalam daun itu bisa dilihat dengan mikroskop biasa.", en: "The cells inside that leaf can be seen with an ordinary microscope." }, accept: ["a biological cell", "the basic unit of living tissue", "a living cell"], drill: { jp: "Sel di dalam daun itu sangat kecil", en: "The cells inside that leaf are very small" }, hint: "SEHL, one syllable. ⚠️ Three meanings share the spelling and only context tells them apart: the biological cell, a prison cell (sel tahanan), and a battery cell. The biological one is overwhelmingly commonest in writing. Note that Indonesian marks no plural, so sel is one cell or a billion, exactly as unit 1 §6 describes." },
+        { id: "id-u94l3-molekul", type: "vocab", front: "molekul", reading: "molekul", meaning: "the smallest group of bonded particles of a substance", example: { jp: "Molekul air terdiri dari dua jenis partikel yang berbeda.", en: "A water molecule consists of two different kinds of particle." }, accept: ["a molecule", "a bonded unit of a substance", "the smallest piece that keeps a substance's nature"], drill: { jp: "Molekul air terdiri dari dua jenis partikel", en: "A water molecule consists of two kinds of particle" }, hint: "moh-luh-KOOL. ⚠️ Indonesian drops the final -e and stresses the last syllable, which is the general rule for this family of borrowings. The adjective is molekuler. Note terdiri dari, to consist of, in the example — a phrase you will need constantly once you read anything technical." },
+        { id: "id-u94l3-partikel", type: "vocab", front: "partikel", reading: "partikel", meaning: "any very small piece of matter", example: { jp: "Partikel kecil di udara kota itu membuat banyak orang batuk.", en: "The small particles in that city's air make many people cough." }, accept: ["a particle", "a minute piece of matter", "a speck of substance"], drill: { jp: "Partikel kecil di udara itu membuat orang batuk", en: "Small particles in that air make people cough" }, hint: "pahr-TEE-kuhl. ⚠️ Deliberately broad, and that is why this unit teaches it instead of the specific words: it covers everything from dust in the air to the subatomic. Indonesian also uses partikel as the grammarians' term for a small function word, but note that INDONESIAN HAS NO PARTICLES in the Japanese sense — that is an artefact of the scaffold, and unit1.js §12 names it." },
+        { id: "id-u94l3-senyawa", type: "vocab", front: "senyawa", reading: "senyawa", meaning: "two substances chemically bound into one", example: { jp: "Senyawa baru itu ditemukan oleh ahli di laboratorium sekolah.", en: "That new compound was discovered by researchers in the campus laboratory." }, accept: ["a chemical compound", "a bonded substance", "two elements joined chemically"], drill: { jp: "Senyawa baru itu ditemukan di laboratorium sekolah", en: "That new compound was found in the campus lab" }, hint: "suh-NYAH-wah, ny one sound. ⚠️ Built from se-, one, plus nyawa, a living soul — so literally made-one-soul, which is a strikingly good image for a chemical bond and worth remembering by. Keep it apart from campuran, a mixture: a campuran can be separated by hand, a senyawa only by a reaksi, which is the next card." },
+        { id: "id-u94l3-kimia", type: "vocab", front: "kimia", reading: "kimia", meaning: "the science of what substances are and do", example: { jp: "Pelajaran kimia di sekolah itu memakai laboratorium dua kali seminggu.", en: "The chemistry lessons at that school use the laboratory twice a week." }, accept: ["chemistry", "the study of substances", "chemical science"], drill: { jp: "Pelajaran kimia itu memakai laboratorium dua kali", en: "That chemistry class uses the laboratory twice" }, hint: "KEE-mee-ah, from Arabic. ⚠️ It is also the ADJECTIVE: bahan kimia means a chemical substance, and zat kimia likewise — Indonesian needs no separate word for chemical. So reaksi kimia is a chemical reaction and industri kimia the chemical industry, with the same form doing both jobs." },
+        { id: "id-u94l3-reaksi", type: "vocab", front: "reaksi", reading: "reaksi", meaning: "what happens when two substances meet", example: { jp: "Reaksi antara dua senyawa itu terjadi sangat cepat.", en: "The reaction between those two compounds happens very fast." }, accept: ["a chemical reaction", "a change brought on by contact", "the process two substances undergo"], drill: { jp: "Reaksi antara dua senyawa itu terjadi cepat", en: "The reaction between those two compounds happens fast" }, hint: "reh-AHK-see. ⚠️ Also the ordinary word for a person's reaction, which is where you will meet it first — and that overlap is why it needs separating from u51's tanggapan: a tanggapan is a considered RESPONSE somebody chose to give, a reaksi is immediate and often involuntary. In this lesson it is strictly the chemical sense." },
+      ],
+    },
+    {
+      id: "id-u94l4",
+      unit: 94,
+      lesson: 4,
+      title: "Rekayasa dan terapan",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Talk about turning knowledge into things — name engineering, name a working first model, name a registered invention, name genuinely new practice, name the person who first made it, and say a field is applied rather than pure.",
+      items: [
+        { id: "id-u94l4-rekayasa", type: "vocab", front: "rekayasa", reading: "rekayasa", meaning: "deliberately engineering something", example: { jp: "Rekayasa jembatan itu memakai bahan yang lebih ringan daripada batu.", en: "The engineering of that bridge uses material lighter than stone." }, accept: ["engineering as a practice", "deliberate technical design", "contrivance"], drill: { jp: "Rekayasa jembatan itu memakai bahan lebih ringan", en: "That bridge's engineering uses lighter material" }, hint: "ruh-kah-YAH-sah. ⚠️ A word with two faces and you need both. In technical writing it is neutral — rekayasa genetika, genetic engineering. In politics and journalism it means RIGGING: kasus rekayasa is a fabricated case, and direkayasa means it was engineered to look that way. The second sense is far commoner in a newspaper, so read the context before you trust the word." },
+        { id: "id-u94l4-purwarupa", type: "vocab", front: "purwarupa", reading: "purwarupa", meaning: "the first working model of something", example: { jp: "Purwarupa alat itu sudah diuji, tetapi belum dijual kepada orang.", en: "The first working model of that device has been tested, but not yet sold to anybody." }, accept: ["a prototype", "a first built version", "a working mock-up"], drill: { jp: "Purwarupa alat itu sudah diuji dua kali", en: "That device's prototype has been tested twice" }, hint: "poor-wah-ROO-pah, four syllables. A deliberately native coinage from purwa, first or ancient, plus rupa, form — so first-form. ⚠️ The English prototipe is also used, and in a startup you will hear prototype said in English; purwarupa is the word in a grant application, a patent and a government document, which is why it is the one taught here." },
+        { id: "id-u94l4-paten", type: "vocab", front: "paten", reading: "paten", meaning: "a registered exclusive right to an invention", example: { jp: "Paten untuk alat itu didaftarkan di dua negara pada tahun yang sama.", en: "The patent for that device was registered in two countries in the same year." }, accept: ["a patent", "registered rights over an invention", "exclusive legal claim to a design"], drill: { jp: "Paten untuk alat itu didaftarkan di dua negara", en: "The patent for that device was registered in two countries" }, hint: "PAH-tehn. ⚠️ The slang sense will reach you first and is worth knowing so it does not confuse you: in casual speech paten means excellent or solid — motornya paten, that motorbike is terrific. The legal sense is what a formal text means, and hak paten, patent rights, is the unambiguous way to say it." },
+        { id: "id-u94l4-inovasi", type: "vocab", front: "inovasi", reading: "inovasi", meaning: "a genuinely new way of doing something", example: { jp: "Inovasi kecil dalam cara mengajar itu membantu banyak pelajar.", en: "A small innovation in that way of teaching helps many pupils." }, accept: ["an innovation", "a new practice that works", "a fresh approach put into use"], drill: { jp: "Inovasi kecil dalam cara mengajar itu membantu pelajar", en: "A small innovation in teaching helps pupils" }, hint: "ee-noh-FAH-see — the v is said like an f. ⚠️ The distinction Indonesian keeps, and which matters at B2: a temuan is what you FOUND, an inovasi is a new way of DOING, and a purwarupa is the first thing you BUILT. An inovasi need not be a device at all — a changed procedure is one, and that is the commonest use in Indonesian public administration." },
+        { id: "id-u94l4-penemu", type: "vocab", front: "penemu", reading: "penemu", meaning: "the person who first found or made something", example: { jp: "Penemu alat itu tidak pernah menjadi kaya dari patennya.", en: "The inventor of that device never became rich from his patent." }, accept: ["an inventor", "a discoverer", "the first person to find something"], drill: { jp: "Penemu alat itu tidak pernah menjadi kaya", en: "That device's inventor never became rich" }, hint: "puh-nuh-MOO. ⚠️ Built on the same root as u39's menemukan, to find, and on temuan from lesson 1 of this unit — the agent noun, a PERSON, which is why it earns a card. One word covers both inventor and discoverer, which English splits; if you must be precise, pencipta is a creator and peneliti a researcher, both of which you already have." },
+        { id: "id-u94l4-terapan", type: "vocab", front: "terapan", reading: "terapan", meaning: "applied rather than pursued for its own sake", example: { jp: "Mahasiswa di jurusan itu belajar ilmu terapan, bukan teori saja.", en: "Students in that department study applied science, not theory alone." }, accept: ["applied", "put to practical use", "oriented to practice"], drill: { jp: "Mahasiswa itu belajar ilmu terapan bukan teori", en: "Those students study applied science not theory" }, hint: "tuh-RAH-pan. From terap, to apply. ⚠️ It is an ADJECTIVE that follows its noun, as Indonesian adjectives do: ilmu terapan, applied science; seni terapan, applied art; linguistik terapan, applied linguistics. The opposite is murni, pure, which gives you ilmu murni — and the pair is how Indonesian universities label their faculties." },
+      ],
+    },
   ],
 };

@@ -1,18 +1,129 @@
-// ID Unit 100 — Career and organisations (slot: work-career) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// ID Unit 100 — Jenjang karier dan kepengurusan ("Career ladder and running an
+// organisation") — B2
+// B2 block 1 (u88–u100), the last unit of the block. CONVENTIONS: see unit88.js
+// §C1–§C12 — binding here.
+//
+// §C-M1. SCOPE NARROWED, AND RETITLED TWICE. "Career and organisations" sits on
+//        **u24 `Di tempat kerja`** (`atasan` `kontrak` `melamar` `wawancara`
+//        `rapat` `berkas` `tugas` `ahli`), **u68** (`organisasi`), **u55**
+//        (`lembaga`) and **u74** (`jabatan`). Probed 26 candidates: **17 free**,
+//        the nine taken being those plus `bagian`(u14), `percobaan`(u44),
+//        `struktur`(u58) and `berhenti`(u13).
+//        **So u24 owns BEING AT WORK and this unit owns MOVING THROUGH AN
+//        ORGANISATION AND RUNNING ONE** — the ladder, the restructuring, the
+//        committee. It teaches no word for a job, a boss or an interview.
+//        ⚠️ **The working title was "…dan tata kelola lembaga" until `tata
+//        kelola` was allocated to u97 l3**, where governance belongs beside
+//        transparency and accountability. Retitled rather than both carded —
+//        the same front in two units is the defect the band allocation exists to
+//        prevent, and the title is the cheaper thing to change.
+//
+// §C-M2. AFFIX ROOTS STRIPPED AND GREPPED BY HAND (C3/C4). ONE family:
+//        `pengurus`←**mengurus (u79, to see to a piece of business)** — KEPT: it
+//        names a COMMITTEE, a body of named people with a term of office, which
+//        the verb does not; hint names the root.
+//        ⚠️ **A FALSE POSITIVE WORTH RECORDING:** the probe also reports
+//        `pengurus` as *peng- off `kurus`(u20, thin)*. That is the predicted
+//        cost of adding `ke`-style short prefixes and nasal restoration to the
+//        stripper — it over-flags on any word that merely begins with the right
+//        letters. Read every hit; do not write around a nonsense one. Same class
+//        as unit51.js §B9's `kemeja`/`meja` and u92's `pengacara`/`acara`.
+//        Clean against the frozen base: `pengunduran`/`mengundurkan`←undur (not
+//        taught), verb+noun pair, house style · `merekrut`/`rekrutmen`←rekrut
+//        (not taught) · `lamaran`←lamar (bare root not a taught front; `melamar`
+//        is u24's and is named in the hint) · `perampingan`←ramping (not taught)
+//        · `jajaran`←jajar (not taught) · `menjabat`←**jabat** (not taught;
+//        `jabatan` is u74's and is named in the hint) · `nirlaba`←laba — ⚠️
+//        `laba` IS taught (u48) and `nir-` is a Sanskrit negating prefix the
+//        stripper does not know, so the probe CANNOT see this one. I checked by
+//        hand and kept it: nobody who knows "profit" derives "non-profit" from
+//        it without knowing nir-, which this course has never taught. Blocks 2
+//        and 3: `nir-`, `pra-`, `pasca-`, `swa-`, `antar-` and `maha-` are all
+//        invisible to the probe. · `jenjang` `karier` `promosi` `mutasi` `staf`
+//        `divisi` `departemen` `personalia` `kinerja` `pesangon` `pensiun`
+//        `yayasan` `pembina` — roots not taught.
+//
+// §C-M3. REFUSED HERE. `bawahan`←bawah(u36) — **`atasan` is already taught
+//        (u24)**, so a learner who has the boss gets the subordinate for free
+//        off the same pattern; replaced with **`staf`**. `penugasan`←tugas(u24)
+//        — a free-gift circumfix, caught only by the fixed probe; replaced with
+//        **`kaderisasi`**. `tata kelola` — ceded to u97, see §C-M1.
+//        `pemangku kepentingan` — u93's. `wewenang` is TAKEN (u61) and
+//        `rekan` is TAKEN (u24).
 export const ID_UNIT100 = {
   id: "id-u100",
   lang: "id",
-  title: "Career and organisations",
+  title: "Jenjang karier dan kepengurusan",
   order: 100,
   stage: "b2",
   lessons: [
-    { id: "id-u100l1", title: "Lesson 1", locked: true },
-    { id: "id-u100l2", title: "Lesson 2", locked: true },
-    { id: "id-u100l3", title: "Lesson 3", locked: true },
-    { id: "id-u100l4", title: "Lesson 4", locked: true },
+    {
+      id: "id-u100l1",
+      unit: 100,
+      lesson: 1,
+      title: "Jenjang dan promosi",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Describe movement up and out of a post — name a tier in a ladder, name a working life as a whole, name promotion, name a sideways transfer, name a resignation, and say somebody stepped down.",
+      items: [
+        { id: "id-u100l1-jenjang", type: "vocab", front: "jenjang", reading: "jenjang", meaning: "one rung of a ranked ladder", example: { jp: "Jenjang berikutnya di divisi itu hanya terbuka untuk staf yang sudah lima tahun bekerja.", en: "The next rung in that division is only open to staff who have worked five years." }, accept: ["a rung in a hierarchy", "a tier of advancement", "a step on a ladder"], drill: { jp: "Jenjang berikutnya hanya terbuka untuk staf lama", en: "The next rung is only open to long-serving staff" }, hint: "JUHN-jahng. Originally a notched ladder, which is exactly the picture. ⚠️ Keep it apart from u90's lapisan, a layer, and u53's tingkat, a level: a jenjang is a rung you CLIMB, so it implies a sequence you move along. Jenjang pendidikan is the ladder of school levels and jenjang karier is the career ladder, which this unit is named for." },
+        { id: "id-u100l1-karier", type: "vocab", front: "karier", reading: "karier", meaning: "a working life taken as one path", example: { jp: "Karier pengacara itu berubah arah setelah dia menjadi pembina yayasan.", en: "That lawyer's career changed direction after he became a foundation trustee." }, accept: ["a career", "a professional life as a whole", "one's course of work over years"], drill: { jp: "Karier pengacara itu berubah arah tahun lalu", en: "That lawyer's career changed direction last year" }, hint: "kah-ree-EHR, three syllables. ⚠️ Note the spelling: Indonesian writes karier with -ier, and karir is common but non-standard — the dictionary form is the one here. Keep it apart from pekerjaan, a job, which you have had since A2: a pekerjaan is the post you hold now, a karier is the whole arc, which is why only a karier can have an arah, a direction." },
+        { id: "id-u100l1-promosi", type: "vocab", front: "promosi", reading: "promosi", meaning: "being moved up to a higher post", example: { jp: "Promosi untuk staf itu diumumkan setelah penilaian kinerja selesai.", en: "The promotion for that staff member was announced after the performance review was finished." }, accept: ["a promotion to a higher post", "advancement in rank", "being raised a grade"], drill: { jp: "Promosi untuk staf itu diumumkan pagi ini", en: "That staff member's promotion was announced this morning" }, hint: "proh-MOH-see. ⚠️ Two senses and both are everyday: promotion at work, which is this lesson's, and sales promotion — promosi besar-besaran, a big promotional push. The second is commoner in a shop window and the first in an office. Dipromosikan, to be promoted, is how the personnel announcement is worded." },
+        { id: "id-u100l1-mutasi", type: "vocab", front: "mutasi", reading: "mutasi", meaning: "being moved to another post at the same level", example: { jp: "Mutasi pegawai itu ke kantor di pulau lain diumumkan tanpa penjelasan.", en: "That clerk's transfer to an office on another island was announced without explanation." }, accept: ["a lateral transfer", "reassignment to another post", "a posting elsewhere"], drill: { jp: "Mutasi pegawai itu ke kantor lain sudah diumumkan", en: "That clerk's transfer to another office was announced" }, hint: "moo-TAH-see. ⚠️ **Not a biological mutation**, which is also mutasi but belongs to u94's territory — in an office it is strictly a transfer, and it is the standard instrument of the Indonesian civil service. Note what it carries: a mutasi can be a routine rotation or a quiet punishment, and which one it is is usually the subject of the office gossip from u89." },
+        { id: "id-u100l1-pengunduran", type: "vocab", front: "pengunduran", reading: "pengunduran", meaning: "the stepping down from a post", example: { jp: "Pengunduran pengurus itu diterima pada rapat terakhir tahun lalu.", en: "That committee member's resignation was accepted at the last meeting of the year." }, accept: ["a resignation", "a stepping back from office", "withdrawal from a post"], drill: { jp: "Pengunduran pengurus itu diterima pada rapat terakhir", en: "That officer's resignation was accepted at the last meeting" }, hint: "puh-ngoon-DOO-ran. From undur, to draw back. ⚠️ The full and much commoner form is pengunduran diri, self-withdrawal — add diri and you have the ordinary Indonesian for a resignation. Keep it apart from berhenti, to stop, which you know from u13: berhenti kerja is simply leaving, pengunduran diri is the formal act with a letter." },
+        { id: "id-u100l1-mengundurkan", type: "vocab", front: "mengundurkan", reading: "mengundurkan", meaning: "to withdraw oneself from a post", example: { jp: "Dia mengundurkan diri setelah ada benturan kepentingan yang jelas.", en: "She withdrew from the post after a clear conflict of interest." }, accept: ["to resign from", "to step down", "to pull oneself out of a role"], drill: { jp: "Dia mengundurkan diri setelah benturan kepentingan itu", en: "She resigned after that conflict of interest" }, hint: "muh-ngoon-door-KAHN. The verb beside the card before it. ⚠️ **It requires diri, the reflexive, to mean resign** — mengundurkan diri. On its own, with another object, it means to POSTPONE something: mengundurkan jadwal is to push a schedule back. So the object decides the meaning entirely, and leaving out diri says something quite different." },
+      ],
+    },
+    {
+      id: "id-u100l2",
+      unit: 100,
+      lesson: 2,
+      title: "Divisi dan kinerja",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name the parts of an organisation and how people in it are judged — the staff, a division, a department, the personnel function, measured performance, and the ranks of senior people.",
+      items: [
+        { id: "id-u100l2-staf", type: "vocab", front: "staf", reading: "staf", meaning: "the employed people of an organisation", example: { jp: "Staf di divisi itu hanya delapan orang untuk seluruh pulau.", en: "The staff in that division are only eight people for the whole island." }, accept: ["employees collectively", "the personnel of a body", "those on the payroll"], drill: { jp: "Staf di divisi itu hanya delapan orang", en: "The staff in that division are only eight people" }, hint: "STAHF. ⚠️ Note the spelling: Indonesian writes staf with one f and no -ff. It works both as a collective — staf kami, our staff — and as a count noun for one person, seorang staf, which English does not allow. Keep it apart from pegawai, a clerk or officer, and karyawan, an employee, both of which you already have; staf is the more institutional of the three." },
+        { id: "id-u100l2-divisi", type: "vocab", front: "divisi", reading: "divisi", meaning: "a major branch of a company's structure", example: { jp: "Divisi baru itu dibentuk untuk mengawasi semua mitra asing.", en: "That new division was formed to oversee all foreign partners." }, accept: ["a company division", "a major organisational branch", "a business unit"], drill: { jp: "Divisi baru itu dibentuk untuk mengawasi mitra", en: "That new division was formed to oversee partners" }, hint: "dee-FEE-see — the v is said like an f. ⚠️ You already know bagian, a part, from u14, and Indonesian offices use both: bagian is the older native word and is commoner in government, divisi the borrowed one and commoner in companies. In football it also means a league division, which is u41's territory." },
+        { id: "id-u100l2-departemen", type: "vocab", front: "departemen", reading: "departemen", meaning: "a standing functional unit of an institution", example: { jp: "Departemen itu mengurus semua pendaftaran untuk seluruh sekolah.", en: "That department handles all registration for the whole campus." }, accept: ["a department", "a functional unit of an organisation", "an administrative branch"], drill: { jp: "Departemen itu mengurus semua pendaftaran sekolah", en: "That department handles all campus registration" }, hint: "deh-pahr-tuh-MEHN, four syllables. ⚠️ A historical note that will save you confusion: Indonesian government ministries WERE called Departemen until 2009, when they were renamed Kementerian, so older texts and buildings say Departemen Pendidikan where a current one says Kementerian. In a company or a university it is still the ordinary word." },
+        { id: "id-u100l2-personalia", type: "vocab", front: "personalia", reading: "personalia", meaning: "the function that handles the people in an organisation", example: { jp: "Personalia meminta semua staf baru mengisi formulir pada hari pertama.", en: "Personnel asked all new staff to fill in a form on the first day." }, accept: ["the personnel function", "human resources as a department", "staffing administration"], drill: { jp: "Personalia meminta staf baru mengisi formulir", en: "Personnel asks new staff to fill in a form" }, hint: "puhr-soh-NAH-lee-ah, five syllables. ⚠️ A plural-looking Latin borrowing that behaves as a singular unit, like u94's laboratorium — bagian personalia is the personnel department. Modern Indonesian companies increasingly say HRD, said as hah-air-day, or sumber daya manusia; personalia is the established word and the one on older signs and forms." },
+        { id: "id-u100l2-kinerja", type: "vocab", front: "kinerja", reading: "kinerja", meaning: "how well somebody or something performs, as measured", example: { jp: "Kinerja divisi itu dinilai setiap enam bulan dengan tolok ukur yang jelas.", en: "That division's performance is assessed every six months against clear benchmarks." }, accept: ["measured performance", "how well a body or person is doing", "output as assessed"], drill: { jp: "Kinerja divisi itu dinilai setiap enam bulan", en: "That division's performance is assessed every six months" }, hint: "kee-NUHR-jah. A deliberate modern coinage from kerja, work. ⚠️ The essential thing is that it is always MEASURED against something — which is why u90's tolok ukur and indikator are its natural companions. Penilaian kinerja is a performance review, and kinerja keuangan is financial performance. You cannot use it for the effort somebody put in, only for the result." },
+        { id: "id-u100l2-jajaran", type: "vocab", front: "jajaran", reading: "jajaran", meaning: "the senior people of a body taken as a row", example: { jp: "Jajaran pengurus baru itu diperkenalkan kepada semua anggota.", en: "The new committee's senior ranks were introduced to all the members." }, accept: ["the ranks of senior figures", "a body's leadership collectively", "the line-up of officers"], drill: { jp: "Jajaran pengurus baru itu diperkenalkan kepada anggota", en: "The new committee's ranks were introduced to the members" }, hint: "jah-JAH-ran. From jajar, to stand in a row. ⚠️ Almost always followed by what kind of people: jajaran direksi the board, jajaran menteri the ministers, jajaran pengurus the committee. It carries a faint formality and a faint flavour of a row of people on a stage, which is where you will see them. Keep it apart from u90's lapisan, which is ordered top to bottom rather than side by side." },
+      ],
+    },
+    {
+      id: "id-u100l3",
+      unit: 100,
+      lesson: 3,
+      title: "Rekrutmen dan pesangon",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Describe people coming in and going out — say an organisation recruits, name recruitment as a process, name an application submitted, name severance pay, name retirement, and name a cut in headcount.",
+      items: [
+        { id: "id-u100l3-merekrut", type: "vocab", front: "merekrut", reading: "merekrut", meaning: "to take new people into an organisation", example: { jp: "Yayasan itu merekrut sepuluh staf baru untuk pekerjaan di daerah rawan.", en: "That foundation recruited ten new staff for work in exposed areas." }, accept: ["to recruit", "to take on new people", "to bring in staff"], drill: { jp: "Yayasan itu merekrut sepuluh staf baru", en: "That foundation recruits ten new staff" }, hint: "muh-ruh-KROOT. ⚠️ The subject is an ORGANISATION, never a person looking for work — which is the exact opposite of melamar, to apply, which you know from u24. So a company merekrut and a candidate melamar, and the two words describe the same event from the two ends. It is also used of armies and, darkly, of criminal groups." },
+        { id: "id-u100l3-rekrutmen", type: "vocab", front: "rekrutmen", reading: "rekrutmen", meaning: "the process of taking new people on", example: { jp: "Rekrutmen tahun ini memakai cara yang lebih terbuka daripada tahun lalu.", en: "This year's recruitment uses a more open method than last year's." }, accept: ["recruitment as a process", "a hiring round", "the intake procedure"], drill: { jp: "Rekrutmen tahun ini memakai cara lebih terbuka", en: "This year's recruitment uses a more open method" }, hint: "ruh-kroot-MEHN. The noun beside the card before it. ⚠️ It names a whole PROCESS with stages, which is why it attracts the vocabulary of u97: rekrutmen yang transparan, transparent recruitment, is the standing demand, and diskriminasi dalam rekrutmen from u99 is the standing complaint. Note the Indonesian spelling keeps the -men ending without a double t." },
+        { id: "id-u100l3-lamaran", type: "vocab", front: "lamaran", reading: "lamaran", meaning: "an application somebody has submitted", example: { jp: "Lamaran dari pelamar itu ditolak karena tidak memenuhi kriteria.", en: "That applicant's application was rejected because it did not meet the criteria." }, accept: ["a job application", "a submitted candidacy", "a formal request to be considered"], drill: { jp: "Lamaran dari pelamar itu ditolak minggu lalu", en: "That applicant's application was rejected last week" }, hint: "lah-MAH-ran. The noun off melamar, to apply, which you know from u24. ⚠️ **A second sense that will catch you out socially:** lamaran is also a MARRIAGE PROPOSAL, and acara lamaran is the formal engagement ceremony that precedes an Indonesian wedding. Surat lamaran is unambiguously a job application letter, so add surat when the context is work." },
+        { id: "id-u100l3-pesangon", type: "vocab", front: "pesangon", reading: "pesangon", meaning: "the money paid to somebody whose job ends", example: { jp: "Pesangon untuk karyawan itu dihitung menurut lama dia bekerja.", en: "The severance pay for those employees is calculated by how long they worked." }, accept: ["severance pay", "a redundancy payment", "money due on leaving a post"], drill: { jp: "Pesangon karyawan itu dihitung menurut lama bekerja", en: "Severance is calculated by how long they worked" }, hint: "puh-SAHNG-ohn. ⚠️ A statutory entitlement in Indonesia, not a goodwill gesture: the amount is set by labour law against length of service, and disputes about it fill the industrial courts — which is where u92's gugatan comes in. Keep it apart from pensiun in the next card: a pesangon is a one-off lump sum, a pension is paid out over years." },
+        { id: "id-u100l3-pensiun", type: "vocab", front: "pensiun", reading: "pensiun", meaning: "leaving work for good at the end of a career", example: { jp: "Pembina yayasan itu sudah pensiun tetapi masih datang setiap minggu.", en: "That foundation's trustee has already retired but still comes every week." }, accept: ["retirement from work", "the end of a working life", "a retirement pension"], drill: { jp: "Pembina yayasan itu sudah pensiun tahun lalu", en: "That foundation's trustee retired last year" }, hint: "pehn-see-OON, three syllables. ⚠️ It does double duty as both verb and noun: sudah pensiun means already retired, and dana pensiun is a pension fund. Note masa pensiun, the retirement period, and usia pensiun, the retirement age — which in Indonesia differs by sector and is a live political question. Also spelled pénsiun in older texts." },
+        { id: "id-u100l3-perampingan", type: "vocab", front: "perampingan", reading: "perampingan", meaning: "deliberately cutting an organisation smaller", example: { jp: "Perampingan di perusahaan itu membuat dua divisi digabungkan menjadi satu.", en: "The downsizing at that company led to two divisions being merged into one." }, accept: ["downsizing", "a deliberate slimming of a body", "a cut in headcount and structure"], drill: { jp: "Perampingan di perusahaan itu menggabungkan dua divisi", en: "The downsizing at that company merged two divisions" }, hint: "puh-rahm-PEENG-an, four syllables. From ramping, slender — so literally a slimming, and the metaphor is as polite in Indonesian as downsizing is in English. ⚠️ That politeness is the point: perampingan is what the announcement says when what happens is that people lose their jobs and collect the pesangon from two cards back. Perampingan birokrasi is a standing government programme." },
+      ],
+    },
+    {
+      id: "id-u100l4",
+      unit: 100,
+      lesson: 4,
+      title: "Yayasan dan kepengurusan",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name bodies that are not companies and the people who run them — a foundation, say a body is not for profit, name the committee, name a trustee, say somebody holds an office, and name the growing of successors.",
+      items: [
+        { id: "id-u100l4-yayasan", type: "vocab", front: "yayasan", reading: "yayasan", meaning: "a body founded to pursue a purpose rather than a profit", example: { jp: "Yayasan itu didirikan oleh dua guru untuk membantu pelajar yang putus sekolah.", en: "That foundation was set up by two teachers to help pupils who had dropped out." }, accept: ["a foundation", "a charitable trust", "an endowed non-commercial body"], drill: { jp: "Yayasan itu didirikan oleh dua guru lama", en: "That foundation was set up by two old teachers" }, hint: "yah-YAH-san. ⚠️ A specific legal form in Indonesia with its own statute, not a loose word for a charity: a yayasan has founders, a pembina from two cards on, and assets dedicated to a purpose. Many Indonesian private schools and hospitals are run by one, so you will meet the word on the gate before you meet it in a document." },
+        { id: "id-u100l4-nirlaba", type: "vocab", front: "nirlaba", reading: "nirlaba", meaning: "run for a purpose and not for gain", example: { jp: "Lembaga nirlaba itu hanya menerima sumbangan dan tidak pernah menjual apa pun.", en: "That non-profit institution only receives donations and has never sold anything." }, accept: ["not for profit", "non-commercial in purpose", "run without a profit motive"], drill: { jp: "Lembaga nirlaba itu hanya menerima sumbangan", en: "That non-profit body only receives donations" }, hint: "neer-LAH-bah. ⚠️ Built from nir-, a Sanskrit prefix meaning without, plus laba, profit, which you know from u48 — and nir- is worth noticing because it builds a whole family you will otherwise be stuck on: nirkabel wireless, nirkawat likewise, nirwana. Indonesian also says non-profit, said in English, but nirlaba is the word on a formal document." },
+        { id: "id-u100l4-pengurus", type: "vocab", front: "pengurus", reading: "pengurus", meaning: "the body of people who run an organisation", example: { jp: "Pengurus baru itu dipilih oleh semua anggota dalam rapat tahunan.", en: "The new committee was chosen by all the members at the annual meeting." }, accept: ["a managing committee", "the officers of a body", "those appointed to run it"], drill: { jp: "Pengurus baru itu dipilih oleh semua anggota", en: "The new committee was chosen by all the members" }, hint: "puh-NGOO-roos. ⚠️ Built on mengurus, to see to a piece of business, which you know from u79 — and it names something the verb does not: a BODY of named people with a term of office. It works as a collective and as a count noun, so seorang pengurus is one committee member. Kepengurusan, in the unit title, is the committee's term of office or its running of things." },
+        { id: "id-u100l4-pembina", type: "vocab", front: "pembina", reading: "pembina", meaning: "a senior figure who guides and oversees a body", example: { jp: "Pembina yayasan itu tidak mengurus pekerjaan harian tetapi memilih pengurus.", en: "That foundation's trustee does not handle daily work but chooses the committee." }, accept: ["a trustee or patron", "a guiding overseer of a body", "a senior adviser with authority"], drill: { jp: "Pembina yayasan itu memilih pengurus setiap tiga tahun", en: "That foundation's trustee chooses the committee every three years" }, hint: "puhm-BEE-nah. From membina, to foster or build up. ⚠️ In a yayasan it is a defined office ABOVE the pengurus: the pembina appoints them and holds the purpose, which is the Indonesian equivalent of a board of trustees. In a school or a scout troop it is the supervising teacher. Either way a pembina guides rather than administers." },
+        { id: "id-u100l4-menjabat", type: "vocab", front: "menjabat", reading: "menjabat", meaning: "to hold a named office", example: { jp: "Dia menjabat sebagai pembina selama sepuluh tahun tanpa gaji.", en: "She held office as a trustee for ten years without pay." }, accept: ["to hold a post", "to occupy an office", "to serve in a position"], drill: { jp: "Dia menjabat pembina selama sepuluh tahun", en: "She held the trustee post for ten years" }, hint: "muhn-JAH-baht. ⚠️ Built on the same root as jabatan, a post, which you know from u74. It takes sebagai for the office — menjabat sebagai ketua — and it is the verb a formal biography uses. A second, unrelated everyday sense: menjabat tangan is to shake hands, from jabat, to grasp, and the two senses never meet in practice." },
+        { id: "id-u100l4-kaderisasi", type: "vocab", front: "kaderisasi", reading: "kaderisasi", meaning: "deliberately growing the people who will take over", example: { jp: "Kaderisasi di lembaga itu kurang kuat, jadi tidak ada yang siap menjabat.", en: "Succession-building at that institution is not strong, so nobody is ready to hold office." }, accept: ["succession-building", "cadre development", "the deliberate raising of future leaders"], drill: { jp: "Kaderisasi di lembaga itu kurang kuat sejak dulu", en: "Succession-building at that institution has long been not strong" }, hint: "kah-duh-ree-SAH-see, five syllables. From kader, a cadre — a word Indonesian took from the political vocabulary of the twentieth century and kept. ⚠️ It is not training in a skill, which is pelatihan: kaderisasi is specifically the growing of people who will LEAD, and it is a standing preoccupation of Indonesian parties, student organisations and yayasan alike. Weak kaderisasi is a standard diagnosis of a dying body." },
+      ],
+    },
   ],
 };

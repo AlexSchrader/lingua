@@ -1,18 +1,126 @@
-// ID Unit 97 — Ethics and responsibility (slot: ethics) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// ID Unit 97 — Etika dan integritas ("Ethics and integrity") — B2
+// B2 block 1 (u88–u100). CONVENTIONS: see unit88.js §C1–§C12 — binding here.
+//
+// §C-J1. SCOPE NARROWED. "Ethics and responsibility" sits on **u61 `Kewajiban
+//        dan tanggung jawab`** (`kewajiban` `tanggung jawab` `sanksi`
+//        `pelanggaran` `patuh` `wewenang` `lazim` `amanah` `etika`) and **u77
+//        `Jiwa, iman, dan moral`** (`moral` `akhlak` `dosa` `suci` `ikhlas`).
+//        ⚠️ **`etika` ITSELF IS TAKEN (u61)** — I probed it rather than
+//        assuming, and the unit TITLE keeps the word while no card does.
+//        Probed 27 candidates: **19 free**, the eight taken being `jujur`(u32)
+//        `suap`(u74) `netral`(u51) `adil`(u32) `curang`(u41) `melanggar`(u32)
+//        `pelanggaran`(u61) `sanksi`(u61).
+//        **So this unit owns PUBLIC INTEGRITY — the corruption vocabulary and
+//        the machinery built to catch it.** u61 says what you OUGHT to do; this
+//        unit names what people do instead, and who is watching.
+//
+// §C-J2. WHY IT MATTERS FOR INDONESIAN SPECIFICALLY. This is not an abstract
+//        ethics unit. `pungli`, `gratifikasi`, `nepotisme`, `kolusi`,
+//        `tata kelola` and `pelapor` are front-page words in Indonesia every
+//        week, and **none of them is anywhere in 2,088**. A B2 learner who
+//        cannot read a corruption story cannot read an Indonesian newspaper.
+//
+// §C-J3. AFFIX ROOTS STRIPPED AND GREPPED BY HAND (C3/C4). **This unit carries
+//        THREE derivation families, which is more than any other in the block.
+//        Each is named and each passes C4's test on its own:**
+//        `menyuap`←**suap (u74, a bribe as a thing)** — the VERB off a taught
+//        noun, and me- plain verb formation is not one of u70's patterns, so
+//        §C-B4's refusal line does not reach it; hint names the root ·
+//        `pengawasan`+`mengawasi`←**awas (u40, "look out!")** — ONE family, and
+//        institutional oversight is in no way derivable from a warning shout ·
+//        `kepatuhan`←**patuh (u61, obedient)** — compliance as a corporate
+//        FUNCTION, with a department and a staff, which the adjective is not.
+//        Clean against the frozen base: `keberpihakan`←berpihak (not taught) ·
+//        `menyelewengkan`←seleweng (not taught) · `menyalahgunakan` (no single
+//        taught root under any affix path) · `mengkhianati`+`pengkhianatan`←
+//        khianat (not taught) · `pelapor`←lapor (bare root not a taught front) ·
+//        `tata kelola`, `integritas`, `teladan`, `nurani`, `luhur`, `pamrih`,
+//        `gratifikasi`, `nepotisme`, `kolusi`, `pungli`, `transparansi`,
+//        `akuntabilitas`, `benturan kepentingan`, `birokrasi` — roots not taught.
+//
+// §C-J4. REFUSED HERE. `kecurangan`←curang(u41) — a free-gift circumfix, and
+//        **`pungli` does the job far better**: it is the contraction of
+//        *pungutan liar*, it names the specific Indonesian practice, and it
+//        exists in no other language's corpus. `pertanggungjawaban` — dropped
+//        not for its affixes, which are clean, but because `akuntabilitas` in
+//        the same lesson would have been a near-duplicate GLOSS, and a shared
+//        prompt is the one defect class that is currently zero corpus-wide (C6).
+//        Replaced with **`tata kelola`**. `berpihak`←pihak(u51) — dropped so
+//        that `keberpihakan` is the only card off that root here.
 export const ID_UNIT97 = {
   id: "id-u97",
   lang: "id",
-  title: "Ethics and responsibility",
+  title: "Etika dan integritas",
   order: 97,
   stage: "b2",
   lessons: [
-    { id: "id-u97l1", title: "Lesson 1", locked: true },
-    { id: "id-u97l2", title: "Lesson 2", locked: true },
-    { id: "id-u97l3", title: "Lesson 3", locked: true },
-    { id: "id-u97l4", title: "Lesson 4", locked: true },
+    {
+      id: "id-u97l1",
+      unit: 97,
+      lesson: 1,
+      title: "Integritas dan nurani",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Describe a person's moral standing — name integrity, name somebody held up as an example, name taking sides, name the inner voice, say a motive is high-minded, and name acting for what you can get out of it.",
+      items: [
+        { id: "id-u97l1-integritas", type: "vocab", front: "integritas", reading: "integritas", meaning: "being the same person under pressure", example: { jp: "Integritas pejabat itu diuji ketika ada tawaran besar dari pemodal.", en: "That official's integrity was tested when there was a large offer from an investor." }, accept: ["integrity", "moral wholeness", "incorruptibility"], drill: { jp: "Integritas pejabat itu diuji tahun lalu", en: "That official's integrity was tested last year" }, hint: "een-teh-GREE-tahs, hard g. ⚠️ You already know jujur, honest, from u32, and the two are not the same claim: jujur is about not lying, integritas is about not bending — the person behaves the same whether or not anyone is looking. It is the standard word on an Indonesian anti-corruption poster, and pakta integritas is the integrity pledge officials sign." },
+        { id: "id-u97l1-teladan", type: "vocab", front: "teladan", reading: "teladan", meaning: "somebody whose conduct others should copy", example: { jp: "Guru itu menjadi teladan untuk pelajar di seluruh sekolah.", en: "That teacher became an example for pupils across the whole school." }, accept: ["a model of conduct", "an exemplar", "one worth following"], drill: { jp: "Guru itu menjadi teladan untuk pelajar lain", en: "That teacher is an example for other pupils" }, hint: "tuh-lah-DAHN. ⚠️ Keep it apart from contoh, an example, which you have had since A1: a contoh is any instance of anything, a teladan is a person or conduct held up to be IMITATED. Memberi teladan, to set an example, and keteladanan, exemplary conduct, are the phrases, and Indonesian school reports use them constantly." },
+        { id: "id-u97l1-keberpihakan", type: "vocab", front: "keberpihakan", reading: "keberpihakan", meaning: "openly taking one side's part", example: { jp: "Keberpihakan koran itu kepada satu partai terlihat jelas dalam uraiannya.", en: "That newspaper's taking the part of one party is plain in its account." }, accept: ["partisanship", "siding with one party", "a declared leaning"], drill: { jp: "Keberpihakan koran itu kepada satu partai jelas", en: "That paper's siding with one party is clear" }, hint: "kuh-buhr-pee-HAH-kan, five syllables. Built on pihak, a party to a matter, which you know from u51. ⚠️ Not always an accusation, and that is the interesting part: keberpihakan kepada rakyat kecil, siding with ordinary people, is said with approval, while keberpihakan in a judge is a disqualification. It is the opposite of netral, which you met in u51." },
+        { id: "id-u97l1-nurani", type: "vocab", front: "nurani", reading: "nurani", meaning: "the inner voice that judges your own acts", example: { jp: "Keputusan itu diambil dengan nurani, bukan karena ada hadiah.", en: "That decision was taken on conscience, not because there was a gift." }, accept: ["conscience", "the inner moral sense", "one's own moral judgement"], drill: { jp: "Keputusan itu diambil dengan nurani bukan hadiah", en: "That decision was taken on conscience not a gift" }, hint: "noo-RAH-nee, from Arabic nūr, light — so literally the lit-up part of a person. ⚠️ The full form is hati nurani, heart-of-light, and you will meet it more often than the bare word; both mean conscience. Keep it apart from u77's moral and akhlak, which are the shared code — nurani is the private judge inside one person." },
+        { id: "id-u97l1-luhur", type: "vocab", front: "luhur", reading: "luhur", meaning: "high-minded and above self-interest", example: { jp: "Tujuan lembaga itu luhur, tetapi uangnya tidak pernah cukup.", en: "That institution's purpose is high-minded, but its money was never enough." }, accept: ["noble in purpose", "elevated and selfless", "lofty in aim"], drill: { jp: "Tujuan lembaga itu luhur tetapi uangnya kurang", en: "That institution's aim is noble but its money is short" }, hint: "LOO-hoor. ⚠️ It describes AIMS, VALUES and conduct, never a person's rank — so cita-cita yang luhur, nilai luhur, budi luhur. Indonesian pairs it constantly with the national vocabulary you met in u95: nilai-nilai luhur bangsa, the nation's noble values. The ancestors are leluhur, a related word with the same root doubled." },
+        { id: "id-u97l1-pamrih", type: "vocab", front: "pamrih", reading: "pamrih", meaning: "a hidden motive of personal gain", example: { jp: "Dia membantu tetangga itu tanpa pamrih selama bertahun-tahun.", en: "He helped that neighbour with nothing in it for himself for years." }, accept: ["an ulterior motive of gain", "self-interest behind an act", "something in it for oneself"], drill: { jp: "Dia membantu tetangga itu tanpa pamrih", en: "He helps that neighbour with no self-interest" }, hint: "PAHM-reeh, from Javanese. ⚠️ You will almost always meet it NEGATED, and the negated phrase is the one to learn whole: tanpa pamrih, without self-interest, is high praise in Indonesian and is said of volunteers, teachers and parents. The positive ada pamrih di belakangnya, there is a motive behind it, is a quiet accusation — exactly the suspicion the rest of this unit is about." },
+      ],
+    },
+    {
+      id: "id-u97l2",
+      unit: 97,
+      lesson: 2,
+      title: "Suap dan pungli",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name the forms public money goes wrong in — bribing somebody, an improper gift, petty extortion by officials, favouring relatives, a rigged arrangement between parties, and diverting funds.",
+      items: [
+        { id: "id-u97l2-menyuap", type: "vocab", front: "menyuap", reading: "menyuap", meaning: "to pay somebody to break their duty", example: { jp: "Dua pengusaha itu mencoba menyuap pejabat supaya tender itu mereka yang menang.", en: "Those two businessmen tried to bribe an official so that they would win the tender." }, accept: ["to bribe", "to buy an official", "to pay for improper favour"], drill: { jp: "Mereka mencoba menyuap pejabat di kantor itu", en: "They try to bribe an official at that office" }, hint: "muh-NYOO-ahp — ny is one sound, and note that men- plus suap drops the s. ⚠️ You already know suap, a bribe, from u74 as a NOUN; this is the verb. A second, completely innocent sense shares the spelling: menyuap also means to feed somebody by hand, spoonful by spoonful, which is what the root originally meant. Context separates them absolutely." },
+        { id: "id-u97l2-gratifikasi", type: "vocab", front: "gratifikasi", reading: "gratifikasi", meaning: "a gift to an official that counts as corrupt", example: { jp: "Pejabat itu melaporkan gratifikasi yang diterimanya pada hari raya.", en: "That official reported the improper gift he received at the festival." }, accept: ["an improper gratuity", "a gift that compromises an official", "a benefit received in office"], drill: { jp: "Pejabat itu melaporkan gratifikasi yang diterimanya", en: "That official reports the gift he received" }, hint: "grah-tee-fee-KAH-see, five syllables, hard g. ⚠️ A precise legal term in Indonesia, not the English *gratification*: it is any benefit an official receives because of their office, and the law requires it to be REPORTED whether or not anything was asked in return. That is the whole point — gratifikasi needs no agreement, where menyuap in the card before does." },
+        { id: "id-u97l2-pungli", type: "vocab", front: "pungli", reading: "pungli", meaning: "small unlawful fees squeezed out by officials", example: { jp: "Pungli di loket itu membuat warga kecil harus membayar dua kali.", en: "The unlawful fees at that counter made ordinary people pay twice." }, accept: ["petty extortion by officials", "an illegal levy", "unofficial charges demanded"], drill: { jp: "Pungli di loket itu membuat warga marah", en: "Extortion at that counter makes people angry" }, hint: "POONG-lee. A contraction of pungutan liar, wild collection — Indonesian shortens long bureaucratic phrases like this constantly, and pungli is now the everyday word. ⚠️ The difference from suap is who starts it: a bribe is OFFERED by the citizen, pungli is DEMANDED by the official, usually in small amounts at a counter. There are posters in government offices saying stop pungli." },
+        { id: "id-u97l2-nepotisme", type: "vocab", front: "nepotisme", reading: "nepotisme", meaning: "handing posts to your own relatives", example: { jp: "Nepotisme di lembaga itu membuat banyak pelamar kehilangan kesempatan.", en: "Nepotism at that institution made many applicants lose their chance." }, accept: ["favouring one's relatives", "giving jobs to family", "kinship favouritism"], drill: { jp: "Nepotisme di lembaga itu merugikan banyak pelamar", en: "Nepotism at that body harms many applicants" }, hint: "neh-poh-TEES-muh. ⚠️ In Indonesia it comes as part of a famous trio you will see abbreviated everywhere: KKN, standing for korupsi, kolusi, nepotisme — corruption, collusion and nepotism — which was the slogan of the 1998 reformasi you know from u74. Note that the same initials ALSO mean a student community-service placement, which confuses everybody at first." },
+        { id: "id-u97l2-kolusi", type: "vocab", front: "kolusi", reading: "kolusi", meaning: "a secret arrangement between parties who should compete", example: { jp: "Kolusi antara dua perusahaan itu membuat harga tender menjadi tinggi.", en: "Collusion between those two companies made the tender price high." }, accept: ["collusion", "a secret deal to rig an outcome", "conspiracy between parties"], drill: { jp: "Kolusi antara dua perusahaan itu sudah terbukti", en: "Collusion between those two companies is proven" }, hint: "koh-LOO-see. ⚠️ The second letter of KKN in the card before. What distinguishes it from the rest of this lesson: kolusi needs no money to change hands — two bidders simply agree who will win, or an official and a contractor agree what the report will say. Keep it apart from kesepahaman, u93's memorandum, which is open and signed." },
+        { id: "id-u97l2-menyelewengkan", type: "vocab", front: "menyelewengkan", reading: "menyelewengkan", meaning: "to divert money or power from its purpose", example: { jp: "Pejabat itu menyelewengkan dana sumbangan untuk kepentingan sendiri.", en: "That officer diverted the donated funds for his own interest." }, accept: ["to misappropriate", "to divert funds improperly", "to turn to one's own use"], drill: { jp: "Pejabat itu menyelewengkan dana sumbangan sekolah", en: "That officer misappropriates the school's donated funds" }, hint: "muh-nyuh-leh-wehng-KAHN, six syllables, ny one sound. The root seleweng is a swerving off course. ⚠️ Keep it apart from u91's menyimpang, which also means to deviate: menyimpang is neutral about data and only accusatory about behaviour, while menyelewengkan always takes an OBJECT that was entrusted to somebody — funds, authority, a mandate. Penyelewengan is the noun." },
+      ],
+    },
+    {
+      id: "id-u97l3",
+      unit: 97,
+      lesson: 3,
+      title: "Tata kelola dan keterbukaan",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name the machinery built to prevent all that — openness as a principle, answerability for power used, the whole practice of governing a body, a conflict between duty and private gain, the person who reports wrongdoing, and compliance as a function.",
+      items: [
+        { id: "id-u97l3-transparansi", type: "vocab", front: "transparansi", reading: "transparansi", meaning: "running things where everybody can see", example: { jp: "Transparansi anggaran di kota itu membuat warga lebih percaya.", en: "Budget transparency in that city made citizens trust it more." }, accept: ["transparency", "openness about how decisions are made", "visibility of process"], drill: { jp: "Transparansi anggaran di kota itu menambah kepercayaan", en: "Budget transparency in that city adds trust" }, hint: "trahns-pah-RAHN-see, five syllables. ⚠️ Used almost exclusively of INSTITUTIONS, not of people: a person is jujur, an office has transparansi. The native alternative is keterbukaan, openness, which is built on terbuka from u70 and is equally good — a seat choosing between them should pick transparansi for anything administrative, which is where it has settled." },
+        { id: "id-u97l3-akuntabilitas", type: "vocab", front: "akuntabilitas", reading: "akuntabilitas", meaning: "being answerable for the power you were given", example: { jp: "Akuntabilitas pejabat lembaga itu diperiksa setiap tahun.", en: "The accountability of that institution's officers is checked every year." }, accept: ["accountability", "answerability for authority used", "liability to give account"], drill: { jp: "Akuntabilitas pejabat lembaga itu diperiksa setiap tahun", en: "Those officers' accountability is checked every year" }, hint: "ah-koon-tah-bee-LEE-tahs, six syllables. ⚠️ Not the same as u61's tanggung jawab, responsibility, and the difference is the direction: tanggung jawab is a duty you CARRY, akuntabilitas is an obligation to EXPLAIN YOURSELF to somebody else afterwards. An official can take responsibility and still refuse accountability, and Indonesian public argument turns on exactly that gap." },
+        { id: "id-u97l3-tatakelola", type: "vocab", front: "tata kelola", reading: "tatakelola", meaning: "the whole practice of running an institution well", example: { jp: "Tata kelola di lembaga itu diperbaiki setelah ada laporan dari pelapor.", en: "Governance at that institution was improved after a report from a whistleblower." }, accept: ["governance", "how a body is run and controlled", "the system of management and oversight"], drill: { jp: "Tata kelola di lembaga itu sudah diperbaiki", en: "Governance at that institution has been improved" }, hint: "TAH-tah kuh-LOH-lah. Tata is orderly arrangement — you have seen it in tata bahasa, grammar — and mengelola is to manage, so it is the ordered management of a thing. ⚠️ The fixed phrase is tata kelola yang baik, good governance, and you will see it in every annual report and every aid document in Indonesia. It covers rules, oversight and culture all at once, which is why it is one word and not three." },
+        { id: "id-u97l3-benturankepentingan", type: "vocab", front: "benturan kepentingan", reading: "benturankepentingan", meaning: "a clash between your duty and your own gain", example: { jp: "Ada benturan kepentingan karena pengacara itu juga pemodal di perusahaan tersebut.", en: "There is a conflict of interest because that lawyer is also an investor in the company." }, accept: ["a conflict of interest", "a clash between duty and private stake", "divided loyalty in office"], drill: { jp: "Ada benturan kepentingan dalam perkara itu", en: "There is a conflict of interest in that case" }, hint: "buhn-TOO-ran kuh-puhn-TEENG-an. Benturan is a collision, from bentur, to knock against. ⚠️ Worth noticing that the problem is STRUCTURAL and not moral: a benturan kepentingan exists the moment somebody holds both roles, whether or not they ever abuse it, and declaring one is the ordinary professional thing to do. Also written konflik kepentingan." },
+        { id: "id-u97l3-pelapor", type: "vocab", front: "pelapor", reading: "pelapor", meaning: "the person who reports wrongdoing", example: { jp: "Pelapor itu dilindungi oleh undang-undang supaya tidak kehilangan pekerjaannya.", en: "That whistleblower is protected by law so that he does not lose his job." }, accept: ["a whistleblower", "one who files a report of wrongdoing", "an informant to the authorities"], drill: { jp: "Pelapor itu dilindungi oleh undang-undang khusus", en: "That whistleblower is protected by a special law" }, hint: "puh-LAH-pohr. The agent noun off melapor, to report, which you know. ⚠️ Keep it apart from two neighbours: a saksi, from u50, witnessed something and is asked; a pelapor came forward on their own. The English loan whistleblower is also used in Indonesian legal writing, often beside pelapor, and perlindungan pelapor, whistleblower protection, is the live policy phrase." },
+        { id: "id-u97l3-kepatuhan", type: "vocab", front: "kepatuhan", reading: "kepatuhan", meaning: "a body's record of following the rules it is bound by", example: { jp: "Kepatuhan perusahaan itu terhadap aturan lingkungan diperiksa dua kali setahun.", en: "That company's compliance with environmental rules is checked twice a year." }, accept: ["compliance as an institutional record", "adherence to applicable rules", "a body's rule-following"], drill: { jp: "Kepatuhan perusahaan itu diperiksa dua kali setahun", en: "That company's compliance is checked twice a year" }, hint: "kuh-pah-TOO-han. ⚠️ Built on patuh, obedient, which you know from u61 — and the noun names something the adjective does not: a measurable institutional RECORD, with a department and a staff attached. Divisi kepatuhan is the compliance department of every Indonesian bank, and kepatuhan pajak is tax compliance. A person is patuh; an organisation has kepatuhan." },
+      ],
+    },
+    {
+      id: "id-u97l4",
+      unit: 97,
+      lesson: 4,
+      title: "Pengawasan dan pengkhianatan",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name watching and being let down — oversight as a function, say a body supervises another, say somebody abused what they were given, say they betrayed a trust, name the betrayal, and name the apparatus of offices and forms.",
+      items: [
+        { id: "id-u97l4-pengawasan", type: "vocab", front: "pengawasan", reading: "pengawasan", meaning: "standing oversight of what somebody does", example: { jp: "Pengawasan terhadap dana sumbangan itu diperketat setelah ada temuan.", en: "Oversight of those donated funds was tightened after a finding." }, accept: ["supervision as a function", "oversight exercised over others", "monitoring by an authority"], drill: { jp: "Pengawasan terhadap dana sumbangan itu diperketat", en: "Oversight of those donated funds was tightened" }, hint: "puh-ngah-WAH-san. ⚠️ Built on awas, which you know from u40 as the shouted warning *look out!* — and institutional oversight is in no way derivable from that, which is why both this and the next card earn their place. Di bawah pengawasan, under supervision, is the fixed phrase, and badan pengawas is a supervisory body." },
+        { id: "id-u97l4-mengawasi", type: "vocab", front: "mengawasi", reading: "mengawasi", meaning: "to keep watch over what somebody is doing", example: { jp: "Lembaga itu mengawasi semua tender di tingkat daerah.", en: "That body oversees all tenders at the regional level." }, accept: ["to supervise", "to keep under watch", "to oversee officially"], drill: { jp: "Lembaga itu mengawasi semua tender daerah", en: "That body oversees all regional tenders" }, hint: "muh-ngah-WAH-see. The verb of the card before it. ⚠️ Keep it apart from u94's mengamati, to observe: mengamati is watching to LEARN, with no authority over what you see, while mengawasi is watching with the power to intervene. A researcher mengamati; a regulator mengawasi. Getting them the wrong way round claims or disclaims authority." },
+        { id: "id-u97l4-menyalahgunakan", type: "vocab", front: "menyalahgunakan", reading: "menyalahgunakan", meaning: "to use something entrusted to you wrongly", example: { jp: "Pejabat itu menyalahgunakan wewenang untuk membantu mitra usahanya.", en: "That official abused his authority to help his business partner." }, accept: ["to abuse a power or trust", "to misuse what was given", "to turn authority to the wrong end"], drill: { jp: "Pejabat itu menyalahgunakan wewenang untuk mitranya", en: "That official abuses authority for his partner" }, hint: "muh-nyah-lahh-goo-nah-KAHN, six syllables. Built transparently from salah, wrong, plus guna, use — both of which you know — so it is literally to wrong-use. ⚠️ Its object is always something ENTRUSTED: wewenang, jabatan, kepercayaan, data. Penyalahgunaan wewenang, abuse of authority, is a named offence in Indonesian law and you will meet it in u92's dakwaan." },
+        { id: "id-u97l4-mengkhianati", type: "vocab", front: "mengkhianati", reading: "mengkhianati", meaning: "to betray somebody who trusted you", example: { jp: "Dia merasa pejabat lama itu mengkhianati semua anggota lembaga.", en: "She feels that the former officers betrayed every member of the institution." }, accept: ["to betray a trust", "to be unfaithful to", "to sell out those who relied on you"], drill: { jp: "Dia merasa pejabat lama itu mengkhianati anggota", en: "She feels the old officers betrayed the members" }, hint: "muhng-kee-ah-nah-TEE, five syllables, with the kh said as a hard k. From Arabic khiyānah. ⚠️ Far heavier than menipu, to deceive: deceiving somebody needs no prior relationship, mengkhianati requires that they TRUSTED you first. It is used of friends, spouses, parties and countries, and in Indonesian it is close to unforgivable." },
+        { id: "id-u97l4-pengkhianatan", type: "vocab", front: "pengkhianatan", reading: "pengkhianatan", meaning: "a betrayal of trust", example: { jp: "Pengkhianatan itu tidak pernah dilupakan oleh anggota yang lama.", en: "That betrayal was never forgotten by the long-standing members." }, accept: ["a betrayal", "treachery against those who trusted", "an act of faithlessness"], drill: { jp: "Pengkhianatan itu tidak pernah dilupakan anggota lama", en: "That betrayal was never forgotten by old members" }, hint: "puhng-kee-ah-nah-TAHN, five syllables. The noun of the card before it. ⚠️ At the level of a state it is the word for treason — pengkhianatan terhadap negara — and that is the register in which you will meet it in u95's historical material. In private life it is what ends a friendship. There is no mild use of this word." },
+        { id: "id-u97l4-birokrasi", type: "vocab", front: "birokrasi", reading: "birokrasi", meaning: "the apparatus of offices, forms and procedures", example: { jp: "Birokrasi yang panjang itu membuat warga menyerah sebelum urusannya selesai.", en: "That long bureaucracy makes citizens give up before their business is finished." }, accept: ["bureaucracy", "the administrative machine", "officialdom and its procedures"], drill: { jp: "Birokrasi yang panjang itu membuat warga menyerah", en: "That long bureaucracy makes citizens give up" }, hint: "bee-roh-KRAH-see. ⚠️ Two readings, and Indonesian uses both: neutrally, the civil service as a body — reformasi birokrasi is a standing government programme — and, with a sigh, red tape. The second is commoner in speech. It belongs in this unit because a thicket of procedure is where pungli from lesson 2 actually grows." },
+      ],
+    },
   ],
 };
