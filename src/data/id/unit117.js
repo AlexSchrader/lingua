@@ -16,15 +16,23 @@
 //   and it is glossed as the plain word for a substance you can point at, not as
 //   a chemical term. Nothing in this unit names a compound or an element.
 //
-// ⚠️⚠️ `menguap` IS A CROSS-BLOCK CLASH AND IT IS SETTLED HERE.
-// The word is a genuine homograph with two unrelated senses:
-//   • menguap = to EVAPORATE (from uap, vapour)   <- this unit
-//   • menguap = to YAWN      (from kuap)          <- block 2's u113 list
-// ONE FRONT, ONE HOME. The crew lead's allocation gives it to u117 for
-// evaporation, and that is what ships. The yawning sense is NOT taught anywhere
-// and is named in this card's hint so the learner is not ambushed by it. BLOCK 2
-// MUST BE TOLD at merge: if u113 also cards it, the duplicate-front validator
-// will error and one of the two has to go — and by allocation it is not this one.
+// ⚠⚠ `menguap` WAS CARDED HERE AND IS NOW DROPPED — THE RECORD OF WHY.
+// The word is a true homograph with two unrelated roots:
+//   • menguap = to EVAPORATE (from uap, vapour)
+//   • menguap = to YAWN      (from kuap)
+// My brief from the crew lead said "one front, one home: it is yours for
+// evaporation", and I authored it on that basis. THE LEAD THEN CORRECTED
+// THEMSELVES: this repo's ownership rule is LOWER UNIT WINS, and block 2's
+// u113 (yawning) is below u117. So u113 keeps `menguap` and this unit dropped
+// it. Confirmed at merge by `dupes.mjs id`, which reported the pair.
+// `mengering` (to dry out, from taught `kering`) took the slot, and its hint
+// names `menguap` and the yawning sense so the learner is not ambushed.
+// ⚠️ CONSEQUENCE WORTH NAMING: the course now has NO card for evaporation as
+// such. `uap` (vapour) and `mengembun` (to condense) are both here, so the
+// concept is reachable; the verb is not. `menguapkan` was probed as a
+// replacement and refused — the fixed probe reports it as meng-...-kan
+// circumfix on `uap`, which is this unit's own card, so it is the noun's verb
+// rather than a new word.
 //
 // SIX GLOSS COLLISIONS MEASURED (gloss-taken.mjs id), every one before a card
 // was written, and every one of them an obvious first-choice gloss:
@@ -100,7 +108,7 @@ export const ID_UNIT117 = {
       dominantMode: "recognize",
       canDo: "Describe the change of state itself — water going into the air, coming back as dew, and metal growing with heat — in ordinary Indonesian.",
       items: [
-        { id: "id-u117l3-menguap", type: "vocab", front: "menguap", reading: "menguap", meaning: "to evaporate", example: { jp: "Air di baju itu cepat menguap kalau ada angin.", en: "Water in that shirt evaporates quickly if there is wind." }, accept: ["to turn into vapour", "to dry off into the air", "to go off as vapour"], drill: { jp: "Air di baju itu cepat menguap kalau panas", en: "Water in that shirt evaporates quickly if it is hot" }, hint: "muh-NGOO-ahp — from uap, vapour. ⚠️ A TRUE HOMOGRAPH, and you need to be warned: menguap also means TO YAWN, from a different root entirely. The two are unrelated and the course teaches only the evaporation sense. Context separates them absolutely, since water does not get sleepy." },
+        { id: "id-u117l3-mengering", type: "vocab", front: "mengering", reading: "mengering", meaning: "to dry out", example: { jp: "Air di baju itu cepat mengering kalau ada angin.", en: "Water in that shirt dries out quickly if there is wind." }, accept: ["to lose its moisture to the air", "to become dry as water goes off", "to go dry"], drill: { jp: "Air di baju itu cepat mengering kalau panas", en: "Water in that shirt dries out quickly if it is hot" }, hint: "muh-NGUH-reeng — meng- on kering, dry, which you already know, turning the adjective into the process. ⚠️ The obvious word here would be menguap, to evaporate, and this course does NOT teach that sense: menguap is taught meaning TO YAWN, from an unrelated root, and one front gets one home. Mengering is what you will say about washing on a line anyway." },
         { id: "id-u117l3-uap", type: "vocab", front: "uap", reading: "uap", meaning: "vapour", example: { jp: "Uap dari air panas itu naik ke atas dan hilang.", en: "The vapour from that hot water rises and disappears." }, accept: ["the cloud that rises off hot water", "water in the form of a gas", "what hot water turns into"], drill: { jp: "Uap dari air panas itu naik ke atas", en: "The vapour from that hot water rises up" }, hint: "OO-ahp. ⚠️ Not glossed \"steam\": mengukus, to steam food, already owns that gloss. Kereta uap is a steam train, and kapal uap a steamer — both archaic and both still in the dictionary." },
         { id: "id-u117l3-mengembun", type: "vocab", front: "mengembun", reading: "mengembun", meaning: "to condense", example: { jp: "Kaca jendela mengembun waktu pagi masih dingin.", en: "The window glass condenses while the morning is still cold." }, accept: ["to form dew on a cold surface", "to turn from vapour to droplets", "to fog up with moisture"], drill: { jp: "Kaca jendela mengembun waktu pagi dingin", en: "The window glass fogs up while the morning is cold" }, hint: "muh-ngum-BOON, from embun, dew. The reverse of menguap, which you just met — and the pair is worth holding together, because they are the same water going two directions." },
         { id: "id-u117l3-memuai", type: "vocab", front: "memuai", reading: "memuai", meaning: "to expand when heated", example: { jp: "Besi memuai kalau panas, jadi jembatan harus ada tempat lebih.", en: "Iron expands when hot, so a bridge has to have extra space." }, accept: ["to grow bigger with heat", "to stretch from warmth", "to get larger as it warms"], drill: { jp: "Besi memuai kalau panas jadi harus ada tempat", en: "Iron expands when hot so there has to be space" }, hint: "muh-MOO-eye. Specifically the physics one, with heat — this is the word in every Indonesian school science book. It is NOT the same as mengembang, which you meet next and is what dough does." },
