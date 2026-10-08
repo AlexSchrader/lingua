@@ -100,9 +100,30 @@
 //         दोष, आदेश, प्रस्ताव, खाका, अतीत, स्मारक, अवशेष, तत्व, सार, मूल्य, बोध,
 //         विवेक, प्रतीक, स्तर, अनुपात, अंश, पड़ाव, दशक.
 //       FEMININE AND CONSONANT-FINAL, so NOTHING in the shape says so — this is
-//         the class that gets agreement wrong: **ज़िद, छाप, पहल, दर, उपज, बढ़त,
+//         the class that gets agreement wrong: **ज़िद, पहल, उपज, बढ़त,
 //         मात्रा is -आ (see below), घुटन, मंदी is -ी**. The genuinely unmarked ones
-//         are ज़िद · छाप · पहल · दर · उपज · बढ़त · घुटन.
+//         are ज़िद · पहल · उपज · बढ़त · घुटन.
+//         ⚠️ THIS LIST NAMED छाप AND दर UNTIL 2026-10-06 AND NEITHER IS CARDED
+//         ANYWHERE IN HINDI. Re-derived against all 2,270 non-glyph hi fronts:
+//         छाप does not exist (छापना, to print, is u31l3 and a different lexeme),
+//         and दर does not exist either — the twelve दर- fronts in the corpus are
+//         दरवाज़ा, दर्द, दरअसल, दर्जी, दर्जन, दर्शक, दर्जा, दरबार, दर्रा, दर्शन,
+//         दर्ज and दरार, none of them दर. Both were in a draft and neither
+//         shipped. **A later block reading the old line would have written around
+//         two words the learner has never been given** — the inverse of the
+//         Norwegian failure CLAUDE.md records, and the reason the stale-claim
+//         sweep says to resolve a word list against `npm run taught -- hi` or
+//         `scripts/qa/front-taken.mjs`, never against another comment.
+//         ⚠️ AND THE दर/डर READING COLLISION IS THEREFORE HYPOTHETICAL, NOT LIVE,
+//         AND THE FIX IS NOT THE ONE IT LOOKS LIKE. Measured: डर (u27l1) reads
+//         `dar` and owns that reading alone, correctly, because §1b's doubling
+//         escape hatch only fires WHEN A PAIR ACTUALLY COLLIDES and दर was never
+//         carded. ⚠️ So a later block that wants दर cannot simply author it
+//         `darr`: §1b doubles the RETROFLEX member, and दर is the DENTAL one.
+//         It is **डर's reading that would have to become `darr`** — the same
+//         shape as साठ `saatth` against साथ `saath` (u11l2 / u8l4). That is an
+//         edit to a shipped card's `reading` field, not its id, so it costs no
+//         mastery; but it is a decision, and it belongs to whoever wants दर.
 //       FEMININE IN -आ AGAINST THE RULE: मात्रा, अवधारणा, आलोचना, चर्चा, प्रेरणा,
 //         लोककथा, किंवदंती is -ी. **मात्रा and अवधारणा are the two most likely to be
 //         got wrong**, because -आ reads masculine everywhere else in the course.
