@@ -36,10 +36,16 @@
 //   `sauh`    a second word for an anchor. `jangkar` is the everyday one and two
 //             fronts under one gloss is the shared-prompt defect this corpus has
 //             ZERO of. Dropped, not deferred.
-//   `pasang`  a live homograph with two taught senses already in the learner's
-//             head — "to install" and "a pair" — so the tide sense would need a
-//             hint that makes the meaning card a coin-toss. `surut` carries the
-//             tide alone; its hint names `pasang` by word, so nothing is hidden.
+//   `pasang`  ⚠️ THE CREW LEAD'S BRIEF SAID THIS FRONT WAS TAKEN, WITH "to
+//             install" AND "a pair" ALREADY IN THE LEARNER'S HEAD. I CHECKED AND
+//             IT IS NOT. Bare `pasang` is FREE — what is taught is `memasang`
+//             (u25), the verb. Measured both ways: `candidate-check id pasang`
+//             reports ok, and a front lookup over the corpus returns nothing.
+//             The decision to leave it out STANDS on its own merits — one front
+//             carrying the tide, a pair AND the act of installing is a meaning
+//             card that cannot be graded — but the stated reason was wrong and
+//             is corrected here rather than appended to. `surut` carries the
+//             tide alone and its hint names `pasang` and `memasang` by word.
 //   `mendayung` `dayung` `haluan` `buritan` `galangan` `gelombang` — all probed
 //             free, all cut for space at 24. They are the obvious refill if this
 //             slot is ever widened.
@@ -207,7 +213,7 @@ export const ID_UNIT114 = {
         { id: "id-u114l4-muatan", type: "vocab", front: "muatan", reading: "muatan", meaning: "a cargo load", example: { jp: "Muatan kapal itu terlalu berat untuk air yang rendah.", en: "That ship's load is too heavy for low water." }, accept: ["freight", "a shipment on board", "the load carried"], drill: { jp: "Muatan kapal itu terlalu berat sekarang", en: "That ship's load is too heavy now" }, hint: "moo-A-tahn. What has been loaded, as a quantity. From muat, to fit or to hold — a bus that says tidak muat is full. Also used of a truck and of electrical charge." },
         { id: "id-u114l4-pelampung", type: "vocab", front: "pelampung", reading: "pelampung", meaning: "a buoy", example: { jp: "Setiap orang di kapal harus tahu di mana pelampung ada.", en: "Everyone on the ship has to know where the life rings are." }, accept: ["a life ring", "a float marker", "a flotation device"], drill: { jp: "Setiap orang harus tahu di mana pelampung ada", en: "Everyone has to know where the life rings are" }, hint: "puh-lam-POONG. Anything that floats on purpose — a channel marker, a life ring, the armbands a child wears. From apung, to float. Jaket pelampung is a life jacket." },
         { id: "id-u114l4-tenggelam", type: "vocab", front: "tenggelam", reading: "tenggelam", meaning: "to sink", example: { jp: "Perahu itu tenggelam dekat terumbu dan semua awak bisa pulang.", en: "That boat sank near the reef and all the crew got home." }, accept: ["to go under", "to founder", "to be submerged"], drill: { jp: "Perahu itu tenggelam dekat terumbu karang", en: "That boat sank near the coral reef" }, hint: "teng-guh-LAHM, with ngg — the hum plus a hard g. Of a vessel, of a person in water, and of the sun: matahari tenggelam is how Indonesian says the sun sets. Also used of being swamped by work." },
-        { id: "id-u114l4-surut", type: "vocab", front: "surut", reading: "surut", meaning: "to ebb", example: { jp: "Kalau air surut, orang bisa jalan sampai ke terumbu itu.", en: "When the water ebbs, people can walk all the way out to that reef." }, accept: ["to recede", "to fall back", "to go down of water"], drill: { jp: "Kalau air surut orang bisa jalan jauh", en: "When the water ebbs people can walk far out" }, hint: "SOO-root. Air surut is low tide; the rising tide is air pasang, and pasang is NOT taught as a card because you already know it as \"to install\" and as \"a pair\" — one spelling with three jobs is a card nobody can be graded on. Surut also describes a crowd or a fever dying down." },
+        { id: "id-u114l4-surut", type: "vocab", front: "surut", reading: "surut", meaning: "to ebb", example: { jp: "Kalau air surut, orang bisa jalan sampai ke terumbu itu.", en: "When the water ebbs, people can walk all the way out to that reef." }, accept: ["to recede", "to fall back", "to go down of water"], drill: { jp: "Kalau air surut orang bisa jalan jauh", en: "When the water ebbs people can walk far out" }, hint: "SOO-root. Air surut is low tide; the rising tide is air pasang. Bare pasang is not taught as a card in this course, because the one front would have to carry the tide, a pair, and the act of installing something — the verb memasang, to install, IS taught and is the form you will meet. Surut also describes a crowd or a fever dying down." },
       ],
     },
   ],
