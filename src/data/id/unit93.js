@@ -1,18 +1,127 @@
-// ID Unit 93 — Business and negotiation (slot: business) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// ID Unit 93 — Perundingan dan perjanjian usaha ("Negotiation and commercial
+// agreement") — B2
+// B2 block 1 (u88–u100). CONVENTIONS: see unit88.js §C1–§C12 — binding here.
+//
+// §C-F1. SCOPE NARROWED. "Business and negotiation" sits on top of TWO units —
+//        **u48 `Dagang dan milik`** (`modal` `laba` `rugi` `utang` `gudang`
+//        `pajak` `denda` `buruh` `nelayan`) and **u66 `Ekonomi dan pasar`**
+//        (`ekonomi` `saham` `investasi` `inflasi` `rekening` `pinjaman`
+//        `bangkrut` `pengangguran` `subsidi` `impor`). Probed 26 candidates for
+//        the slot as titled and **9 came back TAKEN**, including `menawar`(u16),
+//        `kontrak`(u24), `kompromi`(u60), `buntu`(u60) and `perjanjian`(u75).
+//        **So the business half is spent and the NEGOTIATION half is not.** This
+//        unit owns the ROOM where a deal is made and the PAPER it becomes: who
+//        is at the table, what they haggle over, what the document binds them to
+//        and what happens when one side walks away. It takes no market word and
+//        no money word.
+//
+// §C-F2. BOUNDARY, STATED. `menawar` (to haggle over a price in a shop) is u16's
+//        and stays u16's — this unit teaches **`tawar-menawar`**, the reciprocal
+//        process, which is a different thing and a different register.
+//        `kompromi` and `buntu` are u60's (`Kendala dan jalan keluar`), so the
+//        deadlock vocabulary here is `arbitrase` and `sepihak`, not a second word
+//        for stalemate. `perjanjian` is u75's, from the peace-treaty sense, so
+//        the agreement words here are `kesepahaman` and `menyepakati`.
+//
+// §C-F3. AFFIX ROOTS STRIPPED AND GREPPED BY HAND (C3/C4). Two families, the cap:
+//        `pemodal`←**modal (u48, capital)** — KEPT: an investor is a PERSON, not
+//        a sum, and the hint names the root · `sepihak`←**pihak (u51, a party)**
+//        — KEPT: `secara sepihak` is a fixed and unavoidable contract phrase;
+//        hint names the root · `perundingan`/`berunding`←runding (not taught),
+//        verb+noun pair, house style · `lelang`/`melelang` same ·
+//        `mitra`/`kemitraan` same · `tawaran`←tawar (bare root not taught;
+//        `menawar` is u16's and is named in the hint) · `menyanggupi`←sanggup
+//        (not taught) · `penggabungan`←gabung (not taught) · `kesepahaman`←paham
+//        (not a taught front) · `mengikat`←ikat (not taught) · `jaminan`←jamin
+//        (not taught) · `menyepakati`←sepakat — ⚠️ **sepakat IS taught (u51)**,
+//        but `menyepakati` is men-...-i on it and the probe did not flag it
+//        because the -i loop and the prefix loop do not compose; I checked it by
+//        hand. KEPT anyway and deliberately: u51's `sepakat` is a STATE two
+//        sides are in, `menyepakati` is a transitive act done TO a clause, and
+//        the hint says so.
+//
+// §C-F4. REFUSED HERE. `membatalkan`←batal(u79) — this is u70's mem-...-kan
+//        CAUSATIVE on a taught adjective, the same class refused in u92 for
+//        `membebaskan`, and carding it teaches one grammar point twice.
+//        Replaced with **`wanprestasi`**, which is the word an Indonesian
+//        contract actually uses for the event. `tender` ships ONLY because it is
+//        glossed **"a bid for a contract"** — the gloss "a tender" folds to the
+//        front and makes a copy task (C5). `tenggat` is TAKEN (u56). DEFERRED,
+//        all free, no room: `adendum`, `pialang`, `menggugurkan`.
 export const ID_UNIT93 = {
   id: "id-u93",
   lang: "id",
-  title: "Business and negotiation",
+  title: "Perundingan dan perjanjian usaha",
   order: 93,
   stage: "b2",
   lessons: [
-    { id: "id-u93l1", title: "Lesson 1", locked: true },
-    { id: "id-u93l2", title: "Lesson 2", locked: true },
-    { id: "id-u93l3", title: "Lesson 3", locked: true },
-    { id: "id-u93l4", title: "Lesson 4", locked: true },
+    {
+      id: "id-u93l1",
+      unit: 93,
+      lesson: 1,
+      title: "Berunding dan menawar",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Describe a negotiation while it is happening — name the talks, say the parties are in session, name the back-and-forth over terms, name an offer put forward, say a small group is thrashing it out, and say somebody undertook to do it.",
+      items: [
+        { id: "id-u93l1-perundingan", type: "vocab", front: "perundingan", reading: "perundingan", meaning: "formal talks aimed at a deal", example: { jp: "Perundingan antara perusahaan dan buruh itu berjalan selama tiga hari.", en: "The talks between the company and the workers ran for three days." }, accept: ["negotiations", "a round of bargaining talks", "a formal parley"], drill: { jp: "Perundingan itu berjalan selama tiga hari", en: "Those talks ran for three days" }, hint: "puh-roon-DEENG-an. ⚠️ Keep it apart from rapat, a meeting, which you have had since u24: a rapat is any gathering with an agenda, a perundingan is specifically two SIDES trying to reach terms. It is also the standard word for diplomatic negotiations, so you will meet it in every news report about a treaty." },
+        { id: "id-u93l1-berunding", type: "vocab", front: "berunding", reading: "berunding", meaning: "to be in talks with the other side", example: { jp: "Kedua pihak berunding lagi setelah gugatan itu ditarik.", en: "Both parties went back into talks after that claim was withdrawn." }, accept: ["to negotiate", "to confer over terms", "to parley"], drill: { jp: "Kedua pihak berunding lagi minggu ini", en: "Both parties are negotiating again this week" }, hint: "buh-ROON-deeng. The ber- verb of the card before it, and like most ber- verbs it is reciprocal — it takes dengan for the other side and never a direct object. ⚠️ You already know berdebat, to debate, from u22: debating is about who is right, berunding is about what both sides will accept. Nobody wins a perundingan." },
+        { id: "id-u93l1-tawarmenawar", type: "vocab", front: "tawar-menawar", reading: "tawarmenawar", meaning: "the back-and-forth over terms", example: { jp: "Tawar-menawar tentang harga tanah itu memakan waktu dua bulan.", en: "The back-and-forth over that land price took two months." }, accept: ["haggling between two sides", "bargaining to and fro", "give and take over a price"], drill: { jp: "Tawar-menawar itu memakan waktu dua bulan", en: "That haggling took two months" }, hint: "TAH-wahr muh-NAH-wahr. ⚠️ A reduplication of the kind unit 1 §5 describes — the doubled form IS the word, it is not a plural, and there is no singular. You already know menawar, to haggle, from u16, which is what ONE person does in a market; tawar-menawar is the whole exchange between two, and it is used of politics and contracts as much as of prices." },
+        { id: "id-u93l1-tawaran", type: "vocab", front: "tawaran", reading: "tawaran", meaning: "an offer put on the table", example: { jp: "Tawaran pertama dari pemodal itu ditolak tanpa penjelasan.", en: "The first offer from that investor was rejected without explanation." }, accept: ["an offer made", "a bid put forward", "terms proposed"], drill: { jp: "Tawaran pertama itu ditolak tanpa penjelasan", en: "That first offer was rejected without explanation" }, hint: "tah-WAH-ran. The noun off tawar, the root behind u16's menawar. ⚠️ Watch the homograph: bare tawar also means tasteless or bland, as in air tawar, fresh water — a completely separate word that happens to share the spelling. In this unit it is only ever an offer, and mengajukan tawaran is how you make one." },
+        { id: "id-u93l1-berembuk", type: "vocab", front: "berembuk", reading: "berembuk", meaning: "to put heads together over a decision", example: { jp: "Pengurus yayasan itu berembuk dulu sebelum memberi jawaban resmi.", en: "That foundation's committee put their heads together first before giving an official answer." }, accept: ["to deliberate together", "to talk it over as a group", "to confer informally"], drill: { jp: "Mereka berembuk dulu sebelum memberi jawaban", en: "They put their heads together first before answering" }, hint: "buh-ruhm-BOOK. ⚠️ The difference from berunding, two cards back, is which side of the table: berunding is with the OPPOSING party, berembuk is among your OWN people, working out what you will accept. An Indonesian delegation berembuk in the corridor and then goes back in to berunding. Also spelled berembug." },
+        { id: "id-u93l1-menyanggupi", type: "vocab", front: "menyanggupi", reading: "menyanggupi", meaning: "to undertake to deliver something", example: { jp: "Perusahaan kecil itu tidak menyanggupi jumlah yang diminta dalam tender.", en: "That small company did not undertake to deliver the quantity asked for in the bid." }, accept: ["to commit to doing", "to take on an obligation", "to agree to meet a demand"], drill: { jp: "Mereka tidak menyanggupi jumlah yang diminta", en: "They do not undertake the quantity requested" }, hint: "muh-nyahng-goo-PEE, five syllables, ny one sound. From sanggup, to be able and willing. ⚠️ Stronger than setuju, which you know from u22: agreeing is saying yes to an idea, menyanggupi is accepting that you will be ON THE HOOK for a specific deliverable. A supplier who menyanggupi a quantity can be sued if it does not arrive." },
+      ],
+    },
+    {
+      id: "id-u93l2",
+      unit: 93,
+      lesson: 2,
+      title: "Klausul dan lelang",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Read the paperwork around a deal — name a clause, name a bid for a public contract, name an auction, say somebody is auctioning something, name a memorandum of understanding, and name what each side gets back.",
+      items: [
+        { id: "id-u93l2-klausul", type: "vocab", front: "klausul", reading: "klausul", meaning: "one provision inside a contract", example: { jp: "Ada satu klausul dalam kontrak itu yang tidak dibaca oleh pemodal.", en: "There is one provision in that contract that the investor did not read." }, accept: ["a contractual clause", "a single term of an agreement", "a stipulation"], drill: { jp: "Satu klausul dalam kontrak itu tidak dibaca", en: "One clause in that contract was not read" }, hint: "klow-SOOL. ⚠️ Keep it apart from the two law words in u92: a pasal is an article of a STATUTE and an ayat is a paragraph inside one, while a klausul is a provision inside a PRIVATE contract. Nobody writes klausul when they mean a law, and klausul karet is a loosely-worded term written to be stretched later." },
+        { id: "id-u93l2-tender", type: "vocab", front: "tender", reading: "tender", meaning: "a bid for a contract put out to competition", example: { jp: "Tiga perusahaan ikut tender untuk membangun jembatan di kota itu.", en: "Three companies took part in the bidding to build the bridge in that city." }, accept: ["competitive bidding for a contract", "a procurement competition", "putting work out to bid"], drill: { jp: "Tiga perusahaan ikut tender jembatan itu", en: "Three companies join the bidding for that bridge" }, hint: "TEHN-duhr. ⚠️ A loanword that kept only its commercial sense — nothing to do with being tender or soft. In Indonesia it almost always means a GOVERNMENT procurement: ikut tender is to bid, memenangkan tender is to win, and tender yang diatur, a rigged tender, is one of the commonest corruption stories you will read in u97's territory." },
+        { id: "id-u93l2-lelang", type: "vocab", front: "lelang", reading: "lelang", meaning: "a sale to the highest bidder", example: { jp: "Lukisan tua itu dijual lewat lelang di kota besar.", en: "That old painting was sold through an auction in the big city." }, accept: ["an auction", "a public sale by bidding", "a sale to the best offer"], drill: { jp: "Lukisan tua itu dijual lewat lelang", en: "That old painting was sold through an auction" }, hint: "LEH-lahng. ⚠️ The difference from tender, the card before, is the direction of the money: in a lelang the SELLER takes the highest offer, in a tender the BUYER takes the lowest. Both are competitions and Indonesian keeps them strictly apart. You will meet lelang in two places: art sales and the forced sale of seized property." },
+        { id: "id-u93l2-melelang", type: "vocab", front: "melelang", reading: "melelang", meaning: "to sell something by auction", example: { jp: "Pengadilan itu melelang rumah dan tanah milik terpidana.", en: "That court auctioned off the house and land belonging to the convict." }, accept: ["to auction off", "to put up for bidding", "to sell to the highest bidder"], drill: { jp: "Pengadilan melelang rumah milik terpidana itu", en: "The court auctions that convict's house" }, hint: "muh-LEH-lahng. The verb of the card before it. ⚠️ Note who the subject usually is in Indonesian news: a court, a bank or the tax office, selling property it has seized. So dilelang, auctioned off, carries an unmistakable hint of misfortune — it is not the word for a cheerful art sale, which is simply dijual lewat lelang." },
+        { id: "id-u93l2-kesepahaman", type: "vocab", front: "kesepahaman", reading: "kesepahaman", meaning: "a shared understanding short of a contract", example: { jp: "Dua lembaga itu menandatangani kesepahaman sebelum membuat kontrak penuh.", en: "Those two institutions signed a memorandum of understanding before making a full contract." }, accept: ["a memorandum of understanding", "an understanding reached in principle", "a non-binding accord"], drill: { jp: "Dua lembaga itu menandatangani kesepahaman bulan lalu", en: "Those two bodies signed an understanding last month" }, hint: "kuh-suh-pah-HAH-man, five syllables. From paham, to understand, which you know. ⚠️ The legally important bit: it is explicitly NOT yet binding — and that is why it differs from u51's kesepakatan, which is a deal actually struck. Indonesian institutions sign nota kesepahaman, abbreviated MoU and said as em-oh-yoo, constantly and then negotiate the real contract afterwards." },
+        { id: "id-u93l2-imbalbalik", type: "vocab", front: "imbal balik", reading: "imbalbalik", meaning: "what each side gets in return", example: { jp: "Dalam kesepahaman itu tidak jelas apa imbal balik bagi warga kampung.", en: "In that understanding it is not clear what the village residents get in return." }, accept: ["reciprocal benefit", "the quid pro quo", "what is given back in exchange"], drill: { jp: "Imbal balik bagi warga kampung belum jelas", en: "The return for the village residents is not clear yet" }, hint: "EEM-bahl BAH-leek. Imbal is a return or requital and balik is to turn back, which you know — so it is the benefit flowing the other way. ⚠️ The word that makes a deal fair or unfair in Indonesian public argument: tanpa imbal balik, with nothing in return, is the standard complaint about a concession given away. Also written imbal-balik with a hyphen; both fold the same." },
+      ],
+    },
+    {
+      id: "id-u93l3",
+      unit: 93,
+      lesson: 3,
+      title: "Kemitraan dan penggabungan",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name who is involved in a venture and what became of it — a partner, the partnership itself, two firms becoming one, one buying another, the person who put the money in, and everybody with something at stake.",
+      items: [
+        { id: "id-u93l3-mitra", type: "vocab", front: "mitra", reading: "mitra", meaning: "a partner in a venture", example: { jp: "Perusahaan itu mencari mitra baru di pulau sebelah.", en: "That company is looking for a new partner on the next island." }, accept: ["a business partner", "a counterpart in a venture", "an associate firm"], drill: { jp: "Perusahaan itu mencari mitra baru sekarang", en: "That company is looking for a new partner now" }, hint: "MEE-trah, from Sanskrit, where it meant friend. ⚠️ Strictly a working relationship — do not use it for a spouse or a friend, where you already have teman and pasangan. Mitra kerja is a working partner, mitra dagang a trading partner. The institutional register loves it: a government programme has mitra, never teman." },
+        { id: "id-u93l3-kemitraan", type: "vocab", front: "kemitraan", reading: "kemitraan", meaning: "a partnership as an arrangement", example: { jp: "Kemitraan antara petani dan pabrik itu berjalan sepuluh tahun.", en: "The partnership between the farmers and that factory ran for ten years." }, accept: ["a formal partnership", "a cooperative arrangement", "a working alliance"], drill: { jp: "Kemitraan antara petani dan pabrik itu berjalan lama", en: "The partnership between farmers and the factory ran long" }, hint: "kuh-mee-TRAH-an. The noun of the card before it — the ARRANGEMENT rather than the person in it. ⚠️ Keep it apart from kerja sama, cooperation, which you already have: kerja sama is any working-together, a kemitraan is a defined relationship with terms, usually written down. Development programmes and company reports are full of it." },
+        { id: "id-u93l3-penggabungan", type: "vocab", front: "penggabungan", reading: "penggabungan", meaning: "two companies becoming one", example: { jp: "Penggabungan dua bank itu membuat banyak karyawan kehilangan pekerjaan.", en: "The merging of those two banks made many employees lose their jobs." }, accept: ["a merger", "the combining of two firms", "amalgamation"], drill: { jp: "Penggabungan dua bank itu sudah selesai", en: "The merger of those two banks is finished" }, hint: "puhng-gah-BOONG-an, hard g twice. From gabung, to join together. ⚠️ Indonesian also uses the English loanword merger freely in business writing, but penggabungan is the word in law and in a formal announcement. The key contrast is with akuisisi in the next card: a penggabungan makes a NEW entity, an akuisisi leaves one owner standing." },
+        { id: "id-u93l3-akuisisi", type: "vocab", front: "akuisisi", reading: "akuisisi", meaning: "one firm buying another outright", example: { jp: "Akuisisi perusahaan kecil itu diumumkan setelah perundingan yang panjang.", en: "The acquisition of that small company was announced after long talks." }, accept: ["an acquisition", "a takeover", "the purchase of one firm by another"], drill: { jp: "Akuisisi perusahaan kecil itu baru diumumkan", en: "The acquisition of that small firm was just announced" }, hint: "ah-kwee-SEE-see, five syllables. ⚠️ The asymmetry is the whole word: after an akuisisi there is a buyer and a bought, where a penggabungan in the card before makes two into one on paper. Indonesian business journalism writes merger dan akuisisi as a fixed pair, often shortened to M&A, so you will usually meet the two words together." },
+        { id: "id-u93l3-pemodal", type: "vocab", front: "pemodal", reading: "pemodal", meaning: "the person who puts the money in", example: { jp: "Pemodal dari luar negeri itu meminta klausul tambahan dalam kontrak.", en: "That foreign investor asked for an extra clause in the contract." }, accept: ["an investor", "a financial backer", "the one providing the capital"], drill: { jp: "Pemodal itu meminta klausul tambahan dalam kontrak", en: "That investor asks for an extra clause" }, hint: "puh-MOH-dahl. ⚠️ Built on modal, capital, which you know from u48 — and it names a PERSON, which is why it earns its own card. The native word beside the loanword: investor is equally common in business pages, but pemodal is what a critical article uses, because it points at the human being rather than the money. Pemodal besar means big money, with a frown." },
+        { id: "id-u93l3-pemangkukepentingan", type: "vocab", front: "pemangku kepentingan", reading: "pemangkukepentingan", meaning: "everybody with something at stake", example: { jp: "Semua pemangku kepentingan diundang sebelum rencana itu disetujui.", en: "All the parties with something at stake were invited before that plan was approved." }, accept: ["a stakeholder", "an interested party", "those affected by a decision"], drill: { jp: "Semua pemangku kepentingan diundang pagi ini", en: "All stakeholders were invited this morning" }, hint: "puh-MAHNG-koo kuh-puhn-TEENG-an — six syllables and a mouthful, which is why you will often hear the English stakeholder instead. Memangku is to hold on the lap, so a pemangku is one who bears something. ⚠️ Wider than pihak, which you know from u51: a pihak is a SIDE in the matter, a pemangku kepentingan may have no side at all and still be affected." },
+      ],
+    },
+    {
+      id: "id-u93l4",
+      unit: 93,
+      lesson: 4,
+      title: "Mengikat dan ingkar",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say what a signed deal does and what happens when it fails — bind the parties, name the security given, agree a clause formally, say somebody acted without the other side, name a breach of contract, and name the outside body that settles it.",
+      items: [
+        { id: "id-u93l4-mengikat", type: "vocab", front: "mengikat", reading: "mengikat", meaning: "to bind somebody to terms", example: { jp: "Kesepahaman itu tidak mengikat kedua pihak secara hukum.", en: "That memorandum does not bind the two parties in law." }, accept: ["to be binding on", "to tie down legally", "to hold to an obligation"], drill: { jp: "Kesepahaman itu tidak mengikat kedua pihak", en: "That memorandum does not bind both parties" }, hint: "muh-NGEE-kaht, ng one hum. First the literal act — ikat is to tie, and mengikat tali is to tie a rope — and then the whole of contract law. ⚠️ The phrase to learn whole is mengikat secara hukum, legally binding, and its negative tidak mengikat, which is exactly what a kesepahaman is. Perjanjian yang mengikat is the kind you cannot walk away from." },
+        { id: "id-u93l4-jaminan", type: "vocab", front: "jaminan", reading: "jaminan", meaning: "something put up as security", example: { jp: "Bank itu meminta jaminan berupa tanah sebelum memberi pinjaman besar.", en: "That bank asked for security in the form of land before granting a large loan." }, accept: ["collateral", "a guarantee given", "surety for an obligation"], drill: { jp: "Bank itu meminta jaminan berupa tanah", en: "That bank asks for security in the form of land" }, hint: "jah-MEE-nan. From jamin, to vouch for. ⚠️ Two senses, both everyday and both worth having: jaminan as COLLATERAL, the thing a bank can take, and jaminan as a GUARANTEE in the ordinary sense — jaminan kesehatan is health insurance, and tidak ada jaminan means there is no guarantee. Context separates them cleanly." },
+        { id: "id-u93l4-menyepakati", type: "vocab", front: "menyepakati", reading: "menyepakati", meaning: "to settle a term between both sides", example: { jp: "Kedua pihak menyepakati klausul terakhir pada malam yang sama.", en: "Both parties settled the last clause on the same night." }, accept: ["to come to terms on", "to agree a provision jointly", "to conclude agreement about"], drill: { jp: "Kedua pihak menyepakati klausul terakhir itu", en: "Both parties agree that last clause" }, hint: "muh-nyuh-pah-kah-TEE, five syllables, ny one sound. ⚠️ You already know sepakat from u51, where it is a STATE two sides are in — kami sudah sepakat. This is the transitive act done TO a specific thing: you menyepakati a clause, a figure, a date. The -i is what gives it an object, and that is the whole difference." },
+        { id: "id-u93l4-sepihak", type: "vocab", front: "sepihak", reading: "sepihak", meaning: "done by one side without the other", example: { jp: "Perusahaan itu mengubah harga secara sepihak dan pelanggan marah.", en: "That company changed the price one-sidedly and the customers were angry." }, accept: ["unilateral", "one-sided and without consent", "acting alone on a joint matter"], drill: { jp: "Perusahaan itu mengubah harga secara sepihak", en: "That company changed the price unilaterally" }, hint: "suh-PEE-hahk. ⚠️ Built on pihak, a party to a matter, which you know from u51, with se- meaning one — so literally one-party. It is nearly always an ACCUSATION and nearly always wears secara in front of it: secara sepihak. Two fixed phrases worth whole: pembatalan sepihak, unilateral cancellation, and keputusan sepihak." },
+        { id: "id-u93l4-wanprestasi", type: "vocab", front: "wanprestasi", reading: "wanprestasi", meaning: "failing to do what a contract required", example: { jp: "Pengacara itu menyebut wanprestasi dalam gugatan terhadap pemodal.", en: "That lawyer cited breach of contract in the claim against the investor." }, accept: ["breach of contract", "default on a contractual duty", "non-performance of an obligation"], drill: { jp: "Pengacara itu menyebut wanprestasi dalam gugatan", en: "That lawyer cites breach of contract in the claim" }, hint: "wahn-preh-STAH-see, five syllables, from Dutch wanprestatie. ⚠️ A technical term you cannot paraphrase in Indonesian and will meet in every contract — wan is a negating prefix and prestasi is performance, so it is non-performance. Keep it apart from melanggar, to violate, from u32: you melanggar a rule or a law, and you commit wanprestasi against a private agreement." },
+        { id: "id-u93l4-arbitrase", type: "vocab", front: "arbitrase", reading: "arbitrase", meaning: "settlement by an agreed outside body", example: { jp: "Klausul itu memilih arbitrase daripada pengadilan kalau ada sengketa.", en: "That clause chooses arbitration rather than a court if there is a dispute." }, accept: ["arbitration", "binding settlement outside court", "resolution by an appointed panel"], drill: { jp: "Klausul itu memilih arbitrase daripada pengadilan", en: "That clause chooses arbitration over a court" }, hint: "ahr-bee-TRAH-suh. ⚠️ The commercial sibling of u92's menengahi: mediation is a village head talking two families round, arbitration is a panel the parties CHOSE in advance whose decision binds them. Nearly every Indonesian commercial contract has a klausul arbitrase naming one, precisely so the sengketa never reaches a pengadilan." },
+      ],
+    },
   ],
 };
