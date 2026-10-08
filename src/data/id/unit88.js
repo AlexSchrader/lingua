@@ -163,6 +163,26 @@
 //       `tanggap` here is **responsive**, and is NOT `tanggapan`(a response, u51)
 //
 // C10. **CARD-VARIETY AND THE SHIP GATE WILL BE RED UNTIL THE BAND IS VOICED,
+//      AND MY MEASURED NUMBER IS 138 OF 312 — WHICH LOOKS LIKE A DRILL DEFECT AND
+//      IS NOT. READ THIS BEFORE YOU GO LOOKING FOR A BUG IN YOUR OWN CARDS.**
+//      `card-variety.test.mjs` counts only the GATED kinds (its GATES map has no
+//      `choice` and no `type:meaning`), and for an unvoiced non-ja item the gated
+//      kinds available are `choice:reverse`, `type:produce`, `cloze:choice` and
+//      `sentence:build`. Measured over my 312: 138 route to ONE kind, 100 to two,
+//      51 to three, 23 to four — and every one of the 138 routes to
+//      `type:produce` alone.
+//      ⚠️ **The reason is that `shouldCloze` and `shouldSentence` are HASH-GATED
+//      ON THE ITEM ID** (`hash01(item.id) >= 1 - CLOZE_SHARE`, cardRouting.js), so
+//      they fire for a SHARE of items, not all of them. **Capability is a
+//      different question and mine is perfect: `crossblock id 88 100` reports
+//      canCloze 312/312 and canSentence 312/312.** So the drills are fine; the
+//      138 simply drew a hash that skips cloze and sentence, and with no clip
+//      `listen:choice`, `listen:type` and `speak` cannot fire either.
+//      This is the same signal the test's own header records for ru and hi B1 —
+//      391 and 400 while unvoiced, **both to 0 on the commit that voiced them**.
+//      It clears when the merge seat runs audio. Do NOT chase it.
+//
+// C10b. **ORIGINAL C10, STILL BINDING:**
 //      AND THAT IS THE SIGNAL.** `listen:choice`, `listen:type` and `speak` all
 //      gate on `hasAudio`, so every new B2 item routes to `type:produce` alone
 //      and `tests/unit/card-variety.test.mjs` reports `id: items with only ONE
