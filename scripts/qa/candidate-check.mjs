@@ -132,6 +132,15 @@ for (const raw of cands) {
   const notes = [];
   const own = items.find((i) => i.front === c);
   if (own) notes.push(`TAKEN u${own.unit}`);
+  // CASE. Added 2026-10-07 after the id B2 block-2 seat shipped `Saudara` with a
+  // capital: this probe compared exactly, so it reported FREE, and
+  // `validateContent`'s front-uniqueness check is case-sensitive too and also
+  // passed it. `saudara` is taught at u4, in A1. `crossblock.mjs` was the only
+  // thing in the toolchain that caught it, after the card was written.
+  if (!own) {
+    const ci = items.find((i) => String(i.front).toLowerCase() === c.toLowerCase());
+    if (ci) notes.push(`TAKEN u${ci.unit} as "${ci.front}" — DIFFERS ONLY BY CASE`);
+  }
   if (infl.has(c)) notes.push(`INFLECTION OF ${infl.get(c)}`);
   const af = affixHits(c);
   if (af.length) notes.push(`DERIVED: ${af.join(" ")}`);
