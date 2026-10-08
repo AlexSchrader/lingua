@@ -199,24 +199,22 @@ Alex's accent standard (§1, unit 1 lessons 1–3) cannot be authored until **fo
 
 **Before building a bespoke flag, look at `kana`.** A `type: "kana"` item already is this card: `meaning: null`, front = the glyph, `type:meaning` auto-rewritten to "type the character", `listen:choice` showing glyph options rather than meanings — the meaning card suppresses itself, no new field required. It is blocked only by the type being Japanese-named and by the script policy in `CONTENT.md`, which **already flags generalising `kana` → `glyph` as required for Korean/Russian/Mandarin/Hindi.** Doing it once serves this standard and the next four languages.
 
-### 3a. Word-front uniqueness is global across languages ⚠️
+### 3a. ✅ RESOLVED — word-front uniqueness is PER-LANGUAGE, and this section said the opposite
 
-[contract.js:263-272](src/data/contract.js#L263-L272) and [lint.js:120-125](src/data/lint.js#L120-L125) key the "one home per word" map on `item.front` alone, **no language in the key**. Verified directly:
+**This section used to state that `contract.js` keys "one home per word" on `item.front` alone, with no language in the key, and that es `no` + it `no` is "a hard CI failure". That is no longer true, and the fix it asked for has shipped.**
 
-```
-validateContent([es-unit, it-unit], LANGUAGES)
-→ "item it-u1l1-b: vocab front "no" is already taught in item es-u1l1-a"
-```
+`src/data/contract.js` builds the map from **`frontKey(lang, item)`** (contract.js:341). Measured 2026-10-07 by validating a synthetic es unit and it unit that both teach the front `no`: **0 cross-language collision errors.** Nine languages ship today sharing plenty of fronts and `validate:content` reports 0 errors across all 1,244 units.
 
-es `no` + it `no` is a hard CI failure; so are `taxi`, `hotel`, `animal`, and most Romance function-word overlap. Never fired because ja and fr use different scripts. **It fails at merge time** — each parallel session is green alone, the combination is red. Fix: key by `` `${lang} ${front}` ``. This *strengthens* the rule — "one home per word" is a within-language claim.
+⚠️ **Why this mattered enough to correct rather than soften:** Italian is the next language in the build queue, and it shares dozens of fronts with the Spanish already on `main` — `no`, `taxi`, `hotel`, `animale`/`animal`, most Romance function words. A crew reading the old text would have written around every one of them to avoid a CI failure that cannot happen. "One home per word" is a within-language claim, which is what the code now enforces.
 
-### 3b. `src/data/index.js` is a merge-conflict funnel
+### 3b. ✅ SHIPPED — per-language barrels exist
 
-Every unit adds an import line **and** an entry to one shared `UNITS` array ([index.js:136](src/data/index.js#L136)). Three sessions × ~20 units = 60 edits to the same two regions. Fix: a generated per-language barrel (`src/data/<lang>/index.js` exporting `<LANG>_UNITS`), so the root imports one file per language. **Not `import.meta.glob`** — Vite-only, and the `node --test` unit tests import that file directly.
+The fix this asked for is in: `src/data/<lang>/index.js` exports `<LANG>_UNITS`, and the root `src/data/index.js` imports one barrel per language (`JA_UNITS`, `FR_UNITS`, `ES_UNITS`, `DE_UNITS`, `NO_UNITS`, `PT_UNITS`, and the rest) instead of carrying every unit's import line. Verified 2026-10-07. A unit file no longer touches a shared region, so the merge-conflict funnel this described is gone.
 
-### 3c. No scaffold script
+### 3c. ✅ SHIPPED — the scaffold script exists
 
-Propose `npm run scaffold:lang -- <code>`: creates `src/data/<lang>/` with every band-template unit stubbed (ids, titles, `order`, `stage`, empty `lessons`) plus the barrel. Authoring becomes filling known blanks.
+`scripts/scaffold-language.mjs`, wired as `npm run scaffold:lang`. It stubs every band-template unit with ids, titles, `order` and `stage` plus the barrel, exactly as proposed. Two hazards found in use and both fixed: it now **exits 2 on an unknown flag** rather than silently scaffolding (a stray `--dry` once wrote a second ru B1 band, 74 stub units), and its flag list is built with `.add()` rather than an array literal, because `tests/unit/scaffold.test.mjs` harvests unit titles by regex and matched the literal.
+
 
 ### 3d. The `reading` field does two jobs — NOT a blocker, but a shipped defect
 
