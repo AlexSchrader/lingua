@@ -182,6 +182,11 @@
 //     ⚠️ AND u120 "Register 4 — written, public and institutional voice" IS AT
 //     RISK FOR THE SAME REASON — u83 owns exactly that voice, and u110 (mine)
 //     takes the administrative vocabulary. **u120 → गणित और आँकड़ों की भाषा.**
+//     ✅ **BOTH ARE NOW AUTHORED** — 2026-10-07, by the B2 merge seat, 4×6=24 each,
+//     on exactly these themes. ⚠️ **AND NOBODY HAD AUTHORED THEM FOR A MONTH**:
+//     they sit in block 2's range, block 2's brief wrongly told it both were
+//     block 1's, and block 1 correctly left them alone as out of range. A slot
+//     allocated in a header is not a slot anybody has been told to write.
 //
 // C9. ⚠️ ELEVEN CROSS-BLOCK BOUNDARIES. A SEAT CAN SEE ITS OWN DUPLICATE; IT
 //     CANNOT SEE A SIBLING'S, AND `validate:content` PASSES EACH BRANCH ALONE.
@@ -223,6 +228,60 @@
 //         from u109.
 //       • **बहुसंख्यक (u134)**: the front is free, but बहुमत is u63's, so the gloss
 //         "the majority" collides. Gloss it as the PEOPLE, not the share.
+//
+// C10. ✅ THE ELEVEN BOUNDARIES ABOVE WERE NOT ENOUGH — 28 DUPLICATE FRONTS
+//     SURVIVED THE MERGE, AND THEY ARE ALL RESOLVED. Recorded 2026-10-07 by the
+//     B2 merge seat so that no later pass re-adopts a word or re-litigates a
+//     call. `validate:content` went **28 `already taught` errors → 0**, 936 cards
+//     stayed 936, and all 39 units are still exactly 4×6.
+//     THE POLICY, IN ORDER: (1) an EXPLICIT allocation above wins; (2) otherwise
+//     the LOWER unit number keeps it; (3) **where both senses are genuinely
+//     wanted, the resolution that keeps BOTH wins** — the जंग/युद्ध precedent
+//     from A2, where lower-slot-wins would have cost Hindi the word for rust.
+//     🚨 SIX GENUINE HOMOGRAPHS, BOTH SENSES KEPT:
+//       • विभाजन stays the PARTITION at u105l4; cell cleavage ships as विदलन (u121l3).
+//       • आपातकाल stays the DECLARED emergency at u108l3; the hospital room ships
+//         as आपातकक्ष (u112l4).
+//       • प्रतिरोध stays the STANDING-AGAINST at u108l2; the circuit part ships as
+//         प्रतिरोधक (u126l3).
+//       • संचरण stays the CIRCULATION OF BLOOD at u121l2; power transmission ships
+//         as पारेषण (u126l4).
+//       • गैस stays a STATE OF MATTER at u122l1; the burning of fuel ships as दहन
+//         (u126l2).
+//       • व्यंजन stays a CONSONANT at u113l2; the dish ships as पकवान (u129l3).
+//     🚨 ONE EXPLICIT ALLOCATION OVERRODE THE LOWER UNIT: **तलाशी → u130 ONLY**
+//     (§C9.8 — a search of pockets is a police act on the street, not a court
+//     one), so u102l3 gave it up and took प्रतिवादी, which §C9.8 lists for u102
+//     and which nobody had carded.
+//     LOWER-UNIT-WINS, with the replacement the higher unit took instead:
+//       u98  keeps प्रत्युत्तर  → u118l4 तदनुसार      u98  keeps मुकरना   → u116l2 भुगतना
+//       u99  keeps तौलना      → u116l4 कचोटना      u101 keeps आंशिक    → u118l4 निम्नलिखित
+//       u101 keeps कमोबेश     → u118l4 उपर्युक्त      u101 keeps कदाचित   → u118l4 तदनुसार
+//       u102 keeps आरोप       → u135l1 तोहमत       u105 keeps विभाजन   → u121l3 विदलन
+//       u107 keeps लापरवाही   → u125l4 घिसाव       u108 keeps एहतियात  → u116l3 गौण
+//       u108 keeps सुरक्षा     → u125l4 खराद        u108 keeps निकासी   → u127l4 बीजक
+//       u108 keeps पुनर्वास    → u114l2 टीकाकरण     u109 keeps मातृभाषा → u113l4 द्विभाषी
+//       u109 keeps सहिष्णुता   → u135l4 मेलमिलाप     u111 keeps ज्वार    → u127l2 मस्तूल
+//       u111 keeps क्षेत्रफल    → u134l2 सर्वेक्षक      u113 keeps व्यंजन   → u129l3 पकवान
+//       u114 keeps प्रशिक्षण   → u131l1 योगासन      u114 keeps कुपोषण  → u129l2 पौष्टिक
+//       u115 keeps विश्राम     → u132l3 तंबू         u118 keeps स्पष्टीकरण→ u135l1 बदनामी
+//       u121 keeps पाचन      → u129l2 तृप्ति
+//     🚨 u118l4 WAS THE ONE SYSTEMATIC REACH, NOT FOUR ACCIDENTS. It took three
+//     of u101's degree adverbs (आंशिक कमोबेश कदाचित) plus u98's प्रत्युत्तर — one
+//     slot borrowing another department's whole field. The lesson is RETHEMED to
+//     the cohesion devices u118 बात का सिलसिला is actually about: तदनुसार,
+//     उपर्युक्त, निम्नलिखित, उपरांत, with its title and canDo rewritten. Patching
+//     four cards one at a time would have left the same mistake in place.
+//     ⚠️ FOUR REPLACEMENT CANDIDATES WERE REFUSED ON MEASUREMENT, named so no
+//     later pass tries them: **जनसंख्या** (gloss doublet of आबादी@u42) ·
+//     **अतिथि** (gloss doublet of मेहमान@u7, and the §C2 तत्सम/उर्दू class) ·
+//     **मिल** (the imperative of मिलना@u8) · **तोलना** (one mātrā from तौलना@u99
+//     and the same lexeme — the मुहर/मोहर class, instance five).
+//     ⚠️ AND TWO OF THE NEW CARDS DID NOT ROUTE ON THEIR FIRST DRAFT, which is
+//     why a front-and-gloss probe is not a gate: प्रतिरोधक's drill ran NINE
+//     tokens (`sentenceTokens` bounds it to 3–8) and कचोटना's drill carried the
+//     INFLECTED कचोटती rather than the front, so cloze had nothing to blank.
+//     Both are caught by `scripts/qa/ship-gate.mjs`, neither by `lint`.
 //
 // ─────────────────────────────────────────────────────────────────────────────
 // THIS UNIT (u98) — बहस के पैंतरे
