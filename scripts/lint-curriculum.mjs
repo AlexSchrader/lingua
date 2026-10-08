@@ -13,9 +13,25 @@ const lint = lintCurriculum(UNITS);
 const errors = [...contract.errors, ...lint.errors];
 const warnings = [...contract.warnings, ...lint.warnings];
 
+// WARNINGS GO TO STDOUT, AND THAT IS A FIX, NOT A STYLE CHOICE.
+//
+// They were `console.warn`, which is STDERR. So `npm run lint:curriculum > file`
+// captured the summary line and NONE of the 6,488 warning lines, while that summary
+// still read "0 errors, 6488 warning(s)" — healthy-looking output with the entire
+// payload missing. A seat then greps the file for a defect class, finds nothing, and
+// reports the class clean.
+//
+// Not hypothetical: the id B2 block-3 seat wrote "lint:curriculum 0 warnings in
+// u1NN" into all 13 of its per-unit commit messages. The real number was 48. It had
+// redirected with `2>&1 > file`, which is the wrong order and drops stderr, and
+// nothing in the output looked wrong.
+//
+// Warnings are diagnostic output meant to be read and grepped, so stdout is where
+// they belong. ERRORS stay on stderr, which is what stderr is for. Nothing parses
+// the split — CI runs this for its exit code only (.github/workflows/ci.yml).
 if (warnings.length) {
-  console.warn(`\nCurriculum warnings (${warnings.length}):`);
-  warnings.forEach((w) => console.warn(`  ⚠  ${w}`));
+  console.log(`\nCurriculum warnings (${warnings.length}):`);
+  warnings.forEach((w) => console.log(`  ⚠  ${w}`));
 }
 
 if (errors.length) {
@@ -26,3 +42,9 @@ if (errors.length) {
 }
 
 console.log(`Curriculum OK — ${UNITS.length} unit(s), 0 errors, ${warnings.length} warning(s).`);
+if (warnings.length > 200)
+  console.log(
+    `⚠  ${warnings.length} warnings is too many to read, so grep it: ` +
+      `npm run lint:curriculum | grep "<class>"  — ` +
+      `a buried warning is a check nobody runs, and "is the prompt for" is the one that matters most.`,
+  );
