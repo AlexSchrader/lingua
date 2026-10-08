@@ -1,18 +1,110 @@
-// ID Unit 89 — Evidence and sources (slot: evidence) — B2
-// SCAFFOLD STUB. Replace the locked lessons below with 4 real lessons of
-// 5-8 cards each (aim 6). Every lesson needs a canDo. Every example may use only
-// vocab introduced at or before this unit. See RUNBOOK-new-language.md §4.
-// lang/unit/lesson are stamped in src/data/index.js.
+// ID Unit 89 — Sumber dan kesahihan ("Sources and validity") — B2
+// B2 block 1 (u88–u100). CONVENTIONS: see unit88.js §C1–§C12 — binding here.
+//
+// §C-B1. SLOT KEPT, SCOPE NARROWED. The scaffold title "Evidence and sources" is
+//        half-spent: **u49 `Bukti dan penilaian` owns EVIDENCE outright** —
+//        `bukti` `fakta` `membuktikan` `menyangkal` `membantah` `menyimpulkan`
+//        `keliru` `asli` `palsu` `ciri`. So this unit takes **no evidence word
+//        and no verdict word.** It takes the half u49 never touched: where a
+//        claim CAME FROM and whether that origin can be trusted. Probed 27
+//        candidates in that field: **21 free of 27**.
+//
+// §C-B2. WHY THIS IS A REAL B2 UNIT AND NOT A LIBRARY LESSON. The whole band
+//        above it argues; this is the unit that asks *who says so*. It is the
+//        vocabulary of an Indonesian learner reading a news feed — `sahih`,
+//        `kredibel`, `memverifikasi`, `keaslian`, `plagiat`, `desas-desus` — and
+//        none of it exists in 2,088 words.
+//
+// §C-B3. AFFIX ROOTS STRIPPED AND GREPPED BY HAND (C3/C4):
+//        `rujukan`←rujuk (not taught) · `keabsahan`←absah/sah (neither taught) ·
+//        `kredibilitas`←kredibel (taught in THIS lesson, and the pair is house
+//        style per C4) · `keandalan`←andal (not taught) ·
+//        `keaslian`←**asli (u49)** — KEPT under C4: provenance is not "genuine",
+//        and the hint names `asli` · `pemalsuan`←memalsukan (same lesson, house
+//        style) · `pengecekan`←mengecek (same lesson, house style) ·
+//        `terpercaya`←**percaya (u21)** — ter- stative, kept; hint names it.
+//
+// §C-B4. REFUSED HERE. `rumor` — `normalizeMeaning` strips the article, so the
+//        natural gloss "a rumour" folds to the front and the card is a copy task
+//        (C5). Replaced with **`gosip`**. Also refused: `menelusuri`, which the
+//        allocation gives to **u125** (archaeology/tracing the past) — l3 uses
+//        `mencocokkan` instead. `lampiran` is TAKEN (u79); `kutipan` is TAKEN
+//        (u81), so l1 teaches the VERB `mengutip` and the academic noun
+//        `sitiran`, never a second word for a quotation.
 export const ID_UNIT89 = {
   id: "id-u89",
   lang: "id",
-  title: "Evidence and sources",
+  title: "Sumber dan kesahihan",
   order: 89,
   stage: "b2",
   lessons: [
-    { id: "id-u89l1", title: "Lesson 1", locked: true },
-    { id: "id-u89l2", title: "Lesson 2", locked: true },
-    { id: "id-u89l3", title: "Lesson 3", locked: true },
-    { id: "id-u89l4", title: "Lesson 4", locked: true },
+    {
+      id: "id-u89l1",
+      unit: 89,
+      lesson: 1,
+      title: "Rujukan dan kutipan",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Say where a claim came from — name a reference, point to one, say what a rule is based on, quote somebody, name the body of writing on a subject, and name a formal citation.",
+      items: [
+        { id: "id-u89l1-rujukan", type: "vocab", front: "rujukan", reading: "rujukan", meaning: "a reference somebody relied on", example: { jp: "Rujukan untuk bagian kedua karangan itu hanya dua buku lama.", en: "The references for the second part of that essay are only two old books." }, accept: ["a source cited", "a work referred to", "a referral"], drill: { jp: "Rujukan dalam laporan itu belum lengkap", en: "The references in that report are not complete yet" }, hint: "roo-JOO-kan. The root rujuk is to turn to something, so a rujukan is what a writer turned to. ⚠️ Two senses and both are everyday: in a university it is a bibliographic reference, and in a hospital surat rujukan is the referral letter that sends you to a specialist. The second is the one you will meet first in Indonesia." },
+        { id: "id-u89l1-merujuk", type: "vocab", front: "merujuk", reading: "merujuk", meaning: "to point to something as a source", example: { jp: "Dalam uraian itu dia merujuk hasil penelitian dari tahun lalu.", en: "In that breakdown she pointed to research findings from last year as a source." }, accept: ["to refer to", "to cite as authority", "to draw on"], drill: { jp: "Pengarang itu merujuk dua penelitian lama", en: "That author refers to two old studies" }, hint: "muh-ROO-jook. The verb of the card before it, and it takes kepada or pada for the thing pointed at. ⚠️ Do not confuse it with mengutip, two cards on: merujuk says *this is where I got it*, mengutip reproduces the actual words. You can merujuk a whole book without quoting a line of it." },
+        { id: "id-u89l1-mengacu", type: "vocab", front: "mengacu", reading: "mengacu", meaning: "to be based on a stated standard", example: { jp: "Aturan baru di kantor itu mengacu pada undang-undang yang lama.", en: "The new rule at that office is based on the old law." }, accept: ["to be grounded in", "to take as its benchmark", "to be modelled on"], drill: { jp: "Jadwal itu mengacu pada aturan lama", en: "That schedule is based on the old rule" }, hint: "muh-NGAH-choo — ng one hum, c is CH. ⚠️ The subject is almost never a person: a RULE, a form, a standard or a design mengacu pada something. Where merujuk is what a writer does, mengacu is what a document IS. You already know acuan, a benchmark, from u58 — this is the verb beside it." },
+        { id: "id-u89l1-mengutip", type: "vocab", front: "mengutip", reading: "mengutip", meaning: "to reproduce somebody's words", example: { jp: "Koran itu mengutip pidato menteri tanpa mengubah satu kata.", en: "That paper reproduced the minister's speech without changing a single word." }, accept: ["to quote", "to cite verbatim", "to take a passage from"], drill: { jp: "Dia mengutip bagian dari buku itu", en: "She quotes a part of that book" }, hint: "muh-NGOO-teep. You already know the noun kutipan, a quotation, from u81; this is its verb. ⚠️ A second everyday sense will surprise you: mengutip also means to pick something up off the ground, and mengutip iuran means to collect dues. Context separates them completely, so neither gets in the other's way." },
+        { id: "id-u89l1-pustaka", type: "vocab", front: "pustaka", reading: "pustaka", meaning: "the body of writing on a subject", example: { jp: "Pustaka tentang bahasa daerah di pulau itu masih sangat sedikit.", en: "The body of writing about regional languages on that island is still very small." }, accept: ["the literature on a topic", "scholarly writings", "library holdings"], drill: { jp: "Pustaka tentang topik itu masih sedikit", en: "The literature on that topic is still thin" }, hint: "poos-TAH-kah, from Sanskrit. ⚠️ Not the building — that is perpustakaan, the library, which is this word with per-...-an around it. Daftar pustaka is the bibliography at the back of every Indonesian thesis, and tinjauan pustaka is the literature review, so you will meet it as the second chapter heading of anything academic." },
+        { id: "id-u89l1-sitiran", type: "vocab", front: "sitiran", reading: "sitiran", meaning: "a formal citation of a work", example: { jp: "Sitiran dalam karangan itu ditulis dengan cara yang sama di setiap bab.", en: "The citations in that essay are written the same way in every chapter." }, accept: ["a bibliographic citation", "a formal reference entry", "an academic cite"], drill: { jp: "Sitiran itu salah pada dua tempat", en: "That citation is wrong in two places" }, hint: "see-TEE-ran. The academic register's word, off the verb menyitir, to cite. ⚠️ Do not reach for it in conversation: kutipan, which you know from u81, is what anybody says for a quotation. Sitiran is the countable citation an academic COUNTS — jumlah sitiran, the citation count, is how Indonesian journals measure a paper's reach." },
+      ],
+    },
+    {
+      id: "id-u89l2",
+      unit: 89,
+      lesson: 2,
+      title: "Sahih dan terpercaya",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Judge a source rather than a claim — say a source is sound, name its legal standing, say a person is believable, name that believability, say a thing can be trusted, and name how dependable it is.",
+      items: [
+        { id: "id-u89l2-sahih", type: "vocab", front: "sahih", reading: "sahih", meaning: "sound as a source", example: { jp: "Berita itu belum sahih karena tidak ada rujukan yang jelas.", en: "That report is not yet sound as a source because there is no clear reference." }, accept: ["authentic and reliable", "verified as genuine", "well-attested"], drill: { jp: "Data dalam paparan itu sudah sahih", en: "The data in that briefing is sound now" }, hint: "sah-HEEH, from Arabic. ⚠️ Keep it apart from benar, true, which you have had since A1: benar is about the WORLD — the claim matches reality. Sahih is about the CHAIN — the thing really does come from where it says it comes from. A sahih report can still be mistaken, and that distinction is the whole point of this unit." },
+        { id: "id-u89l2-keabsahan", type: "vocab", front: "keabsahan", reading: "keabsahan", meaning: "standing in law or rule", example: { jp: "Keabsahan surat itu masih diperiksa oleh pihak pengadilan.", en: "The standing of that letter in law is still being checked by the court." }, accept: ["legal validity", "formal legitimacy", "whether something officially counts"], drill: { jp: "Keabsahan tanda tangan itu masih diperiksa", en: "The validity of that signature is still being checked" }, hint: "kuh-ahb-SAH-han, four syllables. Built on sah, lawful — the same Arabic root as sahih, the card before it, but the register is different: sahih judges a SOURCE, keabsahan judges a DOCUMENT or an APPOINTMENT against a rule. ⚠️ You met berlaku, to be in force, in u79; keabsahan is the question of whether it ever validly was." },
+        { id: "id-u89l2-kredibel", type: "vocab", front: "kredibel", reading: "kredibel", meaning: "believable as a speaker", example: { jp: "Saksi itu kredibel karena keterangannya sama sejak awal.", en: "That witness is believable because his statement has been the same from the start." }, accept: ["credible", "worth believing", "carrying authority"], drill: { jp: "Pengarang itu kredibel di bidangnya", en: "That author is credible in his field" }, hint: "kreh-DEE-buhl. ⚠️ It judges a PERSON or an INSTITUTION, where sahih judges a document and benar judges a claim — three different objects, and Indonesian keeps them apart as carefully as English does. You already know meyakinkan, convincing, from u49: that is what an argument is, kredibel is what its speaker is." },
+        { id: "id-u89l2-kredibilitas", type: "vocab", front: "kredibilitas", reading: "kredibilitas", meaning: "standing as somebody worth believing", example: { jp: "Kredibilitas koran itu turun setelah dua berita palsu terbit.", en: "That newspaper's standing as a source worth believing fell after two false reports were published." }, accept: ["credibility", "a reputation for truthfulness", "believability as a public asset"], drill: { jp: "Kredibilitas lembaga itu sudah pulih", en: "That institution's credibility has recovered" }, hint: "kreh-dee-bee-LEE-tahs, five syllables. The noun of the card before it. ⚠️ Indonesian treats it as something you can LOSE and rarely get back: kehilangan kredibilitas, menjaga kredibilitas. Note the contrast with kehormatan, honour, which you will meet in u99 — kehormatan is about dignity, kredibilitas is strictly about being believed." },
+        { id: "id-u89l2-terpercaya", type: "vocab", front: "terpercaya", reading: "terpercaya", meaning: "trusted by everybody", example: { jp: "Hanya satu sumber terpercaya yang mau bicara tentang masalah di kantor itu.", en: "Only one trusted source was willing to talk about the problem at that office." }, accept: ["dependable and widely trusted", "of established trust", "proven trustworthy"], drill: { jp: "Berita itu datang dari sumber terpercaya", en: "That news came from a trusted source" }, hint: "tuhr-puhr-CHAH-yah — c is CH. Built on percaya, to trust, which you have had since u21, with ter- making it a settled quality rather than an act. ⚠️ The difference from kredibel is who decided: kredibel is a judgement you make now, terpercaya is a reputation the world has already granted. Sumber terpercaya is the fixed phrase in every Indonesian news report." },
+        { id: "id-u89l2-keandalan", type: "vocab", front: "keandalan", reading: "keandalan", meaning: "how dependable a thing is over time", example: { jp: "Keandalan mesin lama itu masih lebih baik daripada mesin baru.", en: "The dependability of that old machine is still better than the new one's." }, accept: ["reliability", "consistency of performance", "how much it can be counted on"], drill: { jp: "Keandalan alat itu diuji setiap bulan", en: "That device's reliability is tested every month" }, hint: "kuh-ahn-DAH-lan. From andal, dependable. ⚠️ This is the one word in the lesson that is NOT about people or claims: it is about machines, systems and measurements, which is why an engineer uses it and a journalist does not. Keep it away from terpercaya, the card before — a source is terpercaya, a water pump has keandalan." },
+      ],
+    },
+    {
+      id: "id-u89l3",
+      unit: 89,
+      lesson: 3,
+      title: "Memverifikasi dan mencocokkan",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Do the checking rather than talk about it — verify a claim against its source, name the verification, ask whether a thing is genuinely what it claims, match two accounts against each other, check a detail, and name the check.",
+      items: [
+        { id: "id-u89l3-memverifikasi", type: "vocab", front: "memverifikasi", reading: "memverifikasi", meaning: "to check a claim against its source", example: { jp: "Dua pekerja muda memverifikasi setiap angka dalam laporan itu selama dua hari.", en: "Two young workers checked every figure in that report against its source for two days." }, accept: ["to verify", "to confirm by going to the source", "to fact-check"], drill: { jp: "Mereka memverifikasi angka itu sampai malam", en: "They verify that figure until night" }, hint: "muhm-fuhr-ee-fee-KAH-see, six syllables — the v is said like an f. ⚠️ Keep it apart from membuktikan, to prove, from u49, and membenarkan, to confirm as correct, from u51: proving brings new evidence, membenarkan is an authority saying yes, and memverifikasi is the dull careful work of going back to the original and looking." },
+        { id: "id-u89l3-verifikasi", type: "vocab", front: "verifikasi", reading: "verifikasi", meaning: "the act of checking against a source", example: { jp: "Verifikasi data pendaftaran itu memakan waktu satu minggu penuh.", en: "The verification of that registration data took a full week." }, accept: ["verification", "a source check", "cross-checking against the original"], drill: { jp: "Verifikasi berkas itu belum selesai", en: "The verification of that file is not finished" }, hint: "fuhr-ee-fee-KAH-see. The noun of the card before it. ⚠️ In Indonesia you will meet it as a bureaucratic step rather than a concept: verifikasi berkas, document verification, is a named stage on most official forms, and lolos verifikasi means your paperwork passed. Pendaftaran, registration, you already know from u79." },
+        { id: "id-u89l3-keaslian", type: "vocab", front: "keaslian", reading: "keaslian", meaning: "whether a thing is genuinely what it claims to be", example: { jp: "Keaslian lukisan tua itu masih menjadi polemik di kalangan kritikus.", en: "Whether that old painting is genuine is still a running controversy among critics." }, accept: ["authenticity", "genuineness of origin", "provenance"], drill: { jp: "Keaslian surat itu sulit dibuktikan", en: "The authenticity of that letter is hard to prove" }, hint: "kuh-ahs-LEE-an. ⚠️ Built on asli, genuine, which you already know from u49 — and the noun is worth its own card because it names a QUESTION rather than a quality: keaslian is the thing experts argue about and test for, where asli is the verdict at the end. Uji keaslian, an authenticity test, is the fixed phrase." },
+        { id: "id-u89l3-mencocokkan", type: "vocab", front: "mencocokkan", reading: "mencocokkan", meaning: "to match two accounts against each other", example: { jp: "Pegawai itu mencocokkan nama di formulir dengan nama di paspor.", en: "That clerk matched the name on the form against the name in the passport." }, accept: ["to cross-check", "to reconcile two records", "to see whether two things agree"], drill: { jp: "Dia mencocokkan dua daftar nama itu", en: "He matches those two name lists" }, hint: "muhn-choh-chohk-KAHN — both c's are CH. From cocok, matching or suitable. ⚠️ Note the double k, which Indonesian spelling needs because the root already ends in one. The thing it does that memverifikasi does not: this takes TWO records and sets them side by side, with no original and no authority involved." },
+        { id: "id-u89l3-mengecek", type: "vocab", front: "mengecek", reading: "mengecek", meaning: "to give a detail a quick look", example: { jp: "Tolong mengecek harga tiket itu sebelum kita memesan kamar.", en: "Please give that ticket price a quick look before we book a room." }, accept: ["to check quickly", "to have a look at", "to run an eye over"], drill: { jp: "Saya mengecek jadwal itu tadi pagi", en: "I checked that schedule this morning" }, hint: "muh-nguh-CHECK. The everyday, half-English verb — and after this lesson's long Latin words it is worth noticing how much lighter it is. ⚠️ You already know memeriksa, to examine, from u44: memeriksa is thorough and often official, mengecek is a glance you take yourself. Cek dulu, check first, is what a friend says." },
+        { id: "id-u89l3-pengecekan", type: "vocab", front: "pengecekan", reading: "pengecekan", meaning: "a round of quick checking", example: { jp: "Pengecekan terakhir dilakukan satu jam sebelum acara mulai.", en: "The last round of checking was done an hour before the event started." }, accept: ["a check-over", "an inspection pass", "a round of checks"], drill: { jp: "Pengecekan itu dilakukan setiap pagi", en: "That check is carried out every morning" }, hint: "puh-nguh-chuh-KAHN, four syllables. The noun of the card before it — one round of looking, treated as an event on a schedule. ⚠️ Where verifikasi is a formal stage with a result, a pengecekan is routine and repeated: pengecekan rutin, a routine check. Both appear on Indonesian forms, so read which one is being asked of you." },
+      ],
+    },
+    {
+      id: "id-u89l4",
+      unit: 89,
+      lesson: 4,
+      title: "Palsu, jiplakan, dan desas-desus",
+      cefr: "B2",
+      dominantMode: "recognize",
+      canDo: "Name the ways a source goes bad — forge a document, name the forgery, name copied work, say somebody copied it, name a story going round, and name idle talk about people.",
+      items: [
+        { id: "id-u89l4-memalsukan", type: "vocab", front: "memalsukan", reading: "memalsukan", meaning: "to forge a document", example: { jp: "Dua orang memalsukan tanda tangan kepala sekolah pada surat itu.", en: "Two people forged the headmaster's signature on that letter." }, accept: ["to falsify", "to counterfeit", "to fake a record"], drill: { jp: "Dia memalsukan tanda tangan di surat itu", en: "He forged the signature on that letter" }, hint: "muh-mahl-soo-KAHN. Built on palsu, fake, which you already know from u49 — the -kan makes it something a person DOES to a real document. ⚠️ Not the same as menjiplak, two cards on: forging makes a false object, copying steals a true one. Memalsukan uang is counterfeiting; memalsukan data is fabricating numbers." },
+        { id: "id-u89l4-pemalsuan", type: "vocab", front: "pemalsuan", reading: "pemalsuan", meaning: "forgery as an offence", example: { jp: "Pemalsuan surat resmi bisa membuat orang dibawa ke pengadilan.", en: "Forgery of an official letter can get a person taken to court." }, accept: ["falsification", "counterfeiting as a crime", "document fraud"], drill: { jp: "Pemalsuan ijazah itu sudah terbukti", en: "That diploma forgery has been proven" }, hint: "puh-mahl-SOO-an. The noun of the card before it, and in Indonesian it is overwhelmingly a legal word — it names the charge. ⚠️ Keep it apart from kecurangan, cheating, which you will meet in u97: cheating bends a rule in your favour, pemalsuan manufactures a false document, and only one of the two has its own article in the criminal code." },
+        { id: "id-u89l4-plagiat", type: "vocab", front: "plagiat", reading: "plagiat", meaning: "passing another's work off as your own", example: { jp: "Karangan itu ditolak karena ada plagiat di dua bab.", en: "That essay was rejected because there was plagiarism in two chapters." }, accept: ["plagiarism", "stolen authorship", "uncredited copying"], drill: { jp: "Plagiat dalam karangan itu sudah jelas", en: "The plagiarism in that essay is clear" }, hint: "plah-gee-AHT, hard g. ⚠️ Spelling to notice: Indonesian drops the -ism entirely, so it is plagiat and never plagiarisme in ordinary use — and the person is a plagiator. In an Indonesian university it is the gravest academic charge there is, and it is why every thesis carries a signed statement about its own originality." },
+        { id: "id-u89l4-menjiplak", type: "vocab", front: "menjiplak", reading: "menjiplak", meaning: "to copy somebody else's work", example: { jp: "Dia menjiplak uraian dari buku lama itu dan tidak menulis rujukan.", en: "He copied the breakdown from that old book and wrote no reference." }, accept: ["to plagiarise", "to crib", "to lift wholesale"], drill: { jp: "Mahasiswa itu menjiplak bagian dari buku", en: "That student copies a part of a book" }, hint: "muhn-JEE-plahk. The verb beside the card before it. ⚠️ It has a schoolyard flavour that plagiat does not — jiplak is what children do in an exam — so a lecturer says menjiplak to a student and plagiat in a report. Keep it apart from meniru, to imitate: imitating a style is fine, menjiplak the words is not." },
+        { id: "id-u89l4-desasdesus", type: "vocab", front: "desas-desus", reading: "desasdesus", meaning: "a story going round with no source", example: { jp: "Desas-desus tentang kantor yang akan tutup membuat semua karyawan gelisah.", en: "The story going round about the office closing made all the employees uneasy." }, accept: ["a rumour", "word going about", "unsourced talk"], drill: { jp: "Desas-desus itu ternyata tidak benar", en: "That rumour turned out to be untrue" }, hint: "duh-SAHS duh-SOOS. ⚠️ A reduplication that is NOT a plural — like hati-hati and kadang-kadang, the doubled form IS the word, and there is no singular desas. The sound itself is the meaning: a rustle passing through a crowd. It is the exact opposite of this unit's other half: a claim with no rujukan at all." },
+        { id: "id-u89l4-gosip", type: "vocab", front: "gosip", reading: "gosip", meaning: "idle talk about people's private lives", example: { jp: "Mereka membicarakan gosip tentang tetangga baru itu sampai sore.", en: "They talked over gossip about that new neighbour until evening." }, accept: ["tittle-tattle", "chatter about someone", "rumour about a person"], drill: { jp: "Gosip di kantor itu cepat tersebar", en: "The gossip in that office spreads fast" }, hint: "GOH-seep, hard g. ⚠️ Narrower than desas-desus, the card before it: a desas-desus can be about a factory closing, but gosip is always about PEOPLE and usually about their private lives. Indonesian has a whole television genre of it, acara gosip, and tukang gosip is the person in every office who carries it." },
+      ],
+    },
   ],
 };
