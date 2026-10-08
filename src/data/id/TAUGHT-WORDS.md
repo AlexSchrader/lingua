@@ -1,7 +1,7 @@
 # ID — words already taught
 
 **Generated file — do not hand-edit.** Regenerate with `npm run taught:words -- id`.
-Snapshot 2026-10-07: **1200 words** across **50 authored unit(s)**, **37 slot(s) still stubs**.
+Snapshot 2026-10-08: **3025 words** across **126 authored unit(s)**, **0 slot(s) still stubs**.
 
 ## How to use this (RUNBOOK §4)
 
@@ -15,107 +15,111 @@ Snapshot 2026-10-07: **1200 words** across **50 authored unit(s)**, **37 slot(s)
 - **It is a snapshot.** Regenerate after any merge; the merge seat should regenerate as the last step so the next band starts from the truth.
 - **A word being listed is not a licence to use it in *any* unit** — the rule is taught *at or before* your unit. Check the slot number in the index, not just the presence.
 
-## Who owns which slots this band
-
-The block split the scaffold assigned. A word a **later** block will obviously own (its grammar tense, its themed domain) is theirs — use it in an example if you must, do not teach it. A word an **earlier** block owns is already decided: lower slot wins.
-
-| block | slots |
-|---|---|
-| 1 | u51–u63 |
-| 2 | u64–u76 |
-| 3 | u77–u87 |
-
-## Slots still stubs — not yours unless you were assigned them
-
-| slot | unit | title |
-|---|---|---|
-| 51 | `id-u51` | Opinion and agreement |
-| 52 | `id-u52` | Cause and consequence |
-| 53 | `id-u53` | Comparison and degree |
-| 54 | `id-u54` | Hedging and uncertainty |
-| 55 | `id-u55` | News and society |
-| 56 | `id-u56` | Work and process |
-| 57 | `id-u57` | Emotion, finer shades |
-| 58 | `id-u58` | Abstract ideas |
-| 59 | `id-u59` | Change over time |
-| 60 | `id-u60` | Problems and solutions |
-| 61 | `id-u61` | Rules, permission, obligation |
-| 62 | `id-u62` | Plans and intentions |
-| 63 | `id-u63` | Experience and memory |
-| 64 | `id-u64` | Media and entertainment |
-| 65 | `id-u65` | Environment and place |
-| 66 | `id-u66` | Money and the economy |
-| 67 | `id-u67` | Health and wellbeing |
-| 68 | `id-u68` | Relationships and society |
-| 69 | `id-u69` | Grammar 6 — linked and subordinate clauses |
-| 70 | `id-u70` | Grammar 7 — passive, causative, indirect |
-| 71 | `id-u71` | Grammar 8 — nuance, evidentiality, nominalization |
-| 72 | `id-u72` | Register 1 — polite vs plain |
-| 73 | `id-u73` | Register 2 — softening and formality |
-| 74 | `id-u74` | Vocabulary 1 (B1) |
-| 75 | `id-u75` | Vocabulary 2 (B1) |
-| 76 | `id-u76` | Vocabulary 3 (B1) |
-| 77 | `id-u77` | Vocabulary 4 (B1) |
-| 78 | `id-u78` | Vocabulary 5 (B1) |
-| 79 | `id-u79` | Vocabulary 6 (B1) |
-| 80 | `id-u80` | Vocabulary 7 (B1) |
-| 81 | `id-u81` | Vocabulary 8 (B1) |
-| 82 | `id-u82` | Vocabulary 9 (B1) |
-| 83 | `id-u83` | Vocabulary 10 (B1) |
-| 84 | `id-u84` | Vocabulary 11 (B1) |
-| 85 | `id-u85` | Vocabulary 12 (B1) |
-| 86 | `id-u86` | Vocabulary 13 (B1) |
-| 87 | `id-u87` | Vocabulary 14 (B1) |
-
 ## Index — every taught word, alphabetical
 
 `word` — slot · meaning
 
+- `abad` — u59 · a century
 - `absen` — u24 · absent
+- `abstrak` — u58 · abstract
 - `abu-abu` — u8 · grey
 - `acara` — u9 · event
+- `acuan` — u58 · a reference point
 - `ada` — u12 · there is
+- `adab` — u109 · proper conduct
 - `adalah` — u12 · is
+- `adapun` — u73 · as for
 - `adat` — u35 · a custom
+- `adegan` — u64 · a scene
 - `adik` — u4 · younger sibling
 - `adil` — u32 · fair
+- `adinda` — u109 · beloved younger one
 - `agak` — u14 · somewhat
+- `agaknya` — u54 · seemingly
 - `agama` — u35 · a religion
+- `agar` — u73 · to the end that
 - `Agustus` — u9 · August
 - `ahli` — u24 · an expert
 - `air` — u6 · water
+- `air terjun` — u76 · a waterfall
+- `aja` — u72 · just in slang
+- `ajal` — u122 · one's appointed hour of death
 - `akan` — u13 · will
 - `akar` — u46 · a root
 - `akhir` — u9 · end
 - `akhirnya` — u28 · finally
+- `akhlak` — u77 · moral conduct
 - `akibat` — u26 · a consequence
 - `akibatnya` — u29 · as a result
 - `akrab` — u40 · on close terms
+- `aktivis` — u55 · an activist
+- `akuisisi` — u93 · one firm buying another outright
 - `akun` — u43 · an account
+- `akuntabilitas` — u97 · being answerable for the power you were given
+- `akurat` — u91 · matching the real value
 - `alamat` — u38 · an address
+- `alangkah` — u106 · how very
 - `alasan` — u21 · a reason
 - `alat` — u42 · a tool
+- `alergi` — u67 · an allergy
+- `alhasil` — u108 · and so it turned out that
+- `alih-alih` — u107 · instead of
+- `aliran` — u96 · a school of artists sharing an approach
+- `almarhum` — u122 · the deceased
+- `alumni` — u103 · former students of a place
+- `alur` — u81 · a plot
 - `aman` — u38 · safe
+- `amanah` — u61 · a trust placed in somebody
+- `ambang` — u91 · the point at which something starts to count
+- `ambisi` — u62 · an ambition
+- `ambruk` — u121 · to collapse under its own weight
 - `ambulans` — u45 · an ambulance
 - `anak` — u4 · child
+- `analisis` — u103 · an analysis
+- `analogi` — u90 · a parallel drawn to explain something
+- `ancaman` — u52 · a threat
 - `Anda` — u3 · you (formal)
+- `andaikata` — u69 · supposing that
 - `aneh` — u49 · strange
+- `angan-angan` — u113 · a wishful notion
+- `anggapan` — u104 · a widely held assumption
 - `anggaran` — u48 · a budget
 - `anggota` — u32 · a member
+- `anggrek` — u118 · an orchid
 - `angin` — u8 · wind
 - `angka` — u26 · a digit
 - `angkot` — u38 · a minibus
+- `angsa` — u119 · a goose
 - `anjing` — u19 · dog
 - `antara` — u36 · between
+- `antara lain` — u69 · among other things
+- `antariksa` — u116 · outer space
+- `antariksawan` — u116 · a person trained for spaceflight
+- `antarnegara` — u101 · between countries
+- `antisipasi` — u98 · getting ready for what has not happened yet
 - `antre` — u38 · to queue
+- `antusias` — u57 · enthusiastic
+- `anugerah` — u109 · an honour conferred
+- `anyaman` — u120 · plaited matting
 - `apa` — u3 · what
 - `apa kabar` — u2 · how are you
+- `apa pun` — u69 · whatever it may be
+- `apabila` — u73 · in the event that
 - `apakah` — u29 · whether
 - `apalagi` — u29 · let alone
 - `api` — u34 · fire
 - `aplikasi` — u43 · an app
 - `apotek` — u11 · pharmacy
+- `apoteker` — u102 · a pharmacist
+- `apresiasi` — u96 · informed enjoyment of a work
 - `arah` — u23 · a direction
+- `arbitrase` — u93 · settlement by an agreed outside body
+- `argumentasi` — u88 · reasoning offered in support
+- `arkeologi` — u125 · the study of ancient remains
+- `arsip` — u79 · records
+- `arsitek` — u83 · an architect
+- `arsitektur` — u96 · the art and practice of designing buildings
+- `artefak` — u125 · an object dug up from the past
 - `arti` — u26 · a meaning
 - `arus` — u42 · a flow
 - `asalkan` — u29 · as long as
@@ -124,20 +128,38 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `asin` — u6 · salty
 - `asing` — u47 · foreign
 - `asli` — u49 · genuine
+- `aspek` — u58 · an aspect
+- `asrama` — u103 · a hall of residence
+- `astronot` — u116 · someone who travels in space
+- `asumsi` — u58 · an assumption
+- `asuransi` — u102 · insurance
+- `asyik` — u72 · great fun
 - `atap` — u17 · roof
 - `atas` — u36 · above
 - `atasan` — u24 · a superior at work
 - `atau` — u12 · or
 - `aturan` — u32 · a rule
+- `aus` — u121 · worn smooth by use
+- `awak` — u114 · a ship's crew
+- `awak kabin` — u116 · cabin crew
 - `awal` — u15 · beginning
 - `awan` — u8 · cloud
 - `awas` — u40 · look out
+- `awet` — u121 · long-keeping
 - `ayah` — u4 · father
+- `Ayahanda` — u109 · revered father
 - `ayam` — u6 · chicken
+- `ayat` — u92 · a numbered paragraph inside an article
+- `bab` — u81 · a chapter
+- `babad` — u125 · an old prose chronicle
+- `babi` — u85 · a pig
 - `badai` — u46 · a storm
 - `badan` — u11 · body
 - `bagaimana` — u2 · how
+- `bagaimanapun` — u69 · however that may be
+- `bagasi` — u116 · checked luggage
 - `bagian` — u14 · part
+- `baginda` — u109 · His Majesty
 - `bagus` — u10 · good
 - `bahagia` — u31 · deeply happy
 - `bahan` — u34 · an ingredient
@@ -147,462 +169,1173 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `bahu` — u45 · the shoulder
 - `bahwa` — u29 · the fact that
 - `baik` — u2 · fine
+- `bait` — u81 · a stanza
+- `baja` — u115 · steel
 - `baju` — u16 · shirt
+- `bakau` — u118 · a mangrove
+- `bakso` — u86 · a meatball
+- `balita` — u111 · a child under five
+- `balok` — u83 · a beam
+- `bambu` — u84 · bamboo
 - `bandara` — u23 · an airport
+- `banding` — u92 · taking a ruling to a higher court
+- `banget` — u72 · really in slang
 - `bangga` — u31 · proud
+- `bangkrut` — u66 · bankrupt
 - `bangsa` — u47 · a nation
 - `bangun` — u4 · to wake up
 - `banjir` — u46 · a flood
+- `bantal` — u113 · a pillow
 - `banyak` — u1 · many
 - `bapak` — u32 · sir
 - `barang` — u48 · goods
+- `barangkali` — u106 · it may well be that
 - `barat` — u47 · the west
+- `bareng` — u72 · together in slang
+- `baris` — u81 · a line of text
 - `baru` — u10 · new
 - `basah` — u8 · wet
+- `bata` — u83 · a brick
+- `batal` — u79 · cancelled
+- `batang` — u84 · a stem
+- `batasan` — u90 · a limit deliberately set on something
 - `baterai` — u42 · a battery
+- `batik` — u87 · batik cloth
+- `batin` — u77 · the innermost feelings
 - `batu` — u46 · a stone
+- `batu bara` — u115 · coal
 - `batuk` — u11 · cough
 - `bau` — u40 · a smell
 - `bawah` — u36 · below
 - `bawang` — u34 · onion
+- `bayangan` — u80 · a shadow
 - `bayi` — u15 · baby
+- `beasiswa` — u103 · a scholarship
 - `bebas` — u50 · free to go
 - `bebek` — u19 · duck
 - `beberapa` — u12 · several
+- `bedah` — u102 · surgery as a discipline
+- `bedak` — u87 · face powder
 - `begitu` — u49 · like that
 - `bekas` — u42 · second-hand
 - `bekerja` — u3 · to work
+- `beku` — u76 · hard with cold
 - `belajar` — u3 · to study
 - `belakang` — u7 · behind
+- `belalang` — u119 · a grasshopper
 - `belanja` — u16 · to go shopping
+- `belerang` — u115 · sulphur
+- `beliau` — u73 · the respectful he or she
 - `belok` — u7 · to turn
 - `belum` — u13 · not yet
+- `belum tentu` — u54 · not necessarily
+- `benang` — u82 · thread
 - `benar` — u14 · correct
+- `bencana` — u101 · a disaster
 - `benda` — u36 · an object
 - `bendera` — u47 · a flag
+- `bengkok` — u121 · bent out of true
 - `bensin` — u23 · petrol
 - `bentuk` — u26 · a shape
+- `benturan kepentingan` — u97 · a clash between your duty and your own gain
 - `benua` — u47 · a continent
+- `berabad-abad` — u125 · over hundreds of years
+- `beracun` — u65 · poisonous
 - `berada` — u47 · to be present
 - `berangkat` — u18 · to set off
+- `berangsur` — u59 · by slow degrees
 - `berani` — u21 · to dare
 - `berapa` — u5 · how many
 - `berat` — u10 · heavy
 - `berbagi` — u43 · to share in something
 - `berbaring` — u39 · to lie down
+- `berbaur` — u99 · to mix in together rather than stay apart
 - `berbeda` — u12 · different
 - `berbicara` — u13 · to speak
+- `berbisik` — u80 · to whisper
+- `berbuah` — u118 · to bear fruit
+- `berbunga` — u118 · to be in flower
+- `bercanda` — u126 · to joke around
+- `bercerai` — u68 · to divorce
+- `bercita-cita` — u62 · to aspire
 - `berdagang` — u48 · to trade
+- `berdalih` — u88 · to hide behind an excuse
+- `berdampak` — u52 · to have an impact
+- `berdandan` — u87 · to do oneself up
+- `berdasarkan` — u73 · on the basis of
+- `berdaulat` — u95 · answering to no outside power
 - `berdebat` — u22 · to argue
+- `berdebu` — u121 · covered in dust
+- `berdengung` — u80 · to buzz
+- `berdiet` — u67 · to be on a diet
 - `berdiri` — u39 · to stand
 - `berdiskusi` — u22 · to discuss
 - `berdoa` — u35 · to pray
+- `berembuk` — u93 · to put heads together over a decision
 - `berenang` — u18 · to swim
 - `berfoto` — u23 · to have your photo taken
 - `berfungsi` — u42 · to work properly
+- `bergairah` — u57 · ardent
 - `bergaul` — u40 · to mix with people
+- `bergema` — u80 · to echo
 - `bergerak` — u39 · to move
+- `bergeser` — u59 · to move off its place
+- `bergetar` — u80 · to tremble
+- `bergizi` — u67 · nutritious
+- `bergumam` — u113 · to mumble
 - `berguna` — u37 · useful
+- `berhak` — u61 · to be entitled
 - `berharap` — u20 · to hope
 - `berhasil` — u24 · to succeed
 - `berhenti` — u13 · to stop
 - `berikut` — u15 · next
+- `berimbang` — u89 · giving both sides their due
 - `berisi` — u49 · to contain
+- `berisiko` — u52 · risky
 - `berita` — u26 · the news
 - `berjalan` — u7 · to walk
 - `berjanji` — u22 · to promise
+- `berjuang` — u95 · to struggle on for a cause
+- `berjudi` — u126 · to gamble
+- `berkabung` — u122 · to be in mourning
+- `berkah` — u77 · a blessing
+- `berkala` — u56 · periodic
 - `berkali-kali` — u27 · over and over
+- `berkarat` — u115 · to go rusty
 - `berkas` — u24 · a file of papers
 - `berkat` — u29 · thanks to
+- `berkelanjutan` — u65 · sustainable
+- `berkembang` — u59 · to grow and spread
+- `berkenan` — u109 · to be graciously willing
+- `berkhayal` — u63 · to fantasise
+- `berkicau` — u119 · to chirp
+- `berkilau` — u80 · to sparkle
+- `berkomitmen` — u62 · committed
+- `berkonsultasi` — u112 · to consult a professional
+- `berkorban` — u68 · to make a sacrifice
+- `berkuasa` — u74 · to be in power
 - `berkurang` — u40 · to decrease
+- `berlabuh` — u114 · to drop anchor
+- `berlaku` — u79 · valid
+- `berlangsung` — u59 · to run its course
 - `berlari` — u39 · to go at a run
 - `berlatih` — u44 · to practise
+- `berlayar` — u114 · to set sail
+- `berlebihan` — u53 · excessive
 - `berlibur` — u23 · to go on holiday
 - `bermain` — u18 · to play
+- `bermaksud` — u62 · to mean to
+- `bermimpi` — u113 · to dream in one's sleep
 - `bernapas` — u45 · to breathe
+- `berniat` — u62 · to set out to
 - `berolahraga` — u18 · to exercise
+- `berpendapat` — u51 · to hold the view
+- `berpengalaman` — u63 · experienced
+- `berperan` — u64 · to play a part
+- `berpidato` — u110 · to make a speech
+- `berpisah` — u68 · to part ways
 - `berputar` — u39 · to spin round
+- `bersaing` — u66 · to compete
 - `bersalah` — u50 · guilty
+- `bersalaman` — u123 · to shake hands
 - `bersama` — u4 · together
 - `bersandar` — u39 · to lean
+- `bersangkutan` — u73 · the person concerned
+- `bersejarah` — u125 · of historical importance
+- `berselisih` — u51 · to be at odds
 - `bersembunyi` — u39 · to hide
 - `bersih` — u10 · clean
+- `bersikeras` — u51 · to insist
+- `bersiul` — u119 · to whistle
+- `bersumpah` — u92 · to swear an oath
+- `bersyarat` — u52 · conditional
 - `bersyukur` — u31 · to be grateful
+- `bertahan` — u75 · to stand firm
+- `bertahap` — u56 · in stages
 - `bertambah` — u40 · to grow in number
+- `bertanggung jawab` — u61 · to be accountable
+- `bertani` — u84 · to farm
+- `bertaruh` — u126 · to place a bet
+- `bertekad` — u62 · determined
+- `bertelur` — u85 · to lay eggs
 - `bertemu` — u2 · to meet
+- `bertengkar` — u68 · to fall out with somebody
+- `bertunangan` — u68 · to be engaged
+- `bertutur` — u110 · to speak in a considered way
 - `berubah` — u25 · to change
+- `berujung` — u52 · to end up in
+- `berunding` — u93 · to be in talks with the other side
 - `berusaha` — u21 · to make an effort
+- `berwenang` — u79 · having official authority
 - `besar` — u10 · big
 - `besi` — u46 · iron
 - `besok` — u5 · tomorrow
+- `betah` — u124 · to feel at home somewhere
+- `beton` — u83 · concrete
+- `biarpun` — u69 · no matter if
 - `biasa` — u49 · ordinary
 - `biasanya` — u15 · usually
 - `biaya` — u48 · an expense
 - `bibi` — u4 · aunt
+- `bidan` — u111 · a midwife
+- `bijaksana` — u78 · wise
 - `biji` — u46 · a seed
+- `bijih` — u115 · ore
+- `bikin` — u72 · to make something in slang
+- `biksu` — u77 · a Buddhist monk
+- `bilamana` — u73 · whenever it may be that
 - `bilang` — u22 · to say
+- `bimbang` — u54 · torn
 - `binatang` — u19 · animal
 - `bingung` — u21 · bewildered
 - `bintang` — u19 · star
+- `bioskop` — u64 · a cinema
+- `birokrasi` — u97 · the apparatus of offices, forms and procedures
 - `biru` — u8 · blue
 - `bisa` — u3 · can
 - `bising` — u42 · noisy
+- `bobot` — u90 · how much weight one factor is given
+- `bocor` — u117 · to leak
 - `bohong` — u32 · to tell a lie
 - `bola` — u41 · a ball
 - `boleh` — u12 · allowed to
+- `boleh jadi` — u54 · it may well be
+- `bom` — u75 · a bomb
+- `bongkahan` — u115 · a boulder
+- `bopeng` — u121 · pitted with small holes
+- `bor` — u82 · a drill
+- `bordir` — u120 · embroidery on cloth
+- `boros` — u65 · wasteful
 - `bosan` — u20 · bored
 - `botol` — u27 · a bottle
 - `buah` — u19 · fruit
+- `buaian` — u111 · a hanging cradle
+- `buas` — u85 · ferocious
+- `bubuk` — u117 · ground powder
 - `budaya` — u35 · culture
+- `bugar` — u113 · fresh and fit
+- `bujukan` — u88 · coaxing
 - `bukan` — u12 · not a
+- `bukan berarti` — u108 · that does not mean that
+- `bukan hanya` — u69 · not merely
+- `bukit` — u76 · a hill
 - `bukti` — u49 · evidence
 - `buku` — u18 · book
 - `bulan` — u9 · month
 - `bulat` — u30 · round
+- `bulu` — u85 · fur
 - `bulu tangkis` — u41 · badminton
 - `bumbu` — u34 · seasoning
 - `bumi` — u46 · the earth
 - `bunga` — u19 · flower
+- `bunga bank` — u66 · interest on money
 - `bungkus` — u27 · a packet
+- `buntu` — u60 · at a dead end
 - `bunyi` — u42 · a sound
+- `buram` — u80 · blurry
 - `buru-buru` — u28 · in a hurry
 - `buruh` — u48 · a labourer
 - `buruk` — u37 · seriously bad
 - `burung` — u19 · bird
 - `butuh` — u37 · to be in need of
 - `cabai` — u34 · chilli
+- `cabang` — u84 · a branch
+- `cacat` — u91 · a flaw in something otherwise sound
+- `cacing` — u85 · a worm
+- `cadangan` — u98 · something held back in case it is needed
+- `cahaya` — u80 · light that shines
+- `cairan` — u117 · something in liquid form
+- `cakar` — u119 · a claw
+- `calon` — u74 · a candidate
+- `camilan` — u86 · a snack
+- `campur aduk` — u105 · all mixed up together
+- `candi` — u125 · a stone temple of the old kingdoms
+- `candu` — u112 · an addictive hold
 - `canggih` — u42 · high-tech
+- `canggung` — u57 · awkward
+- `cangkul` — u82 · a hoe
 - `cantik` — u10 · beautiful
+- `capung` — u119 · a dragonfly
 - `cara` — u26 · a method
 - `catatan` — u26 · a note
 - `catur` — u41 · chess
+- `celaka` — u98 · struck by misfortune
 - `celana` — u16 · trousers
+- `cemas` — u57 · on edge about what may come
+- `cemberut` — u123 · sulky-faced
 - `cemburu` — u31 · jealous
+- `cendana` — u118 · sandalwood
+- `cenderung` — u53 · to tend to
 - `cepat` — u10 · fast
 - `cerah` — u8 · clear and sunny
+- `ceramah` — u110 · a talk given to teach
+- `cerdik` — u78 · shrewd
 - `cerita` — u26 · a story
+- `cermat` — u91 · careful with detail by habit
+- `cermin` — u87 · a mirror
+- `ceroboh` — u78 · careless
+- `cerpen` — u81 · a short story
+- `cetakan` — u120 · a mould
+- `cincin` — u87 · a ring
 - `cinta` — u1 · love
 - `ciri` — u49 · a distinguishing feature
+- `cita-cita` — u62 · a life ambition
+- `citra` — u104 · the public image of something
 - `coba` — u14 · to try
 - `cocok` — u14 · to match
 - `cokelat` — u8 · brown
 - `contoh` — u18 · example
+- `corak` — u120 · a pattern of colour
 - `cuaca` — u8 · weather
 - `cucu` — u4 · grandchild
 - `cukup` — u1 · enough
+- `cuma` — u72 · only in slang
+- `curah hujan` — u76 · how much rain falls
 - `curang` — u41 · cheating
 - `curiga` — u31 · suspicious
 - `cuti` — u24 · leave from work
 - `dada` — u45 · the chest
 - `daerah` — u38 · a district
 - `daftar` — u26 · a list
+- `daging` — u86 · meat
+- `dahan` — u118 · a thick tree limb
+- `dakwaan` — u92 · the criminal charge as read out
 - `dalam` — u30 · deep
+- `dalam hal ini` — u108 · in this particular case
+- `dalih` — u88 · a pretext
+- `damai` — u75 · free of fighting
+- `dampak` — u52 · an impact
 - `dan` — u1 · and
+- `dana` — u66 · a pool of money set aside
+- `danau` — u76 · a lake
+- `dangdut` — u64 · Indonesian pop music
+- `dapat dikatakan` — u108 · it can be said that
 - `dapur` — u4 · kitchen
 - `darah` — u45 · blood
 - `dari` — u3 · from
 - `daring` — u43 · online
 - `daripada` — u14 · than
+- `darurat` — u60 · an emergency
+- `dasar` — u58 · a basis
+- `dasi` — u87 · a necktie
 - `datang` — u13 · to come
 - `daun` — u19 · leaf
+- `daur ulang` — u65 · recycling
+- `daya beli` — u66 · purchasing power
 - `debu` — u46 · dust
+- `definisi` — u58 · a stated definition
+- `dekade` — u59 · a decade
 - `dekat` — u7 · near
 - `delapan` — u5 · eight
+- `delegasi` — u101 · a delegation
 - `demam` — u11 · fever
 - `demi` — u29 · for the sake of
+- `demikian` — u73 · in this manner
+- `demikianlah` — u110 · such then is
+- `demokrasi` — u74 · democracy
 - `denda` — u48 · a monetary penalty
+- `dendam` — u57 · a grudge
 - `dengan` — u1 · with
+- `dengan kata lain` — u69 · in other words
+- `dengki` — u57 · spiteful
 - `depan` — u7 · in front
+- `departemen` — u100 · a standing functional unit of an institution
+- `deportasi` — u124 · being sent out of a country
+- `depresi` — u112 · clinical depression
+- `derajat` — u76 · a degree
+- `dermaga` — u114 · a jetty
+- `dermawan` — u78 · generous
 - `desa` — u19 · village
+- `desas-desus` — u89 · a story going round with no source
+- `dewan` — u74 · a council
+- `dewasa` — u78 · mature
 - `di` — u3 · in
 - `dia` — u3 · he or she
+- `diagnosa` — u67 · a diagnosis
 - `diam` — u22 · to be silent
 - `diam-diam` — u28 · secretly
+- `dianggap` — u70 · is regarded as
+- `diduga` — u70 · is suspected of
+- `dilarang` — u70 · it is not allowed
+- `dilema` — u105 · a dilemma
+- `dimaksud` — u73 · the one intended
+- `dinasti` — u125 · a ruling family line
 - `dinding` — u17 · wall
 - `dingin` — u8 · cold
+- `diplomasi` — u101 · diplomacy
+- `disebut` — u70 · is called
+- `disertasi` — u103 · a doctoral thesis
+- `disiplin` — u61 · discipline
+- `diskriminasi` — u99 · treating people worse for the group they belong to
+- `ditemukan` — u70 · is found
+- `divisi` — u100 · a major branch of a company's structure
 - `dokter` — u11 · doctor
 - `dompet` — u16 · wallet
+- `dong` — u72 · a nudge to agree
+- `dongeng` — u81 · a folk tale
+- `dosa` — u77 · a sin
 - `dosen` — u44 · a lecturer
+- `dosis` — u102 · a dose
+- `drastis` — u53 · drastic
 - `dua` — u5 · two
 - `dua puluh` — u16 · twenty
 - `duduk` — u1 · to sit
+- `dugaan` — u54 · a supposition
+- `duit` — u72 · money in slang
+- `duka` — u122 · grief
+- `dukungan` — u51 · backing
 - `dulu` — u2 · for now
 - `dunia` — u47 · the world
+- `duri` — u118 · a thorn
+- `efisien` — u56 · efficient
+- `egois` — u78 · selfish
+- `ejekan` — u126 · a mocking remark thrown at someone
+- `ekonomi` — u66 · the economy
 - `ekor` — u27 · a tail
+- `eksperimen` — u94 · a trial run under controlled conditions
+- `elang` — u119 · an eagle
+- `elo` — u72 · you in slang
+- `emang` — u72 · true enough in slang
 - `emas` — u46 · gold
+- `ember` — u82 · a bucket
+- `emisi` — u65 · emissions
 - `empat` — u5 · four
 - `enak` — u6 · delicious
 - `enam` — u5 · six
+- `encer` — u117 · too thin a liquid
+- `endapan` — u115 · a sediment layer
+- `energi` — u65 · energy
+- `energi surya` — u65 · solar energy
+- `enggan` — u105 · unwilling
 - `entah` — u29 · who knows
+- `erosi` — u101 · erosion
 - `es` — u6 · ice
+- `estetika` — u96 · the study of what makes something beautiful
+- `etika` — u61 · a code of right conduct
+- `evakuasi` — u101 · evacuation
 - `fakta` — u49 · a fact
+- `faktor` — u52 · a factor
+- `fakultas` — u103 · a faculty of a university
+- `fasih` — u110 · fluent
+- `film` — u64 · a movie
+- `fondasi` — u83 · a building's footing
+- `formulir` — u79 · a printed form
+- `fosil` — u125 · the stone trace of a dead creature
 - `foto` — u33 · a photograph
+- `frustrasi` — u57 · frustrated
 - `gagal` — u24 · to fail
+- `gagasan` — u58 · a notion put forward
 - `gajah` — u19 · elephant
 - `gaji` — u24 · a salary
+- `galat` — u91 · the margin by which a measurement is off
+- `galau` — u105 · churning with indecision
+- `galeri` — u96 · a room where art is shown and sold
+- `galian` — u115 · excavated material
 - `gambar` — u26 · a picture
+- `gamelan` — u64 · a gamelan orchestra
+- `gamping` — u115 · limestone
 - `gang` — u38 · an alley
+- `gangguan` — u112 · a disorder
 - `ganteng` — u20 · handsome
 - `gara-gara` — u29 · all because of
 - `garam` — u34 · salt
+- `garpu` — u86 · a fork
 - `gawang` — u41 · the goalposts
+- `gawat` — u60 · critical
 - `gedung` — u38 · a big public building
+- `gegabah` — u126 · acting without thinking it through
+- `gejala` — u67 · a symptom
+- `geladak` — u114 · the deck of a ship
+- `gelang` — u87 · a bracelet
 - `gelap` — u8 · dark
+- `gelar` — u109 · a title placed before a name
 - `gelas` — u17 · drinking glass
+- `geli` — u126 · ticklish
+- `gelisah` — u57 · restless
 - `gempa` — u46 · an earthquake
 - `gemuk` — u20 · fat
+- `genangan` — u117 · a pool of standing water
+- `gencatan senjata` — u75 · a ceasefire
+- `generalisasi` — u90 · a claim about all of something from a few cases
+- `generasi` — u59 · a generation
+- `genteng` — u83 · a roof tile
+- `gerabah` — u120 · earthenware
+- `gerak-gerik` — u123 · the way someone carries themselves
+- `geram` — u57 · seething
+- `gerbang` — u83 · a main gateway
 - `gereja` — u35 · a church
+- `gergaji` — u82 · a saw
+- `gerhana` — u116 · an eclipse
+- `gersang` — u84 · parched from lack of rain
+- `getah` — u118 · tree sap
 - `getaran` — u42 · a vibration
+- `getir` — u57 · galling
 - `gigi` — u11 · tooth
+- `gigih` — u62 · persistent
+- `gimana` — u72 · how in slang
+- `gizi` — u67 · nutrition
+- `globalisasi` — u101 · globalisation
 - `gol` — u41 · a goal scored
+- `golongan` — u90 · a class things are sorted into
 - `goreng` — u6 · fried
+- `gosip` — u89 · idle talk about people's private lives
+- `gotong royong` — u68 · working together for the common good
+- `granit` — u115 · a hard speckled rock
+- `grasi` — u92 · a pardon granted by the head of state
+- `gratifikasi` — u97 · a gift to an official that counts as corrupt
 - `gratis` — u16 · free of charge
+- `gravitasi` — u116 · the pull that keeps us on the ground
+- `gua` — u76 · a cave
+- `gubernur` — u74 · a provincial governor
+- `gubuk` — u124 · a hut
 - `gudang` — u48 · a warehouse
+- `gue` — u72 · I in slang
+- `gugatan` — u92 · a civil claim filed against somebody
 - `gugup` — u31 · nervous
 - `gula` — u6 · sugar
+- `gumpalan` — u117 · a clot
+- `guna` — u73 · for the purpose of
+- `gundul` — u101 · stripped bare
+- `gunting` — u82 · scissors
 - `gunung` — u19 · mountain
+- `gurauan` — u126 · a jest
 - `gurih` — u40 · savoury
 - `guru` — u3 · teacher
+- `gurun` — u76 · a desert
+- `gusar` — u57 · vexed
 - `hadiah` — u35 · a gift
+- `hadirin` — u110 · those present
+- `hafal` — u63 · knowing by heart
 - `hai` — u2 · hi
 - `hak` — u50 · an entitlement
+- `hakikat` — u58 · the essence
 - `hakim` — u50 · a judge in court
 - `hal` — u36 · a matter
 - `halaman` — u17 · yard
 - `halo` — u2 · hello
 - `halte` — u38 · a bus stop
 - `halus` — u30 · smooth
+- `halusinasi` — u113 · a hallucination
+- `hamba` — u109 · your humble servant
+- `hambatan` — u60 · an obstruction
+- `hamil` — u111 · pregnant
+- `hampa` — u57 · hollow
 - `hampir` — u13 · almost
 - `hangat` — u40 · pleasantly warm
 - `hanya` — u1 · only
+- `hanya saja` — u108 · it is just that
+- `hanyut` — u105 · carried away by something
 - `harga` — u16 · price
 - `hari` — u5 · day
 - `hari Minggu` — u9 · Sunday
 - `hari raya` — u35 · a religious holiday
+- `harian` — u55 · happening every day
+- `harimau` — u85 · a tiger
+- `harta` — u66 · assets
+- `haru` — u57 · a surge of feeling
 - `harum` — u40 · fragrant
 - `harus` — u12 · must
 - `hasil` — u26 · a result
+- `hasrat` — u62 · an urge
 - `hati` — u31 · the heart as the seat of feeling
 - `hati-hati` — u2 · take care
 - `haus` — u6 · thirsty
 - `hebat` — u37 · impressive
+- `hendaknya` — u106 · it is to be hoped that
+- `hening` — u80 · hushed
 - `heran` — u21 · astonished
+- `hibah` — u122 · a bequest
 - `hiburan` — u35 · entertainment
+- `hidangan` — u86 · a course of a meal
 - `hidung` — u11 · nose
 - `hijau` — u8 · green
+- `hijrah` — u124 · to move away and start again
+- `hikayat` — u125 · an old Malay tale
 - `hilang` — u25 · to disappear
+- `himpunan` — u90 · a set taken as one thing
+- `hina` — u78 · lowly and despicable
+- `hinggap` — u119 · to perch
+- `hipotesis` — u94 · a claim set up to be tested
 - `hitam` — u8 · black
+- `hoaks` — u55 · a hoax
 - `hobi` — u35 · a hobby
+- `hormat` — u73 · a formal show of respect
 - `hubungan` — u40 · a relationship
 - `hujan` — u8 · rain
 - `hukum` — u47 · the law
 - `hukuman` — u50 · a punishment
 - `huruf` — u26 · a letter of the alphabet
 - `hutan` — u19 · forest
+- `ialah` — u69 · is none other than
+- `iba` — u57 · moved to compassion
+- `ibadah` — u77 · religious worship
+- `ibarat` — u90 · just like, introducing a comparison
 - `ibu` — u4 · mother
+- `Ibunda` — u109 · revered mother
 - `ide` — u21 · an idea
+- `identitas` — u99 · who somebody is recorded as being
 - `ijazah` — u44 · a graduation certificate
 - `ikan` — u6 · fish
+- `ikhlas` — u78 · wholehearted
 - `iklan` — u33 · an advertisement
+- `iklim` — u76 · climate
 - `ikut` — u39 · to come along
+- `ilmiah` — u103 · scholarly
 - `ilmu` — u44 · knowledge
+- `ilusi` — u113 · an illusion
+- `imam` — u77 · a prayer leader
+- `iman` — u77 · belief in God
+- `imbal balik` — u93 · what each side gets in return
+- `imbas` — u52 · a knock-on effect
+- `imbauan` — u98 · a public appeal asking people to act a certain way
+- `imigrasi` — u124 · the border control desk
+- `impian` — u62 · a dream
+- `impor` — u66 · imports
+- `imunisasi` — u111 · a child's immunisation schedule
+- `indikator` — u90 · a visible sign used to judge something hidden
+- `industri` — u66 · industry
+- `infeksi` — u67 · an infection
+- `inflasi` — u66 · inflation
 - `informasi` — u33 · information
 - `ingat` — u21 · to remember
+- `ingatan` — u63 · memory as a faculty
 - `ingin` — u37 · to long for
 - `ini` — u12 · this
+- `inovasi` — u94 · a genuinely new way of doing something
+- `insinyur` — u83 · an engineer
+- `instansi` — u79 · a government body
+- `integritas` — u97 · being the same person under pressure
+- `internasional` — u101 · international
+- `inti` — u58 · the core
+- `intinya` — u71 · the heart of it is
+- `investasi` — u66 · investment
+- `iri` — u57 · covetous
+- `iseng` — u126 · idly, for something to do
 - `isi` — u26 · the contents
+- `isolasi` — u102 · isolating a sick person
 - `istilah` — u33 · a technical term
 - `istirahat` — u9 · to rest
 - `istri` — u4 · wife
+- `isu` — u55 · a matter in the public eye
+- `isyarat` — u123 · a hand signal
 - `itu` — u12 · that
+- `iuran` — u102 · a membership contribution
 - `izin` — u50 · permission
+- `jabatan` — u74 · a post held
 - `jadi` — u1 · so
 - `jadwal` — u13 · schedule
+- `jagung` — u84 · corn
 - `jahat` — u50 · wicked
+- `jahitan` — u120 · a seam
+- `jajaran` — u100 · the senior people of a body taken as a row
 - `jaket` — u16 · jacket
+- `jaksa` — u92 · the state's lawyer who brings a charge
+- `jala` — u114 · a casting net
 - `jalan` — u7 · street
+- `jalan keluar` — u60 · a way out
 - `jalan raya` — u38 · the main road
 - `jam` — u5 · o'clock
+- `jaminan` — u93 · something put up as security
+- `janda` — u68 · a widow
 - `jangan` — u1 · don't
+- `jangan sampai` — u69 · make sure it does not happen
+- `janggal` — u91 · not quite right in a way you cannot name
+- `jangka panjang` — u62 · long term
+- `jangka pendek` — u62 · short term
+- `jangkar` — u114 · an anchor
+- `jangkrik` — u119 · a cricket
 - `jantung` — u45 · the heart
 - `jarak` — u14 · distance
 - `jarang` — u9 · rarely
 - `jari` — u45 · a finger
 - `jaringan` — u43 · a network
+- `jarum` — u82 · a needle
 - `jasa` — u48 · a service
+- `jati` — u118 · teak
+- `jati diri` — u99 · who somebody truly is underneath
 - `jatuh` — u39 · to fall
 - `jauh` — u7 · far
+- `jejak` — u63 · a trace
 - `jelas` — u33 · plain to understand
 - `jelek` — u10 · ugly
+- `jeli` — u91 · quick to notice what others miss
 - `jembatan` — u38 · a bridge
+- `jenaka` — u126 · witty
+- `jenazah` — u122 · the body prepared for burial
 - `jendela` — u17 · window
+- `jenderal` — u75 · a general in the army
+- `jengah` — u105 · embarrassed into silence
+- `jengkel` — u57 · exasperated
 - `jenis` — u49 · a category
+- `jenjang` — u100 · one rung of a ranked ladder
+- `jenuh` — u112 · saturated and sick of it
+- `jeruk` — u86 · an orange
+- `jika` — u73 · should it be the case that
+- `jilbab` — u87 · a headscarf
+- `jinak` — u85 · tame
+- `jiwa` — u77 · the soul
 - `juara` — u41 · a champion
 - `judul` — u26 · a title
 - `juga` — u1 · also
 - `jujur` — u32 · honest
 - `Jumat` — u9 · Friday
 - `jumlah` — u14 · total
+- `jurang` — u99 · a wide gulf between two groups
+- `jurnal` — u103 · an academic journal
 - `jurusan` — u44 · a field of study
 - `justru` — u28 · on the contrary
 - `juta` — u16 · million
 - `kabar` — u33 · word of how someone is
+- `kabarnya` — u71 · word has it
 - `kabel` — u42 · a cable
+- `kabinet` — u74 · the ministers as a body
+- `kabur` — u54 · blurred
 - `kabut` — u46 · fog
+- `kaca` — u82 · a pane of glass
+- `kacamata` — u87 · glasses
+- `kadaluarsa` — u121 · past its use-by date
 - `kadang-kadang` — u15 · sometimes
+- `kadar` — u53 · the degree of something present
+- `kaderisasi` — u100 · deliberately growing the people who will take over
+- `kafan` — u122 · a burial shroud
 - `kaget` — u20 · startled
 - `kagum` — u31 · full of admiration
+- `kaidah` — u94 · a governing rule of a field
+- `kain` — u82 · cloth
+- `kajian` — u103 · a study of a subject
 - `kakak` — u4 · older sibling
+- `kakanda` — u109 · beloved elder
 - `kakek` — u4 · grandfather
 - `kaki` — u11 · foot
+- `kaku` — u80 · stiff
 - `kalah` — u30 · to be beaten
+- `kalangan` — u99 · the circle of people a thing moves among
 - `kalau` — u12 · if
+- `kalau-kalau` — u69 · just in case
+- `kalaupun` — u106 · even if it did
 - `kaleng` — u27 · a tin
 - `kali` — u14 · times
 - `kalian` — u15 · you all
 - `kalimat` — u26 · a sentence
+- `kalori` — u67 · a calorie
+- `kalung` — u87 · a necklace
 - `kamar` — u4 · room
 - `kamar mandi` — u17 · bathroom
 - `kambing` — u19 · goat
+- `kamboja` — u118 · frangipani
+- `kambuh` — u67 · to flare up again
 - `kamera` — u43 · a camera
 - `kami` — u15 · we excluding you
 - `Kamis` — u9 · Thursday
+- `kampanye` — u74 · a campaign
+- `kampung` — u124 · a village as a home place
+- `kampus` — u103 · a university campus
 - `kamu` — u3 · you (informal)
 - `kamus` — u26 · a dictionary
+- `kan` — u71 · right?
 - `kanan` — u7 · right
+- `kancing` — u87 · a button on clothing
+- `kandang` — u85 · a pen for animals
+- `kandungan` — u111 · the womb and what is in it
 - `kantong` — u27 · a pocket
 - `kantor` — u7 · office
 - `kantor pos` — u38 · the post office
+- `kantuk` — u113 · drowsiness
+- `kanvas` — u96 · the stretched cloth a picture is painted on
+- `kaos` — u87 · a t-shirt
 - `kapal` — u23 · a ship
 - `kapan` — u9 · when
+- `kapan pun` — u69 · whenever it may be
+- `karang` — u114 · coral
+- `karantina` — u102 · quarantine
+- `karat` — u115 · rust
+- `karbon` — u65 · carbon
 - `karena` — u12 · because
+- `karet` — u82 · rubber
+- `karier` — u100 · a working life taken as one path
 - `kartu` — u41 · a playing card
+- `karung` — u82 · a gunny sack
+- `karya` — u64 · a body of work
 - `karyawan` — u24 · an employee
 - `kasar` — u30 · rough
+- `kasasi` — u92 · the last appeal, on points of law only
 - `kasihan` — u28 · poor thing
 - `kasir` — u16 · cashier
+- `kasta` — u99 · a rank in society fixed by birth
+- `kasur` — u113 · a mattress
 - `kasus` — u50 · a reported case
 - `kata` — u26 · a word
+- `katak` — u85 · a frog
+- `katanya` — u54 · they say
+- `kategori` — u90 · a named heading in a scheme
+- `kaum` — u99 · a people or group defined by what they share
+- `kaus kaki` — u87 · socks
+- `kawat` — u82 · metal wire
 - `kaya` — u27 · rich
+- `kayak` — u72 · like in slang
 - `kayu` — u46 · wood
 - `ke` — u3 · to (a place)
+- `keabsahan` — u89 · standing in law or rule
 - `keadaan` — u26 · a situation
+- `keandalan` — u89 · how dependable a thing is over time
+- `keanekaragaman` — u101 · diversity of living things
+- `keaslian` — u89 · whether a thing is genuinely what it claims to be
 - `kebakaran` — u46 · a house fire
+- `kebal` — u52 · immune
+- `kebangkitan` — u95 · a people coming awake and into motion
 - `kebanyakan` — u28 · most of them
+- `kebebasan` — u61 · freedom
 - `kebenaran` — u49 · the truth
+- `keberadaan` — u71 · the presence of something
+- `keberagaman` — u99 · the fact of many kinds existing together
+- `keberatan` — u51 · an objection
+- `keberhasilan` — u107 · a success
+- `keberlanjutan` — u101 · whether something can keep going
+- `keberpihakan` — u97 · openly taking one side's part
+- `keberuntungan` — u126 · good fortune
 - `kebetulan` — u28 · by chance
 - `kebiasaan` — u40 · a habit
+- `kebijakan` — u74 · a policy
+- `kebugaran` — u67 · physical fitness
+- `kebun` — u84 · a garden plot
+- `kebutuhan` — u71 · what somebody needs
+- `kecanduan` — u67 · addiction
+- `kecap` — u86 · soy sauce
 - `kecelakaan` — u45 · an accident
+- `kecemasan` — u112 · anxiety as a condition
+- `kecenderungan` — u53 · a tendency
 - `kecepatan` — u42 · speed
 - `kecewa` — u20 · disappointed
 - `kecil` — u10 · small
+- `kecoa` — u119 · a cockroach
 - `kecuali` — u29 · except
+- `kedaulatan` — u95 · a state's right to rule itself
+- `kedudukan` — u109 · a standing in a hierarchy
+- `kegagalan` — u107 · a failure
+- `keguguran` — u111 · a miscarriage
+- `keharusan` — u61 · something that cannot be skipped
 - `kehilangan` — u50 · to lose something
+- `kehormatan` — u99 · honour as something a person holds and can lose
+- `keindahan` — u96 · beauty as a quality a thing has
+- `keinginan` — u62 · a wish
+- `kejadian` — u71 · something that happened
+- `kejam` — u78 · cruel
+- `kejiwaan` — u112 · to do with mental health
+- `keju` — u86 · cheese
+- `kekalahan` — u75 · a defeat
+- `kekebalan` — u67 · immunity
+- `kekeringan` — u101 · a drought
+- `kekuasaan` — u74 · power held
+- `kekuatan` — u71 · strength
+- `kelak` — u59 · in time to come
+- `kelalaian` — u98 · negligence as a finding against somebody
+- `kelangkaan` — u101 · a shortage
+- `kelapa` — u84 · a coconut
 - `kelas` — u18 · class
+- `kelas menengah` — u66 · the middle class
+- `kelelahan` — u112 · exhaustion as a state
+- `kelinci` — u85 · a rabbit
 - `keliru` — u49 · mistaken
 - `kelompok` — u32 · a group
+- `kelonggaran` — u91 · slack deliberately allowed
+- `kelopak` — u118 · a petal
+- `kelu` — u105 · unable to get a word out
 - `keluar` — u7 · to exit
 - `keluarga` — u4 · family
+- `keluhan` — u60 · a complaint
+- `kemajemukan` — u99 · being plural in character as a society
+- `kemajuan` — u59 · progress
+- `kemampuan` — u107 · an ability
+- `kemarau` — u76 · the dry season
 - `kemarin` — u5 · yesterday
 - `kembali` — u13 · to return
 - `kembalian` — u27 · change from a purchase
+- `kemeja` — u87 · a buttoned shirt
+- `kemenangan` — u75 · a victory
+- `kemerdekaan` — u95 · a nation's independence
+- `kemiskinan` — u55 · poverty
+- `kemitraan` — u93 · a partnership as an arrangement
+- `kemudi` — u114 · a rudder
+- `kemudian` — u69 · and after that
+- `kemungkinan` — u54 · a likelihood
 - `kenal` — u21 · to know a person
+- `kenangan` — u63 · a memory
 - `kenapa` — u1 · why
+- `kendala` — u60 · a constraint
+- `kendati` — u107 · though it be so
+- `kental` — u117 · sticky and slow to pour
+- `kentang` — u84 · a potato
 - `kenyang` — u6 · full (after eating)
+- `kenyataan` — u71 · the reality
 - `kepada` — u36 · addressed to
 - `kepala` — u11 · head
+- `kepatuhan` — u97 · a body's record of following the rules it is bound by
+- `kepompong` — u119 · a cocoon
+- `kepunahan` — u101 · extinction
+- `keputusan` — u71 · a decision
+- `kerabat` — u68 · a relation by blood
+- `kerah` — u87 · a collar
+- `kerajaan` — u125 · a kingdom
+- `kerajinan` — u120 · handicraft
+- `keramik` — u120 · ceramic tile
+- `kerangka` — u58 · a framework
 - `keranjang` — u27 · a basket
 - `keras` — u30 · hard to the touch
 - `kereta` — u7 · train
+- `kerikil` — u115 · gravel
 - `kering` — u8 · dry
+- `kerjain` — u72 · to get something done in slang
+- `keropos` — u121 · porous and eaten through
 - `kertas` — u33 · a sheet of paper
+- `kerukunan` — u68 · communal harmony
+- `kerupuk` — u86 · a prawn cracker
+- `kerusakan` — u65 · damage done
+- `kesaksian` — u92 · evidence a person gives in person
 - `kesal` — u31 · annoyed
+- `kesan` — u54 · an impression
+- `kesat` — u80 · rough to the touch
+- `kesehatan` — u102 · health as a whole field
+- `keseimbangan` — u107 · a balance
+- `kesejahteraan` — u55 · welfare
+- `keselamatan` — u98 · safety as a standard to be met
+- `kesenjangan` — u53 · a gulf between them
+- `kesepahaman` — u93 · a shared understanding short of a contract
+- `kesepakatan` — u51 · an agreement reached
 - `kesepian` — u31 · lonely
+- `kesimpulannya` — u108 · the conclusion drawn is
+- `kesukuan` — u99 · putting one's own ethnic group above others
+- `kesultanan` — u125 · a sultanate
+- `ketat` — u61 · strict
+- `ketenangan` — u112 · a settled calm
+- `ketentuan` — u79 · terms
 - `keterangan` — u49 · a statement of the facts
+- `keterbatasan` — u107 · a limitation
+- `ketergantungan` — u107 · a dependence
+- `keterkaitan` — u107 · the way two things are linked
+- `keterlibatan` — u107 · involvement
+- `ketersediaan` — u107 · availability
 - `ketika` — u36 · at the time when
+- `ketimbang` — u107 · as against
+- `ketinggian` — u116 · altitude
+- `kewajiban` — u61 · an obligation
+- `kewalahan` — u60 · overwhelmed
+- `kewarganegaraan` — u124 · citizenship
+- `kewaspadaan` — u98 · watchfulness kept up over time
 - `khawatir` — u20 · worried
+- `khayal` — u63 · fantasy
+- `khayalan` — u113 · a thing imagined
+- `khidmat` — u110 · solemn
+- `khotbah` — u110 · a sermon
 - `khusus` — u28 · special
+- `kiai` — u109 · a senior Islamic teacher
+- `kiasan` — u90 · words not meant literally
+- `kikuk` — u105 · awkward in one's own body
+- `kilat` — u80 · a flash of lightning
 - `kilo` — u27 · a kilogram
+- `kimia` — u94 · the science of what substances are and do
+- `kinerja` — u100 · how well somebody or something performs, as measured
 - `kira-kira` — u14 · roughly
+- `kiranya` — u73 · it is hoped that
 - `kiri` — u7 · left
+- `kisaran` — u91 · the band a value falls within
 - `kita` — u15 · we including you
+- `kitab` — u77 · a scripture
+- `klaim` — u102 · an insurance claim
+- `klarifikasi` — u104 · a public correction
+- `klasifikasi` — u90 · a whole scheme of classes
+- `klausul` — u93 · one provision inside a contract
+- `klinik` — u102 · a clinic
+- `kok` — u72 · a surprised why
+- `kokoh` — u83 · sturdy
+- `kolom` — u79 · a column on a form
+- `kolonial` — u95 · belonging to the era of rule from outside
+- `kolusi` — u97 · a secret arrangement between parties who should compete
+- `komedi` — u64 · a funny show
+- `komet` — u116 · an icy body with a tail
+- `komitmen` — u62 · a commitment
 - `kompor` — u34 · a stove
+- `komposisi` — u96 · how the parts of a work are arranged
+- `kompromi` — u60 · a compromise
 - `komputer` — u43 · a computer
+- `konflik` — u75 · a conflict
+- `konkret` — u90 · particular enough to point at
+- `konon` — u54 · allegedly
+- `konseling` — u112 · counselling
+- `konsep` — u58 · a concept
+- `konser` — u64 · a concert
+- `konsumen` — u66 · the consuming public
+- `konteks` — u58 · a context
 - `kontrak` — u24 · a work contract
+- `konyol` — u126 · absurd
 - `koper` — u23 · a suitcase
+- `koperasi` — u66 · a cooperative
 - `kopi` — u6 · coffee
 - `koran` — u26 · a newspaper
 - `korban` — u50 · a victim
+- `korupsi` — u74 · corruption
 - `kosong` — u10 · empty
 - `kota` — u7 · city
 - `kotak` — u27 · a box
 - `kotor` — u10 · dirty
+- `kredibel` — u89 · believable as a speaker
+- `kredibilitas` — u89 · standing as somebody worth believing
+- `kremasi` — u122 · burning a body instead of burying it
+- `krisis` — u60 · a crisis
+- `kriteria` — u90 · a condition something must meet
+- `kritik` — u96 · a reasoned judgement of a work
+- `kritikus` — u96 · somebody whose work is judging art
+- `kriya` — u120 · handicraft as an art form
+- `kronis` — u67 · chronic
+- `kronologi` — u104 · the order events happened in
+- `kuas` — u82 · a paintbrush
 - `kuat` — u10 · strong
 - `kucing` — u1 · cat
 - `kuda` — u19 · horse
+- `kue` — u86 · a cake
+- `kuesioner` — u103 · a questionnaire
+- `kuil` — u77 · a temple
 - `kuliah` — u44 · a lecture
 - `kulit` — u45 · skin
 - `kulkas` — u17 · fridge
+- `kumbang` — u119 · a beetle
 - `kunci` — u17 · key
+- `kuncup` — u118 · a bud
 - `kuning` — u8 · yellow
 - `kuno` — u42 · old-fashioned
+- `kuota` — u101 · an allotted quota
+- `kupu-kupu` — u85 · a butterfly
+- `kura-kura` — u85 · a turtle
 - `kurang` — u14 · less
 - `kurang lebih` — u27 · more or less
+- `kurikulum` — u103 · a curriculum
 - `kursi` — u17 · chair
 - `kurus` — u20 · thin
+- `kusam` — u121 · dull and dusty-looking
+- `kutipan` — u81 · a quotation
+- `kutu` — u119 · a louse
 - `kwitansi` — u48 · a receipt
 - `laba` — u48 · a profit
+- `laba-laba` — u85 · a spider
+- `laboratorium` — u94 · a room fitted out for experiments
+- `ladang` — u84 · a dry field
 - `lagi` — u5 · again
+- `lagi pula` — u71 · besides
 - `lagu` — u33 · a song
 - `lain` — u12 · other
 - `laki-laki` — u15 · man
+- `lalai` — u98 · failing to do what your duty required
+- `lalat` — u85 · a fly
 - `lalu` — u9 · ago
 - `lama` — u10 · old
+- `lamaran` — u100 · an application somebody has submitted
+- `lambang` — u95 · an emblem standing for something larger
 - `lambat` — u10 · slow
+- `lampiran` — u79 · an attachment
 - `lampu` — u17 · lamp
 - `lampu merah` — u38 · the traffic light
+- `lamunan` — u63 · a reverie
+- `landasan` — u58 · a foundation
 - `langit` — u8 · sky
+- `langka` — u65 · rare
+- `langkah` — u56 · a step taken
 - `langsung` — u15 · straight away
 - `lantai` — u17 · floor
+- `lantang` — u110 · ringing and carrying
+- `lantaran` — u107 · on account of
+- `lantas` — u108 · and then what
 - `lapangan` — u41 · a sports field
 - `lapar` — u6 · hungry
+- `lapisan` — u90 · one tier among several stacked
 - `laporan` — u24 · a report
+- `lapuk` — u121 · rotten from damp
+- `larangan` — u61 · a prohibition
+- `larut` — u117 · to dissolve
+- `latar` — u81 · a setting
 - `latihan` — u44 · a practice session
+- `lauk` — u86 · a dish eaten with rice
 - `laut` — u19 · sea
 - `layak` — u37 · worth doing
 - `layar` — u33 · a screen
+- `layu` — u84 · wilted
+- `lazim` — u61 · customary
+- `lebah` — u119 · a bee
 - `lebar` — u30 · wide
 - `lebih` — u14 · more
+- `lecet` — u121 · scuffed
 - `lega` — u31 · relieved
+- `legalisir` — u79 · certification of a copy
+- `legawa` — u105 · at peace with letting something go
 - `leher` — u45 · the neck
 - `lelah` — u11 · tired
+- `lelang` — u93 · a sale to the highest bidder
+- `lelucon` — u64 · a joke
+- `leluhur` — u125 · an ancestor
+- `lem` — u82 · glue
 - `lemari` — u17 · cupboard
+- `lembaga` — u55 · an institution
+- `lembah` — u76 · a valley
+- `lembap` — u80 · humid
 - `lembur` — u24 · overtime
 - `lembut` — u30 · soft
+- `lengan` — u87 · a sleeve
+- `lentur` — u80 · flexible
+- `lepas landas` — u116 · to take off from a runway
+- `lereng` — u76 · a slope
+- `lestari` — u59 · enduring
+- `lesu` — u57 · listless
+- `lho` — u72 · a note of surprise
+- `liar` — u85 · wild
 - `libur` — u9 · day off
+- `licik` — u78 · cunning
+- `licin` — u80 · slippery
+- `lift` — u83 · elevator
 - `lima` — u5 · five
+- `limbah` — u65 · industrial waste
 - `lingkungan` — u46 · the environment
+- `lingkup` — u58 · scope
+- `liputan` — u55 · coverage
+- `lirikan` — u123 · a sideways glance
+- `lisan` — u110 · spoken rather than written
 - `listrik` — u42 · electricity
 - `liter` — u27 · a litre
 - `logam` — u42 · metal
+- `logika` — u58 · logic
+- `logis` — u88 · hanging together as reasoning
+- `loket` — u79 · a service window
+- `longgar` — u61 · lax
+- `longsor` — u101 · a landslide
+- `lorong` — u83 · a corridor
+- `loyo` — u113 · limp with no energy
 - `luar` — u36 · the outside
 - `luar biasa` — u37 · extraordinary
+- `lubang` — u83 · a hole
 - `lucu` — u20 · funny
+- `luhur` — u97 · high-minded and above self-interest
 - `luka` — u45 · a wound
 - `lukisan` — u35 · a painting
+- `luluh` — u88 · to soften and give in
 - `lulus` — u44 · to graduate
+- `lumpur` — u76 · mud
+- `lumut` — u118 · moss
 - `lupa` — u21 · to forget
+- `luput` — u91 · to escape notice
 - `luring` — u43 · offline
 - `lurus` — u7 · straight ahead
 - `lutut` — u45 · the knee
 - `maaf` — u2 · sorry
 - `macet` — u23 · jammed with traffic
+- `mahakarya` — u96 · the greatest work of an artist's life
 - `mahal` — u16 · expensive
 - `mahasiswa` — u3 · university student
+- `mahoni` — u118 · mahogany
 - `majalah` — u33 · a magazine
 - `maju` — u41 · to move forward
+- `maka` — u73 · and therefore
+- `makam` — u122 · a grave
 - `makan` — u6 · to eat
 - `makanan` — u34 · food
+- `makna` — u58 · significance
+- `maksimal` — u53 · at most
 - `maksud` — u21 · what someone means
 - `malah` — u28 · instead
 - `malam` — u5 · night
@@ -610,15 +1343,30 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `malu` — u20 · embarrassed
 - `mampu` — u21 · capable
 - `mana` — u3 · where
+- `mana pun` — u69 · whichever one it may be
+- `manakala` — u106 · at such time as it happens
 - `mandi` — u17 · to bathe
+- `mangga` — u86 · a mango
+- `mangkel` — u105 · quietly irritated
 - `manis` — u6 · sweet
+- `manja` — u111 · indulged
+- `mantan` — u68 · an ex
+- `map` — u79 · a folder
 - `marah` — u20 · angry
 - `Maret` — u9 · March
+- `marmer` — u115 · a polished patterned stone
+- `martabat` — u99 · the standing every person is owed as a person
 - `mas` — u32 · a young man you are speaking to
+- `masa depan` — u59 · the future
+- `masa kecil` — u63 · childhood
+- `masa lalu` — u59 · the time gone by
+- `masa lampau` — u125 · the distant past
 - `masalah` — u26 · a problem
+- `masalahnya` — u71 · the trouble is
 - `masih` — u13 · still
 - `masing-masing` — u15 · each one
 - `masjid` — u35 · a mosque
+- `maskapai` — u116 · an airline
 - `masuk` — u7 · to enter
 - `masyarakat` — u32 · society
 - `mata` — u11 · eye
@@ -627,427 +1375,1158 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `matematika` — u44 · mathematics
 - `mati` — u38 · gone out
 - `mau` — u3 · to want
+- `maupun` — u69 · and equally
+- `maut` — u122 · death as a force
+- `mawar` — u118 · a rose
+- `mayat` — u122 · a corpse
+- `mayoritas` — u99 · the larger part of a population
 - `mbak` — u32 · a young woman you are speaking to
 - `medali` — u41 · a medal
+- `media` — u55 · news outlets
 - `Mei` — u9 · May
 - `meja` — u17 · table
+- `mekar` — u118 · to open out
+- `melahirkan` — u111 · to give birth to
+- `melainkan` — u69 · but rather
+- `melaksanakan` — u56 · to carry out
 - `melalui` — u36 · by way of
 - `melamar` — u24 · to apply for a job
+- `melambai` — u123 · to signal with a raised hand
+- `melamun` — u63 · to daydream
 - `melanggar` — u32 · to break a rule
+- `melantik` — u74 · to install in office
 - `melaporkan` — u50 · to report something to the authorities
 - `melarang` — u22 · to forbid
+- `melati` — u118 · jasmine
+- `melawak` — u126 · to perform comedy
+- `melayat` — u122 · to go and pay respects at a death
+- `melebih-lebihkan` — u104 · to overstate
+- `melebihi` — u53 · to exceed
+- `meledak` — u75 · to explode
+- `melelang` — u93 · to sell something by auction
 - `melempar` — u39 · to throw
 - `melepas` — u25 · to take off
+- `meleset` — u91 · to come out short of the mark
+- `melestarikan` — u65 · to conserve
 - `melewati` — u39 · to go past
+- `melewatkan` — u106 · to let something slip by
 - `melihat` — u13 · to see
+- `melindungi` — u98 · to shield somebody from harm
+- `meliput` — u55 · to report on
 - `melompat` — u39 · to jump
+- `melonjak` — u59 · to shoot up
+- `melontarkan` — u88 · to throw out a remark
+- `melotot` — u123 · to glare
+- `melukis` — u96 · to paint a picture
+- `meluncurkan` — u116 · to send a craft up
+- `melupakan` — u63 · to put out of mind
 - `memaafkan` — u22 · to forgive
 - `memadamkan` — u46 · to put out a fire
+- `memahat` — u120 · to chisel
 - `memakai` — u16 · to wear
+- `memaksa` — u70 · to force
+- `memamerkan` — u96 · to put work out on public show
 - `memang` — u37 · it is true that
 - `memanggang` — u34 · to grill
+- `memanjakan` — u111 · to spoil a child
 - `memanjat` — u39 · to climb up something steep
+- `memantau` — u56 · to monitor
+- `memaparkan` — u88 · to set out at length
 - `memasak` — u17 · to cook
 - `memasang` — u25 · to install
+- `memastikan` — u62 · to make sure
+- `memasuki` — u70 · to go inside a place
 - `memasukkan` — u43 · to put data in
 - `mematikan` — u42 · to switch off
+- `mematuhi` — u61 · to comply with
 - `membaca` — u18 · to read
 - `membagi` — u25 · to divide
+- `membakar` — u65 · to burn something
 - `membalas` — u33 · to write back
 - `membandingkan` — u30 · to compare
+- `membangun` — u83 · to put up a building
 - `membantah` — u49 · to contradict
 - `membantu` — u13 · to help
 - `membawa` — u25 · to bring
+- `membayangkan` — u63 · to form an image of
 - `membayar` — u16 · to pay
+- `membeku` — u76 · to freeze
 - `membela` — u32 · to stand up for
 - `membeli` — u16 · to buy
+- `membelikan` — u70 · to buy for somebody
+- `membenarkan` — u51 · to confirm as correct
 - `membenci` — u31 · to hate
 - `memberi` — u13 · to give
 - `memberitahu` — u22 · to tell someone
+- `memberontak` — u95 · to rise up against those in charge
+- `membesarkan` — u111 · to raise a child to adulthood
+- `membiarkan` — u70 · to let something happen
 - `membiayai` — u48 · to fund
+- `membingkai` — u104 · to frame an issue as something
+- `membongkar` — u83 · to dismantle
 - `membuat` — u25 · to make
+- `membujuk` — u88 · to coax round
 - `membuka` — u17 · to open
 - `membuktikan` — u49 · to prove
+- `membulatkan` — u91 · to round a figure off
+- `membungkuk` — u123 · to bend at the waist
+- `memburuk` — u59 · to worsen
 - `memegang` — u25 · to hold
+- `memelihara` — u85 · to keep an animal
+- `memeluk` — u123 · to embrace
+- `memenuhi` — u52 · to meet a requirement
+- `memercik` — u117 · to splash
 - `memeriksa` — u44 · to check
+- `memetik` — u84 · to pluck fruit
+- `memicu` — u52 · to trigger
+- `memihak` — u104 · to take a side
+- `memikat` — u88 · to hold somebody's attention
+- `memimpin` — u74 · to be at the head of
 - `memindahkan` — u42 · to move something
 - `meminjam` — u27 · to borrow
 - `meminta` — u22 · to ask for
+- `memohon` — u109 · to petition humbly
 - `memotong` — u25 · to cut
 - `memotret` — u43 · to take a photograph
+- `mempengaruhi` — u88 · to have an effect on somebody's thinking
 - `memperbaiki` — u25 · to repair
+- `memperbesar` — u70 · to enlarge
+- `memperingati` — u95 · to mark a date in remembrance
+- `memperingatkan` — u98 · to tell somebody of a danger ahead
 - `memperkenalkan` — u32 · to introduce one person to another
+- `memperkirakan` — u54 · to estimate
+- `memperkuat` — u70 · to strengthen
+- `memperpanjang` — u79 · to renew
+- `memperparah` — u60 · to aggravate
+- `mempersiapkan` — u62 · to make ready in advance
+- `memuai` — u117 · to expand when heated
+- `memugar` — u121 · to restore a building
 - `memuji` — u22 · to praise
 - `memukul` — u40 · to hit
+- `memulihkan` — u112 · to restore somebody
 - `memutar` — u42 · to rotate
+- `memutarbalikkan` — u104 · to twist the facts
 - `memutuskan` — u21 · to decide
+- `memverifikasi` — u89 · to check a claim against its source
+- `menaati` — u61 · to abide by
 - `menabrak` — u40 · to crash into
 - `menabung` — u27 · to save money
+- `menafsirkan` — u96 · to say what something means
 - `menahan` — u31 · to hold something back
+- `menaklukkan` — u75 · to conquer
+- `menambang` — u115 · to dig ore out of the ground
+- `menambatkan` — u114 · to moor
+- `menampik` — u51 · to rebuff
+- `menampung` — u124 · to take people in
 - `menanam` — u46 · to plant in the ground
+- `menandatangani` — u70 · to put your signature on
 - `menang` — u30 · to win
+- `menangani` — u56 · to handle
+- `menanggapi` — u51 · to respond to
+- `menanggulangi` — u60 · to cope with
+- `menanggung` — u52 · to bear the cost of
 - `menangis` — u20 · to cry
+- `menangkal` — u98 · to ward a thing off before it lands
 - `menangkap` — u39 · to catch
+- `menantu` — u68 · a son or daughter-in-law
+- `menargetkan` — u62 · to set as a target
 - `menari` — u35 · to dance
 - `menarik` — u39 · to pull
 - `menaruh` — u25 · to put down
+- `menatap` — u123 · to gaze at
 - `menawar` — u16 · to bargain
 - `menawarkan` — u22 · to offer
+- `mencair` — u76 · to melt
+- `mencakar` — u85 · to scratch with claws
+- `mencantumkan` — u79 · to state in writing
+- `mencap` — u99 · to label somebody as a certain kind of person
 - `mencapai` — u48 · to reach a target
 - `mencari` — u1 · to look for
 - `mencatat` — u18 · to write down
 - `mencegah` — u37 · to prevent
+- `mencemari` — u65 · to pollute
 - `mencetak` — u33 · to print
 - `mencicipi` — u34 · to taste something
 - `mencuci` — u17 · to wash
 - `mencuri` — u50 · to steal
 - `mendaftar` — u44 · to sign up
 - `mendapat` — u25 · to obtain
+- `mendarat` — u116 · to bring an aircraft down onto a runway
+- `mendefinisikan` — u90 · to pin down what a word will mean
+- `mendekati` — u70 · to draw near to
 - `mendengar` — u13 · to hear
+- `mendengkur` — u113 · to snore
+- `menderita` — u67 · to suffer from
+- `mendesak` — u60 · pressing
+- `mendiagnosis` — u102 · to diagnose
+- `mendidih` — u117 · to come to the boil by itself
+- `mendidik` — u111 · to bring up with discipline
+- `mendoakan` — u122 · to pray for someone
 - `mendorong` — u39 · to push
+- `menduduki` — u70 · to occupy a place
+- `menduga` — u54 · to surmise
 - `mendukung` — u32 · to back someone up
+- `menebak` — u54 · to have a stab at
+- `menebang` — u65 · to fell a tree
+- `menegakkan` — u61 · to enforce
 - `menegaskan` — u33 · to spell it out
 - `menegur` — u40 · to pull someone up
 - `menekan` — u42 · to press down
+- `menekankan` — u88 · to put weight on one part
+- `menelaah` — u89 · to read a text closely for what is really in it
 - `menelepon` — u33 · to phone
 - `meneliti` — u44 · to do research
+- `menelusuri` — u125 · to trace back
+- `menempa` — u120 · to forge
 - `menemukan` — u39 · to find
+- `menenangkan` — u112 · to calm somebody
 - `menendang` — u40 · to kick
+- `menengahi` — u92 · to step between two sides and settle them
+- `menentukan` — u52 · to determine
+- `menenun` — u120 · to weave
+- `menepuk` — u123 · to pat
+- `menerapkan` — u56 · to put into practice
+- `menerbitkan` — u103 · to publish something
 - `menerima` — u22 · to accept
+- `menerjemahkan` — u81 · to translate
+- `menerka` — u126 · to make a guess
+- `menertawakan` — u126 · to laugh at someone
+- `menetap` — u124 · to settle permanently
+- `menetas` — u85 · to hatch
+- `menetes` — u117 · to drip
+- `mengaburkan` — u104 · to blur something deliberately
+- `mengacu` — u89 · to be based on a stated standard
+- `mengadili` — u92 · to try somebody in court
 - `mengaduk` — u34 · to stir
 - `mengajar` — u3 · to teach
+- `mengajukan` — u79 · to submit
+- `mengakibatkan` — u52 · to result in
 - `mengaku` — u22 · to admit
+- `mengalah` — u68 · to give way to somebody
 - `mengalahkan` — u41 · to beat an opponent
+- `mengalami` — u63 · to go through
+- `mengalir` — u117 · to run as a liquid along a channel
+- `mengamati` — u94 · to watch closely and deliberately
 - `mengambil` — u25 · to pick up
+- `mengancam` — u52 · to threaten
+- `mengandaikan` — u106 · to rest on an assumption
+- `mengandalkan` — u68 · to rely on
+- `mengandung` — u111 · to be carrying a child
 - `menganggap` — u37 · to regard as
+- `mengangguk` — u123 · to nod
 - `mengangkat` — u25 · to lift
 - `mengantar` — u18 · to drop off
+- `mengantisipasi` — u98 · to prepare in advance for a possible event
+- `mengantuk` — u113 · to feel sleepy
+- `menganyam` — u120 · to plait
+- `mengarang` — u81 · to compose a story
+- `mengasuh` — u111 · to look after a child
 - `mengatasi` — u37 · to overcome
+- `mengatur` — u56 · to arrange
+- `mengawasi` — u97 · to keep watch over what somebody is doing
+- `mengecam` — u88 · to condemn publicly
+- `mengecek` — u89 · to give a detail a quick look
+- `mengedip` — u123 · to blink
 - `mengejar` — u39 · to chase
+- `mengejek` — u126 · to taunt
+- `mengekspor` — u66 · to export
+- `mengelak` — u51 · to dodge a question
+- `mengelola` — u56 · to manage
 - `mengeluh` — u22 · to complain
+- `mengembang` — u117 · to swell up
+- `mengembun` — u117 · to condense
+- `mengemukakan` — u88 · to put a view on the table
+- `mengenai` — u73 · in regard to
+- `mengenang` — u63 · to reminisce about
+- `mengendap` — u117 · to settle out
+- `mengendur` — u121 · to go slack
+- `mengepak` — u119 · to flap
+- `mengerami` — u119 · to sit on eggs
+- `mengering` — u117 · to dry out
 - `mengerti` — u13 · to understand
+- `mengerutkan` — u123 · to frown
 - `mengetik` — u43 · to type
 - `mengetuk` — u40 · to knock
+- `mengevaluasi` — u56 · to review how it went
+- `menggali` — u83 · to dig
 - `mengganggu` — u22 · to disturb
 - `mengganti` — u25 · to replace
+- `menggarap` — u84 · to work the land
+- `menggaruk` — u123 · to scratch oneself
+- `menggeleng` — u123 · to shake the head
+- `menggendong` — u111 · to carry a child on the hip
+- `menggenggam` — u123 · to close the hand around something
+- `menggigit` — u85 · to bite
+- `menggoda` — u126 · to tease
+- `menggolongkan` — u90 · to sort into classes
+- `menggugah` — u88 · to stir somebody
+- `menggugat` — u92 · to sue somebody
+- `menggulingkan` — u95 · to bring down a government
+- `menghadap` — u109 · to present oneself before a superior
+- `menghadapi` — u60 · to confront
 - `menghafal` — u44 · to learn by heart
 - `menghapus` — u43 · to delete
 - `menghargai` — u31 · to value something
 - `menghasilkan` — u37 · to produce as a result
+- `menghemat` — u65 · to use less of something
+- `menghibur` — u64 · to entertain
 - `menghindari` — u39 · to avoid
 - `menghitung` — u40 · to count
 - `menghormati` — u32 · to show respect to
 - `menghubungi` — u33 · to get in touch with
 - `menghubungkan` — u43 · to connect two things
+- `mengidap` — u112 · to suffer from a named condition
+- `mengigau` — u113 · to talk in one's sleep
+- `mengikat` — u93 · to bind somebody to terms
 - `mengikuti` — u39 · to follow
 - `menginap` — u23 · to stay overnight
+- `mengingat` — u63 · to call to mind
+- `mengingatkan` — u63 · to remind
 - `mengira` — u21 · to assume
 - `mengirim` — u25 · to send
+- `mengirimkan` — u70 · to send something to somebody
 - `mengiris` — u34 · to cut into thin strips
+- `mengisahkan` — u104 · to tell the story of
+- `mengisi` — u79 · to fill in
 - `mengizinkan` — u22 · to permit
+- `mengkhianati` — u97 · to betray somebody who trusted you
+- `mengkilap` — u80 · shiny
+- `mengkritik` — u81 · to review critically
 - `mengobati` — u45 · to treat a patient
 - `mengobrol` — u22 · to chat
+- `mengolok` — u126 · to mock
+- `mengorbit` — u116 · to go round a planet
+- `menguap` — u113 · to yawn
 - `menguasai` — u44 · to master a subject
+- `menguatkan` — u51 · to reinforce
 - `mengubah` — u25 · to alter
+- `menguburkan` — u122 · to bury
 - `mengucapkan` — u22 · to utter
+- `mengucilkan` — u99 · to shut somebody out of a group
+- `menguji` — u94 · to put a claim or a thing to the test
+- `mengukir` — u120 · to carve
 - `mengukur` — u40 · to measure
 - `mengukus` — u34 · to steam
 - `mengulang` — u18 · to repeat
 - `mengumpulkan` — u25 · to collect
 - `mengundang` — u22 · to invite
 - `mengunduh` — u43 · to download
+- `mengundurkan` — u100 · to withdraw oneself from a post
 - `mengunggah` — u43 · to upload
+- `mengungsi` — u75 · to flee to safety
 - `mengunjungi` — u23 · to visit
+- `menguraikan` — u88 · to break down point by point
+- `mengurus` — u79 · to see to
+- `mengusap` — u123 · to wipe gently
+- `mengusik` — u126 · to bother for amusement
+- `mengutip` — u89 · to reproduce somebody's words
 - `menikah` — u4 · to marry
 - `menikmati` — u31 · to savour
 - `menilai` — u37 · to assess
+- `menilik` — u96 · to look into something closely
+- `menimang` — u111 · to dandle in the arms
 - `menimbang` — u40 · to weigh
+- `menimbulkan` — u52 · to give rise to
+- `menindas` — u95 · to hold a group down by force
+- `meninggal` — u122 · to pass away
+- `meningkat` — u59 · to rise steadily
+- `meninjau` — u56 · to survey
+- `menipis` — u101 · to run low
 - `menipu` — u32 · to deceive
 - `menit` — u5 · minute
+- `menjabat` — u100 · to hold a named office
 - `menjadi` — u25 · to become
 - `menjaga` — u32 · to look after
+- `menjahit` — u87 · to sew
+- `menjajah` — u75 · to colonise
+- `menjalani` — u63 · to undergo a course of
 - `menjatuhkan` — u40 · to drop something
 - `menjawab` — u18 · to answer
 - `menjelaskan` — u18 · to explain
+- `menjerit` — u80 · to shriek
+- `menjiplak` — u89 · to copy somebody else's work
 - `menjual` — u16 · to sell
+- `menjulang` — u116 · to tower above
+- `menjulurkan` — u123 · to stick out
 - `menolak` — u22 · to refuse
 - `menoleh` — u39 · to turn your head
+- `menonjolkan` — u104 · to push something forward
 - `menonton` — u18 · to watch a show
 - `mentah` — u34 · raw
+- `mentega` — u86 · butter
 - `menteri` — u47 · a government minister
+- `menuai` — u84 · to reap
 - `menuang` — u34 · to pour
 - `menuduh` — u32 · to accuse
 - `menuju` — u36 · to head for
 - `menukar` — u25 · to swap
+- `menukik` — u119 · to dive from the air
 - `menular` — u45 · to be catching
 - `menulis` — u18 · to write
+- `menumpang` — u124 · to stay in someone else's place
+- `menunda` — u62 · to postpone
+- `menunduk` — u123 · to bow the head
 - `menunjuk` — u39 · to point at
+- `menuntaskan` — u60 · to settle completely
 - `menuntut` — u50 · to demand as a right
+- `menurun` — u59 · to fall away
 - `menurut` — u21 · according to
 - `menutup` — u17 · to shut
+- `menuturkan` — u104 · to relate what one saw
+- `menyadari` — u63 · to come to see
 - `menyajikan` — u34 · to serve a dish
+- `menyaksikan` — u63 · to see something happen
+- `menyalahgunakan` — u97 · to use something entrusted to you wrongly
 - `menyalakan` — u42 · to switch on
 - `menyalin` — u43 · to copy
+- `menyamai` — u53 · to draw level with
 - `menyampaikan` — u33 · to pass a message on
+- `menyanggah` — u51 · to take issue with
+- `menyanggupi` — u93 · to undertake to deliver something
 - `menyangkal` — u49 · to deny
+- `menyangkut` — u51 · to concern
 - `menyanyi` — u18 · to sing
 - `menyapa` — u22 · to greet
+- `menyapih` — u111 · to wean
 - `menyapu` — u17 · to sweep
 - `menyarankan` — u22 · to suggest
 - `menyebabkan` — u37 · to bring something about
 - `menyeberang` — u38 · to cross over
 - `menyebut` — u22 · to mention
+- `menyederhanakan` — u90 · to cut something down to its simplest form
+- `menyediakan` — u70 · to lay something on
 - `menyelamatkan` — u32 · to rescue
 - `menyelesaikan` — u37 · to get something sorted
+- `menyelewengkan` — u97 · to divert money or power from its purpose
 - `menyelidiki` — u50 · to investigate
+- `menyeluruh` — u91 · covering every part with none left out
+- `menyembah` — u77 · to bow down in worship
+- `menyempurnakan` — u91 · to put the last touches to something
+- `menyengat` — u119 · to sting
+- `menyensor` — u104 · to censor
 - `menyentuh` — u39 · to touch
+- `menyepakati` — u93 · to settle a term between both sides
 - `menyerah` — u41 · to give up
+- `menyerang` — u75 · to attack
+- `menyerap` — u117 · to absorb
+- `menyerupai` — u90 · to resemble closely
 - `menyesal` — u31 · to regret
+- `menyetujui` — u51 · to approve
 - `menyewa` — u48 · to rent
+- `menyiarkan` — u55 · to put out on air
+- `menyilaukan` — u80 · dazzling
+- `menyimak` — u110 · to listen attentively
 - `menyimpan` — u25 · to keep
+- `menyimpang` — u91 · to depart from what was expected
 - `menyimpulkan` — u49 · to draw a conclusion
+- `menyindir` — u88 · to needle by implication
+- `menyiram` — u84 · to water plants
+- `menyoroti` — u104 · to put the spotlight on
+- `menyuap` — u97 · to pay somebody to break their duty
+- `menyuapi` — u111 · to spoon-feed
+- `menyudutkan` — u104 · to corner somebody unfairly
+- `menyulam` — u120 · to embroider
+- `menyumbang` — u55 · to donate
+- `menyuruh` — u70 · to tell somebody to do something
+- `menyusui` — u111 · to breastfeed
+- `menyusun` — u83 · to assemble
+- `menyusup` — u117 · to slip in through a gap
+- `menyusut` — u59 · to contract in size
+- `meraba` — u80 · to feel with the hand
+- `meragukan` — u54 · to cast doubt on
 - `merah` — u8 · red
+- `merajut` — u120 · to knit
+- `meramal` — u54 · to forecast
+- `merambat` — u118 · to climb as a vine
 - `merampok` — u50 · to rob
+- `merancang` — u56 · to draw up
+- `merangkul` — u123 · to put an arm around
+- `merantau` — u124 · to leave home to seek a living elsewhere
 - `merasa` — u20 · to feel
+- `merata` — u53 · evenly spread
+- `merawat` — u121 · to tend and keep in good order
 - `merayakan` — u35 · to celebrate
 - `merdeka` — u47 · independent
 - `merebus` — u34 · to boil
 - `mereka` — u15 · they
 - `merekam` — u33 · to record
+- `merekrut` — u100 · to take new people into an organisation
+- `merembes` — u117 · to seep through
+- `merencanakan` — u62 · to plan out
+- `merengek` — u111 · to whine for something
+- `meriah` — u110 · festive and loud
+- `meringis` — u123 · to grimace
+- `meringkuk` — u113 · to curl up
+- `merobohkan` — u83 · to knock down
+- `merokok` — u67 · to smoke a cigarette
+- `merombak` — u83 · to overhaul
+- `merosot` — u59 · to slump
+- `merpati` — u119 · a dove
+- `mertua` — u68 · a parent-in-law
+- `merujuk` — u89 · to point to something as a source
+- `merupakan` — u69 · to constitute
+- `merusak` — u65 · to damage
 - `mesin` — u42 · a machine
 - `meskipun` — u29 · even though
+- `metafora` — u90 · a figure that calls one thing another outright
+- `meterai` — u79 · a duty stamp
+- `metode` — u103 · a worked-out procedure
+- `mewakili` — u109 · to act on behalf of
+- `mewujudkan` — u58 · to make real
 - `meyakinkan` — u49 · convincing
 - `mi` — u6 · noodles
+- `migran` — u124 · a person who moves country
+- `mikroskop` — u94 · the instrument for seeing what is too small to see
+- `militer` — u75 · belonging to the armed forces
+- `mimbar` — u110 · a rostrum
+- `mimik` — u123 · facial expression
+- `mimpi` — u113 · what you see while asleep
 - `minggu` — u9 · week
+- `minimal` — u53 · at the very least
+- `minoritas` — u99 · a group that is the smaller part of a population
 - `minum` — u6 · to drink
 - `minyak` — u34 · oil
 - `mirip` — u14 · similar
+- `misalkan` — u106 · let us suppose that
 - `misalnya` — u29 · for example
 - `miskin` — u27 · poor
+- `mitigasi` — u98 · cutting the damage of something you cannot stop
+- `mitra` — u93 · a partner in a venture
 - `mobil` — u7 · car
 - `modal` — u48 · capital
+- `modern` — u59 · of the present day
+- `molekul` — u94 · the smallest group of bonded particles of a substance
 - `monyet` — u19 · monkey
+- `motif` — u120 · a repeated decorative figure
 - `motor` — u7 · motorbike
+- `muak` — u57 · sickened
+- `muatan` — u114 · a cargo load
 - `muda` — u20 · young
 - `mudah` — u10 · easy
+- `mudik` — u124 · to travel back to one's home town for a holiday
 - `mulai` — u13 · to begin
+- `mulia` — u78 · noble
 - `mulut` — u11 · mouth
 - `mundur` — u41 · to move backwards
 - `mungkin` — u12 · maybe
 - `murah` — u16 · cheap
+- `muram` — u57 · gloomy
 - `murni` — u49 · pure
+- `murung` — u112 · downcast for a long stretch
 - `musik` — u35 · music
 - `musim` — u8 · season
+- `musnah` — u59 · wiped out
+- `mustahil` — u54 · impossible
+- `musuh` — u75 · an enemy
+- `musyawarah` — u68 · a decision reached by discussion
+- `mutakhir` — u59 · up to date
+- `mutasi` — u100 · being moved to another post at the same level
+- `mutlak` — u53 · absolute
 - `mutu` — u49 · quality
+- `nabi` — u77 · a prophet
+- `nah` — u71 · well then
 - `naik` — u7 · to ride
+- `nakes` — u102 · health workers, collectively
+- `nakhoda` — u114 · a ship's captain
 - `nama` — u3 · name
 - `namun` — u29 · nevertheless
 - `nanti` — u5 · later
+- `narasi` — u104 · a narrative
+- `narasumber` — u55 · an interviewee
 - `nasi` — u6 · rice (cooked)
+- `nasib` — u126 · how things turn out for someone
+- `nasionalisme` — u95 · the belief that one's nation comes first
+- `naskah` — u81 · a manuscript
 - `negara` — u47 · a country
+- `negosiasi` — u101 · a negotiation
+- `nekat` — u98 · pressing on despite obvious danger
+- `nelangsa` — u105 · forlorn and alone
 - `nelayan` — u48 · a fisherman
 - `nenek` — u4 · grandmother
+- `nepotisme` — u97 · handing posts to your own relatives
+- `neraka` — u77 · hell
+- `netral` — u51 · neutral
+- `ngapain` — u72 · what are you doing
+- `nggak` — u72 · not in slang
+- `ngomong` — u72 · to talk in slang
+- `niat` — u62 · an inner intent
+- `nih` — u72 · here you go
+- `nikel` — u115 · a hard silver-white metal used in coins
 - `nilai` — u44 · an exam score
+- `nirlaba` — u100 · run for a purpose and not for gain
+- `nisan` — u122 · a headstone
 - `nol` — u5 · zero
 - `nomor` — u14 · number
+- `norma` — u61 · a social norm
+- `nostalgia` — u63 · longing for the past
+- `nuklir` — u101 · nuclear
+- `nurani` — u97 · the inner voice that judges your own acts
 - `nyala` — u46 · a lit flame
 - `nyaman` — u40 · comfortable
 - `nyamuk` — u19 · mosquito
+- `nyaring` — u80 · shrill
+- `nyaris` — u53 · all but
 - `nyata` — u49 · real
+- `nyenyak` — u113 · soundly, of sleep
+- `nyeri` — u67 · an ache
+- `Nyonya` — u109 · madam, to a married woman
 - `obat` — u11 · medicine
+- `obeng` — u82 · a screwdriver
+- `obesitas` — u67 · obesity
+- `objektif` — u104 · objective
 - `ojek` — u38 · a motorbike taxi
 - `olahraga` — u41 · sport
+- `oleh` — u70 · by whom a thing was done
 - `oleh karena itu` — u29 · for that reason
 - `oleh-oleh` — u23 · a souvenir
+- `ombak` — u76 · a wave
 - `ongkos` — u23 · a fare
 - `operasi` — u45 · surgery
+- `opini` — u55 · a published opinion
+- `oposisi` — u74 · the opposition
 - `orang` — u1 · person
+- `orasi` — u110 · a political oration
+- `orde` — u95 · a named period of a political regime
+- `organisasi` — u68 · an organisation
 - `otomatis` — u42 · automatic
 - `otot` — u45 · a muscle
 - `pabrik` — u42 · a factory
 - `pacar` — u15 · sweetheart
 - `pada` — u36 · at a point in time
+- `pada akhirnya` — u108 · in the final reckoning
+- `pada dasarnya` — u108 · fundamentally
+- `pada prinsipnya` — u108 · in principle
+- `pada umumnya` — u108 · generally speaking
 - `padahal` — u29 · when in fact
+- `padang` — u76 · an open plain
+- `padi` — u84 · rice in the field
+- `Paduka` — u109 · Your Excellency
+- `pagar` — u83 · a fence
 - `pagi` — u5 · morning
+- `pahala` — u77 · spiritual merit
+- `pahat` — u120 · a hand blade struck with a hammer
 - `pahit` — u34 · bitter
 - `pahlawan` — u47 · a national hero
 - `pajak` — u48 · tax
+- `pakis` — u118 · a fern
+- `paku` — u82 · a nail
 - `paling` — u14 · most
 - `palsu` — u49 · fake
+- `palu` — u82 · a hammer
 - `paman` — u4 · uncle
+- `pameran` — u96 · a temporary public showing of work
+- `pamrih` — u97 · a hidden motive of personal gain
 - `panas` — u8 · hot
 - `panci` — u34 · a pot
+- `pandemi` — u102 · a pandemic
+- `panen` — u84 · a harvest
+- `pangan` — u101 · food as a national supply
 - `panggil` — u3 · to call (by a name)
+- `panggilan` — u109 · what somebody is called
 - `panggung` — u35 · a stage
+- `pangkat` — u109 · a rank in a service
+- `panitera` — u92 · the court official who keeps the record
 - `panjang` — u10 · long
 - `pantai` — u19 · beach
+- `pantangan` — u61 · a taboo
 - `pantas` — u28 · no wonder
+- `pantulan` — u80 · a reflection
+- `pantun` — u81 · a Malay verse form
+- `paparan` — u88 · an exposition
 - `parkir` — u38 · to park
+- `parlemen` — u74 · parliament
+- `partai` — u74 · a political party
+- `partikel` — u94 · any very small piece of matter
+- `paruh` — u119 · a beak
+- `pasal` — u92 · a numbered article of a law
+- `pasangan` — u68 · a couple
 - `pasar` — u7 · market
+- `pascasarjana` — u103 · postgraduate study
+- `pasien` — u102 · a patient
 - `pasir` — u46 · sand
+- `pasokan` — u101 · a supply
 - `paspor` — u23 · a passport
+- `pasrah` — u57 · resigned
 - `pasti` — u12 · certainly
+- `pastilah` — u106 · it must surely be
+- `pasukan` — u75 · a troop formation
 - `patah` — u45 · to be broken in two
+- `paten` — u94 · a registered exclusive right to an invention
+- `patokan` — u91 · a fixed point everything is measured from
+- `patuh` — u61 · obedient
+- `patung` — u96 · a figure made in three dimensions
+- `patut` — u106 · fitting
 - `payung` — u8 · umbrella
 - `pedagang` — u48 · a trader
 - `pedas` — u6 · spicy
 - `peduli` — u32 · to care about something
 - `pegawai` — u48 · an office worker
+- `pejabat` — u74 · a government officer
+- `pekarangan` — u84 · a house yard
 - `pekerjaan` — u3 · job
 - `pelabuhan` — u23 · a harbour
 - `pelajar` — u3 · school pupil
 - `pelajaran` — u18 · lesson
+- `pelaksanaan` — u56 · the carrying out
+- `pelampung` — u114 · a buoy
 - `pelan-pelan` — u28 · gently
 - `pelanggan` — u24 · a customer
+- `pelanggaran` — u61 · a breach
+- `pelapor` — u97 · the person who reports wrongdoing
 - `pelatih` — u41 · a coach
+- `pelaut` — u114 · a seafarer
+- `pelawak` — u126 · a comedian
+- `pelayan` — u86 · a waiter
+- `pelayaran` — u114 · a sea voyage
+- `pelayat` — u122 · someone who comes to pay respects
+- `peleburan` — u115 · smelting
+- `pelestarian` — u125 · conservation
+- `pelik` — u60 · thorny
+- `pelit` — u78 · stingy
+- `pelukis` — u96 · a person who paints pictures
+- `peluncuran` — u116 · the launching of a craft
 - `pemain` — u41 · a player
+- `pemakaman` — u122 · a cemetery
+- `pemalsuan` — u89 · forgery as an offence
+- `pemalu` — u78 · a shy person
+- `pemanasan global` — u65 · global warming
 - `pemandangan` — u23 · the scenery
+- `pemangku kepentingan` — u93 · everybody with something at stake
+- `pemarah` — u78 · hot-tempered
+- `pematung` — u96 · a person who makes sculpture
+- `pembaca` — u81 · a reader
+- `pembahasan` — u107 · a working-through in discussion
+- `pembangunan` — u71 · construction and building
+- `pembawa acara` — u64 · a programme presenter
+- `pembayaran` — u71 · a payment
 - `pembeli` — u48 · a buyer
+- `pemberontakan` — u95 · an armed rising against those in power
+- `pembicara` — u110 · a speaker at an event
+- `pembimbing` — u103 · an academic supervisor
+- `pembina` — u100 · a senior figure who guides and oversees a body
+- `pembukaan` — u110 · the opening of an event
+- `pembulatan` — u91 · the rounding-off of figures
 - `pemerintah` — u47 · the government
+- `pemicu` — u52 · the thing that sets it off
 - `pemilik` — u48 · an owner
 - `pemilu` — u47 · a general election
+- `pemimpin` — u74 · a leader
+- `pemirsa` — u64 · the viewers
+- `pemodal` — u93 · the person who puts the money in
+- `pemohon` — u79 · an applicant
+- `pemukim` — u124 · a settler
+- `pemukiman` — u124 · a place where people have settled
+- `pemulihan` — u67 · recovery
+- `penakut` — u78 · cowardly
+- `penambang` — u115 · a miner
+- `penangkal` — u98 · a device or measure that keeps a specific harm off
+- `penari` — u64 · a dancer
+- `pencegahan` — u98 · prevention as a standing programme
+- `pencitraan` — u104 · image-building for show
 - `pencuri` — u50 · a thief
+- `pendaftaran` — u79 · registration
+- `pendampingan` — u112 · ongoing support alongside somebody
 - `pendapat` — u21 · an opinion
+- `pendatang` — u124 · a newcomer
 - `pendek` — u10 · short
+- `pendekatan` — u107 · a line of attack on a problem
+- `pendeknya` — u108 · the short of it is
+- `pendeta` — u77 · a pastor
 - `pendidikan` — u44 · education
+- `pendiri` — u95 · the person who founded something
+- `pendirian` — u51 · a standpoint
 - `penduduk` — u38 · the residents
+- `penebangan` — u101 · the felling of trees
+- `penelitian` — u71 · a piece of research
+- `penemu` — u94 · the person who first found or made something
+- `penentu` — u52 · the deciding factor
+- `penerapan` — u107 · putting a rule into practice
+- `penerbangan` — u116 · a flight
+- `penerbit` — u81 · a publisher
+- `pengacara` — u92 · the lawyer acting for a party
 - `pengadilan` — u50 · a court of law
 - `pengalaman` — u24 · experience
+- `pengamatan` — u94 · watching something systematically to record it
+- `pengandaian` — u106 · a hypothetical case
+- `penganggur` — u55 · an unemployed person
+- `pengangguran` — u66 · unemployment
+- `pengarang` — u81 · a novelist
 - `pengaruh` — u37 · an influence
+- `pengasuhan` — u111 · the raising of a child
+- `pengawasan` — u97 · standing oversight of what somebody does
+- `pengecekan` — u89 · a round of quick checking
+- `pengelolaan` — u56 · management
+- `pengembangan` — u107 · the work of developing something
+- `pengen` — u72 · to fancy something
+- `pengetahuan` — u71 · what is known about something
+- `penggabungan` — u93 · two companies becoming one
+- `penggambaran` — u104 · the way something is portrayed
+- `penggemar` — u64 · a fan
 - `pengguna` — u43 · a user
+- `penghasilan` — u66 · income
+- `pengiriman` — u71 · a shipment
+- `pengkhianatan` — u97 · a betrayal of trust
+- `pengrajin` — u120 · an artisan
 - `pengumuman` — u33 · an announcement
+- `pengunduran` — u100 · the stepping down from a post
+- `pengungsi` — u75 · a refugee
+- `pengungsian` — u124 · a refugee camp
+- `pengurus` — u100 · the body of people who run an organisation
+- `penilaian` — u107 · a judgement of worth
+- `penindasan` — u95 · systematic holding-down of a group
+- `peninggalan` — u125 · what an earlier age left behind
+- `peningkatan` — u107 · a rise in a measured figure
+- `penjahit` — u87 · a tailor
+- `penjajahan` — u75 · colonial rule
 - `penjara` — u50 · prison
+- `penjelasan` — u71 · an explanation
 - `penjual` — u48 · a seller
+- `penolakan` — u51 · a refusal
 - `penonton` — u35 · the audience
 - `pensil` — u44 · a pencil
+- `pensiun` — u100 · leaving work for good at the end of a career
 - `penting` — u10 · important
 - `penuh` — u10 · full
+- `penularan` — u102 · the passing on of a disease
 - `penulis` — u33 · a writer
 - `penumpang` — u38 · a passenger
+- `penurunan` — u107 · a fall in a measured figure
+- `penutup` — u110 · the closing item
+- `penuturan` — u104 · an account as told
+- `penyakit` — u67 · a disease
+- `penyanyi` — u64 · a singer
+- `penyederhanaan` — u90 · a deliberate cutting-down
+- `penyembuhan` — u112 · a course of healing
+- `penyempurnaan` — u91 · finishing work on something already sound
+- `penyesalan` — u106 · a lasting regret
+- `penyimpangan` — u91 · a departure from the standard
+- `penyok` — u121 · dented
+- `peradaban` — u125 · a civilisation
+- `perahu` — u114 · a small wooden boat
+- `perak` — u115 · silver
+- `perampingan` — u100 · deliberately cutting an organisation smaller
+- `peran` — u64 · a role
+- `perang` — u75 · war
 - `perangkat` — u43 · a device
+- `perantau` — u124 · one who has left home to make a living
 - `perawat` — u45 · a nurse
+- `perawatan` — u121 · upkeep
+- `perbaikan` — u121 · the putting right of a fault
 - `perban` — u45 · a bandage
+- `perbandingan` — u53 · a comparison
 - `perbatasan` — u47 · a border
 - `perbedaan` — u30 · a difference
 - `percaya` — u21 · to believe
 - `percobaan` — u44 · an experiment
 - `percuma` — u28 · pointless
+- `perdamaian` — u75 · peace between nations
 - `perempuan` — u15 · woman
+- `pergaulan` — u68 · social life
+- `pergerakan` — u95 · an organised political movement
+- `pergeseran` — u59 · a gradual move in position
 - `pergi` — u1 · to go
+- `pergolakan` — u95 · a period when everything is in turmoil
+- `perihal` — u73 · the subject of a letter
 - `perjalanan` — u23 · a journey
+- `perjanjian` — u75 · a treaty
+- `perjuangan` — u95 · a sustained struggle for something
+- `perkakas` — u82 · a set of tools
+- `perkara` — u92 · a matter brought before a court
+- `perkebunan` — u84 · a plantation
+- `perkembangan` — u59 · development
+- `perkenankan` — u110 · allow me
+- `perkiraan` — u54 · a rough figure
+- `perkumpulan` — u68 · an association
+- `perlindungan` — u98 · shelter or safeguard given to somebody
 - `perlu` — u37 · to need
 - `permainan` — u41 · a game
+- `permintaan` — u66 · demand
 - `permisi` — u2 · excuse me (getting past)
+- `permohonan` — u79 · an application
 - `pernah` — u13 · ever
+- `pernikahan` — u68 · a wedding
+- `perpindahan` — u124 · a relocation
 - `perpustakaan` — u44 · a library
+- `pers` — u55 · journalists as a body
+- `persahabatan` — u68 · friendship
+- `persatuan` — u95 · a nation holding together as one
+- `perselisihan` — u51 · an open disagreement
 - `persen` — u40 · per cent
+- `persepsi` — u104 · how people perceive something
+- `persiapan` — u62 · preparation
 - `persimpangan` — u38 · a junction
+- `personalia` — u100 · the function that handles the people in an organisation
+- `perspektif` — u96 · the illusion of depth on a flat surface
 - `pertama` — u14 · first
 - `pertandingan` — u41 · a sporting fixture
 - `pertanyaan` — u18 · question
+- `pertengkaran` — u68 · an angry row
+- `pertimbangan` — u107 · a factor weighed before deciding
+- `pertunjukan` — u64 · a performance
+- `perubahan` — u107 · a shift from one state to another
+- `perumahan` — u124 · a housing estate
+- `perumpamaan` — u90 · a likeness told to teach a lesson
+- `perumusan` — u90 · the wording a rule is finally given
+- `perundangan` — u92 · legislation taken as a whole body
+- `perundingan` — u93 · formal talks aimed at a deal
 - `perusahaan` — u24 · a business
 - `perut` — u11 · stomach
 - `pesan` — u6 · to order
+- `pesangon` — u100 · the money paid to somebody whose job ends
 - `pesawat` — u23 · an aeroplane
 - `peserta` — u41 · a participant
+- `pesisir` — u114 · the coastal strip
 - `pesta` — u35 · a party
 - `peta` — u23 · a map
 - `petani` — u48 · a farmer
+- `piagam` — u95 · a founding document setting out principles
 - `piala` — u41 · a trophy
+- `pidato` — u110 · a prepared address
+- `pigura` — u96 · the frame a picture is set in
+- `pihak` — u51 · a party to a matter
 - `pikir` — u21 · to think
 - `pilek` — u11 · head cold
 - `pilih` — u14 · to choose
+- `pilot` — u116 · the person who flies an aircraft
+- `pilu` — u57 · heartsore
 - `pinggir` — u36 · the edge
 - `pingsan` — u45 · to faint
+- `pinjaman` — u66 · a loan
 - `pintar` — u20 · clever
 - `pintu` — u4 · door
 - `piring` — u17 · plate
+- `pisang` — u86 · a banana
 - `pisau` — u17 · knife
+- `plagiat` — u89 · passing another's work off as your own
+- `planet` — u116 · a world that goes around a star
+- `plastik` — u65 · plastic
 - `pohon` — u19 · tree
+- `pokoknya` — u71 · the main thing is
+- `pola` — u58 · a pattern
+- `pola makan` — u67 · a way of eating
+- `polemik` — u88 · a running public quarrel
 - `polisi` — u50 · the police
+- `polusi` — u65 · pollution
 - `ponsel` — u43 · a mobile phone
+- `popok` — u111 · a nappy
+- `porsi` — u86 · a serving of food
 - `posisi` — u47 · a position
 - `potong` — u27 · a slice
+- `praktikum` — u103 · a practical class
+- `pramugari` — u116 · a female flight attendant
+- `prasangka` — u99 · a judgement formed before any evidence
+- `prasasti` — u125 · an inscribed stone
+- `prasejarah` — u125 · before writing existed
+- `premi` — u102 · an insurance premium
+- `premis` — u88 · the assumption an argument starts from
 - `presiden` — u47 · a president
+- `presisi` — u91 · fineness of a measurement
+- `pribumi` — u99 · the native-born population as a category
+- `prinsip` — u58 · a guiding rule one holds to
+- `prioritas` — u62 · a priority
+- `produktif` — u56 · productive
+- `proklamasi` — u95 · a formal public declaration
+- `promosi` — u100 · being moved up to a higher post
+- `prosedur` — u56 · a procedure
+- `proses` — u56 · a process
+- `protes` — u74 · a protest
 - `provinsi` — u47 · a province
 - `proyek` — u24 · a project
+- `psikolog` — u112 · a psychologist
 - `puas` — u31 · content with a result
 - `puasa` — u35 · to go without food
+- `publik` — u55 · the public at large
+- `pucuk` — u118 · a leafy shoot tip
+- `pudar` — u59 · to fade
+- `puisi` — u81 · a poem
+- `pukat` — u114 · a trawl net
+- `pula` — u69 · for its part too
 - `pulang` — u18 · to go home
 - `pulau` — u46 · an island
+- `pulih` — u112 · to get back on one's feet
+- `pun` — u69 · even the one just named
+- `punah` — u65 · died out as a species
+- `puncak` — u53 · the highest point
 - `punggung` — u45 · the back of the body
+- `pungli` — u97 · small unlawful fees squeezed out by officials
 - `punya` — u1 · to have
+- `pupuk` — u84 · fertiliser
+- `pura` — u77 · a Balinese temple
 - `pura-pura` — u21 · to pretend
+- `purba` — u125 · of the deep past
+- `purwarupa` — u94 · the first working model of something
 - `pusat` — u38 · the centre
 - `pusing` — u11 · dizzy
+- `puskesmas` — u102 · a village health centre
+- `pustaka` — u89 · the body of writing on a subject
 - `putih` — u8 · white
+- `putus asa` — u57 · despairing
+- `putusan` — u92 · a court's ruling as a written document
 - `Rabu` — u9 · Wednesday
 - `racun` — u45 · poison
 - `ragu` — u21 · to doubt
 - `rahasia` — u32 · a secret
 - `raja` — u47 · a king
 - `rajin` — u20 · diligent
+- `rakit` — u114 · a raft
+- `rakyat` — u74 · the common people
 - `ramah` — u20 · friendly
 - `ramai` — u10 · crowded
+- `ramalan` — u54 · a prediction
 - `rambut` — u11 · hair
+- `rancangan` — u56 · a draft
+- `rangka` — u83 · a frame
+- `ranjang` — u113 · a bed frame
+- `rantai` — u52 · a chain
+- `ranting` — u118 · a twig
 - `rapat` — u24 · a meeting
 - `rapi` — u20 · neat
+- `rapuh` — u112 · fragile
 - `rasa` — u34 · a flavour
+- `rasio` — u53 · a ratio
 - `rata-rata` — u27 · the average
+- `ratu` — u125 · a queen
 - `ratus` — u16 · hundred
+- `raut` — u123 · the cast of a face
+- `rawa` — u76 · a swamp
+- `rawan` — u98 · exposed to a particular harm
+- `rawat inap` — u102 · staying in hospital
+- `rayap` — u119 · a termite
+- `reaksi` — u94 · what happens when two substances meet
+- `rebahan` — u113 · lying about doing nothing
+- `redaksi` — u55 · the editorial desk
+- `redup` — u80 · faintly lit
+- `reformasi` — u74 · political reform
 - `rekaman` — u43 · a recording
 - `rekan` — u24 · a colleague
+- `rekayasa` — u94 · deliberately engineering something
+- `rekening` — u66 · a bank account
+- `rekrutmen` — u100 · the process of taking new people on
+- `rektor` — u103 · a university rector
 - `rela` — u37 · willing to give something up
+- `relatif` — u53 · relatively
+- `relawan` — u55 · a volunteer
+- `rempah-rempah` — u118 · the dried plant flavourings these islands were traded for
 - `rencana` — u13 · plan
 - `rendah` — u36 · not high up
+- `rendah hati` — u78 · humble
+- `rendang` — u86 · slow-cooked beef curry
+- `rentan` — u52 · vulnerable
+- `reputasi` — u104 · a reputation
+- `reruntuhan` — u125 · ruins
 - `resep` — u34 · a recipe
+- `resesi` — u66 · a recession
 - `resmi` — u50 · official
+- `responden` — u103 · the people who answer a survey
+- `retak` — u121 · cracked
+- `retorika` — u88 · the art of speaking persuasively
+- `rewel` — u111 · fretful and hard to settle
+- `reyot` — u121 · rickety
 - `ribu` — u16 · thousand
+- `rinci` — u91 · broken out item by item
+- `rindang` — u118 · casting deep shade
 - `rindu` — u31 · to miss someone
 - `ringan` — u10 · light in weight
+- `ringkasnya` — u108 · to put it briefly
+- `rintangan` — u60 · a hurdle
+- `risih` — u105 · uncomfortable at being looked at
+- `risiko` — u52 · a risk
+- `riwayat` — u63 · a track record
 - `roda` — u42 · a wheel
+- `roh` — u77 · a spirit being
+- `rohani` — u77 · spiritual
+- `rok` — u87 · a skirt
+- `roket` — u116 · a launch vehicle for space
+- `rongsok` — u121 · scrap
+- `rotan` — u120 · rattan
+- `roti` — u86 · bread
 - `rugi` — u48 · a loss
+- `rujukan` — u89 · a reference somebody relied on
+- `rukun` — u68 · living in harmony
 - `rumah` — u4 · house
+- `rumah makan` — u86 · an eating house
 - `rumah sakit` — u11 · hospital
+- `rumit` — u60 · intricate
 - `rumput` — u46 · grass
 - `rumus` — u44 · a formula
+- `runtuh` — u83 · to collapse
+- `rupa` — u96 · the visible form a thing has
+- `rupanya` — u54 · apparently
 - `rupiah` — u16 · Indonesian currency
 - `rusak` — u25 · broken
+- `rutin` — u56 · done on a regular schedule
 - `saat` — u36 · the instant something happens
 - `sabar` — u20 · patient
 - `Sabtu` — u9 · Saturday
 - `sabun` — u17 · soap
 - `sadar` — u21 · aware
 - `sah` — u50 · legally valid
+- `sahabat` — u68 · a close friend
+- `saham` — u66 · a share in a company
+- `sahih` — u89 · sound as a source
 - `sains` — u44 · science
 - `saja` — u12 · just
+- `sajak` — u81 · a rhyme
 - `sakit` — u11 · ill
+- `saksama` — u91 · done leaving nothing unchecked
 - `saksi` — u50 · a witness
+- `saku` — u87 · a pocket sewn into clothing
 - `salah` — u14 · wrong
 - `salah paham` — u33 · a misunderstanding
+- `salinan` — u79 · a photocopy
 - `saling` — u15 · one another
+- `salju` — u76 · snow
+- `saluran` — u64 · a channel
 - `sama` — u12 · same
 - `sama-sama` — u2 · you're welcome
+- `samar` — u54 · indistinct
+- `sambal` — u86 · chilli paste
 - `sambil` — u13 · while
+- `sambutan` — u110 · a welcoming speech
 - `sampah` — u46 · rubbish
 - `sampai` — u18 · until
 - `sampai jumpa` — u2 · see you
 - `sampai nanti` — u2 · see you later
+- `sampai-sampai` — u69 · so much so that
+- `sampel` — u94 · a portion taken to stand for the whole
+- `sampul` — u81 · a book jacket
+- `samudra` — u114 · the open ocean
 - `sana` — u12 · over there
+- `sandal` — u87 · a sandal
 - `sandi` — u43 · a password
 - `sangat` — u3 · very (before the word)
+- `sanggahan` — u51 · a counter-argument
+- `sanksi` — u61 · a sanction
 - `santai` — u31 · relaxed
+- `santunan` — u102 · a compensation payment
+- `sapaan` — u109 · a term of address
 - `sapi` — u19 · cow
+- `sarang` — u85 · a nest
 - `sarapan` — u18 · breakfast
+- `sarjana` — u103 · a first-degree graduate
+- `sarung` — u87 · a sarong
+- `sastra` — u81 · literature
+- `sate` — u86 · grilled meat skewers
+- `satelit` — u116 · a craft put into orbit
 - `satu` — u5 · one
+- `satwa` — u65 · wildlife
 - `saudara` — u4 · relative
+- `sawah` — u84 · a paddy field
 - `saya` — u1 · I
 - `sayang` — u28 · what a pity
+- `sayangnya` — u71 · sad to say
+- `sayap` — u85 · a wing
 - `sayur` — u6 · vegetable
 - `seandainya` — u29 · if it were so
 - `sebab` — u26 · a cause
+- `sebagai` — u29 · in the capacity of
+- `sebagaimana` — u73 · in the same way as
 - `sebagian` — u49 · some of it
+- `sebaik-baiknya` — u71 · as well as can be done
 - `sebaiknya` — u37 · had better
+- `sebaliknya` — u108 · the other way round
+- `sebanding` — u53 · proportionate
+- `sebatas` — u108 · only as far as
 - `sebelah` — u7 · next to
 - `sebelas` — u16 · eleven
 - `sebelum` — u15 · before
@@ -1055,23 +2534,41 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `sebentar` — u15 · briefly
 - `seberang` — u36 · the far side
 - `sebuah` — u27 · a single item of
+- `secara garis besar` — u108 · in broad outline
 - `sedang` — u13 · in the middle of
 - `sedangkan` — u29 · by contrast
+- `sedemikian` — u69 · to such an extent
 - `sedih` — u20 · sad
 - `sedikit` — u1 · a little
+- `sedikit banyak` — u108 · to some extent
+- `segan` — u105 · hesitant to do something
 - `segar` — u40 · fresh
 - `segera` — u15 · immediately
 - `seharusnya` — u37 · ought to have
 - `sehat` — u11 · healthy
 - `sehingga` — u29 · with the result that
+- `sehubungan` — u73 · with reference to
 - `seimbang` — u30 · evenly matched
 - `sejak` — u36 · ever since
 - `sejarah` — u35 · history
+- `sejarawan` — u125 · a historian
+- `sejauh ini` — u108 · so far
+- `sekadar` — u71 · and nothing beyond that
 - `sekali` — u2 · very (after the word)
+- `sekalian` — u110 · one and all
+- `sekaligus` — u107 · in one go
+- `sekalipun` — u106 · for all that
 - `sekarang` — u1 · now
+- `sekian` — u110 · that is all from me
+- `sekiranya` — u69 · were it to be the case
 - `sekitar` — u27 · the area around
 - `sekolah` — u7 · school
+- `sekrup` — u82 · a screw
+- `sekutu` — u75 · an ally
+- `sel` — u94 · the smallest living unit of a body
+- `selagi` — u69 · during the time that
 - `selain itu` — u29 · besides that
+- `selaku` — u109 · holding an office at the time
 - `selalu` — u15 · always
 - `selama` — u29 · for the duration of
 - `selamat jalan` — u2 · goodbye (to the one leaving)
@@ -1080,14 +2577,30 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `selamat siang` — u2 · good day (midday)
 - `selamat sore` — u2 · good afternoon (late)
 - `selamat tinggal` — u2 · goodbye (to the one staying)
+- `selang` — u82 · a hose
+- `selanjutnya` — u73 · from this point on
 - `Selasa` — u9 · Tuesday
+- `selat` — u114 · a strait
 - `selatan` — u47 · the south
+- `selayaknya` — u106 · as is deserved
+- `selebihnya` — u108 · as for the rest
 - `selesai` — u13 · finished
+- `selimut` — u113 · a blanket
+- `selisih` — u91 · the gap between two figures
 - `seluruh` — u27 · the entire
+- `semak` — u76 · a bush
+- `semakin` — u53 · increasingly
 - `semangat` — u31 · enthusiasm
+- `semangka` — u86 · a watermelon
+- `semata-mata` — u108 · purely and simply
+- `sembarangan` — u98 · done any old way, with no care for rules
+- `sembari` — u107 · while doing something else
 - `sembilan` — u5 · nine
+- `semboyan` — u95 · a short phrase a group lives by
 - `sembuh` — u11 · to recover
+- `semen` — u83 · cement
 - `sementara` — u15 · meanwhile
+- `semestinya` — u61 · as it ought to be
 - `sempat` — u21 · to find the time
 - `sempit` — u30 · narrow
 - `sempurna` — u37 · perfect
@@ -1097,180 +2610,440 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 - `senang` — u2 · glad
 - `sendiri` — u4 · alone
 - `sendok` — u17 · spoon
+- `sendu` — u105 · wistfully sad
 - `sengaja` — u28 · on purpose
+- `sengat` — u119 · the stinger of an insect
+- `sengketa` — u92 · a dispute between two parties over a right
 - `seni` — u35 · art
+- `seniman` — u64 · an artist
 - `Senin` — u9 · Monday
 - `senjata` — u50 · a weapon
+- `senyawa` — u94 · two substances chemically bound into one
+- `seolah-olah` — u54 · as if
 - `seorang` — u27 · a single person
+- `sepadan` — u53 · commensurate
 - `sepak bola` — u41 · football
+- `sepakat` — u51 · agreed
+- `sepanjang` — u106 · so long as
 - `sepatu` — u16 · shoes
+- `sepatutnya` — u106 · as is proper
 - `sepeda` — u7 · bicycle
+- `sepele` — u60 · trivial
+- `sependapat` — u51 · of the same opinion
+- `sepenuhnya` — u108 · entirely
 - `seperti` — u14 · like (similar to)
+- `sepertinya` — u54 · it seems like
 - `sepi` — u10 · quiet
+- `sepihak` — u93 · done by one side without the other
 - `sepuluh` — u5 · ten
+- `seragam` — u87 · a uniform
+- `serakah` — u78 · greedy
+- `serampangan` — u98 · done hastily and without method
+- `serangga` — u85 · an insect
+- `serat` — u67 · fibre
+- `serbuk` — u117 · fine dust
 - `sering` — u9 · often
 - `serta` — u29 · and also
+- `sesama` — u99 · one's fellow human beings
 - `seseorang` — u36 · somebody
 - `sesuai` — u37 · in keeping with
 - `sesuatu` — u36 · something
+- `sesungguhnya` — u71 · in actual fact
+- `setara` — u53 · on a par
 - `setelah` — u15 · after
+- `setempat` — u124 · local to the place
 - `setengah` — u14 · half
+- `setia` — u78 · loyal
 - `setiap` — u9 · every
 - `setidaknya` — u28 · at least
 - `setuju` — u22 · to agree
+- `seumpama` — u52 · let us say
+- `sewajarnya` — u106 · as is only natural
+- `sia-sia` — u106 · for nothing
+- `siaga` — u98 · standing ready to act at once
+- `sial` — u126 · unlucky
 - `siang` — u5 · midday
 - `siap` — u13 · ready
 - `siapa` — u3 · who
+- `siapa pun` — u69 · whoever it may be
 - `siaran` — u33 · a broadcast
+- `siasat` — u60 · a tactic
 - `sibuk` — u9 · busy
 - `sidang` — u50 · a court hearing
 - `sifat` — u31 · a trait of character
+- `sih` — u72 · a softening emphasis
 - `sikap` — u32 · an attitude
+- `sikat` — u82 · a brush
 - `silakan` — u2 · please (go ahead)
+- `silam` — u125 · gone by
+- `sindiran` — u88 · a pointed hint
+- `sinetron` — u64 · an Indonesian soap opera
+- `singa` — u85 · a lion
+- `singkatnya` — u108 · put shortly
+- `singkong` — u84 · cassava
 - `sini` — u12 · here
 - `sinyal` — u43 · a signal
 - `sisa` — u27 · what is left over
+- `sisik` — u119 · a scale
+- `sisir` — u87 · a comb
+- `sistem` — u58 · a system
+- `sistematis` — u56 · systematic
+- `sitiran` — u89 · a formal citation of a work
 - `situs` — u43 · a website
+- `sketsa` — u96 · a quick drawing made before the real work
+- `skripsi` — u103 · an undergraduate thesis
 - `soal` — u44 · an exam question
+- `solusi` — u60 · a solution
+- `sombong` — u78 · arrogant
+- `songket` — u120 · a gold-threaded brocade
 - `sopan` — u32 · polite
 - `sopir` — u23 · a driver
 - `sore` — u5 · afternoon
+- `sorot` — u80 · a beam of light
+- `sosial` — u55 · social
+- `spesialis` — u102 · a specialist doctor
+- `spesimen` — u94 · a preserved sample kept for examination
+- `staf` — u100 · the employed people of an organisation
 - `stasiun` — u23 · a railway station
+- `stempel` — u79 · a rubber stamp
+- `stereotip` — u99 · a fixed picture applied to a whole group
+- `steril` — u102 · sterile
+- `stigma` — u99 · a lasting mark of shame attached to a condition
+- `strategi` — u62 · a strategy
+- `stres` — u67 · stress
+- `struktur` — u58 · a structure
 - `suami` — u4 · husband
+- `suap` — u74 · a bribe
 - `suara` — u33 · someone's voice
 - `suasana` — u31 · the atmosphere of a place
+- `subjektif` — u104 · subjective
+- `subsidi` — u66 · a subsidy
+- `substansi` — u58 · substance
+- `subur` — u84 · fertile
+- `suci` — u77 · sacred
 - `sudah` — u13 · already
+- `sudilah` — u110 · be so good as to
+- `sudut pandang` — u51 · the angle one sees it from
+- `suhu` — u76 · temperature
 - `suka` — u3 · to like
+- `sukarela` — u55 · voluntary
 - `suku` — u35 · an ethnic group
+- `suku cadang` — u121 · a spare part
+- `sumbang` — u91 · striking a false note
+- `sumbangan` — u55 · a donation
 - `sumber` — u33 · a source
+- `sumpah` — u92 · a solemn promise to tell the truth
 - `sungai` — u19 · river
+- `sungguhpun` — u106 · true though it is that
+- `sungkan` — u105 · reluctant to impose on somebody senior
 - `suntik` — u45 · an injection
+- `sunyi` — u80 · silent
 - `supaya` — u29 · so that
 - `surat` — u26 · a letter you send
+- `surga` — u77 · heaven
+- `surut` — u114 · to ebb
+- `survei` — u103 · a survey
 - `susah` — u10 · difficult
 - `susu` — u6 · milk
+- `sutradara` — u64 · a director
+- `syarat` — u52 · a requirement
+- `tabah` — u78 · steadfast
 - `tadi` — u13 · earlier today
+- `tadinya` — u106 · it was going to be
+- `tagihan` — u102 · a bill
+- `tahap` — u56 · a phase
+- `tahlil` — u122 · a prayer gathering for the dead
 - `tahu` — u21 · to know
 - `tahun` — u9 · year
 - `tajam` — u30 · sharp
+- `tajuk` — u55 · a front-page heading
+- `takaran` — u94 · a measured-out quantity
+- `takdir` — u77 · fate
+- `takjub` — u105 · awestruck
 - `taksi` — u38 · a taxi
 - `takut` — u20 · afraid
+- `takziah` — u122 · a visit of condolence
+- `tali` — u82 · rope
 - `taman` — u38 · a public garden
 - `tambah` — u14 · to add
+- `tambang` — u115 · a mine
 - `tampak` — u49 · to appear
+- `tampaknya` — u54 · it appears that
 - `tamu` — u15 · guest
 - `tanah` — u46 · soil
 - `tanaman` — u46 · a growing plant
 - `tanda` — u26 · a sign
+- `tanda tangan` — u79 · a signature
+- `tandus` — u76 · barren
 - `tangan` — u11 · hand
+- `tangga` — u82 · a ladder
 - `tanggal` — u9 · date
+- `tanggap` — u98 · quick to take in a situation and act
+- `tanggapan` — u51 · a response
+- `tanggul` — u101 · an embankment against water
+- `tanggung jawab` — u61 · responsibility
 - `tanpa` — u36 · without
+- `tanpa harus` — u106 · without having to
 - `tanya` — u1 · to ask
+- `taraf` — u53 · a standard reached
+- `target` — u56 · the figure aimed at
+- `taruhan` — u52 · what is at stake
 - `tas` — u16 · bag
+- `tata kelola` — u97 · the whole practice of running an institution well
+- `tata krama` — u109 · the code of manners
+- `tata surya` — u116 · the sun and its planets
+- `tatkala` — u73 · in the days when
+- `tawar-menawar` — u93 · the back-and-forth over terms
+- `tawaran` — u93 · an offer put on the table
+- `tebakan` — u54 · a guessed answer
 - `tebal` — u30 · thick
+- `tebing` — u76 · a cliff
 - `tegang` — u31 · tense
+- `tegar` — u112 · steady under strain
+- `tegas` — u78 · assertive
 - `teh` — u6 · tea
+- `teka-teki` — u126 · a riddle
+- `tekad` — u62 · determination
 - `teknologi` — u43 · technology
+- `teladan` — u97 · somebody whose conduct others should copy
+- `teleskop` — u116 · an instrument for seeing far objects
 - `telinga` — u11 · ear
+- `teliti` — u78 · meticulous
+- `teluk` — u76 · a bay
 - `telur` — u6 · egg
 - `teman` — u4 · friend
+- `tembaga` — u115 · copper
+- `tembikar` — u120 · a glazed clay vessel
 - `tempat` — u7 · place
 - `tempat tidur` — u17 · bed
+- `tempe` — u86 · fermented soybean cake
+- `temuan` — u94 · what a study found
 - `tenang` — u31 · calm
+- `tendensius` — u89 · written to push one conclusion
+- `tender` — u93 · a bid for a contract put out to competition
 - `tengah` — u36 · the middle
+- `tenggat` — u56 · a deadline
+- `tenggelam` — u114 · to sink
 - `tentang` — u26 · concerning
 - `tentara` — u47 · the army
 - `tentu` — u12 · of course
+- `tentunya` — u106 · which naturally means
+- `tenunan` — u120 · woven cloth
 - `teori` — u44 · a theory
 - `tepat` — u14 · exact
+- `tepung` — u86 · flour
 - `terakhir` — u15 · final
+- `terancam` — u65 · under threat
 - `terang` — u8 · bright
+- `terapan` — u94 · applied rather than pursued for its own sake
+- `terapi` — u112 · therapy
+- `teratai` — u118 · a lotus
 - `terbaik` — u30 · best
+- `terbarukan` — u101 · renewable
+- `terbayang` — u63 · it rises in the mind
+- `terbebani` — u105 · weighed down by expectation
+- `terbengkalai` — u60 · left unfinished
 - `terbesar` — u30 · biggest
 - `terbiasa` — u40 · used to something
+- `terbit` — u81 · to come out in print
+- `terbuka` — u70 · standing open
 - `terbukti` — u49 · proven
 - `tercepat` — u30 · fastest
+- `terdakwa` — u92 · the person on trial in a criminal case
+- `terdengar` — u70 · audible
+- `terenyuh` — u105 · moved almost to tears
 - `tergantung` — u21 · to depend on
 - `tergelincir` — u39 · to slip
+- `tergolong` — u53 · to be classed as
+- `tergores` — u121 · scratched
+- `terguncang` — u112 · badly shaken
 - `terhadap` — u36 · towards something
+- `terharu` — u57 · moved
+- `terhormat` — u110 · honoured, in a formal address
 - `terima kasih` — u2 · thank you
+- `teringat` — u63 · suddenly reminded of
 - `terjadi` — u25 · to happen
+- `terjaga` — u113 · to lie awake
+- `terjemahan` — u81 · a translation
+- `terjerumus` — u98 · to end up in something bad without meaning to
+- `terkait` — u73 · linked to the matter
 - `terkenal` — u30 · famous
+- `terkesima` — u105 · struck dumb
 - `terlalu` — u14 · too (excessively)
 - `terlambat` — u18 · late
+- `terlanjur` — u106 · to have already gone too far to undo
+- `terlantar` — u124 · left with no one to care for them
+- `terlarang` — u61 · forbidden
+- `terlebih lagi` — u108 · and more than that
+- `terlelap` — u113 · to drop off into deep sleep
+- `terlena` — u113 · lulled into dropping your guard
+- `terlepas dari` — u108 · regardless of
 - `terletak` — u36 · to be situated
+- `terlihat` — u70 · visible
+- `terlupakan` — u63 · forgotten
 - `termurah` — u30 · cheapest
 - `ternyata` — u28 · it turns out
+- `terowongan` — u115 · a tunnel
 - `terpaksa` — u28 · forced to
+- `terpal` — u82 · a tarpaulin
+- `terpesona` — u105 · spellbound
+- `terpidana` — u92 · somebody whose conviction is final
+- `terpukul` — u105 · devastated by bad news
+- `tersanjung` — u105 · flattered
+- `tersebut` — u73 · the aforementioned
+- `tersedia` — u70 · in stock and ready
 - `tersenyum` — u20 · to smile
 - `terserah` — u37 · up to you
+- `tersinggung` — u57 · offended
+- `tersipu` — u105 · to blush
+- `tersisih` — u99 · pushed out to the edge of things
+- `tersumbat` — u121 · blocked up
 - `tertawa` — u18 · to laugh
+- `tertekan` — u112 · under psychological pressure
+- `tertera` — u73 · as printed
 - `tertua` — u30 · oldest
+- `tertulis` — u70 · in writing
+- `tertutup` — u70 · closed
+- `terumbu` — u114 · a reef
 - `terus` — u13 · to keep on
 - `terutama` — u28 · especially
+- `tesis` — u103 · a master's thesis
 - `tetangga` — u15 · neighbour
 - `tetap` — u29 · to stay the same
 - `tetapi` — u12 · but
+- `tewas` — u75 · to be killed
+- `tiang` — u83 · a pillar
 - `tiba` — u23 · to reach a destination
 - `tiba-tiba` — u28 · suddenly
 - `tidak` — u1 · not
 - `tidur` — u4 · to sleep
 - `tiga` — u5 · three
 - `tiket` — u23 · a travel ticket
+- `tikus` — u85 · a rat
+- `tilikan` — u96 · a close examining look that sees into something
 - `tim` — u24 · a team
+- `timah` — u115 · the soft low-melting metal used for solder
+- `timbal` — u115 · the heaviest common soft metal
+- `timpang` — u53 · lopsided
 - `timur` — u47 · the east
+- `tindakan` — u60 · an action taken
 - `tinggal` — u3 · to live (reside)
 - `tinggi` — u10 · tall
 - `tingkat` — u30 · a level
 - `tipis` — u30 · thin in thickness
+- `toh` — u71 · after all
 - `toko` — u7 · shop
+- `tokoh` — u81 · a character in a story
+- `toleransi` — u99 · putting up with difference you do not share
+- `tolok ukur` — u90 · the yardstick a judgement is made against
 - `tolong` — u2 · please (asking for help)
 - `tombol` — u42 · a button
+- `tonggak` — u95 · a landmark event everything is dated from
 - `topi` — u16 · hat
+- `transfusi` — u102 · a blood transfusion
+- `transmigrasi` — u124 · the state resettlement programme
+- `transparansi` — u97 · running things where everybody can see
 - `trotoar` — u38 · the pavement
 - `tua` — u20 · old in years
+- `Tuan` — u109 · sir, to a man of standing
 - `tugas` — u24 · a task
 - `tujuan` — u24 · a goal
 - `tujuh` — u5 · seven
 - `tukang` — u48 · a handyman
 - `tulang` — u45 · a bone
+- `tulisan` — u81 · a piece of writing
+- `tulus` — u78 · sincere
 - `tumbuh` — u25 · to grow
+- `tumpah` — u117 · to spill
 - `tumpul` — u30 · blunt
+- `tunai` — u66 · paid in notes and coins
+- `tunas` — u84 · a shoot
 - `tunggu` — u1 · to wait
+- `tungku` — u115 · a furnace
 - `tunjangan` — u24 · an allowance
+- `tuntutan` — u92 · the punishment a prosecutor asks for
 - `turis` — u23 · a tourist
 - `turun` — u36 · to go down
 - `uang` — u1 · money
+- `uap` — u117 · vapour
+- `ubin` — u83 · a floor tile
+- `udah` — u72 · already in slang
+- `udara` — u65 · the air
 - `ujian` — u18 · exam
 - `ujung` — u36 · the far end
+- `ukiran` — u120 · a carving
 - `ukuran` — u14 · size
 - `ulang tahun` — u35 · a birthday
 - `ular` — u19 · snake
+- `ulasan` — u64 · a review
+- `ulat` — u119 · a caterpillar
+- `umat` — u77 · a religious community
 - `umum` — u28 · general
+- `undang-undang` — u74 · an act of parliament
+- `undian` — u126 · a lottery
 - `ungu` — u8 · purple
 - `universitas` — u44 · a university
+- `unsur` — u58 · a constituent element
 - `untuk` — u12 · for
 - `untung` — u28 · luckily
+- `untung-untungan` — u126 · a matter of pure chance
 - `upacara` — u35 · a ceremony
+- `upaya` — u60 · an effort
+- `uraian` — u88 · a point-by-point account
+- `urbanisasi` — u55 · the move to the cities
+- `urung` — u106 · to come to nothing after all
+- `usang` — u121 · shabby from long use
 - `utang` — u27 · a debt
 - `utara` — u47 · the north
+- `vaksin` — u67 · a vaccine
+- `vaksinasi` — u102 · a vaccination programme
+- `variabel` — u90 · a quantity that is allowed to change
+- `verifikasi` — u89 · the act of checking against a source
+- `versi` — u104 · one side's version of events
+- `visa` — u124 · an entry permit
+- `vonis` — u92 · the sentence a judge hands down
+- `wabah` — u67 · an epidemic
+- `wacana` — u88 · the wider conversation on a subject
 - `wajah` — u11 · face
 - `wajar` — u28 · only natural
 - `wajib` — u37 · obligatory
+- `wajib militer` — u75 · compulsory military service
+- `wakil` — u74 · a deputy
 - `waktu` — u5 · time
+- `walaupun` — u69 · even if
+- `wali` — u111 · a legal guardian
+- `wanprestasi` — u93 · failing to do what a contract required
+- `waras` — u112 · of sound mind
 - `warga` — u32 · a resident
+- `waris` — u122 · an heir
+- `warisan` — u122 · an inheritance
 - `warna` — u8 · color
 - `wartawan` — u33 · a journalist
 - `warung` — u6 · food stall
+- `was-was` — u105 · uneasy without a clear reason
+- `wasiat` — u122 · a written testament
 - `wasit` — u41 · a referee
+- `waspada` — u98 · watchful because something may go wrong
+- `watak` — u78 · a person's nature
 - `wawancara` — u24 · an interview
+- `wayang` — u64 · shadow puppet theatre
+- `wewenang` — u61 · the power to decide
+- `wihara` — u77 · a Buddhist monastery
 - `wilayah` — u47 · a territory
 - `wisata` — u23 · leisure travel
+- `wisuda` — u103 · a graduation ceremony
+- `wujud` — u58 · tangible form
 - `ya` — u1 · yes
 - `yaitu` — u29 · that is to say
 - `yakin` — u21 · convinced
+- `yakni` — u73 · which is to say
 - `yang` — u12 · which
+- `Yang Mulia` — u109 · Your Honour
+- `yayasan` — u100 · a body founded to pursue a purpose rather than a profit
+- `yuk` — u72 · let us go then
 - `zaman` — u35 · an era
+- `zat` — u117 · any material a thing is made of
+- `ziarah` — u122 · a visit to a grave
 
 ## By unit — what each slot teaches
 
@@ -1330,7 +3103,7 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 
 **u28 · Kata keterangan kalimat** (24) — `tiba-tiba`, `akhirnya`, `ternyata`, `sebenarnya`, `justru`, `malah`, `untung`, `sayang`, `kasihan`, `wajar`, `pantas`, `percuma`, `terutama`, `khusus`, `umum`, `kebanyakan`, `setidaknya`, `bahkan`, `sengaja`, `buru-buru`, `pelan-pelan`, `diam-diam`, `terpaksa`, `kebetulan`
 
-**u29 · Menyambung kalimat** (24) — `meskipun`, `namun`, `padahal`, `sedangkan`, `tetap`, `kecuali`, `sehingga`, `oleh karena itu`, `akibatnya`, `berkat`, `gara-gara`, `demi`, `supaya`, `selain itu`, `serta`, `apalagi`, `misalnya`, `yaitu`, `apakah`, `bahwa`, `entah`, `seandainya`, `asalkan`, `selama`
+**u29 · Menyambung kalimat** (25) — `meskipun`, `namun`, `padahal`, `sedangkan`, `tetap`, `kecuali`, `sehingga`, `oleh karena itu`, `akibatnya`, `berkat`, `gara-gara`, `demi`, `supaya`, `selain itu`, `serta`, `apalagi`, `misalnya`, `yaitu`, `sebagai`, `apakah`, `bahwa`, `entah`, `seandainya`, `asalkan`, `selama`
 
 **u30 · Tingkatan dan sifat** (24) — `terbaik`, `terbesar`, `termurah`, `tertua`, `tercepat`, `terkenal`, `membandingkan`, `perbedaan`, `tingkat`, `menang`, `kalah`, `seimbang`, `tajam`, `tumpul`, `keras`, `lembut`, `halus`, `kasar`, `dalam`, `lebar`, `sempit`, `tebal`, `tipis`, `bulat`
 
@@ -1373,4 +3146,156 @@ The block split the scaffold assigned. A word a **later** block will obviously o
 **u49 · Bukti dan penilaian** (24) — `bukti`, `fakta`, `membuktikan`, `menyangkal`, `keterangan`, `kebenaran`, `menyimpulkan`, `meyakinkan`, `tampak`, `terbukti`, `keliru`, `membantah`, `asli`, `palsu`, `nyata`, `biasa`, `aneh`, `murni`, `mutu`, `ciri`, `jenis`, `sebagian`, `berisi`, `begitu`
 
 **u50 · Kejahatan dan keadilan** (24) — `polisi`, `melaporkan`, `kasus`, `korban`, `saksi`, `menyelidiki`, `mencuri`, `pencuri`, `merampok`, `kehilangan`, `senjata`, `jahat`, `pengadilan`, `hakim`, `sidang`, `bersalah`, `hukuman`, `penjara`, `hak`, `izin`, `resmi`, `sah`, `menuntut`, `bebas`
+
+**u51 · Pendirian dan sanggahan** (24) — `pendirian`, `berpendapat`, `sudut pandang`, `pihak`, `sependapat`, `menyangkut`, `dukungan`, `menyetujui`, `sepakat`, `kesepakatan`, `membenarkan`, `menguatkan`, `sanggahan`, `menyanggah`, `keberatan`, `penolakan`, `menampik`, `mengelak`, `menanggapi`, `tanggapan`, `bersikeras`, `berselisih`, `perselisihan`, `netral`
+
+**u52 · Dampak, syarat, dan risiko** (24) — `dampak`, `berdampak`, `imbas`, `menimbulkan`, `mengakibatkan`, `berujung`, `memicu`, `pemicu`, `faktor`, `menentukan`, `penentu`, `rantai`, `syarat`, `bersyarat`, `memenuhi`, `seumpama`, `menanggung`, `taruhan`, `risiko`, `berisiko`, `mengancam`, `ancaman`, `rentan`, `kebal`
+
+**u53 · Semakin, setara, dan taraf** (24) — `semakin`, `cenderung`, `kecenderungan`, `melebihi`, `berlebihan`, `nyaris`, `setara`, `sebanding`, `sepadan`, `perbandingan`, `rasio`, `menyamai`, `taraf`, `kadar`, `puncak`, `minimal`, `maksimal`, `mutlak`, `relatif`, `merata`, `timpang`, `kesenjangan`, `drastis`, `tergolong`
+
+**u54 · Dugaan dan kemungkinan** (24) — `menduga`, `dugaan`, `memperkirakan`, `perkiraan`, `menebak`, `meramal`, `rupanya`, `agaknya`, `tampaknya`, `sepertinya`, `konon`, `katanya`, `belum tentu`, `boleh jadi`, `kemungkinan`, `mustahil`, `seolah-olah`, `bimbang`, `meragukan`, `samar`, `kabur`, `kesan`, `ramalan`, `tebakan`
+
+**u55 · Pers dan masyarakat** (24) — `pers`, `media`, `liputan`, `meliput`, `narasumber`, `redaksi`, `tajuk`, `isu`, `opini`, `hoaks`, `menyiarkan`, `publik`, `lembaga`, `aktivis`, `relawan`, `sukarela`, `menyumbang`, `sumbangan`, `sosial`, `kesejahteraan`, `kemiskinan`, `penganggur`, `urbanisasi`, `harian`
+
+**u56 · Tahap dan prosedur** (24) — `proses`, `tahap`, `bertahap`, `langkah`, `prosedur`, `sistematis`, `merancang`, `rancangan`, `melaksanakan`, `pelaksanaan`, `menerapkan`, `mengatur`, `mengelola`, `pengelolaan`, `menangani`, `memantau`, `mengevaluasi`, `meninjau`, `target`, `tenggat`, `efisien`, `produktif`, `rutin`, `berkala`
+
+**u57 · Haru, geram, dan canggung** (24) — `haru`, `terharu`, `pilu`, `getir`, `muram`, `lesu`, `jengkel`, `geram`, `gusar`, `muak`, `tersinggung`, `dendam`, `cemas`, `gelisah`, `canggung`, `frustrasi`, `putus asa`, `pasrah`, `iri`, `dengki`, `hampa`, `antusias`, `bergairah`, `iba`
+
+**u58 · Konsep, makna, dan pola** (24) — `konsep`, `gagasan`, `prinsip`, `asumsi`, `definisi`, `abstrak`, `makna`, `hakikat`, `wujud`, `mewujudkan`, `substansi`, `konteks`, `unsur`, `aspek`, `struktur`, `kerangka`, `sistem`, `pola`, `dasar`, `landasan`, `inti`, `acuan`, `lingkup`, `logika`
+
+**u59 · Perkembangan dan masa depan** (24) — `perkembangan`, `berkembang`, `kemajuan`, `meningkat`, `melonjak`, `menyusut`, `menurun`, `merosot`, `memburuk`, `pudar`, `musnah`, `lestari`, `bergeser`, `pergeseran`, `berangsur`, `berlangsung`, `modern`, `mutakhir`, `abad`, `dekade`, `generasi`, `masa depan`, `masa lalu`, `kelak`
+
+**u60 · Kendala dan jalan keluar** (24) — `kendala`, `hambatan`, `rintangan`, `buntu`, `pelik`, `rumit`, `krisis`, `darurat`, `gawat`, `mendesak`, `memperparah`, `menghadapi`, `solusi`, `jalan keluar`, `upaya`, `tindakan`, `menanggulangi`, `menuntaskan`, `keluhan`, `kompromi`, `sepele`, `siasat`, `kewalahan`, `terbengkalai`
+
+**u61 · Kewajiban dan tanggung jawab** (24) — `kewajiban`, `keharusan`, `tanggung jawab`, `bertanggung jawab`, `berhak`, `kebebasan`, `larangan`, `terlarang`, `pelanggaran`, `sanksi`, `menegakkan`, `wewenang`, `patuh`, `mematuhi`, `menaati`, `disiplin`, `ketat`, `longgar`, `norma`, `etika`, `pantangan`, `lazim`, `semestinya`, `amanah`
+
+**u62 · Niat, tekad, dan cita-cita** (24) — `niat`, `berniat`, `bermaksud`, `merencanakan`, `menunda`, `memastikan`, `persiapan`, `mempersiapkan`, `strategi`, `prioritas`, `menargetkan`, `jangka pendek`, `tekad`, `bertekad`, `gigih`, `komitmen`, `berkomitmen`, `keinginan`, `cita-cita`, `bercita-cita`, `ambisi`, `impian`, `hasrat`, `jangka panjang`
+
+**u63 · Pengalaman dan kenangan** (24) — `mengingat`, `teringat`, `mengingatkan`, `melupakan`, `terlupakan`, `hafal`, `kenangan`, `mengenang`, `nostalgia`, `masa kecil`, `jejak`, `riwayat`, `mengalami`, `menjalani`, `menyaksikan`, `menyadari`, `berpengalaman`, `ingatan`, `membayangkan`, `terbayang`, `melamun`, `lamunan`, `khayal`, `berkhayal`
+
+**u64 · Film, panggung, dan penggemar** (24) — `film`, `bioskop`, `sinetron`, `sutradara`, `adegan`, `saluran`, `pertunjukan`, `peran`, `berperan`, `penyanyi`, `penari`, `konser`, `seniman`, `karya`, `wayang`, `gamelan`, `komedi`, `lelucon`, `pemirsa`, `penggemar`, `pembawa acara`, `menghibur`, `ulasan`, `dangdut`
+
+**u65 · Lingkungan yang rusak** (24) — `polusi`, `mencemari`, `udara`, `limbah`, `plastik`, `daur ulang`, `pemanasan global`, `emisi`, `karbon`, `energi`, `energi surya`, `berkelanjutan`, `menebang`, `melestarikan`, `satwa`, `langka`, `terancam`, `punah`, `merusak`, `kerusakan`, `beracun`, `membakar`, `menghemat`, `boros`
+
+**u66 · Ekonomi dan pasar** (24) — `ekonomi`, `inflasi`, `resesi`, `permintaan`, `konsumen`, `bersaing`, `rekening`, `tunai`, `pinjaman`, `bunga bank`, `dana`, `harta`, `saham`, `investasi`, `bangkrut`, `industri`, `mengekspor`, `impor`, `penghasilan`, `daya beli`, `pengangguran`, `koperasi`, `subsidi`, `kelas menengah`
+
+**u67 · Penyakit dan kebugaran** (24) — `penyakit`, `gejala`, `infeksi`, `menderita`, `kronis`, `wabah`, `diagnosa`, `alergi`, `vaksin`, `kekebalan`, `pemulihan`, `kambuh`, `gizi`, `bergizi`, `kalori`, `serat`, `pola makan`, `obesitas`, `kebugaran`, `berdiet`, `stres`, `kecanduan`, `merokok`, `nyeri`
+
+**u68 · Ikatan antarmanusia** (24) — `pernikahan`, `bertunangan`, `pasangan`, `mertua`, `menantu`, `bercerai`, `sahabat`, `persahabatan`, `kerabat`, `mantan`, `janda`, `berpisah`, `gotong royong`, `musyawarah`, `rukun`, `kerukunan`, `perkumpulan`, `organisasi`, `bertengkar`, `pertengkaran`, `mengalah`, `mengandalkan`, `berkorban`, `pergaulan`
+
+**u69 · Tata bahasa 6 — klausa dan pasangan kata** (24) — `apa pun`, `siapa pun`, `kapan pun`, `mana pun`, `bagaimanapun`, `pun`, `bukan hanya`, `melainkan`, `maupun`, `antara lain`, `sampai-sampai`, `sedemikian`, `andaikata`, `sekiranya`, `kalau-kalau`, `jangan sampai`, `walaupun`, `biarpun`, `merupakan`, `ialah`, `kemudian`, `selagi`, `pula`, `dengan kata lain`
+
+**u70 · Tata bahasa 7 — pasif, ter-, dan kausatif** (24) — `oleh`, `dilarang`, `disebut`, `diduga`, `dianggap`, `ditemukan`, `terlihat`, `terdengar`, `tertulis`, `terbuka`, `tertutup`, `tersedia`, `menyuruh`, `memaksa`, `membiarkan`, `menyediakan`, `memperkuat`, `memperbesar`, `membelikan`, `mengirimkan`, `mendekati`, `memasuki`, `menandatangani`, `menduduki`
+
+**u71 · Tata bahasa 8 — akhiran -nya dan kata benda bentukan** (24) — `sayangnya`, `kabarnya`, `sesungguhnya`, `masalahnya`, `pokoknya`, `intinya`, `kenyataan`, `keputusan`, `kebutuhan`, `kejadian`, `keberadaan`, `kekuatan`, `penelitian`, `pengetahuan`, `penjelasan`, `pembangunan`, `pembayaran`, `pengiriman`, `toh`, `kan`, `nah`, `lagi pula`, `sekadar`, `sebaik-baiknya`
+
+**u72 · Bahasa santai sehari-hari** (24) — `gue`, `elo`, `nggak`, `udah`, `emang`, `gimana`, `bikin`, `ngomong`, `ngapain`, `kerjain`, `pengen`, `kayak`, `banget`, `aja`, `cuma`, `duit`, `bareng`, `asyik`, `kok`, `sih`, `dong`, `nih`, `lho`, `yuk`
+
+**u73 · Bahasa tulis resmi** (24) — `tersebut`, `dimaksud`, `bersangkutan`, `tertera`, `perihal`, `beliau`, `berdasarkan`, `mengenai`, `terkait`, `sehubungan`, `sebagaimana`, `guna`, `adapun`, `maka`, `demikian`, `selanjutnya`, `yakni`, `hormat`, `jika`, `apabila`, `bilamana`, `tatkala`, `agar`, `kiranya`
+
+**u74 · Pemerintahan dan politik** (24) — `rakyat`, `demokrasi`, `partai`, `calon`, `kampanye`, `oposisi`, `parlemen`, `dewan`, `kabinet`, `undang-undang`, `kebijakan`, `gubernur`, `berkuasa`, `kekuasaan`, `pemimpin`, `memimpin`, `wakil`, `melantik`, `jabatan`, `pejabat`, `korupsi`, `suap`, `reformasi`, `protes`
+
+**u75 · Perang dan perdamaian** (24) — `perang`, `musuh`, `konflik`, `menyerang`, `bertahan`, `tewas`, `pasukan`, `militer`, `wajib militer`, `jenderal`, `bom`, `meledak`, `menjajah`, `penjajahan`, `menaklukkan`, `sekutu`, `kemenangan`, `kekalahan`, `mengungsi`, `pengungsi`, `gencatan senjata`, `perjanjian`, `damai`, `perdamaian`
+
+**u76 · Bentang alam dan iklim** (24) — `iklim`, `suhu`, `derajat`, `salju`, `kemarau`, `curah hujan`, `bukit`, `lembah`, `lereng`, `tebing`, `gua`, `padang`, `danau`, `teluk`, `ombak`, `air terjun`, `rawa`, `lumpur`, `beku`, `membeku`, `mencair`, `gurun`, `tandus`, `semak`
+
+**u77 · Jiwa, iman, dan moral** (24) — `jiwa`, `roh`, `rohani`, `batin`, `iman`, `takdir`, `kitab`, `nabi`, `imam`, `pendeta`, `biksu`, `umat`, `ibadah`, `menyembah`, `suci`, `kuil`, `pura`, `wihara`, `dosa`, `surga`, `neraka`, `pahala`, `berkah`, `akhlak`
+
+**u78 · Watak dan budi** (24) — `watak`, `tulus`, `ikhlas`, `setia`, `licik`, `cerdik`, `sombong`, `rendah hati`, `mulia`, `hina`, `egois`, `dermawan`, `pelit`, `serakah`, `kejam`, `pemarah`, `penakut`, `ceroboh`, `tabah`, `tegas`, `dewasa`, `bijaksana`, `teliti`, `pemalu`
+
+**u79 · Dokumen dan urusan resmi** (24) — `formulir`, `kolom`, `mengisi`, `tanda tangan`, `mencantumkan`, `lampiran`, `loket`, `pendaftaran`, `permohonan`, `pemohon`, `mengajukan`, `mengurus`, `stempel`, `meterai`, `salinan`, `legalisir`, `arsip`, `map`, `berlaku`, `memperpanjang`, `batal`, `ketentuan`, `berwenang`, `instansi`
+
+**u80 · Bunyi, cahaya, dan rabaan** (24) — `sunyi`, `hening`, `nyaring`, `berbisik`, `menjerit`, `bergema`, `berdengung`, `bergetar`, `cahaya`, `sorot`, `kilat`, `menyilaukan`, `redup`, `berkilau`, `mengkilap`, `bayangan`, `pantulan`, `buram`, `meraba`, `licin`, `kaku`, `lentur`, `kesat`, `lembap`
+
+**u81 · Karya tulis dan sastra** (24) — `sastra`, `tulisan`, `pengarang`, `mengarang`, `pembaca`, `mengkritik`, `naskah`, `penerbit`, `terbit`, `sampul`, `bab`, `baris`, `tokoh`, `alur`, `latar`, `dongeng`, `cerpen`, `kutipan`, `puisi`, `sajak`, `pantun`, `bait`, `terjemahan`, `menerjemahkan`
+
+**u82 · Perkakas dan bahan** (24) — `perkakas`, `palu`, `paku`, `gergaji`, `obeng`, `sekrup`, `bor`, `gunting`, `jarum`, `benang`, `lem`, `tali`, `kaca`, `karet`, `kain`, `kawat`, `karung`, `selang`, `ember`, `tangga`, `sikat`, `kuas`, `terpal`, `cangkul`
+
+**u83 · Membangun dan merombak** (24) — `membangun`, `bata`, `semen`, `beton`, `genteng`, `ubin`, `pagar`, `gerbang`, `tiang`, `balok`, `rangka`, `fondasi`, `kokoh`, `lorong`, `lift`, `lubang`, `menggali`, `menyusun`, `insinyur`, `arsitek`, `runtuh`, `merobohkan`, `membongkar`, `merombak`
+
+**u84 · Bertani dan tumbuhan** (24) — `bertani`, `sawah`, `padi`, `ladang`, `kebun`, `perkebunan`, `pekarangan`, `menggarap`, `pupuk`, `menyiram`, `subur`, `gersang`, `panen`, `menuai`, `memetik`, `layu`, `tunas`, `batang`, `cabang`, `jagung`, `kentang`, `singkong`, `kelapa`, `bambu`
+
+**u85 · Hewan dan hidupnya** (24) — `harimau`, `singa`, `babi`, `kelinci`, `tikus`, `kura-kura`, `katak`, `serangga`, `lalat`, `kupu-kupu`, `laba-laba`, `cacing`, `sayap`, `bulu`, `sarang`, `kandang`, `bertelur`, `menetas`, `memelihara`, `liar`, `jinak`, `buas`, `menggigit`, `mencakar`
+
+**u86 · Hidangan dan rumah makan** (24) — `roti`, `daging`, `keju`, `mentega`, `tepung`, `kue`, `lauk`, `camilan`, `kerupuk`, `tempe`, `hidangan`, `porsi`, `rumah makan`, `pelayan`, `garpu`, `sate`, `bakso`, `rendang`, `kecap`, `sambal`, `pisang`, `mangga`, `semangka`, `jeruk`
+
+**u87 · Pakaian dan dandanan** (24) — `kemeja`, `kaos`, `rok`, `kaus kaki`, `sandal`, `seragam`, `batik`, `sarung`, `jilbab`, `dasi`, `kerah`, `lengan`, `kancing`, `saku`, `menjahit`, `penjahit`, `kacamata`, `cermin`, `cincin`, `kalung`, `gelang`, `sisir`, `bedak`, `berdandan`
+
+**u88 · Bujukan dan retorika** (24) — `membujuk`, `bujukan`, `mempengaruhi`, `memikat`, `menggugah`, `luluh`, `memaparkan`, `paparan`, `menguraikan`, `uraian`, `mengemukakan`, `menekankan`, `dalih`, `berdalih`, `menyindir`, `sindiran`, `melontarkan`, `mengecam`, `argumentasi`, `retorika`, `premis`, `logis`, `polemik`, `wacana`
+
+**u89 · Sumber dan kesahihan** (24) — `rujukan`, `merujuk`, `mengacu`, `mengutip`, `pustaka`, `sitiran`, `sahih`, `keabsahan`, `kredibel`, `kredibilitas`, `berimbang`, `keandalan`, `memverifikasi`, `verifikasi`, `keaslian`, `menelaah`, `mengecek`, `pengecekan`, `tendensius`, `pemalsuan`, `plagiat`, `menjiplak`, `desas-desus`, `gosip`
+
+**u90 · Golongan, kriteria, dan perumpamaan** (24) — `menggolongkan`, `golongan`, `kategori`, `klasifikasi`, `himpunan`, `lapisan`, `kriteria`, `tolok ukur`, `indikator`, `batasan`, `variabel`, `bobot`, `mendefinisikan`, `konkret`, `generalisasi`, `menyederhanakan`, `penyederhanaan`, `perumusan`, `analogi`, `metafora`, `perumpamaan`, `ibarat`, `kiasan`, `menyerupai`
+
+**u91 · Ketelitian dan galat** (24) — `saksama`, `cermat`, `presisi`, `rinci`, `akurat`, `jeli`, `galat`, `selisih`, `meleset`, `menyimpang`, `penyimpangan`, `luput`, `ambang`, `kelonggaran`, `patokan`, `membulatkan`, `pembulatan`, `kisaran`, `cacat`, `janggal`, `sumbang`, `menyempurnakan`, `penyempurnaan`, `menyeluruh`
+
+**u92 · Hukum dan persidangan** (24) — `perkara`, `gugatan`, `menggugat`, `terdakwa`, `jaksa`, `dakwaan`, `kesaksian`, `sumpah`, `bersumpah`, `pengacara`, `panitera`, `terpidana`, `vonis`, `putusan`, `banding`, `kasasi`, `mengadili`, `grasi`, `pasal`, `ayat`, `perundangan`, `tuntutan`, `sengketa`, `menengahi`
+
+**u93 · Perundingan dan perjanjian usaha** (24) — `perundingan`, `berunding`, `tawar-menawar`, `tawaran`, `berembuk`, `menyanggupi`, `klausul`, `tender`, `lelang`, `melelang`, `kesepahaman`, `imbal balik`, `mitra`, `kemitraan`, `penggabungan`, `akuisisi`, `pemodal`, `pemangku kepentingan`, `mengikat`, `jaminan`, `menyepakati`, `sepihak`, `wanprestasi`, `arbitrase`
+
+**u94 · Kaidah ilmiah dan percobaan** (24) — `hipotesis`, `pengamatan`, `mengamati`, `kaidah`, `temuan`, `menguji`, `laboratorium`, `spesimen`, `mikroskop`, `eksperimen`, `takaran`, `sampel`, `sel`, `molekul`, `partikel`, `senyawa`, `kimia`, `reaksi`, `rekayasa`, `purwarupa`, `paten`, `inovasi`, `penemu`, `terapan`
+
+**u95 · Bangsa dan masa lalunya** (24) — `kemerdekaan`, `proklamasi`, `pergerakan`, `perjuangan`, `berjuang`, `pendiri`, `kolonial`, `pemberontakan`, `memberontak`, `penindasan`, `menindas`, `pergolakan`, `nasionalisme`, `tonggak`, `kebangkitan`, `orde`, `menggulingkan`, `persatuan`, `kedaulatan`, `berdaulat`, `piagam`, `lambang`, `semboyan`, `memperingati`
+
+**u96 · Seni rupa dan tilikan kritis** (24) — `melukis`, `pelukis`, `patung`, `pematung`, `galeri`, `pameran`, `estetika`, `keindahan`, `komposisi`, `perspektif`, `rupa`, `aliran`, `kritikus`, `kritik`, `tilikan`, `menilik`, `menafsirkan`, `apresiasi`, `sketsa`, `kanvas`, `mahakarya`, `memamerkan`, `arsitektur`, `pigura`
+
+**u97 · Etika dan integritas** (24) — `integritas`, `teladan`, `keberpihakan`, `nurani`, `luhur`, `pamrih`, `menyuap`, `gratifikasi`, `pungli`, `nepotisme`, `kolusi`, `menyelewengkan`, `transparansi`, `akuntabilitas`, `tata kelola`, `benturan kepentingan`, `pelapor`, `kepatuhan`, `pengawasan`, `mengawasi`, `menyalahgunakan`, `mengkhianati`, `pengkhianatan`, `birokrasi`
+
+**u98 · Pencegahan dan kewaspadaan** (24) — `pencegahan`, `antisipasi`, `mengantisipasi`, `mitigasi`, `siaga`, `waspada`, `kewaspadaan`, `rawan`, `perlindungan`, `melindungi`, `cadangan`, `menangkal`, `lalai`, `kelalaian`, `sembarangan`, `nekat`, `serampangan`, `terjerumus`, `celaka`, `keselamatan`, `memperingatkan`, `imbauan`, `tanggap`, `penangkal`
+
+**u99 · Jati diri dan kesenjangan** (24) — `jati diri`, `identitas`, `martabat`, `kehormatan`, `kalangan`, `kaum`, `minoritas`, `mayoritas`, `keberagaman`, `kemajemukan`, `sesama`, `toleransi`, `prasangka`, `stereotip`, `diskriminasi`, `tersisih`, `mengucilkan`, `stigma`, `kasta`, `pribumi`, `kesukuan`, `jurang`, `berbaur`, `mencap`
+
+**u100 · Jenjang karier dan kepengurusan** (24) — `jenjang`, `karier`, `promosi`, `mutasi`, `pengunduran`, `mengundurkan`, `staf`, `divisi`, `departemen`, `personalia`, `kinerja`, `jajaran`, `merekrut`, `rekrutmen`, `lamaran`, `pesangon`, `pensiun`, `perampingan`, `yayasan`, `nirlaba`, `pengurus`, `pembina`, `menjabat`, `kaderisasi`
+
+**u101 · Lingkungan global dan bencana** (24) — `terbarukan`, `nuklir`, `menipis`, `kuota`, `pasokan`, `kelangkaan`, `penebangan`, `gundul`, `kepunahan`, `keanekaragaman`, `keberlanjutan`, `pangan`, `globalisasi`, `internasional`, `antarnegara`, `diplomasi`, `negosiasi`, `delegasi`, `bencana`, `evakuasi`, `kekeringan`, `longsor`, `erosi`, `tanggul`
+
+**u102 · Layanan kesehatan dan perawatan** (24) — `puskesmas`, `klinik`, `pasien`, `spesialis`, `apoteker`, `kesehatan`, `rawat inap`, `bedah`, `dosis`, `transfusi`, `steril`, `mendiagnosis`, `asuransi`, `premi`, `iuran`, `santunan`, `klaim`, `tagihan`, `vaksinasi`, `karantina`, `isolasi`, `pandemi`, `penularan`, `nakes`
+
+**u103 · Pendidikan tinggi dan penelitian** (24) — `kampus`, `fakultas`, `rektor`, `sarjana`, `pascasarjana`, `wisuda`, `kurikulum`, `beasiswa`, `praktikum`, `asrama`, `alumni`, `pembimbing`, `skripsi`, `tesis`, `disertasi`, `jurnal`, `ilmiah`, `menerbitkan`, `metode`, `kuesioner`, `kajian`, `survei`, `responden`, `analisis`
+
+**u104 · Penceritaan dan pembingkaian** (24) — `narasi`, `kronologi`, `menuturkan`, `mengisahkan`, `versi`, `penuturan`, `membingkai`, `menyoroti`, `menonjolkan`, `penggambaran`, `mengaburkan`, `melebih-lebihkan`, `objektif`, `subjektif`, `memutarbalikkan`, `memihak`, `menyudutkan`, `menyensor`, `citra`, `pencitraan`, `reputasi`, `anggapan`, `persepsi`, `klarifikasi`
+
+**u105 · Rasa yang bercampur** (24) — `kikuk`, `risih`, `jengah`, `sungkan`, `segan`, `tersipu`, `terenyuh`, `terpesona`, `takjub`, `terkesima`, `tersanjung`, `hanyut`, `terpukul`, `kelu`, `nelangsa`, `sendu`, `terbebani`, `mangkel`, `campur aduk`, `galau`, `dilema`, `was-was`, `enggan`, `legawa`
+
+**u106 · Tata bahasa 9 — pengandaian dan hal yang tak terjadi** (24) — `misalkan`, `mengandaikan`, `pengandaian`, `barangkali`, `tentunya`, `pastilah`, `kalaupun`, `sekalipun`, `sungguhpun`, `sepanjang`, `manakala`, `tanpa harus`, `patut`, `sepatutnya`, `selayaknya`, `sewajarnya`, `hendaknya`, `alangkah`, `urung`, `terlanjur`, `sia-sia`, `melewatkan`, `penyesalan`, `tadinya`
+
+**u107 · Tata bahasa 10 — kalimat majemuk dan nominalisasi** (24) — `alih-alih`, `ketimbang`, `kendati`, `lantaran`, `sembari`, `sekaligus`, `kemampuan`, `keberhasilan`, `kegagalan`, `keterbatasan`, `ketergantungan`, `keterlibatan`, `keseimbangan`, `keterkaitan`, `ketersediaan`, `penerapan`, `pendekatan`, `pertimbangan`, `peningkatan`, `penurunan`, `pengembangan`, `penilaian`, `pembahasan`, `perubahan`
+
+**u108 · Tata bahasa 11 — penghubung wacana dan pelembutan klaim** (24) — `pada dasarnya`, `pada prinsipnya`, `pada umumnya`, `secara garis besar`, `dalam hal ini`, `sejauh ini`, `dapat dikatakan`, `bukan berarti`, `sedikit banyak`, `sebatas`, `sepenuhnya`, `hanya saja`, `singkatnya`, `ringkasnya`, `pendeknya`, `kesimpulannya`, `pada akhirnya`, `selebihnya`, `terlepas dari`, `sebaliknya`, `terlebih lagi`, `lantas`, `semata-mata`, `alhasil`
+
+**u109 · Ragam hormat dan kata sapaan** (24) — `kiai`, `Tuan`, `Nyonya`, `Paduka`, `Yang Mulia`, `baginda`, `Ibunda`, `Ayahanda`, `kakanda`, `adinda`, `sapaan`, `panggilan`, `hamba`, `menghadap`, `berkenan`, `memohon`, `mewakili`, `selaku`, `gelar`, `pangkat`, `kedudukan`, `tata krama`, `adab`, `anugerah`
+
+**u110 · Pidato dan sambutan resmi** (24) — `hadirin`, `sekalian`, `terhormat`, `sambutan`, `pembukaan`, `perkenankan`, `pidato`, `berpidato`, `mimbar`, `lantang`, `fasih`, `pembicara`, `khotbah`, `ceramah`, `orasi`, `bertutur`, `lisan`, `menyimak`, `sekian`, `penutup`, `demikianlah`, `sudilah`, `meriah`, `khidmat`
+
+**u111 · Kelahiran dan pengasuhan** (24) — `hamil`, `mengandung`, `kandungan`, `melahirkan`, `keguguran`, `bidan`, `balita`, `popok`, `menyusui`, `menyapih`, `menyuapi`, `menggendong`, `mengasuh`, `pengasuhan`, `membesarkan`, `mendidik`, `imunisasi`, `wali`, `rewel`, `manja`, `memanjakan`, `merengek`, `menimang`, `buaian`
+
+**u112 · Kesehatan jiwa dan pemulihan** (24) — `gangguan`, `depresi`, `kecemasan`, `tertekan`, `murung`, `kejiwaan`, `terapi`, `konseling`, `psikolog`, `berkonsultasi`, `pendampingan`, `waras`, `terguncang`, `rapuh`, `kelelahan`, `jenuh`, `candu`, `mengidap`, `pulih`, `memulihkan`, `penyembuhan`, `menenangkan`, `ketenangan`, `tegar`
+
+**u113 · Tidur, mimpi, dan angan** (24) — `kantuk`, `mengantuk`, `menguap`, `nyenyak`, `loyo`, `bugar`, `kasur`, `ranjang`, `bantal`, `selimut`, `rebahan`, `meringkuk`, `terjaga`, `terlelap`, `mengigau`, `mendengkur`, `terlena`, `bergumam`, `mimpi`, `bermimpi`, `khayalan`, `angan-angan`, `ilusi`, `halusinasi`
+
+**u114 · Kelautan dan pelayaran** (24) — `dermaga`, `pesisir`, `selat`, `samudra`, `karang`, `terumbu`, `perahu`, `rakit`, `geladak`, `nakhoda`, `pelaut`, `awak`, `berlayar`, `pelayaran`, `kemudi`, `jangkar`, `berlabuh`, `menambatkan`, `jala`, `pukat`, `muatan`, `pelampung`, `tenggelam`, `surut`
+
+**u115 · Tambang, logam, dan bahan galian** (24) — `tambang`, `menambang`, `penambang`, `terowongan`, `bijih`, `galian`, `batu bara`, `belerang`, `gamping`, `kerikil`, `bongkahan`, `endapan`, `tembaga`, `baja`, `perak`, `timah`, `nikel`, `timbal`, `tungku`, `peleburan`, `karat`, `berkarat`, `marmer`, `granit`
+
+**u116 · Penerbangan dan angkasa** (24) — `penerbangan`, `maskapai`, `bagasi`, `pilot`, `pramugari`, `awak kabin`, `lepas landas`, `mendarat`, `ketinggian`, `menjulang`, `meluncurkan`, `peluncuran`, `roket`, `antariksa`, `astronot`, `satelit`, `mengorbit`, `gravitasi`, `planet`, `tata surya`, `komet`, `gerhana`, `teleskop`, `antariksawan`
+
+**u117 · Zat, aliran, dan wujud** (24) — `mengalir`, `menetes`, `tumpah`, `memercik`, `menyerap`, `genangan`, `bocor`, `merembes`, `menyusup`, `larut`, `mengendap`, `mendidih`, `mengering`, `uap`, `mengembun`, `memuai`, `mengembang`, `zat`, `serbuk`, `bubuk`, `cairan`, `gumpalan`, `kental`, `encer`
+
+**u118 · Tumbuhan, bunga, dan pepohonan** (24) — `mawar`, `melati`, `anggrek`, `teratai`, `kamboja`, `kelopak`, `kuncup`, `berbunga`, `mekar`, `duri`, `getah`, `berbuah`, `lumut`, `pakis`, `bakau`, `merambat`, `rindang`, `pucuk`, `jati`, `mahoni`, `cendana`, `rempah-rempah`, `dahan`, `ranting`
+
+**u119 · Burung dan serangga** (24) — `elang`, `merpati`, `angsa`, `paruh`, `cakar`, `sisik`, `berkicau`, `bersiul`, `hinggap`, `mengepak`, `menukik`, `mengerami`, `lebah`, `capung`, `kumbang`, `belalang`, `ulat`, `kepompong`, `kecoa`, `rayap`, `kutu`, `jangkrik`, `sengat`, `menyengat`
+
+**u120 · Kerajinan dan tenun** (24) — `menenun`, `tenunan`, `songket`, `motif`, `corak`, `bordir`, `menganyam`, `anyaman`, `rotan`, `merajut`, `menyulam`, `jahitan`, `mengukir`, `ukiran`, `pahat`, `memahat`, `kerajinan`, `kriya`, `gerabah`, `tembikar`, `keramik`, `menempa`, `pengrajin`, `cetakan`
+
+**u121 · Rawat, rusak, dan perbaikan** (24) — `aus`, `lapuk`, `usang`, `keropos`, `kusam`, `berdebu`, `retak`, `penyok`, `bengkok`, `tergores`, `lecet`, `bopeng`, `reyot`, `ambruk`, `tersumbat`, `mengendur`, `rongsok`, `kadaluarsa`, `merawat`, `perawatan`, `perbaikan`, `memugar`, `awet`, `suku cadang`
+
+**u122 · Kematian dan perkabungan** (24) — `meninggal`, `jenazah`, `mayat`, `almarhum`, `maut`, `ajal`, `menguburkan`, `makam`, `pemakaman`, `nisan`, `kafan`, `kremasi`, `berkabung`, `duka`, `melayat`, `pelayat`, `takziah`, `tahlil`, `wasiat`, `waris`, `warisan`, `ziarah`, `mendoakan`, `hibah`
+
+**u123 · Gerak tubuh dan mimik** (24) — `isyarat`, `mengangguk`, `menggeleng`, `melambai`, `menepuk`, `bersalaman`, `menatap`, `melotot`, `mengedip`, `lirikan`, `mengerutkan`, `mimik`, `menunduk`, `membungkuk`, `merangkul`, `memeluk`, `mengusap`, `gerak-gerik`, `raut`, `meringis`, `cemberut`, `menjulurkan`, `menggaruk`, `menggenggam`
+
+**u124 · Merantau dan perpindahan** (24) — `merantau`, `perantau`, `mudik`, `kampung`, `pendatang`, `setempat`, `pemukim`, `pemukiman`, `menetap`, `transmigrasi`, `perpindahan`, `menampung`, `migran`, `kewarganegaraan`, `visa`, `imigrasi`, `pengungsian`, `deportasi`, `terlantar`, `perumahan`, `gubuk`, `betah`, `menumpang`, `hijrah`
+
+**u125 · Masa purba dan penelusuran sejarah** (24) — `purba`, `silam`, `masa lampau`, `berabad-abad`, `prasejarah`, `peradaban`, `kerajaan`, `kesultanan`, `dinasti`, `ratu`, `leluhur`, `bersejarah`, `candi`, `prasasti`, `reruntuhan`, `artefak`, `fosil`, `peninggalan`, `arkeologi`, `sejarawan`, `menelusuri`, `pelestarian`, `babad`, `hikayat`
+
+**u126 · Canda, usik, dan taruhan** (24) — `bercanda`, `gurauan`, `jenaka`, `konyol`, `iseng`, `geli`, `menggoda`, `mengusik`, `mengolok`, `mengejek`, `ejekan`, `menertawakan`, `melawak`, `pelawak`, `teka-teki`, `menerka`, `untung-untungan`, `gegabah`, `bertaruh`, `berjudi`, `undian`, `keberuntungan`, `nasib`, `sial`
 

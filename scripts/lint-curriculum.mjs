@@ -46,5 +46,5 @@ if (warnings.length > 200)
   console.log(
     `⚠  ${warnings.length} warnings is too many to read, so grep it: ` +
       `npm run lint:curriculum | grep "<class>"  — ` +
-      `a buried warning is a check nobody runs, and "is the prompt for" is the one that matters most.`,
+      `a buried warning is a check nobody runs. The shared-prompt class matters most — grep the phrase that warning starts with.`,
   );

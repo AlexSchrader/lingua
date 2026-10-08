@@ -101,11 +101,52 @@ const cache = new Map();
 //   "accept" — only accept[] or the hint names it. Covered, usually deliberately,
 //              and usually because the front is a homograph of a taught word.
 //   null     — nothing in the language mentions it. The real gap.
+// A VERB CONCEPT NEEDS A VERB GLOSS, AND THIS DID NOT CHECK THAT.
+//
+// Measured 2026-10-08: with Indonesian B2 merged this file reported `id — 0 of 291
+// missing`, while `terbang`, the verb "to fly", is taught NOWHERE in 3,025 id
+// cards. Three cards satisfied it and not one teaches flying:
+//   lalat@u85          meaning "a fly"                         — the INSECT
+//   antariksawan@u116  meaning "a person trained for spaceflight"
+//   memercik@u117      accept  "to fly up in drops"            — a splash
+// The matcher looked for the stem anywhere in a gloss or accept, with no idea the
+// concept was a verb. That is the same shape as every other defect found this
+// week: the check ran, returned confidently, and never reached the question.
+//
+// It is also the THIRD time this file has been wrong about `terbang` specifically.
+// First the word was absent from the list. Then it was added, and the header above
+// records that — but adding it did not help, because the matcher then answered yes
+// on the insect. A list entry is not a check.
+//
+// So for the two verb categories the gloss must BE a verb: `meaning` has to start
+// with "to " AND contain the stem. "to be born" passes for `born`; "a fly" fails
+// for `fly`; "to splash" fails for `fly`.
+// AND VERBS DO NOT FALL BACK TO accept[]. `memercik`'s accept really does read
+// "to fly up in drops", so the accept tier cannot separate flying from splashing
+// here. A false MISSING costs a seat one lookup; a false COVERED cost us `terbang`
+// three times over.
+const VERB_CATS = new Set(["core verbs", "everyday actions"]);
+const VERB_WORDS = new Set(Object.entries(CORE).filter(([c]) => VERB_CATS.has(c)).flatMap(([, w]) => w));
+
 const has = (L, w) => {
   if (!cache.has(L)) cache.set(L, glossesFor(L));
   const prefix = new RegExp(`(^|[^a-z])${w}[a-z]*`, "i");
   const list = cache.get(L);
   const sub = (f) => w.length >= 5 && f.includes(w);
+  if (VERB_WORDS.has(w)) {
+    // A verbal gloss is a real hit. Anything else is reported as NOT-AS-VERB rather
+    // than as either a pass or a gap, because both verdicts would be wrong often
+    // enough to matter: `terima kasih` glossed "thank you" genuinely IS how
+    // Indonesian thanks somebody, so calling "thank" a gap is false; `lalat`
+    // glossed "a fly" is NOT how it flies, so calling "fly" covered is false. The
+    // part of speech is the whole question and only a human can settle it, so the
+    // tool separates the two buckets instead of guessing.
+    const verbal = (g) => /^to\s/i.test(String(g).trim()) && prefix.test(g);
+    const vhit = list.find((x) => verbal(x.g));
+    if (vhit) return { ...vhit, tier: "gloss" };
+    const loose = list.find((x) => prefix.test(x.g) || sub(x.g) || prefix.test(x.a) || sub(x.a));
+    return loose ? { ...loose, tier: "NOT-AS-VERB" } : null;
+  }
   let hit = list.find((x) => prefix.test(x.g) || sub(x.g));
   if (hit) return { ...hit, tier: "gloss" };
   // accept[] ONLY — NOT the hint. A hint mentions a word in passing all the time
@@ -125,7 +166,12 @@ if (only) {
   console.log(`=== ${only} — core inventory, verbose\n`);
   for (const [cat, words] of Object.entries(CORE)) {
     const miss = words.filter((w) => hard(only, w));
-    console.log(`${cat}: ${words.length - miss.length}/${words.length}${miss.length ? "   MISSING: " + miss.join(" · ") : ""}`);
+    const notVerb = words.filter((w) => has(only, w)?.tier === "NOT-AS-VERB");
+    console.log(
+      `${cat}: ${words.length - miss.length}/${words.length}` +
+        (miss.length ? "   MISSING: " + miss.join(" · ") : "") +
+        (notVerb.length ? `   NOT-AS-VERB (check by hand): ${notVerb.map((w) => `${w}->${has(only, w).front}`).join(" · ")}` : ""),
+    );
   }
   process.exit(0);
 }
