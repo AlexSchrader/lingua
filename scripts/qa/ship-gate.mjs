@@ -179,6 +179,33 @@ for (const L of langs) {
   dups.length ? FAIL(`${dups.length} duplicate vocab fronts (${dups.slice(0, 3).map((v) => v[0].front).join(", ")})`)
               : OK("vocab fronts unique");
 
+  // 4b. AND THE CASE-ONLY PAIR, WHICH THE CHECK ABOVE IS BUILT TO MISS.
+  //
+  // The exact comparison above is correct and stays — German Sie/sie really are two
+  // words. But it means capitalising a front HIDES it, and so does
+  // `validateContent`'s front-uniqueness check, which is case-sensitive too. The id
+  // B2 block-2 seat shipped `Saudara`: both passed it, and `saudara` is taught at
+  // **u4, in A1**. Only crossblock.mjs caught it, after the card was written.
+  //
+  // Measured corpus-wide 2026-10-07: exactly ONE case-only pair exists, de
+  // `Sie`/`sie`, both in u3, deliberately contrasted in the same lesson. So this is
+  // a FAIL with one named exception rather than a warning nobody reads — and the
+  // exception is a documented pair, not a loosened rule. A SECOND de pair, or this
+  // pair landing in different units, still fails.
+  const CASE_OK = new Set(["de|Sie@u3|sie@u3"]); // sorted; JS puts uppercase first
+  const byCase = new Map();
+  for (const it of vocab) {
+    if (it.conjForm) continue;
+    const k = String(it.front).toLowerCase();
+    if (!byCase.has(k)) byCase.set(k, []); byCase.get(k).push(it);
+  }
+  const caseDups = [...byCase.values()]
+    .filter((v) => new Set(v.map((x) => String(x.front))).size > 1)
+    .filter((v) => !CASE_OK.has(`${L}|${v.map((x) => `${x.front}@u${x.u}`).sort().join("|")}`));
+  caseDups.length
+    ? FAIL(`${caseDups.length} fronts differ ONLY BY CASE, which hides them from validateContent (${caseDups.slice(0, 3).map((v) => v.map((x) => `${x.front}@u${x.u}`).join("/")).join(", ")})`)
+    : OK("no front is hidden behind capitalisation");
+
   // 5. DUPLICATE READINGS
   const byReading = new Map();
   for (const it of vocab) { const r = String(it.reading ?? "").toLowerCase(); if (!r) continue; if (!byReading.has(r)) byReading.set(r, new Set()); byReading.get(r).add(String(it.front)); }
