@@ -171,44 +171,43 @@
 //     block, so it is not a quirk of this seat — it is what trimming an example
 //     produces, in every language.
 //
-// D11. 🚨 **MY OWN PER-UNIT GATE CLAIM WAS WRONG IN ALL THIRTEEN COMMITS, AND
-//     THIS IS THE RETRACTION.** Each commit message for u114–u126 says
-//     `lint:curriculum 0 errors, 0 warnings in u1NN`. The 0 errors is true and
-//     reproducible. **The "0 warnings" is NOT.** It came from
-//     `npm run lint:curriculum 2>&1 | grep -E "id-u1NN|is the prompt for"`
-//     returning nothing, and that command CANNOT BE REPRODUCED — run again on
-//     the same content it returns 8 lines for u121. The lint writes ~1.3 MB and
-//     I believe the pipe was truncated on this Windows seat; I cannot prove it,
-//     which is exactly why the claim has to go rather than be explained.
-//     **MEASURED NOW, on the merged branch, and this is the number to trust:**
-//       validate:content         0 errors, 0 warnings
-//       lint:curriculum          0 errors, 6,501 warnings corpus-wide
-//       warnings inside u114–u126  **48**, and all 48 are ONE class: an example
-//                                or drill using a `di-` passive of a taught verb
-//                                (dibawa dibuat dipakai dijual dibaca disimpan
-//                                ditulis dibagi disentuh dibangun dibantu
-//                                dicari diganti dimakan diminum dipotong
-//                                dirusak diubah ditaruh ditutup dibakar dilihat)
-//       shared-prompt ("is the prompt for")  **1**, corpus-wide, and it is NOT
-//                                mine — see the note below. ⚠️ I FIRST WROTE
-//                                "0" HERE, FROM A GREP THAT RETURNED NOTHING,
-//                                WHICH IS THE SAME MISTAKE THIS BULLET EXISTS
-//                                TO RECORD. Re-run twice it returns 1. The
-//                                defect is "in the capacity of", held by BOTH
-//                                `sebagai`@u29 (landed on main while I was
-//                                authoring) and `selaku`@u109 (block 1's). 0 in
-//                                MY range, u114–u126, which is the claim I can
-//                                stand behind.
-//                                **A MERGE OF `main` CAN CREATE A SHARED PROMPT
-//                                IN YOUR BRANCH, so run the grep AFTER merging,
-//                                not only before.**
-//     The `di-` passive IS taught, at u70l1, and neither the lint nor
-//     `scope-strict-drills` has morphology — both their headers say so. So the
-//     48 are a known false-positive class, not residue. **But "48 warnings, all
-//     one known class" is the honest sentence and "0 warnings" was not.**
-//     **THE LESSON FOR THE NEXT SEAT: never report a gate number from a grep
-//     you have not re-run at least once.** A silent empty pipe reads exactly
-//     like a pass.
+// D11. 🚨 **`lint:curriculum` WRITES ITS WARNINGS TO **STDERR**, AND THAT IS HOW
+//     I PUT A FALSE "0 warnings" IN ALL THIRTEEN OF MY COMMIT MESSAGES.**
+//     MEASURED three ways on the same content, which is the whole proof:
+//       `npm run lint:curriculum 2>/dev/null | grep -c id-u11[4-9]l`   → **0**
+//       `npm run lint:curriculum 2>&1 >/dev/null | grep -c ...`        → **48**
+//       `npm run lint:curriculum 2>&1 | grep -c ...`                   → **48**
+//     So **`> file` loses every warning**, and so does `2>&1 > file`, because
+//     that order sends stderr to the OLD stdout and only stdout to the file. I
+//     used the second form for one of my gate runs and read 0 off it. The
+//     summary line (`Curriculum OK — N errors, M warning(s)`) comes out on
+//     stdout, so **a redirect that drops every warning still prints a healthy
+//     total**, which is what makes this silent.
+//     **THE AUTHORITATIVE NUMBERS, re-run and reproducible:**
+//       validate:content                 0 errors, 0 warnings
+//       lint:curriculum                  0 errors, 6,501 warnings corpus-wide
+//       warnings inside u114–u126        **48**, and all 48 are ONE class: an
+//          example or drill using a `di-` passive of a taught verb (dibawa
+//          dibuat dipakai dijual dibaca disimpan ditulis dibagi disentuh
+//          dibangun dibantu dicari diganti dimakan diminum dipotong dirusak
+//          diubah ditaruh ditutup dibakar dilihat). The di- passive IS taught,
+//          at u70l1, and neither the lint nor `scope-strict-drills` has
+//          morphology — both their own headers say so. A known false-positive
+//          class, not residue. But **"48, all one known class" is the honest
+//          sentence and "0" was not.**
+//       shared prompts (`is the prompt for`)  **1** corpus-wide, **0 in my
+//          range**. The one is "in the capacity of", held by BOTH `sebagai`@u29
+//          (landed on main mid-authoring) and `selaku`@u109. Not mine.
+//     **TWO RULES FOR THE NEXT SEAT, and the second cost three corrections to
+//     this very bullet:**
+//       1. **Always `2>&1 | grep`, never `> file`, for this script** — and if
+//          you must have a file, write `npm run lint:curriculum > f 2>&1`.
+//       2. **Re-run any gate grep once before you quote it.** A silent empty
+//          pipe reads exactly like a pass, and I wrote "0" into this bullet
+//          twice more after opening it to retract a "0".
+//     ⚠️ **AND RUN THE PROMPT GREP AFTER MERGING `main`, NOT ONLY BEFORE** — a
+//     merge can create a shared prompt in your branch. That is literally how
+//     the `sebagai`/`selaku` collision above reached this tree.
 //
 // ─────────────────────────────────────────────────────────────────────────────
 export const ID_UNIT114 = {
