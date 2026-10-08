@@ -82,6 +82,16 @@ const PARADIGM = {
 // BACKWARD morphology: strip affixes off the CANDIDATE and see whether what is left
 // is already taught. The right shape for an affixing language, where the derived
 // form is longer than the root rather than a different ending on it.
+// NASAL ASSIMILATION — the meN-/peN- prefixes SWALLOW the root's first consonant,
+// so stripping the prefix does not leave the root and never could. Added
+// 2026-10-07 by the id B2 block-1 seat after `menyeragamkan` reported FREE while
+// `seragam` is taught in u87: meny- + seragam DROPS the s, so stripping "meny"
+// leaves "eragamkan" and no path reaches `seragam`. Same for menulis<-tulis,
+// memukul<-pukul, mengirim<-kirim. This is the mechanism behind unit1.js §3's
+// measured "LEXEME fired on 0 of 14 real derivations".
+// Keys are the prefixes that assimilate; values are the consonant to put back.
+const RESTORE = { meny: "s", peny: "s", mem: "p", pem: "p", men: "t", pen: "t", meng: "k", peng: "k" };
+
 const AFFIX = {
   id: {
     // `ke` was MISSING until 2026-10-07 and it is the commonest nominaliser in the
@@ -109,8 +119,9 @@ function affixHits(c) {
       const rest = c.slice(p.length);
       // `cand !== c` matters: reconstructing a stripped prefix made every me- verb
       // "derived from itself" on the first run.
-      for (const cand of [rest, "me" + rest])
-        if (cand !== c && taught.has(cand)) hits.push(`${p}- off ${cand}(u${unitOf.get(cand)})`);
+      // RESTORE[p] + rest puts back the consonant the nasal prefix swallowed.
+      for (const cand of [rest, "me" + rest, RESTORE[p] ? RESTORE[p] + rest : null])
+        if (cand && cand !== c && taught.has(cand)) hits.push(`${p}- off ${cand}(u${unitOf.get(cand)})`);
     }
   for (const s of a.suffixes)
     if (c.endsWith(s) && c.length - s.length >= 3) {
@@ -129,8 +140,8 @@ function affixHits(c) {
     for (const s of a.suffixes)
       if (c.startsWith(p) && c.endsWith(s) && c.length - p.length - s.length >= 3) {
         const rest = c.slice(p.length, -s.length);
-        for (const cand of [rest, "me" + rest])
-          if (cand !== c && taught.has(cand))
+        for (const cand of [rest, "me" + rest, RESTORE[p] ? RESTORE[p] + rest : null])
+          if (cand && cand !== c && taught.has(cand))
             hits.push(`${p}-...-${s} circumfix on ${cand}(u${unitOf.get(cand)})`);
       }
   return [...new Set(hits)];
