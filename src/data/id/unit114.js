@@ -189,7 +189,19 @@
 //                                ditulis dibagi disentuh dibangun dibantu
 //                                dicari diganti dimakan diminum dipotong
 //                                dirusak diubah ditaruh ditutup dibakar dilihat)
-//       shared-prompt ("is the prompt for")  **0**, corpus-wide
+//       shared-prompt ("is the prompt for")  **1**, corpus-wide, and it is NOT
+//                                mine — see the note below. ⚠️ I FIRST WROTE
+//                                "0" HERE, FROM A GREP THAT RETURNED NOTHING,
+//                                WHICH IS THE SAME MISTAKE THIS BULLET EXISTS
+//                                TO RECORD. Re-run twice it returns 1. The
+//                                defect is "in the capacity of", held by BOTH
+//                                `sebagai`@u29 (landed on main while I was
+//                                authoring) and `selaku`@u109 (block 1's). 0 in
+//                                MY range, u114–u126, which is the claim I can
+//                                stand behind.
+//                                **A MERGE OF `main` CAN CREATE A SHARED PROMPT
+//                                IN YOUR BRANCH, so run the grep AFTER merging,
+//                                not only before.**
 //     The `di-` passive IS taught, at u70l1, and neither the lint nor
 //     `scope-strict-drills` has morphology — both their headers say so. So the
 //     48 are a known false-positive class, not residue. **But "48 warnings, all
