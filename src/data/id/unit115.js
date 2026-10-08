@@ -1,7 +1,8 @@
 // ID Unit 115 — Tambang, logam, dan bahan galian ("Mining, metals and minerals") — B2
 // ─────────────────────────────────────────────────────────────────────────────
 // B2 block 3 (u114–u126). Conventions: unit1.js §1–12, unit21.js, unit51.js
-// §B1–B12, and unit114.js §C1–C9. Read unit114.js's header before editing this.
+// §B1–B12, **block 1's §C1–C12 in unit88.js and §C-B4 in unit89.js** (which
+// bind u88–u126 and outrank the D-series), and unit114.js §D1–D11. Read unit114.js's header before editing this.
 //
 // THE HOLE THIS FILLS, measured against all 2,088 A1+B1 cards. `logam` (u42, a
 // metal), `pasir` (u46), `batu` (u46), `bumi` (u46) and `minyak` (u34) are the

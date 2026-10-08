@@ -1,7 +1,8 @@
 // ID Unit 125 — Masa purba dan penelusuran sejarah ("Antiquity and the search for the past") — B2
 // ─────────────────────────────────────────────────────────────────────────────
 // B2 block 3 (u114–u126). Conventions: unit1.js §1–12, unit21.js, unit51.js
-// §B1–B12, and unit114.js §C1–C10. Read unit114.js's header before editing this.
+// §B1–B12, **block 1's §C1–C12 in unit88.js and §C-B4 in unit89.js** (which
+// bind u88–u126 and outrank the D-series), and unit114.js §D1–D11. Read unit114.js's header before editing this.
 //
 // THE HOLE THIS FILLS. `sejarah` (u35), `zaman` (u35), `kuno` (u42), `abad`
 // (u59) and `raja` (u47) were the whole of the past. A learner could say
@@ -34,18 +35,40 @@
 // THREE cards off root `gali`, at the ceiling, for a distinction (excavated
 // material vs an excavation) too thin to be worth it. `hikayat` took the slot.
 // This is the cross-block check catching a WITHIN-block collision, which is
-// exactly what §C7 and the lead's step-4 instruction exist for.
+// exactly what §D7 and the lead's step-4 instruction exist for.
 //
 // FRONTS REFUSED, NAMED NOT BURIED:
 //   `naskah kuno` and `penggalian` — above.
 //   `abad` TAKEN u59 (so `berabad-abad` carries the centuries and FIRES-INSIDE
-//     it, which §C7 covers: the longer front is safe in its own card).
+//     it, which §D7 covers: the longer front is safe in its own card).
 //   `zaman` TAKEN u35, `kuno` TAKEN u42, `raja` TAKEN u47, `situs` TAKEN u43 —
 //     the lead's four claims for this slot plus one more I found. All verified.
 //   `nenek moyang` FIRES-INSIDE `nenek`(u4), so `leluhur` carries ancestors.
 //   `arca` `megalit` `purbakala` `mumi` `relik` `wangsa` `legenda` `mitos` —
 //     probed free or unprobed, cut at 24. ⚠️ `arca` would also have fought
 //     u120's `patung` for a gloss, so it is not a clean refill.
+//
+// AFFIX LEDGER, as block 1's §C4 requires — every derivation off a TAUGHT root,
+// with its root and unit, and the justification for the count:
+//   `kerajaan`    ke-...-an on `raja`(u47)      a state, not a man
+//   `bersejarah`  ber- on `sejarah`(u35)        having history, i.e. protected
+//   `prasejarah`  pra- on `sejarah`(u35)        before history was written
+//   `sejarawan`   -wan on `sejarah`(u35)        the professional
+//   `peradaban`   per-...-an on `adab`(u109)    a civilisation, not politeness
+//   `peninggalan` pen-...-an on `tinggal`(u3)   what is left, not to remain
+//   `pelestarian` pe-...-an on `lestari`(u59)   the work, not the state
+//   `reruntuhan`  re-/-an on `runtuh`(u83)      a field of rubble, not a fall
+// ⚠️ THAT IS SIX TAUGHT ROOTS AND EIGHT CARDS, ABOVE THE MAX OF 4 BLOCK 1
+// MEASURED ACROSS u88–u100. §C4 says to say WHY if a unit needs more, so:
+// **three of the eight are off `sejarah` alone, and they are the words this unit
+// exists to teach.** Indonesian builds the whole vocabulary of history off that
+// one root — bersejarah (historic), prasejarah (prehistoric), sejarawan (a
+// historian) — and a learner who has only `sejarah` can say none of them.
+// Refusing them to hold a number would reproduce exactly the failure CLAUDE.md
+// records for German, which withheld 17 core words on that reasoning. Every one
+// passes §C4's test (the derived word names something the root does not), none
+// meets §C-B4's refusal test (no u70 grammar pattern, no compositional
+// meaning), and every hint names its root.
 //
 // ⚠️ ASSUMED-TAUGHT AND OUT OF THE EXAMPLES: `kerajaan` (it is CARDED here
 // instead, which is why the examples can use it), `Hindu`, `dahulu` (only
@@ -74,7 +97,7 @@ export const ID_UNIT125 = {
         { id: "id-u125l1-masalampau", type: "vocab", front: "masa lampau", reading: "masalampau", meaning: "the distant past", example: { jp: "Mereka belajar tentang masa lampau dari batu.", en: "They learn about the distant past from stones and writing." }, accept: ["times long gone", "the far-off former time", "the bygone age"], drill: { jp: "Mereka belajar tentang masa lampau dari batu", en: "They learn about the distant past from stones" }, hint: "MA-sa lam-PAU — two words, and the last part rhymes with cow. Masa is a period and lampau is passed by. ⚠️ It folds to \"masalampau\" as a reading, with the space stripped, which was checked against every reading in the corpus before this card was written." },
         { id: "id-u125l1-berabadabad", type: "vocab", front: "berabad-abad", reading: "berabadabad", meaning: "over hundreds of years", example: { jp: "Candi itu berdiri berabad-abad sebelum orang menemukan lagi.", en: "That temple stood for centuries before people found it again." }, accept: ["lasting for centuries", "across many centuries", "for century after century"], drill: { jp: "Candi itu berdiri berabad-abad sebelum orang menemukan", en: "That temple stood for centuries before people found it" }, hint: "ber-A-bahd A-bahd — ber- plus a doubled abad, the century you already know, and the doubling here means many of them. ⚠️ The shorter taught front abad sits inside this one; that is fine, because a card only ever blanks its OWN front out of its own drill." },
         { id: "id-u125l1-prasejarah", type: "vocab", front: "prasejarah", reading: "prasejarah", meaning: "before writing existed", example: { jp: "Zaman prasejarah di pulau ini sangat lama sebelum kerajaan.", en: "The prehistoric age on this island was long before the kingdoms." }, accept: ["the time before records", "the era with no written trace", "prehistoric times"], drill: { jp: "Zaman prasejarah di pulau ini lama sebelum kerajaan", en: "The prehistoric age on this island was long before the kingdoms" }, hint: "pra-suh-ja-RAH — pra-, the Sanskrit prefix meaning before, on sejarah, history, which you already know. The definition is exact and worth holding: prasejarah is not just very old, it is before there was any WRITING to record it." },
-        { id: "id-u125l1-peradaban", type: "vocab", front: "peradaban", reading: "peradaban", meaning: "a civilisation", example: { jp: "Peradaban lama di sungai itu sudah hilang tanpa tulisan.", en: "The old civilisation on that river vanished without any writing." }, accept: ["a developed society of the past", "an advanced culture of its age", "a settled society with its own culture"], drill: { jp: "Peradaban lama di sungai itu sudah hilang", en: "The old civilisation on that river has vanished" }, hint: "puh-ra-DA-ban, from adab, which means good manners and refinement — so an Indonesian civilisation is literally a state of being civilised, and the word says so. Used of whole societies and of the idea of civilisation as such." },
+        { id: "id-u125l1-peradaban", type: "vocab", front: "peradaban", reading: "peradaban", meaning: "a civilisation", example: { jp: "Peradaban lama di sungai itu sudah hilang tanpa tulisan.", en: "The old civilisation on that river vanished without any writing." }, accept: ["a developed society of the past", "an advanced culture of its age", "a settled society with its own culture"], drill: { jp: "Peradaban lama di sungai itu sudah hilang", en: "The old civilisation on that river has vanished" }, hint: "puh-ra-DA-ban, per- and -an around adab, good manners and refinement, which IS taught in this band — so an Indonesian civilisation is literally a state of being civilised, and the word says so. Used of whole societies and of the idea of civilisation as such." },
       ],
     },
     {

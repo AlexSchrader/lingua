@@ -1,7 +1,8 @@
 // ID Unit 122 — Kematian dan perkabungan ("Death, mourning and inheritance") — B2
 // ─────────────────────────────────────────────────────────────────────────────
 // B2 block 3 (u114–u126). Conventions: unit1.js §1–12, unit21.js, unit51.js
-// §B1–B12, and unit114.js §C1–C10. §C8 governs the TONE of this unit in
+// §B1–B12, **block 1's §C1–C12 in unit88.js and §C-B4 in unit89.js** (which
+// bind u88–u126 and outrank the D-series), and unit114.js §D1–D11. §D8 governs the TONE of this unit in
 // particular — read it before editing a single example here.
 //
 // THE JUSTIFICATION, AND IT IS THE STRONGEST IN THE BAND. Funeral, mourning and
@@ -14,7 +15,7 @@
 // `mati` used of a person is blunt to the point of rudeness, so the corpus did
 // not merely lack the vocabulary — the one word it had was the wrong one.
 //
-// ⚠️ HOW THIS UNIT IS WRITTEN (§C8), and it is a rule, not a preference:
+// ⚠️ HOW THIS UNIT IS WRITTEN (§D8), and it is a rule, not a preference:
 //   • PLAIN AND FACTUAL, never grim and never pious. Every example is something
 //     a learner will actually need to say or understand: telling someone a
 //     relative has died, being told when the burial is, reading what was left.
@@ -84,7 +85,7 @@ export const ID_UNIT122 = {
       dominantMode: "recognize",
       canDo: "Say that someone has died, in the register Indonesian expects — and understand why using mati about a person is a mistake.",
       items: [
-        { id: "id-u122l1-meninggal", type: "vocab", front: "meninggal", reading: "meninggal", meaning: "to pass away", example: { jp: "Bapak itu meninggal di rumah sakit minggu lalu.", en: "That man passed away in hospital last week." }, accept: ["to die, said respectfully", "to be no longer living", "to die, of a person"], drill: { jp: "Bapak itu meninggal di rumah sakit minggu lalu", en: "That man passed away in hospital last week" }, hint: "muh-NING-gahl. ⚠️ THE IMPORTANT WORD IN THIS UNIT. You already know mati, which is correct for an animal, a plant, a machine or a battery and is RUDE about a person. Meninggal is the ordinary word for a human death, and the fuller meninggal dunia, left the world, is what an announcement says." },
+        { id: "id-u122l1-meninggal", type: "vocab", front: "meninggal", reading: "meninggal", meaning: "to pass away", example: { jp: "Bapak itu meninggal di rumah sakit minggu lalu.", en: "That man passed away in hospital last week." }, accept: ["to die, said respectfully", "to be no longer living", "to die, of a person"], drill: { jp: "Bapak itu meninggal di rumah sakit minggu lalu", en: "That man passed away in hospital last week" }, hint: "muh-NING-gahl. ⚠️ THE IMPORTANT WORD IN THIS UNIT. You already know mati, which is correct for an animal, a plant, a machine or a battery and is RUDE about a person. Meninggal is the ordinary word for a human death, and the fuller meninggal dunia, left the world, is what an announcement says. It is men- on tinggal, to stay or remain, which you have known since early on — so the word is literally \"left behind\", and peninggalan, what an age leaves behind, is the same root again." },
         { id: "id-u122l1-jenazah", type: "vocab", front: "jenazah", reading: "jenazah", meaning: "the body prepared for burial", example: { jp: "Jenazah akan dibawa ke desa besok pagi.", en: "The body will be taken to the village tomorrow morning." }, accept: ["a body being carried to burial", "the remains spoken of with respect", "the deceased's body, said respectfully"], drill: { jp: "Jenazah akan dibawa ke desa besok pagi", en: "The body will be taken to the village tomorrow morning" }, hint: "juh-na-ZAH, from Arabic. The respectful word, and the one in every announcement and at every mosque: salat jenazah is the funeral prayer. Against mayat in the next card, which is the plain one." },
         { id: "id-u122l1-mayat", type: "vocab", front: "mayat", reading: "mayat", meaning: "a corpse", example: { jp: "Mayat itu ditemukan di dekat sungai pagi ini.", en: "The body was found near the river this morning." }, accept: ["a dead body", "the body of someone who has died", "a dead body spoken of plainly"], drill: { jp: "Mayat itu ditemukan di dekat sungai pagi ini", en: "The body was found near the river this morning" }, hint: "MA-yaht. The PLAIN word — this is what a news report or a police statement uses, and the example is exactly the sentence it appears in. Using mayat where a family can hear you is cold; say jenazah there. Both words are needed, for different rooms." },
         { id: "id-u122l1-almarhum", type: "vocab", front: "almarhum", reading: "almarhum", meaning: "the deceased", example: { jp: "Almarhum bapak saya tinggal di desa yang kecil.", en: "My late father lived in a small village." }, accept: ["someone who has died, named with respect", "said before the name of someone deceased", "the one who has died, named respectfully"], drill: { jp: "Almarhum bapak saya tinggal di desa kecil", en: "My late father lived in a small village" }, hint: "al-mar-HOOM, from Arabic, literally the one shown mercy. Placed BEFORE the name or the relationship, exactly as in the example. The feminine is almarhumah, and Indonesian uses it. ⚠️ Not glossed \"the late\": terlambat, late, already owns that gloss once the grader strips the article." },

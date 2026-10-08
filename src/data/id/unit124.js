@@ -1,7 +1,8 @@
 // ID Unit 124 — Merantau dan perpindahan ("Migration and settlement") — B2
 // ─────────────────────────────────────────────────────────────────────────────
 // B2 block 3 (u114–u126). Conventions: unit1.js §1–12, unit21.js, unit51.js
-// §B1–B12, and unit114.js §C1–C10. Read unit114.js's header before editing this.
+// §B1–B12, **block 1's §C1–C12 in unit88.js and §C-B4 in unit89.js** (which
+// bind u88–u126 and outrank the D-series), and unit114.js §D1–D11. Read unit114.js's header before editing this.
 //
 // THE HOLE THIS FILLS. `desa` (u19), `penduduk` (u38), `paspor` (u23),
 // `urbanisasi` (u55), `bangsa` `asing` `warga` (u47) and `pengungsi`/`mengungsi`
@@ -41,12 +42,12 @@
 //
 // ⚠️ `mudik` AND `pulang kampung` ARE THE SAME THING AND ONLY ONE SHIPS.
 // `mudik` is the card. `pulang kampung` is refused on two counts: it is a
-// synonym under one gloss (§C3), and it FIRES-INSIDE `pulang`(u18), so the
+// synonym under one gloss (§D3), and it FIRES-INSIDE `pulang`(u18), so the
 // shorter taught front sits inside it as a whole word. `mudik`'s hint names
 // `pulang kampung` by word, which is how the learner still meets it.
 //
 // DERIVATION NOTES — THIS UNIT IS DENSE WITH THEM AND EVERY PAIR WAS TESTED
-// AGAINST §C4 AND unit1.js §3:
+// AGAINST §D4 AND unit1.js §3:
 //   `merantau`/`perantau`  the act and the person. Ships as a pair — rantau is
 //     not carded, and the two words are not predictable from each other.
 //   `pemukim`/`pemukiman`  the settler and the settlement. Same shape.
@@ -67,6 +68,20 @@
 //   `kerabat` TAKEN u68. `rindu` TAKEN u31. `tanah air` FIRES-INSIDE both
 //     `tanah`(u46) and `air`(u6). `desa` TAKEN u19, `penduduk` TAKEN u38,
 //     `paspor` TAKEN u23 — all three of the lead's claims verified true.
+//
+// AFFIX LEDGER, as block 1's §C4 requires — derivations off a TAUGHT root:
+//   `pendatang`    pen- on `datang`(u13)      a newcomer, with social weight
+//   `setempat`     se- on `tempat`(u7)        local TO here, not just a place
+//   `menetap`      men- on `tetap`(u29)       to settle for good
+//   `pengungsian`  pe-...-an on `mengungsi`(u75)  the camp, not the fleeing
+//   `perumahan`    pe-...-an on `rumah`(u4)   a built estate, not a house
+// ⚠️ FIVE TAUGHT ROOTS, above the max of 4 block 1 measured, so per §C4 here
+// is why: this unit's SUBJECT is derivational. Indonesian says migration with
+// affixes — merantau/perantau, pemukim/pemukiman, pendatang vs setempat — and
+// the contrasts ARE the content. Each names something its root does not; none
+// meets §C-B4's refusal test. Three further pairs are internal to this unit
+// (`merantau`/`perantau`, `pemukim`/`pemukiman`, and `perpindahan`, whose root
+// `pindah` is NOT taught), which §C4 explicitly calls house style.
 //
 // ⚠️ ASSUMED-TAUGHT WORDS CHECKED AND OUT OF THE EXAMPLES: `pindah` (so
 // `perpindahan` has no taught root to lean on and its hint says so), `hidup`,
@@ -128,7 +143,7 @@ export const ID_UNIT124 = {
         { id: "id-u124l3-visa", type: "vocab", front: "visa", reading: "visa", meaning: "an entry permit", example: { jp: "Visa itu hanya berlaku tiga bulan, tidak lebih.", en: "That permit is only valid for three months, no more." }, accept: ["a travel permit in a passport", "a stamp that lets you enter", "permission to enter a country"], drill: { jp: "Visa itu hanya berlaku tiga bulan saja", en: "That permit is only valid for three months" }, hint: "VEE-sa. The same word as in English, which is exactly why the gloss describes it instead: front and gloss being the same string makes a card answerable by typing the prompt back. Bebas visa, visa-free, is the phrase on an Indonesian arrival sign." },
         { id: "id-u124l3-imigrasi", type: "vocab", front: "imigrasi", reading: "imigrasi", meaning: "the border control desk", example: { jp: "Di imigrasi mereka meminta surat dari tempat bekerja.", en: "At passport control they asked for a letter from the workplace." }, accept: ["the immigration authority", "the office that checks entry", "the authority that controls entry"], drill: { jp: "Di imigrasi mereka meminta surat dari tempat bekerja", en: "At passport control they asked for a letter from the workplace" }, hint: "ee-mee-GRA-see. In practice this means the DESK and the OFFICE, not the phenomenon: kantor imigrasi is where you renew a permit, and antre di imigrasi is queueing at the airport. The English word stays in this hint." },
         { id: "id-u124l3-pengungsian", type: "vocab", front: "pengungsian", reading: "pengungsian", meaning: "a refugee camp", example: { jp: "Pengungsian itu dibuat di sekolah setelah gunung bergerak.", en: "The shelter was set up in a school after the mountain moved." }, accept: ["the sheltering of displaced people", "the place displaced people are housed", "an emergency shelter for the displaced"], drill: { jp: "Pengungsian itu dibuat di sekolah dekat gunung", en: "The shelter was set up in a school near the mountain" }, hint: "puh-ngoong-SEE-an. ⚠️ Built on pengungsi, a refugee, which you met in the war unit — and this unit deliberately teaches ONLY this one card off that root, because a second word for a refugee would be a prompt with two right answers. In Indonesia the commonest cause is not war but a volcano, which is what the example says." },
-        { id: "id-u124l3-deportasi", type: "vocab", front: "deportasi", reading: "deportasi", meaning: "being sent out of a country", example: { jp: "Dia kena deportasi karena surat izin dia sudah habis.", en: "He was sent out of the country because his permit had expired." }, accept: ["removal from a country by order", "expulsion from a country", "forced return to one's own country"], drill: { jp: "Dia kena deportasi karena surat izin sudah habis", en: "He was deported because his permit had expired" }, hint: "day-por-TA-see. The English word DEPORTATION, described in the gloss for the usual reason. A live word at this end of the business: Indonesians working abroad on expired papers, and foreigners overstaying in Indonesia, both meet it, and kena deportasi is the phrase." },
+        { id: "id-u124l3-deportasi", type: "vocab", front: "deportasi", reading: "deportasi", meaning: "being sent out of a country", example: { jp: "Dia mengalami deportasi karena surat izin dia sudah selesai.", en: "He was removed from the country because his permit had run out." }, accept: ["removal from a country by order", "expulsion from a country", "forced return to one's own country"], drill: { jp: "Dia mengalami deportasi karena surat izin selesai", en: "He was deported because his permit had run out" }, hint: "day-por-TA-see. The English word DEPORTATION, described in the gloss for the usual reason. A live word at this end of the business: Indonesians working abroad on expired papers, and foreigners overstaying in Indonesia, both meet it, and kena deportasi is the phrase — though kena itself is not a word this course has taught, so the example says mengalami." },
       ],
     },
     {

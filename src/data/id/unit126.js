@@ -1,8 +1,9 @@
 // ID Unit 126 — Canda, usik, dan taruhan ("Joking, teasing and wagering") — B2
 // ─────────────────────────────────────────────────────────────────────────────
 // B2 block 3 (u114–u126) — THE LAST UNIT OF THE BAND. Conventions: unit1.js
-// §1–12, unit21.js, unit51.js §B1–B12, unit88.js §C1–C12, unit89.js §C-B4, and
-// unit114.js §C1–C10. Read unit114.js's header before editing this.
+// §1–12, unit21.js, unit51.js §B1–B12, unit88.js §D1–C12, unit89.js §C-B4, and
+// **block 1's §C1–C12 in unit88.js and §C-B4 in unit89.js** (which bind
+// u88–u126 and outrank the D-series), and unit114.js §D1–D11. Read unit114.js's header before editing this.
 //
 // THE HOLE THIS FILLS. `lucu` and `tertawa` (u18/u20) were the whole of humour,
 // and u64 (B1) took SCREEN AND STAGE entertainment — `lelucon` `menghibur`
@@ -43,7 +44,7 @@
 //   `lucu` TAKEN u20, `tertawa` TAKEN u18, `kartu` TAKEN u41.
 // All five of the crew lead's claims for this slot verified true.
 //
-// §C4 CUT FOUR MORE FRONTS, all of them one root wearing a second coat:
+// §D4 CUT FOUR MORE FRONTS, all of them one root wearing a second coat:
 //   `gurau` family — `gurauan` (the jest) ships; `bergurau` and `senda gurau`
 //     are the same word doing the same job and are named in its hint.
 //   `canda` family — `bercanda` (the act) ships; `candaan` is cut.

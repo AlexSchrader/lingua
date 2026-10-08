@@ -1,7 +1,8 @@
 // ID Unit 118 — Tumbuhan, bunga, dan pepohonan ("Plants, flowers and trees") — B2
 // ─────────────────────────────────────────────────────────────────────────────
 // B2 block 3 (u114–u126). Conventions: unit1.js §1–12, unit21.js, unit51.js
-// §B1–B12, and unit114.js §C1–C10. Read unit114.js's header before editing this.
+// §B1–B12, **block 1's §C1–C12 in unit88.js and §C-B4 in unit89.js** (which
+// bind u88–u126 and outrank the D-series), and unit114.js §D1–D11. Read unit114.js's header before editing this.
 //
 // THE HOLE THIS FILLS. The course taught `pohon` `daun` `bunga` (u19), `akar`
 // `rumput` `menanam` `biji` (u46) and the whole farm at u84 — and had no word
@@ -37,7 +38,7 @@
 //             unit's wild plant. Probed free; left free, and named here so the
 //             next seat does not re-propose it as a gap.
 //   `rindang`/`rimbun`  a synonym pair for leafy shade. `rindang` ships;
-//             `rimbun` is named in its hint (§C3).
+//             `rimbun` is named in its hint (§D3).
 //   `teratai` `kamboja` ship; `bugenvil` `perdu` `belukar` `pupus` `gugur`
 //             `tunggul` `bonggol` `umbi` `rimpang` `kunyit` `jahe` `serai`
 //             `pandan` all probed free and were cut at 24. The spice PLANTS

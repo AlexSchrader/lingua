@@ -1,7 +1,8 @@
 // ID Unit 119 — Burung dan serangga ("Birds and insects") — B2
 // ─────────────────────────────────────────────────────────────────────────────
 // B2 block 3 (u114–u126). Conventions: unit1.js §1–12, unit21.js, unit51.js
-// §B1–B12, and unit114.js §C1–C10. Read unit114.js's header before editing this.
+// §B1–B12, **block 1's §C1–C12 in unit88.js and §C-B4 in unit89.js** (which
+// bind u88–u126 and outrank the D-series), and unit114.js §D1–D11. Read unit114.js's header before editing this.
 //
 // THE HOLE THIS FILLS, AND IT IS NARROWER THAN IT LOOKS BECAUSE u85 GOT THERE
 // FIRST. u85 (B1) already taught `kupu-kupu` `lalat` `sayap` `bulu` `sarang`
@@ -22,7 +23,7 @@
 //     for the stage in between.
 //
 // ⚠️ `cakar` AND `sengat` ARE ROOTS WHOSE me- VERBS ALREADY EXIST OR SHIP HERE,
-// and that is deliberate under §C4 and unit1.js §3:
+// and that is deliberate under §D4 and unit1.js §3:
 //   `cakar` (a claw, the thing) — `mencakar` (to scratch) is u85's. Second card
 //     off the root, across units. The thing vs the act, the `pahat`/`memahat`
 //     shape. The hint names u85's word by word, not by number (§10).
@@ -38,7 +39,7 @@
 //
 // FRONTS REFUSED, NAMED NOT BURIED:
 //   `kepakan`  the noun off `kepak`, where `mengepak` the verb ships. Same root
-//              twice with no new meaning — §C4's ❌ case.
+//              twice with no new meaning — §D4's ❌ case.
 //   `mengerat` `menggerogoti` `melata` `tungau` `mendesis` `mencabik`
 //   `melayang` `bersarang` — probed free, cut at 24. `menggerogoti` (to gnaw
 //              away at) is the best refill and pairs naturally with `rayap`.

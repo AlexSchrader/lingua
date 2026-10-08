@@ -1,7 +1,8 @@
 // ID Unit 120 — Kerajinan dan tenun ("Craft and weaving") — B2
 // ─────────────────────────────────────────────────────────────────────────────
 // B2 block 3 (u114–u126). Conventions: unit1.js §1–12, unit21.js, unit51.js
-// §B1–B12, and unit114.js §C1–C10. Read unit114.js's header before editing this.
+// §B1–B12, **block 1's §C1–C12 in unit88.js and §C-B4 in unit89.js** (which
+// bind u88–u126 and outrank the D-series), and unit114.js §D1–D11. Read unit114.js's header before editing this.
 //
 // THE HOLE THIS FILLS. `batik` and `menjahit` (u87), `kain` (u82), `serat`
 // (u67) and `pola` (u58) were the whole of making things by hand in a country
@@ -16,7 +17,7 @@
 //   seam — the noun. That is the right split anyway: sewing a shirt is clothing,
 //   and the stitched join is an object a craftsperson is judged on.
 //
-// §C4 APPLIED HARD, AND IT CUT FIVE FRONTS. A bare root plus its me- verb is
+// §D4 APPLIED HARD, AND IT CUT FIVE FRONTS. A bare root plus its me- verb is
 // one word twice unless the root is itself a noun with its own job. The crew
 // lead's candidate list offered both halves of five pairs; one card ships from
 // each:
@@ -45,7 +46,7 @@
 // Indonesian tile shops distinguish all three and so does this unit.
 //
 // FRONTS REFUSED, NAMED NOT BURIED:
-//   bare `tenun` `sulam` `rajut` `tempa`  — §C4, above.
+//   bare `tenun` `sulam` `rajut` `tempa`  — §D4, above.
 //   `renda` (lace)  probed free, cut at 24. It belongs with textiles and is the
 //                   first refill for lesson 2.
 //   `patung`  ⚠️ WAS CARDED HERE AND IS NOW DROPPED. Block 1 holds it at u96

@@ -1,7 +1,8 @@
 // ID Unit 123 — Gerak tubuh dan mimik ("Gesture, expression and bearing") — B2
 // ─────────────────────────────────────────────────────────────────────────────
 // B2 block 3 (u114–u126). Conventions: unit1.js §1–12, unit21.js, unit51.js
-// §B1–B12, and unit114.js §C1–C10. Read unit114.js's header before editing this.
+// §B1–B12, **block 1's §C1–C12 in unit88.js and §C-B4 in unit89.js** (which
+// bind u88–u126 and outrank the D-series), and unit114.js §D1–D11. Read unit114.js's header before editing this.
 //
 // THE HOLE THIS FILLS. `tersenyum` (u20), `menunjuk` and `menyentuh` (u39) were
 // the entire repertoire of what a body says without words. The learner could
@@ -25,7 +26,7 @@
 // TWO GLOSS COLLISIONS MEASURED (gloss-taken.mjs id):
 //   "to wave" → ombak@u76. A sea wave and a hand wave are one English word,
 //     and `ombak`'s card got there first. So `melambai` is "to signal with a
-//     raised hand". This is the purest example of why §C2 exists: the front was
+//     raised hand". This is the purest example of why §D2 exists: the front was
 //     free, the theme was free, and the obvious gloss belonged to a wave of water.
 //   "to grip" → memegang@u25. So `menggenggam` is "to close the hand around
 //     something" — which is also the truer gloss, since menggenggam is
@@ -39,7 +40,7 @@
 // FRONTS REFUSED, NAMED NOT BURIED:
 //   `melirik`  the verb beside `lirikan`, the noun, which ships. One root, and
 //              the noun is the thing a learner needs to recognise in writing.
-//              §C4's ❌ case.
+//              §D4's ❌ case.
 //   `tersenyum` TAKEN u20. `menunjuk` and `menyentuh` TAKEN u39 — all three of
 //              the lead's "taken" claims for this slot verified true.
 //   `mengacungkan` `mendelik` `mengerling` `bertepuk tangan` `menjabat`
@@ -50,7 +51,7 @@
 // is a wrinkle and the intransitive is `berkerut`; what a person DOES is
 // `mengerutkan dahi`, to knit the brow, which needs the object. The drill
 // carries the front as a whole word, which the -kan form makes natural and the
-// bare root would not (§C5, and unit1.js §4's headwording rule).
+// bare root would not (§D5, and unit1.js §4's headwording rule).
 //
 // ⚠️ FIVE WORDS I ASSUMED TAUGHT AND ARE NOT, and three of them hurt this unit
 // specifically: `muka` (face) — only `wajah` is taught; `lidah` (tongue), which

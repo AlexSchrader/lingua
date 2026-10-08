@@ -1,7 +1,8 @@
 // ID Unit 116 — Penerbangan dan angkasa ("Aviation and space") — B2
 // ─────────────────────────────────────────────────────────────────────────────
 // B2 block 3 (u114–u126). Conventions: unit1.js §1–12, unit21.js, unit51.js
-// §B1–B12, and unit114.js §C1–C10. Read unit114.js's header before editing this.
+// §B1–B12, **block 1's §C1–C12 in unit88.js and §C-B4 in unit89.js** (which
+// bind u88–u126 and outrank the D-series), and unit114.js §D1–D11. Read unit114.js's header before editing this.
 //
 // THE HOLE THIS FILLS. `bandara` (u23) was the entire aviation vocabulary of a
 // country where flying between islands is the only practical way to travel.
@@ -23,7 +24,7 @@
 // Both were found BEFORE a card was written and both are the same trap: the
 // plain English phrasal verb was already somebody's accept entry.
 //
-// COGNATES — EVERY ONE CARRIES A DESCRIPTIVE GLOSS (§C1), AND THIS UNIT IS WHERE
+// COGNATES — EVERY ONE CARRIES A DESCRIPTIVE GLOSS (§D1), AND THIS UNIT IS WHERE
 // THAT RULE EARNS ITS KEEP. `satelit` `roket` `orbit` `planet` `teleskop`
 // `gravitasi` `pilot` `komet` are all readable by an English speaker, so a gloss
 // of the English twin makes `produceIsFreePass` TRUE and the learner types the
@@ -35,7 +36,7 @@
 //
 // FRONTS REFUSED, NAMED NOT BURIED:
 //   `orbit`     bare. It is the root of `mengorbit`, which this unit DOES teach,
-//               so carding both is one word twice (§C4) — and the bare noun is
+//               so carding both is one word twice (§D4) — and the bare noun is
 //               the harder of the two to gloss without its English twin.
 //   `astronaut` the English spelling. Indonesian's own forms are `astronot` and
 //               `antariksawan`; `antariksawan` is -wan off `antariksa`, which

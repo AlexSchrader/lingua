@@ -2,7 +2,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // B2 block 3 (u114–u126). The 12 A1 conventions in unit1.js, the 10 A2
 // conventions in unit21.js and the 12 B1 conventions in unit51.js ALL BIND this
-// file. The B2 block-3 conventions are §C1–C9 at the foot of THIS header and bind
+// file. The B2 block-3 conventions are §D1–C9 at the foot of THIS header and bind
 // u114–u126; they do NOT renumber B1's B1–B12, which unit51.js owns.
 //
 // THE HOLE THIS FILLS, measured against all 2,088 A1+B1 cards. The course taught
@@ -60,11 +60,17 @@
 //                  `pesisir` is not derived from a comb. Letters only.
 // ─────────────────────────────────────────────────────────────────────────────
 // AUTHORING CONVENTIONS FOR id B2 BLOCK 3 — binding on u114–u126.
-// Numbered C-series on purpose: unit51.js owns B1–B12 for this language and
-// reusing those numbers would make two different rules share one name.
+// Numbered D-series on purpose, and it was RENUMBERED after block 1 handed
+// back: unit51.js owns B1–B12 for this language, and block 1 — the crew lead —
+// owns **C1–C12 in unit88.js, which bind u88–u126 and therefore bind this file
+// too**. These were drafted as a C-series before block 1 merged, which would
+// have left two different rules sharing the name "C4". The lead's C-series
+// wins; mine moved to D. **Block 1's C1–C12 and unit89.js §C-B4 outrank
+// everything below** — read them first; the D-series only adds what they do not
+// already cover.
 // ─────────────────────────────────────────────────────────────────────────────
 //
-// C1. **A COGNATE IS NOT BANNED — ITS GLOSS IS.** Indonesian borrows heavily, so
+// D1. **A COGNATE IS NOT BANNED — ITS GLOSS IS.** Indonesian borrows heavily, so
 //     a B2 technical band is full of fronts an English reader can already read:
 //     `satelit` `roket` `orbit` `planet` `teleskop` `visa` `migran` `marmer`
 //     `granit` `nikel` `aluminium` `motif` `dinasti` `artefak` `kremasi`
@@ -80,21 +86,21 @@
 //     A twin inside `accept[]` reopens the hole: `normalizeMeaning` is applied to
 //     accept entries too. `visa` + accept "a visa" measured FREEPASS-meaning.
 //
-// C2. **GLOSS BEFORE FRONT, ALWAYS, AND `gloss-taken.mjs` IS NOT OPTIONAL.** This
+// D2. **GLOSS BEFORE FRONT, ALWAYS, AND `gloss-taken.mjs` IS NOT OPTIONAL.** This
 //     band's themes are dense with near-synonyms of taught words (five words for
 //     a grave, three for an anchor, two for powder). A free front with a taken
 //     gloss is still an unanswerable card. u114 alone found six collisions
 //     BEFORE any card was written. Probe the `accept[]` entries too — half of the
 //     six were in draft accepts, not in a `meaning`.
 //
-// C3. **A SYNONYM PAIR IS NOT TWO CARDS.** Where two fronts mean one thing and no
+// D3. **A SYNONYM PAIR IS NOT TWO CARDS.** Where two fronts mean one thing and no
 //     honest discriminating gloss exists, ONE ships and the other is named in the
 //     survivor's hint. `jangkar`/`sauh`, `makam`/`pusara`, `mudik`/`pulang
 //     kampung`, `rindang`/`rimbun`, `awet`/`tahan lama` were each resolved this
 //     way. The learner still meets the dropped word — as a word in a hint, which
 //     costs nothing and cannot be a broken prompt.
 //
-// C4. **A BARE ROOT PLUS ITS me-/ber- VERB IS ONE WORD TWICE, UNLESS THE ROOT IS
+// D4. **A BARE ROOT PLUS ITS me-/ber- VERB IS ONE WORD TWICE, UNLESS THE ROOT IS
 //     ITSELF A NOUN WITH ITS OWN JOB.** unit1.js §3's test applied to this band's
 //     craft and mining lists. ✅ `pahat` (a chisel) + `memahat` (to carve) —
 //     tool vs act, the `jalan`/`berjalan` precedent. ✅ `tambang` (a mine) +
@@ -103,20 +109,20 @@
 //     `kubur`+`menguburkan`: in each of those the bare root is only the verb's
 //     stem, so ONE card ships.
 //
-// C5. **EVERY DRILL IS CHECKED MECHANICALLY, NOT BY READING IT.** 3–8 whitespace
+// D5. **EVERY DRILL IS CHECKED MECHANICALLY, NOT BY READING IT.** 3–8 whitespace
 //     tokens, no sentence-internal punctuation, and the `front` present as a
 //     WHOLE WORD (`findWholeWord`, cardRouting.js) — `lint` only does a substring
 //     test and will pass a drill that cannot route. Multi-word fronts in this
 //     block (`batu bara`, `awak kabin`, `lepas landas`, `suku cadang`, `masa
 //     lampau`, `tata surya`) must appear with their internal space intact.
 //
-// C6. **MULTI-WORD AND REDUPLICATED FRONTS: FOLD THEM AND CHECK THE READING.**
+// D6. **MULTI-WORD AND REDUPLICATED FRONTS: FOLD THEM AND CHECK THE READING.**
 //     unit1.js §9 — the fold strips spaces and hyphens, so `batu bara` reads
 //     "batubara" and `untung-untungan` reads "untunguntungan". All ten of this
 //     block's folded readings were run through `reading-taken.mjs id` before any
 //     card was written: **all free**. Re-run it if you add one.
 //
-// C7. **`candidate-check` FIRES-INSIDE IS INFORMATION, NOT A VETO.** It reports
+// D7. **`candidate-check` FIRES-INSIDE IS INFORMATION, NOT A VETO.** It reports
 //     that a taught front sits inside a candidate as a whole word — `batu`(u46)
 //     inside `batu bara`, `suku`(u35) inside `suku cadang`, `untung`(u28) inside
 //     `untung-untungan`, `abad`(u59) inside `berabad-abad`. `canCloze` blanks an
@@ -124,7 +130,7 @@
 //     own card. What it means in practice: do not write the SHORTER front's drill
 //     using the longer phrase. Checked for all four.
 //
-// C8. **THE MOURNING UNIT (u122) IS WRITTEN PLAIN, NEVER GRIM AND NEVER PIOUS.**
+// D8. **THE MOURNING UNIT (u122) IS WRITTEN PLAIN, NEVER GRIM AND NEVER PIOUS.**
 //     Funeral, mourning and inheritance vocabulary was 0 of 2,088 — the largest
 //     untouched human domain in the language — and the reason it is hard to write
 //     is not the words. Examples state facts a learner will actually need
@@ -134,12 +140,64 @@
 //     taught beside them because Bali and the Chinese-Indonesian community are
 //     not a footnote. No example assumes the learner's own religion.
 //
-// C9. **CARD-VARIETY AND THE SHIP GATE'S AUDIO CHECK ARE RED FOR THIS BAND, BY
+// D9. **CARD-VARIETY AND THE SHIP GATE'S AUDIO CHECK ARE RED FOR THIS BAND, BY
 //     DESIGN.** unit51.js §B10 still holds: `listen:choice`, `listen:type` and
 //     `speak` all gate on `hasAudio`, so every unvoiced B2 item routes to
 //     `type:produce` alone. **Do NOT raise `SINGLE_KIND_CEILING`** and do not
 //     touch the ship gate's audio assertion. The merge seat voices the band in
 //     one paid run; the number is the only signal that it still needs doing.
+// D10. **A DRILL TRIMMED FROM AN EXAMPLE KEEPS ONE CLAUSE TOO MANY — I DID IT
+//     NINETEEN TIMES IN THIRTEEN UNITS.** `sentenceTokens` bounds
+//     `sentence:build` to 3–8 tiles, so a 9-token drill routes to nothing.
+//     MEASURED while authoring u114–u126: **19 drills over the bound**, worst
+//     cases u122 (3 in one unit) and u124 (7 across two passes). EVERY ONE had
+//     the same cause — the drill was written by deleting a clause from a long
+//     `example` and the remaining sentence still carried a
+//     `karena`/`jadi`/`sebelum` tail.
+//     ⚠️ **THIS BULLET FIRST CLAIMED "nothing in the shipped toolchain catches
+//     one". THAT IS FALSE AND I CHECKED IT ONLY AFTER WRITING IT.**
+//     `src/data/lint.js:478` emits `drill "..." is N tokens — needs 3-8 to tile
+//     into sentence:build`, as a WARNING. So the toolchain does catch it; what
+//     is true is weaker and still worth knowing: it is **one advisory line among
+//     6,500**, so it is invisible unless you grep for it. Corrected in place
+//     rather than appended to, per CLAUDE.md.
+//     **So: write the drill FIRST and short, and grep `needs 3-8 to tile` as
+//     part of your gate.** An 8-token ceiling is roughly "subject + verb + one
+//     short complement"; if it has a conjunction in it, it is probably over.
+//     ⚠️ 12 such drills are OPEN on sibling branches as of this merge — u106,
+//     u109, u110, u111, u113, all block 2's. Named here, not fixed: they are
+//     another seat's units.
+//     ⚠️ Same defect class as the 23 found in one hi B2 block and 4 in an id B1
+//     block, so it is not a quirk of this seat — it is what trimming an example
+//     produces, in every language.
+//
+// D11. 🚨 **MY OWN PER-UNIT GATE CLAIM WAS WRONG IN ALL THIRTEEN COMMITS, AND
+//     THIS IS THE RETRACTION.** Each commit message for u114–u126 says
+//     `lint:curriculum 0 errors, 0 warnings in u1NN`. The 0 errors is true and
+//     reproducible. **The "0 warnings" is NOT.** It came from
+//     `npm run lint:curriculum 2>&1 | grep -E "id-u1NN|is the prompt for"`
+//     returning nothing, and that command CANNOT BE REPRODUCED — run again on
+//     the same content it returns 8 lines for u121. The lint writes ~1.3 MB and
+//     I believe the pipe was truncated on this Windows seat; I cannot prove it,
+//     which is exactly why the claim has to go rather than be explained.
+//     **MEASURED NOW, on the merged branch, and this is the number to trust:**
+//       validate:content         0 errors, 0 warnings
+//       lint:curriculum          0 errors, 6,501 warnings corpus-wide
+//       warnings inside u114–u126  **48**, and all 48 are ONE class: an example
+//                                or drill using a `di-` passive of a taught verb
+//                                (dibawa dibuat dipakai dijual dibaca disimpan
+//                                ditulis dibagi disentuh dibangun dibantu
+//                                dicari diganti dimakan diminum dipotong
+//                                dirusak diubah ditaruh ditutup dibakar dilihat)
+//       shared-prompt ("is the prompt for")  **0**, corpus-wide
+//     The `di-` passive IS taught, at u70l1, and neither the lint nor
+//     `scope-strict-drills` has morphology — both their headers say so. So the
+//     48 are a known false-positive class, not residue. **But "48 warnings, all
+//     one known class" is the honest sentence and "0 warnings" was not.**
+//     **THE LESSON FOR THE NEXT SEAT: never report a gate number from a grep
+//     you have not re-run at least once.** A silent empty pipe reads exactly
+//     like a pass.
+//
 // ─────────────────────────────────────────────────────────────────────────────
 export const ID_UNIT114 = {
   id: "id-u114",
@@ -212,7 +270,7 @@ export const ID_UNIT114 = {
         { id: "id-u114l4-pukat", type: "vocab", front: "pukat", reading: "pukat", meaning: "a trawl net", example: { jp: "Pukat besar merusak terumbu karena kapal menarik pukat di bawah air.", en: "Big trawl nets damage reefs because the boat drags them under water." }, accept: ["a dragnet", "a seine net", "a net towed by a boat"], drill: { jp: "Pukat besar merusak terumbu di bawah air", en: "Big trawl nets damage reefs under water" }, hint: "POO-kaht. The big net a boat tows. Pukat harimau, literally tiger net, is the Indonesian name for a bottom trawl, and it is banned in Indonesian waters for exactly the reason in the example." },
         { id: "id-u114l4-muatan", type: "vocab", front: "muatan", reading: "muatan", meaning: "a cargo load", example: { jp: "Muatan kapal itu terlalu berat untuk air yang rendah.", en: "That ship's load is too heavy for low water." }, accept: ["freight", "a shipment on board", "the load carried"], drill: { jp: "Muatan kapal itu terlalu berat sekarang", en: "That ship's load is too heavy now" }, hint: "moo-A-tahn. What has been loaded, as a quantity. From muat, to fit or to hold — a bus that says tidak muat is full. Also used of a truck and of electrical charge." },
         { id: "id-u114l4-pelampung", type: "vocab", front: "pelampung", reading: "pelampung", meaning: "a buoy", example: { jp: "Setiap orang di kapal harus tahu di mana pelampung ada.", en: "Everyone on the ship has to know where the life rings are." }, accept: ["a life ring", "a float marker", "a flotation device"], drill: { jp: "Setiap orang harus tahu di mana pelampung ada", en: "Everyone has to know where the life rings are" }, hint: "puh-lam-POONG. Anything that floats on purpose — a channel marker, a life ring, the armbands a child wears. From apung, to float. Jaket pelampung is a life jacket." },
-        { id: "id-u114l4-tenggelam", type: "vocab", front: "tenggelam", reading: "tenggelam", meaning: "to sink", example: { jp: "Perahu itu tenggelam dekat terumbu dan semua awak bisa pulang.", en: "That boat sank near the reef and all the crew got home." }, accept: ["to go under", "to founder", "to be submerged"], drill: { jp: "Perahu itu tenggelam dekat terumbu karang", en: "That boat sank near the coral reef" }, hint: "teng-guh-LAHM, with ngg — the hum plus a hard g. Of a vessel, of a person in water, and of the sun: matahari tenggelam is how Indonesian says the sun sets. Also used of being swamped by work." },
+        { id: "id-u114l4-tenggelam", type: "vocab", front: "tenggelam", reading: "tenggelam", meaning: "to sink", example: { jp: "Perahu itu tenggelam dekat terumbu dan semua awak bisa pulang.", en: "That boat sank near the reef and all the crew got home." }, accept: ["to go under", "to go down beneath the water", "to be submerged"], drill: { jp: "Perahu itu tenggelam dekat terumbu karang", en: "That boat sank near the coral reef" }, hint: "teng-guh-LAHM, with ngg — the hum plus a hard g. Of a vessel, of a person in water, and of the sun: matahari tenggelam is how Indonesian says the sun sets. Also used of being swamped by work. ⚠️ \"To founder\" is deliberately NOT in this card's accept list — pendiri, a founder, is taught in this band and the grader cannot tell the two English words apart." },
         { id: "id-u114l4-surut", type: "vocab", front: "surut", reading: "surut", meaning: "to ebb", example: { jp: "Kalau air surut, orang bisa jalan sampai ke terumbu itu.", en: "When the water ebbs, people can walk all the way out to that reef." }, accept: ["to recede", "to fall back", "to go down of water"], drill: { jp: "Kalau air surut orang bisa jalan jauh", en: "When the water ebbs people can walk far out" }, hint: "SOO-root. Air surut is low tide; the rising tide is air pasang. Bare pasang is not taught as a card in this course, because the one front would have to carry the tide, a pair, and the act of installing something — the verb memasang, to install, IS taught and is the form you will meet. Surut also describes a crowd or a fever dying down." },
       ],
     },

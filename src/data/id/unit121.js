@@ -1,7 +1,8 @@
 // ID Unit 121 — Rawat, rusak, dan perbaikan ("Wear, failure and repair") — B2
 // ─────────────────────────────────────────────────────────────────────────────
 // B2 block 3 (u114–u126). Conventions: unit1.js §1–12, unit21.js, unit51.js
-// §B1–B12, and unit114.js §C1–C10. Read unit114.js's header before editing this.
+// §B1–B12, **block 1's §C1–C12 in unit88.js and §C-B4 in unit89.js** (which
+// bind u88–u126 and outrank the D-series), and unit114.js §D1–D11. Read unit114.js's header before editing this.
 //
 // THE HOLE THIS FILLS. `rusak` (u25) was the single word for everything that
 // has gone wrong with an object, from a hairline crack to a collapsed roof, and
@@ -30,10 +31,10 @@
 //   "a repair"      → memperbaiki@u25  so `perbaikan`  is "the putting right of a fault"
 //
 // FRONTS REFUSED, NAMED NOT BURIED:
-//   `melapuk`     the me- verb of `lapuk`, which ships as the adjective. §C4 ❌.
+//   `melapuk`     the me- verb of `lapuk`, which ships as the adjective. §D4 ❌.
 //   `tahan lama`  a near-synonym of `awet` with no honest discriminating gloss,
 //                 AND it FIRES-INSIDE `lama` (u10). `awet` ships; `tahan lama`
-//                 is named in its hint (§C3).
+//                 is named in its hint (§D3).
 //   `memperbaiki` TAKEN u25, above. `macet` TAKEN u23. `pudar` TAKEN u59.
 //                 `longgar` TAKEN u61. `berfungsi` TAKEN u42. `terbengkalai`
 //                 TAKEN u60 — all five probed and all five are somebody's.
