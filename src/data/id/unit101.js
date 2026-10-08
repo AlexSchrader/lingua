@@ -109,6 +109,77 @@
 //      thing are taught side by side on purpose and the substring test is safe
 //      both ways (the shared string is never a whole word in the other).
 //
+// BB10. **ANSWERING unit88.js §C4's CIRCUMFIX TEST AND ITS "SAY WHY" CLAUSE.**
+//      §C4 asks: does the ke-…-an / pe-…-an noun name something the root does
+//      not? And it requires every family listed with its root, the root named in
+//      the hint, and a reason whenever a unit runs long. Measured over u101–u113
+//      with block 1's FIXED `candidate-check.mjs` (the only version that sees a
+//      circumfix at all), counting distinct taught roots:
+//        u101 5 · u102 2 · u103 1 · u104 3 · u105 2 · u106 5 · **u107 14** ·
+//        u108 4 · u109 3 · u110 3 · u111 1 · **u112 6** · u113 1.
+//      Two units run long and both have a reason:
+//      • **u107 IS the nominalisation slot.** The brief's words: "the ke-…-an /
+//        pe-…-an nominalisation chain **as a productive pattern**". §C4 is
+//        written for THEMED units, where a free-gift noun is filler; in a pattern
+//        unit the pattern IS the content, and a learner who meets fourteen in a
+//        planned order leaves able to build the frame off any adjective they own
+//        — which fourteen separate themed nouns could not teach them. **If the
+//        lead disagrees, the cheapest cut is l2's `kemampuan` `keberhasilan`
+//        `kegagalan`, the three closest to free gifts; l3 and l4 stand on
+//        `pendekatan` `penilaian` `pengembangan` `perubahan`, which pass §C4
+//        outright.**
+//      • **u112 is at 6 because twelve of its obvious adjectives were already
+//        taught** (that file's §P1 names all twelve). With `stres` `cemas`
+//        `gelisah` `lelah` `tenang` `sembuh` and six more spoken for, the only
+//        way into the clinical frame is the noun: `kecemasan` is a condition and
+//        `cemas` a mood; `kelelahan` is a diagnosis and `lelah` is tonight.
+//      ⚠️ §C4's closing note is honoured throughout: **a verb beside its own noun
+//      in one lesson is house style, not a violation** — u111 l1 carries
+//      `mengandung`/`kandungan`, u112 l4 `pulih`/`memulihkan`, u104 l4
+//      `citra`/`pencitraan`, u113 l1 `kantuk`/`mengantuk`, each saying "the noun
+//      of the card before it" in its hint.
+//
+// BB11. **unit89.js §C-B4 APPLIED, AND IT COST ONE CARD.** It refuses a
+//      derivation when (a) the root is taught AND (b) the affix is one u70
+//      teaches as a grammar pattern (mem-…-kan causative, di- passive, ter-
+//      stative) AND (c) the derived meaning is fully compositional.
+//      • **REFUSED:** `terbangun` ← `bangun`(u4) — all three held, since ter-
+//        plus bangun IS "woken involuntarily" and nothing more. Replaced with
+//        `terlelap` (u113 l3), whose root `lelap` is untaught, so (a) fails.
+//      • **KEPT WITH REASONS, because §C-B4 is deliberately narrower than a ban
+//        and CLAUDE.md records German losing 17 core words to the broad
+//        reading:** `terpukul` (devastated ≠ hit) · `terjaga` (lying awake ≠
+//        guarding) · `terhormat` (a salutation label) · `mengaburkan`
+//        (deliberate obfuscation ≠ blurry) · `membesarkan` (raising a child ≠
+//        making big) · `menerbitkan` (a publishing act; `penerbit` is taught) ·
+//        `menenangkan` (reassuring a person ≠ making calm) · `terbarukan`
+//        (ter-…-kan is not one of u70's frames).
+//      ⚠️ **THE HOLE THAT PROBE STILL HAS: it STRIPS affixes and never ADDS one**,
+//      so a taught front that is MY front PLUS a suffix is invisible to it. I
+//      wrote a throwaway inverse checker and it found exactly one across 312
+//      fronts: **`menghadap`(u109) vs taught `menghadapi`(u60)**. Kept —
+//      menghadapi takes a problem, menghadap takes a person above you, and the
+//      argument structures differ — but the hint now names `menghadapi` in its
+//      first line, because a learner WILL conflate them. The same checker
+//      cleared `nir- pra- pasca- swa- antar- maha-`: my only two are
+//      `pascasarjana` (root carded in the same unit) and `antarnegara` (written
+//      solid, `negara` in examples only), both already documented.
+//
+// BB12. 🚨 **NO uNN CITATIONS IN HINTS — unit1.js §10, AND I HAD BROKEN IT 222
+//      TIMES.** §10 bans them outright ("one sweep found 33 wrong, one pointing
+//      twelve units forward... Refer to words BY NAME"), and I had written "which
+//      you know from u10" and similar in **187 of my 312 hints**. Worse, the
+//      fixed probe showed several numbers were simply wrong — `tipis` is u30 not
+//      u10, `sehat` u11 not u20, `mampu` u21 not u37, `tergantung` u21 not u54,
+//      `tersedia` u70 not u38, `dekat` u7 not u11, `gambar` u26 not u18, `duduk`
+//      u1 not u4 — which is §10's stated failure mode happening in real time.
+//      **All 222 are gone, every hint now names the word, and
+//      `hint-unit-refs.mjs id` is clean.** Unit numbers stay in these header
+//      comments, which seats read and learners do not.
+//      ⚠️ If you automate this, protect backslash escapes FIRST: my first pass
+//      matched the u2014 inside the em-dash escape and corrupted ~40 hints
+//      before I reverted it.
+//
 // BB9. 🚨 **STEP 4 IS NOT OPTIONAL AND IT COST ME 20 RE-AUTHORED CARDS.**
 //      After my 13 units were green on this branch alone, I merged
 //      `content/id-b2-block1` (u88–u100) and `content/id-b2-block3`
@@ -178,11 +249,14 @@
 //      when a disaster lands.
 //
 // §P2. AFFIX ROOTS STRIPPED AND GREPPED BY HAND (unit1 §3 / unit51 B5):
-//      terbarukan → baru        ⚠️ `baru` IS taught (u5). Carded: "new" and
+//      terbarukan → baru        ⚠️ `baru` IS taught (u5), and the fixed probe reads
+//        this as a ter-…-kan circumfix on it. Kept under §C-B4: ter-…-kan is not
+//        one of u70's patterns and "renewable" is not compositional from "new".
+//        Carded: "new" and
 //        "renewable" are plainly two words, and `terbarukan` only ever appears in
 //        `energi terbarukan`. Drill-safe: "terbarukan" holds "baru" at index 3,
 //        preceded by `r`, so findWholeWord matches in neither direction.
-//      menipis → tipis          ⚠️ `tipis` IS taught (u10, "thin"). A stock
+//      menipis → tipis          ⚠️ `tipis` IS taught (u30, "thin"). A stock
 //        running down is not a thin thing. Drill-safe: index 3, preceded by `n`.
 //      kepunahan → punah        ⚠️ `punah` IS taught (u65). The noun off it, and
 //        u65 owns the adjective. Drill-safe: index 2, preceded by `e`.
@@ -193,8 +267,11 @@
 //        the hint names u65's word by name. Drill-safe: the shared string is
 //        `lanjut`, taught nowhere and carded nowhere.
 //      keanekaragaman → aneka/ragam — neither is taught, so no collision.
-//      penebangan → menebang — `menebang` is NOT taught, so this is a clean
-//        front; the hint teaches the verb inside it rather than carding it.
+//      penebangan → menebang ⚠️ `menebang` IS taught (u65) — my first draft said
+//        it was not, and block 1's fixed `candidate-check.mjs` caught the error.
+//        Carded anyway: u65 owns the ACT of felling a tree, this is the pe-…-an
+//        PROCESS noun every law and headline uses. Drill-safe: the shared string
+//        is `tebang`, a whole word in neither.
 //      kuota → no Indonesian root; a Dutch loan via qu- → ku-, the same mapping as
 //        karantina(u102, mine). Clean.
 //      kekeringan → kering ⚠️ `kering` IS taught (u8, "dry"). Carded: a dry thing and
@@ -242,7 +319,7 @@ export const ID_UNIT101 = {
         { id: "id-u101l1-menipis", type: "vocab", front: "menipis", reading: "menipis", meaning: "to run low", example: { jp: "Minyak di dunia terus menipis sementara jumlah mobil bertambah setiap tahun.", en: "The world's oil keeps running low while the number of cars grows every year." }, accept: ["to dwindle", "to be getting thinner", "to be used up slowly"], drill: { jp: "Air bersih di kota itu sudah menipis", en: "Clean water in that city is running low" }, hint: "muh-nee-PEES. Built on tipis, thin, which you know \u2014 a stock that is wearing thin. \u26a0\ufe0f Keep it apart from habis, used up, which you also know: habis is the end, menipis is the slow slide towards it. A report says menipis long before it says habis." },
         { id: "id-u101l1-kuota", type: "vocab", front: "kuota", reading: "kuota", meaning: "an allotted quota", example: { jp: "Setiap negara mendapat kuota sendiri dan tidak boleh memakai lebih dari itu.", en: "Every country gets its own quota and may not use more than that." }, accept: ["a fixed allowance", "a share allotted in advance", "a permitted maximum"], drill: { jp: "Setiap negara mendapat kuota sendiri setiap tahun", en: "Every country gets its own quota every year" }, hint: "koo-OH-tah. \u26a0\ufe0f Note what Indonesian does to the qu-: it becomes k, every time \u2014 kuota, kualitas, karantina. It is the unit of every climate and trade agreement: kuota emisi, kuota impor, kuota tangkapan ikan. And it is also the everyday word for mobile data \u2014 kuota habis, out of data \u2014 which is how most Indonesians meet it first." },
         { id: "id-u101l1-pasokan", type: "vocab", front: "pasokan", reading: "pasokan", meaning: "a supply", example: { jp: "Pasokan listrik ke pulau kecil itu sering berhenti karena cuaca buruk di laut.", en: "The electricity supply to that small island often stops because of bad weather at sea." }, accept: ["what is delivered", "the flow of goods coming in", "provision of something"], drill: { jp: "Pasokan air ke desa itu berhenti", en: "The water supply to that village has stopped" }, hint: "pah-SOH-kan. From memasok, to supply, which this unit does not card. \u26a0\ufe0f A pasokan is the FLOW towards you, not the stock sitting still \u2014 which is why the news pairs it with menipis in one sentence: pasokan terganggu, the flow is disrupted, so what is left runs down." },
-        { id: "id-u101l1-kelangkaan", type: "vocab", front: "kelangkaan", reading: "kelangkaan", meaning: "a shortage", example: { jp: "Kelangkaan air bersih di daerah itu membuat banyak keluarga pergi ke kota.", en: "The shortage of clean water in that area made many families leave for the city." }, accept: ["scarcity", "a lack of something needed", "the state of being hard to get"], drill: { jp: "Kelangkaan obat itu belum selesai", en: "That medicine shortage is not over yet" }, hint: "kuh-lahng-KAH-an, four syllables. The ke-…-an noun off langka, rare, which you met in u65. ⚠️ Keep it apart from kekurangan, a lack, which you know: a kekurangan is something YOU do not have enough of, a kelangkaan is the thing being scarce for EVERYBODY. A market has a kelangkaan; a person has a kekurangan." },
+        { id: "id-u101l1-kelangkaan", type: "vocab", front: "kelangkaan", reading: "kelangkaan", meaning: "a shortage", example: { jp: "Kelangkaan air bersih di daerah itu membuat banyak keluarga pergi ke kota.", en: "The shortage of clean water in that area made many families leave for the city." }, accept: ["scarcity", "a lack of something needed", "the state of being hard to get"], drill: { jp: "Kelangkaan obat itu belum selesai", en: "That medicine shortage is not over yet" }, hint: "kuh-lahng-KAH-an, four syllables. The ke-…-an noun off langka, rare, which you met. ⚠️ Keep it apart from kekurangan, a lack, which you know: a kekurangan is something YOU do not have enough of, a kelangkaan is the thing being scarce for EVERYBODY. A market has a kelangkaan; a person has a kekurangan." },
       ],
     },
     {
@@ -256,9 +333,9 @@ export const ID_UNIT101 = {
       items: [
         { id: "id-u101l2-penebangan", type: "vocab", front: "penebangan", reading: "penebangan", meaning: "the felling of trees", example: { jp: "Penebangan hutan di pulau itu sudah berjalan selama tiga puluh tahun tanpa aturan yang jelas.", en: "The felling of forest on that island has been going on for thirty years without clear rules." }, accept: ["logging", "cutting down of trees", "tree clearance"], drill: { jp: "Penebangan hutan itu sudah berhenti", en: "The felling of that forest has stopped" }, hint: "puh-nuh-BAHNG-an. The verb inside it is menebang, to fell a tree, which this course does not card separately — this noun is the form every news report and every law uses. Penebangan liar, illegal logging, is the fixed phrase you will meet first, and liar is a word you already have." },
         { id: "id-u101l2-gundul", type: "vocab", front: "gundul", reading: "gundul", meaning: "stripped bare", example: { jp: "Bukit di belakang desa itu sekarang gundul karena semua pohon sudah hilang.", en: "The hill behind that village is bare now because all the trees are gone." }, accept: ["bald", "with nothing left growing on it", "cleared of trees"], drill: { jp: "Bukit di belakang desa sudah gundul", en: "The hill behind the village is already bare" }, hint: "GOON-dool, both u's short. First a word for a shaved head, and then exactly the same picture for a hill with no trees left — hutan gundul is how Indonesian names deforestation in one word. It is blunt and slightly ugly on purpose, which is why campaigners use it." },
-        { id: "id-u101l2-kepunahan", type: "vocab", front: "kepunahan", reading: "kepunahan", meaning: "extinction", example: { jp: "Ahli di seluruh dunia khawatir tentang kepunahan binatang besar di hutan Asia.", en: "Experts all over the world worry about the extinction of large animals in Asia's forests." }, accept: ["dying out completely", "the end of a species", "total disappearance"], drill: { jp: "Kepunahan binatang itu sudah dekat", en: "That animal's extinction is already close" }, hint: "kuh-poo-NAH-han. The ke-…-an noun off punah, extinct, which you met in u65 — so u65 taught the state and this teaches the event. ⚠️ It is not the same as hilang, gone, which you know: a thing that hilang may come back, a species in kepunahan never does. Terancam kepunahan, threatened with extinction, is the phrase on every sign." },
+        { id: "id-u101l2-kepunahan", type: "vocab", front: "kepunahan", reading: "kepunahan", meaning: "extinction", example: { jp: "Ahli di seluruh dunia khawatir tentang kepunahan binatang besar di hutan Asia.", en: "Experts all over the world worry about the extinction of large animals in Asia's forests." }, accept: ["dying out completely", "the end of a species", "total disappearance"], drill: { jp: "Kepunahan binatang itu sudah dekat", en: "That animal's extinction is already close" }, hint: "kuh-poo-NAH-han. The ke-…-an noun off punah, extinct, which you met — so that unit taught the state and this teaches the event. ⚠️ It is not the same as hilang, gone, which you know: a thing that hilang may come back, a species in kepunahan never does. Terancam kepunahan, threatened with extinction, is the phrase on every sign." },
         { id: "id-u101l2-keanekaragaman", type: "vocab", front: "keanekaragaman", reading: "keanekaragaman", meaning: "diversity of living things", example: { jp: "Keanekaragaman di hutan Indonesia adalah yang paling besar di dunia.", en: "The diversity of living things in Indonesia's forests is the greatest in the world." }, accept: ["biodiversity", "the variety of species", "richness of kinds"], drill: { jp: "Keanekaragaman di pulau itu luar biasa", en: "The diversity on that island is extraordinary" }, hint: "kuh-ah-nay-kah-rah-GAH-man — seven syllables, and yes, you will have to slow down. Inside it are aneka, assorted, and ragam, kind or variety. ⚠️ The full technical phrase is keanekaragaman hayati, biological diversity, but in ordinary writing the long word stands alone and means exactly biodiversity." },
-        { id: "id-u101l2-keberlanjutan", type: "vocab", front: "keberlanjutan", reading: "keberlanjutan", meaning: "whether something can keep going", example: { jp: "Semua anggota rapat ragu tentang keberlanjutan proyek listrik di daerah yang jauh dari kota.", en: "Every member of the meeting doubts whether the electricity project in the area far from the city can keep going." }, accept: ["sustainability", "long-term viability", "the ability to continue"], drill: { jp: "Keberlanjutan proyek itu belum jelas", en: "That project's ability to keep going is not clear yet" }, hint: "kuh-buhr-lahn-JOO-tan, five syllables. ⚠️ You already met berkelanjutan in u65, and these two are NOT one word: berkelanjutan is the ADJECTIVE, used of a practice — pertanian berkelanjutan, sustainable farming. Keberlanjutan is the NOUN, the question of whether a thing can keep going at all, and it is what a treaty or a board argues about." },
+        { id: "id-u101l2-keberlanjutan", type: "vocab", front: "keberlanjutan", reading: "keberlanjutan", meaning: "whether something can keep going", example: { jp: "Semua anggota rapat ragu tentang keberlanjutan proyek listrik di daerah yang jauh dari kota.", en: "Every member of the meeting doubts whether the electricity project in the area far from the city can keep going." }, accept: ["sustainability", "long-term viability", "the ability to continue"], drill: { jp: "Keberlanjutan proyek itu belum jelas", en: "That project's ability to keep going is not clear yet" }, hint: "kuh-buhr-lahn-JOO-tan, five syllables. ⚠️ You already met berkelanjutan, and these two are NOT one word: berkelanjutan is the ADJECTIVE, used of a practice — pertanian berkelanjutan, sustainable farming. Keberlanjutan is the NOUN, the question of whether a thing can keep going at all, and it is what a treaty or a board argues about." },
         { id: "id-u101l2-pangan", type: "vocab", front: "pangan", reading: "pangan", meaning: "food as a national supply", example: { jp: "Harga pangan di dunia naik setelah dua musim panen yang buruk.", en: "World food prices rose after two bad harvest seasons." }, accept: ["foodstuffs", "food at the level of a country", "the food supply"], drill: { jp: "Harga pangan di dunia terus naik", en: "World food prices keep rising" }, hint: "PAH-ngan — ng is one hum. ⚠️ This is NOT a second word for makanan, which you know. Makanan is what is on your plate; pangan is food as a commodity and a policy — harga pangan, krisis pangan, ketahanan pangan. You eat makanan, a ministry manages pangan, and a learner who mixes them sounds like a press release at dinner." },
       ],
     },
@@ -289,8 +366,8 @@ export const ID_UNIT101 = {
       canDo: "Report a disaster and the response to it — name the disaster itself, an evacuation, a drought, a landslide, soil being washed away, and the embankment that was meant to hold.",
       items: [
         { id: "id-u101l4-bencana", type: "vocab", front: "bencana", reading: "bencana", meaning: "a disaster", example: { jp: "Bencana besar itu merusak lebih dari dua ribu rumah di daerah pantai.", en: "That great disaster destroyed more than two thousand houses in the coastal area." }, accept: ["a catastrophe", "a calamity", "a major destructive event"], drill: { jp: "Bencana itu merusak dua ribu rumah", en: "That disaster destroyed two thousand houses" }, hint: "buhn-CHAH-nah — c is CH. The umbrella word for the big destructive events: bencana alam is a natural disaster, and the phrase covers earthquake, flood and drought alike. ⚠️ Keep it apart from kecelakaan, an accident, which you know: a kecelakaan happens to a few people, a bencana happens to a district." },
-        { id: "id-u101l4-evakuasi", type: "vocab", front: "evakuasi", reading: "evakuasi", meaning: "evacuation", example: { jp: "Evakuasi warga dari desa di kaki gunung itu selesai sebelum malam.", en: "The evacuation of residents from the village at the foot of that mountain finished before nightfall." }, accept: ["moving people out of danger", "clearing an area of people", "getting people to safety"], drill: { jp: "Evakuasi warga desa itu sudah selesai", en: "The evacuation of that village's residents is finished" }, hint: "ay-vah-koo-AH-see. Same -tion → -si mapping again, and note the v, which Indonesian keeps in loanwords and pronounces like an English v. ⚠️ You already know mengungsi, to flee, from u75: mengungsi is what people DO, evakuasi is what an authority ORGANISES for them." },
-        { id: "id-u101l4-kekeringan", type: "vocab", front: "kekeringan", reading: "kekeringan", meaning: "a drought", example: { jp: "Kekeringan tahun ini membuat sawah di daerah itu kering dan kosong.", en: "This year's drought left the rice fields in that area dry and empty." }, accept: ["a long spell with no rain", "water shortage from lack of rain", "dry season failure"], drill: { jp: "Kekeringan tahun ini membuat sawah itu kosong", en: "This year's drought left that rice field empty" }, hint: "kuh-kuh-REENG-an, four syllables. \u26a0\ufe0f Built on kering, dry, which you know from u8, in the ke-\u2026-an frame \u2014 and it is the misfortune sense of that frame, the same one behind kehilangan and kecelakaan. Keep it apart from kemarau, the dry season, which is normal and expected: a kemarau that does not end becomes a kekeringan." },
+        { id: "id-u101l4-evakuasi", type: "vocab", front: "evakuasi", reading: "evakuasi", meaning: "evacuation", example: { jp: "Evakuasi warga dari desa di kaki gunung itu selesai sebelum malam.", en: "The evacuation of residents from the village at the foot of that mountain finished before nightfall." }, accept: ["moving people out of danger", "clearing an area of people", "getting people to safety"], drill: { jp: "Evakuasi warga desa itu sudah selesai", en: "The evacuation of that village's residents is finished" }, hint: "ay-vah-koo-AH-see. Same -tion → -si mapping again, and note the v, which Indonesian keeps in loanwords and pronounces like an English v. ⚠️ You already know mengungsi, to flee,: mengungsi is what people DO, evakuasi is what an authority ORGANISES for them." },
+        { id: "id-u101l4-kekeringan", type: "vocab", front: "kekeringan", reading: "kekeringan", meaning: "a drought", example: { jp: "Kekeringan tahun ini membuat sawah di daerah itu kering dan kosong.", en: "This year's drought left the rice fields in that area dry and empty." }, accept: ["a long spell with no rain", "water shortage from lack of rain", "dry season failure"], drill: { jp: "Kekeringan tahun ini membuat sawah itu kosong", en: "This year's drought left that rice field empty" }, hint: "kuh-kuh-REENG-an, four syllables. \u26a0\ufe0f Built on kering, dry, which you know, in the ke-\u2026-an frame \u2014 and it is the misfortune sense of that frame, the same one behind kehilangan and kecelakaan. Keep it apart from kemarau, the dry season, which is normal and expected: a kemarau that does not end becomes a kekeringan." },
         { id: "id-u101l4-longsor", type: "vocab", front: "longsor", reading: "longsor", meaning: "a landslide", example: { jp: "Longsor di jalan gunung itu menutup jalan ke desa di atas.", en: "The landslide on that mountain road closed the road to the village above." }, accept: ["a slip of earth", "a slope collapsing", "earth sliding down"], drill: { jp: "Longsor itu menutup jalan ke desa", en: "That landslide closed the road to the village" }, hint: "LOHNG-sohr — ng is one hum, and the final r is a light tap. Tanah longsor, sliding earth, is the full phrase and longsor alone is how every headline shortens it. In the wet season it is the single most common disaster word in Indonesian news, which is why it earns a card over the loanwords." },
         { id: "id-u101l4-erosi", type: "vocab", front: "erosi", reading: "erosi", meaning: "erosion", example: { jp: "Erosi di pinggir sungai itu bertambah cepat setelah semua pohon di dekat sungai hilang.", en: "Erosion on that riverbank grew faster after all the trees near the river were gone." }, accept: ["soil being worn away", "ground washing away", "gradual wearing down of land"], drill: { jp: "Erosi di pinggir sungai itu bertambah cepat", en: "Erosion on that riverbank is growing faster" }, hint: "ay-ROH-see. The slow version of the card before it: longsor is the slope going in one afternoon, erosi is the same soil leaving over twenty years. The pair is why this lesson teaches both — Indonesian reporting puts erosi as the cause and longsor as the event." },
         { id: "id-u101l4-tanggul", type: "vocab", front: "tanggul", reading: "tanggul", meaning: "an embankment against water", example: { jp: "Tanggul di pinggir sungai itu rusak dan air masuk ke lima desa.", en: "The embankment at the edge of that river broke and water entered five villages." }, accept: ["a dyke", "a flood wall", "a bank built to hold water back"], drill: { jp: "Tanggul di pinggir sungai itu sudah rusak", en: "The embankment at the edge of that river is broken" }, hint: "TAHNG-gool, hard g. The earth or concrete bank that keeps a river or the sea out of a town. \u26a0\ufe0f It is the single most political word in Indonesian flood reporting \u2014 tanggul jebol, a burst embankment, is a headline every wet season, and whose job it was to maintain it is the argument that follows." },
