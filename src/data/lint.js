@@ -107,7 +107,7 @@ export const SCAFFOLD_TITLES = new Set([
   "Grammar 9 — conditional nuance and counterfactuals",
   "Grammar 10 — formal written structures",
   "Grammar 11 — discourse, cohesion, hedged claims",
-  "Register 3 — 敬語: humble and honorific",
+  "Register 3 — deference: humble and honorific speech",
   "Register 4 — written, public and institutional voice",
 ]);
 // The formulaic ones the scaffold builds by counter rather than from a list.

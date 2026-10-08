@@ -159,7 +159,7 @@ const GRAMMAR_B2 = [
   ["grammar-11", "Grammar 11 — discourse, cohesion, hedged claims"],
 ];
 const REGISTER_B2 = [
-  ["register-3", "Register 3 — 敬語: humble and honorific"],
+  ["register-3", "Register 3 — deference: humble and honorific speech"],
   ["register-4", "Register 4 — written, public and institutional voice"],
 ];
 const COVERAGE_UNITS_B2 = 16;
