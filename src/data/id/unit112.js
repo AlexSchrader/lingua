@@ -83,7 +83,7 @@
 //
 // §P5. DEFERRED FROM THIS UNIT, named not buried, all probed FREE: `kejiwaan`'s
 //      neighbours `penderita` `mengidap`-adjacent nouns, plus `pendamping`
-//      `rujukan` (carded in u102 instead) `bangkit` `kesembuhan` `menyembuhkan`
+//      `bangkit` `kesembuhan` `menyembuhkan`
 //      `steril`-adjacent. Refused: `trauma` `stigma` (exact cognates, §P2).
 export const ID_UNIT112 = {
   id: "id-u112",

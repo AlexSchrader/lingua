@@ -27,7 +27,7 @@
 //        **ke-…-an** on an adjective or stative verb → the state as a thing
 //          (mampu → kemampuan, terbatas → keterbatasan, tersedia → ketersediaan)
 //        **pe(N)-…-an** on a transitive verb → the ACT or PROCESS
-//          (menerapkan → penerapan, menilai → penilaian, mengamati → pengamatan)
+//          (menerapkan → penerapan, menilai → penilaian, membahas → pembahasan)
 //        **per-…-an** → the process seen as a whole (berubah → perubahan)
 //        and the lesson order walks the learner through them.
 //      Lesson 2 and 3 are deliberately ke-…-an-heavy and lesson 4 pe-…-an-heavy
@@ -57,7 +57,9 @@
 //          direction of `menimang`/`menimbang`) ·
 //        peningkatan ← meningkat(u59) · penurunan ← turun(u36) ·
 //        pengembangan ← berkembang(u59) · penilaian ← nilai(u44) ·
-//        pengamatan ← mengamati(—, untaught) · perubahan ← berubah(u25).
+//        pembahasan ← membahas(—, untaught) · perubahan ← berubah(u25).
+//      ⚠️ `pengamatan` was in this lesson until step 4, when merging block 1
+//      showed it TAKEN at u94l1 — see band note BB9.
 //
 // §P4. GLOSS COLLISIONS FOUND AND FIXED BEFORE WRITING — `gloss-taken.mjs id`
 //      caught nine, and a duplicate `meaning` makes one card unanswerable
@@ -72,10 +74,11 @@
 //      measured figure", "a shift from one state to another", and so on — which
 //      is also the more honest gloss for a B2 reader.
 //
-// §P5. DEFERRED FROM THIS UNIT, named not buried, all probed FREE: `penyebab`
-//      `pembahasan` `pemanfaatan` `manakala` (used in u106) `semasa` `sebatas`
-//      `nisbi`. Refused: `selagi` u69, `sedemikian` u69, `kurang lebih` u27 —
-//      all TAKEN.
+// §P5. DEFERRED FROM THIS UNIT, named not buried, all probed FREE against the
+//      COMBINED corpus: `penyebab` `pemanfaatan` `semasa` `sebatas` `nisbi`.
+//      Refused: `selagi` u69, `sedemikian` u69, `kurang lebih` u27 — all TAKEN.
+//      ⚠️ And `pengamatan` `hipotesis` `temuan` `sampel` are **block 1's**
+//      (u94), found at step 4 — band note BB9.
 export const ID_UNIT107 = {
   id: "id-u107",
   lang: "id",
@@ -141,13 +144,13 @@ export const ID_UNIT107 = {
       title: "Nominalisasi pe-…-an: perbuatan sebagai benda",
       cefr: "B2",
       dominantMode: "recognize",
-      canDo: "Name a process rather than describing it — a rise in a figure, a fall in one, the work of developing something, a judgement of worth, a period of watching, and a shift from one state to another.",
+      canDo: "Name a process rather than describing it — a rise in a figure, a fall in one, the work of developing something, a judgement of worth, the working-through of a matter, and a shift from one state to another.",
       items: [
         { id: "id-u107l4-peningkatan", type: "vocab", front: "peningkatan", reading: "peningkatan", meaning: "a rise in a measured figure", example: { jp: "Peningkatan harga nasi itu mencapai angka yang sangat besar.", en: "The rise in the price of rice reached a very big figure." }, accept: ["an increase in something counted", "an upward movement in a number", "improvement in a figure"], drill: { jp: "Peningkatan harga nasi itu mencapai angka besar", en: "The rise in the price of rice reached a big figure" }, hint: "puh-neeng-KAH-tan. On meningkat, to rise, which you know from u59. ⚠️ Keep it apart from tambah, to add, which you know from u14: tambah is somebody putting more in, peningkatan is a measured quantity going up — which is why it is the word in every chart caption and every annual report." },
         { id: "id-u107l4-penurunan", type: "vocab", front: "penurunan", reading: "penurunan", meaning: "a fall in a measured figure", example: { jp: "Penurunan jumlah anak di desa itu membuat satu sekolah berhenti bekerja.", en: "The fall in the number of children in that village made one school stop operating." }, accept: ["a decline in something counted", "a downward movement in a number", "a reduction in a figure"], drill: { jp: "Penurunan jumlah anak di desa itu sangat cepat", en: "The fall in the number of children in that village is very fast" }, hint: "puh-noo-ROO-nan. On turun, to go down, which you know from u36. ⚠️ The pair with the card above it, and the pair is how Indonesian writes every trend: peningkatan dan penurunan is the standard phrase for ups and downs. Keep it apart from berkurang (u40), to become less, which describes the thing itself shrinking rather than naming the movement." },
         { id: "id-u107l4-pengembangan", type: "vocab", front: "pengembangan", reading: "pengembangan", meaning: "the work of developing something", example: { jp: "Pengembangan obat yang baru itu perlu waktu sepuluh tahun dan uang yang besar.", en: "The development of that new medicine needs ten years and a lot of money." }, accept: ["R and D work", "the effort of building something up", "deliberate growing of something"], drill: { jp: "Pengembangan obat baru itu perlu waktu sepuluh tahun", en: "The development of that new medicine needs ten years" }, hint: "puh-nguhm-BAHNG-an. ⚠️ On berkembang, to grow, which you know from u59 — and here is the distinction that matters: perkembangan, which u59 also taught you, is growth that HAPPENS, while pengembangan is growth somebody DOES. A child's perkembangan; a company's pengembangan. The frames mark the difference and nothing else does." },
         { id: "id-u107l4-penilaian", type: "vocab", front: "penilaian", reading: "penilaian", meaning: "a judgement of worth", example: { jp: "Penilaian guru tentang anak itu sangat baik meskipun hasil ujian kurang.", en: "The teacher's judgement of that child is very good even though the exam result is poor." }, accept: ["an appraisal", "a formal evaluation", "the act of judging how good something is"], drill: { jp: "Penilaian guru tentang anak itu sangat baik", en: "The teacher's judgement of that child is very good" }, hint: "puh-nee-lah-EE-an, five syllables. On nilai, a grade or a value, which you know from u44. ⚠️ Keep it apart from ujian, an exam, which you know from u18: an ujian is the instrument, a penilaian is the judgement somebody forms — and a penilaian can be made with no ujian at all, which is exactly what the example sentence says." },
-        { id: "id-u107l4-pengamatan", type: "vocab", front: "pengamatan", reading: "pengamatan", meaning: "a period of watching closely", example: { jp: "Pengamatan selama dua bulan itu memberi banyak keterangan yang baru.", en: "That two-month period of observation gave a lot of new information." }, accept: ["an observation", "close watching over time", "the act of observing something"], drill: { jp: "Pengamatan selama dua bulan memberi banyak keterangan", en: "Two months of observation gave a lot of information" }, hint: "puh-ngah-MAH-tan. The root amat is to observe closely — the verb mengamati is not carded here, so this noun is your way in. ⚠️ Keep it apart from melihat, to see, which you know from u4: melihat is an instant, pengamatan is sustained and deliberate. Hasil pengamatan, the result of observation, is the phrase a report uses before it gives you a number." },
+        { id: "id-u107l4-pembahasan", type: "vocab", front: "pembahasan", reading: "pembahasan", meaning: "a working-through in discussion", example: { jp: "Pembahasan aturan baru itu berjalan selama tiga rapat yang panjang.", en: "The working-through of that new rule took three long meetings." }, accept: ["a discussion section", "deliberation of a matter", "the going-over of something point by point"], drill: { jp: "Pembahasan aturan baru itu berjalan tiga rapat", en: "The working-through of that new rule took three meetings" }, hint: "puhm-bah-HAH-san. On membahas, to discuss something thoroughly, which this course does not card. \u26a0\ufe0f Keep it apart from rapat, a meeting, which you know: a rapat is the occasion, a pembahasan is the going-through of the substance, and one rapat can hold several. It is also the name of the section of a paper where the results are argued over." },
         { id: "id-u107l4-perubahan", type: "vocab", front: "perubahan", reading: "perubahan", meaning: "a shift from one state to another", example: { jp: "Perubahan aturan itu membuat banyak orang di kantor bingung selama satu bulan.", en: "The change in that rule left many people in the office confused for a month." }, accept: ["a change as a whole process", "an alteration", "the move from how it was to how it is"], drill: { jp: "Perubahan aturan itu membuat banyak orang bingung", en: "The change in that rule left many people confused" }, hint: "puh-roo-BAH-han. ⚠️ **A THIRD frame: per-…-an, which names a process seen whole.** On berubah, to change, which you know from u25. The two are not interchangeable: berubah is a verb and needs a subject that does the changing, perubahan is the change itself and can be the subject of a further claim — perubahan itu susah, that change is hard. That move is what this whole unit exists to give you." },
       ],
     },
