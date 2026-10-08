@@ -55,6 +55,24 @@ The block numbers are a **unit range**, not a sequence:
 2. **EXCHANGE FRONT LISTS MID-FLIGHT.** Blocks cannot see each other's branches, but the merge seat can read all of them. Dump each block's authored fronts and hand every block the others' list while they still have units left to write. Measured: Hindi, which got this, came in at **8** collisions; Indonesian, which did not, at **62**.
 3. **A SCREEN NARROWS THE WINDOW; ONLY THE MERGE CLOSES IT.** A mid-flight list shows what a sibling has *already written*, so words it writes afterwards still collide — two Hindi fronts survived the screen for exactly that reason. Run the central cross-block gate at merge **regardless** of how clean the screens were: `node scripts/qa/crossblock.mjs <lang> <from> <to>` plus `npm run validate:content` on the **merged** tree. A clean number measured on a branch without its siblings is worth nothing — Indonesian reported "0 duplicate fronts" while its sibling block was not in the tree.
 
+4. **A BLOCK MERGES ITS SIBLINGS AND RE-PROBES BEFORE IT HANDS BACK. THIS IS THE STEP THAT ACTUALLY WORKED.** Steps 1–3 were all in force for the B1 and B2 bands and the duplicate counts stayed in the dozens. One seat — **id B1 block 2** — did something none of the others did: it merged block 1's branch into its own, re-probed all 312 of its fronts against the *combined* corpus, found **13** collisions and re-authored them itself before handing back. The measured series across six bands:
+
+   | band | allocation given to the blocks | sibling merge before hand-back | duplicate fronts at merge |
+   |---|---|---|---|
+   | ru A2 | none (generic placeholders) | no | **34** |
+   | id A2 | none (generic placeholders) | no | **62** + two units rethemed |
+   | ru B1 | themes only | no | **82** |
+   | hi B1 | per-slot **word lists** + boundaries | no | **41** |
+   | ru B2 | per-slot word lists | no | **22** |
+   | hi B2 | per-slot word lists | no | **28** |
+   | **id B1** | per-slot word lists | **YES — block 2 merged block 1 and re-probed** | **2** |
+
+   ⚠️ **Read the table honestly: word lists bought the drop from 82 to ~25, and then stopped buying anything** — hi B2 went *up* against ru B2 with the same discipline. The step change to **2** came from a block reading the other block's actual cards instead of its own list of intended words. An allocation describes what a sibling *means* to write; its branch is what it *did* write.
+
+   Both of id B1's 2 survivors were between blocks **2 and 3** — the one pair that never merged *each other*. So the instruction is pairwise, not "merge block 1": **before you hand back, merge every sibling branch that has commits and re-probe every front you authored.** It cost that seat one extra probe pass and saved the merge seat 13 replacement cards.
+
+   This does not retire step 3. A sibling still writes cards after you merge it, so the merge seat still runs the final cross-block check — it just finds 2 instead of 28.
+
 Lower slot number still resolves a genuine clash (§6), but prefer the resolution that keeps **both** concepts: when Hindi's `जंग` collided as "war" vs "rust", `युद्ध` was free, so both shipped and no card died.
 
 ### Kicking off — copy-paste
