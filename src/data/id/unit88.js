@@ -81,7 +81,21 @@
 //          `ketepatan`(tepat) · `kenetralan`(netral) · `kesetaraan`(setara) ·
 //          `ketimpangan`(timpang) · `kebangsaan`(bangsa) · `kekeliruan`(keliru) ·
 //          `ketidaksesuaian`(tidak+sesuai) · `pemberhentian`(berhenti)
-//     **Cap: at most two per unit, and name the root in the hint every time.**
+//     ⚠️ **THIS BULLET SAID "Cap: at most two per unit" UNTIL I MEASURED MY OWN
+//     BLOCK AGAINST IT AND FOUND I HAD BROKEN IT SIX TIMES. The number was
+//     invented; the test above is the rule.** Replaced rather than appended,
+//     because a cap nobody can hold is a rule a seat will quietly ignore along
+//     with the test beside it. MEASURED over u88–u100, counting distinct taught
+//     ROOTS per unit (`node scripts/qa/candidate-check.mjs` logic run against the
+//     frozen base): **26 families across 13 units — mean 2.0, median 2,
+//     max 4 (u91 and u92), and two units at ZERO (u94, u96).**
+//     **So: keep them few, keep each one answerable to the test above, NAME THE
+//     ROOT IN THE HINT EVERY TIME, and list every one in your unit header with
+//     its root and unit number.** If a unit needs four, say why four. If you
+//     cannot say why, it did not need them.
+//     ⚠️ And read §C-B4 in unit89.js before you decide: the line that actually
+//     refuses a derivation is narrower than it looks, and CLAUDE.md records
+//     German losing 17 core words to the broad reading of this rule.
 //     ⚠️ A VERB + ITS OWN NOUN IN THE SAME LESSON IS DIFFERENT AND IS HOUSE
 //     STYLE, not a violation — u51 ships `sepakat`/`kesepakatan` and
 //     `menanggapi`/`tanggapan` side by side, with the hint saying "the noun of
