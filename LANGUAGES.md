@@ -9,16 +9,16 @@
 | Japanese 🇯🇵 | 208 | 5,046 | pre-A1 → **B2** | 5,046 / 5,046 (Haruki) |
 | Spanish 🇪🇸 | 126 | 3,141 | A1 → **B2** | 3,141 / 3,141 (Ignacio) |
 | Russian 🇷🇺 | 136 | 3,264 | pre-A1 → **B2** | 3,264 / 3,264 (Dmitri) |
-| Hindi 🇮🇳 | 136 | 3,264 | pre-A1 → **B2** | **2,401 / 3,264 — B2 run in flight** (Karan) |
+| Hindi 🇮🇳 | 136 | 3,264 | pre-A1 → **B2** | 3,264 / 3,264 (Karan) |
 | French 🇫🇷 | 133 | 3,127 | A1 → **B2** | 3,127 / 3,127 (Mathieu) |
 | German 🇩🇪 | 126 | 3,092 | A1 → **B2** | 3,092 / 3,092 (Jonas) |
 | Portuguese 🇵🇹 | 126 | 3,045 | A1 → **B2** | 3,045 / 3,045 (Tiago) |
 | Norwegian 🇳🇴 | 126 | 3,045 | A1 → **B2** | 3,045 / 3,045 (Erling) |
-| Indonesian 🇮🇩 | 87 | 2,088 | A1 → **B1** | 2,088 / 2,088 |
+| Indonesian 🇮🇩 | 126 | 3,025 | A1 → **B2** | 3,025 / 3,025 |
 
-**Corpus total: 1,204 live units · 29,112 items** (plus 40 stub units in it/nl, which is why `validate:content` reports **1,244**).
+**Corpus total: 1,243 live units · 30,049 items · 30,049 clips — 100% voiced** (plus 40 stub units in it/nl, which is why `validate:content` reports **1,283**). Re-measured 2026-10-08.
 
-**Eight of the nine are complete through B2.** Indonesian is the exception — B1 is done and voiced, **B2 is not yet scaffolded**, and that is the last gap before Italian. Build queue after it: **Italian → English → Dutch**.
+✅ **ALL NINE ARE COMPLETE THROUGH B2 AND FULLY VOICED, as of 2026-10-08.** Indonesian was the last, and all nine pass `node scripts/qa/ship-gate.mjs` (18 checks each). Build queue next: **Italian → English → Dutch** — Italian and Dutch are scaffolded at 20 stub units each with 0 cards.
 
 ⚠️ **English has an unresolved premise, and it is not a scheduling question.** Every card glosses into English and `checkMeaning` grades against those glosses, so an English ladder asks an English speaker to translate English into English. It is either ESL — which needs a base-language layer the engine does not have — or vocabulary-building for English speakers. Those are two different products and the choice is Alex's.
 
@@ -81,7 +81,7 @@ No script-build cost, solid TTS — the lowest lift of everything on the list.
 | Dutch | 🇳🇱 | Latin | B2 | lowest | planned |
 | Polish | 🇵🇱 | Latin | B2 | lowest | planned |
 | Turkish | 🇹🇷 | Latin | B2 | lowest | planned |
-| Indonesian | 🇮🇩 | Latin | B2 | lowest | ✅ **LIVE** — A1→**B1**, 87 units, 2,088 items, fully voiced; **B2 not yet scaffolded — the last gap before Italian** |
+| Indonesian | 🇮🇩 | Latin | B2 | lowest | ✅ **LIVE** — A1→**B2**, 126 units, 3,025 items, fully voiced — **complete** |
 | Vietnamese | 🇻🇳 | Latin | B2 | lowest | planned |
 
 ## Tier 2 — mixed
@@ -100,7 +100,7 @@ Deepest content-design work; **native review is non-negotiable before shipping**
 |------|------|--------|--------|------|--------|
 | Japanese | 🇯🇵 | kana + **kanji** (logographic) | B2 | highest — the deep climb | **LIVE** (kanji depth ongoing) |
 | Mandarin | 🇨🇳 | **hanzi** (logographic) | B2 | highest | planned |
-| Hindi | 🇮🇳 | **Devanagari** | B2 | highest | ✅ **LIVE** — pre-A1→**B2**, 136 units, 3,264 items, 2,405 / 3,264 voiced (B2 run in flight) |
+| Hindi | 🇮🇳 | **Devanagari** | B2 | highest | ✅ **LIVE** — pre-A1→**B2**, 136 units, 3,264 items, fully voiced — **complete** |
 
 ---
 

@@ -189,10 +189,10 @@ This file is updated as part of the PR that completes work. When a task is finis
 > | de | 126 | 3,092 | A1 → **B2** | 3,092 / 3,092 | ✅ PASS |
 > | pt | 126 | 3,045 | A1 → **B2** | 3,045 / 3,045 | ✅ PASS |
 > | no | 126 | 3,045 | A1 → **B2** | 3,045 / 3,045 | ✅ PASS |
-> | id | 87 | 2,088 | A1 → **B1** | 2,088 / 2,088 | ✅ PASS |
+> | id | 126 | 3,025 | A1 → **B2** | 3,025 / 3,025 | ✅ PASS |
 > | it · nl | 20 each | **0** | — | — | scaffolded, unauthored |
 >
-> **1,204 live units · 29,112 cards · 29,112 clips — 100% voiced.** All nine live languages pass `node scripts/qa/ship-gate.mjs` (17 checks each) for the first time, 2026-10-07.
+> **1,243 live units · 30,049 cards · 30,049 clips — 100% voiced.** All nine live languages pass `node scripts/qa/ship-gate.mjs` (18 checks each). Re-measured 2026-10-08 after the id B2 merge.
 >
 > ⚠️ **EIGHT OF NINE ARE COMPLETE THROUGH B2, AND INDONESIAN B2 IS IN FLIGHT RIGHT NOW — NOT "not yet scaffolded", WHICH IS WHAT THIS LINE SAID UNTIL 2026-10-07.** Checked against the CODE, not a status line: the scaffold is commit `936a74d4` on `content/id-b2-scaffold` (39 stub units, u88–u126) and **all three authoring blocks have commits** — `content/id-b2-block1` (u88–u100, 312 cards, handed back), `content/id-b2-block2` (u101–u113, 13 units authored), `content/id-b2-block3` (u114–u126 — **13/13 units, 312 cards, handed back**). Queue after it: **Italian → English → Dutch** (English has an unresolved premise, see `LANGUAGES.md`).
 >
