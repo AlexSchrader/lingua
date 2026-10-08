@@ -208,6 +208,41 @@ for (const L of langs) {
   amb.length ? FAIL(`${amb.length} ambiguous same-lesson prompts (${amb.slice(0, 3).join(", ")})`)
              : OK("no ambiguous same-lesson prompt");
 
+  // 6b. THE SAME CHECK, LANGUAGE-WIDE — because type:produce shows the MEANING and
+  // then accepts only one front, so two cards with the same prompt anywhere in a
+  // language make one of them unanswerable. The learner reads "a foundation", types
+  // the word they know, and is marked wrong for recalling the other card.
+  //
+  // RAW strings, for the reason check 6 gives: comparing folded meanings reported
+  // 1,303 collisions corpus-wide, and the overwhelming majority were the normaliser
+  // stripping a leading "to " — `reservar` "to book" against `o livro` "the book".
+  // Those are DIFFERENT prompts on screen and no defect at all. On raw strings the
+  // real figure was 53.
+  //
+  // AND 49 OF THOSE 53 ARE BY DESIGN: the same word taught twice in two scripts or
+  // two spellings — ja うんどう@u2 / 運動@u33, es dónde@u3 / donde@u29. The test that
+  // separates them is the READING: same accent-folded reading means one word, and
+  // the pair is the intended progression. Different reading means two different
+  // words wearing one prompt, which left exactly 4 — 2 in id, 2 in hi, every one a
+  // real defect, and all four were fixed by re-glossing the later card.
+  const byPrompt = new Map();
+  for (const it of vocab) {
+    const k = String(it.meaning ?? "").trim().toLowerCase();
+    if (!k) continue;
+    if (!byPrompt.has(k)) byPrompt.set(k, []);
+    byPrompt.get(k).push(it);
+  }
+  const fold = (r) => { try { return A.normalizeReading(String(r ?? "")); } catch { return String(r ?? ""); } };
+  const ambLang = [];
+  for (const [k, v] of byPrompt) {
+    if (new Set(v.map((x) => x.front)).size < 2) continue;
+    if (new Set(v.map((x) => fold(x.reading))).size === 1) continue; // one word, two scripts
+    ambLang.push(`"${k}" <- ${v.map((x) => `${x.front}@u${x.u}`).join(" vs ")}`);
+  }
+  ambLang.length
+    ? FAIL(`${ambLang.length} prompts are shared by DIFFERENT words, so type:produce is unanswerable (${ambLang.slice(0, 2).join("; ")})`)
+    : OK("no prompt is shared by two different words");
+
   // 7. DRILL MUST CONTAIN ITS FRONT AS A WHOLE WORD, or cloze cannot blank it
   const badDrill = vocab.filter((i) => {
     const d = i.drill?.jp; if (!d) return false;
