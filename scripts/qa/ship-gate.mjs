@@ -208,7 +208,13 @@ for (const L of langs) {
   amb.length ? FAIL(`${amb.length} ambiguous same-lesson prompts (${amb.slice(0, 3).join(", ")})`)
              : OK("no ambiguous same-lesson prompt");
 
-  // 6b. THE SAME CHECK, LANGUAGE-WIDE — because type:produce shows the MEANING and
+  // 6b. THE SAME CHECK, LANGUAGE-WIDE. NOT A NEW DETECTION: `glossCollisionWarnings`
+  // (src/data/lint.js:188) has caught this correctly all along, with the same raw
+  // comparison and the same reading exemption, and it documents the exemption at
+  // :209. The problem is that it emits warning 6,312 of 6,313. What this adds is a
+  // NON-ZERO EXIT, so the condition blocks a merge instead of scrolling past.
+  //
+  // It matters because type:produce shows the MEANING and
   // then accepts only one front, so two cards with the same prompt anywhere in a
   // language make one of them unanswerable. The learner reads "a foundation", types
   // the word they know, and is marked wrong for recalling the other card.
