@@ -84,7 +84,11 @@ const PARADIGM = {
 // form is longer than the root rather than a different ending on it.
 const AFFIX = {
   id: {
-    prefixes: ["mem", "men", "meng", "meny", "me", "ber", "ter", "pen", "pem", "peng", "per", "pe", "di", "se"],
+    // `ke` was MISSING until 2026-10-07 and it is the commonest nominaliser in the
+    // language (ke-...-an). Without it `kesetaraan` could not be traced to taught
+    // `setara`(u53) by any path. It over-flags on words that merely begin with ke-
+    // (kecil, kerja); that is the correct trade for a probe whose output is read.
+    prefixes: ["mem", "men", "meng", "meny", "me", "ber", "ter", "pen", "pem", "peng", "per", "pe", "ke", "di", "se"],
     suffixes: ["kan", "an", "i", "nya"],
   },
 };
@@ -113,6 +117,22 @@ function affixHits(c) {
       const rest = c.slice(0, -s.length);
       if (taught.has(rest)) hits.push(`-${s} on ${rest}(u${unitOf.get(rest)})`);
     }
+  // CIRCUMFIX — strip a prefix AND a suffix in the same pass. Added 2026-10-07 by
+  // the id B2 block-1 seat after measuring the hole: the two loops above each
+  // strip ONE end, so Indonesian's most productive nominaliser (ke-...-an,
+  // pe-...-an, per-...-an) was never tested. `kesetaraan` reported FREE while its
+  // root `setara` is taught in u53 — ke->"setaraan" is not a front and -an->
+  // "kesetara" is not a front, so neither loop ever looked at `setara`. Measured
+  // on the 36 ke-/pe-...-an candidates of this block: 0 of 36 flagged before this
+  // fix. Additive only — it can add a warning, never remove one.
+  for (const p of a.prefixes)
+    for (const s of a.suffixes)
+      if (c.startsWith(p) && c.endsWith(s) && c.length - p.length - s.length >= 3) {
+        const rest = c.slice(p.length, -s.length);
+        for (const cand of [rest, "me" + rest])
+          if (cand !== c && taught.has(cand))
+            hits.push(`${p}-...-${s} circumfix on ${cand}(u${unitOf.get(cand)})`);
+      }
   return [...new Set(hits)];
 }
 
