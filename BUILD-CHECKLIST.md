@@ -177,7 +177,26 @@ This file is updated as part of the PR that completes work. When a task is finis
 
 > ✅ **THAT no-B1 SCAFFOLD NOTICE IS RETIRED (2026-09-23).** Norwegian B1 is authored and on `main` — no is at **87 authored units, u1–u87** — so there is no frozen-base trap left to warn about. The rule it encoded still holds in general: **scaffold a band off the branch that holds the band below it, not off `main`, whenever the band below is unmerged.** (It was pasted verbatim TWICE in this file, ~1140 lines apart; the duplicate is now a pointer.)
 >
-> 📏 **MEASURED LANGUAGE STATE — 2026-09-23, counted from `src/data/index.js`, not from this board.** A row here is a claim; this is the count. `ja` 208/208 · `fr` 133/133 · `es` 126/126 · `de` **126/126** · `no` **113/126 on `main`, 126/126 on `content/no-b2-block3`** · `pt` **87/126 on `main`, 100/126 on the pt B2 block-1 branch, 113/126 on `content/pt-b2-block2`, 126/126 on `content/pt-b2-block3`** · `it`/`nl` 0/20 · `id` **20/20 on `content/id-a1-block3`, 14/20 on `main` (A1 COMPLETE, 480 cards — blocks 1 and 2 merged 2026-09-27, block 3 handed back the same day)** · `ru` **60/97 on `main`** — A1 and A2 are both complete (1,440 words) and the B1 band is scaffolded as 37 stubs, u61–u97; **71/97 on `content/ru-b1-block3`** (authored/total). *(This read `ru` 0/30 until 2026-10-05, when it was 60 authored units out of date and understated the unit TOTAL by 67 — re-derived from `git show main:src/data/ru/TAUGHT-WORDS.md` and `npm run audit`, not re-stated. Every other figure in this paragraph still carries its 2026-09-23 timestamp and none of them was re-measured here.)* *(The `no` figure read 87/126 until 2026-09-23 evening; B2 blocks 1 and 2 merged that day and block 3 closes the band — re-counted, not re-stated.)* **Four languages are complete to B2 on `main`: ja, fr, es, de**, and `no` becomes the fifth when block 3 merges. Remaining current-language work after that is the B2 band for `pt` — **39 stub units, u88–u126, already scaffolded; u88–u100 are authored on a block-1 branch (312 cards), u101–u113 on a block-2 branch (312 cards), and u114–u126 remain.** ⚠️ **Branch names are not evidence of work:** `content/pt-b2-block1` existed for 23 hours with **zero commits beyond `main`**, and Norwegian B2 had no branch at all, while this board implied both were in flight. Count the corpus before believing a row.
+> 📏 **MEASURED LANGUAGE STATE — 2026-10-07, counted from `src/data/index.js` and `public/audio/<lang>/`, not from this board.** A row below is a CLAIM; this is a MEASUREMENT. The previous copy of this block was dated 2026-09-23 and had Russian, Hindi and Indonesian two whole bands behind.
+>
+> | lang | units | cards | bands | voiced | ship gate |
+> |---|---|---|---|---|---|
+> | ja | 208 | 5,046 | pre-A1 → **B2** | 5,046 / 5,046 | ✅ PASS |
+> | es | 126 | 3,141 | A1 → **B2** | 3,141 / 3,141 | ✅ PASS |
+> | ru | 136 | 3,264 | pre-A1 → **B2** | 3,264 / 3,264 | ✅ PASS |
+> | hi | 136 | 3,264 | pre-A1 → **B2** | 3,264 / 3,264 | ✅ PASS |
+> | fr | 133 | 3,127 | A1 → **B2** | 3,127 / 3,127 | ✅ PASS |
+> | de | 126 | 3,092 | A1 → **B2** | 3,092 / 3,092 | ✅ PASS |
+> | pt | 126 | 3,045 | A1 → **B2** | 3,045 / 3,045 | ✅ PASS |
+> | no | 126 | 3,045 | A1 → **B2** | 3,045 / 3,045 | ✅ PASS |
+> | id | 87 | 2,088 | A1 → **B1** | 2,088 / 2,088 | ✅ PASS |
+> | it · nl | 20 each | **0** | — | — | scaffolded, unauthored |
+>
+> **1,204 live units · 29,112 cards · 29,112 clips — 100% voiced.** All nine live languages pass `node scripts/qa/ship-gate.mjs` (17 checks each) for the first time, 2026-10-07.
+>
+> ⚠️ **EIGHT OF NINE ARE COMPLETE THROUGH B2.** The only authoring gap in a live language is **Indonesian B2, which is not yet scaffolded** — the last thing before Italian. Queue after it: **Italian → English → Dutch** (English has an unresolved premise, see `LANGUAGES.md`).
+>
+> ⚠️ **SO EVERY `handed back` AND `authoring` ROW BELOW FOR ja/fr/es/de/pt/no/ru/hi AND id A1–B1 IS HISTORY, NOT STATUS.** Those bands are merged and voiced. The rows are kept as the hand-back record — what each seat found, refused and deferred — which is worth keeping; they are not a worklist. `Status values` below says a merged row gets deleted, and that has not been happening, so read the table above first and the rows below as an archive.
 **What this is:** the at-a-glance status of every language block currently being authored, so Alex can see the whole production line without opening sessions. Procedure lives in `RUNBOOK-new-language.md`; the pathway itself in `BUILD-BRIEF-language-blueprint.md`.
 
 **Who writes here:** each authoring seat sets its own row to `authoring` at §2 and `handed back` at §6. The **merge seat** clears the language's rows once merged. Alex only reads.
