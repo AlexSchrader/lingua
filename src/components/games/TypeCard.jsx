@@ -4,8 +4,10 @@ import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
 import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji, meaningVariants, foldWouldEraseAnswer } from "../../store/answer.js";
 import { langName } from "../../data/languages.js";
-import { isJapaneseItem } from "../../store/itemLang.js";
+import { isJapaneseItem, itemLang } from "../../store/itemLang.js";
 import { isGlyph } from "../../store/cardRouting.js";
+import { glyphProducePrompt } from "../../store/glyphPrompt.js";
+import { SPEECH_CARRIERS } from "../../data/speechCarriers.js";
 import { sfxCorrect, sfxWrong, sfxAlmost } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 import { useStore } from "../../store/useStore.js";
@@ -121,8 +123,11 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
         // replaces ignored PRODUCE_ROMAJI_STAGES, so a kana card demanded a
         // Japanese IME from the very first lesson - against answer.js's own rule
         // that rōmaji is accepted through A1 and only stops counting at A2.
-        ? { prompt: item.reading, jp: false,
-            ask: !isJaGlyph ? "Type the letter"
+        ? { prompt: (!isJaGlyph && glyphProducePrompt(item, SPEECH_CARRIERS, itemLang(item)).text) || item.reading, jp: false,
+            // Same ambiguous-fold rule as the glyph branch below: with three
+            // letters folding to "e", the fold cannot be the prompt.
+            ask: !isJaGlyph
+                 ? (glyphProducePrompt(item, SPEECH_CARRIERS, itemLang(item)).blanked ? "Type the missing letter" : "Type the letter")
                  : produceAllowsRomaji(item) ? "Type the kana (or its rōmaji)"
                  : "Type the kana ⌨️ (not rōmaji)",
             check: (v) => checkProduce(v, item), answer: item.front }
@@ -157,8 +162,15 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
     // removed: here is the sound, produce the letter. checkProduce is strict for a
     // letter card (foldWouldEraseAnswer), so the bare vowel fails.
     if (isKana && !isJaGlyph) {
+      // AN AMBIGUOUS FOLD GETS A WORD INSTEAD. é, è and ê all fold to "e", so
+      // prompting with the fold asks a question with three right answers and
+      // accepts one — a miss there costs a rung for a question nobody could have
+      // answered. The blanked carrier word names the letter without showing it:
+      // "la cr_me". Unambiguous folds (ç, ñ, ß, ø) keep the plain prompt.
+      const amb = glyphProducePrompt(item, SPEECH_CARRIERS, itemLang(item));
       return {
-        prompt: item.reading, jp: false, ask: "Type the letter",
+        prompt: amb.text ?? item.reading, jp: false,
+        ask: amb.blanked ? "Type the missing letter" : "Type the letter",
         check: (v) => checkProduce(v, item), answer: item.front,
       };
     }
