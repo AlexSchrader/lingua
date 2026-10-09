@@ -860,6 +860,31 @@ A whole-app scan. Surfaced one **mission-level tension** (R17/R18/R30 — the da
 
 ## QA findings (logged by QA CC — a third CC lane: tests + reports, does not build/author)
 
+### 📏 Drill-vs-example: 3,757 cards show the learner the SAME sentence twice (2026-10-09)
+
+**Found by running `check:drills:no`, which until today was not in `package.json` so nobody could run it** — the item that pointed at it had been filed in a diverged copy of this file and was invisible (see the ♻️ banner at the top).
+
+The `drill` field exists to give a word a **second context**: the teach card shows `example`, and the cloze and sentence-build cards use `drill`. When the drill is the example, or a clause trimmed off it, those cards re-show a sentence the learner has already read, so the extra exposure is re-reading rather than transfer. Measured across all nine languages, normalising punctuation and comparing words only:
+
+| lang | drills | identical | truncation of the example | share |
+|---|---|---|---|---|
+| **pt** | 3,032 | 299 | **1,360** | **55%** |
+| hi | 3,206 | 200 | 456 | 20% |
+| id | 3,025 | 250 | 327 | 19% |
+| ru | 3,231 | 32 | 291 | 10% |
+| fr | 3,051 | 72 | 82 | 5% |
+| es | 3,081 | 116 | 43 | 5% |
+| de | 3,081 | 0 | 121 | 4% |
+| no | 3,038 | 44 | 62 | 3% |
+| ja | 479 | 2 | 0 | 0% |
+| **total** | **25,224** | **1,015** | **2,742** | **15%** |
+
+⚠️ **PORTUGUESE IS THE OUTLIER AND IT IS NOT CLOSE — 55%, against 0–5% for ja/de/no/fr/es.** In more than half of Portuguese cards the drill carries no new sentence. That is a per-language authoring-convention divergence, not scattered mistakes: ja, de, no, fr and es were authored to give a second context and pt was not.
+
+**The decision this needs before anyone re-authors anything, and it is not curriculum’s to make alone:** either a second context is the rule — in which case 3,757 drills across seven languages need rewriting, pt first — or it is not, in which case `check-drills.mjs` has been reporting 102 of its 117 Norwegian "broken" drills against a rule the corpus never agreed to, and the right fix is to stop calling it broken. **Nothing in the shipped gate checks this** (`ship-gate.mjs` checks the 3–8 token bound and front-verbatim only), so no band has ever been blocked on it and none should be retroactively.
+
+**Cheapest honest first step if the rule is confirmed:** pt alone, and only the 299 *identical* drills rather than the 1,360 truncations — an identical drill is provably zero new text, a truncation at least varies the length. Curriculum lane; one language per branch.
+
 **Who/what:** QA CC runs the full local gate (`validate:content` → `lint:curriculum` → `test:unit` → `audit` → `build`) plus real-app/manual checks, and files prioritized findings here. QA does **not** author content or build features — it fixes only outright bugs / small-unambiguous defects and routes everything else to the Feature or Curriculum lane. See CLAUDE.md → "Three CC lanes."
 
 **Baseline (2026-06-30, updated):** validate 0 err / 0 warn · lint 0 err / **1 advisory** (`ja-u16l6` 3 word cards, recommend 5–8 — yōon-tail, expected) · audit clean (**21 units / 93 lessons / 729 items / 0 dup ids**) · **55/55 unit tests** · build green. Tree is healthy. *(Note: this session the tree grew 20→21 units mid-run — `unit21.js` ぶんぽう・3 synced in via OneDrive while I worked. See P2 below.)*
