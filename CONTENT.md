@@ -230,9 +230,12 @@ touching a single `example`.
 | ⚠️ **REQUIRED on every vocab card, and it must NOT be the `example` or a clause trimmed off it** | `practice = (item) => item?.drill ?? item?.example` (`cardRouting.js:243`), and **both** `canCloze`/`blankExample` and `sentenceTokens` read `practice(item)` while the teach card shows `example`. With no drill, or a drill that repeats the example, the learner meets that word in **ONE sentence, three times** — teach, cloze, sentence-build. The repetition becomes re-reading instead of transfer. Make it a different **situation**, not a paraphrase. |
 | ⚠️ **`accept[]` carries at least 3 entries** | `checkMeaning` grades a typed answer against `meaning` plus every `accept`, so that list is the entire margin for a learner who recalls the word but reaches for another English synonym. A thin list marks correct recall WRONG, which is the punishing feedback `CLAUDE.md` says to design out. |
 
-**Optional, and staying optional.** An item with no `drill` behaves exactly as today: cloze and
-sentence:build route only if its `example` happens to qualify. Add drills as you touch units;
-nothing breaks in the gap.
+**NOT optional any more.** This paragraph said *"Optional, and staying optional"* until
+2026-10-10 — directly under the two REQUIRED rules above it, which is how a crew ends up
+believing the sentence it read first. Every new vocab card carries a `drill` and at least
+three `accept[]` entries. Shipped cards that predate the rule are held by the per-language
+ceilings in `tests/unit/teach-quality.test.mjs`: the debt may only shrink, so an item with no
+drill is a card already counted against its language, not a free choice.
 
 **Use vocab already taught at or before this unit** — the same teach-before-use rule as `example`
 (RUNBOOK §4). A drill is a *simplification* of the example's idea, not a new sentence with new
