@@ -76,10 +76,20 @@ function oneSentence(items) {
   });
 }
 
-for (const [lang, ceiling] of Object.entries(ONE_SENTENCE_CEILING)) {
+// EVERY LANGUAGE IN THE CORPUS IS CHECKED, AND ONE WITHOUT AN ENTRY GETS A CEILING
+// OF ZERO. That is the point: the nine shipped languages carry measured debt, but
+// Italian, Dutch and English have 0 cards today, so they are held to the standard
+// from their first card instead of earning a retrofit later. Japanese needed this
+// and did not have it — it was authored first, before the standards existed, and
+// graded D/D- four years later. A new language with no entry below cannot add a
+// single drill-less or thin-accept card without this suite going red.
+const allLangs = Object.keys(BY).sort();
+const ceilingOf = (table, lang) => table[lang] ?? 0;
+
+for (const lang of allLangs) {
+  const ceiling = ceilingOf(ONE_SENTENCE_CEILING, lang);
   test(`${lang}: one-sentence cards must not increase (ceiling ${ceiling})`, () => {
     const items = BY[lang] ?? [];
-    assert.ok(items.length, `no ${lang} vocab found`);
     const bad = oneSentence(items);
     assert.ok(
       bad.length <= ceiling,
@@ -90,10 +100,10 @@ for (const [lang, ceiling] of Object.entries(ONE_SENTENCE_CEILING)) {
   });
 }
 
-for (const [lang, ceiling] of Object.entries(THIN_ACCEPT_CEILING)) {
+for (const lang of allLangs) {
+  const ceiling = ceilingOf(THIN_ACCEPT_CEILING, lang);
   test(`${lang}: cards with fewer than 2 accepts must not increase (ceiling ${ceiling})`, () => {
     const items = BY[lang] ?? [];
-    assert.ok(items.length, `no ${lang} vocab found`);
     const thin = items.filter((i) => (i.accept ?? []).length < 2);
     assert.ok(
       thin.length <= ceiling,
@@ -106,7 +116,7 @@ for (const [lang, ceiling] of Object.entries(THIN_ACCEPT_CEILING)) {
 
 // A ceiling nobody can see is a ceiling nobody pays down, so print the table.
 test("report the current debt", () => {
-  const rows = Object.keys(ONE_SENTENCE_CEILING)
+  const rows = allLangs
     .map((L) => {
       const v = BY[L] ?? [];
       return { L, voc: v.length, one: oneSentence(v).length, thin: v.filter((i) => (i.accept ?? []).length < 2).length };
@@ -116,5 +126,5 @@ test("report the current debt", () => {
     (r) => `  ${r.L}  vocab ${String(r.voc).padStart(5)}  one-sentence ${String(r.one).padStart(5)} (${String(Math.round((r.one / r.voc) * 100)).padStart(2)}%)  thin-accept ${String(r.thin).padStart(5)}`,
   );
   console.log(`\nteach-quality debt, measured now:\n${lines.join("\n")}`);
-  assert.ok(rows.length === 9);
+  assert.ok(rows.length >= 9, `expected at least the nine live languages, got ${rows.length}`);
 });
