@@ -227,6 +227,17 @@ This file is updated as part of the PR that completes work. When a task is finis
 > ✅ **ALL NINE ARE COMPLETE THROUGH B2 AND FULLY VOICED, 2026-10-08. Indonesian B2 is MERGED.** This line has now been stale three times in two days — it read "not yet scaffolded" while a crew was authoring, then "IN FLIGHT RIGHT NOW" after the band merged. Checked against the code, not a status line: id is **126 units / 3,025 cards / 3,025 clips / 0 empty units**, merge commit `4c2fddf4` on `main`, and `ship-gate.mjs` passes 18 checks for all nine languages. **There is no authoring gap in any live language.** Queue after it: **Italian → English → Dutch** (English has an unresolved premise, see `LANGUAGES.md`).
 >
 > ⚠️ **SO EVERY `handed back` AND `authoring` ROW BELOW FOR ja/fr/es/de/pt/no/ru/hi AND id A1–B1 IS HISTORY, NOT STATUS.** Those bands are merged and voiced. The rows are kept as the hand-back record — what each seat found, refused and deferred — which is worth keeping; they are not a worklist. `Status values` below says a merged row gets deleted, and that has not been happening, so read the table above first and the rows below as an archive.
+> 🚨 **THE ja TEACH-QUALITY RETROFIT HAS A HOLE BETWEEN TWO SEATS, AND 22 a1 UNITS ARE IN IT.** Measured 2026-10-10 from `src/data/ja/*.js`. Two seats were scoped by different axes that nobody checked against each other: one by **CEFR stage** (`pre-a1` + `a1`), one by **unit number** (`u1–u37`, with `u38+` handed to a second seat). Those are NOT the same range — **ja's `a1` stage is not contiguous.**
+>
+> | band | units | vocab | no drill | no hint | accept < 3 |
+> |---|---|---|---|---|---|
+> | pre-A1 + A1 at **u1–u37** (retrofitted) | 21 | 569 | **118, all structural** | **0** | **1** |
+> | **`stage: "a1"` ABOVE u37 — u53–u68, u82–u87** | **22** | **522** | **487** | **473** | **458** |
+>
+> The second row is **held by nobody**: a seat scoped "pre-A1 + A1" stops at u37 because it was told not to cross, and a seat scoped "A2" skips those units because their stage is `a1`. The learner reaches them inside the A1 band on the Ladder, so they are early content, not late.
+>
+> ⚠️ **The 118 remaining no-drill cards in u1–u37 are a FLOOR, not debt** — 107 are `type: "kanji"`, where `drill-corpus.test.mjs` forbids a drill because `canCloze`/`canParticleCloze`/`canSentence` all require `type === "vocab"`, and 11 are one-character vocab fronts (`は か の と も や を が で へ な`) that no card can read a drill on. Verified item by item: **0 others.**
+
 **What this is:** the at-a-glance status of every language block currently being authored, so Alex can see the whole production line without opening sessions. Procedure lives in `RUNBOOK-new-language.md`; the pathway itself in `BUILD-BRIEF-language-blueprint.md`.
 
 **Who writes here:** each authoring seat sets its own row to `authoring` at §2 and `handed back` at §6. The **merge seat** clears the language's rows once merged. Alex only reads.
