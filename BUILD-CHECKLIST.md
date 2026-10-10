@@ -229,12 +229,14 @@ This file is updated as part of the PR that completes work. When a task is finis
 > ⚠️ **SO EVERY `handed back` AND `authoring` ROW BELOW FOR ja/fr/es/de/pt/no/ru/hi AND id A1–B1 IS HISTORY, NOT STATUS.** Those bands are merged and voiced. The rows are kept as the hand-back record — what each seat found, refused and deferred — which is worth keeping; they are not a worklist. `Status values` below says a merged row gets deleted, and that has not been happening, so read the table above first and the rows below as an archive.
 > 🚨 **THE ja TEACH-QUALITY RETROFIT HAS A HOLE BETWEEN TWO SEATS, AND 22 a1 UNITS ARE IN IT.** Measured 2026-10-10 from `src/data/ja/*.js`. Two seats were scoped by different axes that nobody checked against each other: one by **CEFR stage** (`pre-a1` + `a1`), one by **unit number** (`u1–u37`, with `u38+` handed to a second seat). Those are NOT the same range — **ja's `a1` stage is not contiguous.**
 >
-> | band | units | vocab | no drill | no hint | accept < 3 |
-> |---|---|---|---|---|---|
-> | pre-A1 + A1 at **u1–u37** (retrofitted) | 21 | 569 | **118, all structural** | **0** | **1** |
-> | **`stage: "a1"` ABOVE u37 — u53–u68, u82–u87** | **22** | **522** | **487** | **473** | **458** |
+> | band | units | vocab | no drill | no hint | accept < 3 | held by |
+> |---|---|---|---|---|---|---|
+> | `pre-a1` + `a1` at **u1–u21** (retrofitted 2026-10-10) | 21 | 569 | **118, all structural** | **0** | **1** | done |
+> | **`stage: "a2"` at u22–u37** | **16** | **302** | **290** | **208** | **248** | 🚨 **nobody** |
+> | **`stage: "a1"` ABOVE u37 — u53–u68, u82–u87** | **22** | **522** | **487** | **473** | **458** | 🚨 **nobody** |
+> | `a2` at u38–u52 | 15 | 199 | 1 | 0 | 3 | done (A2 seat) |
 >
-> The second row is **held by nobody**: a seat scoped "pre-A1 + A1" stops at u37 because it was told not to cross, and a seat scoped "A2" skips those units because their stage is `a1`. The learner reaches them inside the A1 band on the Ladder, so they are early content, not late.
+> **Both unheld rows fall through the SAME crack, in opposite directions.** The A1 seat is bounded at u37 by unit number, the A2 seat is working from u38 up. So u22–u37 is A2 content BELOW the A2 seat's floor, and u53–u87 is A1 content ABOVE the A1 seat's ceiling. 824 cards, and neither seat's brief reaches them. The u53+ half is the worse one: the learner meets it inside the A1 band on the Ladder, so it is early content, not late.
 >
 > ⚠️ **The 118 remaining no-drill cards in u1–u37 are a FLOOR, not debt** — 107 are `type: "kanji"`, where `drill-corpus.test.mjs` forbids a drill because `canCloze`/`canParticleCloze`/`canSentence` all require `type === "vocab"`, and 11 are one-character vocab fronts (`は か の と も や を が で へ な`) that no card can read a drill on. Verified item by item: **0 others.**
 
