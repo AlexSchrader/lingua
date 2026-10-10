@@ -276,6 +276,46 @@ for (const L of langs) {
     ? FAIL(`${ambLang.length} prompts are shared by DIFFERENT words, so type:produce is unanswerable (${ambLang.slice(0, 2).join("; ")})`)
     : OK("no prompt is shared by two different words");
 
+  // 6c. THE SAME DEFECT FOR A LETTER CARD, WHICH 6b CANNOT SEE.
+  //
+  // 6b keys on `meaning`, and a glyph carries `meaning: null`, so every letter card
+  // skips it. But TypeCard's produce branch prompts a glyph with its **reading**, and
+  // the reading is the ASCII fold — so fr `é` `è` `ê` all read "e" and one prompt has
+  // three right answers. Found by the QA session (lingua-33) as a hole in 6b, which
+  // I wrote; the gap is mine.
+  //
+  // KEYED ON ROUTING, NOT ON TYPE, and that is what makes it precise. Measured
+  // 2026-10-09: 73 glyph/kana readings are shared by different fronts, and **69 of
+  // them are Japanese hiragana/katakana twins** — あ/ア both read "a" — which are the
+  // intended progression and do NOT route to type:produce, so they must not fail.
+  // Requiring `shouldTypeProduce` leaves exactly the four real ones:
+  //   fr e -> é/è/ê    pt a -> á/â/ã    pt o -> ó/ô    es u -> ú/ü
+  const letters = items.filter((i) => i.type === "glyph" || i.type === "kana");
+  const byLetterPrompt = new Map();
+  for (const i of letters) {
+    let produce = false;
+    try { produce = C.shouldTypeProduce(i); } catch {}
+    if (!produce) continue;
+    const k = A.normalizeReading(String(i.reading ?? ""));
+    if (!k) continue;
+    if (!byLetterPrompt.has(k)) byLetterPrompt.set(k, []);
+    byLetterPrompt.get(k).push(i);
+  }
+  // THE FOUR KNOWN GROUPS ARE ALLOWLISTED BY THEIR EXACT FRONTS, and that is
+  // deliberate rather than a softened rule. The repair is a CARD-SHAPE change — stop
+  // prompting a glyph with its fold, or exclude the accent set from type:produce —
+  // which is the Feature lane, not content's, and is filed. A FAIL here would leave
+  // the gate red on three languages until that lands, and a permanently red gate is
+  // one somebody switches off. A FIFTH group, or any change to these four, fails.
+  const LETTER_OK = new Set(["fr|è/é/ê", "es|ú/ü", "pt|á/â/ã", "pt|ó/ô"]); // keys are the fronts CODEPOINT-sorted, as JS .sort() produces them
+  const letterDups = [...byLetterPrompt.entries()]
+    .filter(([, v]) => new Set(v.map((x) => String(x.front))).size > 1)
+    .filter(([, v]) => !LETTER_OK.has(`${L}|${[...new Set(v.map((x) => String(x.front)))].sort().join("/")}`))
+    .map(([k, v]) => `"${k}" <- ${v.map((x) => `${x.front}@u${x.u}`).join("/")}`);
+  letterDups.length
+    ? FAIL(`${letterDups.length} letter prompts have more than one right answer — a glyph's produce card prompts with its READING, which is the ASCII fold (${letterDups.join("; ")})`)
+    : OK("no letter card's prompt has two right answers");
+
   // 7. DRILL MUST CONTAIN ITS FRONT AS A WHOLE WORD, or cloze cannot blank it
   const badDrill = vocab.filter((i) => {
     const d = i.drill?.jp; if (!d) return false;
