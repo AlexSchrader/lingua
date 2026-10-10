@@ -179,7 +179,7 @@ rungs. Allowed only in `a1`+ stage units. KanjiVG entry required (add the char t
 | meaning | string            | ✓        | English gloss; non-empty. **Must not be shared with another item in the same language** unless both are the same word in two scripts (same `reading`) — the produce card prompts with this string and accepts only this item's front, so two items under one gloss are one prompt with two right answers. Add a discriminator: `es-u14l4-todo` is `"all (masculine)"`, not `"all"`. `lint:curriculum` warns. |
 | example | `{ jp, en }`      | ✓        | one sentence in each language |
 | accept  | string[]          | ✓        | alternate accepted meanings — **at least 3** (see `accept` under the drill rules) |
-| drill   | `{ jp, en }`      | ✓        | **short practice sentence** — see below. 3–8 tokens, no internal punctuation, must contain the `front`, **and must not be the `example` or a trim of it** |
+| drill   | —                 | ✗        | 🚨 **NEVER AUTHOR ONE ON A KANJI.** This row said `{ jp, en }` (opt) until 2026-10-10, and a seat read it and wrote 107 of them. `canCloze`, `canParticleCloze` and `canSentence` each require `type === "vocab"`, so **no card can ever read a kanji's drill** — it is dead weight that reads in the source like a decision. `tests/unit/drill-corpus.test.mjs` → *"only vocab items carry a drill"* fails on it. ⚠️ `src/data/lint.js` still lists `drill` in the kanji `optional` set (Feature lane's file, filed not edited). |
 | hint    | string (opt)      |          | memory hook; non-empty if present |
 
 ---
@@ -229,10 +229,17 @@ touching a single `example`.
 | same `{ jp, en }` shape as `example` | the `jp` key is historical — it holds the target language, whatever it is |
 | ⚠️ **REQUIRED on every vocab card, and it must NOT be the `example` or a clause trimmed off it** | `practice = (item) => item?.drill ?? item?.example` (`cardRouting.js:243`), and **both** `canCloze`/`blankExample` and `sentenceTokens` read `practice(item)` while the teach card shows `example`. With no drill, or a drill that repeats the example, the learner meets that word in **ONE sentence, three times** — teach, cloze, sentence-build. The repetition becomes re-reading instead of transfer. Make it a different **situation**, not a paraphrase. |
 | ⚠️ **`accept[]` carries at least 3 entries** | `checkMeaning` grades a typed answer against `meaning` plus every `accept`, so that list is the entire margin for a learner who recalls the word but reaches for another English synonym. A thin list marks correct recall WRONG, which is the punishing feedback `CLAUDE.md` says to design out. |
+| 🚨 **A DRILL REPLACES THE EXAMPLE — IT NEVER ADDS TO IT** | `practice` is a `??` chain, so the moment a drill exists, **every routing decision reads the drill and the example is never consulted again.** A drill that routes less than the example *removes* a card. Measured 2026-10-10: **55 pre-A1/A1 ja cards lost `sentence:build`** this way in one pass, each because the shipped example opened with the front and the new drill did not. **A card with a good example and no drill beats a card with a worse drill.** |
+| 🚨 **`ja`: the drill must OPEN with `<front><particle>`** | ja `sentenceTokens` is one pattern — `[word][particle][rest]` — and it checks `jp.startsWith(front)` plus a `CORE_PARTICLES` character (`は が を に へ で と も の`) *immediately* after it. `さかなをたべます。` routes; `いぬがさかなをみます。` does not, although the front is present and the sentence is better Japanese. So before you author a ja drill, check whether the example already opens that way — if it does, yours must too. |
+| 🚨 **a 1-character ja front cannot cloze AT ALL** | `canCloze` requires `[...front].length >= 2`, so `に` `ご` `じ` `は` can never take the word-cloze. Such a card earns a drill **only** if the drill wins `sentence:build` or `particle:choice`; otherwise the drill routes nothing. |
+| **run `node --test tests/unit/drill-corpus.test.mjs` after every unit** | It is the only check in the repo that sees any of the three rules above. `validate:content` and `lint:curriculum` both pass a drill that routes nothing, because their question is *is this well-formed*, not *does the router do anything with it*. |
 
-**Optional, and staying optional.** An item with no `drill` behaves exactly as today: cloze and
-sentence:build route only if its `example` happens to qualify. Add drills as you touch units;
-nothing breaks in the gap.
+**NOT optional any more.** This paragraph said *"Optional, and staying optional"* until
+2026-10-10 — directly under the two REQUIRED rules above it, which is how a crew ends up
+believing the sentence it read first. Every new vocab card carries a `drill` and at least
+three `accept[]` entries. Shipped cards that predate the rule are held by the per-language
+ceilings in `tests/unit/teach-quality.test.mjs`: the debt may only shrink, so an item with no
+drill is a card already counted against its language, not a free choice.
 
 **Use vocab already taught at or before this unit** — the same teach-before-use rule as `example`
 (RUNBOOK §4). A drill is a *simplification* of the example's idea, not a new sentence with new
