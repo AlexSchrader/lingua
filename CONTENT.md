@@ -104,8 +104,8 @@ gojūon grid). They count toward a lesson's card-density.
 | reading | string            | ✓        | romaji; `[a-z]+` after normalization |
 | meaning | string            | ✓        | English gloss; non-empty. **Must not be shared with another item in the same language** unless both are the same word in two scripts (same `reading`) — the produce card prompts with this string and accepts only this item's front, so two items under one gloss are one prompt with two right answers. Add a discriminator: `es-u14l4-todo` is `"all (masculine)"`, not `"all"`. `lint:curriculum` warns. |
 | example | `{ jp, en }`      | ✓        | one sentence in each language |
-| accept  | string[] (opt)    |          | alternate accepted meanings for typed answers |
-| drill   | `{ jp, en }` (opt) |         | **short practice sentence** — see below. 3–8 tokens, no internal punctuation, must contain the `front` |
+| accept  | string[]          | ✓        | alternate accepted meanings for typed answers — **at least 3**. Graded by `checkMeaning` alongside `meaning`; a thin list marks correct recall wrong. |
+| drill   | `{ jp, en }`      | ✓        | **short practice sentence** — see below. 3–8 tokens, no internal punctuation, must contain the `front`, **and must not be the `example` or a trim of it** |
 | hint    | string (opt)      |          | memory hook shown on TeachCard; must be non-empty if present |
 
 ### Accent items — unit 1, lessons 1–3 only (the accent standard)
@@ -153,7 +153,7 @@ gojūon grid). They count toward a lesson's card-density.
 ⚠️ **Still true before you author:** Two Feature-lane prerequisites are outstanding and both are Alex's call — `BUILD-BRIEF-language-blueprint.md` §3e has the detail:
 1. **Meaning cards cannot be turned off.** `eligibleKinds()` always offers `choice` **and** `type:meaning` **and** `choice:reverse`, and `listen:choice` on a vocab item shows **meaning options** — so even the "hear" card is a meaning card. A flag must gate all of them together. `ITEM_KEYS` is a closed set with no field for it.
 2. ~~**"Hear" needs 51 clips that do not exist.**~~ ✅ **CLEARED 2026-09-13** — `main` generated the missing clips (de 480 · no 480 · pt A2 720 · fr 14). Unit 1 lessons 1–3 went from **51 silent to 1**: fr 0/21 · es 0/19 · de 0/18 · no 0/18 · pt **1**/19. The one holdout is **`pt-u1l1-econj`** (front `e`, "and") — a single-letter front, and the only card in scope whose companion still has nothing to say. **`speak` needs the clip too**: SpeakCard plays it *then* arms the mic, so with none it asks the learner to pronounce a character they have never heard.
-3. **A non-folding typed check — the one that decides whether any of this works.** `normalizeReading` strips diacritics, so `checkProduce("e", { front: "é" })` is **true**: the plain letter passes the "type the accent" card, and é/è/ê share reading `"e"` so they accept each other. TypeCard's own prompt says *"accents optional"*. **Without this the standard is a no-op.**
+3. ✅ **A non-folding typed check — DONE, and this item used to say the opposite.** It read that `checkProduce("e", { front: "é" })` is **true** and that "without this the standard is a no-op". **Measured 2026-10-09: it returns `false`.** The bare letter is rejected, `é` is accepted, `ss` is rejected for `ß`. ⚠️ `normalizeReading` DOES still fold é/è/ê to `"e"` — that half was accurate — so do NOT "repair" it; `checkProduce` simply no longer routes this comparison through it, and the reading fold is load-bearing elsewhere.
 4. **The keyboard popup** Alex asked for. `item.hint` renders only on TeachCard, never on the typing card — there is no surface for it yet.
 
 **Before a bespoke flag is built, look at `type: "kana"`.** It is already this card: `meaning: null`, front = the glyph, `type:meaning` auto-rewritten to "type the character", `listen:choice` showing glyph options instead of meanings. The meaning card suppresses itself, with no new field. It is blocked only by the type being Japanese-named and by the script policy below — which **already flags generalising `kana` → `glyph`** for Korean/Russian/Mandarin/Hindi. Doing it once serves this and the next four languages.
@@ -178,8 +178,8 @@ rungs. Allowed only in `a1`+ stage units. KanjiVG entry required (add the char t
 | reading | string            | ✓        | romaji; `[a-z]+` after normalization |
 | meaning | string            | ✓        | English gloss; non-empty. **Must not be shared with another item in the same language** unless both are the same word in two scripts (same `reading`) — the produce card prompts with this string and accepts only this item's front, so two items under one gloss are one prompt with two right answers. Add a discriminator: `es-u14l4-todo` is `"all (masculine)"`, not `"all"`. `lint:curriculum` warns. |
 | example | `{ jp, en }`      | ✓        | one sentence in each language |
-| accept  | string[] (opt)    |          | alternate accepted meanings |
-| drill   | `{ jp, en }` (opt) |         | **short practice sentence** — see below. 3–8 tokens, no internal punctuation, must contain the `front` |
+| accept  | string[]          | ✓        | alternate accepted meanings — **at least 3** (see `accept` under the drill rules) |
+| drill   | `{ jp, en }`      | ✓        | **short practice sentence** — see below. 3–8 tokens, no internal punctuation, must contain the `front`, **and must not be the `example` or a trim of it** |
 | hint    | string (opt)      |          | memory hook; non-empty if present |
 
 ---
@@ -205,6 +205,20 @@ Measured against the shipped corpus, that is why those two cards reach only **36
 not a routing bug, just how the examples happened to be written. `drill` fixes it without
 touching a single `example`.
 
+⚠️ **MEASURED 2026-10-09, AND THIS IS WHY THE TWO RULES BELOW ARE NOW REQUIRED RATHER THAN SUGGESTED.** Over 28,939 shipped vocab cards, **7,472 (26%) give the learner only one sentence** — and nothing checked it: `drill` was listed OPTIONAL in `src/data/lint.js`’s field spec, `contract.js` validated only its SHAPE when present, and `ship-gate.mjs` checked the token bound and front-verbatim only for drills that already existed.
+
+| lang | one-sentence cards | cause |
+|---|---|---|
+| ja | **3,602 (88%)** | almost no drills at all — 12% coverage, 3% in pre-A1 |
+| pt | **1,659 (55%)** | a drill on every card, and 55% repeat the example |
+| hi | 656 (20%) | B1/B2 |
+| id | 577 (19%) | — |
+| ru | 323 (10%) | — |
+| fr · es | 215 · 211 (7%) | — |
+| de · no | 123 · 106 (4% · 3%) | the standard, met |
+
+**ja and pt fail the same rule for opposite reasons, which is why the rule names both.** Japanese was authored first, before this standard existed, and graded **D on build and D− on teach** against de/no/ru at A-/A. `tests/unit/teach-quality.test.mjs` now ratchets both properties per language, and **a language with no entry in that table is held to a ceiling of ZERO** — so Italian, Dutch and English are held to this from their first card rather than earning a retrofit.
+
 **The rules (lint reports each one, so you find out while authoring):**
 
 | rule | why |
@@ -213,6 +227,8 @@ touching a single `example`.
 | no `, ; : ! ? …` and no mid-sentence `.` | `sentence:build` rejects punctuation-only tiles |
 | must contain the item's `front` | or `cloze:choice` has nothing to blank. Matched accent- and case-insensitively, so `"BONJOUR mon ami"` satisfies front `bonjour` |
 | same `{ jp, en }` shape as `example` | the `jp` key is historical — it holds the target language, whatever it is |
+| ⚠️ **REQUIRED on every vocab card, and it must NOT be the `example` or a clause trimmed off it** | `practice = (item) => item?.drill ?? item?.example` (`cardRouting.js:243`), and **both** `canCloze`/`blankExample` and `sentenceTokens` read `practice(item)` while the teach card shows `example`. With no drill, or a drill that repeats the example, the learner meets that word in **ONE sentence, three times** — teach, cloze, sentence-build. The repetition becomes re-reading instead of transfer. Make it a different **situation**, not a paraphrase. |
+| ⚠️ **`accept[]` carries at least 3 entries** | `checkMeaning` grades a typed answer against `meaning` plus every `accept`, so that list is the entire margin for a learner who recalls the word but reaches for another English synonym. A thin list marks correct recall WRONG, which is the punishing feedback `CLAUDE.md` says to design out. |
 
 **Optional, and staying optional.** An item with no `drill` behaves exactly as today: cloze and
 sentence:build route only if its `example` happens to qualify. Add drills as you touch units;
