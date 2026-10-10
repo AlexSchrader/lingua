@@ -1,4 +1,4 @@
-// WHICH PAIRS OF WORDS SOUND THE SAME? — a question only a human can finish.
+// WHICH PAIRS OF WORDS SOUND THE SAME? — a question the engine cannot answer.
 //
 // WHY THIS EXISTS. A listening card plays a clip of `front` and offers MEANINGS.
 // If two items sound alike, both meanings are right answers to "what did you
@@ -17,9 +17,23 @@
 //                                   a fold for
 //
 // Excluding every fold match would delete exactly the ö/o and stress contrasts
-// those languages most need to drill. So this lists CANDIDATES and a human marks
-// the real ones. Japanese is excluded: there the reading IS the pronunciation, so
-// its collisions are decided in code, not here.
+// those languages most need to drill. So this lists CANDIDATES for review.
+//
+// WHO REVIEWS IT. The first version of this header said "only a human can finish"
+// this, and Curriculum CC corrected it the same day: there IS no human ear on this
+// project. CLAUDE.md makes the LLM native-speaker proxy the accepted naturalness
+// gate precisely because Alex has no native reviewer (2026-07-12). So a Curriculum
+// seat's verdict IS the answer, not a placeholder for one — with the caveat that it
+// is one correlated signal, strongest on orthographic-accent pairs and on whichever
+// language that seat has been authoring.
+//
+// Japanese is excluded: there the reading IS the pronunciation, so its collisions
+// are decided in code, not here.
+//
+// ANSWERED 2026-10-10 for fr/es/de/no/pt: 12 SAME, 20 DIFFERENT, 1 borderline
+// (pt às/as — DIFFERENT in European Portuguese, SAME in Brazilian; the corpus is
+// EP). Re-run this when new units land; the verdicts live in the engine's
+// separability data, not in this file.
 //
 // WHAT TO DO WITH THE OUTPUT: for each group, say whether the words genuinely sound
 // identical to a learner. Same sound -> they must never be offered against each
