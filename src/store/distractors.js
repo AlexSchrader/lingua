@@ -5,7 +5,8 @@
 // (down to 2, or 1 in the degenerate case of a lone item).
 
 import { itemLang } from "./itemLang.js";
-import { normalizeText } from "./answer.js";
+import { normalizeText, normalizeReading } from "./answer.js";
+import { soundAlikeGroups } from "../data/soundAlikes.js";
 
 function shuffle(arr) {
   const a = [...arr];
@@ -53,7 +54,46 @@ export function confusableGlyphs(front) {
 
 // item: the item being tested. allItems: the store's items map (or array).
 // Returns an array of { text, correct } of length 2..count (1 if truly alone).
-export function buildOptions(item, allItems, count = 4, fieldOverride = null) {
+// LANGUAGES WHERE THE READING IS THE PRONUNCIATION.
+//
+// Japanese only, and measured rather than assumed: its reading is romanised kana,
+// so two items sharing one genuinely sound alike - はい/杯/灰 are all "hai" and mean
+// yes/cupful/ash. 871 items are involved, far too many to list by hand and needing
+// no judgement. Every OTHER language's reading is an orthographic fold, which is a
+// bad sound-alike test in both directions (de schön/schon look identical and are
+// not; de das/dass look different and are identical), so those are listed in
+// src/data/soundAlikes.js by a human instead.
+const READING_IS_PRONUNCIATION = new Set(["ja"]);
+
+// Everything that sounds like `item` to a learner. Used only when the PROMPT IS
+// AUDIO - see the byEar note in buildOptions.
+function soundsLike(item, lang) {
+  const out = new Set();
+  for (const group of soundAlikeGroups(lang)) {
+    if (group.includes(item.front)) for (const f of group) if (f !== item.front) out.add(f);
+  }
+  return out;
+}
+
+// `byEar` - THE PROMPT IS A CLIP, NOT A WORD ON SCREEN.
+//
+// On a listening card the prompt is a recording of `front` and the options are
+// MEANINGS, so a peer that SOUNDS like this item is a second correct answer to
+// "what did you hear". Grading is an identity flag, so picking it is marked wrong
+// and drops a rung (mastery.js) - the learner is punished for a question that had
+// two right answers.
+//
+// This is the same family as the sense-collision handled further down, generalised:
+// A PROMPT LOSSIER THAN ITS ANSWER SPACE. The sense check asks "does this candidate
+// claim the prompt's meaning"; this one asks "does the prompt SOUND like this
+// candidate". Both are 'the prompt cannot separate these two'.
+//
+// PER CARD KIND, not per item, and that distinction is load-bearing. Norwegian
+// å måle / å male fold to the same string, so the TYPED grader accepts either -
+// indistinguishable on a typing card. Out loud they are /oː/ vs /ɑː/, plainly
+// different. Same pair, opposite answers, so a single per-item flag would be wrong
+// one way or the other.
+export function buildOptions(item, allItems, count = 4, fieldOverride = null, { byEar = false } = {}) {
   // Which field the options show: readings for kana, meanings for vocab — unless
   // overridden (a listening kana card offers glyphs, `front`, since the glyph is
   // the hidden answer). Distractors are drawn from the same field.
@@ -82,8 +122,20 @@ export function buildOptions(item, allItems, count = 4, fieldOverride = null) {
       itemLang(it) === itemLang(item)
   );
   // Prefer same-unit distractors, then pad from other units.
-  const sameUnit = sameType.filter((it) => it.unit === item.unit);
-  const otherUnit = sameType.filter((it) => it.unit !== item.unit);
+  // Drop anything the EAR cannot separate from the answer, before the pool is
+  // built - so a sound-alike cannot be front-loaded as a 'preferred' distractor.
+  const earExcluded = byEar ? soundsLike(item, itemLang(item)) : null;
+  const earSafe = !byEar
+    ? sameType
+    : sameType.filter((it) => {
+        if (earExcluded.has(it.front)) return false;
+        if (!READING_IS_PRONUNCIATION.has(itemLang(item))) return true;
+        const a = normalizeReading(item.reading ?? item.front, itemLang(item));
+        const b = normalizeReading(it.reading ?? it.front, itemLang(it));
+        return !a || a !== b;
+      });
+  const sameUnit = earSafe.filter((it) => it.unit === item.unit);
+  const otherUnit = earSafe.filter((it) => it.unit !== item.unit);
   let pool = [...shuffle(sameUnit), ...shuffle(otherUnit)];
 
   // Kana: front-load visually-confusable peers so the recognition card DRILLS the
