@@ -142,9 +142,9 @@ gojūon grid). They count toward a lesson's card-density.
 
 ⚠️ **Three fronts are already taken.** **`é` in pt is `pt-u1l1-e`** (the copula, *inside* the lesson in scope — u1l1 pairs it against `e`/"and" deliberately, and re-using it means an id change, which **wipes that item's mastery**); `à` in fr is `fr-u6l2-a`; `à` in pt is `pt-u12l3-a`. Everything else is free. Check with `npm run taught -- <lang>` before committing to a front.
 
-⚠️ **`fr-u27l3` is the worst case in scope and needs replacing, not adjusting.** All seven of its fronts are French grammar **terminology** — `la consonne finale`, `le h muet`, `l'élision`, `la liaison`, `l'accent aigu`, `l'accent grave` — so the learner types *the name of the character* to learn the character. Two of them become straight duplicates in purpose of l1's `é` and `è` once l1 is rewritten.
+⚠️ **`fr-u1l3` is the worst case still open and needs replacing, not adjusting.** *(This said `fr-u27l3` until 2026-10-11; that id is now a grammar lesson in a different unit — see the filename note below.)* All seven of its fronts are French grammar **terminology** — `la consonne finale`, `le h muet`, `le e muet`, `l'élision`, `la liaison`, `l'accent aigu`, `l'accent grave` — so the learner types *the name of the character* to learn the character. The last two are now straight duplicates in purpose of l1's `é` and `è` glyph cards, which have shipped.
 
-⚠️ **French's unit 1 has only THREE lessons; the other four languages have four.** So "lessons 1–3" is French's entire unit — there is no l4 to move elision/liaison into without authoring one. And **lesson ids embed the lesson number**, so moving a card between lessons changes its id and wipes that item's mastery — cheap now, expensive after users. Any reorder belongs in the same pass as the rewrite.
+✅ **French's glyph cards have SHIPPED, and its unit 1 now has FIVE lessons.** *(This said "only THREE lessons" until 2026-10-11.)* `fr-u1` carries `type: "glyph"` cards in l1 (`é è ê ô`), l2 (`û ï ç œ`), l4 (`eau au ai oi`) and l5 (`ui gn ill`), **added in front of the word cards, never replacing them**, exactly as the rule below requires. l3 is the one lesson with no glyph cards, because what it teaches is a process. **Lesson ids embed the lesson number**, so moving a card between lessons changes its id and wipes that item's mastery — cheap now, expensive after users. Any reorder belongs in the same pass as the l3 rewrite.
 
 🚨 **ADD the glyph cards IN FRONT OF the existing word cards — never replace them.** Every word in unit 1 lessons 1–3 is taught in exactly one place, that lesson, in all five languages (measured: no 18/18, fr 21/21, es 19/19, pt 19/19, de 18/18). Replacing deletes the word from the course — including Norwegian's `å være`, *to be*. Teach order is authored order, so glyphs placed first still means the learner meets the letters before any word. Full detail + the per-language table in `RUNBOOK-new-language.md` §4.
 
@@ -158,7 +158,7 @@ gojūon grid). They count toward a lesson's card-density.
 
 **Before a bespoke flag is built, look at `type: "kana"`.** It is already this card: `meaning: null`, front = the glyph, `type:meaning` auto-rewritten to "type the character", `listen:choice` showing glyph options instead of meanings. The meaning card suppresses itself, with no new field. It is blocked only by the type being Japanese-named and by the script policy below — which **already flags generalising `kana` → `glyph`** for Korean/Russian/Mandarin/Hindi. Doing it once serves this and the next four languages.
 
-⚠️ **French's unit 1 is `src/data/fr/unit27.js`.** The filename is historical; the unit carries `order: 1`. Edit by unit `order`, never by filename.
+⚠️ **French's unit 1 is `src/data/fr/unit1.js`, and filename now matches `order` across fr.** *(This said `unit27.js` until 2026-10-11, when `unit27.js` was measured carrying `order: 27` — "Un peu de grammaire". The historical offset is gone.)* Still edit by unit `order` rather than trusting the filename, because nothing enforces that they agree.
 
 ---
 
@@ -266,14 +266,18 @@ Trace earns its place here because **stroke order is a real, rule-governed syste
 affects legibility and dictionary lookup, and is taught and enforced natively. Writing
 the glyph by hand *is* the production skill.
 
-⚠️ Three things block a new non-Latin script today, all real work:
+⚠️ **Two** things block a new non-Latin script today, both real work. *(This said three until
+2026-10-11; point 2 had shipped.)*
 
-1. **Stroke data.** `src/data/kanjivg.js` holds 390 entries — every one Japanese, zero
-   Latin. KanjiVG is a *Japanese* dataset; Hangul, Cyrillic and Devanagari each need
+1. **Stroke data.** `src/data/kanjivg.js` holds **934** entries — every one Japanese, zero
+   Latin. *(It said 390 until 2026-10-11; re-derive this number rather than quoting it.)*
+   KanjiVG is a *Japanese* dataset; Hangul, Cyrillic and Devanagari each need
    their own source.
-2. **Item types.** `VALID_ITEM_TYPES` is `["kana", "vocab", "kanji"]` — Japanese names.
-   Hangul is neither. This needs a generic `glyph` type (or per-script types) → a
-   **contract change, its own scoped PR**.
+2. ~~**Item types.**~~ ✅ **DONE — `VALID_ITEM_TYPES` is `["kana", "vocab", "kanji", "glyph"]`**
+   (measured in `src/data/contract.js`, 2026-10-11). *This item read `["kana", "vocab", "kanji"]`
+   and called the generic `glyph` type an unbuilt contract change; it shipped, and the five
+   Latin-script languages already author glyph cards with it.* What a new non-Latin script
+   still needs from this list is nothing — only the stroke data in point 1.
 3. **`isTraceable`** (`src/store/cardRouting.js`) hardcodes those two Japanese types.
 
 ### Latin script → a sounds & accents section, never trace
@@ -328,12 +332,7 @@ the list will throw at runtime and fail CI smoke.
 | `type:produce`| 3+ kana + kana learn check2 | type the rōmaji / kana |
 | `build`       | 3+ vocab (PRODUCED) | assemble the reading from tiles |
 
-Dormant (not yet wired):
-
-| kind    | brief      | description |
-|---------|------------|-------------|
-| `trace` | Brief 3    | KanjiVG touch-to-trace |
-| `speak` | Brief C    | Whisper speech recognition |
+✅ **Nothing is dormant any more — all fifteen kinds in `LIVE_CARD_KINDS` ship.** *(This section carried a "Dormant (not yet wired)" table listing `trace` and `speak` until 2026-10-11, long after both shipped. CLAUDE.md had already recorded that they were live, so the two docs contradicted each other, and a stale "not yet wired" row reads as an invitation to build it twice.)* The kinds the table above omits are also live: `choice:reverse`, `listen:choice`, `listen:type`, `type:reading`, `cloze:choice`, `particle:choice`, `sentence:build`, `conjugate`, `trace` (KanjiVG touch-to-trace) and `speak`. **Read `LIVE_CARD_KINDS` in `src/data/contract.js` for the canonical list — not this table, which is a summary and has rotted once already.**
 
 ---
 
