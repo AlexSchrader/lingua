@@ -47,8 +47,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { UNITS } from "../../src/data/index.js";
 
-const ONE_SENTENCE_CEILING = { ja: 3602, pt: 1659, hi: 656, id: 577, ru: 323, fr: 215, es: 211, de: 123, no: 106 };
-const THIN_ACCEPT_CEILING = { hi: 1432, ja: 620, no: 460, fr: 434, es: 369, de: 212, pt: 99, id: 22, ru: 22 };
+const ONE_SENTENCE_CEILING = { ja: 3602, pt: 207, hi: 174, id: 577, ru: 323, fr: 215, es: 211, de: 123, no: 106 };
+const THIN_ACCEPT_CEILING = { hi: 763, ja: 620, no: 460, fr: 434, es: 369, de: 212, pt: 0, id: 22, ru: 22 };
 
 const flat = (x) => String(x ?? "").toLowerCase().replace(/[^\p{L}\s]/gu, "").replace(/\s+/g, " ").trim();
 
@@ -83,6 +83,18 @@ function oneSentence(items) {
 // and did not have it — it was authored first, before the standards existed, and
 // graded D/D- four years later. A new language with no entry below cannot add a
 // single drill-less or thin-accept card without this suite going red.
+// CEILINGS LOWERED 2026-10-10 for pt and hi — first paydown. The 2026-10-09 baseline was
+//   one-sentence  ja 3602  pt 1659  hi 656  id 577  ru 323  fr 215  es 211  de 123  no 106
+//   thin-accept   hi 1432  ja 620  no 460  fr 434  es 369  de 212  pt 99  id 22  ru 22
+// Two retrofit crews brought **pt 1659 -> 207 one-sentence and 99 -> 0 thin-accept**, and
+// **hi 656 -> 174 and 1432 -> 763**. Portuguese is now at 7% one-sentence, level with fr/es
+// and within reach of de (4%) and no (3%). Lowered rather than left high: a ceiling that is
+// not tightened as the debt shrinks stops being a ratchet and becomes a licence to regress.
+//
+// ja IS DELIBERATELY UNCHANGED at 3602/620 even though its crews repaired ~200 cards,
+// because that work is HELD, not shipped. Its drills regressed 88 items — see
+// tests/unit/drill-corpus.test.mjs, which caught it: `practice()` prefers the drill, so a
+// drill that fails sentenceTokens DELETES a sentence:build card the example had earned.
 const allLangs = Object.keys(BY).sort();
 const ceilingOf = (table, lang) => table[lang] ?? 0;
 
