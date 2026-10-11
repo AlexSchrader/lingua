@@ -30,7 +30,12 @@ export default function ChoiceCard({ item, allItems, onGraded, onCantHear, audio
   // (the answer is the Japanese); every other case uses the normal field (meaning /
   // reading). Rebuild when the listening mode flips ("Show it").
   const options = useMemo(
-    () => buildOptions(item, allItems, 4, reverse || (listening && isKana) ? "front" : null),
+    // byEar: while the prompt is a CLIP, a peer that sounds like this item is a
+    // second right answer to "what did you hear" — and picking it is graded wrong,
+    // which drops a rung. Flipped off by "Show it", because once the word is on
+    // screen the prompt is no longer lossy and those peers are good distractors
+    // again. See buildOptions.
+    () => buildOptions(item, allItems, 4, reverse || (listening && isKana) ? "front" : null, { byEar: listening }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [item.id, listening]
   );
