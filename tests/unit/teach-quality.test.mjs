@@ -47,8 +47,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { UNITS } from "../../src/data/index.js";
 
-const ONE_SENTENCE_CEILING = { ja: 1939, id: 577, ru: 323, fr: 215, es: 211, de: 123, no: 106, hi: 0, pt: 0 };
-const THIN_ACCEPT_CEILING = { no: 460, es: 369, de: 212, ja: 177, fr: 158, id: 22, ru: 22, hi: 0, pt: 0 };
+const ONE_SENTENCE_CEILING = { ja: 1544, id: 577, ru: 323, fr: 215, es: 211, de: 123, no: 106, hi: 0, pt: 0 };
+const THIN_ACCEPT_CEILING = { no: 460, es: 369, de: 212, ja: 174, fr: 107, id: 22, ru: 22, hi: 0, pt: 0 };
 
 const flat = (x) => String(x ?? "").toLowerCase().replace(/[^\p{L}\s]/gu, "").replace(/\s+/g, " ").trim();
 
@@ -83,18 +83,22 @@ function oneSentence(items) {
 // and did not have it — it was authored first, before the standards existed, and
 // graded D/D- four years later. A new language with no entry below cannot add a
 // single drill-less or thin-accept card without this suite going red.
-// CEILINGS LOWERED 2026-10-11, THIRD PAYDOWN. The 2026-10-09 baseline was
+// CEILINGS LOWERED 2026-10-11, FOURTH PAYDOWN. The 2026-10-09 baseline was
 //   one-sentence  ja 3602  pt 1659  hi 656  id 577  ru 323  fr 215  es 211  de 123  no 106
 //   thin-accept   hi 1432  ja 620  no 460  fr 434  es 369  de 212  pt 99  id 22  ru 22
-// Five retrofit crews have brought it to the values above:
-//   pt  1659 -> 0  and 99 -> 0     — FINISHED, all four bands
-//   hi   656 -> 0  and 1432 -> 0   — FINISHED, all five bands, and 0 missing hints
-//   ja  3602 -> 1939 and 620 -> 177, with missing hints 2805 -> 1200
-//   fr  thin 434 -> 158, missing hints 1039 -> 640
+// Six retrofit crews have brought it to the values above:
+//   pt  FINISHED — 0 / 0, all four bands
+//   hi  FINISHED — 0 / 0, all five bands, and 0 cards under THREE accepts
+//   ja  3602 -> 1544 one-sentence, 620 -> 174 thin, missing hints 2805 -> 872
+//   fr  thin 434 -> 107, missing hints 1039 -> 294
 //
-// **pt AND hi NOW SIT AT ZERO, the same ceiling a brand-new language gets.** That is the
-// intended end state for every language, not a special case — Italian, Dutch and English
-// start there by default and two shipped languages have now reached it.
+// ⚠️ A FLOOR EXISTS FOR ja AND IT IS NOT ZERO. The u1-u37 seat verified item by item that
+// of its 197 remaining drill-less cards, **185 are `type: "kanji"`, where drill-corpus.test.mjs
+// FORBIDS a drill** (canCloze / canParticleCloze / canSentence all require type === "vocab"),
+// and **12 are one-character vocab fronts** (は か の と も や を が で へ な し) which cannot
+// cloze — canCloze needs >=2 chars — and cannot open a ja sentence. This metric counts vocab
+// only, so the 185 kanji are outside it; the 12 are inside and can never reach zero.
+// **Do not drive ja's one-sentence ceiling to 0. Roughly a dozen is its true floor.**
 const allLangs = Object.keys(BY).sort();
 const ceilingOf = (table, lang) => table[lang] ?? 0;
 
