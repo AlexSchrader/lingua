@@ -47,8 +47,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { UNITS } from "../../src/data/index.js";
 
-const ONE_SENTENCE_CEILING = { ja: 1504, id: 577, ru: 323, fr: 215, es: 211, de: 123, no: 106, hi: 0, pt: 0 };
-const THIN_ACCEPT_CEILING = { no: 460, es: 369, de: 212, ja: 174, fr: 107, id: 22, ru: 22, hi: 0, pt: 0 };
+const ONE_SENTENCE_CEILING = { ja: 896, id: 577, ru: 323, fr: 215, es: 211, de: 123, no: 106, hi: 0, pt: 0 };
+const THIN_ACCEPT_CEILING = { no: 460, es: 369, de: 212, ja: 58, id: 22, ru: 22, fr: 0, hi: 0, pt: 0 };
 
 const flat = (x) => String(x ?? "").toLowerCase().replace(/[^\p{L}\s]/gu, "").replace(/\s+/g, " ").trim();
 
@@ -83,22 +83,25 @@ function oneSentence(items) {
 // and did not have it — it was authored first, before the standards existed, and
 // graded D/D- four years later. A new language with no entry below cannot add a
 // single drill-less or thin-accept card without this suite going red.
-// CEILINGS LOWERED 2026-10-11, FOURTH PAYDOWN. The 2026-10-09 baseline was
+// CEILINGS LOWERED 2026-10-11, SIXTH PAYDOWN. The 2026-10-09 baseline was
 //   one-sentence  ja 3602  pt 1659  hi 656  id 577  ru 323  fr 215  es 211  de 123  no 106
 //   thin-accept   hi 1432  ja 620  no 460  fr 434  es 369  de 212  pt 99  id 22  ru 22
-// Six retrofit crews have brought it to the values above:
-//   pt  FINISHED — 0 / 0, all four bands
-//   hi  FINISHED — 0 / 0, all five bands, and 0 cards under THREE accepts
-//   ja  3602 -> 1544 one-sentence, 620 -> 174 thin, missing hints 2805 -> 872
-//   fr  thin 434 -> 107, missing hints 1039 -> 294
+// Eight retrofit crews have brought it to the values above:
+//   pt  FINISHED — 0 one-sentence / 0 thin / 0 missing hints
+//   hi  FINISHED — 0 / 0 / 0, and 0 cards under THREE accepts
+//   fr  thin 434 -> 0 and missing hints 1039 -> 0; its 215 one-sentence was never its brief
+//   ja  3602 -> 896 one-sentence, 620 -> 58 thin, missing hints 2805 -> 503
 //
-// ⚠️ A FLOOR EXISTS FOR ja AND IT IS NOT ZERO. The u1-u37 seat verified item by item that
-// of its 197 remaining drill-less cards, **185 are `type: "kanji"`, where drill-corpus.test.mjs
-// FORBIDS a drill** (canCloze / canParticleCloze / canSentence all require type === "vocab"),
-// and **12 are one-character vocab fronts** (は か の と も や を が で へ な し) which cannot
-// cloze — canCloze needs >=2 chars — and cannot open a ja sentence. This metric counts vocab
-// only, so the 185 kanji are outside it; the 12 are inside and can never reach zero.
-// **Do not drive ja's one-sentence ceiling to 0. Roughly a dozen is its true floor.**
+// **pt, hi and now fr sit at ZERO on thin-accept — the same ceiling a brand-new language
+// gets.** That is the intended end state for all nine, and three have reached it on at
+// least one axis.
+//
+// ⚠️ ja's ONE-SENTENCE FLOOR IS NOT ZERO. Verified item by item across two seats: a drill
+// is FORBIDDEN on a `type: "kanji"` item (canCloze / canParticleCloze / canSentence all
+// require type === "vocab"), and a ONE-CHARACTER vocab front can never cloze (canCloze
+// needs >=2 chars) nor open a ja sentence. The ja u1-u37 seat left 12 such fronts and the
+// u87-u143 seat left 4 (だ た ね よ), each declining to force a particle card that would
+// quiz the wrong morpheme. **Roughly 15-20 is ja's true floor; do not drive it to 0.**
 const allLangs = Object.keys(BY).sort();
 const ceilingOf = (table, lang) => table[lang] ?? 0;
 
