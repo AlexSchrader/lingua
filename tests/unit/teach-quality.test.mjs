@@ -47,7 +47,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { UNITS } from "../../src/data/index.js";
 
-const ONE_SENTENCE_CEILING = { ja: 1544, id: 577, ru: 323, fr: 215, es: 211, de: 123, no: 106, hi: 0, pt: 0 };
+const ONE_SENTENCE_CEILING = { ja: 1504, id: 577, ru: 323, fr: 215, es: 211, de: 123, no: 106, hi: 0, pt: 0 };
 const THIN_ACCEPT_CEILING = { no: 460, es: 369, de: 212, ja: 174, fr: 107, id: 22, ru: 22, hi: 0, pt: 0 };
 
 const flat = (x) => String(x ?? "").toLowerCase().replace(/[^\p{L}\s]/gu, "").replace(/\s+/g, " ").trim();
