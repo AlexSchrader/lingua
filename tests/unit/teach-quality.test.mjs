@@ -48,7 +48,15 @@ import assert from "node:assert/strict";
 import { UNITS } from "../../src/data/index.js";
 
 const ONE_SENTENCE_CEILING = { ru: 323, fr: 215, es: 211, de: 123, no: 106, ja: 20, hi: 0, id: 0, pt: 0 };
-const THIN_ACCEPT_CEILING = { no: 460, es: 369, de: 212, ru: 22, fr: 0, hi: 0, id: 0, ja: 0, pt: 0 };
+const THIN_ACCEPT_CEILING = { no: 460, de: 212, ru: 22, es: 0, fr: 0, hi: 0, id: 0, ja: 0, pt: 0 };
+// THE DOCUMENTED STANDARD IS THREE, NOT TWO, and the table above was measuring the wrong
+// bar. CONTENT.md says `accept[]` carries **at least 3**; this suite only ever checked
+// `< 2`, so a language could read "0 thin-accept" here while hundreds of its cards sat at
+// exactly two. Caught 2026-10-12 by the es seat, which noticed its brief's "369 thin"
+// was the `< 2` figure while the stated target was 3 — the real job was **1,552 cards**.
+// Measured the moment it was pointed out: hi and fr were the ONLY languages meeting the
+// published standard, while pt (325) and id (552) had both been reported as finished.
+const UNDER_THREE_CEILING = { no: 1844, de: 720, id: 552, pt: 325, ru: 238, ja: 1, es: 0, fr: 0, hi: 0 };
 
 const flat = (x) => String(x ?? "").toLowerCase().replace(/[^\p{L}\s]/gu, "").replace(/\s+/g, " ").trim();
 
@@ -101,8 +109,10 @@ function oneSentence(items) {
 // fr's 215 one-sentence was never in its brief — at 7% it matches es and trails only de
 // (4%) and no (3%). It is a deliberate scope boundary, not an oversight.
 //
-// REMAINING, and none of these languages is below B+: es 211/369 + 140 missing hints ·
-// no 106/460 · de 123/212 · ru 323/22.
+// REMAINING against the <2 floor: no 460 · de 212 · ru 22. Against the DOCUMENTED bar of 3:
+// no 1844 · de 720 · id 552 · pt 325 · ru 238 · ja 1. **es is now 0 on every axis it was
+// given** — thin-accept 369 -> 0, under-three 1552 -> 0, missing hints 140 -> 0 — and its
+// 211 one-sentence is the same deliberate boundary as fr's 215, not debt.
 const allLangs = Object.keys(BY).sort();
 const ceilingOf = (table, lang) => table[lang] ?? 0;
 
@@ -130,6 +140,23 @@ for (const lang of allLangs) {
       `${lang}: ${thin.length} cards have fewer than 2 accept[] entries (ceiling ${ceiling}). ` +
         `checkMeaning grades against meaning + accept, so a thin list marks correct recall wrong. ` +
         `First few: ${thin.slice(0, 5).map((i) => i.id).join(", ")}`,
+    );
+  });
+}
+
+// The documented standard, ratcheted separately from the `< 2` floor. Two accepts is a
+// card that can still be answered; three is what CONTENT.md promises an author will write.
+for (const lang of allLangs) {
+  const ceiling = ceilingOf(UNDER_THREE_CEILING, lang);
+  test(`${lang}: cards with fewer than 3 accepts must not increase (ceiling ${ceiling})`, () => {
+    const items = BY[lang] ?? [];
+    const under = items.filter((i) => (i.accept ?? []).length < 3);
+    assert.ok(
+      under.length <= ceiling,
+      `${lang}: ${under.length} cards have fewer than 3 accept[] entries (ceiling ${ceiling}). ` +
+        `CONTENT.md requires at least 3 — checkMeaning grades against meaning + accept, and two ` +
+        `is the floor at which a card is answerable rather than the standard. ` +
+        `First few: ${under.slice(0, 5).map((i) => i.id).join(", ")}`,
     );
   });
 }
