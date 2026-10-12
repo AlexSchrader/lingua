@@ -47,8 +47,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { UNITS } from "../../src/data/index.js";
 
-const ONE_SENTENCE_CEILING = { ja: 2781, id: 577, ru: 323, fr: 215, es: 211, de: 123, no: 106, hi: 18, pt: 0 };
-const THIN_ACCEPT_CEILING = { no: 460, fr: 434, es: 369, ja: 349, de: 212, hi: 162, id: 22, ru: 22, pt: 0 };
+const ONE_SENTENCE_CEILING = { ru: 323, fr: 215, es: 211, de: 123, no: 106, ja: 20, hi: 0, id: 0, pt: 0 };
+const THIN_ACCEPT_CEILING = { no: 460, es: 369, de: 212, ru: 22, fr: 0, hi: 0, id: 0, ja: 0, pt: 0 };
 
 const flat = (x) => String(x ?? "").toLowerCase().replace(/[^\p{L}\s]/gu, "").replace(/\s+/g, " ").trim();
 
@@ -83,18 +83,26 @@ function oneSentence(items) {
 // and did not have it — it was authored first, before the standards existed, and
 // graded D/D- four years later. A new language with no entry below cannot add a
 // single drill-less or thin-accept card without this suite going red.
-// CEILINGS LOWERED 2026-10-10, SECOND PAYDOWN. The 2026-10-09 baseline was
+// CEILINGS LOWERED 2026-10-12, SEVENTH PAYDOWN. The 2026-10-09 baseline was
 //   one-sentence  ja 3602  pt 1659  hi 656  id 577  ru 323  fr 215  es 211  de 123  no 106
 //   thin-accept   hi 1432  ja 620  no 460  fr 434  es 369  de 212  pt 99  id 22  ru 22
-// Four retrofit crews have brought it to the values above:
-//   pt  1659 -> 0 one-sentence and 99 -> 0 thin-accept  — BOTH ZERO, the first language there
-//   hi   656 -> 18  and 1432 -> 162
-//   ja  3602 -> 2781 and 620 -> 349
-// Lowered rather than left high: a ceiling not tightened as the debt shrinks stops being a
-// ratchet and becomes a licence to regress back up to it.
 //
-// pt AND THE ZERO CEILING: Portuguese now sits at the same ceiling a brand-new language gets.
-// That is the intended end state for every language, not a special case.
+// **FIVE LANGUAGES ARE FINISHED: pt, hi, fr, id and ja.**
+//   pt  0 / 0 / 0      hi  0 / 0 / 0      id  0 / 0 / 0      fr  215 one-sentence / 0 / 0
+//   ja  3602 -> 20 one-sentence, 620 -> 0 thin, 2805 -> 0 missing hints
+//
+// ja's 20 IS ITS FLOOR, NOT REMAINING DEBT, and two seats verified it item by item: a
+// drill is FORBIDDEN on a `type: "kanji"` item (canCloze / canParticleCloze / canSentence
+// all require type === "vocab"), and a ONE-CHARACTER vocab front can never cloze (canCloze
+// needs >=2 chars) nor open a ja sentence. The u1-u37 seat left 12 such fronts, the
+// u87-u143 seat 4 (だ た ね よ), each refusing to force a particle card that would quiz the
+// wrong morpheme. **Do not drive ja to 0; 20 is the honest end state.**
+//
+// fr's 215 one-sentence was never in its brief — at 7% it matches es and trails only de
+// (4%) and no (3%). It is a deliberate scope boundary, not an oversight.
+//
+// REMAINING, and none of these languages is below B+: es 211/369 + 140 missing hints ·
+// no 106/460 · de 123/212 · ru 323/22.
 const allLangs = Object.keys(BY).sort();
 const ceilingOf = (table, lang) => table[lang] ?? 0;
 
