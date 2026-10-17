@@ -7,6 +7,9 @@ import TypeCard from "../components/games/TypeCard.jsx";
 import BuildCard from "../components/games/BuildCard.jsx";
 import TraceCard from "../components/games/TraceCard.jsx";
 import SpeakCard from "../components/games/SpeakCard.jsx";
+import { canGradeSpeech } from "../store/speechTargets.js";
+import { SPEECH_TARGETS } from "../data/speechTargets.js";
+import { SPEECH_CARRIERS } from "../data/speechCarriers.js";
 import SentenceCard from "../components/games/SentenceCard.jsx";
 import ConjugateCard from "../components/games/ConjugateCard.jsx";
 import CardBreath from "../components/CardBreath.jsx";
@@ -258,7 +261,42 @@ export default function Review() {
   } else if (step.kind === "trace") {
     card = <TraceCard item={item} mode="free" onGraded={onGraded} />;
   } else if (step.kind === "speak") {
-    card = <SpeakCard item={item} onGraded={onGraded} />;
+    // A LETTER IS SPOKEN THROUGH A CARRIER WORD IN REVIEW TOO.
+    //
+    // This rendered SpeakCard bare, which is right for a WORD and wrong for a
+    // LETTER. A bare letter cannot be graded by either mechanism measured here:
+    // transcription returns "Et" for a perfect é, and alignment loss on a single
+    // character overlaps completely between right and wrong answers. So a letter is
+    // spoken through a word containing it ("le bébé", not "é") — and the carrier has
+    // to be passed in, or the card silently falls back to the broken path.
+    //
+    // THE 2026-09-27 CARRIER FIX ONLY COVERED LESSONS. Lesson.jsx passed the
+    // carrier; this call site never did, and nothing failed — the card still
+    // rendered, still recorded, still graded. Measured 2026-10-17: 52 of 80 sampled
+    // letters can draw a speak card in REVIEW, so half the fix was dead for three
+    // weeks. Found while landing the exams branch, by reading what each render site
+    // actually passed rather than trusting that "the fix shipped".
+    //
+    // Same props as Lesson.jsx, deliberately: these two drifting apart is exactly
+    // how this happened, and tests/unit/speak-render-sites.test.mjs now pins both.
+    {
+      // LETTERS ONLY. The first version of this applied the carrier/shadow pair to
+      // EVERY item, which quietly broke WORDS: a word has no carrier and no measured
+      // speech key, so `shadow` came out true and its speak card stopped grading and
+      // became record-and-play-back. Lesson.jsx only does this in its glyph branch;
+      // words there get a bare SpeakCard, and that asymmetry is the whole point.
+      // Caught by card-kind coverage, which noticed `speak` no longer grading.
+      const isLetter = item.type === "glyph";
+      const carrier = isLetter ? SPEECH_CARRIERS[item.id] ?? null : null;
+      card = (
+        <SpeakCard
+          item={item}
+          onGraded={onGraded}
+          carrier={carrier}
+          shadow={isLetter && !carrier && !canGradeSpeech(item, SPEECH_TARGETS)}
+        />
+      );
+    }
   } else if (step.kind === "sentence:build") {
     card = <SentenceCard item={item} onGraded={onGraded} />;
   } else if (step.kind === "conjugate") {
