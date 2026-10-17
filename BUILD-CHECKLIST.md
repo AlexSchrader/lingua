@@ -876,12 +876,36 @@ A whole-app scan. Surfaced one **mission-level tension** (R17/R18/R30 — the da
 
 ## QA findings (logged by QA CC — a third CC lane: tests + reports, does not build/author)
 
+### ✓ DONE 2026-10-17 — **French: the last 137 single-answer cards closed. fr is 0 on all four axes** (branch `content/fr-polish`, NOT pushed)
+
+- **The whole point: fr read 0 on accept ENTRIES and had 137 cards accepting exactly ONE string.** Every one was shaped `meaning: "apple"` + `accept: ["the apple", "apple", "an apple"]` — three entries, one answer, because `normalizeMeaning` strips a leading `a`/`an`/`the`. Those cards **marked every real synonym wrong**.
+- **Measured with the grader's own function**, `new Set(meaningVariants(item)).size` (`src/store/answer.js`), never `accept.length`:
+
+  | axis | before | after |
+  |---|---|---|
+  | distinct < 2 | **137** | **0** |
+  | distinct < 3 | **661** | **0** |
+  | entries < 3 | 0 | 0 |
+  | no hint | 0 | 0 |
+  | one-sentence | 215 | **215** (declared floor, `TEACH-BAR.md` §1) |
+
+- **661 accept entries written across 99 files, u1–u131.** The 137 got a definitional gloss **plus a plural** (a plural does not fold); the 524 at exactly two got one gloss each. **No `"X"` beside `"an X"`** — that folds and buys nothing.
+- **fr's article convention was NOT rewritten and did not need to be.** fr glosses often carry the article (`la fille` → "the girl"), so the obvious bare-noun second entry folds — which is why definitional glosses, not synonyms, carry most of these cards. **0 cards had to be deferred on that ground.**
+- **Method — all-or-nothing patcher, refuses the whole batch if one row fails.** Per row: item exists and is `type: "vocab"`; the `accept[]` literal on the source line round-trips to the parsed corpus value, so the anchor cannot be wrong; no added entry duplicates the `meaning` or an existing entry **after `normalizeMeaning`**; no entry contains a `meaningVariants` separator (`,` `;` `/` `or`); the card exits at **≥3 entries AND ≥3 distinct**. **It refused 3 rows** (`l'exercice`, `l'artiste`, `l'honnêteté` — each gloss contained " or ", which `meaningVariants` splits on); all three were rewritten, none bypassed.
+- **No `id`/`front`/`reading`/`meaning`/`example`/`drill`/`hint` moved.** Proof: `git diff -U0 origin/main` through a masker that blanks the `accept: [...]` span and compares the remainder byte-for-byte — **661 line pairs, 661 clean, 0 violations**, plus a per-field assertion that every other field literal is still present verbatim.
+- **Grader check, not just a count:** all **10,660** fr accept entries re-graded through `checkMeaning` — **0 rejected**, and every card's own `meaning` still accepted.
+- **Gate:** `validate:content` 1,283 units / 0 err / 0 warn · `lint:curriculum` 0 err, shared-prompt grep **0** · `node --test --test-concurrency=1 tests/unit/` **599/599 in 57 files** · `ship-gate.mjs fr` **PASSED, output byte-identical before and after** · `build` exit 0.
+- `accept-collisions.mjs fr` **1,396 → 1,398**. Both new rows are accept-vs-accept, lenient by design and correct French (`ans`/`l'année` both take "years"; `le fait`/`la vérité` both take "facts"). **The duplicate-`meaning` class did not move** — `ship-gate` 6b clean before and after. 🔎 **One self-inflicted defect caught and fixed on the branch:** `le verre` was first given the plural `"glasses"`, which folds onto the displayed `meaning` of `les lunettes` (u17) and is not what *le verre* means — replaced with the material sense its own hint already names.
+- **Touched no drill and no hint**, by design and by the diff proof. fr one-sentence is still **215** and `NO_HINT_CEILING.fr` is still met at **0**.
+- ⚠️ **Merge seat:** lower `DISTINCT_UNDER_TWO_CEILING.fr` **137 → 0** and `DISTINCT_UNDER_THREE_CEILING.fr` **661 → 0** in `tests/unit/teach-quality.test.mjs` in the merge commit. The branch deliberately leaves the test untouched.
+- **Corpus-wide after this branch: distinct<2 is 0 in all nine languages.** The only remaining under-three debt is **pt 256 · ja 43 · es 40 · id 14 = 353** (was 1,151). `TEACH-BAR.md` §1 and its ⚠️ block updated in the same branch.
+
 ### ✓ DONE 2026-10-17 — accept lists topped to 3: **id, pt and ja now meet the whole teach bar** (branch `content/id-pt-ja-polish`, NOT pushed)
 
 - **878 cards topped from exactly 2 accepts to 3+**: `id` **552 → 0** · `pt` **325 → 0** · `ja` **1 → 0**. 902 accept strings written. Vocab counts: id 3,025 · pt 3,032 · ja 4,079.
 - **These three languages are now at 0 on every axis `TEACH-BAR.md` §1 gives them** — under-2 0, under-3 0, missing hints 0, one-sentence 0 (ja's **20 is its declared floor**, untouched).
 - **Remaining under-3 debt corpus-wide: 2,802** — `no` 1,844 · `de` 720 · `ru` 238. `TEACH-BAR.md` §1 updated from 3,680 in the same branch.
-- 🔎 **NEW DEFECT CLASS, un-checked by anything: three *entries* is not three *answers*.** `normalizeMeaning` strips a leading `a/an/the` and `to `, so "epidemic" / "an epidemic" / "the epidemic" grade as **one** string. **22 cards in these three languages listed 2–3 entries that all collapsed to one** (pt 19, id 3, ja 2) — closed on the branch. **Still open: `de` 417 · `no` 247 · `fr` 137 · `ru` 35.** The ratchet counts `accept.length`; the honest measure is `meaningVariants(item)` in `src/store/answer.js`. Feature/QA lane — needs a check before the next paydown, or the next crew hits 3 entries and still ships one answer.
+- 🔎 **NEW DEFECT CLASS, un-checked by anything: three *entries* is not three *answers*.** `normalizeMeaning` strips a leading `a/an/the` and `to `, so "epidemic" / "an epidemic" / "the epidemic" grade as **one** string. **22 cards in these three languages listed 2–3 entries that all collapsed to one** (pt 19, id 3, ja 2) — closed on the branch. Open at the time: `de` 417 · `no` 247 · `fr` 137 · `ru` 35. ✅ **ALL FOUR ARE NOW CLOSED** — de/no/ru in their own paydowns, fr in `content/fr-polish` (above), and the check this row asked for exists: `DISTINCT_UNDER_TWO_CEILING` / `DISTINCT_UNDER_THREE_CEILING` in `teach-quality.test.mjs` count `new Set(meaningVariants(item)).size`, not `accept.length`. Re-measured 2026-10-17: **distinct<2 is 0 in all nine languages.**
 - **Gate, re-run on the branch:** `validate:content` 1,283 units / 0 err / 0 warn · `lint:curriculum` 0 err / **6,488 warnings, identical to `origin/main`'s 6,488**, shared-prompt class **0 before and after** · `node --test --test-concurrency=1 tests/unit/` **577/577 in 56 files** · `ship-gate.mjs` **PASSED for id, pt and ja** · `build` exit 0.
 - `accept-collisions.mjs` before → after: id **215 → 220** · pt **1,563 → 1,574** · ja **3,034 → 3,034**. The lenient accept-vs-accept class rose by design; the **duplicate-`meaning` class did not move** (id 8 → 8, pt 176 → 176, ja 652 → 652).
 - **No drill and no hint touched.** Proof: `git diff -U0 origin/main..HEAD -- src/data` through a masker that blanks `accept: [...]` and compares each line pair byte for byte — **881 pairs, 881 identical**, which pins `id`/`front`/`reading`/`meaning` *and* `example`/`drill`/`hint`. 108 files, all under `src/data/{id,pt,ja}`.
