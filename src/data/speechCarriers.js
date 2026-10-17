@@ -5,7 +5,7 @@
 // containing it can. See the script header for the numbers.
 //
 // Every carrier is a word the curriculum already teaches, and already has a clip.
-// 52 of 143 letters, generated 2026-09-29.
+// 108 of 143 letters, generated 2026-10-17.
 export const SPEECH_CARRIERS = {
   "fr-u1l1-glypheaigu": {
     "id": "fr-u1l1-eaigu",
@@ -266,5 +266,285 @@ export const SPEECH_CARRIERS = {
     "id": "pt-u1l5-amanha",
     "text": "a manhã",
     "unit": 1
+  },
+  "hi-u1l1-vowela": {
+    "id": "hi-u5l1-andar",
+    "text": "अंदर",
+    "unit": 5
+  },
+  "hi-u1l1-vowelaa": {
+    "id": "hi-u5l4-aadmii",
+    "text": "आदमी",
+    "unit": 5
+  },
+  "hi-u1l1-voweli": {
+    "id": "hi-u9l2-laait",
+    "text": "लाइट",
+    "unit": 9
+  },
+  "hi-u1l1-vowelii": {
+    "id": "hi-u7l3-koiibaatnahiin",
+    "text": "कोई बात नहीं",
+    "unit": 7
+  },
+  "hi-u1l1-vowelu": {
+    "id": "hi-u11l4-umr",
+    "text": "उम्र",
+    "unit": 11
+  },
+  "hi-u1l1-voweluu": {
+    "id": "hi-u19l1-uunchaa",
+    "text": "ऊँचा",
+    "unit": 19
+  },
+  "hi-u1l2-letterka": {
+    "id": "hi-u5l2-kahaan",
+    "text": "कहाँ",
+    "unit": 5
+  },
+  "hi-u1l2-letterga": {
+    "id": "hi-u5l2-gaanv",
+    "text": "गाँव",
+    "unit": 5
+  },
+  "hi-u1l2-letterma": {
+    "id": "hi-u3l2-meraa",
+    "text": "मेरा",
+    "unit": 3
+  },
+  "hi-u1l2-letterna": {
+    "id": "hi-u3l1-paanii",
+    "text": "पानी",
+    "unit": 3
+  },
+  "hi-u1l3-letterha": {
+    "id": "hi-u4l4-bahut",
+    "text": "बहुत",
+    "unit": 4
+  },
+  "hi-u1l3-letterra": {
+    "id": "hi-u3l2-meraa",
+    "text": "मेरा",
+    "unit": 3
+  },
+  "hi-u1l3-letterta": {
+    "id": "hi-u3l1-kitaab",
+    "text": "किताब",
+    "unit": 3
+  },
+  "hi-u1l3-letterda": {
+    "id": "hi-u3l2-dekhnaa",
+    "text": "देखना",
+    "unit": 3
+  },
+  "hi-u1l4-letterpa": {
+    "id": "hi-u3l1-paanii",
+    "text": "पानी",
+    "unit": 3
+  },
+  "hi-u1l4-letterba": {
+    "id": "hi-u3l1-kitaab",
+    "text": "किताब",
+    "unit": 3
+  },
+  "hi-u1l4-letterla": {
+    "id": "hi-u5l3-larkaa",
+    "text": "लड़का",
+    "unit": 5
+  },
+  "hi-u1l4-lettersa": {
+    "id": "hi-u5l3-sarak",
+    "text": "सड़क",
+    "unit": 5
+  },
+  "hi-u2l1-vowele": {
+    "id": "hi-u7l3-maafkiijie",
+    "text": "माफ़ कीजिए",
+    "unit": 7
+  },
+  "hi-u2l1-vowelai": {
+    "id": "hi-u39l4-ailaan",
+    "text": "ऐलान",
+    "unit": 39
+  },
+  "hi-u2l1-vowelau": {
+    "id": "hi-u60l2-auzaar",
+    "text": "औज़ार",
+    "unit": 60
+  },
+  "hi-u2l2-letterkha": {
+    "id": "hi-u3l2-dekhnaa",
+    "text": "देखना",
+    "unit": 3
+  },
+  "hi-u2l2-lettergha": {
+    "id": "hi-u9l4-gharii",
+    "text": "घड़ी",
+    "unit": 9
+  },
+  "hi-u2l2-lettercha": {
+    "id": "hi-u5l2-chaand",
+    "text": "चाँद",
+    "unit": 5
+  },
+  "hi-u2l2-letterchha": {
+    "id": "hi-u4l4-chhotaa",
+    "text": "छोटा",
+    "unit": 4
+  },
+  "hi-u2l3-letterja": {
+    "id": "hi-u7l3-maafkiijie",
+    "text": "माफ़ कीजिए",
+    "unit": 7
+  },
+  "hi-u2l3-letterta": {
+    "id": "hi-u4l4-chhotaa",
+    "text": "छोटा",
+    "unit": 4
+  },
+  "hi-u2l3-letterttha": {
+    "id": "hi-u12l2-uthnaa",
+    "text": "उठना",
+    "unit": 12
+  },
+  "hi-u2l3-letterdda": {
+    "id": "hi-u14l3-daakghar",
+    "text": "डाकघर",
+    "unit": 14
+  },
+  "hi-u2l4-letterddha": {
+    "id": "hi-u26l2-dhuundhnaa",
+    "text": "ढूँढना",
+    "unit": 26
+  },
+  "hi-u2l4-letternna": {
+    "id": "hi-u19l3-saadhaaran",
+    "text": "साधारण",
+    "unit": 19
+  },
+  "hi-u2l4-lettertha": {
+    "id": "hi-u6l3-thoraa",
+    "text": "थोड़ा",
+    "unit": 6
+  },
+  "hi-u2l4-letterdha": {
+    "id": "hi-u6l3-shuddh",
+    "text": "शुद्ध",
+    "unit": 6
+  },
+  "hi-u3l1-syllkaa": {
+    "id": "hi-u5l3-larkaa",
+    "text": "लड़का",
+    "unit": 5
+  },
+  "hi-u3l1-syllki": {
+    "id": "hi-u3l1-kitaab",
+    "text": "किताब",
+    "unit": 3
+  },
+  "hi-u3l1-syllkii": {
+    "id": "hi-u5l3-larkii",
+    "text": "लड़की",
+    "unit": 5
+  },
+  "hi-u3l2-syllku": {
+    "id": "hi-u9l2-kursii",
+    "text": "कुर्सी",
+    "unit": 9
+  },
+  "hi-u3l2-syllkuu": {
+    "id": "hi-u6l2-skuul",
+    "text": "स्कूल",
+    "unit": 6
+  },
+  "hi-u3l2-syllke": {
+    "id": "hi-u10l4-akelaa",
+    "text": "अकेला",
+    "unit": 10
+  },
+  "hi-u3l3-syllkai": {
+    "id": "hi-u8l4-kaise",
+    "text": "कैसे",
+    "unit": 8
+  },
+  "hi-u3l3-syllko": {
+    "id": "hi-u7l3-koiibaatnahiin",
+    "text": "कोई बात नहीं",
+    "unit": 7
+  },
+  "hi-u3l4-letterya": {
+    "id": "hi-u5l2-yahaan",
+    "text": "यहाँ",
+    "unit": 5
+  },
+  "hi-u3l4-letterva": {
+    "id": "hi-u5l2-vahaan",
+    "text": "वहाँ",
+    "unit": 5
+  },
+  "hi-u4l1-lettersha": {
+    "id": "hi-u6l4-shabd",
+    "text": "शब्द",
+    "unit": 6
+  },
+  "hi-u4l1-letterssha": {
+    "id": "hi-u4l1-bhaashaa",
+    "text": "भाषा",
+    "unit": 4
+  },
+  "hi-u4l1-letterbha": {
+    "id": "hi-u4l1-bhaarat",
+    "text": "भारत",
+    "unit": 4
+  },
+  "hi-u4l2-letterjha": {
+    "id": "hi-u6l4-samajhnaa",
+    "text": "समझना",
+    "unit": 6
+  },
+  "hi-u4l2-letterpha": {
+    "id": "hi-u16l2-phiikaa",
+    "text": "फीका",
+    "unit": 16
+  },
+  "hi-u4l2-vowelri": {
+    "id": "hi-u120l2-rinaatmak",
+    "text": "ऋणात्मक",
+    "unit": 120
+  },
+  "hi-u4l3-letterza": {
+    "id": "hi-u5l4-chiiz",
+    "text": "चीज़",
+    "unit": 5
+  },
+  "hi-u4l3-letterfa": {
+    "id": "hi-u7l3-maafkiijie",
+    "text": "माफ़ कीजिए",
+    "unit": 7
+  },
+  "hi-u4l3-letterrra": {
+    "id": "hi-u4l3-baraa",
+    "text": "बड़ा",
+    "unit": 4
+  },
+  "hi-u4l3-letterrrha": {
+    "id": "hi-u4l3-parhnaa",
+    "text": "पढ़ना",
+    "unit": 4
+  },
+  "hi-u6l1-conjksha": {
+    "id": "hi-u6l1-kshamaa",
+    "text": "क्षमा",
+    "unit": 6
+  },
+  "hi-u6l1-conjtra": {
+    "id": "hi-u6l1-chhaatra",
+    "text": "छात्र",
+    "unit": 6
+  },
+  "hi-u6l1-conjgya": {
+    "id": "hi-u6l1-vigyaan",
+    "text": "विज्ञान",
+    "unit": 6
   }
 };

@@ -37,6 +37,7 @@
 // cards are added or their clips are regenerated.
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { pathToFileURL } from "node:url";
 import { UNITS } from "../src/data/index.js";
 import { normalizeSpeech } from "../src/store/speechTargets.js";
 
@@ -113,7 +114,17 @@ function keepTranscript(t, g) {
 // reason. Two transcripts of the same reference clip are two legitimate ways the
 // correct sound comes back, so both belong in the key rather than one winning a
 // coin flip.
-const targets = {};
+// MERGE, NEVER REPLACE — a per-language run must not wipe the other languages.
+//
+// `node generate-speech-targets.mjs hi` processed only Hindi's glyphs and then
+// wrote the file from scratch, silently deleting the 52 Latin entries that were
+// already in it. Nothing errored; the French letter cards simply lost their
+// fallback key and four tests went red for a reason that looked nothing like the
+// cause. A generator scoped by argument has to START from what is already there.
+const existing = await import(pathToFileURL(join(root, "src/data/speechTargets.js")).href)
+  .then((m) => m.SPEECH_TARGETS ?? {})
+  .catch(() => ({}));
+const targets = { ...existing };
 const dropped = [];
 const report = [];
 for (const g of glyphs) {

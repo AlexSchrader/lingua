@@ -130,3 +130,70 @@ test("a null score means the caller falls back, so it must be distinguishable fr
   assert.notEqual(gradeAlignment({}), "again");
   assert.equal(gradeAlignment({}), null);
 });
+
+// --- one threshold does not fit six languages --------------------------------
+//
+// 1.18 was calibrated on French alone. Re-measured 2026-10-17 across every live
+// language, 20 words each (24 for Hindi), every clip aligned to its own text and to
+// another word's, that single number does this:
+//
+//     lang   correct answers FAILED   wrong accepted
+//     fr            0 / 20                 1 / 20
+//     es            0 / 20                 1 / 20
+//     de            0 / 20                 1 / 20
+//     pt            0 / 20                 2 / 20
+//     no            2 / 20                 0 / 20   <- marking CORRECT answers wrong
+//
+// Norwegian needs MORE slack, not less — its correct answers score higher than
+// French's, so the French number was failing one in ten learners who said the word
+// right. Retries are unlimited and unpenalised, so a wrongly-accepted answer costs
+// one undeserved tick while a wrongly-rejected one tells someone they cannot
+// pronounce a word they just pronounced.
+import { hardLossFor, goodLossFor } from "../../src/store/alignScore.js";
+
+// The lowest threshold that failed ZERO correct answers in each language's sample.
+const MEASURED = { fr: 1.13, es: 0.93, de: 1.14, pt: 1.06, no: 1.60, hi: 1.05 };
+
+test("NORWEGIAN STOPS FAILING CORRECT ANSWERS", () => {
+  // The two Norwegian correct answers the French threshold rejected both scored
+  // above 1.18. Anything at or under the Norwegian threshold must now pass.
+  for (const loss of [1.2, 1.35, 1.5, 1.59]) {
+    assert.notEqual(gradeAlignment({ loss }, "no"), "again", `${loss} is a correct Norwegian answer`);
+    assert.equal(gradeAlignment({ loss }, "fr"), "again", `${loss} would still fail under the French number`);
+  }
+});
+
+test("every measured language uses its own threshold", () => {
+  for (const [lang, hard] of Object.entries(MEASURED)) {
+    assert.equal(hardLossFor(lang), hard, `${lang} must use its measured threshold`);
+  }
+});
+
+test("an UNMEASURED language falls back to the old behaviour, not to a guess", () => {
+  // Russian is the next candidate and is deliberately not in the table yet.
+  assert.equal(hardLossFor("ru"), 1.18);
+  assert.equal(hardLossFor(undefined), 1.18);
+});
+
+test("GOOD can never cross HARD, even where HARD is below 0.9", () => {
+  // Spanish measured at 0.93, under the global GOOD of 0.9 — close enough that an
+  // unclamped pair would invert for a slightly lower measurement later.
+  for (const lang of [...Object.keys(MEASURED), "ru", undefined]) {
+    assert.ok(goodLossFor(lang) < hardLossFor(lang), `${lang}: good must sit below hard`);
+  }
+});
+
+test("HINDI IS SCORABLE NOW — the script guard was a guess, and it was wrong", () => {
+  // Measured: correct 0.51-1.04, wrong 1.01-2.73; at 1.05, zero correct failed and
+  // 1 of 24 wrong accepted — better than French, which has shipped all along.
+  assert.equal(isScorableText("नमस्ते", "hi"), true);
+  assert.equal(isScorableText("आदमी", "hi"), true);
+});
+
+test("everything still unmeasured stays refused", () => {
+  // Russian looked good at n=20 but Hindi measured 4-in-20 at n=6 and 1-in-24 once
+  // the sample was big enough. Small samples are how this gets answered wrongly.
+  assert.equal(isScorableText("здравствуйте", "ru"), false);
+  assert.equal(isScorableText("안녕하세요", "ko"), false);
+  assert.equal(isScorableText("こんにちは", "ja"), false);
+});

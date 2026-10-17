@@ -119,7 +119,7 @@ export default function SpeakCard({ item, onGraded, shadow = false, carrier = nu
       // A SCORED response wins when it produced a verdict. gradeAlignment returns
       // null for any payload it does not recognise, and that falls through to the
       // transcript path below — an unrecognised shape must never become a grade.
-      const scored = data?.alignment ? gradeAlignment(data.alignment) : null;
+      const scored = data?.alignment ? gradeAlignment(data.alignment, itemLang(item)) : null;
       if (scored) {
         setHeard("");
         setGrade(scored);

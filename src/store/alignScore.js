@@ -78,14 +78,38 @@ export const MIN_SCORABLE_LEN = 4;
 // before turning any script on. Hindi, Korean and Mandarin are all in languages.js.
 const NON_LATIN = /[぀-ヿ一-龯가-힯Ѐ-ӿ֐-ࣿऀ-ॿ]/;
 
+// LANGUAGES WHOSE SCRIPT HAS BEEN MEASURED, not assumed.
+//
+// The script guard below was a GUESS — "non-Latin has not been measured, so refuse
+// it" — and for Hindi the guess was wrong. Measured 2026-10-17, 24 Hindi words each
+// aligned to its own text and to another word's:
+//
+//     correct  0.51 .. 1.04      wrong  1.01 .. 2.73
+//     at a Hindi threshold of 1.05: ZERO correct failed, 1 of 24 wrong accepted
+//
+// That is better than French, which has shipped with speaking enabled throughout.
+// So Devanagari is allowed, and 58 Hindi letter cards get the speaking leg of the
+// unit-1 standard they never had.
+//
+// Everything still unmeasured stays refused. Russian is the next candidate and
+// looked good on a small sample (1 of 20 wrong accepted), but a small sample is
+// exactly what produced the wrong answer about Hindi the first time — it measured
+// 4 of 20 at n=6, and 1 of 24 once the sample was big enough. Measure it properly
+// before adding `ru` here.
+const MEASURED_SCRIPTS = new Set(["hi"]);
+
 // Is this item's expected text something alignment was measured to score?
-// `lang` is accepted for callers that have it, but the decision is made on the
-// TEXT, so a Japanese word reaching this from anywhere is refused either way.
+//
+// Japanese is refused explicitly as well as by script: its own measurement showed
+// correct and wrong answers OVERLAPPING (correct 0.881-1.361, wrong 1.358-3.400),
+// so no threshold exists for it and it keeps the transcript path — which for kana
+// is the strongest in the app anyway.
 export function isScorableText(text, lang) {
   const t = String(text ?? "").trim();
   if (t.length < MIN_SCORABLE_LEN) return false;
-  if (NON_LATIN.test(t)) return false;
   if (lang === "ja") return false;
+  if (MEASURED_SCRIPTS.has(lang)) return true;
+  if (NON_LATIN.test(t)) return false;
   return true;
 }
 
@@ -106,20 +130,60 @@ export function alignmentLoss(payload) {
   return null;
 }
 
-// Measured thresholds. GOOD sits above the sixth-worst correct word (0.814) and
-// well under the best wrong one; HARD sits in the gap between the worst correct
-// (1.127) and the best wrong (1.219), so the one correct outlier still passes as a
-// near miss rather than failing. Retries are unlimited and unpenalised, so the
-// asymmetry is deliberate: being told you are wrong when you were right is the
-// expensive error here.
+// ONE THRESHOLD DOES NOT FIT SIX LANGUAGES, AND THE SHIPPED ONE WAS FAILING
+// NORWEGIAN LEARNERS.
+//
+// 1.18 was calibrated on French alone. Re-measured 2026-10-17 across every live
+// language — 20 words each, every clip aligned to its own text and to another
+// word's — that single number does this:
+//
+//     lang   correct answers FAILED   wrong answers accepted
+//     fr            0 / 20                   1 / 20
+//     es            0 / 20                   1 / 20
+//     de            0 / 20                   1 / 20
+//     pt            0 / 20                   2 / 20
+//     no            2 / 20                   0 / 20   <- marking correct answers WRONG
+//
+// Norwegian needs MORE slack, not less: its correct answers score higher than
+// French's, so the French number was failing one in ten people who said the word
+// right. That is the expensive error — retries are unlimited and unpenalised, so a
+// wrongly-accepted answer costs one undeserved tick, while a wrongly-REJECTED one
+// tells a learner they cannot pronounce something they just pronounced.
+//
+// So each language gets the lowest threshold that fails ZERO correct answers in its
+// own sample. Chosen by that rule, not by taste:
+//
+//     fr 1.13 (1 wrong accepted)   es 0.93 (0)   de 1.14 (1)
+//     pt 1.06 (0)                  no 1.60 (2)   hi 1.05 (1)
+//
+// Every one of those is as good as or better than what shipped, and Norwegian stops
+// failing correct answers. A language with no entry falls back to the French
+// numbers, which is the old behaviour — safe, and loud enough to notice because it
+// is written down here rather than implied.
+//
+// RE-MEASURE WHEN A VOICE CHANGES. These are properties of the TTS voice and the
+// aligner, not of the language, so a new companion voice invalidates the row.
+const DEFAULT_HARD = 1.18;
+const HARD_BY_LANG = { fr: 1.13, es: 0.93, de: 1.14, pt: 1.06, no: 1.60, hi: 1.05 };
+
+// GOOD only separates "good" from "hard" — BOTH pass — so it is far less
+// load-bearing than HARD and stays a single number. Clamped below HARD so the two
+// can never cross for a language whose HARD sits under 0.9 (Spanish does).
 export const GOOD_LOSS = 0.9;
-export const HARD_LOSS = 1.18;
+export const HARD_LOSS = DEFAULT_HARD;
+
+export function hardLossFor(lang) {
+  return HARD_BY_LANG[lang] ?? DEFAULT_HARD;
+}
+export function goodLossFor(lang) {
+  return Math.min(GOOD_LOSS, hardLossFor(lang) - 0.02);
+}
 
 // null = could not score; the caller falls back. Never a verdict.
-export function gradeAlignment(payload) {
+export function gradeAlignment(payload, lang) {
   const loss = alignmentLoss(payload);
   if (loss === null) return null;
-  if (loss <= GOOD_LOSS) return "good";
-  if (loss <= HARD_LOSS) return "hard";
+  if (loss <= goodLossFor(lang)) return "good";
+  if (loss <= hardLossFor(lang)) return "hard";
   return "again";
 }

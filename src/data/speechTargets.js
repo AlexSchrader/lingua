@@ -4,8 +4,223 @@
 // each letter actually transcribes to, measured rather than assumed. See the
 // script's header for why the key is measured instead of derived from spelling.
 //
-// 52 letter card(s), generated 2026-09-23.
+// 37 letter card(s), generated 2026-10-17.
 export const SPEECH_TARGETS = {
+  "hi-u1l1-vowela": [
+    "a",
+    "अ"
+  ],
+  "hi-u1l1-vowelaa": [
+    "aa"
+  ],
+  "hi-u1l1-voweli": [
+    "i"
+  ],
+  "hi-u1l1-vowelii": [
+    "ii",
+    "ई"
+  ],
+  "hi-u1l1-vowelu": [
+    "ooh",
+    "u"
+  ],
+  "hi-u1l1-voweluu": [
+    "uu",
+    "ऊ"
+  ],
+  "hi-u1l2-letterka": [
+    "ka",
+    "क"
+  ],
+  "hi-u1l2-letterga": [
+    "ga",
+    "ग"
+  ],
+  "hi-u1l2-letterma": [
+    "ma",
+    "म"
+  ],
+  "hi-u1l2-letterna": [
+    "na",
+    "न"
+  ],
+  "hi-u1l3-letterha": [
+    "ha",
+    "ह"
+  ],
+  "hi-u1l3-letterra": [
+    "ra",
+    "बर"
+  ],
+  "hi-u1l3-letterta": [
+    "ta"
+  ],
+  "hi-u1l3-letterda": [
+    "da"
+  ],
+  "hi-u1l4-letterpa": [
+    "pa"
+  ],
+  "hi-u1l4-letterba": [
+    "b",
+    "ba"
+  ],
+  "hi-u1l4-letterla": [
+    "la",
+    "ल"
+  ],
+  "hi-u1l4-lettersa": [
+    "sa"
+  ],
+  "hi-u2l1-vowele": [
+    "e"
+  ],
+  "hi-u2l1-vowelai": [
+    "ai"
+  ],
+  "hi-u2l1-vowelo": [
+    "o",
+    "ओ"
+  ],
+  "hi-u2l1-vowelau": [
+    "au",
+    "ओह"
+  ],
+  "hi-u2l2-letterkha": [
+    "kha",
+    "课门"
+  ],
+  "hi-u2l2-lettergha": [
+    "gha",
+    "घ"
+  ],
+  "hi-u2l2-lettercha": [
+    "cha",
+    "sir",
+    "सर"
+  ],
+  "hi-u2l2-letterchha": [
+    "chha",
+    "छह"
+  ],
+  "hi-u2l3-letterja": [
+    "ja",
+    "ज"
+  ],
+  "hi-u2l3-letterta": [
+    "tta"
+  ],
+  "hi-u2l3-letterttha": [
+    "ttha",
+    "特"
+  ],
+  "hi-u2l3-letterdda": [
+    "dda",
+    "ड"
+  ],
+  "hi-u2l4-letterddha": [
+    "ddha"
+  ],
+  "hi-u2l4-letternna": [
+    "nna"
+  ],
+  "hi-u2l4-lettertha": [
+    "tha"
+  ],
+  "hi-u2l4-letterdha": [
+    "dha"
+  ],
+  "hi-u3l1-syllkaa": [
+    "kaa"
+  ],
+  "hi-u3l1-syllki": [
+    "ki",
+    "क"
+  ],
+  "hi-u3l1-syllkii": [
+    "kii",
+    "क"
+  ],
+  "hi-u3l2-syllku": [
+    "ku"
+  ],
+  "hi-u3l2-syllkuu": [
+    "kuu",
+    "q"
+  ],
+  "hi-u3l2-syllke": [
+    "ke",
+    "क",
+    "कयह"
+  ],
+  "hi-u3l3-syllkai": [
+    "kai",
+    "कय"
+  ],
+  "hi-u3l3-syllko": [
+    "ko"
+  ],
+  "hi-u3l3-syllkau": [
+    "kau",
+    "क"
+  ],
+  "hi-u3l4-letterya": [
+    "ya",
+    "य"
+  ],
+  "hi-u3l4-letterva": [
+    "va"
+  ],
+  "hi-u4l1-lettersha": [
+    "sha",
+    "शर"
+  ],
+  "hi-u4l1-letterssha": [
+    "ssha",
+    "शर"
+  ],
+  "hi-u4l1-letterbha": [
+    "bha"
+  ],
+  "hi-u4l2-letterjha": [
+    "jha",
+    "झ"
+  ],
+  "hi-u4l2-letterpha": [
+    "pha",
+    "फयर"
+  ],
+  "hi-u4l2-vowelri": [
+    "ri",
+    "रट"
+  ],
+  "hi-u4l3-letterza": [
+    "za",
+    "ज"
+  ],
+  "hi-u4l3-letterfa": [
+    "fa",
+    "फ"
+  ],
+  "hi-u4l3-letterrra": [
+    "rra",
+    "डट"
+  ],
+  "hi-u4l3-letterrrha": [
+    "rrha",
+    "ढ"
+  ],
+  "hi-u6l1-conjksha": [
+    "ksha"
+  ],
+  "hi-u6l1-conjtra": [
+    "tra",
+    "टर"
+  ],
+  "hi-u6l1-conjgya": [
+    "gya",
+    "जञन"
+  ],
   "fr-u1l1-glypheaigu": [
     "e",
     "et"
@@ -19,8 +234,7 @@ export const SPEECH_TARGETS = {
     "et"
   ],
   "fr-u1l1-glyphocirc": [
-    "o",
-    "où"
+    "o"
   ],
   "fr-u1l2-glyphucirc": [
     "u"
@@ -32,7 +246,6 @@ export const SPEECH_TARGETS = {
     "c"
   ],
   "fr-u1l2-glypholigature": [
-    "euh",
     "oe"
   ],
   "fr-u1l4-glypheau": [
@@ -43,7 +256,8 @@ export const SPEECH_TARGETS = {
     "oh"
   ],
   "fr-u1l4-glyphai": [
-    "ai"
+    "ai",
+    "aïe"
   ],
   "fr-u1l4-glyphoi": [
     "oi"
@@ -149,7 +363,7 @@ export const SPEECH_TARGETS = {
   ],
   "pt-u1l1-glyphacircum": [
     "a",
-    "é"
+    "eí"
   ],
   "pt-u1l1-glyphecircum": [
     "e"
