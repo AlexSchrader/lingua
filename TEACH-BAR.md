@@ -17,11 +17,21 @@ This file exists so that cannot happen again.
 | rule | what it costs a learner when it is broken | enforced by | debt today |
 |---|---|---|---|
 | **A `drill` that is NOT the `example`, nor a clause trimmed off it** | `practice = item.drill ?? item.example`, and *both* the fill-the-blank card and the build-the-sentence card read it, while the teach card shows `example`. Break it and the learner meets that word in **one sentence, shown three times** — re-reading, not transfer. | `teach-quality.test.mjs` one-sentence ratchet · `drill-corpus.test.mjs` | **998**, of which ~450 are declared floors (below) |
-| **`accept[]` carries at least 3 entries** | `checkMeaning` grades a typed answer against `meaning` plus every `accept`. A thin list **marks correct recall WRONG** — the punishing feedback `CLAUDE.md` says to design out for ND learners. | `teach-quality.test.mjs` under-three ratchet | **3,680** |
+| **`accept[]` carries at least 3 entries** | `checkMeaning` grades a typed answer against `meaning` plus every `accept`. A thin list **marks correct recall WRONG** — the punishing feedback `CLAUDE.md` says to design out for ND learners. | `teach-quality.test.mjs` under-three ratchet | **2,802** |
 | **A `hint`** | Pronunciation plus one thing to hang the word on. The scaffolding an ND learner leans on; without it they get a word and nothing else. | `teach-quality.test.mjs` hint ratchet | **0** |
 | **Drill is 3–8 tokens and contains the `front` verbatim** | Outside that, the blank-filling and sentence-building cards **silently do not route** — nothing goes red, the learner just gets fewer ways to practise. | `ship-gate.mjs` | 0 |
 | **No two cards in a language share a displayed `meaning`** | The produce card shows the gloss and accepts one front, so two cards under one gloss make **one of them unanswerable**. | `ship-gate.mjs` 6b · `lint.js` | 0 |
 | **Every card has a clip, and the clip is in the manifest** | `hasAudio` reads the generated manifest, not the filesystem. A clip on disk but absent from the manifest is **paid audio the engine treats as silent**. | `ship-gate.mjs` 2 and 2b | 0 |
+
+⚠️ **THREE ENTRIES IS NOT THREE ANSWERS, and the ratchet counts entries.**
+`normalizeMeaning` strips a leading `a/an/the` and a leading `to `, so
+`"epidemic"`, `"an epidemic"` and `"the epidemic"` are **one** accepted string —
+a card can sit at three entries and still mark every synonym wrong. Measured
+2026-10-17 over cards with fewer than 2 DISTINCT variants: **pt 19 · id 3 ·
+ja 2 → 0 each** (closed in `content/id-pt-ja-polish`), and still open elsewhere:
+**de 417 · no 247 · ru 35 · fr 137**. Nothing checks it. Whoever writes that
+check should count `meaningVariants(item)` (`src/store/answer.js`), not
+`item.accept.length`.
 
 ### Declared floors — these are not debt, do not drive them to zero
 
