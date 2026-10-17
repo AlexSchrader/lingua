@@ -111,7 +111,7 @@ export const PT_UNIT60 = {
           meaning: "problem",
           example: { jp: "O problema da equipa é o prazo, mas ninguém na empresa pode adiar a entrega.", en: "The team's problem is the deadline, but nobody at the company can postpone the delivery." },
           drill: { jp: "O problema da casa é a luz", en: "The house's problem is the electricity" },
-          accept: ["the problem", "problems"],
+          accept: ["the problem", "problems", "something that needs solving"],
           hint: "⚠ MASCULINE, despite the -a: o problema, os problemas. Every Greek-derived noun in -ema goes this way — o sistema, o tema, o cinema. This is the plain word the other five cards in this lesson sharpen.",
         },
       ],
@@ -331,7 +331,7 @@ export const PT_UNIT60 = {
           meaning: "patience",
           example: { jp: "A paciência dos clientes acabou, uma vez que o serviço da empresa piorou desde o verão.", en: "The customers' patience ran out, given that the company's service has got worse since the summer." },
           drill: { jp: "A paciência dos vizinhos acabou esta semana", en: "The neighbours' patience ran out this week" },
-          accept: ["the patience", "forbearance"],
+          accept: ["the patience", "forbearance", "being able to wait calmly"],
           hint: "Paciência! on its own is a shrug meaning 'oh well, never mind' — one of the most Portuguese words on this list. The person is paciente, which is also the hospital word.",
         },
         {

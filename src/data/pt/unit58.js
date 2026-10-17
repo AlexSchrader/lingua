@@ -55,7 +55,7 @@ export const PT_UNIT58 = {
           meaning: "theory",
           example: { jp: "A teoria do cientista é interessante, visto que o resultado da experiência mudou tudo.", en: "The scientist's theory is interesting, seeing that the experiment's result changed everything." },
           drill: { jp: "A teoria do clima está no livro", en: "The climate theory is in the book" },
-          accept: ["the theory", "hypothesis"],
+          accept: ["the theory", "hypothesis", "an explanation still to be proved"],
           hint: "Em teoria is 'in theory', and it carries the same shrug as in English — em teoria sim, na prática não.",
         },
         {

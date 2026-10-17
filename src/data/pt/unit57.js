@@ -48,7 +48,7 @@ export const PT_UNIT57 = {
           meaning: "relief",
           example: { jp: "O alívio da família foi enorme, uma vez que o médico já tinha explicado o resultado.", en: "The family's relief was enormous, given that the doctor had already explained the result." },
           drill: { jp: "O alívio chegou com a boa notícia", en: "Relief came with the good news" },
-          accept: ["the relief", "respite"],
+          accept: ["the relief", "respite", "the feeling when worry ends"],
           hint: "Only exists after worry — which is why it pairs with preocupar-se (u22). Que alívio! is what you say when the bad news does not arrive.",
         },
         {
@@ -70,7 +70,7 @@ export const PT_UNIT57 = {
           meaning: "pride",
           example: { jp: "O orgulho da mãe é claro, porque o filho concluiu o mestrado este ano.", en: "The mother's pride is obvious, because the son completed his master's this year." },
           drill: { jp: "O orgulho da mãe é claro hoje", en: "The mother's pride is obvious today" },
-          accept: ["the pride", "self-respect"],
+          accept: ["the pride", "self-respect", "feeling good about an achievement"],
           hint: "The noun of orgulhoso (u31). Ter orgulho EM alguém is to be proud of someone; ter orgulho DE is just as ordinary — tenho muito orgulho do meu filho.",
         },
         {
@@ -81,7 +81,7 @@ export const PT_UNIT57 = {
           meaning: "envy",
           example: { jp: "A inveja do vizinho é antiga, visto que a casa de Ana é cada vez mais elegante.", en: "The neighbour's envy is long-standing, seeing that Ana's house is more and more elegant." },
           drill: { jp: "A inveja não é boa para ninguém", en: "Envy is no good for anyone" },
-          accept: ["the envy", "envious feeling"],
+          accept: ["the envy", "envious feeling", "wanting what someone else has"],
           hint: "ter inveja DE alguém. Portuguese also says que inveja! admiringly, with no malice at all — closer to English 'lucky you'.",
         },
         {
@@ -136,7 +136,7 @@ export const PT_UNIT57 = {
           meaning: "frustration",
           example: { jp: "A frustração dos empregados é enorme, uma vez que a chefia adiou a reunião outra vez.", en: "The employees' frustration is enormous, given that management postponed the meeting again." },
           drill: { jp: "A frustração do treinador foi clara", en: "The coach's frustration was clear" },
-          accept: ["the frustration", "exasperation"],
+          accept: ["the frustration", "exasperation", "annoyance at being blocked"],
           hint: "The adjective frustrado exists and works exactly as in English. Note the spelling: a single s, and the -ção ending that marks almost every abstract noun in this unit.",
         },
         {
@@ -147,7 +147,7 @@ export const PT_UNIT57 = {
           meaning: "despair",
           example: { jp: "O desespero da população foi claro depois do acidente, e por isso a câmara divulgou tudo no mesmo dia.", en: "The public's despair was obvious after the accident, and so the council released everything on the same day." },
           drill: { jp: "O desespero da vítima foi enorme", en: "The victim's despair was huge" },
-          accept: ["the despair", "desperation"],
+          accept: ["the despair", "desperation", "losing all hope"],
           hint: "des- + esperar: the state of having stopped hoping, built on the same root as a esperança in Lesson 4. Estar desesperado is the adjective.",
         },
         {
@@ -158,7 +158,7 @@ export const PT_UNIT57 = {
           meaning: "jealousy",
           example: { jp: "O ciúme do irmão passou com o tempo, mas a família ainda não quis falar do assunto.", en: "The brother's jealousy passed with time, but the family has still not been willing to talk about it." },
           drill: { jp: "O ciúme do noivo é um problema", en: "The groom's jealousy is a problem" },
-          accept: ["the jealousy", "jealous feeling"],
+          accept: ["the jealousy", "jealous feeling", "fear of losing someone to another"],
           hint: "Usually plural in practice — ter ciúmes de alguém. Keep it apart from a inveja: ciúme is about losing someone, inveja about wanting what another has.",
         },
         {
@@ -169,7 +169,7 @@ export const PT_UNIT57 = {
           meaning: "surprise",
           example: { jp: "A notícia foi uma grande surpresa, visto que ninguém tinha falado da reforma da lei.", en: "The news was a big surprise, seeing that nobody had talked about the law's reform." },
           drill: { jp: "A surpresa foi grande para todos", en: "The surprise was great for everyone" },
-          accept: ["the surprise", "shock"],
+          accept: ["the surprise", "shock", "something you did not expect"],
           hint: "Also the wrapped kind: fazer uma surpresa a alguém. Apanhar alguém de surpresa is to catch someone off guard.",
         },
         {
@@ -334,7 +334,7 @@ export const PT_UNIT57 = {
           meaning: "hope",
           example: { jp: "A esperança da população mudou depois da sondagem, mas o partido ainda não quis declarar nada.", en: "The public's hope changed after the poll, but the party has still not been willing to declare anything." },
           drill: { jp: "A esperança da equipa é a final", en: "The team's hope is the final" },
-          accept: ["the hope", "expectation"],
+          accept: ["the hope", "expectation", "believing good will come"],
           hint: "Same root as esperar (u21), which is both 'to wait' and 'to hope' — the noun keeps only the hoping. Ter esperança de que … is the full frame.",
         },
       ],

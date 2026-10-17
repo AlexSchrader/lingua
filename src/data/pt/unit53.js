@@ -122,7 +122,7 @@ export const PT_UNIT53 = {
           meaning: "worse",
           example: { jp: "O tempo hoje está pior do que ontem, por isso a família vai ficar em casa.", en: "The weather today is worse than yesterday, so the family is going to stay at home." },
           drill: { jp: "O serviço do hotel é pior", en: "The hotel service is worse" },
-          accept: ["the worst", "worst"],
+          accept: ["the worst", "worst", "less good"],
           hint: "The other half of the irregular pair: mau (u10) gives pior, never *mais mau, just as bom gives melhor. Cada vez pior is \"worse and worse\", o pior é que… opens the bad news, and pior ainda is \"worse still\".",
         },
       ],
