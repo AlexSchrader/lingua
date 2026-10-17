@@ -876,6 +876,18 @@ A whole-app scan. Surfaced one **mission-level tension** (R17/R18/R30 — the da
 
 ## QA findings (logged by QA CC — a third CC lane: tests + reports, does not build/author)
 
+### ✓ DONE 2026-10-17 — accept lists topped to 3: **id, pt and ja now meet the whole teach bar** (branch `content/id-pt-ja-polish`, NOT pushed)
+
+- **878 cards topped from exactly 2 accepts to 3+**: `id` **552 → 0** · `pt` **325 → 0** · `ja` **1 → 0**. 902 accept strings written. Vocab counts: id 3,025 · pt 3,032 · ja 4,079.
+- **These three languages are now at 0 on every axis `TEACH-BAR.md` §1 gives them** — under-2 0, under-3 0, missing hints 0, one-sentence 0 (ja's **20 is its declared floor**, untouched).
+- **Remaining under-3 debt corpus-wide: 2,802** — `no` 1,844 · `de` 720 · `ru` 238. `TEACH-BAR.md` §1 updated from 3,680 in the same branch.
+- 🔎 **NEW DEFECT CLASS, un-checked by anything: three *entries* is not three *answers*.** `normalizeMeaning` strips a leading `a/an/the` and `to `, so "epidemic" / "an epidemic" / "the epidemic" grade as **one** string. **22 cards in these three languages listed 2–3 entries that all collapsed to one** (pt 19, id 3, ja 2) — closed on the branch. **Still open: `de` 417 · `no` 247 · `fr` 137 · `ru` 35.** The ratchet counts `accept.length`; the honest measure is `meaningVariants(item)` in `src/store/answer.js`. Feature/QA lane — needs a check before the next paydown, or the next crew hits 3 entries and still ships one answer.
+- **Gate, re-run on the branch:** `validate:content` 1,283 units / 0 err / 0 warn · `lint:curriculum` 0 err / **6,488 warnings, identical to `origin/main`'s 6,488**, shared-prompt class **0 before and after** · `node --test --test-concurrency=1 tests/unit/` **577/577 in 56 files** · `ship-gate.mjs` **PASSED for id, pt and ja** · `build` exit 0.
+- `accept-collisions.mjs` before → after: id **215 → 220** · pt **1,563 → 1,574** · ja **3,034 → 3,034**. The lenient accept-vs-accept class rose by design; the **duplicate-`meaning` class did not move** (id 8 → 8, pt 176 → 176, ja 652 → 652).
+- **No drill and no hint touched.** Proof: `git diff -U0 origin/main..HEAD -- src/data` through a masker that blanks `accept: [...]` and compares each line pair byte for byte — **881 pairs, 881 identical**, which pins `id`/`front`/`reading`/`meaning` *and* `example`/`drill`/`hint`. 108 files, all under `src/data/{id,pt,ja}`.
+- ⚠️ **Merge seat:** lower `UNDER_THREE_CEILING` in `tests/unit/teach-quality.test.mjs` to `id: 0, pt: 0, ja: 0` in the merge commit. The branch deliberately leaves the test untouched.
+- **Out of scope, confirmed untouched:** id's `di-` passives (`dibuat`, `dipakai`, `ditulis`, `ditemukan`) and `mengadakan`/`memilih`/`menunjukkan`/`mendirikan` are still taught nowhere in id though shipped examples lean on them. No new accept depends on them. Curriculum lane, id lead.
+
 ### 📏 Drill-vs-example: 3,757 cards show the learner the SAME sentence twice (2026-10-09)
 
 **Found by running `check:drills:no`, which until today was not in `package.json` so nobody could run it** — the item that pointed at it had been filed in a diverged copy of this file and was invisible (see the ♻️ banner at the top).

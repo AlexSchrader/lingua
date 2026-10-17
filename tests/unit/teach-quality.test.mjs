@@ -46,9 +46,10 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { UNITS } from "../../src/data/index.js";
+import { meaningVariants } from "../../src/store/answer.js";
 
 const ONE_SENTENCE_CEILING = { ru: 323, fr: 215, es: 211, de: 123, no: 106, ja: 20, hi: 0, id: 0, pt: 0 };
-const THIN_ACCEPT_CEILING = { no: 460, de: 212, ru: 22, es: 0, fr: 0, hi: 0, id: 0, ja: 0, pt: 0 };
+const THIN_ACCEPT_CEILING = { de: 0, es: 0, fr: 0, hi: 0, id: 0, ja: 0, no: 0, pt: 0, ru: 0 };
 // THE DOCUMENTED STANDARD IS THREE, NOT TWO, and the table above was measuring the wrong
 // bar. CONTENT.md says `accept[]` carries **at least 3**; this suite only ever checked
 // `< 2`, so a language could read "0 thin-accept" here while hundreds of its cards sat at
@@ -62,7 +63,35 @@ const THIN_ACCEPT_CEILING = { no: 460, de: 212, ru: 22, es: 0, fr: 0, hi: 0, id:
 // nothing stopped it rotting. A hint is pronunciation plus one memory hook, and CLAUDE.md is
 // explicit that this app is built for ND learners — a card with no hint gives them nothing.
 const NO_HINT_CEILING = { ja: 0, fr: 0, es: 0, de: 0, no: 0, pt: 0, id: 0, ru: 0, hi: 0 };
-const UNDER_THREE_CEILING = { no: 1844, de: 720, id: 552, pt: 325, ru: 238, ja: 1, es: 0, fr: 0, hi: 0 };
+const UNDER_THREE_CEILING = { de: 0, es: 0, fr: 0, hi: 0, id: 0, ja: 0, no: 0, pt: 0, ru: 0 };
+
+// ⚠️ THREE ENTRIES IS NOT THREE ANSWERS, AND THE TWO TABLES ABOVE COUNT ENTRIES.
+// `normalizeMeaning` strips a leading a/an/the and a leading "to ", so a card can carry
+// three accept entries and accept exactly ONE string:
+//     meaning "an epidemic" + accept ["epidemic", "the epidemic"]  ->  1 distinct answer
+// That card still marks every real synonym WRONG, which is the punishing feedback
+// TEACH-BAR.md exists to remove. Found 2026-10-17 by the id/pt/ja seat and independently
+// by the no seat on its own baseline pass, before either was told.
+//
+// THE HONEST MEASURE IS THE GRADER'S OWN: new Set(meaningVariants(item)).size. Measured the
+// moment it was raised, it unmasked a language I had reported FINISHED — **fr reads 0 on
+// entries and 137 cards accepting a single answer** — and moved the worst language from no
+// to de (417). hi and no are the only two at 0 on every measure.
+//
+// This is TEACH-BAR.md §2 rule 2 — "the check measures exactly what the doc says" — failing
+// for the SECOND time on the same field. First the check counted <2 where the doc said 3;
+// then it counted entries where the grader counts folds. Both tables stay as cheap floors,
+// and these two are the real bar.
+const DISTINCT_UNDER_TWO_CEILING = { fr: 137, de: 0, es: 0, hi: 0, id: 0, ja: 0, no: 0, pt: 0, ru: 0 };
+const DISTINCT_UNDER_THREE_CEILING = { fr: 661, pt: 256, ja: 43, es: 40, id: 14, de: 0, hi: 0, no: 0, ru: 0 };
+
+// ⚠️ ONE KNOWN BLIND SPOT IN THIS METRIC, flagged by the de/ru seat as I was adding it, and
+// it errs in the SAFE direction. `meaningVariants` splits a gloss on `or`, so a gloss that
+// IS the word "or" (de-u12l3-oder) contributes NOTHING to the variant set — the card is
+// credited only with its accepts. `checkMeaning("or")` still returns true through its
+// whole-gloss fallback, so the card works for the learner. Measured corpus-wide: **0 cards
+// yield an empty variant**, so the metric produces no garbage; it can only UNDER-credit such
+// a card and flag a working one. For a ratchet that is the right way to be wrong.
 
 const flat = (x) => String(x ?? "").toLowerCase().replace(/[^\p{L}\s]/gu, "").replace(/\s+/g, " ").trim();
 
@@ -178,6 +207,35 @@ for (const lang of allLangs) {
       `${lang}: ${bare.length} vocab cards have no hint (ceiling ${ceiling}). ` +
         `TEACH-BAR.md requires one on every vocab card — pronunciation plus one memory hook. ` +
         `First few: ${bare.slice(0, 5).map((i) => i.id).join(", ")}`,
+    );
+  });
+}
+
+// The real accept bar: what the GRADER accepts, not what the author typed.
+const distinctAnswers = (i) => { try { return new Set(meaningVariants(i)).size; } catch { return 1; } };
+
+for (const lang of allLangs) {
+  const ceiling = ceilingOf(DISTINCT_UNDER_TWO_CEILING, lang);
+  test(`${lang}: cards accepting only ONE answer must not increase (ceiling ${ceiling})`, () => {
+    const bad = (BY[lang] ?? []).filter((i) => distinctAnswers(i) < 2);
+    assert.ok(
+      bad.length <= ceiling,
+      `${lang}: ${bad.length} cards accept exactly one answer after the grader's fold (ceiling ${ceiling}). ` +
+        `An entry that differs only by a/an/the or a leading "to " folds into its sibling and buys nothing. ` +
+        `First few: ${bad.slice(0, 5).map((i) => i.id).join(", ")}`,
+    );
+  });
+}
+
+for (const lang of allLangs) {
+  const ceiling = ceilingOf(DISTINCT_UNDER_THREE_CEILING, lang);
+  test(`${lang}: cards under 3 DISTINCT answers must not increase (ceiling ${ceiling})`, () => {
+    const bad = (BY[lang] ?? []).filter((i) => distinctAnswers(i) < 3);
+    assert.ok(
+      bad.length <= ceiling,
+      `${lang}: ${bad.length} cards yield fewer than 3 distinct answers (ceiling ${ceiling}). ` +
+        `TEACH-BAR.md requires three ANSWERS, which is new Set(meaningVariants(item)).size, not accept.length. ` +
+        `First few: ${bad.slice(0, 5).map((i) => i.id).join(", ")}`,
     );
   });
 }
