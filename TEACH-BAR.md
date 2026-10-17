@@ -17,7 +17,7 @@ This file exists so that cannot happen again.
 | rule | what it costs a learner when it is broken | enforced by | debt today |
 |---|---|---|---|
 | **A `drill` that is NOT the `example`, nor a clause trimmed off it** | `practice = item.drill ?? item.example`, and *both* the fill-the-blank card and the build-the-sentence card read it, while the teach card shows `example`. Break it and the learner meets that word in **one sentence, shown three times** — re-reading, not transfer. | `teach-quality.test.mjs` one-sentence ratchet · `drill-corpus.test.mjs` | **998**, of which ~450 are declared floors (below) |
-| **`accept[]` carries at least 3 entries** | `checkMeaning` grades a typed answer against `meaning` plus every `accept`. A thin list **marks correct recall WRONG** — the punishing feedback `CLAUDE.md` says to design out for ND learners. | `teach-quality.test.mjs` under-three ratchet | **2,802** |
+| **`accept[]` yields at least 3 DISTINCT answers** — not three entries | `checkMeaning` grades a typed answer against `meaning` plus every `accept`, **after `normalizeMeaning` folds them**. A thin list **marks correct recall WRONG** — the punishing feedback `CLAUDE.md` says to design out for ND learners. ⚠️ **Entries are not answers.** `meaning: "an epidemic"` with `accept: ["epidemic", "the epidemic"]` is three entries and **one** accepted answer, because a leading `a`/`an`/`the` and a leading `to ` are stripped. The honest measure is `new Set(meaningVariants(item)).size`. | `teach-quality.test.mjs` — `DISTINCT_UNDER_TWO` and `DISTINCT_UNDER_THREE` ratchets are the real bar; the entry-count ratchets remain as cheap floors | **137 cards accept ONE answer, all `fr`** · **1,151 under three answers** (fr 661 · pt 256 · ja 43 · es 40 · id 14) · **entry-count debt 0 in every language** · `hi` `no` `de` `ru` are at **0 on all four axes** |
 | **A `hint`** | Pronunciation plus one thing to hang the word on. The scaffolding an ND learner leans on; without it they get a word and nothing else. | `teach-quality.test.mjs` hint ratchet | **0** |
 | **Drill is 3–8 tokens and contains the `front` verbatim** | Outside that, the blank-filling and sentence-building cards **silently do not route** — nothing goes red, the learner just gets fewer ways to practise. | `ship-gate.mjs` | 0 |
 | **No two cards in a language share a displayed `meaning`** | The produce card shows the gloss and accepts one front, so two cards under one gloss make **one of them unanswerable**. | `ship-gate.mjs` 6b · `lint.js` | 0 |
@@ -46,7 +46,13 @@ check should count `meaningVariants(item)` (`src/store/answer.js`), not
 `CONTENT.md` listed `drill` and `accept[]` as **optional** while the standard said required, and carried a paragraph reading *"Optional, and staying optional"* three lines under the new REQUIRED rules. **7,472 cards drifted.** Every rule in §1 now names its check, and a rule arrives with its check or not at all.
 
 **2. The check measures exactly what the doc says — verified by reading both together.**
+**This rule has now failed TWICE on the same field.**
 The doc said **3** accepts. The ratchet measured **fewer than 2**. So a language could report "0 thin-accept" with hundreds of cards sitting at exactly two — and **two languages were reported FINISHED on that basis.** A crew caught it, not the gate.
+Then, with the ratchet corrected to 3, it still counted **entries** where the grader counts
+**folds** — so `fr` read 0 and had **137 cards accepting a single answer.** A second language
+I had reported FINISHED. Caught by a crew again, independently by two of them. The lesson is
+narrower than "measure what the doc says": **measure with the engine's own function**, here
+`meaningVariants`, rather than any proxy for it.
 
 **3. When a standard lands, every existing language is measured against it the same day.**
 Japanese was authored first, before any of these rules existed, and **nobody ever went back and measured it.** It graded **D on build, D− on teach** — the weakest content in the app, in its flagship language. Standards applied only to new work are how one language silently becomes the worst one.
