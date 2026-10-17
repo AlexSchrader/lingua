@@ -82,8 +82,14 @@ const UNDER_THREE_CEILING = { de: 0, es: 0, fr: 0, hi: 0, id: 0, ja: 0, no: 0, p
 // for the SECOND time on the same field. First the check counted <2 where the doc said 3;
 // then it counted entries where the grader counts folds. Both tables stay as cheap floors,
 // and these two are the real bar.
-const DISTINCT_UNDER_TWO_CEILING = { fr: 137, de: 0, es: 0, hi: 0, id: 0, ja: 0, no: 0, pt: 0, ru: 0 };
-const DISTINCT_UNDER_THREE_CEILING = { fr: 661, pt: 256, ja: 43, es: 40, id: 14, de: 0, hi: 0, no: 0, ru: 0 };
+// ✅ DISTINCT_UNDER_TWO IS ZERO IN ALL NINE LANGUAGES AS OF 2026-10-17. **There is no
+// longer a card anywhere in the corpus where a learner can type a correct synonym and be
+// told they are wrong.** That is the line this whole programme existed to cross: 589 such
+// cards at the start of the day (de 417 · fr 137 · ru 35), and 3,670 under the old entry
+// measure before that. Any language absent from the table below inherits 0, so a new
+// language cannot ship one.
+const DISTINCT_UNDER_TWO_CEILING = { de: 0, es: 0, fr: 0, hi: 0, id: 0, ja: 0, no: 0, pt: 0, ru: 0 };
+const DISTINCT_UNDER_THREE_CEILING = { pt: 256, ja: 43, es: 40, id: 14, de: 0, fr: 0, hi: 0, no: 0, ru: 0 };
 
 // ⚠️ ONE KNOWN BLIND SPOT IN THIS METRIC, flagged by the de/ru seat as I was adding it, and
 // it errs in the SAFE direction. `meaningVariants` splits a gloss on `or`, so a gloss that
