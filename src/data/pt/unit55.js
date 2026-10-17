@@ -327,7 +327,7 @@ export const PT_UNIT55 = {
           meaning: "party (political)",
           example: { jp: "O partido do governo apoia a medida, mas o debate público mudou depois da sondagem.", en: "The government's party supports the measure, but the public debate changed after the poll." },
           drill: { jp: "O partido do sul ganhou a eleição", en: "The southern party won the election" },
-          accept: ["the party", "political party"],
+          accept: ["the party", "political party", "an organised political group"],
           hint: "The political kind only. A party you are invited to is uma festa — Portuguese never mixes the two, unlike English.",
         },
         {
