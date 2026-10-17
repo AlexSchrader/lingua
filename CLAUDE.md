@@ -69,6 +69,7 @@ Default to thoroughness and self-sufficiency. Don't ask permission for routine w
 | `CLAUDE.md` | Standing conventions, roles, guardrails (**this file — read first**) | all CC |
 | `BUILD-CHECKLIST.md` | Single source of truth for project state; **Feature CC backlog** + **QA findings** + **Idea CC pitches** live here | all CC |
 | `CONTENT.md` | Content schema reference for authoring units | Curriculum CC |
+| `TEACH-BAR.md` | **What every vocab card must carry, and the check that enforces each rule.** Written 2026-10-17 after a retrofit repaired 7,472 one-sentence cards, 3,670 that marked correct answers wrong, and ~3,970 with no hint — **none of which was a bug.** Every one validated clean, passed lint and smoke, and shipped; nothing had ever checked whether a card TEACHES. Read it before authoring and before changing a rule. Its five process rules are each a failure that actually happened. | Curriculum CC |
 | `README.md` | Public-facing project overview + how to run/test | Feature CC |
 | `BUILD-BRIEF-*.md` | Design briefs for work **not yet built**. A brief is an instruction, so it must never outlive its feature — see "Closing a brief" below. | Web-Claude / Alex |
 | `docs/shipped/` | Briefs whose feature **has shipped** — history, not instructions. Stamped, and not to be authored from. | whoever merges the feature |

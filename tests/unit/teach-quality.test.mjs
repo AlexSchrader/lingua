@@ -56,6 +56,12 @@ const THIN_ACCEPT_CEILING = { no: 460, de: 212, ru: 22, es: 0, fr: 0, hi: 0, id:
 // was the `< 2` figure while the stated target was 3 — the real job was **1,552 cards**.
 // Measured the moment it was pointed out: hi and fr were the ONLY languages meeting the
 // published standard, while pt (325) and id (552) had both been reported as finished.
+// HINT COVERAGE, ratcheted at ZERO FOR EVERY LANGUAGE because that is where the retrofit
+// left it — ~3,970 hints were written across ja (2,805) and fr (1,039) and the rest. It is
+// the one rule in TEACH-BAR.md that had no check at all until now: coverage was perfect and
+// nothing stopped it rotting. A hint is pronunciation plus one memory hook, and CLAUDE.md is
+// explicit that this app is built for ND learners — a card with no hint gives them nothing.
+const NO_HINT_CEILING = { ja: 0, fr: 0, es: 0, de: 0, no: 0, pt: 0, id: 0, ru: 0, hi: 0 };
 const UNDER_THREE_CEILING = { no: 1844, de: 720, id: 552, pt: 325, ru: 238, ja: 1, es: 0, fr: 0, hi: 0 };
 
 const flat = (x) => String(x ?? "").toLowerCase().replace(/[^\p{L}\s]/gu, "").replace(/\s+/g, " ").trim();
@@ -157,6 +163,21 @@ for (const lang of allLangs) {
         `CONTENT.md requires at least 3 — checkMeaning grades against meaning + accept, and two ` +
         `is the floor at which a card is answerable rather than the standard. ` +
         `First few: ${under.slice(0, 5).map((i) => i.id).join(", ")}`,
+    );
+  });
+}
+
+// Hint coverage. Zero for every language, and a new language inherits 0 by default.
+for (const lang of allLangs) {
+  const ceiling = ceilingOf(NO_HINT_CEILING, lang);
+  test(`${lang}: vocab cards with no hint must not increase (ceiling ${ceiling})`, () => {
+    const items = BY[lang] ?? [];
+    const bare = items.filter((i) => !String(i.hint ?? "").trim());
+    assert.ok(
+      bare.length <= ceiling,
+      `${lang}: ${bare.length} vocab cards have no hint (ceiling ${ceiling}). ` +
+        `TEACH-BAR.md requires one on every vocab card — pronunciation plus one memory hook. ` +
+        `First few: ${bare.slice(0, 5).map((i) => i.id).join(", ")}`,
     );
   });
 }
