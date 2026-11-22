@@ -161,7 +161,9 @@ npm run build:studybot
 only changes in a flagged renumber, which also resets learner progress). Cards that drill something
 other than the item add a suffix: `<id>:<conjForm>` (conjugate), `<id>:particle`, `<id>:sentence`.
 
-### Fields Lingua adds (1.x additions, proposed to the contract)
+### Fields Lingua adds (accepted as StudyBot 1.1, desktop-buddy `2ebfd4e`; `hello().version` is `'1.1'`)
+
+- Not in that commit yet, proposed: action kind `scroll` (`scroll-down`/`scroll-up`) and `offscreen: true`.
 
 - `item.card` — the card type (above).
 - `item.ask` — the instruction line printed above the prompt ("Type the meaning").
@@ -185,7 +187,12 @@ other than the item add a suffix: `<id>:<conjForm>` (conjugate), `<id>:particle`
 - `kind`: `button`, `choice`, `field`, `tab`, `tile`, and **`draw`** (the trace pad; listed only while
   it takes a stroke). `act('trace', path)` draws one finger stroke along `path`: 2–64 `[x, y]` points
   in 0..1 of the pad. Without a path it draws a straight line across the middle.
-- Only visible, enabled controls are listed. **Continue waits for the word's clip** after an answer,
+- **Every enabled control on the page is listed, on screen or not.** One whose centre is outside the
+  window has `offscreen: true` (its rect is still its real position). `act()` on it scrolls it into
+  view first; to move like a finger, use the scroll actions.
+- **`scroll-down` / `scroll-up`** (kind `scroll`, rect = the scrolling area) are listed when the page
+  can scroll that way; `act()` moves it about one screen (80% of the visible height).
+- Hidden or disabled controls are not listed. **Continue waits for the word's clip** after an answer,
   so it appears a second or two after `feedback`.
 - `act()` refuses a control a finger would miss: covered, off screen (it scrolls it into view first),
   or behind a new card's ~220 ms entrance guard — `{ ok: false, error: 'not reachable …' }`; try again.
@@ -217,6 +224,9 @@ other than the item add a suffix: `<id>:<conjForm>` (conjugate), `<id>:particle`
 - `done`: in a lesson `done` = cards answered (re-asked cards count again), `right` = passed
   (a speak fallback and a finished trace count as passed), `total` = `done`. In a review `total` is
   the review's length. So `right` is not the count of `feedback.right` events.
+- The mascot asks for `/mascot/lingua-*.webm` and `.mov` (transparent clips, none exist yet) and
+  falls back to its still picture, so each mascot shows one failed request. Deliberate
+  (`src/components/Mascot.jsx`): dropping a transparent clip in makes it animate with no code change.
 - `screen` is sampled every 200 ms and after each `act()`, so a screen shown for less than that can
   be skipped. `state()` is always current.
 - `teach` fires each time a teach card mounts, so going back with `previous-card` re-sends it.

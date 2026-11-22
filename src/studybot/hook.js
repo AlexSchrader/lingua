@@ -79,6 +79,45 @@ function scan() {
   return raw.map((a, i) => ({ ...a, id: ids[i] }));
 }
 
+// The page's main scroller: the scrollable element (or the document) showing the
+// most of the window. Lingua scrolls inside AppShell's <main>, Onboarding's column,
+// or the document, depending on the screen.
+function scroller() {
+  const root = document.getElementById("root") || document.body;
+  const can = (el) => el.scrollHeight - el.clientHeight > 2;
+  let best = null;
+  let bestArea = 0;
+  const doc = document.scrollingElement;
+  if (doc && can(doc)) {
+    best = doc;
+    bestArea = window.innerWidth * window.innerHeight;
+  }
+  for (const el of root.querySelectorAll("*")) {
+    if (!can(el)) continue;
+    const oy = getComputedStyle(el).overflowY;
+    if (oy !== "auto" && oy !== "scroll") continue;
+    const r = el.getBoundingClientRect();
+    const w = Math.max(0, Math.min(r.right, window.innerWidth) - Math.max(r.left, 0));
+    const h = Math.max(0, Math.min(r.bottom, window.innerHeight) - Math.max(r.top, 0));
+    if (w * h > bestArea) {
+      best = el;
+      bestArea = w * h;
+    }
+  }
+  return best;
+}
+
+function scrollActions() {
+  const el = scroller();
+  if (!el) return [];
+  const isDoc = el === document.scrollingElement;
+  const r = isDoc ? { left: 0, top: 0, width: window.innerWidth, height: window.innerHeight } : el.getBoundingClientRect();
+  const out = [];
+  if (el.scrollTop > 2) out.push({ el, id: "scroll-up", label: "Scroll up", kind: "scroll", dir: -1, r });
+  if (el.scrollTop + el.clientHeight < el.scrollHeight - 2) out.push({ el, id: "scroll-down", label: "Scroll down", kind: "scroll", dir: 1, r });
+  return out;
+}
+
 function centerOf(el) {
   const r = el.getBoundingClientRect();
   return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
@@ -191,11 +230,31 @@ export function install() {
   }
   setInterval(checkScreen, 200);
 
+  // Every control on the page, on screen or not, plus scroll-down / scroll-up when
+  // the page can scroll that way. `offscreen: true` marks a control whose centre is
+  // outside the window: scroll first (or act() scrolls it into view itself).
   function actions() {
-    return scan().map(({ el, id, label, kind }) => ({ id, label, kind, rect: roundRect(el.getBoundingClientRect()) }));
+    const controls = scan().map(({ el, id, label, kind }) => {
+      const r = el.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      const cy = r.top + r.height / 2;
+      const a = { id, label, kind, rect: roundRect(r) };
+      if (cx < 0 || cy < 0 || cx > window.innerWidth || cy > window.innerHeight) a.offscreen = true;
+      return a;
+    });
+    const scrolls = scrollActions().map(({ id, label, kind, r }) => ({ id, label, kind, rect: roundRect(r) }));
+    return [...controls, ...scrolls];
   }
 
   async function act(id, value) {
+    const scroll = scrollActions().find((a) => a.id === String(id));
+    if (scroll) {
+      // About one screen, like a swipe: 80% of what the scroller shows.
+      scroll.el.scrollBy({ top: scroll.dir * Math.round(scroll.el.clientHeight * 0.8), behavior: "instant" });
+      await nextFrame();
+      checkScreen();
+      return { ok: true };
+    }
     const found = scan().find((a) => a.id === String(id));
     if (!found) return { ok: false, error: "no such action" };
     const { el, kind } = found;

@@ -48,12 +48,12 @@ async function readyJa(page) {
   await expect.poll(async () => (await state(page)).screen).toBe("home");
 }
 
-test("hello: Lingua, StudyBot 1.0, a test account (signed out, no Supabase)", async ({ page }) => {
+test("hello: Lingua, StudyBot 1.1, a test account (signed out, no Supabase)", async ({ page }) => {
   await ready(page);
   const h = await sb(page, () => window.StudyBot.hello());
-  expect(h).toMatchObject({ app: "lingua", version: "1.0", testAccount: true, subjects: ["japanese"] });
+  expect(h).toMatchObject({ app: "lingua", version: "1.1", testAccount: true, subjects: ["japanese"] });
   expect(Math.floor(Number(h.version))).toBe(1);
-  expect(await sb(page, () => window.StudyBot.version)).toBe("1.0");
+  expect(await sb(page, () => window.StudyBot.version)).toBe("1.1");
   // No account UI anywhere: the app opens on the first-run language pick.
   expect((await state(page)).screen).toBe("onboarding");
   // The hook cannot be replaced by page code.
@@ -73,7 +73,7 @@ test("actions: page-pixel rects in the 390x844 window, each landing on its own c
       const hitLabel = ctl ? ctl.dataset.botLabel || ctl.getAttribute("aria-label") || ctl.innerText || ctl.placeholder || "" : null;
       return { id: a.id, label: a.label, hitLabel: hitLabel == null ? null : hitLabel.replace(/\s+/g, " ").trim() };
     }),
-    list.filter((a) => a.rect.y + a.rect.h <= 844)
+    list.filter((a) => a.kind !== "scroll" && !a.offscreen && a.rect.y + a.rect.h <= 844)
   );
   // The centre of each rect lands on THAT control, not just on some control.
   for (const h of hits) expect(h.hitLabel, `action ${h.id}`).toBe(h.label);
@@ -82,6 +82,30 @@ test("actions: page-pixel rects in the 390x844 window, each landing on its own c
     expect(a.rect.x + a.rect.w).toBeLessThanOrEqual(390);
   }
   expect(list.find((a) => a.label === "Today")?.kind).toBe("tab");
+});
+
+test("scrolling: scroll-down/up are listed when the page can scroll, and move it about a screen", async ({ page }) => {
+  await ready(page);
+  // The onboarding language list is longer than the window.
+  const before = await actions(page);
+  expect(before.find((a) => a.id === "scroll-down")?.kind).toBe("scroll");
+  expect(before.some((a) => a.id === "scroll-up")).toBe(false);
+  const off = before.filter((a) => a.offscreen);
+  expect(off.length).toBeGreaterThan(0);
+  for (const a of off) expect(a.rect.y + a.rect.h / 2 > 844 || a.rect.y + a.rect.h / 2 < 0).toBe(true);
+  const target = off[0];
+  expect((await act(page, "scroll-down")).ok).toBe(true);
+  const after = await actions(page);
+  expect(after.some((a) => a.id === "scroll-up")).toBe(true);
+  const moved = after.find((a) => a.id === target.id);
+  expect(moved.rect.y).toBeLessThan(target.rect.y - 200);
+  expect((await act(page, "scroll-up")).ok).toBe(true);
+  // Leaving the Stats page, the way Doodle got stuck: the Today tab brings home back.
+  await tap(page, "lang-ja");
+  await tap(page, "continue");
+  await tap(page, "start-learning");
+  await expect.poll(async () => (await state(page)).screen).toBe("home");
+  expect((await actions(page)).some((a) => a.id === "start-lesson")).toBe(true);
 });
 
 test("a whole lesson through StudyBot: teach, questions, feedback with the answer, done", async ({ page }) => {
