@@ -167,6 +167,17 @@ function normalizeMeaning(s = "") {
 // "come or go"). So a multi-sense word accepts ANY one of its senses without every
 // split needing a hand-written accept[] entry. Deduped, first-seen order. Powers both
 // the checker and the "also means" note shown after answering.
+// The "Also means" line after a meaning answer: the item's other senses, leaving out
+// what the learner typed and, unless they got it right, what the card printed as the
+// answer. Without the second rule a "Show answer" (nothing typed) read
+// "Answer: people · Also means: people, folk" — found by Doodle studying Spanish
+// through StudyBot, 2026-11-22.
+export function alsoMeans(item, typed, shownAnswer, right) {
+  // The printed answer can itself be several senses ("rice; meal"): leave out each of them.
+  const shown = right ? new Set() : new Set(meaningVariants({ meaning: shownAnswer }));
+  return meaningVariants(item).filter((v) => !checkMeaning(typed ?? "", { meaning: v }) && !shown.has(v));
+}
+
 export function meaningVariants(item) {
   const raw = [item?.meaning, ...(item?.accept || [])].filter(Boolean);
   const out = [];

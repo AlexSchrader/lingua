@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Volume2 } from "lucide-react";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
-import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji, meaningVariants, foldWouldEraseAnswer } from "../../store/answer.js";
+import { checkMeaning, checkReading, checkProduce, charDiff, looksRomaji, produceAllowsRomaji, alsoMeans, foldWouldEraseAnswer } from "../../store/answer.js";
 import { langName } from "../../data/languages.js";
 import { isJapaneseItem, itemLang } from "../../store/itemLang.js";
 import { isGlyph } from "../../store/cardRouting.js";
@@ -216,7 +216,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
     const romajiMiss = !right && !escaped && mode === "produce" && produceAllowsRomaji(item) && looksRomaji(typed);
     const kanaOnlyRomaji = !right && !escaped && mode === "produce" && !produceAllowsRomaji(item) && looksRomaji(typed);
     const shown = romajiMiss ? item.reading : kanaOnlyRomaji ? spec.answer : listen && latin ? item.front : spec.answer;
-    const others = mode === "meaning" && !isKana ? meaningVariants(item).filter((v) => !checkMeaning(typed, { meaning: v })) : [];
+    const others = mode === "meaning" && !isKana ? alsoMeans(item, typed, spec.answer, right) : [];
     botEmit("feedback", {
       itemId: item.id,
       right,
@@ -422,7 +422,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
       {/* Multi-sense words: after answering, surface the OTHER meanings so a learner
           who typed one ("rice") still learns the rest ("also means: meal"). */}
       {feedback && isMeaningMode && (() => {
-        const others = meaningVariants(item).filter((v) => !checkMeaning(value, { meaning: v }));
+        const others = alsoMeans(item, value, spec.answer, outcome === "correct");
         return others.length ? (
           <div style={{ textAlign: "center", fontSize: 13, color: C.inkSoft }}>
             Also means: <span style={{ fontWeight: 600, color: C.ink }}>{others.join(", ")}</span>
