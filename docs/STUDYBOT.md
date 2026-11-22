@@ -223,6 +223,8 @@ other than the item add a suffix: `<id>:<conjForm>` (conjugate), `<id>:particle`
 
 ### The tutor (text only)
 
+**Off for now — Alex, 22 Nov 2026: "leave tutor off".** Build Doodle's copy without `VITE_STUDYBOT_API`; the tutor tab then says it is not connected and sends nothing.
+
 - The voice tutor's ElevenLabs account is gone. In this build the tutor tab is a text chat:
   `act('message', text)` then `act('submit')`; each line is a `tutor` event.
 - Server: `api/tutor-text.js` on a Vercel **preview** deployment. **Off** unless that deployment has
