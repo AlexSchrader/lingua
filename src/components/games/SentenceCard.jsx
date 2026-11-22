@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from "react";
+import { botEmit, botItem, useBotSurface } from "../../studybot/bus.js";
 import { C, F } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
 import { useStore } from "../../store/useStore.js";
@@ -45,10 +46,23 @@ export default function SentenceCard({ item, onGraded }) {
     return () => { delete window.__sentence; };
   }, [answer, tiles]);
 
+  // StudyBot (test builds only): the English to build, and the row so far. The
+  // tiles are actions t<n> (n = the tile's place in the tray, so an id never
+  // changes; a used tile drops out of actions) labelled with their text. This card never shows
+  // the right order, so a wrong build reports no answer.
+  useBotSurface(
+    2,
+    spec
+      ? { screen: "question", item: botItem(item, { suffix: "sentence", kind: "sentence", card: "sentence:build", ask: "Build the sentence", prompt: practice(item)?.en ?? "", note: assembled.length ? `So far: ${assembled.join(" ")}` : "" }) }
+      : null,
+    [item.id, picked.length]
+  );
+
   if (!spec) return null; // safety — routing guards this, but never crash
 
   const commit = () => {
     if (correct) sfxCorrect(); else sfxWrong();
+    botEmit("feedback", { itemId: `${item.id}:sentence`, right: correct, answer: correct ? answer.join("") : "", given: assembled.join(""), note: correct ? undefined : "the app does not show the right order" });
     onGraded(
       correct
         ? deriveGrade({ kind: "typed", correct: true, elapsedMs: performance.now() - shownAt.current, target: answer.join(""), noSpeed })
@@ -92,6 +106,8 @@ export default function SentenceCard({ item, onGraded }) {
           return (
             <button
               key={i}
+              data-bot={`t${i}`}
+              data-bot-kind="tile"
               disabled={used}
               onClick={() => { sfxClick(); setPicked((p) => [...p, i]); }}
               style={{

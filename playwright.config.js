@@ -4,13 +4,20 @@ const MODE = process.env.SMOKE_MODE || "dev";
 // SMOKE_PORT lets a crew worktree run its own smoke without colliding with the
 // other trees live on this machine. See the reuseExistingServer note below — the
 // collision used to be SILENT and green, which is the worst way for it to fail.
-const PORT = Number(process.env.SMOKE_PORT) || (MODE === "preview" ? 4173 : 5173);
+const PORT = Number(process.env.SMOKE_PORT) || (MODE === "preview" ? 4173 : MODE === "studybot" ? 4183 : 5173);
 // Preview mode must rebuild first — `vite preview` only serves the existing
 // dist/, so without a build it would smoke-test a stale bundle (the exact
 // blank-on-prod trap this suite exists to catch).
+//
+// SMOKE_MODE=studybot builds the StudyBot test build (Doodle's study window,
+// docs/STUDYBOT.md) into dist-studybot/ and runs ONLY tests/studybot.spec.js
+// against it; the other modes never run that spec. `vite preview --mode studybot`
+// serves dist-studybot/ because the mode sets build.outDir.
 const command =
   MODE === "preview"
     ? `npm run build && npm run preview -- --port ${PORT}`
+    : MODE === "studybot"
+    ? `npm run build:studybot && npm run preview -- --mode studybot --port ${PORT}`
     : `npm run dev -- --port ${PORT}`;
 
 export default defineConfig({
@@ -20,7 +27,8 @@ export default defineConfig({
   // incident that bought this.
   globalSetup: "./tests/preflight.js",
   testDir: "./tests",
-  testMatch: "**/*.spec.js", // Playwright owns *.spec.js; node:test owns tests/unit/*.test.mjs
+  testMatch: MODE === "studybot" ? "**/studybot.spec.js" : "**/*.spec.js", // Playwright owns *.spec.js; node:test owns tests/unit/*.test.mjs
+  testIgnore: MODE === "studybot" ? [] : ["**/studybot.spec.js"],
   // Playwright's 30s default was set when the corpus was a fraction of its size.
   // These are real end-to-end sessions over 2900+ seeded items, and "reviews are
   // app-judged" measured 29.8s in July — ~0.2s of headroom — then tipped over when

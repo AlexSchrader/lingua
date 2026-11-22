@@ -1,6 +1,7 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import PhaseShell from "../components/PhaseShell.jsx";
+import { botEmit, useBotSurface } from "../studybot/bus.js";
 import ChoiceCard from "../components/games/ChoiceCard.jsx";
 import ClozeCard from "../components/games/ClozeCard.jsx";
 import TypeCard from "../components/games/TypeCard.jsx";
@@ -146,8 +147,17 @@ export default function Review() {
 
   const done = idx >= reviewQueue.length;
 
+  // StudyBot (test builds only): review progress, and a `done` event with the tally.
+  const tally = useRef({ done: 0, right: 0 });
+  useBotSurface(
+    1,
+    { screen: done || finished ? "done" : "review", item: null, progress: { done: Math.min(idx, reviewQueue.length), total: reviewQueue.length } },
+    [done || finished, idx, reviewQueue.length]
+  );
+
   useEffect(() => {
     if (done && !finished) {
+      if (reviewQueue.length > 0) botEmit("done", { done: tally.current.done, right: tally.current.right, total: reviewQueue.length });
       // Mark the daily review complete only when there was REAL work AND this is
       // the daily review: an empty queue (opening /review with nothing due) mustn't
       // bump the streak for zero work, and the mistake-review (fix mode) is a bonus
@@ -218,6 +228,8 @@ export default function Review() {
     // (MASTERED) gets its own warmer sound. nextRung is pure, so this reads the
     // would-be rung without depending on gradeItem's async write.
     const after = nextRung(item, grade);
+    tally.current.done += 1;
+    if (grade !== "again") tally.current.right += 1;
     if (after > (item.rung ?? 1)) (after >= MAX_RUNG ? sfxMastered : sfxRungUp)();
     // Tell the store WHICH card this was, so mastery credits the right skill.
     // kindKey is computed below in the same body and is assigned by the time this

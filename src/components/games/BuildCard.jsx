@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef } from "react";
+import { botEmit, botItem, useBotSurface } from "../../studybot/bus.js";
 import { C, F, headwordSize, headwordWrap } from "../../theme.js";
 import { deriveGrade } from "../../store/grading.js";
 import { useStore } from "../../store/useStore.js";
@@ -32,8 +33,25 @@ export default function BuildCard({ item, onGraded }) {
   // A wrong full assembly gets one free retry (auto-cleared to rebuild) instead of
   // hard-failing on the first slip — parity with TypeCard. A correct build after a
   // miss caps at `hard` (no speed bonus); a second wrong assembly → `again`.
+  // StudyBot (test builds only): the word and meaning as printed; tiles are
+  // actions t<n> (n = place in the tray, stable) labelled with their kana.
+  useBotSurface(
+    2,
+    {
+      screen: "question",
+      item: botItem(item, {
+        card: "build",
+        ask: "Build the reading",
+        prompt: [item.front, item.meaning].filter(Boolean).join(" — "),
+        note: [assembled ? `So far: ${assembled}` : "", missed && !correct ? "Not quite — give it one more go." : ""].filter(Boolean).join(" · "),
+      }),
+    },
+    [item.id, assembled, missed]
+  );
+
   const commit = () => {
     if (correct) {
+      botEmit("feedback", { itemId: item.id, right: true, answer: target, given: assembled });
       sfxCorrect();
       onGraded(
         deriveGrade({ kind: "typed", correct: true, retried: missed, elapsedMs: performance.now() - shownAt.current, target, noSpeed })
@@ -43,6 +61,7 @@ export default function BuildCard({ item, onGraded }) {
       setMissed(true);
       setPicked([]);
     } else {
+      botEmit("feedback", { itemId: item.id, right: false, answer: "", given: assembled, note: "the app does not show the right reading" });
       sfxWrong();
       onGraded("again");
     }
@@ -102,6 +121,8 @@ export default function BuildCard({ item, onGraded }) {
             <button
               key={i}
               data-testid="tile"
+              data-bot={`t${i}`}
+              data-bot-kind="tile"
               disabled={used}
               onClick={() => { sfxClick(); setPicked((p) => [...p, i]); }}
               style={{

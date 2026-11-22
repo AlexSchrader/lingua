@@ -23,8 +23,12 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm test                  # dev smoke
       - run: npm run build
+      - run: npm run check:no-studybot # the production bundle carries no StudyBot hook
       - run: npm test                  # preview smoke
         env: { SMOKE_MODE: preview }
+      - run: npm test                  # StudyBot smoke (Doodle's test build, dist-studybot/)
+        env: { SMOKE_MODE: studybot }
+      - run: node scripts/check-no-studybot.mjs --studybot
       - name: Upload report on failure
         if: failure()
         uses: actions/upload-artifact@v4

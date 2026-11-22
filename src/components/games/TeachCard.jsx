@@ -5,6 +5,8 @@ import { useItemAudio } from "../../store/itemAudio.js";
 import { useStore } from "../../store/useStore.js";
 import Furigana from "../Furigana.jsx";
 import { readingIsInformative } from "../../store/cardRouting.js";
+import { useEffect } from "react";
+import { botEmit, botItem, useBotSurface } from "../../studybot/bus.js";
 
 const HAS_KANJI = /[一-龯々]/;
 
@@ -36,6 +38,21 @@ export default function TeachCard({ item, onAdvance }) {
   // …and for a Latin-script front the `reading` is the ASCII typing key, not a
   // pronunciation guide — showing it printed "silvousplait" under "s'il vous plaît".
   const showsReading = showRomaji && !rubied && readingIsInformative(item);
+
+  // StudyBot (test builds only). A teach card SHOWS the answer — teaching is the
+  // one place it may appear before a question — so it publishes exactly what is
+  // printed here, and a `teach` event once per card.
+  const reading = showsReading || rubied ? item.reading : null;
+  const example = item.example ? `${item.example.jp} — ${item.example.en}` : null;
+  useBotSurface(
+    2,
+    { screen: "teach", item: botItem(item, { card: "teach", prompt: item.front, shown: { meaning: item.meaning, reading, example, hint: item.hint } }) },
+    [item.id, reading]
+  );
+  useEffect(() => {
+    botEmit("teach", { itemId: item.id, prompt: item.front, answer: item.meaning || reading || "", reading: reading || undefined, note: item.hint || undefined });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [item.id]);
   return (
     <div style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>
       <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600, textAlign: "center" }}>

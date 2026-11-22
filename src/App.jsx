@@ -18,12 +18,17 @@ import SyncToast from "./components/SyncToast.jsx";
 import { useStore } from "./store/useStore.js";
 import { isPreview, authGateEnabled } from "./store/preview.js";
 import { testAuthSeed } from "./store/testAuth.js";
+import { STUDYBOT } from "./studybot/flag.js";
 import { scheduleDailyReminder, notificationPermission } from "./lib/reminders.js";
 import { C, F, setActiveTheme, resolveTheme } from "./theme.js";
 
 // Lazy-loaded: the ElevenLabs voice SDK is heavy (~500KiB) and only needed on
 // the Haruki tab, so keep it out of the main bundle until the user opens it.
-const Haruki = lazy(() => import("./screens/Haruki.jsx"));
+//
+// A StudyBot build (STUDYBOT, test only) swaps in the TEXT tutor: no voice SDK is
+// even loaded, and no ElevenLabs call can be made (the account behind the voices
+// is gone). In a normal build the ternary folds away and TutorText is not emitted.
+const Haruki = lazy(() => (STUDYBOT ? import("./screens/TutorText.jsx") : import("./screens/Haruki.jsx")));
 
 // Whether cloud auth is even possible in this build. Read synchronously from env
 // (not store) so the gate decides without a flash: no Supabase keys → no gate,
@@ -45,7 +50,7 @@ const Haruki = lazy(() => import("./screens/Haruki.jsx"));
 // it was before the switch existed.
 const IS_WEBDRIVER = typeof navigator !== "undefined" && !!navigator.webdriver;
 const TEST_AUTH = testAuthSeed();
-const AUTH_ENABLED = authGateEnabled({
+const AUTH_ENABLED = !STUDYBOT && authGateEnabled({
   hasUrl: !!import.meta.env.VITE_SUPABASE_URL || !!TEST_AUTH,
   hasKey: !!import.meta.env.VITE_SUPABASE_ANON_KEY || !!TEST_AUTH,
   isWebdriver: TEST_AUTH ? false : IS_WEBDRIVER,
@@ -128,6 +133,11 @@ export default function App() {
     // Logged for the QA lane rather than left broken.
     if (!onboarded) return <Onboarding />;
   }
+  // A StudyBot build has no accounts, so the block above never runs — and without
+  // it a fresh learner is never asked for a language and lands on the first one
+  // alphabetically. Doodle's window starts on the same first-run pick a new
+  // learner meets, and chooses Japanese by tapping it. Test builds only.
+  if (STUDYBOT && !onboarded) return <Onboarding />;
 
   return (
     <>

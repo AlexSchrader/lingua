@@ -11,6 +11,7 @@ import { SPEECH_CARRIERS } from "../../data/speechCarriers.js";
 import { sfxCorrect, sfxWrong, sfxAlmost } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 import { useStore } from "../../store/useStore.js";
+import { botEmit, botItem, useBotSurface } from "../../studybot/bus.js";
 
 // Dictation prompt (listen:type): a Play button in place of the glyph, autoplaying
 // on mount, so the ear — not the eye — drives the answer. Mirrors ChoiceCard's
@@ -32,6 +33,7 @@ function ListenPrompt({ item, onShowIt, showEscape = true }) {
           under a settled answer just invites a second click. Replay stays. */}
       {showEscape && (
         <button
+          data-bot="show"
           onClick={onShowIt}
           style={{ marginTop: 12, border: "none", background: "transparent", color: C.inkSoft, fontSize: 12, fontWeight: 700, fontFamily: F.body, cursor: "pointer", textDecoration: "underline" }}
         >
@@ -209,6 +211,21 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
     setDictRevealed(false);
   }, [item.id, mode]);
 
+  // StudyBot: the answer exactly as the feedback below prints it.
+  const emitFeedback = (right, typed, escaped) => {
+    const romajiMiss = !right && !escaped && mode === "produce" && produceAllowsRomaji(item) && looksRomaji(typed);
+    const kanaOnlyRomaji = !right && !escaped && mode === "produce" && !produceAllowsRomaji(item) && looksRomaji(typed);
+    const shown = romajiMiss ? item.reading : kanaOnlyRomaji ? spec.answer : listen && latin ? item.front : spec.answer;
+    const others = mode === "meaning" && !isKana ? meaningVariants(item).filter((v) => !checkMeaning(typed, { meaning: v })) : [];
+    botEmit("feedback", {
+      itemId: item.id,
+      right,
+      answer: shown ?? "",
+      given: typed,
+      note: others.length ? `Also means: ${others.join(", ")}` : undefined,
+    });
+  };
+
   // "Show answer" escape: a stuck learner shouldn't have to submit-wrong twice
   // (two stings + an `again`) just for not knowing. Reveal the answer and grade
   // `again` once — same SRS outcome as a genuine miss, none of the shame. ND
@@ -221,6 +238,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
     setOutcome("wrong");
     setPhase("feedback");
     reinforce();
+    emitFeedback(false, value, true);
   };
 
   // Dictation escape, per script. Japanese keeps its reveal: seeing the kana still
@@ -248,6 +266,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
       setOutcome("correct");
       setPhase("feedback");
       reinforce();
+      emitFeedback(true, value, false);
     } else if (!retried) {
       sfxAlmost(); // first slip → "almost, try once more" (distinct from a real miss)
       setRetried(true); // one free retry
@@ -257,6 +276,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
       setOutcome("wrong");
       setPhase("feedback");
       reinforce();
+      emitFeedback(false, value, false);
     }
   };
 
@@ -273,6 +293,29 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
   // When rōmaji IS accepted and the learner typed rōmaji, a miss is diffed against
   // the rōmaji reading (not the kana front) so the near-miss reads sensibly.
   const romajiProduceMiss = mode === "produce" && produceAllowsRomaji(item) && looksRomaji(value);
+
+  // StudyBot (test builds only): the prompt as printed (none while it is a sound),
+  // a text field, and the retry line if it is showing. The answer leaves only in
+  // `feedback`, from the handlers that reveal it.
+  const showingSound = listen && !dictRevealed;
+  const retryLine = retried && !feedback
+    ? romajiOnProduce ? "Switch to your Japanese keyboard — type the kana, not rōmaji." : "Not quite — try once more"
+    : "";
+  useBotSurface(
+    2,
+    {
+      screen: feedback ? "feedback" : "question",
+      item: botItem(item, {
+        card: listen ? "listen:type" : `type:${mode}`,
+        ask: spec.ask,
+        prompt: showingSound ? "" : spec.prompt,
+        input: "text",
+        audio: showingSound,
+        note: retryLine,
+      }),
+    },
+    [item.id, mode, dictRevealed, feedback, retryLine]
+  );
 
   return (
     <div
@@ -306,6 +349,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
 
       <input
         data-testid="type-input"
+        data-bot="answer"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         onKeyDown={(e) => {
@@ -389,6 +433,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
       {!feedback ? (
         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           <button
+            data-bot="submit"
             onClick={submit}
             style={{
               padding: 16,

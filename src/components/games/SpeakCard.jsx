@@ -6,6 +6,7 @@ import { gradeAlignment, isScorableText } from "../../store/alignScore.js";
 import { readingIsInformative } from "../../store/cardRouting.js";
 import { itemLang } from "../../store/itemLang.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
+import { botEmit, botItem, useBotSurface } from "../../studybot/bus.js";
 
 // SpeakCard — the SPOKEN-rung review (vocab only). Duolingo-style flow: the app
 // SAYS the word (plays its clip), then auto-arms the mic; you say it back and TAP
@@ -225,6 +226,23 @@ export default function SpeakCard({ item, onGraded, shadow = false, carrier = nu
     grade === "good" ? { color: C.matcha, line: "Nice — that's it!" }
     : grade === "hard" ? { color: C.ai, line: "Close enough — counts!" }
     : { color: C.shu, line: "Not quite — give it another go?" };
+
+  // StudyBot (test builds only). Doodle's window refuses the microphone, so this
+  // card lands in its ungraded fallback there; a graded result (a real mic) still
+  // reports as feedback.
+  useBotSurface(
+    2,
+    {
+      screen: phase === "result" ? "feedback" : "question",
+      item: botItem(item, { card: "speak", ask: "Say it", prompt: carrier ? spokenText : item.front, audio: true, note: phase === "fallback" ? "Speaking is not checked here" : "" }),
+    },
+    [item.id, phase, carrier?.id]
+  );
+  useEffect(() => {
+    if (phase !== "result" || !grade) return;
+    botEmit("feedback", { itemId: item.id, right: grade !== "again", answer: spokenText, given: heard || "", note: "spoken" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, grade]);
 
   return (
     <div

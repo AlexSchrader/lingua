@@ -5,6 +5,7 @@ import { LANGUAGES, UNITS } from "../data/index.js";
 import { authoringProgress } from "../store/levels.js";
 import { requestReminderPermission, scheduleDailyReminder } from "../lib/reminders.js";
 import { C, F } from "../theme.js";
+import { useBotSurface } from "../studybot/bus.js";
 
 // First-run onboarding, two calm steps: (1) pick the language to learn, then (2) a
 // name, a why, and an optional reminder. Everything's changeable later; nothing
@@ -64,6 +65,8 @@ export default function Onboarding() {
   const completeOnboarding = useStore((s) => s.completeOnboarding);
 
   const [step, setStep] = useState(0);
+  // StudyBot (test builds only): the first-run flow is its own screen.
+  useBotSurface(1, { screen: step === 0 ? "onboarding" : "onboarding:profile", item: null, progress: null }, [step]);
 
   // Dev-only escape hatch: when previewing this flow from the Dev panel, let the
   // learner bail out without completing it. Restores onboarded (keeps their real
@@ -141,6 +144,7 @@ export default function Onboarding() {
                 return (
                   <button
                     key={l.id}
+                    data-bot={`lang-${l.id}`}
                     onClick={() => l.cards > 0 && setLang(l.id)}
                     style={{
                       display: "flex",

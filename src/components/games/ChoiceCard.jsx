@@ -7,6 +7,7 @@ import { deriveGrade } from "../../store/grading.js";
 import { sfxCorrect, sfxWrong } from "../../store/sfx.js";
 import { useItemAudio } from "../../store/itemAudio.js";
 import { langName } from "../../data/languages.js";
+import { botEmit, botItem, useBotSurface } from "../../studybot/bus.js";
 
 // Multiple choice (rung RECOGNIZED). Normally the glyph is shown and you pick the
 // reading (kana) / meaning (vocab). In `audioFirst` mode — the listening card —
@@ -51,10 +52,27 @@ export default function ChoiceCard({ item, allItems, onGraded, onCantHear, audio
   // a Latin one (é, eau, sch) must not - it would render an accent in a kana font.
   const optionFont = reverse ? F.jp : listening && isJaGlyph ? F.jp : isJaGlyph ? F.mono : F.body;
 
+  // StudyBot (test builds only): what is on screen — the prompt as printed (none
+  // while it is a sound), the options by text. Never which one is correct.
+  const cardKind = audioFirst ? "listen:choice" : reverse ? "choice:reverse" : "choice";
+  useBotSurface(
+    2,
+    {
+      screen: answered ? "feedback" : "question",
+      item: botItem(item, {
+        card: cardKind,
+        prompt: listening ? "" : reverse ? item.meaning : item.front,
+        choices: options.map((o, i) => ({ id: `c${i}`, text: o.text })),
+        audio: listening,
+      }),
+    },
+    [item.id, listening, answered, options]
+  );
+
   return (
     <div
       data-testid="choice-card"
-      data-card-kind={audioFirst ? "listen:choice" : reverse ? "choice:reverse" : "choice"}
+      data-card-kind={cardKind}
       style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}
     >
       <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600, textAlign: "center" }}>
@@ -105,7 +123,14 @@ export default function ChoiceCard({ item, allItems, onGraded, onCantHear, audio
               data-testid="option"
               data-correct={String(o.correct)}
               disabled={answered}
-              onClick={() => { if (answered) return; options[i].correct ? sfxCorrect() : sfxWrong(); setPicked(i); reinforce(); }}
+              onClick={() => {
+                if (answered) return;
+                options[i].correct ? sfxCorrect() : sfxWrong();
+                setPicked(i);
+                reinforce();
+                // The answer as the card now shows it: the option it turns green.
+                botEmit("feedback", { itemId: item.id, right: !!options[i].correct, answer: options.find((x) => x.correct)?.text ?? "", given: options[i].text });
+              }}
               style={{
                 padding: "16px 12px",
                 borderRadius: 12,
@@ -158,6 +183,7 @@ function ListenPrompt({ item, onShowIt }) {
         <Volume2 size={30} />
       </button>
       <button
+        data-bot="show"
         onClick={onShowIt}
         style={{ border: "none", background: "transparent", color: C.inkSoft, fontSize: 12, fontWeight: 700, fontFamily: F.body, cursor: "pointer", textDecoration: "underline" }}
       >
