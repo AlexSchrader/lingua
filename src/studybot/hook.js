@@ -14,11 +14,15 @@
 //      miss it, and then clicks it. It never writes progress itself.
 import { VERSION } from "../version.js";
 import { isCloudConfigured } from "../lib/supabase.js";
-import { useStore } from "../store/useStore.js";
+import { useStore, activeLangId } from "../store/useStore.js";
+import { LANGUAGES, UNITS, isLive } from "../data/index.js";
+import { langName } from "../data/languages.js";
+import { AUDIO_IDS } from "../data/audioManifest.js";
 import { botSubscribe, botSurfaces } from "./bus.js";
 import {
   STUDYBOT_VERSION,
   cleanPath,
+  languageStatus,
   createEvents,
   pickSurface,
   plainText,
@@ -160,6 +164,8 @@ const nextFrame = () => new Promise((res) => requestAnimationFrame(() => setTime
 export function install() {
   if (window.StudyBot) return window.StudyBot;
   const events = createEvents();
+  // Which languages exist and which are complete: fixed for a build, so worked out once.
+  const languages = languageStatus({ languages: LANGUAGES, units: UNITS, audioIds: AUDIO_IDS, isLive, nameOf: langName });
   const emitError = (data) => events.emit("error", data);
 
   // Components emit feedback / done / tutor through the bus.
@@ -217,7 +223,11 @@ export function install() {
     const top = pickSurface(surfaces);
     const screen = crashed ? "error" : top?.screen ?? screenForPath(window.location.pathname);
     const item = !crashed && top?.item ? publicItem(top.item) : null;
-    return { screen, item, progress: progressOf(surfaces) };
+    // The language he is in now (the active one), as a subject name; null before he picks.
+    const profile = useStore.getState().profile;
+    const active = profile?.languages?.length ? activeLangId(profile) : null;
+    const language = active ? languages.find((l) => l.id === active)?.subject ?? active : null;
+    return { screen, item, progress: progressOf(surfaces), language };
   }
 
   let lastScreen = state().screen;
@@ -284,7 +294,8 @@ export function install() {
       version: STUDYBOT_VERSION,
       appVersion: VERSION,
       testAccount: !isCloudConfigured && !signedIn,
-      subjects: ["japanese"],
+      subjects: languages.filter((l) => l.complete).map((l) => l.subject),
+      languages: languages.map((l) => ({ ...l })),
     };
   }
 

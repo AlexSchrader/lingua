@@ -155,6 +155,25 @@ npm run build:studybot
   `listen:choice`, `listen:type`, `type:meaning`, `type:reading`, `type:produce`, `cloze:choice`,
   `particle:choice`, `build`, `sentence:build`, `conjugate`, `trace`, `trace:free`, `speak`.
 
+### Languages (StudyBot 1.2)
+
+- `hello().languages`: every language Lingua lists, `{ id, subject, name, complete }`. **`complete`**
+  is derived from the content: playable, authored through B2, and every item voiced (today: de, es,
+  fr, hi, id, ja, no, pt, ru). `hello().subjects` lists the complete ones' subjects.
+- `subject` is the language's English name in lowercase letters only: `japanese`, `spanish`,
+  `norwegian`, `haitiancreole`. `item.subject` follows the item's own language.
+- The build writes `dist-studybot/studybot.json` (`{ studybot, languages }`, the same list), which
+  desktop-buddy's `scripts/sync-lingua.mjs` reads to copy every complete language's clips.
+- `state().language`: the subject of the language he is in now; `null` before the first pick.
+- **First pick:** onboarding's `lang-<id>` (every complete language is there; the list scrolls, and
+  `act()` brings an off-screen one into view).
+- **Adding one later:** Ladder tab → `start-lang-<id>`, listed only for a language he may start: a
+  second is allowed from day one unless it would blur with the first (Lingua's interference rule,
+  e.g. two close Romance languages); a third needs A1 in the active one. The new one becomes active.
+- **Switching:** Ladder tab → `switch-lang-<id>`, one per started language (shown once there are 2+).
+- **Stopping:** Ladder → "Stop learning <name>" (progress is kept; re-adding restores it).
+- Progress is per language: every item id carries its language, in the window's own storage.
+
 ### Item ids
 
 `itemId` is Lingua's content id, e.g. `ja-u1l1-a` (あ), `ja-u1l1-ohayou`. Stable across runs (an id

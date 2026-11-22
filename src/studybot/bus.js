@@ -10,6 +10,7 @@ import { useEffect, useRef } from "react";
 import { STUDYBOT } from "./flag.js";
 import { itemKind, subjectFor } from "./core.js";
 import { itemLang } from "../store/itemLang.js";
+import { langName } from "../data/languages.js";
 
 // The identity fields of a card's item. `itemId` is the content id (stable across
 // runs — ids only change in a flagged renumber); a card that drills something
@@ -18,7 +19,7 @@ export function botItem(item, { suffix = "", kind, ...rest } = {}) {
   if (!STUDYBOT || !item) return null;
   return {
     itemId: suffix ? `${item.id}:${suffix}` : item.id,
-    subject: subjectFor(itemLang(item)),
+    subject: subjectFor(itemLang(item), langName),
     kind: kind ?? itemKind(item.type),
     ...rest,
   };

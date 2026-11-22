@@ -5,7 +5,7 @@
 // Contract: docs/STUDYBOT.md. The hook that uses this lives in ./hook.js and is
 // only ever loaded in a `--mode studybot` build (see ./flag.js).
 
-export const STUDYBOT_VERSION = "1.1";
+export const STUDYBOT_VERSION = "1.2";
 export const MAX_TEXT = 2000;
 
 // Every text field is plain text, trimmed, whitespace collapsed, under 2000 chars.
@@ -39,11 +39,28 @@ export function uniqueIds(ids) {
   });
 }
 
-// The subject a card belongs to. Lingua studies Japanese for Doodle today; any
-// other language reports its own code rather than pretending to be Japanese.
-const SUBJECTS = { ja: "japanese" };
-export function subjectFor(lang) {
-  return SUBJECTS[lang] ?? (lang ? String(lang) : "unknown");
+// The subject a card belongs to: its language's English name in lowercase letters
+// only ("japanese", "spanish", "haitiancreole"), the form Doodle's window accepts.
+// `nameOf` is languages.js's langName; without a name the language code stands in.
+export function subjectFor(lang, nameOf) {
+  const name = lang && typeof nameOf === "function" ? nameOf(lang) : null;
+  const letters = name && name !== lang ? String(name).toLowerCase().normalize("NFKD").replace(/[^a-z]/g, "") : "";
+  if (letters) return letters;
+  return lang ? String(lang) : "unknown";
+}
+
+// Every language Lingua lists, and whether it is COMPLETE: playable, authored
+// through B2, and every item voiced. Derived from the content, never a hand list,
+// so a language counts the day it finishes and not before (LANGUAGES.md keeps the
+// human-readable table). Inputs are passed in so this stays pure and testable.
+export function languageStatus({ languages, units, audioIds, isLive, nameOf }) {
+  return languages.map((l) => {
+    const mine = units.filter((u) => u.lang === l.id);
+    const items = mine.flatMap((u) => (u.lessons ?? []).flatMap((x) => x.items ?? []));
+    const throughB2 = mine.some((u) => u.stage === "b2" && (u.lessons ?? []).some((x) => (x.items ?? []).length));
+    const voiced = items.length > 0 && items.every((i) => audioIds.has(i.id));
+    return { id: l.id, subject: subjectFor(l.id, nameOf), name: l.name, complete: !!isLive(l.id) && throughB2 && voiced };
+  });
 }
 
 // The item's kind, from its content type. A card that drills something other

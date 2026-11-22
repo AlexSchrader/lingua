@@ -4,6 +4,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   cleanPath,
+  languageStatus,
   createEvents,
   itemKind,
   pickSurface,
@@ -67,8 +68,12 @@ test("slug and uniqueIds give stable, readable action ids", () => {
 });
 
 test("subject and kind", () => {
-  assert.equal(subjectFor("ja"), "japanese");
-  assert.equal(subjectFor("fr"), "fr");
+  const nameOf = (id) => ({ ja: "Japanese", es: "Spanish", ht: "Haitian Creole" })[id] ?? id;
+  assert.equal(subjectFor("ja", nameOf), "japanese");
+  assert.equal(subjectFor("es", nameOf), "spanish");
+  assert.equal(subjectFor("ht", nameOf), "haitiancreole");
+  assert.equal(subjectFor("xx", nameOf), "xx");
+  assert.equal(subjectFor(null, nameOf), "unknown");
   assert.equal(itemKind("kana"), "kana");
   assert.equal(itemKind("vocab"), "word");
   assert.equal(itemKind("glyph"), "letter");
@@ -131,4 +136,21 @@ test("cleanPath: 2-64 points, clamped to the pad, rounded; anything else is refu
 test("publicItem passes a trace card's visible guide, cleaned", () => {
   assert.deepEqual(publicItem({ itemId: "a", guide: [[0.5, 0.1], [0.5, 0.9]] }).guide, [[0.5, 0.1], [0.5, 0.9]]);
   assert.equal(publicItem({ itemId: "a", guide: [[0.5]] }).guide, undefined);
+});
+
+test("languageStatus: complete = playable + authored through B2 + every item voiced", () => {
+  const unit = (lang, stage, ids) => ({ lang, stage, lessons: [{ items: ids.map((id) => ({ id })) }] });
+  const units = [
+    unit("ja", "a1", ["ja-1"]), unit("ja", "b2", ["ja-2"]),        // complete
+    unit("fr", "a1", ["fr-1"]), unit("fr", "b2", ["fr-2"]),        // one clip missing
+    unit("it", "a1", ["it-1"]),                                    // no B2 yet
+    { lang: "nl", stage: "b2", lessons: [{ items: [] }] },         // stubs only
+  ];
+  const audioIds = new Set(["ja-1", "ja-2", "fr-1", "it-1"]);
+  const languages = ["ja", "fr", "it", "nl"].map((id) => ({ id, name: id.toUpperCase() }));
+  const live = new Set(["ja", "fr", "it"]);
+  const out = languageStatus({ languages, units, audioIds, isLive: (id) => live.has(id), nameOf: (id) => ({ ja: "Japanese" })[id] ?? id });
+  assert.deepEqual(out.map((l) => [l.id, l.complete]), [["ja", true], ["fr", false], ["it", false], ["nl", false]]);
+  assert.equal(out[0].subject, "japanese");
+  assert.equal(out[0].name, "JA");
 });

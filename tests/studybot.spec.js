@@ -48,12 +48,23 @@ async function readyJa(page) {
   await expect.poll(async () => (await state(page)).screen).toBe("home");
 }
 
-test("hello: Lingua, StudyBot 1.1, a test account (signed out, no Supabase)", async ({ page }) => {
+test("hello: Lingua, StudyBot 1.2, a test account (signed out, no Supabase)", async ({ page }) => {
   await ready(page);
   const h = await sb(page, () => window.StudyBot.hello());
-  expect(h).toMatchObject({ app: "lingua", version: "1.1", testAccount: true, subjects: ["japanese"] });
+  expect(h).toMatchObject({ app: "lingua", version: "1.2", testAccount: true });
+  // Every language Lingua lists; complete = playable through B2, fully voiced.
+  const complete = h.languages.filter((l) => l.complete).map((l) => l.id).sort();
+  expect(complete).toEqual(["de", "es", "fr", "hi", "id", "ja", "no", "pt", "ru"]);
+  expect(h.subjects.slice().sort()).toEqual(h.languages.filter((l) => l.complete).map((l) => l.subject).sort());
+  expect(h.languages.find((l) => l.id === "ja")).toEqual({ id: "ja", subject: "japanese", name: "Japanese", complete: true });
+  expect(h.languages.find((l) => l.id === "it")?.complete).toBe(false);
+  for (const l of h.languages) expect(l.subject, l.id).toMatch(/^[a-z]+$/);
+  // The build's studybot.json says the same, for the copy script.
+  const json = await page.evaluate(() => fetch("/studybot.json").then((r) => r.json()));
+  expect(json.studybot).toBe("1.2");
+  expect(json.languages).toEqual(h.languages);
   expect(Math.floor(Number(h.version))).toBe(1);
-  expect(await sb(page, () => window.StudyBot.version)).toBe("1.1");
+  expect(await sb(page, () => window.StudyBot.version)).toBe("1.2");
   // No account UI anywhere: the app opens on the first-run language pick.
   expect((await state(page)).screen).toBe("onboarding");
   // The hook cannot be replaced by page code.
@@ -106,6 +117,37 @@ test("scrolling: scroll-down/up are listed when the page can scroll, and move it
   await tap(page, "start-learning");
   await expect.poll(async () => (await state(page)).screen).toBe("home");
   expect((await actions(page)).some((a) => a.id === "start-lesson")).toBe(true);
+});
+
+test("any complete language: pick it at first run, items carry its subject, add and switch to another", async ({ page }) => {
+  test.setTimeout(90_000);
+  await ready(page);
+  const h = await sb(page, () => window.StudyBot.hello());
+  const ids = (await actions(page)).map((a) => a.id);
+  for (const l of h.languages.filter((x) => x.complete)) expect(ids, `lang-${l.id} on the first-run pick`).toContain(`lang-${l.id}`);
+  expect((await state(page)).language).toBeNull();
+  // Spanish sits low in the list: act() scrolls it into view, as a finger would after scrolling.
+  await tap(page, "lang-es");
+  await tap(page, "continue");
+  await tap(page, "start-learning");
+  await expect.poll(async () => (await state(page)).screen).toBe("home");
+  expect((await state(page)).language).toBe("spanish");
+  await tap(page, "start-lesson");
+  await tap(page, "begin");
+  await expect.poll(async () => (await state(page)).screen).toBe("teach");
+  const teach = await state(page);
+  expect(teach.item.subject).toBe("spanish");
+  expect(teach.item.itemId).toMatch(/^es-u\d+l\d+-/);
+  // Back out, add Japanese on the Ladder, and switch between the two.
+  await tap(page, "close-lesson");
+  await expect.poll(async () => (await state(page)).screen).toBe("home");
+  await tap(page, "ladder");
+  await tap(page, "start-lang-ja");
+  await expect.poll(async () => (await state(page)).language).toBe("japanese");
+  await tap(page, "switch-lang-es");
+  await expect.poll(async () => (await state(page)).language).toBe("spanish");
+  await tap(page, "switch-lang-ja");
+  await expect.poll(async () => (await state(page)).language).toBe("japanese");
 });
 
 test("a whole lesson through StudyBot: teach, questions, feedback with the answer, done", async ({ page }) => {

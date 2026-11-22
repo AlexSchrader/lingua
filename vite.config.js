@@ -1,5 +1,7 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { writeFileSync } from "node:fs";
+import { pathToFileURL } from "node:url";
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
@@ -18,6 +20,27 @@ const ROOT = path.dirname(fileURLToPath(import.meta.url)).split(path.sep).join("
 //   - output goes to dist-studybot/, never dist/.
 // Every other build defines VITE_STUDYBOT as "" so the flag folds to `false` and
 // the hook is never emitted — scripts/check-no-studybot.mjs proves it on dist/.
+// The StudyBot build also writes dist-studybot/studybot.json: every language and
+// whether it is complete (the same languageStatus hello() reports), so Doodle's
+// copy script can take exactly the complete languages' clips.
+function studybotLanguages(outDir) {
+  return {
+    name: "studybot-languages",
+    apply: "build",
+    async closeBundle() {
+      const at = (p) => pathToFileURL(path.join(ROOT, p)).href;
+      const [{ LANGUAGES, UNITS, isLive }, { AUDIO_IDS }, { langName }, { languageStatus, STUDYBOT_VERSION }] = await Promise.all([
+        import(at("src/data/index.js")),
+        import(at("src/data/audioManifest.js")),
+        import(at("src/data/languages.js")),
+        import(at("src/studybot/core.js")),
+      ]);
+      const languages = languageStatus({ languages: LANGUAGES, units: UNITS, audioIds: AUDIO_IDS, isLive, nameOf: langName });
+      writeFileSync(path.join(ROOT, outDir, "studybot.json"), `${JSON.stringify({ studybot: STUDYBOT_VERSION, languages }, null, 2)}\n`);
+    },
+  };
+}
+
 // The tutor's server comes from VITE_STUDYBOT_API at build time (a Vercel PREVIEW
 // deployment's origin), e.g. in `.env.studybot.local` (gitignored by *.local).
 export default defineConfig(({ mode }) => {
@@ -39,6 +62,7 @@ export default defineConfig(({ mode }) => {
   },
   plugins: [
     react(),
+    ...(studybot ? [studybotLanguages("dist-studybot")] : []),
     VitePWA({
       disable: studybot,
       registerType: "autoUpdate",

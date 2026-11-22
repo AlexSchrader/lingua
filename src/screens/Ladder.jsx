@@ -115,6 +115,7 @@ export default function Ladder() {
             return (
               <button
                 key={id}
+                data-bot={`switch-lang-${id}`}
                 onClick={() => setActiveLang(id)}
                 style={{ padding: "7px 12px", borderRadius: 999, border: `1.5px solid ${on ? C.ai : C.line}`, background: on ? C.aiSoft : C.surface, color: on ? C.aiDeep : C.inkSoft, fontSize: 13, fontWeight: 700, fontFamily: F.body, cursor: "pointer", whiteSpace: "nowrap" }}
               >
@@ -951,6 +952,7 @@ function AddLangRow({ lang, canAdd, onStart, preview = false, blockedReason = nu
       )}
       {canAdd && !blockedReason && hasContent(lang.id) && (
         <button
+          data-bot={`start-lang-${lang.id}`}
           onClick={onStart}
           disabled={preview}
           title={preview ? "Disabled in preview — starting a language writes to real progress" : undefined}
