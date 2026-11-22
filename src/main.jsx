@@ -5,6 +5,15 @@ import App from "./App.jsx";
 import ErrorBoundary from "./components/ErrorBoundary.jsx";
 import { setActiveTheme, resolveTheme, C } from "./theme.js";
 import { useStore } from "./store/useStore.js";
+import { STUDYBOT } from "./studybot/flag.js";
+
+// StudyBot (Doodle's study window) — TEST BUILDS ONLY. In a normal build STUDYBOT
+// is the literal `false`, this branch is dropped and ./studybot/hook.js is never
+// emitted (scripts/check-no-studybot.mjs checks dist/). The import is async, so it
+// installs just after the first render; events before that are not recorded.
+if (STUDYBOT) {
+  import("./studybot/hook.js").then((m) => m.install());
+}
 
 // Apply the saved theme BEFORE first render to avoid a light-mode flash. Reads
 // the persisted preference straight from localStorage (the store hasn't rehydrated
@@ -28,7 +37,9 @@ try {
 // Ladder/audio bug). Here we check for a new service worker on load and reload
 // ONCE when it takes control — but only if the page was already controlled (a
 // real update), never on first install or in test runs.
-if (import.meta.env.PROD && "serviceWorker" in navigator) {
+// Not in a StudyBot build: it is served as plain static files on a fake origin
+// inside a sandboxed window, where a service worker has nothing to update.
+if (import.meta.env.PROD && !STUDYBOT && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     const hadController = !!navigator.serviceWorker.controller;
     navigator.serviceWorker

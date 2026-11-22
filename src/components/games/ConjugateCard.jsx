@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { botEmit, botItem, useBotSurface } from "../../studybot/bus.js";
 import { deriveGrade } from "../../store/grading.js";
 import { useStore } from "../../store/useStore.js";
 import { conjugateIn, formLabelFor } from "../../store/conjugate.js";
@@ -41,15 +42,27 @@ export default function ConjugateCard({ item, onGraded }) {
       sfxCorrect();
       setGrade(deriveGrade({ kind: "typed", correct: true, retried, elapsedMs: performance.now() - shownAt.current, target: answer, noSpeed }));
       setOutcome("correct"); setPhase("feedback");
+      botEmit("feedback", { itemId: `${item.id}:${item.conjForm}`, right: true, answer, given: value });
     } else if (!retried) {
       sfxWrong(); setRetried(true); setValue("");
     } else {
       sfxWrong(); setGrade("again"); setOutcome("wrong"); setPhase("feedback");
+      botEmit("feedback", { itemId: `${item.id}:${item.conjForm}`, right: false, answer, given: value });
     }
   };
 
   const feedback = phase === "feedback";
   const label = formLabelFor(item.lang ?? "ja", item.conjForm);
+
+  // StudyBot (test builds only): a conjugation is its own skill, so its own item.
+  useBotSurface(
+    2,
+    {
+      screen: feedback ? "feedback" : "question",
+      item: botItem(item, { suffix: item.conjForm, kind: "conjugate", card: "conjugate", ask: `Conjugate — ${label}`, prompt: item.front, input: "text", note: retried && !feedback ? "Not quite — one more try." : "" }),
+    },
+    [item.id, feedback, retried, label]
+  );
 
   return (
     <div data-testid="conjugate-card" data-card-kind="conjugate" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 18, padding: "8px 4px" }}>
@@ -61,6 +74,7 @@ export default function ConjugateCard({ item, onGraded }) {
         <>
           <input
             ref={inputRef}
+            data-bot="answer"
             value={value}
             onChange={(e) => setValue(e.target.value)}
             onKeyDown={(e) => { if (e.key === "Enter") submit(); }}
@@ -69,7 +83,7 @@ export default function ConjugateCard({ item, onGraded }) {
             style={{ width: "100%", maxWidth: 320, fontSize: 22, textAlign: "center", padding: "12px 14px", borderRadius: 12, border: `2px solid ${retried ? C.err ?? "#c0392b" : C.line}`, background: C.surface, color: C.ink, fontFamily: F.body, outline: "none" }}
           />
           {retried && <div style={{ fontSize: 13, color: C.err ?? "#c0392b", fontWeight: 700 }}>Not quite — one more try.</div>}
-          <button onClick={submit} style={{ padding: "12px 28px", borderRadius: 12, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 800, fontFamily: F.body, cursor: "pointer" }}>
+          <button data-bot="submit" onClick={submit} style={{ padding: "12px 28px", borderRadius: 12, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 800, fontFamily: F.body, cursor: "pointer" }}>
             Check
           </button>
         </>

@@ -450,6 +450,7 @@ languages on his Ladder after choosing one.
 - **Cards:** `src/components/games/*.jsx` — Teach, Type, Choice, Cloze, Build, Sentence, Conjugate, **Trace, Speak**. All nine ship: every kind in `LIVE_CARD_KINDS` has a card and routes. *(This line said "Trace/Speak dormant" until 2026-09-13, long after both shipped — which is why a session was told twice this week that the speak card had to be built before the accent lessons could use it. It did not.)*
 - **Shell/nav:** `src/components/AppShell.jsx` (4 bottom tabs + Settings gear).
 - **Audio:** `public/audio/ja/{item.id}.mp3`, played from `TeachCard`. Generation: `npm run generate:audio` (reads `ELEVENLABS_API_KEY` from `.env.local`, uses Haruki voice from `server/companions.js`, `language_code:"ja"` forces correct Japanese phonetics for single kana characters).
+- **StudyBot (test builds only):** `src/studybot/`, contract + notes in `docs/STUDYBOT.md` — the hook Doodle (Alex's desktop pet) studies through. `npm run build:studybot` → `dist-studybot/`. Never in production: `npm run check:no-studybot`.
 - **Sound effects:** `src/store/sfx.js` — synthesized via Web Audio API (no files).
 - **Companions (server-side only):** `server/companions.js` — voiceIds OK here, API keys are env secrets, never in frontend or committed.
 

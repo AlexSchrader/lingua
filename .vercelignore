@@ -4,6 +4,7 @@ chrome/
 node_modules/
 .git/
 dist/
+dist-studybot/
 playwright-report/
 test-results/
 tests/

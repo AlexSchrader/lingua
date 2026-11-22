@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import PhaseShell from "../components/PhaseShell.jsx";
 import TeachCard from "../components/games/TeachCard.jsx";
@@ -20,6 +20,7 @@ import { canGradeSpeech } from "../store/speechTargets.js";
 import { SPEECH_TARGETS } from "../data/speechTargets.js";
 import { SPEECH_CARRIERS } from "../data/speechCarriers.js";
 import { C, F } from "../theme.js";
+import { botEmit, useBotSurface } from "../studybot/bus.js";
 
 function assertLiveKind(kindKey) {
   if (!LIVE_CARD_KINDS.includes(kindKey)) {
@@ -159,6 +160,17 @@ export default function Lesson() {
   const learnStep = currentStep(learn);
   const done = learnStep === null;
 
+  // StudyBot (test builds only): which screen of the lesson this is, how far in,
+  // and a `done` event with the session's tally. A card publishes on top of this.
+  const tally = useRef({ done: 0, right: 0 });
+  const total0 = learn.queue.length;
+  const botScreen = lesson && (finished || done) ? "done" : "lesson";
+  useBotSurface(
+    1,
+    { screen: botScreen, item: null, progress: { done: Math.min(learn.pos, total0), total: total0 } },
+    [botScreen, learn.pos, total0]
+  );
+
   useEffect(() => {
     // Only complete the lesson when it actually had new items to teach. Opening
     // an already-finished lesson yields freshIds=[] → empty queue → done=true on
@@ -168,6 +180,7 @@ export default function Lesson() {
       completeLesson(lessonId);
       rollDailyGoal();
       setFinished(true);
+      botEmit("done", { done: tally.current.done, right: tally.current.right, total: tally.current.done });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [done, lesson]);
@@ -288,6 +301,8 @@ export default function Lesson() {
   const back = () => setLearn((st) => ({ ...st, pos: Math.max(0, st.pos - 1) }));
   const onCheck = (grade) => {
     const result = { pass: grade !== "again", clean: grade === "good" || grade === "easy" };
+    tally.current.done += 1;
+    if (result.pass) tally.current.right += 1;
     const { state, graduated } = answerStep(learn, result);
     // setLearn BEFORE graduateItem: graduateItem triggers a Zustand useSyncExternalStore
     // notification that forces a synchronous React re-render. Queuing the learn-state

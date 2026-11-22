@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { STUDYBOT } from "../studybot/flag.js";
 
 // Single Supabase client for the app. NULL when the env vars are absent — in
 // that case the whole accounts/sync feature stays dormant and the app runs
@@ -7,8 +8,11 @@ import { createClient } from "@supabase/supabase-js";
 const url = import.meta.env.VITE_SUPABASE_URL;
 const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
+//
+// A StudyBot build (Doodle's study window) has NO accounts, ever: vite.config.js
+// blanks both keys in that mode, and this guard holds even if they leak through.
 export const supabase =
-  url && anonKey
+  url && anonKey && !STUDYBOT
     ? createClient(url, anonKey, {
         auth: {
           persistSession: true,

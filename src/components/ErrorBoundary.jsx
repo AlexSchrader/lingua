@@ -1,4 +1,5 @@
 import React from "react";
+import { botCrash } from "../studybot/bus.js";
 
 // Catches any render/lifecycle error in the tree so a bad persisted state or a
 // runtime throw shows a recovery screen instead of a blank page — the PWA
@@ -17,6 +18,7 @@ export default class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
+    botCrash(error); // StudyBot (test builds only): screen "error" + an error event
     // Never swallow silently — surface for debugging, and keep the component
     // stack so the on-screen details can name the failing component (there's no
     // dev console on a phone).

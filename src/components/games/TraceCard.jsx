@@ -7,6 +7,7 @@ import { useItemAudio } from "../../store/itemAudio.js";
 import { useStore } from "../../store/useStore.js";
 import { useReduceMotion } from "../../store/useReduceMotion.js";
 import { readingIsInformative } from "../../store/cardRouting.js";
+import { botEmit, botItem, useBotSurface } from "../../studybot/bus.js";
 
 const KVG_SIZE = 109; // fixed by KanjiVG spec — not a tuning knob
 const TRACE_MAX = 380; // cap on the trace pad's px size so the glyph stays a readable size, not full-screen
@@ -67,6 +68,16 @@ function strokeScore(drawn, expected, canvasW) {
   return Math.max(0, 1 - total / a.length / TRACE_OPTS.matchThreshold);
 }
 
+// StudyBot: a KanjiVG-space stroke as at most 32 points in 0..1 of the pad.
+function guidePoints(pts) {
+  if (!pts || pts.length < 2) return null;
+  const step = Math.max(1, Math.ceil(pts.length / 32));
+  const out = [];
+  for (let i = 0; i < pts.length; i += step) out.push(pts[i]);
+  if (out[out.length - 1] !== pts[pts.length - 1]) out.push(pts[pts.length - 1]);
+  return out.map(([x, y]) => [Math.round((x / KVG_SIZE) * 1000) / 1000, Math.round((y / KVG_SIZE) * 1000) / 1000]);
+}
+
 // Draw a polyline on canvas ctx.
 function drawLine(ctx, pts, color, width) {
   if (pts.length < 2) return;
@@ -100,6 +111,13 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
   const [doneStrokes, setDoneStrokes] = useState([]); // confirmed stroke indices
   const [feedback, setFeedback] = useState(null); // null|"correct"|"wrong"
   const [misses, setMisses] = useState(0);
+  // Which stroke's guide the card is flashing after repeated misses (free mode), or
+  // null. Tied to the STROKE, so it can't outlive it: drawing the flashed stroke
+  // moves strokeIdx on, and the next stroke's guide (never on screen) is not shown.
+  const [guideFlash, setGuideFlash] = useState(null);
+  // The confirmed strokes as of NOW, for timers that fire after a render.
+  const doneRef = useRef([]);
+  doneRef.current = doneStrokes;
 
   // Hear the kana (real clip, Web Speech fallback) so the learner knows what
   // they're tracing. The hook auto-plays on mount/item change.
@@ -270,6 +288,8 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
     if (next >= strokes.length) {
       setPhase("done");
       redrawConfirmed(nextDone);
+      // StudyBot: the finished character is the answer the card now shows.
+      botEmit("feedback", { itemId: item.id, right: true, answer: item.front, given: item.front, note: mode === "guided" ? "traced over the guide" : misses ? "drawn from memory, with retries" : "drawn from memory" });
     } else {
       setStrokeIdx(next);
       if (mode === "guided") {
@@ -354,7 +374,11 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
           if (newMisses >= TRACE_OPTS.retryLimit) {
             const guidePts = scale(strokePts.current[strokeIdx] ?? [], s);
             drawLine(getCtx(), guidePts, `${C.shu}99`, 10);
-            setTimeout(() => redrawConfirmed(), 1000);
+            const flashed = strokeIdx;
+            setGuideFlash(flashed);
+            // Redraw from the CURRENT confirmed strokes: the closure's copy is from
+            // the miss, and a stroke drawn during the flash would be wiped off.
+            setTimeout(() => { redrawConfirmed(doneRef.current); setGuideFlash((f) => (f === flashed ? null : f)); }, 1000);
           }
         }, 600);
       }
@@ -426,6 +450,33 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
     : phase === "done"
     ? "Done!"
     : "";
+
+  // StudyBot (test builds only): guided mode draws the character's guide on the
+  // pad, so the character is on screen. In free mode StudyBot gives only the
+  // reading — LESS than the pad shows, which is a faint outline of every stroke
+  // (logged in BUILD-CHECKLIST as a separate learning-science issue).
+  // `guide` is the stroke the pad is SHOWING right now, as points in 0..1 of the
+  // pad — the faded guide in guided mode, and in free mode only during the brief
+  // flash after repeated misses. Never otherwise: in free mode it is the answer.
+  const romajiShown = showRomaji && readingIsInformative(item);
+  const guideShown = guideFlash === strokeIdx || (mode === "guided" && (phase === "waiting" || phase === "drawing" || phase === "animating"));
+  const guide = guideShown ? guidePoints(strokePts.current[strokeIdx]) : null;
+  useBotSurface(
+    2,
+    {
+      screen: phase === "done" ? "feedback" : "question",
+      item: botItem(item, {
+        card: mode === "guided" ? "trace" : "trace:free",
+        ask: mode === "guided" ? "Trace it" : "Write it from memory",
+        prompt: mode === "guided" ? item.front : romajiShown ? item.reading : "",
+        audio: mode !== "guided" && !romajiShown,
+        note: feedback === "wrong" ? "Not quite — try that stroke again" : hint,
+        guide,
+      }),
+    },
+    [item.id, mode, phase, strokeIdx, romajiShown, guideShown, feedback]
+  );
+
 
   return (
     <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0, gap: 16 }}>
@@ -510,6 +561,10 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
         <canvas
           ref={canvasRef}
           data-testid="trace-pad"
+          // StudyBot: the pad is an action only while it takes a stroke — while
+          // the guide animates, a stroke does nothing, like a disabled button.
+          data-bot={phase === "waiting" || phase === "drawing" ? "trace" : undefined}
+          data-bot-label="Trace a stroke"
           aria-label={`Trace ${item.front}`}
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}

@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import { botEmit, botItem, useBotSurface } from "../../studybot/bus.js";
 import { C, F } from "../../theme.js";
 import { buildOptions } from "../../store/distractors.js";
 import { deriveGrade } from "../../store/grading.js";
@@ -50,6 +51,25 @@ export default function ClozeCard({ item, allItems, onGraded, particle = false }
   // The JP font only applies to Japanese text — French renders in the body face.
   const tokenFont = isJapaneseItem(item) ? F.jp : F.body;
 
+  // StudyBot (test builds only): the gapped sentence and its English, the options
+  // by text. A particle card drills grammar, not the word, so it is its own item.
+  const blankedText = typeof blanked === "string" ? blanked : Array.isArray(blanked) ? blanked.map((b) => (typeof b === "string" ? b : "＿")).join("") : "";
+  useBotSurface(
+    2,
+    {
+      screen: answered ? "feedback" : "question",
+      item: botItem(item, {
+        suffix: particle ? "particle" : "",
+        kind: particle ? "grammar" : undefined,
+        card: particle ? "particle:choice" : "cloze:choice",
+        ask: particle ? (funcWords ? "Which little word completes the sentence?" : "Which particle completes the sentence?") : "Which word completes the sentence?",
+        prompt: [blankedText, practice(item)?.en].filter(Boolean).join(" — "),
+        choices: options.map((o, i) => ({ id: `c${i}`, text: o.text })),
+      }),
+    },
+    [item.id, particle, answered, options]
+  );
+
   return (
     <div data-testid="cloze-card" data-card-kind={particle ? "particle:choice" : "cloze:choice"} style={{ display: "flex", flexDirection: "column", flex: 1, gap: 16 }}>
       <div style={{ fontSize: 13, color: C.inkSoft, fontWeight: 600, textAlign: "center" }}>
@@ -97,7 +117,13 @@ export default function ClozeCard({ item, allItems, onGraded, particle = false }
               data-testid="option"
               data-correct={String(o.correct)}
               disabled={answered}
-              onClick={() => { if (answered) return; options[i].correct ? sfxCorrect() : sfxWrong(); setPicked(i); reinforce({ then: particleClipId ? [particleClipId] : [] }); }}
+              onClick={() => {
+                if (answered) return;
+                options[i].correct ? sfxCorrect() : sfxWrong();
+                setPicked(i);
+                reinforce({ then: particleClipId ? [particleClipId] : [] });
+                botEmit("feedback", { itemId: particle ? `${item.id}:particle` : item.id, right: !!options[i].correct, answer: options.find((x) => x.correct)?.text ?? "", given: options[i].text });
+              }}
               style={{
                 padding: "16px 12px",
                 borderRadius: 12,
