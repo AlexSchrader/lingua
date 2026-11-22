@@ -121,7 +121,8 @@ npm run build:studybot
   - `VITE_STUDYBOT_API` — the preview deployment's origin (https, no path). Unset = the tutor screen
     says it is not connected and makes no request.
   - `VITE_STUDYBOT_TUTOR_TOKEN` — the same value as the deployment's `TUTOR_TEXT_TOKEN`.
-  - `VITE_STUDYBOT_API_BYPASS` — only if preview deployments are behind Vercel Authentication: a
+  - `VITE_STUDYBOT_API_BYPASS` — needed: Lingua's preview deployments are behind Vercel
+    Authentication (checked 22 Nov 2026: 401 "Protected deployment", preflight included). A
     "Protection Bypass for Automation" secret. It opens every protected preview of the project, so it
     stays in this local build only (`dist-studybot/` is gitignored and vercelignored).
 - Smoke: `SMOKE_MODE=studybot npx playwright test` builds it and runs `tests/studybot.spec.js`.
