@@ -10,6 +10,7 @@ import {
   looksRomaji,
   foldKana,
   gradeSpoken,
+  alsoMeans,
 } from "../../src/store/answer.js";
 import { seedItems } from "../../src/data/index.js";
 
@@ -462,4 +463,16 @@ test("gradeSpoken slack scales with the target: nothing is 'close enough' to one
   assert.equal(gradeSpoken("le cafe", cafe), "good", "the accent is the transcriber's choice, not the learner's");
   assert.equal(gradeSpoken("le cafay", cafe), "hard");
   assert.equal(gradeSpoken("hey", cafe), "again");
+});
+
+test("alsoMeans never repeats the answer the card just printed", () => {
+  const item = { meaning: "people", accept: ["folk"] };
+  // "Show answer", nothing typed: the card prints "Answer: people", so only folk is "also".
+  assert.deepEqual(alsoMeans(item, "", "people", false), ["folk"]);
+  // Typed "folk" and right: the other sense is people.
+  assert.deepEqual(alsoMeans(item, "folk", "people", true), ["people"]);
+  // Typed "people" and right: folk.
+  assert.deepEqual(alsoMeans(item, "people", "people", true), ["folk"]);
+  // A miss: what they typed and the printed answer are both left out.
+  assert.deepEqual(alsoMeans({ meaning: "rice; meal", accept: ["cooked rice"] }, "bread", "rice; meal", false), ["cooked rice"]);
 });
