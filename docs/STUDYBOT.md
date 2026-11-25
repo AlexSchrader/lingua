@@ -178,7 +178,10 @@ npm run build:studybot
 
 `itemId` is Lingua's content id, e.g. `ja-u1l1-a` (あ), `ja-u1l1-ohayou`. Stable across runs (an id
 only changes in a flagged renumber, which also resets learner progress). Cards that drill something
-other than the item add a suffix: `<id>:<conjForm>` (conjugate), `<id>:particle`, `<id>:sentence`.
+other than the item add a suffix: `<id>:<conjForm>` (conjugate), `<id>:particle`, `<id>:sentence`,
+`<id>:trace` (writing the character; its answer is the character itself) and `<id>:speak` (saying it).
+So a feedback answer is always about the card it names: a trace card's "さ" is never read against the
+same item's choice card, whose answer is "sa" (Doodle reported that mix-up daily until 25 Nov).
 
 ### Fields Lingua adds (accepted as StudyBot 1.1, desktop-buddy `2ebfd4e`; `hello().version` is `'1.1'`)
 
@@ -211,7 +214,13 @@ other than the item add a suffix: `<id>:<conjForm>` (conjugate), `<id>:particle`
   view first; to move like a finger, use the scroll actions.
 - **`scroll-down` / `scroll-up`** (kind `scroll`, rect = the scrolling area) are listed when the page
   can scroll that way; `act()` moves it about one screen (80% of the visible height).
-- Hidden or disabled controls are not listed. **Continue waits for the word's clip** after an answer,
+- Hidden or disabled controls are not listed.
+- **`main: true`** (1.3) marks the screen's main way on: Continue on a card, Got it, Begin, Back to
+  Today, onboarding's Continue / Start learning, and Today's big button. Today's big button has a
+  stable id whatever its label: `start-lesson` ("Start lesson", "Keep learning") or `start-review`
+  ("Clear reviews", "Review anyway"; there is no lesson until the day's reviews are cleared).
+- **`act()` returns once the screen has settled**: `state()` is read again until it stops changing,
+  so what it reports after a tap is what is on screen (a hear-it card's "Show it" swaps its choices). **Continue waits for the word's clip** after an answer,
   so it appears a second or two after `feedback`.
 - `act()` refuses a control a finger would miss: covered, off screen (it scrolls it into view first),
   or behind a new card's ~220 ms entrance guard — `{ ok: false, error: 'not reachable …' }`; try again.

@@ -48,10 +48,10 @@ async function readyJa(page) {
   await expect.poll(async () => (await state(page)).screen).toBe("home");
 }
 
-test("hello: Lingua, StudyBot 1.2, a test account (signed out, no Supabase)", async ({ page }) => {
+test("hello: Lingua, StudyBot 1.3, a test account (signed out, no Supabase)", async ({ page }) => {
   await ready(page);
   const h = await sb(page, () => window.StudyBot.hello());
-  expect(h).toMatchObject({ app: "lingua", version: "1.2", testAccount: true });
+  expect(h).toMatchObject({ app: "lingua", version: "1.3", testAccount: true });
   // Every language Lingua lists; complete = playable through B2, fully voiced.
   const complete = h.languages.filter((l) => l.complete).map((l) => l.id).sort();
   expect(complete).toEqual(["de", "es", "fr", "hi", "id", "ja", "no", "pt", "ru"]);
@@ -61,10 +61,10 @@ test("hello: Lingua, StudyBot 1.2, a test account (signed out, no Supabase)", as
   for (const l of h.languages) expect(l.subject, l.id).toMatch(/^[a-z]+$/);
   // The build's studybot.json says the same, for the copy script.
   const json = await page.evaluate(() => fetch("/studybot.json").then((r) => r.json()));
-  expect(json.studybot).toBe("1.2");
+  expect(json.studybot).toBe("1.3");
   expect(json.languages).toEqual(h.languages);
   expect(Math.floor(Number(h.version))).toBe(1);
-  expect(await sb(page, () => window.StudyBot.version)).toBe("1.2");
+  expect(await sb(page, () => window.StudyBot.version)).toBe("1.3");
   // No account UI anywhere: the app opens on the first-run language pick.
   expect((await state(page)).screen).toBe("onboarding");
   // The hook cannot be replaced by page code.
@@ -116,7 +116,35 @@ test("scrolling: scroll-down/up are listed when the page can scroll, and move it
   await tap(page, "continue");
   await tap(page, "start-learning");
   await expect.poll(async () => (await state(page)).screen).toBe("home");
-  expect((await actions(page)).some((a) => a.id === "start-lesson")).toBe(true);
+  const home = await actions(page);
+  expect(home.find((a) => a.id === "start-lesson")?.main).toBe(true);
+  expect(home.filter((a) => a.main).length).toBe(1);
+});
+
+// The day after a lesson: words are due, so Today's big button says "Clear reviews". It keeps a
+// stable id and the main flag, so Doodle always has a way on (reported to the user 24 Nov: "no way
+// on from this screen", which stalled his Japanese for two days).
+test("home with reviews due: the main button is start-review, marked main, and leads into a review", async ({ page }) => {
+  const due = { due: new Date(Date.now() - 60_000).toISOString(), stability: 2, difficulty: 5, elapsed_days: 1, scheduled_days: 1, reps: 1, lapses: 0, learning_steps: 0, state: 2, last_review: new Date(Date.now() - 86_400_000).toISOString() };
+  const fixture = {
+    state: {
+      items: { "ja-u1l1-a": { rung: 1, srs: due }, "ja-u1l1-i": { rung: 1, srs: due } },
+      profile: { onboarded: true, displayName: "Doodle", reason: null, reminderTime: null, languages: ["ja"], activeLang: "ja", languagesChosen: true },
+      settings: {},
+      ui: {},
+    },
+    version: 1,
+  };
+  await page.addInitScript((json) => { if (!sessionStorage.getItem("seeded")) { localStorage.setItem("lingua-v1", json); sessionStorage.setItem("seeded", "1"); } }, JSON.stringify(fixture));
+  await page.goto("/");
+  await page.waitForFunction(() => !!window.StudyBot);
+  await expect.poll(async () => (await state(page)).screen).toBe("home");
+  const home = await actions(page);
+  const mains = home.filter((a) => a.main);
+  expect(mains.map((a) => a.id)).toEqual(["start-review"]);
+  expect(mains[0].label).toMatch(/review/i);
+  await tap(page, "start-review");
+  await expect.poll(async () => (await state(page)).screen).toMatch(/question|review/);
 });
 
 test("any complete language: pick it at first run, items carry its subject, add and switch to another", async ({ page }) => {
@@ -196,6 +224,15 @@ test("a whole lesson through StudyBot: teach, questions, feedback with the answe
       // THE RULE: nothing on a question screen says which answer is right.
       expect(before).not.toMatch(/"(correct|answer|meaning|reading)":/);
       const k = known.get(s.item.itemId);
+      if (s.item.audio && has("show")) {
+        // Can't hear it: "Show it", then the choices state() reports must be the ones on screen
+        // (the kana list swaps for the rōmaji one; reported to the user 23 Nov as a content bug).
+        await tap(page, "show");
+        const after = await state(page);
+        const onScreen = await page.evaluate(() => [...document.querySelectorAll('[data-testid="option"]')].map((b) => b.innerText.trim()));
+        if (after.item?.choices) expect(after.item.choices.map((c) => c.text)).toEqual(onScreen);
+        continue;
+      }
       if (s.item.choices) {
         expect(s.item.choices.map((c) => c.id)).toEqual(s.item.choices.map((_, i) => `c${i}`));
         const pick = s.item.choices.find((c) => k && (c.text === k.answer || c.text === k.prompt)) ?? s.item.choices[0];
@@ -212,9 +249,16 @@ test("a whole lesson through StudyBot: teach, questions, feedback with the answe
         // One stroke when the pad takes one, then wait for the card to move on
         // (next stroke, or done) before looking again.
         if (has("trace")) {
-          // Guided: trace over the guide the card is showing.
-          expect(s.item.guide?.length).toBeGreaterThan(1);
-          await act(page, "trace", s.item.guide);
+          // Guided: trace over the guide the card is showing. Read it fresh: `s` was read before
+          // the actions, and the card can move from snapping (no guide) to waiting in between (it
+          // did on GitHub's slower runner).
+          let guide = s.item.guide;
+          for (let t = 0; t < 40 && !guide?.length; t++) {
+            await page.waitForTimeout(50);
+            guide = (await state(page)).item?.guide;
+          }
+          expect(guide?.length).toBeGreaterThan(1);
+          await act(page, "trace", guide);
           await expect.poll(async () => JSON.stringify(await state(page)) !== JSON.stringify(s), { timeout: 5000 }).toBe(true);
         } else {
           await page.waitForTimeout(150);
@@ -238,6 +282,8 @@ test("a whole lesson through StudyBot: teach, questions, feedback with the answe
         if (s.item.choices) expect(s.item.choices.map((c) => c.text)).toContain(e.data.answer);
       }
     } else if (s.screen === "feedback") {
+      // The way on is marked main on every card (once enabled: Continue waits for the word's clip).
+      await expect.poll(async () => (await actions(page)).find((a) => a.main)?.id, { timeout: 8000 }).toBe("continue");
       await tap(page, "continue");
     } else {
       throw new Error(`unexpected screen ${JSON.stringify(s)}`);
@@ -283,7 +329,7 @@ test("review: free trace — no guide until the card shows one, a wrong stroke f
   await page.waitForFunction(() => !!window.StudyBot);
   await expect.poll(async () => (await state(page)).item?.card, { timeout: 10_000 }).toBe("trace:free");
   const first = await state(page);
-  expect(first.item.itemId).toBe("ja-u1l1-a");
+  expect(first.item.itemId).toBe("ja-u1l1-a:trace"); // its own id: writing is its own skill
   expect(first.item.guide).toBeUndefined(); // free mode: the stroke is the answer
   expect(JSON.stringify(first)).not.toContain("あ");
 

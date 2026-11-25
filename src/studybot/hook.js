@@ -77,7 +77,7 @@ function scan() {
     if (!id && el.dataset.testid === "option") id = `c${option++}`;
     if (!id && el.dataset.testid === "tile") id = `t${tile++}`;
     if (!id) id = slug(label) || kindOf(el);
-    return { el, id, label, kind: kindOf(el) };
+    return { el, id, label, kind: kindOf(el), main: el.dataset.botMain === "1" };
   });
   const ids = uniqueIds(raw.map((a) => a.id));
   return raw.map((a, i) => ({ ...a, id: ids[i] }));
@@ -244,11 +244,13 @@ export function install() {
   // the page can scroll that way. `offscreen: true` marks a control whose centre is
   // outside the window: scroll first (or act() scrolls it into view itself).
   function actions() {
-    const controls = scan().map(({ el, id, label, kind }) => {
+    const controls = scan().map(({ el, id, label, kind, main }) => {
       const r = el.getBoundingClientRect();
       const cx = r.left + r.width / 2;
       const cy = r.top + r.height / 2;
       const a = { id, label, kind, rect: roundRect(r) };
+      // The screen's main way on (Continue, Begin, Got it, the home screen's big button).
+      if (main) a.main = true;
       if (cx < 0 || cy < 0 || cx > window.innerWidth || cy > window.innerHeight) a.offscreen = true;
       return a;
     });
@@ -256,12 +258,26 @@ export function install() {
     return [...controls, ...scrolls];
   }
 
+  // After a tap, wait until what state() reports has stopped changing (a card publishes what it
+  // shows from an effect, a frame or two after the DOM changes). Without it, "Show it" on a hear-it
+  // card could report the old choices (kana) while the buttons already held the new ones (rōmaji),
+  // and Doodle answered from a list no longer on screen (reported to the user 23 Nov, ja-u1l2-ka).
+  async function settle() {
+    let last = JSON.stringify(state());
+    for (let i = 0; i < 12; i++) {
+      await nextFrame();
+      const now = JSON.stringify(state());
+      if (now === last && i > 0) return;
+      last = now;
+    }
+  }
+
   async function act(id, value) {
     const scroll = scrollActions().find((a) => a.id === String(id));
     if (scroll) {
       // About one screen, like a swipe: 80% of what the scroller shows.
       scroll.el.scrollBy({ top: scroll.dir * Math.round(scroll.el.clientHeight * 0.8), behavior: "instant" });
-      await nextFrame();
+      await settle();
       checkScreen();
       return { ok: true };
     }
@@ -282,7 +298,7 @@ export function install() {
     } else {
       el.click();
     }
-    await nextFrame();
+    await settle();
     checkScreen();
     return { ok: true };
   }

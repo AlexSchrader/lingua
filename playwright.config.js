@@ -4,10 +4,15 @@ const MODE = process.env.SMOKE_MODE || "dev";
 // SMOKE_PORT lets a crew worktree run its own smoke without colliding with the
 // other trees live on this machine. See the reuseExistingServer note below — the
 // collision used to be SILENT and green, which is the worst way for it to fail.
-const PORT = Number(process.env.SMOKE_PORT) || (MODE === "preview" ? 4173 : MODE === "studybot" ? 4183 : 5173);
+const PORT = Number(process.env.SMOKE_PORT) || (MODE === "preview" ? 4173 : MODE === "studybot" ? 4183 : MODE === "devbuild" ? 4193 : 5173);
 // Preview mode must rebuild first — `vite preview` only serves the existing
 // dist/, so without a build it would smoke-test a stale bundle (the exact
 // blank-on-prod trap this suite exists to catch).
+//
+// SMOKE_MODE=devbuild (CI's dev smoke) serves a DEVELOPMENT-mode bundle: every dev hook the
+// dev smoke needs, but 15 files instead of the dev server's ~1,300 per page load, which GitHub's
+// runner could not keep up with (scripts/build-devbuild.mjs says why). Local runs keep the dev
+// server (SMOKE_MODE unset).
 //
 // SMOKE_MODE=studybot builds the StudyBot test build (Doodle's study window,
 // docs/STUDYBOT.md) into dist-studybot/ and runs ONLY tests/studybot.spec.js
@@ -18,6 +23,8 @@ const command =
     ? `npm run build && npm run preview -- --port ${PORT}`
     : MODE === "studybot"
     ? `npm run build:studybot && npm run preview -- --mode studybot --port ${PORT}`
+    : MODE === "devbuild"
+    ? `node scripts/build-devbuild.mjs && npm run preview -- --outDir dist-devbuild --port ${PORT}`
     : `npm run dev -- --port ${PORT}`;
 
 export default defineConfig({
@@ -51,7 +58,11 @@ export default defineConfig({
   // The config above says "if a test needs more than this, profile it; dont raise it
   // again". Profiled: the test does not need more time, it needs less contention.
   // No assertion and no timeout was touched.
-  workers: 4,
+  // GitHub's runner has 4 vCPUs for 4 browsers plus the server: CPU contention again, not a slow
+  // test. On 2026-11-25 (devbuild) 53/55 passed at 4 workers; the two misses were the longest
+  // whole-session tests (card-kind coverage 66 s on a 60 s budget, reviews-app-judged 53 s on 45 s),
+  // both well inside budget locally. Halving the workers on CI, not raising their timeouts.
+  workers: process.env.CI ? 2 : 4,
   forbidOnly: !!process.env.CI,
   retries: 0,
   reporter: process.env.CI ? [["list"], ["html", { open: "never" }]] : "list",

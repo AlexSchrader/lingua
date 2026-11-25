@@ -2,6 +2,7 @@ node_modules
 dist
 dist-ssr
 dist-studybot
+dist-devbuild
 *.local
 .DS_Store
 

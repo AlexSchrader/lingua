@@ -179,7 +179,7 @@ export default function Review() {
           {fix ? "No mistakes to fix — nice." : "Nothing due right now."}
           <br />
           <button
-            onClick={() => navigate(home)}
+            data-bot-main="1" onClick={() => navigate(home)}
             style={{ marginTop: 16, padding: "12px 24px", borderRadius: 12, border: "none", background: C.ai, color: "#fff", fontSize: 15, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
           >
             {sandbox ? "Back to Dev panel" : "Back to Today"}
@@ -210,7 +210,7 @@ export default function Review() {
           </div>
           <button
             data-testid="back-to-today"
-            onClick={() => navigate(home)}
+            data-bot-main="1" onClick={() => navigate(home)}
             style={{ marginTop: 8, padding: "14px 28px", borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
           >
             {sandbox ? "Back to Dev panel" : "Back to Today"}

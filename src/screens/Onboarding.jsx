@@ -176,7 +176,7 @@ export default function Onboarding() {
             </div>
 
             <button
-              onClick={chooseLanguage}
+              data-bot-main="1" onClick={chooseLanguage}
               disabled={!lang}
               style={{ padding: 16, borderRadius: 14, border: "none", background: lang ? C.ai : C.lockedBg, color: lang ? "#fff" : C.locked, fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: lang ? "pointer" : "default" }}
             >
@@ -241,7 +241,7 @@ export default function Onboarding() {
             </div>
 
             <button
-              onClick={finish}
+              data-bot-main="1" onClick={finish}
               style={{ padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer", boxShadow: "0 4px 14px rgba(42,74,123,0.25)" }}
             >
               Start learning

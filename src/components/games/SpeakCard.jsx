@@ -234,13 +234,13 @@ export default function SpeakCard({ item, onGraded, shadow = false, carrier = nu
     2,
     {
       screen: phase === "result" ? "feedback" : "question",
-      item: botItem(item, { card: "speak", ask: "Say it", prompt: carrier ? spokenText : item.front, audio: true, note: phase === "fallback" ? "Speaking is not checked here" : "" }),
+      item: botItem(item, { suffix: "speak", card: "speak", ask: "Say it", prompt: carrier ? spokenText : item.front, audio: true, note: phase === "fallback" ? "Speaking is not checked here" : "" }),
     },
     [item.id, phase, carrier?.id]
   );
   useEffect(() => {
     if (phase !== "result" || !grade) return;
-    botEmit("feedback", { itemId: item.id, right: grade !== "again", answer: spokenText, given: heard || "", note: "spoken" });
+    botEmit("feedback", { itemId: `${item.id}:speak`, right: grade !== "again", answer: spokenText, given: heard || "", note: "spoken" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, grade]);
 
@@ -379,7 +379,7 @@ export default function SpeakCard({ item, onGraded, shadow = false, carrier = nu
           </button>
           <button
             data-testid="speak-continue"
-            onClick={() => onGraded(grade)}
+            data-bot-main="1" onClick={() => onGraded(grade)}
             style={{ flex: 2, padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
           >
             Continue
@@ -395,7 +395,7 @@ export default function SpeakCard({ item, onGraded, shadow = false, carrier = nu
           </button>
           <button
             data-testid="speak-continue"
-            onClick={() => onGraded("good")}
+            data-bot-main="1" onClick={() => onGraded("good")}
             style={{ flex: 2, padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
           >
             Continue
@@ -404,7 +404,7 @@ export default function SpeakCard({ item, onGraded, shadow = false, carrier = nu
       ) : phase === "fallback" ? (
         <button
           data-testid="speak-continue"
-          onClick={() => onGraded("good")}
+          data-bot-main="1" onClick={() => onGraded("good")}
           style={{ padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
         >
           Continue

@@ -237,6 +237,7 @@ export default function Lesson() {
           </div>
           <button
             data-testid="back-to-today"
+            data-bot-main="1"
             onClick={() => navigate(home)}
             style={{
               marginTop: 8,
@@ -281,6 +282,7 @@ export default function Lesson() {
           </div>
           <button
             data-testid="lesson-begin"
+            data-bot-main="1"
             autoFocus
             onClick={() => setStarted(true)}
             style={{ marginTop: 4, padding: "14px 40px", borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}

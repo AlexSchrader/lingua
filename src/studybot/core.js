@@ -5,7 +5,7 @@
 // Contract: docs/STUDYBOT.md. The hook that uses this lives in ./hook.js and is
 // only ever loaded in a `--mode studybot` build (see ./flag.js).
 
-export const STUDYBOT_VERSION = "1.2";
+export const STUDYBOT_VERSION = "1.3";
 export const MAX_TEXT = 2000;
 
 // Every text field is plain text, trimmed, whitespace collapsed, under 2000 chars.

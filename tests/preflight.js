@@ -17,7 +17,8 @@
 // the server healthy at 402ms while the suite ran FOUR TIMES slower than normal —
 // caught by deliberately re-breaking the watcher to see whether the guard fired. It
 // did not. `/` is a few hundred bytes of HTML; what a test pays for is the browser
-// pulling the module graph, 808 source files in dev. So the probe is a real browser
+// pulling the module graph: 808 source files in dev then, ~1,300 by Nov 2026 — which is why CI's
+// dev smoke now runs on a development-mode bundle (SMOKE_MODE=devbuild, scripts/build-devbuild.mjs). So the probe is a real browser
 // load, rendered to the point a test could use it. A few seconds per run, against
 // one mystery afternoon.
 const SLOW_MS = 15000; // a healthy cold load is 2-5s; tests time out at 45s.
