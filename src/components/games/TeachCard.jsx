@@ -148,7 +148,7 @@ export default function TeachCard({ item, onAdvance }) {
       )}
 
       <button
-        onClick={() => { sfxClick(); onAdvance(); }}
+        data-bot-main="1" onClick={() => { sfxClick(); onAdvance(); }}
         style={{
           padding: 16,
           borderRadius: 14,

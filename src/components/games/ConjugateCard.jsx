@@ -93,7 +93,7 @@ export default function ConjugateCard({ item, onGraded }) {
             {outcome === "correct" ? "Correct!" : "The answer:"}
           </div>
           <div style={{ fontFamily: F.disp, fontSize: 30, fontWeight: 700 }}>{answer}</div>
-          <button onClick={() => onGraded(grade)} style={{ padding: "12px 28px", borderRadius: 12, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 800, fontFamily: F.body, cursor: "pointer" }}>
+          <button data-bot-main="1" onClick={() => onGraded(grade)} style={{ padding: "12px 28px", borderRadius: 12, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 800, fontFamily: F.body, cursor: "pointer" }}>
             Continue
           </button>
         </>

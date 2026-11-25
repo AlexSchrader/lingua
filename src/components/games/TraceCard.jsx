@@ -586,7 +586,7 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
       {/* Continue gate: completing a character lands here, doesn't auto-advance. */}
       {phase === "done" && (
         <button
-          onClick={handleContinue}
+          data-bot-main="1" onClick={handleContinue}
           style={{
             flexShrink: 0,
             padding: 16,

@@ -474,7 +474,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
            taps reads as a broken app. */
         <button
           disabled={!settled}
-          onClick={() => onGraded(grade)}
+          data-bot-main="1" onClick={() => onGraded(grade)}
           style={{
             padding: 16,
             borderRadius: 14,

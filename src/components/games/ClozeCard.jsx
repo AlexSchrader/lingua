@@ -152,7 +152,7 @@ export default function ClozeCard({ item, allItems, onGraded, particle = false }
       {answered && (
         <button
           disabled={!settled}
-          onClick={() => onGraded(grade)}
+          data-bot-main="1" onClick={() => onGraded(grade)}
           style={{ padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: settled ? "pointer" : "default", opacity: settled ? 1 : 0.55, transition: "opacity 140ms ease" }}
         >
           Continue

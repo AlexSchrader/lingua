@@ -379,7 +379,7 @@ export default function SpeakCard({ item, onGraded, shadow = false, carrier = nu
           </button>
           <button
             data-testid="speak-continue"
-            onClick={() => onGraded(grade)}
+            data-bot-main="1" onClick={() => onGraded(grade)}
             style={{ flex: 2, padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
           >
             Continue
@@ -395,7 +395,7 @@ export default function SpeakCard({ item, onGraded, shadow = false, carrier = nu
           </button>
           <button
             data-testid="speak-continue"
-            onClick={() => onGraded("good")}
+            data-bot-main="1" onClick={() => onGraded("good")}
             style={{ flex: 2, padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
           >
             Continue
@@ -404,7 +404,7 @@ export default function SpeakCard({ item, onGraded, shadow = false, carrier = nu
       ) : phase === "fallback" ? (
         <button
           data-testid="speak-continue"
-          onClick={() => onGraded("good")}
+          data-bot-main="1" onClick={() => onGraded("good")}
           style={{ padding: 16, borderRadius: 14, border: "none", background: C.ai, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: F.body, cursor: "pointer" }}
         >
           Continue

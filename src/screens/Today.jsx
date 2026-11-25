@@ -454,6 +454,10 @@ export default function Today() {
       {/* Primary CTA — continuous, no daily wall. */}
       <button
         data-testid="start-session"
+        // StudyBot (test builds only): the screen's main way on, with an id that does not change
+        // with its label ("Clear reviews", "Start lesson", "Keep learning", "Review anyway").
+        data-bot={ctaAction === startReview ? "start-review" : ctaAction === startLesson ? "start-lesson" : undefined}
+        data-bot-main="1"
         onClick={ctaAction}
         disabled={ctaDisabled}
         style={{
