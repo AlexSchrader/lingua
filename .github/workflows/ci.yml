@@ -21,7 +21,8 @@ jobs:
       - run: npm run lint:curriculum   # authoring lint (macron readings, gojūon order, density, …)
       - run: npm run test:unit         # FSRS + migration logic (node:test)
       - run: npx playwright install --with-deps chromium
-      - run: npm test                  # dev smoke
+      - run: npm test                  # dev smoke, on a development-mode bundle (scripts/build-devbuild.mjs)
+        env: { SMOKE_MODE: devbuild }
       - run: npm run build
       - run: npm run check:no-studybot # the production bundle carries no StudyBot hook
       - run: npm test                  # preview smoke

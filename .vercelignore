@@ -5,6 +5,7 @@ node_modules/
 .git/
 dist/
 dist-studybot/
+dist-devbuild/
 playwright-report/
 test-results/
 tests/
