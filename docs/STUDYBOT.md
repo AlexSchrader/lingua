@@ -178,7 +178,10 @@ npm run build:studybot
 
 `itemId` is Lingua's content id, e.g. `ja-u1l1-a` (あ), `ja-u1l1-ohayou`. Stable across runs (an id
 only changes in a flagged renumber, which also resets learner progress). Cards that drill something
-other than the item add a suffix: `<id>:<conjForm>` (conjugate), `<id>:particle`, `<id>:sentence`.
+other than the item add a suffix: `<id>:<conjForm>` (conjugate), `<id>:particle`, `<id>:sentence`,
+`<id>:trace` (writing the character; its answer is the character itself) and `<id>:speak` (saying it).
+So a feedback answer is always about the card it names: a trace card's "さ" is never read against the
+same item's choice card, whose answer is "sa" (Doodle reported that mix-up daily until 25 Nov).
 
 ### Fields Lingua adds (accepted as StudyBot 1.1, desktop-buddy `2ebfd4e`; `hello().version` is `'1.1'`)
 

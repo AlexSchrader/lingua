@@ -234,13 +234,13 @@ export default function SpeakCard({ item, onGraded, shadow = false, carrier = nu
     2,
     {
       screen: phase === "result" ? "feedback" : "question",
-      item: botItem(item, { card: "speak", ask: "Say it", prompt: carrier ? spokenText : item.front, audio: true, note: phase === "fallback" ? "Speaking is not checked here" : "" }),
+      item: botItem(item, { suffix: "speak", card: "speak", ask: "Say it", prompt: carrier ? spokenText : item.front, audio: true, note: phase === "fallback" ? "Speaking is not checked here" : "" }),
     },
     [item.id, phase, carrier?.id]
   );
   useEffect(() => {
     if (phase !== "result" || !grade) return;
-    botEmit("feedback", { itemId: item.id, right: grade !== "again", answer: spokenText, given: heard || "", note: "spoken" });
+    botEmit("feedback", { itemId: `${item.id}:speak`, right: grade !== "again", answer: spokenText, given: heard || "", note: "spoken" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, grade]);
 

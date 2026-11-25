@@ -322,7 +322,7 @@ test("review: free trace — no guide until the card shows one, a wrong stroke f
   await page.waitForFunction(() => !!window.StudyBot);
   await expect.poll(async () => (await state(page)).item?.card, { timeout: 10_000 }).toBe("trace:free");
   const first = await state(page);
-  expect(first.item.itemId).toBe("ja-u1l1-a");
+  expect(first.item.itemId).toBe("ja-u1l1-a:trace"); // its own id: writing is its own skill
   expect(first.item.guide).toBeUndefined(); // free mode: the stroke is the answer
   expect(JSON.stringify(first)).not.toContain("あ");
 

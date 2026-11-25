@@ -289,7 +289,7 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
       setPhase("done");
       redrawConfirmed(nextDone);
       // StudyBot: the finished character is the answer the card now shows.
-      botEmit("feedback", { itemId: item.id, right: true, answer: item.front, given: item.front, note: mode === "guided" ? "traced over the guide" : misses ? "drawn from memory, with retries" : "drawn from memory" });
+      botEmit("feedback", { itemId: `${item.id}:trace`, right: true, answer: item.front, given: item.front, note: mode === "guided" ? "traced over the guide" : misses ? "drawn from memory, with retries" : "drawn from memory" });
     } else {
       setStrokeIdx(next);
       if (mode === "guided") {
@@ -465,7 +465,10 @@ export default function TraceCard({ item, mode = "guided", onGraded }) {
     2,
     {
       screen: phase === "done" ? "feedback" : "question",
+      // Its own id (`<id>:trace`): writing a character is its own skill, and its answer (the
+      // character) must never be read against the same item's choice card (rōmaji choices).
       item: botItem(item, {
+        suffix: "trace",
         card: mode === "guided" ? "trace" : "trace:free",
         ask: mode === "guided" ? "Trace it" : "Write it from memory",
         prompt: mode === "guided" ? item.front : romajiShown ? item.reading : "",
