@@ -58,7 +58,11 @@ export default defineConfig({
   // The config above says "if a test needs more than this, profile it; dont raise it
   // again". Profiled: the test does not need more time, it needs less contention.
   // No assertion and no timeout was touched.
-  workers: 4,
+  // GitHub's runner has 4 vCPUs for 4 browsers plus the server: CPU contention again, not a slow
+  // test. On 2026-11-25 (devbuild) 53/55 passed at 4 workers; the two misses were the longest
+  // whole-session tests (card-kind coverage 66 s on a 60 s budget, reviews-app-judged 53 s on 45 s),
+  // both well inside budget locally. Halving the workers on CI, not raising their timeouts.
+  workers: process.env.CI ? 2 : 4,
   forbidOnly: !!process.env.CI,
   retries: 0,
   reporter: process.env.CI ? [["list"], ["html", { open: "never" }]] : "list",
