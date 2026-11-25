@@ -249,9 +249,16 @@ test("a whole lesson through StudyBot: teach, questions, feedback with the answe
         // One stroke when the pad takes one, then wait for the card to move on
         // (next stroke, or done) before looking again.
         if (has("trace")) {
-          // Guided: trace over the guide the card is showing.
-          expect(s.item.guide?.length).toBeGreaterThan(1);
-          await act(page, "trace", s.item.guide);
+          // Guided: trace over the guide the card is showing. Read it fresh: `s` was read before
+          // the actions, and the card can move from snapping (no guide) to waiting in between (it
+          // did on GitHub's slower runner).
+          let guide = s.item.guide;
+          for (let t = 0; t < 40 && !guide?.length; t++) {
+            await page.waitForTimeout(50);
+            guide = (await state(page)).item?.guide;
+          }
+          expect(guide?.length).toBeGreaterThan(1);
+          await act(page, "trace", guide);
           await expect.poll(async () => JSON.stringify(await state(page)) !== JSON.stringify(s), { timeout: 5000 }).toBe(true);
         } else {
           await page.waitForTimeout(150);
