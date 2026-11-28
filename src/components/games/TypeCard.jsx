@@ -194,7 +194,12 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
   // whether right or wrong — so the learner registers the result, then hears the
   // target. Respects the setting; autoplay:false so a recall prompt never speaks the
   // answer before they type; the pending play cancels if they advance first.
-  const { reinforce, settled } = useItemAudio(item, { autoplay: false });
+  const { reinforce: reinforceClip, settled } = useItemAudio(item, { autoplay: false });
+  // Set by "Can't hear it? Show it" (showDictation). After that the clip still plays,
+  // but Continue does not wait for it: the learner has just said they cannot hear.
+  // A ref, not state: on a Latin card showDictation calls showAnswer in the same tick.
+  const cantHearRef = useRef(false);
+  const reinforce = () => reinforceClip({ wait: !cantHearRef.current });
 
   // Other senses of this word, for the "also means" note after a meaning answer —
   // e.g. answer "rice" for ごはん → "also means: meal". Meaning mode + vocab only.
@@ -209,6 +214,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
     setGrade(null);
     setRevealed(false);
     setDictRevealed(false);
+    cantHearRef.current = false;
   }, [item.id, mode]);
 
   // StudyBot: the answer exactly as the feedback below prints it.
@@ -254,6 +260,7 @@ export default function TypeCard({ item, mode, onGraded, listen = false, onCantH
   // of handing out a pile of failures for being somewhere quiet.
   const showDictation = () => {
     onCantHear?.(item.id);
+    cantHearRef.current = true;
     return latin ? showAnswer() : setDictRevealed(true);
   };
 

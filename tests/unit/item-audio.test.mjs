@@ -92,3 +92,17 @@ test("clipUrls filters against the manifest and preserves order", () => {
   );
   assert.deepEqual(clipUrls("de", ["de-u999l9-noclipexists"]), []);
 });
+
+// "Can't hear it? Show it": the learner has said they cannot hear, so the clip still
+// plays but Continue must not wait for it (up to REINFORCE_DELAY_MS + GATE_MAX_WAIT_MS
+// of dead button otherwise — Doodle's study window gave up on exactly that, 27 Nov).
+test("wait:false still plays the clip but never gates Continue", () => {
+  const { urls, gate } = reinforcePlan({ lang: "fr", id: "fr-u2l1-bonjour", ...ON, wait: false });
+  assert.equal(gate, false);
+  assert.deepEqual(urls, ["/audio/fr/fr-u2l1-bonjour.mp3"]);
+});
+
+test("wait defaults to true: an ordinary answer still waits for its clip", () => {
+  assert.equal(reinforcePlan({ lang: "fr", id: "fr-u2l1-bonjour", ...ON }).gate, true);
+  assert.equal(reinforcePlan({ lang: "fr", id: "fr-u2l1-bonjour", ...ON, wait: true }).gate, true);
+});

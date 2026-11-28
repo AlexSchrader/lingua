@@ -356,6 +356,58 @@ test("review: free trace — no guide until the card shows one, a wrong stroke f
   }
 });
 
+// "Can't hear it? Show it" means the learner cannot hear: Continue must not then wait out the
+// word's clip (1 s, then the clip or a 6 s ceiling). An ordinary listening answer still waits,
+// so the word is heard before the card goes. Doodle's window gave up on that wait, 27 Nov.
+// This spec presents as a plain browser, so the clip really plays and the gate really closes.
+test("Show it: Continue is ready at once after a can't-hear answer, an ordinary one waits for the clip", async ({ page }) => {
+  test.setTimeout(180_000);
+  await readyJa(page);
+  await tap(page, "start-lesson");
+  await tap(page, "begin");
+  const seen = { waited: false, open: false };
+  const continueUp = async () => (await actions(page)).some((a) => a.id === "continue");
+  for (let step = 0; step < 400 && !(seen.waited && seen.open); step++) {
+    await take(page);
+    const s = await state(page);
+    if (s.screen === "done") break;
+    const acts = await actions(page);
+    const has = (id) => acts.some((a) => a.id === id);
+    if (s.screen === "teach") { await tap(page, "got-it"); continue; }
+    if (s.screen === "feedback") {
+      await expect.poll(async () => (await actions(page)).find((a) => a.main)?.id, { timeout: 10_000 }).toBe("continue");
+      await tap(page, "continue");
+      continue;
+    }
+    if (s.item?.card === "listen:choice" && s.item.audio && has("show")) {
+      if (!seen.waited) {
+        // An ordinary answer from the sound: Continue waits for the clip.
+        await tap(page, "c0");
+        await page.waitForTimeout(300);
+        expect(await continueUp(), "an ordinary listening answer waits for its clip").toBe(false);
+        seen.waited = true;
+      } else {
+        await tap(page, "show");
+        await tap(page, "c0");
+        await page.waitForTimeout(300);
+        expect(await continueUp(), "after Show it, Continue does not wait for the clip").toBe(true);
+        seen.open = true;
+      }
+      continue;
+    }
+    // Anything else: the quickest way through.
+    if (s.item?.choices) await tap(page, "c0");
+    else if (s.item?.input === "text") { await tap(page, "answer", "zzz"); await tap(page, "submit"); }
+    else if (s.item?.card?.startsWith("trace")) {
+      const g = s.item.guide ?? (await state(page)).item?.guide;
+      if (has("trace") && g?.length) await act(page, "trace", g);
+      await page.waitForTimeout(200);
+    } else if (has("continue")) await tap(page, "continue");
+    else await page.waitForTimeout(150);
+  }
+  expect(seen, "met two listening choice cards in lesson 1").toEqual({ waited: true, open: true });
+});
+
 test("events: screen changes, thrown errors, console errors and failed requests", async ({ page }) => {
   await readyJa(page);
   await take(page);
