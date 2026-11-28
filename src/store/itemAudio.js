@@ -32,12 +32,18 @@ export const clipUrls = (lang, ids) =>
 // Playwright the gate never engages and the smoke suite is structurally incapable of
 // covering this — green there says nothing about whether the gate is right.
 //
-// gate=false means "nothing will play, leave Continue enabled". gate=true means a
-// real clip is coming and Continue waits for it.
-export function reinforcePlan({ lang, id, then = [], enabled, isWebdriver = IS_WEBDRIVER }) {
+// gate=false means "Continue stays enabled": either nothing will play (urls empty),
+// or the clip plays without holding the card (wait=false). gate=true means a real clip
+// is coming and Continue waits for it.
+//
+// wait=false is for a learner who tapped "Can't hear it? Show it": they have just told
+// the app they cannot hear, so making them sit out a clip (REINFORCE_DELAY_MS, then the
+// clip or GATE_MAX_WAIT_MS) before Continue works is dead time for nothing. The clip
+// still plays, in case the sound comes back; it just does not hold the button.
+export function reinforcePlan({ lang, id, then = [], enabled, wait = true, isWebdriver = IS_WEBDRIVER }) {
   if (!enabled || isWebdriver) return { urls: [], gate: false };
   const urls = clipUrls(lang, [id, ...then]);
-  return { urls, gate: urls.length > 0 };
+  return { urls, gate: wait && urls.length > 0 };
 }
 
 // Plays the pre-generated pronunciation clip /audio/{lang}/{id}.mp3 (the real
@@ -83,18 +89,21 @@ export function useItemAudio(item, { autoplay = true } = {}) {
   // Play a sequence of clip URLs back-to-back (each starts when the prior ends) — so
   // a particle card can chain the word then the particle (かさ → を = "kasa wo"). A
   // missing clip in the chain is skipped, not fatal.
-  function playUrls(urls) {
+  // gate=false plays without closing Continue (see reinforcePlan's `wait`).
+  function playUrls(urls, { gate = true } = {}) {
     if (IS_WEBDRIVER || !urls.length) return;
     stop();
     // stop() reopens the gate; we are about to play, so close it again. Ordering
     // matters: without this the gate opened the instant playback STARTED, which
     // is the opposite of waiting for it to finish.
-    setSettled(false);
-    // Fail-open watchdog — see GATE_MAX_WAIT_MS. Nothing below is guaranteed to fire.
-    watchdogRef.current = setTimeout(() => {
-      watchdogRef.current = null;
-      setSettled(true);
-    }, GATE_MAX_WAIT_MS);
+    if (gate) {
+      setSettled(false);
+      // Fail-open watchdog — see GATE_MAX_WAIT_MS. Nothing below is guaranteed to fire.
+      watchdogRef.current = setTimeout(() => {
+        watchdogRef.current = null;
+        setSettled(true);
+      }, GATE_MAX_WAIT_MS);
+    }
     let i = 0;
     const next = () => {
       if (i >= urls.length) {
@@ -123,13 +132,15 @@ export function useItemAudio(item, { autoplay = true } = {}) {
   // followed by extra clips (`then` = item ids in the same language, e.g. the particle
   // whose sound to append). Respects the setting; the pending play is cancelled by
   // stop() on unmount / next item, so it never bleeds onto the next card.
-  function reinforce({ delay = REINFORCE_DELAY_MS, then = [] } = {}) {
-    const { urls, gate } = reinforcePlan({ lang: item.lang, id: item.id, then, enabled });
-    // Nothing will play, so nothing to wait for — leave the gate open.
-    if (!gate) return;
-    setSettled(false);
+  // wait=false: the clip still plays, but Continue never waits for it (the learner
+  // said they cannot hear it — see reinforcePlan).
+  function reinforce({ delay = REINFORCE_DELAY_MS, then = [], wait = true } = {}) {
+    const { urls, gate } = reinforcePlan({ lang: item.lang, id: item.id, then, enabled, wait });
+    // Nothing will play — leave the gate open.
+    if (!urls.length) return;
+    if (gate) setSettled(false);
     if (timerRef.current) clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => { timerRef.current = null; playUrls(urls); }, delay);
+    timerRef.current = setTimeout(() => { timerRef.current = null; playUrls(urls, { gate }); }, delay);
   }
 
   // Autoplay on mount / when the item changes — only if the caller opted in AND the

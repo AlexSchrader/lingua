@@ -127,7 +127,9 @@ export default function ChoiceCard({ item, allItems, onGraded, onCantHear, audio
                 if (answered) return;
                 options[i].correct ? sfxCorrect() : sfxWrong();
                 setPicked(i);
-                reinforce();
+                // After "Show it" the learner has said they cannot hear: the clip still
+                // plays, but Continue does not wait for it.
+                reinforce({ wait: !revealed });
                 // The answer as the card now shows it: the option it turns green.
                 botEmit("feedback", { itemId: item.id, right: !!options[i].correct, answer: options.find((x) => x.correct)?.text ?? "", given: options[i].text });
               }}
